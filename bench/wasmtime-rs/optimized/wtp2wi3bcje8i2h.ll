@@ -193,13 +193,13 @@ define i48 @"_ZN4core6option15Option$LT$T$GT$6filter17h63526039e81cfa11E"(i48 %0
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  %.sroa.33.0.extract.shift = lshr i48 %0, 32
-  %.sroa.33.0.extract.trunc = trunc nuw i48 %.sroa.33.0.extract.shift to i16
-  %.sroa.2.0.extract.shift = lshr i48 %0, 16
-  %.sroa.2.0.extract.trunc = trunc i48 %.sroa.2.0.extract.shift to i16
-  store i16 %.sroa.2.0.extract.trunc, ptr %2, align 2
+  %.sroa.36.0.extract.shift = lshr i48 %0, 32
+  %.sroa.36.0.extract.trunc = trunc nuw i48 %.sroa.36.0.extract.shift to i16
+  %.sroa.25.0.extract.shift = lshr i48 %0, 16
+  %.sroa.25.0.extract.trunc = trunc i48 %.sroa.25.0.extract.shift to i16
+  store i16 %.sroa.25.0.extract.trunc, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %.sroa.33.0.extract.trunc, ptr %6, align 2
+  store i16 %.sroa.36.0.extract.trunc, ptr %6, align 2
   %7 = call zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set28_$u7b$$u7b$closure$u7d$$u7d$17h5574a22993f65a00E"(ptr nonnull align 2 %2)
   br i1 %7, label %8, label %11
 
@@ -209,17 +209,17 @@ define i48 @"_ZN4core6option15Option$LT$T$GT$6filter17h63526039e81cfa11E"(i48 %0
   br label %11
 
 11:                                               ; preds = %1, %5, %8
-  %.sroa.04.0 = phi i16 [ 1, %8 ], [ 0, %5 ], [ 0, %1 ]
-  %.sroa.35.0 = phi i16 [ %9, %8 ], [ undef, %5 ], [ undef, %1 ]
-  %.sroa.46.0 = phi i16 [ %10, %8 ], [ undef, %5 ], [ undef, %1 ]
-  %.sroa.46.0.insert.ext = zext i16 %.sroa.46.0 to i48
-  %.sroa.46.0.insert.shift = shl nuw i48 %.sroa.46.0.insert.ext, 32
-  %.sroa.35.0.insert.ext = zext i16 %.sroa.35.0 to i48
-  %.sroa.35.0.insert.shift = shl nuw nsw i48 %.sroa.35.0.insert.ext, 16
-  %.sroa.35.0.insert.insert = or disjoint i48 %.sroa.46.0.insert.shift, %.sroa.35.0.insert.shift
-  %.sroa.04.0.insert.ext = zext nneg i16 %.sroa.04.0 to i48
-  %.sroa.04.0.insert.insert = or disjoint i48 %.sroa.35.0.insert.insert, %.sroa.04.0.insert.ext
-  ret i48 %.sroa.04.0.insert.insert
+  %.sroa.07.0 = phi i16 [ 1, %8 ], [ 0, %5 ], [ 0, %1 ]
+  %.sroa.38.0 = phi i16 [ %9, %8 ], [ undef, %5 ], [ undef, %1 ]
+  %.sroa.4.0 = phi i16 [ %10, %8 ], [ undef, %5 ], [ undef, %1 ]
+  %.sroa.4.0.insert.ext = zext i16 %.sroa.4.0 to i48
+  %.sroa.4.0.insert.shift = shl nuw i48 %.sroa.4.0.insert.ext, 32
+  %.sroa.38.0.insert.ext = zext i16 %.sroa.38.0 to i48
+  %.sroa.38.0.insert.shift = shl nuw nsw i48 %.sroa.38.0.insert.ext, 16
+  %.sroa.38.0.insert.insert = or disjoint i48 %.sroa.4.0.insert.shift, %.sroa.38.0.insert.shift
+  %.sroa.07.0.insert.ext = zext nneg i16 %.sroa.07.0 to i48
+  %.sroa.07.0.insert.insert = or disjoint i48 %.sroa.38.0.insert.insert, %.sroa.07.0.insert.ext
+  ret i48 %.sroa.07.0.insert.insert
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

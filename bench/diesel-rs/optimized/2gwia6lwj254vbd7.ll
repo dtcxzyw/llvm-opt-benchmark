@@ -3985,15 +3985,13 @@ _ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_flags17hbf6a9a8e1a5e315
 define hidden void @_ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_flags17hbf6a9a8e1a5e3158E.llvm.18245684541142357402(ptr noalias noundef writeonly sret({ ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 35)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 {
   %switch.tableidx = add i32 %1, -1
   %4 = icmp ult i32 %switch.tableidx, 13
-  br i1 %4, label %switch.hole_check, label %_ZN6diesel5mysql10connection4bind30known_buffer_size_for_ffi_type17hd01539e2bb4c643dE.exit
-
-switch.hole_check:                                ; preds = %3
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 8159, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN6diesel5mysql10connection4bind30known_buffer_size_for_ffi_type17hd01539e2bb4c643dE.exit
+  %or.cond = select i1 %4, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %_ZN6diesel5mysql10connection4bind30known_buffer_size_for_ffi_type17hd01539e2bb4c643dE.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @switch.table._ZN6diesel5mysql10connection4bind8BindData18from_tpe_and_flags17hbf6a9a8e1a5e3158E.llvm.18245684541142357402, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -4002,10 +4000,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %8 = extractvalue { i64, ptr } %6, 1
   br label %_ZN6diesel5mysql10connection4bind30known_buffer_size_for_ffi_type17hd01539e2bb4c643dE.exit
 
-_ZN6diesel5mysql10connection4bind30known_buffer_size_for_ffi_type17hd01539e2bb4c643dE.exit: ; preds = %switch.hole_check, %3, %switch.lookup
-  %.sroa.6.sroa.0.0 = phi ptr [ %8, %switch.lookup ], [ undef, %3 ], [ undef, %switch.hole_check ]
-  %.sroa.6.sroa.4.0 = phi i64 [ %switch.load, %switch.lookup ], [ undef, %3 ], [ undef, %switch.hole_check ]
-  %.sroa.01.0 = phi i64 [ %7, %switch.lookup ], [ -9223372036854775808, %3 ], [ -9223372036854775808, %switch.hole_check ]
+_ZN6diesel5mysql10connection4bind30known_buffer_size_for_ffi_type17hd01539e2bb4c643dE.exit: ; preds = %3, %switch.lookup
+  %.sroa.6.sroa.0.0 = phi ptr [ %8, %switch.lookup ], [ undef, %3 ]
+  %.sroa.6.sroa.4.0 = phi i64 [ %switch.load, %switch.lookup ], [ undef, %3 ]
+  %.sroa.01.0 = phi i64 [ %7, %switch.lookup ], [ -9223372036854775808, %3 ]
   %9 = icmp eq i64 %.sroa.01.0, -9223372036854775808
   %..sroa.6.sroa.4.0 = select i1 %9, i64 0, i64 %.sroa.6.sroa.4.0
   %..sroa.6.sroa.0.0 = select i1 %9, ptr inttoptr (i64 1 to ptr), ptr %.sroa.6.sroa.0.0

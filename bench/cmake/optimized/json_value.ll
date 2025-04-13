@@ -318,31 +318,29 @@ define dso_local noundef i32 @_ZNK4Json17ValueIteratorBase15computeDistanceERKS0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8, !tbaa !11, !range !15, !noundef !16
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %10
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i8, ptr %6, align 8, !range !15
+  %8 = trunc nuw i8 %7 to i1
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %.loopexit, label %9
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i8, ptr %7, align 8, !tbaa !11, !range !15, !noundef !16
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %.loopexit, label %10
+9:                                                ; preds = %2
+  %10 = load i64, ptr %0, align 8, !tbaa !14
+  %11 = inttoptr i64 %10 to ptr
+  %12 = load ptr, ptr %1, align 8, !tbaa !5
+  %.not9 = icmp eq ptr %12, %11
+  br i1 %.not9, label %.loopexit, label %.lr.ph
 
-10:                                               ; preds = %6, %2
-  %11 = load i64, ptr %0, align 8, !tbaa !14
-  %12 = inttoptr i64 %11 to ptr
-  %13 = load ptr, ptr %1, align 8, !tbaa !5
-  %.not7 = icmp eq ptr %13, %12
-  br i1 %.not7, label %.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %10, %.lr.ph
-  %.09 = phi i32 [ %14, %.lr.ph ], [ 0, %10 ]
-  %.sroa.0.08 = phi ptr [ %15, %.lr.ph ], [ %12, %10 ]
-  %14 = add nuw nsw i32 %.09, 1
-  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.08) #42
-  %.not = icmp eq ptr %15, %13
+.lr.ph:                                           ; preds = %9, %.lr.ph
+  %.011 = phi i32 [ %13, %.lr.ph ], [ 0, %9 ]
+  %.sroa.0.010 = phi ptr [ %14, %.lr.ph ], [ %11, %9 ]
+  %13 = add nuw nsw i32 %.011, 1
+  %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0.010) #42
+  %.not = icmp eq ptr %14, %12
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
-.loopexit:                                        ; preds = %.lr.ph, %10, %6
-  %.05 = phi i32 [ 0, %6 ], [ 0, %10 ], [ %14, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %9, %2
+  %.05 = phi i32 [ 0, %2 ], [ 0, %9 ], [ %13, %.lr.ph ]
   ret i32 %.05
 }
 
@@ -4880,13 +4878,13 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value15isConvertibleToENS_9ValueT
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   switch i32 %1, label %.critedge [
     i32 0, label %6
-    i32 1, label %47
-    i32 2, label %68
-    i32 3, label %89
-    i32 5, label %97
-    i32 4, label %105
-    i32 6, label %112
-    i32 7, label %118
+    i32 1, label %49
+    i32 2, label %70
+    i32 3, label %91
+    i32 5, label %99
+    i32 4, label %107
+    i32 6, label %114
+    i32 7, label %120
   ]
 
 6:                                                ; preds = %2
@@ -4908,246 +4906,246 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value15isConvertibleToENS_9ValueT
 
 14:                                               ; preds = %._crit_edge, %6
   %15 = phi i16 [ %.pre, %._crit_edge ], [ %8, %6 ]
-  %trunc27 = trunc i16 %15 to i8
-  switch i8 %trunc27, label %.thread [
-    i8 5, label %16
-    i8 4, label %19
-  ]
+  %16 = and i16 %15, 255
+  %17 = icmp ne i16 %16, 5
+  %18 = load i8, ptr %0, align 8, !range !15
+  %19 = trunc nuw i8 %18 to i1
+  %or.cond = select i1 %17, i1 true, i1 %19
+  br i1 %or.cond, label %20, label %.critedge
 
-16:                                               ; preds = %14
-  %17 = load i8, ptr %0, align 8, !tbaa !22, !range !15, !noundef !16
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %.thread, label %.critedge
+20:                                               ; preds = %14
+  %21 = icmp eq i16 %16, 4
+  br i1 %21, label %22, label %26
 
-19:                                               ; preds = %14
+22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #41
   call void @_ZNK4Json5Value8asStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !25
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %.thread16, label %..thread_crit_edge
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = load i64, ptr %23, align 8, !tbaa !25
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %.thread16, label %._crit_edge28
 
-..thread_crit_edge:                               ; preds = %19
+._crit_edge28:                                    ; preds = %22
   %.pre29 = load i16, ptr %7, align 8
-  br label %.thread
+  %.pre30 = and i16 %.pre29, 255
+  br label %26
 
-.thread:                                          ; preds = %..thread_crit_edge, %14, %16
-  %23 = phi i64 [ %21, %..thread_crit_edge ], [ undef, %16 ], [ undef, %14 ]
-  %24 = phi i16 [ %.pre29, %..thread_crit_edge ], [ %15, %16 ], [ %15, %14 ]
-  %25 = phi i1 [ true, %..thread_crit_edge ], [ false, %16 ], [ false, %14 ]
-  %26 = and i16 %24, 255
-  %trunc28 = trunc i16 %24 to i8
-  switch i8 %trunc28, label %.thread13 [
-    i8 6, label %27
-    i8 7, label %32
+26:                                               ; preds = %._crit_edge28, %20
+  %.pre-phi = phi i16 [ %.pre30, %._crit_edge28 ], [ %16, %20 ]
+  %27 = phi i64 [ %24, %._crit_edge28 ], [ undef, %20 ]
+  %28 = phi i16 [ %.pre29, %._crit_edge28 ], [ %15, %20 ]
+  %trunc27 = trunc i16 %28 to i8
+  switch i8 %trunc27, label %.thread [
+    i8 6, label %29
+    i8 7, label %34
   ]
 
-27:                                               ; preds = %.thread
-  %28 = load ptr, ptr %0, align 8, !tbaa !22
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %30 = load i64, ptr %29, align 8, !tbaa !42
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %38, label %.thread13
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %0, align 8, !tbaa !22
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %32 = load i64, ptr %31, align 8, !tbaa !42
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %40, label %.thread
 
-32:                                               ; preds = %.thread
-  %33 = load ptr, ptr %0, align 8, !tbaa !22
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %35 = load i64, ptr %34, align 8, !tbaa !42
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %38, label %.thread13
+34:                                               ; preds = %26
+  %35 = load ptr, ptr %0, align 8, !tbaa !22
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %37 = load i64, ptr %36, align 8, !tbaa !42
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %40, label %.thread
 
-.thread13:                                        ; preds = %.thread, %27, %32
-  %37 = icmp eq i16 %26, 0
-  br i1 %25, label %.thread16, label %.critedge
+.thread:                                          ; preds = %26, %29, %34
+  %39 = icmp eq i16 %.pre-phi, 0
+  br i1 %21, label %.thread16, label %.critedge
 
-38:                                               ; preds = %32, %27
-  br i1 %25, label %.thread16, label %.critedge
+40:                                               ; preds = %34, %29
+  br i1 %21, label %.thread16, label %.critedge
 
-.thread16:                                        ; preds = %19, %.thread13, %38
-  %39 = phi i64 [ %23, %38 ], [ %23, %.thread13 ], [ 0, %19 ]
-  %40 = phi i1 [ true, %38 ], [ %37, %.thread13 ], [ true, %19 ]
-  %41 = load ptr, ptr %5, align 8, !tbaa !29
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+.thread16:                                        ; preds = %22, %.thread, %40
+  %41 = phi i64 [ %27, %40 ], [ %27, %.thread ], [ 0, %22 ]
+  %42 = phi i1 [ true, %40 ], [ %39, %.thread ], [ true, %22 ]
+  %43 = load ptr, ptr %5, align 8, !tbaa !29
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %45 = icmp eq ptr %43, %44
+  br i1 %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %.thread16
-  %44 = icmp ult i64 %39, 16
-  call void @llvm.assume(i1 %44)
+  %46 = icmp ult i64 %41, 16
+  call void @llvm.assume(i1 %46)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.thread16
-  %45 = load i64, ptr %42, align 8, !tbaa !22
-  %46 = add i64 %45, 1
-  call void @_ZdlPvm(ptr noundef %41, i64 noundef %46) #44
+  %47 = load i64, ptr %44, align 8, !tbaa !22
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %43, i64 noundef %48) #44
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #41
   br label %.critedge
 
-47:                                               ; preds = %2
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load i16, ptr %48, align 8
-  %trunc.i = trunc i16 %49 to i8
+49:                                               ; preds = %2
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = load i16, ptr %50, align 8
+  %trunc.i = trunc i16 %51 to i8
   switch i8 %trunc.i, label %.thread19 [
-    i8 1, label %50
-    i8 2, label %53
-    i8 3, label %56
+    i8 1, label %52
+    i8 2, label %55
+    i8 3, label %58
     i8 5, label %.critedge
   ]
 
-50:                                               ; preds = %47
-  %51 = load i64, ptr %0, align 8, !tbaa !22
-  %52 = add i64 %51, 2147483648
-  %spec.select.i = icmp ult i64 %52, 4294967296
+52:                                               ; preds = %49
+  %53 = load i64, ptr %0, align 8, !tbaa !22
+  %54 = add i64 %53, 2147483648
+  %spec.select.i = icmp ult i64 %54, 4294967296
   br i1 %spec.select.i, label %.critedge, label %.thread19
 
-53:                                               ; preds = %47
-  %54 = load i64, ptr %0, align 8, !tbaa !22
-  %55 = icmp ult i64 %54, 2147483648
-  br i1 %55, label %.critedge, label %.thread19
+55:                                               ; preds = %49
+  %56 = load i64, ptr %0, align 8, !tbaa !22
+  %57 = icmp ult i64 %56, 2147483648
+  br i1 %57, label %.critedge, label %.thread19
 
-56:                                               ; preds = %47
-  %57 = load double, ptr %0, align 8, !tbaa !22
-  %58 = fcmp ult double %57, 0xC1E0000000000000
-  %59 = fcmp ugt double %57, 0x41DFFFFFFFC00000
-  %or.cond.i = or i1 %58, %59
-  br i1 %or.cond.i, label %_ZNK4Json5Value5isIntEv.exit.thread.thread31, label %_ZNK4Json5Value5isIntEv.exit
+58:                                               ; preds = %49
+  %59 = load double, ptr %0, align 8, !tbaa !22
+  %60 = fcmp ult double %59, 0xC1E0000000000000
+  %61 = fcmp ugt double %59, 0x41DFFFFFFFC00000
+  %or.cond.i = or i1 %60, %61
+  br i1 %or.cond.i, label %_ZNK4Json5Value5isIntEv.exit.thread.thread32, label %_ZNK4Json5Value5isIntEv.exit
 
-_ZNK4Json5Value5isIntEv.exit:                     ; preds = %56
+_ZNK4Json5Value5isIntEv.exit:                     ; preds = %58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #41
-  %60 = call double @modf(double noundef %57, ptr noundef nonnull %4) #41
-  %61 = fcmp oeq double %60, 0.000000e+00
+  %62 = call double @modf(double noundef %59, ptr noundef nonnull %4) #41
+  %63 = fcmp oeq double %62, 0.000000e+00
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #41
-  br i1 %61, label %.critedge, label %_ZNK4Json5Value5isIntEv.exit.thread.thread31
+  br i1 %63, label %.critedge, label %_ZNK4Json5Value5isIntEv.exit.thread.thread32
 
-_ZNK4Json5Value5isIntEv.exit.thread.thread31:     ; preds = %56, %_ZNK4Json5Value5isIntEv.exit
-  %62 = load double, ptr %0, align 8, !tbaa !22
-  %63 = fcmp oge double %62, 0xC1E0000000000000
-  %64 = fcmp ole double %62, 0x41DFFFFFFFC00000
-  %65 = and i1 %63, %64
-  br i1 %65, label %.critedge, label %.thread19
+_ZNK4Json5Value5isIntEv.exit.thread.thread32:     ; preds = %58, %_ZNK4Json5Value5isIntEv.exit
+  %64 = load double, ptr %0, align 8, !tbaa !22
+  %65 = fcmp oge double %64, 0xC1E0000000000000
+  %66 = fcmp ole double %64, 0x41DFFFFFFFC00000
+  %67 = and i1 %65, %66
+  br i1 %67, label %.critedge, label %.thread19
 
-.thread19:                                        ; preds = %47, %53, %50, %_ZNK4Json5Value5isIntEv.exit.thread.thread31
-  %66 = and i16 %49, 255
-  %67 = icmp eq i16 %66, 0
+.thread19:                                        ; preds = %49, %55, %52, %_ZNK4Json5Value5isIntEv.exit.thread.thread32
+  %68 = and i16 %51, 255
+  %69 = icmp eq i16 %68, 0
   br label %.critedge
 
-68:                                               ; preds = %2
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %70 = load i16, ptr %69, align 8
-  %trunc.i7 = trunc i16 %70 to i8
-  switch i8 %trunc.i7, label %.thread21 [
-    i8 1, label %71
-    i8 2, label %74
-    i8 3, label %77
+70:                                               ; preds = %2
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %72 = load i16, ptr %71, align 8
+  %trunc.i8 = trunc i16 %72 to i8
+  switch i8 %trunc.i8, label %.thread21 [
+    i8 1, label %73
+    i8 2, label %76
+    i8 3, label %79
     i8 5, label %.critedge
   ]
 
-71:                                               ; preds = %68
-  %72 = load i64, ptr %0, align 8, !tbaa !22
-  %73 = icmp ult i64 %72, 4294967296
-  br i1 %73, label %.critedge, label %.thread21
+73:                                               ; preds = %70
+  %74 = load i64, ptr %0, align 8, !tbaa !22
+  %75 = icmp ult i64 %74, 4294967296
+  br i1 %75, label %.critedge, label %.thread21
 
-74:                                               ; preds = %68
-  %75 = load i64, ptr %0, align 8, !tbaa !22
-  %76 = icmp ult i64 %75, 4294967296
-  br i1 %76, label %.critedge, label %.thread21
+76:                                               ; preds = %70
+  %77 = load i64, ptr %0, align 8, !tbaa !22
+  %78 = icmp ult i64 %77, 4294967296
+  br i1 %78, label %.critedge, label %.thread21
 
-77:                                               ; preds = %68
-  %78 = load double, ptr %0, align 8, !tbaa !22
-  %79 = fcmp ult double %78, 0.000000e+00
-  %80 = fcmp ugt double %78, 0x41EFFFFFFFE00000
-  %or.cond.i8 = or i1 %79, %80
-  br i1 %or.cond.i8, label %_ZNK4Json5Value6isUIntEv.exit.thread.thread33, label %_ZNK4Json5Value6isUIntEv.exit
+79:                                               ; preds = %70
+  %80 = load double, ptr %0, align 8, !tbaa !22
+  %81 = fcmp ult double %80, 0.000000e+00
+  %82 = fcmp ugt double %80, 0x41EFFFFFFFE00000
+  %or.cond.i9 = or i1 %81, %82
+  br i1 %or.cond.i9, label %_ZNK4Json5Value6isUIntEv.exit.thread.thread34, label %_ZNK4Json5Value6isUIntEv.exit
 
-_ZNK4Json5Value6isUIntEv.exit:                    ; preds = %77
+_ZNK4Json5Value6isUIntEv.exit:                    ; preds = %79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #41
-  %81 = call double @modf(double noundef %78, ptr noundef nonnull %3) #41
-  %82 = fcmp oeq double %81, 0.000000e+00
+  %83 = call double @modf(double noundef %80, ptr noundef nonnull %3) #41
+  %84 = fcmp oeq double %83, 0.000000e+00
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #41
-  br i1 %82, label %.critedge, label %_ZNK4Json5Value6isUIntEv.exit.thread.thread33
+  br i1 %84, label %.critedge, label %_ZNK4Json5Value6isUIntEv.exit.thread.thread34
 
-_ZNK4Json5Value6isUIntEv.exit.thread.thread33:    ; preds = %77, %_ZNK4Json5Value6isUIntEv.exit
-  %83 = load double, ptr %0, align 8, !tbaa !22
-  %84 = fcmp oge double %83, 0.000000e+00
-  %85 = fcmp ole double %83, 0x41EFFFFFFFE00000
-  %86 = and i1 %84, %85
-  br i1 %86, label %.critedge, label %.thread21
+_ZNK4Json5Value6isUIntEv.exit.thread.thread34:    ; preds = %79, %_ZNK4Json5Value6isUIntEv.exit
+  %85 = load double, ptr %0, align 8, !tbaa !22
+  %86 = fcmp oge double %85, 0.000000e+00
+  %87 = fcmp ole double %85, 0x41EFFFFFFFE00000
+  %88 = and i1 %86, %87
+  br i1 %88, label %.critedge, label %.thread21
 
-.thread21:                                        ; preds = %68, %74, %71, %_ZNK4Json5Value6isUIntEv.exit.thread.thread33
-  %87 = and i16 %70, 255
-  %88 = icmp eq i16 %87, 0
+.thread21:                                        ; preds = %70, %76, %73, %_ZNK4Json5Value6isUIntEv.exit.thread.thread34
+  %89 = and i16 %72, 255
+  %90 = icmp eq i16 %89, 0
   br label %.critedge
 
-89:                                               ; preds = %2
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %91 = load i16, ptr %90, align 8
-  %92 = and i16 %91, 255
-  %93 = add nsw i16 %92, -1
-  %switch.i.i10 = icmp ult i16 %93, 3
-  br i1 %switch.i.i10, label %.critedge, label %94
+91:                                               ; preds = %2
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %93 = load i16, ptr %92, align 8
+  %94 = and i16 %93, 255
+  %95 = add nsw i16 %94, -1
+  %switch.i.i11 = icmp ult i16 %95, 3
+  br i1 %switch.i.i11, label %.critedge, label %96
 
-94:                                               ; preds = %89
-  %95 = icmp eq i16 %92, 5
-  %96 = icmp eq i16 %92, 0
-  %spec.select = or i1 %95, %96
+96:                                               ; preds = %91
+  %97 = icmp eq i16 %94, 5
+  %98 = icmp eq i16 %94, 0
+  %spec.select = or i1 %97, %98
   br label %.critedge
 
-97:                                               ; preds = %2
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %99 = load i16, ptr %98, align 8
-  %100 = and i16 %99, 255
-  %101 = add nsw i16 %100, -1
-  %switch.i.i11 = icmp ult i16 %101, 3
-  br i1 %switch.i.i11, label %.critedge, label %102
+99:                                               ; preds = %2
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %101 = load i16, ptr %100, align 8
+  %102 = and i16 %101, 255
+  %103 = add nsw i16 %102, -1
+  %switch.i.i12 = icmp ult i16 %103, 3
+  br i1 %switch.i.i12, label %.critedge, label %104
 
-102:                                              ; preds = %97
-  %103 = icmp eq i16 %100, 5
-  %104 = icmp eq i16 %100, 0
-  %spec.select22 = or i1 %103, %104
+104:                                              ; preds = %99
+  %105 = icmp eq i16 %102, 5
+  %106 = icmp eq i16 %102, 0
+  %spec.select22 = or i1 %105, %106
   br label %.critedge
 
-105:                                              ; preds = %2
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %107 = load i16, ptr %106, align 8
-  %108 = and i16 %107, 255
-  %109 = add nsw i16 %108, -1
-  %switch.i.i12 = icmp ult i16 %109, 3
-  br i1 %switch.i.i12, label %.critedge, label %110
+107:                                              ; preds = %2
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %109 = load i16, ptr %108, align 8
+  %110 = and i16 %109, 255
+  %111 = add nsw i16 %110, -1
+  %switch.i.i13 = icmp ult i16 %111, 3
+  br i1 %switch.i.i13, label %.critedge, label %112
 
-110:                                              ; preds = %105
-  %trunc = trunc i16 %107 to i8
-  %111 = icmp ult i8 %trunc, 6
-  br i1 %111, label %switch.lookup, label %.critedge
+112:                                              ; preds = %107
+  %trunc = trunc i16 %109 to i8
+  %113 = icmp ult i8 %trunc, 6
+  br i1 %113, label %switch.lookup, label %.critedge
 
-112:                                              ; preds = %2
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %114 = load i16, ptr %113, align 8
-  %115 = and i16 %114, 255
-  %116 = icmp eq i16 %115, 6
-  %117 = icmp eq i16 %115, 0
-  %spec.select23 = or i1 %116, %117
+114:                                              ; preds = %2
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %116 = load i16, ptr %115, align 8
+  %117 = and i16 %116, 255
+  %118 = icmp eq i16 %117, 6
+  %119 = icmp eq i16 %117, 0
+  %spec.select23 = or i1 %118, %119
   br label %.critedge
 
-118:                                              ; preds = %2
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %120 = load i16, ptr %119, align 8
-  %121 = and i16 %120, 255
-  %122 = icmp eq i16 %121, 7
-  %123 = icmp eq i16 %121, 0
-  %spec.select24 = or i1 %122, %123
+120:                                              ; preds = %2
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %122 = load i16, ptr %121, align 8
+  %123 = and i16 %122, 255
+  %124 = icmp eq i16 %123, 7
+  %125 = icmp eq i16 %123, 0
+  %spec.select24 = or i1 %124, %125
   br label %.critedge
 
-switch.lookup:                                    ; preds = %110
-  %switch.cast = trunc i16 %107 to i6
+switch.lookup:                                    ; preds = %112
+  %switch.cast = trunc i16 %109 to i6
   %switch.downshift = lshr i6 -15, %switch.cast
   %switch.masked = trunc i6 %switch.downshift to i1
   br label %.critedge
 
-.critedge:                                        ; preds = %110, %switch.lookup, %68, %47, %118, %112, %102, %94, %16, %11, %71, %74, %50, %53, %.thread13, %38, %2, %105, %97, %89, %_ZNK4Json5Value6isUIntEv.exit, %_ZNK4Json5Value6isUIntEv.exit.thread.thread33, %.thread21, %_ZNK4Json5Value5isIntEv.exit, %_ZNK4Json5Value5isIntEv.exit.thread.thread31, %.thread19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.06 = phi i1 [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %_ZNK4Json5Value5isIntEv.exit.thread.thread31 ], [ true, %_ZNK4Json5Value5isIntEv.exit ], [ %67, %.thread19 ], [ true, %_ZNK4Json5Value6isUIntEv.exit.thread.thread33 ], [ true, %_ZNK4Json5Value6isUIntEv.exit ], [ %88, %.thread21 ], [ true, %89 ], [ true, %97 ], [ true, %105 ], [ false, %2 ], [ true, %38 ], [ %37, %.thread13 ], [ true, %53 ], [ true, %50 ], [ true, %74 ], [ true, %71 ], [ true, %11 ], [ true, %16 ], [ %spec.select, %94 ], [ %spec.select22, %102 ], [ %spec.select23, %112 ], [ %spec.select24, %118 ], [ true, %47 ], [ true, %68 ], [ %switch.masked, %switch.lookup ], [ false, %110 ]
+.critedge:                                        ; preds = %112, %switch.lookup, %70, %49, %120, %114, %104, %96, %14, %11, %73, %76, %52, %55, %.thread, %40, %2, %107, %99, %91, %_ZNK4Json5Value6isUIntEv.exit, %_ZNK4Json5Value6isUIntEv.exit.thread.thread34, %.thread21, %_ZNK4Json5Value5isIntEv.exit, %_ZNK4Json5Value5isIntEv.exit.thread.thread32, %.thread19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.06 = phi i1 [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %_ZNK4Json5Value5isIntEv.exit.thread.thread32 ], [ true, %_ZNK4Json5Value5isIntEv.exit ], [ %69, %.thread19 ], [ true, %_ZNK4Json5Value6isUIntEv.exit.thread.thread34 ], [ true, %_ZNK4Json5Value6isUIntEv.exit ], [ %90, %.thread21 ], [ true, %91 ], [ true, %99 ], [ true, %107 ], [ false, %2 ], [ true, %40 ], [ %39, %.thread ], [ true, %55 ], [ true, %52 ], [ true, %76 ], [ true, %73 ], [ true, %11 ], [ true, %14 ], [ %spec.select, %96 ], [ %spec.select22, %104 ], [ %spec.select23, %114 ], [ %spec.select24, %120 ], [ true, %49 ], [ true, %70 ], [ %switch.masked, %switch.lookup ], [ false, %112 ]
   ret i1 %.06
 }
 

@@ -38342,8 +38342,8 @@ define linkonce_odr hidden i32 @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE12mk_o
   %20 = alloca %class.svector.195, align 8
   %21 = alloca %class.svector.195, align 8
   %22 = icmp ugt i32 %3, 1
-  %brmerge = or i1 %2, %22
-  br i1 %brmerge, label %24, label %23
+  %or.cond = or i1 %2, %22
+  br i1 %or.cond, label %24, label %23
 
 23:                                               ; preds = %5
   %.sroa.0.0.copyload.i = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
@@ -38356,11 +38356,11 @@ define linkonce_odr hidden i32 @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE12mk_o
   ]
 
 25:                                               ; preds = %24
-  %.sroa.0.0.copyload.i127 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i128 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
   br label %259
 
 26:                                               ; preds = %24
-  %.sroa.0107.0.copyload = load i32, ptr %4, align 4, !tbaa !9
+  %.sroa.0108.0.copyload = load i32, ptr %4, align 4, !tbaa !9
   br label %259
 
 .lr.ph.preheader:                                 ; preds = %24
@@ -38375,11 +38375,11 @@ define linkonce_odr hidden i32 @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE12mk_o
   store ptr null, ptr %20, align 8, !tbaa !666
   br label %.lr.ph
 
-.preheader228:                                    ; preds = %50
+.preheader229:                                    ; preds = %50
   %33 = icmp ugt i32 %3, 2
-  br i1 %33, label %.lr.ph231, label %.preheader
+  br i1 %33, label %.lr.ph232, label %.preheader
 
-.lr.ph231:                                        ; preds = %.preheader228
+.lr.ph232:                                        ; preds = %.preheader229
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %35 = add i32 %3, -2
   %wide.trip.count = zext i32 %35 to i64
@@ -38428,50 +38428,50 @@ _ZN8psort_nwIN3smt9theory_pb10psort_exprEE5freshEPKc.exit: ; preds = %.lr.ph
   store i32 %56, ptr %53, align 4, !tbaa !9
   %57 = add nuw i32 %36, 1
   %exitcond.not = icmp eq i32 %57, %3
-  br i1 %exitcond.not, label %.preheader228, label %.lr.ph, !llvm.loop !1038
+  br i1 %exitcond.not, label %.preheader229, label %.lr.ph, !llvm.loop !1038
 
 58:                                               ; preds = %49, %.lr.ph
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %258
 
-.preheader:                                       ; preds = %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit, %.preheader228
-  br i1 %22, label %.lr.ph233, label %._crit_edge
+.preheader:                                       ; preds = %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit, %.preheader229
+  br i1 %22, label %.lr.ph234, label %._crit_edge
 
-.lr.ph233:                                        ; preds = %.preheader
+.lr.ph234:                                        ; preds = %.preheader
   %60 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %61 = xor i32 %32, 1
   %62 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %63 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %64 = add i32 %3, -1
-  %wide.trip.count254 = zext i32 %64 to i64
+  %wide.trip.count255 = zext i32 %64 to i64
   br label %74
 
-65:                                               ; preds = %.lr.ph231, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph231 ], [ %indvars.iv.next, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit ]
+65:                                               ; preds = %.lr.ph232, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit ]
   %66 = load ptr, ptr %20, align 8, !tbaa !666
   %67 = getelementptr inbounds nuw %"class.sat::literal", ptr %66, i64 %indvars.iv
-  %.sroa.071.0.copyload = load i32, ptr %67, align 4, !tbaa !9
+  %.sroa.072.0.copyload = load i32, ptr %67, align 4, !tbaa !9
   %.sroa.0.0.copyload.i.i.i = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  %68 = icmp eq i32 %.sroa.071.0.copyload, %.sroa.0.0.copyload.i.i.i
+  %68 = icmp eq i32 %.sroa.072.0.copyload, %.sroa.0.0.copyload.i.i.i
   %.sroa.0.0.copyload.i.i = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
-  %69 = icmp eq i32 %.sroa.071.0.copyload, %.sroa.0.0.copyload.i.i
-  %70 = xor i32 %.sroa.071.0.copyload, 1
+  %69 = icmp eq i32 %.sroa.072.0.copyload, %.sroa.0.0.copyload.i.i
+  %70 = xor i32 %.sroa.072.0.copyload, 1
   %spec.select.i = select i1 %69, i32 %.sroa.0.0.copyload.i.i.i, i32 %70
   %.sroa.06.0.i = select i1 %68, i32 %.sroa.0.0.copyload.i.i, i32 %spec.select.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = getelementptr inbounds nuw %"class.sat::literal", ptr %66, i64 %indvars.iv.next
-  %.sroa.070.0.copyload = load i32, ptr %71, align 4, !tbaa !9
+  %.sroa.071.0.copyload = load i32, ptr %71, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #30
   store i32 %.sroa.06.0.i, ptr %19, align 4, !tbaa !9
-  store i32 %.sroa.070.0.copyload, ptr %34, align 4, !tbaa !9
+  store i32 %.sroa.071.0.copyload, ptr %34, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, ptr noundef nonnull %19)
           to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit unwind label %72
 
 _ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit: ; preds = %65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #30
-  %exitcond246.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond246.not, label %.preheader, label %65
+  %exitcond247.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond247.not, label %.preheader, label %65
 
 72:                                               ; preds = %65
   %73 = landingpad { ptr, i32 }
@@ -38485,63 +38485,63 @@ _ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit: ;
   %.pre = add i32 %3, -1
   br label %110
 
-74:                                               ; preds = %.lr.ph233, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit
-  %indvars.iv249 = phi i64 [ 0, %.lr.ph233 ], [ %indvars.iv.next250, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit ]
-  %indvars.iv247 = phi i64 [ 1, %.lr.ph233 ], [ %indvars.iv.next248, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit ]
-  %75 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %indvars.iv249
-  %.sroa.062.0.copyload = load i32, ptr %75, align 4, !tbaa !9
-  %.sroa.0.0.copyload.i.i.i129 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  %76 = icmp eq i32 %.sroa.062.0.copyload, %.sroa.0.0.copyload.i.i.i129
-  %.sroa.0.0.copyload.i.i130 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
-  %77 = icmp eq i32 %.sroa.062.0.copyload, %.sroa.0.0.copyload.i.i130
-  %78 = xor i32 %.sroa.062.0.copyload, 1
-  %spec.select.i131 = select i1 %77, i32 %.sroa.0.0.copyload.i.i.i129, i32 %78
-  %.sroa.06.0.i132 = select i1 %76, i32 %.sroa.0.0.copyload.i.i130, i32 %spec.select.i131
+74:                                               ; preds = %.lr.ph234, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit
+  %indvars.iv250 = phi i64 [ 0, %.lr.ph234 ], [ %indvars.iv.next251, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit ]
+  %indvars.iv248 = phi i64 [ 1, %.lr.ph234 ], [ %indvars.iv.next249, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit ]
+  %75 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %indvars.iv250
+  %.sroa.063.0.copyload = load i32, ptr %75, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i.i.i130 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
+  %76 = icmp eq i32 %.sroa.063.0.copyload, %.sroa.0.0.copyload.i.i.i130
+  %.sroa.0.0.copyload.i.i131 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
+  %77 = icmp eq i32 %.sroa.063.0.copyload, %.sroa.0.0.copyload.i.i131
+  %78 = xor i32 %.sroa.063.0.copyload, 1
+  %spec.select.i132 = select i1 %77, i32 %.sroa.0.0.copyload.i.i.i130, i32 %78
+  %.sroa.06.0.i133 = select i1 %76, i32 %.sroa.0.0.copyload.i.i131, i32 %spec.select.i132
   %79 = load ptr, ptr %20, align 8, !tbaa !666
-  %80 = getelementptr inbounds nuw %"class.sat::literal", ptr %79, i64 %indvars.iv249
-  %.sroa.061.0.copyload = load i32, ptr %80, align 4, !tbaa !9
+  %80 = getelementptr inbounds nuw %"class.sat::literal", ptr %79, i64 %indvars.iv250
+  %.sroa.062.0.copyload = load i32, ptr %80, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #30
-  store i32 %.sroa.06.0.i132, ptr %18, align 4, !tbaa !9
-  store i32 %.sroa.061.0.copyload, ptr %60, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i133, ptr %18, align 4, !tbaa !9
+  store i32 %.sroa.062.0.copyload, ptr %60, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, ptr noundef nonnull %18)
           to label %81 unwind label %93
 
 81:                                               ; preds = %74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #30
-  %.sroa.0.0.copyload.i.i.i135 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  %82 = icmp eq i32 %32, %.sroa.0.0.copyload.i.i.i135
-  %.sroa.0.0.copyload.i.i136 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
-  %83 = icmp eq i32 %32, %.sroa.0.0.copyload.i.i136
-  %spec.select.i137 = select i1 %83, i32 %.sroa.0.0.copyload.i.i.i135, i32 %61
-  %.sroa.06.0.i138 = select i1 %82, i32 %.sroa.0.0.copyload.i.i136, i32 %spec.select.i137
+  %.sroa.0.0.copyload.i.i.i136 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
+  %82 = icmp eq i32 %32, %.sroa.0.0.copyload.i.i.i136
+  %.sroa.0.0.copyload.i.i137 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
+  %83 = icmp eq i32 %32, %.sroa.0.0.copyload.i.i137
+  %spec.select.i138 = select i1 %83, i32 %.sroa.0.0.copyload.i.i.i136, i32 %61
+  %.sroa.06.0.i139 = select i1 %82, i32 %.sroa.0.0.copyload.i.i137, i32 %spec.select.i138
   %84 = load ptr, ptr %20, align 8, !tbaa !666
-  %85 = getelementptr inbounds nuw %"class.sat::literal", ptr %84, i64 %indvars.iv249
-  %.sroa.057.0.copyload = load i32, ptr %85, align 4, !tbaa !9
-  %86 = icmp eq i32 %.sroa.057.0.copyload, %.sroa.0.0.copyload.i.i.i135
-  %87 = icmp eq i32 %.sroa.057.0.copyload, %.sroa.0.0.copyload.i.i136
-  %88 = xor i32 %.sroa.057.0.copyload, 1
-  %spec.select.i141 = select i1 %87, i32 %.sroa.0.0.copyload.i.i.i135, i32 %88
-  %.sroa.06.0.i142 = select i1 %86, i32 %.sroa.0.0.copyload.i.i136, i32 %spec.select.i141
-  %89 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %indvars.iv247
-  %.sroa.055.0.copyload = load i32, ptr %89, align 4, !tbaa !9
-  %90 = icmp eq i32 %.sroa.055.0.copyload, %.sroa.0.0.copyload.i.i.i135
-  %91 = icmp eq i32 %.sroa.055.0.copyload, %.sroa.0.0.copyload.i.i136
-  %92 = xor i32 %.sroa.055.0.copyload, 1
-  %spec.select.i145 = select i1 %91, i32 %.sroa.0.0.copyload.i.i.i135, i32 %92
-  %.sroa.06.0.i146 = select i1 %90, i32 %.sroa.0.0.copyload.i.i136, i32 %spec.select.i145
+  %85 = getelementptr inbounds nuw %"class.sat::literal", ptr %84, i64 %indvars.iv250
+  %.sroa.058.0.copyload = load i32, ptr %85, align 4, !tbaa !9
+  %86 = icmp eq i32 %.sroa.058.0.copyload, %.sroa.0.0.copyload.i.i.i136
+  %87 = icmp eq i32 %.sroa.058.0.copyload, %.sroa.0.0.copyload.i.i137
+  %88 = xor i32 %.sroa.058.0.copyload, 1
+  %spec.select.i142 = select i1 %87, i32 %.sroa.0.0.copyload.i.i.i136, i32 %88
+  %.sroa.06.0.i143 = select i1 %86, i32 %.sroa.0.0.copyload.i.i137, i32 %spec.select.i142
+  %89 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %indvars.iv248
+  %.sroa.056.0.copyload = load i32, ptr %89, align 4, !tbaa !9
+  %90 = icmp eq i32 %.sroa.056.0.copyload, %.sroa.0.0.copyload.i.i.i136
+  %91 = icmp eq i32 %.sroa.056.0.copyload, %.sroa.0.0.copyload.i.i137
+  %92 = xor i32 %.sroa.056.0.copyload, 1
+  %spec.select.i146 = select i1 %91, i32 %.sroa.0.0.copyload.i.i.i136, i32 %92
+  %.sroa.06.0.i147 = select i1 %90, i32 %.sroa.0.0.copyload.i.i137, i32 %spec.select.i146
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #30
-  store i32 %.sroa.06.0.i138, ptr %17, align 4, !tbaa !9
-  store i32 %.sroa.06.0.i142, ptr %62, align 4, !tbaa !9
-  store i32 %.sroa.06.0.i146, ptr %63, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i139, ptr %17, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i143, ptr %62, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i147, ptr %63, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, ptr noundef nonnull %17)
           to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit unwind label %93
 
 _ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit: ; preds = %81
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #30
-  %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
-  %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
-  %exitcond255.not = icmp eq i64 %indvars.iv.next250, %wide.trip.count254
-  br i1 %exitcond255.not, label %._crit_edge, label %74
+  %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
+  %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
+  %exitcond256.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count255
+  br i1 %exitcond256.not, label %._crit_edge, label %74
 
 93:                                               ; preds = %81, %74
   %94 = landingpad { ptr, i32 }
@@ -38549,105 +38549,105 @@ _ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit
   br label %258
 
 95:                                               ; preds = %._crit_edge
-  %.sroa.0.0.copyload.i.i.i148 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  %96 = icmp eq i32 %32, %.sroa.0.0.copyload.i.i.i148
-  %.sroa.0.0.copyload.i.i149 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
-  %97 = icmp eq i32 %32, %.sroa.0.0.copyload.i.i149
+  %.sroa.0.0.copyload.i.i.i149 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
+  %96 = icmp eq i32 %32, %.sroa.0.0.copyload.i.i.i149
+  %.sroa.0.0.copyload.i.i150 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
+  %97 = icmp eq i32 %32, %.sroa.0.0.copyload.i.i150
   %98 = xor i32 %32, 1
-  %spec.select.i150 = select i1 %97, i32 %.sroa.0.0.copyload.i.i.i148, i32 %98
-  %.sroa.06.0.i151 = select i1 %96, i32 %.sroa.0.0.copyload.i.i149, i32 %spec.select.i150
+  %spec.select.i151 = select i1 %97, i32 %.sroa.0.0.copyload.i.i.i149, i32 %98
+  %.sroa.06.0.i152 = select i1 %96, i32 %.sroa.0.0.copyload.i.i150, i32 %spec.select.i151
   %99 = add i32 %3, -2
   %100 = load ptr, ptr %20, align 8, !tbaa !666
   %101 = zext i32 %99 to i64
   %102 = getelementptr inbounds nuw %"class.sat::literal", ptr %100, i64 %101
-  %.sroa.052.0.copyload = load i32, ptr %102, align 4, !tbaa !9
+  %.sroa.053.0.copyload = load i32, ptr %102, align 4, !tbaa !9
   %103 = add i32 %3, -1
   %104 = zext i32 %103 to i64
   %105 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %104
-  %.sroa.051.0.copyload = load i32, ptr %105, align 4, !tbaa !9
+  %.sroa.052.0.copyload = load i32, ptr %105, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #30
-  store i32 %.sroa.06.0.i151, ptr %16, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i152, ptr %16, align 4, !tbaa !9
   %106 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 %.sroa.052.0.copyload, ptr %106, align 4, !tbaa !9
+  store i32 %.sroa.053.0.copyload, ptr %106, align 4, !tbaa !9
   %107 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 %.sroa.051.0.copyload, ptr %107, align 4, !tbaa !9
+  store i32 %.sroa.052.0.copyload, ptr %107, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, ptr noundef nonnull %16)
-          to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit153 unwind label %108
+          to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit154 unwind label %108
 
-_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit153: ; preds = %95
+_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit154: ; preds = %95
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #30
   br label %110
 
-108:                                              ; preds = %._crit_edge237, %95
+108:                                              ; preds = %._crit_edge238, %95
   %109 = landingpad { ptr, i32 }
           cleanup
   br label %258
 
-110:                                              ; preds = %._crit_edge._crit_edge, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit153
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %103, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit153 ]
+110:                                              ; preds = %._crit_edge._crit_edge, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit154
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %103, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit154 ]
   %111 = icmp ugt i32 %.pre-phi, 1
-  br i1 %111, label %.lr.ph236, label %._crit_edge237
+  br i1 %111, label %.lr.ph237, label %._crit_edge238
 
-.lr.ph236:                                        ; preds = %110
+.lr.ph237:                                        ; preds = %110
   %112 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %113 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %wide.trip.count259 = zext i32 %.pre-phi to i64
+  %wide.trip.count260 = zext i32 %.pre-phi to i64
   br label %114
 
-114:                                              ; preds = %.lr.ph236, %123
-  %indvars.iv256 = phi i64 [ 1, %.lr.ph236 ], [ %indvars.iv.next257, %123 ]
+114:                                              ; preds = %.lr.ph237, %123
+  %indvars.iv257 = phi i64 [ 1, %.lr.ph237 ], [ %indvars.iv.next258, %123 ]
   %115 = load ptr, ptr %20, align 8, !tbaa !666
-  %116 = getelementptr inbounds nuw %"class.sat::literal", ptr %115, i64 %indvars.iv256
-  %.sroa.044.0.copyload = load i32, ptr %116, align 4, !tbaa !9
-  %.sroa.0.0.copyload.i.i.i158 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  %117 = icmp eq i32 %.sroa.044.0.copyload, %.sroa.0.0.copyload.i.i.i158
-  %.sroa.0.0.copyload.i.i159 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
-  %118 = icmp eq i32 %.sroa.044.0.copyload, %.sroa.0.0.copyload.i.i159
-  %119 = xor i32 %.sroa.044.0.copyload, 1
-  %spec.select.i160 = select i1 %118, i32 %.sroa.0.0.copyload.i.i.i158, i32 %119
-  %.sroa.06.0.i161 = select i1 %117, i32 %.sroa.0.0.copyload.i.i159, i32 %spec.select.i160
-  %120 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %indvars.iv256
-  %.sroa.043.0.copyload = load i32, ptr %120, align 4, !tbaa !9
-  %121 = getelementptr %"class.sat::literal", ptr %115, i64 %indvars.iv256
+  %116 = getelementptr inbounds nuw %"class.sat::literal", ptr %115, i64 %indvars.iv257
+  %.sroa.045.0.copyload = load i32, ptr %116, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i.i.i159 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
+  %117 = icmp eq i32 %.sroa.045.0.copyload, %.sroa.0.0.copyload.i.i.i159
+  %.sroa.0.0.copyload.i.i160 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
+  %118 = icmp eq i32 %.sroa.045.0.copyload, %.sroa.0.0.copyload.i.i160
+  %119 = xor i32 %.sroa.045.0.copyload, 1
+  %spec.select.i161 = select i1 %118, i32 %.sroa.0.0.copyload.i.i.i159, i32 %119
+  %.sroa.06.0.i162 = select i1 %117, i32 %.sroa.0.0.copyload.i.i160, i32 %spec.select.i161
+  %120 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %indvars.iv257
+  %.sroa.044.0.copyload = load i32, ptr %120, align 4, !tbaa !9
+  %121 = getelementptr %"class.sat::literal", ptr %115, i64 %indvars.iv257
   %122 = getelementptr i8, ptr %121, i64 -4
-  %.sroa.042.0.copyload = load i32, ptr %122, align 4, !tbaa !9
+  %.sroa.043.0.copyload = load i32, ptr %122, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #30
-  store i32 %.sroa.06.0.i161, ptr %15, align 4, !tbaa !9
-  store i32 %.sroa.043.0.copyload, ptr %112, align 4, !tbaa !9
-  store i32 %.sroa.042.0.copyload, ptr %113, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i162, ptr %15, align 4, !tbaa !9
+  store i32 %.sroa.044.0.copyload, ptr %112, align 4, !tbaa !9
+  store i32 %.sroa.043.0.copyload, ptr %113, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, ptr noundef nonnull %15)
           to label %123 unwind label %124
 
 123:                                              ; preds = %114
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #30
-  %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
-  %exitcond260.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count259
-  br i1 %exitcond260.not, label %._crit_edge237, label %114, !llvm.loop !1039
+  %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
+  %exitcond261.not = icmp eq i64 %indvars.iv.next258, %wide.trip.count260
+  br i1 %exitcond261.not, label %._crit_edge238, label %114, !llvm.loop !1039
 
 124:                                              ; preds = %114
   %125 = landingpad { ptr, i32 }
           cleanup
   br label %258
 
-._crit_edge237:                                   ; preds = %123, %110
+._crit_edge238:                                   ; preds = %123, %110
   %126 = load ptr, ptr %20, align 8, !tbaa !666
-  %.sroa.040.0.copyload = load i32, ptr %126, align 4, !tbaa !9
-  %.sroa.0.0.copyload.i.i.i154 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  %127 = icmp eq i32 %.sroa.040.0.copyload, %.sroa.0.0.copyload.i.i.i154
-  %.sroa.0.0.copyload.i.i155 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
-  %128 = icmp eq i32 %.sroa.040.0.copyload, %.sroa.0.0.copyload.i.i155
-  %129 = xor i32 %.sroa.040.0.copyload, 1
-  %spec.select.i156 = select i1 %128, i32 %.sroa.0.0.copyload.i.i.i154, i32 %129
-  %.sroa.06.0.i157 = select i1 %127, i32 %.sroa.0.0.copyload.i.i155, i32 %spec.select.i156
-  %.sroa.039.0.copyload = load i32, ptr %4, align 4, !tbaa !9
+  %.sroa.041.0.copyload = load i32, ptr %126, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i.i.i155 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
+  %127 = icmp eq i32 %.sroa.041.0.copyload, %.sroa.0.0.copyload.i.i.i155
+  %.sroa.0.0.copyload.i.i156 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
+  %128 = icmp eq i32 %.sroa.041.0.copyload, %.sroa.0.0.copyload.i.i156
+  %129 = xor i32 %.sroa.041.0.copyload, 1
+  %spec.select.i157 = select i1 %128, i32 %.sroa.0.0.copyload.i.i.i155, i32 %129
+  %.sroa.06.0.i158 = select i1 %127, i32 %.sroa.0.0.copyload.i.i156, i32 %spec.select.i157
+  %.sroa.040.0.copyload = load i32, ptr %4, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #30
-  store i32 %.sroa.06.0.i157, ptr %14, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i158, ptr %14, align 4, !tbaa !9
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i32 %.sroa.039.0.copyload, ptr %130, align 4, !tbaa !9
+  store i32 %.sroa.040.0.copyload, ptr %130, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, ptr noundef nonnull %14)
           to label %131 unwind label %108
 
-131:                                              ; preds = %._crit_edge237
+131:                                              ; preds = %._crit_edge238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #30
   br i1 %1, label %132, label %251
 
@@ -38656,23 +38656,23 @@ _ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit
   store ptr null, ptr %21, align 8, !tbaa !666
   %.not = icmp ne i32 %.pre-phi, 0
   call void @llvm.assume(i1 %.not)
-  br label %.lr.ph240
+  br label %.lr.ph241
 
-.lr.ph240:                                        ; preds = %132, %146
-  %.0118238 = phi i32 [ %153, %146 ], [ 0, %132 ]
+.lr.ph241:                                        ; preds = %132, %146
+  %.0119239 = phi i32 [ %153, %146 ], [ 0, %132 ]
   %133 = load i32, ptr %27, align 4, !tbaa !1023
   %134 = add i32 %133, 1
   store i32 %134, ptr %27, align 4, !tbaa !1023
   %135 = load ptr, ptr %30, align 8, !tbaa !1018
   %136 = invoke i32 @_ZN3smt9theory_pb10psort_expr5freshEPKc(ptr noundef nonnull align 8 dereferenceable(88) %135, ptr noundef nonnull @.str.70)
-          to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE5freshEPKc.exit171 unwind label %154
+          to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE5freshEPKc.exit172 unwind label %154
 
-_ZN8psort_nwIN3smt9theory_pb10psort_exprEE5freshEPKc.exit171: ; preds = %.lr.ph240
+_ZN8psort_nwIN3smt9theory_pb10psort_exprEE5freshEPKc.exit172: ; preds = %.lr.ph241
   %137 = load ptr, ptr %21, align 8, !tbaa !666
   %138 = icmp eq ptr %137, null
   br i1 %138, label %145, label %139
 
-139:                                              ; preds = %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE5freshEPKc.exit171
+139:                                              ; preds = %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE5freshEPKc.exit172
   %140 = getelementptr inbounds i8, ptr %137, i64 -4
   %141 = load i32, ptr %140, align 4, !tbaa !9
   %142 = getelementptr inbounds i8, ptr %137, i64 -8
@@ -38680,152 +38680,152 @@ _ZN8psort_nwIN3smt9theory_pb10psort_exprEE5freshEPKc.exit171: ; preds = %.lr.ph2
   %144 = icmp eq i32 %141, %143
   br i1 %144, label %145, label %146
 
-145:                                              ; preds = %139, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE5freshEPKc.exit171
+145:                                              ; preds = %139, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE5freshEPKc.exit172
   invoke void @_ZN6vectorIN3sat7literalELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %.noexc175 unwind label %154
+          to label %.noexc176 unwind label %154
 
-.noexc175:                                        ; preds = %145
-  %.pre.i172 = load ptr, ptr %21, align 8, !tbaa !666
-  %.phi.trans.insert.i173 = getelementptr inbounds i8, ptr %.pre.i172, i64 -4
-  %.pre2.i174 = load i32, ptr %.phi.trans.insert.i173, align 4, !tbaa !9
+.noexc176:                                        ; preds = %145
+  %.pre.i173 = load ptr, ptr %21, align 8, !tbaa !666
+  %.phi.trans.insert.i174 = getelementptr inbounds i8, ptr %.pre.i173, i64 -4
+  %.pre2.i175 = load i32, ptr %.phi.trans.insert.i174, align 4, !tbaa !9
   br label %146
 
-146:                                              ; preds = %.noexc175, %139
-  %147 = phi i32 [ %.pre2.i174, %.noexc175 ], [ %141, %139 ]
-  %148 = phi ptr [ %.pre.i172, %.noexc175 ], [ %137, %139 ]
+146:                                              ; preds = %.noexc176, %139
+  %147 = phi i32 [ %.pre2.i175, %.noexc176 ], [ %141, %139 ]
+  %148 = phi ptr [ %.pre.i173, %.noexc176 ], [ %137, %139 ]
   %149 = getelementptr inbounds i8, ptr %148, i64 -4
   %150 = zext i32 %147 to i64
   %151 = getelementptr inbounds nuw %"class.sat::literal", ptr %148, i64 %150
   store i32 %136, ptr %151, align 4, !tbaa !9
   %152 = add i32 %147, 1
   store i32 %152, ptr %149, align 4, !tbaa !9
-  %153 = add nuw i32 %.0118238, 1
-  %exitcond261.not = icmp eq i32 %153, %.pre-phi
-  br i1 %exitcond261.not, label %._crit_edge241, label %.lr.ph240, !llvm.loop !1040
+  %153 = add nuw i32 %.0119239, 1
+  %exitcond262.not = icmp eq i32 %153, %.pre-phi
+  br i1 %exitcond262.not, label %._crit_edge242, label %.lr.ph241, !llvm.loop !1040
 
-154:                                              ; preds = %145, %.lr.ph240
+154:                                              ; preds = %145, %.lr.ph241
   %155 = landingpad { ptr, i32 }
           cleanup
   br label %250
 
-._crit_edge241:                                   ; preds = %146
-  %.sroa.035.0.copyload = load i32, ptr %148, align 4, !tbaa !9
-  %.sroa.0.0.copyload.i.i.i166 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  %156 = icmp eq i32 %.sroa.035.0.copyload, %.sroa.0.0.copyload.i.i.i166
-  %.sroa.0.0.copyload.i.i167 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
-  %157 = icmp eq i32 %.sroa.035.0.copyload, %.sroa.0.0.copyload.i.i167
-  %158 = xor i32 %.sroa.035.0.copyload, 1
-  %spec.select.i168 = select i1 %157, i32 %.sroa.0.0.copyload.i.i.i166, i32 %158
-  %.sroa.06.0.i169 = select i1 %156, i32 %.sroa.0.0.copyload.i.i167, i32 %spec.select.i168
+._crit_edge242:                                   ; preds = %146
+  %.sroa.036.0.copyload = load i32, ptr %148, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i.i.i167 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
+  %156 = icmp eq i32 %.sroa.036.0.copyload, %.sroa.0.0.copyload.i.i.i167
+  %.sroa.0.0.copyload.i.i168 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
+  %157 = icmp eq i32 %.sroa.036.0.copyload, %.sroa.0.0.copyload.i.i168
+  %158 = xor i32 %.sroa.036.0.copyload, 1
+  %spec.select.i169 = select i1 %157, i32 %.sroa.0.0.copyload.i.i.i167, i32 %158
+  %.sroa.06.0.i170 = select i1 %156, i32 %.sroa.0.0.copyload.i.i168, i32 %spec.select.i169
   %159 = load ptr, ptr %20, align 8, !tbaa !666
-  %.sroa.034.0.copyload = load i32, ptr %159, align 4, !tbaa !9
+  %.sroa.035.0.copyload = load i32, ptr %159, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #30
-  store i32 %.sroa.06.0.i169, ptr %13, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i170, ptr %13, align 4, !tbaa !9
   %160 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %.sroa.034.0.copyload, ptr %160, align 4, !tbaa !9
+  store i32 %.sroa.035.0.copyload, ptr %160, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, ptr noundef nonnull %13)
           to label %161 unwind label %172
 
-161:                                              ; preds = %._crit_edge241
+161:                                              ; preds = %._crit_edge242
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #30
   %162 = load ptr, ptr %21, align 8, !tbaa !666
-  %.sroa.032.0.copyload = load i32, ptr %162, align 4, !tbaa !9
-  %.sroa.0.0.copyload.i.i.i179 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  %163 = icmp eq i32 %.sroa.032.0.copyload, %.sroa.0.0.copyload.i.i.i179
-  %.sroa.0.0.copyload.i.i180 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
-  %164 = icmp eq i32 %.sroa.032.0.copyload, %.sroa.0.0.copyload.i.i180
-  %165 = xor i32 %.sroa.032.0.copyload, 1
-  %spec.select.i181 = select i1 %164, i32 %.sroa.0.0.copyload.i.i.i179, i32 %165
-  %.sroa.06.0.i182 = select i1 %163, i32 %.sroa.0.0.copyload.i.i180, i32 %spec.select.i181
+  %.sroa.033.0.copyload = load i32, ptr %162, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i.i.i180 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
+  %163 = icmp eq i32 %.sroa.033.0.copyload, %.sroa.0.0.copyload.i.i.i180
+  %.sroa.0.0.copyload.i.i181 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
+  %164 = icmp eq i32 %.sroa.033.0.copyload, %.sroa.0.0.copyload.i.i181
+  %165 = xor i32 %.sroa.033.0.copyload, 1
+  %spec.select.i182 = select i1 %164, i32 %.sroa.0.0.copyload.i.i.i180, i32 %165
+  %.sroa.06.0.i183 = select i1 %163, i32 %.sroa.0.0.copyload.i.i181, i32 %spec.select.i182
   %166 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.sroa.031.0.copyload = load i32, ptr %166, align 4, !tbaa !9
+  %.sroa.032.0.copyload = load i32, ptr %166, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #30
-  store i32 %.sroa.06.0.i182, ptr %12, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i183, ptr %12, align 4, !tbaa !9
   %167 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %.sroa.031.0.copyload, ptr %167, align 4, !tbaa !9
+  store i32 %.sroa.032.0.copyload, ptr %167, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, ptr noundef nonnull %12)
-          to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit184 unwind label %172
+          to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit185 unwind label %172
 
-_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit184: ; preds = %161
+_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit185: ; preds = %161
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #30
-  br i1 %111, label %.lr.ph243, label %._crit_edge244
+  br i1 %111, label %.lr.ph244, label %._crit_edge245
 
-.lr.ph243:                                        ; preds = %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit184
+.lr.ph244:                                        ; preds = %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit185
   %168 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %169 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %170 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %171 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %wide.trip.count265 = zext i32 %.pre-phi to i64
+  %wide.trip.count266 = zext i32 %.pre-phi to i64
   br label %174
 
-._crit_edge244:                                   ; preds = %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit196, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit184
+._crit_edge245:                                   ; preds = %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit197, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit185
   br i1 %2, label %194, label %233
 
-172:                                              ; preds = %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit222, %161, %._crit_edge241
+172:                                              ; preds = %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit223, %161, %._crit_edge242
   %173 = landingpad { ptr, i32 }
           cleanup
   br label %250
 
-174:                                              ; preds = %.lr.ph243, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit196
-  %indvars.iv262 = phi i64 [ 1, %.lr.ph243 ], [ %indvars.iv.next263, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit196 ]
+174:                                              ; preds = %.lr.ph244, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit197
+  %indvars.iv263 = phi i64 [ 1, %.lr.ph244 ], [ %indvars.iv.next264, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit197 ]
   %175 = load ptr, ptr %21, align 8, !tbaa !666
-  %176 = getelementptr inbounds nuw %"class.sat::literal", ptr %175, i64 %indvars.iv262
-  %.sroa.022.0.copyload = load i32, ptr %176, align 4, !tbaa !9
-  %.sroa.0.0.copyload.i.i.i185 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  %177 = icmp eq i32 %.sroa.022.0.copyload, %.sroa.0.0.copyload.i.i.i185
-  %.sroa.0.0.copyload.i.i186 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
-  %178 = icmp eq i32 %.sroa.022.0.copyload, %.sroa.0.0.copyload.i.i186
-  %179 = xor i32 %.sroa.022.0.copyload, 1
-  %spec.select.i187 = select i1 %178, i32 %.sroa.0.0.copyload.i.i.i185, i32 %179
-  %.sroa.06.0.i188 = select i1 %177, i32 %.sroa.0.0.copyload.i.i186, i32 %spec.select.i187
+  %176 = getelementptr inbounds nuw %"class.sat::literal", ptr %175, i64 %indvars.iv263
+  %.sroa.023.0.copyload = load i32, ptr %176, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i.i.i186 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
+  %177 = icmp eq i32 %.sroa.023.0.copyload, %.sroa.0.0.copyload.i.i.i186
+  %.sroa.0.0.copyload.i.i187 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
+  %178 = icmp eq i32 %.sroa.023.0.copyload, %.sroa.0.0.copyload.i.i187
+  %179 = xor i32 %.sroa.023.0.copyload, 1
+  %spec.select.i188 = select i1 %178, i32 %.sroa.0.0.copyload.i.i.i186, i32 %179
+  %.sroa.06.0.i189 = select i1 %177, i32 %.sroa.0.0.copyload.i.i187, i32 %spec.select.i188
   %180 = load ptr, ptr %20, align 8, !tbaa !666
-  %181 = getelementptr inbounds nuw %"class.sat::literal", ptr %180, i64 %indvars.iv262
-  %.sroa.021.0.copyload = load i32, ptr %181, align 4, !tbaa !9
-  %182 = add nsw i64 %indvars.iv262, -1
+  %181 = getelementptr inbounds nuw %"class.sat::literal", ptr %180, i64 %indvars.iv263
+  %.sroa.022.0.copyload = load i32, ptr %181, align 4, !tbaa !9
+  %182 = add nsw i64 %indvars.iv263, -1
   %183 = getelementptr inbounds nuw %"class.sat::literal", ptr %175, i64 %182
-  %.sroa.020.0.copyload = load i32, ptr %183, align 4, !tbaa !9
+  %.sroa.021.0.copyload = load i32, ptr %183, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #30
-  store i32 %.sroa.06.0.i188, ptr %11, align 4, !tbaa !9
-  store i32 %.sroa.021.0.copyload, ptr %168, align 4, !tbaa !9
-  store i32 %.sroa.020.0.copyload, ptr %169, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i189, ptr %11, align 4, !tbaa !9
+  store i32 %.sroa.022.0.copyload, ptr %168, align 4, !tbaa !9
+  store i32 %.sroa.021.0.copyload, ptr %169, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, ptr noundef nonnull %11)
           to label %184 unwind label %192
 
 184:                                              ; preds = %174
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #30
   %185 = load ptr, ptr %21, align 8, !tbaa !666
-  %186 = getelementptr inbounds nuw %"class.sat::literal", ptr %185, i64 %indvars.iv262
-  %.sroa.018.0.copyload = load i32, ptr %186, align 4, !tbaa !9
-  %.sroa.0.0.copyload.i.i.i191 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  %187 = icmp eq i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload.i.i.i191
-  %.sroa.0.0.copyload.i.i192 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
-  %188 = icmp eq i32 %.sroa.018.0.copyload, %.sroa.0.0.copyload.i.i192
-  %189 = xor i32 %.sroa.018.0.copyload, 1
-  %spec.select.i193 = select i1 %188, i32 %.sroa.0.0.copyload.i.i.i191, i32 %189
-  %.sroa.06.0.i194 = select i1 %187, i32 %.sroa.0.0.copyload.i.i192, i32 %spec.select.i193
-  %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
-  %190 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %indvars.iv.next263
-  %.sroa.017.0.copyload = load i32, ptr %190, align 4, !tbaa !9
+  %186 = getelementptr inbounds nuw %"class.sat::literal", ptr %185, i64 %indvars.iv263
+  %.sroa.019.0.copyload = load i32, ptr %186, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i.i.i192 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
+  %187 = icmp eq i32 %.sroa.019.0.copyload, %.sroa.0.0.copyload.i.i.i192
+  %.sroa.0.0.copyload.i.i193 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
+  %188 = icmp eq i32 %.sroa.019.0.copyload, %.sroa.0.0.copyload.i.i193
+  %189 = xor i32 %.sroa.019.0.copyload, 1
+  %spec.select.i194 = select i1 %188, i32 %.sroa.0.0.copyload.i.i.i192, i32 %189
+  %.sroa.06.0.i195 = select i1 %187, i32 %.sroa.0.0.copyload.i.i193, i32 %spec.select.i194
+  %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
+  %190 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %indvars.iv.next264
+  %.sroa.018.0.copyload = load i32, ptr %190, align 4, !tbaa !9
   %191 = getelementptr inbounds nuw %"class.sat::literal", ptr %185, i64 %182
-  %.sroa.016.0.copyload = load i32, ptr %191, align 4, !tbaa !9
+  %.sroa.017.0.copyload = load i32, ptr %191, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #30
-  store i32 %.sroa.06.0.i194, ptr %10, align 4, !tbaa !9
-  store i32 %.sroa.017.0.copyload, ptr %170, align 4, !tbaa !9
-  store i32 %.sroa.016.0.copyload, ptr %171, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i195, ptr %10, align 4, !tbaa !9
+  store i32 %.sroa.018.0.copyload, ptr %170, align 4, !tbaa !9
+  store i32 %.sroa.017.0.copyload, ptr %171, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, ptr noundef nonnull %10)
-          to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit196 unwind label %192
+          to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit197 unwind label %192
 
-_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit196: ; preds = %184
+_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit197: ; preds = %184
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #30
-  %exitcond266.not = icmp eq i64 %indvars.iv.next263, %wide.trip.count265
-  br i1 %exitcond266.not, label %._crit_edge244, label %174
+  %exitcond267.not = icmp eq i64 %indvars.iv.next264, %wide.trip.count266
+  br i1 %exitcond267.not, label %._crit_edge245, label %174
 
 192:                                              ; preds = %184, %174
   %193 = landingpad { ptr, i32 }
           cleanup
   br label %250
 
-194:                                              ; preds = %._crit_edge244
+194:                                              ; preds = %._crit_edge245
   %195 = load i32, ptr %27, align 4, !tbaa !1023
   %196 = add i32 %195, 1
   store i32 %196, ptr %27, align 4, !tbaa !1023
@@ -38834,50 +38834,50 @@ _ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit
           to label %199 unwind label %231
 
 199:                                              ; preds = %194
-  %.sroa.0.0.copyload.i.i.i199 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  %200 = icmp eq i32 %198, %.sroa.0.0.copyload.i.i.i199
-  %.sroa.0.0.copyload.i.i200 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
-  %201 = icmp eq i32 %198, %.sroa.0.0.copyload.i.i200
+  %.sroa.0.0.copyload.i.i.i200 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
+  %200 = icmp eq i32 %198, %.sroa.0.0.copyload.i.i.i200
+  %.sroa.0.0.copyload.i.i201 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
+  %201 = icmp eq i32 %198, %.sroa.0.0.copyload.i.i201
   %202 = xor i32 %198, 1
-  %spec.select.i201 = select i1 %201, i32 %.sroa.0.0.copyload.i.i.i199, i32 %202
-  %.sroa.06.0.i202 = select i1 %200, i32 %.sroa.0.0.copyload.i.i200, i32 %spec.select.i201
+  %spec.select.i202 = select i1 %201, i32 %.sroa.0.0.copyload.i.i.i200, i32 %202
+  %.sroa.06.0.i203 = select i1 %200, i32 %.sroa.0.0.copyload.i.i201, i32 %spec.select.i202
   %203 = zext i32 %.pre-phi to i64
   %204 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %203
-  %.sroa.09.0.copyload = load i32, ptr %204, align 4, !tbaa !9
-  %205 = icmp eq i32 %.sroa.09.0.copyload, %.sroa.0.0.copyload.i.i.i199
-  %206 = icmp eq i32 %.sroa.09.0.copyload, %.sroa.0.0.copyload.i.i200
-  %207 = xor i32 %.sroa.09.0.copyload, 1
-  %spec.select.i205 = select i1 %206, i32 %.sroa.0.0.copyload.i.i.i199, i32 %207
-  %.sroa.06.0.i206 = select i1 %205, i32 %.sroa.0.0.copyload.i.i200, i32 %spec.select.i205
+  %.sroa.010.0.copyload = load i32, ptr %204, align 4, !tbaa !9
+  %205 = icmp eq i32 %.sroa.010.0.copyload, %.sroa.0.0.copyload.i.i.i200
+  %206 = icmp eq i32 %.sroa.010.0.copyload, %.sroa.0.0.copyload.i.i201
+  %207 = xor i32 %.sroa.010.0.copyload, 1
+  %spec.select.i206 = select i1 %206, i32 %.sroa.0.0.copyload.i.i.i200, i32 %207
+  %.sroa.06.0.i207 = select i1 %205, i32 %.sroa.0.0.copyload.i.i201, i32 %spec.select.i206
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #30
-  store i32 %.sroa.06.0.i202, ptr %9, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i203, ptr %9, align 4, !tbaa !9
   %208 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %.sroa.06.0.i206, ptr %208, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i207, ptr %208, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, ptr noundef nonnull %9)
           to label %209 unwind label %231
 
 209:                                              ; preds = %199
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #30
-  %.sroa.0.0.copyload.i.i.i209 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
-  %210 = icmp eq i32 %198, %.sroa.0.0.copyload.i.i.i209
-  %.sroa.0.0.copyload.i.i210 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
-  %211 = icmp eq i32 %198, %.sroa.0.0.copyload.i.i210
-  %spec.select.i211 = select i1 %211, i32 %.sroa.0.0.copyload.i.i.i209, i32 %202
-  %.sroa.06.0.i212 = select i1 %210, i32 %.sroa.0.0.copyload.i.i210, i32 %spec.select.i211
+  %.sroa.0.0.copyload.i.i.i210 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !9
+  %210 = icmp eq i32 %198, %.sroa.0.0.copyload.i.i.i210
+  %.sroa.0.0.copyload.i.i211 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !9
+  %211 = icmp eq i32 %198, %.sroa.0.0.copyload.i.i211
+  %spec.select.i212 = select i1 %211, i32 %.sroa.0.0.copyload.i.i.i210, i32 %202
+  %.sroa.06.0.i213 = select i1 %210, i32 %.sroa.0.0.copyload.i.i211, i32 %spec.select.i212
   %212 = add i32 %3, -2
   %213 = load ptr, ptr %20, align 8, !tbaa !666
   %214 = zext i32 %212 to i64
   %215 = getelementptr inbounds nuw %"class.sat::literal", ptr %213, i64 %214
-  %.sroa.05.0.copyload = load i32, ptr %215, align 4, !tbaa !9
-  %216 = icmp eq i32 %.sroa.05.0.copyload, %.sroa.0.0.copyload.i.i.i209
-  %217 = icmp eq i32 %.sroa.05.0.copyload, %.sroa.0.0.copyload.i.i210
-  %218 = xor i32 %.sroa.05.0.copyload, 1
-  %spec.select.i215 = select i1 %217, i32 %.sroa.0.0.copyload.i.i.i209, i32 %218
-  %.sroa.06.0.i216 = select i1 %216, i32 %.sroa.0.0.copyload.i.i210, i32 %spec.select.i215
+  %.sroa.06.0.copyload = load i32, ptr %215, align 4, !tbaa !9
+  %216 = icmp eq i32 %.sroa.06.0.copyload, %.sroa.0.0.copyload.i.i.i210
+  %217 = icmp eq i32 %.sroa.06.0.copyload, %.sroa.0.0.copyload.i.i211
+  %218 = xor i32 %.sroa.06.0.copyload, 1
+  %spec.select.i216 = select i1 %217, i32 %.sroa.0.0.copyload.i.i.i210, i32 %218
+  %.sroa.06.0.i217 = select i1 %216, i32 %.sroa.0.0.copyload.i.i211, i32 %spec.select.i216
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30
-  store i32 %.sroa.06.0.i212, ptr %8, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i213, ptr %8, align 4, !tbaa !9
   %219 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %.sroa.06.0.i216, ptr %219, align 4, !tbaa !9
+  store i32 %.sroa.06.0.i217, ptr %219, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, ptr noundef nonnull %8)
           to label %220 unwind label %231
 
@@ -38897,17 +38897,17 @@ _ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit
 _ZN6vectorIN3sat7literalELb0EjE4backEv.exit:      ; preds = %220, %223
   %.0.i.i = phi i64 [ %227, %223 ], [ 4294967295, %220 ]
   %228 = getelementptr inbounds nuw %"class.sat::literal", ptr %221, i64 %.0.i.i
-  %.sroa.02.0.copyload = load i32, ptr %228, align 4, !tbaa !9
+  %.sroa.03.0.copyload = load i32, ptr %228, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #30
   store i32 %32, ptr %7, align 4, !tbaa !9
   %229 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %198, ptr %229, align 4, !tbaa !9
   %230 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %.sroa.02.0.copyload, ptr %230, align 4, !tbaa !9
+  store i32 %.sroa.03.0.copyload, ptr %230, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, ptr noundef nonnull %7)
-          to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit220 unwind label %231
+          to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit221 unwind label %231
 
-_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit220: ; preds = %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit
+_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit221: ; preds = %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #30
   br label %243
 
@@ -38916,34 +38916,34 @@ _ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit
           cleanup
   br label %250
 
-233:                                              ; preds = %._crit_edge244
+233:                                              ; preds = %._crit_edge245
   %234 = load ptr, ptr %21, align 8, !tbaa !666
   %235 = icmp eq ptr %234, null
-  br i1 %235, label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit222, label %236
+  br i1 %235, label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit223, label %236
 
 236:                                              ; preds = %233
   %237 = getelementptr inbounds i8, ptr %234, i64 -4
   %238 = load i32, ptr %237, align 4, !tbaa !9
   %239 = add i32 %238, -1
   %240 = zext i32 %239 to i64
-  br label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit222
+  br label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit223
 
-_ZN6vectorIN3sat7literalELb0EjE4backEv.exit222:   ; preds = %233, %236
-  %.0.i.i221 = phi i64 [ %240, %236 ], [ 4294967295, %233 ]
-  %241 = getelementptr inbounds nuw %"class.sat::literal", ptr %234, i64 %.0.i.i221
+_ZN6vectorIN3sat7literalELb0EjE4backEv.exit223:   ; preds = %233, %236
+  %.0.i.i222 = phi i64 [ %240, %236 ], [ 4294967295, %233 ]
+  %241 = getelementptr inbounds nuw %"class.sat::literal", ptr %234, i64 %.0.i.i222
   %.sroa.0.0.copyload = load i32, ptr %241, align 4, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
   store i32 %32, ptr %6, align 4, !tbaa !9
   %242 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.sroa.0.0.copyload, ptr %242, align 4, !tbaa !9
   invoke void @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEjPKN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, ptr noundef nonnull %6)
-          to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit224 unwind label %172
+          to label %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit225 unwind label %172
 
-_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit224: ; preds = %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit222
+_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit225: ; preds = %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit223
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
   br label %243
 
-243:                                              ; preds = %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit224, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit220
+243:                                              ; preds = %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_.exit225, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE10add_clauseEN3sat7literalES5_S5_.exit221
   %244 = load ptr, ptr %21, align 8, !tbaa !666
   %.not.i.i = icmp eq ptr %244, null
   br i1 %.not.i.i, label %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit, label %245
@@ -38972,13 +38972,13 @@ _ZN6vectorIN3sat7literalELb0EjED2Ev.exit:         ; preds = %243, %245
 
 251:                                              ; preds = %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit, %131
   %252 = load ptr, ptr %20, align 8, !tbaa !666
-  %.not.i.i225 = icmp eq ptr %252, null
-  br i1 %.not.i.i225, label %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit226, label %253
+  %.not.i.i226 = icmp eq ptr %252, null
+  br i1 %.not.i.i226, label %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit227, label %253
 
 253:                                              ; preds = %251
   %254 = getelementptr inbounds i8, ptr %252, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %254)
-          to label %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit226 unwind label %255
+          to label %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit227 unwind label %255
 
 255:                                              ; preds = %253
   %256 = landingpad { ptr, i32 }
@@ -38987,19 +38987,19 @@ _ZN6vectorIN3sat7literalELb0EjED2Ev.exit:         ; preds = %243, %245
   call void @__clang_call_terminate(ptr %257) #31
   unreachable
 
-_ZN6vectorIN3sat7literalELb0EjED2Ev.exit226:      ; preds = %251, %253
+_ZN6vectorIN3sat7literalELb0EjED2Ev.exit227:      ; preds = %251, %253
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #30
   br label %259
 
 258:                                              ; preds = %250, %124, %108, %93, %72, %58
-  %.pn125 = phi { ptr, i32 } [ %59, %58 ], [ %73, %72 ], [ %94, %93 ], [ %125, %124 ], [ %.pn, %250 ], [ %109, %108 ]
+  %.pn126 = phi { ptr, i32 } [ %59, %58 ], [ %73, %72 ], [ %94, %93 ], [ %125, %124 ], [ %.pn, %250 ], [ %109, %108 ]
   call void @_ZN6vectorIN3sat7literalELb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #30
-  resume { ptr, i32 } %.pn125
+  resume { ptr, i32 } %.pn126
 
-259:                                              ; preds = %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit226, %26, %25, %23
-  %.sroa.0107.0 = phi i32 [ %.sroa.0.0.copyload.i127, %25 ], [ %.sroa.0107.0.copyload, %26 ], [ %32, %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit226 ], [ %.sroa.0.0.copyload.i, %23 ]
-  ret i32 %.sroa.0107.0
+259:                                              ; preds = %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit227, %26, %25, %23
+  %.sroa.0108.0 = phi i32 [ %.sroa.0.0.copyload.i128, %25 ], [ %.sroa.0108.0.copyload, %26 ], [ %32, %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit227 ], [ %.sroa.0.0.copyload.i, %23 ]
+  ret i32 %.sroa.0108.0
 }
 
 ; Function Attrs: mustprogress uwtable

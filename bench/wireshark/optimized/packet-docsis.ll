@@ -383,13 +383,13 @@ define internal i32 @dissect_docsis(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 18:                                               ; preds = %15, %13
   %.sink = phi i32 [ 2, %15 ], [ 3, %13 ]
-  %.0256 = phi i32 [ 6, %15 ], [ 7, %13 ]
+  %.0270 = phi i32 [ 6, %15 ], [ 7, %13 ]
   %.0 = phi i16 [ %17, %15 ], [ %14, %13 ]
   %19 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.sink)
-  %.not = icmp eq i8 %11, 0
+  %.not275 = icmp eq i8 %11, 0
   %20 = zext i16 %.0 to i32
-  %21 = select i1 %.not, i32 0, i32 %20
-  %.1 = add nuw nsw i32 %21, %.0256
+  %21 = select i1 %.not275, i32 0, i32 %20
+  %.1 = add nuw nsw i32 %21, %.0270
   %22 = and i32 %.1, 255
   %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %22)
   %24 = trunc i32 %23 to i16
@@ -398,12 +398,12 @@ define internal i32 @dissect_docsis(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %18
-  switch i8 %10, label %.thread267 [
+  switch i8 %10, label %.thread282 [
     i8 4, label %.thread
     i8 2, label %.thread
   ]
 
-.thread267:                                       ; preds = %26
+.thread282:                                       ; preds = %26
   %27 = zext i16 %19 to i32
   %28 = add nuw nsw i32 %20, 2
   %29 = icmp samesign ult i32 %28, %27
@@ -435,8 +435,8 @@ define internal i32 @dissect_docsis(ptr noundef %0, ptr noundef %1, ptr noundef 
   tail call void @col_set_str(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.153)
   br label %55
 
-.thread:                                          ; preds = %26, %26, %.thread267
-  %.0258266 = phi i1 [ %29, %.thread267 ], [ false, %26 ], [ false, %26 ]
+.thread:                                          ; preds = %26, %26, %.thread282
+  %.0272281 = phi i1 [ %29, %.thread282 ], [ false, %26 ], [ false, %26 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void @col_set_str(ptr noundef %41, i32 noundef 35, ptr noundef nonnull @.str.134)
@@ -471,25 +471,25 @@ define internal i32 @dissect_docsis(ptr noundef %0, ptr noundef %1, ptr noundef 
   tail call void @col_set_str(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.154)
   br label %55
 
-default.unreachable268:                           ; preds = %55
+default.unreachable283:                           ; preds = %55
   unreachable
 
 default.unreachable:                              ; preds = %30
   unreachable
 
 55:                                               ; preds = %43, %53, %54, %47, %39, %38, %37
-  %.0258265 = phi i1 [ %.0258266, %43 ], [ %.0258266, %53 ], [ %.0258266, %54 ], [ %.0258266, %47 ], [ %33, %39 ], [ %33, %38 ], [ %33, %37 ]
+  %.0272280 = phi i1 [ %.0272281, %43 ], [ %.0272281, %53 ], [ %.0272281, %54 ], [ %.0272281, %47 ], [ %33, %39 ], [ %33, %38 ], [ %33, %37 ]
   %56 = load i32, ptr @proto_docsis, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef 0, i32 noundef %22, i32 noundef 0)
   %58 = load i32, ptr @ett_docsis, align 4
   %59 = tail call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58)
   %60 = load i32, ptr @hf_docsis_fctype, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  switch i8 %8, label %default.unreachable268 [
+  switch i8 %8, label %default.unreachable283 [
     i8 0, label %62
-    i8 1, label %79
-    i8 2, label %100
-    i8 3, label %117
+    i8 1, label %78
+    i8 2, label %98
+    i8 3, label %114
   ]
 
 62:                                               ; preds = %55
@@ -500,256 +500,251 @@ default.unreachable:                              ; preds = %30
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %65, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %67 = call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
-  %or.cond4 = select i1 %67, i1 %.0258265, i1 false
-  br i1 %or.cond4, label %68, label %203
+  %or.cond4 = select i1 %67, i1 %.0272280, i1 false
+  br i1 %or.cond4, label %68, label %198
 
 68:                                               ; preds = %62
   %69 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %22)
   %70 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %72, label %76
+  %.not = xor i1 %71, true
+  %72 = load i8, ptr @docsis_dissect_encrypted_frames, align 1, !range !6
+  %73 = trunc nuw i8 %72 to i1
+  %or.cond6 = select i1 %.not, i1 true, i1 %73
+  br i1 %or.cond6, label %75, label %74
 
-72:                                               ; preds = %68
-  %73 = load i8, ptr @docsis_dissect_encrypted_frames, align 1, !range !6, !noundef !7
-  %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %76, label %75
-
-75:                                               ; preds = %72
+74:                                               ; preds = %68
   call fastcc void @dissect_encrypted_frame(ptr noundef %69, ptr noundef %1, ptr noundef %59, i8 noundef zeroext 0, i8 noundef zeroext %10)
-  br label %203
+  br label %198
 
-76:                                               ; preds = %72, %68
-  %77 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %78 = call i32 @call_dissector(ptr noundef %77, ptr noundef %69, ptr noundef %1, ptr noundef %59)
-  br label %203
+75:                                               ; preds = %68
+  %76 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %77 = call i32 @call_dissector(ptr noundef %76, ptr noundef %69, ptr noundef %1, ptr noundef %59)
+  br label %198
 
-79:                                               ; preds = %55
+78:                                               ; preds = %55
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.195)
-  %80 = load i32, ptr @hf_docsis_machdr_fcparm, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %80, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %82 = load i32, ptr @hf_docsis_exthdr, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %82, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %79 = load i32, ptr @hf_docsis_machdr_fcparm, align 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %79, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %81 = load i32, ptr @hf_docsis_exthdr, align 4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %84 = call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
-  br i1 %84, label %85, label %203
+  %83 = call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
+  br i1 %83, label %84, label %198
 
-85:                                               ; preds = %79
-  %86 = icmp eq i8 %10, 1
-  %or.cond7 = and i1 %.not, %86
-  %87 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %22)
-  br i1 %or.cond7, label %88, label %98
+84:                                               ; preds = %78
+  %85 = icmp eq i8 %10, 1
+  %or.cond9 = and i1 %.not275, %85
+  %86 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %22)
+  br i1 %or.cond9, label %87, label %96
 
-88:                                               ; preds = %85
-  %89 = load i8, ptr %6, align 1, !range !6, !noundef !7
-  %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %91, label %95
+87:                                               ; preds = %84
+  %88 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %89 = trunc nuw i8 %88 to i1
+  %.not10 = xor i1 %89, true
+  %90 = load i8, ptr @docsis_dissect_encrypted_frames, align 1, !range !6
+  %91 = trunc nuw i8 %90 to i1
+  %or.cond12 = select i1 %.not10, i1 true, i1 %91
+  br i1 %or.cond12, label %93, label %92
 
-91:                                               ; preds = %88
-  %92 = load i8, ptr @docsis_dissect_encrypted_frames, align 1, !range !6, !noundef !7
-  %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %95, label %94
+92:                                               ; preds = %87
+  call fastcc void @dissect_encrypted_frame(ptr noundef %86, ptr noundef %1, ptr noundef %59, i8 noundef zeroext 1, i8 noundef zeroext 1)
+  br label %198
 
-94:                                               ; preds = %91
-  call fastcc void @dissect_encrypted_frame(ptr noundef %87, ptr noundef %1, ptr noundef %59, i8 noundef zeroext 1, i8 noundef zeroext 1)
-  br label %203
+93:                                               ; preds = %87
+  %94 = load ptr, ptr @docsis_mgmt_handle, align 8
+  %95 = call i32 @call_dissector(ptr noundef %94, ptr noundef %86, ptr noundef %1, ptr noundef %59)
+  br label %198
 
-95:                                               ; preds = %91, %88
-  %96 = load ptr, ptr @docsis_mgmt_handle, align 8
-  %97 = call i32 @call_dissector(ptr noundef %96, ptr noundef %87, ptr noundef %1, ptr noundef %59)
-  br label %203
+96:                                               ; preds = %84
+  %97 = call i32 @call_data_dissector(ptr noundef %86, ptr noundef %1, ptr noundef %2)
+  br label %198
 
-98:                                               ; preds = %85
-  %99 = call i32 @call_data_dissector(ptr noundef %87, ptr noundef %1, ptr noundef %2)
-  br label %203
-
-100:                                              ; preds = %55
+98:                                               ; preds = %55
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.196)
-  %101 = load i32, ptr @hf_docsis_fcparm, align 4
+  %99 = load i32, ptr @hf_docsis_fcparm, align 4
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %99, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %101 = load i32, ptr @hf_docsis_exthdr, align 4
   %102 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %101, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %103 = load i32, ptr @hf_docsis_exthdr, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %103, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %105 = call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
-  %or.cond9 = select i1 %105, i1 %.0258265, i1 false
-  br i1 %or.cond9, label %106, label %203
+  %103 = call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
+  %or.cond14 = select i1 %103, i1 %.0272280, i1 false
+  br i1 %or.cond14, label %104, label %198
 
-106:                                              ; preds = %100
-  %107 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %22)
-  %108 = load i8, ptr %6, align 1, !range !6, !noundef !7
+104:                                              ; preds = %98
+  %105 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %22)
+  %106 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %107 = trunc nuw i8 %106 to i1
+  %.not15 = xor i1 %107, true
+  %108 = load i8, ptr @docsis_dissect_encrypted_frames, align 1, !range !6
   %109 = trunc nuw i8 %108 to i1
-  br i1 %109, label %110, label %114
+  %or.cond17 = select i1 %.not15, i1 true, i1 %109
+  br i1 %or.cond17, label %111, label %110
 
-110:                                              ; preds = %106
-  %111 = load i8, ptr @docsis_dissect_encrypted_frames, align 1, !range !6, !noundef !7
-  %112 = trunc nuw i8 %111 to i1
-  br i1 %112, label %114, label %113
+110:                                              ; preds = %104
+  call fastcc void @dissect_encrypted_frame(ptr noundef %105, ptr noundef %1, ptr noundef %59, i8 noundef zeroext 2, i8 noundef zeroext %10)
+  br label %198
 
-113:                                              ; preds = %110
-  call fastcc void @dissect_encrypted_frame(ptr noundef %107, ptr noundef %1, ptr noundef %59, i8 noundef zeroext 2, i8 noundef zeroext %10)
-  br label %203
+111:                                              ; preds = %104
+  %112 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %113 = call i32 @call_dissector(ptr noundef %112, ptr noundef %105, ptr noundef %1, ptr noundef %59)
+  br label %198
 
-114:                                              ; preds = %110, %106
-  %115 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %116 = call i32 @call_dissector(ptr noundef %115, ptr noundef %107, ptr noundef %1, ptr noundef %59)
-  br label %203
-
-117:                                              ; preds = %55
+114:                                              ; preds = %55
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.197)
-  %118 = load i32, ptr @hf_docsis_machdr_fcparm, align 4
-  %119 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %118, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %120 = load i32, ptr @hf_docsis_exthdr, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %120, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  switch i8 %10, label %203 [
-    i8 0, label %122
-    i8 1, label %122
-    i8 2, label %135
-    i8 3, label %142
-    i8 4, label %190
-    i8 28, label %197
+  %115 = load i32, ptr @hf_docsis_machdr_fcparm, align 4
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %115, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %117 = load i32, ptr @hf_docsis_exthdr, align 4
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %117, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  switch i8 %10, label %198 [
+    i8 0, label %119
+    i8 1, label %119
+    i8 2, label %131
+    i8 3, label %138
+    i8 4, label %185
+    i8 28, label %192
   ]
 
-122:                                              ; preds = %117, %117
+119:                                              ; preds = %114, %114
   call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %123 = call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
-  br i1 %123, label %124, label %203
+  %120 = call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
+  br i1 %120, label %121, label %198
 
-124:                                              ; preds = %122
-  %125 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %22)
-  %126 = load i8, ptr %6, align 1, !range !6, !noundef !7
-  %127 = trunc nuw i8 %126 to i1
-  br i1 %127, label %128, label %132
+121:                                              ; preds = %119
+  %122 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %22)
+  %123 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %124 = trunc nuw i8 %123 to i1
+  %.not18 = xor i1 %124, true
+  %125 = load i8, ptr @docsis_dissect_encrypted_frames, align 1, !range !6
+  %126 = trunc nuw i8 %125 to i1
+  %or.cond20 = select i1 %.not18, i1 true, i1 %126
+  br i1 %or.cond20, label %128, label %127
 
-128:                                              ; preds = %124
-  %129 = load i8, ptr @docsis_dissect_encrypted_frames, align 1, !range !6, !noundef !7
-  %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %132, label %131
+127:                                              ; preds = %121
+  call fastcc void @dissect_encrypted_frame(ptr noundef %122, ptr noundef %1, ptr noundef %59, i8 noundef zeroext 3, i8 noundef zeroext %10)
+  br label %198
 
-131:                                              ; preds = %128
-  call fastcc void @dissect_encrypted_frame(ptr noundef %125, ptr noundef %1, ptr noundef %59, i8 noundef zeroext 3, i8 noundef zeroext %10)
-  br label %203
+128:                                              ; preds = %121
+  %129 = load ptr, ptr @docsis_mgmt_handle, align 8
+  %130 = call i32 @call_dissector(ptr noundef %129, ptr noundef %122, ptr noundef %1, ptr noundef %59)
+  br label %198
 
-132:                                              ; preds = %128, %124
-  %133 = load ptr, ptr @docsis_mgmt_handle, align 8
-  %134 = call i32 @call_dissector(ptr noundef %133, ptr noundef %125, ptr noundef %1, ptr noundef %59)
-  br label %203
+131:                                              ; preds = %114
+  %132 = load i32, ptr @hf_docsis_mini_slots, align 4
+  %133 = tail call ptr @proto_tree_add_uint(ptr noundef %59, i32 noundef %132, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %20)
+  %134 = load i32, ptr @hf_docsis_sid, align 4
+  %135 = zext i16 %19 to i32
+  %136 = tail call ptr @proto_tree_add_uint(ptr noundef %59, i32 noundef %134, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %135)
+  %137 = tail call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
+  br label %198
 
-135:                                              ; preds = %117
-  %136 = load i32, ptr @hf_docsis_mini_slots, align 4
-  %137 = tail call ptr @proto_tree_add_uint(ptr noundef %59, i32 noundef %136, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %20)
-  %138 = load i32, ptr @hf_docsis_sid, align 4
-  %139 = zext i16 %19 to i32
-  %140 = tail call ptr @proto_tree_add_uint(ptr noundef %59, i32 noundef %138, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %139)
-  %141 = tail call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
-  br label %203
-
-142:                                              ; preds = %117
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %144 = load i8, ptr %143, align 8, !range !6, !noundef !7
-  store i8 1, ptr %143, align 8
+138:                                              ; preds = %114
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %140 = load i8, ptr %139, align 8, !range !6, !noundef !7
+  store i8 1, ptr %139, align 8
   call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %145 = call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
-  br i1 %145, label %146, label %203
+  %141 = call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
+  br i1 %141, label %142, label %198
 
-146:                                              ; preds = %142
-  %147 = zext i16 %19 to i32
-  %148 = add nsw i32 %147, -4
-  %149 = add nsw i32 %148, %22
-  %150 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %149)
-  %151 = call i32 @tvb_captured_length(ptr noundef %0)
-  %152 = add i32 %151, -4
-  %153 = call i32 @crc32_802_tvb(ptr noundef %0, i32 noundef %152)
-  %154 = icmp eq i32 %150, %153
-  br i1 %154, label %155, label %184
+142:                                              ; preds = %138
+  %143 = zext i16 %19 to i32
+  %144 = add nsw i32 %143, -4
+  %145 = add nsw i32 %144, %22
+  %146 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %145)
+  %147 = call i32 @tvb_captured_length(ptr noundef %0)
+  %148 = add i32 %147, -4
+  %149 = call i32 @crc32_802_tvb(ptr noundef %0, i32 noundef %148)
+  %150 = icmp eq i32 %146, %149
+  br i1 %150, label %151, label %179
 
-155:                                              ; preds = %146
-  %156 = load i16, ptr @frag_sid, align 2
-  %157 = zext nneg i16 %156 to i32
-  %158 = load i8, ptr @frag_seq, align 1
-  %159 = zext nneg i8 %158 to i32
+151:                                              ; preds = %142
+  %152 = load i16, ptr @frag_sid, align 2
+  %153 = zext nneg i16 %152 to i32
+  %154 = load i8, ptr @frag_seq, align 1
+  %155 = zext nneg i8 %154 to i32
+  %156 = load i8, ptr @frag_flags, align 1
+  %157 = and i8 %156, 16
+  %.not276 = icmp eq i8 %157, 0
+  %158 = call ptr @fragment_add_seq_check(ptr noundef nonnull @docsis_reassembly_table, ptr noundef %0, i32 noundef %22, ptr noundef %1, i32 noundef %153, ptr noundef null, i32 noundef %155, i32 noundef %144, i1 noundef zeroext %.not276)
+  %159 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %22, ptr noundef %1, ptr noundef nonnull @.str.198, ptr noundef %158, ptr noundef nonnull @docsis_frag_items, ptr noundef null, ptr noundef %59)
   %160 = load i8, ptr @frag_flags, align 1
-  %161 = and i8 %160, 16
-  %.not261 = icmp eq i8 %161, 0
-  %162 = call ptr @fragment_add_seq_check(ptr noundef nonnull @docsis_reassembly_table, ptr noundef %0, i32 noundef %22, ptr noundef %1, i32 noundef %157, ptr noundef null, i32 noundef %159, i32 noundef %148, i1 noundef zeroext %.not261)
-  %163 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %22, ptr noundef %1, ptr noundef nonnull @.str.198, ptr noundef %162, ptr noundef nonnull @docsis_frag_items, ptr noundef null, ptr noundef %59)
-  %164 = load i8, ptr @frag_flags, align 1
-  %165 = icmp ne i8 %164, 16
-  %. = zext i1 %165 to i8
-  store i8 %., ptr %143, align 8
-  %.not262 = icmp eq ptr %162, null
-  br i1 %.not262, label %167, label %166
+  %161 = icmp ne i8 %160, 16
+  %. = zext i1 %161 to i8
+  store i8 %., ptr %139, align 8
+  %.not277 = icmp eq ptr %158, null
+  br i1 %.not277, label %163, label %162
 
-166:                                              ; preds = %155
+162:                                              ; preds = %151
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.199)
-  br label %170
+  br label %166
 
-167:                                              ; preds = %155
-  %168 = load i8, ptr @frag_seq, align 1
-  %169 = zext nneg i8 %168 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.200, i32 noundef %169)
-  br label %170
+163:                                              ; preds = %151
+  %164 = load i8, ptr @frag_seq, align 1
+  %165 = zext nneg i8 %164 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.200, i32 noundef %165)
+  br label %166
 
-170:                                              ; preds = %167, %166
-  %.not263 = icmp eq ptr %163, null
-  br i1 %.not263, label %181, label %171
+166:                                              ; preds = %163, %162
+  %.not278 = icmp eq ptr %159, null
+  br i1 %.not278, label %176, label %167
 
-171:                                              ; preds = %170
-  %172 = load i8, ptr %6, align 1, !range !6, !noundef !7
-  %173 = trunc nuw i8 %172 to i1
-  br i1 %173, label %174, label %178
+167:                                              ; preds = %166
+  %168 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %169 = trunc nuw i8 %168 to i1
+  %.not21 = xor i1 %169, true
+  %170 = load i8, ptr @docsis_dissect_encrypted_frames, align 1, !range !6
+  %171 = trunc nuw i8 %170 to i1
+  %or.cond23 = select i1 %.not21, i1 true, i1 %171
+  br i1 %or.cond23, label %173, label %172
 
-174:                                              ; preds = %171
-  %175 = load i8, ptr @docsis_dissect_encrypted_frames, align 1, !range !6, !noundef !7
-  %176 = trunc nuw i8 %175 to i1
-  br i1 %176, label %178, label %177
+172:                                              ; preds = %167
+  call fastcc void @dissect_encrypted_frame(ptr noundef nonnull %159, ptr noundef %1, ptr noundef %59, i8 noundef zeroext 3, i8 noundef zeroext 3)
+  br label %181
 
-177:                                              ; preds = %174
-  call fastcc void @dissect_encrypted_frame(ptr noundef nonnull %163, ptr noundef %1, ptr noundef %59, i8 noundef zeroext 3, i8 noundef zeroext 3)
-  br label %186
+173:                                              ; preds = %167
+  %174 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %175 = call i32 @call_dissector(ptr noundef %174, ptr noundef nonnull %159, ptr noundef %1, ptr noundef %59)
+  br label %181
 
-178:                                              ; preds = %174, %171
-  %179 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %180 = call i32 @call_dissector(ptr noundef %179, ptr noundef nonnull %163, ptr noundef %1, ptr noundef %59)
-  br label %186
+176:                                              ; preds = %166
+  %177 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %22, i32 noundef %144, i32 noundef -1)
+  %178 = call i32 @call_data_dissector(ptr noundef %177, ptr noundef %1, ptr noundef %59)
+  br label %181
 
-181:                                              ; preds = %170
-  %182 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %22, i32 noundef %148, i32 noundef -1)
-  %183 = call i32 @call_data_dissector(ptr noundef %182, ptr noundef %1, ptr noundef %59)
-  br label %186
+179:                                              ; preds = %142
+  %180 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %57, ptr noundef nonnull @ei_docsis_frag_fcs_bad)
+  br label %181
 
-184:                                              ; preds = %146
-  %185 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %57, ptr noundef nonnull @ei_docsis_frag_fcs_bad)
-  br label %186
+181:                                              ; preds = %176, %173, %172, %179
+  %182 = load i32, ptr @hf_docsis_frag_fcs, align 4
+  %183 = load i32, ptr @hf_docsis_frag_fcs_status, align 4
+  %184 = call ptr @proto_tree_add_checksum(ptr noundef %59, ptr noundef %0, i32 noundef %145, i32 noundef %182, i32 noundef %183, ptr noundef nonnull @ei_docsis_frag_fcs_bad, ptr noundef %1, i32 noundef %149, i32 noundef 0, i32 noundef 1)
+  store i8 %140, ptr %139, align 8
+  br label %198
 
-186:                                              ; preds = %181, %178, %177, %184
-  %187 = load i32, ptr @hf_docsis_frag_fcs, align 4
-  %188 = load i32, ptr @hf_docsis_frag_fcs_status, align 4
-  %189 = call ptr @proto_tree_add_checksum(ptr noundef %59, ptr noundef %0, i32 noundef %149, i32 noundef %187, i32 noundef %188, ptr noundef nonnull @ei_docsis_frag_fcs_bad, ptr noundef %1, i32 noundef %153, i32 noundef 0, i32 noundef 1)
-  store i8 %144, ptr %143, align 8
-  br label %203
+185:                                              ; preds = %114
+  %186 = load i32, ptr @hf_docsis_requested_size, align 4
+  %187 = tail call ptr @proto_tree_add_uint(ptr noundef %59, i32 noundef %186, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef %20)
+  %188 = load i32, ptr @hf_docsis_sid, align 4
+  %189 = zext i16 %19 to i32
+  %190 = tail call ptr @proto_tree_add_uint(ptr noundef %59, i32 noundef %188, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef %189)
+  %191 = tail call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
+  br label %198
 
-190:                                              ; preds = %117
-  %191 = load i32, ptr @hf_docsis_requested_size, align 4
-  %192 = tail call ptr @proto_tree_add_uint(ptr noundef %59, i32 noundef %191, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef %20)
-  %193 = load i32, ptr @hf_docsis_sid, align 4
-  %194 = zext i16 %19 to i32
-  %195 = tail call ptr @proto_tree_add_uint(ptr noundef %59, i32 noundef %193, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef %194)
-  %196 = tail call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
-  br label %203
-
-197:                                              ; preds = %117
+192:                                              ; preds = %114
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.201)
-  %198 = load i32, ptr @hf_docsis_concat_cnt, align 4
-  %199 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %198, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %200 = load i32, ptr @hf_docsis_len, align 4
-  %201 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %200, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
-  %202 = tail call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
-  br label %203
+  %193 = load i32, ptr @hf_docsis_concat_cnt, align 4
+  %194 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %193, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %195 = load i32, ptr @hf_docsis_len, align 4
+  %196 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %195, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
+  %197 = tail call fastcc zeroext i1 @dissect_hcs_field(ptr noundef %0, ptr noundef %1, ptr noundef %59, i32 noundef %22)
+  br label %198
 
-203:                                              ; preds = %135, %190, %197, %131, %132, %122, %186, %142, %117, %100, %114, %113, %79, %94, %95, %98, %62, %76, %75
-  %204 = call i32 @tvb_captured_length(ptr noundef %0)
+198:                                              ; preds = %131, %185, %192, %127, %128, %119, %181, %138, %114, %98, %111, %110, %78, %92, %93, %96, %62, %75, %74
+  %199 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #4
-  ret i32 %204
+  ret i32 %199
 }
 
 ; Function Attrs: null_pointer_is_valid

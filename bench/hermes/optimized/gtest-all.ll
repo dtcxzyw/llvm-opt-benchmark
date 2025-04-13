@@ -22749,15 +22749,13 @@ _ZNK7testing8TestCase30reportable_disabled_test_countEv.exit.i.i: ; preds = %_ZN
   br i1 %exitcond.not.i.i164, label %_ZNK7testing8UnitTest30reportable_disabled_test_countEv.exit, label %for.body.us.i.i.i146, !llvm.loop !41
 
 _ZNK7testing8UnitTest30reportable_disabled_test_countEv.exit: ; preds = %_ZNK7testing8TestCase30reportable_disabled_test_countEv.exit.i.i
-  %tobool39.not = icmp eq i32 %add.us.i.i.i162, 0
-  br i1 %tobool39.not, label %if.end48, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %_ZNK7testing8UnitTest30reportable_disabled_test_countEv.exit
+  %tobool39 = icmp eq i32 %add.us.i.i.i162, 0
   %72 = load i8, ptr @_ZN7testing35FLAGS_gtest_also_run_disabled_testsE, align 1
   %tobool40 = trunc i8 %72 to i1
-  br i1 %tobool40, label %if.end48, label %if.then41
+  %or.cond = select i1 %tobool39, i1 true, i1 %tobool40
+  br i1 %or.cond, label %if.end48, label %if.then41
 
-if.then41:                                        ; preds = %land.lhs.true
+if.then41:                                        ; preds = %_ZNK7testing8UnitTest30reportable_disabled_test_countEv.exit
   %tobool42.not = icmp eq i32 %sum.0.lcssa.i.i.i78, 0
   br i1 %tobool42.not, label %if.then43, label %if.end45
 
@@ -22771,7 +22769,7 @@ if.end45:                                         ; preds = %if.then43, %if.then
   call void (i32, ptr, ...) @_ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz(i32 noundef 3, ptr noundef nonnull @.str.170, i32 noundef %add.us.i.i.i162, ptr noundef nonnull %cond47)
   br label %if.end48
 
-if.end48:                                         ; preds = %if.end37, %if.end45, %land.lhs.true, %_ZNK7testing8UnitTest30reportable_disabled_test_countEv.exit
+if.end48:                                         ; preds = %if.end37, %if.end45, %_ZNK7testing8UnitTest30reportable_disabled_test_countEv.exit
   %73 = load ptr, ptr @stdout, align 8
   %call49 = call i32 @fflush(ptr noundef %73)
   ret void
@@ -31515,14 +31513,12 @@ _ZN7testing8internal12UnitTestImpl23ClearNonAdHocTestResultEv.exit: ; preds = %_
   %31 = load i64, ptr %tv_usec.i22, align 8
   %div.i23.neg = sdiv i64 %31, -1000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %now.i19)
-  br i1 %cmp11, label %land.lhs.true, label %if.end67.critedge
-
-land.lhs.true:                                    ; preds = %_ZN7testing8internal12UnitTestImpl23ClearNonAdHocTestResultEv.exit
   %32 = load i8, ptr @_ZN7testing19FLAGS_gtest_shuffleE, align 1
   %tobool33 = trunc i8 %32 to i1
-  br i1 %tobool33, label %if.then34, label %if.then42
+  %or.cond = select i1 %cmp11, i1 %tobool33, i1 false
+  br i1 %or.cond, label %if.then34, label %if.end37
 
-if.then34:                                        ; preds = %land.lhs.true
+if.then34:                                        ; preds = %_ZN7testing8internal12UnitTestImpl23ClearNonAdHocTestResultEv.exit
   %33 = load i32, ptr %random_seed_, align 4
   store i32 %33, ptr %random_.i, align 8
   %34 = load i32, ptr %last_death_test_case_.i, align 4
@@ -31541,7 +31537,7 @@ if.then34:                                        ; preds = %land.lhs.true
   %38 = load ptr, ptr %_M_finish.i.i.i, align 8
   %39 = load ptr, ptr %test_cases_.i, align 8
   %cmp14.not.i = icmp eq ptr %38, %39
-  br i1 %cmp14.not.i, label %if.then42, label %for.body.i
+  br i1 %cmp14.not.i, label %if.end37, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then34, %for.body.i
   %40 = phi ptr [ %45, %for.body.i ], [ %39, %if.then34 ]
@@ -31566,14 +31562,17 @@ for.body.i:                                       ; preds = %if.then34, %for.bod
   %sub.ptr.sub.i7.i = sub i64 %sub.ptr.lhs.cast.i5.i, %sub.ptr.rhs.cast.i6.i
   %sub.ptr.div.i8.i = ashr exact i64 %sub.ptr.sub.i7.i, 3
   %cmp.i28 = icmp ult i64 %inc.i, %sub.ptr.div.i8.i
-  br i1 %cmp.i28, label %for.body.i, label %if.then42, !llvm.loop !425
+  br i1 %cmp.i28, label %for.body.i, label %if.end37, !llvm.loop !425
 
-if.then42:                                        ; preds = %for.body.i, %land.lhs.true, %if.then34
+if.end37:                                         ; preds = %for.body.i, %if.then34, %_ZN7testing8internal12UnitTestImpl23ClearNonAdHocTestResultEv.exit
   %46 = load ptr, ptr %parent_, align 8
   %vtable39 = load ptr, ptr %10, align 8
   %vfn40 = getelementptr inbounds nuw i8, ptr %vtable39, i64 24
   %47 = load ptr, ptr %vfn40, align 8
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(72) %46, i32 noundef %i.099)
+  br i1 %cmp11, label %if.then42, label %if.end67
+
+if.then42:                                        ; preds = %if.end37
   %48 = load ptr, ptr %parent_, align 8
   %vtable44 = load ptr, ptr %10, align 8
   %vfn45 = getelementptr inbounds nuw i8, ptr %vtable44, i64 32
@@ -31727,61 +31726,53 @@ _ZSt8for_eachISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN7testing11E
   tail call void %83(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(72) %82)
   br label %if.end67
 
-if.end67.critedge:                                ; preds = %_ZN7testing8internal12UnitTestImpl23ClearNonAdHocTestResultEv.exit
-  %84 = load ptr, ptr %parent_, align 8
-  %vtable39.c = load ptr, ptr %10, align 8
-  %vfn40.c = getelementptr inbounds nuw i8, ptr %vtable39.c, i64 24
-  %85 = load ptr, ptr %vfn40.c, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(72) %84, i32 noundef %i.099)
-  br label %if.end67
-
-if.end67:                                         ; preds = %if.end67.critedge, %_ZSt8for_eachISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN7testing11EnvironmentESt6vectorIS5_SaIS5_EEEEEPFvS5_EET0_T_SF_SE_.exit
+if.end67:                                         ; preds = %_ZSt8for_eachISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN7testing11EnvironmentESt6vectorIS5_SaIS5_EEEEEPFvS5_EET0_T_SF_SE_.exit, %if.end37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %now.i51)
   %call.i52 = call i32 @gettimeofday(ptr noundef nonnull %now.i51, ptr noundef null) #52
-  %86 = load i64, ptr %now.i51, align 8
-  %87 = load i64, ptr %tv_usec.i54, align 8
-  %div.i55 = sdiv i64 %87, 1000
+  %84 = load i64, ptr %now.i51, align 8
+  %85 = load i64, ptr %tv_usec.i54, align 8
+  %div.i55 = sdiv i64 %85, 1000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %now.i51)
-  %reass.add = sub i64 %86, %30
+  %reass.add = sub i64 %84, %30
   %reass.mul = mul i64 %reass.add, 1000
   %add.i24.neg = add nsw i64 %div.i55, %div.i23.neg
   %sub = add i64 %add.i24.neg, %reass.mul
   store i64 %sub, ptr %elapsed_time_, align 8
-  %88 = load ptr, ptr %parent_, align 8
+  %86 = load ptr, ptr %parent_, align 8
   %vtable70 = load ptr, ptr %10, align 8
   %vfn71 = getelementptr inbounds nuw i8, ptr %vtable70, i64 104
-  %89 = load ptr, ptr %vfn71, align 8
-  tail call void %89(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(72) %88, i32 noundef %i.099)
+  %87 = load ptr, ptr %vfn71, align 8
+  tail call void %87(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(72) %86, i32 noundef %i.099)
   %call.i57 = tail call noundef zeroext i1 @_ZNK7testing8internal12UnitTestImpl6FailedEv(ptr noundef nonnull align 8 dereferenceable(497) %this)
   %spec.select = select i1 %call.i57, i1 true, i1 %failed.098
-  %90 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %91 = load ptr, ptr %test_cases_.i, align 8
-  %cmp10.not.i = icmp eq ptr %90, %91
+  %88 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %89 = load ptr, ptr %test_cases_.i, align 8
+  %cmp10.not.i = icmp eq ptr %88, %89
   br i1 %cmp10.not.i, label %_ZN7testing8internal12UnitTestImpl14UnshuffleTestsEv.exit, label %for.body.i61
 
 for.body.i61:                                     ; preds = %if.end67, %_ZN7testing8TestCase14UnshuffleTestsEv.exit.i
-  %92 = phi ptr [ %101, %_ZN7testing8TestCase14UnshuffleTestsEv.exit.i ], [ %91, %if.end67 ]
+  %90 = phi ptr [ %99, %_ZN7testing8TestCase14UnshuffleTestsEv.exit.i ], [ %89, %if.end67 ]
   %i.011.i = phi i64 [ %inc.i73, %_ZN7testing8TestCase14UnshuffleTestsEv.exit.i ], [ 0, %if.end67 ]
-  %add.ptr.i.i62 = getelementptr inbounds ptr, ptr %92, i64 %i.011.i
-  %93 = load ptr, ptr %add.ptr.i.i62, align 8
-  %test_indices_.i.i63 = getelementptr inbounds nuw i8, ptr %93, i64 72
-  %_M_finish.i.i.i64 = getelementptr inbounds nuw i8, ptr %93, i64 80
-  %94 = load ptr, ptr %_M_finish.i.i.i64, align 8
-  %95 = load ptr, ptr %test_indices_.i.i63, align 8
-  %cmp8.not.i.i = icmp eq ptr %94, %95
+  %add.ptr.i.i62 = getelementptr inbounds ptr, ptr %90, i64 %i.011.i
+  %91 = load ptr, ptr %add.ptr.i.i62, align 8
+  %test_indices_.i.i63 = getelementptr inbounds nuw i8, ptr %91, i64 72
+  %_M_finish.i.i.i64 = getelementptr inbounds nuw i8, ptr %91, i64 80
+  %92 = load ptr, ptr %_M_finish.i.i.i64, align 8
+  %93 = load ptr, ptr %test_indices_.i.i63, align 8
+  %cmp8.not.i.i = icmp eq ptr %92, %93
   br i1 %cmp8.not.i.i, label %_ZN7testing8TestCase14UnshuffleTestsEv.exit.i, label %for.body.i.i65
 
 for.body.i.i65:                                   ; preds = %for.body.i61, %for.body.i.i65
-  %96 = phi ptr [ %98, %for.body.i.i65 ], [ %95, %for.body.i61 ]
+  %94 = phi ptr [ %96, %for.body.i.i65 ], [ %93, %for.body.i61 ]
   %i.09.i.i = phi i64 [ %inc.i.i, %for.body.i.i65 ], [ 0, %for.body.i61 ]
   %conv.i.i66 = trunc i64 %i.09.i.i to i32
-  %add.ptr.i.i.i67 = getelementptr inbounds i32, ptr %96, i64 %i.09.i.i
+  %add.ptr.i.i.i67 = getelementptr inbounds i32, ptr %94, i64 %i.09.i.i
   store i32 %conv.i.i66, ptr %add.ptr.i.i.i67, align 4
   %inc.i.i = add nuw i64 %i.09.i.i, 1
-  %97 = load ptr, ptr %_M_finish.i.i.i64, align 8
-  %98 = load ptr, ptr %test_indices_.i.i63, align 8
-  %sub.ptr.lhs.cast.i.i.i68 = ptrtoint ptr %97 to i64
-  %sub.ptr.rhs.cast.i.i.i69 = ptrtoint ptr %98 to i64
+  %95 = load ptr, ptr %_M_finish.i.i.i64, align 8
+  %96 = load ptr, ptr %test_indices_.i.i63, align 8
+  %sub.ptr.lhs.cast.i.i.i68 = ptrtoint ptr %95 to i64
+  %sub.ptr.rhs.cast.i.i.i69 = ptrtoint ptr %96 to i64
   %sub.ptr.sub.i.i.i70 = sub i64 %sub.ptr.lhs.cast.i.i.i68, %sub.ptr.rhs.cast.i.i.i69
   %sub.ptr.div.i.i.i71 = ashr exact i64 %sub.ptr.sub.i.i.i70, 2
   %cmp.i.i = icmp ult i64 %inc.i.i, %sub.ptr.div.i.i.i71
@@ -31789,47 +31780,47 @@ for.body.i.i65:                                   ; preds = %for.body.i61, %for.
 
 _ZN7testing8TestCase14UnshuffleTestsEv.exit.i:    ; preds = %for.body.i.i65, %for.body.i61
   %conv.i72 = trunc i64 %i.011.i to i32
-  %99 = load ptr, ptr %test_case_indices_.i, align 8
-  %add.ptr.i5.i = getelementptr inbounds i32, ptr %99, i64 %i.011.i
+  %97 = load ptr, ptr %test_case_indices_.i, align 8
+  %add.ptr.i5.i = getelementptr inbounds i32, ptr %97, i64 %i.011.i
   store i32 %conv.i72, ptr %add.ptr.i5.i, align 4
   %inc.i73 = add nuw i64 %i.011.i, 1
-  %100 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %101 = load ptr, ptr %test_cases_.i, align 8
-  %sub.ptr.lhs.cast.i.i74 = ptrtoint ptr %100 to i64
-  %sub.ptr.rhs.cast.i.i75 = ptrtoint ptr %101 to i64
+  %98 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %99 = load ptr, ptr %test_cases_.i, align 8
+  %sub.ptr.lhs.cast.i.i74 = ptrtoint ptr %98 to i64
+  %sub.ptr.rhs.cast.i.i75 = ptrtoint ptr %99 to i64
   %sub.ptr.sub.i.i76 = sub i64 %sub.ptr.lhs.cast.i.i74, %sub.ptr.rhs.cast.i.i75
   %sub.ptr.div.i.i77 = ashr exact i64 %sub.ptr.sub.i.i76, 3
   %cmp.i78 = icmp ult i64 %inc.i73, %sub.ptr.div.i.i77
   br i1 %cmp.i78, label %for.body.i61, label %_ZN7testing8internal12UnitTestImpl14UnshuffleTestsEv.exit, !llvm.loop !435
 
 _ZN7testing8internal12UnitTestImpl14UnshuffleTestsEv.exit: ; preds = %_ZN7testing8TestCase14UnshuffleTestsEv.exit.i, %if.end67
-  %102 = load i8, ptr @_ZN7testing19FLAGS_gtest_shuffleE, align 1
-  %tobool75 = trunc i8 %102 to i1
+  %100 = load i8, ptr @_ZN7testing19FLAGS_gtest_shuffleE, align 1
+  %tobool75 = trunc i8 %100 to i1
   br i1 %tobool75, label %if.then76, label %for.inc81
 
 if.then76:                                        ; preds = %_ZN7testing8internal12UnitTestImpl14UnshuffleTestsEv.exit
-  %103 = load i32, ptr %random_seed_, align 4
-  %call78 = tail call noundef i32 @_ZN7testing8internal17GetNextRandomSeedEi(i32 noundef %103)
+  %101 = load i32, ptr %random_seed_, align 4
+  %call78 = tail call noundef i32 @_ZN7testing8internal17GetNextRandomSeedEi(i32 noundef %101)
   store i32 %call78, ptr %random_seed_, align 4
   br label %for.inc81
 
 for.inc81:                                        ; preds = %_ZN7testing8internal12UnitTestImpl14UnshuffleTestsEv.exit, %if.then76
   %inc82 = add nuw nsw i32 %i.099, 1
   %cmp30 = icmp ne i32 %inc82, %cond26
-  %104 = select i1 %cmp27, i1 true, i1 %cmp30
-  br i1 %104, label %for.body, label %for.end83.loopexit, !llvm.loop !436
+  %102 = select i1 %cmp27, i1 true, i1 %cmp30
+  br i1 %102, label %for.body, label %for.end83.loopexit, !llvm.loop !436
 
 for.end83.loopexit:                               ; preds = %for.inc81
-  %105 = xor i1 %spec.select, true
+  %103 = xor i1 %spec.select, true
   br label %for.end83
 
 for.end83:                                        ; preds = %for.end83.loopexit, %cond.end
-  %failed.0.lcssa = phi i1 [ true, %cond.end ], [ %105, %for.end83.loopexit ]
-  %106 = load ptr, ptr %parent_, align 8
+  %failed.0.lcssa = phi i1 [ true, %cond.end ], [ %103, %for.end83.loopexit ]
+  %104 = load ptr, ptr %parent_, align 8
   %vtable85 = load ptr, ptr %10, align 8
   %vfn86 = getelementptr inbounds nuw i8, ptr %vtable85, i64 112
-  %107 = load ptr, ptr %vfn86, align 8
-  tail call void %107(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(72) %106)
+  %105 = load ptr, ptr %vfn86, align 8
+  tail call void %105(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(72) %104)
   br label %return
 
 return:                                           ; preds = %if.end, %for.end83, %if.then14, %if.then
@@ -34089,10 +34080,10 @@ invoke.cont36:                                    ; preds = %lor.end
   %14 = load i8, ptr @_ZN7testing35FLAGS_gtest_also_run_disabled_testsE, align 1
   %tobool41 = trunc i8 %14 to i1
   %.not = xor i1 %13, true
-  %brmerge = or i1 %.not, %tobool41
-  %spec.select = and i1 %call37, %brmerge
-  %brmerge125.not = and i1 %cmp47, %spec.select
-  br i1 %brmerge125.not, label %lor.rhs48, label %land.end51
+  %not.or.cond = or i1 %.not, %tobool41
+  %spec.select = and i1 %call37, %not.or.cond
+  %brmerge.not = and i1 %cmp47, %spec.select
+  br i1 %brmerge.not, label %lor.rhs48, label %land.end51
 
 lor.rhs48:                                        ; preds = %invoke.cont36
   %rem.i = srem i32 %num_runnable_tests.1114, %cond79

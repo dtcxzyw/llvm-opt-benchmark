@@ -1003,8 +1003,8 @@ _ZN10async_task5utils14abort_on_panic17h0d70720f0571f549E.exit: ; preds = %23
 
 29:                                               ; preds = %_ZN10async_task5utils14abort_on_panic17h0d70720f0571f549E.exit, %8, %15, %17, %2
   %.sroa.4.1 = phi ptr [ undef, %2 ], [ %12, %17 ], [ %12, %15 ], [ undef, %8 ], [ undef, %_ZN10async_task5utils14abort_on_panic17h0d70720f0571f549E.exit ]
-  %.sroa.02.1 = phi ptr [ null, %2 ], [ %10, %17 ], [ %10, %15 ], [ null, %8 ], [ null, %_ZN10async_task5utils14abort_on_panic17h0d70720f0571f549E.exit ]
-  %30 = insertvalue { ptr, ptr } poison, ptr %.sroa.02.1, 0
+  %.sroa.04.1 = phi ptr [ null, %2 ], [ %10, %17 ], [ %10, %15 ], [ null, %8 ], [ null, %_ZN10async_task5utils14abort_on_panic17h0d70720f0571f549E.exit ]
+  %30 = insertvalue { ptr, ptr } poison, ptr %.sroa.04.1, 0
   %31 = insertvalue { ptr, ptr } %30, ptr %.sroa.4.1, 1
   ret { ptr, ptr } %31
 }
@@ -1354,9 +1354,9 @@ default.unreachable.i.i:                          ; preds = %.noexc
 
 60:                                               ; preds = %.noexc.i
   %61 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hdb1c1ed658baa990E()
-          to label %.noexc3.i unwind label %68
+          to label %.noexc4.i unwind label %68
 
-.noexc3.i:                                        ; preds = %60
+.noexc4.i:                                        ; preds = %60
   %62 = xor i1 %61, true
   %63 = zext i1 %62 to i8
   br label %70
@@ -1380,8 +1380,8 @@ default.unreachable.i.i:                          ; preds = %.noexc
           cleanup
   br label %.body.i
 
-70:                                               ; preds = %.noexc3.i, %.noexc.i
-  %.sroa.01.0.i.i.i = phi i8 [ %63, %.noexc3.i ], [ 0, %.noexc.i ]
+70:                                               ; preds = %.noexc4.i, %.noexc.i
+  %.sroa.01.0.i.i.i = phi i8 [ %63, %.noexc4.i ], [ 0, %.noexc.i ]
   %71 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %72 = load atomic i8, ptr %71 monotonic, align 1, !noalias !268
   %.not.i7 = icmp eq i8 %72, 0
@@ -1436,16 +1436,16 @@ default.unreachable.i.i:                          ; preds = %.noexc
 
 91:                                               ; preds = %87
   %92 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hdb1c1ed658baa990E()
-          to label %.noexc5.i unwind label %68
+          to label %.noexc6.i unwind label %68
 
-.noexc5.i:                                        ; preds = %91
+.noexc6.i:                                        ; preds = %91
   br i1 %92, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.7219230611176236013.exit.i.i.i, label %93
 
-93:                                               ; preds = %.noexc5.i
+93:                                               ; preds = %.noexc6.i
   store atomic i8 1, ptr %71 monotonic, align 1, !noalias !283
   br label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.7219230611176236013.exit.i.i.i
 
-_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.7219230611176236013.exit.i.i.i: ; preds = %93, %.noexc5.i, %87, %85
+_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.7219230611176236013.exit.i.i.i: ; preds = %93, %.noexc6.i, %87, %85
   %94 = atomicrmw xchg ptr %54, i32 0 release, align 4, !noalias !290
   %95 = icmp eq i32 %94, 2
   br i1 %95, label %96, label %"_ZN4core3ptr90drop_in_place$LT$std..sync..mutex..MutexGuard$LT$futures_channel..mpsc..SenderTask$GT$$GT$17h1c859d359a4b967eE.llvm.7219230611176236013.exit.i"

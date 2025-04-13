@@ -776,16 +776,14 @@ if.then21:                                        ; preds = %if.end
   %13 = ptrtoint ptr %iteratedString_23 to i64
   %and.i.i.i.i = and i64 %13, 562949949227008
   %14 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i = icmp eq ptr %12, %14
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %if.then21
+  %cmp.i.i.i = icmp ne ptr %12, %14
   %ogMarkingBarriers_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
   %15 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
   %tobool.i.i = trunc i8 %15 to i1
-  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
+  %or.cond.i.i = select i1 %cmp.i.i.i, i1 %tobool.i.i, i1 false
+  br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
 
-if.then.i.i:                                      ; preds = %land.rhs.i.i
+if.then.i.i:                                      ; preds = %if.then21
   %16 = load i32, ptr %iteratedString_23, align 4
   %cmp.i.i.not.i.i = icmp eq i32 %16, 0
   br i1 %cmp.i.i.not.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, label %if.then3.i.i
@@ -794,7 +792,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   tail call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i32 %16) #4
   br label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
 
-_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit: ; preds = %if.then21, %land.rhs.i.i, %if.then.i.i, %if.then3.i.i
+_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit: ; preds = %if.then21, %if.then.i.i, %if.then3.i.i
   store i32 0, ptr %iteratedString_23, align 4
   %call33 = tail call ptr @_ZN6hermes2vm22createIterResultObjectERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, i1 noundef zeroext true) #4
   br label %return.sink.split

@@ -1859,7 +1859,7 @@ define range(i32 -1, -2147483648) i32 @H5O_link(ptr noundef readonly captures(no
 12:                                               ; preds = %2
   %13 = xor i1 %10, true
   %14 = select i1 %8, i1 true, i1 %13
-  br i1 %14, label %15, label %.thread27, !prof !10
+  br i1 %14, label %15, label %.thread28, !prof !10
 
 15:                                               ; preds = %.thread, %12
   %16 = call ptr @H5O_pin(ptr noundef nonnull %0)
@@ -1882,7 +1882,7 @@ define range(i32 -1, -2147483648) i32 @H5O_link(ptr noundef readonly captures(no
   %27 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %28 = load i64, ptr @H5E_CANTPIN_g, align 8, !tbaa !11
   %29 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O_link, i32 noundef 945, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.37) #13
-  br label %.thread27
+  br label %.thread28
 
 30:                                               ; preds = %22, %18
   %.0.ph = phi i32 [ %20, %18 ], [ -1, %22 ]
@@ -1925,34 +1925,32 @@ define range(i32 -1, -2147483648) i32 @H5O_link(ptr noundef readonly captures(no
   %54 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
   %55 = load i64, ptr @H5E_CANTUNPIN_g, align 8, !tbaa !11
   %56 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O_link, i32 noundef 953, i64 noundef %54, i64 noundef %55, ptr noundef nonnull @.str.39) #13
-  br label %.thread27
+  br label %.thread28
 
 57:                                               ; preds = %36, %39, %44
   %58 = icmp sgt i32 %.0.ph, -1
-  br i1 %58, label %59, label %.thread27
+  %59 = load i8, ptr %3, align 1, !range !7
+  %60 = trunc nuw i8 %59 to i1
+  %or.cond = select i1 %58, i1 %60, i1 false
+  br i1 %or.cond, label %61, label %.thread28
 
-59:                                               ; preds = %57
-  %60 = load i8, ptr %3, align 1, !tbaa !3, !range !7, !noundef !8
-  %61 = trunc nuw i8 %60 to i1
-  br i1 %61, label %62, label %.thread27
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %0, align 8, !tbaa !63
+  %63 = load i64, ptr %5, align 8, !tbaa !66
+  %64 = call i32 @H5O_delete(ptr noundef %62, i64 noundef %63)
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %66, label %.thread28
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %0, align 8, !tbaa !63
-  %64 = load i64, ptr %5, align 8, !tbaa !66
-  %65 = call i32 @H5O_delete(ptr noundef %63, i64 noundef %64)
-  %66 = icmp slt i32 %65, 0
-  br i1 %66, label %67, label %.thread27
+66:                                               ; preds = %61
+  %67 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
+  %68 = load i64, ptr @H5E_CANTDELETE_g, align 8, !tbaa !11
+  %69 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O_link, i32 noundef 955, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.40) #13
+  br label %.thread28
 
-67:                                               ; preds = %62
-  %68 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11
-  %69 = load i64, ptr @H5E_CANTDELETE_g, align 8, !tbaa !11
-  %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O_link, i32 noundef 955, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.40) #13
-  br label %.thread27
-
-.thread27:                                        ; preds = %26, %47, %57, %59, %62, %67, %12
-  %.1 = phi i32 [ -1, %67 ], [ %.0.ph, %62 ], [ %.0.ph, %59 ], [ -1, %57 ], [ -1, %12 ], [ -1, %47 ], [ -1, %26 ]
-  %71 = load i64, ptr %4, align 8, !tbaa !11
-  call void @H5AC_tag(i64 noundef %71, ptr noundef null) #13
+.thread28:                                        ; preds = %26, %47, %57, %61, %66, %12
+  %.1 = phi i32 [ -1, %66 ], [ %.0.ph, %61 ], [ %.0.ph, %57 ], [ -1, %12 ], [ -1, %47 ], [ -1, %26 ]
+  %70 = load i64, ptr %4, align 8, !tbaa !11
+  call void @H5AC_tag(i64 noundef %70, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #13
   ret i32 %.1

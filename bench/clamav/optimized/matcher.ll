@@ -781,9 +781,13 @@ sub_1137:                                         ; preds = %sub_0136
   %.pr = load i32, ptr %3, align 4, !tbaa !46
   %switch.tableidx = add i32 %.pr, 1
   %115 = icmp ult i32 %switch.tableidx, 10
-  br i1 %115, label %switch.hole_check, label %116
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 525, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %115, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.critedge, label %116
 
-116:                                              ; preds = %switch.hole_check, %114, %.thread
+116:                                              ; preds = %114, %.thread
   switch i32 %2, label %117 [
     i32 9, label %.critedge
     i32 6, label %.critedge
@@ -947,14 +951,8 @@ sub_1137:                                         ; preds = %sub_0136
   store i32 %203, ptr %5, align 4, !tbaa !46
   br label %.critedge
 
-switch.hole_check:                                ; preds = %114
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 525, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %.critedge, label %116
-
-.critedge:                                        ; preds = %switch.hole_check, %.thread132, %200, %198, %.thread133, %195, %116, %116, %116, %177, %192, %120, %194, %117, %106, %102, %98, %87, %82, %70, %56, %41, %26, %19, %16, %11
-  %.0 = phi i32 [ 3, %194 ], [ 4, %19 ], [ 4, %117 ], [ 4, %56 ], [ 4, %82 ], [ 4, %70 ], [ 4, %98 ], [ 4, %102 ], [ 4, %106 ], [ 4, %87 ], [ 4, %41 ], [ 4, %26 ], [ 0, %16 ], [ 2, %11 ], [ 0, %120 ], [ 0, %192 ], [ 0, %177 ], [ 0, %116 ], [ 0, %116 ], [ 0, %116 ], [ 0, %195 ], [ 0, %.thread133 ], [ 0, %198 ], [ 0, %200 ], [ 0, %.thread132 ], [ 0, %switch.hole_check ]
+.critedge:                                        ; preds = %114, %.thread132, %200, %198, %.thread133, %195, %116, %116, %116, %177, %192, %120, %194, %117, %106, %102, %98, %87, %82, %70, %56, %41, %26, %19, %16, %11
+  %.0 = phi i32 [ 3, %194 ], [ 4, %19 ], [ 4, %117 ], [ 4, %56 ], [ 4, %82 ], [ 4, %70 ], [ 4, %98 ], [ 4, %102 ], [ 4, %106 ], [ 4, %87 ], [ 4, %41 ], [ 4, %26 ], [ 0, %16 ], [ 2, %11 ], [ 0, %120 ], [ 0, %192 ], [ 0, %177 ], [ 0, %116 ], [ 0, %116 ], [ 0, %116 ], [ 0, %195 ], [ 0, %.thread133 ], [ 0, %198 ], [ 0, %200 ], [ 0, %.thread132 ], [ 0, %114 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %7) #13

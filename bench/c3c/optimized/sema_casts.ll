@@ -1662,8 +1662,8 @@ define internal zeroext i1 @rule_to_distinct(ptr noundef %0, i1 noundef zeroext 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %5
 
-5:                                                ; preds = %.backedge85, %3
-  %.0.i.in = phi ptr [ %4, %3 ], [ %.0.i.in.be, %.backedge85 ]
+5:                                                ; preds = %.backedge84, %3
+  %.0.i.in = phi ptr [ %4, %3 ], [ %.0.i.in.be, %.backedge84 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1680,13 +1680,13 @@ define internal zeroext i1 @rule_to_distinct(ptr noundef %0, i1 noundef zeroext 
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  br label %.backedge85
+  br label %.backedge84
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  br label %.backedge85
+  br label %.backedge84
 
-.backedge85:                                      ; preds = %15, %9
+.backedge84:                                      ; preds = %15, %9
   %.0.i.in.be = phi ptr [ %16, %15 ], [ %14, %9 ]
   br label %5
 
@@ -1720,7 +1720,7 @@ type_flatten.exit:                                ; preds = %5
 
 29:                                               ; preds = %.preheader, %.backedge
   %30 = phi i32 [ %.pre, %.backedge ], [ %23, %.preheader ]
-  %.055 = phi ptr [ %.055.be, %.backedge ], [ %19, %.preheader ]
+  %.056 = phi ptr [ %.056.be, %.backedge ], [ %19, %.preheader ]
   switch i32 %30, label %.critedge [
     i32 31, label %31
     i32 40, label %.backedge
@@ -1738,9 +1738,9 @@ type_flatten.exit:                                ; preds = %5
 
 .backedge:                                        ; preds = %29, %29, %29, %29, %29, %29, %31
   %.sink = phi i64 [ 8, %31 ], [ 56, %29 ], [ 56, %29 ], [ 56, %29 ], [ 56, %29 ], [ 56, %29 ], [ 56, %29 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.055, i64 %.sink
-  %.055.be = load ptr, ptr %32, align 8
-  %.pre = load i32, ptr %.055.be, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %.056, i64 %.sink
+  %.056.be = load ptr, ptr %32, align 8
+  %.pre = load i32, ptr %.056.be, align 8
   br label %29
 
 .critedge:                                        ; preds = %29
@@ -1750,7 +1750,7 @@ type_flatten.exit:                                ; preds = %5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %29, %25, %25, %type_flatten.exit, %.critedge
-  %.056 = phi i32 [ %35, %.critedge ], [ 19, %type_flatten.exit ], [ 20, %25 ], [ 20, %25 ], [ 21, %29 ], [ 21, %29 ]
+  %.057 = phi i32 [ %35, %.critedge ], [ 19, %type_flatten.exit ], [ 20, %25 ], [ 20, %25 ], [ 21, %29 ], [ 21, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -1759,7 +1759,7 @@ type_flatten.exit:                                ; preds = %5
   %41 = icmp eq i16 %40, 14
   store ptr %7, ptr %4, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.056, ptr %42, align 4
+  store i32 %.057, ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -1774,13 +1774,13 @@ type_flatten.exit:                                ; preds = %5
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, -1
-  %53 = icmp eq i32 %.056, -1
+  %53 = icmp eq i32 %.057, -1
   %or.cond.i = select i1 %52, i1 true, i1 %53
   br i1 %or.cond.i, label %cast_is_allowed.exit, label %54
 
 54:                                               ; preds = %49
   %55 = sext i32 %51 to i64
-  %56 = sext i32 %.056 to i64
+  %56 = sext i32 %.057 to i64
   %57 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_rules, i64 0, i64 %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not.i = icmp eq ptr %58, null
@@ -1791,9 +1791,9 @@ type_flatten.exit:                                ; preds = %5
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %49, %54, %59
-  %.0.i67 = phi i1 [ %60, %59 ], [ false, %54 ], [ false, %49 ]
-  %brmerge61 = or i1 %2, %.0.i67
-  br i1 %brmerge61, label %cast_is_allowed.exit.thread, label %61
+  %.0.i66 = phi i1 [ %60, %59 ], [ false, %54 ], [ false, %49 ]
+  %brmerge = or i1 %2, %.0.i66
+  br i1 %brmerge, label %cast_is_allowed.exit.thread, label %61
 
 61:                                               ; preds = %cast_is_allowed.exit
   br i1 %1, label %cast_is_allowed.exit.thread.sink.split, label %62
@@ -1811,61 +1811,61 @@ cast_is_allowed.exit:                             ; preds = %49, %54, %59
   %70 = load i32, ptr %42, align 4
   %71 = icmp eq i32 %69, -1
   %72 = icmp eq i32 %70, -1
-  %or.cond.i68 = select i1 %71, i1 true, i1 %72
-  br i1 %or.cond.i68, label %cast_is_allowed.exit.thread.sink.split, label %73
+  %or.cond.i67 = select i1 %71, i1 true, i1 %72
+  br i1 %or.cond.i67, label %cast_is_allowed.exit.thread.sink.split, label %73
 
 73:                                               ; preds = %68
   %74 = sext i32 %69 to i64
   %75 = sext i32 %70 to i64
   %76 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_rules, i64 0, i64 %74, i64 %75
   %77 = load ptr, ptr %76, align 8
-  %.not.i69 = icmp eq ptr %77, null
-  br i1 %.not.i69, label %cast_is_allowed.exit.thread.sink.split, label %78
+  %.not.i68 = icmp eq ptr %77, null
+  br i1 %.not.i68, label %cast_is_allowed.exit.thread.sink.split, label %78
 
 78:                                               ; preds = %73
   %79 = tail call zeroext i1 %77(ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext true) #10
   br label %cast_is_allowed.exit.thread.sink.split
 
 80:                                               ; preds = %.loopexit
-  br i1 %47, label %cast_is_allowed.exit77, label %81
+  br i1 %47, label %cast_is_allowed.exit76, label %81
 
 81:                                               ; preds = %80
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, -1
-  %85 = icmp eq i32 %.056, -1
-  %or.cond.i73 = select i1 %84, i1 true, i1 %85
-  br i1 %or.cond.i73, label %cast_is_allowed.exit77, label %86
+  %85 = icmp eq i32 %.057, -1
+  %or.cond.i72 = select i1 %84, i1 true, i1 %85
+  br i1 %or.cond.i72, label %cast_is_allowed.exit76, label %86
 
 86:                                               ; preds = %81
   %87 = sext i32 %83 to i64
-  %88 = sext i32 %.056 to i64
+  %88 = sext i32 %.057 to i64
   %89 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_rules, i64 0, i64 %87, i64 %88
   %90 = load ptr, ptr %89, align 8
-  %.not.i74 = icmp eq ptr %90, null
-  br i1 %.not.i74, label %cast_is_allowed.exit77, label %91
+  %.not.i73 = icmp eq ptr %90, null
+  br i1 %.not.i73, label %cast_is_allowed.exit76, label %91
 
 91:                                               ; preds = %86
   %92 = tail call zeroext i1 %90(ptr noundef nonnull %0, i1 noundef zeroext true, i1 noundef zeroext true) #10
-  br label %cast_is_allowed.exit77
+  br label %cast_is_allowed.exit76
 
-cast_is_allowed.exit77:                           ; preds = %81, %86, %80, %91
-  %.0.i75 = phi i1 [ %92, %91 ], [ true, %80 ], [ false, %86 ], [ false, %81 ]
-  %brmerge.demorgan = and i1 %1, %.0.i75
-  %brmerge62 = or i1 %2, %brmerge.demorgan
-  br i1 %brmerge62, label %cast_is_allowed.exit.thread, label %cast_is_allowed.exit.thread.sink.split
+cast_is_allowed.exit76:                           ; preds = %81, %86, %80, %91
+  %.0.i74 = phi i1 [ %92, %91 ], [ true, %80 ], [ false, %86 ], [ false, %81 ]
+  %or.cond = and i1 %1, %.0.i74
+  %brmerge61 = or i1 %2, %or.cond
+  br i1 %brmerge61, label %cast_is_allowed.exit.thread, label %cast_is_allowed.exit.thread.sink.split
 
-cast_is_allowed.exit.thread.sink.split:           ; preds = %cast_is_allowed.exit77, %61, %68, %73, %62, %78
-  %.0.i75.sink = phi i1 [ false, %61 ], [ %79, %78 ], [ true, %62 ], [ false, %73 ], [ false, %68 ], [ %.0.i75, %cast_is_allowed.exit77 ]
-  %.val65 = load ptr, ptr %36, align 8
+cast_is_allowed.exit.thread.sink.split:           ; preds = %cast_is_allowed.exit76, %61, %68, %73, %62, %78
+  %.0.i74.sink = phi i1 [ false, %61 ], [ %79, %78 ], [ true, %62 ], [ false, %73 ], [ false, %68 ], [ %.0.i74, %cast_is_allowed.exit76 ]
+  %.val64 = load ptr, ptr %36, align 8
   %93 = getelementptr i8, ptr %0, i64 24
-  %.val66 = load ptr, ptr %93, align 8
-  tail call fastcc void @report_cast_error(ptr %.val65, ptr %.val66, i1 noundef zeroext %.0.i75.sink)
+  %.val65 = load ptr, ptr %93, align 8
+  tail call fastcc void @report_cast_error(ptr %.val64, ptr %.val65, i1 noundef zeroext %.0.i74.sink)
   br label %cast_is_allowed.exit.thread
 
-cast_is_allowed.exit.thread:                      ; preds = %cast_is_allowed.exit.thread.sink.split, %48, %cast_is_allowed.exit77, %cast_is_allowed.exit
-  %.057 = phi i1 [ %.0.i67, %cast_is_allowed.exit ], [ %brmerge.demorgan, %cast_is_allowed.exit77 ], [ true, %48 ], [ false, %cast_is_allowed.exit.thread.sink.split ]
-  ret i1 %.057
+cast_is_allowed.exit.thread:                      ; preds = %cast_is_allowed.exit.thread.sink.split, %48, %cast_is_allowed.exit76, %cast_is_allowed.exit
+  %.058 = phi i1 [ %.0.i66, %cast_is_allowed.exit ], [ %or.cond, %cast_is_allowed.exit76 ], [ true, %48 ], [ false, %cast_is_allowed.exit.thread.sink.split ]
+  ret i1 %.058
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4163,9 +4163,9 @@ cast_is_allowed.exit:                             ; preds = %.loopexit, %.thread
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @rule_bits_to_int(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %.not34 = xor i1 %2, true
-  %brmerge = or i1 %1, %.not34
-  br i1 %brmerge, label %4, label %68
+  %.not = xor i1 %2, true
+  %or.cond = or i1 %1, %.not
+  br i1 %or.cond, label %4, label %68
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4180,8 +4180,8 @@ define internal noundef zeroext i1 @rule_bits_to_int(ptr noundef readonly captur
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %.not = icmp eq ptr %14, %16
-  br i1 %.not, label %45, label %17
+  %.not34 = icmp eq ptr %14, %16
+  br i1 %.not34, label %45, label %17
 
 17:                                               ; preds = %4
   %18 = load i32, ptr %14, align 8
@@ -4203,8 +4203,8 @@ define internal noundef zeroext i1 @rule_bits_to_int(ptr noundef readonly captur
 27:                                               ; preds = %24
   %28 = tail call i32 @type_size(ptr noundef %16) #10
   %29 = tail call i32 @type_size(ptr noundef nonnull %14) #10
-  %.not33 = icmp eq i32 %28, %29
-  br i1 %.not33, label %45, label %30
+  %.not35 = icmp eq i32 %28, %29
+  br i1 %.not35, label %45, label %30
 
 30:                                               ; preds = %27, %24
   br i1 %2, label %68, label %31
@@ -4238,8 +4238,8 @@ report_cast_error.exit:                           ; preds = %31, %36, %39
   br label %68
 
 45:                                               ; preds = %27, %4
-  %brmerge35 = or i1 %1, %2
-  br i1 %brmerge35, label %68, label %46
+  %brmerge = or i1 %1, %2
+  br i1 %brmerge, label %68, label %46
 
 46:                                               ; preds = %45
   %47 = getelementptr i8, ptr %0, i64 8
@@ -4286,15 +4286,15 @@ report_cast_error.exit40:                         ; preds = %57, %60, %63
   br label %68
 
 68:                                               ; preds = %45, %report_cast_error.exit40, %report_cast_error.exit, %30, %3
-  %.029 = phi i1 [ false, %3 ], [ false, %30 ], [ false, %report_cast_error.exit ], [ false, %report_cast_error.exit40 ], [ %1, %45 ]
-  ret i1 %.029
+  %.030 = phi i1 [ false, %3 ], [ false, %30 ], [ false, %report_cast_error.exit ], [ false, %report_cast_error.exit40 ], [ %1, %45 ]
+  ret i1 %.030
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @rule_bits_to_arr(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %.not21 = xor i1 %2, true
-  %brmerge = or i1 %1, %.not21
-  br i1 %brmerge, label %4, label %55
+  %.not = xor i1 %2, true
+  %or.cond = or i1 %1, %.not
+  br i1 %or.cond, label %4, label %55
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4309,8 +4309,8 @@ define internal noundef zeroext i1 @rule_bits_to_arr(ptr noundef readonly captur
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %.not = icmp eq ptr %14, %16
-  br i1 %.not, label %32, label %17
+  %.not22 = icmp eq ptr %14, %16
+  br i1 %.not22, label %32, label %17
 
 17:                                               ; preds = %4
   br i1 %2, label %55, label %18
@@ -4344,8 +4344,8 @@ report_cast_error.exit:                           ; preds = %18, %23, %26
   br label %55
 
 32:                                               ; preds = %4
-  %brmerge22 = or i1 %1, %2
-  br i1 %brmerge22, label %55, label %33
+  %brmerge = or i1 %1, %2
+  br i1 %brmerge, label %55, label %33
 
 33:                                               ; preds = %32
   %34 = getelementptr i8, ptr %0, i64 8
@@ -4392,8 +4392,8 @@ report_cast_error.exit27:                         ; preds = %44, %47, %50
   br label %55
 
 55:                                               ; preds = %32, %report_cast_error.exit27, %report_cast_error.exit, %17, %3
-  %.020 = phi i1 [ false, %3 ], [ false, %17 ], [ false, %report_cast_error.exit ], [ false, %report_cast_error.exit27 ], [ %1, %32 ]
-  ret i1 %.020
+  %.021 = phi i1 [ false, %3 ], [ false, %17 ], [ false, %report_cast_error.exit ], [ false, %report_cast_error.exit27 ], [ %1, %32 ]
+  ret i1 %.021
 }
 
 ; Function Attrs: nounwind uwtable

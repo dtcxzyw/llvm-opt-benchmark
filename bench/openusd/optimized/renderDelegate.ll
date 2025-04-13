@@ -659,8 +659,8 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueENS
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
-  %brmerge.i.i = or i1 %58, %61
-  br i1 %brmerge.i.i, label %62, label %64
+  %or.cond.i.i = or i1 %58, %61
+  br i1 %or.cond.i.i, label %62, label %64
 
 62:                                               ; preds = %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS7_.exit
   %63 = xor i1 %58, %61

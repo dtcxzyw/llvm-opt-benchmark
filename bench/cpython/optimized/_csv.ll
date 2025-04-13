@@ -1525,32 +1525,33 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @dialect_check_char(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
-  switch i32 %1, label %6 [
+  switch i32 %1, label %5 [
     i32 13, label %.sink.split
     i32 10, label %.sink.split
-    i32 32, label %5
   ]
 
 5:                                                ; preds = %4
-  br i1 %3, label %6, label %.sink.split
+  %6 = icmp ne i32 %1, 32
+  %or.cond3 = or i1 %6, %3
+  br i1 %or.cond3, label %7, label %.sink.split
 
-6:                                                ; preds = %4, %5
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
-  %9 = getelementptr i8, ptr %8, i64 16
-  %.val = load i64, ptr %9, align 8, !tbaa !43
-  %10 = tail call i64 @PyUnicode_FindChar(ptr noundef %8, i32 noundef %1, i64 noundef 0, i64 noundef %.val, i32 noundef 1) #5
-  %11 = icmp sgt i64 %10, -1
-  br i1 %11, label %.sink.split, label %14
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
+  %10 = getelementptr i8, ptr %9, i64 16
+  %.val = load i64, ptr %10, align 8, !tbaa !43
+  %11 = tail call i64 @PyUnicode_FindChar(ptr noundef %9, i32 noundef %1, i64 noundef 0, i64 noundef %.val, i32 noundef 1) #5
+  %12 = icmp sgt i64 %11, -1
+  br i1 %12, label %.sink.split, label %15
 
-.sink.split:                                      ; preds = %6, %5, %4, %4
-  %.str.37.sink = phi ptr [ @.str.36, %4 ], [ @.str.36, %4 ], [ @.str.36, %5 ], [ @.str.37, %6 ]
-  %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
-  %13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull %.str.37.sink, ptr noundef %0) #5
-  br label %14
+.sink.split:                                      ; preds = %7, %5, %4, %4
+  %.str.37.sink = phi ptr [ @.str.36, %4 ], [ @.str.36, %4 ], [ @.str.36, %5 ], [ @.str.37, %7 ]
+  %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !3
+  %14 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %13, ptr noundef nonnull %.str.37.sink, ptr noundef %0) #5
+  br label %15
 
-14:                                               ; preds = %.sink.split, %6
-  %.0 = phi i32 [ 0, %6 ], [ -1, %.sink.split ]
+15:                                               ; preds = %.sink.split, %7
+  %.0 = phi i32 [ 0, %7 ], [ -1, %.sink.split ]
   ret i32 %.0
 }
 

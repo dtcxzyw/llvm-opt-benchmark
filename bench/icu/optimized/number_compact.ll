@@ -581,12 +581,12 @@ define void @_ZN6icu_776number4impl11CompactData8populateERKNS_6LocaleEPKc19UNum
   store ptr %14, ptr %8, align 8, !tbaa !25
   %16 = load i32, ptr %5, align 4, !tbaa !13
   %17 = icmp slt i32 %16, 1
-  br i1 %17, label %20, label %55
+  br i1 %17, label %20, label %58
 
 18:                                               ; preds = %6
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %62
+  br label %65
 
 20:                                               ; preds = %15
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str) #20
@@ -594,7 +594,7 @@ define void @_ZN6icu_776number4impl11CompactData8populateERKNS_6LocaleEPKc19UNum
   %23 = icmp eq i32 %3, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #17
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9)
-          to label %24 unwind label %35
+          to label %24 unwind label %36
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -602,142 +602,142 @@ define void @_ZN6icu_776number4impl11CompactData8populateERKNS_6LocaleEPKc19UNum
   %26 = load ptr, ptr %9, align 8, !tbaa !3
   store i8 0, ptr %26, align 1, !tbaa !30
   invoke fastcc void @_ZN12_GLOBAL__N_120getResourceBundleKeyEPKc19UNumberCompactStyleN6icu_776number4impl11CompactTypeERNS3_10CharStringER10UErrorCode(ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(60) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %27 unwind label %37
+          to label %27 unwind label %38
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
   store i32 0, ptr %10, align 4, !tbaa !13
   %28 = load ptr, ptr %9, align 8, !tbaa !3
   invoke void @ures_getAllItemsWithFallback_77(ptr noundef %14, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %10)
-          to label %29 unwind label %39
+          to label %29 unwind label %40
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1374
   %31 = load i8, ptr %30, align 2, !tbaa !17
-  %.not27 = icmp eq i8 %31, 0
-  %brmerge = select i1 %.not27, i1 true, i1 %22
-  br i1 %brmerge, label %41, label %32
+  %32 = icmp eq i8 %31, 0
+  %or.cond = select i1 %32, i1 true, i1 %22
+  br i1 %or.cond, label %42, label %33
 
-32:                                               ; preds = %29
+33:                                               ; preds = %29
   invoke fastcc void @_ZN12_GLOBAL__N_120getResourceBundleKeyEPKc19UNumberCompactStyleN6icu_776number4impl11CompactTypeERNS3_10CharStringER10UErrorCode(ptr noundef nonnull @.str, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(60) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %33 unwind label %39
+          to label %34 unwind label %40
 
-33:                                               ; preds = %32
+34:                                               ; preds = %33
   store i32 0, ptr %10, align 4, !tbaa !13
-  %34 = load ptr, ptr %9, align 8, !tbaa !3
-  invoke void @ures_getAllItemsWithFallback_77(ptr noundef %14, ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %10)
-          to label %._crit_edge unwind label %39
+  %35 = load ptr, ptr %9, align 8, !tbaa !3
+  invoke void @ures_getAllItemsWithFallback_77(ptr noundef %14, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %10)
+          to label %._crit_edge unwind label %40
 
-._crit_edge:                                      ; preds = %33
+._crit_edge:                                      ; preds = %34
   %.pre = load i8, ptr %30, align 2, !tbaa !17
-  br label %41
+  br label %42
 
-35:                                               ; preds = %20
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %20
+  %37 = landingpad { ptr, i32 }
           cleanup
-  br label %61
+  br label %64
 
-37:                                               ; preds = %24
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %24
+  %39 = landingpad { ptr, i32 }
           cleanup
-  br label %60
+  br label %63
 
-39:                                               ; preds = %49, %48, %44, %43, %33, %32, %27
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %52, %51, %46, %45, %34, %33, %27
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  br label %60
+  br label %63
 
-41:                                               ; preds = %._crit_edge, %29
-  %42 = phi i8 [ %.pre, %._crit_edge ], [ %31, %29 ]
-  %.not28 = icmp eq i8 %42, 0
-  %brmerge34 = or i1 %23, %.not28
-  br i1 %brmerge34, label %46, label %43
+42:                                               ; preds = %._crit_edge, %29
+  %43 = phi i8 [ %.pre, %._crit_edge ], [ %31, %29 ]
+  %44 = icmp eq i8 %43, 0
+  %or.cond3 = or i1 %23, %44
+  br i1 %or.cond3, label %48, label %45
 
-43:                                               ; preds = %41
+45:                                               ; preds = %42
   invoke fastcc void @_ZN12_GLOBAL__N_120getResourceBundleKeyEPKc19UNumberCompactStyleN6icu_776number4impl11CompactTypeERNS3_10CharStringER10UErrorCode(ptr noundef nonnull %2, i32 noundef 0, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(60) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %44 unwind label %39
+          to label %46 unwind label %40
 
-44:                                               ; preds = %43
+46:                                               ; preds = %45
   store i32 0, ptr %10, align 4, !tbaa !13
-  %45 = load ptr, ptr %9, align 8, !tbaa !3
-  invoke void @ures_getAllItemsWithFallback_77(ptr noundef %14, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %10)
-          to label %._crit_edge38 unwind label %39
+  %47 = load ptr, ptr %9, align 8, !tbaa !3
+  invoke void @ures_getAllItemsWithFallback_77(ptr noundef %14, ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %10)
+          to label %._crit_edge39 unwind label %40
 
-._crit_edge38:                                    ; preds = %44
-  %.pre39 = load i8, ptr %30, align 2, !tbaa !17
-  br label %46
+._crit_edge39:                                    ; preds = %46
+  %.pre40 = load i8, ptr %30, align 2, !tbaa !17
+  br label %48
 
-46:                                               ; preds = %._crit_edge38, %41
-  %47 = phi i8 [ %.pre39, %._crit_edge38 ], [ %42, %41 ]
-  %.not29 = icmp eq i8 %47, 0
-  %brmerge35 = select i1 %.not29, i1 true, i1 %22
-  %brmerge36 = or i1 %23, %brmerge35
-  br i1 %brmerge36, label %51, label %48
+48:                                               ; preds = %._crit_edge39, %42
+  %49 = phi i8 [ %.pre40, %._crit_edge39 ], [ %43, %42 ]
+  %50 = icmp eq i8 %49, 0
+  %or.cond5 = select i1 %50, i1 true, i1 %22
+  %or.cond7 = or i1 %23, %or.cond5
+  br i1 %or.cond7, label %54, label %51
 
-48:                                               ; preds = %46
+51:                                               ; preds = %48
   invoke fastcc void @_ZN12_GLOBAL__N_120getResourceBundleKeyEPKc19UNumberCompactStyleN6icu_776number4impl11CompactTypeERNS3_10CharStringER10UErrorCode(ptr noundef nonnull @.str, i32 noundef 0, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(60) %9, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %49 unwind label %39
+          to label %52 unwind label %40
 
-49:                                               ; preds = %48
+52:                                               ; preds = %51
   store i32 0, ptr %10, align 4, !tbaa !13
-  %50 = load ptr, ptr %9, align 8, !tbaa !3
-  invoke void @ures_getAllItemsWithFallback_77(ptr noundef %14, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %10)
-          to label %thread-pre-split unwind label %39
+  %53 = load ptr, ptr %9, align 8, !tbaa !3
+  invoke void @ures_getAllItemsWithFallback_77(ptr noundef %14, ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %10)
+          to label %thread-pre-split unwind label %40
 
-thread-pre-split:                                 ; preds = %49
+thread-pre-split:                                 ; preds = %52
   %.pr = load i8, ptr %30, align 2, !tbaa !17
-  br label %51
-
-51:                                               ; preds = %thread-pre-split, %46
-  %52 = phi i8 [ %.pr, %thread-pre-split ], [ %47, %46 ]
-  %.not33 = icmp eq i8 %52, 0
-  br i1 %.not33, label %54, label %53
-
-53:                                               ; preds = %51
-  store i32 5, ptr %5, align 4, !tbaa !13
   br label %54
 
-54:                                               ; preds = %53, %51
+54:                                               ; preds = %thread-pre-split, %48
+  %55 = phi i8 [ %.pr, %thread-pre-split ], [ %49, %48 ]
+  %.not37 = icmp eq i8 %55, 0
+  br i1 %.not37, label %57, label %56
+
+56:                                               ; preds = %54
+  store i32 5, ptr %5, align 4, !tbaa !13
+  br label %57
+
+57:                                               ; preds = %56, %54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
-  br label %55
+  br label %58
 
-55:                                               ; preds = %15, %54
+58:                                               ; preds = %15, %57
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %56
+  br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %59
 
-56:                                               ; preds = %55
+59:                                               ; preds = %58
   invoke void @ures_close_77(ptr noundef nonnull %14)
-          to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit unwind label %57
+          to label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit unwind label %60
 
-57:                                               ; preds = %56
-  %58 = landingpad { ptr, i32 }
+60:                                               ; preds = %59
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #19
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #19
   unreachable
 
-_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %55, %56
+_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %58, %59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   call void @_ZN6icu_7712ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
   ret void
 
-60:                                               ; preds = %39, %37
-  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
+63:                                               ; preds = %40, %38
+  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9) #17
-  br label %61
+  br label %64
 
-61:                                               ; preds = %60, %35
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %60 ], [ %36, %35 ]
+64:                                               ; preds = %63, %36
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %63 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #17
   call void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
-  br label %62
+  br label %65
 
-62:                                               ; preds = %61, %18
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %61 ], [ %19, %18 ]
+65:                                               ; preds = %64, %18
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %64 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   call void @_ZN6icu_7712ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17

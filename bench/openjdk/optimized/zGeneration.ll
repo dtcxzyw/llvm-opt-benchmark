@@ -3475,94 +3475,92 @@ _ZN14ZGenerationOld14pause_mark_endEv.exit:       ; preds = %50, %58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %112 = load i8, ptr @ZVerifyRoots, align 1
   %113 = trunc i8 %112 to i1
-  br i1 %113, label %117, label %114
+  %114 = load i8, ptr @ZVerifyObjects, align 1
+  %115 = trunc i8 %114 to i1
+  %or.cond.i = select i1 %113, i1 true, i1 %115
+  br i1 %or.cond.i, label %116, label %_ZN14ZGenerationOld12pause_verifyEv.exit
 
-114:                                              ; preds = %111
-  %115 = load i8, ptr @ZVerifyObjects, align 1
-  %116 = trunc i8 %115 to i1
-  br i1 %116, label %117, label %_ZN14ZGenerationOld12pause_verifyEv.exit
-
-117:                                              ; preds = %114, %111
+116:                                              ; preds = %111
   call void @_ZN13ZDriverLockerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %118 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %118, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 0, ptr %117, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV13VM_ZVerifyOld, i64 16), ptr %7, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull align 8 dereferenceable(16) %7) #17
   call void @_ZN13ZDriverLockerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
   br label %_ZN14ZGenerationOld12pause_verifyEv.exit
 
-_ZN14ZGenerationOld12pause_verifyEv.exit:         ; preds = %114, %117
+_ZN14ZGenerationOld12pause_verifyEv.exit:         ; preds = %111, %116
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZN13ZStatTimerOldC1ERK10ZStatPhase(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(48) @_ZL38ZPhaseConcurrentSelectRelocationSetOld) #17
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %120 = load i8, ptr %119, align 8
-  call void @_ZN11ZGeneration21select_relocation_setE13ZGenerationIdb(ptr noundef nonnull align 64 dereferenceable(6720) %0, i8 noundef zeroext %120, i1 noundef zeroext false)
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %119 = load i8, ptr %118, align 8
+  call void @_ZN11ZGeneration21select_relocation_setE13ZGenerationIdb(ptr noundef nonnull align 64 dereferenceable(6720) %0, i8 noundef zeroext %119, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %121 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
-  %122 = extractvalue { i64, i64 } %121, 0
-  store i64 %122, ptr %4, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %124 = extractvalue { i64, i64 } %121, 1
-  store i64 %124, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %126 = load ptr, ptr %125, align 8
-  %127 = load ptr, ptr %5, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %129 = load ptr, ptr %126, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %131 = load ptr, ptr %130, align 8
-  call void %131(ptr noundef nonnull align 8 dereferenceable(48) %126, ptr noundef %127, ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %4) #17
+  %120 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
+  %121 = extractvalue { i64, i64 } %120, 0
+  store i64 %121, ptr %4, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %123 = extractvalue { i64, i64 } %120, 1
+  store i64 %123, ptr %122, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = load ptr, ptr %5, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %128 = load ptr, ptr %125, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %130 = load ptr, ptr %129, align 8
+  call void %130(ptr noundef nonnull align 8 dereferenceable(48) %125, ptr noundef %126, ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %132 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
-  %133 = trunc i8 %132 to i1
-  br i1 %133, label %.loopexit, label %134
+  %131 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %.loopexit, label %133
 
-134:                                              ; preds = %_ZN14ZGenerationOld12pause_verifyEv.exit
+133:                                              ; preds = %_ZN14ZGenerationOld12pause_verifyEv.exit
   call void @_ZN13ZDriverLockerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #17
   call void @_ZN14ZGenerationOld28concurrent_remap_young_rootsEv(ptr noundef nonnull align 64 dereferenceable(6720) %0)
-  %135 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
-  %136 = trunc i8 %135 to i1
-  br i1 %136, label %.critedge, label %137
+  %134 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %.critedge, label %136
 
-137:                                              ; preds = %134
+136:                                              ; preds = %133
   call void @_ZN14ZGenerationOld20pause_relocate_startEv(ptr nonnull align 64 poison)
   call void @_ZN13ZDriverLockerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #17
   call void @_ZN14ZGenerationOld19concurrent_relocateEv(ptr noundef nonnull align 64 dereferenceable(6720) %0)
   br label %.loopexit
 
-.critedge:                                        ; preds = %134
+.critedge:                                        ; preds = %133
   call void @_ZN13ZDriverLockerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %.critedge, %_ZN14ZGenerationOld12pause_verifyEv.exit, %108, %94, %80, %2, %137
-  %138 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
-  call void @_ZN8ZWorkers12set_inactiveEv(ptr noundef nonnull align 8 dereferenceable(184) %139) #17
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 3712
-  %141 = getelementptr inbounds nuw i8, ptr %138, i64 4088
-  %142 = load ptr, ptr %138, align 64
-  %143 = load ptr, ptr %142, align 8
-  %144 = call noundef zeroext i1 %143(ptr noundef nonnull align 64 dereferenceable(6592) %138) #17
-  call void @_ZN10ZStatCycle6at_endEP12ZStatWorkersb(ptr noundef nonnull align 8 dereferenceable(376) %140, ptr noundef nonnull %141, i1 noundef zeroext %144) #17
-  %145 = getelementptr inbounds nuw i8, ptr %138, i64 6584
-  store ptr null, ptr %145, align 8
+.loopexit:                                        ; preds = %61, %.critedge, %_ZN14ZGenerationOld12pause_verifyEv.exit, %108, %94, %80, %2, %136
+  %137 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 48
+  call void @_ZN8ZWorkers12set_inactiveEv(ptr noundef nonnull align 8 dereferenceable(184) %138) #17
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 3712
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 4088
+  %141 = load ptr, ptr %137, align 64
+  %142 = load ptr, ptr %141, align 8
+  %143 = call noundef zeroext i1 %142(ptr noundef nonnull align 64 dereferenceable(6592) %137) #17
+  call void @_ZN10ZStatCycle6at_endEP12ZStatWorkersb(ptr noundef nonnull align 8 dereferenceable(376) %139, ptr noundef nonnull %140, i1 noundef zeroext %143) #17
+  %144 = getelementptr inbounds nuw i8, ptr %137, i64 6584
+  store ptr null, ptr %144, align 8
   call void @_ZN15ZDriverUnlockerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %146 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
-  %147 = extractvalue { i64, i64 } %146, 0
-  store i64 %147, ptr %3, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %149 = extractvalue { i64, i64 } %146, 1
-  store i64 %149, ptr %148, align 8
-  %150 = load ptr, ptr %21, align 8
-  %151 = load ptr, ptr %20, align 8
-  %152 = load ptr, ptr %150, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %154 = load ptr, ptr %153, align 8
-  call void %154(ptr noundef nonnull align 8 dereferenceable(48) %150, ptr noundef %151, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  %145 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #17
+  %146 = extractvalue { i64, i64 } %145, 0
+  store i64 %146, ptr %3, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %148 = extractvalue { i64, i64 } %145, 1
+  store i64 %148, ptr %147, align 8
+  %149 = load ptr, ptr %21, align 8
+  %150 = load ptr, ptr %20, align 8
+  %151 = load ptr, ptr %149, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %153 = load ptr, ptr %152, align 8
+  call void %153(ptr noundef nonnull align 8 dereferenceable(48) %149, ptr noundef %150, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 }
@@ -3843,23 +3841,21 @@ define hidden void @_ZN14ZGenerationOld12pause_verifyEv(ptr noundef nonnull read
   %3 = alloca %class.VM_ZVerifyOld, align 8
   %4 = load i8, ptr @ZVerifyRoots, align 1
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %9, label %6
+  %6 = load i8, ptr @ZVerifyObjects, align 1
+  %7 = trunc i8 %6 to i1
+  %or.cond = select i1 %5, i1 true, i1 %7
+  br i1 %or.cond, label %8, label %10
 
-6:                                                ; preds = %1
-  %7 = load i8, ptr @ZVerifyObjects, align 1
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %11
-
-9:                                                ; preds = %6, %1
+8:                                                ; preds = %1
   call void @_ZN13ZDriverLockerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %10, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 0, ptr %9, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV13VM_ZVerifyOld, i64 16), ptr %3, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   call void @_ZN13ZDriverLockerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #17
-  br label %11
+  br label %10
 
-11:                                               ; preds = %9, %6
+10:                                               ; preds = %1, %8
   ret void
 }
 

@@ -769,12 +769,12 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc5
   br label %.body85
 
 .body85:                                          ; preds = %85, %82, %169
-  %.pn53 = phi { ptr, i32 } [ %170, %169 ], [ %83, %85 ], [ %83, %82 ]
+  %.pn54 = phi { ptr, i32 } [ %170, %169 ], [ %83, %85 ], [ %83, %82 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #20
   br label %.body
 
 .body:                                            ; preds = %.body85, %167, %.body.i
-  %.pn53.pn = phi { ptr, i32 } [ %168, %167 ], [ %.pn.i.i, %.body.i ], [ %.pn53, %.body85 ]
+  %.pn54.pn = phi { ptr, i32 } [ %168, %167 ], [ %.pn.i.i, %.body.i ], [ %.pn54, %.body85 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #20
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #20
@@ -939,8 +939,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit135: ; preds = %239, %
           to label %248 unwind label %396
 
 248:                                              ; preds = %243
-  %brmerge.demorgan = and i1 %2, %247
-  br i1 %brmerge.demorgan, label %249, label %_ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit219
+  %or.cond = and i1 %2, %247
+  br i1 %or.cond, label %249, label %_ZN4cvc58internal11Cvc5ostreamlsIA2_cEERS1_RKT_.exit219
 
 249:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #20
@@ -1312,7 +1312,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit182: ; preds = %_ZNSt6vectorIN4cvc
   br label %.body139
 
 .body139:                                         ; preds = %398, %.body.i136
-  %.pn57 = phi { ptr, i32 } [ %399, %398 ], [ %.pn.i.i137, %.body.i136 ]
+  %.pn58 = phi { ptr, i32 } [ %399, %398 ], [ %.pn.i.i137, %.body.i136 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #20
   br label %441
 
@@ -1330,12 +1330,12 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit182: ; preds = %_ZNSt6vectorIN4cvc
   br label %.body154
 
 .body154:                                         ; preds = %310, %307, %402
-  %.pn59 = phi { ptr, i32 } [ %403, %402 ], [ %308, %310 ], [ %308, %307 ]
+  %.pn60 = phi { ptr, i32 } [ %403, %402 ], [ %308, %310 ], [ %308, %307 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #20
   br label %.body148
 
 .body148:                                         ; preds = %.body154, %400, %.body.i145
-  %.pn59.pn = phi { ptr, i32 } [ %401, %400 ], [ %.pn.i.i146, %.body.i145 ], [ %.pn59, %.body154 ]
+  %.pn60.pn = phi { ptr, i32 } [ %401, %400 ], [ %.pn.i.i146, %.body.i145 ], [ %.pn60, %.body154 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #20
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #20
@@ -1422,14 +1422,14 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit223: ; preds = %_ZN4cvc58internal1
   ret void
 
 441:                                              ; preds = %394, %396, %.body148, %425, %.body139, %392
-  %.pn64.pn = phi { ptr, i32 } [ %393, %392 ], [ %426, %425 ], [ %.pn59.pn, %.body148 ], [ %395, %394 ], [ %.pn57, %.body139 ], [ %397, %396 ]
+  %.pn65.pn = phi { ptr, i32 } [ %393, %392 ], [ %426, %425 ], [ %.pn60.pn, %.body148 ], [ %395, %394 ], [ %.pn58, %.body139 ], [ %397, %396 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #20
   br label %442
 
 442:                                              ; preds = %.body, %441, %222
-  %.pn64.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %441 ], [ %.pn, %222 ], [ %.pn53.pn, %.body ]
-  resume { ptr, i32 } %.pn64.pn.pn
+  %.pn65.pn.pn = phi { ptr, i32 } [ %.pn65.pn, %441 ], [ %.pn, %222 ], [ %.pn54.pn, %.body ]
+  resume { ptr, i32 } %.pn65.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable

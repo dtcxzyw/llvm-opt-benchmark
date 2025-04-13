@@ -1002,27 +1002,27 @@ sz_psz2ind.exit:                                  ; preds = %2, %5
   %24 = getelementptr inbounds nuw i64, ptr %21, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !38
   %notmask.i.i = shl nsw i64 -1, %23
-  %.039.i.i = and i64 %notmask.i.i, %25
-  %26 = icmp eq i64 %.039.i.i, 0
+  %.040.i.i = and i64 %notmask.i.i, %25
+  %26 = icmp eq i64 %.040.i.i, 0
   br i1 %26, label %.lr.ph.i, label %fb_ffs.exit
 
 .lr.ph.i:                                         ; preds = %sz_psz2ind.exit, %28
-  %.038.i4.i = phi i64 [ %29, %28 ], [ %22, %sz_psz2ind.exit ]
-  %27 = icmp eq i64 %.038.i4.i, 0
+  %.039.i4.i = phi i64 [ %29, %28 ], [ %22, %sz_psz2ind.exit ]
+  %27 = icmp eq i64 %.039.i4.i, 0
   br i1 %27, label %fb_ffs.exit.thread, label %28
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = add nuw nsw i64 %.038.i4.i, 1
+  %29 = add nuw nsw i64 %.039.i4.i, 1
   %30 = getelementptr inbounds nuw i64, ptr %21, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !38
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %.lr.ph.i, label %fb_ffs.exit, !llvm.loop !47
 
 fb_ffs.exit:                                      ; preds = %28, %sz_psz2ind.exit
-  %.140.i.lcssa.i = phi i64 [ %.039.i.i, %sz_psz2ind.exit ], [ %31, %28 ]
-  %.038.i.lcssa.i = phi i64 [ %22, %sz_psz2ind.exit ], [ %29, %28 ]
-  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.140.i.lcssa.i, i1 true)
-  %34 = shl i64 %.038.i.lcssa.i, 6
+  %.141.i.lcssa.i = phi i64 [ %.040.i.i, %sz_psz2ind.exit ], [ %31, %28 ]
+  %.039.i.lcssa.i = phi i64 [ %22, %sz_psz2ind.exit ], [ %29, %28 ]
+  %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i, i1 true)
+  %34 = shl i64 %.039.i.lcssa.i, 6
   %.masked = and i64 %34, 4294967232
   %35 = or disjoint i64 %.masked, %33
   %36 = icmp eq i64 %35, 64
@@ -1051,20 +1051,20 @@ declare ptr @je_hpdata_age_heap_first(ptr noundef) local_unnamed_addr #1
 define hidden ptr @je_psset_pick_purge(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5256
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5264
-  %.140.i4.i = load i64, ptr %3, align 8, !tbaa !38
-  %4 = icmp eq i64 %.140.i4.i, 0
+  %.141.i4.i = load i64, ptr %3, align 8, !tbaa !38
+  %4 = icmp eq i64 %.141.i4.i, 0
   br i1 %4, label %.lr.ph.i, label %fb_fls.exit.thread8
 
 .lr.ph.i:                                         ; preds = %1, %6
-  %.038.i5.i = phi i64 [ %7, %6 ], [ 1, %1 ]
-  %5 = icmp eq i64 %.038.i5.i, 0
+  %.039.i5.i = phi i64 [ %7, %6 ], [ 1, %1 ]
+  %5 = icmp eq i64 %.039.i5.i, 0
   br i1 %5, label %fb_fls.exit.thread, label %6
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = add nsw i64 %.038.i5.i, -1
+  %7 = add nsw i64 %.039.i5.i, -1
   %8 = getelementptr inbounds i64, ptr %2, i64 %7
-  %.140.i.i = load i64, ptr %8, align 8, !tbaa !38
-  %9 = icmp eq i64 %.140.i.i, 0
+  %.141.i.i = load i64, ptr %8, align 8, !tbaa !38
+  %9 = icmp eq i64 %.141.i.i, 0
   br i1 %9, label %.lr.ph.i, label %fb_fls.exit, !llvm.loop !47
 
 fb_fls.exit:                                      ; preds = %6
@@ -1073,12 +1073,12 @@ fb_fls.exit:                                      ; preds = %6
   br i1 %11, label %fb_fls.exit.thread, label %fb_fls.exit.thread8
 
 fb_fls.exit.thread8:                              ; preds = %1, %fb_fls.exit
-  %.140.i.lcssa.i12 = phi i64 [ %.140.i.i, %fb_fls.exit ], [ %.140.i4.i, %1 ]
-  %.038.i.lcssa.i11 = phi i64 [ %10, %fb_fls.exit ], [ 64, %1 ]
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.140.i.lcssa.i12, i1 true)
+  %.141.i.lcssa.i12 = phi i64 [ %.141.i.i, %fb_fls.exit ], [ %.141.i4.i, %1 ]
+  %.039.i.lcssa.i11 = phi i64 [ %10, %fb_fls.exit ], [ 64, %1 ]
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.141.i.lcssa.i12, i1 true)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %.038.i.lcssa.i.masked = and i64 %.038.i.lcssa.i11, 4294967232
-  %14 = or disjoint i64 %12, %.038.i.lcssa.i.masked
+  %.039.i.lcssa.i.masked = and i64 %.039.i.lcssa.i11, 4294967232
+  %14 = or disjoint i64 %12, %.039.i.lcssa.i.masked
   %15 = xor i64 %14, 63
   %16 = getelementptr inbounds nuw [128 x %struct.hpdata_purge_list_t], ptr %13, i64 0, i64 %15
   %.val = load ptr, ptr %16, align 8, !tbaa !36

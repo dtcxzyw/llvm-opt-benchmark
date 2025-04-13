@@ -41,9 +41,13 @@ define noundef range(i32 1, 9) i32 @_ZN5arrow31RequiredValueAlignmentForBufferEN
 
 8:                                                ; preds = %7
   %9 = icmp ult i32 %0, 45
-  br i1 %9, label %switch.hole_check, label %10
+  %switch.maskindex = zext nneg i32 %0 to i64
+  %switch.shifted = lshr i64 35181687734271, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond7 = select i1 %9, i1 %switch.lobit, i1 false
+  br i1 %or.cond7, label %switch.lookup, label %10
 
-10:                                               ; preds = %switch.hole_check, %8
+10:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   call void @_ZN5arrow6Status8FromArgsIJRA61_KcRNS_4Type4typeEEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(61) @.str, ptr noundef nonnull align 4 dereferenceable(4) %3)
   invoke void @_ZNK5arrow6Status4WarnEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -89,13 +93,7 @@ _ZN5arrow6StatusD2Ev.exit6:                       ; preds = %18, %21, %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   resume { ptr, i32 } %19
 
-switch.hole_check:                                ; preds = %8
-  %switch.maskindex = zext nneg i32 %0 to i64
-  %switch.shifted = lshr i64 35181687734271, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %10
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %8
   %26 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [45 x i32], ptr @switch.table._ZN5arrow31RequiredValueAlignmentForBufferENS_4Type4typeEi, i64 0, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4

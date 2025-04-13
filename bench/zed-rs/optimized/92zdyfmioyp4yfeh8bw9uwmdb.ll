@@ -1310,16 +1310,16 @@ define hidden void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element
   br label %16
 
 "_ZN67_$LT$gpui..view..View$LT$V$GT$$u20$as$u20$gpui..Entity$LT$V$GT$$GT$12upgrade_from17h53502156060667feE.exit": ; preds = %3
-  %.sroa.0.0.copyload42 = load i32, ptr %4, align 8, !noalias !131
-  %.sroa.5.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx43, i64 28, i1 false), !noalias !131
+  %.sroa.0.0.copyload37 = load i32, ptr %4, align 8, !noalias !131
+  %.sroa.5.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx38, i64 28, i1 false), !noalias !131
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !126
-  %13 = icmp eq i32 %.sroa.0.0.copyload42, 0
+  %13 = icmp eq i32 %.sroa.0.0.copyload37, 0
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %"_ZN67_$LT$gpui..view..View$LT$V$GT$$u20$as$u20$gpui..Entity$LT$V$GT$$GT$12upgrade_from17h53502156060667feE.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  store i32 %.sroa.0.0.copyload42, ptr %10, align 8
+  store i32 %.sroa.0.0.copyload37, ptr %10, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
@@ -1366,29 +1366,29 @@ define hidden void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %28 = load i32, ptr %27, align 4, !alias.scope !133, !noalias !136, !noundef !10
   %29 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h91a19152f821f1b1E.llvm.7190143407449605467"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %25, i32 noundef %26, i32 noundef %28)
-          to label %.noexc14 unwind label %22
+          to label %.noexc15 unwind label %22
 
-.noexc14:                                         ; preds = %.noexc
+.noexc15:                                         ; preds = %.noexc
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hc18844db0b33b10cE.exit.i"
 
-31:                                               ; preds = %.noexc14
+31:                                               ; preds = %.noexc15
   invoke void @_ZN3std9panicking11begin_panic17ha70cb8356c7a7f11E(ptr noalias noundef nonnull readonly align 1 @anon.ebca3313f67625bb0f2b244c5b555f6c.6.llvm.7190143407449605467, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b2a680aa7721d564724848dd610a132e.20.llvm.7913852821323181507) #21
-          to label %.noexc15 unwind label %22
+          to label %.noexc16 unwind label %22
 
-.noexc15:                                         ; preds = %31
+.noexc16:                                         ; preds = %31
   unreachable
 
-"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hc18844db0b33b10cE.exit.i": ; preds = %.noexc14
+"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hc18844db0b33b10cE.exit.i": ; preds = %.noexc15
   %32 = load ptr, ptr %29, align 8, !nonnull !10, !align !96, !noundef !10
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load ptr, ptr %33, align 8, !nonnull !10, !align !15, !noundef !10
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8, !invariant.load !10, !alias.scope !138, !nonnull !10
   %37 = invoke { i64, i64 } %36(ptr noundef nonnull align 1 %32)
-          to label %.noexc16 unwind label %22
+          to label %.noexc17 unwind label %22
 
-.noexc16:                                         ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hc18844db0b33b10cE.exit.i"
+.noexc17:                                         ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hc18844db0b33b10cE.exit.i"
   %38 = extractvalue { i64, i64 } %37, 0
   %39 = icmp eq i64 %38, -2668253006608383607
   %40 = extractvalue { i64, i64 } %37, 1
@@ -1396,14 +1396,14 @@ define hidden void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element
   %.sroa.0.0.i.i = select i1 %39, i1 %41, i1 false
   br i1 %.sroa.0.0.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17h4c142c648a8b50a4E.exit, label %42
 
-42:                                               ; preds = %.noexc16
+42:                                               ; preds = %.noexc17
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17h558e7096b4196c63E.llvm.7913852821323181507(ptr noalias noundef nonnull readonly align 1 @anon.b2a680aa7721d564724848dd610a132e.21.llvm.7913852821323181507, i64 noundef 4) #21
-          to label %.noexc17 unwind label %22
+          to label %.noexc18 unwind label %22
 
-.noexc17:                                         ; preds = %42
+.noexc18:                                         ; preds = %42
   unreachable
 
-_ZN4gpui3app10entity_map9EntityMap4read17h4c142c648a8b50a4E.exit: ; preds = %.noexc16
+_ZN4gpui3app10entity_map9EntityMap4read17h4c142c648a8b50a4E.exit: ; preds = %.noexc17
   %43 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
           to label %44 unwind label %22
 

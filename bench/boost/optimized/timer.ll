@@ -368,8 +368,8 @@ define void @_ZN5boost3log11v2_mt_posix10attributes5timerC2ERKNS2_11cast_sourceE
 
 _ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_5timer4implEEEPT_v.exit: ; preds = %2
   %5 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN5boost3log11v2_mt_posix9attribute4implE, ptr nonnull @_ZTIN5boost3log11v2_mt_posix10attributes5timer4implE, i64 0) #24
-  %.not.i.not = icmp eq ptr %5, null
-  br i1 %.not.i.not, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit, label %6
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit, label %6
 
 6:                                                ; preds = %_ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_5timer4implEEEPT_v.exit
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8

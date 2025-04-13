@@ -105,8 +105,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_22HdRend
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  %brmerge.i = or i1 %24, %27
-  br i1 %brmerge.i, label %28, label %30
+  %or.cond.i = or i1 %24, %27
+  br i1 %or.cond.i, label %28, label %30
 
 28:                                               ; preds = %19
   %29 = xor i1 %24, %27
@@ -185,8 +185,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %30
   %74 = icmp eq ptr %73, null
   %75 = load ptr, ptr %61, align 8
   %76 = icmp eq ptr %75, null
-  %brmerge.i.i.i.i.i = or i1 %74, %76
-  br i1 %brmerge.i.i.i.i.i, label %77, label %79
+  %or.cond.i.i.i.i.i = or i1 %74, %76
+  br i1 %or.cond.i.i.i.i.i, label %77, label %79
 
 77:                                               ; preds = %70
   %78 = xor i1 %74, %76

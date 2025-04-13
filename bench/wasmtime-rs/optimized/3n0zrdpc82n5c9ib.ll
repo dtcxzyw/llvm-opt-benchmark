@@ -86,8 +86,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_87_$LT$impl$u20$syn..token..
   resume { ptr, i32 } %10
 
 14:                                               ; preds = %2, %.thread
-  %.08 = phi i1 [ %8, %.thread ], [ false, %2 ]
-  ret i1 %.08
+  %.06 = phi i1 [ %8, %.thread ], [ false, %2 ]
+  ret i1 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -169,8 +169,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_95_$LT$impl$u20$syn..token..
   resume { ptr, i32 } %10
 
 14:                                               ; preds = %2, %.thread
-  %.08 = phi i1 [ %8, %.thread ], [ false, %2 ]
-  ret i1 %.08
+  %.06 = phi i1 [ %8, %.thread ], [ false, %2 ]
+  ret i1 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -252,8 +252,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_91_$LT$impl$u20$syn..token..
   resume { ptr, i32 } %10
 
 14:                                               ; preds = %2, %.thread
-  %.08 = phi i1 [ %8, %.thread ], [ false, %2 ]
-  ret i1 %.08
+  %.06 = phi i1 [ %8, %.thread ], [ false, %2 ]
+  ret i1 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -335,8 +335,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..token..
   resume { ptr, i32 } %10
 
 14:                                               ; preds = %2, %.thread
-  %.08 = phi i1 [ %8, %.thread ], [ false, %2 ]
-  ret i1 %.08
+  %.06 = phi i1 [ %8, %.thread ], [ false, %2 ]
+  ret i1 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -418,8 +418,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..token..
   resume { ptr, i32 } %10
 
 14:                                               ; preds = %2, %.thread
-  %.08 = phi i1 [ %8, %.thread ], [ false, %2 ]
-  ret i1 %.08
+  %.06 = phi i1 [ %8, %.thread ], [ false, %2 ]
+  ret i1 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -501,8 +501,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_91_$LT$impl$u20$syn..token..
   resume { ptr, i32 } %10
 
 14:                                               ; preds = %2, %.thread
-  %.08 = phi i1 [ %8, %.thread ], [ false, %2 ]
-  ret i1 %.08
+  %.06 = phi i1 [ %8, %.thread ], [ false, %2 ]
+  ret i1 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -584,8 +584,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_90_$LT$impl$u20$syn..token..
   resume { ptr, i32 } %10
 
 14:                                               ; preds = %2, %.thread
-  %.08 = phi i1 [ %8, %.thread ], [ false, %2 ]
-  ret i1 %.08
+  %.06 = phi i1 [ %8, %.thread ], [ false, %2 ]
+  ret i1 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -667,8 +667,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_90_$LT$impl$u20$syn..token..
   resume { ptr, i32 } %10
 
 14:                                               ; preds = %2, %.thread
-  %.08 = phi i1 [ %8, %.thread ], [ false, %2 ]
-  ret i1 %.08
+  %.06 = phi i1 [ %8, %.thread ], [ false, %2 ]
+  ret i1 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -750,8 +750,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_94_$LT$impl$u20$syn..token..
   resume { ptr, i32 } %10
 
 14:                                               ; preds = %2, %.thread
-  %.08 = phi i1 [ %8, %.thread ], [ false, %2 ]
-  ret i1 %.08
+  %.06 = phi i1 [ %8, %.thread ], [ false, %2 ]
+  ret i1 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -833,8 +833,8 @@ define zeroext i1 @"_ZN15wiggle_generate6config2kw1_92_$LT$impl$u20$syn..token..
   resume { ptr, i32 } %10
 
 14:                                               ; preds = %2, %.thread
-  %.08 = phi i1 [ %8, %.thread ], [ false, %2 ]
-  ret i1 %.08
+  %.06 = phi i1 [ %8, %.thread ], [ false, %2 ]
+  ret i1 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

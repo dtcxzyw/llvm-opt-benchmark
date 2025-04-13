@@ -12465,19 +12465,17 @@ define i32 @nghttp2_session_get_remote_window_size(ptr noundef readonly captures
 define i32 @nghttp2_session_get_remote_settings(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %switch.tableidx = add i32 %1, -1
   %3 = icmp ult i32 %switch.tableidx, 9
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 447, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %4
 
-4:                                                ; preds = %switch.hole_check, %2
+4:                                                ; preds = %2
   tail call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.1, i32 noundef 7439, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_session_get_remote_settings) #17
   unreachable
 
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 447, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table.nghttp2_session_get_remote_settings, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -12490,19 +12488,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
 define i32 @nghttp2_session_get_local_settings(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %switch.tableidx = add i32 %1, -1
   %3 = icmp ult i32 %switch.tableidx, 9
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 447, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %4
 
-4:                                                ; preds = %switch.hole_check, %2
+4:                                                ; preds = %2
   tail call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.1, i32 noundef 7464, ptr noundef nonnull @__PRETTY_FUNCTION__.nghttp2_session_get_local_settings) #17
   unreachable
 
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 447, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table.nghttp2_session_get_local_settings, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8

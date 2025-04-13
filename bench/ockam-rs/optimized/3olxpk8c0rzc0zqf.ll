@@ -9833,8 +9833,8 @@ define hidden void @"_ZN67_$LT$openssl..ssl..SslStream$LT$S$GT$$u20$as$u20$std..
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %24 = load i64, ptr %10, align 8, !range !300, !noundef !13
-  %.not5 = icmp eq i64 %24, 2
-  br i1 %.not5, label %45, label %46
+  %.not10 = icmp eq i64 %24, 2
+  br i1 %.not10, label %45, label %46
 
 25:                                               ; preds = %20
   %26 = icmp eq i32 %21, 2
@@ -9893,7 +9893,7 @@ define hidden void @"_ZN67_$LT$openssl..ssl..SslStream$LT$S$GT$$u20$as$u20$std..
   store ptr %.0, ptr %44, align 8
   br label %22
 
-45:                                               ; preds = %23, %46
+45:                                               ; preds = %46, %23
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
 46:                                               ; preds = %23
@@ -10273,8 +10273,8 @@ define hidden void @"_ZN7openssl3ssl18SslStream$LT$S$GT$11read_uninit17h0a3424dd
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %26 = load i64, ptr %10, align 8, !range !300, !noundef !13
-  %.not11 = icmp eq i64 %26, 2
-  br i1 %.not11, label %61, label %62
+  %.not21 = icmp eq i64 %26, 2
+  br i1 %.not21, label %61, label %62
 
 27:                                               ; preds = %21
   %28 = icmp eq i32 %22, 6
@@ -10317,8 +10317,8 @@ define hidden void @"_ZN7openssl3ssl18SslStream$LT$S$GT$11read_uninit17h0a3424dd
           to label %44 unwind label %25
 
 44:                                               ; preds = %42
-  %.not10 = icmp eq ptr %43, null
-  br i1 %.not10, label %45, label %50
+  %.not13 = icmp eq ptr %43, null
+  br i1 %.not13, label %45, label %50
 
 45:                                               ; preds = %44
   %46 = load i64, ptr %10, align 8, !range !300, !alias.scope !2319, !noundef !13
@@ -10375,7 +10375,7 @@ define hidden void @"_ZN7openssl3ssl18SslStream$LT$S$GT$11read_uninit17h0a3424dd
   call void @"_ZN4core3ptr52drop_in_place$LT$openssl..ssl..error..InnerError$GT$17h60f2a8c84c101740E.llvm.12836552674783018658"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
   br label %"_ZN4core3ptr47drop_in_place$LT$openssl..ssl..error..Error$GT$17hc38c596e563733ccE.exit"
 
-61:                                               ; preds = %25, %62
+61:                                               ; preds = %62, %25
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
 62:                                               ; preds = %25

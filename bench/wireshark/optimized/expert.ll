@@ -788,38 +788,40 @@ declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 define ptr @expert_get_summary(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %3 = load i32, ptr @gpa_expertinfo.0, align 8
-  %.not = icmp ult i32 %2, %3
-  br i1 %.not, label %9, label %4
-
-4:                                                ; preds = %1
-  %5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12, !noundef !13
+  %4 = icmp uge i32 %2, %3
+  %5 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %8
+  %or.cond = select i1 %4, i1 %6, i1 false
+  br i1 %or.cond, label %7, label %8
 
-7:                                                ; preds = %4
+7:                                                ; preds = %1
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.51, i32 noundef 7, ptr noundef nonnull @.str.52, i64 noundef 491, ptr noundef nonnull @__func__.expert_get_summary, ptr noundef nonnull @.str.53, i32 noundef %2) #18
   unreachable
 
-8:                                                ; preds = %4
+8:                                                ; preds = %1
+  %9 = icmp ult i32 %2, %3
+  br i1 %9, label %11, label %10
+
+10:                                               ; preds = %8
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, i32 noundef 491, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56) #18
   unreachable
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr @gpa_expertinfo.2, align 8
-  %11 = sext i32 %2 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
-  %13 = load ptr, ptr %12, align 8
-  %.not8 = icmp eq ptr %13, null
-  br i1 %.not8, label %14, label %15
+11:                                               ; preds = %8
+  %12 = load ptr, ptr @gpa_expertinfo.2, align 8
+  %13 = sext i32 %2 to i64
+  %14 = getelementptr ptr, ptr %12, i64 %13
+  %15 = load ptr, ptr %14, align 8
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %16, label %17
 
-14:                                               ; preds = %9
+16:                                               ; preds = %11
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, i32 noundef 491, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.56) #18
   unreachable
 
-15:                                               ; preds = %9
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %17 = load ptr, ptr %16, align 8
-  ret ptr %17
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %19 = load ptr, ptr %18, align 8
+  ret ptr %19
 }
 
 ; Function Attrs: noreturn null_pointer_is_valid
@@ -840,49 +842,51 @@ define internal ptr @expert_add_info_internal(ptr noundef %0, ptr noundef %1, pt
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr @gpa_expertinfo.0, align 8
-  %.not = icmp ult i32 %5, %6
-  br i1 %.not, label %12, label %7
-
-7:                                                ; preds = %3
-  %8 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12, !noundef !13
+  %7 = icmp uge i32 %5, %6
+  %8 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %11
+  %or.cond = select i1 %7, i1 %9, i1 false
+  br i1 %or.cond, label %10, label %11
 
-10:                                               ; preds = %7
+10:                                               ; preds = %3
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.51, i32 noundef 7, ptr noundef nonnull @.str.52, i64 noundef 648, ptr noundef nonnull @__func__.expert_add_info_internal, ptr noundef nonnull @.str.53, i32 noundef %5) #18
   unreachable
 
-11:                                               ; preds = %7
+11:                                               ; preds = %3
+  %12 = icmp ult i32 %5, %6
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %11
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, i32 noundef 648, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.56) #18
   unreachable
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr @gpa_expertinfo.2, align 8
-  %14 = sext i32 %5 to i64
-  %15 = getelementptr ptr, ptr %13, i64 %14
-  %16 = load ptr, ptr %15, align 8
-  %.not14 = icmp eq ptr %16, null
-  br i1 %.not14, label %17, label %18
+14:                                               ; preds = %11
+  %15 = load ptr, ptr @gpa_expertinfo.2, align 8
+  %16 = sext i32 %5 to i64
+  %17 = getelementptr ptr, ptr %15, i64 %16
+  %18 = load ptr, ptr %17, align 8
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %19, label %20
 
-17:                                               ; preds = %12
+19:                                               ; preds = %14
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, i32 noundef 648, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.56) #18
   unreachable
 
-18:                                               ; preds = %12
+20:                                               ; preds = %14
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = call fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %20, i32 noundef %22, i32 noundef %25, i1 noundef zeroext false, ptr noundef %27, ptr noundef nonnull %4)
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i32, ptr %26, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = call fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %22, i32 noundef %24, i32 noundef %27, i1 noundef zeroext false, ptr noundef %29, ptr noundef nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
-  ret ptr %28
+  ret ptr %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -891,47 +895,49 @@ define ptr @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef r
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #16
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr @gpa_expertinfo.0, align 8
-  %.not = icmp ult i32 %6, %7
-  br i1 %.not, label %13, label %8
-
-8:                                                ; preds = %4
-  %9 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12, !noundef !13
+  %8 = icmp uge i32 %6, %7
+  %9 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %12
+  %or.cond = select i1 %8, i1 %10, i1 false
+  br i1 %or.cond, label %11, label %12
 
-11:                                               ; preds = %8
+11:                                               ; preds = %4
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.51, i32 noundef 7, ptr noundef nonnull @.str.52, i64 noundef 672, ptr noundef nonnull @__func__.expert_add_info_format, ptr noundef nonnull @.str.53, i32 noundef %6) #18
   unreachable
 
-12:                                               ; preds = %8
+12:                                               ; preds = %4
+  %13 = icmp ult i32 %6, %7
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %12
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, i32 noundef 672, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.56) #18
   unreachable
 
-13:                                               ; preds = %4
-  %14 = load ptr, ptr @gpa_expertinfo.2, align 8
-  %15 = sext i32 %6 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
-  %17 = load ptr, ptr %16, align 8
-  %.not14 = icmp eq ptr %17, null
-  br i1 %.not14, label %18, label %19
+15:                                               ; preds = %12
+  %16 = load ptr, ptr @gpa_expertinfo.2, align 8
+  %17 = sext i32 %6 to i64
+  %18 = getelementptr ptr, ptr %16, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %20, label %21
 
-18:                                               ; preds = %13
+20:                                               ; preds = %15
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, i32 noundef 672, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.56) #18
   unreachable
 
-19:                                               ; preds = %13
+21:                                               ; preds = %15
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %25, align 4
-  %27 = call fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %21, i32 noundef %23, i32 noundef %26, i1 noundef zeroext true, ptr noundef %3, ptr noundef nonnull %5)
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i32, ptr %27, align 4
+  %29 = call fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %23, i32 noundef %25, i32 noundef %28, i1 noundef zeroext true, ptr noundef %3, ptr noundef nonnull %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #16
-  ret ptr %27
+  ret ptr %29
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
@@ -1269,63 +1275,65 @@ define internal noundef ptr @proto_tree_add_expert_internal(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #16
   %8 = load i32, ptr %2, align 4
   %9 = load i32, ptr @gpa_expertinfo.0, align 8
-  %.not = icmp ult i32 %8, %9
-  br i1 %.not, label %15, label %10
-
-10:                                               ; preds = %6
-  %11 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12, !noundef !13
+  %10 = icmp uge i32 %8, %9
+  %11 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %14
+  %or.cond = select i1 %10, i1 %12, i1 false
+  br i1 %or.cond, label %13, label %14
 
-13:                                               ; preds = %10
+13:                                               ; preds = %6
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.51, i32 noundef 7, ptr noundef nonnull @.str.52, i64 noundef 691, ptr noundef nonnull @__func__.proto_tree_add_expert_internal, ptr noundef nonnull @.str.53, i32 noundef %8) #18
   unreachable
 
-14:                                               ; preds = %10
+14:                                               ; preds = %6
+  %15 = icmp ult i32 %8, %9
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %14
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, i32 noundef 691, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.56) #18
   unreachable
 
-15:                                               ; preds = %6
-  %16 = load ptr, ptr @gpa_expertinfo.2, align 8
-  %17 = sext i32 %8 to i64
-  %18 = getelementptr ptr, ptr %16, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  %.not32 = icmp eq ptr %19, null
-  br i1 %.not32, label %20, label %21
+17:                                               ; preds = %14
+  %18 = load ptr, ptr @gpa_expertinfo.2, align 8
+  %19 = sext i32 %8 to i64
+  %20 = getelementptr ptr, ptr %18, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %22, label %23
 
-20:                                               ; preds = %15
+22:                                               ; preds = %17
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, i32 noundef 691, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.56) #18
   unreachable
 
-21:                                               ; preds = %15
-  %22 = tail call i32 @tvb_captured_length_remaining(ptr noundef %3, i32 noundef %4)
-  %23 = icmp slt i32 %22, 0
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %22, i32 %5)
-  %.0 = select i1 %23, i32 0, i32 %spec.select
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr (ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_text_internal(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef %.0, ptr noundef nonnull @.str.65, ptr noundef %25)
+23:                                               ; preds = %17
+  %24 = tail call i32 @tvb_captured_length_remaining(ptr noundef %3, i32 noundef %4)
+  %25 = icmp slt i32 %24, 0
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %24, i32 %5)
+  %.0 = select i1 %25, i32 0, i32 %spec.select
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call ptr (ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_text_internal(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef %.0, ptr noundef nonnull @.str.65, ptr noundef %27)
   call void @llvm.va_start.p0(ptr nonnull %7)
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr %32, align 4
-  %34 = load ptr, ptr %24, align 8
-  %35 = call fastcc ptr @expert_set_info_vformat(ptr noundef %1, ptr noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %33, i1 noundef zeroext false, ptr noundef %34, ptr noundef nonnull %7)
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i32, ptr %34, align 4
+  %36 = load ptr, ptr %26, align 8
+  %37 = call fastcc ptr @expert_set_info_vformat(ptr noundef %1, ptr noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %35, i1 noundef zeroext false, ptr noundef %36, ptr noundef nonnull %7)
   call void @llvm.va_end.p0(ptr nonnull %7)
   %.not33 = icmp eq i32 %5, -1
-  br i1 %.not33, label %37, label %36
+  br i1 %.not33, label %39, label %38
 
-36:                                               ; preds = %21
+38:                                               ; preds = %23
   call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %4, i32 noundef %5)
-  br label %37
+  br label %39
 
-37:                                               ; preds = %36, %21
+39:                                               ; preds = %38, %23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
-  ret ptr %26
+  ret ptr %28
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1334,62 +1342,64 @@ define noundef ptr @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #16
   %9 = load i32, ptr %2, align 4
   %10 = load i32, ptr @gpa_expertinfo.0, align 8
-  %.not = icmp ult i32 %9, %10
-  br i1 %.not, label %16, label %11
-
-11:                                               ; preds = %7
-  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12, !noundef !13
+  %11 = icmp uge i32 %9, %10
+  %12 = load i8, ptr @wireshark_abort_on_dissector_bug, align 1, !range !12
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %15
+  %or.cond = select i1 %11, i1 %13, i1 false
+  br i1 %or.cond, label %14, label %15
 
-14:                                               ; preds = %11
+14:                                               ; preds = %7
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.51, i32 noundef 7, ptr noundef nonnull @.str.52, i64 noundef 729, ptr noundef nonnull @__func__.proto_tree_add_expert_format, ptr noundef nonnull @.str.53, i32 noundef %9) #18
   unreachable
 
-15:                                               ; preds = %11
+15:                                               ; preds = %7
+  %16 = icmp ult i32 %9, %10
+  br i1 %16, label %18, label %17
+
+17:                                               ; preds = %15
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, i32 noundef 729, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.56) #18
   unreachable
 
-16:                                               ; preds = %7
-  %17 = load ptr, ptr @gpa_expertinfo.2, align 8
-  %18 = sext i32 %9 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
-  %20 = load ptr, ptr %19, align 8
-  %.not32 = icmp eq ptr %20, null
-  br i1 %.not32, label %21, label %22
+18:                                               ; preds = %15
+  %19 = load ptr, ptr @gpa_expertinfo.2, align 8
+  %20 = sext i32 %9 to i64
+  %21 = getelementptr ptr, ptr %19, i64 %20
+  %22 = load ptr, ptr %21, align 8
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %23, label %24
 
-21:                                               ; preds = %16
+23:                                               ; preds = %18
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.52, i32 noundef 729, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.56) #18
   unreachable
 
-22:                                               ; preds = %16
-  %23 = tail call i32 @tvb_captured_length_remaining(ptr noundef %3, i32 noundef %4)
-  %24 = icmp slt i32 %23, 0
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %23, i32 %5)
-  %.0 = select i1 %24, i32 0, i32 %spec.select
+24:                                               ; preds = %18
+  %25 = tail call i32 @tvb_captured_length_remaining(ptr noundef %3, i32 noundef %4)
+  %26 = icmp slt i32 %25, 0
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %25, i32 %5)
+  %.0 = select i1 %26, i32 0, i32 %spec.select
   call void @llvm.va_start.p0(ptr nonnull %8)
-  %25 = call ptr @proto_tree_add_text_valist_internal(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef %.0, ptr noundef %6, ptr noundef nonnull %8)
+  %27 = call ptr @proto_tree_add_text_valist_internal(ptr noundef %0, ptr noundef %3, i32 noundef %4, i32 noundef %.0, ptr noundef %6, ptr noundef nonnull %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   call void @llvm.va_start.p0(ptr nonnull %8)
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %31 = load ptr, ptr %30, align 8
-  %32 = load i32, ptr %31, align 4
-  %33 = call fastcc ptr @expert_set_info_vformat(ptr noundef %1, ptr noundef %25, i32 noundef %27, i32 noundef %29, i32 noundef %32, i1 noundef zeroext true, ptr noundef %6, ptr noundef nonnull %8)
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  %31 = load i32, ptr %30, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i32, ptr %33, align 4
+  %35 = call fastcc ptr @expert_set_info_vformat(ptr noundef %1, ptr noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %34, i1 noundef zeroext true, ptr noundef %6, ptr noundef nonnull %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   %.not33 = icmp eq i32 %5, -1
-  br i1 %.not33, label %35, label %34
+  br i1 %.not33, label %37, label %36
 
-34:                                               ; preds = %22
+36:                                               ; preds = %24
   call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %4, i32 noundef %5)
-  br label %35
+  br label %37
 
-35:                                               ; preds = %34, %22
+37:                                               ; preds = %36, %24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
-  ret ptr %25
+  ret ptr %27
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1521,4 +1531,3 @@ attributes #19 = { allocsize(0) }
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = !{i8 0, i8 2}
-!13 = !{}

@@ -1206,9 +1206,9 @@ define ptr @ws_escape_string_len(ptr noundef %0, ptr noundef readonly captures(n
   br label %8
 
 8:                                                ; preds = %6, %4
-  %.054.i = phi i64 [ %7, %6 ], [ %2, %4 ]
-  %9 = add i64 %.054.i, 2
-  %spec.select.i = select i1 %3, i64 %9, i64 %.054.i
+  %.056.i = phi i64 [ %7, %6 ], [ %2, %4 ]
+  %9 = add i64 %.056.i, 2
+  %spec.select.i = select i1 %3, i64 %9, i64 %.056.i
   %10 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %spec.select.i)
   br i1 %3, label %11, label %12
 
@@ -1217,12 +1217,12 @@ define ptr @ws_escape_string_len(ptr noundef %0, ptr noundef readonly captures(n
   br label %12
 
 12:                                               ; preds = %11, %8
-  %13 = icmp sgt i64 %.054.i, 0
+  %13 = icmp sgt i64 %.056.i, 0
   br i1 %13, label %.lr.ph.split.split.i, label %._crit_edge.i
 
 .lr.ph.split.split.i:                             ; preds = %12, %24
-  %.056.i = phi i64 [ %25, %24 ], [ 0, %12 ]
-  %14 = getelementptr i8, ptr %1, i64 %.056.i
+  %.058.i = phi i64 [ %25, %24 ], [ 0, %12 ]
+  %14 = getelementptr i8, ptr %1, i64 %.058.i
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %24 [
     i8 7, label %23
@@ -1262,16 +1262,16 @@ define ptr @ws_escape_string_len(ptr noundef %0, ptr noundef readonly captures(n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %16, %17, %18, %19, %20, %21, %22, %.lr.ph.split.split.i
-  %.sink67.i.ph = phi i8 [ 97, %23 ], [ 48, %22 ], [ %15, %21 ], [ 118, %20 ], [ 116, %19 ], [ 114, %18 ], [ 110, %17 ], [ 102, %16 ], [ 98, %.lr.ph.split.split.i ]
+  %.sink69.i.ph = phi i8 [ 97, %23 ], [ 48, %22 ], [ %15, %21 ], [ 118, %20 ], [ 116, %19 ], [ 114, %18 ], [ 110, %17 ], [ 102, %16 ], [ 98, %.lr.ph.split.split.i ]
   tail call void @wmem_strbuf_append_c(ptr noundef %10, i8 noundef signext 92)
   br label %24
 
 24:                                               ; preds = %.sink.split, %.lr.ph.split.split.i
-  %.sink67.i = phi i8 [ %15, %.lr.ph.split.split.i ], [ %.sink67.i.ph, %.sink.split ]
-  tail call void @wmem_strbuf_append_c(ptr noundef %10, i8 noundef signext %.sink67.i)
-  %25 = add nuw nsw i64 %.056.i, 1
-  %exitcond62.not.i = icmp eq i64 %25, %.054.i
-  br i1 %exitcond62.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !27
+  %.sink69.i = phi i8 [ %15, %.lr.ph.split.split.i ], [ %.sink69.i.ph, %.sink.split ]
+  tail call void @wmem_strbuf_append_c(ptr noundef %10, i8 noundef signext %.sink69.i)
+  %25 = add nuw nsw i64 %.058.i, 1
+  %exitcond64.not.i = icmp eq i64 %25, %.056.i
+  br i1 %exitcond64.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %24, %12
   br i1 %3, label %26, label %escape_string_len.exit
@@ -1302,8 +1302,8 @@ define ptr @ws_escape_string(ptr noundef %0, ptr noundef readonly captures(none)
   br i1 %9, label %.lr.ph.split.split.i, label %._crit_edge.i
 
 .lr.ph.split.split.i:                             ; preds = %8, %20
-  %.056.i = phi i64 [ %21, %20 ], [ 0, %8 ]
-  %10 = getelementptr i8, ptr %1, i64 %.056.i
+  %.058.i = phi i64 [ %21, %20 ], [ 0, %8 ]
+  %10 = getelementptr i8, ptr %1, i64 %.058.i
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %20 [
     i8 7, label %19
@@ -1343,16 +1343,16 @@ define ptr @ws_escape_string(ptr noundef %0, ptr noundef readonly captures(none)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %12, %13, %14, %15, %16, %17, %18, %.lr.ph.split.split.i
-  %.sink67.i.ph = phi i8 [ 97, %19 ], [ 48, %18 ], [ %11, %17 ], [ 118, %16 ], [ 116, %15 ], [ 114, %14 ], [ 110, %13 ], [ 102, %12 ], [ 98, %.lr.ph.split.split.i ]
+  %.sink69.i.ph = phi i8 [ 97, %19 ], [ 48, %18 ], [ %11, %17 ], [ 118, %16 ], [ 116, %15 ], [ 114, %14 ], [ 110, %13 ], [ 102, %12 ], [ 98, %.lr.ph.split.split.i ]
   tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext 92)
   br label %20
 
 20:                                               ; preds = %.sink.split, %.lr.ph.split.split.i
-  %.sink67.i = phi i8 [ %11, %.lr.ph.split.split.i ], [ %.sink67.i.ph, %.sink.split ]
-  tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %.sink67.i)
-  %21 = add nuw nsw i64 %.056.i, 1
-  %exitcond62.not.i = icmp eq i64 %21, %4
-  br i1 %exitcond62.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !27
+  %.sink69.i = phi i8 [ %11, %.lr.ph.split.split.i ], [ %.sink69.i.ph, %.sink.split ]
+  tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %.sink69.i)
+  %21 = add nuw nsw i64 %.058.i, 1
+  %exitcond64.not.i = icmp eq i64 %21, %4
+  br i1 %exitcond64.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %20, %8
   br i1 %2, label %22, label %escape_string_len.exit
@@ -1377,24 +1377,24 @@ define ptr @ws_escape_null(ptr noundef %0, ptr noundef readonly captures(none) %
   br label %9
 
 9:                                                ; preds = %7, %4
-  %.054.i = phi i64 [ %8, %7 ], [ %2, %4 ]
-  %10 = add i64 %.054.i, 2
-  %spec.select.i = select i1 %3, i64 %10, i64 %.054.i
+  %.056.i = phi i64 [ %8, %7 ], [ %2, %4 ]
+  %10 = add i64 %.056.i, 2
+  %spec.select.i = select i1 %3, i64 %10, i64 %.056.i
   %11 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %spec.select.i)
   br i1 %3, label %12, label %.thread
 
 12:                                               ; preds = %9
   tail call void @wmem_strbuf_append_c(ptr noundef %11, i8 noundef signext 34)
-  %13 = icmp sgt i64 %.054.i, 0
+  %13 = icmp sgt i64 %.056.i, 0
   br i1 %13, label %.lr.ph.split.split.i, label %._crit_edge.i.thread14
 
 .thread:                                          ; preds = %9
-  %14 = icmp sgt i64 %.054.i, 0
+  %14 = icmp sgt i64 %.056.i, 0
   br i1 %14, label %.lr.ph.split.us.i, label %escape_string_len.exit
 
 .lr.ph.split.us.i:                                ; preds = %.thread, %escape_null.exit4
-  %.056.us.i = phi i64 [ %19, %escape_null.exit4 ], [ 0, %.thread ]
-  %15 = getelementptr i8, ptr %1, i64 %.056.us.i
+  %.058.us.i = phi i64 [ %19, %escape_null.exit4 ], [ 0, %.thread ]
+  %15 = getelementptr i8, ptr %1, i64 %.058.us.i
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %escape_null.exit4
@@ -1406,13 +1406,13 @@ define ptr @ws_escape_null(ptr noundef %0, ptr noundef readonly captures(none) %
 escape_null.exit4:                                ; preds = %.lr.ph.split.us.i, %18
   %.sink.i = phi i8 [ 48, %18 ], [ %16, %.lr.ph.split.us.i ]
   tail call void @wmem_strbuf_append_c(ptr noundef %11, i8 noundef signext %.sink.i)
-  %19 = add nuw nsw i64 %.056.us.i, 1
-  %exitcond.not.i = icmp eq i64 %19, %.054.i
+  %19 = add nuw nsw i64 %.058.us.i, 1
+  %exitcond.not.i = icmp eq i64 %19, %.056.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !27
 
 .lr.ph.split.split.i:                             ; preds = %12, %25
-  %.056.i = phi i64 [ %26, %25 ], [ 0, %12 ]
-  %20 = getelementptr i8, ptr %1, i64 %.056.i
+  %.058.i = phi i64 [ %26, %25 ], [ 0, %12 ]
+  %20 = getelementptr i8, ptr %1, i64 %.058.i
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %.sink.split, label %escape_null.exit
@@ -1426,16 +1426,16 @@ escape_null.exit:                                 ; preds = %.lr.ph.split.split.
   br i1 %.not.i, label %.sink.split, label %25
 
 .sink.split:                                      ; preds = %24, %escape_null.exit, %.lr.ph.split.split.i
-  %.sink67.i.ph = phi i8 [ 48, %.lr.ph.split.split.i ], [ 34, %escape_null.exit ], [ 92, %24 ]
+  %.sink69.i.ph = phi i8 [ 48, %.lr.ph.split.split.i ], [ 34, %escape_null.exit ], [ 92, %24 ]
   tail call void @wmem_strbuf_append_c(ptr noundef %11, i8 noundef signext 92)
   br label %25
 
 25:                                               ; preds = %.sink.split, %24
-  %.sink67.i = phi i8 [ %21, %24 ], [ %.sink67.i.ph, %.sink.split ]
-  tail call void @wmem_strbuf_append_c(ptr noundef %11, i8 noundef signext %.sink67.i)
-  %26 = add nuw nsw i64 %.056.i, 1
-  %exitcond62.not.i = icmp eq i64 %26, %.054.i
-  br i1 %exitcond62.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !27
+  %.sink69.i = phi i8 [ %21, %24 ], [ %.sink69.i.ph, %.sink.split ]
+  tail call void @wmem_strbuf_append_c(ptr noundef %11, i8 noundef signext %.sink69.i)
+  %26 = add nuw nsw i64 %.058.i, 1
+  %exitcond64.not.i = icmp eq i64 %26, %.056.i
+  br i1 %exitcond64.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %escape_null.exit4, %25
   br i1 %3, label %._crit_edge.i.thread14, label %escape_string_len.exit
@@ -1474,8 +1474,8 @@ define ptr @ws_escape_csv(ptr noundef %0, ptr noundef readonly captures(none) %1
   br i1 %10, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %escape_char.exit35
-  %.056.us.i = phi i64 [ %26, %escape_char.exit35 ], [ 0, %.lr.ph.i ]
-  %15 = getelementptr i8, ptr %1, i64 %.056.us.i
+  %.058.us.i = phi i64 [ %26, %escape_char.exit35 ], [ 0, %.lr.ph.i ]
+  %15 = getelementptr i8, ptr %1, i64 %.058.us.i
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %escape_char.exit35 [
     i8 7, label %24
@@ -1521,7 +1521,7 @@ define ptr @ws_escape_csv(ptr noundef %0, ptr noundef readonly captures(none) %1
 escape_char.exit35:                               ; preds = %.lr.ph.split.us.i, %25
   %.sink.i = phi i8 [ %.5.ph, %25 ], [ %16, %.lr.ph.split.us.i ]
   tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %.sink.i)
-  %26 = add nuw nsw i64 %.056.us.i, 1
+  %26 = add nuw nsw i64 %.058.us.i, 1
   %exitcond.not.i = icmp eq i64 %26, %7
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !27
 
@@ -1529,8 +1529,8 @@ escape_char.exit35:                               ; preds = %.lr.ph.split.us.i, 
   br i1 %4, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %38
-  %.056.us57.i = phi i64 [ %39, %38 ], [ 0, %.lr.ph.split.i ]
-  %27 = getelementptr i8, ptr %1, i64 %.056.us57.i
+  %.058.us59.i = phi i64 [ %39, %38 ], [ 0, %.lr.ph.split.i ]
+  %27 = getelementptr i8, ptr %1, i64 %.058.us59.i
   %28 = load i8, ptr %27, align 1
   switch i8 %28, label %escape_char.exit32 [
     i8 7, label %36
@@ -1574,20 +1574,20 @@ escape_char.exit32:                               ; preds = %.lr.ph.split.split.
 
 .sink.split:                                      ; preds = %36, %29, %30, %31, %32, %33, %34, %35, %.lr.ph.split.split.us.i, %escape_char.exit32
   %.sink = phi i8 [ %3, %escape_char.exit32 ], [ 92, %.lr.ph.split.split.us.i ], [ 92, %35 ], [ 92, %34 ], [ 92, %33 ], [ 92, %32 ], [ 92, %31 ], [ 92, %30 ], [ 92, %29 ], [ 92, %36 ]
-  %.sink66.i.ph = phi i8 [ %3, %escape_char.exit32 ], [ 98, %.lr.ph.split.split.us.i ], [ 48, %35 ], [ 92, %34 ], [ 118, %33 ], [ 116, %32 ], [ 114, %31 ], [ 110, %30 ], [ 102, %29 ], [ 97, %36 ]
+  %.sink68.i.ph = phi i8 [ %3, %escape_char.exit32 ], [ 98, %.lr.ph.split.split.us.i ], [ 48, %35 ], [ 92, %34 ], [ 118, %33 ], [ 116, %32 ], [ 114, %31 ], [ 110, %30 ], [ 102, %29 ], [ 97, %36 ]
   tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %.sink)
   br label %38
 
 38:                                               ; preds = %.sink.split, %escape_char.exit32
-  %.sink66.i = phi i8 [ %28, %escape_char.exit32 ], [ %.sink66.i.ph, %.sink.split ]
-  tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %.sink66.i)
-  %39 = add nuw nsw i64 %.056.us57.i, 1
-  %exitcond63.not.i = icmp eq i64 %39, %7
-  br i1 %exitcond63.not.i, label %._crit_edge.i, label %.lr.ph.split.split.us.i, !llvm.loop !27
+  %.sink68.i = phi i8 [ %28, %escape_char.exit32 ], [ %.sink68.i.ph, %.sink.split ]
+  tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %.sink68.i)
+  %39 = add nuw nsw i64 %.058.us59.i, 1
+  %exitcond65.not.i = icmp eq i64 %39, %7
+  br i1 %exitcond65.not.i, label %._crit_edge.i, label %.lr.ph.split.split.us.i, !llvm.loop !27
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %52
-  %.056.i = phi i64 [ %53, %52 ], [ 0, %.lr.ph.split.i ]
-  %40 = getelementptr i8, ptr %1, i64 %.056.i
+  %.058.i = phi i64 [ %53, %52 ], [ 0, %.lr.ph.split.i ]
+  %40 = getelementptr i8, ptr %1, i64 %.058.i
   %41 = load i8, ptr %40, align 1
   switch i8 %41, label %escape_char.exit [
     i8 7, label %49
@@ -1634,16 +1634,16 @@ escape_char.exit:                                 ; preds = %.lr.ph.split.split.
   br i1 %.not.i, label %.sink.split83, label %52
 
 .sink.split83:                                    ; preds = %51, %escape_char.exit, %49, %42, %43, %44, %45, %46, %47, %48, %.lr.ph.split.split.i
-  %.sink67.i.ph = phi i8 [ 97, %49 ], [ 48, %48 ], [ 92, %47 ], [ 118, %46 ], [ 116, %45 ], [ 114, %44 ], [ 110, %43 ], [ 102, %42 ], [ 98, %.lr.ph.split.split.i ], [ %3, %escape_char.exit ], [ 92, %51 ]
+  %.sink69.i.ph = phi i8 [ 97, %49 ], [ 48, %48 ], [ 92, %47 ], [ 118, %46 ], [ 116, %45 ], [ 114, %44 ], [ 110, %43 ], [ 102, %42 ], [ 98, %.lr.ph.split.split.i ], [ %3, %escape_char.exit ], [ 92, %51 ]
   tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext 92)
   br label %52
 
 52:                                               ; preds = %.sink.split83, %51
-  %.sink67.i = phi i8 [ %41, %51 ], [ %.sink67.i.ph, %.sink.split83 ]
-  tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %.sink67.i)
-  %53 = add nuw nsw i64 %.056.i, 1
-  %exitcond62.not.i = icmp eq i64 %53, %7
-  br i1 %exitcond62.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !27
+  %.sink69.i = phi i8 [ %41, %51 ], [ %.sink69.i.ph, %.sink.split83 ]
+  tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %.sink69.i)
+  %53 = add nuw nsw i64 %.058.i, 1
+  %exitcond64.not.i = icmp eq i64 %53, %7
+  br i1 %exitcond64.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %escape_char.exit35, %52, %38, %13
   br i1 %or.cond.i, label %escape_string_len.exit.sink.split, label %escape_string_len.exit
@@ -1663,8 +1663,8 @@ escape_char.exit:                                 ; preds = %.lr.ph.split.split.
   br i1 %10, label %.lr.ph.split.i19, label %.lr.ph.split.us.i15
 
 .lr.ph.split.us.i15:                              ; preds = %.lr.ph.i14, %escape_null.exit37
-  %.056.us.i16 = phi i64 [ %62, %escape_null.exit37 ], [ 0, %.lr.ph.i14 ]
-  %58 = getelementptr i8, ptr %1, i64 %.056.us.i16
+  %.058.us.i16 = phi i64 [ %62, %escape_null.exit37 ], [ 0, %.lr.ph.i14 ]
+  %58 = getelementptr i8, ptr %1, i64 %.058.us.i16
   %59 = load i8, ptr %58, align 1
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %61, label %escape_null.exit37
@@ -1676,7 +1676,7 @@ escape_char.exit:                                 ; preds = %.lr.ph.split.split.
 escape_null.exit37:                               ; preds = %.lr.ph.split.us.i15, %61
   %.sink.i17 = phi i8 [ 48, %61 ], [ %59, %.lr.ph.split.us.i15 ]
   tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %.sink.i17)
-  %62 = add nuw nsw i64 %.056.us.i16, 1
+  %62 = add nuw nsw i64 %.058.us.i16, 1
   %exitcond.not.i18 = icmp eq i64 %62, %7
   br i1 %exitcond.not.i18, label %._crit_edge.i13, label %.lr.ph.split.us.i15, !llvm.loop !27
 
@@ -1684,8 +1684,8 @@ escape_null.exit37:                               ; preds = %.lr.ph.split.us.i15
   br i1 %4, label %.lr.ph.split.split.us.i25, label %.lr.ph.split.split.i20
 
 .lr.ph.split.split.us.i25:                        ; preds = %.lr.ph.split.i19, %67
-  %.056.us57.i26 = phi i64 [ %68, %67 ], [ 0, %.lr.ph.split.i19 ]
-  %63 = getelementptr i8, ptr %1, i64 %.056.us57.i26
+  %.058.us59.i26 = phi i64 [ %68, %67 ], [ 0, %.lr.ph.split.i19 ]
+  %63 = getelementptr i8, ptr %1, i64 %.058.us59.i26
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %.sink.split84, label %escape_null.exit36
@@ -1696,20 +1696,20 @@ escape_null.exit36:                               ; preds = %.lr.ph.split.split.
 
 .sink.split84:                                    ; preds = %.lr.ph.split.split.us.i25, %escape_null.exit36
   %.sink85 = phi i8 [ %3, %escape_null.exit36 ], [ 92, %.lr.ph.split.split.us.i25 ]
-  %.sink66.i27.ph = phi i8 [ %3, %escape_null.exit36 ], [ 48, %.lr.ph.split.split.us.i25 ]
+  %.sink68.i27.ph = phi i8 [ %3, %escape_null.exit36 ], [ 48, %.lr.ph.split.split.us.i25 ]
   tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %.sink85)
   br label %67
 
 67:                                               ; preds = %.sink.split84, %escape_null.exit36
-  %.sink66.i27 = phi i8 [ %64, %escape_null.exit36 ], [ %.sink66.i27.ph, %.sink.split84 ]
-  tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %.sink66.i27)
-  %68 = add nuw nsw i64 %.056.us57.i26, 1
-  %exitcond63.not.i28 = icmp eq i64 %68, %7
-  br i1 %exitcond63.not.i28, label %._crit_edge.i13, label %.lr.ph.split.split.us.i25, !llvm.loop !27
+  %.sink68.i27 = phi i8 [ %64, %escape_null.exit36 ], [ %.sink68.i27.ph, %.sink.split84 ]
+  tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %.sink68.i27)
+  %68 = add nuw nsw i64 %.058.us59.i26, 1
+  %exitcond65.not.i28 = icmp eq i64 %68, %7
+  br i1 %exitcond65.not.i28, label %._crit_edge.i13, label %.lr.ph.split.split.us.i25, !llvm.loop !27
 
 .lr.ph.split.split.i20:                           ; preds = %.lr.ph.split.i19, %74
-  %.056.i21 = phi i64 [ %75, %74 ], [ 0, %.lr.ph.split.i19 ]
-  %69 = getelementptr i8, ptr %1, i64 %.056.i21
+  %.058.i21 = phi i64 [ %75, %74 ], [ 0, %.lr.ph.split.i19 ]
+  %69 = getelementptr i8, ptr %1, i64 %.058.i21
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, 0
   br i1 %71, label %.sink.split86, label %escape_null.exit
@@ -1723,16 +1723,16 @@ escape_null.exit:                                 ; preds = %.lr.ph.split.split.
   br i1 %.not.i22, label %.sink.split86, label %74
 
 .sink.split86:                                    ; preds = %73, %escape_null.exit, %.lr.ph.split.split.i20
-  %.sink67.i23.ph = phi i8 [ 48, %.lr.ph.split.split.i20 ], [ %3, %escape_null.exit ], [ 92, %73 ]
+  %.sink69.i23.ph = phi i8 [ 48, %.lr.ph.split.split.i20 ], [ %3, %escape_null.exit ], [ 92, %73 ]
   tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext 92)
   br label %74
 
 74:                                               ; preds = %.sink.split86, %73
-  %.sink67.i23 = phi i8 [ %70, %73 ], [ %.sink67.i23.ph, %.sink.split86 ]
-  tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %.sink67.i23)
-  %75 = add nuw nsw i64 %.056.i21, 1
-  %exitcond62.not.i24 = icmp eq i64 %75, %7
-  br i1 %exitcond62.not.i24, label %._crit_edge.i13, label %.lr.ph.split.split.i20, !llvm.loop !27
+  %.sink69.i23 = phi i8 [ %70, %73 ], [ %.sink69.i23.ph, %.sink.split86 ]
+  tail call void @wmem_strbuf_append_c(ptr noundef %9, i8 noundef signext %.sink69.i23)
+  %75 = add nuw nsw i64 %.058.i21, 1
+  %exitcond64.not.i24 = icmp eq i64 %75, %7
+  br i1 %exitcond64.not.i24, label %._crit_edge.i13, label %.lr.ph.split.split.i20, !llvm.loop !27
 
 ._crit_edge.i13:                                  ; preds = %escape_null.exit37, %74, %67, %56
   br i1 %or.cond.i, label %escape_string_len.exit.sink.split, label %escape_string_len.exit

@@ -143,8 +143,8 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph64.i.preheader, %.lr.ph64.i
-  %.05062.i60 = phi i32 [ %.050.i, %.lr.ph64.i ], [ %.05060.i, %.lr.ph64.i.preheader ]
-  %61 = add i32 %.05062.i60, 1
+  %.05062.i64 = phi i32 [ %.050.i, %.lr.ph64.i ], [ %.05060.i, %.lr.ph64.i.preheader ]
+  %61 = add i32 %.05062.i64, 1
   %.050.i = and i32 %61, %.pre-phi.i
   %62 = zext i32 %.050.i to i64
   %63 = getelementptr ptr, ptr %52, i64 %62
@@ -229,8 +229,8 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %98 = load ptr, ptr %97, align 8, !tbaa !33
   %99 = icmp eq ptr %98, null
-  %brmerge = or i1 %4, %99
-  br i1 %brmerge, label %100, label %pm_node_hash_insert.exit
+  %or.cond = or i1 %4, %99
+  br i1 %or.cond, label %100, label %pm_node_hash_insert.exit
 
 100:                                              ; preds = %96
   store ptr %3, ptr %97, align 8, !tbaa !33
@@ -240,8 +240,8 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %103 = load ptr, ptr %102, align 8, !tbaa !35
   %104 = icmp eq ptr %103, null
-  %brmerge55 = or i1 %4, %104
-  br i1 %brmerge55, label %105, label %pm_node_hash_insert.exit
+  %or.cond3 = or i1 %4, %104
+  br i1 %or.cond3, label %105, label %pm_node_hash_insert.exit
 
 105:                                              ; preds = %101
   store ptr %3, ptr %102, align 8, !tbaa !35
@@ -251,8 +251,8 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %108 = load ptr, ptr %107, align 8, !tbaa !36
   %109 = icmp eq ptr %108, null
-  %brmerge56 = or i1 %4, %109
-  br i1 %brmerge56, label %110, label %pm_node_hash_insert.exit
+  %or.cond5 = or i1 %4, %109
+  br i1 %or.cond5, label %110, label %pm_node_hash_insert.exit
 
 110:                                              ; preds = %106
   store ptr %3, ptr %107, align 8, !tbaa !36
@@ -262,8 +262,8 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %113 = load ptr, ptr %112, align 8, !tbaa !37
   %114 = icmp eq ptr %113, null
-  %brmerge57 = or i1 %4, %114
-  br i1 %brmerge57, label %115, label %pm_node_hash_insert.exit
+  %or.cond7 = or i1 %4, %114
+  br i1 %or.cond7, label %115, label %pm_node_hash_insert.exit
 
 115:                                              ; preds = %111
   store ptr %3, ptr %112, align 8, !tbaa !37

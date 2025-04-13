@@ -419,8 +419,8 @@ define ptr @plpgsql_compile(ptr noundef readonly captures(none) %0, i1 noundef z
   %42 = load i32, ptr %41, align 8
   store i32 %42, ptr %10, align 4
   %43 = load ptr, ptr %28, align 8
-  %.not.i = icmp eq ptr %43, null
-  br i1 %.not.i, label %.thread52, label %44
+  %.not44.i = icmp eq ptr %43, null
+  br i1 %.not44.i, label %.thread52, label %44
 
 .thread52:                                        ; preds = %.loopexit.i
   store i8 0, ptr %30, align 1
@@ -435,9 +435,9 @@ define ptr @plpgsql_compile(ptr noundef readonly captures(none) %0, i1 noundef z
   %49 = icmp eq i32 %48, 440
   %50 = zext i1 %49 to i8
   store i8 %50, ptr %30, align 1
-  %.not43.i = xor i1 %46, true
-  %brmerge.i = or i1 %1, %.not43.i
-  br i1 %brmerge.i, label %55, label %51
+  %.not.i = xor i1 %46, true
+  %or.cond5.i = or i1 %1, %.not.i
+  br i1 %or.cond5.i, label %55, label %51
 
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -540,8 +540,8 @@ delete_function.exit.thread:                      ; preds = %plpgsql_HashTableDe
   %96 = load i32, ptr %95, align 8
   store i32 %96, ptr %10, align 4
   %97 = load ptr, ptr %28, align 8
-  %.not.i40 = icmp eq ptr %97, null
-  br i1 %.not.i40, label %.thread78, label %98
+  %.not44.i40 = icmp eq ptr %97, null
+  br i1 %.not44.i40, label %.thread78, label %98
 
 .thread78:                                        ; preds = %.loopexit.i39
   store i8 0, ptr %30, align 1
@@ -556,9 +556,9 @@ delete_function.exit.thread:                      ; preds = %plpgsql_HashTableDe
   %103 = icmp eq i32 %102, 440
   %104 = zext i1 %103 to i8
   store i8 %104, ptr %30, align 1
-  %.not43.i42 = xor i1 %100, true
-  %brmerge.i43 = or i1 %1, %.not43.i42
-  br i1 %brmerge.i43, label %109, label %105
+  %.not.i42 = xor i1 %100, true
+  %or.cond5.i43 = or i1 %1, %.not.i42
+  br i1 %or.cond5.i43, label %109, label %105
 
 105:                                              ; preds = %98
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 32

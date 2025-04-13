@@ -2162,9 +2162,9 @@ _ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i: ; preds = %1
   %34 = load i64, ptr %33, align 8
   %35 = trunc i64 %34 to i32
   %36 = icmp ult i32 %28, %35
-  br i1 %36, label %_ZN5clang6Parser12ConsumeBraceEv.exit79, label %41
+  br i1 %36, label %_ZN5clang6Parser12ConsumeBraceEv.exit78, label %41
 
-_ZN5clang6Parser12ConsumeBraceEv.exit79:          ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
+_ZN5clang6Parser12ConsumeBraceEv.exit78:          ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
   %37 = add i16 %27, 1
   store i16 %37, ptr %26, align 4, !tbaa !320
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2172,8 +2172,8 @@ _ZN5clang6Parser12ConsumeBraceEv.exit79:          ; preds = %_ZN5clang24Balanced
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %39, ptr %40, align 8, !tbaa !311
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %30, ptr noundef nonnull align 8 dereferenceable(20) %38) #12
-  %.sroa.01.0.copyload.i73 = load i32, ptr %40, align 8, !tbaa !311
-  store i32 %.sroa.01.0.copyload.i73, ptr %19, align 8, !tbaa !311
+  %.sroa.01.0.copyload.i72 = load i32, ptr %40, align 8, !tbaa !311
+  store i32 %.sroa.01.0.copyload.i72, ptr %19, align 8, !tbaa !311
   br label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit
 
 41:                                               ; preds = %_ZN5clang24BalancedDelimiterTracker8getDepthEv.exit.i
@@ -2181,8 +2181,8 @@ _ZN5clang6Parser12ConsumeBraceEv.exit79:          ; preds = %_ZN5clang24Balanced
   %.sroa.0.0.copyload.i.pre = load i32, ptr %19, align 8, !tbaa !311
   br label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit
 
-_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit: ; preds = %1, %_ZN5clang6Parser12ConsumeBraceEv.exit79, %41
-  %.sroa.0.0.copyload.i = phi i32 [ 0, %1 ], [ %.sroa.01.0.copyload.i73, %_ZN5clang6Parser12ConsumeBraceEv.exit79 ], [ %.sroa.0.0.copyload.i.pre, %41 ]
+_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit: ; preds = %1, %_ZN5clang6Parser12ConsumeBraceEv.exit78, %41
+  %.sroa.0.0.copyload.i = phi i32 [ 0, %1 ], [ %.sroa.01.0.copyload.i72, %_ZN5clang6Parser12ConsumeBraceEv.exit78 ], [ %.sroa.0.0.copyload.i.pre, %41 ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #12
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %43, ptr %4, align 8, !tbaa !308
@@ -2202,13 +2202,13 @@ _ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit: ; preds = %1, %_ZN5clan
   %53 = load ptr, ptr %52, align 8, !tbaa !87
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, 2048
-  %.not22 = icmp eq i64 %55, 0
-  br i1 %.not22, label %56, label %_ZN5clang17DiagnosticBuilderD2Ev.exit
+  %.not23 = icmp eq i64 %55, 0
+  br i1 %.not23, label %56, label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 56:                                               ; preds = %49
   %57 = and i64 %54, 8
-  %.not23 = icmp eq i64 %57, 0
-  %58 = select i1 %.not23, i32 87, i32 129
+  %.not24 = icmp eq i64 %57, 0
+  %58 = select i1 %.not24, i32 87, i32 129
   call void @_ZN5clang6Parser4DiagENS_14SourceLocationEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %5, ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 %.sroa.0.0.copyload.i, i32 noundef %58) #12
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %60 = load i8, ptr %59, align 8, !tbaa !350, !range !355, !noundef !356
@@ -2589,10 +2589,10 @@ _ZN5clang6Parser16ParseInitializerEv.exit:        ; preds = %188, %186, %184, %1
 .thread49:                                        ; preds = %.thread, %216, %175, %170
   %.pre = load i8, ptr %6, align 1, !tbaa !310, !range !355
   %227 = trunc nuw i8 %.pre to i1
-  %228 = xor i1 %227, true
-  %229 = call noundef zeroext i1 @_ZN5clang24BalancedDelimiterTracker12consumeCloseEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  %brmerge = or i1 %229, %228
-  br i1 %brmerge, label %236, label %230
+  %228 = call noundef zeroext i1 @_ZN5clang24BalancedDelimiterTracker12consumeCloseEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
+  %229 = xor i1 %228, true
+  %or.cond = and i1 %227, %229
+  br i1 %or.cond, label %230, label %236
 
 230:                                              ; preds = %.thread49
   %231 = load ptr, ptr %121, align 8, !tbaa !361
@@ -2604,7 +2604,7 @@ _ZN5clang6Parser16ParseInitializerEv.exit:        ; preds = %188, %186, %184, %1
   br label %236
 
 236:                                              ; preds = %.thread49.thread, %.thread49, %230
-  %.sroa.021.1 = phi i64 [ %235, %230 ], [ 1, %.thread49 ], [ 1, %.thread49.thread ]
+  %.sroa.022.1 = phi i64 [ %235, %230 ], [ 1, %.thread49 ], [ 1, %.thread49.thread ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
@@ -2616,7 +2616,7 @@ _ZN5clang6Parser16ParseInitializerEv.exit:        ; preds = %188, %186, %184, %1
   br label %_ZN5clang32EnterExpressionEvaluationContextD2Ev.exit
 
 _ZN5clang32EnterExpressionEvaluationContextD2Ev.exit: ; preds = %237, %236, %_ZN5clang6Parser12ConsumeBraceEv.exit
-  %.sroa.021.0 = phi i64 [ %119, %_ZN5clang6Parser12ConsumeBraceEv.exit ], [ %.sroa.021.1, %236 ], [ %.sroa.021.1, %237 ]
+  %.sroa.022.0 = phi i64 [ %119, %_ZN5clang6Parser12ConsumeBraceEv.exit ], [ %.sroa.022.1, %236 ], [ %.sroa.022.1, %237 ]
   %238 = load ptr, ptr %4, align 8, !tbaa !308
   %239 = icmp eq ptr %238, %43
   br i1 %239, label %_ZN4llvm11SmallVectorIPN5clang4ExprELj12EED2Ev.exit, label %240
@@ -2632,7 +2632,7 @@ _ZN4llvm11SmallVectorIPN5clang4ExprELj12EED2Ev.exit: ; preds = %_ZN5clang32Enter
   store i8 %241, ptr %242, align 1, !tbaa !310
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #12
   store i8 %12, ptr %11, align 1, !tbaa !310
-  ret i64 %.sroa.021.0
+  ret i64 %.sroa.022.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

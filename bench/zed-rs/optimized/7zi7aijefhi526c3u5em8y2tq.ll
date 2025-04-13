@@ -5618,8 +5618,8 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN4core6option1
   br label %10
 
 10:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h7224597203d0560aE.exit", %2
-  %.sroa.03.0 = phi ptr [ null, %2 ], [ %spec.select, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h7224597203d0560aE.exit" ]
-  ret ptr %.sroa.03.0
+  %.sroa.05.0 = phi ptr [ null, %2 ], [ %spec.select, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h7224597203d0560aE.exit" ]
+  ret ptr %.sroa.05.0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -13005,9 +13005,9 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9seco
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h09ae71461b312bb8E.llvm.3518678287117667287.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17h09ae71461b312bb8E.llvm.3518678287117667287.exit": ; preds = %3, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h7224597203d0560aE.exit.i"
-  %.sroa.03.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h7224597203d0560aE.exit.i" ]
-  %21 = icmp eq ptr %.sroa.03.0.i, null
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i, i64 8
+  %.sroa.05.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h7224597203d0560aE.exit.i" ]
+  %21 = icmp eq ptr %.sroa.05.0.i, null
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 8
   %spec.select = select i1 %21, ptr null, ptr %22
   ret ptr %spec.select
 }
@@ -24857,9 +24857,12 @@ define hidden void @_ZN6search13SearchOptions9as_button17h37616caf5151abc6E(ptr 
   %22 = load i8, ptr %1, align 1, !alias.scope !4132, !noundef !5
   %switch.tableidx = add i8 %22, -1
   %23 = icmp ult i8 %switch.tableidx, 8
-  br i1 %23, label %switch.hole_check, label %24
+  %switch.shifted = lshr i8 -117, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %24
 
-24:                                               ; preds = %switch.hole_check, %5
+24:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !4132
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !4132
   store ptr %11, ptr %9, align 8, !noalias !4132
@@ -24885,12 +24888,7 @@ define hidden void @_ZN6search13SearchOptions9as_button17h37616caf5151abc6E(ptr 
           cleanup
   br label %.thread57
 
-switch.hole_check:                                ; preds = %5
-  %switch.shifted = lshr i8 -117, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %24
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %29 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -24962,9 +24960,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store ptr %1, ptr %8, align 8, !noalias !4135
   %switch.tableidx63 = add nsw i8 %22, -1
   %47 = icmp ult i8 %switch.tableidx63, 8
-  br i1 %47, label %switch.hole_check64, label %48
+  %switch.shifted65 = lshr i8 -117, %switch.tableidx63
+  %switch.lobit66 = trunc i8 %switch.shifted65 to i1
+  %or.cond71 = select i1 %47, i1 %switch.lobit66, i1 false
+  br i1 %or.cond71, label %switch.lookup64, label %48
 
-48:                                               ; preds = %switch.hole_check64, %44
+48:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !4135
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4135
   store ptr %8, ptr %6, align 8, !noalias !4135
@@ -24993,22 +24994,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h870a91116522b2f9E"(ptr %45, ptr nonnull %46) #40
           to label %.thread42 unwind label %64
 
-switch.hole_check64:                              ; preds = %44
-  %switch.shifted66 = lshr i8 -117, %switch.tableidx63
-  %switch.lobit67 = trunc i8 %switch.shifted66 to i1
-  br i1 %switch.lobit67, label %switch.lookup65, label %48
-
-switch.lookup65:                                  ; preds = %switch.hole_check64
+switch.lookup64:                                  ; preds = %44
   %56 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep68 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
-  %switch.load69 = load i64, ptr %switch.gep68, align 8
+  %switch.gep67 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
+  %switch.load68 = load i64, ptr %switch.gep67, align 8
   %57 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep70 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
-  %switch.load71 = load ptr, ptr %switch.gep70, align 8
+  %switch.gep69 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
+  %switch.load70 = load ptr, ptr %switch.gep69, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store ptr %switch.load71, ptr %16, align 8
+  store ptr %switch.load70, ptr %16, align 8
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %switch.load69, ptr %58, align 8
+  store i64 %switch.load68, ptr %58, align 8
   %59 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp ne ptr %46, null
@@ -25082,9 +25078,12 @@ define hidden void @_ZN6search13SearchOptions9as_button17h691088cb8ad585b2E(ptr 
   %22 = load i8, ptr %1, align 1, !alias.scope !4138, !noundef !5
   %switch.tableidx = add i8 %22, -1
   %23 = icmp ult i8 %switch.tableidx, 8
-  br i1 %23, label %switch.hole_check, label %24
+  %switch.shifted = lshr i8 -117, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %24
 
-24:                                               ; preds = %switch.hole_check, %5
+24:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !4138
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !4138
   store ptr %11, ptr %9, align 8, !noalias !4138
@@ -25110,12 +25109,7 @@ define hidden void @_ZN6search13SearchOptions9as_button17h691088cb8ad585b2E(ptr 
           cleanup
   br label %.thread57
 
-switch.hole_check:                                ; preds = %5
-  %switch.shifted = lshr i8 -117, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %24
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %29 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -25187,9 +25181,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store ptr %1, ptr %8, align 8, !noalias !4141
   %switch.tableidx63 = add nsw i8 %22, -1
   %47 = icmp ult i8 %switch.tableidx63, 8
-  br i1 %47, label %switch.hole_check64, label %48
+  %switch.shifted65 = lshr i8 -117, %switch.tableidx63
+  %switch.lobit66 = trunc i8 %switch.shifted65 to i1
+  %or.cond71 = select i1 %47, i1 %switch.lobit66, i1 false
+  br i1 %or.cond71, label %switch.lookup64, label %48
 
-48:                                               ; preds = %switch.hole_check64, %44
+48:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !4141
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4141
   store ptr %8, ptr %6, align 8, !noalias !4141
@@ -25218,22 +25215,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h870a91116522b2f9E"(ptr %45, ptr nonnull %46) #40
           to label %.thread42 unwind label %64
 
-switch.hole_check64:                              ; preds = %44
-  %switch.shifted66 = lshr i8 -117, %switch.tableidx63
-  %switch.lobit67 = trunc i8 %switch.shifted66 to i1
-  br i1 %switch.lobit67, label %switch.lookup65, label %48
-
-switch.lookup65:                                  ; preds = %switch.hole_check64
+switch.lookup64:                                  ; preds = %44
   %56 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep68 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
-  %switch.load69 = load i64, ptr %switch.gep68, align 8
+  %switch.gep67 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
+  %switch.load68 = load i64, ptr %switch.gep67, align 8
   %57 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep70 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
-  %switch.load71 = load ptr, ptr %switch.gep70, align 8
+  %switch.gep69 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
+  %switch.load70 = load ptr, ptr %switch.gep69, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store ptr %switch.load71, ptr %16, align 8
+  store ptr %switch.load70, ptr %16, align 8
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %switch.load69, ptr %58, align 8
+  store i64 %switch.load68, ptr %58, align 8
   %59 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp ne ptr %46, null
@@ -25307,9 +25299,12 @@ define hidden void @_ZN6search13SearchOptions9as_button17h6d545c56d94f6f7eE(ptr 
   %22 = load i8, ptr %1, align 1, !alias.scope !4144, !noundef !5
   %switch.tableidx = add i8 %22, -1
   %23 = icmp ult i8 %switch.tableidx, 8
-  br i1 %23, label %switch.hole_check, label %24
+  %switch.shifted = lshr i8 -117, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %24
 
-24:                                               ; preds = %switch.hole_check, %5
+24:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !4144
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !4144
   store ptr %11, ptr %9, align 8, !noalias !4144
@@ -25335,12 +25330,7 @@ define hidden void @_ZN6search13SearchOptions9as_button17h6d545c56d94f6f7eE(ptr 
           cleanup
   br label %.thread57
 
-switch.hole_check:                                ; preds = %5
-  %switch.shifted = lshr i8 -117, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %24
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %29 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -25412,9 +25402,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store ptr %1, ptr %8, align 8, !noalias !4147
   %switch.tableidx63 = add nsw i8 %22, -1
   %47 = icmp ult i8 %switch.tableidx63, 8
-  br i1 %47, label %switch.hole_check64, label %48
+  %switch.shifted65 = lshr i8 -117, %switch.tableidx63
+  %switch.lobit66 = trunc i8 %switch.shifted65 to i1
+  %or.cond71 = select i1 %47, i1 %switch.lobit66, i1 false
+  br i1 %or.cond71, label %switch.lookup64, label %48
 
-48:                                               ; preds = %switch.hole_check64, %44
+48:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !4147
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4147
   store ptr %8, ptr %6, align 8, !noalias !4147
@@ -25443,22 +25436,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h870a91116522b2f9E"(ptr %45, ptr nonnull %46) #40
           to label %.thread42 unwind label %64
 
-switch.hole_check64:                              ; preds = %44
-  %switch.shifted66 = lshr i8 -117, %switch.tableidx63
-  %switch.lobit67 = trunc i8 %switch.shifted66 to i1
-  br i1 %switch.lobit67, label %switch.lookup65, label %48
-
-switch.lookup65:                                  ; preds = %switch.hole_check64
+switch.lookup64:                                  ; preds = %44
   %56 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep68 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
-  %switch.load69 = load i64, ptr %switch.gep68, align 8
+  %switch.gep67 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
+  %switch.load68 = load i64, ptr %switch.gep67, align 8
   %57 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep70 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
-  %switch.load71 = load ptr, ptr %switch.gep70, align 8
+  %switch.gep69 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
+  %switch.load70 = load ptr, ptr %switch.gep69, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store ptr %switch.load71, ptr %16, align 8
+  store ptr %switch.load70, ptr %16, align 8
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %switch.load69, ptr %58, align 8
+  store i64 %switch.load68, ptr %58, align 8
   %59 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp ne ptr %46, null
@@ -25532,9 +25520,12 @@ define hidden void @_ZN6search13SearchOptions9as_button17h73d04fde0d1eee65E(ptr 
   %22 = load i8, ptr %1, align 1, !alias.scope !4150, !noundef !5
   %switch.tableidx = add i8 %22, -1
   %23 = icmp ult i8 %switch.tableidx, 8
-  br i1 %23, label %switch.hole_check, label %24
+  %switch.shifted = lshr i8 -117, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %24
 
-24:                                               ; preds = %switch.hole_check, %5
+24:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !4150
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !4150
   store ptr %11, ptr %9, align 8, !noalias !4150
@@ -25560,12 +25551,7 @@ define hidden void @_ZN6search13SearchOptions9as_button17h73d04fde0d1eee65E(ptr 
           cleanup
   br label %.thread57
 
-switch.hole_check:                                ; preds = %5
-  %switch.shifted = lshr i8 -117, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %24
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %29 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -25637,9 +25623,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store ptr %1, ptr %8, align 8, !noalias !4153
   %switch.tableidx63 = add nsw i8 %22, -1
   %47 = icmp ult i8 %switch.tableidx63, 8
-  br i1 %47, label %switch.hole_check64, label %48
+  %switch.shifted65 = lshr i8 -117, %switch.tableidx63
+  %switch.lobit66 = trunc i8 %switch.shifted65 to i1
+  %or.cond71 = select i1 %47, i1 %switch.lobit66, i1 false
+  br i1 %or.cond71, label %switch.lookup64, label %48
 
-48:                                               ; preds = %switch.hole_check64, %44
+48:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !4153
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4153
   store ptr %8, ptr %6, align 8, !noalias !4153
@@ -25668,22 +25657,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h870a91116522b2f9E"(ptr %45, ptr nonnull %46) #40
           to label %.thread42 unwind label %64
 
-switch.hole_check64:                              ; preds = %44
-  %switch.shifted66 = lshr i8 -117, %switch.tableidx63
-  %switch.lobit67 = trunc i8 %switch.shifted66 to i1
-  br i1 %switch.lobit67, label %switch.lookup65, label %48
-
-switch.lookup65:                                  ; preds = %switch.hole_check64
+switch.lookup64:                                  ; preds = %44
   %56 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep68 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
-  %switch.load69 = load i64, ptr %switch.gep68, align 8
+  %switch.gep67 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
+  %switch.load68 = load i64, ptr %switch.gep67, align 8
   %57 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep70 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
-  %switch.load71 = load ptr, ptr %switch.gep70, align 8
+  %switch.gep69 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
+  %switch.load70 = load ptr, ptr %switch.gep69, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store ptr %switch.load71, ptr %16, align 8
+  store ptr %switch.load70, ptr %16, align 8
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %switch.load69, ptr %58, align 8
+  store i64 %switch.load68, ptr %58, align 8
   %59 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp ne ptr %46, null
@@ -25757,9 +25741,12 @@ define hidden void @_ZN6search13SearchOptions9as_button17hbef4649cf72428f9E(ptr 
   %22 = load i8, ptr %1, align 1, !alias.scope !4156, !noundef !5
   %switch.tableidx = add i8 %22, -1
   %23 = icmp ult i8 %switch.tableidx, 8
-  br i1 %23, label %switch.hole_check, label %24
+  %switch.shifted = lshr i8 -117, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %24
 
-24:                                               ; preds = %switch.hole_check, %5
+24:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !4156
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !4156
   store ptr %11, ptr %9, align 8, !noalias !4156
@@ -25785,12 +25772,7 @@ define hidden void @_ZN6search13SearchOptions9as_button17hbef4649cf72428f9E(ptr 
           cleanup
   br label %.thread57
 
-switch.hole_check:                                ; preds = %5
-  %switch.shifted = lshr i8 -117, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %24
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %29 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -25862,9 +25844,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store ptr %1, ptr %8, align 8, !noalias !4159
   %switch.tableidx63 = add nsw i8 %22, -1
   %47 = icmp ult i8 %switch.tableidx63, 8
-  br i1 %47, label %switch.hole_check64, label %48
+  %switch.shifted65 = lshr i8 -117, %switch.tableidx63
+  %switch.lobit66 = trunc i8 %switch.shifted65 to i1
+  %or.cond71 = select i1 %47, i1 %switch.lobit66, i1 false
+  br i1 %or.cond71, label %switch.lookup64, label %48
 
-48:                                               ; preds = %switch.hole_check64, %44
+48:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !4159
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4159
   store ptr %8, ptr %6, align 8, !noalias !4159
@@ -25893,22 +25878,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h870a91116522b2f9E"(ptr %45, ptr nonnull %46) #40
           to label %.thread42 unwind label %64
 
-switch.hole_check64:                              ; preds = %44
-  %switch.shifted66 = lshr i8 -117, %switch.tableidx63
-  %switch.lobit67 = trunc i8 %switch.shifted66 to i1
-  br i1 %switch.lobit67, label %switch.lookup65, label %48
-
-switch.lookup65:                                  ; preds = %switch.hole_check64
+switch.lookup64:                                  ; preds = %44
   %56 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep68 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
-  %switch.load69 = load i64, ptr %switch.gep68, align 8
+  %switch.gep67 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
+  %switch.load68 = load i64, ptr %switch.gep67, align 8
   %57 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep70 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
-  %switch.load71 = load ptr, ptr %switch.gep70, align 8
+  %switch.gep69 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
+  %switch.load70 = load ptr, ptr %switch.gep69, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store ptr %switch.load71, ptr %16, align 8
+  store ptr %switch.load70, ptr %16, align 8
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %switch.load69, ptr %58, align 8
+  store i64 %switch.load68, ptr %58, align 8
   %59 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp ne ptr %46, null
@@ -25982,9 +25962,12 @@ define hidden void @_ZN6search13SearchOptions9as_button17hc963b6fb3455a89bE(ptr 
   %22 = load i8, ptr %1, align 1, !alias.scope !4162, !noundef !5
   %switch.tableidx = add i8 %22, -1
   %23 = icmp ult i8 %switch.tableidx, 8
-  br i1 %23, label %switch.hole_check, label %24
+  %switch.shifted = lshr i8 -117, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %24
 
-24:                                               ; preds = %switch.hole_check, %5
+24:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !4162
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !4162
   store ptr %11, ptr %9, align 8, !noalias !4162
@@ -26010,12 +25993,7 @@ define hidden void @_ZN6search13SearchOptions9as_button17hc963b6fb3455a89bE(ptr 
           cleanup
   br label %.thread57
 
-switch.hole_check:                                ; preds = %5
-  %switch.shifted = lshr i8 -117, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %24
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %29 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -26087,9 +26065,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store ptr %1, ptr %8, align 8, !noalias !4165
   %switch.tableidx63 = add nsw i8 %22, -1
   %47 = icmp ult i8 %switch.tableidx63, 8
-  br i1 %47, label %switch.hole_check64, label %48
+  %switch.shifted65 = lshr i8 -117, %switch.tableidx63
+  %switch.lobit66 = trunc i8 %switch.shifted65 to i1
+  %or.cond71 = select i1 %47, i1 %switch.lobit66, i1 false
+  br i1 %or.cond71, label %switch.lookup64, label %48
 
-48:                                               ; preds = %switch.hole_check64, %44
+48:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !4165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4165
   store ptr %8, ptr %6, align 8, !noalias !4165
@@ -26118,22 +26099,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h870a91116522b2f9E"(ptr %45, ptr nonnull %46) #40
           to label %.thread42 unwind label %64
 
-switch.hole_check64:                              ; preds = %44
-  %switch.shifted66 = lshr i8 -117, %switch.tableidx63
-  %switch.lobit67 = trunc i8 %switch.shifted66 to i1
-  br i1 %switch.lobit67, label %switch.lookup65, label %48
-
-switch.lookup65:                                  ; preds = %switch.hole_check64
+switch.lookup64:                                  ; preds = %44
   %56 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep68 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
-  %switch.load69 = load i64, ptr %switch.gep68, align 8
+  %switch.gep67 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
+  %switch.load68 = load i64, ptr %switch.gep67, align 8
   %57 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep70 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
-  %switch.load71 = load ptr, ptr %switch.gep70, align 8
+  %switch.gep69 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
+  %switch.load70 = load ptr, ptr %switch.gep69, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store ptr %switch.load71, ptr %16, align 8
+  store ptr %switch.load70, ptr %16, align 8
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %switch.load69, ptr %58, align 8
+  store i64 %switch.load68, ptr %58, align 8
   %59 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp ne ptr %46, null
@@ -26207,9 +26183,12 @@ define hidden void @_ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E(ptr 
   %22 = load i8, ptr %1, align 1, !alias.scope !4168, !noundef !5
   %switch.tableidx = add i8 %22, -1
   %23 = icmp ult i8 %switch.tableidx, 8
-  br i1 %23, label %switch.hole_check, label %24
+  %switch.shifted = lshr i8 -117, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %24
 
-24:                                               ; preds = %switch.hole_check, %5
+24:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !4168
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !4168
   store ptr %11, ptr %9, align 8, !noalias !4168
@@ -26235,12 +26214,7 @@ define hidden void @_ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E(ptr 
           cleanup
   br label %.thread57
 
-switch.hole_check:                                ; preds = %5
-  %switch.shifted = lshr i8 -117, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %24
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %29 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -26312,9 +26286,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store ptr %1, ptr %8, align 8, !noalias !4171
   %switch.tableidx63 = add nsw i8 %22, -1
   %47 = icmp ult i8 %switch.tableidx63, 8
-  br i1 %47, label %switch.hole_check64, label %48
+  %switch.shifted65 = lshr i8 -117, %switch.tableidx63
+  %switch.lobit66 = trunc i8 %switch.shifted65 to i1
+  %or.cond71 = select i1 %47, i1 %switch.lobit66, i1 false
+  br i1 %or.cond71, label %switch.lookup64, label %48
 
-48:                                               ; preds = %switch.hole_check64, %44
+48:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !4171
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4171
   store ptr %8, ptr %6, align 8, !noalias !4171
@@ -26343,22 +26320,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h870a91116522b2f9E"(ptr %45, ptr nonnull %46) #40
           to label %.thread42 unwind label %64
 
-switch.hole_check64:                              ; preds = %44
-  %switch.shifted66 = lshr i8 -117, %switch.tableidx63
-  %switch.lobit67 = trunc i8 %switch.shifted66 to i1
-  br i1 %switch.lobit67, label %switch.lookup65, label %48
-
-switch.lookup65:                                  ; preds = %switch.hole_check64
+switch.lookup64:                                  ; preds = %44
   %56 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep68 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
-  %switch.load69 = load i64, ptr %switch.gep68, align 8
+  %switch.gep67 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.68, i64 0, i64 %56
+  %switch.load68 = load i64, ptr %switch.gep67, align 8
   %57 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep70 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
-  %switch.load71 = load ptr, ptr %switch.gep70, align 8
+  %switch.gep69 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions9as_button17he0f18cc2334b3b98E.69, i64 0, i64 %57
+  %switch.load70 = load ptr, ptr %switch.gep69, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store ptr %switch.load71, ptr %16, align 8
+  store ptr %switch.load70, ptr %16, align 8
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %switch.load69, ptr %58, align 8
+  store i64 %switch.load68, ptr %58, align 8
   %59 = icmp ne ptr %45, null
   tail call void @llvm.assume(i1 %59)
   %60 = icmp ne ptr %46, null

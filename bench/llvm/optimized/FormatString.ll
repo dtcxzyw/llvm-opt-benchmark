@@ -2976,9 +2976,12 @@ define dso_local noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSp
 _ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread:       ; preds = %16
   %switch.tableidx = add i32 %.pre, -1
   %26 = icmp ult i32 %switch.tableidx, 28
-  br i1 %26, label %switch.hole_check, label %27
+  %switch.shifted = lshr i32 185597953, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond46 = select i1 %26, i1 %switch.lobit, i1 false
+  br i1 %or.cond46, label %_ZNK4llvm6Triple4isPSEv.exit, label %27
 
-27:                                               ; preds = %switch.hole_check, %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, %16, %3, %3, %3, %3, %3, %3
+27:                                               ; preds = %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, %16, %3, %3, %3, %3, %3, %3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i32, ptr %28, align 8, !tbaa !450
   switch i32 %29, label %42 [
@@ -3210,11 +3213,6 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %69
 126:                                              ; preds = %3
   unreachable
 
-switch.hole_check:                                ; preds = %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread
-  %switch.shifted = lshr i32 185597953, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK4llvm6Triple4isPSEv.exit, label %27
-
 switch.lookup35:                                  ; preds = %85
   %switch.cast = trunc nuw i32 %83 to i31
   %switch.downshift = lshr i31 335527903, %switch.cast
@@ -3233,8 +3231,8 @@ switch.lookup41:                                  ; preds = %92
   %switch.masked45 = trunc i40 %switch.downshift44 to i1
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-_ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %switch.hole_check, %92, %switch.lookup41, %88, %switch.lookup36, %85, %switch.lookup35, %55, %81, %123, %114, %108, %99, %_ZNK4llvm6Triple5isPS4Ev.exit.i21, %69, %_ZNK4llvm6Triple5isPS4Ev.exit.i, %34, %111, %96, %78, %78, %78, %78, %78, %78, %78, %78, %65, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %62, %43, %47, %30, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %._crit_edge, %3, %87, %77, %42, %11
-  %.0 = phi i1 [ false, %87 ], [ false, %77 ], [ false, %42 ], [ %14, %11 ], [ true, %3 ], [ true, %._crit_edge ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %30 ], [ false, %43 ], [ %50, %47 ], [ true, %62 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %65 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ false, %96 ], [ false, %111 ], [ false, %34 ], [ %spec.select.i17, %_ZNK4llvm6Triple5isPS4Ev.exit.i ], [ false, %69 ], [ %spec.select.i22, %_ZNK4llvm6Triple5isPS4Ev.exit.i21 ], [ %110, %108 ], [ true, %99 ], [ %125, %123 ], [ true, %114 ], [ false, %81 ], [ %or.cond32.not, %55 ], [ %switch.masked, %switch.lookup35 ], [ true, %85 ], [ %switch.masked40, %switch.lookup36 ], [ false, %88 ], [ %switch.masked45, %switch.lookup41 ], [ false, %92 ], [ true, %switch.hole_check ]
+_ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, %92, %switch.lookup41, %88, %switch.lookup36, %85, %switch.lookup35, %55, %81, %123, %114, %108, %99, %_ZNK4llvm6Triple5isPS4Ev.exit.i21, %69, %_ZNK4llvm6Triple5isPS4Ev.exit.i, %34, %111, %96, %78, %78, %78, %78, %78, %78, %78, %78, %65, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %62, %43, %47, %30, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %._crit_edge, %3, %87, %77, %42, %11
+  %.0 = phi i1 [ false, %87 ], [ false, %77 ], [ false, %42 ], [ %14, %11 ], [ true, %3 ], [ true, %._crit_edge ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %30 ], [ false, %43 ], [ %50, %47 ], [ true, %62 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %65 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ false, %96 ], [ false, %111 ], [ false, %34 ], [ %spec.select.i17, %_ZNK4llvm6Triple5isPS4Ev.exit.i ], [ false, %69 ], [ %spec.select.i22, %_ZNK4llvm6Triple5isPS4Ev.exit.i21 ], [ %110, %108 ], [ true, %99 ], [ %125, %123 ], [ true, %114 ], [ false, %81 ], [ %or.cond32.not, %55 ], [ %switch.masked, %switch.lookup35 ], [ true, %85 ], [ %switch.masked40, %switch.lookup36 ], [ false, %88 ], [ %switch.masked45, %switch.lookup41 ], [ false, %92 ], [ true, %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread ]
   ret i1 %.0
 }
 

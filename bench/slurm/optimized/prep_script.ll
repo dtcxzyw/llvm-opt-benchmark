@@ -182,38 +182,34 @@ define dso_local noundef i32 @prep_p_epilog_slurmctld(ptr noundef %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define dso_local void @prep_p_required(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
   store i8 0, ptr %1, align 1
-  switch i32 %0, label %11 [
+  switch i32 %0, label %9 [
     i32 3, label %3
-    i32 4, label %6
-    i32 1, label %9
-    i32 2, label %9
+    i32 4, label %5
+    i32 1, label %7
+    i32 2, label %7
   ]
 
 3:                                                ; preds = %2
   %4 = tail call zeroext i1 @running_in_slurmctld() #5
-  br i1 %4, label %5, label %11
+  %.b9 = load i1, ptr @have_prolog_slurmctld, align 1
+  %or.cond = select i1 %4, i1 %.b9, i1 false
+  br i1 %or.cond, label %.sink.split, label %9
 
-5:                                                ; preds = %3
-  %.b6 = load i1, ptr @have_prolog_slurmctld, align 1
-  br i1 %.b6, label %.sink.split, label %11
+5:                                                ; preds = %2
+  %6 = tail call zeroext i1 @running_in_slurmctld() #5
+  %.b78 = load i1, ptr @have_epilog_slurmctld, align 1
+  %or.cond3 = select i1 %6, i1 %.b78, i1 false
+  br i1 %or.cond3, label %.sink.split, label %9
 
-6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @running_in_slurmctld() #5
-  br i1 %7, label %8, label %11
+7:                                                ; preds = %2, %2
+  %8 = tail call zeroext i1 @running_in_slurmd() #5
+  br i1 %8, label %.sink.split, label %9
 
-8:                                                ; preds = %6
-  %.b45 = load i1, ptr @have_epilog_slurmctld, align 1
-  br i1 %.b45, label %.sink.split, label %11
-
-9:                                                ; preds = %2, %2
-  %10 = tail call zeroext i1 @running_in_slurmd() #5
-  br i1 %10, label %.sink.split, label %11
-
-.sink.split:                                      ; preds = %9, %8, %5
+.sink.split:                                      ; preds = %7, %5, %3
   store i8 1, ptr %1, align 1
-  br label %11
+  br label %9
 
-11:                                               ; preds = %.sink.split, %5, %3, %8, %6, %9, %2
+9:                                                ; preds = %.sink.split, %3, %5, %7, %2
   ret void
 }
 

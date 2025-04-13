@@ -97,7 +97,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %13 = tail call ptr @h5tools_getprogname() #11
   tail call fastcc void @usage(ptr noundef %13)
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %.thread43
+  br label %.thread50
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %34
   %14 = phi i32 [ %35, %34 ], [ %11, %.preheader.i ]
@@ -162,7 +162,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %33 = tail call ptr @h5tools_getprogname() #11
   tail call fastcc void @usage(ptr noundef %33)
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %.thread43
+  br label %.thread50
 
 34:                                               ; preds = %30, %23, %22, %21, %20
   %35 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull @l_opts) #11
@@ -179,7 +179,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %38 = tail call ptr @h5tools_getprogname() #11
   tail call fastcc void @usage(ptr noundef %38)
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %.thread43
+  br label %.thread50
 
 39:                                               ; preds = %._crit_edge.i
   %40 = sext i32 %36 to i64
@@ -190,300 +190,280 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %parse_command_line.exit
 
 parse_command_line.exitthread-pre-split:          ; preds = %28, %18, %16
-  %.pr51 = load ptr, ptr @fname_g, align 8
+  %.pr57 = load ptr, ptr @fname_g, align 8
   br label %parse_command_line.exit
 
 parse_command_line.exit:                          ; preds = %parse_command_line.exitthread-pre-split, %39
-  %44 = phi ptr [ %.pr51, %parse_command_line.exitthread-pre-split ], [ %43, %39 ]
+  %44 = phi ptr [ %.pr57, %parse_command_line.exitthread-pre-split ], [ %43, %39 ]
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.thread43.thread, label %46
+  br i1 %45, label %.thread50.thread, label %46
 
 46:                                               ; preds = %parse_command_line.exit
   tail call void @h5tools_error_report() #11
   %47 = load i8, ptr @clear_status_flags, align 1, !tbaa !4, !range !17, !noundef !18
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %.thread, label %49
-
-49:                                               ; preds = %46
-  %.b3031 = load i1, ptr @remove_cache_image, align 1
-  br i1 %.b3031, label %57, label %50
-
-50:                                               ; preds = %49
-  %51 = load i8, ptr @increment_eoa_eof, align 1, !tbaa !4, !range !17, !noundef !18
+  %.b40 = load i1, ptr @remove_cache_image, align 1
+  %or.cond = select i1 %48, i1 true, i1 %.b40
+  %49 = load i8, ptr @increment_eoa_eof, align 1, !range !17
+  %50 = trunc nuw i8 %49 to i1
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %50
+  %51 = load i8, ptr @print_filesize, align 1, !range !17
   %52 = trunc nuw i8 %51 to i1
-  %.pre50 = load i8, ptr @print_filesize, align 1, !tbaa !4, !range !17
-  %53 = trunc nuw i8 %.pre50 to i1
-  br i1 %52, label %.thread54, label %54
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %52
+  br i1 %or.cond5, label %55, label %53
 
-54:                                               ; preds = %50
-  br i1 %53, label %.thread53, label %55
-
-55:                                               ; preds = %54
-  %56 = tail call ptr @h5tools_getprogname() #11
-  tail call fastcc void @usage(ptr noundef %56)
+53:                                               ; preds = %46
+  %54 = tail call ptr @h5tools_getprogname() #11
+  tail call fastcc void @usage(ptr noundef %54)
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %.thread43
+  br label %.thread50
 
-57:                                               ; preds = %49
-  %.pre = load i8, ptr @print_filesize, align 1, !tbaa !4, !range !17
-  %58 = trunc nuw i8 %.pre to i1
-  br i1 %58, label %.thread39, label %63
+55:                                               ; preds = %46
+  %brmerge.demorgan = and i1 %or.cond3, %52
+  br i1 %brmerge.demorgan, label %56, label %57
 
-.thread54:                                        ; preds = %50
-  br i1 %53, label %.thread53, label %63
-
-.thread:                                          ; preds = %46
-  %59 = load i8, ptr @print_filesize, align 1, !tbaa !4, !range !17, !noundef !18
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %.thread39, label %63
-
-.thread53:                                        ; preds = %.thread54, %54
-  %61 = load i8, ptr @increment_eoa_eof, align 1, !tbaa !4, !range !17, !noundef !18
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %.thread39, label %63
-
-.thread39:                                        ; preds = %57, %.thread, %.thread53
+56:                                               ; preds = %55
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.1) #11
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %.thread43
+  br label %.thread50
 
-63:                                               ; preds = %.thread54, %.thread, %.thread53, %57
-  %64 = load ptr, ptr @fname_g, align 8, !tbaa !8
-  %65 = tail call noalias ptr @strdup(ptr noundef %64) #11
-  %66 = load i8, ptr @H5_libinit_g, align 1, !tbaa !4, !range !17, !noundef !18
-  %67 = trunc nuw i8 %66 to i1
-  %68 = load i8, ptr @H5_libterm_g, align 1, !range !17
-  %69 = trunc nuw i8 %68 to i1
-  %70 = select i1 %67, i1 true, i1 %69
-  br i1 %70, label %73, label %71, !prof !19
+57:                                               ; preds = %55
+  %58 = load ptr, ptr @fname_g, align 8, !tbaa !8
+  %59 = tail call noalias ptr @strdup(ptr noundef %58) #11
+  %60 = load i8, ptr @H5_libinit_g, align 1, !tbaa !4, !range !17, !noundef !18
+  %61 = trunc nuw i8 %60 to i1
+  %62 = load i8, ptr @H5_libterm_g, align 1, !range !17
+  %63 = trunc nuw i8 %62 to i1
+  %64 = select i1 %61, i1 true, i1 %63
+  br i1 %64, label %67, label %65, !prof !19
 
-71:                                               ; preds = %63
-  %72 = tail call i32 @H5open() #11
-  br label %73
+65:                                               ; preds = %57
+  %66 = tail call i32 @H5open() #11
+  br label %67
 
-73:                                               ; preds = %63, %71
-  %74 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !11
-  %75 = tail call i64 @H5Pcreate(i64 noundef %74) #11
-  %76 = icmp slt i64 %75, 0
-  br i1 %76, label %77, label %78
+67:                                               ; preds = %57, %65
+  %68 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !11
+  %69 = tail call i64 @H5Pcreate(i64 noundef %68) #11
+  %70 = icmp slt i64 %69, 0
+  br i1 %70, label %71, label %72
 
-77:                                               ; preds = %73
+71:                                               ; preds = %67
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.2) #11
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %142
+  br label %136
 
-78:                                               ; preds = %73
-  %79 = load i8, ptr @clear_status_flags, align 1, !tbaa !4, !range !17, !noundef !18
-  %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %81, label %85
+72:                                               ; preds = %67
+  %73 = load i8, ptr @clear_status_flags, align 1, !tbaa !4, !range !17, !noundef !18
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %75, label %79
 
-81:                                               ; preds = %78
-  %82 = tail call i32 @H5Pset(i64 noundef %75, ptr noundef nonnull @.str.3, ptr noundef nonnull @clear_status_flags) #11
-  %83 = icmp slt i32 %82, 0
-  br i1 %83, label %84, label %85
+75:                                               ; preds = %72
+  %76 = tail call i32 @H5Pset(i64 noundef %69, ptr noundef nonnull @.str.3, ptr noundef nonnull @clear_status_flags) #11
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %78, label %79
 
-84:                                               ; preds = %81
+78:                                               ; preds = %75
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.4) #11
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %142
+  br label %136
 
-85:                                               ; preds = %81, %78
-  %86 = load i8, ptr @increment_eoa_eof, align 1, !tbaa !4, !range !17, !noundef !18
-  %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %88, label %96
+79:                                               ; preds = %75, %72
+  %80 = load i8, ptr @increment_eoa_eof, align 1, !tbaa !4, !range !17, !noundef !18
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %82, label %90
 
-88:                                               ; preds = %85
-  %89 = tail call i32 @H5Pset(i64 noundef %75, ptr noundef nonnull @.str.5, ptr noundef nonnull @increment_eoa_eof) #11
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %91, label %92
+82:                                               ; preds = %79
+  %83 = tail call i32 @H5Pset(i64 noundef %69, ptr noundef nonnull @.str.5, ptr noundef nonnull @increment_eoa_eof) #11
+  %84 = icmp slt i32 %83, 0
+  br i1 %84, label %85, label %86
 
-91:                                               ; preds = %88
+85:                                               ; preds = %82
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.4) #11
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %142
+  br label %136
 
-92:                                               ; preds = %88
-  %93 = tail call i32 @H5Pset(i64 noundef %75, ptr noundef nonnull @.str.6, ptr noundef nonnull @increment_eoa_eof) #11
-  %94 = icmp slt i32 %93, 0
-  br i1 %94, label %95, label %96
+86:                                               ; preds = %82
+  %87 = tail call i32 @H5Pset(i64 noundef %69, ptr noundef nonnull @.str.6, ptr noundef nonnull @increment_eoa_eof) #11
+  %88 = icmp slt i32 %87, 0
+  br i1 %88, label %89, label %90
 
-95:                                               ; preds = %92
+89:                                               ; preds = %86
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.4) #11
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %142
+  br label %136
 
-96:                                               ; preds = %92, %85
-  %97 = load i8, ptr @print_filesize, align 1, !tbaa !4, !range !17, !noundef !18
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %103
+90:                                               ; preds = %86, %79
+  %91 = load i8, ptr @print_filesize, align 1, !tbaa !4, !range !17, !noundef !18
+  %92 = trunc nuw i8 %91 to i1
+  br i1 %92, label %93, label %97
 
-99:                                               ; preds = %96
-  %100 = tail call i32 @H5Pset(i64 noundef %75, ptr noundef nonnull @.str.5, ptr noundef nonnull @print_filesize) #11
-  %101 = icmp slt i32 %100, 0
-  br i1 %101, label %102, label %103
+93:                                               ; preds = %90
+  %94 = tail call i32 @H5Pset(i64 noundef %69, ptr noundef nonnull @.str.5, ptr noundef nonnull @print_filesize) #11
+  %95 = icmp slt i32 %94, 0
+  br i1 %95, label %96, label %97
 
-102:                                              ; preds = %99
+96:                                               ; preds = %93
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.4) #11
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %142
+  br label %136
 
-103:                                              ; preds = %99, %96
-  %.021 = phi i32 [ 1, %96 ], [ 0, %99 ]
-  %104 = tail call i64 @h5tools_fopen(ptr noundef %65, i32 noundef %.021, i64 noundef %75, i1 noundef zeroext false, ptr noundef null, i64 noundef 0) #11
-  %105 = icmp slt i64 %104, 0
-  br i1 %105, label %106, label %107
+97:                                               ; preds = %93, %90
+  %.031 = phi i32 [ 1, %90 ], [ 0, %93 ]
+  %98 = tail call i64 @h5tools_fopen(ptr noundef %59, i32 noundef %.031, i64 noundef %69, i1 noundef zeroext false, ptr noundef null, i64 noundef 0) #11
+  %99 = icmp slt i64 %98, 0
+  br i1 %99, label %100, label %101
 
-106:                                              ; preds = %103
+100:                                              ; preds = %97
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.7) #11
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %142
+  br label %136
 
-107:                                              ; preds = %103
-  %108 = load i8, ptr @print_filesize, align 1, !tbaa !4, !range !17, !noundef !18
-  %109 = trunc nuw i8 %108 to i1
-  br i1 %109, label %110, label %122
+101:                                              ; preds = %97
+  %102 = load i8, ptr @print_filesize, align 1, !tbaa !4, !range !17, !noundef !18
+  %103 = trunc nuw i8 %102 to i1
+  br i1 %103, label %104, label %116
 
-110:                                              ; preds = %107
+104:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 0, i64 144, i1 false)
-  %111 = call i32 @H5Fget_eoa(i64 noundef %104, ptr noundef nonnull %6) #11
-  %112 = icmp slt i32 %111, 0
-  br i1 %112, label %121, label %113
+  %105 = call i32 @H5Fget_eoa(i64 noundef %98, ptr noundef nonnull %6) #11
+  %106 = icmp slt i32 %105, 0
+  br i1 %106, label %115, label %107
 
-113:                                              ; preds = %110
-  %114 = call i32 @stat64(ptr noundef %65, ptr noundef nonnull %5) #11
-  %115 = icmp slt i32 %114, 0
-  br i1 %115, label %121, label %.thread40
+107:                                              ; preds = %104
+  %108 = call i32 @stat64(ptr noundef %59, ptr noundef nonnull %5) #11
+  %109 = icmp slt i32 %108, 0
+  br i1 %109, label %115, label %.thread
 
-.thread40:                                        ; preds = %113
-  %116 = load ptr, ptr @stdout, align 8, !tbaa !20
-  %117 = load i64, ptr %6, align 8, !tbaa !11
-  %118 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %119 = load i64, ptr %118, align 8, !tbaa !22
-  %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.9, i64 noundef %117, i64 noundef %119) #11
+.thread:                                          ; preds = %107
+  %110 = load ptr, ptr @stdout, align 8, !tbaa !20
+  %111 = load i64, ptr %6, align 8, !tbaa !11
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %113 = load i64, ptr %112, align 8, !tbaa !22
+  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.9, i64 noundef %111, i64 noundef %113) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #11
-  br label %122
+  br label %116
 
-121:                                              ; preds = %110, %113
+115:                                              ; preds = %104, %107
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.8) #11
   call void @h5tools_setstatus(i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #11
-  br label %142
+  br label %136
 
-122:                                              ; preds = %.thread40, %107
-  %123 = load i8, ptr @increment_eoa_eof, align 1, !tbaa !4, !range !17, !noundef !18
-  %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %125, label %130
+116:                                              ; preds = %.thread, %101
+  %117 = load i8, ptr @increment_eoa_eof, align 1, !tbaa !4, !range !17, !noundef !18
+  %118 = trunc nuw i8 %117 to i1
+  br i1 %118, label %119, label %124
 
-125:                                              ; preds = %122
-  %126 = load i64, ptr @increment, align 8, !tbaa !11
-  %127 = call i32 @H5Fincrement_filesize(i64 noundef %104, i64 noundef %126) #11
-  %128 = icmp slt i32 %127, 0
-  br i1 %128, label %129, label %130
+119:                                              ; preds = %116
+  %120 = load i64, ptr @increment, align 8, !tbaa !11
+  %121 = call i32 @H5Fincrement_filesize(i64 noundef %98, i64 noundef %120) #11
+  %122 = icmp slt i32 %121, 0
+  br i1 %122, label %123, label %124
 
-129:                                              ; preds = %125
+123:                                              ; preds = %119
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.10) #11
   call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %142
+  br label %136
 
-130:                                              ; preds = %125, %122
-  %.b33 = load i1, ptr @remove_cache_image, align 1
-  br i1 %.b33, label %131, label %141
+124:                                              ; preds = %119, %116
+  %.b3941 = load i1, ptr @remove_cache_image, align 1
+  br i1 %.b3941, label %125, label %135
 
-131:                                              ; preds = %130
-  %132 = call i32 @H5Fget_mdc_image_info(i64 noundef %104, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
-  %133 = icmp slt i32 %132, 0
-  br i1 %133, label %134, label %135
+125:                                              ; preds = %124
+  %126 = call i32 @H5Fget_mdc_image_info(i64 noundef %98, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
+  %127 = icmp slt i32 %126, 0
+  br i1 %127, label %128, label %129
 
-134:                                              ; preds = %131
+128:                                              ; preds = %125
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.11) #11
   call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %142
+  br label %136
 
-135:                                              ; preds = %131
-  %136 = load i64, ptr %3, align 8, !tbaa !11
-  %137 = icmp eq i64 %136, -1
-  %138 = load i64, ptr %4, align 8
-  %139 = icmp eq i64 %138, 0
-  %or.cond = select i1 %137, i1 %139, i1 false
-  br i1 %or.cond, label %140, label %141
+129:                                              ; preds = %125
+  %130 = load i64, ptr %3, align 8, !tbaa !11
+  %131 = icmp eq i64 %130, -1
+  %132 = load i64, ptr %4, align 8
+  %133 = icmp eq i64 %132, 0
+  %or.cond11 = select i1 %131, i1 %133, i1 false
+  br i1 %or.cond11, label %134, label %135
 
-140:                                              ; preds = %135
+134:                                              ; preds = %129
   call void (ptr, ...) @warn_msg(ptr noundef nonnull @.str.12) #11
-  br label %141
+  br label %135
 
-141:                                              ; preds = %135, %140, %130
+135:                                              ; preds = %129, %134, %124
   call void @h5tools_setstatus(i32 noundef 0) #11
-  br label %142
+  br label %136
 
-142:                                              ; preds = %121, %141, %134, %129, %106, %102, %95, %91, %84, %77
-  %.022 = phi i64 [ -1, %77 ], [ -1, %84 ], [ -1, %91 ], [ -1, %95 ], [ -1, %102 ], [ %104, %106 ], [ %104, %121 ], [ %104, %129 ], [ %104, %134 ], [ %104, %141 ]
-  %.not = icmp eq ptr %65, null
-  br i1 %.not, label %.thread43, label %143
+136:                                              ; preds = %115, %135, %128, %123, %100, %96, %89, %85, %78, %71
+  %.032 = phi i64 [ -1, %71 ], [ -1, %78 ], [ -1, %85 ], [ -1, %89 ], [ -1, %96 ], [ %98, %100 ], [ %98, %115 ], [ %98, %123 ], [ %98, %128 ], [ %98, %135 ]
+  %.not = icmp eq ptr %59, null
+  br i1 %.not, label %.thread50, label %137
 
-143:                                              ; preds = %142
-  call void @free(ptr noundef nonnull %65) #11
-  br label %.thread43
+137:                                              ; preds = %136
+  call void @free(ptr noundef nonnull %59) #11
+  br label %.thread50
 
-.thread43:                                        ; preds = %12, %32, %37, %55, %.thread39, %143, %142
-  %.02249.ph = phi i64 [ -1, %12 ], [ -1, %32 ], [ -1, %37 ], [ -1, %55 ], [ -1, %.thread39 ], [ %.022, %142 ], [ %.022, %143 ]
-  %.02348.ph = phi i64 [ -1, %12 ], [ -1, %32 ], [ -1, %37 ], [ -1, %55 ], [ -1, %.thread39 ], [ %75, %142 ], [ %75, %143 ]
+.thread50:                                        ; preds = %12, %32, %37, %53, %56, %137, %136
+  %.03256.ph = phi i64 [ -1, %12 ], [ -1, %32 ], [ -1, %37 ], [ -1, %53 ], [ -1, %56 ], [ %.032, %136 ], [ %.032, %137 ]
+  %.03355.ph = phi i64 [ -1, %12 ], [ -1, %32 ], [ -1, %37 ], [ -1, %53 ], [ -1, %56 ], [ %69, %136 ], [ %69, %137 ]
   %.pr = load ptr, ptr @fname_g, align 8, !tbaa !8
-  %.not34 = icmp eq ptr %.pr, null
-  br i1 %.not34, label %.thread43.thread, label %144
+  %.not42 = icmp eq ptr %.pr, null
+  br i1 %.not42, label %.thread50.thread, label %138
 
-144:                                              ; preds = %.thread43
+138:                                              ; preds = %.thread50
   call void @free(ptr noundef nonnull %.pr) #11
-  br label %.thread43.thread
+  br label %.thread50.thread
 
-.thread43.thread:                                 ; preds = %parse_command_line.exit, %144, %.thread43
-  %.0234860 = phi i64 [ %.02348.ph, %144 ], [ %.02348.ph, %.thread43 ], [ -1, %parse_command_line.exit ]
-  %.0224959 = phi i64 [ %.02249.ph, %144 ], [ %.02249.ph, %.thread43 ], [ -1, %parse_command_line.exit ]
+.thread50.thread:                                 ; preds = %parse_command_line.exit, %138, %.thread50
+  %.0335562 = phi i64 [ %.03355.ph, %138 ], [ %.03355.ph, %.thread50 ], [ -1, %parse_command_line.exit ]
+  %.0325661 = phi i64 [ %.03256.ph, %138 ], [ %.03256.ph, %.thread50 ], [ -1, %parse_command_line.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
-  %145 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %7) #11
-  %146 = load i32, ptr %7, align 4, !tbaa !15
-  %.not35 = icmp eq i32 %146, 0
-  br i1 %.not35, label %150, label %147
+  %139 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %7) #11
+  %140 = load i32, ptr %7, align 4, !tbaa !15
+  %.not43 = icmp eq i32 %140, 0
+  br i1 %.not43, label %144, label %141
 
-147:                                              ; preds = %.thread43.thread
-  %148 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
-  %149 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef null, ptr noundef null) #11
-  br label %153
+141:                                              ; preds = %.thread50.thread
+  %142 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
+  %143 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef null, ptr noundef null) #11
+  br label %147
 
-150:                                              ; preds = %.thread43.thread
-  %151 = call i32 @H5Eget_auto1(ptr noundef nonnull %8, ptr noundef nonnull %9) #11
-  %152 = call i32 @H5Eset_auto1(ptr noundef null, ptr noundef null) #11
-  br label %153
+144:                                              ; preds = %.thread50.thread
+  %145 = call i32 @H5Eget_auto1(ptr noundef nonnull %8, ptr noundef nonnull %9) #11
+  %146 = call i32 @H5Eset_auto1(ptr noundef null, ptr noundef null) #11
+  br label %147
 
-153:                                              ; preds = %150, %147
-  %154 = call i32 @H5Pclose(i64 noundef %.0234860) #11
-  %155 = call i32 @H5Fclose(i64 noundef %.0224959) #11
-  %156 = load i32, ptr %7, align 4, !tbaa !15
-  %.not36 = icmp eq i32 %156, 0
-  %157 = load ptr, ptr %8, align 8, !tbaa !25
-  %158 = load ptr, ptr %9, align 8, !tbaa !26
-  br i1 %.not36, label %161, label %159
+147:                                              ; preds = %144, %141
+  %148 = call i32 @H5Pclose(i64 noundef %.0335562) #11
+  %149 = call i32 @H5Fclose(i64 noundef %.0325661) #11
+  %150 = load i32, ptr %7, align 4, !tbaa !15
+  %.not44 = icmp eq i32 %150, 0
+  %151 = load ptr, ptr %8, align 8, !tbaa !25
+  %152 = load ptr, ptr %9, align 8, !tbaa !26
+  br i1 %.not44, label %155, label %153
 
-159:                                              ; preds = %153
-  %160 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %157, ptr noundef %158) #11
-  br label %163
+153:                                              ; preds = %147
+  %154 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %151, ptr noundef %152) #11
+  br label %157
 
-161:                                              ; preds = %153
-  %162 = call i32 @H5Eset_auto1(ptr noundef %157, ptr noundef %158) #11
-  br label %163
+155:                                              ; preds = %147
+  %156 = call i32 @H5Eset_auto1(ptr noundef %151, ptr noundef %152) #11
+  br label %157
 
-163:                                              ; preds = %161, %159
+157:                                              ; preds = %155, %153
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  %164 = call i32 @h5tools_getstatus() #11
+  %158 = call i32 @h5tools_getstatus() #11
   call void @h5tools_close() #11
-  call void @exit(i32 noundef %164) #12
+  call void @exit(i32 noundef %158) #12
   unreachable
 }
 

@@ -2752,21 +2752,19 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %16, %18, %20
   %26 = add i32 %25, -8
   %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 29)
   %28 = icmp ult i32 %27, 8
-  br i1 %28, label %switch.hole_check, label %29
+  %switch.maskindex = trunc i32 %27 to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %28, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %29
 
-29:                                               ; preds = %switch.hole_check, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+29:                                               ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %30 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %30, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 427, ptr noundef nonnull @.str.6, i32 noundef %25) #10
   unreachable
 
-switch.hole_check:                                ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
-  %switch.maskindex = trunc nuw i32 %27 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %29
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %31 = zext nneg i32 %27 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN18XSaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 0, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -3215,21 +3213,19 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %16, %18, %20
   %26 = add i32 %25, -8
   %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 29)
   %28 = icmp ult i32 %27, 8
-  br i1 %28, label %switch.hole_check, label %29
+  %switch.maskindex = trunc i32 %27 to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %28, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %29
 
-29:                                               ; preds = %switch.hole_check, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+29:                                               ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %30 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %30, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 427, ptr noundef nonnull @.str.6, i32 noundef %25) #10
   unreachable
 
-switch.hole_check:                                ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
-  %switch.maskindex = trunc nuw i32 %27 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %29
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %31 = zext nneg i32 %27 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN18XSaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 0, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4

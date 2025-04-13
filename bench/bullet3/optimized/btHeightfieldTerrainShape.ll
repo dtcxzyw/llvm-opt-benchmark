@@ -338,35 +338,32 @@ define dso_local void @_ZN25btHeightfieldTerrainShapeD2Ev(ptr noundef nonnull al
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTV25btHeightfieldTerrainShape, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !15
-  %.not.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev.exit, label %4
+  %.not.i.i.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %5 = load i8, ptr %4, align 8, !range !46
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 %6, i1 false
+  br i1 %or.cond.i.i, label %7, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev.exit
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %6 = load i8, ptr %5, align 8, !tbaa !7, !range !46, !noundef !47
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev.exit
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
-          to label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev.exit unwind label %12
+          to label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev.exit unwind label %10
 
-_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev.exit: ; preds = %4, %1, %8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i8 1, ptr %10, align 8, !tbaa !7
+_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev.exit: ; preds = %1, %7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i8 1, ptr %4, align 8, !tbaa !7
   store ptr null, ptr %2, align 8, !tbaa !15
-  store i32 0, ptr %9, align 4, !tbaa !16
-  store i32 0, ptr %11, align 8, !tbaa !17
+  store i32 0, ptr %8, align 4, !tbaa !16
+  store i32 0, ptr %9, align 8, !tbaa !17
   tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) #18
   ret void
 
-12:                                               ; preds = %8
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %7
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #19
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #19
   unreachable
 }
 
@@ -374,27 +371,24 @@ _ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEED2Ev.exit: ; preds
 define dso_local void @_ZN25btHeightfieldTerrainShape16clearAcceleratorEv(ptr noundef nonnull align 8 captures(none) dereferenceable(208) initializes((156, 164)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !15
-  %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE5clearEv.exit, label %4
+  %.not.i.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %5 = load i8, ptr %4, align 8, !range !46
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i = select i1 %.not.i.i, i1 %6, i1 false
+  br i1 %or.cond.i, label %7, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE5clearEv.exit
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %6 = load i8, ptr %5, align 8, !tbaa !7, !range !46, !noundef !47
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE5clearEv.exit
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
   br label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE5clearEv.exit
 
-_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE5clearEv.exit: ; preds = %1, %4, %8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i8 1, ptr %10, align 8, !tbaa !7
+_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE5clearEv.exit: ; preds = %1, %7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  store i8 1, ptr %4, align 8, !tbaa !7
   store ptr null, ptr %2, align 8, !tbaa !15
-  store i32 0, ptr %9, align 4, !tbaa !16
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 0, ptr %11, align 8, !tbaa !17
+  store i32 0, ptr %8, align 4, !tbaa !16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i32 0, ptr %9, align 8, !tbaa !17
   ret void
 }
 
@@ -415,43 +409,40 @@ define dso_local void @_ZN25btHeightfieldTerrainShapeD0Ev(ptr noundef nonnull al
   store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTV25btHeightfieldTerrainShape, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !15
-  %.not.i.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i.i, label %_ZN25btHeightfieldTerrainShapeD2Ev.exit, label %4
+  %.not.i.i.i.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %5 = load i8, ptr %4, align 8, !range !46
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i.i.i = select i1 %.not.i.i.i.i, i1 %6, i1 false
+  br i1 %or.cond.i.i.i, label %7, label %_ZN25btHeightfieldTerrainShapeD2Ev.exit
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %6 = load i8, ptr %5, align 8, !tbaa !7, !range !46, !noundef !47
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %_ZN25btHeightfieldTerrainShapeD2Ev.exit
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
-          to label %_ZN25btHeightfieldTerrainShapeD2Ev.exit unwind label %9
+          to label %_ZN25btHeightfieldTerrainShapeD2Ev.exit unwind label %8
 
-9:                                                ; preds = %8
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %7
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #19
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #19
   unreachable
 
-_ZN25btHeightfieldTerrainShapeD2Ev.exit:          ; preds = %1, %4, %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i8 1, ptr %13, align 8, !tbaa !7
+_ZN25btHeightfieldTerrainShapeD2Ev.exit:          ; preds = %1, %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i8 1, ptr %4, align 8, !tbaa !7
   store ptr null, ptr %2, align 8, !tbaa !15
-  store i32 0, ptr %12, align 4, !tbaa !16
-  store i32 0, ptr %14, align 8, !tbaa !17
+  store i32 0, ptr %11, align 4, !tbaa !16
+  store i32 0, ptr %12, align 8, !tbaa !17
   tail call void @_ZN14btConcaveShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #18
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
-          to label %_ZN25btHeightfieldTerrainShapedlEPv.exit unwind label %15
+          to label %_ZN25btHeightfieldTerrainShapedlEPv.exit unwind label %13
 
-15:                                               ; preds = %_ZN25btHeightfieldTerrainShapeD2Ev.exit
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %_ZN25btHeightfieldTerrainShapeD2Ev.exit
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #19
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #19
   unreachable
 
 _ZN25btHeightfieldTerrainShapedlEPv.exit:         ; preds = %_ZN25btHeightfieldTerrainShapeD2Ev.exit
@@ -487,31 +478,31 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape7getAabbERK11btTransformR9
   %29 = fmul float %22, 5.000000e-01
   %30 = fmul float %25, 5.000000e-01
   %31 = fmul float %28, 5.000000e-01
-  %32 = load float, ptr %1, align 4, !tbaa !42, !noalias !48
+  %32 = load float, ptr %1, align 4, !tbaa !42, !noalias !47
   %33 = tail call noundef float @llvm.fabs.f32(float %32)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %35 = load float, ptr %34, align 4, !tbaa !42, !noalias !48
+  %35 = load float, ptr %34, align 4, !tbaa !42, !noalias !47
   %36 = tail call noundef float @llvm.fabs.f32(float %35)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %38 = load float, ptr %37, align 4, !tbaa !42, !noalias !48
+  %38 = load float, ptr %37, align 4, !tbaa !42, !noalias !47
   %39 = tail call noundef float @llvm.fabs.f32(float %38)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = load float, ptr %40, align 4, !tbaa !42, !noalias !48
+  %41 = load float, ptr %40, align 4, !tbaa !42, !noalias !47
   %42 = tail call noundef float @llvm.fabs.f32(float %41)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %44 = load float, ptr %43, align 4, !tbaa !42, !noalias !48
+  %44 = load float, ptr %43, align 4, !tbaa !42, !noalias !47
   %45 = tail call noundef float @llvm.fabs.f32(float %44)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load float, ptr %46, align 4, !tbaa !42, !noalias !48
+  %47 = load float, ptr %46, align 4, !tbaa !42, !noalias !47
   %48 = tail call noundef float @llvm.fabs.f32(float %47)
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %50 = load float, ptr %49, align 4, !tbaa !42, !noalias !48
+  %50 = load float, ptr %49, align 4, !tbaa !42, !noalias !47
   %51 = tail call noundef float @llvm.fabs.f32(float %50)
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %53 = load float, ptr %52, align 4, !tbaa !42, !noalias !48
+  %53 = load float, ptr %52, align 4, !tbaa !42, !noalias !47
   %54 = tail call noundef float @llvm.fabs.f32(float %53)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %56 = load float, ptr %55, align 4, !tbaa !42, !noalias !48
+  %56 = load float, ptr %55, align 4, !tbaa !42, !noalias !47
   %57 = tail call noundef float @llvm.fabs.f32(float %56)
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.050.0.copyload = load float, ptr %58, align 4
@@ -596,7 +587,7 @@ define dso_local noundef float @_ZNK25btHeightfieldTerrainShape22getRawHeightFie
   %22 = add nsw i32 %21, %1
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds double, ptr %18, i64 %23
-  %25 = load double, ptr %24, align 8, !tbaa !51
+  %25 = load double, ptr %24, align 8, !tbaa !50
   %26 = fptrunc double %25 to float
   br label %55
 
@@ -625,7 +616,7 @@ define dso_local noundef float @_ZNK25btHeightfieldTerrainShape22getRawHeightFie
   %47 = add nsw i32 %46, %1
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i16, ptr %43, i64 %48
-  %50 = load i16, ptr %49, align 2, !tbaa !53
+  %50 = load i16, ptr %49, align 2, !tbaa !52
   %51 = sitofp i16 %50 to float
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %53 = load float, ptr %52, align 4, !tbaa !34
@@ -786,21 +777,21 @@ _Z8btSetMaxIfEvRT_RKS0_.exit.i:
   %.0.in.v.i = select i1 %23, double -5.000000e-01, double 5.000000e-01
   %.0.in.i = fadd double %.0.in.v.i, %22
   %.0.i = fptosi double %.0.in.i to i32
-  store i32 %.0.i, ptr %1, align 4, !tbaa !55
+  store i32 %.0.i, ptr %1, align 4, !tbaa !54
   %24 = fpext float %.sroa.8.1 to double
   %25 = fcmp olt float %.sroa.8.1, 0.000000e+00
   %.0.in.v.i5 = select i1 %25, double -5.000000e-01, double 5.000000e-01
   %.0.in.i6 = fadd double %.0.in.v.i5, %24
   %.0.i7 = fptosi double %.0.in.i6 to i32
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %.0.i7, ptr %26, align 4, !tbaa !55
+  store i32 %.0.i7, ptr %26, align 4, !tbaa !54
   %27 = fpext float %.sroa.13.1 to double
   %28 = fcmp olt float %.sroa.13.1, 0.000000e+00
   %.0.in.v.i8 = select i1 %28, double -5.000000e-01, double 5.000000e-01
   %.0.in.i9 = fadd double %.0.in.v.i8, %27
   %.0.i10 = fptosi double %.0.in.i9 to i32
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.0.i10, ptr %29, align 4, !tbaa !55
+  store i32 %.0.i10, ptr %29, align 4, !tbaa !54
   ret void
 }
 
@@ -877,21 +868,21 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
   %.0.in.v.i.i = select i1 %64, double -5.000000e-01, double 5.000000e-01
   %.0.in.i.i = fadd double %.0.in.v.i.i, %63
   %.0.i.i = fptosi double %.0.in.i.i to i32
-  store i32 %.0.i.i, ptr %5, align 4, !tbaa !55
+  store i32 %.0.i.i, ptr %5, align 4, !tbaa !54
   %65 = fpext float %.sroa.8.1.i to double
   %66 = fcmp olt float %.sroa.8.1.i, 0.000000e+00
   %.0.in.v.i5.i = select i1 %66, double -5.000000e-01, double 5.000000e-01
   %.0.in.i6.i = fadd double %.0.in.v.i5.i, %65
   %.0.i7.i = fptosi double %.0.in.i6.i to i32
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %.0.i7.i, ptr %67, align 4, !tbaa !55
+  store i32 %.0.i7.i, ptr %67, align 4, !tbaa !54
   %68 = fpext float %.sroa.13.1.i to double
   %69 = fcmp olt float %.sroa.13.1.i, 0.000000e+00
   %.0.in.v.i8.i = select i1 %69, double -5.000000e-01, double 5.000000e-01
   %.0.in.i9.i = fadd double %.0.in.v.i8.i, %68
   %.0.i10.i = fptosi double %.0.in.i9.i to i32
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.0.i10.i, ptr %70, align 4, !tbaa !55
+  store i32 %.0.i10.i, ptr %70, align 4, !tbaa !54
   %71 = fcmp olt float %42, %46
   %.sroa.0.0.i121 = select i1 %71, float %46, float %42
   %72 = fcmp olt float %43, %49
@@ -909,21 +900,21 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
   %.0.in.v.i.i127 = select i1 %78, double -5.000000e-01, double 5.000000e-01
   %.0.in.i.i128 = fadd double %.0.in.v.i.i127, %77
   %.0.i.i129 = fptosi double %.0.in.i.i128 to i32
-  store i32 %.0.i.i129, ptr %6, align 4, !tbaa !55
+  store i32 %.0.i.i129, ptr %6, align 4, !tbaa !54
   %79 = fpext float %.sroa.8.1.i125 to double
   %80 = fcmp olt float %.sroa.8.1.i125, 0.000000e+00
   %.0.in.v.i5.i130 = select i1 %80, double -5.000000e-01, double 5.000000e-01
   %.0.in.i6.i131 = fadd double %.0.in.v.i5.i130, %79
   %.0.i7.i132 = fptosi double %.0.in.i6.i131 to i32
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %.0.i7.i132, ptr %81, align 4, !tbaa !55
+  store i32 %.0.i7.i132, ptr %81, align 4, !tbaa !54
   %82 = fpext float %.sroa.13.1.i126 to double
   %83 = fcmp olt float %.sroa.13.1.i126, 0.000000e+00
   %.0.in.v.i8.i133 = select i1 %83, double -5.000000e-01, double 5.000000e-01
   %.0.in.i9.i134 = fadd double %.0.in.v.i8.i133, %82
   %.0.i10.i135 = fptosi double %.0.in.i9.i134 to i32
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %.0.i10.i135, ptr %84, align 4, !tbaa !55
+  store i32 %.0.i10.i135, ptr %84, align 4, !tbaa !54
   br label %94
 
 85:                                               ; preds = %94
@@ -944,47 +935,47 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
 94:                                               ; preds = %4, %94
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %94 ]
   %95 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
-  %96 = load i32, ptr %95, align 4, !tbaa !55
+  %96 = load i32, ptr %95, align 4, !tbaa !54
   %97 = add nsw i32 %96, -1
-  store i32 %97, ptr %95, align 4, !tbaa !55
+  store i32 %97, ptr %95, align 4, !tbaa !54
   %98 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv
-  %99 = load i32, ptr %98, align 4, !tbaa !55
+  %99 = load i32, ptr %98, align 4, !tbaa !54
   %100 = add nsw i32 %99, 1
-  store i32 %100, ptr %98, align 4, !tbaa !55
+  store i32 %100, ptr %98, align 4, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %85, label %94, !llvm.loop !56
+  br i1 %exitcond.not, label %85, label %94, !llvm.loop !55
 
 101:                                              ; preds = %85
-  %102 = load i32, ptr %67, align 4, !tbaa !55
+  %102 = load i32, ptr %67, align 4, !tbaa !54
   %spec.select = tail call i32 @llvm.smax.i32(i32 %102, i32 0)
-  %103 = load i32, ptr %81, align 4, !tbaa !55
+  %103 = load i32, ptr %81, align 4, !tbaa !54
   %.076 = tail call i32 @llvm.smin.i32(i32 %103, i32 %88)
-  %104 = load i32, ptr %70, align 4, !tbaa !55
+  %104 = load i32, ptr %70, align 4, !tbaa !54
   %.075 = tail call i32 @llvm.smax.i32(i32 %104, i32 0)
-  %105 = load i32, ptr %84, align 4, !tbaa !55
+  %105 = load i32, ptr %84, align 4, !tbaa !54
   %spec.select108 = tail call i32 @llvm.smin.i32(i32 %105, i32 %91)
   br label %116
 
 106:                                              ; preds = %85
-  %107 = load i32, ptr %5, align 4, !tbaa !55
+  %107 = load i32, ptr %5, align 4, !tbaa !54
   %spec.select104 = tail call i32 @llvm.smax.i32(i32 %107, i32 0)
-  %108 = load i32, ptr %6, align 4, !tbaa !55
+  %108 = load i32, ptr %6, align 4, !tbaa !54
   %.278 = tail call i32 @llvm.smin.i32(i32 %108, i32 %88)
-  %109 = load i32, ptr %70, align 4, !tbaa !55
+  %109 = load i32, ptr %70, align 4, !tbaa !54
   %.2 = tail call i32 @llvm.smax.i32(i32 %109, i32 0)
-  %110 = load i32, ptr %84, align 4, !tbaa !55
+  %110 = load i32, ptr %84, align 4, !tbaa !54
   %spec.select109 = tail call i32 @llvm.smin.i32(i32 %110, i32 %91)
   br label %116
 
 111:                                              ; preds = %85
-  %112 = load i32, ptr %5, align 4, !tbaa !55
+  %112 = load i32, ptr %5, align 4, !tbaa !54
   %spec.select105 = tail call i32 @llvm.smax.i32(i32 %112, i32 0)
-  %113 = load i32, ptr %6, align 4, !tbaa !55
+  %113 = load i32, ptr %6, align 4, !tbaa !54
   %.379 = tail call i32 @llvm.smin.i32(i32 %113, i32 %88)
-  %114 = load i32, ptr %67, align 4, !tbaa !55
+  %114 = load i32, ptr %67, align 4, !tbaa !54
   %.3 = tail call i32 @llvm.smax.i32(i32 %114, i32 0)
-  %115 = load i32, ptr %81, align 4, !tbaa !55
+  %115 = load i32, ptr %81, align 4, !tbaa !54
   %spec.select110 = tail call i32 @llvm.smin.i32(i32 %115, i32 %91)
   br label %116
 
@@ -1032,14 +1023,14 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
 138:                                              ; preds = %.preheader.us, %595
   %.072499.us = phi i32 [ %.181, %.preheader.us ], [ %.pre-phi, %595 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #18
-  %139 = load i8, ptr %124, align 1, !tbaa !40, !range !46, !noundef !47
+  %139 = load i8, ptr %124, align 1, !tbaa !40, !range !46, !noundef !57
   %140 = trunc nuw i8 %139 to i1
-  %141 = load i8, ptr %125, align 4, !tbaa !37, !range !46, !noundef !47
+  %141 = load i8, ptr %125, align 4, !tbaa !37, !range !46, !noundef !57
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %371, label %143
 
 143:                                              ; preds = %138
-  %144 = load i8, ptr %126, align 1, !tbaa !38, !range !46, !noundef !47
+  %144 = load i8, ptr %126, align 1, !tbaa !38, !range !46, !noundef !57
   %145 = trunc nuw i8 %144 to i1
   br i1 %145, label %146, label %151
 
@@ -1054,7 +1045,7 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18b
   br i1 %or.cond, label %371, label %152
 
 151:                                              ; preds = %143
-  %.old = load i8, ptr %127, align 2, !tbaa !39, !range !46, !noundef !47
+  %.old = load i8, ptr %127, align 2, !tbaa !39, !range !46, !noundef !57
   %.old503 = trunc nuw i8 %.old to i1
   %or.cond.us.old = and i1 %.not103.us, %.old503
   br i1 %or.cond.us.old, label %371, label %152
@@ -2008,11 +1999,11 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape14performRaycastEP18btTria
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #18
   store ptr %0, ptr %7, align 8, !tbaa !61
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %51 = load i8, ptr %50, align 4, !tbaa !37, !range !46, !noundef !47
+  %51 = load i8, ptr %50, align 4, !tbaa !37, !range !46, !noundef !57
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %51, ptr %52, align 8, !tbaa !65
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 125
-  %54 = load i8, ptr %53, align 1, !tbaa !38, !range !46, !noundef !47
+  %54 = load i8, ptr %53, align 1, !tbaa !38, !range !46, !noundef !57
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 %54, ptr %55, align 1, !tbaa !66
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -2041,9 +2032,9 @@ define dso_local void @_ZNK25btHeightfieldTerrainShape14performRaycastEP18btTria
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.0.4.gep.sroa_idx37 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 2, ptr %69, align 4, !tbaa !55
+  store i32 2, ptr %69, align 4, !tbaa !54
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 1, ptr %70, align 4, !tbaa !55
+  store i32 1, ptr %70, align 4, !tbaa !54
   br label %71
 
 71:                                               ; preds = %68, %4
@@ -2200,13 +2191,13 @@ define linkonce_odr dso_local void @_ZNK22ProcessTrianglesAction4execEii(ptr nou
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i8, ptr %11, align 8, !tbaa !65, !range !46, !noundef !47
+  %12 = load i8, ptr %11, align 8, !tbaa !65, !range !46, !noundef !57
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %21, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %16 = load i8, ptr %15, align 1, !tbaa !66, !range !46, !noundef !47
+  %16 = load i8, ptr %15, align 1, !tbaa !66, !range !46, !noundef !57
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %415
 
@@ -3336,7 +3327,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastI22ProcessTrianglesActionEvRT
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %4
-  %24 = load i32, ptr %3, align 4, !tbaa !55
+  %24 = load i32, ptr %3, align 4, !tbaa !54
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds float, ptr %2, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !42
@@ -3344,7 +3335,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastI22ProcessTrianglesActionEvRT
   %29 = load float, ptr %28, align 4, !tbaa !42
   %30 = fsub float %27, %29
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !55
+  %32 = load i32, ptr %31, align 4, !tbaa !54
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds float, ptr %2, i64 %33
   %35 = load float, ptr %34, align 4, !tbaa !42
@@ -3511,7 +3502,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
   br i1 %24, label %120, label %25
 
 25:                                               ; preds = %4
-  %26 = load i32, ptr %3, align 4, !tbaa !55
+  %26 = load i32, ptr %3, align 4, !tbaa !54
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds float, ptr %2, i64 %27
   %29 = load float, ptr %28, align 4, !tbaa !42
@@ -3519,7 +3510,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
   %31 = load float, ptr %30, align 4, !tbaa !42
   %32 = fsub float %29, %31
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %34 = load i32, ptr %33, align 4, !tbaa !55
+  %34 = load i32, ptr %33, align 4, !tbaa !54
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds float, ptr %2, i64 %35
   %37 = load float, ptr %36, align 4, !tbaa !42
@@ -3685,262 +3676,253 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN25btHeightfieldTerrainShape16buildAcceleratorEi(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp slt i32 %1, 1
-  br i1 %3, label %4, label %15
+  br i1 %3, label %4, label %13
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8, !tbaa !15
-  %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit, label %7
+  %.not.i.i.i = icmp ne ptr %6, null
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %8 = load i8, ptr %7, align 8, !range !46
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 %9, i1 false
+  br i1 %or.cond.i.i, label %10, label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %9 = load i8, ptr %8, align 8, !tbaa !7, !range !46, !noundef !47
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit
-
-11:                                               ; preds = %7
+10:                                               ; preds = %4
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %6)
   br label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit
 
-_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit: ; preds = %4, %7, %11
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i8 1, ptr %13, align 8, !tbaa !7
+_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit: ; preds = %4, %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  store i8 1, ptr %7, align 8, !tbaa !7
   store ptr null, ptr %5, align 8, !tbaa !15
-  store i32 0, ptr %12, align 4, !tbaa !16
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 0, ptr %14, align 8, !tbaa !17
-  br label %.loopexit69
+  store i32 0, ptr %11, align 4, !tbaa !16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i32 0, ptr %12, align 8, !tbaa !17
+  br label %.loopexit71
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %1, ptr %16, align 8, !tbaa !43
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %18 = load i32, ptr %17, align 4, !tbaa !28
-  %19 = sdiv i32 %18, %1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %21 = load i32, ptr %20, align 8, !tbaa !29
-  %22 = sdiv i32 %21, %1
-  %23 = srem i32 %18, %1
-  %24 = icmp sgt i32 %23, 0
-  %25 = zext i1 %24 to i32
-  %spec.select = add nsw i32 %19, %25
-  %26 = srem i32 %21, %1
-  %27 = icmp sgt i32 %26, 0
-  %28 = zext i1 %27 to i32
-  %.052 = add i32 %22, %28
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %30 = load i32, ptr %29, align 8, !tbaa !44
-  %.not = icmp eq i32 %30, %spec.select
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %32 = load i32, ptr %31, align 4
-  %.not57 = icmp eq i32 %32, %.052
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i32 %1, ptr %14, align 8, !tbaa !43
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %16 = load i32, ptr %15, align 4, !tbaa !28
+  %17 = sdiv i32 %16, %1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %19 = load i32, ptr %18, align 8, !tbaa !29
+  %20 = sdiv i32 %19, %1
+  %21 = srem i32 %16, %1
+  %22 = icmp sgt i32 %21, 0
+  %23 = zext i1 %22 to i32
+  %spec.select = add nsw i32 %17, %23
+  %24 = srem i32 %19, %1
+  %25 = icmp sgt i32 %24, 0
+  %26 = zext i1 %25 to i32
+  %.052 = add i32 %20, %26
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %28 = load i32, ptr %27, align 8, !tbaa !44
+  %.not = icmp eq i32 %28, %spec.select
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %30 = load i32, ptr %29, align 4
+  %.not57 = icmp eq i32 %30, %.052
   %or.cond63 = select i1 %.not, i1 %.not57, i1 false
-  br i1 %or.cond63, label %44, label %33
+  br i1 %or.cond63, label %40, label %31
 
-33:                                               ; preds = %15
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %35 = load ptr, ptr %34, align 8, !tbaa !15
-  %.not.i.i.i64 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i64, label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit65, label %36
+31:                                               ; preds = %13
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %33 = load ptr, ptr %32, align 8, !tbaa !15
+  %.not.i.i.i64 = icmp ne ptr %33, null
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %35 = load i8, ptr %34, align 8, !range !46
+  %36 = trunc nuw i8 %35 to i1
+  %or.cond.i.i65 = select i1 %.not.i.i.i64, i1 %36, i1 false
+  br i1 %or.cond.i.i65, label %37, label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit66
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %38 = load i8, ptr %37, align 8, !tbaa !7, !range !46, !noundef !47
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %40, label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit65
+37:                                               ; preds = %31
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %33)
+  br label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit66
 
-40:                                               ; preds = %36
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %35)
-  br label %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit65
+_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit66: ; preds = %31, %37
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  store i8 1, ptr %34, align 8, !tbaa !7
+  store ptr null, ptr %32, align 8, !tbaa !15
+  store i32 0, ptr %38, align 4, !tbaa !16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i32 0, ptr %39, align 8, !tbaa !17
+  store i32 %spec.select, ptr %27, align 8, !tbaa !44
+  store i32 %.052, ptr %29, align 4, !tbaa !45
+  br label %40
 
-_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit65: ; preds = %33, %36, %40
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i8 1, ptr %42, align 8, !tbaa !7
-  store ptr null, ptr %34, align 8, !tbaa !15
-  store i32 0, ptr %41, align 4, !tbaa !16
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 0, ptr %43, align 8, !tbaa !17
-  store i32 %spec.select, ptr %29, align 8, !tbaa !44
-  store i32 %.052, ptr %31, align 4, !tbaa !45
-  br label %44
+40:                                               ; preds = %13, %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit66
+  %41 = icmp eq i32 %spec.select, 0
+  %42 = icmp eq i32 %.052, 0
+  %or.cond = select i1 %41, i1 true, i1 %42
+  br i1 %or.cond, label %.loopexit71, label %43
 
-44:                                               ; preds = %15, %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit65
-  %45 = icmp eq i32 %spec.select, 0
-  %46 = icmp eq i32 %.052, 0
-  %or.cond = select i1 %45, i1 true, i1 %46
-  br i1 %or.cond, label %.loopexit69, label %47
+43:                                               ; preds = %40
+  %44 = mul nsw i32 %.052, %spec.select
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %46 = load i32, ptr %45, align 4, !tbaa !16
+  %47 = icmp sgt i32 %44, %46
+  br i1 %47, label %48, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit
 
-47:                                               ; preds = %44
-  %48 = mul nsw i32 %.052, %spec.select
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %50 = load i32, ptr %49, align 4, !tbaa !16
-  %51 = icmp sgt i32 %48, %50
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %50 = load i32, ptr %49, align 8, !tbaa !17
+  %51 = icmp slt i32 %50, %44
   br i1 %51, label %52, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %54 = load i32, ptr %53, align 8, !tbaa !17
-  %55 = icmp slt i32 %54, %48
-  br i1 %55, label %56, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit
+52:                                               ; preds = %48
+  %.not.i.i.i67 = icmp eq i32 %44, 0
+  br i1 %.not.i.i.i67, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i, label %53
 
-56:                                               ; preds = %52
-  %.not.i.i.i66 = icmp eq i32 %48, 0
-  br i1 %.not.i.i.i66, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i, label %57
-
-57:                                               ; preds = %56
-  %58 = sext i32 %48 to i64
-  %59 = shl nsw i64 %58, 3
-  %60 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %59, i32 noundef 16)
-  %.pre.i = load i32, ptr %49, align 4, !tbaa !16
+53:                                               ; preds = %52
+  %54 = sext i32 %44 to i64
+  %55 = shl nsw i64 %54, 3
+  %56 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %55, i32 noundef 16)
+  %.pre.i = load i32, ptr %45, align 4, !tbaa !16
   br label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i
 
-_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i: ; preds = %57, %56
-  %61 = phi i32 [ %.pre.i, %57 ], [ %50, %56 ]
-  %.0.i.i.i = phi ptr [ %60, %57 ], [ null, %56 ]
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
+_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i: ; preds = %53, %52
+  %57 = phi i32 [ %.pre.i, %53 ], [ %46, %52 ]
+  %.0.i.i.i = phi ptr [ %56, %53 ], [ null, %52 ]
+  %58 = icmp sgt i32 %57, 0
+  br i1 %58, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %wide.trip.count.i.i.i = zext nneg i32 %61 to i64
-  br label %64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %wide.trip.count.i.i.i = zext nneg i32 %57 to i64
+  br label %60
 
-64:                                               ; preds = %64, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %64 ]
-  %65 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %66 = load ptr, ptr %63, align 8, !tbaa !15
-  %67 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %66, i64 %indvars.iv.i.i.i
-  %68 = load i64, ptr %67, align 4
-  store i64 %68, ptr %65, align 4
+60:                                               ; preds = %60, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %60 ]
+  %61 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %62 = load ptr, ptr %59, align 8, !tbaa !15
+  %63 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %62, i64 %indvars.iv.i.i.i
+  %64 = load i64, ptr %63, align 4
+  store i64 %64, ptr %61, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i, label %64, !llvm.loop !93
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i, label %60, !llvm.loop !93
 
-_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i: ; preds = %64, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %70 = load ptr, ptr %69, align 8, !tbaa !15
-  %.not.i5.i.i = icmp eq ptr %70, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i, label %71
+_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i: ; preds = %60, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %66 = load ptr, ptr %65, align 8, !tbaa !15
+  %.not.i5.i.i = icmp ne ptr %66, null
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %68 = load i8, ptr %67, align 8, !range !46
+  %69 = trunc nuw i8 %68 to i1
+  %or.cond.i.i68 = select i1 %.not.i5.i.i, i1 %69, i1 false
+  br i1 %or.cond.i.i68, label %70, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i
 
-71:                                               ; preds = %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %73 = load i8, ptr %72, align 8, !tbaa !7, !range !46, !noundef !47
-  %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %75, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i
-
-75:                                               ; preds = %71
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %70)
+70:                                               ; preds = %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %66)
   br label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i: ; preds = %75, %71, %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i8 1, ptr %76, align 8, !tbaa !7
-  store ptr %.0.i.i.i, ptr %69, align 8, !tbaa !15
-  store i32 %48, ptr %53, align 8, !tbaa !17
+_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i: ; preds = %70, %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
+  store i8 1, ptr %67, align 8, !tbaa !7
+  store ptr %.0.i.i.i, ptr %65, align 8, !tbaa !15
+  store i32 %44, ptr %49, align 8, !tbaa !17
   br label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit
 
-_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit: ; preds = %52, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i, %47
-  store i32 %48, ptr %49, align 4, !tbaa !16
-  %77 = icmp sgt i32 %.052, 0
-  br i1 %77, label %.lr.ph88, label %.loopexit69
+_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit: ; preds = %48, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i, %43
+  store i32 %44, ptr %45, align 4, !tbaa !16
+  %71 = icmp sgt i32 %.052, 0
+  br i1 %71, label %.lr.ph90, label %.loopexit71
 
-.lr.ph88:                                         ; preds = %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit
-  %78 = icmp sgt i32 %spec.select, 0
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  br i1 %78, label %.lr.ph.us.preheader, label %.loopexit69
+.lr.ph90:                                         ; preds = %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit
+  %72 = icmp sgt i32 %spec.select, 0
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  br i1 %72, label %.lr.ph.us.preheader, label %.loopexit71
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph88
-  %80 = zext nneg i32 %1 to i64
-  %81 = zext nneg i32 %spec.select to i64
-  %wide.trip.count106 = zext nneg i32 %.052 to i64
-  br label %.lr.ph80.us.preheader
+.lr.ph.us.preheader:                              ; preds = %.lr.ph90
+  %74 = zext nneg i32 %1 to i64
+  %75 = zext nneg i32 %spec.select to i64
+  %wide.trip.count108 = zext nneg i32 %.052 to i64
+  br label %.lr.ph82.us.preheader
 
-.lr.ph80.us.preheader:                            ; preds = %._crit_edge86.us, %.lr.ph.us.preheader
-  %indvars.iv103 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next104, %._crit_edge86.us ]
-  %82 = mul nuw nsw i64 %indvars.iv103, %80
-  %83 = mul nuw nsw i64 %indvars.iv103, %81
-  %84 = trunc nuw i64 %82 to i32
-  %85 = trunc i64 %82 to i32
-  %86 = add i32 %1, %85
-  br label %.lr.ph80.split.us95.preheader
+.lr.ph82.us.preheader:                            ; preds = %._crit_edge88.us, %.lr.ph.us.preheader
+  %indvars.iv105 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next106, %._crit_edge88.us ]
+  %76 = mul nuw nsw i64 %indvars.iv105, %74
+  %77 = mul nuw nsw i64 %indvars.iv105, %75
+  %78 = trunc nuw i64 %76 to i32
+  %79 = trunc i64 %76 to i32
+  %80 = add i32 %1, %79
+  br label %.lr.ph82.split.us97.preheader
 
-.lr.ph80.split.us95.preheader:                    ; preds = %._crit_edge.us, %.lr.ph80.us.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph80.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
-  %87 = mul nuw nsw i64 %indvars.iv, %80
-  %88 = load ptr, ptr %0, align 8, !tbaa !4
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 136
-  %90 = load ptr, ptr %89, align 8
-  %91 = trunc nuw i64 %87 to i32
-  %92 = tail call noundef float %90(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %91, i32 noundef %84)
-  %93 = trunc i64 %87 to i32
-  %94 = add i32 %1, %93
-  br label %.lr.ph80.split.us95
+.lr.ph82.split.us97.preheader:                    ; preds = %._crit_edge.us, %.lr.ph82.us.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph82.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
+  %81 = mul nuw nsw i64 %indvars.iv, %74
+  %82 = load ptr, ptr %0, align 8, !tbaa !4
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 136
+  %84 = load ptr, ptr %83, align 8
+  %85 = trunc nuw i64 %81 to i32
+  %86 = tail call noundef float %84(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %85, i32 noundef %78)
+  %87 = trunc i64 %81 to i32
+  %88 = add i32 %1, %87
+  br label %.lr.ph82.split.us97
 
-.lr.ph80.split.us95:                              ; preds = %.lr.ph80.split.us95.preheader, %..loopexit_crit_edge.us
-  %.05178.us90 = phi i32 [ %108, %..loopexit_crit_edge.us ], [ %84, %.lr.ph80.split.us95.preheader ]
-  %.sroa.0.077.us = phi float [ %.sroa.0.1.us, %..loopexit_crit_edge.us ], [ %92, %.lr.ph80.split.us95.preheader ]
-  %.sroa.6.076.us = phi float [ %.sroa.6.1.us, %..loopexit_crit_edge.us ], [ %92, %.lr.ph80.split.us95.preheader ]
-  %95 = load i32, ptr %20, align 8, !tbaa !29
-  %.not59.us91 = icmp slt i32 %.05178.us90, %95
-  br i1 %.not59.us91, label %.preheader.us93, label %..loopexit_crit_edge.us
+.lr.ph82.split.us97:                              ; preds = %.lr.ph82.split.us97.preheader, %..loopexit_crit_edge.us
+  %.05180.us92 = phi i32 [ %102, %..loopexit_crit_edge.us ], [ %78, %.lr.ph82.split.us97.preheader ]
+  %.sroa.0.079.us = phi float [ %.sroa.0.1.us, %..loopexit_crit_edge.us ], [ %86, %.lr.ph82.split.us97.preheader ]
+  %.sroa.6.078.us = phi float [ %.sroa.6.1.us, %..loopexit_crit_edge.us ], [ %86, %.lr.ph82.split.us97.preheader ]
+  %89 = load i32, ptr %18, align 8, !tbaa !29
+  %.not59.us93 = icmp slt i32 %.05180.us92, %89
+  br i1 %.not59.us93, label %.preheader.us95, label %..loopexit_crit_edge.us
 
-.preheader.us93:                                  ; preds = %.lr.ph80.split.us95, %106
-  %.05073.us = phi i32 [ %107, %106 ], [ %91, %.lr.ph80.split.us95 ]
-  %.sroa.0.272.us = phi float [ %.sroa.0.3.us, %106 ], [ %.sroa.0.077.us, %.lr.ph80.split.us95 ]
-  %.sroa.6.271.us = phi float [ %.sroa.6.3.us, %106 ], [ %.sroa.6.076.us, %.lr.ph80.split.us95 ]
-  %96 = load i32, ptr %17, align 4, !tbaa !28
-  %.not61.us = icmp slt i32 %.05073.us, %96
-  br i1 %.not61.us, label %97, label %106
+.preheader.us95:                                  ; preds = %.lr.ph82.split.us97, %100
+  %.05075.us = phi i32 [ %101, %100 ], [ %85, %.lr.ph82.split.us97 ]
+  %.sroa.0.274.us = phi float [ %.sroa.0.3.us, %100 ], [ %.sroa.0.079.us, %.lr.ph82.split.us97 ]
+  %.sroa.6.273.us = phi float [ %.sroa.6.3.us, %100 ], [ %.sroa.6.078.us, %.lr.ph82.split.us97 ]
+  %90 = load i32, ptr %15, align 4, !tbaa !28
+  %.not61.us = icmp slt i32 %.05075.us, %90
+  br i1 %.not61.us, label %91, label %100
 
-97:                                               ; preds = %.preheader.us93
-  %98 = load ptr, ptr %0, align 8, !tbaa !4
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 136
-  %100 = load ptr, ptr %99, align 8
-  %101 = tail call noundef float %100(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %.05073.us, i32 noundef %.05178.us90)
-  %102 = fcmp olt float %101, %.sroa.0.272.us
-  br i1 %102, label %106, label %103
+91:                                               ; preds = %.preheader.us95
+  %92 = load ptr, ptr %0, align 8, !tbaa !4
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 136
+  %94 = load ptr, ptr %93, align 8
+  %95 = tail call noundef float %94(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %.05075.us, i32 noundef %.05180.us92)
+  %96 = fcmp olt float %95, %.sroa.0.274.us
+  br i1 %96, label %100, label %97
 
-103:                                              ; preds = %97
-  %104 = fcmp ogt float %101, %.sroa.6.271.us
-  br i1 %104, label %105, label %106
+97:                                               ; preds = %91
+  %98 = fcmp ogt float %95, %.sroa.6.273.us
+  br i1 %98, label %99, label %100
 
-105:                                              ; preds = %103
-  br label %106
+99:                                               ; preds = %97
+  br label %100
 
-106:                                              ; preds = %105, %103, %97, %.preheader.us93
-  %.sroa.6.3.us = phi float [ %101, %105 ], [ %.sroa.6.271.us, %103 ], [ %.sroa.6.271.us, %.preheader.us93 ], [ %.sroa.6.271.us, %97 ]
-  %.sroa.0.3.us = phi float [ %.sroa.0.272.us, %105 ], [ %.sroa.0.272.us, %103 ], [ %.sroa.0.272.us, %.preheader.us93 ], [ %101, %97 ]
-  %107 = add nuw nsw i32 %.05073.us, 1
-  %.not60.us.not = icmp slt i32 %.05073.us, %94
-  br i1 %.not60.us.not, label %.preheader.us93, label %..loopexit_crit_edge.us, !llvm.loop !94
+100:                                              ; preds = %99, %97, %91, %.preheader.us95
+  %.sroa.6.3.us = phi float [ %95, %99 ], [ %.sroa.6.273.us, %97 ], [ %.sroa.6.273.us, %.preheader.us95 ], [ %.sroa.6.273.us, %91 ]
+  %.sroa.0.3.us = phi float [ %.sroa.0.274.us, %99 ], [ %.sroa.0.274.us, %97 ], [ %.sroa.0.274.us, %.preheader.us95 ], [ %95, %91 ]
+  %101 = add nuw nsw i32 %.05075.us, 1
+  %.not60.us.not = icmp slt i32 %.05075.us, %88
+  br i1 %.not60.us.not, label %.preheader.us95, label %..loopexit_crit_edge.us, !llvm.loop !94
 
-..loopexit_crit_edge.us:                          ; preds = %106, %.lr.ph80.split.us95
-  %.sroa.6.1.us = phi float [ %.sroa.6.076.us, %.lr.ph80.split.us95 ], [ %.sroa.6.3.us, %106 ]
-  %.sroa.0.1.us = phi float [ %.sroa.0.077.us, %.lr.ph80.split.us95 ], [ %.sroa.0.3.us, %106 ]
-  %108 = add nuw nsw i32 %.05178.us90, 1
-  %.not58.us92.not = icmp slt i32 %.05178.us90, %86
-  br i1 %.not58.us92.not, label %.lr.ph80.split.us95, label %._crit_edge.us, !llvm.loop !95
+..loopexit_crit_edge.us:                          ; preds = %100, %.lr.ph82.split.us97
+  %.sroa.6.1.us = phi float [ %.sroa.6.078.us, %.lr.ph82.split.us97 ], [ %.sroa.6.3.us, %100 ]
+  %.sroa.0.1.us = phi float [ %.sroa.0.079.us, %.lr.ph82.split.us97 ], [ %.sroa.0.3.us, %100 ]
+  %102 = add nuw nsw i32 %.05180.us92, 1
+  %.not58.us94.not = icmp slt i32 %.05180.us92, %80
+  br i1 %.not58.us94.not, label %.lr.ph82.split.us97, label %._crit_edge.us, !llvm.loop !95
 
 ._crit_edge.us:                                   ; preds = %..loopexit_crit_edge.us
-  %109 = load ptr, ptr %79, align 8, !tbaa !15
-  %110 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %109, i64 %indvars.iv
-  %111 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %110, i64 %83
-  store float %.sroa.0.1.us, ptr %111, align 4
-  %.sroa_idx67.us96 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  store float %.sroa.6.1.us, ptr %.sroa_idx67.us96, align 4
+  %103 = load ptr, ptr %73, align 8, !tbaa !15
+  %104 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %103, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %104, i64 %77
+  store float %.sroa.0.1.us, ptr %105, align 4
+  %.sroa_idx69.us98 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  store float %.sroa.6.1.us, ptr %.sroa_idx69.us98, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %81
-  br i1 %exitcond.not, label %._crit_edge86.us, label %.lr.ph80.split.us95.preheader, !llvm.loop !96
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %75
+  br i1 %exitcond.not, label %._crit_edge88.us, label %.lr.ph82.split.us97.preheader, !llvm.loop !96
 
-._crit_edge86.us:                                 ; preds = %._crit_edge.us
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
-  br i1 %exitcond107.not, label %.loopexit69, label %.lr.ph80.us.preheader, !llvm.loop !97
+._crit_edge88.us:                                 ; preds = %._crit_edge.us
+  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
+  %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
+  br i1 %exitcond109.not, label %.loopexit71, label %.lr.ph82.us.preheader, !llvm.loop !97
 
-.loopexit69:                                      ; preds = %._crit_edge86.us, %.lr.ph88, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit, %44, %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit
+.loopexit71:                                      ; preds = %._crit_edge88.us, %.lr.ph90, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit, %40, %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit
   ret void
 }
 
@@ -4093,7 +4075,7 @@ define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116Gri
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %69 = load ptr, ptr %68, align 8, !tbaa !72
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %71 = load i32, ptr %70, align 4, !tbaa !55
+  %71 = load i32, ptr %70, align 4, !tbaa !54
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds float, ptr %4, i64 %72
   %74 = load float, ptr %73, align 4, !tbaa !42
@@ -4108,7 +4090,7 @@ define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116Gri
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %80 = load ptr, ptr %79, align 8, !tbaa !72
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %82 = load i32, ptr %81, align 4, !tbaa !55
+  %82 = load i32, ptr %81, align 4, !tbaa !54
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds float, ptr %4, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !42
@@ -4162,7 +4144,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastIK22ProcessTrianglesActionEvR
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %4
-  %24 = load i32, ptr %3, align 4, !tbaa !55
+  %24 = load i32, ptr %3, align 4, !tbaa !54
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds float, ptr %2, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !42
@@ -4170,7 +4152,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastIK22ProcessTrianglesActionEvR
   %29 = load float, ptr %28, align 4, !tbaa !42
   %30 = fsub float %27, %29
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %32 = load i32, ptr %31, align 4, !tbaa !55
+  %32 = load i32, ptr %31, align 4, !tbaa !54
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds float, ptr %2, i64 %33
   %35 = load float, ptr %34, align 4, !tbaa !42
@@ -4390,20 +4372,20 @@ attributes #19 = { noreturn nounwind }
 !44 = !{!19, !10, i64 184}
 !45 = !{!19, !10, i64 188}
 !46 = !{i8 0, i8 2}
-!47 = !{}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
-!50 = distinct !{!50, !"_ZNK11btMatrix3x38absoluteEv"}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"double", !11, i64 0}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"short", !11, i64 0}
-!55 = !{!10, !10, i64 0}
-!56 = distinct !{!56, !57}
-!57 = !{!"llvm.loop.mustprogress"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
+!49 = distinct !{!49, !"_ZNK11btMatrix3x38absoluteEv"}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"double", !11, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"short", !11, i64 0}
+!54 = !{!10, !10, i64 0}
+!55 = distinct !{!55, !56}
+!56 = !{!"llvm.loop.mustprogress"}
+!57 = !{}
 !58 = !{i64 0, i64 16, !35}
-!59 = distinct !{!59, !57}
-!60 = distinct !{!60, !57}
+!59 = distinct !{!59, !56}
+!60 = distinct !{!60, !56}
 !61 = !{!62, !63, i64 0}
 !62 = !{!"_ZTS22ProcessTrianglesAction", !63, i64 0, !14, i64 8, !14, i64 9, !10, i64 12, !10, i64 16, !64, i64 24}
 !63 = !{!"p1 _ZTS25btHeightfieldTerrainShape", !13, i64 0}
@@ -4420,12 +4402,12 @@ attributes #19 = { noreturn nounwind }
 !74 = !{!"p1 int", !13, i64 0}
 !75 = !{!73, !10, i64 8}
 !76 = !{!73, !10, i64 12}
-!77 = !{i64 0, i64 8, !78, i64 8, i64 1, !79, i64 9, i64 1, !79, i64 12, i64 4, !55, i64 16, i64 4, !55, i64 24, i64 8, !80}
+!77 = !{i64 0, i64 8, !78, i64 8, i64 1, !79, i64 9, i64 1, !79, i64 12, i64 4, !54, i64 16, i64 4, !54, i64 24, i64 8, !80}
 !78 = !{!63, !63, i64 0}
 !79 = !{!14, !14, i64 0}
 !80 = !{!64, !64, i64 0}
 !81 = !{!73, !10, i64 16}
-!82 = distinct !{!82, !57}
+!82 = distinct !{!82, !56}
 !83 = !{!84, !22, i64 28}
 !84 = !{!"_ZTSN12_GLOBAL__N_116GridRaycastStateE", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !22, i64 16, !22, i64 20, !22, i64 24, !22, i64 28}
 !85 = !{!84, !22, i64 24}
@@ -4435,12 +4417,12 @@ attributes #19 = { noreturn nounwind }
 !89 = !{!84, !10, i64 12}
 !90 = !{!84, !22, i64 20}
 !91 = !{!84, !22, i64 16}
-!92 = distinct !{!92, !57}
-!93 = distinct !{!93, !57}
-!94 = distinct !{!94, !57}
-!95 = distinct !{!95, !57}
-!96 = distinct !{!96, !57}
-!97 = distinct !{!97, !57}
+!92 = distinct !{!92, !56}
+!93 = distinct !{!93, !56}
+!94 = distinct !{!94, !56}
+!95 = distinct !{!95, !56}
+!96 = distinct !{!96, !56}
+!97 = distinct !{!97, !56}
 !98 = !{!20, !22, i64 32}
 !99 = !{!73, !71, i64 0}
-!100 = distinct !{!100, !57}
+!100 = distinct !{!100, !56}

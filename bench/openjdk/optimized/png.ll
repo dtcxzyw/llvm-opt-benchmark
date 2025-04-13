@@ -1128,15 +1128,13 @@ define hidden void @png_build_grayscale_palette(i32 noundef %0, ptr noundef writ
 4:                                                ; preds = %2
   %switch.tableidx = add i32 %0, -1
   %5 = icmp ult i32 %switch.tableidx, 8
-  br i1 %5, label %switch.hole_check, label %.loopexit
-
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.loopexit
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %.loopexit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table.png_build_grayscale_palette, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1160,7 +1158,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %exitcond.not = icmp eq i64 %indvars.iv.next, %switch.load
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.lr.ph, %switch.hole_check, %4, %2
+.loopexit:                                        ; preds = %.lr.ph, %4, %2
   ret void
 }
 

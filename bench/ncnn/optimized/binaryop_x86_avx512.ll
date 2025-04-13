@@ -190,10 +190,10 @@ _ZN4ncnn3Mat6addrefEv.exit271:                    ; preds = %4, %55
 _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %87, %_ZN4ncnn3Mat6addrefEv.exit271
   %89 = load i32, ptr %21, align 8, !tbaa !21
   %90 = icmp slt i32 %89, %25
-  br i1 %90, label %91, label %.critedge213
+  br i1 %90, label %91, label %.critedge214
 
 91:                                               ; preds = %_ZN4ncnn3Mat6addrefEv.exit
-  switch i32 %25, label %.critedge213 [
+  switch i32 %25, label %.critedge214 [
     i32 2, label %92
     i32 3, label %185
     i32 4, label %364
@@ -327,7 +327,7 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %87, %_ZN4ncnn3Mat6a
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %143, %122, %149, %153, %154
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #10
-  br label %.critedge213
+  br label %.critedge214
 
 158:                                              ; preds = %100
   %159 = landingpad { ptr, i32 }
@@ -391,7 +391,7 @@ _ZN4ncnn3MatD2Ev.exit242:                         ; preds = %175, %174, %170, %1
   store i64 %183, ptr %30, align 8, !tbaa !18
   %184 = sext i32 %95 to i64
   store i64 %184, ptr %52, align 8, !tbaa !26
-  br label %.critedge213
+  br label %.critedge214
 
 185:                                              ; preds = %91
   %186 = icmp eq i32 %89, 1
@@ -574,7 +574,7 @@ _ZN4ncnn3MatD2Ev.exit243:                         ; preds = %238, %217, %244, %2
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit244:                         ; preds = %270, %269, %265, %255, %258, %253
-  %.pn185 = phi { ptr, i32 } [ %254, %253 ], [ %256, %258 ], [ %256, %255 ], [ %256, %265 ], [ %256, %269 ], [ %256, %270 ]
+  %.pn186 = phi { ptr, i32 } [ %254, %253 ], [ %256, %258 ], [ %256, %255 ], [ %256, %265 ], [ %256, %269 ], [ %256, %270 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #10
   br label %1264
 
@@ -598,7 +598,7 @@ thread-pre-split:                                 ; preds = %_ZN4ncnn3MatD2Ev.ex
 280:                                              ; preds = %thread-pre-split, %185
   %281 = phi i32 [ %.pr, %thread-pre-split ], [ %89, %185 ]
   %282 = icmp eq i32 %281, 2
-  br i1 %282, label %283, label %.critedge213
+  br i1 %282, label %283, label %.critedge214
 
 283:                                              ; preds = %280
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #10
@@ -720,7 +720,7 @@ thread-pre-split:                                 ; preds = %_ZN4ncnn3MatD2Ev.ex
 
 _ZN4ncnn3MatD2Ev.exit245:                         ; preds = %328, %307, %334, %338, %339
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #10
-  br label %.critedge213
+  br label %.critedge214
 
 343:                                              ; preds = %283
   %344 = landingpad { ptr, i32 }
@@ -769,7 +769,7 @@ _ZN4ncnn3MatD2Ev.exit245:                         ; preds = %328, %307, %334, %3
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit246:                         ; preds = %360, %359, %355, %345, %348, %343
-  %.pn187 = phi { ptr, i32 } [ %344, %343 ], [ %346, %348 ], [ %346, %345 ], [ %346, %355 ], [ %346, %359 ], [ %346, %360 ]
+  %.pn188 = phi { ptr, i32 } [ %344, %343 ], [ %346, %348 ], [ %346, %345 ], [ %346, %355 ], [ %346, %359 ], [ %346, %360 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #10
   br label %1264
 
@@ -954,7 +954,7 @@ _ZN4ncnn3MatD2Ev.exit247:                         ; preds = %417, %396, %423, %4
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit248:                         ; preds = %449, %448, %444, %434, %437, %432
-  %.pn189 = phi { ptr, i32 } [ %433, %432 ], [ %435, %437 ], [ %435, %434 ], [ %435, %444 ], [ %435, %448 ], [ %435, %449 ]
+  %.pn190 = phi { ptr, i32 } [ %433, %432 ], [ %435, %437 ], [ %435, %434 ], [ %435, %444 ], [ %435, %448 ], [ %435, %449 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #10
   br label %1264
 
@@ -978,7 +978,7 @@ thread-pre-split514:                              ; preds = %_ZN4ncnn3MatD2Ev.ex
 459:                                              ; preds = %thread-pre-split514, %364
   %460 = phi i32 [ %.pr515, %thread-pre-split514 ], [ %89, %364 ]
   %461 = icmp eq i32 %460, 2
-  br i1 %461, label %462, label %.critedge212
+  br i1 %461, label %462, label %.critedge213
 
 462:                                              ; preds = %459
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #10
@@ -1101,7 +1101,7 @@ thread-pre-split514:                              ; preds = %_ZN4ncnn3MatD2Ev.ex
 _ZN4ncnn3MatD2Ev.exit249:                         ; preds = %507, %486, %513, %517, %518
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #10
   %.pre532 = load i32, ptr %21, align 8, !tbaa !21
-  br label %.critedge212
+  br label %.critedge213
 
 522:                                              ; preds = %462
   %523 = landingpad { ptr, i32 }
@@ -1150,16 +1150,16 @@ _ZN4ncnn3MatD2Ev.exit249:                         ; preds = %507, %486, %513, %5
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit250:                         ; preds = %539, %538, %534, %524, %527, %522
-  %.pn191 = phi { ptr, i32 } [ %523, %522 ], [ %525, %527 ], [ %525, %524 ], [ %525, %534 ], [ %525, %538 ], [ %525, %539 ]
+  %.pn192 = phi { ptr, i32 } [ %523, %522 ], [ %525, %527 ], [ %525, %524 ], [ %525, %534 ], [ %525, %538 ], [ %525, %539 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #10
   br label %1264
 
-.critedge212:                                     ; preds = %459, %_ZN4ncnn3MatD2Ev.exit249
+.critedge213:                                     ; preds = %459, %_ZN4ncnn3MatD2Ev.exit249
   %543 = phi i32 [ %460, %459 ], [ %.pre532, %_ZN4ncnn3MatD2Ev.exit249 ]
   %544 = icmp eq i32 %543, 3
-  br i1 %544, label %545, label %.critedge213
+  br i1 %544, label %545, label %.critedge214
 
-545:                                              ; preds = %.critedge212
+545:                                              ; preds = %.critedge213
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #10
   %546 = load i32, ptr %41, align 4, !tbaa !22
   %547 = load i32, ptr %44, align 8, !tbaa !23
@@ -1280,7 +1280,7 @@ _ZN4ncnn3MatD2Ev.exit250:                         ; preds = %539, %538, %534, %5
 
 _ZN4ncnn3MatD2Ev.exit251:                         ; preds = %591, %570, %597, %601, %602
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #10
-  br label %.critedge213
+  br label %.critedge214
 
 606:                                              ; preds = %545
   %607 = landingpad { ptr, i32 }
@@ -1329,17 +1329,17 @@ _ZN4ncnn3MatD2Ev.exit251:                         ; preds = %591, %570, %597, %6
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit252:                         ; preds = %623, %622, %618, %608, %611, %606
-  %.pn193 = phi { ptr, i32 } [ %607, %606 ], [ %609, %611 ], [ %609, %608 ], [ %609, %618 ], [ %609, %622 ], [ %609, %623 ]
+  %.pn194 = phi { ptr, i32 } [ %607, %606 ], [ %609, %611 ], [ %609, %608 ], [ %609, %618 ], [ %609, %622 ], [ %609, %623 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #10
   br label %1264
 
-.critedge213:                                     ; preds = %91, %179, %_ZN4ncnn3MatD2Ev.exit, %280, %_ZN4ncnn3MatD2Ev.exit245, %.critedge212, %_ZN4ncnn3MatD2Ev.exit251, %_ZN4ncnn3Mat6addrefEv.exit
+.critedge214:                                     ; preds = %91, %179, %_ZN4ncnn3MatD2Ev.exit, %280, %_ZN4ncnn3MatD2Ev.exit245, %.critedge213, %_ZN4ncnn3MatD2Ev.exit251, %_ZN4ncnn3Mat6addrefEv.exit
   %627 = load i32, ptr %22, align 8, !tbaa !21
   %628 = icmp slt i32 %627, %25
-  br i1 %628, label %629, label %.critedge218
+  br i1 %628, label %629, label %.critedge219
 
-629:                                              ; preds = %.critedge213
-  switch i32 %25, label %.critedge218 [
+629:                                              ; preds = %.critedge214
+  switch i32 %25, label %.critedge219 [
     i32 2, label %630
     i32 3, label %722
     i32 4, label %898
@@ -1473,7 +1473,7 @@ _ZN4ncnn3MatD2Ev.exit252:                         ; preds = %623, %622, %618, %6
 
 _ZN4ncnn3MatD2Ev.exit253:                         ; preds = %681, %660, %687, %691, %692
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #10
-  br label %.critedge218
+  br label %.critedge219
 
 696:                                              ; preds = %638
   %697 = landingpad { ptr, i32 }
@@ -1522,7 +1522,7 @@ _ZN4ncnn3MatD2Ev.exit253:                         ; preds = %681, %660, %687, %6
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit254:                         ; preds = %713, %712, %708, %698, %701, %696
-  %.pn195 = phi { ptr, i32 } [ %697, %696 ], [ %699, %701 ], [ %699, %698 ], [ %699, %708 ], [ %699, %712 ], [ %699, %713 ]
+  %.pn196 = phi { ptr, i32 } [ %697, %696 ], [ %699, %701 ], [ %699, %698 ], [ %699, %708 ], [ %699, %712 ], [ %699, %713 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #10
   br label %1264
 
@@ -1536,7 +1536,7 @@ _ZN4ncnn3MatD2Ev.exit254:                         ; preds = %713, %712, %708, %6
   store i64 %720, ptr %62, align 8, !tbaa !18
   %721 = sext i32 %633 to i64
   store i64 %721, ptr %84, align 8, !tbaa !26
-  br label %.critedge218
+  br label %.critedge219
 
 722:                                              ; preds = %629
   %723 = icmp eq i32 %627, 1
@@ -1720,7 +1720,7 @@ _ZN4ncnn3MatD2Ev.exit255:                         ; preds = %775, %754, %781, %7
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit256:                         ; preds = %807, %806, %802, %792, %795, %790
-  %.pn197 = phi { ptr, i32 } [ %791, %790 ], [ %793, %795 ], [ %793, %792 ], [ %793, %802 ], [ %793, %806 ], [ %793, %807 ]
+  %.pn198 = phi { ptr, i32 } [ %791, %790 ], [ %793, %795 ], [ %793, %792 ], [ %793, %802 ], [ %793, %806 ], [ %793, %807 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #10
   br label %1264
 
@@ -1734,12 +1734,12 @@ thread-pre-split518.thread:                       ; preds = %724
   store i64 %813, ptr %62, align 8, !tbaa !18
   %814 = sext i32 %727 to i64
   store i64 %814, ptr %84, align 8, !tbaa !26
-  br label %.critedge218
+  br label %.critedge219
 
 thread-pre-split518:                              ; preds = %_ZN4ncnn3MatD2Ev.exit255, %722
   %815 = phi i32 [ %627, %722 ], [ %.pr519.pre, %_ZN4ncnn3MatD2Ev.exit255 ]
   %816 = icmp eq i32 %815, 2
-  br i1 %816, label %817, label %.critedge218
+  br i1 %816, label %817, label %.critedge219
 
 817:                                              ; preds = %thread-pre-split518
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15) #10
@@ -1861,7 +1861,7 @@ thread-pre-split518:                              ; preds = %_ZN4ncnn3MatD2Ev.ex
 
 _ZN4ncnn3MatD2Ev.exit257:                         ; preds = %862, %841, %868, %872, %873
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15) #10
-  br label %.critedge218
+  br label %.critedge219
 
 877:                                              ; preds = %817
   %878 = landingpad { ptr, i32 }
@@ -1910,7 +1910,7 @@ _ZN4ncnn3MatD2Ev.exit257:                         ; preds = %862, %841, %868, %8
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit258:                         ; preds = %894, %893, %889, %879, %882, %877
-  %.pn199 = phi { ptr, i32 } [ %878, %877 ], [ %880, %882 ], [ %880, %879 ], [ %880, %889 ], [ %880, %893 ], [ %880, %894 ]
+  %.pn200 = phi { ptr, i32 } [ %878, %877 ], [ %880, %882 ], [ %880, %879 ], [ %880, %889 ], [ %880, %893 ], [ %880, %894 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15) #10
   br label %1264
 
@@ -1926,7 +1926,7 @@ _ZN4ncnn3MatD2Ev.exit258:                         ; preds = %894, %893, %889, %8
   %905 = load i32, ptr %34, align 8, !tbaa !19
   %906 = mul nsw i32 %905, %904
   %907 = icmp eq i32 %903, %906
-  br i1 %907, label %908, label %.critedge217.thread
+  br i1 %907, label %908, label %.critedge218.thread
 
 908:                                              ; preds = %900
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %16) #10
@@ -2096,11 +2096,11 @@ _ZN4ncnn3MatD2Ev.exit259:                         ; preds = %951, %930, %957, %9
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit260:                         ; preds = %983, %982, %978, %968, %971, %966
-  %.pn201 = phi { ptr, i32 } [ %967, %966 ], [ %969, %971 ], [ %969, %968 ], [ %969, %978 ], [ %969, %982 ], [ %969, %983 ]
+  %.pn202 = phi { ptr, i32 } [ %967, %966 ], [ %969, %971 ], [ %969, %968 ], [ %969, %978 ], [ %969, %982 ], [ %969, %983 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %16) #10
   br label %1264
 
-.critedge217.thread:                              ; preds = %900
+.critedge218.thread:                              ; preds = %900
   store i32 4, ptr %71, align 8, !tbaa !21
   store i32 %903, ptr %72, align 4, !tbaa !22
   store i32 1, ptr %65, align 8, !tbaa !19
@@ -2110,12 +2110,12 @@ _ZN4ncnn3MatD2Ev.exit260:                         ; preds = %983, %982, %978, %9
   store i64 %989, ptr %62, align 8, !tbaa !18
   %990 = sext i32 %903 to i64
   store i64 %990, ptr %84, align 8, !tbaa !26
-  br label %.critedge218
+  br label %.critedge219
 
 thread-pre-split520:                              ; preds = %_ZN4ncnn3MatD2Ev.exit259, %898
   %991 = phi i32 [ %627, %898 ], [ %.pr521.pre, %_ZN4ncnn3MatD2Ev.exit259 ]
   %992 = icmp eq i32 %991, 2
-  br i1 %992, label %993, label %.critedge217
+  br i1 %992, label %993, label %.critedge218
 
 993:                                              ; preds = %thread-pre-split520
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %17) #10
@@ -2238,7 +2238,7 @@ thread-pre-split520:                              ; preds = %_ZN4ncnn3MatD2Ev.ex
 _ZN4ncnn3MatD2Ev.exit261:                         ; preds = %1038, %1017, %1044, %1048, %1049
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %17) #10
   %.pre534 = load i32, ptr %22, align 8, !tbaa !21
-  br label %.critedge217
+  br label %.critedge218
 
 1053:                                             ; preds = %993
   %1054 = landingpad { ptr, i32 }
@@ -2287,16 +2287,16 @@ _ZN4ncnn3MatD2Ev.exit261:                         ; preds = %1038, %1017, %1044,
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit262:                         ; preds = %1070, %1069, %1065, %1055, %1058, %1053
-  %.pn203 = phi { ptr, i32 } [ %1054, %1053 ], [ %1056, %1058 ], [ %1056, %1055 ], [ %1056, %1065 ], [ %1056, %1069 ], [ %1056, %1070 ]
+  %.pn204 = phi { ptr, i32 } [ %1054, %1053 ], [ %1056, %1058 ], [ %1056, %1055 ], [ %1056, %1065 ], [ %1056, %1069 ], [ %1056, %1070 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %17) #10
   br label %1264
 
-.critedge217:                                     ; preds = %thread-pre-split520, %_ZN4ncnn3MatD2Ev.exit261
+.critedge218:                                     ; preds = %thread-pre-split520, %_ZN4ncnn3MatD2Ev.exit261
   %1074 = phi i32 [ %991, %thread-pre-split520 ], [ %.pre534, %_ZN4ncnn3MatD2Ev.exit261 ]
   %1075 = icmp eq i32 %1074, 3
-  br i1 %1075, label %1076, label %.critedge218
+  br i1 %1075, label %1076, label %.critedge219
 
-1076:                                             ; preds = %.critedge217
+1076:                                             ; preds = %.critedge218
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %18) #10
   %1077 = load i32, ptr %73, align 4, !tbaa !22
   %1078 = load i32, ptr %76, align 8, !tbaa !23
@@ -2417,7 +2417,7 @@ _ZN4ncnn3MatD2Ev.exit262:                         ; preds = %1070, %1069, %1065,
 
 _ZN4ncnn3MatD2Ev.exit263:                         ; preds = %1122, %1101, %1128, %1132, %1133
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18) #10
-  br label %.critedge218
+  br label %.critedge219
 
 1137:                                             ; preds = %1076
   %1138 = landingpad { ptr, i32 }
@@ -2466,11 +2466,11 @@ _ZN4ncnn3MatD2Ev.exit263:                         ; preds = %1122, %1101, %1128,
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit264:                         ; preds = %1154, %1153, %1149, %1139, %1142, %1137
-  %.pn205 = phi { ptr, i32 } [ %1138, %1137 ], [ %1140, %1142 ], [ %1140, %1139 ], [ %1140, %1149 ], [ %1140, %1153 ], [ %1140, %1154 ]
+  %.pn206 = phi { ptr, i32 } [ %1138, %1137 ], [ %1140, %1142 ], [ %1140, %1139 ], [ %1140, %1149 ], [ %1140, %1153 ], [ %1140, %1154 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18) #10
   br label %1264
 
-.critedge218:                                     ; preds = %.critedge217.thread, %thread-pre-split518.thread, %629, %717, %_ZN4ncnn3MatD2Ev.exit253, %thread-pre-split518, %_ZN4ncnn3MatD2Ev.exit257, %.critedge217, %_ZN4ncnn3MatD2Ev.exit263, %.critedge213
+.critedge219:                                     ; preds = %.critedge218.thread, %thread-pre-split518.thread, %629, %717, %_ZN4ncnn3MatD2Ev.exit253, %thread-pre-split518, %_ZN4ncnn3MatD2Ev.exit257, %.critedge218, %_ZN4ncnn3MatD2Ev.exit263, %.critedge214
   %1158 = load i32, ptr %40, align 4, !tbaa !10
   %1159 = load i32, ptr %72, align 4, !tbaa !10
   %1160 = call i32 @llvm.smax.i32(i32 %1158, i32 %1159)
@@ -2494,7 +2494,7 @@ _ZN4ncnn3MatD2Ev.exit264:                         ; preds = %1154, %1153, %1149,
     i32 4, label %1185
   ]
 
-1174:                                             ; preds = %.critedge218
+1174:                                             ; preds = %.critedge219
   %1175 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1176 = load ptr, ptr %1175, align 8, !tbaa !33
   invoke void @_ZN4ncnn3Mat6createEimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %1173, i32 noundef %1160, i64 noundef %1169, i32 noundef %1172, ptr noundef %1176)
@@ -2505,19 +2505,19 @@ _ZN4ncnn3MatD2Ev.exit264:                         ; preds = %1154, %1153, %1149,
           cleanup
   br label %1264
 
-1179:                                             ; preds = %.critedge218
+1179:                                             ; preds = %.critedge219
   %1180 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1181 = load ptr, ptr %1180, align 8, !tbaa !33
   invoke void @_ZN4ncnn3Mat6createEiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %1173, i32 noundef %1160, i32 noundef %1163, i64 noundef %1169, i32 noundef %1172, ptr noundef %1181)
           to label %1191 unwind label %1177
 
-1182:                                             ; preds = %.critedge218
+1182:                                             ; preds = %.critedge219
   %1183 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1184 = load ptr, ptr %1183, align 8, !tbaa !33
   invoke void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %1173, i32 noundef %1160, i32 noundef %1163, i32 noundef %1166, i64 noundef %1169, i32 noundef %1172, ptr noundef %1184)
           to label %1191 unwind label %1177
 
-1185:                                             ; preds = %.critedge218
+1185:                                             ; preds = %.critedge219
   %1186 = load i32, ptr %46, align 4, !tbaa !10
   %1187 = load i32, ptr %78, align 4, !tbaa !10
   %1188 = call i32 @llvm.smax.i32(i32 %1186, i32 %1187)
@@ -2526,7 +2526,7 @@ _ZN4ncnn3MatD2Ev.exit264:                         ; preds = %1154, %1153, %1149,
   invoke void @_ZN4ncnn3Mat6createEiiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %1173, i32 noundef %1160, i32 noundef %1163, i32 noundef %1188, i32 noundef %1166, i64 noundef %1169, i32 noundef %1172, ptr noundef %1190)
           to label %1191 unwind label %1177
 
-1191:                                             ; preds = %1182, %1179, %1174, %.critedge218, %1185
+1191:                                             ; preds = %1182, %1179, %1174, %.critedge219, %1185
   %1192 = load ptr, ptr %1173, align 8, !tbaa !12
   %1193 = icmp eq ptr %1192, null
   br i1 %1193, label %_ZNK4ncnn3Mat5emptyEv.exit.thread, label %_ZNK4ncnn3Mat5emptyEv.exit
@@ -2564,32 +2564,30 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %1191
   %1219 = mul i32 %1218, %1215
   %1220 = mul i32 %1219, %1216
   %1221 = mul i32 %1220, %1217
-  %1222 = icmp sge i32 %1213, %1221
-  %1223 = icmp ne i32 %1202, %1203
-  %brmerge = select i1 %1223, i1 true, i1 %1222
-  br i1 %brmerge, label %1229, label %1224
+  %1222 = icmp slt i32 %1213, %1221
+  %1223 = icmp eq i32 %1202, %1203
+  %or.cond = select i1 %1223, i1 %1222, i1 false
+  br i1 %or.cond, label %1224, label %1229
 
 1224:                                             ; preds = %1205, %1201
   %1225 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1226 = load i32, ptr %1225, align 8, !tbaa !34
   %switch.tableidx = add i32 %1226, -1
   %1227 = icmp ult i32 %switch.tableidx, 11
-  br i1 %1227, label %switch.hole_check, label %_ZN4ncnnL19get_reverse_op_typeEi.exit
-
-switch.hole_check:                                ; preds = %1224
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 2021, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN4ncnnL19get_reverse_op_typeEi.exit
+  %or.cond536 = select i1 %1227, i1 %switch.lobit, i1 false
+  br i1 %or.cond536, label %switch.lookup, label %_ZN4ncnnL19get_reverse_op_typeEi.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1224
   %1228 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZNK4ncnn19BinaryOp_x86_avx5127forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE, i64 0, i64 %1228
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4ncnnL19get_reverse_op_typeEi.exit
 
-_ZN4ncnnL19get_reverse_op_typeEi.exit:            ; preds = %1224, %switch.hole_check, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %1226, %switch.hole_check ], [ %1226, %1224 ]
+_ZN4ncnnL19get_reverse_op_typeEi.exit:            ; preds = %1224, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %1226, %1224 ]
   call fastcc void @_ZN4ncnnL19binary_op_broadcastERKNS_3MatES2_RS0_iRKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %1173, i32 noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
@@ -2682,7 +2680,7 @@ _ZN4ncnn3MatD2Ev.exit266:                         ; preds = %1249, %_ZN4ncnn3Mat
   ret i32 %.0
 
 1264:                                             ; preds = %1177, %_ZN4ncnn3MatD2Ev.exit264, %_ZN4ncnn3MatD2Ev.exit262, %_ZN4ncnn3MatD2Ev.exit260, %_ZN4ncnn3MatD2Ev.exit258, %_ZN4ncnn3MatD2Ev.exit256, %_ZN4ncnn3MatD2Ev.exit254, %_ZN4ncnn3MatD2Ev.exit252, %_ZN4ncnn3MatD2Ev.exit250, %_ZN4ncnn3MatD2Ev.exit248, %_ZN4ncnn3MatD2Ev.exit246, %_ZN4ncnn3MatD2Ev.exit244, %_ZN4ncnn3MatD2Ev.exit242
-  %.pn207.pn = phi { ptr, i32 } [ %.pn205, %_ZN4ncnn3MatD2Ev.exit264 ], [ %.pn203, %_ZN4ncnn3MatD2Ev.exit262 ], [ %.pn201, %_ZN4ncnn3MatD2Ev.exit260 ], [ %.pn199, %_ZN4ncnn3MatD2Ev.exit258 ], [ %.pn197, %_ZN4ncnn3MatD2Ev.exit256 ], [ %.pn195, %_ZN4ncnn3MatD2Ev.exit254 ], [ %.pn193, %_ZN4ncnn3MatD2Ev.exit252 ], [ %.pn191, %_ZN4ncnn3MatD2Ev.exit250 ], [ %.pn189, %_ZN4ncnn3MatD2Ev.exit248 ], [ %.pn187, %_ZN4ncnn3MatD2Ev.exit246 ], [ %.pn185, %_ZN4ncnn3MatD2Ev.exit244 ], [ %.pn, %_ZN4ncnn3MatD2Ev.exit242 ], [ %1178, %1177 ]
+  %.pn208.pn = phi { ptr, i32 } [ %.pn206, %_ZN4ncnn3MatD2Ev.exit264 ], [ %.pn204, %_ZN4ncnn3MatD2Ev.exit262 ], [ %.pn202, %_ZN4ncnn3MatD2Ev.exit260 ], [ %.pn200, %_ZN4ncnn3MatD2Ev.exit258 ], [ %.pn198, %_ZN4ncnn3MatD2Ev.exit256 ], [ %.pn196, %_ZN4ncnn3MatD2Ev.exit254 ], [ %.pn194, %_ZN4ncnn3MatD2Ev.exit252 ], [ %.pn192, %_ZN4ncnn3MatD2Ev.exit250 ], [ %.pn190, %_ZN4ncnn3MatD2Ev.exit248 ], [ %.pn188, %_ZN4ncnn3MatD2Ev.exit246 ], [ %.pn186, %_ZN4ncnn3MatD2Ev.exit244 ], [ %.pn, %_ZN4ncnn3MatD2Ev.exit242 ], [ %1178, %1177 ]
   %1265 = load ptr, ptr %59, align 8, !tbaa !17
   %.not.i273 = icmp eq ptr %1265, null
   br i1 %.not.i273, label %_ZN4ncnn3MatD2Ev.exit267, label %1266
@@ -2761,7 +2759,7 @@ _ZN4ncnn3MatD2Ev.exit267:                         ; preds = %1266, %1264, %1272,
 
 _ZN4ncnn3MatD2Ev.exit268:                         ; preds = %1282, %_ZN4ncnn3MatD2Ev.exit267, %1288, %1292, %1293
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #10
-  resume { ptr, i32 } %.pn207.pn
+  resume { ptr, i32 } %.pn208.pn
 }
 
 declare noundef i32 @_ZNK4ncnn5Layer7forwardERKNS_3MatERS1_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2

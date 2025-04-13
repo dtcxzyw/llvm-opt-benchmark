@@ -200,14 +200,12 @@ define internal range(i64 -2147483648, 35) i64 @dir_read(ptr noundef captures(no
   %28 = and i16 %27, 15
   %switch.tableidx = add nsw i16 %28, -1
   %29 = icmp ult i16 %switch.tableidx, 10
-  br i1 %29, label %switch.hole_check, label %31
-
-switch.hole_check:                                ; preds = %25
   %switch.shifted = lshr i16 639, %switch.tableidx
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %31
+  %or.cond24 = select i1 %29, i1 %switch.lobit, i1 false
+  br i1 %or.cond24, label %switch.lookup, label %31
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %25
   %30 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table.dir_read, i64 0, i64 %30
   %switch.load = load i8, ptr %switch.gep, align 1
@@ -215,8 +213,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.pre = load ptr, ptr %15, align 8
   br label %31
 
-31:                                               ; preds = %switch.hole_check, %25, %switch.lookup, %18
-  %32 = phi ptr [ %.pre, %switch.lookup ], [ %22, %25 ], [ %22, %18 ], [ %22, %switch.hole_check ]
+31:                                               ; preds = %25, %switch.lookup, %18
+  %32 = phi ptr [ %.pre, %switch.lookup ], [ %22, %25 ], [ %22, %18 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %.not36.i = icmp eq ptr %34, null

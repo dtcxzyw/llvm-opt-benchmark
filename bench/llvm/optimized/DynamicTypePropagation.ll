@@ -1007,20 +1007,20 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit13: ; preds =
   %52 = trunc nuw i8 %51 to i1
   %53 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %4, ptr noundef nonnull %.pre.i, i1 noundef zeroext %52) #21
   %54 = load ptr, ptr %4, align 8, !tbaa !222
-  %.not.i.i3.i22.i = icmp eq ptr %54, null
-  br i1 %.not.i.i3.i22.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i, label %55
+  %.not.i.i3.i24.i = icmp eq ptr %54, null
+  br i1 %.not.i.i3.i24.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i, label %55
 
 55:                                               ; preds = %45
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %54) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i: ; preds = %55, %45
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i: ; preds = %55, %45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.025.0) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #21
   br label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit
 
-_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i, %42
+_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i, %42
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.025.0) #21
   br i1 %.not.i.i14, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit19, label %56
 
@@ -1090,19 +1090,19 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento14CheckerContext17addTrans
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %8 = alloca %"class.clang::ProgramPoint", align 8
   %9 = load ptr, ptr %1, align 8, !tbaa !222
-  %.not28 = icmp eq ptr %9, null
+  %.not30 = icmp eq ptr %9, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !221
-  br i1 %.not28, label %._crit_edge, label %10
+  br i1 %.not30, label %._crit_edge, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !222
   %13 = icmp ne ptr %9, %12
   %14 = icmp ne ptr %4, null
-  %or.cond.not.not31 = or i1 %14, %13
-  %brmerge = or i1 %2, %or.cond.not.not31
-  br i1 %brmerge, label %15, label %._crit_edge
+  %or.cond = or i1 %14, %13
+  %or.cond3 = or i1 %2, %or.cond
+  br i1 %or.cond3, label %15, label %._crit_edge
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1141,12 +1141,12 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento14CheckerContext17addTrans
   br label %33
 
 33:                                               ; preds = %32, %18
-  %.not = icmp eq ptr %3, null
-  %spec.select = select i1 %.not, ptr %.pre, ptr %3
+  %.not19 = icmp eq ptr %3, null
+  %spec.select = select i1 %.not19, ptr %.pre, ptr %3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = load ptr, ptr %34, align 8, !tbaa !227
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %9) #21
-  br i1 %2, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20
+  br i1 %2, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit22
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -1165,7 +1165,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %45
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20: ; preds = %33
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit22: ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %9, ptr %6, align 8, !tbaa !222
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %9) #21
@@ -1174,26 +1174,26 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20: ; pre
   %41 = trunc nuw i8 %40 to i1
   %42 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %6, ptr noundef nonnull %spec.select, i1 noundef zeroext %41) #21
   %43 = load ptr, ptr %6, align 8, !tbaa !222
-  %.not.i.i3.i22 = icmp eq ptr %43, null
-  br i1 %.not.i.i3.i22, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24, label %44
+  %.not.i.i3.i24 = icmp eq ptr %43, null
+  br i1 %.not.i.i3.i24, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26, label %44
 
-44:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20
+44:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit22
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %43) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20, %44
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit22, %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %45
 
-45:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
-  %.0 = phi ptr [ %36, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ %42, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24 ]
+45:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
+  %.0 = phi ptr [ %36, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ %42, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26 ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #21
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5, %10, %45
-  %.013 = phi ptr [ %.0, %45 ], [ %.pre, %10 ], [ %.pre, %5 ]
-  ret ptr %.013
+  %.015 = phi ptr [ %.0, %45 ], [ %.pre, %10 ], [ %.pre, %5 ]
+  ret ptr %.015
 }
 
 declare noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
@@ -1358,20 +1358,20 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit76.i: ; p
   %80 = trunc nuw i8 %79 to i1
   %81 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %4, ptr noundef nonnull %.pre.i.i, i1 noundef zeroext %80) #21
   %82 = load ptr, ptr %4, align 8, !tbaa !222
-  %.not.i.i3.i22.i.i = icmp eq ptr %82, null
-  br i1 %.not.i.i3.i22.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i, label %83
+  %.not.i.i3.i24.i.i = icmp eq ptr %82, null
+  br i1 %.not.i.i3.i24.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i, label %83
 
 83:                                               ; preds = %73
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %82) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i: ; preds = %83, %73
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i: ; preds = %83, %73
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.06.0.i) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #21
   br label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i
 
-_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i, %70
+_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i, %70
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.06.0.i) #21
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !222
   %.not.i.i77.i = icmp eq ptr %.pre.i, null
@@ -2298,20 +2298,20 @@ _ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_12ImmutableMapIPKN5clang4ento7S
   %102 = trunc nuw i8 %101 to i1
   %103 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %4, ptr noundef nonnull %.pre.i.i, i1 noundef zeroext %102) #21
   %104 = load ptr, ptr %4, align 8, !tbaa !222
-  %.not.i.i3.i22.i.i = icmp eq ptr %104, null
-  br i1 %.not.i.i3.i22.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i, label %105
+  %.not.i.i3.i24.i.i = icmp eq ptr %104, null
+  br i1 %.not.i.i3.i24.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i, label %105
 
 105:                                              ; preds = %95
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %104) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i: ; preds = %105, %95
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i: ; preds = %105, %95
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.02.0.i) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #21
   br label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i
 
-_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i, %92
+_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i, %92
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.02.0.i) #21
   br i1 %.not.i.i27.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit30.i, label %106
 
@@ -5878,8 +5878,8 @@ define internal void @_ZN5clang4ento5check8PostStmtINS_8CastExprEE10_checkStmtIN
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   %25 = load i32, ptr %1, align 8
   %26 = and i32 %25, 66584576
-  %.not.i = icmp eq i32 %26, 524288
-  br i1 %.not.i, label %27, label %_ZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit
+  %.not53.i = icmp eq i32 %26, 524288
+  br i1 %.not53.i, label %27, label %_ZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit
 
 27:                                               ; preds = %3
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5887,7 +5887,7 @@ define internal void @_ZN5clang4ento5check8PostStmtINS_8CastExprEE10_checkStmtIN
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %30, align 8, !tbaa !225
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0.0.copyload.i56.i = load i64, ptr %31, align 8, !tbaa !225
+  %.sroa.0.0.copyload.i58.i = load i64, ptr %31, align 8, !tbaa !225
   %32 = and i64 %.sroa.0.0.copyload.i.i, -16
   %33 = inttoptr i64 %32 to ptr
   %34 = load ptr, ptr %33, align 16, !tbaa !297
@@ -5913,18 +5913,18 @@ define internal void @_ZN5clang4ento5check8PostStmtINS_8CastExprEE10_checkStmtIN
 
 _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i: ; preds = %45, %37, %27
   %.1.i.i = phi ptr [ %34, %27 ], [ %46, %45 ], [ null, %37 ]
-  %47 = and i64 %.sroa.0.0.copyload.i56.i, -16
+  %47 = and i64 %.sroa.0.0.copyload.i58.i, -16
   %48 = inttoptr i64 %47 to ptr
   %49 = load ptr, ptr %48, align 16, !tbaa !297
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i8, ptr %50, align 16
-  %.not.i58.i = icmp eq i8 %51, 33
-  br i1 %.not.i58.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit61.i, label %52
+  %.not.i60.i = icmp eq i8 %51, 33
+  br i1 %.not.i60.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit63.i, label %52
 
 52:                                               ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %.sroa.0.0.copyload.i.i.i.i59.i = load i64, ptr %53, align 8, !tbaa !225
-  %54 = and i64 %.sroa.0.0.copyload.i.i.i.i59.i, -16
+  %.sroa.0.0.copyload.i.i.i.i61.i = load i64, ptr %53, align 8, !tbaa !225
+  %54 = and i64 %.sroa.0.0.copyload.i.i.i.i61.i, -16
   %55 = inttoptr i64 %54 to ptr
   %56 = load ptr, ptr %55, align 16, !tbaa !297
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -5934,16 +5934,16 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i: ; preds = %45, 
 
 60:                                               ; preds = %52
   %61 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %49) #21
-  br label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit61.i
+  br label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit63.i
 
-_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit61.i: ; preds = %60, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i
-  %.1.i60.i = phi ptr [ %49, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i ], [ %61, %60 ]
+_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit63.i: ; preds = %60, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i
+  %.1.i62.i = phi ptr [ %49, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i ], [ %61, %60 ]
   %62 = icmp ne ptr %.1.i.i, null
-  %63 = icmp ne ptr %.1.i60.i, null
+  %63 = icmp ne ptr %.1.i62.i, null
   %or.cond.i = and i1 %62, %63
   br i1 %or.cond.i, label %64, label %_ZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit
 
-64:                                               ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit61.i
+64:                                               ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit63.i
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !221
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
@@ -5955,11 +5955,11 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit61.i: ; preds = %60
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %68) #21
   %.pre.i = load ptr, ptr %65, align 8, !tbaa !221
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 56
-  %.pre189.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !222
+  %.pre191.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !222
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %69, %64
-  %70 = phi ptr [ null, %64 ], [ %.pre189.i, %69 ]
+  %70 = phi ptr [ null, %64 ], [ %.pre191.i, %69 ]
   %71 = phi ptr [ %66, %64 ], [ %.pre.i, %69 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
@@ -5984,8 +5984,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   store i8 %.fca.1.extract.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %80 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %19) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #21
-  %.not.i62.i = icmp eq ptr %80, null
-  br i1 %.not.i62.i, label %81, label %83
+  %.not.i64.i = icmp eq ptr %80, null
+  br i1 %.not.i64.i, label %81, label %83
 
 81:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
   %82 = load ptr, ptr %65, align 8, !tbaa !221
@@ -6050,8 +6050,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
 
 _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i.i.i: ; preds = %107
   %115 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %104) #21
-  %.not.i.i63.i = icmp eq ptr %115, null
-  br i1 %.not.i.i63.i, label %_ZNK12_GLOBAL__N_122DynamicTypePropagation17getBetterObjCTypeEPKN5clang4ExprERNS1_4ento14CheckerContextE.exit.thread.i.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread6.i.i.i
+  %.not.i.i65.i = icmp eq ptr %115, null
+  br i1 %.not.i.i65.i, label %_ZNK12_GLOBAL__N_122DynamicTypePropagation17getBetterObjCTypeEPKN5clang4ExprERNS1_4ento14CheckerContextE.exit.thread.i.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread6.i.i.i
 
 _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread6.i.i.i: ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i.i.i, %89
   %.1.i9.i.i.i = phi ptr [ %115, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i.i.i ], [ %104, %89 ]
@@ -6444,21 +6444,21 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i.i: ; pre
   %280 = trunc nuw i8 %279 to i1
   %281 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %277, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %13, ptr noundef nonnull %.pre.i.i.i, i1 noundef zeroext %280) #21
   %282 = load ptr, ptr %13, align 8, !tbaa !222
-  %.not.i.i3.i22.i.i.i = icmp eq ptr %282, null
-  br i1 %.not.i.i3.i22.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i.i, label %283
+  %.not.i.i3.i24.i.i.i = icmp eq ptr %282, null
+  br i1 %.not.i.i3.i24.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i.i, label %283
 
 283:                                              ; preds = %273
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %282) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i.i: ; preds = %283, %273
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i.i: ; preds = %283, %273
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.04.0.i.i) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #21
   br label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i
 
-_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i.i, %270
-  %.013.i.ph.i.i = phi ptr [ %.pre.i.i.i, %270 ], [ %281, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i.i ]
+_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i.i, %270
+  %.015.i.ph.i.i = phi ptr [ %.pre.i.i.i, %270 ], [ %281, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i.i ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.04.0.i.i) #21
   br i1 %.not.i.i23.i.i, label %_ZNK12_GLOBAL__N_122DynamicTypePropagation29dynamicTypePropagationOnCastsEPKN5clang8CastExprERN4llvm18IntrusiveRefCntPtrIKNS1_4ento12ProgramStateEEERNS7_14CheckerContextE.exit.i, label %284
 
@@ -6471,8 +6471,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit30.thread.i.i
   br label %_ZNK12_GLOBAL__N_122DynamicTypePropagation29dynamicTypePropagationOnCastsEPKN5clang8CastExprERN4llvm18IntrusiveRefCntPtrIKNS1_4ento12ProgramStateEEERNS7_14CheckerContextE.exit.i
 
 _ZNK12_GLOBAL__N_122DynamicTypePropagation29dynamicTypePropagationOnCastsEPKN5clang8CastExprERN4llvm18IntrusiveRefCntPtrIKNS1_4ento12ProgramStateEEERNS7_14CheckerContextE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit30.thread.i.i, %284, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i, %267, %87, %81
-  %.sroa.0133.1.i = phi ptr [ %68, %81 ], [ %68, %87 ], [ null, %267 ], [ null, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i ], [ %263, %284 ], [ %68, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit30.thread.i.i ]
-  %.0.i.i = phi ptr [ %82, %81 ], [ %88, %87 ], [ %268, %267 ], [ %.013.i.ph.i.i, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i ], [ %.013.i.ph.i.i, %284 ], [ %285, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit30.thread.i.i ]
+  %.sroa.0135.1.i = phi ptr [ %68, %81 ], [ %68, %87 ], [ null, %267 ], [ null, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i ], [ %263, %284 ], [ %68, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit30.thread.i.i ]
+  %.0.i.i = phi ptr [ %82, %81 ], [ %88, %87 ], [ %268, %267 ], [ %.015.i.ph.i.i, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i ], [ %.015.i.ph.i.i, %284 ], [ %285, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit30.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   %286 = load ptr, ptr %2, align 8, !tbaa !76
@@ -6483,7 +6483,7 @@ _ZNK12_GLOBAL__N_122DynamicTypePropagation29dynamicTypePropagationOnCastsEPKN5cl
   %291 = load ptr, ptr %290, align 8
   %292 = call noundef nonnull align 8 dereferenceable(23216) ptr %291(ptr noundef nonnull align 8 dereferenceable(264) %288) #21
   %293 = call noundef ptr @_ZNK5clang21ObjCObjectPointerType27stripObjCKindOfTypeAndQualsERKNS_10ASTContextE(ptr noundef nonnull align 16 dereferenceable(40) %.1.i.i, ptr noundef nonnull align 8 dereferenceable(23216) %292) #21
-  %294 = call noundef ptr @_ZNK5clang21ObjCObjectPointerType27stripObjCKindOfTypeAndQualsERKNS_10ASTContextE(ptr noundef nonnull align 16 dereferenceable(40) %.1.i60.i, ptr noundef nonnull align 8 dereferenceable(23216) %292) #21
+  %294 = call noundef ptr @_ZNK5clang21ObjCObjectPointerType27stripObjCKindOfTypeAndQualsERKNS_10ASTContextE(ptr noundef nonnull align 16 dereferenceable(40) %.1.i62.i, ptr noundef nonnull align 8 dereferenceable(23216) %292) #21
   %295 = getelementptr inbounds nuw i8, ptr %293, i64 32
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %295, align 8
   %296 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -16
@@ -6506,26 +6506,26 @@ _ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit.i: ; preds = %302, %_Z
 
 305:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit.i
   %306 = getelementptr inbounds nuw i8, ptr %294, i64 32
-  %.0.copyload.i.i.i.i.i.i.i64.i = load i64, ptr %306, align 8
-  %307 = and i64 %.0.copyload.i.i.i.i.i.i.i64.i, -16
+  %.0.copyload.i.i.i.i.i.i.i66.i = load i64, ptr %306, align 8
+  %307 = and i64 %.0.copyload.i.i.i.i.i.i.i66.i, -16
   %308 = inttoptr i64 %307 to ptr
   %309 = load ptr, ptr %308, align 16, !tbaa !297
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
   %311 = load i8, ptr %310, align 16
   %312 = and i8 %311, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i65.i = icmp eq i8 %312, 34
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i65.i, label %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit67.i, label %313
+  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i67.i = icmp eq i8 %312, 34
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i67.i, label %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit69.i, label %313
 
 313:                                              ; preds = %305
   %314 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %309) #21
-  br label %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit67.i
+  br label %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit69.i
 
-_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit67.i: ; preds = %313, %305
-  %.1.i.i.i66.i = phi ptr [ %309, %305 ], [ %314, %313 ]
-  %315 = call noundef zeroext i1 @_ZNK5clang14ObjCObjectType13isSpecializedEv(ptr noundef nonnull align 16 dereferenceable(40) %.1.i.i.i66.i) #21
-  br i1 %315, label %316, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.i
+_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit69.i: ; preds = %313, %305
+  %.1.i.i.i68.i = phi ptr [ %309, %305 ], [ %314, %313 ]
+  %315 = call noundef zeroext i1 @_ZNK5clang14ObjCObjectType13isSpecializedEv(ptr noundef nonnull align 16 dereferenceable(40) %.1.i.i.i68.i) #21
+  br i1 %315, label %316, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.i
 
-316:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit67.i, %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit.i
+316:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit69.i, %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #21
   %317 = load ptr, ptr %65, align 8, !tbaa !221
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 56
@@ -6550,13 +6550,13 @@ _ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit67.i: ; preds = %313, %
   store i8 %.fca.1.extract.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %328 = call noundef ptr @_ZNK5clang4ento4SVal11getAsSymbolEb(ptr noundef nonnull align 8 dereferenceable(9) %22, i1 noundef zeroext false) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #21
-  %.not51.i = icmp eq ptr %328, null
-  br i1 %.not51.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.i, label %329
+  %.not54.i = icmp eq ptr %328, null
+  br i1 %.not54.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.i, label %329
 
 329:                                              ; preds = %316
-  %330 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0133.1.i, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEE8GDMIndexEvE5Index) #21
-  %.not.i.i68.i = icmp eq ptr %330, null
-  br i1 %.not.i.i68.i, label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i, label %331
+  %330 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0135.1.i, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEE8GDMIndexEvE5Index) #21
+  %.not.i.i70.i = icmp eq ptr %330, null
+  br i1 %.not.i.i70.i, label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i, label %331
 
 331:                                              ; preds = %329
   %332 = load ptr, ptr %330, align 8, !tbaa !3, !noalias !463
@@ -6584,8 +6584,8 @@ _ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit67.i: ; preds = %313, %
   %.113.in.v.i.i.i.i.i = select i1 %345, i64 8, i64 16
   %.113.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i.i, i64 %.113.in.v.i.i.i.i.i
   %.113.i.i.i.i.i = load ptr, ptr %.113.in.i.i.i.i.i, align 8, !tbaa !400
-  %.not.i.i.i.i69.i = icmp eq ptr %.113.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i69.i, label %.loopexit.i.i, label %338
+  %.not.i.i.i.i71.i = icmp eq ptr %.113.i.i.i.i.i, null
+  br i1 %.not.i.i.i.i71.i, label %.loopexit.i.i, label %338
 
 _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEPKNS2_21ObjCObjectPointerTypeEEEE4findERKS6_.exit.i.i.i.i: ; preds = %338
   %346 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i.i, i64 56
@@ -6609,16 +6609,16 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEE
   br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %352, label %369
 
 352:                                              ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i
-  %.not54.i = icmp eq ptr %.1.i.i14.i.i, null
-  br i1 %.not54.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
+  %.not57.i = icmp eq ptr %.1.i.i14.i.i, null
+  br i1 %.not57.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %352
-  call fastcc void @_ZNK5clang4ento12ProgramState6removeIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0133.1.i, ptr noundef nonnull %328)
+  call fastcc void @_ZNK5clang4ento12ProgramState6removeIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0135.1.i, ptr noundef nonnull %328)
   %353 = load ptr, ptr %23, align 8, !tbaa !222
-  store ptr %.sroa.0133.1.i, ptr %23, align 8, !tbaa !222
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0133.1.i) #21
-  %.not.i.i71.i = icmp eq ptr %353, null
-  br i1 %.not.i.i71.i, label %_ZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit, label %354
+  store ptr %.sroa.0135.1.i, ptr %23, align 8, !tbaa !222
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0135.1.i) #21
+  %.not.i.i73.i = icmp eq ptr %353, null
+  br i1 %.not.i.i73.i, label %_ZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit, label %354
 
 354:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %353) #21
@@ -6626,8 +6626,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %.pre.i.i = load ptr, ptr %65, align 8, !tbaa !221
   %355 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 56
   %356 = load ptr, ptr %355, align 8, !tbaa !222
-  %.not186.i = icmp eq ptr %353, %356
-  br i1 %.not186.i, label %368, label %357
+  %.not188.i = icmp eq ptr %353, %356
+  br i1 %.not188.i, label %368, label %357
 
 357:                                              ; preds = %354
   %358 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6635,8 +6635,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #21
   %359 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %359, i64 48, i1 false), !tbaa.struct !224
-  %.not.i111.i = icmp eq ptr %.0.i.i, null
-  %spec.select.i.i = select i1 %.not.i111.i, ptr %.pre.i.i, ptr %.0.i.i
+  %.not19.i.i = icmp eq ptr %.0.i.i, null
+  %spec.select.i.i = select i1 %.not19.i.i, ptr %.pre.i.i, ptr %.0.i.i
   %360 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %361 = load ptr, ptr %360, align 8, !tbaa !227
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %353) #21
@@ -6648,29 +6648,29 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %364 = trunc nuw i8 %363 to i1
   %365 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %361, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %6, ptr noundef nonnull %spec.select.i.i, i1 noundef zeroext %364) #21
   %366 = load ptr, ptr %6, align 8, !tbaa !222
-  %.not.i.i3.i22.i.i = icmp eq ptr %366, null
-  br i1 %.not.i.i3.i22.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i, label %367
+  %.not.i.i3.i24.i.i = icmp eq ptr %366, null
+  br i1 %.not.i.i3.i24.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i, label %367
 
 367:                                              ; preds = %357
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %366) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i: ; preds = %367, %357
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i: ; preds = %367, %357
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %353) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #21
   br label %368
 
-368:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i, %354
+368:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i, %354
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %353) #21
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %353) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.thread176.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.thread178.i
 
 369:                                              ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i
   %370 = call noundef zeroext i1 @_ZN5clang10ASTContext23canAssignObjCInterfacesEPKNS_21ObjCObjectPointerTypeES3_(ptr noundef nonnull align 8 dereferenceable(23216) %292, ptr noundef %294, ptr noundef nonnull %293) #21
   %371 = call noundef zeroext i1 @_ZN5clang10ASTContext23canAssignObjCInterfacesEPKNS_21ObjCObjectPointerTypeES3_(ptr noundef nonnull align 8 dereferenceable(23216) %292, ptr noundef nonnull %293, ptr noundef %294) #21
-  %.not52.i = icmp eq ptr %.1.i.i14.i.i, null
-  br i1 %.not52.i, label %389, label %372
+  %.not55.i = icmp eq ptr %.1.i.i14.i.i, null
+  br i1 %.not55.i, label %389, label %372
 
 372:                                              ; preds = %369
   %373 = load ptr, ptr %.1.i.i14.i.i, align 8, !tbaa !466
@@ -6685,72 +6685,72 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i: ; pre
 378:                                              ; preds = %375
   %379 = load atomic i8, ptr @_ZGVZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextEE11IllegalConv acquire, align 8
   %380 = icmp eq i8 %379, 0
-  br i1 %380, label %381, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit79.i, !prof !467
+  br i1 %380, label %381, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit81.i, !prof !467
 
 381:                                              ; preds = %378
   %382 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextEE11IllegalConv) #21
-  %.not53.i = icmp eq i32 %382, 0
-  br i1 %.not53.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit79.i, label %383
+  %.not56.i = icmp eq i32 %382, 0
+  br i1 %.not56.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit81.i, label %383
 
 383:                                              ; preds = %381
   call void @_ZN5clang4ento22CheckerProgramPointTagC1EPKNS0_11CheckerBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) @_ZZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextEE11IllegalConv, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nonnull @.str.1, i64 17) #21
   %384 = call i32 @__cxa_atexit(ptr nonnull @_ZN5clang21SimpleProgramPointTagD2Ev, ptr nonnull @_ZZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextEE11IllegalConv, ptr nonnull @__dso_handle) #21
   call void @__cxa_guard_release(ptr nonnull @_ZGVZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextEE11IllegalConv) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit79.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit81.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit79.i: ; preds = %383, %381, %378
-  store ptr %.sroa.0133.1.i, ptr %24, align 8, !tbaa !222
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0133.1.i) #21
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit81.i: ; preds = %383, %381, %378
+  store ptr %.sroa.0135.1.i, ptr %24, align 8, !tbaa !222
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0135.1.i) #21
   %385 = call noundef ptr @_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEPKNS_15ProgramPointTagE(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %24, ptr noundef %.0.i.i, ptr noundef nonnull @_ZZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextEE11IllegalConv)
   %386 = load ptr, ptr %24, align 8, !tbaa !222
-  %.not.i.i80.i = icmp eq ptr %386, null
-  br i1 %.not.i.i80.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.thread.i, label %387
+  %.not.i.i82.i = icmp eq ptr %386, null
+  br i1 %.not.i.i82.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.thread.i, label %387
 
-387:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit79.i
+387:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit81.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %386) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.thread.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.thread.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.thread.i: ; preds = %387, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit79.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.thread.i: ; preds = %387, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit81.i
   %388 = load ptr, ptr %.1.i.i14.i.i, align 8, !tbaa !466
   call fastcc void @_ZNK12_GLOBAL__N_122DynamicTypePropagation17reportGenericsBugEPKN5clang21ObjCObjectPointerTypeES4_PNS1_4ento12ExplodedNodeEPKNS5_7SymExprERNS5_14CheckerContextEPKNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %388, ptr noundef %294, ptr noundef %385, ptr noundef %328, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef null)
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.thread176.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.thread178.i
 
 389:                                              ; preds = %375, %372, %369
-  %.not55.i = xor i1 %370, true
-  %brmerge.i = or i1 %371, %.not55.i
-  %spec.select.i = select i1 %brmerge.i, ptr %294, ptr %293
-  %spec.select180.i = select i1 %brmerge.i, ptr %293, ptr %294
+  %.not.i = xor i1 %370, true
+  %or.cond3.i = or i1 %371, %.not.i
+  %spec.select.i = select i1 %or.cond3.i, ptr %294, ptr %293
+  %spec.select182.i = select i1 %or.cond3.i, ptr %293, ptr %294
   %390 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 32
-  %.0.copyload.i.i.i.i.i.i.i82.i = load i64, ptr %390, align 8
-  %391 = and i64 %.0.copyload.i.i.i.i.i.i.i82.i, -16
+  %.0.copyload.i.i.i.i.i.i.i84.i = load i64, ptr %390, align 8
+  %391 = and i64 %.0.copyload.i.i.i.i.i.i.i84.i, -16
   %392 = inttoptr i64 %391 to ptr
   %393 = load ptr, ptr %392, align 16, !tbaa !297
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 16
   %395 = load i8, ptr %394, align 16
   %396 = and i8 %395, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i83.i = icmp eq i8 %396, 34
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i83.i, label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i, label %397
+  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i85.i = icmp eq i8 %396, 34
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i85.i, label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i, label %397
 
 397:                                              ; preds = %389
   %398 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %393) #21
   br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %397, %389
-  %.1.i.i.i84.i = phi ptr [ %393, %389 ], [ %398, %397 ]
-  %399 = getelementptr inbounds nuw i8, ptr %.1.i.i.i84.i, i64 16
+  %.1.i.i.i86.i = phi ptr [ %393, %389 ], [ %398, %397 ]
+  %399 = getelementptr inbounds nuw i8, ptr %.1.i.i.i86.i, i64 16
   %400 = load i32, ptr %399, align 16
   %401 = icmp ult i32 %400, 67108864
   br i1 %401, label %402, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i
 
 402:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i
-  %403 = getelementptr inbounds nuw i8, ptr %.1.i.i.i84.i, i64 24
-  %.sroa.0.0.copyload.i.i.i.i85.i = load i64, ptr %403, align 8, !tbaa !225
-  %404 = and i64 %.sroa.0.0.copyload.i.i.i.i85.i, -16
+  %403 = getelementptr inbounds nuw i8, ptr %.1.i.i.i86.i, i64 24
+  %.sroa.0.0.copyload.i.i.i.i87.i = load i64, ptr %403, align 8, !tbaa !225
+  %404 = and i64 %.sroa.0.0.copyload.i.i.i.i87.i, -16
   %405 = inttoptr i64 %404 to ptr
   %406 = load ptr, ptr %405, align 16, !tbaa !297
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i86.i = load i64, ptr %407, align 8, !tbaa !225
-  %408 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i86.i, -16
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i88.i = load i64, ptr %407, align 8, !tbaa !225
+  %408 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i88.i, -16
   %409 = inttoptr i64 %408 to ptr
   %410 = load ptr, ptr %409, align 16, !tbaa !297
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 16
@@ -6762,71 +6762,71 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %397, %38
 
 _ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.i: ; preds = %402
   %414 = load i32, ptr %411, align 16
-  %.fr183.i = freeze i32 %414
-  %415 = and i32 %.fr183.i, 267911168
+  %.fr185.i = freeze i32 %414
+  %415 = and i32 %.fr185.i, 267911168
   %416 = icmp eq i32 %415, 255852544
-  %spec.select181.i = select i1 %416, ptr %spec.select180.i, ptr %spec.select.i
+  %spec.select183.i = select i1 %416, ptr %spec.select182.i, ptr %spec.select.i
   br label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i
 
 _ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i: ; preds = %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.i, %402, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i
-  %417 = phi ptr [ %spec.select.i, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i ], [ %spec.select.i, %402 ], [ %spec.select181.i, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.i ]
-  %418 = getelementptr inbounds nuw i8, ptr %spec.select180.i, i64 32
-  %.0.copyload.i.i.i.i.i.i.i87.i = load i64, ptr %418, align 8
-  %419 = and i64 %.0.copyload.i.i.i.i.i.i.i87.i, -16
+  %417 = phi ptr [ %spec.select.i, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i ], [ %spec.select.i, %402 ], [ %spec.select183.i, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.i ]
+  %418 = getelementptr inbounds nuw i8, ptr %spec.select182.i, i64 32
+  %.0.copyload.i.i.i.i.i.i.i89.i = load i64, ptr %418, align 8
+  %419 = and i64 %.0.copyload.i.i.i.i.i.i.i89.i, -16
   %420 = inttoptr i64 %419 to ptr
   %421 = load ptr, ptr %420, align 16, !tbaa !297
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 16
   %423 = load i8, ptr %422, align 16
   %424 = and i8 %423, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i88.i = icmp eq i8 %424, 34
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i88.i, label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i89.i, label %425
+  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i90.i = icmp eq i8 %424, 34
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i90.i, label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i91.i, label %425
 
 425:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i
   %426 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %421) #21
-  br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i89.i
+  br label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i91.i
 
-_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i89.i: ; preds = %425, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i
-  %.1.i.i.i90.i = phi ptr [ %421, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i ], [ %426, %425 ]
-  %427 = getelementptr inbounds nuw i8, ptr %.1.i.i.i90.i, i64 16
+_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i91.i: ; preds = %425, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i
+  %.1.i.i.i92.i = phi ptr [ %421, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i ], [ %426, %425 ]
+  %427 = getelementptr inbounds nuw i8, ptr %.1.i.i.i92.i, i64 16
   %428 = load i32, ptr %427, align 16
   %429 = icmp ult i32 %428, 67108864
-  br i1 %429, label %430, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit95.thread.i
+  br i1 %429, label %430, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit97.thread.i
 
-430:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i89.i
-  %431 = getelementptr inbounds nuw i8, ptr %.1.i.i.i90.i, i64 24
-  %.sroa.0.0.copyload.i.i.i.i91.i = load i64, ptr %431, align 8, !tbaa !225
-  %432 = and i64 %.sroa.0.0.copyload.i.i.i.i91.i, -16
+430:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i91.i
+  %431 = getelementptr inbounds nuw i8, ptr %.1.i.i.i92.i, i64 24
+  %.sroa.0.0.copyload.i.i.i.i93.i = load i64, ptr %431, align 8, !tbaa !225
+  %432 = and i64 %.sroa.0.0.copyload.i.i.i.i93.i, -16
   %433 = inttoptr i64 %432 to ptr
   %434 = load ptr, ptr %433, align 16, !tbaa !297
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i92.i = load i64, ptr %435, align 8, !tbaa !225
-  %436 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i92.i, -16
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i94.i = load i64, ptr %435, align 8, !tbaa !225
+  %436 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i94.i, -16
   %437 = inttoptr i64 %436 to ptr
   %438 = load ptr, ptr %437, align 16, !tbaa !297
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 16
   %440 = load i8, ptr %439, align 16
   %441 = icmp eq i8 %440, 13
-  %.not7.i.i.i.i93.i = icmp ne ptr %438, null
-  %.not.not.not.i.i.i.i94.i = and i1 %.not7.i.i.i.i93.i, %441
-  br i1 %.not.not.not.i.i.i.i94.i, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit95.i, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit95.thread.i
+  %.not7.i.i.i.i95.i = icmp ne ptr %438, null
+  %.not.not.not.i.i.i.i96.i = and i1 %.not7.i.i.i.i95.i, %441
+  br i1 %.not.not.not.i.i.i.i96.i, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit97.i, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit97.thread.i
 
-_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit95.i: ; preds = %430
+_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit97.i: ; preds = %430
   %442 = load i32, ptr %439, align 16
-  %.fr184.i = freeze i32 %442
-  %443 = and i32 %.fr184.i, 267911168
+  %.fr186.i = freeze i32 %442
+  %443 = and i32 %.fr186.i, 267911168
   %444 = icmp eq i32 %443, 255852544
-  %spec.select182.i = select i1 %444, ptr %417, ptr %spec.select180.i
-  br label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit95.thread.i
+  %spec.select184.i = select i1 %444, ptr %417, ptr %spec.select182.i
+  br label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit97.thread.i
 
-_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit95.thread.i: ; preds = %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit95.i, %430, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i89.i
-  %445 = phi ptr [ %spec.select180.i, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i89.i ], [ %spec.select180.i, %430 ], [ %spec.select182.i, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit95.i ]
+_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit97.thread.i: ; preds = %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit97.i, %430, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i91.i
+  %445 = phi ptr [ %spec.select182.i, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i91.i ], [ %spec.select182.i, %430 ], [ %spec.select184.i, %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit97.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  br i1 %.not52.i, label %446, label %460
+  br i1 %.not55.i, label %446, label %460
 
-446:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit95.thread.i
+446:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit97.thread.i
   %447 = getelementptr inbounds nuw i8, ptr %445, i64 32
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %447, align 8
   %448 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -16
@@ -6848,15 +6848,15 @@ _ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit.i.i: ; preds = %454, %
   br i1 %456, label %458, label %457
 
 457:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit.i.i
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0133.1.i, ptr noundef nonnull %328, ptr noundef %417)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0135.1.i, ptr noundef nonnull %328, ptr noundef %417)
   br label %476
 
 458:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit.i.i
   %459 = call fastcc noundef ptr @_ZL30getMostInformativeDerivedClassPKN5clang21ObjCObjectPointerTypeES2_RNS_10ASTContextE(ptr noundef nonnull %445, ptr noundef %417, ptr noundef nonnull align 8 dereferenceable(23216) %292)
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0133.1.i, ptr noundef nonnull %328, ptr noundef %459)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0135.1.i, ptr noundef nonnull %328, ptr noundef %459)
   br label %476
 
-460:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit95.thread.i
+460:                                              ; preds = %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit97.thread.i
   %461 = load ptr, ptr %.1.i.i14.i.i, align 8, !tbaa !466
   %462 = call noundef zeroext i1 @_ZN5clang10ASTContext23canAssignObjCInterfacesEPKNS_21ObjCObjectPointerTypeES3_(ptr noundef nonnull align 8 dereferenceable(23216) %292, ptr noundef %417, ptr noundef %461) #21
   br i1 %462, label %_ZL24storeWhenMoreInformativeRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS2_7SymExprEPKPKNS1_21ObjCObjectPointerTypeESC_SC_RNS1_10ASTContextE.exit.thread.i, label %463
@@ -6875,7 +6875,7 @@ _ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit.i.i: ; preds = %454, %
   br i1 %.not51.i.i, label %_ZL24storeWhenMoreInformativeRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS2_7SymExprEPKPKNS1_21ObjCObjectPointerTypeESC_SC_RNS1_10ASTContextE.exit.thread.i, label %471
 
 471:                                              ; preds = %467
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0133.1.i, ptr noundef nonnull %328, ptr noundef %469)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0135.1.i, ptr noundef nonnull %328, ptr noundef %469)
   br label %476
 
 472:                                              ; preds = %463
@@ -6885,7 +6885,7 @@ _ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit.i.i: ; preds = %454, %
   br i1 %.not44.not.i.i, label %_ZL24storeWhenMoreInformativeRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS2_7SymExprEPKPKNS1_21ObjCObjectPointerTypeESC_SC_RNS1_10ASTContextE.exit.thread.i, label %475
 
 475:                                              ; preds = %472
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0133.1.i, ptr noundef nonnull %328, ptr noundef %473)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0135.1.i, ptr noundef nonnull %328, ptr noundef %473)
   br label %476
 
 _ZL24storeWhenMoreInformativeRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS2_7SymExprEPKPKNS1_21ObjCObjectPointerTypeESC_SC_RNS1_10ASTContextE.exit.thread.i: ; preds = %472, %467, %460
@@ -6893,28 +6893,28 @@ _ZL24storeWhenMoreInformativeRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.i
 
 476:                                              ; preds = %475, %471, %458, %457
-  %.sink192.i = phi ptr [ %11, %475 ], [ %10, %471 ], [ %9, %458 ], [ %8, %457 ]
-  %477 = load ptr, ptr %.sink192.i, align 8, !tbaa !222
-  store ptr %.sroa.0133.1.i, ptr %.sink192.i, align 8, !tbaa !222
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0133.1.i) #21
+  %.sink194.i = phi ptr [ %11, %475 ], [ %10, %471 ], [ %9, %458 ], [ %8, %457 ]
+  %477 = load ptr, ptr %.sink194.i, align 8, !tbaa !222
+  store ptr %.sroa.0135.1.i, ptr %.sink194.i, align 8, !tbaa !222
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0135.1.i) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %.not.i.i100.i = icmp eq ptr %477, null
-  br i1 %.not.i.i100.i, label %_ZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit, label %478
+  %.not.i.i102.i = icmp eq ptr %477, null
+  br i1 %.not.i.i102.i, label %_ZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit, label %478
 
 478:                                              ; preds = %476
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %477) #21
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %477) #21
-  %.pre.i115.i = load ptr, ptr %65, align 8, !tbaa !221
-  %479 = getelementptr inbounds nuw i8, ptr %.pre.i115.i, i64 56
+  %.pre.i117.i = load ptr, ptr %65, align 8, !tbaa !221
+  %479 = getelementptr inbounds nuw i8, ptr %.pre.i117.i, i64 56
   %480 = load ptr, ptr %479, align 8, !tbaa !222
-  %.not185.i = icmp eq ptr %477, %480
-  br i1 %.not185.i, label %492, label %481
+  %.not187.i = icmp eq ptr %477, %480
+  br i1 %.not187.i, label %492, label %481
 
 481:                                              ; preds = %478
   %482 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6922,8 +6922,8 @@ _ZL24storeWhenMoreInformativeRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramS
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #21
   %483 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %483, i64 48, i1 false), !tbaa.struct !224
-  %.not.i117.i = icmp eq ptr %.0.i.i, null
-  %spec.select.i118.i = select i1 %.not.i117.i, ptr %.pre.i115.i, ptr %.0.i.i
+  %.not19.i119.i = icmp eq ptr %.0.i.i, null
+  %spec.select.i120.i = select i1 %.not19.i119.i, ptr %.pre.i117.i, ptr %.0.i.i
   %484 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %485 = load ptr, ptr %484, align 8, !tbaa !227
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %477) #21
@@ -6933,36 +6933,36 @@ _ZL24storeWhenMoreInformativeRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramS
   %486 = getelementptr inbounds nuw i8, ptr %477, i64 40
   %487 = load i8, ptr %486, align 8, !tbaa !228, !range !239, !noundef !240
   %488 = trunc nuw i8 %487 to i1
-  %489 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %485, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %4, ptr noundef nonnull %spec.select.i118.i, i1 noundef zeroext %488) #21
+  %489 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %485, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %4, ptr noundef nonnull %spec.select.i120.i, i1 noundef zeroext %488) #21
   %490 = load ptr, ptr %4, align 8, !tbaa !222
-  %.not.i.i3.i22.i119.i = icmp eq ptr %490, null
-  br i1 %.not.i.i3.i22.i119.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i120.i, label %491
+  %.not.i.i3.i24.i121.i = icmp eq ptr %490, null
+  br i1 %.not.i.i3.i24.i121.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i122.i, label %491
 
 491:                                              ; preds = %481
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %490) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i120.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i122.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i120.i: ; preds = %491, %481
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i122.i: ; preds = %491, %481
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %477) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #21
   br label %492
 
-492:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i120.i, %478
+492:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i122.i, %478
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %477) #21
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %477) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.thread176.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.thread178.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.i: ; preds = %_ZL24storeWhenMoreInformativeRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS2_7SymExprEPKPKNS1_21ObjCObjectPointerTypeESC_SC_RNS1_10ASTContextE.exit.thread.i, %352, %316, %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit67.i
-  %.not.i.i109.i = icmp eq ptr %.sroa.0133.1.i, null
-  br i1 %.not.i.i109.i, label %_ZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.thread176.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.i: ; preds = %_ZL24storeWhenMoreInformativeRN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS2_7SymExprEPKPKNS1_21ObjCObjectPointerTypeESC_SC_RNS1_10ASTContextE.exit.thread.i, %352, %316, %_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv.exit69.i
+  %.not.i.i111.i = icmp eq ptr %.sroa.0135.1.i, null
+  br i1 %.not.i.i111.i, label %_ZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.thread178.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.thread176.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.i, %492, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.thread.i, %368
-  %.sroa.0133.0179.i = phi ptr [ %.sroa.0133.1.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.i ], [ %477, %492 ], [ %353, %368 ], [ %.sroa.0133.1.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.thread.i ]
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0133.0179.i) #21
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.thread178.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.i, %492, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.thread.i, %368
+  %.sroa.0135.0181.i = phi ptr [ %.sroa.0135.1.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.i ], [ %477, %492 ], [ %353, %368 ], [ %.sroa.0135.1.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.thread.i ]
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0135.0181.i) #21
   br label %_ZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit: ; preds = %3, %52, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit61.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %476, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77.thread176.i
+_ZNK12_GLOBAL__N_122DynamicTypePropagation13checkPostStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit: ; preds = %3, %52, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit63.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %476, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit79.thread178.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   ret void
@@ -9263,20 +9263,20 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   %46 = trunc nuw i8 %45 to i1
   %47 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %4, ptr noundef nonnull %.pre.i.i, i1 noundef zeroext %46) #21
   %48 = load ptr, ptr %4, align 8, !tbaa !222
-  %.not.i.i3.i22.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i3.i22.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i, label %49
+  %.not.i.i3.i24.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i3.i24.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i, label %49
 
 49:                                               ; preds = %39
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %48) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i: ; preds = %49, %39
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i: ; preds = %49, %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0.0.i) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #21
   br label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i
 
-_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i, %36
+_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i, %36
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0.0.i) #21
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !222
   %.not.i.i9.i = icmp eq ptr %.pre.i, null
@@ -12585,11 +12585,11 @@ define internal void @_ZN5clang4ento5check15PostObjCMessage17_checkObjCMessageIN
   %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(72) %1) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #21
   %32 = tail call { ptr, i8 } @_ZNK5clang4ento9CallEvent14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #21
-  %.fca.0.extract41.i = extractvalue { ptr, i8 } %32, 0
-  %.fca.1.extract42.i = extractvalue { ptr, i8 } %32, 1
-  store ptr %.fca.0.extract41.i, ptr %10, align 8
-  %.sroa.244.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i8 %.fca.1.extract42.i, ptr %.sroa.244.0..sroa_idx.i, align 8
+  %.fca.0.extract43.i = extractvalue { ptr, i8 } %32, 0
+  %.fca.1.extract44.i = extractvalue { ptr, i8 } %32, 1
+  store ptr %.fca.0.extract43.i, ptr %10, align 8
+  %.sroa.246.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i8 %.fca.1.extract44.i, ptr %.sroa.246.0..sroa_idx.i, align 8
   %33 = call noundef ptr @_ZNK5clang4ento4SVal11getAsSymbolEb(ptr noundef nonnull align 8 dereferenceable(9) %10, i1 noundef zeroext false) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #21
   %.not.i = icmp eq ptr %33, null
@@ -12639,605 +12639,602 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 51:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   %52 = call fastcc { ptr, i8 } @_ZN12_GLOBAL__N_117inferReceiverTypeERKN5clang4ento14ObjCMethodCallERNS1_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(81) %2)
-  %.fca.0.extract36.i = extractvalue { ptr, i8 } %52, 0
-  %.fca.1.extract37.i = extractvalue { ptr, i8 } %52, 1
-  %.not73.i = icmp eq ptr %.fca.0.extract36.i, null
+  %.fca.0.extract38.i = extractvalue { ptr, i8 } %52, 0
+  %.fca.1.extract39.i = extractvalue { ptr, i8 } %52, 1
+  %.not73.i = icmp eq ptr %.fca.0.extract38.i, null
   br i1 %.not73.i, label %.critedge.i, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i8, ptr %.fca.0.extract36.i, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.fca.0.extract38.i, i64 32
   %.0.copyload.i.i.i.i.i = load i64, ptr %54, align 8
   %55 = and i64 %.0.copyload.i.i.i.i.i, 8
   %.not.i.i = icmp eq i64 %55, 0
   br i1 %.not.i.i, label %56, label %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit.i
 
 56:                                               ; preds = %53
-  call void @_ZNK5clang14ObjCObjectType25computeSuperClassTypeSlowEv(ptr noundef nonnull align 16 dereferenceable(40) %.fca.0.extract36.i) #21
+  call void @_ZNK5clang14ObjCObjectType25computeSuperClassTypeSlowEv(ptr noundef nonnull align 16 dereferenceable(40) %.fca.0.extract38.i) #21
   br label %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit.i
 
 _ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit.i: ; preds = %56, %53
-  %57 = ptrtoint ptr %.fca.0.extract36.i to i64
+  %57 = ptrtoint ptr %.fca.0.extract38.i to i64
   %58 = and i64 %57, -16
-  %59 = call noundef zeroext i1 @_ZNK5clang14ObjCObjectType13isSpecializedEv(ptr noundef nonnull align 16 dereferenceable(40) %.fca.0.extract36.i) #21
-  br i1 %59, label %60, label %79
+  %59 = call noundef zeroext i1 @_ZNK5clang14ObjCObjectType13isSpecializedEv(ptr noundef nonnull align 16 dereferenceable(40) %.fca.0.extract38.i) #21
+  %60 = trunc nuw i8 %.fca.1.extract39.i to i1
+  %or.cond.i = select i1 %59, i1 %60, i1 false
+  br i1 %or.cond.i, label %61, label %78
 
-60:                                               ; preds = %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit.i
-  %61 = trunc nuw i8 %.fca.1.extract37.i to i1
-  br i1 %61, label %62, label %79
+61:                                               ; preds = %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit.i
+  %62 = load ptr, ptr %2, align 8, !tbaa !76
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %64 = load ptr, ptr %63, align 8, !tbaa !88
+  %65 = load ptr, ptr %64, align 8, !tbaa !28
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %67 = load ptr, ptr %66, align 8
+  %68 = call noundef nonnull align 8 dereferenceable(23216) ptr %67(ptr noundef nonnull align 8 dereferenceable(264) %64) #21
+  %69 = call i64 @_ZNK5clang10ASTContext24getObjCObjectPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %68, i64 %58) #21
+  %70 = and i64 %69, -16
+  %71 = inttoptr i64 %70 to ptr
+  %72 = load ptr, ptr %71, align 16, !tbaa !297
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %74 = load i8, ptr %73, align 16
+  %.not.i90.i = icmp eq i8 %74, 33
+  br i1 %.not.i90.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, label %75
 
-62:                                               ; preds = %60
-  %63 = load ptr, ptr %2, align 8, !tbaa !76
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !88
-  %66 = load ptr, ptr %65, align 8, !tbaa !28
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %68 = load ptr, ptr %67, align 8
-  %69 = call noundef nonnull align 8 dereferenceable(23216) ptr %68(ptr noundef nonnull align 8 dereferenceable(264) %65) #21
-  %70 = call i64 @_ZNK5clang10ASTContext24getObjCObjectPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %69, i64 %58) #21
-  %71 = and i64 %70, -16
-  %72 = inttoptr i64 %71 to ptr
-  %73 = load ptr, ptr %72, align 16, !tbaa !297
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %75 = load i8, ptr %74, align 16
-  %.not.i88.i = icmp eq i8 %75, 33
-  br i1 %.not.i88.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, label %76
-
-76:                                               ; preds = %62
-  %77 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %73) #21
+75:                                               ; preds = %61
+  %76 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %72) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %76, %62
-  %.1.i.i = phi ptr [ %73, %62 ], [ %77, %76 ]
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %75, %61
+  %.1.i.i = phi ptr [ %72, %61 ], [ %76, %75 ]
   call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef %33, ptr noundef %.1.i.i)
-  %78 = load ptr, ptr %13, align 8, !tbaa !222
+  %77 = load ptr, ptr %13, align 8, !tbaa !222
   store ptr %39, ptr %13, align 8, !tbaa !222
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %39) #21
-  br label %79
+  br label %78
 
-79:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %60, %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit.i
-  %.sroa.018.0.i = phi ptr [ %78, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %39, %60 ], [ %39, %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit.i ]
+78:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit.i
+  %.sroa.018.0.i = phi ptr [ %77, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ], [ %39, %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit.i ]
   store ptr %.sroa.018.0.i, ptr %15, align 8, !tbaa !222
-  %.not.i.i90.i = icmp eq ptr %.sroa.018.0.i, null
-  br i1 %.not.i.i90.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit91.i, label %80
+  %.not.i.i92.i = icmp eq ptr %.sroa.018.0.i, null
+  br i1 %.not.i.i92.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit93.i, label %79
 
-80:                                               ; preds = %79
+79:                                               ; preds = %78
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.018.0.i) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit91.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit93.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit91.i: ; preds = %80, %79
-  %81 = trunc nuw i8 %.fca.1.extract37.i to i1
-  %82 = xor i1 %81, true
-  call void @_ZN5clang4ento29setClassObjectDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprENS_8QualTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %14, ptr noundef nonnull %15, ptr noundef nonnull %33, i64 %58, i1 noundef zeroext %82) #21
-  %83 = load ptr, ptr %14, align 8, !tbaa !222
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit93.i: ; preds = %79, %78
+  %80 = xor i1 %60, true
+  call void @_ZN5clang4ento29setClassObjectDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprENS_8QualTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %14, ptr noundef nonnull %15, ptr noundef nonnull %33, i64 %58, i1 noundef zeroext %80) #21
+  %81 = load ptr, ptr %14, align 8, !tbaa !222
   store ptr %.sroa.018.0.i, ptr %14, align 8, !tbaa !222
-  br i1 %.not.i.i90.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit93.i, label %84
+  br i1 %.not.i.i92.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit95.i, label %82
 
-84:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit91.i
+82:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit93.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.018.0.i) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit93.i
-
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit93.i: ; preds = %84, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit91.i
-  %85 = load ptr, ptr %15, align 8, !tbaa !222
-  %.not.i.i94.i = icmp eq ptr %85, null
-  br i1 %.not.i.i94.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit95.i, label %86
-
-86:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit93.i
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %85) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit95.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit95.i: ; preds = %86, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit93.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit95.i: ; preds = %82, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit93.i
+  %83 = load ptr, ptr %15, align 8, !tbaa !222
   %.not.i.i96.i = icmp eq ptr %83, null
-  br i1 %.not.i.i96.i, label %87, label %.thread.i.i
+  br i1 %.not.i.i96.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit97.i, label %84
 
-.thread.i.i:                                      ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit95.i
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %83) #21
-  br label %90
+84:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit95.i
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %83) #21
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit97.i
 
-87:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit95.i
-  %88 = load ptr, ptr %36, align 8, !tbaa !221
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 56
-  %.pr.i.i = load ptr, ptr %89, align 8, !tbaa !222
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit97.i: ; preds = %84, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit95.i
+  %.not.i.i98.i = icmp eq ptr %81, null
+  br i1 %.not.i.i98.i, label %85, label %.thread.i.i
+
+.thread.i.i:                                      ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit97.i
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %81) #21
+  br label %88
+
+85:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit97.i
+  %86 = load ptr, ptr %36, align 8, !tbaa !221
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 56
+  %.pr.i.i = load ptr, ptr %87, align 8, !tbaa !222
   %.not.i.i.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i, label %90
+  br i1 %.not.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit158.i, label %88
 
-90:                                               ; preds = %87, %.thread.i.i
-  %.sroa.036.0.i = phi ptr [ %.pr.i.i, %87 ], [ %83, %.thread.i.i ]
+88:                                               ; preds = %85, %.thread.i.i
+  %.sroa.036.0.i = phi ptr [ %.pr.i.i, %85 ], [ %81, %.thread.i.i ]
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.036.0.i) #21
   %.pre.i.i = load ptr, ptr %36, align 8, !tbaa !221
-  %91 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 56
-  %92 = load ptr, ptr %91, align 8, !tbaa !222
-  %.not76.i = icmp eq ptr %.sroa.036.0.i, %92
-  br i1 %.not76.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, label %93
+  %89 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 56
+  %90 = load ptr, ptr %89, align 8, !tbaa !222
+  %.not76.i = icmp eq ptr %.sroa.036.0.i, %90
+  br i1 %.not76.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, label %91
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 1, ptr %94, align 8, !tbaa !223
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i8 1, ptr %92, align 8, !tbaa !223
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #21
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %95, i64 48, i1 false), !tbaa.struct !224
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %97 = load ptr, ptr %96, align 8, !tbaa !227
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %93, i64 48, i1 false), !tbaa.struct !224
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %95 = load ptr, ptr %94, align 8, !tbaa !227
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.036.0.i) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.sroa.036.0.i, ptr %6, align 8, !tbaa !222
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.036.0.i) #21
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.036.0.i, i64 40
-  %99 = load i8, ptr %98, align 8, !tbaa !228, !range !239, !noundef !240
-  %100 = trunc nuw i8 %99 to i1
-  %101 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %6, ptr noundef nonnull %.pre.i.i, i1 noundef zeroext %100) #21
-  %102 = load ptr, ptr %6, align 8, !tbaa !222
-  %.not.i.i3.i22.i.i = icmp eq ptr %102, null
-  br i1 %.not.i.i3.i22.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i, label %103
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.036.0.i, i64 40
+  %97 = load i8, ptr %96, align 8, !tbaa !228, !range !239, !noundef !240
+  %98 = trunc nuw i8 %97 to i1
+  %99 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %6, ptr noundef nonnull %.pre.i.i, i1 noundef zeroext %98) #21
+  %100 = load ptr, ptr %6, align 8, !tbaa !222
+  %.not.i.i3.i24.i.i = icmp eq ptr %100, null
+  br i1 %.not.i.i3.i24.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i, label %101
 
-103:                                              ; preds = %93
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %102) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i
+101:                                              ; preds = %91
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %100) #21
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i: ; preds = %103, %93
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i: ; preds = %101, %91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.036.0.i) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #21
   br label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i
 
-_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i.i, %90
+_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i, %88
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.036.0.i) #21
-  br i1 %.not.i.i96.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.thread69.sink.split.i
+  br i1 %.not.i.i98.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit158.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.thread69.sink.split.i
 
 .critedge.i:                                      ; preds = %51, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #21
   call void @_ZNK5clang8Selector11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %11) #21
-  %104 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.16) #21
-  %105 = icmp eq i32 %104, 0
-  %106 = load ptr, ptr %16, align 8, !tbaa !471
-  %107 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %108 = icmp eq ptr %106, %107
-  br i1 %108, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i102.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i101.i
+  %102 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.16) #21
+  %103 = icmp eq i32 %102, 0
+  %104 = load ptr, ptr %16, align 8, !tbaa !471
+  %105 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %106 = icmp eq ptr %104, %105
+  br i1 %106, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i103.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i102.i: ; preds = %.critedge.i
-  %109 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %110 = load i64, ptr %109, align 8, !tbaa !474
-  %111 = icmp ult i64 %110, 16
-  call void @llvm.assume(i1 %111)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104.i: ; preds = %.critedge.i
+  %107 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %108 = load i64, ptr %107, align 8, !tbaa !474
+  %109 = icmp ult i64 %108, 16
+  call void @llvm.assume(i1 %109)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i101.i: ; preds = %.critedge.i
-  %112 = load i64, ptr %107, align 8, !tbaa !225
-  %113 = add i64 %112, 1
-  call void @_ZdlPvm(ptr noundef %106, i64 noundef %113) #24
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i103.i: ; preds = %.critedge.i
+  %110 = load i64, ptr %105, align 8, !tbaa !225
+  %111 = add i64 %110, 1
+  call void @_ZdlPvm(ptr noundef %104, i64 noundef %111) #24
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i101.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i102.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i103.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #21
-  br i1 %105, label %114, label %.critedge85.i
+  br i1 %103, label %112, label %.critedge87.i
 
-114:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103.i
-  %115 = call fastcc { ptr, i8 } @_ZN12_GLOBAL__N_117inferReceiverTypeERKN5clang4ento14ObjCMethodCallERNS1_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(81) %2)
-  %.fca.0.extract28.i = extractvalue { ptr, i8 } %115, 0
-  %.fca.1.extract29.i = extractvalue { ptr, i8 } %115, 1
-  %.not74.i = icmp eq ptr %.fca.0.extract28.i, null
-  br i1 %.not74.i, label %.critedge85.i, label %116
+112:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105.i
+  %113 = call fastcc { ptr, i8 } @_ZN12_GLOBAL__N_117inferReceiverTypeERKN5clang4ento14ObjCMethodCallERNS1_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %.fca.0.extract30.i = extractvalue { ptr, i8 } %113, 0
+  %.fca.1.extract31.i = extractvalue { ptr, i8 } %113, 1
+  %.not74.i = icmp eq ptr %.fca.0.extract30.i, null
+  br i1 %.not74.i, label %.critedge87.i, label %114
 
-116:                                              ; preds = %114
-  %117 = getelementptr inbounds nuw i8, ptr %.fca.0.extract28.i, i64 32
-  %.0.copyload.i.i.i.i104.i = load i64, ptr %117, align 8
-  %118 = and i64 %.0.copyload.i.i.i.i104.i, 8
-  %.not.i105.i = icmp eq i64 %118, 0
-  br i1 %.not.i105.i, label %119, label %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit108.i
+114:                                              ; preds = %112
+  %115 = getelementptr inbounds nuw i8, ptr %.fca.0.extract30.i, i64 32
+  %.0.copyload.i.i.i.i106.i = load i64, ptr %115, align 8
+  %116 = and i64 %.0.copyload.i.i.i.i106.i, 8
+  %.not.i107.i = icmp eq i64 %116, 0
+  br i1 %.not.i107.i, label %117, label %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit110.i
 
-119:                                              ; preds = %116
-  call void @_ZNK5clang14ObjCObjectType25computeSuperClassTypeSlowEv(ptr noundef nonnull align 16 dereferenceable(40) %.fca.0.extract28.i) #21
-  %.0.copyload.i.i.i1.pre.i107.i = load i64, ptr %117, align 8
-  br label %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit108.i
+117:                                              ; preds = %114
+  call void @_ZNK5clang14ObjCObjectType25computeSuperClassTypeSlowEv(ptr noundef nonnull align 16 dereferenceable(40) %.fca.0.extract30.i) #21
+  %.0.copyload.i.i.i1.pre.i109.i = load i64, ptr %115, align 8
+  br label %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit110.i
 
-_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit108.i: ; preds = %119, %116
-  %.0.copyload.i.i.i1.i106.i = phi i64 [ %.0.copyload.i.i.i1.pre.i107.i, %119 ], [ %.0.copyload.i.i.i.i104.i, %116 ]
-  %120 = and i64 %.0.copyload.i.i.i1.i106.i, -16
-  %.not.i.i110.i = icmp ult i64 %.0.copyload.i.i.i1.i106.i, 16
-  br i1 %.not.i.i110.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.i, label %121
+_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit110.i: ; preds = %117, %114
+  %.0.copyload.i.i.i1.i108.i = phi i64 [ %.0.copyload.i.i.i1.pre.i109.i, %117 ], [ %.0.copyload.i.i.i.i106.i, %114 ]
+  %118 = and i64 %.0.copyload.i.i.i1.i108.i, -16
+  %.not.i.i112.i = icmp ult i64 %.0.copyload.i.i.i1.i108.i, 16
+  br i1 %.not.i.i112.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.i, label %119
 
-121:                                              ; preds = %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit108.i
+119:                                              ; preds = %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit110.i
   store ptr %39, ptr %18, align 8, !tbaa !222
-  br i1 %.not.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit112.i, label %122
+  br i1 %.not.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit114.i, label %120
 
-122:                                              ; preds = %121
+120:                                              ; preds = %119
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %39) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit112.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit114.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit112.i: ; preds = %122, %121
-  %123 = trunc nuw i8 %.fca.1.extract29.i to i1
-  %124 = xor i1 %123, true
-  call void @_ZN5clang4ento29setClassObjectDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprENS_8QualTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %17, ptr noundef nonnull %18, ptr noundef nonnull %33, i64 %120, i1 noundef zeroext %124) #21
-  %125 = load ptr, ptr %17, align 8, !tbaa !222
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit114.i: ; preds = %120, %119
+  %121 = trunc nuw i8 %.fca.1.extract31.i to i1
+  %122 = xor i1 %121, true
+  call void @_ZN5clang4ento29setClassObjectDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprENS_8QualTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %17, ptr noundef nonnull %18, ptr noundef nonnull %33, i64 %118, i1 noundef zeroext %122) #21
+  %123 = load ptr, ptr %17, align 8, !tbaa !222
   store ptr %39, ptr %17, align 8, !tbaa !222
-  br i1 %.not.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit114.i, label %126
+  br i1 %.not.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit116.i, label %124
 
-126:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit112.i
+124:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit114.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %39) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit114.i
-
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit114.i: ; preds = %126, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit112.i
-  %127 = load ptr, ptr %18, align 8, !tbaa !222
-  %.not.i.i115.i = icmp eq ptr %127, null
-  br i1 %.not.i.i115.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit116.i, label %128
-
-128:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit114.i
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %127) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit116.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit116.i: ; preds = %128, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit114.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit116.i: ; preds = %124, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit114.i
+  %125 = load ptr, ptr %18, align 8, !tbaa !222
   %.not.i.i117.i = icmp eq ptr %125, null
-  br i1 %.not.i.i117.i, label %129, label %.thread.i120.i
+  br i1 %.not.i.i117.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit118.i, label %126
 
-.thread.i120.i:                                   ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit116.i
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %125) #21
-  br label %132
+126:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit116.i
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %125) #21
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit118.i
 
-129:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit116.i
-  %130 = load ptr, ptr %36, align 8, !tbaa !221
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 56
-  %.pr.i123.i = load ptr, ptr %131, align 8, !tbaa !222
-  %.not.i.i.i124.i = icmp eq ptr %.pr.i123.i, null
-  br i1 %.not.i.i.i124.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i, label %132
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit118.i: ; preds = %126, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit116.i
+  %.not.i.i119.i = icmp eq ptr %123, null
+  br i1 %.not.i.i119.i, label %127, label %.thread.i122.i
 
-132:                                              ; preds = %129, %.thread.i120.i
-  %.sroa.038.0.i = phi ptr [ %.pr.i123.i, %129 ], [ %125, %.thread.i120.i ]
+.thread.i122.i:                                   ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit118.i
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %123) #21
+  br label %130
+
+127:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit118.i
+  %128 = load ptr, ptr %36, align 8, !tbaa !221
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 56
+  %.pr.i125.i = load ptr, ptr %129, align 8, !tbaa !222
+  %.not.i.i.i126.i = icmp eq ptr %.pr.i125.i, null
+  br i1 %.not.i.i.i126.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit158.i, label %130
+
+130:                                              ; preds = %127, %.thread.i122.i
+  %.sroa.038.0.i = phi ptr [ %.pr.i125.i, %127 ], [ %123, %.thread.i122.i ]
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.038.0.i) #21
-  %.pre.i159.i = load ptr, ptr %36, align 8, !tbaa !221
-  %133 = getelementptr inbounds nuw i8, ptr %.pre.i159.i, i64 56
-  %134 = load ptr, ptr %133, align 8, !tbaa !222
-  %.not75.i = icmp eq ptr %.sroa.038.0.i, %134
-  br i1 %.not75.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit125.i, label %135
+  %.pre.i161.i = load ptr, ptr %36, align 8, !tbaa !221
+  %131 = getelementptr inbounds nuw i8, ptr %.pre.i161.i, i64 56
+  %132 = load ptr, ptr %131, align 8, !tbaa !222
+  %.not75.i = icmp eq ptr %.sroa.038.0.i, %132
+  br i1 %.not75.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit127.i, label %133
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 1, ptr %136, align 8, !tbaa !223
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i8 1, ptr %134, align 8, !tbaa !223
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #21
-  %137 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %137, i64 48, i1 false), !tbaa.struct !224
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %139 = load ptr, ptr %138, align 8, !tbaa !227
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %135, i64 48, i1 false), !tbaa.struct !224
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %137 = load ptr, ptr %136, align 8, !tbaa !227
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.038.0.i) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %.sroa.038.0.i, ptr %4, align 8, !tbaa !222
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.038.0.i) #21
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.038.0.i, i64 40
-  %141 = load i8, ptr %140, align 8, !tbaa !228, !range !239, !noundef !240
-  %142 = trunc nuw i8 %141 to i1
-  %143 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %4, ptr noundef nonnull %.pre.i159.i, i1 noundef zeroext %142) #21
-  %144 = load ptr, ptr %4, align 8, !tbaa !222
-  %.not.i.i3.i22.i161.i = icmp eq ptr %144, null
-  br i1 %.not.i.i3.i22.i161.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i162.i, label %145
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.038.0.i, i64 40
+  %139 = load i8, ptr %138, align 8, !tbaa !228, !range !239, !noundef !240
+  %140 = trunc nuw i8 %139 to i1
+  %141 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %4, ptr noundef nonnull %.pre.i161.i, i1 noundef zeroext %140) #21
+  %142 = load ptr, ptr %4, align 8, !tbaa !222
+  %.not.i.i3.i24.i163.i = icmp eq ptr %142, null
+  br i1 %.not.i.i3.i24.i163.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i164.i, label %143
 
-145:                                              ; preds = %135
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %144) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i162.i
+143:                                              ; preds = %133
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %142) #21
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i164.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i162.i: ; preds = %145, %135
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i164.i: ; preds = %143, %133
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.038.0.i) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #21
-  br label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit125.i
+  br label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit127.i
 
-_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit125.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i162.i, %132
+_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit127.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i164.i, %130
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.038.0.i) #21
-  br i1 %.not.i.i117.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.thread69.sink.split.i
+  br i1 %.not.i.i119.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit158.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.thread69.sink.split.i
 
-.critedge85.i:                                    ; preds = %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103.i
+.critedge87.i:                                    ; preds = %112, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #21
-  %146 = call { ptr, i8 } @_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #21
-  %.fca.0.extract21.i = extractvalue { ptr, i8 } %146, 0
-  %.fca.1.extract22.i = extractvalue { ptr, i8 } %146, 1
-  store ptr %.fca.0.extract21.i, ptr %19, align 8
-  %.sroa.224.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i8 %.fca.1.extract22.i, ptr %.sroa.224.0..sroa_idx.i, align 8
-  %147 = call noundef ptr @_ZNK5clang4ento4SVal11getAsSymbolEb(ptr noundef nonnull align 8 dereferenceable(9) %19, i1 noundef zeroext false) #21
+  %144 = call { ptr, i8 } @_ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #21
+  %.fca.0.extract23.i = extractvalue { ptr, i8 } %144, 0
+  %.fca.1.extract24.i = extractvalue { ptr, i8 } %144, 1
+  store ptr %.fca.0.extract23.i, ptr %19, align 8
+  %.sroa.226.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i8 %.fca.1.extract24.i, ptr %.sroa.226.0..sroa_idx.i, align 8
+  %145 = call noundef ptr @_ZNK5clang4ento4SVal11getAsSymbolEb(ptr noundef nonnull align 8 dereferenceable(9) %19, i1 noundef zeroext false) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #21
-  %.not77.i = icmp eq ptr %147, null
-  br i1 %.not77.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.i, label %148
+  %.not79.i = icmp eq ptr %145, null
+  br i1 %.not79.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.i, label %146
 
-148:                                              ; preds = %.critedge85.i
-  %149 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEE8GDMIndexEvE5Index) #21
-  %.not.i.i128.i = icmp eq ptr %149, null
-  br i1 %.not.i.i128.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.thread69.i, label %150
+146:                                              ; preds = %.critedge87.i
+  %147 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEE8GDMIndexEvE5Index) #21
+  %.not.i.i130.i = icmp eq ptr %147, null
+  br i1 %.not.i.i130.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.thread69.i, label %148
+
+148:                                              ; preds = %146
+  %149 = load ptr, ptr %147, align 8, !tbaa !3, !noalias !946
+  %.not.i.i.i.i.i.i = icmp eq ptr %149, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.thread69.i, label %150
 
 150:                                              ; preds = %148
-  %151 = load ptr, ptr %149, align 8, !tbaa !3, !noalias !946
-  %.not.i.i.i.i.i.i = icmp eq ptr %151, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.thread69.i, label %152
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 68
+  %152 = load i32, ptr %151, align 4, !tbaa !345, !noalias !946
+  %153 = getelementptr inbounds nuw i8, ptr %145, i64 20
+  %154 = load i32, ptr %153, align 4, !tbaa !420
+  br label %155
 
-152:                                              ; preds = %150
-  %153 = getelementptr inbounds nuw i8, ptr %151, i64 68
-  %154 = load i32, ptr %153, align 4, !tbaa !345, !noalias !946
-  %155 = getelementptr inbounds nuw i8, ptr %147, i64 20
-  %156 = load i32, ptr %155, align 4, !tbaa !420
-  br label %157
+155:                                              ; preds = %161, %150
+  %.01217.i.i.i.i.i = phi ptr [ %149, %150 ], [ %.113.i.i.i.i.i, %161 ]
+  %156 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i.i, i64 48
+  %157 = load ptr, ptr %156, align 8, !tbaa !360
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 20
+  %159 = load i32, ptr %158, align 4, !tbaa !420
+  %160 = icmp eq i32 %154, %159
+  br i1 %160, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEPKNS2_21ObjCObjectPointerTypeEEEE4findERKS6_.exit.i.i.i.i, label %161
 
-157:                                              ; preds = %163, %152
-  %.01217.i.i.i.i.i = phi ptr [ %151, %152 ], [ %.113.i.i.i.i.i, %163 ]
-  %158 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i.i, i64 48
-  %159 = load ptr, ptr %158, align 8, !tbaa !360
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 20
-  %161 = load i32, ptr %160, align 4, !tbaa !420
-  %162 = icmp eq i32 %156, %161
-  br i1 %162, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEPKNS2_21ObjCObjectPointerTypeEEEE4findERKS6_.exit.i.i.i.i, label %163
-
-163:                                              ; preds = %157
-  %164 = icmp ult i32 %156, %161
-  %.113.in.v.i.i.i.i.i = select i1 %164, i64 8, i64 16
+161:                                              ; preds = %155
+  %162 = icmp ult i32 %154, %159
+  %.113.in.v.i.i.i.i.i = select i1 %162, i64 8, i64 16
   %.113.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i.i, i64 %.113.in.v.i.i.i.i.i
   %.113.i.i.i.i.i = load ptr, ptr %.113.in.i.i.i.i.i, align 8, !tbaa !400
   %.not.i.i.i.i.i = icmp eq ptr %.113.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %157
+  br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %155
 
-_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEPKNS2_21ObjCObjectPointerTypeEEEE4findERKS6_.exit.i.i.i.i: ; preds = %157
-  %165 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i.i, i64 56
+_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEPKNS2_21ObjCObjectPointerTypeEEEE4findERKS6_.exit.i.i.i.i: ; preds = %155
+  %163 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i.i, i64 56
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %163, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEPKNS2_21ObjCObjectPointerTypeEEEE4findERKS6_.exit.i.i.i.i
-  %.1.i.i.ph.i.i = phi ptr [ %165, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEPKNS2_21ObjCObjectPointerTypeEEEE4findERKS6_.exit.i.i.i.i ], [ null, %163 ]
-  %166 = icmp eq i32 %154, 0
-  br i1 %166, label %167, label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i
+.loopexit.i.i:                                    ; preds = %161, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEPKNS2_21ObjCObjectPointerTypeEEEE4findERKS6_.exit.i.i.i.i
+  %.1.i.i.ph.i.i = phi ptr [ %163, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEPKNS2_21ObjCObjectPointerTypeEEEE4findERKS6_.exit.i.i.i.i ], [ null, %161 ]
+  %164 = icmp eq i32 %152, 0
+  br i1 %164, label %165, label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i
 
-167:                                              ; preds = %.loopexit.i.i
-  call void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEPKNS2_21ObjCObjectPointerTypeEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %151)
+165:                                              ; preds = %.loopexit.i.i
+  call void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEPKNS2_21ObjCObjectPointerTypeEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %149)
   br label %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i
 
-_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i: ; preds = %167, %.loopexit.i.i
-  %.not78.i = icmp eq ptr %.1.i.i.ph.i.i, null
-  br i1 %.not78.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.i, label %168
+_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i: ; preds = %165, %.loopexit.i.i
+  %.not80.i = icmp eq ptr %.1.i.i.ph.i.i, null
+  br i1 %.not80.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.i, label %166
 
-168:                                              ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i
-  %169 = load ptr, ptr %2, align 8, !tbaa !76
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  %171 = load ptr, ptr %170, align 8, !tbaa !88
-  %172 = load ptr, ptr %171, align 8, !tbaa !28
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
-  %174 = load ptr, ptr %173, align 8
-  %175 = call noundef nonnull align 8 dereferenceable(23216) ptr %174(ptr noundef nonnull align 8 dereferenceable(264) %171) #21
-  %176 = load ptr, ptr %.1.i.i.ph.i.i, align 8, !tbaa !466
-  %177 = call fastcc noundef ptr @_ZL14findMethodDeclPKN5clang15ObjCMessageExprEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE(ptr noundef nonnull %31, ptr noundef %176, ptr noundef nonnull align 8 dereferenceable(23216) %175)
-  %.not79.i = icmp eq ptr %177, null
-  br i1 %.not79.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.i, label %178
+166:                                              ; preds = %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i
+  %167 = load ptr, ptr %2, align 8, !tbaa !76
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
+  %169 = load ptr, ptr %168, align 8, !tbaa !88
+  %170 = load ptr, ptr %169, align 8, !tbaa !28
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
+  %172 = load ptr, ptr %171, align 8
+  %173 = call noundef nonnull align 8 dereferenceable(23216) ptr %172(ptr noundef nonnull align 8 dereferenceable(264) %169) #21
+  %174 = load ptr, ptr %.1.i.i.ph.i.i, align 8, !tbaa !466
+  %175 = call fastcc noundef ptr @_ZL14findMethodDeclPKN5clang15ObjCMessageExprEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE(ptr noundef nonnull %31, ptr noundef %174, ptr noundef nonnull align 8 dereferenceable(23216) %173)
+  %.not81.i = icmp eq ptr %175, null
+  br i1 %.not81.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.i, label %176
 
-178:                                              ; preds = %168
+176:                                              ; preds = %166
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #21
-  %179 = load ptr, ptr %.1.i.i.ph.i.i, align 8, !tbaa !466
-  %180 = getelementptr inbounds nuw i8, ptr %177, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %180, align 8
-  %181 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
-  %182 = icmp eq i64 %181, 0
-  %183 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
-  %184 = inttoptr i64 %183 to ptr
-  br i1 %182, label %_ZNK5clang4Decl14getDeclContextEv.exit.i, label %185
+  %177 = load ptr, ptr %.1.i.i.ph.i.i, align 8, !tbaa !466
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %178, align 8
+  %179 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
+  %180 = icmp eq i64 %179, 0
+  %181 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
+  %182 = inttoptr i64 %181 to ptr
+  br i1 %180, label %_ZNK5clang4Decl14getDeclContextEv.exit.i, label %183
 
-185:                                              ; preds = %178
-  %186 = load ptr, ptr %184, align 8, !tbaa !218
+183:                                              ; preds = %176
+  %184 = load ptr, ptr %182, align 8, !tbaa !218
   br label %_ZNK5clang4Decl14getDeclContextEv.exit.i
 
-_ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %185, %178
-  %.0.i.i.i = phi ptr [ %186, %185 ], [ %184, %178 ]
-  call void @_ZNK5clang4Type20getObjCSubstitutionsEPKNS_11DeclContextE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.1031") align 8 %20, ptr noundef nonnull align 16 dereferenceable(24) %179, ptr noundef %.0.i.i.i) #21
-  %187 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %188 = load i8, ptr %187, align 8, !tbaa !919, !range !239, !noundef !240
-  %189 = trunc nuw i8 %188 to i1
-  br i1 %189, label %190, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit154.i
+_ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %183, %176
+  %.0.i.i.i = phi ptr [ %184, %183 ], [ %182, %176 ]
+  call void @_ZNK5clang4Type20getObjCSubstitutionsEPKNS_11DeclContextE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.1031") align 8 %20, ptr noundef nonnull align 16 dereferenceable(24) %177, ptr noundef %.0.i.i.i) #21
+  %185 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %186 = load i8, ptr %185, align 8, !tbaa !919, !range !239, !noundef !240
+  %187 = trunc nuw i8 %186 to i1
+  br i1 %187, label %188, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i
 
-190:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i
-  %.sroa.010.0.copyload.i = load ptr, ptr %20, align 8, !tbaa !938
-  %.sroa.211.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.sroa.211.0.copyload.i = load i64, ptr %.sroa.211.0..sroa_idx.i, align 8, !tbaa !27
-  %191 = load ptr, ptr %.1.i.i.ph.i.i, align 8, !tbaa !466
-  %192 = getelementptr i8, ptr %177, i64 80
-  %.val87.i = load i64, ptr %192, align 8, !tbaa !225
+188:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i
+  %.sroa.012.0.copyload.i = load ptr, ptr %20, align 8, !tbaa !938
+  %.sroa.213.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.sroa.213.0.copyload.i = load i64, ptr %.sroa.213.0..sroa_idx.i, align 8, !tbaa !27
+  %189 = load ptr, ptr %.1.i.i.ph.i.i, align 8, !tbaa !466
+  %190 = getelementptr i8, ptr %175, i64 80
+  %.val89.i = load i64, ptr %190, align 8, !tbaa !225
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #21
-  store i64 %.val87.i, ptr %9, align 8
-  %193 = call noundef ptr @_ZN5clang10ASTContext23getObjCInstanceTypeDeclEv(ptr noundef nonnull align 8 dereferenceable(23216) %175) #21
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 48
-  %195 = load ptr, ptr %194, align 8, !tbaa !949
-  %.not.i.i.i129.i = icmp eq ptr %195, null
-  br i1 %.not.i.i.i129.i, label %199, label %196
+  store i64 %.val89.i, ptr %9, align 8
+  %191 = call noundef ptr @_ZN5clang10ASTContext23getObjCInstanceTypeDeclEv(ptr noundef nonnull align 8 dereferenceable(23216) %173) #21
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 48
+  %193 = load ptr, ptr %192, align 8, !tbaa !949
+  %.not.i.i.i131.i = icmp eq ptr %193, null
+  br i1 %.not.i.i.i131.i, label %197, label %194
 
-196:                                              ; preds = %190
-  %197 = ptrtoint ptr %195 to i64
-  %198 = and i64 %197, -16
+194:                                              ; preds = %188
+  %195 = ptrtoint ptr %193 to i64
+  %196 = and i64 %195, -16
   br label %_ZN5clang10ASTContext19getObjCInstanceTypeEv.exit.i.i
 
-199:                                              ; preds = %190
-  %200 = call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %175, ptr noundef nonnull %193) #21
+197:                                              ; preds = %188
+  %198 = call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %173, ptr noundef nonnull %191) #21
   br label %_ZN5clang10ASTContext19getObjCInstanceTypeEv.exit.i.i
 
-_ZN5clang10ASTContext19getObjCInstanceTypeEv.exit.i.i: ; preds = %199, %196
-  %.sroa.0.0.i.i.i.i = phi i64 [ %200, %199 ], [ %198, %196 ]
-  %201 = icmp eq i64 %.val87.i, %.sroa.0.0.i.i.i.i
-  br i1 %201, label %202, label %205
+_ZN5clang10ASTContext19getObjCInstanceTypeEv.exit.i.i: ; preds = %197, %194
+  %.sroa.0.0.i.i.i.i = phi i64 [ %198, %197 ], [ %196, %194 ]
+  %199 = icmp eq i64 %.val89.i, %.sroa.0.0.i.i.i.i
+  br i1 %199, label %200, label %203
 
-202:                                              ; preds = %_ZN5clang10ASTContext19getObjCInstanceTypeEv.exit.i.i
-  %203 = ptrtoint ptr %191 to i64
-  %204 = and i64 %203, -16
+200:                                              ; preds = %_ZN5clang10ASTContext19getObjCInstanceTypeEv.exit.i.i
+  %201 = ptrtoint ptr %189 to i64
+  %202 = and i64 %201, -16
   br label %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.i
 
-205:                                              ; preds = %_ZN5clang10ASTContext19getObjCInstanceTypeEv.exit.i.i
+203:                                              ; preds = %_ZN5clang10ASTContext19getObjCInstanceTypeEv.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
-  %206 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 0, ptr %206, align 8, !tbaa !931
-  %207 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i8 1, ptr %207, align 1, !tbaa !933
-  %208 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  store i8 0, ptr %208, align 2, !tbaa !934
-  %209 = getelementptr inbounds nuw i8, ptr %8, i64 11
-  store i8 1, ptr %209, align 1, !tbaa !935
+  %204 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i8 0, ptr %204, align 8, !tbaa !931
+  %205 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  store i8 1, ptr %205, align 1, !tbaa !933
+  %206 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  store i8 0, ptr %206, align 2, !tbaa !934
+  %207 = getelementptr inbounds nuw i8, ptr %8, i64 11
+  store i8 1, ptr %207, align 1, !tbaa !935
   store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVZL24isObjCTypeParamDependentN5clang8QualTypeEE35IsObjCTypeParamDependentTypeVisitor, i64 16), ptr %8, align 8, !tbaa !28
-  %210 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i8 0, ptr %210, align 4, !tbaa !936
-  %211 = call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(12) %8, i64 %.val87.i) #21
-  %212 = load i8, ptr %210, align 4, !tbaa !936, !range !239, !noundef !240
-  %213 = trunc nuw i8 %212 to i1
+  %208 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i8 0, ptr %208, align 4, !tbaa !936
+  %209 = call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(12) %8, i64 %.val89.i) #21
+  %210 = load i8, ptr %208, align 4, !tbaa !936, !range !239, !noundef !240
+  %211 = trunc nuw i8 %210 to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #21
-  br i1 %213, label %214, label %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.thread.i
+  br i1 %211, label %212, label %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.thread.i
 
-_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.thread.i: ; preds = %205
+_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.thread.i: ; preds = %203
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit154.i
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i
 
-214:                                              ; preds = %205
-  %215 = call i64 @_ZNK5clang8QualType17substObjCTypeArgsERNS_10ASTContextEN4llvm8ArrayRefIS0_EENS_23ObjCSubstitutionContextE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(23216) %175, ptr %.sroa.010.0.copyload.i, i64 %.sroa.211.0.copyload.i, i32 noundef 1) #21
+212:                                              ; preds = %203
+  %213 = call i64 @_ZNK5clang8QualType17substObjCTypeArgsERNS_10ASTContextEN4llvm8ArrayRefIS0_EENS_23ObjCSubstitutionContextE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(23216) %173, ptr %.sroa.012.0.copyload.i, i64 %.sroa.213.0.copyload.i, i32 noundef 1) #21
   br label %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.i
 
-_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.i: ; preds = %214, %202
-  %.sroa.01.0.i.i = phi i64 [ %204, %202 ], [ %215, %214 ]
+_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.i: ; preds = %212, %200
+  %.sroa.01.0.i.i = phi i64 [ %202, %200 ], [ %213, %212 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #21
-  %.not.i.i131.i = icmp ult i64 %.sroa.01.0.i.i, 16
-  br i1 %.not.i.i131.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit154.i, label %216
+  %.not.i.i133.i = icmp ult i64 %.sroa.01.0.i.i, 16
+  br i1 %.not.i.i133.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i, label %214
 
-216:                                              ; preds = %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.i
+214:                                              ; preds = %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #21
-  %217 = call { ptr, i8 } @_ZNK5clang4ento9CallEvent14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #21
-  %.fca.0.extract.i = extractvalue { ptr, i8 } %217, 0
-  %.fca.1.extract.i = extractvalue { ptr, i8 } %217, 1
+  %215 = call { ptr, i8 } @_ZNK5clang4ento9CallEvent14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #21
+  %.fca.0.extract.i = extractvalue { ptr, i8 } %215, 0
+  %.fca.1.extract.i = extractvalue { ptr, i8 } %215, 1
   store ptr %.fca.0.extract.i, ptr %21, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 %.fca.1.extract.i, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %218 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %21) #21
+  %216 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %21) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #21
-  %219 = load ptr, ptr %36, align 8, !tbaa !221
-  %.not80.not.i = icmp eq ptr %218, null
-  br i1 %.not80.not.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit145.i, label %220
+  %217 = load ptr, ptr %36, align 8, !tbaa !221
+  %.not82.not.i = icmp eq ptr %216, null
+  br i1 %.not82.not.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit147.i, label %218
 
-220:                                              ; preds = %216
+218:                                              ; preds = %214
   store ptr %39, ptr %22, align 8, !tbaa !222
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %39) #21
-  %221 = call noundef ptr @_ZN5clang4ento21getRawDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionE(ptr noundef nonnull %22, ptr noundef nonnull %218) #21
-  %.not81.i = icmp eq ptr %221, null
-  %222 = load ptr, ptr %22, align 8, !tbaa !222
-  %.not.i.i134.i = icmp eq ptr %222, null
-  br i1 %.not.i.i134.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit135.i, label %223
+  %219 = call noundef ptr @_ZN5clang4ento21getRawDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionE(ptr noundef nonnull %22, ptr noundef nonnull %216) #21
+  %.not83.i = icmp eq ptr %219, null
+  %220 = load ptr, ptr %22, align 8, !tbaa !222
+  %.not.i.i136.i = icmp eq ptr %220, null
+  br i1 %.not.i.i136.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit137.i, label %221
 
-223:                                              ; preds = %220
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %222) #21
-  br i1 %.not81.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit139.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit145.i
+221:                                              ; preds = %218
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %220) #21
+  br i1 %.not83.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit141.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit147.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit135.i: ; preds = %220
-  br i1 %.not81.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit139.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit145.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit137.i: ; preds = %218
+  br i1 %.not83.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit141.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit147.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit139.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit135.i, %223
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit141.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit137.i, %221
   store ptr %39, ptr %24, align 8, !tbaa !222
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %39) #21
-  call void @_ZN5clang4ento18setDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionENS_8QualTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %23, ptr noundef nonnull %24, ptr noundef nonnull %218, i64 %.sroa.01.0.i.i, i1 noundef zeroext true) #21
-  %224 = load ptr, ptr %23, align 8, !tbaa !222
+  call void @_ZN5clang4ento18setDynamicTypeInfoEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_9MemRegionENS_8QualTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %23, ptr noundef nonnull %24, ptr noundef nonnull %216, i64 %.sroa.01.0.i.i, i1 noundef zeroext true) #21
+  %222 = load ptr, ptr %23, align 8, !tbaa !222
   store ptr %39, ptr %23, align 8, !tbaa !222
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %39) #21
-  %225 = load ptr, ptr %24, align 8, !tbaa !222
-  %.not.i.i140.i = icmp eq ptr %225, null
-  br i1 %.not.i.i140.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit141.i, label %226
+  %223 = load ptr, ptr %24, align 8, !tbaa !222
+  %.not.i.i142.i = icmp eq ptr %223, null
+  br i1 %.not.i.i142.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit143.i, label %224
 
-226:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit139.i
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %225) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit141.i
+224:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit141.i
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %223) #21
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit143.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit141.i: ; preds = %226, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit139.i
-  store ptr %224, ptr %25, align 8, !tbaa !222
-  %.not.i.i142.i = icmp eq ptr %224, null
-  br i1 %.not.i.i142.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit143.i, label %227
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit143.i: ; preds = %224, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit141.i
+  store ptr %222, ptr %25, align 8, !tbaa !222
+  %.not.i.i144.i = icmp eq ptr %222, null
+  br i1 %.not.i.i144.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit145.i, label %225
 
-227:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit141.i
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %224) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit143.i
+225:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit143.i
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %222) #21
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit145.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit143.i: ; preds = %227, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit141.i
-  %228 = call noundef ptr @_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %25, ptr noundef null)
-  %229 = load ptr, ptr %25, align 8, !tbaa !222
-  %.not.i.i144.i = icmp eq ptr %229, null
-  br i1 %.not.i.i144.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit145.i, label %230
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit145.i: ; preds = %225, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit143.i
+  %226 = call noundef ptr @_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %25, ptr noundef null)
+  %227 = load ptr, ptr %25, align 8, !tbaa !222
+  %.not.i.i146.i = icmp eq ptr %227, null
+  br i1 %.not.i.i146.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit147.i, label %228
 
-230:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit143.i
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %229) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit145.i
+228:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit145.i
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %227) #21
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit147.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit145.i: ; preds = %230, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit143.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit135.i, %223, %216
-  %.sroa.018.4.i = phi ptr [ %39, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit135.i ], [ %39, %223 ], [ %224, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit143.i ], [ %224, %230 ], [ %39, %216 ]
-  %.069.i = phi ptr [ %219, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit135.i ], [ %219, %223 ], [ %228, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit143.i ], [ %228, %230 ], [ %219, %216 ]
-  %231 = and i64 %.sroa.01.0.i.i, -16
-  %232 = inttoptr i64 %231 to ptr
-  %233 = load ptr, ptr %232, align 16, !tbaa !297
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  %235 = load i8, ptr %234, align 16
-  %.not.i147.i = icmp eq i8 %235, 33
-  br i1 %.not.i147.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread62.i, label %236
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit147.i: ; preds = %228, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit145.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit137.i, %221, %214
+  %.sroa.018.4.i = phi ptr [ %39, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit137.i ], [ %39, %221 ], [ %222, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit145.i ], [ %222, %228 ], [ %39, %214 ]
+  %.071.i = phi ptr [ %217, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit137.i ], [ %217, %221 ], [ %226, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit145.i ], [ %226, %228 ], [ %217, %214 ]
+  %229 = and i64 %.sroa.01.0.i.i, -16
+  %230 = inttoptr i64 %229 to ptr
+  %231 = load ptr, ptr %230, align 16, !tbaa !297
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
+  %233 = load i8, ptr %232, align 16
+  %.not.i149.i = icmp eq i8 %233, 33
+  br i1 %.not.i149.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread62.i, label %234
 
-236:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit145.i
-  %237 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %237, align 8, !tbaa !225
-  %238 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
-  %239 = inttoptr i64 %238 to ptr
-  %240 = load ptr, ptr %239, align 16, !tbaa !297
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
-  %242 = load i8, ptr %241, align 16
-  %243 = icmp eq i8 %242, 33
-  br i1 %243, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit154.i
+234:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit147.i
+  %235 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %235, align 8, !tbaa !225
+  %236 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
+  %237 = inttoptr i64 %236 to ptr
+  %238 = load ptr, ptr %237, align 16, !tbaa !297
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
+  %240 = load i8, ptr %239, align 16
+  %241 = icmp eq i8 %240, 33
+  br i1 %241, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i
 
-_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i: ; preds = %236
-  %244 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %233) #21
-  %.not82.i = icmp eq ptr %244, null
-  br i1 %.not82.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit154.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread62.i
+_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i: ; preds = %234
+  %242 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %231) #21
+  %.not84.i = icmp eq ptr %242, null
+  br i1 %.not84.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread62.i
 
-_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread62.i: ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit145.i
-  %.1.i14865.i = phi ptr [ %244, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i ], [ %233, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit145.i ]
-  %245 = call noundef zeroext i1 @_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv(ptr noundef nonnull align 16 dereferenceable(40) %.1.i14865.i)
-  br i1 %245, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit154.i, label %246
+_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread62.i: ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit147.i
+  %.1.i15065.i = phi ptr [ %242, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i ], [ %231, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit147.i ]
+  %243 = call noundef zeroext i1 @_ZNK5clang21ObjCObjectPointerType15isUnspecializedEv(ptr noundef nonnull align 16 dereferenceable(40) %.1.i15065.i)
+  br i1 %243, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i, label %244
 
-246:                                              ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread62.i
-  %247 = call fastcc noundef ptr @_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.018.4.i, ptr noundef nonnull %33)
-  %.not83.i = icmp eq ptr %247, null
-  br i1 %.not83.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit150.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit154.i
+244:                                              ; preds = %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread62.i
+  %245 = call fastcc noundef ptr @_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.018.4.i, ptr noundef nonnull %33)
+  %.not85.i = icmp eq ptr %245, null
+  br i1 %.not85.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit152.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit150.i: ; preds = %246
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.018.4.i, ptr noundef %33, ptr noundef nonnull %.1.i14865.i)
-  %248 = load ptr, ptr %26, align 8, !tbaa !222
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit152.i: ; preds = %244
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.018.4.i, ptr noundef %33, ptr noundef nonnull %.1.i15065.i)
+  %246 = load ptr, ptr %26, align 8, !tbaa !222
   store ptr %.sroa.018.4.i, ptr %26, align 8, !tbaa !222
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.018.4.i) #21
-  store ptr %248, ptr %27, align 8, !tbaa !222
-  %.not.i.i151.i = icmp eq ptr %248, null
-  br i1 %.not.i.i151.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit152.i, label %249
+  store ptr %246, ptr %27, align 8, !tbaa !222
+  %.not.i.i153.i = icmp eq ptr %246, null
+  br i1 %.not.i.i153.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit154.i, label %247
 
-249:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit150.i
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %248) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit152.i
+247:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit152.i
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %246) #21
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit154.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit152.i: ; preds = %249, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit150.i
-  %250 = call noundef ptr @_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEPKNS_15ProgramPointTagE(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %27, ptr noundef %.069.i, ptr noundef null)
-  %251 = load ptr, ptr %27, align 8, !tbaa !222
-  %.not.i.i153.i = icmp eq ptr %251, null
-  br i1 %.not.i.i153.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit154.i, label %252
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit154.i: ; preds = %247, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit152.i
+  %248 = call noundef ptr @_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEPKNS_15ProgramPointTagE(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %27, ptr noundef %.071.i, ptr noundef null)
+  %249 = load ptr, ptr %27, align 8, !tbaa !222
+  %.not.i.i155.i = icmp eq ptr %249, null
+  br i1 %.not.i.i155.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i, label %250
 
-252:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit152.i
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %251) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit154.i
-
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit154.i: ; preds = %252, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit152.i, %246, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread62.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, %236, %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.i, %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i
-  %.sroa.018.6.i = phi ptr [ %39, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %39, %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.i ], [ %.sroa.018.4.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i ], [ %.sroa.018.4.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread62.i ], [ %.sroa.018.4.i, %246 ], [ %39, %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.thread.i ], [ %248, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit152.i ], [ %248, %252 ], [ %.sroa.018.4.i, %236 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.i
-
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit154.i, %168, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i, %.critedge85.i, %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit108.i
-  %.sroa.018.7.i = phi ptr [ %39, %.critedge85.i ], [ %39, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i ], [ %39, %168 ], [ %.sroa.018.6.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit154.i ], [ %39, %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit108.i ]
-  %.not.i.i155.i = icmp eq ptr %.sroa.018.7.i, null
-  br i1 %.not.i.i155.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.thread69.i
-
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.thread69.sink.split.i: ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit125.i, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i
-  %.sink.i = phi ptr [ %83, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i ], [ %125, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit125.i ]
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sink.i) #21
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.thread69.i
-
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.thread69.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.thread69.sink.split.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.i, %150, %148
-  %.sroa.018.772.i = phi ptr [ %.sroa.018.7.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.i ], [ %39, %150 ], [ %39, %148 ], [ %.sink.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.thread69.sink.split.i ]
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.018.772.i) #21
+250:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit154.i
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %249) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.thread69.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit100.i, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit125.i, %129, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, %87
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i: ; preds = %250, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit154.i, %244, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread62.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i, %234, %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.i, %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i
+  %.sroa.018.6.i = phi ptr [ %39, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %39, %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.i ], [ %.sroa.018.4.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.i ], [ %.sroa.018.4.i, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread62.i ], [ %.sroa.018.4.i, %244 ], [ %39, %_ZL22getReturnTypeForMethodPKN5clang14ObjCMethodDeclEN4llvm8ArrayRefINS_8QualTypeEEEPKNS_21ObjCObjectPointerTypeERNS_10ASTContextE.exit.thread.i ], [ %246, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit154.i ], [ %246, %250 ], [ %.sroa.018.4.i, %234 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #21
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.i
+
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i, %166, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i, %.critedge87.i, %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit110.i
+  %.sroa.018.7.i = phi ptr [ %39, %.critedge87.i ], [ %39, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_126MostSpecializedTypeArgsMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit.i ], [ %39, %166 ], [ %.sroa.018.6.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i ], [ %39, %_ZNK5clang14ObjCObjectType17getSuperClassTypeEv.exit110.i ]
+  %.not.i.i157.i = icmp eq ptr %.sroa.018.7.i, null
+  br i1 %.not.i.i157.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit158.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.thread69.i
+
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.thread69.sink.split.i: ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit127.i, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i
+  %.sink.i = phi ptr [ %81, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i ], [ %123, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit127.i ]
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sink.i) #21
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.thread69.i
+
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.thread69.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.thread69.sink.split.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.i, %148, %146
+  %.sroa.018.772.i = phi ptr [ %.sroa.018.7.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.i ], [ %39, %148 ], [ %39, %146 ], [ %.sink.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.thread69.sink.split.i ]
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.018.772.i) #21
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit158.i
+
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit158.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.thread69.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit102.i, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit127.i, %127, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, %85
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
   br label %_ZNK12_GLOBAL__N_122DynamicTypePropagation20checkPostObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_122DynamicTypePropagation20checkPostObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit: ; preds = %3, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit156.i
+_ZNK12_GLOBAL__N_122DynamicTypePropagation20checkPostObjCMessageERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit: ; preds = %3, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit158.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)

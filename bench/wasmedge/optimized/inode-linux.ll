@@ -5177,8 +5177,8 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
 
 103:                                              ; preds = %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEE4findERSA_.exit
   %104 = load ptr, ptr %102, align 8
-  %.not52 = icmp eq ptr %104, null
-  br i1 %.not52, label %115, label %105
+  %.not = icmp eq ptr %104, null
+  br i1 %.not, label %115, label %105
 
 105:                                              ; preds = %103
   store i8 1, ptr %38, align 8
@@ -5225,9 +5225,9 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %125 = load i32, ptr %1, align 8
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %125, ptr %126, align 4
-  %brmerge.not = and i1 %.sroa.3.0.i.i, %101
+  %or.cond = and i1 %.sroa.3.0.i.i, %101
   %127 = load i32, ptr %0, align 8
-  br i1 %brmerge.not, label %128, label %174
+  br i1 %or.cond, label %128, label %174
 
 128:                                              ; preds = %119
   %129 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 1, i32 noundef %125, ptr noundef nonnull %5) #25
@@ -5577,8 +5577,8 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
 
 103:                                              ; preds = %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEE4findERSA_.exit
   %104 = load ptr, ptr %102, align 8
-  %.not52 = icmp eq ptr %104, null
-  br i1 %.not52, label %115, label %105
+  %.not = icmp eq ptr %104, null
+  br i1 %.not, label %115, label %105
 
 105:                                              ; preds = %103
   store i8 1, ptr %38, align 8
@@ -5625,9 +5625,9 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %125 = load i32, ptr %1, align 8
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %125, ptr %126, align 4
-  %brmerge.not = and i1 %.sroa.3.0.i.i, %101
+  %or.cond = and i1 %.sroa.3.0.i.i, %101
   %127 = load i32, ptr %0, align 8
-  br i1 %brmerge.not, label %128, label %174
+  br i1 %or.cond, label %128, label %174
 
 128:                                              ; preds = %119
   %129 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 1, i32 noundef %125, ptr noundef nonnull %5) #25
@@ -6426,8 +6426,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4warnIA27_cEEvRKT_(ptr noundef
   %8 = icmp slt i32 %7, 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %9)
-  %brmerge.i.i.i = or i1 %8, %10
-  br i1 %brmerge.i.i.i, label %11, label %_ZN6spdlog6logger3logIA27_cEEvNS_5level10level_enumERKT_.exit
+  %or.cond.i.i.i = or i1 %8, %10
+  br i1 %or.cond.i.i.i, label %11, label %_ZN6spdlog6logger3logIA27_cEEvNS_5level10level_enumERKT_.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8

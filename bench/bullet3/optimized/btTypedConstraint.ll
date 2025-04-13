@@ -371,34 +371,31 @@ define linkonce_odr dso_local void @_ZN11btRigidBodyD2Ev(ptr noundef nonnull ali
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV11btRigidBody, i64 16), ptr %0, align 8, !tbaa !9
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8, !tbaa !52
-  %.not.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit, label %4
+  %.not.i.i.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %5 = load i8, ptr %4, align 8, !range !37
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 %6, i1 false
+  br i1 %or.cond.i.i, label %7, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %6 = load i8, ptr %5, align 8, !tbaa !58, !range !37, !noundef !38
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
-          to label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit unwind label %9
+          to label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit unwind label %8
 
-9:                                                ; preds = %8
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %7
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #19
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #19
   unreachable
 
-_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit: ; preds = %1, %4, %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 604
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i8 1, ptr %13, align 8, !tbaa !58
+_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit: ; preds = %1, %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 604
+  store i8 1, ptr %4, align 8, !tbaa !58
   store ptr null, ptr %2, align 8, !tbaa !52
-  store i32 0, ptr %12, align 4, !tbaa !48
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store i32 0, ptr %14, align 8, !tbaa !59
+  store i32 0, ptr %11, align 4, !tbaa !48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  store i32 0, ptr %12, align 8, !tbaa !59
   tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %0) #18
   ret void
 }

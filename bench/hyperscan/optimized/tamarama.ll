@@ -1486,20 +1486,18 @@ define internal fastcc void @copyQueueItems(ptr noundef readonly captures(none) 
 23:                                               ; preds = %18
   %switch.tableidx = add i8 %21, -17
   %24 = icmp ult i8 %switch.tableidx, 8
-  br i1 %24, label %switch.hole_check, label %25
+  %switch.shifted = lshr i8 -3, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond62 = select i1 %24, i1 %switch.lobit, i1 false
+  br i1 %or.cond62, label %isMultiTopType.exit, label %25
 
-25:                                               ; preds = %switch.hole_check, %23
+25:                                               ; preds = %23
   %26 = add i8 %21, -11
   %narrow = icmp ult i8 %26, 5
   br label %isMultiTopType.exit
 
-switch.hole_check:                                ; preds = %23
-  %switch.shifted = lshr i8 -3, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %isMultiTopType.exit, label %25
-
-isMultiTopType.exit:                              ; preds = %switch.hole_check, %18, %18, %25
-  %.not = phi i1 [ %narrow, %25 ], [ true, %18 ], [ true, %18 ], [ true, %switch.hole_check ]
+isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
+  %.not = phi i1 [ %narrow, %25 ], [ true, %18 ], [ true, %18 ], [ true, %23 ]
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %29 = load i32, ptr %27, align 8

@@ -4860,19 +4860,17 @@ declare void @global_context_add_decl(ptr noundef) local_unnamed_addr #2
 define dso_local range(i32 8, 129) i32 @type_kind_bitsize(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -3
   %2 = icmp ult i32 %switch.tableidx, 15
-  br i1 %2, label %switch.hole_check, label %3
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 30719, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %3
 
-3:                                                ; preds = %switch.hole_check, %1
+3:                                                ; preds = %1
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_kind_bitsize, ptr noundef nonnull @.str.2, i32 noundef 1605) #13
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 30719, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table.type_kind_bitsize, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4

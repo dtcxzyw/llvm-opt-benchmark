@@ -352,13 +352,13 @@ define hidden void @_ZN10ZArguments10initializeEv() local_unnamed_addr #1 align 
 
 .preheader:                                       ; preds = %43
   %45 = load i32, ptr @MaxTenuringThreshold, align 4
-  %.not20 = icmp eq i32 %45, 0
-  br i1 %.not20, label %._crit_edge.thread, label %.lr.ph
+  %.not27 = icmp eq i32 %45, 0
+  br i1 %.not27, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %54
-  %.017 = phi i32 [ %55, %54 ], [ 0, %.preheader ]
+  %.024 = phi i32 [ %55, %54 ], [ 0, %.preheader ]
   %46 = load i64, ptr @ZPageSizeMedium, align 8
-  %47 = zext i32 %.017 to i64
+  %47 = zext i32 %.024 to i64
   %48 = load i32, ptr @ConcGCThreads, align 4
   %49 = zext i32 %48 to i64
   %50 = shl nuw nsw i64 %49, 21
@@ -369,18 +369,18 @@ define hidden void @_ZN10ZArguments10initializeEv() local_unnamed_addr #1 align 
   br i1 %.not, label %54, label %._crit_edge
 
 54:                                               ; preds = %.lr.ph
-  %55 = add nuw i32 %.017, 1
+  %55 = add nuw i32 %.024, 1
   %56 = load i32, ptr @MaxTenuringThreshold, align 4
   %57 = icmp ult i32 %55, %56
-  br i1 %57, label %.lr.ph, label %._crit_edge.thread22, !llvm.loop !6
+  br i1 %57, label %.lr.ph, label %._crit_edge.thread29, !llvm.loop !6
 
-._crit_edge.thread22:                             ; preds = %54
+._crit_edge.thread29:                             ; preds = %54
   store i32 %55, ptr @MaxTenuringThreshold, align 4
   br label %61
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store i32 %.017, ptr @MaxTenuringThreshold, align 4
-  %58 = icmp eq i32 %.017, 0
+  store i32 %.024, ptr @MaxTenuringThreshold, align 4
+  %58 = icmp eq i32 %.024, 0
   br i1 %58, label %._crit_edge.thread, label %61
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
@@ -391,95 +391,90 @@ define hidden void @_ZN10ZArguments10initializeEv() local_unnamed_addr #1 align 
   store i8 1, ptr @AlwaysTenure, align 1
   br label %61
 
-61:                                               ; preds = %._crit_edge.thread22, %._crit_edge, %._crit_edge.thread, %60, %43
+61:                                               ; preds = %._crit_edge.thread29, %._crit_edge, %._crit_edge.thread, %60, %43
   %62 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1083) #8
-  br i1 %62, label %68, label %63
+  %.not2 = xor i1 %62, true
+  %63 = load i8, ptr @NeverTenure, align 1
+  %64 = trunc i8 %63 to i1
+  %or.cond4 = select i1 %.not2, i1 %64, i1 false
+  br i1 %or.cond4, label %65, label %67
 
-63:                                               ; preds = %61
-  %64 = load i8, ptr @NeverTenure, align 1
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %68
-
-66:                                               ; preds = %63
+65:                                               ; preds = %61
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull @.str.10)
-  %67 = load ptr, ptr %4, align 8
-  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %67, ptr noundef null) #8
-  br label %68
+  %66 = load ptr, ptr %4, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %66, ptr noundef null) #8
+  br label %67
 
-68:                                               ; preds = %66, %63, %61
-  %69 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 473) #8
-  %70 = load i64, ptr @LargePageSizeInBytes, align 8
-  %71 = icmp eq i64 %70, 2097152
-  %or.cond4.not = select i1 %69, i1 true, i1 %71
-  br i1 %or.cond4.not, label %74, label %72
+67:                                               ; preds = %65, %61
+  %68 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 473) #8
+  %69 = load i64, ptr @LargePageSizeInBytes, align 8
+  %70 = icmp eq i64 %69, 2097152
+  %or.cond7.not = select i1 %68, i1 true, i1 %70
+  br i1 %or.cond7.not, label %73, label %71
 
-72:                                               ; preds = %68
+71:                                               ; preds = %67
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull @.str.11, i64 noundef 2)
-  %73 = load ptr, ptr %5, align 8
-  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %73, ptr noundef null) #8
-  br label %74
+  %72 = load ptr, ptr %5, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %72, ptr noundef null) #8
+  br label %73
 
-74:                                               ; preds = %72, %68
-  %75 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1083) #8
-  br i1 %75, label %82, label %76
+73:                                               ; preds = %71, %67
+  %74 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1083) #8
+  br i1 %74, label %81, label %75
 
-76:                                               ; preds = %74
-  %77 = load i32, ptr @ZTenuringThreshold, align 4
-  %78 = load i32, ptr @MaxTenuringThreshold, align 4
-  %79 = icmp sgt i32 %77, %78
-  br i1 %79, label %80, label %82
+75:                                               ; preds = %73
+  %76 = load i32, ptr @ZTenuringThreshold, align 4
+  %77 = load i32, ptr @MaxTenuringThreshold, align 4
+  %78 = icmp sgt i32 %76, %77
+  br i1 %78, label %79, label %81
 
-80:                                               ; preds = %76
+79:                                               ; preds = %75
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %6, ptr noundef nonnull @.str.12)
-  %81 = load ptr, ptr %6, align 8
-  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %81, ptr noundef null) #8
-  br label %82
+  %80 = load ptr, ptr %6, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %80, ptr noundef null) #8
+  br label %81
 
-82:                                               ; preds = %80, %76, %74
-  %83 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 204) #8
-  br i1 %83, label %84, label %87
+81:                                               ; preds = %79, %75, %73
+  %82 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 204) #8
+  br i1 %82, label %83, label %86
 
-84:                                               ; preds = %82
+83:                                               ; preds = %81
   store i8 1, ptr @UseCountedLoopSafepoints, align 1
-  %85 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 358) #8
-  br i1 %85, label %86, label %87
+  %84 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 358) #8
+  br i1 %84, label %85, label %86
 
-86:                                               ; preds = %84
+85:                                               ; preds = %83
   store i64 1000, ptr @LoopStripMiningIter, align 8
-  br label %87
+  br label %86
 
-87:                                               ; preds = %84, %86, %82
+86:                                               ; preds = %83, %85, %81
   store i8 0, ptr @UseCompressedOops, align 1
-  %88 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 532) #8
-  br i1 %88, label %89, label %90
+  %87 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 532) #8
+  br i1 %87, label %88, label %89
 
-89:                                               ; preds = %87
+88:                                               ; preds = %86
   store i32 250, ptr @LogEventsBufferEntries, align 4
-  br label %90
+  br label %89
 
-90:                                               ; preds = %89, %87
+89:                                               ; preds = %88, %86
   store i8 0, ptr @VerifyDuringStartup, align 1
   store i8 0, ptr @VerifyBeforeExit, align 1
-  %91 = load i8, ptr @VerifyBeforeGC, align 1
-  %92 = trunc i8 %91 to i1
-  br i1 %92, label %99, label %93
-
-93:                                               ; preds = %90
-  %94 = load i8, ptr @VerifyDuringGC, align 1
+  %90 = load i8, ptr @VerifyBeforeGC, align 1
+  %91 = trunc i8 %90 to i1
+  %92 = load i8, ptr @VerifyDuringGC, align 1
+  %93 = trunc i8 %92 to i1
+  %or.cond9 = select i1 %91, i1 true, i1 %93
+  %94 = load i8, ptr @VerifyAfterGC, align 1
   %95 = trunc i8 %94 to i1
-  br i1 %95, label %99, label %96
+  %or.cond11 = select i1 %or.cond9, i1 true, i1 %95
+  br i1 %or.cond11, label %96, label %97
 
-96:                                               ; preds = %93
-  %97 = load i8, ptr @VerifyAfterGC, align 1
-  %98 = trunc i8 %97 to i1
-  br i1 %98, label %99, label %100
-
-99:                                               ; preds = %96, %93, %90
+96:                                               ; preds = %89
   store i8 1, ptr @ZVerifyRoots, align 1
   store i8 1, ptr @ZVerifyObjects, align 1
-  br label %100
+  br label %97
 
-100:                                              ; preds = %99, %96
+97:                                               ; preds = %89, %96
   ret void
 }
 

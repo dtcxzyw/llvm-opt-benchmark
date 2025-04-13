@@ -230,72 +230,70 @@ define hidden void @_ZN2os16check_dump_limitEPcm(ptr noundef %0, i64 noundef %1)
   %3 = alloca %struct.rlimit, align 8
   %4 = alloca [4096 x i8], align 16
   %5 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 553) #28
-  br i1 %5, label %11, label %6
+  %6 = load i8, ptr @CreateCoredumpOnCrash, align 1
+  %7 = trunc i8 %6 to i1
+  %or.cond = select i1 %5, i1 true, i1 %7
+  br i1 %or.cond, label %10, label %8
 
-6:                                                ; preds = %2
-  %7 = load i8, ptr @CreateCoredumpOnCrash, align 1
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %11, label %9
-
-9:                                                ; preds = %6
-  %10 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str) #28
+8:                                                ; preds = %2
+  %9 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str) #28
   tail call void @_ZN7VMError22record_coredump_statusEPKcb(ptr noundef %0, i1 noundef zeroext false) #28
-  br label %36
-
-11:                                               ; preds = %6, %2
-  %12 = call noundef i32 @_ZN2os13get_core_pathEPcm(ptr noundef nonnull %4, i64 noundef 4096) #28
-  %13 = icmp slt i32 %12, 1
-  br i1 %13, label %14, label %17
-
-14:                                               ; preds = %11
-  %15 = call noundef i32 @_ZN2os18current_process_idEv() #28
-  %16 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.5, i32 noundef %15) #28
   br label %35
 
-17:                                               ; preds = %11
-  %18 = load i8, ptr %4, align 16
-  %19 = icmp eq i8 %18, 34
-  br i1 %19, label %20, label %22
+10:                                               ; preds = %2
+  %11 = call noundef i32 @_ZN2os13get_core_pathEPcm(ptr noundef nonnull %4, i64 noundef 4096) #28
+  %12 = icmp slt i32 %11, 1
+  br i1 %12, label %13, label %16
 
-20:                                               ; preds = %17
-  %21 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #28
-  br label %35
+13:                                               ; preds = %10
+  %14 = call noundef i32 @_ZN2os18current_process_idEv() #28
+  %15 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.5, i32 noundef %14) #28
+  br label %34
 
-22:                                               ; preds = %17
-  %23 = call i32 @getrlimit64(i32 noundef 4, ptr noundef nonnull %3) #28
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %26, label %24
+16:                                               ; preds = %10
+  %17 = load i8, ptr %4, align 16
+  %18 = icmp eq i8 %17, 34
+  br i1 %18, label %19, label %21
 
-24:                                               ; preds = %22
-  %25 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #28
-  br label %35
+19:                                               ; preds = %16
+  %20 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #28
+  br label %34
 
-26:                                               ; preds = %22
-  %27 = load i64, ptr %3, align 8
-  switch i64 %27, label %32 [
-    i64 -1, label %28
-    i64 0, label %30
+21:                                               ; preds = %16
+  %22 = call i32 @getrlimit64(i32 noundef 4, ptr noundef nonnull %3) #28
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %25, label %23
+
+23:                                               ; preds = %21
+  %24 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #28
+  br label %34
+
+25:                                               ; preds = %21
+  %26 = load i64, ptr %3, align 8
+  switch i64 %26, label %31 [
+    i64 -1, label %27
+    i64 0, label %29
   ]
 
-28:                                               ; preds = %26
-  %29 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #28
-  br label %35
+27:                                               ; preds = %25
+  %28 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #28
+  br label %34
 
-30:                                               ; preds = %26
-  %31 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.9) #28
-  br label %35
+29:                                               ; preds = %25
+  %30 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.9) #28
+  br label %34
 
-32:                                               ; preds = %26
-  %33 = lshr i64 %27, 10
-  %34 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %4, i64 noundef %33) #28
-  br label %35
+31:                                               ; preds = %25
+  %32 = lshr i64 %26, 10
+  %33 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.10, ptr noundef nonnull %4, i64 noundef %32) #28
+  br label %34
 
-35:                                               ; preds = %20, %28, %30, %32, %24, %14
-  %.0 = phi i1 [ true, %14 ], [ true, %20 ], [ true, %24 ], [ true, %32 ], [ false, %30 ], [ true, %28 ]
+34:                                               ; preds = %19, %27, %29, %31, %23, %13
+  %.0 = phi i1 [ true, %13 ], [ true, %19 ], [ true, %23 ], [ true, %31 ], [ false, %29 ], [ true, %27 ]
   call void @_ZN7VMError22record_coredump_statusEPKcb(ptr noundef %0, i1 noundef zeroext %.0) #28
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %9
+35:                                               ; preds = %34, %8
   ret void
 }
 
@@ -2864,9 +2862,9 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN13PlatformEvent10park_nanosEl(ptr
 
 17:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %.b8.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
-  %..i = zext i1 %.b8.i to i32
-  %18 = call i32 @clock_gettime(i32 noundef %..i, ptr noundef nonnull %3) #28
+  %.b11.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
+  %spec.select.i = zext i1 %.b11.i to i32
+  %18 = call i32 @clock_gettime(i32 noundef %spec.select.i, ptr noundef nonnull %3) #28
   %19 = load i64, ptr %3, align 8
   %20 = icmp sgt i64 %1, 99999999999999999
   br i1 %20, label %21, label %23
@@ -3030,31 +3028,33 @@ define hidden void @_ZN6Parker4parkEbl(ptr noundef nonnull align 8 dereferenceab
   br i1 %or.cond, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %15
 
 15:                                               ; preds = %13
-  br i1 %14, label %41, label %16
+  br i1 %14, label %39, label %16
 
 16:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  br i1 %1, label %_ZL15unpack_abs_timeP8timespecll.exit.i, label %17
+  %.b11.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
+  %not. = xor i1 %1, true
+  %not.or.cond3.i = select i1 %not., i1 %.b11.i, i1 false
+  %spec.select.i = zext i1 %not.or.cond3.i to i32
+  %17 = call i32 @clock_gettime(i32 noundef %spec.select.i, ptr noundef nonnull %4) #28
+  %18 = load i64, ptr %4, align 8
+  br i1 %1, label %_ZL15unpack_abs_timeP8timespecll.exit.i, label %19
 
-17:                                               ; preds = %16
-  %.b8.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
-  %..i = zext i1 %.b8.i to i32
-  %18 = call i32 @clock_gettime(i32 noundef %..i, ptr noundef nonnull %4) #28
-  %19 = load i64, ptr %4, align 8
+19:                                               ; preds = %16
   %20 = icmp samesign ugt i64 %2, 99999999999999999
   br i1 %20, label %21, label %23
 
-21:                                               ; preds = %17
-  %22 = add nsw i64 %19, 100000000
+21:                                               ; preds = %19
+  %22 = add nsw i64 %18, 100000000
   store i64 %22, ptr %5, align 8
   br label %_ZL10to_abstimeP8timespeclbb.exit
 
-23:                                               ; preds = %17
+23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = udiv i64 %2, 1000000000
   %27 = urem i64 %2, 1000000000
-  %28 = add nsw i64 %19, %26
+  %28 = add nsw i64 %18, %26
   store i64 %28, ptr %5, align 8
   %29 = add nsw i64 %25, %27
   %30 = icmp sgt i64 %29, 999999999
@@ -3067,123 +3067,121 @@ define hidden void @_ZN6Parker4parkEbl(ptr noundef nonnull align 8 dereferenceab
   br label %_ZL10to_abstimeP8timespeclbb.exit
 
 _ZL15unpack_abs_timeP8timespecll.exit.i:          ; preds = %16
-  %34 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #28
-  %35 = load i64, ptr %4, align 8
-  %36 = add nsw i64 %35, 100000000
-  %37 = udiv i64 %2, 1000
-  %38 = urem i64 %2, 1000
-  %.not.i.i = icmp slt i64 %37, %36
-  %39 = mul nuw nsw i64 %38, 1000000
-  %.sink12.i.i = select i1 %.not.i.i, i64 %37, i64 %36
-  %.sink.i.i = select i1 %.not.i.i, i64 %39, i64 0
+  %34 = add nsw i64 %18, 100000000
+  %35 = udiv i64 %2, 1000
+  %36 = urem i64 %2, 1000
+  %.not.i.i = icmp slt i64 %35, %34
+  %37 = mul nuw nsw i64 %36, 1000000
+  %.sink12.i.i = select i1 %.not.i.i, i64 %35, i64 %34
+  %.sink.i.i = select i1 %.not.i.i, i64 %37, i64 0
   store i64 %.sink12.i.i, ptr %5, align 8
   br label %_ZL10to_abstimeP8timespeclbb.exit
 
 _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31, %_ZL15unpack_abs_timeP8timespecll.exit.i
   %.sink.i.sink.i = phi i64 [ %.sink.i.i, %_ZL15unpack_abs_timeP8timespecll.exit.i ], [ 0, %21 ], [ %33, %31 ], [ %29, %23 ]
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sink.i.sink.i, ptr %40, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.sink.i.sink.i, ptr %38, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %41
+  br label %39
 
-41:                                               ; preds = %_ZL10to_abstimeP8timespeclbb.exit, %15
-  %42 = getelementptr inbounds nuw i8, ptr %10, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #28
+39:                                               ; preds = %_ZL10to_abstimeP8timespeclbb.exit, %15
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 928
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #28
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 1092
-  store volatile i32 10, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %44) #28
-  %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %46, label %69
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 1092
+  store volatile i32 10, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %42) #28
+  %.not = icmp eq i32 %43, 0
+  br i1 %.not, label %44, label %67
 
-46:                                               ; preds = %41
-  %47 = load volatile i32, ptr %0, align 8
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %49, label %51
+44:                                               ; preds = %39
+  %45 = load volatile i32, ptr %0, align 8
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %47, label %49
 
-49:                                               ; preds = %46
+47:                                               ; preds = %44
   store volatile i32 0, ptr %0, align 8
-  %50 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %44) #28
+  %48 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %42) #28
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !24
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
-  br label %69
+  br label %67
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds nuw i8, ptr %10, i64 792
-  %53 = load ptr, ptr %52, align 8
-  %54 = load volatile i32, ptr %53, align 8
-  store volatile i32 4, ptr %53, align 8
-  br i1 %14, label %55, label %59
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 792
+  %51 = load ptr, ptr %50, align 8
+  %52 = load volatile i32, ptr %51, align 8
+  store volatile i32 4, ptr %51, align 8
+  br i1 %14, label %53, label %57
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = call i32 @pthread_cond_wait(ptr noundef nonnull %57, ptr noundef nonnull %44) #28
-  br label %66
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %56 = call i32 @pthread_cond_wait(ptr noundef nonnull %55, ptr noundef nonnull %42) #28
+  br label %64
 
-59:                                               ; preds = %51
-  %60 = zext i1 %1 to i32
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %63 = zext i1 %1 to i64
-  %64 = getelementptr inbounds nuw [2 x %union.pthread_cond_t], ptr %62, i64 0, i64 %63
-  %65 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %64, ptr noundef nonnull %44, ptr noundef nonnull %5) #28
-  br label %66
+57:                                               ; preds = %49
+  %58 = zext i1 %1 to i32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %58, ptr %59, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %61 = zext i1 %1 to i64
+  %62 = getelementptr inbounds nuw [2 x %union.pthread_cond_t], ptr %60, i64 0, i64 %61
+  %63 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %62, ptr noundef nonnull %42, ptr noundef nonnull %5) #28
+  br label %64
 
-66:                                               ; preds = %59, %55
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -1, ptr %67, align 4
+64:                                               ; preds = %57, %53
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 -1, ptr %65, align 4
   store volatile i32 0, ptr %0, align 8
-  %68 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %44) #28
+  %66 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %42) #28
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !24
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
-  store volatile i32 %54, ptr %53, align 8
-  br label %69
+  store volatile i32 %52, ptr %51, align 8
+  br label %67
 
-69:                                               ; preds = %41, %66, %49
-  store volatile i32 6, ptr %43, align 4
+67:                                               ; preds = %39, %64, %47
+  store volatile i32 6, ptr %41, align 4
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !24
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
-  %70 = getelementptr inbounds nuw i8, ptr %10, i64 1096
-  %71 = load volatile i64, ptr %70, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 1096
+  %69 = load volatile i64, ptr %68, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
-  %72 = and i64 %71, 1
-  %.not.i.i14 = icmp eq i64 %72, 0
-  br i1 %.not.i.i14, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %73
+  %70 = and i64 %69, 1
+  %.not.i.i14 = icmp eq i64 %70, 0
+  br i1 %.not.i.i14, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %71
 
-73:                                               ; preds = %69
-  %74 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %74, 0
-  br i1 %.not5.i.i, label %75, label %81
+71:                                               ; preds = %67
+  %72 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
+  %.not5.i.i = icmp eq i32 %72, 0
+  br i1 %.not5.i.i, label %73, label %79
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw i8, ptr %10, i64 1384
-  %77 = call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %76, i1 noundef zeroext false, i1 noundef zeroext false) #28
-  br i1 %77, label %81, label %78
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 1384
+  %75 = call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %74, i1 noundef zeroext false, i1 noundef zeroext false) #28
+  br i1 %75, label %79, label %76
 
-78:                                               ; preds = %75
-  %79 = call noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaThread(ptr noundef nonnull %10) #28
-  br i1 %79, label %80, label %81
+76:                                               ; preds = %73
+  %77 = call noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaThread(ptr noundef nonnull %10) #28
+  br i1 %77, label %78, label %79
 
-80:                                               ; preds = %78
+78:                                               ; preds = %76
   call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %10) #28
   br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
 
-81:                                               ; preds = %78, %75, %73
-  %82 = load volatile i64, ptr %70, align 8
+79:                                               ; preds = %76, %73, %71
+  %80 = load volatile i64, ptr %68, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
-  %83 = and i64 %82, 1
-  %.not.i1.i = icmp eq i64 %83, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %84
+  %81 = and i64 %80, 1
+  %.not.i1.i = icmp eq i64 %81, 0
+  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %82
 
-84:                                               ; preds = %81
+82:                                               ; preds = %79
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false) #28
   br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %84, %81, %80, %69, %13, %8, %3
+_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %82, %79, %78, %67, %13, %8, %3
   ret void
 }
 
@@ -3257,9 +3255,9 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN15PlatformMonitor4waitEm(ptr noun
   %7 = mul nuw nsw i64 %1, 1000000
   %8 = select i1 %6, i64 100000000000000000, i64 %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %.b8.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
-  %..i = zext i1 %.b8.i to i32
-  %9 = call i32 @clock_gettime(i32 noundef %..i, ptr noundef nonnull %3) #28
+  %.b11.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
+  %spec.select.i = zext i1 %.b11.i to i32
+  %9 = call i32 @clock_gettime(i32 noundef %spec.select.i, ptr noundef nonnull %3) #28
   %10 = load i64, ptr %3, align 8
   %11 = icmp samesign ugt i64 %8, 99999999999999999
   br i1 %11, label %12, label %14

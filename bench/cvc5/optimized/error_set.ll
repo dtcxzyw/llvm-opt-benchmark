@@ -2889,8 +2889,8 @@ define hidden noundef i32 @_ZN4cvc58internal6theory5arith6linear8ErrorSet9popSig
 _ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit: ; preds = %1
   %15 = getelementptr inbounds nuw i32, ptr %10, i64 %6
   %16 = load i32, ptr %15, align 4, !tbaa !3
-  %.not27 = icmp eq i32 %16, -1
-  br i1 %.not27, label %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread, label %17
+  %.not26 = icmp eq i32 %16, -1
+  br i1 %.not26, label %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread, label %17
 
 17:                                               ; preds = %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2908,89 +2908,77 @@ _ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit: ; preds = %1
   %30 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %29, i64 %6, i32 5
   %31 = load i32, ptr %30, align 8, !tbaa !105
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %37, label %33
+  %33 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %29, i64 %6, i32 6
+  %34 = load i32, ptr %33, align 4, !tbaa !133
+  %35 = icmp sgt i32 %34, 0
+  %or.cond = or i1 %32, %35
+  br i1 %or.cond, label %36, label %53
 
-33:                                               ; preds = %17
-  %34 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %29, i64 %6, i32 6
-  %35 = load i32, ptr %34, align 4, !tbaa !133
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.thread, label %56
-
-37:                                               ; preds = %17
-  %.not = icmp eq i32 %22, 1
+36:                                               ; preds = %17
+  %37 = select i1 %32, i32 1, i32 -1
+  %.not = icmp eq i32 %37, %22
   br i1 %.not, label %_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit, label %38
 
-.thread:                                          ; preds = %33
-  %.not25 = icmp eq i32 %22, -1
-  br i1 %.not25, label %_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit, label %40
-
-38:                                               ; preds = %37
+38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %29, i64 %6, i32 3
-  br label %42
+  %40 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %29, i64 %6, i32 4
+  %.in = select i1 %32, ptr %39, ptr %40
+  %41 = load ptr, ptr %.in, align 8, !tbaa !125
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %41, ptr %42, align 8, !tbaa !22
+  store i32 %37, ptr %21, align 8, !tbaa !23
+  %43 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %44 = load ptr, ptr %43, align 8, !tbaa !21
+  %.not.i = icmp eq ptr %44, null
+  br i1 %.not.i, label %_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit, label %45
 
-40:                                               ; preds = %.thread
-  %41 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %29, i64 %6, i32 4
-  br label %42
+45:                                               ; preds = %38
+  store ptr null, ptr %43, align 8, !tbaa !21
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %46)
+          to label %_ZN4cvc58internal8RationalD2Ev.exit.i.i.i.i.i.i unwind label %47
 
-42:                                               ; preds = %40, %38
-  %43 = phi i32 [ 1, %38 ], [ -1, %40 ]
-  %.in = phi ptr [ %39, %38 ], [ %41, %40 ]
-  %44 = load ptr, ptr %.in, align 8, !tbaa !125
-  %45 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %44, ptr %45, align 8, !tbaa !22
-  store i32 %43, ptr %21, align 8, !tbaa !23
-  %46 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !21
-  %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit, label %48
+47:                                               ; preds = %45
+  %48 = landingpad { ptr, i32 }
+          catch ptr null
+  %49 = extractvalue { ptr, i32 } %48, 0
+  tail call void @__clang_call_terminate(ptr %49) #22
+  unreachable
 
-48:                                               ; preds = %42
-  store ptr null, ptr %46, align 8, !tbaa !21
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %49)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit.i.i.i.i.i.i unwind label %50
+_ZN4cvc58internal8RationalD2Ev.exit.i.i.i.i.i.i:  ; preds = %45
+  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(64) %44)
+          to label %_ZNKSt14default_deleteIN4cvc58internal13DeltaRationalEEclEPS2_.exit.i.i.i.i unwind label %50
 
-50:                                               ; preds = %48
+50:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i.i.i.i.i.i
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
   tail call void @__clang_call_terminate(ptr %52) #22
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit.i.i.i.i.i.i:  ; preds = %48
-  invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(64) %47)
-          to label %_ZNKSt14default_deleteIN4cvc58internal13DeltaRationalEEclEPS2_.exit.i.i.i.i unwind label %53
-
-53:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i.i.i.i.i.i
-  %54 = landingpad { ptr, i32 }
-          catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #22
-  unreachable
-
 _ZNKSt14default_deleteIN4cvc58internal13DeltaRationalEEclEPS2_.exit.i.i.i.i: ; preds = %_ZN4cvc58internal8RationalD2Ev.exit.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef 64) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef 64) #23
   br label %_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit
 
-_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit: ; preds = %_ZNKSt14default_deleteIN4cvc58internal13DeltaRationalEEclEPS2_.exit.i.i.i.i, %42, %.thread, %37
+_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit: ; preds = %_ZNKSt14default_deleteIN4cvc58internal13DeltaRationalEEclEPS2_.exit.i.i.i.i, %38, %36
   tail call void @_ZN4cvc58internal6theory5arith6linear8ErrorSet6updateERNS3_16ErrorInformationE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(44) %20)
-  br label %60
+  br label %57
 
-56:                                               ; preds = %33
+53:                                               ; preds = %17
   tail call void @_ZN4cvc58internal6theory5arith6linear8ErrorSet28transitionVariableOutOfErrorEj(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %5)
-  br label %60
+  br label %57
 
 _ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread: ; preds = %1, %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit
-  %57 = load ptr, ptr %0, align 8, !tbaa !98
-  %58 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables22assignmentIsConsistentEj(ptr noundef nonnull align 8 dereferenceable(568) %57, i32 noundef %5)
-  br i1 %58, label %60, label %59
+  %54 = load ptr, ptr %0, align 8, !tbaa !98
+  %55 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables22assignmentIsConsistentEj(ptr noundef nonnull align 8 dereferenceable(568) %54, i32 noundef %5)
+  br i1 %55, label %57, label %56
 
-59:                                               ; preds = %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread
+56:                                               ; preds = %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread
   tail call void @_ZN4cvc58internal6theory5arith6linear8ErrorSet27transitionVariableIntoErrorEj(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %5)
-  br label %60
+  br label %57
 
-60:                                               ; preds = %59, %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread, %_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit, %56
-  %.0 = phi i32 [ %26, %56 ], [ %26, %_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit ], [ 0, %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread ], [ 0, %59 ]
+57:                                               ; preds = %56, %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread, %_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit, %53
+  %.0 = phi i32 [ %26, %53 ], [ %26, %_ZN4cvc58internal6theory5arith6linear16ErrorInformation5resetEPNS3_10ConstraintEi.exit ], [ 0, %_ZNK4cvc58internal6theory5arith6linear8ErrorSet7inErrorEj.exit.thread ], [ 0, %56 ]
   ret i32 %.0
 }
 

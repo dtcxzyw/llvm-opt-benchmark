@@ -1173,33 +1173,33 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = call i32 %7(ptr noundef %0, ptr noundef nonnull %4) #21
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %48
+  %.not53 = icmp eq i32 %8, 0
+  br i1 %.not53, label %9, label %49
 
 9:                                                ; preds = %3
   %10 = call ptr @PMIx_Argv_split(ptr noundef %1, i32 noundef 44) #21
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %48, label %.preheader
+  br i1 %11, label %49, label %.preheader
 
 .preheader:                                       ; preds = %9
   %12 = load ptr, ptr %10, align 8, !tbaa !41
-  %.not5285 = icmp eq ptr %12, null
-  br i1 %.not5285, label %.thread69, label %.lr.ph88
+  %.not5488 = icmp eq ptr %12, null
+  br i1 %.not5488, label %.thread72, label %.lr.ph91
 
-.lr.ph88:                                         ; preds = %.preheader
+.lr.ph91:                                         ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %14
 
-14:                                               ; preds = %.lr.ph88, %43
-  %indvars.iv = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next, %43 ]
-  %15 = phi ptr [ %12, %.lr.ph88 ], [ %47, %43 ]
-  %.04586 = phi i32 [ 0, %.lr.ph88 ], [ %45, %43 ]
+14:                                               ; preds = %.lr.ph91, %44
+  %indvars.iv = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next, %44 ]
+  %15 = phi ptr [ %12, %.lr.ph91 ], [ %48, %44 ]
+  %.04689 = phi i32 [ 0, %.lr.ph91 ], [ %46, %44 ]
   %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %17 = call i64 @strtol(ptr noundef nonnull %15, ptr noundef nonnull %5, i32 noundef 0) #21
   %18 = trunc i64 %17 to i32
   %19 = load i32, ptr %4, align 4, !tbaa !40
-  %.not54.not76 = icmp sgt i32 %19, 0
-  br i1 %.not54.not76, label %.lr.ph, label %.thread
+  %.not79 = icmp sgt i32 %19, 0
+  br i1 %.not79, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %14
   %20 = load ptr, ptr %5, align 8, !tbaa !41
@@ -1220,7 +1220,7 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   %29 = load ptr, ptr %28, align 8, !tbaa !37
   %30 = call i32 @strcasecmp(ptr noundef %27, ptr noundef %29) #22
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.split.us.split, label %.thread
+  br i1 %31, label %.split.us.split, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %32 = load ptr, ptr %16, align 8, !tbaa !41
@@ -1229,42 +1229,42 @@ define internal i32 @enum_value_from_string_flag(ptr noundef %0, ptr noundef %1,
   %35 = load ptr, ptr %34, align 8, !tbaa !37
   %36 = call i32 @strcasecmp(ptr noundef %32, ptr noundef %35) #22
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.split.us.split, label %.thread
+  br i1 %37, label %.split.us.split, label %.loopexit
 
 .split.us.split:                                  ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph.split.us.split
   %38 = phi ptr [ %33, %.lr.ph.split ], [ %23, %.lr.ph.split.us ], [ %23, %.lr.ph.split.us.split ]
   %39 = getelementptr inbounds nuw %struct.pmix_mca_base_var_enum_value_flag_t, ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8, !tbaa !68
-  %42 = and i32 %41, %.04586
-  %.not53.not = icmp eq i32 %42, 0
-  br i1 %.not53.not, label %43, label %.thread
+  %42 = and i32 %41, %.04689
+  %.not55.not = icmp eq i32 %42, 0
+  br i1 %.not55.not, label %44, label %.loopexit
 
-43:                                               ; preds = %.split.us.split
-  %44 = load i32, ptr %39, align 8, !tbaa !67
-  %45 = or i32 %44, %.04586
+.loopexit:                                        ; preds = %.split.us.split, %14, %.lr.ph.split, %.lr.ph.split.us.split
+  %43 = phi i32 [ -65, %.lr.ph.split.us.split ], [ -65, %.lr.ph.split ], [ -27, %.split.us.split ], [ -65, %14 ]
+  call void @PMIx_Argv_free(ptr noundef nonnull %10) #21
+  br label %49
+
+44:                                               ; preds = %.split.us.split
+  %45 = load i32, ptr %39, align 8, !tbaa !67
+  %46 = or i32 %45, %.04689
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next
-  %47 = load ptr, ptr %46, align 8, !tbaa !41
-  %.not52 = icmp eq ptr %47, null
-  br i1 %.not52, label %.thread69, label %14, !llvm.loop !72
+  %47 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next
+  %48 = load ptr, ptr %47, align 8, !tbaa !41
+  %.not54 = icmp eq ptr %48, null
+  br i1 %.not54, label %.thread72, label %14, !llvm.loop !72
 
-.thread:                                          ; preds = %.split.us.split, %14, %.lr.ph.split, %.lr.ph.split.us.split
-  %.mux59 = phi i32 [ -65, %.lr.ph.split.us.split ], [ -65, %.lr.ph.split ], [ -27, %.split.us.split ], [ -65, %14 ]
+.thread72:                                        ; preds = %44, %.preheader
+  %.046.lcssa = phi i32 [ 0, %.preheader ], [ %46, %44 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %10) #21
-  br label %48
+  store i32 %.046.lcssa, ptr %2, align 4, !tbaa !40
+  br label %49
 
-.thread69:                                        ; preds = %43, %.preheader
-  %.045.lcssa = phi i32 [ 0, %.preheader ], [ %45, %43 ]
-  call void @PMIx_Argv_free(ptr noundef nonnull %10) #21
-  store i32 %.045.lcssa, ptr %2, align 4, !tbaa !40
-  br label %48
-
-48:                                               ; preds = %.thread, %9, %3, %.thread69
-  %.043 = phi i32 [ 0, %.thread69 ], [ %.mux59, %.thread ], [ %8, %3 ], [ -27, %9 ]
+49:                                               ; preds = %.loopexit, %9, %3, %.thread72
+  %.044 = phi i32 [ 0, %.thread72 ], [ %43, %.loopexit ], [ %8, %3 ], [ -27, %9 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
-  ret i32 %.043
+  ret i32 %.044
 }
 
 ; Function Attrs: nounwind uwtable

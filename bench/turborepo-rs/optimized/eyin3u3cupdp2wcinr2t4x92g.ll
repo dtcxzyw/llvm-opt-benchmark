@@ -9416,10 +9416,10 @@ _RNvMsT_NtCseG2FYMysgNb_3wax5tokenINtB5_9ComponentTjjEE7literalB7_.exit.thread: 
   %30 = load ptr, ptr %29, align 8, !nonnull !5, !noundef !5
   %31 = getelementptr inbounds ptr, ptr %30, i64 %28
   store ptr null, ptr %5, align 8
-  %.sroa.08.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %.sroa.08.sroa.5.0..sroa_idx, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %30, ptr %.sroa.59.0..sroa_idx, align 8
+  %.sroa.09.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %.sroa.09.sroa.5.0..sroa_idx, align 8
+  %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %30, ptr %.sroa.510.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %31, ptr %.sroa.6.0..sroa_idx, align 8
   invoke void @_RNvXNtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB4_3VecTINtNtCseG2FYMysgNb_3wax5token9ComponentTjjEENtB15_15LiteralSequenceEEINtB2_18SpecFromIterNestedB11_INtNtNtNtCs1LoaDTb72WA_4core4iter8adapters7flatten7FlattenINtNtB2I_10filter_map9FilterMapINtNtNtB2M_5slice4iter4IterRNtB15_5TokenENCNCINvB15_8literalsB1F_RSB4w_E00EEE9from_iterB17_(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %5)
@@ -9497,10 +9497,10 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9Compo
   br label %48
 
 56:                                               ; preds = %.thread22
-  resume { ptr, i32 } %.pn16
+  resume { ptr, i32 } %.pn17
 
 .thread22:                                        ; preds = %42, %44, %25
-  %.pn16 = phi { ptr, i32 } [ %26, %25 ], [ %43, %42 ], [ %45, %44 ]
+  %.pn17 = phi { ptr, i32 } [ %26, %25 ], [ %43, %42 ], [ %45, %44 ]
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCseG2FYMysgNb_3wax5token9ComponentTjjEEEBL_(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #32
           to label %56 unwind label %46
 }

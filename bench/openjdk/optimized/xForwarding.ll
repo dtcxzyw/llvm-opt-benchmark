@@ -142,31 +142,25 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %6, %16
   %20 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %19) #7
   %21 = load volatile i32, ptr %4, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  %.not3.not6 = icmp eq i32 %21, 0
-  br i1 %.not3.not6, label %_ZN7XLockerI14XConditionLockED2Ev.exit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit
+  %.not3.not89 = icmp eq i32 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  br label %23
+  %23 = load i8, ptr %22, align 4
+  %24 = trunc i8 %23 to i1
+  %or.cond10 = select i1 %.not3.not89, i1 true, i1 %24
+  br i1 %or.cond10, label %_ZN7XLockerI14XConditionLockED2Ev.exit, label %.lr.ph
 
-23:                                               ; preds = %.lr.ph, %26
-  %24 = load i8, ptr %22, align 4
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %_ZN7XLockerI14XConditionLockED2Ev.exit.loopexit, label %26
-
-26:                                               ; preds = %23
-  %27 = call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %19, i64 noundef 0) #7
-  %28 = load volatile i32, ptr %4, align 8
+.lr.ph:                                           ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %.lr.ph
+  %25 = call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %19, i64 noundef 0) #7
+  %26 = load volatile i32, ptr %4, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  %.not3.not = icmp eq i32 %28, 0
-  br i1 %.not3.not, label %_ZN7XLockerI14XConditionLockED2Ev.exit.loopexit, label %23, !llvm.loop !10
+  %.not3.not8 = icmp eq i32 %26, 0
+  %27 = load i8, ptr %22, align 4
+  %28 = trunc i8 %27 to i1
+  %or.cond = select i1 %.not3.not8, i1 true, i1 %28
+  br i1 %or.cond, label %_ZN7XLockerI14XConditionLockED2Ev.exit, label %.lr.ph, !llvm.loop !10
 
-_ZN7XLockerI14XConditionLockED2Ev.exit.loopexit:  ; preds = %26, %23
-  %.not3.not.lcssa.ph = xor i1 %25, true
-  br label %_ZN7XLockerI14XConditionLockED2Ev.exit
-
-_ZN7XLockerI14XConditionLockED2Ev.exit:           ; preds = %_ZN7XLockerI14XConditionLockED2Ev.exit.loopexit, %_ZN10XStatTimerC2ERK10XStatPhase.exit
-  %.not3.not.lcssa = phi i1 [ true, %_ZN10XStatTimerC2ERK10XStatPhase.exit ], [ %.not3.not.lcssa.ph, %_ZN7XLockerI14XConditionLockED2Ev.exit.loopexit ]
+_ZN7XLockerI14XConditionLockED2Ev.exit:           ; preds = %.lr.ph, %_ZN10XStatTimerC2ERK10XStatPhase.exit
+  %.not3.not8.lcssa = phi i1 [ %.not3.not89, %_ZN10XStatTimerC2ERK10XStatPhase.exit ], [ %.not3.not8, %.lr.ph ]
   %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %19) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %30 = load i8, ptr %3, align 8
@@ -189,7 +183,7 @@ _ZN7XLockerI14XConditionLockED2Ev.exit:           ; preds = %_ZN7XLockerI14XCond
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN7XLockerI14XConditionLockED2Ev.exit, %32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br i1 %.not3.not.lcssa, label %41, label %42
+  br i1 %.not3.not8.lcssa, label %41, label %42
 
 41:                                               ; preds = %_ZN10XStatTimerD2Ev.exit, %1
   br label %42

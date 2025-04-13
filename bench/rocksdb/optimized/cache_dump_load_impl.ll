@@ -4418,15 +4418,13 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN7rocksdb5SliceEPvmPKNS0_5Ca
   %37 = getelementptr inbounds nuw i8, ptr %.val6, i64 32
   %38 = load i32, ptr %37, align 8, !tbaa !223
   %39 = icmp ult i32 %38, 5
-  br i1 %39, label %switch.hole_check, label %"_ZSt10__invoke_rIvRZN7rocksdb15CacheDumperImpl20DumpOneBlockCallBackERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
-
-switch.hole_check:                                ; preds = %36
-  %switch.maskindex = trunc nuw i32 %38 to i8
+  %switch.maskindex = trunc i32 %38 to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %"_ZSt10__invoke_rIvRZN7rocksdb15CacheDumperImpl20DumpOneBlockCallBackERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
+  %or.cond = select i1 %39, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %"_ZSt10__invoke_rIvRZN7rocksdb15CacheDumperImpl20DumpOneBlockCallBackERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %36
   %40 = shl nuw nsw i32 %38, 3
   %switch.shiftamt = zext nneg i32 %40 to i40
   %switch.downshift = lshr i40 47245493251, %switch.shiftamt
@@ -4521,7 +4519,7 @@ _ZN7rocksdb6StatusD2Ev.exit30.i.i.i:              ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
   resume { ptr, i32 } %72
 
-"_ZSt10__invoke_rIvRZN7rocksdb15CacheDumperImpl20DumpOneBlockCallBackERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %switch.hole_check, %36, %5, %11, %15, %22, %26, %44, %_ZN7rocksdb6StatusD2Ev.exit27.i.i.i
+"_ZSt10__invoke_rIvRZN7rocksdb15CacheDumperImpl20DumpOneBlockCallBackERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKNS0_5SliceEPvmPKNS0_5Cache15CacheItemHelperEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %36, %5, %11, %15, %22, %26, %44, %_ZN7rocksdb6StatusD2Ev.exit27.i.i.i
   ret void
 }
 

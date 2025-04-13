@@ -1324,11 +1324,11 @@ define void @_Z34check_resource_division_efficiencyPK13gmx_hw_info_tbP9t_commrec
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
   %.pre = load i32, ptr %14, align 8, !tbaa !280
   %28 = icmp sgt i32 %.pre, 1
-  %.not42 = select i1 %28, i1 %27, i1 false
+  %or.cond.not42 = and i1 %27, %28
   %29 = add i32 %24, -9
-  %or.cond = icmp ult i32 %29, -8
-  %or.cond39 = select i1 %.not42, i1 %or.cond, i1 false
-  br i1 %or.cond39, label %30, label %.thread
+  %or.cond3 = icmp ult i32 %29, -8
+  %or.cond40 = select i1 %or.cond.not42, i1 %or.cond3, i1 false
+  br i1 %or.cond40, label %30, label %.thread
 
 30:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
@@ -1397,26 +1397,26 @@ _ZN3gmx14LogEntryWriterD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
           cleanup
   %55 = load ptr, ptr %8, align 8, !tbaa !130
   %56 = icmp eq ptr %55, %35
-  br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i27
+  br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i28
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i28: ; preds = %53
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i29: ; preds = %53
   %57 = load i64, ptr %36, align 8, !tbaa !135
   %58 = icmp ult i64 %57, 16
   call void @llvm.assume(i1 %58)
-  br label %_ZN3gmx14LogEntryWriterD2Ev.exit29
+  br label %_ZN3gmx14LogEntryWriterD2Ev.exit30
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i27: ; preds = %53
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i28: ; preds = %53
   %59 = load i64, ptr %35, align 8, !tbaa !141
   %60 = add i64 %59, 1
   call void @_ZdlPvm(ptr noundef %55, i64 noundef %60) #20
-  br label %_ZN3gmx14LogEntryWriterD2Ev.exit29
+  br label %_ZN3gmx14LogEntryWriterD2Ev.exit30
 
-_ZN3gmx14LogEntryWriterD2Ev.exit29:               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i28
+_ZN3gmx14LogEntryWriterD2Ev.exit30:               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #19
   %61 = load ptr, ptr %7, align 8, !tbaa !130
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %63 = icmp eq ptr %61, %62
-  br i1 %63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
+  br i1 %63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
 
 64:                                               ; preds = %30, %_ZN3gmx14LogEntryWriterD2Ev.exit
   %65 = load ptr, ptr %7, align 8, !tbaa !130
@@ -1441,23 +1441,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
   br label %.thread
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i31: ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i32: ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit30
   %73 = load i64, ptr %38, align 8, !tbaa !135
   %74 = icmp ult i64 %73, 16
   call void @llvm.assume(i1 %74)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30: ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit29
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31: ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit30
   %75 = load i64, ptr %62, align 8, !tbaa !141
   %76 = add i64 %75, 1
   call void @_ZdlPvm(ptr noundef %61, i64 noundef %76) #20
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
   resume { ptr, i32 } %54
 
-.thread:                                          ; preds = %12, %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+.thread:                                          ; preds = %12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17
   ret void
 }
 
@@ -1855,24 +1855,24 @@ define void @_Z39checkAndUpdateRequestedNumOpenmpThreadsP12gmx_hw_opt_tRK13gmx_h
   %30 = load i32, ptr %29, align 8, !tbaa !266
   %31 = icmp slt i32 %30, 1
   %or.cond = select i1 %28, i1 %31, i1 false
-  br i1 %or.cond, label %32, label %._crit_edge70
+  br i1 %or.cond, label %32, label %._crit_edge69
 
 32:                                               ; preds = %26
   %33 = udiv i32 %27, %23
   store i32 %33, ptr %29, align 8, !tbaa !266
-  br label %._crit_edge70
+  br label %._crit_edge69
 
-._crit_edge70:                                    ; preds = %26, %32
+._crit_edge69:                                    ; preds = %26, %32
   %34 = phi i32 [ %33, %32 ], [ %30, %26 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = icmp sgt i32 %34, 0
+  %36 = icmp slt i32 %34, 1
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !8
   %39 = load i32, ptr %38, align 8, !tbaa !272
   %40 = icmp sgt i32 %39, 1
   br i1 %40, label %41, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
 
-41:                                               ; preds = %._crit_edge70
+41:                                               ; preds = %._crit_edge69
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %43 = load ptr, ptr %42, align 8, !tbaa !273
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 88
@@ -1925,95 +1925,86 @@ define void @_Z39checkAndUpdateRequestedNumOpenmpThreadsP12gmx_hw_opt_tRK13gmx_h
 _ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit: ; preds = %._crit_edge48.i
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %63 = load i32, ptr %62, align 8, !tbaa !280
-  %64 = icmp ne i32 %63, 1
-  %65 = icmp ne i32 %5, 2
-  %.not64 = or i1 %65, %64
-  %brmerge47 = select i1 %36, i1 true, i1 %.not64
-  br i1 %brmerge47, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread, label %66
+  %64 = icmp eq i32 %63, 1
+  %65 = icmp eq i32 %5, 2
+  %66 = and i1 %65, %64
+  %or.cond3 = select i1 %36, i1 %66, i1 false
+  br i1 %or.cond3, label %67, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
 
-66:                                               ; preds = %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit
-  %.not65 = icmp eq ptr %3, null
-  br i1 %.not65, label %69, label %67
+67:                                               ; preds = %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit
+  %.not64 = icmp eq ptr %3, null
+  br i1 %.not64, label %70, label %68
 
-67:                                               ; preds = %66
-  %68 = load i32, ptr %3, align 8, !tbaa !304
-  br label %69
+68:                                               ; preds = %67
+  %69 = load i32, ptr %3, align 8, !tbaa !304
+  br label %70
 
-69:                                               ; preds = %66, %67
-  %70 = phi i32 [ %68, %67 ], [ 1, %66 ]
-  %71 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %72 = load i32, ptr %71, align 8, !tbaa !213
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %74 = load i32, ptr %73, align 4, !tbaa !306
-  %75 = sdiv i32 %74, %70
-  %76 = mul i32 %75, 1000
-  %77 = mul i32 %76, %75
-  %78 = icmp slt i32 %72, %77
-  br i1 %78, label %79, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
+70:                                               ; preds = %67, %68
+  %71 = phi i32 [ %69, %68 ], [ 1, %67 ]
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %73 = load i32, ptr %72, align 8, !tbaa !213
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %75 = load i32, ptr %74, align 4, !tbaa !306
+  %76 = sdiv i32 %75, %71
+  %77 = mul i32 %76, 1000
+  %78 = mul i32 %77, %76
+  %79 = icmp slt i32 %73, %78
+  br i1 %79, label %.lr.ph, label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
 
-79:                                               ; preds = %69
-  %80 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  %81 = load ptr, ptr %80, align 8, !tbaa !273
-  %82 = getelementptr inbounds nuw i8, ptr %38, i64 88
-  %83 = load ptr, ptr %82, align 8, !tbaa !273
-  %.not6667 = icmp eq ptr %81, %83
-  br i1 %.not6667, label %._crit_edge, label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph, %79
-  %.0.lcssa = phi i32 [ 0, %79 ], [ %96, %.lr.ph ]
-  %84 = getelementptr inbounds nuw i8, ptr %38, i64 224
-  %85 = load i32, ptr %84, align 8, !tbaa !147
-  %.sroa.speculated52 = tail call i32 @llvm.smin.i32(i32 %85, i32 %.0.lcssa)
-  %86 = sdiv i32 %.sroa.speculated52, %4
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %86, i32 1)
+._crit_edge:                                      ; preds = %.lr.ph
+  %80 = getelementptr inbounds nuw i8, ptr %38, i64 224
+  %81 = load i32, ptr %80, align 8, !tbaa !147
+  %.sroa.speculated51 = tail call i32 @llvm.smin.i32(i32 %81, i32 %92)
+  %82 = sdiv i32 %.sroa.speculated51, %4
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %82, i32 1)
   store i32 %.sroa.speculated, ptr %35, align 8, !tbaa !266
   br label %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
 
-.lr.ph:                                           ; preds = %79, %.lr.ph
-  %.069 = phi i32 [ %96, %.lr.ph ], [ 0, %79 ]
-  %.sroa.055.068 = phi ptr [ %97, %.lr.ph ], [ %81, %79 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.055.068, i64 8
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.055.068, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !326
-  %90 = load ptr, ptr %87, align 8, !tbaa !328
-  %91 = ptrtoint ptr %89 to i64
-  %92 = ptrtoint ptr %90 to i64
-  %93 = sub i64 %91, %92
-  %94 = lshr exact i64 %93, 5
-  %95 = trunc i64 %94 to i32
-  %96 = add i32 %.069, %95
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.055.068, i64 32
-  %.not66 = icmp eq ptr %97, %83
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+.lr.ph:                                           ; preds = %70, %.lr.ph
+  %.068 = phi i32 [ %92, %.lr.ph ], [ 0, %70 ]
+  %.sroa.054.067 = phi ptr [ %93, %.lr.ph ], [ %43, %70 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.054.067, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.054.067, i64 16
+  %85 = load ptr, ptr %84, align 8, !tbaa !326
+  %86 = load ptr, ptr %83, align 8, !tbaa !328
+  %87 = ptrtoint ptr %85 to i64
+  %88 = ptrtoint ptr %86 to i64
+  %89 = sub i64 %87, %88
+  %90 = lshr exact i64 %89, 5
+  %91 = trunc i64 %90 to i32
+  %92 = add i32 %.068, %91
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.054.067, i64 32
+  %.not65 = icmp eq ptr %93, %45
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
-_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread: ; preds = %._crit_edge48.i, %41, %._crit_edge70, %69, %._crit_edge, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit
-  %98 = phi i32 [ %34, %69 ], [ %.sroa.speculated, %._crit_edge ], [ %34, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit ], [ %34, %._crit_edge70 ], [ %34, %41 ], [ %34, %._crit_edge48.i ]
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %100 = load i32, ptr %99, align 4, !tbaa !302
-  %101 = icmp slt i32 %100, 1
-  %102 = icmp sgt i32 %98, 0
-  %or.cond75 = select i1 %101, i1 %102, i1 false
-  br i1 %or.cond75, label %103, label %104
+_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread: ; preds = %._crit_edge48.i, %41, %._crit_edge69, %70, %._crit_edge, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit
+  %94 = phi i32 [ %34, %._crit_edge48.i ], [ %34, %41 ], [ %34, %._crit_edge69 ], [ %34, %70 ], [ %.sroa.speculated, %._crit_edge ], [ %34, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit ]
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %96 = load i32, ptr %95, align 4, !tbaa !302
+  %97 = icmp slt i32 %96, 1
+  %98 = icmp sgt i32 %94, 0
+  %or.cond70 = select i1 %97, i1 %98, i1 false
+  br i1 %or.cond70, label %99, label %100
 
-103:                                              ; preds = %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
-  store i32 %98, ptr %99, align 4, !tbaa !302
-  br label %104
+99:                                               ; preds = %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
+  store i32 %94, ptr %95, align 4, !tbaa !302
+  br label %100
 
-104:                                              ; preds = %103, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
-  %105 = phi i32 [ %98, %103 ], [ %100, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread ]
-  %106 = load ptr, ptr @debug, align 8, !tbaa !267
-  %.not = icmp eq ptr %106, null
-  br i1 %.not, label %113, label %107
+100:                                              ; preds = %99, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread
+  %101 = phi i32 [ %94, %99 ], [ %96, %_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE.exit.thread ]
+  %102 = load ptr, ptr @debug, align 8, !tbaa !267
+  %.not = icmp eq ptr %102, null
+  br i1 %.not, label %109, label %103
 
-107:                                              ; preds = %104
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %109 = load ptr, ptr %108, align 8, !tbaa !130
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %111 = load ptr, ptr %110, align 8, !tbaa !130
-  %112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %106, ptr noundef nonnull @.str.46, i32 noundef %27, i32 noundef %23, i32 noundef %98, i32 noundef %105, ptr noundef %109, ptr noundef %111) #19
-  br label %113
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %105 = load ptr, ptr %104, align 8, !tbaa !130
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %107 = load ptr, ptr %106, align 8, !tbaa !130
+  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %102, ptr noundef nonnull @.str.46, i32 noundef %27, i32 noundef %23, i32 noundef %94, i32 noundef %101, ptr noundef %105, ptr noundef %107) #19
+  br label %109
 
-113:                                              ; preds = %107, %104
+109:                                              ; preds = %103, %100
   ret void
 }
 

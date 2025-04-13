@@ -178,19 +178,19 @@ define void @_Z11init_disresP8_IO_FILERK10gmx_mtop_tP10t_inputrec13DisResRunMode
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sroa.023.0.copyload = load ptr, ptr %74, align 8
+  %.sroa.025.0.copyload = load ptr, ptr %74, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.021.0.copyload181 = load ptr, ptr %16, align 8
-  %.sroa.222.0.copyload182 = load i64, ptr %.sroa.222.0..sroa_idx, align 8
+  %.sroa.023.0.copyload181 = load ptr, ptr %16, align 8
+  %.sroa.224.0.copyload182 = load i64, ptr %.sroa.224.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  store ptr %.sroa.021.0.copyload181, ptr %12, align 8
-  store i64 %.sroa.222.0.copyload182, ptr %75, align 8
-  store ptr %.sroa.023.0.copyload, ptr %13, align 8
+  store ptr %.sroa.023.0.copyload181, ptr %12, align 8
+  store i64 %.sroa.224.0.copyload182, ptr %75, align 8
+  store ptr %.sroa.025.0.copyload, ptr %13, align 8
   store i64 %.sroa.5.0.copyload, ptr %76, align 8
   %77 = call noundef zeroext i1 @_ZNK13IListIteratoreqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -277,13 +277,13 @@ define void @_Z11init_disresP8_IO_FILERK10gmx_mtop_tP10t_inputrec13DisResRunMode
   %.1170.lcssa = phi i32 [ %.0169184, %99 ], [ %.2, %137 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #20
   %111 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN13IListIteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  %.sroa.021.0.copyload = load ptr, ptr %16, align 8
-  %.sroa.222.0.copyload = load i64, ptr %.sroa.222.0..sroa_idx, align 8
+  %.sroa.023.0.copyload = load ptr, ptr %16, align 8
+  %.sroa.224.0.copyload = load i64, ptr %.sroa.224.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  store ptr %.sroa.021.0.copyload, ptr %12, align 8
-  store i64 %.sroa.222.0.copyload, ptr %75, align 8
-  store ptr %.sroa.023.0.copyload, ptr %13, align 8
+  store ptr %.sroa.023.0.copyload, ptr %12, align 8
+  store i64 %.sroa.224.0.copyload, ptr %75, align 8
+  store ptr %.sroa.025.0.copyload, ptr %13, align 8
   store i64 %.sroa.5.0.copyload, ptr %76, align 8
   %112 = call noundef zeroext i1 @_ZNK13IListIteratoreqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -292,7 +292,7 @@ define void @_Z11init_disresP8_IO_FILERK10gmx_mtop_tP10t_inputrec13DisResRunMode
 
 .lr.ph:                                           ; preds = %99, %137
   %indvars.iv = phi i64 [ %indvars.iv.next, %137 ], [ 0, %99 ]
-  %.0136178 = phi i32 [ %.1, %137 ], [ 0, %99 ]
+  %.0138178 = phi i32 [ %.1, %137 ], [ 0, %99 ]
   %.1170177 = phi i32 [ %.2, %137 ], [ %.0169184, %99 ]
   %.1172176 = phi i32 [ %.2173, %137 ], [ %.0171183, %99 ]
   %113 = call noundef nonnull align 8 dereferenceable(2280) ptr @_ZNK10IListProxy4listEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
@@ -300,7 +300,7 @@ define void @_Z11init_disresP8_IO_FILERK10gmx_mtop_tP10t_inputrec13DisResRunMode
   %115 = load ptr, ptr %114, align 8, !tbaa !123
   %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4, !tbaa !115
-  %118 = add nsw i32 %.0136178, 1
+  %118 = add nsw i32 %.0138178, 1
   %119 = sext i32 %117 to i64
   %120 = load ptr, ptr %79, align 8, !tbaa !124
   %121 = getelementptr inbounds nuw %union.t_iparams, ptr %120, i64 %119, i32 0, i32 2
@@ -461,9 +461,9 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %192, %190, %188, %1
   %208 = icmp ne ptr %206, null
   %or.cond7 = and i1 %or.cond5, %208
   %or.cond7.not = xor i1 %or.cond7, true
-  %brmerge = or i1 %10, %or.cond7.not
+  %or.cond9 = or i1 %10, %or.cond7.not
   %209 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  br i1 %brmerge, label %247, label %210
+  br i1 %or.cond9, label %247, label %210
 
 210:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   store i32 0, ptr %209, align 8, !tbaa !142
@@ -587,8 +587,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %192, %190, %188, %1
   %268 = load i32, ptr %249, align 8, !tbaa !142
   %269 = icmp sgt i32 %268, 1
   %270 = icmp eq i32 %4, 0
-  %or.cond11 = and i1 %270, %269
-  br i1 %or.cond11, label %271, label %273
+  %or.cond13 = and i1 %270, %269
+  br i1 %or.cond13, label %271, label %273
 
 271:                                              ; preds = %267
   %272 = load i32, ptr %72, align 4, !tbaa !4

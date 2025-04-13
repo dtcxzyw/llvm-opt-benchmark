@@ -7081,21 +7081,19 @@ _ZNK4pbrt15SampledSpectrummlEf.exit361.i.i.i.i:   ; preds = %491
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %495 = load i8, ptr %453, align 8, !tbaa !443, !range !52, !noundef !53
   %496 = trunc nuw i8 %495 to i1
-  br i1 %496, label %_ZN4pstd8optionalIN4pbrt13LightLiSampleEEptEv.exit363.i.i.i.i, label %.invoke.i.i.i.i
-
-_ZN4pstd8optionalIN4pbrt13LightLiSampleEEptEv.exit363.i.i.i.i: ; preds = %_ZNK4pbrt15SampledSpectrummlEf.exit361.i.i.i.i
-  %497 = load i8, ptr %440, align 8, !tbaa !432, !range !52, !noundef !53
+  %497 = load i8, ptr %440, align 8, !range !52
   %498 = trunc nuw i8 %497 to i1
-  br i1 %498, label %499, label %.invoke.i.i.i.i
+  %or.cond.i.i.i.i = select i1 %496, i1 %498, i1 false
+  br i1 %or.cond.i.i.i.i, label %499, label %.invoke.i.i.i.i
 
-.invoke.i.i.i.i:                                  ; preds = %_ZN4pstd8optionalIN4pbrt13LightLiSampleEEptEv.exit363.i.i.i.i, %_ZNK4pbrt15SampledSpectrummlEf.exit361.i.i.i.i
+.invoke.i.i.i.i:                                  ; preds = %_ZNK4pbrt15SampledSpectrummlEf.exit361.i.i.i.i
   invoke void @_ZN4pbrt8LogFatalIJRA4_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.24, i32 noundef 235, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(4) @.str.25) #25
           to label %.cont.i.i.i.i unwind label %558
 
 .cont.i.i.i.i:                                    ; preds = %.invoke.i.i.i.i
   unreachable
 
-499:                                              ; preds = %_ZN4pstd8optionalIN4pbrt13LightLiSampleEEptEv.exit363.i.i.i.i
+499:                                              ; preds = %_ZNK4pbrt15SampledSpectrummlEf.exit361.i.i.i.i
   %500 = load float, ptr %459, align 4, !tbaa !445
   %501 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %502 = load float, ptr %501, align 8, !tbaa !449

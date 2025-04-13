@@ -2640,54 +2640,59 @@ define dso_local noundef nonnull ptr @_ZNK4llvm15X86RegisterInfo18getCalleeSaved
   %17 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %6, ptr nonnull @.str.84, i64 25) #23
   %18 = load ptr, ptr %1, align 8, !tbaa !366
   %19 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %18, ptr nonnull @.str.85, i64 25) #23
-  br i1 %19, label %121, label %20
+  br i1 %19, label %115, label %20
 
 20:                                               ; preds = %2
   %21 = lshr i16 %16, 4
   %22 = and i16 %21, 1023
   %23 = zext nneg i16 %22 to i32
   %spec.select = select i1 %17, i32 83, i32 %23
-  switch i32 %spec.select, label %.critedge39 [
-    i32 10, label %121
-    i32 11, label %121
+  switch i32 %spec.select, label %._crit_edge [
+    i32 10, label %115
+    i32 11, label %115
     i32 13, label %24
     i32 14, label %25
     i32 15, label %30
     i32 21, label %31
     i32 17, label %32
     i32 77, label %43
-    i32 92, label %59
-    i32 19, label %73
-    i32 9, label %75
-    i32 79, label %79
-    i32 20, label %80
-    i32 78, label %89
-    i32 83, label %90
+    i32 92, label %54
+    i32 19, label %68
+    i32 9, label %70
+    i32 79, label %74
+    i32 20, label %75
+    i32 78, label %84
+    i32 83, label %85
   ]
+
+._crit_edge:                                      ; preds = %20
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %.pre = load i8, ptr %.phi.trans.insert, align 4, !tbaa !351, !range !261
+  br label %93
 
 24:                                               ; preds = %20
   %_ZN4llvmL27CSR_64_AllRegs_AVX_SaveListE._ZN4llvmL23CSR_64_AllRegs_SaveListE = select i1 %10, ptr @_ZN4llvmL27CSR_64_AllRegs_AVX_SaveListE, ptr @_ZN4llvmL23CSR_64_AllRegs_SaveListE
-  br label %121
+  br label %115
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 309
   %27 = load i8, ptr %26, align 1, !tbaa !354, !range !261, !noundef !262
   %28 = trunc nuw i8 %27 to i1
   %29 = select i1 %28, ptr @_ZN4llvmL30CSR_Win64_RT_MostRegs_SaveListE, ptr @_ZN4llvmL27CSR_64_RT_MostRegs_SaveListE
-  br label %121
+  br label %115
 
 30:                                               ; preds = %20
   %_ZN4llvmL30CSR_64_RT_AllRegs_AVX_SaveListE._ZN4llvmL26CSR_64_RT_AllRegs_SaveListE = select i1 %10, ptr @_ZN4llvmL30CSR_64_RT_AllRegs_AVX_SaveListE, ptr @_ZN4llvmL26CSR_64_RT_AllRegs_SaveListE
-  br label %121
+  br label %115
 
 31:                                               ; preds = %20
-  br label %121
+  br label %115
 
 32:                                               ; preds = %20
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %34 = load i8, ptr %33, align 4, !tbaa !351, !range !261, !noundef !262
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %.critedge39
+  br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2696,172 +2701,163 @@ define dso_local noundef nonnull ptr @_ZNK4llvm15X86RegisterInfo18getCalleeSaved
   %40 = load i8, ptr %39, align 8, !tbaa !374, !range !261, !noundef !262
   %41 = trunc nuw i8 %40 to i1
   %42 = select i1 %41, ptr @_ZN4llvmL33CSR_64_CXX_TLS_Darwin_PE_SaveListE, ptr @_ZN4llvmL26CSR_64_TLS_Darwin_SaveListE
-  br label %121
+  br label %115
 
 43:                                               ; preds = %20
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 309
-  %45 = load i8, ptr %44, align 1, !tbaa !354, !range !261
+  %45 = load i8, ptr %44, align 1, !range !261
   %46 = trunc nuw i8 %45 to i1
-  br i1 %11, label %47, label %.critedge
+  %or.cond = select i1 %11, i1 %46, i1 false
+  br i1 %or.cond, label %115, label %47
 
 47:                                               ; preds = %43
-  br i1 %46, label %121, label %48
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %49 = load i8, ptr %48, align 4, !range !261
+  %50 = trunc nuw i8 %49 to i1
+  %or.cond42 = select i1 %11, i1 %50, i1 false
+  br i1 %or.cond42, label %115, label %51
 
-48:                                               ; preds = %47
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %50 = load i8, ptr %49, align 4, !tbaa !351, !range !261, !noundef !262
-  %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %121, label %.critedge.thread.thread
+51:                                               ; preds = %47
+  %or.cond45 = select i1 %10, i1 %46, i1 false
+  br i1 %or.cond45, label %115, label %52
 
-.critedge:                                        ; preds = %43
-  br i1 %10, label %.critedge.thread, label %.critedge40
+52:                                               ; preds = %51
+  %or.cond48 = select i1 %10, i1 %50, i1 false
+  br i1 %or.cond48, label %115, label %53
 
-.critedge.thread:                                 ; preds = %.critedge
-  br i1 %46, label %121, label %.critedge.thread.thread
+53:                                               ; preds = %52
+  %or.cond51 = select i1 %10, i1 true, i1 %46
+  %or.cond51.not = xor i1 %or.cond51, true
+  %or.cond54 = select i1 %or.cond51.not, i1 %50, i1 false
+  br i1 %or.cond54, label %115, label %93
 
-.critedge.thread.thread:                          ; preds = %48, %.critedge.thread
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %53 = load i8, ptr %52, align 4, !tbaa !351, !range !261, !noundef !262
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %121, label %.critedge39
+54:                                               ; preds = %20
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %56 = load i8, ptr %55, align 4, !tbaa !351, !range !261, !noundef !262
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %58, label %66
 
-.critedge40:                                      ; preds = %.critedge
-  br i1 %46, label %.critedge39, label %55
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 309
+  %60 = load i8, ptr %59, align 1, !tbaa !354, !range !261, !noundef !262
+  %61 = trunc nuw i8 %60 to i1
+  br i1 %61, label %62, label %64
 
-55:                                               ; preds = %.critedge40
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %57 = load i8, ptr %56, align 4, !tbaa !351, !range !261, !noundef !262
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %121, label %.critedge39
+62:                                               ; preds = %58
+  %63 = select i1 %9, ptr @_ZN4llvmL26CSR_Win64_RegCall_SaveListE, ptr @_ZN4llvmL32CSR_Win64_RegCall_NoSSE_SaveListE
+  br label %115
 
-59:                                               ; preds = %20
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %61 = load i8, ptr %60, align 4, !tbaa !351, !range !261, !noundef !262
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %63, label %71
+64:                                               ; preds = %58
+  %65 = select i1 %9, ptr @_ZN4llvmL27CSR_SysV64_RegCall_SaveListE, ptr @_ZN4llvmL33CSR_SysV64_RegCall_NoSSE_SaveListE
+  br label %115
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 309
-  %65 = load i8, ptr %64, align 1, !tbaa !354, !range !261, !noundef !262
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %67, label %69
+66:                                               ; preds = %54
+  %67 = select i1 %9, ptr @_ZN4llvmL23CSR_32_RegCall_SaveListE, ptr @_ZN4llvmL29CSR_32_RegCall_NoSSE_SaveListE
+  br label %115
 
-67:                                               ; preds = %63
-  %68 = select i1 %9, ptr @_ZN4llvmL26CSR_Win64_RegCall_SaveListE, ptr @_ZN4llvmL32CSR_Win64_RegCall_NoSSE_SaveListE
-  br label %121
+68:                                               ; preds = %20
+  %69 = select i1 %9, ptr @_ZN4llvmL32CSR_Win32_CFGuard_Check_SaveListE, ptr @_ZN4llvmL38CSR_Win32_CFGuard_Check_NoSSE_SaveListE
+  br label %115
 
-69:                                               ; preds = %63
-  %70 = select i1 %9, ptr @_ZN4llvmL27CSR_SysV64_RegCall_SaveListE, ptr @_ZN4llvmL33CSR_SysV64_RegCall_NoSSE_SaveListE
-  br label %121
+70:                                               ; preds = %20
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %72 = load i8, ptr %71, align 4, !tbaa !351, !range !261, !noundef !262
+  %73 = trunc nuw i8 %72 to i1
+  br i1 %73, label %115, label %.thread
 
-71:                                               ; preds = %59
-  %72 = select i1 %9, ptr @_ZN4llvmL23CSR_32_RegCall_SaveListE, ptr @_ZN4llvmL29CSR_32_RegCall_NoSSE_SaveListE
-  br label %121
-
-73:                                               ; preds = %20
-  %74 = select i1 %9, ptr @_ZN4llvmL32CSR_Win32_CFGuard_Check_SaveListE, ptr @_ZN4llvmL38CSR_Win32_CFGuard_Check_NoSSE_SaveListE
-  br label %121
+74:                                               ; preds = %20
+  %_ZN4llvmL18CSR_Win64_SaveListE._ZN4llvmL24CSR_Win64_NoSSE_SaveListE = select i1 %9, ptr @_ZN4llvmL18CSR_Win64_SaveListE, ptr @_ZN4llvmL24CSR_Win64_NoSSE_SaveListE
+  br label %115
 
 75:                                               ; preds = %20
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %77 = load i8, ptr %76, align 4, !tbaa !351, !range !261, !noundef !262
   %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %121, label %.critedge39
+  br i1 %78, label %79, label %115
 
-79:                                               ; preds = %20
-  %_ZN4llvmL18CSR_Win64_SaveListE._ZN4llvmL24CSR_Win64_NoSSE_SaveListE = select i1 %9, ptr @_ZN4llvmL18CSR_Win64_SaveListE, ptr @_ZN4llvmL24CSR_Win64_NoSSE_SaveListE
-  br label %121
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 309
+  %81 = load i8, ptr %80, align 1, !tbaa !354, !range !261, !noundef !262
+  %82 = trunc nuw i8 %81 to i1
+  %83 = select i1 %82, ptr @_ZN4llvmL28CSR_Win64_SwiftTail_SaveListE, ptr @_ZN4llvmL25CSR_64_SwiftTail_SaveListE
+  br label %115
 
-80:                                               ; preds = %20
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %82 = load i8, ptr %81, align 4, !tbaa !351, !range !261, !noundef !262
-  %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %84, label %121
-
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 309
-  %86 = load i8, ptr %85, align 1, !tbaa !354, !range !261, !noundef !262
-  %87 = trunc nuw i8 %86 to i1
-  %88 = select i1 %87, ptr @_ZN4llvmL28CSR_Win64_SwiftTail_SaveListE, ptr @_ZN4llvmL25CSR_64_SwiftTail_SaveListE
-  br label %121
-
-89:                                               ; preds = %20
+84:                                               ; preds = %20
   %_ZN4llvmL20CSR_64EHRet_SaveListE._ZN4llvmL15CSR_64_SaveListE = select i1 %14, ptr @_ZN4llvmL20CSR_64EHRet_SaveListE, ptr @_ZN4llvmL15CSR_64_SaveListE
-  br label %121
+  br label %115
 
-90:                                               ; preds = %20
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %92 = load i8, ptr %91, align 4, !tbaa !351, !range !261, !noundef !262
-  %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %94, label %96
+85:                                               ; preds = %20
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %87 = load i8, ptr %86, align 4, !tbaa !351, !range !261, !noundef !262
+  %88 = trunc nuw i8 %87 to i1
+  br i1 %88, label %89, label %91
 
-94:                                               ; preds = %90
-  br i1 %11, label %121, label %95
+89:                                               ; preds = %85
+  br i1 %11, label %115, label %90
 
-95:                                               ; preds = %94
+90:                                               ; preds = %89
   %_ZN4llvmL23CSR_64_AllRegs_SaveListE._ZN4llvmL29CSR_64_AllRegs_NoSSE_SaveListE = select i1 %9, ptr @_ZN4llvmL23CSR_64_AllRegs_SaveListE, ptr @_ZN4llvmL29CSR_64_AllRegs_NoSSE_SaveListE
-  %spec.select44 = select i1 %10, ptr @_ZN4llvmL27CSR_64_AllRegs_AVX_SaveListE, ptr %_ZN4llvmL23CSR_64_AllRegs_SaveListE._ZN4llvmL29CSR_64_AllRegs_NoSSE_SaveListE
-  br label %121
+  %spec.select56 = select i1 %10, ptr @_ZN4llvmL27CSR_64_AllRegs_AVX_SaveListE, ptr %_ZN4llvmL23CSR_64_AllRegs_SaveListE._ZN4llvmL29CSR_64_AllRegs_NoSSE_SaveListE
+  br label %115
 
-96:                                               ; preds = %90
-  br i1 %11, label %121, label %97
+91:                                               ; preds = %85
+  br i1 %11, label %115, label %92
 
-97:                                               ; preds = %96
+92:                                               ; preds = %91
   %_ZN4llvmL27CSR_32_AllRegs_SSE_SaveListE._ZN4llvmL23CSR_32_AllRegs_SaveListE = select i1 %9, ptr @_ZN4llvmL27CSR_32_AllRegs_SSE_SaveListE, ptr @_ZN4llvmL23CSR_32_AllRegs_SaveListE
-  %spec.select45 = select i1 %10, ptr @_ZN4llvmL27CSR_32_AllRegs_AVX_SaveListE, ptr %_ZN4llvmL27CSR_32_AllRegs_SSE_SaveListE._ZN4llvmL23CSR_32_AllRegs_SaveListE
-  br label %121
+  %spec.select57 = select i1 %10, ptr @_ZN4llvmL27CSR_32_AllRegs_AVX_SaveListE, ptr %_ZN4llvmL27CSR_32_AllRegs_SSE_SaveListE._ZN4llvmL23CSR_32_AllRegs_SaveListE
+  br label %115
 
-.critedge39:                                      ; preds = %.critedge.thread.thread, %20, %75, %.critedge40, %55, %32
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %99 = load i8, ptr %98, align 4, !tbaa !351, !range !261, !noundef !262
-  %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %101, label %119
+93:                                               ; preds = %._crit_edge, %53
+  %94 = phi i8 [ %.pre, %._crit_edge ], [ %49, %53 ]
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %96, label %.thread
 
-101:                                              ; preds = %.critedge39
-  %102 = getelementptr inbounds nuw i8, ptr %5, i64 1048
-  %103 = tail call noundef zeroext i1 @_ZNK4llvm17X86TargetLowering17supportSwiftErrorEv(ptr noundef nonnull align 8 dereferenceable(412456) %102) #23
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 1048
+  %98 = tail call noundef zeroext i1 @_ZNK4llvm17X86TargetLowering17supportSwiftErrorEv(ptr noundef nonnull align 8 dereferenceable(412456) %97) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
-  br i1 %103, label %104, label %.critedge42
+  br i1 %98, label %99, label %.critedge
 
-104:                                              ; preds = %101
-  %105 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %.sroa.0.0.copyload.i = load ptr, ptr %105, align 8, !tbaa !405
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %.sroa.0.0.copyload.i = load ptr, ptr %100, align 8, !tbaa !405
   store ptr %.sroa.0.0.copyload.i, ptr %3, align 8
-  %106 = call noundef zeroext i1 @_ZNK4llvm13AttributeList16hasAttrSomewhereENS_9Attribute8AttrKindEPj(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 74, ptr noundef null) #23
+  %101 = call noundef zeroext i1 @_ZNK4llvm13AttributeList16hasAttrSomewhereENS_9Attribute8AttrKindEPj(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 74, ptr noundef null) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
-  br i1 %106, label %107, label %112
+  br i1 %101, label %102, label %107
 
-107:                                              ; preds = %104
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 309
+  %104 = load i8, ptr %103, align 1, !tbaa !354, !range !261, !noundef !262
+  %105 = trunc nuw i8 %104 to i1
+  %106 = select i1 %105, ptr @_ZN4llvmL29CSR_Win64_SwiftError_SaveListE, ptr @_ZN4llvmL26CSR_64_SwiftError_SaveListE
+  br label %115
+
+.critedge:                                        ; preds = %96
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  br label %107
+
+107:                                              ; preds = %.critedge, %99
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 309
   %109 = load i8, ptr %108, align 1, !tbaa !354, !range !261, !noundef !262
   %110 = trunc nuw i8 %109 to i1
-  %111 = select i1 %110, ptr @_ZN4llvmL29CSR_Win64_SwiftError_SaveListE, ptr @_ZN4llvmL26CSR_64_SwiftError_SaveListE
-  br label %121
+  br i1 %110, label %111, label %113
 
-.critedge42:                                      ; preds = %101
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
-  br label %112
+111:                                              ; preds = %107
+  %112 = select i1 %9, ptr @_ZN4llvmL18CSR_Win64_SaveListE, ptr @_ZN4llvmL24CSR_Win64_NoSSE_SaveListE
+  br label %115
 
-112:                                              ; preds = %.critedge42, %104
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 309
-  %114 = load i8, ptr %113, align 1, !tbaa !354, !range !261, !noundef !262
-  %115 = trunc nuw i8 %114 to i1
-  br i1 %115, label %116, label %118
+113:                                              ; preds = %107
+  %_ZN4llvmL20CSR_64EHRet_SaveListE._ZN4llvmL15CSR_64_SaveListE55 = select i1 %14, ptr @_ZN4llvmL20CSR_64EHRet_SaveListE, ptr @_ZN4llvmL15CSR_64_SaveListE
+  br label %115
 
-116:                                              ; preds = %112
-  %117 = select i1 %9, ptr @_ZN4llvmL18CSR_Win64_SaveListE, ptr @_ZN4llvmL24CSR_Win64_NoSSE_SaveListE
-  br label %121
+.thread:                                          ; preds = %32, %70, %93
+  %114 = select i1 %14, ptr @_ZN4llvmL20CSR_32EHRet_SaveListE, ptr @_ZN4llvmL15CSR_32_SaveListE
+  br label %115
 
-118:                                              ; preds = %112
-  %_ZN4llvmL20CSR_64EHRet_SaveListE._ZN4llvmL15CSR_64_SaveListE43 = select i1 %14, ptr @_ZN4llvmL20CSR_64EHRet_SaveListE, ptr @_ZN4llvmL15CSR_64_SaveListE
-  br label %121
-
-119:                                              ; preds = %.critedge39
-  %120 = select i1 %14, ptr @_ZN4llvmL20CSR_32EHRet_SaveListE, ptr @_ZN4llvmL15CSR_32_SaveListE
-  br label %121
-
-121:                                              ; preds = %97, %95, %107, %116, %118, %96, %94, %89, %80, %79, %75, %55, %.critedge.thread.thread, %.critedge.thread, %48, %47, %30, %24, %20, %20, %2, %119, %84, %73, %71, %69, %67, %36, %31, %25
-  %.0 = phi ptr [ %120, %119 ], [ %88, %84 ], [ %74, %73 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %42, %36 ], [ @_ZN4llvmL24CSR_64_NoneRegs_SaveListE, %31 ], [ %29, %25 ], [ @_ZN4llvmL19CSR_NoRegs_SaveListE, %2 ], [ @_ZN4llvmL19CSR_NoRegs_SaveListE, %20 ], [ @_ZN4llvmL19CSR_NoRegs_SaveListE, %20 ], [ %_ZN4llvmL27CSR_64_AllRegs_AVX_SaveListE._ZN4llvmL23CSR_64_AllRegs_SaveListE, %24 ], [ %_ZN4llvmL30CSR_64_RT_AllRegs_AVX_SaveListE._ZN4llvmL26CSR_64_RT_AllRegs_SaveListE, %30 ], [ @_ZN4llvmL38CSR_Win64_Intel_OCL_BI_AVX512_SaveListE, %47 ], [ @_ZN4llvmL35CSR_64_Intel_OCL_BI_AVX512_SaveListE, %48 ], [ @_ZN4llvmL35CSR_Win64_Intel_OCL_BI_AVX_SaveListE, %.critedge.thread ], [ @_ZN4llvmL32CSR_64_Intel_OCL_BI_AVX_SaveListE, %.critedge.thread.thread ], [ @_ZN4llvmL28CSR_64_Intel_OCL_BI_SaveListE, %55 ], [ @_ZN4llvmL24CSR_64_MostRegs_SaveListE, %75 ], [ %_ZN4llvmL18CSR_Win64_SaveListE._ZN4llvmL24CSR_Win64_NoSSE_SaveListE, %79 ], [ @_ZN4llvmL15CSR_32_SaveListE, %80 ], [ %_ZN4llvmL20CSR_64EHRet_SaveListE._ZN4llvmL15CSR_64_SaveListE, %89 ], [ @_ZN4llvmL30CSR_64_AllRegs_AVX512_SaveListE, %94 ], [ @_ZN4llvmL30CSR_32_AllRegs_AVX512_SaveListE, %96 ], [ %111, %107 ], [ %117, %116 ], [ %_ZN4llvmL20CSR_64EHRet_SaveListE._ZN4llvmL15CSR_64_SaveListE43, %118 ], [ %spec.select44, %95 ], [ %spec.select45, %97 ]
+115:                                              ; preds = %92, %90, %102, %111, %113, %91, %89, %84, %75, %74, %70, %53, %52, %51, %47, %43, %30, %24, %20, %20, %2, %.thread, %79, %68, %66, %64, %62, %36, %31, %25
+  %.0 = phi ptr [ %114, %.thread ], [ %83, %79 ], [ %69, %68 ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %42, %36 ], [ @_ZN4llvmL24CSR_64_NoneRegs_SaveListE, %31 ], [ %29, %25 ], [ @_ZN4llvmL19CSR_NoRegs_SaveListE, %2 ], [ @_ZN4llvmL19CSR_NoRegs_SaveListE, %20 ], [ @_ZN4llvmL19CSR_NoRegs_SaveListE, %20 ], [ %_ZN4llvmL27CSR_64_AllRegs_AVX_SaveListE._ZN4llvmL23CSR_64_AllRegs_SaveListE, %24 ], [ %_ZN4llvmL30CSR_64_RT_AllRegs_AVX_SaveListE._ZN4llvmL26CSR_64_RT_AllRegs_SaveListE, %30 ], [ @_ZN4llvmL38CSR_Win64_Intel_OCL_BI_AVX512_SaveListE, %43 ], [ @_ZN4llvmL35CSR_64_Intel_OCL_BI_AVX512_SaveListE, %47 ], [ @_ZN4llvmL35CSR_Win64_Intel_OCL_BI_AVX_SaveListE, %51 ], [ @_ZN4llvmL32CSR_64_Intel_OCL_BI_AVX_SaveListE, %52 ], [ @_ZN4llvmL28CSR_64_Intel_OCL_BI_SaveListE, %53 ], [ @_ZN4llvmL24CSR_64_MostRegs_SaveListE, %70 ], [ %_ZN4llvmL18CSR_Win64_SaveListE._ZN4llvmL24CSR_Win64_NoSSE_SaveListE, %74 ], [ @_ZN4llvmL15CSR_32_SaveListE, %75 ], [ %_ZN4llvmL20CSR_64EHRet_SaveListE._ZN4llvmL15CSR_64_SaveListE, %84 ], [ @_ZN4llvmL30CSR_64_AllRegs_AVX512_SaveListE, %89 ], [ @_ZN4llvmL30CSR_32_AllRegs_AVX512_SaveListE, %91 ], [ %106, %102 ], [ %112, %111 ], [ %_ZN4llvmL20CSR_64EHRet_SaveListE._ZN4llvmL15CSR_64_SaveListE55, %113 ], [ %spec.select56, %90 ], [ %spec.select57, %92 ]
   ret ptr %.0
 }
 
@@ -2915,200 +2911,199 @@ define dso_local noundef nonnull ptr @_ZNK4llvm15X86RegisterInfo20getCallPreserv
   %9 = icmp sgt i32 %8, 0
   %10 = icmp sgt i32 %8, 6
   %11 = icmp sgt i32 %8, 8
-  switch i32 %2, label %.critedge28 [
-    i32 10, label %91
-    i32 11, label %91
+  switch i32 %2, label %._crit_edge [
+    i32 10, label %86
+    i32 11, label %86
     i32 13, label %12
     i32 14, label %13
     i32 15, label %17
     i32 21, label %18
     i32 17, label %19
     i32 77, label %23
-    i32 92, label %39
-    i32 19, label %50
-    i32 9, label %51
-    i32 79, label %55
-    i32 20, label %56
-    i32 78, label %64
-    i32 83, label %65
+    i32 92, label %34
+    i32 19, label %45
+    i32 9, label %46
+    i32 79, label %50
+    i32 20, label %51
+    i32 78, label %59
+    i32 83, label %60
   ]
+
+._crit_edge:                                      ; preds = %3
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %.pre = load i8, ptr %.phi.trans.insert, align 4, !tbaa !351, !range !261
+  br label %68
 
 12:                                               ; preds = %3
   %_ZN4llvmL26CSR_64_AllRegs_AVX_RegMaskE._ZN4llvmL22CSR_64_AllRegs_RegMaskE = select i1 %10, ptr @_ZN4llvmL26CSR_64_AllRegs_AVX_RegMaskE, ptr @_ZN4llvmL22CSR_64_AllRegs_RegMaskE
-  br label %91
+  br label %86
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 309
   %15 = load i8, ptr %14, align 1, !tbaa !354, !range !261, !noundef !262
   %16 = trunc nuw i8 %15 to i1
   %_ZN4llvmL29CSR_Win64_RT_MostRegs_RegMaskE._ZN4llvmL26CSR_64_RT_MostRegs_RegMaskE = select i1 %16, ptr @_ZN4llvmL29CSR_Win64_RT_MostRegs_RegMaskE, ptr @_ZN4llvmL26CSR_64_RT_MostRegs_RegMaskE
-  br label %91
+  br label %86
 
 17:                                               ; preds = %3
   %_ZN4llvmL29CSR_64_RT_AllRegs_AVX_RegMaskE._ZN4llvmL25CSR_64_RT_AllRegs_RegMaskE = select i1 %10, ptr @_ZN4llvmL29CSR_64_RT_AllRegs_AVX_RegMaskE, ptr @_ZN4llvmL25CSR_64_RT_AllRegs_RegMaskE
-  br label %91
+  br label %86
 
 18:                                               ; preds = %3
-  br label %91
+  br label %86
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %21 = load i8, ptr %20, align 4, !tbaa !351, !range !261, !noundef !262
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %91, label %.critedge28
+  br i1 %22, label %86, label %.thread
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 309
-  %25 = load i8, ptr %24, align 1, !tbaa !354, !range !261
+  %25 = load i8, ptr %24, align 1, !range !261
   %26 = trunc nuw i8 %25 to i1
-  br i1 %11, label %27, label %.critedge
+  %or.cond = select i1 %11, i1 %26, i1 false
+  br i1 %or.cond, label %86, label %27
 
 27:                                               ; preds = %23
-  br i1 %26, label %91, label %28
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %29 = load i8, ptr %28, align 4, !range !261
+  %30 = trunc nuw i8 %29 to i1
+  %or.cond31 = select i1 %11, i1 %30, i1 false
+  br i1 %or.cond31, label %86, label %31
 
-28:                                               ; preds = %27
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %30 = load i8, ptr %29, align 4, !tbaa !351, !range !261, !noundef !262
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %91, label %.critedge.thread.thread
+31:                                               ; preds = %27
+  %or.cond34 = select i1 %10, i1 %26, i1 false
+  br i1 %or.cond34, label %86, label %32
 
-.critedge:                                        ; preds = %23
-  br i1 %10, label %.critedge.thread, label %.critedge29
+32:                                               ; preds = %31
+  %or.cond37 = select i1 %10, i1 %30, i1 false
+  br i1 %or.cond37, label %86, label %33
 
-.critedge.thread:                                 ; preds = %.critedge
-  br i1 %26, label %91, label %.critedge.thread.thread
+33:                                               ; preds = %32
+  %or.cond40 = select i1 %10, i1 true, i1 %26
+  %or.cond40.not = xor i1 %or.cond40, true
+  %or.cond43 = select i1 %or.cond40.not, i1 %30, i1 false
+  br i1 %or.cond43, label %86, label %68
 
-.critedge.thread.thread:                          ; preds = %28, %.critedge.thread
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %33 = load i8, ptr %32, align 4, !tbaa !351, !range !261, !noundef !262
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %91, label %.critedge28
+34:                                               ; preds = %3
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %36 = load i8, ptr %35, align 4, !tbaa !351, !range !261, !noundef !262
+  %37 = trunc nuw i8 %36 to i1
+  br i1 %37, label %38, label %44
 
-.critedge29:                                      ; preds = %.critedge
-  br i1 %26, label %.critedge28, label %35
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 309
+  %40 = load i8, ptr %39, align 1, !tbaa !354, !range !261, !noundef !262
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %42, label %43
 
-35:                                               ; preds = %.critedge29
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %37 = load i8, ptr %36, align 4, !tbaa !351, !range !261, !noundef !262
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %91, label %.critedge28
-
-39:                                               ; preds = %3
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %41 = load i8, ptr %40, align 4, !tbaa !351, !range !261, !noundef !262
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %49
-
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 309
-  %45 = load i8, ptr %44, align 1, !tbaa !354, !range !261, !noundef !262
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %48
-
-47:                                               ; preds = %43
+42:                                               ; preds = %38
   %_ZN4llvmL25CSR_Win64_RegCall_RegMaskE._ZN4llvmL31CSR_Win64_RegCall_NoSSE_RegMaskE = select i1 %9, ptr @_ZN4llvmL25CSR_Win64_RegCall_RegMaskE, ptr @_ZN4llvmL31CSR_Win64_RegCall_NoSSE_RegMaskE
-  br label %91
+  br label %86
 
-48:                                               ; preds = %43
+43:                                               ; preds = %38
   %_ZN4llvmL26CSR_SysV64_RegCall_RegMaskE._ZN4llvmL32CSR_SysV64_RegCall_NoSSE_RegMaskE = select i1 %9, ptr @_ZN4llvmL26CSR_SysV64_RegCall_RegMaskE, ptr @_ZN4llvmL32CSR_SysV64_RegCall_NoSSE_RegMaskE
-  br label %91
+  br label %86
 
-49:                                               ; preds = %39
+44:                                               ; preds = %34
   %_ZN4llvmL22CSR_32_RegCall_RegMaskE._ZN4llvmL28CSR_32_RegCall_NoSSE_RegMaskE = select i1 %9, ptr @_ZN4llvmL22CSR_32_RegCall_RegMaskE, ptr @_ZN4llvmL28CSR_32_RegCall_NoSSE_RegMaskE
-  br label %91
+  br label %86
+
+45:                                               ; preds = %3
+  %_ZN4llvmL31CSR_Win32_CFGuard_Check_RegMaskE._ZN4llvmL37CSR_Win32_CFGuard_Check_NoSSE_RegMaskE = select i1 %9, ptr @_ZN4llvmL31CSR_Win32_CFGuard_Check_RegMaskE, ptr @_ZN4llvmL37CSR_Win32_CFGuard_Check_NoSSE_RegMaskE
+  br label %86
+
+46:                                               ; preds = %3
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %48 = load i8, ptr %47, align 4, !tbaa !351, !range !261, !noundef !262
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %86, label %.thread
 
 50:                                               ; preds = %3
-  %_ZN4llvmL31CSR_Win32_CFGuard_Check_RegMaskE._ZN4llvmL37CSR_Win32_CFGuard_Check_NoSSE_RegMaskE = select i1 %9, ptr @_ZN4llvmL31CSR_Win32_CFGuard_Check_RegMaskE, ptr @_ZN4llvmL37CSR_Win32_CFGuard_Check_NoSSE_RegMaskE
-  br label %91
+  br label %86
 
 51:                                               ; preds = %3
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %53 = load i8, ptr %52, align 4, !tbaa !351, !range !261, !noundef !262
   %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %91, label %.critedge28
+  br i1 %54, label %55, label %86
 
-55:                                               ; preds = %3
-  br label %91
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 309
+  %57 = load i8, ptr %56, align 1, !tbaa !354, !range !261, !noundef !262
+  %58 = trunc nuw i8 %57 to i1
+  %_ZN4llvmL27CSR_Win64_SwiftTail_RegMaskE._ZN4llvmL24CSR_64_SwiftTail_RegMaskE = select i1 %58, ptr @_ZN4llvmL27CSR_Win64_SwiftTail_RegMaskE, ptr @_ZN4llvmL24CSR_64_SwiftTail_RegMaskE
+  br label %86
 
-56:                                               ; preds = %3
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %58 = load i8, ptr %57, align 4, !tbaa !351, !range !261, !noundef !262
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %91
+59:                                               ; preds = %3
+  br label %86
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 309
-  %62 = load i8, ptr %61, align 1, !tbaa !354, !range !261, !noundef !262
+60:                                               ; preds = %3
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %62 = load i8, ptr %61, align 4, !tbaa !351, !range !261, !noundef !262
   %63 = trunc nuw i8 %62 to i1
-  %_ZN4llvmL27CSR_Win64_SwiftTail_RegMaskE._ZN4llvmL24CSR_64_SwiftTail_RegMaskE = select i1 %63, ptr @_ZN4llvmL27CSR_Win64_SwiftTail_RegMaskE, ptr @_ZN4llvmL24CSR_64_SwiftTail_RegMaskE
-  br label %91
+  br i1 %63, label %64, label %66
 
-64:                                               ; preds = %3
-  br label %91
+64:                                               ; preds = %60
+  br i1 %11, label %86, label %65
 
-65:                                               ; preds = %3
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %67 = load i8, ptr %66, align 4, !tbaa !351, !range !261, !noundef !262
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %69, label %71
-
-69:                                               ; preds = %65
-  br i1 %11, label %91, label %70
-
-70:                                               ; preds = %69
+65:                                               ; preds = %64
   %_ZN4llvmL22CSR_64_AllRegs_RegMaskE._ZN4llvmL28CSR_64_AllRegs_NoSSE_RegMaskE = select i1 %9, ptr @_ZN4llvmL22CSR_64_AllRegs_RegMaskE, ptr @_ZN4llvmL28CSR_64_AllRegs_NoSSE_RegMaskE
   %spec.select = select i1 %10, ptr @_ZN4llvmL26CSR_64_AllRegs_AVX_RegMaskE, ptr %_ZN4llvmL22CSR_64_AllRegs_RegMaskE._ZN4llvmL28CSR_64_AllRegs_NoSSE_RegMaskE
-  br label %91
+  br label %86
 
-71:                                               ; preds = %65
-  br i1 %11, label %91, label %72
+66:                                               ; preds = %60
+  br i1 %11, label %86, label %67
 
-72:                                               ; preds = %71
+67:                                               ; preds = %66
   %_ZN4llvmL26CSR_32_AllRegs_SSE_RegMaskE._ZN4llvmL22CSR_32_AllRegs_RegMaskE = select i1 %9, ptr @_ZN4llvmL26CSR_32_AllRegs_SSE_RegMaskE, ptr @_ZN4llvmL22CSR_32_AllRegs_RegMaskE
-  %spec.select32 = select i1 %10, ptr @_ZN4llvmL26CSR_32_AllRegs_AVX_RegMaskE, ptr %_ZN4llvmL26CSR_32_AllRegs_SSE_RegMaskE._ZN4llvmL22CSR_32_AllRegs_RegMaskE
-  br label %91
+  %spec.select44 = select i1 %10, ptr @_ZN4llvmL26CSR_32_AllRegs_AVX_RegMaskE, ptr %_ZN4llvmL26CSR_32_AllRegs_SSE_RegMaskE._ZN4llvmL22CSR_32_AllRegs_RegMaskE
+  br label %86
 
-.critedge28:                                      ; preds = %.critedge.thread.thread, %3, %51, %.critedge29, %35, %19
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %74 = load i8, ptr %73, align 4, !tbaa !351, !range !261, !noundef !262
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %76, label %91
+.thread:                                          ; preds = %46, %19
+  br label %86
 
-76:                                               ; preds = %.critedge28
-  %77 = load ptr, ptr %1, align 8, !tbaa !366
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 1048
-  %79 = tail call noundef zeroext i1 @_ZNK4llvm17X86TargetLowering17supportSwiftErrorEv(ptr noundef nonnull align 8 dereferenceable(412456) %78) #23
+68:                                               ; preds = %._crit_edge, %33
+  %69 = phi i8 [ %.pre, %._crit_edge ], [ %29, %33 ]
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %71, label %86
+
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %1, align 8, !tbaa !366
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 1048
+  %74 = tail call noundef zeroext i1 @_ZNK4llvm17X86TargetLowering17supportSwiftErrorEv(ptr noundef nonnull align 8 dereferenceable(412456) %73) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
-  br i1 %79, label %80, label %.critedge31
+  br i1 %74, label %75, label %.critedge
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %77, i64 120
-  %.sroa.0.0.copyload.i = load ptr, ptr %81, align 8, !tbaa !405
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 120
+  %.sroa.0.0.copyload.i = load ptr, ptr %76, align 8, !tbaa !405
   store ptr %.sroa.0.0.copyload.i, ptr %4, align 8
-  %82 = call noundef zeroext i1 @_ZNK4llvm13AttributeList16hasAttrSomewhereENS_9Attribute8AttrKindEPj(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 74, ptr noundef null) #23
+  %77 = call noundef zeroext i1 @_ZNK4llvm13AttributeList16hasAttrSomewhereENS_9Attribute8AttrKindEPj(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 74, ptr noundef null) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
-  br i1 %82, label %83, label %87
+  br i1 %77, label %78, label %82
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 309
-  %85 = load i8, ptr %84, align 1, !tbaa !354, !range !261, !noundef !262
-  %86 = trunc nuw i8 %85 to i1
-  %_ZN4llvmL28CSR_Win64_SwiftError_RegMaskE._ZN4llvmL25CSR_64_SwiftError_RegMaskE = select i1 %86, ptr @_ZN4llvmL28CSR_Win64_SwiftError_RegMaskE, ptr @_ZN4llvmL25CSR_64_SwiftError_RegMaskE
-  br label %91
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 309
+  %80 = load i8, ptr %79, align 1, !tbaa !354, !range !261, !noundef !262
+  %81 = trunc nuw i8 %80 to i1
+  %_ZN4llvmL28CSR_Win64_SwiftError_RegMaskE._ZN4llvmL25CSR_64_SwiftError_RegMaskE = select i1 %81, ptr @_ZN4llvmL28CSR_Win64_SwiftError_RegMaskE, ptr @_ZN4llvmL25CSR_64_SwiftError_RegMaskE
+  br label %86
 
-.critedge31:                                      ; preds = %76
+.critedge:                                        ; preds = %71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
-  br label %87
+  br label %82
 
-87:                                               ; preds = %.critedge31, %80
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 309
-  %89 = load i8, ptr %88, align 1, !tbaa !354, !range !261, !noundef !262
-  %90 = trunc nuw i8 %89 to i1
-  %_ZN4llvmL17CSR_Win64_RegMaskE._ZN4llvmL14CSR_64_RegMaskE = select i1 %90, ptr @_ZN4llvmL17CSR_Win64_RegMaskE, ptr @_ZN4llvmL14CSR_64_RegMaskE
-  br label %91
+82:                                               ; preds = %.critedge, %75
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 309
+  %84 = load i8, ptr %83, align 1, !tbaa !354, !range !261, !noundef !262
+  %85 = trunc nuw i8 %84 to i1
+  %_ZN4llvmL17CSR_Win64_RegMaskE._ZN4llvmL14CSR_64_RegMaskE = select i1 %85, ptr @_ZN4llvmL17CSR_Win64_RegMaskE, ptr @_ZN4llvmL14CSR_64_RegMaskE
+  br label %86
 
-91:                                               ; preds = %72, %70, %.critedge28, %83, %87, %71, %69, %56, %51, %35, %.critedge.thread.thread, %.critedge.thread, %28, %27, %19, %17, %12, %3, %3, %64, %60, %55, %50, %49, %48, %47, %18, %13
-  %.0 = phi ptr [ @_ZN4llvmL14CSR_64_RegMaskE, %64 ], [ %_ZN4llvmL27CSR_Win64_SwiftTail_RegMaskE._ZN4llvmL24CSR_64_SwiftTail_RegMaskE, %60 ], [ @_ZN4llvmL17CSR_Win64_RegMaskE, %55 ], [ %_ZN4llvmL31CSR_Win32_CFGuard_Check_RegMaskE._ZN4llvmL37CSR_Win32_CFGuard_Check_NoSSE_RegMaskE, %50 ], [ %_ZN4llvmL25CSR_Win64_RegCall_RegMaskE._ZN4llvmL31CSR_Win64_RegCall_NoSSE_RegMaskE, %47 ], [ %_ZN4llvmL26CSR_SysV64_RegCall_RegMaskE._ZN4llvmL32CSR_SysV64_RegCall_NoSSE_RegMaskE, %48 ], [ %_ZN4llvmL22CSR_32_RegCall_RegMaskE._ZN4llvmL28CSR_32_RegCall_NoSSE_RegMaskE, %49 ], [ @_ZN4llvmL23CSR_64_NoneRegs_RegMaskE, %18 ], [ %_ZN4llvmL29CSR_Win64_RT_MostRegs_RegMaskE._ZN4llvmL26CSR_64_RT_MostRegs_RegMaskE, %13 ], [ @_ZN4llvmL18CSR_NoRegs_RegMaskE, %3 ], [ @_ZN4llvmL18CSR_NoRegs_RegMaskE, %3 ], [ %_ZN4llvmL26CSR_64_AllRegs_AVX_RegMaskE._ZN4llvmL22CSR_64_AllRegs_RegMaskE, %12 ], [ %_ZN4llvmL29CSR_64_RT_AllRegs_AVX_RegMaskE._ZN4llvmL25CSR_64_RT_AllRegs_RegMaskE, %17 ], [ @_ZN4llvmL25CSR_64_TLS_Darwin_RegMaskE, %19 ], [ @_ZN4llvmL37CSR_Win64_Intel_OCL_BI_AVX512_RegMaskE, %27 ], [ @_ZN4llvmL34CSR_64_Intel_OCL_BI_AVX512_RegMaskE, %28 ], [ @_ZN4llvmL34CSR_Win64_Intel_OCL_BI_AVX_RegMaskE, %.critedge.thread ], [ @_ZN4llvmL31CSR_64_Intel_OCL_BI_AVX_RegMaskE, %.critedge.thread.thread ], [ @_ZN4llvmL27CSR_64_Intel_OCL_BI_RegMaskE, %35 ], [ @_ZN4llvmL23CSR_64_MostRegs_RegMaskE, %51 ], [ @_ZN4llvmL14CSR_32_RegMaskE, %56 ], [ @_ZN4llvmL29CSR_64_AllRegs_AVX512_RegMaskE, %69 ], [ @_ZN4llvmL29CSR_32_AllRegs_AVX512_RegMaskE, %71 ], [ %_ZN4llvmL28CSR_Win64_SwiftError_RegMaskE._ZN4llvmL25CSR_64_SwiftError_RegMaskE, %83 ], [ %_ZN4llvmL17CSR_Win64_RegMaskE._ZN4llvmL14CSR_64_RegMaskE, %87 ], [ @_ZN4llvmL14CSR_32_RegMaskE, %.critedge28 ], [ %spec.select, %70 ], [ %spec.select32, %72 ]
+86:                                               ; preds = %.thread, %67, %65, %68, %78, %82, %66, %64, %51, %46, %33, %32, %31, %27, %23, %19, %17, %12, %3, %3, %59, %55, %50, %45, %44, %43, %42, %18, %13
+  %.0 = phi ptr [ @_ZN4llvmL14CSR_64_RegMaskE, %59 ], [ %_ZN4llvmL27CSR_Win64_SwiftTail_RegMaskE._ZN4llvmL24CSR_64_SwiftTail_RegMaskE, %55 ], [ @_ZN4llvmL17CSR_Win64_RegMaskE, %50 ], [ %_ZN4llvmL31CSR_Win32_CFGuard_Check_RegMaskE._ZN4llvmL37CSR_Win32_CFGuard_Check_NoSSE_RegMaskE, %45 ], [ %_ZN4llvmL25CSR_Win64_RegCall_RegMaskE._ZN4llvmL31CSR_Win64_RegCall_NoSSE_RegMaskE, %42 ], [ %_ZN4llvmL26CSR_SysV64_RegCall_RegMaskE._ZN4llvmL32CSR_SysV64_RegCall_NoSSE_RegMaskE, %43 ], [ %_ZN4llvmL22CSR_32_RegCall_RegMaskE._ZN4llvmL28CSR_32_RegCall_NoSSE_RegMaskE, %44 ], [ @_ZN4llvmL23CSR_64_NoneRegs_RegMaskE, %18 ], [ %_ZN4llvmL29CSR_Win64_RT_MostRegs_RegMaskE._ZN4llvmL26CSR_64_RT_MostRegs_RegMaskE, %13 ], [ @_ZN4llvmL18CSR_NoRegs_RegMaskE, %3 ], [ @_ZN4llvmL18CSR_NoRegs_RegMaskE, %3 ], [ %_ZN4llvmL26CSR_64_AllRegs_AVX_RegMaskE._ZN4llvmL22CSR_64_AllRegs_RegMaskE, %12 ], [ %_ZN4llvmL29CSR_64_RT_AllRegs_AVX_RegMaskE._ZN4llvmL25CSR_64_RT_AllRegs_RegMaskE, %17 ], [ @_ZN4llvmL25CSR_64_TLS_Darwin_RegMaskE, %19 ], [ @_ZN4llvmL37CSR_Win64_Intel_OCL_BI_AVX512_RegMaskE, %23 ], [ @_ZN4llvmL34CSR_64_Intel_OCL_BI_AVX512_RegMaskE, %27 ], [ @_ZN4llvmL34CSR_Win64_Intel_OCL_BI_AVX_RegMaskE, %31 ], [ @_ZN4llvmL31CSR_64_Intel_OCL_BI_AVX_RegMaskE, %32 ], [ @_ZN4llvmL27CSR_64_Intel_OCL_BI_RegMaskE, %33 ], [ @_ZN4llvmL23CSR_64_MostRegs_RegMaskE, %46 ], [ @_ZN4llvmL14CSR_32_RegMaskE, %51 ], [ @_ZN4llvmL29CSR_64_AllRegs_AVX512_RegMaskE, %64 ], [ @_ZN4llvmL29CSR_32_AllRegs_AVX512_RegMaskE, %66 ], [ %_ZN4llvmL28CSR_Win64_SwiftError_RegMaskE._ZN4llvmL25CSR_64_SwiftError_RegMaskE, %78 ], [ %_ZN4llvmL17CSR_Win64_RegMaskE._ZN4llvmL14CSR_64_RegMaskE, %82 ], [ @_ZN4llvmL14CSR_32_RegMaskE, %68 ], [ %spec.select, %65 ], [ %spec.select44, %67 ], [ @_ZN4llvmL14CSR_32_RegMaskE, %.thread ]
   ret ptr %.0
 }
 
@@ -5155,8 +5150,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86RegisterInfo19eliminateFrameI
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !821
   %40 = and i64 %39, 32
-  %.not78 = icmp eq i64 %40, 0
-  br i1 %.not78, label %46, label %42
+  %.not80 = icmp eq i64 %40, 0
+  br i1 %.not80, label %46, label %42
 
 _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit: ; preds = %16
   %41 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 32, i32 noundef 1) #23
@@ -5178,8 +5173,8 @@ _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit: ; preds = %16
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 235
   %52 = load i8, ptr %51, align 1, !tbaa !824, !range !261, !noundef !262
   %53 = trunc nuw i8 %52 to i1
-  %brmerge = or i1 %17, %53
-  br i1 %brmerge, label %54, label %56
+  %or.cond = or i1 %17, %53
+  br i1 %or.cond, label %54, label %56
 
 54:                                               ; preds = %50
   %55 = call noundef i32 @_ZNK4llvm16X86FrameLowering23getWin64EHFrameIndexRefERKNS_15MachineFunctionEiRNS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(60) %23, ptr noundef nonnull align 8 dereferenceable(1065) %10, i32 noundef %28, ptr noundef nonnull align 4 dereferenceable(4) %6) #23
@@ -5195,7 +5190,7 @@ _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit: ; preds = %16
   br label %63
 
 63:                                               ; preds = %54, %56, %42
-  %.063 = phi i32 [ %45, %42 ], [ %55, %54 ], [ %62, %56 ]
+  %.065 = phi i32 [ %45, %42 ], [ %55, %54 ], [ %62, %56 ]
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %65 = load i16, ptr %64, align 4, !tbaa !761
   %66 = icmp eq i16 %65, 33
@@ -5204,29 +5199,29 @@ _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit: ; preds = %16
 67:                                               ; preds = %63
   %68 = load ptr, ptr %24, align 8, !tbaa !778
   %69 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %68, i64 %26
-  %70 = sext i32 %.063 to i64
+  %70 = sext i32 %.065 to i64
   call void @_ZN4llvm14MachineOperand17ChangeToImmediateElj(ptr noundef nonnull align 8 dereferenceable(32) %69, i64 noundef %70, i32 noundef 0) #23
   br label %176
 
 71:                                               ; preds = %63
-  %.sroa.010.0.copyload = load i32, ptr %6, align 4, !tbaa !285
+  %.sroa.012.0.copyload = load i32, ptr %6, align 4, !tbaa !285
   %72 = icmp eq i16 %65, 2118
   br i1 %72, label %73, label %97
 
 73:                                               ; preds = %71
-  %74 = add i32 %.sroa.010.0.copyload, -1
+  %74 = add i32 %.sroa.012.0.copyload, -1
   %75 = icmp ult i32 %74, 1073741823
   br i1 %75, label %76, label %.thread
 
 76:                                               ; preds = %73
-  %77 = lshr i32 %.sroa.010.0.copyload, 3
+  %77 = lshr i32 %.sroa.012.0.copyload, 3
   %78 = load i16, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1142), align 2, !tbaa !311
   %79 = zext i16 %78 to i32
   %.not.i.i = icmp samesign ult i32 %77, %79
   br i1 %.not.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, label %.thread
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %76
-  %80 = and i32 %.sroa.010.0.copyload, 7
+  %80 = and i32 %.sroa.012.0.copyload, 7
   %81 = load ptr, ptr getelementptr (i8, ptr @_ZN4llvm20X86MCRegisterClassesE, i64 1128), align 8, !tbaa !312
   %82 = zext nneg i32 %77 to i64
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 %82
@@ -5234,36 +5229,36 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %76
   %85 = zext i8 %84 to i32
   %86 = shl nuw nsw i32 1, %80
   %87 = and i32 %86, %85
-  %.not79 = icmp eq i32 %87, 0
-  br i1 %.not79, label %.thread, label %88
+  %.not81 = icmp eq i32 %87, 0
+  br i1 %.not81, label %.thread, label %88
 
 88:                                               ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit
-  %89 = call i32 @_ZN4llvm22getX86SubSuperRegisterENS_10MCRegisterEjb(i32 %.sroa.010.0.copyload, i32 noundef 64, i1 noundef zeroext false) #23
+  %89 = call i32 @_ZN4llvm22getX86SubSuperRegisterENS_10MCRegisterEjb(i32 %.sroa.012.0.copyload, i32 noundef 64, i1 noundef zeroext false) #23
   br label %.thread
 
 .thread:                                          ; preds = %88, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, %73, %76
-  %.sroa.010.0.ph = phi i32 [ %.sroa.010.0.copyload, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit ], [ %89, %88 ], [ %.sroa.010.0.copyload, %73 ], [ %.sroa.010.0.copyload, %76 ]
+  %.sroa.012.0.ph = phi i32 [ %.sroa.012.0.copyload, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit ], [ %89, %88 ], [ %.sroa.012.0.copyload, %73 ], [ %.sroa.012.0.copyload, %76 ]
   %90 = load ptr, ptr %24, align 8, !tbaa !778
   %91 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %90, i64 %26
-  call void @_ZN4llvm14MachineOperand16ChangeToRegisterENS_8RegisterEbbbbbb(ptr noundef nonnull align 8 dereferenceable(32) %91, i32 %.sroa.010.0.ph, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #23
+  call void @_ZN4llvm14MachineOperand16ChangeToRegisterENS_8RegisterEbbbbbb(ptr noundef nonnull align 8 dereferenceable(32) %91, i32 %.sroa.012.0.ph, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #23
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %93 = load i32, ptr %92, align 4, !tbaa !356
   %94 = load i32, ptr %6, align 4, !tbaa !819
   %95 = icmp eq i32 %94, %93
   %96 = select i1 %95, i32 %2, i32 0
-  %spec.select75 = add nsw i32 %96, %.063
+  %spec.select77 = add nsw i32 %96, %.065
   br label %114
 
 97:                                               ; preds = %71
   %98 = load ptr, ptr %24, align 8, !tbaa !778
   %99 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %98, i64 %26
-  call void @_ZN4llvm14MachineOperand16ChangeToRegisterENS_8RegisterEbbbbbb(ptr noundef nonnull align 8 dereferenceable(32) %99, i32 %.sroa.010.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #23
+  call void @_ZN4llvm14MachineOperand16ChangeToRegisterENS_8RegisterEbbbbbb(ptr noundef nonnull align 8 dereferenceable(32) %99, i32 %.sroa.012.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #23
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %101 = load i32, ptr %100, align 4, !tbaa !356
   %102 = load i32, ptr %6, align 4, !tbaa !819
   %103 = icmp eq i32 %102, %101
   %104 = select i1 %103, i32 %2, i32 0
-  %spec.select = add nsw i32 %104, %.063
+  %spec.select = add nsw i32 %104, %.065
   switch i16 %65, label %114 [
     i16 28, label %105
     i16 26, label %105
@@ -5282,7 +5277,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %76
   br label %176
 
 114:                                              ; preds = %.thread, %97
-  %spec.select76 = phi i32 [ %spec.select75, %.thread ], [ %spec.select, %97 ]
+  %spec.select78 = phi i32 [ %spec.select77, %.thread ], [ %spec.select, %97 ]
   %115 = add i32 %3, 3
   %116 = load ptr, ptr %24, align 8, !tbaa !778
   %117 = zext i32 %115 to i64
@@ -5296,7 +5291,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %76
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %124 = load i64, ptr %123, align 8, !tbaa !265
   %125 = trunc i64 %124 to i32
-  %126 = add nsw i32 %spec.select76, %125
+  %126 = add nsw i32 %spec.select78, %125
   %.not = icmp eq i32 %126, 0
   br i1 %.not, label %127, label %_ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread
 
@@ -5371,7 +5366,7 @@ _ZL19tryOptimizeLEAtoMOVN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0
   br label %176
 
 166:                                              ; preds = %114
-  %167 = sext i32 %spec.select76 to i64
+  %167 = sext i32 %spec.select78 to i64
   %168 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %169 = load i32, ptr %168, align 8, !tbaa !265
   %170 = getelementptr inbounds nuw i8, ptr %118, i64 4

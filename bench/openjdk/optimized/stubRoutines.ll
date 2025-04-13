@@ -811,38 +811,37 @@ _ZN12StubRoutines22initialize_final_stubsEv.exit: ; preds = %0, %3
 define hidden void @_Z19compiler_stubs_initb(i1 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = load i8, ptr @DelayCompilerStubsGeneration, align 1
   %3 = trunc i8 %2 to i1
-  br i1 %0, label %4, label %.critedge
+  %or.cond = select i1 %0, i1 %3, i1 false
+  br i1 %or.cond, label %4, label %9
 
 4:                                                ; preds = %1
-  br i1 %3, label %5, label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit2
-
-5:                                                ; preds = %4
   tail call void @_ZN12StubCodeDesc8unfreezeEv() #13
-  %6 = load ptr, ptr @_ZN12StubRoutines20_compiler_stubs_codeE, align 8
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit
+  %5 = load ptr, ptr @_ZN12StubRoutines20_compiler_stubs_codeE, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit
 
-8:                                                ; preds = %5
-  %9 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef 2, i32 noundef 66000, i32 noundef 100, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
-  store ptr %9, ptr @_ZN12StubRoutines20_compiler_stubs_codeE, align 8
+7:                                                ; preds = %4
+  %8 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef 2, i32 noundef 66000, i32 noundef 100, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
+  store ptr %8, ptr @_ZN12StubRoutines20_compiler_stubs_codeE, align 8
   br label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit
 
-_ZN12StubRoutines25initialize_compiler_stubsEv.exit: ; preds = %5, %8
+_ZN12StubRoutines25initialize_compiler_stubsEv.exit: ; preds = %4, %7
   tail call void @_ZN12StubCodeDesc6freezeEv() #13
-  br label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit2
+  br label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit5
 
-.critedge:                                        ; preds = %1
+9:                                                ; preds = %1
+  %or.cond3 = select i1 %0, i1 true, i1 %3
   %10 = load ptr, ptr @_ZN12StubRoutines20_compiler_stubs_codeE, align 8
   %11 = icmp ne ptr %10, null
-  %or.cond.not = select i1 %3, i1 true, i1 %11
-  br i1 %or.cond.not, label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit2, label %12
+  %or.cond7.not = select i1 %or.cond3, i1 true, i1 %11
+  br i1 %or.cond7.not, label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit5, label %12
 
-12:                                               ; preds = %.critedge
+12:                                               ; preds = %9
   %13 = tail call fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9StubsKindEiiPKcS2_S2_(i32 noundef 2, i32 noundef 66000, i32 noundef 100, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)
   store ptr %13, ptr @_ZN12StubRoutines20_compiler_stubs_codeE, align 8
-  br label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit2
+  br label %_ZN12StubRoutines25initialize_compiler_stubsEv.exit5
 
-_ZN12StubRoutines25initialize_compiler_stubsEv.exit2: ; preds = %12, %4, %.critedge, %_ZN12StubRoutines25initialize_compiler_stubsEv.exit
+_ZN12StubRoutines25initialize_compiler_stubsEv.exit5: ; preds = %12, %9, %_ZN12StubRoutines25initialize_compiler_stubsEv.exit
   ret void
 }
 

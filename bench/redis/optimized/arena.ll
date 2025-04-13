@@ -752,8 +752,8 @@ arena_decay_impl.exit:                            ; preds = %14, %20
   br i1 %38, label %39, label %arena_background_thread_inactivity_check.exit
 
 39:                                               ; preds = %30
-  %.val5.i = load i32, ptr %31, align 8, !tbaa !136
-  tail call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val5.i, ptr noundef nonnull %2, i64 noundef 0)
+  %.val6.i = load i32, ptr %31, align 8, !tbaa !136
+  tail call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val6.i, ptr noundef nonnull %2, i64 noundef 0)
   br label %arena_background_thread_inactivity_check.exit
 
 arena_background_thread_inactivity_check.exit:    ; preds = %27, %30, %39
@@ -1190,8 +1190,8 @@ define hidden void @je_arena_do_deferred_work(ptr noundef %0, ptr noundef %1) lo
   store i64 %12, ptr %10, align 8, !tbaa !71
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 69368
   %14 = load ptr, ptr %13, align 8, !tbaa !73
-  %.not.i.i35.i7 = icmp eq ptr %14, %0
-  br i1 %.not.i.i35.i7, label %20, label %15
+  %.not.i.i36.i7 = icmp eq ptr %14, %0
+  br i1 %.not.i.i36.i7, label %20, label %15
 
 15:                                               ; preds = %9
   store ptr %0, ptr %13, align 8, !tbaa !73
@@ -1243,8 +1243,8 @@ pa_shard_dont_decay_muzzy.exit.thread.i.i:        ; preds = %pa_shard_dont_decay
   store i64 %43, ptr %41, align 8, !tbaa !71
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 71152
   %45 = load ptr, ptr %44, align 8, !tbaa !73
-  %.not.i.i35.i = icmp eq ptr %45, %0
-  br i1 %.not.i.i35.i, label %51, label %46
+  %.not.i.i36.i = icmp eq ptr %45, %0
+  br i1 %.not.i.i36.i, label %51, label %46
 
 46:                                               ; preds = %40
   store ptr %0, ptr %44, align 8, !tbaa !73
@@ -1618,8 +1618,8 @@ arena_decay_impl.exit.i48:                        ; preds = %144, %140
   br i1 %158, label %159, label %je_arena_slab_dalloc.exit.i
 
 159:                                              ; preds = %151
-  %.val5.i.i45 = load i32, ptr %41, align 8, !tbaa !136
-  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val5.i.i45, ptr noundef nonnull %31, i64 noundef 0)
+  %.val6.i.i45 = load i32, ptr %41, align 8, !tbaa !136
+  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val6.i.i45, ptr noundef nonnull %31, i64 noundef 0)
   br label %je_arena_slab_dalloc.exit.i
 
 je_arena_slab_dalloc.exit.i:                      ; preds = %159, %151, %148, %128
@@ -1725,8 +1725,8 @@ arena_decay_impl.exit.i42:                        ; preds = %190, %186
   br i1 %204, label %205, label %je_arena_slab_dalloc.exit46.i
 
 205:                                              ; preds = %197
-  %.val5.i.i39 = load i32, ptr %41, align 8, !tbaa !136
-  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val5.i.i39, ptr noundef nonnull %31, i64 noundef 0)
+  %.val6.i.i39 = load i32, ptr %41, align 8, !tbaa !136
+  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val6.i.i39, ptr noundef nonnull %31, i64 noundef 0)
   br label %je_arena_slab_dalloc.exit46.i
 
 je_arena_slab_dalloc.exit46.i:                    ; preds = %205, %197, %194, %174
@@ -1877,8 +1877,8 @@ arena_decay_impl.exit.i:                          ; preds = %258, %254
   br i1 %272, label %273, label %je_arena_slab_dalloc.exit51.i
 
 273:                                              ; preds = %265
-  %.val5.i.i = load i32, ptr %41, align 8, !tbaa !136
-  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val5.i.i, ptr noundef nonnull %31, i64 noundef 0)
+  %.val6.i.i = load i32, ptr %41, align 8, !tbaa !136
+  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val6.i.i, ptr noundef nonnull %31, i64 noundef 0)
   br label %je_arena_slab_dalloc.exit51.i
 
 je_arena_slab_dalloc.exit51.i:                    ; preds = %273, %265, %262, %arena_bin_slabs_full_remove.exit.i
@@ -5884,8 +5884,8 @@ malloc_mutex_lock.exit:                           ; preds = %13, %19
   store i64 %30, ptr %28, align 8, !tbaa !71
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !73
-  %.not.i.i35 = icmp eq ptr %32, %0
-  br i1 %.not.i.i35, label %38, label %33
+  %.not.i.i36 = icmp eq ptr %32, %0
+  br i1 %.not.i.i36, label %38, label %33
 
 33:                                               ; preds = %27
   store ptr %0, ptr %31, align 8, !tbaa !73
@@ -5927,20 +5927,20 @@ arena_decide_unforced_purge_eagerness.exit:       ; preds = %38, %39
   %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #16
   %49 = load atomic i8, ptr @je_background_thread_enabled_state monotonic, align 1
   %50 = trunc i8 %49 to i1
-  %brmerge.demorgan = and i1 %43, %50
-  %brmerge = xor i1 %brmerge.demorgan, true
-  %brmerge33 = or i1 %5, %brmerge
-  br i1 %brmerge33, label %53, label %51
+  %or.cond = and i1 %43, %50
+  %or.cond.not = xor i1 %or.cond, true
+  %or.cond3 = or i1 %5, %or.cond.not
+  br i1 %or.cond3, label %53, label %51
 
 51:                                               ; preds = %46
   %52 = getelementptr i8, ptr %1, i64 78928
-  %.val34 = load i32, ptr %52, align 8, !tbaa !136
-  tail call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val34, ptr noundef nonnull %2, i64 noundef %.0)
+  %.val35 = load i32, ptr %52, align 8, !tbaa !136
+  tail call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val35, ptr noundef nonnull %2, i64 noundef %.0)
   br label %53
 
-53:                                               ; preds = %malloc_mutex_trylock.exit, %51, %46, %malloc_mutex_lock.exit
-  %.030 = phi i1 [ false, %malloc_mutex_lock.exit ], [ true, %malloc_mutex_trylock.exit ], [ false, %46 ], [ false, %51 ]
-  ret i1 %.030
+53:                                               ; preds = %malloc_mutex_trylock.exit, %46, %51, %malloc_mutex_lock.exit
+  %.033 = phi i1 [ false, %malloc_mutex_lock.exit ], [ true, %malloc_mutex_trylock.exit ], [ false, %51 ], [ false, %46 ]
+  ret i1 %.033
 }
 
 declare void @je_pac_decay_all(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
@@ -6100,12 +6100,12 @@ define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone ca
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %24 = load ptr, ptr %23, align 8, !tbaa !227
-  %.not42.i = icmp eq ptr %24, null
-  br i1 %.not42.i, label %27, label %25
+  %.not43.i = icmp eq ptr %24, null
+  br i1 %.not43.i, label %27, label %25
 
 25:                                               ; preds = %20
-  %.not43.i = icmp eq ptr %24, %17
-  br i1 %.not43.i, label %28, label %26
+  %.not44.i = icmp eq ptr %24, %17
+  br i1 %.not44.i, label %28, label %26
 
 26:                                               ; preds = %25
   tail call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %17) #16
@@ -6116,14 +6116,14 @@ define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone ca
   br label %28
 
 28:                                               ; preds = %27, %26, %25, %16, %12
-  %.036.i = phi ptr [ %17, %16 ], [ %14, %12 ], [ %17, %25 ], [ %17, %26 ], [ %17, %27 ]
+  %.037.i = phi ptr [ %17, %16 ], [ %14, %12 ], [ %17, %25 ], [ %17, %26 ], [ %17, %27 ]
   %29 = load i32, ptr @je_opt_percpu_arena, align 4, !tbaa !4
-  %30 = icmp ugt i32 %29, 2
-  br i1 %30, label %percpu_arena_ind_limit.exit.i, label %arena_choose_impl.exit
+  %30 = icmp ult i32 %29, 3
+  br i1 %30, label %arena_choose_impl.exit, label %percpu_arena_ind_limit.exit.i
 
 percpu_arena_ind_limit.exit.i:                    ; preds = %28
-  %31 = getelementptr i8, ptr %.036.i, i64 78928
-  %.036.val47.i = load i32, ptr %31, align 8, !tbaa !136
+  %31 = getelementptr i8, ptr %.037.i, i64 78928
+  %.037.val48.i = load i32, ptr %31, align 8, !tbaa !136
   %32 = icmp eq i32 %29, 4
   %33 = load i32, ptr @je_ncpus, align 4
   %34 = icmp ugt i32 %33, 1
@@ -6132,14 +6132,14 @@ percpu_arena_ind_limit.exit.i:                    ; preds = %28
   %36 = lshr i32 %33, 1
   %spec.select.i = add nuw i32 %36, %35
   %.0.i.i = select i1 %or.cond.i.i, i32 %spec.select.i, i32 %33
-  %37 = icmp ult i32 %.036.val47.i, %.0.i.i
+  %37 = icmp ult i32 %.037.val48.i, %.0.i.i
   br i1 %37, label %38, label %arena_choose_impl.exit
 
 38:                                               ; preds = %percpu_arena_ind_limit.exit.i
-  %39 = getelementptr inbounds nuw i8, ptr %.036.i, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.037.i, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !215
-  %.not44.i = icmp eq ptr %40, %0
-  br i1 %.not44.i, label %arena_choose_impl.exit, label %41
+  %.not45.i = icmp eq ptr %40, %0
+  br i1 %.not45.i, label %arena_choose_impl.exit, label %41
 
 41:                                               ; preds = %38
   %42 = tail call i32 @sched_getcpu() #16
@@ -6156,20 +6156,20 @@ percpu_arena_ind_limit.exit.i:                    ; preds = %28
   br label %percpu_arena_choose.exit.i
 
 percpu_arena_choose.exit.i:                       ; preds = %45, %41
-  %.0.i46.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %45 ]
-  %.036.val.i = load i32, ptr %31, align 8, !tbaa !136
-  %.not45.i = icmp eq i32 %.036.val.i, %.0.i46.i
-  br i1 %.not45.i, label %66, label %50
+  %.0.i47.i = phi i32 [ %42, %41 ], [ %spec.select.i.i, %45 ]
+  %.037.val.i = load i32, ptr %31, align 8, !tbaa !136
+  %.not46.i = icmp eq i32 %.037.val.i, %.0.i47.i
+  br i1 %.not46.i, label %66, label %50
 
 50:                                               ; preds = %percpu_arena_choose.exit.i
   %51 = load ptr, ptr %13, align 8, !tbaa !170
   %52 = getelementptr i8, ptr %51, i64 78928
   %.val.i.i = load i32, ptr %52, align 8, !tbaa !136
-  %.not.i49.i = icmp eq i32 %.val.i.i, %.0.i46.i
-  br i1 %.not.i49.i, label %percpu_arena_update.exit.i, label %53
+  %.not.i50.i = icmp eq i32 %.val.i.i, %.0.i47.i
+  br i1 %.not.i50.i, label %percpu_arena_update.exit.i, label %53
 
 53:                                               ; preds = %50
-  %54 = zext i32 %.0.i46.i to i64
+  %54 = zext i32 %.0.i47.i to i64
   %55 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %54
   %56 = load atomic i64, ptr %55 acquire, align 8
   %.0.i.i.i.i = inttoptr i64 %56 to ptr
@@ -6177,7 +6177,7 @@ percpu_arena_choose.exit.i:                       ; preds = %45, %41
   br i1 %57, label %58, label %arena_get.exit.i.i, !prof !142
 
 58:                                               ; preds = %53
-  %59 = tail call ptr @je_arena_init(ptr noundef nonnull %0, i32 noundef %.0.i46.i, ptr noundef nonnull @je_arena_config_default) #16
+  %59 = tail call ptr @je_arena_init(ptr noundef nonnull %0, i32 noundef %.0.i47.i, ptr noundef nonnull @je_arena_config_default) #16
   br label %arena_get.exit.i.i
 
 arena_get.exit.i.i:                               ; preds = %58, %53
@@ -6198,13 +6198,13 @@ percpu_arena_update.exit.i:                       ; preds = %62, %arena_get.exit
   br label %66
 
 66:                                               ; preds = %percpu_arena_update.exit.i, %percpu_arena_choose.exit.i
-  %.2.i = phi ptr [ %65, %percpu_arena_update.exit.i ], [ %.036.i, %percpu_arena_choose.exit.i ]
+  %.2.i = phi ptr [ %65, %percpu_arena_update.exit.i ], [ %.037.i, %percpu_arena_choose.exit.i ]
   %67 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
   store ptr %0, ptr %67, align 8, !tbaa !215
   br label %arena_choose_impl.exit
 
 arena_choose_impl.exit:                           ; preds = %2, %7, %10, %28, %percpu_arena_ind_limit.exit.i, %38, %66
-  %.0.i = phi ptr [ %1, %2 ], [ %.2.i, %66 ], [ %.036.i, %38 ], [ %.036.i, %percpu_arena_ind_limit.exit.i ], [ %.036.i, %28 ], [ %11, %10 ], [ %.0.i.i.i, %7 ]
+  %.0.i = phi ptr [ %1, %2 ], [ %.037.i, %28 ], [ %.2.i, %66 ], [ %.037.i, %38 ], [ %.037.i, %percpu_arena_ind_limit.exit.i ], [ %11, %10 ], [ %.0.i.i.i, %7 ]
   ret ptr %.0.i
 }
 

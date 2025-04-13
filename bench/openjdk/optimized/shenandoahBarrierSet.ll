@@ -580,19 +580,19 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahBarrierSet23need_keep_alive_bar
   %4 = trunc i8 %3 to i1
   %5 = and i8 %1, -2
   %or.cond.i = icmp eq i8 %5, 12
-  %or.cond8 = and i1 %or.cond.i, %4
-  br i1 %or.cond8, label %6, label %_Z17is_reference_type9BasicTypeb.exit
+  %or.cond = and i1 %or.cond.i, %4
+  br i1 %or.cond, label %6, label %_Z17is_reference_type9BasicTypeb.exit
 
 6:                                                ; preds = %2
-  %7 = and i64 %0, 4096
-  %8 = icmp eq i64 %7, 0
-  %9 = and i64 %0, 229376
-  %or.cond = icmp ne i64 %9, 0
-  %spec.select = and i1 %or.cond, %8
+  %7 = and i64 %0, 229376
+  %or.cond.not = icmp ne i64 %7, 0
+  %8 = and i64 %0, 4096
+  %9 = icmp eq i64 %8, 0
+  %10 = and i1 %or.cond.not, %9
   br label %_Z17is_reference_type9BasicTypeb.exit
 
-_Z17is_reference_type9BasicTypeb.exit:            ; preds = %6, %2
-  %.0 = phi i1 [ false, %2 ], [ %spec.select, %6 ]
+_Z17is_reference_type9BasicTypeb.exit:            ; preds = %2, %6
+  %.0 = phi i1 [ %10, %6 ], [ false, %2 ]
   ret i1 %.0
 }
 

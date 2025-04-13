@@ -707,27 +707,24 @@ lpad:                                             ; preds = %invoke.cont14, %inv
   unreachable
 
 cleanup.done:                                     ; preds = %if.end
-  br i1 %cmp2, label %land.lhs.true22, label %if.end26
-
-land.lhs.true22:                                  ; preds = %cleanup.done
   %takeOwnershipOfGenerator_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i8, ptr %takeOwnershipOfGenerator_, align 8
   %tobool23 = trunc i8 %3 to i1
-  %tobool23.not = xor i1 %tobool23, true
-  %brmerge = or i1 %cmp, %tobool23.not
+  %or.cond6 = select i1 %cmp2, i1 %tobool23, i1 false
+  %or.cond6.not = xor i1 %or.cond6, true
+  %brmerge = or i1 %cmp, %or.cond6.not
   br i1 %brmerge, label %if.end26, label %delete.notnull
 
-delete.notnull:                                   ; preds = %land.lhs.true22
+delete.notnull:                                   ; preds = %cleanup.done
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   br label %if.end26
 
-if.end26:                                         ; preds = %land.lhs.true22, %delete.notnull, %cleanup.done
+if.end26:                                         ; preds = %cleanup.done, %delete.notnull
   store ptr %g, ptr %gen_, align 8
-  %takeOwnershipOfGenerator_29 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 %frombool, ptr %takeOwnershipOfGenerator_29, align 8
+  store i8 %frombool, ptr %takeOwnershipOfGenerator_, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end26

@@ -1600,25 +1600,23 @@ dissect_cablelabs_event_notification.exit.i:      ; preds = %236, %.sink.split.i
   %245 = zext i8 %244 to i32
   %246 = load i32, ptr @hf_oampdu_variable_branch, align 4
   %247 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %246, ptr noundef %0, i32 noundef %.022.i, i32 noundef 1, i32 noundef %245)
-  %248 = add i32 %.022.i, 1
   %switch.tableidx = add i8 %244, -3
-  %249 = icmp ult i8 %switch.tableidx, 5
-  br i1 %249, label %switch.hole_check, label %253
-
-switch.hole_check:                                ; preds = %.lr.ph.i34
+  %248 = icmp ult i8 %switch.tableidx, 5
   %switch.shifted = lshr i8 27, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %253
+  %or.cond = select i1 %248, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %253
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.lr.ph.i34
+  %249 = add i32 %.022.i, 1
   %250 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_oampdu, i64 0, i64 %250
   %switch.load = load ptr, ptr %switch.gep, align 8
   %251 = load i32, ptr %switch.load, align 4
-  %252 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %251, ptr noundef %0, i32 noundef %248, i32 noundef 2, i32 noundef 0)
+  %252 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %251, ptr noundef %0, i32 noundef %249, i32 noundef 2, i32 noundef 0)
   br label %253
 
-253:                                              ; preds = %switch.hole_check, %.lr.ph.i34, %switch.lookup
+253:                                              ; preds = %.lr.ph.i34, %switch.lookup
   %254 = add i32 %.022.i, 3
   %255 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %254)
   %256 = icmp eq i8 %255, 0

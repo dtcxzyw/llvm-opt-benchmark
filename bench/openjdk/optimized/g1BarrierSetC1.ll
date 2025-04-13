@@ -1390,7 +1390,7 @@ define hidden void @_ZN14G1BarrierSetC116load_at_resolvedER9LIRAccess7LIR_Opr(pt
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 131072
-  %.not24.not = icmp eq i64 %6, 0
+  %.not = icmp eq i64 %6, 0
   %7 = load ptr, ptr %1, align 8
   tail call void @_ZN12BarrierSetC116load_at_resolvedER9LIRAccess7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %2) #5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1398,12 +1398,12 @@ define hidden void @_ZN14G1BarrierSetC116load_at_resolvedER9LIRAccess7LIR_Opr(pt
   %10 = and i8 %9, -2
   %or.cond.i.i = icmp ne i8 %10, 12
   %11 = and i64 %5, 229376
-  %brmerge25.not = icmp eq i64 %11, 0
-  %or.cond = select i1 %or.cond.i.i, i1 true, i1 %brmerge25.not
+  %or.cond3.not = icmp eq i64 %11, 0
+  %or.cond = or i1 %or.cond3.not, %or.cond.i.i
   br i1 %or.cond, label %50, label %12
 
 12:                                               ; preds = %3
-  br i1 %.not24.not, label %41, label %13
+  br i1 %.not, label %41, label %13
 
 13:                                               ; preds = %12
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1456,14 +1456,14 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %28, %30
 
 41:                                               ; preds = %37, %12
   %.0 = phi ptr [ %.0.i.i.i, %37 ], [ undef, %12 ]
-  %.sroa.01.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  %.sroa.04.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.sroa.01.0.copyload, i64 %2, ptr noundef %43) #5
-  br i1 %.not24.not, label %50, label %47
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.sroa.04.0.copyload, i64 %2, ptr noundef %43) #5
+  br i1 %.not, label %50, label %47
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 144

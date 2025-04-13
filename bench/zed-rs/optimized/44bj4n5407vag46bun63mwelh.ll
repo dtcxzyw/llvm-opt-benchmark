@@ -40999,11 +40999,11 @@ define hidden void @"_ZN84_$LT$languages..typescript..TypeScriptLspAdapter$u20$a
 default.unreachable65:                            ; preds = %3
   unreachable
 
-.thread:                                          ; preds = %switch.hole_check, %27, %37, %23, %21, %60
-  %.sroa.052.0 = phi i64 [ %.sroa.043.0.copyload, %60 ], [ -9223372036854775808, %21 ], [ -9223372036854775808, %23 ], [ -9223372036854775808, %27 ], [ -9223372036854775808, %37 ], [ -9223372036854775808, %switch.hole_check ]
-  %.sroa.553.0 = phi ptr [ %.sroa.645.0.copyload, %60 ], [ undef, %21 ], [ undef, %23 ], [ undef, %27 ], [ undef, %37 ], [ undef, %switch.hole_check ]
-  %.sroa.654.0 = phi i64 [ %.sroa.747.0.copyload, %60 ], [ undef, %21 ], [ undef, %23 ], [ undef, %27 ], [ undef, %37 ], [ undef, %switch.hole_check ]
-  %.sroa.8.0 = phi ptr [ %48, %60 ], [ undef, %21 ], [ undef, %23 ], [ undef, %27 ], [ undef, %37 ], [ undef, %switch.hole_check ]
+.thread:                                          ; preds = %27, %37, %23, %21, %60
+  %.sroa.052.0 = phi i64 [ %.sroa.043.0.copyload, %60 ], [ -9223372036854775808, %21 ], [ -9223372036854775808, %23 ], [ -9223372036854775808, %27 ], [ -9223372036854775808, %37 ]
+  %.sroa.553.0 = phi ptr [ %.sroa.645.0.copyload, %60 ], [ undef, %21 ], [ undef, %23 ], [ undef, %27 ], [ undef, %37 ]
+  %.sroa.654.0 = phi i64 [ %.sroa.747.0.copyload, %60 ], [ undef, %21 ], [ undef, %23 ], [ undef, %27 ], [ undef, %37 ]
+  %.sroa.8.0 = phi ptr [ %48, %60 ], [ undef, %21 ], [ undef, %23 ], [ undef, %27 ], [ undef, %37 ]
   store i64 %.sroa.052.0, ptr %0, align 8
   %.sroa.553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.553.0, ptr %.sroa.553.0..sroa_idx, align 8
@@ -41055,19 +41055,17 @@ default.unreachable65:                            ; preds = %3
   %29 = load i32, ptr %28, align 4
   %switch.tableidx = add i32 %29, -2
   %30 = icmp ult i32 %switch.tableidx, 20
-  br i1 %30, label %switch.hole_check, label %.thread
+  %switch.shifted = lshr i32 526719, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %30, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %.thread
 
 31:                                               ; preds = %switch.lookup
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %61
 
-switch.hole_check:                                ; preds = %27
-  %switch.shifted = lshr i32 526719, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.thread
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %27
   %33 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @"switch.table._ZN84_$LT$languages..typescript..TypeScriptLspAdapter$u20$as$u20$language..LspAdapter$GT$20label_for_completion28_$u7b$$u7b$closure$u7d$$u7d$17h37c915ac268bab89E.llvm.18094374658739611032", i64 0, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8

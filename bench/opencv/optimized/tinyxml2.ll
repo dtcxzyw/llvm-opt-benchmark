@@ -8370,7 +8370,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter10PushHeaderEbb(ptr noundef nonnu
   br label %5
 
 5:                                                ; preds = %4, %3
-  br i1 %2, label %6, label %30
+  br i1 %2, label %6, label %27
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8386,38 +8386,33 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter10PushHeaderEbb(ptr noundef nonnu
 11:                                               ; preds = %10, %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %13 = load i32, ptr %12, align 4, !tbaa !166
-  %14 = icmp slt i32 %13, 0
-  br i1 %14, label %15, label %_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit
+  %14 = icmp sgt i32 %13, -1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %16 = load i8, ptr %15, align 8, !range !119
+  %17 = trunc nuw i8 %16 to i1
+  %or.cond.i = select i1 %14, i1 true, i1 %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 137
+  %19 = load i8, ptr %18, align 1, !range !119
+  %20 = trunc nuw i8 %19 to i1
+  %or.cond6.i = select i1 %or.cond.i, i1 true, i1 %20
+  br i1 %or.cond6.i, label %_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit, label %21
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %17 = load i8, ptr %16, align 8, !tbaa !163, !range !119, !noundef !120
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit, label %19
-
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %21 = load i8, ptr %20, align 1, !tbaa !168, !range !119, !noundef !120
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit, label %23
-
-23:                                               ; preds = %19
+21:                                               ; preds = %11
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.26)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %25 = load i32, ptr %24, align 8, !tbaa !165
-  %26 = load ptr, ptr %0, align 8, !tbaa !39
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %25)
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %23 = load i32, ptr %22, align 8, !tbaa !165
+  %24 = load ptr, ptr %0, align 8, !tbaa !39
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %23)
   br label %_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit
 
-_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit: ; preds = %11, %15, %19, %23
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 0, ptr %29, align 8, !tbaa !163
+_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit: ; preds = %11, %21
+  store i8 0, ptr %15, align 8, !tbaa !163
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.25)
-  br label %30
+  br label %27
 
-30:                                               ; preds = %_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit, %5
+27:                                               ; preds = %_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit, %5
   ret void
 }
 
@@ -8436,34 +8431,29 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc(ptr noundef
 7:                                                ; preds = %6, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %9 = load i32, ptr %8, align 4, !tbaa !166
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %25
+  %10 = icmp sgt i32 %9, -1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %12 = load i8, ptr %11, align 8, !range !119
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond = select i1 %10, i1 true, i1 %13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 137
+  %15 = load i8, ptr %14, align 1, !range !119
+  %16 = trunc nuw i8 %15 to i1
+  %or.cond6 = select i1 %or.cond, i1 true, i1 %16
+  br i1 %or.cond6, label %23, label %17
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %13 = load i8, ptr %12, align 8, !tbaa !163, !range !119, !noundef !120
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %25, label %15
-
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %17 = load i8, ptr %16, align 1, !tbaa !168, !range !119, !noundef !120
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %25, label %19
-
-19:                                               ; preds = %15
+17:                                               ; preds = %7
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.26)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %21 = load i32, ptr %20, align 8, !tbaa !165
-  %22 = load ptr, ptr %0, align 8, !tbaa !39
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
-  %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %21)
-  br label %25
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %19 = load i32, ptr %18, align 8, !tbaa !165
+  %20 = load ptr, ptr %0, align 8, !tbaa !39
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
+  %22 = load ptr, ptr %21, align 8
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %19)
+  br label %23
 
-25:                                               ; preds = %19, %15, %11, %7
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 0, ptr %26, align 8, !tbaa !163
+23:                                               ; preds = %17, %7
+  store i8 0, ptr %11, align 8, !tbaa !163
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.33, ptr noundef %1)
   ret void
 }
@@ -8536,9 +8526,9 @@ _ZN2cv8tinyxml28DynArrayIPKcLi10EE4PushES3_.exit: ; preds = %._ZN2cv8tinyxml28Dy
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load i8, ptr %37, align 8, !range !119
   %39 = trunc nuw i8 %38 to i1
-  %brmerge = or i1 %2, %39
-  %or.cond = select i1 %36, i1 true, i1 %brmerge
-  br i1 %or.cond, label %41, label %40
+  %or.cond = or i1 %2, %39
+  %or.cond7 = select i1 %36, i1 true, i1 %or.cond
+  br i1 %or.cond7, label %41, label %40
 
 40:                                               ; preds = %_ZN2cv8tinyxml28DynArrayIPKcLi10EE4PushES3_.exit
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.26)
@@ -9048,8 +9038,8 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter12CloseElementEb(ptr noundef nonn
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %20 = load i32, ptr %19, align 4, !tbaa !166
   %21 = icmp sgt i32 %20, -1
-  %brmerge = or i1 %1, %21
-  br i1 %brmerge, label %27, label %22
+  %or.cond = or i1 %1, %21
+  br i1 %or.cond, label %27, label %22
 
 22:                                               ; preds = %18
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.26)
@@ -9060,7 +9050,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter12CloseElementEb(ptr noundef nonn
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %23)
   br label %27
 
-27:                                               ; preds = %18, %22
+27:                                               ; preds = %22, %18
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.31, ptr noundef %13)
   br label %28
 
@@ -9077,14 +9067,14 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter12CloseElementEb(ptr noundef nonn
 
 34:                                               ; preds = %33, %28
   %35 = icmp ne i32 %31, 0
-  %brmerge4 = or i1 %1, %35
-  br i1 %brmerge4, label %37, label %36
+  %or.cond3 = or i1 %1, %35
+  br i1 %or.cond3, label %37, label %36
 
 36:                                               ; preds = %34
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.26)
   br label %37
 
-37:                                               ; preds = %34, %36
+37:                                               ; preds = %36, %34
   store i8 0, ptr %14, align 8, !tbaa !153
   ret void
 }
@@ -9755,34 +9745,29 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter11PushCommentEPKc(ptr noundef non
 7:                                                ; preds = %6, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %9 = load i32, ptr %8, align 4, !tbaa !166
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %25
+  %10 = icmp sgt i32 %9, -1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %12 = load i8, ptr %11, align 8, !range !119
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond = select i1 %10, i1 true, i1 %13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 137
+  %15 = load i8, ptr %14, align 1, !range !119
+  %16 = trunc nuw i8 %15 to i1
+  %or.cond6 = select i1 %or.cond, i1 true, i1 %16
+  br i1 %or.cond6, label %23, label %17
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %13 = load i8, ptr %12, align 8, !tbaa !163, !range !119, !noundef !120
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %25, label %15
-
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %17 = load i8, ptr %16, align 1, !tbaa !168, !range !119, !noundef !120
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %25, label %19
-
-19:                                               ; preds = %15
+17:                                               ; preds = %7
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.26)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %21 = load i32, ptr %20, align 8, !tbaa !165
-  %22 = load ptr, ptr %0, align 8, !tbaa !39
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
-  %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %21)
-  br label %25
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %19 = load i32, ptr %18, align 8, !tbaa !165
+  %20 = load ptr, ptr %0, align 8, !tbaa !39
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
+  %22 = load ptr, ptr %21, align 8
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %19)
+  br label %23
 
-25:                                               ; preds = %19, %15, %11, %7
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 0, ptr %26, align 8, !tbaa !163
+23:                                               ; preds = %17, %7
+  store i8 0, ptr %11, align 8, !tbaa !163
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.32, ptr noundef %1)
   ret void
 }
@@ -9802,34 +9787,29 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter11PushUnknownEPKc(ptr noundef non
 7:                                                ; preds = %6, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %9 = load i32, ptr %8, align 4, !tbaa !166
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %25
+  %10 = icmp sgt i32 %9, -1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %12 = load i8, ptr %11, align 8, !range !119
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond = select i1 %10, i1 true, i1 %13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 137
+  %15 = load i8, ptr %14, align 1, !range !119
+  %16 = trunc nuw i8 %15 to i1
+  %or.cond6 = select i1 %or.cond, i1 true, i1 %16
+  br i1 %or.cond6, label %23, label %17
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %13 = load i8, ptr %12, align 8, !tbaa !163, !range !119, !noundef !120
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %25, label %15
-
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %17 = load i8, ptr %16, align 1, !tbaa !168, !range !119, !noundef !120
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %25, label %19
-
-19:                                               ; preds = %15
+17:                                               ; preds = %7
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.26)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %21 = load i32, ptr %20, align 8, !tbaa !165
-  %22 = load ptr, ptr %0, align 8, !tbaa !39
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
-  %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %21)
-  br label %25
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %19 = load i32, ptr %18, align 8, !tbaa !165
+  %20 = load ptr, ptr %0, align 8, !tbaa !39
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
+  %22 = load ptr, ptr %21, align 8
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %19)
+  br label %23
 
-25:                                               ; preds = %19, %15, %11, %7
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 0, ptr %26, align 8, !tbaa !163
+23:                                               ; preds = %17, %7
+  store i8 0, ptr %11, align 8, !tbaa !163
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.34, ptr noundef %1)
   ret void
 }
@@ -9972,34 +9952,29 @@ define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter5VisitERKNS0_10XMLC
 9:                                                ; preds = %8, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %11 = load i32, ptr %10, align 4, !tbaa !166
-  %12 = icmp slt i32 %11, 0
-  br i1 %12, label %13, label %_ZN2cv8tinyxml210XMLPrinter11PushCommentEPKc.exit
+  %12 = icmp sgt i32 %11, -1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %14 = load i8, ptr %13, align 8, !range !119
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond.i = select i1 %12, i1 true, i1 %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 137
+  %17 = load i8, ptr %16, align 1, !range !119
+  %18 = trunc nuw i8 %17 to i1
+  %or.cond6.i = select i1 %or.cond.i, i1 true, i1 %18
+  br i1 %or.cond6.i, label %_ZN2cv8tinyxml210XMLPrinter11PushCommentEPKc.exit, label %19
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %15 = load i8, ptr %14, align 8, !tbaa !163, !range !119, !noundef !120
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %_ZN2cv8tinyxml210XMLPrinter11PushCommentEPKc.exit, label %17
-
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %19 = load i8, ptr %18, align 1, !tbaa !168, !range !119, !noundef !120
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %_ZN2cv8tinyxml210XMLPrinter11PushCommentEPKc.exit, label %21
-
-21:                                               ; preds = %17
+19:                                               ; preds = %9
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.26)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %23 = load i32, ptr %22, align 8, !tbaa !165
-  %24 = load ptr, ptr %0, align 8, !tbaa !39
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %23)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %21 = load i32, ptr %20, align 8, !tbaa !165
+  %22 = load ptr, ptr %0, align 8, !tbaa !39
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %21)
   br label %_ZN2cv8tinyxml210XMLPrinter11PushCommentEPKc.exit
 
-_ZN2cv8tinyxml210XMLPrinter11PushCommentEPKc.exit: ; preds = %9, %13, %17, %21
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 0, ptr %27, align 8, !tbaa !163
+_ZN2cv8tinyxml210XMLPrinter11PushCommentEPKc.exit: ; preds = %9, %19
+  store i8 0, ptr %13, align 8, !tbaa !163
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.32, ptr noundef %4)
   ret i1 true
 }
@@ -10021,34 +9996,29 @@ define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter5VisitERKNS0_14XMLD
 9:                                                ; preds = %8, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %11 = load i32, ptr %10, align 4, !tbaa !166
-  %12 = icmp slt i32 %11, 0
-  br i1 %12, label %13, label %_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit
+  %12 = icmp sgt i32 %11, -1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %14 = load i8, ptr %13, align 8, !range !119
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond.i = select i1 %12, i1 true, i1 %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 137
+  %17 = load i8, ptr %16, align 1, !range !119
+  %18 = trunc nuw i8 %17 to i1
+  %or.cond6.i = select i1 %or.cond.i, i1 true, i1 %18
+  br i1 %or.cond6.i, label %_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit, label %19
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %15 = load i8, ptr %14, align 8, !tbaa !163, !range !119, !noundef !120
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit, label %17
-
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %19 = load i8, ptr %18, align 1, !tbaa !168, !range !119, !noundef !120
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit, label %21
-
-21:                                               ; preds = %17
+19:                                               ; preds = %9
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.26)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %23 = load i32, ptr %22, align 8, !tbaa !165
-  %24 = load ptr, ptr %0, align 8, !tbaa !39
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %23)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %21 = load i32, ptr %20, align 8, !tbaa !165
+  %22 = load ptr, ptr %0, align 8, !tbaa !39
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %21)
   br label %_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit
 
-_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit: ; preds = %9, %13, %17, %21
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 0, ptr %27, align 8, !tbaa !163
+_ZN2cv8tinyxml210XMLPrinter15PushDeclarationEPKc.exit: ; preds = %9, %19
+  store i8 0, ptr %13, align 8, !tbaa !163
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.33, ptr noundef %4)
   ret i1 true
 }
@@ -10070,34 +10040,29 @@ define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter5VisitERKNS0_10XMLU
 9:                                                ; preds = %8, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %11 = load i32, ptr %10, align 4, !tbaa !166
-  %12 = icmp slt i32 %11, 0
-  br i1 %12, label %13, label %_ZN2cv8tinyxml210XMLPrinter11PushUnknownEPKc.exit
+  %12 = icmp sgt i32 %11, -1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %14 = load i8, ptr %13, align 8, !range !119
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond.i = select i1 %12, i1 true, i1 %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 137
+  %17 = load i8, ptr %16, align 1, !range !119
+  %18 = trunc nuw i8 %17 to i1
+  %or.cond6.i = select i1 %or.cond.i, i1 true, i1 %18
+  br i1 %or.cond6.i, label %_ZN2cv8tinyxml210XMLPrinter11PushUnknownEPKc.exit, label %19
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %15 = load i8, ptr %14, align 8, !tbaa !163, !range !119, !noundef !120
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %_ZN2cv8tinyxml210XMLPrinter11PushUnknownEPKc.exit, label %17
-
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 137
-  %19 = load i8, ptr %18, align 1, !tbaa !168, !range !119, !noundef !120
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %_ZN2cv8tinyxml210XMLPrinter11PushUnknownEPKc.exit, label %21
-
-21:                                               ; preds = %17
+19:                                               ; preds = %9
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.26)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %23 = load i32, ptr %22, align 8, !tbaa !165
-  %24 = load ptr, ptr %0, align 8, !tbaa !39
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %23)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %21 = load i32, ptr %20, align 8, !tbaa !165
+  %22 = load ptr, ptr %0, align 8, !tbaa !39
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %21)
   br label %_ZN2cv8tinyxml210XMLPrinter11PushUnknownEPKc.exit
 
-_ZN2cv8tinyxml210XMLPrinter11PushUnknownEPKc.exit: ; preds = %9, %13, %17, %21
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 0, ptr %27, align 8, !tbaa !163
+_ZN2cv8tinyxml210XMLPrinter11PushUnknownEPKc.exit: ; preds = %9, %19
+  store i8 0, ptr %13, align 8, !tbaa !163
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.34, ptr noundef %4)
   ret i1 true
 }

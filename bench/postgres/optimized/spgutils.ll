@@ -2293,8 +2293,8 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
   %15 = add i64 %14, 16
   %16 = add i64 %3, 7
   %17 = and i64 %16, -8
-  %.not53 = icmp ult i64 %15, %17
-  br i1 %.not53, label %60, label %18
+  %.not54 = icmp ult i64 %15, %17
+  br i1 %.not54, label %60, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr i8, ptr %1, i64 12
@@ -2305,17 +2305,17 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
   %23 = lshr i32 %22, 2
   %24 = trunc i32 %23 to i16
   %.0.i = select i1 %20, i16 0, i16 %24
-  %.not54 = icmp eq ptr %4, null
+  %.not55 = icmp eq ptr %4, null
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br i1 %.not54, label %.split.us, label %.split
+  br i1 %.not55, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %18
-  %.not5664.us = icmp eq i16 %.0.i, 0
-  br i1 %.not5664.us, label %.split70.us, label %.lr.ph.us
+  %.not5764.us = icmp eq i16 %.0.i, 0
+  br i1 %.not5764.us, label %.split70.us, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.split.us, %35
-  %.14865.us = phi i16 [ %36, %35 ], [ 1, %.split.us ]
-  %26 = zext i16 %.14865.us to i64
+  %.14965.us = phi i16 [ %36, %35 ], [ 1, %.split.us ]
+  %26 = zext i16 %.14965.us to i64
   %27 = add nsw i64 %26, -1
   %28 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %25, i64 0, i64 %27
   %.val61.us = load i32, ptr %28, align 4
@@ -2328,13 +2328,13 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
   br i1 %34, label %._crit_edge.us, label %35
 
 35:                                               ; preds = %.lr.ph.us
-  %36 = add i16 %.14865.us, 1
-  %.not56.us = icmp ugt i16 %36, %.0.i
-  br i1 %.not56.us, label %.split70.us, label %.lr.ph.us, !llvm.loop !16
+  %36 = add i16 %.14965.us, 1
+  %.not57.us = icmp ugt i16 %36, %.0.i
+  br i1 %.not57.us, label %.split70.us, label %.lr.ph.us, !llvm.loop !16
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us
-  %.not57.us = icmp eq i16 %.14865.us, 0
-  br i1 %.not57.us, label %.split70.us, label %.critedge
+  %.not58.us = icmp eq i16 %.14965.us, 0
+  br i1 %.not58.us, label %.split70.us, label %.critedge
 
 .split:                                           ; preds = %18
   %.promoted = load i16, ptr %4, align 2
@@ -2343,12 +2343,12 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
 37:                                               ; preds = %50, %.split
   %38 = phi i16 [ 0, %50 ], [ %.promoted, %.split ]
   %spec.select = tail call i16 @llvm.umax.i16(i16 %38, i16 1)
-  %.not5664 = icmp ugt i16 %spec.select, %.0.i
-  br i1 %.not5664, label %._crit_edge.thread, label %.lr.ph
+  %.not5764 = icmp ugt i16 %spec.select, %.0.i
+  br i1 %.not5764, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %48
-  %.14865 = phi i16 [ %49, %48 ], [ %spec.select, %37 ]
-  %39 = zext i16 %.14865 to i64
+  %.14965 = phi i16 [ %49, %48 ], [ %spec.select, %37 ]
+  %39 = zext i16 %.14965 to i64
   %40 = add nsw i64 %39, -1
   %41 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %25, i64 0, i64 %40
   %.val61 = load i32, ptr %41, align 4
@@ -2361,17 +2361,17 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
   br i1 %47, label %._crit_edge, label %48
 
 48:                                               ; preds = %.lr.ph
-  %49 = add i16 %.14865, 1
-  %.not56 = icmp ugt i16 %49, %.0.i
-  br i1 %.not56, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !16
+  %49 = add i16 %.14965, 1
+  %.not57 = icmp ugt i16 %49, %.0.i
+  br i1 %.not57, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.not57 = icmp eq i16 %.14865, 0
-  br i1 %.not57, label %._crit_edge.thread, label %.critedge
+  %.not58 = icmp eq i16 %.14965, 0
+  br i1 %.not58, label %._crit_edge.thread, label %.critedge
 
 ._crit_edge.thread:                               ; preds = %48, %37, %._crit_edge
-  %.not58 = icmp eq i16 %38, 0
-  br i1 %.not58, label %.split70.us, label %50
+  %.not59 = icmp eq i16 %38, 0
+  br i1 %.not59, label %.split70.us, label %50
 
 50:                                               ; preds = %._crit_edge.thread
   store i16 0, ptr %4, align 2
@@ -2382,17 +2382,17 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
   br label %60
 
 .critedge:                                        ; preds = %._crit_edge, %._crit_edge.us
-  %.us-phi = phi i16 [ %.14865.us, %._crit_edge.us ], [ %.14865, %._crit_edge ]
+  %.us-phi = phi i16 [ %.14965.us, %._crit_edge.us ], [ %.14965, %._crit_edge ]
   tail call void @PageIndexTupleDelete(ptr noundef nonnull %1, i16 noundef zeroext %.us-phi) #10
   %51 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext %.us-phi, i32 noundef 0) #10
-  %.not59 = icmp eq i16 %51, 0
-  br i1 %.not59, label %57, label %52
+  %.not60 = icmp eq i16 %51, 0
+  br i1 %.not60, label %57, label %52
 
 52:                                               ; preds = %.critedge
   %53 = load i16, ptr %11, align 2
   %54 = add i16 %53, -1
   store i16 %54, ptr %11, align 2
-  br i1 %.not54, label %66, label %55
+  br i1 %.not55, label %66, label %55
 
 55:                                               ; preds = %52
   %56 = add i16 %51, 1
@@ -2409,8 +2409,8 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
 60:                                               ; preds = %.split70.us, %13, %6
   %61 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext 0, i32 noundef 0) #10
   %62 = icmp ne i16 %61, 0
-  %brmerge = or i1 %5, %62
-  br i1 %brmerge, label %66, label %63
+  %or.cond = or i1 %5, %62
+  br i1 %or.cond, label %66, label %63
 
 63:                                               ; preds = %60
   %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -2420,8 +2420,8 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
   unreachable
 
 66:                                               ; preds = %60, %55, %52
-  %.045 = phi i16 [ %51, %52 ], [ %51, %55 ], [ %61, %60 ]
-  ret i16 %.045
+  %.046 = phi i16 [ %51, %52 ], [ %51, %55 ], [ %61, %60 ]
+  ret i16 %.046
 }
 
 declare void @PageIndexTupleDelete(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2

@@ -337,7 +337,7 @@ define hidden void @_ZN7ciField15initialize_fromEP15fieldDescriptor(ptr noundef 
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload.i.i10 = load i32, ptr %4, align 4
+  %.sroa.0.0.copyload.i.i12 = load i32, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -348,11 +348,11 @@ define hidden void @_ZN7ciField15initialize_fromEP15fieldDescriptor(ptr noundef 
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = sext i32 %11 to i64
   %14 = getelementptr inbounds %class.FieldStatus, ptr %12, i64 %13
-  %.sroa.0.0.copyload.i.i11 = load i8, ptr %14, align 1
-  %15 = trunc i32 %.sroa.0.0.copyload.i.i10 to i8
+  %.sroa.0.0.copyload.i.i13 = load i8, ptr %14, align 1
+  %15 = trunc i32 %.sroa.0.0.copyload.i.i12 to i8
   %16 = lshr i8 %15, 3
   %17 = and i8 %16, 1
-  %18 = lshr i8 %.sroa.0.0.copyload.i.i11, 2
+  %18 = lshr i8 %.sroa.0.0.copyload.i.i13, 2
   %.lobit = and i8 %18, 1
   store i32 %.sroa.0.0.copyload.i.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -387,42 +387,42 @@ _ZN5ciEnv18get_instance_klassEP5Klass.exit:       ; preds = %2, %_ZN5ciEnv12get_
   %33 = load ptr, ptr %32, align 8
   %34 = load i8, ptr @FoldStableValues, align 1
   %35 = trunc i8 %34 to i1
-  %.sroa.0.0.copyload.i.i12 = load i64, ptr %0, align 8
+  %.sroa.0.0.copyload.i.i14 = load i64, ptr %0, align 8
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %_ZN5ciEnv18get_instance_klassEP5Klass.exit
-  %37 = and i64 %.sroa.0.0.copyload.i.i12, 4294967296
+  %37 = and i64 %.sroa.0.0.copyload.i.i14, 4294967296
   %38 = icmp ne i64 %37, 0
-  %39 = and i64 %.sroa.0.0.copyload.i.i12, 16
-  %.not29 = icmp eq i64 %39, 0
-  br i1 %.not29, label %44, label %41
+  %39 = and i64 %.sroa.0.0.copyload.i.i14, 16
+  %.not32 = icmp eq i64 %39, 0
+  br i1 %.not32, label %44, label %41
 
 .thread:                                          ; preds = %_ZN5ciEnv18get_instance_klassEP5Klass.exit
-  %40 = and i64 %.sroa.0.0.copyload.i.i12, 16
-  %.not28 = icmp eq i64 %40, 0
-  br i1 %.not28, label %.thread23, label %41
+  %40 = and i64 %.sroa.0.0.copyload.i.i14, 16
+  %.not31 = icmp eq i64 %40, 0
+  br i1 %.not31, label %.thread25, label %41
 
 41:                                               ; preds = %.thread, %36
   %42 = phi i1 [ false, %.thread ], [ %38, %36 ]
-  %43 = and i64 %.sroa.0.0.copyload.i.i12, 1099511627776
-  %.not30 = icmp eq i64 %43, 0
-  %brmerge = or i1 %42, %.not30
-  br i1 %brmerge, label %45, label %.thread23
+  %43 = and i64 %.sroa.0.0.copyload.i.i14, 1099511627776
+  %.not33 = icmp eq i64 %43, 0
+  %or.cond = or i1 %42, %.not33
+  br i1 %or.cond, label %45, label %.thread25
 
 44:                                               ; preds = %36
-  br i1 %38, label %.thread31, label %.thread23
+  br i1 %38, label %.thread34, label %.thread25
 
 45:                                               ; preds = %41
-  %46 = and i64 %.sroa.0.0.copyload.i.i12, 8
+  %46 = and i64 %.sroa.0.0.copyload.i.i14, 8
   %.not = icmp eq i64 %46, 0
   br i1 %.not, label %60, label %48
 
-.thread31:                                        ; preds = %44
-  %47 = and i64 %.sroa.0.0.copyload.i.i12, 8
-  %.not33 = icmp eq i64 %47, 0
-  br i1 %.not33, label %_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit, label %48
+.thread34:                                        ; preds = %44
+  %47 = and i64 %.sroa.0.0.copyload.i.i14, 8
+  %.not36 = icmp eq i64 %47, 0
+  br i1 %.not36, label %_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit, label %48
 
-48:                                               ; preds = %.thread31, %45
+48:                                               ; preds = %.thread34, %45
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 48), align 8
   %50 = icmp eq ptr %33, %49
   br i1 %50, label %51, label %59
@@ -433,11 +433,11 @@ _ZN5ciEnv18get_instance_klassEP5Klass.exit:       ; preds = %2, %_ZN5ciEnv12get_
   %54 = icmp eq i32 %52, %53
   %55 = load i32, ptr @_ZN16java_lang_System18_static_out_offsetE, align 4
   %56 = icmp eq i32 %52, %55
-  %or.cond = select i1 %54, i1 true, i1 %56
+  %or.cond28 = select i1 %54, i1 true, i1 %56
   %57 = load i32, ptr @_ZN16java_lang_System18_static_err_offsetE, align 4
   %58 = icmp eq i32 %52, %57
-  %or.cond27 = select i1 %or.cond, i1 true, i1 %58
-  br i1 %or.cond27, label %_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit, label %59
+  %or.cond30 = select i1 %or.cond28, i1 true, i1 %58
+  br i1 %or.cond30, label %_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit, label %59
 
 59:                                               ; preds = %51, %48
   br label %_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit
@@ -539,22 +539,22 @@ _ZN5ciEnv18get_instance_klassEP5Klass.exit:       ; preds = %2, %_ZN5ciEnv12get_
   %116 = and i8 %115, 1
   br label %_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit
 
-.thread23:                                        ; preds = %.thread, %41, %44
+.thread25:                                        ; preds = %.thread, %41, %44
   %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 528), align 8
   %118 = icmp eq ptr %33, %117
   br i1 %118, label %119, label %123
 
-119:                                              ; preds = %.thread23
+119:                                              ; preds = %.thread25
   %120 = load i32, ptr %19, align 8
   %121 = load i32, ptr @_ZN25java_lang_invoke_CallSite14_target_offsetE, align 4
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit, label %123
 
-123:                                              ; preds = %119, %.thread23
+123:                                              ; preds = %119, %.thread25
   br label %_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit
 
-_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit: ; preds = %119, %60, %61, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84, %88, %90, %94, %98, %102, %106, %110, %114, %.thread31, %51, %123, %59
-  %.sink = phi i8 [ 0, %123 ], [ 1, %59 ], [ 0, %51 ], [ 1, %60 ], [ %116, %114 ], [ 0, %61 ], [ 1, %82 ], [ 1, %80 ], [ 1, %78 ], [ 1, %76 ], [ 1, %74 ], [ 1, %72 ], [ 1, %70 ], [ 1, %68 ], [ 1, %66 ], [ 1, %84 ], [ 1, %88 ], [ 1, %90 ], [ 1, %94 ], [ 1, %110 ], [ 1, %106 ], [ 1, %102 ], [ 1, %98 ], [ 1, %.thread31 ], [ 1, %119 ]
+_ZL29trust_final_non_static_fieldsP15ciInstanceKlass.exit: ; preds = %119, %60, %61, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84, %88, %90, %94, %98, %102, %106, %110, %114, %.thread34, %51, %123, %59
+  %.sink = phi i8 [ 0, %123 ], [ 1, %59 ], [ 0, %51 ], [ 1, %60 ], [ %116, %114 ], [ 0, %61 ], [ 1, %82 ], [ 1, %80 ], [ 1, %78 ], [ 1, %76 ], [ 1, %74 ], [ 1, %72 ], [ 1, %70 ], [ 1, %68 ], [ 1, %66 ], [ 1, %84 ], [ 1, %88 ], [ 1, %90 ], [ 1, %94 ], [ 1, %110 ], [ 1, %106 ], [ 1, %102 ], [ 1, %98 ], [ 1, %.thread34 ], [ 1, %119 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 %.sink, ptr %124, align 4
   ret void

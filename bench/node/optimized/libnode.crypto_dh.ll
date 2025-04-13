@@ -9637,13 +9637,13 @@ lor.rhs.i:                                        ; preds = %if.then
   %arrayidx4.i = getelementptr inbounds nuw i8, ptr %keys.i, i64 8
   %call5.i = call i16 @_ZN4node6crypto14ManagedEVPPKey19ToEncodedPrivateKeyEPNS_11EnvironmentERKNS0_24PrivateKeyEncodingConfigEPN2v85LocalINS7_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(32) %key.i, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %private_key_encoding.i, ptr noundef nonnull %arrayidx4.i) #19
   %tobool.i.i = trunc i16 %call5.i to i1
-  br i1 %tobool.i.i, label %if.then7, label %_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread
+  br i1 %tobool.i.i, label %_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit, label %_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread
 
 _ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread: ; preds = %if.then, %lor.rhs.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %keys.i)
   br label %return
 
-if.then7:                                         ; preds = %lor.rhs.i
+_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit: ; preds = %lor.rhs.i
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 88
   %3 = load ptr, ptr %isolate_.i.i, align 8
   %call11.i = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %3, ptr noundef nonnull %keys.i, i64 noundef 2) #19
@@ -9686,9 +9686,9 @@ do.end26:                                         ; preds = %do.body
   %10 = select i1 %cmp.i.i.not, i16 0, i16 256
   br label %return
 
-return:                                           ; preds = %_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread, %if.then7, %do.end26
-  %retval.sroa.0.0.in = phi i16 [ 1, %if.then7 ], [ 1, %do.end26 ], [ 0, %_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread ]
-  %retval.sroa.5.0.in = phi i16 [ 256, %if.then7 ], [ %10, %do.end26 ], [ 0, %_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread ]
+return:                                           ; preds = %_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread, %_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit, %do.end26
+  %retval.sroa.0.0.in = phi i16 [ 1, %_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit ], [ 1, %do.end26 ], [ 0, %_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread ]
+  %retval.sroa.5.0.in = phi i16 [ 256, %_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit ], [ %10, %do.end26 ], [ 0, %_ZN4node6crypto16KeyPairGenTraitsINS0_14DhKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15DhKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread ]
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.5.0.in, %retval.sroa.0.0.in
   ret i16 %retval.sroa.0.0.insert.insert
 }

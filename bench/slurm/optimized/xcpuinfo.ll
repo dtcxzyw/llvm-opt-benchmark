@@ -110,22 +110,21 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, 
   br i1 %.not, label %29, label %10
 
 10:                                               ; preds = %3
-  br i1 %2, label %11, label %.critedge
-
-11:                                               ; preds = %10
   %.b = load i1, ptr @xcpuinfo_hwloc_topo_load.first_full, align 1
-  br i1 %.b, label %.critedge, label %12
+  %not. = xor i1 %2, true
+  %11 = select i1 %not., i1 true, i1 %.b
+  br i1 %11, label %.critedge, label %12
 
-12:                                               ; preds = %11
+12:                                               ; preds = %10
   %13 = load i8, ptr @refresh_hwloc, align 1, !range !8, !noundef !9
   %14 = trunc nuw i8 %13 to i1
   store i1 true, ptr @xcpuinfo_hwloc_topo_load.first_full, align 1
   br i1 %14, label %27, label %.critedge
 
-.critedge:                                        ; preds = %11, %10, %12
+.critedge:                                        ; preds = %10, %12
   %15 = call i32 @stat(ptr noundef %1, ptr noundef nonnull %8) #12
-  %.not32 = icmp eq i32 %15, 0
-  br i1 %.not32, label %16, label %27
+  %.not33 = icmp eq i32 %15, 0
+  br i1 %.not33, label %16, label %27
 
 16:                                               ; preds = %.critedge
   %17 = tail call i32 @get_log_level() #12
@@ -139,14 +138,14 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, 
 20:                                               ; preds = %19, %16
   %21 = load ptr, ptr %0, align 8
   %22 = tail call i32 @hwloc_topology_set_xml(ptr noundef %21, ptr noundef %1) #12
-  %.not33 = icmp eq i32 %22, 0
-  br i1 %.not33, label %23, label %.sink.split
+  %.not34 = icmp eq i32 %22, 0
+  br i1 %.not34, label %23, label %.sink.split
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %0, align 8
   %25 = tail call i32 @hwloc_topology_load(ptr noundef %24) #12
-  %.not34 = icmp eq i32 %25, 0
-  br i1 %.not34, label %139, label %.sink.split
+  %.not35 = icmp eq i32 %25, 0
+  br i1 %.not35, label %139, label %.sink.split
 
 .sink.split:                                      ; preds = %23, %20
   %.str.2.sink = phi ptr [ @.str.2, %20 ], [ @.str.3, %23 ]
@@ -159,22 +158,22 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, 
   br label %29
 
 29:                                               ; preds = %3, %27
-  %.028 = phi ptr [ %0, %27 ], [ %9, %3 ]
-  %30 = call i32 @hwloc_topology_init(ptr noundef nonnull %.028) #12
+  %.029 = phi ptr [ %0, %27 ], [ %9, %3 ]
+  %30 = call i32 @hwloc_topology_init(ptr noundef nonnull %.029) #12
   br i1 %2, label %31, label %44
 
 31:                                               ; preds = %29
-  %32 = load ptr, ptr %.028, align 8
+  %32 = load ptr, ptr %.029, align 8
   %33 = call i32 @hwloc_topology_set_flags(ptr noundef %32, i64 noundef 1) #12
-  %34 = load ptr, ptr %.028, align 8
+  %34 = load ptr, ptr %.029, align 8
   %35 = call i32 @hwloc_topology_set_type_filter(ptr noundef %34, i32 noundef 4, i32 noundef 1) #12
-  %36 = load ptr, ptr %.028, align 8
+  %36 = load ptr, ptr %.029, align 8
   %37 = call i32 @hwloc_topology_set_type_filter(ptr noundef %36, i32 noundef 5, i32 noundef 1) #12
-  %38 = load ptr, ptr %.028, align 8
+  %38 = load ptr, ptr %.029, align 8
   %39 = call i32 @hwloc_topology_set_type_filter(ptr noundef %38, i32 noundef 7, i32 noundef 1) #12
-  %40 = load ptr, ptr %.028, align 8
+  %40 = load ptr, ptr %.029, align 8
   %41 = call i32 @hwloc_topology_set_type_filter(ptr noundef %40, i32 noundef 8, i32 noundef 1) #12
-  %42 = load ptr, ptr %.028, align 8
+  %42 = load ptr, ptr %.029, align 8
   %43 = call i32 @hwloc_topology_set_type_filter(ptr noundef %42, i32 noundef 17, i32 noundef 1) #12
   br label %44
 
@@ -188,10 +187,10 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, 
   br label %48
 
 48:                                               ; preds = %47, %44
-  %49 = load ptr, ptr %.028, align 8
+  %49 = load ptr, ptr %.029, align 8
   %50 = call i32 @hwloc_topology_load(ptr noundef %49) #12
-  %.not35 = icmp eq i32 %50, 0
-  br i1 %.not35, label %55, label %51
+  %.not36 = icmp eq i32 %50, 0
+  br i1 %.not36, label %55, label %51
 
 51:                                               ; preds = %48
   %52 = call i32 @get_log_level() #12
@@ -203,9 +202,9 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, 
   br label %136
 
 55:                                               ; preds = %48
-  %.028.val = load ptr, ptr %.028, align 8
-  %56 = call ptr @hwloc_topology_get_complete_cpuset(ptr noundef readonly %.028.val) #13
-  %57 = call ptr @hwloc_topology_get_allowed_cpuset(ptr noundef readonly %.028.val) #13
+  %.029.val = load ptr, ptr %.029, align 8
+  %56 = call ptr @hwloc_topology_get_complete_cpuset(ptr noundef readonly %.029.val) #13
+  %57 = call ptr @hwloc_topology_get_allowed_cpuset(ptr noundef readonly %.029.val) #13
   %58 = call i32 @hwloc_bitmap_isequal(ptr noundef %56, ptr noundef %57) #13
   %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %59, label %_check_full_access.exit
@@ -217,11 +216,11 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_hwloc_topo_load(ptr noundef %0, 
 _check_full_access.exit:                          ; preds = %55, %59
   %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 268), align 4
   %61 = and i32 %60, 8192
-  %.not.i37 = icmp eq i32 %61, 0
-  br i1 %.not.i37, label %62, label %_remove_ecores.exit
+  %.not.i38 = icmp eq i32 %61, 0
+  br i1 %.not.i38, label %62, label %_remove_ecores.exit
 
 62:                                               ; preds = %_check_full_access.exit
-  %63 = load ptr, ptr %.028, align 8
+  %63 = load ptr, ptr %.029, align 8
   %64 = call i32 @hwloc_cpukinds_get_nr(ptr noundef %63, i64 noundef 0) #12
   %.not50.i = icmp eq i32 %64, 0
   br i1 %.not50.i, label %_remove_ecores.exit, label %65
@@ -237,7 +236,7 @@ _check_full_access.exit:                          ; preds = %55, %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
   store i32 0, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  %69 = load ptr, ptr %.028, align 8
+  %69 = load ptr, ptr %.029, align 8
   %70 = call i32 @hwloc_cpukinds_get_info(ptr noundef %69, i32 noundef %.04371.i, ptr noundef %66, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 0) #12
   %.not51.i = icmp eq i32 %70, 0
   br i1 %.not51.i, label %.preheader69.i, label %72
@@ -317,7 +316,7 @@ _check_full_access.exit:                          ; preds = %55, %59
   br label %.lr.ph80.i
 
 ._crit_edge81.i:                                  ; preds = %._crit_edge77.i
-  %101 = load ptr, ptr %.028, align 8
+  %101 = load ptr, ptr %.029, align 8
   %102 = call i32 @hwloc_topology_restrict(ptr noundef %101, ptr noundef %67, i64 noundef 0) #12
   br label %.sink.split.i
 
@@ -326,7 +325,7 @@ _check_full_access.exit:                          ; preds = %55, %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   store i32 0, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  %103 = load ptr, ptr %.028, align 8
+  %103 = load ptr, ptr %.029, align 8
   %104 = call i32 @hwloc_cpukinds_get_info(ptr noundef %103, i32 noundef %.04078.i, ptr noundef %66, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef 0) #12
   %.not55.i = icmp eq i32 %104, 0
   br i1 %.not55.i, label %.preheader.i, label %106
@@ -399,17 +398,17 @@ _remove_ecores.exit:                              ; preds = %_check_full_access.
   br label %131
 
 131:                                              ; preds = %130, %127
-  %132 = load ptr, ptr %.028, align 8
+  %132 = load ptr, ptr %.029, align 8
   %133 = call i32 @hwloc_topology_export_xml(ptr noundef %132, ptr noundef %1, i64 noundef 0) #12
-  %.not36 = icmp eq i32 %133, 0
-  br i1 %.not36, label %136, label %134
+  %.not37 = icmp eq i32 %133, 0
+  br i1 %.not37, label %136, label %134
 
 134:                                              ; preds = %131
   %135 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.xcpuinfo_hwloc_topo_load) #12
   br label %136
 
 136:                                              ; preds = %51, %54, %_remove_ecores.exit, %134, %131
-  %.029 = phi i32 [ 0, %_remove_ecores.exit ], [ 0, %134 ], [ 0, %131 ], [ -1, %54 ], [ -1, %51 ]
+  %.030 = phi i32 [ 0, %_remove_ecores.exit ], [ 0, %134 ], [ 0, %131 ], [ -1, %54 ], [ -1, %51 ]
   br i1 %.not, label %137, label %139
 
 137:                                              ; preds = %136
@@ -418,10 +417,10 @@ _remove_ecores.exit:                              ; preds = %_check_full_access.
   br label %139
 
 139:                                              ; preds = %136, %137, %23
-  %.030 = phi i32 [ 0, %23 ], [ %.029, %137 ], [ %.029, %136 ]
+  %.031 = phi i32 [ 0, %23 ], [ %.030, %137 ], [ %.030, %136 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #12
-  ret i32 %.030
+  ret i32 %.031
 }
 
 ; Function Attrs: nofree nounwind

@@ -1323,7 +1323,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 21
-  %..i178 = select i1 %42, ptr %39, ptr null
+  %..i180 = select i1 %42, ptr %39, ptr null
   %43 = add i32 %13, 2
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw ptr, ptr %15, i64 %44
@@ -1335,7 +1335,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8
-  %.not187 = icmp eq i32 %53, 21
+  %.not189 = icmp eq i32 %53, 21
   %54 = add i32 %13, 3
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw ptr, ptr %15, i64 %55
@@ -1360,14 +1360,14 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
   %77 = icmp eq i32 %76, 3
-  %..i181 = select i1 %77, ptr %74, ptr null
+  %..i183 = select i1 %77, ptr %74, ptr null
   %78 = icmp eq ptr %..i, null
-  %79 = icmp eq ptr %..i178, null
+  %79 = icmp eq ptr %..i180, null
   %or.cond = or i1 %78, %79
   %80 = icmp eq ptr %62, null
   %81 = or i1 %80, %65
   %or.cond3 = or i1 %or.cond, %81
-  %82 = icmp eq ptr %..i181, null
+  %82 = icmp eq ptr %..i183, null
   %or.cond5 = or i1 %or.cond3, %82
   br i1 %or.cond5, label %103, label %83
 
@@ -1380,7 +1380,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   br i1 %88, label %89, label %103
 
 89:                                               ; preds = %83
-  %90 = getelementptr inbounds nuw i8, ptr %..i178, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %..i180, i64 48
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %103, label %93
@@ -1392,7 +1392,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   br i1 %96, label %103, label %97
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %..i181, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %..i183, i64 24
   %99 = load i32, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %74, i64 28
   %101 = load i32, ptr %100, align 4
@@ -1586,7 +1586,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   br i1 %243, label %244, label %290
 
 244:                                              ; preds = %216
-  br i1 %.not187, label %245, label %249
+  br i1 %.not189, label %245, label %249
 
 245:                                              ; preds = %244
   %246 = getelementptr inbounds nuw i8, ptr %51, i64 48
@@ -1686,8 +1686,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %311 = icmp eq i32 %292, 1
   %312 = icmp ne i8 %291, 7
   %or.cond10 = or i1 %312, %296
-  %or.cond176 = and i1 %311, %or.cond10
-  br i1 %or.cond176, label %313, label %322
+  %or.cond178 = and i1 %311, %or.cond10
+  br i1 %or.cond178, label %313, label %322
 
 313:                                              ; preds = %310
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1804,8 +1804,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
 .thread:                                          ; preds = %361, %382
   %384 = phi i1 [ %383, %382 ], [ false, %361 ]
   %.not = xor i1 %243, true
-  %brmerge = or i1 %384, %.not
-  br i1 %brmerge, label %.thread.thread, label %385
+  %or.cond14 = or i1 %384, %.not
+  br i1 %or.cond14, label %.thread.thread, label %385
 
 385:                                              ; preds = %.thread
   %386 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 475, i32 noundef %292, i8 noundef zeroext %291, i32 noundef 1, i1 noundef zeroext false)
@@ -1825,8 +1825,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %394, ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %295, i32 noundef %292, ptr noundef %395) #9
   br label %660
 
-.thread.thread:                                   ; preds = %381, %.thread, %385
-  %396 = phi i1 [ %384, %.thread ], [ %384, %385 ], [ false, %381 ]
+.thread.thread:                                   ; preds = %381, %385, %.thread
+  %396 = phi i1 [ %384, %385 ], [ %384, %.thread ], [ false, %381 ]
   switch i32 %1, label %532 [
     i32 3, label %397
     i32 2, label %442
@@ -1886,7 +1886,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   br label %660
 
 442:                                              ; preds = %397, %.thread.thread
-  %.0156 = phi ptr [ null, %.thread.thread ], [ %412, %397 ]
+  %.0158 = phi ptr [ null, %.thread.thread ], [ %412, %397 ]
   %443 = load ptr, ptr %5, align 8
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 56
   %445 = load ptr, ptr %444, align 8
@@ -1939,8 +1939,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   br label %660
 
 487:                                              ; preds = %442, %.thread.thread
-  %.1157 = phi ptr [ null, %.thread.thread ], [ %.0156, %442 ]
-  %.0155 = phi ptr [ null, %.thread.thread ], [ %457, %442 ]
+  %.1159 = phi ptr [ null, %.thread.thread ], [ %.0158, %442 ]
+  %.0157 = phi ptr [ null, %.thread.thread ], [ %457, %442 ]
   %488 = load ptr, ptr %5, align 8
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 56
   %490 = load ptr, ptr %489, align 8
@@ -2058,12 +2058,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   br label %660
 
 584:                                              ; preds = %535, %534
-  %.0158 = phi ptr [ %554, %535 ], [ null, %534 ]
+  %.0160 = phi ptr [ %554, %535 ], [ null, %534 ]
   br i1 %328, label %585, label %608
 
 585:                                              ; preds = %584
   %586 = load i32, ptr %84, align 8
-  %587 = tail call noundef ptr @_ZN14LibraryCallKit16gen_call_to_svmlEi9BasicTypeiP4NodeS2_(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef %586, i8 noundef zeroext %291, i32 noundef %292, ptr noundef nonnull %502, ptr noundef %.0155)
+  %587 = tail call noundef ptr @_ZN14LibraryCallKit16gen_call_to_svmlEi9BasicTypeiP4NodeS2_(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef %586, i8 noundef zeroext %291, i32 noundef %292, ptr noundef nonnull %502, ptr noundef %.0157)
   %588 = icmp eq ptr %587, null
   br i1 %588, label %589, label %622
 
@@ -2106,39 +2106,39 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %616 = load ptr, ptr @_ZN5ciEnv24_vector_VectorMask_klassE, align 8
   %617 = tail call noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %324, ptr noundef %616) #9
   %618 = tail call noundef zeroext i1 @_ZN10VectorNode15is_shift_opcodeEi(i32 noundef %294) #9
-  %619 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef %295, ptr noundef nonnull %502, ptr noundef %.0155, ptr noundef %614, i1 noundef zeroext %617, i1 noundef zeroext %618) #9
+  %619 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef %295, ptr noundef nonnull %502, ptr noundef %.0157, ptr noundef %614, i1 noundef zeroext %617, i1 noundef zeroext %618) #9
   br label %622
 
 620:                                              ; preds = %608
-  %621 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_S1_PK8TypeVect(i32 noundef %295, ptr noundef nonnull %502, ptr noundef %.0155, ptr noundef %.1157, ptr noundef %614) #9
+  %621 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_S1_PK8TypeVect(i32 noundef %295, ptr noundef nonnull %502, ptr noundef %.0157, ptr noundef %.1159, ptr noundef %614) #9
   br label %622
 
 622:                                              ; preds = %615, %620, %585
-  %.0154 = phi ptr [ %587, %585 ], [ %621, %620 ], [ %619, %615 ]
-  %623 = icmp ne ptr %.0158, null
-  %or.cond14 = and i1 %243, %623
-  br i1 %or.cond14, label %624, label %644
+  %.0156 = phi ptr [ %587, %585 ], [ %621, %620 ], [ %619, %615 ]
+  %623 = icmp ne ptr %.0160, null
+  %or.cond16 = and i1 %243, %623
+  br i1 %or.cond16, label %624, label %644
 
 624:                                              ; preds = %622
   br i1 %396, label %625, label %629
 
 625:                                              ; preds = %624
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0154, ptr noundef nonnull %.0158) #9
-  %626 = getelementptr inbounds nuw i8, ptr %.0154, i64 48
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0156, ptr noundef nonnull %.0160) #9
+  %626 = getelementptr inbounds nuw i8, ptr %.0156, i64 48
   %627 = load i32, ptr %626, align 8
   %628 = or i32 %627, 16384
   store i32 %628, ptr %626, align 8
   br label %644
 
 629:                                              ; preds = %624
-  %630 = getelementptr inbounds nuw i8, ptr %.0154, i64 48
+  %630 = getelementptr inbounds nuw i8, ptr %.0156, i64 48
   %631 = load i32, ptr %630, align 8
   %632 = or i32 %631, 131072
   store i32 %632, ptr %630, align 8
   %633 = load ptr, ptr %3, align 8
   %634 = load ptr, ptr %633, align 8
   %635 = load ptr, ptr %634, align 8
-  %636 = tail call noundef ptr %635(ptr noundef nonnull align 8 dereferenceable(2400) %633, ptr noundef nonnull %.0154) #9
+  %636 = tail call noundef ptr %635(ptr noundef nonnull align 8 dereferenceable(2400) %633, ptr noundef nonnull %.0156) #9
   %637 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
   %638 = icmp eq ptr %637, null
   br i1 %638, label %644, label %639
@@ -2148,12 +2148,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %641 = getelementptr inbounds nuw i8, ptr %640, i64 40
   %642 = load ptr, ptr %641, align 8
   %643 = tail call noundef ptr %642(ptr noundef nonnull align 8 dereferenceable(52) %502) #9
-  tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %637, ptr noundef nonnull %502, ptr noundef %636, ptr noundef nonnull %.0158, ptr noundef %643)
+  tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %637, ptr noundef nonnull %502, ptr noundef %636, ptr noundef nonnull %.0160, ptr noundef %643)
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %637, align 8
   br label %644
 
 644:                                              ; preds = %629, %639, %625, %622
-  %.1 = phi ptr [ %.0154, %625 ], [ %.0154, %622 ], [ %637, %639 ], [ null, %629 ]
+  %.1 = phi ptr [ %.0156, %625 ], [ %.0156, %622 ], [ %637, %639 ], [ null, %629 ]
   %645 = load ptr, ptr %3, align 8
   %646 = load ptr, ptr %645, align 8
   %647 = load ptr, ptr %646, align 8
@@ -2565,7 +2565,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26inline_vector_shuffle_iot
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 3
-  %..i114 = select i1 %42, ptr %39, ptr null
+  %..i115 = select i1 %42, ptr %39, ptr null
   %43 = add i32 %12, 4
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw ptr, ptr %15, i64 %44
@@ -2578,7 +2578,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26inline_vector_shuffle_iot
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 3
-  %..i115 = select i1 %54, ptr %51, ptr null
+  %..i116 = select i1 %54, ptr %51, ptr null
   %55 = add i32 %12, 5
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds nuw ptr, ptr %15, i64 %56
@@ -2591,7 +2591,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26inline_vector_shuffle_iot
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 3
-  %..i116 = select i1 %66, ptr %63, ptr null
+  %..i117 = select i1 %66, ptr %63, ptr null
   %67 = add i32 %12, 6
   %68 = zext i32 %67 to i64
   %69 = getelementptr inbounds nuw ptr, ptr %15, i64 %68
@@ -2604,40 +2604,40 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26inline_vector_shuffle_iot
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i32, ptr %76, align 8
   %78 = icmp eq i32 %77, 3
-  %..i117 = select i1 %78, ptr %75, ptr null
+  %..i118 = select i1 %78, ptr %75, ptr null
   %79 = icmp eq ptr %27, null
   %80 = or i1 %79, %30
-  br i1 %80, label %276, label %81
+  br i1 %80, label %277, label %81
 
 81:                                               ; preds = %1
   %82 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
-  %85 = icmp eq ptr %..i114, null
+  %85 = icmp eq ptr %..i115, null
   %or.cond = or i1 %85, %84
-  br i1 %or.cond, label %276, label %86
+  br i1 %or.cond, label %277, label %86
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds nuw i8, ptr %..i114, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %..i115, i64 24
   %88 = load i32, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %90 = load i32, ptr %89, align 4
   %91 = icmp ne i32 %88, %90
-  %92 = icmp eq ptr %..i115, null
+  %92 = icmp eq ptr %..i116, null
   %or.cond3 = or i1 %92, %91
-  %93 = icmp eq ptr %..i116, null
+  %93 = icmp eq ptr %..i117, null
   %or.cond5 = or i1 %93, %or.cond3
-  %94 = icmp eq ptr %..i117, null
+  %94 = icmp eq ptr %..i118, null
   %or.cond7 = or i1 %94, %or.cond5
-  br i1 %or.cond7, label %276, label %95
+  br i1 %or.cond7, label %277, label %95
 
 95:                                               ; preds = %86
-  %96 = getelementptr inbounds nuw i8, ptr %..i117, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %..i118, i64 24
   %97 = load i32, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %75, i64 28
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %97, %99
-  br i1 %100, label %101, label %276
+  br i1 %100, label %101, label %277
 
 101:                                              ; preds = %95
   %102 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %83) #9
@@ -2682,19 +2682,19 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 276
   %121 = load i8, ptr %120, align 4
   %122 = trunc i8 %121 to i1
-  br i1 %122, label %123, label %276
+  br i1 %122, label %123, label %277
 
 123:                                              ; preds = %117
   %124 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %124, ptr noundef nonnull @.str.8) #9
-  br label %276
+  br label %277
 
 125:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %126 = load i32, ptr %96, align 8
   %127 = load i32, ptr %87, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %..i115, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %..i116, i64 24
   %129 = load i32, ptr %128, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %..i115, i64 28
+  %130 = getelementptr inbounds nuw i8, ptr %..i116, i64 28
   %131 = load i32, ptr %130, align 4
   %132 = icmp eq i32 %129, %131
   br i1 %132, label %133, label %146
@@ -2719,199 +2719,199 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %146
 
 146:                                              ; preds = %139, %133, %125
-  %.0103 = phi i1 [ %spec.select, %139 ], [ false, %133 ], [ false, %125 ]
-  %.not112 = icmp ne i32 %126, 0
-  %brmerge = select i1 %.not112, i1 true, i1 %.0103
-  br i1 %brmerge, label %147, label %276
+  %.0105 = phi i1 [ %spec.select, %139 ], [ false, %133 ], [ false, %125 ]
+  %147 = icmp ne i32 %126, 0
+  %or.cond11 = or i1 %147, %.0105
+  br i1 %or.cond11, label %148, label %277
 
-147:                                              ; preds = %146
-  %148 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 356, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
-  br i1 %148, label %149, label %276
+148:                                              ; preds = %146
+  %149 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 356, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
+  br i1 %149, label %150, label %277
 
-149:                                              ; preds = %147
-  %150 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 413, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
-  br i1 %150, label %151, label %276
+150:                                              ; preds = %148
+  %151 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 413, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
+  br i1 %151, label %152, label %277
 
-151:                                              ; preds = %149
-  %152 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 479, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
-  br i1 %152, label %153, label %276
+152:                                              ; preds = %150
+  %153 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 479, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
+  br i1 %153, label %154, label %277
 
-153:                                              ; preds = %151
-  %154 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 452, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
-  br i1 %154, label %155, label %276
+154:                                              ; preds = %152
+  %155 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 452, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
+  br i1 %155, label %156, label %277
 
-155:                                              ; preds = %153
-  br i1 %.not112, label %162, label %156
+156:                                              ; preds = %154
+  br i1 %147, label %163, label %157
 
-156:                                              ; preds = %155
-  %157 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 366, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
-  br i1 %157, label %158, label %276
+157:                                              ; preds = %156
+  %158 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 366, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
+  br i1 %158, label %159, label %277
 
-158:                                              ; preds = %156
-  %159 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 475, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
-  br i1 %159, label %160, label %276
+159:                                              ; preds = %157
+  %160 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 475, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
+  br i1 %160, label %161, label %277
 
-160:                                              ; preds = %158
-  %161 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 472, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
-  br i1 %161, label %162, label %276
+161:                                              ; preds = %159
+  %162 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 472, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
+  br i1 %162, label %163, label %277
 
-162:                                              ; preds = %160, %155
-  %163 = getelementptr inbounds nuw i8, ptr %..i116, i64 24
-  %164 = load i32, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %63, i64 28
-  %166 = load i32, ptr %165, align 4
-  %167 = icmp ne i32 %164, %166
-  %168 = icmp slt i32 %164, 1
-  %or.cond119.not124 = or i1 %168, %167
-  %169 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %164)
-  %170 = icmp samesign ugt i32 %169, 1
-  %or.cond122 = select i1 %or.cond119.not124, i1 true, i1 %170
-  br i1 %or.cond122, label %.thread, label %.critedge
+163:                                              ; preds = %161, %156
+  %164 = getelementptr inbounds nuw i8, ptr %..i117, i64 24
+  %165 = load i32, ptr %164, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %63, i64 28
+  %167 = load i32, ptr %166, align 4
+  %168 = icmp ne i32 %165, %167
+  %169 = icmp slt i32 %165, 1
+  %or.cond120.not125 = or i1 %169, %168
+  %170 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %165)
+  %171 = icmp samesign ugt i32 %170, 1
+  %or.cond123 = select i1 %or.cond120.not125, i1 true, i1 %171
+  br i1 %or.cond123, label %.thread, label %.critedge
 
-.thread:                                          ; preds = %162
-  %171 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 372, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
-  br i1 %171, label %173, label %276
+.thread:                                          ; preds = %163
+  %172 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 372, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
+  br i1 %172, label %174, label %277
 
-.critedge:                                        ; preds = %162
-  %172 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 401, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
-  br i1 %172, label %173, label %276
+.critedge:                                        ; preds = %163
+  %173 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 401, i32 noundef %127, i8 noundef zeroext 8, i32 noundef 8, i1 noundef zeroext false)
+  br i1 %173, label %174, label %277
 
-173:                                              ; preds = %.thread, %.critedge
-  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 64), align 16
-  %175 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %174, i32 noundef %127, i1 noundef zeroext false) #9
-  %176 = load ptr, ptr %2, align 8
-  %177 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
-  %178 = icmp eq ptr %177, null
-  br i1 %178, label %183, label %179
+174:                                              ; preds = %.thread, %.critedge
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4Type17_const_basic_typeE, i64 64), align 16
+  %176 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %175, i32 noundef %127, i1 noundef zeroext false) #9
+  %177 = load ptr, ptr %2, align 8
+  %178 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
+  %179 = icmp eq ptr %178, null
+  br i1 %179, label %184, label %180
 
-179:                                              ; preds = %173
-  %180 = load ptr, ptr %2, align 8
-  %181 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
-  %182 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %180, ptr noundef %181) #9
-  tail call void @_ZN19VectorLoadConstNodeC2EP4NodePK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %177, ptr noundef %182, ptr noundef %175)
-  br label %183
+180:                                              ; preds = %174
+  %181 = load ptr, ptr %2, align 8
+  %182 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
+  %183 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %181, ptr noundef %182) #9
+  tail call void @_ZN19VectorLoadConstNodeC2EP4NodePK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %178, ptr noundef %183, ptr noundef %176)
+  br label %184
 
-183:                                              ; preds = %179, %173
-  %184 = load ptr, ptr %176, align 8
-  %185 = load ptr, ptr %184, align 8
-  %186 = tail call noundef ptr %185(ptr noundef nonnull align 8 dereferenceable(2400) %176, ptr noundef %177) #9
-  %187 = load ptr, ptr %4, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 56
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  %191 = load i32, ptr %190, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %189, i64 32
-  %193 = load i32, ptr %192, align 8
-  %194 = add i32 %193, %191
-  %195 = add i32 %194, 4
-  %196 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  %197 = load ptr, ptr %196, align 8
-  %198 = zext i32 %195 to i64
-  %199 = getelementptr inbounds nuw ptr, ptr %197, i64 %198
-  %200 = load ptr, ptr %199, align 8
-  br i1 %or.cond122, label %201, label %216
+184:                                              ; preds = %180, %174
+  %185 = load ptr, ptr %177, align 8
+  %186 = load ptr, ptr %185, align 8
+  %187 = tail call noundef ptr %186(ptr noundef nonnull align 8 dereferenceable(2400) %177, ptr noundef %178) #9
+  %188 = load ptr, ptr %4, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 56
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
+  %192 = load i32, ptr %191, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %190, i64 32
+  %194 = load i32, ptr %193, align 8
+  %195 = add i32 %194, %192
+  %196 = add i32 %195, 4
+  %197 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  %198 = load ptr, ptr %197, align 8
+  %199 = zext i32 %196 to i64
+  %200 = getelementptr inbounds nuw ptr, ptr %198, i64 %199
+  %201 = load ptr, ptr %200, align 8
+  br i1 %or.cond123, label %202, label %217
 
-201:                                              ; preds = %183
-  %202 = add i32 %194, 5
-  %203 = zext i32 %202 to i64
-  %204 = getelementptr inbounds nuw ptr, ptr %197, i64 %203
-  %205 = load ptr, ptr %204, align 8
-  %206 = load ptr, ptr %2, align 8
-  %207 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %205, i32 noundef %127, ptr noundef %174, i1 noundef zeroext false) #9
-  %208 = load ptr, ptr %206, align 8
-  %209 = load ptr, ptr %208, align 8
-  %210 = tail call noundef ptr %209(ptr noundef nonnull align 8 dereferenceable(2400) %206, ptr noundef %207) #9
-  %211 = load ptr, ptr %2, align 8
-  %212 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef 372, ptr noundef %186, ptr noundef %210, ptr noundef %175, i1 noundef zeroext false, i1 noundef zeroext false) #9
-  %213 = load ptr, ptr %211, align 8
-  %214 = load ptr, ptr %213, align 8
-  %215 = tail call noundef ptr %214(ptr noundef nonnull align 8 dereferenceable(2400) %211, ptr noundef %212) #9
-  br label %230
+202:                                              ; preds = %184
+  %203 = add i32 %195, 5
+  %204 = zext i32 %203 to i64
+  %205 = getelementptr inbounds nuw ptr, ptr %198, i64 %204
+  %206 = load ptr, ptr %205, align 8
+  %207 = load ptr, ptr %2, align 8
+  %208 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %206, i32 noundef %127, ptr noundef %175, i1 noundef zeroext false) #9
+  %209 = load ptr, ptr %207, align 8
+  %210 = load ptr, ptr %209, align 8
+  %211 = tail call noundef ptr %210(ptr noundef nonnull align 8 dereferenceable(2400) %207, ptr noundef %208) #9
+  %212 = load ptr, ptr %2, align 8
+  %213 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef 372, ptr noundef %187, ptr noundef %211, ptr noundef %176, i1 noundef zeroext false, i1 noundef zeroext false) #9
+  %214 = load ptr, ptr %212, align 8
+  %215 = load ptr, ptr %214, align 8
+  %216 = tail call noundef ptr %215(ptr noundef nonnull align 8 dereferenceable(2400) %212, ptr noundef %213) #9
+  br label %231
 
-216:                                              ; preds = %183
-  %217 = load i32, ptr %163, align 8
-  %218 = icmp sgt i32 %217, 1
-  br i1 %218, label %219, label %230
+217:                                              ; preds = %184
+  %218 = load i32, ptr %164, align 8
+  %219 = icmp sgt i32 %218, 1
+  br i1 %219, label %220, label %231
 
-219:                                              ; preds = %216
-  %220 = load ptr, ptr %2, align 8
-  %221 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %217, i1 true)
-  %222 = tail call noundef ptr @_ZN7TypeInt4makeEi(i32 noundef %221) #9
-  %223 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %220, ptr noundef %222) #9
-  %224 = tail call noundef ptr @_ZN8GraphKit18vector_shift_countEP4Nodei9BasicTypei(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %223, i32 noundef 185, i8 noundef zeroext 8, i32 noundef %127)
-  %225 = load ptr, ptr %2, align 8
-  %226 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef 401, ptr noundef %186, ptr noundef %224, ptr noundef %175, i1 noundef zeroext false, i1 noundef zeroext false) #9
-  %227 = load ptr, ptr %225, align 8
-  %228 = load ptr, ptr %227, align 8
-  %229 = tail call noundef ptr %228(ptr noundef nonnull align 8 dereferenceable(2400) %225, ptr noundef %226) #9
-  br label %230
+220:                                              ; preds = %217
+  %221 = load ptr, ptr %2, align 8
+  %222 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %218, i1 true)
+  %223 = tail call noundef ptr @_ZN7TypeInt4makeEi(i32 noundef %222) #9
+  %224 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %221, ptr noundef %223) #9
+  %225 = tail call noundef ptr @_ZN8GraphKit18vector_shift_countEP4Nodei9BasicTypei(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %224, i32 noundef 185, i8 noundef zeroext 8, i32 noundef %127)
+  %226 = load ptr, ptr %2, align 8
+  %227 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef 401, ptr noundef %187, ptr noundef %225, ptr noundef %176, i1 noundef zeroext false, i1 noundef zeroext false) #9
+  %228 = load ptr, ptr %226, align 8
+  %229 = load ptr, ptr %228, align 8
+  %230 = tail call noundef ptr %229(ptr noundef nonnull align 8 dereferenceable(2400) %226, ptr noundef %227) #9
+  br label %231
 
-230:                                              ; preds = %216, %219, %201
-  %.0104 = phi ptr [ %215, %201 ], [ %229, %219 ], [ %186, %216 ]
-  %231 = load i32, ptr %128, align 8
-  %232 = load i32, ptr %130, align 4
-  %233 = or i32 %232, %231
-  %or.cond120 = icmp eq i32 %233, 0
-  br i1 %or.cond120, label %245, label %234
+231:                                              ; preds = %217, %220, %202
+  %.0106 = phi ptr [ %216, %202 ], [ %230, %220 ], [ %187, %217 ]
+  %232 = load i32, ptr %128, align 8
+  %233 = load i32, ptr %130, align 4
+  %234 = or i32 %233, %232
+  %or.cond121 = icmp eq i32 %234, 0
+  br i1 %or.cond121, label %246, label %235
 
-234:                                              ; preds = %230
-  %235 = load ptr, ptr %2, align 8
-  %236 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %200, i32 noundef %127, ptr noundef %174, i1 noundef zeroext false) #9
-  %237 = load ptr, ptr %235, align 8
-  %238 = load ptr, ptr %237, align 8
-  %239 = tail call noundef ptr %238(ptr noundef nonnull align 8 dereferenceable(2400) %235, ptr noundef %236) #9
-  %240 = load ptr, ptr %2, align 8
-  %241 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef 356, ptr noundef %.0104, ptr noundef %239, ptr noundef %175, i1 noundef zeroext false, i1 noundef zeroext false) #9
-  %242 = load ptr, ptr %240, align 8
-  %243 = load ptr, ptr %242, align 8
-  %244 = tail call noundef ptr %243(ptr noundef nonnull align 8 dereferenceable(2400) %240, ptr noundef %241) #9
-  br label %245
+235:                                              ; preds = %231
+  %236 = load ptr, ptr %2, align 8
+  %237 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %201, i32 noundef %127, ptr noundef %175, i1 noundef zeroext false) #9
+  %238 = load ptr, ptr %236, align 8
+  %239 = load ptr, ptr %238, align 8
+  %240 = tail call noundef ptr %239(ptr noundef nonnull align 8 dereferenceable(2400) %236, ptr noundef %237) #9
+  %241 = load ptr, ptr %2, align 8
+  %242 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef 356, ptr noundef %.0106, ptr noundef %240, ptr noundef %176, i1 noundef zeroext false, i1 noundef zeroext false) #9
+  %243 = load ptr, ptr %241, align 8
+  %244 = load ptr, ptr %243, align 8
+  %245 = tail call noundef ptr %244(ptr noundef nonnull align 8 dereferenceable(2400) %241, ptr noundef %242) #9
+  br label %246
 
-245:                                              ; preds = %230, %234
-  %.1 = phi ptr [ %244, %234 ], [ %.0104, %230 ]
-  %246 = load ptr, ptr %2, align 8
-  %247 = add nsw i32 %127, -1
-  %248 = tail call noundef ptr @_ZN7TypeInt4makeEi(i32 noundef %247) #9
-  %249 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %246, ptr noundef %248) #9
-  %250 = load ptr, ptr %2, align 8
-  %251 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %249, i32 noundef %127, ptr noundef %174, i1 noundef zeroext false) #9
-  %252 = load ptr, ptr %250, align 8
-  %253 = load ptr, ptr %252, align 8
-  %254 = tail call noundef ptr %253(ptr noundef nonnull align 8 dereferenceable(2400) %250, ptr noundef %251) #9
-  br i1 %.not112, label %255, label %261
+246:                                              ; preds = %231, %235
+  %.1 = phi ptr [ %245, %235 ], [ %.0106, %231 ]
+  %247 = load ptr, ptr %2, align 8
+  %248 = add nsw i32 %127, -1
+  %249 = tail call noundef ptr @_ZN7TypeInt4makeEi(i32 noundef %248) #9
+  %250 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %247, ptr noundef %249) #9
+  %251 = load ptr, ptr %2, align 8
+  %252 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %250, i32 noundef %127, ptr noundef %175, i1 noundef zeroext false) #9
+  %253 = load ptr, ptr %251, align 8
+  %254 = load ptr, ptr %253, align 8
+  %255 = tail call noundef ptr %254(ptr noundef nonnull align 8 dereferenceable(2400) %251, ptr noundef %252) #9
+  br i1 %147, label %256, label %262
 
-255:                                              ; preds = %245
-  %256 = load ptr, ptr %2, align 8
-  %257 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef 413, ptr noundef %.1, ptr noundef %254, ptr noundef %175, i1 noundef zeroext false, i1 noundef zeroext false) #9
-  %258 = load ptr, ptr %256, align 8
-  %259 = load ptr, ptr %258, align 8
-  %260 = tail call noundef ptr %259(ptr noundef nonnull align 8 dereferenceable(2400) %256, ptr noundef %257) #9
-  br label %263
+256:                                              ; preds = %246
+  %257 = load ptr, ptr %2, align 8
+  %258 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef 413, ptr noundef %.1, ptr noundef %255, ptr noundef %176, i1 noundef zeroext false, i1 noundef zeroext false) #9
+  %259 = load ptr, ptr %257, align 8
+  %260 = load ptr, ptr %259, align 8
+  %261 = tail call noundef ptr %260(ptr noundef nonnull align 8 dereferenceable(2400) %257, ptr noundef %258) #9
+  br label %264
 
-261:                                              ; preds = %245
-  %262 = tail call noundef ptr @_ZN14LibraryCallKit22partially_wrap_indexesEP4Nodei9BasicType(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %.1, i32 noundef %127, i8 noundef zeroext 8)
-  br label %263
+262:                                              ; preds = %246
+  %263 = tail call noundef ptr @_ZN14LibraryCallKit22partially_wrap_indexesEP4Nodei9BasicType(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %.1, i32 noundef %127, i8 noundef zeroext 8)
+  br label %264
 
-263:                                              ; preds = %261, %255
-  %.2 = phi ptr [ %260, %255 ], [ %262, %261 ]
-  %264 = load ptr, ptr %82, align 8
-  %265 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %264) #9
-  %266 = tail call noundef ptr @_ZN11TypeInstPtr10make_exactEN7TypePtr3PTREP7ciKlass(i32 noundef 4, ptr noundef %265)
-  %267 = tail call noundef ptr @_ZN8GraphKit10box_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.2, ptr noundef %266, i8 noundef zeroext 8, i32 noundef %127, i1 noundef zeroext false)
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %267, ptr %268, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 132
-  %272 = load i32, ptr %271, align 4
-  %273 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_type2aelembytes, i64 32), align 16
-  %274 = mul nsw i32 %273, %127
-  %275 = tail call noundef i32 @llvm.umax.i32(i32 %272, i32 %274)
-  store i32 %275, ptr %271, align 4
-  br label %276
+264:                                              ; preds = %262, %256
+  %.2 = phi ptr [ %261, %256 ], [ %263, %262 ]
+  %265 = load ptr, ptr %82, align 8
+  %266 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %265) #9
+  %267 = tail call noundef ptr @_ZN11TypeInstPtr10make_exactEN7TypePtr3PTREP7ciKlass(i32 noundef 4, ptr noundef %266)
+  %268 = tail call noundef ptr @_ZN8GraphKit10box_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.2, ptr noundef %267, i8 noundef zeroext 8, i32 noundef %127, i1 noundef zeroext false)
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %268, ptr %269, align 8
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %271 = load ptr, ptr %270, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 132
+  %273 = load i32, ptr %272, align 4
+  %274 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_type2aelembytes, i64 32), align 16
+  %275 = mul nsw i32 %274, %127
+  %276 = tail call noundef i32 @llvm.umax.i32(i32 %273, i32 %275)
+  store i32 %276, ptr %272, align 4
+  br label %277
 
-276:                                              ; preds = %.thread, %.critedge, %156, %158, %160, %147, %149, %151, %153, %146, %117, %123, %1, %81, %86, %95, %263
-  %.0 = phi i1 [ true, %263 ], [ false, %95 ], [ false, %86 ], [ false, %81 ], [ false, %1 ], [ false, %123 ], [ false, %117 ], [ false, %146 ], [ false, %153 ], [ false, %151 ], [ false, %149 ], [ false, %147 ], [ false, %160 ], [ false, %158 ], [ false, %156 ], [ false, %.critedge ], [ false, %.thread ]
+277:                                              ; preds = %.thread, %.critedge, %157, %159, %161, %148, %150, %152, %154, %146, %117, %123, %1, %81, %86, %95, %264
+  %.0 = phi i1 [ true, %264 ], [ false, %95 ], [ false, %86 ], [ false, %81 ], [ false, %1 ], [ false, %123 ], [ false, %117 ], [ false, %146 ], [ false, %154 ], [ false, %152 ], [ false, %150 ], [ false, %148 ], [ false, %161 ], [ false, %159 ], [ false, %157 ], [ false, %.critedge ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -4207,7 +4207,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 21
-  %..i165 = select i1 %43, ptr %40, ptr null
+  %..i167 = select i1 %43, ptr %40, ptr null
   %44 = add i32 %14, 2
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw ptr, ptr %16, i64 %45
@@ -4220,11 +4220,11 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 3
-  %..i166 = select i1 %55, ptr %52, ptr null
+  %..i168 = select i1 %55, ptr %52, ptr null
   %56 = icmp eq ptr %..i, null
-  %57 = icmp eq ptr %..i165, null
+  %57 = icmp eq ptr %..i167, null
   %or.cond = or i1 %56, %57
-  %58 = icmp eq ptr %..i166, null
+  %58 = icmp eq ptr %..i168, null
   %or.cond3 = or i1 %or.cond, %58
   br i1 %or.cond3, label %88, label %59
 
@@ -4252,13 +4252,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   br i1 %77, label %88, label %78
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %..i165, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %..i167, i64 48
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %88, label %82
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %..i166, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %..i168, i64 24
   %84 = load i32, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %52, i64 28
   %86 = load i32, ptr %85, align 4
@@ -4271,7 +4271,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 276
   %92 = load i8, ptr %91, align 4
   %93 = trunc i8 %92 to i1
-  br i1 %93, label %94, label %409
+  br i1 %93, label %94, label %410
 
 94:                                               ; preds = %88
   %95 = load ptr, ptr @tty, align 8
@@ -4342,7 +4342,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_mem_operati
   %160 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %159
   %161 = load ptr, ptr %160, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %95, ptr noundef nonnull @.str.31, ptr noundef %101, ptr noundef %121, ptr noundef %141, ptr noundef %161) #9
-  br label %409
+  br label %410
 
 162:                                              ; preds = %82
   %163 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %76) #9
@@ -4387,12 +4387,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 276
   %182 = load i8, ptr %181, align 4
   %183 = trunc i8 %182 to i1
-  br i1 %183, label %184, label %409
+  br i1 %183, label %184, label %410
 
 184:                                              ; preds = %178
   %185 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %185, ptr noundef nonnull @.str.8) #9
-  br label %409
+  br label %410
 
 186:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %187 = load ptr, ptr %79, align 8
@@ -4409,13 +4409,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 276
   %196 = load i8, ptr %195, align 4
   %197 = trunc i8 %196 to i1
-  br i1 %197, label %198, label %409
+  br i1 %197, label %198, label %410
 
 198:                                              ; preds = %192
   %199 = load ptr, ptr @tty, align 8
   %200 = zext nneg i8 %190 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %199, ptr noundef nonnull @.str.7, i32 noundef %200) #9
-  br label %409
+  br label %410
 
 201:                                              ; preds = %186
   %202 = load i32, ptr %83, align 8
@@ -4429,7 +4429,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 276
   %209 = load i8, ptr %208, align 4
   %210 = trunc i8 %209 to i1
-  br i1 %210, label %211, label %409
+  br i1 %210, label %211, label %410
 
 211:                                              ; preds = %205
   %212 = load ptr, ptr @tty, align 8
@@ -4437,7 +4437,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %214 = select i1 %1, ptr @.str.33, ptr @.str.34
   %215 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %190) #9
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %212, ptr noundef nonnull @.str.32, i32 noundef %213, ptr noundef nonnull %214, i32 noundef %202, ptr noundef %215) #9
-  br label %409
+  br label %410
 
 216:                                              ; preds = %201
   %217 = load ptr, ptr %75, align 8
@@ -4492,7 +4492,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 16
   %265 = load i32, ptr %264, align 8
   %266 = icmp eq i32 %265, 22
-  %..i168 = select i1 %266, ptr %263, ptr null
+  %..i170 = select i1 %266, ptr %263, ptr null
   %267 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
   %268 = icmp ne ptr %267, %254
   %269 = call noundef zeroext i1 @_ZNK4Type12higher_equalEPKS_(ptr noundef nonnull align 8 dereferenceable(20) %267, ptr noundef %254)
@@ -4517,222 +4517,222 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 276
   %283 = load i8, ptr %282, align 4
   %284 = trunc i8 %283 to i1
-  br i1 %284, label %285, label %409
+  br i1 %284, label %285, label %410
 
 285:                                              ; preds = %279
   %286 = load ptr, ptr @tty, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %286, ptr noundef nonnull @.str.35) #9
-  br label %409
+  br label %410
 
 287:                                              ; preds = %274
-  %.not = icmp eq ptr %..i168, null
-  %brmerge = or i1 %220, %.not
-  br i1 %brmerge, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %288
+  %288 = icmp eq ptr %..i170, null
+  %or.cond5 = or i1 %220, %288
+  br i1 %or.cond5, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %289
 
-288:                                              ; preds = %287
-  %289 = getelementptr i8, ptr %..i168, i64 80
-  %.val164 = load ptr, ptr %289, align 8
-  %290 = getelementptr i8, ptr %.val164, i64 24
-  %.val164.val = load ptr, ptr %290, align 8
-  %291 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %.val164.val) #9
-  %292 = icmp eq i8 %190, %291
-  br i1 %292, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %293
+289:                                              ; preds = %287
+  %290 = getelementptr i8, ptr %..i170, i64 80
+  %.val166 = load ptr, ptr %290, align 8
+  %291 = getelementptr i8, ptr %.val166, i64 24
+  %.val166.val = load ptr, ptr %291, align 8
+  %292 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %.val166.val) #9
+  %293 = icmp eq i8 %190, %292
+  br i1 %293, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %294
 
-293:                                              ; preds = %288
-  %294 = icmp eq i8 %190, 9
-  %295 = icmp eq i8 %291, 5
-  %or.cond.i170 = and i1 %294, %295
-  br i1 %or.cond.i170, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
+294:                                              ; preds = %289
+  %295 = icmp eq i8 %190, 9
+  %296 = icmp eq i8 %292, 5
+  %or.cond.i172 = and i1 %295, %296
+  br i1 %or.cond.i172, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
 
-_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %293
-  %296 = icmp eq i8 %190, 8
-  %297 = icmp eq i8 %291, 4
-  %or.cond5.i = and i1 %296, %297
-  br i1 %or.cond5.i, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %298
+_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit: ; preds = %294
+  %297 = icmp eq i8 %190, 8
+  %298 = icmp eq i8 %292, 4
+  %or.cond5.i = and i1 %297, %298
+  br i1 %or.cond5.i, label %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread, label %299
 
-298:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds nuw i8, ptr %300, i64 276
-  %302 = load i8, ptr %301, align 4
-  %303 = trunc i8 %302 to i1
-  br i1 %303, label %304, label %314
+299:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %301 = load ptr, ptr %300, align 8
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 276
+  %303 = load i8, ptr %302, align 4
+  %304 = trunc i8 %303 to i1
+  br i1 %304, label %305, label %315
 
-304:                                              ; preds = %298
-  %305 = load ptr, ptr @tty, align 8
-  %306 = zext i1 %1 to i32
-  %307 = select i1 %1, ptr @.str.33, ptr @.str.34
-  %308 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %190) #9
-  %309 = load ptr, ptr %289, align 8
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 24
-  %311 = load ptr, ptr %310, align 8
-  %312 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %311) #9
-  %313 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %312) #9
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %305, ptr noundef nonnull @.str.36, i32 noundef %306, ptr noundef nonnull %307, i32 noundef %202, ptr noundef %308, ptr noundef %313) #9
-  br label %314
+305:                                              ; preds = %299
+  %306 = load ptr, ptr @tty, align 8
+  %307 = zext i1 %1 to i32
+  %308 = select i1 %1, ptr @.str.33, ptr @.str.34
+  %309 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %190) #9
+  %310 = load ptr, ptr %290, align 8
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 24
+  %312 = load ptr, ptr %311, align 8
+  %313 = call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %312) #9
+  %314 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %313) #9
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %306, ptr noundef nonnull @.str.36, i32 noundef %307, ptr noundef nonnull %308, i32 noundef %202, ptr noundef %309, ptr noundef %314) #9
+  br label %315
 
-314:                                              ; preds = %304, %298
+315:                                              ; preds = %305, %299
   store ptr %241, ptr %6, align 8
   store i32 %240, ptr %239, align 8
-  br label %409
+  br label %410
 
-_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %293, %288, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit, %287
-  br i1 %220, label %315, label %322
+_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread: ; preds = %294, %289, %287, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit
+  br i1 %220, label %316, label %323
 
-315:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread
-  br i1 %1, label %319, label %316
+316:                                              ; preds = %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread
+  br i1 %1, label %320, label %317
 
-316:                                              ; preds = %315
-  %317 = call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 426, i32 noundef %202, i8 noundef zeroext %190, i32 noundef 1, i1 noundef zeroext false)
-  br i1 %317, label %322, label %318
+317:                                              ; preds = %316
+  %318 = call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 426, i32 noundef %202, i8 noundef zeroext %190, i32 noundef 1, i1 noundef zeroext false)
+  br i1 %318, label %323, label %319
 
-318:                                              ; preds = %316
+319:                                              ; preds = %317
   store ptr %241, ptr %6, align 8
   store i32 %240, ptr %239, align 8
-  br label %409
+  br label %410
 
-319:                                              ; preds = %315
-  %320 = call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 429, i32 noundef %202, i8 noundef zeroext %190, i32 noundef 2, i1 noundef zeroext false)
-  br i1 %320, label %322, label %321
+320:                                              ; preds = %316
+  %321 = call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 429, i32 noundef %202, i8 noundef zeroext %190, i32 noundef 2, i1 noundef zeroext false)
+  br i1 %321, label %323, label %322
 
-321:                                              ; preds = %319
+322:                                              ; preds = %320
   store ptr %241, ptr %6, align 8
   store i32 %240, ptr %239, align 8
-  br label %409
+  br label %410
 
-322:                                              ; preds = %316, %319, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread
-  %323 = call noundef ptr @_ZN11TypeInstPtr10make_exactEN7TypePtr3PTREP7ciKlass(i32 noundef 4, ptr noundef nonnull %218)
-  br i1 %276, label %324, label %326
+323:                                              ; preds = %317, %320, %_ZL24elem_consistent_with_arr9BasicTypePK10TypeAryPtrb.exit.thread
+  %324 = call noundef ptr @_ZN11TypeInstPtr10make_exactEN7TypePtr3PTREP7ciKlass(i32 noundef 4, ptr noundef nonnull %218)
+  br i1 %276, label %325, label %327
 
-324:                                              ; preds = %322
-  %325 = call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 216, ptr noundef null) #9
-  br label %326
+325:                                              ; preds = %323
+  %326 = call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 216, ptr noundef null) #9
+  br label %327
 
-326:                                              ; preds = %324, %322
-  br i1 %1, label %327, label %364
+327:                                              ; preds = %325, %323
+  br i1 %1, label %328, label %365
 
-327:                                              ; preds = %326
-  %328 = load ptr, ptr %6, align 8
-  %329 = getelementptr inbounds nuw i8, ptr %328, i64 56
-  %330 = load ptr, ptr %329, align 8
-  %331 = getelementptr inbounds nuw i8, ptr %330, i64 16
-  %332 = load i32, ptr %331, align 8
-  %333 = getelementptr inbounds nuw i8, ptr %330, i64 32
-  %334 = load i32, ptr %333, align 8
-  %335 = add i32 %332, 7
-  %336 = add i32 %335, %334
-  %337 = getelementptr inbounds nuw i8, ptr %328, i64 8
-  %338 = load ptr, ptr %337, align 8
-  %339 = zext i32 %336 to i64
-  %340 = getelementptr inbounds nuw ptr, ptr %338, i64 %339
-  %341 = load ptr, ptr %340, align 8
-  %342 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %341, ptr noundef %323, i8 noundef zeroext %190, i32 noundef %202, i1 noundef zeroext false)
-  %343 = icmp eq ptr %342, null
-  br i1 %343, label %344, label %345
+328:                                              ; preds = %327
+  %329 = load ptr, ptr %6, align 8
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 56
+  %331 = load ptr, ptr %330, align 8
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 16
+  %333 = load i32, ptr %332, align 8
+  %334 = getelementptr inbounds nuw i8, ptr %331, i64 32
+  %335 = load i32, ptr %334, align 8
+  %336 = add i32 %333, 7
+  %337 = add i32 %336, %335
+  %338 = getelementptr inbounds nuw i8, ptr %329, i64 8
+  %339 = load ptr, ptr %338, align 8
+  %340 = zext i32 %337 to i64
+  %341 = getelementptr inbounds nuw ptr, ptr %339, i64 %340
+  %342 = load ptr, ptr %341, align 8
+  %343 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %342, ptr noundef %324, i8 noundef zeroext %190, i32 noundef %202, i1 noundef zeroext false)
+  %344 = icmp eq ptr %343, null
+  br i1 %344, label %345, label %346
 
-344:                                              ; preds = %327
+345:                                              ; preds = %328
   store ptr %241, ptr %6, align 8
   store i32 %240, ptr %239, align 8
-  br label %409
+  br label %410
 
-345:                                              ; preds = %327
-  %346 = call noundef ptr @_ZN8GraphKit12reset_memoryEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #9
-  call void @_ZN8GraphKit14set_all_memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %346) #9
-  br i1 %220, label %347, label %353
+346:                                              ; preds = %328
+  %347 = call noundef ptr @_ZN8GraphKit12reset_memoryEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #9
+  call void @_ZN8GraphKit14set_all_memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %347) #9
+  br i1 %220, label %348, label %354
 
-347:                                              ; preds = %345
-  %348 = load ptr, ptr %4, align 8
-  %349 = call noundef ptr @_ZN19VectorStoreMaskNode4makeER8PhaseGVNP4Node9BasicTypej(ptr noundef nonnull align 8 dereferenceable(2400) %348, ptr noundef nonnull %342, i8 noundef zeroext %190, i32 noundef %202) #9
-  %350 = load ptr, ptr %348, align 8
-  %351 = load ptr, ptr %350, align 8
-  %352 = call noundef ptr %351(ptr noundef nonnull align 8 dereferenceable(2400) %348, ptr noundef %349) #9
-  br label %353
+348:                                              ; preds = %346
+  %349 = load ptr, ptr %4, align 8
+  %350 = call noundef ptr @_ZN19VectorStoreMaskNode4makeER8PhaseGVNP4Node9BasicTypej(ptr noundef nonnull align 8 dereferenceable(2400) %349, ptr noundef nonnull %343, i8 noundef zeroext %190, i32 noundef %202) #9
+  %351 = load ptr, ptr %349, align 8
+  %352 = load ptr, ptr %351, align 8
+  %353 = call noundef ptr %352(ptr noundef nonnull align 8 dereferenceable(2400) %349, ptr noundef %350) #9
+  br label %354
 
-353:                                              ; preds = %347, %345
-  %.1 = phi ptr [ %352, %347 ], [ %342, %345 ]
-  %354 = load ptr, ptr %4, align 8
-  %355 = load ptr, ptr %6, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
-  %357 = load ptr, ptr %356, align 8
+354:                                              ; preds = %348, %346
+  %.1 = phi ptr [ %353, %348 ], [ %343, %346 ]
+  %355 = load ptr, ptr %4, align 8
+  %356 = load ptr, ptr %6, align 8
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %358 = load ptr, ptr %357, align 8
-  %359 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %243)
-  %360 = call noundef ptr @_ZN15StoreVectorNode4makeEiP4NodeS1_S1_PK7TypePtrS1_j(i32 noundef 0, ptr noundef %358, ptr noundef %359, ptr noundef nonnull %243, ptr noundef nonnull %259, ptr noundef %.1, i32 noundef %202) #9
-  %361 = load ptr, ptr %354, align 8
-  %362 = load ptr, ptr %361, align 8
-  %363 = call noundef ptr %362(ptr noundef nonnull align 8 dereferenceable(2400) %354, ptr noundef %360) #9
-  call void @_ZN8GraphKit10set_memoryEP4NodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %363, ptr noundef nonnull %259)
-  br label %396
+  %359 = load ptr, ptr %358, align 8
+  %360 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %243)
+  %361 = call noundef ptr @_ZN15StoreVectorNode4makeEiP4NodeS1_S1_PK7TypePtrS1_j(i32 noundef 0, ptr noundef %359, ptr noundef %360, ptr noundef nonnull %243, ptr noundef nonnull %259, ptr noundef %.1, i32 noundef %202) #9
+  %362 = load ptr, ptr %355, align 8
+  %363 = load ptr, ptr %362, align 8
+  %364 = call noundef ptr %363(ptr noundef nonnull align 8 dereferenceable(2400) %355, ptr noundef %361) #9
+  call void @_ZN8GraphKit10set_memoryEP4NodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %364, ptr noundef nonnull %259)
+  br label %397
 
-364:                                              ; preds = %326
-  %365 = load ptr, ptr %4, align 8
-  %366 = load ptr, ptr %6, align 8
-  %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  %368 = load ptr, ptr %367, align 8
+365:                                              ; preds = %327
+  %366 = load ptr, ptr %4, align 8
+  %367 = load ptr, ptr %6, align 8
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %369 = load ptr, ptr %368, align 8
-  %370 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %243)
-  br i1 %220, label %371, label %388
+  %370 = load ptr, ptr %369, align 8
+  %371 = call noundef ptr @_ZN8GraphKit6memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %243)
+  br i1 %220, label %372, label %389
 
-371:                                              ; preds = %364
-  %372 = call noundef ptr @_ZN14LoadVectorNode4makeEiP4NodeS1_S1_PK7TypePtrj9BasicTypeN8LoadNode17ControlDependencyE(i32 noundef 0, ptr noundef %369, ptr noundef %370, ptr noundef nonnull %243, ptr noundef nonnull %259, i32 noundef %202, i8 noundef zeroext 4, i32 noundef 2) #9
-  %373 = load ptr, ptr %365, align 8
-  %374 = load ptr, ptr %373, align 8
-  %375 = call noundef ptr %374(ptr noundef nonnull align 8 dereferenceable(2400) %365, ptr noundef %372) #9
-  %376 = load ptr, ptr %4, align 8
-  %377 = call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
-  %378 = icmp eq ptr %377, null
-  br i1 %378, label %384, label %379
+372:                                              ; preds = %365
+  %373 = call noundef ptr @_ZN14LoadVectorNode4makeEiP4NodeS1_S1_PK7TypePtrj9BasicTypeN8LoadNode17ControlDependencyE(i32 noundef 0, ptr noundef %370, ptr noundef %371, ptr noundef nonnull %243, ptr noundef nonnull %259, i32 noundef %202, i8 noundef zeroext 4, i32 noundef 2) #9
+  %374 = load ptr, ptr %366, align 8
+  %375 = load ptr, ptr %374, align 8
+  %376 = call noundef ptr %375(ptr noundef nonnull align 8 dereferenceable(2400) %366, ptr noundef %373) #9
+  %377 = load ptr, ptr %4, align 8
+  %378 = call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
+  %379 = icmp eq ptr %378, null
+  br i1 %379, label %385, label %380
 
-379:                                              ; preds = %371
-  %380 = zext nneg i8 %190 to i64
-  %381 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %380
-  %382 = load ptr, ptr %381, align 8
-  %383 = call noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %382, i32 noundef %202) #9
-  call void @_ZN18VectorLoadMaskNodeC2EP4NodePK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %377, ptr noundef %375, ptr noundef %383)
-  br label %384
+380:                                              ; preds = %372
+  %381 = zext nneg i8 %190 to i64
+  %382 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %381
+  %383 = load ptr, ptr %382, align 8
+  %384 = call noundef ptr @_ZN8TypeVect8makemaskEPK4Typej(ptr noundef %383, i32 noundef %202) #9
+  call void @_ZN18VectorLoadMaskNodeC2EP4NodePK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %378, ptr noundef %376, ptr noundef %384)
+  br label %385
 
-384:                                              ; preds = %379, %371
-  %385 = load ptr, ptr %376, align 8
-  %386 = load ptr, ptr %385, align 8
-  %387 = call noundef ptr %386(ptr noundef nonnull align 8 dereferenceable(2400) %376, ptr noundef %377) #9
-  br label %393
+385:                                              ; preds = %380, %372
+  %386 = load ptr, ptr %377, align 8
+  %387 = load ptr, ptr %386, align 8
+  %388 = call noundef ptr %387(ptr noundef nonnull align 8 dereferenceable(2400) %377, ptr noundef %378) #9
+  br label %394
 
-388:                                              ; preds = %364
-  %389 = call noundef ptr @_ZN14LoadVectorNode4makeEiP4NodeS1_S1_PK7TypePtrj9BasicTypeN8LoadNode17ControlDependencyE(i32 noundef 0, ptr noundef %369, ptr noundef %370, ptr noundef nonnull %243, ptr noundef nonnull %259, i32 noundef %202, i8 noundef zeroext %190, i32 noundef 2) #9
-  %390 = load ptr, ptr %365, align 8
-  %391 = load ptr, ptr %390, align 8
-  %392 = call noundef ptr %391(ptr noundef nonnull align 8 dereferenceable(2400) %365, ptr noundef %389) #9
-  br label %393
+389:                                              ; preds = %365
+  %390 = call noundef ptr @_ZN14LoadVectorNode4makeEiP4NodeS1_S1_PK7TypePtrj9BasicTypeN8LoadNode17ControlDependencyE(i32 noundef 0, ptr noundef %370, ptr noundef %371, ptr noundef nonnull %243, ptr noundef nonnull %259, i32 noundef %202, i8 noundef zeroext %190, i32 noundef 2) #9
+  %391 = load ptr, ptr %366, align 8
+  %392 = load ptr, ptr %391, align 8
+  %393 = call noundef ptr %392(ptr noundef nonnull align 8 dereferenceable(2400) %366, ptr noundef %390) #9
+  br label %394
 
-393:                                              ; preds = %384, %388
-  %.0152 = phi ptr [ %387, %384 ], [ %392, %388 ]
-  %394 = call noundef ptr @_ZN8GraphKit10box_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.0152, ptr noundef %323, i8 noundef zeroext %190, i32 noundef %202, i1 noundef zeroext false)
-  %395 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %394, ptr %395, align 8
-  br label %396
+394:                                              ; preds = %385, %389
+  %.0154 = phi ptr [ %388, %385 ], [ %393, %389 ]
+  %395 = call noundef ptr @_ZN8GraphKit10box_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.0154, ptr noundef %324, i8 noundef zeroext %190, i32 noundef %202, i1 noundef zeroext false)
+  %396 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %395, ptr %396, align 8
+  br label %397
 
-396:                                              ; preds = %393, %353
+397:                                              ; preds = %394, %354
   call void @_ZN8GraphKit18destruct_map_cloneEP13SafePointNode(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %241) #9
-  br i1 %276, label %397, label %399
+  br i1 %276, label %398, label %400
 
-397:                                              ; preds = %396
-  %398 = call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 216, ptr noundef null) #9
-  br label %399
+398:                                              ; preds = %397
+  %399 = call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef 216, ptr noundef null) #9
+  br label %400
 
-399:                                              ; preds = %397, %396
-  %400 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr inbounds nuw i8, ptr %401, i64 132
-  %403 = load i32, ptr %402, align 4
-  %404 = zext nneg i8 %190 to i64
-  %405 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %404
-  %406 = load i32, ptr %405, align 4
-  %407 = mul nsw i32 %406, %202
-  %408 = call noundef i32 @llvm.umax.i32(i32 %403, i32 %407)
-  store i32 %408, ptr %402, align 4
-  br label %409
+400:                                              ; preds = %398, %397
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %402 = load ptr, ptr %401, align 8
+  %403 = getelementptr inbounds nuw i8, ptr %402, i64 132
+  %404 = load i32, ptr %403, align 4
+  %405 = zext nneg i8 %190 to i64
+  %406 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %405
+  %407 = load i32, ptr %406, align 4
+  %408 = mul nsw i32 %407, %202
+  %409 = call noundef i32 @llvm.umax.i32(i32 %404, i32 %408)
+  store i32 %409, ptr %403, align 4
+  br label %410
 
-409:                                              ; preds = %279, %285, %205, %211, %192, %198, %178, %184, %88, %94, %399, %344, %321, %318, %314
-  %.0 = phi i1 [ false, %344 ], [ true, %399 ], [ false, %321 ], [ false, %318 ], [ false, %314 ], [ false, %94 ], [ false, %88 ], [ false, %184 ], [ false, %178 ], [ false, %198 ], [ false, %192 ], [ false, %211 ], [ false, %205 ], [ false, %285 ], [ false, %279 ]
+410:                                              ; preds = %279, %285, %205, %211, %192, %198, %178, %184, %88, %94, %400, %345, %322, %319, %315
+  %.0 = phi i1 [ false, %345 ], [ true, %400 ], [ false, %322 ], [ false, %319 ], [ false, %315 ], [ false, %94 ], [ false, %88 ], [ false, %184 ], [ false, %178 ], [ false, %198 ], [ false, %192 ], [ false, %211 ], [ false, %205 ], [ false, %285 ], [ false, %279 ]
   ret i1 %.0
 }
 
@@ -6944,7 +6944,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 21
-  %..i114 = select i1 %41, ptr %38, ptr null
+  %..i117 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
@@ -6956,7 +6956,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
-  %.not120 = icmp eq i32 %52, 21
+  %.not = icmp eq i32 %52, 21
   %53 = add i32 %12, 3
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw ptr, ptr %14, i64 %54
@@ -6969,7 +6969,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 21
-  %..i116 = select i1 %64, ptr %61, ptr null
+  %..i119 = select i1 %64, ptr %61, ptr null
   %65 = add i32 %12, 4
   %66 = zext i32 %65 to i64
   %67 = getelementptr inbounds nuw ptr, ptr %14, i64 %66
@@ -6982,13 +6982,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 3
-  %..i117 = select i1 %76, ptr %73, ptr null
+  %..i120 = select i1 %76, ptr %73, ptr null
   %77 = icmp eq ptr %..i, null
-  %78 = icmp eq ptr %..i114, null
+  %78 = icmp eq ptr %..i117, null
   %or.cond = or i1 %77, %78
-  %79 = icmp eq ptr %..i116, null
+  %79 = icmp eq ptr %..i119, null
   %or.cond3 = or i1 %or.cond, %79
-  %80 = icmp eq ptr %..i117, null
+  %80 = icmp eq ptr %..i120, null
   %or.cond5 = or i1 %or.cond3, %80
   br i1 %or.cond5, label %101, label %81
 
@@ -7001,19 +7001,19 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   br i1 %86, label %87, label %101
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds nuw i8, ptr %..i114, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %..i117, i64 48
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %101, label %91
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %..i116, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %..i119, i64 48
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %101, label %95
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw i8, ptr %..i117, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %..i120, i64 24
   %97 = load i32, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %73, i64 28
   %99 = load i32, ptr %98, align 4
@@ -7026,7 +7026,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 276
   %105 = load i8, ptr %104, align 4
   %106 = trunc i8 %105 to i1
-  br i1 %106, label %107, label %476
+  br i1 %106, label %107, label %478
 
 107:                                              ; preds = %101
   %108 = load ptr, ptr @tty, align 8
@@ -7097,7 +7097,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit23inline_vector_reductionEv
   %173 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %172
   %174 = load ptr, ptr %173, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %108, ptr noundef nonnull @.str.6, ptr noundef %114, ptr noundef %134, ptr noundef %154, ptr noundef %174) #9
-  br label %476
+  br label %478
 
 175:                                              ; preds = %95
   %176 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %89) #9
@@ -7142,12 +7142,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 276
   %195 = load i8, ptr %194, align 4
   %196 = trunc i8 %195 to i1
-  br i1 %196, label %197, label %476
+  br i1 %196, label %197, label %478
 
 197:                                              ; preds = %191
   %198 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %198, ptr noundef nonnull @.str.8) #9
-  br label %476
+  br label %478
 
 199:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %200 = load ptr, ptr %92, align 8
@@ -7164,13 +7164,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 276
   %209 = load i8, ptr %208, align 4
   %210 = trunc i8 %209 to i1
-  br i1 %210, label %211, label %476
+  br i1 %210, label %211, label %478
 
 211:                                              ; preds = %205
   %212 = load ptr, ptr @tty, align 8
   %213 = zext nneg i8 %203 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %212, ptr noundef nonnull @.str.7, i32 noundef %213) #9
-  br label %476
+  br label %478
 
 214:                                              ; preds = %199
   %215 = load ptr, ptr %2, align 8
@@ -7198,11 +7198,11 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %237 = getelementptr inbounds nuw ptr, ptr %235, i64 %236
   %238 = load ptr, ptr %237, align 8
   %239 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
-  %.not = icmp ne ptr %238, %239
-  br i1 %.not, label %240, label %286
+  %.not115 = icmp ne ptr %238, %239
+  br i1 %.not115, label %240, label %286
 
 240:                                              ; preds = %214
-  br i1 %.not120, label %241, label %245
+  br i1 %.not, label %241, label %245
 
 241:                                              ; preds = %240
   %242 = getelementptr inbounds nuw i8, ptr %50, i64 48
@@ -7216,7 +7216,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 276
   %249 = load i8, ptr %248, align 4
   %250 = trunc i8 %249 to i1
-  br i1 %250, label %251, label %476
+  br i1 %250, label %251, label %478
 
 251:                                              ; preds = %245
   %252 = load ptr, ptr @tty, align 8
@@ -7231,7 +7231,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %261 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %260
   %262 = load ptr, ptr %261, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %252, ptr noundef nonnull @.str.9, ptr noundef %262) #9
-  br label %476
+  br label %478
 
 263:                                              ; preds = %241
   %264 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr nonnull %243)
@@ -7243,12 +7243,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 276
   %269 = load i8, ptr %268, align 4
   %270 = trunc i8 %269 to i1
-  br i1 %270, label %271, label %476
+  br i1 %270, label %271, label %478
 
 271:                                              ; preds = %265
   %272 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %272, ptr noundef nonnull @.str.10) #9
-  br label %476
+  br label %478
 
 273:                                              ; preds = %263
   %274 = load ptr, ptr %238, align 8
@@ -7267,12 +7267,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 276
   %282 = load i8, ptr %281, align 4
   %283 = trunc i8 %282 to i1
-  br i1 %283, label %284, label %476
+  br i1 %283, label %284, label %478
 
 284:                                              ; preds = %278
   %285 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %285, ptr noundef nonnull @.str.11) #9
-  br label %476
+  br label %478
 
 286:                                              ; preds = %._crit_edge, %214
   %287 = phi i8 [ %.pre, %._crit_edge ], [ %203, %214 ]
@@ -7290,17 +7290,17 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 276
   %298 = load i8, ptr %297, align 4
   %299 = trunc i8 %298 to i1
-  br i1 %299, label %300, label %476
+  br i1 %299, label %300, label %478
 
 300:                                              ; preds = %294
   %301 = load ptr, ptr @tty, align 8
   %302 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %287) #9
-  %303 = zext i1 %.not to i32
+  %303 = zext i1 %.not115 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %301, ptr noundef nonnull @.str.56, i32 noundef %292, i32 noundef %289, ptr noundef %302, i32 noundef %303) #9
-  br label %476
+  br label %478
 
 304:                                              ; preds = %286
-  br i1 %.not, label %305, label %.thread
+  br i1 %.not115, label %305, label %.thread
 
 305:                                              ; preds = %304
   %306 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef %292, i32 noundef %289, i8 noundef zeroext %287, i32 noundef 4, i1 noundef zeroext false)
@@ -7316,16 +7316,16 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 276
   %313 = load i8, ptr %312, align 4
   %314 = trunc i8 %313 to i1
-  br i1 %314, label %315, label %476
+  br i1 %314, label %315, label %478
 
 315:                                              ; preds = %309
   %316 = load ptr, ptr @tty, align 8
   %317 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %287) #9
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %316, ptr noundef nonnull @.str.57, i32 noundef %292, i32 noundef %289, ptr noundef %317) #9
-  br label %476
+  br label %478
 
-.thread:                                          ; preds = %304, %305, %307
-  %318 = phi i1 [ true, %305 ], [ false, %307 ], [ false, %304 ]
+.thread:                                          ; preds = %304, %307, %305
+  %318 = phi i1 [ false, %307 ], [ true, %305 ], [ false, %304 ]
   %319 = load ptr, ptr %88, align 8
   %320 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %319) #9
   %321 = tail call noundef ptr @_ZN11TypeInstPtr10make_exactEN7TypePtr3PTREP7ciKlass(i32 noundef 4, ptr noundef %320)
@@ -7345,10 +7345,10 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %335 = load ptr, ptr %334, align 8
   %336 = tail call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %335, ptr noundef %321, i8 noundef zeroext %287, i32 noundef %289, i1 noundef zeroext false)
   %337 = icmp eq ptr %336, null
-  br i1 %337, label %476, label %338
+  br i1 %337, label %478, label %338
 
 338:                                              ; preds = %.thread
-  br i1 %.not, label %339, label %388
+  br i1 %.not115, label %339, label %388
 
 339:                                              ; preds = %338
   %340 = getelementptr inbounds nuw i8, ptr %50, i64 48
@@ -7379,7 +7379,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 276
   %364 = load i8, ptr %363, align 4
   %365 = trunc i8 %364 to i1
-  br i1 %365, label %366, label %476
+  br i1 %365, label %366, label %478
 
 366:                                              ; preds = %360
   %367 = load ptr, ptr @tty, align 8
@@ -7404,169 +7404,169 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %386 = getelementptr inbounds [0 x ptr], ptr @NodeClassNames, i64 0, i64 %385
   %387 = load ptr, ptr %386, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %367, ptr noundef nonnull @.str.23, ptr noundef %387) #9
-  br label %476
+  br label %478
 
 388:                                              ; preds = %339, %338
-  %.095 = phi ptr [ %358, %339 ], [ null, %338 ]
+  %.0101 = phi ptr [ %358, %339 ], [ null, %338 ]
   %389 = load ptr, ptr %2, align 8
   %390 = tail call noundef ptr @_ZN13ReductionNode24make_identity_con_scalarER8PhaseGVNi9BasicType(ptr noundef nonnull align 8 dereferenceable(2400) %389, i32 noundef %291, i8 noundef zeroext %287) #9
-  %.not109 = icmp eq ptr %.095, null
-  %brmerge110 = or i1 %318, %.not109
-  br i1 %brmerge110, label %412, label %391
+  %391 = icmp eq ptr %.0101, null
+  %or.cond9 = or i1 %318, %391
+  br i1 %or.cond9, label %413, label %392
 
-391:                                              ; preds = %388
-  %392 = load ptr, ptr %2, align 8
-  %393 = zext i8 %287 to i64
-  %394 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %393
-  %395 = load ptr, ptr %394, align 8
-  %396 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %390, i32 noundef %289, ptr noundef %395, i1 noundef zeroext false) #9
-  %397 = load ptr, ptr %392, align 8
-  %398 = load ptr, ptr %397, align 8
-  %399 = tail call noundef ptr %398(ptr noundef nonnull align 8 dereferenceable(2400) %392, ptr noundef %396) #9
-  %400 = load ptr, ptr %2, align 8
-  %401 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
-  %402 = icmp eq ptr %401, null
-  br i1 %402, label %408, label %403
+392:                                              ; preds = %388
+  %393 = load ptr, ptr %2, align 8
+  %394 = zext i8 %287 to i64
+  %395 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Type17_const_basic_typeE, i64 0, i64 %394
+  %396 = load ptr, ptr %395, align 8
+  %397 = tail call noundef ptr @_ZN10VectorNode13scalar2vectorEP4NodejPK4Typeb(ptr noundef %390, i32 noundef %289, ptr noundef %396, i1 noundef zeroext false) #9
+  %398 = load ptr, ptr %393, align 8
+  %399 = load ptr, ptr %398, align 8
+  %400 = tail call noundef ptr %399(ptr noundef nonnull align 8 dereferenceable(2400) %393, ptr noundef %397) #9
+  %401 = load ptr, ptr %2, align 8
+  %402 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
+  %403 = icmp eq ptr %402, null
+  br i1 %403, label %409, label %404
 
-403:                                              ; preds = %391
-  %404 = load ptr, ptr %399, align 8
-  %405 = getelementptr inbounds nuw i8, ptr %404, i64 40
-  %406 = load ptr, ptr %405, align 8
-  %407 = tail call noundef ptr %406(ptr noundef nonnull align 8 dereferenceable(52) %399) #9
-  tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %401, ptr noundef nonnull %399, ptr noundef nonnull %336, ptr noundef nonnull %.095, ptr noundef %407)
-  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %401, align 8
-  br label %408
+404:                                              ; preds = %392
+  %405 = load ptr, ptr %400, align 8
+  %406 = getelementptr inbounds nuw i8, ptr %405, i64 40
+  %407 = load ptr, ptr %406, align 8
+  %408 = tail call noundef ptr %407(ptr noundef nonnull align 8 dereferenceable(52) %400) #9
+  tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %402, ptr noundef nonnull %400, ptr noundef nonnull %336, ptr noundef nonnull %.0101, ptr noundef %408)
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %402, align 8
+  br label %409
 
-408:                                              ; preds = %403, %391
-  %409 = load ptr, ptr %400, align 8
-  %410 = load ptr, ptr %409, align 8
-  %411 = tail call noundef ptr %410(ptr noundef nonnull align 8 dereferenceable(2400) %400, ptr noundef %401) #9
-  br label %412
+409:                                              ; preds = %404, %392
+  %410 = load ptr, ptr %401, align 8
+  %411 = load ptr, ptr %410, align 8
+  %412 = tail call noundef ptr %411(ptr noundef nonnull align 8 dereferenceable(2400) %401, ptr noundef %402) #9
+  br label %413
 
-412:                                              ; preds = %388, %408
-  %.094 = phi ptr [ %411, %408 ], [ %336, %388 ]
-  %413 = tail call noundef ptr @_ZN13ReductionNode4makeEiP4NodeS1_S1_9BasicTypeb(i32 noundef %291, ptr noundef null, ptr noundef %390, ptr noundef %.094, i8 noundef zeroext %287, i1 noundef zeroext false) #9
-  %.not111 = xor i1 %318, true
-  %brmerge112 = or i1 %.not109, %.not111
-  br i1 %brmerge112, label %418, label %414
+413:                                              ; preds = %409, %388
+  %.0100 = phi ptr [ %336, %388 ], [ %412, %409 ]
+  %414 = tail call noundef ptr @_ZN13ReductionNode4makeEiP4NodeS1_S1_9BasicTypeb(i32 noundef %291, ptr noundef null, ptr noundef %390, ptr noundef %.0100, i8 noundef zeroext %287, i1 noundef zeroext false) #9
+  %415 = icmp ne ptr %.0101, null
+  %or.cond11 = and i1 %318, %415
+  br i1 %or.cond11, label %416, label %420
 
-414:                                              ; preds = %412
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %413, ptr noundef nonnull %.095) #9
-  %415 = getelementptr inbounds nuw i8, ptr %413, i64 48
-  %416 = load i32, ptr %415, align 8
-  %417 = or i32 %416, 16384
-  store i32 %417, ptr %415, align 8
-  br label %418
+416:                                              ; preds = %413
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %414, ptr noundef nonnull %.0101) #9
+  %417 = getelementptr inbounds nuw i8, ptr %414, i64 48
+  %418 = load i32, ptr %417, align 8
+  %419 = or i32 %418, 16384
+  store i32 %419, ptr %417, align 8
+  br label %420
 
-418:                                              ; preds = %412, %414
-  %419 = load ptr, ptr %2, align 8
-  %420 = load ptr, ptr %419, align 8
-  %421 = load ptr, ptr %420, align 8
-  %422 = tail call noundef ptr %421(ptr noundef nonnull align 8 dereferenceable(2400) %419, ptr noundef %413) #9
-  switch i8 %287, label %462 [
-    i8 8, label %423
-    i8 9, label %423
-    i8 10, label %423
-    i8 6, label %433
-    i8 7, label %452
-    i8 11, label %465
+420:                                              ; preds = %416, %413
+  %421 = load ptr, ptr %2, align 8
+  %422 = load ptr, ptr %421, align 8
+  %423 = load ptr, ptr %422, align 8
+  %424 = tail call noundef ptr %423(ptr noundef nonnull align 8 dereferenceable(2400) %421, ptr noundef %414) #9
+  switch i8 %287, label %464 [
+    i8 8, label %425
+    i8 9, label %425
+    i8 10, label %425
+    i8 6, label %435
+    i8 7, label %454
+    i8 11, label %467
   ]
 
-423:                                              ; preds = %418, %418, %418
-  %424 = load ptr, ptr %2, align 8
-  %425 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
-  %426 = icmp eq ptr %425, null
-  br i1 %426, label %429, label %427
+425:                                              ; preds = %420, %420, %420
+  %426 = load ptr, ptr %2, align 8
+  %427 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
+  %428 = icmp eq ptr %427, null
+  br i1 %428, label %431, label %429
 
-427:                                              ; preds = %423
-  %428 = load ptr, ptr @_ZN8TypeLong3INTE, align 8
-  tail call void @_ZN11ConvI2LNodeC2EP4NodePK8TypeLong(ptr noundef nonnull align 8 dereferenceable(64) %425, ptr noundef %422, ptr noundef %428)
-  br label %429
+429:                                              ; preds = %425
+  %430 = load ptr, ptr @_ZN8TypeLong3INTE, align 8
+  tail call void @_ZN11ConvI2LNodeC2EP4NodePK8TypeLong(ptr noundef nonnull align 8 dereferenceable(64) %427, ptr noundef %424, ptr noundef %430)
+  br label %431
 
-429:                                              ; preds = %427, %423
-  %430 = load ptr, ptr %424, align 8
-  %431 = load ptr, ptr %430, align 8
-  %432 = tail call noundef ptr %431(ptr noundef nonnull align 8 dereferenceable(2400) %424, ptr noundef %425) #9
-  br label %465
+431:                                              ; preds = %429, %425
+  %432 = load ptr, ptr %426, align 8
+  %433 = load ptr, ptr %432, align 8
+  %434 = tail call noundef ptr %433(ptr noundef nonnull align 8 dereferenceable(2400) %426, ptr noundef %427) #9
+  br label %467
 
-433:                                              ; preds = %418
-  %434 = load ptr, ptr %2, align 8
-  %435 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #9
-  %436 = icmp eq ptr %435, null
-  br i1 %436, label %439, label %437
+435:                                              ; preds = %420
+  %436 = load ptr, ptr %2, align 8
+  %437 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #9
+  %438 = icmp eq ptr %437, null
+  br i1 %438, label %441, label %439
 
-437:                                              ; preds = %433
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %435, ptr noundef null, ptr noundef %422) #9
-  %438 = getelementptr inbounds nuw i8, ptr %435, i64 44
-  store i32 524288, ptr %438, align 4
-  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11MoveF2INode, i64 16), ptr %435, align 8
-  br label %439
+439:                                              ; preds = %435
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %437, ptr noundef null, ptr noundef %424) #9
+  %440 = getelementptr inbounds nuw i8, ptr %437, i64 44
+  store i32 524288, ptr %440, align 4
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11MoveF2INode, i64 16), ptr %437, align 8
+  br label %441
 
-439:                                              ; preds = %437, %433
-  %440 = load ptr, ptr %434, align 8
-  %441 = load ptr, ptr %440, align 8
-  %442 = tail call noundef ptr %441(ptr noundef nonnull align 8 dereferenceable(2400) %434, ptr noundef %435) #9
-  %443 = load ptr, ptr %2, align 8
-  %444 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
-  %445 = icmp eq ptr %444, null
-  br i1 %445, label %448, label %446
+441:                                              ; preds = %439, %435
+  %442 = load ptr, ptr %436, align 8
+  %443 = load ptr, ptr %442, align 8
+  %444 = tail call noundef ptr %443(ptr noundef nonnull align 8 dereferenceable(2400) %436, ptr noundef %437) #9
+  %445 = load ptr, ptr %2, align 8
+  %446 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
+  %447 = icmp eq ptr %446, null
+  br i1 %447, label %450, label %448
 
-446:                                              ; preds = %439
-  %447 = load ptr, ptr @_ZN8TypeLong3INTE, align 8
-  tail call void @_ZN11ConvI2LNodeC2EP4NodePK8TypeLong(ptr noundef nonnull align 8 dereferenceable(64) %444, ptr noundef %442, ptr noundef %447)
-  br label %448
+448:                                              ; preds = %441
+  %449 = load ptr, ptr @_ZN8TypeLong3INTE, align 8
+  tail call void @_ZN11ConvI2LNodeC2EP4NodePK8TypeLong(ptr noundef nonnull align 8 dereferenceable(64) %446, ptr noundef %444, ptr noundef %449)
+  br label %450
 
-448:                                              ; preds = %446, %439
-  %449 = load ptr, ptr %443, align 8
-  %450 = load ptr, ptr %449, align 8
-  %451 = tail call noundef ptr %450(ptr noundef nonnull align 8 dereferenceable(2400) %443, ptr noundef %444) #9
-  br label %465
+450:                                              ; preds = %448, %441
+  %451 = load ptr, ptr %445, align 8
+  %452 = load ptr, ptr %451, align 8
+  %453 = tail call noundef ptr %452(ptr noundef nonnull align 8 dereferenceable(2400) %445, ptr noundef %446) #9
+  br label %467
 
-452:                                              ; preds = %418
-  %453 = load ptr, ptr %2, align 8
-  %454 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #9
-  %455 = icmp eq ptr %454, null
-  br i1 %455, label %458, label %456
+454:                                              ; preds = %420
+  %455 = load ptr, ptr %2, align 8
+  %456 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 56) #9
+  %457 = icmp eq ptr %456, null
+  br i1 %457, label %460, label %458
 
-456:                                              ; preds = %452
-  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %454, ptr noundef null, ptr noundef %422) #9
-  %457 = getelementptr inbounds nuw i8, ptr %454, i64 44
-  store i32 524288, ptr %457, align 4
-  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11MoveD2LNode, i64 16), ptr %454, align 8
-  br label %458
+458:                                              ; preds = %454
+  tail call void @_ZN4NodeC2EPS_S0_(ptr noundef nonnull align 8 dereferenceable(52) %456, ptr noundef null, ptr noundef %424) #9
+  %459 = getelementptr inbounds nuw i8, ptr %456, i64 44
+  store i32 524288, ptr %459, align 4
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11MoveD2LNode, i64 16), ptr %456, align 8
+  br label %460
 
-458:                                              ; preds = %456, %452
-  %459 = load ptr, ptr %453, align 8
-  %460 = load ptr, ptr %459, align 8
-  %461 = tail call noundef ptr %460(ptr noundef nonnull align 8 dereferenceable(2400) %453, ptr noundef %454) #9
-  br label %465
+460:                                              ; preds = %458, %454
+  %461 = load ptr, ptr %455, align 8
+  %462 = load ptr, ptr %461, align 8
+  %463 = tail call noundef ptr %462(ptr noundef nonnull align 8 dereferenceable(2400) %455, ptr noundef %456) #9
+  br label %467
 
-462:                                              ; preds = %418
-  %463 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %463, align 1
-  %464 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %287) #9
-  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 1659, ptr noundef nonnull @.str.30, ptr noundef %464) #10
+464:                                              ; preds = %420
+  %465 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %465, align 1
+  %466 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %287) #9
+  tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 1659, ptr noundef nonnull @.str.30, ptr noundef %466) #10
   unreachable
 
-465:                                              ; preds = %418, %458, %448, %429
-  %.0 = phi ptr [ %461, %458 ], [ %451, %448 ], [ %432, %429 ], [ %422, %418 ]
-  %466 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %.0, ptr %466, align 8
-  %467 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %468 = load ptr, ptr %467, align 8
-  %469 = getelementptr inbounds nuw i8, ptr %468, i64 132
-  %470 = load i32, ptr %469, align 4
-  %471 = zext nneg i8 %287 to i64
-  %472 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %471
-  %473 = load i32, ptr %472, align 4
-  %474 = mul nsw i32 %473, %289
-  %475 = tail call noundef i32 @llvm.umax.i32(i32 %470, i32 %474)
-  store i32 %475, ptr %469, align 4
-  br label %476
+467:                                              ; preds = %420, %460, %450, %431
+  %.0 = phi ptr [ %463, %460 ], [ %453, %450 ], [ %434, %431 ], [ %424, %420 ]
+  %468 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %.0, ptr %468, align 8
+  %469 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %470 = load ptr, ptr %469, align 8
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 132
+  %472 = load i32, ptr %471, align 4
+  %473 = zext nneg i8 %287 to i64
+  %474 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %473
+  %475 = load i32, ptr %474, align 4
+  %476 = mul nsw i32 %475, %289
+  %477 = tail call noundef i32 @llvm.umax.i32(i32 %472, i32 %476)
+  store i32 %477, ptr %471, align 4
+  br label %478
 
-476:                                              ; preds = %360, %366, %.thread, %309, %315, %294, %300, %278, %284, %265, %271, %245, %251, %205, %211, %191, %197, %101, %107, %465
-  %.093 = phi i1 [ true, %465 ], [ false, %107 ], [ false, %101 ], [ false, %197 ], [ false, %191 ], [ false, %211 ], [ false, %205 ], [ false, %251 ], [ false, %245 ], [ false, %271 ], [ false, %265 ], [ false, %284 ], [ false, %278 ], [ false, %300 ], [ false, %294 ], [ false, %315 ], [ false, %309 ], [ false, %.thread ], [ false, %366 ], [ false, %360 ]
-  ret i1 %.093
+478:                                              ; preds = %360, %366, %.thread, %309, %315, %294, %300, %278, %284, %265, %271, %245, %251, %205, %211, %191, %197, %101, %107, %467
+  %.099 = phi i1 [ true, %467 ], [ false, %107 ], [ false, %101 ], [ false, %197 ], [ false, %191 ], [ false, %211 ], [ false, %205 ], [ false, %251 ], [ false, %245 ], [ false, %271 ], [ false, %265 ], [ false, %284 ], [ false, %278 ], [ false, %300 ], [ false, %294 ], [ false, %315 ], [ false, %309 ], [ false, %.thread ], [ false, %366 ], [ false, %360 ]
+  ret i1 %.099
 }
 
 declare noundef i32 @_ZN13ReductionNode6opcodeEi9BasicType(i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
@@ -8531,7 +8531,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 21
-  %..i108 = select i1 %41, ptr %38, ptr null
+  %..i110 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
@@ -8544,7 +8544,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 21
-  %..i109 = select i1 %53, ptr %50, ptr null
+  %..i111 = select i1 %53, ptr %50, ptr null
   %54 = add i32 %12, 3
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw ptr, ptr %14, i64 %55
@@ -8557,7 +8557,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 21
-  %..i110 = select i1 %65, ptr %62, ptr null
+  %..i112 = select i1 %65, ptr %62, ptr null
   %66 = add i32 %12, 4
   %67 = zext i32 %66 to i64
   %68 = getelementptr inbounds nuw ptr, ptr %14, i64 %67
@@ -8570,15 +8570,15 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
   %77 = icmp eq i32 %76, 3
-  %..i111 = select i1 %77, ptr %74, ptr null
+  %..i113 = select i1 %77, ptr %74, ptr null
   %78 = icmp eq ptr %..i, null
-  %79 = icmp eq ptr %..i108, null
+  %79 = icmp eq ptr %..i110, null
   %or.cond = or i1 %78, %79
-  %80 = icmp eq ptr %..i109, null
+  %80 = icmp eq ptr %..i111, null
   %or.cond3 = or i1 %or.cond, %80
-  %81 = icmp eq ptr %..i110, null
+  %81 = icmp eq ptr %..i112, null
   %or.cond5 = or i1 %or.cond3, %81
-  %82 = icmp eq ptr %..i111, null
+  %82 = icmp eq ptr %..i113, null
   %or.cond7 = or i1 %or.cond5, %82
   br i1 %or.cond7, label %396, label %83
 
@@ -8591,25 +8591,25 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit21inline_vector_compareEv(p
   br i1 %88, label %89, label %107
 
 89:                                               ; preds = %83
-  %90 = getelementptr inbounds nuw i8, ptr %..i108, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %..i110, i64 48
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %107, label %93
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %..i109, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %..i111, i64 48
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %107, label %97
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %..i110, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %..i112, i64 48
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %107, label %101
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds nuw i8, ptr %..i111, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %..i113, i64 24
   %103 = load i32, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %74, i64 28
   %105 = load i32, ptr %104, align 4
@@ -8869,8 +8869,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %308 = load ptr, ptr %307, align 8
   %309 = tail call noundef ptr %308(ptr noundef nonnull align 8 dereferenceable(52) %305) #9
   %310 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
-  %.not = icmp eq ptr %309, %310
-  br i1 %.not, label %.thread114, label %311
+  %.not119 = icmp eq ptr %309, %310
+  br i1 %.not119, label %.thread116, label %311
 
 311:                                              ; preds = %255
   %312 = load ptr, ptr %4, align 8
@@ -8908,11 +8908,11 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
 
 338:                                              ; preds = %311
   %339 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 472, i32 noundef %243, i8 noundef zeroext %231, i32 noundef 4, i1 noundef zeroext false)
-  br i1 %339, label %.thread114, label %340
+  br i1 %339, label %.thread116, label %340
 
 340:                                              ; preds = %338
   %341 = tail call noundef zeroext i1 @_ZN14LibraryCallKit20arch_supports_vectorEii9BasicTypeNS_17VectorMaskUseTypeEb(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef 413, i32 noundef %243, i8 noundef zeroext %231, i32 noundef 1, i1 noundef zeroext false)
-  br i1 %341, label %.thread114, label %342
+  br i1 %341, label %.thread116, label %342
 
 342:                                              ; preds = %340
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8929,15 +8929,15 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %349, ptr noundef nonnull @.str.66, i32 noundef %350, i32 noundef %243, ptr noundef %351) #9
   br label %396
 
-.thread114:                                       ; preds = %255, %338, %340
-  %352 = phi i1 [ true, %338 ], [ false, %340 ], [ false, %255 ]
-  %353 = phi ptr [ %326, %338 ], [ %326, %340 ], [ null, %255 ]
+.thread116:                                       ; preds = %255, %340, %338
+  %352 = phi i1 [ false, %340 ], [ true, %338 ], [ false, %255 ]
+  %353 = phi ptr [ %326, %340 ], [ %326, %338 ], [ null, %255 ]
   %354 = icmp eq ptr %276, null
   %355 = icmp eq ptr %291, null
-  %or.cond11 = or i1 %354, %355
-  br i1 %or.cond11, label %396, label %356
+  %or.cond13 = or i1 %354, %355
+  br i1 %or.cond13, label %396, label %356
 
-356:                                              ; preds = %.thread114
+356:                                              ; preds = %.thread116
   %357 = load i32, ptr %84, align 8
   %358 = load ptr, ptr %2, align 8
   %359 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %358, ptr noundef nonnull %26) #9
@@ -8959,7 +8959,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %369
 
 369:                                              ; preds = %366, %356
-  br i1 %.not, label %381, label %370
+  br i1 %.not119, label %381, label %370
 
 370:                                              ; preds = %369
   br i1 %352, label %371, label %375
@@ -8981,11 +8981,11 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %381
 
 381:                                              ; preds = %371, %375, %369
-  %.098 = phi ptr [ %364, %371 ], [ %380, %375 ], [ %364, %369 ]
+  %.0100 = phi ptr [ %364, %371 ], [ %380, %375 ], [ %364, %369 ]
   %382 = load ptr, ptr %2, align 8
   %383 = load ptr, ptr %382, align 8
   %384 = load ptr, ptr %383, align 8
-  %385 = tail call noundef ptr %384(ptr noundef nonnull align 8 dereferenceable(2400) %382, ptr noundef %.098) #9
+  %385 = tail call noundef ptr %384(ptr noundef nonnull align 8 dereferenceable(2400) %382, ptr noundef %.0100) #9
   %386 = tail call noundef ptr @_ZN8GraphKit10box_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %385, ptr noundef %261, i8 noundef zeroext %231, i32 noundef %243, i1 noundef zeroext false)
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %386, ptr %387, align 8
@@ -9000,8 +9000,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   store i32 %395, ptr %390, align 4
   br label %396
 
-396:                                              ; preds = %.thread114, %342, %348, %328, %334, %245, %251, %233, %239, %219, %225, %107, %113, %1, %381
-  %.0 = phi i1 [ true, %381 ], [ false, %1 ], [ false, %113 ], [ false, %107 ], [ false, %225 ], [ false, %219 ], [ false, %239 ], [ false, %233 ], [ false, %251 ], [ false, %245 ], [ false, %334 ], [ false, %328 ], [ false, %348 ], [ false, %342 ], [ false, %.thread114 ]
+396:                                              ; preds = %.thread116, %342, %348, %328, %334, %245, %251, %233, %239, %219, %225, %107, %113, %1, %381
+  %.0 = phi i1 [ true, %381 ], [ false, %1 ], [ false, %113 ], [ false, %107 ], [ false, %225 ], [ false, %219 ], [ false, %239 ], [ false, %233 ], [ false, %251 ], [ false, %245 ], [ false, %334 ], [ false, %328 ], [ false, %348 ], [ false, %342 ], [ false, %.thread116 ]
   ret i1 %.0
 }
 
@@ -9722,7 +9722,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 21
-  %..i141 = select i1 %41, ptr %38, ptr null
+  %..i143 = select i1 %41, ptr %38, ptr null
   %42 = add i32 %12, 2
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw ptr, ptr %14, i64 %43
@@ -9747,7 +9747,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 21
-  %..i143 = select i1 %64, ptr %61, ptr null
+  %..i145 = select i1 %64, ptr %61, ptr null
   %65 = add i32 %12, 4
   %66 = zext i32 %65 to i64
   %67 = getelementptr inbounds nuw ptr, ptr %14, i64 %66
@@ -9760,13 +9760,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 3
-  %..i144 = select i1 %76, ptr %73, ptr null
+  %..i146 = select i1 %76, ptr %73, ptr null
   %77 = icmp eq ptr %..i, null
-  %78 = icmp eq ptr %..i141, null
+  %78 = icmp eq ptr %..i143, null
   %or.cond = or i1 %77, %78
-  %79 = icmp eq ptr %..i143, null
+  %79 = icmp eq ptr %..i145, null
   %or.cond3 = or i1 %or.cond, %79
-  %80 = icmp eq ptr %..i144, null
+  %80 = icmp eq ptr %..i146, null
   %or.cond5 = or i1 %or.cond3, %80
   br i1 %or.cond5, label %504, label %81
 
@@ -9779,19 +9779,19 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_vector_broadcast_i
   br i1 %86, label %87, label %101
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds nuw i8, ptr %..i141, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %..i143, i64 48
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %101, label %91
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %..i143, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %..i145, i64 48
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %101, label %95
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw i8, ptr %..i144, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %..i146, i64 24
   %97 = load i32, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %73, i64 28
   %99 = load i32, ptr %98, align 4
@@ -10055,9 +10055,9 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %291 = tail call noundef zeroext i1 @_ZN10VectorNode15is_shift_opcodeEi(i32 noundef %290) #9
   %292 = tail call noundef zeroext i1 @_ZN10VectorNode16is_rotate_opcodeEi(i32 noundef %290) #9
   %293 = icmp ne i32 %290, 0
-  %brmerge = or i1 %291, %292
-  %or.cond139 = and i1 %293, %brmerge
-  br i1 %or.cond139, label %304, label %294
+  %or.cond7 = or i1 %291, %292
+  %or.cond141 = and i1 %293, %or.cond7
+  br i1 %or.cond141, label %304, label %294
 
 294:                                              ; preds = %287
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10123,8 +10123,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %343 = icmp eq i32 %342, 3
   %344 = icmp ne ptr %340, null
   %345 = and i1 %344, %343
-  %or.cond7 = and i1 %292, %345
-  br i1 %or.cond7, label %346, label %355
+  %or.cond9 = and i1 %292, %345
+  br i1 %or.cond9, label %346, label %355
 
 346:                                              ; preds = %319
   %347 = getelementptr inbounds nuw i8, ptr %340, i64 24
@@ -10174,7 +10174,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %504
 
 375:                                              ; preds = %363, %355
-  %.0123 = phi i1 [ %225, %355 ], [ false, %363 ]
+  %.0125 = phi i1 [ %225, %355 ], [ false, %363 ]
   %376 = load ptr, ptr %4, align 8
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 56
   %378 = load ptr, ptr %377, align 8
@@ -10233,17 +10233,17 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %416
 
 416:                                              ; preds = %393, %409, %391
-  %.0125 = phi ptr [ %392, %391 ], [ %415, %409 ], [ %333, %393 ]
+  %.0127 = phi ptr [ %392, %391 ], [ %415, %409 ], [ %333, %393 ]
   %417 = icmp eq ptr %390, null
-  %418 = icmp eq ptr %.0125, null
-  %or.cond9 = or i1 %417, %418
-  br i1 %or.cond9, label %504, label %419
+  %418 = icmp eq ptr %.0127, null
+  %or.cond11 = or i1 %417, %418
+  br i1 %or.cond11, label %504, label %419
 
 419:                                              ; preds = %416
   br i1 %225, label %421, label %.thread
 
 .thread:                                          ; preds = %419
-  %420 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb(i32 noundef %290, ptr noundef nonnull %390, ptr noundef nonnull %.0125, i32 noundef %288, i8 noundef zeroext %276, i1 noundef zeroext false) #9
+  %420 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb(i32 noundef %290, ptr noundef nonnull %390, ptr noundef nonnull %.0127, i32 noundef %288, i8 noundef zeroext %276, i1 noundef zeroext false) #9
   br label %488
 
 421:                                              ; preds = %419
@@ -10303,8 +10303,8 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %504
 
 470:                                              ; preds = %421
-  %471 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb(i32 noundef %290, ptr noundef nonnull %390, ptr noundef nonnull %.0125, i32 noundef %288, i8 noundef zeroext %276, i1 noundef zeroext false) #9
-  br i1 %.0123, label %472, label %476
+  %471 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_j9BasicTypeb(i32 noundef %290, ptr noundef nonnull %390, ptr noundef nonnull %.0127, i32 noundef %288, i8 noundef zeroext %276, i1 noundef zeroext false) #9
+  br i1 %.0125, label %472, label %476
 
 472:                                              ; preds = %470
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %471, ptr noundef nonnull %440) #9
@@ -10333,11 +10333,11 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   br label %488
 
 488:                                              ; preds = %.thread, %476, %483, %472
-  %.0122 = phi ptr [ %471, %472 ], [ %481, %483 ], [ null, %476 ], [ %420, %.thread ]
+  %.0124 = phi ptr [ %471, %472 ], [ %481, %483 ], [ null, %476 ], [ %420, %.thread ]
   %489 = load ptr, ptr %2, align 8
   %490 = load ptr, ptr %489, align 8
   %491 = load ptr, ptr %490, align 8
-  %492 = tail call noundef ptr %491(ptr noundef nonnull align 8 dereferenceable(2400) %489, ptr noundef %.0122) #9
+  %492 = tail call noundef ptr %491(ptr noundef nonnull align 8 dereferenceable(2400) %489, ptr noundef %.0124) #9
   %493 = tail call noundef ptr @_ZN8GraphKit10box_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %492, ptr noundef %336, i8 noundef zeroext %276, i32 noundef %288, i1 noundef zeroext false)
   %494 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %493, ptr %494, align 8

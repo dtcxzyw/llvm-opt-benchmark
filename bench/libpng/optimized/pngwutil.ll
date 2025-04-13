@@ -424,9 +424,13 @@ define void @png_write_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
 14:                                               ; preds = %8
   %switch.tableidx = add i32 %3, -1
   %15 = icmp ult i32 %switch.tableidx, 8
-  br i1 %15, label %switch.hole_check, label %16
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond98 = select i1 %15, i1 %switch.lobit, i1 false
+  br i1 %or.cond98, label %switch.lookup, label %16
 
-16:                                               ; preds = %switch.hole_check, %14
+16:                                               ; preds = %14
   tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.2) #13
   unreachable
 
@@ -454,14 +458,8 @@ define void @png_write_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.5) #13
   unreachable
 
-switch.hole_check:                                ; preds = %14
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %16
-
-switch.lookup:                                    ; preds = %switch.hole_check, %19, %19, %17, %17, %12, %12, %10, %10, %10, %10, %10
-  %.sink = phi i8 [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 3, %12 ], [ 3, %12 ], [ 2, %17 ], [ 2, %17 ], [ 4, %19 ], [ 4, %19 ], [ 1, %switch.hole_check ]
+switch.lookup:                                    ; preds = %14, %19, %19, %17, %17, %12, %12, %10, %10, %10, %10, %10
+  %.sink = phi i8 [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 1, %10 ], [ 3, %12 ], [ 3, %12 ], [ 2, %17 ], [ 2, %17 ], [ 4, %19 ], [ 4, %19 ], [ 1, %14 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 627
   store i8 %.sink, ptr %22, align 1, !tbaa !41
   %.not = icmp eq i32 %5, 0

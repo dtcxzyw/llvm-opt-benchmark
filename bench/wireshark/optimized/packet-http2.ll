@@ -786,7 +786,7 @@ define hidden i32 @dissect_http2_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %53
 
 53:                                               ; preds = %49, %39
-  %.0172 = phi ptr [ %52, %49 ], [ %47, %39 ]
+  %.0174 = phi ptr [ %52, %49 ], [ %47, %39 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
   %54 = icmp ult i8 %45, 10
   br i1 %54, label %switch.lookup, label %dissect_http2_header_flags.exit
@@ -812,9 +812,9 @@ dissect_http2_header_flags.exit:                  ; preds = %53, %switch.lookup
   %65 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 5)
   %66 = and i32 %65, 2147483647
   %67 = and i32 %42, 65535
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.5, ptr noundef %.0172, i32 noundef %66, i32 noundef %67)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.5, ptr noundef %.0174, i32 noundef %66, i32 noundef %67)
   %68 = load ptr, ptr %12, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef %.0172, i32 noundef %66)
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, ptr noundef %.0174, i32 noundef %66)
   %69 = call ptr @get_tcp_conversation_data(ptr noundef %11, ptr noundef %1)
   %70 = icmp ne ptr %69, null
   %71 = load i32, ptr %10, align 4
@@ -842,10 +842,10 @@ dissect_http2_header_flags.exit:                  ; preds = %53, %switch.lookup
   br label %88
 
 88:                                               ; preds = %81, %73
-  %.0173 = phi ptr [ %82, %81 ], [ %79, %73 ]
+  %.0175 = phi ptr [ %82, %81 ], [ %79, %73 ]
   %89 = zext nneg i32 %66 to i64
   %90 = inttoptr i64 %89 to ptr
-  %91 = call i32 @g_hash_table_add(ptr noundef %.0173, ptr noundef %90)
+  %91 = call i32 @g_hash_table_add(ptr noundef %.0175, ptr noundef %90)
   br label %92
 
 92:                                               ; preds = %88, %dissect_http2_header_flags.exit
@@ -932,8 +932,8 @@ dissect_http2_data.exit:                          ; preds = %dissect_frame_paddi
 
 128:                                              ; preds = %92
   %129 = and i8 %60, 8
-  %.not.i.i179 = icmp eq i8 %129, 0
-  br i1 %.not.i.i179, label %136, label %130
+  %.not.i.i181 = icmp eq i8 %129, 0
+  br i1 %.not.i.i181, label %136, label %130
 
 130:                                              ; preds = %128
   %131 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 9)
@@ -946,45 +946,45 @@ dissect_http2_data.exit:                          ; preds = %dissect_frame_paddi
 136:                                              ; preds = %130, %128
   %.04.i = phi i16 [ 0, %128 ], [ %132, %130 ]
   %137 = phi i32 [ 0, %128 ], [ %135, %130 ]
-  %.017.i.i180 = phi i32 [ 9, %128 ], [ 10, %130 ]
-  %.0.i.i181 = phi i32 [ 0, %128 ], [ 1, %130 ]
+  %.017.i.i182 = phi i32 [ 9, %128 ], [ 10, %130 ]
+  %.0.i.i183 = phi i32 [ 0, %128 ], [ 1, %130 ]
   %138 = load i32, ptr @hf_http2_pad_length, align 4
-  %139 = sub nuw nsw i32 %.017.i.i180, %.0.i.i181
-  %140 = call ptr @proto_tree_add_uint(ptr noundef %32, i32 noundef %138, ptr noundef %0, i32 noundef %139, i32 noundef %.0.i.i181, i32 noundef %137)
-  %.not.i.i.i182 = icmp eq ptr %140, null
-  br i1 %.not.i.i.i182, label %dissect_frame_padding.exit.i184, label %141
+  %139 = sub nuw nsw i32 %.017.i.i182, %.0.i.i183
+  %140 = call ptr @proto_tree_add_uint(ptr noundef %32, i32 noundef %138, ptr noundef %0, i32 noundef %139, i32 noundef %.0.i.i183, i32 noundef %137)
+  %.not.i.i.i184 = icmp eq ptr %140, null
+  br i1 %.not.i.i.i184, label %dissect_frame_padding.exit.i186, label %141
 
 141:                                              ; preds = %136
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 40
   %143 = load ptr, ptr %142, align 8
-  %.not5.i.i.i183 = icmp eq ptr %143, null
-  br i1 %.not5.i.i.i183, label %dissect_frame_padding.exit.i184, label %144
+  %.not5.i.i.i185 = icmp eq ptr %143, null
+  br i1 %.not5.i.i.i185, label %dissect_frame_padding.exit.i186, label %144
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 28
   %146 = load i32, ptr %145, align 4
   %147 = or i32 %146, 2
   store i32 %147, ptr %145, align 4
-  br label %dissect_frame_padding.exit.i184
+  br label %dissect_frame_padding.exit.i186
 
-dissect_frame_padding.exit.i184:                  ; preds = %144, %141, %136
-  %148 = call fastcc i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %32, i32 noundef %.017.i.i180, i8 noundef zeroext %60)
+dissect_frame_padding.exit.i186:                  ; preds = %144, %141, %136
+  %148 = call fastcc i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %32, i32 noundef %.017.i.i182, i8 noundef zeroext %60)
   %149 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %148)
   %150 = zext nneg i16 %.04.i to i32
   %151 = icmp slt i32 %149, %150
   br i1 %151, label %152, label %153
 
-152:                                              ; preds = %dissect_frame_padding.exit.i184
+152:                                              ; preds = %dissect_frame_padding.exit.i186
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #9
   unreachable
 
-153:                                              ; preds = %dissect_frame_padding.exit.i184
+153:                                              ; preds = %dissect_frame_padding.exit.i186
   %154 = sub nsw i32 %149, %150
   %155 = load i32, ptr @hf_http2_headers, align 4
   %156 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %155, ptr noundef %0, i32 noundef %148, i32 noundef %154, i32 noundef 0)
   %157 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %32, ptr noundef %1, ptr noundef nonnull @ei_http2_header_size, ptr noundef %0, i32 noundef %148, i32 noundef %154, ptr noundef nonnull @.str.281)
-  %.not.i185 = icmp eq i16 %.04.i, 0
-  br i1 %.not.i185, label %dissect_http2_headers.exit, label %158
+  %.not.i187 = icmp eq i16 %.04.i, 0
+  br i1 %.not.i187, label %dissect_http2_headers.exit, label %158
 
 158:                                              ; preds = %153
   %159 = add i32 %154, %148
@@ -1009,8 +1009,8 @@ dissect_frame_padding.exit.i184:                  ; preds = %144, %141, %136
 169:                                              ; preds = %92
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
   %170 = and i8 %60, 8
-  %.not.i.i187 = icmp eq i8 %170, 0
-  br i1 %.not.i.i187, label %177, label %171
+  %.not.i.i189 = icmp eq i8 %170, 0
+  br i1 %.not.i.i189, label %177, label %171
 
 171:                                              ; preds = %169
   %172 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 9)
@@ -1021,51 +1021,51 @@ dissect_frame_padding.exit.i184:                  ; preds = %144, %141, %136
   br label %177
 
 177:                                              ; preds = %171, %169
-  %.0.i188 = phi i16 [ 0, %169 ], [ %173, %171 ]
+  %.0.i190 = phi i16 [ 0, %169 ], [ %173, %171 ]
   %178 = phi i32 [ 0, %169 ], [ %176, %171 ]
-  %.017.i.i189 = phi i32 [ 9, %169 ], [ 10, %171 ]
-  %.0.i.i190 = phi i32 [ 0, %169 ], [ 1, %171 ]
+  %.017.i.i191 = phi i32 [ 9, %169 ], [ 10, %171 ]
+  %.0.i.i192 = phi i32 [ 0, %169 ], [ 1, %171 ]
   %179 = load i32, ptr @hf_http2_pad_length, align 4
-  %180 = sub nuw nsw i32 %.017.i.i189, %.0.i.i190
-  %181 = call ptr @proto_tree_add_uint(ptr noundef %32, i32 noundef %179, ptr noundef %0, i32 noundef %180, i32 noundef %.0.i.i190, i32 noundef %178)
-  %.not.i.i.i191 = icmp eq ptr %181, null
-  br i1 %.not.i.i.i191, label %dissect_frame_padding.exit.i193, label %182
+  %180 = sub nuw nsw i32 %.017.i.i191, %.0.i.i192
+  %181 = call ptr @proto_tree_add_uint(ptr noundef %32, i32 noundef %179, ptr noundef %0, i32 noundef %180, i32 noundef %.0.i.i192, i32 noundef %178)
+  %.not.i.i.i193 = icmp eq ptr %181, null
+  br i1 %.not.i.i.i193, label %dissect_frame_padding.exit.i195, label %182
 
 182:                                              ; preds = %177
   %183 = getelementptr inbounds nuw i8, ptr %181, i64 40
   %184 = load ptr, ptr %183, align 8
-  %.not5.i.i.i192 = icmp eq ptr %184, null
-  br i1 %.not5.i.i.i192, label %dissect_frame_padding.exit.i193, label %185
+  %.not5.i.i.i194 = icmp eq ptr %184, null
+  br i1 %.not5.i.i.i194, label %dissect_frame_padding.exit.i195, label %185
 
 185:                                              ; preds = %182
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 28
   %187 = load i32, ptr %186, align 4
   %188 = or i32 %187, 2
   store i32 %188, ptr %186, align 4
-  br label %dissect_frame_padding.exit.i193
+  br label %dissect_frame_padding.exit.i195
 
-dissect_frame_padding.exit.i193:                  ; preds = %185, %182, %177
+dissect_frame_padding.exit.i195:                  ; preds = %185, %182, %177
   %189 = load i32, ptr @hf_http2_push_promise_r, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %189, ptr noundef %0, i32 noundef %.017.i.i189, i32 noundef 4, i32 noundef 0)
+  %190 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %189, ptr noundef %0, i32 noundef %.017.i.i191, i32 noundef 4, i32 noundef 0)
   %191 = load i32, ptr @hf_http2_push_promise_promised_stream_id, align 4
-  %192 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %32, i32 noundef %191, ptr noundef %0, i32 noundef %.017.i.i189, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8)
-  %193 = or disjoint i32 %.017.i.i189, 4
+  %192 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %32, i32 noundef %191, ptr noundef %0, i32 noundef %.017.i.i191, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8)
+  %193 = or disjoint i32 %.017.i.i191, 4
   %194 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %193)
-  %195 = zext nneg i16 %.0.i188 to i32
+  %195 = zext nneg i16 %.0.i190 to i32
   %196 = icmp slt i32 %194, %195
   br i1 %196, label %197, label %198
 
-197:                                              ; preds = %dissect_frame_padding.exit.i193
+197:                                              ; preds = %dissect_frame_padding.exit.i195
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #9
   unreachable
 
-198:                                              ; preds = %dissect_frame_padding.exit.i193
+198:                                              ; preds = %dissect_frame_padding.exit.i195
   %199 = sub nsw i32 %194, %195
   %200 = load i32, ptr @hf_http2_push_promise_header, align 4
   %201 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %200, ptr noundef %0, i32 noundef %193, i32 noundef %199, i32 noundef 0)
   %202 = add i32 %199, %193
-  %.not.i194 = icmp eq i16 %.0.i188, 0
-  br i1 %.not.i194, label %dissect_http2_push_promise.exit, label %203
+  %.not.i196 = icmp eq i16 %.0.i190, 0
+  br i1 %.not.i196, label %dissect_http2_push_promise.exit, label %203
 
 203:                                              ; preds = %198
   %204 = load i32, ptr @hf_http2_push_promise_padding, align 4
@@ -1079,10 +1079,10 @@ dissect_http2_push_promise.exit:                  ; preds = %198, %203
 
 207:                                              ; preds = %92
   %208 = and i8 %60, 1
-  %.not.i195 = icmp eq i8 %208, 0
+  %.not.i197 = icmp eq i8 %208, 0
   %hf_http2_ping.val.i = load i32, ptr @hf_http2_ping, align 4
   %hf_http2_pong.val.i = load i32, ptr @hf_http2_pong, align 4
-  %209 = select i1 %.not.i195, i32 %hf_http2_ping.val.i, i32 %hf_http2_pong.val.i
+  %209 = select i1 %.not.i197, i32 %hf_http2_ping.val.i, i32 %hf_http2_pong.val.i
   %210 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %209, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef 0)
   br label %dissect_http2_headers.exit
 
@@ -1116,8 +1116,8 @@ dissect_http2_push_promise.exit:                  ; preds = %198, %203
 
 230:                                              ; preds = %92
   %231 = and i8 %60, 8
-  %.not.i.i197 = icmp eq i8 %231, 0
-  br i1 %.not.i.i197, label %238, label %232
+  %.not.i.i199 = icmp eq i8 %231, 0
+  br i1 %.not.i.i199, label %238, label %232
 
 232:                                              ; preds = %230
   %233 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 9)
@@ -1128,48 +1128,48 @@ dissect_http2_push_promise.exit:                  ; preds = %198, %203
   br label %238
 
 238:                                              ; preds = %232, %230
-  %.04.i198 = phi i16 [ 0, %230 ], [ %234, %232 ]
+  %.04.i200 = phi i16 [ 0, %230 ], [ %234, %232 ]
   %239 = phi i32 [ 0, %230 ], [ %237, %232 ]
-  %.017.i.i199 = phi i32 [ 9, %230 ], [ 10, %232 ]
-  %.0.i.i200 = phi i32 [ 0, %230 ], [ 1, %232 ]
+  %.017.i.i201 = phi i32 [ 9, %230 ], [ 10, %232 ]
+  %.0.i.i202 = phi i32 [ 0, %230 ], [ 1, %232 ]
   %240 = load i32, ptr @hf_http2_pad_length, align 4
-  %241 = sub nuw nsw i32 %.017.i.i199, %.0.i.i200
-  %242 = call ptr @proto_tree_add_uint(ptr noundef %32, i32 noundef %240, ptr noundef %0, i32 noundef %241, i32 noundef %.0.i.i200, i32 noundef %239)
-  %.not.i.i.i201 = icmp eq ptr %242, null
-  br i1 %.not.i.i.i201, label %dissect_frame_padding.exit.i203, label %243
+  %241 = sub nuw nsw i32 %.017.i.i201, %.0.i.i202
+  %242 = call ptr @proto_tree_add_uint(ptr noundef %32, i32 noundef %240, ptr noundef %0, i32 noundef %241, i32 noundef %.0.i.i202, i32 noundef %239)
+  %.not.i.i.i203 = icmp eq ptr %242, null
+  br i1 %.not.i.i.i203, label %dissect_frame_padding.exit.i205, label %243
 
 243:                                              ; preds = %238
   %244 = getelementptr inbounds nuw i8, ptr %242, i64 40
   %245 = load ptr, ptr %244, align 8
-  %.not5.i.i.i202 = icmp eq ptr %245, null
-  br i1 %.not5.i.i.i202, label %dissect_frame_padding.exit.i203, label %246
+  %.not5.i.i.i204 = icmp eq ptr %245, null
+  br i1 %.not5.i.i.i204, label %dissect_frame_padding.exit.i205, label %246
 
 246:                                              ; preds = %243
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 28
   %248 = load i32, ptr %247, align 4
   %249 = or i32 %248, 2
   store i32 %249, ptr %247, align 4
-  br label %dissect_frame_padding.exit.i203
+  br label %dissect_frame_padding.exit.i205
 
-dissect_frame_padding.exit.i203:                  ; preds = %246, %243, %238
-  %250 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.017.i.i199)
-  %251 = zext nneg i16 %.04.i198 to i32
+dissect_frame_padding.exit.i205:                  ; preds = %246, %243, %238
+  %250 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.017.i.i201)
+  %251 = zext nneg i16 %.04.i200 to i32
   %252 = icmp slt i32 %250, %251
   br i1 %252, label %253, label %254
 
-253:                                              ; preds = %dissect_frame_padding.exit.i203
+253:                                              ; preds = %dissect_frame_padding.exit.i205
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #9
   unreachable
 
-254:                                              ; preds = %dissect_frame_padding.exit.i203
+254:                                              ; preds = %dissect_frame_padding.exit.i205
   %255 = sub nsw i32 %250, %251
   %256 = load i32, ptr @hf_http2_continuation_header, align 4
-  %257 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %256, ptr noundef %0, i32 noundef %.017.i.i199, i32 noundef %255, i32 noundef 0)
-  %.not.i204 = icmp eq i16 %.04.i198, 0
-  br i1 %.not.i204, label %dissect_http2_headers.exit, label %258
+  %257 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %256, ptr noundef %0, i32 noundef %.017.i.i201, i32 noundef %255, i32 noundef 0)
+  %.not.i206 = icmp eq i16 %.04.i200, 0
+  br i1 %.not.i206, label %dissect_http2_headers.exit, label %258
 
 258:                                              ; preds = %254
-  %259 = add i32 %255, %.017.i.i199
+  %259 = add i32 %255, %.017.i.i201
   %260 = load i32, ptr @hf_http2_continuation_padding, align 4
   %261 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %260, ptr noundef %0, i32 noundef %259, i32 noundef %251, i32 noundef 0)
   br label %dissect_http2_headers.exit
@@ -1183,8 +1183,8 @@ dissect_frame_padding.exit.i203:                  ; preds = %246, %243, %238
   %267 = load i32, ptr %6, align 4
   %268 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %266, ptr noundef %0, i32 noundef 11, i32 noundef %267, i32 noundef 0)
   %269 = load i32, ptr %6, align 4
-  %.not.i206 = icmp eq i32 %265, %269
-  br i1 %.not.i206, label %dissect_http2_altsvc.exit, label %270
+  %.not.i208 = icmp eq i32 %265, %269
+  br i1 %.not.i208, label %dissect_http2_altsvc.exit, label %270
 
 270:                                              ; preds = %262
   %271 = add i32 %269, 11

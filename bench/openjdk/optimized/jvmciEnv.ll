@@ -514,27 +514,24 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %41, %42
 define hidden void @_ZN17JVMCICompileState11set_failureEbPKcb(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((29, 30)) %0, i1 noundef zeroext %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %12, label %7
+  %.not = icmp ne ptr %6, null
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = load i8, ptr %7, align 8
+  %9 = trunc i8 %8 to i1
+  %or.cond = select i1 %.not, i1 %9, i1 false
+  br i1 %or.cond, label %10, label %11
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load i8, ptr %8, align 8
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %7
+10:                                               ; preds = %4
   tail call void @_ZN2os4freeEPv(ptr noundef nonnull %6) #14
-  br label %12
+  br label %11
 
-12:                                               ; preds = %11, %7, %4
-  %13 = zext i1 %3 to i8
-  %14 = zext i1 %1 to i8
+11:                                               ; preds = %10, %4
+  %12 = zext i1 %3 to i8
+  %13 = zext i1 %1 to i8
   store ptr %2, ptr %5, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %13, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  store i8 %14, ptr %16, align 1
+  store i8 %12, ptr %7, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 29
+  store i8 %13, ptr %14, align 1
   ret void
 }
 
@@ -544,28 +541,25 @@ declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #1
 define hidden void @_ZN17JVMCICompileState20notify_libjvmci_oomeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((29, 30)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %_ZN17JVMCICompileState11set_failureEbPKcb.exit, label %4
+  %.not.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load i8, ptr %4, align 8
+  %6 = trunc i8 %5 to i1
+  %or.cond.i = select i1 %.not.i, i1 %6, i1 false
+  br i1 %or.cond.i, label %7, label %_ZN17JVMCICompileState11set_failureEbPKcb.exit
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load i8, ptr %5, align 8
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %_ZN17JVMCICompileState11set_failureEbPKcb.exit
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   tail call void @_ZN2os4freeEPv(ptr noundef nonnull %3) #14
   br label %_ZN17JVMCICompileState11set_failureEbPKcb.exit
 
-_ZN17JVMCICompileState11set_failureEbPKcb.exit:   ; preds = %1, %4, %8
+_ZN17JVMCICompileState11set_failureEbPKcb.exit:   ; preds = %1, %7
   store ptr @.str, ptr %2, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  store i8 1, ptr %10, align 1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8
-  tail call void @_ZN13JVMCICompiler9on_upcallEPKcP17JVMCICompileState(ptr noundef nonnull align 8 dereferenceable(200) %12, ptr noundef nonnull @.str, ptr noundef null) #14
+  store i8 0, ptr %4, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 29
+  store i8 1, ptr %8, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void @_ZN13JVMCICompiler9on_upcallEPKcP17JVMCICompileState(ptr noundef nonnull align 8 dereferenceable(200) %10, ptr noundef nonnull @.str, ptr noundef null) #14
   ret void
 }
 
@@ -599,57 +593,46 @@ define hidden noundef zeroext i1 @_ZNK17JVMCICompileState19jvmti_state_changedEv
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr @_ZN11JvmtiExport19_redefinition_countE, align 8
   %.not = icmp eq i64 %3, %4
-  br i1 %.not, label %5, label %30
+  br i1 %.not, label %5, label %29
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %7 = load i8, ptr %6, align 1
-  %.not2 = icmp eq i8 %7, 0
-  br i1 %.not2, label %8, label %11
-
-8:                                                ; preds = %5
+  %8 = icmp eq i8 %7, 0
   %9 = load i8, ptr @_ZN11JvmtiExport27_can_access_local_variablesE, align 1
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %30, label %11
+  %or.cond = select i1 %8, i1 %10, i1 false
+  br i1 %or.cond, label %29, label %11
 
-11:                                               ; preds = %8, %5
+11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i8, ptr %12, align 8
-  %.not3 = icmp eq i8 %13, 0
-  br i1 %.not3, label %14, label %17
-
-14:                                               ; preds = %11
+  %14 = icmp eq i8 %13, 0
   %15 = load i8, ptr @_ZN11JvmtiExport31_can_hotswap_or_post_breakpointE, align 1
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %30, label %17
+  %or.cond4 = select i1 %14, i1 %16, i1 false
+  br i1 %or.cond4, label %29, label %17
 
-17:                                               ; preds = %14, %11
+17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %19 = load i8, ptr %18, align 2
-  %.not4 = icmp eq i8 %19, 0
-  br i1 %.not4, label %20, label %23
-
-20:                                               ; preds = %17
+  %20 = icmp eq i8 %19, 0
   %21 = load i8, ptr @_ZN11JvmtiExport23_can_post_on_exceptionsE, align 1
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %30, label %23
+  %or.cond6 = select i1 %20, i1 %22, i1 false
+  br i1 %or.cond6, label %29, label %23
 
-23:                                               ; preds = %20, %17
+23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %25 = load i8, ptr %24, align 1
-  %.not5 = icmp eq i8 %25, 0
-  br i1 %.not5, label %26, label %29
-
-26:                                               ; preds = %23
+  %26 = icmp eq i8 %25, 0
   %27 = load i8, ptr @_ZN11JvmtiExport14_can_pop_frameE, align 1
   %28 = trunc i8 %27 to i1
-  br i1 %28, label %30, label %29
+  %or.cond8 = select i1 %26, i1 %28, i1 false
+  br label %29
 
-29:                                               ; preds = %26, %23
-  br label %30
-
-30:                                               ; preds = %26, %20, %14, %8, %1, %29
-  %.0 = phi i1 [ false, %29 ], [ true, %1 ], [ true, %8 ], [ true, %14 ], [ true, %20 ], [ true, %26 ]
+29:                                               ; preds = %23, %17, %11, %5, %1
+  %.0 = phi i1 [ true, %1 ], [ true, %5 ], [ true, %11 ], [ true, %17 ], [ %or.cond8, %23 ]
   ret i1 %.0
 }
 

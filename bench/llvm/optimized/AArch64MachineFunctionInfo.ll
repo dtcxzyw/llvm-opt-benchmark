@@ -1155,100 +1155,99 @@ define linkonce_odr void @_ZN4llvm4yaml2IO21processKeyWithDefaultIbNS0_12EmptyCo
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
-  %.pre = load i8, ptr %14, align 1, !tbaa !6, !range !10
-  %23 = trunc nuw i8 %.pre to i1
-  br i1 %22, label %26, label %24
+  %23 = load i8, ptr %14, align 1, !range !10
+  %24 = trunc nuw i8 %23 to i1
+  %or.cond = select i1 %22, i1 true, i1 %24
+  br i1 %or.cond, label %25, label %.thread
 
-24:                                               ; preds = %6
-  br i1 %23, label %.thread, label %25
-
-25:                                               ; preds = %24
+.thread:                                          ; preds = %6
   store i16 256, ptr %2, align 1
-  br label %.thread
+  br label %27
 
-26:                                               ; preds = %6
-  br i1 %23, label %.thread, label %.thread24
+25:                                               ; preds = %6
+  %26 = trunc nuw i8 %23 to i1
+  br i1 %26, label %27, label %.thread25
 
-.thread:                                          ; preds = %24, %25, %26
-  %27 = load ptr, ptr %0, align 8, !tbaa !3
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
-  %29 = load ptr, ptr %28, align 8
-  %30 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %4, i1 noundef zeroext %18, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %7) #17
-  br i1 %30, label %31, label %58
+27:                                               ; preds = %.thread, %25
+  %28 = load ptr, ptr %0, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
+  %30 = load ptr, ptr %29, align 8
+  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %4, i1 noundef zeroext %18, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %7) #17
+  br i1 %31, label %32, label %59
 
-31:                                               ; preds = %.thread
-  %32 = load ptr, ptr %0, align 8, !tbaa !3
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
-  br i1 %35, label %.critedge, label %36
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %0, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
+  br i1 %36, label %.critedge, label %37
 
-36:                                               ; preds = %31
-  %37 = call noundef ptr @_ZNK4llvm4yaml5Input14getCurrentNodeEv(ptr noundef nonnull align 8 dereferenceable(682) %0) #17
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %39 = load i32, ptr %38, align 8, !tbaa !263
-  %40 = icmp ne i32 %39, 1
-  %.not22 = icmp eq ptr %37, null
-  %.not = or i1 %.not22, %40
-  br i1 %.not, label %.critedge, label %41
+37:                                               ; preds = %32
+  %38 = call noundef ptr @_ZNK4llvm4yaml5Input14getCurrentNodeEv(ptr noundef nonnull align 8 dereferenceable(682) %0) #17
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load i32, ptr %39, align 8, !tbaa !263
+  %41 = icmp ne i32 %40, 1
+  %.not24 = icmp eq ptr %38, null
+  %.not = or i1 %.not24, %41
+  br i1 %.not, label %.critedge, label %42
 
-41:                                               ; preds = %36
+42:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %.sroa.0.0.copyload.i = load ptr, ptr %42, align 8, !tbaa !268
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 72
+  %.sroa.0.0.copyload.i = load ptr, ptr %43, align 8, !tbaa !268
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 80
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !94
   store ptr %.sroa.0.0.copyload.i, ptr %9, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %43, align 8
-  %44 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofEcm(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 noundef signext 32, i64 noundef -1) #17
-  %45 = add i64 %44, 1
-  %46 = call i64 @llvm.usub.sat.i64(i64 %.sroa.2.0.copyload.i, i64 %45)
-  %47 = load i64, ptr %43, align 8, !tbaa !269
-  %48 = sub i64 %47, %46
-  %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %47, i64 %48)
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %44, align 8
+  %45 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofEcm(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 noundef signext 32, i64 noundef -1) #17
+  %46 = add i64 %45, 1
+  %47 = call i64 @llvm.usub.sat.i64(i64 %.sroa.2.0.copyload.i, i64 %46)
+  %48 = load i64, ptr %44, align 8, !tbaa !269
+  %49 = sub i64 %48, %47
+  %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %48, i64 %49)
   %.not.i = icmp eq i64 %.sroa.speculated.i.i.i, 6
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread20
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread20:       ; preds = %41
+_ZN4llvmeqENS_9StringRefES0_.exit.thread20:       ; preds = %42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
   br label %.critedge
 
-_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %41
-  %49 = load ptr, ptr %9, align 8, !tbaa !270
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %49, ptr noundef nonnull dereferenceable(6) @.str.9, i64 6)
-  %50 = icmp eq i32 %bcmp.i, 0
+_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %42
+  %50 = load ptr, ptr %9, align 8, !tbaa !270
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %50, ptr noundef nonnull dereferenceable(6) @.str.9, i64 6)
+  %51 = icmp eq i32 %bcmp.i, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
-  br i1 %50, label %51, label %.critedge
+  br i1 %51, label %52, label %.critedge
 
-51:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
-  %52 = load i16, ptr %3, align 1
-  store i16 %52, ptr %2, align 1
-  br label %53
+52:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
+  %53 = load i16, ptr %3, align 1
+  store i16 %53, ptr %2, align 1
+  br label %54
 
-.critedge:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread20, %31, %36, %_ZN4llvmeqENS_9StringRefES0_.exit
+.critedge:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread20, %32, %37, %_ZN4llvmeqENS_9StringRefES0_.exit
   call void @_ZN4llvm4yaml7yamlizeIbEENSt9enable_ifIXsr16has_ScalarTraitsIT_EE5valueEvE4typeERNS0_2IOERS3_bRNS0_12EmptyContextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  br label %53
+  br label %54
 
-53:                                               ; preds = %.critedge, %51
-  %54 = load ptr, ptr %7, align 8, !tbaa !271
-  %55 = load ptr, ptr %0, align 8, !tbaa !3
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 128
-  %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %54) #17
-  br label %61
+54:                                               ; preds = %.critedge, %52
+  %55 = load ptr, ptr %7, align 8, !tbaa !271
+  %56 = load ptr, ptr %0, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 128
+  %58 = load ptr, ptr %57, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %55) #17
+  br label %62
 
-58:                                               ; preds = %.thread
-  %.pre23 = load i8, ptr %8, align 1, !tbaa !78, !range !10
-  %59 = trunc nuw i8 %.pre23 to i1
-  br i1 %59, label %.thread24, label %61
+59:                                               ; preds = %27
+  %.pre = load i8, ptr %8, align 1, !tbaa !78, !range !10
+  %60 = trunc nuw i8 %.pre to i1
+  br i1 %60, label %.thread25, label %62
 
-.thread24:                                        ; preds = %26, %58
-  %60 = load i16, ptr %3, align 1
-  store i16 %60, ptr %2, align 1
-  br label %61
+.thread25:                                        ; preds = %25, %59
+  %61 = load i16, ptr %3, align 1
+  store i16 %61, ptr %2, align 1
+  br label %62
 
-61:                                               ; preds = %58, %.thread24, %53
+62:                                               ; preds = %59, %.thread25, %54
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
   ret void

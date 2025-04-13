@@ -6739,10 +6739,10 @@ common.resume:                                    ; preds = %47, %24, %28, %36
   %.sroa.0.0 = phi i64 [ -9223372036854775796, %37 ], [ -9223372036854775796, %44 ], [ %.sroa.0.0.copyload20, %_ZN3std9panicking3try17hdb07e80180eb803cE.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store i64 %.sroa.0.0, ptr %7, align 8
-  %.sroa.5.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.sroa.5.0, ptr %.sroa.5.0..sroa_idx44, align 8
-  %.sroa.7.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sroa.7.0, ptr %.sroa.7.0..sroa_idx45, align 8
+  %.sroa.5.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.sroa.5.0, ptr %.sroa.5.0..sroa_idx43, align 8
+  %.sroa.7.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %.sroa.7.0, ptr %.sroa.7.0..sroa_idx44, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8
   invoke void @_ZN6diesel6sqlite10connection3raw19SqliteCallbackError4emit17h3da4a320946acd3cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, ptr noundef %0)

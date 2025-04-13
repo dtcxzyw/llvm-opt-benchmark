@@ -1736,8 +1736,8 @@ define internal noundef signext i8 @_ZL13putil_cleanupv() #1 personality ptr @__
 
 2:                                                ; preds = %0
   %3 = load i8, ptr %1, align 1, !tbaa !21
-  %.not4 = icmp eq i8 %3, 0
-  br i1 %.not4, label %5, label %4
+  %.not5 = icmp eq i8 %3, 0
+  br i1 %.not5, label %5, label %4
 
 4:                                                ; preds = %2
   tail call void @uprv_free_77(ptr noundef nonnull %1)
@@ -1770,20 +1770,18 @@ define internal noundef signext i8 @_ZL13putil_cleanupv() #1 personality ptr @__
 13:                                               ; preds = %12, %9
   store ptr null, ptr @_ZL19gSearchTZFileResult, align 8, !tbaa !41
   %14 = load ptr, ptr @_ZL21gCorrectedPOSIXLocale, align 8, !tbaa !20
-  %.not5 = icmp eq ptr %14, null
-  br i1 %.not5, label %17, label %15
-
-15:                                               ; preds = %13
+  %15 = icmp ne ptr %14, null
   %.b6 = load i1, ptr @_ZL34gCorrectedPOSIXLocaleHeapAllocated, align 1
-  br i1 %.b6, label %16, label %17
+  %or.cond = select i1 %15, i1 %.b6, i1 false
+  br i1 %or.cond, label %16, label %17
 
-16:                                               ; preds = %15
+16:                                               ; preds = %13
   tail call void @uprv_free_77(ptr noundef nonnull %14)
   store ptr null, ptr @_ZL21gCorrectedPOSIXLocale, align 8, !tbaa !20
   store i1 false, ptr @_ZL34gCorrectedPOSIXLocaleHeapAllocated, align 1
   br label %17
 
-17:                                               ; preds = %16, %15, %13
+17:                                               ; preds = %16, %13
   ret i8 1
 }
 

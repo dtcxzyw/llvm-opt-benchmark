@@ -394,8 +394,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN7rocksdb17AppendHumanMicrosEmPcib(i64 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #5 {
   %5 = icmp ugt i64 %0, 9999
-  %brmerge = or i1 %5, %3
-  br i1 %brmerge, label %9, label %6
+  %or.cond = or i1 %5, %3
+  br i1 %or.cond, label %9, label %6
 
 6:                                                ; preds = %4
   %7 = sext i32 %2 to i64
@@ -404,8 +404,8 @@ define noundef i32 @_ZN7rocksdb17AppendHumanMicrosEmPcib(i64 noundef %0, ptr nou
 
 9:                                                ; preds = %4
   %10 = icmp ugt i64 %0, 9999999
-  %brmerge28 = or i1 %10, %3
-  br i1 %brmerge28, label %16, label %11
+  %or.cond3 = or i1 %10, %3
+  br i1 %or.cond3, label %16, label %11
 
 11:                                               ; preds = %9
   %12 = sext i32 %2 to i64
@@ -416,8 +416,8 @@ define noundef i32 @_ZN7rocksdb17AppendHumanMicrosEmPcib(i64 noundef %0, ptr nou
 
 16:                                               ; preds = %9
   %17 = icmp ugt i64 %0, 59999999
-  %brmerge30 = or i1 %17, %3
-  br i1 %brmerge30, label %23, label %18
+  %or.cond5 = or i1 %17, %3
+  br i1 %or.cond5, label %23, label %18
 
 18:                                               ; preds = %16
   %19 = sext i32 %2 to i64
@@ -428,9 +428,9 @@ define noundef i32 @_ZN7rocksdb17AppendHumanMicrosEmPcib(i64 noundef %0, ptr nou
 
 23:                                               ; preds = %16
   %24 = icmp ugt i64 %0, 3599999999
-  %brmerge32 = or i1 %24, %3
+  %or.cond7 = or i1 %24, %3
   %25 = sext i32 %2 to i64
-  br i1 %brmerge32, label %32, label %26
+  br i1 %or.cond7, label %32, label %26
 
 26:                                               ; preds = %23
   %.lhs.trunc = trunc nuw i64 %0 to i32

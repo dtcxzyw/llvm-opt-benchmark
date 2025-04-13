@@ -66,8 +66,8 @@ define hidden void @_ZN30ShenandoahAggressiveHeuristicsC2EP19ShenandoahSpaceInfo
 
 4:                                                ; preds = %2
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %5, null
-  br i1 %.not, label %7, label %6
+  %.not3 = icmp eq ptr %5, null
+  br i1 %.not3, label %7, label %6
 
 6:                                                ; preds = %4
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str)
@@ -79,27 +79,26 @@ define hidden void @_ZN30ShenandoahAggressiveHeuristicsC2EP19ShenandoahSpaceInfo
 
 8:                                                ; preds = %7, %2
   %9 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1032) #5
-  br i1 %9, label %10, label %17
+  %.not = xor i1 %9, true
+  %10 = load i8, ptr @ShenandoahEvacReserveOverflow, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %11
+  br i1 %or.cond, label %16, label %12
 
-10:                                               ; preds = %8
-  %11 = load i8, ptr @ShenandoahEvacReserveOverflow, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %17, label %13
+12:                                               ; preds = %8
+  %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not4 = icmp eq ptr %13, null
+  br i1 %.not4, label %15, label %14
 
-13:                                               ; preds = %10
-  %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not2 = icmp eq ptr %14, null
-  br i1 %.not2, label %16, label %15
-
-15:                                               ; preds = %13
+14:                                               ; preds = %12
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.4)
+  br label %15
+
+15:                                               ; preds = %12, %14
+  store i8 1, ptr @ShenandoahEvacReserveOverflow, align 1
   br label %16
 
-16:                                               ; preds = %13, %15
-  store i8 1, ptr @ShenandoahEvacReserveOverflow, align 1
-  br label %17
-
-17:                                               ; preds = %8, %10, %16
+16:                                               ; preds = %8, %15
   ret void
 }
 

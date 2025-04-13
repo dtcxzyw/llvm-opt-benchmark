@@ -3587,7 +3587,7 @@ define hidden noundef zeroext i1 @_ZN7datalog21mk_unbound_compressor15decompress
 
 24:                                               ; preds = %70, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %6 ]
-  %.0 = phi i1 [ %.232, %70 ], [ false, %6 ]
+  %.0 = phi i1 [ %.234, %70 ], [ false, %6 ]
   %25 = load ptr, ptr %3, align 8, !tbaa !290
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, label %27
@@ -3689,8 +3689,8 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit:                 ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %48, %56, %.loopexit, %_ZNK6vectorIjLb0EjE5emptyEv.exit
   %68 = phi i1 [ false, %_ZNK6vectorIjLb0EjE5emptyEv.exit ], [ %67, %.loopexit ], [ false, %56 ], [ false, %48 ]
-  %brmerge = or i1 %19, %68
-  br i1 %brmerge, label %69, label %.thread
+  %or.cond = or i1 %19, %68
+  br i1 %or.cond, label %69, label %.thread
 
 .thread:                                          ; preds = %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
   call void @_ZN7datalog21mk_unbound_compressor22add_decompression_ruleERKNS_8rule_setEPNS_4ruleEjj(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %2, i32 noundef %5, i32 noundef %33)
@@ -3698,11 +3698,11 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
 
 69:                                               ; preds = %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
   call void @_ZN7datalog21mk_unbound_compressor29replace_by_decompression_ruleERKNS_8rule_setEjjj(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, i32 noundef %4, i32 noundef %5, i32 noundef %33)
-  %brmerge27 = or i1 %68, %.not
-  br i1 %brmerge27, label %70, label %71
+  %or.cond3 = or i1 %68, %.not
+  br i1 %or.cond3, label %70, label %71
 
 70:                                               ; preds = %.thread, %69
-  %.232 = phi i1 [ %.0, %.thread ], [ true, %69 ]
+  %.234 = phi i1 [ %.0, %.thread ], [ true, %69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %24, !llvm.loop !367
 

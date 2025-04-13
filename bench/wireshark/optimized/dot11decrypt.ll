@@ -158,18 +158,16 @@ Dot11DecryptGetKckLen.exit:                       ; preds = %Dot11DecryptGetKckL
   %26 = getelementptr i8, ptr %21, i64 %.0.i
   %switch.tableidx = add i32 %25, -1
   %27 = icmp ult i32 %switch.tableidx, 18
-  br i1 %27, label %switch.hole_check, label %28
+  %switch.shifted = lshr i32 138687, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond74 = select i1 %27, i1 %switch.lobit, i1 false
+  br i1 %or.cond74, label %switch.lookup, label %28
 
-28:                                               ; preds = %switch.hole_check, %Dot11DecryptGetKckLen.exit
+28:                                               ; preds = %Dot11DecryptGetKckLen.exit
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2408, ptr noundef nonnull @__func__.Dot11DecryptGetKekLen, ptr noundef nonnull @.str.49)
   br label %Dot11DecryptGetKekLen.exit
 
-switch.hole_check:                                ; preds = %Dot11DecryptGetKckLen.exit
-  %switch.shifted = lshr i32 138687, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %28
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %Dot11DecryptGetKckLen.exit
   %29 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @switch.table.Dot11DecryptRsnaMng.10, i64 0, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -2292,18 +2290,16 @@ Dot11DecryptGetKckLen.exit:                       ; preds = %Dot11DecryptGetKckL
   %.0.i = phi i64 [ %.0.i.ph, %Dot11DecryptGetKckLen.exitthread-pre-split ], [ 16, %45 ], [ 16, %45 ], [ 16, %45 ], [ 16, %45 ], [ 16, %45 ], [ 16, %45 ], [ 16, %45 ], [ 16, %45 ], [ 16, %45 ], [ 16, %45 ]
   %switch.tableidx = add i32 %50, -1
   %51 = icmp ult i32 %switch.tableidx, 18
-  br i1 %51, label %switch.hole_check, label %52
+  %switch.shifted = lshr i32 138687, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond173 = select i1 %51, i1 %switch.lobit, i1 false
+  br i1 %or.cond173, label %switch.lookup, label %52
 
-52:                                               ; preds = %switch.hole_check, %Dot11DecryptGetKckLen.exit
+52:                                               ; preds = %Dot11DecryptGetKckLen.exit
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2408, ptr noundef nonnull @__func__.Dot11DecryptGetKekLen, ptr noundef nonnull @.str.49)
   br label %Dot11DecryptGetKekLen.exit
 
-switch.hole_check:                                ; preds = %Dot11DecryptGetKckLen.exit
-  %switch.shifted = lshr i32 138687, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %52
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %Dot11DecryptGetKckLen.exit
   %53 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @switch.table.Dot11DecryptRsnaMng.10, i64 0, i64 %53
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -2314,22 +2310,22 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup, %52
   %54 = getelementptr i8, ptr %46, i64 %.0.i100
   %55 = getelementptr i8, ptr %54, i64 %.0.i
   %56 = load i32, ptr %26, align 4
-  %switch.tableidx174 = add i32 %56, -1
-  %57 = icmp ult i32 %switch.tableidx174, 13
-  br i1 %57, label %switch.lookup173, label %58
+  %switch.tableidx175 = add i32 %56, -1
+  %57 = icmp ult i32 %switch.tableidx175, 13
+  br i1 %57, label %switch.lookup174, label %58
 
 58:                                               ; preds = %Dot11DecryptGetKekLen.exit
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2362, ptr noundef nonnull @__func__.Dot11DecryptGetTkLen, ptr noundef nonnull @.str.48)
   br label %Dot11DecryptGetTkLen.exit
 
-switch.lookup173:                                 ; preds = %Dot11DecryptGetKekLen.exit
-  %59 = zext nneg i32 %switch.tableidx174 to i64
-  %switch.gep175 = getelementptr inbounds nuw [13 x i32], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 0, i64 %59
-  %switch.load176 = load i32, ptr %switch.gep175, align 4
+switch.lookup174:                                 ; preds = %Dot11DecryptGetKekLen.exit
+  %59 = zext nneg i32 %switch.tableidx175 to i64
+  %switch.gep176 = getelementptr inbounds nuw [13 x i32], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 0, i64 %59
+  %switch.load177 = load i32, ptr %switch.gep176, align 4
   br label %Dot11DecryptGetTkLen.exit
 
-Dot11DecryptGetTkLen.exit:                        ; preds = %switch.lookup173, %58
-  %.0.i101 = phi i32 [ 0, %58 ], [ %switch.load176, %switch.lookup173 ]
+Dot11DecryptGetTkLen.exit:                        ; preds = %switch.lookup174, %58
+  %.0.i101 = phi i32 [ 0, %58 ], [ %switch.load177, %switch.lookup174 ]
   %60 = tail call i32 @Dot11DecryptGcmpDecrypt(ptr noundef %10, i32 noundef %1, i32 noundef %19, ptr noundef %55, i32 noundef %.0.i101)
   %.not98 = icmp eq i32 %60, 0
   br i1 %.not98, label %61, label %.thread111
@@ -2381,21 +2377,19 @@ Dot11DecryptGetKckLen.exit103thread-pre-split:    ; preds = %67, %67, %71
 Dot11DecryptGetKckLen.exit103:                    ; preds = %Dot11DecryptGetKckLen.exit103thread-pre-split, %67, %67, %67, %67, %67, %67, %67, %67, %67, %67
   %72 = phi i32 [ %.pr108, %Dot11DecryptGetKckLen.exit103thread-pre-split ], [ %70, %67 ], [ %70, %67 ], [ %70, %67 ], [ %70, %67 ], [ %70, %67 ], [ %70, %67 ], [ %70, %67 ], [ %70, %67 ], [ %70, %67 ], [ %70, %67 ]
   %.0.i102 = phi i64 [ %.0.i102.ph, %Dot11DecryptGetKckLen.exit103thread-pre-split ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ], [ 16, %67 ]
-  %switch.tableidx178 = add i32 %72, -1
-  %73 = icmp ult i32 %switch.tableidx178, 18
-  br i1 %73, label %switch.hole_check179, label %74
+  %switch.tableidx179 = add i32 %72, -1
+  %73 = icmp ult i32 %switch.tableidx179, 18
+  %switch.shifted181 = lshr i32 138687, %switch.tableidx179
+  %switch.lobit182 = trunc i32 %switch.shifted181 to i1
+  %or.cond185 = select i1 %73, i1 %switch.lobit182, i1 false
+  br i1 %or.cond185, label %switch.lookup180, label %74
 
-74:                                               ; preds = %switch.hole_check179, %Dot11DecryptGetKckLen.exit103
+74:                                               ; preds = %Dot11DecryptGetKckLen.exit103
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2408, ptr noundef nonnull @__func__.Dot11DecryptGetKekLen, ptr noundef nonnull @.str.49)
   br label %Dot11DecryptGetKekLen.exit105
 
-switch.hole_check179:                             ; preds = %Dot11DecryptGetKckLen.exit103
-  %switch.shifted181 = lshr i32 138687, %switch.tableidx178
-  %switch.lobit182 = trunc i32 %switch.shifted181 to i1
-  br i1 %switch.lobit182, label %switch.lookup180, label %74
-
-switch.lookup180:                                 ; preds = %switch.hole_check179
-  %75 = zext nneg i32 %switch.tableidx178 to i64
+switch.lookup180:                                 ; preds = %Dot11DecryptGetKckLen.exit103
+  %75 = zext nneg i32 %switch.tableidx179 to i64
   %switch.gep183 = getelementptr inbounds nuw [18 x i64], ptr @switch.table.Dot11DecryptRsnaMng.10, i64 0, i64 %75
   %switch.load184 = load i64, ptr %switch.gep183, align 8
   br label %Dot11DecryptGetKekLen.exit105
@@ -2405,22 +2399,22 @@ Dot11DecryptGetKekLen.exit105:                    ; preds = %switch.lookup180, %
   %76 = getelementptr i8, ptr %68, i64 %.0.i104
   %77 = getelementptr i8, ptr %76, i64 %.0.i102
   %78 = load i32, ptr %26, align 4
-  %switch.tableidx186 = add i32 %78, -1
-  %79 = icmp ult i32 %switch.tableidx186, 13
-  br i1 %79, label %switch.lookup185, label %80
+  %switch.tableidx187 = add i32 %78, -1
+  %79 = icmp ult i32 %switch.tableidx187, 13
+  br i1 %79, label %switch.lookup186, label %80
 
 80:                                               ; preds = %Dot11DecryptGetKekLen.exit105
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2362, ptr noundef nonnull @__func__.Dot11DecryptGetTkLen, ptr noundef nonnull @.str.48)
   br label %Dot11DecryptGetTkLen.exit107
 
-switch.lookup185:                                 ; preds = %Dot11DecryptGetKekLen.exit105
-  %81 = zext nneg i32 %switch.tableidx186 to i64
-  %switch.gep187 = getelementptr inbounds nuw [13 x i32], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 0, i64 %81
-  %switch.load188 = load i32, ptr %switch.gep187, align 4
+switch.lookup186:                                 ; preds = %Dot11DecryptGetKekLen.exit105
+  %81 = zext nneg i32 %switch.tableidx187 to i64
+  %switch.gep188 = getelementptr inbounds nuw [13 x i32], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 0, i64 %81
+  %switch.load189 = load i32, ptr %switch.gep188, align 4
   br label %Dot11DecryptGetTkLen.exit107
 
-Dot11DecryptGetTkLen.exit107:                     ; preds = %switch.lookup185, %80
-  %.0.i106 = phi i32 [ 0, %80 ], [ %switch.load188, %switch.lookup185 ]
+Dot11DecryptGetTkLen.exit107:                     ; preds = %switch.lookup186, %80
+  %.0.i106 = phi i32 [ 0, %80 ], [ %switch.load189, %switch.lookup186 ]
   %82 = tail call i32 @Dot11DecryptCcmpDecrypt(ptr noundef %10, i32 noundef %1, i32 noundef %19, ptr noundef %77, i32 noundef %.0.i106, i32 noundef %65)
   %.not97 = icmp eq i32 %82, 0
   br i1 %.not97, label %83, label %.thread111
@@ -3490,18 +3484,16 @@ Dot11DecryptGetKckLen.exit118:                    ; preds = %232, %232, %232, %2
   %236 = getelementptr i8, ptr %221, i64 %.0.i117
   %switch.tableidx150 = add i32 %235, -1
   %237 = icmp ult i32 %switch.tableidx150, 18
-  br i1 %237, label %switch.hole_check151, label %238
+  %switch.shifted153 = lshr i32 138687, %switch.tableidx150
+  %switch.lobit154 = trunc i32 %switch.shifted153 to i1
+  %or.cond157 = select i1 %237, i1 %switch.lobit154, i1 false
+  br i1 %or.cond157, label %switch.lookup152, label %238
 
-238:                                              ; preds = %switch.hole_check151, %Dot11DecryptGetKckLen.exit118
+238:                                              ; preds = %Dot11DecryptGetKckLen.exit118
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 2408, ptr noundef nonnull @__func__.Dot11DecryptGetKekLen, ptr noundef nonnull @.str.49)
   br label %Dot11DecryptGetKekLen.exit
 
-switch.hole_check151:                             ; preds = %Dot11DecryptGetKckLen.exit118
-  %switch.shifted153 = lshr i32 138687, %switch.tableidx150
-  %switch.lobit154 = trunc i32 %switch.shifted153 to i1
-  br i1 %switch.lobit154, label %switch.lookup152, label %238
-
-switch.lookup152:                                 ; preds = %switch.hole_check151
+switch.lookup152:                                 ; preds = %Dot11DecryptGetKckLen.exit118
   %239 = zext nneg i32 %switch.tableidx150 to i64
   %switch.gep155 = getelementptr inbounds nuw [18 x i16], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.14, i64 0, i64 %239
   %switch.load156 = load i16, ptr %switch.gep155, align 2

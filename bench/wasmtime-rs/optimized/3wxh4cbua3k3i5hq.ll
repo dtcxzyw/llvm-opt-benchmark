@@ -15930,7 +15930,7 @@ define internal fastcc void @_ZN9regalloc27checker12CheckerState6update17hc1b23f
   br label %63
 
 common.resume:                                    ; preds = %608, %87, %623, %82
-  %common.resume.op = phi { ptr, i32 } [ %624, %623 ], [ %.pn99, %87 ], [ %83, %82 ], [ %609, %608 ]
+  %common.resume.op = phi { ptr, i32 } [ %624, %623 ], [ %.pn100, %87 ], [ %83, %82 ], [ %609, %608 ]
   resume { ptr, i32 } %common.resume.op
 
 82:                                               ; preds = %69
@@ -15956,7 +15956,7 @@ common.resume:                                    ; preds = %608, %87, %623, %82
   ret void
 
 87:                                               ; preds = %.body199, %88
-  %.pn99 = phi { ptr, i32 } [ %89, %88 ], [ %.pn, %.body199 ]
+  %.pn100 = phi { ptr, i32 } [ %89, %88 ], [ %.pn, %.body199 ]
   invoke void @"_ZN4core3ptr193drop_in_place$LT$hashbrown..map..HashMap$LT$regalloc2..VReg$C$smallvec..SmallVec$LT$$u5b$regalloc2..VReg$u3b$$u20$2$u5d$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0d18e3bc56c4ba42E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #57
           to label %common.resume unwind label %84
 
@@ -16300,7 +16300,7 @@ common.resume:                                    ; preds = %608, %87, %623, %82
 230:                                              ; preds = %206
   %231 = load ptr, ptr %215, align 8, !noundef !4
   %232 = icmp eq ptr %231, null
-  %..094 = select i1 %232, ptr null, ptr %215
+  %..095 = select i1 %232, ptr null, ptr %215
   br i1 %232, label %248, label %251
 
 "_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hd762947dadbb1ebeE.exit": ; preds = %.noexc125, %.thread338
@@ -16471,7 +16471,7 @@ common.resume:                                    ; preds = %608, %87, %623, %82
   %311 = icmp slt <16 x i8> %310, zeroinitializer
   %312 = bitcast <16 x i1> %311 to i16
   %313 = xor i16 %312, -1
-  %314 = getelementptr inbounds nuw i8, ptr %..094, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %..095, i64 16
   br label %315
 
 315:                                              ; preds = %.lr.ph443, %.loopexit
@@ -20564,8 +20564,8 @@ select.unfold.i162:                               ; preds = %906, %869, %868
 
 975:                                              ; preds = %974
   %976 = load i32, ptr %27, align 8, !range !4655, !noalias !4593, !noundef !4
-  %.not34.i = icmp eq i32 %976, 12
-  br i1 %.not34.i, label %999, label %986
+  %.not36.i = icmp eq i32 %976, 12
+  br i1 %.not36.i, label %999, label %986
 
 977:                                              ; preds = %991, %986
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23), !noalias !4593

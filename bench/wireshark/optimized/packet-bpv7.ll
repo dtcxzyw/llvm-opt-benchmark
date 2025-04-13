@@ -4863,64 +4863,62 @@ define internal fastcc i32 @dissect_carried_data(ptr noundef %0, ptr noundef %1,
 8:                                                ; preds = %6
   %9 = tail call i32 @call_dissector_only(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %1)
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %19, label %11
+  br i1 %10, label %.sink.split, label %11
 
 11:                                               ; preds = %8
-  %.not27 = icmp eq i32 %9, 0
-  br i1 %.not27, label %.thread, label %12
+  %.not28 = icmp eq i32 %9, 0
+  br i1 %.not28, label %18, label %12
 
 12:                                               ; preds = %11
   %13 = tail call i32 @tvb_reported_length(ptr noundef %2)
   %14 = icmp ult i32 %9, %13
-  br i1 %14, label %19, label %.thread33
+  br i1 %14, label %.sink.split, label %.thread31
 
 15:                                               ; preds = %6
-  br i1 %5, label %.thread, label %16
+  br i1 %5, label %18, label %.sink.split
 
-16:                                               ; preds = %15
-  %17 = tail call ptr @proto_tree_get_parent(ptr noundef %4)
-  %18 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %17, ptr noundef nonnull @ei_sub_type_unknown)
-  br label %.thread
+.sink.split:                                      ; preds = %15, %8, %12
+  %ei_sub_type_unknown.sink = phi ptr [ @ei_sub_partial_decode, %12 ], [ @ei_sub_partial_decode, %8 ], [ @ei_sub_type_unknown, %15 ]
+  %.0.ph = phi i32 [ %9, %12 ], [ %9, %8 ], [ 0, %15 ]
+  %16 = tail call ptr @proto_tree_get_parent(ptr noundef %4)
+  %17 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %16, ptr noundef nonnull %ei_sub_type_unknown.sink)
+  br label %18
 
-19:                                               ; preds = %8, %12
-  %20 = tail call ptr @proto_tree_get_parent(ptr noundef %4)
-  %21 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %20, ptr noundef nonnull @ei_sub_partial_decode)
-  %22 = icmp slt i32 %9, 1
-  br i1 %22, label %.thread, label %.thread33
+18:                                               ; preds = %.sink.split, %15, %11
+  %.0 = phi i32 [ 0, %11 ], [ 0, %15 ], [ %.0.ph, %.sink.split ]
+  %19 = icmp slt i32 %.0, 1
+  %20 = load i8, ptr @bp_payload_try_heur, align 1, !range !14
+  %21 = trunc nuw i8 %20 to i1
+  %or.cond = select i1 %19, i1 %21, i1 false
+  br i1 %or.cond, label %22, label %28
 
-.thread:                                          ; preds = %16, %15, %11, %19
-  %.029 = phi i32 [ %9, %19 ], [ 0, %11 ], [ 0, %15 ], [ 0, %16 ]
-  %23 = load i8, ptr @bp_payload_try_heur, align 1, !range !14, !noundef !15
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %25, label %31
-
-25:                                               ; preds = %.thread
+22:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
   store ptr null, ptr %7, align 8
-  %26 = load ptr, ptr @btsd_heur, align 8
-  %27 = call zeroext i1 @dissector_try_heuristic(ptr noundef %26, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %7, ptr noundef %1)
-  br i1 %27, label %28, label %30
+  %23 = load ptr, ptr @btsd_heur, align 8
+  %24 = call zeroext i1 @dissector_try_heuristic(ptr noundef %23, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %7, ptr noundef %1)
+  br i1 %24, label %25, label %27
 
-28:                                               ; preds = %25
-  %29 = call i32 @tvb_reported_length(ptr noundef %2)
-  br label %30
+25:                                               ; preds = %22
+  %26 = call i32 @tvb_reported_length(ptr noundef %2)
+  br label %27
 
-30:                                               ; preds = %28, %25
-  %.2 = phi i32 [ %29, %28 ], [ %.029, %25 ]
+27:                                               ; preds = %25, %22
+  %.2 = phi i32 [ %26, %25 ], [ %.0, %22 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  br label %31
+  br label %28
 
-31:                                               ; preds = %30, %.thread
-  %.1 = phi i32 [ %.2, %30 ], [ %.029, %.thread ]
-  %32 = icmp eq i32 %.1, 0
-  br i1 %32, label %33, label %.thread33
+28:                                               ; preds = %27, %18
+  %.1 = phi i32 [ %.2, %27 ], [ %.0, %18 ]
+  %29 = icmp eq i32 %.1, 0
+  br i1 %29, label %30, label %.thread31
 
-33:                                               ; preds = %31
-  %34 = call i32 @call_data_dissector(ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  br label %.thread33
+30:                                               ; preds = %28
+  %31 = call i32 @call_data_dissector(ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  br label %.thread31
 
-.thread33:                                        ; preds = %12, %19, %33, %31
-  %.3 = phi i32 [ %34, %33 ], [ %.1, %31 ], [ %9, %19 ], [ %9, %12 ]
+.thread31:                                        ; preds = %12, %30, %28
+  %.3 = phi i32 [ %31, %30 ], [ %.1, %28 ], [ %9, %12 ]
   ret i32 %.3
 }
 

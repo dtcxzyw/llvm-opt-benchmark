@@ -143,8 +143,8 @@ call5.i.i.i.i2.i.i.noexc47:                       ; preds = %call5.i.i.i.i2.i.i.
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i48, i8 0, i64 %mul.i.i.i.i.i.i, i1 false), !tbaa !20
   %_M_finish.i.i7.i43 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i36, ptr %_M_finish.i.i7.i43, align 8, !tbaa !22
-  %brmerge = or i1 %randomStart, %randomShift
-  br i1 %brmerge, label %if.then51, label %if.end75
+  %or.cond = or i1 %randomStart, %randomShift
+  br i1 %or.cond, label %if.then51, label %if.end75
 
 if.then:                                          ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32

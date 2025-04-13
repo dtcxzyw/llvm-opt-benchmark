@@ -134,8 +134,8 @@ define range(i32 -1, 1) i32 @H5G__traverse_special(ptr noundef %0, ptr noundef r
 28:                                               ; preds = %25
   %29 = and i32 %2, 1
   %30 = icmp ne i32 %29, 0
-  %brmerge.not = and i1 %3, %30
-  br i1 %brmerge.not, label %thread-pre-split, label %31
+  %or.cond = and i1 %3, %30
+  br i1 %or.cond, label %thread-pre-split, label %31
 
 31:                                               ; preds = %28
   %32 = call i32 @H5CX_get_nlinks(ptr noundef nonnull %18) #6
@@ -248,7 +248,7 @@ H5G__traverse_slink.exit:                         ; preds = %76, %80
   %90 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__traverse_special, i32 noundef 393, i64 noundef %88, i64 noundef %89, ptr noundef nonnull @.str.4) #6
   br label %290
 
-thread-pre-split:                                 ; preds = %H5G__traverse_slink.exit, %28, %H5G__traverse_slink.exit.thread
+thread-pre-split:                                 ; preds = %28, %H5G__traverse_slink.exit, %H5G__traverse_slink.exit.thread
   %.pr = load i32, ptr %1, align 8, !tbaa !10
   br label %91
 
@@ -260,8 +260,8 @@ thread-pre-split:                                 ; preds = %H5G__traverse_slink
 94:                                               ; preds = %91
   %95 = and i32 %2, 4
   %96 = icmp ne i32 %95, 0
-  %brmerge36.not = and i1 %3, %96
-  br i1 %brmerge36.not, label %259, label %97
+  %or.cond3 = and i1 %3, %96
+  br i1 %or.cond3, label %259, label %97
 
 97:                                               ; preds = %94
   %98 = call i32 @H5CX_get_nlinks(ptr noundef nonnull %18) #6
@@ -566,7 +566,7 @@ H5G__traverse_ud.exit:                            ; preds = %245
   %258 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__traverse_special, i32 noundef 417, i64 noundef %256, i64 noundef %257, ptr noundef nonnull @.str.5) #6
   br label %290
 
-259:                                              ; preds = %H5G__traverse_ud.exit.thread41, %94, %H5G__traverse_ud.exit, %91
+259:                                              ; preds = %H5G__traverse_ud.exit.thread41, %H5G__traverse_ud.exit, %94, %91
   %260 = load ptr, ptr %4, align 8, !tbaa !17
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %262 = load i64, ptr %261, align 8, !tbaa !32
@@ -576,8 +576,8 @@ H5G__traverse_ud.exit:                            ; preds = %245
 263:                                              ; preds = %259
   %264 = and i32 %2, 2
   %265 = icmp ne i32 %264, 0
-  %brmerge38.not = and i1 %3, %265
-  br i1 %brmerge38.not, label %273, label %266
+  %or.cond5 = and i1 %3, %265
+  br i1 %or.cond5, label %273, label %266
 
 266:                                              ; preds = %263
   %267 = call i32 @H5F_traverse_mount(ptr noundef nonnull %260) #6
@@ -590,7 +590,7 @@ H5G__traverse_ud.exit:                            ; preds = %245
   %272 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__traverse_special, i32 noundef 433, i64 noundef %270, i64 noundef %271, ptr noundef nonnull @.str.6) #6
   br label %290
 
-273:                                              ; preds = %263, %266, %259
+273:                                              ; preds = %266, %263, %259
   %274 = load ptr, ptr %0, align 8, !tbaa !17
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 16
   %276 = load i8, ptr %275, align 8, !tbaa !35, !range !7, !noundef !8
@@ -616,7 +616,7 @@ H5G__traverse_ud.exit:                            ; preds = %245
   br label %290
 
 290:                                              ; preds = %34, %42, %49, %87, %100, %108, %115, %255, %269, %286, %283, %278, %273, %6
-  %.0 = phi i32 [ -1, %34 ], [ -1, %42 ], [ -1, %49 ], [ -1, %87 ], [ -1, %100 ], [ -1, %108 ], [ -1, %115 ], [ -1, %255 ], [ -1, %269 ], [ -1, %286 ], [ 0, %283 ], [ 0, %278 ], [ 0, %273 ], [ 0, %6 ]
+  %.0 = phi i32 [ -1, %286 ], [ 0, %283 ], [ 0, %278 ], [ 0, %273 ], [ -1, %269 ], [ -1, %100 ], [ -1, %108 ], [ -1, %115 ], [ -1, %255 ], [ -1, %34 ], [ -1, %42 ], [ -1, %49 ], [ -1, %87 ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
   ret i32 %.0
 }

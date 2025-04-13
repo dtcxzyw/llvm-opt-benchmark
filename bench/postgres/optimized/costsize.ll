@@ -2267,8 +2267,8 @@ clamp_row_est.exit:                               ; preds = %16, %25, %27
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %38, ptr %39, align 8
   %40 = icmp eq ptr %.0, null
-  %brmerge.not = and i1 %4, %40
-  br i1 %brmerge.not, label %85, label %41
+  %or.cond = and i1 %4, %40
+  br i1 %or.cond, label %85, label %41
 
 41:                                               ; preds = %clamp_row_est.exit
   br i1 %.not, label %63, label %42
@@ -2307,15 +2307,15 @@ cost_qual_eval.exit.i.loopexit:                   ; preds = %.lr.ph16.i.i
   %.sroa.7.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.7.0.copyload.pre = load double, ptr %.sroa.7.0..sroa_idx.phi.trans.insert, align 8
   %.pre.pre = load ptr, ptr %17, align 8
-  %.pre41.pre = load double, ptr %29, align 8
-  %.pre42.pre = load double, ptr %36, align 8
-  %.pre43.pre = load double, ptr %39, align 8
+  %.pre39.pre = load double, ptr %29, align 8
+  %.pre40.pre = load double, ptr %36, align 8
+  %.pre41.pre = load double, ptr %39, align 8
   br label %cost_qual_eval.exit.i
 
 cost_qual_eval.exit.i:                            ; preds = %cost_qual_eval.exit.i.loopexit, %.lr.ph.i.i, %42
-  %.pre43 = phi double [ %.pre43.pre, %cost_qual_eval.exit.i.loopexit ], [ %38, %.lr.ph.i.i ], [ %38, %42 ]
-  %.pre42 = phi double [ %.pre42.pre, %cost_qual_eval.exit.i.loopexit ], [ %35, %.lr.ph.i.i ], [ %35, %42 ]
-  %.pre41 = phi double [ %.pre41.pre, %cost_qual_eval.exit.i.loopexit ], [ %.0.i, %.lr.ph.i.i ], [ %.0.i, %42 ]
+  %.pre41 = phi double [ %.pre41.pre, %cost_qual_eval.exit.i.loopexit ], [ %38, %.lr.ph.i.i ], [ %38, %42 ]
+  %.pre40 = phi double [ %.pre40.pre, %cost_qual_eval.exit.i.loopexit ], [ %35, %.lr.ph.i.i ], [ %35, %42 ]
+  %.pre39 = phi double [ %.pre39.pre, %cost_qual_eval.exit.i.loopexit ], [ %.0.i, %.lr.ph.i.i ], [ %.0.i, %42 ]
   %.pre = phi ptr [ %.pre.pre, %cost_qual_eval.exit.i.loopexit ], [ %30, %.lr.ph.i.i ], [ %30, %42 ]
   %.sroa.7.0.copyload = phi double [ %.sroa.7.0.copyload.pre, %cost_qual_eval.exit.i.loopexit ], [ 0.000000e+00, %.lr.ph.i.i ], [ 0.000000e+00, %42 ]
   %.sroa.0.0.copyload = phi double [ %.sroa.0.0.copyload.pre, %cost_qual_eval.exit.i.loopexit ], [ 0.000000e+00, %.lr.ph.i.i ], [ 0.000000e+00, %42 ]
@@ -2330,18 +2330,18 @@ cost_qual_eval.exit.i:                            ; preds = %cost_qual_eval.exit
 
 63:                                               ; preds = %41
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 304
-  %.sroa.0.0.copyload34 = load double, ptr %64, align 8
-  %.sroa.7.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  %.sroa.7.0.copyload36 = load double, ptr %.sroa.7.0..sroa_idx35, align 8
+  %.sroa.0.0.copyload33 = load double, ptr %64, align 8
+  %.sroa.7.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %2, i64 312
+  %.sroa.7.0.copyload35 = load double, ptr %.sroa.7.0..sroa_idx34, align 8
   br label %get_restriction_qual_cost.exit
 
 get_restriction_qual_cost.exit:                   ; preds = %cost_qual_eval.exit.i, %63
-  %65 = phi double [ %38, %63 ], [ %.pre43, %cost_qual_eval.exit.i ]
-  %66 = phi double [ %35, %63 ], [ %.pre42, %cost_qual_eval.exit.i ]
-  %67 = phi double [ %.0.i, %63 ], [ %.pre41, %cost_qual_eval.exit.i ]
+  %65 = phi double [ %38, %63 ], [ %.pre41, %cost_qual_eval.exit.i ]
+  %66 = phi double [ %35, %63 ], [ %.pre40, %cost_qual_eval.exit.i ]
+  %67 = phi double [ %.0.i, %63 ], [ %.pre39, %cost_qual_eval.exit.i ]
   %68 = phi ptr [ %30, %63 ], [ %.pre, %cost_qual_eval.exit.i ]
-  %.sroa.7.0 = phi double [ %.sroa.7.0.copyload36, %63 ], [ %62, %cost_qual_eval.exit.i ]
-  %.sroa.0.0 = phi double [ %.sroa.0.0.copyload34, %63 ], [ %59, %cost_qual_eval.exit.i ]
+  %.sroa.7.0 = phi double [ %.sroa.7.0.copyload35, %63 ], [ %62, %cost_qual_eval.exit.i ]
+  %.sroa.0.0 = phi double [ %.sroa.0.0.copyload33, %63 ], [ %59, %cost_qual_eval.exit.i ]
   %69 = load double, ptr @cpu_tuple_cost, align 8
   %70 = fadd double %.sroa.7.0, %69
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 40
@@ -3879,10 +3879,10 @@ define dso_local void @cost_agg(ptr noundef writeonly captures(none) %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
   %17 = icmp eq ptr %3, null
-  %.0.sroa.phi162.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.0.sroa.phi162.sroa.gep180 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.0.sroa.phi162.sroa.gep183 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.0.sroa.phi162.sroa.gep186 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.0.sroa.phi164.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.0.sroa.phi164.sroa.gep182 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.0.sroa.phi164.sroa.gep185 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.0.sroa.phi164.sroa.gep188 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %17, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %12
@@ -3894,181 +3894,180 @@ define dso_local void @cost_agg(ptr noundef writeonly captures(none) %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %12
-  %.0.sroa.phi162.sroa.phi = phi ptr [ %.0.sroa.phi162.sroa.gep, %12 ], [ %.sroa.7, %.preheader.preheader ]
-  %.0.sroa.phi162.sroa.phi179 = phi ptr [ %.0.sroa.phi162.sroa.gep180, %12 ], [ %.sroa.5, %.preheader.preheader ]
-  %.0.sroa.phi162.sroa.phi182 = phi ptr [ %.0.sroa.phi162.sroa.gep183, %12 ], [ %.sroa.4, %.preheader.preheader ]
-  %.0.sroa.phi162.sroa.phi185 = phi ptr [ %.0.sroa.phi162.sroa.gep186, %12 ], [ %.sroa.6, %.preheader.preheader ]
-  %.0.sroa.phi162 = phi ptr [ %3, %12 ], [ %.sroa.0, %.preheader.preheader ]
-  switch i32 %2, label %43 [
-    i32 0, label %.thread
-    i32 3, label %28
-    i32 1, label %32
-  ]
+  %.0.sroa.phi164.sroa.phi = phi ptr [ %.0.sroa.phi164.sroa.gep, %12 ], [ %.sroa.7, %.preheader.preheader ]
+  %.0.sroa.phi164.sroa.phi181 = phi ptr [ %.0.sroa.phi164.sroa.gep182, %12 ], [ %.sroa.5, %.preheader.preheader ]
+  %.0.sroa.phi164.sroa.phi184 = phi ptr [ %.0.sroa.phi164.sroa.gep185, %12 ], [ %.sroa.4, %.preheader.preheader ]
+  %.0.sroa.phi164.sroa.phi187 = phi ptr [ %.0.sroa.phi164.sroa.gep188, %12 ], [ %.sroa.6, %.preheader.preheader ]
+  %.0.sroa.phi164 = phi ptr [ %3, %12 ], [ %.sroa.0, %.preheader.preheader ]
+  %18 = icmp eq i32 %2, 0
+  br i1 %18, label %.thread, label %29
 
 .thread:                                          ; preds = %.loopexit
-  %18 = load double, ptr %.0.sroa.phi162, align 8
-  %19 = fadd double %9, %18
-  %20 = load double, ptr %.0.sroa.phi162.sroa.phi182, align 8
-  %21 = tail call double @llvm.fmuladd.f64(double %20, double %10, double %19)
-  %22 = load double, ptr %.0.sroa.phi162.sroa.phi179, align 8
-  %23 = fadd double %21, %22
-  %24 = load double, ptr %.0.sroa.phi162.sroa.phi185, align 8
-  %25 = fadd double %23, %24
-  %26 = load double, ptr @cpu_tuple_cost, align 8
-  %27 = fadd double %25, %26
-  br label %115
+  %19 = load double, ptr %.0.sroa.phi164, align 8
+  %20 = fadd double %9, %19
+  %21 = load double, ptr %.0.sroa.phi164.sroa.phi184, align 8
+  %22 = tail call double @llvm.fmuladd.f64(double %21, double %10, double %20)
+  %23 = load double, ptr %.0.sroa.phi164.sroa.phi181, align 8
+  %24 = fadd double %22, %23
+  %25 = load double, ptr %.0.sroa.phi164.sroa.phi187, align 8
+  %26 = fadd double %24, %25
+  %27 = load double, ptr @cpu_tuple_cost, align 8
+  %28 = fadd double %26, %27
+  br label %117
 
-28:                                               ; preds = %.loopexit
-  %29 = load i8, ptr @enable_hashagg, align 1, !range !4, !noundef !5
-  %30 = xor i8 %29, 1
-  %31 = zext nneg i8 %30 to i32
-  %spec.select = add i32 %7, %31
-  br label %32
+29:                                               ; preds = %.loopexit
+  %30 = and i32 %2, -3
+  %or.cond5 = icmp eq i32 %30, 1
+  br i1 %or.cond5, label %31, label %45
 
-32:                                               ; preds = %.loopexit, %28
-  %.1 = phi i32 [ %spec.select, %28 ], [ %7, %.loopexit ]
-  %33 = load double, ptr %.0.sroa.phi162, align 8
-  %34 = fadd double %9, %33
-  %35 = load double, ptr %.0.sroa.phi162.sroa.phi182, align 8
-  %36 = tail call double @llvm.fmuladd.f64(double %35, double %10, double %34)
-  %37 = load double, ptr @cpu_operator_cost, align 8
-  %38 = sitofp i32 %4 to double
-  %39 = fmul double %37, %38
-  %40 = tail call double @llvm.fmuladd.f64(double %39, double %10, double %36)
-  %41 = load double, ptr %.0.sroa.phi162.sroa.phi179, align 8
-  %42 = fadd double %41, %40
-  br label %57
+31:                                               ; preds = %29
+  %.not209 = icmp eq i32 %2, 3
+  %32 = load i8, ptr @enable_hashagg, align 1, !range !4
+  %33 = xor i8 %32, 1
+  %34 = zext nneg i8 %33 to i32
+  %not.or.cond7 = select i1 %.not209, i32 %34, i32 0
+  %35 = load double, ptr %.0.sroa.phi164, align 8
+  %36 = fadd double %9, %35
+  %37 = load double, ptr %.0.sroa.phi164.sroa.phi184, align 8
+  %38 = tail call double @llvm.fmuladd.f64(double %37, double %10, double %36)
+  %39 = load double, ptr @cpu_operator_cost, align 8
+  %40 = sitofp i32 %4 to double
+  %41 = fmul double %39, %40
+  %42 = tail call double @llvm.fmuladd.f64(double %41, double %10, double %38)
+  %43 = load double, ptr %.0.sroa.phi164.sroa.phi181, align 8
+  %44 = fadd double %43, %42
+  br label %59
 
-43:                                               ; preds = %.loopexit
-  %44 = load i8, ptr @enable_hashagg, align 1, !range !4, !noundef !5
-  %45 = xor i8 %44, 1
-  %46 = zext nneg i8 %45 to i32
-  %spec.select176 = add i32 %7, %46
-  %47 = load double, ptr %.0.sroa.phi162, align 8
-  %48 = fadd double %9, %47
-  %49 = load double, ptr %.0.sroa.phi162.sroa.phi182, align 8
-  %50 = tail call double @llvm.fmuladd.f64(double %49, double %10, double %48)
-  %51 = load double, ptr @cpu_operator_cost, align 8
-  %52 = sitofp i32 %4 to double
-  %53 = fmul double %51, %52
-  %54 = tail call double @llvm.fmuladd.f64(double %53, double %10, double %50)
-  %55 = load double, ptr %.0.sroa.phi162.sroa.phi179, align 8
-  %56 = fadd double %55, %54
-  br label %57
+45:                                               ; preds = %29
+  %46 = load i8, ptr @enable_hashagg, align 1, !range !4, !noundef !5
+  %47 = xor i8 %46, 1
+  %48 = zext nneg i8 %47 to i32
+  %49 = load double, ptr %.0.sroa.phi164, align 8
+  %50 = fadd double %9, %49
+  %51 = load double, ptr %.0.sroa.phi164.sroa.phi184, align 8
+  %52 = tail call double @llvm.fmuladd.f64(double %51, double %10, double %50)
+  %53 = load double, ptr @cpu_operator_cost, align 8
+  %54 = sitofp i32 %4 to double
+  %55 = fmul double %53, %54
+  %56 = tail call double @llvm.fmuladd.f64(double %55, double %10, double %52)
+  %57 = load double, ptr %.0.sroa.phi164.sroa.phi181, align 8
+  %58 = fadd double %57, %56
+  br label %59
 
-57:                                               ; preds = %32, %43
-  %.sink211 = phi double [ %42, %32 ], [ %56, %43 ]
-  %.0127 = phi double [ %8, %32 ], [ %56, %43 ]
-  %.0124 = phi i32 [ %.1, %32 ], [ %spec.select176, %43 ]
-  %58 = load double, ptr %.0.sroa.phi162.sroa.phi185, align 8
-  %59 = tail call double @llvm.fmuladd.f64(double %58, double %5, double %.sink211)
-  %60 = load double, ptr @cpu_tuple_cost, align 8
-  %61 = tail call double @llvm.fmuladd.f64(double %60, double %5, double %59)
-  %62 = and i32 %2, -2
-  %or.cond7 = icmp eq i32 %62, 2
-  br i1 %or.cond7, label %63, label %115
+59:                                               ; preds = %31, %45
+  %.sink214 = phi double [ %44, %31 ], [ %58, %45 ]
+  %.0129 = phi double [ %8, %31 ], [ %58, %45 ]
+  %not.or.cond7.pn = phi i32 [ %not.or.cond7, %31 ], [ %48, %45 ]
+  %60 = load double, ptr %.0.sroa.phi164.sroa.phi187, align 8
+  %61 = tail call double @llvm.fmuladd.f64(double %60, double %5, double %.sink214)
+  %62 = load double, ptr @cpu_tuple_cost, align 8
+  %63 = tail call double @llvm.fmuladd.f64(double %62, double %5, double %61)
+  %.0126 = add i32 %not.or.cond7.pn, %7
+  %64 = and i32 %2, -2
+  %or.cond9 = icmp eq i32 %64, 2
+  br i1 %or.cond9, label %65, label %117
 
-63:                                               ; preds = %57
+65:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #17
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 616
-  %65 = load ptr, ptr %64, align 8
-  %.not.i = icmp eq ptr %65, null
-  br i1 %.not.i, label %list_length.exit, label %66
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 616
+  %67 = load ptr, ptr %66, align 8
+  %.not.i = icmp eq ptr %67, null
+  br i1 %.not.i, label %list_length.exit, label %68
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %68 = load i32, ptr %67, align 4
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %70 = load i32, ptr %69, align 4
   br label %list_length.exit
 
-list_length.exit:                                 ; preds = %63, %66
-  %69 = phi i32 [ %68, %66 ], [ 0, %63 ]
-  %70 = fptoui double %11 to i64
-  %71 = load i64, ptr %.0.sroa.phi162.sroa.phi, align 8
-  %72 = tail call i64 @hash_agg_entry_size(i32 noundef %69, i64 noundef %70, i64 noundef %71) #17
-  %73 = uitofp i64 %72 to double
-  call void @hash_agg_set_limits(double noundef %73, double noundef %5, i32 noundef 0, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #17
-  %74 = fmul double %5, %73
-  %75 = load i64, ptr %14, align 8
-  %76 = uitofp i64 %75 to double
-  %77 = fdiv double %74, %76
-  %78 = load i64, ptr %15, align 8
-  %79 = uitofp i64 %78 to double
-  %80 = fdiv double %5, %79
-  %81 = fcmp ogt double %77, %80
-  %. = select i1 %81, double %77, double %80
-  %82 = call double @llvm.ceil.f64(double %.)
-  %83 = fcmp ogt double %82, 1.000000e+00
-  %84 = select i1 %83, double %82, double 1.000000e+00
-  %85 = load i32, ptr %16, align 4
-  %86 = call i32 @llvm.smax.i32(i32 %85, i32 2)
-  %87 = call double @llvm.log.f64(double %84)
-  %88 = uitofp nneg i32 %86 to double
-  %89 = call double @log(double noundef %88) #17
-  %90 = fdiv double %87, %89
-  %91 = call double @llvm.ceil.f64(double %90)
-  %92 = fptosi double %91 to i32
-  %93 = fptosi double %11 to i32
-  %94 = sext i32 %93 to i64
-  %95 = add nsw i64 %94, 7
-  %96 = and i64 %95, -8
-  %97 = add nsw i64 %96, 24
-  %98 = uitofp i64 %97 to double
-  %99 = fmul double %10, %98
-  %100 = fmul double %99, 0x3F20000000000000
-  %101 = sitofp i32 %92 to double
-  %102 = fmul double %100, %101
-  %103 = fmul double %102, 2.000000e+00
-  %104 = load double, ptr @random_page_cost, align 8
-  %105 = call double @llvm.fmuladd.f64(double %103, double %104, double %.0127)
-  %106 = call double @llvm.fmuladd.f64(double %103, double %104, double %61)
-  %107 = load double, ptr @seq_page_cost, align 8
-  %108 = call double @llvm.fmuladd.f64(double %103, double %107, double %106)
-  %109 = fmul double %10, %101
-  %110 = fmul double %109, 2.000000e+00
-  %111 = load double, ptr @cpu_tuple_cost, align 8
-  %112 = fmul double %111, %110
-  %113 = fadd double %105, %112
-  %114 = fadd double %112, %108
+list_length.exit:                                 ; preds = %65, %68
+  %71 = phi i32 [ %70, %68 ], [ 0, %65 ]
+  %72 = fptoui double %11 to i64
+  %73 = load i64, ptr %.0.sroa.phi164.sroa.phi, align 8
+  %74 = tail call i64 @hash_agg_entry_size(i32 noundef %71, i64 noundef %72, i64 noundef %73) #17
+  %75 = uitofp i64 %74 to double
+  call void @hash_agg_set_limits(double noundef %75, double noundef %5, i32 noundef 0, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #17
+  %76 = fmul double %5, %75
+  %77 = load i64, ptr %14, align 8
+  %78 = uitofp i64 %77 to double
+  %79 = fdiv double %76, %78
+  %80 = load i64, ptr %15, align 8
+  %81 = uitofp i64 %80 to double
+  %82 = fdiv double %5, %81
+  %83 = fcmp ogt double %79, %82
+  %. = select i1 %83, double %79, double %82
+  %84 = call double @llvm.ceil.f64(double %.)
+  %85 = fcmp ogt double %84, 1.000000e+00
+  %86 = select i1 %85, double %84, double 1.000000e+00
+  %87 = load i32, ptr %16, align 4
+  %88 = call i32 @llvm.smax.i32(i32 %87, i32 2)
+  %89 = call double @llvm.log.f64(double %86)
+  %90 = uitofp nneg i32 %88 to double
+  %91 = call double @log(double noundef %90) #17
+  %92 = fdiv double %89, %91
+  %93 = call double @llvm.ceil.f64(double %92)
+  %94 = fptosi double %93 to i32
+  %95 = fptosi double %11 to i32
+  %96 = sext i32 %95 to i64
+  %97 = add nsw i64 %96, 7
+  %98 = and i64 %97, -8
+  %99 = add nsw i64 %98, 24
+  %100 = uitofp i64 %99 to double
+  %101 = fmul double %10, %100
+  %102 = fmul double %101, 0x3F20000000000000
+  %103 = sitofp i32 %94 to double
+  %104 = fmul double %102, %103
+  %105 = fmul double %104, 2.000000e+00
+  %106 = load double, ptr @random_page_cost, align 8
+  %107 = call double @llvm.fmuladd.f64(double %105, double %106, double %.0129)
+  %108 = call double @llvm.fmuladd.f64(double %105, double %106, double %63)
+  %109 = load double, ptr @seq_page_cost, align 8
+  %110 = call double @llvm.fmuladd.f64(double %105, double %109, double %108)
+  %111 = fmul double %10, %103
+  %112 = fmul double %111, 2.000000e+00
+  %113 = load double, ptr @cpu_tuple_cost, align 8
+  %114 = fmul double %113, %112
+  %115 = fadd double %107, %114
+  %116 = fadd double %114, %110
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #17
-  br label %115
+  br label %117
 
-115:                                              ; preds = %.thread, %57, %list_length.exit
-  %.0124206 = phi i32 [ %.0124, %list_length.exit ], [ %.0124, %57 ], [ %7, %.thread ]
-  %.0125205 = phi double [ %5, %list_length.exit ], [ %5, %57 ], [ 1.000000e+00, %.thread ]
-  %.1131 = phi double [ %114, %list_length.exit ], [ %61, %57 ], [ %27, %.thread ]
-  %.1128 = phi double [ %113, %list_length.exit ], [ %.0127, %57 ], [ %25, %.thread ]
+117:                                              ; preds = %.thread, %59, %list_length.exit
+  %.0126208 = phi i32 [ %.0126, %list_length.exit ], [ %.0126, %59 ], [ %7, %.thread ]
+  %.0127207 = phi double [ %5, %list_length.exit ], [ %5, %59 ], [ 1.000000e+00, %.thread ]
+  %.1133 = phi double [ %116, %list_length.exit ], [ %63, %59 ], [ %28, %.thread ]
+  %.1130 = phi double [ %115, %list_length.exit ], [ %.0129, %59 ], [ %26, %.thread ]
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %clamp_row_est.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %115
+.lr.ph.i:                                         ; preds = %117
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #17
   store ptr %1, ptr %13, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %117 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, i8 0, i64 16, i1 false)
-  %118 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %119 = load i32, ptr %117, align 4
-  %120 = icmp sgt i32 %119, 0
-  br i1 %120, label %.lr.ph16.i, label %cost_qual_eval.exit
+  %118 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %121 = load i32, ptr %119, align 4
+  %122 = icmp sgt i32 %121, 0
+  br i1 %122, label %.lr.ph16.i, label %cost_qual_eval.exit
 
 .lr.ph16.i:                                       ; preds = %.lr.ph.i, %.lr.ph16.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph16.i ], [ 0, %.lr.ph.i ]
-  %121 = load ptr, ptr %118, align 8
-  %122 = getelementptr inbounds nuw %union.ListCell, ptr %121, i64 %indvars.iv.i
-  %123 = load ptr, ptr %122, align 8
-  %124 = call zeroext i1 @cost_qual_eval_walker(ptr noundef %123, ptr noundef nonnull %13)
+  %123 = load ptr, ptr %120, align 8
+  %124 = getelementptr inbounds nuw %union.ListCell, ptr %123, i64 %indvars.iv.i
+  %125 = load ptr, ptr %124, align 8
+  %126 = call zeroext i1 @cost_qual_eval_walker(ptr noundef %125, ptr noundef nonnull %13)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %125 = load i32, ptr %117, align 4
-  %126 = sext i32 %125 to i64
-  %127 = icmp slt i64 %indvars.iv.next.i, %126
-  br i1 %127, label %.lr.ph16.i, label %cost_qual_eval.exit.loopexit
+  %127 = load i32, ptr %119, align 4
+  %128 = sext i32 %127 to i64
+  %129 = icmp slt i64 %indvars.iv.next.i, %128
+  br i1 %129, label %.lr.ph16.i, label %cost_qual_eval.exit.loopexit
 
 cost_qual_eval.exit.loopexit:                     ; preds = %.lr.ph16.i
-  %.sroa.0.0.copyload.pre = load double, ptr %116, align 8
+  %.sroa.0.0.copyload.pre = load double, ptr %118, align 8
   %.sroa.4.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.4.0.copyload.pre = load double, ptr %.sroa.4.0..sroa_idx.phi.trans.insert, align 8
   br label %cost_qual_eval.exit
@@ -4077,36 +4076,36 @@ cost_qual_eval.exit:                              ; preds = %cost_qual_eval.exit
   %.sroa.4.0.copyload = phi double [ %.sroa.4.0.copyload.pre, %cost_qual_eval.exit.loopexit ], [ 0.000000e+00, %.lr.ph.i ]
   %.sroa.0.0.copyload = phi double [ %.sroa.0.0.copyload.pre, %cost_qual_eval.exit.loopexit ], [ 0.000000e+00, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #17
-  %128 = fadd double %.1128, %.sroa.0.0.copyload
-  %129 = call double @llvm.fmuladd.f64(double %.0125205, double %.sroa.4.0.copyload, double %.sroa.0.0.copyload)
-  %130 = fadd double %.1131, %129
-  %131 = call double @clauselist_selectivity(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0, ptr noundef null) #17
-  %132 = fmul double %.0125205, %131
-  %133 = fcmp ogt double %132, 1.000000e+100
-  %134 = fcmp uno double %132, 0.000000e+00
-  %or.cond.i = or i1 %133, %134
-  br i1 %or.cond.i, label %clamp_row_est.exit, label %135
+  %130 = fadd double %.1130, %.sroa.0.0.copyload
+  %131 = call double @llvm.fmuladd.f64(double %.0127207, double %.sroa.4.0.copyload, double %.sroa.0.0.copyload)
+  %132 = fadd double %.1133, %131
+  %133 = call double @clauselist_selectivity(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0, ptr noundef null) #17
+  %134 = fmul double %.0127207, %133
+  %135 = fcmp ogt double %134, 1.000000e+100
+  %136 = fcmp uno double %134, 0.000000e+00
+  %or.cond.i = or i1 %135, %136
+  br i1 %or.cond.i, label %clamp_row_est.exit, label %137
 
-135:                                              ; preds = %cost_qual_eval.exit
-  %136 = fcmp ugt double %132, 1.000000e+00
-  br i1 %136, label %137, label %clamp_row_est.exit
+137:                                              ; preds = %cost_qual_eval.exit
+  %138 = fcmp ugt double %134, 1.000000e+00
+  br i1 %138, label %139, label %clamp_row_est.exit
 
-137:                                              ; preds = %135
-  %138 = call double @llvm.rint.f64(double %132)
+139:                                              ; preds = %137
+  %140 = call double @llvm.rint.f64(double %134)
   br label %clamp_row_est.exit
 
-clamp_row_est.exit:                               ; preds = %137, %135, %cost_qual_eval.exit, %115
-  %.2132 = phi double [ %.1131, %115 ], [ %130, %cost_qual_eval.exit ], [ %130, %135 ], [ %130, %137 ]
-  %.2129 = phi double [ %.1128, %115 ], [ %128, %cost_qual_eval.exit ], [ %128, %135 ], [ %128, %137 ]
-  %.1126 = phi double [ %.0125205, %115 ], [ 1.000000e+100, %cost_qual_eval.exit ], [ 1.000000e+00, %135 ], [ %138, %137 ]
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %.1126, ptr %139, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %.0124206, ptr %140, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %.2129, ptr %141, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %.2132, ptr %142, align 8
+clamp_row_est.exit:                               ; preds = %139, %137, %cost_qual_eval.exit, %117
+  %.2134 = phi double [ %.1133, %117 ], [ %132, %cost_qual_eval.exit ], [ %132, %137 ], [ %132, %139 ]
+  %.2131 = phi double [ %.1130, %117 ], [ %130, %cost_qual_eval.exit ], [ %130, %137 ], [ %130, %139 ]
+  %.1128 = phi double [ %.0127207, %117 ], [ 1.000000e+100, %cost_qual_eval.exit ], [ 1.000000e+00, %137 ], [ %140, %139 ]
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store double %.1128, ptr %141, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %.0126208, ptr %142, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store double %.2131, ptr %143, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store double %.2134, ptr %144, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)

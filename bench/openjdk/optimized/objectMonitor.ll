@@ -2972,7 +2972,7 @@ _ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit.i: ; preds = %
 _ZN13ObjectMonitor11check_ownerEP10JavaThread.exit: ; preds = %12, %14
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1120), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 1439, ptr noundef %23, ptr noundef nonnull @.str.28) #12
-  br label %223
+  br label %224
 
 24:                                               ; preds = %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit.i, %4
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3049,7 +3049,7 @@ _ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread: ; preds = %_Z
 _ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread65: ; preds = %41, %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread, %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1160), align 8
   call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 1503, ptr noundef %56, ptr noundef null) #12
-  br label %223
+  br label %224
 
 57:                                               ; preds = %34, %32, %_ZN20EventJavaMonitorWaitC2E14EventStartTime.exit
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 1064
@@ -3235,8 +3235,8 @@ _ZN13ObjectMonitor21DequeueSpecificWaiterEP12ObjectWaiter.exit: ; preds = %_ZN13
 
 133:                                              ; preds = %118, %132
   %134 = load volatile i32, ptr %62, align 4
-  %.not50 = icmp eq i32 %134, 3
-  br i1 %.not50, label %135, label %137
+  %.not52 = icmp eq i32 %134, 3
+  br i1 %.not52, label %135, label %137
 
 135:                                              ; preds = %133
   %136 = load ptr, ptr @g_assert_poison, align 8
@@ -3265,8 +3265,8 @@ _ZN13ObjectMonitor21DequeueSpecificWaiterEP12ObjectWaiter.exit: ; preds = %_ZN13
   %147 = zext i1 %.0 to i8
   call void @_ZN11JvmtiExport19post_monitor_waitedEP10JavaThreadP13ObjectMonitorh(ptr noundef nonnull %3, ptr noundef nonnull %0, i8 noundef zeroext %147) #12
   %148 = load volatile i32, ptr %60, align 8
-  %.not51 = icmp eq i32 %148, 0
-  br i1 %.not51, label %154, label %149
+  %.not53 = icmp eq i32 %148, 0
+  br i1 %.not53, label %154, label %149
 
 149:                                              ; preds = %146
   %150 = load volatile ptr, ptr %138, align 8
@@ -3414,26 +3414,26 @@ _ZN12ObjectWaiter16wait_reenter_endEP13ObjectMonitor.exit: ; preds = %185, %189,
   %214 = load volatile i32, ptr %82, align 8
   %215 = add nsw i32 %214, -1
   store volatile i32 %215, ptr %82, align 8
-  %.not52 = icmp eq i32 %143, 0
-  %brmerge.not = and i1 %2, %.not52
-  br i1 %brmerge.not, label %216, label %223
+  %216 = icmp eq i32 %143, 0
+  %or.cond3 = and i1 %2, %216
+  br i1 %or.cond3, label %217, label %224
 
-216:                                              ; preds = %210
-  %217 = call noundef zeroext i1 @_ZN10JavaThread14is_interruptedEb(ptr noundef nonnull align 8 dereferenceable(1800) %3, i1 noundef zeroext true) #12
-  br i1 %217, label %218, label %223
+217:                                              ; preds = %210
+  %218 = call noundef zeroext i1 @_ZN10JavaThread14is_interruptedEb(ptr noundef nonnull align 8 dereferenceable(1800) %3, i1 noundef zeroext true) #12
+  br i1 %218, label %219, label %224
 
-218:                                              ; preds = %216
-  %219 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %220 = load ptr, ptr %219, align 8
-  %.not72 = icmp eq ptr %220, null
-  br i1 %.not72, label %221, label %223
+219:                                              ; preds = %217
+  %220 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %221 = load ptr, ptr %220, align 8
+  %.not72 = icmp eq ptr %221, null
+  br i1 %.not72, label %222, label %224
 
-221:                                              ; preds = %218
-  %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1160), align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 1678, ptr noundef %222, ptr noundef null) #12
-  br label %223
+222:                                              ; preds = %219
+  %223 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1160), align 8
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 1678, ptr noundef %223, ptr noundef null) #12
+  br label %224
 
-223:                                              ; preds = %_ZN13ObjectMonitor11check_ownerEP10JavaThread.exit, %210, %216, %218, %221, %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread65
+224:                                              ; preds = %_ZN13ObjectMonitor11check_ownerEP10JavaThread.exit, %217, %219, %222, %210, %_ZN8JfrEventI20EventJavaMonitorWaitE13should_commitEv.exit.thread65
   ret void
 }
 
@@ -4661,22 +4661,20 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i: ; preds = %_ZN
   br label %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
 
 _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i, %40
-  %.not.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %42
-
-42:                                               ; preds = %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
+  %42 = icmp ne ptr %39, null
   %43 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
+  %or.cond.i.i.i = select i1 %42, i1 %44, i1 false
+  br i1 %or.cond.i.i.i, label %45, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
-45:                                               ; preds = %42
+45:                                               ; preds = %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 769
   %48 = load volatile i8, ptr %47, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
   %49 = and i8 %48, 2
-  %.not3.i.i.i = icmp eq i8 %49, 0
-  br i1 %.not3.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
+  %.not.i.i.i = icmp eq i8 %49, 0
+  br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %6, align 8
@@ -4721,8 +4719,8 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   tail call void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueueP7oopDesc(ptr noundef nonnull align 8 dereferenceable(393) %83, ptr noundef nonnull align 8 dereferenceable(17) %82, ptr noundef nonnull %39) #12
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
-_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %42, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ null, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %42 ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
+  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -5508,22 +5506,20 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i: ; preds = %_ZN
   br label %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
 
 _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i, %40
-  %.not.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %42
-
-42:                                               ; preds = %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
+  %42 = icmp ne ptr %39, null
   %43 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
+  %or.cond.i.i.i = select i1 %42, i1 %44, i1 false
+  br i1 %or.cond.i.i.i, label %45, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
-45:                                               ; preds = %42
+45:                                               ; preds = %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 769
   %48 = load volatile i8, ptr %47, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
   %49 = and i8 %48, 2
-  %.not3.i.i.i = icmp eq i8 %49, 0
-  br i1 %.not3.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
+  %.not.i.i.i = icmp eq i8 %49, 0
+  br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %6, align 8
@@ -5568,8 +5564,8 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   tail call void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueueP7oopDesc(ptr noundef nonnull align 8 dereferenceable(393) %83, ptr noundef nonnull align 8 dereferenceable(17) %82, ptr noundef nonnull %39) #12
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
-_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %42, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ null, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %42 ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
+  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -6143,8 +6139,8 @@ _ZN8JfrEventI20EventJavaMonitorWaitE14stack_trace_idEP6ThreadPK14JfrThreadLocal.
   %12 = phi i64 [ %11, %10 ], [ 0, %1 ], [ %9, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %14 = load ptr, ptr %13, align 8
-  %.not.i16 = icmp eq ptr %14, null
-  br i1 %.not.i16, label %_ZNK14JfrThreadLocal13native_bufferEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
+  %.not.i17 = icmp eq ptr %14, null
+  br i1 %.not.i17, label %_ZNK14JfrThreadLocal13native_bufferEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
 
 _ZNK14JfrThreadLocal13native_bufferEv.exit:       ; preds = %_ZN8JfrEventI20EventJavaMonitorWaitE14stack_trace_idEP6ThreadPK14JfrThreadLocal.exit
   %15 = tail call noundef ptr @_ZNK14JfrThreadLocal21install_native_bufferEv(ptr noundef nonnull align 8 dereferenceable(195) %4) #12
@@ -6156,8 +6152,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread: ; preds = %_ZN8JfrEventI20Eve
   %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 306), align 2
   %19 = icmp ne i8 %18, 0
   %20 = tail call noundef zeroext i1 @_ZN8JfrEventI20EventJavaMonitorWaitE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %17, ptr noundef nonnull %3, i64 noundef %5, i64 noundef %12, i1 noundef zeroext %19)
-  %brmerge = or i1 %20, %19
-  br i1 %brmerge, label %24, label %21
+  %or.cond = or i1 %20, %19
+  br i1 %or.cond, label %24, label %21
 
 21:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
   %22 = tail call noundef zeroext i1 @_ZN8JfrEventI20EventJavaMonitorWaitE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %17, ptr noundef nonnull %3, i64 noundef %5, i64 noundef %12, i1 noundef zeroext true)
@@ -6167,7 +6163,7 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread: ; preds = %_ZN8JfrEventI20Eve
   tail call void @_ZN15JfrEventSetting9set_largeE10JfrEventId(i32 noundef 12) #12
   br label %24
 
-24:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread, %21, %23, %_ZNK14JfrThreadLocal13native_bufferEv.exit
+24:                                               ; preds = %21, %23, %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread, %_ZNK14JfrThreadLocal13native_bufferEv.exit
   ret void
 }
 
@@ -7495,8 +7491,8 @@ _ZN8JfrEventI21EventJavaMonitorEnterE14stack_trace_idEP6ThreadPK14JfrThreadLocal
   %12 = phi i64 [ %11, %10 ], [ 0, %1 ], [ %9, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %14 = load ptr, ptr %13, align 8
-  %.not.i16 = icmp eq ptr %14, null
-  br i1 %.not.i16, label %_ZNK14JfrThreadLocal13native_bufferEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
+  %.not.i17 = icmp eq ptr %14, null
+  br i1 %.not.i17, label %_ZNK14JfrThreadLocal13native_bufferEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
 
 _ZNK14JfrThreadLocal13native_bufferEv.exit:       ; preds = %_ZN8JfrEventI21EventJavaMonitorEnterE14stack_trace_idEP6ThreadPK14JfrThreadLocal.exit
   %15 = tail call noundef ptr @_ZNK14JfrThreadLocal21install_native_bufferEv(ptr noundef nonnull align 8 dereferenceable(195) %4) #12
@@ -7508,8 +7504,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread: ; preds = %_ZN8JfrEventI21Eve
   %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 282), align 2
   %19 = icmp ne i8 %18, 0
   %20 = tail call noundef zeroext i1 @_ZN8JfrEventI21EventJavaMonitorEnterE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %17, ptr noundef nonnull %3, i64 noundef %5, i64 noundef %12, i1 noundef zeroext %19)
-  %brmerge = or i1 %20, %19
-  br i1 %brmerge, label %24, label %21
+  %or.cond = or i1 %20, %19
+  br i1 %or.cond, label %24, label %21
 
 21:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
   %22 = tail call noundef zeroext i1 @_ZN8JfrEventI21EventJavaMonitorEnterE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %17, ptr noundef nonnull %3, i64 noundef %5, i64 noundef %12, i1 noundef zeroext true)
@@ -7519,7 +7515,7 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread: ; preds = %_ZN8JfrEventI21Eve
   tail call void @_ZN15JfrEventSetting9set_largeE10JfrEventId(i32 noundef 11) #12
   br label %24
 
-24:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread, %21, %23, %_ZNK14JfrThreadLocal13native_bufferEv.exit
+24:                                               ; preds = %21, %23, %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread, %_ZNK14JfrThreadLocal13native_bufferEv.exit
   ret void
 }
 

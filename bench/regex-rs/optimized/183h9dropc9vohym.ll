@@ -10168,25 +10168,25 @@ define internal fastcc noundef range(i32 0, 2147483647) i32 @_ZN14regex_automata
 34:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h46ff17705704c23fE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
-  %.sroa.4.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %.sroa.4.0..sroa_idx45, align 8
+  %.sroa.4.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %.sroa.4.0..sroa_idx40, align 8
   %35 = load i64, ptr %0, align 8, !alias.scope !1981, !noalias !1984, !noundef !4
   %36 = icmp eq i64 %8, %35
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %34
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h28bd66641fe903c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %8)
-          to label %._crit_edge.i12 unwind label %38, !noalias !1984
+          to label %._crit_edge.i11 unwind label %38, !noalias !1984
 
-._crit_edge.i12:                                  ; preds = %37
-  %.pre.i13 = load i64, ptr %7, align 8, !alias.scope !1981, !noalias !1984
+._crit_edge.i11:                                  ; preds = %37
+  %.pre.i12 = load i64, ptr %7, align 8, !alias.scope !1981, !noalias !1984
   br label %.thread
 
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h5da65d6abf342dd8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #22
-          to label %.thread32 unwind label %40
+          to label %.thread29 unwind label %40
 
 40:                                               ; preds = %38
   %41 = landingpad { ptr, i32 }
@@ -10194,8 +10194,8 @@ define internal fastcc noundef range(i32 0, 2147483647) i32 @_ZN14regex_automata
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-.thread:                                          ; preds = %34, %._crit_edge.i12
-  %42 = phi i64 [ %.pre.i13, %._crit_edge.i12 ], [ %8, %34 ]
+.thread:                                          ; preds = %34, %._crit_edge.i11
+  %42 = phi i64 [ %.pre.i12, %._crit_edge.i11 ], [ %8, %34 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8, !alias.scope !1981, !noalias !1984, !nonnull !4, !noundef !4
   %45 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %44, i64 %42
@@ -10217,13 +10217,13 @@ define internal fastcc noundef range(i32 0, 2147483647) i32 @_ZN14regex_automata
   store i64 %54, ptr %7, align 8, !alias.scope !1976, !noalias !1979
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %55 = load i64, ptr %5, align 8, !range !409, !noundef !4
-  %.not9 = icmp eq i64 %55, -9223372036854775808
-  br i1 %.not9, label %59, label %61
+  %.not38 = icmp eq i64 %55, -9223372036854775808
+  br i1 %.not38, label %59, label %61
 
 .body:                                            ; preds = %30
   %56 = load i64, ptr %5, align 8, !range !409, !noundef !4
-  %.not8 = icmp eq i64 %56, -9223372036854775808
-  br i1 %.not8, label %.thread32, label %69
+  %.not37 = icmp eq i64 %56, -9223372036854775808
+  br i1 %.not37, label %.thread29, label %69
 
 57:                                               ; preds = %69
   %58 = landingpad { ptr, i32 }
@@ -10231,7 +10231,7 @@ define internal fastcc noundef range(i32 0, 2147483647) i32 @_ZN14regex_automata
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-59:                                               ; preds = %.thread, %48, %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h5da65d6abf342dd8E.exit"
+59:                                               ; preds = %.thread, %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h5da65d6abf342dd8E.exit", %48
   %60 = trunc nuw nsw i64 %8 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret i32 %60
@@ -10256,13 +10256,13 @@ define internal fastcc noundef range(i32 0, 2147483647) i32 @_ZN14regex_automata
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !1986
   br label %59
 
-.thread32:                                        ; preds = %38, %.body, %69
-  %.pn38 = phi { ptr, i32 } [ %31, %.body ], [ %31, %69 ], [ %39, %38 ]
-  resume { ptr, i32 } %.pn38
+.thread29:                                        ; preds = %38, %69, %.body
+  %.pn33 = phi { ptr, i32 } [ %31, %69 ], [ %31, %.body ], [ %39, %38 ]
+  resume { ptr, i32 } %.pn33
 
 69:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h5da65d6abf342dd8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #22
-          to label %.thread32 unwind label %57
+          to label %.thread29 unwind label %57
 }
 
 ; Function Attrs: nonlazybind uwtable

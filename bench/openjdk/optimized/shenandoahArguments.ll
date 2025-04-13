@@ -122,9 +122,9 @@ define hidden void @_ZN19ShenandoahArguments10initializeEv(ptr nonnull readnone 
 
 27:                                               ; preds = %.thread, %26, %24
   %28 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1092) #5
-  br i1 %28, label %.thread17, label %32
+  br i1 %28, label %.thread21, label %32
 
-.thread17:                                        ; preds = %27
+.thread21:                                        ; preds = %27
   %29 = load i32, ptr @_ZN2os31_initial_active_processor_countE, align 4
   %30 = sdiv i32 %29, 2
   %31 = tail call noundef i32 @llvm.smax.i32(i32 %30, i32 1)
@@ -132,8 +132,8 @@ define hidden void @_ZN19ShenandoahArguments10initializeEv(ptr nonnull readnone 
   br label %35
 
 32:                                               ; preds = %27
-  %.pr16 = load i32, ptr @ParallelGCThreads, align 4
-  %33 = icmp eq i32 %.pr16, 0
+  %.pr20 = load i32, ptr @ParallelGCThreads, align 4
+  %33 = icmp eq i32 %.pr20, 0
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %32
@@ -141,33 +141,32 @@ define hidden void @_ZN19ShenandoahArguments10initializeEv(ptr nonnull readnone 
   %.pre = load i32, ptr @ParallelGCThreads, align 4
   br label %35
 
-35:                                               ; preds = %.thread17, %34, %32
-  %36 = phi i32 [ %31, %.thread17 ], [ %.pre, %34 ], [ %.pr16, %32 ]
+35:                                               ; preds = %.thread21, %34, %32
+  %36 = phi i32 [ %31, %.thread21 ], [ %.pre, %34 ], [ %.pr20, %32 ]
   %37 = load i32, ptr @ConcGCThreads, align 4
   %38 = icmp ult i32 %36, %37
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %35
   %.not = xor i1 %20, true
-  %brmerge = or i1 %28, %.not
-  br i1 %brmerge, label %41, label %40
+  %or.cond = or i1 %28, %.not
+  br i1 %or.cond, label %41, label %40
 
 40:                                               ; preds = %39
   store i32 %36, ptr @ConcGCThreads, align 4
   br label %46
 
 41:                                               ; preds = %39
-  %.not10 = xor i1 %28, true
-  %brmerge11 = or i1 %20, %.not10
-  br i1 %brmerge11, label %43, label %42
+  %or.cond4 = and i1 %28, %.not
+  br i1 %or.cond4, label %42, label %43
 
 42:                                               ; preds = %41
   store i32 %37, ptr @ParallelGCThreads, align 4
   br label %46
 
 43:                                               ; preds = %41
-  %brmerge14 = or i1 %.not, %.not10
-  br i1 %brmerge14, label %45, label %44
+  %or.cond6 = and i1 %20, %28
+  br i1 %or.cond6, label %44, label %45
 
 44:                                               ; preds = %43
   tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.6, ptr noundef null) #5
@@ -232,44 +231,42 @@ define hidden void @_ZN19ShenandoahArguments10initializeEv(ptr nonnull readnone 
   %68 = load i64, ptr @InitialHeapSize, align 8
   %69 = load i64, ptr @MaxHeapSize, align 8
   %70 = icmp eq i64 %68, %69
-  br i1 %70, label %71, label %78
+  %71 = load i8, ptr @ShenandoahUncommit, align 1
+  %72 = trunc i8 %71 to i1
+  %or.cond8 = select i1 %70, i1 %72, i1 false
+  br i1 %or.cond8, label %73, label %77
 
-71:                                               ; preds = %67
-  %72 = load i8, ptr @ShenandoahUncommit, align 1
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %78
+73:                                               ; preds = %67
+  %74 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not22 = icmp eq ptr %74, null
+  br i1 %.not22, label %76, label %75
 
-74:                                               ; preds = %71
-  %75 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not18 = icmp eq ptr %75, null
-  br i1 %.not18, label %77, label %76
-
-76:                                               ; preds = %74
+75:                                               ; preds = %73
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.9)
+  br label %76
+
+76:                                               ; preds = %73, %75
+  store i8 0, ptr @ShenandoahUncommit, align 1
   br label %77
 
-77:                                               ; preds = %74, %76
-  store i8 0, ptr @ShenandoahUncommit, align 1
-  br label %78
+77:                                               ; preds = %76, %67
+  %78 = load i8, ptr @ClassUnloading, align 1
+  %79 = trunc i8 %78 to i1
+  br i1 %79, label %81, label %80
 
-78:                                               ; preds = %77, %71, %67
-  %79 = load i8, ptr @ClassUnloading, align 1
-  %80 = trunc i8 %79 to i1
-  br i1 %80, label %82, label %81
-
-81:                                               ; preds = %78
+80:                                               ; preds = %77
   store i8 0, ptr @ClassUnloadingWithConcurrentMark, align 1
-  br label %82
+  br label %81
 
-82:                                               ; preds = %81, %78
-  %83 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1219) #5
-  br i1 %83, label %84, label %85
+81:                                               ; preds = %80, %77
+  %82 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1219) #5
+  br i1 %82, label %83, label %84
 
-84:                                               ; preds = %82
+83:                                               ; preds = %81
   store i64 90, ptr @TLABAllocationWeight, align 8
-  br label %85
+  br label %84
 
-85:                                               ; preds = %84, %82
+84:                                               ; preds = %83, %81
   ret void
 }
 

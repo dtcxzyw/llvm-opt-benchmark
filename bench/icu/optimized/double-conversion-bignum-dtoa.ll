@@ -171,8 +171,8 @@ _ZN6icu_7717double_conversionL53InitialScaledStartValuesNegativeExponentNegative
   br label %_ZN6icu_7717double_conversionL40InitialScaledStartValuesPositiveExponentEmiibPNS0_6BignumES2_S2_S2_.exit.i
 
 _ZN6icu_7717double_conversionL40InitialScaledStartValuesPositiveExponentEmiibPNS0_6BignumES2_S2_S2_.exit.i: ; preds = %_ZN6icu_7717double_conversionL53InitialScaledStartValuesNegativeExponentNegativePowerEmiibPNS0_6BignumES2_S2_S2_.exit.i, %74, %69
-  %brmerge.demorgan.i = and i1 %43, %.041.in
-  br i1 %brmerge.demorgan.i, label %80, label %_ZN6icu_7717double_conversionL24InitialScaledStartValuesEmibibPNS0_6BignumES2_S2_S2_.exit
+  %or.cond.i = and i1 %43, %.041.in
+  br i1 %or.cond.i, label %80, label %_ZN6icu_7717double_conversionL24InitialScaledStartValuesEmibibPNS0_6BignumES2_S2_S2_.exit
 
 80:                                               ; preds = %_ZN6icu_7717double_conversionL40InitialScaledStartValuesPositiveExponentEmiibPNS0_6BignumES2_S2_S2_.exit.i
   call void @_ZN6icu_7717double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %9, i32 noundef 1)
@@ -245,8 +245,8 @@ _ZN6icu_7717double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit:
   %104 = icmp slt i32 %103, 1
   %105 = call noundef i32 @_ZN6icu_7717double_conversion6Bignum11PlusCompareERKS1_S3_S3_(ptr noundef nonnull align 4 dereferenceable(516) %8, ptr noundef nonnull align 4 dereferenceable(516) %spec.select.i, ptr noundef nonnull align 4 dereferenceable(516) %9)
   %106 = icmp sgt i32 %105, -1
-  %brmerge.us.us.i = or i1 %104, %106
-  br i1 %brmerge.us.us.i, label %.split8.us.i, label %107
+  %or.cond.us.us.i = or i1 %104, %106
+  br i1 %or.cond.us.us.i, label %.split7.us.i, label %107
 
 107:                                              ; preds = %.split.us.split.us.i
   call void @_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %8, i32 noundef 10)
@@ -267,8 +267,8 @@ _ZN6icu_7717double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit:
   %116 = icmp slt i32 %115, 1
   %117 = call noundef i32 @_ZN6icu_7717double_conversion6Bignum11PlusCompareERKS1_S3_S3_(ptr noundef nonnull align 4 dereferenceable(516) %8, ptr noundef nonnull align 4 dereferenceable(516) %spec.select.i, ptr noundef nonnull align 4 dereferenceable(516) %9)
   %118 = icmp sgt i32 %117, -1
-  %brmerge.us.i = or i1 %116, %118
-  br i1 %brmerge.us.i, label %.split8.us.i, label %119
+  %or.cond.us.i = or i1 %116, %118
+  br i1 %or.cond.us.i, label %.split7.us.i, label %119
 
 119:                                              ; preds = %.split.us.split.i
   call void @_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %8, i32 noundef 10)
@@ -293,8 +293,8 @@ _ZN6icu_7717double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit:
   %128 = icmp slt i32 %127, 0
   %129 = call noundef i32 @_ZN6icu_7717double_conversion6Bignum11PlusCompareERKS1_S3_S3_(ptr noundef nonnull align 4 dereferenceable(516) %8, ptr noundef nonnull align 4 dereferenceable(516) %spec.select.i, ptr noundef nonnull align 4 dereferenceable(516) %9)
   %130 = icmp sgt i32 %129, 0
-  %brmerge.us10.i = or i1 %128, %130
-  br i1 %brmerge.us10.i, label %.split8.us.i, label %131
+  %or.cond.us9.i = or i1 %128, %130
+  br i1 %or.cond.us9.i, label %.split7.us.i, label %131
 
 131:                                              ; preds = %.split.split.us.i
   call void @_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %8, i32 noundef 10)
@@ -315,8 +315,8 @@ _ZN6icu_7717double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit:
   %140 = icmp slt i32 %139, 0
   %141 = call noundef i32 @_ZN6icu_7717double_conversion6Bignum11PlusCompareERKS1_S3_S3_(ptr noundef nonnull align 4 dereferenceable(516) %8, ptr noundef nonnull align 4 dereferenceable(516) %spec.select.i, ptr noundef nonnull align 4 dereferenceable(516) %9)
   %142 = icmp sgt i32 %141, 0
-  %brmerge.i = or i1 %140, %142
-  br i1 %brmerge.i, label %.split8.us.i, label %143
+  %or.cond.i47 = or i1 %140, %142
+  br i1 %or.cond.i47, label %.split7.us.i, label %143
 
 143:                                              ; preds = %.split.split.i
   call void @_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %8, i32 noundef 10)
@@ -324,25 +324,25 @@ _ZN6icu_7717double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit:
   call void @_ZN6icu_7717double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %spec.select.i, i32 noundef 10)
   br label %.split.split.i
 
-.split8.us.i:                                     ; preds = %.split.split.i, %.split.split.us.i, %.split.us.split.i, %.split.us.split.us.i
+.split7.us.i:                                     ; preds = %.split.split.i, %.split.split.us.i, %.split.us.split.i, %.split.us.split.us.i
   %.us-phi.i = phi i1 [ %104, %.split.us.split.us.i ], [ %116, %.split.us.split.i ], [ %128, %.split.split.us.i ], [ %140, %.split.split.i ]
-  %.us-phi9.i = phi i1 [ %106, %.split.us.split.us.i ], [ %118, %.split.us.split.i ], [ %130, %.split.split.us.i ], [ %142, %.split.split.i ]
-  %brmerge44.demorgan.i = and i1 %.us-phi.i, %.us-phi9.i
-  br i1 %brmerge44.demorgan.i, label %144, label %160
+  %.us-phi8.i = phi i1 [ %106, %.split.us.split.us.i ], [ %118, %.split.us.split.i ], [ %130, %.split.split.us.i ], [ %142, %.split.split.i ]
+  %or.cond3.i = and i1 %.us-phi.i, %.us-phi8.i
+  br i1 %or.cond3.i, label %144, label %160
 
-144:                                              ; preds = %.split8.us.i
+144:                                              ; preds = %.split7.us.i
   %145 = call noundef i32 @_ZN6icu_7717double_conversion6Bignum11PlusCompareERKS1_S3_S3_(ptr noundef nonnull align 4 dereferenceable(516) %8, ptr noundef nonnull align 4 dereferenceable(516) %8, ptr noundef nonnull align 4 dereferenceable(516) %9)
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %_ZN6icu_7717double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit, label %147
 
 147:                                              ; preds = %144
-  %.not43.i = icmp eq i32 %145, 0
+  %.not46.i = icmp eq i32 %145, 0
   %148 = load i32, ptr %5, align 4, !tbaa !8
   %149 = sext i32 %148 to i64
   %150 = getelementptr i8, ptr %3, i64 %149
   %151 = getelementptr i8, ptr %150, i64 -1
   %152 = load i8, ptr %151, align 1, !tbaa !5
-  br i1 %.not43.i, label %155, label %153
+  br i1 %.not46.i, label %155, label %153
 
 153:                                              ; preds = %147
   %154 = add i8 %152, 1
@@ -359,7 +359,7 @@ _ZN6icu_7717double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit:
   store i8 %159, ptr %151, align 1, !tbaa !5
   br label %_ZN6icu_7717double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit
 
-160:                                              ; preds = %.split8.us.i
+160:                                              ; preds = %.split7.us.i
   br i1 %.us-phi.i, label %_ZN6icu_7717double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit, label %161
 
 161:                                              ; preds = %160

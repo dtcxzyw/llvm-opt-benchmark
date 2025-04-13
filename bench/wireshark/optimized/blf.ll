@@ -5947,72 +5947,72 @@ define internal fastcc noundef zeroext i1 @blf_prepare_interface_name(ptr nounde
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %48, label %20
+  br i1 %19, label %49, label %20
 
 20:                                               ; preds = %6
   %21 = call ptr @g_hash_table_lookup(ptr noundef nonnull %18, ptr noundef nonnull %7)
-  %.not = icmp ne ptr %21, null
-  %brmerge.not = and i1 %5, %.not
-  br i1 %brmerge.not, label %22, label %27
+  %22 = icmp ne ptr %21, null
+  %or.cond = and i1 %5, %22
+  br i1 %or.cond, label %23, label %28
 
-22:                                               ; preds = %20
-  %23 = load ptr, ptr %15, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %25 = load ptr, ptr %24, align 8
-  %26 = call i32 @g_hash_table_remove(ptr noundef %25, ptr noundef nonnull %7)
-  %.not47 = icmp eq i32 %26, 0
-  br i1 %.not47, label %48, label %27
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %15, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %26 = load ptr, ptr %25, align 8
+  %27 = call i32 @g_hash_table_remove(ptr noundef %26, ptr noundef nonnull %7)
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %49, label %28
 
-27:                                               ; preds = %22, %20
-  %.041 = phi ptr [ %21, %20 ], [ null, %22 ]
-  %28 = icmp eq ptr %.041, null
-  %29 = icmp ne ptr %4, null
-  %or.cond = and i1 %29, %28
-  br i1 %or.cond, label %30, label %38
+28:                                               ; preds = %23, %20
+  %.043 = phi ptr [ %21, %20 ], [ null, %23 ]
+  %29 = icmp eq ptr %.043, null
+  %30 = icmp ne ptr %4, null
+  %or.cond3 = and i1 %30, %29
+  br i1 %or.cond3, label %31, label %39
 
-30:                                               ; preds = %27
-  %31 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #15
-  %32 = load i64, ptr %7, align 8
-  store i64 %32, ptr %31, align 8
-  %33 = call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull %4)
-  %34 = load ptr, ptr %15, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %36 = load ptr, ptr %35, align 8
-  %37 = call i32 @g_hash_table_insert(ptr noundef %36, ptr noundef %31, ptr noundef %33)
-  %.not48 = icmp eq i32 %37, 0
-  br i1 %.not48, label %48, label %38
+31:                                               ; preds = %28
+  %32 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #15
+  %33 = load i64, ptr %7, align 8
+  store i64 %33, ptr %32, align 8
+  %34 = call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull %4)
+  %35 = load ptr, ptr %15, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %37 = load ptr, ptr %36, align 8
+  %38 = call i32 @g_hash_table_insert(ptr noundef %37, ptr noundef %32, ptr noundef %34)
+  %.not48 = icmp eq i32 %38, 0
+  br i1 %.not48, label %49, label %39
 
-38:                                               ; preds = %27, %30
-  %.042 = phi ptr [ %33, %30 ], [ %.041, %27 ]
-  %39 = icmp eq i32 %1, 1
-  br i1 %39, label %40, label %47
+39:                                               ; preds = %28, %31
+  %.044 = phi ptr [ %34, %31 ], [ %.043, %28 ]
+  %40 = icmp eq i32 %1, 1
+  br i1 %40, label %41, label %48
 
-40:                                               ; preds = %38
-  %.not49 = icmp eq ptr %.042, null
-  br i1 %.not49, label %.thread, label %42
+41:                                               ; preds = %39
+  %.not49 = icmp eq ptr %.044, null
+  br i1 %.not49, label %.thread, label %43
 
-.thread:                                          ; preds = %40
-  %41 = call fastcc zeroext i1 @blf_prepare_interface_name(ptr noundef %0, i32 noundef 155, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef null, i1 noundef zeroext %5)
-  br i1 %41, label %47, label %48
+.thread:                                          ; preds = %41
+  %42 = call fastcc zeroext i1 @blf_prepare_interface_name(ptr noundef %0, i32 noundef 155, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef null, i1 noundef zeroext %5)
+  br i1 %42, label %48, label %49
 
-42:                                               ; preds = %40
-  %43 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.93, ptr noundef nonnull %.042)
-  %44 = call fastcc zeroext i1 @blf_prepare_interface_name(ptr noundef %0, i32 noundef 155, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %43, i1 noundef zeroext %5)
-  %.not50 = icmp eq ptr %43, null
-  br i1 %.not50, label %46, label %45
+43:                                               ; preds = %41
+  %44 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.93, ptr noundef nonnull %.044)
+  %45 = call fastcc zeroext i1 @blf_prepare_interface_name(ptr noundef %0, i32 noundef 155, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %44, i1 noundef zeroext %5)
+  %.not50 = icmp eq ptr %44, null
+  br i1 %.not50, label %47, label %46
 
-45:                                               ; preds = %42
-  call void @g_free(ptr noundef nonnull %43)
-  br i1 %44, label %47, label %48
+46:                                               ; preds = %43
+  call void @g_free(ptr noundef nonnull %44)
+  br i1 %45, label %48, label %49
 
-46:                                               ; preds = %42
-  br i1 %44, label %47, label %48
+47:                                               ; preds = %43
+  br i1 %45, label %48, label %49
 
-47:                                               ; preds = %45, %.thread, %46, %38
-  br label %48
+48:                                               ; preds = %46, %.thread, %47, %39
+  br label %49
 
-48:                                               ; preds = %45, %.thread, %46, %30, %22, %6, %47
-  %.0 = phi i1 [ true, %47 ], [ false, %6 ], [ false, %22 ], [ false, %30 ], [ false, %46 ], [ false, %.thread ], [ false, %45 ]
+49:                                               ; preds = %46, %.thread, %47, %31, %23, %6, %48
+  %.0 = phi i1 [ true, %48 ], [ false, %6 ], [ false, %23 ], [ false, %31 ], [ false, %47 ], [ false, %.thread ], [ false, %46 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   ret i1 %.0
 }

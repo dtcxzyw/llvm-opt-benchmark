@@ -163,8 +163,8 @@ thread-pre-split.i:                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
   %38 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %33, ptr noundef nonnull @.str.12) #8
   %39 = icmp eq ptr %38, null
-  %brmerge.not.i.i.i = and i1 %0, %39
-  br i1 %brmerge.not.i.i.i, label %40, label %_ZL10dll_lookupPKcS0_b.exit.i.i
+  %or.cond.i.i.i = and i1 %0, %39
+  br i1 %or.cond.i.i.i, label %40, label %_ZL10dll_lookupPKcS0_b.exit.i.i
 
 40:                                               ; preds = %37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
@@ -179,8 +179,8 @@ _ZL10dll_lookupPKcS0_b.exit.i.i:                  ; preds = %40, %37
   %42 = load ptr, ptr @_ZL11_zip_handle, align 8
   %43 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %42, ptr noundef nonnull @.str.13) #8
   %44 = icmp eq ptr %43, null
-  %brmerge.not.i11.i.i = and i1 %0, %44
-  br i1 %brmerge.not.i11.i.i, label %45, label %_ZL10dll_lookupPKcS0_b.exit12.i.i
+  %or.cond.i11.i.i = and i1 %0, %44
+  br i1 %or.cond.i11.i.i, label %45, label %_ZL10dll_lookupPKcS0_b.exit12.i.i
 
 45:                                               ; preds = %_ZL10dll_lookupPKcS0_b.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
@@ -195,8 +195,8 @@ _ZL10dll_lookupPKcS0_b.exit12.i.i:                ; preds = %45, %_ZL10dll_looku
   %47 = load ptr, ptr @_ZL11_zip_handle, align 8
   %48 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %47, ptr noundef nonnull @.str.14) #8
   %49 = icmp eq ptr %48, null
-  %brmerge.not.i13.i.i = and i1 %0, %49
-  br i1 %brmerge.not.i13.i.i, label %50, label %_ZL10dll_lookupPKcS0_b.exit14.i.i
+  %or.cond.i13.i.i = and i1 %0, %49
+  br i1 %or.cond.i13.i.i, label %50, label %_ZL10dll_lookupPKcS0_b.exit14.i.i
 
 50:                                               ; preds = %_ZL10dll_lookupPKcS0_b.exit12.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
@@ -211,8 +211,8 @@ _ZL10dll_lookupPKcS0_b.exit14.i.i:                ; preds = %50, %_ZL10dll_looku
   %52 = load ptr, ptr @_ZL11_zip_handle, align 8
   %53 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %52, ptr noundef nonnull @.str.15) #8
   %54 = icmp eq ptr %53, null
-  %brmerge.not.i15.i.i = and i1 %0, %54
-  br i1 %brmerge.not.i15.i.i, label %55, label %_ZL10dll_lookupPKcS0_b.exit16.i.i
+  %or.cond.i15.i.i = and i1 %0, %54
+  br i1 %or.cond.i15.i.i, label %55, label %_ZL10dll_lookupPKcS0_b.exit16.i.i
 
 55:                                               ; preds = %_ZL10dll_lookupPKcS0_b.exit14.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
@@ -227,8 +227,8 @@ _ZL10dll_lookupPKcS0_b.exit16.i.i:                ; preds = %55, %_ZL10dll_looku
   %57 = load ptr, ptr @_ZL11_zip_handle, align 8
   %58 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef %57, ptr noundef nonnull @.str.16) #8
   %59 = icmp eq ptr %58, null
-  %brmerge.not.i17.i.i = and i1 %0, %59
-  br i1 %brmerge.not.i17.i.i, label %60, label %_ZL23store_function_pointersPKcb.exit.i
+  %or.cond.i17.i.i = and i1 %0, %59
+  br i1 %or.cond.i17.i.i, label %60, label %_ZL23store_function_pointersPKcb.exit.i
 
 60:                                               ; preds = %_ZL10dll_lookupPKcS0_b.exit16.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %2, i8 0, i64 256, i1 false)

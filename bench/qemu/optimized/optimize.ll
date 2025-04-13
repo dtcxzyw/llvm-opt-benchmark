@@ -7781,19 +7781,17 @@ ts_are_copies.exit:                               ; preds = %.lr.ph.i, %4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load i32, ptr %21, align 8
   %23 = icmp ult i32 %22, 6
-  br i1 %23, label %switch.hole_check, label %24
+  %switch.maskindex = trunc i32 %22 to i8
+  %switch.shifted = lshr i8 59, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %24
 
-24:                                               ; preds = %switch.hole_check, %.loopexit
+24:                                               ; preds = %.loopexit
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 378, ptr noundef nonnull @__func__.tcg_opt_gen_mov, ptr noundef null) #10
   unreachable
 
-switch.hole_check:                                ; preds = %.loopexit
-  %switch.maskindex = trunc nuw i32 %22 to i8
-  %switch.shifted = lshr i8 59, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %24
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.loopexit
   %25 = zext nneg i32 %22 to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.tcg_opt_gen_mov, i64 0, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -8026,152 +8024,152 @@ define internal fastcc void @fold_addsub2(ptr noundef nonnull %0, ptr noundef no
   br label %16
 
 16:                                               ; preds = %10, %3
-  %.not89.not = phi i1 [ false, %3 ], [ %15, %10 ]
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %18 = load i64, ptr %17, align 8
-  %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr i8, ptr %19, i64 48
-  %.val.i95 = load ptr, ptr %20, align 8
+  %17 = phi i1 [ false, %3 ], [ %15, %10 ]
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %19 = load i64, ptr %18, align 8
+  %20 = inttoptr i64 %19 to ptr
+  %21 = getelementptr i8, ptr %20, i64 48
+  %.val.i95 = load ptr, ptr %21, align 8
   %.val.val.i96 = load i8, ptr %.val.i95, align 8, !range !15, !noundef !16
-  %21 = trunc nuw i8 %.val.val.i96 to i1
-  br i1 %21, label %22, label %.thread123
+  %22 = trunc nuw i8 %.val.val.i96 to i1
+  br i1 %22, label %23, label %.thread120
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %24 = load i64, ptr %23, align 8
-  %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr i8, ptr %25, i64 48
-  %.val.i97 = load ptr, ptr %26, align 8
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %25 = load i64, ptr %24, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %27 = getelementptr i8, ptr %26, i64 48
+  %.val.i97 = load ptr, ptr %27, align 8
   %.val.val.i98 = load i8, ptr %.val.i97, align 8, !range !15, !noundef !16
-  %27 = trunc nuw i8 %.val.val.i98 to i1
-  %brmerge.not = select i1 %.not89.not, i1 %27, i1 false
-  br i1 %brmerge.not, label %28, label %68
+  %28 = trunc nuw i8 %.val.val.i98 to i1
+  %or.cond = select i1 %17, i1 %28, i1 false
+  br i1 %or.cond, label %29, label %69
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i8, ptr %.val.i, i64 40
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %32 = load i64, ptr %31, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr i8, ptr %33, i64 48
-  %.val.i100 = load ptr, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %.val.i100, i64 40
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %.val.i95, i64 40
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %.val.i97, i64 40
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %55
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds nuw i8, ptr %.val.i, i64 40
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %33 = load i64, ptr %32, align 8
+  %34 = inttoptr i64 %33 to ptr
+  %35 = getelementptr i8, ptr %34, i64 48
+  %.val.i100 = load ptr, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %.val.i100, i64 40
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %.val.i95, i64 40
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %.val.i97, i64 40
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %56
 
-44:                                               ; preds = %28
-  %45 = and i64 %30, 4294967295
-  %46 = shl i64 %36, 32
-  %47 = or disjoint i64 %46, %45
-  %48 = and i64 %38, 4294967295
-  %49 = shl i64 %40, 32
-  %50 = or disjoint i64 %49, %48
-  %51 = sub i64 0, %50
-  %.082.p = select i1 %2, i64 %50, i64 %51
-  %.082 = add i64 %47, %.082.p
-  %52 = shl i64 %.082, 32
-  %53 = ashr exact i64 %52, 32
-  %54 = ashr i64 %.082, 32
-  br label %60
+45:                                               ; preds = %29
+  %46 = and i64 %31, 4294967295
+  %47 = shl i64 %37, 32
+  %48 = or disjoint i64 %47, %46
+  %49 = and i64 %39, 4294967295
+  %50 = shl i64 %41, 32
+  %51 = or disjoint i64 %50, %49
+  %52 = sub i64 0, %51
+  %.085.p = select i1 %2, i64 %51, i64 %52
+  %.085 = add i64 %48, %.085.p
+  %53 = shl i64 %.085, 32
+  %54 = ashr exact i64 %53, 32
+  %55 = ashr i64 %.085, 32
+  br label %61
 
-55:                                               ; preds = %28
-  %.sroa.23.0.insert.ext.i = zext i64 %36 to i128
+56:                                               ; preds = %29
+  %.sroa.23.0.insert.ext.i = zext i64 %37 to i128
   %.sroa.23.0.insert.shift.i = shl nuw i128 %.sroa.23.0.insert.ext.i, 64
-  %.sroa.02.0.insert.ext.i = zext i64 %30 to i128
-  %.sroa.0.0.insert.ext.i = zext i64 %38 to i128
+  %.sroa.02.0.insert.ext.i = zext i64 %31 to i128
+  %.sroa.0.0.insert.ext.i = zext i64 %39 to i128
   %.sroa.0.0.insert.insert.i = or disjoint i128 %.sroa.23.0.insert.shift.i, %.sroa.02.0.insert.ext.i
-  br i1 %2, label %56, label %58
+  br i1 %2, label %57, label %59
 
-56:                                               ; preds = %55
+57:                                               ; preds = %56
   %.sroa.02.0.insert.insert.i = add i128 %.sroa.0.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   %.sroa.04.0.extract.trunc.i = trunc i128 %.sroa.02.0.insert.insert.i to i64
-  %57 = lshr i128 %.sroa.02.0.insert.insert.i, 64
-  %.tr.i = trunc nuw i128 %57 to i64
-  %.narrow.i = add i64 %40, %.tr.i
-  br label %60
+  %58 = lshr i128 %.sroa.02.0.insert.insert.i, 64
+  %.tr.i = trunc nuw i128 %58 to i64
+  %.narrow.i = add i64 %41, %.tr.i
+  br label %61
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   %.sroa.02.0.insert.insert.i111 = sub i128 %.sroa.0.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   %.sroa.04.0.extract.trunc.i112 = trunc i128 %.sroa.02.0.insert.insert.i111 to i64
-  %59 = lshr i128 %.sroa.02.0.insert.insert.i111, 64
-  %.tr.i113 = trunc nuw i128 %59 to i64
-  %.narrow.i114 = sub i64 %.tr.i113, %40
-  br label %60
+  %60 = lshr i128 %.sroa.02.0.insert.insert.i111, 64
+  %.tr.i113 = trunc nuw i128 %60 to i64
+  %.narrow.i114 = sub i64 %.tr.i113, %41
+  br label %61
 
-60:                                               ; preds = %56, %58, %44
-  %.081 = phi i64 [ %54, %44 ], [ %.narrow.i, %56 ], [ %.narrow.i114, %58 ]
-  %.080 = phi i64 [ %53, %44 ], [ %.sroa.04.0.extract.trunc.i, %56 ], [ %.sroa.04.0.extract.trunc.i112, %58 ]
-  %61 = load i64, ptr %4, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %63 = load i64, ptr %62, align 8
-  %64 = load ptr, ptr %0, align 8
-  %65 = tail call ptr @tcg_op_insert_before(ptr noundef %64, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 2) #9
-  %66 = tail call fastcc i64 @arg_new_constant(ptr noundef nonnull %0, i64 noundef %.080)
-  tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %61, i64 noundef %66)
-  %67 = tail call fastcc i64 @arg_new_constant(ptr noundef nonnull %0, i64 noundef %.081)
-  tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef %65, i64 noundef %63, i64 noundef %67)
+61:                                               ; preds = %57, %59, %45
+  %.084 = phi i64 [ %55, %45 ], [ %.narrow.i, %57 ], [ %.narrow.i114, %59 ]
+  %.083 = phi i64 [ %54, %45 ], [ %.sroa.04.0.extract.trunc.i, %57 ], [ %.sroa.04.0.extract.trunc.i112, %59 ]
+  %62 = load i64, ptr %4, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %64 = load i64, ptr %63, align 8
+  %65 = load ptr, ptr %0, align 8
+  %66 = tail call ptr @tcg_op_insert_before(ptr noundef %65, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 2) #9
+  %67 = tail call fastcc i64 @arg_new_constant(ptr noundef nonnull %0, i64 noundef %.083)
+  tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %62, i64 noundef %67)
+  %68 = tail call fastcc i64 @arg_new_constant(ptr noundef nonnull %0, i64 noundef %.084)
+  tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef %66, i64 noundef %64, i64 noundef %68)
   br label %finish_folding.exit
 
-68:                                               ; preds = %22
-  %.not90 = xor i1 %27, true
-  %brmerge92 = select i1 %2, i1 true, i1 %.not90
-  br i1 %brmerge92, label %.thread123, label %69
+69:                                               ; preds = %23
+  %.not = xor i1 %2, true
+  %or.cond3 = select i1 %.not, i1 %28, i1 false
+  br i1 %or.cond3, label %70, label %.thread120
 
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw i8, ptr %.val.i95, i64 40
-  %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %.val.i97, i64 40
-  %73 = load i64, ptr %72, align 8
-  %74 = sub i64 0, %71
-  %75 = xor i64 %73, -1
-  %.not = icmp eq i64 %71, 0
-  %76 = zext i1 %.not to i64
-  %77 = add i64 %75, %76
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %79 = load i32, ptr %78, align 8
-  %80 = icmp eq i32 %79, 0
-  %81 = select i1 %80, i32 39, i32 123
-  %82 = load i32, ptr %1, align 8
-  %83 = and i32 %82, -256
-  %84 = or disjoint i32 %83, %81
-  store i32 %84, ptr %1, align 8
-  %85 = tail call fastcc i64 @arg_new_constant(ptr noundef %0, i64 noundef %74)
-  store i64 %85, ptr %17, align 8
-  %86 = tail call fastcc i64 @arg_new_constant(ptr noundef %0, i64 noundef %77)
-  store i64 %86, ptr %23, align 8
-  br label %.thread123
+70:                                               ; preds = %69
+  %71 = getelementptr inbounds nuw i8, ptr %.val.i95, i64 40
+  %72 = load i64, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %.val.i97, i64 40
+  %74 = load i64, ptr %73, align 8
+  %75 = sub i64 0, %72
+  %76 = xor i64 %74, -1
+  %.not87 = icmp eq i64 %72, 0
+  %77 = zext i1 %.not87 to i64
+  %78 = add i64 %76, %77
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, 0
+  %82 = select i1 %81, i32 39, i32 123
+  %83 = load i32, ptr %1, align 8
+  %84 = and i32 %83, -256
+  %85 = or disjoint i32 %84, %82
+  store i32 %85, ptr %1, align 8
+  %86 = tail call fastcc i64 @arg_new_constant(ptr noundef %0, i64 noundef %75)
+  store i64 %86, ptr %18, align 8
+  %87 = tail call fastcc i64 @arg_new_constant(ptr noundef %0, i64 noundef %78)
+  store i64 %87, ptr %24, align 8
+  br label %.thread120
 
-.thread123:                                       ; preds = %16, %68, %69
-  %87 = load i32, ptr %1, align 8
-  %88 = and i32 %87, 255
-  %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %89, i32 1
-  %91 = load i8, ptr %90, align 8
-  %.not.i = icmp eq i8 %91, 0
+.thread120:                                       ; preds = %16, %70, %69
+  %88 = load i32, ptr %1, align 8
+  %89 = and i32 %88, 255
+  %90 = zext nneg i32 %89 to i64
+  %91 = getelementptr inbounds nuw [0 x %struct.TCGOpDef], ptr @tcg_op_defs, i64 0, i64 %90, i32 1
+  %92 = load i8, ptr %91, align 8
+  %.not.i = icmp eq i8 %92, 0
   br i1 %.not.i, label %finish_folding.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.thread123
-  %wide.trip.count.i = zext i8 %91 to i64
-  br label %92
+.lr.ph.i:                                         ; preds = %.thread120
+  %wide.trip.count.i = zext i8 %92 to i64
+  br label %93
 
-92:                                               ; preds = %92, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %92 ]
-  %93 = getelementptr inbounds nuw [0 x i64], ptr %4, i64 0, i64 %indvars.iv.i
-  %94 = load i64, ptr %93, align 8
-  %95 = inttoptr i64 %94 to ptr
-  tail call fastcc void @reset_ts(ptr noundef nonnull %0, ptr noundef %95)
+93:                                               ; preds = %93, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %93 ]
+  %94 = getelementptr inbounds nuw [0 x i64], ptr %4, i64 0, i64 %indvars.iv.i
+  %95 = load i64, ptr %94, align 8
+  %96 = inttoptr i64 %95 to ptr
+  tail call fastcc void @reset_ts(ptr noundef nonnull %0, ptr noundef %96)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %finish_folding.exit, label %92, !llvm.loop !17
+  br i1 %exitcond.not.i, label %finish_folding.exit, label %93, !llvm.loop !17
 
-finish_folding.exit:                              ; preds = %92, %.thread123, %60
+finish_folding.exit:                              ; preds = %93, %.thread120, %61
   ret void
 }
 
@@ -8531,9 +8529,13 @@ do_constant_folding_cond_64.exit:                 ; preds = %49, %51, %53, %55, 
 args_are_copies.exit:                             ; preds = %.lr.ph.i.i, %._crit_edge
   %switch.tableidx = add i32 %3, -2
   %87 = icmp ult i32 %switch.tableidx, 14
-  br i1 %87, label %switch.hole_check, label %88
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 16371, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %87, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %88
 
-88:                                               ; preds = %switch.hole_check, %args_are_copies.exit
+88:                                               ; preds = %args_are_copies.exit
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 675, ptr noundef nonnull @__func__.do_constant_folding_cond_eq, ptr noundef null) #10
   unreachable
 
@@ -8553,13 +8555,7 @@ arg_is_const_val.exit:                            ; preds = %.loopexit
   %93 = icmp ult i32 %switch.tableidx28, 4
   br i1 %93, label %switch.lookup27, label %do_constant_folding_cond_eq.exit
 
-switch.hole_check:                                ; preds = %args_are_copies.exit
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 16371, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %88
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %args_are_copies.exit
   %94 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table.do_constant_folding_cond, i64 0, i64 %94
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -9027,8 +9023,8 @@ define internal fastcc range(i32 -1, 2) i32 @fold_setcond_zmask(ptr noundef nonn
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr i8, ptr %13, i64 48
-  %.val.i56 = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %.val.i56, i64 48
+  %.val.i57 = load ptr, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %.val.i57, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.val.i, i64 40
   %18 = load i64, ptr %17, align 8
@@ -9040,23 +9036,21 @@ define internal fastcc range(i32 -1, 2) i32 @fold_setcond_zmask(ptr noundef nonn
   %24 = icmp eq i32 %23, 0
   %25 = and i64 %16, 4294967295
   %26 = and i64 %18, 4294967295
-  %.052 = select i1 %24, i64 %25, i64 %16
-  %.051 = select i1 %24, i64 %26, i64 %18
-  %27 = icmp ult i64 %.052, %.051
+  %.053 = select i1 %24, i64 %25, i64 %16
+  %.052 = select i1 %24, i64 %26, i64 %18
+  %27 = icmp ult i64 %.053, %.052
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %10
   %switch.tableidx = add i32 %21, -8
   %29 = icmp ult i32 %switch.tableidx, 8
-  br i1 %29, label %switch.hole_check, label %36
-
-switch.hole_check:                                ; preds = %28
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -49, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %36
+  %or.cond67 = select i1 %29, i1 %switch.lobit, i1 false
+  br i1 %or.cond67, label %switch.lookup, label %36
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %28
   %30 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.fold_setcond_zmask, i64 0, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -9068,8 +9062,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   tail call fastcc void @tcg_opt_gen_mov(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %31, i64 noundef %35)
   br label %.thread
 
-36:                                               ; preds = %switch.hole_check, %28, %10
-  %37 = icmp ult i64 %.052, 2
+36:                                               ; preds = %28, %10
+  %37 = icmp ult i64 %.053, 2
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %36
@@ -9090,18 +9084,18 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 41:                                               ; preds = %40, %38, %38
   %.1 = phi i1 [ false, %38 ], [ false, %38 ], [ true, %40 ]
-  %42 = icmp eq i64 %.051, 1
+  %42 = icmp eq i64 %.052, 1
   br i1 %42, label %45, label %.thread
 
 43:                                               ; preds = %38, %39
-  %.045 = phi i1 [ false, %38 ], [ true, %39 ]
-  %44 = icmp eq i64 %.051, 0
+  %.046 = phi i1 [ false, %38 ], [ true, %39 ]
+  %44 = icmp eq i64 %.052, 0
   br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %41, %43
-  %.262 = phi i1 [ %.1, %41 ], [ %.045, %43 ]
-  %brmerge = or i1 %2, %.262
-  br i1 %brmerge, label %48, label %46
+  %.263 = phi i1 [ %.1, %41 ], [ %.046, %43 ]
+  %or.cond = or i1 %2, %.263
+  br i1 %or.cond, label %48, label %46
 
 46:                                               ; preds = %45
   %47 = load i64, ptr %4, align 8
@@ -9122,12 +9116,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   unreachable
 
 51:                                               ; preds = %48, %49
-  %.044 = phi i32 [ 78, %49 ], [ 17, %48 ]
-  %.043 = phi i32 [ 89, %49 ], [ 28, %48 ]
+  %.045 = phi i32 [ 78, %49 ], [ 17, %48 ]
+  %.044 = phi i32 [ 89, %49 ], [ 28, %48 ]
   %.0 = phi i32 [ 114, %49 ], [ 54, %48 ]
   %52 = load i32, ptr %1, align 8
   %53 = and i32 %52, -256
-  br i1 %.262, label %56, label %54
+  br i1 %.263, label %56, label %54
 
 54:                                               ; preds = %51
   %55 = or disjoint i32 %53, %.0
@@ -9138,22 +9132,22 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %2, label %57, label %60
 
 57:                                               ; preds = %56
-  %58 = or disjoint i32 %53, %.044
+  %58 = or disjoint i32 %53, %.045
   store i32 %58, ptr %1, align 8
   %59 = tail call fastcc i64 @arg_new_constant(ptr noundef %0, i64 noundef -1)
   store i64 %59, ptr %5, align 8
   br label %.thread
 
 60:                                               ; preds = %56
-  %61 = or disjoint i32 %53, %.043
+  %61 = or disjoint i32 %53, %.044
   store i32 %61, ptr %1, align 8
   %62 = tail call fastcc i64 @arg_new_constant(ptr noundef %0, i64 noundef 1)
   store i64 %62, ptr %5, align 8
   br label %.thread
 
 .thread:                                          ; preds = %54, %60, %57, %46, %38, %36, %41, %43, %switch.lookup, %3
-  %.053 = phi i32 [ 0, %3 ], [ 1, %switch.lookup ], [ 0, %43 ], [ 0, %41 ], [ 0, %36 ], [ 0, %38 ], [ -1, %54 ], [ -1, %60 ], [ -1, %57 ], [ 1, %46 ]
-  ret i32 %.053
+  %.054 = phi i32 [ 0, %3 ], [ 1, %switch.lookup ], [ 0, %43 ], [ 0, %41 ], [ 0, %36 ], [ 0, %38 ], [ -1, %54 ], [ -1, %60 ], [ -1, %57 ], [ 1, %46 ]
+  ret i32 %.054
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -9197,8 +9191,8 @@ define internal fastcc void @fold_setcond_tst_pow2(ptr noundef nonnull captures(
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i32 %7, 12
-  %.not123 = icmp eq i64 %21, 0
-  br i1 %.not123, label %51, label %40
+  %.not126 = icmp eq i64 %21, 0
+  br i1 %.not126, label %51, label %40
 
 28:                                               ; preds = %20
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2389, ptr noundef nonnull @__func__.fold_setcond_tst_pow2, ptr noundef null) #10
@@ -9220,23 +9214,23 @@ define internal fastcc void @fold_setcond_tst_pow2(ptr noundef nonnull captures(
   br label %59
 
 37:                                               ; preds = %29
-  %.not122 = icmp eq i64 %21, 0
+  %.not = icmp eq i64 %21, 0
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load i64, ptr %38, align 8
-  br i1 %.not122, label %51, label %40
+  br i1 %.not, label %51, label %40
 
 40:                                               ; preds = %.thread, %37
-  %.090106121 = phi i32 [ 18, %.thread ], [ 79, %37 ]
-  %.089108119 = phi i32 [ 28, %.thread ], [ 89, %37 ]
-  %.088110117 = phi i32 [ 54, %.thread ], [ 114, %37 ]
-  %.087111115 = phi i32 [ 30, %.thread ], [ 91, %37 ]
-  %.084112114 = phi i32 [ 26, %.thread ], [ 87, %37 ]
+  %.096110125 = phi i32 [ 18, %.thread ], [ 79, %37 ]
+  %.095112123 = phi i32 [ 28, %.thread ], [ 89, %37 ]
+  %.094114121 = phi i32 [ 54, %.thread ], [ 114, %37 ]
+  %.093115119 = phi i32 [ 30, %.thread ], [ 91, %37 ]
+  %.090116118 = phi i32 [ 26, %.thread ], [ 87, %37 ]
   %41 = phi i64 [ %24, %.thread ], [ %31, %37 ]
   %42 = phi ptr [ %25, %.thread ], [ %38, %37 ]
   %43 = phi i64 [ %26, %.thread ], [ %39, %37 ]
   %44 = phi i1 [ %27, %.thread ], [ %32, %37 ]
   %45 = load ptr, ptr %0, align 8
-  %46 = tail call ptr @tcg_op_insert_before(ptr noundef %45, ptr noundef nonnull %1, i32 noundef %.087111115, i32 noundef 3) #9
+  %46 = tail call ptr @tcg_op_insert_before(ptr noundef %45, ptr noundef nonnull %1, i32 noundef %.093115119, i32 noundef 3) #9
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store i64 %41, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 40
@@ -9247,17 +9241,17 @@ define internal fastcc void @fold_setcond_tst_pow2(ptr noundef nonnull captures(
   br label %51
 
 51:                                               ; preds = %.thread, %40, %37
-  %.090106120 = phi i32 [ %.090106121, %40 ], [ 79, %37 ], [ 18, %.thread ]
-  %.089108118 = phi i32 [ %.089108119, %40 ], [ 89, %37 ], [ 28, %.thread ]
-  %.088110116 = phi i32 [ %.088110117, %40 ], [ 114, %37 ], [ 54, %.thread ]
-  %.084112113 = phi i32 [ %.084112114, %40 ], [ 87, %37 ], [ 26, %.thread ]
+  %.096110124 = phi i32 [ %.096110125, %40 ], [ 79, %37 ], [ 18, %.thread ]
+  %.095112122 = phi i32 [ %.095112123, %40 ], [ 89, %37 ], [ 28, %.thread ]
+  %.094114120 = phi i32 [ %.094114121, %40 ], [ 114, %37 ], [ 54, %.thread ]
+  %.090116117 = phi i32 [ %.090116118, %40 ], [ 87, %37 ], [ 26, %.thread ]
   %52 = phi i64 [ %41, %40 ], [ %31, %37 ], [ %24, %.thread ]
   %53 = phi ptr [ %42, %40 ], [ %38, %37 ], [ %25, %.thread ]
   %54 = phi i1 [ %44, %40 ], [ %32, %37 ], [ %27, %.thread ]
   %.0 = phi i64 [ %41, %40 ], [ %39, %37 ], [ %26, %.thread ]
   %55 = load i32, ptr %1, align 8
   %56 = and i32 %55, -256
-  %57 = or disjoint i32 %56, %.084112113
+  %57 = or disjoint i32 %56, %.090116117
   store i32 %57, ptr %1, align 8
   store i64 %.0, ptr %53, align 8
   %58 = tail call fastcc i64 @arg_new_constant(ptr noundef %0, i64 noundef 1)
@@ -9267,15 +9261,15 @@ define internal fastcc void @fold_setcond_tst_pow2(ptr noundef nonnull captures(
 59:                                               ; preds = %33, %51
   %60 = phi i1 [ %32, %33 ], [ %54, %51 ]
   %61 = phi i64 [ %31, %33 ], [ %52, %51 ]
-  %.088109 = phi i32 [ 114, %33 ], [ %.088110116, %51 ]
-  %.089107 = phi i32 [ 89, %33 ], [ %.089108118, %51 ]
-  %.090105 = phi i32 [ 79, %33 ], [ %.090106120, %51 ]
-  %brmerge.demorgan = and i1 %2, %60
-  br i1 %brmerge.demorgan, label %62, label %69
+  %.094113 = phi i32 [ 114, %33 ], [ %.094114120, %51 ]
+  %.095111 = phi i32 [ 89, %33 ], [ %.095112122, %51 ]
+  %.096109 = phi i32 [ 79, %33 ], [ %.096110124, %51 ]
+  %or.cond9 = and i1 %2, %60
+  br i1 %or.cond9, label %62, label %69
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %0, align 8
-  %64 = tail call ptr @tcg_op_insert_after(ptr noundef %63, ptr noundef nonnull %1, i32 noundef %.090105, i32 noundef 3) #9
+  %64 = tail call ptr @tcg_op_insert_after(ptr noundef %63, ptr noundef nonnull %1, i32 noundef %.096109, i32 noundef 3) #9
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store i64 %61, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 40
@@ -9290,7 +9284,7 @@ define internal fastcc void @fold_setcond_tst_pow2(ptr noundef nonnull captures(
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr %0, align 8
-  %72 = tail call ptr @tcg_op_insert_after(ptr noundef %71, ptr noundef nonnull %1, i32 noundef %.089107, i32 noundef 3) #9
+  %72 = tail call ptr @tcg_op_insert_after(ptr noundef %71, ptr noundef nonnull %1, i32 noundef %.095111, i32 noundef 3) #9
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store i64 %61, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 40
@@ -9305,7 +9299,7 @@ define internal fastcc void @fold_setcond_tst_pow2(ptr noundef nonnull captures(
 
 78:                                               ; preds = %77
   %79 = load ptr, ptr %0, align 8
-  %80 = tail call ptr @tcg_op_insert_after(ptr noundef %79, ptr noundef nonnull %1, i32 noundef %.088109, i32 noundef 2) #9
+  %80 = tail call ptr @tcg_op_insert_after(ptr noundef %79, ptr noundef nonnull %1, i32 noundef %.094113, i32 noundef 2) #9
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 %61, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 40

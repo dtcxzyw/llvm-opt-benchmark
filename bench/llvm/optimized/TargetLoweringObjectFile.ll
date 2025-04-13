@@ -790,9 +790,13 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %58, %62
 104:                                              ; preds = %68
   %105 = tail call noundef i32 @_ZNK4llvm13TargetMachine18getRelocationModelEv(ptr noundef nonnull align 8 dereferenceable(1264) %1) #18
   %106 = icmp ult i32 %105, 6
-  br i1 %106, label %switch.hole_check, label %107
+  %switch.maskindex = trunc i32 %105 to i8
+  %switch.shifted = lshr i8 57, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %106, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread, label %107
 
-107:                                              ; preds = %switch.hole_check, %104
+107:                                              ; preds = %104
   %108 = tail call noundef zeroext i1 @_ZNK4llvm8Constant22needsDynamicRelocationEv(ptr noundef nonnull align 8 dereferenceable(24) %69) #18
   %109 = select i1 %108, i32 20, i32 4
   br label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
@@ -802,14 +806,8 @@ switch.lookup:                                    ; preds = %96
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread
 
-switch.hole_check:                                ; preds = %104
-  %switch.maskindex = trunc nuw i32 %105 to i8
-  %switch.shifted = lshr i8 57, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread, label %107
-
-_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread: ; preds = %switch.hole_check, %96, %switch.lookup, %107, %93, %45, %23, %2, %2, %13, %9, %.thread, %71, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %42, %26, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit, %19
-  %.sroa.044.0 = phi i32 [ 2, %2 ], [ 13, %19 ], [ 13, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit ], [ 18, %26 ], [ 16, %42 ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 4, %71 ], [ 19, %.thread ], [ 13, %9 ], [ 13, %13 ], [ 2, %2 ], [ %spec.select, %23 ], [ %spec.select73, %45 ], [ %switch.select76, %93 ], [ %109, %107 ], [ %switch.load, %switch.lookup ], [ 4, %96 ], [ 4, %switch.hole_check ]
+_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit.thread: ; preds = %104, %96, %switch.lookup, %107, %93, %45, %23, %2, %2, %13, %9, %.thread, %71, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %42, %26, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit, %19
+  %.sroa.044.0 = phi i32 [ 2, %2 ], [ 13, %19 ], [ 13, %_ZL16isSuitableForBSSPKN4llvm14GlobalVariableE.exit ], [ 18, %26 ], [ 16, %42 ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 4, %71 ], [ 19, %.thread ], [ 13, %9 ], [ 13, %13 ], [ 2, %2 ], [ %spec.select, %23 ], [ %spec.select73, %45 ], [ %switch.select76, %93 ], [ %109, %107 ], [ %switch.load, %switch.lookup ], [ 4, %96 ], [ 4, %104 ]
   ret i32 %.sroa.044.0
 }
 

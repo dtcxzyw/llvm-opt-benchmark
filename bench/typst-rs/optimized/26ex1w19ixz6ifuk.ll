@@ -28177,7 +28177,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %83 = icmp samesign ult i8 %3, 4
   br i1 %83, label %switch.lookup492, label %85
 
-84:                                               ; preds = %switch.hole_check491, %88
+84:                                               ; preds = %88
   call void @_ZN12jpeg_decoder6parser9parse_sof19panic_cold_explicit17h267a67b50ee5c749E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d0b53836d7e1f22013aa0a92172aa16d.69) #41
   unreachable
 
@@ -28190,15 +28190,13 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 88:                                               ; preds = %85
   %switch.tableidx = add i8 %3, -9
   %89 = icmp ult i8 %switch.tableidx, 7
-  br i1 %89, label %switch.hole_check491, label %84
-
-switch.hole_check491:                             ; preds = %88
   %switch.shifted493 = lshr i8 119, %switch.tableidx
   %switch.lobit494 = trunc i8 %switch.shifted493 to i1
-  br i1 %switch.lobit494, label %switch.lookup492, label %84
+  %or.cond = select i1 %89, i1 %switch.lobit494, i1 false
+  br i1 %or.cond, label %switch.lookup492, label %84
 
-switch.lookup492:                                 ; preds = %switch.hole_check491, %80, %85
-  %.0 = phi i8 [ 0, %85 ], [ 0, %80 ], [ 1, %switch.hole_check491 ]
+switch.lookup492:                                 ; preds = %88, %80, %85
+  %.0 = phi i8 [ 0, %85 ], [ 0, %80 ], [ 1, %88 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12), !noalias !11388
   store i8 0, ptr %12, align 1, !noalias !11388
@@ -62963,9 +62961,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h25f87a5a20343124E.ll
   %20 = load i64, ptr %9, align 8, !range !14411, !noalias !17538, !noundef !47
   %.not.i = icmp eq i64 %20, 4
   %21 = load i64, ptr %19, align 8, !range !14411, !noalias !17538
-  %.not1.i = icmp eq i64 %21, 4
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %35, label %.thread.i
+  %.not2.i = icmp eq i64 %21, 4
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %35, label %.thread.i
 
 .thread.i:                                        ; preds = %18
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %8), !noalias !17544
@@ -63008,7 +63006,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h25f87a5a20343124E.ll
 
 35:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %13, ptr noundef nonnull align 8 dereferenceable(448) %1, i64 448, i1 false)
-  br i1 %.not1.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8127c3dc8b8f1b2aE.llvm.4622153547959463051.exit", label %36
+  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8127c3dc8b8f1b2aE.llvm.4622153547959463051.exit", label %36
 
 36:                                               ; preds = %35
   call void @"_ZN4core3ptr144drop_in_place$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h2e599ea5fef2d643E"(ptr noalias noundef nonnull align 8 dereferenceable(448) %19)
@@ -63071,16 +63069,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h26ee518abaa7
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !17556
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h472f9fdc67474d81E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h472f9fdc67474d81E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h472f9fdc67474d81E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !17559
@@ -63118,13 +63116,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h26ee518abaa7
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h472f9fdc67474d81E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !17556
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !17556
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h472f9fdc67474d81E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h472f9fdc67474d81E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h472f9fdc67474d81E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -63155,16 +63153,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h27aa5e1e077a
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !17571
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8252401561759319E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8252401561759319E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8252401561759319E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !17574
@@ -63202,13 +63200,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h27aa5e1e077a
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8252401561759319E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !17571
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !17571
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8252401561759319E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8252401561759319E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8252401561759319E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -63239,16 +63237,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h28b0c4959ec1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !17586
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h928b5882cfea4fb9E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h928b5882cfea4fb9E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h928b5882cfea4fb9E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !17589
@@ -63286,13 +63284,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h28b0c4959ec1
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h928b5882cfea4fb9E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !17586
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !17586
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h928b5882cfea4fb9E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h928b5882cfea4fb9E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h928b5882cfea4fb9E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -63472,16 +63470,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h2cafdc900014
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !17610
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h9381070ac9084852E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h9381070ac9084852E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h9381070ac9084852E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !17613
@@ -63519,13 +63517,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h2cafdc900014
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h9381070ac9084852E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !17610
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !17610
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h9381070ac9084852E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h9381070ac9084852E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h9381070ac9084852E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -63682,16 +63680,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h3616a43b93cd
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !17651
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h0ec58fe90285fb77E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h0ec58fe90285fb77E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h0ec58fe90285fb77E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !17654
@@ -63729,13 +63727,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h3616a43b93cd
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h0ec58fe90285fb77E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !17651
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !17651
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h0ec58fe90285fb77E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h0ec58fe90285fb77E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h0ec58fe90285fb77E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -63779,9 +63777,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.ll
   %18 = load i64, ptr %8, align 8, !range !14442, !noalias !17673, !noundef !47
   %.not.i = icmp eq i64 %18, 3
   %19 = load i64, ptr %17, align 8, !range !14442, !noalias !17673
-  %.not1.i = icmp eq i64 %19, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %26, label %20
+  %.not2.i = icmp eq i64 %19, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %26, label %20
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4), !noalias !17673
@@ -63793,9 +63791,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.ll
   %22 = load i64, ptr %6, align 8, !range !14386, !noalias !17679, !noundef !47
   %.not.i.i = icmp eq i64 %22, 2
   %23 = load i64, ptr %21, align 8, !range !14386, !noalias !17679
-  %.not1.i.i = icmp eq i64 %23, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %24, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %23, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %24, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
@@ -63805,7 +63803,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.ll
 
 24:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
-  br i1 %.not1.i.i, label %.thread.i, label %25
+  br i1 %.not2.i.i, label %.thread.i, label %25
 
 25:                                               ; preds = %24
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %21)
@@ -63882,16 +63880,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h36da8e1d7440
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !17687
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2d6643b518862d28E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2d6643b518862d28E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2d6643b518862d28E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !17690
@@ -63929,13 +63927,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h36da8e1d7440
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2d6643b518862d28E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !17687
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !17687
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2d6643b518862d28E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2d6643b518862d28E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2d6643b518862d28E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -64146,9 +64144,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.ll
   %18 = load i64, ptr %8, align 8, !range !14442, !noalias !17751, !noundef !47
   %.not.i = icmp eq i64 %18, 3
   %19 = load i64, ptr %17, align 8, !range !14442, !noalias !17751
-  %.not1.i = icmp eq i64 %19, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %26, label %20
+  %.not2.i = icmp eq i64 %19, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %26, label %20
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4), !noalias !17751
@@ -64160,9 +64158,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.ll
   %22 = load i64, ptr %6, align 8, !range !14386, !noalias !17757, !noundef !47
   %.not.i.i = icmp eq i64 %22, 2
   %23 = load i64, ptr %21, align 8, !range !14386, !noalias !17757
-  %.not1.i.i = icmp eq i64 %23, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %24, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %23, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %24, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
@@ -64172,7 +64170,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.ll
 
 24:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
-  br i1 %.not1.i.i, label %.thread.i, label %25
+  br i1 %.not2.i.i, label %.thread.i, label %25
 
 25:                                               ; preds = %24
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %21)
@@ -64491,16 +64489,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h533c00110094
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !17818
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h092f8e80a77c2b24E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h092f8e80a77c2b24E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h092f8e80a77c2b24E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !17821
@@ -64538,13 +64536,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h533c00110094
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h092f8e80a77c2b24E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !17818
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !17818
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h092f8e80a77c2b24E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h092f8e80a77c2b24E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h092f8e80a77c2b24E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -64647,16 +64645,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h561eb45aba69
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !17851
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hdc09cb164131f874E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hdc09cb164131f874E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hdc09cb164131f874E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !17854
@@ -64694,13 +64692,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h561eb45aba69
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hdc09cb164131f874E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !17851
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !17851
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hdc09cb164131f874E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hdc09cb164131f874E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hdc09cb164131f874E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -64857,16 +64855,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h5ffe7eafaa10
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !17892
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hef78dde6ba76d20fE.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hef78dde6ba76d20fE.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hef78dde6ba76d20fE.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !17895
@@ -64904,13 +64902,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h5ffe7eafaa10
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hef78dde6ba76d20fE.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !17892
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !17892
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hef78dde6ba76d20fE.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hef78dde6ba76d20fE.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hef78dde6ba76d20fE.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -65249,9 +65247,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.ll
   %18 = load i64, ptr %8, align 8, !range !14442, !noalias !17949, !noundef !47
   %.not.i = icmp eq i64 %18, 3
   %19 = load i64, ptr %17, align 8, !range !14442, !noalias !17949
-  %.not1.i = icmp eq i64 %19, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %26, label %20
+  %.not2.i = icmp eq i64 %19, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %26, label %20
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4), !noalias !17949
@@ -65263,9 +65261,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.ll
   %22 = load i64, ptr %6, align 8, !range !14386, !noalias !17955, !noundef !47
   %.not.i.i = icmp eq i64 %22, 2
   %23 = load i64, ptr %21, align 8, !range !14386, !noalias !17955
-  %.not1.i.i = icmp eq i64 %23, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %24, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %23, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %24, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
@@ -65275,7 +65273,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.ll
 
 24:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
-  br i1 %.not1.i.i, label %.thread.i, label %25
+  br i1 %.not2.i.i, label %.thread.i, label %25
 
 25:                                               ; preds = %24
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %21)
@@ -65424,16 +65422,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h710abfa8c177
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !17981
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h4178f35d58624645E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h4178f35d58624645E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h4178f35d58624645E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !17984
@@ -65471,13 +65469,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h710abfa8c177
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h4178f35d58624645E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !17981
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !17981
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h4178f35d58624645E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h4178f35d58624645E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h4178f35d58624645E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -65580,16 +65578,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h73bc3812a907
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !18014
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hed72d8f00f07440bE.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hed72d8f00f07440bE.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hed72d8f00f07440bE.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !18017
@@ -65627,13 +65625,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h73bc3812a907
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hed72d8f00f07440bE.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !18014
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !18014
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hed72d8f00f07440bE.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hed72d8f00f07440bE.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hed72d8f00f07440bE.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -65844,16 +65842,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h80a2854e0b77
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !18063
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8a0edca01626ab1fE.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8a0edca01626ab1fE.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8a0edca01626ab1fE.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !18066
@@ -65891,13 +65889,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h80a2854e0b77
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8a0edca01626ab1fE.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !18063
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !18063
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8a0edca01626ab1fE.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8a0edca01626ab1fE.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8a0edca01626ab1fE.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -65928,16 +65926,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h838f9611c009
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !18078
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h24f332d63eeca1f2E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h24f332d63eeca1f2E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h24f332d63eeca1f2E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !18081
@@ -65975,13 +65973,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17h838f9611c009
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h24f332d63eeca1f2E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !18078
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !18078
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h24f332d63eeca1f2E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h24f332d63eeca1f2E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h24f332d63eeca1f2E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -66225,9 +66223,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h88229dbe0a84b61eE.ll
   %17 = load i64, ptr %6, align 8, !range !14386, !noalias !18144, !noundef !47
   %.not.i = icmp eq i64 %17, 2
   %18 = load i64, ptr %16, align 8, !range !14386, !noalias !18144
-  %.not1.i = icmp eq i64 %18, 2
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %19, label %.thread.i
+  %.not2.i = icmp eq i64 %18, 2
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %19, label %.thread.i
 
 .thread.i:                                        ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
@@ -66237,7 +66235,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h88229dbe0a84b61eE.ll
 
 19:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
-  br i1 %.not1.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb18d7a600b082948E.llvm.4622153547959463051.exit", label %20
+  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb18d7a600b082948E.llvm.4622153547959463051.exit", label %20
 
 20:                                               ; preds = %19
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %16)
@@ -66518,9 +66516,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.ll
   %18 = load i64, ptr %8, align 8, !range !14442, !noalias !18197, !noundef !47
   %.not.i = icmp eq i64 %18, 3
   %19 = load i64, ptr %17, align 8, !range !14442, !noalias !18197
-  %.not1.i = icmp eq i64 %19, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %26, label %20
+  %.not2.i = icmp eq i64 %19, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %26, label %20
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4), !noalias !18197
@@ -66532,9 +66530,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.ll
   %22 = load i64, ptr %6, align 8, !range !14386, !noalias !18203, !noundef !47
   %.not.i.i = icmp eq i64 %22, 2
   %23 = load i64, ptr %21, align 8, !range !14386, !noalias !18203
-  %.not1.i.i = icmp eq i64 %23, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %24, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %23, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %24, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
@@ -66544,7 +66542,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.ll
 
 24:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
-  br i1 %.not1.i.i, label %.thread.i, label %25
+  br i1 %.not2.i.i, label %.thread.i, label %25
 
 25:                                               ; preds = %24
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %21)
@@ -66739,16 +66737,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17ha8bc15765fb6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !18229
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb51092faa9ecc04aE.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb51092faa9ecc04aE.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb51092faa9ecc04aE.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !18232
@@ -66786,13 +66784,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17ha8bc15765fb6
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb51092faa9ecc04aE.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !18229
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !18229
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb51092faa9ecc04aE.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb51092faa9ecc04aE.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb51092faa9ecc04aE.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -67273,16 +67271,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17hc53c352f7c71
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !18320
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f4574b2fe201ca3E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f4574b2fe201ca3E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f4574b2fe201ca3E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !18323
@@ -67320,13 +67318,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17hc53c352f7c71
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f4574b2fe201ca3E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !18320
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !18320
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f4574b2fe201ca3E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f4574b2fe201ca3E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f4574b2fe201ca3E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -67370,9 +67368,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.ll
   %18 = load i64, ptr %8, align 8, !range !14442, !noalias !18342, !noundef !47
   %.not.i = icmp eq i64 %18, 3
   %19 = load i64, ptr %17, align 8, !range !14442, !noalias !18342
-  %.not1.i = icmp eq i64 %19, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %26, label %20
+  %.not2.i = icmp eq i64 %19, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %26, label %20
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4), !noalias !18342
@@ -67384,9 +67382,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.ll
   %22 = load i64, ptr %6, align 8, !range !14386, !noalias !18348, !noundef !47
   %.not.i.i = icmp eq i64 %22, 2
   %23 = load i64, ptr %21, align 8, !range !14386, !noalias !18348
-  %.not1.i.i = icmp eq i64 %23, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %24, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %23, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %24, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
@@ -67396,7 +67394,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.ll
 
 24:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
-  br i1 %.not1.i.i, label %.thread.i, label %25
+  br i1 %.not2.i.i, label %.thread.i, label %25
 
 25:                                               ; preds = %24
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %21)
@@ -67760,16 +67758,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17hcebb376dbe25
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !18404
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h5db5c196c4d69078E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h5db5c196c4d69078E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h5db5c196c4d69078E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !18407
@@ -67807,13 +67805,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17hcebb376dbe25
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h5db5c196c4d69078E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !18404
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !18404
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h5db5c196c4d69078E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h5db5c196c4d69078E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h5db5c196c4d69078E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -67907,16 +67905,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17hd294f5d8872f
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !18422
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h1365876d39235f77E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h1365876d39235f77E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h1365876d39235f77E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !18425
@@ -67954,13 +67952,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17hd294f5d8872f
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h1365876d39235f77E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !18422
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !18422
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h1365876d39235f77E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h1365876d39235f77E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h1365876d39235f77E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -67991,16 +67989,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17hd6becf48d9c9
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !18437
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h3bf9ac3a263d15bcE.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h3bf9ac3a263d15bcE.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h3bf9ac3a263d15bcE.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !18440
@@ -68038,13 +68036,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17hd6becf48d9c9
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h3bf9ac3a263d15bcE.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !18437
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !18437
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h3bf9ac3a263d15bcE.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h3bf9ac3a263d15bcE.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h3bf9ac3a263d15bcE.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -68142,9 +68140,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.ll
   %18 = load i64, ptr %8, align 8, !range !14442, !noalias !18467, !noundef !47
   %.not.i = icmp eq i64 %18, 3
   %19 = load i64, ptr %17, align 8, !range !14442, !noalias !18467
-  %.not1.i = icmp eq i64 %19, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %26, label %20
+  %.not2.i = icmp eq i64 %19, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %26, label %20
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4), !noalias !18467
@@ -68156,9 +68154,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.ll
   %22 = load i64, ptr %6, align 8, !range !14386, !noalias !18473, !noundef !47
   %.not.i.i = icmp eq i64 %22, 2
   %23 = load i64, ptr %21, align 8, !range !14386, !noalias !18473
-  %.not1.i.i = icmp eq i64 %23, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %24, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %23, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %24, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
@@ -68168,7 +68166,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.ll
 
 24:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
-  br i1 %.not1.i.i, label %.thread.i, label %25
+  br i1 %.not2.i.i, label %.thread.i, label %25
 
 25:                                               ; preds = %24
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %21)
@@ -68425,16 +68423,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17hed5083040107
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !18515
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb3a689ded55db40aE.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb3a689ded55db40aE.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb3a689ded55db40aE.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !18518
@@ -68472,13 +68470,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17hed5083040107
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb3a689ded55db40aE.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !18515
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !18515
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb3a689ded55db40aE.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb3a689ded55db40aE.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17hb3a689ded55db40aE.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -68825,16 +68823,16 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17hf9ec6c1765bb
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %10, align 8, !noalias !18608
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2b2ebd9f0ea3de56E.llvm.4622153547959463051.exit"
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2b2ebd9f0ea3de56E.llvm.4622153547959463051.exit", label %13
+  br i1 %.not3.i, label %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2b2ebd9f0ea3de56E.llvm.4622153547959463051.exit", label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !18611
@@ -68872,13 +68870,13 @@ define hidden { i64, ptr } @"_ZN4core6option15Option$LT$T$GT$3map17hf9ec6c1765bb
   unreachable
 
 "_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2b2ebd9f0ea3de56E.llvm.4622153547959463051.exit": ; preds = %.noexc2, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !18608
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !18608
   br label %24
 
 24:                                               ; preds = %3, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2b2ebd9f0ea3de56E.llvm.4622153547959463051.exit"
-  %.sroa.3.0 = phi ptr [ %.09.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2b2ebd9f0ea3de56E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
+  %.sroa.3.0 = phi ptr [ %.08.i, %"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h2b2ebd9f0ea3de56E.llvm.4622153547959463051.exit" ], [ undef, %3 ]
   %25 = insertvalue { i64, ptr } poison, i64 %0, 0
   %26 = insertvalue { i64, ptr } %25, ptr %.sroa.3.0, 1
   ret { i64, ptr } %26
@@ -132305,16 +132303,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !44655
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !44655
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !44660
@@ -132389,13 +132387,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !44655
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !44655
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7a10134ef03b55ffE.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7a10134ef03b55ffE.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7a10134ef03b55ffE.exit" ]
   ret ptr %.0
 }
 
@@ -132941,12 +132939,12 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %23 = load i64, ptr %7, align 8, !range !14386, !noalias !44855, !noundef !47
   %.not.i = icmp eq i64 %23, 2
   %24 = load i64, ptr %22, align 8, !range !14386, !noalias !44855
-  %.not1.i = icmp eq i64 %24, 2
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %25, label %"_ZN4core6option15Option$LT$T$GT$3map17h88229dbe0a84b61eE.llvm.4622153547959463051.exit"
+  %.not2.i = icmp eq i64 %24, 2
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %25, label %"_ZN4core6option15Option$LT$T$GT$3map17h88229dbe0a84b61eE.llvm.4622153547959463051.exit"
 
 25:                                               ; preds = %21
-  br i1 %.not1.i, label %"_ZN4core6option15Option$LT$T$GT$3map17h88229dbe0a84b61eE.llvm.4622153547959463051.exit.thread25", label %26
+  br i1 %.not2.i, label %"_ZN4core6option15Option$LT$T$GT$3map17h88229dbe0a84b61eE.llvm.4622153547959463051.exit.thread25", label %26
 
 26:                                               ; preds = %25
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %22)
@@ -133306,16 +133304,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !44953
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !44953
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !44958
@@ -133390,13 +133388,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !44953
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !44953
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h13c6e0f6ca5564caE.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h13c6e0f6ca5564caE.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h13c6e0f6ca5564caE.exit" ]
   ret ptr %.0
 }
 
@@ -133653,16 +133651,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !45061
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !45061
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !45066
@@ -133737,13 +133735,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !45061
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !45061
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h9e97dead670351c6E.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h9e97dead670351c6E.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h9e97dead670351c6E.exit" ]
   ret ptr %.0
 }
 
@@ -133922,9 +133920,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %23 = load i64, ptr %8, align 8, !range !14442, !noalias !45153, !noundef !47
   %.not.i = icmp eq i64 %23, 3
   %24 = load i64, ptr %22, align 8, !range !14442, !noalias !45153
-  %.not1.i = icmp eq i64 %24, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %31, label %25
+  %.not2.i = icmp eq i64 %24, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %31, label %25
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7), !noalias !45153
@@ -133937,9 +133935,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %27 = load i64, ptr %6, align 8, !range !14386, !noalias !45160, !noundef !47
   %.not.i.i = icmp eq i64 %27, 2
   %28 = load i64, ptr %26, align 8, !range !14386, !noalias !45160
-  %.not1.i.i = icmp eq i64 %28, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %29, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %28, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %29, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %11, i64 112, i1 false), !noalias !45158
@@ -133949,7 +133947,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
 
 29:                                               ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %11, i64 112, i1 false), !noalias !45158
-  br i1 %.not1.i.i, label %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit", label %30
+  br i1 %.not2.i.i, label %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit", label %30
 
 30:                                               ; preds = %29
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %26)
@@ -134856,16 +134854,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !45421
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !45421
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !45426
@@ -134940,13 +134938,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !45421
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !45421
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hb392109643947ba1E.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hb392109643947ba1E.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hb392109643947ba1E.exit" ]
   ret ptr %.0
 }
 
@@ -135960,9 +135958,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %23 = load i64, ptr %8, align 8, !range !14442, !noalias !45792, !noundef !47
   %.not.i = icmp eq i64 %23, 3
   %24 = load i64, ptr %22, align 8, !range !14442, !noalias !45792
-  %.not1.i = icmp eq i64 %24, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %31, label %25
+  %.not2.i = icmp eq i64 %24, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %31, label %25
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7), !noalias !45792
@@ -135975,9 +135973,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %27 = load i64, ptr %6, align 8, !range !14386, !noalias !45799, !noundef !47
   %.not.i.i = icmp eq i64 %27, 2
   %28 = load i64, ptr %26, align 8, !range !14386, !noalias !45799
-  %.not1.i.i = icmp eq i64 %28, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %29, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %28, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %29, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %11, i64 112, i1 false), !noalias !45797
@@ -135987,7 +135985,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
 
 29:                                               ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %11, i64 112, i1 false), !noalias !45797
-  br i1 %.not1.i.i, label %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit", label %30
+  br i1 %.not2.i.i, label %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit", label %30
 
 30:                                               ; preds = %29
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %26)
@@ -136184,16 +136182,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !45831
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !45831
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !45836
@@ -136268,13 +136266,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !45831
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !45831
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17habe344d23f12f551E.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17habe344d23f12f551E.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17habe344d23f12f551E.exit" ]
   ret ptr %.0
 }
 
@@ -136320,16 +136318,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !45861
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !45861
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !45866
@@ -136404,13 +136402,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !45861
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !45861
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hcda55426f328df3aE.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hcda55426f328df3aE.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hcda55426f328df3aE.exit" ]
   ret ptr %.0
 }
 
@@ -136487,9 +136485,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %23 = load i64, ptr %8, align 8, !range !14442, !noalias !45914, !noundef !47
   %.not.i = icmp eq i64 %23, 3
   %24 = load i64, ptr %22, align 8, !range !14442, !noalias !45914
-  %.not1.i = icmp eq i64 %24, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %31, label %25
+  %.not2.i = icmp eq i64 %24, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %31, label %25
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7), !noalias !45914
@@ -136502,9 +136500,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %27 = load i64, ptr %6, align 8, !range !14386, !noalias !45921, !noundef !47
   %.not.i.i = icmp eq i64 %27, 2
   %28 = load i64, ptr %26, align 8, !range !14386, !noalias !45921
-  %.not1.i.i = icmp eq i64 %28, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %29, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %28, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %29, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %11, i64 112, i1 false), !noalias !45919
@@ -136514,7 +136512,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
 
 29:                                               ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %11, i64 112, i1 false), !noalias !45919
-  br i1 %.not1.i.i, label %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit", label %30
+  br i1 %.not2.i.i, label %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit", label %30
 
 30:                                               ; preds = %29
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %26)
@@ -136843,16 +136841,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !46003
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !46003
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !46008
@@ -136927,13 +136925,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !46003
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !46003
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h983b1e04d00df4d7E.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h983b1e04d00df4d7E.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h983b1e04d00df4d7E.exit" ]
   ret ptr %.0
 }
 
@@ -137091,16 +137089,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !46072
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !46072
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !46077
@@ -137175,13 +137173,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !46072
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !46072
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h3a784b26721a2069E.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h3a784b26721a2069E.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h3a784b26721a2069E.exit" ]
   ret ptr %.0
 }
 
@@ -137227,16 +137225,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !46102
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !46102
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !46107
@@ -137311,13 +137309,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !46102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !46102
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hff6b31f369cb980bE.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hff6b31f369cb980bE.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hff6b31f369cb980bE.exit" ]
   ret ptr %.0
 }
 
@@ -137725,9 +137723,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %23 = load i64, ptr %8, align 8, !range !14442, !noalias !46259, !noundef !47
   %.not.i = icmp eq i64 %23, 3
   %24 = load i64, ptr %22, align 8, !range !14442, !noalias !46259
-  %.not1.i = icmp eq i64 %24, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %31, label %25
+  %.not2.i = icmp eq i64 %24, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %31, label %25
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7), !noalias !46259
@@ -137740,9 +137738,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %27 = load i64, ptr %6, align 8, !range !14386, !noalias !46266, !noundef !47
   %.not.i.i = icmp eq i64 %27, 2
   %28 = load i64, ptr %26, align 8, !range !14386, !noalias !46266
-  %.not1.i.i = icmp eq i64 %28, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %29, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %28, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %29, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %11, i64 112, i1 false), !noalias !46264
@@ -137752,7 +137750,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
 
 29:                                               ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %11, i64 112, i1 false), !noalias !46264
-  br i1 %.not1.i.i, label %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit", label %30
+  br i1 %.not2.i.i, label %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit", label %30
 
 30:                                               ; preds = %29
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %26)
@@ -137876,16 +137874,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !46290
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !46290
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !46295
@@ -137960,13 +137958,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !46290
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !46290
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7230df7cadceb203E.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7230df7cadceb203E.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7230df7cadceb203E.exit" ]
   ret ptr %.0
 }
 
@@ -138012,16 +138010,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !46320
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !46320
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !46325
@@ -138096,13 +138094,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !46320
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !46320
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17ha8748b8dc4775857E.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17ha8748b8dc4775857E.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17ha8748b8dc4775857E.exit" ]
   ret ptr %.0
 }
 
@@ -138179,9 +138177,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %23 = load i64, ptr %8, align 8, !range !14442, !noalias !46373, !noundef !47
   %.not.i = icmp eq i64 %23, 3
   %24 = load i64, ptr %22, align 8, !range !14442, !noalias !46373
-  %.not1.i = icmp eq i64 %24, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %31, label %25
+  %.not2.i = icmp eq i64 %24, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %31, label %25
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7), !noalias !46373
@@ -138194,9 +138192,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %27 = load i64, ptr %6, align 8, !range !14386, !noalias !46380, !noundef !47
   %.not.i.i = icmp eq i64 %27, 2
   %28 = load i64, ptr %26, align 8, !range !14386, !noalias !46380
-  %.not1.i.i = icmp eq i64 %28, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %29, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %28, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %29, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %11, i64 112, i1 false), !noalias !46378
@@ -138206,7 +138204,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
 
 29:                                               ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %11, i64 112, i1 false), !noalias !46378
-  br i1 %.not1.i.i, label %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit", label %30
+  br i1 %.not2.i.i, label %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit", label %30
 
 30:                                               ; preds = %29
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %26)
@@ -138651,16 +138649,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !46471
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !46471
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !46476
@@ -138735,13 +138733,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !46471
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !46471
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h36360f3ec3bcf70aE.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h36360f3ec3bcf70aE.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h36360f3ec3bcf70aE.exit" ]
   ret ptr %.0
 }
 
@@ -139897,16 +139895,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !46881
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !46881
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !46886
@@ -139981,13 +139979,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !46881
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !46881
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h8c1f28cb073c13d3E.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h8c1f28cb073c13d3E.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h8c1f28cb073c13d3E.exit" ]
   ret ptr %.0
 }
 
@@ -140033,16 +140031,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !46911
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !46911
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !46916
@@ -140117,13 +140115,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !46911
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !46911
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h95b7fd0e1c65747eE.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h95b7fd0e1c65747eE.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h95b7fd0e1c65747eE.exit" ]
   ret ptr %.0
 }
 
@@ -140502,16 +140500,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !47058
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !47058
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !47063
@@ -140586,13 +140584,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !47058
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !47058
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h3c1d36dd8412b573E.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h3c1d36dd8412b573E.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h3c1d36dd8412b573E.exit" ]
   ret ptr %.0
 }
 
@@ -140638,16 +140636,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !47088
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !47088
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !47093
@@ -140722,13 +140720,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !47088
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !47088
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7242e03b9185847aE.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7242e03b9185847aE.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h7242e03b9185847aE.exit" ]
   ret ptr %.0
 }
 
@@ -141051,9 +141049,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %23 = load i64, ptr %8, align 8, !range !14442, !noalias !47190, !noundef !47
   %.not.i = icmp eq i64 %23, 3
   %24 = load i64, ptr %22, align 8, !range !14442, !noalias !47190
-  %.not1.i = icmp eq i64 %24, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %31, label %25
+  %.not2.i = icmp eq i64 %24, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %31, label %25
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7), !noalias !47190
@@ -141066,9 +141064,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   %27 = load i64, ptr %6, align 8, !range !14386, !noalias !47197, !noundef !47
   %.not.i.i = icmp eq i64 %27, 2
   %28 = load i64, ptr %26, align 8, !range !14386, !noalias !47197
-  %.not1.i.i = icmp eq i64 %28, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %29, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %28, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %29, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %11, i64 112, i1 false), !noalias !47195
@@ -141078,7 +141076,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
 
 29:                                               ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %11, i64 112, i1 false), !noalias !47195
-  br i1 %.not1.i.i, label %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit", label %30
+  br i1 %.not2.i.i, label %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit", label %30
 
 30:                                               ; preds = %29
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %26)
@@ -141202,16 +141200,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !47219
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !47219
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !47224
@@ -141286,13 +141284,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !47219
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !47219
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h408128f8df22cf83E.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h408128f8df22cf83E.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h408128f8df22cf83E.exit" ]
   ret ptr %.0
 }
 
@@ -141479,16 +141477,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !47305
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !47305
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !47310
@@ -141563,13 +141561,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !47305
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !47305
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hac6a69892cef48bfE.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hac6a69892cef48bfE.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17hac6a69892cef48bfE.exit" ]
   ret ptr %.0
 }
 
@@ -141990,16 +141988,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !47453
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !47453
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !47458
@@ -142074,13 +142072,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !47453
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !47453
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17he44886eb6fbfda24E.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17he44886eb6fbfda24E.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17he44886eb6fbfda24E.exit" ]
   ret ptr %.0
 }
 
@@ -142126,16 +142124,16 @@ define hidden noundef ptr @_ZN5typst11foundations6styles10StyleChain10get_folded
   store ptr %12, ptr %3, align 8, !noalias !47483
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !47483
-  %.not2.i = icmp eq ptr %19, null
-  %or.cond.i = or i1 %.not2.i, %13
-  br i1 %or.cond.i, label %23, label %.thread.i
+  %.not3.i = icmp eq ptr %19, null
+  %or.cond4.i = or i1 %.not3.i, %13
+  br i1 %or.cond4.i, label %23, label %.thread.i
 
 .thread.i:                                        ; preds = %20
   %22 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %12, ptr noundef nonnull %19)
   br label %42
 
 23:                                               ; preds = %20
-  br i1 %.not2.i, label %42, label %24
+  br i1 %.not3.i, label %42, label %24
 
 24:                                               ; preds = %23
   %25 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !47488
@@ -142210,13 +142208,13 @@ common.resume:                                    ; preds = %38, %31, %27, %28
   br label %43
 
 42:                                               ; preds = %.noexc4, %.thread.i, %24, %23
-  %.09.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
+  %.08.i = phi ptr [ %12, %23 ], [ %12, %24 ], [ %22, %.thread.i ], [ %12, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !47483
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !47483
   br label %43
 
 43:                                               ; preds = %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h8016aa133ad50ebcE.exit", %42
-  %.0 = phi ptr [ %.09.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h8016aa133ad50ebcE.exit" ]
+  %.0 = phi ptr [ %.08.i, %42 ], [ %37, %"_ZN4core3ops8function5impls72_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$F$GT$9call_once17h8016aa133ad50ebcE.exit" ]
   ret ptr %.0
 }
 
@@ -142553,16 +142551,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47565
@@ -142575,10 +142573,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -142635,9 +142633,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %16 = load i64, ptr %8, align 8, !range !14442, !noalias !47577, !noundef !47
   %.not.i = icmp eq i64 %16, 3
   %17 = load i64, ptr %15, align 8, !range !14442, !noalias !47577
-  %.not1.i = icmp eq i64 %17, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %24, label %18
+  %.not2.i = icmp eq i64 %17, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %24, label %18
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7), !noalias !47577
@@ -142650,9 +142648,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %20 = load i64, ptr %6, align 8, !range !14386, !noalias !47583, !noundef !47
   %.not.i.i = icmp eq i64 %20, 2
   %21 = load i64, ptr %19, align 8, !range !14386, !noalias !47583
-  %.not1.i.i = icmp eq i64 %21, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %22, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %21, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %22, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
@@ -142662,7 +142660,7 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
 
 22:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
-  br i1 %.not1.i.i, label %.thread.i, label %23
+  br i1 %.not2.i.i, label %.thread.i, label %23
 
 23:                                               ; preds = %22
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %19)
@@ -142771,16 +142769,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47592
@@ -142793,10 +142791,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -142899,16 +142897,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47604
@@ -142921,10 +142919,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -143369,16 +143367,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47668
@@ -143391,10 +143389,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -143497,16 +143495,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47680
@@ -143519,10 +143517,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -143571,16 +143569,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47692
@@ -143593,10 +143591,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -144110,9 +144108,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %16 = load i64, ptr %8, align 8, !range !14442, !noalias !47743, !noundef !47
   %.not.i = icmp eq i64 %16, 3
   %17 = load i64, ptr %15, align 8, !range !14442, !noalias !47743
-  %.not1.i = icmp eq i64 %17, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %24, label %18
+  %.not2.i = icmp eq i64 %17, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %24, label %18
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7), !noalias !47743
@@ -144125,9 +144123,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %20 = load i64, ptr %6, align 8, !range !14386, !noalias !47749, !noundef !47
   %.not.i.i = icmp eq i64 %20, 2
   %21 = load i64, ptr %19, align 8, !range !14386, !noalias !47749
-  %.not1.i.i = icmp eq i64 %21, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %22, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %21, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %22, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
@@ -144137,7 +144135,7 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
 
 22:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
-  br i1 %.not1.i.i, label %.thread.i, label %23
+  br i1 %.not2.i.i, label %.thread.i, label %23
 
 23:                                               ; preds = %22
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %19)
@@ -144246,16 +144244,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47758
@@ -144268,10 +144266,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -144320,16 +144318,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47770
@@ -144342,10 +144340,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -144402,9 +144400,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %16 = load i64, ptr %8, align 8, !range !14442, !noalias !47782, !noundef !47
   %.not.i = icmp eq i64 %16, 3
   %17 = load i64, ptr %15, align 8, !range !14442, !noalias !47782
-  %.not1.i = icmp eq i64 %17, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %24, label %18
+  %.not2.i = icmp eq i64 %17, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %24, label %18
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7), !noalias !47782
@@ -144417,9 +144415,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %20 = load i64, ptr %6, align 8, !range !14386, !noalias !47788, !noundef !47
   %.not.i.i = icmp eq i64 %20, 2
   %21 = load i64, ptr %19, align 8, !range !14386, !noalias !47788
-  %.not1.i.i = icmp eq i64 %21, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %22, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %21, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %22, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
@@ -144429,7 +144427,7 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
 
 22:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
-  br i1 %.not1.i.i, label %.thread.i, label %23
+  br i1 %.not2.i.i, label %.thread.i, label %23
 
 23:                                               ; preds = %22
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %19)
@@ -144500,16 +144498,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47797
@@ -144522,10 +144520,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -144780,16 +144778,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47848
@@ -144802,10 +144800,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -144948,16 +144946,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47873
@@ -144970,10 +144968,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -145377,9 +145375,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %18 = load i64, ptr %10, align 8, !range !14411, !noalias !47942, !noundef !47
   %.not.i = icmp eq i64 %18, 4
   %19 = load i64, ptr %17, align 8, !range !14411, !noalias !47942
-  %.not1.i = icmp eq i64 %19, 4
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %33, label %.thread.i
+  %.not2.i = icmp eq i64 %19, 4
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %33, label %.thread.i
 
 .thread.i:                                        ; preds = %16
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %9), !noalias !47942
@@ -145425,7 +145423,7 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
 
 33:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(448) %2, i64 448, i1 false)
-  br i1 %.not1.i, label %35, label %34
+  br i1 %.not2.i, label %35, label %34
 
 34:                                               ; preds = %33
   call void @"_ZN4core3ptr144drop_in_place$LT$typst..layout..sides..Sides$LT$core..option..Option$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$$GT$17h2e599ea5fef2d643E"(ptr noalias noundef nonnull align 8 dereferenceable(448) %17)
@@ -145479,16 +145477,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47961
@@ -145501,10 +145499,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -145561,9 +145559,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %16 = load i64, ptr %8, align 8, !range !14442, !noalias !47973, !noundef !47
   %.not.i = icmp eq i64 %16, 3
   %17 = load i64, ptr %15, align 8, !range !14442, !noalias !47973
-  %.not1.i = icmp eq i64 %17, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %24, label %18
+  %.not2.i = icmp eq i64 %17, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %24, label %18
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7), !noalias !47973
@@ -145576,9 +145574,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %20 = load i64, ptr %6, align 8, !range !14386, !noalias !47979, !noundef !47
   %.not.i.i = icmp eq i64 %20, 2
   %21 = load i64, ptr %19, align 8, !range !14386, !noalias !47979
-  %.not1.i.i = icmp eq i64 %21, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %22, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %21, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %22, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
@@ -145588,7 +145586,7 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
 
 22:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
-  br i1 %.not1.i.i, label %.thread.i, label %23
+  br i1 %.not2.i.i, label %.thread.i, label %23
 
 23:                                               ; preds = %22
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %19)
@@ -145659,16 +145657,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !47988
@@ -145681,10 +145679,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -145784,16 +145782,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !48000
@@ -145806,10 +145804,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -145858,16 +145856,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !48012
@@ -145880,10 +145878,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -146305,9 +146303,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %16 = load i64, ptr %8, align 8, !range !14442, !noalias !48071, !noundef !47
   %.not.i = icmp eq i64 %16, 3
   %17 = load i64, ptr %15, align 8, !range !14442, !noalias !48071
-  %.not1.i = icmp eq i64 %17, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %24, label %18
+  %.not2.i = icmp eq i64 %17, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %24, label %18
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7), !noalias !48071
@@ -146320,9 +146318,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %20 = load i64, ptr %6, align 8, !range !14386, !noalias !48077, !noundef !47
   %.not.i.i = icmp eq i64 %20, 2
   %21 = load i64, ptr %19, align 8, !range !14386, !noalias !48077
-  %.not1.i.i = icmp eq i64 %21, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %22, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %21, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %22, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
@@ -146332,7 +146330,7 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
 
 22:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
-  br i1 %.not1.i.i, label %.thread.i, label %23
+  br i1 %.not2.i.i, label %.thread.i, label %23
 
 23:                                               ; preds = %22
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %19)
@@ -146412,9 +146410,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %15 = load i64, ptr %7, align 8, !range !14386, !noalias !48086, !noundef !47
   %.not.i = icmp eq i64 %15, 2
   %16 = load i64, ptr %14, align 8, !range !14386, !noalias !48086
-  %.not1.i = icmp eq i64 %16, 2
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %17, label %.thread.i
+  %.not2.i = icmp eq i64 %16, 2
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %17, label %.thread.i
 
 .thread.i:                                        ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
@@ -146427,7 +146425,7 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
 
 17:                                               ; preds = %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
-  br i1 %.not1.i, label %19, label %18
+  br i1 %.not2.i, label %19, label %18
 
 18:                                               ; preds = %17
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %14)
@@ -146483,16 +146481,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !48096
@@ -146505,10 +146503,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -146557,16 +146555,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !48108
@@ -146579,10 +146577,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -146863,9 +146861,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %16 = load i64, ptr %8, align 8, !range !14442, !noalias !48167, !noundef !47
   %.not.i = icmp eq i64 %16, 3
   %17 = load i64, ptr %15, align 8, !range !14442, !noalias !48167
-  %.not1.i = icmp eq i64 %17, 3
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %or.cond.i, label %24, label %18
+  %.not2.i = icmp eq i64 %17, 3
+  %or.cond3.i = select i1 %.not.i, i1 true, i1 %.not2.i
+  br i1 %or.cond3.i, label %24, label %18
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7), !noalias !48167
@@ -146878,9 +146876,9 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
   %20 = load i64, ptr %6, align 8, !range !14386, !noalias !48173, !noundef !47
   %.not.i.i = icmp eq i64 %20, 2
   %21 = load i64, ptr %19, align 8, !range !14386, !noalias !48173
-  %.not1.i.i = icmp eq i64 %21, 2
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
-  br i1 %or.cond.i.i, label %22, label %.thread.i.i
+  %.not2.i.i = icmp eq i64 %21, 2
+  %or.cond3.i.i = select i1 %.not.i.i, i1 true, i1 %.not2.i.i
+  br i1 %or.cond3.i.i, label %22, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
@@ -146890,7 +146888,7 @@ define hidden void @"_ZN5typst11foundations6styles10StyleChain10get_folded4next2
 
 22:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
-  br i1 %.not1.i.i, label %.thread.i, label %23
+  br i1 %.not2.i.i, label %.thread.i, label %23
 
 23:                                               ; preds = %22
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %19)
@@ -147129,16 +147127,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !48221
@@ -147151,10 +147149,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -147483,16 +147481,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !48254
@@ -147505,10 +147503,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -147557,16 +147555,16 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %10, align 8
   %.not.i = icmp eq ptr %1, null
-  %.not2.i = icmp eq ptr %8, null
-  %or.cond.i = or i1 %.not2.i, %.not.i
-  br i1 %or.cond.i, label %12, label %.thread.i
+  %.not3.i = icmp eq ptr %8, null
+  %or.cond4.i = or i1 %.not3.i, %.not.i
+  br i1 %or.cond4.i, label %12, label %.thread.i
 
 .thread.i:                                        ; preds = %9
   %11 = tail call noundef nonnull ptr @"_ZN5typst11foundations5value88_$LT$impl$u20$typst..foundations..styles..Fold$u20$for$u20$alloc..sync..Arc$LT$T$GT$$GT$4fold17h2c95940cecd4d19cE.llvm.13383457361836014260"(ptr noundef nonnull %1, ptr noundef nonnull %8)
   br label %16
 
 12:                                               ; preds = %9
-  br i1 %.not2.i, label %16, label %13
+  br i1 %.not3.i, label %16, label %13
 
 13:                                               ; preds = %12
   %14 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !48266
@@ -147579,10 +147577,10 @@ define hidden noundef ptr @"_ZN5typst11foundations6styles10StyleChain10get_folde
   br label %16
 
 16:                                               ; preds = %.noexc1, %.thread.i, %13, %12
-  %.09.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
+  %.08.i = phi ptr [ %1, %12 ], [ %1, %13 ], [ %11, %.thread.i ], [ %1, %.noexc1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.09.i
+  ret ptr %.08.i
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h7566f2b9e81996c0E.llvm.4622153547959463051.exit": ; preds = %19, %17, %22
   resume { ptr, i32 } %lpad.thr_comm.split-lp

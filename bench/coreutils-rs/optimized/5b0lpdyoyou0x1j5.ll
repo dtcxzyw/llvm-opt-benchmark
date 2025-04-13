@@ -246,8 +246,8 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h8660e31841275c6cE(p
   br i1 %13, label %14, label %17
 
 .loopexit:                                        ; preds = %.backedge, %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %3, %32
-  %.09 = phi ptr [ %33, %32 ], [ null, %3 ], [ null, %.backedge ], [ %12, %20 ], [ %12, %22 ], [ %12, %26 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
-  ret ptr %.09
+  %.010 = phi ptr [ %33, %32 ], [ null, %3 ], [ null, %.backedge ], [ %12, %20 ], [ %12, %22 ], [ %12, %26 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
+  ret ptr %.010
 
 14:                                               ; preds = %10
   %15 = load i64, ptr %6, align 8, !noundef !9
@@ -1202,19 +1202,19 @@ define hidden void @_ZN4core4iter8adapters11try_process17h24147be01bdeeebaE(ptr 
           cleanup
   %8 = load ptr, ptr %5, align 8, !noundef !9
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %16, label %17
+  br i1 %.not, label %.thread, label %16
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !237
   %10 = load ptr, ptr %5, align 8, !noundef !9
   %.not.not = icmp eq ptr %10, null
-  br i1 %.not.not, label %.thread, label %12
+  br i1 %.not.not, label %.thread13, label %12
 
-.thread:                                          ; preds = %9
+.thread13:                                        ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %11
 
-11:                                               ; preds = %12, %.thread
+11:                                               ; preds = %12, %.thread13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret void
@@ -1226,18 +1226,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h24147be01bdeeebaE(ptr 
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h46cfd56b6c04cf24E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %11
 
-14:                                               ; preds = %17
+14:                                               ; preds = %16
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #21
   unreachable
 
-16:                                               ; preds = %6, %17
+.thread:                                          ; preds = %16, %6
   resume { ptr, i32 } %7
 
-17:                                               ; preds = %6
+16:                                               ; preds = %6
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$17hafc7c8191d10d04fE.llvm.13331784394299603573"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #20
-          to label %16 unwind label %14
+          to label %.thread unwind label %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable

@@ -9754,9 +9754,12 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %161, %156
   %165 = phi i32 [ %.pre.i206, %161 ], [ %158, %156 ]
   %trunc.i.i.i = trunc i32 %165 to i8
   %166 = icmp ult i8 %trunc.i.i.i, 6
-  br i1 %166, label %switch.hole_check, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i
+  %switch.shifted = lshr i8 47, %trunc.i.i.i
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond357 = select i1 %166, i1 %switch.lobit, i1 false
+  br i1 %or.cond357, label %_ZN4llvmneENS_9StringRefES0_.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i
 
-_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, %_ZNK4llvm4Type13getScalarTypeEv.exit.i
+_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i
   %167 = and i32 %165, 253
   %spec.select.i.i204 = icmp ne i32 %167, 4
   br label %_ZN4llvmneENS_9StringRefES0_.exit
@@ -10148,13 +10151,8 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, 
 389:                                              ; preds = %10
   unreachable
 
-switch.hole_check:                                ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i
-  %switch.shifted = lshr i8 47, %trunc.i.i.i
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZN4llvmneENS_9StringRefES0_.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i
-
-_ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %122, %switch.hole_check, %.preheader, %219, %196, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %292, %.thread333, %.thread330, %.thread327, %.thread, %89, %94, %100, %86, %85, %386, %370, %368, %369, %347, %348, %330, %339, %329, %328, %289, %288, %308, %317, %251, %269, %281, %247, %250, %231, %240, %229, %230, %206, %207, %183, %184, %145, %143, %144, %117, %112, %104, %109, %80, %19, %24, %27, %10, %363, %173, %168, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %132, %77, %72, %67, %62, %57, %52, %47, %42, %37, %32, %14
-  %.1 = phi i1 [ %spec.select180, %363 ], [ %137, %132 ], [ %177, %173 ], [ %spec.select.i.i.i.i.i.i.i.i207, %168 ], [ %155, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ %79, %77 ], [ %76, %72 ], [ %71, %67 ], [ %66, %62 ], [ %61, %57 ], [ %56, %52 ], [ %51, %47 ], [ %46, %42 ], [ %41, %37 ], [ %36, %32 ], [ %18, %14 ], [ true, %10 ], [ true, %24 ], [ true, %19 ], [ %31, %27 ], [ true, %80 ], [ true, %104 ], [ %111, %109 ], [ true, %117 ], [ true, %112 ], [ false, %144 ], [ true, %143 ], [ false, %145 ], [ false, %184 ], [ true, %183 ], [ false, %207 ], [ true, %206 ], [ false, %230 ], [ true, %229 ], [ true, %231 ], [ %242, %240 ], [ false, %250 ], [ true, %247 ], [ true, %251 ], [ %282, %281 ], [ true, %269 ], [ false, %289 ], [ true, %288 ], [ %323, %317 ], [ true, %308 ], [ true, %328 ], [ false, %329 ], [ true, %330 ], [ %342, %339 ], [ false, %348 ], [ true, %347 ], [ false, %369 ], [ true, %368 ], [ %388, %386 ], [ true, %370 ], [ %88, %86 ], [ true, %85 ], [ true, %94 ], [ true, %89 ], [ %103, %100 ], [ %195, %.thread ], [ %201, %.thread327 ], [ %218, %.thread330 ], [ %224, %.thread333 ], [ true, %292 ], [ %spec.select.i.i204, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ true, %196 ], [ true, %219 ], [ false, %.preheader ], [ false, %switch.hole_check ], [ %126, %122 ]
+_ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %122, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %.preheader, %219, %196, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %292, %.thread333, %.thread330, %.thread327, %.thread, %89, %94, %100, %86, %85, %386, %370, %368, %369, %347, %348, %330, %339, %329, %328, %289, %288, %308, %317, %251, %269, %281, %247, %250, %231, %240, %229, %230, %206, %207, %183, %184, %145, %143, %144, %117, %112, %104, %109, %80, %19, %24, %27, %10, %363, %173, %168, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %132, %77, %72, %67, %62, %57, %52, %47, %42, %37, %32, %14
+  %.1 = phi i1 [ %spec.select180, %363 ], [ %137, %132 ], [ %177, %173 ], [ %spec.select.i.i.i.i.i.i.i.i207, %168 ], [ %155, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ %79, %77 ], [ %76, %72 ], [ %71, %67 ], [ %66, %62 ], [ %61, %57 ], [ %56, %52 ], [ %51, %47 ], [ %46, %42 ], [ %41, %37 ], [ %36, %32 ], [ %18, %14 ], [ true, %10 ], [ true, %24 ], [ true, %19 ], [ %31, %27 ], [ true, %80 ], [ true, %104 ], [ %111, %109 ], [ true, %117 ], [ true, %112 ], [ false, %144 ], [ true, %143 ], [ false, %145 ], [ false, %184 ], [ true, %183 ], [ false, %207 ], [ true, %206 ], [ false, %230 ], [ true, %229 ], [ true, %231 ], [ %242, %240 ], [ false, %250 ], [ true, %247 ], [ true, %251 ], [ %282, %281 ], [ true, %269 ], [ false, %289 ], [ true, %288 ], [ %323, %317 ], [ true, %308 ], [ true, %328 ], [ false, %329 ], [ true, %330 ], [ %342, %339 ], [ false, %348 ], [ true, %347 ], [ false, %369 ], [ true, %368 ], [ %388, %386 ], [ true, %370 ], [ %88, %86 ], [ true, %85 ], [ true, %94 ], [ true, %89 ], [ %103, %100 ], [ %195, %.thread ], [ %201, %.thread327 ], [ %218, %.thread330 ], [ %224, %.thread333 ], [ true, %292 ], [ %spec.select.i.i204, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ true, %196 ], [ true, %219 ], [ false, %.preheader ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ %126, %122 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
   br label %390
 

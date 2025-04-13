@@ -3223,8 +3223,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %7 = icmp eq i32 %6, 3
   %8 = load i32, ptr %3, align 8
   %9 = icmp eq i32 %8, 3
-  %or.cond = select i1 %7, i1 %9, i1 false
-  br i1 %or.cond, label %10, label %17
+  %or.cond318 = select i1 %7, i1 %9, i1 false
+  br i1 %or.cond318, label %10, label %17
 
 10:                                               ; preds = %5
   store i32 3, ptr %0, align 8, !tbaa !63
@@ -3240,8 +3240,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
 17:                                               ; preds = %5
   %18 = icmp eq i32 %6, 4
   %19 = icmp eq i32 %8, 4
-  %or.cond302 = select i1 %18, i1 %19, i1 false
-  br i1 %or.cond302, label %20, label %522
+  %or.cond320 = select i1 %18, i1 %19, i1 false
+  br i1 %or.cond320, label %20, label %522
 
 20:                                               ; preds = %17
   store i32 4, ptr %0, align 8, !tbaa !63
@@ -3280,8 +3280,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %47 = icmp eq i32 %46, 3
   %48 = load i32, ptr %3, align 8
   %49 = icmp eq i32 %48, 3
-  %or.cond304 = select i1 %47, i1 %49, i1 false
-  br i1 %or.cond304, label %50, label %57
+  %or.cond322 = select i1 %47, i1 %49, i1 false
+  br i1 %or.cond322, label %50, label %57
 
 50:                                               ; preds = %45
   store i32 3, ptr %0, align 8, !tbaa !63
@@ -3297,8 +3297,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
 57:                                               ; preds = %45
   %58 = icmp eq i32 %46, 4
   %59 = icmp eq i32 %48, 4
-  %or.cond306 = select i1 %58, i1 %59, i1 false
-  br i1 %or.cond306, label %60, label %522
+  %or.cond324 = select i1 %58, i1 %59, i1 false
+  br i1 %or.cond324, label %60, label %522
 
 60:                                               ; preds = %57
   store i32 4, ptr %0, align 8, !tbaa !63
@@ -3337,8 +3337,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %87 = icmp eq i32 %86, 3
   %88 = load i32, ptr %3, align 8
   %89 = icmp eq i32 %88, 3
-  %or.cond308 = select i1 %87, i1 %89, i1 false
-  br i1 %or.cond308, label %90, label %97
+  %or.cond326 = select i1 %87, i1 %89, i1 false
+  br i1 %or.cond326, label %90, label %97
 
 90:                                               ; preds = %85
   store i32 3, ptr %0, align 8, !tbaa !63
@@ -3354,8 +3354,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
 97:                                               ; preds = %85
   %98 = icmp eq i32 %86, 4
   %99 = icmp eq i32 %88, 4
-  %or.cond310 = select i1 %98, i1 %99, i1 false
-  br i1 %or.cond310, label %100, label %130
+  %or.cond328 = select i1 %98, i1 %99, i1 false
+  br i1 %or.cond328, label %100, label %130
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -3367,15 +3367,15 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %107 = or i1 %103, %106
   %108 = fmul float %102, %105
   %109 = fcmp oeq float %108, 0.000000e+00
-  %brmerge = or i1 %109, %107
-  br i1 %brmerge, label %110, label %522
+  %or.cond = or i1 %109, %107
+  br i1 %or.cond, label %110, label %522
 
 110:                                              ; preds = %100
-  %111 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4, ptr %0, align 8, !tbaa !63
-  %113 = load float, ptr %112, align 8, !tbaa !67
-  %114 = load float, ptr %111, align 8, !tbaa !67
+  %113 = load float, ptr %111, align 8, !tbaa !67
+  %114 = load float, ptr %112, align 8, !tbaa !67
   %115 = fmul float %113, %114
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %115, ptr %116, align 8, !tbaa !67
@@ -3398,38 +3398,38 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   br label %522
 
 130:                                              ; preds = %97
-  %or.cond312 = select i1 %87, i1 %99, i1 false
-  br i1 %or.cond312, label %131, label %160
+  %or.cond330 = select i1 %87, i1 %99, i1 false
+  br i1 %or.cond330, label %131, label %160
 
 131:                                              ; preds = %130
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %133 = load float, ptr %132, align 4, !tbaa !67
-  %134 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %135 = load double, ptr %134, align 8, !tbaa !67
-  %136 = fptrunc double %135 to float
-  %137 = fmul float %133, %136
-  %138 = fcmp oeq float %137, 0.000000e+00
-  %139 = fcmp une float %133, 0.000000e+00
-  %or.cond313 = or i1 %139, %138
-  br i1 %or.cond313, label %140, label %522
+  %134 = fcmp une float %133, 0.000000e+00
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %136 = load double, ptr %135, align 8, !tbaa !67
+  %137 = fptrunc double %136 to float
+  %138 = fmul float %133, %137
+  %139 = fcmp oeq float %138, 0.000000e+00
+  %or.cond3 = or i1 %134, %139
+  br i1 %or.cond3, label %140, label %522
 
 140:                                              ; preds = %131
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4, ptr %0, align 8, !tbaa !63
-  %142 = load double, ptr %134, align 8, !tbaa !67
+  %142 = load double, ptr %135, align 8, !tbaa !67
   %143 = fptrunc double %142 to float
   %144 = load float, ptr %141, align 8, !tbaa !67
   %145 = fmul float %144, %143
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %145, ptr %146, align 8, !tbaa !67
-  %147 = load double, ptr %134, align 8, !tbaa !67
+  %147 = load double, ptr %135, align 8, !tbaa !67
   %148 = fptrunc double %147 to float
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %150 = load float, ptr %149, align 4, !tbaa !67
   %151 = fmul float %150, %148
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %151, ptr %152, align 4, !tbaa !67
-  %153 = load double, ptr %134, align 8, !tbaa !67
+  %153 = load double, ptr %135, align 8, !tbaa !67
   %154 = fptrunc double %153 to float
   %155 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %156 = load float, ptr %155, align 8, !tbaa !67
@@ -3437,50 +3437,50 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %157, ptr %158, align 8, !tbaa !67
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %137, ptr %159, align 4, !tbaa !67
+  store float %138, ptr %159, align 4, !tbaa !67
   br label %522
 
 160:                                              ; preds = %130
-  %or.cond315 = select i1 %98, i1 %89, i1 false
-  br i1 %or.cond315, label %161, label %522
+  %or.cond332 = select i1 %98, i1 %89, i1 false
+  br i1 %or.cond332, label %161, label %522
 
 161:                                              ; preds = %160
   %162 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %163 = load float, ptr %162, align 4, !tbaa !67
-  %164 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %165 = load double, ptr %164, align 8, !tbaa !67
-  %166 = fptrunc double %165 to float
-  %167 = fmul float %163, %166
-  %168 = fcmp oeq float %167, 0.000000e+00
-  %169 = fcmp une float %163, 0.000000e+00
-  %or.cond316 = or i1 %169, %168
-  br i1 %or.cond316, label %170, label %522
+  %164 = fcmp une float %163, 0.000000e+00
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %166 = load double, ptr %165, align 8, !tbaa !67
+  %167 = fptrunc double %166 to float
+  %168 = fmul float %163, %167
+  %169 = fcmp oeq float %168, 0.000000e+00
+  %or.cond5 = or i1 %164, %169
+  br i1 %or.cond5, label %170, label %522
 
 170:                                              ; preds = %161
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 4, ptr %0, align 8, !tbaa !63
   %172 = load float, ptr %171, align 8, !tbaa !67
-  %173 = load double, ptr %164, align 8, !tbaa !67
+  %173 = load double, ptr %165, align 8, !tbaa !67
   %174 = fptrunc double %173 to float
   %175 = fmul float %172, %174
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %175, ptr %176, align 8, !tbaa !67
   %177 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %178 = load float, ptr %177, align 4, !tbaa !67
-  %179 = load double, ptr %164, align 8, !tbaa !67
+  %179 = load double, ptr %165, align 8, !tbaa !67
   %180 = fptrunc double %179 to float
   %181 = fmul float %178, %180
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %181, ptr %182, align 4, !tbaa !67
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %184 = load float, ptr %183, align 8, !tbaa !67
-  %185 = load double, ptr %164, align 8, !tbaa !67
+  %185 = load double, ptr %165, align 8, !tbaa !67
   %186 = fptrunc double %185 to float
   %187 = fmul float %184, %186
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %187, ptr %188, align 8, !tbaa !67
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %167, ptr %189, align 4, !tbaa !67
+  store float %168, ptr %189, align 4, !tbaa !67
   br label %522
 
 190:                                              ; preds = %4
@@ -3488,8 +3488,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %192 = icmp eq i32 %191, 3
   %193 = load i32, ptr %3, align 8
   %194 = icmp eq i32 %193, 3
-  %or.cond318 = select i1 %192, i1 %194, i1 false
-  br i1 %or.cond318, label %195, label %202
+  %or.cond334 = select i1 %192, i1 %194, i1 false
+  br i1 %or.cond334, label %195, label %202
 
 195:                                              ; preds = %190
   store i32 3, ptr %0, align 8, !tbaa !63
@@ -3505,8 +3505,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
 202:                                              ; preds = %190
   %203 = icmp eq i32 %191, 4
   %204 = icmp eq i32 %193, 4
-  %or.cond320 = select i1 %203, i1 %204, i1 false
-  br i1 %or.cond320, label %205, label %235
+  %or.cond336 = select i1 %203, i1 %204, i1 false
+  br i1 %or.cond336, label %205, label %235
 
 205:                                              ; preds = %202
   %206 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -3518,15 +3518,15 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %212 = or i1 %208, %211
   %213 = fdiv float %207, %210
   %214 = fcmp oeq float %213, 0.000000e+00
-  %brmerge321 = or i1 %214, %212
-  br i1 %brmerge321, label %215, label %522
+  %or.cond7 = or i1 %214, %212
+  br i1 %or.cond7, label %215, label %522
 
 215:                                              ; preds = %205
-  %216 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %217 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4, ptr %0, align 8, !tbaa !63
-  %218 = load float, ptr %217, align 8, !tbaa !67
-  %219 = load float, ptr %216, align 8, !tbaa !67
+  %218 = load float, ptr %216, align 8, !tbaa !67
+  %219 = load float, ptr %217, align 8, !tbaa !67
   %220 = fdiv float %218, %219
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %220, ptr %221, align 8, !tbaa !67
@@ -3549,38 +3549,38 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   br label %522
 
 235:                                              ; preds = %202
-  %or.cond323 = select i1 %192, i1 %204, i1 false
-  br i1 %or.cond323, label %236, label %265
+  %or.cond338 = select i1 %192, i1 %204, i1 false
+  br i1 %or.cond338, label %236, label %265
 
 236:                                              ; preds = %235
   %237 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %238 = load float, ptr %237, align 4, !tbaa !67
-  %239 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %240 = load double, ptr %239, align 8, !tbaa !67
-  %241 = fptrunc double %240 to float
-  %242 = fdiv float %241, %238
-  %243 = fcmp oeq float %242, 0.000000e+00
-  %244 = fcmp une float %238, 0.000000e+00
-  %or.cond324 = or i1 %244, %243
-  br i1 %or.cond324, label %245, label %522
+  %239 = fcmp une float %238, 0.000000e+00
+  %240 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %241 = load double, ptr %240, align 8, !tbaa !67
+  %242 = fptrunc double %241 to float
+  %243 = fdiv float %242, %238
+  %244 = fcmp oeq float %243, 0.000000e+00
+  %or.cond9 = or i1 %239, %244
+  br i1 %or.cond9, label %245, label %522
 
 245:                                              ; preds = %236
   %246 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4, ptr %0, align 8, !tbaa !63
-  %247 = load double, ptr %239, align 8, !tbaa !67
+  %247 = load double, ptr %240, align 8, !tbaa !67
   %248 = fptrunc double %247 to float
   %249 = load float, ptr %246, align 8, !tbaa !67
   %250 = fdiv float %248, %249
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %250, ptr %251, align 8, !tbaa !67
-  %252 = load double, ptr %239, align 8, !tbaa !67
+  %252 = load double, ptr %240, align 8, !tbaa !67
   %253 = fptrunc double %252 to float
   %254 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %255 = load float, ptr %254, align 4, !tbaa !67
   %256 = fdiv float %253, %255
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %256, ptr %257, align 4, !tbaa !67
-  %258 = load double, ptr %239, align 8, !tbaa !67
+  %258 = load double, ptr %240, align 8, !tbaa !67
   %259 = fptrunc double %258 to float
   %260 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %261 = load float, ptr %260, align 8, !tbaa !67
@@ -3588,50 +3588,50 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %262, ptr %263, align 8, !tbaa !67
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %242, ptr %264, align 4, !tbaa !67
+  store float %243, ptr %264, align 4, !tbaa !67
   br label %522
 
 265:                                              ; preds = %235
-  %or.cond326 = select i1 %203, i1 %194, i1 false
-  br i1 %or.cond326, label %266, label %522
+  %or.cond340 = select i1 %203, i1 %194, i1 false
+  br i1 %or.cond340, label %266, label %522
 
 266:                                              ; preds = %265
   %267 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %268 = load float, ptr %267, align 4, !tbaa !67
-  %269 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %270 = load double, ptr %269, align 8, !tbaa !67
-  %271 = fptrunc double %270 to float
-  %272 = fdiv float %268, %271
-  %273 = fcmp oeq float %272, 0.000000e+00
-  %274 = fcmp une float %268, 0.000000e+00
-  %or.cond327 = or i1 %274, %273
-  br i1 %or.cond327, label %275, label %522
+  %269 = fcmp une float %268, 0.000000e+00
+  %270 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %271 = load double, ptr %270, align 8, !tbaa !67
+  %272 = fptrunc double %271 to float
+  %273 = fdiv float %268, %272
+  %274 = fcmp oeq float %273, 0.000000e+00
+  %or.cond11 = or i1 %269, %274
+  br i1 %or.cond11, label %275, label %522
 
 275:                                              ; preds = %266
   %276 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 4, ptr %0, align 8, !tbaa !63
   %277 = load float, ptr %276, align 8, !tbaa !67
-  %278 = load double, ptr %269, align 8, !tbaa !67
+  %278 = load double, ptr %270, align 8, !tbaa !67
   %279 = fptrunc double %278 to float
   %280 = fdiv float %277, %279
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %280, ptr %281, align 8, !tbaa !67
   %282 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %283 = load float, ptr %282, align 4, !tbaa !67
-  %284 = load double, ptr %269, align 8, !tbaa !67
+  %284 = load double, ptr %270, align 8, !tbaa !67
   %285 = fptrunc double %284 to float
   %286 = fdiv float %283, %285
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %286, ptr %287, align 4, !tbaa !67
   %288 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %289 = load float, ptr %288, align 8, !tbaa !67
-  %290 = load double, ptr %269, align 8, !tbaa !67
+  %290 = load double, ptr %270, align 8, !tbaa !67
   %291 = fptrunc double %290 to float
   %292 = fdiv float %289, %291
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %292, ptr %293, align 8, !tbaa !67
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %272, ptr %294, align 4, !tbaa !67
+  store float %273, ptr %294, align 4, !tbaa !67
   br label %522
 
 295:                                              ; preds = %4
@@ -3639,8 +3639,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %297 = icmp eq i32 %296, 3
   %298 = load i32, ptr %3, align 8
   %299 = icmp eq i32 %298, 3
-  %or.cond329 = select i1 %297, i1 %299, i1 false
-  br i1 %or.cond329, label %300, label %308
+  %or.cond342 = select i1 %297, i1 %299, i1 false
+  br i1 %or.cond342, label %300, label %308
 
 300:                                              ; preds = %295
   store i32 3, ptr %0, align 8, !tbaa !63
@@ -3657,8 +3657,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
 308:                                              ; preds = %295
   %309 = icmp eq i32 %296, 4
   %310 = icmp eq i32 %298, 4
-  %or.cond331 = select i1 %309, i1 %310, i1 false
-  br i1 %or.cond331, label %311, label %345
+  %or.cond344 = select i1 %309, i1 %310, i1 false
+  br i1 %or.cond344, label %311, label %345
 
 311:                                              ; preds = %308
   %312 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -3671,15 +3671,15 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %319 = tail call noundef float @llvm.floor.f32(float %318)
   %320 = fcmp oeq float %319, 0.000000e+00
   %321 = select i1 %320, i1 true, i1 %314
-  %brmerge332 = select i1 %321, i1 true, i1 %317
-  br i1 %brmerge332, label %322, label %522
+  %or.cond13 = select i1 %321, i1 true, i1 %317
+  br i1 %or.cond13, label %322, label %522
 
 322:                                              ; preds = %311
-  %323 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %324 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4, ptr %0, align 8, !tbaa !63
-  %325 = load float, ptr %324, align 8, !tbaa !67
-  %326 = load float, ptr %323, align 8, !tbaa !67
+  %325 = load float, ptr %323, align 8, !tbaa !67
+  %326 = load float, ptr %324, align 8, !tbaa !67
   %327 = fdiv float %325, %326
   %328 = tail call noundef float @llvm.floor.f32(float %327)
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3705,33 +3705,33 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   br label %522
 
 345:                                              ; preds = %308
-  %or.cond334 = select i1 %297, i1 %310, i1 false
-  br i1 %or.cond334, label %346, label %379
+  %or.cond346 = select i1 %297, i1 %310, i1 false
+  br i1 %or.cond346, label %346, label %379
 
 346:                                              ; preds = %345
   %347 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %348 = load float, ptr %347, align 4, !tbaa !67
-  %349 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %350 = load double, ptr %349, align 8, !tbaa !67
-  %351 = fptrunc double %350 to float
-  %352 = fdiv float %351, %348
-  %353 = tail call noundef float @llvm.floor.f32(float %352)
-  %354 = fcmp oeq float %353, 0.000000e+00
-  %355 = fcmp une float %348, 0.000000e+00
-  %or.cond335 = or i1 %355, %354
-  br i1 %or.cond335, label %356, label %522
+  %349 = fcmp une float %348, 0.000000e+00
+  %350 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %351 = load double, ptr %350, align 8, !tbaa !67
+  %352 = fptrunc double %351 to float
+  %353 = fdiv float %352, %348
+  %354 = tail call noundef float @llvm.floor.f32(float %353)
+  %355 = fcmp oeq float %354, 0.000000e+00
+  %or.cond15 = or i1 %349, %355
+  br i1 %or.cond15, label %356, label %522
 
 356:                                              ; preds = %346
   %357 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4, ptr %0, align 8, !tbaa !63
-  %358 = load double, ptr %349, align 8, !tbaa !67
+  %358 = load double, ptr %350, align 8, !tbaa !67
   %359 = fptrunc double %358 to float
   %360 = load float, ptr %357, align 8, !tbaa !67
   %361 = fdiv float %359, %360
   %362 = tail call noundef float @llvm.floor.f32(float %361)
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %362, ptr %363, align 8, !tbaa !67
-  %364 = load double, ptr %349, align 8, !tbaa !67
+  %364 = load double, ptr %350, align 8, !tbaa !67
   %365 = fptrunc double %364 to float
   %366 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %367 = load float, ptr %366, align 4, !tbaa !67
@@ -3739,7 +3739,7 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %369 = tail call noundef float @llvm.floor.f32(float %368)
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %369, ptr %370, align 4, !tbaa !67
-  %371 = load double, ptr %349, align 8, !tbaa !67
+  %371 = load double, ptr %350, align 8, !tbaa !67
   %372 = fptrunc double %371 to float
   %373 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %374 = load float, ptr %373, align 8, !tbaa !67
@@ -3748,31 +3748,31 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %376, ptr %377, align 8, !tbaa !67
   %378 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %353, ptr %378, align 4, !tbaa !67
+  store float %354, ptr %378, align 4, !tbaa !67
   br label %522
 
 379:                                              ; preds = %345
-  %or.cond337 = select i1 %309, i1 %299, i1 false
-  br i1 %or.cond337, label %380, label %522
+  %or.cond348 = select i1 %309, i1 %299, i1 false
+  br i1 %or.cond348, label %380, label %522
 
 380:                                              ; preds = %379
   %381 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %382 = load float, ptr %381, align 4, !tbaa !67
-  %383 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %384 = load double, ptr %383, align 8, !tbaa !67
-  %385 = fptrunc double %384 to float
-  %386 = fdiv float %382, %385
-  %387 = tail call noundef float @llvm.floor.f32(float %386)
-  %388 = fcmp oeq float %387, 0.000000e+00
-  %389 = fcmp une float %382, 0.000000e+00
-  %or.cond338 = or i1 %389, %388
-  br i1 %or.cond338, label %390, label %522
+  %383 = fcmp une float %382, 0.000000e+00
+  %384 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %385 = load double, ptr %384, align 8, !tbaa !67
+  %386 = fptrunc double %385 to float
+  %387 = fdiv float %382, %386
+  %388 = tail call noundef float @llvm.floor.f32(float %387)
+  %389 = fcmp oeq float %388, 0.000000e+00
+  %or.cond17 = or i1 %383, %389
+  br i1 %or.cond17, label %390, label %522
 
 390:                                              ; preds = %380
   %391 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 4, ptr %0, align 8, !tbaa !63
   %392 = load float, ptr %391, align 8, !tbaa !67
-  %393 = load double, ptr %383, align 8, !tbaa !67
+  %393 = load double, ptr %384, align 8, !tbaa !67
   %394 = fptrunc double %393 to float
   %395 = fdiv float %392, %394
   %396 = tail call noundef float @llvm.floor.f32(float %395)
@@ -3780,7 +3780,7 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   store float %396, ptr %397, align 8, !tbaa !67
   %398 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %399 = load float, ptr %398, align 4, !tbaa !67
-  %400 = load double, ptr %383, align 8, !tbaa !67
+  %400 = load double, ptr %384, align 8, !tbaa !67
   %401 = fptrunc double %400 to float
   %402 = fdiv float %399, %401
   %403 = tail call noundef float @llvm.floor.f32(float %402)
@@ -3788,14 +3788,14 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   store float %403, ptr %404, align 4, !tbaa !67
   %405 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %406 = load float, ptr %405, align 8, !tbaa !67
-  %407 = load double, ptr %383, align 8, !tbaa !67
+  %407 = load double, ptr %384, align 8, !tbaa !67
   %408 = fptrunc double %407 to float
   %409 = fdiv float %406, %408
   %410 = tail call noundef float @llvm.floor.f32(float %409)
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %410, ptr %411, align 8, !tbaa !67
   %412 = load float, ptr %381, align 4, !tbaa !67
-  %413 = load double, ptr %383, align 8, !tbaa !67
+  %413 = load double, ptr %384, align 8, !tbaa !67
   %414 = fptrunc double %413 to float
   %415 = fdiv float %412, %414
   %416 = tail call noundef float @llvm.floor.f32(float %415)
@@ -3808,8 +3808,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %420 = icmp eq i32 %419, 3
   %421 = load i32, ptr %3, align 8
   %422 = icmp eq i32 %421, 3
-  %or.cond340 = select i1 %420, i1 %422, i1 false
-  br i1 %or.cond340, label %423, label %522
+  %or.cond350 = select i1 %420, i1 %422, i1 false
+  br i1 %or.cond350, label %423, label %522
 
 423:                                              ; preds = %418
   store i32 3, ptr %0, align 8, !tbaa !63
@@ -3830,8 +3830,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %435 = icmp eq i32 %434, 3
   %436 = load i32, ptr %3, align 8
   %437 = icmp eq i32 %436, 3
-  %or.cond342 = select i1 %435, i1 %437, i1 false
-  br i1 %or.cond342, label %438, label %522
+  %or.cond352 = select i1 %435, i1 %437, i1 false
+  br i1 %or.cond352, label %438, label %522
 
 438:                                              ; preds = %433
   store i32 3, ptr %0, align 8, !tbaa !63
@@ -3846,11 +3846,11 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
 
 445:                                              ; preds = %4
   %446 = load i32, ptr %2, align 8, !tbaa !63
-  %.not297 = icmp eq i32 %446, 0
+  %.not314 = icmp eq i32 %446, 0
   %447 = load i32, ptr %3, align 8
-  %.not298 = icmp eq i32 %447, 0
-  %or.cond343 = select i1 %.not297, i1 true, i1 %.not298
-  br i1 %or.cond343, label %522, label %448
+  %.not315 = icmp eq i32 %447, 0
+  %or.cond353 = select i1 %.not314, i1 true, i1 %.not315
+  br i1 %or.cond353, label %522, label %448
 
 448:                                              ; preds = %445
   store i32 2, ptr %0, align 8, !tbaa !63
@@ -3863,11 +3863,11 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
 
 453:                                              ; preds = %4
   %454 = load i32, ptr %2, align 8, !tbaa !63
-  %.not295 = icmp eq i32 %454, 0
+  %.not312 = icmp eq i32 %454, 0
   %455 = load i32, ptr %3, align 8
-  %.not296 = icmp eq i32 %455, 0
-  %or.cond344 = select i1 %.not295, i1 true, i1 %.not296
-  br i1 %or.cond344, label %522, label %456
+  %.not313 = icmp eq i32 %455, 0
+  %or.cond354 = select i1 %.not312, i1 true, i1 %.not313
+  br i1 %or.cond354, label %522, label %456
 
 456:                                              ; preds = %453
   store i32 2, ptr %0, align 8, !tbaa !63
@@ -3882,8 +3882,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %462 = icmp eq i32 %461, 3
   %463 = load i32, ptr %3, align 8
   %464 = icmp eq i32 %463, 3
-  %or.cond346 = select i1 %462, i1 %464, i1 false
-  br i1 %or.cond346, label %465, label %522
+  %or.cond356 = select i1 %462, i1 %464, i1 false
+  br i1 %or.cond356, label %465, label %522
 
 465:                                              ; preds = %460
   store i32 2, ptr %0, align 8, !tbaa !63
@@ -3902,8 +3902,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %475 = icmp eq i32 %474, 3
   %476 = load i32, ptr %3, align 8
   %477 = icmp eq i32 %476, 3
-  %or.cond348 = select i1 %475, i1 %477, i1 false
-  br i1 %or.cond348, label %478, label %522
+  %or.cond358 = select i1 %475, i1 %477, i1 false
+  br i1 %or.cond358, label %478, label %522
 
 478:                                              ; preds = %473
   store i32 2, ptr %0, align 8, !tbaa !63
@@ -3922,8 +3922,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %488 = icmp eq i32 %487, 3
   %489 = load i32, ptr %3, align 8
   %490 = icmp eq i32 %489, 3
-  %or.cond350 = select i1 %488, i1 %490, i1 false
-  br i1 %or.cond350, label %491, label %522
+  %or.cond360 = select i1 %488, i1 %490, i1 false
+  br i1 %or.cond360, label %491, label %522
 
 491:                                              ; preds = %486
   store i32 2, ptr %0, align 8, !tbaa !63
@@ -3942,8 +3942,8 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %501 = icmp eq i32 %500, 3
   %502 = load i32, ptr %3, align 8
   %503 = icmp eq i32 %502, 3
-  %or.cond352 = select i1 %501, i1 %503, i1 false
-  br i1 %or.cond352, label %504, label %522
+  %or.cond362 = select i1 %501, i1 %503, i1 false
+  br i1 %or.cond362, label %504, label %522
 
 504:                                              ; preds = %499
   store i32 2, ptr %0, align 8, !tbaa !63
@@ -3961,7 +3961,7 @@ define internal fastcc void @_ZN4Luau7CompileL10foldBinaryERNS0_8ConstantENS_13A
   %513 = load i32, ptr %2, align 8, !tbaa !63
   switch i32 %513, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread [
     i32 0, label %522
-    i32 1, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread354
+    i32 1, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread364
     i32 2, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit
   ]
 
@@ -3969,39 +3969,39 @@ _ZNK4Luau7Compile8Constant10isTruthfulEv.exit:    ; preds = %512
   %514 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %515 = load i8, ptr %514, align 8, !tbaa !67, !range !75, !noundef !76
   %.not = icmp eq i8 %515, 0
-  br i1 %.not, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread354, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread
+  br i1 %.not, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread364, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread
 
 _ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread: ; preds = %512, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit
-  br label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread354
+  br label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread364
 
-_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread354: ; preds = %512, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread
+_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread364: ; preds = %512, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread
   %516 = phi ptr [ %3, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread ], [ %2, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit ], [ %2, %512 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %516, i64 24, i1 false), !tbaa.struct !88
   br label %522
 
 517:                                              ; preds = %4
   %518 = load i32, ptr %2, align 8, !tbaa !63
-  switch i32 %518, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353.thread [
+  switch i32 %518, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363.thread [
     i32 0, label %522
-    i32 1, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353.thread355
-    i32 2, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353
+    i32 1, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363.thread365
+    i32 2, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363
   ]
 
-_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353: ; preds = %517
+_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363: ; preds = %517
   %519 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %520 = load i8, ptr %519, align 8, !tbaa !67, !range !75, !noundef !76
-  %.not356 = icmp eq i8 %520, 0
-  br i1 %.not356, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353.thread355, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353.thread
+  %.not366 = icmp eq i8 %520, 0
+  br i1 %.not366, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363.thread365, label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363.thread
 
-_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353.thread: ; preds = %517, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353
-  br label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353.thread355
+_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363.thread: ; preds = %517, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363
+  br label %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363.thread365
 
-_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353.thread355: ; preds = %517, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353.thread
-  %521 = phi ptr [ %2, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353.thread ], [ %3, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353 ], [ %3, %517 ]
+_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363.thread365: ; preds = %517, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363.thread
+  %521 = phi ptr [ %2, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363.thread ], [ %3, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363 ], [ %3, %517 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %521, i64 24, i1 false), !tbaa.struct !88
   br label %522
 
-522:                                              ; preds = %517, %512, %390, %380, %356, %346, %322, %311, %275, %266, %245, %236, %215, %205, %170, %161, %140, %131, %110, %100, %4, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit353.thread355, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread354, %499, %504, %486, %491, %473, %478, %460, %465, %453, %456, %445, %448, %433, %438, %418, %423, %300, %379, %195, %265, %90, %160, %50, %60, %57, %10, %20, %17
+522:                                              ; preds = %517, %512, %390, %380, %356, %346, %322, %311, %275, %266, %245, %236, %215, %205, %170, %161, %140, %131, %110, %100, %4, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit363.thread365, %_ZNK4Luau7Compile8Constant10isTruthfulEv.exit.thread364, %499, %504, %486, %491, %473, %478, %460, %465, %453, %456, %445, %448, %433, %438, %418, %423, %300, %379, %195, %265, %90, %160, %50, %60, %57, %10, %20, %17
   ret void
 }
 

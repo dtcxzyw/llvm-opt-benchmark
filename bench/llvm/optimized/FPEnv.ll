@@ -85,14 +85,12 @@ define dso_local void @_ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE(ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8, !tbaa !3
   %4 = icmp ult i8 %1, 8
-  br i1 %4, label %switch.hole_check, label %8
-
-switch.hole_check:                                ; preds = %2
   %switch.shifted = lshr i8 -97, %1
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %8
+  %or.cond = select i1 %4, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %8
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %5 = zext nneg i8 %1 to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -105,7 +103,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i64 %switch.load8, ptr %7, align 8, !tbaa !13
   br label %8
 
-8:                                                ; preds = %switch.hole_check, %2, %switch.lookup
+8:                                                ; preds = %2, %switch.lookup
   ret void
 }
 

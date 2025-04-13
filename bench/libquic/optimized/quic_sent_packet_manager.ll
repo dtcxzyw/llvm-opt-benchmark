@@ -1017,236 +1017,233 @@ define void @_ZN3net21QuicSentPacketManager13OnIncomingAckERKNS_12QuicAckFrameEN
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %20 = load i64, ptr %19, align 8, !tbaa !131
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit, label %21
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 610
+  %22 = load i8, ptr %21, align 2, !range !94
+  %23 = trunc nuw i8 %22 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %23
+  br i1 %or.cond, label %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit, label %24
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 610
-  %23 = load i8, ptr %22, align 2, !tbaa !101, !range !94, !noundef !95
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit, label %25
+24:                                               ; preds = %15
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %26 = load ptr, ptr %25, align 8, !tbaa !86
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %28 = load ptr, ptr %27, align 8, !tbaa !132
+  %.not.i.i = icmp eq ptr %28, %26
+  br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit, label %29
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %27 = load ptr, ptr %26, align 8, !tbaa !86
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %29 = load ptr, ptr %28, align 8, !tbaa !132
-  %.not.i.i = icmp eq ptr %29, %27
-  br i1 %.not.i.i, label %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit, label %30
-
-30:                                               ; preds = %25
-  store ptr %27, ptr %28, align 8, !tbaa !132
+29:                                               ; preds = %24
+  store ptr %26, ptr %27, align 8, !tbaa !132
   br label %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit
 
-_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit:    ; preds = %30, %25, %21, %15
-  br i1 %17, label %43, label %31
+_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit:    ; preds = %29, %24, %15
+  br i1 %17, label %42, label %30
 
-31:                                               ; preds = %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %33 = load ptr, ptr %32, align 8, !tbaa !133
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %35 = load ptr, ptr %34, align 8, !tbaa !133
-  %36 = icmp eq ptr %33, %35
-  br i1 %36, label %37, label %43
+30:                                               ; preds = %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %32 = load ptr, ptr %31, align 8, !tbaa !133
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %34 = load ptr, ptr %33, align 8, !tbaa !133
+  %35 = icmp eq ptr %32, %34
+  br i1 %35, label %36, label %42
 
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %39 = load ptr, ptr %38, align 8, !tbaa !133
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %41 = load ptr, ptr %40, align 8, !tbaa !133
-  %42 = icmp eq ptr %39, %41
-  br i1 %42, label %_ZN3net21QuicSentPacketManager26MaybeInvokeCongestionEventEbm.exit, label %43
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %38 = load ptr, ptr %37, align 8, !tbaa !133
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %40 = load ptr, ptr %39, align 8, !tbaa !133
+  %41 = icmp eq ptr %38, %40
+  br i1 %41, label %_ZN3net21QuicSentPacketManager26MaybeInvokeCongestionEventEbm.exit, label %42
 
-43:                                               ; preds = %37, %31, %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 609
-  %45 = load i8, ptr %44, align 1, !tbaa !99, !range !94, !noundef !95
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %51
+42:                                               ; preds = %36, %30, %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 609
+  %44 = load i8, ptr %43, align 1, !tbaa !99, !range !94, !noundef !95
+  %45 = trunc nuw i8 %44 to i1
+  br i1 %45, label %46, label %50
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  tail call void @_ZN3net12PacingSender17OnCongestionEventEbmRKSt6vectorISt4pairImtESaIS3_EES7_(ptr noundef nonnull align 8 dereferenceable(41) %48, i1 noundef zeroext %17, i64 noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %50)
-  br label %59
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  tail call void @_ZN3net12PacingSender17OnCongestionEventEbmRKSt6vectorISt4pairImtESaIS3_EES7_(ptr noundef nonnull align 8 dereferenceable(41) %47, i1 noundef zeroext %17, i64 noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %49)
+  br label %58
 
-51:                                               ; preds = %43
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %53 = load ptr, ptr %52, align 8, !tbaa !85
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %56 = load ptr, ptr %53, align 8, !tbaa !3
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %58 = load ptr, ptr %57, align 8
-  tail call void %58(ptr noundef nonnull align 8 dereferenceable(8) %53, i1 noundef zeroext %17, i64 noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %55)
-  br label %59
+50:                                               ; preds = %42
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %52 = load ptr, ptr %51, align 8, !tbaa !85
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %55 = load ptr, ptr %52, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %57 = load ptr, ptr %56, align 8
+  tail call void %57(ptr noundef nonnull align 8 dereferenceable(8) %52, i1 noundef zeroext %17, i64 noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %54)
+  br label %58
 
-59:                                               ; preds = %51, %47
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %61 = load ptr, ptr %60, align 8, !tbaa !86
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %63 = load ptr, ptr %62, align 8, !tbaa !132
-  %.not.i.i.i = icmp eq ptr %63, %61
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit.i, label %64
+58:                                               ; preds = %50, %46
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %60 = load ptr, ptr %59, align 8, !tbaa !86
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %62 = load ptr, ptr %61, align 8, !tbaa !132
+  %.not.i.i.i = icmp eq ptr %62, %60
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit.i, label %63
 
-64:                                               ; preds = %59
-  store ptr %61, ptr %62, align 8, !tbaa !132
+63:                                               ; preds = %58
+  store ptr %60, ptr %61, align 8, !tbaa !132
   br label %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit.i
 
-_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit.i:  ; preds = %64, %59
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %66 = load ptr, ptr %65, align 8, !tbaa !86
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %68 = load ptr, ptr %67, align 8, !tbaa !132
-  %.not.i.i5.i = icmp eq ptr %68, %66
-  br i1 %.not.i.i5.i, label %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit6.i, label %69
+_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit.i:  ; preds = %63, %58
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %65 = load ptr, ptr %64, align 8, !tbaa !86
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %67 = load ptr, ptr %66, align 8, !tbaa !132
+  %.not.i.i5.i = icmp eq ptr %67, %65
+  br i1 %.not.i.i5.i, label %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit6.i, label %68
 
-69:                                               ; preds = %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit.i
-  store ptr %66, ptr %67, align 8, !tbaa !132
+68:                                               ; preds = %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit.i
+  store ptr %65, ptr %66, align 8, !tbaa !132
   br label %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit6.i
 
-_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit6.i: ; preds = %69, %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit.i
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %71 = load ptr, ptr %70, align 8, !tbaa !103
-  %.not.i24 = icmp eq ptr %71, null
-  br i1 %.not.i24, label %_ZN3net21QuicSentPacketManager26MaybeInvokeCongestionEventEbm.exit, label %72
+_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit6.i: ; preds = %68, %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit.i
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %70 = load ptr, ptr %69, align 8, !tbaa !103
+  %.not.i26 = icmp eq ptr %70, null
+  br i1 %.not.i26, label %_ZN3net21QuicSentPacketManager26MaybeInvokeCongestionEventEbm.exit, label %71
 
-72:                                               ; preds = %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit6.i
-  %73 = load ptr, ptr %71, align 8, !tbaa !3
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %75 = load ptr, ptr %74, align 8
-  tail call void %75(ptr noundef nonnull align 8 dereferenceable(8) %71)
+71:                                               ; preds = %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit6.i
+  %72 = load ptr, ptr %70, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %74 = load ptr, ptr %73, align 8
+  tail call void %74(ptr noundef nonnull align 8 dereferenceable(8) %70)
   br label %_ZN3net21QuicSentPacketManager26MaybeInvokeCongestionEventEbm.exit
 
-_ZN3net21QuicSentPacketManager26MaybeInvokeCongestionEventEbm.exit: ; preds = %37, %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit6.i, %72
+_ZN3net21QuicSentPacketManager26MaybeInvokeCongestionEventEbm.exit: ; preds = %36, %_ZNSt6vectorISt4pairImtESaIS1_EE5clearEv.exit6.i, %71
   tail call void @_ZN3net20QuicUnackedPacketMap21RemoveObsoletePacketsEv(ptr noundef nonnull align 8 dereferenceable(120) %5)
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %78 = load ptr, ptr %77, align 8, !tbaa !85
-  %79 = load ptr, ptr %78, align 8, !tbaa !3
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 112
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(8) %78)
-  %83 = load ptr, ptr %77, align 8, !tbaa !85
-  %84 = load ptr, ptr %83, align 8, !tbaa !3
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 104
-  %86 = load ptr, ptr %85, align 8
-  %87 = tail call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(8) %83)
-  %88 = load ptr, ptr %77, align 8, !tbaa !85
-  %89 = load ptr, ptr %88, align 8, !tbaa !3
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 80
-  %91 = load ptr, ptr %90, align 8
-  %92 = tail call i64 %91(ptr noundef nonnull align 8 dereferenceable(8) %88)
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %94 = load ptr, ptr %93, align 8, !tbaa !74
-  %95 = load ptr, ptr %94, align 8, !tbaa !3
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %97 = load ptr, ptr %96, align 8
-  %98 = tail call i64 %97(ptr noundef nonnull align 8 dereferenceable(8) %94)
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %.sroa.0.0.copyload.i = load i64, ptr %100, align 8, !tbaa !111
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %77 = load ptr, ptr %76, align 8, !tbaa !85
+  %78 = load ptr, ptr %77, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 112
+  %80 = load ptr, ptr %79, align 8
+  %81 = tail call noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(8) %77)
+  %82 = load ptr, ptr %76, align 8, !tbaa !85
+  %83 = load ptr, ptr %82, align 8, !tbaa !3
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 104
+  %85 = load ptr, ptr %84, align 8
+  %86 = tail call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(8) %82)
+  %87 = load ptr, ptr %76, align 8, !tbaa !85
+  %88 = load ptr, ptr %87, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 80
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call i64 %90(ptr noundef nonnull align 8 dereferenceable(8) %87)
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %93 = load ptr, ptr %92, align 8, !tbaa !74
+  %94 = load ptr, ptr %93, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  %96 = load ptr, ptr %95, align 8
+  %97 = tail call i64 %96(ptr noundef nonnull align 8 dereferenceable(8) %93)
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %.sroa.0.0.copyload.i = load i64, ptr %99, align 8, !tbaa !111
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 304
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !111
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %101, align 8
-  tail call void @_ZN3net30QuicSustainedBandwidthRecorder14RecordEstimateEbbNS_13QuicBandwidthENS_8QuicTimeENS_12QuicWallTimeENS2_5DeltaE(ptr noundef nonnull align 8 dereferenceable(40) %76, i1 noundef zeroext %82, i1 noundef zeroext %87, i64 %92, i64 %2, i64 %98, ptr noundef nonnull byval(%"class.net::QuicTime::Delta") align 8 %4)
-  br i1 %17, label %102, label %120
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %100, align 8
+  tail call void @_ZN3net30QuicSustainedBandwidthRecorder14RecordEstimateEbbNS_13QuicBandwidthENS_8QuicTimeENS_12QuicWallTimeENS2_5DeltaE(ptr noundef nonnull align 8 dereferenceable(40) %75, i1 noundef zeroext %81, i1 noundef zeroext %86, i64 %91, i64 %2, i64 %97, ptr noundef nonnull byval(%"class.net::QuicTime::Delta") align 8 %4)
+  br i1 %17, label %101, label %118
 
-102:                                              ; preds = %_ZN3net21QuicSentPacketManager26MaybeInvokeCongestionEventEbm.exit
-  %103 = load i64, ptr %19, align 8, !tbaa !131
-  %.not21 = icmp eq i64 %103, 0
-  br i1 %.not21, label %119, label %104
+101:                                              ; preds = %_ZN3net21QuicSentPacketManager26MaybeInvokeCongestionEventEbm.exit
+  %102 = load i64, ptr %19, align 8, !tbaa !131
+  %.not21 = icmp eq i64 %102, 0
+  br i1 %.not21, label %117, label %103
 
-104:                                              ; preds = %102
-  %105 = load i64, ptr %1, align 8, !tbaa !113
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %107 = load i64, ptr %106, align 8, !tbaa !134
-  %108 = icmp ult i64 %105, %107
-  br i1 %108, label %109, label %110
+103:                                              ; preds = %101
+  %104 = load i64, ptr %1, align 8, !tbaa !113
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %106 = load i64, ptr %105, align 8, !tbaa !134
+  %107 = icmp ult i64 %104, %106
+  br i1 %107, label %108, label %109
 
-109:                                              ; preds = %104
-  tail call void @_ZN3net8RttStats21ExpireSmoothedMetricsEv(ptr noundef nonnull align 8 dereferenceable(224) %99)
-  br label %119
+108:                                              ; preds = %103
+  tail call void @_ZN3net8RttStats21ExpireSmoothedMetricsEv(ptr noundef nonnull align 8 dereferenceable(224) %98)
+  br label %117
 
-110:                                              ; preds = %104
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 610
-  %112 = load i8, ptr %111, align 2, !tbaa !101, !range !94, !noundef !95
-  %113 = trunc nuw i8 %112 to i1
-  br i1 %113, label %119, label %114
+109:                                              ; preds = %103
+  %110 = load i8, ptr %21, align 2, !tbaa !101, !range !94, !noundef !95
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %111, label %117, label %112
 
-114:                                              ; preds = %110
-  %115 = load ptr, ptr %77, align 8, !tbaa !85
-  %116 = load ptr, ptr %115, align 8, !tbaa !3
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 48
-  %118 = load ptr, ptr %117, align 8
-  tail call void %118(ptr noundef nonnull align 8 dereferenceable(8) %115, i1 noundef zeroext true)
-  br label %119
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %76, align 8, !tbaa !85
+  %114 = load ptr, ptr %113, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 48
+  %116 = load ptr, ptr %115, align 8
+  tail call void %116(ptr noundef nonnull align 8 dereferenceable(8) %113, i1 noundef zeroext true)
+  br label %117
 
-119:                                              ; preds = %109, %114, %110, %102
+117:                                              ; preds = %108, %112, %109, %101
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  br label %120
+  br label %118
 
-120:                                              ; preds = %119, %_ZN3net21QuicSentPacketManager26MaybeInvokeCongestionEventEbm.exit
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 611
-  %124 = load i8, ptr %123, align 1, !tbaa !102, !range !94, !noundef !95
-  %125 = trunc nuw i8 %124 to i1
-  br i1 %125, label %.lr.ph, label %.critedge
+118:                                              ; preds = %117, %_ZN3net21QuicSentPacketManager26MaybeInvokeCongestionEventEbm.exit
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 611
+  %122 = load i8, ptr %121, align 1, !tbaa !102, !range !94, !noundef !95
+  %123 = trunc nuw i8 %122 to i1
+  br i1 %123, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %120
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  br label %127
+.lr.ph:                                           ; preds = %118
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  br label %125
 
-127:                                              ; preds = %.lr.ph, %139
-  %128 = load ptr, ptr %122, align 8, !tbaa !21
-  %129 = icmp eq ptr %128, %122
-  br i1 %129, label %.critedge, label %130
+125:                                              ; preds = %.lr.ph, %137
+  %126 = load ptr, ptr %120, align 8, !tbaa !21
+  %127 = icmp eq ptr %126, %120
+  br i1 %127, label %.critedge, label %128
 
-130:                                              ; preds = %127
-  %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %132 = load i64, ptr %131, align 8, !tbaa !135
-  %133 = load i64, ptr %126, align 8, !tbaa !138
-  %134 = icmp ugt i64 %132, %133
-  br i1 %134, label %135, label %.critedge
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 16
+  %130 = load i64, ptr %129, align 8, !tbaa !135
+  %131 = load i64, ptr %124, align 8, !tbaa !138
+  %132 = icmp ugt i64 %130, %131
+  br i1 %132, label %133, label %.critedge
 
-135:                                              ; preds = %130
-  %136 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %137 = load i8, ptr %136, align 8, !tbaa !139
-  %138 = icmp eq i8 %137, 4
-  br i1 %138, label %139, label %.critedge
+133:                                              ; preds = %128
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %135 = load i8, ptr %134, align 8, !tbaa !139
+  %136 = icmp eq i8 %135, 4
+  br i1 %136, label %137, label %.critedge
 
-139:                                              ; preds = %135
-  tail call void @_ZN3net20QuicUnackedPacketMap17RestoreToInFlightEm(ptr noundef nonnull align 8 dereferenceable(120) %5, i64 noundef %132)
-  %140 = load ptr, ptr %122, align 8, !tbaa !21
-  %141 = tail call ptr @_ZN15linked_hash_mapImN3net16TransmissionTypeESt4hashImEE5eraseESt14_List_iteratorISt4pairImS1_EE(ptr noundef nonnull align 8 dereferenceable(80) %121, ptr %140)
-  %142 = load i8, ptr %123, align 1, !tbaa !102, !range !94, !noundef !95
-  %143 = trunc nuw i8 %142 to i1
-  br i1 %143, label %127, label %.critedge, !llvm.loop !140
+137:                                              ; preds = %133
+  tail call void @_ZN3net20QuicUnackedPacketMap17RestoreToInFlightEm(ptr noundef nonnull align 8 dereferenceable(120) %5, i64 noundef %130)
+  %138 = load ptr, ptr %120, align 8, !tbaa !21
+  %139 = tail call ptr @_ZN15linked_hash_mapImN3net16TransmissionTypeESt4hashImEE5eraseESt14_List_iteratorISt4pairImS1_EE(ptr noundef nonnull align 8 dereferenceable(80) %119, ptr %138)
+  %140 = load i8, ptr %121, align 1, !tbaa !102, !range !94, !noundef !95
+  %141 = trunc nuw i8 %140 to i1
+  br i1 %141, label %125, label %.critedge, !llvm.loop !140
 
-.critedge:                                        ; preds = %135, %139, %127, %130, %120
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %145 = load ptr, ptr %144, align 8, !tbaa !141
-  %.not22 = icmp eq ptr %145, null
-  br i1 %.not22, label %158, label %146
+.critedge:                                        ; preds = %133, %137, %125, %128, %118
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %143 = load ptr, ptr %142, align 8, !tbaa !141
+  %.not22 = icmp eq ptr %143, null
+  br i1 %.not22, label %156, label %144
 
-146:                                              ; preds = %.critedge
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %148 = load i64, ptr %147, align 8, !tbaa !142
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %150 = load i8, ptr %149, align 4, !tbaa !73
-  %151 = load ptr, ptr %0, align 8, !tbaa !3
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 112
-  %153 = load ptr, ptr %152, align 8
-  %154 = tail call noundef i64 %153(ptr noundef nonnull align 8 dereferenceable(776) %0, i8 noundef zeroext %150)
-  %155 = load ptr, ptr %145, align 8, !tbaa !3
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
-  %157 = load ptr, ptr %156, align 8
-  tail call void %157(ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef nonnull align 8 dereferenceable(100) %1, i64 %2, i64 noundef %148, i1 noundef zeroext %17, i64 noundef %154)
-  br label %158
+144:                                              ; preds = %.critedge
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %146 = load i64, ptr %145, align 8, !tbaa !142
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %148 = load i8, ptr %147, align 4, !tbaa !73
+  %149 = load ptr, ptr %0, align 8, !tbaa !3
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 112
+  %151 = load ptr, ptr %150, align 8
+  %152 = tail call noundef i64 %151(ptr noundef nonnull align 8 dereferenceable(776) %0, i8 noundef zeroext %148)
+  %153 = load ptr, ptr %143, align 8, !tbaa !3
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
+  %155 = load ptr, ptr %154, align 8
+  tail call void %155(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull align 8 dereferenceable(100) %1, i64 %2, i64 noundef %146, i1 noundef zeroext %17, i64 noundef %152)
+  br label %156
 
-158:                                              ; preds = %146, %.critedge
+156:                                              ; preds = %144, %.critedge
   ret void
 }
 
@@ -3313,8 +3310,8 @@ define void @_ZN3net21QuicSentPacketManager20RetransmitRtoPacketsEv(ptr noundef 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = load i64, ptr %5, align 8, !tbaa !244
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %.critedge, label %7
+  %.not15 = icmp eq i64 %6, 0
+  br i1 %.not15, label %.critedge, label %7
 
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %2) #18
@@ -3356,8 +3353,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
 ._crit_edge:                                      ; preds = %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit, %.critedge
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %26 = load i64, ptr %25, align 8, !tbaa !244
-  %.not14 = icmp eq i64 %26, 0
-  br i1 %.not14, label %79, label %69
+  %.not16 = icmp eq i64 %26, 0
+  br i1 %.not16, label %80, label %70
 
 27:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %7
   %28 = landingpad { ptr, i32 }
@@ -3367,7 +3364,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %.lr.ph, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
-  %.01235 = phi i64 [ %13, %.lr.ph ], [ %67, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
+  %.01335 = phi i64 [ %13, %.lr.ph ], [ %68, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
   %.sroa.16.034 = phi ptr [ %19, %.lr.ph ], [ %.sroa.16.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
   %.sroa.13.033 = phi ptr [ %21, %.lr.ph ], [ %.sroa.13.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
   %.sroa.023.032 = phi ptr [ %15, %.lr.ph ], [ %.sroa.023.1, %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit ]
@@ -3381,7 +3378,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
   br i1 %or.cond, label %36, label %39
 
 36:                                               ; preds = %29
-  call void @_ZN3net21QuicSentPacketManager21MarkForRetransmissionEmNS_16TransmissionTypeE(ptr noundef nonnull align 8 dereferenceable(776) %0, i64 noundef %.01235, i8 noundef signext 5)
+  call void @_ZN3net21QuicSentPacketManager21MarkForRetransmissionEmNS_16TransmissionTypeE(ptr noundef nonnull align 8 dereferenceable(776) %0, i64 noundef %.01335, i8 noundef signext 5)
   %37 = load i64, ptr %22, align 8, !tbaa !244
   %38 = add i64 %37, 1
   store i64 %38, ptr %22, align 8, !tbaa !244
@@ -3393,75 +3390,75 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
   %40 = phi ptr [ %.pre37, %36 ], [ %32, %29 ]
   %41 = phi ptr [ %.pre, %36 ], [ %30, %29 ]
   %42 = icmp eq ptr %41, %40
-  br i1 %42, label %43, label %60
+  br i1 %42, label %43, label %61
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.023.032, i64 48
   %45 = load i64, ptr %44, align 8, !tbaa !192
-  %.not15 = icmp eq i64 %45, 0
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.023.032, i64 41
-  %47 = load i8, ptr %46, align 1, !tbaa !158, !range !94, !noundef !95
-  %48 = trunc nuw i8 %47 to i1
-  %brmerge.not = select i1 %48, i1 %.not15, i1 false
-  br i1 %brmerge.not, label %49, label %60
+  %46 = icmp eq i64 %45, 0
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.023.032, i64 41
+  %48 = load i8, ptr %47, align 1, !tbaa !158, !range !94, !noundef !95
+  %49 = trunc nuw i8 %48 to i1
+  %or.cond.not = select i1 %49, i1 %46, i1 false
+  br i1 %or.cond.not, label %50, label %61
 
-49:                                               ; preds = %43
-  call void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr noundef nonnull align 8 dereferenceable(120) %12, i64 noundef %.01235)
-  %50 = load ptr, ptr %23, align 8, !tbaa !141
-  %.not16 = icmp eq ptr %50, null
-  br i1 %.not16, label %60, label %51
+50:                                               ; preds = %43
+  call void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr noundef nonnull align 8 dereferenceable(120) %12, i64 noundef %.01335)
+  %51 = load ptr, ptr %23, align 8, !tbaa !141
+  %.not = icmp eq ptr %51, null
+  br i1 %.not, label %61, label %52
 
-51:                                               ; preds = %49
-  %52 = load ptr, ptr %24, align 8, !tbaa !74
-  %53 = load ptr, ptr %52, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %56 = call i64 %55(ptr noundef nonnull align 8 dereferenceable(8) %52)
-  %57 = load ptr, ptr %50, align 8, !tbaa !3
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(8) %50, i64 noundef %.01235, i8 noundef signext 5, i64 %56)
-  br label %60
+52:                                               ; preds = %50
+  %53 = load ptr, ptr %24, align 8, !tbaa !74
+  %54 = load ptr, ptr %53, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %56 = load ptr, ptr %55, align 8
+  %57 = call i64 %56(ptr noundef nonnull align 8 dereferenceable(8) %53)
+  %58 = load ptr, ptr %51, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %60 = load ptr, ptr %59, align 8
+  call void %60(ptr noundef nonnull align 8 dereferenceable(8) %51, i64 noundef %.01335, i8 noundef signext 5, i64 %57)
+  br label %61
 
-60:                                               ; preds = %43, %49, %51, %39
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.023.032, i64 80
-  %62 = icmp eq ptr %61, %.sroa.13.033
-  br i1 %62, label %63, label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
+61:                                               ; preds = %50, %52, %43, %39
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.023.032, i64 80
+  %63 = icmp eq ptr %62, %.sroa.13.033
+  br i1 %63, label %64, label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.16.034, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !178
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 480
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.16.034, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !178
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 480
   br label %_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit
 
-_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit: ; preds = %60, %63
-  %.sroa.023.1 = phi ptr [ %65, %63 ], [ %61, %60 ]
-  %.sroa.13.1 = phi ptr [ %66, %63 ], [ %.sroa.13.033, %60 ]
-  %.sroa.16.1 = phi ptr [ %64, %63 ], [ %.sroa.16.034, %60 ]
-  %67 = add i64 %.01235, 1
-  %68 = load ptr, ptr %16, align 8, !tbaa !144, !noalias !277
-  %.not30 = icmp eq ptr %.sroa.023.1, %68
+_ZNSt15_Deque_iteratorIN3net16TransmissionInfoERKS1_PS2_EppEv.exit: ; preds = %61, %64
+  %.sroa.023.1 = phi ptr [ %66, %64 ], [ %62, %61 ]
+  %.sroa.13.1 = phi ptr [ %67, %64 ], [ %.sroa.13.033, %61 ]
+  %.sroa.16.1 = phi ptr [ %65, %64 ], [ %.sroa.16.034, %61 ]
+  %68 = add i64 %.01335, 1
+  %69 = load ptr, ptr %16, align 8, !tbaa !144, !noalias !277
+  %.not30 = icmp eq ptr %.sroa.023.1, %69
   br i1 %.not30, label %._crit_edge, label %29, !llvm.loop !282
 
-69:                                               ; preds = %._crit_edge
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %71 = load i64, ptr %70, align 8, !tbaa !131
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %77
+70:                                               ; preds = %._crit_edge
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %72 = load i64, ptr %71, align 8, !tbaa !131
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %74, label %78
 
-73:                                               ; preds = %69
-  %74 = load i64, ptr %12, align 8, !tbaa !283
-  %75 = add i64 %74, 1
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  store i64 %75, ptr %76, align 8, !tbaa !134
-  br label %77
+74:                                               ; preds = %70
+  %75 = load i64, ptr %12, align 8, !tbaa !283
+  %76 = add i64 %75, 1
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  store i64 %76, ptr %77, align 8, !tbaa !134
+  br label %78
 
-77:                                               ; preds = %73, %69
-  %78 = add i64 %71, 1
-  store i64 %78, ptr %70, align 8, !tbaa !131
-  br label %79
+78:                                               ; preds = %74, %70
+  %79 = add i64 %72, 1
+  store i64 %79, ptr %71, align 8, !tbaa !131
+  br label %80
 
-79:                                               ; preds = %77, %._crit_edge
+80:                                               ; preds = %78, %._crit_edge
   ret void
 }
 

@@ -493,156 +493,95 @@ define void @_ZN6icu_7711NGramParser15parseCharactersEPNS_9InputTextE(ptr nounde
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZN6icu_7711NGramParser7addByteEi.exit
-  %14 = phi i32 [ %6, %.lr.ph ], [ %103, %_ZN6icu_7711NGramParser7addByteEi.exit ]
-  %.026 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZN6icu_7711NGramParser7addByteEi.exit ]
+  %14 = phi i32 [ %6, %.lr.ph ], [ %66, %_ZN6icu_7711NGramParser7addByteEi.exit ]
+  %.010 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZN6icu_7711NGramParser7addByteEi.exit ]
   %15 = load ptr, ptr %8, align 8, !tbaa !15
   %16 = zext nneg i32 %14 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !23
-  switch i8 %18, label %.split [
-    i8 0, label %_ZN6icu_7711NGramParser7addByteEi.exit
-    i8 32, label %58
-  ]
-
-.split:                                           ; preds = %13
   %19 = zext i8 %18 to i32
-  %20 = load i32, ptr %9, align 8, !tbaa !6
-  %21 = shl i32 %20, 8
-  %.masked = and i32 %21, 16776960
-  %22 = or disjoint i32 %.masked, %19
-  store i32 %22, ptr %9, align 8, !tbaa !6
-  %23 = load i32, ptr %10, align 8, !tbaa !17
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %10, align 8, !tbaa !17
-  %25 = load ptr, ptr %11, align 8, !tbaa !14
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %27 = load i32, ptr %26, align 4, !tbaa !18
-  %.not.i.i.i = icmp sgt i32 %27, %22
+  %.not = icmp eq i8 %18, 0
+  br i1 %.not, label %_ZN6icu_7711NGramParser7addByteEi.exit, label %20
+
+20:                                               ; preds = %13
+  %21 = icmp eq i8 %18, 32
+  %or.cond = select i1 %21, i1 %.010, i1 false
+  br i1 %or.cond, label %_ZN6icu_7711NGramParser7addByteEi.exit, label %22
+
+22:                                               ; preds = %20
+  %23 = load i32, ptr %9, align 8, !tbaa !6
+  %24 = shl i32 %23, 8
+  %.masked = and i32 %24, 16776960
+  %25 = or disjoint i32 %.masked, %19
+  store i32 %25, ptr %9, align 8, !tbaa !6
+  %26 = load i32, ptr %10, align 8, !tbaa !17
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %10, align 8, !tbaa !17
+  %28 = load ptr, ptr %11, align 8, !tbaa !14
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %30 = load i32, ptr %29, align 4, !tbaa !18
+  %.not.i.i.i = icmp sgt i32 %30, %25
   %spec.select.i.i.i = select i1 %.not.i.i.i, i32 0, i32 32
-  %28 = or disjoint i32 %spec.select.i.i.i, 16
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %25, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !18
-  %.not34.i.i.i = icmp sgt i32 %31, %22
-  %.1.i.i.i = select i1 %.not34.i.i.i, i32 %spec.select.i.i.i, i32 %28
-  %32 = or disjoint i32 %.1.i.i.i, 8
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %25, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !18
-  %.not35.i.i.i = icmp sgt i32 %35, %22
-  %.2.i.i.i = select i1 %.not35.i.i.i, i32 %.1.i.i.i, i32 %32
-  %36 = or disjoint i32 %.2.i.i.i, 4
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %25, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !18
-  %.not36.i.i.i = icmp sgt i32 %39, %22
-  %.3.i.i.i = select i1 %.not36.i.i.i, i32 %.2.i.i.i, i32 %36
-  %40 = add nuw nsw i32 %.3.i.i.i, 2
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %25, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !18
-  %.not37.i.i.i = icmp sgt i32 %43, %22
-  %.4.i.i.i = select i1 %.not37.i.i.i, i32 %.3.i.i.i, i32 %40
-  %44 = add nuw nsw i32 %.4.i.i.i, 1
-  %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %25, i64 %45
-  %47 = load i32, ptr %46, align 4, !tbaa !18
-  %.not38.i.i.i = icmp sgt i32 %47, %22
-  %.5.i.i.i = select i1 %.not38.i.i.i, i32 %.4.i.i.i, i32 %44
-  %48 = zext nneg i32 %.5.i.i.i to i64
-  %49 = getelementptr inbounds nuw i32, ptr %25, i64 %48
+  %31 = or disjoint i32 %spec.select.i.i.i, 16
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr inbounds nuw i32, ptr %28, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !18
+  %.not34.i.i.i = icmp sgt i32 %34, %25
+  %.1.i.i.i = select i1 %.not34.i.i.i, i32 %spec.select.i.i.i, i32 %31
+  %35 = or disjoint i32 %.1.i.i.i, 8
+  %36 = zext nneg i32 %35 to i64
+  %37 = getelementptr inbounds nuw i32, ptr %28, i64 %36
+  %38 = load i32, ptr %37, align 4, !tbaa !18
+  %.not35.i.i.i = icmp sgt i32 %38, %25
+  %.2.i.i.i = select i1 %.not35.i.i.i, i32 %.1.i.i.i, i32 %35
+  %39 = or disjoint i32 %.2.i.i.i, 4
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds nuw i32, ptr %28, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !18
+  %.not36.i.i.i = icmp sgt i32 %42, %25
+  %.3.i.i.i = select i1 %.not36.i.i.i, i32 %.2.i.i.i, i32 %39
+  %43 = add nuw nsw i32 %.3.i.i.i, 2
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw i32, ptr %28, i64 %44
+  %46 = load i32, ptr %45, align 4, !tbaa !18
+  %.not37.i.i.i = icmp sgt i32 %46, %25
+  %.4.i.i.i = select i1 %.not37.i.i.i, i32 %.3.i.i.i, i32 %43
+  %47 = add nuw nsw i32 %.4.i.i.i, 1
+  %48 = zext nneg i32 %47 to i64
+  %49 = getelementptr inbounds nuw i32, ptr %28, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !18
-  %51 = icmp sgt i32 %50, %22
-  %52 = sext i1 %51 to i32
-  %.6.i.i.i = add nsw i32 %.5.i.i.i, %52
-  %53 = icmp slt i32 %.6.i.i.i, 0
-  br i1 %53, label %_ZN6icu_7711NGramParser7addByteEi.exit, label %54
+  %.not38.i.i.i = icmp sgt i32 %50, %25
+  %.5.i.i.i = select i1 %.not38.i.i.i, i32 %.4.i.i.i, i32 %47
+  %51 = zext nneg i32 %.5.i.i.i to i64
+  %52 = getelementptr inbounds nuw i32, ptr %28, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !18
+  %54 = icmp sgt i32 %53, %25
+  %55 = sext i1 %54 to i32
+  %.6.i.i.i = add nsw i32 %.5.i.i.i, %55
+  %56 = icmp slt i32 %.6.i.i.i, 0
+  br i1 %56, label %_ZN6icu_7711NGramParser7addByteEi.exit, label %57
 
-54:                                               ; preds = %.split
-  %55 = zext nneg i32 %.6.i.i.i to i64
-  %56 = getelementptr inbounds nuw i32, ptr %25, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !18
-  %.not39.i.i.i = icmp eq i32 %57, %22
-  br i1 %.not39.i.i.i, label %_ZN6icu_7711NGramParser7addByteEi.exit.sink.split, label %_ZN6icu_7711NGramParser7addByteEi.exit
+57:                                               ; preds = %22
+  %58 = zext nneg i32 %.6.i.i.i to i64
+  %59 = getelementptr inbounds nuw i32, ptr %28, i64 %58
+  %60 = load i32, ptr %59, align 4, !tbaa !18
+  %.not39.i.i.i = icmp eq i32 %60, %25
+  br i1 %.not39.i.i.i, label %_ZN6icu_7711NGramParser6searchEPKii.exit.i.i, label %_ZN6icu_7711NGramParser7addByteEi.exit
 
-58:                                               ; preds = %13
-  br i1 %.026, label %_ZN6icu_7711NGramParser7addByteEi.exit, label %.split7
-
-.split7:                                          ; preds = %58
-  %59 = load i32, ptr %9, align 8, !tbaa !6
-  %60 = shl i32 %59, 8
-  %61 = and i32 %60, 16776960
-  %62 = or disjoint i32 %61, 32
-  store i32 %62, ptr %9, align 8, !tbaa !6
-  %63 = load i32, ptr %10, align 8, !tbaa !17
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %10, align 8, !tbaa !17
-  %65 = load ptr, ptr %11, align 8, !tbaa !14
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 128
-  %67 = load i32, ptr %66, align 4, !tbaa !18
-  %.not.i.i.i10 = icmp sgt i32 %67, %62
-  %spec.select.i.i.i11 = select i1 %.not.i.i.i10, i32 0, i32 32
-  %68 = or disjoint i32 %spec.select.i.i.i11, 16
-  %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %65, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !18
-  %.not34.i.i.i12 = icmp sgt i32 %71, %62
-  %.1.i.i.i13 = select i1 %.not34.i.i.i12, i32 %spec.select.i.i.i11, i32 %68
-  %72 = or disjoint i32 %.1.i.i.i13, 8
-  %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %65, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !18
-  %.not35.i.i.i14 = icmp sgt i32 %75, %62
-  %.2.i.i.i15 = select i1 %.not35.i.i.i14, i32 %.1.i.i.i13, i32 %72
-  %76 = or disjoint i32 %.2.i.i.i15, 4
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %65, i64 %77
-  %79 = load i32, ptr %78, align 4, !tbaa !18
-  %.not36.i.i.i16 = icmp sgt i32 %79, %62
-  %.3.i.i.i17 = select i1 %.not36.i.i.i16, i32 %.2.i.i.i15, i32 %76
-  %80 = add nuw nsw i32 %.3.i.i.i17, 2
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %65, i64 %81
-  %83 = load i32, ptr %82, align 4, !tbaa !18
-  %.not37.i.i.i18 = icmp sgt i32 %83, %62
-  %.4.i.i.i19 = select i1 %.not37.i.i.i18, i32 %.3.i.i.i17, i32 %80
-  %84 = add nuw nsw i32 %.4.i.i.i19, 1
-  %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %65, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !18
-  %.not38.i.i.i20 = icmp sgt i32 %87, %62
-  %.5.i.i.i21 = select i1 %.not38.i.i.i20, i32 %.4.i.i.i19, i32 %84
-  %88 = zext nneg i32 %.5.i.i.i21 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %65, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !18
-  %91 = icmp sgt i32 %90, %62
-  %92 = sext i1 %91 to i32
-  %.6.i.i.i22 = add nsw i32 %.5.i.i.i21, %92
-  %93 = icmp slt i32 %.6.i.i.i22, 0
-  br i1 %93, label %_ZN6icu_7711NGramParser7addByteEi.exit, label %94
-
-94:                                               ; preds = %.split7
-  %95 = zext nneg i32 %.6.i.i.i22 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %65, i64 %95
-  %97 = load i32, ptr %96, align 4, !tbaa !18
-  %.not39.i.i.i23 = icmp eq i32 %97, %62
-  br i1 %.not39.i.i.i23, label %_ZN6icu_7711NGramParser7addByteEi.exit.sink.split, label %_ZN6icu_7711NGramParser7addByteEi.exit
-
-_ZN6icu_7711NGramParser7addByteEi.exit.sink.split: ; preds = %94, %54
-  %.1.ph = phi i1 [ false, %54 ], [ true, %94 ]
-  %98 = load i32, ptr %12, align 4, !tbaa !16
-  %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %12, align 4, !tbaa !16
+_ZN6icu_7711NGramParser6searchEPKii.exit.i.i:     ; preds = %57
+  %61 = load i32, ptr %12, align 4, !tbaa !16
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %12, align 4, !tbaa !16
   br label %_ZN6icu_7711NGramParser7addByteEi.exit
 
-_ZN6icu_7711NGramParser7addByteEi.exit:           ; preds = %_ZN6icu_7711NGramParser7addByteEi.exit.sink.split, %13, %58, %.split, %54, %.split7, %94
-  %.1 = phi i1 [ %.026, %13 ], [ true, %94 ], [ true, %.split7 ], [ false, %54 ], [ false, %.split ], [ true, %58 ], [ %.1.ph, %_ZN6icu_7711NGramParser7addByteEi.exit.sink.split ]
-  %100 = load ptr, ptr %0, align 8, !tbaa !3
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call noundef i32 %102(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
-  %104 = icmp sgt i32 %103, -1
-  br i1 %104, label %13, label %._crit_edge, !llvm.loop !24
+_ZN6icu_7711NGramParser7addByteEi.exit:           ; preds = %20, %22, %57, %_ZN6icu_7711NGramParser6searchEPKii.exit.i.i, %13
+  %.1 = phi i1 [ %.010, %13 ], [ %21, %_ZN6icu_7711NGramParser6searchEPKii.exit.i.i ], [ %21, %57 ], [ %21, %22 ], [ true, %20 ]
+  %63 = load ptr, ptr %0, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call noundef i32 %65(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
+  %67 = icmp sgt i32 %66, -1
+  br i1 %67, label %13, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN6icu_7711NGramParser7addByteEi.exit, %2
   ret void
@@ -860,318 +799,194 @@ define void @_ZN6icu_7718NGramParser_IBM42015parseCharactersEPNS_9InputTextE(ptr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %14
 
-14:                                               ; preds = %.lr.ph, %197
-  %15 = phi i32 [ %6, %.lr.ph ], [ %201, %197 ]
-  %.070 = phi i8 [ 0, %.lr.ph ], [ %.2, %197 ]
+14:                                               ; preds = %.lr.ph, %119
+  %15 = phi i32 [ %6, %.lr.ph ], [ %123, %119 ]
+  %.038 = phi i8 [ 0, %.lr.ph ], [ %.2, %119 ]
   %16 = load ptr, ptr %8, align 8, !tbaa !15
   %17 = zext nneg i32 %15 to i64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !23
   %20 = zext i8 %19 to i32
   %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %105, label %21
+  br i1 %.not, label %66, label %21
 
 21:                                               ; preds = %14
   %22 = icmp eq i8 %19, 32
-  br i1 %22, label %61, label %.split
+  %23 = trunc nuw i8 %.038 to i1
+  %or.cond = select i1 %22, i1 %23, i1 false
+  br i1 %or.cond, label %_ZN6icu_7711NGramParser7addByteEi.exit, label %24
 
-.split:                                           ; preds = %21
-  %23 = load i32, ptr %9, align 8, !tbaa !6
-  %24 = shl i32 %23, 8
-  %.masked = and i32 %24, 16776960
-  %25 = or disjoint i32 %.masked, %20
-  store i32 %25, ptr %9, align 8, !tbaa !6
-  %26 = load i32, ptr %10, align 8, !tbaa !17
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %10, align 8, !tbaa !17
-  %28 = load ptr, ptr %11, align 8, !tbaa !14
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
-  %30 = load i32, ptr %29, align 4, !tbaa !18
-  %.not.i.i.i = icmp sgt i32 %30, %25
+24:                                               ; preds = %21
+  %25 = load i32, ptr %9, align 8, !tbaa !6
+  %26 = shl i32 %25, 8
+  %.masked = and i32 %26, 16776960
+  %27 = or disjoint i32 %.masked, %20
+  store i32 %27, ptr %9, align 8, !tbaa !6
+  %28 = load i32, ptr %10, align 8, !tbaa !17
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %10, align 8, !tbaa !17
+  %30 = load ptr, ptr %11, align 8, !tbaa !14
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 128
+  %32 = load i32, ptr %31, align 4, !tbaa !18
+  %.not.i.i.i = icmp sgt i32 %32, %27
   %spec.select.i.i.i = select i1 %.not.i.i.i, i32 0, i32 32
-  %31 = or disjoint i32 %spec.select.i.i.i, 16
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %28, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !18
-  %.not34.i.i.i = icmp sgt i32 %34, %25
-  %.1.i.i.i = select i1 %.not34.i.i.i, i32 %spec.select.i.i.i, i32 %31
-  %35 = or disjoint i32 %.1.i.i.i, 8
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %28, i64 %36
-  %38 = load i32, ptr %37, align 4, !tbaa !18
-  %.not35.i.i.i = icmp sgt i32 %38, %25
-  %.2.i.i.i = select i1 %.not35.i.i.i, i32 %.1.i.i.i, i32 %35
-  %39 = or disjoint i32 %.2.i.i.i, 4
-  %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %28, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !18
-  %.not36.i.i.i = icmp sgt i32 %42, %25
-  %.3.i.i.i = select i1 %.not36.i.i.i, i32 %.2.i.i.i, i32 %39
-  %43 = add nuw nsw i32 %.3.i.i.i, 2
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %28, i64 %44
-  %46 = load i32, ptr %45, align 4, !tbaa !18
-  %.not37.i.i.i = icmp sgt i32 %46, %25
-  %.4.i.i.i = select i1 %.not37.i.i.i, i32 %.3.i.i.i, i32 %43
-  %47 = add nuw nsw i32 %.4.i.i.i, 1
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %28, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !18
-  %.not38.i.i.i = icmp sgt i32 %50, %25
-  %.5.i.i.i = select i1 %.not38.i.i.i, i32 %.4.i.i.i, i32 %47
-  %51 = zext nneg i32 %.5.i.i.i to i64
-  %52 = getelementptr inbounds nuw i32, ptr %28, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !18
-  %54 = icmp sgt i32 %53, %25
-  %55 = sext i1 %54 to i32
-  %.6.i.i.i = add nsw i32 %.5.i.i.i, %55
-  %56 = icmp slt i32 %.6.i.i.i, 0
-  br i1 %56, label %_ZN6icu_7711NGramParser7addByteEi.exit, label %57
+  %33 = or disjoint i32 %spec.select.i.i.i, 16
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %34
+  %36 = load i32, ptr %35, align 4, !tbaa !18
+  %.not34.i.i.i = icmp sgt i32 %36, %27
+  %.1.i.i.i = select i1 %.not34.i.i.i, i32 %spec.select.i.i.i, i32 %33
+  %37 = or disjoint i32 %.1.i.i.i, 8
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr inbounds nuw i32, ptr %30, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !18
+  %.not35.i.i.i = icmp sgt i32 %40, %27
+  %.2.i.i.i = select i1 %.not35.i.i.i, i32 %.1.i.i.i, i32 %37
+  %41 = or disjoint i32 %.2.i.i.i, 4
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr inbounds nuw i32, ptr %30, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !18
+  %.not36.i.i.i = icmp sgt i32 %44, %27
+  %.3.i.i.i = select i1 %.not36.i.i.i, i32 %.2.i.i.i, i32 %41
+  %45 = add nuw nsw i32 %.3.i.i.i, 2
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds nuw i32, ptr %30, i64 %46
+  %48 = load i32, ptr %47, align 4, !tbaa !18
+  %.not37.i.i.i = icmp sgt i32 %48, %27
+  %.4.i.i.i = select i1 %.not37.i.i.i, i32 %.3.i.i.i, i32 %45
+  %49 = add nuw nsw i32 %.4.i.i.i, 1
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds nuw i32, ptr %30, i64 %50
+  %52 = load i32, ptr %51, align 4, !tbaa !18
+  %.not38.i.i.i = icmp sgt i32 %52, %27
+  %.5.i.i.i = select i1 %.not38.i.i.i, i32 %.4.i.i.i, i32 %49
+  %53 = zext nneg i32 %.5.i.i.i to i64
+  %54 = getelementptr inbounds nuw i32, ptr %30, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !18
+  %56 = icmp sgt i32 %55, %27
+  %57 = sext i1 %56 to i32
+  %.6.i.i.i = add nsw i32 %.5.i.i.i, %57
+  %58 = icmp slt i32 %.6.i.i.i, 0
+  br i1 %58, label %_ZN6icu_7711NGramParser7addByteEi.exit, label %59
 
-57:                                               ; preds = %.split
-  %58 = zext nneg i32 %.6.i.i.i to i64
-  %59 = getelementptr inbounds nuw i32, ptr %28, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !18
-  %.not39.i.i.i = icmp eq i32 %60, %25
-  br i1 %.not39.i.i.i, label %_ZN6icu_7711NGramParser7addByteEi.exit.sink.split, label %_ZN6icu_7711NGramParser7addByteEi.exit
+59:                                               ; preds = %24
+  %60 = zext nneg i32 %.6.i.i.i to i64
+  %61 = getelementptr inbounds nuw i32, ptr %30, i64 %60
+  %62 = load i32, ptr %61, align 4, !tbaa !18
+  %.not39.i.i.i = icmp eq i32 %62, %27
+  br i1 %.not39.i.i.i, label %_ZN6icu_7711NGramParser6searchEPKii.exit.i.i, label %_ZN6icu_7711NGramParser7addByteEi.exit
 
-61:                                               ; preds = %21
-  %62 = trunc nuw i8 %.070 to i1
-  br i1 %62, label %_ZN6icu_7711NGramParser7addByteEi.exit, label %.split12
-
-.split12:                                         ; preds = %61
-  %63 = load i32, ptr %9, align 8, !tbaa !6
-  %64 = shl i32 %63, 8
-  %65 = and i32 %64, 16776960
-  %66 = or disjoint i32 %65, 32
-  store i32 %66, ptr %9, align 8, !tbaa !6
-  %67 = load i32, ptr %10, align 8, !tbaa !17
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %10, align 8, !tbaa !17
-  %69 = load ptr, ptr %11, align 8, !tbaa !14
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 128
-  %71 = load i32, ptr %70, align 4, !tbaa !18
-  %.not.i.i.i21 = icmp sgt i32 %71, %66
-  %spec.select.i.i.i22 = select i1 %.not.i.i.i21, i32 0, i32 32
-  %72 = or disjoint i32 %spec.select.i.i.i22, 16
-  %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %69, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !18
-  %.not34.i.i.i23 = icmp sgt i32 %75, %66
-  %.1.i.i.i24 = select i1 %.not34.i.i.i23, i32 %spec.select.i.i.i22, i32 %72
-  %76 = or disjoint i32 %.1.i.i.i24, 8
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %69, i64 %77
-  %79 = load i32, ptr %78, align 4, !tbaa !18
-  %.not35.i.i.i25 = icmp sgt i32 %79, %66
-  %.2.i.i.i26 = select i1 %.not35.i.i.i25, i32 %.1.i.i.i24, i32 %76
-  %80 = or disjoint i32 %.2.i.i.i26, 4
-  %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %69, i64 %81
-  %83 = load i32, ptr %82, align 4, !tbaa !18
-  %.not36.i.i.i27 = icmp sgt i32 %83, %66
-  %.3.i.i.i28 = select i1 %.not36.i.i.i27, i32 %.2.i.i.i26, i32 %80
-  %84 = add nuw nsw i32 %.3.i.i.i28, 2
-  %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %69, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !18
-  %.not37.i.i.i29 = icmp sgt i32 %87, %66
-  %.4.i.i.i30 = select i1 %.not37.i.i.i29, i32 %.3.i.i.i28, i32 %84
-  %88 = add nuw nsw i32 %.4.i.i.i30, 1
-  %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %69, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !18
-  %.not38.i.i.i31 = icmp sgt i32 %91, %66
-  %.5.i.i.i32 = select i1 %.not38.i.i.i31, i32 %.4.i.i.i30, i32 %88
-  %92 = zext nneg i32 %.5.i.i.i32 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %69, i64 %92
-  %94 = load i32, ptr %93, align 4, !tbaa !18
-  %95 = icmp sgt i32 %94, %66
-  %96 = sext i1 %95 to i32
-  %.6.i.i.i33 = add nsw i32 %.5.i.i.i32, %96
-  %97 = icmp slt i32 %.6.i.i.i33, 0
-  br i1 %97, label %_ZN6icu_7711NGramParser7addByteEi.exit, label %98
-
-98:                                               ; preds = %.split12
-  %99 = zext nneg i32 %.6.i.i.i33 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %69, i64 %99
-  %101 = load i32, ptr %100, align 4, !tbaa !18
-  %.not39.i.i.i34 = icmp eq i32 %101, %66
-  br i1 %.not39.i.i.i34, label %_ZN6icu_7711NGramParser7addByteEi.exit.sink.split, label %_ZN6icu_7711NGramParser7addByteEi.exit
-
-_ZN6icu_7711NGramParser7addByteEi.exit.sink.split: ; preds = %98, %57
-  %102 = load i32, ptr %12, align 4, !tbaa !16
-  %103 = add nsw i32 %102, 1
-  store i32 %103, ptr %12, align 4, !tbaa !16
+_ZN6icu_7711NGramParser6searchEPKii.exit.i.i:     ; preds = %59
+  %63 = load i32, ptr %12, align 4, !tbaa !16
+  %64 = add nsw i32 %63, 1
+  store i32 %64, ptr %12, align 4, !tbaa !16
   br label %_ZN6icu_7711NGramParser7addByteEi.exit
 
-_ZN6icu_7711NGramParser7addByteEi.exit:           ; preds = %_ZN6icu_7711NGramParser7addByteEi.exit.sink.split, %98, %.split12, %57, %.split, %61
-  %104 = zext i1 %22 to i8
-  br label %105
+_ZN6icu_7711NGramParser7addByteEi.exit:           ; preds = %_ZN6icu_7711NGramParser6searchEPKii.exit.i.i, %59, %24, %21
+  %65 = zext i1 %22 to i8
+  br label %66
 
-105:                                              ; preds = %_ZN6icu_7711NGramParser7addByteEi.exit, %14
-  %.1 = phi i8 [ %104, %_ZN6icu_7711NGramParser7addByteEi.exit ], [ %.070, %14 ]
-  %106 = load i32, ptr %13, align 8, !tbaa !26
-  %.not19 = icmp eq i32 %106, 0
-  br i1 %.not19, label %197, label %107
+66:                                               ; preds = %_ZN6icu_7711NGramParser7addByteEi.exit, %14
+  %.1 = phi i8 [ %65, %_ZN6icu_7711NGramParser7addByteEi.exit ], [ %.038, %14 ]
+  %67 = load i32, ptr %13, align 8, !tbaa !26
+  %.not19 = icmp eq i32 %67, 0
+  br i1 %.not19, label %119, label %68
 
-107:                                              ; preds = %105
-  %108 = and i32 %106, 255
-  %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds nuw i8, ptr %16, i64 %109
-  %111 = load i8, ptr %110, align 1, !tbaa !23
-  %112 = zext i8 %111 to i32
-  %.not20 = icmp eq i8 %111, 0
-  br i1 %.not20, label %197, label %113
+68:                                               ; preds = %66
+  %69 = and i32 %67, 255
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %16, i64 %70
+  %72 = load i8, ptr %71, align 1, !tbaa !23
+  %73 = zext i8 %72 to i32
+  %.not20 = icmp eq i8 %72, 0
+  br i1 %.not20, label %119, label %74
 
-113:                                              ; preds = %107
-  %114 = icmp eq i8 %111, 32
-  br i1 %114, label %153, label %.split13
+74:                                               ; preds = %68
+  %75 = icmp eq i8 %72, 32
+  %76 = trunc nuw i8 %.1 to i1
+  %or.cond3 = select i1 %75, i1 %76, i1 false
+  br i1 %or.cond3, label %_ZN6icu_7711NGramParser7addByteEi.exit36, label %77
 
-.split13:                                         ; preds = %113
-  %115 = load i32, ptr %9, align 8, !tbaa !6
-  %116 = shl i32 %115, 8
-  %.masked69 = and i32 %116, 16776960
-  %117 = or disjoint i32 %.masked69, %112
-  store i32 %117, ptr %9, align 8, !tbaa !6
-  %118 = load i32, ptr %10, align 8, !tbaa !17
-  %119 = add nsw i32 %118, 1
-  store i32 %119, ptr %10, align 8, !tbaa !17
-  %120 = load ptr, ptr %11, align 8, !tbaa !14
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 128
-  %122 = load i32, ptr %121, align 4, !tbaa !18
-  %.not.i.i.i37 = icmp sgt i32 %122, %117
-  %spec.select.i.i.i38 = select i1 %.not.i.i.i37, i32 0, i32 32
-  %123 = or disjoint i32 %spec.select.i.i.i38, 16
-  %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds nuw i32, ptr %120, i64 %124
-  %126 = load i32, ptr %125, align 4, !tbaa !18
-  %.not34.i.i.i39 = icmp sgt i32 %126, %117
-  %.1.i.i.i40 = select i1 %.not34.i.i.i39, i32 %spec.select.i.i.i38, i32 %123
-  %127 = or disjoint i32 %.1.i.i.i40, 8
-  %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw i32, ptr %120, i64 %128
-  %130 = load i32, ptr %129, align 4, !tbaa !18
-  %.not35.i.i.i41 = icmp sgt i32 %130, %117
-  %.2.i.i.i42 = select i1 %.not35.i.i.i41, i32 %.1.i.i.i40, i32 %127
-  %131 = or disjoint i32 %.2.i.i.i42, 4
-  %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %120, i64 %132
-  %134 = load i32, ptr %133, align 4, !tbaa !18
-  %.not36.i.i.i43 = icmp sgt i32 %134, %117
-  %.3.i.i.i44 = select i1 %.not36.i.i.i43, i32 %.2.i.i.i42, i32 %131
-  %135 = add nuw nsw i32 %.3.i.i.i44, 2
-  %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw i32, ptr %120, i64 %136
-  %138 = load i32, ptr %137, align 4, !tbaa !18
-  %.not37.i.i.i45 = icmp sgt i32 %138, %117
-  %.4.i.i.i46 = select i1 %.not37.i.i.i45, i32 %.3.i.i.i44, i32 %135
-  %139 = add nuw nsw i32 %.4.i.i.i46, 1
-  %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr inbounds nuw i32, ptr %120, i64 %140
-  %142 = load i32, ptr %141, align 4, !tbaa !18
-  %.not38.i.i.i47 = icmp sgt i32 %142, %117
-  %.5.i.i.i48 = select i1 %.not38.i.i.i47, i32 %.4.i.i.i46, i32 %139
-  %143 = zext nneg i32 %.5.i.i.i48 to i64
-  %144 = getelementptr inbounds nuw i32, ptr %120, i64 %143
-  %145 = load i32, ptr %144, align 4, !tbaa !18
-  %146 = icmp sgt i32 %145, %117
-  %147 = sext i1 %146 to i32
-  %.6.i.i.i49 = add nsw i32 %.5.i.i.i48, %147
-  %148 = icmp slt i32 %.6.i.i.i49, 0
-  br i1 %148, label %_ZN6icu_7711NGramParser7addByteEi.exit52, label %149
+77:                                               ; preds = %74
+  %78 = load i32, ptr %9, align 8, !tbaa !6
+  %79 = shl i32 %78, 8
+  %.masked37 = and i32 %79, 16776960
+  %80 = or disjoint i32 %.masked37, %73
+  store i32 %80, ptr %9, align 8, !tbaa !6
+  %81 = load i32, ptr %10, align 8, !tbaa !17
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %10, align 8, !tbaa !17
+  %83 = load ptr, ptr %11, align 8, !tbaa !14
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 128
+  %85 = load i32, ptr %84, align 4, !tbaa !18
+  %.not.i.i.i21 = icmp sgt i32 %85, %80
+  %spec.select.i.i.i22 = select i1 %.not.i.i.i21, i32 0, i32 32
+  %86 = or disjoint i32 %spec.select.i.i.i22, 16
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr inbounds nuw i32, ptr %83, i64 %87
+  %89 = load i32, ptr %88, align 4, !tbaa !18
+  %.not34.i.i.i23 = icmp sgt i32 %89, %80
+  %.1.i.i.i24 = select i1 %.not34.i.i.i23, i32 %spec.select.i.i.i22, i32 %86
+  %90 = or disjoint i32 %.1.i.i.i24, 8
+  %91 = zext nneg i32 %90 to i64
+  %92 = getelementptr inbounds nuw i32, ptr %83, i64 %91
+  %93 = load i32, ptr %92, align 4, !tbaa !18
+  %.not35.i.i.i25 = icmp sgt i32 %93, %80
+  %.2.i.i.i26 = select i1 %.not35.i.i.i25, i32 %.1.i.i.i24, i32 %90
+  %94 = or disjoint i32 %.2.i.i.i26, 4
+  %95 = zext nneg i32 %94 to i64
+  %96 = getelementptr inbounds nuw i32, ptr %83, i64 %95
+  %97 = load i32, ptr %96, align 4, !tbaa !18
+  %.not36.i.i.i27 = icmp sgt i32 %97, %80
+  %.3.i.i.i28 = select i1 %.not36.i.i.i27, i32 %.2.i.i.i26, i32 %94
+  %98 = add nuw nsw i32 %.3.i.i.i28, 2
+  %99 = zext nneg i32 %98 to i64
+  %100 = getelementptr inbounds nuw i32, ptr %83, i64 %99
+  %101 = load i32, ptr %100, align 4, !tbaa !18
+  %.not37.i.i.i29 = icmp sgt i32 %101, %80
+  %.4.i.i.i30 = select i1 %.not37.i.i.i29, i32 %.3.i.i.i28, i32 %98
+  %102 = add nuw nsw i32 %.4.i.i.i30, 1
+  %103 = zext nneg i32 %102 to i64
+  %104 = getelementptr inbounds nuw i32, ptr %83, i64 %103
+  %105 = load i32, ptr %104, align 4, !tbaa !18
+  %.not38.i.i.i31 = icmp sgt i32 %105, %80
+  %.5.i.i.i32 = select i1 %.not38.i.i.i31, i32 %.4.i.i.i30, i32 %102
+  %106 = zext nneg i32 %.5.i.i.i32 to i64
+  %107 = getelementptr inbounds nuw i32, ptr %83, i64 %106
+  %108 = load i32, ptr %107, align 4, !tbaa !18
+  %109 = icmp sgt i32 %108, %80
+  %110 = sext i1 %109 to i32
+  %.6.i.i.i33 = add nsw i32 %.5.i.i.i32, %110
+  %111 = icmp slt i32 %.6.i.i.i33, 0
+  br i1 %111, label %_ZN6icu_7711NGramParser7addByteEi.exit36, label %112
 
-149:                                              ; preds = %.split13
-  %150 = zext nneg i32 %.6.i.i.i49 to i64
-  %151 = getelementptr inbounds nuw i32, ptr %120, i64 %150
-  %152 = load i32, ptr %151, align 4, !tbaa !18
-  %.not39.i.i.i50 = icmp eq i32 %152, %117
-  br i1 %.not39.i.i.i50, label %_ZN6icu_7711NGramParser7addByteEi.exit52.sink.split, label %_ZN6icu_7711NGramParser7addByteEi.exit52
+112:                                              ; preds = %77
+  %113 = zext nneg i32 %.6.i.i.i33 to i64
+  %114 = getelementptr inbounds nuw i32, ptr %83, i64 %113
+  %115 = load i32, ptr %114, align 4, !tbaa !18
+  %.not39.i.i.i34 = icmp eq i32 %115, %80
+  br i1 %.not39.i.i.i34, label %_ZN6icu_7711NGramParser6searchEPKii.exit.i.i35, label %_ZN6icu_7711NGramParser7addByteEi.exit36
 
-153:                                              ; preds = %113
-  %154 = trunc nuw i8 %.1 to i1
-  br i1 %154, label %_ZN6icu_7711NGramParser7addByteEi.exit52, label %.split14
+_ZN6icu_7711NGramParser6searchEPKii.exit.i.i35:   ; preds = %112
+  %116 = load i32, ptr %12, align 4, !tbaa !16
+  %117 = add nsw i32 %116, 1
+  store i32 %117, ptr %12, align 4, !tbaa !16
+  br label %_ZN6icu_7711NGramParser7addByteEi.exit36
 
-.split14:                                         ; preds = %153
-  %155 = load i32, ptr %9, align 8, !tbaa !6
-  %156 = shl i32 %155, 8
-  %157 = and i32 %156, 16776960
-  %158 = or disjoint i32 %157, 32
-  store i32 %158, ptr %9, align 8, !tbaa !6
-  %159 = load i32, ptr %10, align 8, !tbaa !17
-  %160 = add nsw i32 %159, 1
-  store i32 %160, ptr %10, align 8, !tbaa !17
-  %161 = load ptr, ptr %11, align 8, !tbaa !14
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 128
-  %163 = load i32, ptr %162, align 4, !tbaa !18
-  %.not.i.i.i53 = icmp sgt i32 %163, %158
-  %spec.select.i.i.i54 = select i1 %.not.i.i.i53, i32 0, i32 32
-  %164 = or disjoint i32 %spec.select.i.i.i54, 16
-  %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds nuw i32, ptr %161, i64 %165
-  %167 = load i32, ptr %166, align 4, !tbaa !18
-  %.not34.i.i.i55 = icmp sgt i32 %167, %158
-  %.1.i.i.i56 = select i1 %.not34.i.i.i55, i32 %spec.select.i.i.i54, i32 %164
-  %168 = or disjoint i32 %.1.i.i.i56, 8
-  %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw i32, ptr %161, i64 %169
-  %171 = load i32, ptr %170, align 4, !tbaa !18
-  %.not35.i.i.i57 = icmp sgt i32 %171, %158
-  %.2.i.i.i58 = select i1 %.not35.i.i.i57, i32 %.1.i.i.i56, i32 %168
-  %172 = or disjoint i32 %.2.i.i.i58, 4
-  %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw i32, ptr %161, i64 %173
-  %175 = load i32, ptr %174, align 4, !tbaa !18
-  %.not36.i.i.i59 = icmp sgt i32 %175, %158
-  %.3.i.i.i60 = select i1 %.not36.i.i.i59, i32 %.2.i.i.i58, i32 %172
-  %176 = add nuw nsw i32 %.3.i.i.i60, 2
-  %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw i32, ptr %161, i64 %177
-  %179 = load i32, ptr %178, align 4, !tbaa !18
-  %.not37.i.i.i61 = icmp sgt i32 %179, %158
-  %.4.i.i.i62 = select i1 %.not37.i.i.i61, i32 %.3.i.i.i60, i32 %176
-  %180 = add nuw nsw i32 %.4.i.i.i62, 1
-  %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw i32, ptr %161, i64 %181
-  %183 = load i32, ptr %182, align 4, !tbaa !18
-  %.not38.i.i.i63 = icmp sgt i32 %183, %158
-  %.5.i.i.i64 = select i1 %.not38.i.i.i63, i32 %.4.i.i.i62, i32 %180
-  %184 = zext nneg i32 %.5.i.i.i64 to i64
-  %185 = getelementptr inbounds nuw i32, ptr %161, i64 %184
-  %186 = load i32, ptr %185, align 4, !tbaa !18
-  %187 = icmp sgt i32 %186, %158
-  %188 = sext i1 %187 to i32
-  %.6.i.i.i65 = add nsw i32 %.5.i.i.i64, %188
-  %189 = icmp slt i32 %.6.i.i.i65, 0
-  br i1 %189, label %_ZN6icu_7711NGramParser7addByteEi.exit52, label %190
+_ZN6icu_7711NGramParser7addByteEi.exit36:         ; preds = %_ZN6icu_7711NGramParser6searchEPKii.exit.i.i35, %112, %77, %74
+  %118 = zext i1 %75 to i8
+  br label %119
 
-190:                                              ; preds = %.split14
-  %191 = zext nneg i32 %.6.i.i.i65 to i64
-  %192 = getelementptr inbounds nuw i32, ptr %161, i64 %191
-  %193 = load i32, ptr %192, align 4, !tbaa !18
-  %.not39.i.i.i66 = icmp eq i32 %193, %158
-  br i1 %.not39.i.i.i66, label %_ZN6icu_7711NGramParser7addByteEi.exit52.sink.split, label %_ZN6icu_7711NGramParser7addByteEi.exit52
+119:                                              ; preds = %68, %_ZN6icu_7711NGramParser7addByteEi.exit36, %66
+  %.2 = phi i8 [ %118, %_ZN6icu_7711NGramParser7addByteEi.exit36 ], [ %.1, %68 ], [ %.1, %66 ]
+  %120 = load ptr, ptr %0, align 8, !tbaa !3
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  %122 = load ptr, ptr %121, align 8
+  %123 = tail call noundef i32 %122(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1)
+  %124 = icmp sgt i32 %123, -1
+  br i1 %124, label %14, label %._crit_edge, !llvm.loop !28
 
-_ZN6icu_7711NGramParser7addByteEi.exit52.sink.split: ; preds = %190, %149
-  %194 = load i32, ptr %12, align 4, !tbaa !16
-  %195 = add nsw i32 %194, 1
-  store i32 %195, ptr %12, align 4, !tbaa !16
-  br label %_ZN6icu_7711NGramParser7addByteEi.exit52
-
-_ZN6icu_7711NGramParser7addByteEi.exit52:         ; preds = %_ZN6icu_7711NGramParser7addByteEi.exit52.sink.split, %190, %.split14, %149, %.split13, %153
-  %196 = zext i1 %114 to i8
-  br label %197
-
-197:                                              ; preds = %107, %_ZN6icu_7711NGramParser7addByteEi.exit52, %105
-  %.2 = phi i8 [ %196, %_ZN6icu_7711NGramParser7addByteEi.exit52 ], [ %.1, %107 ], [ %.1, %105 ]
-  %198 = load ptr, ptr %0, align 8, !tbaa !3
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
-  %200 = load ptr, ptr %199, align 8
-  %201 = tail call noundef i32 %200(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1)
-  %202 = icmp sgt i32 %201, -1
-  br i1 %202, label %14, label %._crit_edge, !llvm.loop !28
-
-._crit_edge:                                      ; preds = %197, %2
+._crit_edge:                                      ; preds = %119, %2
   ret void
 }
 

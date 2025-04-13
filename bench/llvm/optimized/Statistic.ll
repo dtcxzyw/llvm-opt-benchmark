@@ -501,7 +501,7 @@ define dso_local void @_ZN4llvm17TrackingStatistic17RegisterStatisticEv(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load atomic i8, ptr %2 monotonic, align 8
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %49, label %5
+  br i1 %4, label %48, label %5
 
 5:                                                ; preds = %1
   %6 = load atomic i64, ptr @_ZL8StatLock acquire, align 8
@@ -516,8 +516,8 @@ _ZN4llvm13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14
   %8 = load atomic i64, ptr @_ZL8StatLock monotonic, align 8
   %.0.i.i2.i = inttoptr i64 %8 to ptr
   %9 = load atomic i64, ptr @_ZL8StatInfo acquire, align 8
-  %.not.i4 = icmp eq i64 %9, 0
-  br i1 %.not.i4, label %10, label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
+  %.not.i5 = icmp eq i64 %9, 0
+  br i1 %.not.i5, label %10, label %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
 
 10:                                               ; preds = %_ZN4llvm13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
   tail call void @_ZNK4llvm17ManagedStaticBase21RegisterManagedStaticEPFPvvEPFvS1_E(ptr noundef nonnull align 8 dereferenceable(24) @_ZL8StatInfo, ptr noundef nonnull @_ZN4llvm14object_creatorIN12_GLOBAL__N_113StatisticInfoEE4callEv, ptr noundef nonnull @_ZN4llvm14object_deleterIN12_GLOBAL__N_113StatisticInfoEE4callEPv) #21
@@ -525,7 +525,7 @@ _ZN4llvm13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14
 
 _ZN4llvm13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit: ; preds = %_ZN4llvm13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit, %10
   %11 = load atomic i64, ptr @_ZL8StatInfo monotonic, align 8
-  %.0.i.i2.i5 = inttoptr i64 %11 to ptr
+  %.0.i.i2.i6 = inttoptr i64 %11 to ptr
   %12 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i2.i) #21
   %.not.i.i.i = icmp eq i32 %12, 0
   br i1 %.not.i.i.i, label %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, label %13
@@ -537,88 +537,86 @@ _ZN4llvm13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EE
 _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN4llvm13ManagedStaticIN12_GLOBAL__N_113StatisticInfoENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit
   %14 = load atomic i8, ptr %2 monotonic, align 8
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %47, label %16
+  br i1 %15, label %46, label %16
 
 16:                                               ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit
   %17 = load i8, ptr @_ZL11EnableStats, align 1, !tbaa !58, !range !59, !noundef !60
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %20, label %19
+  %.b4 = load i1, ptr @_ZL7Enabled, align 1
+  %or.cond = select i1 %18, i1 true, i1 %.b4
+  br i1 %or.cond, label %19, label %_ZN12_GLOBAL__N_113StatisticInfo12addStatisticEPN4llvm17TrackingStatisticE.exit
 
 19:                                               ; preds = %16
-  %.b3 = load i1, ptr @_ZL7Enabled, align 1
-  br i1 %.b3, label %20, label %_ZN12_GLOBAL__N_113StatisticInfo12addStatisticEPN4llvm17TrackingStatisticE.exit
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i6, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !62
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i6, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !65
+  %.not.i.i = icmp eq ptr %21, %23
+  br i1 %.not.i.i, label %26, label %24
 
-20:                                               ; preds = %19, %16
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i5, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !62
-  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i5, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !65
-  %.not.i.i = icmp eq ptr %22, %24
-  br i1 %.not.i.i, label %27, label %25
-
-25:                                               ; preds = %20
-  store ptr %0, ptr %22, align 8, !tbaa !66
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %26, ptr %21, align 8, !tbaa !62
+24:                                               ; preds = %19
+  store ptr %0, ptr %21, align 8, !tbaa !66
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %25, ptr %20, align 8, !tbaa !62
   br label %_ZN12_GLOBAL__N_113StatisticInfo12addStatisticEPN4llvm17TrackingStatisticE.exit
 
-27:                                               ; preds = %20
-  %28 = load ptr, ptr %.0.i.i2.i5, align 8, !tbaa !68
-  %29 = ptrtoint ptr %22 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = icmp eq i64 %31, 9223372036854775800
-  br i1 %32, label %33, label %_ZNKSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+26:                                               ; preds = %19
+  %27 = load ptr, ptr %.0.i.i2.i6, align 8, !tbaa !68
+  %28 = ptrtoint ptr %21 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = icmp eq i64 %30, 9223372036854775800
+  br i1 %31, label %32, label %_ZNKSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
-33:                                               ; preds = %27
+32:                                               ; preds = %26
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #22
   unreachable
 
-_ZNKSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %27
-  %34 = ashr exact i64 %31, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %34, i64 1)
-  %35 = add nsw i64 %.sroa.speculated.i.i.i.i, %34
-  %36 = icmp ult i64 %35, %34
-  %37 = tail call i64 @llvm.umin.i64(i64 %35, i64 1152921504606846975)
-  %38 = select i1 %36, i64 1152921504606846975, i64 %37
-  %.not.i.i.i.i = icmp ne i64 %38, 0
+_ZNKSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %26
+  %33 = ashr exact i64 %30, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %33, i64 1)
+  %34 = add nsw i64 %.sroa.speculated.i.i.i.i, %33
+  %35 = icmp ult i64 %34, %33
+  %36 = tail call i64 @llvm.umin.i64(i64 %34, i64 1152921504606846975)
+  %37 = select i1 %35, i64 1152921504606846975, i64 %36
+  %.not.i.i.i.i = icmp ne i64 %37, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %39 = shl nuw nsw i64 %38, 3
-  %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #23
-  %41 = getelementptr inbounds i8, ptr %40, i64 %31
-  store ptr %0, ptr %41, align 8, !tbaa !66
-  %42 = icmp sgt i64 %31, 0
-  br i1 %42, label %43, label %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
+  %38 = shl nuw nsw i64 %37, 3
+  %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #23
+  %40 = getelementptr inbounds i8, ptr %39, i64 %30
+  store ptr %0, ptr %40, align 8, !tbaa !66
+  %41 = icmp sgt i64 %30, 0
+  br i1 %41, label %42, label %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
 
-43:                                               ; preds = %_ZNKSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %40, ptr align 8 %28, i64 %31, i1 false)
+42:                                               ; preds = %_ZNKSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %39, ptr align 8 %27, i64 %30, i1 false)
   br label %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
 
-_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds = %43, %_ZNKSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %45
+_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds = %42, %_ZNKSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %44
 
-45:                                               ; preds = %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %31) #24
+44:                                               ; preds = %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %30) #24
   br label %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %45, %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  store ptr %40, ptr %.0.i.i2.i5, align 8, !tbaa !68
-  store ptr %44, ptr %21, align 8, !tbaa !62
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %38
-  store ptr %46, ptr %23, align 8, !tbaa !65
+_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %44, %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
+  store ptr %39, ptr %.0.i.i2.i6, align 8, !tbaa !68
+  store ptr %43, ptr %20, align 8, !tbaa !62
+  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  store ptr %45, ptr %22, align 8, !tbaa !65
   br label %_ZN12_GLOBAL__N_113StatisticInfo12addStatisticEPN4llvm17TrackingStatisticE.exit
 
-_ZN12_GLOBAL__N_113StatisticInfo12addStatisticEPN4llvm17TrackingStatisticE.exit: ; preds = %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %25, %19
+_ZN12_GLOBAL__N_113StatisticInfo12addStatisticEPN4llvm17TrackingStatisticE.exit: ; preds = %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %24, %16
   store atomic i8 1, ptr %2 release, align 8
-  br label %47
+  br label %46
 
-47:                                               ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, %_ZN12_GLOBAL__N_113StatisticInfo12addStatisticEPN4llvm17TrackingStatisticE.exit
-  %48 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i2.i) #21
-  br label %49
+46:                                               ; preds = %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit, %_ZN12_GLOBAL__N_113StatisticInfo12addStatisticEPN4llvm17TrackingStatisticE.exit
+  %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i2.i) #21
+  br label %48
 
-49:                                               ; preds = %47, %1
+48:                                               ; preds = %46, %1
   ret void
 }
 

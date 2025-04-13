@@ -173,9 +173,9 @@ invoke.cont3:                                     ; preds = %if.then.i3.i, %if.e
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %tobool.not = icmp eq ptr %pThreadPoolParameters, null
-  %brmerge.not = and i1 %tobool.not, %bDefaultParameters
-  br i1 %brmerge.not, label %if.then, label %if.else.invoke
+  %tobool = icmp eq ptr %pThreadPoolParameters, null
+  %or.cond = and i1 %tobool, %bDefaultParameters
+  br i1 %or.cond, label %if.then, label %if.else.invoke
 
 if.then:                                          ; preds = %invoke.cont5
   store i32 0, ptr %parameters, align 8

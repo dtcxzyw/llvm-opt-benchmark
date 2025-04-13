@@ -983,16 +983,14 @@ terminate.lpad:                                   ; preds = %.noexc, %if.then.i.
 define linkonce_odr void @_ZNK8facebook5velox4exec7EvalCtx16moveOrCopyResultERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERS5_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %localResult, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %result, align 8
-  %cmp.i.not.i = icmp eq ptr %0, null
-  br i1 %cmp.i.not.i, label %if.else, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %entry
+  %cmp.i.i = icmp eq ptr %0, null
   %isFinalSelection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 74
   %1 = load i8, ptr %isFinalSelection_.i.i, align 2
   %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %if.else, label %land.rhs.i
+  %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %tobool.i.i
+  br i1 %or.cond.i, label %if.else, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %land.lhs.true.i
+land.rhs.i:                                       ; preds = %entry
   %finalSelection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = load ptr, ptr %finalSelection_.i.i, align 8
   %begin_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -1032,7 +1030,7 @@ if.then:                                          ; preds = %_ZNK8facebook5velox
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(99) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef null)
   br label %if.end
 
-if.else:                                          ; preds = %entry, %land.lhs.true.i, %_ZNK8facebook5velox4exec7EvalCtx23resultShouldBePreservedERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorE.exit
+if.else:                                          ; preds = %entry, %_ZNK8facebook5velox4exec7EvalCtx23resultShouldBePreservedERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorE.exit
   %12 = load ptr, ptr %localResult, align 8
   store ptr %12, ptr %result, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %result, i64 8

@@ -423,7 +423,7 @@ pushFontInfo.exit:                                ; preds = %59, %57, %49, %28
   %80 = load i8, ptr %79, align 2
   %81 = and i8 %80, 4
   %.not76 = icmp eq i8 %81, 0
-  br i1 %.not76, label %82, label %442
+  br i1 %.not76, label %82, label %440
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -830,352 +830,348 @@ emit_html_cell.exit:                              ; preds = %241, %242, %245, %2
   br label %257
 
 257:                                              ; preds = %.lr.ph113, %emit_html_rules.exit
-  %258 = phi ptr [ %251, %.lr.ph113 ], [ %438, %emit_html_rules.exit ]
+  %258 = phi ptr [ %251, %.lr.ph113 ], [ %436, %emit_html_rules.exit ]
   %.pn = phi ptr [ %250, %.lr.ph113 ], [ %259, %emit_html_rules.exit ]
   %259 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %260 = getelementptr inbounds nuw i8, ptr %258, i64 136
   %261 = load i8, ptr %260, align 8
-  %262 = and i8 %261, 2
-  %.not82 = icmp eq i8 %262, 0
-  br i1 %.not82, label %263, label %265
+  %262 = and i8 %261, 3
+  %or.cond.not = icmp eq i8 %262, 0
+  br i1 %or.cond.not, label %emit_html_rules.exit, label %263
 
 263:                                              ; preds = %257
-  %264 = trunc i8 %261 to i1
-  br i1 %264, label %265, label %emit_html_rules.exit
-
-265:                                              ; preds = %263, %257
-  %266 = load ptr, ptr %252, align 8, !tbaa !76
-  %267 = load ptr, ptr %259, align 8, !tbaa !97
+  %264 = load ptr, ptr %252, align 8, !tbaa !76
+  %265 = load ptr, ptr %259, align 8, !tbaa !97
   %.val = load double, ptr %2, align 8, !tbaa !25
   %.val87 = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !25
-  %268 = getelementptr inbounds nuw i8, ptr %258, i64 72
+  %266 = getelementptr inbounds nuw i8, ptr %258, i64 72
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %258, i64 80
   %.sroa.17.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %258, i64 88
   %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %258, i64 96
-  %.not.i91 = icmp eq ptr %266, null
-  %spec.store.select.i = select i1 %.not.i91, ptr @.str.2, ptr %266
+  %.not.i91 = icmp eq ptr %264, null
+  %spec.store.select.i = select i1 %.not.i91, ptr @.str.2, ptr %264
   call void @gvrender_set_fillcolor(ptr noundef %0, ptr noundef nonnull %spec.store.select.i) #23
   call void @gvrender_set_pencolor(ptr noundef %0, ptr noundef nonnull %spec.store.select.i) #23
-  %.sroa.05.0.copyload10.i = load double, ptr %268, align 8, !tbaa !25
+  %.sroa.05.0.copyload10.i = load double, ptr %266, align 8, !tbaa !25
   %.sroa.10.0.copyload12.i = load double, ptr %.sroa.10.0..sroa_idx.i, align 8, !tbaa !25
   %.sroa.17.0.copyload19.i = load double, ptr %.sroa.17.0..sroa_idx.i, align 8, !tbaa !25
   %.sroa.23.0.copyload25.i = load double, ptr %.sroa.23.0..sroa_idx.i, align 8, !tbaa !25
-  %269 = fadd double %.val, %.sroa.05.0.copyload10.i
-  %270 = fadd double %.val, %.sroa.17.0.copyload19.i
-  %271 = fadd double %.val87, %.sroa.10.0.copyload12.i
-  %272 = fadd double %.val87, %.sroa.23.0.copyload25.i
-  %273 = load i8, ptr %260, align 8
-  %274 = trunc i8 %273 to i1
-  br i1 %274, label %275, label %340
+  %267 = fadd double %.val, %.sroa.05.0.copyload10.i
+  %268 = fadd double %.val, %.sroa.17.0.copyload19.i
+  %269 = fadd double %.val87, %.sroa.10.0.copyload12.i
+  %270 = fadd double %.val87, %.sroa.23.0.copyload25.i
+  %271 = load i8, ptr %260, align 8
+  %272 = trunc i8 %271 to i1
+  br i1 %272, label %273, label %338
 
-275:                                              ; preds = %265
-  %276 = getelementptr inbounds nuw i8, ptr %258, i64 108
-  %277 = load i16, ptr %276, align 4, !tbaa !115
-  %278 = zext i16 %277 to i64
-  %279 = getelementptr inbounds nuw i8, ptr %258, i64 104
-  %280 = load i16, ptr %279, align 8, !tbaa !116
-  %281 = zext i16 %280 to i64
-  %282 = add nuw nsw i64 %281, %278
-  %283 = getelementptr inbounds nuw i8, ptr %258, i64 128
-  %284 = load ptr, ptr %283, align 8, !tbaa !117
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 176
-  %286 = load i64, ptr %285, align 8, !tbaa !118
-  %287 = icmp ult i64 %282, %286
-  br i1 %287, label %288, label %340
+273:                                              ; preds = %263
+  %274 = getelementptr inbounds nuw i8, ptr %258, i64 108
+  %275 = load i16, ptr %274, align 4, !tbaa !115
+  %276 = zext i16 %275 to i64
+  %277 = getelementptr inbounds nuw i8, ptr %258, i64 104
+  %278 = load i16, ptr %277, align 8, !tbaa !116
+  %279 = zext i16 %278 to i64
+  %280 = add nuw nsw i64 %279, %276
+  %281 = getelementptr inbounds nuw i8, ptr %258, i64 128
+  %282 = load ptr, ptr %281, align 8, !tbaa !117
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 176
+  %284 = load i64, ptr %283, align 8, !tbaa !118
+  %285 = icmp ult i64 %280, %284
+  br i1 %285, label %286, label %338
 
-288:                                              ; preds = %275
-  %289 = getelementptr inbounds nuw i8, ptr %258, i64 110
-  %290 = load i16, ptr %289, align 2, !tbaa !119
-  %291 = icmp eq i16 %290, 0
-  br i1 %291, label %292, label %304
+286:                                              ; preds = %273
+  %287 = getelementptr inbounds nuw i8, ptr %258, i64 110
+  %288 = load i16, ptr %287, align 2, !tbaa !119
+  %289 = icmp eq i16 %288, 0
+  br i1 %289, label %290, label %302
 
-292:                                              ; preds = %288
-  %293 = getelementptr inbounds nuw i8, ptr %284, i64 61
-  %294 = load i8, ptr %293, align 1, !tbaa !94
-  %295 = zext i8 %294 to i32
-  %296 = getelementptr inbounds nuw i8, ptr %284, i64 60
-  %297 = load i8, ptr %296, align 4, !tbaa !120
-  %298 = sdiv i8 %297, 2
-  %299 = sext i8 %298 to i32
-  %300 = add nsw i32 %299, %295
-  %301 = sitofp i32 %300 to double
-  %302 = sitofp i8 %298 to double
-  %303 = fsub double %271, %302
-  br label %332
+290:                                              ; preds = %286
+  %291 = getelementptr inbounds nuw i8, ptr %282, i64 61
+  %292 = load i8, ptr %291, align 1, !tbaa !94
+  %293 = zext i8 %292 to i32
+  %294 = getelementptr inbounds nuw i8, ptr %282, i64 60
+  %295 = load i8, ptr %294, align 4, !tbaa !120
+  %296 = sdiv i8 %295, 2
+  %297 = sext i8 %296 to i32
+  %298 = add nsw i32 %297, %293
+  %299 = sitofp i32 %298 to double
+  %300 = sitofp i8 %296 to double
+  %301 = fsub double %269, %300
+  br label %330
 
-304:                                              ; preds = %288
-  %305 = zext i16 %290 to i64
-  %306 = getelementptr inbounds nuw i8, ptr %258, i64 106
-  %307 = load i16, ptr %306, align 2, !tbaa !121
-  %308 = zext i16 %307 to i64
-  %309 = add nuw nsw i64 %308, %305
-  %310 = getelementptr inbounds nuw i8, ptr %284, i64 168
-  %311 = load i64, ptr %310, align 8, !tbaa !122
-  %312 = icmp eq i64 %309, %311
-  br i1 %312, label %313, label %326
+302:                                              ; preds = %286
+  %303 = zext i16 %288 to i64
+  %304 = getelementptr inbounds nuw i8, ptr %258, i64 106
+  %305 = load i16, ptr %304, align 2, !tbaa !121
+  %306 = zext i16 %305 to i64
+  %307 = add nuw nsw i64 %306, %303
+  %308 = getelementptr inbounds nuw i8, ptr %282, i64 168
+  %309 = load i64, ptr %308, align 8, !tbaa !122
+  %310 = icmp eq i64 %307, %309
+  br i1 %310, label %311, label %324
 
-313:                                              ; preds = %304
-  %314 = getelementptr inbounds nuw i8, ptr %284, i64 61
-  %315 = load i8, ptr %314, align 1, !tbaa !94
-  %316 = zext i8 %315 to i32
-  %317 = getelementptr inbounds nuw i8, ptr %284, i64 60
-  %318 = load i8, ptr %317, align 4, !tbaa !120
-  %319 = sdiv i8 %318, 2
-  %320 = sext i8 %319 to i32
-  %321 = add nsw i32 %320, %316
-  %322 = sitofp i32 %321 to double
-  %323 = sitofp i8 %319 to double
-  %324 = fsub double %271, %323
-  %325 = fsub double %324, %322
-  br label %332
+311:                                              ; preds = %302
+  %312 = getelementptr inbounds nuw i8, ptr %282, i64 61
+  %313 = load i8, ptr %312, align 1, !tbaa !94
+  %314 = zext i8 %313 to i32
+  %315 = getelementptr inbounds nuw i8, ptr %282, i64 60
+  %316 = load i8, ptr %315, align 4, !tbaa !120
+  %317 = sdiv i8 %316, 2
+  %318 = sext i8 %317 to i32
+  %319 = add nsw i32 %318, %314
+  %320 = sitofp i32 %319 to double
+  %321 = sitofp i8 %317 to double
+  %322 = fsub double %269, %321
+  %323 = fsub double %322, %320
+  br label %330
 
-326:                                              ; preds = %304
-  %327 = getelementptr inbounds nuw i8, ptr %284, i64 60
-  %328 = load i8, ptr %327, align 4, !tbaa !120
-  %329 = sdiv i8 %328, 2
-  %330 = sitofp i8 %329 to double
-  %331 = fsub double %271, %330
-  br label %332
+324:                                              ; preds = %302
+  %325 = getelementptr inbounds nuw i8, ptr %282, i64 60
+  %326 = load i8, ptr %325, align 4, !tbaa !120
+  %327 = sdiv i8 %326, 2
+  %328 = sitofp i8 %327 to double
+  %329 = fsub double %269, %328
+  br label %330
 
-332:                                              ; preds = %326, %313, %292
-  %.pre-phi1.i = phi double [ %323, %313 ], [ %330, %326 ], [ %302, %292 ]
-  %333 = phi i8 [ %318, %313 ], [ %328, %326 ], [ %297, %292 ]
-  %.0.i92 = phi double [ %322, %313 ], [ 0.000000e+00, %326 ], [ %301, %292 ]
-  %.sroa.8.0.i = phi double [ %325, %313 ], [ %331, %326 ], [ %303, %292 ]
-  %334 = fadd double %270, %.pre-phi1.i
-  %335 = fadd double %272, %.0.i92
-  %336 = fsub double %335, %271
-  %337 = sitofp i8 %333 to double
-  %338 = fadd double %336, %337
+330:                                              ; preds = %324, %311, %290
+  %.pre-phi1.i = phi double [ %321, %311 ], [ %328, %324 ], [ %300, %290 ]
+  %331 = phi i8 [ %316, %311 ], [ %326, %324 ], [ %295, %290 ]
+  %.0.i92 = phi double [ %320, %311 ], [ 0.000000e+00, %324 ], [ %299, %290 ]
+  %.sroa.8.0.i = phi double [ %323, %311 ], [ %329, %324 ], [ %301, %290 ]
+  %332 = fadd double %268, %.pre-phi1.i
+  %333 = fadd double %270, %.0.i92
+  %334 = fsub double %333, %269
+  %335 = sitofp i8 %331 to double
+  %336 = fadd double %334, %335
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23
-  store double %334, ptr %7, align 8, !tbaa !25
+  store double %332, ptr %7, align 8, !tbaa !25
   store double %.sroa.8.0.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !25
-  store double %334, ptr %253, align 8, !tbaa !123
-  %339 = fadd double %.sroa.8.0.i, %338
-  store double %339, ptr %254, align 8, !tbaa !124
+  store double %332, ptr %253, align 8, !tbaa !123
+  %337 = fadd double %.sroa.8.0.i, %336
+  store double %337, ptr %254, align 8, !tbaa !124
   call void @gvrender_box(ptr noundef %0, ptr noundef nonnull byval(%struct.boxf) align 8 %7, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
   %.pre.i93 = load i8, ptr %260, align 8
-  br label %340
+  br label %338
 
-340:                                              ; preds = %332, %275, %265
-  %341 = phi i8 [ %.pre.i93, %332 ], [ %273, %275 ], [ %273, %265 ]
-  %342 = and i8 %341, 2
-  %.not100.i = icmp eq i8 %342, 0
-  br i1 %.not100.i, label %emit_html_rules.exit, label %343
+338:                                              ; preds = %330, %273, %263
+  %339 = phi i8 [ %.pre.i93, %330 ], [ %271, %273 ], [ %271, %263 ]
+  %340 = and i8 %339, 2
+  %.not100.i = icmp eq i8 %340, 0
+  br i1 %.not100.i, label %emit_html_rules.exit, label %341
 
-343:                                              ; preds = %340
-  %344 = getelementptr inbounds nuw i8, ptr %258, i64 110
-  %345 = load i16, ptr %344, align 2, !tbaa !119
-  %346 = zext i16 %345 to i64
-  %347 = getelementptr inbounds nuw i8, ptr %258, i64 106
-  %348 = load i16, ptr %347, align 2, !tbaa !121
-  %349 = zext i16 %348 to i64
-  %350 = add nuw nsw i64 %349, %346
-  %351 = getelementptr inbounds nuw i8, ptr %258, i64 128
-  %352 = load ptr, ptr %351, align 8, !tbaa !117
-  %353 = getelementptr inbounds nuw i8, ptr %352, i64 168
-  %354 = load i64, ptr %353, align 8, !tbaa !122
-  %355 = icmp ugt i64 %354, %350
-  br i1 %355, label %356, label %emit_html_rules.exit
+341:                                              ; preds = %338
+  %342 = getelementptr inbounds nuw i8, ptr %258, i64 110
+  %343 = load i16, ptr %342, align 2, !tbaa !119
+  %344 = zext i16 %343 to i64
+  %345 = getelementptr inbounds nuw i8, ptr %258, i64 106
+  %346 = load i16, ptr %345, align 2, !tbaa !121
+  %347 = zext i16 %346 to i64
+  %348 = add nuw nsw i64 %347, %344
+  %349 = getelementptr inbounds nuw i8, ptr %258, i64 128
+  %350 = load ptr, ptr %349, align 8, !tbaa !117
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 168
+  %352 = load i64, ptr %351, align 8, !tbaa !122
+  %353 = icmp ugt i64 %352, %348
+  br i1 %353, label %354, label %emit_html_rules.exit
 
-356:                                              ; preds = %343
-  %357 = getelementptr inbounds nuw i8, ptr %258, i64 108
-  %358 = load i16, ptr %357, align 4, !tbaa !115
-  %359 = icmp eq i16 %358, 0
-  br i1 %359, label %360, label %392
+354:                                              ; preds = %341
+  %355 = getelementptr inbounds nuw i8, ptr %258, i64 108
+  %356 = load i16, ptr %355, align 4, !tbaa !115
+  %357 = icmp eq i16 %356, 0
+  br i1 %357, label %358, label %390
 
-360:                                              ; preds = %356
-  %361 = getelementptr inbounds nuw i8, ptr %352, i64 61
-  %362 = load i8, ptr %361, align 1, !tbaa !94
-  %363 = zext i8 %362 to i32
-  %364 = getelementptr inbounds nuw i8, ptr %352, i64 60
-  %365 = load i8, ptr %364, align 4, !tbaa !120
-  %366 = sdiv i8 %365, 2
-  %367 = sext i8 %366 to i32
-  %368 = add nsw i32 %367, %363
-  %369 = sitofp i32 %368 to double
-  %370 = fsub double %269, %369
-  %371 = sitofp i8 %366 to double
-  %372 = fsub double %370, %371
-  %373 = getelementptr inbounds nuw i8, ptr %258, i64 104
-  %374 = load i16, ptr %373, align 8, !tbaa !116
-  %375 = zext i16 %374 to i64
-  %376 = getelementptr inbounds nuw i8, ptr %352, i64 176
-  %377 = load i64, ptr %376, align 8, !tbaa !118
-  %378 = icmp eq i64 %377, %375
-  br i1 %378, label %379, label %381
+358:                                              ; preds = %354
+  %359 = getelementptr inbounds nuw i8, ptr %350, i64 61
+  %360 = load i8, ptr %359, align 1, !tbaa !94
+  %361 = zext i8 %360 to i32
+  %362 = getelementptr inbounds nuw i8, ptr %350, i64 60
+  %363 = load i8, ptr %362, align 4, !tbaa !120
+  %364 = sdiv i8 %363, 2
+  %365 = sext i8 %364 to i32
+  %366 = add nsw i32 %365, %361
+  %367 = sitofp i32 %366 to double
+  %368 = fsub double %267, %367
+  %369 = sitofp i8 %364 to double
+  %370 = fsub double %368, %369
+  %371 = getelementptr inbounds nuw i8, ptr %258, i64 104
+  %372 = load i16, ptr %371, align 8, !tbaa !116
+  %373 = zext i16 %372 to i64
+  %374 = getelementptr inbounds nuw i8, ptr %350, i64 176
+  %375 = load i64, ptr %374, align 8, !tbaa !118
+  %376 = icmp eq i64 %375, %373
+  br i1 %376, label %377, label %379
 
-379:                                              ; preds = %360
-  %380 = fmul double %369, 2.000000e+00
-  br label %429
+377:                                              ; preds = %358
+  %378 = fmul double %367, 2.000000e+00
+  br label %427
 
-381:                                              ; preds = %360
-  %.not103.i = icmp eq ptr %267, null
-  br i1 %.not103.i, label %429, label %382
+379:                                              ; preds = %358
+  %.not103.i = icmp eq ptr %265, null
+  br i1 %.not103.i, label %427, label %380
 
-382:                                              ; preds = %381
-  %383 = getelementptr inbounds nuw i8, ptr %267, i64 110
-  %384 = load i16, ptr %383, align 2, !tbaa !119
-  %.not104.i = icmp eq i16 %384, %345
-  br i1 %.not104.i, label %429, label %385
+380:                                              ; preds = %379
+  %381 = getelementptr inbounds nuw i8, ptr %265, i64 110
+  %382 = load i16, ptr %381, align 2, !tbaa !119
+  %.not104.i = icmp eq i16 %382, %343
+  br i1 %.not104.i, label %427, label %383
 
-385:                                              ; preds = %382
-  %386 = getelementptr inbounds nuw i8, ptr %352, i64 88
-  %387 = load double, ptr %386, align 8, !tbaa !125
-  %388 = fadd double %.val, %387
-  %389 = fadd double %270, %371
-  %390 = fsub double %388, %389
-  %391 = fadd double %390, %369
-  br label %429
+383:                                              ; preds = %380
+  %384 = getelementptr inbounds nuw i8, ptr %350, i64 88
+  %385 = load double, ptr %384, align 8, !tbaa !125
+  %386 = fadd double %.val, %385
+  %387 = fadd double %268, %369
+  %388 = fsub double %386, %387
+  %389 = fadd double %388, %367
+  br label %427
 
-392:                                              ; preds = %356
-  %393 = zext i16 %358 to i64
-  %394 = getelementptr inbounds nuw i8, ptr %258, i64 104
-  %395 = load i16, ptr %394, align 8, !tbaa !116
-  %396 = zext i16 %395 to i64
-  %397 = add nuw nsw i64 %396, %393
-  %398 = getelementptr inbounds nuw i8, ptr %352, i64 176
-  %399 = load i64, ptr %398, align 8, !tbaa !118
-  %400 = icmp eq i64 %397, %399
-  br i1 %400, label %401, label %413
+390:                                              ; preds = %354
+  %391 = zext i16 %356 to i64
+  %392 = getelementptr inbounds nuw i8, ptr %258, i64 104
+  %393 = load i16, ptr %392, align 8, !tbaa !116
+  %394 = zext i16 %393 to i64
+  %395 = add nuw nsw i64 %394, %391
+  %396 = getelementptr inbounds nuw i8, ptr %350, i64 176
+  %397 = load i64, ptr %396, align 8, !tbaa !118
+  %398 = icmp eq i64 %395, %397
+  br i1 %398, label %399, label %411
 
-401:                                              ; preds = %392
-  %402 = getelementptr inbounds nuw i8, ptr %352, i64 61
-  %403 = load i8, ptr %402, align 1, !tbaa !94
-  %404 = zext i8 %403 to i32
-  %405 = getelementptr inbounds nuw i8, ptr %352, i64 60
-  %406 = load i8, ptr %405, align 4, !tbaa !120
-  %407 = sdiv i8 %406, 2
-  %408 = sext i8 %407 to i32
-  %409 = add nsw i32 %408, %404
-  %410 = sitofp i32 %409 to double
-  %411 = sitofp i8 %407 to double
-  %412 = fsub double %269, %411
-  br label %429
+399:                                              ; preds = %390
+  %400 = getelementptr inbounds nuw i8, ptr %350, i64 61
+  %401 = load i8, ptr %400, align 1, !tbaa !94
+  %402 = zext i8 %401 to i32
+  %403 = getelementptr inbounds nuw i8, ptr %350, i64 60
+  %404 = load i8, ptr %403, align 4, !tbaa !120
+  %405 = sdiv i8 %404, 2
+  %406 = sext i8 %405 to i32
+  %407 = add nsw i32 %406, %402
+  %408 = sitofp i32 %407 to double
+  %409 = sitofp i8 %405 to double
+  %410 = fsub double %267, %409
+  br label %427
 
-413:                                              ; preds = %392
-  %414 = getelementptr inbounds nuw i8, ptr %352, i64 60
-  %415 = load i8, ptr %414, align 4, !tbaa !120
-  %416 = sdiv i8 %415, 2
-  %417 = sitofp i8 %416 to double
-  %418 = fsub double %269, %417
-  %.not101.i = icmp eq ptr %267, null
-  br i1 %.not101.i, label %429, label %419
+411:                                              ; preds = %390
+  %412 = getelementptr inbounds nuw i8, ptr %350, i64 60
+  %413 = load i8, ptr %412, align 4, !tbaa !120
+  %414 = sdiv i8 %413, 2
+  %415 = sitofp i8 %414 to double
+  %416 = fsub double %267, %415
+  %.not101.i = icmp eq ptr %265, null
+  br i1 %.not101.i, label %427, label %417
 
-419:                                              ; preds = %413
-  %420 = getelementptr inbounds nuw i8, ptr %267, i64 110
-  %421 = load i16, ptr %420, align 2, !tbaa !119
-  %.not102.i = icmp eq i16 %421, %345
-  br i1 %.not102.i, label %429, label %422
+417:                                              ; preds = %411
+  %418 = getelementptr inbounds nuw i8, ptr %265, i64 110
+  %419 = load i16, ptr %418, align 2, !tbaa !119
+  %.not102.i = icmp eq i16 %419, %343
+  br i1 %.not102.i, label %427, label %420
 
-422:                                              ; preds = %419
-  %423 = getelementptr inbounds nuw i8, ptr %352, i64 88
-  %424 = load double, ptr %423, align 8, !tbaa !125
-  %425 = fadd double %.val, %424
-  %426 = fadd double %270, %417
-  %427 = fsub double %425, %426
-  %428 = fadd double %427, 0.000000e+00
-  br label %429
+420:                                              ; preds = %417
+  %421 = getelementptr inbounds nuw i8, ptr %350, i64 88
+  %422 = load double, ptr %421, align 8, !tbaa !125
+  %423 = fadd double %.val, %422
+  %424 = fadd double %268, %415
+  %425 = fsub double %423, %424
+  %426 = fadd double %425, 0.000000e+00
+  br label %427
 
-429:                                              ; preds = %422, %419, %413, %401, %385, %382, %381, %379
-  %.pre-phi3.i = phi double [ %411, %401 ], [ %417, %422 ], [ %417, %419 ], [ %417, %413 ], [ %371, %379 ], [ %371, %385 ], [ %371, %382 ], [ %371, %381 ]
-  %430 = phi i8 [ %406, %401 ], [ %415, %422 ], [ %415, %419 ], [ %415, %413 ], [ %365, %379 ], [ %365, %385 ], [ %365, %382 ], [ %365, %381 ]
-  %.1.i = phi double [ %410, %401 ], [ %428, %422 ], [ 0.000000e+00, %419 ], [ 0.000000e+00, %413 ], [ %380, %379 ], [ %391, %385 ], [ %369, %382 ], [ %369, %381 ]
-  %.sroa.035.0.i = phi double [ %412, %401 ], [ %418, %422 ], [ %418, %419 ], [ %418, %413 ], [ %372, %379 ], [ %372, %385 ], [ %372, %382 ], [ %372, %381 ]
-  %431 = fsub double %271, %.pre-phi3.i
-  %432 = fadd double %270, %.1.i
-  %433 = fsub double %432, %269
-  %434 = sitofp i8 %430 to double
-  %435 = fadd double %433, %434
+427:                                              ; preds = %420, %417, %411, %399, %383, %380, %379, %377
+  %.pre-phi3.i = phi double [ %409, %399 ], [ %415, %420 ], [ %415, %417 ], [ %415, %411 ], [ %369, %377 ], [ %369, %383 ], [ %369, %380 ], [ %369, %379 ]
+  %428 = phi i8 [ %404, %399 ], [ %413, %420 ], [ %413, %417 ], [ %413, %411 ], [ %363, %377 ], [ %363, %383 ], [ %363, %380 ], [ %363, %379 ]
+  %.1.i = phi double [ %408, %399 ], [ %426, %420 ], [ 0.000000e+00, %417 ], [ 0.000000e+00, %411 ], [ %378, %377 ], [ %389, %383 ], [ %367, %380 ], [ %367, %379 ]
+  %.sroa.035.0.i = phi double [ %410, %399 ], [ %416, %420 ], [ %416, %417 ], [ %416, %411 ], [ %370, %377 ], [ %370, %383 ], [ %370, %380 ], [ %370, %379 ]
+  %429 = fsub double %269, %.pre-phi3.i
+  %430 = fadd double %268, %.1.i
+  %431 = fsub double %430, %267
+  %432 = sitofp i8 %428 to double
+  %433 = fadd double %431, %432
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
   store double %.sroa.035.0.i, ptr %6, align 8, !tbaa !25
-  store double %431, ptr %.sroa.3.0..sroa_idx.i105.i, align 8, !tbaa !25
-  %436 = fadd double %.sroa.035.0.i, %435
-  store double %436, ptr %255, align 8, !tbaa !123
-  %437 = fadd double %431, 0.000000e+00
-  store double %437, ptr %256, align 8, !tbaa !124
+  store double %429, ptr %.sroa.3.0..sroa_idx.i105.i, align 8, !tbaa !25
+  %434 = fadd double %.sroa.035.0.i, %433
+  store double %434, ptr %255, align 8, !tbaa !123
+  %435 = fadd double %429, 0.000000e+00
+  store double %435, ptr %256, align 8, !tbaa !124
   call void @gvrender_box(ptr noundef %0, ptr noundef nonnull byval(%struct.boxf) align 8 %6, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
   br label %emit_html_rules.exit
 
-emit_html_rules.exit:                             ; preds = %429, %343, %340, %263
-  %438 = load ptr, ptr %259, align 8, !tbaa !97
-  %.not80 = icmp eq ptr %438, null
+emit_html_rules.exit:                             ; preds = %427, %341, %338, %257
+  %436 = load ptr, ptr %259, align 8, !tbaa !97
+  %.not80 = icmp eq ptr %436, null
   br i1 %.not80, label %._crit_edge114, label %257, !llvm.loop !126
 
 ._crit_edge114:                                   ; preds = %emit_html_rules.exit, %._crit_edge
-  %439 = getelementptr inbounds nuw i8, ptr %1, i64 61
-  %440 = load i8, ptr %439, align 1, !tbaa !94
-  %.not81 = icmp eq i8 %440, 0
-  br i1 %.not81, label %442, label %441
+  %437 = getelementptr inbounds nuw i8, ptr %1, i64 61
+  %438 = load i8, ptr %437, align 1, !tbaa !94
+  %.not81 = icmp eq i8 %438, 0
+  br i1 %.not81, label %440, label %439
 
-441:                                              ; preds = %._crit_edge114
+439:                                              ; preds = %._crit_edge114
   call fastcc void @doBorder(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull byval(%struct.boxf) align 8 %13)
+  br label %440
+
+440:                                              ; preds = %._crit_edge114, %439, %78
+  br i1 %.069, label %442, label %441
+
+441:                                              ; preds = %440
+  call fastcc void @endAnchor(ptr noundef %0, ptr noundef %14)
   br label %442
 
-442:                                              ; preds = %._crit_edge114, %441, %78
-  br i1 %.069, label %444, label %443
+442:                                              ; preds = %441, %440
+  br i1 %29, label %443, label %450
 
 443:                                              ; preds = %442
-  call fastcc void @endAnchor(ptr noundef %0, ptr noundef %14)
-  br label %444
+  %444 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %445 = load i32, ptr %444, align 8, !tbaa !90
+  %446 = and i32 %445, 4
+  %.not84 = icmp eq i32 %446, 0
+  br i1 %.not84, label %450, label %447
 
-444:                                              ; preds = %443, %442
-  br i1 %29, label %445, label %452
+447:                                              ; preds = %443
+  %448 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull byval(%struct.boxf) align 8 %13, ptr noundef %14)
+  %.not85 = icmp eq i32 %448, 0
+  br i1 %.not85, label %450, label %449
 
-445:                                              ; preds = %444
-  %446 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %447 = load i32, ptr %446, align 8, !tbaa !90
-  %448 = and i32 %447, 4
-  %.not84 = icmp eq i32 %448, 0
-  br i1 %.not84, label %452, label %449
-
-449:                                              ; preds = %445
-  %450 = call fastcc i32 @initAnchor(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull byval(%struct.boxf) align 8 %13, ptr noundef %14)
-  %.not85 = icmp eq i32 %450, 0
-  br i1 %.not85, label %452, label %451
-
-451:                                              ; preds = %449
+449:                                              ; preds = %447
   call fastcc void @endAnchor(ptr noundef nonnull %0, ptr noundef %14)
-  br label %452
+  br label %450
 
-452:                                              ; preds = %449, %451, %445, %444
-  %453 = load ptr, ptr %30, align 8, !tbaa !86
-  %.not86 = icmp eq ptr %453, null
-  br i1 %.not86, label %popFontInfo.exit, label %454
+450:                                              ; preds = %447, %449, %443, %442
+  %451 = load ptr, ptr %30, align 8, !tbaa !86
+  %.not86 = icmp eq ptr %451, null
+  br i1 %.not86, label %popFontInfo.exit, label %452
+
+452:                                              ; preds = %450
+  %453 = load ptr, ptr @emit_html_tbl.savef.0, align 8, !tbaa !87
+  %.not.i94 = icmp eq ptr %453, null
+  br i1 %.not.i94, label %456, label %454
 
 454:                                              ; preds = %452
-  %455 = load ptr, ptr @emit_html_tbl.savef.0, align 8, !tbaa !87
-  %.not.i94 = icmp eq ptr %455, null
-  br i1 %.not.i94, label %458, label %456
+  %455 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %453, ptr %455, align 8, !tbaa !40
+  br label %456
 
-456:                                              ; preds = %454
-  %457 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %455, ptr %457, align 8, !tbaa !40
-  br label %458
+456:                                              ; preds = %454, %452
+  %457 = load ptr, ptr @emit_html_tbl.savef.1, align 8, !tbaa !88
+  %.not11.i = icmp eq ptr %457, null
+  br i1 %.not11.i, label %460, label %458
 
-458:                                              ; preds = %456, %454
-  %459 = load ptr, ptr @emit_html_tbl.savef.1, align 8, !tbaa !88
-  %.not11.i = icmp eq ptr %459, null
-  br i1 %.not11.i, label %462, label %460
+458:                                              ; preds = %456
+  %459 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %457, ptr %459, align 8, !tbaa !34
+  br label %460
 
-460:                                              ; preds = %458
-  %461 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %459, ptr %461, align 8, !tbaa !34
-  br label %462
+460:                                              ; preds = %458, %456
+  %461 = load double, ptr @emit_html_tbl.savef.2, align 8, !tbaa !89
+  %462 = fcmp ult double %461, 0.000000e+00
+  br i1 %462, label %popFontInfo.exit, label %463
 
-462:                                              ; preds = %460, %458
-  %463 = load double, ptr @emit_html_tbl.savef.2, align 8, !tbaa !89
-  %464 = fcmp ult double %463, 0.000000e+00
-  br i1 %464, label %popFontInfo.exit, label %465
-
-465:                                              ; preds = %462
-  %466 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store double %463, ptr %466, align 8, !tbaa !42
+463:                                              ; preds = %460
+  %464 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store double %461, ptr %464, align 8, !tbaa !42
   br label %popFontInfo.exit
 
-popFontInfo.exit:                                 ; preds = %465, %462, %452
+popFontInfo.exit:                                 ; preds = %463, %460, %450
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #23
   ret void

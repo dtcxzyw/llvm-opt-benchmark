@@ -4518,8 +4518,8 @@ define weak_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE12scheduleTa
   %22 = load i8, ptr %21, align 1, !tbaa !72, !range !30, !noundef !31
   %23 = trunc nuw i8 %22 to i1
   %24 = select i1 %23, i1 %20, i1 false
-  %brmerge = select i1 %17, i1 %20, i1 %24
-  br i1 %brmerge, label %25, label %_ZNSt14_Function_baseD2Ev.exit
+  %or.cond = select i1 %17, i1 %20, i1 %24
+  br i1 %or.cond, label %25, label %_ZNSt14_Function_baseD2Ev.exit
 
 25:                                               ; preds = %4
   %26 = select i1 %17, i1 %20, i1 false
@@ -4584,12 +4584,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %43
   %53 = landingpad { ptr, i32 }
           cleanup
   %54 = load ptr, ptr %38, align 8, !tbaa !39
-  %.not.i25 = icmp eq ptr %54, null
-  br i1 %.not.i25, label %_ZNSt14_Function_baseD2Ev.exit26, label %55
+  %.not.i26 = icmp eq ptr %54, null
+  br i1 %.not.i26, label %_ZNSt14_Function_baseD2Ev.exit27, label %55
 
 55:                                               ; preds = %52
   %56 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %57
+          to label %_ZNSt14_Function_baseD2Ev.exit27 unwind label %57
 
 57:                                               ; preds = %55
   %58 = landingpad { ptr, i32 }
@@ -4607,28 +4607,28 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %43
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE2_E9_M_invokeERKSt9_Any_data, ptr %62, align 8, !tbaa !36
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE2_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %61, align 8, !tbaa !39
   %64 = load ptr, ptr %35, align 8, !tbaa !39
-  %.not.i.i27 = icmp eq ptr %64, null
-  br i1 %.not.i.i27, label %65, label %66
+  %.not.i.i28 = icmp eq ptr %64, null
+  br i1 %.not.i.i28, label %65, label %66
 
 65:                                               ; preds = %60
   invoke void @_ZSt25__throw_bad_function_callv() #28
-          to label %.noexc28 unwind label %75
+          to label %.noexc29 unwind label %75
 
-.noexc28:                                         ; preds = %65
+.noexc29:                                         ; preds = %65
   unreachable
 
 66:                                               ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !40
   invoke void %68(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit30 unwind label %75
+          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit31 unwind label %75
 
-_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit30:        ; preds = %66
+_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit31:        ; preds = %66
   %69 = load ptr, ptr %61, align 8, !tbaa !39
-  %.not.i31 = icmp eq ptr %69, null
-  br i1 %.not.i31, label %_ZNSt14_Function_baseD2Ev.exit, label %70
+  %.not.i32 = icmp eq ptr %69, null
+  br i1 %.not.i32, label %_ZNSt14_Function_baseD2Ev.exit, label %70
 
-70:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit30
+70:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit31
   %71 = invoke noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %72
 
@@ -4643,12 +4643,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit30:        ; preds = %66
   %76 = landingpad { ptr, i32 }
           cleanup
   %77 = load ptr, ptr %61, align 8, !tbaa !39
-  %.not.i33 = icmp eq ptr %77, null
-  br i1 %.not.i33, label %_ZNSt14_Function_baseD2Ev.exit26, label %78
+  %.not.i34 = icmp eq ptr %77, null
+  br i1 %.not.i34, label %_ZNSt14_Function_baseD2Ev.exit27, label %78
 
 78:                                               ; preds = %75
   %79 = invoke noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %80
+          to label %_ZNSt14_Function_baseD2Ev.exit27 unwind label %80
 
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
@@ -4669,28 +4669,28 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit30:        ; preds = %66
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE3_E9_M_invokeERKSt9_Any_data, ptr %86, align 8, !tbaa !36
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE3_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %85, align 8, !tbaa !39
   %88 = load ptr, ptr %35, align 8, !tbaa !39
-  %.not.i.i35 = icmp eq ptr %88, null
-  br i1 %.not.i.i35, label %89, label %90
+  %.not.i.i36 = icmp eq ptr %88, null
+  br i1 %.not.i.i36, label %89, label %90
 
 89:                                               ; preds = %84
   invoke void @_ZSt25__throw_bad_function_callv() #28
-          to label %.noexc36 unwind label %99
+          to label %.noexc37 unwind label %99
 
-.noexc36:                                         ; preds = %89
+.noexc37:                                         ; preds = %89
   unreachable
 
 90:                                               ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %92 = load ptr, ptr %91, align 8, !tbaa !40
   invoke void %92(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit38 unwind label %99
+          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit39 unwind label %99
 
-_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit38:        ; preds = %90
+_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit39:        ; preds = %90
   %93 = load ptr, ptr %85, align 8, !tbaa !39
-  %.not.i39 = icmp eq ptr %93, null
-  br i1 %.not.i39, label %_ZNSt14_Function_baseD2Ev.exit, label %94
+  %.not.i40 = icmp eq ptr %93, null
+  br i1 %.not.i40, label %_ZNSt14_Function_baseD2Ev.exit, label %94
 
-94:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit38
+94:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit39
   %95 = invoke noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %96
 
@@ -4705,12 +4705,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit38:        ; preds = %90
   %100 = landingpad { ptr, i32 }
           cleanup
   %101 = load ptr, ptr %85, align 8, !tbaa !39
-  %.not.i41 = icmp eq ptr %101, null
-  br i1 %.not.i41, label %_ZNSt14_Function_baseD2Ev.exit26, label %102
+  %.not.i42 = icmp eq ptr %101, null
+  br i1 %.not.i42, label %_ZNSt14_Function_baseD2Ev.exit27, label %102
 
 102:                                              ; preds = %99
   %103 = invoke noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %104
+          to label %_ZNSt14_Function_baseD2Ev.exit27 unwind label %104
 
 104:                                              ; preds = %102
   %105 = landingpad { ptr, i32 }
@@ -4728,28 +4728,28 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit38:        ; preds = %90
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE4_E9_M_invokeERKSt9_Any_data, ptr %109, align 8, !tbaa !36
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE4_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %108, align 8, !tbaa !39
   %111 = load ptr, ptr %35, align 8, !tbaa !39
-  %.not.i.i43 = icmp eq ptr %111, null
-  br i1 %.not.i.i43, label %112, label %113
+  %.not.i.i44 = icmp eq ptr %111, null
+  br i1 %.not.i.i44, label %112, label %113
 
 112:                                              ; preds = %107
   invoke void @_ZSt25__throw_bad_function_callv() #28
-          to label %.noexc44 unwind label %122
+          to label %.noexc45 unwind label %122
 
-.noexc44:                                         ; preds = %112
+.noexc45:                                         ; preds = %112
   unreachable
 
 113:                                              ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %115 = load ptr, ptr %114, align 8, !tbaa !40
   invoke void %115(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit46 unwind label %122
+          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit47 unwind label %122
 
-_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit46:        ; preds = %113
+_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit47:        ; preds = %113
   %116 = load ptr, ptr %108, align 8, !tbaa !39
-  %.not.i47 = icmp eq ptr %116, null
-  br i1 %.not.i47, label %_ZNSt14_Function_baseD2Ev.exit, label %117
+  %.not.i48 = icmp eq ptr %116, null
+  br i1 %.not.i48, label %_ZNSt14_Function_baseD2Ev.exit, label %117
 
-117:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit46
+117:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit47
   %118 = invoke noundef zeroext i1 %116(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %119
 
@@ -4764,12 +4764,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit46:        ; preds = %113
   %123 = landingpad { ptr, i32 }
           cleanup
   %124 = load ptr, ptr %108, align 8, !tbaa !39
-  %.not.i49 = icmp eq ptr %124, null
-  br i1 %.not.i49, label %_ZNSt14_Function_baseD2Ev.exit26, label %125
+  %.not.i50 = icmp eq ptr %124, null
+  br i1 %.not.i50, label %_ZNSt14_Function_baseD2Ev.exit27, label %125
 
 125:                                              ; preds = %122
   %126 = invoke noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %127
+          to label %_ZNSt14_Function_baseD2Ev.exit27 unwind label %127
 
 127:                                              ; preds = %125
   %128 = landingpad { ptr, i32 }
@@ -4801,28 +4801,28 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit46:        ; preds = %113
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE5_E9_M_invokeERKSt9_Any_data, ptr %140, align 8, !tbaa !36
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE5_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %139, align 8, !tbaa !39
   %142 = load ptr, ptr %136, align 8, !tbaa !39
-  %.not.i.i51 = icmp eq ptr %142, null
-  br i1 %.not.i.i51, label %143, label %144
+  %.not.i.i52 = icmp eq ptr %142, null
+  br i1 %.not.i.i52, label %143, label %144
 
 143:                                              ; preds = %138
   invoke void @_ZSt25__throw_bad_function_callv() #28
-          to label %.noexc52 unwind label %153
+          to label %.noexc53 unwind label %153
 
-.noexc52:                                         ; preds = %143
+.noexc53:                                         ; preds = %143
   unreachable
 
 144:                                              ; preds = %138
   %145 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %146 = load ptr, ptr %145, align 8, !tbaa !40
   invoke void %146(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit54 unwind label %153
+          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit55 unwind label %153
 
-_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit54:        ; preds = %144
+_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit55:        ; preds = %144
   %147 = load ptr, ptr %139, align 8, !tbaa !39
-  %.not.i55 = icmp eq ptr %147, null
-  br i1 %.not.i55, label %_ZNSt14_Function_baseD2Ev.exit, label %148
+  %.not.i56 = icmp eq ptr %147, null
+  br i1 %.not.i56, label %_ZNSt14_Function_baseD2Ev.exit, label %148
 
-148:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit54
+148:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit55
   %149 = invoke noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %150
 
@@ -4837,12 +4837,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit54:        ; preds = %144
   %154 = landingpad { ptr, i32 }
           cleanup
   %155 = load ptr, ptr %139, align 8, !tbaa !39
-  %.not.i57 = icmp eq ptr %155, null
-  br i1 %.not.i57, label %_ZNSt14_Function_baseD2Ev.exit26, label %156
+  %.not.i58 = icmp eq ptr %155, null
+  br i1 %.not.i58, label %_ZNSt14_Function_baseD2Ev.exit27, label %156
 
 156:                                              ; preds = %153
   %157 = invoke noundef zeroext i1 %155(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %158
+          to label %_ZNSt14_Function_baseD2Ev.exit27 unwind label %158
 
 158:                                              ; preds = %156
   %159 = landingpad { ptr, i32 }
@@ -4860,28 +4860,28 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit54:        ; preds = %144
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE6_E9_M_invokeERKSt9_Any_data, ptr %163, align 8, !tbaa !36
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE6_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %162, align 8, !tbaa !39
   %165 = load ptr, ptr %136, align 8, !tbaa !39
-  %.not.i.i59 = icmp eq ptr %165, null
-  br i1 %.not.i.i59, label %166, label %167
+  %.not.i.i60 = icmp eq ptr %165, null
+  br i1 %.not.i.i60, label %166, label %167
 
 166:                                              ; preds = %161
   invoke void @_ZSt25__throw_bad_function_callv() #28
-          to label %.noexc60 unwind label %176
+          to label %.noexc61 unwind label %176
 
-.noexc60:                                         ; preds = %166
+.noexc61:                                         ; preds = %166
   unreachable
 
 167:                                              ; preds = %161
   %168 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %169 = load ptr, ptr %168, align 8, !tbaa !40
   invoke void %169(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit62 unwind label %176
+          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit63 unwind label %176
 
-_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit62:        ; preds = %167
+_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit63:        ; preds = %167
   %170 = load ptr, ptr %162, align 8, !tbaa !39
-  %.not.i63 = icmp eq ptr %170, null
-  br i1 %.not.i63, label %_ZNSt14_Function_baseD2Ev.exit, label %171
+  %.not.i64 = icmp eq ptr %170, null
+  br i1 %.not.i64, label %_ZNSt14_Function_baseD2Ev.exit, label %171
 
-171:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit62
+171:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit63
   %172 = invoke noundef zeroext i1 %170(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %173
 
@@ -4896,12 +4896,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit62:        ; preds = %167
   %177 = landingpad { ptr, i32 }
           cleanup
   %178 = load ptr, ptr %162, align 8, !tbaa !39
-  %.not.i65 = icmp eq ptr %178, null
-  br i1 %.not.i65, label %_ZNSt14_Function_baseD2Ev.exit26, label %179
+  %.not.i66 = icmp eq ptr %178, null
+  br i1 %.not.i66, label %_ZNSt14_Function_baseD2Ev.exit27, label %179
 
 179:                                              ; preds = %176
   %180 = invoke noundef zeroext i1 %178(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %181
+          to label %_ZNSt14_Function_baseD2Ev.exit27 unwind label %181
 
 181:                                              ; preds = %179
   %182 = landingpad { ptr, i32 }
@@ -4922,28 +4922,28 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit62:        ; preds = %167
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE7_E9_M_invokeERKSt9_Any_data, ptr %187, align 8, !tbaa !36
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE7_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %186, align 8, !tbaa !39
   %189 = load ptr, ptr %136, align 8, !tbaa !39
-  %.not.i.i67 = icmp eq ptr %189, null
-  br i1 %.not.i.i67, label %190, label %191
+  %.not.i.i68 = icmp eq ptr %189, null
+  br i1 %.not.i.i68, label %190, label %191
 
 190:                                              ; preds = %185
   invoke void @_ZSt25__throw_bad_function_callv() #28
-          to label %.noexc68 unwind label %200
+          to label %.noexc69 unwind label %200
 
-.noexc68:                                         ; preds = %190
+.noexc69:                                         ; preds = %190
   unreachable
 
 191:                                              ; preds = %185
   %192 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %193 = load ptr, ptr %192, align 8, !tbaa !40
   invoke void %193(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit70 unwind label %200
+          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit71 unwind label %200
 
-_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit70:        ; preds = %191
+_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit71:        ; preds = %191
   %194 = load ptr, ptr %186, align 8, !tbaa !39
-  %.not.i71 = icmp eq ptr %194, null
-  br i1 %.not.i71, label %_ZNSt14_Function_baseD2Ev.exit, label %195
+  %.not.i72 = icmp eq ptr %194, null
+  br i1 %.not.i72, label %_ZNSt14_Function_baseD2Ev.exit, label %195
 
-195:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit70
+195:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit71
   %196 = invoke noundef zeroext i1 %194(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %197
 
@@ -4958,12 +4958,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit70:        ; preds = %191
   %201 = landingpad { ptr, i32 }
           cleanup
   %202 = load ptr, ptr %186, align 8, !tbaa !39
-  %.not.i73 = icmp eq ptr %202, null
-  br i1 %.not.i73, label %_ZNSt14_Function_baseD2Ev.exit26, label %203
+  %.not.i74 = icmp eq ptr %202, null
+  br i1 %.not.i74, label %_ZNSt14_Function_baseD2Ev.exit27, label %203
 
 203:                                              ; preds = %200
   %204 = invoke noundef zeroext i1 %202(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %205
+          to label %_ZNSt14_Function_baseD2Ev.exit27 unwind label %205
 
 205:                                              ; preds = %203
   %206 = landingpad { ptr, i32 }
@@ -4981,28 +4981,28 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit70:        ; preds = %191
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE8_E9_M_invokeERKSt9_Any_data, ptr %210, align 8, !tbaa !36
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE8_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %209, align 8, !tbaa !39
   %212 = load ptr, ptr %136, align 8, !tbaa !39
-  %.not.i.i75 = icmp eq ptr %212, null
-  br i1 %.not.i.i75, label %213, label %214
+  %.not.i.i76 = icmp eq ptr %212, null
+  br i1 %.not.i.i76, label %213, label %214
 
 213:                                              ; preds = %208
   invoke void @_ZSt25__throw_bad_function_callv() #28
-          to label %.noexc76 unwind label %223
+          to label %.noexc77 unwind label %223
 
-.noexc76:                                         ; preds = %213
+.noexc77:                                         ; preds = %213
   unreachable
 
 214:                                              ; preds = %208
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %216 = load ptr, ptr %215, align 8, !tbaa !40
   invoke void %216(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit78 unwind label %223
+          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit79 unwind label %223
 
-_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit78:        ; preds = %214
+_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit79:        ; preds = %214
   %217 = load ptr, ptr %209, align 8, !tbaa !39
-  %.not.i79 = icmp eq ptr %217, null
-  br i1 %.not.i79, label %_ZNSt14_Function_baseD2Ev.exit, label %218
+  %.not.i80 = icmp eq ptr %217, null
+  br i1 %.not.i80, label %_ZNSt14_Function_baseD2Ev.exit, label %218
 
-218:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit78
+218:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit79
   %219 = invoke noundef zeroext i1 %217(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %220
 
@@ -5017,12 +5017,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit78:        ; preds = %214
   %224 = landingpad { ptr, i32 }
           cleanup
   %225 = load ptr, ptr %209, align 8, !tbaa !39
-  %.not.i81 = icmp eq ptr %225, null
-  br i1 %.not.i81, label %_ZNSt14_Function_baseD2Ev.exit26, label %226
+  %.not.i82 = icmp eq ptr %225, null
+  br i1 %.not.i82, label %_ZNSt14_Function_baseD2Ev.exit27, label %226
 
 226:                                              ; preds = %223
   %227 = invoke noundef zeroext i1 %225(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %228
+          to label %_ZNSt14_Function_baseD2Ev.exit27 unwind label %228
 
 228:                                              ; preds = %226
   %229 = landingpad { ptr, i32 }
@@ -5045,28 +5045,28 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit78:        ; preds = %214
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE9_E9_M_invokeERKSt9_Any_data, ptr %236, align 8, !tbaa !36
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE9_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %235, align 8, !tbaa !39
   %238 = load ptr, ptr %233, align 8, !tbaa !39
-  %.not.i.i83 = icmp eq ptr %238, null
-  br i1 %.not.i.i83, label %239, label %240
+  %.not.i.i84 = icmp eq ptr %238, null
+  br i1 %.not.i.i84, label %239, label %240
 
 239:                                              ; preds = %234
   invoke void @_ZSt25__throw_bad_function_callv() #28
-          to label %.noexc84 unwind label %249
+          to label %.noexc85 unwind label %249
 
-.noexc84:                                         ; preds = %239
+.noexc85:                                         ; preds = %239
   unreachable
 
 240:                                              ; preds = %234
   %241 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %242 = load ptr, ptr %241, align 8, !tbaa !40
   invoke void %242(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit86 unwind label %249
+          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit87 unwind label %249
 
-_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit86:        ; preds = %240
+_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit87:        ; preds = %240
   %243 = load ptr, ptr %235, align 8, !tbaa !39
-  %.not.i87 = icmp eq ptr %243, null
-  br i1 %.not.i87, label %_ZNSt14_Function_baseD2Ev.exit, label %244
+  %.not.i88 = icmp eq ptr %243, null
+  br i1 %.not.i88, label %_ZNSt14_Function_baseD2Ev.exit, label %244
 
-244:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit86
+244:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit87
   %245 = invoke noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %246
 
@@ -5081,12 +5081,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit86:        ; preds = %240
   %250 = landingpad { ptr, i32 }
           cleanup
   %251 = load ptr, ptr %235, align 8, !tbaa !39
-  %.not.i89 = icmp eq ptr %251, null
-  br i1 %.not.i89, label %_ZNSt14_Function_baseD2Ev.exit26, label %252
+  %.not.i90 = icmp eq ptr %251, null
+  br i1 %.not.i90, label %_ZNSt14_Function_baseD2Ev.exit27, label %252
 
 252:                                              ; preds = %249
   %253 = invoke noundef zeroext i1 %251(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %254
+          to label %_ZNSt14_Function_baseD2Ev.exit27 unwind label %254
 
 254:                                              ; preds = %252
   %255 = landingpad { ptr, i32 }
@@ -5104,28 +5104,28 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit86:        ; preds = %240
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE10_E9_M_invokeERKSt9_Any_data, ptr %259, align 8, !tbaa !36
   store ptr @_ZNSt17_Function_handlerIFvvEZN3gmx10PropagatorILNS1_16IntegrationStageE4EE12scheduleTaskEldRKSt8functionIFvS5_IS0_EEEEUlvE10_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %258, align 8, !tbaa !39
   %261 = load ptr, ptr %233, align 8, !tbaa !39
-  %.not.i.i91 = icmp eq ptr %261, null
-  br i1 %.not.i.i91, label %262, label %263
+  %.not.i.i92 = icmp eq ptr %261, null
+  br i1 %.not.i.i92, label %262, label %263
 
 262:                                              ; preds = %257
   invoke void @_ZSt25__throw_bad_function_callv() #28
-          to label %.noexc92 unwind label %272
+          to label %.noexc93 unwind label %272
 
-.noexc92:                                         ; preds = %262
+.noexc93:                                         ; preds = %262
   unreachable
 
 263:                                              ; preds = %257
   %264 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %265 = load ptr, ptr %264, align 8, !tbaa !40
   invoke void %265(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit94 unwind label %272
+          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit95 unwind label %272
 
-_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit94:        ; preds = %263
+_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit95:        ; preds = %263
   %266 = load ptr, ptr %258, align 8, !tbaa !39
-  %.not.i95 = icmp eq ptr %266, null
-  br i1 %.not.i95, label %_ZNSt14_Function_baseD2Ev.exit, label %267
+  %.not.i96 = icmp eq ptr %266, null
+  br i1 %.not.i96, label %_ZNSt14_Function_baseD2Ev.exit, label %267
 
-267:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit94
+267:                                              ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit95
   %268 = invoke noundef zeroext i1 %266(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %269
 
@@ -5140,12 +5140,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit94:        ; preds = %263
   %273 = landingpad { ptr, i32 }
           cleanup
   %274 = load ptr, ptr %258, align 8, !tbaa !39
-  %.not.i97 = icmp eq ptr %274, null
-  br i1 %.not.i97, label %_ZNSt14_Function_baseD2Ev.exit26, label %275
+  %.not.i98 = icmp eq ptr %274, null
+  br i1 %.not.i98, label %_ZNSt14_Function_baseD2Ev.exit27, label %275
 
 275:                                              ; preds = %272
   %276 = invoke noundef zeroext i1 %274(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %277
+          to label %_ZNSt14_Function_baseD2Ev.exit27 unwind label %277
 
 277:                                              ; preds = %275
   %278 = landingpad { ptr, i32 }
@@ -5154,10 +5154,10 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit94:        ; preds = %263
   call void @__clang_call_terminate(ptr %279) #29
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %267, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit94, %244, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit86, %218, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit78, %195, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit70, %171, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit62, %148, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit54, %117, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit46, %94, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit38, %70, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit30, %47, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit, %4
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %267, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit95, %244, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit87, %218, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit79, %195, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit71, %171, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit63, %148, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit55, %117, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit47, %94, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit39, %70, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit31, %47, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit, %4
   ret void
 
-_ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %275, %272, %252, %249, %226, %223, %203, %200, %179, %176, %156, %153, %125, %122, %102, %99, %78, %75, %55, %52
+_ZNSt14_Function_baseD2Ev.exit27:                 ; preds = %275, %272, %252, %249, %226, %223, %203, %200, %179, %176, %156, %153, %125, %122, %102, %99, %78, %75, %55, %52
   %.pn = phi { ptr, i32 } [ %53, %52 ], [ %53, %55 ], [ %76, %75 ], [ %76, %78 ], [ %100, %99 ], [ %100, %102 ], [ %123, %122 ], [ %123, %125 ], [ %154, %153 ], [ %154, %156 ], [ %177, %176 ], [ %177, %179 ], [ %201, %200 ], [ %201, %203 ], [ %224, %223 ], [ %224, %226 ], [ %250, %249 ], [ %250, %252 ], [ %273, %272 ], [ %273, %275 ]
   resume { ptr, i32 } %.pn
 }

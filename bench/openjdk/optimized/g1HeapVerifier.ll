@@ -710,8 +710,8 @@ define hidden void @_ZN14G1HeapVerifier6verifyE12VerifyOption(ptr noundef nonnul
 
 47:                                               ; preds = %12
   %48 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not5 = icmp eq ptr %48, null
-  br i1 %.not5, label %50, label %49
+  %.not6 = icmp eq ptr %48, null
+  br i1 %.not6, label %50, label %49
 
 49:                                               ; preds = %47
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.4)
@@ -723,8 +723,8 @@ define hidden void @_ZN14G1HeapVerifier6verifyE12VerifyOption(ptr noundef nonnul
 
 51:                                               ; preds = %50, %12
   %52 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not6 = icmp eq ptr %52, null
-  br i1 %.not6, label %54, label %53
+  %.not7 = icmp eq ptr %52, null
+  br i1 %.not7, label %54, label %53
 
 53:                                               ; preds = %51
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.5)
@@ -754,35 +754,33 @@ define hidden void @_ZN14G1HeapVerifier6verifyE12VerifyOption(ptr noundef nonnul
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 128
   %69 = load ptr, ptr %68, align 8
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %69, ptr noundef nonnull %8) #13
-  br i1 %39, label %73, label %70
+  %70 = load i8, ptr %61, align 4
+  %71 = trunc i8 %70 to i1
+  %or.cond = select i1 %39, i1 true, i1 %71
+  br i1 %or.cond, label %72, label %81
 
-70:                                               ; preds = %54
-  %71 = load i8, ptr %61, align 4
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %82
+72:                                               ; preds = %54
+  %73 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not8 = icmp eq ptr %73, null
+  br i1 %.not8, label %75, label %74
 
-73:                                               ; preds = %70, %54
-  %74 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not7 = icmp eq ptr %74, null
-  br i1 %.not7, label %76, label %75
-
-75:                                               ; preds = %73
+74:                                               ; preds = %72
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_171ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.6, i32 noundef %1)
-  br label %76
+  br label %75
 
-76:                                               ; preds = %73, %75
+75:                                               ; preds = %72, %74
   call void @_ZN9LogStreamC2ILN8LogLevel4typeE5ELN6LogTag4typeE49ELS4_171ELS4_0ELS4_0ELS4_0ELS4_0EEEPK13LogTargetImplIXT_EXT0_EXT1_EXT2_EXT3_EXT4_EXT5_EE(ptr noundef nonnull align 8 dereferenceable(160) %9, ptr noundef null)
-  %77 = load ptr, ptr %0, align 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 328
-  %80 = load ptr, ptr %79, align 8
-  call void %80(ptr noundef nonnull align 8 dereferenceable(1488) %77, ptr noundef nonnull %9) #13
-  %81 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %81, align 1
+  %76 = load ptr, ptr %0, align 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 328
+  %79 = load ptr, ptr %78, align 8
+  call void %79(ptr noundef nonnull align 8 dereferenceable(1488) %76, ptr noundef nonnull %9) #13
+  %80 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %80, align 1
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.7, i32 noundef 374, ptr noundef nonnull @.str.8) #14
   unreachable
 
-82:                                               ; preds = %70
+81:                                               ; preds = %54
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV12G1VerifyTask, i64 16), ptr %8, align 8
   call void @_ZN19G1HeapRegionClaimerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %62) #13
   ret void
@@ -936,23 +934,21 @@ declare void @_ZN16G1ConcurrentMark21flush_all_task_cachesEv(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14G1HeapVerifier18prepare_for_verifyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %3 = icmp eq i32 %2, 2
-  br i1 %3, label %7, label %4
+  %3 = icmp ne i32 %2, 2
+  %4 = load i8, ptr @UseTLAB, align 1
+  %5 = trunc i8 %4 to i1
+  %or.cond = select i1 %3, i1 %5, i1 false
+  br i1 %or.cond, label %11, label %6
 
-4:                                                ; preds = %1
-  %5 = load i8, ptr @UseTLAB, align 1
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %12, label %7
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %0, align 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
+  %10 = load ptr, ptr %9, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(104) %7, i1 noundef zeroext false) #13
+  br label %11
 
-7:                                                ; preds = %4, %1
-  %8 = load ptr, ptr %0, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 152
-  %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(104) %8, i1 noundef zeroext false) #13
-  br label %12
-
-12:                                               ; preds = %7, %4
+11:                                               ; preds = %1, %6
   ret void
 }
 
@@ -964,30 +960,28 @@ define hidden void @_ZN14G1HeapVerifier6verifyE12VerifyOptionPKc(ptr noundef non
   %7 = zext i32 %6 to i64
   %8 = load i64, ptr @VerifyGCStartAt, align 8
   %.not = icmp ugt i64 %8, %7
-  br i1 %.not, label %19, label %9
+  br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %3
   %10 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %11 = icmp eq i32 %10, 2
-  br i1 %11, label %15, label %12
+  %11 = icmp ne i32 %10, 2
+  %12 = load i8, ptr @UseTLAB, align 1
+  %13 = trunc i8 %12 to i1
+  %or.cond.i = select i1 %11, i1 %13, i1 false
+  br i1 %or.cond.i, label %_ZN14G1HeapVerifier18prepare_for_verifyEv.exit, label %14
 
-12:                                               ; preds = %9
-  %13 = load i8, ptr @UseTLAB, align 1
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %_ZN14G1HeapVerifier18prepare_for_verifyEv.exit, label %15
-
-15:                                               ; preds = %12, %9
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(104) %4, i1 noundef zeroext false) #13
+14:                                               ; preds = %9
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 152
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(104) %4, i1 noundef zeroext false) #13
   br label %_ZN14G1HeapVerifier18prepare_for_verifyEv.exit
 
-_ZN14G1HeapVerifier18prepare_for_verifyEv.exit:   ; preds = %12, %15
+_ZN14G1HeapVerifier18prepare_for_verifyEv.exit:   ; preds = %9, %14
   tail call void @_ZN8Universe6verifyE12VerifyOptionPKc(i32 noundef %1, ptr noundef %2) #13
-  br label %19
+  br label %18
 
-19:                                               ; preds = %_ZN14G1HeapVerifier18prepare_for_verifyEv.exit, %3
+18:                                               ; preds = %_ZN14G1HeapVerifier18prepare_for_verifyEv.exit, %3
   ret void
 }
 
@@ -1005,22 +999,20 @@ define hidden void @_ZN14G1HeapVerifier16verify_before_gcEv(ptr noundef nonnull 
 
 7:                                                ; preds = %1
   %8 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %9 = icmp eq i32 %8, 2
-  br i1 %9, label %13, label %10
+  %9 = icmp ne i32 %8, 2
+  %10 = load i8, ptr @UseTLAB, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond.i.i = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond.i.i, label %_ZN14G1HeapVerifier18prepare_for_verifyEv.exit.i, label %12
 
-10:                                               ; preds = %7
-  %11 = load i8, ptr @UseTLAB, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %_ZN14G1HeapVerifier18prepare_for_verifyEv.exit.i, label %13
-
-13:                                               ; preds = %10, %7
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 152
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext false) #13
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 152
+  %15 = load ptr, ptr %14, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext false) #13
   br label %_ZN14G1HeapVerifier18prepare_for_verifyEv.exit.i
 
-_ZN14G1HeapVerifier18prepare_for_verifyEv.exit.i: ; preds = %13, %10
+_ZN14G1HeapVerifier18prepare_for_verifyEv.exit.i: ; preds = %12, %7
   tail call void @_ZN8Universe6verifyE12VerifyOptionPKc(i32 noundef 0, ptr noundef nonnull @.str.9) #13
   br label %_ZN14G1HeapVerifier6verifyE12VerifyOptionPKc.exit
 
@@ -1040,22 +1032,20 @@ define hidden void @_ZN14G1HeapVerifier15verify_after_gcEv(ptr noundef nonnull r
 
 7:                                                ; preds = %1
   %8 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %9 = icmp eq i32 %8, 2
-  br i1 %9, label %13, label %10
+  %9 = icmp ne i32 %8, 2
+  %10 = load i8, ptr @UseTLAB, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond.i.i = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond.i.i, label %_ZN14G1HeapVerifier18prepare_for_verifyEv.exit.i, label %12
 
-10:                                               ; preds = %7
-  %11 = load i8, ptr @UseTLAB, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %_ZN14G1HeapVerifier18prepare_for_verifyEv.exit.i, label %13
-
-13:                                               ; preds = %10, %7
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 152
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext false) #13
+12:                                               ; preds = %7
+  %13 = load ptr, ptr %2, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 152
+  %15 = load ptr, ptr %14, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext false) #13
   br label %_ZN14G1HeapVerifier18prepare_for_verifyEv.exit.i
 
-_ZN14G1HeapVerifier18prepare_for_verifyEv.exit.i: ; preds = %13, %10
+_ZN14G1HeapVerifier18prepare_for_verifyEv.exit.i: ; preds = %12, %7
   tail call void @_ZN8Universe6verifyE12VerifyOptionPKc(i32 noundef 0, ptr noundef nonnull @.str.10) #13
   br label %_ZN14G1HeapVerifier6verifyE12VerifyOptionPKc.exit
 

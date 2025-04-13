@@ -79,9 +79,9 @@ define void @_ZN7rocksdb23BinarySearchIndexReader6CreateEPKNS_15BlockBasedTableE
   %10 = alloca %"class.rocksdb::CachableEntry", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %10, i8 0, i64 25, i1 false)
-  %.not = xor i1 %4, true
-  %brmerge = or i1 %5, %.not
-  br i1 %brmerge, label %11, label %41
+  %.not = xor i1 %5, true
+  %or.cond = and i1 %4, %.not
+  br i1 %or.cond, label %41, label %11
 
 11:                                               ; preds = %9
   invoke void @_ZN7rocksdb15BlockBasedTable17IndexReaderCommon14ReadIndexBlockEPKS0_PNS_18FilePrefetchBufferERKNS_11ReadOptionsEbPNS_10GetContextEPNS_23BlockCacheLookupContextEPNS_13CachableEntryINS_5BlockEEE(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(168) %2, i1 noundef zeroext %4, ptr noundef null, ptr noundef %7, ptr noundef nonnull %10)
@@ -90,7 +90,7 @@ define void @_ZN7rocksdb23BinarySearchIndexReader6CreateEPKNS_15BlockBasedTableE
 12:                                               ; preds = %11
   %13 = load i8, ptr %0, align 8, !tbaa !11
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %17, label %.critedge20
+  br i1 %14, label %17, label %.critedge22
 
 15:                                               ; preds = %41, %11
   %16 = landingpad { ptr, i32 }
@@ -100,14 +100,15 @@ define void @_ZN7rocksdb23BinarySearchIndexReader6CreateEPKNS_15BlockBasedTableE
   resume { ptr, i32 } %16
 
 17:                                               ; preds = %12
-  %brmerge19 = or i1 %6, %.not
-  br i1 %brmerge19, label %.critedge, label %18
+  %.not2 = xor i1 %4, true
+  %or.cond4 = or i1 %6, %.not2
+  br i1 %or.cond4, label %.critedge, label %18
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !24
-  %.not.i.i21 = icmp eq ptr %20, null
-  br i1 %.not.i.i21, label %28, label %21, !prof !29
+  %.not.i.i23 = icmp eq ptr %20, null
+  br i1 %.not.i.i23, label %28, label %21, !prof !29
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -145,21 +146,21 @@ _ZN7rocksdb13CachableEntryINS_5BlockEE5ResetEv.exit: ; preds = %21, %28, %32, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %10, i8 0, i64 25, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %17, %_ZN7rocksdb13CachableEntryINS_5BlockEE5ResetEv.exit
+.critedge:                                        ; preds = %_ZN7rocksdb13CachableEntryINS_5BlockEE5ResetEv.exit, %17
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !37
-  %.not.i.i22 = icmp eq ptr %40, null
-  br i1 %.not.i.i22, label %_ZN7rocksdb6StatusD2Ev.exit24, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23
+  %.not.i.i24 = icmp eq ptr %40, null
+  br i1 %.not.i.i24, label %_ZN7rocksdb6StatusD2Ev.exit26, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i25
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23: ; preds = %.critedge
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i25: ; preds = %.critedge
   call void @_ZdaPv(ptr noundef nonnull %40) #13
-  br label %_ZN7rocksdb6StatusD2Ev.exit24
+  br label %_ZN7rocksdb6StatusD2Ev.exit26
 
-_ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %.critedge, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i23
+_ZN7rocksdb6StatusD2Ev.exit26:                    ; preds = %.critedge, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i25
   store ptr null, ptr %39, align 8, !tbaa !37
   br label %41
 
-41:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit24, %9
+41:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit26, %9
   %42 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
           to label %43 unwind label %15
 
@@ -185,8 +186,8 @@ _ZN7rocksdb6StatusD2Ev.exit24:                    ; preds = %.critedge, %_ZNKSt1
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN7rocksdb23BinarySearchIndexReaderE, i64 16), ptr %42, align 8, !tbaa !31
   %56 = load ptr, ptr %8, align 8, !tbaa !42
   store ptr %42, ptr %8, align 8, !tbaa !42
-  %.not.i.i25 = icmp eq ptr %56, null
-  br i1 %.not.i.i25, label %_ZNSt10unique_ptrIN7rocksdb15BlockBasedTable11IndexReaderESt14default_deleteIS2_EE5resetEPS2_.exit, label %_ZNKSt14default_deleteIN7rocksdb15BlockBasedTable11IndexReaderEEclEPS2_.exit.i.i
+  %.not.i.i27 = icmp eq ptr %56, null
+  br i1 %.not.i.i27, label %_ZNSt10unique_ptrIN7rocksdb15BlockBasedTable11IndexReaderESt14default_deleteIS2_EE5resetEPS2_.exit, label %_ZNKSt14default_deleteIN7rocksdb15BlockBasedTable11IndexReaderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb15BlockBasedTable11IndexReaderEEclEPS2_.exit.i.i: ; preds = %43
   %57 = load ptr, ptr %56, align 8, !tbaa !31
@@ -199,15 +200,15 @@ _ZNSt10unique_ptrIN7rocksdb15BlockBasedTable11IndexReaderESt14default_deleteIS2_
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %60, align 8, !tbaa !44, !alias.scope !45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !45
-  br label %.critedge20
+  br label %.critedge22
 
-.critedge20:                                      ; preds = %_ZNSt10unique_ptrIN7rocksdb15BlockBasedTable11IndexReaderESt14default_deleteIS2_EE5resetEPS2_.exit, %12
+.critedge22:                                      ; preds = %_ZNSt10unique_ptrIN7rocksdb15BlockBasedTable11IndexReaderESt14default_deleteIS2_EE5resetEPS2_.exit, %12
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !24
-  %.not.i.i26 = icmp eq ptr %62, null
-  br i1 %.not.i.i26, label %70, label %63, !prof !29
+  %.not.i.i28 = icmp eq ptr %62, null
+  br i1 %.not.i.i28, label %70, label %63, !prof !29
 
-63:                                               ; preds = %.critedge20
+63:                                               ; preds = %.critedge22
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !30
   %66 = load ptr, ptr %65, align 8, !tbaa !31
@@ -216,7 +217,7 @@ _ZNSt10unique_ptrIN7rocksdb15BlockBasedTable11IndexReaderESt14default_deleteIS2_
   %69 = invoke noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(80) %65, ptr noundef nonnull %62, i1 noundef zeroext false)
           to label %_ZN7rocksdb13CachableEntryINS_5BlockEED2Ev.exit unwind label %78
 
-70:                                               ; preds = %.critedge20
+70:                                               ; preds = %.critedge22
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %72 = load i8, ptr %71, align 8, !tbaa !33, !range !34, !noundef !35
   %73 = trunc nuw i8 %72 to i1

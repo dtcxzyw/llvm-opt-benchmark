@@ -1367,8 +1367,8 @@ define internal fastcc range(i32 0, 6) i32 @choose_vector_type(ptr noundef %0, i
   %6 = and i32 %5, 1024
   %.not = icmp eq i32 %6, 0
   %7 = icmp ult i32 %2, 32
-  %or.cond = or i1 %7, %.not
-  br i1 %or.cond, label %check_size_impl.exit.thread, label %check_size_impl.exit
+  %or.cond34 = or i1 %7, %.not
+  br i1 %or.cond34, label %check_size_impl.exit.thread, label %check_size_impl.exit
 
 check_size_impl.exit:                             ; preds = %4
   %8 = lshr i32 %2, 5
@@ -1387,14 +1387,14 @@ check_size_impl.exit:                             ; preds = %4
 
 17:                                               ; preds = %15
   %18 = and i32 %2, 16
-  %.not19 = icmp eq i32 %18, 0
-  br i1 %.not19, label %24, label %19
+  %.not20 = icmp eq i32 %18, 0
+  br i1 %.not20, label %24, label %19
 
 19:                                               ; preds = %17
   %20 = load i32, ptr @cpuinfo, align 4
   %21 = and i32 %20, 512
-  %.not20 = icmp eq i32 %21, 0
-  br i1 %.not20, label %check_size_impl.exit.thread, label %22
+  %.not21 = icmp eq i32 %21, 0
+  br i1 %.not21, label %check_size_impl.exit.thread, label %22
 
 22:                                               ; preds = %19
   %23 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 4, i32 noundef %1) #10
@@ -1402,26 +1402,26 @@ check_size_impl.exit:                             ; preds = %4
 
 24:                                               ; preds = %22, %17
   %25 = and i32 %2, 8
-  %.not21 = icmp eq i32 %25, 0
-  br i1 %.not21, label %58, label %26
+  %.not22 = icmp eq i32 %25, 0
+  br i1 %.not22, label %59, label %26
 
 26:                                               ; preds = %24
   %27 = load i32, ptr @cpuinfo, align 4
   %28 = and i32 %27, 512
-  %.not22 = icmp eq i32 %28, 0
-  br i1 %.not22, label %check_size_impl.exit.thread, label %29
+  %.not23 = icmp eq i32 %28, 0
+  br i1 %.not23, label %check_size_impl.exit.thread, label %29
 
 29:                                               ; preds = %26
   %30 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 3, i32 noundef %1) #10
-  br i1 %30, label %58, label %check_size_impl.exit.thread
+  br i1 %30, label %59, label %check_size_impl.exit.thread
 
 check_size_impl.exit.thread:                      ; preds = %29, %26, %22, %19, %15, %check_size_impl.exit, %4
   %31 = load i32, ptr @cpuinfo, align 4
   %32 = and i32 %31, 512
-  %.not23 = icmp eq i32 %32, 0
+  %.not24 = icmp eq i32 %32, 0
   %33 = icmp ult i32 %2, 16
-  %or.cond34 = or i1 %33, %.not23
-  br i1 %or.cond34, label %check_size_impl.exit28.thread, label %check_size_impl.exit28
+  %or.cond35 = or i1 %33, %.not24
+  br i1 %or.cond35, label %check_size_impl.exit28.thread, label %check_size_impl.exit28
 
 check_size_impl.exit28:                           ; preds = %check_size_impl.exit.thread
   %34 = lshr i32 %2, 4
@@ -1440,44 +1440,44 @@ check_size_impl.exit28:                           ; preds = %check_size_impl.exi
 
 43:                                               ; preds = %41
   %44 = and i32 %2, 8
-  %.not24 = icmp eq i32 %44, 0
-  br i1 %.not24, label %58, label %45
+  %.not25 = icmp eq i32 %44, 0
+  br i1 %.not25, label %59, label %45
 
 45:                                               ; preds = %43
   %46 = load i32, ptr @cpuinfo, align 4
   %47 = and i32 %46, 512
-  %.not25 = icmp eq i32 %47, 0
-  br i1 %.not25, label %check_size_impl.exit28.thread, label %48
+  %.not26 = icmp eq i32 %47, 0
+  br i1 %.not26, label %check_size_impl.exit28.thread, label %48
 
 48:                                               ; preds = %45
   %49 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 3, i32 noundef %1) #10
-  br i1 %49, label %58, label %check_size_impl.exit28.thread
+  br i1 %49, label %59, label %check_size_impl.exit28.thread
 
 check_size_impl.exit28.thread:                    ; preds = %48, %45, %41, %check_size_impl.exit28, %check_size_impl.exit.thread
   %50 = load i32, ptr @cpuinfo, align 4
   %51 = and i32 %50, 512
-  %.not26 = icmp eq i32 %51, 0
-  %brmerge = or i1 %3, %.not26
-  %52 = icmp ult i32 %2, 8
-  %or.cond35 = or i1 %52, %brmerge
-  br i1 %or.cond35, label %check_size_impl.exit30.thread, label %check_size_impl.exit30
+  %52 = icmp eq i32 %51, 0
+  %or.cond = or i1 %3, %52
+  %53 = icmp ult i32 %2, 8
+  %or.cond36 = or i1 %53, %or.cond
+  br i1 %or.cond36, label %check_size_impl.exit30.thread, label %check_size_impl.exit30
 
 check_size_impl.exit30:                           ; preds = %check_size_impl.exit28.thread
-  %53 = and i32 %2, 7
-  %54 = icmp eq i32 %53, 0
-  tail call void @llvm.assume(i1 %54)
-  %55 = icmp ult i32 %2, 40
-  br i1 %55, label %56, label %check_size_impl.exit30.thread
+  %54 = and i32 %2, 7
+  %55 = icmp eq i32 %54, 0
+  tail call void @llvm.assume(i1 %55)
+  %56 = icmp ult i32 %2, 40
+  br i1 %56, label %57, label %check_size_impl.exit30.thread
 
-56:                                               ; preds = %check_size_impl.exit30
-  %57 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 3, i32 noundef %1) #10
-  br i1 %57, label %58, label %check_size_impl.exit30.thread
+57:                                               ; preds = %check_size_impl.exit30
+  %58 = tail call zeroext i1 @tcg_can_emit_vecop_list(ptr noundef %0, i32 noundef 3, i32 noundef %1) #10
+  br i1 %58, label %59, label %check_size_impl.exit30.thread
 
-check_size_impl.exit30.thread:                    ; preds = %check_size_impl.exit28.thread, %56, %check_size_impl.exit30
-  br label %58
+check_size_impl.exit30.thread:                    ; preds = %57, %check_size_impl.exit30, %check_size_impl.exit28.thread
+  br label %59
 
-58:                                               ; preds = %56, %43, %48, %24, %29, %check_size_impl.exit30.thread
-  %.0 = phi i32 [ 0, %check_size_impl.exit30.thread ], [ 5, %29 ], [ 5, %24 ], [ 4, %48 ], [ 4, %43 ], [ 3, %56 ]
+59:                                               ; preds = %57, %43, %48, %24, %29, %check_size_impl.exit30.thread
+  %.0 = phi i32 [ 0, %check_size_impl.exit30.thread ], [ 5, %29 ], [ 5, %24 ], [ 4, %48 ], [ 4, %43 ], [ 3, %57 ]
   ret i32 %.0
 }
 

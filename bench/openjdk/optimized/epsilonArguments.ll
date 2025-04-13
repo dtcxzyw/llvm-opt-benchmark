@@ -77,8 +77,8 @@ define hidden void @_ZN16EpsilonArguments10initializeEv(ptr noundef nonnull alig
 
 8:                                                ; preds = %4
   %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %11, label %10
+  %.not2 = icmp eq ptr %9, null
+  br i1 %.not2, label %11, label %10
 
 10:                                               ; preds = %8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str, i64 noundef %6)
@@ -93,40 +93,39 @@ define hidden void @_ZN16EpsilonArguments10initializeEv(ptr noundef nonnull alig
 13:                                               ; preds = %11, %4
   %14 = load i8, ptr @EpsilonElasticTLAB, align 1
   %15 = trunc i8 %14 to i1
-  br i1 %15, label %23, label %16
+  %.not = xor i1 %15, true
+  %16 = load i8, ptr @EpsilonElasticTLABDecay, align 1
+  %17 = trunc i8 %16 to i1
+  %or.cond = select i1 %.not, i1 %17, i1 false
+  br i1 %or.cond, label %18, label %22
 
-16:                                               ; preds = %13
-  %17 = load i8, ptr @EpsilonElasticTLABDecay, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %23
+18:                                               ; preds = %13
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not3 = icmp eq ptr %19, null
+  br i1 %.not3, label %21, label %20
 
-19:                                               ; preds = %16
-  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not1 = icmp eq ptr %20, null
-  br i1 %.not1, label %22, label %21
-
-21:                                               ; preds = %19
+20:                                               ; preds = %18
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.4)
+  br label %21
+
+21:                                               ; preds = %18, %20
+  store i8 0, ptr @EpsilonElasticTLABDecay, align 1
   br label %22
 
-22:                                               ; preds = %19, %21
-  store i8 0, ptr @EpsilonElasticTLABDecay, align 1
-  br label %23
+22:                                               ; preds = %21, %13
+  %23 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 204) #5
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %22, %16, %13
-  %24 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 204) #5
-  br i1 %24, label %25, label %28
-
-25:                                               ; preds = %23
+24:                                               ; preds = %22
   store i8 1, ptr @UseCountedLoopSafepoints, align 1
-  %26 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 358) #5
-  br i1 %26, label %27, label %28
+  %25 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 358) #5
+  br i1 %25, label %26, label %27
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   store i64 1000, ptr @LoopStripMiningIter, align 8
-  br label %28
+  br label %27
 
-28:                                               ; preds = %25, %27, %23
+27:                                               ; preds = %24, %26, %22
   ret void
 }
 

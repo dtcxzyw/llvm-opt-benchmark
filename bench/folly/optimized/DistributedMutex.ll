@@ -127,55 +127,55 @@ _ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineF
   br label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit
 
 _ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit: ; preds = %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.preheader, %47
-  %.046 = phi i8 [ %.147, %47 ], [ 0, %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.preheader ]
-  %.044 = phi ptr [ %.251, %47 ], [ null, %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.preheader ]
-  %.042 = phi i32 [ %.041, %47 ], [ 4, %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.preheader ]
-  %.041 = phi i32 [ %.042, %47 ], [ 0, %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.preheader ]
+  %.047 = phi i8 [ %.148, %47 ], [ 0, %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.preheader ]
+  %.045 = phi ptr [ %.252, %47 ], [ null, %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.preheader ]
+  %.043 = phi i32 [ %.042, %47 ], [ 4, %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.preheader ]
+  %.042 = phi i32 [ %.043, %47 ], [ 0, %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.preheader ]
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #10
-  %18 = zext nneg i32 %.041 to i64
+  %18 = zext nneg i32 %.042 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(36) %12, i8 0, i64 36, i1 false)
   store atomic i64 %18, ptr %12 release, align 64
   %19 = atomicrmw xchg ptr %2, i64 %15 acq_rel, align 8
   %20 = and i64 %19, 2
-  %.not.i25 = icmp eq i64 %20, 0
-  br i1 %.not.i25, label %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit, label %21, !prof !29
+  %.not.i26 = icmp eq i64 %20, 0
+  br i1 %.not.i26, label %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit, label %21, !prof !29
 
 21:                                               ; preds = %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit
   %22 = and i64 %19, -3
   br label %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
 
 _ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit: ; preds = %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit, %21
-  %.147 = phi i8 [ %.046, %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit ], [ 1, %21 ]
+  %.148 = phi i8 [ %.047, %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit ], [ 1, %21 ]
   %.0 = phi i64 [ %19, %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit ], [ %22, %21 ]
   store atomic i64 %.0, ptr %16 monotonic, align 8
   %23 = icmp eq i64 %.0, 0
   br i1 %23, label %.critedge, label %25
 
 .critedge:                                        ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
-  %24 = trunc nuw i8 %.147 to i1
-  call void @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE26DistributedMutexStateProxyC1EPNS1_6WaiterIS3_EEmbbmS8_S8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef null, i64 noundef %15, i1 noundef zeroext %24, i1 noundef zeroext false, i64 noundef 0, ptr noundef null, ptr noundef %.044)
+  %24 = trunc nuw i8 %.148 to i1
+  call void @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE26DistributedMutexStateProxyC1EPNS1_6WaiterIS3_EEmbbmS8_S8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef null, i64 noundef %15, i1 noundef zeroext %24, i1 noundef zeroext false, i64 noundef 0, ptr noundef null, ptr noundef %.045)
   br label %.sink.split
 
 25:                                               ; preds = %_ZN5folly6detail17distributed_mutex33recordTimedWaiterAndClearTimedBitERbRm.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   store i32 0, ptr %6, align 4, !tbaa !30
-  %.not63 = icmp eq i32 %.041, 0
-  br i1 %.not63, label %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit, label %26
+  %.not64 = icmp eq i32 %.042, 0
+  br i1 %.not64, label %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit, label %26
 
 26:                                               ; preds = %25
   %27 = atomicrmw xchg ptr %17, i32 5 acq_rel, align 4
   switch i32 %27, label %.lr.ph.i.i [
     i32 5, label %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread
-    i32 2, label %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread54
+    i32 2, label %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread55
   ]
 
 .lr.ph.i.i:                                       ; preds = %26, %_ZN5folly6detail17distributed_mutex11doFutexWakeINS1_6WaiterISt6atomicEEEEvPT_.exit.i.i
-  %.145 = phi ptr [ null, %_ZN5folly6detail17distributed_mutex11doFutexWakeINS1_6WaiterISt6atomicEEEEvPT_.exit.i.i ], [ %.044, %26 ]
-  %.not.i.i.i = icmp eq ptr %.145, null
+  %.146 = phi ptr [ null, %_ZN5folly6detail17distributed_mutex11doFutexWakeINS1_6WaiterISt6atomicEEEEvPT_.exit.i.i ], [ %.045, %26 ]
+  %.not.i.i.i = icmp eq ptr %.146, null
   br i1 %.not.i.i.i, label %_ZN5folly6detail17distributed_mutex11doFutexWakeINS1_6WaiterISt6atomicEEEEvPT_.exit.i.i, label %28
 
 28:                                               ; preds = %.lr.ph.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %.145, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %.146, i64 96
   store atomic i32 2, ptr %29 release, align 4
   %30 = call noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %29, i32 noundef 1, i32 noundef -1)
   br label %_ZN5folly6detail17distributed_mutex11doFutexWakeINS1_6WaiterISt6atomicEEEEvPT_.exit.i.i
@@ -184,9 +184,9 @@ _ZN5folly6detail17distributed_mutex11doFutexWakeINS1_6WaiterISt6atomicEEEEvPT_.e
   %31 = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %17, i32 noundef 5, ptr noundef null, ptr noundef null, i32 noundef -1)
   %32 = load atomic i32, ptr %17 acquire, align 32
   %.not.i.i = icmp eq i32 %32, 2
-  br i1 %.not.i.i, label %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread54, label %.lr.ph.i.i, !llvm.loop !32
+  br i1 %.not.i.i, label %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread55, label %.lr.ph.i.i, !llvm.loop !32
 
-_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread54: ; preds = %_ZN5folly6detail17distributed_mutex11doFutexWakeINS1_6WaiterISt6atomicEEEEvPT_.exit.i.i, %26
+_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread55: ; preds = %_ZN5folly6detail17distributed_mutex11doFutexWakeINS1_6WaiterISt6atomicEEEEvPT_.exit.i.i, %26
   %33 = load atomic i64, ptr %16 monotonic, align 8
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
@@ -203,17 +203,17 @@ _ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.ex
   %39 = and i64 %.0, -2
   %40 = select i1 %38, i64 0, i64 %39
   %41 = inttoptr i64 %40 to ptr
-  %42 = trunc nuw i8 %.147 to i1
+  %42 = trunc nuw i8 %.148 to i1
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %44 = load i64, ptr %43, align 8, !tbaa !35
   %45 = and i64 %44, -2
   %46 = inttoptr i64 %45 to ptr
-  call void @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE26DistributedMutexStateProxyC1EPNS1_6WaiterIS3_EEmbbmS8_S8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %41, i64 noundef %spec.select, i1 noundef zeroext %42, i1 noundef zeroext false, i64 noundef %37, ptr noundef %46, ptr noundef %.044)
+  call void @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE26DistributedMutexStateProxyC1EPNS1_6WaiterIS3_EEmbbmS8_S8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %41, i64 noundef %spec.select, i1 noundef zeroext %42, i1 noundef zeroext false, i64 noundef %37, ptr noundef %46, ptr noundef %.045)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
   br label %.sink.split
 
-47:                                               ; preds = %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread54
-  %.251 = phi ptr [ %35, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread54 ], [ %.044, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit ]
+47:                                               ; preds = %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread55
+  %.252 = phi ptr [ %35, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit.thread55 ], [ %.045, %_ZN5folly6detail17distributed_mutex4waitINS1_6WaiterISt6atomicEEEEbPT_jRS7_Rj.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #10
   br label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit
@@ -269,153 +269,169 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly6detail17distributed_mutex4spin
   %6 = tail call noundef i64 @llvm.x86.rdtsc()
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br i1 %.not, label %.split, label %.split.us
+  br i1 %.not, label %.split, label %.thread.i.us
 
-.split.us:                                        ; preds = %3
-  %9 = shl i64 %6, 8
-  %10 = or disjoint i64 %9, 1
-  %11 = atomicrmw xchg ptr %7, i64 %10 acq_rel, align 8
-  %12 = and i64 %11, 255
-  %.not52 = icmp eq i64 %12, 3
-  br i1 %.not52, label %.split36.us, label %switch.early.test.us
-
-switch.early.test.us:                             ; preds = %.split.us, %.thread.i.us
-  %13 = phi i64 [ %33, %.thread.i.us ], [ %12, %.split.us ]
-  %14 = phi i64 [ %32, %.thread.i.us ], [ %11, %.split.us ]
-  %.028.us38 = phi i64 [ %27, %.thread.i.us ], [ 0, %.split.us ]
-  %trunc.us = trunc i64 %14 to i8
-  switch i8 %trunc.us, label %15 [
-    i8 10, label %.split36.us
-    i8 7, label %.split36.us
-    i8 2, label %.split36.us
+.thread.i.us:                                     ; preds = %3, %29
+  %.033.us = phi i64 [ %31, %29 ], [ 0, %3 ]
+  %.032.us = phi i64 [ %30, %29 ], [ %6, %3 ]
+  %.029.us = phi i1 [ %.1.us, %29 ], [ undef, %3 ]
+  %9 = icmp ult i64 %.033.us, 40000
+  %10 = shl i64 %.032.us, 8
+  %11 = select i1 %9, i64 %10, i64 0
+  %12 = or disjoint i64 %11, %5
+  %13 = atomicrmw xchg ptr %7, i64 %12 acq_rel, align 8
+  %trunc.us = trunc i64 %13 to i8
+  switch i8 %trunc.us, label %18 [
+    i8 10, label %14
+    i8 7, label %14
+    i8 3, label %14
+    i8 2, label %14
   ]
 
-15:                                               ; preds = %switch.early.test.us
-  %16 = icmp ult i64 %.028.us38, 40000
-  br i1 %16, label %25, label %17
+14:                                               ; preds = %.thread.i.us, %.thread.i.us, %.thread.i.us, %.thread.i.us
+  %15 = and i64 %13, 255
+  %16 = icmp ne i64 %15, 3
+  %17 = trunc nuw nsw i64 %15 to i32
+  store i32 %17, ptr %1, align 4, !tbaa !30
+  br label %28
 
-17:                                               ; preds = %15
+18:                                               ; preds = %.thread.i.us
+  br i1 %9, label %27, label %19
+
+19:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   store i64 0, ptr %4, align 8, !tbaa !36
   store i64 500000, ptr %8, align 8, !tbaa !38
-  br label %18
+  br label %20
 
-18:                                               ; preds = %21, %17
-  %19 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4)
-  %20 = icmp eq i32 %19, -1
-  br i1 %20, label %21, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us
+20:                                               ; preds = %23, %19
+  %21 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4)
+  %22 = icmp eq i32 %21, -1
+  br i1 %22, label %23, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us
 
-21:                                               ; preds = %18
-  %22 = tail call ptr @__errno_location() #16
-  %23 = load i32, ptr %22, align 4, !tbaa !30
-  %24 = icmp eq i32 %23, 4
-  br i1 %24, label %18, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us, !llvm.loop !39
+23:                                               ; preds = %20
+  %24 = tail call ptr @__errno_location() #16
+  %25 = load i32, ptr %24, align 4, !tbaa !30
+  %26 = icmp eq i32 %25, 4
+  br i1 %26, label %20, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us, !llvm.loop !39
 
-_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us: ; preds = %21, %18
+_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us: ; preds = %23, %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  br label %.thread.i.us
+  br label %28
 
-25:                                               ; preds = %15
+27:                                               ; preds = %18
   call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !40
-  br label %.thread.i.us
+  br label %28
 
-.thread.i.us:                                     ; preds = %25, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us
-  %26 = call noundef i64 @llvm.x86.rdtsc()
-  %27 = sub i64 %26, %6
-  %28 = icmp ult i64 %27, 40000
-  %29 = shl i64 %26, 8
-  %30 = select i1 %28, i64 %29, i64 0
-  %31 = or disjoint i64 %30, %5
-  %32 = atomicrmw xchg ptr %7, i64 %31 acq_rel, align 8
-  %33 = and i64 %32, 255
-  %.not53 = icmp eq i64 %33, 3
-  br i1 %.not53, label %.split36.us, label %switch.early.test.us, !llvm.loop !41
+28:                                               ; preds = %27, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us, %14
+  %.1.us = phi i1 [ %16, %14 ], [ %.029.us, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit.us ], [ %.029.us, %27 ]
+  switch i8 %trunc.us, label %29 [
+    i8 10, label %.split39.us
+    i8 7, label %.split39.us
+    i8 3, label %.split39.us
+    i8 2, label %.split39.us
+  ]
 
-.split:                                           ; preds = %3, %59
-  %.0 = phi i1 [ %spec.select, %59 ], [ false, %3 ]
-  %.028 = phi i64 [ %61, %59 ], [ 0, %3 ]
-  %.027 = phi i64 [ %60, %59 ], [ %6, %3 ]
-  %.026 = phi i64 [ %.027, %59 ], [ 0, %3 ]
-  %.025 = phi i64 [ %34, %59 ], [ 0, %3 ]
-  %34 = add i64 %.025, 1
-  %.not21.i = icmp ne i64 %.026, 0
-  %35 = sub i64 %.027, %.026
-  %36 = icmp ugt i64 %35, 199
-  %or.cond24.i = and i1 %.not21.i, %36
+29:                                               ; preds = %28
+  %30 = call noundef i64 @llvm.x86.rdtsc()
+  %31 = sub i64 %30, %6
+  br label %.thread.i.us, !llvm.loop !41
+
+.split:                                           ; preds = %3, %61
+  %.0 = phi i1 [ %spec.select, %61 ], [ false, %3 ]
+  %.033 = phi i64 [ %63, %61 ], [ 0, %3 ]
+  %.032 = phi i64 [ %62, %61 ], [ %6, %3 ]
+  %.031 = phi i64 [ %.032, %61 ], [ 0, %3 ]
+  %.030 = phi i64 [ %32, %61 ], [ 0, %3 ]
+  %.029 = phi i1 [ %.1, %61 ], [ undef, %3 ]
+  %32 = add i64 %.030, 1
+  %.not21.i = icmp ne i64 %.031, 0
+  %33 = sub i64 %.032, %.031
+  %34 = icmp ugt i64 %33, 199
+  %or.cond24.i = and i1 %.not21.i, %34
   %spec.select = select i1 %or.cond24.i, i1 true, i1 %.0
-  %.not50 = icmp eq i64 %.025, 0
-  br i1 %.not50, label %.thread.i, label %37
+  %.not40 = icmp eq i64 %.030, 0
+  br i1 %.not40, label %.thread.i, label %35
 
-37:                                               ; preds = %.split
-  %38 = icmp ult i64 %.028, 40000
-  %39 = shl i64 %.027, 8
-  %40 = select i1 %38, i64 %39, i64 0
-  br i1 %spec.select, label %.thread.i, label %44
+35:                                               ; preds = %.split
+  %36 = icmp ult i64 %.033, 40000
+  %37 = shl i64 %.032, 8
+  %38 = select i1 %36, i64 %37, i64 0
+  br i1 %spec.select, label %.thread.i, label %42
 
-.thread.i:                                        ; preds = %37, %.split
-  %41 = phi i64 [ %40, %37 ], [ -256, %.split ]
-  %42 = or i64 %41, %5
-  %43 = atomicrmw xchg ptr %7, i64 %42 acq_rel, align 8
+.thread.i:                                        ; preds = %35, %.split
+  %39 = phi i64 [ %38, %35 ], [ -256, %.split ]
+  %40 = or i64 %39, %5
+  %41 = atomicrmw xchg ptr %7, i64 %40 acq_rel, align 8
   br label %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit
 
-44:                                               ; preds = %37
-  %45 = load atomic i64, ptr %7 acquire, align 64
+42:                                               ; preds = %35
+  %43 = load atomic i64, ptr %7 acquire, align 64
   br label %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit
 
-_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit: ; preds = %.thread.i, %44
-  %46 = phi i64 [ %43, %.thread.i ], [ %45, %44 ]
-  %47 = and i64 %46, 255
-  %.not51.not.not = icmp ne i64 %47, 3
-  br i1 %.not51.not.not, label %switch.early.test, label %.split36.us
-
-switch.early.test:                                ; preds = %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit
-  %trunc = trunc i64 %46 to i8
-  switch i8 %trunc, label %48 [
-    i8 10, label %.split36.us
-    i8 7, label %.split36.us
-    i8 2, label %.split36.us
+_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit: ; preds = %.thread.i, %42
+  %44 = phi i64 [ %41, %.thread.i ], [ %43, %42 ]
+  %trunc = trunc i64 %44 to i8
+  switch i8 %trunc, label %49 [
+    i8 10, label %45
+    i8 7, label %45
+    i8 3, label %45
+    i8 2, label %45
   ]
 
-48:                                               ; preds = %switch.early.test
-  %49 = icmp ult i64 %.028, 40000
-  br i1 %49, label %50, label %51
+45:                                               ; preds = %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit
+  %46 = and i64 %44, 255
+  %47 = icmp ne i64 %46, 3
+  %48 = trunc nuw nsw i64 %46 to i32
+  store i32 %48, ptr %1, align 4, !tbaa !30
+  br label %60
 
-50:                                               ; preds = %48
+49:                                               ; preds = %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit
+  %50 = icmp ult i64 %.033, 40000
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %49
   call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !40
-  br label %59
+  br label %60
 
-51:                                               ; preds = %48
+52:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   store i64 0, ptr %4, align 8, !tbaa !36
   store i64 500000, ptr %8, align 8, !tbaa !38
-  br label %52
+  br label %53
 
-52:                                               ; preds = %55, %51
-  %53 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4)
-  %54 = icmp eq i32 %53, -1
-  br i1 %54, label %55, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
+53:                                               ; preds = %56, %52
+  %54 = call i32 @nanosleep(ptr noundef nonnull %4, ptr noundef nonnull %4)
+  %55 = icmp eq i32 %54, -1
+  br i1 %55, label %56, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
 
-55:                                               ; preds = %52
-  %56 = tail call ptr @__errno_location() #16
-  %57 = load i32, ptr %56, align 4, !tbaa !30
-  %58 = icmp eq i32 %57, 4
-  br i1 %58, label %52, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !39
+56:                                               ; preds = %53
+  %57 = tail call ptr @__errno_location() #16
+  %58 = load i32, ptr %57, align 4, !tbaa !30
+  %59 = icmp eq i32 %58, 4
+  br i1 %59, label %53, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !39
 
-_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %52, %55
+_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %53, %56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  br label %59
+  br label %60
 
-59:                                               ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, %50
-  %60 = call noundef i64 @llvm.x86.rdtsc()
-  %61 = sub i64 %60, %6
+60:                                               ; preds = %51, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, %45
+  %.1 = phi i1 [ %47, %45 ], [ %.029, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit ], [ %.029, %51 ]
+  switch i8 %trunc, label %61 [
+    i8 10, label %.split39.us
+    i8 7, label %.split39.us
+    i8 3, label %.split39.us
+    i8 2, label %.split39.us
+  ]
+
+61:                                               ; preds = %60
+  %62 = call noundef i64 @llvm.x86.rdtsc()
+  %63 = sub i64 %62, %6
   br label %.split, !llvm.loop !41
 
-.split36.us:                                      ; preds = %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %.thread.i.us, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit, %switch.early.test, %switch.early.test, %switch.early.test, %.split.us
-  %.us-phi = phi i64 [ 3, %.split.us ], [ 3, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit ], [ %47, %switch.early.test ], [ %47, %switch.early.test ], [ %47, %switch.early.test ], [ %13, %switch.early.test.us ], [ %13, %switch.early.test.us ], [ %13, %switch.early.test.us ], [ 3, %.thread.i.us ]
-  %.us-phi37 = phi i1 [ false, %.split.us ], [ %.not51.not.not, %switch.early.test ], [ %.not51.not.not, %switch.early.test ], [ %.not51.not.not, %switch.early.test ], [ %.not51.not.not, %_ZN5folly6detail17distributed_mutex7publishINS1_6WaiterISt6atomicEEEEmmmmmRbRT_j.exit ], [ true, %switch.early.test.us ], [ true, %switch.early.test.us ], [ true, %switch.early.test.us ], [ false, %.thread.i.us ]
-  %62 = trunc nuw nsw i64 %.us-phi to i32
-  store i32 %62, ptr %1, align 4, !tbaa !30
-  ret i1 %.us-phi37
+.split39.us:                                      ; preds = %28, %28, %28, %28, %60, %60, %60, %60
+  %.us-phi = phi i1 [ %.1, %60 ], [ %.1, %60 ], [ %.1, %60 ], [ %.1, %60 ], [ %.1.us, %28 ], [ %.1.us, %28 ], [ %.1.us, %28 ], [ %.1.us, %28 ]
+  ret i1 %.us-phi
 }
 
 declare noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3

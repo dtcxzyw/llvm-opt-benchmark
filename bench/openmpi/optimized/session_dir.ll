@@ -414,45 +414,44 @@ define internal fastcc range(i32 -2, 1) i32 @_setup_tmpdir_base() unnamed_addr #
   %6 = tail call noalias ptr @strdup(ptr noundef %5) #9
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 840), align 8, !tbaa !3
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %23, label %8
+  br i1 %7, label %22, label %8
 
 8:                                                ; preds = %4, %0
   %9 = phi ptr [ %6, %4 ], [ %2, %0 ]
   %10 = call zeroext i1 @pmix_path_nfs(ptr noundef nonnull %9, ptr noundef nonnull %1) #9
   %11 = zext i1 %10 to i8
   store i8 %11, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 872), align 8, !tbaa !45
-  br i1 %10, label %12, label %20
+  %.not = xor i1 %10, true
+  %12 = load i8, ptr @prte_silence_shared_fs, align 1, !range !35
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %13
+  br i1 %or.cond, label %19, label %14
 
-12:                                               ; preds = %8
-  %13 = load i8, ptr @prte_silence_shared_fs, align 1, !tbaa !34, !range !35, !noundef !36
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %20, label %15
+14:                                               ; preds = %8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 840), align 8, !tbaa !3
+  %16 = load ptr, ptr %1, align 8, !tbaa !14
+  %17 = load ptr, ptr @prte_tool_basename, align 8, !tbaa !14
+  %18 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 1, ptr noundef %15, ptr noundef %16, ptr noundef %17) #9
+  br label %19
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 840), align 8, !tbaa !3
-  %17 = load ptr, ptr %1, align 8, !tbaa !14
-  %18 = load ptr, ptr @prte_tool_basename, align 8, !tbaa !14
-  %19 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef 1, ptr noundef %16, ptr noundef %17, ptr noundef %18) #9
-  br label %20
+19:                                               ; preds = %14, %8
+  %20 = load ptr, ptr %1, align 8, !tbaa !14
+  %.not8 = icmp eq ptr %20, null
+  br i1 %.not8, label %.thread, label %21
 
-20:                                               ; preds = %15, %12, %8
-  %21 = load ptr, ptr %1, align 8, !tbaa !14
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.thread, label %22
-
-22:                                               ; preds = %20
-  call void @free(ptr noundef nonnull %21) #9
+21:                                               ; preds = %19
+  call void @free(ptr noundef nonnull %20) #9
   br label %.thread
 
-23:                                               ; preds = %4
-  %24 = tail call ptr @prte_strerror(i32 noundef -2) #9
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %24, ptr noundef nonnull @.str.1, i32 noundef 136) #9
+22:                                               ; preds = %4
+  %23 = tail call ptr @prte_strerror(i32 noundef -2) #9
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %23, ptr noundef nonnull @.str.1, i32 noundef 136) #9
   br label %.thread
 
-.thread:                                          ; preds = %20, %22, %23
-  %.09 = phi i32 [ -2, %23 ], [ 0, %22 ], [ 0, %20 ]
+.thread:                                          ; preds = %19, %21, %22
+  %.012 = phi i32 [ -2, %22 ], [ 0, %21 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #9
-  ret i32 %.09
+  ret i32 %.012
 }
 
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #2

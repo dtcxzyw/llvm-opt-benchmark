@@ -20157,19 +20157,17 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %69
-
-10:                                               ; preds = %9
-  %11 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
+  %10 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiEEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %12, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiEEE8_M_resetEv.exit
+11:                                               ; preds = %2
+  br i1 %8, label %12, label %69
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %11
   %13 = load i8, ptr %1, align 8
   %14 = and i8 %13, 1
   store i8 %14, ptr %0, align 8
@@ -20254,12 +20252,15 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   store i8 1, ptr %3, align 8
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiEEE8_M_resetEv.exit
 
-69:                                               ; preds = %9
+69:                                               ; preds = %11
+  br i1 %5, label %70, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiEEE8_M_resetEv.exit
+
+70:                                               ; preds = %69
   store i8 0, ptr %3, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiED2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiEEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiEEE8_M_resetEv.exit: ; preds = %.thread, %69, %12, %10
+_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIiEEE8_M_resetEv.exit: ; preds = %70, %69, %12, %9
   ret void
 }
 
@@ -22367,19 +22368,17 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %69
-
-10:                                               ; preds = %9
-  %11 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
+  %10 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjEEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %12, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjEEE8_M_resetEv.exit
+11:                                               ; preds = %2
+  br i1 %8, label %12, label %69
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %11
   %13 = load i8, ptr %1, align 8
   %14 = and i8 %13, 1
   store i8 %14, ptr %0, align 8
@@ -22464,12 +22463,15 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   store i8 1, ptr %3, align 8
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjEEE8_M_resetEv.exit
 
-69:                                               ; preds = %9
+69:                                               ; preds = %11
+  br i1 %5, label %70, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjEEE8_M_resetEv.exit
+
+70:                                               ; preds = %69
   store i8 0, ptr %3, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjED2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjEEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjEEE8_M_resetEv.exit: ; preds = %.thread, %69, %12, %10
+_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpIjEEE8_M_resetEv.exit: ; preds = %70, %69, %12, %9
   ret void
 }
 
@@ -24570,19 +24572,17 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %69
-
-10:                                               ; preds = %9
-  %11 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpImEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
+  %10 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpImEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpImEEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %12, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpImEEE8_M_resetEv.exit
+11:                                               ; preds = %2
+  br i1 %8, label %12, label %69
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %11
   %13 = load i8, ptr %1, align 8
   %14 = and i8 %13, 1
   store i8 %14, ptr %0, align 8
@@ -24667,12 +24667,15 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   store i8 1, ptr %3, align 8
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpImEEE8_M_resetEv.exit
 
-69:                                               ; preds = %9
+69:                                               ; preds = %11
+  br i1 %5, label %70, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpImEEE8_M_resetEv.exit
+
+70:                                               ; preds = %69
   store i8 0, ptr %3, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpImED2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpImEEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpImEEE8_M_resetEv.exit: ; preds = %.thread, %69, %12, %10
+_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpImEEE8_M_resetEv.exit: ; preds = %70, %69, %12, %9
   ret void
 }
 
@@ -27885,19 +27888,17 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %69
-
-10:                                               ; preds = %9
-  %11 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7TfTokenEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
+  %10 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7TfTokenEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7TfTokenEEEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %12, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7TfTokenEEEE8_M_resetEv.exit
+11:                                               ; preds = %2
+  br i1 %8, label %12, label %69
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %11
   %13 = load i8, ptr %1, align 8
   %14 = and i8 %13, 1
   store i8 %14, ptr %0, align 8
@@ -27982,12 +27983,15 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   store i8 1, ptr %3, align 8
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7TfTokenEEEE8_M_resetEv.exit
 
-69:                                               ; preds = %9
+69:                                               ; preds = %11
+  br i1 %5, label %70, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7TfTokenEEEE8_M_resetEv.exit
+
+70:                                               ; preds = %69
   store i8 0, ptr %3, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7TfTokenEED2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7TfTokenEEEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7TfTokenEEEE8_M_resetEv.exit: ; preds = %.thread, %69, %12, %10
+_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7TfTokenEEEE8_M_resetEv.exit: ; preds = %70, %69, %12, %9
   ret void
 }
 
@@ -30443,19 +30447,17 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %69
-
-10:                                               ; preds = %9
-  %11 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
+  %10 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %12, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8_M_resetEv.exit
+11:                                               ; preds = %2
+  br i1 %8, label %12, label %69
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %11
   %13 = load i8, ptr %1, align 8
   %14 = and i8 %13, 1
   store i8 %14, ptr %0, align 8
@@ -30540,12 +30542,15 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   store i8 1, ptr %3, align 8
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8_M_resetEv.exit
 
-69:                                               ; preds = %9
+69:                                               ; preds = %11
+  br i1 %5, label %70, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8_M_resetEv.exit
+
+70:                                               ; preds = %69
   store i8 0, ptr %3, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8_M_resetEv.exit: ; preds = %.thread, %69, %12, %10
+_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8_M_resetEv.exit: ; preds = %70, %69, %12, %9
   ret void
 }
 
@@ -34245,19 +34250,17 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %69
-
-10:                                               ; preds = %9
-  %11 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7SdfPathEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
+  %10 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7SdfPathEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7SdfPathEEEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %12, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7SdfPathEEEE8_M_resetEv.exit
+11:                                               ; preds = %2
+  br i1 %8, label %12, label %69
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %11
   %13 = load i8, ptr %1, align 8
   %14 = and i8 %13, 1
   store i8 %14, ptr %0, align 8
@@ -34342,12 +34345,15 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   store i8 1, ptr %3, align 8
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7SdfPathEEEE8_M_resetEv.exit
 
-69:                                               ; preds = %9
+69:                                               ; preds = %11
+  br i1 %5, label %70, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7SdfPathEEEE8_M_resetEv.exit
+
+70:                                               ; preds = %69
   store i8 0, ptr %3, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7SdfPathEED2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7SdfPathEEEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7SdfPathEEEE8_M_resetEv.exit: ; preds = %.thread, %69, %12, %10
+_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_7SdfPathEEEE8_M_resetEv.exit: ; preds = %70, %69, %12, %9
   ret void
 }
 
@@ -37696,19 +37702,17 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %69
-
-10:                                               ; preds = %9
-  %11 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_12SdfReferenceEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
+  %10 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_12SdfReferenceEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_12SdfReferenceEEEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %12, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_12SdfReferenceEEEE8_M_resetEv.exit
+11:                                               ; preds = %2
+  br i1 %8, label %12, label %69
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %11
   %13 = load i8, ptr %1, align 8
   %14 = and i8 %13, 1
   store i8 %14, ptr %0, align 8
@@ -37793,12 +37797,15 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   store i8 1, ptr %3, align 8
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_12SdfReferenceEEEE8_M_resetEv.exit
 
-69:                                               ; preds = %9
+69:                                               ; preds = %11
+  br i1 %5, label %70, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_12SdfReferenceEEEE8_M_resetEv.exit
+
+70:                                               ; preds = %69
   store i8 0, ptr %3, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_12SdfReferenceEED2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_12SdfReferenceEEEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_12SdfReferenceEEEE8_M_resetEv.exit: ; preds = %.thread, %69, %12, %10
+_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_12SdfReferenceEEEE8_M_resetEv.exit: ; preds = %70, %69, %12, %9
   ret void
 }
 
@@ -41651,39 +41658,37 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %24
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %82
-
-10:                                               ; preds = %9
-  %11 = load i8, ptr %1, align 8
-  %12 = and i8 %11, 1
-  store i8 %12, ptr %0, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14) #20
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16) #20
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18) #20
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %20) #20
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22) #20
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24) #20
+  %10 = load i8, ptr %1, align 8
+  %11 = and i8 %10, 1
+  store i8 %11, ptr %0, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13) #20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15) #20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17) #20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19) #20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21) #20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  tail call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS1_EE14_M_move_assignEOS3_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_10SdfPayloadEEEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %25, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_10SdfPayloadEEEE8_M_resetEv.exit
+24:                                               ; preds = %2
+  br i1 %8, label %25, label %82
 
-25:                                               ; preds = %.thread
+25:                                               ; preds = %24
   %26 = load i8, ptr %1, align 8
   %27 = and i8 %26, 1
   store i8 %27, ptr %0, align 8
@@ -41768,12 +41773,15 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   store i8 1, ptr %3, align 8
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_10SdfPayloadEEEE8_M_resetEv.exit
 
-82:                                               ; preds = %9
+82:                                               ; preds = %24
+  br i1 %5, label %83, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_10SdfPayloadEEEE8_M_resetEv.exit
+
+83:                                               ; preds = %82
   store i8 0, ptr %3, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_10SdfPayloadEED2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_10SdfPayloadEEEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_10SdfPayloadEEEE8_M_resetEv.exit: ; preds = %.thread, %82, %25, %10
+_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_10SdfPayloadEEEE8_M_resetEv.exit: ; preds = %83, %82, %25, %9
   ret void
 }
 
@@ -44900,19 +44908,17 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %69
-
-10:                                               ; preds = %9
-  %11 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_20SdfUnregisteredValueEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
+  %10 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_20SdfUnregisteredValueEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_20SdfUnregisteredValueEEEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %12, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_20SdfUnregisteredValueEEEE8_M_resetEv.exit
+11:                                               ; preds = %2
+  br i1 %8, label %12, label %69
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %11
   %13 = load i8, ptr %1, align 8
   %14 = and i8 %13, 1
   store i8 %14, ptr %0, align 8
@@ -44997,12 +45003,15 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__px
   store i8 1, ptr %3, align 8
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_20SdfUnregisteredValueEEEE8_M_resetEv.exit
 
-69:                                               ; preds = %9
+69:                                               ; preds = %11
+  br i1 %5, label %70, label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_20SdfUnregisteredValueEEEE8_M_resetEv.exit
+
+70:                                               ; preds = %69
   store i8 0, ptr %3, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_20SdfUnregisteredValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) #20
   br label %_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_20SdfUnregisteredValueEEEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_20SdfUnregisteredValueEEEE8_M_resetEv.exit: ; preds = %.thread, %69, %12, %10
+_ZNSt22_Optional_payload_baseIN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS0_20SdfUnregisteredValueEEEE8_M_resetEv.exit: ; preds = %70, %69, %12, %9
   ret void
 }
 

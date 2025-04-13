@@ -2101,22 +2101,22 @@ define linkonce_odr void @_ZN6GLArea15updateSelectionEibb(ptr noundef nonnull al
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %46, label %10
+  br i1 %9, label %48, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = tail call noundef ptr @_ZN12MeshDocument7getMeshEj(ptr noundef nonnull align 8 dereferenceable(192) %11, i32 noundef %1)
-  %.not9 = icmp eq ptr %12, null
-  br i1 %.not9, label %46, label %13
+  %.not12 = icmp eq ptr %12, null
+  br i1 %.not12, label %48, label %13
 
 13:                                               ; preds = %10
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %14 unwind label %29
+          to label %14 unwind label %30
 
 14:                                               ; preds = %13
   %15 = invoke { ptr, i32 } @_ZN3vcg3tri9AllocatorI6CMeshOE19GetPerMeshAttributeIP18MLSelectionBuffersEENS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESG_SG_E22PerMeshAttributeHandleIT_EERS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1196) %12, ptr noundef nonnull %5)
-          to label %16 unwind label %31
+          to label %16 unwind label %32
 
 16:                                               ; preds = %14
   %17 = extractvalue { ptr, i32 } %15, 0
@@ -2127,55 +2127,55 @@ define linkonce_odr void @_ZN6GLArea15updateSelectionEibb(ptr noundef nonnull al
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef nonnull align 8 dereferenceable(8) ptr %20(ptr noundef nonnull align 8 dereferenceable(16) %17)
   %22 = load ptr, ptr %21, align 8
-  %.not11 = icmp ne ptr %22, null
-  %brmerge.not = and i1 %3, %.not11
-  br i1 %brmerge.not, label %23, label %34
+  %23 = icmp ne ptr %22, null
+  %or.cond = and i1 %3, %23
+  br i1 %or.cond, label %24, label %35
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %26 = load ptr, ptr %25, align 8
-  %27 = call noundef nonnull align 8 dereferenceable(8) ptr %26(ptr noundef nonnull align 8 dereferenceable(16) %17)
-  %28 = load ptr, ptr %27, align 8
-  call void @_ZN18MLSelectionBuffers12updateBufferENS_17ML_SELECTION_TYPEE(ptr noundef nonnull align 8 dereferenceable(52) %28, i32 noundef 1)
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %17, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %28 = call noundef nonnull align 8 dereferenceable(8) ptr %27(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %29 = load ptr, ptr %28, align 8
+  call void @_ZN18MLSelectionBuffers12updateBufferENS_17ML_SELECTION_TYPEE(ptr noundef nonnull align 8 dereferenceable(52) %29, i32 noundef 1)
+  br label %35
+
+30:                                               ; preds = %13
+  %31 = landingpad { ptr, i32 }
+          cleanup
   br label %34
 
-29:                                               ; preds = %13
-  %30 = landingpad { ptr, i32 }
-          cleanup
-  br label %33
-
-31:                                               ; preds = %14
-  %32 = landingpad { ptr, i32 }
+32:                                               ; preds = %14
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  br label %33
+  br label %34
 
-33:                                               ; preds = %31, %29
-  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
+34:                                               ; preds = %32, %30
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
   resume { ptr, i32 } %.pn
 
-34:                                               ; preds = %16, %23
-  %35 = load ptr, ptr %17, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  %37 = load ptr, ptr %36, align 8
-  %38 = call noundef nonnull align 8 dereferenceable(8) ptr %37(ptr noundef nonnull align 8 dereferenceable(16) %17)
-  %39 = load ptr, ptr %38, align 8
-  %.not12 = icmp ne ptr %39, null
-  %brmerge15.not = and i1 %2, %.not12
-  br i1 %brmerge15.not, label %40, label %46
+35:                                               ; preds = %24, %16
+  %36 = load ptr, ptr %17, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  %38 = load ptr, ptr %37, align 8
+  %39 = call noundef nonnull align 8 dereferenceable(8) ptr %38(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp ne ptr %40, null
+  %or.cond3 = and i1 %2, %41
+  br i1 %or.cond3, label %42, label %48
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr %17, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %43 = load ptr, ptr %42, align 8
-  %44 = call noundef nonnull align 8 dereferenceable(8) ptr %43(ptr noundef nonnull align 8 dereferenceable(16) %17)
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %17, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
-  call void @_ZN18MLSelectionBuffers12updateBufferENS_17ML_SELECTION_TYPEE(ptr noundef nonnull align 8 dereferenceable(52) %45, i32 noundef 0)
-  br label %46
+  %46 = call noundef nonnull align 8 dereferenceable(8) ptr %45(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %47 = load ptr, ptr %46, align 8
+  call void @_ZN18MLSelectionBuffers12updateBufferENS_17ML_SELECTION_TYPEE(ptr noundef nonnull align 8 dereferenceable(52) %47, i32 noundef 0)
+  br label %48
 
-46:                                               ; preds = %34, %10, %40, %4
+48:                                               ; preds = %10, %42, %35, %4
   ret void
 }
 

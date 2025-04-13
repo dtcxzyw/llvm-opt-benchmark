@@ -318,42 +318,40 @@ declare void @_Z29vm_exit_during_initializationv() local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN13WorkerThreads13create_workerEj(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_Z17is_init_completedv() #10
-  br i1 %3, label %4, label %7
+  %4 = load i8, ptr @InjectGCWorkerCreationFailure, align 1
+  %5 = trunc i8 %4 to i1
+  %or.cond = select i1 %3, i1 %5, i1 false
+  br i1 %or.cond, label %20, label %6
 
-4:                                                ; preds = %2
-  %5 = load i8, ptr @InjectGCWorkerCreationFailure, align 1
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %21, label %7
+6:                                                ; preds = %2
+  %7 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 928, i8 noundef zeroext 2, i32 noundef 0) #10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(928) %7) #10
+  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV12WorkerThread, i64 16), ptr %7, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 920
+  store ptr %10, ptr %11, align 8
+  tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(928) %7, ptr noundef nonnull @.str.5, ptr noundef %9, i32 noundef %1) #10
+  %12 = tail call noundef zeroext i1 @_ZN2os13create_threadEP6ThreadNS_10ThreadTypeEm(ptr noundef nonnull %7, i32 noundef 1, i64 noundef 0) #10
+  br i1 %12, label %17, label %13
 
-7:                                                ; preds = %4, %2
-  %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 928, i8 noundef zeroext 2, i32 noundef 0) #10
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(928) %8) #10
-  store ptr getelementptr inbounds nuw inrange(-16, 216) (i8, ptr @_ZTV12WorkerThread, i64 16), ptr %8, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 920
-  store ptr %11, ptr %12, align 8
-  tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(928) %8, ptr noundef nonnull @.str.5, ptr noundef %10, i32 noundef %1) #10
-  %13 = tail call noundef zeroext i1 @_ZN2os13create_threadEP6ThreadNS_10ThreadTypeEm(ptr noundef nonnull %8, i32 noundef 1, i64 noundef 0) #10
-  br i1 %13, label %18, label %14
+13:                                               ; preds = %6
+  %14 = load ptr, ptr %7, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(928) %7) #10
+  br label %20
 
-14:                                               ; preds = %7
-  %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(928) %8) #10
-  br label %21
+17:                                               ; preds = %6
+  %18 = load ptr, ptr %0, align 8
+  %19 = load ptr, ptr %18, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %7) #10
+  tail call void @_ZN2os12start_threadEP6Thread(ptr noundef nonnull %7) #10
+  br label %20
 
-18:                                               ; preds = %7
-  %19 = load ptr, ptr %0, align 8
-  %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %8) #10
-  tail call void @_ZN2os12start_threadEP6Thread(ptr noundef nonnull %8) #10
-  br label %21
-
-21:                                               ; preds = %4, %18, %14
-  %.0 = phi ptr [ %8, %18 ], [ null, %14 ], [ null, %4 ]
+20:                                               ; preds = %2, %17, %13
+  %.0 = phi ptr [ %7, %17 ], [ null, %13 ], [ null, %2 ]
   ret ptr %.0
 }
 

@@ -36,14 +36,14 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr noundef readonly 
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %9
 
-9:                                                ; preds = %.lr.ph, %100
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %100 ]
-  %.052116 = phi i32 [ 0, %.lr.ph ], [ %.254, %100 ]
+9:                                                ; preds = %.lr.ph, %101
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
+  %.055118 = phi i32 [ 0, %.lr.ph ], [ %.257, %101 ]
   %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 61) #10
-  %.not62 = icmp eq ptr %12, null
-  br i1 %.not62, label %23, label %13
+  %.not65 = icmp eq ptr %12, null
+  br i1 %.not65, label %23, label %13
 
 13:                                               ; preds = %9
   %14 = ptrtoint ptr %12 to i64
@@ -99,94 +99,101 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr noundef readonly 
 
 45:                                               ; preds = %35, %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %100
+  br label %101
 
 46:                                               ; preds = %13
   %47 = call i32 @llvm.smax.i32(i32 %17, i32 2)
   %48 = zext nneg i32 %47 to i64
   %49 = call i32 @xstrncasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.4, i64 noundef %48) #9
-  %.not63 = icmp eq i32 %49, 0
-  br i1 %.not63, label %50, label %93
+  %.not66 = icmp eq i32 %49, 0
+  br i1 %.not66, label %50, label %94
 
 50:                                               ; preds = %46
   %51 = load i8, ptr %18, align 1
   %52 = icmp eq i8 %51, 43
-  %53 = icmp eq i8 %51, 45
-  %brmerge = or i1 %52, %53
-  %54 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  %.057 = select i1 %brmerge, ptr %54, ptr %18
-  %55 = call i32 @time_str2mins(ptr noundef nonnull %.057) #9
-  %56 = icmp eq i32 %55, -2
-  br i1 %56, label %57, label %59
+  switch i8 %51, label %55 [
+    i8 45, label %53
+    i8 43, label %53
+  ]
 
-57:                                               ; preds = %50
-  %58 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5) #9
+53:                                               ; preds = %50, %50
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  br label %55
+
+55:                                               ; preds = %50, %53
+  %.060 = phi ptr [ %54, %53 ], [ %18, %50 ]
+  %56 = call i32 @time_str2mins(ptr noundef nonnull %.060) #9
+  %57 = icmp eq i32 %56, -2
+  br i1 %57, label %58, label %60
+
+58:                                               ; preds = %55
+  %59 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5) #9
   store i32 1, ptr @exit_code, align 4
   br label %.thread
 
-59:                                               ; preds = %50
-  switch i8 %51, label %91 [
-    i8 45, label %60
-    i8 43, label %60
+60:                                               ; preds = %55
+  switch i8 %51, label %92 [
+    i8 45, label %61
+    i8 43, label %61
   ]
 
-60:                                               ; preds = %59, %59
-  %61 = load i32, ptr %4, align 4
-  %62 = load i32, ptr %7, align 4
+61:                                               ; preds = %60, %60
+  %62 = load i32, ptr %4, align 4
+  %63 = load i32, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  %63 = call i32 @slurm_get_job_steps(i64 noundef 0, i32 noundef %61, i32 noundef %62, ptr noundef nonnull %3, i16 noundef zeroext 1) #9
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.preheader.i, label %_get_step_time.exit.thread
+  %64 = call i32 @slurm_get_job_steps(i64 noundef 0, i32 noundef %62, i32 noundef %63, ptr noundef nonnull %3, i16 noundef zeroext 1) #9
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %.preheader.i, label %_get_step_time.exit.thread
 
-.preheader.i:                                     ; preds = %60
-  %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load i32, ptr %66, align 8
-  %.not18.i = icmp eq i32 %67, 0
-  br i1 %.not18.i, label %_get_step_time.exit.thread67, label %.lr.ph.i
+.preheader.i:                                     ; preds = %61
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load i32, ptr %67, align 8
+  %.not18.i = icmp eq i32 %68, 0
+  br i1 %.not18.i, label %_get_step_time.exit.thread69, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %wide.trip.count.i = zext i32 %67 to i64
-  br label %70
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %wide.trip.count.i = zext i32 %68 to i64
+  br label %71
 
-70:                                               ; preds = %77, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %77 ]
-  %71 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %69, i64 %indvars.iv.i
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 168
-  %73 = load i32, ptr %72, align 8
-  %.not.i = icmp eq i32 %73, %61
-  br i1 %.not.i, label %74, label %77
+71:                                               ; preds = %78, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %78 ]
+  %72 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %70, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 168
+  %74 = load i32, ptr %73, align 8
+  %.not.i = icmp eq i32 %74, %62
+  br i1 %.not.i, label %75, label %78
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 176
-  %76 = load i32, ptr %75, align 8
-  %.not14.i = icmp eq i32 %76, %62
-  br i1 %.not14.i, label %_get_step_time.exit, label %77
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 176
+  %77 = load i32, ptr %76, align 8
+  %.not14.i = icmp eq i32 %77, %63
+  br i1 %.not14.i, label %_get_step_time.exit, label %78
 
-77:                                               ; preds = %74, %70
+78:                                               ; preds = %75, %71
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_get_step_time.exit.thread67, label %70, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_get_step_time.exit.thread69, label %71, !llvm.loop !8
 
-_get_step_time.exit.thread:                       ; preds = %60
-  %78 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %61, i32 noundef %62) #9
+_get_step_time.exit.thread:                       ; preds = %61
+  %79 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %62, i32 noundef %63) #9
   br label %.loopexit.sink.split
 
-_get_step_time.exit.thread67:                     ; preds = %.preheader.i, %77
-  call void @slurm_free_job_step_info_response_msg(ptr noundef nonnull %65) #9
+_get_step_time.exit.thread69:                     ; preds = %.preheader.i, %78
+  call void @slurm_free_job_step_info_response_msg(ptr noundef nonnull %66) #9
   br label %.loopexit.sink.split
 
-_get_step_time.exit:                              ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %71, i64 196
-  %80 = load i32, ptr %79, align 4
-  call void @slurm_free_job_step_info_response_msg(ptr noundef nonnull %65) #9
+_get_step_time.exit:                              ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 196
+  %81 = load i32, ptr %80, align 4
+  call void @slurm_free_job_step_info_response_msg(ptr noundef nonnull %66) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  %81 = icmp eq i32 %80, -2
-  br i1 %81, label %.loopexit, label %82
+  %82 = icmp eq i32 %81, -2
+  br i1 %82, label %.loopexit, label %83
 
-.loopexit.sink.split:                             ; preds = %_get_step_time.exit.thread, %_get_step_time.exit.thread67
+.loopexit.sink.split:                             ; preds = %_get_step_time.exit.thread, %_get_step_time.exit.thread69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   br label %.loopexit
 
@@ -194,70 +201,70 @@ _get_step_time.exit:                              ; preds = %74
   store i32 1, ptr @exit_code, align 4
   br label %.thread
 
-82:                                               ; preds = %_get_step_time.exit
-  br i1 %52, label %83, label %85
+83:                                               ; preds = %_get_step_time.exit
+  br i1 %52, label %84, label %86
 
-83:                                               ; preds = %82
-  %84 = add i32 %80, %55
-  br label %91
+84:                                               ; preds = %83
+  %85 = add i32 %81, %56
+  br label %92
 
-85:                                               ; preds = %82
-  %86 = icmp ugt i32 %55, %80
-  br i1 %86, label %87, label %89
+86:                                               ; preds = %83
+  %87 = icmp ugt i32 %56, %81
+  br i1 %87, label %88, label %90
 
-87:                                               ; preds = %85
-  %88 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, i32 noundef %55, i32 noundef %80) #9
+88:                                               ; preds = %86
+  %89 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, i32 noundef %56, i32 noundef %81) #9
   store i32 1, ptr @exit_code, align 4
   br label %.thread
 
-89:                                               ; preds = %85
-  %90 = sub nuw i32 %80, %55
-  br label %91
+90:                                               ; preds = %86
+  %91 = sub nuw i32 %81, %56
+  br label %92
 
-91:                                               ; preds = %89, %83, %59
-  %.0 = phi i32 [ %84, %83 ], [ %90, %89 ], [ %55, %59 ]
+92:                                               ; preds = %90, %84, %60
+  %.0 = phi i32 [ %85, %84 ], [ %91, %90 ], [ %56, %60 ]
   store i32 %.0, ptr %8, align 4
-  %92 = add nsw i32 %.052116, 1
-  br label %100
+  %93 = add nsw i32 %.055118, 1
+  br label %101
 
-93:                                               ; preds = %46
-  %94 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+94:                                               ; preds = %46
+  %95 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
-  %95 = load ptr, ptr @stderr, align 8
-  %96 = load ptr, ptr %94, align 8
-  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.7, ptr noundef %96) #11
-  %98 = load ptr, ptr @stderr, align 8
-  %99 = call i64 @fwrite(ptr nonnull @.str.1, i64 16, i64 1, ptr %98) #12
+  %96 = load ptr, ptr @stderr, align 8
+  %97 = load ptr, ptr %95, align 8
+  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.7, ptr noundef %97) #11
+  %99 = load ptr, ptr @stderr, align 8
+  %100 = call i64 @fwrite(ptr nonnull @.str.1, i64 16, i64 1, ptr %99) #12
   br label %.thread
 
-100:                                              ; preds = %91, %45
-  %.254 = phi i32 [ %.052116, %45 ], [ %92, %91 ]
+101:                                              ; preds = %92, %45
+  %.257 = phi i32 [ %.055118, %45 ], [ %93, %92 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %100
-  %101 = icmp eq i32 %.254, 0
-  br i1 %101, label %._crit_edge.thread, label %104
+._crit_edge:                                      ; preds = %101
+  %102 = icmp eq i32 %.257, 0
+  br i1 %102, label %._crit_edge.thread, label %105
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   store i32 1, ptr @exit_code, align 4
-  %102 = load ptr, ptr @stderr, align 8
-  %103 = call i64 @fwrite(ptr nonnull @.str.8, i64 21, i64 1, ptr %102) #12
+  %103 = load ptr, ptr @stderr, align 8
+  %104 = call i64 @fwrite(ptr nonnull @.str.8, i64 21, i64 1, ptr %103) #12
   br label %.thread
 
-104:                                              ; preds = %._crit_edge
-  %105 = call i32 @slurm_update_step(ptr noundef nonnull %4) #9
-  %.not = icmp eq i32 %105, 0
-  br i1 %.not, label %.thread, label %106
+105:                                              ; preds = %._crit_edge
+  %106 = call i32 @slurm_update_step(ptr noundef nonnull %4) #9
+  %.not = icmp eq i32 %106, 0
+  br i1 %.not, label %.thread, label %107
 
-106:                                              ; preds = %104
-  %107 = tail call ptr @__errno_location() #13
-  %108 = load i32, ptr %107, align 4
+107:                                              ; preds = %105
+  %108 = tail call ptr @__errno_location() #13
+  %109 = load i32, ptr %108, align 4
   br label %.thread
 
-.thread:                                          ; preds = %87, %.loopexit, %57, %104, %.critedge, %106, %._crit_edge.thread, %93, %23
-  %.1 = phi i32 [ 0, %93 ], [ -1, %23 ], [ 0, %._crit_edge.thread ], [ %108, %106 ], [ 0, %.critedge ], [ 0, %104 ], [ 0, %57 ], [ 0, %.loopexit ], [ 0, %87 ]
+.thread:                                          ; preds = %88, %.loopexit, %58, %105, %.critedge, %107, %._crit_edge.thread, %94, %23
+  %.1 = phi i32 [ 0, %94 ], [ -1, %23 ], [ 0, %._crit_edge.thread ], [ %109, %107 ], [ 0, %.critedge ], [ 0, %105 ], [ 0, %58 ], [ 0, %.loopexit ], [ 0, %88 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #9
   ret i32 %.1
 }

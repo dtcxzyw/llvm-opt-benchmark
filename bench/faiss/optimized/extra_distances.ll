@@ -6885,9 +6885,12 @@ _ZN5faiss12heap_reorderINS_4CMaxIflEEEEmmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.p
 define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_10MetricTypeEfmPKf(i64 noundef %0, i32 noundef %1, float noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = icmp ult i32 %1, 26
-  br i1 %7, label %switch.hole_check, label %8
+  %switch.shifted = lshr i32 66060319, %1
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %7, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %8
 
-8:                                                ; preds = %switch.hole_check, %5
+8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %9, ptr %6, align 8, !tbaa !13
@@ -6948,12 +6951,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 30:                                               ; preds = %18
   unreachable
 
-switch.hole_check:                                ; preds = %5
-  %switch.shifted = lshr i32 66060319, %1
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %8
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %31 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [26 x ptr], ptr @switch.table._ZN5faiss27get_extra_distance_computerEmNS_10MetricTypeEfmPKf, i64 0, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8

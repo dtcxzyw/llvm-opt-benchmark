@@ -6061,8 +6061,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  %brmerge.i = or i1 %26, %29
-  br i1 %brmerge.i, label %30, label %32
+  %or.cond.i = or i1 %26, %29
+  br i1 %or.cond.i, label %30, label %32
 
 30:                                               ; preds = %23
   %31 = xor i1 %26, %29
@@ -6156,8 +6156,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %34, %41
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
-  %brmerge.i65 = or i1 %84, %87
-  br i1 %brmerge.i65, label %88, label %90
+  %or.cond.i65 = or i1 %84, %87
+  br i1 %or.cond.i65, label %88, label %90
 
 88:                                               ; preds = %81
   %89 = xor i1 %84, %87
@@ -6241,8 +6241,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69: ; preds = %92, %9
   %137 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %138 = load ptr, ptr %137, align 8
   %139 = icmp eq ptr %138, null
-  %brmerge.i70 = or i1 %136, %139
-  br i1 %brmerge.i70, label %140, label %142
+  %or.cond.i70 = or i1 %136, %139
+  br i1 %or.cond.i70, label %140, label %142
 
 140:                                              ; preds = %133
   %141 = xor i1 %136, %139
@@ -8559,8 +8559,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7V
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  %brmerge = or i1 %5, %8
-  br i1 %brmerge, label %9, label %12
+  %or.cond = or i1 %5, %8
+  br i1 %or.cond, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = xor i1 %5, %8
@@ -9497,8 +9497,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -9574,8 +9574,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -14202,8 +14202,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -14279,8 +14279,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -18819,8 +18819,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -18896,8 +18896,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -21874,8 +21874,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -21951,8 +21951,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -24207,8 +24207,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -24284,8 +24284,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -27024,8 +27024,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -27101,8 +27101,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -30221,8 +30221,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -30298,8 +30298,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -33315,8 +33315,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -33392,8 +33392,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -36311,8 +36311,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -36388,8 +36388,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -39037,8 +39037,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -39114,8 +39114,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -41937,8 +41937,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -42014,8 +42014,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -44879,8 +44879,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -44956,8 +44956,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -46918,8 +46918,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -46995,8 +46995,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -48862,8 +48862,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -48939,8 +48939,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -50523,8 +50523,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -50600,8 +50600,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -52374,8 +52374,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -52451,8 +52451,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -54733,8 +54733,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  %brmerge.i = or i1 %32, %35
-  br i1 %brmerge.i, label %36, label %38
+  %or.cond.i = or i1 %32, %35
+  br i1 %or.cond.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = xor i1 %32, %35
@@ -54810,8 +54810,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %40, %47
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
-  %brmerge.i29 = or i1 %78, %81
-  br i1 %brmerge.i29, label %82, label %85
+  %or.cond.i29 = or i1 %78, %81
+  br i1 %or.cond.i29, label %82, label %85
 
 82:                                               ; preds = %75
   %83 = xor i1 %78, %81
@@ -56660,8 +56660,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  %brmerge.i = or i1 %26, %29
-  br i1 %brmerge.i, label %30, label %32
+  %or.cond.i = or i1 %26, %29
+  br i1 %or.cond.i, label %30, label %32
 
 30:                                               ; preds = %23
   %31 = xor i1 %26, %29
@@ -56755,8 +56755,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %34, %41
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
-  %brmerge.i65 = or i1 %84, %87
-  br i1 %brmerge.i65, label %88, label %90
+  %or.cond.i65 = or i1 %84, %87
+  br i1 %or.cond.i65, label %88, label %90
 
 88:                                               ; preds = %81
   %89 = xor i1 %84, %87
@@ -56840,8 +56840,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit69: ; preds = %92, %9
   %137 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %138 = load ptr, ptr %137, align 8
   %139 = icmp eq ptr %138, null
-  %brmerge.i70 = or i1 %136, %139
-  br i1 %brmerge.i70, label %140, label %142
+  %or.cond.i70 = or i1 %136, %139
+  br i1 %or.cond.i70, label %140, label %142
 
 140:                                              ; preds = %133
   %141 = xor i1 %136, %139

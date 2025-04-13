@@ -657,10 +657,10 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   %98 = tail call fast fastcc noundef nofpclass(nan inf) float @_ZN4ncnnL9reductionEfPKfii(float noundef nofpclass(nan inf) %88, ptr noundef %97, i32 noundef %94, i32 noundef %87)
   %99 = load ptr, ptr %2, align 8, !tbaa !16
   store float %98, ptr %99, align 4, !tbaa !51
-  br label %.thread659.i
+  br label %.thread688.i
 
 100:                                              ; preds = %86
-  switch i32 %91, label %.thread659.i [
+  switch i32 %91, label %.thread688.i [
     i32 2, label %101
     i32 3, label %189
     i32 4, label %327
@@ -675,16 +675,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %105 = load i32, ptr %104, align 8, !tbaa !41
   store i32 %105, ptr %11, align 4, !tbaa !48
-  %.not453.i = xor i1 %.022, true
-  %.not454.i = xor i1 %.023, true
-  %brmerge.i = or i1 %.not454.i, %.not453.i
-  br i1 %brmerge.i, label %150, label %106
+  %or.cond.i = and i1 %.023, %.022
+  br i1 %or.cond.i, label %106, label %150
 
 106:                                              ; preds = %101
-  %.not.i = icmp eq i32 %74, 0
+  %.not564.i = icmp eq i32 %74, 0
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !52
-  br i1 %.not.i, label %110, label %109
+  br i1 %.not564.i, label %110, label %109
 
 109:                                              ; preds = %106
   tail call void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef 1, i64 noundef %90, ptr noundef %108)
@@ -707,9 +705,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   call void @_ZN4ncnn3Mat6createEimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %12, i32 noundef %105, i64 noundef %90, ptr noundef %113)
   %117 = load ptr, ptr %12, align 8, !tbaa !16
   %118 = icmp eq ptr %117, null
-  br i1 %118, label %.critedge.i, label %_ZNK4ncnn3Mat5emptyEv.exit587.i
+  br i1 %118, label %.critedge.i, label %_ZNK4ncnn3Mat5emptyEv.exit616.i
 
-_ZNK4ncnn3Mat5emptyEv.exit587.i:                  ; preds = %111
+_ZNK4ncnn3Mat5emptyEv.exit616.i:                  ; preds = %111
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %120 = load i64, ptr %116, align 8, !tbaa !17
   %121 = load i32, ptr %119, align 8, !tbaa !43
@@ -718,7 +716,7 @@ _ZNK4ncnn3Mat5emptyEv.exit587.i:                  ; preds = %111
   %124 = icmp eq i64 %123, 0
   br i1 %124, label %.critedge.i, label %125
 
-125:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit587.i
+125:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit616.i
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %127 = load i32, ptr %126, align 4, !tbaa !55
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %79, i32 %127)
@@ -731,34 +729,34 @@ _ZNK4ncnn3Mat5emptyEv.exit587.i:                  ; preds = %111
   %133 = load ptr, ptr %2, align 8, !tbaa !16
   store float %132, ptr %133, align 4, !tbaa !51
   %134 = load ptr, ptr %114, align 8, !tbaa !7
-  %.not.i588.i = icmp eq ptr %134, null
-  br i1 %.not.i588.i, label %_ZN4ncnn3MatD2Ev.exit583.i, label %135
+  %.not.i617.i = icmp eq ptr %134, null
+  br i1 %.not.i617.i, label %_ZN4ncnn3MatD2Ev.exit612.i, label %135
 
 135:                                              ; preds = %125
   %136 = atomicrmw add ptr %134, i32 -1 acq_rel, align 4
   %137 = icmp eq i32 %136, 1
-  br i1 %137, label %138, label %_ZN4ncnn3MatD2Ev.exit583.i
+  br i1 %137, label %138, label %_ZN4ncnn3MatD2Ev.exit612.i
 
 138:                                              ; preds = %135
   %139 = load ptr, ptr %115, align 8, !tbaa !15
-  %.not3.i589.i = icmp eq ptr %139, null
+  %.not3.i618.i = icmp eq ptr %139, null
   %140 = load ptr, ptr %12, align 8, !tbaa !16
-  br i1 %.not3.i589.i, label %145, label %141
+  br i1 %.not3.i618.i, label %145, label %141
 
 141:                                              ; preds = %138
   %142 = load ptr, ptr %139, align 8, !tbaa !4
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load ptr, ptr %143, align 8
   invoke void %144(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef %140)
-          to label %_ZN4ncnn3MatD2Ev.exit583.i unwind label %147
+          to label %_ZN4ncnn3MatD2Ev.exit612.i unwind label %147
 
 145:                                              ; preds = %138
-  %.not.i651.i = icmp eq ptr %140, null
-  br i1 %.not.i651.i, label %_ZN4ncnn3MatD2Ev.exit583.i, label %146
+  %.not.i680.i = icmp eq ptr %140, null
+  br i1 %.not.i680.i, label %_ZN4ncnn3MatD2Ev.exit612.i, label %146
 
 146:                                              ; preds = %145
   call void @free(ptr noundef nonnull %140) #11
-  br label %_ZN4ncnn3MatD2Ev.exit583.i
+  br label %_ZN4ncnn3MatD2Ev.exit612.i
 
 147:                                              ; preds = %141
   %148 = landingpad { ptr, i32 }
@@ -767,21 +765,22 @@ _ZNK4ncnn3Mat5emptyEv.exit587.i:                  ; preds = %111
   call void @__clang_call_terminate(ptr %149) #16
   unreachable
 
-_ZN4ncnn3MatD2Ev.exit583.i:                       ; preds = %146, %145, %141, %135, %125
+_ZN4ncnn3MatD2Ev.exit612.i:                       ; preds = %146, %145, %141, %135, %125
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #11
   br label %150
 
-150:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit583.i, %101
-  %brmerge456.i = or i1 %.023, %.not453.i
-  br i1 %brmerge456.i, label %161, label %151
+150:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit612.i, %101
+  %.not.i = xor i1 %.022, true
+  %or.cond9.i = or i1 %.023, %.not.i
+  br i1 %or.cond9.i, label %161, label %151
 
 151:                                              ; preds = %150
   %152 = load i32, ptr %5, align 4, !tbaa !48
-  %.not427.i = icmp eq i32 %152, 0
+  %.not565.i = icmp eq i32 %152, 0
   %153 = load i32, ptr %11, align 4, !tbaa !48
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !52
-  br i1 %.not427.i, label %157, label %156
+  br i1 %.not565.i, label %157, label %156
 
 156:                                              ; preds = %151
   call void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef %153, i64 noundef %90, ptr noundef %155)
@@ -799,16 +798,16 @@ _ZN4ncnn3MatD2Ev.exit583.i:                       ; preds = %146, %145, %141, %1
   br label %161
 
 161:                                              ; preds = %158, %150
-  %brmerge458.i = or i1 %.022, %.not454.i
-  br i1 %brmerge458.i, label %188, label %162
+  %or.cond12.i = and i1 %.023, %.not.i
+  br i1 %or.cond12.i, label %162, label %188
 
 162:                                              ; preds = %161
   %163 = load i32, ptr %5, align 4, !tbaa !48
-  %.not428.i = icmp eq i32 %163, 0
+  %.not566.i = icmp eq i32 %163, 0
   %164 = load i32, ptr %10, align 4, !tbaa !48
   %165 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %166 = load ptr, ptr %165, align 8, !tbaa !52
-  br i1 %.not428.i, label %168, label %167
+  br i1 %.not566.i, label %168, label %167
 
 167:                                              ; preds = %162
   call void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %164, i32 noundef 1, i64 noundef %90, ptr noundef %166)
@@ -825,36 +824,36 @@ _ZN4ncnn3MatD2Ev.exit583.i:                       ; preds = %146, %145, %141, %1
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 6, ptr nonnull @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE.omp_outlined.3, ptr nonnull %10, ptr nonnull align 8 dereferenceable(72) %2, ptr nonnull %9, ptr nonnull align 8 dereferenceable(72) %1, ptr nonnull %11, ptr nonnull %7)
   br label %188
 
-.critedge.i:                                      ; preds = %_ZNK4ncnn3Mat5emptyEv.exit587.i, %111
+.critedge.i:                                      ; preds = %_ZNK4ncnn3Mat5emptyEv.exit616.i, %111
   %172 = load ptr, ptr %114, align 8, !tbaa !7
-  %.not.i616.i = icmp eq ptr %172, null
-  br i1 %.not.i616.i, label %.critedge460.i, label %173
+  %.not.i645.i = icmp eq ptr %172, null
+  br i1 %.not.i645.i, label %.critedge592.i, label %173
 
 173:                                              ; preds = %.critedge.i
   %174 = atomicrmw add ptr %172, i32 -1 acq_rel, align 4
   %175 = icmp eq i32 %174, 1
-  br i1 %175, label %176, label %.critedge460.i
+  br i1 %175, label %176, label %.critedge592.i
 
 176:                                              ; preds = %173
   %177 = load ptr, ptr %115, align 8, !tbaa !15
-  %.not3.i617.i = icmp eq ptr %177, null
+  %.not3.i646.i = icmp eq ptr %177, null
   %178 = load ptr, ptr %12, align 8, !tbaa !16
-  br i1 %.not3.i617.i, label %183, label %179
+  br i1 %.not3.i646.i, label %183, label %179
 
 179:                                              ; preds = %176
   %180 = load ptr, ptr %177, align 8, !tbaa !4
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %182 = load ptr, ptr %181, align 8
   invoke void %182(ptr noundef nonnull align 8 dereferenceable(8) %177, ptr noundef %178)
-          to label %.critedge460.i unwind label %185
+          to label %.critedge592.i unwind label %185
 
 183:                                              ; preds = %176
-  %.not.i637.i = icmp eq ptr %178, null
-  br i1 %.not.i637.i, label %.critedge460.i, label %184
+  %.not.i666.i = icmp eq ptr %178, null
+  br i1 %.not.i666.i, label %.critedge592.i, label %184
 
 184:                                              ; preds = %183
   call void @free(ptr noundef nonnull %178) #11
-  br label %.critedge460.i
+  br label %.critedge592.i
 
 185:                                              ; preds = %179
   %186 = landingpad { ptr, i32 }
@@ -866,7 +865,7 @@ _ZN4ncnn3MatD2Ev.exit583.i:                       ; preds = %146, %145, %141, %1
 188:                                              ; preds = %169, %161
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
-  br label %.thread659.i
+  br label %.thread688.i
 
 189:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #11
@@ -884,18 +883,15 @@ _ZN4ncnn3MatD2Ev.exit583.i:                       ; preds = %146, %145, %141, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #11
   %196 = mul nsw i32 %193, %191
   store i32 %196, ptr %16, align 4, !tbaa !48
-  %.not461.i = xor i1 %.022, true
-  %.not462.i = xor i1 %.023, true
-  %brmerge463.i = or i1 %.not462.i, %.not461.i
-  %.not464.i = xor i1 %.025, true
-  %brmerge465.i = or i1 %brmerge463.i, %.not464.i
-  br i1 %brmerge465.i, label %241, label %197
+  %or.cond14.i = and i1 %.023, %.022
+  %or.cond16.i = and i1 %.025, %or.cond14.i
+  br i1 %or.cond16.i, label %197, label %241
 
 197:                                              ; preds = %189
-  %.not429.i = icmp eq i32 %74, 0
+  %.not567.i = icmp eq i32 %74, 0
   %198 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %199 = load ptr, ptr %198, align 8, !tbaa !52
-  br i1 %.not429.i, label %201, label %200
+  br i1 %.not567.i, label %201, label %200
 
 200:                                              ; preds = %197
   tail call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef 1, i32 noundef 1, i64 noundef %90, ptr noundef %199)
@@ -918,18 +914,18 @@ _ZN4ncnn3MatD2Ev.exit583.i:                       ; preds = %146, %145, %141, %1
   call void @_ZN4ncnn3Mat6createEimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %17, i32 noundef %195, i64 noundef %90, ptr noundef %204)
   %208 = load ptr, ptr %17, align 8, !tbaa !16
   %209 = icmp eq ptr %208, null
-  br i1 %209, label %.critedge467.i, label %_ZNK4ncnn3Mat5emptyEv.exit586.i
+  br i1 %209, label %.critedge594.i, label %_ZNK4ncnn3Mat5emptyEv.exit615.i
 
-_ZNK4ncnn3Mat5emptyEv.exit586.i:                  ; preds = %202
+_ZNK4ncnn3Mat5emptyEv.exit615.i:                  ; preds = %202
   %210 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %211 = load i64, ptr %207, align 8, !tbaa !17
   %212 = load i32, ptr %210, align 8, !tbaa !43
   %213 = sext i32 %212 to i64
   %214 = mul i64 %211, %213
   %215 = icmp eq i64 %214, 0
-  br i1 %215, label %.critedge467.i, label %216
+  br i1 %215, label %.critedge594.i, label %216
 
-216:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit586.i
+216:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit615.i
   %217 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %218 = load i32, ptr %217, align 4, !tbaa !55
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %79, i32 %218)
@@ -942,34 +938,34 @@ _ZNK4ncnn3Mat5emptyEv.exit586.i:                  ; preds = %202
   %224 = load ptr, ptr %2, align 8, !tbaa !16
   store float %223, ptr %224, align 4, !tbaa !51
   %225 = load ptr, ptr %205, align 8, !tbaa !7
-  %.not.i596.i = icmp eq ptr %225, null
-  br i1 %.not.i596.i, label %_ZN4ncnn3MatD2Ev.exit581.i, label %226
+  %.not.i625.i = icmp eq ptr %225, null
+  br i1 %.not.i625.i, label %_ZN4ncnn3MatD2Ev.exit610.i, label %226
 
 226:                                              ; preds = %216
   %227 = atomicrmw add ptr %225, i32 -1 acq_rel, align 4
   %228 = icmp eq i32 %227, 1
-  br i1 %228, label %229, label %_ZN4ncnn3MatD2Ev.exit581.i
+  br i1 %228, label %229, label %_ZN4ncnn3MatD2Ev.exit610.i
 
 229:                                              ; preds = %226
   %230 = load ptr, ptr %206, align 8, !tbaa !15
-  %.not3.i597.i = icmp eq ptr %230, null
+  %.not3.i626.i = icmp eq ptr %230, null
   %231 = load ptr, ptr %17, align 8, !tbaa !16
-  br i1 %.not3.i597.i, label %236, label %232
+  br i1 %.not3.i626.i, label %236, label %232
 
 232:                                              ; preds = %229
   %233 = load ptr, ptr %230, align 8, !tbaa !4
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %235 = load ptr, ptr %234, align 8
   invoke void %235(ptr noundef nonnull align 8 dereferenceable(8) %230, ptr noundef %231)
-          to label %_ZN4ncnn3MatD2Ev.exit581.i unwind label %238
+          to label %_ZN4ncnn3MatD2Ev.exit610.i unwind label %238
 
 236:                                              ; preds = %229
-  %.not.i647.i = icmp eq ptr %231, null
-  br i1 %.not.i647.i, label %_ZN4ncnn3MatD2Ev.exit581.i, label %237
+  %.not.i676.i = icmp eq ptr %231, null
+  br i1 %.not.i676.i, label %_ZN4ncnn3MatD2Ev.exit610.i, label %237
 
 237:                                              ; preds = %236
   call void @free(ptr noundef nonnull %231) #11
-  br label %_ZN4ncnn3MatD2Ev.exit581.i
+  br label %_ZN4ncnn3MatD2Ev.exit610.i
 
 238:                                              ; preds = %232
   %239 = landingpad { ptr, i32 }
@@ -978,21 +974,22 @@ _ZNK4ncnn3Mat5emptyEv.exit586.i:                  ; preds = %202
   call void @__clang_call_terminate(ptr %240) #16
   unreachable
 
-_ZN4ncnn3MatD2Ev.exit581.i:                       ; preds = %237, %236, %232, %226, %216
+_ZN4ncnn3MatD2Ev.exit610.i:                       ; preds = %237, %236, %232, %226, %216
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %17) #11
   br label %241
 
-241:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit581.i, %189
-  %brmerge471.i = or i1 %.025, %brmerge463.i
-  br i1 %brmerge471.i, label %252, label %242
+241:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit610.i, %189
+  %or.cond18.not.i = xor i1 %or.cond14.i, true
+  %or.cond20.i = or i1 %.025, %or.cond18.not.i
+  br i1 %or.cond20.i, label %252, label %242
 
 242:                                              ; preds = %241
   %243 = load i32, ptr %5, align 4, !tbaa !48
-  %.not430.i = icmp eq i32 %243, 0
+  %.not568.i = icmp eq i32 %243, 0
   %244 = load i32, ptr %15, align 4, !tbaa !48
   %245 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %246 = load ptr, ptr %245, align 8, !tbaa !52
-  br i1 %.not430.i, label %248, label %247
+  br i1 %.not568.i, label %248, label %247
 
 247:                                              ; preds = %242
   call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef 1, i32 noundef %244, i64 noundef %90, ptr noundef %246)
@@ -1010,17 +1007,19 @@ _ZN4ncnn3MatD2Ev.exit581.i:                       ; preds = %237, %236, %232, %2
   br label %252
 
 252:                                              ; preds = %249, %241
-  %brmerge473.i = or i1 %.023, %.not461.i
-  %brmerge475.i = or i1 %brmerge473.i, %.not464.i
-  br i1 %brmerge475.i, label %263, label %253
+  %.not21.i = xor i1 %.022, true
+  %or.cond23.i = or i1 %.023, %.not21.i
+  %or.cond23.not.i = xor i1 %or.cond23.i, true
+  %or.cond25.i = and i1 %.025, %or.cond23.not.i
+  br i1 %or.cond25.i, label %253, label %263
 
 253:                                              ; preds = %252
   %254 = load i32, ptr %5, align 4, !tbaa !48
-  %.not431.i = icmp eq i32 %254, 0
+  %.not569.i = icmp eq i32 %254, 0
   %255 = load i32, ptr %14, align 4, !tbaa !48
   %256 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %257 = load ptr, ptr %256, align 8, !tbaa !52
-  br i1 %.not431.i, label %259, label %258
+  br i1 %.not569.i, label %259, label %258
 
 258:                                              ; preds = %253
   call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef %255, i32 noundef 1, i64 noundef %90, ptr noundef %257)
@@ -1038,17 +1037,17 @@ _ZN4ncnn3MatD2Ev.exit581.i:                       ; preds = %237, %236, %232, %2
   br label %263
 
 263:                                              ; preds = %260, %252
-  %brmerge477.i = or i1 %.022, %.not462.i
-  %brmerge479.i = or i1 %brmerge477.i, %.not464.i
-  br i1 %brmerge479.i, label %274, label %264
+  %or.cond28.i = and i1 %.023, %.not21.i
+  %or.cond30.i = and i1 %.025, %or.cond28.i
+  br i1 %or.cond30.i, label %264, label %274
 
 264:                                              ; preds = %263
   %265 = load i32, ptr %5, align 4, !tbaa !48
-  %.not432.i = icmp eq i32 %265, 0
+  %.not570.i = icmp eq i32 %265, 0
   %266 = load i32, ptr %13, align 4, !tbaa !48
   %267 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %268 = load ptr, ptr %267, align 8, !tbaa !52
-  br i1 %.not432.i, label %270, label %269
+  br i1 %.not570.i, label %270, label %269
 
 269:                                              ; preds = %264
   call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %266, i32 noundef 1, i32 noundef 1, i64 noundef %90, ptr noundef %268)
@@ -1066,17 +1065,17 @@ _ZN4ncnn3MatD2Ev.exit581.i:                       ; preds = %237, %236, %232, %2
   br label %274
 
 274:                                              ; preds = %271, %263
-  %brmerge482.i = or i1 %.025, %brmerge473.i
-  br i1 %brmerge482.i, label %286, label %275
+  %or.cond35.i = or i1 %.025, %or.cond23.i
+  br i1 %or.cond35.i, label %286, label %275
 
 275:                                              ; preds = %274
   %276 = load i32, ptr %5, align 4, !tbaa !48
-  %.not433.i = icmp eq i32 %276, 0
+  %.not571.i = icmp eq i32 %276, 0
   %277 = load i32, ptr %14, align 4, !tbaa !48
   %278 = load i32, ptr %15, align 4, !tbaa !48
   %279 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %280 = load ptr, ptr %279, align 8, !tbaa !52
-  br i1 %.not433.i, label %282, label %281
+  br i1 %.not571.i, label %282, label %281
 
 281:                                              ; preds = %275
   call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef %277, i32 noundef %278, i64 noundef %90, ptr noundef %280)
@@ -1094,18 +1093,19 @@ _ZN4ncnn3MatD2Ev.exit581.i:                       ; preds = %237, %236, %232, %2
   br label %286
 
 286:                                              ; preds = %283, %274
-  %brmerge483.i = or i1 %.023, %.022
-  %brmerge485.i = or i1 %brmerge483.i, %.not464.i
-  br i1 %brmerge485.i, label %298, label %287
+  %or.cond37.i = or i1 %.023, %.022
+  %or.cond37.not.i = xor i1 %or.cond37.i, true
+  %or.cond39.i = and i1 %.025, %or.cond37.not.i
+  br i1 %or.cond39.i, label %287, label %298
 
 287:                                              ; preds = %286
   %288 = load i32, ptr %5, align 4, !tbaa !48
-  %.not434.i = icmp eq i32 %288, 0
+  %.not572.i = icmp eq i32 %288, 0
   %289 = load i32, ptr %13, align 4, !tbaa !48
   %290 = load i32, ptr %14, align 4, !tbaa !48
   %291 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %292 = load ptr, ptr %291, align 8, !tbaa !52
-  br i1 %.not434.i, label %294, label %293
+  br i1 %.not572.i, label %294, label %293
 
 293:                                              ; preds = %287
   call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %289, i32 noundef %290, i32 noundef 1, i64 noundef %90, ptr noundef %292)
@@ -1123,17 +1123,18 @@ _ZN4ncnn3MatD2Ev.exit581.i:                       ; preds = %237, %236, %232, %2
   br label %298
 
 298:                                              ; preds = %295, %286
-  %brmerge488.i = or i1 %.025, %brmerge477.i
-  br i1 %brmerge488.i, label %326, label %299
+  %or.cond42.not.i = xor i1 %or.cond28.i, true
+  %or.cond44.i = or i1 %.025, %or.cond42.not.i
+  br i1 %or.cond44.i, label %326, label %299
 
 299:                                              ; preds = %298
   %300 = load i32, ptr %5, align 4, !tbaa !48
-  %.not435.i = icmp eq i32 %300, 0
+  %.not573.i = icmp eq i32 %300, 0
   %301 = load i32, ptr %13, align 4, !tbaa !48
   %302 = load i32, ptr %15, align 4, !tbaa !48
   %303 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %304 = load ptr, ptr %303, align 8, !tbaa !52
-  br i1 %.not435.i, label %306, label %305
+  br i1 %.not573.i, label %306, label %305
 
 305:                                              ; preds = %299
   call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %301, i32 noundef 1, i32 noundef %302, i64 noundef %90, ptr noundef %304)
@@ -1150,36 +1151,36 @@ _ZN4ncnn3MatD2Ev.exit581.i:                       ; preds = %237, %236, %232, %2
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 8, ptr nonnull @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE.omp_outlined.10, ptr nonnull %15, ptr nonnull align 8 dereferenceable(72) %1, ptr nonnull %5, ptr nonnull align 8 dereferenceable(72) %2, ptr nonnull %13, ptr nonnull %9, ptr nonnull %14, ptr nonnull %7)
   br label %326
 
-.critedge467.i:                                   ; preds = %_ZNK4ncnn3Mat5emptyEv.exit586.i, %202
+.critedge594.i:                                   ; preds = %_ZNK4ncnn3Mat5emptyEv.exit615.i, %202
   %310 = load ptr, ptr %205, align 8, !tbaa !7
-  %.not.i620.i = icmp eq ptr %310, null
-  br i1 %.not.i620.i, label %.critedge490.i, label %311
+  %.not.i649.i = icmp eq ptr %310, null
+  br i1 %.not.i649.i, label %.critedge596.i, label %311
 
-311:                                              ; preds = %.critedge467.i
+311:                                              ; preds = %.critedge594.i
   %312 = atomicrmw add ptr %310, i32 -1 acq_rel, align 4
   %313 = icmp eq i32 %312, 1
-  br i1 %313, label %314, label %.critedge490.i
+  br i1 %313, label %314, label %.critedge596.i
 
 314:                                              ; preds = %311
   %315 = load ptr, ptr %206, align 8, !tbaa !15
-  %.not3.i621.i = icmp eq ptr %315, null
+  %.not3.i650.i = icmp eq ptr %315, null
   %316 = load ptr, ptr %17, align 8, !tbaa !16
-  br i1 %.not3.i621.i, label %321, label %317
+  br i1 %.not3.i650.i, label %321, label %317
 
 317:                                              ; preds = %314
   %318 = load ptr, ptr %315, align 8, !tbaa !4
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 24
   %320 = load ptr, ptr %319, align 8
   invoke void %320(ptr noundef nonnull align 8 dereferenceable(8) %315, ptr noundef %316)
-          to label %.critedge490.i unwind label %323
+          to label %.critedge596.i unwind label %323
 
 321:                                              ; preds = %314
-  %.not.i635.i = icmp eq ptr %316, null
-  br i1 %.not.i635.i, label %.critedge490.i, label %322
+  %.not.i664.i = icmp eq ptr %316, null
+  br i1 %.not.i664.i, label %.critedge596.i, label %322
 
 322:                                              ; preds = %321
   call void @free(ptr noundef nonnull %316) #11
-  br label %.critedge490.i
+  br label %.critedge596.i
 
 323:                                              ; preds = %317
   %324 = landingpad { ptr, i32 }
@@ -1193,7 +1194,7 @@ _ZN4ncnn3MatD2Ev.exit581.i:                       ; preds = %237, %236, %232, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #11
-  br label %.thread659.i
+  br label %.thread688.i
 
 327:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #11
@@ -1216,20 +1217,16 @@ _ZN4ncnn3MatD2Ev.exit581.i:                       ; preds = %237, %236, %232, %2
   %336 = mul nsw i32 %331, %329
   %337 = mul nsw i32 %336, %333
   store i32 %337, ptr %22, align 4, !tbaa !48
-  %.not491.i = xor i1 %.022, true
-  %.not492.i = xor i1 %.023, true
-  %brmerge493.i = or i1 %.not492.i, %.not491.i
-  %.not494.i = xor i1 %.029, true
-  %brmerge495.i = or i1 %brmerge493.i, %.not494.i
-  %.not496.i = xor i1 %.025, true
-  %brmerge497.i = or i1 %brmerge495.i, %.not496.i
-  br i1 %brmerge497.i, label %382, label %338
+  %or.cond46.i = and i1 %.023, %.022
+  %or.cond48.i = and i1 %.029, %or.cond46.i
+  %or.cond50.i = and i1 %.025, %or.cond48.i
+  br i1 %or.cond50.i, label %338, label %382
 
 338:                                              ; preds = %327
-  %.not436.i = icmp eq i32 %74, 0
+  %.not574.i = icmp eq i32 %74, 0
   %339 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %340 = load ptr, ptr %339, align 8, !tbaa !52
-  br i1 %.not436.i, label %342, label %341
+  br i1 %.not574.i, label %342, label %341
 
 341:                                              ; preds = %338
   tail call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1, i64 noundef %90, ptr noundef %340)
@@ -1252,18 +1249,18 @@ _ZN4ncnn3MatD2Ev.exit581.i:                       ; preds = %237, %236, %232, %2
   call void @_ZN4ncnn3Mat6createEimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %23, i32 noundef %335, i64 noundef %90, ptr noundef %345)
   %349 = load ptr, ptr %23, align 8, !tbaa !16
   %350 = icmp eq ptr %349, null
-  br i1 %350, label %.critedge499.i, label %_ZNK4ncnn3Mat5emptyEv.exit585.i
+  br i1 %350, label %.critedge598.i, label %_ZNK4ncnn3Mat5emptyEv.exit614.i
 
-_ZNK4ncnn3Mat5emptyEv.exit585.i:                  ; preds = %343
+_ZNK4ncnn3Mat5emptyEv.exit614.i:                  ; preds = %343
   %351 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %352 = load i64, ptr %348, align 8, !tbaa !17
   %353 = load i32, ptr %351, align 8, !tbaa !43
   %354 = sext i32 %353 to i64
   %355 = mul i64 %352, %354
   %356 = icmp eq i64 %355, 0
-  br i1 %356, label %.critedge499.i, label %357
+  br i1 %356, label %.critedge598.i, label %357
 
-357:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit585.i
+357:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit614.i
   %358 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %359 = load i32, ptr %358, align 4, !tbaa !55
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %79, i32 %359)
@@ -1276,34 +1273,34 @@ _ZNK4ncnn3Mat5emptyEv.exit585.i:                  ; preds = %343
   %365 = load ptr, ptr %2, align 8, !tbaa !16
   store float %364, ptr %365, align 4, !tbaa !51
   %366 = load ptr, ptr %346, align 8, !tbaa !7
-  %.not.i604.i = icmp eq ptr %366, null
-  br i1 %.not.i604.i, label %_ZN4ncnn3MatD2Ev.exit579.i, label %367
+  %.not.i633.i = icmp eq ptr %366, null
+  br i1 %.not.i633.i, label %_ZN4ncnn3MatD2Ev.exit608.i, label %367
 
 367:                                              ; preds = %357
   %368 = atomicrmw add ptr %366, i32 -1 acq_rel, align 4
   %369 = icmp eq i32 %368, 1
-  br i1 %369, label %370, label %_ZN4ncnn3MatD2Ev.exit579.i
+  br i1 %369, label %370, label %_ZN4ncnn3MatD2Ev.exit608.i
 
 370:                                              ; preds = %367
   %371 = load ptr, ptr %347, align 8, !tbaa !15
-  %.not3.i605.i = icmp eq ptr %371, null
+  %.not3.i634.i = icmp eq ptr %371, null
   %372 = load ptr, ptr %23, align 8, !tbaa !16
-  br i1 %.not3.i605.i, label %377, label %373
+  br i1 %.not3.i634.i, label %377, label %373
 
 373:                                              ; preds = %370
   %374 = load ptr, ptr %371, align 8, !tbaa !4
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 24
   %376 = load ptr, ptr %375, align 8
   invoke void %376(ptr noundef nonnull align 8 dereferenceable(8) %371, ptr noundef %372)
-          to label %_ZN4ncnn3MatD2Ev.exit579.i unwind label %379
+          to label %_ZN4ncnn3MatD2Ev.exit608.i unwind label %379
 
 377:                                              ; preds = %370
-  %.not.i643.i = icmp eq ptr %372, null
-  br i1 %.not.i643.i, label %_ZN4ncnn3MatD2Ev.exit579.i, label %378
+  %.not.i672.i = icmp eq ptr %372, null
+  br i1 %.not.i672.i, label %_ZN4ncnn3MatD2Ev.exit608.i, label %378
 
 378:                                              ; preds = %377
   call void @free(ptr noundef nonnull %372) #11
-  br label %_ZN4ncnn3MatD2Ev.exit579.i
+  br label %_ZN4ncnn3MatD2Ev.exit608.i
 
 379:                                              ; preds = %373
   %380 = landingpad { ptr, i32 }
@@ -1312,21 +1309,22 @@ _ZNK4ncnn3Mat5emptyEv.exit585.i:                  ; preds = %343
   call void @__clang_call_terminate(ptr %381) #16
   unreachable
 
-_ZN4ncnn3MatD2Ev.exit579.i:                       ; preds = %378, %377, %373, %367, %357
+_ZN4ncnn3MatD2Ev.exit608.i:                       ; preds = %378, %377, %373, %367, %357
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %23) #11
   br label %382
 
-382:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit579.i, %327
-  %brmerge505.i = or i1 %.025, %brmerge495.i
-  br i1 %brmerge505.i, label %393, label %383
+382:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit608.i, %327
+  %or.cond54.not.i = xor i1 %or.cond48.i, true
+  %or.cond56.i = or i1 %.025, %or.cond54.not.i
+  br i1 %or.cond56.i, label %393, label %383
 
 383:                                              ; preds = %382
   %384 = load i32, ptr %5, align 4, !tbaa !48
-  %.not437.i = icmp eq i32 %384, 0
+  %.not575.i = icmp eq i32 %384, 0
   %385 = load i32, ptr %21, align 4, !tbaa !48
   %386 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %387 = load ptr, ptr %386, align 8, !tbaa !52
-  br i1 %.not437.i, label %389, label %388
+  br i1 %.not575.i, label %389, label %388
 
 388:                                              ; preds = %383
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef %385, i64 noundef %90, ptr noundef %387)
@@ -1344,17 +1342,19 @@ _ZN4ncnn3MatD2Ev.exit579.i:                       ; preds = %378, %377, %373, %3
   br label %393
 
 393:                                              ; preds = %390, %382
-  %brmerge509.i = or i1 %.029, %brmerge493.i
-  %brmerge511.i = or i1 %brmerge509.i, %.not496.i
-  br i1 %brmerge511.i, label %404, label %394
+  %or.cond58.not.i = xor i1 %or.cond46.i, true
+  %or.cond60.i = or i1 %.029, %or.cond58.not.i
+  %or.cond60.not.i = xor i1 %or.cond60.i, true
+  %or.cond62.i = and i1 %.025, %or.cond60.not.i
+  br i1 %or.cond62.i, label %394, label %404
 
 394:                                              ; preds = %393
   %395 = load i32, ptr %5, align 4, !tbaa !48
-  %.not438.i = icmp eq i32 %395, 0
+  %.not576.i = icmp eq i32 %395, 0
   %396 = load i32, ptr %20, align 4, !tbaa !48
   %397 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %398 = load ptr, ptr %397, align 8, !tbaa !52
-  br i1 %.not438.i, label %400, label %399
+  br i1 %.not576.i, label %400, label %399
 
 399:                                              ; preds = %394
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef 1, i32 noundef %396, i32 noundef 1, i64 noundef %90, ptr noundef %398)
@@ -1372,18 +1372,20 @@ _ZN4ncnn3MatD2Ev.exit579.i:                       ; preds = %378, %377, %373, %3
   br label %404
 
 404:                                              ; preds = %401, %393
-  %brmerge513.i = or i1 %.023, %.not491.i
-  %brmerge515.i = or i1 %brmerge513.i, %.not494.i
-  %brmerge517.i = or i1 %brmerge515.i, %.not496.i
-  br i1 %brmerge517.i, label %448, label %405
+  %.not63.i = xor i1 %.022, true
+  %or.cond65.i = or i1 %.023, %.not63.i
+  %or.cond65.not.i = xor i1 %or.cond65.i, true
+  %or.cond67.i = and i1 %.029, %or.cond65.not.i
+  %or.cond69.i = and i1 %.025, %or.cond67.i
+  br i1 %or.cond69.i, label %405, label %448
 
 405:                                              ; preds = %404
   %406 = load i32, ptr %5, align 4, !tbaa !48
-  %.not439.i = icmp eq i32 %406, 0
+  %.not577.i = icmp eq i32 %406, 0
   %407 = load i32, ptr %19, align 4, !tbaa !48
   %408 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %409 = load ptr, ptr %408, align 8, !tbaa !52
-  br i1 %.not439.i, label %411, label %410
+  br i1 %.not577.i, label %411, label %410
 
 410:                                              ; preds = %405
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef %407, i32 noundef 1, i32 noundef 1, i64 noundef %90, ptr noundef %409)
@@ -1408,7 +1410,7 @@ _ZN4ncnn3MatD2Ev.exit579.i:                       ; preds = %378, %377, %373, %3
   call void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %24, i32 noundef %413, i32 noundef 1, i32 noundef %414, i64 noundef %90, ptr noundef %416)
   %420 = load ptr, ptr %24, align 8, !tbaa !16
   %421 = icmp eq ptr %420, null
-  br i1 %421, label %.critedge519.i, label %_ZNK4ncnn3Mat5emptyEv.exit.i
+  br i1 %421, label %.critedge600.i, label %_ZNK4ncnn3Mat5emptyEv.exit.i
 
 _ZNK4ncnn3Mat5emptyEv.exit.i:                     ; preds = %412
   %422 = getelementptr inbounds nuw i8, ptr %24, i64 56
@@ -1417,7 +1419,7 @@ _ZNK4ncnn3Mat5emptyEv.exit.i:                     ; preds = %412
   %425 = sext i32 %424 to i64
   %426 = mul i64 %423, %425
   %427 = icmp eq i64 %426, 0
-  br i1 %427, label %.critedge519.i, label %428
+  br i1 %427, label %.critedge600.i, label %428
 
 428:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.i
   %429 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1428,34 +1430,34 @@ _ZNK4ncnn3Mat5emptyEv.exit.i:                     ; preds = %412
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %79, i32 %431)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 6, ptr nonnull @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE.omp_outlined.15, ptr nonnull %19, ptr nonnull align 8 dereferenceable(72) %2, ptr nonnull %9, ptr nonnull %24, ptr nonnull %21, ptr nonnull %8)
   %432 = load ptr, ptr %417, align 8, !tbaa !7
-  %.not.i612.i = icmp eq ptr %432, null
-  br i1 %.not.i612.i, label %_ZN4ncnn3MatD2Ev.exit577.i, label %433
+  %.not.i641.i = icmp eq ptr %432, null
+  br i1 %.not.i641.i, label %_ZN4ncnn3MatD2Ev.exit606.i, label %433
 
 433:                                              ; preds = %428
   %434 = atomicrmw add ptr %432, i32 -1 acq_rel, align 4
   %435 = icmp eq i32 %434, 1
-  br i1 %435, label %436, label %_ZN4ncnn3MatD2Ev.exit577.i
+  br i1 %435, label %436, label %_ZN4ncnn3MatD2Ev.exit606.i
 
 436:                                              ; preds = %433
   %437 = load ptr, ptr %418, align 8, !tbaa !15
-  %.not3.i613.i = icmp eq ptr %437, null
+  %.not3.i642.i = icmp eq ptr %437, null
   %438 = load ptr, ptr %24, align 8, !tbaa !16
-  br i1 %.not3.i613.i, label %443, label %439
+  br i1 %.not3.i642.i, label %443, label %439
 
 439:                                              ; preds = %436
   %440 = load ptr, ptr %437, align 8, !tbaa !4
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 24
   %442 = load ptr, ptr %441, align 8
   invoke void %442(ptr noundef nonnull align 8 dereferenceable(8) %437, ptr noundef %438)
-          to label %_ZN4ncnn3MatD2Ev.exit577.i unwind label %445
+          to label %_ZN4ncnn3MatD2Ev.exit606.i unwind label %445
 
 443:                                              ; preds = %436
-  %.not.i639.i = icmp eq ptr %438, null
-  br i1 %.not.i639.i, label %_ZN4ncnn3MatD2Ev.exit577.i, label %444
+  %.not.i668.i = icmp eq ptr %438, null
+  br i1 %.not.i668.i, label %_ZN4ncnn3MatD2Ev.exit606.i, label %444
 
 444:                                              ; preds = %443
   call void @free(ptr noundef nonnull %438) #11
-  br label %_ZN4ncnn3MatD2Ev.exit577.i
+  br label %_ZN4ncnn3MatD2Ev.exit606.i
 
 445:                                              ; preds = %439
   %446 = landingpad { ptr, i32 }
@@ -1464,23 +1466,23 @@ _ZNK4ncnn3Mat5emptyEv.exit.i:                     ; preds = %412
   call void @__clang_call_terminate(ptr %447) #16
   unreachable
 
-_ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %433, %428
+_ZN4ncnn3MatD2Ev.exit606.i:                       ; preds = %444, %443, %439, %433, %428
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %24) #11
   br label %448
 
-448:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit577.i, %404
-  %brmerge521.i = or i1 %.022, %.not492.i
-  %brmerge523.i = or i1 %brmerge521.i, %.not494.i
-  %brmerge525.i = or i1 %brmerge523.i, %.not496.i
-  br i1 %brmerge525.i, label %459, label %449
+448:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit606.i, %404
+  %or.cond72.i = and i1 %.023, %.not63.i
+  %or.cond74.i = and i1 %.029, %or.cond72.i
+  %or.cond76.i = and i1 %.025, %or.cond74.i
+  br i1 %or.cond76.i, label %449, label %459
 
 449:                                              ; preds = %448
   %450 = load i32, ptr %5, align 4, !tbaa !48
-  %.not442.i = icmp eq i32 %450, 0
+  %.not580.i = icmp eq i32 %450, 0
   %451 = load i32, ptr %18, align 4, !tbaa !48
   %452 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %453 = load ptr, ptr %452, align 8, !tbaa !52
-  br i1 %.not442.i, label %455, label %454
+  br i1 %.not580.i, label %455, label %454
 
 454:                                              ; preds = %449
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %451, i32 noundef 1, i32 noundef 1, i32 noundef 1, i64 noundef %90, ptr noundef %453)
@@ -1498,17 +1500,17 @@ _ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %4
   br label %459
 
 459:                                              ; preds = %456, %448
-  %brmerge530.i = or i1 %.025, %brmerge509.i
-  br i1 %brmerge530.i, label %471, label %460
+  %or.cond82.i = or i1 %.025, %or.cond60.i
+  br i1 %or.cond82.i, label %471, label %460
 
 460:                                              ; preds = %459
   %461 = load i32, ptr %5, align 4, !tbaa !48
-  %.not443.i = icmp eq i32 %461, 0
+  %.not581.i = icmp eq i32 %461, 0
   %462 = load i32, ptr %20, align 4, !tbaa !48
   %463 = load i32, ptr %21, align 4, !tbaa !48
   %464 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %465 = load ptr, ptr %464, align 8, !tbaa !52
-  br i1 %.not443.i, label %467, label %466
+  br i1 %.not581.i, label %467, label %466
 
 466:                                              ; preds = %460
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef 1, i32 noundef %462, i32 noundef %463, i64 noundef %90, ptr noundef %465)
@@ -1526,18 +1528,19 @@ _ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %4
   br label %471
 
 471:                                              ; preds = %468, %459
-  %brmerge533.i = or i1 %.029, %brmerge513.i
-  %brmerge535.i = or i1 %brmerge533.i, %.not496.i
-  br i1 %brmerge535.i, label %483, label %472
+  %or.cond87.i = or i1 %.029, %or.cond65.i
+  %or.cond87.not.i = xor i1 %or.cond87.i, true
+  %or.cond89.i = and i1 %.025, %or.cond87.not.i
+  br i1 %or.cond89.i, label %472, label %483
 
 472:                                              ; preds = %471
   %473 = load i32, ptr %5, align 4, !tbaa !48
-  %.not444.i = icmp eq i32 %473, 0
+  %.not582.i = icmp eq i32 %473, 0
   %474 = load i32, ptr %19, align 4, !tbaa !48
   %475 = load i32, ptr %20, align 4, !tbaa !48
   %476 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %477 = load ptr, ptr %476, align 8, !tbaa !52
-  br i1 %.not444.i, label %479, label %478
+  br i1 %.not582.i, label %479, label %478
 
 478:                                              ; preds = %472
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef %474, i32 noundef %475, i32 noundef 1, i64 noundef %90, ptr noundef %477)
@@ -1555,19 +1558,20 @@ _ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %4
   br label %483
 
 483:                                              ; preds = %480, %471
-  %brmerge536.i = or i1 %.023, %.022
-  %brmerge538.i = or i1 %brmerge536.i, %.not494.i
-  %brmerge540.i = or i1 %brmerge538.i, %.not496.i
-  br i1 %brmerge540.i, label %495, label %484
+  %or.cond91.i = or i1 %.023, %.022
+  %or.cond91.not.i = xor i1 %or.cond91.i, true
+  %or.cond93.i = and i1 %.029, %or.cond91.not.i
+  %or.cond95.i = and i1 %.025, %or.cond93.i
+  br i1 %or.cond95.i, label %484, label %495
 
 484:                                              ; preds = %483
   %485 = load i32, ptr %5, align 4, !tbaa !48
-  %.not445.i = icmp eq i32 %485, 0
+  %.not583.i = icmp eq i32 %485, 0
   %486 = load i32, ptr %18, align 4, !tbaa !48
   %487 = load i32, ptr %19, align 4, !tbaa !48
   %488 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %489 = load ptr, ptr %488, align 8, !tbaa !52
-  br i1 %.not445.i, label %491, label %490
+  br i1 %.not583.i, label %491, label %490
 
 490:                                              ; preds = %484
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %486, i32 noundef %487, i32 noundef 1, i32 noundef 1, i64 noundef %90, ptr noundef %489)
@@ -1585,17 +1589,18 @@ _ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %4
   br label %495
 
 495:                                              ; preds = %492, %483
-  %brmerge545.i = or i1 %.025, %brmerge515.i
-  br i1 %brmerge545.i, label %507, label %496
+  %or.cond100.not.i = xor i1 %or.cond67.i, true
+  %or.cond102.i = or i1 %.025, %or.cond100.not.i
+  br i1 %or.cond102.i, label %507, label %496
 
 496:                                              ; preds = %495
   %497 = load i32, ptr %5, align 4, !tbaa !48
-  %.not446.i = icmp eq i32 %497, 0
+  %.not584.i = icmp eq i32 %497, 0
   %498 = load i32, ptr %19, align 4, !tbaa !48
   %499 = load i32, ptr %21, align 4, !tbaa !48
   %500 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %501 = load ptr, ptr %500, align 8, !tbaa !52
-  br i1 %.not446.i, label %503, label %502
+  br i1 %.not584.i, label %503, label %502
 
 502:                                              ; preds = %496
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef %498, i32 noundef 1, i32 noundef %499, i64 noundef %90, ptr noundef %501)
@@ -1613,18 +1618,20 @@ _ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %4
   br label %507
 
 507:                                              ; preds = %504, %495
-  %brmerge548.i = or i1 %.029, %brmerge521.i
-  %brmerge550.i = or i1 %brmerge548.i, %.not496.i
-  br i1 %brmerge550.i, label %519, label %508
+  %or.cond105.not.i = xor i1 %or.cond72.i, true
+  %or.cond107.i = or i1 %.029, %or.cond105.not.i
+  %or.cond107.not.i = xor i1 %or.cond107.i, true
+  %or.cond109.i = and i1 %.025, %or.cond107.not.i
+  br i1 %or.cond109.i, label %508, label %519
 
 508:                                              ; preds = %507
   %509 = load i32, ptr %5, align 4, !tbaa !48
-  %.not447.i = icmp eq i32 %509, 0
+  %.not585.i = icmp eq i32 %509, 0
   %510 = load i32, ptr %18, align 4, !tbaa !48
   %511 = load i32, ptr %20, align 4, !tbaa !48
   %512 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %513 = load ptr, ptr %512, align 8, !tbaa !52
-  br i1 %.not447.i, label %515, label %514
+  br i1 %.not585.i, label %515, label %514
 
 514:                                              ; preds = %508
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %510, i32 noundef 1, i32 noundef %511, i32 noundef 1, i64 noundef %90, ptr noundef %513)
@@ -1642,17 +1649,18 @@ _ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %4
   br label %519
 
 519:                                              ; preds = %516, %507
-  %brmerge555.i = or i1 %.025, %brmerge523.i
-  br i1 %brmerge555.i, label %531, label %520
+  %or.cond114.not.i = xor i1 %or.cond74.i, true
+  %or.cond116.i = or i1 %.025, %or.cond114.not.i
+  br i1 %or.cond116.i, label %531, label %520
 
 520:                                              ; preds = %519
   %521 = load i32, ptr %5, align 4, !tbaa !48
-  %.not448.i = icmp eq i32 %521, 0
+  %.not586.i = icmp eq i32 %521, 0
   %522 = load i32, ptr %18, align 4, !tbaa !48
   %523 = load i32, ptr %21, align 4, !tbaa !48
   %524 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %525 = load ptr, ptr %524, align 8, !tbaa !52
-  br i1 %.not448.i, label %527, label %526
+  br i1 %.not586.i, label %527, label %526
 
 526:                                              ; preds = %520
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %522, i32 noundef 1, i32 noundef 1, i32 noundef %523, i64 noundef %90, ptr noundef %525)
@@ -1670,18 +1678,18 @@ _ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %4
   br label %531
 
 531:                                              ; preds = %528, %519
-  %brmerge559.i = or i1 %.025, %brmerge533.i
-  br i1 %brmerge559.i, label %544, label %532
+  %or.cond123.i = or i1 %.025, %or.cond87.i
+  br i1 %or.cond123.i, label %544, label %532
 
 532:                                              ; preds = %531
   %533 = load i32, ptr %5, align 4, !tbaa !48
-  %.not449.i = icmp eq i32 %533, 0
+  %.not587.i = icmp eq i32 %533, 0
   %534 = load i32, ptr %19, align 4, !tbaa !48
   %535 = load i32, ptr %20, align 4, !tbaa !48
   %536 = load i32, ptr %21, align 4, !tbaa !48
   %537 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %538 = load ptr, ptr %537, align 8, !tbaa !52
-  br i1 %.not449.i, label %540, label %539
+  br i1 %.not587.i, label %540, label %539
 
 539:                                              ; preds = %532
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef 1, i32 noundef %534, i32 noundef %535, i32 noundef %536, i64 noundef %90, ptr noundef %538)
@@ -1699,19 +1707,20 @@ _ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %4
   br label %544
 
 544:                                              ; preds = %541, %531
-  %brmerge561.i = or i1 %.029, %brmerge536.i
-  %brmerge563.i = or i1 %brmerge561.i, %.not496.i
-  br i1 %brmerge563.i, label %557, label %545
+  %or.cond127.i = or i1 %.029, %or.cond91.i
+  %or.cond127.not.i = xor i1 %or.cond127.i, true
+  %or.cond129.i = and i1 %.025, %or.cond127.not.i
+  br i1 %or.cond129.i, label %545, label %557
 
 545:                                              ; preds = %544
   %546 = load i32, ptr %5, align 4, !tbaa !48
-  %.not450.i = icmp eq i32 %546, 0
+  %.not588.i = icmp eq i32 %546, 0
   %547 = load i32, ptr %18, align 4, !tbaa !48
   %548 = load i32, ptr %19, align 4, !tbaa !48
   %549 = load i32, ptr %20, align 4, !tbaa !48
   %550 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %551 = load ptr, ptr %550, align 8, !tbaa !52
-  br i1 %.not450.i, label %553, label %552
+  br i1 %.not588.i, label %553, label %552
 
 552:                                              ; preds = %545
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %547, i32 noundef %548, i32 noundef %549, i32 noundef 1, i64 noundef %90, ptr noundef %551)
@@ -1729,18 +1738,18 @@ _ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %4
   br label %557
 
 557:                                              ; preds = %554, %544
-  %brmerge567.i = or i1 %.025, %brmerge548.i
-  br i1 %brmerge567.i, label %570, label %558
+  %or.cond136.i = or i1 %.025, %or.cond107.i
+  br i1 %or.cond136.i, label %570, label %558
 
 558:                                              ; preds = %557
   %559 = load i32, ptr %5, align 4, !tbaa !48
-  %.not451.i = icmp eq i32 %559, 0
+  %.not589.i = icmp eq i32 %559, 0
   %560 = load i32, ptr %18, align 4, !tbaa !48
   %561 = load i32, ptr %20, align 4, !tbaa !48
   %562 = load i32, ptr %21, align 4, !tbaa !48
   %563 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %564 = load ptr, ptr %563, align 8, !tbaa !52
-  br i1 %.not451.i, label %566, label %565
+  br i1 %.not589.i, label %566, label %565
 
 565:                                              ; preds = %558
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %560, i32 noundef 1, i32 noundef %561, i32 noundef %562, i64 noundef %90, ptr noundef %564)
@@ -1758,18 +1767,19 @@ _ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %4
   br label %570
 
 570:                                              ; preds = %567, %557
-  %brmerge571.i = or i1 %.025, %brmerge538.i
-  br i1 %brmerge571.i, label %615, label %571
+  %or.cond140.not.i = xor i1 %or.cond93.i, true
+  %or.cond142.i = or i1 %.025, %or.cond140.not.i
+  br i1 %or.cond142.i, label %615, label %571
 
 571:                                              ; preds = %570
   %572 = load i32, ptr %5, align 4, !tbaa !48
-  %.not452.i = icmp eq i32 %572, 0
+  %.not590.i = icmp eq i32 %572, 0
   %573 = load i32, ptr %18, align 4, !tbaa !48
   %574 = load i32, ptr %19, align 4, !tbaa !48
   %575 = load i32, ptr %21, align 4, !tbaa !48
   %576 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %577 = load ptr, ptr %576, align 8, !tbaa !52
-  br i1 %.not452.i, label %579, label %578
+  br i1 %.not590.i, label %579, label %578
 
 578:                                              ; preds = %571
   call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %573, i32 noundef %574, i32 noundef 1, i32 noundef %575, i64 noundef %90, ptr noundef %577)
@@ -1786,36 +1796,36 @@ _ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 8, ptr nonnull @_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE.omp_outlined.26, ptr nonnull %21, ptr nonnull align 8 dereferenceable(72) %1, ptr nonnull align 8 dereferenceable(72) %2, ptr nonnull %18, ptr nonnull %19, ptr nonnull %9, ptr nonnull %20, ptr nonnull %7)
   br label %615
 
-.critedge499.i:                                   ; preds = %_ZNK4ncnn3Mat5emptyEv.exit585.i, %343
+.critedge598.i:                                   ; preds = %_ZNK4ncnn3Mat5emptyEv.exit614.i, %343
   %583 = load ptr, ptr %346, align 8, !tbaa !7
-  %.not.i624.i = icmp eq ptr %583, null
-  br i1 %.not.i624.i, label %_ZN4ncnn3MatD2Ev.exit574.i, label %584
+  %.not.i653.i = icmp eq ptr %583, null
+  br i1 %.not.i653.i, label %_ZN4ncnn3MatD2Ev.exit603.i, label %584
 
-584:                                              ; preds = %.critedge499.i
+584:                                              ; preds = %.critedge598.i
   %585 = atomicrmw add ptr %583, i32 -1 acq_rel, align 4
   %586 = icmp eq i32 %585, 1
-  br i1 %586, label %587, label %_ZN4ncnn3MatD2Ev.exit574.i
+  br i1 %586, label %587, label %_ZN4ncnn3MatD2Ev.exit603.i
 
 587:                                              ; preds = %584
   %588 = load ptr, ptr %347, align 8, !tbaa !15
-  %.not3.i625.i = icmp eq ptr %588, null
+  %.not3.i654.i = icmp eq ptr %588, null
   %589 = load ptr, ptr %23, align 8, !tbaa !16
-  br i1 %.not3.i625.i, label %594, label %590
+  br i1 %.not3.i654.i, label %594, label %590
 
 590:                                              ; preds = %587
   %591 = load ptr, ptr %588, align 8, !tbaa !4
   %592 = getelementptr inbounds nuw i8, ptr %591, i64 24
   %593 = load ptr, ptr %592, align 8
   invoke void %593(ptr noundef nonnull align 8 dereferenceable(8) %588, ptr noundef %589)
-          to label %_ZN4ncnn3MatD2Ev.exit574.i unwind label %596
+          to label %_ZN4ncnn3MatD2Ev.exit603.i unwind label %596
 
 594:                                              ; preds = %587
-  %.not.i633.i = icmp eq ptr %589, null
-  br i1 %.not.i633.i, label %_ZN4ncnn3MatD2Ev.exit574.i, label %595
+  %.not.i662.i = icmp eq ptr %589, null
+  br i1 %.not.i662.i, label %_ZN4ncnn3MatD2Ev.exit603.i, label %595
 
 595:                                              ; preds = %594
   call void @free(ptr noundef nonnull %589) #11
-  br label %_ZN4ncnn3MatD2Ev.exit574.i
+  br label %_ZN4ncnn3MatD2Ev.exit603.i
 
 596:                                              ; preds = %590
   %597 = landingpad { ptr, i32 }
@@ -1824,25 +1834,25 @@ _ZN4ncnn3MatD2Ev.exit577.i:                       ; preds = %444, %443, %439, %4
   call void @__clang_call_terminate(ptr %598) #16
   unreachable
 
-_ZN4ncnn3MatD2Ev.exit574.i:                       ; preds = %595, %594, %590, %584, %.critedge499.i
+_ZN4ncnn3MatD2Ev.exit603.i:                       ; preds = %595, %594, %590, %584, %.critedge598.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %23) #11
-  br label %.critedge573.i
+  br label %.critedge602.i
 
-.critedge519.i:                                   ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.i, %412
+.critedge600.i:                                   ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.i, %412
   %599 = load ptr, ptr %417, align 8, !tbaa !7
-  %.not.i628.i = icmp eq ptr %599, null
-  br i1 %.not.i628.i, label %_ZN4ncnn3MatD2Ev.exit.i, label %600
+  %.not.i657.i = icmp eq ptr %599, null
+  br i1 %.not.i657.i, label %_ZN4ncnn3MatD2Ev.exit.i, label %600
 
-600:                                              ; preds = %.critedge519.i
+600:                                              ; preds = %.critedge600.i
   %601 = atomicrmw add ptr %599, i32 -1 acq_rel, align 4
   %602 = icmp eq i32 %601, 1
   br i1 %602, label %603, label %_ZN4ncnn3MatD2Ev.exit.i
 
 603:                                              ; preds = %600
   %604 = load ptr, ptr %418, align 8, !tbaa !15
-  %.not3.i629.i = icmp eq ptr %604, null
+  %.not3.i658.i = icmp eq ptr %604, null
   %605 = load ptr, ptr %24, align 8, !tbaa !16
-  br i1 %.not3.i629.i, label %610, label %606
+  br i1 %.not3.i658.i, label %610, label %606
 
 606:                                              ; preds = %603
   %607 = load ptr, ptr %604, align 8, !tbaa !4
@@ -1852,8 +1862,8 @@ _ZN4ncnn3MatD2Ev.exit574.i:                       ; preds = %595, %594, %590, %5
           to label %_ZN4ncnn3MatD2Ev.exit.i unwind label %612
 
 610:                                              ; preds = %603
-  %.not.i632.i = icmp eq ptr %605, null
-  br i1 %.not.i632.i, label %_ZN4ncnn3MatD2Ev.exit.i, label %611
+  %.not.i661.i = icmp eq ptr %605, null
+  br i1 %.not.i661.i, label %_ZN4ncnn3MatD2Ev.exit.i, label %611
 
 611:                                              ; preds = %610
   call void @free(ptr noundef nonnull %605) #11
@@ -1866,9 +1876,9 @@ _ZN4ncnn3MatD2Ev.exit574.i:                       ; preds = %595, %594, %590, %5
   call void @__clang_call_terminate(ptr %614) #16
   unreachable
 
-_ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %611, %610, %606, %600, %.critedge519.i
+_ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %611, %610, %606, %600, %.critedge600.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %24) #11
-  br label %.critedge573.i
+  br label %.critedge602.i
 
 615:                                              ; preds = %580, %570
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #11
@@ -1876,17 +1886,17 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %611, %610, %606, %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #11
-  br label %.thread659.i
+  br label %.thread688.i
 
-.thread659.i:                                     ; preds = %615, %326, %188, %100, %.thread.i
+.thread688.i:                                     ; preds = %615, %326, %188, %100, %.thread.i
   %616 = phi i1 [ true, %615 ], [ false, %188 ], [ false, %.thread.i ], [ false, %326 ], [ false, %100 ]
   %617 = phi i1 [ false, %615 ], [ true, %188 ], [ false, %.thread.i ], [ false, %326 ], [ false, %100 ]
   %618 = phi i1 [ false, %615 ], [ false, %188 ], [ false, %.thread.i ], [ true, %326 ], [ false, %100 ]
   %619 = add i32 %76, -9
-  %or.cond.i = icmp ult i32 %619, 2
-  br i1 %or.cond.i, label %620, label %629
+  %or.cond144.i = icmp ult i32 %619, 2
+  br i1 %or.cond144.i, label %620, label %629
 
-620:                                              ; preds = %.thread659.i
+620:                                              ; preds = %.thread688.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #11
   %621 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %622 = load i64, ptr %621, align 8, !tbaa !17
@@ -1902,7 +1912,7 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %611, %610, %606, %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #11
   br label %629
 
-629:                                              ; preds = %620, %.thread659.i
+629:                                              ; preds = %620, %.thread688.i
   switch i32 %76, label %thread-pre-split.i [
     i32 8, label %630
     i32 3, label %639
@@ -2016,13 +2026,13 @@ thread-pre-split.i:                               ; preds = %630, %629
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #11
   br label %_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE.exit
 
-.critedge460.i:                                   ; preds = %184, %183, %179, %173, %.critedge.i
+.critedge592.i:                                   ; preds = %184, %183, %179, %173, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
   br label %_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE.exit
 
-.critedge490.i:                                   ; preds = %322, %321, %317, %311, %.critedge467.i
+.critedge596.i:                                   ; preds = %322, %321, %317, %311, %.critedge594.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %17) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #11
@@ -2030,7 +2040,7 @@ thread-pre-split.i:                               ; preds = %630, %629
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #11
   br label %_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE.exit
 
-.critedge573.i:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit.i, %_ZN4ncnn3MatD2Ev.exit574.i
+.critedge602.i:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit.i, %_ZN4ncnn3MatD2Ev.exit603.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #11
@@ -2038,15 +2048,15 @@ thread-pre-split.i:                               ; preds = %630, %629
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #11
   br label %_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE.exit
 
-_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE.exit: ; preds = %675, %678, %.critedge460.i, %.critedge490.i, %.critedge573.i
-  %.4421.i = phi i32 [ -100, %.critedge460.i ], [ -100, %.critedge490.i ], [ -100, %.critedge573.i ], [ 0, %678 ], [ 0, %675 ]
+_ZN4ncnnL12reduction_opERKNS_3MatERS0_bbbbiifRKNS_6OptionE.exit: ; preds = %675, %678, %.critedge592.i, %.critedge596.i, %.critedge602.i
+  %.4558.i = phi i32 [ -100, %.critedge592.i ], [ -100, %.critedge596.i ], [ -100, %.critedge602.i ], [ 0, %678 ], [ 0, %675 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #11
-  ret i32 %.4421.i
+  ret i32 %.4558.i
 }
 
 declare noundef i32 @_ZNK4ncnn5Layer15forward_inplaceERSt6vectorINS_3MatESaIS2_EERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2

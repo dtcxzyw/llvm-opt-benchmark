@@ -611,110 +611,109 @@ define dso_local ptr @c_abi_classify_argument_type_default(ptr noundef readonly 
   %14 = load i8, ptr %13, align 1
   %15 = or i8 %14, 16
   store i8 %15, ptr %13, align 1
-  br label %74
+  br label %73
 
 16:                                               ; preds = %1
   %17 = tail call zeroext i1 @type_is_int128(ptr noundef %2) #5
-  br i1 %17, label %18, label %33
+  %.not = xor i1 %17, true
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 281), align 1
+  %19 = trunc i8 %18 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %19
+  br i1 %or.cond, label %32, label %20
 
-18:                                               ; preds = %16
-  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 281), align 1
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %33, label %21
+20:                                               ; preds = %16
+  %21 = tail call ptr @calloc_arena(i64 noundef 32) #5
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load i8, ptr %22, align 4
+  %24 = and i8 %23, -64
+  %25 = or disjoint i8 %24, 7
+  store i8 %25, ptr %22, align 4
+  %26 = tail call i32 @type_abi_alignment(ptr noundef %2) #5
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i32 %26, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store ptr %2, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 5
+  %30 = load i8, ptr %29, align 1
+  %31 = or i8 %30, 16
+  store i8 %31, ptr %29, align 1
+  br label %73
 
-21:                                               ; preds = %18
-  %22 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %24 = load i8, ptr %23, align 4
-  %25 = and i8 %24, -64
-  %26 = or disjoint i8 %25, 7
-  store i8 %26, ptr %23, align 4
-  %27 = tail call i32 @type_abi_alignment(ptr noundef %2) #5
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %2, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 5
-  %31 = load i8, ptr %30, align 1
-  %32 = or i8 %31, 16
-  store i8 %32, ptr %30, align 1
-  br label %74
+32:                                               ; preds = %16
+  %33 = load i32, ptr %2, align 8
+  %34 = icmp eq i32 %33, 31
+  br i1 %34, label %35, label %39
 
-33:                                               ; preds = %18, %16
-  %34 = load i32, ptr %2, align 8
-  %35 = icmp eq i32 %34, 31
-  br i1 %35, label %36, label %40
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = load i32, ptr %37, align 8
+  br label %39
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %38, align 8
-  br label %40
+39:                                               ; preds = %35, %32
+  %.014 = phi i32 [ %38, %35 ], [ %33, %32 ]
+  %40 = add i32 %.014, -2
+  %41 = icmp ult i32 %40, 11
+  br i1 %41, label %42, label %.critedge
 
-40:                                               ; preds = %36, %33
-  %.014 = phi i32 [ %39, %36 ], [ %34, %33 ]
-  %41 = add i32 %.014, -2
-  %42 = icmp ult i32 %41, 11
-  br i1 %42, label %43, label %.critedge
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %44 = load i32, ptr %43, align 8
+  %45 = and i32 %44, 255
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
+  %47 = icmp ult i32 %45, %46
+  br i1 %47, label %48, label %.critedge
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %45 = load i32, ptr %44, align 8
-  %46 = and i32 %45, 255
-  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 312), align 8
-  %48 = icmp ult i32 %46, %47
-  br i1 %48, label %49, label %.critedge
+48:                                               ; preds = %42
+  %49 = tail call ptr @calloc_arena(i64 noundef 32) #5
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %51 = load i8, ptr %50, align 4
+  %52 = and i8 %51, -64
+  %53 = or disjoint i8 %52, 1
+  store i8 %53, ptr %50, align 4
+  %54 = load i32, ptr %2, align 8
+  %55 = add i32 %54, -3
+  %or.cond.i.i = icmp ult i32 %55, 5
+  br i1 %or.cond.i.i, label %abi_arg_new_direct_int_ext.exit, label %56
 
-49:                                               ; preds = %43
-  %50 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %52 = load i8, ptr %51, align 4
-  %53 = and i8 %52, -64
-  %54 = or disjoint i8 %53, 1
-  store i8 %54, ptr %51, align 4
-  %55 = load i32, ptr %2, align 8
-  %56 = add i32 %55, -3
-  %or.cond.i.i = icmp ult i32 %56, 5
-  br i1 %or.cond.i.i, label %abi_arg_new_direct_int_ext.exit, label %57
+56:                                               ; preds = %48
+  %.not.i.i = icmp eq i32 %54, 37
+  br i1 %.not.i.i, label %57, label %.critedge15.i.i
 
-57:                                               ; preds = %49
-  %.not.i.i = icmp eq i32 %55, 37
-  br i1 %.not.i.i, label %58, label %.critedge15.i.i
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %43, align 8
+  %59 = load i32, ptr %58, align 8
+  %60 = add i32 %59, -3
+  %61 = icmp ult i32 %60, 5
+  br i1 %61, label %abi_arg_new_direct_int_ext.exit, label %.critedge15.i.i
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %44, align 8
-  %60 = load i32, ptr %59, align 8
-  %61 = add i32 %60, -3
-  %62 = icmp ult i32 %61, 5
-  br i1 %62, label %abi_arg_new_direct_int_ext.exit, label %.critedge15.i.i
-
-.critedge15.i.i:                                  ; preds = %58, %57
+.critedge15.i.i:                                  ; preds = %57, %56
   br label %abi_arg_new_direct_int_ext.exit
 
-abi_arg_new_direct_int_ext.exit:                  ; preds = %49, %58, %.critedge15.i.i
-  %.sink16.i.i = phi i8 [ 2, %.critedge15.i.i ], [ 4, %49 ], [ 4, %58 ]
-  %63 = getelementptr inbounds nuw i8, ptr %50, i64 5
-  %64 = load i8, ptr %63, align 1
-  %.masked.i.i = and i8 %64, -2
-  %65 = or i8 %.masked.i.i, %.sink16.i.i
-  store i8 %65, ptr %63, align 1
-  br label %74
+abi_arg_new_direct_int_ext.exit:                  ; preds = %48, %57, %.critedge15.i.i
+  %.sink16.i.i = phi i8 [ 2, %.critedge15.i.i ], [ 4, %48 ], [ 4, %57 ]
+  %62 = getelementptr inbounds nuw i8, ptr %49, i64 5
+  %63 = load i8, ptr %62, align 1
+  %.masked.i.i = and i8 %63, -2
+  %64 = or i8 %.masked.i.i, %.sink16.i.i
+  store i8 %64, ptr %62, align 1
+  br label %73
 
-.critedge:                                        ; preds = %40, %43
-  %66 = tail call ptr @calloc_arena(i64 noundef 32) #5
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %68 = load i8, ptr %67, align 4
-  %69 = and i8 %68, -64
-  %70 = or disjoint i8 %69, 1
-  store i8 %70, ptr %67, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 5
-  %72 = load i8, ptr %71, align 1
-  %73 = and i8 %72, -2
-  store i8 %73, ptr %71, align 1
-  br label %74
+.critedge:                                        ; preds = %39, %42
+  %65 = tail call ptr @calloc_arena(i64 noundef 32) #5
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  %67 = load i8, ptr %66, align 4
+  %68 = and i8 %67, -64
+  %69 = or disjoint i8 %68, 1
+  store i8 %69, ptr %66, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 5
+  %71 = load i8, ptr %70, align 1
+  %72 = and i8 %71, -2
+  store i8 %72, ptr %70, align 1
+  br label %73
 
-74:                                               ; preds = %.critedge, %abi_arg_new_direct_int_ext.exit, %21, %4
-  %.0 = phi ptr [ %5, %4 ], [ %50, %abi_arg_new_direct_int_ext.exit ], [ %66, %.critedge ], [ %22, %21 ]
+73:                                               ; preds = %.critedge, %abi_arg_new_direct_int_ext.exit, %20, %4
+  %.0 = phi ptr [ %5, %4 ], [ %49, %abi_arg_new_direct_int_ext.exit ], [ %65, %.critedge ], [ %21, %20 ]
   ret ptr %.0
 }
 

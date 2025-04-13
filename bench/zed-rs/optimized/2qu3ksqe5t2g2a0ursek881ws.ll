@@ -1115,8 +1115,8 @@ _ZN10async_task5utils14abort_on_panic17ha8070da940079c90E.exit: ; preds = %23
 
 29:                                               ; preds = %_ZN10async_task5utils14abort_on_panic17ha8070da940079c90E.exit, %8, %15, %17, %2
   %.sroa.4.1 = phi ptr [ undef, %2 ], [ %12, %17 ], [ %12, %15 ], [ undef, %8 ], [ undef, %_ZN10async_task5utils14abort_on_panic17ha8070da940079c90E.exit ]
-  %.sroa.02.1 = phi ptr [ null, %2 ], [ %10, %17 ], [ %10, %15 ], [ null, %8 ], [ null, %_ZN10async_task5utils14abort_on_panic17ha8070da940079c90E.exit ]
-  %30 = insertvalue { ptr, ptr } poison, ptr %.sroa.02.1, 0
+  %.sroa.04.1 = phi ptr [ null, %2 ], [ %10, %17 ], [ %10, %15 ], [ null, %8 ], [ null, %_ZN10async_task5utils14abort_on_panic17ha8070da940079c90E.exit ]
+  %30 = insertvalue { ptr, ptr } poison, ptr %.sroa.04.1, 0
   %31 = insertvalue { ptr, ptr } %30, ptr %.sroa.4.1, 1
   ret { ptr, ptr } %31
 }
@@ -1247,8 +1247,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h61d0
 .critedge:                                        ; preds = %5, %11, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not26 = icmp eq i8 %15, 0
-  br i1 %.not26, label %16, label %29
+  %.not27 = icmp eq i8 %15, 0
+  br i1 %.not27, label %16, label %29
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24

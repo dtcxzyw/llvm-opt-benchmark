@@ -2913,8 +2913,8 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
-  %brmerge = or i1 %2, %9
-  br i1 %brmerge, label %82, label %10
+  %or.cond = or i1 %2, %9
+  br i1 %or.cond, label %82, label %10
 
 10:                                               ; preds = %5
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -2939,22 +2939,22 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
   %22 = zext nneg i32 %1 to i64
   %23 = getelementptr inbounds nuw %struct.RecordCacheArrayEntry, ptr %21, i64 %22, i32 1
   %24 = load ptr, ptr %23, align 8
-  %.not17 = icmp eq ptr %24, null
-  br i1 %.not17, label %25, label %82
+  %.not18 = icmp eq ptr %24, null
+  br i1 %.not18, label %25, label %82
 
 25:                                               ; preds = %20, %17
   %26 = load ptr, ptr @CurrentSession, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  %.not18 = icmp eq ptr %28, null
-  br i1 %.not18, label %77, label %29
+  %.not19 = icmp eq ptr %28, null
+  br i1 %.not19, label %77, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @dshash_find(ptr noundef %31, ptr noundef nonnull %4, i1 noundef zeroext false) #16
-  %.not19.not = icmp eq ptr %32, null
-  br i1 %.not19.not, label %76, label %33
+  %.not20.not = icmp eq ptr %32, null
+  br i1 %.not20.not, label %76, label %33
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr @CurrentSession, align 8
@@ -3038,9 +3038,9 @@ define internal fastcc ptr @lookup_rowtype_tupdesc_internal(i32 noundef %0, i32 
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1899, ptr noundef nonnull @__func__.lookup_rowtype_tupdesc_internal) #16
   unreachable
 
-82:                                               ; preds = %.thread, %5, %76, %77, %20
-  %.012 = phi ptr [ null, %76 ], [ %24, %20 ], [ null, %77 ], [ %8, %5 ], [ %75, %.thread ]
-  ret ptr %.012
+82:                                               ; preds = %.thread, %76, %77, %20, %5
+  %.013 = phi ptr [ null, %76 ], [ %8, %5 ], [ %24, %20 ], [ null, %77 ], [ %75, %.thread ]
+  ret ptr %.013
 }
 
 declare void @IncrTupleDescRefCount(ptr noundef) local_unnamed_addr #2
@@ -3083,8 +3083,8 @@ define dso_local ptr @lookup_rowtype_tupdesc_domain(i32 noundef %0, i32 noundef 
   %5 = tail call ptr @lookup_type_cache(i32 noundef %0, i32 noundef 4352)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 13
   %7 = load i8, ptr %6, align 1
-  %.not23 = icmp eq i8 %7, 100
-  br i1 %.not23, label %8, label %18
+  %.not24 = icmp eq i8 %7, 100
+  br i1 %.not24, label %8, label %18
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 448
@@ -3105,8 +3105,8 @@ define dso_local ptr @lookup_rowtype_tupdesc_domain(i32 noundef %0, i32 noundef 
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ne ptr %20, null
-  %brmerge = or i1 %2, %21
-  br i1 %brmerge, label %lookup_rowtype_tupdesc_noerror.exit, label %22
+  %or.cond = or i1 %2, %21
+  br i1 %or.cond, label %lookup_rowtype_tupdesc_noerror.exit, label %22
 
 22:                                               ; preds = %18
   %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -3122,23 +3122,23 @@ define dso_local ptr @lookup_rowtype_tupdesc_domain(i32 noundef %0, i32 noundef 
   br label %lookup_rowtype_tupdesc_noerror.exit
 
 lookup_rowtype_tupdesc_noerror.exit:              ; preds = %18, %27
-  %.120 = phi ptr [ %28, %27 ], [ %20, %18 ]
-  %.not24 = icmp eq ptr %.120, null
-  br i1 %.not24, label %lookup_rowtype_tupdesc_noerror.exit.thread, label %29
+  %.121 = phi ptr [ %28, %27 ], [ %20, %18 ]
+  %.not25 = icmp eq ptr %.121, null
+  br i1 %.not25, label %lookup_rowtype_tupdesc_noerror.exit.thread, label %29
 
 29:                                               ; preds = %lookup_rowtype_tupdesc_noerror.exit
-  %30 = getelementptr inbounds nuw i8, ptr %.120, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %.121, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, -1
   br i1 %32, label %lookup_rowtype_tupdesc_noerror.exit.thread.sink.split, label %lookup_rowtype_tupdesc_noerror.exit.thread
 
 lookup_rowtype_tupdesc_noerror.exit.thread.sink.split: ; preds = %29, %14
-  %.sink = phi ptr [ %13, %14 ], [ %.120, %29 ]
+  %.sink = phi ptr [ %13, %14 ], [ %.121, %29 ]
   tail call void @IncrTupleDescRefCount(ptr noundef nonnull %.sink) #16
   br label %lookup_rowtype_tupdesc_noerror.exit.thread
 
 lookup_rowtype_tupdesc_noerror.exit.thread:       ; preds = %lookup_rowtype_tupdesc_noerror.exit.thread.sink.split, %8, %14, %lookup_rowtype_tupdesc_noerror.exit, %29
-  %.1 = phi ptr [ %.120, %29 ], [ null, %lookup_rowtype_tupdesc_noerror.exit ], [ %13, %14 ], [ null, %8 ], [ %.sink, %lookup_rowtype_tupdesc_noerror.exit.thread.sink.split ]
+  %.1 = phi ptr [ %.121, %29 ], [ null, %lookup_rowtype_tupdesc_noerror.exit ], [ %13, %14 ], [ null, %8 ], [ %.sink, %lookup_rowtype_tupdesc_noerror.exit.thread.sink.split ]
   ret ptr %.1
 }
 

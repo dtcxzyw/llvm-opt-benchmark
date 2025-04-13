@@ -1746,9 +1746,13 @@ _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %30, %33
   %42 = load i32, ptr %41, align 4, !tbaa !330
   %switch.tableidx64 = add i32 %42, -2
   %43 = icmp ult i32 %switch.tableidx64, 15
-  br i1 %43, label %switch.hole_check65, label %44
+  %switch.maskindex67 = trunc i32 %switch.tableidx64 to i16
+  %switch.shifted68 = lshr i16 20577, %switch.maskindex67
+  %switch.lobit69 = trunc i16 %switch.shifted68 to i1
+  %or.cond = select i1 %43, i1 %switch.lobit69, i1 false
+  br i1 %or.cond, label %.thread59, label %44
 
-44:                                               ; preds = %switch.hole_check65, %40
+44:                                               ; preds = %40
   %45 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %.151.ph) #21
   %46 = icmp eq i16 %45, 59
   br label %.thread59
@@ -1759,14 +1763,8 @@ switch.hole_check:                                ; preds = %23
   %switch.lobit = trunc i64 %switch.shifted to i1
   br i1 %switch.lobit, label %.thread59, label %26
 
-switch.hole_check65:                              ; preds = %40
-  %switch.maskindex67 = trunc nuw i32 %switch.tableidx64 to i16
-  %switch.shifted68 = lshr i16 20577, %switch.maskindex67
-  %switch.lobit69 = trunc i16 %switch.shifted68 to i1
-  br i1 %switch.lobit69, label %.thread59, label %44
-
-.thread59:                                        ; preds = %tailrecurse, %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit, %3, %switch.hole_check, %switch.hole_check65, %44
-  %.0 = phi i1 [ %46, %44 ], [ true, %switch.hole_check65 ], [ true, %switch.hole_check ], [ true, %3 ], [ false, %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit ], [ true, %tailrecurse ]
+.thread59:                                        ; preds = %tailrecurse, %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit, %3, %switch.hole_check, %40, %44
+  %.0 = phi i1 [ %46, %44 ], [ true, %40 ], [ true, %switch.hole_check ], [ true, %3 ], [ false, %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit ], [ true, %tailrecurse ]
   ret i1 %.0
 }
 

@@ -709,8 +709,8 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   call void @LockRelationOid(i32 noundef %119, i32 noundef 8) #7
   %.pre.i.i = load ptr, ptr %20, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 108
-  %.pre117.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
-  %121 = icmp eq i32 %.pre117.i.i, 0
+  %.pre119.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
+  %121 = icmp eq i32 %.pre119.i.i, 0
   br i1 %121, label %.thread.i.i, label %122
 
 122:                                              ; preds = %120
@@ -718,12 +718,12 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 108
   %126 = load i32, ptr %125, align 4
-  %.not104.i.i = icmp eq i32 %126, 0
-  br i1 %.not104.i.i, label %.thread.i.i, label %127
+  %.not106.i.i = icmp eq i32 %126, 0
+  br i1 %.not106.i.i, label %.thread.i.i, label %127
 
 127:                                              ; preds = %122
   %128 = getelementptr inbounds nuw i8, ptr %111, i64 472
-  store i32 %.pre117.i.i, ptr %128, align 8
+  store i32 %.pre119.i.i, ptr %128, align 8
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %127, %122, %120, %105
@@ -733,8 +733,8 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   %130 = load ptr, ptr %20, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 132
   %132 = load i32, ptr %131, align 4
-  %.not105.i.i = icmp eq i32 %132, 0
-  br i1 %.not105.i.i, label %138, label %133
+  %.not107.i.i = icmp eq i32 %132, 0
+  br i1 %.not107.i.i, label %138, label %133
 
 133:                                              ; preds = %.thread.i.i
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -750,8 +750,8 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   %139 = load ptr, ptr %20, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 136
   %141 = load i32, ptr %140, align 4
-  %.not106.i.i = icmp eq i32 %141, 0
-  br i1 %.not106.i.i, label %147, label %142
+  %.not108.i.i = icmp eq i32 %141, 0
+  br i1 %.not108.i.i, label %147, label %142
 
 142:                                              ; preds = %138
   %143 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -764,7 +764,7 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   br label %147
 
 147:                                              ; preds = %146, %142, %138
-  br i1 %.not.i, label %.thread114.i.i, label %148
+  br i1 %.not.i, label %.thread116.i.i, label %148
 
 148:                                              ; preds = %147
   %149 = getelementptr inbounds nuw i8, ptr %.0, i64 56
@@ -803,11 +803,11 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   %171 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %116, ptr noundef nonnull %170) #7
   br label %.sink.split.i.i
 
-.thread114.i.i:                                   ; preds = %147
+.thread116.i.i:                                   ; preds = %147
   %172 = call zeroext i1 @errstart(i32 noundef %112, ptr noundef null) #7
   br i1 %172, label %173, label %177
 
-173:                                              ; preds = %.thread114.i.i
+173:                                              ; preds = %.thread116.i.i
   %174 = load ptr, ptr %20, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 4
   %176 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %116, ptr noundef nonnull %175) #7
@@ -815,12 +815,12 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
 
 .sink.split.i.i:                                  ; preds = %173, %168, %160
   %.sink.i.i = phi i32 [ 974, %173 ], [ 969, %168 ], [ 964, %160 ]
-  %.0113.ph.i.i = phi i1 [ false, %173 ], [ true, %168 ], [ false, %160 ]
+  %.0115.ph.i.i = phi i1 [ false, %173 ], [ true, %168 ], [ false, %160 ]
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink.i.i, ptr noundef nonnull @__func__.copy_table_data) #7
   br label %177
 
-177:                                              ; preds = %.sink.split.i.i, %.thread114.i.i, %166, %.critedge.i.i
-  %.0113.i.i = phi i1 [ false, %.thread114.i.i ], [ true, %166 ], [ false, %.critedge.i.i ], [ %.0113.ph.i.i, %.sink.split.i.i ]
+177:                                              ; preds = %.sink.split.i.i, %.thread116.i.i, %166, %.critedge.i.i
+  %.0115.i.i = phi i1 [ false, %.thread116.i.i ], [ true, %166 ], [ false, %.critedge.i.i ], [ %.0115.ph.i.i, %.sink.split.i.i ]
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %179 = load i32, ptr %178, align 4
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -829,7 +829,7 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 248
   %185 = load ptr, ptr %184, align 8
-  call void %185(ptr noundef nonnull %0, ptr noundef %111, ptr noundef %.0, i1 noundef zeroext %.0113.i.i, i32 noundef %179, ptr noundef nonnull %180, ptr noundef nonnull %181, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
+  call void %185(ptr noundef nonnull %0, ptr noundef %111, ptr noundef %.0, i1 noundef zeroext %.0115.i.i, i32 noundef %179, ptr noundef nonnull %180, ptr noundef nonnull %181, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %186 = load i32, ptr %180, align 4
   %187 = load i32, ptr %181, align 4
   %188 = getelementptr inbounds nuw i8, ptr %111, i64 472
@@ -857,8 +857,8 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   %204 = load i32, ptr %203, align 8
   %205 = zext i32 %204 to i64
   %206 = call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %205, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
-  %.not108.i.i = icmp eq ptr %206, null
-  br i1 %.not108.i.i, label %207, label %211
+  %.not110.i.i = icmp eq ptr %206, null
+  br i1 %.not110.i.i, label %207, label %211
 
 207:                                              ; preds = %201
   %208 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -882,8 +882,8 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   %220 = getelementptr inbounds nuw i8, ptr %216, i64 100
   store float %219, ptr %220, align 4
   %221 = load i32, ptr %12, align 8
-  %.not109.i.i = icmp eq i32 %221, 1259
-  br i1 %.not109.i.i, label %224, label %222
+  %.not111.i.i = icmp eq i32 %221, 1259
+  br i1 %.not111.i.i, label %224, label %222
 
 222:                                              ; preds = %211
   %223 = getelementptr inbounds nuw i8, ptr %206, i64 4

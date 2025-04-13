@@ -2712,8 +2712,8 @@ define hidden void @_ZN3ue217ComponentSequence8optimiseEb(ptr noundef nonnull al
 .lr.ph:                                           ; preds = %2, %46
   %7 = phi ptr [ %49, %46 ], [ %6, %2 ]
   %8 = phi i64 [ %47, %46 ], [ 0, %2 ]
-  %.018 = phi i1 [ %brmerge.demorgan, %46 ], [ %1, %2 ]
-  %.01117 = phi i32 [ %.112, %46 ], [ 0, %2 ]
+  %.018 = phi i1 [ %or.cond, %46 ], [ %1, %2 ]
+  %.01217 = phi i32 [ %.113, %46 ], [ 0, %2 ]
   %9 = getelementptr inbounds nuw %"class.std::unique_ptr.5", ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
@@ -2724,8 +2724,8 @@ define hidden void @_ZN3ue217ComponentSequence8optimiseEb(ptr noundef nonnull al
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %brmerge.demorgan = and i1 %.018, %17
-  br i1 %brmerge.demorgan, label %18, label %44
+  %or.cond = and i1 %.018, %17
+  br i1 %or.cond, label %18, label %44
 
 18:                                               ; preds = %.lr.ph
   %19 = load ptr, ptr %3, align 8
@@ -2792,12 +2792,12 @@ _ZNSt6vectorISt10unique_ptrIN3ue29ComponentESt14default_deleteIS2_EESaIS5_EE5era
   br label %46
 
 44:                                               ; preds = %.lr.ph
-  %45 = add i32 %.01117, 1
+  %45 = add i32 %.01217, 1
   br label %46
 
 46:                                               ; preds = %44, %_ZNSt6vectorISt10unique_ptrIN3ue29ComponentESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
-  %.112 = phi i32 [ %.01117, %_ZNSt6vectorISt10unique_ptrIN3ue29ComponentESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %45, %44 ]
-  %47 = zext i32 %.112 to i64
+  %.113 = phi i32 [ %.01217, %_ZNSt6vectorISt10unique_ptrIN3ue29ComponentESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %45, %44 ]
+  %47 = zext i32 %.113 to i64
   %48 = load ptr, ptr %4, align 8
   %49 = load ptr, ptr %3, align 8
   %50 = ptrtoint ptr %48 to i64

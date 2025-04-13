@@ -1929,15 +1929,15 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %1
   %182 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %183 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.promoted = load i8, ptr %77, align 8
-  %.promoted23 = load i8, ptr %73, align 1
-  %.promoted24 = load i8, ptr %69, align 2
+  %.promoted24 = load i8, ptr %73, align 1
+  %.promoted25 = load i8, ptr %69, align 2
   br label %184
 
 184:                                              ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
   %indvars.iv = phi i64 [ 0, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %indvars.iv.next, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
-  %185 = phi i8 [ %.promoted24, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %246, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
-  %186 = phi i8 [ %.promoted23, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %247, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
-  %187 = phi i8 [ %.promoted, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %248, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
+  %185 = phi i8 [ %.promoted25, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %245, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
+  %186 = phi i8 [ %.promoted24, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %246, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
+  %187 = phi i8 [ %.promoted, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %247, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2)
   %.not.i = icmp ugt i64 %179, %indvars.iv
   br i1 %.not.i, label %188, label %199
@@ -1985,7 +1985,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
     i32 0, label %202
     i32 1, label %213
     i32 2, label %213
-    i32 3, label %227
+    i32 3, label %226
   ]
 
 202:                                              ; preds = %200
@@ -2017,70 +2017,70 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
   %221 = trunc i8 %217 to i1
   %222 = load i8, ptr %183, align 1
   %223 = trunc i8 %222 to i1
+  %or.cond = select i1 %221, i1 true, i1 %223
   %224 = xor i8 %220, 1
-  %225 = select i1 %221, i1 true, i1 %223
-  %226 = select i1 %225, i8 0, i8 %224
-  store i8 %226, ptr %12, align 1
+  %225 = select i1 %or.cond, i8 0, i8 %224
+  store i8 %225, ptr %12, align 1
   br label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
 
-227:                                              ; preds = %200
-  %228 = load i8, ptr %180, align 1
-  %229 = trunc i8 %228 to i1
-  %230 = load i8, ptr %181, align 1
-  %231 = and i8 %230, 1
-  %232 = xor i8 %231, 1
-  %233 = select i1 %229, i8 0, i8 %232
-  store i8 %233, ptr %17, align 1
-  %234 = load i8, ptr %182, align 1
-  %235 = trunc i8 %234 to i1
-  br i1 %235, label %.thread20, label %236
+226:                                              ; preds = %200
+  %227 = load i8, ptr %180, align 1
+  %228 = trunc i8 %227 to i1
+  %229 = load i8, ptr %181, align 1
+  %230 = and i8 %229, 1
+  %231 = xor i8 %230, 1
+  %232 = select i1 %228, i8 0, i8 %231
+  store i8 %232, ptr %17, align 1
+  %233 = load i8, ptr %182, align 1
+  %234 = trunc i8 %233 to i1
+  br i1 %234, label %.thread20, label %235
 
-.thread20:                                        ; preds = %227
+.thread20:                                        ; preds = %226
   store i8 0, ptr %77, align 8
-  br label %243
+  br label %242
 
-236:                                              ; preds = %227
-  %237 = load i8, ptr %183, align 1
-  %238 = and i8 %237, 1
-  %239 = xor i8 %238, 1
-  %240 = and i8 %239, %187
-  store i8 %240, ptr %77, align 8
-  %241 = trunc i8 %237 to i1
-  %242 = xor i8 %240, 1
-  %spec.select21 = select i1 %241, i8 0, i8 %242
-  br label %243
+235:                                              ; preds = %226
+  %236 = load i8, ptr %183, align 1
+  %237 = and i8 %236, 1
+  %238 = xor i8 %237, 1
+  %239 = and i8 %238, %187
+  store i8 %239, ptr %77, align 8
+  %240 = trunc i8 %236 to i1
+  %241 = xor i8 %239, 1
+  %spec.select = select i1 %240, i8 0, i8 %241
+  br label %242
 
-243:                                              ; preds = %236, %.thread20
-  %244 = phi i8 [ 0, %.thread20 ], [ %240, %236 ]
-  %245 = phi i8 [ 0, %.thread20 ], [ %spec.select21, %236 ]
-  store i8 %245, ptr %13, align 4
+242:                                              ; preds = %235, %.thread20
+  %243 = phi i8 [ 0, %.thread20 ], [ %239, %235 ]
+  %244 = phi i8 [ 0, %.thread20 ], [ %spec.select, %235 ]
+  store i8 %244, ptr %13, align 4
   br label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
 
-_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %243, %213, %202, %200, %199
-  %246 = phi i8 [ %185, %243 ], [ %185, %213 ], [ %209, %202 ], [ %185, %200 ], [ %185, %199 ]
-  %247 = phi i8 [ %186, %243 ], [ %220, %213 ], [ %186, %202 ], [ %186, %200 ], [ %186, %199 ]
-  %248 = phi i8 [ %244, %243 ], [ %187, %213 ], [ %187, %202 ], [ %187, %200 ], [ %187, %199 ]
+_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %242, %213, %202, %200, %199
+  %245 = phi i8 [ %185, %242 ], [ %185, %213 ], [ %209, %202 ], [ %185, %200 ], [ %185, %199 ]
+  %246 = phi i8 [ %186, %242 ], [ %220, %213 ], [ %186, %202 ], [ %186, %200 ], [ %186, %199 ]
+  %247 = phi i8 [ %243, %242 ], [ %187, %213 ], [ %187, %202 ], [ %187, %200 ], [ %187, %199 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.noexc17, label %184
 
 .noexc17:                                         ; preds = %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
-  %249 = load ptr, ptr %37, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  %251 = load ptr, ptr %250, align 8
-  tail call void %251(ptr noundef nonnull align 8 dereferenceable(90) %37) #24
-  %252 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
-  invoke void @_ZN18MLPerViewGLOptionsC2ERKS_(ptr noundef nonnull align 8 dereferenceable(90) %252, ptr noundef nonnull align 8 dereferenceable(90) %3)
+  %248 = load ptr, ptr %37, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  %250 = load ptr, ptr %249, align 8
+  tail call void %250(ptr noundef nonnull align 8 dereferenceable(90) %37) #24
+  %251 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
+  invoke void @_ZN18MLPerViewGLOptionsC2ERKS_(ptr noundef nonnull align 8 dereferenceable(90) %251, ptr noundef nonnull align 8 dereferenceable(90) %3)
           to label %_ZN15MLRenderingData3setERK18MLPerViewGLOptions.exit unwind label %.body
 
 .body:                                            ; preds = %.noexc17
-  %253 = landingpad { ptr, i32 }
+  %252 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %252) #23
-  resume { ptr, i32 } %253
+  call void @_ZdlPv(ptr noundef nonnull %251) #23
+  resume { ptr, i32 } %252
 
 _ZN15MLRenderingData3setERK18MLPerViewGLOptions.exit: ; preds = %.noexc17
-  store ptr %252, ptr %36, align 8
+  store ptr %251, ptr %36, align 8
   br label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread
 
 _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread: ; preds = %1, %_ZN15MLRenderingData3setERK18MLPerViewGLOptions.exit
@@ -2153,7 +2153,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEC2ERKS3_.exit: ; pr
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 9
   %.not.i = icmp ugt i64 %18, %10
-  br i1 %.not.i, label %19, label %62
+  br i1 %.not.i, label %19, label %61
 
 19:                                               ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEC2ERKS3_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %4, i8 0, i64 7, i1 false)
@@ -2174,83 +2174,81 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEC2ERKS3_.exit: ; pr
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %27 = load i8, ptr %26, align 1
   %28 = trunc i8 %27 to i1
-  br i1 %28, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i, label %29
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %30 = load i8, ptr %29, align 1
+  %31 = trunc i8 %30 to i1
+  %or.cond.i.i.i.i = select i1 %28, i1 true, i1 %31
+  br i1 %or.cond.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %31 = load i8, ptr %30, align 1
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i
+_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i: ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %33 = load i8, ptr %32, align 1
+  %.fr.i.i.i = freeze i8 %33
+  %34 = trunc i8 %.fr.i.i.i to i1
+  %35 = and i32 %1, -2
+  %36 = icmp eq i32 %35, 2
+  br i1 %34, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i
 
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i: ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %34 = load i8, ptr %33, align 1
-  %.fr.i.i.i = freeze i8 %34
-  %35 = trunc i8 %.fr.i.i.i to i1
-  %36 = and i32 %1, -2
-  %37 = icmp eq i32 %36, 2
-  br i1 %35, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i, %29, %25
+_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i, %25
   br label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i
-  %38 = phi i1 [ false, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i ], [ %37, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i ]
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 7
-  %40 = zext i1 %38 to i8
-  store i8 %40, ptr %39, align 1
-  %41 = icmp eq i32 %1, 1
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %43 = zext i1 %41 to i8
-  store i8 %43, ptr %42, align 1
-  %44 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %14, i64 %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %44, i8 0, i64 9, i1 false)
+  %37 = phi i1 [ false, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i ], [ %36, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i ]
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 7
+  %39 = zext i1 %37 to i8
+  store i8 %39, ptr %38, align 1
+  %40 = icmp eq i32 %1, 1
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %42 = zext i1 %40 to i8
+  store i8 %42, ptr %41, align 1
+  %43 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %14, i64 %10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %43, i8 0, i64 9, i1 false)
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i
   %indvars.iv.i.i.i = phi i64 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i ], [ %indvars.iv.next.i.i.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i ]
-  %45 = getelementptr inbounds nuw [9 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
-  %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds nuw [9 x i8], ptr %44, i64 0, i64 %indvars.iv.i.i.i
-  %48 = and i8 %46, 1
-  store i8 %48, ptr %47, align 1
+  %44 = getelementptr inbounds nuw [9 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i
+  %45 = load i8, ptr %44, align 1
+  %46 = getelementptr inbounds nuw [9 x i8], ptr %43, i64 0, i64 %indvars.iv.i.i.i
+  %47 = and i8 %45, 1
+  store i8 %47, ptr %46, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 9
   br i1 %exitcond.not.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i, !llvm.loop !22
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i
-  %49 = icmp ugt i32 %1, 3
-  br i1 %49, label %.noexc, label %_ZNKSt6bitsetILm4EE8_M_checkEmPKc.exit.i.i
+  %48 = icmp ugt i32 %1, 3
+  br i1 %48, label %.noexc, label %_ZNKSt6bitsetILm4EE8_M_checkEmPKc.exit.i.i
 
 .noexc:                                           ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i64 noundef %10, i64 noundef 4) #28
   unreachable
 
 _ZNKSt6bitsetILm4EE8_M_checkEmPKc.exit.i.i:       ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i
-  %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %50, i64 %10
-  %52 = load i8, ptr %51, align 1
-  %53 = trunc i8 %52 to i1
-  %54 = shl nuw nsw i64 1, %10
-  br i1 %53, label %55, label %58
+  %49 = load ptr, ptr %11, align 8
+  %50 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %49, i64 %10
+  %51 = load i8, ptr %50, align 1
+  %52 = trunc i8 %51 to i1
+  %53 = shl nuw nsw i64 1, %10
+  br i1 %52, label %54, label %57
 
-55:                                               ; preds = %_ZNKSt6bitsetILm4EE8_M_checkEmPKc.exit.i.i
-  %56 = load i64, ptr %0, align 8
-  %57 = or i64 %56, %54
+54:                                               ; preds = %_ZNKSt6bitsetILm4EE8_M_checkEmPKc.exit.i.i
+  %55 = load i64, ptr %0, align 8
+  %56 = or i64 %55, %53
   br label %_ZNSt6bitsetILm4EE3setEmb.exit.i
 
-58:                                               ; preds = %_ZNKSt6bitsetILm4EE8_M_checkEmPKc.exit.i.i
-  %59 = xor i64 %54, -1
-  %60 = load i64, ptr %0, align 8
-  %61 = and i64 %60, %59
+57:                                               ; preds = %_ZNKSt6bitsetILm4EE8_M_checkEmPKc.exit.i.i
+  %58 = xor i64 %53, -1
+  %59 = load i64, ptr %0, align 8
+  %60 = and i64 %59, %58
   br label %_ZNSt6bitsetILm4EE3setEmb.exit.i
 
-_ZNSt6bitsetILm4EE3setEmb.exit.i:                 ; preds = %58, %55
-  %storemerge.i.i.i = phi i64 [ %57, %55 ], [ %61, %58 ]
+_ZNSt6bitsetILm4EE3setEmb.exit.i:                 ; preds = %57, %54
+  %storemerge.i.i.i = phi i64 [ %56, %54 ], [ %60, %57 ]
   store i64 %storemerge.i.i.i, ptr %0, align 8
-  br label %62
+  br label %61
 
-62:                                               ; preds = %_ZNSt6bitsetILm4EE3setEmb.exit.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEC2ERKS3_.exit
+61:                                               ; preds = %_ZNSt6bitsetILm4EE3setEmb.exit.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEC2ERKS3_.exit
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %4)
   ret i1 %.not.i
 }
@@ -2765,58 +2763,42 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i9: ; pre
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %45 = load i8, ptr %44, align 1
   %46 = trunc i8 %45 to i1
-  br i1 %46, label %51, label %47
-
-47:                                               ; preds = %37
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %49 = load i8, ptr %48, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %54
-
-51:                                               ; preds = %37, %47
-  %52 = and i8 %39, 1
-  %53 = xor i8 %52, 1
-  br label %54
-
-54:                                               ; preds = %51, %47
-  %55 = phi i8 [ 0, %47 ], [ %53, %51 ]
-  store i8 %55, ptr %44, align 1
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  %59 = load i8, ptr %58, align 1
-  %60 = or i8 %59, %57
-  %61 = and i8 %60, 1
-  store i8 %61, ptr %58, align 1
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %48 = load i8, ptr %47, align 1
+  %49 = trunc i8 %48 to i1
+  %or.cond20 = select i1 %46, i1 true, i1 %49
+  %50 = and i8 %39, 1
+  %51 = xor i8 %50, 1
+  %52 = select i1 %or.cond20, i8 %51, i8 0
+  store i8 %52, ptr %44, align 1
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %54 = load i8, ptr %53, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %56 = load i8, ptr %55, align 1
+  %57 = or i8 %56, %54
+  %58 = and i8 %57, 1
+  store i8 %58, ptr %55, align 1
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  %60 = load i8, ptr %59, align 1
+  %61 = trunc i8 %60 to i1
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %63 = load i8, ptr %62, align 1
   %64 = trunc i8 %63 to i1
-  br i1 %64, label %69, label %65
-
-65:                                               ; preds = %54
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %67 = load i8, ptr %66, align 1
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %72
-
-69:                                               ; preds = %54, %65
-  %70 = and i8 %57, 1
-  %71 = xor i8 %70, 1
-  br label %72
-
-72:                                               ; preds = %65, %69
-  %73 = phi i8 [ 0, %65 ], [ %71, %69 ]
-  store i8 %73, ptr %62, align 1
+  %or.cond23 = select i1 %61, i1 true, i1 %64
+  %65 = and i8 %54, 1
+  %66 = xor i8 %65, 1
+  %67 = select i1 %or.cond23, i8 %66, i8 0
+  store i8 %67, ptr %59, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false)
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i14
 
-_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i14: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i14, %72
-  %indvars.iv.i15 = phi i64 [ 0, %72 ], [ %indvars.iv.next.i16, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i14 ]
-  %74 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %indvars.iv.i15
-  %75 = load i8, ptr %74, align 1
-  %76 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i15
-  %77 = and i8 %75, 1
-  store i8 %77, ptr %76, align 1
+_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i14: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i14, %37
+  %indvars.iv.i15 = phi i64 [ 0, %37 ], [ %indvars.iv.next.i16, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i14 ]
+  %68 = getelementptr inbounds nuw [7 x i8], ptr %6, i64 0, i64 %indvars.iv.i15
+  %69 = load i8, ptr %68, align 1
+  %70 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i15
+  %71 = and i8 %69, 1
+  store i8 %71, ptr %70, align 1
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i17 = icmp eq i64 %indvars.iv.next.i16, 7
   br i1 %exitcond.not.i17, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEaSERKS3_.exit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i14, !llvm.loop !15
@@ -2836,7 +2818,7 @@ define void @_ZN29MLPoliciesStandAloneFunctions36suggestedDefaultPerViewRenderin
   %10 = alloca %struct.MLPerViewGLOptions, align 8
   call void @_ZN15MLRenderingDataC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8)
   %11 = icmp eq ptr %0, null
-  br i1 %11, label %326, label %12
+  br i1 %11, label %325, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -2876,9 +2858,9 @@ define void @_ZN29MLPoliciesStandAloneFunctions36suggestedDefaultPerViewRenderin
 
 _ZN3vcg11PerViewDataI18MLPerViewGLOptionsE5resetEb.exit: ; preds = %._crit_edge.i, %26
   store ptr null, ptr %23, align 8
-  br label %325
+  br label %324
 
-30:                                               ; preds = %325
+30:                                               ; preds = %324
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -2975,7 +2957,7 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i: ; preds = %_ZN3
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %68 = load i32, ptr %67, align 8
   %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %70, label %140
+  br i1 %69, label %70, label %139
 
 70:                                               ; preds = %65
   %71 = load ptr, ptr %45, align 8
@@ -2989,8 +2971,8 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i:              ; preds = %70
   %74 = load i64, ptr %8, align 8
   %75 = and i64 %74, -2
   %76 = and i8 %73, 1
-  %masksel53 = zext nneg i8 %76 to i64
-  %storemerge.i.i.i.i22 = or disjoint i64 %75, %masksel53
+  %masksel57 = zext nneg i8 %76 to i64
+  %storemerge.i.i.i.i22 = or disjoint i64 %75, %masksel57
   store i64 %storemerge.i.i.i.i22, ptr %8, align 8
   %.not12.i.i = icmp eq i8 %76, 0
   br i1 %.not12.i.i, label %79, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i
@@ -3028,7 +3010,7 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   %92 = zext i1 %91 to i8
   br label %95
 
-93:                                               ; preds = %147, %88, %79
+93:                                               ; preds = %146, %88, %79
   %94 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3042,20 +3024,20 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   store i8 1, ptr %36, align 1
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false)
-  br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i29
+  br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30
 
-_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i29: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i29, %95
-  %indvars.iv.i.i30 = phi i64 [ 0, %95 ], [ %indvars.iv.next.i.i31, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i29 ]
-  %99 = getelementptr inbounds nuw [7 x i8], ptr %9, i64 0, i64 %indvars.iv.i.i30
+_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30, %95
+  %indvars.iv.i.i31 = phi i64 [ 0, %95 ], [ %indvars.iv.next.i.i32, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30 ]
+  %99 = getelementptr inbounds nuw [7 x i8], ptr %9, i64 0, i64 %indvars.iv.i.i31
   %100 = load i8, ptr %99, align 1
-  %101 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i30
+  %101 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i31
   %102 = and i8 %100, 1
   store i8 %102, ptr %101, align 1
-  %indvars.iv.next.i.i31 = add nuw nsw i64 %indvars.iv.i.i30, 1
-  %exitcond.not.i.i32 = icmp eq i64 %indvars.iv.next.i.i31, 7
-  br i1 %exitcond.not.i.i32, label %.noexc49, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i29, !llvm.loop !20
+  %indvars.iv.next.i.i32 = add nuw nsw i64 %indvars.iv.i.i31, 1
+  %exitcond.not.i.i33 = icmp eq i64 %indvars.iv.next.i.i32, 7
+  br i1 %exitcond.not.i.i33, label %.noexc51, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30, !llvm.loop !20
 
-.noexc49:                                         ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i29
+.noexc51:                                         ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %4)
   %103 = load ptr, ptr %45, align 8
   %104 = load ptr, ptr %44, align 8
@@ -3063,426 +3045,416 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i29: ; 
   %106 = ptrtoint ptr %104 to i64
   %107 = sub i64 %105, %106
   %108 = sdiv exact i64 %107, 9
-  %.not.i.i34 = icmp ugt i64 %108, 3
-  br i1 %.not.i.i34, label %109, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE.exit50
+  %.not.i.i35 = icmp ugt i64 %108, 3
+  br i1 %.not.i.i35, label %109, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE.exit52
 
-109:                                              ; preds = %.noexc49
+109:                                              ; preds = %.noexc51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %4, i8 0, i64 7, i1 false)
   br label %110
 
 110:                                              ; preds = %110, %109
-  %indvars.iv.i.i.i35 = phi i64 [ 0, %109 ], [ %indvars.iv.next.i.i.i36, %110 ]
-  %111 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i35
+  %indvars.iv.i.i.i36 = phi i64 [ 0, %109 ], [ %indvars.iv.next.i.i.i37, %110 ]
+  %111 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i36
   %112 = load i8, ptr %111, align 1
-  %113 = getelementptr inbounds nuw [9 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i35
+  %113 = getelementptr inbounds nuw [9 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i36
   %114 = and i8 %112, 1
   store i8 %114, ptr %113, align 1
-  %indvars.iv.next.i.i.i36 = add nuw nsw i64 %indvars.iv.i.i.i35, 1
-  %exitcond.not.i.i.i37 = icmp eq i64 %indvars.iv.next.i.i.i36, 7
-  br i1 %exitcond.not.i.i.i37, label %115, label %110, !llvm.loop !21
+  %indvars.iv.next.i.i.i37 = add nuw nsw i64 %indvars.iv.i.i.i36, 1
+  %exitcond.not.i.i.i38 = icmp eq i64 %indvars.iv.next.i.i.i37, 7
+  br i1 %exitcond.not.i.i.i38, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i42, label %110, !llvm.loop !21
 
-115:                                              ; preds = %110
-  %116 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %117 = load i8, ptr %116, align 1
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i48, label %119
+_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i42: ; preds = %110
+  %115 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %116 = load i8, ptr %115, align 1
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %118 = load i8, ptr %117, align 1
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %120 = load i8, ptr %119, align 1
+  %.fr.i.i.i.i41 = freeze i8 %120
+  %121 = or i8 %.fr.i.i.i.i41, %116
+  %122 = and i8 %121, 1
+  %.not = icmp eq i8 %122, 0
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 7
+  %124 = and i8 %118, 1
+  %125 = xor i8 %124, 1
+  %126 = select i1 %.not, i8 %125, i8 0
+  store i8 %126, ptr %123, align 1
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 0, ptr %127, align 1
+  %128 = getelementptr inbounds nuw i8, ptr %104, i64 27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %128, i8 0, i64 9, i1 false)
+  br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i43
 
-119:                                              ; preds = %115
-  %120 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %121 = load i8, ptr %120, align 1
-  %122 = trunc i8 %121 to i1
-  br i1 %122, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i48, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i38
+_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i43: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i43, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i42
+  %indvars.iv.i.i.i.i44 = phi i64 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i42 ], [ %indvars.iv.next.i.i.i.i45, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i43 ]
+  %129 = getelementptr inbounds nuw [9 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i44
+  %130 = load i8, ptr %129, align 1
+  %131 = getelementptr inbounds nuw [9 x i8], ptr %128, i64 0, i64 %indvars.iv.i.i.i.i44
+  %132 = and i8 %130, 1
+  store i8 %132, ptr %131, align 1
+  %indvars.iv.next.i.i.i.i45 = add nuw nsw i64 %indvars.iv.i.i.i.i44, 1
+  %exitcond.not.i.i.i.i46 = icmp eq i64 %indvars.iv.next.i.i.i.i45, 9
+  br i1 %exitcond.not.i.i.i.i46, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i47, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i43, !llvm.loop !22
 
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i38: ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %124 = load i8, ptr %123, align 1
-  %.fr.i.i.i.i39 = freeze i8 %124
-  %125 = trunc i8 %.fr.i.i.i.i39 to i1
-  br i1 %125, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i48, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i40
+_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i47: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i43
+  %133 = load ptr, ptr %44, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 27
+  %135 = load i8, ptr %134, align 1
+  %136 = trunc i8 %135 to i1
+  %137 = load i64, ptr %8, align 8
+  %138 = and i64 %137, -9
+  %masksel58 = select i1 %136, i64 8, i64 0
+  %storemerge.i.i.i.i49 = or disjoint i64 %138, %masksel58
+  store i64 %storemerge.i.i.i.i49, ptr %8, align 8
+  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE.exit52
 
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i48: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i38, %119, %115
-  br label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i40
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i40: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i48, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i38
-  %126 = phi i8 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i48 ], [ 1, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i38 ]
-  %127 = getelementptr inbounds nuw i8, ptr %4, i64 7
-  store i8 %126, ptr %127, align 1
-  %128 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 0, ptr %128, align 1
-  %129 = getelementptr inbounds nuw i8, ptr %104, i64 27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %129, i8 0, i64 9, i1 false)
-  br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i41
-
-_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i41: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i41, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i40
-  %indvars.iv.i.i.i.i42 = phi i64 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_9ATT_NAMESEEENS0_18PRIMITIVE_MODALITYE.exit.i.i40 ], [ %indvars.iv.next.i.i.i.i43, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i41 ]
-  %130 = getelementptr inbounds nuw [9 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i42
-  %131 = load i8, ptr %130, align 1
-  %132 = getelementptr inbounds nuw [9 x i8], ptr %129, i64 0, i64 %indvars.iv.i.i.i.i42
-  %133 = and i8 %131, 1
-  store i8 %133, ptr %132, align 1
-  %indvars.iv.next.i.i.i.i43 = add nuw nsw i64 %indvars.iv.i.i.i.i42, 1
-  %exitcond.not.i.i.i.i44 = icmp eq i64 %indvars.iv.next.i.i.i.i43, 9
-  br i1 %exitcond.not.i.i.i.i44, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i45, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i41, !llvm.loop !22
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i45: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i.i.i41
-  %134 = load ptr, ptr %44, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 27
-  %136 = load i8, ptr %135, align 1
-  %137 = trunc i8 %136 to i1
-  %138 = load i64, ptr %8, align 8
-  %139 = and i64 %138, -9
-  %masksel54 = select i1 %137, i64 8, i64 0
-  %storemerge.i.i.i.i47 = or disjoint i64 %139, %masksel54
-  store i64 %storemerge.i.i.i.i47, ptr %8, align 8
-  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE.exit50
-
-_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE.exit50: ; preds = %.noexc49, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i45
+_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE.exit52: ; preds = %.noexc51, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i47
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
   %.pr = load i32, ptr %67, align 8
-  br label %140
+  br label %139
 
-140:                                              ; preds = %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE.exit50, %65
-  %141 = phi i32 [ %.pr, %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE.exit50 ], [ %68, %65 ]
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %143, label %147
+139:                                              ; preds = %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE.exit52, %65
+  %140 = phi i32 [ %.pr, %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE.exit52 ], [ %68, %65 ]
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %142, label %146
 
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %145 = load i32, ptr %144, align 8
-  %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %150, label %147
+142:                                              ; preds = %139
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %144 = load i32, ptr %143, align 8
+  %145 = icmp sgt i32 %144, 0
+  br i1 %145, label %149, label %146
 
-147:                                              ; preds = %143, %140
-  %148 = invoke noundef zeroext i1 @_ZNK9MeshModel11hasDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %0, i32 noundef 1073741824)
-          to label %149 unwind label %93
+146:                                              ; preds = %142, %139
+  %147 = invoke noundef zeroext i1 @_ZNK9MeshModel11hasDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %0, i32 noundef 1073741824)
+          to label %148 unwind label %93
 
-149:                                              ; preds = %147
-  br i1 %148, label %150, label %325
+148:                                              ; preds = %146
+  br i1 %147, label %149, label %324
 
-150:                                              ; preds = %143, %149
-  %151 = getelementptr inbounds nuw i8, ptr %10, i64 13
-  %152 = getelementptr inbounds nuw i8, ptr %10, i64 17
-  %153 = getelementptr inbounds nuw i8, ptr %10, i64 21
-  %154 = getelementptr inbounds nuw i8, ptr %10, i64 25
-  %155 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i8 0, ptr %155, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %10, i64 9
-  store i8 1, ptr %156, align 1
-  %157 = getelementptr inbounds nuw i8, ptr %10, i64 10
-  store i8 0, ptr %157, align 2
-  %158 = getelementptr inbounds nuw i8, ptr %10, i64 11
-  store i8 1, ptr %158, align 1
-  %159 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i8 1, ptr %159, align 4
+149:                                              ; preds = %142, %148
+  %150 = getelementptr inbounds nuw i8, ptr %10, i64 13
+  %151 = getelementptr inbounds nuw i8, ptr %10, i64 17
+  %152 = getelementptr inbounds nuw i8, ptr %10, i64 21
+  %153 = getelementptr inbounds nuw i8, ptr %10, i64 25
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i8 0, ptr %154, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %10, i64 9
+  store i8 1, ptr %155, align 1
+  %156 = getelementptr inbounds nuw i8, ptr %10, i64 10
+  store i8 0, ptr %156, align 2
+  %157 = getelementptr inbounds nuw i8, ptr %10, i64 11
+  store i8 1, ptr %157, align 1
+  %158 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store i8 1, ptr %158, align 4
+  store i32 -1, ptr %150, align 1
   store i32 -1, ptr %151, align 1
-  store i32 -1, ptr %152, align 1
-  store i32 -12566464, ptr %153, align 1
-  store i32 -1, ptr %154, align 1
-  %160 = getelementptr inbounds nuw i8, ptr %10, i64 29
-  %161 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i8 0, ptr %161, align 4
-  %162 = getelementptr inbounds nuw i8, ptr %10, i64 34
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %160, i8 0, i64 5, i1 false)
-  store i8 1, ptr %162, align 2
-  %163 = getelementptr inbounds nuw i8, ptr %10, i64 35
-  store i8 0, ptr %163, align 1
-  %164 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store float 3.000000e+00, ptr %164, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %10, i64 44
-  store i8 0, ptr %165, align 4
-  %166 = getelementptr inbounds nuw i8, ptr %10, i64 45
-  store i8 1, ptr %166, align 1
-  %167 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store float 1.000000e+00, ptr %167, align 8
+  store i32 -12566464, ptr %152, align 1
+  store i32 -1, ptr %153, align 1
+  %159 = getelementptr inbounds nuw i8, ptr %10, i64 29
+  %160 = getelementptr inbounds nuw i8, ptr %10, i64 36
+  store i8 0, ptr %160, align 4
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 34
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %159, i8 0, i64 5, i1 false)
+  store i8 1, ptr %161, align 2
+  %162 = getelementptr inbounds nuw i8, ptr %10, i64 35
+  store i8 0, ptr %162, align 1
+  %163 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store float 3.000000e+00, ptr %163, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %10, i64 44
+  store i8 0, ptr %164, align 4
+  %165 = getelementptr inbounds nuw i8, ptr %10, i64 45
+  store i8 1, ptr %165, align 1
+  %166 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store float 1.000000e+00, ptr %166, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18MLPerViewGLOptions, i64 16), ptr %10, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %10, i64 66
-  %169 = getelementptr inbounds nuw i8, ptr %10, i64 70
-  %170 = getelementptr inbounds nuw i8, ptr %10, i64 74
-  %171 = getelementptr inbounds nuw i8, ptr %10, i64 79
-  %172 = getelementptr inbounds nuw i8, ptr %10, i64 83
-  %173 = getelementptr inbounds nuw i8, ptr %10, i64 52
-  store i8 1, ptr %173, align 4
-  %174 = getelementptr inbounds nuw i8, ptr %10, i64 53
-  %175 = getelementptr inbounds nuw i8, ptr %10, i64 63
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %174, i8 0, i64 10, i1 false)
-  store i8 1, ptr %175, align 1
-  %176 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store i8 0, ptr %176, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %10, i64 65
+  %167 = getelementptr inbounds nuw i8, ptr %10, i64 66
+  %168 = getelementptr inbounds nuw i8, ptr %10, i64 70
+  %169 = getelementptr inbounds nuw i8, ptr %10, i64 74
+  %170 = getelementptr inbounds nuw i8, ptr %10, i64 79
+  %171 = getelementptr inbounds nuw i8, ptr %10, i64 83
+  %172 = getelementptr inbounds nuw i8, ptr %10, i64 52
+  store i8 1, ptr %172, align 4
+  %173 = getelementptr inbounds nuw i8, ptr %10, i64 53
+  %174 = getelementptr inbounds nuw i8, ptr %10, i64 63
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %173, i8 0, i64 10, i1 false)
+  store i8 1, ptr %174, align 1
+  %175 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  store i8 0, ptr %175, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %10, i64 65
+  store i8 0, ptr %176, align 1
+  %177 = getelementptr inbounds nuw i8, ptr %10, i64 87
   store i8 0, ptr %177, align 1
-  %178 = getelementptr inbounds nuw i8, ptr %10, i64 87
-  store i8 0, ptr %178, align 1
-  %179 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  store i8 1, ptr %179, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %10, i64 89
-  store i8 1, ptr %180, align 1
-  store i32 -14671840, ptr %168, align 2
-  store i32 -3355444, ptr %169, align 2
-  store i32 -1, ptr %170, align 2
-  %181 = getelementptr inbounds nuw i8, ptr %10, i64 78
-  store i8 0, ptr %181, align 2
-  store i32 -3355393, ptr %171, align 1
-  store i32 -13108, ptr %172, align 1
-  %182 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %183 = load ptr, ptr %182, align 8
-  %.not = icmp eq ptr %183, null
-  br i1 %.not, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread, label %186
+  %178 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  store i8 1, ptr %178, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %10, i64 89
+  store i8 1, ptr %179, align 1
+  store i32 -14671840, ptr %167, align 2
+  store i32 -3355444, ptr %168, align 2
+  store i32 -1, ptr %169, align 2
+  %180 = getelementptr inbounds nuw i8, ptr %10, i64 78
+  store i8 0, ptr %180, align 2
+  store i32 -3355393, ptr %170, align 1
+  store i32 -13108, ptr %171, align 1
+  %181 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %182 = load ptr, ptr %181, align 8
+  %.not59 = icmp eq ptr %182, null
+  br i1 %.not59, label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread, label %185
 
-_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread: ; preds = %150
-  %184 = getelementptr inbounds nuw i8, ptr %10, i64 60
-  store i8 1, ptr %184, align 4
-  %185 = getelementptr inbounds nuw i8, ptr %10, i64 61
-  store i8 1, ptr %185, align 1
-  br label %318
+_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread: ; preds = %149
+  %183 = getelementptr inbounds nuw i8, ptr %10, i64 60
+  store i8 1, ptr %183, align 4
+  %184 = getelementptr inbounds nuw i8, ptr %10, i64 61
+  store i8 1, ptr %184, align 1
+  br label %317
 
-186:                                              ; preds = %150
-  %187 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %188 = load i8, ptr %187, align 8
-  %189 = and i8 %188, 1
-  store i8 %189, ptr %155, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %183, i64 36
-  %191 = load i8, ptr %190, align 4
-  %192 = and i8 %191, 1
-  store i8 %192, ptr %161, align 4
-  %193 = getelementptr inbounds nuw i8, ptr %183, i64 40
-  %194 = load float, ptr %193, align 8
-  store float %194, ptr %164, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %183, i64 44
-  %196 = load i8, ptr %195, align 4
-  %197 = and i8 %196, 1
-  store i8 %197, ptr %165, align 4
-  %198 = getelementptr inbounds nuw i8, ptr %183, i64 45
-  %199 = load i8, ptr %198, align 1
-  %200 = and i8 %199, 1
-  store i8 %200, ptr %166, align 1
-  %201 = getelementptr inbounds nuw i8, ptr %183, i64 9
-  %202 = load i8, ptr %201, align 1
-  %203 = and i8 %202, 1
-  store i8 %203, ptr %156, align 1
-  %204 = getelementptr inbounds nuw i8, ptr %183, i64 10
-  %205 = load i8, ptr %204, align 2
-  %206 = and i8 %205, 1
-  store i8 %206, ptr %157, align 2
-  %207 = getelementptr inbounds nuw i8, ptr %183, i64 11
-  %208 = load i8, ptr %207, align 1
-  %209 = and i8 %208, 1
-  store i8 %209, ptr %158, align 1
-  %210 = getelementptr inbounds nuw i8, ptr %183, i64 12
-  %211 = load i8, ptr %210, align 4
-  %212 = and i8 %211, 1
-  store i8 %212, ptr %159, align 4
-  %213 = getelementptr inbounds nuw i8, ptr %183, i64 29
-  %214 = load i8, ptr %213, align 1
-  %215 = and i8 %214, 1
-  store i8 %215, ptr %160, align 1
-  %216 = getelementptr inbounds nuw i8, ptr %183, i64 30
-  %217 = load i8, ptr %216, align 2
-  %218 = getelementptr inbounds nuw i8, ptr %10, i64 30
-  %219 = and i8 %217, 1
-  store i8 %219, ptr %218, align 2
-  %220 = getelementptr inbounds nuw i8, ptr %183, i64 31
-  %221 = load i8, ptr %220, align 1
-  %222 = getelementptr inbounds nuw i8, ptr %10, i64 31
-  %223 = and i8 %221, 1
-  store i8 %223, ptr %222, align 1
-  %224 = getelementptr inbounds nuw i8, ptr %183, i64 32
-  %225 = load i8, ptr %224, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %227 = and i8 %225, 1
-  store i8 %227, ptr %226, align 8
-  %228 = getelementptr inbounds nuw i8, ptr %183, i64 13
-  %229 = load i32, ptr %228, align 1
-  store i32 %229, ptr %151, align 1
-  %230 = getelementptr inbounds nuw i8, ptr %183, i64 17
-  %231 = load i32, ptr %230, align 1
-  store i32 %231, ptr %152, align 1
-  %232 = getelementptr inbounds nuw i8, ptr %183, i64 21
-  %233 = load i32, ptr %232, align 1
-  store i32 %233, ptr %153, align 1
-  %234 = getelementptr inbounds nuw i8, ptr %183, i64 25
-  %235 = load i32, ptr %234, align 1
-  store i32 %235, ptr %154, align 1
-  %236 = getelementptr inbounds nuw i8, ptr %183, i64 33
-  %237 = load i8, ptr %236, align 1
-  %238 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  %239 = and i8 %237, 1
-  store i8 %239, ptr %238, align 1
-  %240 = getelementptr inbounds nuw i8, ptr %183, i64 34
-  %241 = load i8, ptr %240, align 2
-  %242 = and i8 %241, 1
-  store i8 %242, ptr %162, align 2
-  %243 = getelementptr inbounds nuw i8, ptr %183, i64 35
-  %244 = load i8, ptr %243, align 1
-  %245 = and i8 %244, 1
-  store i8 %245, ptr %163, align 1
-  %246 = getelementptr inbounds nuw i8, ptr %183, i64 48
-  %247 = load float, ptr %246, align 8
-  store float %247, ptr %167, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %183, i64 52
-  %249 = load i8, ptr %248, align 4
-  %250 = and i8 %249, 1
-  store i8 %250, ptr %173, align 4
-  %251 = getelementptr inbounds nuw i8, ptr %183, i64 53
-  %252 = load i8, ptr %251, align 1
-  %253 = and i8 %252, 1
-  store i8 %253, ptr %174, align 1
-  %254 = getelementptr inbounds nuw i8, ptr %183, i64 54
-  %255 = load i8, ptr %254, align 2
-  %256 = getelementptr inbounds nuw i8, ptr %10, i64 54
-  %257 = and i8 %255, 1
-  store i8 %257, ptr %256, align 2
-  %258 = getelementptr inbounds nuw i8, ptr %183, i64 55
-  %259 = load i8, ptr %258, align 1
-  %260 = getelementptr inbounds nuw i8, ptr %10, i64 55
-  %261 = and i8 %259, 1
-  store i8 %261, ptr %260, align 1
-  %262 = getelementptr inbounds nuw i8, ptr %183, i64 56
-  %263 = load i8, ptr %262, align 8
-  %264 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %265 = and i8 %263, 1
-  store i8 %265, ptr %264, align 8
-  %266 = getelementptr inbounds nuw i8, ptr %183, i64 57
-  %267 = load i8, ptr %266, align 1
-  %268 = getelementptr inbounds nuw i8, ptr %10, i64 57
-  %269 = and i8 %267, 1
-  store i8 %269, ptr %268, align 1
-  %270 = getelementptr inbounds nuw i8, ptr %183, i64 58
-  %271 = load i8, ptr %270, align 2
-  %272 = getelementptr inbounds nuw i8, ptr %10, i64 58
-  %273 = and i8 %271, 1
-  store i8 %273, ptr %272, align 2
-  %274 = getelementptr inbounds nuw i8, ptr %183, i64 59
-  %275 = load i8, ptr %274, align 1
-  %276 = getelementptr inbounds nuw i8, ptr %10, i64 59
-  %277 = and i8 %275, 1
-  store i8 %277, ptr %276, align 1
-  %278 = getelementptr inbounds nuw i8, ptr %10, i64 61
-  %279 = getelementptr inbounds nuw i8, ptr %10, i64 60
-  %280 = getelementptr inbounds nuw i8, ptr %183, i64 62
-  %281 = load i8, ptr %280, align 2
-  %282 = getelementptr inbounds nuw i8, ptr %10, i64 62
-  %283 = and i8 %281, 1
-  store i8 %283, ptr %282, align 2
-  %284 = getelementptr inbounds nuw i8, ptr %183, i64 63
-  %285 = load i8, ptr %284, align 1
-  %286 = and i8 %285, 1
-  store i8 %286, ptr %175, align 1
-  %287 = getelementptr inbounds nuw i8, ptr %183, i64 64
-  %288 = load i8, ptr %287, align 8
-  %289 = and i8 %288, 1
-  store i8 %289, ptr %176, align 8
-  %290 = getelementptr inbounds nuw i8, ptr %183, i64 65
-  %291 = load i8, ptr %290, align 1
-  %292 = and i8 %291, 1
-  store i8 %292, ptr %177, align 1
-  %293 = getelementptr inbounds nuw i8, ptr %183, i64 87
-  %294 = load i8, ptr %293, align 1
-  %295 = and i8 %294, 1
-  store i8 %295, ptr %178, align 1
-  %296 = getelementptr inbounds nuw i8, ptr %183, i64 89
-  %297 = load i8, ptr %296, align 1
-  %298 = and i8 %297, 1
-  store i8 %298, ptr %180, align 1
-  %299 = getelementptr inbounds nuw i8, ptr %183, i64 88
-  %300 = load i8, ptr %299, align 8
-  %301 = and i8 %300, 1
-  store i8 %301, ptr %179, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %183, i64 66
-  %303 = load i32, ptr %302, align 2
-  store i32 %303, ptr %168, align 2
-  %304 = getelementptr inbounds nuw i8, ptr %183, i64 70
-  %305 = load i32, ptr %304, align 2
-  store i32 %305, ptr %169, align 2
-  %306 = getelementptr inbounds nuw i8, ptr %183, i64 74
-  %307 = load i32, ptr %306, align 2
-  store i32 %307, ptr %170, align 2
-  %308 = getelementptr inbounds nuw i8, ptr %183, i64 78
-  %309 = load i8, ptr %308, align 2
-  %310 = and i8 %309, 1
-  store i8 %310, ptr %181, align 2
-  %311 = getelementptr inbounds nuw i8, ptr %183, i64 79
-  %312 = load i32, ptr %311, align 1
-  store i32 %312, ptr %171, align 1
-  %313 = getelementptr inbounds nuw i8, ptr %183, i64 83
-  %314 = load i32, ptr %313, align 1
-  store i32 %314, ptr %172, align 1
-  store i8 1, ptr %279, align 4
-  store i8 1, ptr %278, align 1
-  %315 = load ptr, ptr %183, align 8
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
-  %317 = load ptr, ptr %316, align 8
-  call void %317(ptr noundef nonnull align 8 dereferenceable(90) %183) #24
-  br label %318
+185:                                              ; preds = %149
+  %186 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %187 = load i8, ptr %186, align 8
+  %188 = and i8 %187, 1
+  store i8 %188, ptr %154, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %182, i64 36
+  %190 = load i8, ptr %189, align 4
+  %191 = and i8 %190, 1
+  store i8 %191, ptr %160, align 4
+  %192 = getelementptr inbounds nuw i8, ptr %182, i64 40
+  %193 = load float, ptr %192, align 8
+  store float %193, ptr %163, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %182, i64 44
+  %195 = load i8, ptr %194, align 4
+  %196 = and i8 %195, 1
+  store i8 %196, ptr %164, align 4
+  %197 = getelementptr inbounds nuw i8, ptr %182, i64 45
+  %198 = load i8, ptr %197, align 1
+  %199 = and i8 %198, 1
+  store i8 %199, ptr %165, align 1
+  %200 = getelementptr inbounds nuw i8, ptr %182, i64 9
+  %201 = load i8, ptr %200, align 1
+  %202 = and i8 %201, 1
+  store i8 %202, ptr %155, align 1
+  %203 = getelementptr inbounds nuw i8, ptr %182, i64 10
+  %204 = load i8, ptr %203, align 2
+  %205 = and i8 %204, 1
+  store i8 %205, ptr %156, align 2
+  %206 = getelementptr inbounds nuw i8, ptr %182, i64 11
+  %207 = load i8, ptr %206, align 1
+  %208 = and i8 %207, 1
+  store i8 %208, ptr %157, align 1
+  %209 = getelementptr inbounds nuw i8, ptr %182, i64 12
+  %210 = load i8, ptr %209, align 4
+  %211 = and i8 %210, 1
+  store i8 %211, ptr %158, align 4
+  %212 = getelementptr inbounds nuw i8, ptr %182, i64 29
+  %213 = load i8, ptr %212, align 1
+  %214 = and i8 %213, 1
+  store i8 %214, ptr %159, align 1
+  %215 = getelementptr inbounds nuw i8, ptr %182, i64 30
+  %216 = load i8, ptr %215, align 2
+  %217 = getelementptr inbounds nuw i8, ptr %10, i64 30
+  %218 = and i8 %216, 1
+  store i8 %218, ptr %217, align 2
+  %219 = getelementptr inbounds nuw i8, ptr %182, i64 31
+  %220 = load i8, ptr %219, align 1
+  %221 = getelementptr inbounds nuw i8, ptr %10, i64 31
+  %222 = and i8 %220, 1
+  store i8 %222, ptr %221, align 1
+  %223 = getelementptr inbounds nuw i8, ptr %182, i64 32
+  %224 = load i8, ptr %223, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %226 = and i8 %224, 1
+  store i8 %226, ptr %225, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %182, i64 13
+  %228 = load i32, ptr %227, align 1
+  store i32 %228, ptr %150, align 1
+  %229 = getelementptr inbounds nuw i8, ptr %182, i64 17
+  %230 = load i32, ptr %229, align 1
+  store i32 %230, ptr %151, align 1
+  %231 = getelementptr inbounds nuw i8, ptr %182, i64 21
+  %232 = load i32, ptr %231, align 1
+  store i32 %232, ptr %152, align 1
+  %233 = getelementptr inbounds nuw i8, ptr %182, i64 25
+  %234 = load i32, ptr %233, align 1
+  store i32 %234, ptr %153, align 1
+  %235 = getelementptr inbounds nuw i8, ptr %182, i64 33
+  %236 = load i8, ptr %235, align 1
+  %237 = getelementptr inbounds nuw i8, ptr %10, i64 33
+  %238 = and i8 %236, 1
+  store i8 %238, ptr %237, align 1
+  %239 = getelementptr inbounds nuw i8, ptr %182, i64 34
+  %240 = load i8, ptr %239, align 2
+  %241 = and i8 %240, 1
+  store i8 %241, ptr %161, align 2
+  %242 = getelementptr inbounds nuw i8, ptr %182, i64 35
+  %243 = load i8, ptr %242, align 1
+  %244 = and i8 %243, 1
+  store i8 %244, ptr %162, align 1
+  %245 = getelementptr inbounds nuw i8, ptr %182, i64 48
+  %246 = load float, ptr %245, align 8
+  store float %246, ptr %166, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %182, i64 52
+  %248 = load i8, ptr %247, align 4
+  %249 = and i8 %248, 1
+  store i8 %249, ptr %172, align 4
+  %250 = getelementptr inbounds nuw i8, ptr %182, i64 53
+  %251 = load i8, ptr %250, align 1
+  %252 = and i8 %251, 1
+  store i8 %252, ptr %173, align 1
+  %253 = getelementptr inbounds nuw i8, ptr %182, i64 54
+  %254 = load i8, ptr %253, align 2
+  %255 = getelementptr inbounds nuw i8, ptr %10, i64 54
+  %256 = and i8 %254, 1
+  store i8 %256, ptr %255, align 2
+  %257 = getelementptr inbounds nuw i8, ptr %182, i64 55
+  %258 = load i8, ptr %257, align 1
+  %259 = getelementptr inbounds nuw i8, ptr %10, i64 55
+  %260 = and i8 %258, 1
+  store i8 %260, ptr %259, align 1
+  %261 = getelementptr inbounds nuw i8, ptr %182, i64 56
+  %262 = load i8, ptr %261, align 8
+  %263 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %264 = and i8 %262, 1
+  store i8 %264, ptr %263, align 8
+  %265 = getelementptr inbounds nuw i8, ptr %182, i64 57
+  %266 = load i8, ptr %265, align 1
+  %267 = getelementptr inbounds nuw i8, ptr %10, i64 57
+  %268 = and i8 %266, 1
+  store i8 %268, ptr %267, align 1
+  %269 = getelementptr inbounds nuw i8, ptr %182, i64 58
+  %270 = load i8, ptr %269, align 2
+  %271 = getelementptr inbounds nuw i8, ptr %10, i64 58
+  %272 = and i8 %270, 1
+  store i8 %272, ptr %271, align 2
+  %273 = getelementptr inbounds nuw i8, ptr %182, i64 59
+  %274 = load i8, ptr %273, align 1
+  %275 = getelementptr inbounds nuw i8, ptr %10, i64 59
+  %276 = and i8 %274, 1
+  store i8 %276, ptr %275, align 1
+  %277 = getelementptr inbounds nuw i8, ptr %10, i64 61
+  %278 = getelementptr inbounds nuw i8, ptr %10, i64 60
+  %279 = getelementptr inbounds nuw i8, ptr %182, i64 62
+  %280 = load i8, ptr %279, align 2
+  %281 = getelementptr inbounds nuw i8, ptr %10, i64 62
+  %282 = and i8 %280, 1
+  store i8 %282, ptr %281, align 2
+  %283 = getelementptr inbounds nuw i8, ptr %182, i64 63
+  %284 = load i8, ptr %283, align 1
+  %285 = and i8 %284, 1
+  store i8 %285, ptr %174, align 1
+  %286 = getelementptr inbounds nuw i8, ptr %182, i64 64
+  %287 = load i8, ptr %286, align 8
+  %288 = and i8 %287, 1
+  store i8 %288, ptr %175, align 8
+  %289 = getelementptr inbounds nuw i8, ptr %182, i64 65
+  %290 = load i8, ptr %289, align 1
+  %291 = and i8 %290, 1
+  store i8 %291, ptr %176, align 1
+  %292 = getelementptr inbounds nuw i8, ptr %182, i64 87
+  %293 = load i8, ptr %292, align 1
+  %294 = and i8 %293, 1
+  store i8 %294, ptr %177, align 1
+  %295 = getelementptr inbounds nuw i8, ptr %182, i64 89
+  %296 = load i8, ptr %295, align 1
+  %297 = and i8 %296, 1
+  store i8 %297, ptr %179, align 1
+  %298 = getelementptr inbounds nuw i8, ptr %182, i64 88
+  %299 = load i8, ptr %298, align 8
+  %300 = and i8 %299, 1
+  store i8 %300, ptr %178, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %182, i64 66
+  %302 = load i32, ptr %301, align 2
+  store i32 %302, ptr %167, align 2
+  %303 = getelementptr inbounds nuw i8, ptr %182, i64 70
+  %304 = load i32, ptr %303, align 2
+  store i32 %304, ptr %168, align 2
+  %305 = getelementptr inbounds nuw i8, ptr %182, i64 74
+  %306 = load i32, ptr %305, align 2
+  store i32 %306, ptr %169, align 2
+  %307 = getelementptr inbounds nuw i8, ptr %182, i64 78
+  %308 = load i8, ptr %307, align 2
+  %309 = and i8 %308, 1
+  store i8 %309, ptr %180, align 2
+  %310 = getelementptr inbounds nuw i8, ptr %182, i64 79
+  %311 = load i32, ptr %310, align 1
+  store i32 %311, ptr %170, align 1
+  %312 = getelementptr inbounds nuw i8, ptr %182, i64 83
+  %313 = load i32, ptr %312, align 1
+  store i32 %313, ptr %171, align 1
+  store i8 1, ptr %278, align 4
+  store i8 1, ptr %277, align 1
+  %314 = load ptr, ptr %182, align 8
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
+  %316 = load ptr, ptr %315, align 8
+  call void %316(ptr noundef nonnull align 8 dereferenceable(90) %182) #24
+  br label %317
 
-318:                                              ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread, %186
-  %319 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
-          to label %.noexc52 unwind label %323
+317:                                              ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit.thread, %185
+  %318 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
+          to label %.noexc54 unwind label %322
 
-.noexc52:                                         ; preds = %318
-  invoke void @_ZN18MLPerViewGLOptionsC2ERKS_(ptr noundef nonnull align 8 dereferenceable(90) %319, ptr noundef nonnull align 8 dereferenceable(90) %10)
-          to label %322 unwind label %320
+.noexc54:                                         ; preds = %317
+  invoke void @_ZN18MLPerViewGLOptionsC2ERKS_(ptr noundef nonnull align 8 dereferenceable(90) %318, ptr noundef nonnull align 8 dereferenceable(90) %10)
+          to label %321 unwind label %319
 
-320:                                              ; preds = %.noexc52
-  %321 = landingpad { ptr, i32 }
+319:                                              ; preds = %.noexc54
+  %320 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %319) #23
+  call void @_ZdlPv(ptr noundef nonnull %318) #23
   br label %.body
 
-322:                                              ; preds = %.noexc52
-  store ptr %319, ptr %182, align 8
-  br label %325
+321:                                              ; preds = %.noexc54
+  store ptr %318, ptr %181, align 8
+  br label %324
 
-323:                                              ; preds = %318
-  %324 = landingpad { ptr, i32 }
+322:                                              ; preds = %317
+  %323 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-325:                                              ; preds = %149, %322, %_ZN3vcg11PerViewDataI18MLPerViewGLOptionsE5resetEb.exit
+324:                                              ; preds = %148, %321, %_ZN3vcg11PerViewDataI18MLPerViewGLOptionsE5resetEb.exit
   call void @_ZN29MLPoliciesStandAloneFunctions19setBestWireModalityEP9MeshModelR15MLRenderingData(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(40) %8)
   invoke void @_ZN29MLPoliciesStandAloneFunctions47computeRequestedRenderingDataCompatibleWithMeshEP9MeshModelRK15MLRenderingDataRS2_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %1)
-          to label %326 unwind label %30
+          to label %325 unwind label %30
 
-326:                                              ; preds = %325, %3
-  %327 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %328 = load ptr, ptr %327, align 8
-  %329 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %330 = load ptr, ptr %329, align 8
-  %.not.i.i.i.i = icmp eq ptr %330, %328
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i, label %331
+325:                                              ; preds = %324, %3
+  %326 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %327 = load ptr, ptr %326, align 8
+  %328 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %329 = load ptr, ptr %328, align 8
+  %.not.i.i.i.i = icmp eq ptr %329, %327
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i, label %330
 
-331:                                              ; preds = %326
-  store ptr %328, ptr %329, align 8
+330:                                              ; preds = %325
+  store ptr %327, ptr %328, align 8
   br label %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
 
-_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i: ; preds = %331, %326
-  %332 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %333 = load ptr, ptr %332, align 8
-  %334 = icmp eq ptr %333, null
-  br i1 %334, label %339, label %335
+_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i: ; preds = %330, %325
+  %331 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %332 = load ptr, ptr %331, align 8
+  %333 = icmp eq ptr %332, null
+  br i1 %333, label %338, label %334
 
-335:                                              ; preds = %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
-  %336 = load ptr, ptr %333, align 8
-  %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
-  %338 = load ptr, ptr %337, align 8
-  call void %338(ptr noundef nonnull align 8 dereferenceable(90) %333) #24
-  %.pre.i.i = load ptr, ptr %327, align 8
-  br label %339
+334:                                              ; preds = %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
+  %335 = load ptr, ptr %332, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 8
+  %337 = load ptr, ptr %336, align 8
+  call void %337(ptr noundef nonnull align 8 dereferenceable(90) %332) #24
+  %.pre.i.i = load ptr, ptr %326, align 8
+  br label %338
 
-339:                                              ; preds = %335, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
-  %340 = phi ptr [ %.pre.i.i, %335 ], [ %328, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i ]
-  %.not.i.i.i.i.i = icmp eq ptr %340, null
-  br i1 %.not.i.i.i.i.i, label %_ZN15MLRenderingDataD2Ev.exit, label %341
+338:                                              ; preds = %334, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i
+  %339 = phi ptr [ %.pre.i.i, %334 ], [ %327, %_ZNSt6vectorIN3vcg20GLMeshAttributesInfo16InternalRendAttsESaIS2_EE5clearEv.exit.i.i ]
+  %.not.i.i.i.i.i = icmp eq ptr %339, null
+  br i1 %.not.i.i.i.i.i, label %_ZN15MLRenderingDataD2Ev.exit, label %340
 
-341:                                              ; preds = %339
-  call void @_ZdlPv(ptr noundef nonnull %340) #23
+340:                                              ; preds = %338
+  call void @_ZdlPv(ptr noundef nonnull %339) #23
   br label %_ZN15MLRenderingDataD2Ev.exit
 
-_ZN15MLRenderingDataD2Ev.exit:                    ; preds = %339, %341
+_ZN15MLRenderingDataD2Ev.exit:                    ; preds = %338, %340
   ret void
 
-.body:                                            ; preds = %93, %320, %323, %30
-  %.pn19 = phi { ptr, i32 } [ %31, %30 ], [ %94, %93 ], [ %324, %323 ], [ %321, %320 ]
+.body:                                            ; preds = %93, %319, %322, %30
+  %.pn19 = phi { ptr, i32 } [ %31, %30 ], [ %94, %93 ], [ %323, %322 ], [ %320, %319 ]
   call void @_ZN15MLRenderingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #24
   resume { ptr, i32 } %.pn19
 }
@@ -3560,34 +3532,32 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %39 = load i8, ptr %38, align 1
   %40 = trunc i8 %39 to i1
-  br i1 %40, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i, label %41
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %42 = load i8, ptr %41, align 1
+  %43 = trunc i8 %42 to i1
+  %or.cond.i.i.i.i = select i1 %40, i1 true, i1 %43
+  br i1 %or.cond.i.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i
 
-41:                                               ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %43 = load i8, ptr %42, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i
+_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i: ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %45 = load i8, ptr %44, align 1
+  %.fr.i.i.i = freeze i8 %45
+  %46 = trunc i8 %.fr.i.i.i to i1
+  %47 = icmp samesign ugt i32 %1, 1
+  br i1 %46, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i
 
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i: ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %46 = load i8, ptr %45, align 1
-  %.fr.i.i.i = freeze i8 %46
-  %47 = trunc i8 %.fr.i.i.i to i1
-  %48 = icmp samesign ugt i32 %1, 1
-  br i1 %47, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i, %41, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i
+_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i
   br label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i
-  %49 = phi i1 [ false, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i ], [ %48, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i ]
-  %50 = getelementptr inbounds nuw i8, ptr %18, i64 7
-  %51 = zext i1 %49 to i8
-  store i8 %51, ptr %50, align 1
-  %52 = icmp eq i32 %1, 1
-  %53 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %54 = zext i1 %52 to i8
-  store i8 %54, ptr %53, align 1
+  %48 = phi i1 [ false, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i ], [ %47, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i ]
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 7
+  %50 = zext i1 %48 to i8
+  store i8 %50, ptr %49, align 1
+  %51 = icmp eq i32 %1, 1
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %53 = zext i1 %51 to i8
+  store i8 %53, ptr %52, align 1
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4)
   br label %_ZN3vcg11PerViewDataI18MLPerViewGLOptionsE3setENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS3_9ATT_NAMESEb.exit
 
@@ -3602,7 +3572,7 @@ define void @_ZN29MLPoliciesStandAloneFunctions19setBestWireModalityEP9MeshModel
   %5 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %6 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26, label %8
+  br i1 %7, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3661,8 +3631,8 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i:              ; preds = %28
   %42 = trunc i8 %41 to i1
   %43 = load i64, ptr %1, align 8
   %44 = and i64 %43, -3
-  %masksel112 = select i1 %42, i64 2, i64 0
-  %storemerge.i.i.i.i = or disjoint i64 %44, %masksel112
+  %masksel136 = select i1 %42, i64 2, i64 0
+  %storemerge.i.i.i.i = or disjoint i64 %44, %masksel136
   store i64 %storemerge.i.i.i.i, ptr %1, align 8
   br i1 %42, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit
 
@@ -3671,18 +3641,18 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   store i8 0, ptr %45, align 1
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 17
   store i8 1, ptr %46, align 1
-  %.pre116 = load ptr, ptr %29, align 8
+  %.pre141 = load ptr, ptr %29, align 8
   br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit
 
 _ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit: ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i, %28
-  %47 = phi ptr [ %.pre116, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i ], [ %39, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i ], [ %32, %28 ]
+  %47 = phi ptr [ %.pre141, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i ], [ %39, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i ], [ %32, %28 ]
   %48 = load ptr, ptr %30, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = ptrtoint ptr %47 to i64
   %51 = sub i64 %49, %50
   %52 = sdiv exact i64 %51, 9
   %.not.i.i14 = icmp ugt i64 %52, 2
-  br i1 %.not.i.i14, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i15, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26
+  br i1 %.not.i.i14, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i15, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
 _ZNKSt6bitsetILm4EE4testEm.exit.i.i15:            ; preds = %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 18
@@ -3693,10 +3663,10 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i15:            ; preds = %_ZN15MLRenderingDat
   %57 = trunc i8 %56 to i1
   %58 = load i64, ptr %1, align 8
   %59 = and i64 %58, -5
-  %masksel113 = select i1 %57, i64 4, i64 0
-  %storemerge.i.i.i.i16 = or disjoint i64 %59, %masksel113
+  %masksel137 = select i1 %57, i64 4, i64 0
+  %storemerge.i.i.i.i16 = or disjoint i64 %59, %masksel137
   store i64 %storemerge.i.i.i.i16, ptr %1, align 8
-  br i1 %57, label %60, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26
+  br i1 %57, label %60, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
 60:                                               ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i15
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %6)
@@ -3718,33 +3688,23 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i15:            ; preds = %_ZN15MLRenderingDat
 _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i21: ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %67 = load i8, ptr %66, align 1
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i25, label %69
-
-69:                                               ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i21
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %69 = load i8, ptr %68, align 1
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %71 = load i8, ptr %70, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i25, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i22
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i22: ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  %74 = load i8, ptr %73, align 1
-  %.fr.i.i.i.i23 = freeze i8 %74
-  %75 = trunc i8 %.fr.i.i.i.i23 to i1
-  br i1 %75, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i25, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i24
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i25: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i22, %69, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i21
-  br label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i24
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i24: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i25, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i22
-  %76 = phi i8 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i25 ], [ 1, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i22 ]
-  %77 = getelementptr inbounds nuw i8, ptr %54, i64 25
-  store i8 %76, ptr %77, align 1
+  %.fr.i.i.i.i24 = freeze i8 %71
+  %72 = or i8 %.fr.i.i.i.i24, %67
+  %73 = and i8 %72, 1
+  %.not138 = icmp eq i8 %73, 0
+  %74 = getelementptr inbounds nuw i8, ptr %54, i64 25
+  %75 = and i8 %69, 1
+  %76 = xor i8 %75, 1
+  %77 = select i1 %.not138, i8 %76, i8 0
+  store i8 %77, ptr %74, align 1
   %78 = getelementptr inbounds nuw i8, ptr %54, i64 26
   store i8 0, ptr %78, align 1
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %6)
-  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26
+  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
 79:                                               ; preds = %24, %20, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3761,10 +3721,10 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMI
   br i1 %.sroa.52.0, label %89, label %131
 
 89:                                               ; preds = %88
-  %.not.i.i27 = icmp ugt i64 %87, 1
-  br i1 %.not.i.i27, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i28, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit39
+  %.not.i.i28 = icmp ugt i64 %87, 1
+  br i1 %.not.i.i28, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i29, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit41
 
-_ZNKSt6bitsetILm4EE4testEm.exit.i.i28:            ; preds = %89
+_ZNKSt6bitsetILm4EE4testEm.exit.i.i29:            ; preds = %89
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 9
   store i8 1, ptr %90, align 1
   %91 = load ptr, ptr %80, align 8
@@ -3773,30 +3733,30 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i28:            ; preds = %89
   %94 = trunc i8 %93 to i1
   %95 = load i64, ptr %1, align 8
   %96 = and i64 %95, -3
-  %masksel110 = select i1 %94, i64 2, i64 0
-  %storemerge.i.i.i.i29 = or disjoint i64 %96, %masksel110
-  store i64 %storemerge.i.i.i.i29, ptr %1, align 8
-  br i1 %94, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i34, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit39
+  %masksel133 = select i1 %94, i64 2, i64 0
+  %storemerge.i.i.i.i30 = or disjoint i64 %96, %masksel133
+  store i64 %storemerge.i.i.i.i30, ptr %1, align 8
+  br i1 %94, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i35, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit41
 
-_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i34: ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i28
+_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i35: ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i29
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store i8 0, ptr %97, align 1
   %98 = getelementptr inbounds nuw i8, ptr %91, i64 17
   store i8 1, ptr %98, align 1
-  %.pre115 = load ptr, ptr %80, align 8
-  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit39
+  %.pre140 = load ptr, ptr %80, align 8
+  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit41
 
-_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit39: ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i34, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i28, %89
-  %99 = phi ptr [ %.pre115, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i34 ], [ %91, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i28 ], [ %83, %89 ]
+_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit41: ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i35, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i29, %89
+  %99 = phi ptr [ %.pre140, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i35 ], [ %91, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i29 ], [ %83, %89 ]
   %100 = load ptr, ptr %81, align 8
   %101 = ptrtoint ptr %100 to i64
   %102 = ptrtoint ptr %99 to i64
   %103 = sub i64 %101, %102
   %104 = sdiv exact i64 %103, 9
-  %.not.i.i40 = icmp ugt i64 %104, 2
-  br i1 %.not.i.i40, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i41, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26
+  %.not.i.i42 = icmp ugt i64 %104, 2
+  br i1 %.not.i.i42, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i43, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
-_ZNKSt6bitsetILm4EE4testEm.exit.i.i41:            ; preds = %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit39
+_ZNKSt6bitsetILm4EE4testEm.exit.i.i43:            ; preds = %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit41
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 18
   store i8 0, ptr %105, align 1
   %106 = load ptr, ptr %80, align 8
@@ -3805,64 +3765,54 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i41:            ; preds = %_ZN15MLRenderingDat
   %109 = trunc i8 %108 to i1
   %110 = load i64, ptr %1, align 8
   %111 = and i64 %110, -5
-  %masksel111 = select i1 %109, i64 4, i64 0
-  %storemerge.i.i.i.i42 = or disjoint i64 %111, %masksel111
-  store i64 %storemerge.i.i.i.i42, ptr %1, align 8
-  br i1 %109, label %112, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26
+  %masksel134 = select i1 %109, i64 4, i64 0
+  %storemerge.i.i.i.i44 = or disjoint i64 %111, %masksel134
+  store i64 %storemerge.i.i.i.i44, ptr %1, align 8
+  br i1 %109, label %112, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
-112:                                              ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i41
+112:                                              ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i43
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false), !alias.scope !32
   br label %113
 
 113:                                              ; preds = %113, %112
-  %indvars.iv.i.i.i.i44 = phi i64 [ 0, %112 ], [ %indvars.iv.next.i.i.i.i45, %113 ]
-  %114 = getelementptr inbounds nuw [9 x i8], ptr %107, i64 0, i64 %indvars.iv.i.i.i.i44
+  %indvars.iv.i.i.i.i46 = phi i64 [ 0, %112 ], [ %indvars.iv.next.i.i.i.i47, %113 ]
+  %114 = getelementptr inbounds nuw [9 x i8], ptr %107, i64 0, i64 %indvars.iv.i.i.i.i46
   %115 = load i8, ptr %114, align 1, !noalias !32
-  %116 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i44
+  %116 = getelementptr inbounds nuw [7 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i46
   %117 = and i8 %115, 1
   store i8 %117, ptr %116, align 1, !alias.scope !32
-  %indvars.iv.next.i.i.i.i45 = add nuw nsw i64 %indvars.iv.i.i.i.i44, 1
-  %exitcond.not.i.i.i.i46 = icmp eq i64 %indvars.iv.next.i.i.i.i45, 7
-  br i1 %exitcond.not.i.i.i.i46, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i47, label %113, !llvm.loop !14
+  %indvars.iv.next.i.i.i.i47 = add nuw nsw i64 %indvars.iv.i.i.i.i46, 1
+  %exitcond.not.i.i.i.i48 = icmp eq i64 %indvars.iv.next.i.i.i.i47, 7
+  br i1 %exitcond.not.i.i.i.i48, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i49, label %113, !llvm.loop !14
 
-_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i47: ; preds = %113
+_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i49: ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %119 = load i8, ptr %118, align 1
-  %120 = trunc i8 %119 to i1
-  br i1 %120, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i51, label %121
-
-121:                                              ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i47
-  %122 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %121 = load i8, ptr %120, align 1
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %123 = load i8, ptr %122, align 1
-  %124 = trunc i8 %123 to i1
-  br i1 %124, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i51, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i48
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i48: ; preds = %121
-  %125 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %126 = load i8, ptr %125, align 1
-  %.fr.i.i.i.i49 = freeze i8 %126
-  %127 = trunc i8 %.fr.i.i.i.i49 to i1
-  br i1 %127, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i51, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i50
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i51: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i48, %121, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i47
-  br label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i50
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i50: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i51, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i48
-  %128 = phi i8 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i51 ], [ 1, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i48 ]
-  %129 = getelementptr inbounds nuw i8, ptr %106, i64 25
-  store i8 %128, ptr %129, align 1
+  %.fr.i.i.i.i52 = freeze i8 %123
+  %124 = or i8 %.fr.i.i.i.i52, %119
+  %125 = and i8 %124, 1
+  %.not135 = icmp eq i8 %125, 0
+  %126 = getelementptr inbounds nuw i8, ptr %106, i64 25
+  %127 = and i8 %121, 1
+  %128 = xor i8 %127, 1
+  %129 = select i1 %.not135, i8 %128, i8 0
+  store i8 %129, ptr %126, align 1
   %130 = getelementptr inbounds nuw i8, ptr %106, i64 26
   store i8 0, ptr %130, align 1
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
-  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26
+  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
 131:                                              ; preds = %88
-  %.not.i.i53 = icmp ugt i64 %87, 2
-  br i1 %.not.i.i53, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i54, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit65
+  %.not.i.i56 = icmp ugt i64 %87, 2
+  br i1 %.not.i.i56, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i57, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit69
 
-_ZNKSt6bitsetILm4EE4testEm.exit.i.i54:            ; preds = %131
+_ZNKSt6bitsetILm4EE4testEm.exit.i.i57:            ; preds = %131
   %132 = getelementptr inbounds nuw i8, ptr %83, i64 18
   store i8 1, ptr %132, align 1
   %133 = load ptr, ptr %80, align 8
@@ -3871,71 +3821,61 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i54:            ; preds = %131
   %136 = trunc i8 %135 to i1
   %137 = load i64, ptr %1, align 8
   %138 = and i64 %137, -5
-  %masksel108 = select i1 %136, i64 4, i64 0
-  %storemerge.i.i.i.i55 = or disjoint i64 %138, %masksel108
-  store i64 %storemerge.i.i.i.i55, ptr %1, align 8
-  br i1 %136, label %139, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit65
+  %masksel130 = select i1 %136, i64 4, i64 0
+  %storemerge.i.i.i.i58 = or disjoint i64 %138, %masksel130
+  store i64 %storemerge.i.i.i.i58, ptr %1, align 8
+  br i1 %136, label %139, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit69
 
-139:                                              ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i54
+139:                                              ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i57
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false), !alias.scope !35
   br label %140
 
 140:                                              ; preds = %140, %139
-  %indvars.iv.i.i.i.i57 = phi i64 [ 0, %139 ], [ %indvars.iv.next.i.i.i.i58, %140 ]
-  %141 = getelementptr inbounds nuw [9 x i8], ptr %134, i64 0, i64 %indvars.iv.i.i.i.i57
+  %indvars.iv.i.i.i.i60 = phi i64 [ 0, %139 ], [ %indvars.iv.next.i.i.i.i61, %140 ]
+  %141 = getelementptr inbounds nuw [9 x i8], ptr %134, i64 0, i64 %indvars.iv.i.i.i.i60
   %142 = load i8, ptr %141, align 1, !noalias !35
-  %143 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i57
+  %143 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i60
   %144 = and i8 %142, 1
   store i8 %144, ptr %143, align 1, !alias.scope !35
-  %indvars.iv.next.i.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i.i57, 1
-  %exitcond.not.i.i.i.i59 = icmp eq i64 %indvars.iv.next.i.i.i.i58, 7
-  br i1 %exitcond.not.i.i.i.i59, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i60, label %140, !llvm.loop !14
+  %indvars.iv.next.i.i.i.i61 = add nuw nsw i64 %indvars.iv.i.i.i.i60, 1
+  %exitcond.not.i.i.i.i62 = icmp eq i64 %indvars.iv.next.i.i.i.i61, 7
+  br i1 %exitcond.not.i.i.i.i62, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i63, label %140, !llvm.loop !14
 
-_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i60: ; preds = %140
+_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i63: ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %146 = load i8, ptr %145, align 1
-  %147 = trunc i8 %146 to i1
-  br i1 %147, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i64, label %148
-
-148:                                              ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i60
-  %149 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %148 = load i8, ptr %147, align 1
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %150 = load i8, ptr %149, align 1
-  %151 = trunc i8 %150 to i1
-  br i1 %151, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i64, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i61
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i61: ; preds = %148
-  %152 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %153 = load i8, ptr %152, align 1
-  %.fr.i.i.i.i62 = freeze i8 %153
-  %154 = trunc i8 %.fr.i.i.i.i62 to i1
-  br i1 %154, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i64, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i63
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i64: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i61, %148, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i60
-  br label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i63
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i63: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i64, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i61
-  %155 = phi i8 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i64 ], [ 1, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i61 ]
-  %156 = getelementptr inbounds nuw i8, ptr %133, i64 25
-  store i8 %155, ptr %156, align 1
+  %.fr.i.i.i.i66 = freeze i8 %150
+  %151 = or i8 %.fr.i.i.i.i66, %146
+  %152 = and i8 %151, 1
+  %.not131 = icmp eq i8 %152, 0
+  %153 = getelementptr inbounds nuw i8, ptr %133, i64 25
+  %154 = and i8 %148, 1
+  %155 = xor i8 %154, 1
+  %156 = select i1 %.not131, i8 %155, i8 0
+  store i8 %156, ptr %153, align 1
   %157 = getelementptr inbounds nuw i8, ptr %133, i64 26
   store i8 0, ptr %157, align 1
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4)
-  %.pre114 = load ptr, ptr %80, align 8
-  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit65
+  %.pre139 = load ptr, ptr %80, align 8
+  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit69
 
-_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit65: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i63, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i54, %131
-  %158 = phi ptr [ %.pre114, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i63 ], [ %133, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i54 ], [ %83, %131 ]
+_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit69: ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i63, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i57, %131
+  %158 = phi ptr [ %.pre139, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i63 ], [ %133, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i57 ], [ %83, %131 ]
   %159 = load ptr, ptr %81, align 8
   %160 = ptrtoint ptr %159 to i64
   %161 = ptrtoint ptr %158 to i64
   %162 = sub i64 %160, %161
   %163 = sdiv exact i64 %162, 9
-  %.not.i.i66 = icmp ugt i64 %163, 1
-  br i1 %.not.i.i66, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i67, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26
+  %.not.i.i70 = icmp ugt i64 %163, 1
+  br i1 %.not.i.i70, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i71, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
-_ZNKSt6bitsetILm4EE4testEm.exit.i.i67:            ; preds = %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit65
+_ZNKSt6bitsetILm4EE4testEm.exit.i.i71:            ; preds = %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit69
   %164 = getelementptr inbounds nuw i8, ptr %158, i64 9
   store i8 0, ptr %164, align 1
   %165 = load ptr, ptr %80, align 8
@@ -3944,23 +3884,23 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i67:            ; preds = %_ZN15MLRenderingDat
   %168 = trunc i8 %167 to i1
   %169 = load i64, ptr %1, align 8
   %170 = and i64 %169, -3
-  %masksel109 = select i1 %168, i64 2, i64 0
-  %storemerge.i.i.i.i68 = or disjoint i64 %170, %masksel109
-  store i64 %storemerge.i.i.i.i68, ptr %1, align 8
-  br i1 %168, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i73, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26
+  %masksel132 = select i1 %168, i64 2, i64 0
+  %storemerge.i.i.i.i72 = or disjoint i64 %170, %masksel132
+  store i64 %storemerge.i.i.i.i72, ptr %1, align 8
+  br i1 %168, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i77, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
-_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i73: ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i67
+_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i77: ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i71
   %171 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store i8 0, ptr %171, align 1
   %172 = getelementptr inbounds nuw i8, ptr %165, i64 17
   store i8 1, ptr %172, align 1
-  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26
+  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
 173:                                              ; preds = %79
-  %.not.i.i79 = icmp ugt i64 %87, 2
-  br i1 %.not.i.i79, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i80, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit91
+  %.not.i.i84 = icmp ugt i64 %87, 2
+  br i1 %.not.i.i84, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i85, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit97
 
-_ZNKSt6bitsetILm4EE4testEm.exit.i.i80:            ; preds = %173
+_ZNKSt6bitsetILm4EE4testEm.exit.i.i85:            ; preds = %173
   %174 = getelementptr inbounds nuw i8, ptr %83, i64 18
   store i8 0, ptr %174, align 1
   %175 = load ptr, ptr %80, align 8
@@ -3970,70 +3910,60 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i80:            ; preds = %173
   %179 = load i64, ptr %1, align 8
   %180 = and i64 %179, -5
   %masksel = select i1 %178, i64 4, i64 0
-  %storemerge.i.i.i.i81 = or disjoint i64 %180, %masksel
-  store i64 %storemerge.i.i.i.i81, ptr %1, align 8
-  br i1 %178, label %181, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit91
+  %storemerge.i.i.i.i86 = or disjoint i64 %180, %masksel
+  store i64 %storemerge.i.i.i.i86, ptr %1, align 8
+  br i1 %178, label %181, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit97
 
-181:                                              ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i80
+181:                                              ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i85
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false), !alias.scope !38
   br label %182
 
 182:                                              ; preds = %182, %181
-  %indvars.iv.i.i.i.i83 = phi i64 [ 0, %181 ], [ %indvars.iv.next.i.i.i.i84, %182 ]
-  %183 = getelementptr inbounds nuw [9 x i8], ptr %176, i64 0, i64 %indvars.iv.i.i.i.i83
+  %indvars.iv.i.i.i.i88 = phi i64 [ 0, %181 ], [ %indvars.iv.next.i.i.i.i89, %182 ]
+  %183 = getelementptr inbounds nuw [9 x i8], ptr %176, i64 0, i64 %indvars.iv.i.i.i.i88
   %184 = load i8, ptr %183, align 1, !noalias !38
-  %185 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i.i.i83
+  %185 = getelementptr inbounds nuw [7 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i.i.i88
   %186 = and i8 %184, 1
   store i8 %186, ptr %185, align 1, !alias.scope !38
-  %indvars.iv.next.i.i.i.i84 = add nuw nsw i64 %indvars.iv.i.i.i.i83, 1
-  %exitcond.not.i.i.i.i85 = icmp eq i64 %indvars.iv.next.i.i.i.i84, 7
-  br i1 %exitcond.not.i.i.i.i85, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i86, label %182, !llvm.loop !14
+  %indvars.iv.next.i.i.i.i89 = add nuw nsw i64 %indvars.iv.i.i.i.i88, 1
+  %exitcond.not.i.i.i.i90 = icmp eq i64 %indvars.iv.next.i.i.i.i89, 7
+  br i1 %exitcond.not.i.i.i.i90, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i91, label %182, !llvm.loop !14
 
-_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i86: ; preds = %182
+_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i91: ; preds = %182
   %187 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %188 = load i8, ptr %187, align 1
-  %189 = trunc i8 %188 to i1
-  br i1 %189, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i90, label %190
-
-190:                                              ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i86
-  %191 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %190 = load i8, ptr %189, align 1
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %192 = load i8, ptr %191, align 1
-  %193 = trunc i8 %192 to i1
-  br i1 %193, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i90, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i87
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i87: ; preds = %190
-  %194 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %195 = load i8, ptr %194, align 1
-  %.fr.i.i.i.i88 = freeze i8 %195
-  %196 = trunc i8 %.fr.i.i.i.i88 to i1
-  br i1 %196, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i90, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i89
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i90: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i87, %190, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i86
-  br label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i89
-
-_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i89: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i90, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i87
-  %197 = phi i8 [ 0, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.thread.i.i.i.i90 ], [ 1, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit.i.i.i.i87 ]
-  %198 = getelementptr inbounds nuw i8, ptr %175, i64 25
-  store i8 %197, ptr %198, align 1
+  %.fr.i.i.i.i94 = freeze i8 %192
+  %193 = or i8 %.fr.i.i.i.i94, %188
+  %194 = and i8 %193, 1
+  %.not128 = icmp eq i8 %194, 0
+  %195 = getelementptr inbounds nuw i8, ptr %175, i64 25
+  %196 = and i8 %190, 1
+  %197 = xor i8 %196, 1
+  %198 = select i1 %.not128, i8 %197, i8 0
+  store i8 %198, ptr %195, align 1
   %199 = getelementptr inbounds nuw i8, ptr %175, i64 26
   store i8 0, ptr %199, align 1
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3)
   %.pre = load ptr, ptr %80, align 8
-  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit91
+  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit97
 
-_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit91: ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i89, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i80, %173
-  %200 = phi ptr [ %.pre, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i89 ], [ %175, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i80 ], [ %83, %173 ]
+_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit97: ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i91, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i85, %173
+  %200 = phi ptr [ %.pre, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i91 ], [ %175, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i85 ], [ %83, %173 ]
   %201 = load ptr, ptr %81, align 8
   %202 = ptrtoint ptr %201 to i64
   %203 = ptrtoint ptr %200 to i64
   %204 = sub i64 %202, %203
   %205 = sdiv exact i64 %204, 9
-  %.not.i.i92 = icmp ugt i64 %205, 1
-  br i1 %.not.i.i92, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i93, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26
+  %.not.i.i98 = icmp ugt i64 %205, 1
+  br i1 %.not.i.i98, label %_ZNKSt6bitsetILm4EE4testEm.exit.i.i99, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
-_ZNKSt6bitsetILm4EE4testEm.exit.i.i93:            ; preds = %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit91
+_ZNKSt6bitsetILm4EE4testEm.exit.i.i99:            ; preds = %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit97
   %206 = getelementptr inbounds nuw i8, ptr %200, i64 9
   store i8 0, ptr %206, align 1
   %207 = load ptr, ptr %80, align 8
@@ -4042,19 +3972,19 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i93:            ; preds = %_ZN15MLRenderingDat
   %210 = trunc i8 %209 to i1
   %211 = load i64, ptr %1, align 8
   %212 = and i64 %211, -3
-  %masksel107 = select i1 %210, i64 2, i64 0
-  %storemerge.i.i.i.i94 = or disjoint i64 %212, %masksel107
-  store i64 %storemerge.i.i.i.i94, ptr %1, align 8
-  br i1 %210, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i99, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26
+  %masksel129 = select i1 %210, i64 2, i64 0
+  %storemerge.i.i.i.i100 = or disjoint i64 %212, %masksel129
+  store i64 %storemerge.i.i.i.i100, ptr %1, align 8
+  br i1 %210, label %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i105, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
-_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i99: ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i93
+_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i105: ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i99
   %213 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store i8 0, ptr %213, align 1
   %214 = getelementptr inbounds nuw i8, ptr %207, i64 17
   store i8 1, ptr %214, align 1
-  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26
+  br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
-_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit26: ; preds = %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i15, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i24, %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit39, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i41, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i.i50, %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit65, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i67, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i73, %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit91, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i93, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i99, %2
+_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27: ; preds = %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i15, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i21, %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit41, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i43, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i49, %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit69, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i71, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i77, %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit97, %_ZNKSt6bitsetILm4EE4testEm.exit.i.i99, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit.i.i.i105, %2
   ret void
 }
 
@@ -4345,17 +4275,17 @@ declare noundef i32 @_ZNK9MeshModel8dataMaskEv(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN29MLPoliciesStandAloneFunctions37isPrimitiveModalityWorthToBeActivatedEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEbbb(i32 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #17 align 2 {
-  %.not = xor i1 %3, true
-  %brmerge = or i1 %2, %.not
-  br i1 %brmerge, label %5, label %7
+  %.not = xor i1 %2, true
+  %or.cond = and i1 %3, %.not
+  br i1 %or.cond, label %7, label %5
 
 5:                                                ; preds = %4
   %6 = and i1 %1, %3
-  %brmerge9.demorgan = and i1 %2, %6
+  %or.cond5 = and i1 %2, %6
   br label %7
 
 7:                                                ; preds = %5, %4
-  %.0 = phi i1 [ true, %4 ], [ %brmerge9.demorgan, %5 ]
+  %.0 = phi i1 [ true, %4 ], [ %or.cond5, %5 ]
   ret i1 %.0
 }
 

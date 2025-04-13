@@ -42,21 +42,19 @@ define hidden noundef zeroext i1 @_ZN16G1HeapRegionType8is_validENS_3TagE(i32 no
 define hidden noundef nonnull ptr @_ZNK16G1HeapRegionType7get_strEv(ptr noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
   %2 = load volatile i32, ptr %0, align 4
   %3 = icmp ult i32 %2, 9
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.maskindex = trunc i32 %2 to i16
+  %switch.shifted = lshr i16 317, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %4
 
-4:                                                ; preds = %switch.hole_check, %1
+4:                                                ; preds = %1
   %5 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %5, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.13, i32 noundef 58) #4
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i32 %2 to i16
-  %switch.shifted = lshr i16 317, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZNK16G1HeapRegionType7get_strEv, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -70,21 +68,19 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 define hidden noundef nonnull ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
   %2 = load volatile i32, ptr %0, align 4
   %3 = icmp ult i32 %2, 9
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.maskindex = trunc i32 %2 to i16
+  %switch.shifted = lshr i16 317, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %4
 
-4:                                                ; preds = %switch.hole_check, %1
+4:                                                ; preds = %1
   %5 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %5, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.13, i32 noundef 73) #4
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i32 %2 to i16
-  %switch.shifted = lshr i16 317, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZNK16G1HeapRegionType13get_short_strEv, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -95,21 +91,19 @@ switch.lookup:                                    ; preds = %switch.hole_check
 define hidden noundef range(i32 0, 6) i32 @_ZN16G1HeapRegionType14get_trace_typeEv(ptr noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
   %2 = load volatile i32, ptr %0, align 4
   %3 = icmp ult i32 %2, 9
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.maskindex = trunc i32 %2 to i16
+  %switch.shifted = lshr i16 317, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %4
 
-4:                                                ; preds = %switch.hole_check, %1
+4:                                                ; preds = %1
   %5 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %5, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.13, i32 noundef 88) #4
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i32 %2 to i16
-  %switch.shifted = lshr i16 317, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN16G1HeapRegionType14get_trace_typeEv, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4

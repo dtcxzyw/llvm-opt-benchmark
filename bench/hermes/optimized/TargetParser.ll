@@ -5206,34 +5206,32 @@ _ZN4llvh3ARM9parseArchENS_9StringRefE.exit:       ; preds = %entry, %return.spli
   %cmp = icmp eq i32 %retval.0.i, 0
   br i1 %cmp, label %return, label %for.body
 
-for.body:                                         ; preds = %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit, %for.inc
-  %__begin1.0.idx17 = phi i64 [ %__begin1.0.add, %for.inc ], [ 0, %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit ]
-  %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_18CPUNamesE, i64 %__begin1.0.idx17
-  %CPU.sroa.3.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr, i64 16
-  %CPU.sroa.3.0.copyload = load i32, ptr %CPU.sroa.3.0.__begin1.0.ptr.sroa_idx, align 16
-  %cmp2 = icmp eq i32 %CPU.sroa.3.0.copyload, %retval.0.i
-  br i1 %cmp2, label %land.lhs.true, label %for.inc
-
-land.lhs.true:                                    ; preds = %for.body
-  %CPU.sroa.4.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr, i64 20
-  %CPU.sroa.4.0.copyload = load i8, ptr %CPU.sroa.4.0.__begin1.0.ptr.sroa_idx, align 4
-  %tobool = trunc i8 %CPU.sroa.4.0.copyload to i1
-  br i1 %tobool, label %return.loopexit.split.loop.exit13, label %for.inc
-
-for.inc:                                          ; preds = %for.body, %land.lhs.true
-  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx17, 32
+for.cond:                                         ; preds = %for.body
+  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx13, 32
   %cmp1.not = icmp eq i64 %__begin1.0.add, 2656
   br i1 %cmp1.not, label %return, label %for.body
 
-return.loopexit.split.loop.exit13:                ; preds = %land.lhs.true
-  %CPU.sroa.0.0.copyload.le = load ptr, ptr %__begin1.0.ptr, align 16
-  %CPU.sroa.2.0.__begin1.0.ptr.sroa_idx.le = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr, i64 8
-  %CPU.sroa.2.0.copyload.le = load i64, ptr %CPU.sroa.2.0.__begin1.0.ptr.sroa_idx.le, align 8
+for.body:                                         ; preds = %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit, %for.cond
+  %__begin1.0.idx13 = phi i64 [ %__begin1.0.add, %for.cond ], [ 0, %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit ]
+  %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_18CPUNamesE, i64 %__begin1.0.idx13
+  %CPU.sroa.3.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr, i64 16
+  %CPU.sroa.3.0.copyload = load i32, ptr %CPU.sroa.3.0.__begin1.0.ptr.sroa_idx, align 16
+  %CPU.sroa.4.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr, i64 20
+  %CPU.sroa.4.0.copyload = load i8, ptr %CPU.sroa.4.0.__begin1.0.ptr.sroa_idx, align 4
+  %cmp2 = icmp eq i32 %CPU.sroa.3.0.copyload, %retval.0.i
+  %tobool = trunc i8 %CPU.sroa.4.0.copyload to i1
+  %or.cond = select i1 %cmp2, i1 %tobool, i1 false
+  br i1 %or.cond, label %if.then3, label %for.cond
+
+if.then3:                                         ; preds = %for.body
+  %CPU.sroa.2.0.__begin1.0.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr, i64 8
+  %CPU.sroa.2.0.copyload = load i64, ptr %CPU.sroa.2.0.__begin1.0.ptr.sroa_idx, align 8
+  %CPU.sroa.0.0.copyload = load ptr, ptr %__begin1.0.ptr, align 16
   br label %return
 
-return:                                           ; preds = %for.inc.i, %for.inc, %return.loopexit.split.loop.exit13, %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit
-  %retval.sroa.5.0 = phi i64 [ 0, %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit ], [ %CPU.sroa.2.0.copyload.le, %return.loopexit.split.loop.exit13 ], [ 7, %for.inc ], [ 0, %for.inc.i ]
-  %retval.sroa.0.0 = phi ptr [ null, %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit ], [ %CPU.sroa.0.0.copyload.le, %return.loopexit.split.loop.exit13 ], [ @.str, %for.inc ], [ null, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %for.cond, %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit, %if.then3
+  %retval.sroa.5.0 = phi i64 [ %CPU.sroa.2.0.copyload, %if.then3 ], [ 0, %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit ], [ 7, %for.cond ], [ 0, %for.inc.i ]
+  %retval.sroa.0.0 = phi ptr [ %CPU.sroa.0.0.copyload, %if.then3 ], [ null, %_ZN4llvh3ARM9parseArchENS_9StringRefE.exit ], [ @.str, %for.cond ], [ null, %for.inc.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8548,9 +8546,13 @@ if.end19:                                         ; preds = %if.else
   %8 = load i32, ptr %Environment.i35, align 8
   %switch.tableidx = add i32 %8, -4
   %9 = icmp ult i32 %switch.tableidx, 10
-  br i1 %9, label %switch.hole_check, label %sw.default
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 883, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond46 = select i1 %9, i1 %switch.lobit, i1 false
+  br i1 %or.cond46, label %switch.lookup, label %sw.default
 
-sw.default:                                       ; preds = %switch.hole_check, %if.end19
+sw.default:                                       ; preds = %if.end19
   %cmp.i37 = icmp eq i32 %7, 12
   br i1 %cmp.i37, label %return, label %if.end24
 
@@ -8560,13 +8562,7 @@ if.end24:                                         ; preds = %sw.default
   %spec.select31 = select i1 %cmp.i39, i64 11, i64 5
   br label %return
 
-switch.hole_check:                                ; preds = %if.end19
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 883, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %sw.default
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %if.end19
   %10 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN4llvh3ARM23computeDefaultTargetABIERKNS_6TripleENS_9StringRefE, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8

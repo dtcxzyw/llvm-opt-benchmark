@@ -4976,7 +4976,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87
   store i64 1, ptr %858, align 8, !tbaa !133
   %859 = getelementptr inbounds nuw i8, ptr %266, i64 248
   store i64 1, ptr %859, align 8, !tbaa !136
-  %860 = load i8, ptr %768, align 1, !tbaa !86, !range !38, !noundef !39
+  %860 = load i8, ptr %768, align 1, !range !38
   %861 = trunc nuw i8 %860 to i1
   br i1 %861, label %862, label %883
 
@@ -5541,7 +5541,7 @@ _ZNK5boost3nfp23named_parameter_combineINS0_15named_parameterIKSt16initializer_l
   store i32 1, ptr %1053, align 8, !tbaa !154
   %1054 = getelementptr inbounds nuw i8, ptr %268, i64 284
   store i32 0, ptr %1054, align 4, !tbaa !162
-  %1055 = load i8, ptr %963, align 1, !tbaa !86, !range !38, !noundef !39
+  %1055 = load i8, ptr %963, align 1, !range !38
   %1056 = trunc nuw i8 %1055 to i1
   br i1 %1056, label %1057, label %.lr.ph.i
 
@@ -8670,7 +8670,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87
   store i32 1, ptr %2166, align 4, !tbaa !280
   %2167 = getelementptr inbounds nuw i8, ptr %311, i64 240
   store i32 0, ptr %2167, align 8, !tbaa !283
-  %2168 = load i8, ptr %2076, align 1, !tbaa !86, !range !38, !noundef !39
+  %2168 = load i8, ptr %2076, align 1, !range !38
   %2169 = trunc nuw i8 %2168 to i1
   br i1 %2169, label %2170, label %2191
 
@@ -11561,7 +11561,7 @@ _ZN5boost3nfp10opt_assignINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS
   store ptr %3161, ptr %3158, align 8, !tbaa !17, !alias.scope !388
   %3162 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !388
   %3163 = icmp eq ptr %3162, %3159
-  br i1 %3163, label %3164, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i20.i
+  br i1 %3163, label %3164, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i22.i
 
 3164:                                             ; preds = %.noexc8.i.i
   %3165 = load i64, ptr %3160, align 8, !tbaa !19, !noalias !388
@@ -11571,11 +11571,11 @@ _ZN5boost3nfp10opt_assignINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3161, ptr noundef nonnull align 8 dereferenceable(1) %3159, i64 %3167, i1 false)
   br label %3177
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i20.i: ; preds = %.noexc8.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i22.i: ; preds = %.noexc8.i.i
   store ptr %3162, ptr %3158, align 8, !tbaa !23, !alias.scope !388
   %3168 = load i64, ptr %3159, align 8, !tbaa !21, !noalias !388
   store i64 %3168, ptr %3161, align 8, !tbaa !21, !alias.scope !388
-  %.pre.i.i21.i = load i64, ptr %3160, align 8, !tbaa !19, !noalias !388
+  %.pre.i.i23.i = load i64, ptr %3160, align 8, !tbaa !19, !noalias !388
   br label %3177
 
 3169:                                             ; preds = %_ZN5boost3nfp10opt_assignINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_23named_parameter_combineINS0_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS_7runtime12_GLOBAL__N_16help_tERSE_EENS8_INS9_ISE_NSG_12value_hint_tESI_EENS8_INS9_IKS7_NSG_16optional_value_tERSM_EENS9_ISE_NSG_13description_tESI_EEEEEEEENS0_7keywordISN_Lb0EEEEENS_11enable_if_cIXsr9has_paramIT0_T1_EE5valueEvE4typeERT_RKSY_SZ_.exit.i.i.i
@@ -11597,8 +11597,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   call void @_ZdlPvm(ptr noundef %3171, i64 noundef %3176) #35
   br label %.body.i1882
 
-3177:                                             ; preds = %3164, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i20.i
-  %3178 = phi i64 [ %3165, %3164 ], [ %.pre.i.i21.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i20.i ]
+3177:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i22.i, %3164
+  %3178 = phi i64 [ %3165, %3164 ], [ %.pre.i.i23.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i22.i ]
   %3179 = getelementptr inbounds nuw i8, ptr %372, i64 248
   store i64 %3178, ptr %3179, align 8, !tbaa !19, !alias.scope !388
   %3180 = getelementptr inbounds nuw i8, ptr %372, i64 272
@@ -11608,7 +11608,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   %3182 = getelementptr inbounds nuw i8, ptr %372, i64 280
   store i64 0, ptr %3182, align 8, !tbaa !19, !alias.scope !391
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  %3183 = load i8, ptr %3076, align 1, !tbaa !86, !range !38, !noundef !39
+  %3183 = load i8, ptr %3076, align 1, !range !38
   %3184 = trunc nuw i8 %3183 to i1
   br i1 %3184, label %3185, label %_ZN5boost7runtime9parameterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11args_amountE0ELb0EEC2INS_3nfp23named_parameter_combineINSB_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSI_EENSC_INSD_ISI_NSJ_12value_hint_tESL_EENSC_INSD_IKS7_NSJ_16optional_value_tERSP_EENSD_ISI_NSJ_13description_tESL_EEEEEEEEEESH_RKT_.exit
 

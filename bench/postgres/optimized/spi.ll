@@ -601,9 +601,9 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %.lr.ph
-  %.not.not.lcssa = xor i1 %8, true
-  %brmerge.not = and i1 %0, %.not.not.lcssa
-  br i1 %brmerge.not, label %25, label %.thread.thread
+  %.07.lcssa = xor i1 %8, true
+  %or.cond = and i1 %0, %.07.lcssa
+  br i1 %or.cond, label %25, label %.thread.thread
 
 25:                                               ; preds = %.thread
   %26 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
@@ -616,7 +616,7 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 472, ptr noundef nonnull @__func__.AtEOXact_SPI) #15
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %1, %.thread, %25, %27
+.thread.thread:                                   ; preds = %1, %25, %27, %.thread
   ret void
 }
 
@@ -638,8 +638,8 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %6 = getelementptr inbounds nuw %struct._SPI_connection, ptr %.pre, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load i32, ptr %7, align 8
-  %.not62 = icmp eq i32 %8, %1
-  br i1 %.not62, label %.lr.ph64, label %.thread
+  %.not61 = icmp eq i32 %8, %1
+  br i1 %.not61, label %.lr.ph63, label %.thread
 
 .lr.ph:                                           ; preds = %25
   %9 = zext nneg i32 %33 to i64
@@ -647,21 +647,21 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, %1
-  br i1 %.not, label %.lr.ph64, label %.thread
+  br i1 %.not, label %.lr.ph63, label %.thread
 
-.lr.ph64:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph63:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %13 = phi ptr [ %10, %.lr.ph ], [ %6, %.lr.ph.preheader ]
-  %.not38.not4763 = phi i1 [ true, %.lr.ph ], [ false, %.lr.ph.preheader ]
+  %.04662 = phi i1 [ true, %.lr.ph ], [ false, %.lr.ph.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 73
   %15 = load i8, ptr %14, align 1, !range !4, !noundef !5
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %.thread, label %17
 
-17:                                               ; preds = %.lr.ph64
+17:                                               ; preds = %.lr.ph63
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load ptr, ptr %18, align 8
-  %.not29 = icmp eq ptr %19, null
-  br i1 %.not29, label %21, label %20
+  %.not32 = icmp eq ptr %19, null
+  br i1 %.not32, label %21, label %20
 
 20:                                               ; preds = %17
   tail call void @MemoryContextDelete(ptr noundef nonnull %19) #15
@@ -671,8 +671,8 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
 21:                                               ; preds = %20, %17
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %23 = load ptr, ptr %22, align 8
-  %.not30 = icmp eq ptr %23, null
-  br i1 %.not30, label %25, label %24
+  %.not33 = icmp eq ptr %23, null
+  br i1 %.not33, label %25, label %24
 
 24:                                               ; preds = %21
   tail call void @MemoryContextDelete(ptr noundef nonnull %23) #15
@@ -701,10 +701,10 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %38 = icmp sgt i32 %33, -1
   br i1 %38, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %.lr.ph64, %.lr.ph, %25, %.lr.ph.preheader
-  %.not38.not.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %.not38.not4763, %.lr.ph64 ], [ true, %.lr.ph ], [ true, %25 ]
-  %brmerge.not = and i1 %0, %.not38.not.lcssa
-  br i1 %brmerge.not, label %39, label %.thread.thread
+.thread:                                          ; preds = %.lr.ph63, %.lr.ph, %25, %.lr.ph.preheader
+  %.0.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %.04662, %.lr.ph63 ], [ true, %.lr.ph ], [ true, %25 ]
+  %or.cond = and i1 %0, %.0.lcssa
+  br i1 %or.cond, label %39, label %.thread.thread
 
 39:                                               ; preds = %.thread
   %40 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
@@ -717,76 +717,76 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__func__.AtEOSubXact_SPI) #15
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %2, %.thread, %39, %41
+.thread.thread:                                   ; preds = %2, %39, %41, %.thread
   %45 = load ptr, ptr @_SPI_current, align 8
-  %.not31 = icmp eq ptr %45, null
-  %brmerge40 = or i1 %0, %.not31
-  br i1 %brmerge40, label %.loopexit, label %46
+  %46 = icmp eq ptr %45, null
+  %or.cond3 = or i1 %0, %46
+  br i1 %or.cond3, label %.loopexit, label %47
 
-46:                                               ; preds = %.thread.thread
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %48 = load i32, ptr %47, align 8
-  %.not32 = icmp ult i32 %48, %1
-  br i1 %.not32, label %52, label %49
+47:                                               ; preds = %.thread.thread
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %49 = load i32, ptr %48, align 8
+  %.not34 = icmp ult i32 %49, %1
+  br i1 %.not34, label %53, label %50
 
-49:                                               ; preds = %46
-  store i32 0, ptr %47, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %51 = load ptr, ptr %50, align 8
-  tail call void @MemoryContextReset(ptr noundef %51) #15
-  %.pre57 = load ptr, ptr @_SPI_current, align 8
-  br label %52
+50:                                               ; preds = %47
+  store i32 0, ptr %48, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %52 = load ptr, ptr %51, align 8
+  tail call void @MemoryContextReset(ptr noundef %52) #15
+  %.pre56 = load ptr, ptr @_SPI_current, align 8
+  br label %53
 
-52:                                               ; preds = %46, %49
-  %53 = phi ptr [ %45, %46 ], [ %.pre57, %49 ]
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %.not33 = icmp eq ptr %55, null
-  br i1 %.not33, label %.loopexit, label %.lr.ph56
+53:                                               ; preds = %47, %50
+  %54 = phi ptr [ %45, %47 ], [ %.pre56, %50 ]
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %56 = load ptr, ptr %55, align 8
+  %.not35 = icmp eq ptr %56, null
+  br i1 %.not35, label %.loopexit, label %.lr.ph55
 
-.lr.ph56:                                         ; preds = %52, %73
-  %storemerge3455.sink = phi ptr [ %56, %73 ], [ %55, %52 ]
-  %.sroa.10.053 = phi ptr [ %.sroa.0.1, %73 ], [ %54, %52 ]
-  %56 = load ptr, ptr %storemerge3455.sink, align 8
-  %57 = getelementptr inbounds i8, ptr %storemerge3455.sink, i64 -40
-  %58 = getelementptr inbounds nuw i8, ptr %storemerge3455.sink, i64 8
-  %59 = load i32, ptr %58, align 8
-  %.not36 = icmp ult i32 %59, %1
-  br i1 %.not36, label %73, label %60
+.lr.ph55:                                         ; preds = %53, %74
+  %storemerge3654.sink = phi ptr [ %57, %74 ], [ %56, %53 ]
+  %.sroa.10.052 = phi ptr [ %.sroa.0.1, %74 ], [ %55, %53 ]
+  %57 = load ptr, ptr %storemerge3654.sink, align 8
+  %58 = getelementptr inbounds i8, ptr %storemerge3654.sink, i64 -40
+  %59 = getelementptr inbounds nuw i8, ptr %storemerge3654.sink, i64 8
+  %60 = load i32, ptr %59, align 8
+  %.not38 = icmp ult i32 %60, %1
+  br i1 %.not38, label %74, label %61
 
-60:                                               ; preds = %.lr.ph56
-  store ptr %56, ptr %.sroa.10.053, align 8
-  %61 = load ptr, ptr @_SPI_current, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %57, %63
-  br i1 %64, label %65, label %66
+61:                                               ; preds = %.lr.ph55
+  store ptr %57, ptr %.sroa.10.052, align 8
+  %62 = load ptr, ptr @_SPI_current, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp eq ptr %58, %64
+  br i1 %65, label %66, label %67
 
-65:                                               ; preds = %60
-  store ptr null, ptr %62, align 8
-  br label %66
+66:                                               ; preds = %61
+  store ptr null, ptr %63, align 8
+  br label %67
 
-66:                                               ; preds = %65, %60
-  %67 = load ptr, ptr @SPI_tuptable, align 8
-  %68 = icmp eq ptr %57, %67
-  br i1 %68, label %69, label %70
+67:                                               ; preds = %66, %61
+  %68 = load ptr, ptr @SPI_tuptable, align 8
+  %69 = icmp eq ptr %58, %68
+  br i1 %69, label %70, label %71
 
-69:                                               ; preds = %66
+70:                                               ; preds = %67
   store ptr null, ptr @SPI_tuptable, align 8
-  br label %70
+  br label %71
 
-70:                                               ; preds = %69, %66
-  %71 = getelementptr inbounds i8, ptr %storemerge3455.sink, i64 -8
-  %72 = load ptr, ptr %71, align 8
-  tail call void @MemoryContextDelete(ptr noundef %72) #15
-  br label %73
+71:                                               ; preds = %70, %67
+  %72 = getelementptr inbounds i8, ptr %storemerge3654.sink, i64 -8
+  %73 = load ptr, ptr %72, align 8
+  tail call void @MemoryContextDelete(ptr noundef %73) #15
+  br label %74
 
-73:                                               ; preds = %70, %.lr.ph56
-  %.sroa.0.1 = phi ptr [ %storemerge3455.sink, %.lr.ph56 ], [ %.sroa.10.053, %70 ]
-  %.not37 = icmp eq ptr %56, null
-  br i1 %.not37, label %.loopexit, label %.lr.ph56, !llvm.loop !6
+74:                                               ; preds = %71, %.lr.ph55
+  %.sroa.0.1 = phi ptr [ %storemerge3654.sink, %.lr.ph55 ], [ %.sroa.10.052, %71 ]
+  %.not39 = icmp eq ptr %57, null
+  br i1 %.not39, label %.loopexit, label %.lr.ph55, !llvm.loop !6
 
-.loopexit:                                        ; preds = %73, %52, %.thread.thread
+.loopexit:                                        ; preds = %74, %53, %.thread.thread
   ret void
 }
 
@@ -964,8 +964,8 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   %29 = load ptr, ptr @error_context_stack, align 8
   store ptr %29, ptr %7, align 8
   store ptr %7, ptr @error_context_stack, align 8
-  %.not = icmp ne ptr %2, null
-  br i1 %.not, label %30, label %36
+  %.not174 = icmp ne ptr %2, null
+  br i1 %.not174, label %30, label %36
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -982,14 +982,14 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   br label %36
 
 36:                                               ; preds = %34, %35, %22
-  %.0142 = phi i8 [ 1, %34 ], [ 1, %35 ], [ 0, %22 ]
+  %.0145 = phi i8 [ 1, %34 ], [ 1, %35 ], [ 0, %22 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %38 = load i8, ptr %37, align 4, !range !4, !noundef !5
   %39 = trunc nuw i8 %38 to i1
   %40 = icmp eq ptr %10, null
   %41 = load ptr, ptr @CurrentResourceOwner, align 8
   %spec.select = select i1 %40, ptr %41, ptr %10
-  %.0146 = select i1 %39, ptr %spec.select, ptr null
+  %.0149 = select i1 %39, ptr %spec.select, ptr null
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %43 = load i8, ptr %42, align 2, !range !4, !noundef !5
   %44 = trunc nuw i8 %43 to i1
@@ -999,7 +999,7 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   br i1 %44, label %48, label %53
 
 48:                                               ; preds = %36
-  br i1 %47, label %49, label %.lr.ph322
+  br i1 %47, label %49, label %.lr.ph327
 
 49:                                               ; preds = %48
   %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1010,9 +1010,9 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   unreachable
 
 53:                                               ; preds = %36
-  br i1 %47, label %.thread243, label %.lr.ph322
+  br i1 %47, label %.thread247, label %.lr.ph327
 
-.lr.ph322:                                        ; preds = %48, %53
+.lr.ph327:                                        ; preds = %48, %53
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -1023,22 +1023,22 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.182 = select i1 %23, i32 2, i32 1
+  %.186 = select i1 %23, i32 2, i32 1
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.26.i = select i1 %4, i32 0, i32 32
   %66 = load i32, ptr %54, align 4
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph460, label %.thread243
+  br i1 %67, label %.lr.ph464, label %.thread247
 
-.lr.ph460:                                        ; preds = %.lr.ph322, %351
-  %.1143317459 = phi i8 [ %.3145363, %351 ], [ %.0142, %.lr.ph322 ]
-  %.0133318458 = phi ptr [ %.2135.lcssa, %351 ], [ null, %.lr.ph322 ]
-  %.0126319457 = phi i64 [ %.2128.lcssa, %351 ], [ 0, %.lr.ph322 ]
-  %.0125320456 = phi i32 [ %.2.lcssa, %351 ], [ 0, %.lr.ph322 ]
-  %indvars.iv355455 = phi i64 [ %indvars.iv.next356, %351 ], [ 0, %.lr.ph322 ]
+.lr.ph464:                                        ; preds = %.lr.ph327, %351
+  %.1146322463 = phi i8 [ %.3148367, %351 ], [ %.0145, %.lr.ph327 ]
+  %.0136323462 = phi ptr [ %.2138.lcssa, %351 ], [ null, %.lr.ph327 ]
+  %.0129324461 = phi i64 [ %.2131.lcssa, %351 ], [ 0, %.lr.ph327 ]
+  %.0128325460 = phi i32 [ %.2.lcssa, %351 ], [ 0, %.lr.ph327 ]
+  %indvars.iv358459 = phi i64 [ %indvars.iv.next359, %351 ], [ 0, %.lr.ph327 ]
   %68 = load ptr, ptr %55, align 8
-  %69 = getelementptr inbounds nuw %union.ListCell, ptr %68, i64 %indvars.iv355455
+  %69 = getelementptr inbounds nuw %union.ListCell, ptr %68, i64 %indvars.iv358459
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
@@ -1047,7 +1047,7 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %100
 
-75:                                               ; preds = %.lr.ph460
+75:                                               ; preds = %.lr.ph464
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
@@ -1055,8 +1055,8 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %57, align 8
-  %.not173 = icmp eq ptr %80, null
-  br i1 %.not173, label %87, label %81
+  %.not177 = icmp eq ptr %80, null
+  br i1 %.not177, label %87, label %81
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %58, align 8
@@ -1076,16 +1076,16 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   br label %94
 
 94:                                               ; preds = %75, %81, %87
-  %.0148 = phi ptr [ %86, %81 ], [ %93, %87 ], [ null, %75 ]
+  %.0151 = phi ptr [ %86, %81 ], [ %93, %87 ], [ null, %75 ]
   %95 = load ptr, ptr %59, align 8
   %96 = load i32, ptr %60, align 8
   %97 = load ptr, ptr %57, align 8
   %98 = load ptr, ptr %58, align 8
   %99 = load i32, ptr %61, align 4
-  call void @CompleteCachedPlan(ptr noundef nonnull %70, ptr noundef %.0148, ptr noundef null, ptr noundef %95, i32 noundef %96, ptr noundef %97, ptr noundef %98, i32 noundef %99, i1 noundef zeroext false) #15
+  call void @CompleteCachedPlan(ptr noundef nonnull %70, ptr noundef %.0151, ptr noundef null, ptr noundef %95, i32 noundef %96, ptr noundef %97, ptr noundef %98, i32 noundef %99, i1 noundef zeroext false) #15
   br label %100
 
-100:                                              ; preds = %94, %.lr.ph460
+100:                                              ; preds = %94, %.lr.ph464
   %101 = load i8, ptr %42, align 2, !range !4, !noundef !5
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %103, label %116
@@ -1093,8 +1093,8 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %105 = load ptr, ptr %104, align 8
-  %.not174 = icmp eq ptr %105, null
-  br i1 %.not174, label %106, label %116
+  %.not178 = icmp eq ptr %105, null
+  br i1 %.not178, label %106, label %116
 
 106:                                              ; preds = %103
   %107 = getelementptr inbounds nuw i8, ptr %70, i64 24
@@ -1107,11 +1107,11 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   br label %112
 
 112:                                              ; preds = %106, %110
-  %.0147 = phi ptr [ %111, %110 ], [ @.str.59, %106 ]
+  %.0150 = phi ptr [ %111, %110 ], [ @.str.59, %106 ]
   %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %113)
   %114 = call i32 @errcode(i32 noundef 16801924) #15
-  %115 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66, ptr noundef %.0147) #15
+  %115 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66, ptr noundef %.0150) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2570, ptr noundef nonnull @__func__._SPI_execute_plan) #15
   unreachable
 
@@ -1120,39 +1120,39 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   %118 = load ptr, ptr @_SPI_current, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 64
   %120 = load ptr, ptr %119, align 8
-  %121 = call ptr @GetCachedPlan(ptr noundef nonnull %70, ptr noundef %117, ptr noundef %.0146, ptr noundef %120) #15
+  %121 = call ptr @GetCachedPlan(ptr noundef nonnull %70, ptr noundef %117, ptr noundef %.0149, ptr noundef %120) #15
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
   %.not.i = icmp eq ptr %123, null
-  %or.cond = select i1 %.not, i1 true, i1 %.not.i
-  br i1 %or.cond, label %list_length.exit186.thread, label %list_length.exit
+  %or.cond259 = select i1 %.not174, i1 true, i1 %.not.i
+  br i1 %or.cond259, label %list_length.exit190.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %116
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load i32, ptr %124, align 4
   %126 = icmp sgt i32 %125, 1
-  br i1 %126, label %132, label %list_length.exit186
+  br i1 %126, label %132, label %list_length.exit190
 
-list_length.exit186:                              ; preds = %list_length.exit
+list_length.exit190:                              ; preds = %list_length.exit
   %127 = icmp eq i32 %125, 1
-  br i1 %127, label %128, label %.lr.ph308
+  br i1 %127, label %128, label %.lr.ph313
 
-128:                                              ; preds = %list_length.exit186
+128:                                              ; preds = %list_length.exit190
   %129 = getelementptr i8, ptr %123, i64 16
   %.val = load ptr, ptr %129, align 8
   %130 = load ptr, ptr %.val, align 8
   %131 = call zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef %130) #15
-  br i1 %131, label %132, label %.lr.ph308
+  br i1 %131, label %132, label %.lr.ph313
 
 132:                                              ; preds = %128, %list_length.exit
   call void @EnsurePortalSnapshotExists() #15
   %133 = load i8, ptr %62, align 8, !range !4, !noundef !5
   %134 = trunc nuw i8 %133 to i1
-  %brmerge = select i1 %134, i1 true, i1 %23
-  br i1 %brmerge, label %.lr.ph308, label %135
+  %or.cond = select i1 %134, i1 true, i1 %23
+  br i1 %or.cond, label %.lr.ph313, label %135
 
 135:                                              ; preds = %132
-  %136 = trunc nuw i8 %.1143317459 to i1
+  %136 = trunc nuw i8 %.1146322463 to i1
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %135
@@ -1162,35 +1162,34 @@ list_length.exit186:                              ; preds = %list_length.exit
 138:                                              ; preds = %137, %135
   %139 = call ptr @GetTransactionSnapshot() #15
   call void @PushActiveSnapshot(ptr noundef %139) #15
-  br label %.lr.ph308
+  br label %.lr.ph313
 
-list_length.exit186.thread:                       ; preds = %116
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph308
+list_length.exit190.thread:                       ; preds = %116
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph313
 
-.lr.ph308:                                        ; preds = %list_length.exit186, %128, %138, %132, %list_length.exit186.thread
-  %.3145362 = phi i8 [ %.1143317459, %list_length.exit186.thread ], [ %.1143317459, %list_length.exit186 ], [ %.1143317459, %128 ], [ 1, %138 ], [ %.1143317459, %132 ]
+.lr.ph313:                                        ; preds = %list_length.exit190, %128, %138, %132, %list_length.exit190.thread
+  %.3148366 = phi i8 [ %.1146322463, %list_length.exit190.thread ], [ %.1146322463, %list_length.exit190 ], [ %.1146322463, %128 ], [ 1, %138 ], [ %.1146322463, %132 ]
   %140 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %141 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %142 = trunc nuw i8 %.3145362 to i1
-  %.not332 = xor i1 %142, true
+  %142 = trunc nuw i8 %.3148366 to i1
   %143 = load i32, ptr %140, align 4
   %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %.lr.ph452, label %._crit_edge
+  br i1 %144, label %.lr.ph456, label %._crit_edge
 
-145:                                              ; preds = %.thread211
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv448, 1
+145:                                              ; preds = %.thread215
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv452, 1
   %146 = load i32, ptr %140, align 4
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next, %147
-  br i1 %148, label %.lr.ph452, label %._crit_edge
+  br i1 %148, label %.lr.ph456, label %._crit_edge
 
-.lr.ph452:                                        ; preds = %.lr.ph308, %145
-  %.2135305451 = phi ptr [ %.5138, %145 ], [ %.0133318458, %.lr.ph308 ]
-  %.2128306450 = phi i64 [ %.5131, %145 ], [ %.0126319457, %.lr.ph308 ]
-  %.2307449 = phi i32 [ %.7, %145 ], [ %.0125320456, %.lr.ph308 ]
-  %indvars.iv448 = phi i64 [ %indvars.iv.next, %145 ], [ 0, %.lr.ph308 ]
+.lr.ph456:                                        ; preds = %.lr.ph313, %145
+  %.2138310455 = phi ptr [ %.5141, %145 ], [ %.0136323462, %.lr.ph313 ]
+  %.2131311454 = phi i64 [ %.5134, %145 ], [ %.0129324461, %.lr.ph313 ]
+  %.2312453 = phi i32 [ %.7, %145 ], [ %.0128325460, %.lr.ph313 ]
+  %indvars.iv452 = phi i64 [ %indvars.iv.next, %145 ], [ 0, %.lr.ph313 ]
   %149 = load ptr, ptr %141, align 8
-  %150 = getelementptr inbounds nuw %union.ListCell, ptr %149, i64 %indvars.iv448
+  %150 = getelementptr inbounds nuw %union.ListCell, ptr %149, i64 %indvars.iv452
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 18
   %153 = load i8, ptr %152, align 2, !range !4, !noundef !5
@@ -1199,36 +1198,37 @@ list_length.exit186.thread:                       ; preds = %116
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, i8 0, i64 16, i1 false)
   %157 = load ptr, ptr %156, align 8
-  %.not177 = icmp eq ptr %157, null
-  br i1 %.not177, label %163, label %158
+  %.not181 = icmp eq ptr %157, null
+  br i1 %.not181, label %163, label %158
 
-158:                                              ; preds = %.lr.ph452
+158:                                              ; preds = %.lr.ph456
   %159 = load i32, ptr %157, align 4
   switch i32 %159, label %163 [
     i32 156, label %160
-    i32 224, label %.thread243
+    i32 224, label %.thread247
   ]
 
 160:                                              ; preds = %158
   %161 = getelementptr inbounds nuw i8, ptr %157, i64 40
   %162 = load ptr, ptr %161, align 8
-  %.not178 = icmp eq ptr %162, null
-  br i1 %.not178, label %.thread243, label %163
+  %.not182 = icmp eq ptr %162, null
+  br i1 %.not182, label %.thread247, label %163
 
-163:                                              ; preds = %158, %160, %.lr.ph452
+163:                                              ; preds = %158, %160, %.lr.ph456
   %164 = load i8, ptr %62, align 8, !range !4, !noundef !5
   %165 = trunc nuw i8 %164 to i1
   br i1 %165, label %166, label %175
 
 166:                                              ; preds = %163
   %167 = call zeroext i1 @CommandIsReadOnly(ptr noundef nonnull %151) #15
-  br i1 %167, label %._crit_edge358, label %170
+  br i1 %167, label %._crit_edge361, label %170
 
-._crit_edge358:                                   ; preds = %166
-  %.pre359 = load i8, ptr %62, align 8, !range !4
-  %168 = trunc nuw i8 %.pre359 to i1
-  %169 = select i1 %168, i1 true, i1 %.not332
-  br label %175
+._crit_edge361:                                   ; preds = %166
+  %.pre362 = load i8, ptr %62, align 8, !range !4
+  %.pre363 = trunc nuw i8 %.pre362 to i1
+  %168 = xor i1 %.pre363, true
+  %169 = select i1 %168, i1 %142, i1 false
+  br i1 %169, label %176, label %177
 
 170:                                              ; preds = %166
   %171 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1239,22 +1239,21 @@ list_length.exit186.thread:                       ; preds = %116
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2658, ptr noundef nonnull @__func__._SPI_execute_plan) #15
   unreachable
 
-175:                                              ; preds = %._crit_edge358, %163
-  %brmerge333 = phi i1 [ %169, %._crit_edge358 ], [ %.not332, %163 ]
-  br i1 %brmerge333, label %177, label %176
+175:                                              ; preds = %163
+  br i1 %142, label %176, label %177
 
-176:                                              ; preds = %175
+176:                                              ; preds = %._crit_edge361, %175
   call void @CommandCounterIncrement() #15
   call void @UpdateActiveSnapshotCommandId() #15
   br label %177
 
-177:                                              ; preds = %175, %176
+177:                                              ; preds = %._crit_edge361, %176, %175
   br i1 %154, label %178, label %.sink.split
 
 178:                                              ; preds = %177
   %179 = load ptr, ptr %63, align 8
-  %.not179 = icmp eq ptr %179, null
-  br i1 %.not179, label %.sink.split, label %181
+  %.not183 = icmp eq ptr %179, null
+  br i1 %.not183, label %.sink.split, label %181
 
 .sink.split:                                      ; preds = %178, %177
   %.sink = phi i32 [ 0, %177 ], [ 5, %178 ]
@@ -1262,7 +1261,7 @@ list_length.exit186.thread:                       ; preds = %116
   br label %181
 
 181:                                              ; preds = %.sink.split, %178
-  %.0132 = phi ptr [ %179, %178 ], [ %180, %.sink.split ]
+  %.0135 = phi ptr [ %179, %178 ], [ %180, %.sink.split ]
   %182 = load ptr, ptr %156, align 8
   %183 = icmp eq ptr %182, null
   br i1 %183, label %184, label %258
@@ -1276,13 +1275,13 @@ list_length.exit186.thread:                       ; preds = %116
   br label %188
 
 188:                                              ; preds = %184, %186
-  %.0124 = phi ptr [ %187, %186 ], [ null, %184 ]
+  %.0127 = phi ptr [ %187, %186 ], [ null, %184 ]
   %189 = load ptr, ptr %71, align 8
   %190 = load ptr, ptr %1, align 8
   %191 = load ptr, ptr @_SPI_current, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 64
   %193 = load ptr, ptr %192, align 8
-  %194 = call ptr @CreateQueryDesc(ptr noundef nonnull %151, ptr noundef %189, ptr noundef %.0124, ptr noundef %3, ptr noundef %.0132, ptr noundef %190, ptr noundef %193, i32 noundef 0) #15
+  %194 = call ptr @CreateQueryDesc(ptr noundef nonnull %151, ptr noundef %189, ptr noundef %.0127, ptr noundef %3, ptr noundef %.0135, ptr noundef %190, ptr noundef %193, i32 noundef 0) #15
   br i1 %154, label %195, label %197
 
 195:                                              ; preds = %188
@@ -1411,12 +1410,12 @@ _SPI_pquery.exit:                                 ; preds = %197, %257
   %261 = load ptr, ptr @_SPI_current, align 8
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 64
   %263 = load ptr, ptr %262, align 8
-  call void @ProcessUtility(ptr noundef nonnull %151, ptr noundef %259, i1 noundef zeroext true, i32 noundef %.182, ptr noundef %260, ptr noundef %263, ptr noundef %.0132, ptr noundef nonnull %8) #15
+  call void @ProcessUtility(ptr noundef nonnull %151, ptr noundef %259, i1 noundef zeroext true, i32 noundef %.186, ptr noundef %260, ptr noundef %263, ptr noundef %.0135, ptr noundef nonnull %8) #15
   %264 = load ptr, ptr @_SPI_current, align 8
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load ptr, ptr %265, align 8
-  %.not180 = icmp eq ptr %266, null
-  br i1 %.not180, label %270, label %267
+  %.not184 = icmp eq ptr %266, null
+  br i1 %.not184, label %270, label %267
 
 267:                                              ; preds = %258
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 16
@@ -1441,7 +1440,7 @@ _SPI_pquery.exit:                                 ; preds = %197, %257
   %277 = getelementptr inbounds nuw i8, ptr %271, i64 28
   %278 = load i8, ptr %277, align 4, !range !4, !noundef !5
   %279 = trunc nuw i8 %278 to i1
-  %spec.select183 = select i1 %279, i32 6, i32 4
+  %spec.select187 = select i1 %279, i32 6, i32 4
   br label %282
 
 280:                                              ; preds = %270
@@ -1450,18 +1449,18 @@ _SPI_pquery.exit:                                 ; preds = %197, %257
   br label %282
 
 282:                                              ; preds = %270, %280, %273
-  %.2141 = phi i32 [ %spec.select183, %273 ], [ 4, %280 ], [ 4, %270 ]
+  %.2144 = phi i32 [ %spec.select187, %273 ], [ 4, %280 ], [ 4, %270 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
   br label %283
 
 283:                                              ; preds = %282, %_SPI_pquery.exit
-  %.0139 = phi i32 [ %.020.i, %_SPI_pquery.exit ], [ %.2141, %282 ]
+  %.0142 = phi i32 [ %.020.i, %_SPI_pquery.exit ], [ %.2144, %282 ]
   %284 = load ptr, ptr @_SPI_current, align 8
   br i1 %154, label %285, label %316
 
 285:                                              ; preds = %283
   %286 = load i64, ptr %284, align 8
-  %287 = icmp eq ptr %.2135305451, null
+  %287 = icmp eq ptr %.2138310455, null
   br i1 %287, label %SPI_freetuptable.exit, label %288
 
 288:                                              ; preds = %285
@@ -1473,37 +1472,37 @@ _SPI_pquery.exit:                                 ; preds = %197, %257
 .lr.ph.i.preheader:                               ; preds = %288
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds i8, ptr %290, i64 -40
-  %293 = icmp eq ptr %292, %.2135305451
-  br i1 %293, label %.thread25.i, label %.lr.ph301
+  %293 = icmp eq ptr %292, %.2138310455
+  br i1 %293, label %.thread25.i, label %.lr.ph306
 
-.lr.ph.i:                                         ; preds = %.lr.ph301
+.lr.ph.i:                                         ; preds = %.lr.ph306
   %294 = load ptr, ptr %301, align 8
   %295 = getelementptr inbounds i8, ptr %301, i64 -40
-  %296 = icmp eq ptr %295, %.2135305451
-  br i1 %296, label %.thread25.i, label %.lr.ph301, !llvm.loop !8
+  %296 = icmp eq ptr %295, %.2138310455
+  br i1 %296, label %.thread25.i, label %.lr.ph306, !llvm.loop !8
 
 .thread25.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.sroa.10.030.i.lcssa = phi ptr [ %289, %.lr.ph.i.preheader ], [ %storemerge32.sink.i300, %.lr.ph.i ]
-  %.lcssa258 = phi ptr [ %291, %.lr.ph.i.preheader ], [ %294, %.lr.ph.i ]
-  store ptr %.lcssa258, ptr %.sroa.10.030.i.lcssa, align 8
+  %.sroa.10.030.i.lcssa = phi ptr [ %289, %.lr.ph.i.preheader ], [ %storemerge32.sink.i305, %.lr.ph.i ]
+  %.lcssa263 = phi ptr [ %291, %.lr.ph.i.preheader ], [ %294, %.lr.ph.i ]
+  store ptr %.lcssa263, ptr %.sroa.10.030.i.lcssa, align 8
   %297 = load ptr, ptr @_SPI_current, align 8
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %299 = load ptr, ptr %298, align 8
-  %300 = icmp eq ptr %.2135305451, %299
+  %300 = icmp eq ptr %.2138310455, %299
   br i1 %300, label %305, label %306
 
-.lr.ph301:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+.lr.ph306:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %301 = phi ptr [ %294, %.lr.ph.i ], [ %291, %.lr.ph.i.preheader ]
-  %storemerge32.sink.i300 = phi ptr [ %301, %.lr.ph.i ], [ %290, %.lr.ph.i.preheader ]
+  %storemerge32.sink.i305 = phi ptr [ %301, %.lr.ph.i ], [ %290, %.lr.ph.i.preheader ]
   %.not15.i = icmp eq ptr %301, null
   br i1 %.not15.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !8
 
-.critedge.i:                                      ; preds = %.lr.ph301, %288
+.critedge.i:                                      ; preds = %.lr.ph306, %288
   %302 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
   br i1 %302, label %303, label %SPI_freetuptable.exit
 
 303:                                              ; preds = %.critedge.i
-  %304 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %.2135305451) #15
+  %304 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %.2138310455) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1424, ptr noundef nonnull @__func__.SPI_freetuptable) #15
   br label %SPI_freetuptable.exit
 
@@ -1513,7 +1512,7 @@ _SPI_pquery.exit:                                 ; preds = %197, %257
 
 306:                                              ; preds = %305, %.thread25.i
   %307 = load ptr, ptr @SPI_tuptable, align 8
-  %308 = icmp eq ptr %.2135305451, %307
+  %308 = icmp eq ptr %.2138310455, %307
   br i1 %308, label %309, label %310
 
 309:                                              ; preds = %306
@@ -1521,7 +1520,7 @@ _SPI_pquery.exit:                                 ; preds = %197, %257
   br label %310
 
 310:                                              ; preds = %309, %306
-  %311 = getelementptr inbounds nuw i8, ptr %.2135305451, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %.2138310455, i64 32
   %312 = load ptr, ptr %311, align 8
   call void @MemoryContextDelete(ptr noundef %312) #15
   br label %SPI_freetuptable.exit
@@ -1530,62 +1529,62 @@ SPI_freetuptable.exit:                            ; preds = %285, %.critedge.i, 
   %313 = load ptr, ptr @_SPI_current, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
-  br label %.thread211
+  br label %.thread215
 
 316:                                              ; preds = %283
   %317 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %318 = load ptr, ptr %317, align 8
   %319 = icmp eq ptr %318, null
-  br i1 %319, label %SPI_freetuptable.exit196, label %320
+  br i1 %319, label %SPI_freetuptable.exit200, label %320
 
 320:                                              ; preds = %316
   %321 = getelementptr inbounds nuw i8, ptr %284, i64 24
   %322 = load ptr, ptr %321, align 8
-  %.not13.i189 = icmp eq ptr %322, null
-  br i1 %.not13.i189, label %.critedge.i194, label %.lr.ph.i190.preheader
+  %.not13.i193 = icmp eq ptr %322, null
+  br i1 %.not13.i193, label %.critedge.i198, label %.lr.ph.i194.preheader
 
-.lr.ph.i190.preheader:                            ; preds = %320
+.lr.ph.i194.preheader:                            ; preds = %320
   %323 = load ptr, ptr %322, align 8
   %324 = getelementptr inbounds i8, ptr %322, i64 -40
   %325 = icmp eq ptr %324, %318
-  br i1 %325, label %.thread25.i195, label %.lr.ph
+  br i1 %325, label %.thread25.i199, label %.lr.ph
 
-.lr.ph.i190:                                      ; preds = %.lr.ph
+.lr.ph.i194:                                      ; preds = %.lr.ph
   %326 = load ptr, ptr %333, align 8
   %327 = getelementptr inbounds i8, ptr %333, i64 -40
   %328 = icmp eq ptr %327, %318
-  br i1 %328, label %.thread25.i195, label %.lr.ph, !llvm.loop !8
+  br i1 %328, label %.thread25.i199, label %.lr.ph, !llvm.loop !8
 
-.thread25.i195:                                   ; preds = %.lr.ph.i190, %.lr.ph.i190.preheader
-  %.sroa.10.030.i192.lcssa = phi ptr [ %321, %.lr.ph.i190.preheader ], [ %storemerge32.sink.i191298, %.lr.ph.i190 ]
-  %.lcssa = phi ptr [ %323, %.lr.ph.i190.preheader ], [ %326, %.lr.ph.i190 ]
-  store ptr %.lcssa, ptr %.sroa.10.030.i192.lcssa, align 8
+.thread25.i199:                                   ; preds = %.lr.ph.i194, %.lr.ph.i194.preheader
+  %.sroa.10.030.i196.lcssa = phi ptr [ %321, %.lr.ph.i194.preheader ], [ %storemerge32.sink.i195303, %.lr.ph.i194 ]
+  %.lcssa = phi ptr [ %323, %.lr.ph.i194.preheader ], [ %326, %.lr.ph.i194 ]
+  store ptr %.lcssa, ptr %.sroa.10.030.i196.lcssa, align 8
   %329 = load ptr, ptr @_SPI_current, align 8
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
   %331 = load ptr, ptr %330, align 8
   %332 = icmp eq ptr %318, %331
   br i1 %332, label %337, label %338
 
-.lr.ph:                                           ; preds = %.lr.ph.i190.preheader, %.lr.ph.i190
-  %333 = phi ptr [ %326, %.lr.ph.i190 ], [ %323, %.lr.ph.i190.preheader ]
-  %storemerge32.sink.i191298 = phi ptr [ %333, %.lr.ph.i190 ], [ %322, %.lr.ph.i190.preheader ]
-  %.not15.i193 = icmp eq ptr %333, null
-  br i1 %.not15.i193, label %.critedge.i194, label %.lr.ph.i190, !llvm.loop !8
+.lr.ph:                                           ; preds = %.lr.ph.i194.preheader, %.lr.ph.i194
+  %333 = phi ptr [ %326, %.lr.ph.i194 ], [ %323, %.lr.ph.i194.preheader ]
+  %storemerge32.sink.i195303 = phi ptr [ %333, %.lr.ph.i194 ], [ %322, %.lr.ph.i194.preheader ]
+  %.not15.i197 = icmp eq ptr %333, null
+  br i1 %.not15.i197, label %.critedge.i198, label %.lr.ph.i194, !llvm.loop !8
 
-.critedge.i194:                                   ; preds = %.lr.ph, %320
+.critedge.i198:                                   ; preds = %.lr.ph, %320
   %334 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %334, label %335, label %SPI_freetuptable.exit196
+  br i1 %334, label %335, label %SPI_freetuptable.exit200
 
-335:                                              ; preds = %.critedge.i194
+335:                                              ; preds = %.critedge.i198
   %336 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %318) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1424, ptr noundef nonnull @__func__.SPI_freetuptable) #15
-  br label %SPI_freetuptable.exit196
+  br label %SPI_freetuptable.exit200
 
-337:                                              ; preds = %.thread25.i195
+337:                                              ; preds = %.thread25.i199
   store ptr null, ptr %330, align 8
   br label %338
 
-338:                                              ; preds = %337, %.thread25.i195
+338:                                              ; preds = %337, %.thread25.i199
   %339 = load ptr, ptr @SPI_tuptable, align 8
   %340 = icmp eq ptr %318, %339
   br i1 %340, label %341, label %342
@@ -1598,27 +1597,27 @@ SPI_freetuptable.exit:                            ; preds = %285, %.critedge.i, 
   %343 = getelementptr inbounds nuw i8, ptr %318, i64 32
   %344 = load ptr, ptr %343, align 8
   call void @MemoryContextDelete(ptr noundef %344) #15
-  br label %SPI_freetuptable.exit196
+  br label %SPI_freetuptable.exit200
 
-SPI_freetuptable.exit196:                         ; preds = %316, %.critedge.i194, %335, %342
+SPI_freetuptable.exit200:                         ; preds = %316, %.critedge.i198, %335, %342
   %345 = load ptr, ptr @_SPI_current, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   store ptr null, ptr %346, align 8
-  br label %.thread211
+  br label %.thread215
 
-.thread211:                                       ; preds = %SPI_freetuptable.exit196, %SPI_freetuptable.exit
-  %.5138 = phi ptr [ %315, %SPI_freetuptable.exit ], [ %.2135305451, %SPI_freetuptable.exit196 ]
-  %.5131 = phi i64 [ %286, %SPI_freetuptable.exit ], [ %.2128306450, %SPI_freetuptable.exit196 ]
-  %.7 = phi i32 [ %.0139, %SPI_freetuptable.exit ], [ %.2307449, %SPI_freetuptable.exit196 ]
-  %347 = icmp slt i32 %.0139, 0
-  br i1 %347, label %.thread243, label %145
+.thread215:                                       ; preds = %SPI_freetuptable.exit200, %SPI_freetuptable.exit
+  %.5141 = phi ptr [ %315, %SPI_freetuptable.exit ], [ %.2138310455, %SPI_freetuptable.exit200 ]
+  %.5134 = phi i64 [ %286, %SPI_freetuptable.exit ], [ %.2131311454, %SPI_freetuptable.exit200 ]
+  %.7 = phi i32 [ %.0142, %SPI_freetuptable.exit ], [ %.2312453, %SPI_freetuptable.exit200 ]
+  %347 = icmp slt i32 %.0142, 0
+  br i1 %347, label %.thread247, label %145
 
-._crit_edge:                                      ; preds = %145, %.lr.ph308, %list_length.exit186.thread
-  %.3145363 = phi i8 [ %.1143317459, %list_length.exit186.thread ], [ %.3145362, %.lr.ph308 ], [ %.3145362, %145 ]
-  %.2135.lcssa = phi ptr [ %.0133318458, %list_length.exit186.thread ], [ %.0133318458, %.lr.ph308 ], [ %.5138, %145 ]
-  %.2128.lcssa = phi i64 [ %.0126319457, %list_length.exit186.thread ], [ %.0126319457, %.lr.ph308 ], [ %.5131, %145 ]
-  %.2.lcssa = phi i32 [ %.0125320456, %list_length.exit186.thread ], [ %.0125320456, %.lr.ph308 ], [ %.7, %145 ]
-  call void @ReleaseCachedPlan(ptr noundef %121, ptr noundef %.0146) #15
+._crit_edge:                                      ; preds = %145, %.lr.ph313, %list_length.exit190.thread
+  %.3148367 = phi i8 [ %.1146322463, %list_length.exit190.thread ], [ %.3148366, %.lr.ph313 ], [ %.3148366, %145 ]
+  %.2138.lcssa = phi ptr [ %.0136323462, %list_length.exit190.thread ], [ %.0136323462, %.lr.ph313 ], [ %.5141, %145 ]
+  %.2131.lcssa = phi i64 [ %.0129324461, %list_length.exit190.thread ], [ %.0129324461, %.lr.ph313 ], [ %.5134, %145 ]
+  %.2.lcssa = phi i32 [ %.0128325460, %list_length.exit190.thread ], [ %.0128325460, %.lr.ph313 ], [ %.7, %145 ]
+  call void @ReleaseCachedPlan(ptr noundef %121, ptr noundef %.0149) #15
   %348 = load i8, ptr %62, align 8, !range !4, !noundef !5
   %349 = trunc nuw i8 %348 to i1
   br i1 %349, label %351, label %350
@@ -1628,43 +1627,43 @@ SPI_freetuptable.exit196:                         ; preds = %316, %.critedge.i19
   br label %351
 
 351:                                              ; preds = %350, %._crit_edge
-  %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355455, 1
+  %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358459, 1
   %352 = load i32, ptr %54, align 4
   %353 = sext i32 %352 to i64
-  %354 = icmp slt i64 %indvars.iv.next356, %353
-  br i1 %354, label %.lr.ph460, label %.thread243
+  %354 = icmp slt i64 %indvars.iv.next359, %353
+  br i1 %354, label %.lr.ph464, label %.thread247
 
-.thread243:                                       ; preds = %351, %160, %.thread211, %158, %.lr.ph322, %53
-  %.1254 = phi i32 [ 0, %53 ], [ 0, %.lr.ph322 ], [ -2, %160 ], [ %.0139, %.thread211 ], [ -8, %158 ], [ %.2.lcssa, %351 ]
-  %.1127253 = phi i64 [ 0, %53 ], [ 0, %.lr.ph322 ], [ %.2128306450, %160 ], [ %.5131, %.thread211 ], [ %.2128306450, %158 ], [ %.2128.lcssa, %351 ]
-  %.1134252 = phi ptr [ null, %53 ], [ null, %.lr.ph322 ], [ %.2135305451, %160 ], [ %.5138, %.thread211 ], [ %.2135305451, %158 ], [ %.2135.lcssa, %351 ]
-  %.2144251 = phi i8 [ %.0142, %53 ], [ %.0142, %.lr.ph322 ], [ %.3145362, %158 ], [ %.3145362, %.thread211 ], [ %.3145362, %160 ], [ %.3145363, %351 ]
-  %.1150250 = phi ptr [ null, %53 ], [ null, %.lr.ph322 ], [ %121, %158 ], [ %121, %.thread211 ], [ %121, %160 ], [ null, %351 ]
-  %355 = trunc nuw i8 %.2144251 to i1
+.thread247:                                       ; preds = %351, %160, %.thread215, %158, %.lr.ph327, %53
+  %.1258 = phi i32 [ 0, %53 ], [ 0, %.lr.ph327 ], [ -2, %160 ], [ %.0142, %.thread215 ], [ -8, %158 ], [ %.2.lcssa, %351 ]
+  %.1130257 = phi i64 [ 0, %53 ], [ 0, %.lr.ph327 ], [ %.2131311454, %160 ], [ %.5134, %.thread215 ], [ %.2131311454, %158 ], [ %.2131.lcssa, %351 ]
+  %.1137256 = phi ptr [ null, %53 ], [ null, %.lr.ph327 ], [ %.2138310455, %160 ], [ %.5141, %.thread215 ], [ %.2138310455, %158 ], [ %.2138.lcssa, %351 ]
+  %.2147255 = phi i8 [ %.0145, %53 ], [ %.0145, %.lr.ph327 ], [ %.3148366, %158 ], [ %.3148366, %.thread215 ], [ %.3148366, %160 ], [ %.3148367, %351 ]
+  %.1153254 = phi ptr [ null, %53 ], [ null, %.lr.ph327 ], [ %121, %158 ], [ %121, %.thread215 ], [ %121, %160 ], [ null, %351 ]
+  %355 = trunc nuw i8 %.2147255 to i1
   br i1 %355, label %356, label %357
 
-356:                                              ; preds = %.thread243
+356:                                              ; preds = %.thread247
   call void @PopActiveSnapshot() #15
   br label %357
 
-357:                                              ; preds = %356, %.thread243
-  %.not181 = icmp eq ptr %.1150250, null
-  br i1 %.not181, label %359, label %358
+357:                                              ; preds = %356, %.thread247
+  %.not185 = icmp eq ptr %.1153254, null
+  br i1 %.not185, label %359, label %358
 
 358:                                              ; preds = %357
-  call void @ReleaseCachedPlan(ptr noundef nonnull %.1150250, ptr noundef %.0146) #15
+  call void @ReleaseCachedPlan(ptr noundef nonnull %.1153254, ptr noundef %.0149) #15
   br label %359
 
 359:                                              ; preds = %358, %357
   %360 = load ptr, ptr %7, align 8
   store ptr %360, ptr @error_context_stack, align 8
-  store i64 %.1127253, ptr @SPI_processed, align 8
-  store ptr %.1134252, ptr @SPI_tuptable, align 8
+  store i64 %.1130257, ptr @SPI_processed, align 8
+  store ptr %.1137256, ptr @SPI_tuptable, align 8
   %361 = load ptr, ptr @_SPI_current, align 8
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 8
   store ptr null, ptr %362, align 8
-  %363 = icmp eq i32 %.1254, 0
-  %spec.store.select = select i1 %363, i32 14, i32 %.1254
+  %363 = icmp eq i32 %.1258, 0
+  %spec.store.select = select i1 %363, i32 14, i32 %.1258
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
   ret i32 %spec.store.select
@@ -4751,19 +4750,17 @@ declare zeroext i1 @CachedPlanIsValid(ptr noundef) local_unnamed_addr #3
 define dso_local noundef nonnull ptr @SPI_result_code_string(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, 13
   %2 = icmp ult i32 %switch.tableidx, 33
-  br i1 %2, label %switch.hole_check, label %3
-
-3:                                                ; preds = %switch.hole_check, %1
-  %4 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @SPI_result_code_string.buf, ptr noundef nonnull @.str.47, i32 noundef %0) #15
-  br label %6
-
-switch.hole_check:                                ; preds = %1
   %switch.maskindex = zext nneg i32 %switch.tableidx to i64
   %switch.shifted = lshr i64 8589926143, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
+  %or.cond = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %3
 
-switch.lookup:                                    ; preds = %switch.hole_check
+3:                                                ; preds = %1
+  %4 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @SPI_result_code_string.buf, ptr noundef nonnull @.str.47, i32 noundef %0) #15
+  br label %6
+
+switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [33 x ptr], ptr @switch.table.SPI_result_code_string, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8

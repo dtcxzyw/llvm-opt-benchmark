@@ -605,14 +605,12 @@ define dso_local void @_ZN4pbrt16ProgressReporter8printBarEv(ptr noundef nonnull
 6:                                                ; preds = %1
   %7 = tail call ptr @__errno_location() #28
   %8 = load i32, ptr %7, align 4, !tbaa !48
-  %.not.i = icmp eq i32 %8, 25
-  br i1 %.not.i, label %_ZN4pbrtL13TerminalWidthEv.exit, label %9
+  %9 = icmp eq i32 %8, 25
+  %.b2.i = load i1, ptr @_ZZN4pbrtL13TerminalWidthEvE6warned, align 1
+  %or.cond.i = select i1 %9, i1 true, i1 %.b2.i
+  br i1 %or.cond.i, label %_ZN4pbrtL13TerminalWidthEv.exit, label %10
 
-9:                                                ; preds = %6
-  %.b1.i = load i1, ptr @_ZZN4pbrtL13TerminalWidthEvE6warned, align 1
-  br i1 %.b1.i, label %_ZN4pbrtL13TerminalWidthEv.exit, label %10
-
-10:                                               ; preds = %9
+10:                                               ; preds = %6
   store i1 true, ptr @_ZZN4pbrtL13TerminalWidthEvE6warned, align 1
   %11 = load ptr, ptr @stderr, align 8, !tbaa !50
   %12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.19, i32 noundef %8) #29
@@ -625,17 +623,17 @@ define dso_local void @_ZN4pbrt16ProgressReporter8printBarEv(ptr noundef nonnull
   %17 = add nsw i32 %16, -28
   br label %_ZN4pbrtL13TerminalWidthEv.exit
 
-_ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %6, %9, %10, %13
-  %.0.i = phi i32 [ %17, %13 ], [ 52, %9 ], [ 52, %10 ], [ 52, %6 ]
+_ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %6, %10, %13
+  %.0.i = phi i32 [ %17, %13 ], [ 52, %10 ], [ 52, %6 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !15
   %21 = trunc i64 %20 to i32
   %22 = sub i32 %.0.i, %21
-  %.sroa.speculated67 = call i32 @llvm.smax.i32(i32 %22, i32 2)
+  %.sroa.speculated66 = call i32 @llvm.smax.i32(i32 %22, i32 2)
   %23 = add i32 %21, 64
-  %24 = add i32 %23, %.sroa.speculated67
+  %24 = add i32 %23, %.sroa.speculated66
   %25 = sext i32 %24 to i64
   %26 = call noalias noundef nonnull ptr @_Znam(i64 noundef %25) #26, !noalias !55
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %26, i8 0, i64 %25, i1 false), !noalias !55
@@ -643,16 +641,16 @@ _ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %6, %9, %10, %13
   %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %26, i64 noundef %25, ptr noundef nonnull @.str.4, ptr noundef %27) #23
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #30
   %30 = getelementptr i8, ptr %26, i64 %29
-  %31 = zext nneg i32 %.sroa.speculated67 to i64
+  %31 = zext nneg i32 %.sroa.speculated66 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, i8 32, i64 %31, i1 false), !tbaa !17
-  %32 = add nsw i32 %.sroa.speculated67, -1
+  %32 = add nsw i32 %.sroa.speculated66, -1
   %33 = zext nneg i32 %32 to i64
   %34 = add i64 %29, %33
   %scevgep = getelementptr i8, ptr %26, i64 %34
   %35 = getelementptr i8, ptr %26, i64 %34
-  %scevgep84 = getelementptr i8, ptr %35, i64 1
+  %scevgep83 = getelementptr i8, ptr %35, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %scevgep, i64 2
-  store i8 93, ptr %scevgep84, align 1, !tbaa !17
+  store i8 93, ptr %scevgep83, align 1, !tbaa !17
   %37 = getelementptr inbounds nuw i8, ptr %scevgep, i64 3
   store i8 32, ptr %36, align 1, !tbaa !17
   store i8 0, ptr %37, align 1, !tbaa !17
@@ -663,27 +661,27 @@ _ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %6, %9, %10, %13
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %45 = uitofp nneg i32 %.sroa.speculated67 to float
+  %45 = uitofp nneg i32 %.sroa.speculated66 to float
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %49
 
 49:                                               ; preds = %_ZN4pbrtL13TerminalWidthEv.exit, %128
-  %.081 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.1.lcssa, %128 ]
-  %.03280 = phi ptr [ %30, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.133.lcssa, %128 ]
-  %.03778 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %66, %128 ]
-  %.sroa.0.077 = phi i64 [ 250, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.sroa.0.1, %128 ]
+  %.080 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.1.lcssa, %128 ]
+  %.03279 = phi ptr [ %30, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.133.lcssa, %128 ]
+  %.03777 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %66, %128 ]
+  %.sroa.0.076 = phi i64 [ 250, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %.sroa.0.1, %128 ]
   %50 = load atomic i8, ptr %42 seq_cst, align 8
   %51 = trunc i8 %50 to i1
-  %52 = icmp slt i64 %.sroa.0.077, 1
+  %52 = icmp slt i64 %.sroa.0.076, 1
   %or.cond = select i1 %51, i1 true, i1 %52
   br i1 %or.cond, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, label %53
 
 53:                                               ; preds = %49
-  %54 = udiv i64 %.sroa.0.077, 1000
+  %54 = udiv i64 %.sroa.0.076, 1000
   %.neg.i.i = mul nsw i64 %54, -1000
-  %55 = add nsw i64 %.neg.i.i, %.sroa.0.077
+  %55 = add nsw i64 %.neg.i.i, %.sroa.0.076
   %56 = mul nsw i64 %55, 1000000
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #23
   store i64 %54, ptr %2, align 8, !tbaa !58
@@ -711,30 +709,30 @@ _ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %6, %9, %10, %13
 64:                                               ; preds = %57
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit52
+  br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit51
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %.critedge.i, %49
-  %66 = add nuw nsw i32 %.03778, 1
-  switch i32 %.03778, label %73 [
+  %66 = add nuw nsw i32 %.03777, 1
+  switch i32 %.03777, label %73 [
     i32 9, label %67
     i32 69, label %69
     i32 519, label %71
   ]
 
 67:                                               ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
-  %68 = shl nsw i64 %.sroa.0.077, 1
+  %68 = shl nsw i64 %.sroa.0.076, 1
   br label %73
 
 69:                                               ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
-  %70 = shl nsw i64 %.sroa.0.077, 1
+  %70 = shl nsw i64 %.sroa.0.076, 1
   br label %73
 
 71:                                               ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit
-  %72 = mul nsw i64 %.sroa.0.077, 5
+  %72 = mul nsw i64 %.sroa.0.076, 5
   br label %73
 
 73:                                               ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, %69, %71, %67
-  %.sroa.0.1 = phi i64 [ %.sroa.0.077, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.076, %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ]
   %74 = load atomic i64, ptr %44 seq_cst, align 8
   %75 = sitofp i64 %74 to float
   %76 = load i64, ptr %0, align 8, !tbaa !19
@@ -743,22 +741,22 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0
   %79 = fmul float %78, %45
   %80 = call noundef float @llvm.round.f32(float %79)
   %81 = fptosi float %80 to i32
-  %82 = icmp slt i32 %.081, %81
+  %82 = icmp slt i32 %.080, %81
   br i1 %82, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %73
-  %83 = xor i32 %.081, -1
+  %83 = xor i32 %.080, -1
   %84 = add i32 %83, %81
   %85 = zext i32 %84 to i64
   %86 = add nuw nsw i64 %85, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.03280, i8 43, i64 %86, i1 false), !tbaa !17
-  %scevgep85 = getelementptr i8, ptr %.03280, i64 1
-  %scevgep86 = getelementptr i8, ptr %scevgep85, i64 %85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.03279, i8 43, i64 %86, i1 false), !tbaa !17
+  %scevgep84 = getelementptr i8, ptr %.03279, i64 1
+  %scevgep85 = getelementptr i8, ptr %scevgep84, i64 %85
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %73
-  %.133.lcssa = phi ptr [ %.03280, %73 ], [ %scevgep86, %.lr.ph.preheader ]
-  %.1.lcssa = phi i32 [ %.081, %73 ], [ %81, %.lr.ph.preheader ]
+  %.133.lcssa = phi ptr [ %.03279, %73 ], [ %scevgep85, %.lr.ph.preheader ]
+  %.1.lcssa = phi i32 [ %.080, %73 ], [ %81, %.lr.ph.preheader ]
   %87 = load ptr, ptr @stdout, align 8, !tbaa !50
   %88 = call i32 @fputs(ptr noundef nonnull %26, ptr noundef %87)
   %89 = load i8, ptr %46, align 4, !tbaa !34, !range !41, !noundef !42
@@ -808,7 +806,7 @@ _ZN4pstd8optionalIfEdeEv.exit:                    ; preds = %104
 111:                                              ; preds = %107
   %112 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit52
+  br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit51
 
 113:                                              ; preds = %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit
   %114 = fcmp oeq float %78, 1.000000e+00
@@ -845,7 +843,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %128
   call void @_ZdaPv(ptr noundef nonnull %26) #24
   ret void
 
-_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit52: ; preds = %111, %64
+_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit51: ; preds = %111, %64
   %.pn.pn = phi { ptr, i32 } [ %65, %64 ], [ %112, %111 ]
   call void @_ZdaPv(ptr noundef nonnull %26) #24
   resume { ptr, i32 } %.pn.pn

@@ -1487,7 +1487,7 @@ define void @_ZN3gmx7GridSet9putOnGridEPA3_KfiPS1_S4_PKNS_15UpdateGroupsCogENS_5
   %15 = alloca %"class.gmx::ArrayRef.35", align 8
   %16 = alloca %"class.gmx::ArrayRef.32", align 8
   %17 = alloca %"class.gmx::ArrayRef.35", align 8
-  %.sroa.083.0.extract.trunc = trunc i64 %6 to i32
+  %.sroa.086.0.extract.trunc = trunc i64 %6 to i32
   %.sroa.4.0.extract.shift = lshr i64 %6, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   store float %8, ptr %14, align 4, !tbaa !138
@@ -1497,263 +1497,239 @@ define void @_ZN3gmx7GridSet9putOnGridEPA3_KfiPS1_S4_PKNS_15UpdateGroupsCogENS_5
   %.not = xor i1 %20, true
   %21 = icmp eq i32 %2, 0
   %or.cond = or i1 %21, %.not
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.pre = load i8, ptr %.phi.trans.insert, align 4, !tbaa !139, !range !56
-  br i1 %or.cond, label %31, label %22
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %23 = load i8, ptr %22, align 4, !range !56
+  %24 = trunc nuw i8 %23 to i1
+  %or.cond62 = select i1 %or.cond, i1 true, i1 %24
+  br i1 %or.cond62, label %26, label %25
 
-22:                                               ; preds = %13
-  %23 = trunc nuw i8 %.pre to i1
-  br i1 %23, label %.thread108, label %30
-
-.thread108:                                       ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = add i32 %2, 1
-  store i32 %25, ptr %24, align 8, !tbaa !62
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = sext i32 %2 to i64
-  %28 = load ptr, ptr %26, align 8, !tbaa !59
-  %29 = getelementptr %"class.gmx::Grid", ptr %28, i64 %27
-  br label %83
-
-30:                                               ; preds = %22
+25:                                               ; preds = %13
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx7GridSet9putOnGridEPA3_KfiPS1_S4_PKNS_15UpdateGroupsCogENS_5RangeIiEEifNS_8ArrayRefIKiEENSA_IKNS_11BasicVectorIfEEEEPSB_PNS_16nbnxn_atomdata_tEENK3$_0clEv", ptr noundef nonnull @.str.7, i32 noundef 199) #22
   unreachable
 
-31:                                               ; preds = %13
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %33 = trunc nuw i8 %.pre to i1
-  %or.cond3 = or i1 %21, %33
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %2, %35
-  %or.cond62 = select i1 %or.cond3, i1 true, i1 %36
-  br i1 %or.cond62, label %38, label %37
+26:                                               ; preds = %13
+  %or.cond3 = or i1 %21, %24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp eq i32 %2, %28
+  %or.cond65 = select i1 %or.cond3, i1 true, i1 %29
+  br i1 %or.cond65, label %31, label %30
 
-37:                                               ; preds = %31
+30:                                               ; preds = %26
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx7GridSet9putOnGridEPA3_KfiPS1_S4_PKNS_15UpdateGroupsCogENS_5RangeIiEEifNS_8ArrayRefIKiEENSA_IKNS_11BasicVectorIfEEEEPSB_PNS_16nbnxn_atomdata_tEENK3$_0clEv", ptr noundef nonnull @.str.7, i32 noundef 202) #22
   unreachable
 
-38:                                               ; preds = %31
-  %39 = add i32 %2, 1
-  store i32 %39, ptr %34, align 8, !tbaa !62
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = sext i32 %2 to i64
-  %42 = load ptr, ptr %40, align 8, !tbaa !59
-  %43 = getelementptr %"class.gmx::Grid", ptr %42, i64 %41
-  br i1 %21, label %44, label %83
+31:                                               ; preds = %26
+  %32 = add i32 %2, 1
+  store i32 %32, ptr %27, align 8, !tbaa !62
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %34 = sext i32 %2 to i64
+  %35 = load ptr, ptr %33, align 8, !tbaa !59
+  %36 = getelementptr %"class.gmx::Grid", ptr %35, i64 %34
+  br i1 %21, label %37, label %76
 
-44:                                               ; preds = %38
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %46 = load float, ptr %1, align 4, !tbaa !138
-  store float %46, ptr %45, align 4, !tbaa !138
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %48 = load float, ptr %47, align 4, !tbaa !138
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store float %48, ptr %49, align 8, !tbaa !138
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %51 = load float, ptr %50, align 4, !tbaa !138
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store float %51, ptr %52, align 4, !tbaa !138
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %55 = load float, ptr %53, align 4, !tbaa !138
-  store float %55, ptr %54, align 8, !tbaa !138
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %57 = load float, ptr %56, align 4, !tbaa !138
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store float %57, ptr %58, align 4, !tbaa !138
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %60 = load float, ptr %59, align 4, !tbaa !138
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store float %60, ptr %61, align 8, !tbaa !138
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %64 = load float, ptr %62, align 4, !tbaa !138
-  store float %64, ptr %63, align 4, !tbaa !138
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %66 = load float, ptr %65, align 4, !tbaa !138
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store float %66, ptr %67, align 8, !tbaa !138
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %69 = load float, ptr %68, align 4, !tbaa !138
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store float %69, ptr %70, align 4, !tbaa !138
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %39 = load float, ptr %1, align 4, !tbaa !138
+  store float %39, ptr %38, align 4, !tbaa !138
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %41 = load float, ptr %40, align 4, !tbaa !138
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store float %41, ptr %42, align 8, !tbaa !138
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %44 = load float, ptr %43, align 4, !tbaa !138
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store float %44, ptr %45, align 4, !tbaa !138
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %48 = load float, ptr %46, align 4, !tbaa !138
+  store float %48, ptr %47, align 8, !tbaa !138
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %50 = load float, ptr %49, align 4, !tbaa !138
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store float %50, ptr %51, align 4, !tbaa !138
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %53 = load float, ptr %52, align 4, !tbaa !138
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store float %53, ptr %54, align 8, !tbaa !138
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %57 = load float, ptr %55, align 4, !tbaa !138
+  store float %57, ptr %56, align 4, !tbaa !138
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %59 = load float, ptr %58, align 4, !tbaa !138
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store float %59, ptr %60, align 8, !tbaa !138
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %62 = load float, ptr %61, align 4, !tbaa !138
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  store float %62, ptr %63, align 4, !tbaa !138
   %.not57 = icmp eq ptr %5, null
-  br i1 %.not57, label %74, label %71
+  br i1 %.not57, label %67, label %64
 
-71:                                               ; preds = %44
-  %72 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %73 = load float, ptr %72, align 8, !tbaa !140
-  br label %74
+64:                                               ; preds = %37
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %66 = load float, ptr %65, align 8, !tbaa !139
+  br label %67
 
-74:                                               ; preds = %44, %71
-  %75 = phi float [ %73, %71 ], [ 0.000000e+00, %44 ]
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 %7, ptr %76, align 8, !tbaa !167
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %7, ptr %77, align 4, !tbaa !168
-  %78 = load ptr, ptr @debug, align 8, !tbaa !169
-  %.not58 = icmp eq ptr %78, null
-  br i1 %.not58, label %102, label %79
+67:                                               ; preds = %37, %64
+  %68 = phi float [ %66, %64 ], [ 0.000000e+00, %37 ]
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i32 %7, ptr %69, align 8, !tbaa !166
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  store i32 %7, ptr %70, align 4, !tbaa !167
+  %71 = load ptr, ptr @debug, align 8, !tbaa !168
+  %.not58 = icmp eq ptr %71, null
+  br i1 %.not58, label %88, label %72
 
-79:                                               ; preds = %74
-  %80 = sub nsw i32 %.sroa.4.0.extract.trunc, %.sroa.083.0.extract.trunc
-  %81 = fpext float %8 to double
-  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %78, ptr noundef nonnull @.str.4, i32 noundef %80, double noundef %81) #16
-  %.pre104 = load i8, ptr %32, align 4, !tbaa !139, !range !56
-  %.pre105 = trunc nuw i8 %.pre104 to i1
-  br label %102
+72:                                               ; preds = %67
+  %73 = sub nsw i32 %.sroa.4.0.extract.trunc, %.sroa.086.0.extract.trunc
+  %74 = fpext float %8 to double
+  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %71, ptr noundef nonnull @.str.4, i32 noundef %73, double noundef %74) #16
+  %.pre = load i8, ptr %22, align 4, !tbaa !170, !range !56
+  %.pre106 = trunc nuw i8 %.pre to i1
+  br label %88
 
-83:                                               ; preds = %.thread108, %38
-  %84 = phi ptr [ %29, %.thread108 ], [ %43, %38 ]
-  %85 = phi ptr [ %28, %.thread108 ], [ %42, %38 ]
-  %86 = phi ptr [ %26, %.thread108 ], [ %40, %38 ]
-  %87 = phi i32 [ %25, %.thread108 ], [ %39, %38 ]
-  %88 = phi i1 [ true, %.thread108 ], [ %33, %38 ]
-  %89 = phi ptr [ %24, %.thread108 ], [ %34, %38 ]
-  %90 = getelementptr i8, ptr %84, i64 -284
-  %91 = load i32, ptr %90, align 4, !tbaa !171
-  %92 = getelementptr i8, ptr %84, i64 -288
-  %93 = load i32, ptr %92, align 8, !tbaa !125
-  %94 = add nsw i32 %93, %91
-  %95 = getelementptr inbounds nuw i8, ptr %85, i64 64
-  %96 = load float, ptr %95, align 4, !tbaa !172
-  store float %96, ptr %14, align 4, !tbaa !138
-  %97 = getelementptr inbounds nuw i8, ptr %85, i64 68
-  %98 = load float, ptr %97, align 4, !tbaa !173
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %100 = load i32, ptr %99, align 4, !tbaa !14
-  %.sroa.speculated77 = tail call i32 @llvm.smax.i32(i32 %100, i32 %7)
-  store i32 %.sroa.speculated77, ptr %99, align 4, !tbaa !168
-  %101 = zext i32 %87 to i64
-  br label %102
+76:                                               ; preds = %31
+  %77 = getelementptr i8, ptr %36, i64 -284
+  %78 = load i32, ptr %77, align 4, !tbaa !171
+  %79 = getelementptr i8, ptr %36, i64 -288
+  %80 = load i32, ptr %79, align 8, !tbaa !125
+  %81 = add nsw i32 %80, %78
+  %82 = getelementptr inbounds nuw i8, ptr %35, i64 64
+  %83 = load float, ptr %82, align 4, !tbaa !172
+  store float %83, ptr %14, align 4, !tbaa !138
+  %84 = getelementptr inbounds nuw i8, ptr %35, i64 68
+  %85 = load float, ptr %84, align 4, !tbaa !173
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %87 = load i32, ptr %86, align 4, !tbaa !14
+  %.sroa.speculated80 = tail call i32 @llvm.smax.i32(i32 %87, i32 %7)
+  store i32 %.sroa.speculated80, ptr %86, align 4, !tbaa !167
+  br label %88
 
-102:                                              ; preds = %74, %79, %83
-  %103 = phi ptr [ %43, %74 ], [ %43, %79 ], [ %84, %83 ]
-  %104 = phi ptr [ %40, %74 ], [ %40, %79 ], [ %86, %83 ]
-  %wide.trip.count = phi i64 [ 1, %74 ], [ 1, %79 ], [ %101, %83 ]
-  %105 = phi ptr [ %34, %74 ], [ %34, %79 ], [ %89, %83 ]
-  %.pre-phi = phi i1 [ %33, %74 ], [ %.pre105, %79 ], [ %88, %83 ]
-  %.0.i93 = phi i32 [ 0, %74 ], [ 0, %79 ], [ %94, %83 ]
-  %.051 = phi float [ %75, %74 ], [ %75, %79 ], [ %98, %83 ]
-  %106 = select i1 %.pre-phi, i32 0, i32 %2
-  %107 = icmp eq i32 %106, 0
-  %108 = icmp sgt i32 %7, 0
-  %109 = and i1 %108, %107
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %113 = load ptr, ptr %10, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %115 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = ptrtoint ptr %116 to i64
-  %118 = ptrtoint ptr %113 to i64
-  %119 = sub i64 %117, %118
-  %120 = getelementptr inbounds nuw i8, ptr %113, i64 %119
-  br i1 %109, label %.split, label %.critedge.us.preheader
+88:                                               ; preds = %67, %72, %76
+  %.pre-phi = phi i1 [ %24, %67 ], [ %.pre106, %72 ], [ %24, %76 ]
+  %.0.i96 = phi i32 [ 0, %67 ], [ 0, %72 ], [ %81, %76 ]
+  %.051 = phi float [ %68, %67 ], [ %68, %72 ], [ %85, %76 ]
+  %89 = select i1 %.pre-phi, i32 0, i32 %2
+  %90 = icmp eq i32 %89, 0
+  %91 = icmp sgt i32 %7, 0
+  %92 = and i1 %91, %90
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %96 = load ptr, ptr %10, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = ptrtoint ptr %99 to i64
+  %101 = ptrtoint ptr %96 to i64
+  %102 = sub i64 %100, %101
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 %102
+  br i1 %92, label %.split, label %.critedge.us.preheader
 
-.critedge.us.preheader:                           ; preds = %102
-  %121 = load ptr, ptr %110, align 8, !tbaa !53
-  %122 = load ptr, ptr %111, align 8, !tbaa !55
-  %123 = ptrtoint ptr %122 to i64
-  %124 = ptrtoint ptr %121 to i64
-  %125 = sub i64 %123, %124
-  %126 = getelementptr inbounds nuw i8, ptr %121, i64 %125
-  store ptr %113, ptr %15, align 8, !tbaa !174
-  store ptr %120, ptr %114, align 8, !tbaa !174
-  %127 = call noundef float @_ZN3gmx21generateAndFill2DGridEPNS_4GridENS_8ArrayRefINS_8GridWorkEEEPSt6vectorIiNS_9AllocatorIiNS_20HostAllocationPolicyEEEEPKfSC_PKNS_15UpdateGroupsCogENS_5RangeIiEEiPffNS2_IKNS_11BasicVectorIfEEEEiPKib(ptr noundef nonnull %103, ptr %121, ptr %126, ptr noundef nonnull %112, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 %6, i32 noundef %7, ptr noundef nonnull %14, float noundef %.051, ptr noundef nonnull byval(%"class.gmx::ArrayRef.35") align 8 %15, i32 noundef %106, ptr noundef %11, i1 noundef zeroext false)
+.critedge.us.preheader:                           ; preds = %88
+  %104 = load ptr, ptr %93, align 8, !tbaa !53
+  %105 = load ptr, ptr %94, align 8, !tbaa !55
+  %106 = ptrtoint ptr %105 to i64
+  %107 = ptrtoint ptr %104 to i64
+  %108 = sub i64 %106, %107
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 %108
+  store ptr %96, ptr %15, align 8, !tbaa !174
+  store ptr %103, ptr %97, align 8, !tbaa !174
+  %110 = call noundef float @_ZN3gmx21generateAndFill2DGridEPNS_4GridENS_8ArrayRefINS_8GridWorkEEEPSt6vectorIiNS_9AllocatorIiNS_20HostAllocationPolicyEEEEPKfSC_PKNS_15UpdateGroupsCogENS_5RangeIiEEiPffNS2_IKNS_11BasicVectorIfEEEEiPKib(ptr noundef nonnull %36, ptr %104, ptr %109, ptr noundef nonnull %95, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 %6, i32 noundef %7, ptr noundef nonnull %14, float noundef %.051, ptr noundef nonnull byval(%"class.gmx::ArrayRef.35") align 8 %15, i32 noundef %89, ptr noundef %11, i1 noundef zeroext false)
   br label %.critedge7
 
-.split:                                           ; preds = %102, %.critedge
-  %.053 = phi i32 [ %144, %.critedge ], [ 0, %102 ]
-  %.052 = phi float [ %143, %.critedge ], [ 0.000000e+00, %102 ]
-  %128 = icmp eq i32 %.053, 0
-  br i1 %128, label %.critedge, label %129
+.split:                                           ; preds = %88, %.critedge
+  %.053 = phi i32 [ %127, %.critedge ], [ 0, %88 ]
+  %.052 = phi float [ %126, %.critedge ], [ 0.000000e+00, %88 ]
+  %111 = icmp eq i32 %.053, 0
+  br i1 %111, label %.critedge, label %112
 
-129:                                              ; preds = %.split
-  %130 = icmp eq i32 %.053, 1
-  %131 = fcmp ogt float %.052, 1.500000e+00
-  %132 = and i1 %130, %131
-  br i1 %132, label %133, label %.critedge7
+112:                                              ; preds = %.split
+  %113 = icmp eq i32 %.053, 1
+  %114 = fcmp ogt float %.052, 1.500000e+00
+  %115 = and i1 %113, %114
+  br i1 %115, label %116, label %.critedge7
 
-133:                                              ; preds = %129
-  %134 = call noundef float @powf(float noundef %.052, float noundef 1.250000e+00) #16, !tbaa !14
-  %135 = load float, ptr %14, align 4, !tbaa !138
-  %136 = fmul float %134, %135
-  store float %136, ptr %14, align 4, !tbaa !138
+116:                                              ; preds = %112
+  %117 = call noundef float @powf(float noundef %.052, float noundef 1.250000e+00) #16, !tbaa !14
+  %118 = load float, ptr %14, align 4, !tbaa !138
+  %119 = fmul float %117, %118
+  store float %119, ptr %14, align 4, !tbaa !138
   br label %.critedge
 
-.critedge:                                        ; preds = %.split, %133
-  %137 = load ptr, ptr %110, align 8, !tbaa !53
-  %138 = load ptr, ptr %111, align 8, !tbaa !55
-  %139 = ptrtoint ptr %138 to i64
-  %140 = ptrtoint ptr %137 to i64
-  %141 = sub i64 %139, %140
-  %142 = getelementptr inbounds nuw i8, ptr %137, i64 %141
-  store ptr %113, ptr %15, align 8, !tbaa !174
-  store ptr %120, ptr %114, align 8, !tbaa !174
-  %143 = call noundef float @_ZN3gmx21generateAndFill2DGridEPNS_4GridENS_8ArrayRefINS_8GridWorkEEEPSt6vectorIiNS_9AllocatorIiNS_20HostAllocationPolicyEEEEPKfSC_PKNS_15UpdateGroupsCogENS_5RangeIiEEiPffNS2_IKNS_11BasicVectorIfEEEEiPKib(ptr noundef nonnull %103, ptr %137, ptr %142, ptr noundef nonnull %112, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 %6, i32 noundef %7, ptr noundef nonnull %14, float noundef %.051, ptr noundef nonnull byval(%"class.gmx::ArrayRef.35") align 8 %15, i32 noundef 0, ptr noundef %11, i1 noundef zeroext %128)
-  %144 = add nuw nsw i32 %.053, 1
+.critedge:                                        ; preds = %.split, %116
+  %120 = load ptr, ptr %93, align 8, !tbaa !53
+  %121 = load ptr, ptr %94, align 8, !tbaa !55
+  %122 = ptrtoint ptr %121 to i64
+  %123 = ptrtoint ptr %120 to i64
+  %124 = sub i64 %122, %123
+  %125 = getelementptr inbounds nuw i8, ptr %120, i64 %124
+  store ptr %96, ptr %15, align 8, !tbaa !174
+  store ptr %103, ptr %97, align 8, !tbaa !174
+  %126 = call noundef float @_ZN3gmx21generateAndFill2DGridEPNS_4GridENS_8ArrayRefINS_8GridWorkEEEPSt6vectorIiNS_9AllocatorIiNS_20HostAllocationPolicyEEEEPKfSC_PKNS_15UpdateGroupsCogENS_5RangeIiEEiPffNS2_IKNS_11BasicVectorIfEEEEiPKib(ptr noundef nonnull %36, ptr %120, ptr %125, ptr noundef nonnull %95, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 %6, i32 noundef %7, ptr noundef nonnull %14, float noundef %.051, ptr noundef nonnull byval(%"class.gmx::ArrayRef.35") align 8 %15, i32 noundef 0, ptr noundef %11, i1 noundef zeroext %111)
+  %127 = add nuw nsw i32 %.053, 1
   br label %.split, !llvm.loop !176
 
-.critedge7:                                       ; preds = %129, %.critedge.us.preheader
-  %145 = load ptr, ptr %110, align 8, !tbaa !53
-  %146 = load ptr, ptr %111, align 8, !tbaa !55
-  %147 = ptrtoint ptr %146 to i64
-  %148 = ptrtoint ptr %145 to i64
-  %149 = sub i64 %147, %148
-  %150 = getelementptr inbounds nuw i8, ptr %145, i64 %149
-  %151 = load ptr, ptr %9, align 8, !tbaa !177
-  store ptr %151, ptr %16, align 8, !tbaa !177
-  %152 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %153 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %154 = load ptr, ptr %153, align 8, !tbaa !177
-  %155 = ptrtoint ptr %154 to i64
-  %156 = ptrtoint ptr %151 to i64
-  %157 = sub i64 %155, %156
-  %158 = getelementptr inbounds nuw i8, ptr %151, i64 %157
-  store ptr %158, ptr %152, align 8, !tbaa !177
-  store ptr %113, ptr %17, align 8, !tbaa !174
-  %159 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %120, ptr %159, align 8, !tbaa !174
-  call void @_ZN3gmx4Grid14setCellIndicesEiiPNS_11GridSetDataENS_8ArrayRefINS_8GridWorkEEENS_5RangeIiEENS3_IKiEENS3_IKNS_11BasicVectorIfEEEEPNS_16nbnxn_atomdata_tE(ptr noundef nonnull align 8 dereferenceable(380) %103, i32 noundef %106, i32 noundef %.0.i93, ptr noundef nonnull %112, ptr %145, ptr %150, i64 %6, ptr noundef nonnull byval(%"class.gmx::ArrayRef.32") align 8 %16, ptr noundef nonnull byval(%"class.gmx::ArrayRef.35") align 8 %17, ptr noundef %12)
-  %160 = load i32, ptr %105, align 8, !tbaa !62
-  %161 = add nsw i32 %160, -1
-  %162 = icmp eq i32 %2, %161
-  br i1 %162, label %163, label %164
+.critedge7:                                       ; preds = %112, %.critedge.us.preheader
+  %128 = load ptr, ptr %93, align 8, !tbaa !53
+  %129 = load ptr, ptr %94, align 8, !tbaa !55
+  %130 = ptrtoint ptr %129 to i64
+  %131 = ptrtoint ptr %128 to i64
+  %132 = sub i64 %130, %131
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 %132
+  %134 = load ptr, ptr %9, align 8, !tbaa !177
+  store ptr %134, ptr %16, align 8, !tbaa !177
+  %135 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %137 = load ptr, ptr %136, align 8, !tbaa !177
+  %138 = ptrtoint ptr %137 to i64
+  %139 = ptrtoint ptr %134 to i64
+  %140 = sub i64 %138, %139
+  %141 = getelementptr inbounds nuw i8, ptr %134, i64 %140
+  store ptr %141, ptr %135, align 8, !tbaa !177
+  store ptr %96, ptr %17, align 8, !tbaa !174
+  %142 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %103, ptr %142, align 8, !tbaa !174
+  call void @_ZN3gmx4Grid14setCellIndicesEiiPNS_11GridSetDataENS_8ArrayRefINS_8GridWorkEEENS_5RangeIiEENS3_IKiEENS3_IKNS_11BasicVectorIfEEEEPNS_16nbnxn_atomdata_tE(ptr noundef nonnull align 8 dereferenceable(380) %36, i32 noundef %89, i32 noundef %.0.i96, ptr noundef nonnull %95, ptr %128, ptr %133, i64 %6, ptr noundef nonnull byval(%"class.gmx::ArrayRef.32") align 8 %16, ptr noundef nonnull byval(%"class.gmx::ArrayRef.35") align 8 %17, ptr noundef %12)
+  %143 = load i32, ptr %27, align 8, !tbaa !62
+  %144 = add nsw i32 %143, -1
+  %145 = icmp eq i32 %2, %144
+  br i1 %145, label %146, label %147
 
-163:                                              ; preds = %.critedge7
+146:                                              ; preds = %.critedge7
   call void @_ZN3gmx16nbnxn_atomdata_t18resizeForceBuffersEv(ptr noundef nonnull align 8 dereferenceable(464) %12)
-  br label %164
+  br label %147
 
-164:                                              ; preds = %163, %.critedge7
-  %.not5996 = icmp slt i32 %2, 0
-  br i1 %.not5996, label %._crit_edge, label %.lr.ph
+147:                                              ; preds = %146, %.critedge7
+  %.not5999 = icmp slt i32 %2, 0
+  br i1 %.not5999, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %164
-  %165 = load ptr, ptr %104, align 8, !tbaa !59
-  br label %167
+.lr.ph:                                           ; preds = %147
+  %148 = load ptr, ptr %33, align 8, !tbaa !59
+  %wide.trip.count = zext i32 %32 to i64
+  br label %150
 
-._crit_edge:                                      ; preds = %167, %164
-  %.091.lcssa = phi i32 [ 0, %164 ], [ %.sroa.speculated, %167 ]
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i32 %.091.lcssa, ptr %166, align 8, !tbaa !179
+._crit_edge:                                      ; preds = %150, %147
+  %.094.lcssa = phi i32 [ 0, %147 ], [ %.sroa.speculated, %150 ]
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i32 %.094.lcssa, ptr %149, align 8, !tbaa !179
   ret void
 
-167:                                              ; preds = %.lr.ph, %167
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %167 ]
-  %.09197 = phi i32 [ 0, %.lr.ph ], [ %.sroa.speculated, %167 ]
-  %168 = getelementptr inbounds nuw %"class.gmx::Grid", ptr %165, i64 %indvars.iv
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 88
-  %170 = load i32, ptr %169, align 4, !tbaa !14
-  %171 = getelementptr inbounds nuw i8, ptr %168, i64 92
-  %172 = load i32, ptr %171, align 4, !tbaa !14
-  %173 = mul nsw i32 %172, %170
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.09197, i32 %173)
+150:                                              ; preds = %.lr.ph, %150
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %150 ]
+  %.094100 = phi i32 [ 0, %.lr.ph ], [ %.sroa.speculated, %150 ]
+  %151 = getelementptr inbounds nuw %"class.gmx::Grid", ptr %148, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 88
+  %153 = load i32, ptr %152, align 4, !tbaa !14
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 92
+  %155 = load i32, ptr %154, align 4, !tbaa !14
+  %156 = mul nsw i32 %155, %153
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.094100, i32 %156)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %167, !llvm.loop !180
+  br i1 %exitcond.not, label %._crit_edge, label %150, !llvm.loop !180
 }
 
 ; Function Attrs: nofree nounwind
@@ -2158,43 +2134,43 @@ attributes #25 = { noreturn nounwind }
 !136 = distinct !{!136, !134, !"_ZSt19__relocate_object_aIiiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEEvPT_PT0_RT1_: argument 1"}
 !137 = distinct !{!137, !20}
 !138 = !{!102, !102, i64 0}
-!139 = !{!29, !9, i64 4}
-!140 = !{!141, !102, i64 96}
-!141 = !{!"_ZTSN3gmx15UpdateGroupsCogE", !142, i64 0, !146, i64 24, !142, i64 48, !151, i64 72, !102, i64 96, !156, i64 104, !157, i64 112, !162, i64 136}
-!142 = !{!"_ZTSSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE", !143, i64 0}
-!143 = !{!"_ZTSSt12_Vector_baseIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE", !144, i64 0}
-!144 = !{!"_ZTSNSt12_Vector_baseIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE12_Vector_implE", !145, i64 0}
-!145 = !{!"_ZTSNSt12_Vector_baseIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE17_Vector_impl_dataE", !27, i64 0, !27, i64 8, !27, i64 16}
-!146 = !{!"_ZTSSt6vectorIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE", !147, i64 0}
-!147 = !{!"_ZTSSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE", !148, i64 0}
-!148 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE12_Vector_implE", !149, i64 0}
-!149 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE17_Vector_impl_dataE", !150, i64 0, !150, i64 8, !150, i64 16}
-!150 = !{!"p1 _ZTSN3gmx11BasicVectorIfEE", !12, i64 0}
-!151 = !{!"_ZTSSt6vectorIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE", !152, i64 0}
-!152 = !{!"_ZTSSt12_Vector_baseIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE", !153, i64 0}
-!153 = !{!"_ZTSNSt12_Vector_baseIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE12_Vector_implE", !154, i64 0}
-!154 = !{!"_ZTSNSt12_Vector_baseIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE17_Vector_impl_dataE", !155, i64 0, !155, i64 8, !155, i64 16}
-!155 = !{!"p1 _ZTSN3gmx15UpdateGroupsCog12IndexToGroupE", !12, i64 0}
-!156 = !{!"p1 _ZTS10gmx_mtop_t", !12, i64 0}
-!157 = !{!"_ZTSSt6vectorIS_IbSaIbEESaIS1_EE", !158, i64 0}
-!158 = !{!"_ZTSSt12_Vector_baseISt6vectorIbSaIbEESaIS2_EE", !159, i64 0}
-!159 = !{!"_ZTSNSt12_Vector_baseISt6vectorIbSaIbEESaIS2_EE12_Vector_implE", !160, i64 0}
-!160 = !{!"_ZTSNSt12_Vector_baseISt6vectorIbSaIbEESaIS2_EE17_Vector_impl_dataE", !161, i64 0, !161, i64 8, !161, i64 16}
-!161 = !{!"p1 _ZTSSt6vectorIbSaIbEE", !12, i64 0}
-!162 = !{!"_ZTSSt6vectorIN3gmx15UpdateGroupsCog10ThreadDataESaIS2_EE", !163, i64 0}
-!163 = !{!"_ZTSSt12_Vector_baseIN3gmx15UpdateGroupsCog10ThreadDataESaIS2_EE", !164, i64 0}
-!164 = !{!"_ZTSNSt12_Vector_baseIN3gmx15UpdateGroupsCog10ThreadDataESaIS2_EE12_Vector_implE", !165, i64 0}
-!165 = !{!"_ZTSNSt12_Vector_baseIN3gmx15UpdateGroupsCog10ThreadDataESaIS2_EE17_Vector_impl_dataE", !166, i64 0, !166, i64 8, !166, i64 16}
-!166 = !{!"p1 _ZTSN3gmx15UpdateGroupsCog10ThreadDataE", !12, i64 0}
-!167 = !{!29, !15, i64 168}
-!168 = !{!29, !15, i64 172}
-!169 = !{!170, !170, i64 0}
-!170 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!139 = !{!140, !102, i64 96}
+!140 = !{!"_ZTSN3gmx15UpdateGroupsCogE", !141, i64 0, !145, i64 24, !141, i64 48, !150, i64 72, !102, i64 96, !155, i64 104, !156, i64 112, !161, i64 136}
+!141 = !{!"_ZTSSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE", !142, i64 0}
+!142 = !{!"_ZTSSt12_Vector_baseIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE", !143, i64 0}
+!143 = !{!"_ZTSNSt12_Vector_baseIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE12_Vector_implE", !144, i64 0}
+!144 = !{!"_ZTSNSt12_Vector_baseIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE17_Vector_impl_dataE", !27, i64 0, !27, i64 8, !27, i64 16}
+!145 = !{!"_ZTSSt6vectorIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE", !146, i64 0}
+!146 = !{!"_ZTSSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE", !147, i64 0}
+!147 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE12_Vector_implE", !148, i64 0}
+!148 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE17_Vector_impl_dataE", !149, i64 0, !149, i64 8, !149, i64 16}
+!149 = !{!"p1 _ZTSN3gmx11BasicVectorIfEE", !12, i64 0}
+!150 = !{!"_ZTSSt6vectorIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE", !151, i64 0}
+!151 = !{!"_ZTSSt12_Vector_baseIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE", !152, i64 0}
+!152 = !{!"_ZTSNSt12_Vector_baseIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE12_Vector_implE", !153, i64 0}
+!153 = !{!"_ZTSNSt12_Vector_baseIN3gmx15UpdateGroupsCog12IndexToGroupESaIS2_EE17_Vector_impl_dataE", !154, i64 0, !154, i64 8, !154, i64 16}
+!154 = !{!"p1 _ZTSN3gmx15UpdateGroupsCog12IndexToGroupE", !12, i64 0}
+!155 = !{!"p1 _ZTS10gmx_mtop_t", !12, i64 0}
+!156 = !{!"_ZTSSt6vectorIS_IbSaIbEESaIS1_EE", !157, i64 0}
+!157 = !{!"_ZTSSt12_Vector_baseISt6vectorIbSaIbEESaIS2_EE", !158, i64 0}
+!158 = !{!"_ZTSNSt12_Vector_baseISt6vectorIbSaIbEESaIS2_EE12_Vector_implE", !159, i64 0}
+!159 = !{!"_ZTSNSt12_Vector_baseISt6vectorIbSaIbEESaIS2_EE17_Vector_impl_dataE", !160, i64 0, !160, i64 8, !160, i64 16}
+!160 = !{!"p1 _ZTSSt6vectorIbSaIbEE", !12, i64 0}
+!161 = !{!"_ZTSSt6vectorIN3gmx15UpdateGroupsCog10ThreadDataESaIS2_EE", !162, i64 0}
+!162 = !{!"_ZTSSt12_Vector_baseIN3gmx15UpdateGroupsCog10ThreadDataESaIS2_EE", !163, i64 0}
+!163 = !{!"_ZTSNSt12_Vector_baseIN3gmx15UpdateGroupsCog10ThreadDataESaIS2_EE12_Vector_implE", !164, i64 0}
+!164 = !{!"_ZTSNSt12_Vector_baseIN3gmx15UpdateGroupsCog10ThreadDataESaIS2_EE17_Vector_impl_dataE", !165, i64 0, !165, i64 8, !165, i64 16}
+!165 = !{!"p1 _ZTSN3gmx15UpdateGroupsCog10ThreadDataE", !12, i64 0}
+!166 = !{!29, !15, i64 168}
+!167 = !{!29, !15, i64 172}
+!168 = !{!169, !169, i64 0}
+!169 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!170 = !{!29, !9, i64 4}
 !171 = !{!98, !15, i64 100}
 !172 = !{!100, !102, i64 36}
 !173 = !{!100, !102, i64 40}
-!174 = !{!175, !150, i64 0}
-!175 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_11BasicVectorIfEEEE", !150, i64 0}
+!174 = !{!175, !149, i64 0}
+!175 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_11BasicVectorIfEEEE", !149, i64 0}
 !176 = distinct !{!176, !20}
 !177 = !{!178, !27, i64 0}
 !178 = !{!"_ZTSN3gmx12ArrayRefIterIKiEE", !27, i64 0}

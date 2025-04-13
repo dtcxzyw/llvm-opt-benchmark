@@ -411,10 +411,10 @@ define noundef zeroext i1 @_ZNK8triggers9trigger_t12common_matchEP11processor_tb
   %.in.v = select i1 %2, i64 1088, i64 1080
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in.v
   %4 = load i64, ptr %.in, align 8, !tbaa !16
-  %.in34.in.v = select i1 %2, i64 1099, i64 1098
-  %.in34.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in34.in.v
-  %.in34 = load i8, ptr %.in34.in, align 1, !tbaa !146, !range !14, !noundef !15
-  %5 = trunc nuw i8 %.in34 to i1
+  %.in49.in.v = select i1 %2, i64 1099, i64 1098
+  %.in49.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in49.in.v
+  %.in49 = load i8, ptr %.in49.in, align 1, !tbaa !146, !range !14, !noundef !15
+  %5 = trunc nuw i8 %.in49 to i1
   switch i64 %4, label %8 [
     i64 3, label %_ZNK8triggers9trigger_t10mode_matchEmb.exit
     i64 1, label %6
@@ -448,11 +448,11 @@ _ZNK8triggers9trigger_t10mode_matchEmb.exit:      ; preds = %3, %6, %7
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load ptr, ptr %13, align 8
   %15 = invoke noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(44) %0)
-          to label %16 unwind label %73
+          to label %16 unwind label %77
 
 16:                                               ; preds = %11
   %17 = icmp eq i32 %15, 0
-  br i1 %17, label %18, label %72
+  br i1 %17, label %18, label %76
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 1104
@@ -461,93 +461,93 @@ _ZNK8triggers9trigger_t10mode_matchEmb.exit:      ; preds = %3, %6, %7
   %.sink.i.i = load i64, ptr %21, align 8, !tbaa !16
   %22 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %22, 0
-  br i1 %.0.i.i.not, label %63, label %23
+  br i1 %.0.i.i.not, label %67, label %23
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1120
   %25 = load ptr, ptr %24, align 8, !tbaa !149
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = load i64, ptr %26, align 8, !tbaa !150
-  %28 = icmp eq i64 %4, 3
-  %29 = and i64 %27, 8
-  %.not35 = icmp eq i64 %29, 0
-  %or.cond = and i1 %28, %.not35
-  br i1 %or.cond, label %.critedge, label %30
+  %28 = and i64 %27, 8
+  %29 = icmp ne i64 %28, 0
+  %30 = icmp ne i64 %4, 3
+  %or.cond = or i1 %30, %29
+  br i1 %or.cond, label %31, label %.critedge
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 2176
-  %32 = load ptr, ptr %31, align 8, !tbaa !155
-  %33 = load ptr, ptr %32, align 8, !tbaa !147
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(72) %32) #22
-  %37 = and i64 %36, 2
-  %.not36 = icmp ne i64 %37, 0
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 1280
-  %39 = load ptr, ptr %38, align 8, !tbaa !156
-  %40 = load ptr, ptr %39, align 8, !tbaa !147
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(37) %39) #22
-  %44 = and i64 %43, 8
-  %.not37 = icmp eq i64 %44, 0
-  %45 = icmp ne i64 %4, 1
-  %46 = or i1 %.not36, %.not37
-  %47 = or i1 %46, %5
-  %brmerge42 = or i1 %45, %47
-  br i1 %brmerge42, label %48, label %.critedge
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 2176
+  %33 = load ptr, ptr %32, align 8, !tbaa !155
+  %34 = load ptr, ptr %33, align 8, !tbaa !147
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(72) %33) #22
+  %38 = and i64 %37, 2
+  %39 = icmp ne i64 %38, 0
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 1280
+  %41 = load ptr, ptr %40, align 8, !tbaa !156
+  %42 = load ptr, ptr %41, align 8, !tbaa !147
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(37) %41) #22
+  %46 = and i64 %45, 8
+  %.not51 = icmp eq i64 %46, 0
+  %47 = icmp ne i64 %4, 1
+  %48 = or i1 %47, %.not51
+  %49 = or i1 %39, %48
+  %or.cond7 = or i1 %49, %5
+  br i1 %or.cond7, label %50, label %.critedge
 
-48:                                               ; preds = %30
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 2192
-  %50 = load ptr, ptr %49, align 8, !tbaa !157
-  %51 = tail call noundef i64 @_ZNK14vsstatus_csr_t4readEv(ptr noundef nonnull align 8 dereferenceable(64) %50) #22
-  %52 = and i64 %51, 2
-  %.not38 = icmp ne i64 %52, 0
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 2080
-  %54 = load ptr, ptr %53, align 8, !tbaa !156
-  %55 = load ptr, ptr %54, align 8, !tbaa !147
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call noundef i64 %57(ptr noundef nonnull align 8 dereferenceable(37) %54) #22
-  %.not44 = xor i1 %5, true
-  %59 = and i64 %44, %58
-  %60 = icmp eq i64 %59, 0
-  %61 = or i1 %60, %.not44
-  %62 = or i1 %.not38, %61
-  %brmerge48 = or i1 %45, %62
-  br i1 %brmerge48, label %72, label %.critedge
+50:                                               ; preds = %31
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 2192
+  %52 = load ptr, ptr %51, align 8, !tbaa !157
+  %53 = tail call noundef i64 @_ZNK14vsstatus_csr_t4readEv(ptr noundef nonnull align 8 dereferenceable(64) %52) #22
+  %54 = and i64 %53, 2
+  %55 = icmp eq i64 %54, 0
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 2080
+  %57 = load ptr, ptr %56, align 8, !tbaa !156
+  %58 = load ptr, ptr %57, align 8, !tbaa !147
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call noundef i64 %60(ptr noundef nonnull align 8 dereferenceable(37) %57) #22
+  %62 = icmp eq i64 %4, 1
+  %63 = and i64 %46, %61
+  %64 = icmp ne i64 %63, 0
+  %65 = and i1 %62, %64
+  %66 = and i1 %55, %65
+  %or.cond15.not = and i1 %66, %5
+  br i1 %or.cond15.not, label %.critedge, label %76
 
-63:                                               ; preds = %18
-  %64 = icmp eq i64 %4, 3
-  br i1 %64, label %65, label %72
+67:                                               ; preds = %18
+  %68 = icmp eq i64 %4, 3
+  br i1 %68, label %69, label %76
 
-65:                                               ; preds = %63
-  %66 = getelementptr i8, ptr %1, i64 2352
-  %.val = load ptr, ptr %66, align 8, !tbaa !156
+69:                                               ; preds = %67
+  %70 = getelementptr i8, ptr %1, i64 2352
+  %.val = load ptr, ptr %70, align 8, !tbaa !156
   %.not.i = icmp eq ptr %.val, null
   br i1 %.not.i, label %.critedge, label %_ZN8triggersL14tcontrol_valueEPK7state_t.exit
 
-_ZN8triggersL14tcontrol_valueEPK7state_t.exit:    ; preds = %65
-  %67 = load ptr, ptr %.val, align 8, !tbaa !147
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef i64 %69(ptr noundef nonnull align 8 dereferenceable(37) %.val) #22
-  %71 = and i64 %70, 8
-  %.not = icmp eq i64 %71, 0
-  br i1 %.not, label %.critedge, label %72
+_ZN8triggersL14tcontrol_valueEPK7state_t.exit:    ; preds = %69
+  %71 = load ptr, ptr %.val, align 8, !tbaa !147
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call noundef i64 %73(ptr noundef nonnull align 8 dereferenceable(37) %.val) #22
+  %75 = and i64 %74, 8
+  %.not = icmp eq i64 %75, 0
+  br i1 %.not, label %.critedge, label %76
 
-72:                                               ; preds = %48, %_ZN8triggersL14tcontrol_valueEPK7state_t.exit, %63, %16
+76:                                               ; preds = %50, %_ZN8triggersL14tcontrol_valueEPK7state_t.exit, %67, %16
   br label %.critedge
 
-.critedge:                                        ; preds = %65, %23, %30, %48, %_ZN8triggersL14tcontrol_valueEPK7state_t.exit, %9, %_ZNK8triggers9trigger_t10mode_matchEmb.exit, %72
-  %.0 = phi i1 [ true, %72 ], [ false, %_ZNK8triggers9trigger_t10mode_matchEmb.exit ], [ false, %9 ], [ false, %_ZN8triggersL14tcontrol_valueEPK7state_t.exit ], [ false, %48 ], [ false, %30 ], [ false, %23 ], [ false, %65 ]
+.critedge:                                        ; preds = %69, %23, %31, %_ZN8triggersL14tcontrol_valueEPK7state_t.exit, %9, %_ZNK8triggers9trigger_t10mode_matchEmb.exit, %50, %76
+  %.0 = phi i1 [ true, %76 ], [ false, %50 ], [ false, %_ZNK8triggers9trigger_t10mode_matchEmb.exit ], [ false, %9 ], [ false, %_ZN8triggersL14tcontrol_valueEPK7state_t.exit ], [ false, %31 ], [ false, %23 ], [ false, %69 ]
   ret i1 %.0
 
-73:                                               ; preds = %11
-  %74 = landingpad { ptr, i32 }
+77:                                               ; preds = %11
+  %78 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  tail call void @__clang_call_terminate(ptr %75) #21
+  %79 = extractvalue { ptr, i32 } %78, 0
+  tail call void @__clang_call_terminate(ptr %79) #21
   unreachable
 }
 
@@ -1205,162 +1205,161 @@ _ZL3ctom.exit:                                    ; preds = %_ZL3ctom.exit.loope
 
 ; Function Attrs: mustprogress nounwind uwtable
 define { i64, i8 } @_ZN8triggers17mcontrol_common_t26detect_memory_access_matchEP11processor_tNS_11operation_tEmSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(63) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3, i64 %4, i8 %5) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %19 [
-    i32 0, label %7
-    i32 1, label %11
-    i32 2, label %15
-  ]
-
-7:                                                ; preds = %6
+  %7 = icmp ne i32 %2, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %9 = load i8, ptr %8, align 4, !tbaa !178, !range !14, !noundef !15
+  %9 = load i8, ptr %8, align 4, !range !14
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %19, label %80
+  %or.cond = select i1 %7, i1 true, i1 %10
+  br i1 %or.cond, label %11, label %82
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 61
-  %13 = load i8, ptr %12, align 1, !tbaa !179, !range !14, !noundef !15
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %19, label %80
+  %12 = icmp ne i32 %2, 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 61
+  %14 = load i8, ptr %13, align 1, !range !14
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond14 = select i1 %12, i1 true, i1 %15
+  br i1 %or.cond14, label %16, label %82
 
-15:                                               ; preds = %6
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  %17 = load i8, ptr %16, align 2, !tbaa !180, !range !14, !noundef !15
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %80
+16:                                               ; preds = %11
+  %17 = icmp ne i32 %2, 2
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 62
+  %19 = load i8, ptr %18, align 2, !range !14
+  %20 = trunc nuw i8 %19 to i1
+  %or.cond17 = select i1 %17, i1 true, i1 %20
+  br i1 %or.cond17, label %21, label %82
 
-19:                                               ; preds = %11, %7, %6, %15
-  %20 = tail call noundef zeroext i1 @_ZNK8triggers9trigger_t12common_matchEP11processor_tb(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, i1 noundef zeroext false) #22
-  br i1 %20, label %21, label %80
+21:                                               ; preds = %16
+  %22 = tail call noundef zeroext i1 @_ZNK8triggers9trigger_t12common_matchEP11processor_tb(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, i1 noundef zeroext false) #22
+  br i1 %22, label %23, label %82
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %23 = load i8, ptr %22, align 4, !tbaa !170, !range !14, !noundef !15
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %25, label %27
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %25 = load i8, ptr %24, align 4, !tbaa !170, !range !14, !noundef !15
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %27, label %29
 
-25:                                               ; preds = %21
-  %26 = trunc nuw i8 %5 to i1
-  br i1 %26, label %27, label %80
+27:                                               ; preds = %23
+  %28 = trunc nuw i8 %5 to i1
+  br i1 %28, label %29, label %82
 
-27:                                               ; preds = %25, %21
-  %.0 = phi i64 [ %3, %21 ], [ %4, %25 ]
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 3964
-  %29 = load i32, ptr %28, align 4, !tbaa !17
-  %30 = icmp eq i32 %29, 32
-  %31 = and i64 %.0, 4294967295
-  %spec.select = select i1 %30, i64 %31, i64 %.0
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %33 = load i32, ptr %32, align 8, !tbaa !174
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !3
-  switch i32 %33, label %66 [
+29:                                               ; preds = %27, %23
+  %.0 = phi i64 [ %3, %23 ], [ %4, %27 ]
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 3964
+  %31 = load i32, ptr %30, align 4, !tbaa !17
+  %32 = icmp eq i32 %31, 32
+  %33 = and i64 %.0, 4294967295
+  %spec.select = select i1 %32, i64 %33, i64 %.0
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %35 = load i32, ptr %34, align 8, !tbaa !174
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !3
+  switch i32 %35, label %68 [
     i32 0, label %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit
-    i32 1, label %36
-    i32 2, label %46
-    i32 3, label %47
-    i32 4, label %49
-    i32 5, label %58
+    i32 1, label %38
+    i32 2, label %48
+    i32 3, label %49
+    i32 4, label %51
+    i32 5, label %60
   ]
 
-36:                                               ; preds = %27
-  %37 = and i64 %35, 1
-  %.not5.i.i = icmp eq i64 %37, 0
+38:                                               ; preds = %29
+  %39 = and i64 %37, 1
+  %.not5.i.i = icmp eq i64 %39, 0
   br i1 %.not5.i.i, label %_ZL3ctom.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %36, %.lr.ph.i.i
-  %.07.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %36 ]
-  %.046.i.i = phi i64 [ %38, %.lr.ph.i.i ], [ %35, %36 ]
-  %38 = lshr i64 %.046.i.i, 1
-  %39 = add nuw nsw i32 %.07.i.i, 1
-  %40 = and i64 %.046.i.i, 2
-  %.not.i.i = icmp eq i64 %40, 0
+.lr.ph.i.i:                                       ; preds = %38, %.lr.ph.i.i
+  %.07.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ 0, %38 ]
+  %.046.i.i = phi i64 [ %40, %.lr.ph.i.i ], [ %37, %38 ]
+  %40 = lshr i64 %.046.i.i, 1
+  %41 = add nuw nsw i32 %.07.i.i, 1
+  %42 = and i64 %.046.i.i, 2
+  %.not.i.i = icmp eq i64 %42, 0
   br i1 %.not.i.i, label %_ZL3ctom.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !181
 
 _ZL3ctom.exit.loopexit.i:                         ; preds = %.lr.ph.i.i
-  %41 = add nuw nsw i32 %.07.i.i, 2
+  %43 = add nuw nsw i32 %.07.i.i, 2
   br label %_ZL3ctom.exit.i
 
-_ZL3ctom.exit.i:                                  ; preds = %_ZL3ctom.exit.loopexit.i, %36
-  %.0.lcssa.i.i = phi i32 [ 1, %36 ], [ %41, %_ZL3ctom.exit.loopexit.i ]
+_ZL3ctom.exit.i:                                  ; preds = %_ZL3ctom.exit.loopexit.i, %38
+  %.0.lcssa.i.i = phi i32 [ 1, %38 ], [ %43, %_ZL3ctom.exit.loopexit.i ]
   %notmask22.i = shl nsw i32 -1, %.0.lcssa.i.i
-  %42 = sext i32 %notmask22.i to i64
-  %43 = xor i64 %35, %spec.select
-  %44 = and i64 %43, %42
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %68, label %80
+  %44 = sext i32 %notmask22.i to i64
+  %45 = xor i64 %37, %spec.select
+  %46 = and i64 %45, %44
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %70, label %82
 
-46:                                               ; preds = %27
-  %.not = icmp ult i64 %spec.select, %35
-  br i1 %.not, label %80, label %68
+48:                                               ; preds = %29
+  %.not = icmp ult i64 %spec.select, %37
+  br i1 %.not, label %82, label %70
 
-47:                                               ; preds = %27
-  %48 = icmp ult i64 %spec.select, %35
-  br i1 %48, label %68, label %80
+49:                                               ; preds = %29
+  %50 = icmp ult i64 %spec.select, %37
+  br i1 %50, label %70, label %82
 
-49:                                               ; preds = %27
-  %50 = lshr i32 %29, 1
-  %51 = zext nneg i32 %50 to i64
-  %52 = lshr i64 %35, %51
-  %notmask21.i = shl nsw i64 -1, %51
-  %53 = xor i64 %notmask21.i, -1
-  %54 = and i64 %35, %53
-  %55 = and i64 %52, %53
-  %56 = and i64 %55, %spec.select
-  %57 = icmp eq i64 %56, %54
-  br i1 %57, label %68, label %80
+51:                                               ; preds = %29
+  %52 = lshr i32 %31, 1
+  %53 = zext nneg i32 %52 to i64
+  %54 = lshr i64 %37, %53
+  %notmask21.i = shl nsw i64 -1, %53
+  %55 = xor i64 %notmask21.i, -1
+  %56 = and i64 %37, %55
+  %57 = and i64 %54, %55
+  %58 = and i64 %57, %spec.select
+  %59 = icmp eq i64 %58, %56
+  br i1 %59, label %70, label %82
 
-58:                                               ; preds = %27
-  %59 = lshr i32 %29, 1
-  %60 = zext nneg i32 %59 to i64
-  %notmask.i = shl nsw i64 -1, %60
-  %61 = xor i64 %notmask.i, -1
-  %62 = and i64 %35, %61
-  %63 = and i64 %35, %spec.select
-  %64 = lshr i64 %63, %60
-  %65 = icmp eq i64 %64, %62
-  br i1 %65, label %68, label %80
+60:                                               ; preds = %29
+  %61 = lshr i32 %31, 1
+  %62 = zext nneg i32 %61 to i64
+  %notmask.i = shl nsw i64 -1, %62
+  %63 = xor i64 %notmask.i, -1
+  %64 = and i64 %37, %63
+  %65 = and i64 %37, %spec.select
+  %66 = lshr i64 %65, %62
+  %67 = icmp eq i64 %66, %64
+  br i1 %67, label %70, label %82
 
-66:                                               ; preds = %27
+68:                                               ; preds = %29
   unreachable
 
-_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit: ; preds = %27
-  %67 = icmp eq i64 %spec.select, %35
-  br i1 %67, label %68, label %80
+_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit: ; preds = %29
+  %69 = icmp eq i64 %spec.select, %37
+  br i1 %69, label %70, label %82
 
-68:                                               ; preds = %_ZL3ctom.exit.i, %46, %47, %49, %58, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 53
-  %70 = load i8, ptr %69, align 1, !tbaa !171, !range !14, !noundef !15
-  %71 = trunc nuw i8 %70 to i1
-  %72 = select i1 %71, i32 3, i32 1
-  %73 = load ptr, ptr %0, align 8, !tbaa !147
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 128
-  %75 = load ptr, ptr %74, align 8
-  invoke void %75(ptr noundef nonnull align 8 dereferenceable(63) %0, i32 noundef %72)
-          to label %76 unwind label %81
+70:                                               ; preds = %_ZL3ctom.exit.i, %48, %49, %51, %60, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 53
+  %72 = load i8, ptr %71, align 1, !tbaa !171, !range !14, !noundef !15
+  %73 = trunc nuw i8 %72 to i1
+  %74 = select i1 %73, i32 3, i32 1
+  %75 = load ptr, ptr %0, align 8, !tbaa !147
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 128
+  %77 = load ptr, ptr %76, align 8
+  invoke void %77(ptr noundef nonnull align 8 dereferenceable(63) %0, i32 noundef %74)
+          to label %78 unwind label %83
 
-76:                                               ; preds = %68
-  %77 = load i8, ptr %69, align 1, !tbaa !171, !range !14, !noundef !15
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %79 = load i32, ptr %78, align 8, !tbaa !172
-  %.sroa.4.0.insert.ext = zext i32 %79 to i64
+78:                                               ; preds = %70
+  %79 = load i8, ptr %71, align 1, !tbaa !171, !range !14, !noundef !15
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %81 = load i32, ptr %80, align 8, !tbaa !172
+  %.sroa.4.0.insert.ext = zext i32 %81 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext nneg i8 %77 to i64
+  %.sroa.0.0.insert.ext = zext nneg i8 %79 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0.0.insert.ext
-  br label %80
+  br label %82
 
-80:                                               ; preds = %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit, %58, %49, %47, %46, %_ZL3ctom.exit.i, %25, %7, %11, %15, %19, %76
-  %.sroa.011.0 = phi i64 [ %.sroa.0.0.insert.insert, %76 ], [ undef, %19 ], [ undef, %15 ], [ undef, %11 ], [ undef, %7 ], [ undef, %25 ], [ undef, %_ZL3ctom.exit.i ], [ undef, %46 ], [ undef, %47 ], [ undef, %49 ], [ undef, %58 ], [ undef, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit ]
-  %.sroa.212.0 = phi i8 [ 1, %76 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %7 ], [ 0, %25 ], [ 0, %_ZL3ctom.exit.i ], [ 0, %46 ], [ 0, %47 ], [ 0, %49 ], [ 0, %58 ], [ 0, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.011.0, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.212.0, 1
+82:                                               ; preds = %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit, %60, %51, %49, %48, %_ZL3ctom.exit.i, %27, %21, %6, %11, %16, %78
+  %.sroa.019.0 = phi i64 [ %.sroa.0.0.insert.insert, %78 ], [ undef, %16 ], [ undef, %11 ], [ undef, %6 ], [ undef, %21 ], [ undef, %27 ], [ undef, %_ZL3ctom.exit.i ], [ undef, %48 ], [ undef, %49 ], [ undef, %51 ], [ undef, %60 ], [ undef, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit ]
+  %.sroa.220.0 = phi i8 [ 1, %78 ], [ 0, %16 ], [ 0, %11 ], [ 0, %6 ], [ 0, %21 ], [ 0, %27 ], [ 0, %_ZL3ctom.exit.i ], [ 0, %48 ], [ 0, %49 ], [ 0, %51 ], [ 0, %60 ], [ 0, %_ZNK8triggers17mcontrol_common_t12simple_matchEjm.exit ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.019.0, 0
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.220.0, 1
   ret { i64, i8 } %.fca.1.insert
 
-81:                                               ; preds = %68
-  %82 = landingpad { ptr, i32 }
+83:                                               ; preds = %70
+  %84 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  tail call void @__clang_call_terminate(ptr %83) #21
+  %85 = extractvalue { ptr, i32 } %84, 0
+  tail call void @__clang_call_terminate(ptr %85) #21
   unreachable
 }
 
@@ -2066,29 +2065,27 @@ define { i64, i8 } @_ZN8triggers13trap_common_t17detect_trap_matchEP11processor_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8triggers10itrigger_t12simple_matchEbm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(53) %0, i1 noundef zeroext %1, i64 noundef %2) unnamed_addr #3 align 2 {
-  br i1 %1, label %4, label %16
+  br i1 %1, label %4, label %15
 
 4:                                                ; preds = %3
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %10
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %7 = load i8, ptr %6, align 4, !range !14
+  %8 = trunc nuw i8 %7 to i1
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %15, label %9
 
-6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %8 = load i8, ptr %7, align 4, !tbaa !199, !range !14, !noundef !15
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %16, label %10
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i64, ptr %10, align 8, !tbaa !3
+  %12 = shl nuw i64 1, %2
+  %13 = and i64 %11, %12
+  %14 = icmp ne i64 %13, 0
+  br label %15
 
-10:                                               ; preds = %6, %4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !3
-  %13 = shl nuw i64 1, %2
-  %14 = and i64 %12, %13
-  %15 = icmp ne i64 %14, 0
-  br label %16
-
-16:                                               ; preds = %6, %10, %3
-  %17 = phi i1 [ false, %3 ], [ true, %6 ], [ %15, %10 ]
-  ret i1 %17
+15:                                               ; preds = %4, %9, %3
+  %16 = phi i1 [ false, %3 ], [ %14, %9 ], [ true, %4 ]
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

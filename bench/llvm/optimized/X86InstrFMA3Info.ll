@@ -19,71 +19,71 @@ define dso_local noundef ptr @_ZN4llvm12getFMA3GroupEjm(i32 noundef %0, i64 noun
   %or.cond = icmp ult i8 %5, 10
   %6 = add i8 %4, 90
   %or.cond5 = icmp ult i8 %6, 10
-  %or.cond29 = or i1 %or.cond, %or.cond5
-  br i1 %or.cond29, label %10, label %7
+  %or.cond33 = or i1 %or.cond, %or.cond5
+  br i1 %or.cond33, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = add i8 %4, 64
-  %9 = icmp ult i8 %8, -10
+  %8 = add i8 %4, 74
+  %9 = icmp ult i8 %8, 10
   br label %10
 
 10:                                               ; preds = %2, %7
-  %.not32 = phi i1 [ %9, %7 ], [ false, %2 ]
-  %11 = and i64 %1, 1610735616
-  %or.cond31 = icmp eq i64 %11, 536887296
-  br i1 %or.cond31, label %18, label %12
+  %11 = phi i1 [ %9, %7 ], [ true, %2 ]
+  %12 = and i64 %1, 1610735616
+  %or.cond35 = icmp eq i64 %12, 536887296
+  br i1 %or.cond35, label %19, label %13
 
-12:                                               ; preds = %10
-  %13 = and i64 %1, 1610612736
-  %14 = icmp eq i64 %13, 1610612736
-  br i1 %14, label %15, label %"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit"
+13:                                               ; preds = %10
+  %14 = and i64 %1, 1610612736
+  %15 = icmp eq i64 %14, 1610612736
+  br i1 %15, label %16, label %"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit"
 
-15:                                               ; preds = %12
-  %16 = and i64 %1, 57344
-  %17 = icmp ne i64 %16, 16384
-  br label %18
+16:                                               ; preds = %13
+  %17 = and i64 %1, 57344
+  %18 = icmp eq i64 %17, 16384
+  br label %19
 
-18:                                               ; preds = %10, %15
-  %.not33 = phi i1 [ %17, %15 ], [ false, %10 ]
-  %19 = and i64 %1, 4096
-  %20 = icmp ne i64 %19, 0
-  %brmerge = or i1 %.not32, %.not33
-  %brmerge35 = or i1 %20, %brmerge
-  br i1 %brmerge35, label %"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit", label %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.lr.ph.i.i
+19:                                               ; preds = %10, %16
+  %20 = phi i1 [ %18, %16 ], [ true, %10 ]
+  %21 = and i64 %1, 4096
+  %22 = icmp eq i64 %21, 0
+  %or.cond7 = and i1 %11, %20
+  %or.cond9 = and i1 %22, %or.cond7
+  br i1 %or.cond9, label %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.lr.ph.i.i, label %"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit"
 
-_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.lr.ph.i.i: ; preds = %18
-  %21 = and i64 %1, 281474976710656
-  %.not = icmp eq i64 %21, 0
-  %22 = and i64 %1, 17592186044416
-  %.not28 = icmp eq i64 %22, 0
-  %spec.select = select i1 %.not28, i64 572, i64 198
-  %spec.select42 = select i1 %.not28, ptr @_ZL6Groups, ptr @_ZL15BroadcastGroups
+_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.lr.ph.i.i: ; preds = %19
+  %23 = and i64 %1, 281474976710656
+  %.not = icmp eq i64 %23, 0
+  %24 = and i64 %1, 17592186044416
+  %.not32 = icmp eq i64 %24, 0
+  %spec.select = select i1 %.not32, i64 572, i64 198
+  %spec.select44 = select i1 %.not32, ptr @_ZL6Groups, ptr @_ZL15BroadcastGroups
   %.sroa.7.0 = select i1 %.not, i64 %spec.select, i64 156
-  %.sroa.041.0 = select i1 %.not, ptr %spec.select42, ptr @_ZL11RoundGroups
-  %23 = add nuw nsw i64 %3, 48
-  %24 = lshr i64 %23, 4
-  %.sroa.0.0.insert.ext = and i64 %24, 3
+  %.sroa.041.0 = select i1 %.not, ptr %spec.select44, ptr @_ZL11RoundGroups
+  %25 = add nuw nsw i64 %3, 48
+  %26 = lshr i64 %25, 4
+  %.sroa.0.0.insert.ext = and i64 %26, 3
   br label %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.lr.ph.i.i
   %.017.i.i = phi ptr [ %.sroa.041.0, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i ]
   %.01016.i.i = phi i64 [ %.sroa.7.0, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.lr.ph.i.i ], [ %.111.i.i, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i ]
-  %25 = lshr i64 %.01016.i.i, 1
-  %26 = getelementptr inbounds nuw %"struct.llvm::X86InstrFMA3Group", ptr %.017.i.i, i64 %25
-  %27 = getelementptr inbounds nuw [3 x i16], ptr %26, i64 0, i64 %.sroa.0.0.insert.ext
-  %28 = load i16, ptr %27, align 2, !tbaa !3
-  %29 = zext i16 %28 to i32
-  %30 = icmp ugt i32 %0, %29
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %32 = xor i64 %25, -1
-  %33 = add nsw i64 %.01016.i.i, %32
-  %.111.i.i = select i1 %30, i64 %33, i64 %25
-  %.1.i.i = select i1 %30, ptr %31, ptr %.017.i.i
-  %34 = icmp sgt i64 %.111.i.i, 0
-  br i1 %34, label %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit", !llvm.loop !7
+  %27 = lshr i64 %.01016.i.i, 1
+  %28 = getelementptr inbounds nuw %"struct.llvm::X86InstrFMA3Group", ptr %.017.i.i, i64 %27
+  %29 = getelementptr inbounds nuw [3 x i16], ptr %28, i64 0, i64 %.sroa.0.0.insert.ext
+  %30 = load i16, ptr %29, align 2, !tbaa !3
+  %31 = zext i16 %30 to i32
+  %32 = icmp ugt i32 %0, %31
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %34 = xor i64 %27, -1
+  %35 = add nsw i64 %.01016.i.i, %34
+  %.111.i.i = select i1 %32, i64 %35, i64 %27
+  %.1.i.i = select i1 %32, ptr %33, ptr %.017.i.i
+  %36 = icmp sgt i64 %.111.i.i, 0
+  br i1 %36, label %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i, label %"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit", !llvm.loop !7
 
-"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit": ; preds = %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i, %12, %18
-  %.0 = phi ptr [ null, %18 ], [ null, %12 ], [ %.1.i.i, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i ]
+"_ZN4llvm15partition_pointIRNS_8ArrayRefINS_17X86InstrFMA3GroupEEEZNS_12getFMA3GroupEjmE3$_0RKS2_EEDaOT_T0_.exit": ; preds = %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i, %13, %19
+  %.0 = phi ptr [ null, %19 ], [ null, %13 ], [ %.1.i.i, %_ZSt7advanceIPKN4llvm17X86InstrFMA3GroupElEvRT_T0_.exit.i.i ]
   ret ptr %.0
 }
 

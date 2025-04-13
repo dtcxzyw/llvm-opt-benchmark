@@ -3241,8 +3241,8 @@ p_ipv6_pinfo_add_len.exit.thread:                 ; preds = %p_ipv6_pinfo_select
   %39 = load i32, ptr @proto_ipv6_fraghdr, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0)
   %41 = load i32, ptr %28, align 8
-  %.not52 = icmp eq i32 %41, 0
-  br i1 %.not52, label %44, label %42
+  %.not54 = icmp eq i32 %41, 0
+  br i1 %.not54, label %44, label %42
 
 42:                                               ; preds = %32
   %43 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_ipv6_opt_jumbo_fragment)
@@ -3270,56 +3270,54 @@ p_ipv6_pinfo_add_len.exit.thread:                 ; preds = %p_ipv6_pinfo_select
 60:                                               ; preds = %44
   %61 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %62 = load i32, ptr %61, align 8
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %64, label %82
+  %63 = icmp slt i32 %62, 1
+  %64 = and i16 %8, -7
+  %or.cond.not = icmp eq i16 %64, 0
+  %or.cond = select i1 %63, i1 true, i1 %or.cond.not
+  br i1 %or.cond, label %82, label %65
 
-64:                                               ; preds = %60
-  %.not53.not = icmp eq i16 %9, 0
-  %65 = and i16 %8, -7
-  %brmerge.not = icmp eq i16 %65, 0
-  br i1 %brmerge.not, label %82, label %66
-
-66:                                               ; preds = %64
+65:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #16
   store i8 1, ptr %6, align 1
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  store i8 1, ptr %67, align 8
-  %68 = load i8, ptr @ipv6_reassemble, align 1, !range !6, !noundef !7
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %71, label %70
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  store i8 1, ptr %66, align 8
+  %67 = load i8, ptr @ipv6_reassemble, align 1, !range !6, !noundef !7
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %71, label %69
 
-70:                                               ; preds = %66
-  br i1 %.not53.not, label %79, label %76
+69:                                               ; preds = %65
+  %70 = icmp eq i16 %9, 0
+  br i1 %70, label %79, label %76
 
-71:                                               ; preds = %66
-  %72 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 8, i32 noundef %62)
+71:                                               ; preds = %65
+  %72 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 8, i32 noundef range(i32 1, -2147483648) %62)
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %71
-  %74 = tail call ptr @fragment_add_check(ptr noundef nonnull @ipv6_reassembly_table, ptr noundef %0, i32 noundef 8, ptr noundef %1, i32 noundef %12, ptr noundef null, i32 noundef %15, i32 noundef %62, i1 noundef zeroext %11)
+  %74 = tail call ptr @fragment_add_check(ptr noundef nonnull @ipv6_reassembly_table, ptr noundef %0, i32 noundef 8, ptr noundef %1, i32 noundef %12, ptr noundef null, i32 noundef %15, i32 noundef range(i32 1, -2147483648) %62, i1 noundef zeroext %11)
   %75 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 8, ptr noundef %1, ptr noundef nonnull @.str.933, ptr noundef %74, ptr noundef nonnull @ipv6_frag_items, ptr noundef nonnull %6, ptr noundef %.0.i)
-  %.not.i55 = icmp eq ptr %75, null
-  br i1 %.not.i55, label %76, label %80
+  %.not.i56 = icmp eq ptr %75, null
+  br i1 %.not.i56, label %76, label %80
 
-76:                                               ; preds = %73, %71, %70
+76:                                               ; preds = %73, %71, %69
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
   %77 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8)
   %78 = call i32 @call_data_dissector(ptr noundef %77, ptr noundef %1, ptr noundef %2)
   br label %93
 
-79:                                               ; preds = %70
+79:                                               ; preds = %69
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
   br label %82
 
 80:                                               ; preds = %73
-  store i8 0, ptr %67, align 8
+  store i8 0, ptr %66, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
   store i32 0, ptr %61, align 8
   %81 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %75, i32 noundef 0)
   call void @ipv6_dissect_next(i32 noundef %17, ptr noundef %81, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %93
 
-82:                                               ; preds = %79, %64, %60, %44
+82:                                               ; preds = %79, %60, %44
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 %7, ptr %5, align 1
   %83 = load ptr, ptr %18, align 8

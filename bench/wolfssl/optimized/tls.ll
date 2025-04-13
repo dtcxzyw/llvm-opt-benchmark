@@ -997,14 +997,12 @@ define internal fastcc i32 @Hmac_UpdateFinal_CT(ptr noundef nonnull %0, ptr noun
   %12 = load i8, ptr %11, align 8, !tbaa !77
   %switch.tableidx = add i8 %12, -4
   %13 = icmp ult i8 %switch.tableidx, 5
-  br i1 %13, label %switch.hole_check, label %Hmac_HashUpdate.exit.thread
-
-switch.hole_check:                                ; preds = %7
   %switch.shifted = lshr i8 29, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %Hmac_HashUpdate.exit.thread
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %Hmac_HashUpdate.exit.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %7
   %14 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.Hmac_UpdateFinal_CT, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -1392,8 +1390,8 @@ Hmac_OuterHash.exit:                              ; preds = %._crit_edge172, %18
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %8) #17
   br label %Hmac_HashUpdate.exit.thread
 
-Hmac_HashUpdate.exit.thread:                      ; preds = %switch.hole_check, %7, %85, %75, %switch.lookup, %.thread, %Hmac_HashUpdate.exit144, %Hmac_HashUpdate.exit142, %Hmac_HashUpdate.exit, %Hmac_OuterHash.exit
-  %.0116 = phi i32 [ %.1.i, %Hmac_OuterHash.exit ], [ -173, %7 ], [ %.0.i, %Hmac_HashUpdate.exit ], [ %.0.i141, %Hmac_HashUpdate.exit142 ], [ %.0.i143, %Hmac_HashUpdate.exit144 ], [ %.2.ph, %.thread ], [ -173, %switch.lookup ], [ -173, %75 ], [ -173, %85 ], [ -173, %switch.hole_check ]
+Hmac_HashUpdate.exit.thread:                      ; preds = %7, %85, %75, %switch.lookup, %.thread, %Hmac_HashUpdate.exit144, %Hmac_HashUpdate.exit142, %Hmac_HashUpdate.exit, %Hmac_OuterHash.exit
+  %.0116 = phi i32 [ %.1.i, %Hmac_OuterHash.exit ], [ -173, %7 ], [ %.0.i, %Hmac_HashUpdate.exit ], [ %.0.i141, %Hmac_HashUpdate.exit142 ], [ %.0.i143, %Hmac_HashUpdate.exit144 ], [ %.2.ph, %.thread ], [ -173, %switch.lookup ], [ -173, %75 ], [ -173, %85 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
   ret i32 %.0116
 }
@@ -3005,15 +3003,13 @@ TLSX_Find.exit.preheader:                         ; preds = %.lr.ph.i
   %16 = load i16, ptr %.0110143.us, align 8, !tbaa !110
   %switch.tableidx = add i16 %16, -21
   %17 = icmp ult i16 %switch.tableidx, 5
-  br i1 %17, label %switch.hole_check, label %TLSX_Find.exit.us
-
-switch.hole_check:                                ; preds = %.lr.ph.split.us
-  %switch.maskindex = trunc nuw i16 %switch.tableidx to i8
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %TLSX_Find.exit.us
+  %or.cond301 = select i1 %17, i1 %switch.lobit, i1 false
+  br i1 %or.cond301, label %switch.lookup, label %TLSX_Find.exit.us
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.lr.ph.split.us
   %18 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -3116,15 +3112,15 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %49 = or i1 %48, %.2.shrunk.us
   br label %TLSX_Find.exit.us
 
-TLSX_Find.exit.us:                                ; preds = %switch.hole_check, %.lr.ph.split.us, %47, %44
-  %.1104.us = phi i32 [ %.0103136.us, %.lr.ph.split.us ], [ %.2105.us, %44 ], [ %.2105.us, %47 ], [ %.0103136.us, %switch.hole_check ]
-  %.198.us = phi i32 [ %.097137.us, %.lr.ph.split.us ], [ %.299.us, %44 ], [ %.299.us, %47 ], [ %.097137.us, %switch.hole_check ]
-  %.195.us = phi i32 [ %.094138.us, %.lr.ph.split.us ], [ %.296.us, %44 ], [ %.296.us, %47 ], [ %.094138.us, %switch.hole_check ]
-  %.192.us = phi i32 [ %.091139.us, %.lr.ph.split.us ], [ %.293.us, %44 ], [ %.293.us, %47 ], [ %.091139.us, %switch.hole_check ]
-  %.189.us = phi i32 [ %.088140.us, %.lr.ph.split.us ], [ %.290.us, %44 ], [ %.290.us, %47 ], [ %.088140.us, %switch.hole_check ]
-  %.186.us = phi i32 [ %.085141.us, %.lr.ph.split.us ], [ 1, %44 ], [ 1, %47 ], [ %.085141.us, %switch.hole_check ]
-  %.183.shrunk.us = phi i1 [ false, %.lr.ph.split.us ], [ %46, %44 ], [ %49, %47 ], [ false, %switch.hole_check ]
-  %.1.us = phi i32 [ %.0142.us, %.lr.ph.split.us ], [ 1, %44 ], [ 1, %47 ], [ %.0142.us, %switch.hole_check ]
+TLSX_Find.exit.us:                                ; preds = %.lr.ph.split.us, %47, %44
+  %.1104.us = phi i32 [ %.0103136.us, %.lr.ph.split.us ], [ %.2105.us, %44 ], [ %.2105.us, %47 ]
+  %.198.us = phi i32 [ %.097137.us, %.lr.ph.split.us ], [ %.299.us, %44 ], [ %.299.us, %47 ]
+  %.195.us = phi i32 [ %.094138.us, %.lr.ph.split.us ], [ %.296.us, %44 ], [ %.296.us, %47 ]
+  %.192.us = phi i32 [ %.091139.us, %.lr.ph.split.us ], [ %.293.us, %44 ], [ %.293.us, %47 ]
+  %.189.us = phi i32 [ %.088140.us, %.lr.ph.split.us ], [ %.290.us, %44 ], [ %.290.us, %47 ]
+  %.186.us = phi i32 [ %.085141.us, %.lr.ph.split.us ], [ 1, %44 ], [ 1, %47 ]
+  %.183.shrunk.us = phi i1 [ false, %.lr.ph.split.us ], [ %46, %44 ], [ %49, %47 ]
+  %.1.us = phi i32 [ %.0142.us, %.lr.ph.split.us ], [ 1, %44 ], [ 1, %47 ]
   %.0110.in.us = getelementptr inbounds nuw i8, ptr %.0110143.us, i64 8
   %.0110.us = load ptr, ptr %.0110.in.us, align 8, !tbaa !108
   %50 = icmp eq ptr %.0110.us, null
@@ -3144,21 +3140,19 @@ TLSX_Find.exit.us:                                ; preds = %switch.hole_check, 
   %.097137.us164 = phi i32 [ %.198.us186, %TLSX_Find.exit.us184 ], [ 80, %.lr.ph.split ]
   %.0103136.us165 = phi i32 [ %.1104.us185, %TLSX_Find.exit.us184 ], [ 0, %.lr.ph.split ]
   %51 = load i16, ptr %.0110143.us158, align 8, !tbaa !110
-  %switch.tableidx302 = add i16 %51, -21
-  %52 = icmp ult i16 %switch.tableidx302, 5
-  br i1 %52, label %switch.hole_check303, label %TLSX_Find.exit.us184
-
-switch.hole_check303:                             ; preds = %.lr.ph.split.split.us
-  %switch.maskindex305 = trunc nuw i16 %switch.tableidx302 to i8
+  %switch.tableidx303 = add i16 %51, -21
+  %52 = icmp ult i16 %switch.tableidx303, 5
+  %switch.maskindex305 = trunc i16 %switch.tableidx303 to i8
   %switch.shifted306 = lshr i8 29, %switch.maskindex305
   %switch.lobit307 = trunc i8 %switch.shifted306 to i1
-  br i1 %switch.lobit307, label %switch.lookup304, label %TLSX_Find.exit.us184
+  %or.cond312 = select i1 %52, i1 %switch.lobit307, i1 false
+  br i1 %or.cond312, label %switch.lookup304, label %TLSX_Find.exit.us184
 
-switch.lookup304:                                 ; preds = %switch.hole_check303
-  %53 = zext nneg i16 %switch.tableidx302 to i64
+switch.lookup304:                                 ; preds = %.lr.ph.split.split.us
+  %53 = zext nneg i16 %switch.tableidx303 to i64
   %switch.gep308 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 0, i64 %53
   %switch.load309 = load i32, ptr %switch.gep308, align 4
-  %54 = zext nneg i16 %switch.tableidx302 to i64
+  %54 = zext nneg i16 %switch.tableidx303 to i64
   %switch.gep310 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 0, i64 %54
   %switch.load311 = load i32, ptr %switch.gep310, align 4
   %55 = icmp eq i32 %.0103136.us165, 0
@@ -3234,15 +3228,15 @@ switch.lookup304:                                 ; preds = %switch.hole_check30
   %76 = icmp eq i32 %6, %switch.load309
   br label %TLSX_Find.exit.us184
 
-TLSX_Find.exit.us184:                             ; preds = %switch.hole_check303, %.lr.ph.split.split.us, %73, %75
-  %.1104.us185 = phi i32 [ %.0103136.us165, %.lr.ph.split.split.us ], [ %.2105.us172, %75 ], [ %.2105.us172, %73 ], [ %.0103136.us165, %switch.hole_check303 ]
-  %.198.us186 = phi i32 [ %.097137.us164, %.lr.ph.split.split.us ], [ %.299.us173, %75 ], [ %.299.us173, %73 ], [ %.097137.us164, %switch.hole_check303 ]
-  %.195.us187 = phi i32 [ %.094138.us163, %.lr.ph.split.split.us ], [ %.296.us180, %75 ], [ %.296.us180, %73 ], [ %.094138.us163, %switch.hole_check303 ]
-  %.192.us188 = phi i32 [ %.091139.us162, %.lr.ph.split.split.us ], [ %.293.us181, %75 ], [ %.293.us181, %73 ], [ %.091139.us162, %switch.hole_check303 ]
-  %.189.us189 = phi i32 [ %.088140.us161, %.lr.ph.split.split.us ], [ %.290.us175, %75 ], [ %.290.us175, %73 ], [ %.088140.us161, %switch.hole_check303 ]
-  %.186.us190 = phi i32 [ %.085141.us160, %.lr.ph.split.split.us ], [ 1, %75 ], [ 1, %73 ], [ %.085141.us160, %switch.hole_check303 ]
-  %.183.shrunk.us191 = phi i1 [ false, %.lr.ph.split.split.us ], [ %76, %75 ], [ %74, %73 ], [ false, %switch.hole_check303 ]
-  %.1.us192 = phi i32 [ %.0142.us159, %.lr.ph.split.split.us ], [ 1, %75 ], [ 1, %73 ], [ %.0142.us159, %switch.hole_check303 ]
+TLSX_Find.exit.us184:                             ; preds = %.lr.ph.split.split.us, %73, %75
+  %.1104.us185 = phi i32 [ %.0103136.us165, %.lr.ph.split.split.us ], [ %.2105.us172, %75 ], [ %.2105.us172, %73 ]
+  %.198.us186 = phi i32 [ %.097137.us164, %.lr.ph.split.split.us ], [ %.299.us173, %75 ], [ %.299.us173, %73 ]
+  %.195.us187 = phi i32 [ %.094138.us163, %.lr.ph.split.split.us ], [ %.296.us180, %75 ], [ %.296.us180, %73 ]
+  %.192.us188 = phi i32 [ %.091139.us162, %.lr.ph.split.split.us ], [ %.293.us181, %75 ], [ %.293.us181, %73 ]
+  %.189.us189 = phi i32 [ %.088140.us161, %.lr.ph.split.split.us ], [ %.290.us175, %75 ], [ %.290.us175, %73 ]
+  %.186.us190 = phi i32 [ %.085141.us160, %.lr.ph.split.split.us ], [ 1, %75 ], [ 1, %73 ]
+  %.183.shrunk.us191 = phi i1 [ false, %.lr.ph.split.split.us ], [ %76, %75 ], [ %74, %73 ]
+  %.1.us192 = phi i32 [ %.0142.us159, %.lr.ph.split.split.us ], [ 1, %75 ], [ 1, %73 ]
   %.0110.in.us194 = getelementptr inbounds nuw i8, ptr %.0110143.us158, i64 8
   %.0110.us195 = load ptr, ptr %.0110.in.us194, align 8, !tbaa !108
   %77 = icmp eq ptr %.0110.us195, null
@@ -3264,21 +3258,19 @@ TLSX_Find.exit.us184:                             ; preds = %switch.hole_check30
   %.097137 = phi i32 [ %.198, %TLSX_Find.exit ], [ 80, %.lr.ph.split ]
   %.0103136 = phi i32 [ %.1104, %TLSX_Find.exit ], [ 0, %.lr.ph.split ]
   %81 = load i16, ptr %.0110143, align 8, !tbaa !110
-  %switch.tableidx313 = add i16 %81, -21
-  %82 = icmp ult i16 %switch.tableidx313, 5
-  br i1 %82, label %switch.hole_check314, label %TLSX_Find.exit
-
-switch.hole_check314:                             ; preds = %.lr.ph.split.split
-  %switch.maskindex316 = trunc nuw i16 %switch.tableidx313 to i8
+  %switch.tableidx314 = add i16 %81, -21
+  %82 = icmp ult i16 %switch.tableidx314, 5
+  %switch.maskindex316 = trunc i16 %switch.tableidx314 to i8
   %switch.shifted317 = lshr i8 29, %switch.maskindex316
   %switch.lobit318 = trunc i8 %switch.shifted317 to i1
-  br i1 %switch.lobit318, label %switch.lookup315, label %TLSX_Find.exit
+  %or.cond323 = select i1 %82, i1 %switch.lobit318, i1 false
+  br i1 %or.cond323, label %switch.lookup315, label %TLSX_Find.exit
 
-switch.lookup315:                                 ; preds = %switch.hole_check314
-  %83 = zext nneg i16 %switch.tableidx313 to i64
+switch.lookup315:                                 ; preds = %.lr.ph.split.split
+  %83 = zext nneg i16 %switch.tableidx314 to i64
   %switch.gep319 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 0, i64 %83
   %switch.load320 = load i32, ptr %switch.gep319, align 4
-  %84 = zext nneg i16 %switch.tableidx313 to i64
+  %84 = zext nneg i16 %switch.tableidx314 to i64
   %switch.gep321 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 0, i64 %84
   %switch.load322 = load i32, ptr %switch.gep321, align 4
   %85 = icmp eq i32 %.0103136, 0
@@ -3322,13 +3314,13 @@ switch.lookup315:                                 ; preds = %switch.hole_check31
   %spec.select121 = select i1 %.not118, i32 %.091139, i32 %switch.load322
   br label %TLSX_Find.exit
 
-TLSX_Find.exit:                                   ; preds = %switch.hole_check314, %.lr.ph.split.split, %96, %99
-  %.1104 = phi i32 [ %.0103136, %.lr.ph.split.split ], [ %.2105, %99 ], [ %.2105, %96 ], [ %.0103136, %switch.hole_check314 ]
-  %.198 = phi i32 [ %.097137, %.lr.ph.split.split ], [ %.299, %99 ], [ %.299, %96 ], [ %.097137, %switch.hole_check314 ]
-  %.195 = phi i32 [ %.094138, %.lr.ph.split.split ], [ %spec.select120, %99 ], [ %.094138, %96 ], [ %.094138, %switch.hole_check314 ]
-  %.192 = phi i32 [ %.091139, %.lr.ph.split.split ], [ %spec.select121, %99 ], [ %.091139, %96 ], [ %.091139, %switch.hole_check314 ]
-  %.189 = phi i32 [ %.088140, %.lr.ph.split.split ], [ %.290, %99 ], [ %.290, %96 ], [ %.088140, %switch.hole_check314 ]
-  %.1 = phi i32 [ %.0142, %.lr.ph.split.split ], [ 1, %99 ], [ 1, %96 ], [ %.0142, %switch.hole_check314 ]
+TLSX_Find.exit:                                   ; preds = %.lr.ph.split.split, %96, %99
+  %.1104 = phi i32 [ %.0103136, %.lr.ph.split.split ], [ %.2105, %99 ], [ %.2105, %96 ]
+  %.198 = phi i32 [ %.097137, %.lr.ph.split.split ], [ %.299, %99 ], [ %.299, %96 ]
+  %.195 = phi i32 [ %.094138, %.lr.ph.split.split ], [ %spec.select120, %99 ], [ %.094138, %96 ]
+  %.192 = phi i32 [ %.091139, %.lr.ph.split.split ], [ %spec.select121, %99 ], [ %.091139, %96 ]
+  %.189 = phi i32 [ %.088140, %.lr.ph.split.split ], [ %.290, %99 ], [ %.290, %96 ]
+  %.1 = phi i32 [ %.0142, %.lr.ph.split.split ], [ 1, %99 ], [ 1, %96 ]
   %.0110.in = getelementptr inbounds nuw i8, ptr %.0110143, i64 8
   %.0110 = load ptr, ptr %.0110.in, align 8, !tbaa !108
   %.not214 = icmp eq ptr %.0110, null

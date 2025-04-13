@@ -2342,8 +2342,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h73f6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %7, align 8
-  %.not15 = icmp eq ptr %8, null
-  br i1 %.not15, label %18, label %11
+  %.not20 = icmp eq ptr %8, null
+  br i1 %.not20, label %18, label %11
 
 11:                                               ; preds = %6
   invoke void @_ZN4core4sync6atomic12atomic_store17h527b1fc073c889e1E.llvm.6910714394678848989(ptr noundef nonnull %4, i8 noundef 0, i8 noundef 4)
@@ -2368,8 +2368,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h73f6
   unreachable
 
 .thread42:                                        ; preds = %14, %32
-  %.pn20 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
-  resume { ptr, i32 } %.pn20
+  %.pn23 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
+  resume { ptr, i32 } %.pn23
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2379,8 +2379,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h73f6
 20:                                               ; preds = %18, %"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h430580983a452adcE.exit", %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = atomicrmw xchg ptr %21, i8 1 seq_cst, align 1
-  %.not47 = icmp eq i8 %22, 0
-  br i1 %.not47, label %23, label %35
+  %.not46 = icmp eq i8 %22, 0
+  br i1 %.not46, label %23, label %35
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2431,8 +2431,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17ha978
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %7, align 8
-  %.not15 = icmp eq ptr %8, null
-  br i1 %.not15, label %18, label %11
+  %.not20 = icmp eq ptr %8, null
+  br i1 %.not20, label %18, label %11
 
 11:                                               ; preds = %6
   invoke void @_ZN4core4sync6atomic12atomic_store17h527b1fc073c889e1E.llvm.6910714394678848989(ptr noundef nonnull %4, i8 noundef 0, i8 noundef 4)
@@ -2457,8 +2457,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17ha978
   unreachable
 
 .thread42:                                        ; preds = %14, %32
-  %.pn20 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
-  resume { ptr, i32 } %.pn20
+  %.pn23 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
+  resume { ptr, i32 } %.pn23
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2468,8 +2468,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17ha978
 20:                                               ; preds = %18, %"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h430580983a452adcE.exit", %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %22 = atomicrmw xchg ptr %21, i8 1 seq_cst, align 1
-  %.not47 = icmp eq i8 %22, 0
-  br i1 %.not47, label %23, label %35
+  %.not46 = icmp eq i8 %22, 0
+  br i1 %.not46, label %23, label %35
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -2519,8 +2519,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17he683
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   store ptr null, ptr %0, align 8
-  %.not15 = icmp eq ptr %7, null
-  br i1 %.not15, label %17, label %10
+  %.not20 = icmp eq ptr %7, null
+  br i1 %.not20, label %17, label %10
 
 10:                                               ; preds = %6
   invoke void @_ZN4core4sync6atomic12atomic_store17h527b1fc073c889e1E.llvm.6910714394678848989(ptr noundef nonnull %4, i8 noundef 0, i8 noundef 4)
@@ -2545,8 +2545,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17he683
   unreachable
 
 .thread42:                                        ; preds = %13, %30
-  %.pn20 = phi { ptr, i32 } [ %31, %30 ], [ %14, %13 ]
-  resume { ptr, i32 } %.pn20
+  %.pn23 = phi { ptr, i32 } [ %31, %30 ], [ %14, %13 ]
+  resume { ptr, i32 } %.pn23
 
 17:                                               ; preds = %6
   tail call void @_ZN4core4sync6atomic12atomic_store17h527b1fc073c889e1E.llvm.6910714394678848989(ptr noundef nonnull %4, i8 noundef 0, i8 noundef 4), !noalias !349
@@ -2555,8 +2555,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17he683
 18:                                               ; preds = %17, %"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h430580983a452adcE.exit", %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = atomicrmw xchg ptr %19, i8 1 seq_cst, align 1
-  %.not47 = icmp eq i8 %20, 0
-  br i1 %.not47, label %21, label %33
+  %.not46 = icmp eq i8 %20, 0
+  br i1 %.not46, label %21, label %33
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2607,8 +2607,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hf619
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %7, align 8
-  %.not15 = icmp eq ptr %8, null
-  br i1 %.not15, label %18, label %11
+  %.not20 = icmp eq ptr %8, null
+  br i1 %.not20, label %18, label %11
 
 11:                                               ; preds = %6
   invoke void @_ZN4core4sync6atomic12atomic_store17h527b1fc073c889e1E.llvm.6910714394678848989(ptr noundef nonnull %4, i8 noundef 0, i8 noundef 4)
@@ -2633,8 +2633,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hf619
   unreachable
 
 .thread42:                                        ; preds = %14, %32
-  %.pn20 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
-  resume { ptr, i32 } %.pn20
+  %.pn23 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
+  resume { ptr, i32 } %.pn23
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2644,8 +2644,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hf619
 20:                                               ; preds = %18, %"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h430580983a452adcE.exit", %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = atomicrmw xchg ptr %21, i8 1 seq_cst, align 1
-  %.not47 = icmp eq i8 %22, 0
-  br i1 %.not47, label %23, label %35
+  %.not46 = icmp eq i8 %22, 0
+  br i1 %.not46, label %23, label %35
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -13509,7 +13509,7 @@ common.ret:                                       ; preds = %164, %32
 94:                                               ; preds = %72
   %.pre.i = load ptr, ptr %73, align 8, !alias.scope !2005, !noalias !2010
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.pre58.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !2005, !noalias !2010
+  %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !2005, !noalias !2010
   br label %100
 
 .body.i:                                          ; preds = %90
@@ -13540,7 +13540,7 @@ common.ret:                                       ; preds = %164, %32
 100:                                              ; preds = %95, %94
   %101 = phi ptr [ %74, %94 ], [ %76, %95 ]
   %102 = phi ptr [ %73, %94 ], [ %77, %95 ]
-  %103 = phi ptr [ %.pre58.i, %94 ], [ @anon.a3a67110ce06a869b442c94fcb10776f.47.llvm.13157132225597385975, %95 ]
+  %103 = phi ptr [ %.pre57.i, %94 ], [ @anon.a3a67110ce06a869b442c94fcb10776f.47.llvm.13157132225597385975, %95 ]
   %104 = phi ptr [ %.pre.i, %94 ], [ %.fca.0.extract.i.i.i, %95 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !1988
   call void @llvm.experimental.noalias.scope.decl(metadata !2013)
@@ -13713,7 +13713,7 @@ common.ret:                                       ; preds = %164, %32
   unreachable
 
 .body24.i:                                        ; preds = %154, %143, %125
-  %.pn17.i = phi { ptr, i32 } [ %126, %125 ], [ %155, %154 ], [ %.pn.i.i, %143 ]
+  %.pn18.i = phi { ptr, i32 } [ %126, %125 ], [ %155, %154 ], [ %.pn.i.i, %143 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !1988
   br label %.body29.i
 
@@ -13735,7 +13735,7 @@ common.ret:                                       ; preds = %164, %32
 .body29.i:                                        ; preds = %.body.i, %108, %116, %120, %.body24.i
   %158 = phi ptr [ %101, %.body24.i ], [ %101, %108 ], [ %76, %.body.i ], [ %101, %120 ], [ %101, %116 ]
   %159 = phi ptr [ %102, %.body24.i ], [ %102, %108 ], [ %77, %.body.i ], [ %102, %120 ], [ %102, %116 ]
-  %.pn20.i = phi { ptr, i32 } [ %.pn17.i, %.body24.i ], [ %109, %108 ], [ %91, %.body.i ], [ %121, %120 ], [ %117, %116 ]
+  %.pn20.i = phi { ptr, i32 } [ %.pn18.i, %.body24.i ], [ %109, %108 ], [ %91, %.body.i ], [ %121, %120 ], [ %117, %116 ]
   store i8 2, ptr %158, align 8, !noalias !1988
   br label %.body52
 
@@ -14191,9 +14191,9 @@ common.ret:                                       ; preds = %42, %17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !2097
   %59 = load ptr, ptr %6, align 8, !noalias !2087, !noundef !13
   %.not.not.i.i.i = icmp eq ptr %59, null
-  br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %60
+  br i1 %.not.not.i.i.i, label %.thread13.i.i.i, label %60
 
-.thread.i.i.i:                                    ; preds = %58
+.thread13.i.i.i:                                  ; preds = %58
   %.sroa.060.0.copyload61 = load ptr, ptr %5, align 8, !noalias !2110
   %.sroa.462.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.462.0.copyload64 = load ptr, ptr %.sroa.462.0..sroa_idx63, align 8, !noalias !2110
@@ -14220,10 +14220,10 @@ common.ret:                                       ; preds = %42, %17
           cleanup
   br label %.body34
 
-66:                                               ; preds = %.thread.i.i.i, %60
-  %.sroa.060.1 = phi ptr [ %.sroa.060.0.copyload61, %.thread.i.i.i ], [ null, %60 ]
-  %.sroa.462.1 = phi ptr [ %.sroa.462.0.copyload64, %.thread.i.i.i ], [ %59, %60 ]
-  %.sroa.665.1 = phi i64 [ %.sroa.665.0.copyload67, %.thread.i.i.i ], [ undef, %60 ]
+66:                                               ; preds = %.thread13.i.i.i, %60
+  %.sroa.060.1 = phi ptr [ %.sroa.060.0.copyload61, %.thread13.i.i.i ], [ null, %60 ]
+  %.sroa.462.1 = phi ptr [ %.sroa.462.0.copyload64, %.thread13.i.i.i ], [ %59, %60 ]
+  %.sroa.665.1 = phi i64 [ %.sroa.665.0.copyload67, %.thread13.i.i.i ], [ undef, %60 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !2087
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2087
   br label %17
@@ -14537,9 +14537,9 @@ common.ret:                                       ; preds = %55, %21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !2152
   %72 = load ptr, ptr %6, align 8, !noalias !2142, !noundef !13
   %.not.not.i.i.i = icmp eq ptr %72, null
-  br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %73
+  br i1 %.not.not.i.i.i, label %.thread13.i.i.i, label %73
 
-.thread.i.i.i:                                    ; preds = %71
+.thread13.i.i.i:                                  ; preds = %71
   %.sroa.067.0.copyload68 = load ptr, ptr %5, align 8, !noalias !2165
   %.sroa.469.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.469.0.copyload71 = load ptr, ptr %.sroa.469.0..sroa_idx70, align 8, !noalias !2165
@@ -14566,10 +14566,10 @@ common.ret:                                       ; preds = %55, %21
           cleanup
   br label %.body41
 
-79:                                               ; preds = %.thread.i.i.i, %73
-  %.sroa.067.1 = phi ptr [ %.sroa.067.0.copyload68, %.thread.i.i.i ], [ null, %73 ]
-  %.sroa.469.1 = phi ptr [ %.sroa.469.0.copyload71, %.thread.i.i.i ], [ %72, %73 ]
-  %.sroa.672.1 = phi i64 [ %.sroa.672.0.copyload74, %.thread.i.i.i ], [ undef, %73 ]
+79:                                               ; preds = %.thread13.i.i.i, %73
+  %.sroa.067.1 = phi ptr [ %.sroa.067.0.copyload68, %.thread13.i.i.i ], [ null, %73 ]
+  %.sroa.469.1 = phi ptr [ %.sroa.469.0.copyload71, %.thread13.i.i.i ], [ %72, %73 ]
+  %.sroa.672.1 = phi i64 [ %.sroa.672.0.copyload74, %.thread13.i.i.i ], [ undef, %73 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !2142
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2142
   br label %21

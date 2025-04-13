@@ -961,17 +961,17 @@ _ZNSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EE9push_backERKS2_.exit: ; pr
   br i1 %60, label %20, label %._crit_edge, !llvm.loop !68
 
 61:                                               ; preds = %41, %39
-  %.pn17 = phi { ptr, i32 } [ %42, %41 ], [ %40, %39 ]
+  %.pn19 = phi { ptr, i32 } [ %42, %41 ], [ %40, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
   br label %62
 
 62:                                               ; preds = %61, %38
-  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %61 ], [ %.pn, %38 ]
+  %.pn19.pn = phi { ptr, i32 } [ %.pn19, %61 ], [ %.pn, %38 ]
   call void @_ZN4base14FileEnumerator8FileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %6) #17
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %4) #17
-  resume { ptr, i32 } %.pn17.pn
+  resume { ptr, i32 } %.pn19.pn
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EE9push_backERKS2_.exit, %11
   %63 = call i32 @closedir(ptr noundef nonnull %10)

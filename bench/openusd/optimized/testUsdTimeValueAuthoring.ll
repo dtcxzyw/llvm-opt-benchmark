@@ -24648,8 +24648,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject16_GetMetadataImplISt3mapIdNS_7V
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i, i64 48
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  %brmerge.i.i.i.i.i.i.i.i = or i1 %59, %62
-  br i1 %brmerge.i.i.i.i.i.i.i.i, label %63, label %65
+  %or.cond.i.i.i.i.i.i.i.i = or i1 %59, %62
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %63, label %65
 
 63:                                               ; preds = %54
   %64 = xor i1 %59, %62
@@ -34641,8 +34641,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i, i64 48
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
-  %brmerge.i.i.i.i.i.i.i.i = or i1 %91, %94
-  br i1 %brmerge.i.i.i.i.i.i.i.i, label %95, label %97
+  %or.cond.i.i.i.i.i.i.i.i = or i1 %91, %94
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %95, label %97
 
 95:                                               ; preds = %86
   %96 = xor i1 %91, %94

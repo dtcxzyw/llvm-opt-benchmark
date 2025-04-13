@@ -467,7 +467,7 @@ define range(i32 0, 2) i32 @H5FD_term_package() local_unnamed_addr #0 {
   store i8 0, ptr @H5FD_init_g, align 1, !tbaa !3
   br label %20
 
-20:                                               ; preds = %0, %16, %19, %6
+20:                                               ; preds = %16, %19, %6, %0
   %.0 = phi i32 [ 1, %6 ], [ 0, %19 ], [ 1, %16 ], [ 0, %0 ]
   ret i32 %.0
 }

@@ -1632,7 +1632,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE10process_opEjRNS_20cff2_cs_interp_env_tIS3_EERS2_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4515) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 comdat align 2 {
-  switch i32 %0, label %34 [
+  switch i32 %0, label %32 [
     i32 10, label %4
     i32 29, label %4
     i32 16, label %5
@@ -1641,11 +1641,11 @@ define linkonce_odr hidden void @_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extent
 
 4:                                                ; preds = %3, %3
   tail call void @_ZN3CFF10cs_opset_tINS_8number_tE23cff2_cs_opset_extents_tNS_20cff2_cs_interp_env_tIS1_EE20cff2_extents_param_t25cff2_path_procs_extents_tE10process_opEjRS4_RS5_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4515) %1, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  br label %35
+  br label %33
 
 5:                                                ; preds = %3
   tail call void @_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE13process_blendERNS_20cff2_cs_interp_env_tIS3_EERS2_(ptr noundef nonnull align 8 dereferenceable(4515) %1, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  br label %35
+  br label %33
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1673,45 +1673,37 @@ _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i: ; preds = %15, %10
   %18 = phi double [ %.pre.i.i.i.i, %10 ], [ %17, %15 ]
   %19 = fptosi double %18 to i32
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i
+  br i1 %20, label %21, label %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit
 
 21:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i
   store i8 1, ptr %7, align 8
-  br label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i
+  br label %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit
 
-_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i: ; preds = %21, %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i
+_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit: ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i, %21
   %.0.i.i.i = phi i32 [ 0, %21 ], [ %19, %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4513
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %29, label %25
-
-25:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4514
-  %27 = load i8, ptr %26, align 2
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %29, label %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit
-
-29:                                               ; preds = %25, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load i32, ptr %30, align 8
-  %32 = add i32 %31, 1
-  br label %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit
-
-_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit: ; preds = %25, %29
-  %.sink1.i.i = phi i64 [ 12, %29 ], [ 4492, %25 ]
-  %.0.i.sink.i.i = phi i32 [ %32, %29 ], [ %.0.i.i.i, %25 ]
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink1.i.i
-  store i32 %.0.i.sink.i.i, ptr %33, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4514
+  %26 = load i8, ptr %25, align 2
+  %27 = trunc i8 %26 to i1
+  %or.cond.i.i = select i1 %24, i1 true, i1 %27
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = add i32 %29, 1
+  %.sink3.i.i = select i1 %or.cond.i.i, i64 12, i64 4492
+  %.0.i.sink.i.i = select i1 %or.cond.i.i, i32 %30, i32 %.0.i.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink3.i.i
+  store i32 %.0.i.sink.i.i, ptr %31, align 4
   store i8 1, ptr %22, align 1
   store i32 0, ptr %8, align 4
-  br label %35
+  br label %33
 
-34:                                               ; preds = %3
+32:                                               ; preds = %3
   tail call void @_ZN3CFF10cs_opset_tINS_8number_tE23cff2_cs_opset_extents_tNS_20cff2_cs_interp_env_tIS1_EE20cff2_extents_param_t25cff2_path_procs_extents_tE10process_opEjRS4_RS5_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4515) %1, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  br label %35
+  br label %33
 
-35:                                               ; preds = %34, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit, %5, %4
+33:                                               ; preds = %32, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit, %5, %4
   ret void
 }
 
@@ -6777,7 +6769,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE10process_opEjRNS_20cff2_cs_interp_env_tIS3_EERS2_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4515) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
-  switch i32 %0, label %34 [
+  switch i32 %0, label %32 [
     i32 10, label %4
     i32 29, label %4
     i32 16, label %5
@@ -6786,11 +6778,11 @@ define linkonce_odr hidden void @_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t
 
 4:                                                ; preds = %3, %3
   tail call void @_ZN3CFF10cs_opset_tINS_8number_tE20cff2_cs_opset_path_tNS_20cff2_cs_interp_env_tIS1_EE17cff2_path_param_t22cff2_path_procs_path_tE10process_opEjRS4_RS5_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4515) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  br label %35
+  br label %33
 
 5:                                                ; preds = %3
   tail call void @_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE13process_blendERNS_20cff2_cs_interp_env_tIS3_EERS2_(ptr noundef nonnull align 8 dereferenceable(4515) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  br label %35
+  br label %33
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6818,45 +6810,37 @@ _ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i: ; preds = %15, %10
   %18 = phi double [ %.pre.i.i.i.i, %10 ], [ %17, %15 ]
   %19 = fptosi double %18 to i32
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %21, label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i
+  br i1 %20, label %21, label %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit
 
 21:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i
   store i8 1, ptr %7, align 8
-  br label %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i
+  br label %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit
 
-_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i: ; preds = %21, %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i
+_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit: ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i, %21
   %.0.i.i.i = phi i32 [ 0, %21 ], [ %19, %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4513
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %29, label %25
-
-25:                                               ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4514
-  %27 = load i8, ptr %26, align 2
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %29, label %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit
-
-29:                                               ; preds = %25, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load i32, ptr %30, align 8
-  %32 = add i32 %31, 1
-  br label %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit
-
-_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit: ; preds = %25, %29
-  %.sink1.i.i = phi i64 [ 12, %29 ], [ 4492, %25 ]
-  %.0.i.sink.i.i = phi i32 [ %32, %29 ], [ %.0.i.i.i, %25 ]
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink1.i.i
-  store i32 %.0.i.sink.i.i, ptr %33, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4514
+  %26 = load i8, ptr %25, align 2
+  %27 = trunc i8 %26 to i1
+  %or.cond.i.i = select i1 %24, i1 true, i1 %27
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = add i32 %29, 1
+  %.sink3.i.i = select i1 %or.cond.i.i, i64 12, i64 4492
+  %.0.i.sink.i.i = select i1 %or.cond.i.i, i32 %30, i32 %.0.i.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink3.i.i
+  store i32 %.0.i.sink.i.i, ptr %31, align 4
   store i8 1, ptr %22, align 1
   store i32 0, ptr %8, align 4
-  br label %35
+  br label %33
 
-34:                                               ; preds = %3
+32:                                               ; preds = %3
   tail call void @_ZN3CFF10cs_opset_tINS_8number_tE20cff2_cs_opset_path_tNS_20cff2_cs_interp_env_tIS1_EE17cff2_path_param_t22cff2_path_procs_path_tE10process_opEjRS4_RS5_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(4515) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  br label %35
+  br label %33
 
-35:                                               ; preds = %34, %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit, %5, %4
+33:                                               ; preds = %32, %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit, %5, %4
   ret void
 }
 

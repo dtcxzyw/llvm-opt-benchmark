@@ -4138,63 +4138,61 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN5folly10WTCallbackINS0_
   %4 = load i8, ptr %3, align 8, !tbaa !77, !range !98, !noundef !102
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %7 = load i8, ptr %6, align 8, !tbaa !77, !range !98, !noundef !102
+  %7 = load i8, ptr %6, align 8, !range !98
   %8 = trunc nuw i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %27
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %36
+  %10 = load ptr, ptr %1, align 8, !tbaa !93
+  store ptr %10, ptr %0, align 8, !tbaa !93
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !97
+  %.not.i.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i, label %_ZN5folly10WTCallbackINS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateaSEOS9_.exit, label %14
 
-10:                                               ; preds = %9
-  %11 = load ptr, ptr %1, align 8, !tbaa !93
-  store ptr %11, ptr %0, align 8, !tbaa !93
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !97
-  %.not.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i, label %_ZN5folly10WTCallbackINS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateaSEOS9_.exit, label %15
+14:                                               ; preds = %9
+  %15 = load i8, ptr %11, align 8, !tbaa !96, !range !98, !noundef !102
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %18, label %17
 
-15:                                               ; preds = %10
-  %16 = load i8, ptr %12, align 8, !tbaa !96, !range !98, !noundef !102
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %19, label %18
+17:                                               ; preds = %14
+  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %13) #15
+  %.pre.i.i.i = load ptr, ptr %12, align 8, !tbaa !97
+  br label %18
 
-18:                                               ; preds = %15
-  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %14) #15
-  %.pre.i.i.i = load ptr, ptr %13, align 8, !tbaa !97
-  br label %19
+18:                                               ; preds = %17, %14
+  %19 = phi ptr [ %.pre.i.i.i, %17 ], [ %13, %14 ]
+  invoke void @_ZN5folly7futures6detail32coreDetachPromiseMaybeWithResultINS_4UnitEEEvRNS1_4CoreIT_EE(ptr noundef nonnull align 16 dereferenceable(160) %19)
+          to label %.noexc.i.i unwind label %20
 
-19:                                               ; preds = %18, %15
-  %20 = phi ptr [ %.pre.i.i.i, %18 ], [ %14, %15 ]
-  invoke void @_ZN5folly7futures6detail32coreDetachPromiseMaybeWithResultINS_4UnitEEEvRNS1_4CoreIT_EE(ptr noundef nonnull align 16 dereferenceable(160) %20)
-          to label %.noexc.i.i unwind label %21
-
-.noexc.i.i:                                       ; preds = %19
-  store ptr null, ptr %13, align 8, !tbaa !97
+.noexc.i.i:                                       ; preds = %18
+  store ptr null, ptr %12, align 8, !tbaa !97
   br label %_ZN5folly10WTCallbackINS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateaSEOS9_.exit
 
-21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %18
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #23
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #23
   unreachable
 
-_ZN5folly10WTCallbackINS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateaSEOS9_.exit: ; preds = %10, %.noexc.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load i8, ptr %24, align 8, !tbaa !119, !range !98, !noundef !102
-  store i8 0, ptr %24, align 8, !tbaa !119
-  store i8 %25, ptr %12, align 8, !tbaa !96
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !120
-  store ptr null, ptr %26, align 8, !tbaa !120
-  store ptr %27, ptr %13, align 8, !tbaa !97
+_ZN5folly10WTCallbackINS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateaSEOS9_.exit: ; preds = %9, %.noexc.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = load i8, ptr %23, align 8, !tbaa !119, !range !98, !noundef !102
+  store i8 0, ptr %23, align 8, !tbaa !119
+  store i8 %24, ptr %11, align 8, !tbaa !96
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !120
+  store ptr null, ptr %25, align 8, !tbaa !120
+  store ptr %26, ptr %12, align 8, !tbaa !97
   br label %_ZNSt22_Optional_payload_baseIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %28, label %_ZNSt22_Optional_payload_baseIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateEE8_M_resetEv.exit
+27:                                               ; preds = %2
+  br i1 %8, label %28, label %36
 
-28:                                               ; preds = %.thread
+28:                                               ; preds = %27
   %29 = load ptr, ptr %1, align 8, !tbaa !93
   store ptr %29, ptr %0, align 8, !tbaa !93
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4210,41 +4208,44 @@ _ZN5folly10WTCallbackINS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl
   store i8 1, ptr %3, align 8, !tbaa !77
   br label %_ZNSt22_Optional_payload_baseIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateEE8_M_resetEv.exit
 
-36:                                               ; preds = %9
+36:                                               ; preds = %27
+  br i1 %5, label %37, label %_ZNSt22_Optional_payload_baseIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateEE8_M_resetEv.exit
+
+37:                                               ; preds = %36
   store i8 0, ptr %3, align 8, !tbaa !77
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !97
-  %.not.i.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateEE8_M_resetEv.exit, label %39
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !97
+  %.not.i.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateEE8_M_resetEv.exit, label %40
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load i8, ptr %40, align 8, !tbaa !96, !range !98, !noundef !102
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %44, label %43
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load i8, ptr %41, align 8, !tbaa !96, !range !98, !noundef !102
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %45, label %44
 
-43:                                               ; preds = %39
-  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %38) #15
-  %.pre.i.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !97
-  br label %44
+44:                                               ; preds = %40
+  tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %39) #15
+  %.pre.i.i.i.i.i = load ptr, ptr %38, align 8, !tbaa !97
+  br label %45
 
-44:                                               ; preds = %43, %39
-  %45 = phi ptr [ %.pre.i.i.i.i.i, %43 ], [ %38, %39 ]
-  invoke void @_ZN5folly7futures6detail32coreDetachPromiseMaybeWithResultINS_4UnitEEEvRNS1_4CoreIT_EE(ptr noundef nonnull align 16 dereferenceable(160) %45)
-          to label %.noexc.i.i.i.i unwind label %46
+45:                                               ; preds = %44, %40
+  %46 = phi ptr [ %.pre.i.i.i.i.i, %44 ], [ %39, %40 ]
+  invoke void @_ZN5folly7futures6detail32coreDetachPromiseMaybeWithResultINS_4UnitEEEvRNS1_4CoreIT_EE(ptr noundef nonnull align 16 dereferenceable(160) %46)
+          to label %.noexc.i.i.i.i unwind label %47
 
-.noexc.i.i.i.i:                                   ; preds = %44
-  store ptr null, ptr %37, align 8, !tbaa !97
+.noexc.i.i.i.i:                                   ; preds = %45
+  store ptr null, ptr %38, align 8, !tbaa !97
   br label %_ZNSt22_Optional_payload_baseIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateEE8_M_resetEv.exit
 
-46:                                               ; preds = %44
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %45
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  tail call void @__clang_call_terminate(ptr %48) #23
+  %49 = extractvalue { ptr, i32 } %48, 0
+  tail call void @__clang_call_terminate(ptr %49) #23
   unreachable
 
-_ZNSt22_Optional_payload_baseIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateEE8_M_resetEv.exit: ; preds = %.thread, %.noexc.i.i.i.i, %36, %28, %_ZN5folly10WTCallbackINS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateaSEOS9_.exit
+_ZNSt22_Optional_payload_baseIN5folly10WTCallbackINS0_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateEE8_M_resetEv.exit: ; preds = %.noexc.i.i.i.i, %37, %36, %28, %_ZN5folly10WTCallbackINS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEE5StateaSEOS9_.exit
   ret void
 }
 

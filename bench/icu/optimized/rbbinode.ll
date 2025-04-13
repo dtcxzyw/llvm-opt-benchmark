@@ -554,22 +554,20 @@ define void @_ZN6icu_778RBBINodeC2ENS0_8NodeTypeER10UErrorCode(ptr noundef nonnu
 42:                                               ; preds = %30, %35, %26
   %switch.tableidx = add i32 %1, -7
   %43 = icmp ult i32 %switch.tableidx, 9
-  br i1 %43, label %switch.hole_check, label %45
-
-switch.hole_check:                                ; preds = %42
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 263, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %45
+  %or.cond30 = select i1 %43, i1 %switch.lobit, i1 false
+  br i1 %or.cond30, label %switch.lookup, label %45
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %42
   %44 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN6icu_778RBBINodeC2ENS0_8NodeTypeER10UErrorCode, i64 0, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %12, align 8, !tbaa !31
   br label %45
 
-45:                                               ; preds = %switch.hole_check, %42, %switch.lookup, %3
+45:                                               ; preds = %42, %switch.lookup, %3
   ret void
 
 46:                                               ; preds = %40, %38, %36

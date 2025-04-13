@@ -2991,9 +2991,13 @@ _ZNK3ue213RoseBuildImpl9isDelayedEj.exit:         ; preds = %72, %80
   %.val = load i32, ptr %123, align 8
   %switch.tableidx = add i32 %.val, -2
   %124 = icmp ult i32 %switch.tableidx, 15
-  br i1 %124, label %switch.hole_check, label %125
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 29183, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %124, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.critedge.thread, label %125
 
-125:                                              ; preds = %switch.hole_check, %.lr.ph
+125:                                              ; preds = %.lr.ph
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.056.080, i64 4
   %.not76 = icmp eq ptr %126, %120
   br i1 %.not76, label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, label %.lr.ph
@@ -3099,14 +3103,8 @@ _ZNK3ue214RoseLiteralMap2atEj.exit:               ; preds = %161, %167
   %.not75 = icmp eq ptr %188, %89
   br i1 %.not75, label %.critedge.thread, label %99
 
-switch.hole_check:                                ; preds = %.lr.ph
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 29183, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %.critedge.thread, label %125
-
-.critedge.thread:                                 ; preds = %182, %177, %185, %99, %104, %108, %110, %114, %.critedge, %switch.hole_check, %_ZNK3ue213RoseBuildImpl9isDelayedEj.exit, %35, %38, %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit
-  %.0 = phi i1 [ false, %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit ], [ false, %38 ], [ false, %35 ], [ false, %_ZNK3ue213RoseBuildImpl9isDelayedEj.exit ], [ false, %switch.hole_check ], [ false, %182 ], [ false, %177 ], [ false, %185 ], [ false, %99 ], [ false, %104 ], [ false, %108 ], [ false, %110 ], [ false, %114 ], [ true, %.critedge ]
+.critedge.thread:                                 ; preds = %182, %177, %185, %99, %104, %108, %110, %114, %.critedge, %.lr.ph, %_ZNK3ue213RoseBuildImpl9isDelayedEj.exit, %35, %38, %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit
+  %.0 = phi i1 [ false, %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EEixEm.exit ], [ false, %38 ], [ false, %35 ], [ false, %_ZNK3ue213RoseBuildImpl9isDelayedEj.exit ], [ false, %.lr.ph ], [ false, %182 ], [ false, %177 ], [ false, %185 ], [ false, %99 ], [ false, %104 ], [ false, %108 ], [ false, %110 ], [ false, %114 ], [ true, %.critedge ]
   ret i1 %.0
 }
 
@@ -6817,7 +6815,11 @@ _ZNSt4pairIN3ue220simple_anchored_infoESt3setIjSt4lessIjESaIjEEED2Ev.exit.i: ; p
   %.val.i.i.i = load i32, ptr %1490, align 8
   %switch.tableidx = add i32 %.val.i.i.i, -2
   %1502 = icmp ult i32 %switch.tableidx, 15
-  br i1 %1502, label %switch.hole_check, label %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 29183, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %1502, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.thread.i.i, label %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i
 
 1503:                                             ; preds = %.lr.ph.i.i48
   %1504 = landingpad { ptr, i32 }
@@ -6826,19 +6828,13 @@ _ZNSt4pairIN3ue220simple_anchored_infoESt3setIjSt4lessIjESaIjEEED2Ev.exit.i: ; p
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %49) #26
   br label %.loopexit.split-lp.i
 
-_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i: ; preds = %switch.hole_check, %1501
+_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i: ; preds = %1501
   %1505 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.024.049.i.i) #27
   %.not32.i.i = icmp eq ptr %1505, %1425
   br i1 %.not32.i.i, label %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.thread.i.i, label %.lr.ph.i.i48
 
-switch.hole_check:                                ; preds = %1501
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 29183, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.thread.i.i, label %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i
-
-_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.thread.i.i: ; preds = %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i, %1495, %1491, %switch.hole_check, %.noexc75.i
-  %.not32.lcssa.i.i = phi i1 [ true, %.noexc75.i ], [ false, %switch.hole_check ], [ false, %1495 ], [ false, %1491 ], [ true, %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i ]
+_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.thread.i.i: ; preds = %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i, %1495, %1491, %1501, %.noexc75.i
+  %.not32.lcssa.i.i = phi i1 [ true, %.noexc75.i ], [ false, %1501 ], [ false, %1495 ], [ false, %1491 ], [ true, %_ZN3ue2L19isSimpleExhaustibleERKNS_6ReportE.exit.i.i ]
   %1506 = load ptr, ptr %1426, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef %1506)
           to label %_ZNSt3setIjSt4lessIjESaIjEED2Ev.exit.i68.i unwind label %1507
@@ -13211,8 +13207,8 @@ _ZN3ue211ue2_literalD2Ev.exit.i.i.i.i:            ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #26
   %3836 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i.i.i.i, i64 4
   %.not.i.i.i25.i = icmp ne ptr %3836, %3728
-  %or.cond.not = select i1 %.not.i.i56.i.i.i.i, i1 %.not.i.i.i25.i, i1 false
-  br i1 %or.cond.not, label %.lr.ph.i.i.i21.i, label %.critedge.i.i.i24.i
+  %or.cond1314.not = select i1 %.not.i.i56.i.i.i.i, i1 %.not.i.i.i25.i, i1 false
+  br i1 %or.cond1314.not, label %.lr.ph.i.i.i21.i, label %.critedge.i.i.i24.i
 
 3837:                                             ; preds = %3827, %3825
   %.pn40.pn.i.i.i.i = phi { ptr, i32 } [ %3828, %3827 ], [ %3826, %3825 ]

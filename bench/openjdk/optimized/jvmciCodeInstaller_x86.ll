@@ -76,14 +76,14 @@ define hidden noundef i32 @_ZN13CodeInstaller14pd_next_offsetEP17NativeInstructi
     i8 -21, label %6
     i8 -23, label %6
     i8 -24, label %6
-    i8 72, label %.thread5.i
+    i8 72, label %.thread6.i
   ]
 
 6:                                                ; preds = %4, %4, %4
   %7 = add nsw i32 %2, 5
   br label %53
 
-.thread5.i:                                       ; preds = %4
+.thread6.i:                                       ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
@@ -107,9 +107,9 @@ switch.edge.thread.i:                             ; preds = %11, %11, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
-_ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %9, %.thread5.i, %switch.edge.thread.i
-  %.in4.i = phi ptr [ %8, %.thread5.i ], [ %13, %switch.edge.thread.i ], [ %10, %9 ]
-  %14 = load i8, ptr %.in4.i, align 1
+_ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %9, %.thread6.i, %switch.edge.thread.i
+  %.in5.i = phi ptr [ %8, %.thread6.i ], [ %13, %switch.edge.thread.i ], [ %10, %9 ]
+  %14 = load i8, ptr %.in5.i, align 1
   %15 = and i8 %14, -8
   %16 = icmp eq i8 %15, -72
   br i1 %16, label %17, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread
@@ -405,7 +405,7 @@ define hidden void @_ZN13CodeInstaller23pd_relocate_ForeignCallEP17NativeInstruc
   %9 = load i8, ptr %1, align 1
   switch i8 %9, label %25 [
     i8 -24, label %10
-    i8 72, label %.thread5.i
+    i8 72, label %.thread6.i
   ]
 
 10:                                               ; preds = %4
@@ -437,7 +437,7 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %10
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %21, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 2) #5
   br label %74
 
-.thread5.i:                                       ; preds = %4
+.thread6.i:                                       ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
@@ -460,9 +460,9 @@ switch.edge.thread.i:                             ; preds = %27, %27, %27
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
-_ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %.thread5.i, %25, %switch.edge.thread.i
-  %.in4.i = phi ptr [ %24, %.thread5.i ], [ %29, %switch.edge.thread.i ], [ %26, %25 ]
-  %30 = load i8, ptr %.in4.i, align 1
+_ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %.thread6.i, %25, %switch.edge.thread.i
+  %.in5.i = phi ptr [ %24, %.thread6.i ], [ %29, %switch.edge.thread.i ], [ %26, %25 ]
+  %30 = load i8, ptr %.in5.i, align 1
   %31 = and i8 %30, -8
   %32 = icmp eq i8 %31, -72
   br i1 %32, label %33, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread

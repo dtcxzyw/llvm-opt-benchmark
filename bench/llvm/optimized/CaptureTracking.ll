@@ -1074,23 +1074,20 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120SimpleCaptureTracker8capt
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !80
   %5 = load i8, ptr %4, align 8, !tbaa !101
-  %6 = icmp eq i8 %5, 30
-  br i1 %6, label %7, label %.critedge
+  %6 = icmp ne i8 %5, 30
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i8, ptr %7, align 8, !range !54
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond, label %.critedge, label %11
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i8, ptr %8, align 8, !tbaa !56, !range !54, !noundef !55
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %.critedge, label %12
+.critedge:                                        ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 1, ptr %10, align 1, !tbaa !59
+  br label %11
 
-.critedge:                                        ; preds = %2, %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 1, ptr %11, align 1, !tbaa !59
-  br label %12
-
-12:                                               ; preds = %7, %.critedge
-  %.0 = phi i1 [ true, %.critedge ], [ false, %7 ]
-  ret i1 %.0
+11:                                               ; preds = %2, %.critedge
+  ret i1 %or.cond
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -1114,70 +1111,68 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_114CapturesBefore8capturedEP
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !80
   %5 = load i8, ptr %4, align 8, !tbaa !101
-  %6 = icmp eq i8 %5, 30
-  br i1 %6, label %7, label %11
+  %6 = icmp ne i8 %5, 30
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i8, ptr %7, align 8, !range !54
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond, label %10, label %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i8, ptr %8, align 8, !tbaa !90, !range !54, !noundef !55
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !84
+  %13 = icmp eq ptr %12, %4
+  br i1 %13, label %14, label %18
 
-11:                                               ; preds = %7, %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !84
-  %14 = icmp eq ptr %13, %4
-  br i1 %14, label %15, label %19
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %16 = load i8, ptr %15, align 1, !tbaa !91, !range !54, !noundef !55
+  %17 = trunc nuw i8 %16 to i1
+  br i1 %17, label %37, label %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %17 = load i8, ptr %16, align 1, !tbaa !91, !range !54, !noundef !55
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %38, label %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread
-
-19:                                               ; preds = %11
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !89
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !137
-  %.not.i.i.i.i = icmp eq ptr %23, null
+18:                                               ; preds = %10
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !89
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !137
+  %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i, label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.i.i.i
 
-_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.i.i.i: ; preds = %19
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 44
-  %25 = load i32, ptr %24, align 4, !tbaa !138
-  %26 = add i32 %25, 1
+_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.i.i.i: ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 44
+  %24 = load i32, ptr %23, align 4, !tbaa !138
+  %25 = add i32 %24, 1
   br label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i
 
-_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.i.i.i, %19
-  %.sroa.0.0.extract.trunc10.i.i.i = phi i32 [ %26, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.i.i.i ], [ 0, %19 ]
-  %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %28 = load i32, ptr %27, align 8, !tbaa !26
-  %29 = icmp ugt i32 %28, %.sroa.0.0.extract.trunc10.i.i.i
-  br i1 %29, label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i, label %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread
+_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.i.i.i, %18
+  %.sroa.0.0.extract.trunc10.i.i.i = phi i32 [ %25, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.i.i.i ], [ 0, %18 ]
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %27 = load i32, ptr %26, align 8, !tbaa !26
+  %28 = icmp ugt i32 %27, %.sroa.0.0.extract.trunc10.i.i.i
+  br i1 %28, label %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i, label %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread
 
 _ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i
-  %30 = zext i32 %.sroa.0.0.extract.trunc10.i.i.i to i64
-  %31 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !25
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.63", ptr %32, i64 %30
-  %34 = load ptr, ptr %33, align 8, !tbaa !150
-  %.not.i = icmp eq ptr %34, null
+  %29 = zext i32 %.sroa.0.0.extract.trunc10.i.i.i to i64
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %31 = load ptr, ptr %30, align 8, !tbaa !25
+  %32 = getelementptr inbounds nuw %"class.std::unique_ptr.63", ptr %31, i64 %29
+  %33 = load ptr, ptr %32, align 8, !tbaa !150
+  %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread, label %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit
 
 _ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !93
-  %37 = tail call noundef zeroext i1 @_ZN4llvm22isPotentiallyReachableEPKNS_11InstructionES2_PKNS_15SmallPtrSetImplIPNS_10BasicBlockEEEPKNS_13DominatorTreeEPKNS_8LoopInfoE(ptr noundef nonnull %4, ptr noundef %13, ptr noundef null, ptr noundef nonnull %21, ptr noundef %36) #19
-  br i1 %37, label %38, label %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %35 = load ptr, ptr %34, align 8, !tbaa !93
+  %36 = tail call noundef zeroext i1 @_ZN4llvm22isPotentiallyReachableEPKNS_11InstructionES2_PKNS_15SmallPtrSetImplIPNS_10BasicBlockEEEPKNS_13DominatorTreeEPKNS_8LoopInfoE(ptr noundef nonnull %4, ptr noundef %12, ptr noundef null, ptr noundef nonnull %20, ptr noundef %35) #19
+  br i1 %36, label %37, label %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread
 
-38:                                               ; preds = %15, %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i8 1, ptr %39, align 2, !tbaa !92
+37:                                               ; preds = %14, %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  store i8 1, ptr %38, align 2, !tbaa !92
   br label %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread
 
-_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i, %15, %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit, %7, %38
-  %.0 = phi i1 [ true, %38 ], [ false, %7 ], [ false, %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit ], [ false, %15 ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i ]
+_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit.thread: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i, %14, %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit, %2, %37
+  %.0 = phi i1 [ true, %37 ], [ false, %2 ], [ false, %_ZN12_GLOBAL__N_114CapturesBefore13isSafeToPruneEPN4llvm11InstructionE.exit ], [ false, %14 ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_.exit.i ], [ false, %_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i.i.i ]
   ret i1 %.0
 }
 
@@ -1210,35 +1205,33 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116EarliestCaptures8captured
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !80
   %5 = load i8, ptr %4, align 8, !tbaa !101
-  %6 = icmp eq i8 %5, 30
-  br i1 %6, label %7, label %11
+  %6 = icmp ne i8 %5, 30
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i8, ptr %7, align 8, !range !54
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond, label %10, label %19
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i8, ptr %8, align 8, !tbaa !98, !range !54, !noundef !55
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %20
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !94
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %17, label %13
 
-11:                                               ; preds = %7, %2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !94
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %18, label %14
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !155
+  %16 = tail call noundef ptr @_ZNK4llvm13DominatorTree26findNearestCommonDominatorEPNS_11InstructionES2_(ptr noundef nonnull align 8 dereferenceable(124) %15, ptr noundef nonnull %12, ptr noundef nonnull %4) #19
+  br label %17
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !155
-  %17 = tail call noundef ptr @_ZNK4llvm13DominatorTree26findNearestCommonDominatorEPNS_11InstructionES2_(ptr noundef nonnull align 8 dereferenceable(124) %16, ptr noundef nonnull %13, ptr noundef nonnull %4) #19
-  br label %18
+17:                                               ; preds = %10, %13
+  %storemerge = phi ptr [ %16, %13 ], [ %4, %10 ]
+  store ptr %storemerge, ptr %11, align 8, !tbaa !94
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  store i8 1, ptr %18, align 1, !tbaa !99
+  br label %19
 
-18:                                               ; preds = %11, %14
-  %storemerge = phi ptr [ %17, %14 ], [ %4, %11 ]
-  store ptr %storemerge, ptr %12, align 8, !tbaa !94
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 1, ptr %19, align 1, !tbaa !99
-  br label %20
-
-20:                                               ; preds = %7, %18
+19:                                               ; preds = %2, %17
   ret i1 false
 }
 

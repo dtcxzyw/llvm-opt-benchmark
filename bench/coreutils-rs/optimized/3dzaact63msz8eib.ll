@@ -90,8 +90,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %6 = landingpad { ptr, i32 }
           cleanup
   %7 = load i64, ptr %1, align 8, !range !21, !noundef !7
-  %.not5 = icmp eq i64 %7, -9223372036854775808
-  br i1 %.not5, label %.body.thread, label %20
+  %.not13 = icmp eq i64 %7, -9223372036854775808
+  br i1 %.not13, label %.body.thread, label %20
 
 8:                                                ; preds = %2
   %9 = invoke noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$GT$8with_cmd17h1daed596b26358acE"(ptr noalias noundef nonnull align 8 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %0)
@@ -133,9 +133,9 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
 19:                                               ; preds = %10, %.thread
   ret ptr %5
 
-.body.thread:                                     ; preds = %15, %.body, %20
-  %eh.lpad-body13 = phi { ptr, i32 } [ %6, %.body ], [ %6, %20 ], [ %16, %15 ]
-  resume { ptr, i32 } %eh.lpad-body13
+.body.thread:                                     ; preds = %15, %20, %.body
+  %eh.lpad-body11 = phi { ptr, i32 } [ %6, %20 ], [ %6, %.body ], [ %16, %15 ]
+  resume { ptr, i32 } %eh.lpad-body11
 
 20:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr65drop_in_place$LT$clap_builder..builder..styled_str..StyledStr$GT$17h88e3656ee6a84f55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #12

@@ -289,13 +289,13 @@ define dso_local void @_ZN30btMultiBodySphericalJointLimit20createConstraintRows
   %.pre = load i32, ptr %12, align 8, !tbaa !52
   %.pre204 = load i32, ptr %14, align 4, !tbaa !50
   %.not53 = icmp eq i32 %.pre, %.pre204
-  br i1 %.not53, label %.thread, label %347
+  br i1 %.not53, label %.thread, label %346
 
 .thread:                                          ; preds = %4, %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %21 = load float, ptr %20, align 4, !tbaa !45
   %22 = fcmp oeq float %21, 0.000000e+00
-  br i1 %22, label %347, label %23
+  br i1 %22, label %346, label %23
 
 23:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
@@ -600,14 +600,14 @@ _Z15shortestArcQuatRK9btVector3S1_.exit:          ; preds = %23, %82
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %252
 
-._crit_edge:                                      ; preds = %343, %225
+._crit_edge:                                      ; preds = %342, %225
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
-  br label %347
+  br label %346
 
-252:                                              ; preds = %.lr.ph, %343
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %343 ]
+252:                                              ; preds = %.lr.ph, %342
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %342 ]
   %253 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv
   %254 = load float, ptr %253, align 4, !tbaa !28
   %255 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
@@ -662,7 +662,7 @@ condstore.split:                                  ; preds = %252
   %277 = getelementptr inbounds %struct.btMultibodyLink, ptr %275, i64 %276, i32 26
   %278 = load i32, ptr %277, align 4, !tbaa !71
   %cond = icmp eq i32 %278, 2
-  br i1 %cond, label %279, label %343
+  br i1 %cond, label %279, label %342
 
 279:                                              ; preds = %266
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #14
@@ -710,7 +710,7 @@ condstore.split:                                  ; preds = %252
   %.047 = select i1 %306, float %307, float 0.000000e+00
   %308 = call noundef float @llvm.fabs.f32(float %304)
   %309 = fcmp ogt float %308, 0x3E80000000000000
-  br i1 %309, label %310, label %342
+  br i1 %309, label %310, label %341
 
 310:                                              ; preds = %303
   %311 = load i32, ptr %248, align 4, !tbaa !74
@@ -758,19 +758,17 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE8allocateEi.exit.i.i: ; 
 
 _ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i: ; preds = %325, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE8allocateEi.exit.i.i
   %329 = load ptr, ptr %250, align 8, !tbaa !79
-  %.not.i5.i.i = icmp eq ptr %329, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i, label %330
+  %.not.i5.i.i = icmp ne ptr %329, null
+  %330 = load i8, ptr %251, align 8, !range !72
+  %331 = trunc nuw i8 %330 to i1
+  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %331, i1 false
+  br i1 %or.cond.i.i, label %332, label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
 
-330:                                              ; preds = %_ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i
-  %331 = load i8, ptr %251, align 8, !tbaa !86, !range !72, !noundef !73
-  %332 = trunc nuw i8 %331 to i1
-  br i1 %332, label %333, label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
-
-333:                                              ; preds = %330
+332:                                              ; preds = %_ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %329)
   br label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i: ; preds = %333, %330, %_ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i
+_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i: ; preds = %332, %_ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i
   store i8 1, ptr %251, align 8, !tbaa !86
   store ptr %.0.i.i.i, ptr %250, align 8, !tbaa !79
   store i32 %316, ptr %249, align 8, !tbaa !78
@@ -778,32 +776,32 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i:
   br label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit
 
 _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit: ; preds = %310, %314, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
-  %334 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i ], [ %311, %314 ], [ %311, %310 ]
-  %335 = add nsw i32 %334, 1
-  store i32 %335, ptr %248, align 4, !tbaa !74
-  %336 = load ptr, ptr %250, align 8, !tbaa !79
-  %337 = sext i32 %311 to i64
-  %338 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %336, i64 %337
-  %339 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(220) %338, ptr noundef nonnull align 8 dereferenceable(204) %2, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %5, float noundef %304, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef %.047, float noundef %.048, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %.050)
-  %340 = getelementptr inbounds nuw i8, ptr %338, i64 208
-  store ptr %0, ptr %340, align 8, !tbaa !87
-  %341 = getelementptr inbounds nuw i8, ptr %338, i64 216
-  store i32 %280, ptr %341, align 8, !tbaa !89
+  %333 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i ], [ %311, %314 ], [ %311, %310 ]
+  %334 = add nsw i32 %333, 1
+  store i32 %334, ptr %248, align 4, !tbaa !74
+  %335 = load ptr, ptr %250, align 8, !tbaa !79
+  %336 = sext i32 %311 to i64
+  %337 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %335, i64 %336
+  %338 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(220) %337, ptr noundef nonnull align 8 dereferenceable(204) %2, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %5, float noundef %304, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef %.047, float noundef %.048, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %.050)
+  %339 = getelementptr inbounds nuw i8, ptr %337, i64 208
+  store ptr %0, ptr %339, align 8, !tbaa !87
+  %340 = getelementptr inbounds nuw i8, ptr %337, i64 216
+  store i32 %280, ptr %340, align 8, !tbaa !89
+  br label %341
+
+341:                                              ; preds = %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit, %303
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #14
   br label %342
 
-342:                                              ; preds = %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit, %303
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #14
-  br label %343
-
-343:                                              ; preds = %266, %342
+342:                                              ; preds = %266, %341
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %344 = load i32, ptr %232, align 4, !tbaa !48
-  %345 = sext i32 %344 to i64
-  %346 = icmp slt i64 %indvars.iv.next, %345
-  br i1 %346, label %252, label %._crit_edge, !llvm.loop !90
+  %343 = load i32, ptr %232, align 4, !tbaa !48
+  %344 = sext i32 %343 to i64
+  %345 = icmp slt i64 %indvars.iv.next, %344
+  br i1 %345, label %252, label %._crit_edge, !llvm.loop !90
 
-347:                                              ; preds = %.thread, %16, %._crit_edge
+346:                                              ; preds = %.thread, %16, %._crit_edge
   ret void
 }
 

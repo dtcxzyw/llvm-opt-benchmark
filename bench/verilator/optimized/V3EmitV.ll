@@ -19160,13 +19160,13 @@ define linkonce_odr dso_local void @_ZN21EmitVBaseVisitorConst5visitEP17AstNodeS
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i8, ptr %6, align 4, !range !144
   %8 = trunc nuw i8 %7 to i1
-  %9 = select i1 %5, i1 true, i1 %8
-  %.sink7 = select i1 %9, i64 3736, i64 3768
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %11 = load ptr, ptr %0, align 8, !tbaa !4
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink7
-  %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %or.cond = select i1 %5, i1 true, i1 %8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %10 = load ptr, ptr %0, align 8, !tbaa !4
+  %. = select i1 %or.cond, i64 3736, i64 3768
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.
+  %12 = load ptr, ptr %11, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %9)
   ret void
 }
 

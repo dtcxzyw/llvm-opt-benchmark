@@ -32364,7 +32364,7 @@ define void @"_ZN102_$LT$tokio..runtime..context..blocking..DisallowBlockInPlace
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9b9c2a1a8749026bE.llvm.700930863383756518.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9b9c2a1a8749026bE.llvm.700930863383756518.exit": ; preds = %12, %10, %8, %1
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9b9c2a1a8749026bE.llvm.700930863383756518.exit": ; preds = %12, %8, %1
   ret void
 
 5:                                                ; preds = %1
@@ -32381,14 +32381,12 @@ define void @"_ZN102_$LT$tokio..runtime..context..blocking..DisallowBlockInPlace
 
 8:                                                ; preds = %7, %5
   %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2, !range !65, !noundef !4
-  %.not.i.i = icmp eq i8 %9, 2
-  br i1 %.not.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9b9c2a1a8749026bE.llvm.700930863383756518.exit", label %10
+  %10 = icmp eq i8 %9, 2
+  %11 = trunc i8 %9 to i1
+  %or.cond.i.i = or i1 %10, %11
+  br i1 %or.cond.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9b9c2a1a8749026bE.llvm.700930863383756518.exit", label %12
 
-10:                                               ; preds = %8
-  %11 = trunc nuw i8 %9 to i1
-  br i1 %11, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9b9c2a1a8749026bE.llvm.700930863383756518.exit", label %12
-
-12:                                               ; preds = %10
+12:                                               ; preds = %8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9b9c2a1a8749026bE.llvm.700930863383756518.exit"
 
@@ -33699,7 +33697,7 @@ _ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit: ; preds
   br i1 %or.cond, label %29, label %27
 
 27:                                               ; preds = %29, %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$8is_empty17h5a925012fee0e7d5E.exit"
-  %.015 = phi i64 [ %30, %29 ], [ %13, %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$8is_empty17h5a925012fee0e7d5E.exit" ]
+  %.016 = phi i64 [ %30, %29 ], [ %13, %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$8is_empty17h5a925012fee0e7d5E.exit" ]
   %28 = icmp eq i64 %15, 1
   br i1 %28, label %31, label %.critedge
 
@@ -33709,7 +33707,7 @@ _ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit: ; preds
   br label %27
 
 31:                                               ; preds = %27
-  %32 = invoke { ptr, ptr } @_ZN5tokio4sync6notify13notify_locked17h8b30a5e9d47b453dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 %2, i64 noundef %.015)
+  %32 = invoke { ptr, ptr } @_ZN5tokio4sync6notify13notify_locked17h8b30a5e9d47b453dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 %2, i64 noundef %.016)
           to label %33 unwind label %47
 
 33:                                               ; preds = %31

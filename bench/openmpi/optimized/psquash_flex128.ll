@@ -82,19 +82,17 @@ define internal void @flex128_finalize() #0 {
 define internal range(i32 -27, 1) i32 @flex128_get_max_size(i16 noundef zeroext %0, ptr noundef captures(none) %1) #1 {
   %switch.tableidx = add i16 %0, -4
   %3 = icmp ult i16 %switch.tableidx, 12
-  br i1 %3, label %switch.hole_check, label %._crit_edge
+  %switch.shifted = lshr i16 3829, %switch.tableidx
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %._crit_edge
 
-._crit_edge:                                      ; preds = %switch.hole_check, %2
+._crit_edge:                                      ; preds = %2
   %.pre = load i64, ptr %1, align 8, !tbaa !35
   %4 = add i64 %.pre, 1
   br label %6
 
-switch.hole_check:                                ; preds = %2
-  %switch.shifted = lshr i16 3829, %switch.tableidx
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %._crit_edge
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %5 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.flex128_get_max_size, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -223,19 +221,17 @@ flex_pack_integer.exit:                           ; preds = %.thread22.i, %31
 define internal range(i32 -27, 1) i32 @flex128_decode_int(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %switch.tableidx = add i16 %0, -4
   %6 = icmp ult i16 %switch.tableidx, 12
-  br i1 %6, label %switch.hole_check, label %7
+  %switch.shifted = lshr i16 3829, %switch.tableidx
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-7:                                                ; preds = %switch.hole_check, %5
+7:                                                ; preds = %5
   %8 = tail call ptr @PMIx_Error_string(i32 noundef -27) #6
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %8, ptr noundef nonnull @.str.4, i32 noundef 280) #6
   br label %.thread69
 
-switch.hole_check:                                ; preds = %5
-  %switch.shifted = lshr i16 3829, %switch.tableidx
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %9 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.flex128_decode_int, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8

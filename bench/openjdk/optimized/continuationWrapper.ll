@@ -155,83 +155,79 @@ define hidden void @_ZN19ContinuationWrapperC2EPK11RegisterMap(ptr noundef nonnu
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %9 = load i8, ptr @UseZGC, align 1
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %23
+  %.not.i = xor i1 %10, true
+  %11 = load i8, ptr @ZGenerational, align 1
+  %12 = trunc i8 %11 to i1
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %12
+  %13 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_cont_offsetE, align 4
+  br i1 %or.cond.i, label %22, label %14
 
-11:                                               ; preds = %2
-  %12 = load i8, ptr @ZGenerational, align 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %23, label %14
-
-14:                                               ; preds = %11
-  %15 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_cont_offsetE, align 4
-  %16 = ptrtoint ptr %8 to i64
-  %17 = sext i32 %15 to i64
-  %18 = add nsw i64 %17, %16
-  %19 = inttoptr i64 %18 to ptr
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %4, align 8
-  %21 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %22 = call noundef ptr %21(ptr noundef nonnull %4) #7
+14:                                               ; preds = %2
+  %15 = ptrtoint ptr %8 to i64
+  %16 = sext i32 %13 to i64
+  %17 = add nsw i64 %16, %15
+  %18 = inttoptr i64 %17 to ptr
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %4, align 8
+  %20 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %21 = call noundef ptr %20(ptr noundef nonnull %4) #7
   br label %_ZNK17stackChunkOopDesc4contEv.exit
 
-23:                                               ; preds = %11, %2
-  %24 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_cont_offsetE, align 4
-  %25 = sext i32 %24 to i64
-  %26 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %25) #7
+22:                                               ; preds = %2
+  %23 = sext i32 %13 to i64
+  %24 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %23) #7
   br label %_ZNK17stackChunkOopDesc4contEv.exit
 
-_ZNK17stackChunkOopDesc4contEv.exit:              ; preds = %14, %23
-  %.0.i = phi ptr [ %27, %23 ], [ %22, %14 ]
+_ZNK17stackChunkOopDesc4contEv.exit:              ; preds = %14, %22
+  %.0.i = phi ptr [ %25, %22 ], [ %21, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %28 = call noundef ptr @_ZN12Continuation39get_continuation_entry_for_continuationEP10JavaThreadP7oopDesc(ptr noundef %6, ptr noundef %.0.i) #7
+  %26 = call noundef ptr @_ZN12Continuation39get_continuation_entry_for_continuationEP10JavaThreadP7oopDesc(ptr noundef %6, ptr noundef %.0.i) #7
   %.sroa.0.0.copyload.i5 = load ptr, ptr %7, align 8
-  %29 = load ptr, ptr %.sroa.0.0.copyload.i5, align 8
+  %27 = load ptr, ptr %.sroa.0.0.copyload.i5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %30 = load i8, ptr @UseZGC, align 1
+  %28 = load i8, ptr @UseZGC, align 1
+  %29 = trunc i8 %28 to i1
+  %.not.i6 = xor i1 %29, true
+  %30 = load i8, ptr @ZGenerational, align 1
   %31 = trunc i8 %30 to i1
-  br i1 %31, label %32, label %44
+  %or.cond.i7 = select i1 %.not.i6, i1 true, i1 %31
+  %32 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_cont_offsetE, align 4
+  br i1 %or.cond.i7, label %41, label %33
 
-32:                                               ; preds = %_ZNK17stackChunkOopDesc4contEv.exit
-  %33 = load i8, ptr @ZGenerational, align 1
-  %34 = trunc i8 %33 to i1
-  br i1 %34, label %44, label %35
+33:                                               ; preds = %_ZNK17stackChunkOopDesc4contEv.exit
+  %34 = ptrtoint ptr %27 to i64
+  %35 = sext i32 %32 to i64
+  %36 = add nsw i64 %35, %34
+  %37 = inttoptr i64 %36 to ptr
+  %38 = load ptr, ptr %37, align 8
+  store ptr %38, ptr %3, align 8
+  %39 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %40 = call noundef ptr %39(ptr noundef nonnull %3) #7
+  br label %_ZNK17stackChunkOopDesc4contEv.exit9
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_cont_offsetE, align 4
-  %37 = ptrtoint ptr %29 to i64
-  %38 = sext i32 %36 to i64
-  %39 = add nsw i64 %38, %37
-  %40 = inttoptr i64 %39 to ptr
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %3, align 8
-  %42 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %43 = call noundef ptr %42(ptr noundef nonnull %3) #7
-  br label %_ZNK17stackChunkOopDesc4contEv.exit7
+41:                                               ; preds = %_ZNK17stackChunkOopDesc4contEv.exit
+  %42 = sext i32 %32 to i64
+  %43 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %44 = call noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(16) %27, i64 noundef %42) #7
+  br label %_ZNK17stackChunkOopDesc4contEv.exit9
 
-44:                                               ; preds = %32, %_ZNK17stackChunkOopDesc4contEv.exit
-  %45 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_cont_offsetE, align 4
-  %46 = sext i32 %45 to i64
-  %47 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %48 = call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(16) %29, i64 noundef %46) #7
-  br label %_ZNK17stackChunkOopDesc4contEv.exit7
-
-_ZNK17stackChunkOopDesc4contEv.exit7:             ; preds = %35, %44
-  %.0.i6 = phi ptr [ %48, %44 ], [ %43, %35 ]
+_ZNK17stackChunkOopDesc4contEv.exit9:             ; preds = %33, %41
+  %.0.i8 = phi ptr [ %44, %41 ], [ %40, %33 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr %6, ptr %0, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %28, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i6, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %51, align 8
-  %52 = load i32, ptr @_ZN28jdk_internal_vm_Continuation12_tail_offsetE, align 4
-  %53 = sext i32 %52 to i64
-  %54 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %55 = call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(16) %.0.i6, i64 noundef %53) #7
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %55, ptr %56, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %26, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.0.i8, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %47, align 8
+  %48 = load i32, ptr @_ZN28jdk_internal_vm_Continuation12_tail_offsetE, align 4
+  %49 = sext i32 %48 to i64
+  %50 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %51 = call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(16) %.0.i8, i64 noundef %49) #7
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %51, ptr %52, align 8
   ret void
 }
 

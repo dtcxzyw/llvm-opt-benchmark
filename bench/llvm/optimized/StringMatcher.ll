@@ -104,8 +104,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13StringMatcher24EmitStringMatcher
   %29 = ptrtoint ptr %20 to i64
   %30 = sub i64 %28, %29
   %31 = icmp ult i64 %30, 9
-  %brmerge = or i1 %4, %31
-  br i1 %brmerge, label %33, label %32
+  %or.cond = or i1 %4, %31
+  br i1 %or.cond, label %33, label %32
 
 32:                                               ; preds = %25
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext true) #14
@@ -552,32 +552,32 @@ _ZL24FindFirstNonCommonLetterRKSt6vectorIPKSt4pairINSt7__cxx1112basic_stringIcSt
 _ZN4llvm11raw_ostreamlsEPKc.exit69:               ; preds = %224, %226
   %229 = phi ptr [ %.pre195, %224 ], [ %228, %226 ]
   %.0.i.i68 = phi ptr [ %225, %224 ], [ %214, %226 ]
-  %.sroa.08.0.copyload = load ptr, ptr %0, align 8, !tbaa !29
-  %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.29.0.copyload = load i64, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !30
+  %.sroa.09.0.copyload = load ptr, ptr %0, align 8, !tbaa !29
+  %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.210.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !30
   %230 = getelementptr inbounds nuw i8, ptr %.0.i.i68, i64 24
   %231 = load ptr, ptr %230, align 8, !tbaa !35
   %232 = getelementptr inbounds nuw i8, ptr %.0.i.i68, i64 32
   %233 = ptrtoint ptr %231 to i64
   %234 = ptrtoint ptr %229 to i64
   %235 = sub i64 %233, %234
-  %236 = icmp ugt i64 %.sroa.29.0.copyload, %235
+  %236 = icmp ugt i64 %.sroa.210.0.copyload, %235
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit69
-  %238 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i68, ptr noundef %.sroa.08.0.copyload, i64 noundef %.sroa.29.0.copyload) #13
+  %238 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i68, ptr noundef %.sroa.09.0.copyload, i64 noundef %.sroa.210.0.copyload) #13
   %.phi.trans.insert196 = getelementptr inbounds nuw i8, ptr %238, i64 32
   %.pre197 = load ptr, ptr %.phi.trans.insert196, align 8, !tbaa !40
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit72
 
 239:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit69
-  %.not.i70 = icmp eq i64 %.sroa.29.0.copyload, 0
+  %.not.i70 = icmp eq i64 %.sroa.210.0.copyload, 0
   br i1 %.not.i70, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit72, label %240
 
 240:                                              ; preds = %239
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %229, ptr align 1 %.sroa.08.0.copyload, i64 %.sroa.29.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %229, ptr align 1 %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload, i1 false)
   %241 = load ptr, ptr %232, align 8, !tbaa !40
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 %.sroa.29.0.copyload
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 %.sroa.210.0.copyload
   store ptr %242, ptr %232, align 8, !tbaa !40
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit72
 
@@ -720,32 +720,32 @@ _ZN4llvm11raw_ostreamlsEPKc.exit83:               ; preds = %288, %290
 _ZN4llvm11raw_ostreamlsEPKc.exit89:               ; preds = %312, %314
   %317 = phi ptr [ %.pre191, %312 ], [ %316, %314 ]
   %.0.i.i88 = phi ptr [ %313, %312 ], [ %214, %314 ]
-  %.sroa.06.0.copyload = load ptr, ptr %0, align 8, !tbaa !29
-  %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.27.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !30
+  %.sroa.07.0.copyload = load ptr, ptr %0, align 8, !tbaa !29
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !30
   %318 = getelementptr inbounds nuw i8, ptr %.0.i.i88, i64 24
   %319 = load ptr, ptr %318, align 8, !tbaa !35
   %320 = getelementptr inbounds nuw i8, ptr %.0.i.i88, i64 32
   %321 = ptrtoint ptr %319 to i64
   %322 = ptrtoint ptr %317 to i64
   %323 = sub i64 %321, %322
-  %324 = icmp ugt i64 %.sroa.27.0.copyload, %323
+  %324 = icmp ugt i64 %.sroa.28.0.copyload, %323
   br i1 %324, label %325, label %327
 
 325:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit89
-  %326 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i88, ptr noundef %.sroa.06.0.copyload, i64 noundef %.sroa.27.0.copyload) #13
+  %326 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i88, ptr noundef %.sroa.07.0.copyload, i64 noundef %.sroa.28.0.copyload) #13
   %.phi.trans.insert192 = getelementptr inbounds nuw i8, ptr %326, i64 32
   %.pre193 = load ptr, ptr %.phi.trans.insert192, align 8, !tbaa !40
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92
 
 327:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit89
-  %.not.i90 = icmp eq i64 %.sroa.27.0.copyload, 0
+  %.not.i90 = icmp eq i64 %.sroa.28.0.copyload, 0
   br i1 %.not.i90, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92, label %328
 
 328:                                              ; preds = %327
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %317, ptr align 1 %.sroa.06.0.copyload, i64 %.sroa.27.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %317, ptr align 1 %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, i1 false)
   %329 = load ptr, ptr %320, align 8, !tbaa !40
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 %.sroa.27.0.copyload
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 %.sroa.28.0.copyload
   store ptr %330, ptr %320, align 8, !tbaa !40
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92
 

@@ -1325,26 +1325,24 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %37 = phi i32 [ %36, %._crit_edge.loopexit ], [ %9, %7 ]
   store i32 %37, ptr %8, align 8
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %40 = load i8, ptr %39, align 4
+  %41 = trunc i8 %40 to i1
+  %or.cond = select i1 %38, i1 %41, i1 false
+  br i1 %or.cond, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
 
-39:                                               ; preds = %._crit_edge
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %41 = load i8, ptr %40, align 4
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
-
-43:                                               ; preds = %39
+42:                                               ; preds = %._crit_edge
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit unwind label %44
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit unwind label %43
 
-44:                                               ; preds = %43
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %42
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #24
+  %45 = extractvalue { ptr, i32 } %44, 0
+  tail call void @__clang_call_terminate(ptr %45) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %43, %39, %._crit_edge, %2
+_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %42, %._crit_edge, %2
   ret void
 }
 
@@ -1461,26 +1459,24 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %37 = phi i32 [ %36, %._crit_edge.loopexit ], [ %9, %7 ]
   store i32 %37, ptr %8, align 8
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %40 = load i8, ptr %39, align 4
+  %41 = trunc i8 %40 to i1
+  %or.cond = select i1 %38, i1 %41, i1 false
+  br i1 %or.cond, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
 
-39:                                               ; preds = %._crit_edge
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %41 = load i8, ptr %40, align 4
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
-
-43:                                               ; preds = %39
+42:                                               ; preds = %._crit_edge
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit unwind label %44
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit unwind label %43
 
-44:                                               ; preds = %43
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %42
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #24
+  %45 = extractvalue { ptr, i32 } %44, 0
+  tail call void @__clang_call_terminate(ptr %45) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %43, %39, %._crit_edge, %2
+_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %42, %._crit_edge, %2
   ret void
 }
 
@@ -1563,26 +1559,24 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %37 = phi i32 [ %36, %._crit_edge.loopexit ], [ %9, %7 ]
   store i32 %37, ptr %8, align 8
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %40 = load i8, ptr %39, align 4
+  %41 = trunc i8 %40 to i1
+  %or.cond = select i1 %38, i1 %41, i1 false
+  br i1 %or.cond, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
 
-39:                                               ; preds = %._crit_edge
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %41 = load i8, ptr %40, align 4
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
-
-43:                                               ; preds = %39
+42:                                               ; preds = %._crit_edge
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit unwind label %44
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit unwind label %43
 
-44:                                               ; preds = %43
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %42
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #24
+  %45 = extractvalue { ptr, i32 } %44, 0
+  tail call void @__clang_call_terminate(ptr %45) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %43, %39, %._crit_edge, %2
+_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %42, %._crit_edge, %2
   ret void
 }
 
@@ -1665,26 +1659,24 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   %37 = phi i32 [ %36, %._crit_edge.loopexit ], [ %9, %7 ]
   store i32 %37, ptr %8, align 8
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %40 = load i8, ptr %39, align 4
+  %41 = trunc i8 %40 to i1
+  %or.cond = select i1 %38, i1 %41, i1 false
+  br i1 %or.cond, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
 
-39:                                               ; preds = %._crit_edge
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %41 = load i8, ptr %40, align 4
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit
-
-43:                                               ; preds = %39
+42:                                               ; preds = %._crit_edge
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase23_RemoveExpiredObserversEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit unwind label %44
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit unwind label %43
 
-44:                                               ; preds = %43
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %42
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #24
+  %45 = extractvalue { ptr, i32 } %44, 0
+  tail call void @__clang_call_terminate(ptr %45) #24
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %43, %39, %._crit_edge, %2
+_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase12_NotifyScopeD2Ev.exit: ; preds = %42, %._crit_edge, %2
   ret void
 }
 

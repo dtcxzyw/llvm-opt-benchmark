@@ -221,22 +221,20 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %87 = load i8, ptr %86, align 8
   %88 = icmp ult i8 %87, 10
-  br i1 %88, label %switch.hole_check, label %observer_to_wtap_encap.exit
+  %switch.maskindex = zext nneg i8 %87 to i16
+  %switch.shifted = lshr i16 771, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %88, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %observer_to_wtap_encap.exit
 
-observer_to_wtap_encap.exit:                      ; preds = %switch.hole_check, %85
+observer_to_wtap_encap.exit:                      ; preds = %85
   store i32 -4, ptr %1, align 4
   %89 = zext i8 %87 to i32
   %90 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %89)
   store ptr %90, ptr %2, align 8
   br label %.thread
 
-switch.hole_check:                                ; preds = %85
-  %switch.maskindex = zext nneg i8 %87 to i16
-  %switch.shifted = lshr i16 771, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %observer_to_wtap_encap.exit
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %85
   %91 = zext nneg i8 %87 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.observer_open, i64 0, i64 %91
   %switch.load = load i32, ptr %switch.gep, align 4

@@ -2643,15 +2643,13 @@ define internal fastcc noundef nonnull ptr @transformSubLink(ptr noundef %0, ptr
   %4 = load i32, ptr %3, align 8
   %switch.tableidx = add i32 %4, -28
   %5 = icmp ult i32 %switch.tableidx, 16
-  br i1 %5, label %switch.hole_check, label %13
-
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 -1025, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %13
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %13
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.transformSubLink, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2665,7 +2663,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   tail call void @errfinish(ptr noundef nonnull @.str.41, i32 noundef 1874, ptr noundef nonnull @__func__.transformSubLink) #9
   unreachable
 
-13:                                               ; preds = %switch.hole_check, %2
+13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 187
   store i8 1, ptr %14, align 1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -5844,16 +5842,16 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
   br label %16
 
 16:                                               ; preds = %14, %6
-  %.087 = phi ptr [ %15, %14 ], [ %11, %6 ]
-  %17 = tail call i32 @exprType(ptr noundef %.087) #9
-  %18 = tail call i32 @exprLocation(ptr noundef %.087) #9
+  %.089 = phi ptr [ %15, %14 ], [ %11, %6 ]
+  %17 = tail call i32 @exprType(ptr noundef %.089) #9
+  %18 = tail call i32 @exprLocation(ptr noundef %.089) #9
   call void @get_type_category_preferred(i32 noundef %17, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
-  %.not96 = icmp eq i32 %22, 0
-  br i1 %.not96, label %37, label %23
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %37, label %23
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -5876,7 +5874,7 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
   unreachable
 
 36:                                               ; preds = %23
-  switch i32 %17, label %.thread106 [
+  switch i32 %17, label %.thread107 [
     i32 3802, label %.thread
     i32 114, label %.thread
   ]
@@ -5914,29 +5912,28 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
   ]
 
 43:                                               ; preds = %42, %39
-  %.not97 = icmp eq i32 %3, 0
-  br i1 %.not97, label %.thread, label %.thread106
+  %.not98 = icmp eq i32 %3, 0
+  br i1 %.not98, label %.thread, label %.thread107
 
 .thread:                                          ; preds = %42, %42, %36, %36, %43
-  %.not98 = icmp eq i32 %4, 0
-  %.not99 = icmp eq i32 %17, %4
-  %or.cond101 = select i1 %.not98, i1 true, i1 %.not99
-  br i1 %or.cond101, label %91, label %.thread106
+  %.not99 = icmp eq i32 %4, 0
+  %.not100 = icmp eq i32 %17, %4
+  %or.cond102 = select i1 %.not99, i1 true, i1 %.not100
+  br i1 %or.cond102, label %91, label %.thread107
 
-.thread106:                                       ; preds = %36, %.thread, %43
-  %.089104 = phi i32 [ 0, %.thread ], [ %3, %43 ], [ %22, %36 ]
-  %.not100 = icmp eq i32 %4, 0
-  br i1 %5, label %61, label %44
-
-44:                                               ; preds = %.thread106
+.thread107:                                       ; preds = %36, %.thread, %43
+  %.091105 = phi i32 [ 0, %.thread ], [ %3, %43 ], [ %22, %36 ]
+  %44 = icmp ne i32 %4, 0
+  %or.cond7 = or i1 %5, %44
+  %or.cond7.not = xor i1 %or.cond7, true
   %45 = icmp ne i32 %17, 17
-  %or.cond7 = select i1 %.not100, i1 %45, i1 false
+  %or.cond9 = select i1 %or.cond7.not, i1 %45, i1 false
   %46 = load i8, ptr %7, align 1
   %47 = icmp ne i8 %46, 83
-  %or.cond10 = select i1 %or.cond7, i1 %47, i1 false
-  br i1 %or.cond10, label %48, label %61
+  %or.cond12 = select i1 %or.cond9, i1 %47, i1 false
+  br i1 %or.cond12, label %48, label %61
 
-48:                                               ; preds = %44
+48:                                               ; preds = %.thread107
   %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %49)
   %50 = call i32 @errcode(i32 noundef 67141764) #9
@@ -5955,38 +5952,38 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
   call void @errfinish(ptr noundef nonnull @.str.41, i32 noundef 3381, ptr noundef nonnull @__func__.transformJsonValueExpr) #9
   unreachable
 
-61:                                               ; preds = %44, %.thread106
-  %62 = icmp eq i32 %.089104, 1
+61:                                               ; preds = %.thread107
+  %62 = icmp eq i32 %.091105, 1
   %63 = icmp eq i32 %17, 17
-  %or.cond12 = select i1 %62, i1 %63, i1 false
-  br i1 %or.cond12, label %64, label %69
+  %or.cond14 = select i1 %62, i1 %63, i1 false
+  br i1 %or.cond14, label %64, label %69
 
 64:                                               ; preds = %61
   %65 = call fastcc ptr @getJsonEncodingConst(ptr noundef nonnull %20)
-  %66 = call ptr @list_make2_impl(i32 noundef 1, ptr %.087, ptr %65) #9
+  %66 = call ptr @list_make2_impl(i32 noundef 1, ptr %.089, ptr %65) #9
   %67 = call ptr @makeFuncExpr(i32 noundef 1714, i32 noundef 25, ptr noundef %66, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store i32 %18, ptr %68, align 8
   br label %69
 
 69:                                               ; preds = %64, %61
-  %.090 = phi i32 [ 25, %64 ], [ %17, %61 ]
-  %.2 = phi ptr [ %67, %64 ], [ %.087, %61 ]
-  %.not109 = icmp eq i32 %.089104, 2
-  %70 = select i1 %.not109, i32 3802, i32 114
-  %.086 = select i1 %.not100, i32 %70, i32 %4
-  %71 = call ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %.2, i32 noundef %.090, i32 noundef %.086, i32 noundef -1, i32 noundef 3, i32 noundef 1, i32 noundef %18) #9
-  %.not = icmp eq ptr %71, null
-  br i1 %.not, label %72, label %85
+  %.092 = phi i32 [ 25, %64 ], [ %17, %61 ]
+  %.2 = phi ptr [ %67, %64 ], [ %.089, %61 ]
+  %.not110 = icmp eq i32 %.091105, 2
+  %70 = select i1 %.not110, i32 3802, i32 114
+  %.088 = select i1 %44, i32 %4, i32 %70
+  %71 = call ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %.2, i32 noundef %.092, i32 noundef %.088, i32 noundef -1, i32 noundef 3, i32 noundef 1, i32 noundef %18) #9
+  %.not101 = icmp eq ptr %71, null
+  br i1 %.not101, label %72, label %85
 
 72:                                               ; preds = %69
-  br i1 %.not100, label %80, label %73
+  br i1 %44, label %73, label %80
 
 73:                                               ; preds = %72
   %74 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %74)
   %75 = call i32 @errcode(i32 noundef 101744772) #9
-  %76 = call ptr @format_type_be(i32 noundef %.090) #9
+  %76 = call ptr @format_type_be(i32 noundef %.092) #9
   %77 = call ptr @format_type_be(i32 noundef %4) #9
   %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61, ptr noundef %76, ptr noundef %77) #9
   %79 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %18) #9
@@ -5994,7 +5991,7 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
   unreachable
 
 80:                                               ; preds = %72
-  %81 = select i1 %.not109, i32 3787, i32 3176
+  %81 = select i1 %.not110, i32 3787, i32 3176
   %82 = call ptr @list_make1_impl(i32 noundef 1, ptr %.2) #9
   %83 = call ptr @makeFuncExpr(i32 noundef %81, i32 noundef %70, ptr noundef %82, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
@@ -6002,20 +5999,20 @@ define internal fastcc ptr @transformJsonValueExpr(ptr noundef %0, ptr noundef %
   br label %85
 
 85:                                               ; preds = %80, %69
-  %.088 = phi ptr [ %71, %69 ], [ %83, %80 ]
-  %86 = icmp eq ptr %.088, %.2
+  %.090 = phi ptr [ %71, %69 ], [ %83, %80 ]
+  %86 = icmp eq ptr %.090, %.2
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %85
   %88 = call ptr @copyObjectImpl(ptr noundef nonnull %2) #9
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %.087, ptr %89, align 8
+  store ptr %.089, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  store ptr %.088, ptr %90, align 8
+  store ptr %.090, ptr %90, align 8
   br label %91
 
 91:                                               ; preds = %.thread, %85, %87, %39, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38
-  %.0 = phi ptr [ %.087, %38 ], [ %.087, %38 ], [ %.087, %38 ], [ %.087, %38 ], [ %.087, %38 ], [ %.087, %38 ], [ %.087, %38 ], [ %.087, %38 ], [ %.087, %38 ], [ %.087, %38 ], [ %.087, %38 ], [ %.087, %38 ], [ %.087, %38 ], [ %.087, %38 ], [ %.087, %39 ], [ %.087, %.thread ], [ %88, %87 ], [ %.087, %85 ]
+  %.0 = phi ptr [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %38 ], [ %.089, %39 ], [ %.089, %.thread ], [ %88, %87 ], [ %.089, %85 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
   ret ptr %.0
@@ -6094,7 +6091,7 @@ define internal fastcc noundef ptr @makeJsonConstructorExpr(ptr noundef %0, i32 
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %46, %41
-  %.033.i = phi i32 [ %48, %46 ], [ %42, %41 ]
+  %.034.i = phi i32 [ %48, %46 ], [ %42, %41 ]
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 1
@@ -6110,39 +6107,39 @@ define internal fastcc noundef ptr @makeJsonConstructorExpr(ptr noundef %0, i32 
   %57 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %54, ptr %56) #9
   %58 = tail call ptr @makeFuncExpr(i32 noundef 1717, i32 noundef 17, ptr noundef %57, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  store i32 %.033.i, ptr %59, align 8
+  store i32 %.034.i, ptr %59, align 8
   br label %coerceJsonFuncExpr.exit
 
 60:                                               ; preds = %._crit_edge.i
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %62 = load i32, ptr %61, align 4
-  %63 = tail call ptr @coerce_to_target_type(ptr noundef %0, ptr noundef nonnull %19, i32 noundef %37, i32 noundef %.pre38.i, i32 noundef %62, i32 noundef 1, i32 noundef 2, i32 noundef %.033.i) #9
-  %.not37.i = icmp eq ptr %63, null
-  br i1 %.not37.i, label %64, label %coerceJsonFuncExpr.exit
+  %63 = tail call ptr @coerce_to_target_type(ptr noundef %0, ptr noundef nonnull %19, i32 noundef %37, i32 noundef %.pre38.i, i32 noundef %62, i32 noundef 1, i32 noundef 2, i32 noundef %.034.i) #9
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %coerceJsonFuncExpr.exit
 
-64:                                               ; preds = %60
-  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %65)
-  %66 = tail call i32 @errcode(i32 noundef 101744772) #9
-  %67 = tail call ptr @format_type_be(i32 noundef %37) #9
-  %68 = load i32, ptr %38, align 8
-  %69 = tail call ptr @format_type_be(i32 noundef %68) #9
-  %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61, ptr noundef %67, ptr noundef %69) #9
-  %71 = tail call i32 @parser_coercion_errposition(ptr noundef %0, i32 noundef %.033.i, ptr noundef nonnull %19) #9
+65:                                               ; preds = %60
+  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %66)
+  %67 = tail call i32 @errcode(i32 noundef 101744772) #9
+  %68 = tail call ptr @format_type_be(i32 noundef %37) #9
+  %69 = load i32, ptr %38, align 8
+  %70 = tail call ptr @format_type_be(i32 noundef %69) #9
+  %71 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61, ptr noundef %68, ptr noundef %70) #9
+  %72 = tail call i32 @parser_coercion_errposition(ptr noundef %0, i32 noundef %.034.i, ptr noundef nonnull %19) #9
   tail call void @errfinish(ptr noundef nonnull @.str.41, i32 noundef 3645, ptr noundef nonnull @__func__.coerceJsonFuncExpr) #9
   unreachable
 
 coerceJsonFuncExpr.exit:                          ; preds = %53, %60
   %.0.i = phi ptr [ %58, %53 ], [ %63, %60 ]
   %.not36 = icmp eq ptr %.0.i, %19
-  br i1 %.not36, label %coerceJsonFuncExpr.exit.thread, label %72
+  br i1 %.not36, label %coerceJsonFuncExpr.exit.thread, label %73
 
-72:                                               ; preds = %coerceJsonFuncExpr.exit
-  %73 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %.0.i, ptr %73, align 8
+73:                                               ; preds = %coerceJsonFuncExpr.exit
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr %.0.i, ptr %74, align 8
   br label %coerceJsonFuncExpr.exit.thread
 
-coerceJsonFuncExpr.exit.thread:                   ; preds = %35, %72, %coerceJsonFuncExpr.exit
+coerceJsonFuncExpr.exit.thread:                   ; preds = %35, %73, %coerceJsonFuncExpr.exit
   ret ptr %11
 }
 

@@ -10728,9 +10728,9 @@ define void @_ZN13PluginManager19PluginRangeIterator5beginEv(ptr dead_on_unwind 
   store i8 %8, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
-  %.not5.i = icmp eq ptr %13, %4
-  %brmerge.i = or i1 %.not5.i, %7
-  br i1 %brmerge.i, label %_ZN19ConstPluginIteratorI13MeshLabPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit, label %14
+  %.not6.i = icmp eq ptr %13, %4
+  %or.cond.i = or i1 %.not6.i, %7
+  br i1 %or.cond.i, label %_ZN19ConstPluginIteratorI13MeshLabPluginEC2ERKSt6vectorIPS0_SaIS3_EERKN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEb.exit, label %14
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %4, align 8

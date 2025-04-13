@@ -591,19 +591,17 @@ proto_item_set_hidden.exit298:                    ; preds = %proto_item_set_hidd
   %158 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %47, i32 noundef %157, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %11)
   %159 = load i32, ptr %11, align 4
   %160 = icmp ult i32 %159, 16
-  br i1 %160, label %switch.hole_check, label %161
+  %switch.maskindex = trunc i32 %159 to i16
+  %switch.shifted = lshr i16 -2753, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %160, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %161
 
-161:                                              ; preds = %switch.hole_check, %156
+161:                                              ; preds = %156
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.146, i32 noundef 205, ptr noundef nonnull @.str.147) #6
   unreachable
 
-switch.hole_check:                                ; preds = %156
-  %switch.maskindex = trunc nuw i32 %159 to i16
-  %switch.shifted = lshr i16 -2753, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %161
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %156
   %162 = zext nneg i32 %159 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table.dissect_exported_pdu, i64 0, i64 %162
   %switch.load = load i32, ptr %switch.gep, align 4

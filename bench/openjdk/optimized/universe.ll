@@ -7056,23 +7056,21 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i: ; preds = %14
 _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit: ; preds = %4, %8, %14, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i, %43
   %48 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %3, ptr %2) #16, !srcloc !28
   %49 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_(ptr noundef nonnull align 8 dereferenceable(1064) %0, i64 noundef %1, ptr noundef %48, ptr noundef null)
-  %.not.i7 = icmp eq ptr %49, null
-  br i1 %.not.i7, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit, label %50
-
-50:                                               ; preds = %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit
+  %50 = icmp ne ptr %49, null
   %51 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
+  %or.cond.i7 = select i1 %50, i1 %52, i1 false
+  br i1 %or.cond.i7, label %53, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
-53:                                               ; preds = %50
+53:                                               ; preds = %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 769
   %57 = load volatile i8, ptr %56, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
   %58 = and i8 %57, 2
-  %.not3.i = icmp eq i8 %58, 0
-  br i1 %.not3.i, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit, label %59
+  %.not.i8 = icmp eq i8 %58, 0
+  br i1 %.not.i8, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit, label %59
 
 59:                                               ; preds = %53
   %60 = load ptr, ptr %54, align 8
@@ -7085,10 +7083,10 @@ _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit: ; preds = %4, %8, %14, %_Z
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds ptr, ptr %67, i64 %65
   %69 = load ptr, ptr %68, align 8
-  %.not.i.i.i.i8 = icmp ult ptr %49, %69
-  br i1 %.not.i.i.i.i8, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i9, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
+  %.not.i.i.i.i9 = icmp ult ptr %49, %69
+  br i1 %.not.i.i.i.i9, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i10, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
-_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i9: ; preds = %59
+_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i10: ; preds = %59
   %70 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = ptrtoint ptr %71 to i64
@@ -7109,7 +7107,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i9: ; preds = %59
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %88, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
-88:                                               ; preds = %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i9
+88:                                               ; preds = %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i10
   %89 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
@@ -7117,7 +7115,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i9: ; preds = %59
   tail call void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueueP7oopDesc(ptr noundef nonnull align 8 dereferenceable(393) %92, ptr noundef nonnull align 8 dereferenceable(17) %91, ptr noundef nonnull %49) #16
   br label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
-_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit: ; preds = %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, %50, %53, %59, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i9, %88
+_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit: ; preds = %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, %53, %59, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i10, %88
   ret ptr %49
 }
 

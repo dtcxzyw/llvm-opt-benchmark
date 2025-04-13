@@ -9342,155 +9342,151 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
   %5 = alloca { i64, [5 x i64] }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %7 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h1feb95a0bfc7fccdE, align 1, !noalias !1442, !noundef !5
-  switch i8 %7, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit" [
+  switch i8 %7, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit.thread" [
     i8 0, label %8
-    i8 1, label %9
+    i8 1, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit"
   ]
 
 8:                                                ; preds = %3
   tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17hcf19b6be62dad1c2E(ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit7destroy17ha5e1132144745f4eE), !noalias !1442
   store i8 1, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h1feb95a0bfc7fccdE, align 1, !noalias !1442
-  br label %9
-
-9:                                                ; preds = %3, %8
-  %.08.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !4, !noalias !1442, !noundef !5
-  %.08.val10.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !1442
-  %10 = trunc nuw i8 %.08.val.i to i1
-  %11 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %10, i8 %.08.val10.i), !noalias !1442
-  %12 = zext i1 %11 to i8
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit"
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit": ; preds = %3, %9
-  %.0.i = phi i8 [ %12, %9 ], [ 2, %3 ]
-  %13 = icmp eq i8 %.0.i, 2
-  %14 = trunc nuw i8 %.0.i to i1
-  %.010 = select i1 %13, i1 true, i1 %14
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit": ; preds = %3, %8
+  %.08.val.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !4, !noalias !1442, !noundef !5
+  %.08.val10.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !1442
+  %9 = trunc nuw i8 %.08.val.i to i1
+  %10 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %9, i8 %.08.val10.i), !noalias !1442
+  %11 = xor i1 %10, true
+  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit.thread"
+
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit.thread": ; preds = %3, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit"
+  %12 = phi i1 [ %11, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit" ], [ false, %3 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1445)
-  %15 = load ptr, ptr %6, align 8, !alias.scope !1448, !noalias !1451, !nonnull !5, !align !13, !noundef !5
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %17 = load ptr, ptr %16, align 8, !alias.scope !1448, !noalias !1451, !nonnull !5, !align !175, !noundef !5
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8, !invariant.load !5, !noalias !1454, !nonnull !5
-  call void %19(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull align 1 %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-  %20 = load i64, ptr %5, align 8, !range !219, !noundef !5
-  %.not = icmp eq i64 %20, 17
-  br i1 %.not, label %"_ZN4core3ptr146drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$GT$$GT$17h85d1ecd870c0be63E.llvm.18347223292822670392.exit", label %21
+  %13 = load ptr, ptr %6, align 8, !alias.scope !1448, !noalias !1451, !nonnull !5, !align !13, !noundef !5
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %15 = load ptr, ptr %14, align 8, !alias.scope !1448, !noalias !1451, !nonnull !5, !align !175, !noundef !5
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = load ptr, ptr %16, align 8, !invariant.load !5, !noalias !1454, !nonnull !5
+  call void %17(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  %18 = load i64, ptr %5, align 8, !range !219, !noundef !5
+  %.not14 = icmp eq i64 %18, 17
+  br i1 %.not14, label %"_ZN4core3ptr146drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$GT$$GT$17h85d1ecd870c0be63E.llvm.18347223292822670392.exit", label %19
 
-21:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit"
+19:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit.thread"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
-  br label %26
+  br label %24
 
-"_ZN4core3ptr146drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$GT$$GT$17h85d1ecd870c0be63E.llvm.18347223292822670392.exit": ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit"
-  %22 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h1feb95a0bfc7fccdE, align 1, !noalias !1455, !noundef !5
-  switch i8 %22, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit16.thread" [
-    i8 0, label %23
-    i8 1, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit16"
+"_ZN4core3ptr146drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$GT$$GT$17h85d1ecd870c0be63E.llvm.18347223292822670392.exit": ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit.thread"
+  %20 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h1feb95a0bfc7fccdE, align 1, !noalias !1455, !noundef !5
+  switch i8 %20, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit18.thread" [
+    i8 0, label %21
+    i8 1, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit18"
   ]
 
-23:                                               ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$GT$$GT$17h85d1ecd870c0be63E.llvm.18347223292822670392.exit"
+21:                                               ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$GT$$GT$17h85d1ecd870c0be63E.llvm.18347223292822670392.exit"
   tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17hcf19b6be62dad1c2E(ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit7destroy17ha5e1132144745f4eE), !noalias !1455
   store i8 1, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h1feb95a0bfc7fccdE, align 1, !noalias !1455
-  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit16"
+  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit18"
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit16": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$GT$$GT$17h85d1ecd870c0be63E.llvm.18347223292822670392.exit", %23
-  %.08.val.i13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !4, !noalias !1455, !noundef !5
-  %.08.val10.i14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !1455
-  %24 = trunc nuw i8 %.08.val.i13 to i1
-  %25 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %24, i8 %.08.val10.i14), !noalias !1455
-  %.010.not = xor i1 %.010, true
-  %brmerge = or i1 %25, %.010.not
-  br i1 %brmerge, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit16.thread", label %29
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit18": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$GT$$GT$17h85d1ecd870c0be63E.llvm.18347223292822670392.exit", %21
+  %.08.val.i15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !4, !noalias !1455, !noundef !5
+  %.08.val10.i16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !1455
+  %22 = trunc nuw i8 %.08.val.i15 to i1
+  %23 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17hf5e005e8ba8fda9cE(i1 noundef zeroext %22, i8 %.08.val10.i16), !noalias !1455
+  %or.cond = or i1 %12, %23
+  br i1 %or.cond, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit18.thread", label %27
 
-26:                                               ; preds = %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17hc9d4b626ce134039E.llvm.18347223292822670392.exit", %"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hc29de86772205434E.llvm.18347223292822670392.exit", %21
+24:                                               ; preds = %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17hc9d4b626ce134039E.llvm.18347223292822670392.exit", %"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hc29de86772205434E.llvm.18347223292822670392.exit", %19
   ret void
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit16.thread": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$GT$$GT$17h85d1ecd870c0be63E.llvm.18347223292822670392.exit", %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit16"
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit18.thread": ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$sqlx_sqlite..connection..SqliteConnection$C$sqlx_core..error..Error$GT$$GT$$GT$17h85d1ecd870c0be63E.llvm.18347223292822670392.exit", %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit18"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1458)
-  %27 = tail call noundef zeroext i1 @"_ZN74_$LT$tokio..time..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17he0c8f5346e80d644E"(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !1458
-  br i1 %27, label %"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hc29de86772205434E.llvm.18347223292822670392.exit", label %28
+  %25 = tail call noundef zeroext i1 @"_ZN74_$LT$tokio..time..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17he0c8f5346e80d644E"(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !1458
+  br i1 %25, label %"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hc29de86772205434E.llvm.18347223292822670392.exit", label %26
 
-28:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit16.thread"
+26:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit18.thread"
   tail call void @_ZN5tokio4time5error7Elapsed3new17h16bef5e93a11be60E(), !noalias !1458
   br label %"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hc29de86772205434E.llvm.18347223292822670392.exit"
 
-"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hc29de86772205434E.llvm.18347223292822670392.exit": ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit16.thread", %28
-  %.sink.i = phi i64 [ 17, %28 ], [ 18, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit16.thread" ]
+"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hc29de86772205434E.llvm.18347223292822670392.exit": ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit18.thread", %26
+  %.sink.i = phi i64 [ 17, %26 ], [ 18, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit18.thread" ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !1458, !noalias !1461
-  br label %26
+  br label %24
 
-29:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit16"
-  %30 = tail call { i8, i8 } @_ZN5tokio7runtime4coop6Budget13unconstrained17heafa3b24d518f869E(), !noalias !1463
-  %31 = extractvalue { i8, i8 } %30, 0
-  %32 = extractvalue { i8, i8 } %30, 1
-  %33 = and i8 %31, 1
+27:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h2083eb2700f86a8cE.llvm.18347223292822670392.exit18"
+  %28 = tail call { i8, i8 } @_ZN5tokio7runtime4coop6Budget13unconstrained17heafa3b24d518f869E(), !noalias !1463
+  %29 = extractvalue { i8, i8 } %28, 0
+  %30 = extractvalue { i8, i8 } %28, 1
+  %31 = and i8 %29, 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4), !noalias !1467
-  %34 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h1feb95a0bfc7fccdE, align 1, !noalias !1471, !noundef !5
-  switch i8 %34, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hf4565feb13e45c3fE.llvm.18347223292822670392.exit" [
-    i8 0, label %35
-    i8 1, label %36
+  %32 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h1feb95a0bfc7fccdE, align 1, !noalias !1471, !noundef !5
+  switch i8 %32, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hf4565feb13e45c3fE.llvm.18347223292822670392.exit" [
+    i8 0, label %33
+    i8 1, label %34
   ]
 
-35:                                               ; preds = %29
+33:                                               ; preds = %27
   tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17hcf19b6be62dad1c2E(ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit7destroy17ha5e1132144745f4eE), !noalias !1471
   store i8 1, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h1feb95a0bfc7fccdE, align 1, !noalias !1471
-  br label %36
+  br label %34
 
-36:                                               ; preds = %29, %35
-  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !4, !noalias !1471, !noundef !5
-  %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !1471
-  store i8 %33, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !noalias !1471
-  store i8 %32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !1471
+34:                                               ; preds = %27, %33
+  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !range !4, !noalias !1471, !noundef !5
+  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !1471
+  store i8 %31, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 76), align 4, !noalias !1471
+  store i8 %30, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h224c7160ba1c6c15E, i64 77), align 1, !noalias !1471
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hf4565feb13e45c3fE.llvm.18347223292822670392.exit"
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hf4565feb13e45c3fE.llvm.18347223292822670392.exit": ; preds = %29, %36
-  %.sroa.3.0.i = phi i8 [ %38, %36 ], [ undef, %29 ]
-  %.sroa.0.0.i = phi i8 [ %37, %36 ], [ 2, %29 ]
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hf4565feb13e45c3fE.llvm.18347223292822670392.exit": ; preds = %27, %34
+  %.sroa.3.0.i = phi i8 [ %36, %34 ], [ undef, %27 ]
+  %.sroa.0.0.i = phi i8 [ %35, %34 ], [ 2, %27 ]
   store i8 %.sroa.0.0.i, ptr %4, align 1, !noalias !1467
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %.sroa.3.0.i, ptr %.fca.1.gep.i.i, align 1, !noalias !1467
-  %39 = invoke noundef zeroext i1 @"_ZN74_$LT$tokio..time..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17he0c8f5346e80d644E"(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %.noexc unwind label %41
+  %37 = invoke noundef zeroext i1 @"_ZN74_$LT$tokio..time..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17he0c8f5346e80d644E"(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+          to label %.noexc unwind label %39
 
 .noexc:                                           ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hf4565feb13e45c3fE.llvm.18347223292822670392.exit"
-  br i1 %39, label %_ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit, label %40
+  br i1 %37, label %_ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit, label %38
 
-40:                                               ; preds = %.noexc
+38:                                               ; preds = %.noexc
   invoke void @_ZN5tokio4time5error7Elapsed3new17h16bef5e93a11be60E()
-          to label %._ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit_crit_edge unwind label %41
+          to label %._ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit_crit_edge unwind label %39
 
-._ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit_crit_edge: ; preds = %40
+._ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit_crit_edge: ; preds = %38
   %.pre = load i8, ptr %4, align 1, !range !70, !alias.scope !1475, !noalias !1478
   br label %_ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit
 
-41:                                               ; preds = %40, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hf4565feb13e45c3fE.llvm.18347223292822670392.exit"
-  %42 = landingpad { ptr, i32 }
+39:                                               ; preds = %38, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hf4565feb13e45c3fE.llvm.18347223292822670392.exit"
+  %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17hc9d4b626ce134039E.llvm.18347223292822670392"(ptr noalias noundef nonnull align 1 dereferenceable(2) %4) #28
-          to label %45 unwind label %43, !noalias !1478
+          to label %43 unwind label %41, !noalias !1478
 
-43:                                               ; preds = %41
-  %44 = landingpad { ptr, i32 }
+41:                                               ; preds = %39
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #29, !noalias !1478
   unreachable
 
-45:                                               ; preds = %41
-  resume { ptr, i32 } %42
+43:                                               ; preds = %39
+  resume { ptr, i32 } %40
 
 _ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit: ; preds = %._ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit_crit_edge, %.noexc
-  %46 = phi i8 [ %.sroa.0.0.i, %.noexc ], [ %.pre, %._ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit_crit_edge ]
-  %.sink.i17 = phi i64 [ 18, %.noexc ], [ 17, %._ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit_crit_edge ]
-  store i64 %.sink.i17, ptr %0, align 8, !alias.scope !1479, !noalias !1482
-  %.not.i = icmp eq i8 %46, 2
-  br i1 %.not.i, label %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17hc9d4b626ce134039E.llvm.18347223292822670392.exit", label %47
+  %44 = phi i8 [ %.sroa.0.0.i, %.noexc ], [ %.pre, %._ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit_crit_edge ]
+  %.sink.i19 = phi i64 [ 18, %.noexc ], [ 17, %._ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit_crit_edge ]
+  store i64 %.sink.i19, ptr %0, align 8, !alias.scope !1479, !noalias !1482
+  %.not.i = icmp eq i8 %44, 2
+  br i1 %.not.i, label %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17hc9d4b626ce134039E.llvm.18347223292822670392.exit", label %45
 
-47:                                               ; preds = %_ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit
+45:                                               ; preds = %_ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit
   call void @"_ZN87_$LT$tokio..runtime..coop..with_budget..ResetGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd50a1e9e44a8b7d2E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %4), !noalias !1478
   br label %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17hc9d4b626ce134039E.llvm.18347223292822670392.exit"
 
-"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17hc9d4b626ce134039E.llvm.18347223292822670392.exit": ; preds = %_ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit, %47
+"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17hc9d4b626ce134039E.llvm.18347223292822670392.exit": ; preds = %_ZN5tokio7runtime4coop18with_unconstrained17h3cedcbc361a73d9eE.llvm.18347223292822670392.exit, %45
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4), !noalias !1467
-  br label %26
+  br label %24
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

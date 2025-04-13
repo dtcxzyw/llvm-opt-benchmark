@@ -1830,24 +1830,24 @@ define internal fastcc noundef zeroext i1 @is_duplicate_idb(ptr noundef %0, ptr 
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load i64, ptr %26, align 8
-  %.not42 = icmp eq i64 %25, %27
-  br i1 %.not42, label %28, label %109
+  %.not57 = icmp eq i64 %25, %27
+  br i1 %.not57, label %28, label %109
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %32 = load i32, ptr %31, align 8
-  %.not43 = icmp eq i32 %30, %32
-  br i1 %.not43, label %33, label %109
+  %.not58 = icmp eq i32 %30, %32
+  br i1 %.not58, label %33, label %109
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %37 = load i32, ptr %36, align 4
-  %.not44 = icmp eq i32 %35, %37
-  br i1 %.not44, label %38, label %109
+  %.not59 = icmp eq i32 %35, %37
+  br i1 %.not59, label %38, label %109
 
 38:                                               ; preds = %33
   %39 = call i32 @wtap_block_get_uint64_option_value(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %3)
@@ -1860,30 +1860,30 @@ define internal fastcc noundef zeroext i1 @is_duplicate_idb(ptr noundef %0, ptr 
 43:                                               ; preds = %38
   %44 = load i64, ptr %3, align 8
   %45 = load i64, ptr %4, align 8
-  %.not45 = icmp eq i64 %44, %45
-  br i1 %.not45, label %46, label %109
+  %.not60 = icmp eq i64 %44, %45
+  br i1 %.not60, label %46, label %109
 
 46:                                               ; preds = %43, %38
   %47 = call i32 @wtap_block_get_uint8_option_value(ptr noundef %0, i32 noundef 9, ptr noundef nonnull %5)
   %48 = icmp eq i32 %47, 0
   %49 = call i32 @wtap_block_get_uint8_option_value(ptr noundef %1, i32 noundef 9, ptr noundef nonnull %6)
   %50 = icmp eq i32 %49, 0
-  %or.cond52 = select i1 %48, i1 %50, i1 false
-  br i1 %or.cond52, label %51, label %54
+  %or.cond3 = select i1 %48, i1 %50, i1 false
+  br i1 %or.cond3, label %51, label %54
 
 51:                                               ; preds = %46
   %52 = load i8, ptr %5, align 1
   %53 = load i8, ptr %6, align 1
-  %.not46 = icmp eq i8 %52, %53
-  br i1 %.not46, label %54, label %109
+  %.not61 = icmp eq i8 %52, %53
+  br i1 %.not61, label %54, label %109
 
 54:                                               ; preds = %51, %46
   %55 = call i32 @wtap_block_get_uint8_option_value(ptr noundef %0, i32 noundef 13, ptr noundef nonnull %7)
   %56 = icmp eq i32 %55, 0
   %57 = call i32 @wtap_block_get_uint8_option_value(ptr noundef %1, i32 noundef 13, ptr noundef nonnull %8)
   %58 = icmp eq i32 %57, 0
-  %or.cond53 = select i1 %56, i1 %58, i1 false
-  br i1 %or.cond53, label %59, label %63
+  %or.cond5 = select i1 %56, i1 %58, i1 false
+  br i1 %or.cond5, label %59, label %63
 
 59:                                               ; preds = %54
   %60 = load i8, ptr %7, align 1
@@ -1896,75 +1896,75 @@ define internal fastcc noundef zeroext i1 @is_duplicate_idb(ptr noundef %0, ptr 
   %65 = icmp eq i32 %64, 0
   %66 = call i32 @wtap_block_get_nth_string_option_value(ptr noundef %1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10)
   %67 = icmp eq i32 %66, 0
-  %or.cond54 = select i1 %65, i1 %67, i1 false
-  br i1 %or.cond54, label %68, label %72
+  %or.cond7 = select i1 %65, i1 %67, i1 false
+  br i1 %or.cond7, label %68, label %72
 
 68:                                               ; preds = %63
   %69 = load ptr, ptr %9, align 8
   %70 = load ptr, ptr %10, align 8
   %71 = call i32 @g_strcmp0(ptr noundef %69, ptr noundef %70)
-  %.not47 = icmp eq i32 %71, 0
-  br i1 %.not47, label %72, label %109
+  %.not62 = icmp eq i32 %71, 0
+  br i1 %.not62, label %72, label %109
 
 72:                                               ; preds = %68, %63
   %73 = call i32 @wtap_block_get_string_option_value(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %11)
   %74 = icmp eq i32 %73, 0
   %75 = call i32 @wtap_block_get_string_option_value(ptr noundef %1, i32 noundef 2, ptr noundef nonnull %12)
   %76 = icmp eq i32 %75, 0
-  %or.cond55 = select i1 %74, i1 %76, i1 false
-  br i1 %or.cond55, label %77, label %81
+  %or.cond9 = select i1 %74, i1 %76, i1 false
+  br i1 %or.cond9, label %77, label %81
 
 77:                                               ; preds = %72
   %78 = load ptr, ptr %11, align 8
   %79 = load ptr, ptr %12, align 8
   %80 = call i32 @g_strcmp0(ptr noundef %78, ptr noundef %79)
-  %.not48 = icmp eq i32 %80, 0
-  br i1 %.not48, label %81, label %109
+  %.not63 = icmp eq i32 %80, 0
+  br i1 %.not63, label %81, label %109
 
 81:                                               ; preds = %77, %72
   %82 = call i32 @wtap_block_get_string_option_value(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %13)
   %83 = icmp eq i32 %82, 0
   %84 = call i32 @wtap_block_get_string_option_value(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %14)
   %85 = icmp eq i32 %84, 0
-  %or.cond56 = select i1 %83, i1 %85, i1 false
-  br i1 %or.cond56, label %86, label %90
+  %or.cond11 = select i1 %83, i1 %85, i1 false
+  br i1 %or.cond11, label %86, label %90
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr %13, align 8
   %88 = load ptr, ptr %14, align 8
   %89 = call i32 @g_strcmp0(ptr noundef %87, ptr noundef %88)
-  %.not49 = icmp eq i32 %89, 0
-  br i1 %.not49, label %90, label %109
+  %.not64 = icmp eq i32 %89, 0
+  br i1 %.not64, label %90, label %109
 
 90:                                               ; preds = %86, %81
   %91 = call i32 @wtap_block_get_string_option_value(ptr noundef %0, i32 noundef 15, ptr noundef nonnull %15)
   %92 = icmp eq i32 %91, 0
   %93 = call i32 @wtap_block_get_string_option_value(ptr noundef %1, i32 noundef 15, ptr noundef nonnull %16)
   %94 = icmp eq i32 %93, 0
-  %or.cond57 = select i1 %92, i1 %94, i1 false
-  br i1 %or.cond57, label %95, label %99
+  %or.cond13 = select i1 %92, i1 %94, i1 false
+  br i1 %or.cond13, label %95, label %99
 
 95:                                               ; preds = %90
   %96 = load ptr, ptr %15, align 8
   %97 = load ptr, ptr %16, align 8
   %98 = call i32 @g_strcmp0(ptr noundef %96, ptr noundef %97)
-  %.not50 = icmp eq i32 %98, 0
-  br i1 %.not50, label %99, label %109
+  %.not65 = icmp eq i32 %98, 0
+  br i1 %.not65, label %99, label %109
 
 99:                                               ; preds = %95, %90
   %100 = call i32 @wtap_block_get_string_option_value(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %17)
   %101 = icmp eq i32 %100, 0
   %102 = call i32 @wtap_block_get_string_option_value(ptr noundef %1, i32 noundef 12, ptr noundef nonnull %18)
   %103 = icmp eq i32 %102, 0
-  %or.cond58 = select i1 %101, i1 %103, i1 false
-  br i1 %or.cond58, label %104, label %108
+  %or.cond15 = select i1 %101, i1 %103, i1 false
+  br i1 %or.cond15, label %104, label %108
 
 104:                                              ; preds = %99
   %105 = load ptr, ptr %17, align 8
   %106 = load ptr, ptr %18, align 8
   %107 = call i32 @g_strcmp0(ptr noundef %105, ptr noundef %106)
-  %.not51 = icmp eq i32 %107, 0
-  br i1 %.not51, label %108, label %109
+  %.not66 = icmp eq i32 %107, 0
+  br i1 %.not66, label %108, label %109
 
 108:                                              ; preds = %99, %104
   br label %109

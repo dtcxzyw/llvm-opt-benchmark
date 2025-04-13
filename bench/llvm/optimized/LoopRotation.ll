@@ -863,19 +863,17 @@ _ZN4llvm16MemorySSAUpdaterD2Ev.exit:              ; preds = %_ZN4llvm23SmallVect
 
 105:                                              ; preds = %76
   %106 = load ptr, ptr %31, align 8, !tbaa !106
-  %.not19 = icmp eq ptr %106, null
-  br i1 %.not19, label %111, label %107
-
-107:                                              ; preds = %105
-  %108 = load i8, ptr @_ZN4llvm15VerifyMemorySSAE, align 1, !tbaa !66, !range !54, !noundef !55
+  %107 = icmp ne ptr %106, null
+  %108 = load i8, ptr @_ZN4llvm15VerifyMemorySSAE, align 1, !range !54
   %109 = trunc nuw i8 %108 to i1
-  br i1 %109, label %110, label %111
+  %or.cond = select i1 %107, i1 %109, i1 false
+  br i1 %or.cond, label %110, label %111
 
-110:                                              ; preds = %107
+110:                                              ; preds = %105
   call void @_ZNK4llvm9MemorySSA15verifyMemorySSAENS0_17VerificationLevelE(ptr noundef nonnull align 8 dereferenceable(317) %106, i32 noundef 0) #14
   br label %111
 
-111:                                              ; preds = %110, %107, %105
+111:                                              ; preds = %110, %105
   call void @_ZN4llvm28getLoopPassPreservedAnalysesEv(ptr dead_on_unwind writable sret(%"class.llvm::PreservedAnalyses") align 8 %0) #14
   %112 = load ptr, ptr %31, align 8, !tbaa !106
   %.not20 = icmp eq ptr %112, null

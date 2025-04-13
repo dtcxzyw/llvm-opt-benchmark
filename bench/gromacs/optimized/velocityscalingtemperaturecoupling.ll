@@ -3196,63 +3196,63 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling37updat
   unreachable
 
 46:                                               ; preds = %37
-  %47 = select i1 %43, i1 %23, i1 false
-  br i1 %47, label %48, label %.thread
+  %or.cond = select i1 %43, i1 %23, i1 false
+  br i1 %or.cond, label %47, label %.thread
 
-48:                                               ; preds = %46
-  %49 = fdiv float %28, %2
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %51 = load ptr, ptr %50, align 8, !tbaa !60
-  %52 = getelementptr inbounds nuw float, ptr %51, i64 %.pre-phi
-  %53 = load float, ptr %52, align 4, !tbaa !144
-  %54 = fmul float %49, %53
-  store float %54, ptr %52, align 4, !tbaa !144
-  %55 = load i64, ptr %24, align 8
-  %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds float, ptr %56, i64 %.pre-phi
-  %58 = load float, ptr %57, align 4, !tbaa !144
-  %59 = fdiv float %2, %58
-  %60 = tail call noundef float @sqrtf(float noundef %59) #36, !tbaa !123
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !60
-  %63 = getelementptr inbounds nuw float, ptr %62, i64 %.pre-phi
-  %64 = load float, ptr %63, align 4, !tbaa !144
-  %65 = fmul float %60, %64
-  store float %65, ptr %63, align 4, !tbaa !144
+47:                                               ; preds = %46
+  %48 = fdiv float %28, %2
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %50 = load ptr, ptr %49, align 8, !tbaa !60
+  %51 = getelementptr inbounds nuw float, ptr %50, i64 %.pre-phi
+  %52 = load float, ptr %51, align 4, !tbaa !144
+  %53 = fmul float %48, %52
+  store float %53, ptr %51, align 4, !tbaa !144
+  %54 = load i64, ptr %24, align 8
+  %55 = inttoptr i64 %54 to ptr
+  %56 = getelementptr inbounds float, ptr %55, i64 %.pre-phi
+  %57 = load float, ptr %56, align 4, !tbaa !144
+  %58 = fdiv float %2, %57
+  %59 = tail call noundef float @sqrtf(float noundef %58) #36, !tbaa !123
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %61 = load ptr, ptr %60, align 8, !tbaa !60
+  %62 = getelementptr inbounds nuw float, ptr %61, i64 %.pre-phi
+  %63 = load float, ptr %62, align 4, !tbaa !144
+  %64 = fmul float %59, %63
+  store float %64, ptr %62, align 4, !tbaa !144
   br label %.thread
 
-.thread:                                          ; preds = %.thr_comm, %46, %48
-  %66 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %67 = load i64, ptr %66, align 8
-  %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr inbounds float, ptr %68, i64 %.pre-phi
-  %70 = load float, ptr %69, align 4, !tbaa !144
-  %71 = fpext float %70 to double
-  %72 = fmul double %71, 0x3F71072C483AF26D
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %74 = load ptr, ptr %73, align 8, !tbaa !60
-  %75 = getelementptr inbounds nuw float, ptr %74, i64 %.pre-phi
-  %76 = load float, ptr %75, align 4, !tbaa !144
-  %77 = fmul float %76, %76
-  %78 = fpext float %77 to double
-  %79 = fmul double %72, %78
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %81 = load ptr, ptr %80, align 8, !tbaa !60
-  %82 = getelementptr inbounds nuw float, ptr %81, i64 %.pre-phi
-  %83 = load float, ptr %82, align 4, !tbaa !144
-  %84 = fpext float %83 to double
-  %85 = fdiv double %79, %84
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %87 = load ptr, ptr %86, align 8, !tbaa !60
-  %88 = getelementptr inbounds nuw float, ptr %87, i64 %.pre-phi
-  %89 = load float, ptr %88, align 4, !tbaa !144
-  %90 = fmul float %70, %89
-  %91 = fpext float %90 to double
-  %92 = fmul double %91, 0x3F81072C483AF26D
-  %93 = fpext float %2 to double
-  %94 = tail call double @llvm.fmuladd.f64(double %92, double %93, double %85)
-  %95 = fptrunc double %94 to float
-  ret float %95
+.thread:                                          ; preds = %.thr_comm, %47, %46
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %66 = load i64, ptr %65, align 8
+  %67 = inttoptr i64 %66 to ptr
+  %68 = getelementptr inbounds float, ptr %67, i64 %.pre-phi
+  %69 = load float, ptr %68, align 4, !tbaa !144
+  %70 = fpext float %69 to double
+  %71 = fmul double %70, 0x3F71072C483AF26D
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %73 = load ptr, ptr %72, align 8, !tbaa !60
+  %74 = getelementptr inbounds nuw float, ptr %73, i64 %.pre-phi
+  %75 = load float, ptr %74, align 4, !tbaa !144
+  %76 = fmul float %75, %75
+  %77 = fpext float %76 to double
+  %78 = fmul double %71, %77
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %80 = load ptr, ptr %79, align 8, !tbaa !60
+  %81 = getelementptr inbounds nuw float, ptr %80, i64 %.pre-phi
+  %82 = load float, ptr %81, align 4, !tbaa !144
+  %83 = fpext float %82 to double
+  %84 = fdiv double %78, %83
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !60
+  %87 = getelementptr inbounds nuw float, ptr %86, i64 %.pre-phi
+  %88 = load float, ptr %87, align 4, !tbaa !144
+  %89 = fmul float %69, %88
+  %90 = fpext float %89 to double
+  %91 = fmul double %90, 0x3F81072C483AF26D
+  %92 = fpext float %2 to double
+  %93 = tail call double @llvm.fmuladd.f64(double %91, double %92, double %84)
+  %94 = fptrunc double %93 to float
+  ret float %94
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

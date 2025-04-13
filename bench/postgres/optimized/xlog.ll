@@ -1461,24 +1461,24 @@ RecoveryInProgress.exit.i:                        ; preds = %7
   %12 = icmp ne i32 %11, 2
   %13 = zext i1 %12 to i8
   store i8 %13, ptr @LocalRecoveryInProgress, align 1
-  br i1 %12, label %XLogInsertAllowed.exit.thread24, label %XLogInsertAllowed.exit.thread
+  br i1 %12, label %XLogInsertAllowed.exit.thread25, label %XLogInsertAllowed.exit.thread
 
 XLogInsertAllowed.exit.thread:                    ; preds = %7, %RecoveryInProgress.exit.i
   store i32 1, ptr @LocalXLogInsertAllowed, align 4
   br label %14
 
 XLogInsertAllowed.exit:                           ; preds = %1
-  %.not30 = icmp eq i32 %5, 0
-  br i1 %.not30, label %XLogInsertAllowed.exit.thread24, label %14
+  %.not31 = icmp eq i32 %5, 0
+  br i1 %.not31, label %XLogInsertAllowed.exit.thread25, label %14
 
-XLogInsertAllowed.exit.thread24:                  ; preds = %RecoveryInProgress.exit.i, %XLogInsertAllowed.exit
+XLogInsertAllowed.exit.thread25:                  ; preds = %RecoveryInProgress.exit.i, %XLogInsertAllowed.exit
   tail call fastcc void @UpdateMinRecoveryPoint(i64 noundef %0, i1 noundef zeroext false)
-  br label %97
+  br label %96
 
 14:                                               ; preds = %XLogInsertAllowed.exit.thread, %XLogInsertAllowed.exit
   %15 = load i64, ptr @LogwrtResult.1, align 8
   %.not = icmp ugt i64 %0, %15
-  br i1 %.not, label %16, label %97
+  br i1 %.not, label %16, label %96
 
 16:                                               ; preds = %14
   %17 = load volatile i32, ptr @CritSectionCount, align 4
@@ -1498,14 +1498,14 @@ XLogInsertAllowed.exit.thread24:                  ; preds = %RecoveryInProgress.
   %25 = load volatile i64, ptr %24, align 8
   store i64 %25, ptr @LogwrtResult.0, align 8
   %26 = load i64, ptr @LogwrtResult.1, align 8
-  %.not19 = icmp ugt i64 %0, %26
-  br i1 %.not19, label %27, label %.loopexit
+  %.not20 = icmp ugt i64 %0, %26
+  br i1 %.not20, label %27, label %.loopexit
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 448
   %29 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %28, i8 1, ptr nonnull elementtype(i8) %28) #26, !srcloc !10
-  %.not20 = icmp eq i8 %29, 0
-  br i1 %.not20, label %34, label %30
+  %.not21 = icmp eq i8 %29, 0
+  br i1 %.not21, label %34, label %30
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr @XLogCtl, align 8
@@ -1539,96 +1539,94 @@ XLogInsertAllowed.exit.thread24:                  ; preds = %RecoveryInProgress.
   %50 = load volatile i64, ptr %49, align 8
   store i64 %50, ptr @LogwrtResult.0, align 8
   %51 = load i64, ptr @LogwrtResult.1, align 8
-  %.not21 = icmp ugt i64 %0, %51
-  br i1 %.not21, label %52, label %.loopexit.sink.split
+  %.not22 = icmp ugt i64 %0, %51
+  br i1 %.not22, label %52, label %.loopexit.sink.split
 
 52:                                               ; preds = %44
   %53 = load i32, ptr @CommitDelay, align 4
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %55, label %65
+  %55 = load i8, ptr @enableFsync, align 1, !range !4
+  %56 = trunc nuw i8 %55 to i1
+  %or.cond = select i1 %54, i1 %56, i1 false
+  br i1 %or.cond, label %57, label %64
 
-55:                                               ; preds = %52
-  %56 = load i8, ptr @enableFsync, align 1, !range !4, !noundef !5
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %58, label %65
+57:                                               ; preds = %52
+  %58 = load i32, ptr @CommitSiblings, align 4
+  %59 = tail call zeroext i1 @MinimumActiveBackends(i32 noundef %58) #26
+  br i1 %59, label %60, label %64
 
-58:                                               ; preds = %55
-  %59 = load i32, ptr @CommitSiblings, align 4
-  %60 = tail call zeroext i1 @MinimumActiveBackends(i32 noundef %59) #26
-  br i1 %60, label %61, label %65
+60:                                               ; preds = %57
+  %61 = load i32, ptr @CommitDelay, align 4
+  %62 = sext i32 %61 to i64
+  tail call void @pg_usleep(i64 noundef %62) #26
+  %63 = tail call fastcc i64 @WaitXLogInsertionsToFinish(i64 noundef %40)
+  br label %64
 
-61:                                               ; preds = %58
-  %62 = load i32, ptr @CommitDelay, align 4
-  %63 = sext i32 %62 to i64
-  tail call void @pg_usleep(i64 noundef %63) #26
-  %64 = tail call fastcc i64 @WaitXLogInsertionsToFinish(i64 noundef %40)
-  br label %65
-
-65:                                               ; preds = %61, %58, %55, %52
-  %.016 = phi i64 [ %64, %61 ], [ %40, %58 ], [ %40, %55 ], [ %40, %52 ]
-  tail call fastcc void @XLogWrite(i64 %.016, i64 %.016, i32 noundef %4, i1 noundef zeroext false)
+64:                                               ; preds = %60, %57, %52
+  %.017 = phi i64 [ %63, %60 ], [ %40, %57 ], [ %40, %52 ]
+  tail call fastcc void @XLogWrite(i64 %.017, i64 %.017, i32 noundef %4, i1 noundef zeroext false)
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %44, %65
-  %66 = load ptr, ptr @MainLWLockArray, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1024
-  tail call void @LWLockRelease(ptr noundef nonnull %67) #26
+.loopexit.sink.split:                             ; preds = %44, %64
+  %65 = load ptr, ptr @MainLWLockArray, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1024
+  tail call void @LWLockRelease(ptr noundef nonnull %66) #26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %.loopexit.sink.split
-  %68 = load volatile i32, ptr @CritSectionCount, align 4
-  %69 = add i32 %68, -1
-  store volatile i32 %69, ptr @CritSectionCount, align 4
-  %70 = load i8, ptr @LocalRecoveryInProgress, align 1, !range !4, !noundef !5
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %72, label %RecoveryInProgress.exit
+  %67 = load volatile i32, ptr @CritSectionCount, align 4
+  %68 = add i32 %67, -1
+  store volatile i32 %68, ptr @CritSectionCount, align 4
+  %69 = load i8, ptr @LocalRecoveryInProgress, align 1, !range !4, !noundef !5
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %70, label %71, label %RecoveryInProgress.exit
 
-72:                                               ; preds = %.loopexit
-  %73 = load ptr, ptr @XLogCtl, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 324
-  %75 = load volatile i32, ptr %74, align 4
-  %76 = icmp ne i32 %75, 2
-  %77 = zext i1 %76 to i8
-  store i8 %77, ptr @LocalRecoveryInProgress, align 1
-  %78 = xor i1 %76, true
+71:                                               ; preds = %.loopexit
+  %72 = load ptr, ptr @XLogCtl, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 324
+  %74 = load volatile i32, ptr %73, align 4
+  %75 = icmp ne i32 %74, 2
+  %76 = zext i1 %75 to i8
+  store i8 %76, ptr @LocalRecoveryInProgress, align 1
+  %77 = xor i1 %75, true
   br label %RecoveryInProgress.exit
 
-RecoveryInProgress.exit:                          ; preds = %.loopexit, %72
-  %.0.i22 = phi i1 [ %78, %72 ], [ true, %.loopexit ]
-  %79 = load i8, ptr @wake_wal_senders, align 1, !range !4, !noundef !5
-  %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %81, label %WalSndWakeupProcessRequests.exit
+RecoveryInProgress.exit:                          ; preds = %.loopexit, %71
+  %.0.i23 = phi i1 [ %77, %71 ], [ true, %.loopexit ]
+  %78 = load i8, ptr @wake_wal_senders, align 1, !range !4, !noundef !5
+  %79 = trunc nuw i8 %78 to i1
+  br i1 %79, label %80, label %WalSndWakeupProcessRequests.exit
 
-81:                                               ; preds = %RecoveryInProgress.exit
+80:                                               ; preds = %RecoveryInProgress.exit
   store i8 0, ptr @wake_wal_senders, align 1
-  %82 = load i32, ptr @max_wal_senders, align 4
-  %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %84, label %WalSndWakeupProcessRequests.exit
+  %81 = load i32, ptr @max_wal_senders, align 4
+  %82 = icmp sgt i32 %81, 0
+  br i1 %82, label %83, label %WalSndWakeupProcessRequests.exit
 
-84:                                               ; preds = %81
-  tail call void @WalSndWakeup(i1 noundef zeroext true, i1 noundef zeroext %.0.i22) #26
+83:                                               ; preds = %80
+  tail call void @WalSndWakeup(i1 noundef zeroext true, i1 noundef zeroext %.0.i23) #26
   br label %WalSndWakeupProcessRequests.exit
 
-WalSndWakeupProcessRequests.exit:                 ; preds = %RecoveryInProgress.exit, %81, %84
-  %85 = load i64, ptr @LogwrtResult.1, align 8
-  %86 = icmp ult i64 %85, %0
-  br i1 %86, label %87, label %97
+WalSndWakeupProcessRequests.exit:                 ; preds = %RecoveryInProgress.exit, %80, %83
+  %84 = load i64, ptr @LogwrtResult.1, align 8
+  %85 = icmp ult i64 %84, %0
+  br i1 %85, label %86, label %96
 
-87:                                               ; preds = %WalSndWakeupProcessRequests.exit
-  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  tail call void @llvm.assume(i1 %88)
-  %89 = lshr i64 %0, 32
-  %90 = trunc nuw i64 %89 to i32
-  %91 = trunc i64 %0 to i32
-  %92 = load i64, ptr @LogwrtResult.1, align 8
-  %93 = lshr i64 %92, 32
-  %94 = trunc nuw i64 %93 to i32
-  %95 = trunc i64 %92 to i32
-  %96 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19, i32 noundef %90, i32 noundef %91, i32 noundef %94, i32 noundef %95) #26
+86:                                               ; preds = %WalSndWakeupProcessRequests.exit
+  %87 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  tail call void @llvm.assume(i1 %87)
+  %88 = lshr i64 %0, 32
+  %89 = trunc nuw i64 %88 to i32
+  %90 = trunc i64 %0 to i32
+  %91 = load i64, ptr @LogwrtResult.1, align 8
+  %92 = lshr i64 %91, 32
+  %93 = trunc nuw i64 %92 to i32
+  %94 = trunc i64 %91 to i32
+  %95 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19, i32 noundef %89, i32 noundef %90, i32 noundef %93, i32 noundef %94) #26
   tail call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2965, ptr noundef nonnull @__func__.XLogFlush) #26
   unreachable
 
-97:                                               ; preds = %WalSndWakeupProcessRequests.exit, %14, %XLogInsertAllowed.exit.thread24
+96:                                               ; preds = %WalSndWakeupProcessRequests.exit, %14, %XLogInsertAllowed.exit.thread25
   ret void
 }
 
@@ -1983,107 +1981,105 @@ define dso_local void @XLogSetReplicationSlotMinimumLSN(i64 noundef %0) local_un
 define internal fastcc void @UpdateMinRecoveryPoint(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %.b = load i1, ptr @updateMinRecoveryPoint, align 1
-  br i1 %.b, label %56, label %4
+  br i1 %.b, label %55, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @LocalMinRecoveryPoint, align 8
   %.not = icmp ugt i64 %0, %5
-  %or.cond = select i1 %1, i1 true, i1 %.not
-  br i1 %or.cond, label %6, label %56
+  %or.cond19 = select i1 %1, i1 true, i1 %.not
+  br i1 %or.cond19, label %6, label %55
 
 6:                                                ; preds = %4
   %7 = icmp eq i64 %5, 0
-  br i1 %7, label %8, label %12
+  %8 = load i8, ptr @InRecovery, align 1, !range !4
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond = select i1 %7, i1 %9, i1 false
+  br i1 %or.cond, label %10, label %11
 
-8:                                                ; preds = %6
-  %9 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %8
+10:                                               ; preds = %6
   store i1 true, ptr @updateMinRecoveryPoint, align 1
-  br label %56
+  br label %55
 
-12:                                               ; preds = %8, %6
-  %13 = load ptr, ptr @MainLWLockArray, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1152
-  %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %14, i32 noundef 0) #26
-  %16 = load ptr, ptr @ControlFile, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 136
-  %18 = load i64, ptr %17, align 8
-  store i64 %18, ptr @LocalMinRecoveryPoint, align 8
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %21
+11:                                               ; preds = %6
+  %12 = load ptr, ptr @MainLWLockArray, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1152
+  %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 0) #26
+  %15 = load ptr, ptr @ControlFile, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  %17 = load i64, ptr %16, align 8
+  store i64 %17, ptr @LocalMinRecoveryPoint, align 8
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %20
 
-20:                                               ; preds = %12
+19:                                               ; preds = %11
   store i1 true, ptr @updateMinRecoveryPoint, align 1
-  br label %53
-
-21:                                               ; preds = %12
-  %22 = icmp ult i64 %18, %0
-  %or.cond18 = or i1 %1, %22
-  br i1 %or.cond18, label %23, label %53
-
-23:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
-  %24 = call i64 @GetCurrentReplayRecPtr(ptr noundef nonnull %3) #26
-  %25 = icmp uge i64 %24, %0
-  %or.cond20.not = select i1 %1, i1 true, i1 %25
-  br i1 %or.cond20.not, label %36, label %26
-
-26:                                               ; preds = %23
-  %27 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #26
-  br i1 %27, label %28, label %36
-
-28:                                               ; preds = %26
-  %29 = lshr i64 %0, 32
-  %30 = trunc nuw i64 %29 to i32
-  %31 = trunc i64 %0 to i32
-  %32 = lshr i64 %24, 32
-  %33 = trunc nuw i64 %32 to i32
-  %34 = trunc i64 %24 to i32
-  %35 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.104, i32 noundef %30, i32 noundef %31, i32 noundef %33, i32 noundef %34) #26
-  call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2778, ptr noundef nonnull @__func__.UpdateMinRecoveryPoint) #26
-  br label %36
-
-36:                                               ; preds = %26, %28, %23
-  %37 = load ptr, ptr @ControlFile, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 136
-  %39 = load i64, ptr %38, align 8
-  %40 = icmp ult i64 %39, %24
-  br i1 %40, label %41, label %52
-
-41:                                               ; preds = %36
-  store i64 %24, ptr %38, align 8
-  %42 = load i32, ptr %3, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %37, i64 144
-  store i32 %42, ptr %43, align 8
-  %44 = load ptr, ptr @DataDir, align 8
-  call void @update_controlfile(ptr noundef %44, ptr noundef nonnull %37, i1 noundef zeroext true) #26
-  store i64 %24, ptr @LocalMinRecoveryPoint, align 8
-  %45 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #26
-  br i1 %45, label %46, label %52
-
-46:                                               ; preds = %41
-  %47 = lshr i64 %24, 32
-  %48 = trunc nuw i64 %47 to i32
-  %49 = trunc i64 %24 to i32
-  %50 = load i32, ptr %3, align 4
-  %51 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.105, i32 noundef %48, i32 noundef %49, i32 noundef %50) #26
-  call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2792, ptr noundef nonnull @__func__.UpdateMinRecoveryPoint) #26
   br label %52
 
-52:                                               ; preds = %41, %46, %36
+20:                                               ; preds = %11
+  %21 = icmp ult i64 %17, %0
+  %or.cond20 = or i1 %1, %21
+  br i1 %or.cond20, label %22, label %52
+
+22:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
+  %23 = call i64 @GetCurrentReplayRecPtr(ptr noundef nonnull %3) #26
+  %24 = icmp uge i64 %23, %0
+  %or.cond22.not = select i1 %1, i1 true, i1 %24
+  br i1 %or.cond22.not, label %35, label %25
+
+25:                                               ; preds = %22
+  %26 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #26
+  br i1 %26, label %27, label %35
+
+27:                                               ; preds = %25
+  %28 = lshr i64 %0, 32
+  %29 = trunc nuw i64 %28 to i32
+  %30 = trunc i64 %0 to i32
+  %31 = lshr i64 %23, 32
+  %32 = trunc nuw i64 %31 to i32
+  %33 = trunc i64 %23 to i32
+  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.104, i32 noundef %29, i32 noundef %30, i32 noundef %32, i32 noundef %33) #26
+  call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2778, ptr noundef nonnull @__func__.UpdateMinRecoveryPoint) #26
+  br label %35
+
+35:                                               ; preds = %25, %27, %22
+  %36 = load ptr, ptr @ControlFile, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 136
+  %38 = load i64, ptr %37, align 8
+  %39 = icmp ult i64 %38, %23
+  br i1 %39, label %40, label %51
+
+40:                                               ; preds = %35
+  store i64 %23, ptr %37, align 8
+  %41 = load i32, ptr %3, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 144
+  store i32 %41, ptr %42, align 8
+  %43 = load ptr, ptr @DataDir, align 8
+  call void @update_controlfile(ptr noundef %43, ptr noundef nonnull %36, i1 noundef zeroext true) #26
+  store i64 %23, ptr @LocalMinRecoveryPoint, align 8
+  %44 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #26
+  br i1 %44, label %45, label %51
+
+45:                                               ; preds = %40
+  %46 = lshr i64 %23, 32
+  %47 = trunc nuw i64 %46 to i32
+  %48 = trunc i64 %23 to i32
+  %49 = load i32, ptr %3, align 4
+  %50 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.105, i32 noundef %47, i32 noundef %48, i32 noundef %49) #26
+  call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2792, ptr noundef nonnull @__func__.UpdateMinRecoveryPoint) #26
+  br label %51
+
+51:                                               ; preds = %40, %45, %35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #26
-  br label %53
+  br label %52
 
-53:                                               ; preds = %21, %52, %20
-  %54 = load ptr, ptr @MainLWLockArray, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1152
-  call void @LWLockRelease(ptr noundef nonnull %55) #26
-  br label %56
+52:                                               ; preds = %20, %51, %19
+  %53 = load ptr, ptr @MainLWLockArray, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1152
+  call void @LWLockRelease(ptr noundef nonnull %54) #26
+  br label %55
 
-56:                                               ; preds = %4, %2, %53, %11
+55:                                               ; preds = %4, %2, %52, %10
   ret void
 }
 
@@ -2278,10 +2274,10 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
 
 21:                                               ; preds = %185, %4
   %22 = phi ptr [ %10, %4 ], [ %186, %185 ]
-  %.065 = phi i32 [ 0, %4 ], [ %.2, %185 ]
+  %.067 = phi i32 [ 0, %4 ], [ %.2, %185 ]
+  %.065 = phi i32 [ 0, %4 ], [ %.166, %185 ]
   %.063 = phi i32 [ 0, %4 ], [ %.164, %185 ]
-  %.061 = phi i32 [ 0, %4 ], [ %.162, %185 ]
-  %.060 = phi i32 [ %19, %4 ], [ %191, %185 ]
+  %.062 = phi i32 [ %19, %4 ], [ %191, %185 ]
   %23 = load i64, ptr @LogwrtResult.0, align 8
   %24 = icmp ult i64 %23, %0
   br i1 %24, label %25, label %.thread
@@ -2289,7 +2285,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 304
   %27 = load ptr, ptr %26, align 8
-  %28 = sext i32 %.060 to i64
+  %28 = sext i32 %.062 to i64
   %29 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %27, i64 %28
   %30 = load volatile i64, ptr %29, align 8
   %.not = icmp ult i64 %23, %30
@@ -2318,97 +2314,97 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   %46 = udiv i64 %43, %45
   %47 = load i64, ptr @openLogSegNo, align 8
   %48 = icmp eq i64 %46, %47
-  %.pre103 = load i32, ptr @openLogFile, align 4
+  %.pre105 = load i32, ptr @openLogFile, align 4
   br i1 %48, label %54, label %49
 
 49:                                               ; preds = %41
-  %50 = icmp sgt i32 %.pre103, -1
+  %50 = icmp sgt i32 %.pre105, -1
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %49
   call fastcc void @XLogFileClose()
   %.pre = load i64, ptr @LogwrtResult.0, align 8
-  %.pre101 = load i32, ptr @wal_segment_size, align 4
-  %.pre121 = add i64 %.pre, -1
-  %.pre122 = sext i32 %.pre101 to i64
-  %.pre124 = udiv i64 %.pre121, %.pre122
+  %.pre103 = load i32, ptr @wal_segment_size, align 4
+  %.pre123 = add i64 %.pre, -1
+  %.pre124 = sext i32 %.pre103 to i64
+  %.pre126 = udiv i64 %.pre123, %.pre124
   br label %52
 
 52:                                               ; preds = %51, %49
-  %.pre-phi125 = phi i64 [ %.pre124, %51 ], [ %46, %49 ]
-  store i64 %.pre-phi125, ptr @openLogSegNo, align 8
+  %.pre-phi127 = phi i64 [ %.pre126, %51 ], [ %46, %49 ]
+  store i64 %.pre-phi127, ptr @openLogSegNo, align 8
   store i32 %2, ptr @openLogTLI, align 4
-  %53 = call i32 @XLogFileInit(i64 noundef %.pre-phi125, i32 noundef %2)
+  %53 = call i32 @XLogFileInit(i64 noundef %.pre-phi127, i32 noundef %2)
   store i32 %53, ptr @openLogFile, align 4
   call void @ReserveExternalFD() #26
-  %.pre102 = load i32, ptr @openLogFile, align 4
-  %.pre104.pre115.pre = load i64, ptr @LogwrtResult.0, align 8
-  %.pre105.pre117.pre = load i32, ptr @wal_segment_size, align 4
+  %.pre104 = load i32, ptr @openLogFile, align 4
+  %.pre106.pre117.pre = load i64, ptr @LogwrtResult.0, align 8
+  %.pre107.pre119.pre = load i32, ptr @wal_segment_size, align 4
   br label %54
 
 54:                                               ; preds = %52, %41
-  %.pre105.pre117 = phi i32 [ %.pre105.pre117.pre, %52 ], [ %44, %41 ]
-  %.pre104.pre115 = phi i64 [ %.pre104.pre115.pre, %52 ], [ %30, %41 ]
-  %55 = phi i32 [ %.pre102, %52 ], [ %.pre103, %41 ]
+  %.pre107.pre119 = phi i32 [ %.pre107.pre119.pre, %52 ], [ %44, %41 ]
+  %.pre106.pre117 = phi i64 [ %.pre106.pre117.pre, %52 ], [ %30, %41 ]
+  %55 = phi i32 [ %.pre104, %52 ], [ %.pre105, %41 ]
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %54
-  %58 = add i64 %.pre104.pre115, -1
-  %59 = sext i32 %.pre105.pre117 to i64
+  %58 = add i64 %.pre106.pre117, -1
+  %59 = sext i32 %.pre107.pre119 to i64
   %60 = udiv i64 %58, %59
   store i64 %60, ptr @openLogSegNo, align 8
   store i32 %2, ptr @openLogTLI, align 4
   %61 = call i32 @XLogFileOpen(i64 noundef %60, i32 noundef %2)
   store i32 %61, ptr @openLogFile, align 4
   call void @ReserveExternalFD() #26
-  %.pre104.pre = load i64, ptr @LogwrtResult.0, align 8
-  %.pre105.pre = load i32, ptr @wal_segment_size, align 4
+  %.pre106.pre = load i64, ptr @LogwrtResult.0, align 8
+  %.pre107.pre = load i32, ptr @wal_segment_size, align 4
   br label %62
 
 62:                                               ; preds = %57, %54
-  %.pre105 = phi i32 [ %.pre105.pre, %57 ], [ %.pre105.pre117, %54 ]
-  %.pre104 = phi i64 [ %.pre104.pre, %57 ], [ %.pre104.pre115, %54 ]
-  %63 = icmp eq i32 %.061, 0
-  %64 = add i32 %.pre105, -1
-  %65 = trunc i64 %.pre104 to i32
+  %.pre107 = phi i32 [ %.pre107.pre, %57 ], [ %.pre107.pre119, %54 ]
+  %.pre106 = phi i64 [ %.pre106.pre, %57 ], [ %.pre106.pre117, %54 ]
+  %63 = icmp eq i32 %.063, 0
+  %64 = add i32 %.pre107, -1
+  %65 = trunc i64 %.pre106 to i32
   %66 = add i32 %65, -8192
   %67 = and i32 %66, %64
-  %.166 = select i1 %63, i32 %67, i32 %.065
-  %.164 = select i1 %63, i32 %.060, i32 %.063
-  %68 = add i32 %.061, 1
-  %.not79 = icmp ugt i64 %0, %.pre104
+  %.168 = select i1 %63, i32 %67, i32 %.067
+  %.166 = select i1 %63, i32 %.062, i32 %.065
+  %68 = add i32 %.063, 1
+  %.not81 = icmp ugt i64 %0, %.pre106
   %69 = shl i32 %68, 13
-  %70 = add i32 %.166, %69
-  %71 = icmp uge i32 %70, %.pre105
+  %70 = add i32 %.168, %69
+  %71 = icmp uge i32 %70, %.pre107
   %72 = select i1 %42, i1 %71, i1 false
-  %.pre106 = load ptr, ptr @XLogCtl, align 8
-  br i1 %.not79, label %73, label %77
+  %.pre108 = load ptr, ptr @XLogCtl, align 8
+  br i1 %.not81, label %73, label %77
 
 73:                                               ; preds = %62
-  %74 = getelementptr inbounds nuw i8, ptr %.pre106, i64 312
+  %74 = getelementptr inbounds nuw i8, ptr %.pre108, i64 312
   %75 = load i32, ptr %74, align 8
-  %76 = icmp eq i32 %.060, %75
-  %brmerge = select i1 %76, i1 true, i1 %72
-  br i1 %brmerge, label %77, label %183
+  %76 = icmp eq i32 %.062, %75
+  %or.cond = select i1 %76, i1 true, i1 %72
+  br i1 %or.cond, label %77, label %183
 
 77:                                               ; preds = %73, %62
-  %78 = getelementptr inbounds nuw i8, ptr %.pre106, i64 296
+  %78 = getelementptr inbounds nuw i8, ptr %.pre108, i64 296
   %79 = load ptr, ptr %78, align 8
-  %80 = sext i32 %.164 to i64
+  %80 = sext i32 %.166 to i64
   %81 = shl nsw i64 %80, 13
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 %81
   %83 = sext i32 %68 to i64
   %84 = shl nsw i64 %83, 13
   %85 = tail call ptr @__errno_location() #28
-  %.pre108 = load i8, ptr @track_wal_io_timing, align 1, !range !4
+  %.pre110 = load i8, ptr @track_wal_io_timing, align 1, !range !4
   br label %86
 
 86:                                               ; preds = %129, %77
-  %87 = phi i8 [ %.pre108, %77 ], [ %110, %129 ]
-  %.069 = phi i64 [ %84, %77 ], [ %.170, %129 ]
-  %.067 = phi ptr [ %82, %77 ], [ %.168, %129 ]
-  %.3 = phi i32 [ %.166, %77 ], [ %.4, %129 ]
+  %87 = phi i8 [ %.pre110, %77 ], [ %110, %129 ]
+  %.071 = phi i64 [ %84, %77 ], [ %.172, %129 ]
+  %.069 = phi ptr [ %82, %77 ], [ %.170, %129 ]
+  %.3 = phi i32 [ %.168, %77 ], [ %.4, %129 ]
   store i32 0, ptr %85, align 4
   %88 = load i8, ptr @track_io_timing, align 1, !range !4, !noundef !5
   %89 = trunc nuw i8 %88 to i1
@@ -2419,7 +2415,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   store volatile i32 167772236, ptr %93, align 4
   %94 = load i32, ptr @openLogFile, align 4
   %95 = zext i32 %.3 to i64
-  %96 = call i64 @pwrite(i32 noundef %94, ptr noundef %.067, i64 noundef %.069, i64 noundef %95) #26
+  %96 = call i64 @pwrite(i32 noundef %94, ptr noundef %.069, i64 noundef %.071, i64 noundef %95) #26
   %97 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %97, align 4
   call void @pgstat_count_io_op_time(i32 noundef 2, i32 noundef 3, i32 noundef 7, i64 %92, i32 noundef 1, i64 noundef %96) #26
@@ -2439,11 +2435,11 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   %107 = add i64 %106, %103
   %108 = add i64 %107, %105
   store i64 %108, ptr getelementptr inbounds nuw (i8, ptr @PendingWalStats, i64 16), align 8
-  %.pre107 = load i8, ptr @track_wal_io_timing, align 1, !range !4
+  %.pre109 = load i8, ptr @track_wal_io_timing, align 1, !range !4
   br label %109
 
 109:                                              ; preds = %100, %86
-  %110 = phi i8 [ %.pre107, %100 ], [ 0, %86 ]
+  %110 = phi i8 [ %.pre109, %100 ], [ 0, %86 ]
   %111 = load i64, ptr @PendingWalStats, align 8
   %112 = add i64 %111, 1
   store i64 %112, ptr @PendingWalStats, align 8
@@ -2468,23 +2464,23 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   %121 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #27
   call void @llvm.assume(i1 %121)
   %122 = call i32 @errcode_for_file_access() #26
-  %123 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.109, ptr noundef nonnull %6, i32 noundef %.3, i64 noundef %.069) #26
+  %123 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.109, ptr noundef nonnull %6, i32 noundef %.3, i64 noundef %.071) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 2480, ptr noundef nonnull @__func__.XLogWrite) #26
   unreachable
 
 124:                                              ; preds = %109
-  %125 = sub i64 %.069, %96
-  %126 = getelementptr inbounds nuw i8, ptr %.067, i64 %96
+  %125 = sub i64 %.071, %96
+  %126 = getelementptr inbounds nuw i8, ptr %.069, i64 %96
   %127 = trunc i64 %96 to i32
   %128 = add i32 %.3, %127
   br label %129
 
 129:                                              ; preds = %117, %124
-  %.170 = phi i64 [ %.069, %117 ], [ %125, %124 ]
-  %.168 = phi ptr [ %.067, %117 ], [ %126, %124 ]
+  %.172 = phi i64 [ %.071, %117 ], [ %125, %124 ]
+  %.170 = phi ptr [ %.069, %117 ], [ %126, %124 ]
   %.4 = phi i32 [ %.3, %117 ], [ %128, %124 ]
-  %.not80 = icmp eq i64 %.170, 0
-  br i1 %.not80, label %130, label %86, !llvm.loop !37
+  %.not82 = icmp eq i64 %.172, 0
+  br i1 %.not82, label %130, label %86, !llvm.loop !37
 
 130:                                              ; preds = %129
   br i1 %72, label %131, label %183
@@ -2533,8 +2529,8 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
 157:                                              ; preds = %147
   %158 = getelementptr inbounds nuw i8, ptr %141, i64 448
   %159 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %158, i8 1, ptr nonnull elementtype(i8) %158) #26, !srcloc !10
-  %.not.i82 = icmp eq i8 %159, 0
-  br i1 %.not.i82, label %164, label %160
+  %.not.i84 = icmp eq i8 %159, 0
+  br i1 %.not.i84, label %164, label %160
 
 160:                                              ; preds = %157
   %161 = load ptr, ptr @XLogCtl, align 8
@@ -2568,16 +2564,16 @@ GetRedoRecPtr.exit:                               ; preds = %164, %172
   %179 = add i32 %178, -1
   %180 = sext i32 %179 to i64
   %181 = add i64 %177, %180
-  %.not.i83.not = icmp ult i64 %174, %181
-  br i1 %.not.i83.not, label %183, label %182
+  %.not.i85.not = icmp ult i64 %174, %181
+  br i1 %.not.i85.not, label %183, label %182
 
 182:                                              ; preds = %GetRedoRecPtr.exit
   call void @RequestCheckpoint(i32 noundef 128) #26
   br label %183
 
 183:                                              ; preds = %130, %GetRedoRecPtr.exit, %182, %147, %139, %73
-  %.2 = phi i32 [ %.166, %73 ], [ %.4, %139 ], [ %.4, %147 ], [ %.4, %182 ], [ %.4, %GetRedoRecPtr.exit ], [ %.4, %130 ]
-  %.162 = phi i32 [ %68, %73 ], [ 0, %139 ], [ 0, %147 ], [ 0, %182 ], [ 0, %GetRedoRecPtr.exit ], [ 0, %130 ]
+  %.2 = phi i32 [ %.168, %73 ], [ %.4, %139 ], [ %.4, %147 ], [ %.4, %182 ], [ %.4, %GetRedoRecPtr.exit ], [ %.4, %130 ]
+  %.164 = phi i32 [ %68, %73 ], [ 0, %139 ], [ 0, %147 ], [ 0, %182 ], [ 0, %GetRedoRecPtr.exit ], [ 0, %130 ]
   br i1 %42, label %185, label %184
 
 184:                                              ; preds = %183
@@ -2588,12 +2584,12 @@ GetRedoRecPtr.exit:                               ; preds = %164, %172
   %186 = load ptr, ptr @XLogCtl, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 312
   %188 = load i32, ptr %187, align 8
-  %189 = icmp eq i32 %.060, %188
-  %190 = add i32 %.060, 1
+  %189 = icmp eq i32 %.062, %188
+  %190 = add i32 %.062, 1
   %191 = select i1 %189, i32 0, i32 %190
-  %192 = icmp eq i32 %.162, 0
-  %or.cond = select i1 %3, i1 %192, i1 false
-  br i1 %or.cond, label %.thread, label %21
+  %192 = icmp eq i32 %.164, 0
+  %or.cond3 = select i1 %3, i1 %192, i1 false
+  br i1 %or.cond3, label %.thread, label %21
 
 .thread:                                          ; preds = %185, %21, %184
   %193 = load i64, ptr @LogwrtResult.1, align 8
@@ -2615,31 +2611,31 @@ GetRedoRecPtr.exit:                               ; preds = %164, %172
 200:                                              ; preds = %198
   %201 = load i32, ptr @openLogFile, align 4
   %202 = icmp sgt i32 %201, -1
-  %.pre112 = load i32, ptr @wal_segment_size, align 4
-  br i1 %202, label %203, label %.thread87
+  %.pre114 = load i32, ptr @wal_segment_size, align 4
+  br i1 %202, label %203, label %.thread89
 
 203:                                              ; preds = %200
   %204 = add i64 %196, -1
-  %205 = sext i32 %.pre112 to i64
+  %205 = sext i32 %.pre114 to i64
   %206 = udiv i64 %204, %205
   %207 = load i64, ptr @openLogSegNo, align 8
   %208 = icmp eq i64 %206, %207
-  br i1 %208, label %.thread126, label %209
+  br i1 %208, label %.thread128, label %209
 
 209:                                              ; preds = %203
   call fastcc void @XLogFileClose()
   %.pr.pre = load i32, ptr @openLogFile, align 4
   %210 = icmp slt i32 %.pr.pre, 0
-  br i1 %210, label %..thread87_crit_edge, label %.thread126
+  br i1 %210, label %..thread89_crit_edge, label %.thread128
 
-..thread87_crit_edge:                             ; preds = %209
-  %.pre110 = load i64, ptr @LogwrtResult.0, align 8
-  %.pre111 = load i32, ptr @wal_segment_size, align 4
-  br label %.thread87
+..thread89_crit_edge:                             ; preds = %209
+  %.pre112 = load i64, ptr @LogwrtResult.0, align 8
+  %.pre113 = load i32, ptr @wal_segment_size, align 4
+  br label %.thread89
 
-.thread87:                                        ; preds = %..thread87_crit_edge, %200
-  %211 = phi i32 [ %.pre111, %..thread87_crit_edge ], [ %.pre112, %200 ]
-  %212 = phi i64 [ %.pre110, %..thread87_crit_edge ], [ %196, %200 ]
+.thread89:                                        ; preds = %..thread89_crit_edge, %200
+  %211 = phi i32 [ %.pre113, %..thread89_crit_edge ], [ %.pre114, %200 ]
+  %212 = phi i64 [ %.pre112, %..thread89_crit_edge ], [ %196, %200 ]
   %213 = add i64 %212, -1
   %214 = sext i32 %211 to i64
   %215 = udiv i64 %213, %214
@@ -2648,18 +2644,18 @@ GetRedoRecPtr.exit:                               ; preds = %164, %172
   %216 = call i32 @XLogFileOpen(i64 noundef %215, i32 noundef %2)
   store i32 %216, ptr @openLogFile, align 4
   call void @ReserveExternalFD() #26
-  %.pre113 = load i32, ptr @openLogFile, align 4
-  br label %.thread126
+  %.pre115 = load i32, ptr @openLogFile, align 4
+  br label %.thread128
 
-.thread126:                                       ; preds = %203, %.thread87, %209
-  %217 = phi i32 [ %.pre113, %.thread87 ], [ %.pr.pre, %209 ], [ %201, %203 ]
+.thread128:                                       ; preds = %203, %.thread89, %209
+  %217 = phi i32 [ %.pre115, %.thread89 ], [ %.pr.pre, %209 ], [ %201, %203 ]
   %218 = load i64, ptr @openLogSegNo, align 8
   call void @issue_xlog_fsync(i32 noundef %217, i64 noundef %218, i32 noundef %2)
-  %.pre114 = load i64, ptr @LogwrtResult.0, align 8
+  %.pre116 = load i64, ptr @LogwrtResult.0, align 8
   br label %219
 
-219:                                              ; preds = %198, %198, %.thread126
-  %220 = phi i64 [ %196, %198 ], [ %196, %198 ], [ %.pre114, %.thread126 ]
+219:                                              ; preds = %198, %198, %.thread128
+  %220 = phi i64 [ %196, %198 ], [ %196, %198 ], [ %.pre116, %.thread128 ]
   store i8 1, ptr @wake_wal_senders, align 1
   store i64 %220, ptr @LogwrtResult.1, align 8
   br label %221
@@ -2668,8 +2664,8 @@ GetRedoRecPtr.exit:                               ; preds = %164, %172
   %222 = load ptr, ptr @XLogCtl, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 448
   %224 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %223, i8 1, ptr nonnull elementtype(i8) %223) #26, !srcloc !10
-  %.not81 = icmp eq i8 %224, 0
-  br i1 %.not81, label %229, label %225
+  %.not83 = icmp eq i8 %224, 0
+  br i1 %.not83, label %229, label %225
 
 225:                                              ; preds = %221
   %226 = load ptr, ptr @XLogCtl, align 8
@@ -3205,77 +3201,75 @@ RecoveryInProgress.exit:                          ; preds = %1
 9:                                                ; preds = %RecoveryInProgress.exit
   %10 = load i64, ptr @LocalMinRecoveryPoint, align 8
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %16
+  %12 = load i8, ptr @InRecovery, align 1, !range !4
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond = select i1 %11, i1 %13, i1 false
+  br i1 %or.cond, label %.thread, label %14
 
-12:                                               ; preds = %9
-  %13 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %12
+.thread:                                          ; preds = %9
   store i1 true, ptr @updateMinRecoveryPoint, align 1
-  br label %16
+  br label %40
 
-16:                                               ; preds = %15, %12, %9
-  %.not7 = icmp ugt i64 %0, %10
-  br i1 %.not7, label %17, label %42
+14:                                               ; preds = %9
+  %.b10.pre = load i1, ptr @updateMinRecoveryPoint, align 1
+  %15 = icmp ule i64 %0, %10
+  %or.cond3.not = select i1 %15, i1 true, i1 %.b10.pre
+  br i1 %or.cond3.not, label %40, label %16
 
-17:                                               ; preds = %16
-  %.b5 = load i1, ptr @updateMinRecoveryPoint, align 1
-  br i1 %.b5, label %42, label %18
+16:                                               ; preds = %14
+  %17 = load ptr, ptr @MainLWLockArray, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1152
+  %19 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %18, i32 noundef 1) #26
+  br i1 %19, label %20, label %40
 
-18:                                               ; preds = %17
-  %19 = load ptr, ptr @MainLWLockArray, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1152
-  %21 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %20, i32 noundef 1) #26
-  br i1 %21, label %22, label %42
+20:                                               ; preds = %16
+  %21 = load ptr, ptr @ControlFile, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 136
+  %23 = load i64, ptr %22, align 8
+  store i64 %23, ptr @LocalMinRecoveryPoint, align 8
+  %24 = load ptr, ptr @MainLWLockArray, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1152
+  tail call void @LWLockRelease(ptr noundef nonnull %25) #26
+  %26 = load i64, ptr @LocalMinRecoveryPoint, align 8
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %._crit_edge17
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr @ControlFile, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
-  %25 = load i64, ptr %24, align 8
-  store i64 %25, ptr @LocalMinRecoveryPoint, align 8
-  %26 = load ptr, ptr @MainLWLockArray, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1152
-  tail call void @LWLockRelease(ptr noundef nonnull %27) #26
-  %28 = load i64, ptr @LocalMinRecoveryPoint, align 8
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %31
+._crit_edge17:                                    ; preds = %20
+  %.b.pre = load i1, ptr @updateMinRecoveryPoint, align 1
+  br label %29
 
-30:                                               ; preds = %22
+28:                                               ; preds = %20
   store i1 true, ptr @updateMinRecoveryPoint, align 1
-  br label %31
+  br label %29
 
-31:                                               ; preds = %30, %22
-  %.not8 = icmp ugt i64 %0, %28
-  br i1 %.not8, label %32, label %42
-
-32:                                               ; preds = %31
-  %.b = load i1, ptr @updateMinRecoveryPoint, align 1
-  %not..b = xor i1 %.b, true
-  br label %42
+29:                                               ; preds = %._crit_edge17, %28
+  %.b = phi i1 [ %.b.pre, %._crit_edge17 ], [ true, %28 ]
+  %30 = icmp ule i64 %0, %26
+  %or.cond5.not = select i1 %30, i1 true, i1 %.b
+  %not.or.cond5.not = xor i1 %or.cond5.not, true
+  br label %40
 
 RecoveryInProgress.exit.thread:                   ; preds = %1, %RecoveryInProgress.exit
-  %33 = load i64, ptr @LogwrtResult.1, align 8
-  %.not = icmp ugt i64 %0, %33
-  br i1 %.not, label %34, label %42
+  %31 = load i64, ptr @LogwrtResult.1, align 8
+  %.not = icmp ugt i64 %0, %31
+  br i1 %.not, label %32, label %40
 
-34:                                               ; preds = %RecoveryInProgress.exit.thread
-  %35 = load ptr, ptr @XLogCtl, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 280
-  %37 = load volatile i64, ptr %36, align 8
-  store i64 %37, ptr @LogwrtResult.1, align 8
+32:                                               ; preds = %RecoveryInProgress.exit.thread
+  %33 = load ptr, ptr @XLogCtl, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 280
+  %35 = load volatile i64, ptr %34, align 8
+  store i64 %35, ptr @LogwrtResult.1, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !51
-  %38 = load ptr, ptr @XLogCtl, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 272
-  %40 = load volatile i64, ptr %39, align 8
-  store i64 %40, ptr @LogwrtResult.0, align 8
-  %41 = load i64, ptr @LogwrtResult.1, align 8
-  %.not6 = icmp ugt i64 %0, %41
-  br label %42
+  %36 = load ptr, ptr @XLogCtl, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 272
+  %38 = load volatile i64, ptr %37, align 8
+  store i64 %38, ptr @LogwrtResult.0, align 8
+  %39 = load i64, ptr @LogwrtResult.1, align 8
+  %.not11 = icmp ugt i64 %0, %39
+  br label %40
 
-42:                                               ; preds = %32, %34, %RecoveryInProgress.exit.thread, %31, %18, %16, %17
-  %.0 = phi i1 [ false, %17 ], [ false, %16 ], [ true, %18 ], [ false, %31 ], [ false, %RecoveryInProgress.exit.thread ], [ %.not6, %34 ], [ %not..b, %32 ]
+40:                                               ; preds = %.thread, %32, %RecoveryInProgress.exit.thread, %29, %16, %14
+  %.0 = phi i1 [ false, %14 ], [ true, %16 ], [ %not.or.cond5.not, %29 ], [ false, %RecoveryInProgress.exit.thread ], [ %.not11, %32 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -4722,128 +4716,125 @@ define dso_local void @XLOGShmemInit() local_unnamed_addr #0 {
   store ptr %6, ptr @ControlFile, align 8
   %7 = load i8, ptr %1, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %12, label %9
+  %9 = load i8, ptr %2, align 1, !range !4
+  %10 = trunc nuw i8 %9 to i1
+  %or.cond = select i1 %8, i1 true, i1 %10
+  %11 = load ptr, ptr @XLogCtl, align 8
+  br i1 %or.cond, label %12, label %16
 
-9:                                                ; preds = %0
-  %10 = load i8, ptr %2, align 1, !range !4, !noundef !5
-  %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %17
+12:                                               ; preds = %0
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 176
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr @WALInsertLocks, align 8
+  %.not23 = icmp eq ptr %5, null
+  br i1 %.not23, label %65, label %15
 
-12:                                               ; preds = %9, %0
-  %13 = load ptr, ptr @XLogCtl, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 176
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr @WALInsertLocks, align 8
-  %.not22 = icmp eq ptr %5, null
-  br i1 %.not22, label %67, label %16
-
-16:                                               ; preds = %12
+15:                                               ; preds = %12
   call void @pfree(ptr noundef nonnull %5) #26
-  br label %67
+  br label %65
 
-17:                                               ; preds = %9
-  %18 = load ptr, ptr @XLogCtl, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456) %18, i8 0, i64 456, i1 false)
+16:                                               ; preds = %0
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456) %11, i8 0, i64 456, i1 false)
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %20, label %19
+  br i1 %.not, label %18, label %17
 
-19:                                               ; preds = %17
+17:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %6, ptr noundef nonnull align 8 dereferenceable(296) %5, i64 296, i1 false)
   call void @pfree(ptr noundef nonnull %5) #26
   %.pre = load ptr, ptr @XLogCtl, align 8
-  br label %20
+  br label %18
 
-20:                                               ; preds = %19, %17
-  %21 = phi ptr [ %.pre, %19 ], [ %18, %17 ]
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 456
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 304
-  store ptr %22, ptr %23, align 8
-  %24 = load i32, ptr @XLOGbuffers, align 4
-  %25 = sext i32 %24 to i64
-  %26 = shl nsw i64 %25, 3
-  %27 = getelementptr inbounds nuw i8, ptr %22, i64 %26
-  %28 = icmp sgt i32 %24, 0
-  br i1 %28, label %.lr.ph.preheader, label %._crit_edge
+18:                                               ; preds = %17, %16
+  %19 = phi ptr [ %.pre, %17 ], [ %11, %16 ]
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 456
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 304
+  store ptr %20, ptr %21, align 8
+  %22 = load i32, ptr @XLOGbuffers, align 4
+  %23 = sext i32 %22 to i64
+  %24 = shl nsw i64 %23, 3
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %24
+  %26 = icmp sgt i32 %22, 0
+  br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %20
-  %wide.trip.count = zext nneg i32 %24 to i64
+.lr.ph.preheader:                                 ; preds = %18
+  %wide.trip.count = zext nneg i32 %22 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds nuw %struct.pg_atomic_uint64, ptr %29, i64 %indvars.iv
-  store volatile i64 0, ptr %30, align 8
+  %27 = load ptr, ptr %21, align 8
+  %28 = getelementptr inbounds nuw %struct.pg_atomic_uint64, ptr %27, i64 %indvars.iv
+  store volatile i64 0, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
-._crit_edge:                                      ; preds = %.lr.ph, %20
-  %31 = ptrtoint ptr %27 to i64
-  %32 = and i64 %31, 127
-  %33 = sub nuw nsw i64 128, %32
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 %33
-  %35 = getelementptr inbounds nuw i8, ptr %21, i64 176
-  store ptr %34, ptr %35, align 8
-  store ptr %34, ptr @WALInsertLocks, align 8
-  br label %36
+._crit_edge:                                      ; preds = %.lr.ph, %18
+  %29 = ptrtoint ptr %25 to i64
+  %30 = and i64 %29, 127
+  %31 = sub nuw nsw i64 128, %30
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 176
+  store ptr %32, ptr %33, align 8
+  store ptr %32, ptr @WALInsertLocks, align 8
+  br label %34
 
-36:                                               ; preds = %._crit_edge, %36
-  %37 = phi ptr [ %34, %._crit_edge ], [ %39, %36 ]
-  %indvars.iv26 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next27, %36 ]
-  %38 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %37, i64 %indvars.iv26
-  call void @LWLockInitialize(ptr noundef %38, i32 noundef 60) #26
-  %39 = load ptr, ptr @WALInsertLocks, align 8
-  %40 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %39, i64 %indvars.iv26, i32 0, i32 1
-  store volatile i64 0, ptr %40, align 8
-  %41 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %39, i64 %indvars.iv26, i32 0, i32 2
-  store i64 0, ptr %41, align 8
-  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %exitcond29.not = icmp eq i64 %indvars.iv.next27, 8
-  br i1 %exitcond29.not, label %42, label %36, !llvm.loop !59
+34:                                               ; preds = %._crit_edge, %34
+  %35 = phi ptr [ %32, %._crit_edge ], [ %37, %34 ]
+  %indvars.iv27 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next28, %34 ]
+  %36 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %35, i64 %indvars.iv27
+  call void @LWLockInitialize(ptr noundef %36, i32 noundef 60) #26
+  %37 = load ptr, ptr @WALInsertLocks, align 8
+  %38 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %37, i64 %indvars.iv27, i32 0, i32 1
+  store volatile i64 0, ptr %38, align 8
+  %39 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %37, i64 %indvars.iv27, i32 0, i32 2
+  store i64 0, ptr %39, align 8
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %exitcond30.not = icmp eq i64 %indvars.iv.next28, 8
+  br i1 %exitcond30.not, label %40, label %34, !llvm.loop !59
 
-42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw i8, ptr %34, i64 1024
-  %44 = ptrtoint ptr %43 to i64
-  %45 = add i64 %44, 8191
-  %46 = and i64 %45, -8192
-  %47 = inttoptr i64 %46 to ptr
-  %48 = load ptr, ptr @XLogCtl, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 296
-  store ptr %47, ptr %49, align 8
-  %50 = load i32, ptr @XLOGbuffers, align 4
-  %51 = sext i32 %50 to i64
-  %52 = shl nsw i64 %51, 13
-  call void @llvm.memset.p0.i64(ptr align 8192 %47, i8 0, i64 %52, i1 false)
-  %53 = load i32, ptr @XLOGbuffers, align 4
-  %54 = add i32 %53, -1
-  %55 = load ptr, ptr @XLogCtl, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 312
-  store i32 %54, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 324
-  store i32 0, ptr %57, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 328
-  store i8 0, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 329
-  store i8 0, ptr %59, align 1
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 1024
+  %42 = ptrtoint ptr %41 to i64
+  %43 = add i64 %42, 8191
+  %44 = and i64 %43, -8192
+  %45 = inttoptr i64 %44 to ptr
+  %46 = load ptr, ptr @XLogCtl, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 296
+  store ptr %45, ptr %47, align 8
+  %48 = load i32, ptr @XLOGbuffers, align 4
+  %49 = sext i32 %48 to i64
+  %50 = shl nsw i64 %49, 13
+  call void @llvm.memset.p0.i64(ptr align 8192 %45, i8 0, i64 %50, i1 false)
+  %51 = load i32, ptr @XLOGbuffers, align 4
+  %52 = add i32 %51, -1
+  %53 = load ptr, ptr @XLogCtl, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 312
+  store i32 %52, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 324
+  store i32 0, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 328
+  store i8 0, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 329
+  store i8 0, ptr %57, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !60
-  %60 = load ptr, ptr @XLogCtl, align 8
-  store i8 0, ptr %60, align 8
+  %58 = load ptr, ptr @XLogCtl, align 8
+  store i8 0, ptr %58, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !61
-  %61 = load ptr, ptr @XLogCtl, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 448
-  store i8 0, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 264
+  %59 = load ptr, ptr @XLogCtl, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 448
+  store i8 0, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 264
+  store volatile i64 0, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 272
+  store volatile i64 0, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 280
   store volatile i64 0, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 272
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 240
   store volatile i64 0, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 280
-  store volatile i64 0, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 240
-  store volatile i64 0, ptr %66, align 8
-  br label %67
+  br label %65
 
-67:                                               ; preds = %12, %16, %42
+65:                                               ; preds = %12, %15, %40
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #26
   ret void
@@ -5477,8 +5468,8 @@ define dso_local void @StartupXLOG() local_unnamed_addr #0 {
   unreachable
 
 .sink.split:                                      ; preds = %59, %70, %81, %93, %105, %48
-  %.sink124 = phi i32 [ 5495, %48 ], [ 5529, %105 ], [ 5523, %93 ], [ 5515, %81 ], [ 5507, %70 ], [ 5501, %59 ]
-  call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef %.sink124, ptr noundef nonnull @__func__.StartupXLOG) #26
+  %.sink126 = phi i32 [ 5495, %48 ], [ 5529, %105 ], [ 5523, %93 ], [ 5515, %81 ], [ 5507, %70 ], [ 5501, %59 ]
+  call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef %.sink126, ptr noundef nonnull @__func__.StartupXLOG) #26
   br label %118
 
 118:                                              ; preds = %.sink.split, %43, %103, %91, %79, %68, %57
@@ -5641,8 +5632,8 @@ ValidateXLOGDirectoryStructure.exit:              ; preds = %156, %167
 198:                                              ; preds = %196, %192, %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15) #26
   %199 = call ptr @ReadDir(ptr noundef %187, ptr noundef nonnull @.str.22) #26
-  %.not.i88 = icmp eq ptr %199, null
-  br i1 %.not.i88, label %RemoveTempXlogFiles.exit, label %.lr.ph.i
+  %.not.i89 = icmp eq ptr %199, null
+  br i1 %.not.i89, label %RemoveTempXlogFiles.exit, label %.lr.ph.i
 
 RemoveTempXlogFiles.exit:                         ; preds = %198, %186
   %200 = call i32 @FreeDir(ptr noundef %187) #26
@@ -5658,10 +5649,10 @@ RemoveTempXlogFiles.exit:                         ; preds = %198, %186
   %.sroa.0.0.copyload = load i64, ptr %204, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 48
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 56
-  %.sroa.661.0.copyload = load i8, ptr %.sroa.661.0..sroa_idx, align 8
-  %.sroa.762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 64
-  %.sroa.762.0.copyload = load i64, ptr %.sroa.762.0..sroa_idx, align 8
+  %.sroa.662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 56
+  %.sroa.662.0.copyload = load i8, ptr %.sroa.662.0..sroa_idx, align 8
+  %.sroa.763.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 64
+  %.sroa.763.0.copyload = load i64, ptr %.sroa.763.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 72
   %.sroa.11.0.copyload = load i32, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 76
@@ -5676,15 +5667,15 @@ RemoveTempXlogFiles.exit:                         ; preds = %198, %186
   %.sroa.17.0.copyload = load i32, ptr %.sroa.17.0..sroa_idx, align 4
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 96
   %.sroa.18.0.copyload = load i32, ptr %.sroa.18.0..sroa_idx, align 8
-  %.sroa.1966.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 112
-  %.sroa.1966.0.copyload = load i32, ptr %.sroa.1966.0..sroa_idx, align 8
+  %.sroa.1967.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 112
+  %.sroa.1967.0.copyload = load i32, ptr %.sroa.1967.0..sroa_idx, align 8
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 116
   %.sroa.20.0.copyload = load i32, ptr %.sroa.20.0..sroa_idx, align 4
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %203, i64 120
   %.sroa.21.0.copyload = load i32, ptr %.sroa.21.0..sroa_idx, align 8
   %205 = load ptr, ptr @TransamVariables, align 8
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store i64 %.sroa.762.0.copyload, ptr %206, align 8
+  store i64 %.sroa.763.0.copyload, ptr %206, align 8
   store i32 %.sroa.11.0.copyload, ptr %205, align 8
   %207 = load ptr, ptr @TransamVariables, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
@@ -5693,10 +5684,10 @@ RemoveTempXlogFiles.exit:                         ; preds = %198, %186
   call void @AdvanceOldestClogXid(i32 noundef %.sroa.14.0.copyload) #26
   call void @SetTransactionIdLimit(i32 noundef %.sroa.14.0.copyload, i32 noundef %.sroa.16.0.copyload) #26
   call void @SetMultiXactIdLimit(i32 noundef %.sroa.17.0.copyload, i32 noundef %.sroa.18.0.copyload, i1 noundef zeroext true) #26
-  call void @SetCommitTsLimit(i32 noundef %.sroa.1966.0.copyload, i32 noundef %.sroa.20.0.copyload) #26
+  call void @SetCommitTsLimit(i32 noundef %.sroa.1967.0.copyload, i32 noundef %.sroa.20.0.copyload) #26
   %209 = load ptr, ptr @XLogCtl, align 8
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 208
-  store i64 %.sroa.762.0.copyload, ptr %210, align 8
+  store i64 %.sroa.763.0.copyload, ptr %210, align 8
   call void @RelationCacheInitFileRemove() #26
   call void @StartupReplicationSlots() #26
   call void @StartupReorderBuffer() #26
@@ -5728,8 +5719,8 @@ RemoveTempXlogFiles.exit:                         ; preds = %198, %186
   br label %226
 
 226:                                              ; preds = %216, %223
-  %.sink125 = phi i64 [ %225, %223 ], [ 1000, %216 ]
-  %227 = atomicrmw volatile xchg ptr %222, i64 %.sink125 seq_cst, align 8
+  %.sink127 = phi i64 [ %225, %223 ], [ 1000, %216 ]
+  %227 = atomicrmw volatile xchg ptr %222, i64 %.sink127 seq_cst, align 8
   %228 = load i32, ptr @recoveryTargetTLI, align 4
   call void @restoreTimeLineHistoryFiles(i32 noundef %.sroa.5.0.copyload, i32 noundef %228) #26
   call void @restoreTwoPhaseData() #26
@@ -5744,7 +5735,7 @@ RemoveTempXlogFiles.exit:                         ; preds = %198, %186
   br label %231
 
 231:                                              ; preds = %230, %229
-  %232 = and i8 %.sroa.661.0.copyload, 1
+  %232 = and i8 %.sroa.662.0.copyload, 1
   store i8 %232, ptr @lastFullPageWrites, align 1
   %233 = load ptr, ptr @XLogCtl, align 8
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 152
@@ -5755,13 +5746,13 @@ RemoveTempXlogFiles.exit:                         ; preds = %198, %186
   store i8 %232, ptr @doPageWrites, align 1
   %236 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
   %237 = trunc nuw i8 %236 to i1
-  br i1 %237, label %238, label %309
+  br i1 %237, label %238, label %308
 
 238:                                              ; preds = %231
   %239 = getelementptr inbounds nuw i8, ptr %233, i64 448
   %240 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %239, i8 1, ptr nonnull elementtype(i8) %239) #26, !srcloc !10
-  %.not81 = icmp eq i8 %240, 0
-  br i1 %.not81, label %245, label %241
+  %.not82 = icmp eq i8 %240, 0
+  br i1 %.not82, label %245, label %241
 
 241:                                              ; preds = %238
   %242 = load ptr, ptr @XLogCtl, align 8
@@ -5820,1302 +5811,1298 @@ RemoveTempXlogFiles.exit:                         ; preds = %198, %186
   call void @DeleteAllExportedSnapshotFiles() #26
   %272 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
   %273 = trunc nuw i8 %272 to i1
-  br i1 %273, label %274, label %308
+  %274 = load i8, ptr @EnableHotStandby, align 1, !range !4
+  %275 = trunc nuw i8 %274 to i1
+  %or.cond = select i1 %273, i1 %275, i1 false
+  br i1 %or.cond, label %276, label %307
 
-274:                                              ; preds = %271
-  %275 = load i8, ptr @EnableHotStandby, align 1, !range !4, !noundef !5
-  %276 = trunc nuw i8 %275 to i1
-  br i1 %276, label %277, label %308
-
-277:                                              ; preds = %274
+276:                                              ; preds = %271
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #26
-  %278 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #26
-  br i1 %278, label %279, label %281
+  %277 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #26
+  br i1 %277, label %278, label %280
 
-279:                                              ; preds = %277
-  %280 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50) #26
+278:                                              ; preds = %276
+  %279 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 5811, ptr noundef nonnull @__func__.StartupXLOG) #26
-  br label %281
+  br label %280
 
-281:                                              ; preds = %279, %277
+280:                                              ; preds = %278, %276
   call void @InitRecoveryTransactionEnvironment() #26
-  %282 = load i8, ptr %24, align 1, !range !4, !noundef !5
-  %283 = trunc nuw i8 %282 to i1
-  br i1 %283, label %284, label %286
+  %281 = load i8, ptr %24, align 1, !range !4, !noundef !5
+  %282 = trunc nuw i8 %281 to i1
+  br i1 %282, label %283, label %285
 
-284:                                              ; preds = %281
-  %285 = call i32 @PrescanPreparedTransactions(ptr noundef nonnull %27, ptr noundef nonnull %28) #26
-  br label %286
+283:                                              ; preds = %280
+  %284 = call i32 @PrescanPreparedTransactions(ptr noundef nonnull %27, ptr noundef nonnull %28) #26
+  br label %285
 
-286:                                              ; preds = %281, %284
-  %.074 = phi i32 [ %285, %284 ], [ %.sroa.21.0.copyload, %281 ]
-  %287 = load ptr, ptr @TransamVariables, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
-  %289 = load i64, ptr %288, align 8
-  %290 = trunc i64 %289 to i32
-  call void @ProcArrayInitRecovery(i32 noundef %290) #26
-  call void @StartupSUBTRANS(i32 noundef %.074) #26
-  %291 = load i8, ptr %24, align 1, !range !4, !noundef !5
-  %292 = trunc nuw i8 %291 to i1
-  br i1 %292, label %293, label %307
+285:                                              ; preds = %280, %283
+  %.075 = phi i32 [ %284, %283 ], [ %.sroa.21.0.copyload, %280 ]
+  %286 = load ptr, ptr @TransamVariables, align 8
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  %288 = load i64, ptr %287, align 8
+  %289 = trunc i64 %288 to i32
+  call void @ProcArrayInitRecovery(i32 noundef %289) #26
+  call void @StartupSUBTRANS(i32 noundef %.075) #26
+  %290 = load i8, ptr %24, align 1, !range !4, !noundef !5
+  %291 = trunc nuw i8 %290 to i1
+  br i1 %291, label %292, label %306
 
-293:                                              ; preds = %286
+292:                                              ; preds = %285
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29) #26
   call void @StandbyRecoverPreparedTransactions() #26
-  %294 = load i32, ptr %28, align 4
-  store i32 %294, ptr %29, align 8
-  %295 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i32 0, ptr %295, align 4
-  %296 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i32 2, ptr %296, align 8
-  %297 = trunc i64 %.sroa.762.0.copyload to i32
-  %298 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  store i32 %297, ptr %298, align 4
-  %299 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i32 %.074, ptr %299, align 8
-  br label %300
+  %293 = load i32, ptr %28, align 4
+  store i32 %293, ptr %29, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store i32 0, ptr %294, align 4
+  %295 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i32 2, ptr %295, align 8
+  %296 = trunc i64 %.sroa.763.0.copyload to i32
+  %297 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  store i32 %296, ptr %297, align 4
+  %298 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store i32 %.075, ptr %298, align 8
+  br label %299
 
-300:                                              ; preds = %300, %293
-  %.072 = phi i32 [ %297, %293 ], [ %301, %300 ]
-  %301 = add i32 %.072, -1
-  %302 = icmp ult i32 %301, 3
-  br i1 %302, label %300, label %303, !llvm.loop !64
+299:                                              ; preds = %299, %292
+  %.073 = phi i32 [ %296, %292 ], [ %300, %299 ]
+  %300 = add i32 %.073, -1
+  %301 = icmp ult i32 %300, 3
+  br i1 %301, label %299, label %302, !llvm.loop !64
 
-303:                                              ; preds = %300
-  %304 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store i32 %301, ptr %304, align 8
-  %305 = load ptr, ptr %27, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  store ptr %305, ptr %306, align 8
+302:                                              ; preds = %299
+  %303 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  store i32 %300, ptr %303, align 8
+  %304 = load ptr, ptr %27, align 8
+  %305 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  store ptr %304, ptr %305, align 8
   call void @ProcArrayApplyRecoveryInfo(ptr noundef nonnull %29) #26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #26
-  br label %307
+  br label %306
 
-307:                                              ; preds = %303, %286
+306:                                              ; preds = %302, %285
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #26
+  br label %307
+
+307:                                              ; preds = %306, %271
+  call void @PerformWalRecovery() #26
   br label %308
 
-308:                                              ; preds = %307, %274, %271
-  call void @PerformWalRecovery() #26
-  br label %309
-
-309:                                              ; preds = %231, %308
-  %310 = call ptr @FinishWalRecovery() #26
-  %311 = getelementptr inbounds nuw i8, ptr %310, i64 16
-  %312 = load i64, ptr %311, align 8
-  %313 = getelementptr inbounds nuw i8, ptr %310, i64 24
-  %314 = load i32, ptr %313, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %310, i64 48
-  %316 = load i64, ptr %315, align 8
-  %317 = getelementptr inbounds nuw i8, ptr %310, i64 56
-  %318 = load i64, ptr %317, align 8
+308:                                              ; preds = %231, %307
+  %309 = call ptr @FinishWalRecovery() #26
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
+  %311 = load i64, ptr %310, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %309, i64 24
+  %313 = load i32, ptr %312, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %309, i64 48
+  %315 = load i64, ptr %314, align 8
+  %316 = getelementptr inbounds nuw i8, ptr %309, i64 56
+  %317 = load i64, ptr %316, align 8
   call void @set_ps_display_with_len(ptr noundef nonnull @.str.51, i64 noundef 0) #26
-  %319 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
-  %320 = trunc nuw i8 %319 to i1
-  br i1 %320, label %321, label %353
+  %318 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
+  %319 = trunc nuw i8 %318 to i1
+  br i1 %319, label %320, label %352
 
-321:                                              ; preds = %309
-  %322 = load i64, ptr @LocalMinRecoveryPoint, align 8
-  %323 = icmp ult i64 %312, %322
-  %.pre118.pre = load ptr, ptr @ControlFile, align 8
-  br i1 %323, label %328, label %324
+320:                                              ; preds = %308
+  %321 = load i64, ptr @LocalMinRecoveryPoint, align 8
+  %322 = icmp ult i64 %311, %321
+  %.pre120.pre = load ptr, ptr @ControlFile, align 8
+  br i1 %322, label %327, label %323
 
-324:                                              ; preds = %321
-  %325 = getelementptr inbounds nuw i8, ptr %.pre118.pre, i64 152
-  %326 = load i64, ptr %325, align 8
-  %327 = icmp eq i64 %326, 0
-  br i1 %327, label %352, label %328
+323:                                              ; preds = %320
+  %324 = getelementptr inbounds nuw i8, ptr %.pre120.pre, i64 152
+  %325 = load i64, ptr %324, align 8
+  %326 = icmp eq i64 %325, 0
+  br i1 %326, label %351, label %327
 
-328:                                              ; preds = %324, %321
-  %329 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
-  %330 = trunc nuw i8 %329 to i1
-  br i1 %330, label %335, label %331
+327:                                              ; preds = %323, %320
+  %328 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
+  %329 = trunc nuw i8 %328 to i1
+  br i1 %329, label %334, label %330
 
-331:                                              ; preds = %328
-  %332 = getelementptr inbounds nuw i8, ptr %.pre118.pre, i64 168
-  %333 = load i8, ptr %332, align 8, !range !4, !noundef !5
-  %334 = trunc nuw i8 %333 to i1
-  br i1 %334, label %335, label %352
+330:                                              ; preds = %327
+  %331 = getelementptr inbounds nuw i8, ptr %.pre120.pre, i64 168
+  %332 = load i8, ptr %331, align 8, !range !4, !noundef !5
+  %333 = trunc nuw i8 %332 to i1
+  br i1 %333, label %334, label %351
 
-335:                                              ; preds = %331, %328
-  %336 = getelementptr inbounds nuw i8, ptr %.pre118.pre, i64 152
-  %337 = load i64, ptr %336, align 8
-  %338 = icmp eq i64 %337, 0
-  br i1 %338, label %339, label %343
+334:                                              ; preds = %330, %327
+  %335 = getelementptr inbounds nuw i8, ptr %.pre120.pre, i64 152
+  %336 = load i64, ptr %335, align 8
+  %337 = icmp eq i64 %336, 0
+  br i1 %337, label %338, label %342
 
-339:                                              ; preds = %335
-  %340 = getelementptr inbounds nuw i8, ptr %.pre118.pre, i64 168
-  %341 = load i8, ptr %340, align 8, !range !4, !noundef !5
-  %342 = trunc nuw i8 %341 to i1
-  br i1 %342, label %343, label %348
+338:                                              ; preds = %334
+  %339 = getelementptr inbounds nuw i8, ptr %.pre120.pre, i64 168
+  %340 = load i8, ptr %339, align 8, !range !4, !noundef !5
+  %341 = trunc nuw i8 %340 to i1
+  br i1 %341, label %342, label %347
 
-343:                                              ; preds = %339, %335
-  %344 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #27
-  call void @llvm.assume(i1 %344)
-  %345 = call i32 @errcode(i32 noundef 325) #26
-  %346 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52) #26
-  %347 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.53) #26
+342:                                              ; preds = %338, %334
+  %343 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #27
+  call void @llvm.assume(i1 %343)
+  %344 = call i32 @errcode(i32 noundef 325) #26
+  %345 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52) #26
+  %346 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.53) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 5924, ptr noundef nonnull @__func__.StartupXLOG) #26
   unreachable
 
-348:                                              ; preds = %339
-  %349 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #27
-  call void @llvm.assume(i1 %349)
-  %350 = call i32 @errcode(i32 noundef 325) #26
-  %351 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #26
+347:                                              ; preds = %338
+  %348 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #27
+  call void @llvm.assume(i1 %348)
+  %349 = call i32 @errcode(i32 noundef 325) #26
+  %350 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 5928, ptr noundef nonnull @__func__.StartupXLOG) #26
   unreachable
 
-352:                                              ; preds = %331, %324
+351:                                              ; preds = %330, %323
   call void @ResetUnloggedRelations(i32 noundef 2) #26
-  br label %353
+  br label %352
 
-353:                                              ; preds = %309, %352
-  %354 = call i32 @PrescanPreparedTransactions(ptr noundef null, ptr noundef null) #26
-  %355 = load ptr, ptr @MainLWLockArray, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 1152
-  %357 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %356, i32 noundef 0) #26
-  %358 = load ptr, ptr @XLogCtl, align 8
-  %359 = getelementptr inbounds nuw i8, ptr %358, i64 328
-  store i8 1, ptr %359, align 8
-  %360 = load ptr, ptr @MainLWLockArray, align 8
-  %361 = getelementptr inbounds nuw i8, ptr %360, i64 1152
-  call void @LWLockRelease(ptr noundef nonnull %361) #26
-  %362 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  %363 = load i32, ptr %362, align 8
-  %364 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
-  %365 = trunc nuw i8 %364 to i1
-  br i1 %365, label %366, label %508
+352:                                              ; preds = %308, %351
+  %353 = call i32 @PrescanPreparedTransactions(ptr noundef null, ptr noundef null) #26
+  %354 = load ptr, ptr @MainLWLockArray, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 1152
+  %356 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %355, i32 noundef 0) #26
+  %357 = load ptr, ptr @XLogCtl, align 8
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 328
+  store i8 1, ptr %358, align 8
+  %359 = load ptr, ptr @MainLWLockArray, align 8
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 1152
+  call void @LWLockRelease(ptr noundef nonnull %360) #26
+  %361 = getelementptr inbounds nuw i8, ptr %309, i64 8
+  %362 = load i32, ptr %361, align 8
+  %363 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
+  %364 = trunc nuw i8 %363 to i1
+  br i1 %364, label %365, label %507
 
-366:                                              ; preds = %353
-  %367 = load i32, ptr @recoveryTargetTLI, align 4
-  %368 = call i32 @findNewestTimeLine(i32 noundef %367) #26
-  %369 = add i32 %368, 1
-  %370 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #26
-  br i1 %370, label %371, label %373
+365:                                              ; preds = %352
+  %366 = load i32, ptr @recoveryTargetTLI, align 4
+  %367 = call i32 @findNewestTimeLine(i32 noundef %366) #26
+  %368 = add i32 %367, 1
+  %369 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #26
+  br i1 %369, label %370, label %372
 
-371:                                              ; preds = %366
-  %372 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, i32 noundef %369) #26
+370:                                              ; preds = %365
+  %371 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, i32 noundef %368) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 5974, ptr noundef nonnull @__func__.StartupXLOG) #26
-  br label %373
+  br label %372
 
-373:                                              ; preds = %371, %366
+372:                                              ; preds = %370, %365
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #26
   call fastcc void @UpdateMinRecoveryPoint(i64 noundef 0, i1 noundef zeroext true)
-  %374 = add i64 %312, -1
-  %375 = load i32, ptr @wal_segment_size, align 4
-  %376 = sext i32 %375 to i64
-  %377 = udiv i64 %374, %376
-  %378 = udiv i64 %312, %376
-  %379 = icmp eq i64 %377, %378
-  br i1 %379, label %380, label %472
+  %373 = add i64 %311, -1
+  %374 = load i32, ptr @wal_segment_size, align 4
+  %375 = sext i32 %374 to i64
+  %376 = udiv i64 %373, %375
+  %377 = udiv i64 %311, %375
+  %378 = icmp eq i64 %376, %377
+  br i1 %378, label %379, label %471
 
-380:                                              ; preds = %373
-  %381 = add i32 %375, -1
-  %382 = trunc i64 %312 to i32
-  %383 = and i32 %381, %382
+379:                                              ; preds = %372
+  %380 = add i32 %374, -1
+  %381 = trunc i64 %311 to i32
+  %382 = and i32 %380, %381
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  store i64 %377, ptr %10, align 8
+  store i64 %376, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11) #26
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12) #26
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %13) #26
-  %384 = udiv i64 4294967296, %376
-  %385 = udiv i64 %377, %384
-  %386 = trunc i64 %385 to i32
-  %387 = urem i64 %377, %384
-  %388 = trunc nuw i64 %387 to i32
-  %389 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.117, i32 noundef %314, i32 noundef %386, i32 noundef %388) #26
-  %390 = call i32 @OpenTransientFile(ptr noundef nonnull %11, i32 noundef 0) #26
-  %391 = icmp slt i32 %390, 0
-  br i1 %391, label %392, label %396
+  %383 = udiv i64 4294967296, %375
+  %384 = udiv i64 %376, %383
+  %385 = trunc i64 %384 to i32
+  %386 = urem i64 %376, %383
+  %387 = trunc nuw i64 %386 to i32
+  %388 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.117, i32 noundef %313, i32 noundef %385, i32 noundef %387) #26
+  %389 = call i32 @OpenTransientFile(ptr noundef nonnull %11, i32 noundef 0) #26
+  %390 = icmp slt i32 %389, 0
+  br i1 %390, label %391, label %395
 
-392:                                              ; preds = %380
-  %393 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %393)
-  %394 = call i32 @errcode_for_file_access() #26
-  %395 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %11) #26
+391:                                              ; preds = %379
+  %392 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %392)
+  %393 = call i32 @errcode_for_file_access() #26
+  %394 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %11) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 3458, ptr noundef nonnull @__func__.XLogFileCopy) #26
   unreachable
 
-396:                                              ; preds = %380
-  %397 = call i32 @getpid() #26
-  %398 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 1024, ptr noundef nonnull @.str.111, i32 noundef %397) #26
-  %399 = call i32 @unlink(ptr noundef nonnull %12) #26
-  %400 = call i32 @OpenTransientFile(ptr noundef nonnull %12, i32 noundef 194) #26
-  %401 = icmp slt i32 %400, 0
-  br i1 %401, label %404, label %.preheader.i.i
+395:                                              ; preds = %379
+  %396 = call i32 @getpid() #26
+  %397 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 1024, ptr noundef nonnull @.str.111, i32 noundef %396) #26
+  %398 = call i32 @unlink(ptr noundef nonnull %12) #26
+  %399 = call i32 @OpenTransientFile(ptr noundef nonnull %12, i32 noundef 194) #26
+  %400 = icmp slt i32 %399, 0
+  br i1 %400, label %403, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %396
-  %402 = load i32, ptr @wal_segment_size, align 4
-  %403 = icmp sgt i32 %402, 0
-  br i1 %403, label %.lr.ph.i.i, label %._crit_edge.i.i
+.preheader.i.i:                                   ; preds = %395
+  %401 = load i32, ptr @wal_segment_size, align 4
+  %402 = icmp sgt i32 %401, 0
+  br i1 %402, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-404:                                              ; preds = %396
-  %405 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %405)
-  %406 = call i32 @errcode_for_file_access() #26
-  %407 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.93, ptr noundef nonnull %12) #26
+403:                                              ; preds = %395
+  %404 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %404)
+  %405 = call i32 @errcode_for_file_access() #26
+  %406 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.93, ptr noundef nonnull %12) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 3472, ptr noundef nonnull @__func__.XLogFileCopy) #26
   unreachable
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %441
-  %.036.i.i = phi i32 [ %443, %441 ], [ 0, %.preheader.i.i ]
-  %408 = sub i32 %383, %.036.i.i
-  %409 = icmp ult i32 %408, 8192
-  br i1 %409, label %410, label %411
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %440
+  %.036.i.i = phi i32 [ %442, %440 ], [ 0, %.preheader.i.i ]
+  %407 = sub i32 %382, %.036.i.i
+  %408 = icmp ult i32 %407, 8192
+  br i1 %408, label %409, label %410
 
-410:                                              ; preds = %.lr.ph.i.i
+409:                                              ; preds = %.lr.ph.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4096 dereferenceable(8192) %13, i8 0, i64 8192, i1 false)
-  br label %411
+  br label %410
 
-411:                                              ; preds = %410, %.lr.ph.i.i
-  %412 = icmp sgt i32 %408, 0
-  br i1 %412, label %413, label %429
+410:                                              ; preds = %409, %.lr.ph.i.i
+  %411 = icmp sgt i32 %407, 0
+  br i1 %411, label %412, label %428
 
-413:                                              ; preds = %411
-  %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %408, i32 8192)
-  %414 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772226, ptr %414, align 4
-  %415 = zext nneg i32 %spec.store.select.i.i to i64
-  %416 = call i64 @read(i32 noundef %390, ptr noundef nonnull %13, i64 noundef %415) #26
-  %417 = trunc i64 %416 to i32
-  %.not31.i.i = icmp eq i32 %spec.store.select.i.i, %417
-  br i1 %.not31.i.i, label %427, label %418
+412:                                              ; preds = %410
+  %spec.store.select.i.i = call i32 @llvm.umin.i32(i32 %407, i32 8192)
+  %413 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772226, ptr %413, align 4
+  %414 = zext nneg i32 %spec.store.select.i.i to i64
+  %415 = call i64 @read(i32 noundef %389, ptr noundef nonnull %13, i64 noundef %414) #26
+  %416 = trunc i64 %415 to i32
+  %.not31.i.i = icmp eq i32 %spec.store.select.i.i, %416
+  br i1 %.not31.i.i, label %426, label %417
 
-418:                                              ; preds = %413
-  %419 = icmp slt i32 %417, 0
-  %420 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %420)
-  br i1 %419, label %421, label %424
+417:                                              ; preds = %412
+  %418 = icmp slt i32 %416, 0
+  %419 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %419)
+  br i1 %418, label %420, label %423
 
-421:                                              ; preds = %418
-  %422 = call i32 @errcode_for_file_access() #26
-  %423 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.124, ptr noundef nonnull %11) #26
+420:                                              ; preds = %417
+  %421 = call i32 @errcode_for_file_access() #26
+  %422 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.124, ptr noundef nonnull %11) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 3504, ptr noundef nonnull @__func__.XLogFileCopy) #26
   unreachable
 
-424:                                              ; preds = %418
-  %425 = call i32 @errcode(i32 noundef 16779816) #26
-  %426 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.125, ptr noundef nonnull %11, i32 noundef %417, i64 noundef %415) #26
+423:                                              ; preds = %417
+  %424 = call i32 @errcode(i32 noundef 16779816) #26
+  %425 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.125, ptr noundef nonnull %11, i32 noundef %416, i64 noundef %414) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 3509, ptr noundef nonnull @__func__.XLogFileCopy) #26
   unreachable
 
-427:                                              ; preds = %413
-  %428 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %428, align 4
-  br label %429
+426:                                              ; preds = %412
+  %427 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %427, align 4
+  br label %428
 
-429:                                              ; preds = %427, %411
-  %430 = tail call ptr @__errno_location() #28
-  store i32 0, ptr %430, align 4
-  %431 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772228, ptr %431, align 4
-  %432 = call i64 @write(i32 noundef %400, ptr noundef nonnull %13, i64 noundef 8192) #26
-  %433 = and i64 %432, 4294967295
-  %.not32.i.i = icmp eq i64 %433, 8192
-  br i1 %.not32.i.i, label %441, label %434
+428:                                              ; preds = %426, %410
+  %429 = tail call ptr @__errno_location() #28
+  store i32 0, ptr %429, align 4
+  %430 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772228, ptr %430, align 4
+  %431 = call i64 @write(i32 noundef %399, ptr noundef nonnull %13, i64 noundef 8192) #26
+  %432 = and i64 %431, 4294967295
+  %.not32.i.i = icmp eq i64 %432, 8192
+  br i1 %.not32.i.i, label %440, label %433
 
-434:                                              ; preds = %429
-  %435 = load i32, ptr %430, align 4
-  %436 = call i32 @unlink(ptr noundef nonnull %12) #26
-  %.not33.i.i = icmp eq i32 %435, 0
-  %437 = select i1 %.not33.i.i, i32 28, i32 %435
-  store i32 %437, ptr %430, align 4
-  %438 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %438)
-  %439 = call i32 @errcode_for_file_access() #26
-  %440 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.113, ptr noundef nonnull %12) #26
+433:                                              ; preds = %428
+  %434 = load i32, ptr %429, align 4
+  %435 = call i32 @unlink(ptr noundef nonnull %12) #26
+  %.not33.i.i = icmp eq i32 %434, 0
+  %436 = select i1 %.not33.i.i, i32 28, i32 %434
+  store i32 %436, ptr %429, align 4
+  %437 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %437)
+  %438 = call i32 @errcode_for_file_access() #26
+  %439 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.113, ptr noundef nonnull %12) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 3528, ptr noundef nonnull @__func__.XLogFileCopy) #26
   unreachable
 
-441:                                              ; preds = %429
-  %442 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %442, align 4
-  %443 = add i32 %.036.i.i, 8192
-  %444 = load i32, ptr @wal_segment_size, align 4
-  %445 = icmp slt i32 %443, %444
-  br i1 %445, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !65
+440:                                              ; preds = %428
+  %441 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %441, align 4
+  %442 = add i32 %.036.i.i, 8192
+  %443 = load i32, ptr @wal_segment_size, align 4
+  %444 = icmp slt i32 %442, %443
+  br i1 %444, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !65
 
-._crit_edge.i.i:                                  ; preds = %441, %.preheader.i.i
-  %446 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772227, ptr %446, align 4
-  %447 = call i32 @pg_fsync(i32 noundef %400) #26
-  %.not.i.i = icmp eq i32 %447, 0
-  br i1 %.not.i.i, label %454, label %448
+._crit_edge.i.i:                                  ; preds = %440, %.preheader.i.i
+  %445 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772227, ptr %445, align 4
+  %446 = call i32 @pg_fsync(i32 noundef %399) #26
+  %.not.i.i = icmp eq i32 %446, 0
+  br i1 %.not.i.i, label %453, label %447
 
-448:                                              ; preds = %._crit_edge.i.i
-  %449 = call i32 @data_sync_elevel(i32 noundef 21) #26
-  %450 = call zeroext i1 @errstart(i32 noundef %449, ptr noundef null) #26
-  br i1 %450, label %451, label %454
+447:                                              ; preds = %._crit_edge.i.i
+  %448 = call i32 @data_sync_elevel(i32 noundef 21) #26
+  %449 = call zeroext i1 @errstart(i32 noundef %448, ptr noundef null) #26
+  br i1 %449, label %450, label %453
 
-451:                                              ; preds = %448
-  %452 = call i32 @errcode_for_file_access() #26
-  %453 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76, ptr noundef nonnull %12) #26
+450:                                              ; preds = %447
+  %451 = call i32 @errcode_for_file_access() #26
+  %452 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76, ptr noundef nonnull %12) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 3537, ptr noundef nonnull @__func__.XLogFileCopy) #26
-  br label %454
+  br label %453
 
-454:                                              ; preds = %451, %448, %._crit_edge.i.i
-  %455 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %455, align 4
-  %456 = call i32 @CloseTransientFile(i32 noundef %400) #26
-  %.not29.i.i = icmp eq i32 %456, 0
-  br i1 %.not29.i.i, label %461, label %457
+453:                                              ; preds = %450, %447, %._crit_edge.i.i
+  %454 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %454, align 4
+  %455 = call i32 @CloseTransientFile(i32 noundef %399) #26
+  %.not29.i.i = icmp eq i32 %455, 0
+  br i1 %.not29.i.i, label %460, label %456
 
-457:                                              ; preds = %454
-  %458 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %458)
-  %459 = call i32 @errcode_for_file_access() #26
-  %460 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.114, ptr noundef nonnull %12) #26
+456:                                              ; preds = %453
+  %457 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %457)
+  %458 = call i32 @errcode_for_file_access() #26
+  %459 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.114, ptr noundef nonnull %12) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 3543, ptr noundef nonnull @__func__.XLogFileCopy) #26
   unreachable
 
-461:                                              ; preds = %454
-  %462 = call i32 @CloseTransientFile(i32 noundef %390) #26
-  %.not30.i.i = icmp eq i32 %462, 0
-  br i1 %.not30.i.i, label %467, label %463
+460:                                              ; preds = %453
+  %461 = call i32 @CloseTransientFile(i32 noundef %389) #26
+  %.not30.i.i = icmp eq i32 %461, 0
+  br i1 %.not30.i.i, label %466, label %462
 
-463:                                              ; preds = %461
-  %464 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %464)
-  %465 = call i32 @errcode_for_file_access() #26
-  %466 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.114, ptr noundef nonnull %11) #26
+462:                                              ; preds = %460
+  %463 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %463)
+  %464 = call i32 @errcode_for_file_access() #26
+  %465 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.114, ptr noundef nonnull %11) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 3548, ptr noundef nonnull @__func__.XLogFileCopy) #26
   unreachable
 
-467:                                              ; preds = %461
-  %468 = call fastcc zeroext i1 @InstallXLogFileSegment(ptr noundef %10, ptr noundef %12, i1 noundef zeroext false, i64 noundef 0, i32 noundef %369)
-  br i1 %468, label %XLogFileCopy.exit.i, label %469
+466:                                              ; preds = %460
+  %467 = call fastcc zeroext i1 @InstallXLogFileSegment(ptr noundef %10, ptr noundef %12, i1 noundef zeroext false, i64 noundef 0, i32 noundef %368)
+  br i1 %467, label %XLogFileCopy.exit.i, label %468
 
-469:                                              ; preds = %467
-  %470 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %470)
-  %471 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.170) #26
+468:                                              ; preds = %466
+  %469 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %469)
+  %470 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.170) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 3554, ptr noundef nonnull @__func__.XLogFileCopy) #26
   unreachable
 
-XLogFileCopy.exit.i:                              ; preds = %467
+XLogFileCopy.exit.i:                              ; preds = %466
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %13) #26
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12) #26
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %XLogInitNewTimeline.exit
 
-472:                                              ; preds = %373
-  %473 = call i32 @XLogFileInit(i64 noundef %378, i32 noundef %369)
-  %474 = call i32 @close(i32 noundef %473) #26
-  %.not.i89 = icmp eq i32 %474, 0
-  br i1 %.not.i89, label %XLogInitNewTimeline.exit, label %475
+471:                                              ; preds = %372
+  %472 = call i32 @XLogFileInit(i64 noundef %377, i32 noundef %368)
+  %473 = call i32 @close(i32 noundef %472) #26
+  %.not.i90 = icmp eq i32 %473, 0
+  br i1 %.not.i90, label %XLogInitNewTimeline.exit, label %474
 
-475:                                              ; preds = %472
-  %476 = tail call ptr @__errno_location() #28
-  %477 = load i32, ptr %476, align 4
-  %478 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef %14, i32 noundef %369, i64 noundef %378, i32 noundef %478)
-  store i32 %477, ptr %476, align 4
-  %479 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %479)
-  %480 = call i32 @errcode_for_file_access() #26
-  %481 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.114, ptr noundef nonnull %14) #26
+474:                                              ; preds = %471
+  %475 = tail call ptr @__errno_location() #28
+  %476 = load i32, ptr %475, align 4
+  %477 = load i32, ptr @wal_segment_size, align 4
+  call fastcc void @XLogFileName(ptr noundef %14, i32 noundef %368, i64 noundef %377, i32 noundef %477)
+  store i32 %476, ptr %475, align 4
+  %478 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %478)
+  %479 = call i32 @errcode_for_file_access() #26
+  %480 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.114, ptr noundef nonnull %14) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 5294, ptr noundef nonnull @__func__.XLogInitNewTimeline) #26
   unreachable
 
-XLogInitNewTimeline.exit:                         ; preds = %XLogFileCopy.exit.i, %472
-  %482 = load i32, ptr @wal_segment_size, align 4
-  %483 = sext i32 %482 to i64
-  %484 = udiv i64 4294967296, %483
-  %485 = udiv i64 %378, %484
-  %486 = trunc i64 %485 to i32
-  %487 = urem i64 %378, %484
-  %488 = trunc nuw i64 %487 to i32
-  %489 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 64, ptr noundef nonnull @.str.118, i32 noundef %369, i32 noundef %486, i32 noundef %488) #26
+XLogInitNewTimeline.exit:                         ; preds = %XLogFileCopy.exit.i, %471
+  %481 = load i32, ptr @wal_segment_size, align 4
+  %482 = sext i32 %481 to i64
+  %483 = udiv i64 4294967296, %482
+  %484 = udiv i64 %377, %483
+  %485 = trunc i64 %484 to i32
+  %486 = urem i64 %377, %483
+  %487 = trunc nuw i64 %486 to i32
+  %488 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 64, ptr noundef nonnull @.str.118, i32 noundef %368, i32 noundef %485, i32 noundef %487) #26
   call void @XLogArchiveCleanup(ptr noundef nonnull %14) #26
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #26
-  %490 = getelementptr inbounds nuw i8, ptr %310, i64 72
-  %491 = load i8, ptr %490, align 8, !range !4, !noundef !5
-  %492 = trunc nuw i8 %491 to i1
-  br i1 %492, label %493, label %495
+  %489 = getelementptr inbounds nuw i8, ptr %309, i64 72
+  %490 = load i8, ptr %489, align 8, !range !4, !noundef !5
+  %491 = trunc nuw i8 %490 to i1
+  br i1 %491, label %492, label %494
 
-493:                                              ; preds = %XLogInitNewTimeline.exit
-  %494 = call i32 @durable_unlink(ptr noundef nonnull @.str.56, i32 noundef 22) #26
-  br label %495
+492:                                              ; preds = %XLogInitNewTimeline.exit
+  %493 = call i32 @durable_unlink(ptr noundef nonnull @.str.56, i32 noundef 22) #26
+  br label %494
 
-495:                                              ; preds = %493, %XLogInitNewTimeline.exit
-  %496 = getelementptr inbounds nuw i8, ptr %310, i64 73
-  %497 = load i8, ptr %496, align 1, !range !4, !noundef !5
-  %498 = trunc nuw i8 %497 to i1
-  br i1 %498, label %499, label %501
+494:                                              ; preds = %492, %XLogInitNewTimeline.exit
+  %495 = getelementptr inbounds nuw i8, ptr %309, i64 73
+  %496 = load i8, ptr %495, align 1, !range !4, !noundef !5
+  %497 = trunc nuw i8 %496 to i1
+  br i1 %497, label %498, label %500
 
-499:                                              ; preds = %495
-  %500 = call i32 @durable_unlink(ptr noundef nonnull @.str.57, i32 noundef 22) #26
-  br label %501
+498:                                              ; preds = %494
+  %499 = call i32 @durable_unlink(ptr noundef nonnull @.str.57, i32 noundef 22) #26
+  br label %500
 
-501:                                              ; preds = %499, %495
-  %502 = load i32, ptr @recoveryTargetTLI, align 4
-  %503 = getelementptr inbounds nuw i8, ptr %310, i64 64
-  %504 = load ptr, ptr %503, align 8
-  call void @writeTimeLineHistory(i32 noundef %369, i32 noundef %502, i64 noundef %312, ptr noundef %504) #26
-  %505 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #26
-  br i1 %505, label %506, label %508
+500:                                              ; preds = %498, %494
+  %501 = load i32, ptr @recoveryTargetTLI, align 4
+  %502 = getelementptr inbounds nuw i8, ptr %309, i64 64
+  %503 = load ptr, ptr %502, align 8
+  call void @writeTimeLineHistory(i32 noundef %368, i32 noundef %501, i64 noundef %311, ptr noundef %503) #26
+  %504 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #26
+  br i1 %504, label %505, label %507
 
-506:                                              ; preds = %501
-  %507 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58) #26
+505:                                              ; preds = %500
+  %506 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 6007, ptr noundef nonnull @__func__.StartupXLOG) #26
-  br label %508
+  br label %507
 
-508:                                              ; preds = %501, %506, %353
-  %.071 = phi i32 [ %369, %506 ], [ %369, %501 ], [ %363, %353 ]
-  %509 = load ptr, ptr @XLogCtl, align 8
-  %510 = getelementptr inbounds nuw i8, ptr %509, i64 448
-  %511 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %510, i8 1, ptr nonnull elementtype(i8) %510) #26, !srcloc !10
-  %.not82 = icmp eq i8 %511, 0
-  br i1 %.not82, label %516, label %512
+507:                                              ; preds = %500, %505, %352
+  %.072 = phi i32 [ %368, %505 ], [ %368, %500 ], [ %362, %352 ]
+  %508 = load ptr, ptr @XLogCtl, align 8
+  %509 = getelementptr inbounds nuw i8, ptr %508, i64 448
+  %510 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %509, i8 1, ptr nonnull elementtype(i8) %509) #26, !srcloc !10
+  %.not83 = icmp eq i8 %510, 0
+  br i1 %.not83, label %515, label %511
 
-512:                                              ; preds = %508
-  %513 = load ptr, ptr @XLogCtl, align 8
-  %514 = getelementptr inbounds nuw i8, ptr %513, i64 448
-  %515 = call i32 @s_lock(ptr noundef nonnull %514, ptr noundef nonnull @.str.14, i32 noundef 6011, ptr noundef nonnull @__func__.StartupXLOG) #26
-  br label %516
+511:                                              ; preds = %507
+  %512 = load ptr, ptr @XLogCtl, align 8
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 448
+  %514 = call i32 @s_lock(ptr noundef nonnull %513, ptr noundef nonnull @.str.14, i32 noundef 6011, ptr noundef nonnull @__func__.StartupXLOG) #26
+  br label %515
 
-516:                                              ; preds = %508, %512
-  %517 = load ptr, ptr @XLogCtl, align 8
-  %518 = getelementptr inbounds nuw i8, ptr %517, i64 316
-  store i32 %.071, ptr %518, align 4
-  %519 = load i32, ptr %362, align 8
-  %520 = getelementptr inbounds nuw i8, ptr %517, i64 320
-  store i32 %519, ptr %520, align 8
+515:                                              ; preds = %507, %511
+  %516 = load ptr, ptr @XLogCtl, align 8
+  %517 = getelementptr inbounds nuw i8, ptr %516, i64 316
+  store i32 %.072, ptr %517, align 4
+  %518 = load i32, ptr %361, align 8
+  %519 = getelementptr inbounds nuw i8, ptr %516, i64 320
+  store i32 %518, ptr %519, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !66
-  %521 = load ptr, ptr @XLogCtl, align 8
-  %522 = getelementptr inbounds nuw i8, ptr %521, i64 448
-  store i8 0, ptr %522, align 8
-  %523 = icmp eq i64 %318, 0
-  %spec.select = select i1 %523, i64 %312, i64 %318
-  %524 = load i64, ptr %310, align 8
-  %525 = load i32, ptr @wal_segment_size, align 4
-  %526 = sext i32 %525 to i64
-  %527 = udiv i64 %524, %526
-  %528 = add i32 %525, -1
-  %529 = sext i32 %528 to i64
-  %530 = and i64 %524, %529
-  %531 = trunc i64 %524 to i32
-  %532 = and i32 %531, 8191
-  %533 = and i64 %530, 35184372080640
-  %534 = icmp eq i64 %533, 0
-  br i1 %534, label %535, label %543
+  %520 = load ptr, ptr @XLogCtl, align 8
+  %521 = getelementptr inbounds nuw i8, ptr %520, i64 448
+  store i8 0, ptr %521, align 8
+  %522 = icmp eq i64 %317, 0
+  %spec.select = select i1 %522, i64 %311, i64 %317
+  %523 = load i64, ptr %309, align 8
+  %524 = load i32, ptr @wal_segment_size, align 4
+  %525 = sext i32 %524 to i64
+  %526 = udiv i64 %523, %525
+  %527 = add i32 %524, -1
+  %528 = sext i32 %527 to i64
+  %529 = and i64 %523, %528
+  %530 = trunc i64 %523 to i32
+  %531 = and i32 %530, 8191
+  %532 = and i64 %529, 35184372080640
+  %533 = icmp eq i64 %532, 0
+  br i1 %533, label %534, label %542
 
-535:                                              ; preds = %516
-  %536 = load i32, ptr @UsableBytesInSegment, align 4
-  %537 = sext i32 %536 to i64
-  %538 = mul i64 %527, %537
-  %.not16.i = icmp eq i32 %532, 0
-  br i1 %.not16.i, label %XLogRecPtrToBytePos.exit, label %539
+534:                                              ; preds = %515
+  %535 = load i32, ptr @UsableBytesInSegment, align 4
+  %536 = sext i32 %535 to i64
+  %537 = mul i64 %526, %536
+  %.not16.i = icmp eq i32 %531, 0
+  br i1 %.not16.i, label %XLogRecPtrToBytePos.exit, label %538
 
-539:                                              ; preds = %535
-  %540 = and i64 %524, 8191
-  %541 = add nsw i64 %540, -40
-  %542 = add i64 %541, %538
+538:                                              ; preds = %534
+  %539 = and i64 %523, 8191
+  %540 = add nsw i64 %539, -40
+  %541 = add i64 %540, %537
   br label %XLogRecPtrToBytePos.exit
 
-543:                                              ; preds = %516
-  %544 = lshr i64 %530, 13
-  %545 = load i32, ptr @UsableBytesInSegment, align 4
-  %546 = sext i32 %545 to i64
-  %547 = mul i64 %527, %546
-  %548 = add nuw nsw i64 %544, 4294967295
-  %549 = and i64 %548, 4294967295
-  %550 = mul nuw nsw i64 %549, 8168
-  %551 = add nuw nsw i64 %550, 8152
-  %552 = add i64 %551, %547
-  %.not.i90 = icmp eq i32 %532, 0
-  br i1 %.not.i90, label %XLogRecPtrToBytePos.exit, label %553
+542:                                              ; preds = %515
+  %543 = lshr i64 %529, 13
+  %544 = load i32, ptr @UsableBytesInSegment, align 4
+  %545 = sext i32 %544 to i64
+  %546 = mul i64 %526, %545
+  %547 = add nuw nsw i64 %543, 4294967295
+  %548 = and i64 %547, 4294967295
+  %549 = mul nuw nsw i64 %548, 8168
+  %550 = add nuw nsw i64 %549, 8152
+  %551 = add i64 %550, %546
+  %.not.i91 = icmp eq i32 %531, 0
+  br i1 %.not.i91, label %XLogRecPtrToBytePos.exit, label %552
 
-553:                                              ; preds = %543
-  %554 = and i64 %524, 8191
-  %555 = add nsw i64 %554, -24
-  %556 = add i64 %555, %552
+552:                                              ; preds = %542
+  %553 = and i64 %523, 8191
+  %554 = add nsw i64 %553, -24
+  %555 = add i64 %554, %551
   br label %XLogRecPtrToBytePos.exit
 
-XLogRecPtrToBytePos.exit:                         ; preds = %535, %539, %543, %553
-  %557 = phi i32 [ %536, %539 ], [ %536, %535 ], [ %545, %553 ], [ %545, %543 ]
-  %.0.i = phi i64 [ %542, %539 ], [ %538, %535 ], [ %556, %553 ], [ %552, %543 ]
-  %558 = getelementptr inbounds nuw i8, ptr %521, i64 16
-  store i64 %.0.i, ptr %558, align 8
-  %559 = udiv i64 %spec.select, %526
-  %560 = and i64 %spec.select, %529
-  %561 = trunc i64 %spec.select to i32
-  %562 = and i32 %561, 8191
-  %563 = and i64 %560, 35184372080640
-  %564 = icmp eq i64 %563, 0
-  br i1 %564, label %565, label %572
+XLogRecPtrToBytePos.exit:                         ; preds = %534, %538, %542, %552
+  %556 = phi i32 [ %535, %538 ], [ %535, %534 ], [ %544, %552 ], [ %544, %542 ]
+  %.0.i = phi i64 [ %541, %538 ], [ %537, %534 ], [ %555, %552 ], [ %551, %542 ]
+  %557 = getelementptr inbounds nuw i8, ptr %520, i64 16
+  store i64 %.0.i, ptr %557, align 8
+  %558 = udiv i64 %spec.select, %525
+  %559 = and i64 %spec.select, %528
+  %560 = trunc i64 %spec.select to i32
+  %561 = and i32 %560, 8191
+  %562 = and i64 %559, 35184372080640
+  %563 = icmp eq i64 %562, 0
+  br i1 %563, label %564, label %571
 
-565:                                              ; preds = %XLogRecPtrToBytePos.exit
-  %566 = sext i32 %557 to i64
-  %567 = mul i64 %559, %566
-  %.not16.i93 = icmp eq i32 %562, 0
-  br i1 %.not16.i93, label %XLogRecPtrToBytePos.exit94, label %568
+564:                                              ; preds = %XLogRecPtrToBytePos.exit
+  %565 = sext i32 %556 to i64
+  %566 = mul i64 %558, %565
+  %.not16.i94 = icmp eq i32 %561, 0
+  br i1 %.not16.i94, label %XLogRecPtrToBytePos.exit95, label %567
 
-568:                                              ; preds = %565
-  %569 = and i64 %spec.select, 8191
-  %570 = add nsw i64 %569, -40
-  %571 = add i64 %570, %567
-  br label %XLogRecPtrToBytePos.exit94
+567:                                              ; preds = %564
+  %568 = and i64 %spec.select, 8191
+  %569 = add nsw i64 %568, -40
+  %570 = add i64 %569, %566
+  br label %XLogRecPtrToBytePos.exit95
 
-572:                                              ; preds = %XLogRecPtrToBytePos.exit
-  %573 = lshr i64 %560, 13
-  %574 = sext i32 %557 to i64
-  %575 = mul i64 %559, %574
-  %576 = add nuw nsw i64 %573, 4294967295
-  %577 = and i64 %576, 4294967295
-  %578 = mul nuw nsw i64 %577, 8168
-  %579 = add nuw nsw i64 %578, 8152
-  %580 = add i64 %579, %575
-  %.not.i91 = icmp eq i32 %562, 0
-  br i1 %.not.i91, label %XLogRecPtrToBytePos.exit94, label %581
+571:                                              ; preds = %XLogRecPtrToBytePos.exit
+  %572 = lshr i64 %559, 13
+  %573 = sext i32 %556 to i64
+  %574 = mul i64 %558, %573
+  %575 = add nuw nsw i64 %572, 4294967295
+  %576 = and i64 %575, 4294967295
+  %577 = mul nuw nsw i64 %576, 8168
+  %578 = add nuw nsw i64 %577, 8152
+  %579 = add i64 %578, %574
+  %.not.i92 = icmp eq i32 %561, 0
+  br i1 %.not.i92, label %XLogRecPtrToBytePos.exit95, label %580
 
-581:                                              ; preds = %572
-  %582 = and i64 %spec.select, 8191
-  %583 = add nsw i64 %582, -24
-  %584 = add i64 %583, %580
-  br label %XLogRecPtrToBytePos.exit94
+580:                                              ; preds = %571
+  %581 = and i64 %spec.select, 8191
+  %582 = add nsw i64 %581, -24
+  %583 = add i64 %582, %579
+  br label %XLogRecPtrToBytePos.exit95
 
-XLogRecPtrToBytePos.exit94:                       ; preds = %565, %568, %572, %581
-  %.0.i92 = phi i64 [ %571, %568 ], [ %567, %565 ], [ %584, %581 ], [ %580, %572 ]
-  %585 = getelementptr inbounds nuw i8, ptr %521, i64 8
-  store i64 %.0.i92, ptr %585, align 8
-  %586 = and i64 %spec.select, 8191
-  %.not83 = icmp eq i64 %586, 0
-  br i1 %.not83, label %616, label %587
+XLogRecPtrToBytePos.exit95:                       ; preds = %564, %567, %571, %580
+  %.0.i93 = phi i64 [ %570, %567 ], [ %566, %564 ], [ %583, %580 ], [ %579, %571 ]
+  %584 = getelementptr inbounds nuw i8, ptr %520, i64 8
+  store i64 %.0.i93, ptr %584, align 8
+  %585 = and i64 %spec.select, 8191
+  %.not84 = icmp eq i64 %585, 0
+  br i1 %.not84, label %615, label %586
 
-587:                                              ; preds = %XLogRecPtrToBytePos.exit94
-  %588 = lshr i64 %spec.select, 13
-  %589 = getelementptr inbounds nuw i8, ptr %521, i64 312
-  %590 = load i32, ptr %589, align 8
-  %591 = add i32 %590, 1
-  %592 = sext i32 %591 to i64
-  %593 = urem i64 %588, %592
-  %594 = trunc i64 %593 to i32
-  %595 = getelementptr inbounds nuw i8, ptr %310, i64 32
-  %596 = load i64, ptr %595, align 8
-  %597 = sub i64 %spec.select, %596
-  %598 = getelementptr inbounds nuw i8, ptr %521, i64 296
-  %599 = load ptr, ptr %598, align 8
-  %600 = shl i32 %594, 13
-  %601 = sext i32 %600 to i64
-  %602 = getelementptr inbounds i8, ptr %599, i64 %601
-  %603 = getelementptr inbounds nuw i8, ptr %310, i64 40
-  %604 = load ptr, ptr %603, align 8
-  %sext = shl i64 %597, 32
-  %605 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %602, ptr align 1 %604, i64 %605, i1 false)
-  %606 = getelementptr inbounds i8, ptr %602, i64 %605
-  %sext84 = sub i64 35184372088832, %sext
-  %607 = ashr exact i64 %sext84, 32
-  call void @llvm.memset.p0.i64(ptr align 1 %606, i8 0, i64 %607, i1 false)
-  %608 = getelementptr inbounds nuw i8, ptr %521, i64 304
-  %609 = load ptr, ptr %608, align 8
-  %sext85 = shl i64 %593, 32
-  %610 = ashr exact i64 %sext85, 29
-  %611 = getelementptr inbounds i8, ptr %609, i64 %610
-  %612 = load i64, ptr %595, align 8
-  %613 = add i64 %612, 8192
-  store volatile i64 %613, ptr %611, align 8
-  %614 = load i64, ptr %595, align 8
-  %615 = add i64 %614, 8192
-  br label %616
+586:                                              ; preds = %XLogRecPtrToBytePos.exit95
+  %587 = lshr i64 %spec.select, 13
+  %588 = getelementptr inbounds nuw i8, ptr %520, i64 312
+  %589 = load i32, ptr %588, align 8
+  %590 = add i32 %589, 1
+  %591 = sext i32 %590 to i64
+  %592 = urem i64 %587, %591
+  %593 = trunc i64 %592 to i32
+  %594 = getelementptr inbounds nuw i8, ptr %309, i64 32
+  %595 = load i64, ptr %594, align 8
+  %596 = sub i64 %spec.select, %595
+  %597 = getelementptr inbounds nuw i8, ptr %520, i64 296
+  %598 = load ptr, ptr %597, align 8
+  %599 = shl i32 %593, 13
+  %600 = sext i32 %599 to i64
+  %601 = getelementptr inbounds i8, ptr %598, i64 %600
+  %602 = getelementptr inbounds nuw i8, ptr %309, i64 40
+  %603 = load ptr, ptr %602, align 8
+  %sext = shl i64 %596, 32
+  %604 = ashr exact i64 %sext, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %601, ptr align 1 %603, i64 %604, i1 false)
+  %605 = getelementptr inbounds i8, ptr %601, i64 %604
+  %sext85 = sub i64 35184372088832, %sext
+  %606 = ashr exact i64 %sext85, 32
+  call void @llvm.memset.p0.i64(ptr align 1 %605, i8 0, i64 %606, i1 false)
+  %607 = getelementptr inbounds nuw i8, ptr %520, i64 304
+  %608 = load ptr, ptr %607, align 8
+  %sext86 = shl i64 %592, 32
+  %609 = ashr exact i64 %sext86, 29
+  %610 = getelementptr inbounds i8, ptr %608, i64 %609
+  %611 = load i64, ptr %594, align 8
+  %612 = add i64 %611, 8192
+  store volatile i64 %612, ptr %610, align 8
+  %613 = load i64, ptr %594, align 8
+  %614 = add i64 %613, 8192
+  br label %615
 
-616:                                              ; preds = %XLogRecPtrToBytePos.exit94, %587
-  %.sink = phi i64 [ %615, %587 ], [ %spec.select, %XLogRecPtrToBytePos.exit94 ]
-  %617 = getelementptr inbounds nuw i8, ptr %521, i64 288
-  store i64 %.sink, ptr %617, align 8
+615:                                              ; preds = %XLogRecPtrToBytePos.exit95, %586
+  %.sink = phi i64 [ %614, %586 ], [ %spec.select, %XLogRecPtrToBytePos.exit95 ]
+  %616 = getelementptr inbounds nuw i8, ptr %520, i64 288
+  store i64 %.sink, ptr %616, align 8
   store i64 %spec.select, ptr @LogwrtResult.1, align 8
   store i64 %spec.select, ptr @LogwrtResult.0, align 8
-  %618 = getelementptr inbounds nuw i8, ptr %521, i64 264
+  %617 = getelementptr inbounds nuw i8, ptr %520, i64 264
+  store volatile i64 %spec.select, ptr %617, align 8
+  %618 = getelementptr inbounds nuw i8, ptr %520, i64 272
   store volatile i64 %spec.select, ptr %618, align 8
-  %619 = getelementptr inbounds nuw i8, ptr %521, i64 272
+  %619 = getelementptr inbounds nuw i8, ptr %520, i64 280
   store volatile i64 %spec.select, ptr %619, align 8
-  %620 = getelementptr inbounds nuw i8, ptr %521, i64 280
-  store volatile i64 %spec.select, ptr %620, align 8
-  %621 = getelementptr inbounds nuw i8, ptr %521, i64 184
+  %620 = getelementptr inbounds nuw i8, ptr %520, i64 184
+  store i64 %spec.select, ptr %620, align 8
+  %621 = getelementptr inbounds nuw i8, ptr %520, i64 192
   store i64 %spec.select, ptr %621, align 8
-  %622 = getelementptr inbounds nuw i8, ptr %521, i64 192
-  store i64 %spec.select, ptr %622, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #26
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #26
-  %623 = getelementptr inbounds nuw i8, ptr %521, i64 328
-  %624 = load i8, ptr %623, align 8, !range !4, !noundef !5
-  %625 = trunc nuw i8 %624 to i1
-  br i1 %625, label %626, label %PreallocXlogFiles.exit
+  %622 = getelementptr inbounds nuw i8, ptr %520, i64 328
+  %623 = load i8, ptr %622, align 8, !range !4, !noundef !5
+  %624 = trunc nuw i8 %623 to i1
+  br i1 %624, label %625, label %PreallocXlogFiles.exit
 
-626:                                              ; preds = %616
-  %627 = add i64 %spec.select, -1
-  %628 = load i32, ptr @wal_segment_size, align 4
-  %629 = add i32 %628, -1
-  %630 = sext i32 %629 to i64
-  %631 = and i64 %627, %630
-  %632 = sitofp i32 %628 to double
-  %633 = fmul double %632, 7.500000e-01
-  %634 = fptoui double %633 to i32
-  %635 = zext i32 %634 to i64
-  %.not.i95 = icmp ult i64 %631, %635
-  br i1 %.not.i95, label %PreallocXlogFiles.exit, label %636
+625:                                              ; preds = %615
+  %626 = add i64 %spec.select, -1
+  %627 = load i32, ptr @wal_segment_size, align 4
+  %628 = add i32 %627, -1
+  %629 = sext i32 %628 to i64
+  %630 = and i64 %626, %629
+  %631 = sitofp i32 %627 to double
+  %632 = fmul double %631, 7.500000e-01
+  %633 = fptoui double %632 to i32
+  %634 = zext i32 %633 to i64
+  %.not.i96 = icmp ult i64 %630, %634
+  br i1 %.not.i96, label %PreallocXlogFiles.exit, label %635
 
-636:                                              ; preds = %626
-  %637 = sext i32 %628 to i64
-  %638 = udiv i64 %627, %637
-  %639 = add i64 %638, 1
-  %640 = call fastcc i32 @XLogFileInitInternal(i64 noundef %639, i32 noundef %.071, ptr noundef %8, ptr noundef %9)
-  %641 = icmp sgt i32 %640, -1
-  br i1 %641, label %642, label %644
+635:                                              ; preds = %625
+  %636 = sext i32 %627 to i64
+  %637 = udiv i64 %626, %636
+  %638 = add i64 %637, 1
+  %639 = call fastcc i32 @XLogFileInitInternal(i64 noundef %638, i32 noundef %.072, ptr noundef %8, ptr noundef %9)
+  %640 = icmp sgt i32 %639, -1
+  br i1 %640, label %641, label %643
 
-642:                                              ; preds = %636
-  %643 = call i32 @close(i32 noundef %640) #26
-  br label %644
+641:                                              ; preds = %635
+  %642 = call i32 @close(i32 noundef %639) #26
+  br label %643
 
-644:                                              ; preds = %642, %636
-  %645 = load i8, ptr %8, align 1, !range !4, !noundef !5
-  %646 = trunc nuw i8 %645 to i1
-  br i1 %646, label %647, label %PreallocXlogFiles.exit
+643:                                              ; preds = %641, %635
+  %644 = load i8, ptr %8, align 1, !range !4, !noundef !5
+  %645 = trunc nuw i8 %644 to i1
+  br i1 %645, label %646, label %PreallocXlogFiles.exit
 
-647:                                              ; preds = %644
-  %648 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 48), align 8
-  %649 = add i32 %648, 1
-  store i32 %649, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 48), align 8
+646:                                              ; preds = %643
+  %647 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 48), align 8
+  %648 = add i32 %647, 1
+  store i32 %648, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 48), align 8
   br label %PreallocXlogFiles.exit
 
-PreallocXlogFiles.exit:                           ; preds = %616, %626, %644, %647
+PreallocXlogFiles.exit:                           ; preds = %615, %625, %643, %646
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #26
   store i8 0, ptr @InRecovery, align 1
-  %650 = call i64 @time(ptr noundef null) #26
-  %651 = load ptr, ptr @XLogCtl, align 8
-  %652 = getelementptr inbounds nuw i8, ptr %651, i64 248
-  store i64 %650, ptr %652, align 8
-  %653 = getelementptr inbounds nuw i8, ptr %651, i64 256
-  store i64 %spec.select, ptr %653, align 8
-  %654 = load ptr, ptr @MainLWLockArray, align 8
-  %655 = getelementptr inbounds nuw i8, ptr %654, i64 512
-  %656 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %655, i32 noundef 0) #26
-  %657 = load ptr, ptr @TransamVariables, align 8
-  %658 = getelementptr inbounds nuw i8, ptr %657, i64 48
-  %659 = getelementptr inbounds nuw i8, ptr %657, i64 8
-  %660 = load i64, ptr %659, align 8
-  %661 = add i64 %660, -1
-  store i64 %661, ptr %658, align 8
-  %662 = icmp ugt i64 %661, 2
-  %663 = trunc i64 %661 to i32
-  %664 = icmp ult i32 %663, 3
-  %or.cond.i = and i1 %662, %664
-  br i1 %or.cond.i, label %.lr.ph.i96, label %FullTransactionIdRetreat.exit
+  %649 = call i64 @time(ptr noundef null) #26
+  %650 = load ptr, ptr @XLogCtl, align 8
+  %651 = getelementptr inbounds nuw i8, ptr %650, i64 248
+  store i64 %649, ptr %651, align 8
+  %652 = getelementptr inbounds nuw i8, ptr %650, i64 256
+  store i64 %spec.select, ptr %652, align 8
+  %653 = load ptr, ptr @MainLWLockArray, align 8
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 512
+  %655 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %654, i32 noundef 0) #26
+  %656 = load ptr, ptr @TransamVariables, align 8
+  %657 = getelementptr inbounds nuw i8, ptr %656, i64 48
+  %658 = getelementptr inbounds nuw i8, ptr %656, i64 8
+  %659 = load i64, ptr %658, align 8
+  %660 = add i64 %659, -1
+  store i64 %660, ptr %657, align 8
+  %661 = icmp ugt i64 %660, 2
+  %662 = trunc i64 %660 to i32
+  %663 = icmp ult i32 %662, 3
+  %or.cond.i = and i1 %661, %663
+  br i1 %or.cond.i, label %.lr.ph.i97, label %FullTransactionIdRetreat.exit
 
-.lr.ph.i96:                                       ; preds = %PreallocXlogFiles.exit, %.lr.ph.i96
-  %665 = phi i64 [ %666, %.lr.ph.i96 ], [ %661, %PreallocXlogFiles.exit ]
-  %666 = add i64 %665, -1
-  %667 = trunc i64 %666 to i32
-  %668 = icmp ult i32 %667, 3
-  br i1 %668, label %.lr.ph.i96, label %..loopexit_crit_edge.i, !llvm.loop !67
+.lr.ph.i97:                                       ; preds = %PreallocXlogFiles.exit, %.lr.ph.i97
+  %664 = phi i64 [ %665, %.lr.ph.i97 ], [ %660, %PreallocXlogFiles.exit ]
+  %665 = add i64 %664, -1
+  %666 = trunc i64 %665 to i32
+  %667 = icmp ult i32 %666, 3
+  br i1 %667, label %.lr.ph.i97, label %..loopexit_crit_edge.i, !llvm.loop !67
 
-..loopexit_crit_edge.i:                           ; preds = %.lr.ph.i96
-  store i64 %666, ptr %658, align 8
+..loopexit_crit_edge.i:                           ; preds = %.lr.ph.i97
+  store i64 %665, ptr %657, align 8
   br label %FullTransactionIdRetreat.exit
 
 FullTransactionIdRetreat.exit:                    ; preds = %PreallocXlogFiles.exit, %..loopexit_crit_edge.i
-  %669 = load ptr, ptr @MainLWLockArray, align 8
-  %670 = getelementptr inbounds nuw i8, ptr %669, i64 512
-  call void @LWLockRelease(ptr noundef nonnull %670) #26
-  %671 = load i32, ptr @standbyState, align 4
-  %672 = icmp eq i32 %671, 0
-  br i1 %672, label %673, label %674
+  %668 = load ptr, ptr @MainLWLockArray, align 8
+  %669 = getelementptr inbounds nuw i8, ptr %668, i64 512
+  call void @LWLockRelease(ptr noundef nonnull %669) #26
+  %670 = load i32, ptr @standbyState, align 4
+  %671 = icmp eq i32 %670, 0
+  br i1 %671, label %672, label %673
 
-673:                                              ; preds = %FullTransactionIdRetreat.exit
-  call void @StartupSUBTRANS(i32 noundef %354) #26
-  br label %674
+672:                                              ; preds = %FullTransactionIdRetreat.exit
+  call void @StartupSUBTRANS(i32 noundef %353) #26
+  br label %673
 
-674:                                              ; preds = %673, %FullTransactionIdRetreat.exit
+673:                                              ; preds = %672, %FullTransactionIdRetreat.exit
   call void @TrimCLOG() #26
   call void @TrimMultiXact() #26
   call void @RecoverPreparedTransactions() #26
   call void @ShutdownWalRecovery() #26
   store i32 1, ptr @LocalXLogInsertAllowed, align 4
-  %675 = icmp eq i64 %316, 0
-  br i1 %675, label %776, label %676
+  %674 = icmp eq i64 %315, 0
+  br i1 %674, label %775, label %675
 
-676:                                              ; preds = %674
+675:                                              ; preds = %673
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #26
-  %677 = load i8, ptr @LocalRecoveryInProgress, align 1, !range !4, !noundef !5
-  %678 = trunc nuw i8 %677 to i1
-  br i1 %678, label %RecoveryInProgress.exit.i, label %RecoveryInProgress.exit.thread.i
+  %676 = load i8, ptr @LocalRecoveryInProgress, align 1, !range !4, !noundef !5
+  %677 = trunc nuw i8 %676 to i1
+  br i1 %677, label %RecoveryInProgress.exit.i, label %RecoveryInProgress.exit.thread.i
 
-RecoveryInProgress.exit.i:                        ; preds = %676
-  %679 = load ptr, ptr @XLogCtl, align 8
-  %680 = getelementptr inbounds nuw i8, ptr %679, i64 324
-  %681 = load volatile i32, ptr %680, align 4
-  %682 = icmp ne i32 %681, 2
-  %683 = zext i1 %682 to i8
-  store i8 %683, ptr @LocalRecoveryInProgress, align 1
-  br i1 %682, label %686, label %RecoveryInProgress.exit.thread.i
+RecoveryInProgress.exit.i:                        ; preds = %675
+  %678 = load ptr, ptr @XLogCtl, align 8
+  %679 = getelementptr inbounds nuw i8, ptr %678, i64 324
+  %680 = load volatile i32, ptr %679, align 4
+  %681 = icmp ne i32 %680, 2
+  %682 = zext i1 %681 to i8
+  store i8 %682, ptr @LocalRecoveryInProgress, align 1
+  br i1 %681, label %685, label %RecoveryInProgress.exit.thread.i
 
-RecoveryInProgress.exit.thread.i:                 ; preds = %RecoveryInProgress.exit.i, %676
-  %684 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %684)
-  %685 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.193) #26
+RecoveryInProgress.exit.thread.i:                 ; preds = %RecoveryInProgress.exit.i, %675
+  %683 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %683)
+  %684 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.193) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 7471, ptr noundef nonnull @__func__.CreateOverwriteContrecordRecord) #26
   unreachable
 
-686:                                              ; preds = %RecoveryInProgress.exit.i
-  %687 = and i64 %318, 8191
-  %.not.i97 = icmp eq i64 %687, 0
-  br i1 %.not.i97, label %694, label %688
+685:                                              ; preds = %RecoveryInProgress.exit.i
+  %686 = and i64 %317, 8191
+  %.not.i98 = icmp eq i64 %686, 0
+  br i1 %.not.i98, label %693, label %687
 
-688:                                              ; preds = %686
-  %689 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %689)
-  %690 = lshr i64 %318, 32
-  %691 = trunc nuw i64 %690 to i32
-  %692 = trunc i64 %318 to i32
-  %693 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.194, i32 noundef %691, i32 noundef %692) #26
+687:                                              ; preds = %685
+  %688 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %688)
+  %689 = lshr i64 %317, 32
+  %690 = trunc nuw i64 %689 to i32
+  %691 = trunc i64 %317 to i32
+  %692 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.194, i32 noundef %690, i32 noundef %691) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 7474, ptr noundef nonnull @__func__.CreateOverwriteContrecordRecord) #26
   unreachable
 
-694:                                              ; preds = %686
-  %695 = load i32, ptr @wal_segment_size, align 4
-  %696 = add i32 %695, -1
-  %697 = sext i32 %696 to i64
-  %698 = and i64 %318, %697
-  %699 = icmp eq i64 %698, 0
-  %.0.v.i = select i1 %699, i64 40, i64 24
-  %.0.i98 = or disjoint i64 %.0.v.i, %318
-  %700 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %679, i8 1, ptr nonnull elementtype(i8) %679) #26, !srcloc !10
-  %.not.i.i99 = icmp eq i8 %700, 0
-  br i1 %.not.i.i99, label %703, label %701
+693:                                              ; preds = %685
+  %694 = load i32, ptr @wal_segment_size, align 4
+  %695 = add i32 %694, -1
+  %696 = sext i32 %695 to i64
+  %697 = and i64 %317, %696
+  %698 = icmp eq i64 %697, 0
+  %.0.v.i = select i1 %698, i64 40, i64 24
+  %.0.i99 = or disjoint i64 %.0.v.i, %317
+  %699 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %678, i8 1, ptr nonnull elementtype(i8) %678) #26, !srcloc !10
+  %.not.i.i100 = icmp eq i8 %699, 0
+  br i1 %.not.i.i100, label %702, label %700
 
-701:                                              ; preds = %694
-  %702 = call i32 @s_lock(ptr noundef nonnull %679, ptr noundef nonnull @.str.14, i32 noundef 9464, ptr noundef nonnull @__func__.GetXLogInsertRecPtr) #26
-  br label %703
+700:                                              ; preds = %693
+  %701 = call i32 @s_lock(ptr noundef nonnull %678, ptr noundef nonnull @.str.14, i32 noundef 9464, ptr noundef nonnull @__func__.GetXLogInsertRecPtr) #26
+  br label %702
 
-703:                                              ; preds = %701, %694
-  %704 = getelementptr inbounds nuw i8, ptr %679, i64 8
-  %705 = load i64, ptr %704, align 8
+702:                                              ; preds = %700, %693
+  %703 = getelementptr inbounds nuw i8, ptr %678, i64 8
+  %704 = load i64, ptr %703, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !68
-  store i8 0, ptr %679, align 8
-  %706 = load i32, ptr @UsableBytesInSegment, align 4
-  %707 = sext i32 %706 to i64
-  %708 = urem i64 %705, %707
-  %709 = udiv i64 %705, %707
-  %710 = icmp ult i64 %708, 8152
-  br i1 %710, label %711, label %713
+  store i8 0, ptr %678, align 8
+  %705 = load i32, ptr @UsableBytesInSegment, align 4
+  %706 = sext i32 %705 to i64
+  %707 = urem i64 %704, %706
+  %708 = udiv i64 %704, %706
+  %709 = icmp ult i64 %707, 8152
+  br i1 %709, label %710, label %712
 
-711:                                              ; preds = %703
-  %712 = add nuw nsw i64 %708, 40
+710:                                              ; preds = %702
+  %711 = add nuw nsw i64 %707, 40
   br label %GetXLogInsertRecPtr.exit.i
 
-713:                                              ; preds = %703
-  %714 = add i64 %708, -8152
-  %715 = udiv i64 %714, 8168
-  %716 = urem i64 %714, 8168
-  %717 = shl i64 %715, 13
-  %718 = add nuw nsw i64 %716, 8216
-  %719 = add i64 %718, %717
+712:                                              ; preds = %702
+  %713 = add i64 %707, -8152
+  %714 = udiv i64 %713, 8168
+  %715 = urem i64 %713, 8168
+  %716 = shl i64 %714, 13
+  %717 = add nuw nsw i64 %715, 8216
+  %718 = add i64 %717, %716
   br label %GetXLogInsertRecPtr.exit.i
 
-GetXLogInsertRecPtr.exit.i:                       ; preds = %713, %711
-  %.0.i.i.i = phi i64 [ %712, %711 ], [ %719, %713 ]
-  %720 = load i32, ptr @wal_segment_size, align 4
-  %721 = sext i32 %720 to i64
-  %722 = mul i64 %709, %721
-  %723 = and i64 %.0.i.i.i, 4294967295
-  %724 = add i64 %722, %723
-  %.not18.i = icmp eq i64 %724, %.0.i98
-  br i1 %.not18.i, label %731, label %725
+GetXLogInsertRecPtr.exit.i:                       ; preds = %712, %710
+  %.0.i.i.i = phi i64 [ %711, %710 ], [ %718, %712 ]
+  %719 = load i32, ptr @wal_segment_size, align 4
+  %720 = sext i32 %719 to i64
+  %721 = mul i64 %708, %720
+  %722 = and i64 %.0.i.i.i, 4294967295
+  %723 = add i64 %721, %722
+  %.not18.i = icmp eq i64 %723, %.0.i99
+  br i1 %.not18.i, label %730, label %724
 
-725:                                              ; preds = %GetXLogInsertRecPtr.exit.i
-  %726 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %726)
-  %727 = lshr i64 %724, 32
-  %728 = trunc nuw i64 %727 to i32
-  %729 = trunc i64 %724 to i32
-  %730 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.195, i32 noundef %728, i32 noundef %729) #26
+724:                                              ; preds = %GetXLogInsertRecPtr.exit.i
+  %725 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %725)
+  %726 = lshr i64 %723, 32
+  %727 = trunc nuw i64 %726 to i32
+  %728 = trunc i64 %723 to i32
+  %729 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.195, i32 noundef %727, i32 noundef %728) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 7485, ptr noundef nonnull @__func__.CreateOverwriteContrecordRecord) #26
   unreachable
 
-731:                                              ; preds = %GetXLogInsertRecPtr.exit.i
-  %732 = load volatile i32, ptr @CritSectionCount, align 4
-  %733 = add i32 %732, 1
-  store volatile i32 %733, ptr @CritSectionCount, align 4
-  %734 = load i32, ptr @WALInsertLockAcquire.lockToTry, align 4
-  %735 = icmp eq i32 %734, -1
-  br i1 %735, label %736, label %739
+730:                                              ; preds = %GetXLogInsertRecPtr.exit.i
+  %731 = load volatile i32, ptr @CritSectionCount, align 4
+  %732 = add i32 %731, 1
+  store volatile i32 %732, ptr @CritSectionCount, align 4
+  %733 = load i32, ptr @WALInsertLockAcquire.lockToTry, align 4
+  %734 = icmp eq i32 %733, -1
+  br i1 %734, label %735, label %738
 
-736:                                              ; preds = %731
-  %737 = load i32, ptr @MyProcNumber, align 4
-  %738 = srem i32 %737, 8
-  store i32 %738, ptr @WALInsertLockAcquire.lockToTry, align 4
-  br label %739
+735:                                              ; preds = %730
+  %736 = load i32, ptr @MyProcNumber, align 4
+  %737 = srem i32 %736, 8
+  store i32 %737, ptr @WALInsertLockAcquire.lockToTry, align 4
+  br label %738
 
-739:                                              ; preds = %736, %731
-  %740 = phi i32 [ %738, %736 ], [ %734, %731 ]
-  store i32 %740, ptr @MyLockNo, align 4
-  %741 = load ptr, ptr @WALInsertLocks, align 8
-  %742 = sext i32 %740 to i64
-  %743 = getelementptr inbounds %union.WALInsertLockPadded, ptr %741, i64 %742
-  %744 = call zeroext i1 @LWLockAcquire(ptr noundef %743, i32 noundef 0) #26
-  br i1 %744, label %WALInsertLockAcquire.exit.i, label %745
+738:                                              ; preds = %735, %730
+  %739 = phi i32 [ %737, %735 ], [ %733, %730 ]
+  store i32 %739, ptr @MyLockNo, align 4
+  %740 = load ptr, ptr @WALInsertLocks, align 8
+  %741 = sext i32 %739 to i64
+  %742 = getelementptr inbounds %union.WALInsertLockPadded, ptr %740, i64 %741
+  %743 = call zeroext i1 @LWLockAcquire(ptr noundef %742, i32 noundef 0) #26
+  br i1 %743, label %WALInsertLockAcquire.exit.i, label %744
 
-745:                                              ; preds = %739
-  %746 = load i32, ptr @WALInsertLockAcquire.lockToTry, align 4
-  %747 = add nsw i32 %746, 1
-  %748 = srem i32 %747, 8
-  store i32 %748, ptr @WALInsertLockAcquire.lockToTry, align 4
+744:                                              ; preds = %738
+  %745 = load i32, ptr @WALInsertLockAcquire.lockToTry, align 4
+  %746 = add nsw i32 %745, 1
+  %747 = srem i32 %746, 8
+  store i32 %747, ptr @WALInsertLockAcquire.lockToTry, align 4
   br label %WALInsertLockAcquire.exit.i
 
-WALInsertLockAcquire.exit.i:                      ; preds = %745, %739
-  %749 = call fastcc ptr @GetXLogBuffer(i64 noundef %318, i32 noundef %.071)
-  %750 = getelementptr inbounds nuw i8, ptr %749, i64 2
-  %751 = load i16, ptr %750, align 2
-  %752 = or i16 %751, 8
-  store i16 %752, ptr %750, align 2
+WALInsertLockAcquire.exit.i:                      ; preds = %744, %738
+  %748 = call fastcc ptr @GetXLogBuffer(i64 noundef %317, i32 noundef %.072)
+  %749 = getelementptr inbounds nuw i8, ptr %748, i64 2
+  %750 = load i16, ptr %749, align 2
+  %751 = or i16 %750, 8
+  store i16 %751, ptr %749, align 2
   %.b4.i.i = load i1, ptr @holdingAllLocks, align 1
-  br i1 %.b4.i.i, label %.preheader.i.i100, label %757
+  br i1 %.b4.i.i, label %.preheader.i.i101, label %756
 
-.preheader.i.i100:                                ; preds = %WALInsertLockAcquire.exit.i, %.preheader.i.i100
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i100 ], [ 0, %WALInsertLockAcquire.exit.i ]
-  %753 = load ptr, ptr @WALInsertLocks, align 8
-  %754 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %753, i64 %indvars.iv.i.i
-  %755 = getelementptr inbounds nuw i8, ptr %754, i64 16
-  call void @LWLockReleaseClearVar(ptr noundef %754, ptr noundef nonnull %755, i64 noundef 0) #26
+.preheader.i.i101:                                ; preds = %WALInsertLockAcquire.exit.i, %.preheader.i.i101
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i101 ], [ 0, %WALInsertLockAcquire.exit.i ]
+  %752 = load ptr, ptr @WALInsertLocks, align 8
+  %753 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %752, i64 %indvars.iv.i.i
+  %754 = getelementptr inbounds nuw i8, ptr %753, i64 16
+  call void @LWLockReleaseClearVar(ptr noundef %753, ptr noundef nonnull %754, i64 noundef 0) #26
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %756, label %.preheader.i.i100, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %755, label %.preheader.i.i101, !llvm.loop !8
 
-756:                                              ; preds = %.preheader.i.i100
+755:                                              ; preds = %.preheader.i.i101
   store i1 false, ptr @holdingAllLocks, align 1
   br label %WALInsertLockRelease.exit.i
 
-757:                                              ; preds = %WALInsertLockAcquire.exit.i
-  %758 = load ptr, ptr @WALInsertLocks, align 8
-  %759 = load i32, ptr @MyLockNo, align 4
-  %760 = sext i32 %759 to i64
-  %761 = getelementptr inbounds %union.WALInsertLockPadded, ptr %758, i64 %760
-  %762 = getelementptr inbounds nuw i8, ptr %761, i64 16
-  call void @LWLockReleaseClearVar(ptr noundef %761, ptr noundef nonnull %762, i64 noundef 0) #26
+756:                                              ; preds = %WALInsertLockAcquire.exit.i
+  %757 = load ptr, ptr @WALInsertLocks, align 8
+  %758 = load i32, ptr @MyLockNo, align 4
+  %759 = sext i32 %758 to i64
+  %760 = getelementptr inbounds %union.WALInsertLockPadded, ptr %757, i64 %759
+  %761 = getelementptr inbounds nuw i8, ptr %760, i64 16
+  call void @LWLockReleaseClearVar(ptr noundef %760, ptr noundef nonnull %761, i64 noundef 0) #26
   br label %WALInsertLockRelease.exit.i
 
-WALInsertLockRelease.exit.i:                      ; preds = %757, %756
+WALInsertLockRelease.exit.i:                      ; preds = %756, %755
   call void @XLogBeginInsert() #26
-  store i64 %316, ptr %7, align 8
-  %763 = call i64 @GetCurrentTimestamp() #26
-  %764 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %763, ptr %764, align 8
+  store i64 %315, ptr %7, align 8
+  %762 = call i64 @GetCurrentTimestamp() #26
+  %763 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %762, ptr %763, align 8
   call void @XLogRegisterData(ptr noundef nonnull %7, i32 noundef 16) #26
-  %765 = call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -48) #26
-  %766 = load i64, ptr @ProcLastRecPtr, align 8
-  %.not19.i = icmp eq i64 %766, %.0.i98
-  br i1 %.not19.i, label %CreateOverwriteContrecordRecord.exit, label %767
+  %764 = call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -48) #26
+  %765 = load i64, ptr @ProcLastRecPtr, align 8
+  %.not19.i = icmp eq i64 %765, %.0.i99
+  br i1 %.not19.i, label %CreateOverwriteContrecordRecord.exit, label %766
 
-767:                                              ; preds = %WALInsertLockRelease.exit.i
-  %768 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %768)
-  %769 = load i64, ptr @ProcLastRecPtr, align 8
-  %770 = lshr i64 %769, 32
-  %771 = trunc nuw i64 %770 to i32
-  %772 = trunc i64 %769 to i32
-  %773 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.196, i32 noundef %771, i32 noundef %772) #26
+766:                                              ; preds = %WALInsertLockRelease.exit.i
+  %767 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %767)
+  %768 = load i64, ptr @ProcLastRecPtr, align 8
+  %769 = lshr i64 %768, 32
+  %770 = trunc nuw i64 %769 to i32
+  %771 = trunc i64 %768 to i32
+  %772 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.196, i32 noundef %770, i32 noundef %771) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 7515, ptr noundef nonnull @__func__.CreateOverwriteContrecordRecord) #26
   unreachable
 
 CreateOverwriteContrecordRecord.exit:             ; preds = %WALInsertLockRelease.exit.i
-  call void @XLogFlush(i64 noundef %765)
-  %774 = load volatile i32, ptr @CritSectionCount, align 4
-  %775 = add i32 %774, -1
-  store volatile i32 %775, ptr @CritSectionCount, align 4
+  call void @XLogFlush(i64 noundef %764)
+  %773 = load volatile i32, ptr @CritSectionCount, align 4
+  %774 = add i32 %773, -1
+  store volatile i32 %774, ptr @CritSectionCount, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
-  br label %776
+  br label %775
 
-776:                                              ; preds = %CreateOverwriteContrecordRecord.exit, %674
-  %777 = load i8, ptr @lastFullPageWrites, align 1, !range !4, !noundef !5
-  %778 = getelementptr inbounds nuw i8, ptr %521, i64 160
-  store i8 %777, ptr %778, align 8
+775:                                              ; preds = %CreateOverwriteContrecordRecord.exit, %673
+  %776 = load i8, ptr @lastFullPageWrites, align 1, !range !4, !noundef !5
+  %777 = getelementptr inbounds nuw i8, ptr %520, i64 160
+  store i8 %776, ptr %777, align 8
   call void @UpdateFullPageWrites()
-  br i1 %237, label %779, label %PerformRecoveryXLogAction.exit
+  br i1 %237, label %778, label %PerformRecoveryXLogAction.exit
 
-779:                                              ; preds = %776
-  %780 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
-  %781 = trunc nuw i8 %780 to i1
-  br i1 %781, label %782, label %836
+778:                                              ; preds = %775
+  %779 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
+  %780 = trunc nuw i8 %779 to i1
+  %781 = load i8, ptr @IsUnderPostmaster, align 1, !range !4
+  %782 = trunc nuw i8 %781 to i1
+  %or.cond.i102 = select i1 %780, i1 %782, i1 false
+  br i1 %or.cond.i102, label %783, label %834
 
-782:                                              ; preds = %779
-  %783 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
-  %784 = trunc nuw i8 %783 to i1
-  br i1 %784, label %785, label %836
+783:                                              ; preds = %778
+  %784 = call zeroext i1 @PromoteIsTriggered() #26
+  br i1 %784, label %785, label %834
 
-785:                                              ; preds = %782
-  %786 = call zeroext i1 @PromoteIsTriggered() #26
-  br i1 %786, label %787, label %836
-
-787:                                              ; preds = %785
+785:                                              ; preds = %783
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #26
-  %788 = load i8, ptr @LocalRecoveryInProgress, align 1, !range !4, !noundef !5
-  %789 = trunc nuw i8 %788 to i1
-  br i1 %789, label %RecoveryInProgress.exit.i.i, label %RecoveryInProgress.exit.thread.i.i
+  %786 = load i8, ptr @LocalRecoveryInProgress, align 1, !range !4, !noundef !5
+  %787 = trunc nuw i8 %786 to i1
+  br i1 %787, label %RecoveryInProgress.exit.i.i, label %RecoveryInProgress.exit.thread.i.i
 
-RecoveryInProgress.exit.i.i:                      ; preds = %787
-  %790 = load ptr, ptr @XLogCtl, align 8
-  %791 = getelementptr inbounds nuw i8, ptr %790, i64 324
-  %792 = load volatile i32, ptr %791, align 4
-  %793 = icmp ne i32 %792, 2
-  %794 = zext i1 %793 to i8
-  store i8 %794, ptr @LocalRecoveryInProgress, align 1
-  br i1 %793, label %797, label %RecoveryInProgress.exit.thread.i.i
+RecoveryInProgress.exit.i.i:                      ; preds = %785
+  %788 = load ptr, ptr @XLogCtl, align 8
+  %789 = getelementptr inbounds nuw i8, ptr %788, i64 324
+  %790 = load volatile i32, ptr %789, align 4
+  %791 = icmp ne i32 %790, 2
+  %792 = zext i1 %791 to i8
+  store i8 %792, ptr @LocalRecoveryInProgress, align 1
+  br i1 %791, label %795, label %RecoveryInProgress.exit.thread.i.i
 
-RecoveryInProgress.exit.thread.i.i:               ; preds = %RecoveryInProgress.exit.i.i, %787
-  %795 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  call void @llvm.assume(i1 %795)
-  %796 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.173) #26
+RecoveryInProgress.exit.thread.i.i:               ; preds = %RecoveryInProgress.exit.i.i, %785
+  %793 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  call void @llvm.assume(i1 %793)
+  %794 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.173) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef 7403, ptr noundef nonnull @__func__.CreateEndOfRecoveryRecord) #26
   unreachable
 
-797:                                              ; preds = %RecoveryInProgress.exit.i.i
-  %798 = call i64 @GetCurrentTimestamp() #26
-  store i64 %798, ptr %6, align 8
-  %799 = load i32, ptr @wal_level, align 4
-  %800 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %799, ptr %800, align 8
-  br label %801
+795:                                              ; preds = %RecoveryInProgress.exit.i.i
+  %796 = call i64 @GetCurrentTimestamp() #26
+  store i64 %796, ptr %6, align 8
+  %797 = load i32, ptr @wal_level, align 4
+  %798 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 %797, ptr %798, align 8
+  br label %799
 
-801:                                              ; preds = %801, %797
-  %indvars.iv.i.i.i = phi i64 [ 0, %797 ], [ %indvars.iv.next.i.i.i, %801 ]
-  %802 = load ptr, ptr @WALInsertLocks, align 8
-  %803 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %802, i64 %indvars.iv.i.i.i
-  %804 = call zeroext i1 @LWLockAcquire(ptr noundef %803, i32 noundef 0) #26
-  %805 = load ptr, ptr @WALInsertLocks, align 8
-  %806 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %805, i64 %indvars.iv.i.i.i
-  %807 = getelementptr inbounds nuw i8, ptr %806, i64 16
-  call void @LWLockUpdateVar(ptr noundef %806, ptr noundef nonnull %807, i64 noundef -1) #26
+799:                                              ; preds = %799, %795
+  %indvars.iv.i.i.i = phi i64 [ 0, %795 ], [ %indvars.iv.next.i.i.i, %799 ]
+  %800 = load ptr, ptr @WALInsertLocks, align 8
+  %801 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %800, i64 %indvars.iv.i.i.i
+  %802 = call zeroext i1 @LWLockAcquire(ptr noundef %801, i32 noundef 0) #26
+  %803 = load ptr, ptr @WALInsertLocks, align 8
+  %804 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %803, i64 %indvars.iv.i.i.i
+  %805 = getelementptr inbounds nuw i8, ptr %804, i64 16
+  call void @LWLockUpdateVar(ptr noundef %804, ptr noundef nonnull %805, i64 noundef -1) #26
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 7
-  br i1 %exitcond.not.i.i.i, label %WALInsertLockAcquireExclusive.exit.i.i, label %801, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i, label %WALInsertLockAcquireExclusive.exit.i.i, label %799, !llvm.loop !18
 
-WALInsertLockAcquireExclusive.exit.i.i:           ; preds = %801
-  %808 = load ptr, ptr @WALInsertLocks, align 8
-  %809 = getelementptr inbounds nuw i8, ptr %808, i64 896
-  %810 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %809, i32 noundef 0) #26
+WALInsertLockAcquireExclusive.exit.i.i:           ; preds = %799
+  %806 = load ptr, ptr @WALInsertLocks, align 8
+  %807 = getelementptr inbounds nuw i8, ptr %806, i64 896
+  %808 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %807, i32 noundef 0) #26
   store i1 true, ptr @holdingAllLocks, align 1
-  %811 = load ptr, ptr @XLogCtl, align 8
-  %812 = getelementptr inbounds nuw i8, ptr %811, i64 316
-  %813 = load i32, ptr %812, align 4
-  %814 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %813, ptr %814, align 8
-  %815 = getelementptr inbounds nuw i8, ptr %811, i64 320
-  %816 = load i32, ptr %815, align 8
-  %817 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %816, ptr %817, align 4
+  %809 = load ptr, ptr @XLogCtl, align 8
+  %810 = getelementptr inbounds nuw i8, ptr %809, i64 316
+  %811 = load i32, ptr %810, align 4
+  %812 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %811, ptr %812, align 8
+  %813 = getelementptr inbounds nuw i8, ptr %809, i64 320
+  %814 = load i32, ptr %813, align 8
+  %815 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 %814, ptr %815, align 4
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %WALInsertLockAcquireExclusive.exit.i.i
   %indvars.iv.i2.i.i = phi i64 [ %indvars.iv.next.i3.i.i, %.preheader.i.i.i ], [ 0, %WALInsertLockAcquireExclusive.exit.i.i ]
-  %818 = load ptr, ptr @WALInsertLocks, align 8
-  %819 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %818, i64 %indvars.iv.i2.i.i
-  %820 = getelementptr inbounds nuw i8, ptr %819, i64 16
-  call void @LWLockReleaseClearVar(ptr noundef %819, ptr noundef nonnull %820, i64 noundef 0) #26
+  %816 = load ptr, ptr @WALInsertLocks, align 8
+  %817 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %816, i64 %indvars.iv.i2.i.i
+  %818 = getelementptr inbounds nuw i8, ptr %817, i64 16
+  call void @LWLockReleaseClearVar(ptr noundef %817, ptr noundef nonnull %818, i64 noundef 0) #26
   %indvars.iv.next.i3.i.i = add nuw nsw i64 %indvars.iv.i2.i.i, 1
   %exitcond.not.i4.i.i = icmp eq i64 %indvars.iv.next.i3.i.i, 8
   br i1 %exitcond.not.i4.i.i, label %CreateEndOfRecoveryRecord.exit.i, label %.preheader.i.i.i, !llvm.loop !8
 
 CreateEndOfRecoveryRecord.exit.i:                 ; preds = %.preheader.i.i.i
   store i1 false, ptr @holdingAllLocks, align 1
-  %821 = load volatile i32, ptr @CritSectionCount, align 4
-  %822 = add i32 %821, 1
-  store volatile i32 %822, ptr @CritSectionCount, align 4
+  %819 = load volatile i32, ptr @CritSectionCount, align 4
+  %820 = add i32 %819, 1
+  store volatile i32 %820, ptr @CritSectionCount, align 4
   call void @XLogBeginInsert() #26
   call void @XLogRegisterData(ptr noundef nonnull %6, i32 noundef 24) #26
-  %823 = call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -112) #26
-  call void @XLogFlush(i64 noundef %823)
-  %824 = load ptr, ptr @MainLWLockArray, align 8
-  %825 = getelementptr inbounds nuw i8, ptr %824, i64 1152
-  %826 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %825, i32 noundef 0) #26
-  %827 = load ptr, ptr @ControlFile, align 8
-  %828 = getelementptr inbounds nuw i8, ptr %827, i64 136
-  store i64 %823, ptr %828, align 8
-  %829 = load i32, ptr %814, align 8
-  %830 = getelementptr inbounds nuw i8, ptr %827, i64 144
-  store i32 %829, ptr %830, align 8
-  %831 = load ptr, ptr @DataDir, align 8
-  call void @update_controlfile(ptr noundef %831, ptr noundef %827, i1 noundef zeroext true) #26
-  %832 = load ptr, ptr @MainLWLockArray, align 8
-  %833 = getelementptr inbounds nuw i8, ptr %832, i64 1152
-  call void @LWLockRelease(ptr noundef nonnull %833) #26
-  %834 = load volatile i32, ptr @CritSectionCount, align 4
-  %835 = add i32 %834, -1
-  store volatile i32 %835, ptr @CritSectionCount, align 4
+  %821 = call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -112) #26
+  call void @XLogFlush(i64 noundef %821)
+  %822 = load ptr, ptr @MainLWLockArray, align 8
+  %823 = getelementptr inbounds nuw i8, ptr %822, i64 1152
+  %824 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %823, i32 noundef 0) #26
+  %825 = load ptr, ptr @ControlFile, align 8
+  %826 = getelementptr inbounds nuw i8, ptr %825, i64 136
+  store i64 %821, ptr %826, align 8
+  %827 = load i32, ptr %812, align 8
+  %828 = getelementptr inbounds nuw i8, ptr %825, i64 144
+  store i32 %827, ptr %828, align 8
+  %829 = load ptr, ptr @DataDir, align 8
+  call void @update_controlfile(ptr noundef %829, ptr noundef %825, i1 noundef zeroext true) #26
+  %830 = load ptr, ptr @MainLWLockArray, align 8
+  %831 = getelementptr inbounds nuw i8, ptr %830, i64 1152
+  call void @LWLockRelease(ptr noundef nonnull %831) #26
+  %832 = load volatile i32, ptr @CritSectionCount, align 4
+  %833 = add i32 %832, -1
+  store volatile i32 %833, ptr @CritSectionCount, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #26
   br label %PerformRecoveryXLogAction.exit
 
-836:                                              ; preds = %785, %782, %779
+834:                                              ; preds = %783, %778
   call void @RequestCheckpoint(i32 noundef 38) #26
   br label %PerformRecoveryXLogAction.exit
 
-PerformRecoveryXLogAction.exit:                   ; preds = %836, %CreateEndOfRecoveryRecord.exit.i, %776
-  %.073 = phi i1 [ false, %776 ], [ true, %CreateEndOfRecoveryRecord.exit.i ], [ false, %836 ]
-  %837 = load i32, ptr @wal_level, align 4
-  %838 = load ptr, ptr @ControlFile, align 8
-  %839 = getelementptr inbounds nuw i8, ptr %838, i64 172
-  %840 = load i32, ptr %839, align 4
-  %.not.i102 = icmp eq i32 %837, %840
-  br i1 %.not.i102, label %841, label %869
+PerformRecoveryXLogAction.exit:                   ; preds = %834, %CreateEndOfRecoveryRecord.exit.i, %775
+  %.074 = phi i1 [ false, %775 ], [ true, %CreateEndOfRecoveryRecord.exit.i ], [ false, %834 ]
+  %835 = load i32, ptr @wal_level, align 4
+  %836 = load ptr, ptr @ControlFile, align 8
+  %837 = getelementptr inbounds nuw i8, ptr %836, i64 172
+  %838 = load i32, ptr %837, align 4
+  %.not.i104 = icmp eq i32 %835, %838
+  br i1 %.not.i104, label %839, label %867
 
-841:                                              ; preds = %PerformRecoveryXLogAction.exit
-  %842 = load i8, ptr @wal_log_hints, align 1, !range !4, !noundef !5
-  %843 = getelementptr inbounds nuw i8, ptr %838, i64 176
-  %844 = load i8, ptr %843, align 8, !range !4, !noundef !5
-  %.not2.i = icmp eq i8 %842, %844
-  br i1 %.not2.i, label %845, label %869
+839:                                              ; preds = %PerformRecoveryXLogAction.exit
+  %840 = load i8, ptr @wal_log_hints, align 1, !range !4, !noundef !5
+  %841 = getelementptr inbounds nuw i8, ptr %836, i64 176
+  %842 = load i8, ptr %841, align 8, !range !4, !noundef !5
+  %.not2.i = icmp eq i8 %840, %842
+  br i1 %.not2.i, label %843, label %867
 
-845:                                              ; preds = %841
-  %846 = load i32, ptr @MaxConnections, align 4
-  %847 = getelementptr inbounds nuw i8, ptr %838, i64 180
-  %848 = load i32, ptr %847, align 4
-  %.not3.i = icmp eq i32 %846, %848
-  br i1 %.not3.i, label %849, label %869
+843:                                              ; preds = %839
+  %844 = load i32, ptr @MaxConnections, align 4
+  %845 = getelementptr inbounds nuw i8, ptr %836, i64 180
+  %846 = load i32, ptr %845, align 4
+  %.not3.i = icmp eq i32 %844, %846
+  br i1 %.not3.i, label %847, label %867
 
-849:                                              ; preds = %845
-  %850 = load i32, ptr @max_worker_processes, align 4
-  %851 = getelementptr inbounds nuw i8, ptr %838, i64 184
-  %852 = load i32, ptr %851, align 8
-  %.not4.i104 = icmp eq i32 %850, %852
-  br i1 %.not4.i104, label %853, label %869
+847:                                              ; preds = %843
+  %848 = load i32, ptr @max_worker_processes, align 4
+  %849 = getelementptr inbounds nuw i8, ptr %836, i64 184
+  %850 = load i32, ptr %849, align 8
+  %.not4.i106 = icmp eq i32 %848, %850
+  br i1 %.not4.i106, label %851, label %867
 
-853:                                              ; preds = %849
-  %854 = load i32, ptr @max_wal_senders, align 4
-  %855 = getelementptr inbounds nuw i8, ptr %838, i64 188
-  %856 = load i32, ptr %855, align 4
-  %.not5.i105 = icmp eq i32 %854, %856
-  br i1 %.not5.i105, label %857, label %869
+851:                                              ; preds = %847
+  %852 = load i32, ptr @max_wal_senders, align 4
+  %853 = getelementptr inbounds nuw i8, ptr %836, i64 188
+  %854 = load i32, ptr %853, align 4
+  %.not5.i107 = icmp eq i32 %852, %854
+  br i1 %.not5.i107, label %855, label %867
 
-857:                                              ; preds = %853
-  %858 = load i32, ptr @max_prepared_xacts, align 4
-  %859 = getelementptr inbounds nuw i8, ptr %838, i64 192
-  %860 = load i32, ptr %859, align 8
-  %.not6.i = icmp eq i32 %858, %860
-  br i1 %.not6.i, label %861, label %869
+855:                                              ; preds = %851
+  %856 = load i32, ptr @max_prepared_xacts, align 4
+  %857 = getelementptr inbounds nuw i8, ptr %836, i64 192
+  %858 = load i32, ptr %857, align 8
+  %.not6.i = icmp eq i32 %856, %858
+  br i1 %.not6.i, label %859, label %867
 
-861:                                              ; preds = %857
-  %862 = load i32, ptr @max_locks_per_xact, align 4
-  %863 = getelementptr inbounds nuw i8, ptr %838, i64 196
-  %864 = load i32, ptr %863, align 4
-  %.not7.i = icmp eq i32 %862, %864
-  br i1 %.not7.i, label %865, label %869
+859:                                              ; preds = %855
+  %860 = load i32, ptr @max_locks_per_xact, align 4
+  %861 = getelementptr inbounds nuw i8, ptr %836, i64 196
+  %862 = load i32, ptr %861, align 4
+  %.not7.i = icmp eq i32 %860, %862
+  br i1 %.not7.i, label %863, label %867
 
-865:                                              ; preds = %861
-  %866 = load i8, ptr @track_commit_timestamp, align 1, !range !4, !noundef !5
-  %867 = getelementptr inbounds nuw i8, ptr %838, i64 200
-  %868 = load i8, ptr %867, align 8, !range !4, !noundef !5
-  %.not8.i = icmp eq i8 %866, %868
-  br i1 %.not8.i, label %XLogReportParameters.exit, label %869
+863:                                              ; preds = %859
+  %864 = load i8, ptr @track_commit_timestamp, align 1, !range !4, !noundef !5
+  %865 = getelementptr inbounds nuw i8, ptr %836, i64 200
+  %866 = load i8, ptr %865, align 8, !range !4, !noundef !5
+  %.not8.i = icmp eq i8 %864, %866
+  br i1 %.not8.i, label %XLogReportParameters.exit, label %867
 
-869:                                              ; preds = %865, %861, %857, %853, %849, %845, %841, %PerformRecoveryXLogAction.exit
-  %870 = icmp ne i32 %837, %840
-  %871 = icmp sgt i32 %837, 0
-  %or.cond.i103 = or i1 %871, %870
-  br i1 %or.cond.i103, label %872, label %888
+867:                                              ; preds = %863, %859, %855, %851, %847, %843, %839, %PerformRecoveryXLogAction.exit
+  %868 = icmp ne i32 %835, %838
+  %869 = icmp sgt i32 %835, 0
+  %or.cond.i105 = or i1 %869, %868
+  br i1 %or.cond.i105, label %870, label %886
 
-872:                                              ; preds = %869
+870:                                              ; preds = %867
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #26
-  %873 = load i32, ptr @MaxConnections, align 4
-  store i32 %873, ptr %5, align 4
-  %874 = load i32, ptr @max_worker_processes, align 4
-  %875 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %871 = load i32, ptr @MaxConnections, align 4
+  store i32 %871, ptr %5, align 4
+  %872 = load i32, ptr @max_worker_processes, align 4
+  %873 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %872, ptr %873, align 4
+  %874 = load i32, ptr @max_wal_senders, align 4
+  %875 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %874, ptr %875, align 4
-  %876 = load i32, ptr @max_wal_senders, align 4
-  %877 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %876 = load i32, ptr @max_prepared_xacts, align 4
+  %877 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %876, ptr %877, align 4
-  %878 = load i32, ptr @max_prepared_xacts, align 4
-  %879 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %878 = load i32, ptr @max_locks_per_xact, align 4
+  %879 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %878, ptr %879, align 4
-  %880 = load i32, ptr @max_locks_per_xact, align 4
-  %881 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %880, ptr %881, align 4
-  %882 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 %837, ptr %882, align 4
-  %883 = load i8, ptr @wal_log_hints, align 1, !range !4, !noundef !5
-  %884 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i8 %883, ptr %884, align 4
-  %885 = load i8, ptr @track_commit_timestamp, align 1, !range !4, !noundef !5
-  %886 = getelementptr inbounds nuw i8, ptr %5, i64 25
-  store i8 %885, ptr %886, align 1
+  %880 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i32 %835, ptr %880, align 4
+  %881 = load i8, ptr @wal_log_hints, align 1, !range !4, !noundef !5
+  %882 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i8 %881, ptr %882, align 4
+  %883 = load i8, ptr @track_commit_timestamp, align 1, !range !4, !noundef !5
+  %884 = getelementptr inbounds nuw i8, ptr %5, i64 25
+  store i8 %883, ptr %884, align 1
   call void @XLogBeginInsert() #26
   call void @XLogRegisterData(ptr noundef nonnull %5, i32 noundef 28) #26
-  %887 = call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext 96) #26
-  call void @XLogFlush(i64 noundef %887)
+  %885 = call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext 96) #26
+  call void @XLogFlush(i64 noundef %885)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #26
-  br label %888
+  br label %886
 
-888:                                              ; preds = %872, %869
-  %889 = load ptr, ptr @MainLWLockArray, align 8
-  %890 = getelementptr inbounds nuw i8, ptr %889, i64 1152
-  %891 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %890, i32 noundef 0) #26
-  %892 = load i32, ptr @MaxConnections, align 4
-  %893 = load ptr, ptr @ControlFile, align 8
-  %894 = getelementptr inbounds nuw i8, ptr %893, i64 180
-  store i32 %892, ptr %894, align 4
-  %895 = load i32, ptr @max_worker_processes, align 4
-  %896 = getelementptr inbounds nuw i8, ptr %893, i64 184
-  store i32 %895, ptr %896, align 8
-  %897 = load i32, ptr @max_wal_senders, align 4
-  %898 = getelementptr inbounds nuw i8, ptr %893, i64 188
-  store i32 %897, ptr %898, align 4
-  %899 = load i32, ptr @max_prepared_xacts, align 4
-  %900 = getelementptr inbounds nuw i8, ptr %893, i64 192
-  store i32 %899, ptr %900, align 8
-  %901 = load i32, ptr @max_locks_per_xact, align 4
-  %902 = getelementptr inbounds nuw i8, ptr %893, i64 196
+886:                                              ; preds = %870, %867
+  %887 = load ptr, ptr @MainLWLockArray, align 8
+  %888 = getelementptr inbounds nuw i8, ptr %887, i64 1152
+  %889 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %888, i32 noundef 0) #26
+  %890 = load i32, ptr @MaxConnections, align 4
+  %891 = load ptr, ptr @ControlFile, align 8
+  %892 = getelementptr inbounds nuw i8, ptr %891, i64 180
+  store i32 %890, ptr %892, align 4
+  %893 = load i32, ptr @max_worker_processes, align 4
+  %894 = getelementptr inbounds nuw i8, ptr %891, i64 184
+  store i32 %893, ptr %894, align 8
+  %895 = load i32, ptr @max_wal_senders, align 4
+  %896 = getelementptr inbounds nuw i8, ptr %891, i64 188
+  store i32 %895, ptr %896, align 4
+  %897 = load i32, ptr @max_prepared_xacts, align 4
+  %898 = getelementptr inbounds nuw i8, ptr %891, i64 192
+  store i32 %897, ptr %898, align 8
+  %899 = load i32, ptr @max_locks_per_xact, align 4
+  %900 = getelementptr inbounds nuw i8, ptr %891, i64 196
+  store i32 %899, ptr %900, align 4
+  %901 = load i32, ptr @wal_level, align 4
+  %902 = getelementptr inbounds nuw i8, ptr %891, i64 172
   store i32 %901, ptr %902, align 4
-  %903 = load i32, ptr @wal_level, align 4
-  %904 = getelementptr inbounds nuw i8, ptr %893, i64 172
-  store i32 %903, ptr %904, align 4
-  %905 = load i8, ptr @wal_log_hints, align 1, !range !4, !noundef !5
-  %906 = getelementptr inbounds nuw i8, ptr %893, i64 176
+  %903 = load i8, ptr @wal_log_hints, align 1, !range !4, !noundef !5
+  %904 = getelementptr inbounds nuw i8, ptr %891, i64 176
+  store i8 %903, ptr %904, align 8
+  %905 = load i8, ptr @track_commit_timestamp, align 1, !range !4, !noundef !5
+  %906 = getelementptr inbounds nuw i8, ptr %891, i64 200
   store i8 %905, ptr %906, align 8
-  %907 = load i8, ptr @track_commit_timestamp, align 1, !range !4, !noundef !5
-  %908 = getelementptr inbounds nuw i8, ptr %893, i64 200
-  store i8 %907, ptr %908, align 8
-  %909 = load ptr, ptr @DataDir, align 8
-  call void @update_controlfile(ptr noundef %909, ptr noundef %893, i1 noundef zeroext true) #26
-  %910 = load ptr, ptr @MainLWLockArray, align 8
-  %911 = getelementptr inbounds nuw i8, ptr %910, i64 1152
-  call void @LWLockRelease(ptr noundef nonnull %911) #26
+  %907 = load ptr, ptr @DataDir, align 8
+  call void @update_controlfile(ptr noundef %907, ptr noundef %891, i1 noundef zeroext true) #26
+  %908 = load ptr, ptr @MainLWLockArray, align 8
+  %909 = getelementptr inbounds nuw i8, ptr %908, i64 1152
+  call void @LWLockRelease(ptr noundef nonnull %909) #26
   br label %XLogReportParameters.exit
 
-XLogReportParameters.exit:                        ; preds = %865, %888
-  %912 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
-  %913 = trunc nuw i8 %912 to i1
-  br i1 %913, label %914, label %CleanupAfterArchiveRecovery.exit
+XLogReportParameters.exit:                        ; preds = %863, %886
+  %910 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
+  %911 = trunc nuw i8 %910 to i1
+  br i1 %911, label %912, label %CleanupAfterArchiveRecovery.exit
 
-914:                                              ; preds = %XLogReportParameters.exit
-  %915 = load ptr, ptr @recoveryEndCommand, align 8
-  %.not.i106 = icmp eq ptr %915, null
-  br i1 %.not.i106, label %918, label %916
+912:                                              ; preds = %XLogReportParameters.exit
+  %913 = load ptr, ptr @recoveryEndCommand, align 8
+  %.not.i108 = icmp eq ptr %913, null
+  br i1 %.not.i108, label %916, label %914
 
-916:                                              ; preds = %914
-  %strcmpload.i = load i8, ptr %915, align 1
+914:                                              ; preds = %912
+  %strcmpload.i = load i8, ptr %913, align 1
   %.not10.i = icmp eq i8 %strcmpload.i, 0
-  br i1 %.not10.i, label %918, label %917
+  br i1 %.not10.i, label %916, label %915
 
-917:                                              ; preds = %916
-  call void @ExecuteRecoveryCommand(ptr noundef nonnull %915, ptr noundef nonnull @.str.171, i1 noundef zeroext true, i32 noundef 134217774) #26
-  br label %918
+915:                                              ; preds = %914
+  call void @ExecuteRecoveryCommand(ptr noundef nonnull %913, ptr noundef nonnull @.str.171, i1 noundef zeroext true, i32 noundef 134217774) #26
+  br label %916
 
-918:                                              ; preds = %917, %916, %914
-  call void @RemoveNonParentXlogFiles(i64 noundef %spec.select, i32 noundef %.071)
-  %919 = load i32, ptr @wal_segment_size, align 4
-  %920 = add i32 %919, -1
-  %921 = sext i32 %920 to i64
-  %922 = and i64 %spec.select, %921
-  %923 = icmp ne i64 %922, 0
-  %924 = load i32, ptr @XLogArchiveMode, align 4
-  %925 = icmp sgt i32 %924, 0
-  %or.cond.i107 = select i1 %923, i1 %925, i1 false
-  br i1 %or.cond.i107, label %926, label %CleanupAfterArchiveRecovery.exit
+916:                                              ; preds = %915, %914, %912
+  call void @RemoveNonParentXlogFiles(i64 noundef %spec.select, i32 noundef %.072)
+  %917 = load i32, ptr @wal_segment_size, align 4
+  %918 = add i32 %917, -1
+  %919 = sext i32 %918 to i64
+  %920 = and i64 %spec.select, %919
+  %921 = icmp ne i64 %920, 0
+  %922 = load i32, ptr @XLogArchiveMode, align 4
+  %923 = icmp sgt i32 %922, 0
+  %or.cond.i109 = select i1 %921, i1 %923, i1 false
+  br i1 %or.cond.i109, label %924, label %CleanupAfterArchiveRecovery.exit
 
-926:                                              ; preds = %918
+924:                                              ; preds = %916
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #26
-  %927 = add i64 %spec.select, -1
-  %928 = sext i32 %919 to i64
+  %925 = add i64 %spec.select, -1
+  %926 = sext i32 %917 to i64
+  %927 = udiv i64 %925, %926
+  %928 = udiv i64 4294967296, %926
   %929 = udiv i64 %927, %928
-  %930 = udiv i64 4294967296, %928
-  %931 = udiv i64 %929, %930
-  %932 = trunc i64 %931 to i32
-  %933 = urem i64 %929, %930
-  %934 = trunc nuw i64 %933 to i32
-  %935 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 64, ptr noundef nonnull @.str.118, i32 noundef %314, i32 noundef %932, i32 noundef %934) #26
-  %936 = call zeroext i1 @XLogArchiveIsReadyOrDone(ptr noundef nonnull %1) #26
-  br i1 %936, label %953, label %937
+  %930 = trunc i64 %929 to i32
+  %931 = urem i64 %927, %928
+  %932 = trunc nuw i64 %931 to i32
+  %933 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 64, ptr noundef nonnull @.str.118, i32 noundef %313, i32 noundef %930, i32 noundef %932) #26
+  %934 = call zeroext i1 @XLogArchiveIsReadyOrDone(ptr noundef nonnull %1) #26
+  br i1 %934, label %951, label %935
 
-937:                                              ; preds = %926
+935:                                              ; preds = %924
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #26
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #26
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #26
-  %938 = load i8, ptr @summarize_wal, align 1, !range !4, !noundef !5
-  %939 = trunc nuw i8 %938 to i1
-  br i1 %939, label %940, label %941
+  %936 = load i8, ptr @summarize_wal, align 1, !range !4, !noundef !5
+  %937 = trunc nuw i8 %936 to i1
+  br i1 %937, label %938, label %939
 
-940:                                              ; preds = %937
+938:                                              ; preds = %935
   call void @WaitForWalSummarization(i64 noundef %spec.select) #26
-  br label %941
+  br label %939
 
-941:                                              ; preds = %940, %937
-  %942 = load i32, ptr @wal_segment_size, align 4
-  %943 = sext i32 %942 to i64
-  %944 = udiv i64 4294967296, %943
-  %945 = udiv i64 %929, %944
-  %946 = trunc i64 %945 to i32
-  %947 = urem i64 %929, %944
-  %948 = trunc nuw i64 %947 to i32
-  %949 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.117, i32 noundef %314, i32 noundef %946, i32 noundef %948) #26
-  %950 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.172, ptr noundef nonnull %1) #26
-  %951 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.172, ptr noundef nonnull %2) #26
+939:                                              ; preds = %938, %935
+  %940 = load i32, ptr @wal_segment_size, align 4
+  %941 = sext i32 %940 to i64
+  %942 = udiv i64 4294967296, %941
+  %943 = udiv i64 %927, %942
+  %944 = trunc i64 %943 to i32
+  %945 = urem i64 %927, %942
+  %946 = trunc nuw i64 %945 to i32
+  %947 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.117, i32 noundef %313, i32 noundef %944, i32 noundef %946) #26
+  %948 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.172, ptr noundef nonnull %1) #26
+  %949 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.172, ptr noundef nonnull %2) #26
   call void @XLogArchiveCleanup(ptr noundef nonnull %3) #26
-  %952 = call i32 @durable_rename(ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef 21) #26
+  %950 = call i32 @durable_rename(ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef 21) #26
   call void @XLogArchiveNotify(ptr noundef nonnull %3) #26
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #26
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #26
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #26
-  br label %953
+  br label %951
 
-953:                                              ; preds = %941, %926
+951:                                              ; preds = %939, %924
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #26
   br label %CleanupAfterArchiveRecovery.exit
 
-CleanupAfterArchiveRecovery.exit:                 ; preds = %953, %918, %XLogReportParameters.exit
+CleanupAfterArchiveRecovery.exit:                 ; preds = %951, %916, %XLogReportParameters.exit
   call void @CompleteCommitTsInitialization() #26
-  %954 = load ptr, ptr @MainLWLockArray, align 8
-  %955 = getelementptr inbounds nuw i8, ptr %954, i64 1152
-  %956 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %955, i32 noundef 0) #26
-  %957 = load ptr, ptr @ControlFile, align 8
-  %958 = getelementptr inbounds nuw i8, ptr %957, i64 16
-  store i32 6, ptr %958, align 8
-  %959 = load ptr, ptr @XLogCtl, align 8
-  %960 = getelementptr inbounds nuw i8, ptr %959, i64 448
-  %961 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %960, i8 1, ptr nonnull elementtype(i8) %960) #26, !srcloc !10
-  %.not86 = icmp eq i8 %961, 0
-  br i1 %.not86, label %966, label %962
+  %952 = load ptr, ptr @MainLWLockArray, align 8
+  %953 = getelementptr inbounds nuw i8, ptr %952, i64 1152
+  %954 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %953, i32 noundef 0) #26
+  %955 = load ptr, ptr @ControlFile, align 8
+  %956 = getelementptr inbounds nuw i8, ptr %955, i64 16
+  store i32 6, ptr %956, align 8
+  %957 = load ptr, ptr @XLogCtl, align 8
+  %958 = getelementptr inbounds nuw i8, ptr %957, i64 448
+  %959 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %958, i8 1, ptr nonnull elementtype(i8) %958) #26, !srcloc !10
+  %.not87 = icmp eq i8 %959, 0
+  br i1 %.not87, label %964, label %960
 
-962:                                              ; preds = %CleanupAfterArchiveRecovery.exit
-  %963 = load ptr, ptr @XLogCtl, align 8
-  %964 = getelementptr inbounds nuw i8, ptr %963, i64 448
-  %965 = call i32 @s_lock(ptr noundef nonnull %964, ptr noundef nonnull @.str.14, i32 noundef 6190, ptr noundef nonnull @__func__.StartupXLOG) #26
-  br label %966
+960:                                              ; preds = %CleanupAfterArchiveRecovery.exit
+  %961 = load ptr, ptr @XLogCtl, align 8
+  %962 = getelementptr inbounds nuw i8, ptr %961, i64 448
+  %963 = call i32 @s_lock(ptr noundef nonnull %962, ptr noundef nonnull @.str.14, i32 noundef 6190, ptr noundef nonnull @__func__.StartupXLOG) #26
+  br label %964
 
-966:                                              ; preds = %CleanupAfterArchiveRecovery.exit, %962
-  %967 = load ptr, ptr @XLogCtl, align 8
-  %968 = getelementptr inbounds nuw i8, ptr %967, i64 324
-  store i32 2, ptr %968, align 4
+964:                                              ; preds = %CleanupAfterArchiveRecovery.exit, %960
+  %965 = load ptr, ptr @XLogCtl, align 8
+  %966 = getelementptr inbounds nuw i8, ptr %965, i64 324
+  store i32 2, ptr %966, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !69
-  %969 = load ptr, ptr @XLogCtl, align 8
-  %970 = getelementptr inbounds nuw i8, ptr %969, i64 448
-  store i8 0, ptr %970, align 8
-  %971 = load ptr, ptr @DataDir, align 8
-  %972 = load ptr, ptr @ControlFile, align 8
-  call void @update_controlfile(ptr noundef %971, ptr noundef %972, i1 noundef zeroext true) #26
-  %973 = load ptr, ptr @MainLWLockArray, align 8
-  %974 = getelementptr inbounds nuw i8, ptr %973, i64 1152
-  call void @LWLockRelease(ptr noundef nonnull %974) #26
-  %975 = load i32, ptr @standbyState, align 4
-  %.not87 = icmp eq i32 %975, 0
-  br i1 %.not87, label %977, label %976
+  %967 = load ptr, ptr @XLogCtl, align 8
+  %968 = getelementptr inbounds nuw i8, ptr %967, i64 448
+  store i8 0, ptr %968, align 8
+  %969 = load ptr, ptr @DataDir, align 8
+  %970 = load ptr, ptr @ControlFile, align 8
+  call void @update_controlfile(ptr noundef %969, ptr noundef %970, i1 noundef zeroext true) #26
+  %971 = load ptr, ptr @MainLWLockArray, align 8
+  %972 = getelementptr inbounds nuw i8, ptr %971, i64 1152
+  call void @LWLockRelease(ptr noundef nonnull %972) #26
+  %973 = load i32, ptr @standbyState, align 4
+  %.not88 = icmp eq i32 %973, 0
+  br i1 %.not88, label %975, label %974
 
-976:                                              ; preds = %966
+974:                                              ; preds = %964
   call void @ShutdownRecoveryTransactionEnvironment() #26
+  br label %975
+
+975:                                              ; preds = %974, %964
+  call void @WalSndWakeup(i1 noundef zeroext true, i1 noundef zeroext true) #26
+  br i1 %.074, label %976, label %977
+
+976:                                              ; preds = %975
+  call void @RequestCheckpoint(i32 noundef 8) #26
   br label %977
 
-977:                                              ; preds = %976, %966
-  call void @WalSndWakeup(i1 noundef zeroext true, i1 noundef zeroext true) #26
-  br i1 %.073, label %978, label %979
-
-978:                                              ; preds = %977
-  call void @RequestCheckpoint(i32 noundef 8) #26
-  br label %979
-
-979:                                              ; preds = %978, %977
+977:                                              ; preds = %976, %975
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24) #26
@@ -7165,7 +7152,7 @@ declare i32 @durable_rename(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 define internal fastcc void @CheckRequiredParameterValues() unnamed_addr #0 {
   %1 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
   %2 = trunc nuw i8 %1 to i1
-  br i1 %2, label %3, label %37
+  br i1 %2, label %3, label %.thread
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @ControlFile, align 8
@@ -7185,9 +7172,9 @@ define internal fastcc void @CheckRequiredParameterValues() unnamed_addr #0 {
   unreachable
 
 14:                                               ; preds = %3
-  %15 = load i8, ptr @EnableHotStandby, align 1, !range !4, !noundef !5
+  %15 = load i8, ptr @EnableHotStandby, align 1, !range !4
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %37
+  br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %14
   %18 = load i32, ptr @MaxConnections, align 4
@@ -7214,9 +7201,9 @@ define internal fastcc void @CheckRequiredParameterValues() unnamed_addr #0 {
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 196
   %36 = load i32, ptr %35, align 4
   tail call void @RecoveryRequiresIntParameter(ptr noundef nonnull @.str.169, i32 noundef %33, i32 noundef %36) #26
-  br label %37
+  br label %.thread
 
-37:                                               ; preds = %0, %17, %14
+.thread:                                          ; preds = %0, %17, %14
   ret void
 }
 
@@ -7282,10 +7269,10 @@ RecoveryInProgress.exit:                          ; preds = %6, %9
   %15 = add i32 %14, 1
   store volatile i32 %15, ptr @CritSectionCount, align 4
   %16 = trunc nuw i8 %2 to i1
-  br i1 %16, label %.preheader16, label %29
+  br i1 %16, label %.preheader17, label %29
 
-.preheader16:                                     ; preds = %RecoveryInProgress.exit, %.preheader16
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader16 ], [ 0, %RecoveryInProgress.exit ]
+.preheader17:                                     ; preds = %RecoveryInProgress.exit, %.preheader17
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader17 ], [ 0, %RecoveryInProgress.exit ]
   %17 = load ptr, ptr @WALInsertLocks, align 8
   %18 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %17, i64 %indvars.iv.i
   %19 = tail call zeroext i1 @LWLockAcquire(ptr noundef %18, i32 noundef 0) #26
@@ -7295,9 +7282,9 @@ RecoveryInProgress.exit:                          ; preds = %6, %9
   tail call void @LWLockUpdateVar(ptr noundef %21, ptr noundef nonnull %22, i64 noundef -1) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %WALInsertLockAcquireExclusive.exit, label %.preheader16, !llvm.loop !18
+  br i1 %exitcond.not.i, label %WALInsertLockAcquireExclusive.exit, label %.preheader17, !llvm.loop !18
 
-WALInsertLockAcquireExclusive.exit:               ; preds = %.preheader16
+WALInsertLockAcquireExclusive.exit:               ; preds = %.preheader17
   %23 = load ptr, ptr @WALInsertLocks, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 896
   %25 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %24, i32 noundef 0) #26
@@ -7306,14 +7293,14 @@ WALInsertLockAcquireExclusive.exit:               ; preds = %.preheader16
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %WALInsertLockAcquireExclusive.exit, %.preheader.i
-  %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i4, %.preheader.i ], [ 0, %WALInsertLockAcquireExclusive.exit ]
+  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i5, %.preheader.i ], [ 0, %WALInsertLockAcquireExclusive.exit ]
   %26 = load ptr, ptr @WALInsertLocks, align 8
-  %27 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %26, i64 %indvars.iv.i3
+  %27 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %26, i64 %indvars.iv.i4
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %27, ptr noundef nonnull %28, i64 noundef 0) #26
-  %indvars.iv.next.i4 = add nuw nsw i64 %indvars.iv.i3, 1
-  %exitcond.not.i5 = icmp eq i64 %indvars.iv.next.i4, 8
-  br i1 %exitcond.not.i5, label %WALInsertLockRelease.exit, label %.preheader.i, !llvm.loop !8
+  %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
+  %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, 8
+  br i1 %exitcond.not.i6, label %WALInsertLockRelease.exit, label %.preheader.i, !llvm.loop !8
 
 WALInsertLockRelease.exit:                        ; preds = %.preheader.i
   store i1 false, ptr @holdingAllLocks, align 1
@@ -7322,8 +7309,8 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
 29:                                               ; preds = %WALInsertLockRelease.exit, %RecoveryInProgress.exit
   %30 = load i32, ptr @wal_level, align 4
   %31 = icmp slt i32 %30, 1
-  %brmerge = select i1 %31, i1 true, i1 %.0.i
-  br i1 %brmerge, label %34, label %32
+  %or.cond = select i1 %31, i1 true, i1 %.0.i
+  br i1 %or.cond, label %34, label %32
 
 32:                                               ; preds = %29
   tail call void @XLogBeginInsert() #26
@@ -7331,47 +7318,47 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
   %33 = tail call i64 @XLogInsert(i8 noundef zeroext 0, i8 noundef zeroext -128) #26
   br label %34
 
-34:                                               ; preds = %29, %32
+34:                                               ; preds = %32, %29
   %35 = load i8, ptr @fullPageWrites, align 1, !range !4, !noundef !5
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %49, label %.preheader
 
 .preheader:                                       ; preds = %34, %.preheader
-  %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i7, %.preheader ], [ 0, %34 ]
+  %indvars.iv.i7 = phi i64 [ %indvars.iv.next.i8, %.preheader ], [ 0, %34 ]
   %37 = load ptr, ptr @WALInsertLocks, align 8
-  %38 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %37, i64 %indvars.iv.i6
+  %38 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %37, i64 %indvars.iv.i7
   %39 = tail call zeroext i1 @LWLockAcquire(ptr noundef %38, i32 noundef 0) #26
   %40 = load ptr, ptr @WALInsertLocks, align 8
-  %41 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %40, i64 %indvars.iv.i6
+  %41 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %40, i64 %indvars.iv.i7
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   tail call void @LWLockUpdateVar(ptr noundef %41, ptr noundef nonnull %42, i64 noundef -1) #26
-  %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
-  %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, 7
-  br i1 %exitcond.not.i8, label %WALInsertLockAcquireExclusive.exit9, label %.preheader, !llvm.loop !18
+  %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
+  %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, 7
+  br i1 %exitcond.not.i9, label %WALInsertLockAcquireExclusive.exit10, label %.preheader, !llvm.loop !18
 
-WALInsertLockAcquireExclusive.exit9:              ; preds = %.preheader
+WALInsertLockAcquireExclusive.exit10:             ; preds = %.preheader
   %43 = load ptr, ptr @WALInsertLocks, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 896
   %45 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %44, i32 noundef 0) #26
   store i1 true, ptr @holdingAllLocks, align 1
   store i8 0, ptr %3, align 8
-  br label %.preheader.i11
+  br label %.preheader.i12
 
-.preheader.i11:                                   ; preds = %WALInsertLockAcquireExclusive.exit9, %.preheader.i11
-  %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.preheader.i11 ], [ 0, %WALInsertLockAcquireExclusive.exit9 ]
+.preheader.i12:                                   ; preds = %WALInsertLockAcquireExclusive.exit10, %.preheader.i12
+  %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %.preheader.i12 ], [ 0, %WALInsertLockAcquireExclusive.exit10 ]
   %46 = load ptr, ptr @WALInsertLocks, align 8
-  %47 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %46, i64 %indvars.iv.i12
+  %47 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %46, i64 %indvars.iv.i13
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %47, ptr noundef nonnull %48, i64 noundef 0) #26
-  %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
-  %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, 8
-  br i1 %exitcond.not.i14, label %WALInsertLockRelease.exit15, label %.preheader.i11, !llvm.loop !8
+  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
+  %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 8
+  br i1 %exitcond.not.i15, label %WALInsertLockRelease.exit16, label %.preheader.i12, !llvm.loop !8
 
-WALInsertLockRelease.exit15:                      ; preds = %.preheader.i11
+WALInsertLockRelease.exit16:                      ; preds = %.preheader.i12
   store i1 false, ptr @holdingAllLocks, align 1
   br label %49
 
-49:                                               ; preds = %34, %WALInsertLockRelease.exit15
+49:                                               ; preds = %34, %WALInsertLockRelease.exit16
   %50 = load volatile i32, ptr @CritSectionCount, align 4
   %51 = add i32 %50, -1
   store volatile i32 %51, ptr @CritSectionCount, align 4
@@ -10904,23 +10891,23 @@ WALInsertLockAcquireExclusive.exit:               ; preds = %.preheader
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %WALInsertLockAcquireExclusive.exit, %.preheader.i
-  %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i67, %.preheader.i ], [ 0, %WALInsertLockAcquireExclusive.exit ]
+  %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i70, %.preheader.i ], [ 0, %WALInsertLockAcquireExclusive.exit ]
   %35 = load ptr, ptr @WALInsertLocks, align 8
-  %36 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %35, i64 %indvars.iv.i66
+  %36 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %35, i64 %indvars.iv.i69
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %36, ptr noundef nonnull %37, i64 noundef 0) #26
-  %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
-  %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, 8
-  br i1 %exitcond.not.i68, label %WALInsertLockRelease.exit, label %.preheader.i, !llvm.loop !8
+  %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
+  %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, 8
+  br i1 %exitcond.not.i71, label %WALInsertLockRelease.exit, label %.preheader.i, !llvm.loop !8
 
 WALInsertLockRelease.exit:                        ; preds = %.preheader.i
   store i1 false, ptr @holdingAllLocks, align 1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %39 = load i8, ptr %38, align 8, !range !4, !noundef !5
   %40 = trunc nuw i8 %39 to i1
-  %.not62 = xor i1 %40, true
-  %brmerge = or i1 %.0.i, %.not62
-  br i1 %brmerge, label %46, label %41
+  %.not = xor i1 %40, true
+  %or.cond3 = or i1 %.0.i, %.not
+  br i1 %or.cond3, label %46, label %41
 
 41:                                               ; preds = %WALInsertLockRelease.exit
   %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
@@ -10938,8 +10925,8 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
   %48 = load ptr, ptr @XLogCtl, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 448
   %50 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %49, i8 1, ptr nonnull elementtype(i8) %49) #26, !srcloc !10
-  %.not57 = icmp eq i8 %50, 0
-  br i1 %.not57, label %55, label %51
+  %.not60 = icmp eq i8 %50, 0
+  br i1 %.not60, label %55, label %51
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr @XLogCtl, align 8
@@ -10957,8 +10944,8 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
   store i8 0, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %62 = load i64, ptr %61, align 8
-  %.not58 = icmp ugt i64 %62, %58
-  br i1 %.not58, label %68, label %63
+  %.not61 = icmp ugt i64 %62, %58
+  br i1 %.not61, label %68, label %63
 
 63:                                               ; preds = %55
   %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
@@ -11019,8 +11006,8 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
   %104 = and i32 %102, %103
   %105 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.198, i32 noundef %96, i32 noundef %99, i32 noundef %101, i32 noundef %104) #26
   %106 = call ptr @AllocateFile(ptr noundef nonnull %4, ptr noundef nonnull @.str.92) #26
-  %.not53 = icmp eq ptr %106, null
-  br i1 %.not53, label %107, label %111
+  %.not56 = icmp eq ptr %106, null
+  br i1 %.not56, label %107, label %111
 
 107:                                              ; preds = %81
   %108 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
@@ -11035,18 +11022,18 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
   %113 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %106, ptr noundef nonnull @.str.94, ptr noundef %112) #26
   call void @pfree(ptr noundef %112) #26
   %114 = call i32 @fflush(ptr noundef nonnull %106)
-  %.not54 = icmp eq i32 %114, 0
-  br i1 %.not54, label %115, label %119
+  %.not57 = icmp eq i32 %114, 0
+  br i1 %.not57, label %115, label %119
 
 115:                                              ; preds = %111
   %116 = call i32 @ferror(ptr noundef nonnull %106) #26
-  %.not55 = icmp eq i32 %116, 0
-  br i1 %.not55, label %117, label %119
+  %.not58 = icmp eq i32 %116, 0
+  br i1 %.not58, label %117, label %119
 
 117:                                              ; preds = %115
   %118 = call i32 @FreeFile(ptr noundef nonnull %106) #26
-  %.not56 = icmp eq i32 %118, 0
-  br i1 %.not56, label %123, label %119
+  %.not59 = icmp eq i32 %118, 0
+  br i1 %.not59, label %123, label %119
 
 119:                                              ; preds = %117, %115, %111
   %120 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
@@ -11112,14 +11099,14 @@ CleanupBackupHistory.exit:                        ; preds = %IsBackupHistoryFile
   br label %148
 
 148:                                              ; preds = %CleanupBackupHistory.exit, %68
-  br i1 %1, label %149, label %.critedge65
+  br i1 %1, label %149, label %.critedge68
 
 149:                                              ; preds = %148
   %150 = load i32, ptr @XLogArchiveMode, align 4
   %151 = icmp sgt i32 %150, 0
   %152 = icmp eq i32 %150, 2
-  %or.cond63 = select i1 %.0.i, i1 %152, i1 %151
-  br i1 %or.cond63, label %153, label %208
+  %or.cond66 = select i1 %.0.i, i1 %152, i1 %151
+  br i1 %or.cond66, label %153, label %208
 
 153:                                              ; preds = %149
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1088
@@ -11154,13 +11141,13 @@ CleanupBackupHistory.exit:                        ; preds = %IsBackupHistoryFile
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %153
-  %.049.ph = phi i32 [ 60, %153 ], [ %201, %.outer.backedge ]
-  %.048.ph = phi i32 [ 0, %153 ], [ %199, %.outer.backedge ]
+  %.052.ph = phi i32 [ 60, %153 ], [ %201, %.outer.backedge ]
+  %.051.ph = phi i32 [ 0, %153 ], [ %199, %.outer.backedge ]
   %.0.ph = phi i1 [ false, %153 ], [ %.1, %.outer.backedge ]
   br label %183
 
 183:                                              ; preds = %.outer, %195
-  %.048 = phi i32 [ %199, %195 ], [ %.048.ph, %.outer ]
+  %.051 = phi i32 [ %199, %195 ], [ %.051.ph, %.outer ]
   %.0 = phi i1 [ %.1, %195 ], [ %.0.ph, %.outer ]
   %184 = call zeroext i1 @XLogArchiveIsBusy(ptr noundef nonnull %5) #26
   br i1 %184, label %.critedge, label %185
@@ -11171,17 +11158,17 @@ CleanupBackupHistory.exit:                        ; preds = %IsBackupHistoryFile
 
 .critedge:                                        ; preds = %183, %185
   %187 = load volatile i32, ptr @InterruptPending, align 4
-  %.not = icmp eq i32 %187, 0
-  br i1 %.not, label %189, label %188, !prof !7
+  %.not63 = icmp eq i32 %187, 0
+  br i1 %.not63, label %189, label %188, !prof !7
 
 188:                                              ; preds = %.critedge
   call void @ProcessInterrupts() #26
   br label %189
 
 189:                                              ; preds = %188, %.critedge
-  %190 = icmp slt i32 %.048, 6
-  %or.cond8.not = or i1 %190, %.0
-  br i1 %or.cond8.not, label %195, label %191
+  %190 = icmp slt i32 %.051, 6
+  %or.cond11.not = or i1 %190, %.0
+  br i1 %or.cond11.not, label %195, label %191
 
 191:                                              ; preds = %189
   %192 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #26
@@ -11198,12 +11185,12 @@ CleanupBackupHistory.exit:                        ; preds = %IsBackupHistoryFile
   %197 = call i32 @WaitLatch(ptr noundef %196, i32 noundef 41, i64 noundef 1000, i32 noundef 134217732) #26
   %198 = load ptr, ptr @MyLatch, align 8
   call void @ResetLatch(ptr noundef %198) #26
-  %199 = add i32 %.048, 1
-  %.not61 = icmp slt i32 %199, %.049.ph
-  br i1 %.not61, label %183, label %200, !llvm.loop !98
+  %199 = add i32 %.051, 1
+  %.not65 = icmp slt i32 %199, %.052.ph
+  br i1 %.not65, label %183, label %200, !llvm.loop !98
 
 200:                                              ; preds = %195
-  %201 = shl i32 %.049.ph, 1
+  %201 = shl i32 %.052.ph, 1
   %202 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #26
   br i1 %202, label %203, label %.outer.backedge
 
@@ -11218,20 +11205,20 @@ CleanupBackupHistory.exit:                        ; preds = %IsBackupHistoryFile
 
 206:                                              ; preds = %185
   %207 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #26
-  br i1 %207, label %.critedge65.sink.split, label %.critedge65
+  br i1 %207, label %.critedge68.sink.split, label %.critedge68
 
 208:                                              ; preds = %149
   %209 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #26
-  br i1 %209, label %.critedge65.sink.split, label %.critedge65
+  br i1 %209, label %.critedge68.sink.split, label %.critedge68
 
-.critedge65.sink.split:                           ; preds = %208, %206
+.critedge68.sink.split:                           ; preds = %208, %206
   %.str.100.sink = phi ptr [ @.str.99, %206 ], [ @.str.100, %208 ]
   %.sink = phi i32 [ 9393, %206 ], [ 9397, %208 ]
   %210 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.100.sink) #26
   call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef %.sink, ptr noundef nonnull @__func__.do_pg_backup_stop) #26
-  br label %.critedge65
+  br label %.critedge68
 
-.critedge65:                                      ; preds = %.critedge65.sink.split, %148, %208, %206
+.critedge68:                                      ; preds = %.critedge68.sink.split, %148, %208, %206
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #26
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #26
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #26

@@ -99792,16 +99792,16 @@ define linkonce_odr hidden noundef i32 @_ZN4entt8internal11try_convertIZNKS_9met
 14:                                               ; preds = %8, %5
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %16 = load ptr, ptr %15, align 8, !tbaa !38
-  %.not70 = icmp eq ptr %16, null
-  br i1 %.not70, label %.thread65, label %17
+  %.not69 = icmp eq ptr %16, null
+  br i1 %.not69, label %.thread64, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !1961
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !1961
-  %.not7174 = icmp eq ptr %19, %21
-  br i1 %.not7174, label %._crit_edge, label %.lr.ph
+  %.not7073 = icmp eq ptr %19, %21
+  br i1 %.not7073, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -99809,41 +99809,41 @@ define linkonce_odr hidden noundef i32 @_ZN4entt8internal11try_convertIZNKS_9met
   br label %26
 
 24:                                               ; preds = %26
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.055.075, i64 16
-  %.not71 = icmp eq ptr %25, %21
-  br i1 %.not71, label %._crit_edge, label %26
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.054.074, i64 16
+  %.not70 = icmp eq ptr %25, %21
+  br i1 %.not70, label %._crit_edge, label %26
 
 26:                                               ; preds = %.lr.ph, %24
-  %.sroa.055.075 = phi ptr [ %19, %.lr.ph ], [ %25, %24 ]
-  %27 = load i32, ptr %.sroa.055.075, align 8, !tbaa !1963
-  %.not45 = icmp eq i32 %27, %23
-  br i1 %.not45, label %.loopexit, label %24
+  %.sroa.054.074 = phi ptr [ %19, %.lr.ph ], [ %25, %24 ]
+  %27 = load i32, ptr %.sroa.054.074, align 8, !tbaa !1963
+  %.not46 = icmp eq i32 %27, %23
+  br i1 %.not46, label %.loopexit, label %24
 
 ._crit_edge:                                      ; preds = %24, %17
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !210
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !210
-  %.not7276 = icmp eq ptr %29, %31
-  br i1 %.not7276, label %.thread65, label %.lr.ph79
+  %.not7175 = icmp eq ptr %29, %31
+  br i1 %.not7175, label %.thread64, label %.lr.ph78
 
-.lr.ph79:                                         ; preds = %._crit_edge
+.lr.ph78:                                         ; preds = %._crit_edge
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 112
   br label %36
 
 34:                                               ; preds = %_ZN4entt8internal14meta_type_nodeD2Ev.exit
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.051.077, i64 24
-  %.not72 = icmp eq ptr %35, %31
-  br i1 %.not72, label %.thread65, label %36
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.050.076, i64 24
+  %.not71 = icmp eq ptr %35, %31
+  br i1 %.not71, label %.thread64, label %36
 
-36:                                               ; preds = %.lr.ph79, %34
-  %.sroa.051.077 = phi ptr [ %29, %.lr.ph79 ], [ %35, %34 ]
+36:                                               ; preds = %.lr.ph78, %34
+  %.sroa.050.076 = phi ptr [ %29, %.lr.ph78 ], [ %35, %34 ]
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6) #28
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.051.077, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.050.076, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !920
   call void %38(ptr dead_on_unwind nonnull writable sret(%"struct.entt::internal::meta_type_node") align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %0) #28
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.051.077, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.050.076, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !1960
   %41 = call noundef ptr %40(ptr noundef %4) #28
   %42 = invoke noundef i32 @_ZN4entt8internal11try_convertIZNKS_9meta_type11can_convertERKS2_EUlPKvDpOT_E_EEDaRKNS0_12meta_contextERKNS0_14meta_type_nodeERKNS_9type_infoEbS6_T_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(136) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3, ptr noundef %41)
@@ -99949,8 +99949,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %84, %8
 
 _ZN4entt8internal14meta_type_nodeD2Ev.exit:       ; preds = %_ZNSt12__shared_ptrIN4entt8internal20meta_type_descriptorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %87
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6) #28
-  %.not46 = icmp eq i32 %42, 0
-  br i1 %.not46, label %34, label %.loopexit
+  %.not47 = icmp eq i32 %42, 0
+  br i1 %.not47, label %34, label %.loopexit
 
 88:                                               ; preds = %36
   %89 = landingpad { ptr, i32 }
@@ -99959,16 +99959,16 @@ _ZN4entt8internal14meta_type_nodeD2Ev.exit:       ; preds = %_ZNSt12__shared_ptr
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6) #28
   resume { ptr, i32 } %89
 
-.thread65:                                        ; preds = %34, %._crit_edge, %14
+.thread64:                                        ; preds = %34, %._crit_edge, %14
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %91 = load ptr, ptr %90, align 8, !tbaa !1965
-  %.not47 = icmp ne ptr %91, null
-  %brmerge.not = and i1 %3, %.not47
-  %spec.select = zext i1 %brmerge.not to i32
+  %92 = icmp ne ptr %91, null
+  %or.cond = and i1 %3, %92
+  %spec.select = zext i1 %or.cond to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %_ZN4entt8internal14meta_type_nodeD2Ev.exit, %.thread65, %8
-  %.0 = phi i32 [ 1, %8 ], [ %spec.select, %.thread65 ], [ %42, %_ZN4entt8internal14meta_type_nodeD2Ev.exit ], [ 1, %26 ]
+.loopexit:                                        ; preds = %26, %_ZN4entt8internal14meta_type_nodeD2Ev.exit, %.thread64, %8
+  %.0 = phi i32 [ 1, %8 ], [ %spec.select, %.thread64 ], [ %42, %_ZN4entt8internal14meta_type_nodeD2Ev.exit ], [ 1, %26 ]
   ret i32 %.0
 }
 
@@ -106290,21 +106290,21 @@ define linkonce_odr hidden void @_ZN4entt8internal11try_convertIZNKS_8meta_any10
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !240, !noalias !2074
   tail call void %20(ptr dead_on_unwind writable sret(%"class.entt::meta_any") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef null, ptr noundef %5)
-  br label %153
+  br label %154
 
 23:                                               ; preds = %11, %7
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %25 = load ptr, ptr %24, align 8, !tbaa !38
-  %.not58 = icmp eq ptr %25, null
-  br i1 %.not58, label %.thread54, label %26
+  %.not57 = icmp eq ptr %25, null
+  br i1 %.not57, label %.thread53, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %28 = load ptr, ptr %27, align 8, !tbaa !1961
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %30 = load ptr, ptr %29, align 8, !tbaa !1961
-  %.not5963 = icmp eq ptr %28, %30
-  br i1 %.not5963, label %._crit_edge, label %.lr.ph
+  %.not5862 = icmp eq ptr %28, %30
+  br i1 %.not5862, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -106312,47 +106312,47 @@ define linkonce_odr hidden void @_ZN4entt8internal11try_convertIZNKS_8meta_any10
   br label %33
 
 33:                                               ; preds = %.lr.ph, %.critedge
-  %.sroa.048.064 = phi ptr [ %28, %.lr.ph ], [ %35, %.critedge ]
-  %34 = load i32, ptr %.sroa.048.064, align 8, !tbaa !1963
-  %.not37 = icmp eq i32 %34, %32
-  br i1 %.not37, label %36, label %.critedge
+  %.sroa.047.063 = phi ptr [ %28, %.lr.ph ], [ %35, %.critedge ]
+  %34 = load i32, ptr %.sroa.047.063, align 8, !tbaa !1963
+  %.not38 = icmp eq i32 %34, %32
+  br i1 %.not38, label %36, label %.critedge
 
 .critedge:                                        ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.048.064, i64 16
-  %.not59 = icmp eq ptr %35, %30
-  br i1 %.not59, label %._crit_edge, label %33
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.047.063, i64 16
+  %.not58 = icmp eq ptr %35, %30
+  br i1 %.not58, label %._crit_edge, label %33
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %6, align 8, !tbaa !2063, !noalias !2077
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.048.064, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.047.063, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !2080, !noalias !2077
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !240, !noalias !2077
   tail call void %39(ptr dead_on_unwind writable sret(%"class.entt::meta_any") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %41, ptr noundef %5)
-  br label %153
+  br label %154
 
 ._crit_edge:                                      ; preds = %.critedge, %26
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !210
   %44 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %45 = load ptr, ptr %44, align 8, !tbaa !210
-  %.not6065 = icmp eq ptr %43, %45
-  br i1 %.not6065, label %.thread54, label %.lr.ph68
+  %.not5964 = icmp eq ptr %43, %45
+  br i1 %.not5964, label %.thread53, label %.lr.ph67
 
-.lr.ph68:                                         ; preds = %._crit_edge
+.lr.ph67:                                         ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 48
   br label %49
 
-49:                                               ; preds = %.lr.ph68, %.critedge40
-  %.sroa.044.066 = phi ptr [ %43, %.lr.ph68 ], [ %120, %.critedge40 ]
+49:                                               ; preds = %.lr.ph67, %.critedge40
+  %.sroa.043.065 = phi ptr [ %43, %.lr.ph67 ], [ %120, %.critedge40 ]
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %8) #28
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %9) #28
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.044.066, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.043.065, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !920
   call void %51(ptr dead_on_unwind nonnull writable sret(%"struct.entt::internal::meta_type_node") align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %1) #28
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.044.066, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.043.065, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !1960
   %54 = call noundef ptr %53(ptr noundef %5) #28
   invoke void @_ZN4entt8internal11try_convertIZNKS_8meta_any10allow_castERKNS_9meta_typeEEUlPKvDpOT_E_EEDaRKNS0_12meta_contextERKNS0_14meta_type_nodeERKNS_9type_infoEbS7_T_(ptr dead_on_unwind nonnull writable sret(%"class.entt::meta_any") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(136) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4, ptr noundef %54, ptr noundef nonnull byval(%class.anon.188) align 8 %6)
@@ -106459,8 +106459,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %96, %9
 _ZN4entt8internal14meta_type_nodeD2Ev.exit:       ; preds = %_ZNSt12__shared_ptrIN4entt8internal20meta_type_descriptorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, %84, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %99
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9) #28
   %100 = load ptr, ptr %48, align 8, !tbaa !231
-  %.not61 = icmp eq ptr %100, null
-  br i1 %.not61, label %.critedge40, label %101
+  %.not60 = icmp eq ptr %100, null
+  br i1 %.not60, label %.critedge40, label %101
 
 101:                                              ; preds = %_ZN4entt8internal14meta_type_nodeD2Ev.exit
   store ptr null, ptr %0, align 8, !tbaa !65
@@ -106509,9 +106509,9 @@ _ZN4entt8internal14meta_type_nodeD2Ev.exit:       ; preds = %_ZNSt12__shared_ptr
 .critedge40:                                      ; preds = %_ZN4entt8internal14meta_type_nodeD2Ev.exit
   call void @_ZN4entt8meta_anyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %8) #28
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #28
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.044.066, i64 24
-  %.not60 = icmp eq ptr %120, %45
-  br i1 %.not60, label %.thread54, label %49
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.043.065, i64 24
+  %.not59 = icmp eq ptr %120, %45
+  br i1 %.not59, label %.thread53, label %49
 
 121:                                              ; preds = %113, %111, %101
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -106553,36 +106553,36 @@ _ZN4entt8internal14meta_type_nodeD2Ev.exit:       ; preds = %_ZNSt12__shared_ptr
   store ptr %.pre.i, ptr %141, align 8, !tbaa !302
   call void @_ZN4entt8meta_anyD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %8) #28
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #28
-  br label %153
+  br label %154
 
-.thread54:                                        ; preds = %.critedge40, %._crit_edge, %23
+.thread53:                                        ; preds = %.critedge40, %._crit_edge, %23
   %142 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %143 = load ptr, ptr %142, align 8, !tbaa !1965
-  %.not38 = icmp ne ptr %143, null
-  %brmerge.not = and i1 %4, %.not38
-  br i1 %brmerge.not, label %144, label %145
+  %144 = icmp ne ptr %143, null
+  %or.cond = and i1 %4, %144
+  br i1 %or.cond, label %145, label %146
 
-144:                                              ; preds = %.thread54
+145:                                              ; preds = %.thread53
   call void @_ZZNK4entt8meta_any10allow_castERKNS_9meta_typeEENKUlPKvDpOT_E_clIJRKPFdPvS5_EEEEDaS5_S8_(ptr dead_on_unwind writable sret(%"class.entt::meta_any") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(8) %142)
-  br label %153
+  br label %154
 
-145:                                              ; preds = %.thread54
+146:                                              ; preds = %.thread53
   call void @llvm.experimental.noalias.scope.decl(metadata !2088)
-  %146 = load ptr, ptr %6, align 8, !tbaa !2063, !noalias !2088
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 40
-  %148 = load ptr, ptr %147, align 8, !tbaa !240, !noalias !2088
+  %147 = load ptr, ptr %6, align 8, !tbaa !2063, !noalias !2088
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 40
+  %149 = load ptr, ptr %148, align 8, !tbaa !240, !noalias !2088
   store ptr null, ptr %0, align 8, !tbaa !65, !alias.scope !2088
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %149, i8 0, i64 17, i1 false), !alias.scope !2088
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %148, ptr %150, align 8, !tbaa !240, !alias.scope !2088
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %151, i8 0, i64 100, i1 false), !alias.scope !2088
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %152, i8 0, i64 40, i1 false), !alias.scope !2088
-  br label %153
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %150, i8 0, i64 17, i1 false), !alias.scope !2088
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %149, ptr %151, align 8, !tbaa !240, !alias.scope !2088
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %152, i8 0, i64 100, i1 false), !alias.scope !2088
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %153, i8 0, i64 40, i1 false), !alias.scope !2088
+  br label %154
 
-153:                                              ; preds = %121, %36, %145, %144, %17
+154:                                              ; preds = %121, %36, %146, %145, %17
   ret void
 }
 

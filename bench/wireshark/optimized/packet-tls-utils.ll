@@ -14619,29 +14619,24 @@ define hidden void @ssl_dissect_hnd_new_ses_ticket(ptr noundef %0, ptr noundef %
   br label %80
 
 52:                                               ; preds = %.thread, %34, %35
-  %.078 = phi i32 [ %39, %35 ], [ %27, %34 ], [ %50, %.thread ]
+  %.080 = phi i32 [ %39, %35 ], [ %27, %34 ], [ %50, %.thread ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %54 = load i32, ptr %53, align 4
   %55 = zext i1 %spec.select to i32
-  %56 = call zeroext i1 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %23, i32 noundef %.078, i32 noundef %5, ptr noundef nonnull %11, i32 noundef %54, i32 noundef %55, i32 noundef 65535)
+  %56 = call zeroext i1 @ssl_add_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %23, i32 noundef %.080, i32 noundef %5, ptr noundef nonnull %11, i32 noundef %54, i32 noundef %55, i32 noundef 65535)
   br i1 %56, label %57, label %80
 
 57:                                               ; preds = %52
-  %58 = add i32 %.078, 2
+  %58 = add i32 %.080, 2
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %60 = load i32, ptr %59, align 4
   %61 = load i32, ptr %11, align 4
   %62 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %60, ptr noundef %1, i32 noundef %58, i32 noundef %61, i32 noundef 0)
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %76, label %63
+  %63 = icmp eq ptr %7, null
+  %or.cond4 = or i1 %63, %spec.select
+  br i1 %or.cond4, label %76, label %64
 
-63:                                               ; preds = %57
-  switch i16 %15, label %64 [
-    i16 -260, label %77
-    i16 772, label %77
-  ]
-
-64:                                               ; preds = %63
+64:                                               ; preds = %57
   call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %58, i32 noundef %61)
   %65 = call ptr @wmem_file_scope()
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 384
@@ -14666,7 +14661,7 @@ define hidden void @ssl_dissect_hnd_new_ses_ticket(ptr noundef %0, ptr noundef %
     i16 772, label %77
   ]
 
-77:                                               ; preds = %63, %63, %76, %76
+77:                                               ; preds = %76, %76
   %78 = add i32 %61, %58
   %79 = call fastcc i32 @ssl_dissect_hnd_extension(ptr noundef %0, ptr noundef %1, ptr noundef %23, ptr noundef %2, i32 noundef %78, i32 noundef %5, i8 noundef zeroext 4, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0)
   br label %80

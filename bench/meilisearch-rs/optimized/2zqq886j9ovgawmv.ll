@@ -29287,8 +29287,8 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$6filter17h4744e573febfbc1dE
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val3 = load i64, ptr %7, align 8, !noundef !16
-  %.not.i.i = icmp eq i64 %.sroa.6.0.copyload, %.val3
+  %.val6 = load i64, ptr %7, align 8, !noundef !16
+  %.not.i.i = icmp eq i64 %.sroa.6.0.copyload, %.val6
   br i1 %.not.i.i, label %"_ZN6grenad6reader13reader_cursor21ReaderCursor$LT$R$GT$20move_on_key_equal_to28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc20a2695748de7dE.exit", label %"_ZN6grenad6reader13reader_cursor21ReaderCursor$LT$R$GT$20move_on_key_equal_to28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc20a2695748de7dE.exit.thread"
 
 "_ZN6grenad6reader13reader_cursor21ReaderCursor$LT$R$GT$20move_on_key_equal_to28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdc20a2695748de7dE.exit": ; preds = %6

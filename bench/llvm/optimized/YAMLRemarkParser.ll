@@ -2285,8 +2285,8 @@ define dso_local void @_ZN4llvm7remarks16YAMLRemarkParser13parseDebugLocERNS_4ya
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !243
   %10 = icmp ne i32 %9, 4
-  %.not143 = icmp eq ptr %7, null
-  %.not = or i1 %.not143, %10
+  %.not145 = icmp eq ptr %7, null
+  %.not = or i1 %.not145, %10
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %17
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
@@ -2318,16 +2318,16 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.promoted201 = load i8, ptr %24, align 8
+  %.promoted202 = load i8, ptr %24, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 80
   br label %28
 
 28:                                               ; preds = %.lr.ph, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70
-  %.sroa.4124.0195 = phi i1 [ false, %.lr.ph ], [ %.sroa.4124.2, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70 ]
-  %.sroa.4119.0194 = phi i1 [ false, %.lr.ph ], [ %.sroa.4119.1, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70 ]
-  %.sroa.0118.0193 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0118.1, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70 ]
-  %.sroa.4117.0192 = phi i1 [ false, %.lr.ph ], [ %.sroa.4117.1, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70 ]
-  %.sroa.0116.0191 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0116.1, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70 ]
+  %.sroa.4124.0196 = phi i1 [ false, %.lr.ph ], [ %.sroa.4124.2, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70 ]
+  %.sroa.4119.0195 = phi i1 [ false, %.lr.ph ], [ %.sroa.4119.1, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70 ]
+  %.sroa.0118.0194 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0118.1, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70 ]
+  %.sroa.4117.0193 = phi i1 [ false, %.lr.ph ], [ %.sroa.4117.1, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70 ]
+  %.sroa.0116.0192 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0116.1, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70 ]
   %29 = load ptr, ptr %27, align 8, !tbaa !290
   %30 = call noundef ptr @_ZN4llvm4yaml12KeyValueNode6getKeyEv(ptr noundef nonnull align 8 dereferenceable(88) %29) #19, !noalias !413
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -2340,7 +2340,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
 _ZN4llvm5ErrorD2Ev.exit35:                        ; preds = %28
   %34 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22, !noalias !416
   call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr nonnull @.str.21, i64 20, ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(88) %29) #19, !noalias !416
-  %35 = or i8 %.promoted201, 1
+  %35 = or i8 %.promoted202, 1
   store i8 %35, ptr %24, align 8
   store ptr %34, ptr %0, align 8, !tbaa !90, !alias.scope !423
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit75
@@ -2373,7 +2373,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 .critedge.loopexit:                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %44 = load i64, ptr %4, align 8, !tbaa !90, !noalias !426
   store ptr null, ptr %4, align 8, !tbaa !90, !noalias !426
-  %45 = or i8 %.promoted201, 1
+  %45 = or i8 %.promoted202, 1
   %46 = inttoptr i64 %44 to ptr
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #19
   store i8 %45, ptr %24, align 8
@@ -2406,7 +2406,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %_ZN4llvmeqENS_9Stri
   %51 = load i64, ptr %5, align 8, !tbaa !90, !noalias !429
   %52 = inttoptr i64 %51 to ptr
   store ptr null, ptr %5, align 8, !tbaa !90, !noalias !429
-  %53 = or i8 %.promoted201, 1
+  %53 = or i8 %.promoted202, 1
   store i8 %53, ptr %24, align 8
   store ptr %52, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
@@ -2433,7 +2433,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit65:                  ; preds = %_ZN4llvmeqENS_9Stri
   %58 = load i64, ptr %6, align 8, !tbaa !90, !noalias !432
   %59 = inttoptr i64 %58 to ptr
   store ptr null, ptr %6, align 8, !tbaa !90, !noalias !432
-  %60 = or i8 %.promoted201, 1
+  %60 = or i8 %.promoted202, 1
   store i8 %60, ptr %24, align 8
   store ptr %59, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
@@ -2442,24 +2442,24 @@ _ZN4llvm8ExpectedIjED2Ev.exit65:                  ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm5ErrorD2Ev.exit66:                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit45, %36, %_ZN4llvmeqENS_9StringRefES0_.exit56
   %61 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22, !noalias !435
   call void @_ZN4llvm7remarks14YAMLParseErrorC1ENS_9StringRefERNS_9SourceMgrERNS_4yaml6StreamERNS5_4NodeE(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr nonnull @.str.29, i64 30, ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(72) %29) #19, !noalias !435
-  %62 = or i8 %.promoted201, 1
+  %62 = or i8 %.promoted202, 1
   store i8 %62, ptr %24, align 8
   store ptr %61, ptr %0, align 8, !tbaa !90, !alias.scope !442
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit75
 
 _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70:     ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit, %_ZN4llvm8ExpectedIjED2Ev.exit.thread, %_ZN4llvm8ExpectedIjED2Ev.exit65.thread
-  %.sroa.0116.1 = phi i32 [ %.sroa.0116.0191, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ], [ %50, %_ZN4llvm8ExpectedIjED2Ev.exit.thread ], [ %.sroa.0116.0191, %_ZN4llvm8ExpectedIjED2Ev.exit65.thread ]
-  %.sroa.4117.1 = phi i1 [ %.sroa.4117.0192, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ], [ true, %_ZN4llvm8ExpectedIjED2Ev.exit.thread ], [ %.sroa.4117.0192, %_ZN4llvm8ExpectedIjED2Ev.exit65.thread ]
-  %.sroa.0118.1 = phi i32 [ %.sroa.0118.0193, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ], [ %.sroa.0118.0193, %_ZN4llvm8ExpectedIjED2Ev.exit.thread ], [ %57, %_ZN4llvm8ExpectedIjED2Ev.exit65.thread ]
-  %.sroa.4119.1 = phi i1 [ %.sroa.4119.0194, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ], [ %.sroa.4119.0194, %_ZN4llvm8ExpectedIjED2Ev.exit.thread ], [ true, %_ZN4llvm8ExpectedIjED2Ev.exit65.thread ]
-  %.sroa.4124.2 = phi i1 [ true, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ], [ %.sroa.4124.0195, %_ZN4llvm8ExpectedIjED2Ev.exit.thread ], [ %.sroa.4124.0195, %_ZN4llvm8ExpectedIjED2Ev.exit65.thread ]
+  %.sroa.0116.1 = phi i32 [ %.sroa.0116.0192, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ], [ %50, %_ZN4llvm8ExpectedIjED2Ev.exit.thread ], [ %.sroa.0116.0192, %_ZN4llvm8ExpectedIjED2Ev.exit65.thread ]
+  %.sroa.4117.1 = phi i1 [ %.sroa.4117.0193, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ], [ true, %_ZN4llvm8ExpectedIjED2Ev.exit.thread ], [ %.sroa.4117.0193, %_ZN4llvm8ExpectedIjED2Ev.exit65.thread ]
+  %.sroa.0118.1 = phi i32 [ %.sroa.0118.0194, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ], [ %.sroa.0118.0194, %_ZN4llvm8ExpectedIjED2Ev.exit.thread ], [ %57, %_ZN4llvm8ExpectedIjED2Ev.exit65.thread ]
+  %.sroa.4119.1 = phi i1 [ %.sroa.4119.0195, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ], [ %.sroa.4119.0195, %_ZN4llvm8ExpectedIjED2Ev.exit.thread ], [ true, %_ZN4llvm8ExpectedIjED2Ev.exit65.thread ]
+  %.sroa.4124.2 = phi i1 [ true, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ], [ %.sroa.4124.0196, %_ZN4llvm8ExpectedIjED2Ev.exit.thread ], [ %.sroa.4124.0196, %_ZN4llvm8ExpectedIjED2Ev.exit65.thread ]
   call void @_ZN4llvm4yaml11MappingNode9incrementEv(ptr noundef nonnull align 8 dereferenceable(88) %7) #19
   %63 = load ptr, ptr %27, align 8, !tbaa !290
   %.not.i71 = icmp eq ptr %63, null
   br i1 %.not.i71, label %.critedge32, label %28
 
 .critedge32:                                      ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit70
-  store i8 %.promoted201, ptr %24, align 8
+  store i8 %.promoted202, ptr %24, align 8
   %64 = select i1 %.sroa.4124.2, i1 %.sroa.4119.1, i1 false
   %65 = select i1 %64, i1 %.sroa.4117.1, i1 false
   br i1 %65, label %72, label %_ZN4llvm5ErrorD2Ev.exit76

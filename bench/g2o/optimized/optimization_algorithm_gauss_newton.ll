@@ -105,8 +105,8 @@ define noundef range(i32 -1, 2) i32 @_ZN3g2o32OptimizationAlgorithmGaussNewton5s
 
 12:                                               ; preds = %8, %3
   %13 = icmp ne i32 %1, 0
-  %brmerge = or i1 %13, %2
-  br i1 %brmerge, label %21, label %14
+  %or.cond = or i1 %13, %2
+  br i1 %or.cond, label %21, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -117,7 +117,7 @@ define noundef range(i32 -1, 2) i32 @_ZN3g2o32OptimizationAlgorithmGaussNewton5s
   %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(64) %16, i1 noundef zeroext false)
   br i1 %20, label %21, label %55
 
-21:                                               ; preds = %12, %14
+21:                                               ; preds = %14, %12
   %22 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8, !tbaa !30
@@ -136,7 +136,7 @@ define noundef range(i32 -1, 2) i32 @_ZN3g2o32OptimizationAlgorithmGaussNewton5s
   br label %34
 
 34:                                               ; preds = %29, %21
-  %.017 = phi double [ %33, %29 ], [ %22, %21 ]
+  %.018 = phi double [ %33, %29 ], [ %22, %21 ]
   %35 = load ptr, ptr %23, align 8, !tbaa !30
   %36 = load ptr, ptr %35, align 8, !tbaa !8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
@@ -146,14 +146,14 @@ define noundef range(i32 -1, 2) i32 @_ZN3g2o32OptimizationAlgorithmGaussNewton5s
 
 40:                                               ; preds = %34
   %41 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
-  %42 = fsub double %41, %.017
+  %42 = fsub double %41, %.018
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store double %42, ptr %43, align 8, !tbaa !34
   %44 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
   br label %45
 
 45:                                               ; preds = %40, %34
-  %.1 = phi double [ %44, %40 ], [ %.017, %34 ]
+  %.1 = phi double [ %44, %40 ], [ %.018, %34 ]
   %46 = load ptr, ptr %5, align 8, !tbaa !10
   %47 = load ptr, ptr %23, align 8, !tbaa !30
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16

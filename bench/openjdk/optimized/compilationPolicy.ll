@@ -23,8 +23,6 @@ $_ZN17CompilationPolicy11update_rateElRK12methodHandle = comdat any
 
 $_ZN17CompilationPolicy15compare_methodsEP6MethodS1_ = comdat any
 
-$_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid = comdat any
-
 $_ZN17CompilationPolicy6commonI13LoopPredicateEE9CompLevelRK12methodHandleS2_b = comdat any
 
 $_ZN17CompilationPolicy6commonI13CallPredicateEE9CompLevelRK12methodHandleS2_b = comdat any
@@ -175,7 +173,7 @@ define hidden void @_ZN17CompilationPolicy10initializeEv() local_unnamed_addr #0
   %4 = load i64, ptr @TieredStopAtLevel, align 8
   %5 = icmp eq i64 %4, 0
   %6 = select i1 %3, i1 true, i1 %5
-  br i1 %6, label %94, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
+  br i1 %6, label %93, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
 
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i:     ; preds = %0
   %7 = load i64, ptr @CICompilerCount, align 8
@@ -278,58 +276,56 @@ _ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit: ; preds = %_ZN14Compil
 
 67:                                               ; preds = %66
   store i32 %.0, ptr @_ZN17CompilationPolicy9_c1_countE, align 4
-  br label %89
+  br label %88
 
 68:                                               ; preds = %66
   br i1 %24, label %69, label %70
 
 69:                                               ; preds = %68
   store i32 %.0, ptr @_ZN17CompilationPolicy9_c2_countE, align 4
-  br label %89
+  br label %88
 
 70:                                               ; preds = %68
   %71 = load i8, ptr @UseJVMCICompiler, align 1
   %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %84
+  %73 = load i8, ptr @UseJVMCINativeLibrary, align 1
+  %74 = trunc i8 %73 to i1
+  %or.cond = select i1 %72, i1 %74, i1 false
+  br i1 %or.cond, label %75, label %83
 
-73:                                               ; preds = %70
-  %74 = load i8, ptr @UseJVMCINativeLibrary, align 1
-  %75 = trunc i8 %74 to i1
-  br i1 %75, label %76, label %84
+75:                                               ; preds = %70
+  %76 = sitofp i32 %.0 to double
+  %77 = load double, ptr @JVMCINativeLibraryThreadFraction, align 8
+  %78 = fmul double %77, %76
+  %79 = fptosi double %78 to i32
+  %80 = call noundef i32 @llvm.smax.i32(i32 %79, i32 1)
+  %81 = sub nsw i32 %.0, %80
+  %82 = call noundef i32 @llvm.smax.i32(i32 %81, i32 1)
+  store i32 %80, ptr @_ZN17CompilationPolicy9_c2_countE, align 4
+  store i32 %82, ptr @_ZN17CompilationPolicy9_c1_countE, align 4
+  br label %88
 
-76:                                               ; preds = %73
-  %77 = sitofp i32 %.0 to double
-  %78 = load double, ptr @JVMCINativeLibraryThreadFraction, align 8
-  %79 = fmul double %78, %77
-  %80 = fptosi double %79 to i32
-  %81 = call noundef i32 @llvm.smax.i32(i32 %80, i32 1)
-  %82 = sub nsw i32 %.0, %81
-  %83 = call noundef i32 @llvm.smax.i32(i32 %82, i32 1)
-  store i32 %81, ptr @_ZN17CompilationPolicy9_c2_countE, align 4
-  store i32 %83, ptr @_ZN17CompilationPolicy9_c1_countE, align 4
-  br label %89
+83:                                               ; preds = %70
+  %84 = sdiv i32 %.0, 3
+  %85 = call noundef i32 @llvm.smax.i32(i32 %84, i32 1)
+  store i32 %85, ptr @_ZN17CompilationPolicy9_c1_countE, align 4
+  %86 = sub nsw i32 %.0, %85
+  %87 = call noundef i32 @llvm.smax.i32(i32 %86, i32 1)
+  store i32 %87, ptr @_ZN17CompilationPolicy9_c2_countE, align 4
+  br label %88
 
-84:                                               ; preds = %73, %70
-  %85 = sdiv i32 %.0, 3
-  %86 = call noundef i32 @llvm.smax.i32(i32 %85, i32 1)
-  store i32 %86, ptr @_ZN17CompilationPolicy9_c1_countE, align 4
-  %87 = sub nsw i32 %.0, %86
-  %88 = call noundef i32 @llvm.smax.i32(i32 %87, i32 1)
-  store i32 %88, ptr @_ZN17CompilationPolicy9_c2_countE, align 4
-  br label %89
+88:                                               ; preds = %69, %83, %75, %67
+  %89 = load i64, ptr @IncreaseFirstTierCompileThresholdAt, align 8
+  %90 = uitofp i64 %89 to double
+  %91 = fsub double 1.000000e+02, %90
+  %92 = fdiv double 1.000000e+02, %91
+  store double %92, ptr @_ZN17CompilationPolicy28_increase_threshold_at_ratioE, align 8
+  br label %93
 
-89:                                               ; preds = %69, %84, %76, %67
-  %90 = load i64, ptr @IncreaseFirstTierCompileThresholdAt, align 8
-  %91 = uitofp i64 %90 to double
-  %92 = fsub double 1.000000e+02, %91
-  %93 = fdiv double 1.000000e+02, %92
-  store double %93, ptr @_ZN17CompilationPolicy28_increase_threshold_at_ratioE, align 8
-  br label %94
-
-94:                                               ; preds = %89, %0
-  %95 = call noundef i64 @_ZN2os13javaTimeNanosEv() #12
-  %96 = sdiv i64 %95, 1000000
-  store i64 %96, ptr @_ZN17CompilationPolicy11_start_timeE, align 8
+93:                                               ; preds = %88, %0
+  %94 = call noundef i64 @_ZN2os13javaTimeNanosEv() #12
+  %95 = sdiv i64 %94, 1000000
+  store i64 %95, ptr @_ZN17CompilationPolicy11_start_timeE, align 8
   ret void
 }
 
@@ -647,7 +643,7 @@ define hidden noundef signext range(i8 -128, 5) i8 @_ZN17CompilationPolicy21init
 12:                                               ; preds = %8
   %13 = tail call noundef zeroext i1 @_ZN13JVMCICompiler26force_comp_at_level_simpleERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(200) %7, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   %spec.select = select i1 %13, i8 1, i8 4
-  %.pre34.i.i.pre = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %.pre30.i.i.pre = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
 _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split: ; preds = %1
@@ -660,7 +656,7 @@ _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.sp
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
 _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit: ; preds = %12, %1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split3, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split, %3, %6, %8
-  %.pre34.i.i = phi i32 [ %2, %1 ], [ 3, %3 ], [ 3, %6 ], [ 3, %8 ], [ %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split ], [ %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split2 ], [ %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split3 ], [ %.pre34.i.i.pre, %12 ]
+  %.pre30.i.i = phi i32 [ %2, %1 ], [ 3, %3 ], [ 3, %6 ], [ 3, %8 ], [ %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split ], [ %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split2 ], [ %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split3 ], [ %.pre30.i.i.pre, %12 ]
   %.0 = phi i8 [ 3, %1 ], [ 4, %3 ], [ 4, %6 ], [ 4, %8 ], [ 1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split ], [ 4, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split2 ], [ -1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split3 ], [ %spec.select, %12 ]
   %14 = load i32, ptr @_ZN9Arguments5_modeE, align 4
   %15 = icmp eq i32 %14, 0
@@ -668,66 +664,62 @@ _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit: ; pred
   %17 = icmp eq i64 %16, 0
   %18 = select i1 %15, i1 true, i1 %17
   %.pre.i.i = load i8, ptr @TieredCompilation, align 1
-  %.pre35.i.i = trunc i8 %.pre.i.i to i1
-  br i1 %18, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i
+  %.pre31.i.i = trunc i8 %.pre.i.i to i1
+  br i1 %18, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i
 
 _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i: ; preds = %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
   %19 = add i64 %16, -1
   %20 = icmp ult i64 %19, 3
-  %spec.select.i.i.i.i.i = select i1 %.pre35.i.i, i1 %20, i1 false
-  %21 = icmp eq i32 %.pre34.i.i, 1
+  %spec.select.i.i.i.i.i = select i1 %.pre31.i.i, i1 %20, i1 false
+  %21 = icmp eq i32 %.pre30.i.i, 1
   %22 = or i1 %spec.select.i.i.i.i.i, %21
-  br i1 %22, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
+  br i1 %22, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i:     ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i
+_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i: ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i
   %23 = icmp eq i64 %16, 1
-  %24 = select i1 %.pre35.i.i, i1 %23, i1 false
-  br i1 %24, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i
+  %24 = select i1 %.pre31.i.i, i1 %23, i1 false
+  %25 = xor i1 %.pre31.i.i, true
+  %26 = or i1 %24, %25
+  %27 = or i1 %21, %26
+  %cond.fr.i.i = freeze i1 %27
+  %spec.select.i.i = select i1 %cond.fr.i.i, i8 1, i8 3
+  br label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
 
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  %25 = xor i1 %.pre35.i.i, true
-  %spec.select.i26.i.i = or i1 %21, %25
-  %cond.fr.i.i = freeze i1 %spec.select.i26.i.i
-  br i1 %cond.fr.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  br label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
-  %.0.i.i = phi i8 [ 1, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i ], [ 3, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i ], [ 4, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i ], [ 0, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit ]
-  %26 = trunc i64 %16 to i8
-  %27 = tail call i8 @llvm.smin.i8(i8 %.0.i.i, i8 %26)
-  %.1.i.i = select i1 %.pre35.i.i, i8 %27, i8 %.0.i.i
-  switch i32 %.pre34.i.i, label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit [
-    i32 3, label %33
-    i32 1, label %28
-    i32 2, label %31
+_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
+  %.0.i.i = phi i8 [ %spec.select.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i ], [ 4, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i ], [ 0, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit ]
+  %28 = trunc i64 %16 to i8
+  %29 = tail call i8 @llvm.smin.i8(i8 %.0.i.i, i8 %28)
+  %.1.i.i = select i1 %.pre31.i.i, i8 %29, i8 %.0.i.i
+  switch i32 %.pre30.i.i, label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit [
+    i32 3, label %35
+    i32 1, label %30
+    i32 2, label %33
   ]
 
-28:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-  %29 = and i8 %.1.i.i, -2
-  %or.cond.i.i = icmp eq i8 %29, 2
-  %30 = icmp eq i8 %.1.i.i, 4
-  %or.cond5.i.i = or i1 %30, %or.cond.i.i
+30:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
+  %31 = and i8 %.1.i.i, -2
+  %or.cond.i.i = icmp eq i8 %31, 2
+  %32 = icmp eq i8 %.1.i.i, 4
+  %or.cond5.i.i = or i1 %32, %or.cond.i.i
   %spec.store.select.i.i = select i1 %or.cond5.i.i, i8 1, i8 %.1.i.i
   br label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
 
-31:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-  %32 = add i8 %.1.i.i, -1
-  %or.cond11.i.i = icmp ult i8 %32, 3
+33:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
+  %34 = add i8 %.1.i.i, -1
+  %or.cond11.i.i = icmp ult i8 %34, 3
   %spec.store.select15.i.i = select i1 %or.cond11.i.i, i8 0, i8 %.1.i.i
   br label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
 
-33:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-  %34 = and i8 %.1.i.i, -2
-  %or.cond14.i.i = icmp eq i8 %34, 2
+35:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
+  %36 = and i8 %.1.i.i, -2
+  %or.cond14.i.i = icmp eq i8 %36, 2
   %spec.store.select16.i.i = select i1 %or.cond14.i.i, i8 1, i8 %.1.i.i
   br label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
 
-_ZN17CompilationPolicy11limit_levelE9CompLevel.exit: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i, %28, %31, %33
-  %.2.i.i = phi i8 [ %spec.store.select.i.i, %28 ], [ %spec.store.select15.i.i, %31 ], [ %spec.store.select16.i.i, %33 ], [ %.1.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i ]
-  %35 = tail call noundef i8 @llvm.smin.i8(i8 %.0, i8 %.2.i.i)
-  ret i8 %35
+_ZN17CompilationPolicy11limit_levelE9CompLevel.exit: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, %30, %33, %35
+  %.2.i.i = phi i8 [ %spec.store.select.i.i, %30 ], [ %spec.store.select15.i.i, %33 ], [ %spec.store.select16.i.i, %35 ], [ %.1.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i ]
+  %37 = tail call noundef i8 @llvm.smin.i8(i8 %.0, i8 %.2.i.i)
+  ret i8 %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1083,59 +1075,54 @@ _ZN13CompileBroker23should_compile_new_jobsEv.exit: ; preds = %0, %3
 define hidden noundef ptr @_ZN17CompilationPolicy18select_task_helperEP12CompileQueue(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %.not19 = icmp eq ptr %3, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.not1721 = icmp eq ptr %3, null
+  br i1 %.not1721, label %.loopexit19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %8
-  %.01520 = phi ptr [ %5, %8 ], [ %3, %1 ]
-  %4 = getelementptr inbounds nuw i8, ptr %.01520, i64 88
+  %.01622 = phi ptr [ %5, %8 ], [ %3, %1 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.01622, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef zeroext i1 @_ZNK11CompileTask11is_unloadedEv(ptr noundef nonnull align 8 dereferenceable(176) %.01520) #12
+  %6 = tail call noundef zeroext i1 @_ZNK11CompileTask11is_unloadedEv(ptr noundef nonnull align 8 dereferenceable(176) %.01622) #12
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %.lr.ph
-  tail call void @_ZN12CompileQueue21remove_and_mark_staleEP11CompileTask(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.01520) #12
+  tail call void @_ZN12CompileQueue21remove_and_mark_staleEP11CompileTask(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.01622) #12
   br label %8
 
 8:                                                ; preds = %7, %.lr.ph
-  %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  %.not17 = icmp eq ptr %5, null
+  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %8, %1
+._crit_edge:                                      ; preds = %8
+  %.pre.pre = load ptr, ptr %2, align 8
   %9 = load i8, ptr @UseJVMCICompiler, align 1
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %._crit_edge..loopexit_crit_edge
+  %.not = xor i1 %10, true
+  %11 = load i8, ptr @BackgroundCompilation, align 1
+  %12 = trunc i8 %11 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %12
+  br i1 %or.cond, label %.loopexit19, label %.preheader
 
-._crit_edge..loopexit_crit_edge:                  ; preds = %._crit_edge
-  %.pre = load ptr, ptr %2, align 8
-  br label %.loopexit17
+.preheader:                                       ; preds = %._crit_edge
+  %.not1824 = icmp eq ptr %.pre.pre, null
+  br i1 %.not1824, label %.loopexit19, label %.lr.ph26
 
-11:                                               ; preds = %._crit_edge
-  %12 = load i8, ptr @BackgroundCompilation, align 1
-  %13 = trunc i8 %12 to i1
-  %.pre26 = load ptr, ptr %2, align 8
-  br i1 %13, label %.loopexit17, label %.preheader
+.lr.ph26:                                         ; preds = %.preheader, %16
+  %.025 = phi ptr [ %.0, %16 ], [ %.pre.pre, %.preheader ]
+  %13 = getelementptr inbounds nuw i8, ptr %.025, i64 38
+  %14 = load i8, ptr %13, align 2
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %.loopexit19, label %16
 
-.preheader:                                       ; preds = %11
-  %.not1622 = icmp eq ptr %.pre26, null
-  br i1 %.not1622, label %.loopexit17, label %.lr.ph24
+16:                                               ; preds = %.lr.ph26
+  %17 = getelementptr inbounds nuw i8, ptr %.025, i64 88
+  %.0 = load ptr, ptr %17, align 8
+  %.not18 = icmp eq ptr %.0, null
+  br i1 %.not18, label %.loopexit19, label %.lr.ph26, !llvm.loop !9
 
-.lr.ph24:                                         ; preds = %.preheader, %17
-  %.023 = phi ptr [ %.0, %17 ], [ %.pre26, %.preheader ]
-  %14 = getelementptr inbounds nuw i8, ptr %.023, i64 38
-  %15 = load i8, ptr %14, align 2
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %.loopexit17, label %17
-
-17:                                               ; preds = %.lr.ph24
-  %18 = getelementptr inbounds nuw i8, ptr %.023, i64 88
-  %.0 = load ptr, ptr %18, align 8
-  %.not16 = icmp eq ptr %.0, null
-  br i1 %.not16, label %.loopexit17, label %.lr.ph24, !llvm.loop !9
-
-.loopexit17:                                      ; preds = %.lr.ph24, %17, %11, %.preheader, %._crit_edge..loopexit_crit_edge
-  %.014 = phi ptr [ %.pre, %._crit_edge..loopexit_crit_edge ], [ null, %.preheader ], [ %.pre26, %11 ], [ %.023, %.lr.ph24 ], [ %.pre26, %17 ]
-  ret ptr %.014
+.loopexit19:                                      ; preds = %.lr.ph26, %16, %1, %._crit_edge, %.preheader
+  %.015 = phi ptr [ null, %.preheader ], [ %.pre.pre, %._crit_edge ], [ null, %1 ], [ %.025, %.lr.ph26 ], [ %.pre.pre, %16 ]
+  ret ptr %.015
 }
 
 declare noundef zeroext i1 @_ZNK11CompileTask11is_unloadedEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
@@ -1320,65 +1307,61 @@ define hidden noundef signext range(i8 -128, 5) i8 @_ZN17CompilationPolicy21high
   %4 = icmp eq i64 %3, 0
   %5 = select i1 %2, i1 true, i1 %4
   %.pre = load i8, ptr @TieredCompilation, align 1
-  %.pre34 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %.pre35 = trunc i8 %.pre to i1
-  br i1 %5, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
+  %.pre30 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %.pre31 = trunc i8 %.pre to i1
+  br i1 %5, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
 
 _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit: ; preds = %0
   %6 = add i64 %3, -1
   %7 = icmp ult i64 %6, 3
-  %spec.select.i.i.i = select i1 %.pre35, i1 %7, i1 false
-  %8 = icmp eq i32 %.pre34, 1
+  %spec.select.i.i.i = select i1 %.pre31, i1 %7, i1 false
+  %8 = icmp eq i32 %.pre30, 1
   %9 = or i1 %spec.select.i.i.i, %8
-  br i1 %9, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29
+  br i1 %9, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
+_ZN14CompilerConfig17is_c1_simple_onlyEv.exit:    ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
   %10 = icmp eq i64 %3, 1
-  %11 = select i1 %.pre35, i1 %10, i1 false
-  br i1 %11, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit
+  %11 = select i1 %.pre31, i1 %10, i1 false
+  %12 = xor i1 %.pre31, true
+  %13 = or i1 %11, %12
+  %14 = or i1 %8, %13
+  %cond.fr = freeze i1 %14
+  %spec.select = select i1 %cond.fr, i8 1, i8 3
+  br label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
 
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit:    ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
-  %12 = xor i1 %.pre35, true
-  %spec.select.i26 = or i1 %8, %12
-  %cond.fr = freeze i1 %spec.select.i26
-  br i1 %cond.fr, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29
-
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit
-  br label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29
-
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29: ; preds = %0, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
-  %.0 = phi i8 [ 1, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread ], [ 3, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit ], [ 4, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit ], [ 0, %0 ]
-  %13 = trunc i64 %3 to i8
-  %14 = tail call i8 @llvm.smin.i8(i8 %.0, i8 %13)
-  %.1 = select i1 %.pre35, i8 %14, i8 %.0
-  switch i32 %.pre34, label %22 [
-    i32 3, label %20
-    i32 1, label %15
-    i32 2, label %18
+_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread: ; preds = %0, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
+  %.0 = phi i8 [ %spec.select, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit ], [ 4, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit ], [ 0, %0 ]
+  %15 = trunc i64 %3 to i8
+  %16 = tail call i8 @llvm.smin.i8(i8 %.0, i8 %15)
+  %.1 = select i1 %.pre31, i8 %16, i8 %.0
+  switch i32 %.pre30, label %24 [
+    i32 3, label %22
+    i32 1, label %17
+    i32 2, label %20
   ]
 
-15:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29
-  %16 = and i8 %.1, -2
-  %or.cond = icmp eq i8 %16, 2
-  %17 = icmp eq i8 %.1, 4
-  %or.cond5 = or i1 %17, %or.cond
+17:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
+  %18 = and i8 %.1, -2
+  %or.cond = icmp eq i8 %18, 2
+  %19 = icmp eq i8 %.1, 4
+  %or.cond5 = or i1 %19, %or.cond
   %spec.store.select = select i1 %or.cond5, i8 1, i8 %.1
-  br label %22
+  br label %24
 
-18:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29
-  %19 = add i8 %.1, -1
-  %or.cond11 = icmp ult i8 %19, 3
+20:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
+  %21 = add i8 %.1, -1
+  %or.cond11 = icmp ult i8 %21, 3
   %spec.store.select15 = select i1 %or.cond11, i8 0, i8 %.1
-  br label %22
+  br label %24
 
-20:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29
-  %21 = and i8 %.1, -2
-  %or.cond14 = icmp eq i8 %21, 2
+22:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
+  %23 = and i8 %.1, -2
+  %or.cond14 = icmp eq i8 %23, 2
   %spec.store.select16 = select i1 %or.cond14, i8 1, i8 %.1
-  br label %22
+  br label %24
 
-22:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29, %20, %18, %15
-  %.2 = phi i8 [ %spec.store.select, %15 ], [ %spec.store.select15, %18 ], [ %spec.store.select16, %20 ], [ %.1, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29 ]
+24:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread, %22, %20, %17
+  %.2 = phi i8 [ %spec.store.select, %17 ], [ %spec.store.select15, %20 ], [ %spec.store.select16, %22 ], [ %.1, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread ]
   ret i8 %.2
 }
 
@@ -2175,25 +2158,26 @@ define hidden noundef ptr @_ZN17CompilationPolicy5eventERK12methodHandleS2_ii9Co
 
 15:                                               ; preds = %10, %7
   %16 = icmp eq i8 %4, 0
-  br i1 %16, label %17, label %23
+  %17 = load i8, ptr @_ZN11JvmtiExport28_can_post_interpreter_eventsE, align 1
+  %18 = trunc i8 %17 to i1
+  %or.cond50 = select i1 %16, i1 %18, i1 false
+  br i1 %or.cond50, label %19, label %25
 
-17:                                               ; preds = %15
-  %18 = load i8, ptr @_ZN11JvmtiExport28_can_post_interpreter_eventsE, align 1
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %23
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 1544
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp ne i32 %21, 0
+  %23 = load i8, ptr @ReplayCompiles, align 1
+  %24 = trunc i8 %23 to i1
+  %or.cond = select i1 %22, i1 true, i1 %24
+  br i1 %or.cond, label %84, label %26
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 1544
-  %22 = load i32, ptr %21, align 8
-  %.not47 = icmp eq i32 %22, 0
-  br i1 %.not47, label %23, label %84
+25:                                               ; preds = %15
+  %.old = load i8, ptr @ReplayCompiles, align 1
+  %.old43 = trunc i8 %.old to i1
+  br i1 %.old43, label %84, label %26
 
-23:                                               ; preds = %20, %17, %15
-  %24 = load i8, ptr @ReplayCompiles, align 1
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %84, label %26
-
-26:                                               ; preds = %23
+26:                                               ; preds = %19, %25
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
@@ -2227,45 +2211,45 @@ _ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit: ; preds =
   %40 = phi ptr [ %34, %33 ], [ %.pre, %37 ]
   %41 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %40, %41
-  br i1 %.not, label %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit46, label %42
+  br i1 %.not, label %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit47, label %42
 
 42:                                               ; preds = %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %44 = load ptr, ptr %43, align 8
-  %.not.i43 = icmp eq ptr %44, null
-  br i1 %.not.i43, label %48, label %45
+  %.not.i44 = icmp eq ptr %44, null
+  br i1 %.not.i44, label %48, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   tail call void @_ZN17InvocationCounter21set_carry_on_overflowEv(ptr noundef nonnull align 4 dereferenceable(4) %46) #12
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 12
   tail call void @_ZN17InvocationCounter21set_carry_on_overflowEv(ptr noundef nonnull align 4 dereferenceable(4) %47) #12
-  %.pre.i44 = load ptr, ptr %1, align 8
+  %.pre.i45 = load ptr, ptr %1, align 8
   br label %48
 
 48:                                               ; preds = %45, %42
-  %49 = phi ptr [ %.pre.i44, %45 ], [ %41, %42 ]
+  %49 = phi ptr [ %.pre.i45, %45 ], [ %41, %42 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
-  %.not9.i45 = icmp eq ptr %51, null
-  br i1 %.not9.i45, label %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit46, label %52
+  %.not9.i46 = icmp eq ptr %51, null
+  br i1 %.not9.i46, label %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit47, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 244
   tail call void @_ZN17InvocationCounter21set_carry_on_overflowEv(ptr noundef nonnull align 4 dereferenceable(4) %53) #12
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 248
   tail call void @_ZN17InvocationCounter21set_carry_on_overflowEv(ptr noundef nonnull align 4 dereferenceable(4) %54) #12
-  br label %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit46
+  br label %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit47
 
-_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit46: ; preds = %52, %48, %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit
+_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit47: ; preds = %52, %48, %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit
   %55 = icmp eq i32 %3, -1
   br i1 %55, label %56, label %57
 
-56:                                               ; preds = %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit46
+56:                                               ; preds = %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit47
   tail call void @_ZN17CompilationPolicy23method_invocation_eventERK12methodHandleS2_9CompLevelP7nmethodP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nonnull align 8 poison, i8 noundef signext %4, ptr poison, ptr noundef %6)
   br label %83
 
-57:                                               ; preds = %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit46
+57:                                               ; preds = %_ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit47
   tail call void @_ZN17CompilationPolicy24method_back_branch_eventERK12methodHandleS2_i9CompLevelP7nmethodP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %3, i8 noundef signext %4, ptr noundef %5, ptr noundef %6)
   %58 = add i8 %4, 1
   %59 = tail call noundef i8 @llvm.smin.i8(i8 %58, i8 4)
@@ -2312,8 +2296,8 @@ _ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit46: ; preds
 83:                                               ; preds = %66, %80, %71, %56
   br label %84
 
-84:                                               ; preds = %80, %23, %20, %83
-  %.0 = phi ptr [ null, %83 ], [ null, %20 ], [ null, %23 ], [ %79, %80 ]
+84:                                               ; preds = %80, %25, %19, %83
+  %.0 = phi ptr [ null, %83 ], [ null, %19 ], [ null, %25 ], [ %79, %80 ]
   ret ptr %.0
 }
 
@@ -2365,28 +2349,26 @@ define hidden void @_ZN17CompilationPolicy23method_invocation_eventERK12methodHa
 
 _ZN17CompilationPolicy10call_eventERK12methodHandle9CompLevelP6Thread.exit: ; preds = %24, %27
   %.0.i = phi i8 [ %28, %27 ], [ %spec.select.i, %24 ]
-  %.not = icmp eq i8 %.0.i, %2
-  br i1 %.not, label %_ZN17CompilationPolicy22is_compilation_enabledEv.exit.thread, label %29
+  %.not = icmp ne i8 %.0.i, %2
+  %29 = load i8, ptr @UseCompiler, align 1
+  %30 = trunc i8 %29 to i1
+  %or.cond = select i1 %.not, i1 %30, i1 false
+  br i1 %or.cond, label %_ZN17CompilationPolicy22is_compilation_enabledEv.exit, label %_ZN17CompilationPolicy22is_compilation_enabledEv.exit.thread
 
-29:                                               ; preds = %_ZN17CompilationPolicy10call_eventERK12methodHandle9CompLevelP6Thread.exit
-  %30 = load i8, ptr @UseCompiler, align 1
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %_ZN17CompilationPolicy22is_compilation_enabledEv.exit, label %_ZN17CompilationPolicy22is_compilation_enabledEv.exit.thread
+_ZN17CompilationPolicy22is_compilation_enabledEv.exit: ; preds = %_ZN17CompilationPolicy10call_eventERK12methodHandle9CompLevelP6Thread.exit
+  %31 = load volatile i32, ptr @_ZN13CompileBroker24_should_compile_new_jobsE, align 4
+  %32 = icmp eq i32 %31, 1
+  br i1 %32, label %33, label %_ZN17CompilationPolicy22is_compilation_enabledEv.exit.thread
 
-_ZN17CompilationPolicy22is_compilation_enabledEv.exit: ; preds = %29
-  %32 = load volatile i32, ptr @_ZN13CompileBroker24_should_compile_new_jobsE, align 4
-  %33 = icmp eq i32 %32, 1
-  br i1 %33, label %34, label %_ZN17CompilationPolicy22is_compilation_enabledEv.exit.thread
+33:                                               ; preds = %_ZN17CompilationPolicy22is_compilation_enabledEv.exit
+  %34 = tail call noundef zeroext i1 @_ZN13CompileBroker23compilation_is_in_queueERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  br i1 %34, label %_ZN17CompilationPolicy22is_compilation_enabledEv.exit.thread, label %35
 
-34:                                               ; preds = %_ZN17CompilationPolicy22is_compilation_enabledEv.exit
-  %35 = tail call noundef zeroext i1 @_ZN13CompileBroker23compilation_is_in_queueERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
-  br i1 %35, label %_ZN17CompilationPolicy22is_compilation_enabledEv.exit.thread, label %36
-
-36:                                               ; preds = %34
+35:                                               ; preds = %33
   tail call void @_ZN17CompilationPolicy7compileERK12methodHandlei9CompLevelP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef -1, i8 noundef signext %.0.i, ptr noundef %4)
   br label %_ZN17CompilationPolicy22is_compilation_enabledEv.exit.thread
 
-_ZN17CompilationPolicy22is_compilation_enabledEv.exit.thread: ; preds = %29, %_ZN17CompilationPolicy22is_compilation_enabledEv.exit, %34, %36, %_ZN17CompilationPolicy10call_eventERK12methodHandle9CompLevelP6Thread.exit
+_ZN17CompilationPolicy22is_compilation_enabledEv.exit.thread: ; preds = %_ZN17CompilationPolicy22is_compilation_enabledEv.exit, %33, %35, %_ZN17CompilationPolicy10call_eventERK12methodHandle9CompLevelP6Thread.exit
   ret void
 }
 
@@ -2897,72 +2879,6 @@ declare noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef nonnull 
 declare noundef zeroext i1 @_ZN13CompileBroker23compilation_is_in_queueERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 comdat align 2 {
-  %6 = alloca double, align 8
-  %7 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %6) #12
-  %8 = load double, ptr %6, align 8
-  %9 = fmul double %4, %8
-  %.0 = select i1 %7, double %9, double %4
-  switch i8 %1, label %46 [
-    i8 0, label %10
-    i8 2, label %10
-    i8 3, label %28
-  ]
-
-10:                                               ; preds = %5, %5
-  %11 = sitofp i32 %2 to double
-  %12 = load i64, ptr @Tier3InvocationThreshold, align 8
-  %13 = sitofp i64 %12 to double
-  %14 = fmul double %.0, %13
-  %15 = fcmp ugt double %14, %11
-  br i1 %15, label %16, label %46
-
-16:                                               ; preds = %10
-  %17 = load i64, ptr @Tier3MinInvocationThreshold, align 8
-  %18 = sitofp i64 %17 to double
-  %19 = fmul double %.0, %18
-  %20 = fcmp ugt double %19, %11
-  br i1 %20, label %46, label %21
-
-21:                                               ; preds = %16
-  %22 = add nsw i32 %3, %2
-  %23 = sitofp i32 %22 to double
-  %24 = load i64, ptr @Tier3CompileThreshold, align 8
-  %25 = sitofp i64 %24 to double
-  %26 = fmul double %.0, %25
-  %27 = fcmp ole double %26, %23
-  br label %46
-
-28:                                               ; preds = %5
-  %29 = sitofp i32 %2 to double
-  %30 = load i64, ptr @Tier4InvocationThreshold, align 8
-  %31 = sitofp i64 %30 to double
-  %32 = fmul double %.0, %31
-  %33 = fcmp ugt double %32, %29
-  br i1 %33, label %34, label %46
-
-34:                                               ; preds = %28
-  %35 = load i64, ptr @Tier4MinInvocationThreshold, align 8
-  %36 = sitofp i64 %35 to double
-  %37 = fmul double %.0, %36
-  %38 = fcmp ugt double %37, %29
-  br i1 %38, label %46, label %39
-
-39:                                               ; preds = %34
-  %40 = add nsw i32 %3, %2
-  %41 = sitofp i32 %40 to double
-  %42 = load i64, ptr @Tier4CompileThreshold, align 8
-  %43 = sitofp i64 %42 to double
-  %44 = fmul double %.0, %43
-  %45 = fcmp ole double %44, %41
-  br label %46
-
-46:                                               ; preds = %5, %28, %39, %34, %10, %21, %16
-  %.017 = phi i1 [ true, %10 ], [ false, %16 ], [ %27, %21 ], [ true, %28 ], [ false, %34 ], [ %45, %39 ], [ true, %5 ]
-  ret i1 %.017
-}
-
-; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN17CompilationPolicy9is_matureEP6Method(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca double, align 8
   %3 = alloca double, align 8
@@ -3272,15 +3188,13 @@ define linkonce_odr hidden noundef signext i8 @_ZN17CompilationPolicy6commonI13L
   %7 = load ptr, ptr %0, align 8
   %8 = tail call noundef i32 @_ZNK6Method14backedge_countEv(ptr noundef nonnull align 8 dereferenceable(88) %7) #12
   %9 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %.not6.i = icmp eq i32 %9, 2
-  br i1 %.not6.i, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, label %10
-
-10:                                               ; preds = %3
+  %10 = icmp ne i32 %9, 2
   %11 = load i8, ptr @UseJVMCICompiler, align 1
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
+  %or.cond.i = select i1 %10, i1 %12, i1 false
+  br i1 %or.cond.i, label %13, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
-13:                                               ; preds = %10
+13:                                               ; preds = %3
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, label %15
@@ -3295,7 +3209,7 @@ define linkonce_odr hidden noundef signext i8 @_ZN17CompilationPolicy6commonI13L
   %20 = tail call noundef zeroext i1 @_ZN13JVMCICompiler26force_comp_at_level_simpleERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   br i1 %20, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
-_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit: ; preds = %19, %15, %13, %10, %3
+_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit: ; preds = %19, %15, %13, %3
   %21 = load ptr, ptr %0, align 8
   %22 = tail call noundef zeroext i1 @_ZNK6Method11is_accessorEv(ptr noundef nonnull align 8 dereferenceable(88) %21) #12
   br i1 %22, label %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread, label %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit
@@ -3548,71 +3462,67 @@ _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread:
   %157 = icmp eq i64 %156, 0
   %158 = select i1 %155, i1 true, i1 %157
   %.pre.i.i = load i8, ptr @TieredCompilation, align 1
-  %.pre34.i.i = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %.pre35.i.i = trunc i8 %.pre.i.i to i1
-  br i1 %158, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i
+  %.pre30.i.i = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %.pre31.i.i = trunc i8 %.pre.i.i to i1
+  br i1 %158, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i
 
 _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i: ; preds = %153
   %159 = add i64 %156, -1
   %160 = icmp ult i64 %159, 3
-  %spec.select.i.i.i.i.i = select i1 %.pre35.i.i, i1 %160, i1 false
-  %161 = icmp eq i32 %.pre34.i.i, 1
+  %spec.select.i.i.i.i.i = select i1 %.pre31.i.i, i1 %160, i1 false
+  %161 = icmp eq i32 %.pre30.i.i, 1
   %162 = or i1 %spec.select.i.i.i.i.i, %161
-  br i1 %162, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
+  br i1 %162, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i:     ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i
+_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i: ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i
   %163 = icmp eq i64 %156, 1
-  %164 = select i1 %.pre35.i.i, i1 %163, i1 false
-  br i1 %164, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i
+  %164 = select i1 %.pre31.i.i, i1 %163, i1 false
+  %165 = xor i1 %.pre31.i.i, true
+  %166 = or i1 %164, %165
+  %167 = or i1 %161, %166
+  %cond.fr.i.i = freeze i1 %167
+  %spec.select.i.i = select i1 %cond.fr.i.i, i8 1, i8 3
+  br label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
 
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  %165 = xor i1 %.pre35.i.i, true
-  %spec.select.i26.i.i = or i1 %161, %165
-  %cond.fr.i.i = freeze i1 %spec.select.i26.i.i
-  br i1 %cond.fr.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  br label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i, %153
-  %.0.i.i63 = phi i8 [ 1, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i ], [ 3, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i ], [ 4, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i ], [ 0, %153 ]
-  %166 = trunc i64 %156 to i8
-  %167 = call i8 @llvm.smin.i8(i8 %.0.i.i63, i8 %166)
-  %.1.i.i = select i1 %.pre35.i.i, i8 %167, i8 %.0.i.i63
-  switch i32 %.pre34.i.i, label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit [
-    i32 3, label %173
-    i32 1, label %168
-    i32 2, label %171
+_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i, %153
+  %.0.i.i63 = phi i8 [ %spec.select.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i ], [ 4, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i ], [ 0, %153 ]
+  %168 = trunc i64 %156 to i8
+  %169 = call i8 @llvm.smin.i8(i8 %.0.i.i63, i8 %168)
+  %.1.i.i = select i1 %.pre31.i.i, i8 %169, i8 %.0.i.i63
+  switch i32 %.pre30.i.i, label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit [
+    i32 3, label %175
+    i32 1, label %170
+    i32 2, label %173
   ]
 
-168:                                              ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-  %169 = and i8 %.1.i.i, -2
-  %or.cond.i.i = icmp eq i8 %169, 2
-  %170 = icmp eq i8 %.1.i.i, 4
-  %or.cond5.i.i = or i1 %170, %or.cond.i.i
+170:                                              ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
+  %171 = and i8 %.1.i.i, -2
+  %or.cond.i.i = icmp eq i8 %171, 2
+  %172 = icmp eq i8 %.1.i.i, 4
+  %or.cond5.i.i = or i1 %172, %or.cond.i.i
   %spec.store.select.i.i = select i1 %or.cond5.i.i, i8 1, i8 %.1.i.i
   br label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
 
-171:                                              ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-  %172 = add i8 %.1.i.i, -1
-  %or.cond11.i.i = icmp ult i8 %172, 3
+173:                                              ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
+  %174 = add i8 %.1.i.i, -1
+  %or.cond11.i.i = icmp ult i8 %174, 3
   %spec.store.select15.i.i = select i1 %or.cond11.i.i, i8 0, i8 %.1.i.i
   br label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
 
-173:                                              ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-  %174 = and i8 %.1.i.i, -2
-  %or.cond14.i.i = icmp eq i8 %174, 2
+175:                                              ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
+  %176 = and i8 %.1.i.i, -2
+  %or.cond14.i.i = icmp eq i8 %176, 2
   %spec.store.select16.i.i = select i1 %or.cond14.i.i, i8 1, i8 %.1.i.i
   br label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
 
-_ZN17CompilationPolicy11limit_levelE9CompLevel.exit: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i, %168, %171, %173
-  %.2.i.i = phi i8 [ %spec.store.select.i.i, %168 ], [ %spec.store.select15.i.i, %171 ], [ %spec.store.select16.i.i, %173 ], [ %.1.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i ]
-  %175 = call noundef i8 @llvm.smin.i8(i8 %.0, i8 %.2.i.i)
+_ZN17CompilationPolicy11limit_levelE9CompLevel.exit: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, %170, %173, %175
+  %.2.i.i = phi i8 [ %spec.store.select.i.i, %170 ], [ %spec.store.select15.i.i, %173 ], [ %spec.store.select16.i.i, %175 ], [ %.1.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i ]
+  %177 = call noundef i8 @llvm.smin.i8(i8 %.0, i8 %.2.i.i)
   br label %.thread
 
 .thread:                                          ; preds = %39, %36, %_ZN13CompileBroker10queue_sizeEi.exit58, %124, %_ZN13CompileBroker10queue_sizeEi.exit54, %110, %126, %32, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
-  %176 = phi i8 [ %175, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit ], [ %1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread ], [ %1, %32 ], [ 3, %126 ], [ 2, %110 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit54 ], [ 2, %124 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit58 ], [ 0, %36 ], [ 0, %39 ]
-  ret i8 %176
+  %178 = phi i8 [ %177, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit ], [ %1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread ], [ %1, %32 ], [ 3, %126 ], [ 2, %110 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit54 ], [ 2, %124 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit58 ], [ 0, %36 ], [ 0, %39 ]
+  ret i8 %178
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3623,15 +3533,13 @@ define linkonce_odr hidden noundef signext i8 @_ZN17CompilationPolicy6commonI13C
   %7 = load ptr, ptr %0, align 8
   %8 = tail call noundef i32 @_ZNK6Method14backedge_countEv(ptr noundef nonnull align 8 dereferenceable(88) %7) #12
   %9 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %.not6.i = icmp eq i32 %9, 2
-  br i1 %.not6.i, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, label %10
-
-10:                                               ; preds = %3
+  %10 = icmp ne i32 %9, 2
   %11 = load i8, ptr @UseJVMCICompiler, align 1
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
+  %or.cond.i = select i1 %10, i1 %12, i1 false
+  br i1 %or.cond.i, label %13, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
-13:                                               ; preds = %10
+13:                                               ; preds = %3
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, label %15
@@ -3646,7 +3554,7 @@ define linkonce_odr hidden noundef signext i8 @_ZN17CompilationPolicy6commonI13C
   %20 = tail call noundef zeroext i1 @_ZN13JVMCICompiler26force_comp_at_level_simpleERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   br i1 %20, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
-_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit: ; preds = %19, %15, %13, %10, %3
+_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit: ; preds = %19, %15, %13, %3
   %21 = load ptr, ptr %0, align 8
   %22 = tail call noundef zeroext i1 @_ZNK6Method11is_accessorEv(ptr noundef nonnull align 8 dereferenceable(88) %21) #12
   br i1 %22, label %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread, label %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit
@@ -3899,71 +3807,67 @@ _ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread:
   %157 = icmp eq i64 %156, 0
   %158 = select i1 %155, i1 true, i1 %157
   %.pre.i.i = load i8, ptr @TieredCompilation, align 1
-  %.pre34.i.i = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %.pre35.i.i = trunc i8 %.pre.i.i to i1
-  br i1 %158, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i
+  %.pre30.i.i = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %.pre31.i.i = trunc i8 %.pre.i.i to i1
+  br i1 %158, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i
 
 _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i: ; preds = %153
   %159 = add i64 %156, -1
   %160 = icmp ult i64 %159, 3
-  %spec.select.i.i.i.i.i = select i1 %.pre35.i.i, i1 %160, i1 false
-  %161 = icmp eq i32 %.pre34.i.i, 1
+  %spec.select.i.i.i.i.i = select i1 %.pre31.i.i, i1 %160, i1 false
+  %161 = icmp eq i32 %.pre30.i.i, 1
   %162 = or i1 %spec.select.i.i.i.i.i, %161
-  br i1 %162, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
+  br i1 %162, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i:     ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i
+_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i: ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i
   %163 = icmp eq i64 %156, 1
-  %164 = select i1 %.pre35.i.i, i1 %163, i1 false
-  br i1 %164, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i
+  %164 = select i1 %.pre31.i.i, i1 %163, i1 false
+  %165 = xor i1 %.pre31.i.i, true
+  %166 = or i1 %164, %165
+  %167 = or i1 %161, %166
+  %cond.fr.i.i = freeze i1 %167
+  %spec.select.i.i = select i1 %cond.fr.i.i, i8 1, i8 3
+  br label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
 
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  %165 = xor i1 %.pre35.i.i, true
-  %spec.select.i26.i.i = or i1 %161, %165
-  %cond.fr.i.i = freeze i1 %spec.select.i26.i.i
-  br i1 %cond.fr.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  br label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i, %153
-  %.0.i.i63 = phi i8 [ 1, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i ], [ 3, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i ], [ 4, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i ], [ 0, %153 ]
-  %166 = trunc i64 %156 to i8
-  %167 = call i8 @llvm.smin.i8(i8 %.0.i.i63, i8 %166)
-  %.1.i.i = select i1 %.pre35.i.i, i8 %167, i8 %.0.i.i63
-  switch i32 %.pre34.i.i, label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit [
-    i32 3, label %173
-    i32 1, label %168
-    i32 2, label %171
+_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i, %153
+  %.0.i.i63 = phi i8 [ %spec.select.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i ], [ 4, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i ], [ 0, %153 ]
+  %168 = trunc i64 %156 to i8
+  %169 = call i8 @llvm.smin.i8(i8 %.0.i.i63, i8 %168)
+  %.1.i.i = select i1 %.pre31.i.i, i8 %169, i8 %.0.i.i63
+  switch i32 %.pre30.i.i, label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit [
+    i32 3, label %175
+    i32 1, label %170
+    i32 2, label %173
   ]
 
-168:                                              ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-  %169 = and i8 %.1.i.i, -2
-  %or.cond.i.i = icmp eq i8 %169, 2
-  %170 = icmp eq i8 %.1.i.i, 4
-  %or.cond5.i.i = or i1 %170, %or.cond.i.i
+170:                                              ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
+  %171 = and i8 %.1.i.i, -2
+  %or.cond.i.i = icmp eq i8 %171, 2
+  %172 = icmp eq i8 %.1.i.i, 4
+  %or.cond5.i.i = or i1 %172, %or.cond.i.i
   %spec.store.select.i.i = select i1 %or.cond5.i.i, i8 1, i8 %.1.i.i
   br label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
 
-171:                                              ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-  %172 = add i8 %.1.i.i, -1
-  %or.cond11.i.i = icmp ult i8 %172, 3
+173:                                              ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
+  %174 = add i8 %.1.i.i, -1
+  %or.cond11.i.i = icmp ult i8 %174, 3
   %spec.store.select15.i.i = select i1 %or.cond11.i.i, i8 0, i8 %.1.i.i
   br label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
 
-173:                                              ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i
-  %174 = and i8 %.1.i.i, -2
-  %or.cond14.i.i = icmp eq i8 %174, 2
+175:                                              ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
+  %176 = and i8 %.1.i.i, -2
+  %or.cond14.i.i = icmp eq i8 %176, 2
   %spec.store.select16.i.i = select i1 %or.cond14.i.i, i8 1, i8 %.1.i.i
   br label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
 
-_ZN17CompilationPolicy11limit_levelE9CompLevel.exit: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i, %168, %171, %173
-  %.2.i.i = phi i8 [ %spec.store.select.i.i, %168 ], [ %spec.store.select15.i.i, %171 ], [ %spec.store.select16.i.i, %173 ], [ %.1.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread29.i.i ]
-  %175 = call noundef i8 @llvm.smin.i8(i8 %.0, i8 %.2.i.i)
+_ZN17CompilationPolicy11limit_levelE9CompLevel.exit: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i, %170, %173, %175
+  %.2.i.i = phi i8 [ %spec.store.select.i.i, %170 ], [ %spec.store.select15.i.i, %173 ], [ %spec.store.select16.i.i, %175 ], [ %.1.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i ]
+  %177 = call noundef i8 @llvm.smin.i8(i8 %.0, i8 %.2.i.i)
   br label %.thread
 
 .thread:                                          ; preds = %39, %36, %_ZN13CompileBroker10queue_sizeEi.exit58, %124, %_ZN13CompileBroker10queue_sizeEi.exit54, %110, %126, %32, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit
-  %176 = phi i8 [ %175, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit ], [ %1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread ], [ %1, %32 ], [ 3, %126 ], [ 2, %110 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit54 ], [ 2, %124 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit58 ], [ 0, %36 ], [ 0, %39 ]
-  ret i8 %176
+  %178 = phi i8 [ %177, %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit ], [ %1, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread ], [ %1, %32 ], [ 3, %126 ], [ 2, %110 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit54 ], [ 2, %124 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit58 ], [ 0, %36 ], [ 0, %39 ]
+  ret i8 %178
 }
 
 ; Function Attrs: noreturn
@@ -3994,99 +3898,130 @@ define hidden noundef signext i8 @_ZN17CompilationPolicy10loop_eventERK12methodH
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN17CompilationPolicy17should_create_mdoERK12methodHandle9CompLevel(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca double, align 8
-  %.not = icmp eq i8 %1, 0
-  br i1 %.not, label %4, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
+  %4 = alloca double, align 8
+  %.not14 = icmp eq i8 %1, 0
+  br i1 %.not14, label %5, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
-4:                                                ; preds = %2
-  %5 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %.not6.i = icmp eq i32 %5, 2
-  br i1 %.not6.i, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread18, label %6
+5:                                                ; preds = %2
+  %6 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %7 = icmp ne i32 %6, 2
+  %8 = load i8, ptr @UseJVMCICompiler, align 1
+  %9 = trunc i8 %8 to i1
+  %or.cond.i = select i1 %7, i1 %9, i1 false
+  br i1 %or.cond.i, label %10, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
-6:                                                ; preds = %4
-  %7 = load i8, ptr @UseJVMCICompiler, align 1
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
+10:                                               ; preds = %5
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, label %12
 
-9:                                                ; preds = %6
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
-  %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, label %11
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %14 = load i8, ptr %13, align 8
+  %15 = icmp eq i8 %14, 3
+  br i1 %15, label %16, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %13 = load i8, ptr %12, align 8
-  %14 = icmp eq i8 %13, 3
-  br i1 %14, label %15, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
+16:                                               ; preds = %12
+  %17 = tail call noundef zeroext i1 @_ZN13JVMCICompiler26force_comp_at_level_simpleERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(200) %11, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  br i1 %17, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %._ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit_crit_edge
 
-15:                                               ; preds = %11
-  %16 = tail call noundef zeroext i1 @_ZN13JVMCICompiler26force_comp_at_level_simpleERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(200) %10, ptr noundef nonnull align 8 dereferenceable(16) %0) #12
-  br i1 %16, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %._ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exitthread-pre-split_crit_edge
-
-._ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exitthread-pre-split_crit_edge: ; preds = %15
-  %.pr.pre = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+._ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit_crit_edge: ; preds = %16
+  %.pre = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
 
-_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit: ; preds = %11, %9, %._ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exitthread-pre-split_crit_edge, %6
-  %17 = phi i32 [ %5, %6 ], [ %.pr.pre, %._ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exitthread-pre-split_crit_edge ], [ %5, %9 ], [ %5, %11 ]
-  %18 = icmp eq i32 %17, 1
-  br i1 %18, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread18
+_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit: ; preds = %._ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit_crit_edge, %12, %10, %5
+  %18 = phi i32 [ %.pre, %._ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit_crit_edge ], [ %6, %12 ], [ %6, %10 ], [ %6, %5 ]
+  %19 = icmp ne i32 %18, 1
+  %20 = load i8, ptr @ProfileInterpreter, align 1
+  %21 = trunc i8 %20 to i1
+  %or.cond = select i1 %19, i1 %21, i1 false
+  br i1 %or.cond, label %22, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
-_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread18: ; preds = %4, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
-  %19 = load i8, ptr @ProfileInterpreter, align 1
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
+22:                                               ; preds = %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
+  %23 = tail call noundef zeroext i1 @_ZN17CompilationPolicy6is_oldERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  br i1 %23, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %24
 
-21:                                               ; preds = %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread18
-  %22 = tail call noundef zeroext i1 @_ZN17CompilationPolicy6is_oldERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br i1 %22, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %23
+24:                                               ; preds = %22
+  %25 = load ptr, ptr %0, align 8
+  %26 = tail call noundef i32 @_ZNK6Method16invocation_countEv(ptr noundef nonnull align 8 dereferenceable(88) %25) #12
+  %27 = load ptr, ptr %0, align 8
+  %28 = tail call noundef i32 @_ZNK6Method14backedge_countEv(ptr noundef nonnull align 8 dereferenceable(88) %27) #12
+  %29 = load i64, ptr @Tier0ProfilingStartPercentage, align 8
+  %30 = sitofp i64 %29 to double
+  %31 = fdiv double %30, 1.000000e+02
+  %32 = tail call noundef ptr @_ZN13CompileBroker13compile_queueEi(i32 noundef 4) #12
+  %.not.i16 = icmp eq ptr %32, null
+  br i1 %.not.i16, label %_ZN13CompileBroker10queue_sizeEi.exit, label %33
 
-23:                                               ; preds = %21
-  %24 = load ptr, ptr %0, align 8
-  %25 = tail call noundef i32 @_ZNK6Method16invocation_countEv(ptr noundef nonnull align 8 dereferenceable(88) %24) #12
-  %26 = load ptr, ptr %0, align 8
-  %27 = tail call noundef i32 @_ZNK6Method14backedge_countEv(ptr noundef nonnull align 8 dereferenceable(88) %26) #12
-  %28 = load i64, ptr @Tier0ProfilingStartPercentage, align 8
-  %29 = sitofp i64 %28 to double
-  %30 = fdiv double %29, 1.000000e+02
-  %31 = tail call noundef ptr @_ZN13CompileBroker13compile_queueEi(i32 noundef 4) #12
-  %.not.i14 = icmp eq ptr %31, null
-  br i1 %.not.i14, label %_ZN13CompileBroker10queue_sizeEi.exit, label %32
-
-32:                                               ; preds = %23
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %34 = load i32, ptr %33, align 8
-  %35 = sext i32 %34 to i64
+33:                                               ; preds = %24
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %35 = load i32, ptr %34, align 8
+  %36 = sext i32 %35 to i64
   br label %_ZN13CompileBroker10queue_sizeEi.exit
 
-_ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %23, %32
-  %36 = phi i64 [ %35, %32 ], [ 0, %23 ]
-  %37 = load i64, ptr @Tier0Delay, align 8
-  %38 = load i32, ptr @_ZN17CompilationPolicy9_c2_countE, align 4
-  %39 = sext i32 %38 to i64
-  %40 = mul nsw i64 %37, %39
-  %.not13 = icmp slt i64 %40, %36
-  br i1 %.not13, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %41
+_ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %24, %33
+  %37 = phi i64 [ %36, %33 ], [ 0, %24 ]
+  %38 = load i64, ptr @Tier0Delay, align 8
+  %39 = load i32, ptr @_ZN17CompilationPolicy9_c2_countE, align 4
+  %40 = sext i32 %39 to i64
+  %41 = mul nsw i64 %38, %40
+  %.not15 = icmp slt i64 %41, %37
+  br i1 %.not15, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %42
 
-41:                                               ; preds = %_ZN13CompileBroker10queue_sizeEi.exit
-  %42 = tail call noundef zeroext i1 @_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext 0, i32 noundef %25, i32 noundef %27, double noundef %30)
-  br i1 %42, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %43
+42:                                               ; preds = %_ZN13CompileBroker10queue_sizeEi.exit
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  %43 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+  %44 = load double, ptr %4, align 8
+  %45 = select i1 %43, double %44, double 1.000000e+00
+  %.0.i18 = fmul double %31, %45
+  %46 = sitofp i32 %26 to double
+  %47 = load i64, ptr @Tier3InvocationThreshold, align 8
+  %48 = sitofp i64 %47 to double
+  %49 = fmul double %.0.i18, %48
+  %50 = fcmp ugt double %49, %46
+  br i1 %50, label %51, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread
 
-43:                                               ; preds = %41
+_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread: ; preds = %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
+
+51:                                               ; preds = %42
+  %52 = load i64, ptr @Tier3MinInvocationThreshold, align 8
+  %53 = sitofp i64 %52 to double
+  %54 = fmul double %.0.i18, %53
+  %55 = fcmp ugt double %54, %46
+  br i1 %55, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread22, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
+
+_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread22: ; preds = %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  br label %62
+
+_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %51
+  %56 = add nsw i32 %28, %26
+  %57 = sitofp i32 %56 to double
+  %58 = load i64, ptr @Tier3CompileThreshold, align 8
+  %59 = sitofp i64 %58 to double
+  %60 = fmul double %.0.i18, %59
+  %61 = fcmp ugt double %60, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  br i1 %61, label %62, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
+
+62:                                               ; preds = %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread22, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %44 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  %45 = load double, ptr %3, align 8
-  %46 = select i1 %44, double %45, double 1.000000e+00
-  %.0.i16 = fmul double %30, %46
-  %47 = sitofp i32 %27 to double
-  %48 = load i64, ptr @Tier3BackEdgeThreshold, align 8
-  %49 = sitofp i64 %48 to double
-  %50 = fmul double %.0.i16, %49
-  %51 = fcmp ole double %50, %47
+  %63 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %3) #12
+  %64 = load double, ptr %3, align 8
+  %65 = select i1 %63, double %64, double 1.000000e+00
+  %.0.i19 = fmul double %31, %65
+  %66 = sitofp i32 %28 to double
+  %67 = load i64, ptr @Tier3BackEdgeThreshold, align 8
+  %68 = sitofp i64 %67 to double
+  %69 = fmul double %.0.i19, %68
+  %70 = fcmp ole double %69, %66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
-_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread: ; preds = %15, %_ZN13CompileBroker10queue_sizeEi.exit, %41, %43, %21, %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread18
-  %.0 = phi i1 [ false, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread18 ], [ false, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit ], [ false, %2 ], [ true, %21 ], [ true, %41 ], [ %51, %43 ], [ false, %_ZN13CompileBroker10queue_sizeEi.exit ], [ false, %15 ]
+_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread: ; preds = %16, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread, %_ZN13CompileBroker10queue_sizeEi.exit, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit, %62, %22, %2, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
+  %.0 = phi i1 [ false, %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit ], [ false, %2 ], [ true, %22 ], [ true, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit ], [ %70, %62 ], [ false, %_ZN13CompileBroker10queue_sizeEi.exit ], [ true, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread ], [ false, %16 ]
   ret i1 %.0
 }
 

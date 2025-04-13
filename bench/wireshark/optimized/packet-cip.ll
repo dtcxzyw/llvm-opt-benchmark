@@ -5891,14 +5891,14 @@ proto_item_set_hidden.exit.i.i:                   ; preds = %558, %555, %552
   %569 = zext i8 %568 to i32
   %570 = load i32, ptr @hf_cip_seg_network_size, align 4
   %571 = tail call ptr @proto_tree_add_uint(ptr noundef %.0235, i32 noundef %570, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %564)
-  %.not.i185.i.i = icmp eq ptr %571, null
-  br i1 %.not.i185.i.i, label %proto_item_set_generated.exit.i86.i, label %572
+  %.not.i187.i.i = icmp eq ptr %571, null
+  br i1 %.not.i187.i.i, label %proto_item_set_generated.exit.i86.i, label %572
 
 572:                                              ; preds = %566
   %573 = getelementptr inbounds nuw i8, ptr %571, i64 40
   %574 = load ptr, ptr %573, align 8
-  %.not5.i186.i.i = icmp eq ptr %574, null
-  br i1 %.not5.i186.i.i, label %proto_item_set_generated.exit.i86.i, label %575
+  %.not5.i188.i.i = icmp eq ptr %574, null
+  br i1 %.not5.i188.i.i, label %proto_item_set_generated.exit.i86.i, label %575
 
 575:                                              ; preds = %572
   %576 = getelementptr inbounds nuw i8, ptr %574, i64 28
@@ -5910,14 +5910,14 @@ proto_item_set_hidden.exit.i.i:                   ; preds = %558, %555, %552
 proto_item_set_generated.exit.i86.i:              ; preds = %575, %572, %566
   %579 = load i32, ptr @hf_cip_seg_safety_format, align 4
   %580 = tail call ptr @proto_tree_add_uint(ptr noundef %.0235, i32 noundef %579, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %569)
-  %.not.i187.i.i = icmp eq ptr %580, null
-  br i1 %.not.i187.i.i, label %dissect_segment_safety.exit.i, label %581
+  %.not.i189.i.i = icmp eq ptr %580, null
+  br i1 %.not.i189.i.i, label %dissect_segment_safety.exit.i, label %581
 
 581:                                              ; preds = %proto_item_set_generated.exit.i86.i
   %582 = getelementptr inbounds nuw i8, ptr %580, i64 40
   %583 = load ptr, ptr %582, align 8
-  %.not5.i188.i.i = icmp eq ptr %583, null
-  br i1 %.not5.i188.i.i, label %dissect_segment_safety.exit.i, label %584
+  %.not5.i190.i.i = icmp eq ptr %583, null
+  br i1 %.not5.i190.i.i, label %dissect_segment_safety.exit.i, label %584
 
 584:                                              ; preds = %581
   %585 = getelementptr inbounds nuw i8, ptr %583, i64 28
@@ -5953,8 +5953,8 @@ proto_item_set_generated.exit.i86.i:              ; preds = %575, %572, %566
   ]
 
 603:                                              ; preds = %598
-  %.not183.i.i = icmp eq ptr %8, null
-  br i1 %.not183.i.i, label %606, label %604
+  %.not185.i.i = icmp eq ptr %8, null
+  br i1 %.not185.i.i, label %606, label %604
 
 604:                                              ; preds = %603
   %605 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -6025,8 +6025,8 @@ proto_item_set_generated.exit.i86.i:              ; preds = %575, %572, %566
   br label %764
 
 664:                                              ; preds = %598
-  %.not182.i.i = icmp eq ptr %8, null
-  br i1 %.not182.i.i, label %667, label %665
+  %.not184.i.i = icmp eq ptr %8, null
+  br i1 %.not184.i.i, label %667, label %665
 
 665:                                              ; preds = %664
   %666 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -6144,36 +6144,36 @@ proto_item_set_generated.exit.i86.i:              ; preds = %575, %572, %566
   br label %764
 
 .thread.i85.i:                                    ; preds = %667, %598
-  %.not198.i.i = icmp eq ptr %8, null
-  br i1 %.not198.i.i, label %802, label %797
+  %.not194.i.i = icmp eq ptr %8, null
+  br i1 %.not194.i.i, label %802, label %797
 
 764:                                              ; preds = %697, %606
   %hf_cip_seg_safety_conn_param_crc.sink.i.i = phi ptr [ @hf_cip_seg_safety_conn_param_crc, %697 ], [ @hf_cip_seg_safety_timeout_multiplier, %606 ]
-  %.sink210.i.i = phi i32 [ 50, %697 ], [ 46, %606 ]
-  %.sink209.i.i = phi i32 [ 4, %697 ], [ 1, %606 ]
+  %.sink206.i.i = phi i32 [ 50, %697 ], [ 46, %606 ]
+  %.sink205.i.i = phi i32 [ 4, %697 ], [ 1, %606 ]
   %hf_cip_seg_safety_time_correction_conn_id.sink.i.i = phi ptr [ @hf_cip_seg_safety_time_correction_conn_id, %697 ], [ @hf_cip_seg_safety_max_consumer_number, %606 ]
-  %.sink207.i.i = phi i32 [ 54, %697 ], [ 47, %606 ]
+  %.sink203.i.i = phi i32 [ 54, %697 ], [ 47, %606 ]
   %hf_cip_seg_safety_init_timestamp.sink.i.i = phi ptr [ @hf_cip_seg_safety_init_timestamp, %697 ], [ @hf_cip_seg_safety_conn_param_crc, %606 ]
-  %.sink204.i.i = phi i32 [ 58, %697 ], [ 48, %606 ]
-  %.sink203.i.i = phi i32 [ 2, %697 ], [ 4, %606 ]
+  %.sink200.i.i = phi i32 [ 58, %697 ], [ 48, %606 ]
+  %.sink199.i.i = phi i32 [ 2, %697 ], [ 4, %606 ]
   %hf_cip_seg_safety_init_rollover.sink.i.i = phi ptr [ @hf_cip_seg_safety_init_rollover, %697 ], [ @hf_cip_seg_safety_time_correction_conn_id, %606 ]
-  %.sink201.i.i = phi i32 [ 60, %697 ], [ 52, %606 ]
+  %.sink197.i.i = phi i32 [ 60, %697 ], [ 52, %606 ]
   %765 = load i32, ptr %hf_cip_seg_safety_conn_param_crc.sink.i.i, align 4
-  %766 = add i32 %.sink210.i.i, %2
-  %767 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %765, ptr noundef %1, i32 noundef %766, i32 noundef %.sink209.i.i, i32 noundef -2147483648)
+  %766 = add i32 %.sink206.i.i, %2
+  %767 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %765, ptr noundef %1, i32 noundef %766, i32 noundef %.sink205.i.i, i32 noundef -2147483648)
   %768 = load i32, ptr %hf_cip_seg_safety_time_correction_conn_id.sink.i.i, align 4
-  %769 = add i32 %.sink207.i.i, %2
-  %770 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %768, ptr noundef %1, i32 noundef %769, i32 noundef %.sink209.i.i, i32 noundef -2147483648)
+  %769 = add i32 %.sink203.i.i, %2
+  %770 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %768, ptr noundef %1, i32 noundef %769, i32 noundef %.sink205.i.i, i32 noundef -2147483648)
   %771 = load i32, ptr %hf_cip_seg_safety_init_timestamp.sink.i.i, align 4
-  %772 = add i32 %.sink204.i.i, %2
-  %773 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %771, ptr noundef %1, i32 noundef %772, i32 noundef %.sink203.i.i, i32 noundef -2147483648)
+  %772 = add i32 %.sink200.i.i, %2
+  %773 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %771, ptr noundef %1, i32 noundef %772, i32 noundef %.sink199.i.i, i32 noundef -2147483648)
   %774 = load i32, ptr %hf_cip_seg_safety_init_rollover.sink.i.i, align 4
-  %775 = add i32 %.sink201.i.i, %2
-  %776 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %774, ptr noundef %1, i32 noundef %775, i32 noundef %.sink203.i.i, i32 noundef -2147483648)
-  %777 = icmp eq ptr %8, null
-  %778 = icmp eq ptr %7, null
-  %or.cond.not197.i.i = or i1 %778, %777
-  br i1 %or.cond.not197.i.i, label %796, label %779
+  %775 = add i32 %.sink197.i.i, %2
+  %776 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %774, ptr noundef %1, i32 noundef %775, i32 noundef %.sink199.i.i, i32 noundef -2147483648)
+  %777 = icmp ne ptr %8, null
+  %778 = icmp ne ptr %7, null
+  %or.cond3.i.i = and i1 %778, %777
+  br i1 %or.cond3.i.i, label %779, label %796
 
 779:                                              ; preds = %764
   %780 = add i32 %2, 4
@@ -6206,7 +6206,7 @@ proto_item_set_generated.exit.i86.i:              ; preds = %575, %572, %566
   br label %797
 
 796:                                              ; preds = %764
-  br i1 %777, label %802, label %797
+  br i1 %777, label %797, label %802
 
 797:                                              ; preds = %796, %795, %794, %787, %.thread.i85.i
   %798 = load i32, ptr %15, align 4
@@ -6227,8 +6227,8 @@ proto_item_set_generated.exit.i86.i:              ; preds = %575, %572, %566
   br label %806
 
 806:                                              ; preds = %803, %802
-  %.not184.i.i = icmp eq ptr %8, null
-  br i1 %.not184.i.i, label %dissect_segment_safety.exit.i, label %807
+  %.not186.i.i = icmp eq ptr %8, null
+  br i1 %.not186.i.i, label %dissect_segment_safety.exit.i, label %807
 
 807:                                              ; preds = %806
   store i8 1, ptr %8, align 4

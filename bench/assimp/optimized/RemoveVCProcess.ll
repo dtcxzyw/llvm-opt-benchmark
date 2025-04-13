@@ -514,33 +514,33 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
 8:                                                ; preds = %6, %2
   %9 = phi i32 [ %.pre, %6 ], [ %4, %2 ]
   %10 = and i32 %9, 2
-  %.not66 = icmp eq i32 %10, 0
-  br i1 %.not66, label %15, label %11
+  %.not69 = icmp eq i32 %10, 0
+  br i1 %.not69, label %15, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
-  %.not67 = icmp eq ptr %13, null
-  br i1 %.not67, label %15, label %14
+  %.not70 = icmp eq ptr %13, null
+  br i1 %.not70, label %15, label %14
 
 14:                                               ; preds = %11
   tail call void @_ZdaPv(ptr noundef nonnull %13) #14
   store ptr null, ptr %12, align 8
-  %.pre137 = load i32, ptr %3, align 8
+  %.pre141 = load i32, ptr %3, align 8
   br label %15
 
 15:                                               ; preds = %14, %11, %8
-  %16 = phi i32 [ %.pre137, %14 ], [ %9, %11 ], [ %9, %8 ]
-  %.059 = phi i1 [ true, %14 ], [ false, %11 ], [ false, %8 ]
+  %16 = phi i32 [ %.pre141, %14 ], [ %9, %11 ], [ %9, %8 ]
+  %.062 = phi i1 [ true, %14 ], [ false, %11 ], [ false, %8 ]
   %17 = and i32 %16, 4
-  %.not68 = icmp eq i32 %17, 0
-  br i1 %.not68, label %27, label %18
+  %.not71 = icmp eq i32 %17, 0
+  br i1 %.not71, label %27, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
-  %.not69 = icmp eq ptr %20, null
-  br i1 %.not69, label %27, label %21
+  %.not72 = icmp eq ptr %20, null
+  br i1 %.not72, label %27, label %21
 
 21:                                               ; preds = %18
   tail call void @_ZdaPv(ptr noundef nonnull %20) #14
@@ -556,204 +556,204 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
 
 26:                                               ; preds = %25, %21
   store ptr null, ptr %22, align 8
-  %.pre138 = load i32, ptr %3, align 8
+  %.pre142 = load i32, ptr %3, align 8
   br label %27
 
 27:                                               ; preds = %26, %18, %15
-  %28 = phi i32 [ %.pre138, %26 ], [ %16, %18 ], [ %16, %15 ]
-  %.160 = phi i1 [ true, %26 ], [ %.059, %18 ], [ %.059, %15 ]
-  %.fr113 = freeze i32 %28
-  %29 = and i32 %.fr113, 16
-  %.not70.not = icmp eq i32 %29, 0
+  %28 = phi i32 [ %.pre142, %26 ], [ %16, %18 ], [ %16, %15 ]
+  %.163 = phi i1 [ true, %26 ], [ %.062, %18 ], [ %.062, %15 ]
+  %.fr = freeze i32 %28
+  %29 = and i32 %.fr, 16
+  %.not113 = icmp eq i32 %29, 0
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  br i1 %.not70.not, label %.split, label %.split.us
+  br i1 %.not113, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %27
   %32 = load ptr, ptr %30, align 8
-  %.not71.us88 = icmp eq ptr %32, null
-  br i1 %.not71.us88, label %.split87.us, label %.lr.ph91
+  %.not73.us86 = icmp eq ptr %32, null
+  br i1 %.not73.us86, label %.split85.us, label %.lr.ph89
 
-33:                                               ; preds = %.lr.ph91
+33:                                               ; preds = %.lr.ph89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = getelementptr inbounds nuw [8 x ptr], ptr %30, i64 0, i64 %indvars.iv.next
   %35 = load ptr, ptr %34, align 8
-  %.not71.us = icmp eq ptr %35, null
-  br i1 %.not71.us, label %.split87.us, label %.lr.ph91, !llvm.loop !11
+  %.not73.us = icmp eq ptr %35, null
+  br i1 %.not73.us, label %.split85.us, label %.lr.ph89, !llvm.loop !11
 
-.lr.ph91:                                         ; preds = %.split.us, %33
+.lr.ph89:                                         ; preds = %.split.us, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.split.us ]
   %36 = phi ptr [ %35, %33 ], [ %32, %.split.us ]
   %37 = phi ptr [ %34, %33 ], [ %30, %.split.us ]
   tail call void @_ZdaPv(ptr noundef nonnull %36) #14
   store ptr null, ptr %37, align 8
   %exitcond.not = icmp eq i64 %indvars.iv, 7
-  br i1 %exitcond.not, label %..split87.us_crit_edge, label %33, !llvm.loop !11
+  br i1 %exitcond.not, label %..split85.us_crit_edge, label %33, !llvm.loop !11
 
-..split87.us_crit_edge:                           ; preds = %.lr.ph91
-  br label %.split87.us, !llvm.loop !11
+..split85.us_crit_edge:                           ; preds = %.lr.ph89
+  br label %.split85.us, !llvm.loop !11
 
 .split:                                           ; preds = %27, %55
-  %.05685 = phi i32 [ %56, %55 ], [ 0, %27 ]
-  %.05784 = phi i32 [ %.158, %55 ], [ 0, %27 ]
-  %.283 = phi i1 [ %.4, %55 ], [ %.160, %27 ]
-  %38 = zext i32 %.05784 to i64
+  %.05983 = phi i32 [ %56, %55 ], [ 0, %27 ]
+  %.06082 = phi i32 [ %.161, %55 ], [ 0, %27 ]
+  %.281 = phi i1 [ %.4, %55 ], [ %.163, %27 ]
+  %38 = zext i32 %.06082 to i64
   %39 = getelementptr inbounds nuw [8 x ptr], ptr %30, i64 0, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %.not71 = icmp eq ptr %40, null
-  br i1 %.not71, label %.split87.us, label %41
+  %.not73 = icmp eq ptr %40, null
+  br i1 %.not73, label %.split85.us, label %41
 
 41:                                               ; preds = %.split
   %42 = load i32, ptr %3, align 8
-  %43 = shl nuw i32 33554432, %.05685
+  %43 = shl nuw i32 33554432, %.05983
   %44 = and i32 %42, %43
-  %.not77.not = icmp eq i32 %44, 0
-  br i1 %.not77.not, label %53, label %.preheader79
+  %.not114 = icmp eq i32 %44, 0
+  br i1 %.not114, label %53, label %.preheader77
 
-.preheader79:                                     ; preds = %41
+.preheader77:                                     ; preds = %41
   tail call void @_ZdaPv(ptr noundef nonnull %40) #14
   store ptr null, ptr %39, align 8
-  %.05580 = add i32 %.05784, 1
-  %45 = icmp ult i32 %.05580, 8
+  %.05878 = add i32 %.06082, 1
+  %45 = icmp ult i32 %.05878, 8
   br i1 %45, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader79
-  %46 = zext nneg i32 %.05580 to i64
+.lr.ph.preheader:                                 ; preds = %.preheader77
+  %46 = zext nneg i32 %.05878 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader79
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader77
   store ptr null, ptr %31, align 8
   br label %55
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv120 = phi i64 [ %46, %.lr.ph.preheader ], [ %indvars.iv.next121, %.lr.ph ]
-  %.055.in81 = phi i32 [ %.05784, %.lr.ph.preheader ], [ %51, %.lr.ph ]
-  %47 = getelementptr inbounds nuw [8 x ptr], ptr %30, i64 0, i64 %indvars.iv120
+  %indvars.iv124 = phi i64 [ %46, %.lr.ph.preheader ], [ %indvars.iv.next125, %.lr.ph ]
+  %.058.in79 = phi i32 [ %.06082, %.lr.ph.preheader ], [ %51, %.lr.ph ]
+  %47 = getelementptr inbounds nuw [8 x ptr], ptr %30, i64 0, i64 %indvars.iv124
   %48 = load ptr, ptr %47, align 8
-  %49 = zext i32 %.055.in81 to i64
+  %49 = zext i32 %.058.in79 to i64
   %50 = getelementptr inbounds nuw [8 x ptr], ptr %30, i64 0, i64 %49
   store ptr %48, ptr %50, align 8
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %51 = trunc nuw nsw i64 %indvars.iv120 to i32
-  %52 = and i64 %indvars.iv.next121, 4294967295
-  %exitcond123.not = icmp eq i64 %52, 8
-  br i1 %exitcond123.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %51 = trunc nuw nsw i64 %indvars.iv124 to i32
+  %52 = and i64 %indvars.iv.next125, 4294967295
+  %exitcond127.not = icmp eq i64 %52, 8
+  br i1 %exitcond127.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 53:                                               ; preds = %41
-  %54 = add i32 %.05784, 1
+  %54 = add i32 %.06082, 1
   br label %55
 
 55:                                               ; preds = %53, %._crit_edge
-  %.4 = phi i1 [ %.283, %53 ], [ true, %._crit_edge ]
-  %.158 = phi i32 [ %54, %53 ], [ %.05784, %._crit_edge ]
-  %56 = add nuw nsw i32 %.05685, 1
-  %exitcond124.not = icmp eq i32 %56, 8
-  br i1 %exitcond124.not, label %.split87.us, label %.split, !llvm.loop !11
+  %.4 = phi i1 [ %.281, %53 ], [ true, %._crit_edge ]
+  %.161 = phi i32 [ %54, %53 ], [ %.06082, %._crit_edge ]
+  %56 = add nuw nsw i32 %.05983, 1
+  %exitcond128.not = icmp eq i32 %56, 8
+  br i1 %exitcond128.not, label %.split85.us, label %.split, !llvm.loop !11
 
-.split87.us:                                      ; preds = %33, %55, %.split, %.split.us, %..split87.us_crit_edge
-  %.us-phi = phi i1 [ true, %..split87.us_crit_edge ], [ %.160, %.split.us ], [ %.283, %.split ], [ %.4, %55 ], [ true, %33 ]
+.split85.us:                                      ; preds = %33, %55, %.split, %.split.us, %..split85.us_crit_edge
+  %.us-phi = phi i1 [ true, %..split85.us_crit_edge ], [ %.163, %.split.us ], [ %.281, %.split ], [ %.4, %55 ], [ true, %33 ]
   %57 = load i32, ptr %3, align 8
-  %.fr114 = freeze i32 %57
-  %58 = and i32 %.fr114, 8
-  %.not72.not = icmp eq i32 %58, 0
+  %.fr116 = freeze i32 %57
+  %58 = and i32 %.fr116, 8
+  %.not117 = icmp eq i32 %58, 0
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  br i1 %.not72.not, label %.split102, label %.split102.us
+  br i1 %.not117, label %.split100, label %.split100.us
 
-.split102.us:                                     ; preds = %.split87.us
+.split100.us:                                     ; preds = %.split85.us
   %61 = load ptr, ptr %59, align 8
-  %.not73.us106 = icmp eq ptr %61, null
-  br i1 %.not73.us106, label %.split104.us, label %.lr.ph109
+  %.not74.us105 = icmp eq ptr %61, null
+  br i1 %.not74.us105, label %.split102.us, label %.lr.ph108
 
-62:                                               ; preds = %.lr.ph109
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %63 = getelementptr inbounds nuw [8 x ptr], ptr %59, i64 0, i64 %indvars.iv.next126
+62:                                               ; preds = %.lr.ph108
+  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
+  %63 = getelementptr inbounds nuw [8 x ptr], ptr %59, i64 0, i64 %indvars.iv.next130
   %64 = load ptr, ptr %63, align 8
-  %.not73.us = icmp eq ptr %64, null
-  br i1 %.not73.us, label %.split104.us, label %.lr.ph109, !llvm.loop !13
+  %.not74.us = icmp eq ptr %64, null
+  br i1 %.not74.us, label %.split102.us, label %.lr.ph108, !llvm.loop !13
 
-.lr.ph109:                                        ; preds = %.split102.us, %62
-  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %62 ], [ 0, %.split102.us ]
-  %65 = phi ptr [ %64, %62 ], [ %61, %.split102.us ]
-  %66 = phi ptr [ %63, %62 ], [ %59, %.split102.us ]
+.lr.ph108:                                        ; preds = %.split100.us, %62
+  %indvars.iv129 = phi i64 [ %indvars.iv.next130, %62 ], [ 0, %.split100.us ]
+  %65 = phi ptr [ %64, %62 ], [ %61, %.split100.us ]
+  %66 = phi ptr [ %63, %62 ], [ %59, %.split100.us ]
   tail call void @_ZdaPv(ptr noundef nonnull %65) #14
   store ptr null, ptr %66, align 8
-  %exitcond130.not = icmp eq i64 %indvars.iv125, 7
-  br i1 %exitcond130.not, label %..split104.us_crit_edge, label %62, !llvm.loop !13
+  %exitcond134.not = icmp eq i64 %indvars.iv129, 7
+  br i1 %exitcond134.not, label %..split102.us_crit_edge, label %62, !llvm.loop !13
 
-..split104.us_crit_edge:                          ; preds = %.lr.ph109
-  br label %.split104.us, !llvm.loop !13
+..split102.us_crit_edge:                          ; preds = %.lr.ph108
+  br label %.split102.us, !llvm.loop !13
 
-.split102:                                        ; preds = %.split87.us, %85
-  %.053101 = phi i32 [ %86, %85 ], [ 0, %.split87.us ]
-  %.054100 = phi i32 [ %.1, %85 ], [ 0, %.split87.us ]
-  %.599 = phi i1 [ %.7, %85 ], [ %.us-phi, %.split87.us ]
-  %67 = zext i32 %.054100 to i64
+.split100:                                        ; preds = %.split85.us, %85
+  %.05699 = phi i32 [ %86, %85 ], [ 0, %.split85.us ]
+  %.05798 = phi i32 [ %.1, %85 ], [ 0, %.split85.us ]
+  %.597 = phi i1 [ %.7, %85 ], [ %.us-phi, %.split85.us ]
+  %67 = zext i32 %.05798 to i64
   %68 = getelementptr inbounds nuw [8 x ptr], ptr %59, i64 0, i64 %67
   %69 = load ptr, ptr %68, align 8
-  %.not73 = icmp eq ptr %69, null
-  br i1 %.not73, label %.split104.us, label %70
+  %.not74 = icmp eq ptr %69, null
+  br i1 %.not74, label %.split102.us, label %70
 
-70:                                               ; preds = %.split102
+70:                                               ; preds = %.split100
   %71 = load i32, ptr %3, align 8
-  %72 = add i32 %.054100, 20
+  %72 = add i32 %.05798, 20
   %73 = shl nuw i32 1, %72
   %74 = and i32 %71, %73
-  %.not76.not = icmp eq i32 %74, 0
-  br i1 %.not76.not, label %83, label %.preheader
+  %.not118 = icmp eq i32 %74, 0
+  br i1 %.not118, label %83, label %.preheader
 
 .preheader:                                       ; preds = %70
   tail call void @_ZdaPv(ptr noundef nonnull %69) #14
   store ptr null, ptr %68, align 8
-  %.094 = add i32 %.054100, 1
-  %75 = icmp ult i32 %.094, 8
-  br i1 %75, label %.lr.ph97.preheader, label %._crit_edge98
+  %.092 = add i32 %.05798, 1
+  %75 = icmp ult i32 %.092, 8
+  br i1 %75, label %.lr.ph95.preheader, label %._crit_edge96
 
-.lr.ph97.preheader:                               ; preds = %.preheader
-  %76 = zext nneg i32 %.094 to i64
-  br label %.lr.ph97
+.lr.ph95.preheader:                               ; preds = %.preheader
+  %76 = zext nneg i32 %.092 to i64
+  br label %.lr.ph95
 
-._crit_edge98:                                    ; preds = %.lr.ph97, %.preheader
+._crit_edge96:                                    ; preds = %.lr.ph95, %.preheader
   store ptr null, ptr %60, align 8
   br label %85
 
-.lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
-  %indvars.iv131 = phi i64 [ %76, %.lr.ph97.preheader ], [ %indvars.iv.next132, %.lr.ph97 ]
-  %.0.in95 = phi i32 [ %.054100, %.lr.ph97.preheader ], [ %81, %.lr.ph97 ]
-  %77 = getelementptr inbounds nuw [8 x ptr], ptr %59, i64 0, i64 %indvars.iv131
+.lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
+  %indvars.iv135 = phi i64 [ %76, %.lr.ph95.preheader ], [ %indvars.iv.next136, %.lr.ph95 ]
+  %.0.in93 = phi i32 [ %.05798, %.lr.ph95.preheader ], [ %81, %.lr.ph95 ]
+  %77 = getelementptr inbounds nuw [8 x ptr], ptr %59, i64 0, i64 %indvars.iv135
   %78 = load ptr, ptr %77, align 8
-  %79 = zext i32 %.0.in95 to i64
+  %79 = zext i32 %.0.in93 to i64
   %80 = getelementptr inbounds nuw [8 x ptr], ptr %59, i64 0, i64 %79
   store ptr %78, ptr %80, align 8
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %81 = trunc nuw nsw i64 %indvars.iv131 to i32
-  %82 = and i64 %indvars.iv.next132, 4294967295
-  %exitcond135.not = icmp eq i64 %82, 8
-  br i1 %exitcond135.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !14
+  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
+  %81 = trunc nuw nsw i64 %indvars.iv135 to i32
+  %82 = and i64 %indvars.iv.next136, 4294967295
+  %exitcond139.not = icmp eq i64 %82, 8
+  br i1 %exitcond139.not, label %._crit_edge96, label %.lr.ph95, !llvm.loop !14
 
 83:                                               ; preds = %70
-  %84 = add i32 %.054100, 1
+  %84 = add i32 %.05798, 1
   br label %85
 
-85:                                               ; preds = %83, %._crit_edge98
-  %.7 = phi i1 [ %.599, %83 ], [ true, %._crit_edge98 ]
-  %.1 = phi i32 [ %84, %83 ], [ %.054100, %._crit_edge98 ]
-  %86 = add nuw nsw i32 %.053101, 1
-  %exitcond136.not = icmp eq i32 %86, 8
-  br i1 %exitcond136.not, label %.split104.us, label %.split102, !llvm.loop !13
+85:                                               ; preds = %83, %._crit_edge96
+  %.7 = phi i1 [ %.597, %83 ], [ true, %._crit_edge96 ]
+  %.1 = phi i32 [ %84, %83 ], [ %.05798, %._crit_edge96 ]
+  %86 = add nuw nsw i32 %.05699, 1
+  %exitcond140.not = icmp eq i32 %86, 8
+  br i1 %exitcond140.not, label %.split102.us, label %.split100, !llvm.loop !13
 
-.split104.us:                                     ; preds = %62, %85, %.split102, %.split102.us, %..split104.us_crit_edge
-  %.us-phi105 = phi i1 [ true, %..split104.us_crit_edge ], [ %.us-phi, %.split102.us ], [ %.599, %.split102 ], [ %.7, %85 ], [ true, %62 ]
+.split102.us:                                     ; preds = %62, %85, %.split100, %.split100.us, %..split102.us_crit_edge
+  %.us-phi103 = phi i1 [ true, %..split102.us_crit_edge ], [ %.us-phi, %.split100.us ], [ %.597, %.split100 ], [ %.7, %85 ], [ true, %62 ]
   %87 = load i32, ptr %3, align 8
   %88 = and i32 %87, 32
-  %.not74 = icmp eq i32 %88, 0
-  br i1 %.not74, label %111, label %89
+  %.not75 = icmp eq i32 %88, 0
+  br i1 %.not75, label %111, label %89
 
-89:                                               ; preds = %.split104.us
+89:                                               ; preds = %.split102.us
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %91 = load ptr, ptr %90, align 8
-  %.not75 = icmp eq ptr %91, null
-  br i1 %.not75, label %111, label %92
+  %.not76 = icmp eq ptr %91, null
+  br i1 %.not76, label %111, label %92
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -762,8 +762,8 @@ define noundef zeroext i1 @_ZN6Assimp15RemoveVCProcess11ProcessMeshEP6aiMesh(ptr
   br i1 %.not.i, label %._crit_edge.i.thread, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %106
-  %.pre139 = load ptr, ptr %90, align 8
-  %95 = icmp eq ptr %.pre139, null
+  %.pre143 = load ptr, ptr %90, align 8
+  %95 = icmp eq ptr %.pre143, null
   br i1 %95, label %_Z11ArrayDeleteI6aiBoneEvRPPT_Rj.exit, label %._crit_edge.i.thread
 
 .lr.ph.i:                                         ; preds = %92, %106
@@ -798,7 +798,7 @@ _ZN6aiBoneD2Ev.exit.i:                            ; preds = %105, %101
   br i1 %109, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i.thread:                             ; preds = %92, %._crit_edge.i
-  %110 = phi ptr [ %.pre139, %._crit_edge.i ], [ %91, %92 ]
+  %110 = phi ptr [ %.pre143, %._crit_edge.i ], [ %91, %92 ]
   tail call void @_ZdaPv(ptr noundef nonnull %110) #14
   br label %_Z11ArrayDeleteI6aiBoneEvRPPT_Rj.exit
 
@@ -807,8 +807,8 @@ _Z11ArrayDeleteI6aiBoneEvRPPT_Rj.exit:            ; preds = %._crit_edge.i, %._c
   store i32 0, ptr %93, align 4
   br label %111
 
-111:                                              ; preds = %_Z11ArrayDeleteI6aiBoneEvRPPT_Rj.exit, %89, %.split104.us
-  %.8 = phi i1 [ true, %_Z11ArrayDeleteI6aiBoneEvRPPT_Rj.exit ], [ %.us-phi105, %89 ], [ %.us-phi105, %.split104.us ]
+111:                                              ; preds = %_Z11ArrayDeleteI6aiBoneEvRPPT_Rj.exit, %89, %.split102.us
+  %.8 = phi i1 [ true, %_Z11ArrayDeleteI6aiBoneEvRPPT_Rj.exit ], [ %.us-phi103, %89 ], [ %.us-phi103, %.split102.us ]
   ret i1 %.8
 }
 

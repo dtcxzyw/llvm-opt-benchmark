@@ -885,28 +885,22 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %elaborateMessage.i.i.i.i.i.i.i.i.i) #17, !noalias !12
   store ptr %call5.i.i.i2.i.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !9, !noalias !15
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %state.i, align 8, !alias.scope !9, !noalias !15
-  %cmp.i.i = icmp eq i32 %exceptionType, 1
-  br i1 %cmp.i.i, label %land.lhs.true.i.i, label %land.lhs.true3.i.i
-
-land.lhs.true.i.i:                                ; preds = %entry
+  %cmp.not.i.i = icmp eq i32 %exceptionType, 1
   %0 = load i8, ptr @_ZN3fLB47FLAGS_velox_exception_system_stacktrace_enabledE, align 1, !noalias !15
-  %tobool1.i.i = trunc i8 %0 to i1
-  br i1 %tobool1.i.i, label %if.end.i.i, label %if.end.i
-
-land.lhs.true3.i.i:                               ; preds = %entry
   %1 = load i8, ptr @_ZN3fLB45FLAGS_velox_exception_user_stacktrace_enabledE, align 1, !noalias !15
-  %tobool4.i.i = trunc i8 %1 to i1
-  br i1 %tobool4.i.i, label %if.end.i.i, label %if.end.i
+  %or.cond6.v.i.i = select i1 %cmp.not.i.i, i8 %0, i8 %1
+  %or.cond6.i.i = trunc i8 %or.cond6.v.i.i to i1
+  br i1 %or.cond6.i.i, label %if.end.i.i, label %if.end.i
 
-if.end.i.i:                                       ; preds = %land.lhs.true3.i.i, %land.lhs.true.i.i
+if.end.i.i:                                       ; preds = %entry
   %2 = load i32, ptr @_ZN3fLI53FLAGS_velox_exception_system_stacktrace_rate_limit_msE, align 4, !noalias !15
   %3 = load i32, ptr @_ZN3fLI51FLAGS_velox_exception_user_stacktrace_rate_limit_msE, align 4, !noalias !15
-  %cond.i.i = select i1 %cmp.i.i, i32 %2, i32 %3
+  %cond.i.i = select i1 %cmp.not.i.i, i32 %2, i32 %3
   %cmp6.i.i = icmp eq i32 %cond.i.i, 0
   br i1 %cmp6.i.i, label %if.then.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %cond10.i.i = select i1 %cmp.i.i, ptr @_ZZN8facebook5velox12_GLOBAL__N_119isStackTraceEnabledENS0_14VeloxException4TypeEE10systemLast, ptr @_ZZN8facebook5velox12_GLOBAL__N_119isStackTraceEnabledENS0_14VeloxException4TypeEE8userLast
+  %cond10.i.i = select i1 %cmp.not.i.i, ptr @_ZZN8facebook5velox12_GLOBAL__N_119isStackTraceEnabledENS0_14VeloxException4TypeEE10systemLast, ptr @_ZZN8facebook5velox12_GLOBAL__N_119isStackTraceEnabledENS0_14VeloxException4TypeEE8userLast
   %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17, !noalias !15
   %4 = load atomic i64, ptr %cond10.i.i monotonic, align 8, !noalias !15
   %conv.i.i.i = sext i32 %cond.i.i to i64
@@ -949,7 +943,7 @@ lpad4.i:                                          ; preds = %invoke.cont2.i
   tail call void @_ZdlPv(ptr noundef nonnull %call3.i) #21, !noalias !15
   br label %ehcleanup.i
 
-if.end.i:                                         ; preds = %if.then.i.i.i, %invoke.cont5.i, %invoke.cont.i, %if.end8.i.i, %land.lhs.true3.i.i, %land.lhs.true.i.i
+if.end.i:                                         ; preds = %if.then.i.i.i, %invoke.cont5.i, %invoke.cont.i, %if.end8.i.i, %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp8.i.i), !noalias !15
   store i32 %exceptionType, ptr %exceptionType.i.i.i.i.i.i.i.i.i, align 8, !noalias !15

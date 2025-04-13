@@ -2005,8 +2005,8 @@ ReorderBufferTXNByXid.exit.thread46:              ; preds = %16, %ReorderBufferT
   %37 = getelementptr inbounds nuw i8, ptr %.0.i48, i64 32
   %38 = load i64, ptr %37, align 8
   %39 = icmp ult i64 %38, %4
-  %brmerge.not = and i1 %9, %39
-  br i1 %brmerge.not, label %40, label %47
+  %or.cond = and i1 %9, %39
+  br i1 %or.cond, label %40, label %47
 
 40:                                               ; preds = %ReorderBufferTXNByXid.exit.thread46
   %41 = load i64, ptr %31, align 8
@@ -2018,7 +2018,7 @@ ReorderBufferTXNByXid.exit.thread46:              ; preds = %16, %ReorderBufferT
   call fastcc void @ReorderBufferReplay(ptr noundef %.0.i48, ptr noundef nonnull %0, i64 noundef %38, i64 noundef %41, i64 noundef %42, i16 noundef zeroext %44, i64 noundef %46)
   br label %47
 
-47:                                               ; preds = %ReorderBufferTXNByXid.exit.thread46, %40
+47:                                               ; preds = %40, %ReorderBufferTXNByXid.exit.thread46
   store i64 %2, ptr %37, align 8
   store i64 %3, ptr %31, align 8
   store i64 %5, ptr %33, align 8
@@ -3423,7 +3423,7 @@ define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #19
   %21 = icmp eq ptr %0, null
-  br i1 %21, label %167, label %22
+  br i1 %21, label %168, label %22
 
 22:                                               ; preds = %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %18, i8 0, i64 20, i1 false)
@@ -3432,10 +3432,10 @@ define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %24, ptr noundef nonnull readonly align 2 dereferenceable(6) %23, i64 6, i1 false)
   %25 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 0, ptr noundef null) #19
-  %.not45 = icmp eq ptr %25, null
-  br i1 %.not45, label %.lr.ph43, label %._crit_edge.thread
+  %.not37 = icmp eq ptr %25, null
+  br i1 %.not37, label %.lr.ph36, label %._crit_edge.thread
 
-.lr.ph43:                                         ; preds = %22
+.lr.ph36:                                         ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3452,9 +3452,9 @@ define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %
   %.not49.i = icmp eq ptr %38, null
   br i1 %.not49.i, label %._crit_edge.i, label %sub_0.i
 
-sub_0.i:                                          ; preds = %.lr.ph43, %86
-  %39 = phi ptr [ %87, %86 ], [ %38, %.lr.ph43 ]
-  %.050.i = phi ptr [ %.1.i, %86 ], [ null, %.lr.ph43 ]
+sub_0.i:                                          ; preds = %.lr.ph36, %86
+  %39 = phi ptr [ %87, %86 ], [ %38, %.lr.ph36 ]
+  %.050.i = phi ptr [ %.1.i, %86 ], [ null, %.lr.ph36 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #19
@@ -3579,8 +3579,8 @@ TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
   %.not.i = icmp eq ptr %87, null
   br i1 %.not.i, label %._crit_edge.i, label %sub_0.i
 
-._crit_edge.i:                                    ; preds = %86, %.lr.ph43
-  %.0.lcssa.i = phi ptr [ null, %.lr.ph43 ], [ %.1.i, %86 ]
+._crit_edge.i:                                    ; preds = %86, %.lr.ph36
+  %.0.lcssa.i = phi ptr [ null, %.lr.ph36 ], [ %.1.i, %86 ]
   %88 = call i32 @FreeDir(ptr noundef %37) #19
   call void @list_sort(ptr noundef %.0.lcssa.i, ptr noundef nonnull @file_sort_by_lsn) #19
   %.not32.i = icmp eq ptr %.0.lcssa.i, null
@@ -3594,9 +3594,9 @@ TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
   br i1 %92, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %ApplyLogicalMappingFile.exit.i
-  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i, %ApplyLogicalMappingFile.exit.i ], [ 0, %.lr.ph.i ]
+  %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i, %ApplyLogicalMappingFile.exit.i ], [ 0, %.lr.ph.i ]
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv.i42
+  %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv.i35
   %95 = load ptr, ptr %94, align 8
   %96 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #19
   br i1 %96, label %97, label %102
@@ -3730,7 +3730,7 @@ ApplyLogicalMappingFile.exit.i:                   ; preds = %150
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #19
   call void @pfree(ptr noundef %95) #19
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i42, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i35, 1
   %156 = load i32, ptr %89, align 4
   %157 = sext i32 %156 to i64
   %158 = icmp slt i64 %indvars.iv.next.i, %157
@@ -3738,36 +3738,36 @@ ApplyLogicalMappingFile.exit.i:                   ; preds = %150
 
 ._crit_edge:                                      ; preds = %ApplyLogicalMappingFile.exit.i, %._crit_edge.i, %.lr.ph.i
   %159 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef 0, ptr noundef null) #19
-  %.not60 = icmp eq ptr %159, null
-  br i1 %.not60, label %167, label %._crit_edge.thread
+  %160 = icmp eq ptr %159, null
+  br i1 %160, label %168, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %22, %._crit_edge
-  %.lcssa3555 = phi ptr [ %159, %._crit_edge ], [ %25, %22 ]
+  %.lcssa2845 = phi ptr [ %159, %._crit_edge ], [ %25, %22 ]
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %163, label %160
+  br i1 %.not, label %164, label %161
 
-160:                                              ; preds = %._crit_edge.thread
-  %161 = getelementptr inbounds nuw i8, ptr %.lcssa3555, i64 20
-  %162 = load i32, ptr %161, align 4
-  store i32 %162, ptr %4, align 4
-  br label %163
+161:                                              ; preds = %._crit_edge.thread
+  %162 = getelementptr inbounds nuw i8, ptr %.lcssa2845, i64 20
+  %163 = load i32, ptr %162, align 4
+  store i32 %163, ptr %4, align 4
+  br label %164
 
-163:                                              ; preds = %160, %._crit_edge.thread
-  %.not21 = icmp eq ptr %5, null
-  br i1 %.not21, label %167, label %164
+164:                                              ; preds = %161, %._crit_edge.thread
+  %.not22 = icmp eq ptr %5, null
+  br i1 %.not22, label %168, label %165
 
-164:                                              ; preds = %163
-  %165 = getelementptr inbounds nuw i8, ptr %.lcssa3555, i64 24
-  %166 = load i32, ptr %165, align 4
-  store i32 %166, ptr %5, align 4
-  br label %167
+165:                                              ; preds = %164
+  %166 = getelementptr inbounds nuw i8, ptr %.lcssa2845, i64 24
+  %167 = load i32, ptr %166, align 4
+  store i32 %167, ptr %5, align 4
+  br label %168
 
-167:                                              ; preds = %163, %164, %._crit_edge, %6
-  %.016 = phi i1 [ false, %6 ], [ false, %._crit_edge ], [ true, %164 ], [ true, %163 ]
+168:                                              ; preds = %164, %165, %._crit_edge, %6
+  %.017 = phi i1 [ false, %6 ], [ false, %._crit_edge ], [ true, %165 ], [ true, %164 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #19
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %18) #19
-  ret i1 %.016
+  ret i1 %.017
 }
 
 declare void @BufferGetTag(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -4193,10 +4193,10 @@ define internal fastcc void @ReorderBufferProcessTXN(ptr noundef %0, ptr noundef
 
 ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #19
-  %.0..0..0..0.126 = load volatile ptr, ptr %12, align 8
+  %.0..0..0..0.127 = load volatile ptr, ptr %12, align 8
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %61 = load ptr, ptr %60, align 8
-  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.126, ptr noundef %61) #19
+  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.127, ptr noundef %61) #19
   %62 = call zeroext i1 @IsTransactionOrTransactionBlock() #19
   %63 = load ptr, ptr @PG_exception_stack, align 8
   %64 = load ptr, ptr @error_context_stack, align 8
@@ -4224,8 +4224,8 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
 .sink.split:                                      ; preds = %71
   %72 = load i32, ptr %1, align 8
   %73 = and i32 %72, 64
-  %.not242 = icmp eq i32 %73, 0
-  %. = select i1 %.not242, i64 80, i64 120
+  %.not243 = icmp eq i32 %73, 0
+  %. = select i1 %.not243, i64 80, i64 120
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef %0, ptr noundef nonnull %1) #19
@@ -4235,19 +4235,19 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   store volatile ptr null, ptr %14, align 8
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %78 = load i64, ptr %77, align 8
-  %.not.i266 = icmp ne i64 %78, 0
-  %spec.select.i = zext i1 %.not.i266 to i64
+  %.not.i265 = icmp ne i64 %78, 0
+  %spec.select.i = zext i1 %.not.i265 to i64
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %81 = load ptr, ptr %80, align 8
   %.not90.i = icmp eq ptr %81, null
   %.not91101119.i = icmp eq ptr %81, %79
   %.not91101.i = select i1 %.not90.i, i1 true, i1 %.not91101119.i
-  br i1 %.not91101.i, label %._crit_edge.i, label %.lr.ph.i267
+  br i1 %.not91101.i, label %._crit_edge.i, label %.lr.ph.i266
 
-.lr.ph.i267:                                      ; preds = %76, %.lr.ph.i267
-  %.1103.i = phi i64 [ %spec.select99.i, %.lr.ph.i267 ], [ %spec.select.i, %76 ]
-  %.sroa.0.0102.i = phi ptr [ %86, %.lr.ph.i267 ], [ %81, %76 ]
+.lr.ph.i266:                                      ; preds = %76, %.lr.ph.i266
+  %.1103.i = phi i64 [ %spec.select99.i, %.lr.ph.i266 ], [ %spec.select.i, %76 ]
+  %.sroa.0.0102.i = phi ptr [ %86, %.lr.ph.i266 ], [ %81, %76 ]
   %82 = getelementptr inbounds i8, ptr %.sroa.0.0102.i, i64 -104
   %83 = load i64, ptr %82, align 8
   %.not98.i = icmp ne i64 %83, 0
@@ -4256,10 +4256,10 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.0.0102.i, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not91.i = icmp eq ptr %86, %79
-  br i1 %.not91.i, label %._crit_edge.i, label %.lr.ph.i267, !llvm.loop !23
+  br i1 %.not91.i, label %._crit_edge.i, label %.lr.ph.i266, !llvm.loop !23
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i267, %76
-  %.1.lcssa.i = phi i64 [ %spec.select.i, %76 ], [ %spec.select99.i, %.lr.ph.i267 ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i266, %76
+  %.1.lcssa.i = phi i64 [ %spec.select.i, %76 ], [ %spec.select99.i, %.lr.ph.i266 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %88 = load ptr, ptr %87, align 8
   %89 = mul i64 %.1.lcssa.i, 48
@@ -4400,49 +4400,49 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
 ReorderBufferIterTXNInit.exit:                    ; preds = %148, %123
   %151 = load ptr, ptr %91, align 8
   call void @binaryheap_build(ptr noundef %151) #19
-  %.0..0..0.380 = load volatile ptr, ptr %14, align 8
-  %152 = load ptr, ptr %.0..0..0.380, align 8
+  %.0..0..0.378 = load volatile ptr, ptr %14, align 8
+  %152 = load ptr, ptr %.0..0..0.378, align 8
   %153 = load i32, ptr %152, align 8
   %154 = icmp eq i32 %153, 0
-  br i1 %154, label %ReorderBufferIterTXNNext.exit, label %.lr.ph383
+  br i1 %154, label %ReorderBufferIterTXNNext.exit, label %.lr.ph381
 
-.lr.ph383:                                        ; preds = %ReorderBufferIterTXNInit.exit
+.lr.ph381:                                        ; preds = %ReorderBufferIterTXNInit.exit
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %..i281 = select i1 %5, i64 200, i64 112
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 %..i281
-  %..i280 = select i1 %5, i64 208, i64 96
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 %..i280
+  %..i280 = select i1 %5, i64 200, i64 112
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 %..i280
+  %..i279 = select i1 %5, i64 208, i64 96
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 %..i279
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %165 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %..i279 = select i1 %5, i64 192, i64 88
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 %..i279
+  %..i278 = select i1 %5, i64 192, i64 88
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 %..i278
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br label %170
 
-170:                                              ; preds = %.lr.ph383, %836
-  %171 = phi ptr [ %152, %.lr.ph383 ], [ %837, %836 ]
-  %.0.382 = phi ptr [ %.0..0..0.380, %.lr.ph383 ], [ %.0..0..0., %836 ]
-  %.0226381 = phi i32 [ 0, %.lr.ph383 ], [ %.1227, %836 ]
+170:                                              ; preds = %.lr.ph381, %836
+  %171 = phi ptr [ %152, %.lr.ph381 ], [ %837, %836 ]
+  %.0.380 = phi ptr [ %.0..0..0.378, %.lr.ph381 ], [ %.0..0..0., %836 ]
+  %.0227379 = phi i32 [ 0, %.lr.ph381 ], [ %.1228, %836 ]
   %172 = call i64 @binaryheap_first(ptr noundef nonnull %171) #19
-  %173 = getelementptr inbounds nuw i8, ptr %.0.382, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %.0.380, i64 32
   %sext.i = shl i64 %172, 32
   %174 = ashr exact i64 %sext.i, 32
   %175 = getelementptr inbounds [0 x %struct.ReorderBufferIterTXNEntry], ptr %173, i64 0, i64 %174
-  %176 = getelementptr inbounds nuw i8, ptr %.0.382, i64 16
-  %177 = getelementptr inbounds nuw i8, ptr %.0.382, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %.0.380, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %.0.380, i64 24
   %178 = load ptr, ptr %177, align 8
   %179 = icmp eq ptr %178, null
   %180 = icmp eq ptr %178, %176
-  %spec.select.i.i268 = or i1 %179, %180
-  br i1 %spec.select.i.i268, label %188, label %181
+  %spec.select.i.i267 = or i1 %179, %180
+  br i1 %spec.select.i.i267, label %188, label %181
 
 181:                                              ; preds = %170
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 8
@@ -4473,7 +4473,7 @@ ReorderBufferIterTXNInit.exit:                    ; preds = %148, %123
   %198 = load i64, ptr %197, align 8
   store i64 %198, ptr %175, align 8
   store ptr %197, ptr %189, align 8
-  %199 = load ptr, ptr %.0.382, align 8
+  %199 = load ptr, ptr %.0.380, align 8
   call void @binaryheap_replace_first(ptr noundef %199, i64 noundef %174) #19
   br label %243
 
@@ -4482,8 +4482,8 @@ ReorderBufferIterTXNInit.exit:                    ; preds = %148, %123
   %202 = load i64, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %192, i64 144
   %204 = load i64, ptr %203, align 8
-  %.not.i269 = icmp eq i64 %202, %204
-  br i1 %.not.i269, label %240, label %205
+  %.not.i268 = icmp eq i64 %202, %204
+  br i1 %.not.i268, label %240, label %205
 
 205:                                              ; preds = %200
   %206 = load ptr, ptr %194, align 8
@@ -4523,8 +4523,8 @@ dlist_push_tail.exit.i:                           ; preds = %211, %205
 223:                                              ; preds = %dlist_push_tail.exit.i
   %224 = load ptr, ptr %191, align 8
   %225 = getelementptr i8, ptr %224, i64 160
-  %.val.i270 = load ptr, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %.val.i270, i64 -64
+  %.val.i269 = load ptr, ptr %225, align 8
+  %226 = getelementptr inbounds i8, ptr %.val.i269, i64 -64
   %227 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #19
   br i1 %227, label %228, label %237
 
@@ -4544,29 +4544,29 @@ dlist_push_tail.exit.i:                           ; preds = %211, %205
   %238 = load i64, ptr %226, align 8
   store i64 %238, ptr %175, align 8
   store ptr %226, ptr %189, align 8
-  %239 = load ptr, ptr %.0.382, align 8
+  %239 = load ptr, ptr %.0.380, align 8
   call void @binaryheap_replace_first(ptr noundef %239, i64 noundef %174) #19
   br label %243
 
 240:                                              ; preds = %dlist_push_tail.exit.i, %200
-  %241 = load ptr, ptr %.0.382, align 8
+  %241 = load ptr, ptr %.0.380, align 8
   %242 = call i64 @binaryheap_remove_first(ptr noundef %241) #19
   br label %243
 
 243:                                              ; preds = %196, %237, %240
   %244 = load volatile i32, ptr @InterruptPending, align 4
-  %.not248 = icmp eq i32 %244, 0
-  br i1 %.not248, label %246, label %245, !prof !26
+  %.not249 = icmp eq i32 %244, 0
+  br i1 %.not249, label %246, label %245, !prof !26
 
 245:                                              ; preds = %243
   call void @ProcessInterrupts() #19
   br label %246
 
 246:                                              ; preds = %245, %243
-  %.0..0..0..0.101 = load volatile i64, ptr %15, align 8
-  %247 = icmp eq i64 %.0..0..0..0.101, 0
-  %brmerge.not = and i1 %5, %247
-  br i1 %brmerge.not, label %248, label %253
+  %.0..0..0..0.102 = load volatile i64, ptr %15, align 8
+  %247 = icmp eq i64 %.0..0..0..0.102, 0
+  %or.cond = and i1 %5, %247
+  br i1 %or.cond, label %248, label %253
 
 248:                                              ; preds = %246
   %249 = getelementptr inbounds nuw i8, ptr %190, i64 24
@@ -4578,35 +4578,35 @@ dlist_push_tail.exit.i:                           ; preds = %211, %205
   store volatile i8 1, ptr %17, align 1
   br label %253
 
-253:                                              ; preds = %246, %248
+253:                                              ; preds = %248, %246
   %254 = load i64, ptr %190, align 8
   store volatile i64 %254, ptr %15, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %190, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %5, label %._crit_edge411, label %255
+  br i1 %5, label %._crit_edge409, label %255
 
 255:                                              ; preds = %253
   %256 = load i32, ptr %.pre, align 8
   %257 = and i32 %256, 64
-  %.not249 = icmp eq i32 %257, 0
-  br i1 %.not249, label %SetupCheckXidLive.exit, label %._crit_edge411
+  %.not250 = icmp eq i32 %257, 0
+  br i1 %.not250, label %SetupCheckXidLive.exit, label %._crit_edge409
 
-._crit_edge411:                                   ; preds = %253, %255
+._crit_edge409:                                   ; preds = %253, %255
   store volatile ptr %.pre, ptr %18, align 8
-  %.0..0..0..0.87 = load volatile ptr, ptr %18, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.87, i64 4
+  %.0..0..0..0.88 = load volatile ptr, ptr %18, align 8
+  %258 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.88, i64 4
   %259 = load i32, ptr %258, align 4
   %260 = load i32, ptr @CheckXidAlive, align 4
   %261 = icmp eq i32 %260, %259
   br i1 %261, label %SetupCheckXidLive.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %._crit_edge411
+.sink.split.i:                                    ; preds = %._crit_edge409
   %262 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %259) #19
   %..i = select i1 %262, i32 0, i32 %259
   store i32 %..i, ptr @CheckXidAlive, align 4
   br label %SetupCheckXidLive.exit
 
-SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._crit_edge411, %255
+SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._crit_edge409, %255
   %263 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %264 = load i32, ptr %263, align 8
   switch i32 %264, label %ReorderBufferExecuteInvalidations.exit [
@@ -4625,8 +4625,8 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   ]
 
 265:                                              ; preds = %SetupCheckXidLive.exit
-  %.0..0..0..0.92 = load volatile ptr, ptr %16, align 8
-  %266 = icmp eq ptr %.0..0..0..0.92, null
+  %.0..0..0..0.93 = load volatile ptr, ptr %16, align 8
+  %266 = icmp eq ptr %.0..0..0..0.93, null
   br i1 %266, label %267, label %270
 
 267:                                              ; preds = %265
@@ -4637,13 +4637,13 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   unreachable
 
 270:                                              ; preds = %265
-  %.0..0..0..0.93 = load volatile ptr, ptr %16, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.93, i64 8
+  %.0..0..0..0.94 = load volatile ptr, ptr %16, align 8
+  %271 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.94, i64 8
   store i32 0, ptr %271, align 8
   br label %272
 
 272:                                              ; preds = %270, %SetupCheckXidLive.exit, %SetupCheckXidLive.exit, %SetupCheckXidLive.exit
-  %.1 = phi ptr [ %190, %SetupCheckXidLive.exit ], [ %190, %SetupCheckXidLive.exit ], [ %190, %SetupCheckXidLive.exit ], [ %.0..0..0..0.93, %270 ]
+  %.1 = phi ptr [ %190, %SetupCheckXidLive.exit ], [ %190, %SetupCheckXidLive.exit ], [ %190, %SetupCheckXidLive.exit ], [ %.0..0..0..0.94, %270 ]
   %273 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %274 = load i32, ptr %273, align 8
   %275 = getelementptr inbounds nuw i8, ptr %.1, i64 40
@@ -4678,8 +4678,8 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
 
 .critedge:                                        ; preds = %272
   %295 = call ptr @RelationIdGetRelation(i32 noundef %277) #19
-  %.not254 = icmp eq ptr %295, null
-  br i1 %.not254, label %296, label %304
+  %.not255 = icmp eq ptr %295, null
+  br i1 %.not255, label %296, label %304
 
 296:                                              ; preds = %.critedge
   %297 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -4709,8 +4709,8 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
 313:                                              ; preds = %307
   %314 = getelementptr inbounds nuw i8, ptr %309, i64 115
   %315 = load i8, ptr %314, align 1
-  %.not255 = icmp eq i8 %315, 102
-  br i1 %.not255, label %606, label %316
+  %.not256 = icmp eq i8 %315, 102
+  br i1 %.not256, label %606, label %316
 
 316:                                              ; preds = %313
   %317 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %295) #19
@@ -4720,8 +4720,8 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   %319 = load ptr, ptr %308, align 8
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 128
   %321 = load i32, ptr %320, align 4
-  %.not256 = icmp eq i32 %321, 0
-  br i1 %.not256, label %325, label %322
+  %.not257 = icmp eq i32 %321, 0
+  br i1 %.not257, label %325, label %322
 
 322:                                              ; preds = %318
   %323 = load i8, ptr %162, align 8, !range !6, !noundef !7
@@ -4828,8 +4828,8 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 108
   %384 = load i32, ptr %383, align 4
   %385 = call ptr @RelationIdGetRelation(i32 noundef %384) #19
-  %.not.i271 = icmp eq ptr %385, null
-  br i1 %.not.i271, label %386, label %393
+  %.not.i270 = icmp eq ptr %385, null
+  br i1 %.not.i270, label %386, label %393
 
 386:                                              ; preds = %ReorderBufferChangeSize.exit.i
   %387 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -4861,7 +4861,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   %invariant.gep.i = getelementptr i8, ptr %381, i64 24
   %408 = load i32, ptr %381, align 8
   %409 = icmp sgt i32 %408, 0
-  br i1 %409, label %.lr.ph117.i, label %._crit_edge118.i272
+  br i1 %409, label %.lr.ph117.i, label %._crit_edge118.i271
 
 .lr.ph117.i:                                      ; preds = %393, %478
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %478 ], [ 0, %393 ]
@@ -4885,8 +4885,8 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
 421:                                              ; preds = %417
   %422 = getelementptr inbounds nuw i8, ptr %413, i64 72
   %423 = load i16, ptr %422, align 4
-  %.not95.i274 = icmp eq i16 %423, -1
-  br i1 %.not95.i274, label %424, label %478
+  %.not95.i273 = icmp eq i16 %423, -1
+  br i1 %.not95.i273, label %424, label %478
 
 424:                                              ; preds = %421
   %425 = getelementptr inbounds nuw i8, ptr %402, i64 %indvars.iv.i
@@ -4922,18 +4922,18 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   %446 = getelementptr inbounds nuw i8, ptr %437, i64 24
   %447 = getelementptr inbounds nuw i8, ptr %437, i64 32
   %448 = load ptr, ptr %447, align 8
-  %.not96.i275 = icmp eq ptr %448, null
+  %.not96.i274 = icmp eq ptr %448, null
   %.not97112123.i = icmp eq ptr %448, %446
-  %.not97112.i = select i1 %.not96.i275, i1 true, i1 %.not97112123.i
-  br i1 %.not97112.i, label %._crit_edge.i278, label %.lr.ph.i276
+  %.not97112.i = select i1 %.not96.i274, i1 true, i1 %.not97112123.i
+  br i1 %.not97112.i, label %._crit_edge.i277, label %.lr.ph.i275
 
-.lr.ph.i276:                                      ; preds = %439
+.lr.ph.i275:                                      ; preds = %439
   %449 = getelementptr inbounds nuw i8, ptr %444, i64 4
   br label %450
 
-450:                                              ; preds = %450, %.lr.ph.i276
-  %.sroa.0.0114.i = phi ptr [ %448, %.lr.ph.i276 ], [ %467, %450 ]
-  %.091113.i = phi i64 [ 0, %.lr.ph.i276 ], [ %465, %450 ]
+450:                                              ; preds = %450, %.lr.ph.i275
+  %.sroa.0.0114.i = phi ptr [ %448, %.lr.ph.i275 ], [ %467, %450 ]
+  %.091113.i = phi i64 [ 0, %.lr.ph.i275 ], [ %465, %450 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #19
   %451 = getelementptr inbounds i8, ptr %.sroa.0.0114.i, i64 -8
   %452 = load ptr, ptr %451, align 8
@@ -4954,15 +4954,15 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #19
   %466 = getelementptr inbounds nuw i8, ptr %.sroa.0.0114.i, i64 8
   %467 = load ptr, ptr %466, align 8
-  %.not97.i277 = icmp eq ptr %467, %446
-  br i1 %.not97.i277, label %._crit_edge.loopexit.i, label %450, !llvm.loop !27
+  %.not97.i276 = icmp eq ptr %467, %446
+  br i1 %.not97.i276, label %._crit_edge.loopexit.i, label %450, !llvm.loop !27
 
 ._crit_edge.loopexit.i:                           ; preds = %450
   %468 = trunc i64 %465 to i32
   %469 = shl i32 %468, 2
-  br label %._crit_edge.i278
+  br label %._crit_edge.i277
 
-._crit_edge.i278:                                 ; preds = %._crit_edge.loopexit.i, %439
+._crit_edge.i277:                                 ; preds = %._crit_edge.loopexit.i, %439
   %.091.lcssa.i = phi i32 [ 0, %439 ], [ %469, %._crit_edge.loopexit.i ]
   %470 = load i32, ptr %165, align 4
   %471 = and i32 %470, 1073741823
@@ -4981,15 +4981,15 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   store i64 %477, ptr %429, align 8
   br label %478
 
-478:                                              ; preds = %._crit_edge.i278, %434, %428, %424, %421, %417, %.lr.ph117.i
+478:                                              ; preds = %._crit_edge.i277, %434, %428, %424, %421, %417, %.lr.ph117.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %479 = load i32, ptr %381, align 8
   %480 = sext i32 %479 to i64
   %481 = icmp slt i64 %indvars.iv.next.i, %480
-  br i1 %481, label %.lr.ph117.i, label %._crit_edge118.i272, !llvm.loop !28
+  br i1 %481, label %.lr.ph117.i, label %._crit_edge118.i271, !llvm.loop !28
 
-._crit_edge118.i272:                              ; preds = %478, %393
+._crit_edge118.i271:                              ; preds = %478, %393
   %482 = call ptr @heap_form_tuple(ptr noundef nonnull %381, ptr noundef %399, ptr noundef %402) #19
   %483 = getelementptr inbounds nuw i8, ptr %407, i64 16
   %484 = load ptr, ptr %483, align 8
@@ -5006,9 +5006,9 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   %491 = icmp sgt i32 %490, 0
   br i1 %491, label %.lr.ph121.i, label %._crit_edge122.i
 
-.lr.ph121.i:                                      ; preds = %._crit_edge118.i272, %500
-  %492 = phi i32 [ %501, %500 ], [ %490, %._crit_edge118.i272 ]
-  %indvars.iv125.i = phi i64 [ %indvars.iv.next126.i, %500 ], [ 0, %._crit_edge118.i272 ]
+.lr.ph121.i:                                      ; preds = %._crit_edge118.i271, %500
+  %492 = phi i32 [ %501, %500 ], [ %490, %._crit_edge118.i271 ]
+  %indvars.iv125.i = phi i64 [ %indvars.iv.next126.i, %500 ], [ 0, %._crit_edge118.i271 ]
   %493 = getelementptr inbounds nuw i8, ptr %405, i64 %indvars.iv125.i
   %494 = load i8, ptr %493, align 1, !range !6, !noundef !7
   %495 = trunc nuw i8 %494 to i1
@@ -5019,17 +5019,17 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   %498 = load i64, ptr %497, align 8
   %499 = inttoptr i64 %498 to ptr
   call void @pfree(ptr noundef %499) #19
-  %.pre.i273 = load i32, ptr %381, align 8
+  %.pre.i272 = load i32, ptr %381, align 8
   br label %500
 
 500:                                              ; preds = %496, %.lr.ph121.i
-  %501 = phi i32 [ %492, %.lr.ph121.i ], [ %.pre.i273, %496 ]
+  %501 = phi i32 [ %492, %.lr.ph121.i ], [ %.pre.i272, %496 ]
   %indvars.iv.next126.i = add nuw nsw i64 %indvars.iv125.i, 1
   %502 = sext i32 %501 to i64
   %503 = icmp slt i64 %indvars.iv.next126.i, %502
   br i1 %503, label %.lr.ph121.i, label %._crit_edge122.i, !llvm.loop !29
 
-._crit_edge122.i:                                 ; preds = %500, %._crit_edge118.i272
+._crit_edge122.i:                                 ; preds = %500, %._crit_edge118.i271
   call void @pfree(ptr noundef %399) #19
   call void @pfree(ptr noundef %405) #19
   call void @pfree(ptr noundef %402) #19
@@ -5222,38 +5222,38 @@ ReorderBufferToastReplace.exit:                   ; preds = %331, %ReorderBuffer
   %604 = load ptr, ptr %599, align 8
   store ptr %604, ptr %601, align 8
   %605 = getelementptr i8, ptr %295, i64 64
-  %.val265 = load ptr, ptr %605, align 8
-  call fastcc void @ReorderBufferToastAppendChunk(ptr noundef %0, ptr noundef %1, ptr %.val265, ptr noundef nonnull %.1)
+  %.val264 = load ptr, ptr %605, align 8
+  call fastcc void @ReorderBufferToastAppendChunk(ptr noundef %0, ptr noundef %1, ptr %.val264, ptr noundef nonnull %.1)
   br label %606
 
 606:                                              ; preds = %593, %ReorderBufferToastReplace.exit, %598, %594, %325, %322, %304, %307, %313, %316, %283
-  %.0228 = phi ptr [ null, %283 ], [ %295, %316 ], [ %295, %325 ], [ %295, %598 ], [ %295, %594 ], [ %295, %593 ], [ %295, %ReorderBufferToastReplace.exit ], [ %295, %322 ], [ %295, %313 ], [ %295, %307 ], [ %295, %304 ]
-  %.0..0..0..0.94 = load volatile ptr, ptr %16, align 8
-  %.not257 = icmp eq ptr %.0..0..0..0.94, null
-  br i1 %.not257, label %608, label %607
+  %.0229 = phi ptr [ null, %283 ], [ %295, %316 ], [ %295, %325 ], [ %295, %598 ], [ %295, %594 ], [ %295, %593 ], [ %295, %ReorderBufferToastReplace.exit ], [ %295, %322 ], [ %295, %313 ], [ %295, %307 ], [ %295, %304 ]
+  %.0..0..0..0.95 = load volatile ptr, ptr %16, align 8
+  %.not258 = icmp eq ptr %.0..0..0..0.95, null
+  br i1 %.not258, label %608, label %607
 
 607:                                              ; preds = %606
-  %.0..0..0..0.95 = load volatile ptr, ptr %16, align 8
-  call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef %.0..0..0..0.95, i1 noundef zeroext true)
+  %.0..0..0..0.96 = load volatile ptr, ptr %16, align 8
+  call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef %.0..0..0..0.96, i1 noundef zeroext true)
   store volatile ptr null, ptr %16, align 8
   br label %608
 
 608:                                              ; preds = %607, %606
-  %.not258 = icmp eq ptr %.0228, null
-  br i1 %.not258, label %ReorderBufferExecuteInvalidations.exit, label %609
+  %.not259 = icmp eq ptr %.0229, null
+  br i1 %.not259, label %ReorderBufferExecuteInvalidations.exit, label %609
 
 609:                                              ; preds = %608
-  call void @RelationClose(ptr noundef nonnull %.0228) #19
+  call void @RelationClose(ptr noundef nonnull %.0229) #19
   br label %ReorderBufferExecuteInvalidations.exit
 
 610:                                              ; preds = %SetupCheckXidLive.exit
-  %.0..0..0..0.96 = load volatile ptr, ptr %16, align 8
-  %.not253 = icmp eq ptr %.0..0..0..0.96, null
-  br i1 %.not253, label %612, label %611
+  %.0..0..0..0.97 = load volatile ptr, ptr %16, align 8
+  %.not254 = icmp eq ptr %.0..0..0..0.97, null
+  br i1 %.not254, label %612, label %611
 
 611:                                              ; preds = %610
-  %.0..0..0..0.97 = load volatile ptr, ptr %16, align 8
-  call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef %.0..0..0..0.97, i1 noundef zeroext true)
+  %.0..0..0..0.98 = load volatile ptr, ptr %16, align 8
+  call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef %.0..0..0..0.98, i1 noundef zeroext true)
   store volatile ptr null, ptr %16, align 8
   br label %612
 
@@ -5268,14 +5268,14 @@ ReorderBufferToastReplace.exit:                   ; preds = %331, %ReorderBuffer
   br label %ReorderBufferExecuteInvalidations.exit
 
 617:                                              ; preds = %SetupCheckXidLive.exit
-  %.0..0..0..0.98 = load volatile ptr, ptr %16, align 8
-  %.not252 = icmp eq ptr %.0..0..0..0.98, null
-  br i1 %.not252, label %ReorderBufferExecuteInvalidations.exit, label %618
+  %.0..0..0..0.99 = load volatile ptr, ptr %16, align 8
+  %.not253 = icmp eq ptr %.0..0..0..0.99, null
+  br i1 %.not253, label %ReorderBufferExecuteInvalidations.exit, label %618
 
 618:                                              ; preds = %617
   call fastcc void @ReorderBufferToastReset(ptr noundef %0, ptr noundef %1)
-  %.0..0..0..0.99 = load volatile ptr, ptr %16, align 8
-  call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef %.0..0..0..0.99, i1 noundef zeroext true)
+  %.0..0..0..0.100 = load volatile ptr, ptr %16, align 8
+  call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef %.0..0..0..0.100, i1 noundef zeroext true)
   store volatile ptr null, ptr %16, align 8
   br label %ReorderBufferExecuteInvalidations.exit
 
@@ -5301,13 +5301,13 @@ ReorderBufferToastReplace.exit:                   ; preds = %331, %ReorderBuffer
 
 628:                                              ; preds = %.lr.ph, %654
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %654 ]
-  %.0231375 = phi i32 [ 0, %.lr.ph ], [ %.1232, %654 ]
+  %.0232373 = phi i32 [ 0, %.lr.ph ], [ %.1233, %654 ]
   %629 = load ptr, ptr %627, align 8
   %630 = getelementptr inbounds nuw i32, ptr %629, i64 %indvars.iv
   %631 = load i32, ptr %630, align 4
   %632 = call ptr @RelationIdGetRelation(i32 noundef %631) #19
-  %.not250 = icmp eq ptr %632, null
-  br i1 %.not250, label %633, label %636
+  %.not251 = icmp eq ptr %632, null
+  br i1 %.not251, label %633, label %636
 
 633:                                              ; preds = %628
   %634 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -5332,44 +5332,44 @@ ReorderBufferToastReplace.exit:                   ; preds = %331, %ReorderBuffer
 645:                                              ; preds = %639
   %646 = getelementptr inbounds nuw i8, ptr %641, i64 115
   %647 = load i8, ptr %646, align 1
-  %.not251 = icmp eq i8 %647, 102
-  br i1 %.not251, label %654, label %648
+  %.not252 = icmp eq i8 %647, 102
+  br i1 %.not252, label %654, label %648
 
 648:                                              ; preds = %645
   %649 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %632) #19
   br i1 %649, label %654, label %650
 
 650:                                              ; preds = %648
-  %651 = add i32 %.0231375, 1
-  %652 = sext i32 %.0231375 to i64
+  %651 = add i32 %.0232373, 1
+  %652 = sext i32 %.0232373 to i64
   %653 = getelementptr inbounds ptr, ptr %624, i64 %652
   store ptr %632, ptr %653, align 8
   br label %654
 
 654:                                              ; preds = %636, %639, %645, %648, %650
-  %.1232 = phi i32 [ %651, %650 ], [ %.0231375, %648 ], [ %.0231375, %645 ], [ %.0231375, %639 ], [ %.0231375, %636 ]
+  %.1233 = phi i32 [ %651, %650 ], [ %.0232373, %648 ], [ %.0232373, %645 ], [ %.0232373, %639 ], [ %.0232373, %636 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %628, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %654
   %655 = load ptr, ptr %161, align 8
-  call void %655(ptr noundef %0, ptr noundef %1, i32 noundef %.1232, ptr noundef %624, ptr noundef nonnull %190) #19
-  %656 = icmp sgt i32 %.1232, 0
-  br i1 %656, label %.lr.ph379.preheader, label %ReorderBufferExecuteInvalidations.exit
+  call void %655(ptr noundef %0, ptr noundef %1, i32 noundef %.1233, ptr noundef %624, ptr noundef nonnull %190) #19
+  %656 = icmp sgt i32 %.1233, 0
+  br i1 %656, label %.lr.ph377.preheader, label %ReorderBufferExecuteInvalidations.exit
 
-.lr.ph379.preheader:                              ; preds = %._crit_edge
-  %wide.trip.count409 = zext nneg i32 %.1232 to i64
-  br label %.lr.ph379
+.lr.ph377.preheader:                              ; preds = %._crit_edge
+  %wide.trip.count407 = zext nneg i32 %.1233 to i64
+  br label %.lr.ph377
 
-.lr.ph379:                                        ; preds = %.lr.ph379.preheader, %.lr.ph379
-  %indvars.iv406 = phi i64 [ 0, %.lr.ph379.preheader ], [ %indvars.iv.next407, %.lr.ph379 ]
-  %657 = getelementptr inbounds nuw ptr, ptr %624, i64 %indvars.iv406
+.lr.ph377:                                        ; preds = %.lr.ph377.preheader, %.lr.ph377
+  %indvars.iv404 = phi i64 [ 0, %.lr.ph377.preheader ], [ %indvars.iv.next405, %.lr.ph377 ]
+  %657 = getelementptr inbounds nuw ptr, ptr %624, i64 %indvars.iv404
   %658 = load ptr, ptr %657, align 8
   call void @RelationClose(ptr noundef %658) #19
-  %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
-  %exitcond410.not = icmp eq i64 %indvars.iv.next407, %wide.trip.count409
-  br i1 %exitcond410.not, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph379, !llvm.loop !31
+  %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
+  %exitcond408.not = icmp eq i64 %indvars.iv.next405, %wide.trip.count407
+  br i1 %exitcond408.not, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph377, !llvm.loop !31
 
 659:                                              ; preds = %SetupCheckXidLive.exit
   %660 = load i64, ptr %190, align 8
@@ -5388,46 +5388,46 @@ ReorderBufferToastReplace.exit:                   ; preds = %331, %ReorderBuffer
   %670 = load i32, ptr %669, align 8
   %671 = getelementptr inbounds nuw i8, ptr %190, i64 40
   %672 = load ptr, ptr %671, align 8
-  %.not.i282 = icmp eq i32 %670, 0
-  br i1 %.not.i282, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph.i283
+  %.not.i281 = icmp eq i32 %670, 0
+  br i1 %.not.i281, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph.i282
 
-.lr.ph.i283:                                      ; preds = %668, %.lr.ph.i283
-  %.04.i = phi i32 [ %675, %.lr.ph.i283 ], [ 0, %668 ]
+.lr.ph.i282:                                      ; preds = %668, %.lr.ph.i282
+  %.04.i = phi i32 [ %675, %.lr.ph.i282 ], [ 0, %668 ]
   %673 = sext i32 %.04.i to i64
   %674 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %672, i64 %673
   call void @LocalExecuteInvalidationMessage(ptr noundef %674) #19
   %675 = add nuw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %675, %670
-  br i1 %exitcond.not.i, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph.i283, !llvm.loop !11
+  br i1 %exitcond.not.i, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph.i282, !llvm.loop !11
 
 676:                                              ; preds = %SetupCheckXidLive.exit
   call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #19
-  %.0..0..0..0.127 = load volatile ptr, ptr %12, align 8
-  %677 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.127, i64 46
+  %.0..0..0..0.128 = load volatile ptr, ptr %12, align 8
+  %677 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.128, i64 46
   %678 = load i8, ptr %677, align 2, !range !6, !noundef !7
   %679 = trunc nuw i8 %678 to i1
   br i1 %679, label %680, label %727
 
 680:                                              ; preds = %676
-  %.0..0..0..0.128 = load volatile ptr, ptr %12, align 8
-  %681 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.128, i64 46
+  %.0..0..0..0.129 = load volatile ptr, ptr %12, align 8
+  %681 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.129, i64 46
   %682 = load i8, ptr %681, align 2, !range !6, !noundef !7
   %683 = trunc nuw i8 %682 to i1
   br i1 %683, label %684, label %685
 
 684:                                              ; preds = %680
-  call void @pfree(ptr noundef nonnull %.0..0..0..0.128) #19
+  call void @pfree(ptr noundef nonnull %.0..0..0..0.129) #19
   br label %ReorderBufferFreeSnap.exit
 
 685:                                              ; preds = %680
-  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %.0..0..0..0.128) #19
+  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %.0..0..0..0.129) #19
   br label %ReorderBufferFreeSnap.exit
 
 ReorderBufferFreeSnap.exit:                       ; preds = %684, %685
   %686 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %687 = load ptr, ptr %686, align 8
-  %.0..0..0..0.119 = load volatile i32, ptr %13, align 4
-  %.val264 = load ptr, ptr %87, align 8
+  %.0..0..0..0.120 = load volatile i32, ptr %13, align 4
+  %.val263 = load ptr, ptr %87, align 8
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 24
   %689 = load i32, ptr %688, align 8
   %690 = zext i32 %689 to i64
@@ -5437,7 +5437,7 @@ ReorderBufferFreeSnap.exit:                       ; preds = %684, %685
   %694 = add nuw nsw i64 %693, %690
   %695 = shl nuw nsw i64 %694, 2
   %696 = add nuw nsw i64 %695, 104
-  %697 = call ptr @MemoryContextAllocZero(ptr noundef %.val264, i64 noundef %696) #19
+  %697 = call ptr @MemoryContextAllocZero(ptr noundef %.val263, i64 noundef %696) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %697, ptr noundef nonnull readonly align 8 dereferenceable(104) %687, i64 104, i1 false)
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 46
   store i8 1, ptr %698, align 2
@@ -5463,14 +5463,14 @@ ReorderBufferFreeSnap.exit:                       ; preds = %684, %685
   %712 = getelementptr inbounds nuw i8, ptr %697, i64 40
   store i32 1, ptr %712, align 8
   %713 = load ptr, ptr %80, align 8
-  %.not.i285 = icmp eq ptr %713, null
+  %.not.i284 = icmp eq ptr %713, null
   %.not3614.i = icmp eq ptr %713, %79
-  %.not361.i = select i1 %.not.i285, i1 true, i1 %.not3614.i
-  br i1 %.not361.i, label %ReorderBufferCopySnap.exit, label %.lr.ph.i286
+  %.not361.i = select i1 %.not.i284, i1 true, i1 %.not3614.i
+  br i1 %.not361.i, label %ReorderBufferCopySnap.exit, label %.lr.ph.i285
 
-.lr.ph.i286:                                      ; preds = %ReorderBufferFreeSnap.exit, %.lr.ph.i286
-  %.sroa.0.03.i = phi ptr [ %723, %.lr.ph.i286 ], [ %713, %ReorderBufferFreeSnap.exit ]
-  %.02.i = phi i32 [ %717, %.lr.ph.i286 ], [ 1, %ReorderBufferFreeSnap.exit ]
+.lr.ph.i285:                                      ; preds = %ReorderBufferFreeSnap.exit, %.lr.ph.i285
+  %.sroa.0.03.i = phi ptr [ %723, %.lr.ph.i285 ], [ %713, %ReorderBufferFreeSnap.exit ]
+  %.02.i = phi i32 [ %717, %.lr.ph.i285 ], [ 1, %ReorderBufferFreeSnap.exit ]
   %714 = getelementptr inbounds i8, ptr %.sroa.0.03.i, i64 -236
   %715 = load i32, ptr %714, align 4
   %716 = load ptr, ptr %710, align 8
@@ -5484,18 +5484,18 @@ ReorderBufferFreeSnap.exit:                       ; preds = %684, %685
   %722 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i, i64 8
   %723 = load ptr, ptr %722, align 8
   %.not36.i = icmp eq ptr %723, %79
-  br i1 %.not36.i, label %._crit_edge.loopexit.i287, label %.lr.ph.i286, !llvm.loop !21
+  br i1 %.not36.i, label %._crit_edge.loopexit.i286, label %.lr.ph.i285, !llvm.loop !21
 
-._crit_edge.loopexit.i287:                        ; preds = %.lr.ph.i286
-  %.pre.i288 = load ptr, ptr %710, align 8
+._crit_edge.loopexit.i286:                        ; preds = %.lr.ph.i285
+  %.pre.i287 = load ptr, ptr %710, align 8
   %724 = sext i32 %721 to i64
   br label %ReorderBufferCopySnap.exit
 
-ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSnap.exit, %._crit_edge.loopexit.i287
-  %725 = phi i64 [ %724, %._crit_edge.loopexit.i287 ], [ 1, %ReorderBufferFreeSnap.exit ]
-  %726 = phi ptr [ %.pre.i288, %._crit_edge.loopexit.i287 ], [ %709, %ReorderBufferFreeSnap.exit ]
+ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSnap.exit, %._crit_edge.loopexit.i286
+  %725 = phi i64 [ %724, %._crit_edge.loopexit.i286 ], [ 1, %ReorderBufferFreeSnap.exit ]
+  %726 = phi ptr [ %.pre.i287, %._crit_edge.loopexit.i286 ], [ %709, %ReorderBufferFreeSnap.exit ]
   call void @pg_qsort(ptr noundef %726, i64 noundef %725, i64 noundef 4, ptr noundef nonnull @xidComparator) #19
-  br label %.sink.split439
+  br label %.sink.split437
 
 727:                                              ; preds = %676
   %728 = getelementptr inbounds nuw i8, ptr %190, i64 32
@@ -5506,8 +5506,8 @@ ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSn
   br i1 %732, label %733, label %774
 
 733:                                              ; preds = %727
-  %.0..0..0..0.120 = load volatile i32, ptr %13, align 4
-  %.val263 = load ptr, ptr %87, align 8
+  %.0..0..0..0.121 = load volatile i32, ptr %13, align 4
+  %.val262 = load ptr, ptr %87, align 8
   %734 = getelementptr inbounds nuw i8, ptr %729, i64 24
   %735 = load i32, ptr %734, align 8
   %736 = zext i32 %735 to i64
@@ -5517,7 +5517,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSn
   %740 = add nuw nsw i64 %739, %736
   %741 = shl nuw nsw i64 %740, 2
   %742 = add nuw nsw i64 %741, 104
-  %743 = call ptr @MemoryContextAllocZero(ptr noundef %.val263, i64 noundef %742) #19
+  %743 = call ptr @MemoryContextAllocZero(ptr noundef %.val262, i64 noundef %742) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %743, ptr noundef nonnull readonly align 8 dereferenceable(104) %729, i64 104, i1 false)
   %744 = getelementptr inbounds nuw i8, ptr %743, i64 46
   store i8 1, ptr %744, align 2
@@ -5543,75 +5543,75 @@ ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSn
   %758 = getelementptr inbounds nuw i8, ptr %743, i64 40
   store i32 1, ptr %758, align 8
   %759 = load ptr, ptr %80, align 8
-  %.not.i290 = icmp eq ptr %759, null
-  %.not3614.i291 = icmp eq ptr %759, %79
-  %.not361.i292 = select i1 %.not.i290, i1 true, i1 %.not3614.i291
-  br i1 %.not361.i292, label %ReorderBufferCopySnap.exit300, label %.lr.ph.i293
+  %.not.i289 = icmp eq ptr %759, null
+  %.not3614.i290 = icmp eq ptr %759, %79
+  %.not361.i291 = select i1 %.not.i289, i1 true, i1 %.not3614.i290
+  br i1 %.not361.i291, label %ReorderBufferCopySnap.exit299, label %.lr.ph.i292
 
-.lr.ph.i293:                                      ; preds = %733, %.lr.ph.i293
-  %.sroa.0.03.i294 = phi ptr [ %769, %.lr.ph.i293 ], [ %759, %733 ]
-  %.02.i295 = phi i32 [ %763, %.lr.ph.i293 ], [ 1, %733 ]
-  %760 = getelementptr inbounds i8, ptr %.sroa.0.03.i294, i64 -236
+.lr.ph.i292:                                      ; preds = %733, %.lr.ph.i292
+  %.sroa.0.03.i293 = phi ptr [ %769, %.lr.ph.i292 ], [ %759, %733 ]
+  %.02.i294 = phi i32 [ %763, %.lr.ph.i292 ], [ 1, %733 ]
+  %760 = getelementptr inbounds i8, ptr %.sroa.0.03.i293, i64 -236
   %761 = load i32, ptr %760, align 4
   %762 = load ptr, ptr %756, align 8
-  %763 = add i32 %.02.i295, 1
-  %764 = sext i32 %.02.i295 to i64
+  %763 = add i32 %.02.i294, 1
+  %764 = sext i32 %.02.i294 to i64
   %765 = getelementptr inbounds i32, ptr %762, i64 %764
   store i32 %761, ptr %765, align 4
   %766 = load i32, ptr %758, align 8
   %767 = add i32 %766, 1
   store i32 %767, ptr %758, align 8
-  %768 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i294, i64 8
+  %768 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i293, i64 8
   %769 = load ptr, ptr %768, align 8
-  %.not36.i296 = icmp eq ptr %769, %79
-  br i1 %.not36.i296, label %._crit_edge.loopexit.i297, label %.lr.ph.i293, !llvm.loop !21
+  %.not36.i295 = icmp eq ptr %769, %79
+  br i1 %.not36.i295, label %._crit_edge.loopexit.i296, label %.lr.ph.i292, !llvm.loop !21
 
-._crit_edge.loopexit.i297:                        ; preds = %.lr.ph.i293
-  %.pre.i298 = load ptr, ptr %756, align 8
+._crit_edge.loopexit.i296:                        ; preds = %.lr.ph.i292
+  %.pre.i297 = load ptr, ptr %756, align 8
   %770 = sext i32 %767 to i64
-  br label %ReorderBufferCopySnap.exit300
+  br label %ReorderBufferCopySnap.exit299
 
-ReorderBufferCopySnap.exit300:                    ; preds = %733, %._crit_edge.loopexit.i297
-  %771 = phi i64 [ %770, %._crit_edge.loopexit.i297 ], [ 1, %733 ]
-  %772 = phi ptr [ %.pre.i298, %._crit_edge.loopexit.i297 ], [ %755, %733 ]
+ReorderBufferCopySnap.exit299:                    ; preds = %733, %._crit_edge.loopexit.i296
+  %771 = phi i64 [ %770, %._crit_edge.loopexit.i296 ], [ 1, %733 ]
+  %772 = phi ptr [ %.pre.i297, %._crit_edge.loopexit.i296 ], [ %755, %733 ]
   call void @pg_qsort(ptr noundef %772, i64 noundef %771, i64 noundef 4, ptr noundef nonnull @xidComparator) #19
-  br label %.sink.split439
+  br label %.sink.split437
 
-.sink.split439:                                   ; preds = %ReorderBufferCopySnap.exit, %ReorderBufferCopySnap.exit300
-  %.sink441 = phi ptr [ %743, %ReorderBufferCopySnap.exit300 ], [ %697, %ReorderBufferCopySnap.exit ]
-  %.0..0..0.120.sink = phi i32 [ %.0..0..0..0.120, %ReorderBufferCopySnap.exit300 ], [ %.0..0..0..0.119, %ReorderBufferCopySnap.exit ]
-  %773 = getelementptr inbounds nuw i8, ptr %.sink441, i64 48
-  store i32 %.0..0..0.120.sink, ptr %773, align 8
+.sink.split437:                                   ; preds = %ReorderBufferCopySnap.exit, %ReorderBufferCopySnap.exit299
+  %.sink439 = phi ptr [ %743, %ReorderBufferCopySnap.exit299 ], [ %697, %ReorderBufferCopySnap.exit ]
+  %.0..0..0.121.sink = phi i32 [ %.0..0..0..0.121, %ReorderBufferCopySnap.exit299 ], [ %.0..0..0..0.120, %ReorderBufferCopySnap.exit ]
+  %773 = getelementptr inbounds nuw i8, ptr %.sink439, i64 48
+  store i32 %.0..0..0.121.sink, ptr %773, align 8
   br label %774
 
-774:                                              ; preds = %.sink.split439, %727
-  %.sink438 = phi ptr [ %729, %727 ], [ %.sink441, %.sink.split439 ]
-  store volatile ptr %.sink438, ptr %12, align 8
-  %.0..0..0..0.129 = load volatile ptr, ptr %12, align 8
+774:                                              ; preds = %.sink.split437, %727
+  %.sink436 = phi ptr [ %729, %727 ], [ %.sink439, %.sink.split437 ]
+  store volatile ptr %.sink436, ptr %12, align 8
+  %.0..0..0..0.130 = load volatile ptr, ptr %12, align 8
   %775 = load ptr, ptr %60, align 8
-  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.129, ptr noundef %775) #19
+  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.130, ptr noundef %775) #19
   br label %ReorderBufferExecuteInvalidations.exit
 
 776:                                              ; preds = %SetupCheckXidLive.exit
-  %.0..0..0..0.121 = load volatile i32, ptr %13, align 4
+  %.0..0..0..0.122 = load volatile i32, ptr %13, align 4
   %777 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %778 = load i32, ptr %777, align 8
-  %779 = icmp ult i32 %.0..0..0..0.121, %778
+  %779 = icmp ult i32 %.0..0..0..0.122, %778
   br i1 %779, label %780, label %ReorderBufferExecuteInvalidations.exit
 
 780:                                              ; preds = %776
   store volatile i32 %778, ptr %13, align 4
-  %.0..0..0..0.130 = load volatile ptr, ptr %12, align 8
-  %781 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.130, i64 46
+  %.0..0..0..0.131 = load volatile ptr, ptr %12, align 8
+  %781 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.131, i64 46
   %782 = load i8, ptr %781, align 2, !range !6, !noundef !7
   %783 = trunc nuw i8 %782 to i1
   br i1 %783, label %825, label %784
 
 784:                                              ; preds = %780
-  %.0..0..0..0.131 = load volatile ptr, ptr %12, align 8
-  %.0..0..0..0.122 = load volatile i32, ptr %13, align 4
+  %.0..0..0..0.132 = load volatile ptr, ptr %12, align 8
+  %.0..0..0..0.123 = load volatile i32, ptr %13, align 4
   %.val = load ptr, ptr %87, align 8
-  %785 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.131, i64 24
+  %785 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.132, i64 24
   %786 = load i32, ptr %785, align 8
   %787 = zext i32 %786 to i64
   %788 = load i32, ptr %158, align 8
@@ -5621,7 +5621,7 @@ ReorderBufferCopySnap.exit300:                    ; preds = %733, %._crit_edge.l
   %792 = shl nuw nsw i64 %791, 2
   %793 = add nuw nsw i64 %792, 104
   %794 = call ptr @MemoryContextAllocZero(ptr noundef %.val, i64 noundef %793) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %794, ptr noundef nonnull readonly align 8 dereferenceable(104) %.0..0..0..0.131, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %794, ptr noundef nonnull readonly align 8 dereferenceable(104) %.0..0..0..0.132, i64 104, i1 false)
   %795 = getelementptr inbounds nuw i8, ptr %794, i64 46
   store i8 1, ptr %795, align 2
   %796 = getelementptr inbounds nuw i8, ptr %794, i64 64
@@ -5631,7 +5631,7 @@ ReorderBufferCopySnap.exit300:                    ; preds = %733, %._crit_edge.l
   %798 = getelementptr inbounds nuw i8, ptr %794, i64 104
   %799 = getelementptr inbounds nuw i8, ptr %794, i64 16
   store ptr %798, ptr %799, align 8
-  %800 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.131, i64 16
+  %800 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.132, i64 16
   %801 = load ptr, ptr %800, align 8
   %802 = getelementptr inbounds nuw i8, ptr %794, i64 24
   %803 = load i32, ptr %802, align 8
@@ -5646,52 +5646,52 @@ ReorderBufferCopySnap.exit300:                    ; preds = %733, %._crit_edge.l
   %809 = getelementptr inbounds nuw i8, ptr %794, i64 40
   store i32 1, ptr %809, align 8
   %810 = load ptr, ptr %80, align 8
-  %.not.i301 = icmp eq ptr %810, null
-  %.not3614.i302 = icmp eq ptr %810, %79
-  %.not361.i303 = select i1 %.not.i301, i1 true, i1 %.not3614.i302
-  br i1 %.not361.i303, label %ReorderBufferCopySnap.exit311, label %.lr.ph.i304
+  %.not.i300 = icmp eq ptr %810, null
+  %.not3614.i301 = icmp eq ptr %810, %79
+  %.not361.i302 = select i1 %.not.i300, i1 true, i1 %.not3614.i301
+  br i1 %.not361.i302, label %ReorderBufferCopySnap.exit310, label %.lr.ph.i303
 
-.lr.ph.i304:                                      ; preds = %784, %.lr.ph.i304
-  %.sroa.0.03.i305 = phi ptr [ %820, %.lr.ph.i304 ], [ %810, %784 ]
-  %.02.i306 = phi i32 [ %814, %.lr.ph.i304 ], [ 1, %784 ]
-  %811 = getelementptr inbounds i8, ptr %.sroa.0.03.i305, i64 -236
+.lr.ph.i303:                                      ; preds = %784, %.lr.ph.i303
+  %.sroa.0.03.i304 = phi ptr [ %820, %.lr.ph.i303 ], [ %810, %784 ]
+  %.02.i305 = phi i32 [ %814, %.lr.ph.i303 ], [ 1, %784 ]
+  %811 = getelementptr inbounds i8, ptr %.sroa.0.03.i304, i64 -236
   %812 = load i32, ptr %811, align 4
   %813 = load ptr, ptr %807, align 8
-  %814 = add i32 %.02.i306, 1
-  %815 = sext i32 %.02.i306 to i64
+  %814 = add i32 %.02.i305, 1
+  %815 = sext i32 %.02.i305 to i64
   %816 = getelementptr inbounds i32, ptr %813, i64 %815
   store i32 %812, ptr %816, align 4
   %817 = load i32, ptr %809, align 8
   %818 = add i32 %817, 1
   store i32 %818, ptr %809, align 8
-  %819 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i305, i64 8
+  %819 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i304, i64 8
   %820 = load ptr, ptr %819, align 8
-  %.not36.i307 = icmp eq ptr %820, %79
-  br i1 %.not36.i307, label %._crit_edge.loopexit.i308, label %.lr.ph.i304, !llvm.loop !21
+  %.not36.i306 = icmp eq ptr %820, %79
+  br i1 %.not36.i306, label %._crit_edge.loopexit.i307, label %.lr.ph.i303, !llvm.loop !21
 
-._crit_edge.loopexit.i308:                        ; preds = %.lr.ph.i304
-  %.pre.i309 = load ptr, ptr %807, align 8
+._crit_edge.loopexit.i307:                        ; preds = %.lr.ph.i303
+  %.pre.i308 = load ptr, ptr %807, align 8
   %821 = sext i32 %818 to i64
-  br label %ReorderBufferCopySnap.exit311
+  br label %ReorderBufferCopySnap.exit310
 
-ReorderBufferCopySnap.exit311:                    ; preds = %784, %._crit_edge.loopexit.i308
-  %822 = phi i64 [ %821, %._crit_edge.loopexit.i308 ], [ 1, %784 ]
-  %823 = phi ptr [ %.pre.i309, %._crit_edge.loopexit.i308 ], [ %806, %784 ]
+ReorderBufferCopySnap.exit310:                    ; preds = %784, %._crit_edge.loopexit.i307
+  %822 = phi i64 [ %821, %._crit_edge.loopexit.i307 ], [ 1, %784 ]
+  %823 = phi ptr [ %.pre.i308, %._crit_edge.loopexit.i307 ], [ %806, %784 ]
   call void @pg_qsort(ptr noundef %823, i64 noundef %822, i64 noundef 4, ptr noundef nonnull @xidComparator) #19
   %824 = getelementptr inbounds nuw i8, ptr %794, i64 48
-  store i32 %.0..0..0..0.122, ptr %824, align 8
+  store i32 %.0..0..0..0.123, ptr %824, align 8
   store volatile ptr %794, ptr %12, align 8
   br label %825
 
-825:                                              ; preds = %ReorderBufferCopySnap.exit311, %780
-  %.0..0..0..0.123 = load volatile i32, ptr %13, align 4
-  %.0..0..0..0.132 = load volatile ptr, ptr %12, align 8
-  %826 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.132, i64 48
-  store i32 %.0..0..0..0.123, ptr %826, align 8
-  call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #19
+825:                                              ; preds = %ReorderBufferCopySnap.exit310, %780
+  %.0..0..0..0.124 = load volatile i32, ptr %13, align 4
   %.0..0..0..0.133 = load volatile ptr, ptr %12, align 8
+  %826 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.133, i64 48
+  store i32 %.0..0..0..0.124, ptr %826, align 8
+  call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #19
+  %.0..0..0..0.134 = load volatile ptr, ptr %12, align 8
   %827 = load ptr, ptr %60, align 8
-  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.133, ptr noundef %827) #19
+  call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.134, ptr noundef %827) #19
   br label %ReorderBufferExecuteInvalidations.exit
 
 828:                                              ; preds = %SetupCheckXidLive.exit
@@ -5701,9 +5701,9 @@ ReorderBufferCopySnap.exit311:                    ; preds = %784, %._crit_edge.l
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2566, ptr noundef nonnull @__func__.ReorderBufferProcessTXN) #19
   unreachable
 
-ReorderBufferExecuteInvalidations.exit:           ; preds = %.lr.ph.i283, %.lr.ph379, %._crit_edge.thread, %._crit_edge, %668, %776, %825, %617, %618, %608, %609, %774, %659, %612, %SetupCheckXidLive.exit
-  %.0 = phi ptr [ %190, %SetupCheckXidLive.exit ], [ %190, %825 ], [ %190, %776 ], [ %190, %774 ], [ %190, %659 ], [ %190, %618 ], [ %190, %617 ], [ %190, %612 ], [ %.1, %609 ], [ %.1, %608 ], [ %190, %668 ], [ %190, %._crit_edge ], [ %190, %._crit_edge.thread ], [ %190, %.lr.ph379 ], [ %190, %.lr.ph.i283 ]
-  %831 = add i32 %.0226381, 1
+ReorderBufferExecuteInvalidations.exit:           ; preds = %.lr.ph.i282, %.lr.ph377, %._crit_edge.thread, %._crit_edge, %668, %776, %825, %617, %618, %608, %609, %774, %659, %612, %SetupCheckXidLive.exit
+  %.0 = phi ptr [ %190, %SetupCheckXidLive.exit ], [ %190, %825 ], [ %190, %776 ], [ %190, %774 ], [ %190, %659 ], [ %190, %618 ], [ %190, %617 ], [ %190, %612 ], [ %.1, %609 ], [ %.1, %608 ], [ %190, %668 ], [ %190, %._crit_edge ], [ %190, %._crit_edge.thread ], [ %190, %.lr.ph377 ], [ %190, %.lr.ph.i282 ]
+  %831 = add i32 %.0227379, 1
   %832 = icmp sgt i32 %831, 99
   br i1 %832, label %833, label %836
 
@@ -5714,7 +5714,7 @@ ReorderBufferExecuteInvalidations.exit:           ; preds = %.lr.ph.i283, %.lr.p
   br label %836
 
 836:                                              ; preds = %833, %ReorderBufferExecuteInvalidations.exit
-  %.1227 = phi i32 [ 0, %833 ], [ %831, %ReorderBufferExecuteInvalidations.exit ]
+  %.1228 = phi i32 [ 0, %833 ], [ %831, %ReorderBufferExecuteInvalidations.exit ]
   %.0..0..0. = load volatile ptr, ptr %14, align 8
   %837 = load ptr, ptr %.0..0..0., align 8
   %838 = load i32, ptr %837, align 8
@@ -5722,48 +5722,48 @@ ReorderBufferExecuteInvalidations.exit:           ; preds = %.lr.ph.i283, %.lr.p
   br i1 %839, label %ReorderBufferIterTXNNext.exit, label %170, !llvm.loop !32
 
 ReorderBufferIterTXNNext.exit:                    ; preds = %836, %ReorderBufferIterTXNInit.exit
-  %.0..0..0.347 = load volatile ptr, ptr %14, align 8
-  %840 = getelementptr inbounds nuw i8, ptr %.0..0..0.347, i64 8
+  %.0..0..0.346 = load volatile ptr, ptr %14, align 8
+  %840 = getelementptr inbounds nuw i8, ptr %.0..0..0.346, i64 8
   %841 = load i64, ptr %840, align 8
   %.not15.i = icmp eq i64 %841, 0
-  br i1 %.not15.i, label %._crit_edge.i315, label %.lr.ph.i312
+  br i1 %.not15.i, label %._crit_edge.i314, label %.lr.ph.i311
 
-.lr.ph.i312:                                      ; preds = %ReorderBufferIterTXNNext.exit
-  %842 = getelementptr i8, ptr %.0..0..0.347, i64 56
+.lr.ph.i311:                                      ; preds = %ReorderBufferIterTXNNext.exit
+  %842 = getelementptr i8, ptr %.0..0..0.346, i64 56
   br label %843
 
-843:                                              ; preds = %849, %.lr.ph.i312
-  %844 = phi i64 [ %841, %.lr.ph.i312 ], [ %850, %849 ]
-  %845 = phi i64 [ 0, %.lr.ph.i312 ], [ %852, %849 ]
-  %.014.i = phi i32 [ 0, %.lr.ph.i312 ], [ %851, %849 ]
+843:                                              ; preds = %849, %.lr.ph.i311
+  %844 = phi i64 [ %841, %.lr.ph.i311 ], [ %850, %849 ]
+  %845 = phi i64 [ 0, %.lr.ph.i311 ], [ %852, %849 ]
+  %.014.i = phi i32 [ 0, %.lr.ph.i311 ], [ %851, %849 ]
   %.idx.i = mul nsw i64 %845, 48
   %846 = getelementptr i8, ptr %842, i64 %.idx.i
   %847 = load i32, ptr %846, align 8
-  %.not.i313 = icmp eq i32 %847, -1
-  br i1 %.not.i313, label %849, label %848
+  %.not.i312 = icmp eq i32 %847, -1
+  br i1 %.not.i312, label %849, label %848
 
 848:                                              ; preds = %843
   call void @FileClose(i32 noundef %847) #19
-  %.pre.i314 = load i64, ptr %840, align 8
+  %.pre.i313 = load i64, ptr %840, align 8
   br label %849
 
 849:                                              ; preds = %848, %843
-  %850 = phi i64 [ %844, %843 ], [ %.pre.i314, %848 ]
+  %850 = phi i64 [ %844, %843 ], [ %.pre.i313, %848 ]
   %851 = add i32 %.014.i, 1
   %852 = sext i32 %851 to i64
   %853 = icmp ugt i64 %850, %852
-  br i1 %853, label %843, label %._crit_edge.i315, !llvm.loop !33
+  br i1 %853, label %843, label %._crit_edge.i314, !llvm.loop !33
 
-._crit_edge.i315:                                 ; preds = %849, %ReorderBufferIterTXNNext.exit
-  %854 = getelementptr inbounds nuw i8, ptr %.0..0..0.347, i64 16
-  %855 = getelementptr inbounds nuw i8, ptr %.0..0..0.347, i64 24
+._crit_edge.i314:                                 ; preds = %849, %ReorderBufferIterTXNNext.exit
+  %854 = getelementptr inbounds nuw i8, ptr %.0..0..0.346, i64 16
+  %855 = getelementptr inbounds nuw i8, ptr %.0..0..0.346, i64 24
   %856 = load ptr, ptr %855, align 8
   %857 = icmp eq ptr %856, null
   %858 = icmp eq ptr %856, %854
-  %spec.select.i.i316 = or i1 %857, %858
-  br i1 %spec.select.i.i316, label %ReorderBufferIterTXNFinish.exit, label %859
+  %spec.select.i.i315 = or i1 %857, %858
+  br i1 %spec.select.i.i315, label %ReorderBufferIterTXNFinish.exit, label %859
 
-859:                                              ; preds = %._crit_edge.i315
+859:                                              ; preds = %._crit_edge.i314
   %860 = getelementptr inbounds nuw i8, ptr %856, i64 8
   %861 = load ptr, ptr %860, align 8
   %862 = load ptr, ptr %856, align 8
@@ -5775,15 +5775,15 @@ ReorderBufferIterTXNNext.exit:                    ; preds = %836, %ReorderBuffer
   call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef nonnull %865, i1 noundef zeroext true)
   br label %ReorderBufferIterTXNFinish.exit
 
-ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i315, %859
-  %866 = load ptr, ptr %.0..0..0.347, align 8
+ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i314, %859
+  %866 = load ptr, ptr %.0..0..0.346, align 8
   call void @binaryheap_free(ptr noundef %866) #19
-  call void @pfree(ptr noundef nonnull %.0..0..0.347) #19
+  call void @pfree(ptr noundef nonnull %.0..0..0.346) #19
   store volatile ptr null, ptr %14, align 8
   %867 = load i32, ptr %1, align 8
   %868 = and i32 %867, 16
-  %.not244 = icmp eq i32 %868, 0
-  br i1 %.not244, label %869, label %873
+  %.not245 = icmp eq i32 %868, 0
+  br i1 %.not245, label %869, label %873
 
 869:                                              ; preds = %ReorderBufferIterTXNFinish.exit
   %870 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -5802,23 +5802,23 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i315, %
   br i1 %5, label %879, label %884
 
 879:                                              ; preds = %873
-  %.0..0..0..0.89 = load volatile i8, ptr %17, align 1, !range !6, !noundef !7
-  %880 = trunc nuw i8 %.0..0..0..0.89 to i1
+  %.0..0..0..0.90 = load volatile i8, ptr %17, align 1, !range !6, !noundef !7
+  %880 = trunc nuw i8 %.0..0..0..0.90 to i1
   br i1 %880, label %881, label %895
 
 881:                                              ; preds = %879
   %882 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %883 = load ptr, ptr %882, align 8
-  %.0..0..0..0.102 = load volatile i64, ptr %15, align 8
-  call void %883(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.0..0..0..0.102) #19
+  %.0..0..0..0.103 = load volatile i64, ptr %15, align 8
+  call void %883(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.0..0..0..0.103) #19
   store volatile i8 0, ptr %17, align 1
   br label %895
 
 884:                                              ; preds = %873
   %885 = load i32, ptr %1, align 8
   %886 = and i32 %885, 64
-  %.not245 = icmp eq i32 %886, 0
-  br i1 %.not245, label %892, label %887
+  %.not246 = icmp eq i32 %886, 0
+  br i1 %.not246, label %892, label %887
 
 887:                                              ; preds = %884
   %888 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5837,8 +5837,8 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i315, %
 
 895:                                              ; preds = %887, %892, %879, %881
   %896 = call i32 @GetCurrentTransactionIdIfAny() #19
-  %.not246 = icmp eq i32 %896, 0
-  br i1 %.not246, label %901, label %897
+  %.not247 = icmp eq i32 %896, 0
+  br i1 %.not247, label %901, label %897
 
 897:                                              ; preds = %895
   %898 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -5849,21 +5849,21 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i315, %
   unreachable
 
 901:                                              ; preds = %895
-  %.0..0..0..0.134 = load volatile ptr, ptr %12, align 8
+  %.0..0..0..0.135 = load volatile ptr, ptr %12, align 8
   br i1 %5, label %902, label %951
 
 902:                                              ; preds = %901
-  %.0..0..0..0.124 = load volatile i32, ptr %13, align 4
+  %.0..0..0..0.125 = load volatile i32, ptr %13, align 4
   %903 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i32 %.0..0..0..0.124, ptr %903, align 8
-  %904 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.134, i64 46
+  store i32 %.0..0..0..0.125, ptr %903, align 8
+  %904 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.135, i64 46
   %905 = load i8, ptr %904, align 2, !range !6, !noundef !7
   %906 = trunc nuw i8 %905 to i1
   br i1 %906, label %ReorderBufferSaveTXNSnapshot.exit, label %907
 
 907:                                              ; preds = %902
-  %.val.i317 = load ptr, ptr %87, align 8
-  %908 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.134, i64 24
+  %.val.i316 = load ptr, ptr %87, align 8
+  %908 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.135, i64 24
   %909 = load i32, ptr %908, align 8
   %910 = zext i32 %909 to i64
   %911 = getelementptr inbounds nuw i8, ptr %1, i64 224
@@ -5873,8 +5873,8 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i315, %
   %915 = add nuw nsw i64 %914, %910
   %916 = shl nuw nsw i64 %915, 2
   %917 = add nuw nsw i64 %916, 104
-  %918 = call ptr @MemoryContextAllocZero(ptr noundef %.val.i317, i64 noundef %917) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %918, ptr noundef nonnull readonly align 8 dereferenceable(104) %.0..0..0..0.134, i64 104, i1 false)
+  %918 = call ptr @MemoryContextAllocZero(ptr noundef %.val.i316, i64 noundef %917) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %918, ptr noundef nonnull readonly align 8 dereferenceable(104) %.0..0..0..0.135, i64 104, i1 false)
   %919 = getelementptr inbounds nuw i8, ptr %918, i64 46
   store i8 1, ptr %919, align 2
   %920 = getelementptr inbounds nuw i8, ptr %918, i64 64
@@ -5884,7 +5884,7 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i315, %
   %922 = getelementptr inbounds nuw i8, ptr %918, i64 104
   %923 = getelementptr inbounds nuw i8, ptr %918, i64 16
   store ptr %922, ptr %923, align 8
-  %924 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.134, i64 16
+  %924 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.135, i64 16
   %925 = load ptr, ptr %924, align 8
   %926 = getelementptr inbounds nuw i8, ptr %918, i64 24
   %927 = load i32, ptr %926, align 8
@@ -5900,9 +5900,9 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i315, %
   %934 = getelementptr inbounds nuw i8, ptr %918, i64 40
   store i32 1, ptr %934, align 8
   %935 = load ptr, ptr %80, align 8
-  %.not.i.i318 = icmp eq ptr %935, null
+  %.not.i.i317 = icmp eq ptr %935, null
   %.not3614.i.i = icmp eq ptr %935, %79
-  %.not361.i.i = select i1 %.not.i.i318, i1 true, i1 %.not3614.i.i
+  %.not361.i.i = select i1 %.not.i.i317, i1 true, i1 %.not3614.i.i
   br i1 %.not361.i.i, label %ReorderBufferCopySnap.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %907, %.lr.ph.i.i
@@ -5920,8 +5920,8 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i315, %
   store i32 %943, ptr %934, align 8
   %944 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i.i, i64 8
   %945 = load ptr, ptr %944, align 8
-  %.not36.i.i319 = icmp eq ptr %945, %79
-  br i1 %.not36.i.i319, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !21
+  %.not36.i.i318 = icmp eq ptr %945, %79
+  br i1 %.not36.i.i318, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !21
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %.pre.i.i = load ptr, ptr %931, align 8
@@ -5933,95 +5933,95 @@ ReorderBufferCopySnap.exit.i:                     ; preds = %._crit_edge.loopexi
   %948 = phi ptr [ %.pre.i.i, %._crit_edge.loopexit.i.i ], [ %930, %907 ]
   call void @pg_qsort(ptr noundef %948, i64 noundef %947, i64 noundef 4, ptr noundef nonnull @xidComparator) #19
   %949 = getelementptr inbounds nuw i8, ptr %918, i64 48
-  store i32 %.0..0..0..0.124, ptr %949, align 8
+  store i32 %.0..0..0..0.125, ptr %949, align 8
   br label %ReorderBufferSaveTXNSnapshot.exit
 
 ReorderBufferSaveTXNSnapshot.exit:                ; preds = %902, %ReorderBufferCopySnap.exit.i
-  %.sink.i320 = phi ptr [ %918, %ReorderBufferCopySnap.exit.i ], [ %.0..0..0..0.134, %902 ]
+  %.sink.i319 = phi ptr [ %918, %ReorderBufferCopySnap.exit.i ], [ %.0..0..0..0.135, %902 ]
   %950 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store ptr %.sink.i320, ptr %950, align 8
-  br label %ReorderBufferFreeSnap.exit321
+  store ptr %.sink.i319, ptr %950, align 8
+  br label %ReorderBufferFreeSnap.exit320
 
 951:                                              ; preds = %901
-  %952 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.134, i64 46
+  %952 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.135, i64 46
   %953 = load i8, ptr %952, align 2, !range !6, !noundef !7
   %954 = trunc nuw i8 %953 to i1
-  br i1 %954, label %955, label %ReorderBufferFreeSnap.exit321
+  br i1 %954, label %955, label %ReorderBufferFreeSnap.exit320
 
 955:                                              ; preds = %951
-  %.0..0..0..0.136 = load volatile ptr, ptr %12, align 8
-  %956 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.136, i64 46
+  %.0..0..0..0.137 = load volatile ptr, ptr %12, align 8
+  %956 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.137, i64 46
   %957 = load i8, ptr %956, align 2, !range !6, !noundef !7
   %958 = trunc nuw i8 %957 to i1
   br i1 %958, label %959, label %960
 
 959:                                              ; preds = %955
-  call void @pfree(ptr noundef nonnull %.0..0..0..0.136) #19
-  br label %ReorderBufferFreeSnap.exit321
+  call void @pfree(ptr noundef nonnull %.0..0..0..0.137) #19
+  br label %ReorderBufferFreeSnap.exit320
 
 960:                                              ; preds = %955
-  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %.0..0..0..0.136) #19
-  br label %ReorderBufferFreeSnap.exit321
+  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %.0..0..0..0.137) #19
+  br label %ReorderBufferFreeSnap.exit320
 
-ReorderBufferFreeSnap.exit321:                    ; preds = %960, %959, %951, %ReorderBufferSaveTXNSnapshot.exit
+ReorderBufferFreeSnap.exit320:                    ; preds = %960, %959, %951, %ReorderBufferSaveTXNSnapshot.exit
   call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #19
   call void @AbortCurrentTransaction() #19
   %961 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %962 = load i32, ptr %961, align 4
   %963 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %964 = load ptr, ptr %963, align 8
-  %.not.i322 = icmp eq i32 %962, 0
-  br i1 %.not.i322, label %ReorderBufferExecuteInvalidations.exit327, label %.lr.ph.i323
+  %.not.i321 = icmp eq i32 %962, 0
+  br i1 %.not.i321, label %ReorderBufferExecuteInvalidations.exit326, label %.lr.ph.i322
 
-.lr.ph.i323:                                      ; preds = %ReorderBufferFreeSnap.exit321, %.lr.ph.i323
-  %.04.i324 = phi i32 [ %967, %.lr.ph.i323 ], [ 0, %ReorderBufferFreeSnap.exit321 ]
-  %965 = sext i32 %.04.i324 to i64
+.lr.ph.i322:                                      ; preds = %ReorderBufferFreeSnap.exit320, %.lr.ph.i322
+  %.04.i323 = phi i32 [ %967, %.lr.ph.i322 ], [ 0, %ReorderBufferFreeSnap.exit320 ]
+  %965 = sext i32 %.04.i323 to i64
   %966 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %964, i64 %965
   call void @LocalExecuteInvalidationMessage(ptr noundef %966) #19
-  %967 = add nuw i32 %.04.i324, 1
-  %exitcond.not.i325 = icmp eq i32 %967, %962
-  br i1 %exitcond.not.i325, label %ReorderBufferExecuteInvalidations.exit327, label %.lr.ph.i323, !llvm.loop !11
+  %967 = add nuw i32 %.04.i323, 1
+  %exitcond.not.i324 = icmp eq i32 %967, %962
+  br i1 %exitcond.not.i324, label %ReorderBufferExecuteInvalidations.exit326, label %.lr.ph.i322, !llvm.loop !11
 
-ReorderBufferExecuteInvalidations.exit327:        ; preds = %.lr.ph.i323, %ReorderBufferFreeSnap.exit321
+ReorderBufferExecuteInvalidations.exit326:        ; preds = %.lr.ph.i322, %ReorderBufferFreeSnap.exit320
   br i1 %62, label %968, label %969
 
-968:                                              ; preds = %ReorderBufferExecuteInvalidations.exit327
+968:                                              ; preds = %ReorderBufferExecuteInvalidations.exit326
   call void @RollbackAndReleaseCurrentSubTransaction() #19
   br label %969
 
-969:                                              ; preds = %968, %ReorderBufferExecuteInvalidations.exit327
-  br i1 %5, label %.critedge262, label %970
+969:                                              ; preds = %968, %ReorderBufferExecuteInvalidations.exit326
+  br i1 %5, label %.critedge261, label %970
 
 970:                                              ; preds = %969
   %971 = load i32, ptr %1, align 8
   %972 = and i32 %971, 64
-  %.not247 = icmp eq i32 %972, 0
-  br i1 %.not247, label %985, label %ReorderBufferMaybeMarkTXNStreamed.exit
+  %.not248 = icmp eq i32 %972, 0
+  br i1 %.not248, label %985, label %ReorderBufferMaybeMarkTXNStreamed.exit
 
-.critedge262:                                     ; preds = %969
+.critedge261:                                     ; preds = %969
   %973 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %974 = load ptr, ptr %973, align 8
   %975 = icmp eq ptr %974, null
   br i1 %975, label %979, label %976
 
-976:                                              ; preds = %.critedge262
+976:                                              ; preds = %.critedge261
   %977 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %978 = load i64, ptr %977, align 8
-  %.not.i328 = icmp eq i64 %978, 0
-  br i1 %.not.i328, label %.ReorderBufferMaybeMarkTXNStreamed.exit_crit_edge, label %979
+  %.not.i327 = icmp eq i64 %978, 0
+  br i1 %.not.i327, label %.ReorderBufferMaybeMarkTXNStreamed.exit_crit_edge, label %979
 
 .ReorderBufferMaybeMarkTXNStreamed.exit_crit_edge: ; preds = %976
-  %.pre412 = load i32, ptr %1, align 8
+  %.pre410 = load i32, ptr %1, align 8
   br label %ReorderBufferMaybeMarkTXNStreamed.exit
 
-979:                                              ; preds = %976, %.critedge262
+979:                                              ; preds = %976, %.critedge261
   %980 = load i32, ptr %1, align 8
   %981 = or i32 %980, 16
   store i32 %981, ptr %1, align 8
   br label %ReorderBufferMaybeMarkTXNStreamed.exit
 
 ReorderBufferMaybeMarkTXNStreamed.exit:           ; preds = %.ReorderBufferMaybeMarkTXNStreamed.exit_crit_edge, %979, %970
-  %982 = phi i32 [ %.pre412, %.ReorderBufferMaybeMarkTXNStreamed.exit_crit_edge ], [ %981, %979 ], [ %971, %970 ]
+  %982 = phi i32 [ %.pre410, %.ReorderBufferMaybeMarkTXNStreamed.exit_crit_edge ], [ %981, %979 ], [ %971, %970 ]
   %983 = and i32 %982, 64
   %984 = icmp ne i32 %983, 0
   call fastcc void @ReorderBufferTruncateTXN(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %984)
@@ -6038,53 +6038,53 @@ ReorderBufferMaybeMarkTXNStreamed.exit:           ; preds = %.ReorderBufferMaybe
   %987 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %20, ptr @CurrentMemoryContext, align 8
   %988 = call ptr @CopyErrorData() #19
-  %.0..0..0.348 = load volatile ptr, ptr %14, align 8
-  %.not = icmp eq ptr %.0..0..0.348, null
+  %.0..0..0.347 = load volatile ptr, ptr %14, align 8
+  %.not = icmp eq ptr %.0..0..0.347, null
   br i1 %.not, label %1017, label %989
 
 989:                                              ; preds = %986
-  %.0..0..0.349 = load volatile ptr, ptr %14, align 8
-  %990 = getelementptr inbounds nuw i8, ptr %.0..0..0.349, i64 8
+  %.0..0..0.348 = load volatile ptr, ptr %14, align 8
+  %990 = getelementptr inbounds nuw i8, ptr %.0..0..0.348, i64 8
   %991 = load i64, ptr %990, align 8
-  %.not15.i329 = icmp eq i64 %991, 0
-  br i1 %.not15.i329, label %._crit_edge.i335, label %.lr.ph.i330
+  %.not15.i328 = icmp eq i64 %991, 0
+  br i1 %.not15.i328, label %._crit_edge.i334, label %.lr.ph.i329
 
-.lr.ph.i330:                                      ; preds = %989
-  %992 = getelementptr i8, ptr %.0..0..0.349, i64 56
+.lr.ph.i329:                                      ; preds = %989
+  %992 = getelementptr i8, ptr %.0..0..0.348, i64 56
   br label %993
 
-993:                                              ; preds = %999, %.lr.ph.i330
-  %994 = phi i64 [ %991, %.lr.ph.i330 ], [ %1000, %999 ]
-  %995 = phi i64 [ 0, %.lr.ph.i330 ], [ %1002, %999 ]
-  %.014.i331 = phi i32 [ 0, %.lr.ph.i330 ], [ %1001, %999 ]
-  %.idx.i332 = mul nsw i64 %995, 48
-  %996 = getelementptr i8, ptr %992, i64 %.idx.i332
+993:                                              ; preds = %999, %.lr.ph.i329
+  %994 = phi i64 [ %991, %.lr.ph.i329 ], [ %1000, %999 ]
+  %995 = phi i64 [ 0, %.lr.ph.i329 ], [ %1002, %999 ]
+  %.014.i330 = phi i32 [ 0, %.lr.ph.i329 ], [ %1001, %999 ]
+  %.idx.i331 = mul nsw i64 %995, 48
+  %996 = getelementptr i8, ptr %992, i64 %.idx.i331
   %997 = load i32, ptr %996, align 8
-  %.not.i333 = icmp eq i32 %997, -1
-  br i1 %.not.i333, label %999, label %998
+  %.not.i332 = icmp eq i32 %997, -1
+  br i1 %.not.i332, label %999, label %998
 
 998:                                              ; preds = %993
   call void @FileClose(i32 noundef %997) #19
-  %.pre.i334 = load i64, ptr %990, align 8
+  %.pre.i333 = load i64, ptr %990, align 8
   br label %999
 
 999:                                              ; preds = %998, %993
-  %1000 = phi i64 [ %994, %993 ], [ %.pre.i334, %998 ]
-  %1001 = add i32 %.014.i331, 1
+  %1000 = phi i64 [ %994, %993 ], [ %.pre.i333, %998 ]
+  %1001 = add i32 %.014.i330, 1
   %1002 = sext i32 %1001 to i64
   %1003 = icmp ugt i64 %1000, %1002
-  br i1 %1003, label %993, label %._crit_edge.i335, !llvm.loop !33
+  br i1 %1003, label %993, label %._crit_edge.i334, !llvm.loop !33
 
-._crit_edge.i335:                                 ; preds = %999, %989
-  %1004 = getelementptr inbounds nuw i8, ptr %.0..0..0.349, i64 16
-  %1005 = getelementptr inbounds nuw i8, ptr %.0..0..0.349, i64 24
+._crit_edge.i334:                                 ; preds = %999, %989
+  %1004 = getelementptr inbounds nuw i8, ptr %.0..0..0.348, i64 16
+  %1005 = getelementptr inbounds nuw i8, ptr %.0..0..0.348, i64 24
   %1006 = load ptr, ptr %1005, align 8
   %1007 = icmp eq ptr %1006, null
   %1008 = icmp eq ptr %1006, %1004
-  %spec.select.i.i336 = or i1 %1007, %1008
-  br i1 %spec.select.i.i336, label %ReorderBufferIterTXNFinish.exit337, label %1009
+  %spec.select.i.i335 = or i1 %1007, %1008
+  br i1 %spec.select.i.i335, label %ReorderBufferIterTXNFinish.exit336, label %1009
 
-1009:                                             ; preds = %._crit_edge.i335
+1009:                                             ; preds = %._crit_edge.i334
   %1010 = getelementptr inbounds nuw i8, ptr %1006, i64 8
   %1011 = load ptr, ptr %1010, align 8
   %1012 = load ptr, ptr %1006, align 8
@@ -6094,67 +6094,67 @@ ReorderBufferMaybeMarkTXNStreamed.exit:           ; preds = %.ReorderBufferMaybe
   store ptr %1014, ptr %1011, align 8
   %1015 = getelementptr inbounds i8, ptr %1006, i64 -64
   call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef nonnull %1015, i1 noundef zeroext true)
-  br label %ReorderBufferIterTXNFinish.exit337
+  br label %ReorderBufferIterTXNFinish.exit336
 
-ReorderBufferIterTXNFinish.exit337:               ; preds = %._crit_edge.i335, %1009
-  %1016 = load ptr, ptr %.0..0..0.349, align 8
+ReorderBufferIterTXNFinish.exit336:               ; preds = %._crit_edge.i334, %1009
+  %1016 = load ptr, ptr %.0..0..0.348, align 8
   call void @binaryheap_free(ptr noundef %1016) #19
-  call void @pfree(ptr noundef nonnull %.0..0..0.349) #19
+  call void @pfree(ptr noundef nonnull %.0..0..0.348) #19
   br label %1017
 
-1017:                                             ; preds = %ReorderBufferIterTXNFinish.exit337, %986
+1017:                                             ; preds = %ReorderBufferIterTXNFinish.exit336, %986
   call void @TeardownHistoricSnapshot(i1 noundef zeroext true) #19
   call void @AbortCurrentTransaction() #19
   %1018 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %1019 = load i32, ptr %1018, align 4
   %1020 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %1021 = load ptr, ptr %1020, align 8
-  %.not.i338 = icmp eq i32 %1019, 0
-  br i1 %.not.i338, label %ReorderBufferExecuteInvalidations.exit343, label %.lr.ph.i339
+  %.not.i337 = icmp eq i32 %1019, 0
+  br i1 %.not.i337, label %ReorderBufferExecuteInvalidations.exit342, label %.lr.ph.i338
 
-.lr.ph.i339:                                      ; preds = %1017, %.lr.ph.i339
-  %.04.i340 = phi i32 [ %1024, %.lr.ph.i339 ], [ 0, %1017 ]
-  %1022 = sext i32 %.04.i340 to i64
+.lr.ph.i338:                                      ; preds = %1017, %.lr.ph.i338
+  %.04.i339 = phi i32 [ %1024, %.lr.ph.i338 ], [ 0, %1017 ]
+  %1022 = sext i32 %.04.i339 to i64
   %1023 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %1021, i64 %1022
   call void @LocalExecuteInvalidationMessage(ptr noundef %1023) #19
-  %1024 = add nuw i32 %.04.i340, 1
-  %exitcond.not.i341 = icmp eq i32 %1024, %1019
-  br i1 %exitcond.not.i341, label %ReorderBufferExecuteInvalidations.exit343, label %.lr.ph.i339, !llvm.loop !11
+  %1024 = add nuw i32 %.04.i339, 1
+  %exitcond.not.i340 = icmp eq i32 %1024, %1019
+  br i1 %exitcond.not.i340, label %ReorderBufferExecuteInvalidations.exit342, label %.lr.ph.i338, !llvm.loop !11
 
-ReorderBufferExecuteInvalidations.exit343:        ; preds = %.lr.ph.i339, %1017
+ReorderBufferExecuteInvalidations.exit342:        ; preds = %.lr.ph.i338, %1017
   br i1 %62, label %1025, label %1026
 
-1025:                                             ; preds = %ReorderBufferExecuteInvalidations.exit343
+1025:                                             ; preds = %ReorderBufferExecuteInvalidations.exit342
   call void @RollbackAndReleaseCurrentSubTransaction() #19
   br label %1026
 
-1026:                                             ; preds = %1025, %ReorderBufferExecuteInvalidations.exit343
+1026:                                             ; preds = %1025, %ReorderBufferExecuteInvalidations.exit342
   %1027 = getelementptr inbounds nuw i8, ptr %988, i64 48
   %1028 = load i32, ptr %1027, align 8
   %1029 = icmp eq i32 %1028, 4
   br i1 %1029, label %1030, label %1110
 
 1030:                                             ; preds = %1026
-  %.0..0..0..0.90 = load volatile i8, ptr %17, align 1, !range !6, !noundef !7
-  %1031 = trunc nuw i8 %.0..0..0..0.90 to i1
+  %.0..0..0..0.91 = load volatile i8, ptr %17, align 1, !range !6, !noundef !7
+  %1031 = trunc nuw i8 %.0..0..0..0.91 to i1
   br i1 %1031, label %1035, label %1032
 
 1032:                                             ; preds = %1030
   %1033 = load i32, ptr %1, align 8
   %1034 = and i32 %1033, 64
-  %.not241 = icmp eq i32 %1034, 0
-  br i1 %.not241, label %1110, label %1035
+  %.not242 = icmp eq i32 %1034, 0
+  br i1 %.not242, label %1110, label %1035
 
 1035:                                             ; preds = %1032, %1030
   call void @FlushErrorState() #19
   call void @FreeErrorData(ptr noundef nonnull %988) #19
-  %.0..0..0..0.88 = load volatile ptr, ptr %18, align 8
-  %1036 = load i32, ptr %.0..0..0..0.88, align 8
+  %.0..0..0..0.89 = load volatile ptr, ptr %18, align 8
+  %1036 = load i32, ptr %.0..0..0..0.89, align 8
   %1037 = or i32 %1036, 2048
-  store i32 %1037, ptr %.0..0..0..0.88, align 8
-  %.0..0..0..0.91 = load volatile i8, ptr %17, align 1, !range !6, !noundef !7
-  %1038 = trunc nuw i8 %.0..0..0..0.91 to i1
-  br i1 %1038, label %1039, label %ReorderBufferMaybeMarkTXNStreamed.exit345
+  store i32 %1037, ptr %.0..0..0..0.89, align 8
+  %.0..0..0..0.92 = load volatile i8, ptr %17, align 1, !range !6, !noundef !7
+  %1038 = trunc nuw i8 %.0..0..0..0.92 to i1
+  br i1 %1038, label %1039, label %ReorderBufferMaybeMarkTXNStreamed.exit344
 
 1039:                                             ; preds = %1035
   %1040 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -6165,33 +6165,33 @@ ReorderBufferExecuteInvalidations.exit343:        ; preds = %.lr.ph.i339, %1017
 1043:                                             ; preds = %1039
   %1044 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %1045 = load i64, ptr %1044, align 8
-  %.not.i344 = icmp eq i64 %1045, 0
-  br i1 %.not.i344, label %ReorderBufferMaybeMarkTXNStreamed.exit345, label %1046
+  %.not.i343 = icmp eq i64 %1045, 0
+  br i1 %.not.i343, label %ReorderBufferMaybeMarkTXNStreamed.exit344, label %1046
 
 1046:                                             ; preds = %1043, %1039
   %1047 = load i32, ptr %1, align 8
   %1048 = or i32 %1047, 16
   store i32 %1048, ptr %1, align 8
-  br label %ReorderBufferMaybeMarkTXNStreamed.exit345
+  br label %ReorderBufferMaybeMarkTXNStreamed.exit344
 
-ReorderBufferMaybeMarkTXNStreamed.exit345:        ; preds = %1046, %1043, %1035
-  %.0..0..0..0.137 = load volatile ptr, ptr %12, align 8
-  %.0..0..0..0.125 = load volatile i32, ptr %13, align 4
-  %.0..0..0..0.103 = load volatile i64, ptr %15, align 8
-  %.0..0..0..0.100 = load volatile ptr, ptr %16, align 8
+ReorderBufferMaybeMarkTXNStreamed.exit344:        ; preds = %1046, %1043, %1035
+  %.0..0..0..0.138 = load volatile ptr, ptr %12, align 8
+  %.0..0..0..0.126 = load volatile i32, ptr %13, align 4
+  %.0..0..0..0.104 = load volatile i64, ptr %15, align 8
+  %.0..0..0..0.101 = load volatile ptr, ptr %16, align 8
   %1049 = load i32, ptr %1, align 8
   %1050 = and i32 %1049, 64
   %1051 = icmp ne i32 %1050, 0
   call fastcc void @ReorderBufferTruncateTXN(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %1051)
   call fastcc void @ReorderBufferToastReset(ptr noundef %0, ptr noundef nonnull %1)
-  %.not.i346 = icmp eq ptr %.0..0..0..0.100, null
-  br i1 %.not.i346, label %1053, label %1052
+  %.not.i345 = icmp eq ptr %.0..0..0..0.101, null
+  br i1 %.not.i345, label %1053, label %1052
 
-1052:                                             ; preds = %ReorderBufferMaybeMarkTXNStreamed.exit345
-  call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef nonnull %.0..0..0..0.100, i1 noundef zeroext true)
+1052:                                             ; preds = %ReorderBufferMaybeMarkTXNStreamed.exit344
+  call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef nonnull %.0..0..0..0.101, i1 noundef zeroext true)
   br label %1053
 
-1053:                                             ; preds = %1052, %ReorderBufferMaybeMarkTXNStreamed.exit345
+1053:                                             ; preds = %1052, %ReorderBufferMaybeMarkTXNStreamed.exit344
   %1054 = load i32, ptr %1, align 8
   %1055 = and i32 %1054, 16
   %.not16.i = icmp eq i32 %1055, 0
@@ -6200,10 +6200,10 @@ ReorderBufferMaybeMarkTXNStreamed.exit345:        ; preds = %1046, %1043, %1035
 1056:                                             ; preds = %1053
   %1057 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %1058 = load ptr, ptr %1057, align 8
-  call void %1058(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0..0..0..0.103) #19
+  call void %1058(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.0..0..0..0.104) #19
   %1059 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i32 %.0..0..0..0.125, ptr %1059, align 8
-  %1060 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.137, i64 46
+  store i32 %.0..0..0..0.126, ptr %1059, align 8
+  %1060 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.138, i64 46
   %1061 = load i8, ptr %1060, align 2, !range !6, !noundef !7
   %1062 = trunc nuw i8 %1061 to i1
   br i1 %1062, label %ReorderBufferSaveTXNSnapshot.exit.i, label %1063
@@ -6211,7 +6211,7 @@ ReorderBufferMaybeMarkTXNStreamed.exit345:        ; preds = %1046, %1043, %1035
 1063:                                             ; preds = %1056
   %1064 = getelementptr i8, ptr %0, i64 240
   %.val.i.i = load ptr, ptr %1064, align 8
-  %1065 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.137, i64 24
+  %1065 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.138, i64 24
   %1066 = load i32, ptr %1065, align 8
   %1067 = zext i32 %1066 to i64
   %1068 = getelementptr inbounds nuw i8, ptr %1, i64 224
@@ -6222,7 +6222,7 @@ ReorderBufferMaybeMarkTXNStreamed.exit345:        ; preds = %1046, %1043, %1035
   %1073 = shl nuw nsw i64 %1072, 2
   %1074 = add nuw nsw i64 %1073, 104
   %1075 = call ptr @MemoryContextAllocZero(ptr noundef %.val.i.i, i64 noundef %1074) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1075, ptr noundef nonnull readonly align 8 dereferenceable(104) %.0..0..0..0.137, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1075, ptr noundef nonnull readonly align 8 dereferenceable(104) %.0..0..0..0.138, i64 104, i1 false)
   %1076 = getelementptr inbounds nuw i8, ptr %1075, i64 46
   store i8 1, ptr %1076, align 2
   %1077 = getelementptr inbounds nuw i8, ptr %1075, i64 64
@@ -6232,7 +6232,7 @@ ReorderBufferMaybeMarkTXNStreamed.exit345:        ; preds = %1046, %1043, %1035
   %1079 = getelementptr inbounds nuw i8, ptr %1075, i64 104
   %1080 = getelementptr inbounds nuw i8, ptr %1075, i64 16
   store ptr %1079, ptr %1080, align 8
-  %1081 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.137, i64 16
+  %1081 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.138, i64 16
   %1082 = load ptr, ptr %1081, align 8
   %1083 = getelementptr inbounds nuw i8, ptr %1075, i64 24
   %1084 = load i32, ptr %1083, align 8
@@ -6283,11 +6283,11 @@ ReorderBufferCopySnap.exit.i.i:                   ; preds = %._crit_edge.loopexi
   %1107 = phi ptr [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %1087, %1063 ]
   call void @pg_qsort(ptr noundef %1107, i64 noundef %1106, i64 noundef 4, ptr noundef nonnull @xidComparator) #19
   %1108 = getelementptr inbounds nuw i8, ptr %1075, i64 48
-  store i32 %.0..0..0..0.125, ptr %1108, align 8
+  store i32 %.0..0..0..0.126, ptr %1108, align 8
   br label %ReorderBufferSaveTXNSnapshot.exit.i
 
 ReorderBufferSaveTXNSnapshot.exit.i:              ; preds = %ReorderBufferCopySnap.exit.i.i, %1056
-  %.sink.i.i = phi ptr [ %1075, %ReorderBufferCopySnap.exit.i.i ], [ %.0..0..0..0.137, %1056 ]
+  %.sink.i.i = phi ptr [ %1075, %ReorderBufferCopySnap.exit.i.i ], [ %.0..0..0..0.138, %1056 ]
   %1109 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %.sink.i.i, ptr %1109, align 8
   br label %ReorderBufferResetTXN.exit

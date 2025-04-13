@@ -905,7 +905,7 @@ define void @_Z25_gmx_selelem_update_flagsRKSt10shared_ptrIN3gmx20SelectionTreeE
   %8 = load i32, ptr %7, align 8, !tbaa !53
   %9 = and i32 %8, 1
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %166
+  br i1 %.not, label %10, label %168
 
 10:                                               ; preds = %1
   %11 = load i32, ptr %6, align 8, !tbaa !54
@@ -931,8 +931,8 @@ define void @_Z25_gmx_selelem_update_flagsRKSt10shared_ptrIN3gmx20SelectionTreeE
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %18 = load i32, ptr %17, align 4, !tbaa !55
   %19 = and i32 %18, 4
-  %.not39 = icmp eq i32 %19, 0
-  br i1 %.not39, label %22, label %20
+  %.not40 = icmp eq i32 %19, 0
+  br i1 %.not40, label %22, label %20
 
 20:                                               ; preds = %14
   %21 = or i32 %8, 16
@@ -942,8 +942,8 @@ define void @_Z25_gmx_selelem_update_flagsRKSt10shared_ptrIN3gmx20SelectionTreeE
 22:                                               ; preds = %20, %14
   %23 = phi i32 [ %21, %20 ], [ %8, %14 ]
   %24 = and i32 %18, 8
-  %.not40 = icmp eq i32 %24, 0
-  br i1 %.not40, label %27, label %25
+  %.not41 = icmp eq i32 %24, 0
+  br i1 %.not41, label %27, label %25
 
 25:                                               ; preds = %22
   %26 = or i32 %23, 2
@@ -952,8 +952,8 @@ define void @_Z25_gmx_selelem_update_flagsRKSt10shared_ptrIN3gmx20SelectionTreeE
 
 27:                                               ; preds = %22
   %28 = and i32 %18, 16
-  %.not41 = icmp eq i32 %28, 0
-  br i1 %.not41, label %31, label %29
+  %.not42 = icmp eq i32 %28, 0
+  br i1 %.not42, label %31, label %29
 
 29:                                               ; preds = %27
   %30 = or i32 %23, 8
@@ -973,8 +973,8 @@ define void @_Z25_gmx_selelem_update_flagsRKSt10shared_ptrIN3gmx20SelectionTreeE
 35:                                               ; preds = %10
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !31
-  %.not38 = icmp eq i32 %37, 0
-  br i1 %.not38, label %41, label %38
+  %.not39 = icmp eq i32 %37, 0
+  br i1 %.not39, label %41, label %38
 
 38:                                               ; preds = %35
   %39 = or i32 %8, 8
@@ -985,7 +985,7 @@ define void @_Z25_gmx_selelem_update_flagsRKSt10shared_ptrIN3gmx20SelectionTreeE
   br label %41
 
 41:                                               ; preds = %35, %38, %25, %31, %29, %40, %33, %12, %10
-  %.037 = phi i1 [ true, %40 ], [ false, %33 ], [ false, %12 ], [ false, %29 ], [ false, %31 ], [ false, %25 ], [ false, %38 ], [ false, %35 ], [ false, %10 ]
+  %.038 = phi i1 [ true, %40 ], [ false, %33 ], [ false, %12 ], [ false, %29 ], [ false, %31 ], [ false, %25 ], [ false, %38 ], [ false, %35 ], [ false, %10 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #24
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %43 = load ptr, ptr %42, align 8, !tbaa !30
@@ -1016,12 +1016,12 @@ define void @_Z25_gmx_selelem_update_flagsRKSt10shared_ptrIN3gmx20SelectionTreeE
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %41, %50, %53
   %55 = phi ptr [ %43, %41 ], [ %43, %50 ], [ %.pre, %53 ]
-  %.not5861 = icmp eq ptr %55, null
-  br i1 %.not5861, label %._crit_edge, label %.lr.ph
+  %.not5962 = icmp eq ptr %55, null
+  br i1 %.not5962, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit
   %56 = phi ptr [ %123, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %55, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ]
-  %.03562 = phi i1 [ %spec.select, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ true, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ]
+  %.03663 = phi i1 [ %spec.select, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ true, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ]
   invoke void @_Z25_gmx_selelem_update_flagsRKSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %57 unwind label %74
 
@@ -1034,16 +1034,16 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %41, %50
   %63 = load i32, ptr %62, align 8, !tbaa !53
   %64 = or i32 %63, %60
   store i32 %64, ptr %62, align 8, !tbaa !53
-  br i1 %.037, label %65, label %84
+  br i1 %.038, label %65, label %84
 
 65:                                               ; preds = %57
   %66 = and i32 %63, 14
-  %.not42 = icmp ne i32 %66, 0
-  %.pre63 = load i32, ptr %58, align 8, !tbaa !53
-  %67 = and i32 %66, %.pre63
-  %.not43 = icmp eq i32 %67, 0
-  %or.cond = select i1 %.not42, i1 %.not43, i1 false
-  br i1 %or.cond, label %68, label %81
+  %.not43 = icmp ne i32 %66, 0
+  %.pre64 = load i32, ptr %58, align 8, !tbaa !53
+  %67 = and i32 %66, %.pre64
+  %.not44 = icmp eq i32 %67, 0
+  %or.cond68 = select i1 %.not43, i1 %.not44, i1 false
+  br i1 %or.cond68, label %68, label %81
 
 68:                                               ; preds = %65
   %69 = tail call ptr @__cxa_allocate_exception(i64 24) #24
@@ -1053,7 +1053,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %41, %50
 
 70:                                               ; preds = %68
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) %4)
-          to label %71 unwind label %.thread54
+          to label %71 unwind label %.thread55
 
 71:                                               ; preds = %70
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %3, align 8, !tbaa !39
@@ -1070,19 +1070,19 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %41, %50
 
 73:                                               ; preds = %71
   invoke void @__cxa_throw(ptr %69, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #27
-          to label %168 unwind label %78
+          to label %170 unwind label %78
 
 74:                                               ; preds = %.lr.ph
   %75 = landingpad { ptr, i32 }
           cleanup
-  br label %167
+  br label %169
 
 .thread:                                          ; preds = %68
   %76 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split
 
-.thread54:                                        ; preds = %70
+.thread55:                                        ; preds = %70
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
@@ -1097,20 +1097,20 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %41, %50
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #24
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
-  br i1 %.0, label %80, label %167
+  br i1 %.0, label %80, label %169
 
-.sink.split:                                      ; preds = %.thread, %.thread54
-  %.pn.pn53.ph = phi { ptr, i32 } [ %77, %.thread54 ], [ %76, %.thread ]
+.sink.split:                                      ; preds = %.thread, %.thread55
+  %.pn.pn54.ph = phi { ptr, i32 } [ %77, %.thread55 ], [ %76, %.thread ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
   br label %80
 
 80:                                               ; preds = %.sink.split, %78
-  %.pn.pn53 = phi { ptr, i32 } [ %79, %78 ], [ %.pn.pn53.ph, %.sink.split ]
+  %.pn.pn54 = phi { ptr, i32 } [ %79, %78 ], [ %.pn.pn54.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %69) #24
-  br label %167
+  br label %169
 
 81:                                               ; preds = %65
-  %82 = and i32 %.pre63, 14
+  %82 = and i32 %.pre64, 14
   %83 = or i32 %82, %64
   store i32 %83, ptr %62, align 8, !tbaa !53
   br label %84
@@ -1118,16 +1118,16 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %41, %50
 84:                                               ; preds = %81, %57
   %85 = load i32, ptr %58, align 8, !tbaa !53
   %86 = and i32 %85, 2
-  %.not47 = icmp ne i32 %86, 0
-  %spec.select = select i1 %.not47, i1 %.03562, i1 false
+  %.not48 = icmp ne i32 %86, 0
+  %spec.select = select i1 %.not48, i1 %.03663, i1 false
   %87 = getelementptr inbounds nuw i8, ptr %56, i64 112
   %88 = load ptr, ptr %87, align 8, !tbaa !30
   store ptr %88, ptr %2, align 8, !tbaa !30
   %89 = getelementptr inbounds nuw i8, ptr %56, i64 120
   %90 = load ptr, ptr %89, align 8, !tbaa !37
   %91 = load ptr, ptr %44, align 8, !tbaa !37
-  %.not.i.i.i48 = icmp eq ptr %90, %91
-  br i1 %.not.i.i.i48, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit, label %92
+  %.not.i.i.i49 = icmp eq ptr %90, %91
+  br i1 %.not.i.i.i49, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit, label %92
 
 92:                                               ; preds = %84
   %.not7.i.i.i = icmp eq ptr %90, null
@@ -1136,8 +1136,8 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %41, %50
 93:                                               ; preds = %92
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %95 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
-  %.not.i.i.i.i49 = icmp eq i8 %95, 0
-  br i1 %.not.i.i.i.i49, label %99, label %96
+  %.not.i.i.i.i50 = icmp eq i8 %95, 0
+  br i1 %.not.i.i.i.i50, label %99, label %96
 
 96:                                               ; preds = %93
   %97 = load i32, ptr %94, align 4, !tbaa !38
@@ -1201,113 +1201,118 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %119, %11
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i: ; preds = %122, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %107, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i
   store ptr %90, ptr %44, align 8, !tbaa !37
-  %.pre64 = load ptr, ptr %2, align 8, !tbaa !30
+  %.pre65 = load ptr, ptr %2, align 8, !tbaa !30
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %84, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
-  %123 = phi ptr [ %88, %84 ], [ %.pre64, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
-  %.not58 = icmp eq ptr %123, null
-  br i1 %.not58, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  %123 = phi ptr [ %88, %84 ], [ %.pre65, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ]
+  %.not59 = icmp eq ptr %123, null
+  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
-  %.035.lcssa = phi i1 [ true, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ], [ %spec.select, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ]
+  %.036.lcssa = phi i1 [ true, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ], [ %spec.select, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ]
   %124 = load ptr, ptr %0, align 8, !tbaa !30
   %125 = load i32, ptr %124, align 8, !tbaa !54
-  switch i32 %125, label %.thread57 [
-    i32 3, label %126
-    i32 4, label %132
-  ]
+  %126 = icmp eq i32 %125, 3
+  %or.cond = select i1 %126, i1 %.036.lcssa, i1 false
+  br i1 %or.cond, label %.thread58, label %131
 
-126:                                              ; preds = %._crit_edge
-  br i1 %.035.lcssa, label %127, label %.thread57
+.thread58:                                        ; preds = %._crit_edge
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 40
+  %128 = load i32, ptr %127, align 8, !tbaa !53
+  %129 = and i32 %128, -15
+  %130 = or disjoint i32 %129, 2
+  store i32 %130, ptr %127, align 8, !tbaa !53
+  br label %142
 
-127:                                              ; preds = %126
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 40
-  %129 = load i32, ptr %128, align 8, !tbaa !53
-  %130 = and i32 %129, -15
-  %131 = or disjoint i32 %130, 2
-  store i32 %131, ptr %128, align 8, !tbaa !53
-  br label %.thread57
+131:                                              ; preds = %._crit_edge
+  %132 = icmp eq i32 %125, 4
+  br i1 %132, label %133, label %._crit_edge66
 
-132:                                              ; preds = %._crit_edge
-  %133 = getelementptr inbounds nuw i8, ptr %124, i64 96
-  %134 = load ptr, ptr %133, align 8, !tbaa !30
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 40
-  %136 = load i32, ptr %135, align 8, !tbaa !53
-  %137 = and i32 %136, 14
-  %138 = getelementptr inbounds nuw i8, ptr %124, i64 40
-  %139 = load i32, ptr %138, align 8, !tbaa !53
-  %140 = or i32 %139, %137
-  store i32 %140, ptr %138, align 8, !tbaa !53
-  br label %.thread57
+._crit_edge66:                                    ; preds = %131
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %124, i64 40
+  %.pre67 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !53
+  br label %142
 
-.thread57:                                        ; preds = %._crit_edge, %126, %127, %132
-  %141 = getelementptr inbounds nuw i8, ptr %124, i64 40
-  %142 = load i32, ptr %141, align 8, !tbaa !53
-  %143 = or i32 %142, 1
-  store i32 %143, ptr %141, align 8, !tbaa !53
-  %144 = load ptr, ptr %44, align 8, !tbaa !37
-  %.not.i.i = icmp eq ptr %144, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %145
+133:                                              ; preds = %131
+  %134 = getelementptr inbounds nuw i8, ptr %124, i64 96
+  %135 = load ptr, ptr %134, align 8, !tbaa !30
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 40
+  %137 = load i32, ptr %136, align 8, !tbaa !53
+  %138 = and i32 %137, 14
+  %139 = getelementptr inbounds nuw i8, ptr %124, i64 40
+  %140 = load i32, ptr %139, align 8, !tbaa !53
+  %141 = or i32 %140, %138
+  store i32 %141, ptr %139, align 8, !tbaa !53
+  br label %142
 
-145:                                              ; preds = %.thread57
-  %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %147 = load atomic i64, ptr %146 acquire, align 8
-  %148 = icmp eq i64 %147, 4294967297
-  %149 = trunc i64 %147 to i32
-  br i1 %148, label %150, label %158
+142:                                              ; preds = %._crit_edge66, %.thread58, %133
+  %143 = phi i32 [ %.pre67, %._crit_edge66 ], [ %130, %.thread58 ], [ %141, %133 ]
+  %144 = getelementptr inbounds nuw i8, ptr %124, i64 40
+  %145 = or i32 %143, 1
+  store i32 %145, ptr %144, align 8, !tbaa !53
+  %146 = load ptr, ptr %44, align 8, !tbaa !37
+  %.not.i.i = icmp eq ptr %146, null
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %147
 
-150:                                              ; preds = %145
-  store i32 0, ptr %146, align 8, !tbaa !62
-  %151 = getelementptr inbounds nuw i8, ptr %144, i64 12
-  store i32 0, ptr %151, align 4, !tbaa !64
-  %152 = load ptr, ptr %144, align 8, !tbaa !39
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %154 = load ptr, ptr %153, align 8
-  tail call void %154(ptr noundef nonnull align 8 dereferenceable(16) %144) #24
-  %155 = load ptr, ptr %144, align 8, !tbaa !39
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
-  %157 = load ptr, ptr %156, align 8
-  tail call void %157(ptr noundef nonnull align 8 dereferenceable(16) %144) #24
+147:                                              ; preds = %142
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  %149 = load atomic i64, ptr %148 acquire, align 8
+  %150 = icmp eq i64 %149, 4294967297
+  %151 = trunc i64 %149 to i32
+  br i1 %150, label %152, label %160
+
+152:                                              ; preds = %147
+  store i32 0, ptr %148, align 8, !tbaa !62
+  %153 = getelementptr inbounds nuw i8, ptr %146, i64 12
+  store i32 0, ptr %153, align 4, !tbaa !64
+  %154 = load ptr, ptr %146, align 8, !tbaa !39
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %156 = load ptr, ptr %155, align 8
+  tail call void %156(ptr noundef nonnull align 8 dereferenceable(16) %146) #24
+  %157 = load ptr, ptr %146, align 8, !tbaa !39
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
+  %159 = load ptr, ptr %158, align 8
+  tail call void %159(ptr noundef nonnull align 8 dereferenceable(16) %146) #24
   br label %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-158:                                              ; preds = %145
-  %159 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
-  %.not.i.i.i50 = icmp eq i8 %159, 0
-  br i1 %.not.i.i.i50, label %162, label %160
+160:                                              ; preds = %147
+  %161 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
+  %.not.i.i.i51 = icmp eq i8 %161, 0
+  br i1 %.not.i.i.i51, label %164, label %162
 
-160:                                              ; preds = %158
-  %161 = add nsw i32 %149, -1
-  store i32 %161, ptr %146, align 4, !tbaa !38
+162:                                              ; preds = %160
+  %163 = add nsw i32 %151, -1
+  store i32 %163, ptr %148, align 4, !tbaa !38
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-162:                                              ; preds = %158
-  %163 = atomicrmw volatile add ptr %146, i32 -1 acq_rel, align 4
+164:                                              ; preds = %160
+  %165 = atomicrmw volatile add ptr %148, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %162, %160
-  %.0.i.i.i.i = phi i32 [ %149, %160 ], [ %163, %162 ]
-  %164 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %164, label %165, label %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !65
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %164, %162
+  %.0.i.i.i.i = phi i32 [ %151, %162 ], [ %165, %164 ]
+  %166 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %166, label %167, label %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !65
 
-165:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %144) #24
+167:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %146) #24
   br label %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.thread57, %150, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %165
+_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %142, %152, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %167
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #24
-  br label %166
+  br label %168
 
-166:                                              ; preds = %1, %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+168:                                              ; preds = %1, %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   ret void
 
-167:                                              ; preds = %78, %80, %74
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn53, %80 ], [ %79, %78 ], [ %75, %74 ]
+169:                                              ; preds = %78, %80, %74
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn54, %80 ], [ %79, %78 ], [ %75, %74 ]
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #24
   resume { ptr, i32 } %.pn.pn.pn
 
-168:                                              ; preds = %73
+170:                                              ; preds = %73
   unreachable
 }
 

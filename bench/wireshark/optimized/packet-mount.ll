@@ -341,15 +341,13 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 57
   %9 = load i16, ptr %8, align 1
   %10 = and i16 %9, 8
-  %.not = icmp eq i16 %10, 0
-  br i1 %.not, label %11, label %45
-
-11:                                               ; preds = %4
-  %12 = load i8, ptr @nfs_file_name_snooping, align 1, !range !6, !noundef !7
+  %11 = icmp eq i16 %10, 0
+  %12 = load i8, ptr @nfs_file_name_snooping, align 1, !range !6
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %45
+  %or.cond = select i1 %11, i1 %13, i1 false
+  br i1 %or.cond, label %14, label %45
 
-14:                                               ; preds = %11
+14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %16 = load i8, ptr %15, align 4, !range !6, !noundef !7
   %17 = trunc nuw i8 %16 to i1
@@ -392,7 +390,7 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
   tail call void @nfs_name_snoop_add_name(i32 noundef %44, ptr noundef %0, i32 noundef -1, i32 noundef %33, i32 noundef 0, i32 noundef 0, ptr noundef %36)
   br label %45
 
-45:                                               ; preds = %14, %18, %25, %22, %11, %4
+45:                                               ; preds = %14, %18, %25, %22, %4
   %46 = load i32, ptr @hf_mount_path, align 4
   %47 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %46, i32 noundef 0, ptr noundef nonnull %5)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8

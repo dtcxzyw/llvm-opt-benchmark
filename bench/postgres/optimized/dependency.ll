@@ -3451,168 +3451,168 @@ define dso_local void @recordDependencyOnSingleRelExpr(ptr noundef %0, ptr nound
 ._crit_edge.i:                                    ; preds = %55, %26
   %.023.lcssa.i = phi i32 [ 1, %26 ], [ %.124.i, %55 ]
   store i32 %.023.lcssa.i, ptr %23, align 8
-  %.pre52.pre = load ptr, ptr %7, align 8
+  %.pre53.pre = load ptr, ptr %7, align 8
   br label %eliminate_duplicate_dependencies.exit
 
 eliminate_duplicate_dependencies.exit:            ; preds = %6, %._crit_edge.i
-  %.pre52 = phi ptr [ %22, %6 ], [ %.pre52.pre, %._crit_edge.i ]
-  %.not = icmp ne i32 %3, %4
-  %brmerge = or i1 %.not, %5
-  br i1 %brmerge, label %59, label %120
+  %.pre53 = phi ptr [ %22, %6 ], [ %.pre53.pre, %._crit_edge.i ]
+  %59 = icmp ne i32 %3, %4
+  %or.cond = or i1 %59, %5
+  br i1 %or.cond, label %60, label %121
 
-59:                                               ; preds = %eliminate_duplicate_dependencies.exit
-  %60 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %63, label %120
+60:                                               ; preds = %eliminate_duplicate_dependencies.exit
+  %61 = getelementptr inbounds nuw i8, ptr %.pre53, i64 16
+  %62 = load i32, ptr %61, align 8
+  %63 = icmp sgt i32 %62, 0
+  br i1 %63, label %64, label %121
 
-63:                                               ; preds = %59
-  %64 = call ptr @palloc(i64 noundef 24) #9
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store i32 0, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 20
-  store i32 32, ptr %66, align 4
-  %67 = call ptr @palloc(i64 noundef 384) #9
-  store ptr %67, ptr %64, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr null, ptr %68, align 8
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = load i32, ptr %70, align 8
-  %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph.preheader, label %._crit_edge
+64:                                               ; preds = %60
+  %65 = call ptr @palloc(i64 noundef 24) #9
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store i32 0, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 20
+  store i32 32, ptr %67, align 4
+  %68 = call ptr @palloc(i64 noundef 384) #9
+  store ptr %68, ptr %65, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store ptr null, ptr %69, align 8
+  %70 = load ptr, ptr %7, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %63
-  %73 = load ptr, ptr %69, align 8
+.lr.ph.preheader:                                 ; preds = %64
+  %74 = load ptr, ptr %70, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %100
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %100 ]
-  %74 = phi ptr [ %69, %.lr.ph.preheader ], [ %101, %100 ]
-  %.044 = phi ptr [ %73, %.lr.ph.preheader ], [ %.1, %100 ]
-  %.03642 = phi i32 [ 0, %.lr.ph.preheader ], [ %.137, %100 ]
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %75, i64 %indvars.iv
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp eq i32 %77, 1259
-  br i1 %78, label %79, label %97
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %101
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %101 ]
+  %75 = phi ptr [ %70, %.lr.ph.preheader ], [ %102, %101 ]
+  %.045 = phi ptr [ %74, %.lr.ph.preheader ], [ %.1, %101 ]
+  %.03743 = phi i32 [ 0, %.lr.ph.preheader ], [ %.138, %101 ]
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %76, i64 %indvars.iv
+  %78 = load i32, ptr %77, align 4
+  %79 = icmp eq i32 %78, 1259
+  br i1 %79, label %80, label %98
 
-79:                                               ; preds = %.lr.ph
-  %80 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp eq i32 %81, %2
-  br i1 %82, label %83, label %97
+80:                                               ; preds = %.lr.ph
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp eq i32 %82, %2
+  br i1 %83, label %84, label %98
 
-83:                                               ; preds = %79
-  %84 = load i32, ptr %65, align 8
-  %85 = load i32, ptr %66, align 4
-  %.not.i = icmp slt i32 %84, %85
-  %.pre.i = load ptr, ptr %64, align 8
-  br i1 %.not.i, label %add_exact_object_address.exit, label %86
+84:                                               ; preds = %80
+  %85 = load i32, ptr %66, align 8
+  %86 = load i32, ptr %67, align 4
+  %.not.i = icmp slt i32 %85, %86
+  %.pre.i = load ptr, ptr %65, align 8
+  br i1 %.not.i, label %add_exact_object_address.exit, label %87
 
-86:                                               ; preds = %83
-  %87 = shl i32 %85, 1
-  store i32 %87, ptr %66, align 4
-  %88 = sext i32 %87 to i64
-  %89 = mul nsw i64 %88, 12
-  %90 = call ptr @repalloc(ptr noundef %.pre.i, i64 noundef %89) #9
-  store ptr %90, ptr %64, align 8
-  %.pre11.i = load i32, ptr %65, align 8
+87:                                               ; preds = %84
+  %88 = shl i32 %86, 1
+  store i32 %88, ptr %67, align 4
+  %89 = sext i32 %88 to i64
+  %90 = mul nsw i64 %89, 12
+  %91 = call ptr @repalloc(ptr noundef %.pre.i, i64 noundef %90) #9
+  store ptr %91, ptr %65, align 8
+  %.pre11.i = load i32, ptr %66, align 8
   br label %add_exact_object_address.exit
 
-add_exact_object_address.exit:                    ; preds = %83, %86
-  %91 = phi i32 [ %.pre11.i, %86 ], [ %84, %83 ]
-  %92 = phi ptr [ %90, %86 ], [ %.pre.i, %83 ]
-  %93 = sext i32 %91 to i64
-  %94 = getelementptr inbounds %struct.ObjectAddress, ptr %92, i64 %93
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %94, ptr noundef nonnull readonly align 4 dereferenceable(12) %76, i64 12, i1 false)
-  %95 = load i32, ptr %65, align 8
-  %96 = add i32 %95, 1
-  store i32 %96, ptr %65, align 8
-  br label %100
+add_exact_object_address.exit:                    ; preds = %84, %87
+  %92 = phi i32 [ %.pre11.i, %87 ], [ %85, %84 ]
+  %93 = phi ptr [ %91, %87 ], [ %.pre.i, %84 ]
+  %94 = sext i32 %92 to i64
+  %95 = getelementptr inbounds %struct.ObjectAddress, ptr %93, i64 %94
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %95, ptr noundef nonnull readonly align 4 dereferenceable(12) %77, i64 12, i1 false)
+  %96 = load i32, ptr %66, align 8
+  %97 = add i32 %96, 1
+  store i32 %97, ptr %66, align 8
+  br label %101
 
-97:                                               ; preds = %79, %.lr.ph
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.044, ptr noundef nonnull align 4 dereferenceable(12) %76, i64 12, i1 false)
-  %98 = getelementptr inbounds nuw i8, ptr %.044, i64 12
-  %99 = add i32 %.03642, 1
-  br label %100
+98:                                               ; preds = %80, %.lr.ph
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.045, ptr noundef nonnull align 4 dereferenceable(12) %77, i64 12, i1 false)
+  %99 = getelementptr inbounds nuw i8, ptr %.045, i64 12
+  %100 = add i32 %.03743, 1
+  br label %101
 
-100:                                              ; preds = %97, %add_exact_object_address.exit
-  %.137 = phi i32 [ %.03642, %add_exact_object_address.exit ], [ %99, %97 ]
-  %.1 = phi ptr [ %.044, %add_exact_object_address.exit ], [ %98, %97 ]
+101:                                              ; preds = %98, %add_exact_object_address.exit
+  %.138 = phi i32 [ %.03743, %add_exact_object_address.exit ], [ %100, %98 ]
+  %.1 = phi ptr [ %.045, %add_exact_object_address.exit ], [ %99, %98 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %103 = load i32, ptr %102, align 8
-  %104 = sext i32 %103 to i64
-  %105 = icmp slt i64 %indvars.iv.next, %104
-  br i1 %105, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  %102 = load ptr, ptr %7, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %104 = load i32, ptr %103, align 8
+  %105 = sext i32 %104 to i64
+  %106 = icmp slt i64 %indvars.iv.next, %105
+  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %100, %63
-  %.lcssa41 = phi ptr [ %69, %63 ], [ %101, %100 ]
-  %.036.lcssa = phi i32 [ 0, %63 ], [ %.137, %100 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.lcssa41, i64 16
-  store i32 %.036.lcssa, ptr %106, align 8
-  br i1 %5, label %.preheader, label %109
+._crit_edge:                                      ; preds = %101, %64
+  %.lcssa42 = phi ptr [ %70, %64 ], [ %102, %101 ]
+  %.037.lcssa = phi i32 [ 0, %64 ], [ %.138, %101 ]
+  %107 = getelementptr inbounds nuw i8, ptr %.lcssa42, i64 16
+  store i32 %.037.lcssa, ptr %107, align 8
+  br i1 %5, label %.preheader, label %110
 
 .preheader:                                       ; preds = %._crit_edge
-  %107 = load i32, ptr %65, align 8
-  %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %.lr.ph47, label %.loopexit
+  %108 = load i32, ptr %66, align 8
+  %109 = icmp sgt i32 %108, 0
+  br i1 %109, label %.lr.ph48, label %.loopexit
 
-109:                                              ; preds = %._crit_edge
-  %110 = load ptr, ptr %64, align 8
-  %111 = load i32, ptr %65, align 8
-  call void @recordMultipleDependencies(ptr noundef %0, ptr noundef %110, i32 noundef %111, i32 noundef %4) #9
+110:                                              ; preds = %._crit_edge
+  %111 = load ptr, ptr %65, align 8
+  %112 = load i32, ptr %66, align 8
+  call void @recordMultipleDependencies(ptr noundef %0, ptr noundef %111, i32 noundef %112, i32 noundef %4) #9
   br label %.loopexit
 
-.lr.ph47:                                         ; preds = %.preheader, %.lr.ph47
-  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.lr.ph47 ], [ 0, %.preheader ]
-  %112 = load ptr, ptr %64, align 8
-  %113 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %112, i64 %indvars.iv49
-  call void @recordDependencyOn(ptr noundef %113, ptr noundef %0, i32 noundef %4) #9
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %114 = load i32, ptr %65, align 8
-  %115 = sext i32 %114 to i64
-  %116 = icmp slt i64 %indvars.iv.next50, %115
-  br i1 %116, label %.lr.ph47, label %.loopexit, !llvm.loop !23
+.lr.ph48:                                         ; preds = %.preheader, %.lr.ph48
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph48 ], [ 0, %.preheader ]
+  %113 = load ptr, ptr %65, align 8
+  %114 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %113, i64 %indvars.iv50
+  call void @recordDependencyOn(ptr noundef %114, ptr noundef %0, i32 noundef %4) #9
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %115 = load i32, ptr %66, align 8
+  %116 = sext i32 %115 to i64
+  %117 = icmp slt i64 %indvars.iv.next51, %116
+  br i1 %117, label %.lr.ph48, label %.loopexit, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.lr.ph47, %.preheader, %109
-  %117 = load ptr, ptr %64, align 8
-  call void @pfree(ptr noundef %117) #9
-  %118 = load ptr, ptr %68, align 8
-  %.not.i38 = icmp eq ptr %118, null
-  br i1 %.not.i38, label %free_object_addresses.exit, label %119
+.loopexit:                                        ; preds = %.lr.ph48, %.preheader, %110
+  %118 = load ptr, ptr %65, align 8
+  call void @pfree(ptr noundef %118) #9
+  %119 = load ptr, ptr %69, align 8
+  %.not.i39 = icmp eq ptr %119, null
+  br i1 %.not.i39, label %free_object_addresses.exit, label %120
 
-119:                                              ; preds = %.loopexit
-  call void @pfree(ptr noundef nonnull %118) #9
+120:                                              ; preds = %.loopexit
+  call void @pfree(ptr noundef nonnull %119) #9
   br label %free_object_addresses.exit
 
-free_object_addresses.exit:                       ; preds = %.loopexit, %119
-  call void @pfree(ptr noundef nonnull %64) #9
+free_object_addresses.exit:                       ; preds = %.loopexit, %120
+  call void @pfree(ptr noundef nonnull %65) #9
   %.pre = load ptr, ptr %7, align 8
-  br label %120
+  br label %121
 
-120:                                              ; preds = %eliminate_duplicate_dependencies.exit, %free_object_addresses.exit, %59
-  %121 = phi ptr [ %.pre52, %eliminate_duplicate_dependencies.exit ], [ %.pre, %free_object_addresses.exit ], [ %.pre52, %59 ]
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %124 = load i32, ptr %123, align 8
-  call void @recordMultipleDependencies(ptr noundef %0, ptr noundef %122, i32 noundef %124, i32 noundef %3) #9
-  %125 = load ptr, ptr %7, align 8
-  %126 = load ptr, ptr %125, align 8
-  call void @pfree(ptr noundef %126) #9
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %128 = load ptr, ptr %127, align 8
-  %.not.i39 = icmp eq ptr %128, null
-  br i1 %.not.i39, label %free_object_addresses.exit40, label %129
+121:                                              ; preds = %eliminate_duplicate_dependencies.exit, %free_object_addresses.exit, %60
+  %122 = phi ptr [ %.pre53, %eliminate_duplicate_dependencies.exit ], [ %.pre, %free_object_addresses.exit ], [ %.pre53, %60 ]
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %125 = load i32, ptr %124, align 8
+  call void @recordMultipleDependencies(ptr noundef %0, ptr noundef %123, i32 noundef %125, i32 noundef %3) #9
+  %126 = load ptr, ptr %7, align 8
+  %127 = load ptr, ptr %126, align 8
+  call void @pfree(ptr noundef %127) #9
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %129 = load ptr, ptr %128, align 8
+  %.not.i40 = icmp eq ptr %129, null
+  br i1 %.not.i40, label %free_object_addresses.exit41, label %130
 
-129:                                              ; preds = %120
-  call void @pfree(ptr noundef nonnull %128) #9
-  br label %free_object_addresses.exit40
+130:                                              ; preds = %121
+  call void @pfree(ptr noundef nonnull %129) #9
+  br label %free_object_addresses.exit41
 
-free_object_addresses.exit40:                     ; preds = %120, %129
-  call void @pfree(ptr noundef nonnull %125) #9
+free_object_addresses.exit41:                     ; preds = %121, %130
+  call void @pfree(ptr noundef nonnull %126) #9
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
   ret void

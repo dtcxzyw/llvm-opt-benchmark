@@ -423,39 +423,37 @@ define void @_ZN3zmq12raw_engine_t5errorENS_8i_engine14error_reason_tE(ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 395
   %5 = load i8, ptr %4, align 1, !tbaa !81, !range !77, !noundef !78
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %21
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 396
+  %8 = load i8, ptr %7, align 4, !range !77
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond = select i1 %6, i1 %9, i1 false
+  br i1 %or.cond, label %10, label %20
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 396
-  %9 = load i8, ptr %8, align 4, !tbaa !76, !range !77, !noundef !78
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %21
-
-11:                                               ; preds = %7
+10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #14
-  %12 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1448
-  %14 = load ptr, ptr %13, align 8, !tbaa !74
-  %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE.exit, label %15
+  %11 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1448
+  %13 = load ptr, ptr %12, align 8, !tbaa !74
+  %.not.i = icmp eq ptr %13, null
+  br i1 %.not.i, label %_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE.exit, label %14
 
-15:                                               ; preds = %11
-  %16 = call noundef ptr @_ZNK3zmq5msg_t8metadataEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  %.not4.i = icmp eq ptr %14, %16
-  br i1 %.not4.i, label %_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE.exit, label %17
+14:                                               ; preds = %10
+  %15 = call noundef ptr @_ZNK3zmq5msg_t8metadataEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
+  %.not4.i = icmp eq ptr %13, %15
+  br i1 %.not4.i, label %_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE.exit, label %16
 
-17:                                               ; preds = %15
-  %18 = load ptr, ptr %13, align 8, !tbaa !74
-  call void @_ZN3zmq5msg_t12set_metadataEPNS_10metadata_tE(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %18)
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %12, align 8, !tbaa !74
+  call void @_ZN3zmq5msg_t12set_metadataEPNS_10metadata_tE(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %17)
   br label %_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE.exit
 
-_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE.exit: ; preds = %11, %15, %17
-  %19 = call noundef i32 @_ZN3zmq20stream_engine_base_t19push_msg_to_sessionEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1696) %0, ptr noundef nonnull %3)
-  %20 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
+_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE.exit: ; preds = %10, %14, %16
+  %18 = call noundef i32 @_ZN3zmq20stream_engine_base_t19push_msg_to_sessionEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1696) %0, ptr noundef nonnull %3)
+  %19 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #14
-  br label %21
+  br label %20
 
-21:                                               ; preds = %_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE.exit, %7, %2
+20:                                               ; preds = %_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE.exit, %2
   call void @_ZN3zmq20stream_engine_base_t5errorENS_8i_engine14error_reason_tE(ptr noundef nonnull align 8 dereferenceable(1689) %0, i32 noundef %1)
   ret void
 }

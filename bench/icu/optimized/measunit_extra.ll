@@ -3293,13 +3293,13 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %3
   %17 = icmp sgt i32 %16, 0
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i32, ptr %18, align 8
-  %.not = icmp eq i32 %19, 0
-  %or.cond = select i1 %17, i1 true, i1 %.not
-  br i1 %or.cond, label %.critedge, label %.preheader
+  %.not148 = icmp eq i32 %19, 0
+  %or.cond150 = select i1 %17, i1 true, i1 %.not148
+  br i1 %or.cond150, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %_ZN6icu_7715MeasureUnitImplC2Ev.exit
-  %.val166 = load i32, ptr %1, align 8, !tbaa !93
-  %20 = icmp slt i32 %.val166, %19
+  %.val169 = load i32, ptr %1, align 8, !tbaa !93
+  %20 = icmp slt i32 %.val169, %19
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -3309,7 +3309,7 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %3
   br label %23
 
 23:                                               ; preds = %87, %.lr.ph
-  %.val168 = phi i32 [ %.val166, %.lr.ph ], [ %.val, %87 ]
+  %.val171 = phi i32 [ %.val169, %.lr.ph ], [ %.val, %87 ]
   %24 = invoke fastcc { i64, i32 } @_ZN6icu_7712_GLOBAL__N_16Parser9nextTokenER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(58) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %.noexc unwind label %.loopexit.split-lp
 
@@ -3321,7 +3321,7 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %3
   br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %.noexc
-  %28 = icmp eq i32 %.val168, 0
+  %28 = icmp eq i32 %.val171, 0
   store i8 0, ptr %21, align 1, !tbaa !97, !noalias !98
   br i1 %28, label %29, label %35
 
@@ -3333,9 +3333,9 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %3
   store i8 1, ptr %22, align 8, !tbaa !96, !noalias !98
   store i8 1, ptr %21, align 1, !tbaa !97, !noalias !98
   %32 = invoke fastcc { i64, i32 } @_ZN6icu_7712_GLOBAL__N_16Parser9nextTokenER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(58) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.noexc32 unwind label %.loopexit.split-lp
+          to label %.noexc33 unwind label %.loopexit.split-lp
 
-.noexc32:                                         ; preds = %31
+.noexc33:                                         ; preds = %31
   %.fca.0.extract13.i = extractvalue { i64, i32 } %32, 0
   %.fca.1.extract14.i = extractvalue { i64, i32 } %32, 1
   %33 = load i32, ptr %2, align 4, !tbaa !13, !noalias !98
@@ -3374,20 +3374,20 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %3
   %.0 = phi i1 [ false, %36 ], [ false, %39 ], [ false, %38 ], [ true, %42 ]
   %.sroa.7.1.i = phi i32 [ 1, %36 ], [ %spec.select.i, %39 ], [ -1, %38 ], [ 1, %42 ]
   %46 = invoke fastcc { i64, i32 } @_ZN6icu_7712_GLOBAL__N_16Parser9nextTokenER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(58) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.noexc33 unwind label %.loopexit.split-lp
+          to label %.noexc34 unwind label %.loopexit.split-lp
 
-.noexc33:                                         ; preds = %45
+.noexc34:                                         ; preds = %45
   %.fca.0.extract6.i = extractvalue { i64, i32 } %46, 0
   %.fca.1.extract7.i = extractvalue { i64, i32 } %46, 1
   %47 = load i32, ptr %2, align 4, !tbaa !13, !noalias !98
   %48 = icmp slt i32 %47, 1
   br i1 %48, label %49, label %.critedge
 
-49:                                               ; preds = %.noexc33, %.noexc32, %29
-  %.1115 = phi i1 [ false, %.noexc32 ], [ false, %29 ], [ %.0, %.noexc33 ]
-  %.sroa.7.0.i = phi i32 [ -1, %.noexc32 ], [ 1, %29 ], [ %.sroa.7.1.i, %.noexc33 ]
-  %.sroa.11.0.i = phi i32 [ %.fca.1.extract14.i, %.noexc32 ], [ %.fca.1.extract21.i, %29 ], [ %.fca.1.extract7.i, %.noexc33 ]
-  %.sroa.0.0.i = phi i64 [ %.fca.0.extract13.i, %.noexc32 ], [ %.fca.0.extract20.i, %29 ], [ %.fca.0.extract6.i, %.noexc33 ]
+49:                                               ; preds = %.noexc34, %.noexc33, %29
+  %.1116 = phi i1 [ false, %.noexc33 ], [ false, %29 ], [ %.0, %.noexc34 ]
+  %.sroa.7.0.i = phi i32 [ -1, %.noexc33 ], [ 1, %29 ], [ %.sroa.7.1.i, %.noexc34 ]
+  %.sroa.11.0.i = phi i32 [ %.fca.1.extract14.i, %.noexc33 ], [ %.fca.1.extract21.i, %29 ], [ %.fca.1.extract7.i, %.noexc34 ]
+  %.sroa.0.0.i = phi i64 [ %.fca.0.extract13.i, %.noexc33 ], [ %.fca.0.extract20.i, %29 ], [ %.fca.0.extract6.i, %.noexc34 ]
   %50 = icmp eq i32 %.sroa.11.0.i, 6
   br i1 %50, label %51, label %.preheader.i
 
@@ -3396,12 +3396,12 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %3
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %_ZN6icu_7712_GLOBAL__N_16Parser24nextSingleUnitOrConstantERbR10UErrorCode.exit.thread, label %.critedge.sink.split
 
-.preheader.i:                                     ; preds = %49, %.noexc34
-  %.sroa.069.0.i = phi i64 [ %.sroa.069.1.ph.i, %.noexc34 ], [ 133143986175, %49 ]
-  %.sroa.7.2.i = phi i32 [ %.sroa.7.3.ph.i, %.noexc34 ], [ %.sroa.7.0.i, %49 ]
-  %.sroa.11.1.i = phi i32 [ %.fca.1.extract.i, %.noexc34 ], [ %.sroa.11.0.i, %49 ]
-  %.sroa.0.1.i = phi i64 [ %.fca.0.extract.i, %.noexc34 ], [ %.sroa.0.0.i, %49 ]
-  %.0.i = phi i32 [ %.1.ph.i, %.noexc34 ], [ 0, %49 ]
+.preheader.i:                                     ; preds = %49, %.noexc35
+  %.sroa.069.0.i = phi i64 [ %.sroa.069.1.ph.i, %.noexc35 ], [ 133143986175, %49 ]
+  %.sroa.7.2.i = phi i32 [ %.sroa.7.3.ph.i, %.noexc35 ], [ %.sroa.7.0.i, %49 ]
+  %.sroa.11.1.i = phi i32 [ %.fca.1.extract.i, %.noexc35 ], [ %.sroa.11.0.i, %49 ]
+  %.sroa.0.1.i = phi i64 [ %.fca.0.extract.i, %.noexc35 ], [ %.sroa.0.0.i, %49 ]
+  %.0.i = phi i32 [ %.1.ph.i, %.noexc35 ], [ 0, %49 ]
   switch i32 %.sroa.11.1.i, label %.critedge.sink.split [
     i32 4, label %54
     i32 1, label %59
@@ -3439,9 +3439,9 @@ _ZN6icu_7715MeasureUnitImplC2Ev.exit:             ; preds = %3
 
 65:                                               ; preds = %63
   %66 = invoke fastcc { i64, i32 } @_ZN6icu_7712_GLOBAL__N_16Parser9nextTokenER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(58) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %.noexc34 unwind label %.loopexit
+          to label %.noexc35 unwind label %.loopexit
 
-.noexc34:                                         ; preds = %65
+.noexc35:                                         ; preds = %65
   %.fca.0.extract.i = extractvalue { i64, i32 } %66, 0
   %.fca.1.extract.i = extractvalue { i64, i32 } %66, 1
   %67 = load i32, ptr %2, align 4, !tbaa !13, !noalias !98
@@ -3491,9 +3491,9 @@ _ZN6icu_7712_GLOBAL__N_16Parser24nextSingleUnitOrConstantERbR10UErrorCode.exit.t
   br label %89
 
 78:                                               ; preds = %73
-  %.not26 = xor i1 %.1115, true
-  %brmerge = or i1 %72, %.not26
-  br i1 %brmerge, label %79, label %.critedge.sink.split
+  %.not = xor i1 %.1116, true
+  %or.cond = or i1 %72, %.not
+  br i1 %or.cond, label %79, label %.critedge.sink.split
 
 79:                                               ; preds = %78
   %80 = load i32, ptr %5, align 8, !tbaa !28
@@ -3501,14 +3501,14 @@ _ZN6icu_7712_GLOBAL__N_16Parser24nextSingleUnitOrConstantERbR10UErrorCode.exit.t
   br i1 %81, label %82, label %87
 
 82:                                               ; preds = %79
-  %83 = select i1 %.1115, i32 2, i32 1
+  %83 = select i1 %.1116, i32 2, i32 1
   %84 = icmp eq i32 %80, 2
   br i1 %84, label %.sink.split, label %85
 
 85:                                               ; preds = %82
   %86 = load i32, ptr %0, align 8, !tbaa !76
-  %.not25 = icmp eq i32 %86, %83
-  br i1 %.not25, label %87, label %.critedge.sink.split
+  %.not27 = icmp eq i32 %86, %83
+  br i1 %.not27, label %87, label %.critedge.sink.split
 
 .sink.split:                                      ; preds = %82, %_ZN6icu_7712_GLOBAL__N_16Parser24nextSingleUnitOrConstantERbR10UErrorCode.exit.thread
   %.sink = phi i32 [ 1, %_ZN6icu_7712_GLOBAL__N_16Parser24nextSingleUnitOrConstantERbR10UErrorCode.exit.thread ], [ %83, %82 ]
@@ -3517,8 +3517,8 @@ _ZN6icu_7712_GLOBAL__N_16Parser24nextSingleUnitOrConstantERbR10UErrorCode.exit.t
 
 87:                                               ; preds = %.sink.split, %85, %79
   %.val = load i32, ptr %1, align 8, !tbaa !93
-  %.val27 = load i32, ptr %18, align 8, !tbaa !103
-  %88 = icmp slt i32 %.val, %.val27
+  %.val28 = load i32, ptr %18, align 8, !tbaa !103
+  %88 = icmp slt i32 %.val, %.val28
   br i1 %88, label %23, label %._crit_edge
 
 89:                                               ; preds = %.loopexit, %.loopexit.split-lp, %76
@@ -3535,7 +3535,7 @@ _ZN6icu_7712_GLOBAL__N_16Parser24nextSingleUnitOrConstantERbR10UErrorCode.exit.t
   store i32 1, ptr %2, align 4, !tbaa !13
   br label %.critedge
 
-.critedge:                                        ; preds = %.noexc33, %.noexc32, %.noexc, %73, %_ZN6icu_7712_GLOBAL__N_16Parser24nextSingleUnitOrConstantERbR10UErrorCode.exit, %.noexc34, %.critedge.sink.split, %_ZN6icu_7715MeasureUnitImplC2Ev.exit, %._crit_edge
+.critedge:                                        ; preds = %.noexc34, %.noexc33, %.noexc, %73, %_ZN6icu_7712_GLOBAL__N_16Parser24nextSingleUnitOrConstantERbR10UErrorCode.exit, %.noexc35, %.critedge.sink.split, %_ZN6icu_7715MeasureUnitImplC2Ev.exit, %._crit_edge
   ret void
 }
 

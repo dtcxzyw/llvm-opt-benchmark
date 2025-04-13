@@ -8512,29 +8512,22 @@ _ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i:     ; preds = %1027
 1042:                                             ; preds = %1040
   %switch.tableidx = add i8 %1002, -17
   %1043 = icmp ult i8 %switch.tableidx, 8
-  br i1 %1043, label %switch.hole_check, label %_ZL14isMultiTopTypeh.exit.i
-
-_ZL14isMultiTopTypeh.exit.i:                      ; preds = %1042
-  %.old = add i8 %1002, -11
-  %narrow.i.old = icmp ult i8 %.old, 5
-  br i1 %narrow.i.old, label %_ZL14isMultiTopTypeh.exit.thread.i, label %1044
-
-1044:                                             ; preds = %switch.hole_check, %_ZL14isMultiTopTypeh.exit.i
-  %1045 = getelementptr inbounds nuw i8, ptr %.sroa.014.071.i, i64 72
-  %1046 = load i32, ptr %1045, align 8
-  %1047 = add i32 %1046, 4
-  br label %_ZL14isMultiTopTypeh.exit.thread.i
-
-switch.hole_check:                                ; preds = %1042
   %switch.shifted = lshr i8 -3, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %1048 = add nsw i8 %1002, -11
-  %narrow.i = icmp ult i8 %1048, 5
-  %or.cond = or i1 %narrow.i, %switch.lobit
-  br i1 %or.cond, label %_ZL14isMultiTopTypeh.exit.thread.i, label %1044
+  %or.cond = select i1 %1043, i1 %switch.lobit, i1 false
+  %1044 = add i8 %1002, -11
+  %narrow.i = icmp ult i8 %1044, 5
+  %or.cond732 = or i1 %or.cond, %narrow.i
+  br i1 %or.cond732, label %_ZL14isMultiTopTypeh.exit.thread.i, label %1045
 
-_ZL14isMultiTopTypeh.exit.thread.i:               ; preds = %switch.hole_check, %1044, %_ZL14isMultiTopTypeh.exit.i, %1040, %1040, %1032
-  %.0.i162 = phi i32 [ %1047, %1044 ], [ %1035, %1032 ], [ 2, %_ZL14isMultiTopTypeh.exit.i ], [ 2, %1040 ], [ 2, %1040 ], [ 2, %switch.hole_check ]
+1045:                                             ; preds = %1042
+  %1046 = getelementptr inbounds nuw i8, ptr %.sroa.014.071.i, i64 72
+  %1047 = load i32, ptr %1046, align 8
+  %1048 = add i32 %1047, 4
+  br label %_ZL14isMultiTopTypeh.exit.thread.i
+
+_ZL14isMultiTopTypeh.exit.thread.i:               ; preds = %1042, %1045, %1040, %1040, %1032
+  %.0.i162 = phi i32 [ %1048, %1045 ], [ %1035, %1032 ], [ 2, %1040 ], [ 2, %1040 ], [ 2, %1042 ]
   %1049 = getelementptr inbounds nuw i8, ptr %.sroa.014.071.i, i64 76
   %.not.i87.i = icmp eq ptr %.sroa.10.069.i, %.sroa.15.068.i
   br i1 %.not.i87.i, label %1057, label %1050
@@ -9192,28 +9185,21 @@ _ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE2atERS4_.exit.i: ; preds = %_ZN
 1306:                                             ; preds = %1304
   %switch.tableidx728 = add i8 %1273, -17
   %1307 = icmp ult i8 %switch.tableidx728, 8
-  br i1 %1307, label %switch.hole_check729, label %_ZL14isMultiTopTypeh.exit.i245
+  %switch.shifted729 = lshr i8 -3, %switch.tableidx728
+  %switch.lobit730 = trunc i8 %switch.shifted729 to i1
+  %or.cond731 = select i1 %1307, i1 %switch.lobit730, i1 false
+  %1308 = add i8 %1273, -11
+  %narrow.i246 = icmp ult i8 %1308, 5
+  %or.cond733 = or i1 %or.cond731, %narrow.i246
+  br i1 %or.cond733, label %_ZL14isMultiTopTypeh.exit.thread.i238, label %1309
 
-_ZL14isMultiTopTypeh.exit.i245:                   ; preds = %1306
-  %.old732 = add i8 %1273, -11
-  %narrow.i246.old = icmp ult i8 %.old732, 5
-  br i1 %narrow.i246.old, label %_ZL14isMultiTopTypeh.exit.thread.i238, label %1308
-
-1308:                                             ; preds = %switch.hole_check729, %_ZL14isMultiTopTypeh.exit.i245
-  %1309 = load i32, ptr %1236, align 8
-  %1310 = add i32 %1309, 4
+1309:                                             ; preds = %1306
+  %1310 = load i32, ptr %1236, align 8
+  %1311 = add i32 %1310, 4
   br label %_ZL14isMultiTopTypeh.exit.thread.i238
 
-switch.hole_check729:                             ; preds = %1306
-  %switch.shifted730 = lshr i8 -3, %switch.tableidx728
-  %switch.lobit731 = trunc i8 %switch.shifted730 to i1
-  %1311 = add nsw i8 %1273, -11
-  %narrow.i246 = icmp ult i8 %1311, 5
-  %or.cond733 = or i1 %narrow.i246, %switch.lobit731
-  br i1 %or.cond733, label %_ZL14isMultiTopTypeh.exit.thread.i238, label %1308
-
-_ZL14isMultiTopTypeh.exit.thread.i238:            ; preds = %switch.hole_check729, %1308, %_ZL14isMultiTopTypeh.exit.i245, %1304, %1304, %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE2atERS4_.exit.i
-  %.0.i239 = phi i32 [ %1310, %1308 ], [ %1303, %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE2atERS4_.exit.i ], [ 2, %_ZL14isMultiTopTypeh.exit.i245 ], [ 2, %1304 ], [ 2, %1304 ], [ 2, %switch.hole_check729 ]
+_ZL14isMultiTopTypeh.exit.thread.i238:            ; preds = %1306, %1309, %1304, %1304, %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE2atERS4_.exit.i
+  %.0.i239 = phi i32 [ %1311, %1309 ], [ %1303, %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE2atERS4_.exit.i ], [ 2, %1304 ], [ 2, %1304 ], [ 2, %1306 ]
   %1312 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
           to label %.noexc261 unwind label %.loopexit.split-lp483
 

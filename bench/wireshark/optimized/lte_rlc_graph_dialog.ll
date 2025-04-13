@@ -4030,8 +4030,8 @@ define void @_ZN17LteRlcGraphDialog17toggleTracerStyleEb(ptr noundef readonly al
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i8, ptr %8, align 8, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
-  %brmerge = or i1 %1, %10
-  br i1 %brmerge, label %11, label %42
+  %or.cond = or i1 %1, %10
+  br i1 %or.cond, label %11, label %42
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21

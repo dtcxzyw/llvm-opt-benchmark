@@ -201,11 +201,11 @@ define void @pqTraceOutputMessage(ptr noundef captures(none) %0, ptr noundef %1,
   %28 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %27, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #11
   %.pre = load i32, ptr %10, align 8
-  %.pre191 = load i32, ptr %7, align 4
+  %.pre193 = load i32, ptr %7, align 4
   br label %29
 
 29:                                               ; preds = %14, %3
-  %30 = phi i32 [ %.pre191, %14 ], [ 0, %3 ]
+  %30 = phi i32 [ %.pre193, %14 ], [ 0, %3 ]
   %31 = phi i32 [ %.pre, %14 ], [ %11, %3 ]
   %32 = and i32 %31, 2
   %33 = icmp ne i32 %32, 0
@@ -219,9 +219,9 @@ define void @pqTraceOutputMessage(ptr noundef captures(none) %0, ptr noundef %1,
   %40 = call i32 @llvm.bswap.i32(i32 %.0.copyload)
   %41 = add i32 %30, 5
   store i32 %41, ptr %7, align 4
-  %.not120 = xor i1 %33, true
-  %brmerge = or i1 %2, %.not120
-  br i1 %brmerge, label %47, label %42
+  %.not = xor i1 %33, true
+  %or.cond = or i1 %2, %.not
+  br i1 %or.cond, label %47, label %42
 
 42:                                               ; preds = %29
   switch i8 %37, label %47 [
@@ -353,12 +353,12 @@ pqTraceOutput_NotificationResponse.exit:          ; preds = %72, %74
   %106 = add i32 %105, -2
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds i8, ptr %1, i64 %107
-  %.0.copyload.i.i121 = load i16, ptr %108, align 1
+  %.0.copyload.i.i123 = load i16, ptr %108, align 1
   store i32 %105, ptr %7, align 4
-  %109 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i121)
+  %109 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i123)
   %110 = zext i16 %109 to i32
   %111 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %92, ptr noundef nonnull @.str.71, i32 noundef %110) #11
-  %.not.i = icmp eq i16 %.0.copyload.i.i121, 0
+  %.not.i = icmp eq i16 %.0.copyload.i.i123, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %90
@@ -563,7 +563,7 @@ pqTraceOutput_NotificationResponse.exit:          ; preds = %72, %74
   %205 = load i32, ptr %7, align 4
   %206 = sext i32 %205 to i64
   %207 = getelementptr inbounds i8, ptr %1, i64 %206
-  %.0.copyload.i.i122 = load i32, ptr %207, align 1
+  %.0.copyload.i.i124 = load i32, ptr %207, align 1
   %208 = add i32 %205, 4
   store i32 %208, ptr %7, align 4
   br i1 %33, label %209, label %211
@@ -573,7 +573,7 @@ pqTraceOutput_NotificationResponse.exit:          ; preds = %72, %74
   br label %pqTraceOutputInt32.exit.i
 
 211:                                              ; preds = %201
-  %212 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i122)
+  %212 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i124)
   %213 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %203, ptr noundef nonnull @.str.71, i32 noundef %212) #11
   br label %pqTraceOutputInt32.exit.i
 
@@ -587,14 +587,14 @@ pqTraceOutputInt32.exit.i:                        ; preds = %211, %209
   %218 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i32.i)
   %219 = zext i16 %218 to i32
   %220 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %203, ptr noundef nonnull @.str.71, i32 noundef %219) #11
-  %.not.i123 = icmp eq i16 %.0.copyload.i32.i, 0
-  br i1 %.not.i123, label %._crit_edge.i128, label %.lr.ph.preheader.i124
+  %.not.i125 = icmp eq i16 %.0.copyload.i32.i, 0
+  br i1 %.not.i125, label %._crit_edge.i130, label %.lr.ph.preheader.i126
 
-.lr.ph.preheader.i124:                            ; preds = %pqTraceOutputInt32.exit.i
-  %umax.i125 = call i32 @llvm.umax.i32(i32 %219, i32 1)
-  br label %.lr.ph.i126
+.lr.ph.preheader.i126:                            ; preds = %pqTraceOutputInt32.exit.i
+  %umax.i127 = call i32 @llvm.umax.i32(i32 %219, i32 1)
+  br label %.lr.ph.i128
 
-._crit_edge.i128:                                 ; preds = %.lr.ph.i126, %pqTraceOutputInt32.exit.i
+._crit_edge.i130:                                 ; preds = %.lr.ph.i128, %pqTraceOutputInt32.exit.i
   %221 = load i32, ptr %7, align 4
   %222 = sext i32 %221 to i64
   %223 = getelementptr inbounds i8, ptr %1, i64 %222
@@ -607,12 +607,12 @@ pqTraceOutputInt32.exit.i:                        ; preds = %211, %209
   %.not42.i = icmp eq i16 %.0.copyload.i33.i, 0
   br i1 %.not42.i, label %pqTraceOutput_FunctionCall.exit, label %.lr.ph40.preheader.i
 
-.lr.ph40.preheader.i:                             ; preds = %._crit_edge.i128
+.lr.ph40.preheader.i:                             ; preds = %._crit_edge.i130
   %umax43.i = call i32 @llvm.umax.i32(i32 %226, i32 1)
   br label %.lr.ph40.i
 
-.lr.ph.i126:                                      ; preds = %.lr.ph.i126, %.lr.ph.preheader.i124
-  %.03037.i = phi i32 [ %235, %.lr.ph.i126 ], [ 0, %.lr.ph.preheader.i124 ]
+.lr.ph.i128:                                      ; preds = %.lr.ph.i128, %.lr.ph.preheader.i126
+  %.03037.i = phi i32 [ %235, %.lr.ph.i128 ], [ 0, %.lr.ph.preheader.i126 ]
   %228 = load i32, ptr %7, align 4
   %229 = sext i32 %228 to i64
   %230 = getelementptr inbounds i8, ptr %1, i64 %229
@@ -623,8 +623,8 @@ pqTraceOutputInt32.exit.i:                        ; preds = %211, %209
   %233 = zext i16 %232 to i32
   %234 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %203, ptr noundef nonnull @.str.71, i32 noundef %233) #11
   %235 = add nuw nsw i32 %.03037.i, 1
-  %exitcond.not.i127 = icmp eq i32 %235, %umax.i125
-  br i1 %exitcond.not.i127, label %._crit_edge.i128, label %.lr.ph.i126, !llvm.loop !7
+  %exitcond.not.i129 = icmp eq i32 %235, %umax.i127
+  br i1 %exitcond.not.i129, label %._crit_edge.i130, label %.lr.ph.i128, !llvm.loop !7
 
 .lr.ph40.i:                                       ; preds = %244, %.lr.ph40.preheader.i
   %.038.i = phi i32 [ %245, %244 ], [ 0, %.lr.ph40.preheader.i ]
@@ -648,7 +648,7 @@ pqTraceOutputInt32.exit.i:                        ; preds = %211, %209
   %exitcond44.not.i = icmp eq i32 %245, %umax43.i
   br i1 %exitcond44.not.i, label %pqTraceOutput_FunctionCall.exit, label %.lr.ph40.i, !llvm.loop !8
 
-pqTraceOutput_FunctionCall.exit:                  ; preds = %244, %._crit_edge.i128
+pqTraceOutput_FunctionCall.exit:                  ; preds = %244, %._crit_edge.i130
   %246 = load i32, ptr %7, align 4
   %247 = sext i32 %246 to i64
   %248 = getelementptr inbounds i8, ptr %1, i64 %247
@@ -682,21 +682,21 @@ pqTraceOutput_FunctionCall.exit:                  ; preds = %244, %._crit_edge.i
   %270 = add i32 %269, 1
   %271 = sext i32 %270 to i64
   %272 = getelementptr inbounds i8, ptr %1, i64 %271
-  %.0.copyload.i.i129 = load i16, ptr %272, align 1
+  %.0.copyload.i.i131 = load i16, ptr %272, align 1
   %273 = add i32 %269, 3
   store i32 %273, ptr %7, align 4
-  %274 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i129)
+  %274 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i131)
   %275 = zext i16 %274 to i32
   %276 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %255, ptr noundef nonnull @.str.71, i32 noundef %275) #11
-  %.not.i130 = icmp eq i16 %.0.copyload.i.i129, 0
-  br i1 %.not.i130, label %pqTraceOutput_Bind.exit, label %.lr.ph.preheader.i131
+  %.not.i132 = icmp eq i16 %.0.copyload.i.i131, 0
+  br i1 %.not.i132, label %pqTraceOutput_Bind.exit, label %.lr.ph.preheader.i133
 
-.lr.ph.preheader.i131:                            ; preds = %253
-  %umax.i132 = call i32 @llvm.umax.i32(i32 %275, i32 1)
-  br label %.lr.ph.i133
+.lr.ph.preheader.i133:                            ; preds = %253
+  %umax.i134 = call i32 @llvm.umax.i32(i32 %275, i32 1)
+  br label %.lr.ph.i135
 
-.lr.ph.i133:                                      ; preds = %.lr.ph.i133, %.lr.ph.preheader.i131
-  %.013.i = phi i32 [ %284, %.lr.ph.i133 ], [ 0, %.lr.ph.preheader.i131 ]
+.lr.ph.i135:                                      ; preds = %.lr.ph.i135, %.lr.ph.preheader.i133
+  %.013.i = phi i32 [ %284, %.lr.ph.i135 ], [ 0, %.lr.ph.preheader.i133 ]
   %277 = load i32, ptr %7, align 4
   %278 = sext i32 %277 to i64
   %279 = getelementptr inbounds i8, ptr %1, i64 %278
@@ -707,8 +707,8 @@ pqTraceOutput_FunctionCall.exit:                  ; preds = %244, %._crit_edge.i
   %282 = zext i16 %281 to i32
   %283 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %255, ptr noundef nonnull @.str.71, i32 noundef %282) #11
   %284 = add nuw nsw i32 %.013.i, 1
-  %exitcond.not.i134 = icmp eq i32 %284, %umax.i132
-  br i1 %exitcond.not.i134, label %pqTraceOutput_Bind.exit, label %.lr.ph.i133, !llvm.loop !9
+  %exitcond.not.i136 = icmp eq i32 %284, %umax.i134
+  br i1 %exitcond.not.i136, label %pqTraceOutput_Bind.exit, label %.lr.ph.i135, !llvm.loop !9
 
 285:                                              ; preds = %51
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -736,7 +736,7 @@ pqTraceOutput_FunctionCall.exit:                  ; preds = %244, %._crit_edge.i
   %299 = load i32, ptr %7, align 4
   %300 = sext i32 %299 to i64
   %301 = getelementptr inbounds i8, ptr %1, i64 %300
-  %.0.copyload.i.i136 = load i32, ptr %301, align 1
+  %.0.copyload.i.i138 = load i32, ptr %301, align 1
   %302 = add i32 %299, 4
   store i32 %302, ptr %7, align 4
   br i1 %33, label %303, label %308
@@ -750,7 +750,7 @@ pqTraceOutput_FunctionCall.exit:                  ; preds = %244, %._crit_edge.i
   br label %pqTraceOutput_Bind.exit
 
 308:                                              ; preds = %295
-  %309 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i136)
+  %309 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i138)
   %310 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %297, ptr noundef nonnull @.str.71, i32 noundef %309) #11
   %311 = load i32, ptr %7, align 4
   %312 = sext i32 %311 to i64
@@ -794,20 +794,20 @@ pqTraceOutput_FunctionCall.exit:                  ; preds = %244, %._crit_edge.i
   %340 = add i32 %339, -2
   %341 = sext i32 %340 to i64
   %342 = getelementptr inbounds i8, ptr %1, i64 %341
-  %.0.copyload.i.i137 = load i16, ptr %342, align 1
+  %.0.copyload.i.i139 = load i16, ptr %342, align 1
   store i32 %339, ptr %7, align 4
-  %343 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i137)
+  %343 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i139)
   %344 = zext i16 %343 to i32
   %345 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %326, ptr noundef nonnull @.str.71, i32 noundef %344) #11
-  %.not.i138 = icmp eq i16 %.0.copyload.i.i137, 0
-  br i1 %.not.i138, label %pqTraceOutput_Bind.exit, label %.lr.ph.i139
+  %.not.i140 = icmp eq i16 %.0.copyload.i.i139, 0
+  br i1 %.not.i140, label %pqTraceOutput_Bind.exit, label %.lr.ph.i141
 
-.lr.ph.i139:                                      ; preds = %324
+.lr.ph.i141:                                      ; preds = %324
   %umax19.i = call i32 @llvm.umax.i32(i32 %344, i32 1)
-  br i1 %33, label %pqTraceOutputInt32.exit.us.i, label %pqTraceOutputInt32.exit.i140
+  br i1 %33, label %pqTraceOutputInt32.exit.us.i, label %pqTraceOutputInt32.exit.i142
 
-pqTraceOutputInt32.exit.us.i:                     ; preds = %.lr.ph.i139, %pqTraceOutputInt32.exit.us.i
-  %.017.us.i = phi i32 [ %349, %pqTraceOutputInt32.exit.us.i ], [ 0, %.lr.ph.i139 ]
+pqTraceOutputInt32.exit.us.i:                     ; preds = %.lr.ph.i141, %pqTraceOutputInt32.exit.us.i
+  %.017.us.i = phi i32 [ %349, %pqTraceOutputInt32.exit.us.i ], [ 0, %.lr.ph.i141 ]
   %346 = load i32, ptr %7, align 4
   %347 = add i32 %346, 4
   store i32 %347, ptr %7, align 4
@@ -816,8 +816,8 @@ pqTraceOutputInt32.exit.us.i:                     ; preds = %.lr.ph.i139, %pqTra
   %exitcond20.not.i = icmp eq i32 %349, %umax19.i
   br i1 %exitcond20.not.i, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.us.i, !llvm.loop !10
 
-pqTraceOutputInt32.exit.i140:                     ; preds = %.lr.ph.i139, %pqTraceOutputInt32.exit.i140
-  %.017.i = phi i32 [ %356, %pqTraceOutputInt32.exit.i140 ], [ 0, %.lr.ph.i139 ]
+pqTraceOutputInt32.exit.i142:                     ; preds = %.lr.ph.i141, %pqTraceOutputInt32.exit.i142
+  %.017.i = phi i32 [ %356, %pqTraceOutputInt32.exit.i142 ], [ 0, %.lr.ph.i141 ]
   %350 = load i32, ptr %7, align 4
   %351 = sext i32 %350 to i64
   %352 = getelementptr inbounds i8, ptr %1, i64 %351
@@ -827,8 +827,8 @@ pqTraceOutputInt32.exit.i140:                     ; preds = %.lr.ph.i139, %pqTra
   %354 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i16.i)
   %355 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %326, ptr noundef nonnull @.str.71, i32 noundef %354) #11
   %356 = add nuw nsw i32 %.017.i, 1
-  %exitcond.not.i141 = icmp eq i32 %356, %umax19.i
-  br i1 %exitcond.not.i141, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.i140, !llvm.loop !10
+  %exitcond.not.i143 = icmp eq i32 %356, %umax19.i
+  br i1 %exitcond.not.i143, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.i142, !llvm.loop !10
 
 357:                                              ; preds = %51
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -901,10 +901,10 @@ pqTraceOutputInt32.exit.i140:                     ; preds = %.lr.ph.i139, %pqTra
   %395 = getelementptr inbounds i8, ptr %1, i64 %394
   %396 = load i8, ptr %395, align 1
   %.not43.i = icmp eq i8 %396, 0
-  br i1 %.not43.i, label %._crit_edge.i145, label %.lr.ph.i143
+  br i1 %.not43.i, label %._crit_edge.i147, label %.lr.ph.i145
 
-.lr.ph.i143:                                      ; preds = %391, %.lr.ph.i143
-  %397 = phi ptr [ %403, %.lr.ph.i143 ], [ %395, %391 ]
+.lr.ph.i145:                                      ; preds = %391, %.lr.ph.i145
+  %397 = phi ptr [ %403, %.lr.ph.i145 ], [ %395, %391 ]
   %398 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %370, ptr noundef nonnull @.str.74, ptr noundef nonnull %397) #11
   %399 = add i32 %398, -2
   %400 = load i32, ptr %7, align 4
@@ -913,11 +913,11 @@ pqTraceOutputInt32.exit.i140:                     ; preds = %.lr.ph.i139, %pqTra
   %402 = sext i32 %401 to i64
   %403 = getelementptr inbounds i8, ptr %1, i64 %402
   %404 = load i8, ptr %403, align 1
-  %.not.i144 = icmp eq i8 %404, 0
-  br i1 %.not.i144, label %._crit_edge.i145, label %.lr.ph.i143, !llvm.loop !11
+  %.not.i146 = icmp eq i8 %404, 0
+  br i1 %.not.i146, label %._crit_edge.i147, label %.lr.ph.i145, !llvm.loop !11
 
-._crit_edge.i145:                                 ; preds = %.lr.ph.i143, %391
-  %.lcssa.i = phi ptr [ %395, %391 ], [ %403, %.lr.ph.i143 ]
+._crit_edge.i147:                                 ; preds = %.lr.ph.i145, %391
+  %.lcssa.i = phi ptr [ %395, %391 ], [ %403, %.lr.ph.i145 ]
   %405 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %370, ptr noundef nonnull @.str.74, ptr noundef nonnull %.lcssa.i) #11
   %406 = add i32 %405, -2
   %407 = load i32, ptr %7, align 4
@@ -971,31 +971,31 @@ pqTraceOutputInt32.exit.i140:                     ; preds = %.lr.ph.i139, %pqTra
   %435 = load i32, ptr %7, align 4
   %436 = sext i32 %435 to i64
   %437 = getelementptr inbounds i8, ptr %1, i64 %436
-  %.0.copyload.i.i146 = load i16, ptr %437, align 1
+  %.0.copyload.i.i148 = load i16, ptr %437, align 1
   %438 = add i32 %435, 2
   store i32 %438, ptr %7, align 4
-  %439 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i146)
+  %439 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i148)
   %440 = zext i16 %439 to i32
   %441 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %433, ptr noundef nonnull @.str.71, i32 noundef %440) #11
-  %.not.i147 = icmp eq i16 %.0.copyload.i.i146, 0
-  br i1 %.not.i147, label %pqTraceOutput_Bind.exit, label %.lr.ph.i148
+  %.not.i149 = icmp eq i16 %.0.copyload.i.i148, 0
+  br i1 %.not.i149, label %pqTraceOutput_Bind.exit, label %.lr.ph.i150
 
-.lr.ph.i148:                                      ; preds = %431
+.lr.ph.i150:                                      ; preds = %431
   %umax13.i = call i32 @llvm.umax.i32(i32 %440, i32 1)
-  br i1 %33, label %pqTraceOutputInt32.exit.us.i152, label %pqTraceOutputInt32.exit.i149
+  br i1 %33, label %pqTraceOutputInt32.exit.us.i154, label %pqTraceOutputInt32.exit.i151
 
-pqTraceOutputInt32.exit.us.i152:                  ; preds = %.lr.ph.i148, %pqTraceOutputInt32.exit.us.i152
-  %.011.us.i = phi i32 [ %445, %pqTraceOutputInt32.exit.us.i152 ], [ 0, %.lr.ph.i148 ]
+pqTraceOutputInt32.exit.us.i154:                  ; preds = %.lr.ph.i150, %pqTraceOutputInt32.exit.us.i154
+  %.011.us.i = phi i32 [ %445, %pqTraceOutputInt32.exit.us.i154 ], [ 0, %.lr.ph.i150 ]
   %442 = load i32, ptr %7, align 4
   %443 = add i32 %442, 4
   store i32 %443, ptr %7, align 4
   %444 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %433, ptr noundef nonnull @.str.72) #11
   %445 = add nuw nsw i32 %.011.us.i, 1
   %exitcond14.not.i = icmp eq i32 %445, %umax13.i
-  br i1 %exitcond14.not.i, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.us.i152, !llvm.loop !12
+  br i1 %exitcond14.not.i, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.us.i154, !llvm.loop !12
 
-pqTraceOutputInt32.exit.i149:                     ; preds = %.lr.ph.i148, %pqTraceOutputInt32.exit.i149
-  %.011.i = phi i32 [ %452, %pqTraceOutputInt32.exit.i149 ], [ 0, %.lr.ph.i148 ]
+pqTraceOutputInt32.exit.i151:                     ; preds = %.lr.ph.i150, %pqTraceOutputInt32.exit.i151
+  %.011.i = phi i32 [ %452, %pqTraceOutputInt32.exit.i151 ], [ 0, %.lr.ph.i150 ]
   %446 = load i32, ptr %7, align 4
   %447 = sext i32 %446 to i64
   %448 = getelementptr inbounds i8, ptr %1, i64 %447
@@ -1005,8 +1005,8 @@ pqTraceOutputInt32.exit.i149:                     ; preds = %.lr.ph.i148, %pqTra
   %450 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i10.i)
   %451 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %433, ptr noundef nonnull @.str.71, i32 noundef %450) #11
   %452 = add nuw nsw i32 %.011.i, 1
-  %exitcond.not.i150 = icmp eq i32 %452, %umax13.i
-  br i1 %exitcond.not.i150, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.i149, !llvm.loop !12
+  %exitcond.not.i152 = icmp eq i32 %452, %umax13.i
+  br i1 %exitcond.not.i152, label %pqTraceOutput_Bind.exit, label %pqTraceOutputInt32.exit.i151, !llvm.loop !12
 
 453:                                              ; preds = %51
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -1015,21 +1015,21 @@ pqTraceOutputInt32.exit.i149:                     ; preds = %.lr.ph.i148, %pqTra
   %457 = load i32, ptr %7, align 4
   %458 = sext i32 %457 to i64
   %459 = getelementptr inbounds i8, ptr %1, i64 %458
-  %.0.copyload.i.i153 = load i16, ptr %459, align 1
+  %.0.copyload.i.i155 = load i16, ptr %459, align 1
   %460 = add i32 %457, 2
   store i32 %460, ptr %7, align 4
-  %461 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i153)
+  %461 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i155)
   %462 = zext i16 %461 to i32
   %463 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %455, ptr noundef nonnull @.str.71, i32 noundef %462) #11
-  %.not.i154 = icmp eq i16 %.0.copyload.i.i153, 0
-  br i1 %.not.i154, label %pqTraceOutput_Bind.exit, label %.lr.ph.preheader.i155
+  %.not.i156 = icmp eq i16 %.0.copyload.i.i155, 0
+  br i1 %.not.i156, label %pqTraceOutput_Bind.exit, label %.lr.ph.preheader.i157
 
-.lr.ph.preheader.i155:                            ; preds = %453
-  %umax.i156 = call i32 @llvm.umax.i32(i32 %462, i32 1)
-  br label %.lr.ph.i157
+.lr.ph.preheader.i157:                            ; preds = %453
+  %umax.i158 = call i32 @llvm.umax.i32(i32 %462, i32 1)
+  br label %.lr.ph.i159
 
-.lr.ph.i157:                                      ; preds = %pqTraceOutputInt32.exit32.i, %.lr.ph.preheader.i155
-  %.036.i = phi i32 [ %515, %pqTraceOutputInt32.exit32.i ], [ 0, %.lr.ph.preheader.i155 ]
+.lr.ph.i159:                                      ; preds = %pqTraceOutputInt32.exit32.i, %.lr.ph.preheader.i157
+  %.036.i = phi i32 [ %515, %pqTraceOutputInt32.exit32.i ], [ 0, %.lr.ph.preheader.i157 ]
   %464 = load i32, ptr %7, align 4
   %465 = sext i32 %464 to i64
   %466 = getelementptr inbounds i8, ptr %1, i64 %465
@@ -1044,16 +1044,16 @@ pqTraceOutputInt32.exit.i149:                     ; preds = %.lr.ph.i148, %pqTra
   store i32 %473, ptr %7, align 4
   br i1 %33, label %474, label %476
 
-474:                                              ; preds = %.lr.ph.i157
+474:                                              ; preds = %.lr.ph.i159
   %475 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %455, ptr noundef nonnull @.str.72) #11
-  br label %pqTraceOutputInt32.exit.i158
+  br label %pqTraceOutputInt32.exit.i160
 
-476:                                              ; preds = %.lr.ph.i157
+476:                                              ; preds = %.lr.ph.i159
   %477 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i29.i)
   %478 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %455, ptr noundef nonnull @.str.71, i32 noundef %477) #11
-  br label %pqTraceOutputInt32.exit.i158
+  br label %pqTraceOutputInt32.exit.i160
 
-pqTraceOutputInt32.exit.i158:                     ; preds = %476, %474
+pqTraceOutputInt32.exit.i160:                     ; preds = %476, %474
   %479 = load i32, ptr %7, align 4
   %480 = sext i32 %479 to i64
   %481 = getelementptr inbounds i8, ptr %1, i64 %480
@@ -1071,11 +1071,11 @@ pqTraceOutputInt32.exit.i158:                     ; preds = %476, %474
   store i32 %489, ptr %7, align 4
   br i1 %33, label %490, label %492
 
-490:                                              ; preds = %pqTraceOutputInt32.exit.i158
+490:                                              ; preds = %pqTraceOutputInt32.exit.i160
   %491 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %455, ptr noundef nonnull @.str.72) #11
   br label %pqTraceOutputInt32.exit32.i
 
-492:                                              ; preds = %pqTraceOutputInt32.exit.i158
+492:                                              ; preds = %pqTraceOutputInt32.exit.i160
   %493 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i31.i)
   %494 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %455, ptr noundef nonnull @.str.71, i32 noundef %493) #11
   br label %pqTraceOutputInt32.exit32.i
@@ -1084,32 +1084,32 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %492, %490
   %495 = load i32, ptr %7, align 4
   %496 = sext i32 %495 to i64
   %497 = getelementptr inbounds i8, ptr %1, i64 %496
-  %.0.copyload.i33.i159 = load i16, ptr %497, align 1
+  %.0.copyload.i33.i161 = load i16, ptr %497, align 1
   %498 = add i32 %495, 2
   store i32 %498, ptr %7, align 4
-  %499 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i33.i159)
+  %499 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i33.i161)
   %500 = zext i16 %499 to i32
   %501 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %455, ptr noundef nonnull @.str.71, i32 noundef %500) #11
   %502 = load i32, ptr %7, align 4
   %503 = sext i32 %502 to i64
   %504 = getelementptr inbounds i8, ptr %1, i64 %503
-  %.0.copyload.i34.i160 = load i32, ptr %504, align 1
+  %.0.copyload.i34.i162 = load i32, ptr %504, align 1
   %505 = add i32 %502, 4
   store i32 %505, ptr %7, align 4
-  %506 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i34.i160)
+  %506 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i34.i162)
   %507 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %455, ptr noundef nonnull @.str.71, i32 noundef %506) #11
   %508 = load i32, ptr %7, align 4
   %509 = sext i32 %508 to i64
   %510 = getelementptr inbounds i8, ptr %1, i64 %509
-  %.0.copyload.i35.i161 = load i16, ptr %510, align 1
+  %.0.copyload.i35.i163 = load i16, ptr %510, align 1
   %511 = add i32 %508, 2
   store i32 %511, ptr %7, align 4
-  %512 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i35.i161)
+  %512 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i35.i163)
   %513 = zext i16 %512 to i32
   %514 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %455, ptr noundef nonnull @.str.71, i32 noundef %513) #11
   %515 = add nuw nsw i32 %.036.i, 1
-  %exitcond.not.i162 = icmp eq i32 %515, %umax.i156
-  br i1 %exitcond.not.i162, label %pqTraceOutput_Bind.exit, label %.lr.ph.i157, !llvm.loop !13
+  %exitcond.not.i164 = icmp eq i32 %515, %umax.i158
+  br i1 %exitcond.not.i164, label %pqTraceOutput_Bind.exit, label %.lr.ph.i159, !llvm.loop !13
 
 516:                                              ; preds = %51
   %517 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -1118,10 +1118,10 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %492, %490
   %520 = load i32, ptr %7, align 4
   %521 = sext i32 %520 to i64
   %522 = getelementptr inbounds i8, ptr %1, i64 %521
-  %.0.copyload.i.i164 = load i32, ptr %522, align 1
+  %.0.copyload.i.i166 = load i32, ptr %522, align 1
   %523 = add i32 %520, 4
   store i32 %523, ptr %7, align 4
-  %524 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i164)
+  %524 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i166)
   %525 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %518, ptr noundef nonnull @.str.71, i32 noundef %524) #11
   %526 = load i32, ptr %7, align 4
   %527 = sext i32 %526 to i64
@@ -1140,13 +1140,13 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %492, %490
   %536 = load i32, ptr %7, align 4
   %537 = sext i32 %536 to i64
   %538 = getelementptr inbounds i8, ptr %1, i64 %537
-  %.0.copyload.i.i165 = load i32, ptr %538, align 1
+  %.0.copyload.i.i167 = load i32, ptr %538, align 1
   %539 = add i32 %536, 4
   store i32 %539, ptr %7, align 4
-  %540 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i165)
+  %540 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i167)
   %541 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %534, ptr noundef nonnull @.str.71, i32 noundef %540) #11
-  %.not.i166 = icmp eq i32 %.0.copyload.i.i165, -1
-  br i1 %.not.i166, label %pqTraceOutput_Bind.exit, label %542
+  %.not.i168 = icmp eq i32 %.0.copyload.i.i167, -1
+  br i1 %.not.i168, label %pqTraceOutput_Bind.exit, label %542
 
 542:                                              ; preds = %532
   call fastcc void @pqTraceOutputNchar(ptr noundef %534, i32 noundef %540, ptr noundef nonnull readonly %1, ptr noundef nonnull %7, i1 noundef zeroext false)
@@ -1166,29 +1166,29 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %492, %490
   %554 = getelementptr inbounds nuw i16, ptr %551, i64 %553
   %555 = load i16, ptr %554, align 2
   %556 = and i16 %555, 16384
-  %.not.i.i167 = icmp eq i16 %556, 0
+  %.not.i.i169 = icmp eq i16 %556, 0
   %557 = sext i8 %552 to i32
-  %.str.34..str.35.i.i168 = select i1 %.not.i.i167, ptr @.str.34, ptr @.str.35
-  %558 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %545, ptr noundef nonnull %.str.34..str.35.i.i168, i32 noundef %557) #11
+  %.str.34..str.35.i.i170 = select i1 %.not.i.i169, ptr @.str.34, ptr @.str.35
+  %558 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %545, ptr noundef nonnull %.str.34..str.35.i.i170, i32 noundef %557) #11
   %559 = load i32, ptr %7, align 4
   %560 = add i32 %559, 1
   store i32 %560, ptr %7, align 4
   %561 = icmp sgt i32 %40, %560
-  br i1 %561, label %.lr.ph.i170, label %pqTraceOutput_Bind.exit
+  br i1 %561, label %.lr.ph.i172, label %pqTraceOutput_Bind.exit
 
-.lr.ph.i170:                                      ; preds = %543, %.lr.ph.i170
-  %562 = phi i32 [ %569, %.lr.ph.i170 ], [ %560, %543 ]
+.lr.ph.i172:                                      ; preds = %543, %.lr.ph.i172
+  %562 = phi i32 [ %569, %.lr.ph.i172 ], [ %560, %543 ]
   %563 = sext i32 %562 to i64
   %564 = getelementptr inbounds i8, ptr %1, i64 %563
-  %.0.copyload.i.i171 = load i16, ptr %564, align 1
+  %.0.copyload.i.i173 = load i16, ptr %564, align 1
   %565 = add i32 %562, 2
   store i32 %565, ptr %7, align 4
-  %566 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i171)
+  %566 = call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i173)
   %567 = zext i16 %566 to i32
   %568 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %545, ptr noundef nonnull @.str.71, i32 noundef %567) #11
   %569 = load i32, ptr %7, align 4
   %570 = icmp sgt i32 %40, %569
-  br i1 %570, label %.lr.ph.i170, label %pqTraceOutput_Bind.exit, !llvm.loop !14
+  br i1 %570, label %.lr.ph.i172, label %pqTraceOutput_Bind.exit, !llvm.loop !14
 
 571:                                              ; preds = %51
   %572 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -1210,10 +1210,10 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %492, %490
   %586 = getelementptr inbounds nuw i16, ptr %583, i64 %585
   %587 = load i16, ptr %586, align 2
   %588 = and i16 %587, 16384
-  %.not.i.i172 = icmp eq i16 %588, 0
+  %.not.i.i174 = icmp eq i16 %588, 0
   %589 = sext i8 %584 to i32
-  %.str.34..str.35.i.i173 = select i1 %.not.i.i172, ptr @.str.34, ptr @.str.35
-  %590 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %577, ptr noundef nonnull %.str.34..str.35.i.i173, i32 noundef %589) #11
+  %.str.34..str.35.i.i175 = select i1 %.not.i.i174, ptr @.str.34, ptr @.str.35
+  %590 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %577, ptr noundef nonnull %.str.34..str.35.i.i175, i32 noundef %589) #11
   %591 = load i32, ptr %7, align 4
   %592 = add i32 %591, 1
   store i32 %592, ptr %7, align 4
@@ -1226,14 +1226,14 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %492, %490
   %597 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %596, ptr noundef nonnull @.str.16, i32 noundef %594) #11
   br label %pqTraceOutput_Bind.exit
 
-pqTraceOutput_Bind.exit:                          ; preds = %.lr.ph.i170, %pqTraceOutputInt32.exit32.i, %pqTraceOutputInt32.exit.i149, %pqTraceOutputInt32.exit.us.i152, %pqTraceOutputInt32.exit.i140, %pqTraceOutputInt32.exit.us.i, %.lr.ph.i133, %.lr.ph53.i, %543, %542, %532, %453, %431, %419, %414, %409, %._crit_edge.i145, %389, %384, %382, %380, %378, %376, %324, %308, %303, %253, %._crit_edge50.i, %428, %430, %288, %290, %176, %177, %171, %172, %159, %160, %593, %575, %571, %516, %421, %357, %321, %317, %291, %pqTraceOutput_FunctionCall.exit, %200, %178, %161, %152, %pqTraceOutput_NotificationResponse.exit, %60, %56, %52
+pqTraceOutput_Bind.exit:                          ; preds = %.lr.ph.i172, %pqTraceOutputInt32.exit32.i, %pqTraceOutputInt32.exit.i151, %pqTraceOutputInt32.exit.us.i154, %pqTraceOutputInt32.exit.i142, %pqTraceOutputInt32.exit.us.i, %.lr.ph.i135, %.lr.ph53.i, %543, %542, %532, %453, %431, %419, %414, %409, %._crit_edge.i147, %389, %384, %382, %380, %378, %376, %324, %308, %303, %253, %._crit_edge50.i, %428, %430, %288, %290, %176, %177, %171, %172, %159, %160, %593, %575, %571, %516, %421, %357, %321, %317, %291, %pqTraceOutput_FunctionCall.exit, %200, %178, %161, %152, %pqTraceOutput_NotificationResponse.exit, %60, %56, %52
   %598 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %599 = load ptr, ptr %598, align 8
   %600 = call i32 @fputc(i32 noundef 10, ptr noundef %599)
   %601 = load i32, ptr %7, align 4
   %602 = add i32 %601, -1
-  %.not = icmp eq i32 %602, %40
-  br i1 %.not, label %606, label %603
+  %.not122 = icmp eq i32 %602, %40
+  br i1 %.not122, label %606, label %603
 
 603:                                              ; preds = %pqTraceOutput_Bind.exit
   %604 = load ptr, ptr %598, align 8

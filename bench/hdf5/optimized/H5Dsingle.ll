@@ -469,18 +469,17 @@ define internal noundef i32 @H5D__single_idx_reset(ptr noundef writeonly capture
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
   %6 = trunc nuw i8 %5 to i1
-  %not. = xor i1 %4, true
-  %.not = select i1 %not., i1 %6, i1 false
-  %.not1 = xor i1 %1, true
-  %brmerge = or i1 %.not, %.not1
-  br i1 %brmerge, label %9, label %7, !prof !74
+  %7 = xor i1 %6, true
+  %8 = select i1 %4, i1 true, i1 %7
+  %or.cond = and i1 %1, %8
+  br i1 %or.cond, label %9, label %11, !prof !74
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -1, ptr %8, align 8, !tbaa !27
-  br label %9
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -1, ptr %10, align 8, !tbaa !27
+  br label %11
 
-9:                                                ; preds = %2, %7
+11:                                               ; preds = %9, %2
   ret i32 0
 }
 
@@ -613,4 +612,4 @@ attributes #11 = { nounwind }
 !71 = !{!70, !20, i64 264}
 !72 = !{!70, !20, i64 268}
 !73 = !{!11, !12, i64 0}
-!74 = !{!"branch_weights", i32 2002, i32 2000}
+!74 = !{!"branch_weights", i32 2000, i32 2002}

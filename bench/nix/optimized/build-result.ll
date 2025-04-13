@@ -658,54 +658,54 @@ define linkonce_odr i8 @_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11Bu
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load i8, ptr %35, align 8
   %37 = trunc i8 %36 to i1
-  %38 = select i1 %34, i1 %37, i1 false
-  br i1 %38, label %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i, label %._crit_edge.i.i.i.i.i
+  %or.cond.i.i.i.i.i = select i1 %34, i1 %37, i1 false
+  br i1 %or.cond.i.i.i.i.i, label %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i, label %38
 
-._crit_edge.i.i.i.i.i:                            ; preds = %27
-  %.not.i.i.i.i.i = xor i1 %34, true
-  %.mux.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %37, i1 false
-  %39 = select i1 %.mux.i.i.i.i.i, i8 -1, i8 1
-  %40 = xor i1 %.mux.i.i.i.i.i, %34
-  br i1 %40, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit, label %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i
+38:                                               ; preds = %27
+  %39 = xor i1 %34, true
+  %40 = and i1 %39, %37
+  %41 = select i1 %40, i8 -1, i8 1
+  %42 = xor i1 %34, %37
+  br i1 %42, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit, label %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i
 
 _ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i: ; preds = %27
-  %41 = load i64, ptr %29, align 8
-  %42 = load i64, ptr %31, align 8
-  %43 = tail call i8 @llvm.scmp.i8.i64(i64 %41, i64 %42)
-  %44 = icmp eq i64 %41, %42
-  br i1 %44, label %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
+  %43 = load i64, ptr %29, align 8
+  %44 = load i64, ptr %31, align 8
+  %45 = tail call i8 @llvm.scmp.i8.i64(i64 %43, i64 %44)
+  %46 = icmp eq i64 %43, %44
+  br i1 %46, label %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
 
-_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i: ; preds = %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i, %._crit_edge.i.i.i.i.i
-  %45 = load ptr, ptr %0, align 8
-  %46 = load ptr, ptr %1, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load i8, ptr %47, align 8
-  %49 = trunc i8 %48 to i1
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %51 = load i8, ptr %50, align 8
-  %52 = trunc i8 %51 to i1
-  %53 = select i1 %49, i1 %52, i1 false
-  br i1 %53, label %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
+_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i: ; preds = %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i, %38
+  %47 = load ptr, ptr %0, align 8
+  %48 = load ptr, ptr %1, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %50 = load i8, ptr %49, align 8
+  %51 = trunc i8 %50 to i1
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %53 = load i8, ptr %52, align 8
+  %54 = trunc i8 %53 to i1
+  %or.cond.i.i.i.i.i.i = select i1 %51, i1 %54, i1 false
+  br i1 %or.cond.i.i.i.i.i.i, label %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i, label %55
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i
-  %.not.i.i.i.i.i.i = xor i1 %49, true
-  %.mux.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %52, i1 false
-  %54 = select i1 %.mux.i.i.i.i.i.i, i8 -1, i8 1
-  %55 = xor i1 %.mux.i.i.i.i.i.i, %49
-  br i1 %55, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit, label %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i.i
+55:                                               ; preds = %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i
+  %56 = xor i1 %51, true
+  %57 = and i1 %56, %54
+  %58 = select i1 %57, i8 -1, i8 1
+  %59 = xor i1 %51, %54
+  br i1 %59, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit, label %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i.i
 
 _ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i: ; preds = %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i
-  %56 = load i64, ptr %45, align 8
-  %57 = load i64, ptr %46, align 8
-  %58 = tail call i8 @llvm.scmp.i8.i64(i64 %56, i64 %57)
-  %59 = icmp eq i64 %56, %57
-  br i1 %59, label %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i.i, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
+  %60 = load i64, ptr %47, align 8
+  %61 = load i64, ptr %48, align 8
+  %62 = tail call i8 @llvm.scmp.i8.i64(i64 %60, i64 %61)
+  %63 = icmp eq i64 %60, %61
+  br i1 %63, label %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i.i, label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
 
-_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i.i: ; preds = %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i, %._crit_edge.i.i.i.i.i.i
+_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i.i: ; preds = %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i, %55
   br label %_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit
 
-_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit: ; preds = %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i.i, %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i, %._crit_edge.i.i.i.i.i.i, %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i, %._crit_edge.i.i.i.i.i, %18, %9, %2
-  %.sroa.05.0 = phi i8 [ %7, %2 ], [ %16, %9 ], [ %25, %18 ], [ %43, %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i ], [ 0, %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i.i ], [ %58, %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i ], [ %54, %._crit_edge.i.i.i.i.i.i ], [ %39, %._crit_edge.i.i.i.i.i ]
+_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm5EJLm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE.exit: ; preds = %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i.i, %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i, %55, %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i, %38, %18, %9, %2
+  %.sroa.05.0 = phi i8 [ %7, %2 ], [ %16, %9 ], [ %25, %18 ], [ %45, %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i ], [ 0, %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.thread.i.i.i.i ], [ %62, %_ZNKSt8__detail10_Synth3wayclISt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES8_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i ], [ %58, %55 ], [ %41, %38 ]
   ret i8 %.sroa.05.0
 }
 

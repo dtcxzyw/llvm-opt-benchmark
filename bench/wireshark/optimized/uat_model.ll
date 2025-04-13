@@ -1969,11 +1969,11 @@ define range(i32 8, 0) i32 @_ZNK8UatModel5flagsERK11QModelIndex(ptr noundef alig
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, -1
-  %or.cond = select i1 %8, i1 %11, i1 false
+  %or.cond25 = select i1 %8, i1 %11, i1 false
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ne ptr %13, null
-  %or.cond28 = select i1 %or.cond, i1 %14, i1 false
+  %or.cond28 = select i1 %or.cond25, i1 %14, i1 false
   br i1 %or.cond28, label %15, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 15:                                               ; preds = %2
@@ -1986,12 +1986,12 @@ define range(i32 8, 0) i32 @_ZNK8UatModel5flagsERK11QModelIndex(ptr noundef alig
   %22 = load ptr, ptr %17, align 8
   %23 = tail call i32 @g_strcmp0(ptr noundef %22, ptr noundef nonnull @.str.2)
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %70
+  br i1 %24, label %25, label %71
 
 25:                                               ; preds = %15
   %26 = load i32, ptr %9, align 4
   %27 = icmp eq i32 %26, 9
-  br i1 %27, label %28, label %63
+  br i1 %27, label %28, label %64
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %16, align 8
@@ -2034,48 +2034,48 @@ define range(i32 8, 0) i32 @_ZNK8UatModel5flagsERK11QModelIndex(ptr noundef alig
 
 54:                                               ; preds = %51
   %55 = call i32 @g_strcmp0(ptr noundef %.pre32, ptr noundef nonnull @.str.5)
-  %56 = icmp ne i32 %55, 0
+  %56 = icmp eq i32 %55, 0
   %.pre = load ptr, ptr %3, align 8
   br label %57
 
 57:                                               ; preds = %48, %51, %54, %28
   %58 = phi ptr [ null, %28 ], [ %.pre32, %51 ], [ %.pre31, %48 ], [ %.pre, %54 ]
-  %.not17 = phi i1 [ true, %28 ], [ false, %51 ], [ false, %48 ], [ %56, %54 ]
+  %59 = phi i1 [ false, %28 ], [ true, %51 ], [ true, %48 ], [ %56, %54 ]
   call void @g_free(ptr noundef %58)
-  %59 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp ne i32 %60, 10
-  %brmerge = select i1 %61, i1 true, i1 %.not17
-  %62 = or i32 %5, 24
-  %spec.select = select i1 %brmerge, i32 %6, i32 %62
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %61 = load i32, ptr %60, align 8
+  %62 = icmp eq i32 %61, 10
+  %or.cond = select i1 %62, i1 %59, i1 false
+  %63 = or i32 %5, 24
+  %spec.select = select i1 %or.cond, i32 %63, i32 %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  br label %68
+  br label %69
 
-63:                                               ; preds = %25
-  %64 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp eq i32 %65, 10
-  %67 = or i32 %5, 24
-  %spec.select29 = select i1 %66, i32 %67, i32 %6
-  br label %68
+64:                                               ; preds = %25
+  %65 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %66 = load i32, ptr %65, align 8
+  %67 = icmp eq i32 %66, 10
+  %68 = or i32 %5, 24
+  %spec.select29 = select i1 %67, i32 %68, i32 %6
+  br label %69
 
-68:                                               ; preds = %63, %57
-  %.sroa.0.2 = phi i32 [ %spec.select, %57 ], [ %spec.select29, %63 ]
-  %69 = or i32 %.sroa.0.2, 6
+69:                                               ; preds = %64, %57
+  %.sroa.0.2 = phi i32 [ %spec.select, %57 ], [ %spec.select29, %64 ]
+  %70 = or i32 %.sroa.0.2, 6
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
 
-70:                                               ; preds = %15
-  %71 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp eq i32 %72, 10
-  %74 = or i32 %5, 24
-  %spec.select30 = select i1 %73, i32 %74, i32 %6
-  %75 = or i32 %spec.select30, 6
+71:                                               ; preds = %15
+  %72 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %73 = load i32, ptr %72, align 8
+  %74 = icmp eq i32 %73, 10
+  %75 = or i32 %5, 24
+  %spec.select30 = select i1 %74, i32 %75, i32 %6
+  %76 = or i32 %spec.select30, 6
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
 
-_ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %2, %68, %70
-  %.sroa.0.0 = phi i32 [ %69, %68 ], [ %75, %70 ], [ %6, %2 ]
+_ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %2, %69, %71
+  %.sroa.0.0 = phi i32 [ %70, %69 ], [ %76, %71 ], [ %6, %2 ]
   ret i32 %.sroa.0.0
 }
 

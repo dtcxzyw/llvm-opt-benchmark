@@ -6409,8 +6409,8 @@ _ZNK4llvh5APInt13getActiveBitsEv.exit68:          ; preds = %if.then.i.i65, %_ZN
   br i1 %cmp18, label %if.then19, label %if.end27
 
 if.then19:                                        ; preds = %_ZNK4llvh5APInt13getActiveBitsEv.exit68
-  %brmerge.demorgan = and i1 %isSigned, %cond8085
-  br i1 %brmerge.demorgan, label %if.else25, label %cleanup
+  %or.cond = and i1 %isSigned, %cond8085
+  br i1 %or.cond, label %if.else25, label %cleanup
 
 if.else25:                                        ; preds = %if.then19
   br label %cleanup
@@ -6464,8 +6464,8 @@ if.end49:                                         ; preds = %if.then31, %if.then
 cleanup:                                          ; preds = %if.then19, %if.end49, %if.else25
   %retval.1 = phi double [ 0xFFF0000000000000, %if.else25 ], [ %25, %if.end49 ], [ 0x7FF0000000000000, %if.then19 ]
   %isnull.i72 = icmp eq i64 %Tmp.sroa.0.087, 0
-  %or.cond = select i1 %cmp.i.i.i40, i1 true, i1 %isnull.i72
-  br i1 %or.cond, label %return, label %delete.notnull.i73
+  %or.cond91 = select i1 %cmp.i.i.i40, i1 true, i1 %isnull.i72
+  br i1 %or.cond91, label %return, label %delete.notnull.i73
 
 delete.notnull.i73:                               ; preds = %cleanup
   %26 = inttoptr i64 %Tmp.sroa.0.087 to ptr

@@ -1329,16 +1329,16 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   %5 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 504
   %6 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
-  %cmp.not = icmp ne ptr %6, null
-  %brmerge.not = and i1 %subtract_from_self, %cmp.not
-  br i1 %brmerge.not, label %if.then.i.i.i.i14, label %if.end9
+  %cmp = icmp ne ptr %6, null
+  %or.cond = and i1 %subtract_from_self, %cmp
+  br i1 %or.cond, label %if.then.i.i.i.i14, label %if.end9
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i34 = getelementptr inbounds i8, ptr %1, i64 -8
-  %7 = load ptr, ptr %incdec.ptr.i.i.i.i34, align 8
-  %cmp.not35 = icmp ne ptr %7, null
-  %brmerge.not36 = and i1 %subtract_from_self, %cmp.not35
-  br i1 %brmerge.not36, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end9
+  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %1, i64 -8
+  %7 = load ptr, ptr %incdec.ptr.i.i.i.i33, align 8
+  %cmp34 = icmp ne ptr %7, null
+  %or.cond35 = and i1 %subtract_from_self, %cmp34
+  br i1 %or.cond35, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end9
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -1358,21 +1358,21 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit18:   ; preds = %_ZNK4node13MemoryTr
   store i64 %sub, ptr %size_, align 8
   br label %if.end9
 
-if.end9:                                          ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread, %if.end, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18
+if.end9:                                          ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread, %if.end, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %cmp.not.i = icmp eq ptr %node_name, null
   %cmp1.not.i = icmp eq ptr %edge_name, null
   %.str.20.edge_name.i = select i1 %cmp1.not.i, ptr @.str.20, ptr %edge_name
   %retval.0.i19 = select i1 %cmp.not.i, ptr %.str.20.edge_name.i, ptr %node_name
   %call11 = tail call noundef ptr @_ZN4node13MemoryTracker8PushNodeEPKcmS2_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull %retval.0.i19, i64 noundef 48, ptr noundef %edge_name)
   %13 = load ptr, ptr %_M_left.i.i, align 8
-  %cmp.i22.not32 = icmp eq ptr %13, %add.ptr.i.i
-  br i1 %cmp.i22.not32, label %for.end, label %for.body
+  %cmp.i22.not31 = icmp eq ptr %13, %add.ptr.i.i
+  br i1 %cmp.i22.not31, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end9, %for.body
-  %it.sroa.0.033 = phi ptr [ %call.i, %for.body ], [ %13, %if.end9 ]
-  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.033, i64 32
+  %it.sroa.0.032 = phi ptr [ %call.i, %for.body ], [ %13, %if.end9 ]
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.032, i64 32
   tail call void @_ZN4node13MemoryTracker10TrackFieldIcEEvPKcRKNSt7__cxx1112basic_stringIT_St11char_traitsIS6_ESaIS6_EEES3_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef %element_name)
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.033) #21
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.032) #21
   %cmp.i22.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i22.not, label %for.end, label %for.body, !llvm.loop !13
 

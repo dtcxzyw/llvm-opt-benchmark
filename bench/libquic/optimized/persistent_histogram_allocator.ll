@@ -851,14 +851,12 @@ define void @_ZN4base28PersistentHistogramAllocator12GetHistogramEj(ptr dead_on_
 13:                                               ; preds = %9, %3
   %14 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %15 = inttoptr i64 %14 to ptr
-  %.not.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i, label %16, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
-
-16:                                               ; preds = %13
+  %16 = icmp ne i64 %14, 0
   %.b4.i.i = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b4.i.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %17
+  %or.cond.i.i = select i1 %16, i1 true, i1 %.b4.i.i
+  br i1 %or.cond.i.i, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, label %17
 
-17:                                               ; preds = %16
+17:                                               ; preds = %13
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
   %18 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
   %19 = ptrtoint ptr %18 to i64
@@ -877,7 +875,7 @@ _ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i, i32 noundef 2)
   br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit: ; preds = %16, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, %20
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, %20
   store ptr null, ptr %0, align 8, !tbaa !63
   br label %25
 
@@ -963,14 +961,12 @@ declare noundef i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr no
 define void @_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %3 = inttoptr i64 %2 to ptr
-  %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %4, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
-
-4:                                                ; preds = %1
+  %4 = icmp ne i64 %2, 0
   %.b4.i = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b4.i, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.thread, label %5
+  %or.cond.i = select i1 %4, i1 true, i1 %.b4.i
+  br i1 %or.cond.i, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit, label %5
 
-5:                                                ; preds = %4
+5:                                                ; preds = %1
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
   %6 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
   %7 = ptrtoint ptr %6 to i64
@@ -980,16 +976,16 @@ define void @_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResult
 _ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit: ; preds = %1, %5
   %.0.i = phi ptr [ %3, %1 ], [ %6, %5 ]
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.thread, label %8
+  br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
   %9 = load ptr, ptr %.0.i, align 8, !tbaa !67
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(44) %.0.i, i32 noundef %0)
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.thread
+  br label %12
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.thread: ; preds = %4, %8, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
+12:                                               ; preds = %8, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
   ret void
 }
 
@@ -1011,14 +1007,12 @@ define void @_ZN4base28PersistentHistogramAllocator15CreateHistogramEPNS0_23Pers
 14:                                               ; preds = %3
   %15 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %16 = inttoptr i64 %15 to ptr
-  %.not.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i, label %17, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
-
-17:                                               ; preds = %14
+  %17 = icmp ne i64 %15, 0
   %.b4.i.i = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b4.i.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %18
+  %or.cond.i.i = select i1 %17, i1 true, i1 %.b4.i.i
+  br i1 %or.cond.i.i, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, label %18
 
-18:                                               ; preds = %17
+18:                                               ; preds = %14
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
   %19 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
   %20 = ptrtoint ptr %19 to i64
@@ -1037,7 +1031,7 @@ _ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i, i32 noundef 1)
   br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit: ; preds = %17, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, %21
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, %21
   store ptr null, ptr %0, align 8, !tbaa !63
   br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90
 
@@ -1122,14 +1116,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 54:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %55 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %56 = inttoptr i64 %55 to ptr
-  %.not.i.i83 = icmp eq i64 %55, 0
-  br i1 %.not.i.i83, label %57, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i84
+  %57 = icmp ne i64 %55, 0
+  %.b4.i.i83 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  %or.cond.i.i84 = select i1 %57, i1 true, i1 %.b4.i.i83
+  br i1 %or.cond.i.i84, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i85, label %58
 
-57:                                               ; preds = %54
-  %.b4.i.i87 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b4.i.i87, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90, label %58
-
-58:                                               ; preds = %57
+58:                                               ; preds = %54
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
   %59 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
           to label %.noexc88 unwind label %73
@@ -1137,18 +1129,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .noexc88:                                         ; preds = %58
   %60 = ptrtoint ptr %59 to i64
   store atomic volatile i64 %60, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i84
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i85
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i84: ; preds = %.noexc88, %54
-  %.0.i.i85 = phi ptr [ %56, %54 ], [ %59, %.noexc88 ]
-  %.not.i86 = icmp eq ptr %.0.i.i85, null
-  br i1 %.not.i86, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90, label %61
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i85: ; preds = %.noexc88, %54
+  %.0.i.i86 = phi ptr [ %56, %54 ], [ %59, %.noexc88 ]
+  %.not.i87 = icmp eq ptr %.0.i.i86, null
+  br i1 %.not.i87, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90, label %61
 
-61:                                               ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i84
-  %62 = load ptr, ptr %.0.i.i85, align 8, !tbaa !67
+61:                                               ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i85
+  %62 = load ptr, ptr %.0.i.i86, align 8, !tbaa !67
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = load ptr, ptr %63, align 8
-  invoke void %64(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i85, i32 noundef 0)
+  invoke void %64(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i86, i32 noundef 0)
           to label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90 unwind label %73
 
 65:                                               ; preds = %.noexc.i
@@ -1231,33 +1223,31 @@ _ZNSt10unique_ptrIN4base13HistogramBaseESt14default_deleteIS1_EED2Ev.exit: ; pre
 92:                                               ; preds = %79
   %93 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %94 = inttoptr i64 %93 to ptr
-  %.not.i.i95 = icmp eq i64 %93, 0
-  br i1 %.not.i.i95, label %95, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i96
+  %95 = icmp ne i64 %93, 0
+  %.b4.i.i95 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  %or.cond.i.i96 = select i1 %95, i1 true, i1 %.b4.i.i95
+  br i1 %or.cond.i.i96, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i97, label %96
 
-95:                                               ; preds = %92
-  %.b4.i.i99 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b4.i.i99, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100, label %96
-
-96:                                               ; preds = %95
+96:                                               ; preds = %92
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
   %97 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
   %98 = ptrtoint ptr %97 to i64
   store atomic volatile i64 %98, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i96
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i97
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i96: ; preds = %96, %92
-  %.0.i.i97 = phi ptr [ %94, %92 ], [ %97, %96 ]
-  %.not.i98 = icmp eq ptr %.0.i.i97, null
-  br i1 %.not.i98, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100, label %99
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i97: ; preds = %96, %92
+  %.0.i.i98 = phi ptr [ %94, %92 ], [ %97, %96 ]
+  %.not.i99 = icmp eq ptr %.0.i.i98, null
+  br i1 %.not.i99, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100, label %99
 
-99:                                               ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i96
-  %100 = load ptr, ptr %.0.i.i97, align 8, !tbaa !67
+99:                                               ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i97
+  %100 = load ptr, ptr %.0.i.i98, align 8, !tbaa !67
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %102 = load ptr, ptr %101, align 8
-  tail call void %102(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i97, i32 noundef 3)
+  tail call void %102(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i98, i32 noundef 3)
   br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100: ; preds = %95, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i96, %99
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i97, %99
   store ptr null, ptr %0, align 8, !tbaa !63
   br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90
 
@@ -1346,14 +1336,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   store ptr null, ptr %7, align 8, !tbaa !100
   %126 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %127 = inttoptr i64 %126 to ptr
-  %.not.i.i103 = icmp eq i64 %126, 0
-  br i1 %.not.i.i103, label %128, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i104
+  %128 = icmp ne i64 %126, 0
+  %.b4.i.i103 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  %or.cond.i.i104 = select i1 %128, i1 true, i1 %.b4.i.i103
+  br i1 %or.cond.i.i104, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i105, label %129
 
-128:                                              ; preds = %.loopexit
-  %.b4.i.i107 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b4.i.i107, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit110, label %129
-
-129:                                              ; preds = %128
+129:                                              ; preds = %.loopexit
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
   %130 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
           to label %.noexc108 unwind label %136
@@ -1361,21 +1349,21 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 .noexc108:                                        ; preds = %129
   %131 = ptrtoint ptr %130 to i64
   store atomic volatile i64 %131, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i104
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i105
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i104: ; preds = %.noexc108, %.loopexit
-  %.0.i.i105 = phi ptr [ %127, %.loopexit ], [ %130, %.noexc108 ]
-  %.not.i106 = icmp eq ptr %.0.i.i105, null
-  br i1 %.not.i106, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit110, label %132
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i105: ; preds = %.noexc108, %.loopexit
+  %.0.i.i106 = phi ptr [ %127, %.loopexit ], [ %130, %.noexc108 ]
+  %.not.i107 = icmp eq ptr %.0.i.i106, null
+  br i1 %.not.i107, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit110, label %132
 
-132:                                              ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i104
-  %133 = load ptr, ptr %.0.i.i105, align 8, !tbaa !67
+132:                                              ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i105
+  %133 = load ptr, ptr %.0.i.i106, align 8, !tbaa !67
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 40
   %135 = load ptr, ptr %134, align 8
-  invoke void %135(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i105, i32 noundef 3)
+  invoke void %135(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i106, i32 noundef 3)
           to label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit110 unwind label %136
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit110: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i104, %128, %132
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit110: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i105, %132
   store ptr null, ptr %0, align 8, !tbaa !63
   br label %215
 
@@ -1415,14 +1403,12 @@ _ZN4base25PersistentMemoryAllocator11GetAsObjectIiEEPT_jj.exit: ; preds = %140
 151:                                              ; preds = %149, %_ZN4base25PersistentMemoryAllocator11GetAsObjectIiEEPT_jj.exit
   %152 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %153 = inttoptr i64 %152 to ptr
-  %.not.i.i112 = icmp eq i64 %152, 0
-  br i1 %.not.i.i112, label %154, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i113
+  %154 = icmp ne i64 %152, 0
+  %.b4.i.i112 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  %or.cond.i.i113 = select i1 %154, i1 true, i1 %.b4.i.i112
+  br i1 %or.cond.i.i113, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i114, label %155
 
-154:                                              ; preds = %151
-  %.b4.i.i116 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b4.i.i116, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit119, label %155
-
-155:                                              ; preds = %154
+155:                                              ; preds = %151
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
   %156 = invoke noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
           to label %.noexc117 unwind label %166
@@ -1430,21 +1416,21 @@ _ZN4base25PersistentMemoryAllocator11GetAsObjectIiEEPT_jj.exit: ; preds = %140
 .noexc117:                                        ; preds = %155
   %157 = ptrtoint ptr %156 to i64
   store atomic volatile i64 %157, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i113
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i114
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i113: ; preds = %.noexc117, %151
-  %.0.i.i114 = phi ptr [ %153, %151 ], [ %156, %.noexc117 ]
-  %.not.i115 = icmp eq ptr %.0.i.i114, null
-  br i1 %.not.i115, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit119, label %158
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i114: ; preds = %.noexc117, %151
+  %.0.i.i115 = phi ptr [ %153, %151 ], [ %156, %.noexc117 ]
+  %.not.i116 = icmp eq ptr %.0.i.i115, null
+  br i1 %.not.i116, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit119, label %158
 
-158:                                              ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i113
-  %159 = load ptr, ptr %.0.i.i114, align 8, !tbaa !67
+158:                                              ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i114
+  %159 = load ptr, ptr %.0.i.i115, align 8, !tbaa !67
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 40
   %161 = load ptr, ptr %160, align 8
-  invoke void %161(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i114, i32 noundef 4)
+  invoke void %161(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i115, i32 noundef 4)
           to label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit119 unwind label %166
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit119: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i113, %154, %158
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit119: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i114, %158
   store ptr null, ptr %0, align 8, !tbaa !63
   br label %215
 
@@ -1655,7 +1641,7 @@ _ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   br label %common.resume
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i84, %57, %61, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100, %_ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev.exit, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit90: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i85, %61, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit100, %_ZNSt10unique_ptrIKN4base12BucketRangesESt14default_deleteIS2_EED2Ev.exit, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
   ret void
 }
 
@@ -1669,14 +1655,12 @@ define void @_ZN4base28PersistentHistogramAllocator17AllocateHistogramENS_13Hist
 13:                                               ; preds = %9
   %14 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %15 = inttoptr i64 %14 to ptr
-  %.not.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i, label %16, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i
-
-16:                                               ; preds = %13
+  %16 = icmp ne i64 %14, 0
   %.b4.i.i = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b4.i.i, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit, label %17
+  %or.cond.i.i = select i1 %16, i1 true, i1 %.b4.i.i
+  br i1 %or.cond.i.i, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, label %17
 
-17:                                               ; preds = %16
+17:                                               ; preds = %13
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
   %18 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
   %19 = ptrtoint ptr %18 to i64
@@ -1695,7 +1679,7 @@ _ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i, i32 noundef 5)
   br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit: ; preds = %16, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, %20
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i, %20
   store ptr null, ptr %0, align 8, !tbaa !63
   br label %109
 
@@ -1824,30 +1808,28 @@ _ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25Create
 85:                                               ; preds = %.thread79
   %86 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %87 = inttoptr i64 %86 to ptr
-  %.not.i.i64 = icmp eq i64 %86, 0
-  br i1 %.not.i.i64, label %88, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65
+  %88 = icmp ne i64 %86, 0
+  %.b4.i.i64 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  %or.cond.i.i65 = select i1 %88, i1 true, i1 %.b4.i.i64
+  br i1 %or.cond.i.i65, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66, label %89
 
-88:                                               ; preds = %85
-  %.b4.i.i68 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b4.i.i68, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69, label %89
-
-89:                                               ; preds = %88
+89:                                               ; preds = %85
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
   %90 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
   %91 = ptrtoint ptr %90 to i64
   store atomic volatile i64 %91, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65: ; preds = %89, %85
-  %.0.i.i66 = phi ptr [ %87, %85 ], [ %90, %89 ]
-  %.not.i67 = icmp eq ptr %.0.i.i66, null
-  br i1 %.not.i67, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69, label %92
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66: ; preds = %89, %85
+  %.0.i.i67 = phi ptr [ %87, %85 ], [ %90, %89 ]
+  %.not.i68 = icmp eq ptr %.0.i.i67, null
+  br i1 %.not.i68, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69, label %92
 
-92:                                               ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65
-  %93 = load ptr, ptr %.0.i.i66, align 8, !tbaa !67
+92:                                               ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66
+  %93 = load ptr, ptr %.0.i.i67, align 8, !tbaa !67
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 40
   %95 = load ptr, ptr %94, align 8
-  tail call void %95(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i66, i32 noundef 9)
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i67, i32 noundef 9)
   br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69
 
 96:                                               ; preds = %.thread79
@@ -1856,37 +1838,35 @@ _ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit
   %. = select i1 %98, i32 6, i32 7
   br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69: ; preds = %92, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65, %88, %96
-  %.0 = phi i32 [ %., %96 ], [ 5, %88 ], [ 5, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i65 ], [ 5, %92 ]
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69: ; preds = %92, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66, %96
+  %.0 = phi i32 [ %., %96 ], [ 5, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i66 ], [ 5, %92 ]
   %99 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %100 = inttoptr i64 %99 to ptr
-  %.not.i.i70 = icmp eq i64 %99, 0
-  br i1 %.not.i.i70, label %101, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i71
+  %101 = icmp ne i64 %99, 0
+  %.b4.i.i70 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
+  %or.cond.i.i71 = select i1 %101, i1 true, i1 %.b4.i.i70
+  br i1 %or.cond.i.i71, label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i72, label %102
 
-101:                                              ; preds = %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69
-  %.b4.i.i74 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b4.i.i74, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75, label %102
-
-102:                                              ; preds = %101
+102:                                              ; preds = %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
   %103 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
   %104 = ptrtoint ptr %103 to i64
   store atomic volatile i64 %104, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
-  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i71
+  br label %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i72
 
-_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i71: ; preds = %102, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69
-  %.0.i.i72 = phi ptr [ %100, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69 ], [ %103, %102 ]
-  %.not.i73 = icmp eq ptr %.0.i.i72, null
-  br i1 %.not.i73, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75, label %105
+_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i72: ; preds = %102, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69
+  %.0.i.i73 = phi ptr [ %100, %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit69 ], [ %103, %102 ]
+  %.not.i74 = icmp eq ptr %.0.i.i73, null
+  br i1 %.not.i74, label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75, label %105
 
-105:                                              ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i71
-  %106 = load ptr, ptr %.0.i.i72, align 8, !tbaa !67
+105:                                              ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i72
+  %106 = load ptr, ptr %.0.i.i73, align 8, !tbaa !67
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
   %108 = load ptr, ptr %107, align 8
-  tail call void %108(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i72, i32 noundef %.0)
+  tail call void %108(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i73, i32 noundef %.0)
   br label %_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75
 
-_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75: ; preds = %101, %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i71, %105
+_ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25CreateHistogramResultTypeE.exit75: ; preds = %_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv.exit.i72, %105
   store ptr null, ptr %0, align 8, !tbaa !63
   br label %109
 
@@ -2186,22 +2166,20 @@ define void @_ZN4base28PersistentHistogramAllocator35ClearLastCreatedReferenceFo
 define noundef ptr @_ZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEv() local_unnamed_addr #0 align 2 {
   %1 = load atomic volatile i64, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer acquire, align 8
   %2 = inttoptr i64 %1 to ptr
-  %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %3, label %7
-
-3:                                                ; preds = %0
+  %3 = icmp ne i64 %1, 0
   %.b4 = load i1, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
-  br i1 %.b4, label %7, label %4
+  %or.cond = select i1 %3, i1 true, i1 %.b4
+  br i1 %or.cond, label %7, label %4
 
-4:                                                ; preds = %3
+4:                                                ; preds = %0
   store i1 true, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE11initialized, align 1
   %5 = tail call noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef nonnull @_ZN4base12_GLOBAL__N_116kResultHistogramE, i32 noundef 1, i32 noundef 10, i32 noundef 11, i32 noundef 1)
   %6 = ptrtoint ptr %5 to i64
   store atomic volatile i64 %6, ptr @_ZZN4base28PersistentHistogramAllocator33GetCreateHistogramResultHistogramEvE24atomic_histogram_pointer release, align 8
   br label %7
 
-7:                                                ; preds = %3, %4, %0
-  %.0 = phi ptr [ %2, %0 ], [ null, %3 ], [ %5, %4 ]
+7:                                                ; preds = %4, %0
+  %.0 = phi ptr [ %2, %0 ], [ %5, %4 ]
   ret ptr %.0
 }
 

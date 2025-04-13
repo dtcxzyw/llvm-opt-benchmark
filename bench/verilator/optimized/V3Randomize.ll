@@ -48626,8 +48626,8 @@ define linkonce_odr dso_local noundef zeroext i8 @_ZN14CaptureVisitor20getVarRef
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %.not.i59 = icmp eq i64 %10, 0
-  %.not.i = select i1 %8, i1 true, i1 %.not.i59
+  %.not.i58 = icmp eq i64 %10, 0
+  %.not.i = select i1 %8, i1 true, i1 %.not.i58
   br i1 %.not.i, label %_ZN7AstNode11privateCastI8AstClassKP13AstNodeModuleEEPT_PS_.exit, label %12
 
 12:                                               ; preds = %2
@@ -48659,99 +48659,98 @@ _ZN7AstNode11privateCastI8AstClassKP13AstNodeModuleEEPT_PS_.exit: ; preds = %2, 
   %25 = phi ptr [ %spec.select.i, %_ZN7AstNode9privateAsI13AstNodeModulePS_EEPT_S2_.exit ], [ null, %2 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !394
-  %.not.i33 = icmp eq ptr %27, null
-  br i1 %.not.i33, label %_ZN7AstNode9privateIsI10AstVarXRefP13AstNodeVarRefEEbPKS_.exit, label %28
+  %.not.i32 = icmp eq ptr %27, null
+  br i1 %.not.i32, label %_ZN7AstNode9privateIsI10AstVarXRefP13AstNodeVarRefEEbPKS_.exit, label %28
 
 28:                                               ; preds = %_ZN7AstNode11privateCastI8AstClassKP13AstNodeModuleEEPT_PS_.exit
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  %.sroa.0.0.copyload.i.i.i34 = load i16, ptr %29, align 8, !tbaa !117
-  %30 = icmp eq i16 %.sroa.0.0.copyload.i.i.i34, 328
-  %spec.select.i35 = select i1 %30, ptr %27, ptr null
+  %.sroa.0.0.copyload.i.i.i33 = load i16, ptr %29, align 8, !tbaa !117
+  %30 = icmp eq i16 %.sroa.0.0.copyload.i.i.i33, 328
+  %spec.select.i34 = select i1 %30, ptr %27, ptr null
   br label %_ZN7AstNode9privateIsI10AstVarXRefP13AstNodeVarRefEEbPKS_.exit
 
 _ZN7AstNode9privateIsI10AstVarXRefP13AstNodeVarRefEEbPKS_.exit: ; preds = %_ZN7AstNode11privateCastI8AstClassKP13AstNodeModuleEEPT_PS_.exit, %28
-  %31 = phi ptr [ null, %_ZN7AstNode11privateCastI8AstClassKP13AstNodeModuleEEPT_PS_.exit ], [ %spec.select.i35, %28 ]
-  %.not = icmp eq ptr %31, null
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.sroa.0.0.copyload.i.i.i37 = load i16, ptr %32, align 8, !tbaa !117
-  %33 = icmp eq i16 %.sroa.0.0.copyload.i.i.i37, 321
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 260
-  %35 = load i64, ptr %34, align 4
-  %36 = and i64 %35, 16384
-  %.not60 = icmp eq i64 %36, 0
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 251
-  %.sroa.0.0.copyload.i = load i8, ptr %37, align 1, !tbaa !138
-  %38 = icmp ne i8 %.sroa.0.0.copyload.i, 1
-  %39 = tail call noundef zeroext i1 @_ZN8AstClass19isClassExtendedFromEPKS_S1_(ptr noundef %31, ptr noundef %25)
-  %40 = load ptr, ptr %3, align 8, !tbaa !175
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 248
-  %.sroa.0.0.copyload.i.i = load i8, ptr %41, align 8, !tbaa !748
-  %42 = add i8 %.sroa.0.0.copyload.i.i, -3
-  %spec.select.i.i38 = icmp ult i8 %42, -2
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !217
-  %.not.i39 = icmp eq ptr %44, null
-  br i1 %.not.i39, label %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit, label %45
+  %31 = phi ptr [ null, %_ZN7AstNode11privateCastI8AstClassKP13AstNodeModuleEEPT_PS_.exit ], [ %spec.select.i34, %28 ]
+  %32 = icmp ne ptr %31, null
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %.sroa.0.0.copyload.i.i.i36 = load i16, ptr %33, align 8, !tbaa !117
+  %34 = icmp eq i16 %.sroa.0.0.copyload.i.i.i36, 321
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 260
+  %36 = load i64, ptr %35, align 4
+  %37 = and i64 %36, 16384
+  %38 = icmp ne i64 %37, 0
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 251
+  %.sroa.0.0.copyload.i = load i8, ptr %39, align 1, !tbaa !138
+  %40 = icmp eq i8 %.sroa.0.0.copyload.i, 1
+  %41 = tail call noundef zeroext i1 @_ZN8AstClass19isClassExtendedFromEPKS_S1_(ptr noundef %31, ptr noundef %25)
+  %42 = load ptr, ptr %3, align 8, !tbaa !175
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 248
+  %.sroa.0.0.copyload.i.i = load i8, ptr %43, align 8, !tbaa !748
+  %44 = add i8 %.sroa.0.0.copyload.i.i, -1
+  %spec.select.i.i37 = icmp ult i8 %44, 2
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %46 = load ptr, ptr %45, align 8, !tbaa !217
+  %.not.i38 = icmp eq ptr %46, null
+  br i1 %.not.i38, label %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit, label %47
 
-45:                                               ; preds = %_ZN7AstNode9privateIsI10AstVarXRefP13AstNodeVarRefEEbPKS_.exit
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !270
-  %.not1.i = icmp eq ptr %47, %40
+47:                                               ; preds = %_ZN7AstNode9privateIsI10AstVarXRefP13AstNodeVarRefEEbPKS_.exit
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !270
+  %.not1.i = icmp eq ptr %49, %42
   br i1 %.not1.i, label %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit, label %_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit
 
-_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit: ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 64
-  %.sroa.0.0.copyload.i.i.i42 = load i16, ptr %48, align 8, !tbaa !117
-  %49 = icmp eq i16 %.sroa.0.0.copyload.i.i.i42, 137
-  br i1 %49, label %_ZNK7AstNode11firstAbovepEv.exit46, label %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit
+_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit: ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  %.sroa.0.0.copyload.i.i.i41 = load i16, ptr %50, align 8, !tbaa !117
+  %51 = icmp eq i16 %.sroa.0.0.copyload.i.i.i41, 137
+  br i1 %51, label %_ZNK7AstNode11firstAbovepEv.exit45, label %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit
 
-_ZNK7AstNode11firstAbovepEv.exit46:               ; preds = %_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !217
-  %.not.i47 = icmp eq ptr %51, null
-  br i1 %.not.i47, label %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit, label %52
+_ZNK7AstNode11firstAbovepEv.exit45:               ; preds = %_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %53 = load ptr, ptr %52, align 8, !tbaa !217
+  %.not.i46 = icmp eq ptr %53, null
+  br i1 %.not.i46, label %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit, label %54
 
-52:                                               ; preds = %_ZNK7AstNode11firstAbovepEv.exit46
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !270
-  %.not1.i48 = icmp eq ptr %54, %44
-  br i1 %.not1.i48, label %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit, label %_ZNK7AstNode11firstAbovepEv.exit50
+54:                                               ; preds = %_ZNK7AstNode11firstAbovepEv.exit45
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !270
+  %.not1.i47 = icmp eq ptr %56, %46
+  br i1 %.not1.i47, label %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit, label %_ZNK7AstNode11firstAbovepEv.exit49
 
-_ZNK7AstNode11firstAbovepEv.exit50:               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 64
-  %.sroa.0.0.copyload.i.i.i52 = load i16, ptr %55, align 8, !tbaa !117
-  %56 = icmp eq i16 %.sroa.0.0.copyload.i.i.i52, 411
+_ZNK7AstNode11firstAbovepEv.exit49:               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 64
+  %.sroa.0.0.copyload.i.i.i51 = load i16, ptr %57, align 8, !tbaa !117
+  %58 = icmp eq i16 %.sroa.0.0.copyload.i.i.i51, 411
   br label %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit
 
-_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit: ; preds = %52, %_ZNK7AstNode11firstAbovepEv.exit46, %_ZN7AstNode9privateIsI10AstVarXRefP13AstNodeVarRefEEbPKS_.exit, %45, %_ZNK7AstNode11firstAbovepEv.exit50, %_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit
-  %57 = phi i1 [ false, %_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit ], [ %56, %_ZNK7AstNode11firstAbovepEv.exit50 ], [ false, %45 ], [ false, %_ZN7AstNode9privateIsI10AstVarXRefP13AstNodeVarRefEEbPKS_.exit ], [ false, %_ZNK7AstNode11firstAbovepEv.exit46 ], [ false, %52 ]
-  %brmerge57 = select i1 %33, i1 true, i1 %57
-  %.mux58 = select i1 %33, i8 9, i8 0
-  br i1 %brmerge57, label %64, label %58
+_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit: ; preds = %54, %_ZNK7AstNode11firstAbovepEv.exit45, %_ZN7AstNode9privateIsI10AstVarXRefP13AstNodeVarRefEEbPKS_.exit, %47, %_ZNK7AstNode11firstAbovepEv.exit49, %_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit
+  %59 = phi i1 [ false, %_ZN7AstNode9privateIsI14AstSelLoopVarsPS_EEbPKS_.exit ], [ %58, %_ZNK7AstNode11firstAbovepEv.exit49 ], [ false, %47 ], [ false, %_ZN7AstNode9privateIsI10AstVarXRefP13AstNodeVarRefEEbPKS_.exit ], [ false, %_ZNK7AstNode11firstAbovepEv.exit45 ], [ false, %54 ]
+  %brmerge56 = select i1 %34, i1 true, i1 %59
+  %.mux57 = select i1 %34, i8 9, i8 0
+  br i1 %brmerge56, label %68, label %60
 
-58:                                               ; preds = %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit
-  %brmerge = or i1 %.not60, %38
-  %brmerge29.not61 = and i1 %brmerge, %spec.select.i.i38
-  %brmerge26 = or i1 %.not, %.not60
-  %or.cond = and i1 %brmerge26, %brmerge29.not61
-  br i1 %or.cond, label %59, label %64
+60:                                               ; preds = %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit
+  %61 = or i1 %32, %40
+  %62 = and i1 %38, %61
+  %or.cond28 = or i1 %62, %spec.select.i.i37
+  br i1 %or.cond28, label %68, label %63
 
-59:                                               ; preds = %58
-  %.not.not = xor i1 %.not, true
-  %brmerge28.not = and i1 %39, %.not.not
-  %brmerge30 = or i1 %.not, %39
-  %.mux = select i1 %brmerge28.not, i8 2, i8 1, !prof !749
-  br i1 %brmerge30, label %64, label %60, !prof !750
+63:                                               ; preds = %60
+  %or.cond5 = and i1 %32, %41
+  %.not = xor i1 %32, true
+  %brmerge29 = or i1 %41, %.not
+  %.mux = select i1 %or.cond5, i8 2, i8 1, !prof !749
+  br i1 %brmerge29, label %68, label %64, !prof !750
 
-60:                                               ; preds = %59
-  %61 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.1, i32 noundef 1044)
-  %62 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull @.str.598)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %63) #29
+64:                                               ; preds = %63
+  %65 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.1, i32 noundef 1044)
+  %66 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %67 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull @.str.598)
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %67) #29
   unreachable
 
-64:                                               ; preds = %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit, %59, %58
-  %.0 = phi i8 [ 1, %58 ], [ %.mux, %59 ], [ %.mux58, %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit ]
+68:                                               ; preds = %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit, %63, %60
+  %.0 = phi i8 [ 1, %60 ], [ %.mux, %63 ], [ %.mux57, %_ZN7AstNode9privateIsI20AstConstraintForeachPS_EEbPKS_.exit ]
   ret i8 %.0
 }
 

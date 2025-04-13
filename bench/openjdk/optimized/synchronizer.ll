@@ -5374,8 +5374,8 @@ _ZN8JfrEventI23EventJavaMonitorInflateE14stack_trace_idEP6ThreadPK14JfrThreadLoc
   %12 = phi i64 [ %11, %10 ], [ 0, %1 ], [ %9, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %14 = load ptr, ptr %13, align 8
-  %.not.i16 = icmp eq ptr %14, null
-  br i1 %.not.i16, label %_ZNK14JfrThreadLocal13native_bufferEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
+  %.not.i17 = icmp eq ptr %14, null
+  br i1 %.not.i17, label %_ZNK14JfrThreadLocal13native_bufferEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
 
 _ZNK14JfrThreadLocal13native_bufferEv.exit:       ; preds = %_ZN8JfrEventI23EventJavaMonitorInflateE14stack_trace_idEP6ThreadPK14JfrThreadLocal.exit
   %15 = tail call noundef ptr @_ZNK14JfrThreadLocal21install_native_bufferEv(ptr noundef nonnull align 8 dereferenceable(195) %4) #18
@@ -5387,8 +5387,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread: ; preds = %_ZN8JfrEventI23Eve
   %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 330), align 2
   %19 = icmp ne i8 %18, 0
   %20 = tail call noundef zeroext i1 @_ZN8JfrEventI23EventJavaMonitorInflateE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %17, ptr noundef nonnull %3, i64 noundef %5, i64 noundef %12, i1 noundef zeroext %19)
-  %brmerge = or i1 %20, %19
-  br i1 %brmerge, label %24, label %21
+  %or.cond = or i1 %20, %19
+  br i1 %or.cond, label %24, label %21
 
 21:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
   %22 = tail call noundef zeroext i1 @_ZN8JfrEventI23EventJavaMonitorInflateE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %17, ptr noundef nonnull %3, i64 noundef %5, i64 noundef %12, i1 noundef zeroext true)
@@ -5398,7 +5398,7 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread: ; preds = %_ZN8JfrEventI23Eve
   tail call void @_ZN15JfrEventSetting9set_largeE10JfrEventId(i32 noundef 13) #18
   br label %24
 
-24:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread, %21, %23, %_ZNK14JfrThreadLocal13native_bufferEv.exit
+24:                                               ; preds = %21, %23, %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread, %_ZNK14JfrThreadLocal13native_bufferEv.exit
   ret void
 }
 
@@ -6843,8 +6843,8 @@ _ZN8JfrEventI26EventSyncOnValueBasedClassE14stack_trace_idEP6ThreadPK14JfrThread
   %12 = phi i64 [ %11, %10 ], [ 0, %1 ], [ %9, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %14 = load ptr, ptr %13, align 8
-  %.not.i16 = icmp eq ptr %14, null
-  br i1 %.not.i16, label %_ZNK14JfrThreadLocal13native_bufferEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
+  %.not.i17 = icmp eq ptr %14, null
+  br i1 %.not.i17, label %_ZNK14JfrThreadLocal13native_bufferEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
 
 _ZNK14JfrThreadLocal13native_bufferEv.exit:       ; preds = %_ZN8JfrEventI26EventSyncOnValueBasedClassE14stack_trace_idEP6ThreadPK14JfrThreadLocal.exit
   %15 = tail call noundef ptr @_ZNK14JfrThreadLocal21install_native_bufferEv(ptr noundef nonnull align 8 dereferenceable(195) %4) #18
@@ -6856,8 +6856,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread: ; preds = %_ZN8JfrEventI26Eve
   %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 354), align 2
   %19 = icmp ne i8 %18, 0
   %20 = tail call noundef zeroext i1 @_ZN8JfrEventI26EventSyncOnValueBasedClassE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %17, ptr noundef nonnull %3, i64 noundef %5, i64 noundef %12, i1 noundef zeroext %19)
-  %brmerge = or i1 %20, %19
-  br i1 %brmerge, label %24, label %21
+  %or.cond = or i1 %20, %19
+  br i1 %or.cond, label %24, label %21
 
 21:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
   %22 = tail call noundef zeroext i1 @_ZN8JfrEventI26EventSyncOnValueBasedClassE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %17, ptr noundef nonnull %3, i64 noundef %5, i64 noundef %12, i1 noundef zeroext true)
@@ -6867,7 +6867,7 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread: ; preds = %_ZN8JfrEventI26Eve
   tail call void @_ZN15JfrEventSetting9set_largeE10JfrEventId(i32 noundef 14) #18
   br label %24
 
-24:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread, %21, %23, %_ZNK14JfrThreadLocal13native_bufferEv.exit
+24:                                               ; preds = %21, %23, %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread, %_ZNK14JfrThreadLocal13native_bufferEv.exit
   ret void
 }
 

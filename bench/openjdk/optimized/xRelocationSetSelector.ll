@@ -847,8 +847,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i: ; preds = %_ZNK14JfrThreadL
   %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3594), align 2
   %39 = icmp ne i8 %38, 0
   %40 = tail call noundef zeroext i1 @_ZN8JfrEventI24EventZRelocationSetGroupE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %37, ptr noundef nonnull %30, i64 noundef %31, i64 noundef 0, i1 noundef zeroext %39)
-  %brmerge.i = or i1 %40, %39
-  br i1 %brmerge.i, label %_ZN8JfrEventI24EventZRelocationSetGroupE11write_eventEv.exit, label %41
+  %or.cond.i = or i1 %40, %39
+  br i1 %or.cond.i, label %_ZN8JfrEventI24EventZRelocationSetGroupE11write_eventEv.exit, label %41
 
 41:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
   %42 = tail call noundef zeroext i1 @_ZN8JfrEventI24EventZRelocationSetGroupE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %37, ptr noundef nonnull %30, i64 noundef %31, i64 noundef 0, i1 noundef zeroext true)
@@ -2135,8 +2135,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i: ; preds = %_ZNK14JfrThreadL
   %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3570), align 2
   %39 = icmp ne i8 %38, 0
   %40 = tail call noundef zeroext i1 @_ZN8JfrEventI19EventZRelocationSetE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %37, ptr noundef nonnull %30, i64 noundef %31, i64 noundef 0, i1 noundef zeroext %39)
-  %brmerge.i = or i1 %40, %39
-  br i1 %brmerge.i, label %_ZN8JfrEventI19EventZRelocationSetE11write_eventEv.exit, label %41
+  %or.cond.i = or i1 %40, %39
+  br i1 %or.cond.i, label %_ZN8JfrEventI19EventZRelocationSetE11write_eventEv.exit, label %41
 
 41:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
   %42 = tail call noundef zeroext i1 @_ZN8JfrEventI19EventZRelocationSetE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %37, ptr noundef nonnull %30, i64 noundef %31, i64 noundef 0, i1 noundef zeroext true)

@@ -137,7 +137,7 @@ define void @_ZNK5boost4urls22implementation_defined16authority_rule_t5parseERPK
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %20 = icmp eq ptr %19, %3
-  br i1 %20, label %.thread.thread.sink.split, label %21
+  br i1 %20, label %.thread32.sink.split, label %21
 
 21:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.5.i.i.i)
@@ -179,7 +179,7 @@ _ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i.i: ; pred
 30:                                               ; preds = %21, %_ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.5.i.i.i)
   store ptr %19, ptr %2, align 8, !tbaa !15, !noalias !38
-  br label %.thread.thread.sink.split
+  br label %.thread32.sink.split
 
 31:                                               ; preds = %28, %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i.i.i.i, %23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9, !noalias !26
@@ -197,13 +197,13 @@ _ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i.i: ; pred
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %spec.select = select i1 %37, ptr %38, ptr null
   call void @_ZN5boost4urls6detail8url_impl14apply_userinfoERKNS0_15pct_string_viewEPS4_(ptr noundef nonnull align 8 dereferenceable(171) %7, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef %spec.select) #9
-  br label %.thread.thread
+  br label %.thread32
 
-.thread.thread.sink.split:                        ; preds = %4, %30
+.thread32.sink.split:                             ; preds = %4, %30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
-  br label %.thread.thread
+  br label %.thread32
 
-.thread.thread:                                   ; preds = %31, %.thread.thread.sink.split
+.thread32:                                        ; preds = %31, %.thread32.sink.split
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #9
   call void @_ZNK5boost4urls6detail11host_rule_t5parseERPKcS4_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.25") align 8 %10, ptr noundef nonnull align 1 dereferenceable(1) @_ZN5boost4urls6detailL9host_ruleE, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #9
@@ -212,7 +212,7 @@ _ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i.i: ; pred
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %46, label %42
 
-42:                                               ; preds = %.thread.thread
+42:                                               ; preds = %.thread32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %43 = icmp eq i32 %40, 2
   br i1 %43, label %44, label %45
@@ -225,7 +225,7 @@ _ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i.i: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !alias.scope !56
   br label %48
 
-46:                                               ; preds = %.thread.thread
+46:                                               ; preds = %.thread32
   %47 = load i32, ptr %10, align 8, !tbaa !59
   %.sroa.gep23 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.03.0.copyload = load ptr, ptr %.sroa.gep23, align 8, !tbaa !15

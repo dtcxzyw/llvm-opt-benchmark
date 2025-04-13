@@ -4042,17 +4042,17 @@ _ZNK3gmx17RangePartitioning5blockEi.exit133._crit_edge.i: ; preds = %_ZNK3gmx17R
 
 _ZNK3gmx17RangePartitioning5blockEi.exit133.i:    ; preds = %_ZNK3gmx17RangePartitioning5blockEi.exit133.i, %_ZNK3gmx17RangePartitioning5blockEi.exit133.preheader315.i
   %indvars.iv.i = phi i64 [ %280, %_ZNK3gmx17RangePartitioning5blockEi.exit133.preheader315.i ], [ %indvars.iv.next.i, %_ZNK3gmx17RangePartitioning5blockEi.exit133.i ]
-  %.090290.i = phi i32 [ 0, %_ZNK3gmx17RangePartitioning5blockEi.exit133.preheader315.i ], [ %spec.select116.i, %_ZNK3gmx17RangePartitioning5blockEi.exit133.i ]
-  %.092289.i = phi i32 [ -1, %_ZNK3gmx17RangePartitioning5blockEi.exit133.preheader315.i ], [ %spec.select.i, %_ZNK3gmx17RangePartitioning5blockEi.exit133.i ]
+  %.094290.i = phi i32 [ 0, %_ZNK3gmx17RangePartitioning5blockEi.exit133.preheader315.i ], [ %spec.select120.i, %_ZNK3gmx17RangePartitioning5blockEi.exit133.i ]
+  %.096289.i = phi i32 [ -1, %_ZNK3gmx17RangePartitioning5blockEi.exit133.preheader315.i ], [ %spec.select.i, %_ZNK3gmx17RangePartitioning5blockEi.exit133.i ]
   %284 = getelementptr i32, ptr %247, i64 %indvars.iv.i
   %285 = load i32, ptr %284, align 4, !tbaa !31
   %286 = getelementptr i8, ptr %284, i64 4
   %287 = load i32, ptr %286, align 4, !tbaa !31
   %288 = sub i32 %287, %285
-  %289 = icmp slt i32 %.090290.i, %288
+  %289 = icmp slt i32 %.094290.i, %288
   %290 = trunc nsw i64 %indvars.iv.i to i32
-  %spec.select.i = select i1 %289, i32 %290, i32 %.092289.i
-  %spec.select116.i = call i32 @llvm.smax.i32(i32 %.090290.i, i32 %288)
+  %spec.select.i = select i1 %289, i32 %290, i32 %.096289.i
+  %spec.select120.i = call i32 @llvm.smax.i32(i32 %.094290.i, i32 %288)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %291 = trunc nsw i64 %indvars.iv.next.i to i32
   %.not264.i = icmp eq i32 %275, %291
@@ -4080,10 +4080,10 @@ _ZNK3gmx17RangePartitioning5blockEi.exit133.i:    ; preds = %_ZNK3gmx17RangePart
   br label %305
 
 305:                                              ; preds = %305, %.lr.ph298.i
-  %.094297.i = phi i1 [ true, %.lr.ph298.i ], [ %.195.i, %305 ]
-  %.096296.i = phi i32 [ -1, %.lr.ph298.i ], [ %.197.i, %305 ]
-  %.098295.i = phi float [ 0.000000e+00, %.lr.ph298.i ], [ %323, %305 ]
-  %.099294.i = phi i1 [ true, %.lr.ph298.i ], [ false, %305 ]
+  %.098297.i = phi i1 [ true, %.lr.ph298.i ], [ %.199.i, %305 ]
+  %.0100296.i = phi i32 [ -1, %.lr.ph298.i ], [ %.1101.i, %305 ]
+  %.0102295.i = phi float [ 0.000000e+00, %.lr.ph298.i ], [ %323, %305 ]
+  %.0103294.i = phi i1 [ true, %.lr.ph298.i ], [ false, %305 ]
   %.0250293.i = phi float [ 0.000000e+00, %.lr.ph298.i ], [ %.sroa.speculated207.i, %305 ]
   %.sroa.0209.0292.i = phi ptr [ %297, %.lr.ph298.i ], [ %324, %305 ]
   %306 = load i32, ptr %.sroa.0209.0292.i, align 4, !tbaa !31
@@ -4094,13 +4094,13 @@ _ZNK3gmx17RangePartitioning5blockEi.exit133.i:    ; preds = %_ZNK3gmx17RangePart
   %311 = sub nsw i32 %307, %257
   %312 = sext i32 %311 to i64
   %313 = getelementptr inbounds nuw i32, ptr %304, i64 %312
-  %.089.in.i = select i1 %308, ptr %310, ptr %313
-  %.089.i = load i32, ptr %.089.in.i, align 4, !tbaa !31
-  %.not.i = icmp eq i32 %.089.i, %.096296.i
-  %.197.i = select i1 %.099294.i, i32 %.089.i, i32 %.096296.i
-  %314 = select i1 %.099294.i, i1 true, i1 %.not.i
-  %.195.i = select i1 %314, i1 %.094297.i, i1 false
-  %315 = sext i32 %.089.i to i64
+  %.093.in.i = select i1 %308, ptr %310, ptr %313
+  %.093.i = load i32, ptr %.093.in.i, align 4, !tbaa !31
+  %.not.i = icmp eq i32 %.093.i, %.0100296.i
+  %.1101.i = select i1 %.0103294.i, i32 %.093.i, i32 %.0100296.i
+  %314 = select i1 %.0103294.i, i1 true, i1 %.not.i
+  %.199.i = select i1 %314, i1 %.098297.i, i1 false
+  %315 = sext i32 %.093.i to i64
   %316 = getelementptr inbounds %union.t_iparams, ptr %45, i64 %315
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 4
   %318 = load float, ptr %316, align 4, !tbaa !44
@@ -4109,15 +4109,15 @@ _ZNK3gmx17RangePartitioning5blockEi.exit133.i:    ; preds = %_ZNK3gmx17RangePart
   %321 = select i1 %320, float %319, float %318
   %322 = fcmp olt float %.0250293.i, %321
   %.sroa.speculated207.i = select i1 %322, float %321, float %.0250293.i
-  %323 = fadd float %.098295.i, %321
+  %323 = fadd float %.0102295.i, %321
   %324 = getelementptr inbounds nuw i8, ptr %.sroa.0209.0292.i, i64 4
   %.not265.i = icmp eq ptr %324, %301
   br i1 %.not265.i, label %._crit_edge.i, label %305
 
 ._crit_edge.i:                                    ; preds = %305, %292
   %.0250.lcssa.i = phi float [ 0.000000e+00, %292 ], [ %.sroa.speculated207.i, %305 ]
-  %.098.lcssa.i = phi float [ 0.000000e+00, %292 ], [ %323, %305 ]
-  %.094.lcssa.i = phi i1 [ true, %292 ], [ %.195.i, %305 ]
+  %.0102.lcssa.i = phi float [ 0.000000e+00, %292 ], [ %323, %305 ]
+  %.098.lcssa.i = phi i1 [ true, %292 ], [ %.199.i, %305 ]
   %gepdiff.i = sub nsw i64 %.idx.i, %.idx266.i
   %325 = lshr exact i64 %gepdiff.i, 2
   %326 = trunc i64 %325 to i32
@@ -4135,9 +4135,9 @@ _ZNK3gmx17RangePartitioning5blockEi.exit133.i:    ; preds = %_ZNK3gmx17RangePart
 
 332:                                              ; preds = %._crit_edge.i
   %333 = icmp eq i32 %326, 2
-  %or.cond.i = and i1 %34, %.094.lcssa.i
-  %or.cond119.i = select i1 %333, i1 %or.cond.i, i1 false
-  br i1 %or.cond119.i, label %334, label %451
+  %or.cond.i = select i1 %333, i1 %.098.lcssa.i, i1 false
+  %or.cond3.i = and i1 %34, %or.cond.i
+  br i1 %or.cond3.i, label %334, label %451
 
 334:                                              ; preds = %332
   %.narrow.i.i = sub i32 %299, %295
@@ -4423,9 +4423,9 @@ _ZNKSt18unordered_multimapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE11equal_ra
 451:                                              ; preds = %.loopexit.i, %332
   %.1252.i = phi float [ %.3.i.i, %.loopexit.i ], [ -1.000000e+00, %332 ]
   %452 = icmp eq i32 %326, 3
-  %or.cond3.i = and i1 %37, %.094.lcssa.i
-  %or.cond121.i = select i1 %452, i1 %or.cond3.i, i1 false
-  br i1 %or.cond121.i, label %453, label %599
+  %or.cond5.i = select i1 %452, i1 %.098.lcssa.i, i1 false
+  %or.cond7.i = and i1 %37, %or.cond5.i
+  br i1 %or.cond7.i, label %453, label %599
 
 453:                                              ; preds = %451
   %454 = load i32, ptr %294, align 4, !tbaa !31
@@ -4734,8 +4734,8 @@ _ZNKSt18unordered_multimapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE11equal_ra
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #25
   %596 = fcmp oge float %595, 0.000000e+00
-  %or.cond5.i = and i1 %38, %596
-  br i1 %or.cond5.i, label %597, label %.thread262.i
+  %or.cond9.i = and i1 %38, %596
+  br i1 %or.cond9.i, label %597, label %.thread262.i
 
 597:                                              ; preds = %566
   %598 = fmul float %sqrt.i163.i, 0x3FF19999A0000000
@@ -4751,7 +4751,7 @@ _ZNKSt18unordered_multimapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE11equal_ra
   br label %.thread260.i
 
 .thread260.i:                                     ; preds = %.thread260.sink.split.i, %599
-  %601 = call float @llvm.fmuladd.f32(float %.0250.lcssa.i, float -2.000000e+00, float %.098.lcssa.i)
+  %601 = call float @llvm.fmuladd.f32(float %.0250.lcssa.i, float -2.000000e+00, float %.0102.lcssa.i)
   %602 = add nsw i32 %326, 1
   %603 = sitofp i32 %602 to float
   %604 = fdiv float %601, %603
@@ -4771,7 +4771,7 @@ _ZNK3gmx17RangePartitioning5blockEi.exit133._crit_edge.thread.i: ; preds = %.thr
   br i1 %exitcond.not.i, label %.preheader.i, label %271, !llvm.loop !173
 
 607:                                              ; preds = %330, %281
-  %.pn109.pn.pn.pn.pn.i = phi { ptr, i32 } [ %282, %281 ], [ %331, %330 ]
+  %.pn113.pn.pn.pn.pn.i = phi { ptr, i32 } [ %282, %281 ], [ %331, %330 ]
   call void @_ZNSt18unordered_multimapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #25
   br label %.body.i
 
@@ -4832,9 +4832,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %619, %_ZNSt18unorde
   br label %_ZN3gmxL27computeMaxUpdateGroupRadiusERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEERKNS_17RangePartitioningEf.exit
 
 .lr.ph308.i:                                      ; preds = %.preheader.i, %.lr.ph308.i
-  %.087307.i = phi i32 [ %652, %.lr.ph308.i ], [ 0, %.preheader.i ]
+  %.091307.i = phi i32 [ %652, %.lr.ph308.i ], [ 0, %.preheader.i ]
   %.2306.i = phi float [ %.sroa.speculated.i, %.lr.ph308.i ], [ %.0.lcssa.i, %.preheader.i ]
-  %630 = sext i32 %.087307.i to i64
+  %630 = sext i32 %.091307.i to i64
   %631 = getelementptr inbounds nuw i32, ptr %264, i64 %630
   %632 = load i32, ptr %631, align 4, !tbaa !31
   %633 = sext i32 %632 to i64
@@ -4857,17 +4857,17 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %619, %_ZNSt18unorde
   %649 = fcmp olt float %.2306.i, %648
   %.sroa.speculated.i = select i1 %649, float %648, float %.2306.i
   %650 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interaction_function, i64 2064), align 16, !tbaa !42
-  %651 = add nsw i32 %.087307.i, 1
+  %651 = add nsw i32 %.091307.i, 1
   %652 = add i32 %651, %650
   %653 = icmp slt i32 %652, %269
   br i1 %653, label %.lr.ph308.i, label %._crit_edge309.i, !llvm.loop !175
 
 .body.i:                                          ; preds = %607, %.body8.i.i, %77
-  %.pn109.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn109.pn.pn.pn.pn.i, %607 ], [ %eh.lpad-body9.i.i, %.body8.i.i ], [ %lpad.phi36, %77 ]
+  %.pn113.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn113.pn.pn.pn.pn.i, %607 ], [ %eh.lpad-body9.i.i, %.body8.i.i ], [ %lpad.phi36, %77 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #25
   call void @_ZN3gmx11ListOfListsIiED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #25
-  resume { ptr, i32 } %.pn109.pn.pn.pn.pn.pn.i
+  resume { ptr, i32 } %.pn113.pn.pn.pn.pn.pn.i
 
 _ZN3gmxL27computeMaxUpdateGroupRadiusERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEERKNS_17RangePartitioningEf.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, %625
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #25

@@ -384,8 +384,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i: ; preds = %_ZNK14JfrThreadL
   %34 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2562), align 2
   %35 = icmp ne i8 %34, 0
   %36 = tail call noundef zeroext i1 @_ZN8JfrEventI18EventThreadCPULoadE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %33, ptr noundef nonnull %26, i64 noundef %27, i64 noundef 0, i1 noundef zeroext %35)
-  %brmerge.i = or i1 %36, %35
-  br i1 %brmerge.i, label %_ZN8JfrEventI18EventThreadCPULoadE11write_eventEv.exit, label %37
+  %or.cond.i = or i1 %36, %35
+  br i1 %or.cond.i, label %_ZN8JfrEventI18EventThreadCPULoadE11write_eventEv.exit, label %37
 
 37:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
   %38 = tail call noundef zeroext i1 @_ZN8JfrEventI18EventThreadCPULoadE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %33, ptr noundef nonnull %26, i64 noundef %27, i64 noundef 0, i1 noundef zeroext true)
@@ -419,14 +419,14 @@ define hidden void @_ZN21JfrThreadCPULoadEvent21send_event_for_threadEP10JavaThr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %5, i8 0, i64 11, i1 false)
   %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2561), align 1
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %_ZN8JfrEventI18EventThreadCPULoadE13should_commitEv.exit, label %_ZN18EventThreadCPULoadC2E14EventStartTime.exit
+  br i1 %7, label %_ZN21JfrThreadCPULoadEvent12update_eventER18EventThreadCPULoadP10JavaThreadli.exit, label %_ZN18EventThreadCPULoadC2E14EventStartTime.exit
 
 _ZN18EventThreadCPULoadC2E14EventStartTime.exit:  ; preds = %1
   %8 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
   store i64 %8, ptr %2, align 8
   %.pr = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 2561), align 1
   %.not.i.not = icmp eq i8 %.pr, 0
-  br i1 %.not.i.not, label %_ZN8JfrEventI18EventThreadCPULoadE13should_commitEv.exit, label %9
+  br i1 %.not.i.not, label %_ZN21JfrThreadCPULoadEvent12update_eventER18EventThreadCPULoadP10JavaThreadli.exit, label %9
 
 9:                                                ; preds = %_ZN18EventThreadCPULoadC2E14EventStartTime.exit
   %10 = icmp eq i64 %8, 0
@@ -443,7 +443,7 @@ _ZN18EventThreadCPULoadC2E14EventStartTime.exit:  ; preds = %1
   store i64 %15, ptr %14, align 8
   br label %16
 
-16:                                               ; preds = %11, %13
+16:                                               ; preds = %13, %11
   store i8 1, ptr %3, align 1
   store i8 1, ptr %4, align 2
   %17 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #10
@@ -458,7 +458,7 @@ _ZN18EventThreadCPULoadC2E14EventStartTime.exit:  ; preds = %1
   store i64 %17, ptr %23, align 8
   %25 = sub nsw i64 %20, %22
   %26 = icmp sgt i64 %25, 999999
-  br i1 %26, label %27, label %_ZN8JfrEventI18EventThreadCPULoadE13should_commitEv.exit
+  br i1 %26, label %27, label %_ZN21JfrThreadCPULoadEvent12update_eventER18EventThreadCPULoadP10JavaThreadli.exit
 
 27:                                               ; preds = %16
   %28 = tail call noundef i32 @llvm.smax.i32(i32 %18, i32 %19)
@@ -512,9 +512,9 @@ _ZN18EventThreadCPULoadC2E14EventStartTime.exit:  ; preds = %1
   store i64 %.063.i, ptr %30, align 8
   store i64 %.1.i, ptr %21, align 8
   call void @_ZN8JfrEventI18EventThreadCPULoadE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %2)
-  br label %_ZN8JfrEventI18EventThreadCPULoadE13should_commitEv.exit
+  br label %_ZN21JfrThreadCPULoadEvent12update_eventER18EventThreadCPULoadP10JavaThreadli.exit
 
-_ZN8JfrEventI18EventThreadCPULoadE13should_commitEv.exit: ; preds = %1, %16, %_ZN18EventThreadCPULoadC2E14EventStartTime.exit, %52
+_ZN21JfrThreadCPULoadEvent12update_eventER18EventThreadCPULoadP10JavaThreadli.exit: ; preds = %_ZN18EventThreadCPULoadC2E14EventStartTime.exit, %1, %16, %52
   ret void
 }
 

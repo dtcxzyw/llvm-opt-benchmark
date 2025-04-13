@@ -2546,33 +2546,33 @@ _ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit: ; preds = %6, %._crit_e
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %20
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h7ebc5c3e95675cf2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %25)
-          to label %.noexc9 unwind label %.loopexit.split-lp
+          to label %.noexc10 unwind label %.loopexit.split-lp
 
-.noexc9:                                          ; preds = %._crit_edge.i.i.i.i.i
+.noexc10:                                         ; preds = %._crit_edge.i.i.i.i.i
   %.pre.i.i.i.i.i = load i64, ptr %7, align 8, !alias.scope !445, !noalias !450
   br label %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.preheader
 
-_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.preheader: ; preds = %20, %.noexc9
-  %.sink25.ph = phi i64 [ %25, %20 ], [ %.pre.i.i.i.i.i, %.noexc9 ]
+_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.preheader: ; preds = %20, %.noexc10
+  %.sink26.ph = phi i64 [ %25, %20 ], [ %.pre.i.i.i.i.i, %.noexc10 ]
   br label %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit
 
 _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i: ; preds = %.noexc
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.b524e8eb8974857e663438d42e829098.20.llvm.6580822817679657170, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b524e8eb8974857e663438d42e829098.21.llvm.6580822817679657170) #10
-          to label %.noexc10 unwind label %.loopexit.split-lp
+          to label %.noexc11 unwind label %.loopexit.split-lp
 
-.noexc10:                                         ; preds = %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i
+.noexc11:                                         ; preds = %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i
   unreachable
 
 _ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit: ; preds = %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.backedge, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.preheader
-  %.sink25 = phi i64 [ %.sink25.ph, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.preheader ], [ %.sink25.be, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.backedge ]
-  %.sink21 = phi i16 [ 4, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.preheader ], [ 3, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.backedge ]
-  %.05 = phi i1 [ false, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.preheader ], [ true, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.backedge ]
+  %.sink26 = phi i64 [ %.sink26.ph, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.preheader ], [ %.sink26.be, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.backedge ]
+  %.sink22 = phi i16 [ 4, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.preheader ], [ 3, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.backedge ]
+  %.06 = phi i1 [ false, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.preheader ], [ true, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.backedge ]
   %.0 = phi i32 [ 0, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.preheader ], [ %34, %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.backedge ]
   %28 = load ptr, ptr %13, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds { i64, [2 x i64] }, ptr %28, i64 %.sink25
+  %29 = getelementptr inbounds { i64, [2 x i64] }, ptr %28, i64 %.sink26
   store i64 -9223372036854775806, ptr %29, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i16 %.sink21, ptr %.sroa.4.0..sroa_idx.i.i, align 8
+  store i16 %.sink22, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %29, i64 10
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 2
   %storemerge.in = load i64, ptr %7, align 8, !noalias !4, !noundef !4
@@ -2586,24 +2586,24 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit: ; preds = %_ZN6parser6pars
 
 31:                                               ; preds = %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit
   %32 = invoke noundef zeroext i1 @_ZN6parser6parser6Parser6nth_at17h20e46c565405313aE(ptr noundef nonnull align 8 %0, i64 noundef 0, i16 noundef 5)
-          to label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit13 unwind label %.loopexit
+          to label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit14 unwind label %.loopexit
 
-_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit13: ; preds = %31
+_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit14: ; preds = %31
   br i1 %32, label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.thread, label %33
 
-33:                                               ; preds = %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit13
+33:                                               ; preds = %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit14
   %34 = add i32 %.0, 1
   invoke void @_ZN6parser7grammar5types21type_with_bounds_cond17h8b622fb5a4ab3129E.llvm.759494324143416988(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i1 noundef zeroext true)
           to label %_ZN6parser7grammar5types5type_17he31e974934f144acE.exit unwind label %.loopexit
 
 _ZN6parser7grammar5types5type_17he31e974934f144acE.exit: ; preds = %33
   %35 = invoke noundef zeroext i1 @_ZN6parser6parser6Parser6nth_at17h20e46c565405313aE(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef 0, i16 noundef 3)
-          to label %.noexc15 unwind label %.loopexit
+          to label %.noexc16 unwind label %.loopexit
 
-.noexc15:                                         ; preds = %_ZN6parser7grammar5types5type_17he31e974934f144acE.exit
+.noexc16:                                         ; preds = %_ZN6parser7grammar5types5type_17he31e974934f144acE.exit
   br i1 %35, label %36, label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.thread
 
-36:                                               ; preds = %.noexc15
+36:                                               ; preds = %.noexc16
   %37 = load i64, ptr %21, align 8, !alias.scope !453, !noundef !4
   %38 = add i64 %37, 1
   store i64 %38, ptr %21, align 8, !alias.scope !453
@@ -2613,31 +2613,31 @@ _ZN6parser7grammar5types5type_17he31e974934f144acE.exit: ; preds = %33
   %41 = icmp eq i64 %39, %40
   br i1 %41, label %._crit_edge.i.i.i.i, label %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.backedge
 
-_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.backedge: ; preds = %36, %.noexc16
-  %.sink25.be = phi i64 [ %.pre.i.i.i.i, %.noexc16 ], [ %39, %36 ]
+_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.backedge: ; preds = %36, %.noexc17
+  %.sink26.be = phi i64 [ %.pre.i.i.i.i, %.noexc17 ], [ %39, %36 ]
   br label %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit
 
 ._crit_edge.i.i.i.i:                              ; preds = %36
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h7ebc5c3e95675cf2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %39)
-          to label %.noexc16 unwind label %.loopexit
+          to label %.noexc17 unwind label %.loopexit
 
-.noexc16:                                         ; preds = %._crit_edge.i.i.i.i
+.noexc17:                                         ; preds = %._crit_edge.i.i.i.i
   %.pre.i.i.i.i = load i64, ptr %7, align 8, !alias.scope !458, !noalias !463
   br label %_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E.exit.backedge
 
-_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.thread: ; preds = %.noexc15, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit13, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit
-  %.16 = phi i1 [ %.05, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ], [ %.05, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit13 ], [ false, %.noexc15 ]
-  %.1 = phi i32 [ %.0, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ], [ %.0, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit13 ], [ %34, %.noexc15 ]
+_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.thread: ; preds = %.noexc16, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit14, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit
+  %.17 = phi i1 [ %.06, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ], [ %.06, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit14 ], [ false, %.noexc16 ]
+  %.1 = phi i32 [ %.0, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ], [ %.0, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit14 ], [ %34, %.noexc16 ]
   %42 = invoke noundef zeroext i1 @_ZN6parser6parser6Parser6expect17h1094570d9e783b68E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef 5)
           to label %43 unwind label %.loopexit.split-lp
 
 43:                                               ; preds = %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.thread
-  %44 = icmp eq i32 %.1, 1
-  %spec.select = select i1 %.16, i16 150, i16 149
-  %.07 = select i1 %44, i16 %spec.select, i16 150
+  %44 = icmp ne i32 %.1, 1
+  %or.cond = or i1 %44, %.17
+  %. = select i1 %or.cond, i16 150, i16 149
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %45 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef %.07)
+  %45 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef %.)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void

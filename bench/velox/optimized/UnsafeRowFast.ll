@@ -1301,22 +1301,20 @@ if.end.i.i:                                       ; preds = %land.rhs
   %isIdentityMapping_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 66
   %12 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %tobool2.i.i = trunc i8 %12 to i1
-  br i1 %tobool2.i.i, label %if.then4.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %hasExtraNulls_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 65
   %13 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %tobool3.i.i = trunc i8 %13 to i1
-  br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end6.i.i
+  %or.cond.i.i = select i1 %tobool2.i.i, i1 true, i1 %tobool3.i.i
+  br i1 %or.cond.i.i, label %if.then4.i.i, label %if.end6.i.i
 
-if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %11, i64 %div2.i.i.i.i
   %14 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %and2.i.i.i.i = and i64 %14, %shl.i.i.i.i
   %tobool.i.not.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i, label %for.inc, label %if.then
 
-if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
+if.end6.i.i:                                      ; preds = %if.end.i.i
   %isConstantMapping_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 67
   %15 = load i8, ptr %isConstantMapping_.i.i, align 1
   %tobool7.i.i = trunc i8 %15 to i1
@@ -1539,14 +1537,12 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 if.end.i.i.i:                                     ; preds = %for.body.i
   %33 = load i8, ptr %isIdentityMapping_.i.i.i, align 2
   %tobool2.i.i.i = trunc i8 %33 to i1
-  br i1 %tobool2.i.i.i, label %if.then4.i.i.i, label %lor.lhs.false.i.i.i
-
-lor.lhs.false.i.i.i:                              ; preds = %if.end.i.i.i
   %34 = load i8, ptr %hasExtraNulls_.i.i.i, align 1
   %tobool3.i.i.i = trunc i8 %34 to i1
-  br i1 %tobool3.i.i.i, label %if.then4.i.i.i, label %if.end6.i.i.i
+  %or.cond.i.i.i = select i1 %tobool2.i.i.i, i1 true, i1 %tobool3.i.i.i
+  br i1 %or.cond.i.i.i, label %if.then4.i.i.i, label %if.end6.i.i.i
 
-if.then4.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i, %if.end.i.i.i
+if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   %div2.i.i.i.i.i = lshr i64 %31, 6
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %32, i64 %div2.i.i.i.i.i
   %35 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
@@ -1556,7 +1552,7 @@ if.then4.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
   %tobool.i.not.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i, label %for.inc.i, label %if.then8.i
 
-if.end6.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
+if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
   %36 = load i8, ptr %isConstantMapping_.i.i.i, align 1
   %tobool7.i.i.i = trunc i8 %36 to i1
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit.i
@@ -1704,14 +1700,12 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 if.end.i.i.i:                                     ; preds = %for.body.i
   %19 = load i8, ptr %isIdentityMapping_.i.i.i, align 2
   %tobool2.i.i.i = trunc i8 %19 to i1
-  br i1 %tobool2.i.i.i, label %if.then4.i.i.i, label %lor.lhs.false.i.i.i
-
-lor.lhs.false.i.i.i:                              ; preds = %if.end.i.i.i
   %20 = load i8, ptr %hasExtraNulls_.i.i.i, align 1
   %tobool3.i.i.i = trunc i8 %20 to i1
-  br i1 %tobool3.i.i.i, label %if.then4.i.i.i, label %if.end6.i.i.i
+  %or.cond.i.i.i = select i1 %tobool2.i.i.i, i1 true, i1 %tobool3.i.i.i
+  br i1 %or.cond.i.i.i, label %if.then4.i.i.i, label %if.end6.i.i.i
 
-if.then4.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i, %if.end.i.i.i
+if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   %div2.i.i.i.i.i = lshr i64 %17, 6
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %18, i64 %div2.i.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
@@ -1721,7 +1715,7 @@ if.then4.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
   %tobool.i.not.i.i.i.i = icmp eq i64 %and2.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i, label %for.inc.i, label %if.then8.i
 
-if.end6.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
+if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
   %22 = load i8, ptr %isConstantMapping_.i.i.i, align 1
   %tobool7.i.i.i = trunc i8 %22 to i1
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit.i
@@ -1855,14 +1849,12 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 if.end.i.i:                                       ; preds = %for.body.i
   %19 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %tobool2.i.i = trunc i8 %19 to i1
-  br i1 %tobool2.i.i, label %if.then4.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %20 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %tobool3.i.i = trunc i8 %20 to i1
-  br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end6.i.i
+  %or.cond.i.i = select i1 %tobool2.i.i, i1 true, i1 %tobool3.i.i
+  br i1 %or.cond.i.i, label %if.then4.i.i, label %if.end6.i.i
 
-if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %div2.i.i.i.i = lshr i64 %17, 6
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %18, i64 %div2.i.i.i.i
   %21 = load i64, ptr %arrayidx.i.i.i.i, align 8
@@ -1872,7 +1864,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %tobool.i.not.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i, label %for.inc.i, label %if.then8.i
 
-if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
+if.end6.i.i:                                      ; preds = %if.end.i.i
   %22 = load i8, ptr %isConstantMapping_.i.i, align 1
   %tobool7.i.i = trunc i8 %22 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit
@@ -1945,7 +1937,7 @@ if.end.i19:                                       ; preds = %_ZN8facebook5velox3
 for.body.i27.lr.ph:                               ; preds = %if.end.i19
   %nulls_.i.i45 = getelementptr inbounds nuw i8, ptr %30, i64 256
   %isIdentityMapping_.i.i48 = getelementptr inbounds nuw i8, ptr %30, i64 290
-  %hasExtraNulls_.i.i51 = getelementptr inbounds nuw i8, ptr %30, i64 289
+  %hasExtraNulls_.i.i50 = getelementptr inbounds nuw i8, ptr %30, i64 289
   %isConstantMapping_.i.i54 = getelementptr inbounds nuw i8, ptr %30, i64 291
   %indices_.i.i57 = getelementptr inbounds nuw i8, ptr %30, i64 240
   %34 = sext i32 %7 to i64
@@ -1963,14 +1955,12 @@ for.body.i27:                                     ; preds = %for.body.i27.lr.ph,
 if.end.i.i47:                                     ; preds = %for.body.i27
   %37 = load i8, ptr %isIdentityMapping_.i.i48, align 2
   %tobool2.i.i49 = trunc i8 %37 to i1
-  br i1 %tobool2.i.i49, label %if.then4.i.i71, label %lor.lhs.false.i.i50
+  %38 = load i8, ptr %hasExtraNulls_.i.i50, align 1
+  %tobool3.i.i51 = trunc i8 %38 to i1
+  %or.cond.i.i52 = select i1 %tobool2.i.i49, i1 true, i1 %tobool3.i.i51
+  br i1 %or.cond.i.i52, label %if.then4.i.i71, label %if.end6.i.i53
 
-lor.lhs.false.i.i50:                              ; preds = %if.end.i.i47
-  %38 = load i8, ptr %hasExtraNulls_.i.i51, align 1
-  %tobool3.i.i52 = trunc i8 %38 to i1
-  br i1 %tobool3.i.i52, label %if.then4.i.i71, label %if.end6.i.i53
-
-if.then4.i.i71:                                   ; preds = %lor.lhs.false.i.i50, %if.end.i.i47
+if.then4.i.i71:                                   ; preds = %if.end.i.i47
   %div2.i.i.i.i73 = lshr i64 %35, 6
   %arrayidx.i.i.i.i74 = getelementptr inbounds nuw i64, ptr %36, i64 %div2.i.i.i.i73
   %39 = load i64, ptr %arrayidx.i.i.i.i74, align 8
@@ -1980,7 +1970,7 @@ if.then4.i.i71:                                   ; preds = %lor.lhs.false.i.i50
   %tobool.i.not.i.i.i78 = icmp eq i64 %and2.i.i.i.i77, 0
   br i1 %tobool.i.not.i.i.i78, label %for.inc.i34, label %if.then8.i30
 
-if.end6.i.i53:                                    ; preds = %lor.lhs.false.i.i50
+if.end6.i.i53:                                    ; preds = %if.end.i.i47
   %40 = load i8, ptr %isConstantMapping_.i.i54, align 1
   %tobool7.i.i55 = trunc i8 %40 to i1
   br i1 %tobool7.i.i55, label %if.then8.i.i68, label %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit79
@@ -2042,15 +2032,13 @@ if.end.i:                                         ; preds = %entry
   %isIdentityMapping_.i = getelementptr inbounds nuw i8, ptr %this, i64 66
   %1 = load i8, ptr %isIdentityMapping_.i, align 2
   %tobool2.i = trunc i8 %1 to i1
-  br i1 %tobool2.i, label %if.then4.i, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %if.end.i
   %hasExtraNulls_.i = getelementptr inbounds nuw i8, ptr %this, i64 65
   %2 = load i8, ptr %hasExtraNulls_.i, align 1
   %tobool3.i = trunc i8 %2 to i1
-  br i1 %tobool3.i, label %if.then4.i, label %if.end6.i
+  %or.cond.i = select i1 %tobool2.i, i1 true, i1 %tobool3.i
+  br i1 %or.cond.i, label %if.then4.i, label %if.end6.i
 
-if.then4.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
+if.then4.i:                                       ; preds = %if.end.i
   %conv.i.i.i = sext i32 %index to i64
   %div2.i.i.i = lshr i64 %conv.i.i.i, 6
   %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %0, i64 %div2.i.i.i
@@ -2061,7 +2049,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %i
   %tobool.i.not.i.i = icmp eq i64 %and2.i.i.i, 0
   br label %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit
 
-if.end6.i:                                        ; preds = %lor.lhs.false.i
+if.end6.i:                                        ; preds = %if.end.i
   %isConstantMapping_.i = getelementptr inbounds nuw i8, ptr %this, i64 67
   %4 = load i8, ptr %isConstantMapping_.i, align 1
   %tobool7.i = trunc i8 %4 to i1
@@ -2167,22 +2155,20 @@ if.end.i.i:                                       ; preds = %for.body
   %isIdentityMapping_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 66
   %10 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %tobool2.i.i = trunc i8 %10 to i1
-  br i1 %tobool2.i.i, label %if.then4.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %hasExtraNulls_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 65
   %11 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %tobool3.i.i = trunc i8 %11 to i1
-  br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end6.i.i
+  %or.cond.i.i = select i1 %tobool2.i.i, i1 true, i1 %tobool3.i.i
+  br i1 %or.cond.i.i, label %if.then4.i.i, label %if.end6.i.i
 
-if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %9, i64 %div2.i.i.i.i
   %12 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %and2.i.i.i.i = and i64 %12, %shl.i.i.i.i
   %tobool.i.not.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i, label %if.then, label %if.end
 
-if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
+if.end6.i.i:                                      ; preds = %if.end.i.i
   %isConstantMapping_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 67
   %13 = load i8, ptr %isConstantMapping_.i.i, align 1
   %tobool7.i.i = trunc i8 %13 to i1
@@ -2975,14 +2961,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end.i.i:                                       ; preds = %for.body
   %6 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %tobool2.i.i = trunc i8 %6 to i1
-  br i1 %tobool2.i.i, label %if.then4.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %7 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %tobool3.i.i = trunc i8 %7 to i1
-  br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end6.i.i
+  %or.cond.i.i = select i1 %tobool2.i.i, i1 true, i1 %tobool3.i.i
+  br i1 %or.cond.i.i, label %if.then4.i.i, label %if.end6.i.i
 
-if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %div2.i.i.i.i = lshr i64 %4, 6
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %div2.i.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
@@ -2992,7 +2976,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %tobool.i.not.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i, label %for.inc, label %if.then8
 
-if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
+if.end6.i.i:                                      ; preds = %if.end.i.i
   %9 = load i8, ptr %isConstantMapping_.i.i, align 1
   %tobool7.i.i = trunc i8 %9 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit
@@ -3095,14 +3079,12 @@ for.body:                                         ; preds = %for.bodythread-pre-
 if.end.i.i:                                       ; preds = %for.body
   %8 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %tobool2.i.i = trunc i8 %8 to i1
-  br i1 %tobool2.i.i, label %if.then4.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %9 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %tobool3.i.i = trunc i8 %9 to i1
-  br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end6.i.i
+  %or.cond.i.i = select i1 %tobool2.i.i, i1 true, i1 %tobool3.i.i
+  br i1 %or.cond.i.i, label %if.then4.i.i, label %if.end6.i.i
 
-if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %div2.i.i.i.i = lshr i64 %7, 6
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %div2.i.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i.i, align 8
@@ -3112,7 +3094,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %tobool.i.not.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i, label %if.then10, label %for.inc
 
-if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
+if.end6.i.i:                                      ; preds = %if.end.i.i
   %11 = load i8, ptr %isConstantMapping_.i.i, align 1
   %tobool7.i.i = trunc i8 %11 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit
@@ -3205,7 +3187,7 @@ if.end15:                                         ; preds = %entry
 for.body19.lr.ph:                                 ; preds = %if.end15
   %nulls_.i.i58 = getelementptr inbounds nuw i8, ptr %elements, i64 32
   %isIdentityMapping_.i.i61 = getelementptr inbounds nuw i8, ptr %elements, i64 66
-  %hasExtraNulls_.i.i64 = getelementptr inbounds nuw i8, ptr %elements, i64 65
+  %hasExtraNulls_.i.i63 = getelementptr inbounds nuw i8, ptr %elements, i64 65
   %isConstantMapping_.i.i67 = getelementptr inbounds nuw i8, ptr %elements, i64 67
   %indices_.i.i70 = getelementptr inbounds nuw i8, ptr %elements, i64 16
   %add.ptr24 = getelementptr inbounds nuw i8, ptr %buffer, i64 8
@@ -3236,14 +3218,12 @@ for.body19.us:                                    ; preds = %for.body19.us.prehe
   br i1 %tobool.not.i.i59.us, label %if.else.us, label %if.end.i.i60.us
 
 if.end.i.i60.us:                                  ; preds = %for.body19.us
-  br i1 %.pre143, label %if.then4.i.i84.us, label %lor.lhs.false.i.i63.us
+  %29 = load i8, ptr %hasExtraNulls_.i.i63, align 1
+  %tobool3.i.i64.us = trunc i8 %29 to i1
+  %or.cond.i.i65.us = select i1 %.pre143, i1 true, i1 %tobool3.i.i64.us
+  br i1 %or.cond.i.i65.us, label %if.then4.i.i84.us, label %if.end6.i.i66.us
 
-lor.lhs.false.i.i63.us:                           ; preds = %if.end.i.i60.us
-  %29 = load i8, ptr %hasExtraNulls_.i.i64, align 1
-  %tobool3.i.i65.us = trunc i8 %29 to i1
-  br i1 %tobool3.i.i65.us, label %if.then4.i.i84.us, label %if.end6.i.i66.us
-
-if.end6.i.i66.us:                                 ; preds = %lor.lhs.false.i.i63.us
+if.end6.i.i66.us:                                 ; preds = %if.end.i.i60.us
   %30 = load i8, ptr %isConstantMapping_.i.i67, align 1
   %tobool7.i.i68.us = trunc i8 %30 to i1
   br i1 %tobool7.i.i68.us, label %if.then8.i.i81.us, label %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit92.us
@@ -3268,7 +3248,7 @@ if.then8.i.i81.us:                                ; preds = %if.end6.i.i66.us
   %tobool.i.not.i4.i.i83.us = icmp eq i64 %and2.i.i3.i.i82.us, 0
   br i1 %tobool.i.not.i4.i.i83.us, label %if.then22.us, label %if.else.us
 
-if.then4.i.i84.us:                                ; preds = %lor.lhs.false.i.i63.us, %if.end.i.i60.us
+if.then4.i.i84.us:                                ; preds = %if.end.i.i60.us
   %div2.i.i.i.i86.us = lshr i64 %27, 6
   %arrayidx.i.i.i.i87.us = getelementptr inbounds nuw i64, ptr %28, i64 %div2.i.i.i.i86.us
   %35 = load i64, ptr %arrayidx.i.i.i.i87.us, align 8
@@ -3417,14 +3397,12 @@ for.body19:                                       ; preds = %for.body19.preheade
 if.end.i.i60:                                     ; preds = %for.body19
   %66 = load i8, ptr %isIdentityMapping_.i.i61, align 2
   %tobool2.i.i62 = trunc i8 %66 to i1
-  br i1 %tobool2.i.i62, label %if.then4.i.i84, label %lor.lhs.false.i.i63
+  %67 = load i8, ptr %hasExtraNulls_.i.i63, align 1
+  %tobool3.i.i64 = trunc i8 %67 to i1
+  %or.cond.i.i65 = select i1 %tobool2.i.i62, i1 true, i1 %tobool3.i.i64
+  br i1 %or.cond.i.i65, label %if.then4.i.i84, label %if.end6.i.i66
 
-lor.lhs.false.i.i63:                              ; preds = %if.end.i.i60
-  %67 = load i8, ptr %hasExtraNulls_.i.i64, align 1
-  %tobool3.i.i65 = trunc i8 %67 to i1
-  br i1 %tobool3.i.i65, label %if.then4.i.i84, label %if.end6.i.i66
-
-if.then4.i.i84:                                   ; preds = %lor.lhs.false.i.i63, %if.end.i.i60
+if.then4.i.i84:                                   ; preds = %if.end.i.i60
   %div2.i.i.i.i86 = lshr i64 %64, 6
   %arrayidx.i.i.i.i87 = getelementptr inbounds nuw i64, ptr %65, i64 %div2.i.i.i.i86
   %68 = load i64, ptr %arrayidx.i.i.i.i87, align 8
@@ -3434,7 +3412,7 @@ if.then4.i.i84:                                   ; preds = %lor.lhs.false.i.i63
   %tobool.i.not.i.i.i91 = icmp eq i64 %and2.i.i.i.i90, 0
   br i1 %tobool.i.not.i.i.i91, label %if.then22, label %if.else
 
-if.end6.i.i66:                                    ; preds = %lor.lhs.false.i.i63
+if.end6.i.i66:                                    ; preds = %if.end.i.i60
   %69 = load i8, ptr %isConstantMapping_.i.i67, align 1
   %tobool7.i.i68 = trunc i8 %69 to i1
   br i1 %tobool7.i.i68, label %if.then8.i.i81, label %_ZN8facebook5velox3row13UnsafeRowFast8isNullAtEi.exit92

@@ -1514,16 +1514,14 @@ define hidden void @_ZN13Canonicalizer14do_ArrayLengthEP11ArrayLength(ptr nounde
   %74 = load ptr, ptr %73, align 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %74, align 8
   %75 = and i64 %.sroa.0.0.copyload.i.i.i, 8
-  %.not.i = icmp eq i64 %75, 0
-  br i1 %.not.i, label %_ZN7ciField18is_static_constantEv.exit.thread, label %76
-
-76:                                               ; preds = %72
+  %76 = icmp ne i64 %75, 0
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 44
   %78 = load i8, ptr %77, align 4
   %79 = trunc i8 %78 to i1
-  br i1 %79, label %_ZN7ciField18is_static_constantEv.exit, label %_ZN7ciField18is_static_constantEv.exit.thread
+  %or.cond.i = select i1 %76, i1 %79, i1 false
+  br i1 %or.cond.i, label %_ZN7ciField18is_static_constantEv.exit, label %_ZN7ciField18is_static_constantEv.exit.thread
 
-_ZN7ciField18is_static_constantEv.exit:           ; preds = %76
+_ZN7ciField18is_static_constantEv.exit:           ; preds = %72
   %80 = tail call { i8, i64 } @_ZN7ciField14constant_valueEv(ptr noundef nonnull align 8 dereferenceable(80) %74) #9
   %81 = extractvalue { i8, i64 } %80, 0
   %.not31 = icmp eq i8 %81, 99
@@ -1549,7 +1547,7 @@ _ZN7ciField18is_static_constantEv.exit.thread.sink.split: ; preds = %41, %17, %9
   tail call void @_ZN13Canonicalizer12set_constantEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %.sink)
   br label %_ZN7ciField18is_static_constantEv.exit.thread
 
-_ZN7ciField18is_static_constantEv.exit.thread:    ; preds = %_ZN7ciField18is_static_constantEv.exit.thread.sink.split, %72, %76, %55, %_ZN7ciField18is_static_constantEv.exit, %82, %66, %31, %25
+_ZN7ciField18is_static_constantEv.exit.thread:    ; preds = %_ZN7ciField18is_static_constantEv.exit.thread.sink.split, %72, %55, %_ZN7ciField18is_static_constantEv.exit, %82, %66, %31, %25
   ret void
 }
 
@@ -4134,7 +4132,7 @@ _ZL12is_safepointP8BlockEndP10BlockBegin.exit127: ; preds = %165, %171
   %185 = load ptr, ptr %184, align 8
   %186 = tail call noundef ptr %185(ptr noundef nonnull align 8 dereferenceable(16) %25) #9
   %.not = icmp eq ptr %186, null
-  br i1 %.not, label %399, label %187
+  br i1 %.not, label %398, label %187
 
 187:                                              ; preds = %182
   %188 = load ptr, ptr %25, align 8
@@ -4191,15 +4189,15 @@ _ZL12is_safepointP8BlockEndP10BlockBegin.exit127: ; preds = %165, %171
   br label %_ZL7is_truelN11Instruction9ConditionEl.exit135
 
 222:                                              ; preds = %198
-  %.not196 = icmp eq i32 %193, -1
+  %.not198 = icmp eq i32 %193, -1
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load ptr, ptr %225, align 8
-  %227 = zext i1 %.not196 to i64
+  %227 = zext i1 %.not198 to i64
   %228 = getelementptr inbounds nuw ptr, ptr %226, i64 %227
-  %.not197 = icmp eq i32 %193, 0
-  %229 = zext i1 %.not197 to i64
+  %.not199 = icmp eq i32 %193, 0
+  %229 = zext i1 %.not199 to i64
   %230 = getelementptr inbounds nuw ptr, ptr %226, i64 %229
   %231 = icmp ne i32 %193, 1
   br label %_ZL7is_truelN11Instruction9ConditionEl.exit135
@@ -4209,8 +4207,8 @@ _ZL12is_safepointP8BlockEndP10BlockBegin.exit127: ; preds = %165, %171
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %236 = load ptr, ptr %235, align 8
-  %.lobit195 = lshr i32 %193, 31
-  %237 = zext nneg i32 %.lobit195 to i64
+  %.lobit197 = lshr i32 %193, 31
+  %237 = zext nneg i32 %.lobit197 to i64
   %238 = getelementptr inbounds nuw ptr, ptr %236, i64 %237
   %239 = icmp slt i32 %193, 1
   %240 = zext i1 %239 to i64
@@ -4263,9 +4261,9 @@ _ZL12is_safepointP8BlockEndP10BlockBegin.exit127: ; preds = %165, %171
 _ZL7is_truelN11Instruction9ConditionEl.exit135:   ; preds = %210, %222, %232, %243, %254, %266
   %.in = phi ptr [ %276, %266 ], [ %264, %254 ], [ %252, %243 ], [ %241, %232 ], [ %230, %222 ], [ %220, %210 ]
   %278 = phi ptr [ %271, %266 ], [ %259, %254 ], [ %248, %243 ], [ %236, %232 ], [ %226, %222 ], [ %215, %210 ]
-  %.in198 = phi ptr [ %273, %266 ], [ %261, %254 ], [ %250, %243 ], [ %238, %232 ], [ %228, %222 ], [ %217, %210 ]
+  %.in200 = phi ptr [ %273, %266 ], [ %261, %254 ], [ %250, %243 ], [ %238, %232 ], [ %228, %222 ], [ %217, %210 ]
   %.0.i134 = phi i1 [ %277, %266 ], [ %265, %254 ], [ %253, %243 ], [ %242, %232 ], [ %231, %222 ], [ %221, %210 ]
-  %279 = load ptr, ptr %.in198, align 8
+  %279 = load ptr, ptr %.in200, align 8
   %280 = load ptr, ptr %.in, align 8
   %not..i136 = xor i1 %.0.i134, true
   %281 = zext i1 %not..i136 to i64
@@ -4418,245 +4416,241 @@ _ZN11InstructionnwEm.exit144:                     ; preds = %338, %340
   %369 = load ptr, ptr %368, align 8
   %370 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %369) #9
   %371 = icmp eq i32 %370, 3
-  br i1 %371, label %372, label %_ZN11Compilation16profile_branchesEv.exit.thread
+  %372 = load i8, ptr @C1UpdateMethodData, align 1
+  %373 = trunc i8 %372 to i1
+  %or.cond.i = select i1 %371, i1 %373, i1 false
+  %374 = load i8, ptr @C1ProfileBranches, align 1
+  %375 = trunc i8 %374 to i1
+  %or.cond196 = select i1 %or.cond.i, i1 %375, i1 false
+  br i1 %or.cond196, label %_ZN11Compilation12is_profilingEv.exit.thread, label %_ZN11Compilation16profile_branchesEv.exit.thread
 
-372:                                              ; preds = %365
-  %373 = load i8, ptr @C1UpdateMethodData, align 1
-  %374 = trunc i8 %373 to i1
-  br i1 %374, label %_ZN11Compilation16profile_branchesEv.exit, label %_ZN11Compilation16profile_branchesEv.exit.thread
-
-_ZN11Compilation16profile_branchesEv.exit:        ; preds = %372
-  %375 = load i8, ptr @C1ProfileBranches, align 1
-  %376 = trunc i8 %375 to i1
-  br i1 %376, label %_ZN11Compilation12is_profilingEv.exit.thread, label %_ZN11Compilation16profile_branchesEv.exit.thread
-
-_ZN11Compilation16profile_branchesEv.exit.thread: ; preds = %365, %372, %_ZN11Compilation16profile_branchesEv.exit
-  %377 = load ptr, ptr %366, align 8
-  %378 = getelementptr inbounds nuw i8, ptr %377, i64 32
-  %379 = load ptr, ptr %378, align 8
-  %380 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %379) #9
-  %381 = icmp eq i32 %380, 3
-  br i1 %381, label %_ZN11Compilation12is_profilingEv.exit.thread, label %_ZN11Compilation12is_profilingEv.exit
+_ZN11Compilation16profile_branchesEv.exit.thread: ; preds = %365
+  %376 = load ptr, ptr %366, align 8
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 32
+  %378 = load ptr, ptr %377, align 8
+  %379 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %378) #9
+  %380 = icmp eq i32 %379, 3
+  br i1 %380, label %_ZN11Compilation12is_profilingEv.exit.thread, label %_ZN11Compilation12is_profilingEv.exit
 
 _ZN11Compilation12is_profilingEv.exit:            ; preds = %_ZN11Compilation16profile_branchesEv.exit.thread
-  %382 = load ptr, ptr %378, align 8
-  %383 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %382) #9
-  %384 = icmp eq i32 %383, 2
-  br i1 %384, label %_ZN11Compilation12is_profilingEv.exit.thread, label %390
+  %381 = load ptr, ptr %377, align 8
+  %382 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %381) #9
+  %383 = icmp eq i32 %382, 2
+  br i1 %383, label %_ZN11Compilation12is_profilingEv.exit.thread, label %389
 
-_ZN11Compilation12is_profilingEv.exit.thread:     ; preds = %_ZN11Compilation16profile_branchesEv.exit.thread, %_ZN11Compilation12is_profilingEv.exit, %_ZN11Compilation16profile_branchesEv.exit
-  %385 = load i32, ptr %203, align 8
-  %.off = add i32 %385, -149
+_ZN11Compilation12is_profilingEv.exit.thread:     ; preds = %365, %_ZN11Compilation16profile_branchesEv.exit.thread, %_ZN11Compilation12is_profilingEv.exit
+  %384 = load i32, ptr %203, align 8
+  %.off = add i32 %384, -149
   %switch = icmp ult i32 %.off, 4
-  br i1 %switch, label %386, label %390
+  br i1 %switch, label %385, label %389
 
-386:                                              ; preds = %_ZN11Compilation12is_profilingEv.exit.thread
-  %387 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %388 = load ptr, ptr %387, align 8
-  %.not.i145 = icmp eq ptr %388, %1
-  br i1 %.not.i145, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %389
+385:                                              ; preds = %_ZN11Compilation12is_profilingEv.exit.thread
+  %386 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %387 = load ptr, ptr %386, align 8
+  %.not.i145 = icmp eq ptr %387, %1
+  br i1 %.not.i145, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %388
 
-389:                                              ; preds = %386
-  store ptr %1, ptr %387, align 8
+388:                                              ; preds = %385
+  store ptr %1, ptr %386, align 8
   br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-390:                                              ; preds = %_ZN11Compilation12is_profilingEv.exit.thread, %_ZN11Compilation12is_profilingEv.exit
-  %391 = getelementptr inbounds nuw i8, ptr %202, i64 64
-  %392 = load ptr, ptr %391, align 8
-  %393 = getelementptr inbounds nuw i8, ptr %392, i64 16
-  %394 = load i32, ptr %393, align 8
-  %395 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %394, ptr %395, align 8
-  %396 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %397 = load ptr, ptr %396, align 8
-  %.not.i147 = icmp eq ptr %397, %.0.i.i.i143
-  br i1 %.not.i147, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %398
+389:                                              ; preds = %_ZN11Compilation12is_profilingEv.exit.thread, %_ZN11Compilation12is_profilingEv.exit
+  %390 = getelementptr inbounds nuw i8, ptr %202, i64 64
+  %391 = load ptr, ptr %390, align 8
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 16
+  %393 = load i32, ptr %392, align 8
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %393, ptr %394, align 8
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %396 = load ptr, ptr %395, align 8
+  %.not.i147 = icmp eq ptr %396, %.0.i.i.i143
+  br i1 %.not.i147, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %397
 
-398:                                              ; preds = %390
-  store ptr %.0.i.i.i143, ptr %396, align 8
+397:                                              ; preds = %389
+  store ptr %.0.i.i.i143, ptr %395, align 8
   br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-399:                                              ; preds = %182
-  %400 = load ptr, ptr @objectNull, align 8
-  %401 = icmp eq ptr %25, %400
-  br i1 %401, label %402, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+398:                                              ; preds = %182
+  %399 = load ptr, ptr @objectNull, align 8
+  %400 = icmp eq ptr %25, %399
+  br i1 %400, label %401, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-402:                                              ; preds = %399
-  %403 = load ptr, ptr %19, align 8
-  %404 = getelementptr inbounds nuw i8, ptr %403, i64 200
-  %405 = load ptr, ptr %404, align 8
-  %406 = tail call noundef ptr %405(ptr noundef nonnull align 8 dereferenceable(96) %19) #9
-  %.not116 = icmp eq ptr %406, null
-  br i1 %.not116, label %407, label %425
+401:                                              ; preds = %398
+  %402 = load ptr, ptr %19, align 8
+  %403 = getelementptr inbounds nuw i8, ptr %402, i64 200
+  %404 = load ptr, ptr %403, align 8
+  %405 = tail call noundef ptr %404(ptr noundef nonnull align 8 dereferenceable(96) %19) #9
+  %.not116 = icmp eq ptr %405, null
+  br i1 %.not116, label %406, label %424
 
-407:                                              ; preds = %402
-  %408 = load ptr, ptr %19, align 8
-  %409 = getelementptr inbounds nuw i8, ptr %408, i64 208
-  %410 = load ptr, ptr %409, align 8
-  %411 = tail call noundef ptr %410(ptr noundef nonnull align 8 dereferenceable(96) %19) #9
-  %.not117 = icmp eq ptr %411, null
-  br i1 %.not117, label %412, label %425
+406:                                              ; preds = %401
+  %407 = load ptr, ptr %19, align 8
+  %408 = getelementptr inbounds nuw i8, ptr %407, i64 208
+  %409 = load ptr, ptr %408, align 8
+  %410 = tail call noundef ptr %409(ptr noundef nonnull align 8 dereferenceable(96) %19) #9
+  %.not117 = icmp eq ptr %410, null
+  br i1 %.not117, label %411, label %424
 
-412:                                              ; preds = %407
-  %413 = load ptr, ptr %19, align 8
-  %414 = getelementptr inbounds nuw i8, ptr %413, i64 24
-  %415 = load ptr, ptr %414, align 8
-  %416 = tail call noundef ptr %415(ptr noundef nonnull align 8 dereferenceable(96) %19) #9
-  %.not118 = icmp eq ptr %416, null
-  br i1 %.not118, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %417
+411:                                              ; preds = %406
+  %412 = load ptr, ptr %19, align 8
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 24
+  %414 = load ptr, ptr %413, align 8
+  %415 = tail call noundef ptr %414(ptr noundef nonnull align 8 dereferenceable(96) %19) #9
+  %.not118 = icmp eq ptr %415, null
+  br i1 %.not118, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %416
 
-417:                                              ; preds = %412
-  %418 = load ptr, ptr %19, align 8
-  %419 = getelementptr inbounds nuw i8, ptr %418, i64 24
-  %420 = load ptr, ptr %419, align 8
-  %421 = tail call noundef ptr %420(ptr noundef nonnull align 8 dereferenceable(96) %19) #9
-  %422 = getelementptr inbounds nuw i8, ptr %421, i64 100
-  %423 = load i8, ptr %422, align 4
-  %424 = trunc i8 %423 to i1
-  br i1 %424, label %425, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
+416:                                              ; preds = %411
+  %417 = load ptr, ptr %19, align 8
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 24
+  %419 = load ptr, ptr %418, align 8
+  %420 = tail call noundef ptr %419(ptr noundef nonnull align 8 dereferenceable(96) %19) #9
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 100
+  %422 = load i8, ptr %421, align 4
+  %423 = trunc i8 %422 to i1
+  br i1 %423, label %424, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-425:                                              ; preds = %417, %407, %402
-  %426 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %427 = load i32, ptr %426, align 8
-  %428 = icmp eq i32 %427, 0
-  %429 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %430 = load ptr, ptr %429, align 8
-  %431 = getelementptr inbounds nuw i8, ptr %430, i64 8
-  %432 = load ptr, ptr %431, align 8
-  br i1 %428, label %433, label %472
+424:                                              ; preds = %416, %406, %401
+  %425 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %426 = load i32, ptr %425, align 8
+  %427 = icmp eq i32 %426, 0
+  %428 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %429 = load ptr, ptr %428, align 8
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 8
+  %431 = load ptr, ptr %430, align 8
+  br i1 %427, label %432, label %471
 
-433:                                              ; preds = %425
-  %434 = getelementptr inbounds nuw i8, ptr %432, i64 8
-  %435 = load ptr, ptr %434, align 8
-  %436 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %437 = load ptr, ptr %436, align 8
-  %438 = getelementptr inbounds nuw i8, ptr %437, i64 1808
-  %439 = load ptr, ptr %438, align 8
-  %440 = getelementptr inbounds nuw i8, ptr %439, i64 128
+432:                                              ; preds = %424
+  %433 = getelementptr inbounds nuw i8, ptr %431, i64 8
+  %434 = load ptr, ptr %433, align 8
+  %435 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %436 = load ptr, ptr %435, align 8
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 1808
+  %438 = load ptr, ptr %437, align 8
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 128
+  %440 = load ptr, ptr %439, align 8
   %441 = load ptr, ptr %440, align 8
-  %442 = load ptr, ptr %441, align 8
-  %443 = getelementptr inbounds nuw i8, ptr %442, i64 40
-  %444 = load ptr, ptr %443, align 8
-  %445 = getelementptr inbounds nuw i8, ptr %442, i64 32
-  %446 = load ptr, ptr %445, align 8
-  %447 = ptrtoint ptr %444 to i64
-  %448 = ptrtoint ptr %446 to i64
-  %449 = sub i64 %447, %448
-  %.not.i.i.i149 = icmp ult i64 %449, 128
-  br i1 %.not.i.i.i149, label %452, label %450
+  %442 = getelementptr inbounds nuw i8, ptr %441, i64 40
+  %443 = load ptr, ptr %442, align 8
+  %444 = getelementptr inbounds nuw i8, ptr %441, i64 32
+  %445 = load ptr, ptr %444, align 8
+  %446 = ptrtoint ptr %443 to i64
+  %447 = ptrtoint ptr %445 to i64
+  %448 = sub i64 %446, %447
+  %.not.i.i.i149 = icmp ult i64 %448, 128
+  br i1 %.not.i.i.i149, label %451, label %449
 
-450:                                              ; preds = %433
-  %451 = getelementptr inbounds nuw i8, ptr %446, i64 128
-  store ptr %451, ptr %445, align 8
+449:                                              ; preds = %432
+  %450 = getelementptr inbounds nuw i8, ptr %445, i64 128
+  store ptr %450, ptr %444, align 8
   br label %_ZN11InstructionnwEm.exit151
 
-452:                                              ; preds = %433
-  %453 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %442, i64 noundef 128, i32 noundef 0) #9
+451:                                              ; preds = %432
+  %452 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %441, i64 noundef 128, i32 noundef 0) #9
   br label %_ZN11InstructionnwEm.exit151
 
-_ZN11InstructionnwEm.exit151:                     ; preds = %450, %452
-  %.0.i.i.i150 = phi ptr [ %446, %450 ], [ %453, %452 ]
-  %454 = icmp eq ptr %.0.i.i.i150, null
-  br i1 %454, label %468, label %455
+_ZN11InstructionnwEm.exit151:                     ; preds = %449, %451
+  %.0.i.i.i150 = phi ptr [ %445, %449 ], [ %452, %451 ]
+  %453 = icmp eq ptr %.0.i.i.i150, null
+  br i1 %453, label %467, label %454
 
-455:                                              ; preds = %_ZN11InstructionnwEm.exit151
-  %456 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %457 = load ptr, ptr %456, align 8
-  %458 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %459 = load i32, ptr %458, align 8
-  %460 = and i32 %459, 16
-  %.not.i152 = icmp eq i32 %460, 0
-  br i1 %.not.i152, label %_ZL12is_safepointP8BlockEndP10BlockBegin.exit153, label %461
+454:                                              ; preds = %_ZN11InstructionnwEm.exit151
+  %455 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %456 = load ptr, ptr %455, align 8
+  %457 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %458 = load i32, ptr %457, align 8
+  %459 = and i32 %458, 16
+  %.not.i152 = icmp eq i32 %459, 0
+  br i1 %.not.i152, label %_ZL12is_safepointP8BlockEndP10BlockBegin.exit153, label %460
 
-461:                                              ; preds = %455
-  %462 = getelementptr inbounds nuw i8, ptr %435, i64 108
-  %463 = load i32, ptr %462, align 4
-  %464 = getelementptr inbounds nuw i8, ptr %457, i64 16
-  %465 = load i32, ptr %464, align 8
-  %466 = icmp slt i32 %463, %465
+460:                                              ; preds = %454
+  %461 = getelementptr inbounds nuw i8, ptr %434, i64 108
+  %462 = load i32, ptr %461, align 4
+  %463 = getelementptr inbounds nuw i8, ptr %456, i64 16
+  %464 = load i32, ptr %463, align 8
+  %465 = icmp slt i32 %462, %464
   br label %_ZL12is_safepointP8BlockEndP10BlockBegin.exit153
 
-_ZL12is_safepointP8BlockEndP10BlockBegin.exit153: ; preds = %455, %461
-  %467 = phi i1 [ false, %455 ], [ %466, %461 ]
-  tail call void @_ZN4GotoC2EP10BlockBeginP10ValueStackb(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i150, ptr noundef %435, ptr noundef %457, i1 noundef zeroext %467)
-  br label %468
+_ZL12is_safepointP8BlockEndP10BlockBegin.exit153: ; preds = %454, %460
+  %466 = phi i1 [ false, %454 ], [ %465, %460 ]
+  tail call void @_ZN4GotoC2EP10BlockBeginP10ValueStackb(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i150, ptr noundef %434, ptr noundef %456, i1 noundef zeroext %466)
+  br label %467
 
-468:                                              ; preds = %_ZL12is_safepointP8BlockEndP10BlockBegin.exit153, %_ZN11InstructionnwEm.exit151
-  %469 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %470 = load ptr, ptr %469, align 8
-  %.not.i154 = icmp eq ptr %470, %.0.i.i.i150
-  br i1 %.not.i154, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %471
+467:                                              ; preds = %_ZL12is_safepointP8BlockEndP10BlockBegin.exit153, %_ZN11InstructionnwEm.exit151
+  %468 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %469 = load ptr, ptr %468, align 8
+  %.not.i154 = icmp eq ptr %469, %.0.i.i.i150
+  br i1 %.not.i154, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %470
 
-471:                                              ; preds = %468
-  store ptr %.0.i.i.i150, ptr %469, align 8
+470:                                              ; preds = %467
+  store ptr %.0.i.i.i150, ptr %468, align 8
   br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-472:                                              ; preds = %425
-  %473 = load ptr, ptr %432, align 8
-  %474 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %475 = load ptr, ptr %474, align 8
-  %476 = getelementptr inbounds nuw i8, ptr %475, i64 1808
-  %477 = load ptr, ptr %476, align 8
-  %478 = getelementptr inbounds nuw i8, ptr %477, i64 128
+471:                                              ; preds = %424
+  %472 = load ptr, ptr %431, align 8
+  %473 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %474 = load ptr, ptr %473, align 8
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 1808
+  %476 = load ptr, ptr %475, align 8
+  %477 = getelementptr inbounds nuw i8, ptr %476, i64 128
+  %478 = load ptr, ptr %477, align 8
   %479 = load ptr, ptr %478, align 8
-  %480 = load ptr, ptr %479, align 8
-  %481 = getelementptr inbounds nuw i8, ptr %480, i64 40
-  %482 = load ptr, ptr %481, align 8
-  %483 = getelementptr inbounds nuw i8, ptr %480, i64 32
-  %484 = load ptr, ptr %483, align 8
-  %485 = ptrtoint ptr %482 to i64
-  %486 = ptrtoint ptr %484 to i64
-  %487 = sub i64 %485, %486
-  %.not.i.i.i156 = icmp ult i64 %487, 128
-  br i1 %.not.i.i.i156, label %490, label %488
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 40
+  %481 = load ptr, ptr %480, align 8
+  %482 = getelementptr inbounds nuw i8, ptr %479, i64 32
+  %483 = load ptr, ptr %482, align 8
+  %484 = ptrtoint ptr %481 to i64
+  %485 = ptrtoint ptr %483 to i64
+  %486 = sub i64 %484, %485
+  %.not.i.i.i156 = icmp ult i64 %486, 128
+  br i1 %.not.i.i.i156, label %489, label %487
 
-488:                                              ; preds = %472
-  %489 = getelementptr inbounds nuw i8, ptr %484, i64 128
-  store ptr %489, ptr %483, align 8
+487:                                              ; preds = %471
+  %488 = getelementptr inbounds nuw i8, ptr %483, i64 128
+  store ptr %488, ptr %482, align 8
   br label %_ZN11InstructionnwEm.exit158
 
-490:                                              ; preds = %472
-  %491 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %480, i64 noundef 128, i32 noundef 0) #9
+489:                                              ; preds = %471
+  %490 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %479, i64 noundef 128, i32 noundef 0) #9
   br label %_ZN11InstructionnwEm.exit158
 
-_ZN11InstructionnwEm.exit158:                     ; preds = %488, %490
-  %.0.i.i.i157 = phi ptr [ %484, %488 ], [ %491, %490 ]
-  %492 = icmp eq ptr %.0.i.i.i157, null
-  br i1 %492, label %506, label %493
+_ZN11InstructionnwEm.exit158:                     ; preds = %487, %489
+  %.0.i.i.i157 = phi ptr [ %483, %487 ], [ %490, %489 ]
+  %491 = icmp eq ptr %.0.i.i.i157, null
+  br i1 %491, label %505, label %492
 
-493:                                              ; preds = %_ZN11InstructionnwEm.exit158
-  %494 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %495 = load ptr, ptr %494, align 8
-  %496 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %497 = load i32, ptr %496, align 8
-  %498 = and i32 %497, 16
-  %.not.i159 = icmp eq i32 %498, 0
-  br i1 %.not.i159, label %_ZL12is_safepointP8BlockEndP10BlockBegin.exit160, label %499
+492:                                              ; preds = %_ZN11InstructionnwEm.exit158
+  %493 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %494 = load ptr, ptr %493, align 8
+  %495 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %496 = load i32, ptr %495, align 8
+  %497 = and i32 %496, 16
+  %.not.i159 = icmp eq i32 %497, 0
+  br i1 %.not.i159, label %_ZL12is_safepointP8BlockEndP10BlockBegin.exit160, label %498
 
-499:                                              ; preds = %493
-  %500 = getelementptr inbounds nuw i8, ptr %473, i64 108
-  %501 = load i32, ptr %500, align 4
-  %502 = getelementptr inbounds nuw i8, ptr %495, i64 16
-  %503 = load i32, ptr %502, align 8
-  %504 = icmp slt i32 %501, %503
+498:                                              ; preds = %492
+  %499 = getelementptr inbounds nuw i8, ptr %472, i64 108
+  %500 = load i32, ptr %499, align 4
+  %501 = getelementptr inbounds nuw i8, ptr %494, i64 16
+  %502 = load i32, ptr %501, align 8
+  %503 = icmp slt i32 %500, %502
   br label %_ZL12is_safepointP8BlockEndP10BlockBegin.exit160
 
-_ZL12is_safepointP8BlockEndP10BlockBegin.exit160: ; preds = %493, %499
-  %505 = phi i1 [ false, %493 ], [ %504, %499 ]
-  tail call void @_ZN4GotoC2EP10BlockBeginP10ValueStackb(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i157, ptr noundef %473, ptr noundef %495, i1 noundef zeroext %505)
-  br label %506
+_ZL12is_safepointP8BlockEndP10BlockBegin.exit160: ; preds = %492, %498
+  %504 = phi i1 [ false, %492 ], [ %503, %498 ]
+  tail call void @_ZN4GotoC2EP10BlockBeginP10ValueStackb(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i157, ptr noundef %472, ptr noundef %494, i1 noundef zeroext %504)
+  br label %505
 
-506:                                              ; preds = %_ZL12is_safepointP8BlockEndP10BlockBegin.exit160, %_ZN11InstructionnwEm.exit158
-  %507 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %508 = load ptr, ptr %507, align 8
-  %.not.i161 = icmp eq ptr %508, %.0.i.i.i157
-  br i1 %.not.i161, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %509
+505:                                              ; preds = %_ZL12is_safepointP8BlockEndP10BlockBegin.exit160, %_ZN11InstructionnwEm.exit158
+  %506 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %507 = load ptr, ptr %506, align 8
+  %.not.i161 = icmp eq ptr %507, %.0.i.i.i157
+  br i1 %.not.i161, label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit, label %508
 
-509:                                              ; preds = %506
-  store ptr %.0.i.i.i157, ptr %507, align 8
+508:                                              ; preds = %505
+  store ptr %.0.i.i.i157, ptr %506, align 8
   br label %_ZN13Canonicalizer13set_canonicalEP11Instruction.exit
 
-_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %122, %509, %506, %471, %468, %398, %390, %389, %386, %317, %314, %181, %178, %105, %102, %361, %187, %417, %412, %399, %116, %_ZNK8Constant7compareEN11Instruction9ConditionEPS0_P10BlockBeginS4_.exit
+_ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %122, %508, %505, %470, %467, %397, %389, %388, %385, %317, %314, %181, %178, %105, %102, %361, %187, %416, %411, %398, %116, %_ZNK8Constant7compareEN11Instruction9ConditionEPS0_P10BlockBeginS4_.exit
   ret void
 }
 

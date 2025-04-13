@@ -824,11 +824,11 @@ _ZN6dimacs13stream_bufferppEv.exit:               ; preds = %_ZN6vectorIcLb0EjE9
   br label %_ZN6dimacs13stream_bufferppEv.exit27
 
 _ZN6dimacs13stream_bufferppEv.exit27:             ; preds = %_ZN6dimacs13stream_bufferppEv.exit27.backedge, %_ZN6dimacs13stream_bufferppEv.exit
-  %36 = phi i32 [ %29, %_ZN6dimacs13stream_bufferppEv.exit ], [ %90, %_ZN6dimacs13stream_bufferppEv.exit27.backedge ]
-  %.011 = phi i1 [ false, %_ZN6dimacs13stream_bufferppEv.exit ], [ %70, %_ZN6dimacs13stream_bufferppEv.exit27.backedge ]
-  switch i32 %36, label %69 [
+  %36 = phi i32 [ %29, %_ZN6dimacs13stream_bufferppEv.exit ], [ %91, %_ZN6dimacs13stream_bufferppEv.exit27.backedge ]
+  %.011 = phi i1 [ false, %_ZN6dimacs13stream_bufferppEv.exit ], [ %71, %_ZN6dimacs13stream_bufferppEv.exit27.backedge ]
+  switch i32 %36, label %39 [
     i32 -1, label %37
-    i32 124, label %39
+    i32 10, label %70
   ]
 
 37:                                               ; preds = %_ZN6dimacs13stream_bufferppEv.exit27
@@ -838,124 +838,126 @@ _ZN6dimacs13stream_bufferppEv.exit27:             ; preds = %_ZN6dimacs13stream_
   unreachable
 
 39:                                               ; preds = %_ZN6dimacs13stream_bufferppEv.exit27
-  br i1 %.011, label %69, label %40
+  %40 = icmp ne i32 %36, 124
+  %or.cond = or i1 %.011, %40
+  br i1 %or.cond, label %70, label %41
 
-40:                                               ; preds = %39
-  %41 = load ptr, ptr %0, align 8, !tbaa !60
-  %42 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %41)
-  store i32 %42, ptr %20, align 8, !tbaa !11
-  %43 = icmp eq i32 %42, 10
-  br i1 %43, label %44, label %_ZN6dimacs13stream_bufferppEv.exit14
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %0, align 8, !tbaa !60
+  %43 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %42)
+  store i32 %43, ptr %20, align 8, !tbaa !11
+  %44 = icmp eq i32 %43, 10
+  br i1 %44, label %45, label %_ZN6dimacs13stream_bufferppEv.exit14
 
-44:                                               ; preds = %40
-  %45 = load i32, ptr %35, align 4, !tbaa !8
-  %46 = add i32 %45, 1
-  store i32 %46, ptr %35, align 4, !tbaa !8
+45:                                               ; preds = %41
+  %46 = load i32, ptr %35, align 4, !tbaa !8
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %35, align 4, !tbaa !8
   br label %_ZN6dimacs13stream_bufferppEv.exit14
 
-_ZN6dimacs13stream_bufferppEv.exit14:             ; preds = %40, %44
-  %47 = load ptr, ptr %2, align 8, !tbaa !58
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %55, label %49
+_ZN6dimacs13stream_bufferppEv.exit14:             ; preds = %41, %45
+  %48 = load ptr, ptr %2, align 8, !tbaa !58
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %56, label %50
 
-49:                                               ; preds = %_ZN6dimacs13stream_bufferppEv.exit14
-  %50 = getelementptr inbounds i8, ptr %47, i64 -4
-  %51 = load i32, ptr %50, align 4, !tbaa !15
-  %52 = getelementptr inbounds i8, ptr %47, i64 -8
-  %53 = load i32, ptr %52, align 4, !tbaa !15
-  %54 = icmp eq i32 %51, %53
-  br i1 %54, label %55, label %56
+50:                                               ; preds = %_ZN6dimacs13stream_bufferppEv.exit14
+  %51 = getelementptr inbounds i8, ptr %48, i64 -4
+  %52 = load i32, ptr %51, align 4, !tbaa !15
+  %53 = getelementptr inbounds i8, ptr %48, i64 -8
+  %54 = load i32, ptr %53, align 4, !tbaa !15
+  %55 = icmp eq i32 %52, %54
+  br i1 %55, label %56, label %57
 
-55:                                               ; preds = %49, %_ZN6dimacs13stream_bufferppEv.exit14
+56:                                               ; preds = %50, %_ZN6dimacs13stream_bufferppEv.exit14
   tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.pre.i15 = load ptr, ptr %2, align 8, !tbaa !58
   %.phi.trans.insert.i16 = getelementptr inbounds i8, ptr %.pre.i15, i64 -4
   %.pre2.i17 = load i32, ptr %.phi.trans.insert.i16, align 4, !tbaa !15
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %49
-  %57 = phi i32 [ %.pre2.i17, %55 ], [ %51, %49 ]
-  %58 = phi ptr [ %.pre.i15, %55 ], [ %47, %49 ]
-  %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
-  store i8 124, ptr %60, align 1, !tbaa !29
-  %61 = load ptr, ptr %2, align 8, !tbaa !58
-  %62 = getelementptr inbounds i8, ptr %61, i64 -4
-  %63 = load i32, ptr %62, align 4, !tbaa !15
-  %64 = add i32 %63, 1
-  store i32 %64, ptr %62, align 4, !tbaa !15
-  %65 = getelementptr inbounds i8, ptr %61, i64 -8
-  %66 = load i32, ptr %65, align 4, !tbaa !15
-  %67 = icmp eq i32 %64, %66
-  br i1 %67, label %68, label %95
+57:                                               ; preds = %56, %50
+  %58 = phi i32 [ %.pre2.i17, %56 ], [ %52, %50 ]
+  %59 = phi ptr [ %.pre.i15, %56 ], [ %48, %50 ]
+  %60 = zext i32 %58 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
+  store i8 124, ptr %61, align 1, !tbaa !29
+  %62 = load ptr, ptr %2, align 8, !tbaa !58
+  %63 = getelementptr inbounds i8, ptr %62, i64 -4
+  %64 = load i32, ptr %63, align 4, !tbaa !15
+  %65 = add i32 %64, 1
+  store i32 %65, ptr %63, align 4, !tbaa !15
+  %66 = getelementptr inbounds i8, ptr %62, i64 -8
+  %67 = load i32, ptr %66, align 4, !tbaa !15
+  %68 = icmp eq i32 %65, %67
+  br i1 %68, label %69, label %96
 
-68:                                               ; preds = %56
+69:                                               ; preds = %57
   tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.pre.i19 = load ptr, ptr %2, align 8, !tbaa !58
   %.phi.trans.insert.i20 = getelementptr inbounds i8, ptr %.pre.i19, i64 -4
   %.pre2.i21 = load i32, ptr %.phi.trans.insert.i20, align 4, !tbaa !15
-  br label %95
+  br label %96
 
-69:                                               ; preds = %_ZN6dimacs13stream_bufferppEv.exit27, %39
-  %70 = icmp eq i32 %36, 92
-  %71 = trunc i32 %36 to i8
-  %72 = load ptr, ptr %2, align 8, !tbaa !58
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %80, label %74
+70:                                               ; preds = %_ZN6dimacs13stream_bufferppEv.exit27, %39
+  %71 = icmp eq i32 %36, 92
+  %72 = trunc i32 %36 to i8
+  %73 = load ptr, ptr %2, align 8, !tbaa !58
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %81, label %75
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %72, i64 -4
-  %76 = load i32, ptr %75, align 4, !tbaa !15
-  %77 = getelementptr inbounds i8, ptr %72, i64 -8
-  %78 = load i32, ptr %77, align 4, !tbaa !15
-  %79 = icmp eq i32 %76, %78
-  br i1 %79, label %80, label %_ZN6vectorIcLb0EjE9push_backEOc.exit26
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds i8, ptr %73, i64 -4
+  %77 = load i32, ptr %76, align 4, !tbaa !15
+  %78 = getelementptr inbounds i8, ptr %73, i64 -8
+  %79 = load i32, ptr %78, align 4, !tbaa !15
+  %80 = icmp eq i32 %77, %79
+  br i1 %80, label %81, label %_ZN6vectorIcLb0EjE9push_backEOc.exit26
 
-80:                                               ; preds = %74, %69
+81:                                               ; preds = %75, %70
   tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.pre.i23 = load ptr, ptr %2, align 8, !tbaa !58
   %.phi.trans.insert.i24 = getelementptr inbounds i8, ptr %.pre.i23, i64 -4
   %.pre2.i25 = load i32, ptr %.phi.trans.insert.i24, align 4, !tbaa !15
   br label %_ZN6vectorIcLb0EjE9push_backEOc.exit26
 
-_ZN6vectorIcLb0EjE9push_backEOc.exit26:           ; preds = %74, %80
-  %81 = phi i32 [ %.pre2.i25, %80 ], [ %76, %74 ]
-  %82 = phi ptr [ %.pre.i23, %80 ], [ %72, %74 ]
-  %83 = zext i32 %81 to i64
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %83
-  store i8 %71, ptr %84, align 1, !tbaa !29
-  %85 = load ptr, ptr %2, align 8, !tbaa !58
-  %86 = getelementptr inbounds i8, ptr %85, i64 -4
-  %87 = load i32, ptr %86, align 4, !tbaa !15
-  %88 = add i32 %87, 1
-  store i32 %88, ptr %86, align 4, !tbaa !15
-  %89 = load ptr, ptr %0, align 8, !tbaa !60
-  %90 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %89)
-  store i32 %90, ptr %20, align 8, !tbaa !11
-  %91 = icmp eq i32 %90, 10
-  br i1 %91, label %92, label %_ZN6dimacs13stream_bufferppEv.exit27.backedge
+_ZN6vectorIcLb0EjE9push_backEOc.exit26:           ; preds = %75, %81
+  %82 = phi i32 [ %.pre2.i25, %81 ], [ %77, %75 ]
+  %83 = phi ptr [ %.pre.i23, %81 ], [ %73, %75 ]
+  %84 = zext i32 %82 to i64
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %84
+  store i8 %72, ptr %85, align 1, !tbaa !29
+  %86 = load ptr, ptr %2, align 8, !tbaa !58
+  %87 = getelementptr inbounds i8, ptr %86, i64 -4
+  %88 = load i32, ptr %87, align 4, !tbaa !15
+  %89 = add i32 %88, 1
+  store i32 %89, ptr %87, align 4, !tbaa !15
+  %90 = load ptr, ptr %0, align 8, !tbaa !60
+  %91 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %90)
+  store i32 %91, ptr %20, align 8, !tbaa !11
+  %92 = icmp eq i32 %91, 10
+  br i1 %92, label %93, label %_ZN6dimacs13stream_bufferppEv.exit27.backedge
 
-92:                                               ; preds = %_ZN6vectorIcLb0EjE9push_backEOc.exit26
-  %93 = load i32, ptr %35, align 4, !tbaa !8
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %35, align 4, !tbaa !8
+93:                                               ; preds = %_ZN6vectorIcLb0EjE9push_backEOc.exit26
+  %94 = load i32, ptr %35, align 4, !tbaa !8
+  %95 = add i32 %94, 1
+  store i32 %95, ptr %35, align 4, !tbaa !8
   br label %_ZN6dimacs13stream_bufferppEv.exit27.backedge
 
-_ZN6dimacs13stream_bufferppEv.exit27.backedge:    ; preds = %92, %_ZN6vectorIcLb0EjE9push_backEOc.exit26
+_ZN6dimacs13stream_bufferppEv.exit27.backedge:    ; preds = %93, %_ZN6vectorIcLb0EjE9push_backEOc.exit26
   br label %_ZN6dimacs13stream_bufferppEv.exit27, !llvm.loop !62
 
-95:                                               ; preds = %68, %56
-  %96 = phi i32 [ %.pre2.i21, %68 ], [ %64, %56 ]
-  %97 = phi ptr [ %.pre.i19, %68 ], [ %61, %56 ]
-  %98 = zext i32 %96 to i64
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 %98
-  store i8 0, ptr %99, align 1, !tbaa !29
-  %100 = load ptr, ptr %2, align 8, !tbaa !58
-  %101 = getelementptr inbounds i8, ptr %100, i64 -4
-  %102 = load i32, ptr %101, align 4, !tbaa !15
-  %103 = add i32 %102, 1
-  store i32 %103, ptr %101, align 4, !tbaa !15
-  ret ptr %100
+96:                                               ; preds = %69, %57
+  %97 = phi i32 [ %.pre2.i21, %69 ], [ %65, %57 ]
+  %98 = phi ptr [ %.pre.i19, %69 ], [ %62, %57 ]
+  %99 = zext i32 %97 to i64
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 %99
+  store i8 0, ptr %100, align 1, !tbaa !29
+  %101 = load ptr, ptr %2, align 8, !tbaa !58
+  %102 = getelementptr inbounds i8, ptr %101, i64 -4
+  %103 = load i32, ptr %102, align 4, !tbaa !15
+  %104 = add i32 %103, 1
+  store i32 %104, ptr %102, align 4, !tbaa !15
+  ret ptr %101
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr

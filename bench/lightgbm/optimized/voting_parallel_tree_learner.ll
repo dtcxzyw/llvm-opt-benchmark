@@ -260378,32 +260378,30 @@ define linkonce_odr void @_ZN8LightGBM10LeafSplits4InitEiPKNS_13DataPartitionEPK
   %28 = tail call i32 @OMP_NUM_THREADS()
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %11, i32 %28)
   %29 = load i32, ptr %13, align 8, !tbaa !183
-  %30 = icmp sgt i32 %29, 1023
-  br i1 %30, label %31, label %35
+  %30 = icmp slt i32 %29, 1024
+  %31 = load i8, ptr %0, align 8, !range !186
+  %32 = trunc nuw i8 %31 to i1
+  %or.cond = select i1 %30, i1 true, i1 %32
+  br i1 %or.cond, label %34, label %33
 
-31:                                               ; preds = %5
-  %32 = load i8, ptr %0, align 8, !tbaa !181, !range !186, !noundef !187
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %35, label %34
-
-34:                                               ; preds = %31
+33:                                               ; preds = %5
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 5, ptr nonnull @_ZN8LightGBM10LeafSplits4InitEiPKNS_13DataPartitionEPKfS5_.omp_outlined, ptr nonnull %0, ptr nonnull %8, ptr nonnull %6, ptr nonnull %9, ptr nonnull %7)
-  br label %36
+  br label %35
 
-35:                                               ; preds = %31, %5
+34:                                               ; preds = %5
   tail call void @__kmpc_serialized_parallel(ptr nonnull @2, i32 %11)
   store i32 %11, ptr %10, align 4, !tbaa !191
   call void @_ZN8LightGBM10LeafSplits4InitEiPKNS_13DataPartitionEPKfS5_.omp_outlined(ptr nonnull %10, ptr nonnull poison, ptr nonnull %0, ptr %8, ptr %6, ptr %9, ptr %7) #21
   tail call void @__kmpc_end_serialized_parallel(ptr nonnull @2, i32 %11)
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %34
-  %37 = load double, ptr %8, align 8, !tbaa !310
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %37, ptr %38, align 8, !tbaa !288
-  %39 = load double, ptr %9, align 8, !tbaa !310
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %39, ptr %40, align 8, !tbaa !289
+35:                                               ; preds = %34, %33
+  %36 = load double, ptr %8, align 8, !tbaa !310
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %36, ptr %37, align 8, !tbaa !288
+  %38 = load double, ptr %9, align 8, !tbaa !310
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double %38, ptr %39, align 8, !tbaa !289
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
   ret void

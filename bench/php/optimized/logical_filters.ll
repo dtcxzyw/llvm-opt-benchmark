@@ -2218,7 +2218,7 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
   br label %ipv4_get_status_flags.exit
 
 40:                                               ; preds = %20, %32
-  br i1 %.not, label %125, label %41
+  br i1 %.not, label %121, label %41
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 %9
@@ -2292,8 +2292,8 @@ define hidden void @php_filter_validate_ip(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not45.i, label %43, label %_php_filter_validate_ipv4.exit.thread
 
 _php_filter_validate_ipv4.exit:                   ; preds = %66
-  %.not175 = icmp eq ptr %.237.i, %42
-  br i1 %.not175, label %79, label %_php_filter_validate_ipv4.exit.thread
+  %.not191 = icmp eq ptr %.237.i, %42
+  br i1 %.not191, label %79, label %_php_filter_validate_ipv4.exit.thread
 
 _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, %70, %56, %_php_filter_validate_ipv4.exit
   %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
@@ -2317,7 +2317,7 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
 
 79:                                               ; preds = %_php_filter_validate_ipv4.exit
   %80 = load i32, ptr %5, align 16, !tbaa !50
-  switch i32 %80, label %120 [
+  switch i32 %80, label %116 [
     i32 0, label %ipv4_get_status_flags.exit.thread
     i32 10, label %81
     i32 100, label %82
@@ -2325,8 +2325,8 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
     i32 169, label %86
     i32 172, label %90
     i32 192, label %94
-    i32 198, label %104
-    i32 203, label %113
+    i32 198, label %100
+    i32 203, label %109
   ]
 
 81:                                               ; preds = %79
@@ -2336,8 +2336,8 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %84 = load i32, ptr %83, align 4, !tbaa !50
   %85 = and i32 %84, -64
-  %or.cond.i90 = icmp eq i32 %85, 64
-  br i1 %or.cond.i90, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
+  %or.cond.i94 = icmp eq i32 %85, 64
+  br i1 %or.cond.i94, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
 86:                                               ; preds = %79
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2357,7 +2357,6 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
   %96 = load i32, ptr %95, align 4, !tbaa !50
   switch i32 %96, label %ipv4_get_status_flags.exit [
     i32 0, label %97
-    i32 88, label %100
     i32 168, label %ipv4_get_status_flags.exit.thread
   ]
 
@@ -2369,235 +2368,220 @@ _php_filter_validate_ipv4.exit.thread:            ; preds = %69, %63, %45, %43, 
     i32 2, label %ipv4_get_status_flags.exit.thread
   ]
 
-100:                                              ; preds = %94
-  %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %102 = load i32, ptr %101, align 8, !tbaa !50
-  %103 = icmp eq i32 %102, 99
-  br i1 %103, label %ipv4_get_status_flags.exit.thread.thread.thread, label %ipv4_get_status_flags.exit
+100:                                              ; preds = %79
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %102 = load i32, ptr %101, align 4, !tbaa !50
+  %103 = and i32 %102, -2
+  %or.cond68.i = icmp eq i32 %103, 18
+  br i1 %or.cond68.i, label %ipv4_get_status_flags.exit.thread, label %104
 
-104:                                              ; preds = %79
-  %105 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %106 = load i32, ptr %105, align 4, !tbaa !50
-  %107 = and i32 %106, -2
-  %or.cond68.i = icmp eq i32 %107, 18
-  br i1 %or.cond68.i, label %ipv4_get_status_flags.exit.thread, label %108
+104:                                              ; preds = %100
+  %105 = icmp eq i32 %102, 51
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %107 = load i32, ptr %106, align 8
+  %108 = icmp eq i32 %107, 100
+  %or.cond144 = select i1 %105, i1 %108, i1 false
+  br i1 %or.cond144, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
-108:                                              ; preds = %104
-  %109 = icmp eq i32 %106, 51
-  %110 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %111 = load i32, ptr %110, align 8
-  %112 = icmp eq i32 %111, 100
-  %or.cond128 = select i1 %109, i1 %112, i1 false
-  br i1 %or.cond128, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
+109:                                              ; preds = %79
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %111 = load i32, ptr %110, align 4, !tbaa !50
+  %112 = icmp eq i32 %111, 0
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %114 = load i32, ptr %113, align 8
+  %115 = icmp eq i32 %114, 113
+  %or.cond147 = select i1 %112, i1 %115, i1 false
+  br i1 %or.cond147, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
-113:                                              ; preds = %79
-  %114 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %115 = load i32, ptr %114, align 4, !tbaa !50
-  %116 = icmp eq i32 %115, 0
-  %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %118 = load i32, ptr %117, align 8
-  %119 = icmp eq i32 %118, 113
-  %or.cond131 = select i1 %116, i1 %119, i1 false
-  br i1 %or.cond131, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
+116:                                              ; preds = %79
+  %117 = icmp sgt i32 %80, 239
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %119 = load i32, ptr %118, align 4
+  %120 = icmp slt i32 %119, 256
+  %or.cond150 = select i1 %117, i1 %120, i1 false
+  br i1 %or.cond150, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
-120:                                              ; preds = %79
-  %121 = icmp sgt i32 %80, 239
-  %122 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %123 = load i32, ptr %122, align 4
-  %124 = icmp slt i32 %123, 256
-  %or.cond134 = select i1 %121, i1 %124, i1 false
-  br i1 %or.cond134, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
+121:                                              ; preds = %40
+  %122 = call fastcc i32 @_php_filter_validate_ipv6(ptr noundef nonnull %7, i64 noundef %9, ptr noundef nonnull %5)
+  %.not70.not = icmp eq i32 %122, 0
+  br i1 %.not70.not, label %123, label %130
 
-125:                                              ; preds = %40
-  %126 = call fastcc i32 @_php_filter_validate_ipv6(ptr noundef nonnull %7, i64 noundef %9, ptr noundef nonnull %5)
-  %.not70.not = icmp eq i32 %126, 0
-  br i1 %.not70.not, label %127, label %134
+123:                                              ; preds = %121
+  %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
+  %.not71 = icmp eq ptr %124, null
+  br i1 %.not71, label %125, label %ipv4_get_status_flags.exit
 
-127:                                              ; preds = %125
-  %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
-  %.not71 = icmp eq ptr %128, null
-  br i1 %.not71, label %129, label %ipv4_get_status_flags.exit
-
-129:                                              ; preds = %127
-  %130 = and i64 %1, 134217728
-  %.not72 = icmp eq i64 %130, 0
+125:                                              ; preds = %123
+  %126 = and i64 %1, 134217728
+  %.not72 = icmp eq i64 %126, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #15
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not72, label %133, label %132
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %.not72, label %129, label %128
 
-132:                                              ; preds = %129
-  store i32 1, ptr %131, align 8, !tbaa !4
+128:                                              ; preds = %125
+  store i32 1, ptr %127, align 8, !tbaa !4
   br label %ipv4_get_status_flags.exit
 
-133:                                              ; preds = %129
-  store i32 2, ptr %131, align 8, !tbaa !4
+129:                                              ; preds = %125
+  store i32 2, ptr %127, align 8, !tbaa !4
   br label %ipv4_get_status_flags.exit
 
-134:                                              ; preds = %125
-  %135 = load i32, ptr %5, align 16, !tbaa !50
-  switch i32 %135, label %178 [
-    i32 0, label %136
-    i32 100, label %160
-    i32 256, label %164
-    i32 8193, label %174
+130:                                              ; preds = %121
+  %131 = load i32, ptr %5, align 16, !tbaa !50
+  switch i32 %131, label %170 [
+    i32 0, label %132
+    i32 100, label %ipv4_get_status_flags.exit
+    i32 256, label %156
+    i32 8193, label %166
     i32 8194, label %ipv4_get_status_flags.exit.thread
   ]
 
-136:                                              ; preds = %134
-  %137 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %138 = load i32, ptr %137, align 4, !tbaa !50
-  %139 = icmp eq i32 %138, 0
-  %140 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %141 = load i32, ptr %140, align 8
+132:                                              ; preds = %130
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %134 = load i32, ptr %133, align 4, !tbaa !50
+  %135 = icmp eq i32 %134, 0
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %137 = load i32, ptr %136, align 8
+  %138 = icmp eq i32 %137, 0
+  %or.cond153 = select i1 %135, i1 %138, i1 false
+  br i1 %or.cond153, label %139, label %ipv4_get_status_flags.exit
+
+139:                                              ; preds = %132
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %141 = load i32, ptr %140, align 4, !tbaa !50
   %142 = icmp eq i32 %141, 0
-  %or.cond137 = select i1 %139, i1 %142, i1 false
-  br i1 %or.cond137, label %143, label %ipv4_get_status_flags.exit
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %144 = load i32, ptr %143, align 16
+  %145 = icmp eq i32 %144, 0
+  %or.cond156 = select i1 %142, i1 %145, i1 false
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %147 = load i32, ptr %146, align 4
+  %148 = icmp eq i32 %147, 0
+  %or.cond159 = select i1 %or.cond156, i1 %148, i1 false
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %150 = load i32, ptr %149, align 8
+  %151 = icmp eq i32 %150, 0
+  %or.cond162 = select i1 %or.cond159, i1 %151, i1 false
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %153 = load i32, ptr %152, align 4
+  %154 = icmp ult i32 %153, 2
+  %or.cond210 = select i1 %or.cond162, i1 %154, i1 false
+  %155 = icmp eq i32 %147, 65535
+  %or.cond183 = select i1 %or.cond156, i1 %155, i1 false
+  %or.cond211 = select i1 %or.cond210, i1 true, i1 %or.cond183
+  br i1 %or.cond211, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
-143:                                              ; preds = %136
-  %144 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %145 = load i32, ptr %144, align 4, !tbaa !50
-  %146 = icmp eq i32 %145, 0
-  %147 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %148 = load i32, ptr %147, align 16
-  %149 = icmp eq i32 %148, 0
-  %or.cond140 = select i1 %146, i1 %149, i1 false
-  %150 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %151 = load i32, ptr %150, align 4
-  %152 = icmp eq i32 %151, 0
-  %or.cond143 = select i1 %or.cond140, i1 %152, i1 false
-  %153 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %154 = load i32, ptr %153, align 8
-  %155 = icmp eq i32 %154, 0
-  %or.cond146 = select i1 %or.cond143, i1 %155, i1 false
-  %156 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %157 = load i32, ptr %156, align 4
-  %158 = icmp ult i32 %157, 2
-  %or.cond199 = select i1 %or.cond146, i1 %158, i1 false
-  %159 = icmp eq i32 %151, 65535
-  %or.cond167 = select i1 %or.cond140, i1 %159, i1 false
-  %or.cond200 = select i1 %or.cond199, i1 true, i1 %or.cond167
-  br i1 %or.cond200, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
+156:                                              ; preds = %130
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %158 = load i32, ptr %157, align 4, !tbaa !50
+  %159 = icmp eq i32 %158, 0
+  %160 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %161 = load i32, ptr %160, align 8
+  %162 = icmp eq i32 %161, 0
+  %or.cond186 = select i1 %159, i1 %162, i1 false
+  %163 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %164 = load i32, ptr %163, align 4
+  %165 = icmp eq i32 %164, 0
+  %or.cond189 = select i1 %or.cond186, i1 %165, i1 false
+  br i1 %or.cond189, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
-160:                                              ; preds = %134
-  %161 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %162 = load i32, ptr %161, align 4, !tbaa !50
-  %163 = icmp eq i32 %162, 65435
-  br i1 %163, label %ipv4_get_status_flags.exit.thread.thread.thread, label %ipv4_get_status_flags.exit
-
-164:                                              ; preds = %134
-  %165 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %166 = load i32, ptr %165, align 4, !tbaa !50
-  %167 = icmp eq i32 %166, 0
-  %168 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %169 = load i32, ptr %168, align 8
-  %170 = icmp eq i32 %169, 0
-  %or.cond170 = select i1 %167, i1 %170, i1 false
-  %171 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %172 = load i32, ptr %171, align 4
-  %173 = icmp eq i32 %172, 0
-  %or.cond173 = select i1 %or.cond170, i1 %173, i1 false
-  br i1 %or.cond173, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
-
-174:                                              ; preds = %134
-  %175 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %176 = load i32, ptr %175, align 4, !tbaa !50
-  %.fr.i = freeze i32 %176
-  %177 = icmp slt i32 %.fr.i, 512
+166:                                              ; preds = %130
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %168 = load i32, ptr %167, align 4, !tbaa !50
+  %.fr.i = freeze i32 %168
+  %169 = icmp slt i32 %.fr.i, 512
   %switch.selectcmp.case1.i = icmp eq i32 %.fr.i, 3512
-  %or.cond174 = or i1 %177, %switch.selectcmp.case1.i
-  br i1 %or.cond174, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
+  %or.cond190 = or i1 %169, %switch.selectcmp.case1.i
+  br i1 %or.cond190, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
-178:                                              ; preds = %134
-  %179 = and i32 %135, -512
-  %or.cond58.i = icmp eq i32 %179, 64512
-  br i1 %or.cond58.i, label %ipv4_get_status_flags.exit.thread, label %180
+170:                                              ; preds = %130
+  %171 = and i32 %131, -512
+  %or.cond58.i = icmp eq i32 %171, 64512
+  br i1 %or.cond58.i, label %ipv4_get_status_flags.exit.thread, label %172
 
-180:                                              ; preds = %178
-  %181 = and i32 %135, -64
-  %or.cond59.i = icmp eq i32 %181, 65152
+172:                                              ; preds = %170
+  %173 = and i32 %131, -64
+  %or.cond59.i = icmp eq i32 %173, 65152
   br i1 %or.cond59.i, label %ipv4_get_status_flags.exit.thread, label %ipv4_get_status_flags.exit
 
-ipv4_get_status_flags.exit.thread:                ; preds = %164, %143, %120, %113, %108, %97, %97, %180, %178, %174, %134, %94, %90, %86, %79, %79, %81, %82, %104
-  %.094 = phi i1 [ false, %94 ], [ false, %90 ], [ true, %86 ], [ true, %79 ], [ true, %79 ], [ false, %81 ], [ false, %82 ], [ false, %97 ], [ false, %104 ], [ false, %178 ], [ false, %174 ], [ false, %134 ], [ true, %180 ], [ false, %97 ], [ false, %108 ], [ false, %113 ], [ true, %120 ], [ true, %143 ], [ false, %164 ]
-  %.0 = phi i1 [ true, %94 ], [ true, %90 ], [ false, %86 ], [ false, %79 ], [ false, %79 ], [ true, %81 ], [ false, %82 ], [ false, %97 ], [ false, %104 ], [ true, %178 ], [ false, %174 ], [ false, %134 ], [ false, %180 ], [ false, %97 ], [ false, %108 ], [ false, %113 ], [ false, %120 ], [ false, %143 ], [ false, %164 ]
-  %182 = and i64 %1, 268435456
-  %.not76.not = icmp eq i64 %182, 0
-  br i1 %.not76.not, label %ipv4_get_status_flags.exit.thread.thread, label %183
+ipv4_get_status_flags.exit.thread:                ; preds = %94, %156, %139, %116, %109, %104, %97, %97, %172, %170, %166, %130, %90, %86, %79, %79, %81, %82, %100
+  %.098 = phi i1 [ false, %94 ], [ false, %90 ], [ true, %86 ], [ true, %79 ], [ true, %79 ], [ false, %81 ], [ false, %82 ], [ false, %97 ], [ false, %100 ], [ false, %170 ], [ false, %166 ], [ false, %130 ], [ true, %172 ], [ false, %97 ], [ false, %104 ], [ false, %109 ], [ true, %116 ], [ true, %139 ], [ false, %156 ]
+  %.0 = phi i1 [ true, %94 ], [ true, %90 ], [ false, %86 ], [ false, %79 ], [ false, %79 ], [ true, %81 ], [ false, %82 ], [ false, %97 ], [ false, %100 ], [ true, %170 ], [ false, %166 ], [ false, %130 ], [ false, %172 ], [ false, %97 ], [ false, %104 ], [ false, %109 ], [ false, %116 ], [ false, %139 ], [ false, %156 ]
+  %174 = and i64 %1, 268435456
+  %.not76.not = icmp eq i64 %174, 0
+  br i1 %.not76.not, label %182, label %175
 
-183:                                              ; preds = %ipv4_get_status_flags.exit.thread
-  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
-  %.not84 = icmp eq ptr %184, null
-  br i1 %.not84, label %185, label %ipv4_get_status_flags.exit
+175:                                              ; preds = %ipv4_get_status_flags.exit.thread
+  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
+  %.not84 = icmp eq ptr %176, null
+  br i1 %.not84, label %177, label %ipv4_get_status_flags.exit
 
-185:                                              ; preds = %183
-  %186 = and i64 %1, 134217728
-  %.not85 = icmp eq i64 %186, 0
+177:                                              ; preds = %175
+  %178 = and i64 %1, 134217728
+  %.not85 = icmp eq i64 %178, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #15
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not85, label %189, label %188
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %.not85, label %181, label %180
 
-188:                                              ; preds = %185
-  store i32 1, ptr %187, align 8, !tbaa !4
+180:                                              ; preds = %177
+  store i32 1, ptr %179, align 8, !tbaa !4
   br label %ipv4_get_status_flags.exit
 
-189:                                              ; preds = %185
-  store i32 2, ptr %187, align 8, !tbaa !4
+181:                                              ; preds = %177
+  store i32 2, ptr %179, align 8, !tbaa !4
   br label %ipv4_get_status_flags.exit
 
-ipv4_get_status_flags.exit.thread.thread:         ; preds = %ipv4_get_status_flags.exit.thread
-  %190 = and i64 %1, 8388608
-  %.not78 = icmp ne i64 %190, 0
-  %brmerge.not = and i1 %.not78, %.0
-  br i1 %brmerge.not, label %191, label %ipv4_get_status_flags.exit.thread.thread.thread
+182:                                              ; preds = %ipv4_get_status_flags.exit.thread
+  %183 = and i64 %1, 8388608
+  %.not78 = icmp ne i64 %183, 0
+  %or.cond90 = and i1 %.not78, %.0
+  br i1 %or.cond90, label %184, label %191
 
-191:                                              ; preds = %ipv4_get_status_flags.exit.thread.thread
-  %192 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
-  %.not82 = icmp eq ptr %192, null
-  br i1 %.not82, label %193, label %ipv4_get_status_flags.exit
+184:                                              ; preds = %182
+  %185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !13
+  %.not82 = icmp eq ptr %185, null
+  br i1 %.not82, label %186, label %ipv4_get_status_flags.exit
 
-193:                                              ; preds = %191
-  %194 = and i64 %1, 134217728
-  %.not83 = icmp eq i64 %194, 0
+186:                                              ; preds = %184
+  %187 = and i64 %1, 134217728
+  %.not83 = icmp eq i64 %187, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #15
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not83, label %197, label %196
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %.not83, label %190, label %189
 
-196:                                              ; preds = %193
-  store i32 1, ptr %195, align 8, !tbaa !4
+189:                                              ; preds = %186
+  store i32 1, ptr %188, align 8, !tbaa !4
   br label %ipv4_get_status_flags.exit
 
-197:                                              ; preds = %193
-  store i32 2, ptr %195, align 8, !tbaa !4
+190:                                              ; preds = %186
+  store i32 2, ptr %188, align 8, !tbaa !4
   br label %ipv4_get_status_flags.exit
 
-ipv4_get_status_flags.exit.thread.thread.thread:  ; preds = %160, %100, %ipv4_get_status_flags.exit.thread.thread
-  %.094124192 = phi i1 [ %.094, %ipv4_get_status_flags.exit.thread.thread ], [ false, %100 ], [ false, %160 ]
-  %198 = and i64 %1, 4194304
-  %.not79 = icmp eq i64 %198, 0
-  br i1 %.not79, label %ipv4_get_status_flags.exit, label %199
+191:                                              ; preds = %182
+  %192 = and i64 %1, 4194304
+  %.not79 = icmp ne i64 %192, 0
+  %or.cond92 = and i1 %.not79, %.098
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
+  %.not80 = icmp eq ptr %193, null
+  %or.cond93 = select i1 %or.cond92, i1 %.not80, i1 false
+  br i1 %or.cond93, label %194, label %ipv4_get_status_flags.exit
 
-199:                                              ; preds = %ipv4_get_status_flags.exit.thread.thread.thread
-  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
-  %.not80 = icmp eq ptr %200, null
-  %or.cond89 = select i1 %.094124192, i1 %.not80, i1 false
-  br i1 %or.cond89, label %201, label %ipv4_get_status_flags.exit
-
-201:                                              ; preds = %199
-  %202 = and i64 %1, 134217728
-  %.not81 = icmp eq i64 %202, 0
+194:                                              ; preds = %191
+  %195 = and i64 %1, 134217728
+  %.not81 = icmp eq i64 %195, 0
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #15
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not81, label %205, label %204
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %.not81, label %198, label %197
 
-204:                                              ; preds = %201
-  store i32 1, ptr %203, align 8, !tbaa !4
+197:                                              ; preds = %194
+  store i32 1, ptr %196, align 8, !tbaa !4
   br label %ipv4_get_status_flags.exit
 
-205:                                              ; preds = %201
-  store i32 2, ptr %203, align 8, !tbaa !4
+198:                                              ; preds = %194
+  store i32 2, ptr %196, align 8, !tbaa !4
   br label %ipv4_get_status_flags.exit
 
-ipv4_get_status_flags.exit:                       ; preds = %143, %174, %97, %136, %160, %164, %180, %82, %86, %90, %94, %100, %108, %113, %120, %ipv4_get_status_flags.exit.thread.thread.thread, %199, %205, %204, %197, %196, %191, %189, %188, %183, %133, %132, %127, %78, %77, %_php_filter_validate_ipv4.exit.thread, %39, %38, %33, %31, %30, %25, %19, %18, %13
+ipv4_get_status_flags.exit:                       ; preds = %139, %166, %130, %97, %132, %156, %172, %82, %86, %90, %94, %104, %109, %116, %191, %198, %197, %190, %189, %184, %181, %180, %175, %129, %128, %123, %78, %77, %_php_filter_validate_ipv4.exit.thread, %39, %38, %33, %31, %30, %25, %19, %18, %13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
   ret void
 }

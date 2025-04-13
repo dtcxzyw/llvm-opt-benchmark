@@ -564,66 +564,60 @@ define noundef nonnull align 8 dereferenceable(384) ptr @_ZN7rocksdblsERNS_10JSO
   %3 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN7rocksdb10JSONWriterlsEPKc(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull @.str.4)
   %4 = load i64, ptr %1, align 8, !tbaa !4
   %5 = load i32, ptr %3, align 8, !tbaa !50
-  %6 = icmp eq i32 %5, 2
-  br i1 %6, label %7, label %14
+  %6 = icmp ne i32 %5, 2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %8 = load i8, ptr %7, align 4, !range !58
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond.i.i = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond.i.i, label %13, label %10
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %9 = load i8, ptr %8, align 4, !tbaa !58, !range !59, !noundef !60
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %14, label %11
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.18, i64 noundef 2)
+  br label %13
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.18, i64 noundef 2)
-  br label %14
+13:                                               ; preds = %10, %2
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %4)
+  %16 = load i32, ptr %3, align 8, !tbaa !50
+  %.not.i.i = icmp eq i32 %16, 2
+  br i1 %.not.i.i, label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit, label %17
 
-14:                                               ; preds = %11, %7, %2
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %4)
-  %17 = load i32, ptr %3, align 8, !tbaa !50
-  %.not.i.i = icmp eq i32 %17, 2
-  br i1 %.not.i.i, label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit, label %18
-
-18:                                               ; preds = %14
+17:                                               ; preds = %13
   store i32 0, ptr %3, align 8, !tbaa !50
   br label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit
 
-_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit:       ; preds = %14, %18
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 0, ptr %19, align 4, !tbaa !58
-  %20 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN7rocksdb10JSONWriterlsEPKc(ptr noundef nonnull align 8 dereferenceable(384) %3, ptr noundef nonnull @.str.5)
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !18
-  %23 = load i32, ptr %20, align 8, !tbaa !50
-  %24 = icmp eq i32 %23, 2
-  br i1 %24, label %25, label %32
+_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit:       ; preds = %13, %17
+  store i8 0, ptr %7, align 4, !tbaa !59
+  %18 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN7rocksdb10JSONWriterlsEPKc(ptr noundef nonnull align 8 dereferenceable(384) %3, ptr noundef nonnull @.str.5)
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = load i64, ptr %19, align 8, !tbaa !18
+  %21 = load i32, ptr %18, align 8, !tbaa !50
+  %22 = icmp ne i32 %21, 2
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %24 = load i8, ptr %23, align 4, !range !58
+  %25 = trunc nuw i8 %24 to i1
+  %or.cond.i.i4 = select i1 %22, i1 true, i1 %25
+  br i1 %or.cond.i.i4, label %29, label %26
 
-25:                                               ; preds = %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %27 = load i8, ptr %26, align 4, !tbaa !58, !range !59, !noundef !60
-  %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %32, label %29
+26:                                               ; preds = %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.18, i64 noundef 2)
+  br label %29
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.18, i64 noundef 2)
-  br label %32
+29:                                               ; preds = %26, %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %30, i64 noundef %20)
+  %32 = load i32, ptr %18, align 8, !tbaa !50
+  %.not.i.i5 = icmp eq i32 %32, 2
+  br i1 %.not.i.i5, label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit6, label %33
 
-32:                                               ; preds = %29, %25, %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit
-  %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %33, i64 noundef %22)
-  %35 = load i32, ptr %20, align 8, !tbaa !50
-  %.not.i.i4 = icmp eq i32 %35, 2
-  br i1 %.not.i.i4, label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit5, label %36
+33:                                               ; preds = %29
+  store i32 0, ptr %18, align 8, !tbaa !50
+  br label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit6
 
-36:                                               ; preds = %32
-  store i32 0, ptr %20, align 8, !tbaa !50
-  br label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit5
-
-_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit5:      ; preds = %32, %36
-  %37 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i8 0, ptr %37, align 4, !tbaa !58
+_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit6:      ; preds = %29, %33
+  store i8 0, ptr %23, align 4, !tbaa !59
   ret ptr %0
 }
 
@@ -685,7 +679,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(384) ptr @_ZN7rocksd
   store i8 0, ptr %23, align 1, !tbaa !10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %25 = load i8, ptr %24, align 4, !tbaa !58, !range !59, !noundef !60
+  %25 = load i8, ptr %24, align 4, !tbaa !59, !range !58, !noundef !60
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %.noexc7, label %27
 
@@ -711,7 +705,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(384) ptr @_ZN7rocksd
 
 36:                                               ; preds = %.noexc9
   store i32 1, ptr %0, align 8, !tbaa !50
-  store i8 0, ptr %24, align 4, !tbaa !58
+  store i8 0, ptr %24, align 4, !tbaa !59
   %37 = load ptr, ptr %4, align 8, !tbaa !45
   %38 = icmp eq ptr %37, %8
   br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1001,34 +995,31 @@ define noundef nonnull align 8 dereferenceable(384) ptr @_ZN7rocksdblsERNS_10JSO
   %3 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN7rocksdb10JSONWriterlsEPKc(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull @.str.4)
   %4 = load i64, ptr %1, align 8, !tbaa !68
   %5 = load i32, ptr %3, align 8, !tbaa !50
-  %6 = icmp eq i32 %5, 2
-  br i1 %6, label %7, label %14
+  %6 = icmp ne i32 %5, 2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %8 = load i8, ptr %7, align 4, !range !58
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond.i.i = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond.i.i, label %13, label %10
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %9 = load i8, ptr %8, align 4, !tbaa !58, !range !59, !noundef !60
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %14, label %11
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.18, i64 noundef 2)
+  br label %13
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.18, i64 noundef 2)
-  br label %14
+13:                                               ; preds = %10, %2
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %4)
+  %16 = load i32, ptr %3, align 8, !tbaa !50
+  %.not.i.i = icmp eq i32 %16, 2
+  br i1 %.not.i.i, label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit, label %17
 
-14:                                               ; preds = %11, %7, %2
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %4)
-  %17 = load i32, ptr %3, align 8, !tbaa !50
-  %.not.i.i = icmp eq i32 %17, 2
-  br i1 %.not.i.i, label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit, label %18
-
-18:                                               ; preds = %14
+17:                                               ; preds = %13
   store i32 0, ptr %3, align 8, !tbaa !50
   br label %_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit
 
-_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit:       ; preds = %14, %18
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 0, ptr %19, align 4, !tbaa !58
+_ZN7rocksdb10JSONWriterlsImEERS0_RKT_.exit:       ; preds = %13, %17
+  store i8 0, ptr %7, align 4, !tbaa !59
   ret ptr %0
 }
 
@@ -1541,10 +1532,10 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   %28 = load i8, ptr %11, align 2, !tbaa !131
   store i8 %28, ptr %12, align 2, !tbaa !132
   store i8 0, ptr %11, align 2, !tbaa !132
-  %29 = load i8, ptr %13, align 1, !tbaa !133, !range !59, !noundef !60
+  %29 = load i8, ptr %13, align 1, !tbaa !133, !range !58, !noundef !60
   store i8 %29, ptr %14, align 1, !tbaa !134
   store i8 0, ptr %13, align 1, !tbaa !134
-  %30 = load i8, ptr %15, align 4, !tbaa !133, !range !59, !noundef !60
+  %30 = load i8, ptr %15, align 4, !tbaa !133, !range !58, !noundef !60
   store i8 %30, ptr %16, align 4, !tbaa !135
   store i8 0, ptr %15, align 4, !tbaa !135
   %31 = load i8, ptr %17, align 1, !tbaa !10
@@ -1913,11 +1904,11 @@ _ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit: ; preds = %_ZNKSt7__cxx1118
   store i8 %103, ptr %27, align 2, !tbaa !132
   store i8 0, ptr %102, align 2, !tbaa !132
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %105 = load i8, ptr %104, align 1, !tbaa !133, !range !59, !noundef !60
+  %105 = load i8, ptr %104, align 1, !tbaa !133, !range !58, !noundef !60
   store i8 %105, ptr %29, align 1, !tbaa !134
   store i8 0, ptr %104, align 1, !tbaa !134
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %107 = load i8, ptr %106, align 4, !tbaa !133, !range !59, !noundef !60
+  %107 = load i8, ptr %106, align 4, !tbaa !133, !range !58, !noundef !60
   store i8 %107, ptr %31, align 4, !tbaa !135
   store i8 0, ptr %106, align 4, !tbaa !135
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 5
@@ -2150,10 +2141,10 @@ _ZNKSt13unordered_mapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4ha
   %185 = load i8, ptr %26, align 2, !tbaa !131
   store i8 %185, ptr %27, align 2, !tbaa !132
   store i8 0, ptr %26, align 2, !tbaa !132
-  %186 = load i8, ptr %28, align 1, !tbaa !133, !range !59, !noundef !60
+  %186 = load i8, ptr %28, align 1, !tbaa !133, !range !58, !noundef !60
   store i8 %186, ptr %29, align 1, !tbaa !134
   store i8 0, ptr %28, align 1, !tbaa !134
-  %187 = load i8, ptr %30, align 4, !tbaa !133, !range !59, !noundef !60
+  %187 = load i8, ptr %30, align 4, !tbaa !133, !range !58, !noundef !60
   store i8 %187, ptr %31, align 4, !tbaa !135
   store i8 0, ptr %30, align 4, !tbaa !135
   %188 = load i8, ptr %32, align 1, !tbaa !10
@@ -2328,11 +2319,11 @@ _ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit74: ; preds = %_ZNKSt7__cxx11
   store i8 %244, ptr %27, align 2, !tbaa !132
   store i8 0, ptr %243, align 2, !tbaa !132
   %245 = getelementptr inbounds nuw i8, ptr %13, i64 3
-  %246 = load i8, ptr %245, align 1, !tbaa !133, !range !59, !noundef !60
+  %246 = load i8, ptr %245, align 1, !tbaa !133, !range !58, !noundef !60
   store i8 %246, ptr %29, align 1, !tbaa !134
   store i8 0, ptr %245, align 1, !tbaa !134
   %247 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %248 = load i8, ptr %247, align 4, !tbaa !133, !range !59, !noundef !60
+  %248 = load i8, ptr %247, align 4, !tbaa !133, !range !58, !noundef !60
   store i8 %248, ptr %31, align 4, !tbaa !135
   store i8 0, ptr %247, align 4, !tbaa !135
   %249 = getelementptr inbounds nuw i8, ptr %13, i64 5
@@ -2547,55 +2538,52 @@ declare noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef, p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb10JSONWriter8AddValueEPKc(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load i32, ptr %0, align 8, !tbaa !50
-  %4 = icmp eq i32 %3, 2
-  br i1 %4, label %5, label %12
+  %4 = icmp ne i32 %3, 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %6 = load i8, ptr %5, align 4, !range !58
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %4, i1 true, i1 %7
+  br i1 %or.cond, label %11, label %8
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i8, ptr %6, align 4, !tbaa !58, !range !59, !noundef !60
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %12, label %9
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.18, i64 noundef 2)
+  br label %11
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.18, i64 noundef 2)
-  br label %12
-
-12:                                               ; preds = %9, %5, %2
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.19, i64 noundef 1)
+11:                                               ; preds = %8, %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.19, i64 noundef 1)
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %15, label %23
+  br i1 %.not.i, label %14, label %22
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %13, align 8, !tbaa !46
-  %17 = getelementptr i8, ptr %16, i64 -24
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %21 = load i32, ptr %20, align 8, !tbaa !171
-  %22 = or i32 %21, 1
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %19, i32 noundef %22)
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %12, align 8, !tbaa !46
+  %16 = getelementptr i8, ptr %15, i64 -24
+  %17 = load i64, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %20 = load i32, ptr %19, align 8, !tbaa !171
+  %21 = or i32 %20, 1
+  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %18, i32 noundef %21)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
-23:                                               ; preds = %12
-  %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
-  %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %1, i64 noundef %24)
+22:                                               ; preds = %11
+  %23 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
+  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %1, i64 noundef %23)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %15, %23
-  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.19, i64 noundef 1)
-  %27 = load i32, ptr %0, align 8, !tbaa !50
-  %.not = icmp eq i32 %27, 2
-  br i1 %.not, label %29, label %28
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %14, %22
+  %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.19, i64 noundef 1)
+  %26 = load i32, ptr %0, align 8, !tbaa !50
+  %.not = icmp eq i32 %26, 2
+  br i1 %.not, label %28, label %27
 
-28:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+27:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   store i32 0, ptr %0, align 8, !tbaa !50
-  br label %29
+  br label %28
 
-29:                                               ; preds = %28, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 0, ptr %30, align 4, !tbaa !58
+28:                                               ; preds = %27, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+  store i8 0, ptr %5, align 4, !tbaa !59
   ret void
 }
 
@@ -2971,8 +2959,8 @@ attributes #21 = { noreturn nounwind }
 !55 = !{!"_ZTSSo"}
 !56 = !{!"_ZTSNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE", !41, i64 0, !57, i64 64, !14, i64 72}
 !57 = !{!"_ZTSSt13_Ios_Openmode", !7, i64 0}
-!58 = !{!51, !53, i64 4}
-!59 = !{i8 0, i8 2}
+!58 = !{i8 0, i8 2}
+!59 = !{!51, !53, i64 4}
 !60 = !{}
 !61 = !{!62}
 !62 = distinct !{!62, !63, !"_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}

@@ -3763,8 +3763,8 @@ define hidden i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef %1, ptr 
   %39 = alloca %struct.lbmc_stream_info_t, align 4
   %40 = alloca %struct.lbmc_ctxinst_info_t, align 1
   %41 = alloca %struct.lbmc_ctxinst_info_t, align 1
-  %.sroa.29 = alloca [6 x i8], align 2
-  %.sroa.52 = alloca [6 x i8], align 2
+  %.sroa.28 = alloca [6 x i8], align 2
+  %.sroa.51 = alloca [6 x i8], align 2
   %42 = alloca [256 x i8], align 16
   %43 = alloca %struct.lbm_uim_stream_info_t, align 8
   %44 = alloca %struct._address, align 8
@@ -3775,22 +3775,22 @@ define hidden i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef %1, ptr 
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %39) #12
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %40) #12
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %41) #12
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.29)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.52)
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.28)
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.51)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %42) #12
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %43) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44) #12
-  %.0769.sroa.gep = getelementptr inbounds nuw i8, ptr %43, i64 112
-  %.0769.sroa.gep946 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %.0769.sroa.gep949 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %.0769.sroa.gep952 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %.0769.sroa.gep955 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %.0769.sroa.gep958 = getelementptr inbounds nuw i8, ptr %43, i64 72
+  %.0787.sroa.gep = getelementptr inbounds nuw i8, ptr %43, i64 112
+  %.0787.sroa.gep962 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %.0787.sroa.gep965 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %.0787.sroa.gep968 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %.0787.sroa.gep971 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %.0787.sroa.gep974 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %49 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1)
   %50 = icmp sgt i32 %49, 3
-  br i1 %50, label %.lr.ph1262, label %.thread1150
+  br i1 %50, label %.lr.ph1268, label %.thread1157
 
-.lr.ph1262:                                       ; preds = %6
+.lr.ph1268:                                       ; preds = %6
   %51 = icmp eq ptr %4, null
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %53 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -3898,18 +3898,18 @@ define hidden i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef %1, ptr 
   %155 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %156 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %157 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %.sroa.12989.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %.sroa.16.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 36
-  %.sroa.20.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %.sroa.24.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 48
-  %.sroa.25.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 56
-  %.sroa.29.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 58
-  %.sroa.351015.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 80
-  %.sroa.39.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 84
-  %.sroa.43.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 88
-  %.sroa.47.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 96
-  %.sroa.48.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 104
-  %.sroa.52.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 106
+  %.sroa.111005.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %.sroa.15.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 36
+  %.sroa.19.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %.sroa.23.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 48
+  %.sroa.24.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 56
+  %.sroa.28.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 58
+  %.sroa.341031.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 80
+  %.sroa.38.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 84
+  %.sroa.42.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 88
+  %.sroa.46.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 96
+  %.sroa.47.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 104
+  %.sroa.51.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 106
   %158 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %159 = getelementptr inbounds nuw i8, ptr %42, i64 17
   %160 = getelementptr inbounds nuw i8, ptr %42, i64 18
@@ -3982,29 +3982,29 @@ define hidden i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef %1, ptr 
   %227 = getelementptr inbounds nuw i8, ptr %42, i64 4
   br label %228
 
-228:                                              ; preds = %.lr.ph1262, %lbmc_determine_msg_type.exit
-  %.07321260 = phi i32 [ %1, %.lr.ph1262 ], [ %.1733, %lbmc_determine_msg_type.exit ]
-  %.07341259 = phi ptr [ null, %.lr.ph1262 ], [ %.1735, %lbmc_determine_msg_type.exit ]
-  %.07391258 = phi i32 [ 0, %.lr.ph1262 ], [ %.2741, %lbmc_determine_msg_type.exit ]
-  %.07421257 = phi i32 [ 0, %.lr.ph1262 ], [ %.1743, %lbmc_determine_msg_type.exit ]
-  %.07571256 = phi i64 [ %5, %.lr.ph1262 ], [ %.1758, %lbmc_determine_msg_type.exit ]
-  %.07631255 = phi i16 [ 0, %.lr.ph1262 ], [ %.1764, %lbmc_determine_msg_type.exit ]
-  %.sroa.6983.01254 = phi i32 [ undef, %.lr.ph1262 ], [ %.sroa.6983.1, %lbmc_determine_msg_type.exit ]
-  %.sroa.20.01253 = phi ptr [ undef, %.lr.ph1262 ], [ %.sroa.20.1, %lbmc_determine_msg_type.exit ]
-  %.sroa.25.01252 = phi i16 [ undef, %.lr.ph1262 ], [ %.sroa.25.1, %lbmc_determine_msg_type.exit ]
-  %.sroa.291009.01251 = phi i32 [ undef, %.lr.ph1262 ], [ %.sroa.291009.1, %lbmc_determine_msg_type.exit ]
-  %.sroa.48.01250 = phi i16 [ undef, %.lr.ph1262 ], [ %.sroa.48.1, %lbmc_determine_msg_type.exit ]
-  %.sroa.43.01249 = phi ptr [ undef, %.lr.ph1262 ], [ %.sroa.43.1, %lbmc_determine_msg_type.exit ]
-  %229 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.07321260)
-  %230 = add i32 %.07321260, 2
+228:                                              ; preds = %.lr.ph1268, %lbmc_determine_msg_type.exit
+  %.07501266 = phi i32 [ %1, %.lr.ph1268 ], [ %.1751, %lbmc_determine_msg_type.exit ]
+  %.07521265 = phi ptr [ null, %.lr.ph1268 ], [ %.1753, %lbmc_determine_msg_type.exit ]
+  %.07571264 = phi i32 [ 0, %.lr.ph1268 ], [ %.2759, %lbmc_determine_msg_type.exit ]
+  %.07601263 = phi i32 [ 0, %.lr.ph1268 ], [ %.1761, %lbmc_determine_msg_type.exit ]
+  %.07751262 = phi i64 [ %5, %.lr.ph1268 ], [ %.1776, %lbmc_determine_msg_type.exit ]
+  %.07811261 = phi i16 [ 0, %.lr.ph1268 ], [ %.1782, %lbmc_determine_msg_type.exit ]
+  %.sroa.5999.01260 = phi i32 [ undef, %.lr.ph1268 ], [ %.sroa.5999.1, %lbmc_determine_msg_type.exit ]
+  %.sroa.19.01259 = phi ptr [ undef, %.lr.ph1268 ], [ %.sroa.19.1, %lbmc_determine_msg_type.exit ]
+  %.sroa.24.01258 = phi i16 [ undef, %.lr.ph1268 ], [ %.sroa.24.1, %lbmc_determine_msg_type.exit ]
+  %.sroa.281025.01257 = phi i32 [ undef, %.lr.ph1268 ], [ %.sroa.281025.1, %lbmc_determine_msg_type.exit ]
+  %.sroa.47.01256 = phi i16 [ undef, %.lr.ph1268 ], [ %.sroa.47.1, %lbmc_determine_msg_type.exit ]
+  %.sroa.42.01255 = phi ptr [ undef, %.lr.ph1268 ], [ %.sroa.42.1, %lbmc_determine_msg_type.exit ]
+  %229 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.07501266)
+  %230 = add i32 %.07501266, 2
   %231 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %230)
   %232 = zext i16 %231 to i32
   %233 = icmp eq i16 %231, 0
-  br i1 %233, label %.thread1150.sink.split, label %234
+  br i1 %233, label %.thread1157.sink.split, label %234
 
 234:                                              ; preds = %228
   %235 = and i8 %229, 15
-  %236 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.07321260, i32 noundef %232)
+  %236 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.07501266, i32 noundef %232)
   %237 = zext nneg i8 %235 to i32
   %238 = icmp eq i8 %235, 10
   %239 = and i8 %229, 13
@@ -4026,10 +4026,10 @@ define hidden i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef %1, ptr 
   br label %248
 
 248:                                              ; preds = %234, %241, %244, %246
-  %.0747 = phi i32 [ 12, %246 ], [ 12, %244 ], [ 12, %241 ], [ 4, %234 ]
-  %.2741 = phi i32 [ %242, %246 ], [ %242, %244 ], [ %242, %241 ], [ %.07391258, %234 ]
-  %.3737 = phi ptr [ %247, %246 ], [ %.07341259, %244 ], [ %.07341259, %241 ], [ %.07341259, %234 ]
-  %249 = icmp eq ptr %.3737, null
+  %.0765 = phi i32 [ 12, %246 ], [ 12, %244 ], [ 12, %241 ], [ 4, %234 ]
+  %.2759 = phi i32 [ %242, %246 ], [ %242, %244 ], [ %242, %241 ], [ %.07571264, %234 ]
+  %.3755 = phi ptr [ %247, %246 ], [ %.07521265, %244 ], [ %.07521265, %241 ], [ %.07521265, %234 ]
+  %249 = icmp eq ptr %.3755, null
   %250 = load i32, ptr @proto_lbmc, align 4
   %251 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   br i1 %249, label %252, label %257
@@ -4049,23 +4049,23 @@ define hidden i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %51, label %258, label %260
 
 258:                                              ; preds = %257
-  %259 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %3, i32 noundef %250, ptr noundef %236, i32 noundef 0, i32 noundef %251, ptr noundef nonnull @.str.3, ptr noundef nonnull %.3737)
+  %259 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %3, i32 noundef %250, ptr noundef %236, i32 noundef 0, i32 noundef %251, ptr noundef nonnull @.str.3, ptr noundef nonnull %.3755)
   br label %.thread
 
 260:                                              ; preds = %257
-  %261 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %3, i32 noundef %250, ptr noundef %236, i32 noundef 0, i32 noundef %251, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %.3737)
+  %261 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %3, i32 noundef %250, ptr noundef %236, i32 noundef 0, i32 noundef %251, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %.3755)
   br label %264
 
 .thread:                                          ; preds = %258, %253
-  %.0699.ph = phi ptr [ %259, %258 ], [ %254, %253 ]
+  %.0717.ph = phi ptr [ %259, %258 ], [ %254, %253 ]
   %262 = load i32, ptr @ett_lbmc, align 4
-  %263 = call ptr @proto_item_add_subtree(ptr noundef %.0699.ph, i32 noundef %262)
+  %263 = call ptr @proto_item_add_subtree(ptr noundef %.0717.ph, i32 noundef %262)
   br label %proto_item_set_generated.exit
 
 264:                                              ; preds = %255, %260
-  %.0699 = phi ptr [ %256, %255 ], [ %261, %260 ]
+  %.0717 = phi ptr [ %256, %255 ], [ %261, %260 ]
   %265 = load i32, ptr @ett_lbmc, align 4
-  %266 = call ptr @proto_item_add_subtree(ptr noundef %.0699, i32 noundef %265)
+  %266 = call ptr @proto_item_add_subtree(ptr noundef %.0717, i32 noundef %265)
   %267 = load i32, ptr @hf_lbmc_tag, align 4
   %268 = call ptr @proto_tree_add_string(ptr noundef %266, i32 noundef %267, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4)
   %.not.i = icmp eq ptr %268, null
@@ -4085,31 +4085,31 @@ define hidden i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef %1, ptr 
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %272, %269, %264, %.thread
-  %.not1061 = phi i1 [ true, %.thread ], [ false, %264 ], [ false, %269 ], [ false, %272 ]
+  %.not1078 = phi i1 [ true, %.thread ], [ false, %264 ], [ false, %269 ], [ false, %272 ]
   %276 = phi ptr [ %263, %.thread ], [ %266, %264 ], [ %266, %269 ], [ %266, %272 ]
-  %.06991060 = phi ptr [ %.0699.ph, %.thread ], [ %.0699, %264 ], [ %.0699, %269 ], [ %.0699, %272 ]
-  br i1 %249, label %proto_item_set_generated.exit815, label %277
+  %.07171077 = phi ptr [ %.0717.ph, %.thread ], [ %.0717, %264 ], [ %.0717, %269 ], [ %.0717, %272 ]
+  br i1 %249, label %proto_item_set_generated.exit831, label %277
 
 277:                                              ; preds = %proto_item_set_generated.exit
   %278 = load i32, ptr @hf_lbmc_topic, align 4
-  %279 = call ptr @proto_tree_add_string(ptr noundef %276, i32 noundef %278, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.3737)
-  %.not.i813 = icmp eq ptr %279, null
-  br i1 %.not.i813, label %proto_item_set_generated.exit815, label %280
+  %279 = call ptr @proto_tree_add_string(ptr noundef %276, i32 noundef %278, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.3755)
+  %.not.i829 = icmp eq ptr %279, null
+  br i1 %.not.i829, label %proto_item_set_generated.exit831, label %280
 
 280:                                              ; preds = %277
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 40
   %282 = load ptr, ptr %281, align 8
-  %.not5.i814 = icmp eq ptr %282, null
-  br i1 %.not5.i814, label %proto_item_set_generated.exit815, label %283
+  %.not5.i830 = icmp eq ptr %282, null
+  br i1 %.not5.i830, label %proto_item_set_generated.exit831, label %283
 
 283:                                              ; preds = %280
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 28
   %285 = load i32, ptr %284, align 4
   %286 = or i32 %285, 2
   store i32 %286, ptr %284, align 4
-  br label %proto_item_set_generated.exit815
+  br label %proto_item_set_generated.exit831
 
-proto_item_set_generated.exit815:                 ; preds = %283, %280, %277, %proto_item_set_generated.exit
+proto_item_set_generated.exit831:                 ; preds = %283, %280, %277, %proto_item_set_generated.exit
   %287 = load i32, ptr @hf_lbmc_version, align 4
   %288 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %287, ptr noundef %236, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %289 = load i32, ptr @hf_lbmc_type, align 4
@@ -4118,16 +4118,16 @@ proto_item_set_generated.exit815:                 ; preds = %283, %280, %277, %p
   %292 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %291, ptr noundef %236, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %293 = load i32, ptr @hf_lbmc_msglen, align 4
   %294 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %293, ptr noundef %236, i32 noundef 2, i32 noundef 2, i32 noundef 0)
-  %295 = add i32 %.07421257, 4
+  %295 = add i32 %.07601263, 4
   %296 = icmp samesign ult i8 %235, 11
   br i1 %296, label %switch.hole_check, label %297
 
-297:                                              ; preds = %switch.hole_check, %proto_item_set_generated.exit815
+297:                                              ; preds = %switch.hole_check, %proto_item_set_generated.exit831
   %298 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %290, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.5, i32 noundef %237)
-  %299 = add i32 %.07421257, %232
+  %299 = add i32 %.07601263, %232
   br label %lbmc_determine_msg_type.exit, !llvm.loop !6
 
-switch.hole_check:                                ; preds = %proto_item_set_generated.exit815
+switch.hole_check:                                ; preds = %proto_item_set_generated.exit831
   %switch.maskindex = zext nneg i8 %235 to i16
   %switch.shifted = lshr i16 1287, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
@@ -4148,7 +4148,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %306
 
 306:                                              ; preds = %switch.lookup, %301
-  %.0770 = phi ptr [ %305, %301 ], [ %294, %switch.lookup ]
+  %.0788 = phi ptr [ %305, %301 ], [ %294, %switch.lookup ]
   %307 = load ptr, ptr %52, align 8
   %308 = call noalias dereferenceable_or_null(65544) ptr @wmem_alloc(ptr noundef %307, i64 noundef 65544) #13
   store i8 0, ptr %308, align 4
@@ -4160,46 +4160,46 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i8 0, ptr %40, align 1
   store i8 0, ptr %41, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %42, i8 noundef 0, i64 noundef 256, i1 noundef false) #12
-  %312 = call i32 @tvb_reported_length_remaining(ptr noundef %236, i32 noundef %.0747)
+  %312 = call i32 @tvb_reported_length_remaining(ptr noundef %236, i32 noundef %.0765)
   %313 = icmp sgt i32 %312, 3
   %314 = add i8 %300, -1
   %315 = icmp ult i8 %314, -2
-  %or.cond171200 = select i1 %313, i1 %315, i1 false
-  br i1 %or.cond171200, label %.lr.ph, label %.critedge
+  %or.cond351206 = select i1 %313, i1 %315, i1 false
+  br i1 %or.cond351206, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %306, %3044
-  %.07031219 = phi i8 [ %316, %3044 ], [ %300, %306 ]
-  %.07301218 = phi i32 [ %3046, %3044 ], [ %.0747, %306 ]
-  %.27441217 = phi i32 [ %3045, %3044 ], [ %295, %306 ]
-  %.07661216 = phi i1 [ %.2768, %3044 ], [ false, %306 ]
-  %.sroa.0.01215 = phi i1 [ %.sroa.0.2, %3044 ], [ false, %306 ]
-  %.010471214 = phi i32 [ %.21049, %3044 ], [ 0, %306 ]
-  %.sroa.5945.01213 = phi i32 [ %.sroa.5945.2, %3044 ], [ -1, %306 ]
-  %.sroa.0981.01212 = phi i8 [ %.sroa.0981.2, %3044 ], [ 0, %306 ]
-  %.sroa.15.01211 = phi i32 [ %.sroa.15.2, %3044 ], [ 0, %306 ]
-  %.sroa.6983.21210 = phi i32 [ %.sroa.6983.4, %3044 ], [ %.sroa.6983.01254, %306 ]
-  %.sroa.10.01209 = phi i32 [ %.sroa.10.2, %3044 ], [ 0, %306 ]
-  %.sroa.51037.01208 = phi i32 [ %.sroa.51037.2, %3044 ], [ 0, %306 ]
-  %.sroa.20.21207 = phi ptr [ %.sroa.20.4, %3044 ], [ %.sroa.20.01253, %306 ]
-  %.sroa.01036.01206 = phi i32 [ %.sroa.01036.2, %3044 ], [ 0, %306 ]
-  %.sroa.25.21205 = phi i16 [ %.sroa.25.4, %3044 ], [ %.sroa.25.01252, %306 ]
-  %.sroa.291009.21204 = phi i32 [ %.sroa.291009.4, %3044 ], [ %.sroa.291009.01251, %306 ]
-  %.010541203 = phi i8 [ %.21056, %3044 ], [ 0, %306 ]
-  %.sroa.48.21202 = phi i16 [ %.sroa.48.4, %3044 ], [ %.sroa.48.01250, %306 ]
-  %.sroa.43.21201 = phi ptr [ %.sroa.43.4, %3044 ], [ %.sroa.43.01249, %306 ]
-  %316 = call zeroext i8 @tvb_get_uint8(ptr noundef %236, i32 noundef %.07301218)
-  %317 = add i32 %.07301218, 1
+  %.07211225 = phi i8 [ %316, %3044 ], [ %300, %306 ]
+  %.07481224 = phi i32 [ %3046, %3044 ], [ %.0765, %306 ]
+  %.27621223 = phi i32 [ %3045, %3044 ], [ %295, %306 ]
+  %.07841222 = phi i1 [ %.2786, %3044 ], [ false, %306 ]
+  %.sroa.0.01221 = phi i1 [ %.sroa.0.2, %3044 ], [ false, %306 ]
+  %.010641220 = phi i32 [ %.21066, %3044 ], [ 0, %306 ]
+  %.sroa.5961.01219 = phi i32 [ %.sroa.5961.2, %3044 ], [ -1, %306 ]
+  %.sroa.0997.01218 = phi i1 [ %.sroa.0997.2, %3044 ], [ false, %306 ]
+  %.sroa.151058.01217 = phi i32 [ %.sroa.151058.2, %3044 ], [ 0, %306 ]
+  %.sroa.5999.21216 = phi i32 [ %.sroa.5999.4, %3044 ], [ %.sroa.5999.01260, %306 ]
+  %.sroa.10.01215 = phi i32 [ %.sroa.10.2, %3044 ], [ 0, %306 ]
+  %.sroa.51053.01214 = phi i32 [ %.sroa.51053.2, %3044 ], [ 0, %306 ]
+  %.sroa.19.21213 = phi ptr [ %.sroa.19.4, %3044 ], [ %.sroa.19.01259, %306 ]
+  %.sroa.01052.01212 = phi i32 [ %.sroa.01052.2, %3044 ], [ 0, %306 ]
+  %.sroa.24.21211 = phi i16 [ %.sroa.24.4, %3044 ], [ %.sroa.24.01258, %306 ]
+  %.sroa.281025.21210 = phi i32 [ %.sroa.281025.4, %3044 ], [ %.sroa.281025.01257, %306 ]
+  %.010711209 = phi i8 [ %.21073, %3044 ], [ 0, %306 ]
+  %.sroa.47.21208 = phi i16 [ %.sroa.47.4, %3044 ], [ %.sroa.47.01256, %306 ]
+  %.sroa.42.21207 = phi ptr [ %.sroa.42.4, %3044 ], [ %.sroa.42.01255, %306 ]
+  %316 = call zeroext i8 @tvb_get_uint8(ptr noundef %236, i32 noundef %.07481224)
+  %317 = add i32 %.07481224, 1
   %318 = call zeroext i8 @tvb_get_uint8(ptr noundef %236, i32 noundef %317)
   %319 = zext i8 %318 to i32
-  %.not810 = icmp eq i8 %318, 0
-  br i1 %.not810, label %.thread1150.sink.split, label %320
+  %.not828 = icmp eq i8 %318, 0
+  br i1 %.not828, label %.thread1157.sink.split, label %320
 
 320:                                              ; preds = %.lr.ph
-  %321 = call ptr @tvb_new_subset_length(ptr noundef %236, i32 noundef %.07301218, i32 noundef %319)
-  %322 = zext i8 %.07031219 to i64
+  %321 = call ptr @tvb_new_subset_length(ptr noundef %236, i32 noundef %.07481224, i32 noundef %319)
+  %322 = zext i8 %.07211225 to i64
   %323 = getelementptr [256 x i8], ptr %42, i64 0, i64 %322
   store i8 1, ptr %323, align 1
-  switch i8 %.07031219, label %3042 [
+  switch i8 %.07211225, label %3042 [
     i8 1, label %324
     i8 2, label %345
     i8 3, label %357
@@ -4411,8 +4411,8 @@ dissect_nhdr_topicname.exit:                      ; preds = %396, %400
   br label %dissect_nhdr_apphdr.exit
 
 dissect_nhdr_apphdr.exit:                         ; preds = %418, %422
-  %.0.i817 = phi i32 [ %405, %418 ], [ 4, %422 ]
-  call void @proto_item_set_len(ptr noundef %406, i32 noundef %.0.i817)
+  %.0.i833 = phi i32 [ %405, %418 ], [ 4, %422 ]
+  call void @proto_item_set_len(ptr noundef %406, i32 noundef %.0.i833)
   br label %3044
 
 424:                                              ; preds = %320
@@ -4436,7 +4436,7 @@ dissect_nhdr_apphdr.exit:                         ; preds = %418, %422
   br i1 %.not62.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %424, %500
-  %.31050 = phi i32 [ %.41051, %500 ], [ %.010471214, %424 ]
+  %.31067 = phi i32 [ %.41068, %500 ], [ %.010641220, %424 ]
   %.067.i = phi i32 [ %496, %500 ], [ 4, %424 ]
   %.05066.i = phi i8 [ %.1.i, %500 ], [ %440, %424 ]
   %.05264.i = phi i32 [ %493, %500 ], [ 4, %424 ]
@@ -4472,7 +4472,7 @@ dissect_nhdr_apphdr.exit:                         ; preds = %418, %422
   %462 = add i32 %.05264.i, 4
   %463 = call ptr @proto_tree_add_item(ptr noundef %449, i32 noundef %461, ptr noundef %321, i32 noundef %462, i32 noundef 4, i32 noundef 0)
   %464 = call i32 @tvb_get_ntohl(ptr noundef %321, i32 noundef %462)
-  %465 = add i32 %464, %.31050
+  %465 = add i32 %464, %.31067
   call void @proto_item_set_len(ptr noundef %447, i32 noundef 8)
   br label %dissect_nhdr_apphdr_chain_msgprop_element.exit.i
 
@@ -4518,7 +4518,7 @@ dissect_nhdr_apphdr.exit:                         ; preds = %418, %422
   br label %dissect_nhdr_apphdr_chain_msgprop_element.exit.i
 
 dissect_nhdr_apphdr_chain_msgprop_element.exit.i: ; preds = %492, %457
-  %.41051 = phi i32 [ %465, %457 ], [ %.31050, %492 ]
+  %.41068 = phi i32 [ %465, %457 ], [ %.31067, %492 ]
   %.051.i = phi i32 [ 8, %457 ], [ %.0.i56.i, %492 ]
   %493 = add i32 %.051.i, %.05264.i
   %494 = trunc nuw i32 %.051.i to i8
@@ -4533,11 +4533,11 @@ dissect_nhdr_apphdr_chain_msgprop_element.exit.i: ; preds = %492, %457
 
 500:                                              ; preds = %498, %dissect_nhdr_apphdr_chain_msgprop_element.exit.i
   %.1.i = phi i8 [ %499, %498 ], [ %.05066.i, %dissect_nhdr_apphdr_chain_msgprop_element.exit.i ]
-  %.not.i818 = icmp eq i8 %495, 0
-  br i1 %.not.i818, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  %.not.i834 = icmp eq i8 %495, 0
+  br i1 %.not.i834, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %500, %424
-  %.51052 = phi i32 [ %.010471214, %424 ], [ %.41051, %500 ]
+  %.51069 = phi i32 [ %.010641220, %424 ], [ %.41068, %500 ]
   %.0.lcssa.i = phi i32 [ 4, %424 ], [ %496, %500 ]
   call void @proto_item_set_len(ptr noundef %429, i32 noundef %.0.lcssa.i)
   br label %3044
@@ -5045,11 +5045,11 @@ dissect_nhdr_apphdr_chain_msgprop_element.exit.i: ; preds = %492, %457
   %951 = call ptr @proto_tree_add_item(ptr noundef %943, i32 noundef %950, ptr noundef %321, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %952 = add i8 %938, -4
   %953 = icmp ugt i8 %952, 7
-  br i1 %953, label %.lr.ph.i822, label %dissect_nhdr_tsni.exit
+  br i1 %953, label %.lr.ph.i838, label %dissect_nhdr_tsni.exit
 
-.lr.ph.i822:                                      ; preds = %937, %.lr.ph.i822
-  %.039.i = phi i32 [ %966, %.lr.ph.i822 ], [ 4, %937 ]
-  %.03537.i = phi i8 [ %965, %.lr.ph.i822 ], [ %952, %937 ]
+.lr.ph.i838:                                      ; preds = %937, %.lr.ph.i838
+  %.039.i = phi i32 [ %966, %.lr.ph.i838 ], [ 4, %937 ]
+  %.03537.i = phi i8 [ %965, %.lr.ph.i838 ], [ %952, %937 ]
   %954 = load i32, ptr @hf_lbmc_tsni_rec, align 4
   %955 = call ptr @proto_tree_add_item(ptr noundef %943, i32 noundef %954, ptr noundef %321, i32 noundef %.039.i, i32 noundef 8, i32 noundef 0)
   %956 = load i32, ptr @ett_lbmc_tsni_rec, align 4
@@ -5064,11 +5064,11 @@ dissect_nhdr_apphdr_chain_msgprop_element.exit.i: ; preds = %492, %457
   %965 = add i8 %.03537.i, -8
   %966 = add nuw nsw i32 %.039.i, 8
   %967 = icmp ugt i8 %965, 7
-  br i1 %967, label %.lr.ph.i822, label %dissect_nhdr_tsni.exit, !llvm.loop !9
+  br i1 %967, label %.lr.ph.i838, label %dissect_nhdr_tsni.exit, !llvm.loop !9
 
-dissect_nhdr_tsni.exit:                           ; preds = %.lr.ph.i822, %937
-  %.0.lcssa.i821 = phi i32 [ 4, %937 ], [ %966, %.lr.ph.i822 ]
-  call void @proto_item_set_len(ptr noundef %941, i32 noundef %.0.lcssa.i821)
+dissect_nhdr_tsni.exit:                           ; preds = %.lr.ph.i838, %937
+  %.0.lcssa.i837 = phi i32 [ 4, %937 ], [ %966, %.lr.ph.i838 ]
+  call void @proto_item_set_len(ptr noundef %941, i32 noundef %.0.lcssa.i837)
   br label %3044
 
 968:                                              ; preds = %320
@@ -5219,8 +5219,8 @@ dissect_nhdr_tsni.exit:                           ; preds = %.lr.ph.i822, %937
   br label %dissect_nhdr_umq_reg.exit
 
 dissect_nhdr_umq_reg.exit:                        ; preds = %993, %1006, %1015, %1026, %1035, %1054, %1063, %1074, %1083
-  %.0.i823 = phi i32 [ 20, %1083 ], [ 28, %1074 ], [ 32, %1063 ], [ 28, %1054 ], [ 44, %1035 ], [ 28, %1026 ], [ 32, %1015 ], [ 28, %1006 ], [ 32, %993 ]
-  call void @proto_item_set_len(ptr noundef %972, i32 noundef %.0.i823)
+  %.0.i839 = phi i32 [ 20, %1083 ], [ 28, %1074 ], [ 32, %1063 ], [ 28, %1054 ], [ 44, %1035 ], [ 28, %1026 ], [ 32, %1015 ], [ 28, %1006 ], [ 32, %993 ]
+  call void @proto_item_set_len(ptr noundef %972, i32 noundef %.0.i839)
   br label %3044
 
 1086:                                             ; preds = %320
@@ -5396,8 +5396,8 @@ dissect_nhdr_umq_reg.exit:                        ; preds = %993, %1006, %1015, 
   br label %dissect_nhdr_umq_reg_resp.exit
 
 dissect_nhdr_umq_reg_resp.exit:                   ; preds = %1111, %1118, %1132, %1141, %1148, %1161, %1170, %1185, %1194, %1207, %1216
-  %.0.i824 = phi i32 [ 20, %1216 ], [ 28, %1207 ], [ 32, %1194 ], [ 28, %1185 ], [ 36, %1170 ], [ 28, %1161 ], [ 32, %1148 ], [ 24, %1141 ], [ 24, %1132 ], [ 36, %1118 ], [ 24, %1111 ]
-  call void @proto_item_set_len(ptr noundef %1091, i32 noundef %.0.i824)
+  %.0.i840 = phi i32 [ 20, %1216 ], [ 28, %1207 ], [ 32, %1194 ], [ 28, %1185 ], [ 36, %1170 ], [ 28, %1161 ], [ 32, %1148 ], [ 24, %1141 ], [ 24, %1132 ], [ 36, %1118 ], [ 24, %1111 ]
+  call void @proto_item_set_len(ptr noundef %1091, i32 noundef %.0.i840)
   br label %3044
 
 1219:                                             ; preds = %320
@@ -5424,11 +5424,11 @@ dissect_nhdr_umq_reg_resp.exit:                   ; preds = %1111, %1118, %1132,
   %1240 = icmp ne i8 %1239, 0
   %1241 = icmp sgt i32 %1238, 4
   %1242 = select i1 %1240, i1 %1241, i1 false
-  br i1 %1242, label %.lr.ph.i827, label %._crit_edge.i825
+  br i1 %1242, label %.lr.ph.i843, label %._crit_edge.i841
 
-.lr.ph.i827:                                      ; preds = %1219, %.lr.ph.i827
-  %.06467.i = phi i32 [ %1252, %.lr.ph.i827 ], [ 4, %1219 ]
-  %.06566.i = phi i8 [ %1253, %.lr.ph.i827 ], [ 0, %1219 ]
+.lr.ph.i843:                                      ; preds = %1219, %.lr.ph.i843
+  %.06467.i = phi i32 [ %1252, %.lr.ph.i843 ], [ 4, %1219 ]
+  %.06566.i = phi i8 [ %1253, %.lr.ph.i843 ], [ 0, %1219 ]
   %1243 = load i32, ptr @hf_lbmc_umq_ack_msgid, align 4
   %1244 = call ptr @proto_tree_add_item(ptr noundef %1225, i32 noundef %1243, ptr noundef %321, i32 noundef %.06467.i, i32 noundef 16, i32 noundef 0)
   %1245 = load i32, ptr @ett_lbmc_umq_ack_msgid, align 4
@@ -5443,10 +5443,10 @@ dissect_nhdr_umq_reg_resp.exit:                   ; preds = %1111, %1118, %1132,
   %1254 = icmp samesign ult i8 %1253, %1239
   %1255 = icmp slt i32 %1252, %1238
   %1256 = select i1 %1254, i1 %1255, i1 false
-  br i1 %1256, label %.lr.ph.i827, label %._crit_edge.i825, !llvm.loop !10
+  br i1 %1256, label %.lr.ph.i843, label %._crit_edge.i841, !llvm.loop !10
 
-._crit_edge.i825:                                 ; preds = %.lr.ph.i827, %1219
-  %.064.lcssa.i = phi i32 [ 4, %1219 ], [ %1252, %.lr.ph.i827 ]
+._crit_edge.i841:                                 ; preds = %.lr.ph.i843, %1219
+  %.064.lcssa.i = phi i32 [ 4, %1219 ], [ %1252, %.lr.ph.i843 ]
   %1257 = call zeroext i8 @tvb_get_uint8(ptr noundef %321, i32 noundef 3)
   switch i8 %1257, label %1303 [
     i8 1, label %1258
@@ -5454,7 +5454,7 @@ dissect_nhdr_umq_reg_resp.exit:                   ; preds = %1111, %1118, %1132,
     i8 3, label %1287
   ]
 
-1258:                                             ; preds = %._crit_edge.i825
+1258:                                             ; preds = %._crit_edge.i841
   %1259 = load i32, ptr @hf_lbmc_umq_ack_stable, align 4
   %1260 = call ptr @proto_tree_add_item(ptr noundef %1225, i32 noundef %1259, ptr noundef %321, i32 noundef %.064.lcssa.i, i32 noundef 8, i32 noundef 0)
   %1261 = load i32, ptr @ett_lbmc_umq_ack_stable, align 4
@@ -5469,7 +5469,7 @@ dissect_nhdr_umq_reg_resp.exit:                   ; preds = %1111, %1118, %1132,
   %1270 = call ptr @proto_tree_add_item(ptr noundef %1262, i32 noundef %1268, ptr noundef %321, i32 noundef %1269, i32 noundef 2, i32 noundef 0)
   br label %dissect_nhdr_umq_ack.exit
 
-1271:                                             ; preds = %._crit_edge.i825
+1271:                                             ; preds = %._crit_edge.i841
   %1272 = load i32, ptr @hf_lbmc_umq_ack_cr, align 4
   %1273 = call ptr @proto_tree_add_item(ptr noundef %1225, i32 noundef %1272, ptr noundef %321, i32 noundef %.064.lcssa.i, i32 noundef 12, i32 noundef 0)
   %1274 = load i32, ptr @ett_lbmc_umq_ack_cr, align 4
@@ -5487,7 +5487,7 @@ dissect_nhdr_umq_reg_resp.exit:                   ; preds = %1111, %1118, %1132,
   %1286 = call ptr @proto_tree_add_item(ptr noundef %1275, i32 noundef %1284, ptr noundef %321, i32 noundef %1285, i32 noundef 2, i32 noundef 0)
   br label %dissect_nhdr_umq_ack.exit
 
-1287:                                             ; preds = %._crit_edge.i825
+1287:                                             ; preds = %._crit_edge.i841
   %1288 = load i32, ptr @hf_lbmc_umq_ack_ulb_cr, align 4
   %1289 = call ptr @proto_tree_add_item(ptr noundef %1225, i32 noundef %1288, ptr noundef %321, i32 noundef %.064.lcssa.i, i32 noundef 12, i32 noundef 0)
   %1290 = load i32, ptr @ett_lbmc_umq_ack_ulb_cr, align 4
@@ -5505,14 +5505,14 @@ dissect_nhdr_umq_reg_resp.exit:                   ; preds = %1111, %1118, %1132,
   %1302 = call ptr @proto_tree_add_item(ptr noundef %1291, i32 noundef %1300, ptr noundef %321, i32 noundef %1301, i32 noundef 2, i32 noundef 0)
   br label %dissect_nhdr_umq_ack.exit
 
-1303:                                             ; preds = %._crit_edge.i825
+1303:                                             ; preds = %._crit_edge.i841
   %1304 = zext i8 %1257 to i32
   %1305 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %1237, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1739, i32 noundef %1304)
   br label %dissect_nhdr_umq_ack.exit
 
 dissect_nhdr_umq_ack.exit:                        ; preds = %1258, %1271, %1287, %1303
-  %.0.i826 = phi i32 [ 0, %1303 ], [ 12, %1287 ], [ 12, %1271 ], [ 8, %1258 ]
-  %1306 = add i32 %.0.i826, %.064.lcssa.i
+  %.0.i842 = phi i32 [ 0, %1303 ], [ 12, %1287 ], [ 12, %1271 ], [ 8, %1258 ]
+  %1306 = add i32 %.0.i842, %.064.lcssa.i
   call void @proto_item_set_len(ptr noundef %1223, i32 noundef %1306)
   br label %3044
 
@@ -5640,8 +5640,8 @@ dissect_nhdr_umq_ack.exit:                        ; preds = %1258, %1271, %1287,
   br label %dissect_nhdr_umq_ka.exit
 
 dissect_nhdr_umq_ka.exit:                         ; preds = %1339, %1339, %1364, %1373, %1382, %1391, %1404
-  %.0.i828 = phi i32 [ 20, %1404 ], [ 32, %1391 ], [ 28, %1382 ], [ 28, %1373 ], [ 28, %1364 ], [ 20, %1339 ], [ 20, %1339 ]
-  call void @proto_item_set_len(ptr noundef %1343, i32 noundef %.0.i828)
+  %.0.i844 = phi i32 [ 20, %1404 ], [ 32, %1391 ], [ 28, %1382 ], [ 28, %1373 ], [ 28, %1364 ], [ 20, %1339 ], [ 20, %1339 ]
+  call void @proto_item_set_len(ptr noundef %1343, i32 noundef %.0.i844)
   br label %3044
 
 1407:                                             ; preds = %320
@@ -5662,8 +5662,8 @@ dissect_nhdr_umq_ka.exit:                         ; preds = %1339, %1339, %1364,
   %1422 = call ptr @proto_tree_add_item(ptr noundef %1413, i32 noundef %1421, ptr noundef %321, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %1423 = call zeroext i8 @tvb_get_uint8(ptr noundef %321, i32 noundef 2)
   %1424 = and i8 %1423, 64
-  %.not.i829 = icmp eq i8 %1424, 0
-  br i1 %.not.i829, label %1432, label %1425
+  %.not.i845 = icmp eq i8 %1424, 0
+  br i1 %.not.i845, label %1432, label %1425
 
 1425:                                             ; preds = %1407
   %1426 = load i32, ptr @hf_lbmc_umq_rxreq_regid_resp, align 4
@@ -5798,8 +5798,8 @@ dissect_nhdr_umq_ka.exit:                         ; preds = %1339, %1339, %1364,
   br label %dissect_nhdr_umq_rxreq.exit
 
 dissect_nhdr_umq_rxreq.exit:                      ; preds = %1445, %1456, %1473, %1486, %1493, %1502, %1513, %1524
-  %.1.i830 = phi i32 [ 12, %1524 ], [ 24, %1513 ], [ 24, %1502 ], [ 20, %1493 ], [ 16, %1486 ], [ 36, %1473 ], [ 40, %1456 ], [ 32, %1445 ]
-  call void @proto_item_set_len(ptr noundef %1411, i32 noundef %.1.i830)
+  %.1.i846 = phi i32 [ 12, %1524 ], [ 24, %1513 ], [ 24, %1502 ], [ 20, %1493 ], [ 16, %1486 ], [ 36, %1473 ], [ 40, %1456 ], [ 32, %1445 ]
+  call void @proto_item_set_len(ptr noundef %1411, i32 noundef %.1.i846)
   br label %3044
 
 1527:                                             ; preds = %320
@@ -5984,8 +5984,8 @@ dissect_nhdr_umq_rxreq.exit:                      ; preds = %1445, %1456, %1473,
   br label %dissect_nhdr_storename.exit
 
 dissect_nhdr_storename.exit:                      ; preds = %1681, %1685
-  %.0.i831 = phi i32 [ %1669, %1681 ], [ 4, %1685 ]
-  call void @proto_item_set_len(ptr noundef %1670, i32 noundef %.0.i831)
+  %.0.i847 = phi i32 [ %1669, %1681 ], [ 4, %1685 ]
+  call void @proto_item_set_len(ptr noundef %1670, i32 noundef %.0.i847)
   br label %3044
 
 1687:                                             ; preds = %320
@@ -6066,8 +6066,8 @@ dissect_nhdr_storename.exit:                      ; preds = %1681, %1685
   %1758 = load i32, ptr @hf_lbmc_ctxinfo_ctxinst, align 4
   %1759 = call ptr @proto_tree_add_item(ptr noundef %1739, i32 noundef %1758, ptr noundef %321, i32 noundef 16, i32 noundef 8, i32 noundef 0)
   %1760 = and i16 %1744, 2048
-  %.not.i832 = icmp eq i16 %1760, 0
-  br i1 %.not.i832, label %dissect_nhdr_ctxinfo.exit, label %1761
+  %.not.i848 = icmp eq i16 %1760, 0
+  br i1 %.not.i848, label %dissect_nhdr_ctxinfo.exit, label %1761
 
 1761:                                             ; preds = %1733
   %1762 = icmp ugt i8 %1734, 24
@@ -6084,8 +6084,8 @@ dissect_nhdr_storename.exit:                      ; preds = %1681, %1685
   br label %dissect_nhdr_ctxinfo.exit
 
 dissect_nhdr_ctxinfo.exit:                        ; preds = %1733, %1763, %1767
-  %.0.i833 = phi i32 [ 24, %1733 ], [ %1736, %1763 ], [ 24, %1767 ]
-  call void @proto_item_set_len(ptr noundef %1737, i32 noundef %.0.i833)
+  %.0.i849 = phi i32 [ 24, %1733 ], [ %1736, %1763 ], [ 24, %1767 ]
+  call void @proto_item_set_len(ptr noundef %1737, i32 noundef %.0.i849)
   br label %3044
 
 1769:                                             ; preds = %320
@@ -6421,11 +6421,11 @@ dissect_nhdr_ctxinfo.exit:                        ; preds = %1733, %1763, %1767
   %2051 = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_reserved, align 4
   %2052 = call ptr @proto_tree_add_item(ptr noundef %2038, i32 noundef %2051, ptr noundef %321, i32 noundef 35, i32 noundef 1, i32 noundef 0)
   %2053 = and i32 %2043, 1
-  %.not.i834 = icmp eq i32 %2053, 0
+  %.not.i850 = icmp eq i32 %2053, 0
   %2054 = zext i8 %2036 to i32
   %hf_lbmc_umq_idx_cmd_ulb_reserve_assign_string_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_string_index, align 4
   %hf_lbmc_umq_idx_cmd_ulb_reserve_assign_numeric_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_ulb_reserve_assign_numeric_index, align 4
-  %2055 = select i1 %.not.i834, i32 %hf_lbmc_umq_idx_cmd_ulb_reserve_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_ulb_reserve_assign_numeric_index.val.i
+  %2055 = select i1 %.not.i850, i32 %hf_lbmc_umq_idx_cmd_ulb_reserve_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_ulb_reserve_assign_numeric_index.val.i
   %2056 = call ptr @proto_tree_add_item(ptr noundef %2038, i32 noundef %2055, ptr noundef %321, i32 noundef 36, i32 noundef %2054, i32 noundef 0)
   %2057 = add nuw nsw i32 %2054, 36
   br label %dissect_nhdr_umq_idx_cmd.exit
@@ -6436,8 +6436,8 @@ dissect_nhdr_ctxinfo.exit:                        ; preds = %1733, %1763, %1767
   br label %dissect_nhdr_umq_idx_cmd.exit
 
 dissect_nhdr_umq_idx_cmd.exit:                    ; preds = %1918, %1927, %1936, %1949, %1962, %1985, %2010, %2033, %2058
-  %.0.i835 = phi i32 [ 20, %2058 ], [ %2057, %2033 ], [ %2032, %2010 ], [ %2009, %1985 ], [ %1984, %1962 ], [ 32, %1949 ], [ 32, %1936 ], [ 28, %1927 ], [ 28, %1918 ]
-  call void @proto_item_set_len(ptr noundef %1897, i32 noundef %.0.i835)
+  %.0.i851 = phi i32 [ 20, %2058 ], [ %2057, %2033 ], [ %2032, %2010 ], [ %2009, %1985 ], [ %1984, %1962 ], [ 32, %1949 ], [ 32, %1936 ], [ 28, %1927 ], [ 28, %1918 ]
+  call void @proto_item_set_len(ptr noundef %1897, i32 noundef %.0.i851)
   br label %3044
 
 2061:                                             ; preds = %320
@@ -6632,10 +6632,10 @@ dissect_nhdr_umq_idx_cmd.exit:                    ; preds = %1918, %1927, %1936,
   %2219 = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_reserved, align 4
   %2220 = call ptr @proto_tree_add_item(ptr noundef %2206, i32 noundef %2219, ptr noundef %321, i32 noundef 35, i32 noundef 1, i32 noundef 0)
   %2221 = and i32 %2211, 1
-  %.not.i836 = icmp eq i32 %2221, 0
+  %.not.i852 = icmp eq i32 %2221, 0
   %hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_string_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_string_index, align 4
   %hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_numeric_index.val.i = load i32, ptr @hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_numeric_index, align 4
-  %2222 = select i1 %.not.i836, i32 %hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_numeric_index.val.i
+  %2222 = select i1 %.not.i852, i32 %hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_string_index.val.i, i32 %hf_lbmc_umq_idx_cmd_resp_ulb_reserve_assign_numeric_index.val.i
   %2223 = call ptr @proto_tree_add_item(ptr noundef %2206, i32 noundef %2222, ptr noundef %321, i32 noundef 36, i32 noundef %2202, i32 noundef 0)
   %2224 = add nuw nsw i32 %2202, 36
   br label %dissect_nhdr_umq_idx_cmd_resp.exit
@@ -6646,8 +6646,8 @@ dissect_nhdr_umq_idx_cmd.exit:                    ; preds = %1918, %1927, %1936,
   br label %dissect_nhdr_umq_idx_cmd_resp.exit
 
 dissect_nhdr_umq_idx_cmd_resp.exit:               ; preds = %2086, %2099, %2108, %2121, %2134, %2147, %2160, %2173, %2199, %2225
-  %.0.i837 = phi i32 [ 20, %2225 ], [ %2224, %2199 ], [ %2198, %2173 ], [ 32, %2160 ], [ 32, %2147 ], [ 32, %2134 ], [ 32, %2121 ], [ 32, %2108 ], [ 28, %2099 ], [ %2064, %2086 ]
-  call void @proto_item_set_len(ptr noundef %2065, i32 noundef %.0.i837)
+  %.0.i853 = phi i32 [ 20, %2225 ], [ %2224, %2199 ], [ %2198, %2173 ], [ 32, %2160 ], [ 32, %2147 ], [ 32, %2134 ], [ 32, %2121 ], [ 32, %2108 ], [ 28, %2099 ], [ %2064, %2086 ]
+  call void @proto_item_set_len(ptr noundef %2065, i32 noundef %.0.i853)
   br label %3044
 
 2228:                                             ; preds = %320
@@ -6712,27 +6712,27 @@ dissect_nhdr_umq_idx_cmd_resp.exit:               ; preds = %2086, %2099, %2108,
   %2280 = call ptr @proto_tree_add_item(ptr noundef %2269, i32 noundef %2279, ptr noundef %321, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   %2281 = call zeroext i16 @tvb_get_ntohs(ptr noundef %321, i32 noundef 4)
   %2282 = zext i16 %2281 to i32
-  %.not.i839 = icmp eq i16 %2281, 0
-  br i1 %.not.i839, label %dissect_nhdr_topic_md_interest.exit, label %.lr.ph.i840
+  %.not.i855 = icmp eq i16 %2281, 0
+  br i1 %.not.i855, label %dissect_nhdr_topic_md_interest.exit, label %.lr.ph.i856
 
-.lr.ph.i840:                                      ; preds = %2263, %.lr.ph.i840
-  %.03.i = phi i32 [ %2285, %.lr.ph.i840 ], [ 8, %2263 ]
-  %.0352.i = phi i32 [ %2286, %.lr.ph.i840 ], [ 0, %2263 ]
+.lr.ph.i856:                                      ; preds = %2263, %.lr.ph.i856
+  %.03.i = phi i32 [ %2285, %.lr.ph.i856 ], [ 8, %2263 ]
+  %.0352.i = phi i32 [ %2286, %.lr.ph.i856 ], [ 0, %2263 ]
   %2283 = load i32, ptr @hf_lbmc_topic_md_interest_domain_id, align 4
   %2284 = call ptr @proto_tree_add_item(ptr noundef %2269, i32 noundef %2283, ptr noundef %321, i32 noundef %.03.i, i32 noundef 4, i32 noundef 0)
   %2285 = add nuw nsw i32 %.03.i, 4
   %2286 = add nuw nsw i32 %.0352.i, 1
   %exitcond.not.i = icmp eq i32 %2286, %2282
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i840, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i856, !llvm.loop !11
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i840
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i856
   %2287 = shl nuw nsw i32 %2282, 2
   %2288 = add nuw nsw i32 %2287, 8
   br label %dissect_nhdr_topic_md_interest.exit
 
 dissect_nhdr_topic_md_interest.exit:              ; preds = %2263, %._crit_edge.loopexit.i
-  %.0.lcssa.i842 = phi i32 [ 8, %2263 ], [ %2288, %._crit_edge.loopexit.i ]
-  call void @proto_item_set_len(ptr noundef %2267, i32 noundef %.0.lcssa.i842)
+  %.0.lcssa.i858 = phi i32 [ 8, %2263 ], [ %2288, %._crit_edge.loopexit.i ]
+  call void @proto_item_set_len(ptr noundef %2267, i32 noundef %.0.lcssa.i858)
   br label %3044
 
 2289:                                             ; preds = %320
@@ -6759,27 +6759,27 @@ dissect_nhdr_topic_md_interest.exit:              ; preds = %2263, %._crit_edge.
   %2310 = call ptr @proto_tree_add_item(ptr noundef %2295, i32 noundef %2309, ptr noundef %321, i32 noundef 8, i32 noundef 8, i32 noundef 0)
   %2311 = call zeroext i16 @tvb_get_ntohs(ptr noundef %321, i32 noundef 4)
   %2312 = zext i16 %2311 to i32
-  %.not.i843 = icmp eq i16 %2311, 0
-  br i1 %.not.i843, label %dissect_nhdr_pattern_md_interest.exit, label %.lr.ph.i845
+  %.not.i859 = icmp eq i16 %2311, 0
+  br i1 %.not.i859, label %dissect_nhdr_pattern_md_interest.exit, label %.lr.ph.i861
 
-.lr.ph.i845:                                      ; preds = %2289, %.lr.ph.i845
-  %.03.i846 = phi i32 [ %2315, %.lr.ph.i845 ], [ 16, %2289 ]
-  %.0412.i = phi i32 [ %2316, %.lr.ph.i845 ], [ 0, %2289 ]
+.lr.ph.i861:                                      ; preds = %2289, %.lr.ph.i861
+  %.03.i862 = phi i32 [ %2315, %.lr.ph.i861 ], [ 16, %2289 ]
+  %.0412.i = phi i32 [ %2316, %.lr.ph.i861 ], [ 0, %2289 ]
   %2313 = load i32, ptr @hf_lbmc_pattern_md_interest_domain_id, align 4
-  %2314 = call ptr @proto_tree_add_item(ptr noundef %2295, i32 noundef %2313, ptr noundef %321, i32 noundef %.03.i846, i32 noundef 4, i32 noundef 0)
-  %2315 = add nuw nsw i32 %.03.i846, 4
+  %2314 = call ptr @proto_tree_add_item(ptr noundef %2295, i32 noundef %2313, ptr noundef %321, i32 noundef %.03.i862, i32 noundef 4, i32 noundef 0)
+  %2315 = add nuw nsw i32 %.03.i862, 4
   %2316 = add nuw nsw i32 %.0412.i, 1
-  %exitcond.not.i847 = icmp eq i32 %2316, %2312
-  br i1 %exitcond.not.i847, label %._crit_edge.loopexit.i848, label %.lr.ph.i845, !llvm.loop !12
+  %exitcond.not.i863 = icmp eq i32 %2316, %2312
+  br i1 %exitcond.not.i863, label %._crit_edge.loopexit.i864, label %.lr.ph.i861, !llvm.loop !12
 
-._crit_edge.loopexit.i848:                        ; preds = %.lr.ph.i845
+._crit_edge.loopexit.i864:                        ; preds = %.lr.ph.i861
   %2317 = shl nuw nsw i32 %2312, 2
   %2318 = add nuw nsw i32 %2317, 16
   br label %dissect_nhdr_pattern_md_interest.exit
 
-dissect_nhdr_pattern_md_interest.exit:            ; preds = %2289, %._crit_edge.loopexit.i848
-  %.0.lcssa.i850 = phi i32 [ 16, %2289 ], [ %2318, %._crit_edge.loopexit.i848 ]
-  call void @proto_item_set_len(ptr noundef %2293, i32 noundef %.0.lcssa.i850)
+dissect_nhdr_pattern_md_interest.exit:            ; preds = %2289, %._crit_edge.loopexit.i864
+  %.0.lcssa.i866 = phi i32 [ 16, %2289 ], [ %2318, %._crit_edge.loopexit.i864 ]
+  call void @proto_item_set_len(ptr noundef %2293, i32 noundef %.0.lcssa.i866)
   br label %3044
 
 2319:                                             ; preds = %320
@@ -6966,8 +6966,8 @@ dissect_nhdr_umq_rcv_msg_retrieve.exit.i:         ; preds = %.lr.ph.i.i, %2429
   br label %dissect_nhdr_umq_cmd.exit
 
 dissect_nhdr_umq_cmd.exit:                        ; preds = %2422, %dissect_nhdr_umq_rcv_msg_retrieve.exit.i, %2458, %2467
-  %.0.i851 = phi i32 [ 20, %2467 ], [ 28, %2458 ], [ %2457, %dissect_nhdr_umq_rcv_msg_retrieve.exit.i ], [ 28, %2422 ]
-  call void @proto_item_set_len(ptr noundef %2401, i32 noundef %.0.i851)
+  %.0.i867 = phi i32 [ 20, %2467 ], [ 28, %2458 ], [ %2457, %dissect_nhdr_umq_rcv_msg_retrieve.exit.i ], [ 28, %2422 ]
+  call void @proto_item_set_len(ptr noundef %2401, i32 noundef %.0.i867)
   br label %3044
 
 2470:                                             ; preds = %320
@@ -7108,8 +7108,8 @@ dissect_nhdr_umq_cmd.exit:                        ; preds = %2422, %dissect_nhdr
   br label %dissect_nhdr_gateway_name.exit
 
 dissect_nhdr_gateway_name.exit:                   ; preds = %2583, %2587
-  %.0.i852 = phi i32 [ %2571, %2583 ], [ 4, %2587 ]
-  call void @proto_item_set_len(ptr noundef %2572, i32 noundef %.0.i852)
+  %.0.i868 = phi i32 [ %2571, %2583 ], [ 4, %2587 ]
+  call void @proto_item_set_len(ptr noundef %2572, i32 noundef %.0.i868)
   br label %3044
 
 2589:                                             ; preds = %320
@@ -7140,8 +7140,8 @@ dissect_nhdr_gateway_name.exit:                   ; preds = %2583, %2587
   %2607 = load i32, ptr @hf_lbmc_auth_request_user_len, align 4
   %2608 = call ptr @proto_tree_add_item(ptr noundef %2597, i32 noundef %2607, ptr noundef %321, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %2609 = call zeroext i8 @tvb_get_uint8(ptr noundef %321, i32 noundef 4)
-  %.not.i853 = icmp eq i8 %2609, 0
-  br i1 %.not.i853, label %dissect_nhdr_auth_request.exit, label %2610
+  %.not.i869 = icmp eq i8 %2609, 0
+  br i1 %.not.i869, label %dissect_nhdr_auth_request.exit, label %2610
 
 2610:                                             ; preds = %2591
   %2611 = zext i8 %2609 to i32
@@ -7151,8 +7151,8 @@ dissect_nhdr_gateway_name.exit:                   ; preds = %2583, %2587
   br label %dissect_nhdr_auth_request.exit
 
 dissect_nhdr_auth_request.exit:                   ; preds = %2591, %2610
-  %.0.i854 = phi i32 [ %2614, %2610 ], [ 5, %2591 ]
-  call void @proto_item_set_len(ptr noundef %2595, i32 noundef %.0.i854)
+  %.0.i870 = phi i32 [ %2614, %2610 ], [ 5, %2591 ]
+  call void @proto_item_set_len(ptr noundef %2595, i32 noundef %.0.i870)
   br label %3044
 
 2615:                                             ; preds = %2589
@@ -7180,8 +7180,8 @@ dissect_nhdr_auth_request.exit:                   ; preds = %2591, %2610
   %2637 = load i32, ptr @hf_lbmc_auth_challenge_pubkey_len, align 4
   %2638 = call ptr @proto_tree_add_item(ptr noundef %2621, i32 noundef %2637, ptr noundef %321, i32 noundef 7, i32 noundef 1, i32 noundef 0)
   %2639 = call zeroext i8 @tvb_get_uint8(ptr noundef %321, i32 noundef 4)
-  %.not.i855 = icmp eq i8 %2639, 0
-  br i1 %.not.i855, label %2645, label %2640
+  %.not.i871 = icmp eq i8 %2639, 0
+  br i1 %.not.i871, label %2645, label %2640
 
 2640:                                             ; preds = %2615
   %2641 = zext i8 %2639 to i32
@@ -7255,8 +7255,8 @@ dissect_nhdr_auth_challenge.exit:                 ; preds = %2659, %2661
   %2684 = load i32, ptr @hf_lbmc_auth_challenge_rsp_evidence_len, align 4
   %2685 = call ptr @proto_tree_add_item(ptr noundef %2672, i32 noundef %2684, ptr noundef %321, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %2686 = call zeroext i8 @tvb_get_uint8(ptr noundef %321, i32 noundef 4)
-  %.not.i856 = icmp eq i8 %2686, 0
-  br i1 %.not.i856, label %2692, label %2687
+  %.not.i872 = icmp eq i8 %2686, 0
+  br i1 %.not.i872, label %2692, label %2687
 
 2687:                                             ; preds = %2666
   %2688 = zext i8 %2686 to i32
@@ -7279,8 +7279,8 @@ dissect_nhdr_auth_challenge.exit:                 ; preds = %2659, %2661
   br label %dissect_nhdr_auth_challenge_rsp.exit
 
 dissect_nhdr_auth_challenge_rsp.exit:             ; preds = %2692, %2694
-  %.1.i857 = phi i32 [ %2698, %2694 ], [ %.049.i, %2692 ]
-  call void @proto_item_set_len(ptr noundef %2670, i32 noundef %.1.i857)
+  %.1.i873 = phi i32 [ %2698, %2694 ], [ %.049.i, %2692 ]
+  call void @proto_item_set_len(ptr noundef %2670, i32 noundef %.1.i873)
   br label %3044
 
 2699:                                             ; preds = %2589
@@ -7333,8 +7333,8 @@ dissect_nhdr_auth_challenge_rsp.exit:             ; preds = %2692, %2694
   br label %dissect_nhdr_auth_unknown.exit
 
 dissect_nhdr_auth_unknown.exit:                   ; preds = %2734, %2738
-  %.0.i858 = phi i32 [ %2718, %2734 ], [ 4, %2738 ]
-  call void @proto_item_set_len(ptr noundef %2719, i32 noundef %.0.i858)
+  %.0.i874 = phi i32 [ %2718, %2734 ], [ 4, %2738 ]
+  call void @proto_item_set_len(ptr noundef %2719, i32 noundef %.0.i874)
   br label %3044
 
 2740:                                             ; preds = %320
@@ -7593,8 +7593,8 @@ dissect_nhdr_auth_unknown.exit:                   ; preds = %2734, %2738
   %2967 = load i16, ptr %309, align 2
   %2968 = zext i16 %2967 to i32
   %2969 = call ptr @proto_tree_add_uint(ptr noundef %2965, i32 noundef %2966, ptr noundef %2958, i32 noundef 0, i32 noundef 0, i32 noundef %2968)
-  %.not.i.i863 = icmp eq ptr %2969, null
-  br i1 %.not.i.i863, label %proto_item_set_generated.exit.i, label %2970
+  %.not.i.i879 = icmp eq ptr %2969, null
+  br i1 %.not.i.i879, label %proto_item_set_generated.exit.i, label %2970
 
 2970:                                             ; preds = %2947
   %2971 = getelementptr inbounds nuw i8, ptr %2969, i64 40
@@ -7715,8 +7715,8 @@ proto_item_set_generated.exit156.i:               ; preds = %2983, %2980, %proto
   store i8 1, ptr %308, align 4
   store i16 %2915, ptr %309, align 2
   store i32 0, ptr %310, align 4
-  %.not.i861 = icmp eq i16 %2916, 0
-  br i1 %.not.i861, label %3033, label %3030
+  %.not.i877 = icmp eq i16 %2916, 0
+  br i1 %.not.i877, label %3033, label %3030
 
 3030:                                             ; preds = %3029
   %3031 = zext i16 %2916 to i32
@@ -7742,2384 +7742,2377 @@ proto_item_set_generated.exit156.i:               ; preds = %2983, %2980, %proto
   br label %3044
 
 3042:                                             ; preds = %320
-  %3043 = call fastcc i32 @dissect_nhdr_unhandled(ptr noundef %321, ptr noundef %2, ptr noundef %276, i8 noundef zeroext %.07031219)
+  %3043 = call fastcc i32 @dissect_nhdr_unhandled(ptr noundef %321, ptr noundef %2, ptr noundef %276, i8 noundef zeroext %.07211225)
   br label %3044
 
 3044:                                             ; preds = %324, %345, %357, %359, %dissect_nhdr_topicname.exit, %dissect_nhdr_apphdr.exit, %501, %517, %539, %559, %573, %588, %603, %617, %639, %663, %683, %713, %742, %764, %792, %812, %825, %841, %855, %867, %879, %897, %919, %dissect_nhdr_tsni.exit, %dissect_nhdr_umq_reg.exit, %dissect_nhdr_umq_reg_resp.exit, %dissect_nhdr_umq_ack.exit, %1307, %dissect_nhdr_umq_ka.exit, %dissect_nhdr_umq_rxreq.exit, %1527, %1539, %1563, %1587, %1601, %1619, %1652, %dissect_nhdr_storename.exit, %1687, %1715, %dissect_nhdr_ctxinfo.exit, %1769, %1797, %1811, %1825, %1847, %1861, %1879, %dissect_nhdr_umq_idx_cmd.exit, %dissect_nhdr_umq_idx_cmd_resp.exit, %2228, %2242, %dissect_nhdr_topic_md_interest.exit, %dissect_nhdr_pattern_md_interest.exit, %2319, %2349, %2379, %dissect_nhdr_umq_cmd.exit, %2470, %2472, %2488, %2502, %2520, %2550, %dissect_nhdr_gateway_name.exit, %2740, %2756, %2772, %2806, %2820, %2834, %2855, %2881, %2897, %3042, %dissect_nhdr_auth_unknown.exit, %2699, %dissect_nhdr_auth_challenge_rsp.exit, %dissect_nhdr_auth_challenge.exit, %dissect_nhdr_auth_request.exit, %455, %478, %._crit_edge.i, %2999, %3027, %3041
-  %.sroa.43.4 = phi ptr [ %.sroa.43.21201, %3042 ], [ %.sroa.43.21201, %2897 ], [ %.sroa.43.21201, %2881 ], [ %.sroa.43.21201, %2855 ], [ %.sroa.43.21201, %2834 ], [ %.sroa.43.21201, %2820 ], [ %.sroa.43.21201, %2806 ], [ %2804, %2772 ], [ %.sroa.43.21201, %2756 ], [ %.sroa.43.21201, %2740 ], [ %.sroa.43.21201, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.43.21201, %2699 ], [ %.sroa.43.21201, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.43.21201, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.43.21201, %dissect_nhdr_auth_request.exit ], [ %.sroa.43.21201, %dissect_nhdr_gateway_name.exit ], [ %.sroa.43.21201, %2550 ], [ %.sroa.43.21201, %2520 ], [ %.sroa.43.21201, %2502 ], [ %.sroa.43.21201, %2488 ], [ %.sroa.43.21201, %2472 ], [ %.sroa.43.21201, %2470 ], [ %.sroa.43.21201, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.43.21201, %2379 ], [ %.sroa.43.21201, %2349 ], [ %.sroa.43.21201, %2319 ], [ %.sroa.43.21201, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.43.21201, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.43.21201, %2242 ], [ %.sroa.43.21201, %2228 ], [ %.sroa.43.21201, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.43.21201, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.43.21201, %1879 ], [ %.sroa.43.21201, %1861 ], [ %.sroa.43.21201, %1847 ], [ %.sroa.43.21201, %1825 ], [ %.sroa.43.21201, %1811 ], [ %.sroa.43.21201, %1797 ], [ %.sroa.43.21201, %1769 ], [ %.sroa.43.21201, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.43.21201, %1715 ], [ %.sroa.43.21201, %1687 ], [ %.sroa.43.21201, %dissect_nhdr_storename.exit ], [ %.sroa.43.21201, %1652 ], [ %.sroa.43.21201, %1619 ], [ %.sroa.43.21201, %1601 ], [ %.sroa.43.21201, %1587 ], [ %.sroa.43.21201, %1563 ], [ %.sroa.43.21201, %1539 ], [ %.sroa.43.21201, %1527 ], [ %.sroa.43.21201, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.43.21201, %dissect_nhdr_umq_ka.exit ], [ %.sroa.43.21201, %1307 ], [ %.sroa.43.21201, %dissect_nhdr_umq_ack.exit ], [ %.sroa.43.21201, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.43.21201, %dissect_nhdr_umq_reg.exit ], [ %.sroa.43.21201, %dissect_nhdr_tsni.exit ], [ %.sroa.43.21201, %919 ], [ %.sroa.43.21201, %897 ], [ %.sroa.43.21201, %879 ], [ %.sroa.43.21201, %867 ], [ %.sroa.43.21201, %855 ], [ %.sroa.43.21201, %841 ], [ %.sroa.43.21201, %825 ], [ %.sroa.43.21201, %812 ], [ %.sroa.43.21201, %792 ], [ %.sroa.43.21201, %764 ], [ %.sroa.43.21201, %742 ], [ %.sroa.43.21201, %713 ], [ %.sroa.43.21201, %683 ], [ %.sroa.43.21201, %663 ], [ %.sroa.43.21201, %639 ], [ %.sroa.43.21201, %617 ], [ %.sroa.43.21201, %603 ], [ %.sroa.43.21201, %588 ], [ %.sroa.43.21201, %573 ], [ %.sroa.43.21201, %559 ], [ %.sroa.43.21201, %539 ], [ %.sroa.43.21201, %517 ], [ %.sroa.43.21201, %501 ], [ %.sroa.43.21201, %dissect_nhdr_apphdr.exit ], [ %.sroa.43.21201, %dissect_nhdr_topicname.exit ], [ %.sroa.43.21201, %359 ], [ %.sroa.43.21201, %357 ], [ %.sroa.43.21201, %345 ], [ %.sroa.43.21201, %324 ], [ %.sroa.43.21201, %455 ], [ %.sroa.43.21201, %478 ], [ %.sroa.43.21201, %._crit_edge.i ], [ %.sroa.43.21201, %2999 ], [ %.sroa.43.21201, %3027 ], [ %.sroa.43.21201, %3041 ]
-  %.sroa.48.4 = phi i16 [ %.sroa.48.21202, %3042 ], [ %.sroa.48.21202, %2897 ], [ %.sroa.48.21202, %2881 ], [ %.sroa.48.21202, %2855 ], [ %.sroa.48.21202, %2834 ], [ %.sroa.48.21202, %2820 ], [ %.sroa.48.21202, %2806 ], [ %2805, %2772 ], [ %.sroa.48.21202, %2756 ], [ %.sroa.48.21202, %2740 ], [ %.sroa.48.21202, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.48.21202, %2699 ], [ %.sroa.48.21202, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.48.21202, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.48.21202, %dissect_nhdr_auth_request.exit ], [ %.sroa.48.21202, %dissect_nhdr_gateway_name.exit ], [ %.sroa.48.21202, %2550 ], [ %.sroa.48.21202, %2520 ], [ %.sroa.48.21202, %2502 ], [ %.sroa.48.21202, %2488 ], [ %.sroa.48.21202, %2472 ], [ %.sroa.48.21202, %2470 ], [ %.sroa.48.21202, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.48.21202, %2379 ], [ %.sroa.48.21202, %2349 ], [ %.sroa.48.21202, %2319 ], [ %.sroa.48.21202, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.48.21202, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.48.21202, %2242 ], [ %.sroa.48.21202, %2228 ], [ %.sroa.48.21202, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.48.21202, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.48.21202, %1879 ], [ %.sroa.48.21202, %1861 ], [ %.sroa.48.21202, %1847 ], [ %.sroa.48.21202, %1825 ], [ %.sroa.48.21202, %1811 ], [ %.sroa.48.21202, %1797 ], [ %.sroa.48.21202, %1769 ], [ %.sroa.48.21202, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.48.21202, %1715 ], [ %.sroa.48.21202, %1687 ], [ %.sroa.48.21202, %dissect_nhdr_storename.exit ], [ %.sroa.48.21202, %1652 ], [ %.sroa.48.21202, %1619 ], [ %.sroa.48.21202, %1601 ], [ %.sroa.48.21202, %1587 ], [ %.sroa.48.21202, %1563 ], [ %.sroa.48.21202, %1539 ], [ %.sroa.48.21202, %1527 ], [ %.sroa.48.21202, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.48.21202, %dissect_nhdr_umq_ka.exit ], [ %.sroa.48.21202, %1307 ], [ %.sroa.48.21202, %dissect_nhdr_umq_ack.exit ], [ %.sroa.48.21202, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.48.21202, %dissect_nhdr_umq_reg.exit ], [ %.sroa.48.21202, %dissect_nhdr_tsni.exit ], [ %.sroa.48.21202, %919 ], [ %.sroa.48.21202, %897 ], [ %.sroa.48.21202, %879 ], [ %.sroa.48.21202, %867 ], [ %.sroa.48.21202, %855 ], [ %.sroa.48.21202, %841 ], [ %.sroa.48.21202, %825 ], [ %.sroa.48.21202, %812 ], [ %.sroa.48.21202, %792 ], [ %.sroa.48.21202, %764 ], [ %.sroa.48.21202, %742 ], [ %.sroa.48.21202, %713 ], [ %.sroa.48.21202, %683 ], [ %.sroa.48.21202, %663 ], [ %.sroa.48.21202, %639 ], [ %.sroa.48.21202, %617 ], [ %.sroa.48.21202, %603 ], [ %.sroa.48.21202, %588 ], [ %.sroa.48.21202, %573 ], [ %.sroa.48.21202, %559 ], [ %.sroa.48.21202, %539 ], [ %.sroa.48.21202, %517 ], [ %.sroa.48.21202, %501 ], [ %.sroa.48.21202, %dissect_nhdr_apphdr.exit ], [ %.sroa.48.21202, %dissect_nhdr_topicname.exit ], [ %.sroa.48.21202, %359 ], [ %.sroa.48.21202, %357 ], [ %.sroa.48.21202, %345 ], [ %.sroa.48.21202, %324 ], [ %.sroa.48.21202, %455 ], [ %.sroa.48.21202, %478 ], [ %.sroa.48.21202, %._crit_edge.i ], [ %.sroa.48.21202, %2999 ], [ %.sroa.48.21202, %3027 ], [ %.sroa.48.21202, %3041 ]
-  %.21056 = phi i8 [ %.010541203, %3042 ], [ %.010541203, %2897 ], [ %.010541203, %2881 ], [ %.010541203, %2855 ], [ %.010541203, %2834 ], [ %.010541203, %2820 ], [ %.010541203, %2806 ], [ %.010541203, %2772 ], [ %.010541203, %2756 ], [ %.010541203, %2740 ], [ %.010541203, %dissect_nhdr_auth_unknown.exit ], [ %.010541203, %2699 ], [ %.010541203, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.010541203, %dissect_nhdr_auth_challenge.exit ], [ %.010541203, %dissect_nhdr_auth_request.exit ], [ %.010541203, %dissect_nhdr_gateway_name.exit ], [ %.010541203, %2550 ], [ %.010541203, %2520 ], [ %.010541203, %2502 ], [ %.010541203, %2488 ], [ %.010541203, %2472 ], [ %.010541203, %2470 ], [ %.010541203, %dissect_nhdr_umq_cmd.exit ], [ %.010541203, %2379 ], [ %.010541203, %2349 ], [ %.010541203, %2319 ], [ %.010541203, %dissect_nhdr_pattern_md_interest.exit ], [ %.010541203, %dissect_nhdr_topic_md_interest.exit ], [ %.010541203, %2242 ], [ %.010541203, %2228 ], [ %.010541203, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.010541203, %dissect_nhdr_umq_idx_cmd.exit ], [ %.010541203, %1879 ], [ %.010541203, %1861 ], [ %.010541203, %1847 ], [ %.010541203, %1825 ], [ %.010541203, %1811 ], [ %.010541203, %1797 ], [ %.010541203, %1769 ], [ %.010541203, %dissect_nhdr_ctxinfo.exit ], [ %.010541203, %1715 ], [ %.010541203, %1687 ], [ %.010541203, %dissect_nhdr_storename.exit ], [ %.010541203, %1652 ], [ %.010541203, %1619 ], [ %.010541203, %1601 ], [ %.010541203, %1587 ], [ %.010541203, %1563 ], [ %.010541203, %1539 ], [ %.010541203, %1527 ], [ %.010541203, %dissect_nhdr_umq_rxreq.exit ], [ %.010541203, %dissect_nhdr_umq_ka.exit ], [ %.010541203, %1307 ], [ %.010541203, %dissect_nhdr_umq_ack.exit ], [ %.010541203, %dissect_nhdr_umq_reg_resp.exit ], [ %.010541203, %dissect_nhdr_umq_reg.exit ], [ %.010541203, %dissect_nhdr_tsni.exit ], [ %.010541203, %919 ], [ %.010541203, %897 ], [ %.010541203, %879 ], [ %.010541203, %867 ], [ %.010541203, %855 ], [ %.010541203, %841 ], [ %.010541203, %825 ], [ %.010541203, %812 ], [ %.010541203, %792 ], [ %.010541203, %764 ], [ %.010541203, %742 ], [ %.010541203, %713 ], [ %.010541203, %683 ], [ %.010541203, %663 ], [ %.010541203, %639 ], [ %.010541203, %617 ], [ %.010541203, %603 ], [ %.010541203, %588 ], [ %.010541203, %573 ], [ %.010541203, %559 ], [ %.010541203, %539 ], [ %..i, %517 ], [ %.010541203, %501 ], [ %.010541203, %dissect_nhdr_apphdr.exit ], [ %.010541203, %dissect_nhdr_topicname.exit ], [ %.010541203, %359 ], [ %.010541203, %357 ], [ %.010541203, %345 ], [ %.010541203, %324 ], [ %.010541203, %455 ], [ %.010541203, %478 ], [ %.010541203, %._crit_edge.i ], [ %.010541203, %2999 ], [ %.010541203, %3027 ], [ %.010541203, %3041 ]
-  %.sroa.291009.4 = phi i32 [ %.sroa.291009.21204, %3042 ], [ %.sroa.291009.21204, %2897 ], [ %.sroa.291009.21204, %2881 ], [ %.sroa.291009.21204, %2855 ], [ %.sroa.291009.21204, %2834 ], [ %.sroa.291009.21204, %2820 ], [ %.sroa.291009.21204, %2806 ], [ %2803, %2772 ], [ %.sroa.291009.21204, %2756 ], [ %.sroa.291009.21204, %2740 ], [ %.sroa.291009.21204, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.291009.21204, %2699 ], [ %.sroa.291009.21204, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.291009.21204, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.291009.21204, %dissect_nhdr_auth_request.exit ], [ %.sroa.291009.21204, %dissect_nhdr_gateway_name.exit ], [ %.sroa.291009.21204, %2550 ], [ %.sroa.291009.21204, %2520 ], [ %.sroa.291009.21204, %2502 ], [ %.sroa.291009.21204, %2488 ], [ %.sroa.291009.21204, %2472 ], [ %.sroa.291009.21204, %2470 ], [ %.sroa.291009.21204, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.291009.21204, %2379 ], [ %.sroa.291009.21204, %2349 ], [ %.sroa.291009.21204, %2319 ], [ %.sroa.291009.21204, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.291009.21204, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.291009.21204, %2242 ], [ %.sroa.291009.21204, %2228 ], [ %.sroa.291009.21204, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.291009.21204, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.291009.21204, %1879 ], [ %.sroa.291009.21204, %1861 ], [ %.sroa.291009.21204, %1847 ], [ %.sroa.291009.21204, %1825 ], [ %.sroa.291009.21204, %1811 ], [ %.sroa.291009.21204, %1797 ], [ %.sroa.291009.21204, %1769 ], [ %.sroa.291009.21204, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.291009.21204, %1715 ], [ %.sroa.291009.21204, %1687 ], [ %.sroa.291009.21204, %dissect_nhdr_storename.exit ], [ %.sroa.291009.21204, %1652 ], [ %.sroa.291009.21204, %1619 ], [ %.sroa.291009.21204, %1601 ], [ %.sroa.291009.21204, %1587 ], [ %.sroa.291009.21204, %1563 ], [ %.sroa.291009.21204, %1539 ], [ %.sroa.291009.21204, %1527 ], [ %.sroa.291009.21204, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.291009.21204, %dissect_nhdr_umq_ka.exit ], [ %.sroa.291009.21204, %1307 ], [ %.sroa.291009.21204, %dissect_nhdr_umq_ack.exit ], [ %.sroa.291009.21204, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.291009.21204, %dissect_nhdr_umq_reg.exit ], [ %.sroa.291009.21204, %dissect_nhdr_tsni.exit ], [ %.sroa.291009.21204, %919 ], [ %.sroa.291009.21204, %897 ], [ %.sroa.291009.21204, %879 ], [ %.sroa.291009.21204, %867 ], [ %.sroa.291009.21204, %855 ], [ %.sroa.291009.21204, %841 ], [ %.sroa.291009.21204, %825 ], [ %.sroa.291009.21204, %812 ], [ %.sroa.291009.21204, %792 ], [ %.sroa.291009.21204, %764 ], [ %.sroa.291009.21204, %742 ], [ %.sroa.291009.21204, %713 ], [ %.sroa.291009.21204, %683 ], [ %.sroa.291009.21204, %663 ], [ %.sroa.291009.21204, %639 ], [ %.sroa.291009.21204, %617 ], [ %.sroa.291009.21204, %603 ], [ %.sroa.291009.21204, %588 ], [ %.sroa.291009.21204, %573 ], [ %.sroa.291009.21204, %559 ], [ %.sroa.291009.21204, %539 ], [ %.sroa.291009.21204, %517 ], [ %.sroa.291009.21204, %501 ], [ %.sroa.291009.21204, %dissect_nhdr_apphdr.exit ], [ %.sroa.291009.21204, %dissect_nhdr_topicname.exit ], [ %.sroa.291009.21204, %359 ], [ %.sroa.291009.21204, %357 ], [ %.sroa.291009.21204, %345 ], [ %.sroa.291009.21204, %324 ], [ %.sroa.291009.21204, %455 ], [ %.sroa.291009.21204, %478 ], [ %.sroa.291009.21204, %._crit_edge.i ], [ %.sroa.291009.21204, %2999 ], [ %.sroa.291009.21204, %3027 ], [ %.sroa.291009.21204, %3041 ]
-  %.sroa.25.4 = phi i16 [ %.sroa.25.21205, %3042 ], [ %.sroa.25.21205, %2897 ], [ %.sroa.25.21205, %2881 ], [ %.sroa.25.21205, %2855 ], [ %.sroa.25.21205, %2834 ], [ %.sroa.25.21205, %2820 ], [ %.sroa.25.21205, %2806 ], [ %2802, %2772 ], [ %.sroa.25.21205, %2756 ], [ %.sroa.25.21205, %2740 ], [ %.sroa.25.21205, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.25.21205, %2699 ], [ %.sroa.25.21205, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.25.21205, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.25.21205, %dissect_nhdr_auth_request.exit ], [ %.sroa.25.21205, %dissect_nhdr_gateway_name.exit ], [ %.sroa.25.21205, %2550 ], [ %.sroa.25.21205, %2520 ], [ %.sroa.25.21205, %2502 ], [ %.sroa.25.21205, %2488 ], [ %.sroa.25.21205, %2472 ], [ %.sroa.25.21205, %2470 ], [ %.sroa.25.21205, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.25.21205, %2379 ], [ %.sroa.25.21205, %2349 ], [ %.sroa.25.21205, %2319 ], [ %.sroa.25.21205, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.25.21205, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.25.21205, %2242 ], [ %.sroa.25.21205, %2228 ], [ %.sroa.25.21205, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.25.21205, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.25.21205, %1879 ], [ %.sroa.25.21205, %1861 ], [ %.sroa.25.21205, %1847 ], [ %.sroa.25.21205, %1825 ], [ %.sroa.25.21205, %1811 ], [ %.sroa.25.21205, %1797 ], [ %.sroa.25.21205, %1769 ], [ %.sroa.25.21205, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.25.21205, %1715 ], [ %.sroa.25.21205, %1687 ], [ %.sroa.25.21205, %dissect_nhdr_storename.exit ], [ %.sroa.25.21205, %1652 ], [ %.sroa.25.21205, %1619 ], [ %.sroa.25.21205, %1601 ], [ %.sroa.25.21205, %1587 ], [ %.sroa.25.21205, %1563 ], [ %.sroa.25.21205, %1539 ], [ %.sroa.25.21205, %1527 ], [ %.sroa.25.21205, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.25.21205, %dissect_nhdr_umq_ka.exit ], [ %.sroa.25.21205, %1307 ], [ %.sroa.25.21205, %dissect_nhdr_umq_ack.exit ], [ %.sroa.25.21205, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.25.21205, %dissect_nhdr_umq_reg.exit ], [ %.sroa.25.21205, %dissect_nhdr_tsni.exit ], [ %.sroa.25.21205, %919 ], [ %.sroa.25.21205, %897 ], [ %.sroa.25.21205, %879 ], [ %.sroa.25.21205, %867 ], [ %.sroa.25.21205, %855 ], [ %.sroa.25.21205, %841 ], [ %.sroa.25.21205, %825 ], [ %.sroa.25.21205, %812 ], [ %.sroa.25.21205, %792 ], [ %.sroa.25.21205, %764 ], [ %.sroa.25.21205, %742 ], [ %.sroa.25.21205, %713 ], [ %.sroa.25.21205, %683 ], [ %.sroa.25.21205, %663 ], [ %.sroa.25.21205, %639 ], [ %.sroa.25.21205, %617 ], [ %.sroa.25.21205, %603 ], [ %.sroa.25.21205, %588 ], [ %.sroa.25.21205, %573 ], [ %.sroa.25.21205, %559 ], [ %.sroa.25.21205, %539 ], [ %.sroa.25.21205, %517 ], [ %.sroa.25.21205, %501 ], [ %.sroa.25.21205, %dissect_nhdr_apphdr.exit ], [ %.sroa.25.21205, %dissect_nhdr_topicname.exit ], [ %.sroa.25.21205, %359 ], [ %.sroa.25.21205, %357 ], [ %.sroa.25.21205, %345 ], [ %.sroa.25.21205, %324 ], [ %.sroa.25.21205, %455 ], [ %.sroa.25.21205, %478 ], [ %.sroa.25.21205, %._crit_edge.i ], [ %.sroa.25.21205, %2999 ], [ %.sroa.25.21205, %3027 ], [ %.sroa.25.21205, %3041 ]
-  %.sroa.01036.2 = phi i32 [ %.sroa.01036.01206, %3042 ], [ %.sroa.01036.01206, %2897 ], [ %.sroa.01036.01206, %2881 ], [ %.sroa.01036.01206, %2855 ], [ %.sroa.01036.01206, %2834 ], [ %.sroa.01036.01206, %2820 ], [ %.sroa.01036.01206, %2806 ], [ %.sroa.01036.01206, %2772 ], [ %.sroa.01036.01206, %2756 ], [ %.sroa.01036.01206, %2740 ], [ %.sroa.01036.01206, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.01036.01206, %2699 ], [ %.sroa.01036.01206, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.01036.01206, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.01036.01206, %dissect_nhdr_auth_request.exit ], [ %.sroa.01036.01206, %dissect_nhdr_gateway_name.exit ], [ %.sroa.01036.01206, %2550 ], [ %.sroa.01036.01206, %2520 ], [ %.sroa.01036.01206, %2502 ], [ %.sroa.01036.01206, %2488 ], [ %.sroa.01036.01206, %2472 ], [ %.sroa.01036.01206, %2470 ], [ %.sroa.01036.01206, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.01036.01206, %2379 ], [ %.sroa.01036.01206, %2349 ], [ %.sroa.01036.01206, %2319 ], [ %.sroa.01036.01206, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.01036.01206, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.01036.01206, %2242 ], [ %.sroa.01036.01206, %2228 ], [ %.sroa.01036.01206, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.01036.01206, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.01036.01206, %1879 ], [ %.sroa.01036.01206, %1861 ], [ %.sroa.01036.01206, %1847 ], [ %.sroa.01036.01206, %1825 ], [ %.sroa.01036.01206, %1811 ], [ %.sroa.01036.01206, %1797 ], [ %.sroa.01036.01206, %1769 ], [ %.sroa.01036.01206, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.01036.01206, %1715 ], [ %.sroa.01036.01206, %1687 ], [ %.sroa.01036.01206, %dissect_nhdr_storename.exit ], [ %.sroa.01036.01206, %1652 ], [ %.sroa.01036.01206, %1619 ], [ %.sroa.01036.01206, %1601 ], [ %.sroa.01036.01206, %1587 ], [ %.sroa.01036.01206, %1563 ], [ %.sroa.01036.01206, %1539 ], [ %.sroa.01036.01206, %1527 ], [ %.sroa.01036.01206, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.01036.01206, %dissect_nhdr_umq_ka.exit ], [ %.sroa.01036.01206, %1307 ], [ %.sroa.01036.01206, %dissect_nhdr_umq_ack.exit ], [ %.sroa.01036.01206, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.01036.01206, %dissect_nhdr_umq_reg.exit ], [ %.sroa.01036.01206, %dissect_nhdr_tsni.exit ], [ %.sroa.01036.01206, %919 ], [ %.sroa.01036.01206, %897 ], [ %.sroa.01036.01206, %879 ], [ %.sroa.01036.01206, %867 ], [ %.sroa.01036.01206, %855 ], [ %.sroa.01036.01206, %841 ], [ %.sroa.01036.01206, %825 ], [ %.sroa.01036.01206, %812 ], [ %.sroa.01036.01206, %792 ], [ %.sroa.01036.01206, %764 ], [ %.sroa.01036.01206, %742 ], [ %.sroa.01036.01206, %713 ], [ %.sroa.01036.01206, %683 ], [ %.sroa.01036.01206, %663 ], [ %.sroa.01036.01206, %639 ], [ %.sroa.01036.01206, %617 ], [ %.sroa.01036.01206, %603 ], [ %.sroa.01036.01206, %588 ], [ %.sroa.01036.01206, %573 ], [ %.sroa.01036.01206, %559 ], [ %.sroa.01036.01206, %539 ], [ %.sroa.01036.01206, %517 ], [ %.sroa.01036.01206, %501 ], [ %.sroa.01036.01206, %dissect_nhdr_apphdr.exit ], [ %.sroa.01036.01206, %dissect_nhdr_topicname.exit ], [ %.sroa.01036.01206, %359 ], [ %.sroa.01036.01206, %357 ], [ %.sroa.01036.01206, %345 ], [ 1, %324 ], [ %.sroa.01036.01206, %455 ], [ %.sroa.01036.01206, %478 ], [ %.sroa.01036.01206, %._crit_edge.i ], [ %.sroa.01036.01206, %2999 ], [ %.sroa.01036.01206, %3027 ], [ %.sroa.01036.01206, %3041 ]
-  %.sroa.20.4 = phi ptr [ %.sroa.20.21207, %3042 ], [ %.sroa.20.21207, %2897 ], [ %.sroa.20.21207, %2881 ], [ %.sroa.20.21207, %2855 ], [ %.sroa.20.21207, %2834 ], [ %.sroa.20.21207, %2820 ], [ %.sroa.20.21207, %2806 ], [ %2801, %2772 ], [ %.sroa.20.21207, %2756 ], [ %.sroa.20.21207, %2740 ], [ %.sroa.20.21207, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.20.21207, %2699 ], [ %.sroa.20.21207, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.20.21207, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.20.21207, %dissect_nhdr_auth_request.exit ], [ %.sroa.20.21207, %dissect_nhdr_gateway_name.exit ], [ %.sroa.20.21207, %2550 ], [ %.sroa.20.21207, %2520 ], [ %.sroa.20.21207, %2502 ], [ %.sroa.20.21207, %2488 ], [ %.sroa.20.21207, %2472 ], [ %.sroa.20.21207, %2470 ], [ %.sroa.20.21207, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.20.21207, %2379 ], [ %.sroa.20.21207, %2349 ], [ %.sroa.20.21207, %2319 ], [ %.sroa.20.21207, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.20.21207, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.20.21207, %2242 ], [ %.sroa.20.21207, %2228 ], [ %.sroa.20.21207, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.20.21207, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.20.21207, %1879 ], [ %.sroa.20.21207, %1861 ], [ %.sroa.20.21207, %1847 ], [ %.sroa.20.21207, %1825 ], [ %.sroa.20.21207, %1811 ], [ %.sroa.20.21207, %1797 ], [ %.sroa.20.21207, %1769 ], [ %.sroa.20.21207, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.20.21207, %1715 ], [ %.sroa.20.21207, %1687 ], [ %.sroa.20.21207, %dissect_nhdr_storename.exit ], [ %.sroa.20.21207, %1652 ], [ %.sroa.20.21207, %1619 ], [ %.sroa.20.21207, %1601 ], [ %.sroa.20.21207, %1587 ], [ %.sroa.20.21207, %1563 ], [ %.sroa.20.21207, %1539 ], [ %.sroa.20.21207, %1527 ], [ %.sroa.20.21207, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.20.21207, %dissect_nhdr_umq_ka.exit ], [ %.sroa.20.21207, %1307 ], [ %.sroa.20.21207, %dissect_nhdr_umq_ack.exit ], [ %.sroa.20.21207, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.20.21207, %dissect_nhdr_umq_reg.exit ], [ %.sroa.20.21207, %dissect_nhdr_tsni.exit ], [ %.sroa.20.21207, %919 ], [ %.sroa.20.21207, %897 ], [ %.sroa.20.21207, %879 ], [ %.sroa.20.21207, %867 ], [ %.sroa.20.21207, %855 ], [ %.sroa.20.21207, %841 ], [ %.sroa.20.21207, %825 ], [ %.sroa.20.21207, %812 ], [ %.sroa.20.21207, %792 ], [ %.sroa.20.21207, %764 ], [ %.sroa.20.21207, %742 ], [ %.sroa.20.21207, %713 ], [ %.sroa.20.21207, %683 ], [ %.sroa.20.21207, %663 ], [ %.sroa.20.21207, %639 ], [ %.sroa.20.21207, %617 ], [ %.sroa.20.21207, %603 ], [ %.sroa.20.21207, %588 ], [ %.sroa.20.21207, %573 ], [ %.sroa.20.21207, %559 ], [ %.sroa.20.21207, %539 ], [ %.sroa.20.21207, %517 ], [ %.sroa.20.21207, %501 ], [ %.sroa.20.21207, %dissect_nhdr_apphdr.exit ], [ %.sroa.20.21207, %dissect_nhdr_topicname.exit ], [ %.sroa.20.21207, %359 ], [ %.sroa.20.21207, %357 ], [ %.sroa.20.21207, %345 ], [ %.sroa.20.21207, %324 ], [ %.sroa.20.21207, %455 ], [ %.sroa.20.21207, %478 ], [ %.sroa.20.21207, %._crit_edge.i ], [ %.sroa.20.21207, %2999 ], [ %.sroa.20.21207, %3027 ], [ %.sroa.20.21207, %3041 ]
-  %.sroa.51037.2 = phi i32 [ %.sroa.51037.01208, %3042 ], [ %.sroa.51037.01208, %2897 ], [ %.sroa.51037.01208, %2881 ], [ %.sroa.51037.01208, %2855 ], [ %.sroa.51037.01208, %2834 ], [ %.sroa.51037.01208, %2820 ], [ %.sroa.51037.01208, %2806 ], [ %.sroa.51037.01208, %2772 ], [ %.sroa.51037.01208, %2756 ], [ %.sroa.51037.01208, %2740 ], [ %.sroa.51037.01208, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.51037.01208, %2699 ], [ %.sroa.51037.01208, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.51037.01208, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.51037.01208, %dissect_nhdr_auth_request.exit ], [ %.sroa.51037.01208, %dissect_nhdr_gateway_name.exit ], [ %.sroa.51037.01208, %2550 ], [ %.sroa.51037.01208, %2520 ], [ %.sroa.51037.01208, %2502 ], [ %.sroa.51037.01208, %2488 ], [ %.sroa.51037.01208, %2472 ], [ %.sroa.51037.01208, %2470 ], [ %.sroa.51037.01208, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.51037.01208, %2379 ], [ %.sroa.51037.01208, %2349 ], [ %.sroa.51037.01208, %2319 ], [ %.sroa.51037.01208, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.51037.01208, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.51037.01208, %2242 ], [ %.sroa.51037.01208, %2228 ], [ %.sroa.51037.01208, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.51037.01208, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.51037.01208, %1879 ], [ %.sroa.51037.01208, %1861 ], [ %.sroa.51037.01208, %1847 ], [ %.sroa.51037.01208, %1825 ], [ %.sroa.51037.01208, %1811 ], [ %.sroa.51037.01208, %1797 ], [ %.sroa.51037.01208, %1769 ], [ %.sroa.51037.01208, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.51037.01208, %1715 ], [ %.sroa.51037.01208, %1687 ], [ %.sroa.51037.01208, %dissect_nhdr_storename.exit ], [ %.sroa.51037.01208, %1652 ], [ %.sroa.51037.01208, %1619 ], [ %.sroa.51037.01208, %1601 ], [ %.sroa.51037.01208, %1587 ], [ %.sroa.51037.01208, %1563 ], [ %.sroa.51037.01208, %1539 ], [ %.sroa.51037.01208, %1527 ], [ %.sroa.51037.01208, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.51037.01208, %dissect_nhdr_umq_ka.exit ], [ %.sroa.51037.01208, %1307 ], [ %.sroa.51037.01208, %dissect_nhdr_umq_ack.exit ], [ %.sroa.51037.01208, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.51037.01208, %dissect_nhdr_umq_reg.exit ], [ %.sroa.51037.01208, %dissect_nhdr_tsni.exit ], [ %.sroa.51037.01208, %919 ], [ %.sroa.51037.01208, %897 ], [ %.sroa.51037.01208, %879 ], [ %.sroa.51037.01208, %867 ], [ %.sroa.51037.01208, %855 ], [ %.sroa.51037.01208, %841 ], [ %.sroa.51037.01208, %825 ], [ %.sroa.51037.01208, %812 ], [ %.sroa.51037.01208, %792 ], [ %.sroa.51037.01208, %764 ], [ %.sroa.51037.01208, %742 ], [ %.sroa.51037.01208, %713 ], [ %.sroa.51037.01208, %683 ], [ %.sroa.51037.01208, %663 ], [ %.sroa.51037.01208, %639 ], [ %.sroa.51037.01208, %617 ], [ %.sroa.51037.01208, %603 ], [ %.sroa.51037.01208, %588 ], [ %.sroa.51037.01208, %573 ], [ %.sroa.51037.01208, %559 ], [ %.sroa.51037.01208, %539 ], [ %.sroa.51037.01208, %517 ], [ %.sroa.51037.01208, %501 ], [ %.sroa.51037.01208, %dissect_nhdr_apphdr.exit ], [ %.sroa.51037.01208, %dissect_nhdr_topicname.exit ], [ %.sroa.51037.01208, %359 ], [ %.sroa.51037.01208, %357 ], [ %.sroa.51037.01208, %345 ], [ %342, %324 ], [ %.sroa.51037.01208, %455 ], [ %.sroa.51037.01208, %478 ], [ %.sroa.51037.01208, %._crit_edge.i ], [ %.sroa.51037.01208, %2999 ], [ %.sroa.51037.01208, %3027 ], [ %.sroa.51037.01208, %3041 ]
-  %.sroa.10.2 = phi i32 [ %.sroa.10.01209, %3042 ], [ %.sroa.10.01209, %2897 ], [ %.sroa.10.01209, %2881 ], [ %.sroa.10.01209, %2855 ], [ %.sroa.10.01209, %2834 ], [ %.sroa.10.01209, %2820 ], [ %.sroa.10.01209, %2806 ], [ %.sroa.10.01209, %2772 ], [ %.sroa.10.01209, %2756 ], [ %.sroa.10.01209, %2740 ], [ %.sroa.10.01209, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.10.01209, %2699 ], [ %.sroa.10.01209, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.10.01209, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.10.01209, %dissect_nhdr_auth_request.exit ], [ %.sroa.10.01209, %dissect_nhdr_gateway_name.exit ], [ %.sroa.10.01209, %2550 ], [ %.sroa.10.01209, %2520 ], [ %.sroa.10.01209, %2502 ], [ %.sroa.10.01209, %2488 ], [ %.sroa.10.01209, %2472 ], [ %.sroa.10.01209, %2470 ], [ %.sroa.10.01209, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.10.01209, %2379 ], [ %.sroa.10.01209, %2349 ], [ %.sroa.10.01209, %2319 ], [ %.sroa.10.01209, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.10.01209, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.10.01209, %2242 ], [ %.sroa.10.01209, %2228 ], [ %.sroa.10.01209, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.10.01209, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.10.01209, %1879 ], [ %.sroa.10.01209, %1861 ], [ %.sroa.10.01209, %1847 ], [ %.sroa.10.01209, %1825 ], [ %.sroa.10.01209, %1811 ], [ %.sroa.10.01209, %1797 ], [ %.sroa.10.01209, %1769 ], [ %.sroa.10.01209, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.10.01209, %1715 ], [ %.sroa.10.01209, %1687 ], [ %.sroa.10.01209, %dissect_nhdr_storename.exit ], [ %.sroa.10.01209, %1652 ], [ %.sroa.10.01209, %1619 ], [ %.sroa.10.01209, %1601 ], [ %.sroa.10.01209, %1587 ], [ %.sroa.10.01209, %1563 ], [ %.sroa.10.01209, %1539 ], [ %.sroa.10.01209, %1527 ], [ %.sroa.10.01209, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.10.01209, %dissect_nhdr_umq_ka.exit ], [ %.sroa.10.01209, %1307 ], [ %.sroa.10.01209, %dissect_nhdr_umq_ack.exit ], [ %.sroa.10.01209, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.10.01209, %dissect_nhdr_umq_reg.exit ], [ %.sroa.10.01209, %dissect_nhdr_tsni.exit ], [ %.sroa.10.01209, %919 ], [ %.sroa.10.01209, %897 ], [ %.sroa.10.01209, %879 ], [ %.sroa.10.01209, %867 ], [ %.sroa.10.01209, %855 ], [ %.sroa.10.01209, %841 ], [ %.sroa.10.01209, %825 ], [ %.sroa.10.01209, %812 ], [ %.sroa.10.01209, %792 ], [ %.sroa.10.01209, %764 ], [ %.sroa.10.01209, %742 ], [ %.sroa.10.01209, %713 ], [ %.sroa.10.01209, %683 ], [ %.sroa.10.01209, %663 ], [ %.sroa.10.01209, %639 ], [ %.sroa.10.01209, %617 ], [ %.sroa.10.01209, %603 ], [ %.sroa.10.01209, %588 ], [ %.sroa.10.01209, %573 ], [ %.sroa.10.01209, %559 ], [ %.sroa.10.01209, %539 ], [ %.sroa.10.01209, %517 ], [ %.sroa.10.01209, %501 ], [ %.sroa.10.01209, %dissect_nhdr_apphdr.exit ], [ %.sroa.10.01209, %dissect_nhdr_topicname.exit ], [ %.sroa.10.01209, %359 ], [ %.sroa.10.01209, %357 ], [ %.sroa.10.01209, %345 ], [ %343, %324 ], [ %.sroa.10.01209, %455 ], [ %.sroa.10.01209, %478 ], [ %.sroa.10.01209, %._crit_edge.i ], [ %.sroa.10.01209, %2999 ], [ %.sroa.10.01209, %3027 ], [ %.sroa.10.01209, %3041 ]
-  %.sroa.6983.4 = phi i32 [ %.sroa.6983.21210, %3042 ], [ %.sroa.6983.21210, %2897 ], [ %.sroa.6983.21210, %2881 ], [ %.sroa.6983.21210, %2855 ], [ %.sroa.6983.21210, %2834 ], [ %.sroa.6983.21210, %2820 ], [ %.sroa.6983.21210, %2806 ], [ %2800, %2772 ], [ %.sroa.6983.21210, %2756 ], [ %.sroa.6983.21210, %2740 ], [ %.sroa.6983.21210, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.6983.21210, %2699 ], [ %.sroa.6983.21210, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.6983.21210, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.6983.21210, %dissect_nhdr_auth_request.exit ], [ %.sroa.6983.21210, %dissect_nhdr_gateway_name.exit ], [ %.sroa.6983.21210, %2550 ], [ %.sroa.6983.21210, %2520 ], [ %.sroa.6983.21210, %2502 ], [ %.sroa.6983.21210, %2488 ], [ %.sroa.6983.21210, %2472 ], [ %.sroa.6983.21210, %2470 ], [ %.sroa.6983.21210, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.6983.21210, %2379 ], [ %.sroa.6983.21210, %2349 ], [ %.sroa.6983.21210, %2319 ], [ %.sroa.6983.21210, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.6983.21210, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.6983.21210, %2242 ], [ %.sroa.6983.21210, %2228 ], [ %.sroa.6983.21210, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.6983.21210, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.6983.21210, %1879 ], [ %.sroa.6983.21210, %1861 ], [ %.sroa.6983.21210, %1847 ], [ %.sroa.6983.21210, %1825 ], [ %.sroa.6983.21210, %1811 ], [ %.sroa.6983.21210, %1797 ], [ %.sroa.6983.21210, %1769 ], [ %.sroa.6983.21210, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.6983.21210, %1715 ], [ %.sroa.6983.21210, %1687 ], [ %.sroa.6983.21210, %dissect_nhdr_storename.exit ], [ %.sroa.6983.21210, %1652 ], [ %.sroa.6983.21210, %1619 ], [ %.sroa.6983.21210, %1601 ], [ %.sroa.6983.21210, %1587 ], [ %.sroa.6983.21210, %1563 ], [ %.sroa.6983.21210, %1539 ], [ %.sroa.6983.21210, %1527 ], [ %.sroa.6983.21210, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.6983.21210, %dissect_nhdr_umq_ka.exit ], [ %.sroa.6983.21210, %1307 ], [ %.sroa.6983.21210, %dissect_nhdr_umq_ack.exit ], [ %.sroa.6983.21210, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.6983.21210, %dissect_nhdr_umq_reg.exit ], [ %.sroa.6983.21210, %dissect_nhdr_tsni.exit ], [ %.sroa.6983.21210, %919 ], [ %.sroa.6983.21210, %897 ], [ %.sroa.6983.21210, %879 ], [ %.sroa.6983.21210, %867 ], [ %.sroa.6983.21210, %855 ], [ %.sroa.6983.21210, %841 ], [ %.sroa.6983.21210, %825 ], [ %.sroa.6983.21210, %812 ], [ %.sroa.6983.21210, %792 ], [ %.sroa.6983.21210, %764 ], [ %.sroa.6983.21210, %742 ], [ %.sroa.6983.21210, %713 ], [ %.sroa.6983.21210, %683 ], [ %.sroa.6983.21210, %663 ], [ %.sroa.6983.21210, %639 ], [ %.sroa.6983.21210, %617 ], [ %.sroa.6983.21210, %603 ], [ %.sroa.6983.21210, %588 ], [ %.sroa.6983.21210, %573 ], [ %.sroa.6983.21210, %559 ], [ %.sroa.6983.21210, %539 ], [ %.sroa.6983.21210, %517 ], [ %.sroa.6983.21210, %501 ], [ %.sroa.6983.21210, %dissect_nhdr_apphdr.exit ], [ %.sroa.6983.21210, %dissect_nhdr_topicname.exit ], [ %.sroa.6983.21210, %359 ], [ %.sroa.6983.21210, %357 ], [ %.sroa.6983.21210, %345 ], [ %.sroa.6983.21210, %324 ], [ %.sroa.6983.21210, %455 ], [ %.sroa.6983.21210, %478 ], [ %.sroa.6983.21210, %._crit_edge.i ], [ %.sroa.6983.21210, %2999 ], [ %.sroa.6983.21210, %3027 ], [ %.sroa.6983.21210, %3041 ]
-  %.sroa.15.2 = phi i32 [ %.sroa.15.01211, %3042 ], [ %.sroa.15.01211, %2897 ], [ %.sroa.15.01211, %2881 ], [ %.sroa.15.01211, %2855 ], [ %.sroa.15.01211, %2834 ], [ %.sroa.15.01211, %2820 ], [ %.sroa.15.01211, %2806 ], [ %.sroa.15.01211, %2772 ], [ %.sroa.15.01211, %2756 ], [ %.sroa.15.01211, %2740 ], [ %.sroa.15.01211, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.15.01211, %2699 ], [ %.sroa.15.01211, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.15.01211, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.15.01211, %dissect_nhdr_auth_request.exit ], [ %.sroa.15.01211, %dissect_nhdr_gateway_name.exit ], [ %.sroa.15.01211, %2550 ], [ %.sroa.15.01211, %2520 ], [ %.sroa.15.01211, %2502 ], [ %.sroa.15.01211, %2488 ], [ %.sroa.15.01211, %2472 ], [ %.sroa.15.01211, %2470 ], [ %.sroa.15.01211, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.15.01211, %2379 ], [ %.sroa.15.01211, %2349 ], [ %.sroa.15.01211, %2319 ], [ %.sroa.15.01211, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.15.01211, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.15.01211, %2242 ], [ %.sroa.15.01211, %2228 ], [ %.sroa.15.01211, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.15.01211, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.15.01211, %1879 ], [ %.sroa.15.01211, %1861 ], [ %.sroa.15.01211, %1847 ], [ %.sroa.15.01211, %1825 ], [ %.sroa.15.01211, %1811 ], [ %.sroa.15.01211, %1797 ], [ %.sroa.15.01211, %1769 ], [ %.sroa.15.01211, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.15.01211, %1715 ], [ %.sroa.15.01211, %1687 ], [ %.sroa.15.01211, %dissect_nhdr_storename.exit ], [ %.sroa.15.01211, %1652 ], [ %.sroa.15.01211, %1619 ], [ %.sroa.15.01211, %1601 ], [ %.sroa.15.01211, %1587 ], [ %.sroa.15.01211, %1563 ], [ %.sroa.15.01211, %1539 ], [ %.sroa.15.01211, %1527 ], [ %.sroa.15.01211, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.15.01211, %dissect_nhdr_umq_ka.exit ], [ %.sroa.15.01211, %1307 ], [ %.sroa.15.01211, %dissect_nhdr_umq_ack.exit ], [ %.sroa.15.01211, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.15.01211, %dissect_nhdr_umq_reg.exit ], [ %.sroa.15.01211, %dissect_nhdr_tsni.exit ], [ %.sroa.15.01211, %919 ], [ %.sroa.15.01211, %897 ], [ %.sroa.15.01211, %879 ], [ %.sroa.15.01211, %867 ], [ %.sroa.15.01211, %855 ], [ %.sroa.15.01211, %841 ], [ %.sroa.15.01211, %825 ], [ %.sroa.15.01211, %812 ], [ %.sroa.15.01211, %792 ], [ %.sroa.15.01211, %764 ], [ %.sroa.15.01211, %742 ], [ %.sroa.15.01211, %713 ], [ %.sroa.15.01211, %683 ], [ %.sroa.15.01211, %663 ], [ %.sroa.15.01211, %639 ], [ %.sroa.15.01211, %617 ], [ %.sroa.15.01211, %603 ], [ %.sroa.15.01211, %588 ], [ %.sroa.15.01211, %573 ], [ %.sroa.15.01211, %559 ], [ %.sroa.15.01211, %539 ], [ %.sroa.15.01211, %517 ], [ %.sroa.15.01211, %501 ], [ %.sroa.15.01211, %dissect_nhdr_apphdr.exit ], [ %.sroa.15.01211, %dissect_nhdr_topicname.exit ], [ %.sroa.15.01211, %359 ], [ %.sroa.15.01211, %357 ], [ %.sroa.15.01211, %345 ], [ %344, %324 ], [ %.sroa.15.01211, %455 ], [ %.sroa.15.01211, %478 ], [ %.sroa.15.01211, %._crit_edge.i ], [ %.sroa.15.01211, %2999 ], [ %.sroa.15.01211, %3027 ], [ %.sroa.15.01211, %3041 ]
-  %.sroa.0981.2 = phi i8 [ %.sroa.0981.01212, %3042 ], [ %.sroa.0981.01212, %2897 ], [ %.sroa.0981.01212, %2881 ], [ %.sroa.0981.01212, %2855 ], [ %.sroa.0981.01212, %2834 ], [ %.sroa.0981.01212, %2820 ], [ %.sroa.0981.01212, %2806 ], [ 1, %2772 ], [ %.sroa.0981.01212, %2756 ], [ %.sroa.0981.01212, %2740 ], [ %.sroa.0981.01212, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.0981.01212, %2699 ], [ %.sroa.0981.01212, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.0981.01212, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.0981.01212, %dissect_nhdr_auth_request.exit ], [ %.sroa.0981.01212, %dissect_nhdr_gateway_name.exit ], [ %.sroa.0981.01212, %2550 ], [ %.sroa.0981.01212, %2520 ], [ %.sroa.0981.01212, %2502 ], [ %.sroa.0981.01212, %2488 ], [ %.sroa.0981.01212, %2472 ], [ %.sroa.0981.01212, %2470 ], [ %.sroa.0981.01212, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.0981.01212, %2379 ], [ %.sroa.0981.01212, %2349 ], [ %.sroa.0981.01212, %2319 ], [ %.sroa.0981.01212, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.0981.01212, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.0981.01212, %2242 ], [ %.sroa.0981.01212, %2228 ], [ %.sroa.0981.01212, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.0981.01212, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.0981.01212, %1879 ], [ %.sroa.0981.01212, %1861 ], [ %.sroa.0981.01212, %1847 ], [ %.sroa.0981.01212, %1825 ], [ %.sroa.0981.01212, %1811 ], [ %.sroa.0981.01212, %1797 ], [ %.sroa.0981.01212, %1769 ], [ %.sroa.0981.01212, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.0981.01212, %1715 ], [ %.sroa.0981.01212, %1687 ], [ %.sroa.0981.01212, %dissect_nhdr_storename.exit ], [ %.sroa.0981.01212, %1652 ], [ %.sroa.0981.01212, %1619 ], [ %.sroa.0981.01212, %1601 ], [ %.sroa.0981.01212, %1587 ], [ %.sroa.0981.01212, %1563 ], [ %.sroa.0981.01212, %1539 ], [ %.sroa.0981.01212, %1527 ], [ %.sroa.0981.01212, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.0981.01212, %dissect_nhdr_umq_ka.exit ], [ %.sroa.0981.01212, %1307 ], [ %.sroa.0981.01212, %dissect_nhdr_umq_ack.exit ], [ %.sroa.0981.01212, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.0981.01212, %dissect_nhdr_umq_reg.exit ], [ %.sroa.0981.01212, %dissect_nhdr_tsni.exit ], [ %.sroa.0981.01212, %919 ], [ %.sroa.0981.01212, %897 ], [ %.sroa.0981.01212, %879 ], [ %.sroa.0981.01212, %867 ], [ %.sroa.0981.01212, %855 ], [ %.sroa.0981.01212, %841 ], [ %.sroa.0981.01212, %825 ], [ %.sroa.0981.01212, %812 ], [ %.sroa.0981.01212, %792 ], [ %.sroa.0981.01212, %764 ], [ %.sroa.0981.01212, %742 ], [ %.sroa.0981.01212, %713 ], [ %.sroa.0981.01212, %683 ], [ %.sroa.0981.01212, %663 ], [ %.sroa.0981.01212, %639 ], [ %.sroa.0981.01212, %617 ], [ %.sroa.0981.01212, %603 ], [ %.sroa.0981.01212, %588 ], [ %.sroa.0981.01212, %573 ], [ %.sroa.0981.01212, %559 ], [ %.sroa.0981.01212, %539 ], [ %.sroa.0981.01212, %517 ], [ %.sroa.0981.01212, %501 ], [ %.sroa.0981.01212, %dissect_nhdr_apphdr.exit ], [ %.sroa.0981.01212, %dissect_nhdr_topicname.exit ], [ %.sroa.0981.01212, %359 ], [ %.sroa.0981.01212, %357 ], [ %.sroa.0981.01212, %345 ], [ %.sroa.0981.01212, %324 ], [ %.sroa.0981.01212, %455 ], [ %.sroa.0981.01212, %478 ], [ %.sroa.0981.01212, %._crit_edge.i ], [ %.sroa.0981.01212, %2999 ], [ %.sroa.0981.01212, %3027 ], [ %.sroa.0981.01212, %3041 ]
-  %.sroa.5945.2 = phi i32 [ %.sroa.5945.01213, %3042 ], [ %2911, %2897 ], [ %.sroa.5945.01213, %2881 ], [ %.sroa.5945.01213, %2855 ], [ %.sroa.5945.01213, %2834 ], [ %.sroa.5945.01213, %2820 ], [ %.sroa.5945.01213, %2806 ], [ %.sroa.5945.01213, %2772 ], [ %.sroa.5945.01213, %2756 ], [ %.sroa.5945.01213, %2740 ], [ %.sroa.5945.01213, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.5945.01213, %2699 ], [ %.sroa.5945.01213, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.5945.01213, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.5945.01213, %dissect_nhdr_auth_request.exit ], [ %.sroa.5945.01213, %dissect_nhdr_gateway_name.exit ], [ %.sroa.5945.01213, %2550 ], [ %.sroa.5945.01213, %2520 ], [ %.sroa.5945.01213, %2502 ], [ %.sroa.5945.01213, %2488 ], [ %.sroa.5945.01213, %2472 ], [ %.sroa.5945.01213, %2470 ], [ %.sroa.5945.01213, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.5945.01213, %2379 ], [ %.sroa.5945.01213, %2349 ], [ %.sroa.5945.01213, %2319 ], [ %.sroa.5945.01213, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.5945.01213, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.5945.01213, %2242 ], [ %.sroa.5945.01213, %2228 ], [ %.sroa.5945.01213, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.5945.01213, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.5945.01213, %1879 ], [ %.sroa.5945.01213, %1861 ], [ %.sroa.5945.01213, %1847 ], [ %.sroa.5945.01213, %1825 ], [ %.sroa.5945.01213, %1811 ], [ %.sroa.5945.01213, %1797 ], [ %.sroa.5945.01213, %1769 ], [ %.sroa.5945.01213, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.5945.01213, %1715 ], [ %.sroa.5945.01213, %1687 ], [ %.sroa.5945.01213, %dissect_nhdr_storename.exit ], [ %.sroa.5945.01213, %1652 ], [ %.sroa.5945.01213, %1619 ], [ %.sroa.5945.01213, %1601 ], [ %.sroa.5945.01213, %1587 ], [ %.sroa.5945.01213, %1563 ], [ %.sroa.5945.01213, %1539 ], [ %.sroa.5945.01213, %1527 ], [ %.sroa.5945.01213, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.5945.01213, %dissect_nhdr_umq_ka.exit ], [ %.sroa.5945.01213, %1307 ], [ %.sroa.5945.01213, %dissect_nhdr_umq_ack.exit ], [ %.sroa.5945.01213, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.5945.01213, %dissect_nhdr_umq_reg.exit ], [ %.sroa.5945.01213, %dissect_nhdr_tsni.exit ], [ %.sroa.5945.01213, %919 ], [ %.sroa.5945.01213, %897 ], [ %.sroa.5945.01213, %879 ], [ %.sroa.5945.01213, %867 ], [ %.sroa.5945.01213, %855 ], [ %.sroa.5945.01213, %841 ], [ %.sroa.5945.01213, %825 ], [ %.sroa.5945.01213, %812 ], [ %.sroa.5945.01213, %792 ], [ %.sroa.5945.01213, %764 ], [ %.sroa.5945.01213, %742 ], [ %.sroa.5945.01213, %713 ], [ %.sroa.5945.01213, %683 ], [ %.sroa.5945.01213, %663 ], [ %.sroa.5945.01213, %639 ], [ %.sroa.5945.01213, %617 ], [ %.sroa.5945.01213, %603 ], [ %.sroa.5945.01213, %588 ], [ %.sroa.5945.01213, %573 ], [ %.sroa.5945.01213, %559 ], [ %.sroa.5945.01213, %539 ], [ %.sroa.5945.01213, %517 ], [ %.sroa.5945.01213, %501 ], [ %.sroa.5945.01213, %dissect_nhdr_apphdr.exit ], [ %.sroa.5945.01213, %dissect_nhdr_topicname.exit ], [ %.sroa.5945.01213, %359 ], [ %.sroa.5945.01213, %357 ], [ %.sroa.5945.01213, %345 ], [ %.sroa.5945.01213, %324 ], [ %.sroa.5945.01213, %455 ], [ %.sroa.5945.01213, %478 ], [ %.sroa.5945.01213, %._crit_edge.i ], [ %.sroa.5945.01213, %2999 ], [ %.sroa.5945.01213, %3027 ], [ %.sroa.5945.01213, %3041 ]
-  %.21049 = phi i32 [ %.010471214, %3042 ], [ %.010471214, %2897 ], [ %.010471214, %2881 ], [ %.010471214, %2855 ], [ %.010471214, %2834 ], [ %.010471214, %2820 ], [ %.010471214, %2806 ], [ %.010471214, %2772 ], [ %.010471214, %2756 ], [ %.010471214, %2740 ], [ %.010471214, %dissect_nhdr_auth_unknown.exit ], [ %.010471214, %2699 ], [ %.010471214, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.010471214, %dissect_nhdr_auth_challenge.exit ], [ %.010471214, %dissect_nhdr_auth_request.exit ], [ %.010471214, %dissect_nhdr_gateway_name.exit ], [ %.010471214, %2550 ], [ %.010471214, %2520 ], [ %.010471214, %2502 ], [ %.010471214, %2488 ], [ %.010471214, %2472 ], [ %.010471214, %2470 ], [ %.010471214, %dissect_nhdr_umq_cmd.exit ], [ %.010471214, %2379 ], [ %.010471214, %2349 ], [ %.010471214, %2319 ], [ %.010471214, %dissect_nhdr_pattern_md_interest.exit ], [ %.010471214, %dissect_nhdr_topic_md_interest.exit ], [ %.010471214, %2242 ], [ %.010471214, %2228 ], [ %.010471214, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.010471214, %dissect_nhdr_umq_idx_cmd.exit ], [ %.010471214, %1879 ], [ %.010471214, %1861 ], [ %.010471214, %1847 ], [ %.010471214, %1825 ], [ %.010471214, %1811 ], [ %.010471214, %1797 ], [ %.010471214, %1769 ], [ %.010471214, %dissect_nhdr_ctxinfo.exit ], [ %.010471214, %1715 ], [ %.010471214, %1687 ], [ %.010471214, %dissect_nhdr_storename.exit ], [ %.010471214, %1652 ], [ %.010471214, %1619 ], [ %.010471214, %1601 ], [ %.010471214, %1587 ], [ %.010471214, %1563 ], [ %.010471214, %1539 ], [ %.010471214, %1527 ], [ %.010471214, %dissect_nhdr_umq_rxreq.exit ], [ %.010471214, %dissect_nhdr_umq_ka.exit ], [ %.010471214, %1307 ], [ %.010471214, %dissect_nhdr_umq_ack.exit ], [ %.010471214, %dissect_nhdr_umq_reg_resp.exit ], [ %.010471214, %dissect_nhdr_umq_reg.exit ], [ %.010471214, %dissect_nhdr_tsni.exit ], [ %.010471214, %919 ], [ %.010471214, %897 ], [ %.010471214, %879 ], [ %.010471214, %867 ], [ %.010471214, %855 ], [ %.010471214, %841 ], [ %.010471214, %825 ], [ %.010471214, %812 ], [ %.010471214, %792 ], [ %.010471214, %764 ], [ %.010471214, %742 ], [ %.010471214, %713 ], [ %.010471214, %683 ], [ %.010471214, %663 ], [ %.010471214, %639 ], [ %.010471214, %617 ], [ %.010471214, %603 ], [ %.010471214, %588 ], [ %.010471214, %573 ], [ %.010471214, %559 ], [ %.010471214, %539 ], [ %.010471214, %517 ], [ %.010471214, %501 ], [ %.010471214, %dissect_nhdr_apphdr.exit ], [ %.010471214, %dissect_nhdr_topicname.exit ], [ %.010471214, %359 ], [ %.010471214, %357 ], [ %.010471214, %345 ], [ %.010471214, %324 ], [ %.31050, %455 ], [ %.31050, %478 ], [ %.51052, %._crit_edge.i ], [ %.010471214, %2999 ], [ %.010471214, %3027 ], [ %.010471214, %3041 ]
-  %.sroa.0.2 = phi i1 [ %.sroa.0.01215, %3042 ], [ true, %2897 ], [ %.sroa.0.01215, %2881 ], [ %.sroa.0.01215, %2855 ], [ %.sroa.0.01215, %2834 ], [ %.sroa.0.01215, %2820 ], [ %.sroa.0.01215, %2806 ], [ %.sroa.0.01215, %2772 ], [ %.sroa.0.01215, %2756 ], [ %.sroa.0.01215, %2740 ], [ %.sroa.0.01215, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.0.01215, %2699 ], [ %.sroa.0.01215, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.0.01215, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.0.01215, %dissect_nhdr_auth_request.exit ], [ %.sroa.0.01215, %dissect_nhdr_gateway_name.exit ], [ %.sroa.0.01215, %2550 ], [ %.sroa.0.01215, %2520 ], [ %.sroa.0.01215, %2502 ], [ %.sroa.0.01215, %2488 ], [ %.sroa.0.01215, %2472 ], [ %.sroa.0.01215, %2470 ], [ %.sroa.0.01215, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.0.01215, %2379 ], [ %.sroa.0.01215, %2349 ], [ %.sroa.0.01215, %2319 ], [ %.sroa.0.01215, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.0.01215, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.0.01215, %2242 ], [ %.sroa.0.01215, %2228 ], [ %.sroa.0.01215, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.0.01215, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.0.01215, %1879 ], [ %.sroa.0.01215, %1861 ], [ %.sroa.0.01215, %1847 ], [ %.sroa.0.01215, %1825 ], [ %.sroa.0.01215, %1811 ], [ %.sroa.0.01215, %1797 ], [ %.sroa.0.01215, %1769 ], [ %.sroa.0.01215, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.0.01215, %1715 ], [ %.sroa.0.01215, %1687 ], [ %.sroa.0.01215, %dissect_nhdr_storename.exit ], [ %.sroa.0.01215, %1652 ], [ %.sroa.0.01215, %1619 ], [ %.sroa.0.01215, %1601 ], [ %.sroa.0.01215, %1587 ], [ %.sroa.0.01215, %1563 ], [ %.sroa.0.01215, %1539 ], [ %.sroa.0.01215, %1527 ], [ %.sroa.0.01215, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.0.01215, %dissect_nhdr_umq_ka.exit ], [ %.sroa.0.01215, %1307 ], [ %.sroa.0.01215, %dissect_nhdr_umq_ack.exit ], [ %.sroa.0.01215, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.0.01215, %dissect_nhdr_umq_reg.exit ], [ %.sroa.0.01215, %dissect_nhdr_tsni.exit ], [ %.sroa.0.01215, %919 ], [ %.sroa.0.01215, %897 ], [ %.sroa.0.01215, %879 ], [ %.sroa.0.01215, %867 ], [ %.sroa.0.01215, %855 ], [ %.sroa.0.01215, %841 ], [ %.sroa.0.01215, %825 ], [ %.sroa.0.01215, %812 ], [ %.sroa.0.01215, %792 ], [ %.sroa.0.01215, %764 ], [ %.sroa.0.01215, %742 ], [ %.sroa.0.01215, %713 ], [ %.sroa.0.01215, %683 ], [ %.sroa.0.01215, %663 ], [ %.sroa.0.01215, %639 ], [ %.sroa.0.01215, %617 ], [ %.sroa.0.01215, %603 ], [ %.sroa.0.01215, %588 ], [ %.sroa.0.01215, %573 ], [ %.sroa.0.01215, %559 ], [ %.sroa.0.01215, %539 ], [ %.sroa.0.01215, %517 ], [ %.sroa.0.01215, %501 ], [ %.sroa.0.01215, %dissect_nhdr_apphdr.exit ], [ %.sroa.0.01215, %dissect_nhdr_topicname.exit ], [ %.sroa.0.01215, %359 ], [ %.sroa.0.01215, %357 ], [ %.sroa.0.01215, %345 ], [ %.sroa.0.01215, %324 ], [ %.sroa.0.01215, %455 ], [ %.sroa.0.01215, %478 ], [ %.sroa.0.01215, %._crit_edge.i ], [ %.sroa.0.01215, %2999 ], [ %.sroa.0.01215, %3027 ], [ %.sroa.0.01215, %3041 ]
-  %.2768 = phi i1 [ %.07661216, %3042 ], [ %.07661216, %2897 ], [ %.07661216, %2881 ], [ %.07661216, %2855 ], [ %.07661216, %2834 ], [ %.07661216, %2820 ], [ %.07661216, %2806 ], [ %.07661216, %2772 ], [ %.07661216, %2756 ], [ %.07661216, %2740 ], [ %.07661216, %dissect_nhdr_auth_unknown.exit ], [ %.07661216, %2699 ], [ %.07661216, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.07661216, %dissect_nhdr_auth_challenge.exit ], [ %.07661216, %dissect_nhdr_auth_request.exit ], [ %.07661216, %dissect_nhdr_gateway_name.exit ], [ %.07661216, %2550 ], [ %.07661216, %2520 ], [ %.07661216, %2502 ], [ %.07661216, %2488 ], [ %.07661216, %2472 ], [ %.07661216, %2470 ], [ %.07661216, %dissect_nhdr_umq_cmd.exit ], [ %.07661216, %2379 ], [ %.07661216, %2349 ], [ %.07661216, %2319 ], [ %.07661216, %dissect_nhdr_pattern_md_interest.exit ], [ %.07661216, %dissect_nhdr_topic_md_interest.exit ], [ %.07661216, %2242 ], [ %.07661216, %2228 ], [ %.07661216, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.07661216, %dissect_nhdr_umq_idx_cmd.exit ], [ %.07661216, %1879 ], [ %.07661216, %1861 ], [ %.07661216, %1847 ], [ %.07661216, %1825 ], [ %.07661216, %1811 ], [ %.07661216, %1797 ], [ %.07661216, %1769 ], [ %.07661216, %dissect_nhdr_ctxinfo.exit ], [ %.07661216, %1715 ], [ %.07661216, %1687 ], [ %.07661216, %dissect_nhdr_storename.exit ], [ %.07661216, %1652 ], [ %.07661216, %1619 ], [ %.07661216, %1601 ], [ %.07661216, %1587 ], [ %.07661216, %1563 ], [ %.07661216, %1539 ], [ %.07661216, %1527 ], [ %.07661216, %dissect_nhdr_umq_rxreq.exit ], [ %.07661216, %dissect_nhdr_umq_ka.exit ], [ %.07661216, %1307 ], [ %.07661216, %dissect_nhdr_umq_ack.exit ], [ %.07661216, %dissect_nhdr_umq_reg_resp.exit ], [ %.07661216, %dissect_nhdr_umq_reg.exit ], [ %.07661216, %dissect_nhdr_tsni.exit ], [ %.07661216, %919 ], [ %.07661216, %897 ], [ %.07661216, %879 ], [ %.07661216, %867 ], [ %.07661216, %855 ], [ %.07661216, %841 ], [ %.07661216, %825 ], [ %.07661216, %812 ], [ %.07661216, %792 ], [ %.07661216, %764 ], [ %.07661216, %742 ], [ %.07661216, %713 ], [ %.07661216, %683 ], [ %.07661216, %663 ], [ %.07661216, %639 ], [ %.07661216, %617 ], [ true, %603 ], [ %.07661216, %588 ], [ %.07661216, %573 ], [ %.07661216, %559 ], [ %.07661216, %539 ], [ %.07661216, %517 ], [ %.07661216, %501 ], [ %.07661216, %dissect_nhdr_apphdr.exit ], [ %.07661216, %dissect_nhdr_topicname.exit ], [ %.07661216, %359 ], [ %.07661216, %357 ], [ %.07661216, %345 ], [ %.07661216, %324 ], [ %.07661216, %455 ], [ %.07661216, %478 ], [ %.07661216, %._crit_edge.i ], [ %.07661216, %2999 ], [ %.07661216, %3027 ], [ %.07661216, %3041 ]
-  %.0750 = phi i32 [ %3043, %3042 ], [ 8, %2897 ], [ 8, %2881 ], [ 24, %2855 ], [ 16, %2834 ], [ 8, %2820 ], [ 8, %2806 ], [ 28, %2772 ], [ 16, %2756 ], [ 24, %2740 ], [ %.0.i858, %dissect_nhdr_auth_unknown.exit ], [ 5, %2699 ], [ %.1.i857, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.3.i, %dissect_nhdr_auth_challenge.exit ], [ %.0.i854, %dissect_nhdr_auth_request.exit ], [ %.0.i852, %dissect_nhdr_gateway_name.exit ], [ 20, %2550 ], [ 32, %2520 ], [ 16, %2502 ], [ 8, %2488 ], [ 12, %2472 ], [ %2471, %2470 ], [ %.0.i851, %dissect_nhdr_umq_cmd.exit ], [ 24, %2379 ], [ 64, %2349 ], [ 36, %2319 ], [ %.0.lcssa.i850, %dissect_nhdr_pattern_md_interest.exit ], [ %.0.lcssa.i842, %dissect_nhdr_topic_md_interest.exit ], [ 20, %2242 ], [ 8, %2228 ], [ %.0.i837, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.0.i835, %dissect_nhdr_umq_idx_cmd.exit ], [ 12, %1879 ], [ 16, %1861 ], [ 12, %1847 ], [ 20, %1825 ], [ 8, %1811 ], [ 12, %1797 ], [ 40, %1769 ], [ %.0.i833, %dissect_nhdr_ctxinfo.exit ], [ 8, %1715 ], [ 40, %1687 ], [ %.0.i831, %dissect_nhdr_storename.exit ], [ 12, %1652 ], [ 48, %1619 ], [ 16, %1601 ], [ 8, %1587 ], [ 28, %1563 ], [ 32, %1539 ], [ %1538, %1527 ], [ %.1.i830, %dissect_nhdr_umq_rxreq.exit ], [ %.0.i828, %dissect_nhdr_umq_ka.exit ], [ 48, %1307 ], [ %1306, %dissect_nhdr_umq_ack.exit ], [ %.0.i824, %dissect_nhdr_umq_reg_resp.exit ], [ %.0.i823, %dissect_nhdr_umq_reg.exit ], [ %.0.lcssa.i821, %dissect_nhdr_tsni.exit ], [ 16, %919 ], [ 16, %897 ], [ 8, %879 ], [ 4, %867 ], [ 4, %855 ], [ 8, %841 ], [ 12, %825 ], [ 4, %812 ], [ 16, %792 ], [ 28, %764 ], [ 20, %742 ], [ 24, %713 ], [ 28, %683 ], [ 16, %663 ], [ 20, %639 ], [ 20, %617 ], [ 12, %603 ], [ 12, %588 ], [ 12, %573 ], [ 36, %559 ], [ 16, %539 ], [ 20, %517 ], [ 20, %501 ], [ %.0.i817, %dissect_nhdr_apphdr.exit ], [ %.0.i, %dissect_nhdr_topicname.exit ], [ 16, %359 ], [ %358, %357 ], [ 4, %345 ], [ 16, %324 ], [ %.067.i, %455 ], [ %.067.i, %478 ], [ %.0.lcssa.i, %._crit_edge.i ], [ %2918, %2999 ], [ %2918, %3027 ], [ %.2.i, %3041 ]
-  %3045 = add i32 %.0750, %.27441217
-  %3046 = add i32 %.07301218, %319
+  %.sroa.42.4 = phi ptr [ %.sroa.42.21207, %3042 ], [ %.sroa.42.21207, %2897 ], [ %.sroa.42.21207, %2881 ], [ %.sroa.42.21207, %2855 ], [ %.sroa.42.21207, %2834 ], [ %.sroa.42.21207, %2820 ], [ %.sroa.42.21207, %2806 ], [ %2804, %2772 ], [ %.sroa.42.21207, %2756 ], [ %.sroa.42.21207, %2740 ], [ %.sroa.42.21207, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.42.21207, %2699 ], [ %.sroa.42.21207, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.42.21207, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.42.21207, %dissect_nhdr_auth_request.exit ], [ %.sroa.42.21207, %dissect_nhdr_gateway_name.exit ], [ %.sroa.42.21207, %2550 ], [ %.sroa.42.21207, %2520 ], [ %.sroa.42.21207, %2502 ], [ %.sroa.42.21207, %2488 ], [ %.sroa.42.21207, %2472 ], [ %.sroa.42.21207, %2470 ], [ %.sroa.42.21207, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.42.21207, %2379 ], [ %.sroa.42.21207, %2349 ], [ %.sroa.42.21207, %2319 ], [ %.sroa.42.21207, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.42.21207, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.42.21207, %2242 ], [ %.sroa.42.21207, %2228 ], [ %.sroa.42.21207, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.42.21207, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.42.21207, %1879 ], [ %.sroa.42.21207, %1861 ], [ %.sroa.42.21207, %1847 ], [ %.sroa.42.21207, %1825 ], [ %.sroa.42.21207, %1811 ], [ %.sroa.42.21207, %1797 ], [ %.sroa.42.21207, %1769 ], [ %.sroa.42.21207, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.42.21207, %1715 ], [ %.sroa.42.21207, %1687 ], [ %.sroa.42.21207, %dissect_nhdr_storename.exit ], [ %.sroa.42.21207, %1652 ], [ %.sroa.42.21207, %1619 ], [ %.sroa.42.21207, %1601 ], [ %.sroa.42.21207, %1587 ], [ %.sroa.42.21207, %1563 ], [ %.sroa.42.21207, %1539 ], [ %.sroa.42.21207, %1527 ], [ %.sroa.42.21207, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.42.21207, %dissect_nhdr_umq_ka.exit ], [ %.sroa.42.21207, %1307 ], [ %.sroa.42.21207, %dissect_nhdr_umq_ack.exit ], [ %.sroa.42.21207, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.42.21207, %dissect_nhdr_umq_reg.exit ], [ %.sroa.42.21207, %dissect_nhdr_tsni.exit ], [ %.sroa.42.21207, %919 ], [ %.sroa.42.21207, %897 ], [ %.sroa.42.21207, %879 ], [ %.sroa.42.21207, %867 ], [ %.sroa.42.21207, %855 ], [ %.sroa.42.21207, %841 ], [ %.sroa.42.21207, %825 ], [ %.sroa.42.21207, %812 ], [ %.sroa.42.21207, %792 ], [ %.sroa.42.21207, %764 ], [ %.sroa.42.21207, %742 ], [ %.sroa.42.21207, %713 ], [ %.sroa.42.21207, %683 ], [ %.sroa.42.21207, %663 ], [ %.sroa.42.21207, %639 ], [ %.sroa.42.21207, %617 ], [ %.sroa.42.21207, %603 ], [ %.sroa.42.21207, %588 ], [ %.sroa.42.21207, %573 ], [ %.sroa.42.21207, %559 ], [ %.sroa.42.21207, %539 ], [ %.sroa.42.21207, %517 ], [ %.sroa.42.21207, %501 ], [ %.sroa.42.21207, %dissect_nhdr_apphdr.exit ], [ %.sroa.42.21207, %dissect_nhdr_topicname.exit ], [ %.sroa.42.21207, %359 ], [ %.sroa.42.21207, %357 ], [ %.sroa.42.21207, %345 ], [ %.sroa.42.21207, %324 ], [ %.sroa.42.21207, %455 ], [ %.sroa.42.21207, %478 ], [ %.sroa.42.21207, %._crit_edge.i ], [ %.sroa.42.21207, %2999 ], [ %.sroa.42.21207, %3027 ], [ %.sroa.42.21207, %3041 ]
+  %.sroa.47.4 = phi i16 [ %.sroa.47.21208, %3042 ], [ %.sroa.47.21208, %2897 ], [ %.sroa.47.21208, %2881 ], [ %.sroa.47.21208, %2855 ], [ %.sroa.47.21208, %2834 ], [ %.sroa.47.21208, %2820 ], [ %.sroa.47.21208, %2806 ], [ %2805, %2772 ], [ %.sroa.47.21208, %2756 ], [ %.sroa.47.21208, %2740 ], [ %.sroa.47.21208, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.47.21208, %2699 ], [ %.sroa.47.21208, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.47.21208, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.47.21208, %dissect_nhdr_auth_request.exit ], [ %.sroa.47.21208, %dissect_nhdr_gateway_name.exit ], [ %.sroa.47.21208, %2550 ], [ %.sroa.47.21208, %2520 ], [ %.sroa.47.21208, %2502 ], [ %.sroa.47.21208, %2488 ], [ %.sroa.47.21208, %2472 ], [ %.sroa.47.21208, %2470 ], [ %.sroa.47.21208, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.47.21208, %2379 ], [ %.sroa.47.21208, %2349 ], [ %.sroa.47.21208, %2319 ], [ %.sroa.47.21208, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.47.21208, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.47.21208, %2242 ], [ %.sroa.47.21208, %2228 ], [ %.sroa.47.21208, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.47.21208, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.47.21208, %1879 ], [ %.sroa.47.21208, %1861 ], [ %.sroa.47.21208, %1847 ], [ %.sroa.47.21208, %1825 ], [ %.sroa.47.21208, %1811 ], [ %.sroa.47.21208, %1797 ], [ %.sroa.47.21208, %1769 ], [ %.sroa.47.21208, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.47.21208, %1715 ], [ %.sroa.47.21208, %1687 ], [ %.sroa.47.21208, %dissect_nhdr_storename.exit ], [ %.sroa.47.21208, %1652 ], [ %.sroa.47.21208, %1619 ], [ %.sroa.47.21208, %1601 ], [ %.sroa.47.21208, %1587 ], [ %.sroa.47.21208, %1563 ], [ %.sroa.47.21208, %1539 ], [ %.sroa.47.21208, %1527 ], [ %.sroa.47.21208, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.47.21208, %dissect_nhdr_umq_ka.exit ], [ %.sroa.47.21208, %1307 ], [ %.sroa.47.21208, %dissect_nhdr_umq_ack.exit ], [ %.sroa.47.21208, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.47.21208, %dissect_nhdr_umq_reg.exit ], [ %.sroa.47.21208, %dissect_nhdr_tsni.exit ], [ %.sroa.47.21208, %919 ], [ %.sroa.47.21208, %897 ], [ %.sroa.47.21208, %879 ], [ %.sroa.47.21208, %867 ], [ %.sroa.47.21208, %855 ], [ %.sroa.47.21208, %841 ], [ %.sroa.47.21208, %825 ], [ %.sroa.47.21208, %812 ], [ %.sroa.47.21208, %792 ], [ %.sroa.47.21208, %764 ], [ %.sroa.47.21208, %742 ], [ %.sroa.47.21208, %713 ], [ %.sroa.47.21208, %683 ], [ %.sroa.47.21208, %663 ], [ %.sroa.47.21208, %639 ], [ %.sroa.47.21208, %617 ], [ %.sroa.47.21208, %603 ], [ %.sroa.47.21208, %588 ], [ %.sroa.47.21208, %573 ], [ %.sroa.47.21208, %559 ], [ %.sroa.47.21208, %539 ], [ %.sroa.47.21208, %517 ], [ %.sroa.47.21208, %501 ], [ %.sroa.47.21208, %dissect_nhdr_apphdr.exit ], [ %.sroa.47.21208, %dissect_nhdr_topicname.exit ], [ %.sroa.47.21208, %359 ], [ %.sroa.47.21208, %357 ], [ %.sroa.47.21208, %345 ], [ %.sroa.47.21208, %324 ], [ %.sroa.47.21208, %455 ], [ %.sroa.47.21208, %478 ], [ %.sroa.47.21208, %._crit_edge.i ], [ %.sroa.47.21208, %2999 ], [ %.sroa.47.21208, %3027 ], [ %.sroa.47.21208, %3041 ]
+  %.21073 = phi i8 [ %.010711209, %3042 ], [ %.010711209, %2897 ], [ %.010711209, %2881 ], [ %.010711209, %2855 ], [ %.010711209, %2834 ], [ %.010711209, %2820 ], [ %.010711209, %2806 ], [ %.010711209, %2772 ], [ %.010711209, %2756 ], [ %.010711209, %2740 ], [ %.010711209, %dissect_nhdr_auth_unknown.exit ], [ %.010711209, %2699 ], [ %.010711209, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.010711209, %dissect_nhdr_auth_challenge.exit ], [ %.010711209, %dissect_nhdr_auth_request.exit ], [ %.010711209, %dissect_nhdr_gateway_name.exit ], [ %.010711209, %2550 ], [ %.010711209, %2520 ], [ %.010711209, %2502 ], [ %.010711209, %2488 ], [ %.010711209, %2472 ], [ %.010711209, %2470 ], [ %.010711209, %dissect_nhdr_umq_cmd.exit ], [ %.010711209, %2379 ], [ %.010711209, %2349 ], [ %.010711209, %2319 ], [ %.010711209, %dissect_nhdr_pattern_md_interest.exit ], [ %.010711209, %dissect_nhdr_topic_md_interest.exit ], [ %.010711209, %2242 ], [ %.010711209, %2228 ], [ %.010711209, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.010711209, %dissect_nhdr_umq_idx_cmd.exit ], [ %.010711209, %1879 ], [ %.010711209, %1861 ], [ %.010711209, %1847 ], [ %.010711209, %1825 ], [ %.010711209, %1811 ], [ %.010711209, %1797 ], [ %.010711209, %1769 ], [ %.010711209, %dissect_nhdr_ctxinfo.exit ], [ %.010711209, %1715 ], [ %.010711209, %1687 ], [ %.010711209, %dissect_nhdr_storename.exit ], [ %.010711209, %1652 ], [ %.010711209, %1619 ], [ %.010711209, %1601 ], [ %.010711209, %1587 ], [ %.010711209, %1563 ], [ %.010711209, %1539 ], [ %.010711209, %1527 ], [ %.010711209, %dissect_nhdr_umq_rxreq.exit ], [ %.010711209, %dissect_nhdr_umq_ka.exit ], [ %.010711209, %1307 ], [ %.010711209, %dissect_nhdr_umq_ack.exit ], [ %.010711209, %dissect_nhdr_umq_reg_resp.exit ], [ %.010711209, %dissect_nhdr_umq_reg.exit ], [ %.010711209, %dissect_nhdr_tsni.exit ], [ %.010711209, %919 ], [ %.010711209, %897 ], [ %.010711209, %879 ], [ %.010711209, %867 ], [ %.010711209, %855 ], [ %.010711209, %841 ], [ %.010711209, %825 ], [ %.010711209, %812 ], [ %.010711209, %792 ], [ %.010711209, %764 ], [ %.010711209, %742 ], [ %.010711209, %713 ], [ %.010711209, %683 ], [ %.010711209, %663 ], [ %.010711209, %639 ], [ %.010711209, %617 ], [ %.010711209, %603 ], [ %.010711209, %588 ], [ %.010711209, %573 ], [ %.010711209, %559 ], [ %.010711209, %539 ], [ %..i, %517 ], [ %.010711209, %501 ], [ %.010711209, %dissect_nhdr_apphdr.exit ], [ %.010711209, %dissect_nhdr_topicname.exit ], [ %.010711209, %359 ], [ %.010711209, %357 ], [ %.010711209, %345 ], [ %.010711209, %324 ], [ %.010711209, %455 ], [ %.010711209, %478 ], [ %.010711209, %._crit_edge.i ], [ %.010711209, %2999 ], [ %.010711209, %3027 ], [ %.010711209, %3041 ]
+  %.sroa.281025.4 = phi i32 [ %.sroa.281025.21210, %3042 ], [ %.sroa.281025.21210, %2897 ], [ %.sroa.281025.21210, %2881 ], [ %.sroa.281025.21210, %2855 ], [ %.sroa.281025.21210, %2834 ], [ %.sroa.281025.21210, %2820 ], [ %.sroa.281025.21210, %2806 ], [ %2803, %2772 ], [ %.sroa.281025.21210, %2756 ], [ %.sroa.281025.21210, %2740 ], [ %.sroa.281025.21210, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.281025.21210, %2699 ], [ %.sroa.281025.21210, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.281025.21210, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.281025.21210, %dissect_nhdr_auth_request.exit ], [ %.sroa.281025.21210, %dissect_nhdr_gateway_name.exit ], [ %.sroa.281025.21210, %2550 ], [ %.sroa.281025.21210, %2520 ], [ %.sroa.281025.21210, %2502 ], [ %.sroa.281025.21210, %2488 ], [ %.sroa.281025.21210, %2472 ], [ %.sroa.281025.21210, %2470 ], [ %.sroa.281025.21210, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.281025.21210, %2379 ], [ %.sroa.281025.21210, %2349 ], [ %.sroa.281025.21210, %2319 ], [ %.sroa.281025.21210, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.281025.21210, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.281025.21210, %2242 ], [ %.sroa.281025.21210, %2228 ], [ %.sroa.281025.21210, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.281025.21210, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.281025.21210, %1879 ], [ %.sroa.281025.21210, %1861 ], [ %.sroa.281025.21210, %1847 ], [ %.sroa.281025.21210, %1825 ], [ %.sroa.281025.21210, %1811 ], [ %.sroa.281025.21210, %1797 ], [ %.sroa.281025.21210, %1769 ], [ %.sroa.281025.21210, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.281025.21210, %1715 ], [ %.sroa.281025.21210, %1687 ], [ %.sroa.281025.21210, %dissect_nhdr_storename.exit ], [ %.sroa.281025.21210, %1652 ], [ %.sroa.281025.21210, %1619 ], [ %.sroa.281025.21210, %1601 ], [ %.sroa.281025.21210, %1587 ], [ %.sroa.281025.21210, %1563 ], [ %.sroa.281025.21210, %1539 ], [ %.sroa.281025.21210, %1527 ], [ %.sroa.281025.21210, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.281025.21210, %dissect_nhdr_umq_ka.exit ], [ %.sroa.281025.21210, %1307 ], [ %.sroa.281025.21210, %dissect_nhdr_umq_ack.exit ], [ %.sroa.281025.21210, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.281025.21210, %dissect_nhdr_umq_reg.exit ], [ %.sroa.281025.21210, %dissect_nhdr_tsni.exit ], [ %.sroa.281025.21210, %919 ], [ %.sroa.281025.21210, %897 ], [ %.sroa.281025.21210, %879 ], [ %.sroa.281025.21210, %867 ], [ %.sroa.281025.21210, %855 ], [ %.sroa.281025.21210, %841 ], [ %.sroa.281025.21210, %825 ], [ %.sroa.281025.21210, %812 ], [ %.sroa.281025.21210, %792 ], [ %.sroa.281025.21210, %764 ], [ %.sroa.281025.21210, %742 ], [ %.sroa.281025.21210, %713 ], [ %.sroa.281025.21210, %683 ], [ %.sroa.281025.21210, %663 ], [ %.sroa.281025.21210, %639 ], [ %.sroa.281025.21210, %617 ], [ %.sroa.281025.21210, %603 ], [ %.sroa.281025.21210, %588 ], [ %.sroa.281025.21210, %573 ], [ %.sroa.281025.21210, %559 ], [ %.sroa.281025.21210, %539 ], [ %.sroa.281025.21210, %517 ], [ %.sroa.281025.21210, %501 ], [ %.sroa.281025.21210, %dissect_nhdr_apphdr.exit ], [ %.sroa.281025.21210, %dissect_nhdr_topicname.exit ], [ %.sroa.281025.21210, %359 ], [ %.sroa.281025.21210, %357 ], [ %.sroa.281025.21210, %345 ], [ %.sroa.281025.21210, %324 ], [ %.sroa.281025.21210, %455 ], [ %.sroa.281025.21210, %478 ], [ %.sroa.281025.21210, %._crit_edge.i ], [ %.sroa.281025.21210, %2999 ], [ %.sroa.281025.21210, %3027 ], [ %.sroa.281025.21210, %3041 ]
+  %.sroa.24.4 = phi i16 [ %.sroa.24.21211, %3042 ], [ %.sroa.24.21211, %2897 ], [ %.sroa.24.21211, %2881 ], [ %.sroa.24.21211, %2855 ], [ %.sroa.24.21211, %2834 ], [ %.sroa.24.21211, %2820 ], [ %.sroa.24.21211, %2806 ], [ %2802, %2772 ], [ %.sroa.24.21211, %2756 ], [ %.sroa.24.21211, %2740 ], [ %.sroa.24.21211, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.24.21211, %2699 ], [ %.sroa.24.21211, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.24.21211, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.24.21211, %dissect_nhdr_auth_request.exit ], [ %.sroa.24.21211, %dissect_nhdr_gateway_name.exit ], [ %.sroa.24.21211, %2550 ], [ %.sroa.24.21211, %2520 ], [ %.sroa.24.21211, %2502 ], [ %.sroa.24.21211, %2488 ], [ %.sroa.24.21211, %2472 ], [ %.sroa.24.21211, %2470 ], [ %.sroa.24.21211, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.24.21211, %2379 ], [ %.sroa.24.21211, %2349 ], [ %.sroa.24.21211, %2319 ], [ %.sroa.24.21211, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.24.21211, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.24.21211, %2242 ], [ %.sroa.24.21211, %2228 ], [ %.sroa.24.21211, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.24.21211, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.24.21211, %1879 ], [ %.sroa.24.21211, %1861 ], [ %.sroa.24.21211, %1847 ], [ %.sroa.24.21211, %1825 ], [ %.sroa.24.21211, %1811 ], [ %.sroa.24.21211, %1797 ], [ %.sroa.24.21211, %1769 ], [ %.sroa.24.21211, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.24.21211, %1715 ], [ %.sroa.24.21211, %1687 ], [ %.sroa.24.21211, %dissect_nhdr_storename.exit ], [ %.sroa.24.21211, %1652 ], [ %.sroa.24.21211, %1619 ], [ %.sroa.24.21211, %1601 ], [ %.sroa.24.21211, %1587 ], [ %.sroa.24.21211, %1563 ], [ %.sroa.24.21211, %1539 ], [ %.sroa.24.21211, %1527 ], [ %.sroa.24.21211, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.24.21211, %dissect_nhdr_umq_ka.exit ], [ %.sroa.24.21211, %1307 ], [ %.sroa.24.21211, %dissect_nhdr_umq_ack.exit ], [ %.sroa.24.21211, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.24.21211, %dissect_nhdr_umq_reg.exit ], [ %.sroa.24.21211, %dissect_nhdr_tsni.exit ], [ %.sroa.24.21211, %919 ], [ %.sroa.24.21211, %897 ], [ %.sroa.24.21211, %879 ], [ %.sroa.24.21211, %867 ], [ %.sroa.24.21211, %855 ], [ %.sroa.24.21211, %841 ], [ %.sroa.24.21211, %825 ], [ %.sroa.24.21211, %812 ], [ %.sroa.24.21211, %792 ], [ %.sroa.24.21211, %764 ], [ %.sroa.24.21211, %742 ], [ %.sroa.24.21211, %713 ], [ %.sroa.24.21211, %683 ], [ %.sroa.24.21211, %663 ], [ %.sroa.24.21211, %639 ], [ %.sroa.24.21211, %617 ], [ %.sroa.24.21211, %603 ], [ %.sroa.24.21211, %588 ], [ %.sroa.24.21211, %573 ], [ %.sroa.24.21211, %559 ], [ %.sroa.24.21211, %539 ], [ %.sroa.24.21211, %517 ], [ %.sroa.24.21211, %501 ], [ %.sroa.24.21211, %dissect_nhdr_apphdr.exit ], [ %.sroa.24.21211, %dissect_nhdr_topicname.exit ], [ %.sroa.24.21211, %359 ], [ %.sroa.24.21211, %357 ], [ %.sroa.24.21211, %345 ], [ %.sroa.24.21211, %324 ], [ %.sroa.24.21211, %455 ], [ %.sroa.24.21211, %478 ], [ %.sroa.24.21211, %._crit_edge.i ], [ %.sroa.24.21211, %2999 ], [ %.sroa.24.21211, %3027 ], [ %.sroa.24.21211, %3041 ]
+  %.sroa.01052.2 = phi i32 [ %.sroa.01052.01212, %3042 ], [ %.sroa.01052.01212, %2897 ], [ %.sroa.01052.01212, %2881 ], [ %.sroa.01052.01212, %2855 ], [ %.sroa.01052.01212, %2834 ], [ %.sroa.01052.01212, %2820 ], [ %.sroa.01052.01212, %2806 ], [ %.sroa.01052.01212, %2772 ], [ %.sroa.01052.01212, %2756 ], [ %.sroa.01052.01212, %2740 ], [ %.sroa.01052.01212, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.01052.01212, %2699 ], [ %.sroa.01052.01212, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.01052.01212, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.01052.01212, %dissect_nhdr_auth_request.exit ], [ %.sroa.01052.01212, %dissect_nhdr_gateway_name.exit ], [ %.sroa.01052.01212, %2550 ], [ %.sroa.01052.01212, %2520 ], [ %.sroa.01052.01212, %2502 ], [ %.sroa.01052.01212, %2488 ], [ %.sroa.01052.01212, %2472 ], [ %.sroa.01052.01212, %2470 ], [ %.sroa.01052.01212, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.01052.01212, %2379 ], [ %.sroa.01052.01212, %2349 ], [ %.sroa.01052.01212, %2319 ], [ %.sroa.01052.01212, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.01052.01212, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.01052.01212, %2242 ], [ %.sroa.01052.01212, %2228 ], [ %.sroa.01052.01212, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.01052.01212, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.01052.01212, %1879 ], [ %.sroa.01052.01212, %1861 ], [ %.sroa.01052.01212, %1847 ], [ %.sroa.01052.01212, %1825 ], [ %.sroa.01052.01212, %1811 ], [ %.sroa.01052.01212, %1797 ], [ %.sroa.01052.01212, %1769 ], [ %.sroa.01052.01212, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.01052.01212, %1715 ], [ %.sroa.01052.01212, %1687 ], [ %.sroa.01052.01212, %dissect_nhdr_storename.exit ], [ %.sroa.01052.01212, %1652 ], [ %.sroa.01052.01212, %1619 ], [ %.sroa.01052.01212, %1601 ], [ %.sroa.01052.01212, %1587 ], [ %.sroa.01052.01212, %1563 ], [ %.sroa.01052.01212, %1539 ], [ %.sroa.01052.01212, %1527 ], [ %.sroa.01052.01212, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.01052.01212, %dissect_nhdr_umq_ka.exit ], [ %.sroa.01052.01212, %1307 ], [ %.sroa.01052.01212, %dissect_nhdr_umq_ack.exit ], [ %.sroa.01052.01212, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.01052.01212, %dissect_nhdr_umq_reg.exit ], [ %.sroa.01052.01212, %dissect_nhdr_tsni.exit ], [ %.sroa.01052.01212, %919 ], [ %.sroa.01052.01212, %897 ], [ %.sroa.01052.01212, %879 ], [ %.sroa.01052.01212, %867 ], [ %.sroa.01052.01212, %855 ], [ %.sroa.01052.01212, %841 ], [ %.sroa.01052.01212, %825 ], [ %.sroa.01052.01212, %812 ], [ %.sroa.01052.01212, %792 ], [ %.sroa.01052.01212, %764 ], [ %.sroa.01052.01212, %742 ], [ %.sroa.01052.01212, %713 ], [ %.sroa.01052.01212, %683 ], [ %.sroa.01052.01212, %663 ], [ %.sroa.01052.01212, %639 ], [ %.sroa.01052.01212, %617 ], [ %.sroa.01052.01212, %603 ], [ %.sroa.01052.01212, %588 ], [ %.sroa.01052.01212, %573 ], [ %.sroa.01052.01212, %559 ], [ %.sroa.01052.01212, %539 ], [ %.sroa.01052.01212, %517 ], [ %.sroa.01052.01212, %501 ], [ %.sroa.01052.01212, %dissect_nhdr_apphdr.exit ], [ %.sroa.01052.01212, %dissect_nhdr_topicname.exit ], [ %.sroa.01052.01212, %359 ], [ %.sroa.01052.01212, %357 ], [ %.sroa.01052.01212, %345 ], [ 1, %324 ], [ %.sroa.01052.01212, %455 ], [ %.sroa.01052.01212, %478 ], [ %.sroa.01052.01212, %._crit_edge.i ], [ %.sroa.01052.01212, %2999 ], [ %.sroa.01052.01212, %3027 ], [ %.sroa.01052.01212, %3041 ]
+  %.sroa.19.4 = phi ptr [ %.sroa.19.21213, %3042 ], [ %.sroa.19.21213, %2897 ], [ %.sroa.19.21213, %2881 ], [ %.sroa.19.21213, %2855 ], [ %.sroa.19.21213, %2834 ], [ %.sroa.19.21213, %2820 ], [ %.sroa.19.21213, %2806 ], [ %2801, %2772 ], [ %.sroa.19.21213, %2756 ], [ %.sroa.19.21213, %2740 ], [ %.sroa.19.21213, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.19.21213, %2699 ], [ %.sroa.19.21213, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.19.21213, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.19.21213, %dissect_nhdr_auth_request.exit ], [ %.sroa.19.21213, %dissect_nhdr_gateway_name.exit ], [ %.sroa.19.21213, %2550 ], [ %.sroa.19.21213, %2520 ], [ %.sroa.19.21213, %2502 ], [ %.sroa.19.21213, %2488 ], [ %.sroa.19.21213, %2472 ], [ %.sroa.19.21213, %2470 ], [ %.sroa.19.21213, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.19.21213, %2379 ], [ %.sroa.19.21213, %2349 ], [ %.sroa.19.21213, %2319 ], [ %.sroa.19.21213, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.19.21213, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.19.21213, %2242 ], [ %.sroa.19.21213, %2228 ], [ %.sroa.19.21213, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.19.21213, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.19.21213, %1879 ], [ %.sroa.19.21213, %1861 ], [ %.sroa.19.21213, %1847 ], [ %.sroa.19.21213, %1825 ], [ %.sroa.19.21213, %1811 ], [ %.sroa.19.21213, %1797 ], [ %.sroa.19.21213, %1769 ], [ %.sroa.19.21213, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.19.21213, %1715 ], [ %.sroa.19.21213, %1687 ], [ %.sroa.19.21213, %dissect_nhdr_storename.exit ], [ %.sroa.19.21213, %1652 ], [ %.sroa.19.21213, %1619 ], [ %.sroa.19.21213, %1601 ], [ %.sroa.19.21213, %1587 ], [ %.sroa.19.21213, %1563 ], [ %.sroa.19.21213, %1539 ], [ %.sroa.19.21213, %1527 ], [ %.sroa.19.21213, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.19.21213, %dissect_nhdr_umq_ka.exit ], [ %.sroa.19.21213, %1307 ], [ %.sroa.19.21213, %dissect_nhdr_umq_ack.exit ], [ %.sroa.19.21213, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.19.21213, %dissect_nhdr_umq_reg.exit ], [ %.sroa.19.21213, %dissect_nhdr_tsni.exit ], [ %.sroa.19.21213, %919 ], [ %.sroa.19.21213, %897 ], [ %.sroa.19.21213, %879 ], [ %.sroa.19.21213, %867 ], [ %.sroa.19.21213, %855 ], [ %.sroa.19.21213, %841 ], [ %.sroa.19.21213, %825 ], [ %.sroa.19.21213, %812 ], [ %.sroa.19.21213, %792 ], [ %.sroa.19.21213, %764 ], [ %.sroa.19.21213, %742 ], [ %.sroa.19.21213, %713 ], [ %.sroa.19.21213, %683 ], [ %.sroa.19.21213, %663 ], [ %.sroa.19.21213, %639 ], [ %.sroa.19.21213, %617 ], [ %.sroa.19.21213, %603 ], [ %.sroa.19.21213, %588 ], [ %.sroa.19.21213, %573 ], [ %.sroa.19.21213, %559 ], [ %.sroa.19.21213, %539 ], [ %.sroa.19.21213, %517 ], [ %.sroa.19.21213, %501 ], [ %.sroa.19.21213, %dissect_nhdr_apphdr.exit ], [ %.sroa.19.21213, %dissect_nhdr_topicname.exit ], [ %.sroa.19.21213, %359 ], [ %.sroa.19.21213, %357 ], [ %.sroa.19.21213, %345 ], [ %.sroa.19.21213, %324 ], [ %.sroa.19.21213, %455 ], [ %.sroa.19.21213, %478 ], [ %.sroa.19.21213, %._crit_edge.i ], [ %.sroa.19.21213, %2999 ], [ %.sroa.19.21213, %3027 ], [ %.sroa.19.21213, %3041 ]
+  %.sroa.51053.2 = phi i32 [ %.sroa.51053.01214, %3042 ], [ %.sroa.51053.01214, %2897 ], [ %.sroa.51053.01214, %2881 ], [ %.sroa.51053.01214, %2855 ], [ %.sroa.51053.01214, %2834 ], [ %.sroa.51053.01214, %2820 ], [ %.sroa.51053.01214, %2806 ], [ %.sroa.51053.01214, %2772 ], [ %.sroa.51053.01214, %2756 ], [ %.sroa.51053.01214, %2740 ], [ %.sroa.51053.01214, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.51053.01214, %2699 ], [ %.sroa.51053.01214, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.51053.01214, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.51053.01214, %dissect_nhdr_auth_request.exit ], [ %.sroa.51053.01214, %dissect_nhdr_gateway_name.exit ], [ %.sroa.51053.01214, %2550 ], [ %.sroa.51053.01214, %2520 ], [ %.sroa.51053.01214, %2502 ], [ %.sroa.51053.01214, %2488 ], [ %.sroa.51053.01214, %2472 ], [ %.sroa.51053.01214, %2470 ], [ %.sroa.51053.01214, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.51053.01214, %2379 ], [ %.sroa.51053.01214, %2349 ], [ %.sroa.51053.01214, %2319 ], [ %.sroa.51053.01214, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.51053.01214, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.51053.01214, %2242 ], [ %.sroa.51053.01214, %2228 ], [ %.sroa.51053.01214, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.51053.01214, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.51053.01214, %1879 ], [ %.sroa.51053.01214, %1861 ], [ %.sroa.51053.01214, %1847 ], [ %.sroa.51053.01214, %1825 ], [ %.sroa.51053.01214, %1811 ], [ %.sroa.51053.01214, %1797 ], [ %.sroa.51053.01214, %1769 ], [ %.sroa.51053.01214, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.51053.01214, %1715 ], [ %.sroa.51053.01214, %1687 ], [ %.sroa.51053.01214, %dissect_nhdr_storename.exit ], [ %.sroa.51053.01214, %1652 ], [ %.sroa.51053.01214, %1619 ], [ %.sroa.51053.01214, %1601 ], [ %.sroa.51053.01214, %1587 ], [ %.sroa.51053.01214, %1563 ], [ %.sroa.51053.01214, %1539 ], [ %.sroa.51053.01214, %1527 ], [ %.sroa.51053.01214, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.51053.01214, %dissect_nhdr_umq_ka.exit ], [ %.sroa.51053.01214, %1307 ], [ %.sroa.51053.01214, %dissect_nhdr_umq_ack.exit ], [ %.sroa.51053.01214, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.51053.01214, %dissect_nhdr_umq_reg.exit ], [ %.sroa.51053.01214, %dissect_nhdr_tsni.exit ], [ %.sroa.51053.01214, %919 ], [ %.sroa.51053.01214, %897 ], [ %.sroa.51053.01214, %879 ], [ %.sroa.51053.01214, %867 ], [ %.sroa.51053.01214, %855 ], [ %.sroa.51053.01214, %841 ], [ %.sroa.51053.01214, %825 ], [ %.sroa.51053.01214, %812 ], [ %.sroa.51053.01214, %792 ], [ %.sroa.51053.01214, %764 ], [ %.sroa.51053.01214, %742 ], [ %.sroa.51053.01214, %713 ], [ %.sroa.51053.01214, %683 ], [ %.sroa.51053.01214, %663 ], [ %.sroa.51053.01214, %639 ], [ %.sroa.51053.01214, %617 ], [ %.sroa.51053.01214, %603 ], [ %.sroa.51053.01214, %588 ], [ %.sroa.51053.01214, %573 ], [ %.sroa.51053.01214, %559 ], [ %.sroa.51053.01214, %539 ], [ %.sroa.51053.01214, %517 ], [ %.sroa.51053.01214, %501 ], [ %.sroa.51053.01214, %dissect_nhdr_apphdr.exit ], [ %.sroa.51053.01214, %dissect_nhdr_topicname.exit ], [ %.sroa.51053.01214, %359 ], [ %.sroa.51053.01214, %357 ], [ %.sroa.51053.01214, %345 ], [ %342, %324 ], [ %.sroa.51053.01214, %455 ], [ %.sroa.51053.01214, %478 ], [ %.sroa.51053.01214, %._crit_edge.i ], [ %.sroa.51053.01214, %2999 ], [ %.sroa.51053.01214, %3027 ], [ %.sroa.51053.01214, %3041 ]
+  %.sroa.10.2 = phi i32 [ %.sroa.10.01215, %3042 ], [ %.sroa.10.01215, %2897 ], [ %.sroa.10.01215, %2881 ], [ %.sroa.10.01215, %2855 ], [ %.sroa.10.01215, %2834 ], [ %.sroa.10.01215, %2820 ], [ %.sroa.10.01215, %2806 ], [ %.sroa.10.01215, %2772 ], [ %.sroa.10.01215, %2756 ], [ %.sroa.10.01215, %2740 ], [ %.sroa.10.01215, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.10.01215, %2699 ], [ %.sroa.10.01215, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.10.01215, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.10.01215, %dissect_nhdr_auth_request.exit ], [ %.sroa.10.01215, %dissect_nhdr_gateway_name.exit ], [ %.sroa.10.01215, %2550 ], [ %.sroa.10.01215, %2520 ], [ %.sroa.10.01215, %2502 ], [ %.sroa.10.01215, %2488 ], [ %.sroa.10.01215, %2472 ], [ %.sroa.10.01215, %2470 ], [ %.sroa.10.01215, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.10.01215, %2379 ], [ %.sroa.10.01215, %2349 ], [ %.sroa.10.01215, %2319 ], [ %.sroa.10.01215, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.10.01215, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.10.01215, %2242 ], [ %.sroa.10.01215, %2228 ], [ %.sroa.10.01215, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.10.01215, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.10.01215, %1879 ], [ %.sroa.10.01215, %1861 ], [ %.sroa.10.01215, %1847 ], [ %.sroa.10.01215, %1825 ], [ %.sroa.10.01215, %1811 ], [ %.sroa.10.01215, %1797 ], [ %.sroa.10.01215, %1769 ], [ %.sroa.10.01215, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.10.01215, %1715 ], [ %.sroa.10.01215, %1687 ], [ %.sroa.10.01215, %dissect_nhdr_storename.exit ], [ %.sroa.10.01215, %1652 ], [ %.sroa.10.01215, %1619 ], [ %.sroa.10.01215, %1601 ], [ %.sroa.10.01215, %1587 ], [ %.sroa.10.01215, %1563 ], [ %.sroa.10.01215, %1539 ], [ %.sroa.10.01215, %1527 ], [ %.sroa.10.01215, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.10.01215, %dissect_nhdr_umq_ka.exit ], [ %.sroa.10.01215, %1307 ], [ %.sroa.10.01215, %dissect_nhdr_umq_ack.exit ], [ %.sroa.10.01215, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.10.01215, %dissect_nhdr_umq_reg.exit ], [ %.sroa.10.01215, %dissect_nhdr_tsni.exit ], [ %.sroa.10.01215, %919 ], [ %.sroa.10.01215, %897 ], [ %.sroa.10.01215, %879 ], [ %.sroa.10.01215, %867 ], [ %.sroa.10.01215, %855 ], [ %.sroa.10.01215, %841 ], [ %.sroa.10.01215, %825 ], [ %.sroa.10.01215, %812 ], [ %.sroa.10.01215, %792 ], [ %.sroa.10.01215, %764 ], [ %.sroa.10.01215, %742 ], [ %.sroa.10.01215, %713 ], [ %.sroa.10.01215, %683 ], [ %.sroa.10.01215, %663 ], [ %.sroa.10.01215, %639 ], [ %.sroa.10.01215, %617 ], [ %.sroa.10.01215, %603 ], [ %.sroa.10.01215, %588 ], [ %.sroa.10.01215, %573 ], [ %.sroa.10.01215, %559 ], [ %.sroa.10.01215, %539 ], [ %.sroa.10.01215, %517 ], [ %.sroa.10.01215, %501 ], [ %.sroa.10.01215, %dissect_nhdr_apphdr.exit ], [ %.sroa.10.01215, %dissect_nhdr_topicname.exit ], [ %.sroa.10.01215, %359 ], [ %.sroa.10.01215, %357 ], [ %.sroa.10.01215, %345 ], [ %343, %324 ], [ %.sroa.10.01215, %455 ], [ %.sroa.10.01215, %478 ], [ %.sroa.10.01215, %._crit_edge.i ], [ %.sroa.10.01215, %2999 ], [ %.sroa.10.01215, %3027 ], [ %.sroa.10.01215, %3041 ]
+  %.sroa.5999.4 = phi i32 [ %.sroa.5999.21216, %3042 ], [ %.sroa.5999.21216, %2897 ], [ %.sroa.5999.21216, %2881 ], [ %.sroa.5999.21216, %2855 ], [ %.sroa.5999.21216, %2834 ], [ %.sroa.5999.21216, %2820 ], [ %.sroa.5999.21216, %2806 ], [ %2800, %2772 ], [ %.sroa.5999.21216, %2756 ], [ %.sroa.5999.21216, %2740 ], [ %.sroa.5999.21216, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.5999.21216, %2699 ], [ %.sroa.5999.21216, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.5999.21216, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.5999.21216, %dissect_nhdr_auth_request.exit ], [ %.sroa.5999.21216, %dissect_nhdr_gateway_name.exit ], [ %.sroa.5999.21216, %2550 ], [ %.sroa.5999.21216, %2520 ], [ %.sroa.5999.21216, %2502 ], [ %.sroa.5999.21216, %2488 ], [ %.sroa.5999.21216, %2472 ], [ %.sroa.5999.21216, %2470 ], [ %.sroa.5999.21216, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.5999.21216, %2379 ], [ %.sroa.5999.21216, %2349 ], [ %.sroa.5999.21216, %2319 ], [ %.sroa.5999.21216, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.5999.21216, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.5999.21216, %2242 ], [ %.sroa.5999.21216, %2228 ], [ %.sroa.5999.21216, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.5999.21216, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.5999.21216, %1879 ], [ %.sroa.5999.21216, %1861 ], [ %.sroa.5999.21216, %1847 ], [ %.sroa.5999.21216, %1825 ], [ %.sroa.5999.21216, %1811 ], [ %.sroa.5999.21216, %1797 ], [ %.sroa.5999.21216, %1769 ], [ %.sroa.5999.21216, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.5999.21216, %1715 ], [ %.sroa.5999.21216, %1687 ], [ %.sroa.5999.21216, %dissect_nhdr_storename.exit ], [ %.sroa.5999.21216, %1652 ], [ %.sroa.5999.21216, %1619 ], [ %.sroa.5999.21216, %1601 ], [ %.sroa.5999.21216, %1587 ], [ %.sroa.5999.21216, %1563 ], [ %.sroa.5999.21216, %1539 ], [ %.sroa.5999.21216, %1527 ], [ %.sroa.5999.21216, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.5999.21216, %dissect_nhdr_umq_ka.exit ], [ %.sroa.5999.21216, %1307 ], [ %.sroa.5999.21216, %dissect_nhdr_umq_ack.exit ], [ %.sroa.5999.21216, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.5999.21216, %dissect_nhdr_umq_reg.exit ], [ %.sroa.5999.21216, %dissect_nhdr_tsni.exit ], [ %.sroa.5999.21216, %919 ], [ %.sroa.5999.21216, %897 ], [ %.sroa.5999.21216, %879 ], [ %.sroa.5999.21216, %867 ], [ %.sroa.5999.21216, %855 ], [ %.sroa.5999.21216, %841 ], [ %.sroa.5999.21216, %825 ], [ %.sroa.5999.21216, %812 ], [ %.sroa.5999.21216, %792 ], [ %.sroa.5999.21216, %764 ], [ %.sroa.5999.21216, %742 ], [ %.sroa.5999.21216, %713 ], [ %.sroa.5999.21216, %683 ], [ %.sroa.5999.21216, %663 ], [ %.sroa.5999.21216, %639 ], [ %.sroa.5999.21216, %617 ], [ %.sroa.5999.21216, %603 ], [ %.sroa.5999.21216, %588 ], [ %.sroa.5999.21216, %573 ], [ %.sroa.5999.21216, %559 ], [ %.sroa.5999.21216, %539 ], [ %.sroa.5999.21216, %517 ], [ %.sroa.5999.21216, %501 ], [ %.sroa.5999.21216, %dissect_nhdr_apphdr.exit ], [ %.sroa.5999.21216, %dissect_nhdr_topicname.exit ], [ %.sroa.5999.21216, %359 ], [ %.sroa.5999.21216, %357 ], [ %.sroa.5999.21216, %345 ], [ %.sroa.5999.21216, %324 ], [ %.sroa.5999.21216, %455 ], [ %.sroa.5999.21216, %478 ], [ %.sroa.5999.21216, %._crit_edge.i ], [ %.sroa.5999.21216, %2999 ], [ %.sroa.5999.21216, %3027 ], [ %.sroa.5999.21216, %3041 ]
+  %.sroa.151058.2 = phi i32 [ %.sroa.151058.01217, %3042 ], [ %.sroa.151058.01217, %2897 ], [ %.sroa.151058.01217, %2881 ], [ %.sroa.151058.01217, %2855 ], [ %.sroa.151058.01217, %2834 ], [ %.sroa.151058.01217, %2820 ], [ %.sroa.151058.01217, %2806 ], [ %.sroa.151058.01217, %2772 ], [ %.sroa.151058.01217, %2756 ], [ %.sroa.151058.01217, %2740 ], [ %.sroa.151058.01217, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.151058.01217, %2699 ], [ %.sroa.151058.01217, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.151058.01217, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.151058.01217, %dissect_nhdr_auth_request.exit ], [ %.sroa.151058.01217, %dissect_nhdr_gateway_name.exit ], [ %.sroa.151058.01217, %2550 ], [ %.sroa.151058.01217, %2520 ], [ %.sroa.151058.01217, %2502 ], [ %.sroa.151058.01217, %2488 ], [ %.sroa.151058.01217, %2472 ], [ %.sroa.151058.01217, %2470 ], [ %.sroa.151058.01217, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.151058.01217, %2379 ], [ %.sroa.151058.01217, %2349 ], [ %.sroa.151058.01217, %2319 ], [ %.sroa.151058.01217, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.151058.01217, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.151058.01217, %2242 ], [ %.sroa.151058.01217, %2228 ], [ %.sroa.151058.01217, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.151058.01217, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.151058.01217, %1879 ], [ %.sroa.151058.01217, %1861 ], [ %.sroa.151058.01217, %1847 ], [ %.sroa.151058.01217, %1825 ], [ %.sroa.151058.01217, %1811 ], [ %.sroa.151058.01217, %1797 ], [ %.sroa.151058.01217, %1769 ], [ %.sroa.151058.01217, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.151058.01217, %1715 ], [ %.sroa.151058.01217, %1687 ], [ %.sroa.151058.01217, %dissect_nhdr_storename.exit ], [ %.sroa.151058.01217, %1652 ], [ %.sroa.151058.01217, %1619 ], [ %.sroa.151058.01217, %1601 ], [ %.sroa.151058.01217, %1587 ], [ %.sroa.151058.01217, %1563 ], [ %.sroa.151058.01217, %1539 ], [ %.sroa.151058.01217, %1527 ], [ %.sroa.151058.01217, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.151058.01217, %dissect_nhdr_umq_ka.exit ], [ %.sroa.151058.01217, %1307 ], [ %.sroa.151058.01217, %dissect_nhdr_umq_ack.exit ], [ %.sroa.151058.01217, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.151058.01217, %dissect_nhdr_umq_reg.exit ], [ %.sroa.151058.01217, %dissect_nhdr_tsni.exit ], [ %.sroa.151058.01217, %919 ], [ %.sroa.151058.01217, %897 ], [ %.sroa.151058.01217, %879 ], [ %.sroa.151058.01217, %867 ], [ %.sroa.151058.01217, %855 ], [ %.sroa.151058.01217, %841 ], [ %.sroa.151058.01217, %825 ], [ %.sroa.151058.01217, %812 ], [ %.sroa.151058.01217, %792 ], [ %.sroa.151058.01217, %764 ], [ %.sroa.151058.01217, %742 ], [ %.sroa.151058.01217, %713 ], [ %.sroa.151058.01217, %683 ], [ %.sroa.151058.01217, %663 ], [ %.sroa.151058.01217, %639 ], [ %.sroa.151058.01217, %617 ], [ %.sroa.151058.01217, %603 ], [ %.sroa.151058.01217, %588 ], [ %.sroa.151058.01217, %573 ], [ %.sroa.151058.01217, %559 ], [ %.sroa.151058.01217, %539 ], [ %.sroa.151058.01217, %517 ], [ %.sroa.151058.01217, %501 ], [ %.sroa.151058.01217, %dissect_nhdr_apphdr.exit ], [ %.sroa.151058.01217, %dissect_nhdr_topicname.exit ], [ %.sroa.151058.01217, %359 ], [ %.sroa.151058.01217, %357 ], [ %.sroa.151058.01217, %345 ], [ %344, %324 ], [ %.sroa.151058.01217, %455 ], [ %.sroa.151058.01217, %478 ], [ %.sroa.151058.01217, %._crit_edge.i ], [ %.sroa.151058.01217, %2999 ], [ %.sroa.151058.01217, %3027 ], [ %.sroa.151058.01217, %3041 ]
+  %.sroa.0997.2 = phi i1 [ %.sroa.0997.01218, %3042 ], [ %.sroa.0997.01218, %2897 ], [ %.sroa.0997.01218, %2881 ], [ %.sroa.0997.01218, %2855 ], [ %.sroa.0997.01218, %2834 ], [ %.sroa.0997.01218, %2820 ], [ %.sroa.0997.01218, %2806 ], [ true, %2772 ], [ %.sroa.0997.01218, %2756 ], [ %.sroa.0997.01218, %2740 ], [ %.sroa.0997.01218, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.0997.01218, %2699 ], [ %.sroa.0997.01218, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.0997.01218, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.0997.01218, %dissect_nhdr_auth_request.exit ], [ %.sroa.0997.01218, %dissect_nhdr_gateway_name.exit ], [ %.sroa.0997.01218, %2550 ], [ %.sroa.0997.01218, %2520 ], [ %.sroa.0997.01218, %2502 ], [ %.sroa.0997.01218, %2488 ], [ %.sroa.0997.01218, %2472 ], [ %.sroa.0997.01218, %2470 ], [ %.sroa.0997.01218, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.0997.01218, %2379 ], [ %.sroa.0997.01218, %2349 ], [ %.sroa.0997.01218, %2319 ], [ %.sroa.0997.01218, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.0997.01218, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.0997.01218, %2242 ], [ %.sroa.0997.01218, %2228 ], [ %.sroa.0997.01218, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.0997.01218, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.0997.01218, %1879 ], [ %.sroa.0997.01218, %1861 ], [ %.sroa.0997.01218, %1847 ], [ %.sroa.0997.01218, %1825 ], [ %.sroa.0997.01218, %1811 ], [ %.sroa.0997.01218, %1797 ], [ %.sroa.0997.01218, %1769 ], [ %.sroa.0997.01218, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.0997.01218, %1715 ], [ %.sroa.0997.01218, %1687 ], [ %.sroa.0997.01218, %dissect_nhdr_storename.exit ], [ %.sroa.0997.01218, %1652 ], [ %.sroa.0997.01218, %1619 ], [ %.sroa.0997.01218, %1601 ], [ %.sroa.0997.01218, %1587 ], [ %.sroa.0997.01218, %1563 ], [ %.sroa.0997.01218, %1539 ], [ %.sroa.0997.01218, %1527 ], [ %.sroa.0997.01218, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.0997.01218, %dissect_nhdr_umq_ka.exit ], [ %.sroa.0997.01218, %1307 ], [ %.sroa.0997.01218, %dissect_nhdr_umq_ack.exit ], [ %.sroa.0997.01218, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.0997.01218, %dissect_nhdr_umq_reg.exit ], [ %.sroa.0997.01218, %dissect_nhdr_tsni.exit ], [ %.sroa.0997.01218, %919 ], [ %.sroa.0997.01218, %897 ], [ %.sroa.0997.01218, %879 ], [ %.sroa.0997.01218, %867 ], [ %.sroa.0997.01218, %855 ], [ %.sroa.0997.01218, %841 ], [ %.sroa.0997.01218, %825 ], [ %.sroa.0997.01218, %812 ], [ %.sroa.0997.01218, %792 ], [ %.sroa.0997.01218, %764 ], [ %.sroa.0997.01218, %742 ], [ %.sroa.0997.01218, %713 ], [ %.sroa.0997.01218, %683 ], [ %.sroa.0997.01218, %663 ], [ %.sroa.0997.01218, %639 ], [ %.sroa.0997.01218, %617 ], [ %.sroa.0997.01218, %603 ], [ %.sroa.0997.01218, %588 ], [ %.sroa.0997.01218, %573 ], [ %.sroa.0997.01218, %559 ], [ %.sroa.0997.01218, %539 ], [ %.sroa.0997.01218, %517 ], [ %.sroa.0997.01218, %501 ], [ %.sroa.0997.01218, %dissect_nhdr_apphdr.exit ], [ %.sroa.0997.01218, %dissect_nhdr_topicname.exit ], [ %.sroa.0997.01218, %359 ], [ %.sroa.0997.01218, %357 ], [ %.sroa.0997.01218, %345 ], [ %.sroa.0997.01218, %324 ], [ %.sroa.0997.01218, %455 ], [ %.sroa.0997.01218, %478 ], [ %.sroa.0997.01218, %._crit_edge.i ], [ %.sroa.0997.01218, %2999 ], [ %.sroa.0997.01218, %3027 ], [ %.sroa.0997.01218, %3041 ]
+  %.sroa.5961.2 = phi i32 [ %.sroa.5961.01219, %3042 ], [ %2911, %2897 ], [ %.sroa.5961.01219, %2881 ], [ %.sroa.5961.01219, %2855 ], [ %.sroa.5961.01219, %2834 ], [ %.sroa.5961.01219, %2820 ], [ %.sroa.5961.01219, %2806 ], [ %.sroa.5961.01219, %2772 ], [ %.sroa.5961.01219, %2756 ], [ %.sroa.5961.01219, %2740 ], [ %.sroa.5961.01219, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.5961.01219, %2699 ], [ %.sroa.5961.01219, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.5961.01219, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.5961.01219, %dissect_nhdr_auth_request.exit ], [ %.sroa.5961.01219, %dissect_nhdr_gateway_name.exit ], [ %.sroa.5961.01219, %2550 ], [ %.sroa.5961.01219, %2520 ], [ %.sroa.5961.01219, %2502 ], [ %.sroa.5961.01219, %2488 ], [ %.sroa.5961.01219, %2472 ], [ %.sroa.5961.01219, %2470 ], [ %.sroa.5961.01219, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.5961.01219, %2379 ], [ %.sroa.5961.01219, %2349 ], [ %.sroa.5961.01219, %2319 ], [ %.sroa.5961.01219, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.5961.01219, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.5961.01219, %2242 ], [ %.sroa.5961.01219, %2228 ], [ %.sroa.5961.01219, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.5961.01219, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.5961.01219, %1879 ], [ %.sroa.5961.01219, %1861 ], [ %.sroa.5961.01219, %1847 ], [ %.sroa.5961.01219, %1825 ], [ %.sroa.5961.01219, %1811 ], [ %.sroa.5961.01219, %1797 ], [ %.sroa.5961.01219, %1769 ], [ %.sroa.5961.01219, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.5961.01219, %1715 ], [ %.sroa.5961.01219, %1687 ], [ %.sroa.5961.01219, %dissect_nhdr_storename.exit ], [ %.sroa.5961.01219, %1652 ], [ %.sroa.5961.01219, %1619 ], [ %.sroa.5961.01219, %1601 ], [ %.sroa.5961.01219, %1587 ], [ %.sroa.5961.01219, %1563 ], [ %.sroa.5961.01219, %1539 ], [ %.sroa.5961.01219, %1527 ], [ %.sroa.5961.01219, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.5961.01219, %dissect_nhdr_umq_ka.exit ], [ %.sroa.5961.01219, %1307 ], [ %.sroa.5961.01219, %dissect_nhdr_umq_ack.exit ], [ %.sroa.5961.01219, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.5961.01219, %dissect_nhdr_umq_reg.exit ], [ %.sroa.5961.01219, %dissect_nhdr_tsni.exit ], [ %.sroa.5961.01219, %919 ], [ %.sroa.5961.01219, %897 ], [ %.sroa.5961.01219, %879 ], [ %.sroa.5961.01219, %867 ], [ %.sroa.5961.01219, %855 ], [ %.sroa.5961.01219, %841 ], [ %.sroa.5961.01219, %825 ], [ %.sroa.5961.01219, %812 ], [ %.sroa.5961.01219, %792 ], [ %.sroa.5961.01219, %764 ], [ %.sroa.5961.01219, %742 ], [ %.sroa.5961.01219, %713 ], [ %.sroa.5961.01219, %683 ], [ %.sroa.5961.01219, %663 ], [ %.sroa.5961.01219, %639 ], [ %.sroa.5961.01219, %617 ], [ %.sroa.5961.01219, %603 ], [ %.sroa.5961.01219, %588 ], [ %.sroa.5961.01219, %573 ], [ %.sroa.5961.01219, %559 ], [ %.sroa.5961.01219, %539 ], [ %.sroa.5961.01219, %517 ], [ %.sroa.5961.01219, %501 ], [ %.sroa.5961.01219, %dissect_nhdr_apphdr.exit ], [ %.sroa.5961.01219, %dissect_nhdr_topicname.exit ], [ %.sroa.5961.01219, %359 ], [ %.sroa.5961.01219, %357 ], [ %.sroa.5961.01219, %345 ], [ %.sroa.5961.01219, %324 ], [ %.sroa.5961.01219, %455 ], [ %.sroa.5961.01219, %478 ], [ %.sroa.5961.01219, %._crit_edge.i ], [ %.sroa.5961.01219, %2999 ], [ %.sroa.5961.01219, %3027 ], [ %.sroa.5961.01219, %3041 ]
+  %.21066 = phi i32 [ %.010641220, %3042 ], [ %.010641220, %2897 ], [ %.010641220, %2881 ], [ %.010641220, %2855 ], [ %.010641220, %2834 ], [ %.010641220, %2820 ], [ %.010641220, %2806 ], [ %.010641220, %2772 ], [ %.010641220, %2756 ], [ %.010641220, %2740 ], [ %.010641220, %dissect_nhdr_auth_unknown.exit ], [ %.010641220, %2699 ], [ %.010641220, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.010641220, %dissect_nhdr_auth_challenge.exit ], [ %.010641220, %dissect_nhdr_auth_request.exit ], [ %.010641220, %dissect_nhdr_gateway_name.exit ], [ %.010641220, %2550 ], [ %.010641220, %2520 ], [ %.010641220, %2502 ], [ %.010641220, %2488 ], [ %.010641220, %2472 ], [ %.010641220, %2470 ], [ %.010641220, %dissect_nhdr_umq_cmd.exit ], [ %.010641220, %2379 ], [ %.010641220, %2349 ], [ %.010641220, %2319 ], [ %.010641220, %dissect_nhdr_pattern_md_interest.exit ], [ %.010641220, %dissect_nhdr_topic_md_interest.exit ], [ %.010641220, %2242 ], [ %.010641220, %2228 ], [ %.010641220, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.010641220, %dissect_nhdr_umq_idx_cmd.exit ], [ %.010641220, %1879 ], [ %.010641220, %1861 ], [ %.010641220, %1847 ], [ %.010641220, %1825 ], [ %.010641220, %1811 ], [ %.010641220, %1797 ], [ %.010641220, %1769 ], [ %.010641220, %dissect_nhdr_ctxinfo.exit ], [ %.010641220, %1715 ], [ %.010641220, %1687 ], [ %.010641220, %dissect_nhdr_storename.exit ], [ %.010641220, %1652 ], [ %.010641220, %1619 ], [ %.010641220, %1601 ], [ %.010641220, %1587 ], [ %.010641220, %1563 ], [ %.010641220, %1539 ], [ %.010641220, %1527 ], [ %.010641220, %dissect_nhdr_umq_rxreq.exit ], [ %.010641220, %dissect_nhdr_umq_ka.exit ], [ %.010641220, %1307 ], [ %.010641220, %dissect_nhdr_umq_ack.exit ], [ %.010641220, %dissect_nhdr_umq_reg_resp.exit ], [ %.010641220, %dissect_nhdr_umq_reg.exit ], [ %.010641220, %dissect_nhdr_tsni.exit ], [ %.010641220, %919 ], [ %.010641220, %897 ], [ %.010641220, %879 ], [ %.010641220, %867 ], [ %.010641220, %855 ], [ %.010641220, %841 ], [ %.010641220, %825 ], [ %.010641220, %812 ], [ %.010641220, %792 ], [ %.010641220, %764 ], [ %.010641220, %742 ], [ %.010641220, %713 ], [ %.010641220, %683 ], [ %.010641220, %663 ], [ %.010641220, %639 ], [ %.010641220, %617 ], [ %.010641220, %603 ], [ %.010641220, %588 ], [ %.010641220, %573 ], [ %.010641220, %559 ], [ %.010641220, %539 ], [ %.010641220, %517 ], [ %.010641220, %501 ], [ %.010641220, %dissect_nhdr_apphdr.exit ], [ %.010641220, %dissect_nhdr_topicname.exit ], [ %.010641220, %359 ], [ %.010641220, %357 ], [ %.010641220, %345 ], [ %.010641220, %324 ], [ %.31067, %455 ], [ %.31067, %478 ], [ %.51069, %._crit_edge.i ], [ %.010641220, %2999 ], [ %.010641220, %3027 ], [ %.010641220, %3041 ]
+  %.sroa.0.2 = phi i1 [ %.sroa.0.01221, %3042 ], [ true, %2897 ], [ %.sroa.0.01221, %2881 ], [ %.sroa.0.01221, %2855 ], [ %.sroa.0.01221, %2834 ], [ %.sroa.0.01221, %2820 ], [ %.sroa.0.01221, %2806 ], [ %.sroa.0.01221, %2772 ], [ %.sroa.0.01221, %2756 ], [ %.sroa.0.01221, %2740 ], [ %.sroa.0.01221, %dissect_nhdr_auth_unknown.exit ], [ %.sroa.0.01221, %2699 ], [ %.sroa.0.01221, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.sroa.0.01221, %dissect_nhdr_auth_challenge.exit ], [ %.sroa.0.01221, %dissect_nhdr_auth_request.exit ], [ %.sroa.0.01221, %dissect_nhdr_gateway_name.exit ], [ %.sroa.0.01221, %2550 ], [ %.sroa.0.01221, %2520 ], [ %.sroa.0.01221, %2502 ], [ %.sroa.0.01221, %2488 ], [ %.sroa.0.01221, %2472 ], [ %.sroa.0.01221, %2470 ], [ %.sroa.0.01221, %dissect_nhdr_umq_cmd.exit ], [ %.sroa.0.01221, %2379 ], [ %.sroa.0.01221, %2349 ], [ %.sroa.0.01221, %2319 ], [ %.sroa.0.01221, %dissect_nhdr_pattern_md_interest.exit ], [ %.sroa.0.01221, %dissect_nhdr_topic_md_interest.exit ], [ %.sroa.0.01221, %2242 ], [ %.sroa.0.01221, %2228 ], [ %.sroa.0.01221, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.sroa.0.01221, %dissect_nhdr_umq_idx_cmd.exit ], [ %.sroa.0.01221, %1879 ], [ %.sroa.0.01221, %1861 ], [ %.sroa.0.01221, %1847 ], [ %.sroa.0.01221, %1825 ], [ %.sroa.0.01221, %1811 ], [ %.sroa.0.01221, %1797 ], [ %.sroa.0.01221, %1769 ], [ %.sroa.0.01221, %dissect_nhdr_ctxinfo.exit ], [ %.sroa.0.01221, %1715 ], [ %.sroa.0.01221, %1687 ], [ %.sroa.0.01221, %dissect_nhdr_storename.exit ], [ %.sroa.0.01221, %1652 ], [ %.sroa.0.01221, %1619 ], [ %.sroa.0.01221, %1601 ], [ %.sroa.0.01221, %1587 ], [ %.sroa.0.01221, %1563 ], [ %.sroa.0.01221, %1539 ], [ %.sroa.0.01221, %1527 ], [ %.sroa.0.01221, %dissect_nhdr_umq_rxreq.exit ], [ %.sroa.0.01221, %dissect_nhdr_umq_ka.exit ], [ %.sroa.0.01221, %1307 ], [ %.sroa.0.01221, %dissect_nhdr_umq_ack.exit ], [ %.sroa.0.01221, %dissect_nhdr_umq_reg_resp.exit ], [ %.sroa.0.01221, %dissect_nhdr_umq_reg.exit ], [ %.sroa.0.01221, %dissect_nhdr_tsni.exit ], [ %.sroa.0.01221, %919 ], [ %.sroa.0.01221, %897 ], [ %.sroa.0.01221, %879 ], [ %.sroa.0.01221, %867 ], [ %.sroa.0.01221, %855 ], [ %.sroa.0.01221, %841 ], [ %.sroa.0.01221, %825 ], [ %.sroa.0.01221, %812 ], [ %.sroa.0.01221, %792 ], [ %.sroa.0.01221, %764 ], [ %.sroa.0.01221, %742 ], [ %.sroa.0.01221, %713 ], [ %.sroa.0.01221, %683 ], [ %.sroa.0.01221, %663 ], [ %.sroa.0.01221, %639 ], [ %.sroa.0.01221, %617 ], [ %.sroa.0.01221, %603 ], [ %.sroa.0.01221, %588 ], [ %.sroa.0.01221, %573 ], [ %.sroa.0.01221, %559 ], [ %.sroa.0.01221, %539 ], [ %.sroa.0.01221, %517 ], [ %.sroa.0.01221, %501 ], [ %.sroa.0.01221, %dissect_nhdr_apphdr.exit ], [ %.sroa.0.01221, %dissect_nhdr_topicname.exit ], [ %.sroa.0.01221, %359 ], [ %.sroa.0.01221, %357 ], [ %.sroa.0.01221, %345 ], [ %.sroa.0.01221, %324 ], [ %.sroa.0.01221, %455 ], [ %.sroa.0.01221, %478 ], [ %.sroa.0.01221, %._crit_edge.i ], [ %.sroa.0.01221, %2999 ], [ %.sroa.0.01221, %3027 ], [ %.sroa.0.01221, %3041 ]
+  %.2786 = phi i1 [ %.07841222, %3042 ], [ %.07841222, %2897 ], [ %.07841222, %2881 ], [ %.07841222, %2855 ], [ %.07841222, %2834 ], [ %.07841222, %2820 ], [ %.07841222, %2806 ], [ %.07841222, %2772 ], [ %.07841222, %2756 ], [ %.07841222, %2740 ], [ %.07841222, %dissect_nhdr_auth_unknown.exit ], [ %.07841222, %2699 ], [ %.07841222, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.07841222, %dissect_nhdr_auth_challenge.exit ], [ %.07841222, %dissect_nhdr_auth_request.exit ], [ %.07841222, %dissect_nhdr_gateway_name.exit ], [ %.07841222, %2550 ], [ %.07841222, %2520 ], [ %.07841222, %2502 ], [ %.07841222, %2488 ], [ %.07841222, %2472 ], [ %.07841222, %2470 ], [ %.07841222, %dissect_nhdr_umq_cmd.exit ], [ %.07841222, %2379 ], [ %.07841222, %2349 ], [ %.07841222, %2319 ], [ %.07841222, %dissect_nhdr_pattern_md_interest.exit ], [ %.07841222, %dissect_nhdr_topic_md_interest.exit ], [ %.07841222, %2242 ], [ %.07841222, %2228 ], [ %.07841222, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.07841222, %dissect_nhdr_umq_idx_cmd.exit ], [ %.07841222, %1879 ], [ %.07841222, %1861 ], [ %.07841222, %1847 ], [ %.07841222, %1825 ], [ %.07841222, %1811 ], [ %.07841222, %1797 ], [ %.07841222, %1769 ], [ %.07841222, %dissect_nhdr_ctxinfo.exit ], [ %.07841222, %1715 ], [ %.07841222, %1687 ], [ %.07841222, %dissect_nhdr_storename.exit ], [ %.07841222, %1652 ], [ %.07841222, %1619 ], [ %.07841222, %1601 ], [ %.07841222, %1587 ], [ %.07841222, %1563 ], [ %.07841222, %1539 ], [ %.07841222, %1527 ], [ %.07841222, %dissect_nhdr_umq_rxreq.exit ], [ %.07841222, %dissect_nhdr_umq_ka.exit ], [ %.07841222, %1307 ], [ %.07841222, %dissect_nhdr_umq_ack.exit ], [ %.07841222, %dissect_nhdr_umq_reg_resp.exit ], [ %.07841222, %dissect_nhdr_umq_reg.exit ], [ %.07841222, %dissect_nhdr_tsni.exit ], [ %.07841222, %919 ], [ %.07841222, %897 ], [ %.07841222, %879 ], [ %.07841222, %867 ], [ %.07841222, %855 ], [ %.07841222, %841 ], [ %.07841222, %825 ], [ %.07841222, %812 ], [ %.07841222, %792 ], [ %.07841222, %764 ], [ %.07841222, %742 ], [ %.07841222, %713 ], [ %.07841222, %683 ], [ %.07841222, %663 ], [ %.07841222, %639 ], [ %.07841222, %617 ], [ true, %603 ], [ %.07841222, %588 ], [ %.07841222, %573 ], [ %.07841222, %559 ], [ %.07841222, %539 ], [ %.07841222, %517 ], [ %.07841222, %501 ], [ %.07841222, %dissect_nhdr_apphdr.exit ], [ %.07841222, %dissect_nhdr_topicname.exit ], [ %.07841222, %359 ], [ %.07841222, %357 ], [ %.07841222, %345 ], [ %.07841222, %324 ], [ %.07841222, %455 ], [ %.07841222, %478 ], [ %.07841222, %._crit_edge.i ], [ %.07841222, %2999 ], [ %.07841222, %3027 ], [ %.07841222, %3041 ]
+  %.0768 = phi i32 [ %3043, %3042 ], [ 8, %2897 ], [ 8, %2881 ], [ 24, %2855 ], [ 16, %2834 ], [ 8, %2820 ], [ 8, %2806 ], [ 28, %2772 ], [ 16, %2756 ], [ 24, %2740 ], [ %.0.i874, %dissect_nhdr_auth_unknown.exit ], [ 5, %2699 ], [ %.1.i873, %dissect_nhdr_auth_challenge_rsp.exit ], [ %.3.i, %dissect_nhdr_auth_challenge.exit ], [ %.0.i870, %dissect_nhdr_auth_request.exit ], [ %.0.i868, %dissect_nhdr_gateway_name.exit ], [ 20, %2550 ], [ 32, %2520 ], [ 16, %2502 ], [ 8, %2488 ], [ 12, %2472 ], [ %2471, %2470 ], [ %.0.i867, %dissect_nhdr_umq_cmd.exit ], [ 24, %2379 ], [ 64, %2349 ], [ 36, %2319 ], [ %.0.lcssa.i866, %dissect_nhdr_pattern_md_interest.exit ], [ %.0.lcssa.i858, %dissect_nhdr_topic_md_interest.exit ], [ 20, %2242 ], [ 8, %2228 ], [ %.0.i853, %dissect_nhdr_umq_idx_cmd_resp.exit ], [ %.0.i851, %dissect_nhdr_umq_idx_cmd.exit ], [ 12, %1879 ], [ 16, %1861 ], [ 12, %1847 ], [ 20, %1825 ], [ 8, %1811 ], [ 12, %1797 ], [ 40, %1769 ], [ %.0.i849, %dissect_nhdr_ctxinfo.exit ], [ 8, %1715 ], [ 40, %1687 ], [ %.0.i847, %dissect_nhdr_storename.exit ], [ 12, %1652 ], [ 48, %1619 ], [ 16, %1601 ], [ 8, %1587 ], [ 28, %1563 ], [ 32, %1539 ], [ %1538, %1527 ], [ %.1.i846, %dissect_nhdr_umq_rxreq.exit ], [ %.0.i844, %dissect_nhdr_umq_ka.exit ], [ 48, %1307 ], [ %1306, %dissect_nhdr_umq_ack.exit ], [ %.0.i840, %dissect_nhdr_umq_reg_resp.exit ], [ %.0.i839, %dissect_nhdr_umq_reg.exit ], [ %.0.lcssa.i837, %dissect_nhdr_tsni.exit ], [ 16, %919 ], [ 16, %897 ], [ 8, %879 ], [ 4, %867 ], [ 4, %855 ], [ 8, %841 ], [ 12, %825 ], [ 4, %812 ], [ 16, %792 ], [ 28, %764 ], [ 20, %742 ], [ 24, %713 ], [ 28, %683 ], [ 16, %663 ], [ 20, %639 ], [ 20, %617 ], [ 12, %603 ], [ 12, %588 ], [ 12, %573 ], [ 36, %559 ], [ 16, %539 ], [ 20, %517 ], [ 20, %501 ], [ %.0.i833, %dissect_nhdr_apphdr.exit ], [ %.0.i, %dissect_nhdr_topicname.exit ], [ 16, %359 ], [ %358, %357 ], [ 4, %345 ], [ 16, %324 ], [ %.067.i, %455 ], [ %.067.i, %478 ], [ %.0.lcssa.i, %._crit_edge.i ], [ %2918, %2999 ], [ %2918, %3027 ], [ %.2.i, %3041 ]
+  %3045 = add i32 %.0768, %.27621223
+  %3046 = add i32 %.07481224, %319
   %3047 = call i32 @tvb_reported_length_remaining(ptr noundef %236, i32 noundef %3046)
   %3048 = icmp sgt i32 %3047, 3
   %3049 = add i8 %316, -1
   %3050 = icmp ult i8 %3049, -2
-  %or.cond17 = select i1 %3048, i1 %3050, i1 false
-  br i1 %or.cond17, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !16
+  %or.cond35 = select i1 %3048, i1 %3050, i1 false
+  br i1 %or.cond35, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !16
 
 .critedge.loopexit:                               ; preds = %3044
-  %3051 = trunc nuw i8 %.sroa.0981.2 to i1
-  %3052 = icmp eq i32 %.sroa.01036.2, 0
+  %3051 = icmp eq i32 %.sroa.01052.2, 0
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %306
-  %.sroa.43.2.lcssa = phi ptr [ %.sroa.43.01249, %306 ], [ %.sroa.43.4, %.critedge.loopexit ]
-  %.sroa.48.2.lcssa = phi i16 [ %.sroa.48.01250, %306 ], [ %.sroa.48.4, %.critedge.loopexit ]
-  %.01054.lcssa = phi i8 [ 0, %306 ], [ %.21056, %.critedge.loopexit ]
-  %.sroa.291009.2.lcssa = phi i32 [ %.sroa.291009.01251, %306 ], [ %.sroa.291009.4, %.critedge.loopexit ]
-  %.sroa.25.2.lcssa = phi i16 [ %.sroa.25.01252, %306 ], [ %.sroa.25.4, %.critedge.loopexit ]
-  %.sroa.01036.0.lcssa = phi i1 [ true, %306 ], [ %3052, %.critedge.loopexit ]
-  %.sroa.20.2.lcssa = phi ptr [ %.sroa.20.01253, %306 ], [ %.sroa.20.4, %.critedge.loopexit ]
-  %.sroa.51037.0.lcssa = phi i32 [ 0, %306 ], [ %.sroa.51037.2, %.critedge.loopexit ]
+  %.sroa.42.2.lcssa = phi ptr [ %.sroa.42.01255, %306 ], [ %.sroa.42.4, %.critedge.loopexit ]
+  %.sroa.47.2.lcssa = phi i16 [ %.sroa.47.01256, %306 ], [ %.sroa.47.4, %.critedge.loopexit ]
+  %.01071.lcssa = phi i8 [ 0, %306 ], [ %.21073, %.critedge.loopexit ]
+  %.sroa.281025.2.lcssa = phi i32 [ %.sroa.281025.01257, %306 ], [ %.sroa.281025.4, %.critedge.loopexit ]
+  %.sroa.24.2.lcssa = phi i16 [ %.sroa.24.01258, %306 ], [ %.sroa.24.4, %.critedge.loopexit ]
+  %.sroa.01052.0.lcssa = phi i1 [ true, %306 ], [ %3051, %.critedge.loopexit ]
+  %.sroa.19.2.lcssa = phi ptr [ %.sroa.19.01259, %306 ], [ %.sroa.19.4, %.critedge.loopexit ]
+  %.sroa.51053.0.lcssa = phi i32 [ 0, %306 ], [ %.sroa.51053.2, %.critedge.loopexit ]
   %.sroa.10.0.lcssa = phi i32 [ 0, %306 ], [ %.sroa.10.2, %.critedge.loopexit ]
-  %.sroa.6983.2.lcssa = phi i32 [ %.sroa.6983.01254, %306 ], [ %.sroa.6983.4, %.critedge.loopexit ]
-  %.sroa.15.0.lcssa = phi i32 [ 0, %306 ], [ %.sroa.15.2, %.critedge.loopexit ]
-  %.sroa.0981.0.lcssa = phi i1 [ false, %306 ], [ %3051, %.critedge.loopexit ]
-  %.sroa.5945.0.lcssa = phi i32 [ -1, %306 ], [ %.sroa.5945.2, %.critedge.loopexit ]
-  %.01047.lcssa = phi i32 [ 0, %306 ], [ %.21049, %.critedge.loopexit ]
+  %.sroa.5999.2.lcssa = phi i32 [ %.sroa.5999.01260, %306 ], [ %.sroa.5999.4, %.critedge.loopexit ]
+  %.sroa.151058.0.lcssa = phi i32 [ 0, %306 ], [ %.sroa.151058.2, %.critedge.loopexit ]
+  %.sroa.0997.0.lcssa = phi i1 [ false, %306 ], [ %.sroa.0997.2, %.critedge.loopexit ]
+  %.sroa.5961.0.lcssa = phi i32 [ -1, %306 ], [ %.sroa.5961.2, %.critedge.loopexit ]
+  %.01064.lcssa = phi i32 [ 0, %306 ], [ %.21066, %.critedge.loopexit ]
   %.sroa.0.0.lcssa = phi i1 [ false, %306 ], [ %.sroa.0.2, %.critedge.loopexit ]
-  %.0766.lcssa = phi i1 [ false, %306 ], [ %.2768, %.critedge.loopexit ]
-  %.2744.lcssa = phi i32 [ %295, %306 ], [ %3045, %.critedge.loopexit ]
-  %.0730.lcssa = phi i32 [ %.0747, %306 ], [ %3046, %.critedge.loopexit ]
-  %.0703.lcssa = phi i8 [ %300, %306 ], [ %316, %.critedge.loopexit ]
-  %3053 = call zeroext i1 @lbm_channel_is_unknown_transport_source_lbttcp(i64 noundef %5)
-  br i1 %3053, label %3054, label %3060
+  %.0784.lcssa = phi i1 [ false, %306 ], [ %.2786, %.critedge.loopexit ]
+  %.2762.lcssa = phi i32 [ %295, %306 ], [ %3045, %.critedge.loopexit ]
+  %.0748.lcssa = phi i32 [ %.0765, %306 ], [ %3046, %.critedge.loopexit ]
+  %.0721.lcssa = phi i8 [ %300, %306 ], [ %316, %.critedge.loopexit ]
+  %3052 = call zeroext i1 @lbm_channel_is_unknown_transport_source_lbttcp(i64 noundef %5)
+  br i1 %3052, label %3053, label %3059
 
-3054:                                             ; preds = %.critedge
-  %3055 = load i32, ptr %65, align 8
-  %3056 = load i32, ptr %66, align 4
-  %3057 = load ptr, ptr %67, align 8
-  store i32 %3055, ptr %44, align 8
-  store i32 %3056, ptr %61, align 4
-  store ptr %3057, ptr %62, align 8
+3053:                                             ; preds = %.critedge
+  %3054 = load i32, ptr %65, align 8
+  %3055 = load i32, ptr %66, align 4
+  %3056 = load ptr, ptr %67, align 8
+  store i32 %3054, ptr %44, align 8
+  store i32 %3055, ptr %61, align 4
+  store ptr %3056, ptr %62, align 8
   store ptr null, ptr %63, align 8
-  %3058 = load i32, ptr %68, align 4
-  %3059 = trunc i32 %3058 to i16
-  br label %3068
+  %3057 = load i32, ptr %68, align 4
+  %3058 = trunc i32 %3057 to i16
+  br label %3067
 
-3060:                                             ; preds = %.critedge
-  %3061 = call zeroext i1 @lbm_channel_is_unknown_transport_client_lbttcp(i64 noundef %5)
-  br i1 %3061, label %3062, label %3068
+3059:                                             ; preds = %.critedge
+  %3060 = call zeroext i1 @lbm_channel_is_unknown_transport_client_lbttcp(i64 noundef %5)
+  br i1 %3060, label %3061, label %3067
 
-3062:                                             ; preds = %3060
-  %3063 = load i32, ptr %58, align 8
-  %3064 = load i32, ptr %59, align 4
-  %3065 = load ptr, ptr %60, align 8
-  store i32 %3063, ptr %44, align 8
-  store i32 %3064, ptr %61, align 4
-  store ptr %3065, ptr %62, align 8
+3061:                                             ; preds = %3059
+  %3062 = load i32, ptr %58, align 8
+  %3063 = load i32, ptr %59, align 4
+  %3064 = load ptr, ptr %60, align 8
+  store i32 %3062, ptr %44, align 8
+  store i32 %3063, ptr %61, align 4
+  store ptr %3064, ptr %62, align 8
   store ptr null, ptr %63, align 8
-  %3066 = load i32, ptr %64, align 8
-  %3067 = trunc i32 %3066 to i16
-  br label %3068
+  %3065 = load i32, ptr %64, align 8
+  %3066 = trunc i32 %3065 to i16
+  br label %3067
 
-3068:                                             ; preds = %3060, %3062, %3054
-  %.2765 = phi i16 [ %3059, %3054 ], [ %3067, %3062 ], [ %.07631255, %3060 ]
-  %.0756.not.not = phi i1 [ true, %3054 ], [ true, %3062 ], [ false, %3060 ]
-  %3069 = load ptr, ptr %69, align 8
-  %3070 = getelementptr inbounds nuw i8, ptr %3069, i64 57
-  %3071 = load i16, ptr %3070, align 1
-  %3072 = and i16 %3071, 8
-  %3073 = icmp eq i16 %3072, 0
-  %brmerge.not1265 = select i1 %3073, i1 %.sroa.0.0.lcssa, i1 false
-  br i1 %brmerge.not1265, label %3074, label %3078
+3067:                                             ; preds = %3059, %3061, %3053
+  %.2783 = phi i16 [ %3058, %3053 ], [ %3066, %3061 ], [ %.07811261, %3059 ]
+  %.0774 = phi i1 [ true, %3053 ], [ true, %3061 ], [ false, %3059 ]
+  %3068 = load ptr, ptr %69, align 8
+  %3069 = getelementptr inbounds nuw i8, ptr %3068, i64 57
+  %3070 = load i16, ptr %3069, align 1
+  %3071 = and i16 %3070, 8
+  %3072 = icmp eq i16 %3071, 0
+  %or.cond17 = select i1 %3072, i1 %.sroa.0.0.lcssa, i1 false
+  br i1 %or.cond17, label %3073, label %3077
 
-3074:                                             ; preds = %3068
-  %3075 = call zeroext i1 @lbm_channel_is_unknown_transport_lbttcp(i64 noundef %5)
-  %brmerge.not = and i1 %.0756.not.not, %3075
-  br i1 %brmerge.not, label %3076, label %3078
+3073:                                             ; preds = %3067
+  %3074 = call zeroext i1 @lbm_channel_is_unknown_transport_lbttcp(i64 noundef %5)
+  %or.cond19 = and i1 %.0774, %3074
+  br i1 %or.cond19, label %3075, label %3077
 
-3076:                                             ; preds = %3074
-  %3077 = load i32, ptr %70, align 4
-  call void @lbttcp_transport_sid_add(ptr noundef nonnull %44, i16 noundef zeroext %.2765, i32 noundef %3077, i32 noundef %.sroa.5945.0.lcssa)
-  br label %3078
+3075:                                             ; preds = %3073
+  %3076 = load i32, ptr %70, align 4
+  call void @lbttcp_transport_sid_add(ptr noundef nonnull %44, i16 noundef zeroext %.2783, i32 noundef %3076, i32 noundef %.sroa.5961.0.lcssa)
+  br label %3077
 
-3078:                                             ; preds = %3068, %3074, %3076
-  %3079 = call zeroext i8 @lbm_channel_type(i64 noundef %5)
-  %3080 = icmp eq i8 %3079, 0
-  br i1 %3080, label %3081, label %.thread1083
+3077:                                             ; preds = %3075, %3073, %3067
+  %3078 = call zeroext i8 @lbm_channel_type(i64 noundef %5)
+  %3079 = icmp eq i8 %3078, 0
+  br i1 %3079, label %3080, label %.thread1100
 
-3081:                                             ; preds = %3078
-  %3082 = call zeroext i1 @lbm_channel_is_known(i64 noundef %5)
-  br i1 %3082, label %3083, label %3086
+3080:                                             ; preds = %3077
+  %3081 = call zeroext i1 @lbm_channel_is_known(i64 noundef %5)
+  br i1 %3081, label %3082, label %3085
 
-3083:                                             ; preds = %3081
-  br i1 %249, label %.thread1083, label %3084
+3082:                                             ; preds = %3080
+  br i1 %249, label %.thread1100, label %3083
 
-3084:                                             ; preds = %3083
-  %3085 = call ptr @lbm_topic_find(i64 noundef %5, i32 noundef %.2741)
-  br label %3098
-
-3086:                                             ; preds = %3081
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #12
-  store i32 0, ptr %45, align 4
-  %3087 = load i32, ptr %70, align 4
-  %3088 = call zeroext i1 @lbttcp_transport_sid_find(ptr noundef nonnull %44, i16 noundef zeroext %.2765, i32 noundef %3087, ptr noundef nonnull %45)
-  br i1 %3088, label %3089, label %3097
-
-3089:                                             ; preds = %3086
-  %3090 = load i32, ptr %45, align 4
-  %3091 = load i32, ptr %70, align 4
-  %3092 = call ptr @lbttcp_transport_find(ptr noundef nonnull %44, i16 noundef zeroext %.2765, i32 noundef %3090, i32 noundef %3091)
-  %.not795 = icmp eq ptr %3092, null
-  br i1 %.not795, label %3097, label %3093
-
-3093:                                             ; preds = %3089
-  %3094 = getelementptr inbounds nuw i8, ptr %3092, i64 32
-  %3095 = load i64, ptr %3094, align 8
-  %3096 = call ptr @lbm_topic_find(i64 noundef %3095, i32 noundef %.2741)
+3083:                                             ; preds = %3082
+  %3084 = call ptr @lbm_topic_find(i64 noundef %5, i32 noundef %.2759)
   br label %3097
 
-3097:                                             ; preds = %3089, %3093, %3086
-  %.4761 = phi i64 [ %.07571256, %3086 ], [ %3095, %3093 ], [ %.07571256, %3089 ]
-  %.6 = phi ptr [ %.3737, %3086 ], [ %3096, %3093 ], [ %.3737, %3089 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #12
-  br label %3098
+3085:                                             ; preds = %3080
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #12
+  store i32 0, ptr %45, align 4
+  %3086 = load i32, ptr %70, align 4
+  %3087 = call zeroext i1 @lbttcp_transport_sid_find(ptr noundef nonnull %44, i16 noundef zeroext %.2783, i32 noundef %3086, ptr noundef nonnull %45)
+  br i1 %3087, label %3088, label %3096
 
-3098:                                             ; preds = %3084, %3097
-  %.3760 = phi i64 [ %.07571256, %3084 ], [ %.4761, %3097 ]
-  %.5 = phi ptr [ %3085, %3084 ], [ %.6, %3097 ]
-  %.not796 = icmp eq ptr %.5, null
-  br i1 %.not796, label %.thread1083, label %3099
+3088:                                             ; preds = %3085
+  %3089 = load i32, ptr %45, align 4
+  %3090 = load i32, ptr %70, align 4
+  %3091 = call ptr @lbttcp_transport_find(ptr noundef nonnull %44, i16 noundef zeroext %.2783, i32 noundef %3089, i32 noundef %3090)
+  %.not813 = icmp eq ptr %3091, null
+  br i1 %.not813, label %3096, label %3092
+
+3092:                                             ; preds = %3088
+  %3093 = getelementptr inbounds nuw i8, ptr %3091, i64 32
+  %3094 = load i64, ptr %3093, align 8
+  %3095 = call ptr @lbm_topic_find(i64 noundef %3094, i32 noundef %.2759)
+  br label %3096
+
+3096:                                             ; preds = %3088, %3092, %3085
+  %.4779 = phi i64 [ %.07751262, %3085 ], [ %3094, %3092 ], [ %.07751262, %3088 ]
+  %.6 = phi ptr [ %.3755, %3085 ], [ %3095, %3092 ], [ %.3755, %3088 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #12
+  br label %3097
+
+3097:                                             ; preds = %3083, %3096
+  %.3778 = phi i64 [ %.07751262, %3083 ], [ %.4779, %3096 ]
+  %.5 = phi ptr [ %3084, %3083 ], [ %.6, %3096 ]
+  %.not814 = icmp eq ptr %.5, null
+  br i1 %.not814, label %.thread1100, label %3098
+
+3098:                                             ; preds = %3097
+  br i1 %.not1078, label %3099, label %3100
 
 3099:                                             ; preds = %3098
-  br i1 %.not1061, label %3100, label %3101
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %.07171077, ptr noundef nonnull @.str.3, ptr noundef nonnull %.5)
+  br label %.thread1100
 
-3100:                                             ; preds = %3099
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %.06991060, ptr noundef nonnull @.str.3, ptr noundef nonnull %.5)
-  br label %.thread1083
+3100:                                             ; preds = %3098
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %.07171077, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %.5)
+  br label %.thread1100
 
-3101:                                             ; preds = %3099
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %.06991060, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %.5)
-  br label %.thread1083
+.thread1100:                                      ; preds = %3082, %3097, %3100, %3099, %3077
+  %.2777 = phi i64 [ %.3778, %3099 ], [ %.3778, %3100 ], [ %.3778, %3097 ], [ %.07751262, %3077 ], [ %.07751262, %3082 ]
+  %.4756 = phi ptr [ %.5, %3099 ], [ %.5, %3100 ], [ null, %3097 ], [ %.3755, %3077 ], [ null, %3082 ]
+  %3101 = load i32, ptr %71, align 8
+  %3102 = icmp eq i32 %3101, 2
+  br i1 %3102, label %3103, label %3566
 
-.thread1083:                                      ; preds = %3083, %3098, %3101, %3100, %3078
-  %.2759 = phi i64 [ %.3760, %3100 ], [ %.3760, %3101 ], [ %.3760, %3098 ], [ %.07571256, %3078 ], [ %.07571256, %3083 ]
-  %.4738 = phi ptr [ %.5, %3100 ], [ %.5, %3101 ], [ null, %3098 ], [ %.3737, %3078 ], [ null, %3083 ]
-  %3102 = load i32, ptr %71, align 8
-  %3103 = icmp eq i32 %3102, 2
-  br i1 %3103, label %3104, label %3568
+3103:                                             ; preds = %.thread1100
+  %3104 = load i8, ptr %39, align 4, !range !14, !noundef !15
+  %3105 = trunc nuw i8 %3104 to i1
+  %3106 = load i8, ptr %40, align 1, !range !14
+  %3107 = trunc nuw i8 %3106 to i1
+  %or.cond22 = select i1 %3105, i1 %3107, i1 false
+  %or.cond22.not = xor i1 %or.cond22, true
+  %or.cond25 = select i1 %or.cond22.not, i1 true, i1 %.sroa.0997.0.lcssa
+  br i1 %or.cond25, label %3336, label %3108
 
-3104:                                             ; preds = %.thread1083
-  %3105 = load i8, ptr %39, align 4, !range !14, !noundef !15
-  %3106 = trunc nuw i8 %3105 to i1
-  br i1 %3106, label %3107, label %3568
-
-3107:                                             ; preds = %3104
-  %3108 = load i8, ptr %40, align 1, !range !14, !noundef !15
-  %3109 = trunc nuw i8 %3108 to i1
-  br i1 %3109, label %3110, label %3339
-
-3110:                                             ; preds = %3107
-  br i1 %.sroa.0981.0.lcssa, label %.thread1103, label %3111
-
-3111:                                             ; preds = %3110
+3108:                                             ; preds = %3103
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %36) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38) #12
-  %3112 = load i64, ptr %55, align 4
-  store i64 %3112, ptr %36, align 8
-  %3113 = load i64, ptr %57, align 1
-  store i64 %3113, ptr %72, align 8
-  %3114 = call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %36, ptr noundef nonnull dereferenceable(8) %72, i64 noundef 8) #15
-  %3115 = icmp sgt i32 %3114, 0
-  %3116 = trunc i64 %3112 to i32
-  %3117 = lshr i64 %3112, 32
+  %3109 = load i64, ptr %55, align 4
+  store i64 %3109, ptr %36, align 8
+  %3110 = load i64, ptr %57, align 1
+  store i64 %3110, ptr %72, align 8
+  %3111 = call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %36, ptr noundef nonnull dereferenceable(8) %72, i64 noundef 8) #15
+  %3112 = icmp sgt i32 %3111, 0
+  %3113 = trunc i64 %3109 to i32
+  %3114 = lshr i64 %3109, 32
+  %3115 = trunc nuw i64 %3114 to i32
+  %3116 = trunc i64 %3110 to i32
+  %3117 = lshr i64 %3110, 32
   %3118 = trunc nuw i64 %3117 to i32
-  %3119 = trunc i64 %3113 to i32
-  %3120 = lshr i64 %3113, 32
-  %3121 = trunc nuw i64 %3120 to i32
-  br i1 %3115, label %3122, label %lbm_stream_istream_find.exit
+  br i1 %3112, label %3119, label %lbm_stream_istream_find.exit
 
-3122:                                             ; preds = %3111
+3119:                                             ; preds = %3108
   br label %lbm_stream_istream_find.exit
 
-lbm_stream_istream_find.exit:                     ; preds = %3111, %3122
-  %3123 = phi i32 [ %3121, %3111 ], [ %3118, %3122 ]
-  %3124 = phi i32 [ %3119, %3111 ], [ %3116, %3122 ]
-  %3125 = phi i32 [ %3118, %3111 ], [ %3121, %3122 ]
-  %3126 = phi i32 [ %3116, %3111 ], [ %3119, %3122 ]
-  store i32 %3126, ptr %37, align 16
-  store i32 %3125, ptr %73, align 4
-  store i32 %3124, ptr %74, align 8
-  store i32 %3123, ptr %75, align 4
+lbm_stream_istream_find.exit:                     ; preds = %3108, %3119
+  %3120 = phi i32 [ %3118, %3108 ], [ %3115, %3119 ]
+  %3121 = phi i32 [ %3116, %3108 ], [ %3113, %3119 ]
+  %3122 = phi i32 [ %3115, %3108 ], [ %3118, %3119 ]
+  %3123 = phi i32 [ %3113, %3108 ], [ %3116, %3119 ]
+  store i32 %3123, ptr %37, align 16
+  store i32 %3122, ptr %73, align 4
+  store i32 %3121, ptr %74, align 8
+  store i32 %3120, ptr %75, align 4
   store i32 4, ptr %38, align 16
   store ptr %37, ptr %76, align 8
   store i32 0, ptr %77, align 16
   store ptr null, ptr %78, align 8
-  %3127 = load ptr, ptr @instance_stream_table, align 8
-  %3128 = call ptr @wmem_tree_lookup32_array(ptr noundef %3127, ptr noundef nonnull %38)
+  %3124 = load ptr, ptr @instance_stream_table, align 8
+  %3125 = call ptr @wmem_tree_lookup32_array(ptr noundef %3124, ptr noundef nonnull %38)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #12
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %36) #12
-  %3129 = icmp eq ptr %3128, null
-  br i1 %3129, label %3130, label %.thread1087
+  %3126 = icmp eq ptr %3125, null
+  br i1 %3126, label %3127, label %.thread1104
 
-3130:                                             ; preds = %lbm_stream_istream_find.exit
+3127:                                             ; preds = %lbm_stream_istream_find.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #12
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %31) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #12
-  %3131 = load i64, ptr %55, align 4
-  store i64 %3131, ptr %31, align 8
-  %3132 = load i64, ptr %57, align 1
-  store i64 %3132, ptr %79, align 8
-  %3133 = call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %31, ptr noundef nonnull dereferenceable(8) %79, i64 noundef 8) #15
-  %3134 = icmp sgt i32 %3133, 0
-  %3135 = trunc i64 %3131 to i32
-  %3136 = lshr i64 %3131, 32
+  %3128 = load i64, ptr %55, align 4
+  store i64 %3128, ptr %31, align 8
+  %3129 = load i64, ptr %57, align 1
+  store i64 %3129, ptr %79, align 8
+  %3130 = call i32 @memcmp(ptr noundef nonnull dereferenceable(8) %31, ptr noundef nonnull dereferenceable(8) %79, i64 noundef 8) #15
+  %3131 = icmp sgt i32 %3130, 0
+  %3132 = trunc i64 %3128 to i32
+  %3133 = lshr i64 %3128, 32
+  %3134 = trunc nuw i64 %3133 to i32
+  %3135 = trunc i64 %3129 to i32
+  %3136 = lshr i64 %3129, 32
   %3137 = trunc nuw i64 %3136 to i32
-  %3138 = trunc i64 %3132 to i32
-  %3139 = lshr i64 %3132, 32
-  %3140 = trunc nuw i64 %3139 to i32
-  br i1 %3134, label %3141, label %lbm_stream_istream_find.exit.i
+  br i1 %3131, label %3138, label %lbm_stream_istream_find.exit.i
 
-3141:                                             ; preds = %3130
+3138:                                             ; preds = %3127
   br label %lbm_stream_istream_find.exit.i
 
-lbm_stream_istream_find.exit.i:                   ; preds = %3141, %3130
-  %3142 = phi i32 [ %3140, %3130 ], [ %3137, %3141 ]
-  %3143 = phi i32 [ %3138, %3130 ], [ %3135, %3141 ]
-  %3144 = phi i32 [ %3137, %3130 ], [ %3140, %3141 ]
-  %3145 = phi i32 [ %3135, %3130 ], [ %3138, %3141 ]
-  store i32 %3145, ptr %32, align 16
-  store i32 %3144, ptr %80, align 4
-  store i32 %3143, ptr %81, align 8
-  store i32 %3142, ptr %82, align 4
+lbm_stream_istream_find.exit.i:                   ; preds = %3138, %3127
+  %3139 = phi i32 [ %3137, %3127 ], [ %3134, %3138 ]
+  %3140 = phi i32 [ %3135, %3127 ], [ %3132, %3138 ]
+  %3141 = phi i32 [ %3134, %3127 ], [ %3137, %3138 ]
+  %3142 = phi i32 [ %3132, %3127 ], [ %3135, %3138 ]
+  store i32 %3142, ptr %32, align 16
+  store i32 %3141, ptr %80, align 4
+  store i32 %3140, ptr %81, align 8
+  store i32 %3139, ptr %82, align 4
   store i32 4, ptr %33, align 16
   store ptr %32, ptr %83, align 8
   store i32 0, ptr %84, align 16
   store ptr null, ptr %85, align 8
-  %3146 = load ptr, ptr @instance_stream_table, align 8
-  %3147 = call ptr @wmem_tree_lookup32_array(ptr noundef %3146, ptr noundef nonnull %33)
+  %3143 = load ptr, ptr @instance_stream_table, align 8
+  %3144 = call ptr @wmem_tree_lookup32_array(ptr noundef %3143, ptr noundef nonnull %33)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #12
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %31) #12
-  %.not.i864 = icmp eq ptr %3147, null
-  br i1 %.not.i864, label %3148, label %.thread1091
+  %.not.i880 = icmp eq ptr %3144, null
+  br i1 %.not.i880, label %3145, label %.thread1108
 
-.thread1091:                                      ; preds = %lbm_stream_istream_find.exit.i
+.thread1108:                                      ; preds = %lbm_stream_istream_find.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #12
-  br label %.thread1087
+  br label %.thread1104
 
-3148:                                             ; preds = %lbm_stream_istream_find.exit.i
-  %3149 = call ptr @wmem_file_scope()
-  %3150 = call noalias dereferenceable_or_null(56) ptr @wmem_alloc(ptr noundef %3149, i64 noundef 56) #13
-  %3151 = load i64, ptr %55, align 4
-  store i64 %3151, ptr %3150, align 1
-  %3152 = getelementptr inbounds nuw i8, ptr %3150, i64 8
-  %3153 = load i64, ptr %57, align 1
-  store i64 %3153, ptr %3152, align 1
-  %3154 = call i32 @memcmp(ptr noundef dereferenceable(8) %3150, ptr noundef nonnull dereferenceable(8) %3152, i64 noundef 8) #15
-  %3155 = icmp sgt i32 %3154, 0
-  %3156 = trunc i64 %3151 to i32
-  %3157 = lshr i64 %3151, 32
+3145:                                             ; preds = %lbm_stream_istream_find.exit.i
+  %3146 = call ptr @wmem_file_scope()
+  %3147 = call noalias dereferenceable_or_null(56) ptr @wmem_alloc(ptr noundef %3146, i64 noundef 56) #13
+  %3148 = load i64, ptr %55, align 4
+  store i64 %3148, ptr %3147, align 1
+  %3149 = getelementptr inbounds nuw i8, ptr %3147, i64 8
+  %3150 = load i64, ptr %57, align 1
+  store i64 %3150, ptr %3149, align 1
+  %3151 = call i32 @memcmp(ptr noundef dereferenceable(8) %3147, ptr noundef nonnull dereferenceable(8) %3149, i64 noundef 8) #15
+  %3152 = icmp sgt i32 %3151, 0
+  %3153 = trunc i64 %3148 to i32
+  %3154 = lshr i64 %3148, 32
+  %3155 = trunc nuw i64 %3154 to i32
+  %3156 = trunc i64 %3150 to i32
+  %3157 = lshr i64 %3150, 32
   %3158 = trunc nuw i64 %3157 to i32
-  %3159 = trunc i64 %3153 to i32
-  %3160 = lshr i64 %3153, 32
-  %3161 = trunc nuw i64 %3160 to i32
-  br i1 %3155, label %3162, label %3163
+  br i1 %3152, label %3159, label %3160
 
-3162:                                             ; preds = %3148
-  store i64 %3153, ptr %3150, align 1
-  store i64 %3151, ptr %3152, align 1
-  br label %3163
+3159:                                             ; preds = %3145
+  store i64 %3150, ptr %3147, align 1
+  store i64 %3148, ptr %3149, align 1
+  br label %3160
 
-3163:                                             ; preds = %3148, %3162
-  %3164 = phi i32 [ %3161, %3148 ], [ %3158, %3162 ]
-  %3165 = phi i32 [ %3159, %3148 ], [ %3156, %3162 ]
-  %3166 = phi i32 [ %3158, %3148 ], [ %3161, %3162 ]
-  %3167 = phi i32 [ %3156, %3148 ], [ %3159, %3162 ]
-  %3168 = call i64 @lbm_channel_assign(i8 noundef zeroext 16)
-  %3169 = getelementptr inbounds nuw i8, ptr %3150, i64 16
-  store i64 %3168, ptr %3169, align 8
-  %3170 = getelementptr inbounds nuw i8, ptr %3150, i64 24
-  store i32 1, ptr %3170, align 8
-  %3171 = getelementptr inbounds nuw i8, ptr %3150, i64 28
-  store i32 -1, ptr %3171, align 4
-  %3172 = getelementptr inbounds nuw i8, ptr %3150, i64 32
-  store i32 0, ptr %3172, align 8
-  %3173 = getelementptr inbounds nuw i8, ptr %3150, i64 36
-  store i32 0, ptr %3173, align 4
-  %3174 = getelementptr inbounds nuw i8, ptr %3150, i64 40
-  store i32 0, ptr %3174, align 8
-  %3175 = call ptr @wmem_file_scope()
-  %3176 = call noalias ptr @wmem_tree_new(ptr noundef %3175)
-  %3177 = getelementptr inbounds nuw i8, ptr %3150, i64 48
-  store ptr %3176, ptr %3177, align 8
-  store i32 %3167, ptr %34, align 16
-  store i32 %3166, ptr %86, align 4
-  store i32 %3165, ptr %87, align 8
-  store i32 %3164, ptr %88, align 4
+3160:                                             ; preds = %3145, %3159
+  %3161 = phi i32 [ %3158, %3145 ], [ %3155, %3159 ]
+  %3162 = phi i32 [ %3156, %3145 ], [ %3153, %3159 ]
+  %3163 = phi i32 [ %3155, %3145 ], [ %3158, %3159 ]
+  %3164 = phi i32 [ %3153, %3145 ], [ %3156, %3159 ]
+  %3165 = call i64 @lbm_channel_assign(i8 noundef zeroext 16)
+  %3166 = getelementptr inbounds nuw i8, ptr %3147, i64 16
+  store i64 %3165, ptr %3166, align 8
+  %3167 = getelementptr inbounds nuw i8, ptr %3147, i64 24
+  store i32 1, ptr %3167, align 8
+  %3168 = getelementptr inbounds nuw i8, ptr %3147, i64 28
+  store i32 -1, ptr %3168, align 4
+  %3169 = getelementptr inbounds nuw i8, ptr %3147, i64 32
+  store i32 0, ptr %3169, align 8
+  %3170 = getelementptr inbounds nuw i8, ptr %3147, i64 36
+  store i32 0, ptr %3170, align 4
+  %3171 = getelementptr inbounds nuw i8, ptr %3147, i64 40
+  store i32 0, ptr %3171, align 8
+  %3172 = call ptr @wmem_file_scope()
+  %3173 = call noalias ptr @wmem_tree_new(ptr noundef %3172)
+  %3174 = getelementptr inbounds nuw i8, ptr %3147, i64 48
+  store ptr %3173, ptr %3174, align 8
+  store i32 %3164, ptr %34, align 16
+  store i32 %3163, ptr %86, align 4
+  store i32 %3162, ptr %87, align 8
+  store i32 %3161, ptr %88, align 4
   store i32 4, ptr %35, align 16
   store ptr %34, ptr %89, align 8
   store i32 0, ptr %90, align 16
   store ptr null, ptr %91, align 8
-  %3178 = load ptr, ptr @instance_stream_table, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %3178, ptr noundef nonnull %35, ptr noundef %3150)
+  %3175 = load ptr, ptr @instance_stream_table, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %3175, ptr noundef nonnull %35, ptr noundef %3147)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #12
-  %.not797 = icmp eq ptr %3150, null
-  br i1 %.not797, label %3568, label %.thread1087
+  %.not815 = icmp eq ptr %3147, null
+  br i1 %.not815, label %3566, label %.thread1104
 
-.thread1087:                                      ; preds = %lbm_stream_istream_find.exit, %.thread1091, %3163
-  %.07491090 = phi ptr [ %3150, %3163 ], [ %3147, %.thread1091 ], [ %3128, %lbm_stream_istream_find.exit ]
-  %3179 = load i32, ptr %68, align 4
-  %3180 = load i32, ptr %64, align 8
-  %3181 = load i32, ptr %53, align 4
+.thread1104:                                      ; preds = %lbm_stream_istream_find.exit, %.thread1108, %3160
+  %.07671107 = phi ptr [ %3147, %3160 ], [ %3144, %.thread1108 ], [ %3125, %lbm_stream_istream_find.exit ]
+  %3176 = load i32, ptr %68, align 4
+  %3177 = load i32, ptr %64, align 8
+  %3178 = load i32, ptr %53, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %29) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #12
-  %3182 = load ptr, ptr %67, align 8
-  %3183 = load ptr, ptr %60, align 8
-  %3184 = load i32, ptr %3182, align 1
-  store i32 %3184, ptr %29, align 16
-  %3185 = and i32 %3179, 65535
-  store i32 %3185, ptr %92, align 4
-  %3186 = load i32, ptr %3183, align 1
-  store i32 %3186, ptr %93, align 8
-  %3187 = and i32 %3180, 65535
-  store i32 %3187, ptr %94, align 4
-  store i32 %3181, ptr %95, align 16
+  %3179 = load ptr, ptr %67, align 8
+  %3180 = load ptr, ptr %60, align 8
+  %3181 = load i32, ptr %3179, align 1
+  store i32 %3181, ptr %29, align 16
+  %3182 = and i32 %3176, 65535
+  store i32 %3182, ptr %92, align 4
+  %3183 = load i32, ptr %3180, align 1
+  store i32 %3183, ptr %93, align 8
+  %3184 = and i32 %3177, 65535
+  store i32 %3184, ptr %94, align 4
+  store i32 %3178, ptr %95, align 16
   store i32 5, ptr %30, align 16
   store ptr %29, ptr %96, align 8
   store i32 0, ptr %97, align 16
   store ptr null, ptr %98, align 8
-  %3188 = getelementptr inbounds nuw i8, ptr %.07491090, i64 48
-  %3189 = load ptr, ptr %3188, align 8
-  %3190 = call ptr @wmem_tree_lookup32_array(ptr noundef %3189, ptr noundef nonnull %30)
+  %3185 = getelementptr inbounds nuw i8, ptr %.07671107, i64 48
+  %3186 = load ptr, ptr %3185, align 8
+  %3187 = call ptr @wmem_tree_lookup32_array(ptr noundef %3186, ptr noundef nonnull %30)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %29) #12
-  %3191 = icmp eq ptr %3190, null
-  br i1 %3191, label %3192, label %.thread1094
+  %3188 = icmp eq ptr %3187, null
+  br i1 %3188, label %3189, label %.thread1111
 
-3192:                                             ; preds = %.thread1087
-  %3193 = load i32, ptr %68, align 4
-  %3194 = trunc i32 %3193 to i16
-  %3195 = load i32, ptr %64, align 8
-  %3196 = trunc i32 %3195 to i16
-  %3197 = load i32, ptr %53, align 4
+3189:                                             ; preds = %.thread1104
+  %3190 = load i32, ptr %68, align 4
+  %3191 = trunc i32 %3190 to i16
+  %3192 = load i32, ptr %64, align 8
+  %3193 = trunc i32 %3192 to i16
+  %3194 = load i32, ptr %53, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %27) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #12
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %25) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #12
-  %3198 = load ptr, ptr %67, align 8
-  %3199 = load ptr, ptr %60, align 8
-  %3200 = load i32, ptr %3198, align 1
-  store i32 %3200, ptr %25, align 16
-  %3201 = and i32 %3193, 65535
-  store i32 %3201, ptr %99, align 4
-  %3202 = load i32, ptr %3199, align 1
-  store i32 %3202, ptr %100, align 8
-  %3203 = and i32 %3195, 65535
-  store i32 %3203, ptr %101, align 4
-  store i32 %3197, ptr %102, align 16
+  %3195 = load ptr, ptr %67, align 8
+  %3196 = load ptr, ptr %60, align 8
+  %3197 = load i32, ptr %3195, align 1
+  store i32 %3197, ptr %25, align 16
+  %3198 = and i32 %3190, 65535
+  store i32 %3198, ptr %99, align 4
+  %3199 = load i32, ptr %3196, align 1
+  store i32 %3199, ptr %100, align 8
+  %3200 = and i32 %3192, 65535
+  store i32 %3200, ptr %101, align 4
+  store i32 %3194, ptr %102, align 16
   store i32 5, ptr %26, align 16
   store ptr %25, ptr %103, align 8
   store i32 0, ptr %104, align 16
   store ptr null, ptr %105, align 8
-  %3204 = load ptr, ptr %3188, align 8
-  %3205 = call ptr @wmem_tree_lookup32_array(ptr noundef %3204, ptr noundef nonnull %26)
+  %3201 = load ptr, ptr %3185, align 8
+  %3202 = call ptr @wmem_tree_lookup32_array(ptr noundef %3201, ptr noundef nonnull %26)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %25) #12
-  %.not.i866 = icmp eq ptr %3205, null
-  br i1 %.not.i866, label %3206, label %.thread1098
+  %.not.i882 = icmp eq ptr %3202, null
+  br i1 %.not.i882, label %3203, label %.thread1115
 
-.thread1098:                                      ; preds = %3192
+.thread1115:                                      ; preds = %3189
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %27) #12
-  br label %.thread1094
+  br label %.thread1111
 
-3206:                                             ; preds = %3192
-  %3207 = call ptr @wmem_file_scope()
-  %3208 = call noalias dereferenceable_or_null(96) ptr @wmem_alloc(ptr noundef %3207, i64 noundef 96) #13
-  %3209 = call ptr @wmem_file_scope()
-  %3210 = load i32, ptr %65, align 8
-  %3211 = load i32, ptr %66, align 4
-  %3212 = load ptr, ptr %67, align 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %3208, i8 0, i64 24, i1 false)
-  store i32 %3210, ptr %3208, align 8
-  %3213 = icmp eq i32 %3211, 0
-  br i1 %3213, label %copy_address_wmem.exit.i, label %3214
+3203:                                             ; preds = %3189
+  %3204 = call ptr @wmem_file_scope()
+  %3205 = call noalias dereferenceable_or_null(96) ptr @wmem_alloc(ptr noundef %3204, i64 noundef 96) #13
+  %3206 = call ptr @wmem_file_scope()
+  %3207 = load i32, ptr %65, align 8
+  %3208 = load i32, ptr %66, align 4
+  %3209 = load ptr, ptr %67, align 8
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %3205, i8 0, i64 24, i1 false)
+  store i32 %3207, ptr %3205, align 8
+  %3210 = icmp eq i32 %3208, 0
+  br i1 %3210, label %copy_address_wmem.exit.i, label %3211
 
-3214:                                             ; preds = %3206
-  %3215 = sext i32 %3211 to i64
-  %3216 = call ptr @wmem_memdup(ptr noundef %3209, ptr noundef %3212, i64 noundef %3215) #14
-  %3217 = getelementptr inbounds nuw i8, ptr %3208, i64 16
-  store ptr %3216, ptr %3217, align 8
-  %3218 = getelementptr inbounds nuw i8, ptr %3208, i64 8
-  store ptr %3216, ptr %3218, align 8
-  %3219 = getelementptr inbounds nuw i8, ptr %3208, i64 4
-  store i32 %3211, ptr %3219, align 4
+3211:                                             ; preds = %3203
+  %3212 = sext i32 %3208 to i64
+  %3213 = call ptr @wmem_memdup(ptr noundef %3206, ptr noundef %3209, i64 noundef %3212) #14
+  %3214 = getelementptr inbounds nuw i8, ptr %3205, i64 16
+  store ptr %3213, ptr %3214, align 8
+  %3215 = getelementptr inbounds nuw i8, ptr %3205, i64 8
+  store ptr %3213, ptr %3215, align 8
+  %3216 = getelementptr inbounds nuw i8, ptr %3205, i64 4
+  store i32 %3208, ptr %3216, align 4
   br label %copy_address_wmem.exit.i
 
-copy_address_wmem.exit.i:                         ; preds = %3214, %3206
-  %3220 = phi ptr [ null, %3206 ], [ %3216, %3214 ]
-  %3221 = getelementptr inbounds nuw i8, ptr %3208, i64 24
-  store i16 %3194, ptr %3221, align 8
-  %3222 = call ptr @wmem_file_scope()
-  %3223 = getelementptr inbounds nuw i8, ptr %3208, i64 32
-  %3224 = load i32, ptr %58, align 8
-  %3225 = load i32, ptr %59, align 4
-  %3226 = load ptr, ptr %60, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3223, i8 0, i64 24, i1 false)
-  store i32 %3224, ptr %3223, align 8
-  %3227 = icmp eq i32 %3225, 0
-  br i1 %3227, label %3234, label %3228
+copy_address_wmem.exit.i:                         ; preds = %3211, %3203
+  %3217 = phi ptr [ null, %3203 ], [ %3213, %3211 ]
+  %3218 = getelementptr inbounds nuw i8, ptr %3205, i64 24
+  store i16 %3191, ptr %3218, align 8
+  %3219 = call ptr @wmem_file_scope()
+  %3220 = getelementptr inbounds nuw i8, ptr %3205, i64 32
+  %3221 = load i32, ptr %58, align 8
+  %3222 = load i32, ptr %59, align 4
+  %3223 = load ptr, ptr %60, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3220, i8 0, i64 24, i1 false)
+  store i32 %3221, ptr %3220, align 8
+  %3224 = icmp eq i32 %3222, 0
+  br i1 %3224, label %3231, label %3225
 
-3228:                                             ; preds = %copy_address_wmem.exit.i
-  %3229 = sext i32 %3225 to i64
-  %3230 = call ptr @wmem_memdup(ptr noundef %3222, ptr noundef %3226, i64 noundef %3229) #14
-  %3231 = getelementptr inbounds nuw i8, ptr %3208, i64 48
-  store ptr %3230, ptr %3231, align 8
-  %3232 = getelementptr inbounds nuw i8, ptr %3208, i64 40
-  store ptr %3230, ptr %3232, align 8
-  %3233 = getelementptr inbounds nuw i8, ptr %3208, i64 36
-  store i32 %3225, ptr %3233, align 4
-  br label %3234
+3225:                                             ; preds = %copy_address_wmem.exit.i
+  %3226 = sext i32 %3222 to i64
+  %3227 = call ptr @wmem_memdup(ptr noundef %3219, ptr noundef %3223, i64 noundef %3226) #14
+  %3228 = getelementptr inbounds nuw i8, ptr %3205, i64 48
+  store ptr %3227, ptr %3228, align 8
+  %3229 = getelementptr inbounds nuw i8, ptr %3205, i64 40
+  store ptr %3227, ptr %3229, align 8
+  %3230 = getelementptr inbounds nuw i8, ptr %3205, i64 36
+  store i32 %3222, ptr %3230, align 4
+  br label %3231
 
-3234:                                             ; preds = %copy_address_wmem.exit.i, %3228
-  %3235 = phi ptr [ null, %copy_address_wmem.exit.i ], [ %3230, %3228 ]
-  %3236 = getelementptr inbounds nuw i8, ptr %3208, i64 56
-  store i16 %3196, ptr %3236, align 8
-  %3237 = getelementptr inbounds nuw i8, ptr %3208, i64 60
-  store i32 %3197, ptr %3237, align 4
-  %3238 = getelementptr inbounds nuw i8, ptr %3208, i64 64
-  store ptr %.07491090, ptr %3238, align 8
-  %3239 = getelementptr inbounds nuw i8, ptr %.07491090, i64 24
-  %3240 = load i32, ptr %3239, align 8
-  %3241 = add i32 %3240, 1
-  store i32 %3241, ptr %3239, align 8
-  %3242 = getelementptr inbounds nuw i8, ptr %3208, i64 72
-  store i32 %3240, ptr %3242, align 8
-  %3243 = getelementptr inbounds nuw i8, ptr %3208, i64 76
-  store i32 -1, ptr %3243, align 4
-  %3244 = getelementptr inbounds nuw i8, ptr %3208, i64 80
-  store i32 0, ptr %3244, align 8
-  %3245 = getelementptr inbounds nuw i8, ptr %3208, i64 84
-  store i32 0, ptr %3245, align 4
-  %3246 = getelementptr inbounds nuw i8, ptr %3208, i64 88
-  store i32 0, ptr %3246, align 8
-  %3247 = load i32, ptr %3220, align 1
-  store i32 %3247, ptr %27, align 16
-  store i32 %3201, ptr %106, align 4
-  %3248 = load i32, ptr %3235, align 1
-  store i32 %3248, ptr %107, align 8
-  store i32 %3203, ptr %108, align 4
-  store i32 %3197, ptr %109, align 16
+3231:                                             ; preds = %copy_address_wmem.exit.i, %3225
+  %3232 = phi ptr [ null, %copy_address_wmem.exit.i ], [ %3227, %3225 ]
+  %3233 = getelementptr inbounds nuw i8, ptr %3205, i64 56
+  store i16 %3193, ptr %3233, align 8
+  %3234 = getelementptr inbounds nuw i8, ptr %3205, i64 60
+  store i32 %3194, ptr %3234, align 4
+  %3235 = getelementptr inbounds nuw i8, ptr %3205, i64 64
+  store ptr %.07671107, ptr %3235, align 8
+  %3236 = getelementptr inbounds nuw i8, ptr %.07671107, i64 24
+  %3237 = load i32, ptr %3236, align 8
+  %3238 = add i32 %3237, 1
+  store i32 %3238, ptr %3236, align 8
+  %3239 = getelementptr inbounds nuw i8, ptr %3205, i64 72
+  store i32 %3237, ptr %3239, align 8
+  %3240 = getelementptr inbounds nuw i8, ptr %3205, i64 76
+  store i32 -1, ptr %3240, align 4
+  %3241 = getelementptr inbounds nuw i8, ptr %3205, i64 80
+  store i32 0, ptr %3241, align 8
+  %3242 = getelementptr inbounds nuw i8, ptr %3205, i64 84
+  store i32 0, ptr %3242, align 4
+  %3243 = getelementptr inbounds nuw i8, ptr %3205, i64 88
+  store i32 0, ptr %3243, align 8
+  %3244 = load i32, ptr %3217, align 1
+  store i32 %3244, ptr %27, align 16
+  store i32 %3198, ptr %106, align 4
+  %3245 = load i32, ptr %3232, align 1
+  store i32 %3245, ptr %107, align 8
+  store i32 %3200, ptr %108, align 4
+  store i32 %3194, ptr %109, align 16
   store i32 5, ptr %28, align 16
   store ptr %27, ptr %110, align 8
   store i32 0, ptr %111, align 16
   store ptr null, ptr %112, align 8
-  %3249 = load ptr, ptr %3188, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %3249, ptr noundef nonnull %28, ptr noundef %3208)
+  %3246 = load ptr, ptr %3185, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %3246, ptr noundef nonnull %28, ptr noundef %3205)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %27) #12
-  %.not798 = icmp eq ptr %3208, null
-  br i1 %.not798, label %3333, label %.thread1094
+  %.not816 = icmp eq ptr %3205, null
+  br i1 %.not816, label %3330, label %.thread1111
 
-.thread1094:                                      ; preds = %.thread1087, %.thread1098, %3234
-  %.07511097 = phi ptr [ %3208, %3234 ], [ %3205, %.thread1098 ], [ %3190, %.thread1087 ]
-  %3250 = load i32, ptr %70, align 4
-  %3251 = getelementptr inbounds nuw i8, ptr %.07511097, i64 84
-  %3252 = load i32, ptr %3251, align 4
-  %3253 = add i32 %3252, 1
-  store i32 %3253, ptr %3251, align 4
-  %3254 = getelementptr inbounds nuw i8, ptr %.07511097, i64 64
-  %3255 = load ptr, ptr %3254, align 8
-  %3256 = getelementptr inbounds nuw i8, ptr %3255, i64 36
-  %3257 = load i32, ptr %3256, align 4
-  %3258 = add i32 %3257, 1
-  store i32 %3258, ptr %3256, align 4
-  %3259 = getelementptr inbounds nuw i8, ptr %.07511097, i64 88
-  %3260 = load i32, ptr %3259, align 8
-  %3261 = add i32 %3260, %232
-  store i32 %3261, ptr %3259, align 8
-  %3262 = load ptr, ptr %3254, align 8
-  %3263 = getelementptr inbounds nuw i8, ptr %3262, i64 40
-  %3264 = load i32, ptr %3263, align 8
-  %3265 = add i32 %3264, %232
-  store i32 %3265, ptr %3263, align 8
-  %3266 = getelementptr inbounds nuw i8, ptr %.07511097, i64 76
-  %3267 = load i32, ptr %3266, align 4
-  %3268 = icmp ult i32 %3250, %3267
-  br i1 %3268, label %3269, label %3270
+.thread1111:                                      ; preds = %.thread1104, %.thread1115, %3231
+  %.07691114 = phi ptr [ %3205, %3231 ], [ %3202, %.thread1115 ], [ %3187, %.thread1104 ]
+  %3247 = load i32, ptr %70, align 4
+  %3248 = getelementptr inbounds nuw i8, ptr %.07691114, i64 84
+  %3249 = load i32, ptr %3248, align 4
+  %3250 = add i32 %3249, 1
+  store i32 %3250, ptr %3248, align 4
+  %3251 = getelementptr inbounds nuw i8, ptr %.07691114, i64 64
+  %3252 = load ptr, ptr %3251, align 8
+  %3253 = getelementptr inbounds nuw i8, ptr %3252, i64 36
+  %3254 = load i32, ptr %3253, align 4
+  %3255 = add i32 %3254, 1
+  store i32 %3255, ptr %3253, align 4
+  %3256 = getelementptr inbounds nuw i8, ptr %.07691114, i64 88
+  %3257 = load i32, ptr %3256, align 8
+  %3258 = add i32 %3257, %232
+  store i32 %3258, ptr %3256, align 8
+  %3259 = load ptr, ptr %3251, align 8
+  %3260 = getelementptr inbounds nuw i8, ptr %3259, i64 40
+  %3261 = load i32, ptr %3260, align 8
+  %3262 = add i32 %3261, %232
+  store i32 %3262, ptr %3260, align 8
+  %3263 = getelementptr inbounds nuw i8, ptr %.07691114, i64 76
+  %3264 = load i32, ptr %3263, align 4
+  %3265 = icmp ult i32 %3247, %3264
+  br i1 %3265, label %3266, label %3267
 
-3269:                                             ; preds = %.thread1094
-  store i32 %3250, ptr %3266, align 4
-  br label %3270
+3266:                                             ; preds = %.thread1111
+  store i32 %3247, ptr %3263, align 4
+  br label %3267
 
-3270:                                             ; preds = %3269, %.thread1094
-  %3271 = load ptr, ptr %3254, align 8
-  %3272 = getelementptr inbounds nuw i8, ptr %3271, i64 28
-  %3273 = load i32, ptr %3272, align 4
-  %3274 = icmp ult i32 %3250, %3273
-  br i1 %3274, label %3275, label %3276
+3267:                                             ; preds = %3266, %.thread1111
+  %3268 = load ptr, ptr %3251, align 8
+  %3269 = getelementptr inbounds nuw i8, ptr %3268, i64 28
+  %3270 = load i32, ptr %3269, align 4
+  %3271 = icmp ult i32 %3247, %3270
+  br i1 %3271, label %3272, label %3273
 
-3275:                                             ; preds = %3270
-  store i32 %3250, ptr %3272, align 4
-  br label %3276
+3272:                                             ; preds = %3267
+  store i32 %3247, ptr %3269, align 4
+  br label %3273
 
-3276:                                             ; preds = %3275, %3270
-  %3277 = getelementptr inbounds nuw i8, ptr %.07511097, i64 80
-  %3278 = load i32, ptr %3277, align 8
-  %3279 = icmp ugt i32 %3250, %3278
-  br i1 %3279, label %3280, label %3281
+3273:                                             ; preds = %3272, %3267
+  %3274 = getelementptr inbounds nuw i8, ptr %.07691114, i64 80
+  %3275 = load i32, ptr %3274, align 8
+  %3276 = icmp ugt i32 %3247, %3275
+  br i1 %3276, label %3277, label %3278
 
-3280:                                             ; preds = %3276
-  store i32 %3250, ptr %3277, align 8
-  br label %3281
+3277:                                             ; preds = %3273
+  store i32 %3247, ptr %3274, align 8
+  br label %3278
 
-3281:                                             ; preds = %3280, %3276
-  %3282 = load ptr, ptr %3254, align 8
-  %3283 = getelementptr inbounds nuw i8, ptr %3282, i64 32
-  %3284 = load i32, ptr %3283, align 8
-  %3285 = icmp ugt i32 %3250, %3284
-  br i1 %3285, label %3286, label %lbm_stream_istream_substream_update.exit
+3278:                                             ; preds = %3277, %3273
+  %3279 = load ptr, ptr %3251, align 8
+  %3280 = getelementptr inbounds nuw i8, ptr %3279, i64 32
+  %3281 = load i32, ptr %3280, align 8
+  %3282 = icmp ugt i32 %3247, %3281
+  br i1 %3282, label %3283, label %lbm_stream_istream_substream_update.exit
 
-3286:                                             ; preds = %3281
-  store i32 %3250, ptr %3283, align 8
+3283:                                             ; preds = %3278
+  store i32 %3247, ptr %3280, align 8
   br label %lbm_stream_istream_substream_update.exit
 
-lbm_stream_istream_substream_update.exit:         ; preds = %3281, %3286
-  %3287 = load i32, ptr @hf_lbm_stream, align 4
-  %3288 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %3287, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %.not.i868 = icmp eq ptr %3288, null
-  br i1 %.not.i868, label %proto_item_set_generated.exit870, label %3289
+lbm_stream_istream_substream_update.exit:         ; preds = %3278, %3283
+  %3284 = load i32, ptr @hf_lbm_stream, align 4
+  %3285 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %3284, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %.not.i884 = icmp eq ptr %3285, null
+  br i1 %.not.i884, label %proto_item_set_generated.exit886, label %3286
 
-3289:                                             ; preds = %lbm_stream_istream_substream_update.exit
-  %3290 = getelementptr inbounds nuw i8, ptr %3288, i64 40
-  %3291 = load ptr, ptr %3290, align 8
-  %.not5.i869 = icmp eq ptr %3291, null
-  br i1 %.not5.i869, label %proto_item_set_generated.exit870, label %3292
+3286:                                             ; preds = %lbm_stream_istream_substream_update.exit
+  %3287 = getelementptr inbounds nuw i8, ptr %3285, i64 40
+  %3288 = load ptr, ptr %3287, align 8
+  %.not5.i885 = icmp eq ptr %3288, null
+  br i1 %.not5.i885, label %proto_item_set_generated.exit886, label %3289
 
-3292:                                             ; preds = %3289
-  %3293 = getelementptr inbounds nuw i8, ptr %3291, i64 28
-  %3294 = load i32, ptr %3293, align 4
-  %3295 = or i32 %3294, 2
-  store i32 %3295, ptr %3293, align 4
-  br label %proto_item_set_generated.exit870
+3289:                                             ; preds = %3286
+  %3290 = getelementptr inbounds nuw i8, ptr %3288, i64 28
+  %3291 = load i32, ptr %3290, align 4
+  %3292 = or i32 %3291, 2
+  store i32 %3292, ptr %3290, align 4
+  br label %proto_item_set_generated.exit886
 
-proto_item_set_generated.exit870:                 ; preds = %lbm_stream_istream_substream_update.exit, %3289, %3292
-  %3296 = load i32, ptr @ett_lbm_stream, align 4
-  %3297 = call ptr @proto_item_add_subtree(ptr noundef %3288, i32 noundef %3296)
-  %3298 = load i32, ptr @hf_lbm_stream_stream_id, align 4
-  %3299 = getelementptr inbounds nuw i8, ptr %.07491090, i64 16
-  %3300 = load i64, ptr %3299, align 8
-  %3301 = call ptr @proto_tree_add_uint64(ptr noundef %3297, i32 noundef %3298, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %3300)
-  %.not.i871 = icmp eq ptr %3301, null
-  br i1 %.not.i871, label %proto_item_set_generated.exit873, label %3302
+proto_item_set_generated.exit886:                 ; preds = %lbm_stream_istream_substream_update.exit, %3286, %3289
+  %3293 = load i32, ptr @ett_lbm_stream, align 4
+  %3294 = call ptr @proto_item_add_subtree(ptr noundef %3285, i32 noundef %3293)
+  %3295 = load i32, ptr @hf_lbm_stream_stream_id, align 4
+  %3296 = getelementptr inbounds nuw i8, ptr %.07671107, i64 16
+  %3297 = load i64, ptr %3296, align 8
+  %3298 = call ptr @proto_tree_add_uint64(ptr noundef %3294, i32 noundef %3295, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %3297)
+  %.not.i887 = icmp eq ptr %3298, null
+  br i1 %.not.i887, label %proto_item_set_generated.exit889, label %3299
 
-3302:                                             ; preds = %proto_item_set_generated.exit870
-  %3303 = getelementptr inbounds nuw i8, ptr %3301, i64 40
-  %3304 = load ptr, ptr %3303, align 8
-  %.not5.i872 = icmp eq ptr %3304, null
-  br i1 %.not5.i872, label %proto_item_set_generated.exit873, label %3305
+3299:                                             ; preds = %proto_item_set_generated.exit886
+  %3300 = getelementptr inbounds nuw i8, ptr %3298, i64 40
+  %3301 = load ptr, ptr %3300, align 8
+  %.not5.i888 = icmp eq ptr %3301, null
+  br i1 %.not5.i888, label %proto_item_set_generated.exit889, label %3302
 
-3305:                                             ; preds = %3302
-  %3306 = getelementptr inbounds nuw i8, ptr %3304, i64 28
-  %3307 = load i32, ptr %3306, align 4
-  %3308 = or i32 %3307, 2
-  store i32 %3308, ptr %3306, align 4
-  br label %proto_item_set_generated.exit873
+3302:                                             ; preds = %3299
+  %3303 = getelementptr inbounds nuw i8, ptr %3301, i64 28
+  %3304 = load i32, ptr %3303, align 4
+  %3305 = or i32 %3304, 2
+  store i32 %3305, ptr %3303, align 4
+  br label %proto_item_set_generated.exit889
 
-proto_item_set_generated.exit873:                 ; preds = %proto_item_set_generated.exit870, %3302, %3305
-  %3309 = load i32, ptr @hf_lbm_stream_substream_id, align 4
-  %3310 = getelementptr inbounds nuw i8, ptr %.07511097, i64 72
-  %3311 = load i32, ptr %3310, align 8
-  %3312 = call ptr @proto_tree_add_uint(ptr noundef %3297, i32 noundef %3309, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %3311)
-  %.not.i874 = icmp eq ptr %3312, null
-  br i1 %.not.i874, label %proto_item_set_generated.exit876, label %3313
+proto_item_set_generated.exit889:                 ; preds = %proto_item_set_generated.exit886, %3299, %3302
+  %3306 = load i32, ptr @hf_lbm_stream_substream_id, align 4
+  %3307 = getelementptr inbounds nuw i8, ptr %.07691114, i64 72
+  %3308 = load i32, ptr %3307, align 8
+  %3309 = call ptr @proto_tree_add_uint(ptr noundef %3294, i32 noundef %3306, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %3308)
+  %.not.i890 = icmp eq ptr %3309, null
+  br i1 %.not.i890, label %proto_item_set_generated.exit892, label %3310
 
-3313:                                             ; preds = %proto_item_set_generated.exit873
-  %3314 = getelementptr inbounds nuw i8, ptr %3312, i64 40
-  %3315 = load ptr, ptr %3314, align 8
-  %.not5.i875 = icmp eq ptr %3315, null
-  br i1 %.not5.i875, label %proto_item_set_generated.exit876, label %3316
+3310:                                             ; preds = %proto_item_set_generated.exit889
+  %3311 = getelementptr inbounds nuw i8, ptr %3309, i64 40
+  %3312 = load ptr, ptr %3311, align 8
+  %.not5.i891 = icmp eq ptr %3312, null
+  br i1 %.not5.i891, label %proto_item_set_generated.exit892, label %3313
 
-3316:                                             ; preds = %3313
-  %3317 = getelementptr inbounds nuw i8, ptr %3315, i64 28
-  %3318 = load i32, ptr %3317, align 4
-  %3319 = or i32 %3318, 2
-  store i32 %3319, ptr %3317, align 4
-  br label %proto_item_set_generated.exit876
+3313:                                             ; preds = %3310
+  %3314 = getelementptr inbounds nuw i8, ptr %3312, i64 28
+  %3315 = load i32, ptr %3314, align 4
+  %3316 = or i32 %3315, 2
+  store i32 %3316, ptr %3314, align 4
+  br label %proto_item_set_generated.exit892
 
-proto_item_set_generated.exit876:                 ; preds = %proto_item_set_generated.exit873, %3313, %3316
-  call void @proto_tree_move_item(ptr noundef %276, ptr noundef %.0770, ptr noundef %3288)
-  %3320 = load ptr, ptr %52, align 8
-  %3321 = call noalias dereferenceable_or_null(112) ptr @wmem_alloc0(ptr noundef %3320, i64 noundef 112) #13
-  %3322 = load i64, ptr %3299, align 8
-  store i64 %3322, ptr %3321, align 8
-  %3323 = load i32, ptr %3310, align 8
-  %3324 = getelementptr inbounds nuw i8, ptr %3321, i64 8
-  store i32 %3323, ptr %3324, align 8
-  %3325 = getelementptr inbounds nuw i8, ptr %3321, i64 12
-  store i32 %232, ptr %3325, align 4
-  %3326 = getelementptr inbounds nuw i8, ptr %3321, i64 16
+proto_item_set_generated.exit892:                 ; preds = %proto_item_set_generated.exit889, %3310, %3313
+  call void @proto_tree_move_item(ptr noundef %276, ptr noundef %.0788, ptr noundef %3285)
+  %3317 = load ptr, ptr %52, align 8
+  %3318 = call noalias dereferenceable_or_null(112) ptr @wmem_alloc0(ptr noundef %3317, i64 noundef 112) #13
+  %3319 = load i64, ptr %3296, align 8
+  store i64 %3319, ptr %3318, align 8
+  %3320 = load i32, ptr %3307, align 8
+  %3321 = getelementptr inbounds nuw i8, ptr %3318, i64 8
+  store i32 %3320, ptr %3321, align 8
+  %3322 = getelementptr inbounds nuw i8, ptr %3318, i64 12
+  store i32 %232, ptr %3322, align 4
+  %3323 = getelementptr inbounds nuw i8, ptr %3318, i64 16
+  store i32 0, ptr %3323, align 8
+  %3324 = getelementptr inbounds nuw i8, ptr %3318, i64 24
+  %3325 = load i64, ptr %55, align 4
+  store i64 %3325, ptr %3324, align 1
+  %3326 = getelementptr inbounds nuw i8, ptr %3318, i64 64
   store i32 0, ptr %3326, align 8
-  %3327 = getelementptr inbounds nuw i8, ptr %3321, i64 24
-  %3328 = load i64, ptr %55, align 4
+  %3327 = getelementptr inbounds nuw i8, ptr %3318, i64 72
+  %3328 = load i64, ptr %57, align 1
   store i64 %3328, ptr %3327, align 1
-  %3329 = getelementptr inbounds nuw i8, ptr %3321, i64 64
-  store i32 0, ptr %3329, align 8
-  %3330 = getelementptr inbounds nuw i8, ptr %3321, i64 72
-  %3331 = load i64, ptr %57, align 1
-  store i64 %3331, ptr %3330, align 1
-  %3332 = load i32, ptr @lbmc_stream_tap_handle, align 4
-  call void @tap_queue_packet(i32 noundef %3332, ptr noundef %2, ptr noundef %3321)
-  br label %3333
+  %3329 = load i32, ptr @lbmc_stream_tap_handle, align 4
+  call void @tap_queue_packet(i32 noundef %3329, ptr noundef %2, ptr noundef %3318)
+  br label %3330
 
-3333:                                             ; preds = %proto_item_set_generated.exit876, %3234
-  %3334 = getelementptr inbounds nuw i8, ptr %.07491090, i64 16
-  %3335 = load i64, ptr %3334, align 8
-  store i64 %3335, ptr %43, align 8
-  %3336 = load i32, ptr %54, align 4
-  store i32 %3336, ptr %.0769.sroa.gep946, align 8
-  store i32 0, ptr %.0769.sroa.gep949, align 8
-  %3337 = load i64, ptr %55, align 4
-  store i64 %3337, ptr %.0769.sroa.gep952, align 8
-  store i32 0, ptr %.0769.sroa.gep955, align 8
-  %3338 = load i64, ptr %57, align 1
-  store i64 %3338, ptr %.0769.sroa.gep958, align 8
-  br label %3568
+3330:                                             ; preds = %proto_item_set_generated.exit892, %3231
+  %3331 = getelementptr inbounds nuw i8, ptr %.07671107, i64 16
+  %3332 = load i64, ptr %3331, align 8
+  store i64 %3332, ptr %43, align 8
+  %3333 = load i32, ptr %54, align 4
+  store i32 %3333, ptr %.0787.sroa.gep962, align 8
+  store i32 0, ptr %.0787.sroa.gep965, align 8
+  %3334 = load i64, ptr %55, align 4
+  store i64 %3334, ptr %.0787.sroa.gep968, align 8
+  store i32 0, ptr %.0787.sroa.gep971, align 8
+  %3335 = load i64, ptr %57, align 1
+  store i64 %3335, ptr %.0787.sroa.gep974, align 8
+  br label %3566
 
-3339:                                             ; preds = %3107
-  br i1 %.sroa.0981.0.lcssa, label %.thread1103, label %3568
+3336:                                             ; preds = %3103
+  %or.cond28 = select i1 %3105, i1 %.sroa.0997.0.lcssa, i1 false
+  br i1 %or.cond28, label %3337, label %3566
 
-.thread1103:                                      ; preds = %3110, %3339
+3337:                                             ; preds = %3336
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #12
-  %3340 = icmp ugt i32 %.sroa.6983.2.lcssa, %.sroa.291009.2.lcssa
-  br i1 %3340, label %.critedge28.i.i, label %3341
+  %3338 = icmp ugt i32 %.sroa.5999.2.lcssa, %.sroa.281025.2.lcssa
+  br i1 %3338, label %.critedge28.i.i, label %3339
 
-3341:                                             ; preds = %.thread1103
-  %3342 = icmp eq i32 %.sroa.6983.2.lcssa, %.sroa.291009.2.lcssa
-  br i1 %3342, label %cmp_address.exit.i.i, label %lbm_stream_dstream_find.exit
+3339:                                             ; preds = %3337
+  %3340 = icmp eq i32 %.sroa.5999.2.lcssa, %.sroa.281025.2.lcssa
+  br i1 %3340, label %cmp_address.exit.i.i, label %lbm_stream_dstream_find.exit
 
-cmp_address.exit.i.i:                             ; preds = %3341
-  %3343 = call i32 @memcmp(ptr noundef dereferenceable(4) %.sroa.20.2.lcssa, ptr noundef dereferenceable(4) %.sroa.43.2.lcssa, i64 noundef 4) #15
-  %3344 = icmp sgt i32 %3343, 0
-  br i1 %3344, label %.critedge28.i.i, label %cmp_address.exit.thread.i.i
+cmp_address.exit.i.i:                             ; preds = %3339
+  %3341 = call i32 @memcmp(ptr noundef dereferenceable(4) %.sroa.19.2.lcssa, ptr noundef dereferenceable(4) %.sroa.42.2.lcssa, i64 noundef 4) #15
+  %3342 = icmp sgt i32 %3341, 0
+  br i1 %3342, label %.critedge28.i.i, label %cmp_address.exit.thread.i.i
 
 cmp_address.exit.thread.i.i:                      ; preds = %cmp_address.exit.i.i
-  %3345 = icmp eq i32 %3343, 0
-  %3346 = icmp ugt i16 %.sroa.25.2.lcssa, %.sroa.48.2.lcssa
-  %or.cond.i = select i1 %3345, i1 %3346, i1 false
+  %3343 = icmp eq i32 %3341, 0
+  %3344 = icmp ugt i16 %.sroa.24.2.lcssa, %.sroa.47.2.lcssa
+  %or.cond.i = select i1 %3343, i1 %3344, i1 false
   br i1 %or.cond.i, label %.critedge28.i.i, label %lbm_stream_dstream_find.exit
 
-.critedge28.i.i:                                  ; preds = %cmp_address.exit.thread.i.i, %cmp_address.exit.i.i, %.thread1103
+.critedge28.i.i:                                  ; preds = %cmp_address.exit.thread.i.i, %cmp_address.exit.i.i, %3337
   br label %lbm_stream_dstream_find.exit
 
-lbm_stream_dstream_find.exit:                     ; preds = %3341, %cmp_address.exit.thread.i.i, %.critedge28.i.i
-  %.sroa.33.0.i = phi ptr [ %.sroa.20.2.lcssa, %.critedge28.i.i ], [ %.sroa.43.2.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.43.2.lcssa, %3341 ]
-  %.sroa.40.0.i = phi i16 [ %.sroa.48.2.lcssa, %.critedge28.i.i ], [ %.sroa.25.2.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.25.2.lcssa, %3341 ]
-  %.sroa.21.0.i = phi i32 [ %.sroa.6983.2.lcssa, %.critedge28.i.i ], [ %.sroa.291009.2.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.291009.2.lcssa, %3341 ]
-  %.sroa.14.0.i = phi ptr [ %.sroa.43.2.lcssa, %.critedge28.i.i ], [ %.sroa.20.2.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.20.2.lcssa, %3341 ]
-  %.sroa.45.0.i = phi i16 [ %.sroa.25.2.lcssa, %.critedge28.i.i ], [ %.sroa.48.2.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.48.2.lcssa, %3341 ]
-  %.sroa.0.0.i = phi i32 [ %.sroa.291009.2.lcssa, %.critedge28.i.i ], [ %.sroa.291009.2.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.6983.2.lcssa, %3341 ]
+lbm_stream_dstream_find.exit:                     ; preds = %3339, %cmp_address.exit.thread.i.i, %.critedge28.i.i
+  %.sroa.33.0.i = phi ptr [ %.sroa.19.2.lcssa, %.critedge28.i.i ], [ %.sroa.42.2.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.42.2.lcssa, %3339 ]
+  %.sroa.40.0.i = phi i16 [ %.sroa.47.2.lcssa, %.critedge28.i.i ], [ %.sroa.24.2.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.24.2.lcssa, %3339 ]
+  %.sroa.21.0.i = phi i32 [ %.sroa.5999.2.lcssa, %.critedge28.i.i ], [ %.sroa.281025.2.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.281025.2.lcssa, %3339 ]
+  %.sroa.14.0.i = phi ptr [ %.sroa.42.2.lcssa, %.critedge28.i.i ], [ %.sroa.19.2.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.19.2.lcssa, %3339 ]
+  %.sroa.45.0.i = phi i16 [ %.sroa.24.2.lcssa, %.critedge28.i.i ], [ %.sroa.47.2.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.47.2.lcssa, %3339 ]
+  %.sroa.0.0.i = phi i32 [ %.sroa.281025.2.lcssa, %.critedge28.i.i ], [ %.sroa.281025.2.lcssa, %cmp_address.exit.thread.i.i ], [ %.sroa.5999.2.lcssa, %3339 ]
   store i32 %.sroa.0.0.i, ptr %23, align 16
-  %3347 = load i32, ptr %.sroa.14.0.i, align 1
-  store i32 %3347, ptr %113, align 4
+  %3345 = load i32, ptr %.sroa.14.0.i, align 1
+  store i32 %3345, ptr %113, align 4
   store i32 %.sroa.21.0.i, ptr %114, align 8
-  %3348 = load i32, ptr %.sroa.33.0.i, align 1
-  store i32 %3348, ptr %115, align 4
-  %3349 = zext i16 %.sroa.40.0.i to i32
-  store i32 %3349, ptr %116, align 16
-  %3350 = zext i16 %.sroa.45.0.i to i32
-  store i32 %3350, ptr %117, align 4
+  %3346 = load i32, ptr %.sroa.33.0.i, align 1
+  store i32 %3346, ptr %115, align 4
+  %3347 = zext i16 %.sroa.40.0.i to i32
+  store i32 %3347, ptr %116, align 16
+  %3348 = zext i16 %.sroa.45.0.i to i32
+  store i32 %3348, ptr %117, align 4
   store i32 6, ptr %24, align 16
   store ptr %23, ptr %118, align 8
   store i32 0, ptr %119, align 16
   store ptr null, ptr %120, align 8
-  %3351 = load ptr, ptr @domain_stream_table, align 8
-  %3352 = call ptr @wmem_tree_lookup32_array(ptr noundef %3351, ptr noundef nonnull %24)
+  %3349 = load ptr, ptr @domain_stream_table, align 8
+  %3350 = call ptr @wmem_tree_lookup32_array(ptr noundef %3349, ptr noundef nonnull %24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #12
-  %3353 = icmp eq ptr %3352, null
-  br i1 %3353, label %3354, label %.thread1104
+  %3351 = icmp eq ptr %3350, null
+  br i1 %3351, label %3352, label %.thread1118
 
-3354:                                             ; preds = %lbm_stream_dstream_find.exit
+3352:                                             ; preds = %lbm_stream_dstream_find.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
-  br i1 %3340, label %.critedge28.i.i941, label %3355
+  br i1 %3338, label %.critedge28.i.i957, label %3353
 
-3355:                                             ; preds = %3354
-  %3356 = icmp eq i32 %.sroa.6983.2.lcssa, %.sroa.291009.2.lcssa
-  br i1 %3356, label %cmp_address.exit.i.i938, label %lbm_stream_dstream_find.exit944
+3353:                                             ; preds = %3352
+  %3354 = icmp eq i32 %.sroa.5999.2.lcssa, %.sroa.281025.2.lcssa
+  br i1 %3354, label %cmp_address.exit.i.i954, label %lbm_stream_dstream_find.exit960
 
-cmp_address.exit.i.i938:                          ; preds = %3355
-  %3357 = call i32 @memcmp(ptr noundef dereferenceable(4) %.sroa.20.2.lcssa, ptr noundef dereferenceable(4) %.sroa.43.2.lcssa, i64 noundef 4) #15
-  %3358 = icmp sgt i32 %3357, 0
-  br i1 %3358, label %.critedge28.i.i941, label %cmp_address.exit.thread.i.i939
+cmp_address.exit.i.i954:                          ; preds = %3353
+  %3355 = call i32 @memcmp(ptr noundef dereferenceable(4) %.sroa.19.2.lcssa, ptr noundef dereferenceable(4) %.sroa.42.2.lcssa, i64 noundef 4) #15
+  %3356 = icmp sgt i32 %3355, 0
+  br i1 %3356, label %.critedge28.i.i957, label %cmp_address.exit.thread.i.i955
 
-cmp_address.exit.thread.i.i939:                   ; preds = %cmp_address.exit.i.i938
-  %3359 = icmp eq i32 %3357, 0
-  %3360 = icmp ugt i16 %.sroa.25.2.lcssa, %.sroa.48.2.lcssa
-  %or.cond.i940 = select i1 %3359, i1 %3360, i1 false
-  br i1 %or.cond.i940, label %.critedge28.i.i941, label %lbm_stream_dstream_find.exit944
+cmp_address.exit.thread.i.i955:                   ; preds = %cmp_address.exit.i.i954
+  %3357 = icmp eq i32 %3355, 0
+  %3358 = icmp ugt i16 %.sroa.24.2.lcssa, %.sroa.47.2.lcssa
+  %or.cond.i956 = select i1 %3357, i1 %3358, i1 false
+  br i1 %or.cond.i956, label %.critedge28.i.i957, label %lbm_stream_dstream_find.exit960
 
-.critedge28.i.i941:                               ; preds = %cmp_address.exit.thread.i.i939, %cmp_address.exit.i.i938, %3354
-  br label %lbm_stream_dstream_find.exit944
+.critedge28.i.i957:                               ; preds = %cmp_address.exit.thread.i.i955, %cmp_address.exit.i.i954, %3352
+  br label %lbm_stream_dstream_find.exit960
 
-lbm_stream_dstream_find.exit944:                  ; preds = %3355, %cmp_address.exit.thread.i.i939, %.critedge28.i.i941
-  %.sroa.33.0.i932 = phi ptr [ %.sroa.20.2.lcssa, %.critedge28.i.i941 ], [ %.sroa.43.2.lcssa, %cmp_address.exit.thread.i.i939 ], [ %.sroa.43.2.lcssa, %3355 ]
-  %.sroa.40.0.i933 = phi i16 [ %.sroa.48.2.lcssa, %.critedge28.i.i941 ], [ %.sroa.25.2.lcssa, %cmp_address.exit.thread.i.i939 ], [ %.sroa.25.2.lcssa, %3355 ]
-  %.sroa.21.0.i934 = phi i32 [ %.sroa.6983.2.lcssa, %.critedge28.i.i941 ], [ %.sroa.291009.2.lcssa, %cmp_address.exit.thread.i.i939 ], [ %.sroa.291009.2.lcssa, %3355 ]
-  %.sroa.14.0.i935 = phi ptr [ %.sroa.43.2.lcssa, %.critedge28.i.i941 ], [ %.sroa.20.2.lcssa, %cmp_address.exit.thread.i.i939 ], [ %.sroa.20.2.lcssa, %3355 ]
-  %.sroa.45.0.i936 = phi i16 [ %.sroa.25.2.lcssa, %.critedge28.i.i941 ], [ %.sroa.48.2.lcssa, %cmp_address.exit.thread.i.i939 ], [ %.sroa.48.2.lcssa, %3355 ]
-  %.sroa.0.0.i937 = phi i32 [ %.sroa.291009.2.lcssa, %.critedge28.i.i941 ], [ %.sroa.291009.2.lcssa, %cmp_address.exit.thread.i.i939 ], [ %.sroa.6983.2.lcssa, %3355 ]
-  store i32 %.sroa.0.0.i937, ptr %7, align 16
-  %3361 = load i32, ptr %.sroa.14.0.i935, align 1
-  store i32 %3361, ptr %121, align 4
-  store i32 %.sroa.21.0.i934, ptr %122, align 8
-  %3362 = load i32, ptr %.sroa.33.0.i932, align 1
-  store i32 %3362, ptr %123, align 4
-  %3363 = zext i16 %.sroa.40.0.i933 to i32
-  store i32 %3363, ptr %124, align 16
-  %3364 = zext i16 %.sroa.45.0.i936 to i32
-  store i32 %3364, ptr %125, align 4
+lbm_stream_dstream_find.exit960:                  ; preds = %3353, %cmp_address.exit.thread.i.i955, %.critedge28.i.i957
+  %.sroa.33.0.i948 = phi ptr [ %.sroa.19.2.lcssa, %.critedge28.i.i957 ], [ %.sroa.42.2.lcssa, %cmp_address.exit.thread.i.i955 ], [ %.sroa.42.2.lcssa, %3353 ]
+  %.sroa.40.0.i949 = phi i16 [ %.sroa.47.2.lcssa, %.critedge28.i.i957 ], [ %.sroa.24.2.lcssa, %cmp_address.exit.thread.i.i955 ], [ %.sroa.24.2.lcssa, %3353 ]
+  %.sroa.21.0.i950 = phi i32 [ %.sroa.5999.2.lcssa, %.critedge28.i.i957 ], [ %.sroa.281025.2.lcssa, %cmp_address.exit.thread.i.i955 ], [ %.sroa.281025.2.lcssa, %3353 ]
+  %.sroa.14.0.i951 = phi ptr [ %.sroa.42.2.lcssa, %.critedge28.i.i957 ], [ %.sroa.19.2.lcssa, %cmp_address.exit.thread.i.i955 ], [ %.sroa.19.2.lcssa, %3353 ]
+  %.sroa.45.0.i952 = phi i16 [ %.sroa.24.2.lcssa, %.critedge28.i.i957 ], [ %.sroa.47.2.lcssa, %cmp_address.exit.thread.i.i955 ], [ %.sroa.47.2.lcssa, %3353 ]
+  %.sroa.0.0.i953 = phi i32 [ %.sroa.281025.2.lcssa, %.critedge28.i.i957 ], [ %.sroa.281025.2.lcssa, %cmp_address.exit.thread.i.i955 ], [ %.sroa.5999.2.lcssa, %3353 ]
+  store i32 %.sroa.0.0.i953, ptr %7, align 16
+  %3359 = load i32, ptr %.sroa.14.0.i951, align 1
+  store i32 %3359, ptr %121, align 4
+  store i32 %.sroa.21.0.i950, ptr %122, align 8
+  %3360 = load i32, ptr %.sroa.33.0.i948, align 1
+  store i32 %3360, ptr %123, align 4
+  %3361 = zext i16 %.sroa.40.0.i949 to i32
+  store i32 %3361, ptr %124, align 16
+  %3362 = zext i16 %.sroa.45.0.i952 to i32
+  store i32 %3362, ptr %125, align 4
   store i32 6, ptr %8, align 16
   store ptr %7, ptr %126, align 8
   store i32 0, ptr %127, align 16
   store ptr null, ptr %128, align 8
-  %3365 = load ptr, ptr @domain_stream_table, align 8
-  %3366 = call ptr @wmem_tree_lookup32_array(ptr noundef %3365, ptr noundef nonnull %8)
+  %3363 = load ptr, ptr @domain_stream_table, align 8
+  %3364 = call ptr @wmem_tree_lookup32_array(ptr noundef %3363, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #12
-  %.not.i877 = icmp eq ptr %3366, null
-  br i1 %.not.i877, label %copy_address_wmem.exit29.i, label %.thread1108
+  %.not.i893 = icmp eq ptr %3364, null
+  br i1 %.not.i893, label %copy_address_wmem.exit29.i, label %.thread1122
 
-.thread1108:                                      ; preds = %lbm_stream_dstream_find.exit944
+.thread1122:                                      ; preds = %lbm_stream_dstream_find.exit960
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #12
-  br label %.thread1104
+  br label %.thread1118
 
-copy_address_wmem.exit29.i:                       ; preds = %lbm_stream_dstream_find.exit944
+copy_address_wmem.exit29.i:                       ; preds = %lbm_stream_dstream_find.exit960
+  %3365 = call ptr @wmem_file_scope()
+  %3366 = call noalias dereferenceable_or_null(112) ptr @wmem_alloc(ptr noundef %3365, i64 noundef 112) #13
+  store i32 %.sroa.5999.2.lcssa, ptr %3366, align 8
   %3367 = call ptr @wmem_file_scope()
-  %3368 = call noalias dereferenceable_or_null(112) ptr @wmem_alloc(ptr noundef %3367, i64 noundef 112) #13
-  store i32 %.sroa.6983.2.lcssa, ptr %3368, align 8
-  %3369 = call ptr @wmem_file_scope()
-  %3370 = getelementptr inbounds nuw i8, ptr %3368, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3370, i8 0, i64 24, i1 false)
-  store i32 2, ptr %3370, align 8
-  %3371 = call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef %3369, ptr noundef %.sroa.20.2.lcssa, i64 noundef 4) #14
-  %3372 = getelementptr inbounds nuw i8, ptr %3368, i64 24
-  store ptr %3371, ptr %3372, align 8
-  %3373 = getelementptr inbounds nuw i8, ptr %3368, i64 16
-  store ptr %3371, ptr %3373, align 8
-  %3374 = getelementptr inbounds nuw i8, ptr %3368, i64 12
-  store i32 4, ptr %3374, align 4
-  %3375 = getelementptr inbounds nuw i8, ptr %3368, i64 64
-  store i16 %.sroa.25.2.lcssa, ptr %3375, align 8
-  %3376 = getelementptr inbounds nuw i8, ptr %3368, i64 32
-  store i32 %.sroa.291009.2.lcssa, ptr %3376, align 8
-  %3377 = call ptr @wmem_file_scope()
-  %3378 = getelementptr inbounds nuw i8, ptr %3368, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3378, i8 0, i64 24, i1 false)
-  store i32 2, ptr %3378, align 8
-  %3379 = call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef %3377, ptr noundef %.sroa.43.2.lcssa, i64 noundef 4) #14
-  %3380 = getelementptr inbounds nuw i8, ptr %3368, i64 56
-  store ptr %3379, ptr %3380, align 8
-  %3381 = getelementptr inbounds nuw i8, ptr %3368, i64 48
-  store ptr %3379, ptr %3381, align 8
-  %3382 = getelementptr inbounds nuw i8, ptr %3368, i64 44
-  store i32 4, ptr %3382, align 4
-  %3383 = getelementptr inbounds nuw i8, ptr %3368, i64 66
-  store i16 %.sroa.48.2.lcssa, ptr %3383, align 2
-  br i1 %3340, label %.critedge28.i.i883, label %3384
+  %3368 = getelementptr inbounds nuw i8, ptr %3366, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3368, i8 0, i64 24, i1 false)
+  store i32 2, ptr %3368, align 8
+  %3369 = call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef %3367, ptr noundef %.sroa.19.2.lcssa, i64 noundef 4) #14
+  %3370 = getelementptr inbounds nuw i8, ptr %3366, i64 24
+  store ptr %3369, ptr %3370, align 8
+  %3371 = getelementptr inbounds nuw i8, ptr %3366, i64 16
+  store ptr %3369, ptr %3371, align 8
+  %3372 = getelementptr inbounds nuw i8, ptr %3366, i64 12
+  store i32 4, ptr %3372, align 4
+  %3373 = getelementptr inbounds nuw i8, ptr %3366, i64 64
+  store i16 %.sroa.24.2.lcssa, ptr %3373, align 8
+  %3374 = getelementptr inbounds nuw i8, ptr %3366, i64 32
+  store i32 %.sroa.281025.2.lcssa, ptr %3374, align 8
+  %3375 = call ptr @wmem_file_scope()
+  %3376 = getelementptr inbounds nuw i8, ptr %3366, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3376, i8 0, i64 24, i1 false)
+  store i32 2, ptr %3376, align 8
+  %3377 = call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef %3375, ptr noundef %.sroa.42.2.lcssa, i64 noundef 4) #14
+  %3378 = getelementptr inbounds nuw i8, ptr %3366, i64 56
+  store ptr %3377, ptr %3378, align 8
+  %3379 = getelementptr inbounds nuw i8, ptr %3366, i64 48
+  store ptr %3377, ptr %3379, align 8
+  %3380 = getelementptr inbounds nuw i8, ptr %3366, i64 44
+  store i32 4, ptr %3380, align 4
+  %3381 = getelementptr inbounds nuw i8, ptr %3366, i64 66
+  store i16 %.sroa.47.2.lcssa, ptr %3381, align 2
+  br i1 %3338, label %.critedge28.i.i899, label %3382
 
-3384:                                             ; preds = %copy_address_wmem.exit29.i
-  %3385 = icmp eq i32 %.sroa.6983.2.lcssa, %.sroa.291009.2.lcssa
-  br i1 %3385, label %cmp_address.exit.i.i880, label %3390
+3382:                                             ; preds = %copy_address_wmem.exit29.i
+  %3383 = icmp eq i32 %.sroa.5999.2.lcssa, %.sroa.281025.2.lcssa
+  br i1 %3383, label %cmp_address.exit.i.i896, label %3388
 
-cmp_address.exit.i.i880:                          ; preds = %3384
-  %3386 = call i32 @memcmp(ptr noundef dereferenceable(4) %3371, ptr noundef dereferenceable(4) %3379, i64 noundef 4) #15
-  %3387 = icmp sgt i32 %3386, 0
-  br i1 %3387, label %.critedge28.i.i883, label %cmp_address.exit.thread.i.i881
+cmp_address.exit.i.i896:                          ; preds = %3382
+  %3384 = call i32 @memcmp(ptr noundef dereferenceable(4) %3369, ptr noundef dereferenceable(4) %3377, i64 noundef 4) #15
+  %3385 = icmp sgt i32 %3384, 0
+  br i1 %3385, label %.critedge28.i.i899, label %cmp_address.exit.thread.i.i897
 
-cmp_address.exit.thread.i.i881:                   ; preds = %cmp_address.exit.i.i880
-  %3388 = icmp eq i32 %3386, 0
-  %3389 = icmp ugt i16 %.sroa.25.2.lcssa, %.sroa.48.2.lcssa
-  %or.cond.i882 = select i1 %3388, i1 %3389, i1 false
-  br i1 %or.cond.i882, label %.critedge28.i.i883, label %3390
+cmp_address.exit.thread.i.i897:                   ; preds = %cmp_address.exit.i.i896
+  %3386 = icmp eq i32 %3384, 0
+  %3387 = icmp ugt i16 %.sroa.24.2.lcssa, %.sroa.47.2.lcssa
+  %or.cond.i898 = select i1 %3386, i1 %3387, i1 false
+  br i1 %or.cond.i898, label %.critedge28.i.i899, label %3388
 
-.critedge28.i.i883:                               ; preds = %cmp_address.exit.thread.i.i881, %cmp_address.exit.i.i880, %copy_address_wmem.exit29.i
-  store i32 %.sroa.291009.2.lcssa, ptr %3368, align 8
-  store i32 2, ptr %3370, align 8
-  store i32 4, ptr %3374, align 4
-  store ptr %3379, ptr %3373, align 8
-  store ptr null, ptr %3372, align 8
-  store i16 %.sroa.48.2.lcssa, ptr %3375, align 8
-  store i32 %.sroa.6983.2.lcssa, ptr %3376, align 8
-  store i32 2, ptr %3378, align 8
-  store i32 4, ptr %3382, align 4
-  store ptr %3371, ptr %3381, align 8
-  store ptr null, ptr %3380, align 8
-  store i16 %.sroa.25.2.lcssa, ptr %3383, align 2
-  br label %3390
+.critedge28.i.i899:                               ; preds = %cmp_address.exit.thread.i.i897, %cmp_address.exit.i.i896, %copy_address_wmem.exit29.i
+  store i32 %.sroa.281025.2.lcssa, ptr %3366, align 8
+  store i32 2, ptr %3368, align 8
+  store i32 4, ptr %3372, align 4
+  store ptr %3377, ptr %3371, align 8
+  store ptr null, ptr %3370, align 8
+  store i16 %.sroa.47.2.lcssa, ptr %3373, align 8
+  store i32 %.sroa.5999.2.lcssa, ptr %3374, align 8
+  store i32 2, ptr %3376, align 8
+  store i32 4, ptr %3380, align 4
+  store ptr %3369, ptr %3379, align 8
+  store ptr null, ptr %3378, align 8
+  store i16 %.sroa.24.2.lcssa, ptr %3381, align 2
+  br label %3388
 
-3390:                                             ; preds = %3384, %cmp_address.exit.thread.i.i881, %.critedge28.i.i883
-  %3391 = phi i16 [ %.sroa.48.2.lcssa, %3384 ], [ %.sroa.48.2.lcssa, %cmp_address.exit.thread.i.i881 ], [ %.sroa.25.2.lcssa, %.critedge28.i.i883 ]
-  %3392 = phi i16 [ %.sroa.25.2.lcssa, %3384 ], [ %.sroa.25.2.lcssa, %cmp_address.exit.thread.i.i881 ], [ %.sroa.48.2.lcssa, %.critedge28.i.i883 ]
-  %3393 = phi ptr [ %3379, %3384 ], [ %3379, %cmp_address.exit.thread.i.i881 ], [ %3371, %.critedge28.i.i883 ]
-  %3394 = phi i32 [ %.sroa.291009.2.lcssa, %3384 ], [ %.sroa.291009.2.lcssa, %cmp_address.exit.thread.i.i881 ], [ %.sroa.6983.2.lcssa, %.critedge28.i.i883 ]
-  %3395 = phi ptr [ %3371, %3384 ], [ %3371, %cmp_address.exit.thread.i.i881 ], [ %3379, %.critedge28.i.i883 ]
-  %3396 = phi i32 [ %.sroa.6983.2.lcssa, %3384 ], [ %.sroa.291009.2.lcssa, %cmp_address.exit.thread.i.i881 ], [ %.sroa.291009.2.lcssa, %.critedge28.i.i883 ]
-  %3397 = call i64 @lbm_channel_assign(i8 noundef zeroext 16)
-  %3398 = getelementptr inbounds nuw i8, ptr %3368, i64 72
-  store i64 %3397, ptr %3398, align 8
-  %3399 = getelementptr inbounds nuw i8, ptr %3368, i64 80
-  store i32 1, ptr %3399, align 8
-  %3400 = getelementptr inbounds nuw i8, ptr %3368, i64 84
-  store i32 -1, ptr %3400, align 4
-  %3401 = getelementptr inbounds nuw i8, ptr %3368, i64 88
+3388:                                             ; preds = %3382, %cmp_address.exit.thread.i.i897, %.critedge28.i.i899
+  %3389 = phi i16 [ %.sroa.47.2.lcssa, %3382 ], [ %.sroa.47.2.lcssa, %cmp_address.exit.thread.i.i897 ], [ %.sroa.24.2.lcssa, %.critedge28.i.i899 ]
+  %3390 = phi i16 [ %.sroa.24.2.lcssa, %3382 ], [ %.sroa.24.2.lcssa, %cmp_address.exit.thread.i.i897 ], [ %.sroa.47.2.lcssa, %.critedge28.i.i899 ]
+  %3391 = phi ptr [ %3377, %3382 ], [ %3377, %cmp_address.exit.thread.i.i897 ], [ %3369, %.critedge28.i.i899 ]
+  %3392 = phi i32 [ %.sroa.281025.2.lcssa, %3382 ], [ %.sroa.281025.2.lcssa, %cmp_address.exit.thread.i.i897 ], [ %.sroa.5999.2.lcssa, %.critedge28.i.i899 ]
+  %3393 = phi ptr [ %3369, %3382 ], [ %3369, %cmp_address.exit.thread.i.i897 ], [ %3377, %.critedge28.i.i899 ]
+  %3394 = phi i32 [ %.sroa.5999.2.lcssa, %3382 ], [ %.sroa.281025.2.lcssa, %cmp_address.exit.thread.i.i897 ], [ %.sroa.281025.2.lcssa, %.critedge28.i.i899 ]
+  %3395 = call i64 @lbm_channel_assign(i8 noundef zeroext 16)
+  %3396 = getelementptr inbounds nuw i8, ptr %3366, i64 72
+  store i64 %3395, ptr %3396, align 8
+  %3397 = getelementptr inbounds nuw i8, ptr %3366, i64 80
+  store i32 1, ptr %3397, align 8
+  %3398 = getelementptr inbounds nuw i8, ptr %3366, i64 84
+  store i32 -1, ptr %3398, align 4
+  %3399 = getelementptr inbounds nuw i8, ptr %3366, i64 88
+  store i32 0, ptr %3399, align 8
+  %3400 = getelementptr inbounds nuw i8, ptr %3366, i64 92
+  store i32 0, ptr %3400, align 4
+  %3401 = getelementptr inbounds nuw i8, ptr %3366, i64 96
   store i32 0, ptr %3401, align 8
-  %3402 = getelementptr inbounds nuw i8, ptr %3368, i64 92
-  store i32 0, ptr %3402, align 4
-  %3403 = getelementptr inbounds nuw i8, ptr %3368, i64 96
-  store i32 0, ptr %3403, align 8
-  %3404 = call ptr @wmem_file_scope()
-  %3405 = call noalias ptr @wmem_tree_new(ptr noundef %3404)
-  %3406 = getelementptr inbounds nuw i8, ptr %3368, i64 104
-  store ptr %3405, ptr %3406, align 8
-  store i32 %3396, ptr %21, align 16
-  %3407 = load i32, ptr %3395, align 1
-  store i32 %3407, ptr %129, align 4
-  store i32 %3394, ptr %130, align 8
-  %3408 = load i32, ptr %3393, align 1
-  store i32 %3408, ptr %131, align 4
-  %3409 = zext i16 %3392 to i32
-  store i32 %3409, ptr %132, align 16
-  %3410 = zext i16 %3391 to i32
-  store i32 %3410, ptr %133, align 4
+  %3402 = call ptr @wmem_file_scope()
+  %3403 = call noalias ptr @wmem_tree_new(ptr noundef %3402)
+  %3404 = getelementptr inbounds nuw i8, ptr %3366, i64 104
+  store ptr %3403, ptr %3404, align 8
+  store i32 %3394, ptr %21, align 16
+  %3405 = load i32, ptr %3393, align 1
+  store i32 %3405, ptr %129, align 4
+  store i32 %3392, ptr %130, align 8
+  %3406 = load i32, ptr %3391, align 1
+  store i32 %3406, ptr %131, align 4
+  %3407 = zext i16 %3390 to i32
+  store i32 %3407, ptr %132, align 16
+  %3408 = zext i16 %3389 to i32
+  store i32 %3408, ptr %133, align 4
   store i32 6, ptr %22, align 16
   store ptr %21, ptr %134, align 8
   store i32 0, ptr %135, align 16
   store ptr null, ptr %136, align 8
-  %3411 = load ptr, ptr @domain_stream_table, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %3411, ptr noundef nonnull %22, ptr noundef %3368)
+  %3409 = load ptr, ptr @domain_stream_table, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %3409, ptr noundef nonnull %22, ptr noundef %3366)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #12
-  %.not799 = icmp eq ptr %3368, null
-  br i1 %.not799, label %3568, label %.thread1104
+  %.not817 = icmp eq ptr %3366, null
+  br i1 %.not817, label %3566, label %.thread1118
 
-.thread1104:                                      ; preds = %lbm_stream_dstream_find.exit, %.thread1108, %3390
-  %.07521107 = phi ptr [ %3368, %3390 ], [ %3366, %.thread1108 ], [ %3352, %lbm_stream_dstream_find.exit ]
-  %3412 = load i32, ptr %68, align 4
-  %3413 = load i32, ptr %64, align 8
-  %3414 = load i32, ptr %53, align 4
+.thread1118:                                      ; preds = %lbm_stream_dstream_find.exit, %.thread1122, %3388
+  %.07701121 = phi ptr [ %3366, %3388 ], [ %3364, %.thread1122 ], [ %3350, %lbm_stream_dstream_find.exit ]
+  %3410 = load i32, ptr %68, align 4
+  %3411 = load i32, ptr %64, align 8
+  %3412 = load i32, ptr %53, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %19) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #12
-  %3415 = load ptr, ptr %67, align 8
-  %3416 = load ptr, ptr %60, align 8
-  %3417 = load i32, ptr %3415, align 1
-  store i32 %3417, ptr %19, align 16
-  %3418 = and i32 %3412, 65535
-  store i32 %3418, ptr %137, align 4
-  %3419 = load i32, ptr %3416, align 1
-  store i32 %3419, ptr %138, align 8
-  %3420 = and i32 %3413, 65535
-  store i32 %3420, ptr %139, align 4
-  store i32 %3414, ptr %140, align 16
+  %3413 = load ptr, ptr %67, align 8
+  %3414 = load ptr, ptr %60, align 8
+  %3415 = load i32, ptr %3413, align 1
+  store i32 %3415, ptr %19, align 16
+  %3416 = and i32 %3410, 65535
+  store i32 %3416, ptr %137, align 4
+  %3417 = load i32, ptr %3414, align 1
+  store i32 %3417, ptr %138, align 8
+  %3418 = and i32 %3411, 65535
+  store i32 %3418, ptr %139, align 4
+  store i32 %3412, ptr %140, align 16
   store i32 5, ptr %20, align 16
   store ptr %19, ptr %141, align 8
   store i32 0, ptr %142, align 16
   store ptr null, ptr %143, align 8
-  %3421 = getelementptr inbounds nuw i8, ptr %.07521107, i64 104
-  %3422 = load ptr, ptr %3421, align 8
-  %3423 = call ptr @wmem_tree_lookup32_array(ptr noundef %3422, ptr noundef nonnull %20)
+  %3419 = getelementptr inbounds nuw i8, ptr %.07701121, i64 104
+  %3420 = load ptr, ptr %3419, align 8
+  %3421 = call ptr @wmem_tree_lookup32_array(ptr noundef %3420, ptr noundef nonnull %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %19) #12
-  %3424 = icmp eq ptr %3423, null
-  br i1 %3424, label %3425, label %.thread1111
+  %3422 = icmp eq ptr %3421, null
+  br i1 %3422, label %3423, label %.thread1125
 
-3425:                                             ; preds = %.thread1104
-  %3426 = load i32, ptr %68, align 4
+3423:                                             ; preds = %.thread1118
+  %3424 = load i32, ptr %68, align 4
+  %3425 = trunc i32 %3424 to i16
+  %3426 = load i32, ptr %64, align 8
   %3427 = trunc i32 %3426 to i16
-  %3428 = load i32, ptr %64, align 8
-  %3429 = trunc i32 %3428 to i16
-  %3430 = load i32, ptr %53, align 4
+  %3428 = load i32, ptr %53, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %17) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #12
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #12
-  %3431 = load ptr, ptr %67, align 8
-  %3432 = load ptr, ptr %60, align 8
-  %3433 = load i32, ptr %3431, align 1
-  store i32 %3433, ptr %15, align 16
+  %3429 = load ptr, ptr %67, align 8
+  %3430 = load ptr, ptr %60, align 8
+  %3431 = load i32, ptr %3429, align 1
+  store i32 %3431, ptr %15, align 16
+  %3432 = and i32 %3424, 65535
+  store i32 %3432, ptr %144, align 4
+  %3433 = load i32, ptr %3430, align 1
+  store i32 %3433, ptr %145, align 8
   %3434 = and i32 %3426, 65535
-  store i32 %3434, ptr %144, align 4
-  %3435 = load i32, ptr %3432, align 1
-  store i32 %3435, ptr %145, align 8
-  %3436 = and i32 %3428, 65535
-  store i32 %3436, ptr %146, align 4
-  store i32 %3430, ptr %147, align 16
+  store i32 %3434, ptr %146, align 4
+  store i32 %3428, ptr %147, align 16
   store i32 5, ptr %16, align 16
   store ptr %15, ptr %148, align 8
   store i32 0, ptr %149, align 16
   store ptr null, ptr %150, align 8
-  %3437 = load ptr, ptr %3421, align 8
-  %3438 = call ptr @wmem_tree_lookup32_array(ptr noundef %3437, ptr noundef nonnull %16)
+  %3435 = load ptr, ptr %3419, align 8
+  %3436 = call ptr @wmem_tree_lookup32_array(ptr noundef %3435, ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #12
-  %.not.i886 = icmp eq ptr %3438, null
-  br i1 %.not.i886, label %3439, label %.thread1115
+  %.not.i902 = icmp eq ptr %3436, null
+  br i1 %.not.i902, label %3437, label %.thread1129
 
-.thread1115:                                      ; preds = %3425
+.thread1129:                                      ; preds = %3423
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17) #12
-  br label %.thread1111
+  br label %.thread1125
 
-3439:                                             ; preds = %3425
+3437:                                             ; preds = %3423
+  %3438 = call ptr @wmem_file_scope()
+  %3439 = call noalias dereferenceable_or_null(96) ptr @wmem_alloc(ptr noundef %3438, i64 noundef 96) #13
   %3440 = call ptr @wmem_file_scope()
-  %3441 = call noalias dereferenceable_or_null(96) ptr @wmem_alloc(ptr noundef %3440, i64 noundef 96) #13
-  %3442 = call ptr @wmem_file_scope()
-  %3443 = load i32, ptr %65, align 8
-  %3444 = load i32, ptr %66, align 4
-  %3445 = load ptr, ptr %67, align 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %3441, i8 0, i64 24, i1 false)
-  store i32 %3443, ptr %3441, align 8
-  %3446 = icmp eq i32 %3444, 0
-  br i1 %3446, label %copy_address_wmem.exit.i888, label %3447
+  %3441 = load i32, ptr %65, align 8
+  %3442 = load i32, ptr %66, align 4
+  %3443 = load ptr, ptr %67, align 8
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %3439, i8 0, i64 24, i1 false)
+  store i32 %3441, ptr %3439, align 8
+  %3444 = icmp eq i32 %3442, 0
+  br i1 %3444, label %copy_address_wmem.exit.i904, label %3445
 
-3447:                                             ; preds = %3439
-  %3448 = sext i32 %3444 to i64
-  %3449 = call ptr @wmem_memdup(ptr noundef %3442, ptr noundef %3445, i64 noundef %3448) #14
-  %3450 = getelementptr inbounds nuw i8, ptr %3441, i64 16
-  store ptr %3449, ptr %3450, align 8
-  %3451 = getelementptr inbounds nuw i8, ptr %3441, i64 8
-  store ptr %3449, ptr %3451, align 8
-  %3452 = getelementptr inbounds nuw i8, ptr %3441, i64 4
-  store i32 %3444, ptr %3452, align 4
-  br label %copy_address_wmem.exit.i888
+3445:                                             ; preds = %3437
+  %3446 = sext i32 %3442 to i64
+  %3447 = call ptr @wmem_memdup(ptr noundef %3440, ptr noundef %3443, i64 noundef %3446) #14
+  %3448 = getelementptr inbounds nuw i8, ptr %3439, i64 16
+  store ptr %3447, ptr %3448, align 8
+  %3449 = getelementptr inbounds nuw i8, ptr %3439, i64 8
+  store ptr %3447, ptr %3449, align 8
+  %3450 = getelementptr inbounds nuw i8, ptr %3439, i64 4
+  store i32 %3442, ptr %3450, align 4
+  br label %copy_address_wmem.exit.i904
 
-copy_address_wmem.exit.i888:                      ; preds = %3447, %3439
-  %3453 = phi ptr [ null, %3439 ], [ %3449, %3447 ]
-  %3454 = getelementptr inbounds nuw i8, ptr %3441, i64 24
-  store i16 %3427, ptr %3454, align 8
-  %3455 = call ptr @wmem_file_scope()
-  %3456 = getelementptr inbounds nuw i8, ptr %3441, i64 32
-  %3457 = load i32, ptr %58, align 8
-  %3458 = load i32, ptr %59, align 4
-  %3459 = load ptr, ptr %60, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3456, i8 0, i64 24, i1 false)
-  store i32 %3457, ptr %3456, align 8
-  %3460 = icmp eq i32 %3458, 0
-  br i1 %3460, label %3467, label %3461
+copy_address_wmem.exit.i904:                      ; preds = %3445, %3437
+  %3451 = phi ptr [ null, %3437 ], [ %3447, %3445 ]
+  %3452 = getelementptr inbounds nuw i8, ptr %3439, i64 24
+  store i16 %3425, ptr %3452, align 8
+  %3453 = call ptr @wmem_file_scope()
+  %3454 = getelementptr inbounds nuw i8, ptr %3439, i64 32
+  %3455 = load i32, ptr %58, align 8
+  %3456 = load i32, ptr %59, align 4
+  %3457 = load ptr, ptr %60, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3454, i8 0, i64 24, i1 false)
+  store i32 %3455, ptr %3454, align 8
+  %3458 = icmp eq i32 %3456, 0
+  br i1 %3458, label %3465, label %3459
 
-3461:                                             ; preds = %copy_address_wmem.exit.i888
-  %3462 = sext i32 %3458 to i64
-  %3463 = call ptr @wmem_memdup(ptr noundef %3455, ptr noundef %3459, i64 noundef %3462) #14
-  %3464 = getelementptr inbounds nuw i8, ptr %3441, i64 48
-  store ptr %3463, ptr %3464, align 8
-  %3465 = getelementptr inbounds nuw i8, ptr %3441, i64 40
-  store ptr %3463, ptr %3465, align 8
-  %3466 = getelementptr inbounds nuw i8, ptr %3441, i64 36
-  store i32 %3458, ptr %3466, align 4
-  br label %3467
+3459:                                             ; preds = %copy_address_wmem.exit.i904
+  %3460 = sext i32 %3456 to i64
+  %3461 = call ptr @wmem_memdup(ptr noundef %3453, ptr noundef %3457, i64 noundef %3460) #14
+  %3462 = getelementptr inbounds nuw i8, ptr %3439, i64 48
+  store ptr %3461, ptr %3462, align 8
+  %3463 = getelementptr inbounds nuw i8, ptr %3439, i64 40
+  store ptr %3461, ptr %3463, align 8
+  %3464 = getelementptr inbounds nuw i8, ptr %3439, i64 36
+  store i32 %3456, ptr %3464, align 4
+  br label %3465
 
-3467:                                             ; preds = %copy_address_wmem.exit.i888, %3461
-  %3468 = phi ptr [ null, %copy_address_wmem.exit.i888 ], [ %3463, %3461 ]
-  %3469 = getelementptr inbounds nuw i8, ptr %3441, i64 56
-  store i16 %3429, ptr %3469, align 8
-  %3470 = getelementptr inbounds nuw i8, ptr %3441, i64 60
-  store i32 %3430, ptr %3470, align 4
-  %3471 = getelementptr inbounds nuw i8, ptr %3441, i64 64
-  store ptr %.07521107, ptr %3471, align 8
-  %3472 = getelementptr inbounds nuw i8, ptr %.07521107, i64 80
-  %3473 = load i32, ptr %3472, align 8
-  %3474 = add i32 %3473, 1
-  store i32 %3474, ptr %3472, align 8
-  %3475 = getelementptr inbounds nuw i8, ptr %3441, i64 72
-  store i32 %3473, ptr %3475, align 8
-  %3476 = getelementptr inbounds nuw i8, ptr %3441, i64 76
-  store i32 -1, ptr %3476, align 4
-  %3477 = getelementptr inbounds nuw i8, ptr %3441, i64 80
+3465:                                             ; preds = %copy_address_wmem.exit.i904, %3459
+  %3466 = phi ptr [ null, %copy_address_wmem.exit.i904 ], [ %3461, %3459 ]
+  %3467 = getelementptr inbounds nuw i8, ptr %3439, i64 56
+  store i16 %3427, ptr %3467, align 8
+  %3468 = getelementptr inbounds nuw i8, ptr %3439, i64 60
+  store i32 %3428, ptr %3468, align 4
+  %3469 = getelementptr inbounds nuw i8, ptr %3439, i64 64
+  store ptr %.07701121, ptr %3469, align 8
+  %3470 = getelementptr inbounds nuw i8, ptr %.07701121, i64 80
+  %3471 = load i32, ptr %3470, align 8
+  %3472 = add i32 %3471, 1
+  store i32 %3472, ptr %3470, align 8
+  %3473 = getelementptr inbounds nuw i8, ptr %3439, i64 72
+  store i32 %3471, ptr %3473, align 8
+  %3474 = getelementptr inbounds nuw i8, ptr %3439, i64 76
+  store i32 -1, ptr %3474, align 4
+  %3475 = getelementptr inbounds nuw i8, ptr %3439, i64 80
+  store i32 0, ptr %3475, align 8
+  %3476 = getelementptr inbounds nuw i8, ptr %3439, i64 84
+  store i32 0, ptr %3476, align 4
+  %3477 = getelementptr inbounds nuw i8, ptr %3439, i64 88
   store i32 0, ptr %3477, align 8
-  %3478 = getelementptr inbounds nuw i8, ptr %3441, i64 84
-  store i32 0, ptr %3478, align 4
-  %3479 = getelementptr inbounds nuw i8, ptr %3441, i64 88
-  store i32 0, ptr %3479, align 8
-  %3480 = load i32, ptr %3453, align 1
-  store i32 %3480, ptr %17, align 16
-  store i32 %3434, ptr %151, align 4
-  %3481 = load i32, ptr %3468, align 1
-  store i32 %3481, ptr %152, align 8
-  store i32 %3436, ptr %153, align 4
-  store i32 %3430, ptr %154, align 16
+  %3478 = load i32, ptr %3451, align 1
+  store i32 %3478, ptr %17, align 16
+  store i32 %3432, ptr %151, align 4
+  %3479 = load i32, ptr %3466, align 1
+  store i32 %3479, ptr %152, align 8
+  store i32 %3434, ptr %153, align 4
+  store i32 %3428, ptr %154, align 16
   store i32 5, ptr %18, align 16
   store ptr %17, ptr %155, align 8
   store i32 0, ptr %156, align 16
   store ptr null, ptr %157, align 8
-  %3482 = load ptr, ptr %3421, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %3482, ptr noundef nonnull %18, ptr noundef %3441)
+  %3480 = load ptr, ptr %3419, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %3480, ptr noundef nonnull %18, ptr noundef %3439)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17) #12
-  %.not800 = icmp eq ptr %3441, null
-  br i1 %.not800, label %3564, label %.thread1111
+  %.not818 = icmp eq ptr %3439, null
+  br i1 %.not818, label %3562, label %.thread1125
 
-.thread1111:                                      ; preds = %.thread1104, %.thread1115, %3467
-  %.07711114 = phi ptr [ %3441, %3467 ], [ %3438, %.thread1115 ], [ %3423, %.thread1104 ]
-  %3483 = load i32, ptr %70, align 4
-  %3484 = getelementptr inbounds nuw i8, ptr %.07711114, i64 84
-  %3485 = load i32, ptr %3484, align 4
-  %3486 = add i32 %3485, 1
-  store i32 %3486, ptr %3484, align 4
-  %3487 = getelementptr inbounds nuw i8, ptr %.07711114, i64 64
-  %3488 = load ptr, ptr %3487, align 8
-  %3489 = getelementptr inbounds nuw i8, ptr %3488, i64 92
-  %3490 = load i32, ptr %3489, align 4
-  %3491 = add i32 %3490, 1
-  store i32 %3491, ptr %3489, align 4
-  %3492 = getelementptr inbounds nuw i8, ptr %.07711114, i64 88
-  %3493 = load i32, ptr %3492, align 8
-  %3494 = add i32 %3493, %232
-  store i32 %3494, ptr %3492, align 8
-  %3495 = load ptr, ptr %3487, align 8
-  %3496 = getelementptr inbounds nuw i8, ptr %3495, i64 96
-  %3497 = load i32, ptr %3496, align 8
-  %3498 = add i32 %3497, %232
-  store i32 %3498, ptr %3496, align 8
-  %3499 = getelementptr inbounds nuw i8, ptr %.07711114, i64 76
-  %3500 = load i32, ptr %3499, align 4
-  %3501 = icmp ult i32 %3483, %3500
-  br i1 %3501, label %3502, label %3503
+.thread1125:                                      ; preds = %.thread1118, %.thread1129, %3465
+  %.07891128 = phi ptr [ %3439, %3465 ], [ %3436, %.thread1129 ], [ %3421, %.thread1118 ]
+  %3481 = load i32, ptr %70, align 4
+  %3482 = getelementptr inbounds nuw i8, ptr %.07891128, i64 84
+  %3483 = load i32, ptr %3482, align 4
+  %3484 = add i32 %3483, 1
+  store i32 %3484, ptr %3482, align 4
+  %3485 = getelementptr inbounds nuw i8, ptr %.07891128, i64 64
+  %3486 = load ptr, ptr %3485, align 8
+  %3487 = getelementptr inbounds nuw i8, ptr %3486, i64 92
+  %3488 = load i32, ptr %3487, align 4
+  %3489 = add i32 %3488, 1
+  store i32 %3489, ptr %3487, align 4
+  %3490 = getelementptr inbounds nuw i8, ptr %.07891128, i64 88
+  %3491 = load i32, ptr %3490, align 8
+  %3492 = add i32 %3491, %232
+  store i32 %3492, ptr %3490, align 8
+  %3493 = load ptr, ptr %3485, align 8
+  %3494 = getelementptr inbounds nuw i8, ptr %3493, i64 96
+  %3495 = load i32, ptr %3494, align 8
+  %3496 = add i32 %3495, %232
+  store i32 %3496, ptr %3494, align 8
+  %3497 = getelementptr inbounds nuw i8, ptr %.07891128, i64 76
+  %3498 = load i32, ptr %3497, align 4
+  %3499 = icmp ult i32 %3481, %3498
+  br i1 %3499, label %3500, label %3501
 
-3502:                                             ; preds = %.thread1111
-  store i32 %3483, ptr %3499, align 4
-  br label %3503
+3500:                                             ; preds = %.thread1125
+  store i32 %3481, ptr %3497, align 4
+  br label %3501
 
-3503:                                             ; preds = %3502, %.thread1111
-  %3504 = load ptr, ptr %3487, align 8
-  %3505 = getelementptr inbounds nuw i8, ptr %3504, i64 84
-  %3506 = load i32, ptr %3505, align 4
-  %3507 = icmp ult i32 %3483, %3506
-  br i1 %3507, label %3508, label %3509
+3501:                                             ; preds = %3500, %.thread1125
+  %3502 = load ptr, ptr %3485, align 8
+  %3503 = getelementptr inbounds nuw i8, ptr %3502, i64 84
+  %3504 = load i32, ptr %3503, align 4
+  %3505 = icmp ult i32 %3481, %3504
+  br i1 %3505, label %3506, label %3507
 
-3508:                                             ; preds = %3503
-  store i32 %3483, ptr %3505, align 4
-  br label %3509
+3506:                                             ; preds = %3501
+  store i32 %3481, ptr %3503, align 4
+  br label %3507
 
-3509:                                             ; preds = %3508, %3503
-  %3510 = getelementptr inbounds nuw i8, ptr %.07711114, i64 80
-  %3511 = load i32, ptr %3510, align 8
-  %3512 = icmp ugt i32 %3483, %3511
-  br i1 %3512, label %3513, label %3514
+3507:                                             ; preds = %3506, %3501
+  %3508 = getelementptr inbounds nuw i8, ptr %.07891128, i64 80
+  %3509 = load i32, ptr %3508, align 8
+  %3510 = icmp ugt i32 %3481, %3509
+  br i1 %3510, label %3511, label %3512
 
-3513:                                             ; preds = %3509
-  store i32 %3483, ptr %3510, align 8
-  br label %3514
+3511:                                             ; preds = %3507
+  store i32 %3481, ptr %3508, align 8
+  br label %3512
 
-3514:                                             ; preds = %3513, %3509
-  %3515 = load ptr, ptr %3487, align 8
-  %3516 = getelementptr inbounds nuw i8, ptr %3515, i64 88
-  %3517 = load i32, ptr %3516, align 8
-  %3518 = icmp ugt i32 %3483, %3517
-  br i1 %3518, label %3519, label %lbm_stream_dstream_substream_update.exit
+3512:                                             ; preds = %3511, %3507
+  %3513 = load ptr, ptr %3485, align 8
+  %3514 = getelementptr inbounds nuw i8, ptr %3513, i64 88
+  %3515 = load i32, ptr %3514, align 8
+  %3516 = icmp ugt i32 %3481, %3515
+  br i1 %3516, label %3517, label %lbm_stream_dstream_substream_update.exit
 
-3519:                                             ; preds = %3514
-  store i32 %3483, ptr %3516, align 8
+3517:                                             ; preds = %3512
+  store i32 %3481, ptr %3514, align 8
   br label %lbm_stream_dstream_substream_update.exit
 
-lbm_stream_dstream_substream_update.exit:         ; preds = %3514, %3519
-  %3520 = load i32, ptr @hf_lbm_stream, align 4
-  %3521 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %3520, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %.not.i890 = icmp eq ptr %3521, null
-  br i1 %.not.i890, label %proto_item_set_generated.exit892, label %3522
+lbm_stream_dstream_substream_update.exit:         ; preds = %3512, %3517
+  %3518 = load i32, ptr @hf_lbm_stream, align 4
+  %3519 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %3518, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %.not.i906 = icmp eq ptr %3519, null
+  br i1 %.not.i906, label %proto_item_set_generated.exit908, label %3520
 
-3522:                                             ; preds = %lbm_stream_dstream_substream_update.exit
-  %3523 = getelementptr inbounds nuw i8, ptr %3521, i64 40
-  %3524 = load ptr, ptr %3523, align 8
-  %.not5.i891 = icmp eq ptr %3524, null
-  br i1 %.not5.i891, label %proto_item_set_generated.exit892, label %3525
+3520:                                             ; preds = %lbm_stream_dstream_substream_update.exit
+  %3521 = getelementptr inbounds nuw i8, ptr %3519, i64 40
+  %3522 = load ptr, ptr %3521, align 8
+  %.not5.i907 = icmp eq ptr %3522, null
+  br i1 %.not5.i907, label %proto_item_set_generated.exit908, label %3523
 
-3525:                                             ; preds = %3522
-  %3526 = getelementptr inbounds nuw i8, ptr %3524, i64 28
-  %3527 = load i32, ptr %3526, align 4
-  %3528 = or i32 %3527, 2
-  store i32 %3528, ptr %3526, align 4
-  br label %proto_item_set_generated.exit892
+3523:                                             ; preds = %3520
+  %3524 = getelementptr inbounds nuw i8, ptr %3522, i64 28
+  %3525 = load i32, ptr %3524, align 4
+  %3526 = or i32 %3525, 2
+  store i32 %3526, ptr %3524, align 4
+  br label %proto_item_set_generated.exit908
 
-proto_item_set_generated.exit892:                 ; preds = %lbm_stream_dstream_substream_update.exit, %3522, %3525
-  %3529 = load i32, ptr @ett_lbm_stream, align 4
-  %3530 = call ptr @proto_item_add_subtree(ptr noundef %3521, i32 noundef %3529)
-  %3531 = load i32, ptr @hf_lbm_stream_stream_id, align 4
-  %3532 = getelementptr inbounds nuw i8, ptr %.07521107, i64 72
-  %3533 = load i64, ptr %3532, align 8
-  %3534 = call ptr @proto_tree_add_uint64(ptr noundef %3530, i32 noundef %3531, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %3533)
-  %.not.i893 = icmp eq ptr %3534, null
-  br i1 %.not.i893, label %proto_item_set_generated.exit895, label %3535
+proto_item_set_generated.exit908:                 ; preds = %lbm_stream_dstream_substream_update.exit, %3520, %3523
+  %3527 = load i32, ptr @ett_lbm_stream, align 4
+  %3528 = call ptr @proto_item_add_subtree(ptr noundef %3519, i32 noundef %3527)
+  %3529 = load i32, ptr @hf_lbm_stream_stream_id, align 4
+  %3530 = getelementptr inbounds nuw i8, ptr %.07701121, i64 72
+  %3531 = load i64, ptr %3530, align 8
+  %3532 = call ptr @proto_tree_add_uint64(ptr noundef %3528, i32 noundef %3529, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %3531)
+  %.not.i909 = icmp eq ptr %3532, null
+  br i1 %.not.i909, label %proto_item_set_generated.exit911, label %3533
 
-3535:                                             ; preds = %proto_item_set_generated.exit892
-  %3536 = getelementptr inbounds nuw i8, ptr %3534, i64 40
-  %3537 = load ptr, ptr %3536, align 8
-  %.not5.i894 = icmp eq ptr %3537, null
-  br i1 %.not5.i894, label %proto_item_set_generated.exit895, label %3538
+3533:                                             ; preds = %proto_item_set_generated.exit908
+  %3534 = getelementptr inbounds nuw i8, ptr %3532, i64 40
+  %3535 = load ptr, ptr %3534, align 8
+  %.not5.i910 = icmp eq ptr %3535, null
+  br i1 %.not5.i910, label %proto_item_set_generated.exit911, label %3536
 
-3538:                                             ; preds = %3535
-  %3539 = getelementptr inbounds nuw i8, ptr %3537, i64 28
-  %3540 = load i32, ptr %3539, align 4
-  %3541 = or i32 %3540, 2
-  store i32 %3541, ptr %3539, align 4
-  br label %proto_item_set_generated.exit895
+3536:                                             ; preds = %3533
+  %3537 = getelementptr inbounds nuw i8, ptr %3535, i64 28
+  %3538 = load i32, ptr %3537, align 4
+  %3539 = or i32 %3538, 2
+  store i32 %3539, ptr %3537, align 4
+  br label %proto_item_set_generated.exit911
 
-proto_item_set_generated.exit895:                 ; preds = %proto_item_set_generated.exit892, %3535, %3538
-  %3542 = load i32, ptr @hf_lbm_stream_substream_id, align 4
-  %3543 = getelementptr inbounds nuw i8, ptr %.07711114, i64 72
-  %3544 = load i32, ptr %3543, align 8
-  %3545 = call ptr @proto_tree_add_uint(ptr noundef %3530, i32 noundef %3542, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %3544)
-  %.not.i896 = icmp eq ptr %3545, null
-  br i1 %.not.i896, label %proto_item_set_generated.exit898, label %3546
+proto_item_set_generated.exit911:                 ; preds = %proto_item_set_generated.exit908, %3533, %3536
+  %3540 = load i32, ptr @hf_lbm_stream_substream_id, align 4
+  %3541 = getelementptr inbounds nuw i8, ptr %.07891128, i64 72
+  %3542 = load i32, ptr %3541, align 8
+  %3543 = call ptr @proto_tree_add_uint(ptr noundef %3528, i32 noundef %3540, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %3542)
+  %.not.i912 = icmp eq ptr %3543, null
+  br i1 %.not.i912, label %proto_item_set_generated.exit914, label %3544
 
-3546:                                             ; preds = %proto_item_set_generated.exit895
-  %3547 = getelementptr inbounds nuw i8, ptr %3545, i64 40
-  %3548 = load ptr, ptr %3547, align 8
-  %.not5.i897 = icmp eq ptr %3548, null
-  br i1 %.not5.i897, label %proto_item_set_generated.exit898, label %3549
+3544:                                             ; preds = %proto_item_set_generated.exit911
+  %3545 = getelementptr inbounds nuw i8, ptr %3543, i64 40
+  %3546 = load ptr, ptr %3545, align 8
+  %.not5.i913 = icmp eq ptr %3546, null
+  br i1 %.not5.i913, label %proto_item_set_generated.exit914, label %3547
 
-3549:                                             ; preds = %3546
-  %3550 = getelementptr inbounds nuw i8, ptr %3548, i64 28
-  %3551 = load i32, ptr %3550, align 4
-  %3552 = or i32 %3551, 2
-  store i32 %3552, ptr %3550, align 4
-  br label %proto_item_set_generated.exit898
+3547:                                             ; preds = %3544
+  %3548 = getelementptr inbounds nuw i8, ptr %3546, i64 28
+  %3549 = load i32, ptr %3548, align 4
+  %3550 = or i32 %3549, 2
+  store i32 %3550, ptr %3548, align 4
+  br label %proto_item_set_generated.exit914
 
-proto_item_set_generated.exit898:                 ; preds = %proto_item_set_generated.exit895, %3546, %3549
-  call void @proto_tree_move_item(ptr noundef %276, ptr noundef %.0770, ptr noundef %3521)
-  %3553 = load ptr, ptr %52, align 8
-  %3554 = call noalias dereferenceable_or_null(112) ptr @wmem_alloc0(ptr noundef %3553, i64 noundef 112) #13
-  %3555 = load i64, ptr %3532, align 8
-  store i64 %3555, ptr %3554, align 8
-  %3556 = load i32, ptr %3543, align 8
-  %3557 = getelementptr inbounds nuw i8, ptr %3554, i64 8
-  store i32 %3556, ptr %3557, align 8
-  %3558 = getelementptr inbounds nuw i8, ptr %3554, i64 12
-  store i32 %232, ptr %3558, align 4
-  %3559 = getelementptr inbounds nuw i8, ptr %3554, i64 16
+proto_item_set_generated.exit914:                 ; preds = %proto_item_set_generated.exit911, %3544, %3547
+  call void @proto_tree_move_item(ptr noundef %276, ptr noundef %.0788, ptr noundef %3519)
+  %3551 = load ptr, ptr %52, align 8
+  %3552 = call noalias dereferenceable_or_null(112) ptr @wmem_alloc0(ptr noundef %3551, i64 noundef 112) #13
+  %3553 = load i64, ptr %3530, align 8
+  store i64 %3553, ptr %3552, align 8
+  %3554 = load i32, ptr %3541, align 8
+  %3555 = getelementptr inbounds nuw i8, ptr %3552, i64 8
+  store i32 %3554, ptr %3555, align 8
+  %3556 = getelementptr inbounds nuw i8, ptr %3552, i64 12
+  store i32 %232, ptr %3556, align 4
+  %3557 = getelementptr inbounds nuw i8, ptr %3552, i64 16
+  store i32 1, ptr %3557, align 8
+  %3558 = getelementptr inbounds nuw i8, ptr %3552, i64 24
+  store i32 %.sroa.5999.2.lcssa, ptr %3558, align 8
+  %.sroa.111005.8..sroa_idx1006 = getelementptr inbounds nuw i8, ptr %3552, i64 32
+  store i32 2, ptr %.sroa.111005.8..sroa_idx1006, align 8
+  %.sroa.15.8..sroa_idx1010 = getelementptr inbounds nuw i8, ptr %3552, i64 36
+  store i32 4, ptr %.sroa.15.8..sroa_idx1010, align 4
+  %.sroa.19.8..sroa_idx1014 = getelementptr inbounds nuw i8, ptr %3552, i64 40
+  store ptr %.sroa.19.2.lcssa, ptr %.sroa.19.8..sroa_idx1014, align 8
+  %.sroa.23.8..sroa_idx1018 = getelementptr inbounds nuw i8, ptr %3552, i64 48
+  store ptr null, ptr %.sroa.23.8..sroa_idx1018, align 8
+  %.sroa.24.8..sroa_idx1020 = getelementptr inbounds nuw i8, ptr %3552, i64 56
+  store i16 %.sroa.24.2.lcssa, ptr %.sroa.24.8..sroa_idx1020, align 8
+  %.sroa.28.8..sroa_idx1024 = getelementptr inbounds nuw i8, ptr %3552, i64 58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.28.8..sroa_idx1024, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.28, i64 6, i1 false)
+  %3559 = getelementptr inbounds nuw i8, ptr %3552, i64 64
   store i32 1, ptr %3559, align 8
-  %3560 = getelementptr inbounds nuw i8, ptr %3554, i64 24
-  store i32 %.sroa.6983.2.lcssa, ptr %3560, align 8
-  %.sroa.12989.8..sroa_idx990 = getelementptr inbounds nuw i8, ptr %3554, i64 32
-  store i32 2, ptr %.sroa.12989.8..sroa_idx990, align 8
-  %.sroa.16.8..sroa_idx994 = getelementptr inbounds nuw i8, ptr %3554, i64 36
-  store i32 4, ptr %.sroa.16.8..sroa_idx994, align 4
-  %.sroa.20.8..sroa_idx998 = getelementptr inbounds nuw i8, ptr %3554, i64 40
-  store ptr %.sroa.20.2.lcssa, ptr %.sroa.20.8..sroa_idx998, align 8
-  %.sroa.24.8..sroa_idx1002 = getelementptr inbounds nuw i8, ptr %3554, i64 48
-  store ptr null, ptr %.sroa.24.8..sroa_idx1002, align 8
-  %.sroa.25.8..sroa_idx1004 = getelementptr inbounds nuw i8, ptr %3554, i64 56
-  store i16 %.sroa.25.2.lcssa, ptr %.sroa.25.8..sroa_idx1004, align 8
-  %.sroa.29.8..sroa_idx1008 = getelementptr inbounds nuw i8, ptr %3554, i64 58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.29.8..sroa_idx1008, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.29, i64 6, i1 false)
-  %3561 = getelementptr inbounds nuw i8, ptr %3554, i64 64
-  store i32 1, ptr %3561, align 8
-  %3562 = getelementptr inbounds nuw i8, ptr %3554, i64 72
-  store i32 %.sroa.291009.2.lcssa, ptr %3562, align 8
-  %.sroa.351015.48..sroa_idx1016 = getelementptr inbounds nuw i8, ptr %3554, i64 80
-  store i32 2, ptr %.sroa.351015.48..sroa_idx1016, align 8
-  %.sroa.39.48..sroa_idx1020 = getelementptr inbounds nuw i8, ptr %3554, i64 84
-  store i32 4, ptr %.sroa.39.48..sroa_idx1020, align 4
-  %.sroa.43.48..sroa_idx1024 = getelementptr inbounds nuw i8, ptr %3554, i64 88
-  store ptr %.sroa.43.2.lcssa, ptr %.sroa.43.48..sroa_idx1024, align 8
-  %.sroa.47.48..sroa_idx1028 = getelementptr inbounds nuw i8, ptr %3554, i64 96
-  store ptr null, ptr %.sroa.47.48..sroa_idx1028, align 8
-  %.sroa.48.48..sroa_idx1030 = getelementptr inbounds nuw i8, ptr %3554, i64 104
-  store i16 %.sroa.48.2.lcssa, ptr %.sroa.48.48..sroa_idx1030, align 8
-  %.sroa.52.48..sroa_idx1034 = getelementptr inbounds nuw i8, ptr %3554, i64 106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.52.48..sroa_idx1034, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.52, i64 6, i1 false)
-  %3563 = load i32, ptr @lbmc_stream_tap_handle, align 4
-  call void @tap_queue_packet(i32 noundef %3563, ptr noundef %2, ptr noundef %3554)
-  br label %3564
+  %3560 = getelementptr inbounds nuw i8, ptr %3552, i64 72
+  store i32 %.sroa.281025.2.lcssa, ptr %3560, align 8
+  %.sroa.341031.48..sroa_idx1032 = getelementptr inbounds nuw i8, ptr %3552, i64 80
+  store i32 2, ptr %.sroa.341031.48..sroa_idx1032, align 8
+  %.sroa.38.48..sroa_idx1036 = getelementptr inbounds nuw i8, ptr %3552, i64 84
+  store i32 4, ptr %.sroa.38.48..sroa_idx1036, align 4
+  %.sroa.42.48..sroa_idx1040 = getelementptr inbounds nuw i8, ptr %3552, i64 88
+  store ptr %.sroa.42.2.lcssa, ptr %.sroa.42.48..sroa_idx1040, align 8
+  %.sroa.46.48..sroa_idx1044 = getelementptr inbounds nuw i8, ptr %3552, i64 96
+  store ptr null, ptr %.sroa.46.48..sroa_idx1044, align 8
+  %.sroa.47.48..sroa_idx1046 = getelementptr inbounds nuw i8, ptr %3552, i64 104
+  store i16 %.sroa.47.2.lcssa, ptr %.sroa.47.48..sroa_idx1046, align 8
+  %.sroa.51.48..sroa_idx1050 = getelementptr inbounds nuw i8, ptr %3552, i64 106
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.51.48..sroa_idx1050, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.51, i64 6, i1 false)
+  %3561 = load i32, ptr @lbmc_stream_tap_handle, align 4
+  call void @tap_queue_packet(i32 noundef %3561, ptr noundef %2, ptr noundef %3552)
+  br label %3562
 
-3564:                                             ; preds = %proto_item_set_generated.exit898, %3467
-  %3565 = getelementptr inbounds nuw i8, ptr %.07521107, i64 72
-  %3566 = load i64, ptr %3565, align 8
-  store i64 %3566, ptr %43, align 8
-  %3567 = load i32, ptr %54, align 4
-  store i32 %3567, ptr %.0769.sroa.gep946, align 8
-  store i32 1, ptr %.0769.sroa.gep949, align 8
-  store i32 %.sroa.6983.2.lcssa, ptr %.0769.sroa.gep952, align 8
-  store i32 2, ptr %.sroa.12989.8..sroa_idx, align 8
-  store i32 4, ptr %.sroa.16.8..sroa_idx, align 4
-  store ptr %.sroa.20.2.lcssa, ptr %.sroa.20.8..sroa_idx, align 8
-  store ptr null, ptr %.sroa.24.8..sroa_idx, align 8
-  store i16 %.sroa.25.2.lcssa, ptr %.sroa.25.8..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.29.8..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.29, i64 6, i1 false)
-  store i32 1, ptr %.0769.sroa.gep955, align 8
-  store i32 %.sroa.291009.2.lcssa, ptr %.0769.sroa.gep958, align 8
-  store i32 2, ptr %.sroa.351015.48..sroa_idx, align 8
-  store i32 4, ptr %.sroa.39.48..sroa_idx, align 4
-  store ptr %.sroa.43.2.lcssa, ptr %.sroa.43.48..sroa_idx, align 8
-  store ptr null, ptr %.sroa.47.48..sroa_idx, align 8
-  store i16 %.sroa.48.2.lcssa, ptr %.sroa.48.48..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.52.48..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.52, i64 6, i1 false)
-  br label %3568
+3562:                                             ; preds = %proto_item_set_generated.exit914, %3465
+  %3563 = getelementptr inbounds nuw i8, ptr %.07701121, i64 72
+  %3564 = load i64, ptr %3563, align 8
+  store i64 %3564, ptr %43, align 8
+  %3565 = load i32, ptr %54, align 4
+  store i32 %3565, ptr %.0787.sroa.gep962, align 8
+  store i32 1, ptr %.0787.sroa.gep965, align 8
+  store i32 %.sroa.5999.2.lcssa, ptr %.0787.sroa.gep968, align 8
+  store i32 2, ptr %.sroa.111005.8..sroa_idx, align 8
+  store i32 4, ptr %.sroa.15.8..sroa_idx, align 4
+  store ptr %.sroa.19.2.lcssa, ptr %.sroa.19.8..sroa_idx, align 8
+  store ptr null, ptr %.sroa.23.8..sroa_idx, align 8
+  store i16 %.sroa.24.2.lcssa, ptr %.sroa.24.8..sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.28.8..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.28, i64 6, i1 false)
+  store i32 1, ptr %.0787.sroa.gep971, align 8
+  store i32 %.sroa.281025.2.lcssa, ptr %.0787.sroa.gep974, align 8
+  store i32 2, ptr %.sroa.341031.48..sroa_idx, align 8
+  store i32 4, ptr %.sroa.38.48..sroa_idx, align 4
+  store ptr %.sroa.42.2.lcssa, ptr %.sroa.42.48..sroa_idx, align 8
+  store ptr null, ptr %.sroa.46.48..sroa_idx, align 8
+  store i16 %.sroa.47.2.lcssa, ptr %.sroa.47.48..sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.51.48..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.51, i64 6, i1 false)
+  br label %3566
 
-3568:                                             ; preds = %3104, %3333, %3163, %3390, %3564, %3339, %.thread1083
-  %.0769.sroa.phi = phi ptr [ %.0769.sroa.gep946, %3564 ], [ inttoptr (i64 8 to ptr), %3390 ], [ inttoptr (i64 8 to ptr), %3339 ], [ %.0769.sroa.gep946, %3333 ], [ inttoptr (i64 8 to ptr), %3163 ], [ inttoptr (i64 8 to ptr), %.thread1083 ], [ inttoptr (i64 8 to ptr), %3104 ]
-  %.0769.sroa.phi948 = phi ptr [ %.0769.sroa.gep949, %3564 ], [ inttoptr (i64 16 to ptr), %3390 ], [ inttoptr (i64 16 to ptr), %3339 ], [ %.0769.sroa.gep949, %3333 ], [ inttoptr (i64 16 to ptr), %3163 ], [ inttoptr (i64 16 to ptr), %.thread1083 ], [ inttoptr (i64 16 to ptr), %3104 ]
-  %.0769.sroa.phi951 = phi ptr [ %.0769.sroa.gep952, %3564 ], [ inttoptr (i64 24 to ptr), %3390 ], [ inttoptr (i64 24 to ptr), %3339 ], [ %.0769.sroa.gep952, %3333 ], [ inttoptr (i64 24 to ptr), %3163 ], [ inttoptr (i64 24 to ptr), %.thread1083 ], [ inttoptr (i64 24 to ptr), %3104 ]
-  %.0769.sroa.phi954 = phi ptr [ %.0769.sroa.gep955, %3564 ], [ inttoptr (i64 64 to ptr), %3390 ], [ inttoptr (i64 64 to ptr), %3339 ], [ %.0769.sroa.gep955, %3333 ], [ inttoptr (i64 64 to ptr), %3163 ], [ inttoptr (i64 64 to ptr), %.thread1083 ], [ inttoptr (i64 64 to ptr), %3104 ]
-  %.0769.sroa.phi957 = phi ptr [ %.0769.sroa.gep958, %3564 ], [ inttoptr (i64 72 to ptr), %3390 ], [ inttoptr (i64 72 to ptr), %3339 ], [ %.0769.sroa.gep958, %3333 ], [ inttoptr (i64 72 to ptr), %3163 ], [ inttoptr (i64 72 to ptr), %.thread1083 ], [ inttoptr (i64 72 to ptr), %3104 ]
-  %.0769.sroa.phi960 = phi ptr [ %.0769.sroa.gep, %3564 ], [ inttoptr (i64 112 to ptr), %3390 ], [ inttoptr (i64 112 to ptr), %3339 ], [ %.0769.sroa.gep, %3333 ], [ inttoptr (i64 112 to ptr), %3163 ], [ inttoptr (i64 112 to ptr), %.thread1083 ], [ inttoptr (i64 112 to ptr), %3104 ]
-  %.0769 = phi ptr [ %43, %3564 ], [ null, %3390 ], [ null, %3339 ], [ %43, %3333 ], [ null, %3163 ], [ null, %.thread1083 ], [ null, %3104 ]
-  %3569 = icmp eq i8 %.0703.lcssa, 0
-  br i1 %3569, label %3570, label %3971
+3566:                                             ; preds = %3330, %3160, %3388, %3562, %3336, %.thread1100
+  %.0787.sroa.phi = phi ptr [ %.0787.sroa.gep962, %3562 ], [ inttoptr (i64 8 to ptr), %3388 ], [ inttoptr (i64 8 to ptr), %3336 ], [ %.0787.sroa.gep962, %3330 ], [ inttoptr (i64 8 to ptr), %3160 ], [ inttoptr (i64 8 to ptr), %.thread1100 ]
+  %.0787.sroa.phi964 = phi ptr [ %.0787.sroa.gep965, %3562 ], [ inttoptr (i64 16 to ptr), %3388 ], [ inttoptr (i64 16 to ptr), %3336 ], [ %.0787.sroa.gep965, %3330 ], [ inttoptr (i64 16 to ptr), %3160 ], [ inttoptr (i64 16 to ptr), %.thread1100 ]
+  %.0787.sroa.phi967 = phi ptr [ %.0787.sroa.gep968, %3562 ], [ inttoptr (i64 24 to ptr), %3388 ], [ inttoptr (i64 24 to ptr), %3336 ], [ %.0787.sroa.gep968, %3330 ], [ inttoptr (i64 24 to ptr), %3160 ], [ inttoptr (i64 24 to ptr), %.thread1100 ]
+  %.0787.sroa.phi970 = phi ptr [ %.0787.sroa.gep971, %3562 ], [ inttoptr (i64 64 to ptr), %3388 ], [ inttoptr (i64 64 to ptr), %3336 ], [ %.0787.sroa.gep971, %3330 ], [ inttoptr (i64 64 to ptr), %3160 ], [ inttoptr (i64 64 to ptr), %.thread1100 ]
+  %.0787.sroa.phi973 = phi ptr [ %.0787.sroa.gep974, %3562 ], [ inttoptr (i64 72 to ptr), %3388 ], [ inttoptr (i64 72 to ptr), %3336 ], [ %.0787.sroa.gep974, %3330 ], [ inttoptr (i64 72 to ptr), %3160 ], [ inttoptr (i64 72 to ptr), %.thread1100 ]
+  %.0787.sroa.phi976 = phi ptr [ %.0787.sroa.gep, %3562 ], [ inttoptr (i64 112 to ptr), %3388 ], [ inttoptr (i64 112 to ptr), %3336 ], [ %.0787.sroa.gep, %3330 ], [ inttoptr (i64 112 to ptr), %3160 ], [ inttoptr (i64 112 to ptr), %.thread1100 ]
+  %.0787 = phi ptr [ %43, %3562 ], [ null, %3388 ], [ null, %3336 ], [ %43, %3330 ], [ null, %3160 ], [ null, %.thread1100 ]
+  %3567 = icmp eq i8 %.0721.lcssa, 0
+  br i1 %3567, label %3568, label %3966
 
-3570:                                             ; preds = %3568
+3568:                                             ; preds = %3566
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #12
-  br i1 %.sroa.01036.0.lcssa, label %3571, label %3580
+  br i1 %.sroa.01052.0.lcssa, label %3569, label %3578
 
-3571:                                             ; preds = %3570
-  %.not804 = icmp eq i32 %.01047.lcssa, 0
-  br i1 %.not804, label %3578, label %3572
+3569:                                             ; preds = %3568
+  %.not822 = icmp eq i32 %.01064.lcssa, 0
+  br i1 %.not822, label %3576, label %3570
 
-3572:                                             ; preds = %3571
-  %3573 = call i32 @tvb_reported_length_remaining(ptr noundef %236, i32 noundef %.0730.lcssa)
-  %3574 = sub i32 %3573, %.01047.lcssa
-  %3575 = add i32 %3574, %.0730.lcssa
-  %3576 = call ptr @tvb_new_subset_length(ptr noundef %236, i32 noundef %.0730.lcssa, i32 noundef %3574)
-  %3577 = call ptr @tvb_new_subset_length(ptr noundef %236, i32 noundef %3575, i32 noundef %.01047.lcssa)
-  br label %proto_item_set_generated.exit911
+3570:                                             ; preds = %3569
+  %3571 = call i32 @tvb_reported_length_remaining(ptr noundef %236, i32 noundef %.0748.lcssa)
+  %3572 = sub i32 %3571, %.01064.lcssa
+  %3573 = add i32 %3572, %.0748.lcssa
+  %3574 = call ptr @tvb_new_subset_length(ptr noundef %236, i32 noundef %.0748.lcssa, i32 noundef %3572)
+  %3575 = call ptr @tvb_new_subset_length(ptr noundef %236, i32 noundef %3573, i32 noundef %.01064.lcssa)
+  br label %proto_item_set_generated.exit927
 
-3578:                                             ; preds = %3571
-  %3579 = call ptr @tvb_new_subset_remaining(ptr noundef %236, i32 noundef %.0730.lcssa)
-  br label %proto_item_set_generated.exit911
+3576:                                             ; preds = %3569
+  %3577 = call ptr @tvb_new_subset_remaining(ptr noundef %236, i32 noundef %.0748.lcssa)
+  br label %proto_item_set_generated.exit927
 
-3580:                                             ; preds = %3570
-  %3581 = load i8, ptr @lbmc_reassemble_fragments, align 1, !range !14, !noundef !15
-  %3582 = trunc nuw i8 %3581 to i1
-  br i1 %3582, label %3586, label %3583
+3578:                                             ; preds = %3568
+  %3579 = load i8, ptr @lbmc_reassemble_fragments, align 1, !range !14, !noundef !15
+  %3580 = trunc nuw i8 %3579 to i1
+  br i1 %3580, label %3584, label %3581
 
-3583:                                             ; preds = %3580
-  %3584 = call i32 @tvb_reported_length_remaining(ptr noundef %236, i32 noundef %.0730.lcssa)
-  %3585 = call ptr @tvb_new_subset_length(ptr noundef %236, i32 noundef %.0730.lcssa, i32 noundef %3584)
-  br label %proto_item_set_generated.exit911
+3581:                                             ; preds = %3578
+  %3582 = call i32 @tvb_reported_length_remaining(ptr noundef %236, i32 noundef %.0748.lcssa)
+  %3583 = call ptr @tvb_new_subset_length(ptr noundef %236, i32 noundef %.0748.lcssa, i32 noundef %3582)
+  br label %proto_item_set_generated.exit927
 
-3586:                                             ; preds = %3580
-  %3587 = load i32, ptr %64, align 8
-  %3588 = trunc i32 %3587 to i16
+3584:                                             ; preds = %3578
+  %3585 = load i32, ptr %64, align 8
+  %3586 = trunc i32 %3585 to i16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #12
-  %3589 = load ptr, ptr %60, align 8
-  %3590 = lshr i64 %.2759, 32
-  %3591 = trunc nuw i64 %3590 to i32
-  store i32 %3591, ptr %13, align 16
-  %3592 = trunc i64 %.2759 to i32
-  store i32 %3592, ptr %206, align 4
-  %3593 = load i32, ptr %3589, align 1
-  store i32 %3593, ptr %207, align 8
-  %3594 = and i32 %3587, 65535
-  store i32 %3594, ptr %208, align 4
-  store i32 %.sroa.51037.0.lcssa, ptr %209, align 16
+  %3587 = load ptr, ptr %60, align 8
+  %3588 = lshr i64 %.2777, 32
+  %3589 = trunc nuw i64 %3588 to i32
+  store i32 %3589, ptr %13, align 16
+  %3590 = trunc i64 %.2777 to i32
+  store i32 %3590, ptr %206, align 4
+  %3591 = load i32, ptr %3587, align 1
+  store i32 %3591, ptr %207, align 8
+  %3592 = and i32 %3585, 65535
+  store i32 %3592, ptr %208, align 4
+  store i32 %.sroa.51053.0.lcssa, ptr %209, align 16
   store i32 5, ptr %14, align 16
   store ptr %13, ptr %210, align 8
   store i32 0, ptr %211, align 16
   store ptr null, ptr %212, align 8
-  %3595 = load ptr, ptr @lbmc_message_table, align 8
-  %3596 = call ptr @wmem_tree_lookup32_array(ptr noundef %3595, ptr noundef nonnull %14)
+  %3593 = load ptr, ptr @lbmc_message_table, align 8
+  %3594 = call ptr @wmem_tree_lookup32_array(ptr noundef %3593, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #12
-  %3597 = icmp eq ptr %3596, null
-  br i1 %3597, label %3598, label %.thread1118
+  %3595 = icmp eq ptr %3594, null
+  br i1 %3595, label %3596, label %.thread1132
 
-3598:                                             ; preds = %3586
+3596:                                             ; preds = %3584
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #12
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #12
-  %3599 = load ptr, ptr %60, align 8
-  store i32 %3591, ptr %9, align 16
-  store i32 %3592, ptr %213, align 4
-  %3600 = load i32, ptr %3599, align 1
-  store i32 %3600, ptr %214, align 8
-  store i32 %3594, ptr %215, align 4
-  store i32 %.sroa.51037.0.lcssa, ptr %216, align 16
+  %3597 = load ptr, ptr %60, align 8
+  store i32 %3589, ptr %9, align 16
+  store i32 %3590, ptr %213, align 4
+  %3598 = load i32, ptr %3597, align 1
+  store i32 %3598, ptr %214, align 8
+  store i32 %3592, ptr %215, align 4
+  store i32 %.sroa.51053.0.lcssa, ptr %216, align 16
   store i32 5, ptr %10, align 16
   store ptr %9, ptr %217, align 8
   store i32 0, ptr %218, align 16
   store ptr null, ptr %219, align 8
-  %3601 = load ptr, ptr @lbmc_message_table, align 8
-  %3602 = call ptr @wmem_tree_lookup32_array(ptr noundef %3601, ptr noundef nonnull %10)
+  %3599 = load ptr, ptr @lbmc_message_table, align 8
+  %3600 = call ptr @wmem_tree_lookup32_array(ptr noundef %3599, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #12
-  %.not.i899 = icmp eq ptr %3602, null
-  br i1 %.not.i899, label %3603, label %.thread1122
+  %.not.i915 = icmp eq ptr %3600, null
+  br i1 %.not.i915, label %3601, label %.thread1136
 
-.thread1122:                                      ; preds = %3598
+.thread1136:                                      ; preds = %3596
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #12
-  br label %.thread1118
+  br label %.thread1132
 
-3603:                                             ; preds = %3598
+3601:                                             ; preds = %3596
+  %3602 = call ptr @wmem_file_scope()
+  %3603 = call noalias dereferenceable_or_null(104) ptr @wmem_alloc(ptr noundef %3602, i64 noundef 104) #13
+  store i64 %.2777, ptr %3603, align 8
   %3604 = call ptr @wmem_file_scope()
-  %3605 = call noalias dereferenceable_or_null(104) ptr @wmem_alloc(ptr noundef %3604, i64 noundef 104) #13
-  store i64 %.2759, ptr %3605, align 8
-  %3606 = call ptr @wmem_file_scope()
-  %3607 = getelementptr inbounds nuw i8, ptr %3605, i64 8
-  %3608 = load i32, ptr %58, align 8
-  %3609 = load i32, ptr %59, align 4
-  %3610 = load ptr, ptr %60, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3607, i8 0, i64 24, i1 false)
-  store i32 %3608, ptr %3607, align 8
-  %3611 = icmp eq i32 %3609, 0
-  br i1 %3611, label %3618, label %3612
+  %3605 = getelementptr inbounds nuw i8, ptr %3603, i64 8
+  %3606 = load i32, ptr %58, align 8
+  %3607 = load i32, ptr %59, align 4
+  %3608 = load ptr, ptr %60, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3605, i8 0, i64 24, i1 false)
+  store i32 %3606, ptr %3605, align 8
+  %3609 = icmp eq i32 %3607, 0
+  br i1 %3609, label %3616, label %3610
 
-3612:                                             ; preds = %3603
-  %3613 = sext i32 %3609 to i64
-  %3614 = call ptr @wmem_memdup(ptr noundef %3606, ptr noundef %3610, i64 noundef %3613) #14
-  %3615 = getelementptr inbounds nuw i8, ptr %3605, i64 24
-  store ptr %3614, ptr %3615, align 8
-  %3616 = getelementptr inbounds nuw i8, ptr %3605, i64 16
-  store ptr %3614, ptr %3616, align 8
-  %3617 = getelementptr inbounds nuw i8, ptr %3605, i64 12
-  store i32 %3609, ptr %3617, align 4
-  br label %3618
+3610:                                             ; preds = %3601
+  %3611 = sext i32 %3607 to i64
+  %3612 = call ptr @wmem_memdup(ptr noundef %3604, ptr noundef %3608, i64 noundef %3611) #14
+  %3613 = getelementptr inbounds nuw i8, ptr %3603, i64 24
+  store ptr %3612, ptr %3613, align 8
+  %3614 = getelementptr inbounds nuw i8, ptr %3603, i64 16
+  store ptr %3612, ptr %3614, align 8
+  %3615 = getelementptr inbounds nuw i8, ptr %3603, i64 12
+  store i32 %3607, ptr %3615, align 4
+  br label %3616
 
-3618:                                             ; preds = %3603, %3612
-  %3619 = phi ptr [ null, %3603 ], [ %3614, %3612 ]
-  %3620 = getelementptr inbounds nuw i8, ptr %3605, i64 32
-  store i16 %3588, ptr %3620, align 8
-  %3621 = getelementptr inbounds nuw i8, ptr %3605, i64 36
-  store i32 %.sroa.51037.0.lcssa, ptr %3621, align 4
-  %3622 = getelementptr inbounds nuw i8, ptr %3605, i64 40
+3616:                                             ; preds = %3601, %3610
+  %3617 = phi ptr [ null, %3601 ], [ %3612, %3610 ]
+  %3618 = getelementptr inbounds nuw i8, ptr %3603, i64 32
+  store i16 %3586, ptr %3618, align 8
+  %3619 = getelementptr inbounds nuw i8, ptr %3603, i64 36
+  store i32 %.sroa.51053.0.lcssa, ptr %3619, align 4
+  %3620 = getelementptr inbounds nuw i8, ptr %3603, i64 40
+  store i32 0, ptr %3620, align 8
+  %3621 = getelementptr inbounds nuw i8, ptr %3603, i64 44
+  store i32 %.sroa.151058.0.lcssa, ptr %3621, align 4
+  %3622 = getelementptr inbounds nuw i8, ptr %3603, i64 48
   store i32 0, ptr %3622, align 8
-  %3623 = getelementptr inbounds nuw i8, ptr %3605, i64 44
-  store i32 %.sroa.15.0.lcssa, ptr %3623, align 4
-  %3624 = getelementptr inbounds nuw i8, ptr %3605, i64 48
-  store i32 0, ptr %3624, align 8
-  %3625 = getelementptr inbounds nuw i8, ptr %3605, i64 52
-  store i32 %.01047.lcssa, ptr %3625, align 4
-  %3626 = getelementptr inbounds nuw i8, ptr %3605, i64 56
-  store i8 0, ptr %3626, align 8
-  %3627 = getelementptr inbounds nuw i8, ptr %3605, i64 64
-  store ptr null, ptr %3627, align 8
-  %3628 = getelementptr inbounds nuw i8, ptr %3605, i64 72
-  store i32 0, ptr %3628, align 8
-  %3629 = getelementptr inbounds nuw i8, ptr %3605, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3629, i8 0, i64 24, i1 false)
-  store i32 %3591, ptr %11, align 16
-  store i32 %3592, ptr %220, align 4
-  %3630 = load i32, ptr %3619, align 1
-  store i32 %3630, ptr %221, align 8
-  store i32 %3594, ptr %222, align 4
-  store i32 %.sroa.51037.0.lcssa, ptr %223, align 16
+  %3623 = getelementptr inbounds nuw i8, ptr %3603, i64 52
+  store i32 %.01064.lcssa, ptr %3623, align 4
+  %3624 = getelementptr inbounds nuw i8, ptr %3603, i64 56
+  store i8 0, ptr %3624, align 8
+  %3625 = getelementptr inbounds nuw i8, ptr %3603, i64 64
+  store ptr null, ptr %3625, align 8
+  %3626 = getelementptr inbounds nuw i8, ptr %3603, i64 72
+  store i32 0, ptr %3626, align 8
+  %3627 = getelementptr inbounds nuw i8, ptr %3603, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3627, i8 0, i64 24, i1 false)
+  store i32 %3589, ptr %11, align 16
+  store i32 %3590, ptr %220, align 4
+  %3628 = load i32, ptr %3617, align 1
+  store i32 %3628, ptr %221, align 8
+  store i32 %3592, ptr %222, align 4
+  store i32 %.sroa.51053.0.lcssa, ptr %223, align 16
   store i32 5, ptr %12, align 16
   store ptr %11, ptr %224, align 8
   store i32 0, ptr %225, align 16
   store ptr null, ptr %226, align 8
-  %3631 = load ptr, ptr @lbmc_message_table, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %3631, ptr noundef nonnull %12, ptr noundef %3605)
+  %3629 = load ptr, ptr @lbmc_message_table, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %3629, ptr noundef nonnull %12, ptr noundef %3603)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #12
-  %.not803 = icmp eq ptr %3605, null
-  br i1 %.not803, label %proto_item_set_generated.exit911, label %.thread1118
+  %.not821 = icmp eq ptr %3603, null
+  br i1 %.not821, label %proto_item_set_generated.exit927, label %.thread1132
 
-.thread1118:                                      ; preds = %3586, %.thread1122, %3618
-  %.17091121 = phi ptr [ %3605, %3618 ], [ %3602, %.thread1122 ], [ %3596, %3586 ]
-  %3632 = call i32 @tvb_reported_length_remaining(ptr noundef %236, i32 noundef %.0730.lcssa)
-  %3633 = add i32 %3632, %.sroa.10.0.lcssa
-  %3634 = getelementptr inbounds nuw i8, ptr %.17091121, i64 44
-  %3635 = load i32, ptr %3634, align 4
-  %.not = icmp ugt i32 %3633, %3635
-  br i1 %.not, label %3636, label %3638
+.thread1132:                                      ; preds = %3584, %.thread1136, %3616
+  %.17271135 = phi ptr [ %3603, %3616 ], [ %3600, %.thread1136 ], [ %3594, %3584 ]
+  %3630 = call i32 @tvb_reported_length_remaining(ptr noundef %236, i32 noundef %.0748.lcssa)
+  %3631 = add i32 %3630, %.sroa.10.0.lcssa
+  %3632 = getelementptr inbounds nuw i8, ptr %.17271135, i64 44
+  %3633 = load i32, ptr %3632, align 4
+  %.not = icmp ugt i32 %3631, %3633
+  br i1 %.not, label %3634, label %3636
 
-3636:                                             ; preds = %.thread1118
-  %3637 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_lbmc_analysis_invalid_fragment, ptr noundef nonnull @.str.7, i32 noundef %3635, i32 noundef %.sroa.10.0.lcssa, i32 noundef %3632)
-  br label %proto_item_set_generated.exit911
+3634:                                             ; preds = %.thread1132
+  %3635 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_lbmc_analysis_invalid_fragment, ptr noundef nonnull @.str.7, i32 noundef %3633, i32 noundef %.sroa.10.0.lcssa, i32 noundef %3630)
+  br label %proto_item_set_generated.exit927
 
-3638:                                             ; preds = %.thread1118
-  %3639 = load i32, ptr %70, align 4
-  %3640 = icmp eq ptr %236, null
-  br i1 %3640, label %lbmc_message_add_fragment.exit, label %3641
+3636:                                             ; preds = %.thread1132
+  %3637 = load i32, ptr %70, align 4
+  %3638 = icmp eq ptr %236, null
+  br i1 %3638, label %lbmc_message_add_fragment.exit, label %3639
 
-3641:                                             ; preds = %3638
-  %3642 = getelementptr inbounds nuw i8, ptr %.17091121, i64 64
-  %3643 = load ptr, ptr %3642, align 8
-  %3644 = icmp eq ptr %3643, null
-  br i1 %3644, label %3645, label %.preheader.i
+3639:                                             ; preds = %3636
+  %3640 = getelementptr inbounds nuw i8, ptr %.17271135, i64 64
+  %3641 = load ptr, ptr %3640, align 8
+  %3642 = icmp eq ptr %3641, null
+  br i1 %3642, label %3643, label %.preheader.i
 
-3645:                                             ; preds = %3641
-  %3646 = call ptr @wmem_file_scope()
-  %3647 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %3646, i64 noundef 40) #13
-  %3648 = icmp eq ptr %3647, null
-  br i1 %3648, label %lbmc_message_add_fragment.exit, label %3649
+3643:                                             ; preds = %3639
+  %3644 = call ptr @wmem_file_scope()
+  %3645 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %3644, i64 noundef 40) #13
+  %3646 = icmp eq ptr %3645, null
+  br i1 %3646, label %lbmc_message_add_fragment.exit, label %3647
 
-3649:                                             ; preds = %3645
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3647, i8 0, i64 16, i1 false)
-  store ptr %3647, ptr %3642, align 8
-  br label %3675
+3647:                                             ; preds = %3643
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3645, i8 0, i64 16, i1 false)
+  store ptr %3645, ptr %3640, align 8
+  br label %3673
 
-.preheader.i:                                     ; preds = %3641, %3657
-  %.0.i903 = phi ptr [ %3659, %3657 ], [ %3643, %3641 ]
-  %3650 = getelementptr inbounds nuw i8, ptr %.0.i903, i64 16
-  %3651 = load i32, ptr %3650, align 8
-  %3652 = icmp eq i32 %.sroa.10.0.lcssa, %3651
-  br i1 %3652, label %lbmc_message_add_fragment.exit, label %3653
+.preheader.i:                                     ; preds = %3639, %3655
+  %.0.i919 = phi ptr [ %3657, %3655 ], [ %3641, %3639 ]
+  %3648 = getelementptr inbounds nuw i8, ptr %.0.i919, i64 16
+  %3649 = load i32, ptr %3648, align 8
+  %3650 = icmp eq i32 %.sroa.10.0.lcssa, %3649
+  br i1 %3650, label %lbmc_message_add_fragment.exit, label %3651
 
-3653:                                             ; preds = %.preheader.i
-  %3654 = icmp ult i32 %.sroa.10.0.lcssa, %3651
-  br i1 %3654, label %3655, label %3657
+3651:                                             ; preds = %.preheader.i
+  %3652 = icmp ult i32 %.sroa.10.0.lcssa, %3649
+  br i1 %3652, label %3653, label %3655
 
-3655:                                             ; preds = %3653
-  %3656 = load ptr, ptr %.0.i903, align 8
+3653:                                             ; preds = %3651
+  %3654 = load ptr, ptr %.0.i919, align 8
   br label %.loopexit65.i
 
-3657:                                             ; preds = %3653
-  %3658 = getelementptr inbounds nuw i8, ptr %.0.i903, i64 8
-  %3659 = load ptr, ptr %3658, align 8
-  %3660 = icmp eq ptr %3659, null
-  br i1 %3660, label %.loopexit65.i, label %.preheader.i, !llvm.loop !17
+3655:                                             ; preds = %3651
+  %3656 = getelementptr inbounds nuw i8, ptr %.0.i919, i64 8
+  %3657 = load ptr, ptr %3656, align 8
+  %3658 = icmp eq ptr %3657, null
+  br i1 %3658, label %.loopexit65.i, label %.preheader.i, !llvm.loop !17
 
-.loopexit65.i:                                    ; preds = %3657, %3655
-  %.1.i904 = phi ptr [ %3656, %3655 ], [ %.0.i903, %3657 ]
-  %3661 = call ptr @wmem_file_scope()
-  %3662 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %3661, i64 noundef 40) #13
-  %3663 = icmp eq ptr %3662, null
-  br i1 %3663, label %lbmc_message_add_fragment.exit, label %3664
+.loopexit65.i:                                    ; preds = %3655, %3653
+  %.1.i920 = phi ptr [ %3654, %3653 ], [ %.0.i919, %3655 ]
+  %3659 = call ptr @wmem_file_scope()
+  %3660 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %3659, i64 noundef 40) #13
+  %3661 = icmp eq ptr %3660, null
+  br i1 %3661, label %lbmc_message_add_fragment.exit, label %3662
 
-3664:                                             ; preds = %.loopexit65.i
-  %3665 = icmp eq ptr %.1.i904, null
-  br i1 %3665, label %3666, label %3669
+3662:                                             ; preds = %.loopexit65.i
+  %3663 = icmp eq ptr %.1.i920, null
+  br i1 %3663, label %3664, label %3667
 
-3666:                                             ; preds = %3664
-  store ptr null, ptr %3662, align 8
-  %3667 = load ptr, ptr %3642, align 8
-  %3668 = getelementptr inbounds nuw i8, ptr %3662, i64 8
-  store ptr %3667, ptr %3668, align 8
-  store ptr %3662, ptr %3667, align 8
-  store ptr %3662, ptr %3642, align 8
-  br label %3675
+3664:                                             ; preds = %3662
+  store ptr null, ptr %3660, align 8
+  %3665 = load ptr, ptr %3640, align 8
+  %3666 = getelementptr inbounds nuw i8, ptr %3660, i64 8
+  store ptr %3665, ptr %3666, align 8
+  store ptr %3660, ptr %3665, align 8
+  store ptr %3660, ptr %3640, align 8
+  br label %3673
 
-3669:                                             ; preds = %3664
-  store ptr %.1.i904, ptr %3662, align 8
-  %3670 = getelementptr inbounds nuw i8, ptr %.1.i904, i64 8
+3667:                                             ; preds = %3662
+  store ptr %.1.i920, ptr %3660, align 8
+  %3668 = getelementptr inbounds nuw i8, ptr %.1.i920, i64 8
+  %3669 = load ptr, ptr %3668, align 8
+  %3670 = getelementptr inbounds nuw i8, ptr %3660, i64 8
+  store ptr %3669, ptr %3670, align 8
+  store ptr %3660, ptr %3668, align 8
   %3671 = load ptr, ptr %3670, align 8
-  %3672 = getelementptr inbounds nuw i8, ptr %3662, i64 8
-  store ptr %3671, ptr %3672, align 8
-  store ptr %3662, ptr %3670, align 8
-  %3673 = load ptr, ptr %3672, align 8
-  %.not.i905 = icmp eq ptr %3673, null
-  br i1 %.not.i905, label %3675, label %3674
+  %.not.i921 = icmp eq ptr %3671, null
+  br i1 %.not.i921, label %3673, label %3672
 
-3674:                                             ; preds = %3669
-  store ptr %3662, ptr %3673, align 8
-  br label %3675
+3672:                                             ; preds = %3667
+  store ptr %3660, ptr %3671, align 8
+  br label %3673
 
-3675:                                             ; preds = %3674, %3669, %3666, %3649
-  %.054.i = phi ptr [ %3647, %3649 ], [ %3662, %3666 ], [ %3662, %3674 ], [ %3662, %3669 ]
-  %3676 = getelementptr inbounds nuw i8, ptr %.054.i, i64 16
-  store i32 %.sroa.10.0.lcssa, ptr %3676, align 8
-  %3677 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %236, i32 noundef %.0730.lcssa)
-  %3678 = getelementptr inbounds nuw i8, ptr %.054.i, i64 20
-  store i32 %3677, ptr %3678, align 4
-  %3679 = call ptr @wmem_file_scope()
-  %3680 = load i32, ptr %3678, align 4
-  %3681 = zext i32 %3680 to i64
-  %3682 = call ptr @tvb_memdup(ptr noundef %3679, ptr noundef nonnull %236, i32 noundef %.0730.lcssa, i64 noundef %3681)
-  %3683 = getelementptr inbounds nuw i8, ptr %.054.i, i64 32
-  store ptr %3682, ptr %3683, align 8
-  %3684 = getelementptr inbounds nuw i8, ptr %.054.i, i64 24
-  store i32 %3639, ptr %3684, align 8
-  %3685 = getelementptr inbounds nuw i8, ptr %.054.i, i64 28
-  store i32 %.0730.lcssa, ptr %3685, align 4
-  %3686 = load i32, ptr %3678, align 4
-  %3687 = getelementptr inbounds nuw i8, ptr %.17091121, i64 48
-  %3688 = load i32, ptr %3687, align 8
-  %3689 = add i32 %3688, %3686
-  store i32 %3689, ptr %3687, align 8
-  %3690 = getelementptr inbounds nuw i8, ptr %.17091121, i64 40
-  %3691 = load i32, ptr %3690, align 8
-  %3692 = add i32 %3691, 1
-  store i32 %3692, ptr %3690, align 8
+3673:                                             ; preds = %3672, %3667, %3664, %3647
+  %.054.i = phi ptr [ %3645, %3647 ], [ %3660, %3664 ], [ %3660, %3672 ], [ %3660, %3667 ]
+  %3674 = getelementptr inbounds nuw i8, ptr %.054.i, i64 16
+  store i32 %.sroa.10.0.lcssa, ptr %3674, align 8
+  %3675 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %236, i32 noundef %.0748.lcssa)
+  %3676 = getelementptr inbounds nuw i8, ptr %.054.i, i64 20
+  store i32 %3675, ptr %3676, align 4
+  %3677 = call ptr @wmem_file_scope()
+  %3678 = load i32, ptr %3676, align 4
+  %3679 = zext i32 %3678 to i64
+  %3680 = call ptr @tvb_memdup(ptr noundef %3677, ptr noundef nonnull %236, i32 noundef %.0748.lcssa, i64 noundef %3679)
+  %3681 = getelementptr inbounds nuw i8, ptr %.054.i, i64 32
+  store ptr %3680, ptr %3681, align 8
+  %3682 = getelementptr inbounds nuw i8, ptr %.054.i, i64 24
+  store i32 %3637, ptr %3682, align 8
+  %3683 = getelementptr inbounds nuw i8, ptr %.054.i, i64 28
+  store i32 %.0748.lcssa, ptr %3683, align 4
+  %3684 = load i32, ptr %3676, align 4
+  %3685 = getelementptr inbounds nuw i8, ptr %.17271135, i64 48
+  %3686 = load i32, ptr %3685, align 8
+  %3687 = add i32 %3686, %3684
+  store i32 %3687, ptr %3685, align 8
+  %3688 = getelementptr inbounds nuw i8, ptr %.17271135, i64 40
+  %3689 = load i32, ptr %3688, align 8
+  %3690 = add i32 %3689, 1
+  store i32 %3690, ptr %3688, align 8
   br label %lbmc_message_add_fragment.exit
 
-lbmc_message_add_fragment.exit:                   ; preds = %.preheader.i, %3638, %3645, %.loopexit65.i, %3675
-  %3693 = trunc nuw i8 %.01054.lcssa to i1
-  br i1 %3693, label %3694, label %3696
+lbmc_message_add_fragment.exit:                   ; preds = %.preheader.i, %3636, %3643, %.loopexit65.i, %3673
+  %3691 = trunc nuw i8 %.01071.lcssa to i1
+  br i1 %3691, label %3692, label %3694
 
-3694:                                             ; preds = %lbmc_message_add_fragment.exit
-  %3695 = getelementptr inbounds nuw i8, ptr %.17091121, i64 56
-  store i8 1, ptr %3695, align 8
-  br label %3696
+3692:                                             ; preds = %lbmc_message_add_fragment.exit
+  %3693 = getelementptr inbounds nuw i8, ptr %.17271135, i64 56
+  store i8 1, ptr %3693, align 8
+  br label %3694
 
-3696:                                             ; preds = %3694, %lbmc_message_add_fragment.exit
-  %3697 = load i32, ptr %3634, align 4
-  %3698 = getelementptr inbounds nuw i8, ptr %.17091121, i64 48
-  %3699 = load i32, ptr %3698, align 8
-  %3700 = icmp eq i32 %3697, %3699
-  br i1 %3700, label %3701, label %3712
+3694:                                             ; preds = %3692, %lbmc_message_add_fragment.exit
+  %3695 = load i32, ptr %3632, align 4
+  %3696 = getelementptr inbounds nuw i8, ptr %.17271135, i64 48
+  %3697 = load i32, ptr %3696, align 8
+  %3698 = icmp eq i32 %3695, %3697
+  br i1 %3698, label %3699, label %3710
 
-3701:                                             ; preds = %3696
-  %3702 = getelementptr inbounds nuw i8, ptr %.17091121, i64 72
-  %3703 = load i32, ptr %3702, align 8
-  %3704 = icmp eq i32 %3703, 0
-  br i1 %3704, label %3705, label %3707
+3699:                                             ; preds = %3694
+  %3700 = getelementptr inbounds nuw i8, ptr %.17271135, i64 72
+  %3701 = load i32, ptr %3700, align 8
+  %3702 = icmp eq i32 %3701, 0
+  br i1 %3702, label %3703, label %3705
 
-3705:                                             ; preds = %3701
-  %3706 = load i32, ptr %70, align 4
-  store i32 %3706, ptr %3702, align 8
-  br label %3707
+3703:                                             ; preds = %3699
+  %3704 = load i32, ptr %70, align 4
+  store i32 %3704, ptr %3700, align 8
+  br label %3705
 
-3707:                                             ; preds = %3705, %3701
-  %3708 = call ptr @tvb_new_subset_remaining(ptr noundef %236, i32 noundef %.0730.lcssa)
-  %3709 = load i32, ptr %3702, align 8
-  %3710 = load i32, ptr %70, align 4
-  %3711 = icmp eq i32 %3709, %3710
-  br label %3714
+3705:                                             ; preds = %3703, %3699
+  %3706 = call ptr @tvb_new_subset_remaining(ptr noundef %236, i32 noundef %.0748.lcssa)
+  %3707 = load i32, ptr %3700, align 8
+  %3708 = load i32, ptr %70, align 4
+  %3709 = icmp eq i32 %3707, %3708
+  br label %3712
 
-3712:                                             ; preds = %3696
-  %3713 = call ptr @tvb_new_subset_remaining(ptr noundef %236, i32 noundef %.0730.lcssa)
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.17091121, i64 72
+3710:                                             ; preds = %3694
+  %3711 = call ptr @tvb_new_subset_remaining(ptr noundef %236, i32 noundef %.0748.lcssa)
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.17271135, i64 72
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.pre1284 = load i32, ptr %70, align 4
-  br label %3714
+  %.pre1288 = load i32, ptr %70, align 4
+  br label %3712
 
-3714:                                             ; preds = %3712, %3707
-  %3715 = phi i32 [ %.pre1284, %3712 ], [ %3710, %3707 ]
-  %3716 = phi i32 [ %.pre, %3712 ], [ %3709, %3707 ]
-  %.1726 = phi ptr [ %3713, %3712 ], [ %3708, %3707 ]
-  %.0716 = phi i8 [ 0, %3712 ], [ 1, %3707 ]
-  %.0710 = phi i1 [ false, %3712 ], [ %3711, %3707 ]
-  %3717 = getelementptr inbounds nuw i8, ptr %.17091121, i64 72
-  %3718 = icmp eq i32 %3716, %3715
-  br i1 %3718, label %3719, label %3819
+3712:                                             ; preds = %3710, %3705
+  %3713 = phi i32 [ %.pre1288, %3710 ], [ %3708, %3705 ]
+  %3714 = phi i32 [ %.pre, %3710 ], [ %3707, %3705 ]
+  %.1744 = phi ptr [ %3711, %3710 ], [ %3706, %3705 ]
+  %.0734 = phi i8 [ 0, %3710 ], [ 1, %3705 ]
+  %.0728 = phi i1 [ false, %3710 ], [ %3709, %3705 ]
+  %3715 = getelementptr inbounds nuw i8, ptr %.17271135, i64 72
+  %3716 = icmp eq i32 %3714, %3713
+  br i1 %3716, label %3717, label %3817
 
-3719:                                             ; preds = %3714
-  %3720 = load ptr, ptr %52, align 8
-  %3721 = load i32, ptr %3634, align 4
-  %3722 = zext i32 %3721 to i64
-  %3723 = call noalias ptr @wmem_alloc(ptr noundef %3720, i64 noundef %3722) #13
-  %3724 = getelementptr inbounds nuw i8, ptr %.17091121, i64 64
-  %.07001238 = load ptr, ptr %3724, align 8
-  %.not8051239 = icmp eq ptr %.07001238, null
-  br i1 %.not8051239, label %._crit_edge, label %.lr.ph1241
+3717:                                             ; preds = %3712
+  %3718 = load ptr, ptr %52, align 8
+  %3719 = load i32, ptr %3632, align 4
+  %3720 = zext i32 %3719 to i64
+  %3721 = call noalias ptr @wmem_alloc(ptr noundef %3718, i64 noundef %3720) #13
+  %3722 = getelementptr inbounds nuw i8, ptr %.17271135, i64 64
+  %.07181244 = load ptr, ptr %3722, align 8
+  %.not8231245 = icmp eq ptr %.07181244, null
+  br i1 %.not8231245, label %._crit_edge, label %.lr.ph1247
 
-.lr.ph1241:                                       ; preds = %3719, %.lr.ph1241
-  %.07001240 = phi ptr [ %.0700, %.lr.ph1241 ], [ %.07001238, %3719 ]
-  %3725 = getelementptr inbounds nuw i8, ptr %.07001240, i64 16
-  %3726 = load i32, ptr %3725, align 8
-  %3727 = zext i32 %3726 to i64
-  %3728 = getelementptr i8, ptr %3723, i64 %3727
-  %3729 = getelementptr inbounds nuw i8, ptr %.07001240, i64 32
-  %3730 = load ptr, ptr %3729, align 8
-  %3731 = getelementptr inbounds nuw i8, ptr %.07001240, i64 20
-  %3732 = load i32, ptr %3731, align 4
-  %3733 = zext i32 %3732 to i64
-  %3734 = sub nsw i64 %3722, %3727
-  %3735 = icmp ugt i32 %3726, %3721
-  %3736 = select i1 %3735, i64 0, i64 %3734
-  %3737 = icmp ne i64 %3736, -1
-  call void @llvm.assume(i1 %3737)
-  %3738 = call ptr @__memcpy_chk(ptr noundef %3728, ptr noundef %3730, i64 noundef range(i64 0, 4294967296) %3733, i64 noundef %3736) #12, !alias.scope !18
-  %3739 = getelementptr inbounds nuw i8, ptr %.07001240, i64 8
-  %.0700 = load ptr, ptr %3739, align 8
-  %.not805 = icmp eq ptr %.0700, null
-  br i1 %.not805, label %._crit_edge, label %.lr.ph1241, !llvm.loop !22
+.lr.ph1247:                                       ; preds = %3717, %.lr.ph1247
+  %.07181246 = phi ptr [ %.0718, %.lr.ph1247 ], [ %.07181244, %3717 ]
+  %3723 = getelementptr inbounds nuw i8, ptr %.07181246, i64 16
+  %3724 = load i32, ptr %3723, align 8
+  %3725 = zext i32 %3724 to i64
+  %3726 = getelementptr i8, ptr %3721, i64 %3725
+  %3727 = getelementptr inbounds nuw i8, ptr %.07181246, i64 32
+  %3728 = load ptr, ptr %3727, align 8
+  %3729 = getelementptr inbounds nuw i8, ptr %.07181246, i64 20
+  %3730 = load i32, ptr %3729, align 4
+  %3731 = zext i32 %3730 to i64
+  %3732 = sub nsw i64 %3720, %3725
+  %3733 = icmp ugt i32 %3724, %3719
+  %3734 = select i1 %3733, i64 0, i64 %3732
+  %3735 = icmp ne i64 %3734, -1
+  call void @llvm.assume(i1 %3735)
+  %3736 = call ptr @__memcpy_chk(ptr noundef %3726, ptr noundef %3728, i64 noundef range(i64 0, 4294967296) %3731, i64 noundef %3734) #12, !alias.scope !18
+  %3737 = getelementptr inbounds nuw i8, ptr %.07181246, i64 8
+  %.0718 = load ptr, ptr %3737, align 8
+  %.not823 = icmp eq ptr %.0718, null
+  br i1 %.not823, label %._crit_edge, label %.lr.ph1247, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %.lr.ph1241, %3719
-  %3740 = load i32, ptr %3634, align 4
-  %3741 = call ptr @tvb_new_real_data(ptr noundef %3723, i32 noundef %3740, i32 noundef %3740)
-  %3742 = getelementptr inbounds nuw i8, ptr %.17091121, i64 80
-  store ptr %3741, ptr %3742, align 8
-  %3743 = load i32, ptr %3634, align 4
-  %3744 = getelementptr inbounds nuw i8, ptr %.17091121, i64 52
-  %3745 = load i32, ptr %3744, align 4
-  %3746 = sub i32 %3743, %3745
-  %3747 = call ptr @tvb_new_subset_length(ptr noundef %3741, i32 noundef 0, i32 noundef %3746)
-  %3748 = getelementptr inbounds nuw i8, ptr %.17091121, i64 88
-  store ptr %3747, ptr %3748, align 8
-  %3749 = load i32, ptr %3744, align 4
-  %.not806 = icmp eq i32 %3749, 0
-  br i1 %.not806, label %3756, label %3750
+._crit_edge:                                      ; preds = %.lr.ph1247, %3717
+  %3738 = load i32, ptr %3632, align 4
+  %3739 = call ptr @tvb_new_real_data(ptr noundef %3721, i32 noundef %3738, i32 noundef %3738)
+  %3740 = getelementptr inbounds nuw i8, ptr %.17271135, i64 80
+  store ptr %3739, ptr %3740, align 8
+  %3741 = load i32, ptr %3632, align 4
+  %3742 = getelementptr inbounds nuw i8, ptr %.17271135, i64 52
+  %3743 = load i32, ptr %3742, align 4
+  %3744 = sub i32 %3741, %3743
+  %3745 = call ptr @tvb_new_subset_length(ptr noundef %3739, i32 noundef 0, i32 noundef %3744)
+  %3746 = getelementptr inbounds nuw i8, ptr %.17271135, i64 88
+  store ptr %3745, ptr %3746, align 8
+  %3747 = load i32, ptr %3742, align 4
+  %.not824 = icmp eq i32 %3747, 0
+  br i1 %.not824, label %3754, label %3748
 
-3750:                                             ; preds = %._crit_edge
-  %3751 = load ptr, ptr %3742, align 8
-  %3752 = load i32, ptr %3634, align 4
-  %3753 = sub i32 %3752, %3749
-  %3754 = call ptr @tvb_new_subset_length(ptr noundef %3751, i32 noundef %3753, i32 noundef %3749)
-  %3755 = getelementptr inbounds nuw i8, ptr %.17091121, i64 96
-  store ptr %3754, ptr %3755, align 8
-  br label %3756
+3748:                                             ; preds = %._crit_edge
+  %3749 = load ptr, ptr %3740, align 8
+  %3750 = load i32, ptr %3632, align 4
+  %3751 = sub i32 %3750, %3747
+  %3752 = call ptr @tvb_new_subset_length(ptr noundef %3749, i32 noundef %3751, i32 noundef %3747)
+  %3753 = getelementptr inbounds nuw i8, ptr %.17271135, i64 96
+  store ptr %3752, ptr %3753, align 8
+  br label %3754
 
-3756:                                             ; preds = %3750, %._crit_edge
-  %3757 = load ptr, ptr %3742, align 8
-  call void @add_new_data_source(ptr noundef %2, ptr noundef %3757, ptr noundef nonnull @.str.8)
-  %3758 = load ptr, ptr %3748, align 8
-  %3759 = icmp eq ptr %3758, null
-  br i1 %3759, label %3760, label %3766
+3754:                                             ; preds = %3748, %._crit_edge
+  %3755 = load ptr, ptr %3740, align 8
+  call void @add_new_data_source(ptr noundef %2, ptr noundef %3755, ptr noundef nonnull @.str.8)
+  %3756 = load ptr, ptr %3746, align 8
+  %3757 = icmp eq ptr %3756, null
+  br i1 %3757, label %3758, label %3764
 
-3760:                                             ; preds = %3756
-  %3761 = load ptr, ptr %3742, align 8
-  %3762 = load i32, ptr %3634, align 4
-  %3763 = load i32, ptr %3744, align 4
-  %3764 = sub i32 %3762, %3763
-  %3765 = call ptr @tvb_new_subset_length(ptr noundef %3761, i32 noundef 0, i32 noundef %3764)
-  store ptr %3765, ptr %3748, align 8
-  br label %3766
+3758:                                             ; preds = %3754
+  %3759 = load ptr, ptr %3740, align 8
+  %3760 = load i32, ptr %3632, align 4
+  %3761 = load i32, ptr %3742, align 4
+  %3762 = sub i32 %3760, %3761
+  %3763 = call ptr @tvb_new_subset_length(ptr noundef %3759, i32 noundef 0, i32 noundef %3762)
+  store ptr %3763, ptr %3746, align 8
+  br label %3764
 
-3766:                                             ; preds = %3760, %3756
-  %3767 = phi ptr [ %3765, %3760 ], [ %3758, %3756 ]
-  %3768 = getelementptr inbounds nuw i8, ptr %.17091121, i64 96
-  %3769 = load ptr, ptr %3768, align 8
-  %3770 = icmp eq ptr %3769, null
-  br i1 %3770, label %3771, label %3778
+3764:                                             ; preds = %3758, %3754
+  %3765 = phi ptr [ %3763, %3758 ], [ %3756, %3754 ]
+  %3766 = getelementptr inbounds nuw i8, ptr %.17271135, i64 96
+  %3767 = load ptr, ptr %3766, align 8
+  %3768 = icmp eq ptr %3767, null
+  br i1 %3768, label %3769, label %3776
 
-3771:                                             ; preds = %3766
-  %3772 = load i32, ptr %3744, align 4
-  %.not807 = icmp eq i32 %3772, 0
-  br i1 %.not807, label %3778, label %3773
+3769:                                             ; preds = %3764
+  %3770 = load i32, ptr %3742, align 4
+  %.not825 = icmp eq i32 %3770, 0
+  br i1 %.not825, label %3776, label %3771
 
-3773:                                             ; preds = %3771
-  %3774 = load ptr, ptr %3742, align 8
-  %3775 = load i32, ptr %3634, align 4
-  %3776 = sub i32 %3775, %3772
-  %3777 = call ptr @tvb_new_subset_length(ptr noundef %3774, i32 noundef %3776, i32 noundef %3772)
-  store ptr %3777, ptr %3768, align 8
-  %.pre1285 = load ptr, ptr %3748, align 8
-  br label %3778
+3771:                                             ; preds = %3769
+  %3772 = load ptr, ptr %3740, align 8
+  %3773 = load i32, ptr %3632, align 4
+  %3774 = sub i32 %3773, %3770
+  %3775 = call ptr @tvb_new_subset_length(ptr noundef %3772, i32 noundef %3774, i32 noundef %3770)
+  store ptr %3775, ptr %3766, align 8
+  %.pre1289 = load ptr, ptr %3746, align 8
+  br label %3776
 
-3778:                                             ; preds = %3771, %3773, %3766
-  %3779 = phi ptr [ null, %3771 ], [ %3777, %3773 ], [ %3769, %3766 ]
-  %3780 = phi ptr [ %3767, %3771 ], [ %.pre1285, %3773 ], [ %3767, %3766 ]
-  %3781 = getelementptr inbounds nuw i8, ptr %.17091121, i64 56
-  %3782 = load i8, ptr %3781, align 8, !range !14, !noundef !15
-  %3783 = load i32, ptr @hf_lbmc_reassembly, align 4
-  %3784 = call i32 @tvb_reported_length_remaining(ptr noundef %3780, i32 noundef 0)
-  %3785 = getelementptr inbounds nuw i8, ptr %.17091121, i64 40
-  %3786 = load i32, ptr %3785, align 8
-  %3787 = load i32, ptr %3634, align 4
-  %3788 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %276, i32 noundef %3783, ptr noundef %3780, i32 noundef 0, i32 noundef %3784, ptr noundef nonnull @.str.9, i32 noundef %3786, i32 noundef %3787)
-  %3789 = load i32, ptr @ett_lbmc_reassembly, align 4
-  %3790 = call ptr @proto_item_add_subtree(ptr noundef %3788, i32 noundef %3789)
-  %.17011242 = load ptr, ptr %3724, align 8
-  %.not8081243 = icmp eq ptr %.17011242, null
-  br i1 %.not8081243, label %._crit_edge1248, label %.lr.ph1247
+3776:                                             ; preds = %3769, %3771, %3764
+  %3777 = phi ptr [ null, %3769 ], [ %3775, %3771 ], [ %3767, %3764 ]
+  %3778 = phi ptr [ %3765, %3769 ], [ %.pre1289, %3771 ], [ %3765, %3764 ]
+  %3779 = getelementptr inbounds nuw i8, ptr %.17271135, i64 56
+  %3780 = load i8, ptr %3779, align 8, !range !14, !noundef !15
+  %3781 = load i32, ptr @hf_lbmc_reassembly, align 4
+  %3782 = call i32 @tvb_reported_length_remaining(ptr noundef %3778, i32 noundef 0)
+  %3783 = getelementptr inbounds nuw i8, ptr %.17271135, i64 40
+  %3784 = load i32, ptr %3783, align 8
+  %3785 = load i32, ptr %3632, align 4
+  %3786 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %276, i32 noundef %3781, ptr noundef %3778, i32 noundef 0, i32 noundef %3782, ptr noundef nonnull @.str.9, i32 noundef %3784, i32 noundef %3785)
+  %3787 = load i32, ptr @ett_lbmc_reassembly, align 4
+  %3788 = call ptr @proto_item_add_subtree(ptr noundef %3786, i32 noundef %3787)
+  %.17191248 = load ptr, ptr %3722, align 8
+  %.not8261249 = icmp eq ptr %.17191248, null
+  br i1 %.not8261249, label %._crit_edge1254, label %.lr.ph1253
 
-.lr.ph1247:                                       ; preds = %3778, %proto_item_set_generated.exit908
-  %.17011245 = phi ptr [ %.1701, %proto_item_set_generated.exit908 ], [ %.17011242, %3778 ]
-  %.07021244 = phi ptr [ @.str.12, %proto_item_set_generated.exit908 ], [ @.str.11, %3778 ]
-  %3791 = load i32, ptr @hf_lbmc_reassembly_fragment, align 4
-  %3792 = load ptr, ptr %3742, align 8
-  %3793 = getelementptr inbounds nuw i8, ptr %.17011245, i64 16
-  %3794 = load i32, ptr %3793, align 8
-  %3795 = getelementptr inbounds nuw i8, ptr %.17011245, i64 20
-  %3796 = load i32, ptr %3795, align 4
-  %3797 = getelementptr inbounds nuw i8, ptr %.17011245, i64 24
-  %3798 = load i32, ptr %3797, align 8
-  %3799 = add i32 %3794, -1
-  %3800 = add i32 %3799, %3796
-  %3801 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3790, i32 noundef %3791, ptr noundef %3792, i32 noundef %3794, i32 noundef %3796, i32 noundef %3798, ptr noundef nonnull @.str.10, i32 noundef %3798, i32 noundef %3794, i32 noundef %3800, i32 noundef %3796)
-  %.not.i906 = icmp eq ptr %3801, null
-  br i1 %.not.i906, label %proto_item_set_generated.exit908, label %3802
+.lr.ph1253:                                       ; preds = %3776, %proto_item_set_generated.exit924
+  %.17191251 = phi ptr [ %.1719, %proto_item_set_generated.exit924 ], [ %.17191248, %3776 ]
+  %.07201250 = phi ptr [ @.str.12, %proto_item_set_generated.exit924 ], [ @.str.11, %3776 ]
+  %3789 = load i32, ptr @hf_lbmc_reassembly_fragment, align 4
+  %3790 = load ptr, ptr %3740, align 8
+  %3791 = getelementptr inbounds nuw i8, ptr %.17191251, i64 16
+  %3792 = load i32, ptr %3791, align 8
+  %3793 = getelementptr inbounds nuw i8, ptr %.17191251, i64 20
+  %3794 = load i32, ptr %3793, align 4
+  %3795 = getelementptr inbounds nuw i8, ptr %.17191251, i64 24
+  %3796 = load i32, ptr %3795, align 8
+  %3797 = add i32 %3792, -1
+  %3798 = add i32 %3797, %3794
+  %3799 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3788, i32 noundef %3789, ptr noundef %3790, i32 noundef %3792, i32 noundef %3794, i32 noundef %3796, ptr noundef nonnull @.str.10, i32 noundef %3796, i32 noundef %3792, i32 noundef %3798, i32 noundef %3794)
+  %.not.i922 = icmp eq ptr %3799, null
+  br i1 %.not.i922, label %proto_item_set_generated.exit924, label %3800
 
-3802:                                             ; preds = %.lr.ph1247
-  %3803 = getelementptr inbounds nuw i8, ptr %3801, i64 40
-  %3804 = load ptr, ptr %3803, align 8
-  %.not5.i907 = icmp eq ptr %3804, null
-  br i1 %.not5.i907, label %proto_item_set_generated.exit908, label %3805
+3800:                                             ; preds = %.lr.ph1253
+  %3801 = getelementptr inbounds nuw i8, ptr %3799, i64 40
+  %3802 = load ptr, ptr %3801, align 8
+  %.not5.i923 = icmp eq ptr %3802, null
+  br i1 %.not5.i923, label %proto_item_set_generated.exit924, label %3803
 
-3805:                                             ; preds = %3802
-  %3806 = getelementptr inbounds nuw i8, ptr %3804, i64 28
-  %3807 = load i32, ptr %3806, align 4
-  %3808 = or i32 %3807, 2
-  store i32 %3808, ptr %3806, align 4
-  br label %proto_item_set_generated.exit908
+3803:                                             ; preds = %3800
+  %3804 = getelementptr inbounds nuw i8, ptr %3802, i64 28
+  %3805 = load i32, ptr %3804, align 4
+  %3806 = or i32 %3805, 2
+  store i32 %3806, ptr %3804, align 4
+  br label %proto_item_set_generated.exit924
 
-proto_item_set_generated.exit908:                 ; preds = %.lr.ph1247, %3802, %3805
-  %3809 = load i32, ptr %3797, align 8
-  %3810 = load i32, ptr %3795, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3788, ptr noundef nonnull %.07021244, i32 noundef %3809, i32 noundef %3810)
-  %3811 = getelementptr inbounds nuw i8, ptr %.17011245, i64 8
-  %.1701 = load ptr, ptr %3811, align 8
-  %.not808 = icmp eq ptr %.1701, null
-  br i1 %.not808, label %._crit_edge1248, label %.lr.ph1247, !llvm.loop !23
+proto_item_set_generated.exit924:                 ; preds = %.lr.ph1253, %3800, %3803
+  %3807 = load i32, ptr %3795, align 8
+  %3808 = load i32, ptr %3793, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3786, ptr noundef nonnull %.07201250, i32 noundef %3807, i32 noundef %3808)
+  %3809 = getelementptr inbounds nuw i8, ptr %.17191251, i64 8
+  %.1719 = load ptr, ptr %3809, align 8
+  %.not826 = icmp eq ptr %.1719, null
+  br i1 %.not826, label %._crit_edge1254, label %.lr.ph1253, !llvm.loop !23
 
-._crit_edge1248:                                  ; preds = %proto_item_set_generated.exit908, %3778
-  %.not.i909 = icmp eq ptr %3788, null
-  br i1 %.not.i909, label %proto_item_set_generated.exit911, label %3812
+._crit_edge1254:                                  ; preds = %proto_item_set_generated.exit924, %3776
+  %.not.i925 = icmp eq ptr %3786, null
+  br i1 %.not.i925, label %proto_item_set_generated.exit927, label %3810
 
-3812:                                             ; preds = %._crit_edge1248
-  %3813 = getelementptr inbounds nuw i8, ptr %3788, i64 40
-  %3814 = load ptr, ptr %3813, align 8
-  %.not5.i910 = icmp eq ptr %3814, null
-  br i1 %.not5.i910, label %proto_item_set_generated.exit911, label %3815
+3810:                                             ; preds = %._crit_edge1254
+  %3811 = getelementptr inbounds nuw i8, ptr %3786, i64 40
+  %3812 = load ptr, ptr %3811, align 8
+  %.not5.i926 = icmp eq ptr %3812, null
+  br i1 %.not5.i926, label %proto_item_set_generated.exit927, label %3813
 
-3815:                                             ; preds = %3812
-  %3816 = getelementptr inbounds nuw i8, ptr %3814, i64 28
-  %3817 = load i32, ptr %3816, align 4
-  %3818 = or i32 %3817, 2
-  store i32 %3818, ptr %3816, align 4
-  br label %proto_item_set_generated.exit911
+3813:                                             ; preds = %3810
+  %3814 = getelementptr inbounds nuw i8, ptr %3812, i64 28
+  %3815 = load i32, ptr %3814, align 4
+  %3816 = or i32 %3815, 2
+  store i32 %3816, ptr %3814, align 4
+  br label %proto_item_set_generated.exit927
 
-3819:                                             ; preds = %3714
-  %3820 = icmp eq i32 %3716, 0
-  br i1 %3820, label %3821, label %3823
+3817:                                             ; preds = %3712
+  %3818 = icmp eq i32 %3714, 0
+  br i1 %3818, label %3819, label %3821
 
-3821:                                             ; preds = %3819
-  %3822 = call ptr @proto_tree_add_expert(ptr noundef %276, ptr noundef %2, ptr noundef nonnull @ei_lbmc_analysis_missing_reassembly_frame, ptr noundef %.1726, i32 noundef 0, i32 noundef -1)
-  br label %proto_item_set_generated.exit911
+3819:                                             ; preds = %3817
+  %3820 = call ptr @proto_tree_add_expert(ptr noundef %276, ptr noundef %2, ptr noundef nonnull @ei_lbmc_analysis_missing_reassembly_frame, ptr noundef %.1744, i32 noundef 0, i32 noundef -1)
+  br label %proto_item_set_generated.exit927
 
-3823:                                             ; preds = %3819
-  %3824 = load i32, ptr @hf_reassembly_frame, align 4
-  %3825 = call i32 @tvb_reported_length_remaining(ptr noundef %.1726, i32 noundef 0)
-  %3826 = load i32, ptr %3717, align 8
-  %3827 = call ptr @proto_tree_add_uint(ptr noundef %276, i32 noundef %3824, ptr noundef %.1726, i32 noundef 0, i32 noundef %3825, i32 noundef %3826)
-  %.not.i912 = icmp eq ptr %3827, null
-  br i1 %.not.i912, label %proto_item_set_generated.exit911, label %3828
+3821:                                             ; preds = %3817
+  %3822 = load i32, ptr @hf_reassembly_frame, align 4
+  %3823 = call i32 @tvb_reported_length_remaining(ptr noundef %.1744, i32 noundef 0)
+  %3824 = load i32, ptr %3715, align 8
+  %3825 = call ptr @proto_tree_add_uint(ptr noundef %276, i32 noundef %3822, ptr noundef %.1744, i32 noundef 0, i32 noundef %3823, i32 noundef %3824)
+  %.not.i928 = icmp eq ptr %3825, null
+  br i1 %.not.i928, label %proto_item_set_generated.exit927, label %3826
 
-3828:                                             ; preds = %3823
-  %3829 = getelementptr inbounds nuw i8, ptr %3827, i64 40
-  %3830 = load ptr, ptr %3829, align 8
-  %.not5.i913 = icmp eq ptr %3830, null
-  br i1 %.not5.i913, label %proto_item_set_generated.exit911, label %3831
+3826:                                             ; preds = %3821
+  %3827 = getelementptr inbounds nuw i8, ptr %3825, i64 40
+  %3828 = load ptr, ptr %3827, align 8
+  %.not5.i929 = icmp eq ptr %3828, null
+  br i1 %.not5.i929, label %proto_item_set_generated.exit927, label %3829
 
-3831:                                             ; preds = %3828
-  %3832 = getelementptr inbounds nuw i8, ptr %3830, i64 28
-  %3833 = load i32, ptr %3832, align 4
-  %3834 = or i32 %3833, 2
-  store i32 %3834, ptr %3832, align 4
-  br label %proto_item_set_generated.exit911
+3829:                                             ; preds = %3826
+  %3830 = getelementptr inbounds nuw i8, ptr %3828, i64 28
+  %3831 = load i32, ptr %3830, align 4
+  %3832 = or i32 %3831, 2
+  store i32 %3832, ptr %3830, align 4
+  br label %proto_item_set_generated.exit927
 
-proto_item_set_generated.exit911:                 ; preds = %3636, %3618, %3572, %3578, %3583, %3831, %3828, %3823, %3815, %3812, %._crit_edge1248, %3821
-  %.07101133 = phi i1 [ %.0710, %3821 ], [ %.0710, %._crit_edge1248 ], [ %.0710, %3812 ], [ %.0710, %3815 ], [ %.0710, %3823 ], [ %.0710, %3828 ], [ %.0710, %3831 ], [ false, %3636 ], [ false, %3618 ], [ true, %3572 ], [ true, %3578 ], [ false, %3583 ]
-  %.31057 = phi i8 [ %.01054.lcssa, %3821 ], [ %3782, %._crit_edge1248 ], [ %3782, %3812 ], [ %3782, %3815 ], [ %.01054.lcssa, %3823 ], [ %.01054.lcssa, %3828 ], [ %.01054.lcssa, %3831 ], [ %.01054.lcssa, %3636 ], [ %.01054.lcssa, %3618 ], [ %.01054.lcssa, %3572 ], [ %.01054.lcssa, %3578 ], [ %.01054.lcssa, %3583 ]
-  %.4729 = phi ptr [ %.1726, %3821 ], [ %3780, %._crit_edge1248 ], [ %3780, %3812 ], [ %3780, %3815 ], [ %.1726, %3823 ], [ %.1726, %3828 ], [ %.1726, %3831 ], [ null, %3636 ], [ null, %3618 ], [ %3576, %3572 ], [ %3579, %3578 ], [ %3585, %3583 ]
-  %.4724 = phi ptr [ null, %3821 ], [ %3779, %._crit_edge1248 ], [ %3779, %3812 ], [ %3779, %3815 ], [ null, %3823 ], [ null, %3828 ], [ null, %3831 ], [ null, %3636 ], [ null, %3618 ], [ %3577, %3572 ], [ null, %3578 ], [ null, %3583 ]
-  %.3719 = phi i8 [ %.0716, %3821 ], [ 1, %._crit_edge1248 ], [ 1, %3812 ], [ 1, %3815 ], [ %.0716, %3823 ], [ %.0716, %3828 ], [ %.0716, %3831 ], [ 1, %3636 ], [ 1, %3618 ], [ 1, %3572 ], [ 1, %3578 ], [ 1, %3583 ]
-  %3835 = trunc nuw i8 %.31057 to i1
-  br i1 %3835, label %3836, label %3841
+proto_item_set_generated.exit927:                 ; preds = %3634, %3616, %3570, %3576, %3581, %3829, %3826, %3821, %3813, %3810, %._crit_edge1254, %3819
+  %.07281147 = phi i1 [ %.0728, %3819 ], [ %.0728, %._crit_edge1254 ], [ %.0728, %3810 ], [ %.0728, %3813 ], [ %.0728, %3821 ], [ %.0728, %3826 ], [ %.0728, %3829 ], [ false, %3634 ], [ false, %3616 ], [ true, %3570 ], [ true, %3576 ], [ false, %3581 ]
+  %.31074 = phi i8 [ %.01071.lcssa, %3819 ], [ %3780, %._crit_edge1254 ], [ %3780, %3810 ], [ %3780, %3813 ], [ %.01071.lcssa, %3821 ], [ %.01071.lcssa, %3826 ], [ %.01071.lcssa, %3829 ], [ %.01071.lcssa, %3634 ], [ %.01071.lcssa, %3616 ], [ %.01071.lcssa, %3570 ], [ %.01071.lcssa, %3576 ], [ %.01071.lcssa, %3581 ]
+  %.4747 = phi ptr [ %.1744, %3819 ], [ %3778, %._crit_edge1254 ], [ %3778, %3810 ], [ %3778, %3813 ], [ %.1744, %3821 ], [ %.1744, %3826 ], [ %.1744, %3829 ], [ null, %3634 ], [ null, %3616 ], [ %3574, %3570 ], [ %3577, %3576 ], [ %3583, %3581 ]
+  %.4742 = phi ptr [ null, %3819 ], [ %3777, %._crit_edge1254 ], [ %3777, %3810 ], [ %3777, %3813 ], [ null, %3821 ], [ null, %3826 ], [ null, %3829 ], [ null, %3634 ], [ null, %3616 ], [ %3575, %3570 ], [ null, %3576 ], [ null, %3581 ]
+  %.3737 = phi i8 [ %.0734, %3819 ], [ 1, %._crit_edge1254 ], [ 1, %3810 ], [ 1, %3813 ], [ %.0734, %3821 ], [ %.0734, %3826 ], [ %.0734, %3829 ], [ 1, %3634 ], [ 1, %3616 ], [ 1, %3570 ], [ 1, %3576 ], [ 1, %3581 ]
+  %3833 = trunc nuw i8 %.3737 to i1
+  %3834 = and i8 %.3737, %.31074
+  %or.cond30.not = icmp eq i8 %3834, 0
+  br i1 %or.cond30.not, label %3838, label %3835
 
-3836:                                             ; preds = %proto_item_set_generated.exit911
-  %3837 = trunc nuw i8 %.3719 to i1
-  br i1 %3837, label %3838, label %3841
+3835:                                             ; preds = %proto_item_set_generated.exit927
+  %3836 = call fastcc i32 @dissect_nhdr_umq_cmd_resp(ptr noundef %.4747, ptr noundef %2, ptr noundef %276, i1 noundef zeroext true)
+  %3837 = load ptr, ptr %205, align 8
+  call void @col_append_sep_str(ptr noundef %3837, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
+  br label %3856
 
-3838:                                             ; preds = %3836
-  %3839 = call fastcc i32 @dissect_nhdr_umq_cmd_resp(ptr noundef %.4729, ptr noundef %2, ptr noundef %276, i1 noundef zeroext true)
+3838:                                             ; preds = %proto_item_set_generated.exit927
+  %3839 = call zeroext i1 @lbm_channel_is_transport(i64 noundef %5)
+  %or.cond32 = select i1 %3839, i1 true, i1 %.0784.lcssa
+  %.val = load i8, ptr %227, align 4
+  %.not3.i = icmp eq i8 %.val, 0
+  %.str.1750..str.1749.i = select i1 %.not3.i, ptr @.str.1750, ptr @.str.1749
+  %.str.1752..str.1751.i = select i1 %.not3.i, ptr @.str.1752, ptr @.str.1751
+  %.0.i931 = select i1 %or.cond32, ptr %.str.1752..str.1751.i, ptr %.str.1750..str.1749.i
   %3840 = load ptr, ptr %205, align 8
-  call void @col_append_sep_str(ptr noundef %3840, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14)
-  br label %3860
+  call void @col_append_sep_str(ptr noundef %3840, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef nonnull %.0.i931)
+  br i1 %.07281147, label %3841, label %3854
 
-3841:                                             ; preds = %3836, %proto_item_set_generated.exit911
-  %3842 = call zeroext i1 @lbm_channel_is_transport(i64 noundef %5)
-  %.val1136 = load i8, ptr %227, align 4
-  %.not3.i1137 = icmp eq i8 %.val1136, 0
-  %.str.1752..str.1751.i1139 = select i1 %.not3.i1137, ptr @.str.1752, ptr @.str.1751
-  %.str.1750..str.1749.i = select i1 %.not3.i1137, ptr @.str.1750, ptr @.str.1749
-  %.str.1752..str.1751.i = select i1 %.not3.i1137, ptr @.str.1752, ptr @.str.1751
-  %spec.select = select i1 %.0766.lcssa, ptr %.str.1752..str.1751.i, ptr %.str.1750..str.1749.i
-  %3843 = select i1 %3842, ptr %.str.1752..str.1751.i1139, ptr %spec.select
-  %3844 = load ptr, ptr %205, align 8
-  call void @col_append_sep_str(ptr noundef %3844, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef nonnull %3843)
-  br i1 %.07101133, label %3845, label %3858
+3841:                                             ; preds = %3838
+  %3842 = load i8, ptr @lbmc_use_heuristic_subdissectors, align 1, !range !14, !noundef !15
+  %3843 = trunc nuw i8 %3842 to i1
+  br i1 %3843, label %3844, label %.thread1148
 
-3845:                                             ; preds = %3841
-  %3846 = load i8, ptr @lbmc_use_heuristic_subdissectors, align 1, !range !14, !noundef !15
-  %3847 = trunc nuw i8 %3846 to i1
-  br i1 %3847, label %3848, label %.thread1141
+3844:                                             ; preds = %3841
+  %3845 = load ptr, ptr @lbmc_heuristic_subdissector_list, align 8
+  %3846 = call zeroext i1 @dissector_try_heuristic(ptr noundef %3845, ptr noundef %.4747, ptr noundef %2, ptr noundef %276, ptr noundef nonnull %46, ptr noundef null)
+  br i1 %3846, label %3856, label %.thread1148
 
-3848:                                             ; preds = %3845
-  %3849 = load ptr, ptr @lbmc_heuristic_subdissector_list, align 8
-  %3850 = call zeroext i1 @dissector_try_heuristic(ptr noundef %3849, ptr noundef %.4729, ptr noundef %2, ptr noundef %276, ptr noundef nonnull %46, ptr noundef null)
-  br i1 %3850, label %3860, label %.thread1141
+.thread1148:                                      ; preds = %3841, %3844
+  %3847 = load i8, ptr @lbmc_dissect_lbmpdm, align 1, !range !14, !noundef !15
+  %3848 = trunc nuw i8 %3847 to i1
+  br i1 %3848, label %3849, label %.thread1151
 
-.thread1141:                                      ; preds = %3845, %3848
-  %3851 = load i8, ptr @lbmc_dissect_lbmpdm, align 1, !range !14, !noundef !15
-  %3852 = trunc nuw i8 %3851 to i1
-  br i1 %3852, label %3853, label %.thread1144
-
-3853:                                             ; preds = %.thread1141
+3849:                                             ; preds = %.thread1148
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %48) #12
-  %3854 = call zeroext i1 @lbmpdm_verify_payload(ptr noundef %.4729, i32 noundef 0, ptr noundef nonnull %47, ptr noundef nonnull %48)
+  %3850 = call zeroext i1 @lbmpdm_verify_payload(ptr noundef %.4747, i32 noundef 0, ptr noundef nonnull %47, ptr noundef nonnull %48)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #12
-  br i1 %3854, label %3855, label %.thread1144
+  br i1 %3850, label %3851, label %.thread1151
 
-3855:                                             ; preds = %3853
-  %3856 = call i32 @lbmpdm_dissect_lbmpdm_payload(ptr noundef %.4729, i32 noundef 0, ptr noundef %2, ptr noundef %276, i64 noundef %.2759)
-  br label %3860
+3851:                                             ; preds = %3849
+  %3852 = call i32 @lbmpdm_dissect_lbmpdm_payload(ptr noundef %.4747, i32 noundef 0, ptr noundef %2, ptr noundef %276, i64 noundef %.2777)
+  br label %3856
 
-.thread1144:                                      ; preds = %.thread1141, %3853
-  %3857 = call i32 @call_data_dissector(ptr noundef %.4729, ptr noundef %2, ptr noundef %276)
-  br label %3860
+.thread1151:                                      ; preds = %.thread1148, %3849
+  %3853 = call i32 @call_data_dissector(ptr noundef %.4747, ptr noundef %2, ptr noundef %276)
+  br label %3856
 
-3858:                                             ; preds = %3841
-  %3859 = call i32 @call_data_dissector(ptr noundef %.4729, ptr noundef %2, ptr noundef %276)
-  br label %3860
+3854:                                             ; preds = %3838
+  %3855 = call i32 @call_data_dissector(ptr noundef %.4747, ptr noundef %2, ptr noundef %276)
+  br label %3856
 
-3860:                                             ; preds = %3858, %3855, %.thread1144, %3848, %3838
-  %.0755 = phi ptr [ null, %3838 ], [ %3843, %3848 ], [ %3843, %3855 ], [ %3843, %.thread1144 ], [ %3843, %3858 ]
-  %.not809 = icmp eq ptr %.4724, null
-  br i1 %.not809, label %dissect_msg_properties.exit, label %3861
+3856:                                             ; preds = %3854, %3851, %.thread1151, %3844, %3835
+  %.0773 = phi ptr [ null, %3835 ], [ %.0.i931, %3844 ], [ %.0.i931, %3851 ], [ %.0.i931, %.thread1151 ], [ %.0.i931, %3854 ]
+  %.not827 = icmp eq ptr %.4742, null
+  br i1 %.not827, label %dissect_msg_properties.exit, label %3857
 
-3861:                                             ; preds = %3860
-  %3862 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4724, i32 noundef 0)
-  %.not176.i = icmp eq i32 %3862, -1160074069
+3857:                                             ; preds = %3856
+  %3858 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4742, i32 noundef 0)
+  %.not176.i = icmp eq i32 %3858, -1160074069
   %.167.i = select i1 %.not176.i, i32 0, i32 -2147483648
-  %3863 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.4724, i32 noundef 0)
-  %3864 = load i32, ptr @hf_lbm_msg_properties, align 4
-  %3865 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %3864, ptr noundef nonnull %.4724, i32 noundef 0, i32 noundef %3863, i32 noundef %.167.i)
-  %3866 = load i32, ptr @ett_lbm_msg_properties, align 4
+  %3859 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.4742, i32 noundef 0)
+  %3860 = load i32, ptr @hf_lbm_msg_properties, align 4
+  %3861 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %3860, ptr noundef nonnull %.4742, i32 noundef 0, i32 noundef %3859, i32 noundef %.167.i)
+  %3862 = load i32, ptr @ett_lbm_msg_properties, align 4
+  %3863 = call ptr @proto_item_add_subtree(ptr noundef %3861, i32 noundef %3862)
+  %3864 = load i32, ptr @hf_lbm_msg_properties_data, align 4
+  %3865 = call ptr @proto_tree_add_item(ptr noundef %3863, i32 noundef %3864, ptr noundef nonnull %.4742, i32 noundef 0, i32 noundef 8, i32 noundef %.167.i)
+  %3866 = load i32, ptr @ett_lbm_msg_properties_data, align 4
   %3867 = call ptr @proto_item_add_subtree(ptr noundef %3865, i32 noundef %3866)
-  %3868 = load i32, ptr @hf_lbm_msg_properties_data, align 4
-  %3869 = call ptr @proto_tree_add_item(ptr noundef %3867, i32 noundef %3868, ptr noundef nonnull %.4724, i32 noundef 0, i32 noundef 8, i32 noundef %.167.i)
-  %3870 = load i32, ptr @ett_lbm_msg_properties_data, align 4
-  %3871 = call ptr @proto_item_add_subtree(ptr noundef %3869, i32 noundef %3870)
-  %3872 = load i32, ptr @hf_lbm_msg_properties_data_magic, align 4
-  %3873 = call ptr @proto_tree_add_item(ptr noundef %3871, i32 noundef %3872, ptr noundef nonnull %.4724, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
-  %3874 = load i32, ptr @hf_lbm_msg_properties_data_num_fields, align 4
-  %3875 = call ptr @proto_tree_add_item(ptr noundef %3871, i32 noundef %3874, ptr noundef nonnull %.4724, i32 noundef 4, i32 noundef 2, i32 noundef %.167.i)
-  %3876 = load i32, ptr @hf_lbm_msg_properties_data_version, align 4
-  %3877 = call ptr @proto_tree_add_item(ptr noundef %3871, i32 noundef %3876, ptr noundef nonnull %.4724, i32 noundef 6, i32 noundef 1, i32 noundef %.167.i)
-  %3878 = load i32, ptr @hf_lbm_msg_properties_data_type, align 4
-  %3879 = call ptr @proto_tree_add_item(ptr noundef %3871, i32 noundef %3878, ptr noundef nonnull %.4724, i32 noundef 6, i32 noundef 1, i32 noundef %.167.i)
-  %3880 = load i32, ptr @hf_lbm_msg_properties_data_res, align 4
-  %3881 = call ptr @proto_tree_add_item(ptr noundef %3871, i32 noundef %3880, ptr noundef nonnull %.4724, i32 noundef 7, i32 noundef 1, i32 noundef %.167.i)
-  switch i32 %3862, label %3882 [
-    i32 -1160074069, label %3884
-    i32 -1414735174, label %3884
+  %3868 = load i32, ptr @hf_lbm_msg_properties_data_magic, align 4
+  %3869 = call ptr @proto_tree_add_item(ptr noundef %3867, i32 noundef %3868, ptr noundef nonnull %.4742, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  %3870 = load i32, ptr @hf_lbm_msg_properties_data_num_fields, align 4
+  %3871 = call ptr @proto_tree_add_item(ptr noundef %3867, i32 noundef %3870, ptr noundef nonnull %.4742, i32 noundef 4, i32 noundef 2, i32 noundef %.167.i)
+  %3872 = load i32, ptr @hf_lbm_msg_properties_data_version, align 4
+  %3873 = call ptr @proto_tree_add_item(ptr noundef %3867, i32 noundef %3872, ptr noundef nonnull %.4742, i32 noundef 6, i32 noundef 1, i32 noundef %.167.i)
+  %3874 = load i32, ptr @hf_lbm_msg_properties_data_type, align 4
+  %3875 = call ptr @proto_tree_add_item(ptr noundef %3867, i32 noundef %3874, ptr noundef nonnull %.4742, i32 noundef 6, i32 noundef 1, i32 noundef %.167.i)
+  %3876 = load i32, ptr @hf_lbm_msg_properties_data_res, align 4
+  %3877 = call ptr @proto_tree_add_item(ptr noundef %3867, i32 noundef %3876, ptr noundef nonnull %.4742, i32 noundef 7, i32 noundef 1, i32 noundef %.167.i)
+  switch i32 %3858, label %3878 [
+    i32 -1160074069, label %3880
+    i32 -1414735174, label %3880
   ]
 
-3882:                                             ; preds = %3861
-  %3883 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3873, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1753)
+3878:                                             ; preds = %3857
+  %3879 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3869, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1753)
   br label %dissect_msg_properties.exit
 
-3884:                                             ; preds = %3861, %3861
-  br i1 %.not176.i, label %3887, label %3885
+3880:                                             ; preds = %3857, %3857
+  br i1 %.not176.i, label %3883, label %3881
 
-3885:                                             ; preds = %3884
-  %3886 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %.4724, i32 noundef 4)
-  br label %3889
+3881:                                             ; preds = %3880
+  %3882 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %.4742, i32 noundef 4)
+  br label %3885
 
-3887:                                             ; preds = %3884
-  %3888 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.4724, i32 noundef 4)
-  br label %3889
+3883:                                             ; preds = %3880
+  %3884 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %.4742, i32 noundef 4)
+  br label %3885
 
-3889:                                             ; preds = %3887, %3885
-  %.0164.i = phi i16 [ %3886, %3885 ], [ %3888, %3887 ]
-  %.not.i916 = icmp eq i16 %.0164.i, 0
-  br i1 %.not.i916, label %dissect_msg_properties.exit, label %.lr.ph.i917
+3885:                                             ; preds = %3883, %3881
+  %.0164.i = phi i16 [ %3882, %3881 ], [ %3884, %3883 ]
+  %.not.i932 = icmp eq i16 %.0164.i, 0
+  br i1 %.not.i932, label %dissect_msg_properties.exit, label %.lr.ph.i933
 
-.lr.ph.i917:                                      ; preds = %3889, %3936
-  %.0161174.i = phi i32 [ %3939, %3936 ], [ 8, %3889 ]
-  %.0163173.i = phi i16 [ %3940, %3936 ], [ 0, %3889 ]
-  %3890 = or disjoint i32 %.0161174.i, 4
-  %3891 = add nuw nsw i32 %.0161174.i, 12
-  br i1 %.not176.i, label %3896, label %3892
+.lr.ph.i933:                                      ; preds = %3885, %3932
+  %.0161174.i = phi i32 [ %3935, %3932 ], [ 8, %3885 ]
+  %.0163173.i = phi i16 [ %3936, %3932 ], [ 0, %3885 ]
+  %3886 = or disjoint i32 %.0161174.i, 4
+  %3887 = add nuw nsw i32 %.0161174.i, 12
+  br i1 %.not176.i, label %3892, label %3888
 
-3892:                                             ; preds = %.lr.ph.i917
-  %3893 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4724, i32 noundef %.0161174.i)
-  %3894 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4724, i32 noundef %3890)
-  %3895 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4724, i32 noundef %3891)
-  br label %3900
+3888:                                             ; preds = %.lr.ph.i933
+  %3889 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4742, i32 noundef %.0161174.i)
+  %3890 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4742, i32 noundef %3886)
+  %3891 = call i32 @tvb_get_letohl(ptr noundef nonnull %.4742, i32 noundef %3887)
+  br label %3896
 
-3896:                                             ; preds = %.lr.ph.i917
-  %3897 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.4724, i32 noundef %.0161174.i)
-  %3898 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.4724, i32 noundef %3890)
-  %3899 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.4724, i32 noundef %3891)
-  br label %3900
+3892:                                             ; preds = %.lr.ph.i933
+  %3893 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.4742, i32 noundef %.0161174.i)
+  %3894 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.4742, i32 noundef %3886)
+  %3895 = call i32 @tvb_get_ntohl(ptr noundef nonnull %.4742, i32 noundef %3887)
+  br label %3896
 
-3900:                                             ; preds = %3896, %3892
-  %.0160.i = phi i32 [ %3897, %3896 ], [ %3893, %3892 ]
-  %.0159.i = phi i32 [ %3898, %3896 ], [ %3894, %3892 ]
-  %.0158.i = phi i32 [ %3899, %3896 ], [ %3895, %3892 ]
-  %3901 = load i32, ptr @hf_lbm_msg_properties_hdr, align 4
-  %3902 = call ptr @proto_tree_add_item(ptr noundef %3867, i32 noundef %3901, ptr noundef nonnull %.4724, i32 noundef %.0161174.i, i32 noundef 16, i32 noundef %.167.i)
-  %3903 = load i32, ptr @ett_lbm_msg_properties_hdr, align 4
-  %3904 = call ptr @proto_item_add_subtree(ptr noundef %3902, i32 noundef %3903)
-  %3905 = load i32, ptr @hf_lbm_msg_properties_hdr_key_offset, align 4
-  %3906 = call ptr @proto_tree_add_item(ptr noundef %3904, i32 noundef %3905, ptr noundef nonnull %.4724, i32 noundef %.0161174.i, i32 noundef 4, i32 noundef %.167.i)
-  %3907 = load i32, ptr @hf_lbm_msg_properties_hdr_value_offset, align 4
-  %3908 = call ptr @proto_tree_add_item(ptr noundef %3904, i32 noundef %3907, ptr noundef nonnull %.4724, i32 noundef %3890, i32 noundef 4, i32 noundef %.167.i)
-  %3909 = load i32, ptr @hf_lbm_msg_properties_hdr_hash, align 4
-  %3910 = add nuw nsw i32 %.0161174.i, 8
-  %3911 = call ptr @proto_tree_add_item(ptr noundef %3904, i32 noundef %3909, ptr noundef nonnull %.4724, i32 noundef %3910, i32 noundef 4, i32 noundef %.167.i)
-  %3912 = load i32, ptr @hf_lbm_msg_properties_hdr_type, align 4
-  %3913 = call ptr @proto_tree_add_item(ptr noundef %3904, i32 noundef %3912, ptr noundef nonnull %.4724, i32 noundef %3891, i32 noundef 4, i32 noundef %.167.i)
-  switch i32 %.0158.i, label %3923 [
-    i32 1, label %3925
-    i32 2, label %3925
-    i32 3, label %.thread.i920
-    i32 4, label %3917
-    i32 6, label %3917
-    i32 5, label %3918
-    i32 7, label %3918
+3896:                                             ; preds = %3892, %3888
+  %.0160.i = phi i32 [ %3893, %3892 ], [ %3889, %3888 ]
+  %.0159.i = phi i32 [ %3894, %3892 ], [ %3890, %3888 ]
+  %.0158.i = phi i32 [ %3895, %3892 ], [ %3891, %3888 ]
+  %3897 = load i32, ptr @hf_lbm_msg_properties_hdr, align 4
+  %3898 = call ptr @proto_tree_add_item(ptr noundef %3863, i32 noundef %3897, ptr noundef nonnull %.4742, i32 noundef %.0161174.i, i32 noundef 16, i32 noundef %.167.i)
+  %3899 = load i32, ptr @ett_lbm_msg_properties_hdr, align 4
+  %3900 = call ptr @proto_item_add_subtree(ptr noundef %3898, i32 noundef %3899)
+  %3901 = load i32, ptr @hf_lbm_msg_properties_hdr_key_offset, align 4
+  %3902 = call ptr @proto_tree_add_item(ptr noundef %3900, i32 noundef %3901, ptr noundef nonnull %.4742, i32 noundef %.0161174.i, i32 noundef 4, i32 noundef %.167.i)
+  %3903 = load i32, ptr @hf_lbm_msg_properties_hdr_value_offset, align 4
+  %3904 = call ptr @proto_tree_add_item(ptr noundef %3900, i32 noundef %3903, ptr noundef nonnull %.4742, i32 noundef %3886, i32 noundef 4, i32 noundef %.167.i)
+  %3905 = load i32, ptr @hf_lbm_msg_properties_hdr_hash, align 4
+  %3906 = add nuw nsw i32 %.0161174.i, 8
+  %3907 = call ptr @proto_tree_add_item(ptr noundef %3900, i32 noundef %3905, ptr noundef nonnull %.4742, i32 noundef %3906, i32 noundef 4, i32 noundef %.167.i)
+  %3908 = load i32, ptr @hf_lbm_msg_properties_hdr_type, align 4
+  %3909 = call ptr @proto_tree_add_item(ptr noundef %3900, i32 noundef %3908, ptr noundef nonnull %.4742, i32 noundef %3887, i32 noundef 4, i32 noundef %.167.i)
+  switch i32 %.0158.i, label %3919 [
+    i32 1, label %3921
+    i32 2, label %3921
+    i32 3, label %.thread.i936
+    i32 4, label %3913
+    i32 6, label %3913
+    i32 5, label %3914
+    i32 7, label %3914
     i32 8, label %.thread170.i
   ]
 
-.thread.i920:                                     ; preds = %3900
-  %3914 = call i32 @tvb_strsize(ptr noundef nonnull %.4724, i32 noundef %.0160.i)
-  %3915 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
-  %3916 = call ptr @proto_tree_add_item(ptr noundef %3904, i32 noundef %3915, ptr noundef nonnull %.4724, i32 noundef %.0160.i, i32 noundef %3914, i32 noundef %.167.i)
-  br label %3936
+.thread.i936:                                     ; preds = %3896
+  %3910 = call i32 @tvb_strsize(ptr noundef nonnull %.4742, i32 noundef %.0160.i)
+  %3911 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
+  %3912 = call ptr @proto_tree_add_item(ptr noundef %3900, i32 noundef %3911, ptr noundef nonnull %.4742, i32 noundef %.0160.i, i32 noundef %3910, i32 noundef %.167.i)
+  br label %3932
 
-3917:                                             ; preds = %3900, %3900
-  br label %3925
+3913:                                             ; preds = %3896, %3896
+  br label %3921
 
-3918:                                             ; preds = %3900, %3900
-  br label %3925
+3914:                                             ; preds = %3896, %3896
+  br label %3921
 
-.thread170.i:                                     ; preds = %3900
-  %3919 = call i32 @tvb_strsize(ptr noundef nonnull %.4724, i32 noundef %.0159.i)
-  %3920 = call i32 @tvb_strsize(ptr noundef nonnull %.4724, i32 noundef %.0160.i)
-  %3921 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
-  %3922 = call ptr @proto_tree_add_item(ptr noundef %3904, i32 noundef %3921, ptr noundef nonnull %.4724, i32 noundef %.0160.i, i32 noundef %3920, i32 noundef %.167.i)
-  br label %3936
+.thread170.i:                                     ; preds = %3896
+  %3915 = call i32 @tvb_strsize(ptr noundef nonnull %.4742, i32 noundef %.0159.i)
+  %3916 = call i32 @tvb_strsize(ptr noundef nonnull %.4742, i32 noundef %.0160.i)
+  %3917 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
+  %3918 = call ptr @proto_tree_add_item(ptr noundef %3900, i32 noundef %3917, ptr noundef nonnull %.4742, i32 noundef %.0160.i, i32 noundef %3916, i32 noundef %.167.i)
+  br label %3932
 
-3923:                                             ; preds = %3900
-  %3924 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3913, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1754, i32 noundef %.0158.i)
-  br label %3925
+3919:                                             ; preds = %3896
+  %3920 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3909, ptr noundef nonnull @ei_lbmc_analysis_invalid_value, ptr noundef nonnull @.str.1754, i32 noundef %.0158.i)
+  br label %3921
 
-3925:                                             ; preds = %3923, %3918, %3917, %3900, %3900
-  %.0.i919 = phi i32 [ 4, %3923 ], [ 8, %3918 ], [ 4, %3917 ], [ 1, %3900 ], [ 1, %3900 ]
-  %3926 = call i32 @tvb_strsize(ptr noundef nonnull %.4724, i32 noundef %.0160.i)
-  %3927 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
-  %3928 = call ptr @proto_tree_add_item(ptr noundef %3904, i32 noundef %3927, ptr noundef nonnull %.4724, i32 noundef %.0160.i, i32 noundef %3926, i32 noundef %.167.i)
-  switch i32 %.0158.i, label %3935 [
-    i32 1, label %3936
-    i32 2, label %3929
-    i32 8, label %3934
-    i32 4, label %3930
-    i32 6, label %3931
-    i32 5, label %3932
-    i32 7, label %3933
+3921:                                             ; preds = %3919, %3914, %3913, %3896, %3896
+  %.0.i935 = phi i32 [ 4, %3919 ], [ 8, %3914 ], [ 4, %3913 ], [ 1, %3896 ], [ 1, %3896 ]
+  %3922 = call i32 @tvb_strsize(ptr noundef nonnull %.4742, i32 noundef %.0160.i)
+  %3923 = load i32, ptr @hf_lbm_msg_properties_hdr_key, align 4
+  %3924 = call ptr @proto_tree_add_item(ptr noundef %3900, i32 noundef %3923, ptr noundef nonnull %.4742, i32 noundef %.0160.i, i32 noundef %3922, i32 noundef %.167.i)
+  switch i32 %.0158.i, label %3931 [
+    i32 1, label %3932
+    i32 2, label %3925
+    i32 8, label %3930
+    i32 4, label %3926
+    i32 6, label %3927
+    i32 5, label %3928
+    i32 7, label %3929
   ]
 
-3929:                                             ; preds = %3925
-  br label %3936
+3925:                                             ; preds = %3921
+  br label %3932
 
-3930:                                             ; preds = %3925
-  br label %3936
+3926:                                             ; preds = %3921
+  br label %3932
 
-3931:                                             ; preds = %3925
-  br label %3936
+3927:                                             ; preds = %3921
+  br label %3932
 
-3932:                                             ; preds = %3925
-  br label %3936
+3928:                                             ; preds = %3921
+  br label %3932
 
-3933:                                             ; preds = %3925
-  br label %3936
+3929:                                             ; preds = %3921
+  br label %3932
 
-3934:                                             ; preds = %3925
-  br label %3936
+3930:                                             ; preds = %3921
+  br label %3932
 
-3935:                                             ; preds = %3925
-  br label %3936
+3931:                                             ; preds = %3921
+  br label %3932
 
-3936:                                             ; preds = %3935, %3934, %3933, %3932, %3931, %3930, %3929, %3925, %.thread170.i, %.thread.i920
-  %hf_lbm_msg_properties_hdr_unknown_value.sink.i = phi ptr [ @hf_lbm_msg_properties_hdr_unknown_value, %3935 ], [ @hf_lbm_msg_properties_hdr_double_value, %3933 ], [ @hf_lbm_msg_properties_hdr_long_value, %3932 ], [ @hf_lbm_msg_properties_hdr_float_value, %3931 ], [ @hf_lbm_msg_properties_hdr_int_value, %3930 ], [ @hf_lbm_msg_properties_hdr_short_value, %.thread.i920 ], [ @hf_lbm_msg_properties_hdr_byte_value, %3929 ], [ @hf_lbm_msg_properties_hdr_boolean_value, %3925 ], [ @hf_lbm_msg_properties_hdr_string_value, %.thread170.i ], [ @hf_lbm_msg_properties_hdr_string_value, %3934 ]
-  %.0.sink.i = phi i32 [ %.0.i919, %3935 ], [ %.0.i919, %3933 ], [ %.0.i919, %3932 ], [ %.0.i919, %3931 ], [ %.0.i919, %3930 ], [ 2, %.thread.i920 ], [ %.0.i919, %3929 ], [ %.0.i919, %3925 ], [ %3919, %.thread170.i ], [ %.0.i919, %3934 ]
-  %3937 = load i32, ptr %hf_lbm_msg_properties_hdr_unknown_value.sink.i, align 4
-  %3938 = call ptr @proto_tree_add_item(ptr noundef %3904, i32 noundef %3937, ptr noundef nonnull %.4724, i32 noundef %.0159.i, i32 noundef %.0.sink.i, i32 noundef %.167.i)
-  %3939 = add nuw nsw i32 %.0161174.i, 16
-  %3940 = add nuw i16 %.0163173.i, 1
-  %exitcond.not.i918 = icmp eq i16 %3940, %.0164.i
-  br i1 %exitcond.not.i918, label %dissect_msg_properties.exit, label %.lr.ph.i917, !llvm.loop !24
+3932:                                             ; preds = %3931, %3930, %3929, %3928, %3927, %3926, %3925, %3921, %.thread170.i, %.thread.i936
+  %hf_lbm_msg_properties_hdr_unknown_value.sink.i = phi ptr [ @hf_lbm_msg_properties_hdr_unknown_value, %3931 ], [ @hf_lbm_msg_properties_hdr_double_value, %3929 ], [ @hf_lbm_msg_properties_hdr_long_value, %3928 ], [ @hf_lbm_msg_properties_hdr_float_value, %3927 ], [ @hf_lbm_msg_properties_hdr_int_value, %3926 ], [ @hf_lbm_msg_properties_hdr_short_value, %.thread.i936 ], [ @hf_lbm_msg_properties_hdr_byte_value, %3925 ], [ @hf_lbm_msg_properties_hdr_boolean_value, %3921 ], [ @hf_lbm_msg_properties_hdr_string_value, %.thread170.i ], [ @hf_lbm_msg_properties_hdr_string_value, %3930 ]
+  %.0.sink.i = phi i32 [ %.0.i935, %3931 ], [ %.0.i935, %3929 ], [ %.0.i935, %3928 ], [ %.0.i935, %3927 ], [ %.0.i935, %3926 ], [ 2, %.thread.i936 ], [ %.0.i935, %3925 ], [ %.0.i935, %3921 ], [ %3915, %.thread170.i ], [ %.0.i935, %3930 ]
+  %3933 = load i32, ptr %hf_lbm_msg_properties_hdr_unknown_value.sink.i, align 4
+  %3934 = call ptr @proto_tree_add_item(ptr noundef %3900, i32 noundef %3933, ptr noundef nonnull %.4742, i32 noundef %.0159.i, i32 noundef %.0.sink.i, i32 noundef %.167.i)
+  %3935 = add nuw nsw i32 %.0161174.i, 16
+  %3936 = add nuw i16 %.0163173.i, 1
+  %exitcond.not.i934 = icmp eq i16 %3936, %.0164.i
+  br i1 %exitcond.not.i934, label %dissect_msg_properties.exit, label %.lr.ph.i933, !llvm.loop !24
 
-dissect_msg_properties.exit:                      ; preds = %3936, %3889, %3882, %3860
-  %3941 = trunc nuw i8 %.3719 to i1
-  %3942 = icmp ne ptr %.0769, null
-  %or.cond19 = and i1 %3942, %3941
-  br i1 %or.cond19, label %3943, label %3968
+dissect_msg_properties.exit:                      ; preds = %3932, %3885, %3878, %3856
+  %3937 = icmp ne ptr %.0787, null
+  %or.cond37 = and i1 %3937, %3833
+  br i1 %or.cond37, label %3938, label %3963
 
-3943:                                             ; preds = %dissect_msg_properties.exit
-  store ptr %.0755, ptr %.0769.sroa.phi960, align 8
-  %3944 = load ptr, ptr %52, align 8
-  %3945 = call noalias dereferenceable_or_null(120) ptr @wmem_alloc(ptr noundef %3944, i64 noundef 120) #13
-  %3946 = load i64, ptr %.0769, align 8
-  store i64 %3946, ptr %3945, align 8
-  %3947 = load i32, ptr %.0769.sroa.phi, align 8
-  %3948 = getelementptr inbounds nuw i8, ptr %3945, i64 8
-  store i32 %3947, ptr %3948, align 8
-  %3949 = load i32, ptr %.0769.sroa.phi948, align 8
-  %3950 = getelementptr inbounds nuw i8, ptr %3945, i64 16
-  store i32 %3949, ptr %3950, align 8
-  %3951 = icmp eq i32 %3949, 0
-  %3952 = getelementptr inbounds nuw i8, ptr %3945, i64 24
-  br i1 %3951, label %3953, label %3955
+3938:                                             ; preds = %dissect_msg_properties.exit
+  store ptr %.0773, ptr %.0787.sroa.phi976, align 8
+  %3939 = load ptr, ptr %52, align 8
+  %3940 = call noalias dereferenceable_or_null(120) ptr @wmem_alloc(ptr noundef %3939, i64 noundef 120) #13
+  %3941 = load i64, ptr %.0787, align 8
+  store i64 %3941, ptr %3940, align 8
+  %3942 = load i32, ptr %.0787.sroa.phi, align 8
+  %3943 = getelementptr inbounds nuw i8, ptr %3940, i64 8
+  store i32 %3942, ptr %3943, align 8
+  %3944 = load i32, ptr %.0787.sroa.phi964, align 8
+  %3945 = getelementptr inbounds nuw i8, ptr %3940, i64 16
+  store i32 %3944, ptr %3945, align 8
+  %3946 = icmp eq i32 %3944, 0
+  %3947 = getelementptr inbounds nuw i8, ptr %3940, i64 24
+  br i1 %3946, label %3948, label %3950
 
-3953:                                             ; preds = %3943
-  %3954 = load i64, ptr %.0769.sroa.phi951, align 1
-  store i64 %3954, ptr %3952, align 1
-  br label %3956
+3948:                                             ; preds = %3938
+  %3949 = load i64, ptr %.0787.sroa.phi967, align 1
+  store i64 %3949, ptr %3947, align 1
+  br label %3951
 
-3955:                                             ; preds = %3943
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3952, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0769.sroa.phi951, i64 40, i1 false)
-  br label %3956
+3950:                                             ; preds = %3938
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3947, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0787.sroa.phi967, i64 40, i1 false)
+  br label %3951
 
-3956:                                             ; preds = %3955, %3953
-  %3957 = load i32, ptr %.0769.sroa.phi954, align 8
-  %3958 = getelementptr inbounds nuw i8, ptr %3945, i64 64
-  store i32 %3957, ptr %3958, align 8
-  %3959 = icmp eq i32 %3957, 0
-  %3960 = getelementptr inbounds nuw i8, ptr %3945, i64 72
-  br i1 %3959, label %3961, label %3963
+3951:                                             ; preds = %3950, %3948
+  %3952 = load i32, ptr %.0787.sroa.phi970, align 8
+  %3953 = getelementptr inbounds nuw i8, ptr %3940, i64 64
+  store i32 %3952, ptr %3953, align 8
+  %3954 = icmp eq i32 %3952, 0
+  %3955 = getelementptr inbounds nuw i8, ptr %3940, i64 72
+  br i1 %3954, label %3956, label %3958
 
-3961:                                             ; preds = %3956
-  %3962 = load i64, ptr %.0769.sroa.phi957, align 1
-  store i64 %3962, ptr %3960, align 1
+3956:                                             ; preds = %3951
+  %3957 = load i64, ptr %.0787.sroa.phi973, align 1
+  store i64 %3957, ptr %3955, align 1
   br label %lbmc_dup_stream_info.exit
 
-3963:                                             ; preds = %3956
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3960, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0769.sroa.phi957, i64 40, i1 false)
+3958:                                             ; preds = %3951
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3955, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0787.sroa.phi973, i64 40, i1 false)
   br label %lbmc_dup_stream_info.exit
 
-lbmc_dup_stream_info.exit:                        ; preds = %3961, %3963
-  %3964 = load ptr, ptr %.0769.sroa.phi960, align 8
-  %3965 = call noalias ptr @wmem_strdup(ptr noundef %3944, ptr noundef %3964)
-  %3966 = getelementptr inbounds nuw i8, ptr %3945, i64 112
-  store ptr %3965, ptr %3966, align 8
-  %3967 = load i32, ptr @lbmc_uim_tap_handle, align 4
-  call void @tap_queue_packet(i32 noundef %3967, ptr noundef %2, ptr noundef %3945)
-  br label %3968
+lbmc_dup_stream_info.exit:                        ; preds = %3956, %3958
+  %3959 = load ptr, ptr %.0787.sroa.phi976, align 8
+  %3960 = call noalias ptr @wmem_strdup(ptr noundef %3939, ptr noundef %3959)
+  %3961 = getelementptr inbounds nuw i8, ptr %3940, i64 112
+  store ptr %3960, ptr %3961, align 8
+  %3962 = load i32, ptr @lbmc_uim_tap_handle, align 4
+  call void @tap_queue_packet(i32 noundef %3962, ptr noundef %2, ptr noundef %3940)
+  br label %3963
 
-3968:                                             ; preds = %lbmc_dup_stream_info.exit, %dissect_msg_properties.exit
-  %3969 = call i32 @tvb_reported_length_remaining(ptr noundef %236, i32 noundef %.0730.lcssa)
-  %3970 = add i32 %3969, %.2744.lcssa
+3963:                                             ; preds = %lbmc_dup_stream_info.exit, %dissect_msg_properties.exit
+  %3964 = call i32 @tvb_reported_length_remaining(ptr noundef %236, i32 noundef %.0748.lcssa)
+  %3965 = add i32 %3964, %.2762.lcssa
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #12
   br label %lbmc_determine_msg_type.exit
 
-3971:                                             ; preds = %3568
-  %3972 = load i8, ptr %158, align 16
-  %.not.i921 = icmp eq i8 %3972, 0
-  br i1 %.not.i921, label %3973, label %4065
+3966:                                             ; preds = %3566
+  %3967 = load i8, ptr %158, align 16
+  %.not.i937 = icmp eq i8 %3967, 0
+  br i1 %.not.i937, label %3968, label %4060
 
-3973:                                             ; preds = %3971
-  %3974 = load i8, ptr %159, align 1
-  %.not48.i = icmp eq i8 %3974, 0
-  br i1 %.not48.i, label %3975, label %4065
+3968:                                             ; preds = %3966
+  %3969 = load i8, ptr %159, align 1
+  %.not48.i = icmp eq i8 %3969, 0
+  br i1 %.not48.i, label %3970, label %4060
 
-3975:                                             ; preds = %3973
-  %3976 = load i8, ptr %160, align 2
-  %.not49.i = icmp eq i8 %3976, 0
-  br i1 %.not49.i, label %3977, label %4065
+3970:                                             ; preds = %3968
+  %3971 = load i8, ptr %160, align 2
+  %.not49.i = icmp eq i8 %3971, 0
+  br i1 %.not49.i, label %3972, label %4060
 
-3977:                                             ; preds = %3975
-  %3978 = load i8, ptr %161, align 1
-  %.not50.i = icmp eq i8 %3978, 0
-  br i1 %.not50.i, label %3979, label %4065
+3972:                                             ; preds = %3970
+  %3973 = load i8, ptr %161, align 1
+  %.not50.i = icmp eq i8 %3973, 0
+  br i1 %.not50.i, label %3974, label %4060
 
-3979:                                             ; preds = %3977
-  %3980 = load i8, ptr %162, align 4
-  %.not51.i = icmp eq i8 %3980, 0
-  br i1 %.not51.i, label %3981, label %4065
+3974:                                             ; preds = %3972
+  %3975 = load i8, ptr %162, align 4
+  %.not51.i = icmp eq i8 %3975, 0
+  br i1 %.not51.i, label %3976, label %4060
 
-3981:                                             ; preds = %3979
-  %3982 = load i8, ptr %163, align 1
-  %.not52.i923 = icmp eq i8 %3982, 0
-  br i1 %.not52.i923, label %3983, label %4065
+3976:                                             ; preds = %3974
+  %3977 = load i8, ptr %163, align 1
+  %.not52.i939 = icmp eq i8 %3977, 0
+  br i1 %.not52.i939, label %3978, label %4060
 
-3983:                                             ; preds = %3981
-  %3984 = load i8, ptr %164, align 2
-  %.not53.i = icmp eq i8 %3984, 0
-  br i1 %.not53.i, label %3985, label %4065
+3978:                                             ; preds = %3976
+  %3979 = load i8, ptr %164, align 2
+  %.not53.i = icmp eq i8 %3979, 0
+  br i1 %.not53.i, label %3980, label %4060
 
-3985:                                             ; preds = %3983
-  %3986 = load i8, ptr %165, align 2
-  %.not54.i = icmp eq i8 %3986, 0
-  br i1 %.not54.i, label %3987, label %4065
+3980:                                             ; preds = %3978
+  %3981 = load i8, ptr %165, align 2
+  %.not54.i = icmp eq i8 %3981, 0
+  br i1 %.not54.i, label %3982, label %4060
 
-3987:                                             ; preds = %3985
-  %3988 = load i8, ptr %166, align 16
-  %.not55.i = icmp eq i8 %3988, 0
-  br i1 %.not55.i, label %3989, label %4065
+3982:                                             ; preds = %3980
+  %3983 = load i8, ptr %166, align 16
+  %.not55.i = icmp eq i8 %3983, 0
+  br i1 %.not55.i, label %3984, label %4060
 
-3989:                                             ; preds = %3987
-  %3990 = load i8, ptr %167, align 16
-  %.not56.i = icmp eq i8 %3990, 0
-  br i1 %.not56.i, label %3991, label %4065
+3984:                                             ; preds = %3982
+  %3985 = load i8, ptr %167, align 16
+  %.not56.i = icmp eq i8 %3985, 0
+  br i1 %.not56.i, label %3986, label %4060
 
-3991:                                             ; preds = %3989
-  %3992 = load i8, ptr %168, align 1
-  %.not57.i = icmp eq i8 %3992, 0
-  br i1 %.not57.i, label %3993, label %4065
+3986:                                             ; preds = %3984
+  %3987 = load i8, ptr %168, align 1
+  %.not57.i = icmp eq i8 %3987, 0
+  br i1 %.not57.i, label %3988, label %4060
 
-3993:                                             ; preds = %3991
-  %3994 = load i8, ptr %169, align 2
-  %.not58.i = icmp eq i8 %3994, 0
-  br i1 %.not58.i, label %3995, label %4065
+3988:                                             ; preds = %3986
+  %3989 = load i8, ptr %169, align 2
+  %.not58.i = icmp eq i8 %3989, 0
+  br i1 %.not58.i, label %3990, label %4060
 
-3995:                                             ; preds = %3993
-  %3996 = load i8, ptr %170, align 4
-  %.not59.i = icmp eq i8 %3996, 0
-  br i1 %.not59.i, label %3997, label %4065
+3990:                                             ; preds = %3988
+  %3991 = load i8, ptr %170, align 4
+  %.not59.i = icmp eq i8 %3991, 0
+  br i1 %.not59.i, label %3992, label %4060
 
-3997:                                             ; preds = %3995
-  %3998 = load i8, ptr %171, align 1
-  %.not60.i = icmp eq i8 %3998, 0
-  br i1 %.not60.i, label %3999, label %4065
+3992:                                             ; preds = %3990
+  %3993 = load i8, ptr %171, align 1
+  %.not60.i = icmp eq i8 %3993, 0
+  br i1 %.not60.i, label %3994, label %4060
 
-3999:                                             ; preds = %3997
-  %4000 = load i8, ptr %172, align 1
-  %.not61.i = icmp eq i8 %4000, 0
-  br i1 %.not61.i, label %4001, label %4065
+3994:                                             ; preds = %3992
+  %3995 = load i8, ptr %172, align 1
+  %.not61.i = icmp eq i8 %3995, 0
+  br i1 %.not61.i, label %3996, label %4060
 
-4001:                                             ; preds = %3999
-  %4002 = load i8, ptr %173, align 2
-  %.not62.i924 = icmp eq i8 %4002, 0
-  br i1 %.not62.i924, label %4003, label %4065
+3996:                                             ; preds = %3994
+  %3997 = load i8, ptr %173, align 2
+  %.not62.i940 = icmp eq i8 %3997, 0
+  br i1 %.not62.i940, label %3998, label %4060
 
-4003:                                             ; preds = %4001
-  %4004 = load i8, ptr %174, align 2
-  %.not63.i = icmp eq i8 %4004, 0
-  br i1 %.not63.i, label %4005, label %4065
+3998:                                             ; preds = %3996
+  %3999 = load i8, ptr %174, align 2
+  %.not63.i = icmp eq i8 %3999, 0
+  br i1 %.not63.i, label %4000, label %4060
 
-4005:                                             ; preds = %4003
-  %4006 = load i8, ptr %175, align 1
-  %.not64.i = icmp eq i8 %4006, 0
-  br i1 %.not64.i, label %4007, label %4065
+4000:                                             ; preds = %3998
+  %4001 = load i8, ptr %175, align 1
+  %.not64.i = icmp eq i8 %4001, 0
+  br i1 %.not64.i, label %4002, label %4060
 
-4007:                                             ; preds = %4005
-  %4008 = load i8, ptr %176, align 8
-  %.not65.i = icmp eq i8 %4008, 0
-  br i1 %.not65.i, label %4009, label %4065
+4002:                                             ; preds = %4000
+  %4003 = load i8, ptr %176, align 8
+  %.not65.i = icmp eq i8 %4003, 0
+  br i1 %.not65.i, label %4004, label %4060
 
-4009:                                             ; preds = %4007
-  %4010 = load i8, ptr %177, align 1
-  %.not66.i = icmp eq i8 %4010, 0
-  br i1 %.not66.i, label %4011, label %4065
+4004:                                             ; preds = %4002
+  %4005 = load i8, ptr %177, align 1
+  %.not66.i = icmp eq i8 %4005, 0
+  br i1 %.not66.i, label %4006, label %4060
 
-4011:                                             ; preds = %4009
-  %4012 = load i8, ptr %178, align 2
-  %.not67.i = icmp eq i8 %4012, 0
-  br i1 %.not67.i, label %4013, label %4065
+4006:                                             ; preds = %4004
+  %4007 = load i8, ptr %178, align 2
+  %.not67.i = icmp eq i8 %4007, 0
+  br i1 %.not67.i, label %4008, label %4060
 
-4013:                                             ; preds = %4011
-  %4014 = load i8, ptr %179, align 1
-  %.not68.i = icmp eq i8 %4014, 0
-  br i1 %.not68.i, label %4015, label %4065
+4008:                                             ; preds = %4006
+  %4009 = load i8, ptr %179, align 1
+  %.not68.i = icmp eq i8 %4009, 0
+  br i1 %.not68.i, label %4010, label %4060
 
-4015:                                             ; preds = %4013
-  %4016 = load i8, ptr %180, align 2
-  %.not69.i = icmp eq i8 %4016, 0
-  br i1 %.not69.i, label %4017, label %4065
+4010:                                             ; preds = %4008
+  %4011 = load i8, ptr %180, align 2
+  %.not69.i = icmp eq i8 %4011, 0
+  br i1 %.not69.i, label %4012, label %4060
 
-4017:                                             ; preds = %4015
-  %4018 = load i8, ptr %181, align 1
-  %.not70.i = icmp eq i8 %4018, 0
-  br i1 %.not70.i, label %4019, label %4065
+4012:                                             ; preds = %4010
+  %4013 = load i8, ptr %181, align 1
+  %.not70.i = icmp eq i8 %4013, 0
+  br i1 %.not70.i, label %4014, label %4060
 
-4019:                                             ; preds = %4017
-  %4020 = load i8, ptr %182, align 16
-  %.not71.i = icmp eq i8 %4020, 0
-  br i1 %.not71.i, label %4021, label %4065
+4014:                                             ; preds = %4012
+  %4015 = load i8, ptr %182, align 16
+  %.not71.i = icmp eq i8 %4015, 0
+  br i1 %.not71.i, label %4016, label %4060
 
-4021:                                             ; preds = %4019
-  %4022 = load i8, ptr %183, align 1
-  %.not72.i = icmp eq i8 %4022, 0
-  br i1 %.not72.i, label %4023, label %4065
+4016:                                             ; preds = %4014
+  %4017 = load i8, ptr %183, align 1
+  %.not72.i = icmp eq i8 %4017, 0
+  br i1 %.not72.i, label %4018, label %4060
 
-4023:                                             ; preds = %4021
-  %4024 = load i8, ptr %184, align 1
-  %.not73.i = icmp eq i8 %4024, 0
-  br i1 %.not73.i, label %4025, label %4065
+4018:                                             ; preds = %4016
+  %4019 = load i8, ptr %184, align 1
+  %.not73.i = icmp eq i8 %4019, 0
+  br i1 %.not73.i, label %4020, label %4060
 
-4025:                                             ; preds = %4023
-  %4026 = load i8, ptr %185, align 4
-  %.not74.i = icmp eq i8 %4026, 0
-  br i1 %.not74.i, label %4027, label %4065
+4020:                                             ; preds = %4018
+  %4021 = load i8, ptr %185, align 4
+  %.not74.i = icmp eq i8 %4021, 0
+  br i1 %.not74.i, label %4022, label %4060
 
-4027:                                             ; preds = %4025
-  %4028 = load i8, ptr %186, align 1
-  %.not75.i = icmp eq i8 %4028, 0
-  br i1 %.not75.i, label %4029, label %4065
+4022:                                             ; preds = %4020
+  %4023 = load i8, ptr %186, align 1
+  %.not75.i = icmp eq i8 %4023, 0
+  br i1 %.not75.i, label %4024, label %4060
 
-4029:                                             ; preds = %4027
-  %4030 = load i8, ptr %187, align 8
-  %.not76.i = icmp eq i8 %4030, 0
-  br i1 %.not76.i, label %4031, label %4065
+4024:                                             ; preds = %4022
+  %4025 = load i8, ptr %187, align 8
+  %.not76.i = icmp eq i8 %4025, 0
+  br i1 %.not76.i, label %4026, label %4060
 
-4031:                                             ; preds = %4029
-  %4032 = load i8, ptr %188, align 1
-  %.not77.i = icmp eq i8 %4032, 0
-  br i1 %.not77.i, label %4033, label %4065
+4026:                                             ; preds = %4024
+  %4027 = load i8, ptr %188, align 1
+  %.not77.i = icmp eq i8 %4027, 0
+  br i1 %.not77.i, label %4028, label %4060
 
-4033:                                             ; preds = %4031
-  %4034 = load i8, ptr %189, align 4
-  %.not78.i = icmp eq i8 %4034, 0
-  br i1 %.not78.i, label %4035, label %4065
+4028:                                             ; preds = %4026
+  %4029 = load i8, ptr %189, align 4
+  %.not78.i = icmp eq i8 %4029, 0
+  br i1 %.not78.i, label %4030, label %4060
 
-4035:                                             ; preds = %4033
-  %4036 = load i8, ptr %190, align 1
-  %.not79.i = icmp eq i8 %4036, 0
-  br i1 %.not79.i, label %4037, label %4065
+4030:                                             ; preds = %4028
+  %4031 = load i8, ptr %190, align 1
+  %.not79.i = icmp eq i8 %4031, 0
+  br i1 %.not79.i, label %4032, label %4060
 
-4037:                                             ; preds = %4035
-  %4038 = load i8, ptr %191, align 2
-  %.not80.i = icmp eq i8 %4038, 0
-  br i1 %.not80.i, label %4039, label %4065
+4032:                                             ; preds = %4030
+  %4033 = load i8, ptr %191, align 2
+  %.not80.i = icmp eq i8 %4033, 0
+  br i1 %.not80.i, label %4034, label %4060
 
-4039:                                             ; preds = %4037
-  %4040 = load i8, ptr %192, align 1
-  %.not81.i = icmp eq i8 %4040, 0
-  br i1 %.not81.i, label %4041, label %4065
+4034:                                             ; preds = %4032
+  %4035 = load i8, ptr %192, align 1
+  %.not81.i = icmp eq i8 %4035, 0
+  br i1 %.not81.i, label %4036, label %4060
 
-4041:                                             ; preds = %4039
-  %4042 = load i8, ptr %193, align 16
-  %.not82.i = icmp eq i8 %4042, 0
-  br i1 %.not82.i, label %4043, label %4065
+4036:                                             ; preds = %4034
+  %4037 = load i8, ptr %193, align 16
+  %.not82.i = icmp eq i8 %4037, 0
+  br i1 %.not82.i, label %4038, label %4060
 
-4043:                                             ; preds = %4041
-  %4044 = load i8, ptr %194, align 16
-  %.not83.i = icmp eq i8 %4044, 0
-  br i1 %.not83.i, label %4045, label %4065
+4038:                                             ; preds = %4036
+  %4039 = load i8, ptr %194, align 16
+  %.not83.i = icmp eq i8 %4039, 0
+  br i1 %.not83.i, label %4040, label %4060
 
-4045:                                             ; preds = %4043
-  %4046 = load i8, ptr %195, align 1
-  %.not84.i925 = icmp eq i8 %4046, 0
-  br i1 %.not84.i925, label %4047, label %4065
+4040:                                             ; preds = %4038
+  %4041 = load i8, ptr %195, align 1
+  %.not84.i941 = icmp eq i8 %4041, 0
+  br i1 %.not84.i941, label %4042, label %4060
 
-4047:                                             ; preds = %4045
-  %4048 = load i8, ptr %196, align 2
-  %.not85.i926 = icmp eq i8 %4048, 0
-  br i1 %.not85.i926, label %4049, label %4065
+4042:                                             ; preds = %4040
+  %4043 = load i8, ptr %196, align 2
+  %.not85.i942 = icmp eq i8 %4043, 0
+  br i1 %.not85.i942, label %4044, label %4060
 
-4049:                                             ; preds = %4047
-  %4050 = load i8, ptr %197, align 2
-  %.not86.i927 = icmp eq i8 %4050, 0
-  br i1 %.not86.i927, label %4051, label %4065
+4044:                                             ; preds = %4042
+  %4045 = load i8, ptr %197, align 2
+  %.not86.i943 = icmp eq i8 %4045, 0
+  br i1 %.not86.i943, label %4046, label %4060
 
-4051:                                             ; preds = %4049
-  %4052 = load i8, ptr %198, align 2
-  %.not87.i = icmp eq i8 %4052, 0
-  br i1 %.not87.i, label %4053, label %4065
+4046:                                             ; preds = %4044
+  %4047 = load i8, ptr %198, align 2
+  %.not87.i = icmp eq i8 %4047, 0
+  br i1 %.not87.i, label %4048, label %4060
 
-4053:                                             ; preds = %4051
-  %4054 = load i8, ptr %199, align 1
-  %.not88.i = icmp eq i8 %4054, 0
-  br i1 %.not88.i, label %4055, label %4065
+4048:                                             ; preds = %4046
+  %4049 = load i8, ptr %199, align 1
+  %.not88.i = icmp eq i8 %4049, 0
+  br i1 %.not88.i, label %4050, label %4060
 
-4055:                                             ; preds = %4053
-  %4056 = load i8, ptr %200, align 1
-  %.not89.i = icmp eq i8 %4056, 0
-  br i1 %.not89.i, label %4057, label %4065
+4050:                                             ; preds = %4048
+  %4051 = load i8, ptr %200, align 1
+  %.not89.i = icmp eq i8 %4051, 0
+  br i1 %.not89.i, label %4052, label %4060
 
-4057:                                             ; preds = %4055
-  %4058 = load i8, ptr %201, align 2
-  %.not90.i = icmp eq i8 %4058, 0
-  br i1 %.not90.i, label %4059, label %4065
+4052:                                             ; preds = %4050
+  %4053 = load i8, ptr %201, align 2
+  %.not90.i = icmp eq i8 %4053, 0
+  br i1 %.not90.i, label %4054, label %4060
 
-4059:                                             ; preds = %4057
-  %4060 = load i8, ptr %202, align 1
-  %.not91.i = icmp eq i8 %4060, 0
-  br i1 %.not91.i, label %4061, label %4065
+4054:                                             ; preds = %4052
+  %4055 = load i8, ptr %202, align 1
+  %.not91.i = icmp eq i8 %4055, 0
+  br i1 %.not91.i, label %4056, label %4060
 
-4061:                                             ; preds = %4059
-  %4062 = load i8, ptr %203, align 2
-  %.not92.i = icmp eq i8 %4062, 0
-  br i1 %.not92.i, label %4063, label %4065
+4056:                                             ; preds = %4054
+  %4057 = load i8, ptr %203, align 2
+  %.not92.i = icmp eq i8 %4057, 0
+  br i1 %.not92.i, label %4058, label %4060
 
-4063:                                             ; preds = %4061
-  %4064 = load i8, ptr %204, align 1
-  %.not93.i = icmp eq i8 %4064, 0
-  br i1 %.not93.i, label %lbmc_determine_msg_type.exit, label %4065
+4058:                                             ; preds = %4056
+  %4059 = load i8, ptr %204, align 1
+  %.not93.i = icmp eq i8 %4059, 0
+  br i1 %.not93.i, label %lbmc_determine_msg_type.exit, label %4060
 
-4065:                                             ; preds = %3971, %3973, %3975, %3977, %3979, %3981, %3983, %3985, %3987, %3989, %3991, %3993, %3995, %3997, %3999, %4001, %4003, %4005, %4007, %4009, %4011, %4013, %4015, %4017, %4019, %4021, %4023, %4025, %4027, %4029, %4031, %4033, %4035, %4037, %4039, %4041, %4043, %4045, %4047, %4049, %4051, %4053, %4055, %4057, %4059, %4061, %4063
-  %.0.i922.ph = phi ptr [ @.str.1798, %4063 ], [ @.str.1797, %4061 ], [ @.str.1796, %4059 ], [ @.str.1795, %4057 ], [ @.str.1794, %4055 ], [ @.str.1793, %4053 ], [ @.str.1510, %4051 ], [ @.str.1792, %4049 ], [ @.str.14, %4047 ], [ @.str.1791, %4045 ], [ @.str.1790, %4043 ], [ @.str.1789, %4041 ], [ @.str.1788, %4039 ], [ @.str.1787, %4037 ], [ @.str.1786, %4035 ], [ @.str.1785, %4033 ], [ @.str.1784, %4031 ], [ @.str.1783, %4029 ], [ @.str.1782, %4027 ], [ @.str.1781, %4025 ], [ @.str.1780, %4023 ], [ @.str.1779, %4021 ], [ @.str.1778, %4019 ], [ @.str.1777, %4017 ], [ @.str.1776, %4015 ], [ @.str.1775, %4013 ], [ @.str.1774, %4011 ], [ @.str.1773, %4009 ], [ @.str.1772, %4007 ], [ @.str.1771, %4005 ], [ @.str.1770, %4003 ], [ @.str.1769, %4001 ], [ @.str.1768, %3999 ], [ @.str.1767, %3997 ], [ @.str.1766, %3995 ], [ @.str.1765, %3993 ], [ @.str.1764, %3991 ], [ @.str.1763, %3989 ], [ @.str.463, %3987 ], [ @.str.1762, %3985 ], [ @.str.1761, %3983 ], [ @.str.1760, %3981 ], [ @.str.1759, %3979 ], [ @.str.1758, %3977 ], [ @.str.1757, %3975 ], [ @.str.1756, %3973 ], [ @.str.1755, %3971 ]
-  %4066 = load ptr, ptr %205, align 8
-  call void @col_append_sep_str(ptr noundef %4066, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef nonnull %.0.i922.ph)
-  %.not802 = icmp eq ptr %.0769, null
-  br i1 %.not802, label %lbmc_determine_msg_type.exit, label %4067
+4060:                                             ; preds = %3966, %3968, %3970, %3972, %3974, %3976, %3978, %3980, %3982, %3984, %3986, %3988, %3990, %3992, %3994, %3996, %3998, %4000, %4002, %4004, %4006, %4008, %4010, %4012, %4014, %4016, %4018, %4020, %4022, %4024, %4026, %4028, %4030, %4032, %4034, %4036, %4038, %4040, %4042, %4044, %4046, %4048, %4050, %4052, %4054, %4056, %4058
+  %.0.i938.ph = phi ptr [ @.str.1798, %4058 ], [ @.str.1797, %4056 ], [ @.str.1796, %4054 ], [ @.str.1795, %4052 ], [ @.str.1794, %4050 ], [ @.str.1793, %4048 ], [ @.str.1510, %4046 ], [ @.str.1792, %4044 ], [ @.str.14, %4042 ], [ @.str.1791, %4040 ], [ @.str.1790, %4038 ], [ @.str.1789, %4036 ], [ @.str.1788, %4034 ], [ @.str.1787, %4032 ], [ @.str.1786, %4030 ], [ @.str.1785, %4028 ], [ @.str.1784, %4026 ], [ @.str.1783, %4024 ], [ @.str.1782, %4022 ], [ @.str.1781, %4020 ], [ @.str.1780, %4018 ], [ @.str.1779, %4016 ], [ @.str.1778, %4014 ], [ @.str.1777, %4012 ], [ @.str.1776, %4010 ], [ @.str.1775, %4008 ], [ @.str.1774, %4006 ], [ @.str.1773, %4004 ], [ @.str.1772, %4002 ], [ @.str.1771, %4000 ], [ @.str.1770, %3998 ], [ @.str.1769, %3996 ], [ @.str.1768, %3994 ], [ @.str.1767, %3992 ], [ @.str.1766, %3990 ], [ @.str.1765, %3988 ], [ @.str.1764, %3986 ], [ @.str.1763, %3984 ], [ @.str.463, %3982 ], [ @.str.1762, %3980 ], [ @.str.1761, %3978 ], [ @.str.1760, %3976 ], [ @.str.1759, %3974 ], [ @.str.1758, %3972 ], [ @.str.1757, %3970 ], [ @.str.1756, %3968 ], [ @.str.1755, %3966 ]
+  %4061 = load ptr, ptr %205, align 8
+  call void @col_append_sep_str(ptr noundef %4061, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef nonnull %.0.i938.ph)
+  %.not820 = icmp eq ptr %.0787, null
+  br i1 %.not820, label %lbmc_determine_msg_type.exit, label %4062
 
-4067:                                             ; preds = %4065
-  store ptr %.0.i922.ph, ptr %.0769.sroa.phi960, align 8
-  %4068 = load ptr, ptr %52, align 8
-  %4069 = call noalias dereferenceable_or_null(120) ptr @wmem_alloc(ptr noundef %4068, i64 noundef 120) #13
-  %4070 = load i64, ptr %.0769, align 8
-  store i64 %4070, ptr %4069, align 8
-  %4071 = load i32, ptr %.0769.sroa.phi, align 8
-  %4072 = getelementptr inbounds nuw i8, ptr %4069, i64 8
-  store i32 %4071, ptr %4072, align 8
-  %4073 = load i32, ptr %.0769.sroa.phi948, align 8
-  %4074 = getelementptr inbounds nuw i8, ptr %4069, i64 16
-  store i32 %4073, ptr %4074, align 8
-  %4075 = icmp eq i32 %4073, 0
-  %4076 = getelementptr inbounds nuw i8, ptr %4069, i64 24
-  br i1 %4075, label %4077, label %4079
+4062:                                             ; preds = %4060
+  store ptr %.0.i938.ph, ptr %.0787.sroa.phi976, align 8
+  %4063 = load ptr, ptr %52, align 8
+  %4064 = call noalias dereferenceable_or_null(120) ptr @wmem_alloc(ptr noundef %4063, i64 noundef 120) #13
+  %4065 = load i64, ptr %.0787, align 8
+  store i64 %4065, ptr %4064, align 8
+  %4066 = load i32, ptr %.0787.sroa.phi, align 8
+  %4067 = getelementptr inbounds nuw i8, ptr %4064, i64 8
+  store i32 %4066, ptr %4067, align 8
+  %4068 = load i32, ptr %.0787.sroa.phi964, align 8
+  %4069 = getelementptr inbounds nuw i8, ptr %4064, i64 16
+  store i32 %4068, ptr %4069, align 8
+  %4070 = icmp eq i32 %4068, 0
+  %4071 = getelementptr inbounds nuw i8, ptr %4064, i64 24
+  br i1 %4070, label %4072, label %4074
 
-4077:                                             ; preds = %4067
-  %4078 = load i64, ptr %.0769.sroa.phi951, align 1
-  store i64 %4078, ptr %4076, align 1
-  br label %4080
+4072:                                             ; preds = %4062
+  %4073 = load i64, ptr %.0787.sroa.phi967, align 1
+  store i64 %4073, ptr %4071, align 1
+  br label %4075
 
-4079:                                             ; preds = %4067
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4076, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0769.sroa.phi951, i64 40, i1 false)
-  br label %4080
+4074:                                             ; preds = %4062
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4071, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0787.sroa.phi967, i64 40, i1 false)
+  br label %4075
 
-4080:                                             ; preds = %4079, %4077
-  %4081 = load i32, ptr %.0769.sroa.phi954, align 8
-  %4082 = getelementptr inbounds nuw i8, ptr %4069, i64 64
-  store i32 %4081, ptr %4082, align 8
-  %4083 = icmp eq i32 %4081, 0
-  %4084 = getelementptr inbounds nuw i8, ptr %4069, i64 72
-  br i1 %4083, label %4085, label %4087
+4075:                                             ; preds = %4074, %4072
+  %4076 = load i32, ptr %.0787.sroa.phi970, align 8
+  %4077 = getelementptr inbounds nuw i8, ptr %4064, i64 64
+  store i32 %4076, ptr %4077, align 8
+  %4078 = icmp eq i32 %4076, 0
+  %4079 = getelementptr inbounds nuw i8, ptr %4064, i64 72
+  br i1 %4078, label %4080, label %4082
 
-4085:                                             ; preds = %4080
-  %4086 = load i64, ptr %.0769.sroa.phi957, align 1
-  store i64 %4086, ptr %4084, align 1
-  br label %lbmc_dup_stream_info.exit928
+4080:                                             ; preds = %4075
+  %4081 = load i64, ptr %.0787.sroa.phi973, align 1
+  store i64 %4081, ptr %4079, align 1
+  br label %lbmc_dup_stream_info.exit944
 
-4087:                                             ; preds = %4080
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4084, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0769.sroa.phi957, i64 40, i1 false)
-  br label %lbmc_dup_stream_info.exit928
+4082:                                             ; preds = %4075
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4079, ptr noundef nonnull readonly align 8 dereferenceable(40) %.0787.sroa.phi973, i64 40, i1 false)
+  br label %lbmc_dup_stream_info.exit944
 
-lbmc_dup_stream_info.exit928:                     ; preds = %4085, %4087
-  %4088 = load ptr, ptr %.0769.sroa.phi960, align 8
-  %4089 = call noalias ptr @wmem_strdup(ptr noundef %4068, ptr noundef %4088)
-  %4090 = getelementptr inbounds nuw i8, ptr %4069, i64 112
-  store ptr %4089, ptr %4090, align 8
-  %4091 = load i32, ptr @lbmc_uim_tap_handle, align 4
-  call void @tap_queue_packet(i32 noundef %4091, ptr noundef %2, ptr noundef %4069)
+lbmc_dup_stream_info.exit944:                     ; preds = %4080, %4082
+  %4083 = load ptr, ptr %.0787.sroa.phi976, align 8
+  %4084 = call noalias ptr @wmem_strdup(ptr noundef %4063, ptr noundef %4083)
+  %4085 = getelementptr inbounds nuw i8, ptr %4064, i64 112
+  store ptr %4084, ptr %4085, align 8
+  %4086 = load i32, ptr @lbmc_uim_tap_handle, align 4
+  call void @tap_queue_packet(i32 noundef %4086, ptr noundef %2, ptr noundef %4064)
   br label %lbmc_determine_msg_type.exit
 
-lbmc_determine_msg_type.exit:                     ; preds = %3968, %4065, %lbmc_dup_stream_info.exit928, %4063, %297
-  %.sroa.43.1 = phi ptr [ %.sroa.43.01249, %297 ], [ %.sroa.43.2.lcssa, %4063 ], [ %.sroa.43.2.lcssa, %lbmc_dup_stream_info.exit928 ], [ %.sroa.43.2.lcssa, %4065 ], [ %.sroa.43.2.lcssa, %3968 ]
-  %.sroa.48.1 = phi i16 [ %.sroa.48.01250, %297 ], [ %.sroa.48.2.lcssa, %4063 ], [ %.sroa.48.2.lcssa, %lbmc_dup_stream_info.exit928 ], [ %.sroa.48.2.lcssa, %4065 ], [ %.sroa.48.2.lcssa, %3968 ]
-  %.sroa.291009.1 = phi i32 [ %.sroa.291009.01251, %297 ], [ %.sroa.291009.2.lcssa, %4063 ], [ %.sroa.291009.2.lcssa, %lbmc_dup_stream_info.exit928 ], [ %.sroa.291009.2.lcssa, %4065 ], [ %.sroa.291009.2.lcssa, %3968 ]
-  %.sroa.25.1 = phi i16 [ %.sroa.25.01252, %297 ], [ %.sroa.25.2.lcssa, %4063 ], [ %.sroa.25.2.lcssa, %lbmc_dup_stream_info.exit928 ], [ %.sroa.25.2.lcssa, %4065 ], [ %.sroa.25.2.lcssa, %3968 ]
-  %.sroa.20.1 = phi ptr [ %.sroa.20.01253, %297 ], [ %.sroa.20.2.lcssa, %4063 ], [ %.sroa.20.2.lcssa, %lbmc_dup_stream_info.exit928 ], [ %.sroa.20.2.lcssa, %4065 ], [ %.sroa.20.2.lcssa, %3968 ]
-  %.sroa.6983.1 = phi i32 [ %.sroa.6983.01254, %297 ], [ %.sroa.6983.2.lcssa, %4063 ], [ %.sroa.6983.2.lcssa, %lbmc_dup_stream_info.exit928 ], [ %.sroa.6983.2.lcssa, %4065 ], [ %.sroa.6983.2.lcssa, %3968 ]
-  %.1764 = phi i16 [ %.07631255, %297 ], [ %.2765, %4063 ], [ %.2765, %lbmc_dup_stream_info.exit928 ], [ %.2765, %4065 ], [ %.2765, %3968 ]
-  %.1758 = phi i64 [ %.07571256, %297 ], [ %.2759, %4063 ], [ %.2759, %lbmc_dup_stream_info.exit928 ], [ %.2759, %4065 ], [ %.2759, %3968 ]
-  %.1743 = phi i32 [ %299, %297 ], [ %.2744.lcssa, %4063 ], [ %.2744.lcssa, %lbmc_dup_stream_info.exit928 ], [ %.2744.lcssa, %4065 ], [ %3970, %3968 ]
-  %.1735 = phi ptr [ %.3737, %297 ], [ %.4738, %4063 ], [ %.4738, %lbmc_dup_stream_info.exit928 ], [ %.4738, %4065 ], [ %.4738, %3968 ]
-  %.1733 = add i32 %.07321260, %232
-  %4092 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1733)
-  %4093 = icmp sgt i32 %4092, 3
-  br i1 %4093, label %228, label %.thread1150
+lbmc_determine_msg_type.exit:                     ; preds = %3963, %4060, %lbmc_dup_stream_info.exit944, %4058, %297
+  %.sroa.42.1 = phi ptr [ %.sroa.42.01255, %297 ], [ %.sroa.42.2.lcssa, %4058 ], [ %.sroa.42.2.lcssa, %lbmc_dup_stream_info.exit944 ], [ %.sroa.42.2.lcssa, %4060 ], [ %.sroa.42.2.lcssa, %3963 ]
+  %.sroa.47.1 = phi i16 [ %.sroa.47.01256, %297 ], [ %.sroa.47.2.lcssa, %4058 ], [ %.sroa.47.2.lcssa, %lbmc_dup_stream_info.exit944 ], [ %.sroa.47.2.lcssa, %4060 ], [ %.sroa.47.2.lcssa, %3963 ]
+  %.sroa.281025.1 = phi i32 [ %.sroa.281025.01257, %297 ], [ %.sroa.281025.2.lcssa, %4058 ], [ %.sroa.281025.2.lcssa, %lbmc_dup_stream_info.exit944 ], [ %.sroa.281025.2.lcssa, %4060 ], [ %.sroa.281025.2.lcssa, %3963 ]
+  %.sroa.24.1 = phi i16 [ %.sroa.24.01258, %297 ], [ %.sroa.24.2.lcssa, %4058 ], [ %.sroa.24.2.lcssa, %lbmc_dup_stream_info.exit944 ], [ %.sroa.24.2.lcssa, %4060 ], [ %.sroa.24.2.lcssa, %3963 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.01259, %297 ], [ %.sroa.19.2.lcssa, %4058 ], [ %.sroa.19.2.lcssa, %lbmc_dup_stream_info.exit944 ], [ %.sroa.19.2.lcssa, %4060 ], [ %.sroa.19.2.lcssa, %3963 ]
+  %.sroa.5999.1 = phi i32 [ %.sroa.5999.01260, %297 ], [ %.sroa.5999.2.lcssa, %4058 ], [ %.sroa.5999.2.lcssa, %lbmc_dup_stream_info.exit944 ], [ %.sroa.5999.2.lcssa, %4060 ], [ %.sroa.5999.2.lcssa, %3963 ]
+  %.1782 = phi i16 [ %.07811261, %297 ], [ %.2783, %4058 ], [ %.2783, %lbmc_dup_stream_info.exit944 ], [ %.2783, %4060 ], [ %.2783, %3963 ]
+  %.1776 = phi i64 [ %.07751262, %297 ], [ %.2777, %4058 ], [ %.2777, %lbmc_dup_stream_info.exit944 ], [ %.2777, %4060 ], [ %.2777, %3963 ]
+  %.1761 = phi i32 [ %299, %297 ], [ %.2762.lcssa, %4058 ], [ %.2762.lcssa, %lbmc_dup_stream_info.exit944 ], [ %.2762.lcssa, %4060 ], [ %3965, %3963 ]
+  %.1753 = phi ptr [ %.3755, %297 ], [ %.4756, %4058 ], [ %.4756, %lbmc_dup_stream_info.exit944 ], [ %.4756, %4060 ], [ %.4756, %3963 ]
+  %.1751 = add i32 %.07501266, %232
+  %4087 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1751)
+  %4088 = icmp sgt i32 %4087, 3
+  br i1 %4088, label %228, label %.thread1157
 
-.thread1150.sink.split:                           ; preds = %228, %.lr.ph
+.thread1157.sink.split:                           ; preds = %228, %.lr.ph
   %.str.6.sink = phi ptr [ @.str.6, %.lr.ph ], [ @.str, %228 ]
-  %.4.ph = phi i32 [ %.27441217, %.lr.ph ], [ %.07421257, %228 ]
-  %4094 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_lbmc_analysis_zero_length, ptr noundef nonnull %.str.6.sink)
-  br label %.thread1150
+  %.4.ph = phi i32 [ %.27621223, %.lr.ph ], [ %.07601263, %228 ]
+  %4089 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_lbmc_analysis_zero_length, ptr noundef nonnull %.str.6.sink)
+  br label %.thread1157
 
-.thread1150:                                      ; preds = %lbmc_determine_msg_type.exit, %.thread1150.sink.split, %6
-  %.4 = phi i32 [ 0, %6 ], [ %.4.ph, %.thread1150.sink.split ], [ %.1743, %lbmc_determine_msg_type.exit ]
+.thread1157:                                      ; preds = %lbmc_determine_msg_type.exit, %.thread1157.sink.split, %6
+  %.4 = phi i32 [ 0, %6 ], [ %.4.ph, %.thread1157.sink.split ], [ %.1761, %lbmc_determine_msg_type.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44) #12
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %43) #12
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %42) #12
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.29)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.52)
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.28)
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.51)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %41) #12
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %40) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %39) #12

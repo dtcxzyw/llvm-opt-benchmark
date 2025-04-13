@@ -671,15 +671,15 @@ arena_decay_ticks.exit:                           ; preds = %163, %108, %83, %53
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @large_ralloc_no_move_expand(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
-  %.val30 = load i64, ptr %1, align 8, !tbaa !91
-  %6 = and i64 %.val30, 4095
+  %.val31 = load i64, ptr %1, align 8, !tbaa !91
+  %6 = and i64 %.val31, 4095
   %7 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %6
   %8 = load atomic i64, ptr %7 monotonic, align 8
   %.0.i.i = inttoptr i64 %8 to ptr
   %9 = getelementptr i8, ptr %1, i64 16
-  %.val31 = load i64, ptr %9, align 8, !tbaa !4
-  %10 = and i64 %.val31, -4096
-  %11 = lshr i64 %.val30, 20
+  %.val32 = load i64, ptr %9, align 8, !tbaa !4
+  %10 = and i64 %.val32, -4096
+  %11 = lshr i64 %.val31, 20
   %12 = and i64 %11, 255
   %13 = getelementptr inbounds nuw [232 x i64], ptr @duckdb_je_sz_index2size_tab, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !7
@@ -733,36 +733,34 @@ sz_size2index.exit:                               ; preds = %26, %24, %18
   br label %47
 
 47:                                               ; preds = %46, %sz_size2index.exit
-  br i1 %43, label %64, label %48
+  br i1 %43, label %63, label %48
 
 48:                                               ; preds = %47
-  br i1 %3, label %49, label %63
+  %49 = load i8, ptr @duckdb_je_opt_cache_oblivious, align 1, !range !17
+  %50 = trunc nuw i8 %49 to i1
+  %or.cond = select i1 %3, i1 %50, i1 false
+  br i1 %or.cond, label %51, label %62
 
-49:                                               ; preds = %48
-  %50 = load i8, ptr @duckdb_je_opt_cache_oblivious, align 1, !tbaa !15, !range !17, !noundef !18
-  %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %52, label %63
+51:                                               ; preds = %48
+  %52 = getelementptr i8, ptr %1, i64 8
+  %.val = load ptr, ptr %52, align 8, !tbaa !89
+  %53 = getelementptr inbounds nuw i8, ptr %.val, i64 %14
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4096
+  %55 = ptrtoint ptr %54 to i64
+  %56 = and i64 %55, 4095
+  %57 = sub nsw i64 0, %56
+  %58 = getelementptr inbounds i8, ptr %54, i64 %57
+  %59 = ptrtoint ptr %58 to i64
+  %60 = ptrtoint ptr %53 to i64
+  %61 = sub i64 %59, %60
+  call void @llvm.memset.p0.i64(ptr align 1 %53, i8 0, i64 %61, i1 false)
+  br label %62
 
-52:                                               ; preds = %49
-  %53 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %53, align 8, !tbaa !89
-  %54 = getelementptr inbounds nuw i8, ptr %.val, i64 %14
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4096
-  %56 = ptrtoint ptr %55 to i64
-  %57 = and i64 %56, 4095
-  %58 = sub nsw i64 0, %57
-  %59 = getelementptr inbounds i8, ptr %55, i64 %58
-  %60 = ptrtoint ptr %59 to i64
-  %61 = ptrtoint ptr %54 to i64
-  %62 = sub i64 %60, %61
-  call void @llvm.memset.p0.i64(ptr align 1 %54, i8 0, i64 %62, i1 false)
+62:                                               ; preds = %51, %48
+  call void @duckdb_je_arena_extent_ralloc_large_expand(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %1, i64 noundef %14) #11
   br label %63
 
-63:                                               ; preds = %49, %52, %48
-  call void @duckdb_je_arena_extent_ralloc_large_expand(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %1, i64 noundef %14) #11
-  br label %64
-
-64:                                               ; preds = %47, %63
+63:                                               ; preds = %47, %62
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
   ret i1 %43
 }

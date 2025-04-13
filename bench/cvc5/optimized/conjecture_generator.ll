@@ -28617,10 +28617,10 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb0EEEjSt4lessIS3_ESaISt4pairIKS3_jEEEix
 
 .noexc98:                                         ; preds = %294
   %302 = load i8, ptr %19, align 8, !tbaa !988, !range !996, !noundef !997
-  %.mux.i.not.i.i.i = icmp eq i8 %302, 0
-  br i1 %.mux.i.not.i.i.i, label %303, label %309
+  %303 = trunc nuw i8 %302 to i1
+  br i1 %303, label %309, label %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i
 
-303:                                              ; preds = %.noexc98
+_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i: ; preds = %.noexc98
   %304 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %305 = load ptr, ptr %304, align 8, !tbaa !998, !noalias !999
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
@@ -28628,8 +28628,8 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb0EEEjSt4lessIS3_ESaISt4pairIKS3_jEEEix
   %308 = trunc i64 %307 to i32
   br label %309
 
-309:                                              ; preds = %303, %.noexc98
-  %.0.i.i.i = phi i32 [ %308, %303 ], [ 0, %.noexc98 ]
+309:                                              ; preds = %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i, %.noexc98
+  %.0.i.i.i = phi i32 [ %308, %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i ], [ 0, %.noexc98 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #29
   %310 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %311 = load ptr, ptr %310, align 8, !tbaa !21

@@ -277,225 +277,223 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 ._crit_edge24.i:                                  ; preds = %.lr.ph23.i
   %80 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 40), align 8, !tbaa !19, !range !29, !noundef !30
   %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %85, label %82
+  %82 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 41), align 1, !range !29
+  %83 = trunc nuw i8 %82 to i1
+  %or.cond.i = select i1 %81, i1 true, i1 %83
+  br i1 %or.cond.i, label %84, label %parse_command_line.exit
 
-82:                                               ; preds = %._crit_edge24.i
-  %83 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 41), align 1, !tbaa !20, !range !29, !noundef !30
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %85, label %parse_command_line.exit
+84:                                               ; preds = %._crit_edge24.i
+  %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 32), align 8, !tbaa !8
+  %86 = tail call i64 @h5tools_get_new_fapl(i64 noundef %85) #12
+  %87 = icmp slt i64 %86, 0
+  br i1 %87, label %88, label %89
 
-85:                                               ; preds = %82, %._crit_edge24.i
-  %86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 32), align 8, !tbaa !8
-  %87 = tail call i64 @h5tools_get_new_fapl(i64 noundef %86) #12
-  %88 = icmp slt i64 %87, 0
-  br i1 %88, label %89, label %90
-
-89:                                               ; preds = %85
+88:                                               ; preds = %84
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.17) #12
   tail call fastcc void @leave(i32 noundef 1)
   unreachable
 
-90:                                               ; preds = %85
-  %91 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 40), align 8, !tbaa !19, !range !29, !noundef !30
-  %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %93, label %97
+89:                                               ; preds = %84
+  %90 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 40), align 8, !tbaa !19, !range !29, !noundef !30
+  %91 = trunc nuw i8 %90 to i1
+  br i1 %91, label %92, label %96
 
-93:                                               ; preds = %90
-  %94 = call i32 @h5tools_set_fapl_vol(i64 noundef %87, ptr noundef nonnull %3) #12
-  %95 = icmp slt i32 %94, 0
-  br i1 %95, label %96, label %97
+92:                                               ; preds = %89
+  %93 = call i32 @h5tools_set_fapl_vol(i64 noundef %86, ptr noundef nonnull %3) #12
+  %94 = icmp slt i32 %93, 0
+  br i1 %94, label %95, label %96
 
-96:                                               ; preds = %93
+95:                                               ; preds = %92
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.18) #12
   call fastcc void @leave(i32 noundef 1)
   unreachable
 
-97:                                               ; preds = %93, %90
-  %98 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 41), align 1, !tbaa !20, !range !29, !noundef !30
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %104
+96:                                               ; preds = %92, %89
+  %97 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 41), align 1, !tbaa !20, !range !29, !noundef !30
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %103
 
-100:                                              ; preds = %97
-  %101 = call i32 @h5tools_set_fapl_vfd(i64 noundef %87, ptr noundef nonnull %4) #12
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %103, label %104
+99:                                               ; preds = %96
+  %100 = call i32 @h5tools_set_fapl_vfd(i64 noundef %86, ptr noundef nonnull %4) #12
+  %101 = icmp slt i32 %100, 0
+  br i1 %101, label %102, label %103
 
-103:                                              ; preds = %100
+102:                                              ; preds = %99
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.19) #12
   call fastcc void @leave(i32 noundef 1)
   unreachable
 
-104:                                              ; preds = %100, %97
-  store i64 %87, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 32), align 8, !tbaa !8
+103:                                              ; preds = %99, %96
+  store i64 %86, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 32), align 8, !tbaa !8
   br label %parse_command_line.exit
 
-parse_command_line.exit:                          ; preds = %82, %104
+parse_command_line.exit:                          ; preds = %._crit_edge24.i, %103
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
   call void @h5tools_error_report() #12
-  %105 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 8), align 8, !tbaa !14, !range !29, !noundef !30
-  %106 = trunc nuw i8 %105 to i1
-  br i1 %106, label %107, label %118
+  %104 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 8), align 8, !tbaa !14, !range !29, !noundef !30
+  %105 = trunc nuw i8 %104 to i1
+  br i1 %105, label %106, label %117
 
-107:                                              ; preds = %parse_command_line.exit
-  %108 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 32), align 8, !tbaa !8
-  %109 = call i32 @H5Pset_libver_bounds(i64 noundef %108, i32 noundef 5, i32 noundef 5) #12
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %112
+106:                                              ; preds = %parse_command_line.exit
+  %107 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 32), align 8, !tbaa !8
+  %108 = call i32 @H5Pset_libver_bounds(i64 noundef %107, i32 noundef 5, i32 noundef 5) #12
+  %109 = icmp slt i32 %108, 0
+  br i1 %109, label %110, label %111
 
-111:                                              ; preds = %107
+110:                                              ; preds = %106
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.3) #12
   call fastcc void @leave(i32 noundef 1)
   unreachable
 
-112:                                              ; preds = %107
-  %113 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 9), align 1, !tbaa !16, !range !29, !noundef !30
-  %114 = trunc nuw i8 %113 to i1
-  br i1 %114, label %115, label %118
+111:                                              ; preds = %106
+  %112 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 9), align 1, !tbaa !16, !range !29, !noundef !30
+  %113 = trunc nuw i8 %112 to i1
+  br i1 %113, label %114, label %117
 
-115:                                              ; preds = %112
-  %116 = call ptr @h5tools_getprogname() #12
-  %117 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %116)
-  br label %118
+114:                                              ; preds = %111
+  %115 = call ptr @h5tools_getprogname() #12
+  %116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %115)
+  br label %117
 
-118:                                              ; preds = %112, %115, %parse_command_line.exit
-  %119 = load ptr, ptr @params_g, align 8, !tbaa !25
-  %120 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 32), align 8, !tbaa !8
-  %121 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 40), align 8, !tbaa !19, !range !29, !noundef !30
-  %122 = trunc nuw i8 %121 to i1
-  %123 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 41), align 1, !range !29
-  %124 = trunc nuw i8 %123 to i1
-  %125 = select i1 %122, i1 true, i1 %124
-  %126 = call i64 @h5tools_fopen(ptr noundef %119, i32 noundef 1, i64 noundef %120, i1 noundef zeroext %125, ptr noundef null, i64 noundef 0) #12
-  %127 = icmp slt i64 %126, 0
-  br i1 %127, label %128, label %.thread
+117:                                              ; preds = %111, %114, %parse_command_line.exit
+  %118 = load ptr, ptr @params_g, align 8, !tbaa !25
+  %119 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 32), align 8, !tbaa !8
+  %120 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 40), align 8, !tbaa !19, !range !29, !noundef !30
+  %121 = trunc nuw i8 %120 to i1
+  %122 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 41), align 1, !range !29
+  %123 = trunc nuw i8 %122 to i1
+  %124 = select i1 %121, i1 true, i1 %123
+  %125 = call i64 @h5tools_fopen(ptr noundef %118, i32 noundef 1, i64 noundef %119, i1 noundef zeroext %124, ptr noundef null, i64 noundef 0) #12
+  %126 = icmp slt i64 %125, 0
+  br i1 %126, label %127, label %.thread
 
-128:                                              ; preds = %118
-  %129 = load ptr, ptr @params_g, align 8, !tbaa !25
-  %130 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 32), align 8, !tbaa !8
-  %131 = call i64 @H5Fcreate(ptr noundef %129, i32 noundef 4, i64 noundef 0, i64 noundef %130) #12
-  %132 = icmp slt i64 %131, 0
-  br i1 %132, label %133, label %.thread
+127:                                              ; preds = %117
+  %128 = load ptr, ptr @params_g, align 8, !tbaa !25
+  %129 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 32), align 8, !tbaa !8
+  %130 = call i64 @H5Fcreate(ptr noundef %128, i32 noundef 4, i64 noundef 0, i64 noundef %129) #12
+  %131 = icmp slt i64 %130, 0
+  br i1 %131, label %132, label %.thread
 
-133:                                              ; preds = %128
-  %134 = load ptr, ptr @params_g, align 8, !tbaa !25
-  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.5, ptr noundef %134) #12
+132:                                              ; preds = %127
+  %133 = load ptr, ptr @params_g, align 8, !tbaa !25
+  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.5, ptr noundef %133) #12
   call fastcc void @leave(i32 noundef 1)
   unreachable
 
-.thread:                                          ; preds = %118, %128
-  %.019 = phi i64 [ %131, %128 ], [ %126, %118 ]
-  %135 = load i64, ptr @H5P_CLS_LINK_CREATE_ID_g, align 8, !tbaa !4
-  %136 = call i64 @H5Pcreate(i64 noundef %135) #12
-  %137 = icmp slt i64 %136, 0
-  br i1 %137, label %138, label %139
+.thread:                                          ; preds = %117, %127
+  %.019 = phi i64 [ %130, %127 ], [ %125, %117 ]
+  %134 = load i64, ptr @H5P_CLS_LINK_CREATE_ID_g, align 8, !tbaa !4
+  %135 = call i64 @H5Pcreate(i64 noundef %134) #12
+  %136 = icmp slt i64 %135, 0
+  br i1 %136, label %137, label %138
 
-138:                                              ; preds = %.thread
+137:                                              ; preds = %.thread
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.6) #12
   call fastcc void @leave(i32 noundef 1)
   unreachable
 
-139:                                              ; preds = %.thread
-  %140 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 10), align 2, !tbaa !15, !range !29, !noundef !30
-  %141 = trunc nuw i8 %140 to i1
-  br i1 %141, label %142, label %152
+138:                                              ; preds = %.thread
+  %139 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 10), align 2, !tbaa !15, !range !29, !noundef !30
+  %140 = trunc nuw i8 %139 to i1
+  br i1 %140, label %141, label %151
 
-142:                                              ; preds = %139
-  %143 = call i32 @H5Pset_create_intermediate_group(i64 noundef %136, i32 noundef 1) #12
-  %144 = icmp slt i32 %143, 0
-  br i1 %144, label %145, label %146
+141:                                              ; preds = %138
+  %142 = call i32 @H5Pset_create_intermediate_group(i64 noundef %135, i32 noundef 1) #12
+  %143 = icmp slt i32 %142, 0
+  br i1 %143, label %144, label %145
 
-145:                                              ; preds = %142
+144:                                              ; preds = %141
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.7) #12
   call fastcc void @leave(i32 noundef 1)
   unreachable
 
-146:                                              ; preds = %142
-  %147 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 9), align 1, !tbaa !16, !range !29, !noundef !30
-  %148 = trunc nuw i8 %147 to i1
-  br i1 %148, label %149, label %152
+145:                                              ; preds = %141
+  %146 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 9), align 1, !tbaa !16, !range !29, !noundef !30
+  %147 = trunc nuw i8 %146 to i1
+  br i1 %147, label %148, label %151
 
-149:                                              ; preds = %146
-  %150 = call ptr @h5tools_getprogname() #12
-  %151 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %150)
-  br label %152
+148:                                              ; preds = %145
+  %149 = call ptr @h5tools_getprogname() #12
+  %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %149)
+  br label %151
 
-152:                                              ; preds = %146, %149, %139
-  %153 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 16), align 8, !tbaa !26
-  %.not = icmp eq i64 %153, 0
+151:                                              ; preds = %145, %148, %138
+  %152 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 16), align 8, !tbaa !26
+  %.not = icmp eq i64 %152, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %152, %179
-  %.01625 = phi i64 [ %180, %179 ], [ 0, %152 ]
-  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 24), align 8, !tbaa !27
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %.01625
-  %156 = load ptr, ptr %155, align 8, !tbaa !17
-  %157 = call i64 @H5Gcreate2(i64 noundef %.019, ptr noundef %156, i64 noundef %136, i64 noundef 0, i64 noundef 0) #12
-  %158 = icmp slt i64 %157, 0
-  br i1 %158, label %159, label %163
+.lr.ph:                                           ; preds = %151, %178
+  %.01625 = phi i64 [ %179, %178 ], [ 0, %151 ]
+  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 24), align 8, !tbaa !27
+  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %.01625
+  %155 = load ptr, ptr %154, align 8, !tbaa !17
+  %156 = call i64 @H5Gcreate2(i64 noundef %.019, ptr noundef %155, i64 noundef %135, i64 noundef 0, i64 noundef 0) #12
+  %157 = icmp slt i64 %156, 0
+  br i1 %157, label %158, label %162
 
-159:                                              ; preds = %.lr.ph
-  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 24), align 8, !tbaa !27
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %.01625
-  %162 = load ptr, ptr %161, align 8, !tbaa !17
-  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.9, ptr noundef %162) #12
+158:                                              ; preds = %.lr.ph
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 24), align 8, !tbaa !27
+  %160 = getelementptr inbounds nuw ptr, ptr %159, i64 %.01625
+  %161 = load ptr, ptr %160, align 8, !tbaa !17
+  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.9, ptr noundef %161) #12
   call fastcc void @leave(i32 noundef 1)
   unreachable
 
-163:                                              ; preds = %.lr.ph
-  %164 = call i32 @H5Gclose(i64 noundef %157) #12
-  %165 = icmp slt i32 %164, 0
-  br i1 %165, label %166, label %170
+162:                                              ; preds = %.lr.ph
+  %163 = call i32 @H5Gclose(i64 noundef %156) #12
+  %164 = icmp slt i32 %163, 0
+  br i1 %164, label %165, label %169
 
-166:                                              ; preds = %163
-  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 24), align 8, !tbaa !27
-  %168 = getelementptr inbounds nuw ptr, ptr %167, i64 %.01625
-  %169 = load ptr, ptr %168, align 8, !tbaa !17
-  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.10, ptr noundef %169) #12
+165:                                              ; preds = %162
+  %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 24), align 8, !tbaa !27
+  %167 = getelementptr inbounds nuw ptr, ptr %166, i64 %.01625
+  %168 = load ptr, ptr %167, align 8, !tbaa !17
+  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.10, ptr noundef %168) #12
   call fastcc void @leave(i32 noundef 1)
   unreachable
 
-170:                                              ; preds = %163
-  %171 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 9), align 1, !tbaa !16, !range !29, !noundef !30
-  %172 = trunc nuw i8 %171 to i1
-  br i1 %172, label %173, label %179
+169:                                              ; preds = %162
+  %170 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 9), align 1, !tbaa !16, !range !29, !noundef !30
+  %171 = trunc nuw i8 %170 to i1
+  br i1 %171, label %172, label %178
 
-173:                                              ; preds = %170
-  %174 = call ptr @h5tools_getprogname() #12
-  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 24), align 8, !tbaa !27
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.01625
-  %177 = load ptr, ptr %176, align 8, !tbaa !17
-  %178 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %174, ptr noundef %177)
-  br label %179
+172:                                              ; preds = %169
+  %173 = call ptr @h5tools_getprogname() #12
+  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 24), align 8, !tbaa !27
+  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %.01625
+  %176 = load ptr, ptr %175, align 8, !tbaa !17
+  %177 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %173, ptr noundef %176)
+  br label %178
 
-179:                                              ; preds = %173, %170
-  %180 = add nuw i64 %.01625, 1
-  %181 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 16), align 8, !tbaa !26
-  %182 = icmp ult i64 %180, %181
-  br i1 %182, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+178:                                              ; preds = %172, %169
+  %179 = add nuw i64 %.01625, 1
+  %180 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params_g, i64 16), align 8, !tbaa !26
+  %181 = icmp ult i64 %179, %180
+  br i1 %181, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %179, %152
-  %183 = call i32 @H5Pclose(i64 noundef %136) #12
-  %184 = icmp slt i32 %183, 0
-  br i1 %184, label %185, label %186
+._crit_edge:                                      ; preds = %178, %151
+  %182 = call i32 @H5Pclose(i64 noundef %135) #12
+  %183 = icmp slt i32 %182, 0
+  br i1 %183, label %184, label %185
 
-185:                                              ; preds = %._crit_edge
+184:                                              ; preds = %._crit_edge
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.12) #12
   call fastcc void @leave(i32 noundef 1)
   unreachable
 
-186:                                              ; preds = %._crit_edge
-  %187 = call i32 @H5Fclose(i64 noundef %.019) #12
-  %188 = icmp slt i32 %187, 0
-  br i1 %188, label %189, label %191
+185:                                              ; preds = %._crit_edge
+  %186 = call i32 @H5Fclose(i64 noundef %.019) #12
+  %187 = icmp slt i32 %186, 0
+  br i1 %187, label %188, label %190
 
-189:                                              ; preds = %186
-  %190 = load ptr, ptr @params_g, align 8, !tbaa !25
-  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.13, ptr noundef %190) #12
+188:                                              ; preds = %185
+  %189 = load ptr, ptr @params_g, align 8, !tbaa !25
+  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.13, ptr noundef %189) #12
   call fastcc void @leave(i32 noundef 1)
   unreachable
 
-191:                                              ; preds = %186
+190:                                              ; preds = %185
   call fastcc void @leave(i32 noundef 0)
   unreachable
 }

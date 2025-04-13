@@ -347,10 +347,10 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %14 = trunc i64 %13 to i32
   %15 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %14)
   %16 = tail call i32 @strcmp(ptr noundef %15, ptr noundef nonnull dereferenceable(6) @.str.115) #9
-  %.not87 = icmp eq i32 %16, 0
+  %.not98 = icmp eq i32 %16, 0
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
-  br i1 %.not87, label %21, label %19
+  br i1 %.not98, label %21, label %19
 
 19:                                               ; preds = %11
   tail call void @col_append_sep_str(ptr noundef %18, i32 noundef 35, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.65)
@@ -367,13 +367,13 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
 23:                                               ; preds = %19, %21, %4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %25 = load ptr, ptr %24, align 8
-  %.not88 = icmp eq ptr %25, null
-  br i1 %.not88, label %28, label %26
+  %.not99 = icmp eq ptr %25, null
+  br i1 %.not99, label %28, label %26
 
 26:                                               ; preds = %23
   %27 = load i8, ptr %25, align 1
-  %.not89 = icmp eq i8 %27, 0
-  br i1 %.not89, label %28, label %36
+  %.not100 = icmp eq i8 %27, 0
+  br i1 %.not100, label %28, label %36
 
 28:                                               ; preds = %26, %23
   %29 = icmp eq ptr %3, null
@@ -382,36 +382,36 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load ptr, ptr %31, align 8
-  %.not90 = icmp eq ptr %32, null
-  br i1 %.not90, label %35, label %33
+  %.not101 = icmp eq ptr %32, null
+  br i1 %.not101, label %35, label %33
 
 33:                                               ; preds = %30
   %34 = load i8, ptr %32, align 1
-  %.not91 = icmp eq i8 %34, 0
-  br i1 %.not91, label %35, label %36
+  %.not102 = icmp eq i8 %34, 0
+  br i1 %.not102, label %35, label %36
 
 35:                                               ; preds = %33, %30
   br label %36
 
 36:                                               ; preds = %28, %35, %33, %26
-  %.079 = phi ptr [ %25, %26 ], [ %32, %33 ], [ null, %35 ], [ null, %28 ]
-  %.not92 = icmp eq ptr %2, null
-  br i1 %.not92, label %43, label %37
+  %.090 = phi ptr [ %25, %26 ], [ %32, %33 ], [ null, %35 ], [ null, %28 ]
+  %.not103 = icmp eq ptr %2, null
+  br i1 %.not103, label %43, label %37
 
 37:                                               ; preds = %36
   %38 = load i32, ptr @proto_json, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %40 = load i32, ptr @ett_json, align 4
   %41 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40)
-  %.not93 = icmp eq ptr %.079, null
-  br i1 %.not93, label %43, label %42
+  %.not104 = icmp eq ptr %.090, null
+  br i1 %.not104, label %43, label %42
 
 42:                                               ; preds = %37
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.117, ptr noundef nonnull %.079)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.117, ptr noundef nonnull %.090)
   br label %43
 
 43:                                               ; preds = %37, %42, %36
-  %.078 = phi ptr [ %39, %42 ], [ %39, %37 ], [ null, %36 ]
+  %.089 = phi ptr [ %39, %42 ], [ %39, %37 ], [ null, %36 ]
   %.0 = phi ptr [ %41, %42 ], [ %41, %37 ], [ null, %36 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %45 = load ptr, ptr %44, align 8
@@ -450,124 +450,122 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 59:                                               ; preds = %55, %.preheader
   %.1.lcssa = phi i32 [ %.1, %55 ], [ %smax, %.preheader ]
-  %.not97 = icmp eq i32 %.1.lcssa, 0
-  br i1 %.not97, label %64, label %60
+  %.not114 = icmp eq i32 %.1.lcssa, 0
+  br i1 %.not114, label %64, label %60
 
 60:                                               ; preds = %59
-  %.not94 = icmp eq ptr %.0, null
-  %61 = select i1 %.not94, ptr %2, ptr %.0
+  %.not105 = icmp eq ptr %.0, null
+  %61 = select i1 %.not105, ptr %2, ptr %.0
   %62 = load i32, ptr @hf_json_ignored_leading_bytes, align 4
   %63 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %0, i32 noundef 0, i32 noundef %.1.lcssa, i32 noundef 0)
   br label %64
 
 64:                                               ; preds = %59, %60, %43
-  %.081 = phi i32 [ %.1.lcssa, %60 ], [ 0, %59 ], [ 0, %43 ]
+  %.092 = phi i32 [ %.1.lcssa, %60 ], [ 0, %59 ], [ 0, %43 ]
   %65 = load i8, ptr @json_compact, align 1, !range !6, !noundef !7
   %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %67, label %84
+  br i1 %66, label %67, label %83
 
 67:                                               ; preds = %64
   %68 = load i8, ptr @auto_hide, align 1, !range !6, !noundef !7
   %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %73
+  %.not111 = xor i1 %69, true
+  %70 = load i8, ptr @json_raw, align 1, !range !6
+  %71 = trunc nuw i8 %70 to i1
+  %or.cond113 = select i1 %.not111, i1 true, i1 %71
+  br i1 %or.cond113, label %72, label %75
 
-70:                                               ; preds = %67
-  %71 = load i8, ptr @json_raw, align 1, !range !6, !noundef !7
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %73, label %76
+72:                                               ; preds = %67
+  %73 = load i32, ptr @ett_json_compact, align 4
+  %74 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %73, ptr noundef null, ptr noundef nonnull @.str.118)
+  br label %75
 
-73:                                               ; preds = %70, %67
-  %74 = load i32, ptr @ett_json_compact, align 4
-  %75 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %74, ptr noundef null, ptr noundef nonnull @.str.118)
-  br label %76
+75:                                               ; preds = %67, %72
+  %76 = phi ptr [ %74, %72 ], [ %.0, %67 ]
+  %77 = load ptr, ptr %44, align 8
+  %78 = tail call noalias ptr @wmem_list_new(ptr noundef %77)
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %78, ptr %79, align 8
+  tail call void @wmem_list_prepend(ptr noundef %78, ptr noundef %76)
+  %80 = load ptr, ptr %44, align 8
+  %81 = tail call noalias ptr @wmem_list_new(ptr noundef %80)
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %81, ptr %82, align 8
+  tail call void @wmem_list_prepend(ptr noundef %81, ptr noundef nonnull inttoptr (i64 -3 to ptr))
+  br label %83
 
-76:                                               ; preds = %70, %73
-  %77 = phi ptr [ %75, %73 ], [ %.0, %70 ]
-  %78 = load ptr, ptr %44, align 8
-  %79 = tail call noalias ptr @wmem_list_new(ptr noundef %78)
-  %80 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %79, ptr %80, align 8
-  tail call void @wmem_list_prepend(ptr noundef %79, ptr noundef %77)
-  %81 = load ptr, ptr %44, align 8
-  %82 = tail call noalias ptr @wmem_list_new(ptr noundef %81)
-  %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %82, ptr %83, align 8
-  tail call void @wmem_list_prepend(ptr noundef %82, ptr noundef nonnull inttoptr (i64 -3 to ptr))
-  br label %84
+83:                                               ; preds = %75, %64
+  %84 = load i8, ptr @json_raw, align 1, !range !6, !noundef !7
+  %85 = trunc nuw i8 %84 to i1
+  br i1 %85, label %86, label %101
 
-84:                                               ; preds = %76, %64
-  %85 = load i8, ptr @json_raw, align 1, !range !6, !noundef !7
-  %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %87, label %103
+86:                                               ; preds = %83
+  %87 = load i8, ptr @auto_hide, align 1, !range !6, !noundef !7
+  %88 = trunc nuw i8 %87 to i1
+  %.not108 = xor i1 %88, true
+  %89 = load i8, ptr @json_compact, align 1, !range !6
+  %90 = trunc nuw i8 %89 to i1
+  %or.cond110 = select i1 %.not108, i1 true, i1 %90
+  br i1 %or.cond110, label %91, label %94
 
-87:                                               ; preds = %84
-  %88 = load i8, ptr @auto_hide, align 1, !range !6, !noundef !7
-  %89 = trunc nuw i8 %88 to i1
-  br i1 %89, label %90, label %93
+91:                                               ; preds = %86
+  %92 = load i32, ptr @ett_json_raw, align 4
+  %93 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %92, ptr noundef null, ptr noundef nonnull @.str.119)
+  br label %94
 
-90:                                               ; preds = %87
-  %91 = load i8, ptr @json_compact, align 1, !range !6, !noundef !7
-  %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %93, label %96
+94:                                               ; preds = %86, %91
+  %95 = phi ptr [ %93, %91 ], [ %.0, %86 ]
+  %96 = load ptr, ptr %44, align 8
+  %97 = tail call noalias ptr @wmem_list_new(ptr noundef %96)
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr %97, ptr %98, align 8
+  tail call void @wmem_list_prepend(ptr noundef %97, ptr noundef %95)
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store ptr null, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 0, ptr %100, align 8
+  br label %101
 
-93:                                               ; preds = %90, %87
-  %94 = load i32, ptr @ett_json_raw, align 4
-  %95 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %94, ptr noundef null, ptr noundef nonnull @.str.119)
-  br label %96
+101:                                              ; preds = %94, %83
+  %102 = load ptr, ptr %44, align 8
+  %103 = sub i32 %52, %.092
+  %104 = load ptr, ptr @want_ignore, align 8
+  %105 = call ptr @tvbparse_init(ptr noundef %102, ptr noundef %0, i32 noundef %.092, i32 noundef %103, ptr noundef nonnull %5, ptr noundef %104)
+  br label %106
 
-96:                                               ; preds = %90, %93
-  %97 = phi ptr [ %95, %93 ], [ %.0, %90 ]
-  %98 = load ptr, ptr %44, align 8
-  %99 = tail call noalias ptr @wmem_list_new(ptr noundef %98)
-  %100 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %99, ptr %100, align 8
-  tail call void @wmem_list_prepend(ptr noundef %99, ptr noundef %97)
-  %101 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr null, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 0, ptr %102, align 8
-  br label %103
+106:                                              ; preds = %106, %101
+  %107 = load ptr, ptr @want, align 8
+  %108 = call ptr @tvbparse_get(ptr noundef %105, ptr noundef %107)
+  %.not106 = icmp eq ptr %108, null
+  br i1 %.not106, label %109, label %106, !llvm.loop !8
 
-103:                                              ; preds = %96, %84
-  %104 = load ptr, ptr %44, align 8
-  %105 = sub i32 %52, %.081
-  %106 = load ptr, ptr @want_ignore, align 8
-  %107 = call ptr @tvbparse_init(ptr noundef %104, ptr noundef %0, i32 noundef %.081, i32 noundef %105, ptr noundef nonnull %5, ptr noundef %106)
-  br label %108
+109:                                              ; preds = %106
+  %110 = call i32 @tvbparse_curr_offset(ptr noundef %105)
+  call void @proto_item_set_len(ptr noundef %.089, i32 noundef %110)
+  %111 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %110)
+  %112 = icmp sgt i32 %111, 0
+  br i1 %112, label %113, label %117
 
-108:                                              ; preds = %108, %103
-  %109 = load ptr, ptr @want, align 8
-  %110 = call ptr @tvbparse_get(ptr noundef %107, ptr noundef %109)
-  %.not95 = icmp eq ptr %110, null
-  br i1 %.not95, label %111, label %108, !llvm.loop !8
+113:                                              ; preds = %109
+  %114 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %110)
+  %115 = load ptr, ptr @text_lines_handle, align 8
+  %116 = call i32 @call_dissector_with_data(ptr noundef %115, ptr noundef %114, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  br label %121
 
-111:                                              ; preds = %108
-  %112 = call i32 @tvbparse_curr_offset(ptr noundef %107)
-  call void @proto_item_set_len(ptr noundef %.078, i32 noundef %112)
-  %113 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %112)
-  %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %115, label %119
+117:                                              ; preds = %109
+  %.not107 = icmp eq ptr %.090, null
+  br i1 %.not107, label %121, label %118
 
-115:                                              ; preds = %111
-  %116 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %112)
-  %117 = load ptr, ptr @text_lines_handle, align 8
-  %118 = call i32 @call_dissector_with_data(ptr noundef %117, ptr noundef %116, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  br label %123
+118:                                              ; preds = %117
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %120 = load ptr, ptr %119, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.121, ptr noundef nonnull %.090)
+  br label %121
 
-119:                                              ; preds = %111
-  %.not96 = icmp eq ptr %.079, null
-  br i1 %.not96, label %123, label %120
-
-120:                                              ; preds = %119
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %122 = load ptr, ptr %121, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %122, i32 noundef 25, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.121, ptr noundef nonnull %.079)
-  br label %123
-
-123:                                              ; preds = %119, %120, %115
-  %124 = call i32 @tvb_captured_length(ptr noundef %0)
+121:                                              ; preds = %117, %118, %113
+  %122 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
-  ret i32 %124
+  ret i32 %122
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1171,167 +1169,165 @@ define internal void @before_array(ptr noundef captures(none) %0, ptr readnone c
 16:                                               ; preds = %3
   %17 = load i8, ptr @json_compact, align 1, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %22, label %19
+  %19 = load i8, ptr @json_raw, align 1, !range !6
+  %20 = trunc nuw i8 %19 to i1
+  %or.cond = select i1 %18, i1 true, i1 %20
+  br i1 %or.cond, label %21, label %proto_item_set_hidden.exit
 
-19:                                               ; preds = %16
-  %20 = load i8, ptr @json_raw, align 1, !range !6, !noundef !7
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %proto_item_set_hidden.exit
-
-22:                                               ; preds = %19, %16
-  %23 = load ptr, ptr %0, align 8
-  %24 = tail call i32 @wmem_list_count(ptr noundef %23)
-  %25 = icmp ne i32 %24, 1
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %0, align 8
+  %23 = tail call i32 @wmem_list_count(ptr noundef %22)
+  %24 = icmp ne i32 %23, 1
   %.not.i = icmp eq ptr %13, null
-  %or.cond = select i1 %25, i1 true, i1 %.not.i
-  br i1 %or.cond, label %proto_item_set_hidden.exit, label %26
+  %or.cond60 = select i1 %24, i1 true, i1 %.not.i
+  br i1 %or.cond60, label %proto_item_set_hidden.exit, label %25
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %28 = load ptr, ptr %27, align 8
-  %.not5.i = icmp eq ptr %28, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %29
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %.not5.i = icmp eq ptr %27, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %28
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 28
-  %31 = load i32, ptr %30, align 4
-  %32 = or i32 %31, 1
-  store i32 %32, ptr %30, align 4
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 28
+  %30 = load i32, ptr %29, align 4
+  %31 = or i32 %30, 1
+  store i32 %31, ptr %29, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %29, %26, %22, %19, %3
-  %33 = load i32, ptr @ett_json_array, align 4
-  %34 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %33)
-  %35 = load ptr, ptr %0, align 8
-  tail call void @wmem_list_prepend(ptr noundef %35, ptr noundef %34)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call ptr @wmem_stack_pop(ptr noundef %37)
-  %39 = load ptr, ptr %36, align 8
-  %40 = tail call ptr @wmem_stack_pop(ptr noundef %39)
-  %41 = load ptr, ptr %36, align 8
-  tail call void @wmem_list_prepend(ptr noundef %41, ptr noundef %40)
-  %42 = load ptr, ptr %36, align 8
-  tail call void @wmem_list_prepend(ptr noundef %42, ptr noundef %38)
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %44 = icmp eq ptr %40, null
-  br i1 %44, label %join_strings.exit, label %45
+proto_item_set_hidden.exit:                       ; preds = %28, %25, %16, %21, %3
+  %32 = load i32, ptr @ett_json_array, align 4
+  %33 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %32)
+  %34 = load ptr, ptr %0, align 8
+  tail call void @wmem_list_prepend(ptr noundef %34, ptr noundef %33)
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %36 = load ptr, ptr %35, align 8
+  %37 = tail call ptr @wmem_stack_pop(ptr noundef %36)
+  %38 = load ptr, ptr %35, align 8
+  %39 = tail call ptr @wmem_stack_pop(ptr noundef %38)
+  %40 = load ptr, ptr %35, align 8
+  tail call void @wmem_list_prepend(ptr noundef %40, ptr noundef %39)
+  %41 = load ptr, ptr %35, align 8
+  tail call void @wmem_list_prepend(ptr noundef %41, ptr noundef %37)
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = icmp eq ptr %39, null
+  br i1 %43, label %join_strings.exit, label %44
 
-45:                                               ; preds = %proto_item_set_hidden.exit
-  %46 = load ptr, ptr %43, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 408
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %48, ptr noundef nonnull %40)
-  tail call void @wmem_strbuf_append_c(ptr noundef %49, i8 noundef signext 47)
-  tail call void @wmem_strbuf_append(ptr noundef %49, ptr noundef nonnull @.str.155)
-  %50 = tail call ptr @wmem_strbuf_finalize(ptr noundef %49)
+44:                                               ; preds = %proto_item_set_hidden.exit
+  %45 = load ptr, ptr %42, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 408
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %47, ptr noundef nonnull %39)
+  tail call void @wmem_strbuf_append_c(ptr noundef %48, i8 noundef signext 47)
+  tail call void @wmem_strbuf_append(ptr noundef %48, ptr noundef nonnull @.str.155)
+  %49 = tail call ptr @wmem_strbuf_finalize(ptr noundef %48)
   br label %join_strings.exit
 
-join_strings.exit:                                ; preds = %proto_item_set_hidden.exit, %45
-  %.0.i = phi ptr [ %50, %45 ], [ null, %proto_item_set_hidden.exit ]
-  %51 = load ptr, ptr %36, align 8
-  tail call void @wmem_list_prepend(ptr noundef %51, ptr noundef %.0.i)
-  %52 = load ptr, ptr %36, align 8
-  tail call void @wmem_list_prepend(ptr noundef %52, ptr noundef nonnull @.str.155)
-  %53 = load ptr, ptr %43, align 8
-  %54 = tail call fastcc ptr @json_key_lookup(ptr noundef %5, ptr noundef %2, ptr noundef %38, ptr noundef %53, i1 noundef zeroext false)
-  %55 = load i8, ptr @json_compact, align 1, !range !6, !noundef !7
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %57, label %85
+join_strings.exit:                                ; preds = %proto_item_set_hidden.exit, %44
+  %.0.i = phi ptr [ %49, %44 ], [ null, %proto_item_set_hidden.exit ]
+  %50 = load ptr, ptr %35, align 8
+  tail call void @wmem_list_prepend(ptr noundef %50, ptr noundef %.0.i)
+  %51 = load ptr, ptr %35, align 8
+  tail call void @wmem_list_prepend(ptr noundef %51, ptr noundef nonnull @.str.155)
+  %52 = load ptr, ptr %42, align 8
+  %53 = tail call fastcc ptr @json_key_lookup(ptr noundef %5, ptr noundef %2, ptr noundef %37, ptr noundef %52, i1 noundef zeroext false)
+  %54 = load i8, ptr @json_compact, align 1, !range !6, !noundef !7
+  %55 = trunc nuw i8 %54 to i1
+  br i1 %55, label %56, label %84
 
-57:                                               ; preds = %join_strings.exit
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call ptr @wmem_stack_peek(ptr noundef %59)
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = tail call ptr @wmem_stack_peek(ptr noundef %62)
-  %64 = ptrtoint ptr %63 to i64
-  %65 = trunc i64 %64 to i32
-  %66 = icmp sgt i32 %65, -1
-  br i1 %66, label %67, label %82
+56:                                               ; preds = %join_strings.exit
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call ptr @wmem_stack_peek(ptr noundef %58)
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call ptr @wmem_stack_peek(ptr noundef %61)
+  %63 = ptrtoint ptr %62 to i64
+  %64 = trunc i64 %63 to i32
+  %65 = icmp sgt i32 %64, -1
+  br i1 %65, label %66, label %81
 
-67:                                               ; preds = %57
-  %68 = load i32, ptr @hf_json_array_compact, align 4
-  %69 = load ptr, ptr %7, align 8
-  %70 = load i32, ptr %9, align 8
-  %71 = load i32, ptr %11, align 4
-  %72 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %60, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef %71, ptr noundef nonnull @.str.156, i32 noundef %65)
-  %73 = load i32, ptr @ett_json_array_compact, align 4
-  %74 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %73)
-  %75 = load ptr, ptr %61, align 8
-  %76 = tail call ptr @wmem_stack_pop(ptr noundef %75)
-  %77 = ptrtoint ptr %76 to i64
-  %78 = load ptr, ptr %61, align 8
-  %79 = shl i64 %77, 32
-  %sext.i = add i64 %79, 4294967296
-  %80 = ashr exact i64 %sext.i, 32
-  %81 = inttoptr i64 %80 to ptr
-  tail call void @wmem_list_prepend(ptr noundef %78, ptr noundef %81)
-  br label %82
+66:                                               ; preds = %56
+  %67 = load i32, ptr @hf_json_array_compact, align 4
+  %68 = load ptr, ptr %7, align 8
+  %69 = load i32, ptr %9, align 8
+  %70 = load i32, ptr %11, align 4
+  %71 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %59, i32 noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef %70, ptr noundef nonnull @.str.156, i32 noundef %64)
+  %72 = load i32, ptr @ett_json_array_compact, align 4
+  %73 = tail call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %72)
+  %74 = load ptr, ptr %60, align 8
+  %75 = tail call ptr @wmem_stack_pop(ptr noundef %74)
+  %76 = ptrtoint ptr %75 to i64
+  %77 = load ptr, ptr %60, align 8
+  %78 = shl i64 %76, 32
+  %sext.i = add i64 %78, 4294967296
+  %79 = ashr exact i64 %sext.i, 32
+  %80 = inttoptr i64 %79 to ptr
+  tail call void @wmem_list_prepend(ptr noundef %77, ptr noundef %80)
+  br label %81
 
-82:                                               ; preds = %57, %67
-  %.056 = phi ptr [ %74, %67 ], [ %60, %57 ]
-  %83 = load ptr, ptr %58, align 8
-  tail call void @wmem_list_prepend(ptr noundef %83, ptr noundef %.056)
-  %84 = load ptr, ptr %61, align 8
-  tail call void @wmem_list_prepend(ptr noundef %84, ptr noundef null)
-  br label %85
+81:                                               ; preds = %56, %66
+  %.057 = phi ptr [ %73, %66 ], [ %59, %56 ]
+  %82 = load ptr, ptr %57, align 8
+  tail call void @wmem_list_prepend(ptr noundef %82, ptr noundef %.057)
+  %83 = load ptr, ptr %60, align 8
+  tail call void @wmem_list_prepend(ptr noundef %83, ptr noundef null)
+  br label %84
 
-85:                                               ; preds = %82, %join_strings.exit
-  %86 = load i8, ptr @json_raw, align 1, !range !6, !noundef !7
-  %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %88, label %115
+84:                                               ; preds = %81, %join_strings.exit
+  %85 = load i8, ptr @json_raw, align 1, !range !6, !noundef !7
+  %86 = trunc nuw i8 %85 to i1
+  br i1 %86, label %87, label %114
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %90 = load ptr, ptr %89, align 8
-  %91 = tail call ptr @wmem_stack_peek(ptr noundef %90)
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %93 = load ptr, ptr %92, align 8
-  %.not = icmp eq ptr %93, null
-  br i1 %.not, label %99, label %94
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %89 = load ptr, ptr %88, align 8
+  %90 = tail call ptr @wmem_stack_peek(ptr noundef %89)
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %92 = load ptr, ptr %91, align 8
+  %.not = icmp eq ptr %92, null
+  br i1 %.not, label %98, label %93
 
-94:                                               ; preds = %88
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp eq i32 %96, 4
-  br i1 %97, label %98, label %99
+93:                                               ; preds = %87
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %95 = load i32, ptr %94, align 8
+  %96 = icmp eq i32 %95, 4
+  br i1 %96, label %97, label %98
 
-98:                                               ; preds = %94
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %93, ptr noundef nonnull @.str.128)
-  br label %99
+97:                                               ; preds = %93
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %92, ptr noundef nonnull @.str.128)
+  br label %98
 
-99:                                               ; preds = %98, %94, %88
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %101 = load i32, ptr %100, align 8
-  %102 = icmp eq i32 %101, 5
-  br i1 %102, label %103, label %105
+98:                                               ; preds = %97, %93, %87
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %100 = load i32, ptr %99, align 8
+  %101 = icmp eq i32 %100, 5
+  br i1 %101, label %102, label %104
 
-103:                                              ; preds = %99
-  %104 = load ptr, ptr %92, align 8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %104, ptr noundef nonnull @.str.157)
-  br label %111
+102:                                              ; preds = %98
+  %103 = load ptr, ptr %91, align 8
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %103, ptr noundef nonnull @.str.157)
+  br label %110
 
-105:                                              ; preds = %99
-  %106 = load i32, ptr @hf_json_array_raw, align 4
-  %107 = load ptr, ptr %7, align 8
-  %108 = load i32, ptr %9, align 8
-  %109 = load i32, ptr %11, align 4
-  %110 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %91, i32 noundef %106, ptr noundef %107, i32 noundef %108, i32 noundef %109, ptr noundef nonnull @.str.140)
-  br label %111
+104:                                              ; preds = %98
+  %105 = load i32, ptr @hf_json_array_raw, align 4
+  %106 = load ptr, ptr %7, align 8
+  %107 = load i32, ptr %9, align 8
+  %108 = load i32, ptr %11, align 4
+  %109 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %90, i32 noundef %105, ptr noundef %106, i32 noundef %107, i32 noundef %108, ptr noundef nonnull @.str.140)
+  br label %110
 
-111:                                              ; preds = %105, %103
-  %.0 = phi ptr [ %104, %103 ], [ %110, %105 ]
-  %112 = load i32, ptr @ett_json_array_raw, align 4
-  %113 = tail call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %112)
-  %114 = load ptr, ptr %89, align 8
-  tail call void @wmem_list_prepend(ptr noundef %114, ptr noundef %113)
-  store ptr %.0, ptr %92, align 8
-  store i32 3, ptr %100, align 8
-  br label %115
+110:                                              ; preds = %104, %102
+  %.0 = phi ptr [ %103, %102 ], [ %109, %104 ]
+  %111 = load i32, ptr @ett_json_array_raw, align 4
+  %112 = tail call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %111)
+  %113 = load ptr, ptr %88, align 8
+  tail call void @wmem_list_prepend(ptr noundef %113, ptr noundef %112)
+  store ptr %.0, ptr %91, align 8
+  store i32 3, ptr %99, align 8
+  br label %114
 
-115:                                              ; preds = %111, %85
+114:                                              ; preds = %110, %84
   ret void
 }
 
@@ -1724,136 +1720,134 @@ define internal void @before_object(ptr noundef captures(none) %0, ptr readnone 
 16:                                               ; preds = %3
   %17 = load i8, ptr @json_compact, align 1, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %22, label %19
+  %19 = load i8, ptr @json_raw, align 1, !range !6
+  %20 = trunc nuw i8 %19 to i1
+  %or.cond = select i1 %18, i1 true, i1 %20
+  br i1 %or.cond, label %21, label %proto_item_set_hidden.exit
 
-19:                                               ; preds = %16
-  %20 = load i8, ptr @json_raw, align 1, !range !6, !noundef !7
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %proto_item_set_hidden.exit
-
-22:                                               ; preds = %19, %16
-  %23 = load ptr, ptr %0, align 8
-  %24 = tail call i32 @wmem_list_count(ptr noundef %23)
-  %25 = icmp ne i32 %24, 1
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %0, align 8
+  %23 = tail call i32 @wmem_list_count(ptr noundef %22)
+  %24 = icmp ne i32 %23, 1
   %.not.i = icmp eq ptr %13, null
-  %or.cond = select i1 %25, i1 true, i1 %.not.i
-  br i1 %or.cond, label %proto_item_set_hidden.exit, label %26
+  %or.cond45 = select i1 %24, i1 true, i1 %.not.i
+  br i1 %or.cond45, label %proto_item_set_hidden.exit, label %25
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %28 = load ptr, ptr %27, align 8
-  %.not5.i = icmp eq ptr %28, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %29
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %.not5.i = icmp eq ptr %27, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %28
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 28
-  %31 = load i32, ptr %30, align 4
-  %32 = or i32 %31, 1
-  store i32 %32, ptr %30, align 4
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 28
+  %30 = load i32, ptr %29, align 4
+  %31 = or i32 %30, 1
+  store i32 %31, ptr %29, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %29, %26, %22, %19, %3
-  %33 = load i32, ptr @ett_json_object, align 4
-  %34 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %33)
-  %35 = load ptr, ptr %0, align 8
-  tail call void @wmem_list_prepend(ptr noundef %35, ptr noundef %34)
-  %36 = load i8, ptr @json_compact, align 1, !range !6, !noundef !7
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %66
+proto_item_set_hidden.exit:                       ; preds = %28, %25, %16, %21, %3
+  %32 = load i32, ptr @ett_json_object, align 4
+  %33 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %32)
+  %34 = load ptr, ptr %0, align 8
+  tail call void @wmem_list_prepend(ptr noundef %34, ptr noundef %33)
+  %35 = load i8, ptr @json_compact, align 1, !range !6, !noundef !7
+  %36 = trunc nuw i8 %35 to i1
+  br i1 %36, label %37, label %65
 
-38:                                               ; preds = %proto_item_set_hidden.exit
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call ptr @wmem_stack_peek(ptr noundef %40)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call ptr @wmem_stack_peek(ptr noundef %43)
-  %45 = ptrtoint ptr %44 to i64
-  %46 = trunc i64 %45 to i32
-  %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %48, label %63
+37:                                               ; preds = %proto_item_set_hidden.exit
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call ptr @wmem_stack_peek(ptr noundef %39)
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call ptr @wmem_stack_peek(ptr noundef %42)
+  %44 = ptrtoint ptr %43 to i64
+  %45 = trunc i64 %44 to i32
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %47, label %62
 
-48:                                               ; preds = %38
-  %49 = load i32, ptr @hf_json_object_compact, align 4
-  %50 = load ptr, ptr %7, align 8
-  %51 = load i32, ptr %9, align 8
-  %52 = load i32, ptr %11, align 4
-  %53 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %41, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef nonnull @.str.156, i32 noundef %46)
-  %54 = load i32, ptr @ett_json_object_compact, align 4
-  %55 = tail call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54)
-  %56 = load ptr, ptr %42, align 8
-  %57 = tail call ptr @wmem_stack_pop(ptr noundef %56)
-  %58 = ptrtoint ptr %57 to i64
-  %59 = load ptr, ptr %42, align 8
-  %60 = shl i64 %58, 32
-  %sext.i = add i64 %60, 4294967296
-  %61 = ashr exact i64 %sext.i, 32
-  %62 = inttoptr i64 %61 to ptr
-  tail call void @wmem_list_prepend(ptr noundef %59, ptr noundef %62)
-  br label %63
+47:                                               ; preds = %37
+  %48 = load i32, ptr @hf_json_object_compact, align 4
+  %49 = load ptr, ptr %7, align 8
+  %50 = load i32, ptr %9, align 8
+  %51 = load i32, ptr %11, align 4
+  %52 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %40, i32 noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef %51, ptr noundef nonnull @.str.156, i32 noundef %45)
+  %53 = load i32, ptr @ett_json_object_compact, align 4
+  %54 = tail call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53)
+  %55 = load ptr, ptr %41, align 8
+  %56 = tail call ptr @wmem_stack_pop(ptr noundef %55)
+  %57 = ptrtoint ptr %56 to i64
+  %58 = load ptr, ptr %41, align 8
+  %59 = shl i64 %57, 32
+  %sext.i = add i64 %59, 4294967296
+  %60 = ashr exact i64 %sext.i, 32
+  %61 = inttoptr i64 %60 to ptr
+  tail call void @wmem_list_prepend(ptr noundef %58, ptr noundef %61)
+  br label %62
 
-63:                                               ; preds = %38, %48
-  %.041 = phi ptr [ %55, %48 ], [ %41, %38 ]
-  %64 = load ptr, ptr %39, align 8
-  tail call void @wmem_list_prepend(ptr noundef %64, ptr noundef %.041)
-  %65 = load ptr, ptr %42, align 8
-  tail call void @wmem_list_prepend(ptr noundef %65, ptr noundef nonnull inttoptr (i64 -1 to ptr))
-  br label %66
+62:                                               ; preds = %37, %47
+  %.042 = phi ptr [ %54, %47 ], [ %40, %37 ]
+  %63 = load ptr, ptr %38, align 8
+  tail call void @wmem_list_prepend(ptr noundef %63, ptr noundef %.042)
+  %64 = load ptr, ptr %41, align 8
+  tail call void @wmem_list_prepend(ptr noundef %64, ptr noundef nonnull inttoptr (i64 -1 to ptr))
+  br label %65
 
-66:                                               ; preds = %63, %proto_item_set_hidden.exit
-  %67 = load i8, ptr @json_raw, align 1, !range !6, !noundef !7
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %69, label %96
+65:                                               ; preds = %62, %proto_item_set_hidden.exit
+  %66 = load i8, ptr @json_raw, align 1, !range !6, !noundef !7
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %68, label %95
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %71 = load ptr, ptr %70, align 8
-  %72 = tail call ptr @wmem_stack_peek(ptr noundef %71)
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %74 = load ptr, ptr %73, align 8
-  %.not = icmp eq ptr %74, null
-  br i1 %.not, label %80, label %75
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call ptr @wmem_stack_peek(ptr noundef %70)
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %73 = load ptr, ptr %72, align 8
+  %.not = icmp eq ptr %73, null
+  br i1 %.not, label %79, label %74
 
-75:                                               ; preds = %69
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %77 = load i32, ptr %76, align 8
-  %78 = icmp eq i32 %77, 2
-  br i1 %78, label %79, label %80
+74:                                               ; preds = %68
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %76 = load i32, ptr %75, align 8
+  %77 = icmp eq i32 %76, 2
+  br i1 %77, label %78, label %79
 
-79:                                               ; preds = %75
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %74, ptr noundef nonnull @.str.128)
-  br label %80
+78:                                               ; preds = %74
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %73, ptr noundef nonnull @.str.128)
+  br label %79
 
-80:                                               ; preds = %79, %75, %69
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %82 = load i32, ptr %81, align 8
-  %83 = icmp eq i32 %82, 5
-  br i1 %83, label %84, label %86
+79:                                               ; preds = %78, %74, %68
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %81 = load i32, ptr %80, align 8
+  %82 = icmp eq i32 %81, 5
+  br i1 %82, label %83, label %85
 
-84:                                               ; preds = %80
-  %85 = load ptr, ptr %73, align 8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %85, ptr noundef nonnull @.str.161)
-  br label %92
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %72, align 8
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %84, ptr noundef nonnull @.str.161)
+  br label %91
 
-86:                                               ; preds = %80
-  %87 = load i32, ptr @hf_json_object_raw, align 4
-  %88 = load ptr, ptr %7, align 8
-  %89 = load i32, ptr %9, align 8
-  %90 = load i32, ptr %11, align 4
-  %91 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %72, i32 noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef %90, ptr noundef nonnull @.str.143)
-  br label %92
+85:                                               ; preds = %79
+  %86 = load i32, ptr @hf_json_object_raw, align 4
+  %87 = load ptr, ptr %7, align 8
+  %88 = load i32, ptr %9, align 8
+  %89 = load i32, ptr %11, align 4
+  %90 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %71, i32 noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef %89, ptr noundef nonnull @.str.143)
+  br label %91
 
-92:                                               ; preds = %86, %84
-  %.0 = phi ptr [ %85, %84 ], [ %91, %86 ]
-  %93 = load i32, ptr @ett_json_object_raw, align 4
-  %94 = tail call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %93)
-  %95 = load ptr, ptr %70, align 8
-  tail call void @wmem_list_prepend(ptr noundef %95, ptr noundef %94)
-  store ptr %.0, ptr %73, align 8
-  store i32 1, ptr %81, align 8
-  br label %96
+91:                                               ; preds = %85, %83
+  %.0 = phi ptr [ %84, %83 ], [ %90, %85 ]
+  %92 = load i32, ptr @ett_json_object_raw, align 4
+  %93 = tail call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %92)
+  %94 = load ptr, ptr %69, align 8
+  tail call void @wmem_list_prepend(ptr noundef %94, ptr noundef %93)
+  store ptr %.0, ptr %72, align 8
+  store i32 1, ptr %80, align 8
+  br label %95
 
-96:                                               ; preds = %92, %66
+95:                                               ; preds = %91, %65
   ret void
 }
 

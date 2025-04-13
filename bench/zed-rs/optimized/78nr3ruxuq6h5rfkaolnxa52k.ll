@@ -5411,10 +5411,6 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h7abc2bfea0bcbcacE"(p
   store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8
   br label %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17h145e4db53d71ed2aE.exit"
 
-"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17h145e4db53d71ed2aE.exit": ; preds = %31, %27, %23, %9, %10
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  ret void
-
 11:                                               ; preds = %9
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
           to label %23 unwind label %12
@@ -5463,6 +5459,10 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h7abc2bfea0bcbcacE"(p
 
 "_ZN4core3ptr153drop_in_place$LT$alloc..sync..Weak$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$$GT$17h875e9d9dbf660e24E.llvm.16577549240926232442.exit": ; preds = %21, %17, %12
   resume { ptr, i32 } %13
+
+"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17h145e4db53d71ed2aE.exit": ; preds = %31, %27, %23, %9, %10
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -30905,9 +30905,9 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9seco
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h270ecbfaa010d40dE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17h270ecbfaa010d40dE.exit": ; preds = %3, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h8ea7166cd7287589E.exit.i"
-  %.sroa.03.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h8ea7166cd7287589E.exit.i" ]
-  %21 = icmp eq ptr %.sroa.03.0.i, null
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i, i64 8
+  %.sroa.05.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h8ea7166cd7287589E.exit.i" ]
+  %21 = icmp eq ptr %.sroa.05.0.i, null
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 8
   %spec.select = select i1 %21, ptr null, ptr %22
   ret ptr %spec.select
 }

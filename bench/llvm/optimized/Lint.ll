@@ -3319,8 +3319,8 @@ _ZN4llvm6AMDGPU22isConstantAddressSpaceEj.exit:   ; preds = %_ZNK4llvm4Type22get
 124:                                              ; preds = %118
   %.not85 = icmp samesign ult i32 %5, 8
   %125 = icmp ugt i8 %40, 21
-  %or.cond148.not152 = or i1 %.not85, %125
-  %or.cond149 = or i1 %120, %or.cond148.not152
+  %or.cond148.not153 = or i1 %.not85, %125
+  %or.cond149 = or i1 %120, %or.cond148.not153
   br i1 %or.cond149, label %129, label %126
 
 126:                                              ; preds = %124
@@ -3423,7 +3423,7 @@ _ZN4llvm6AMDGPU22isConstantAddressSpaceEj.exit:   ; preds = %_ZNK4llvm4Type22get
 
 172:                                              ; preds = %133, %150, %169, %167, %160, %146
   %.sroa.0118.0 = phi i8 [ %166, %160 ], [ %171, %169 ], [ 0, %167 ], [ undef, %150 ], [ %.sroa.0118.0.extract.trunc120, %146 ], [ undef, %133 ]
-  %.sroa.7.0.not.not = phi i1 [ true, %160 ], [ true, %169 ], [ false, %167 ], [ false, %150 ], [ true, %146 ], [ false, %133 ]
+  %.sroa.7.0 = phi i1 [ true, %160 ], [ true, %169 ], [ false, %167 ], [ false, %150 ], [ true, %146 ], [ false, %133 ]
   %.173 = phi i64 [ %.3, %160 ], [ %.3, %169 ], [ %.3, %167 ], [ -1, %150 ], [ %.072, %146 ], [ -1, %133 ]
   %173 = load i64, ptr %25, align 8, !tbaa !252
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #20
@@ -3491,8 +3491,8 @@ _ZN4llvm6AMDGPU22isConstantAddressSpaceEj.exit:   ; preds = %_ZNK4llvm4Type22get
 196:                                              ; preds = %193, %189
   %.sroa.0140.0 = phi i8 [ %.sroa.0140.0.extract.trunc, %189 ], [ %195, %193 ]
   %.sroa.3.0 = phi i1 [ %.sroa.3.0.extract.trunc, %189 ], [ true, %193 ]
-  %brmerge.not = select i1 %.sroa.7.0.not.not, i1 %.sroa.3.0, i1 false
-  br i1 %brmerge.not, label %197, label %.critedge95
+  %or.cond150 = select i1 %.sroa.7.0, i1 %.sroa.3.0, i1 false
+  br i1 %or.cond150, label %197, label %.critedge95
 
 197:                                              ; preds = %196
   %198 = load i64, ptr %19, align 8, !tbaa !53
@@ -3504,8 +3504,8 @@ _ZN4llvm6AMDGPU22isConstantAddressSpaceEj.exit:   ; preds = %_ZNK4llvm4Type22get
   %204 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %203, i1 false)
   %205 = trunc nuw nsw i64 %204 to i8
   %206 = sub nsw i8 63, %205
-  %.not158 = icmp ugt i8 %.sroa.0140.0, %206
-  br i1 %.not158, label %207, label %.critedge95
+  %.not159 = icmp ugt i8 %.sroa.0140.0, %206
+  br i1 %.not159, label %207, label %.critedge95
 
 207:                                              ; preds = %197
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23) #20
@@ -3518,7 +3518,7 @@ _ZN4llvm6AMDGPU22isConstantAddressSpaceEj.exit:   ; preds = %_ZNK4llvm4Type22get
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #20
   br label %.critedge95
 
-.critedge95:                                      ; preds = %191, %196, %186, %207, %197, %129
+.critedge95:                                      ; preds = %191, %186, %207, %197, %196, %129
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #20
   br label %210
 
@@ -3661,9 +3661,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm4Type7isSizedEPNS_15Smal
 7:                                                ; preds = %2
   %trunc.i.i = trunc i32 %4 to i8
   %8 = icmp ult i8 %trunc.i.i, 6
-  br i1 %8, label %switch.hole_check, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit
+  %switch.shifted = lshr i8 47, %trunc.i.i
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %8, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit
 
-_ZNK4llvm4Type17isFloatingPointTyEv.exit:         ; preds = %switch.hole_check, %7
+_ZNK4llvm4Type17isFloatingPointTyEv.exit:         ; preds = %7
   %9 = and i32 %4, 253
   %spec.select.i = icmp eq i32 %9, 4
   %10 = and i32 %4, 251
@@ -3687,13 +3690,8 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit:         ; preds = %switch.hole_check, 
   %15 = tail call noundef zeroext i1 @_ZNK4llvm4Type18isSizedDerivedTypeEPNS_15SmallPtrSetImplIPS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #20
   br label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread
 
-switch.hole_check:                                ; preds = %7
-  %switch.shifted = lshr i8 47, %trunc.i.i
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit
-
-_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %switch.hole_check, %13, %2, %_ZNK4llvm4Type17isFloatingPointTyEv.exit, %14
-  %.0 = phi i1 [ %15, %14 ], [ true, %_ZNK4llvm4Type17isFloatingPointTyEv.exit ], [ true, %2 ], [ false, %13 ], [ true, %switch.hole_check ]
+_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %7, %13, %2, %_ZNK4llvm4Type17isFloatingPointTyEv.exit, %14
+  %.0 = phi i1 [ %15, %14 ], [ true, %_ZNK4llvm4Type17isFloatingPointTyEv.exit ], [ true, %2 ], [ false, %13 ], [ true, %7 ]
   ret i1 %.0
 }
 

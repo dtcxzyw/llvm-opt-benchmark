@@ -186,7 +186,11 @@ define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr noundef readonly c
 
 72:                                               ; preds = %52, %52
   %73 = icmp ult i32 %66, 10
-  br i1 %73, label %switch.hole_check, label %hwloc_cuda_cores_per_MP.exit.thread60
+  %switch.maskindex = trunc i32 %66 to i16
+  %switch.shifted = lshr i16 705, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond90 = select i1 %73, i1 %switch.lobit, i1 false
+  br i1 %or.cond90, label %switch.lookup87, label %hwloc_cuda_cores_per_MP.exit.thread60
 
 hwloc_cuda_cores_per_MP.exit.thread.fold.split:   ; preds = %68
   br label %hwloc_cuda_cores_per_MP.exit.thread
@@ -197,13 +201,7 @@ switch.lookup:                                    ; preds = %70
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
-switch.hole_check:                                ; preds = %72
-  %switch.maskindex = trunc nuw i32 %66 to i16
-  %switch.shifted = lshr i16 705, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup87, label %hwloc_cuda_cores_per_MP.exit.thread60
-
-switch.lookup87:                                  ; preds = %switch.hole_check
+switch.lookup87:                                  ; preds = %72
   %75 = zext nneg i32 %66 to i64
   %switch.gep88 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.hwloc_cuda_discover.3, i64 0, i64 %75
   %switch.load89 = load i32, ptr %switch.gep88, align 4
@@ -215,7 +213,7 @@ hwloc_cuda_cores_per_MP.exit.thread:              ; preds = %switch.lookup87, %s
   %77 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.14, ptr noundef nonnull %7) #8
   br label %hwloc_cuda_cores_per_MP.exit.thread60
 
-hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %switch.hole_check, %72, %70, %68, %67, %52, %hwloc_cuda_cores_per_MP.exit.thread
+hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %72, %70, %68, %67, %52, %hwloc_cuda_cores_per_MP.exit.thread
   %78 = load i64, ptr %23, align 8, !tbaa !37
   %79 = lshr i64 %78, 10
   %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.8, i64 noundef %79) #8

@@ -4664,21 +4664,19 @@ define internal noundef ptr @build_simple_avp(ptr noundef readonly captures(none
   %11 = load i32, ptr %10, align 8
   %switch.tableidx = add i32 %11, -4
   %12 = icmp ult i32 %switch.tableidx, 12
-  br i1 %12, label %switch.hole_check, label %13
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 2827, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %12, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %13
 
-13:                                               ; preds = %switch.hole_check, %9
+13:                                               ; preds = %9
   %14 = tail call ptr @ftype_name(i32 noundef %11)
   tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.117, ptr noundef %3, ptr noundef %14)
   br label %35
 
-switch.hole_check:                                ; preds = %9
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 2827, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %13
-
-switch.lookup:                                    ; preds = %switch.hole_check, %switch.lookup
-  %.0 = phi i32 [ %18, %switch.lookup ], [ 0, %switch.hole_check ]
+switch.lookup:                                    ; preds = %9, %switch.lookup
+  %.0 = phi i32 [ %18, %switch.lookup ], [ 0, %9 ]
   %15 = zext i32 %.0 to i64
   %16 = getelementptr %struct._value_string, ptr %4, i64 %15, i32 1
   %17 = load ptr, ptr %16, align 8

@@ -554,218 +554,214 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %.sroa.11.8.extract.shift = lshr i64 %.fr, 32
   %.sroa.11.8.extract.trunc = trunc nuw i64 %.sroa.11.8.extract.shift to i32
   %8 = tail call ptr @GetRelationPath(i32 noundef %.sroa.5.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.sroa.6.8.extract.trunc, i32 noundef %.sroa.11.8.extract.trunc, i32 noundef %2) #15
-  br i1 %3, label %14, label %9
+  %9 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4
+  %10 = trunc nuw i8 %9 to i1
+  %or.cond = select i1 %3, i1 true, i1 %10
+  %11 = icmp ne i32 %2, 0
+  %or.cond3 = or i1 %11, %or.cond
+  %12 = icmp ne i64 %.sroa.11.8.extract.shift, 4294967295
+  %or.cond6 = or i1 %12, %or.cond3
+  br i1 %or.cond6, label %13, label %43
 
-9:                                                ; preds = %4
-  %10 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
-  %11 = trunc nuw i8 %10 to i1
-  %12 = icmp ne i32 %2, 0
-  %or.cond = or i1 %12, %11
-  %13 = icmp ne i64 %.sroa.11.8.extract.shift, 4294967295
-  %or.cond4 = or i1 %13, %or.cond
-  br i1 %or.cond4, label %14, label %44
+13:                                               ; preds = %4
+  br i1 %12, label %.thread, label %14
 
-14:                                               ; preds = %9, %4
-  %.not = icmp eq i64 %.sroa.11.8.extract.shift, 4294967295
-  br i1 %.not, label %15, label %.thread
+14:                                               ; preds = %13
+  %15 = tail call i32 @pg_truncate(ptr noundef %8, i64 noundef 0) #15
+  %16 = icmp slt i32 %15, 0
+  %17 = tail call ptr @__errno_location() #16
+  %18 = load i32, ptr %17, align 4
+  br i1 %16, label %19, label %._crit_edge95
 
-15:                                               ; preds = %14
-  %16 = tail call i32 @pg_truncate(ptr noundef %8, i64 noundef 0) #15
-  %17 = icmp slt i32 %16, 0
-  %18 = tail call ptr @__errno_location() #16
-  %19 = load i32, ptr %18, align 4
-  br i1 %17, label %20, label %._crit_edge95
+19:                                               ; preds = %14
+  %.not.i = icmp eq i32 %18, 2
+  br i1 %.not.i, label %._crit_edge95, label %20
 
-20:                                               ; preds = %15
-  %.not.i = icmp eq i32 %19, 2
-  br i1 %.not.i, label %._crit_edge95, label %21
+20:                                               ; preds = %19
+  %21 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
+  br i1 %21, label %22, label %25
 
-21:                                               ; preds = %20
-  %22 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %22, label %23, label %26
-
-23:                                               ; preds = %21
-  %24 = tail call i32 @errcode_for_file_access() #15
-  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %8) #15
+22:                                               ; preds = %20
+  %23 = tail call i32 @errcode_for_file_access() #15
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %8) #15
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 328, ptr noundef nonnull @__func__.do_truncate) #15
-  br label %26
+  br label %25
 
-26:                                               ; preds = %23, %21
-  store i32 %19, ptr %18, align 4
+25:                                               ; preds = %22, %20
+  store i32 %18, ptr %17, align 4
   br label %._crit_edge95
 
-._crit_edge95:                                    ; preds = %15, %26, %20
-  %27 = phi i32 [ %19, %26 ], [ 2, %20 ], [ %19, %15 ]
+._crit_edge95:                                    ; preds = %14, %25, %19
+  %26 = phi i32 [ %18, %25 ], [ 2, %19 ], [ %18, %14 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i64 0, ptr %7, align 8
-  store i64 %0, ptr %28, align 4
+  store i64 %0, ptr %27, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %.sroa.6.8.extract.trunc, ptr %.sroa.2.0..sroa_idx.i, align 4
-  %29 = trunc i32 %2 to i16
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i16 %29, ptr %30, align 2
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 0, ptr %31, align 8
-  %32 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %7, i32 noundef 2, i1 noundef zeroext true) #15
+  %28 = trunc i32 %2 to i16
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i16 %28, ptr %29, align 2
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 0, ptr %30, align 8
+  %31 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %7, i32 noundef 2, i1 noundef zeroext true) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
-  store i32 %27, ptr %18, align 4
-  %33 = icmp slt i32 %16, 0
-  %.not76 = icmp eq i32 %27, 2
-  %or.cond106 = select i1 %33, i1 %.not76, i1 false
+  store i32 %26, ptr %17, align 4
+  %32 = icmp slt i32 %15, 0
+  %.not = icmp eq i32 %26, 2
+  %or.cond106 = select i1 %32, i1 %.not, i1 false
   br i1 %or.cond106, label %.thread90.thread, label %.thread
 
-.thread:                                          ; preds = %14, %._crit_edge95
-  %34 = call i32 @unlink(ptr noundef %8) #15
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %.thread92
+.thread:                                          ; preds = %13, %._crit_edge95
+  %33 = call i32 @unlink(ptr noundef %8) #15
+  %34 = icmp slt i32 %33, 0
+  br i1 %34, label %35, label %.thread92
 
-36:                                               ; preds = %.thread
-  %37 = tail call ptr @__errno_location() #16
-  %38 = load i32, ptr %37, align 4
-  %.not77 = icmp eq i32 %38, 2
-  br i1 %.not77, label %.thread90.thread, label %39
+35:                                               ; preds = %.thread
+  %36 = tail call ptr @__errno_location() #16
+  %37 = load i32, ptr %36, align 4
+  %.not78 = icmp eq i32 %37, 2
+  br i1 %.not78, label %.thread90.thread, label %38
 
-39:                                               ; preds = %36
-  %40 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %40, label %41, label %.thread90.thread101
+38:                                               ; preds = %35
+  %39 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
+  br i1 %39, label %40, label %.thread90.thread101
 
-41:                                               ; preds = %39
-  %42 = call i32 @errcode_for_file_access() #15
-  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %8) #15
+40:                                               ; preds = %38
+  %41 = call i32 @errcode_for_file_access() #15
+  %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %8) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 373, ptr noundef nonnull @__func__.mdunlinkfork) #15
   br label %.thread90.thread101
 
-.thread90.thread101:                              ; preds = %39, %41
-  store i32 %38, ptr %37, align 4
+.thread90.thread101:                              ; preds = %38, %40
+  store i32 %37, ptr %36, align 4
   br label %.thread92
 
-44:                                               ; preds = %9
-  %45 = tail call i32 @pg_truncate(ptr noundef %8, i64 noundef 0) #15
-  %46 = icmp slt i32 %45, 0
-  %47 = tail call ptr @__errno_location() #16
-  br i1 %46, label %48, label %._crit_edge
+43:                                               ; preds = %4
+  %44 = tail call i32 @pg_truncate(ptr noundef %8, i64 noundef 0) #15
+  %45 = icmp slt i32 %44, 0
+  %46 = tail call ptr @__errno_location() #16
+  br i1 %45, label %47, label %._crit_edge
 
-48:                                               ; preds = %44
-  %49 = load i32, ptr %47, align 4
-  %.not.i81 = icmp eq i32 %49, 2
-  br i1 %.not.i81, label %._crit_edge, label %50
+47:                                               ; preds = %43
+  %48 = load i32, ptr %46, align 4
+  %.not.i81 = icmp eq i32 %48, 2
+  br i1 %.not.i81, label %._crit_edge, label %49
 
-50:                                               ; preds = %48
-  %51 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %51, label %52, label %55
+49:                                               ; preds = %47
+  %50 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
+  br i1 %50, label %51, label %54
 
-52:                                               ; preds = %50
-  %53 = tail call i32 @errcode_for_file_access() #15
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %8) #15
+51:                                               ; preds = %49
+  %52 = tail call i32 @errcode_for_file_access() #15
+  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %8) #15
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 328, ptr noundef nonnull @__func__.do_truncate) #15
-  br label %55
+  br label %54
 
-55:                                               ; preds = %52, %50
-  store i32 %49, ptr %47, align 4
+54:                                               ; preds = %51, %49
+  store i32 %48, ptr %46, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %44, %55, %48
-  %56 = load i32, ptr %47, align 4
+._crit_edge:                                      ; preds = %43, %54, %47
+  %55 = load i32, ptr %46, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i64 0, ptr %6, align 8
-  store i64 %0, ptr %57, align 4
+  store i64 %0, ptr %56, align 4
   %.sroa.2.0..sroa_idx.i83 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %.sroa.6.8.extract.trunc, ptr %.sroa.2.0..sroa_idx.i83, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %58, align 8
-  %59 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true) #15
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 0, ptr %57, align 8
+  %58 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
-  store i32 %56, ptr %47, align 4
-  %60 = icmp slt i32 %45, 0
-  %.not78 = icmp eq i32 %56, 2
-  %or.cond107 = select i1 %60, i1 %.not78, i1 false
+  store i32 %55, ptr %46, align 4
+  %59 = icmp slt i32 %44, 0
+  %.not79 = icmp eq i32 %55, 2
+  %or.cond107 = select i1 %59, i1 %.not79, i1 false
   br i1 %or.cond107, label %.thread90.thread, label %.thread92
 
 .thread92:                                        ; preds = %.thread90.thread101, %.thread, %._crit_edge
-  %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #18
-  %62 = add i64 %61, 12
-  %63 = call ptr @palloc(i64 noundef %62) #15
-  %.not79 = icmp eq i64 %.sroa.11.8.extract.shift, 4294967295
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #18
+  %61 = add i64 %60, 12
+  %62 = call ptr @palloc(i64 noundef %61) #15
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.2.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %65 = trunc i32 %2 to i16
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %.not79, label %.thread92.split.us, label %.thread92.split
+  %64 = trunc i32 %2 to i16
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  br i1 %12, label %.thread92.split.us, label %.thread92.split
 
-.thread92.split.us:                               ; preds = %.thread92, %do_truncate.exit86.us
-  %.0.us = phi i32 [ %84, %do_truncate.exit86.us ], [ 1, %.thread92 ]
-  %68 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %63, ptr noundef nonnull @.str.19, ptr noundef nonnull %8, i32 noundef %.0.us) #15
-  %69 = call i32 @pg_truncate(ptr noundef %63, i64 noundef 0) #15
-  %70 = icmp slt i32 %69, 0
-  br i1 %70, label %71, label %do_truncate.exit86.us
+.thread92.split.us:                               ; preds = %.thread92, %.thread92.split.us
+  %.0.us = phi i32 [ %70, %.thread92.split.us ], [ 1, %.thread92 ]
+  %67 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %62, ptr noundef nonnull @.str.19, ptr noundef nonnull %8, i32 noundef %.0.us) #15
+  %68 = call i32 @unlink(ptr noundef %62) #15
+  %69 = icmp slt i32 %68, 0
+  %70 = add i32 %.0.us, 1
+  br i1 %69, label %.split.us, label %.thread92.split.us
 
-71:                                               ; preds = %.thread92.split.us
-  %72 = tail call ptr @__errno_location() #16
-  %73 = load i32, ptr %72, align 4
-  %.not.i85.us = icmp eq i32 %73, 2
-  br i1 %.not.i85.us, label %.loopexit, label %74
+.thread92.split:                                  ; preds = %.thread92, %do_truncate.exit86
+  %.0 = phi i32 [ %87, %do_truncate.exit86 ], [ 1, %.thread92 ]
+  %71 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %62, ptr noundef nonnull @.str.19, ptr noundef nonnull %8, i32 noundef %.0) #15
+  %72 = call i32 @pg_truncate(ptr noundef %62, i64 noundef 0) #15
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %74, label %do_truncate.exit86
 
-74:                                               ; preds = %71
-  %75 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %75, label %76, label %79
+74:                                               ; preds = %.thread92.split
+  %75 = tail call ptr @__errno_location() #16
+  %76 = load i32, ptr %75, align 4
+  %.not.i85 = icmp eq i32 %76, 2
+  br i1 %.not.i85, label %.loopexit, label %77
 
-76:                                               ; preds = %74
-  %77 = call i32 @errcode_for_file_access() #15
-  %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %63) #15
+77:                                               ; preds = %74
+  %78 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
+  br i1 %78, label %79, label %82
+
+79:                                               ; preds = %77
+  %80 = call i32 @errcode_for_file_access() #15
+  %81 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %62) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 328, ptr noundef nonnull @__func__.do_truncate) #15
-  br label %79
+  br label %82
 
-79:                                               ; preds = %74, %76
-  store i32 %73, ptr %72, align 4
-  br label %do_truncate.exit86.us
+82:                                               ; preds = %77, %79
+  store i32 %76, ptr %75, align 4
+  br label %do_truncate.exit86
 
-do_truncate.exit86.us:                            ; preds = %79, %.thread92.split.us
+do_truncate.exit86:                               ; preds = %82, %.thread92.split
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
   store i64 0, ptr %5, align 8
-  store i64 %0, ptr %64, align 4
+  store i64 %0, ptr %63, align 4
   store i32 %.sroa.6.8.extract.trunc, ptr %.sroa.2.0..sroa_idx.i87, align 4
-  store i16 %65, ptr %66, align 2
-  %80 = zext i32 %.0.us to i64
-  store i64 %80, ptr %67, align 8
-  %81 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %5, i32 noundef 2, i1 noundef zeroext true) #15
+  store i16 %64, ptr %65, align 2
+  %83 = zext i32 %.0 to i64
+  store i64 %83, ptr %66, align 8
+  %84 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %5, i32 noundef 2, i1 noundef zeroext true) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
-  %82 = call i32 @unlink(ptr noundef %63) #15
-  %83 = icmp slt i32 %82, 0
-  %84 = add i32 %.0.us, 1
-  br i1 %83, label %.split.us, label %.thread92.split.us
+  %85 = call i32 @unlink(ptr noundef %62) #15
+  %86 = icmp slt i32 %85, 0
+  %87 = add i32 %.0, 1
+  br i1 %86, label %.split.us, label %.thread92.split
 
-.thread92.split:                                  ; preds = %.thread92, %.thread92.split
-  %.0 = phi i32 [ %88, %.thread92.split ], [ 1, %.thread92 ]
-  %85 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %63, ptr noundef nonnull @.str.19, ptr noundef nonnull %8, i32 noundef %.0) #15
-  %86 = call i32 @unlink(ptr noundef %63) #15
-  %87 = icmp slt i32 %86, 0
-  %88 = add i32 %.0, 1
-  br i1 %87, label %.split.us, label %.thread92.split
+.split.us:                                        ; preds = %do_truncate.exit86, %.thread92.split.us
+  %88 = tail call ptr @__errno_location() #16
+  %89 = load i32, ptr %88, align 4
+  %.not80 = icmp eq i32 %89, 2
+  br i1 %.not80, label %.loopexit, label %90
 
-.split.us:                                        ; preds = %.thread92.split, %do_truncate.exit86.us
-  %89 = tail call ptr @__errno_location() #16
-  %90 = load i32, ptr %89, align 4
-  %.not80 = icmp eq i32 %90, 2
-  br i1 %.not80, label %.loopexit, label %91
+90:                                               ; preds = %.split.us
+  %91 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
+  br i1 %91, label %92, label %.loopexit
 
-91:                                               ; preds = %.split.us
-  %92 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %92, label %93, label %.loopexit
-
-93:                                               ; preds = %91
-  %94 = call i32 @errcode_for_file_access() #15
-  %95 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %63) #15
+92:                                               ; preds = %90
+  %93 = call i32 @errcode_for_file_access() #15
+  %94 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %62) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 432, ptr noundef nonnull @__func__.mdunlinkfork) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %71, %.split.us, %93, %91
-  call void @pfree(ptr noundef %63) #15
+.loopexit:                                        ; preds = %74, %.split.us, %92, %90
+  call void @pfree(ptr noundef %62) #15
   br label %.thread90.thread
 
-.thread90.thread:                                 ; preds = %._crit_edge, %._crit_edge95, %36, %.loopexit
+.thread90.thread:                                 ; preds = %._crit_edge, %._crit_edge95, %35, %.loopexit
   call void @pfree(ptr noundef %8) #15
   ret void
 }
@@ -1291,8 +1287,8 @@ define dso_local range(i32 1, 131073) i32 @mdmaxcombine(ptr noundef readnone cap
 ; Function Attrs: nounwind uwtable
 define dso_local void @mdreadv(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [32 x %struct.iovec], align 16
-  %.not84 = icmp eq i32 %4, 0
-  br i1 %.not84, label %._crit_edge91, label %7
+  %.not85 = icmp eq i32 %4, 0
+  br i1 %.not85, label %._crit_edge91, label %7
 
 7:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #15
@@ -1301,8 +1297,8 @@ define dso_local void @mdreadv(ptr noundef captures(none) %0, i32 noundef %1, i3
   %10 = sub nuw nsw i32 131072, %9
   %11 = tail call i32 @llvm.umin.i32(i32 %4, i32 %10)
   %12 = tail call i32 @llvm.umin.i32(i32 %11, i32 32)
-  %.not59 = icmp eq i32 %12, %4
-  br i1 %.not59, label %16, label %13
+  %.not60 = icmp eq i32 %12, %4
+  br i1 %.not60, label %16, label %13
 
 13:                                               ; preds = %7
   %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -1369,7 +1365,7 @@ buffers_to_iovec.exit:                            ; preds = %35, %16
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %buffers_to_iovec.exit._crit_edge, label %.lr.ph
 
-buffers_to_iovec.exit._crit_edge:                 ; preds = %78, %buffers_to_iovec.exit
+buffers_to_iovec.exit._crit_edge:                 ; preds = %77, %buffers_to_iovec.exit
   %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   call void @llvm.assume(i1 %43)
   %44 = call i32 @errcode_for_file_access() #15
@@ -1381,73 +1377,71 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %78, %buffers_to_iov
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 882, ptr noundef nonnull @__func__.mdreadv) #15
   unreachable
 
-.lr.ph:                                           ; preds = %buffers_to_iovec.exit, %78
-  %50 = phi i32 [ %83, %78 ], [ %41, %buffers_to_iovec.exit ]
-  %51 = phi i64 [ %82, %78 ], [ %40, %buffers_to_iovec.exit ]
-  %.05175 = phi i64 [ %76, %78 ], [ 0, %buffers_to_iovec.exit ]
-  %.05474 = phi i64 [ %79, %78 ], [ %19, %buffers_to_iovec.exit ]
-  %.05573 = phi i32 [ %80, %78 ], [ %.023.lcssa.i, %buffers_to_iovec.exit ]
+.lr.ph:                                           ; preds = %buffers_to_iovec.exit, %77
+  %50 = phi i32 [ %82, %77 ], [ %41, %buffers_to_iovec.exit ]
+  %51 = phi i64 [ %81, %77 ], [ %40, %buffers_to_iovec.exit ]
+  %.05276 = phi i64 [ %75, %77 ], [ 0, %buffers_to_iovec.exit ]
+  %.05575 = phi i64 [ %78, %77 ], [ %19, %buffers_to_iovec.exit ]
+  %.05674 = phi i32 [ %79, %77 ], [ %.023.lcssa.i, %buffers_to_iovec.exit ]
   %52 = icmp eq i32 %50, 0
-  br i1 %52, label %53, label %74
+  br i1 %52, label %53, label %73
 
 53:                                               ; preds = %.lr.ph
   %54 = load i8, ptr @zero_damaged_pages, align 1, !range !4, !noundef !5
   %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %59, label %56
+  %56 = load i8, ptr @InRecovery, align 1, !range !4
+  %57 = trunc nuw i8 %56 to i1
+  %or.cond = select i1 %55, i1 true, i1 %57
+  br i1 %or.cond, label %58, label %65
 
-56:                                               ; preds = %53
-  %57 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %59, label %66
+58:                                               ; preds = %53
+  %59 = lshr i64 %.05276, 13
+  %60 = trunc i64 %59 to i32
+  %61 = icmp ugt i32 %4, %60
+  br i1 %61, label %.lr.ph84.preheader, label %._crit_edge91.loopexit
 
-59:                                               ; preds = %56, %53
-  %60 = lshr i64 %.05175, 13
-  %61 = trunc i64 %60 to i32
-  %62 = icmp ugt i32 %4, %61
-  br i1 %62, label %.lr.ph83.preheader, label %._crit_edge91.loopexit
-
-.lr.ph83.preheader:                               ; preds = %59
-  %63 = and i64 %60, 4294967295
+.lr.ph84.preheader:                               ; preds = %58
+  %62 = and i64 %59, 4294967295
   %wide.trip.count = zext i32 %4 to i64
-  br label %.lr.ph83
+  br label %.lr.ph84
 
-.lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
-  %indvars.iv = phi i64 [ %63, %.lr.ph83.preheader ], [ %indvars.iv.next, %.lr.ph83 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %65 = load ptr, ptr %64, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %65, i8 0, i64 8192, i1 false)
+.lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
+  %indvars.iv = phi i64 [ %62, %.lr.ph84.preheader ], [ %indvars.iv.next, %.lr.ph84 ]
+  %63 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %64 = load ptr, ptr %63, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %64, i8 0, i64 8192, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge91.loopexit, label %.lr.ph83, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge91.loopexit, label %.lr.ph84, !llvm.loop !12
 
-66:                                               ; preds = %56
-  %67 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %67)
-  %68 = call i32 @errcode(i32 noundef 16779816) #15
-  %69 = add i32 %2, -1
-  %70 = add i32 %69, %4
-  %71 = load i32, ptr %8, align 4
-  %72 = call ptr @FilePathName(i32 noundef %71) #15
-  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %2, i32 noundef %70, ptr noundef %72, i64 noundef %.05175, i64 noundef %38) #15
+65:                                               ; preds = %53
+  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  call void @llvm.assume(i1 %66)
+  %67 = call i32 @errcode(i32 noundef 16779816) #15
+  %68 = add i32 %2, -1
+  %69 = add i32 %68, %4
+  %70 = load i32, ptr %8, align 4
+  %71 = call ptr @FilePathName(i32 noundef %70) #15
+  %72 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %2, i32 noundef %69, ptr noundef %71, i64 noundef %.05276, i64 noundef %38) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 910, ptr noundef nonnull @__func__.mdreadv) #15
   unreachable
 
-74:                                               ; preds = %.lr.ph
-  %75 = and i64 %51, 2147483647
-  %76 = add i64 %75, %.05175
-  %77 = icmp eq i64 %76, %38
-  br i1 %77, label %._crit_edge91.loopexit, label %78
+73:                                               ; preds = %.lr.ph
+  %74 = and i64 %51, 2147483647
+  %75 = add i64 %74, %.05276
+  %76 = icmp eq i64 %75, %38
+  br i1 %76, label %._crit_edge91.loopexit, label %77
 
-78:                                               ; preds = %74
-  %79 = add i64 %75, %.05474
-  %80 = call i32 @compute_remaining_iovec(ptr noundef nonnull %6, ptr noundef nonnull %6, i32 noundef %.05573, i64 noundef %75) #15
-  %81 = load i32, ptr %8, align 4
-  %82 = call i64 @FileReadV(i32 noundef %81, ptr noundef nonnull %6, i32 noundef %80, i64 noundef %79, i32 noundef 167772177) #15
-  %83 = trunc i64 %82 to i32
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %buffers_to_iovec.exit._crit_edge, label %.lr.ph
+77:                                               ; preds = %73
+  %78 = add i64 %74, %.05575
+  %79 = call i32 @compute_remaining_iovec(ptr noundef nonnull %6, ptr noundef nonnull %6, i32 noundef %.05674, i64 noundef %74) #15
+  %80 = load i32, ptr %8, align 4
+  %81 = call i64 @FileReadV(i32 noundef %80, ptr noundef nonnull %6, i32 noundef %79, i64 noundef %78, i32 noundef 167772177) #15
+  %82 = trunc i64 %81 to i32
+  %83 = icmp slt i32 %82, 0
+  br i1 %83, label %buffers_to_iovec.exit._crit_edge, label %.lr.ph
 
-._crit_edge91.loopexit:                           ; preds = %74, %.lr.ph83, %59
+._crit_edge91.loopexit:                           ; preds = %73, %.lr.ph84, %58
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #15
   br label %._crit_edge91
 

@@ -299,9 +299,9 @@ define void @pq_reset_sigpipe(ptr noundef %0, i1 noundef zeroext %1, i1 noundef 
   %8 = load i32, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #9
-  %.not3 = xor i1 %2, true
-  %brmerge = or i1 %1, %.not3
-  br i1 %brmerge, label %18, label %9
+  %.not = xor i1 %2, true
+  %or.cond = or i1 %1, %.not
+  br i1 %or.cond, label %18, label %9
 
 9:                                                ; preds = %3
   %10 = call i32 @sigpending(ptr noundef nonnull %5) #9
@@ -310,8 +310,8 @@ define void @pq_reset_sigpipe(ptr noundef %0, i1 noundef zeroext %1, i1 noundef 
 
 12:                                               ; preds = %9
   %13 = call i32 @sigismember(ptr noundef nonnull %5, i32 noundef 13) #9
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %18, label %14
+  %.not4 = icmp eq i32 %13, 0
+  br i1 %.not4, label %18, label %14
 
 14:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #9
@@ -321,7 +321,7 @@ define void @pq_reset_sigpipe(ptr noundef %0, i1 noundef zeroext %1, i1 noundef 
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #9
   br label %18
 
-18:                                               ; preds = %3, %9, %12, %14
+18:                                               ; preds = %9, %12, %14, %3
   %19 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef %0, ptr noundef null) #9
   store i32 %8, ptr %7, align 4
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9

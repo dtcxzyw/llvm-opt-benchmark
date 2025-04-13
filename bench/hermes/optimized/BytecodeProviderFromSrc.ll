@@ -1043,8 +1043,8 @@ _ZN6hermes18SourceErrorManager16setWarningStatusENS_7WarningEb.exit: ; preds = %
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %runOptimizationPasses, i64 16
   %24 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i65 = icmp eq ptr %24, null
-  %or.cond.not = select i1 %tobool31, i1 %tobool.not.i.i65, i1 false
-  br i1 %or.cond.not, label %if.then33, label %if.end35
+  %or.cond319.not = select i1 %tobool31, i1 %tobool.not.i.i65, i1 false
+  br i1 %or.cond319.not, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %_ZN6hermes18SourceErrorManager16setWarningStatusENS_7WarningEb.exit
   %lazyCompilation_.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 186
@@ -1182,7 +1182,7 @@ if.end50:                                         ; preds = %_ZNSt10unique_ptrIN
   %size_.i = getelementptr inbounds nuw i8, ptr %43, i64 16
   %44 = load i64, ptr %size_.i, align 8
   %conv = zext i32 %42 to i64
-  %cmp.not = icmp uge i64 %44, %conv
+  %cmp = icmp uge i64 %44, %conv
   %45 = load ptr, ptr %sm_.i63, align 8
   %call.i = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15, !noalias !22
   %46 = ptrtoint ptr %43 to i64
@@ -1507,8 +1507,8 @@ if.end69:                                         ; preds = %if.end8.sink.split.
   %lazyCompilation_.i143 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 186
   %91 = load i8, ptr %lazyCompilation_.i143, align 2
   %tobool.i144 = trunc i8 %91 to i1
-  %brmerge.not = and i1 %cmp.not, %tobool.i144
-  br i1 %brmerge.not, label %if.then74, label %if.end81
+  %or.cond = and i1 %cmp, %tobool.i144
+  br i1 %or.cond, label %if.then74, label %if.end81
 
 if.then74:                                        ; preds = %if.end69
   %call76 = call noundef zeroext i1 @_ZN6hermes6parser8JSParser14preParseBufferERNS_7ContextEjRb(ptr noundef nonnull align 8 dereferenceable(656) %_M_impl.i.i.i.i.i.i, i32 noundef %call59, ptr noundef nonnull align 1 dereferenceable(1) %useStaticBuiltinDetected) #13
@@ -1609,7 +1609,7 @@ cleanup.action.i151:                              ; preds = %if.then89
   br label %cleanup147
 
 if.end92:                                         ; preds = %lor.lhs.false
-  br i1 %brmerge.not, label %if.end97, label %if.then94
+  br i1 %or.cond, label %if.end97, label %if.then94
 
 if.then94:                                        ; preds = %if.end92
   %call95 = call noundef zeroext i1 @_ZNK6hermes6parser8JSParser19getUseStaticBuiltinEv(ptr noundef nonnull align 8 dereferenceable(8) %parser) #13
@@ -1766,8 +1766,8 @@ _ZNKSt8functionIFvRN6hermes6ModuleEEEclES2_.exit: ; preds = %if.end114
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %runOptimizationPasses, i64 24
   %114 = load ptr, ptr %_M_invoker.i, align 8
   call void %114(ptr noundef nonnull align 8 dereferenceable(32) %runOptimizationPasses, ptr noundef nonnull align 8 dereferenceable(1033) %M) #13
-  %.pre319 = load ptr, ptr %_M_manager.i.i, align 8
-  %115 = icmp ne ptr %.pre319, null
+  %.pre320 = load ptr, ptr %_M_manager.i.i, align 8
+  %115 = icmp ne ptr %.pre320, null
   %116 = zext i1 %115 to i8
   br label %if.end117
 
@@ -1918,11 +1918,11 @@ _ZNSt10unique_ptrIN6hermes3hbc17BCProviderFromSrcESt14default_deleteIS2_EED2Ev.e
 
 cleanup:                                          ; preds = %_ZNSt10unique_ptrIN6hermes3hbc17BCProviderFromSrcESt14default_deleteIS2_EED2Ev.exit, %"_ZZN6hermes3hbc17BCProviderFromSrc27createBCProviderFromSrcImplB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefES2_INS_9SourceMapES4_IS9_EERKNS0_12CompileFlagsERKNS_10ScopeChainEPFvRKNS7_12SMDiagnosticEPvESL_RKSt8functionIFvRNS_6ModuleEEEENK3$_0clB5cxx11Ev.exit223"
   %storemerge = phi ptr [ null, %"_ZZN6hermes3hbc17BCProviderFromSrc27createBCProviderFromSrcImplB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefES2_INS_9SourceMapES4_IS9_EERKNS0_12CompileFlagsERKNS_10ScopeChainEPFvRKNS7_12SMDiagnosticEPvESL_RKSt8functionIFvRNS_6ModuleEEEENK3$_0clB5cxx11Ev.exit223" ], [ %call.i225, %_ZNSt10unique_ptrIN6hermes3hbc17BCProviderFromSrcESt14default_deleteIS2_EED2Ev.exit ]
-  %ref.tmp145.sink320 = phi ptr [ %ref.tmp138, %"_ZZN6hermes3hbc17BCProviderFromSrc27createBCProviderFromSrcImplB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefES2_INS_9SourceMapES4_IS9_EERKNS0_12CompileFlagsERKNS_10ScopeChainEPFvRKNS7_12SMDiagnosticEPvESL_RKSt8functionIFvRNS_6ModuleEEEENK3$_0clB5cxx11Ev.exit223" ], [ %ref.tmp145, %_ZNSt10unique_ptrIN6hermes3hbc17BCProviderFromSrcESt14default_deleteIS2_EED2Ev.exit ]
+  %ref.tmp145.sink321 = phi ptr [ %ref.tmp138, %"_ZZN6hermes3hbc17BCProviderFromSrc27createBCProviderFromSrcImplB5cxx11ESt10unique_ptrINS_6BufferESt14default_deleteIS3_EEN4llvh9StringRefES2_INS_9SourceMapES4_IS9_EERKNS0_12CompileFlagsERKNS_10ScopeChainEPFvRKNS7_12SMDiagnosticEPvESL_RKSt8functionIFvRNS_6ModuleEEEENK3$_0clB5cxx11Ev.exit223" ], [ %ref.tmp145, %_ZNSt10unique_ptrIN6hermes3hbc17BCProviderFromSrcESt14default_deleteIS2_EED2Ev.exit ]
   store ptr %storemerge, ptr %agg.result, align 8
   %second.i229 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i229, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp145.sink320) #13
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp145.sink320) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i229, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp145.sink321) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp145.sink321) #13
   %136 = load ptr, ptr %BM, align 8
   %cmp.not.i233 = icmp eq ptr %136, null
   br i1 %cmp.not.i233, label %_ZNSt10unique_ptrIN6hermes3hbc14BytecodeModuleESt14default_deleteIS2_EED2Ev.exit236, label %_ZNKSt14default_deleteIN6hermes3hbc14BytecodeModuleEEclEPS2_.exit.i234
@@ -4390,23 +4390,23 @@ land.lhs.true:                                    ; preds = %entry
 
 for.cond.preheader:                               ; preds = %land.lhs.true
   %storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %storage.i.i46 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
+  %storage.i.i45 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i, i64 %indvars.iv
-  %arrayidx20 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i46, i64 %indvars.iv
+  %arrayidx20 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i45, i64 %indvars.iv
   %agg.tmp28.sroa.0.0.copyload = load ptr, ptr %arrayidx20, align 8
   %agg.tmp28.sroa.0.0.copyload.fr = freeze ptr %agg.tmp28.sroa.0.0.copyload
-  %cmp7.i65 = icmp eq ptr %agg.tmp28.sroa.0.0.copyload.fr, inttoptr (i64 -1 to ptr)
-  br i1 %cmp7.i65, label %if.end.thread, label %land.end38
+  %cmp7.i64 = icmp eq ptr %agg.tmp28.sroa.0.0.copyload.fr, inttoptr (i64 -1 to ptr)
+  br i1 %cmp7.i64, label %if.end.thread, label %land.end38
 
 land.end38:                                       ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %arrayidx, align 8
-  %cmp18.i75.not = icmp eq ptr %agg.tmp28.sroa.0.0.copyload.fr, inttoptr (i64 -2 to ptr)
+  %cmp18.i74.not = icmp eq ptr %agg.tmp28.sroa.0.0.copyload.fr, inttoptr (i64 -2 to ptr)
   %switch = icmp ugt ptr %agg.tmp.sroa.0.0.copyload, inttoptr (i64 -3 to ptr)
-  %or.cond = select i1 %cmp18.i75.not, i1 true, i1 %switch
+  %or.cond = select i1 %cmp18.i74.not, i1 true, i1 %switch
   br i1 %or.cond, label %if.end, label %if.then43
 
 if.then43:                                        ; preds = %land.end38
@@ -4442,12 +4442,12 @@ land.lhs.true62:                                  ; preds = %entry
   br i1 %tobool65.not, label %if.then66, label %if.end73
 
 if.then66:                                        ; preds = %land.lhs.true62
-  %storage.i.i86 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %storage.i.i87 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
-  %2 = load ptr, ptr %storage.i.i86, align 8
-  %3 = load ptr, ptr %storage.i.i87, align 8
-  store ptr %3, ptr %storage.i.i86, align 8
-  store ptr %2, ptr %storage.i.i87, align 8
+  %storage.i.i85 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %storage.i.i86 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
+  %2 = load ptr, ptr %storage.i.i85, align 8
+  %3 = load ptr, ptr %storage.i.i86, align 8
+  store ptr %3, ptr %storage.i.i85, align 8
+  store ptr %2, ptr %storage.i.i86, align 8
   %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   %NumBuckets72 = getelementptr inbounds nuw i8, ptr %RHS, i64 16
   %4 = load i32, ptr %NumBuckets, align 8
@@ -4460,27 +4460,27 @@ if.end73:                                         ; preds = %land.lhs.true, %lan
   %bf.load86 = phi i32 [ %bf.load63, %land.lhs.true ], [ %bf.load12, %land.lhs.true62 ]
   %cond-lvalue83 = phi ptr [ %RHS, %land.lhs.true ], [ %this, %land.lhs.true62 ]
   %cond-lvalue = phi ptr [ %this, %land.lhs.true ], [ %RHS, %land.lhs.true62 ]
-  %storage.i.i90 = getelementptr inbounds nuw i8, ptr %cond-lvalue83, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %TmpRep, ptr noundef nonnull align 8 dereferenceable(16) %storage.i.i90, i64 16, i1 false)
+  %storage.i.i89 = getelementptr inbounds nuw i8, ptr %cond-lvalue83, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %TmpRep, ptr noundef nonnull align 8 dereferenceable(16) %storage.i.i89, i64 16, i1 false)
   %bf.set88 = or i32 %bf.load86, 1
   store i32 %bf.set88, ptr %cond-lvalue83, align 8
-  %storage.i.i93 = getelementptr inbounds nuw i8, ptr %cond-lvalue, i64 8
-  br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106
+  %storage.i.i92 = getelementptr inbounds nuw i8, ptr %cond-lvalue, i64 8
+  br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105
 
-_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106: ; preds = %if.end73, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106
-  %indvars.iv128 = phi i64 [ 0, %if.end73 ], [ %indvars.iv.next129, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106 ]
-  %arrayidx96 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i90, i64 %indvars.iv128
-  %arrayidx99 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i93, i64 %indvars.iv128
+_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105: ; preds = %if.end73, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105
+  %indvars.iv124 = phi i64 [ 0, %if.end73 ], [ %indvars.iv.next125, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105 ]
+  %arrayidx96 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i89, i64 %indvars.iv124
+  %arrayidx99 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i92, i64 %indvars.iv124
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx96, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx99, i64 16, i1 false)
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %cmp92.not = icmp eq i64 %indvars.iv.next129, 4
-  br i1 %cmp92.not, label %for.end119, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106, !llvm.loop !76
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %cmp92.not = icmp eq i64 %indvars.iv.next125, 4
+  br i1 %cmp92.not, label %for.end119, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105, !llvm.loop !76
 
-for.end119:                                       ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106
+for.end119:                                       ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105
   %bf.load120 = load i32, ptr %cond-lvalue, align 8
   %bf.clear121 = and i32 %bf.load120, -2
   store i32 %bf.clear121, ptr %cond-lvalue, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage.i.i93, ptr noundef nonnull align 8 dereferenceable(16) %TmpRep, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage.i.i92, ptr noundef nonnull align 8 dereferenceable(16) %TmpRep, i64 16, i1 false)
   br label %return
 
 return:                                           ; preds = %for.inc, %for.end119, %if.then66

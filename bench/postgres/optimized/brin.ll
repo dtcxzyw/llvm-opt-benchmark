@@ -3268,12 +3268,12 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
-  br i1 %14, label %.preheader76, label %.preheader77
+  br i1 %14, label %.preheader77, label %.preheader78
 
-.preheader77:                                     ; preds = %11
-  br i1 %18, label %.lr.ph80, label %._crit_edge
+.preheader78:                                     ; preds = %11
+  br i1 %18, label %.lr.ph81, label %._crit_edge
 
-.lr.ph80:                                         ; preds = %.preheader77
+.lr.ph81:                                         ; preds = %.preheader78
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3281,20 +3281,20 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %23 = ptrtoint ptr %0 to i64
   br label %66
 
-.preheader76:                                     ; preds = %11
-  br i1 %18, label %.lr.ph84, label %._crit_edge85
+.preheader77:                                     ; preds = %11
+  br i1 %18, label %.lr.ph85, label %._crit_edge86
 
-.lr.ph84:                                         ; preds = %.preheader76
+.lr.ph85:                                         ; preds = %.preheader77
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %27
 
-27:                                               ; preds = %.lr.ph84, %.loopexit
-  %indvars.iv95 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next96, %.loopexit ]
-  %28 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %24, i64 0, i64 %indvars.iv95
-  %29 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %25, i64 0, i64 %indvars.iv95
-  %30 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %indvars.iv95
+27:                                               ; preds = %.lr.ph85, %.loopexit
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next97, %.loopexit ]
+  %28 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %24, i64 0, i64 %indvars.iv96
+  %29 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %25, i64 0, i64 %indvars.iv96
+  %30 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %indvars.iv96
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 3
   %33 = load i8, ptr %32, align 1, !range !4, !noundef !5
@@ -3310,21 +3310,21 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
 
 .preheader:                                       ; preds = %27
   %40 = load i16, ptr %31, align 8
-  %.not87 = icmp eq i16 %40, 0
-  br i1 %.not87, label %.loopexit, label %.lr.ph82
+  %.not88 = icmp eq i16 %40, 0
+  br i1 %.not88, label %.loopexit, label %.lr.ph83
 
-.lr.ph82:                                         ; preds = %.preheader
+.lr.ph83:                                         ; preds = %.preheader
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %28, i64 8
   br label %44
 
-44:                                               ; preds = %.lr.ph82, %44
-  %indvars.iv92 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next93, %44 ]
+44:                                               ; preds = %.lr.ph83, %44
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next94, %44 ]
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv92
+  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv93
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %indvars.iv92
+  %48 = getelementptr inbounds nuw [0 x ptr], ptr %42, i64 0, i64 %indvars.iv93
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 10
   %51 = load i8, ptr %50, align 2, !range !4, !noundef !5
@@ -3334,82 +3334,82 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %55 = sext i16 %54 to i32
   %56 = tail call i64 @datumCopy(i64 noundef %47, i1 noundef zeroext %52, i32 noundef %55) #10
   %57 = load ptr, ptr %43, align 8
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv92
+  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv93
   store i64 %56, ptr %58, align 8
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %59 = load i16, ptr %31, align 8
   %60 = zext i16 %59 to i64
-  %61 = icmp samesign ult i64 %indvars.iv.next93, %60
+  %61 = icmp samesign ult i64 %indvars.iv.next94, %60
   br i1 %61, label %44, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %44, %.preheader, %27
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %62 = load ptr, ptr %15, align 8
   %63 = load i32, ptr %62, align 8
   %64 = sext i32 %63 to i64
-  %65 = icmp slt i64 %indvars.iv.next96, %64
-  br i1 %65, label %27, label %._crit_edge85, !llvm.loop !32
+  %65 = icmp slt i64 %indvars.iv.next97, %64
+  br i1 %65, label %27, label %._crit_edge86, !llvm.loop !32
 
-._crit_edge85:                                    ; preds = %.loopexit, %.preheader76
+._crit_edge86:                                    ; preds = %.loopexit, %.preheader77
   store i8 0, ptr %12, align 1
   br label %._crit_edge
 
-66:                                               ; preds = %.lr.ph80, %.critedge
-  %indvars.iv89 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next90, %.critedge ]
-  %67 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %19, i64 0, i64 %indvars.iv89
-  %68 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %20, i64 0, i64 %indvars.iv89
-  %69 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %indvars.iv89
+66:                                               ; preds = %.lr.ph81, %.critedge
+  %indvars.iv90 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next91, %.critedge ]
+  %67 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %19, i64 0, i64 %indvars.iv90
+  %68 = getelementptr inbounds nuw [0 x %struct.BrinValues], ptr %20, i64 0, i64 %indvars.iv90
+  %69 = getelementptr inbounds nuw [0 x ptr], ptr %21, i64 0, i64 %indvars.iv90
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 2
   %72 = load i8, ptr %71, align 2, !range !4, !noundef !5
   %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %.thread98
+  br i1 %73, label %74, label %.thread99
 
 74:                                               ; preds = %66
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %76 = load i8, ptr %75, align 2, !range !4, !noundef !5
   %77 = trunc nuw i8 %76 to i1
-  br i1 %77, label %83, label %78
+  br i1 %77, label %82, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %68, i64 3
   %80 = load i8, ptr %79, align 1, !range !4, !noundef !5
   %81 = trunc nuw i8 %80 to i1
-  %82 = xor i1 %81, true
-  br label %83
+  br label %82
 
-83:                                               ; preds = %78, %74
-  %.not = phi i1 [ false, %74 ], [ %82, %78 ]
+82:                                               ; preds = %78, %74
+  %83 = phi i1 [ true, %74 ], [ %81, %78 ]
   %84 = getelementptr inbounds nuw i8, ptr %67, i64 3
   %85 = load i8, ptr %84, align 1, !range !4, !noundef !5
   %86 = trunc nuw i8 %85 to i1
-  %brmerge = select i1 %86, i1 true, i1 %.not
-  br i1 %brmerge, label %87, label %.thread
+  %.not = xor i1 %86, true
+  %or.cond = select i1 %.not, i1 %83, i1 false
+  br i1 %or.cond, label %.thread, label %87
 
-87:                                               ; preds = %83
+87:                                               ; preds = %82
   %88 = getelementptr inbounds nuw i8, ptr %68, i64 3
   %89 = load i8, ptr %88, align 1, !range !4, !noundef !5
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %.critedge, label %95
 
-.thread:                                          ; preds = %83
+.thread:                                          ; preds = %82
   %91 = getelementptr inbounds nuw i8, ptr %67, i64 2
   store i8 1, ptr %91, align 2
   %92 = getelementptr inbounds nuw i8, ptr %68, i64 3
   %93 = load i8, ptr %92, align 1, !range !4, !noundef !5
   %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %.critedge, label %.thread98
+  br i1 %94, label %.critedge, label %.thread99
 
 95:                                               ; preds = %87
-  br i1 %86, label %96, label %.thread98
+  br i1 %86, label %96, label %.thread99
 
 96:                                               ; preds = %95
   store i8 0, ptr %84, align 1
   %97 = getelementptr inbounds nuw i8, ptr %67, i64 2
   store i8 1, ptr %97, align 2
   %98 = load i16, ptr %70, align 8
-  %.not86 = icmp eq i16 %98, 0
-  br i1 %.not86, label %.critedge, label %.lr.ph
+  %.not87 = icmp eq i16 %98, 0
+  br i1 %.not87, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %96
   %99 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -3440,30 +3440,30 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %119 = icmp samesign ult i64 %indvars.iv.next, %118
   br i1 %119, label %102, label %.critedge, !llvm.loop !33
 
-.thread98:                                        ; preds = %.thread, %95, %66
+.thread99:                                        ; preds = %.thread, %95, %66
   %120 = load ptr, ptr %22, align 8
-  %121 = trunc i64 %indvars.iv89 to i16
+  %121 = trunc i64 %indvars.iv90 to i16
   %122 = add i16 %121, 1
   %123 = tail call ptr @index_getprocinfo(ptr noundef %120, i16 noundef signext %122, i16 noundef zeroext 4) #10
   %124 = load ptr, ptr %22, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 440
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv89
+  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv90
   %128 = load i32, ptr %127, align 4
   %129 = ptrtoint ptr %67 to i64
   %130 = ptrtoint ptr %68 to i64
   %131 = tail call i64 @FunctionCall3Coll(ptr noundef %123, i32 noundef %128, i64 noundef %23, i64 noundef %129, i64 noundef %130) #10
   br label %.critedge
 
-.critedge:                                        ; preds = %102, %.thread, %96, %87, %.thread98
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+.critedge:                                        ; preds = %102, %.thread, %96, %87, %.thread99
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %132 = load ptr, ptr %15, align 8
   %133 = load i32, ptr %132, align 8
   %134 = sext i32 %133 to i64
-  %135 = icmp slt i64 %indvars.iv.next90, %134
+  %135 = icmp slt i64 %indvars.iv.next91, %134
   br i1 %135, label %66, label %._crit_edge, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %.critedge, %.preheader77, %3, %._crit_edge85
+._crit_edge:                                      ; preds = %.critedge, %.preheader78, %3, %._crit_edge86
   tail call void @MemoryContextDelete(ptr noundef %5) #10
   ret void
 }

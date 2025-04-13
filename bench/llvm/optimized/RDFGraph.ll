@@ -19448,11 +19448,11 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph13getNextShadowENS0_8N
   %8 = and i16 %7, 4032
   %9 = or disjoint i16 %8, 32
   %10 = tail call { ptr, i32 } @_ZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly %1, i32 poison, ptr nonnull %3, i32 poison), !noalias !908
-  %.fca.1.extract.i47 = extractvalue { ptr, i32 } %10, 1
-  %11 = icmp eq i32 %.fca.1.extract.i47, 0
-  %12 = icmp eq i32 %.fca.1.extract.i47, %4
-  %or.cond.i48 = select i1 %11, i1 true, i1 %12
-  br i1 %or.cond.i48, label %"_ZNK4llvm3rdf13DataFlowGraph13locateNextRefIZNS1_13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS3_IPNS0_7RefNodeEEEbE3$_0EESt4pairIS9_S9_ES6_S9_T_.exit", label %.lr.ph
+  %.fca.1.extract.i44 = extractvalue { ptr, i32 } %10, 1
+  %11 = icmp eq i32 %.fca.1.extract.i44, 0
+  %12 = icmp eq i32 %.fca.1.extract.i44, %4
+  %or.cond.i45 = select i1 %11, i1 true, i1 %12
+  br i1 %or.cond.i45, label %"_ZNK4llvm3rdf13DataFlowGraph13locateNextRefIZNS1_13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS3_IPNS0_7RefNodeEEEbE3$_0EESt4pairIS9_S9_ES6_S9_T_.exit", label %.lr.ph
 
 13:                                               ; preds = %.lr.ph
   %14 = tail call { ptr, i32 } @_ZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_8NodeAddrIPNS0_9InstrNodeEEENS2_IPNS0_7RefNodeEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr readonly %1, i32 poison, ptr nonnull %.fca.0.extract.i, i32 poison), !noalias !908
@@ -19463,7 +19463,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph13getNextShadowENS0_8N
   br i1 %or.cond.i, label %"_ZNK4llvm3rdf13DataFlowGraph13locateNextRefIZNS1_13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS3_IPNS0_7RefNodeEEEbE3$_0EESt4pairIS9_S9_ES6_S9_T_.exit", label %.lr.ph, !llvm.loop !911
 
 .lr.ph:                                           ; preds = %6, %13
-  %.fca.1.extract.i49 = phi i32 [ %.fca.1.extract.i, %13 ], [ %.fca.1.extract.i47, %6 ]
+  %.fca.1.extract.i46 = phi i32 [ %.fca.1.extract.i, %13 ], [ %.fca.1.extract.i44, %6 ]
   %17 = phi { ptr, i32 } [ %14, %13 ], [ %10, %6 ]
   %.fca.0.extract.i = extractvalue { ptr, i32 } %17, 0
   %.sroa.0.0.copyload.val.i = load i16, ptr %.fca.0.extract.i, align 8, !tbaa !47, !noalias !908
@@ -19473,7 +19473,7 @@ define dso_local { ptr, i32 } @_ZN4llvm3rdf13DataFlowGraph13getNextShadowENS0_8N
 
 "_ZNK4llvm3rdf13DataFlowGraph13locateNextRefIZNS1_13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS3_IPNS0_7RefNodeEEEbE3$_0EESt4pairIS9_S9_ES6_S9_T_.exit": ; preds = %13, %6
   %.sroa.022.0.i.lcssa = phi ptr [ %3, %6 ], [ %.fca.0.extract.i, %13 ]
-  %.sroa.524.0.i.lcssa = phi i32 [ %4, %6 ], [ %.fca.1.extract.i49, %13 ]
+  %.sroa.524.0.i.lcssa = phi i32 [ %4, %6 ], [ %.fca.1.extract.i46, %13 ]
   br i1 %5, label %20, label %_ZN4llvm3rdf8CodeNode14addMemberAfterENS0_8NodeAddrIPNS0_8NodeBaseEEES5_RKNS0_13DataFlowGraphE.exit
 
 20:                                               ; preds = %"_ZNK4llvm3rdf13DataFlowGraph13locateNextRefIZNS1_13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS3_IPNS0_7RefNodeEEEbE3$_0EESt4pairIS9_S9_ES6_S9_T_.exit"
@@ -19584,7 +19584,7 @@ _ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.i: ; preds = %75, %_ZN4ll
 
 _ZN4llvm3rdf8CodeNode14addMemberAfterENS0_8NodeAddrIPNS0_8NodeBaseEEES5_RKNS0_13DataFlowGraphE.exit: ; preds = %.lr.ph, %80, %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.i, %"_ZNK4llvm3rdf13DataFlowGraph13locateNextRefIZNS1_13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS3_IPNS0_7RefNodeEEEbE3$_0EESt4pairIS9_S9_ES6_S9_T_.exit"
   %.sroa.023.0 = phi ptr [ null, %"_ZNK4llvm3rdf13DataFlowGraph13locateNextRefIZNS1_13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS3_IPNS0_7RefNodeEEEbE3$_0EESt4pairIS9_S9_ES6_S9_T_.exit" ], [ %37, %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.i ], [ %37, %80 ], [ %.fca.0.extract.i, %.lr.ph ]
-  %.sroa.525.0 = phi i32 [ 0, %"_ZNK4llvm3rdf13DataFlowGraph13locateNextRefIZNS1_13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS3_IPNS0_7RefNodeEEEbE3$_0EESt4pairIS9_S9_ES6_S9_T_.exit" ], [ %70, %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.i ], [ %70, %80 ], [ %.fca.1.extract.i49, %.lr.ph ]
+  %.sroa.525.0 = phi i32 [ 0, %"_ZNK4llvm3rdf13DataFlowGraph13locateNextRefIZNS1_13getNextShadowENS0_8NodeAddrIPNS0_9InstrNodeEEENS3_IPNS0_7RefNodeEEEbE3$_0EESt4pairIS9_S9_ES6_S9_T_.exit" ], [ %70, %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.i ], [ %70, %80 ], [ %.fca.1.extract.i46, %.lr.ph ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.023.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.525.0, 1
   ret { ptr, i32 } %.fca.1.insert

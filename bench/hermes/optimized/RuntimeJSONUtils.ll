@@ -4222,26 +4222,24 @@ if.end161:                                        ; preds = %if.end133
   %idxprom.i135 = zext i32 %sub.i134 to i64
   %arrayidx.i136 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i133, i64 %idxprom.i135
   %retval.sroa.0.0.copyload.i137 = load i32, ptr %arrayidx.i136, align 4
-  %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %106, i64 840
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %106, i64 1640
   %108 = load ptr, ptr %youngGen_.i.i.i.i, align 8
   %109 = ptrtoint ptr %arrayidx.i136 to i64
   %and.i.i.i.i.i138 = and i64 %109, 1125899902648320
   %110 = inttoptr i64 %and.i.i.i.i.i138 to ptr
-  %cmp.i.i.i.i = icmp eq ptr %108, %110
-  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit, label %land.rhs.i.i.i
-
-land.rhs.i.i.i:                                   ; preds = %if.end161
+  %cmp.i.i.i.i = icmp ne ptr %108, %110
   %ogMarkingBarriers_.i.i.i = getelementptr inbounds nuw i8, ptr %106, i64 8497
   %111 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %111 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit
+  %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 %tobool.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit
 
-if.then.i.i.i:                                    ; preds = %land.rhs.i.i.i
+if.then.i.i.i:                                    ; preds = %if.end161
+  %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %106, i64 840
   tail call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_13HermesValue32E(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 %retval.sroa.0.0.copyload.i137) #12
   br label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit
 
-_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit: ; preds = %if.end161, %land.rhs.i.i.i, %if.then.i.i.i
+_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit: ; preds = %if.end161, %if.then.i.i.i
   store atomic i32 %sub.i134, ptr %size_.i.i monotonic, align 4
   %112 = load ptr, ptr %this, align 8
   %cmp.i.not.i.i.i.i139 = icmp eq i32 %retval.sroa.0.0.copyload.i137, 0
@@ -4447,27 +4445,25 @@ entry:
   %sub.i = add i32 %3, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i, i64 %idxprom.i
-  %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4
-  %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 840
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 1640
   %4 = load ptr, ptr %youngGen_.i.i.i.i, align 8
   %5 = ptrtoint ptr %arrayidx.i to i64
   %and.i.i.i.i.i1 = and i64 %5, 1125899902648320
   %6 = inttoptr i64 %and.i.i.i.i.i1 to ptr
-  %cmp.i.i.i.i = icmp eq ptr %4, %6
-  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit, label %land.rhs.i.i.i
-
-land.rhs.i.i.i:                                   ; preds = %entry
+  %cmp.i.i.i.i = icmp ne ptr %4, %6
   %ogMarkingBarriers_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8497
   %7 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %7 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit
+  %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 %tobool.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit
 
-if.then.i.i.i:                                    ; preds = %land.rhs.i.i.i
+if.then.i.i.i:                                    ; preds = %entry
+  %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4
+  %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 840
   tail call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_13HermesValue32E(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 %retval.sroa.0.0.copyload.i) #12
   br label %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit
 
-_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit: ; preds = %entry, %land.rhs.i.i.i, %if.then.i.i.i
+_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE8pop_backERNS0_7RuntimeE.exit: ; preds = %entry, %if.then.i.i.i
   store atomic i32 %sub.i, ptr %size_.i.i monotonic, align 4
   ret void
 }

@@ -1969,160 +1969,159 @@ define void @_ZNK10open_spiel9solitaire4Card8ToStringB5cxx11Eb(ptr dead_on_unwin
   %10 = alloca %"class.absl::debian2::AlphaNum", align 8
   %11 = alloca %"class.absl::debian2::AlphaNum", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #32
-  %.sink19.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink19.sroa.gep20 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink17.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink17.sroa.gep21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br i1 %2, label %12, label %23
+  %.not = xor i1 %2, true
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %13 = load i8, ptr %12, align 4
+  %14 = trunc i8 %13 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %14
+  %.sink22.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink22.sroa.gep23 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink20.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink20.sroa.gep24 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br i1 %or.cond, label %22, label %15
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %14 = load i8, ptr %13, align 4
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %23, label %16
-
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %18 = load i32, ptr %17, align 4
-  switch i32 %18, label %23 [
-    i32 1, label %19
-    i32 3, label %19
-    i32 2, label %22
-    i32 4, label %22
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %17 = load i32, ptr %16, align 4
+  switch i32 %17, label %22 [
+    i32 1, label %18
+    i32 3, label %18
+    i32 2, label %21
+    i32 4, label %21
   ]
 
-19:                                               ; preds = %16, %16
+18:                                               ; preds = %15, %15
   store ptr @.str.35, ptr %4, align 8
-  br label %.invoke16
+  br label %.invoke19
 
-20:                                               ; preds = %.invoke16, %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit14.invoke, %.invoke, %69, %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, %30
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %.invoke19, %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17.invoke, %.invoke, %68, %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, %29
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #32
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %20
 
-22:                                               ; preds = %16, %16
+21:                                               ; preds = %15, %15
   store ptr @.str.36, ptr %5, align 8
-  br label %.invoke16
+  br label %.invoke19
 
-.invoke16:                                        ; preds = %19, %22
-  %.sink17.sroa.phi = phi ptr [ %.sink17.sroa.gep, %19 ], [ %.sink17.sroa.gep21, %22 ]
-  %.sink17 = phi ptr [ %4, %19 ], [ %5, %22 ]
-  store i64 5, ptr %.sink17.sroa.phi, align 8
-  invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %.sink17)
-          to label %23 unwind label %20
+.invoke19:                                        ; preds = %18, %21
+  %.sink20.sroa.phi = phi ptr [ %.sink20.sroa.gep, %18 ], [ %.sink20.sroa.gep24, %21 ]
+  %.sink20 = phi ptr [ %4, %18 ], [ %5, %21 ]
+  store i64 5, ptr %.sink20.sroa.phi, align 8
+  invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %.sink20)
+          to label %22 unwind label %19
 
-23:                                               ; preds = %.invoke16, %16, %12, %3
-  %24 = load i32, ptr %1, align 4
-  %25 = icmp eq i32 %24, 14
-  br i1 %25, label %30, label %26
+22:                                               ; preds = %.invoke19, %15, %3
+  %23 = load i32, ptr %1, align 4
+  %24 = icmp eq i32 %23, 14
+  br i1 %24, label %29, label %25
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp eq i32 %28, 5
-  br i1 %29, label %30, label %33
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp eq i32 %27, 5
+  br i1 %28, label %29, label %32
 
-30:                                               ; preds = %26, %23
+29:                                               ; preds = %25, %22
   store ptr @.str.37, ptr %6, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 4, ptr %31, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 4, ptr %30, align 8
   store ptr @.str.38, ptr %7, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %32, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %31, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7)
-          to label %68 unwind label %20
+          to label %67 unwind label %19
 
-33:                                               ; preds = %26
-  %34 = or i32 %28, %24
-  %or.cond = icmp eq i32 %34, 0
-  br i1 %or.cond, label %35, label %36
+32:                                               ; preds = %25
+  %33 = or i32 %27, %23
+  %or.cond9 = icmp eq i32 %33, 0
+  br i1 %or.cond9, label %34, label %35
 
-35:                                               ; preds = %33
+34:                                               ; preds = %32
   store ptr @.str.39, ptr %8, align 8
-  br label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit14.invoke
+  br label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17.invoke
 
-36:                                               ; preds = %33
-  %37 = sext i32 %24 to i64
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_19kRankStrsB5cxx11E, i64 8), align 8
-  %39 = load ptr, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_19kRankStrsB5cxx11E, align 8
+35:                                               ; preds = %32
+  %36 = sext i32 %23 to i64
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_19kRankStrsB5cxx11E, i64 8), align 8
+  %38 = load ptr, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_19kRankStrsB5cxx11E, align 8
+  %39 = ptrtoint ptr %37 to i64
   %40 = ptrtoint ptr %38 to i64
-  %41 = ptrtoint ptr %39 to i64
-  %42 = sub i64 %40, %41
-  %43 = ashr exact i64 %42, 5
-  %.not.i.i = icmp ugt i64 %43, %37
-  br i1 %.not.i.i, label %44, label %.invoke
+  %41 = sub i64 %39, %40
+  %42 = ashr exact i64 %41, 5
+  %.not.i.i = icmp ugt i64 %42, %36
+  br i1 %.not.i.i, label %43, label %.invoke
 
-44:                                               ; preds = %36
-  %45 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %39, i64 %37
-  %46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %45) #32
-  %47 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %45) #32
-  store ptr %46, ptr %9, align 8
-  %48 = icmp sgt i64 %47, -1
-  br i1 %48, label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, label %49
+43:                                               ; preds = %35
+  %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %38, i64 %36
+  %45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %44) #32
+  %46 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %44) #32
+  store ptr %45, ptr %9, align 8
+  %47 = icmp sgt i64 %46, -1
+  br i1 %47, label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit, label %48
 
-49:                                               ; preds = %44
+48:                                               ; preds = %43
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit: ; preds = %44
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %47, ptr %50, align 8
+_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit: ; preds = %43
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %46, ptr %49, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %51 unwind label %20
+          to label %50 unwind label %19
 
-51:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
-  %52 = load i32, ptr %27, align 4
-  %53 = sext i32 %52 to i64
-  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_19kSuitStrsB5cxx11E, i64 8), align 8
-  %55 = load ptr, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_19kSuitStrsB5cxx11E, align 8
+50:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
+  %51 = load i32, ptr %26, align 4
+  %52 = sext i32 %51 to i64
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_19kSuitStrsB5cxx11E, i64 8), align 8
+  %54 = load ptr, ptr @_ZN10open_spiel9solitaire12_GLOBAL__N_19kSuitStrsB5cxx11E, align 8
+  %55 = ptrtoint ptr %53 to i64
   %56 = ptrtoint ptr %54 to i64
-  %57 = ptrtoint ptr %55 to i64
-  %58 = sub i64 %56, %57
-  %59 = ashr exact i64 %58, 5
-  %.not.i.i11 = icmp ugt i64 %59, %53
-  br i1 %.not.i.i11, label %62, label %.invoke
+  %57 = sub i64 %55, %56
+  %58 = ashr exact i64 %57, 5
+  %.not.i.i14 = icmp ugt i64 %58, %52
+  br i1 %.not.i.i14, label %61, label %.invoke
 
-.invoke:                                          ; preds = %51, %36
-  %60 = phi i64 [ %37, %36 ], [ %53, %51 ]
-  %61 = phi i64 [ %43, %36 ], [ %59, %51 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.106, i64 noundef %60, i64 noundef %61) #31
-          to label %.cont unwind label %20
+.invoke:                                          ; preds = %50, %35
+  %59 = phi i64 [ %36, %35 ], [ %52, %50 ]
+  %60 = phi i64 [ %42, %35 ], [ %58, %50 ]
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.106, i64 noundef %59, i64 noundef %60) #31
+          to label %.cont unwind label %19
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-62:                                               ; preds = %51
-  %63 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %55, i64 %53
-  %64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %63) #32
-  %65 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %63) #32
-  store ptr %64, ptr %10, align 8
-  %66 = icmp sgt i64 %65, -1
-  br i1 %66, label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit14.invoke, label %67
+61:                                               ; preds = %50
+  %62 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %54, i64 %52
+  %63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %62) #32
+  %64 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %62) #32
+  store ptr %63, ptr %10, align 8
+  %65 = icmp sgt i64 %64, -1
+  br i1 %65, label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17.invoke, label %66
 
-67:                                               ; preds = %62
+66:                                               ; preds = %61
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit14.invoke: ; preds = %62, %35
-  %.sink19.sroa.phi = phi ptr [ %.sink19.sroa.gep, %35 ], [ %.sink19.sroa.gep20, %62 ]
-  %.sink19 = phi ptr [ %8, %35 ], [ %10, %62 ]
-  %.sink = phi i64 [ 4, %35 ], [ %65, %62 ]
-  store i64 %.sink, ptr %.sink19.sroa.phi, align 8
-  invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %.sink19)
-          to label %68 unwind label %20
+_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17.invoke: ; preds = %61, %34
+  %.sink22.sroa.phi = phi ptr [ %.sink22.sroa.gep, %34 ], [ %.sink22.sroa.gep23, %61 ]
+  %.sink22 = phi ptr [ %8, %34 ], [ %10, %61 ]
+  %.sink = phi i64 [ 4, %34 ], [ %64, %61 ]
+  store i64 %.sink, ptr %.sink22.sroa.phi, align 8
+  invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %.sink22)
+          to label %67 unwind label %19
 
-68:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit14.invoke, %30
-  br i1 %2, label %69, label %71
+67:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17.invoke, %29
+  br i1 %2, label %68, label %70
 
-69:                                               ; preds = %68
+68:                                               ; preds = %67
   store ptr @.str.40, ptr %11, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 4, ptr %70, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 4, ptr %69, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %71 unwind label %20
+          to label %70 unwind label %19
 
-71:                                               ; preds = %68, %69
+70:                                               ; preds = %67, %68
   ret void
 }
 

@@ -1997,8 +1997,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2IA6_cEERKT_.exit.i: ; preds = %48
   %493 = icmp eq ptr %492, null
   %494 = load ptr, ptr %490, align 8
   %495 = icmp eq ptr %494, null
-  %brmerge.i.i = or i1 %493, %495
-  br i1 %brmerge.i.i, label %496, label %498
+  %or.cond.i.i = or i1 %493, %495
+  br i1 %or.cond.i.i, label %496, label %498
 
 496:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2IA6_cEERKT_.exit.i
   %497 = xor i1 %493, %495
@@ -2139,8 +2139,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2IA6_cEERKT_.exit96.i: ; preds = %
   %545 = icmp eq ptr %544, null
   %546 = load ptr, ptr %542, align 8
   %547 = icmp eq ptr %546, null
-  %brmerge.i97.i = or i1 %545, %547
-  br i1 %brmerge.i97.i, label %548, label %550
+  %or.cond.i97.i = or i1 %545, %547
+  br i1 %or.cond.i97.i, label %548, label %550
 
 548:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2IA6_cEERKT_.exit96.i
   %549 = xor i1 %545, %547
@@ -32893,8 +32893,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
-  %brmerge.i.i = or i1 %86, %89
-  br i1 %brmerge.i.i, label %90, label %92
+  %or.cond.i.i = or i1 %86, %89
+  br i1 %or.cond.i.i, label %90, label %92
 
 90:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit59
   %91 = xor i1 %86, %89
@@ -33013,8 +33013,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1
   %143 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, null
-  %brmerge.i.i66 = or i1 %142, %145
-  br i1 %brmerge.i.i66, label %146, label %148
+  %or.cond.i.i66 = or i1 %142, %145
+  br i1 %or.cond.i.i66, label %146, label %148
 
 146:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1_.exit
   %147 = xor i1 %142, %145
@@ -33275,8 +33275,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13SdfChangeList5Entry14FindInfoChangeERKNS
   %277 = icmp eq ptr %276, null
   %278 = load ptr, ptr %87, align 8
   %279 = icmp eq ptr %278, null
-  %brmerge.i.i101 = or i1 %277, %279
-  br i1 %brmerge.i.i101, label %280, label %282
+  %or.cond.i.i101 = or i1 %277, %279
+  br i1 %or.cond.i.i101, label %280, label %282
 
 280:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13SdfChangeList5Entry14FindInfoChangeERKNS_7TfTokenE.exit
   %281 = xor i1 %277, %279
@@ -33321,8 +33321,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13SdfChangeList5Entry14FindInfoChangeERKNS
   %305 = icmp eq ptr %304, null
   %306 = load ptr, ptr %87, align 8
   %307 = icmp eq ptr %306, null
-  %brmerge.i = or i1 %305, %307
-  br i1 %brmerge.i, label %308, label %310
+  %or.cond.i = or i1 %305, %307
+  br i1 %or.cond.i, label %308, label %310
 
 308:                                              ; preds = %301
   %309 = xor i1 %305, %307
@@ -33356,8 +33356,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %312, %31
   %325 = icmp eq ptr %324, null
   %326 = load ptr, ptr %31, align 8
   %327 = icmp eq ptr %326, null
-  %brmerge.i108 = or i1 %325, %327
-  br i1 %brmerge.i108, label %328, label %330
+  %or.cond.i108 = or i1 %325, %327
+  br i1 %or.cond.i108, label %328, label %330
 
 328:                                              ; preds = %321
   %329 = xor i1 %325, %327
@@ -33480,8 +33480,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13SdfChangeList5Entry14FindInfoChangeERKNS
   %381 = icmp eq ptr %380, null
   %382 = load ptr, ptr %143, align 8
   %383 = icmp eq ptr %382, null
-  %brmerge.i.i131 = or i1 %381, %383
-  br i1 %brmerge.i.i131, label %384, label %386
+  %or.cond.i.i131 = or i1 %381, %383
+  br i1 %or.cond.i.i131, label %384, label %386
 
 384:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13SdfChangeList5Entry14FindInfoChangeERKNS_7TfTokenE.exit130
   %385 = xor i1 %381, %383
@@ -33526,8 +33526,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13SdfChangeList5Entry14FindInfoChangeERKNS
   %409 = icmp eq ptr %408, null
   %410 = load ptr, ptr %143, align 8
   %411 = icmp eq ptr %410, null
-  %brmerge.i137 = or i1 %409, %411
-  br i1 %brmerge.i137, label %412, label %414
+  %or.cond.i137 = or i1 %409, %411
+  br i1 %or.cond.i137, label %412, label %414
 
 412:                                              ; preds = %405
   %413 = xor i1 %409, %411
@@ -33561,8 +33561,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit141: ; preds = %416, 
   %429 = icmp eq ptr %428, null
   %430 = load ptr, ptr %63, align 8
   %431 = icmp eq ptr %430, null
-  %brmerge.i142 = or i1 %429, %431
-  br i1 %brmerge.i142, label %432, label %434
+  %or.cond.i142 = or i1 %429, %431
+  br i1 %or.cond.i142, label %432, label %434
 
 432:                                              ; preds = %425
   %433 = xor i1 %429, %431

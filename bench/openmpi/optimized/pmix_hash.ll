@@ -660,8 +660,8 @@ define internal fastcc ptr @lookup_proc(ptr noundef %0, i32 noundef %1, i1 nound
   %7 = call i32 @pmix_hash_table_get_value_uint32(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4) #17
   %8 = load ptr, ptr %4, align 8, !tbaa !62
   %9 = icmp eq ptr %8, null
-  %brmerge.not = and i1 %2, %9
-  br i1 %brmerge.not, label %10, label %pmix_obj_new_tma.exit
+  %or.cond = and i1 %2, %9
+  br i1 %or.cond, label %10, label %pmix_obj_new_tma.exit
 
 10:                                               ; preds = %3
   %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_proc_data_t_class, i64 56), align 8, !tbaa !71
@@ -731,8 +731,8 @@ pmix_tma_malloc.exit.i:                           ; preds = %15, %12
   %.pre = load ptr, ptr %4, align 8, !tbaa !62
   br label %pmix_obj_new_tma.exit
 
-pmix_obj_new_tma.exit:                            ; preds = %20, %.loopexit, %3
-  %.0 = phi ptr [ %8, %3 ], [ %.pre, %.loopexit ], [ null, %20 ]
+pmix_obj_new_tma.exit:                            ; preds = %20, %3, %.loopexit
+  %.0 = phi ptr [ %.pre, %.loopexit ], [ %8, %3 ], [ null, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   ret ptr %.0
 }

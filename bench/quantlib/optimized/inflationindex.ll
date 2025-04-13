@@ -8328,15 +8328,13 @@ entry:
   %ratio_.i = getelementptr inbounds nuw i8, ptr %this, i64 233
   %0 = load i8, ptr %ratio_.i, align 1, !tbaa !140, !range !26, !noundef !27
   %loadedv.i = trunc nuw i8 %0 to i1
-  br i1 %loadedv.i, label %do.body, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
   %interpolated_.i = getelementptr inbounds nuw i8, ptr %this, i64 232
-  %1 = load i8, ptr %interpolated_.i, align 8, !tbaa !136, !range !26, !noundef !27
+  %1 = load i8, ptr %interpolated_.i, align 8, !range !26
   %loadedv.i5 = trunc nuw i8 %1 to i1
-  br i1 %loadedv.i5, label %do.body, label %if.then
+  %or.cond = select i1 %loadedv.i, i1 true, i1 %loadedv.i5
+  br i1 %or.cond, label %do.body, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %entry
   %call3 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK8QuantLib5Index10timeSeriesEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
   %frequency_ = getelementptr inbounds nuw i8, ptr %this, i64 172
   %2 = load i32, ptr %frequency_, align 4, !tbaa !47
@@ -8380,7 +8378,7 @@ _ZNK8QuantLib10TimeSeriesIdSt3mapINS_4DateEdSt4lessIS2_ESaISt4pairIKS2_dEEEEixER
   %retval.0.i = phi double [ %7, %if.end.i ], [ 0x47EFFFFFE0000000, %_ZNSt3mapIN8QuantLib4DateEdSt4lessIS1_ESaISt4pairIKS1_dEEE4findERS5_.exit.i ], [ 0x47EFFFFFE0000000, %_ZNSt8_Rb_treeIN8QuantLib4DateESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ 0x47EFFFFFE0000000, %if.then ]
   ret double %retval.0.i
 
-do.body:                                          ; preds = %entry, %land.lhs.true
+do.body:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #27
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream)
   %call1.i7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, ptr noundef nonnull @.str.12, i64 noundef 75)

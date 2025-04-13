@@ -551,19 +551,17 @@ define void @_Z18SetFileHeaderExtraP11CommandDataR7ArchivePw(ptr noundef readonl
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 3
   %or.cond = select i1 %6, i1 %9, i1 false
-  br i1 %or.cond, label %10, label %15
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 30637
+  %11 = load i8, ptr %10, align 1, !range !32
+  %12 = trunc nuw i8 %11 to i1
+  %or.cond9 = select i1 %or.cond, i1 %12, i1 false
+  br i1 %or.cond9, label %13, label %14
 
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 30637
-  %12 = load i8, ptr %11, align 1, !tbaa !93, !range !32, !noundef !33
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %10
+13:                                               ; preds = %3
   tail call void @_Z12SetUnixOwnerR7ArchivePKw(ptr noundef nonnull align 8 dereferenceable(57108) %1, ptr noundef %2)
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %10, %3
+14:                                               ; preds = %13, %3
   ret void
 }
 
@@ -572,11 +570,11 @@ define noundef zeroext i1 @_Z21IsRelativeSymlinkSafeP11CommandDataPKwS2_S2_(ptr 
   %5 = alloca [2048 x i32], align 16
   %6 = alloca %struct.FindData, align 8
   %7 = tail call noundef zeroext i1 @_Z14IsFullRootPathPKw(ptr noundef %1)
-  br i1 %7, label %74, label %8
+  br i1 %7, label %73, label %8
 
 8:                                                ; preds = %4
   %9 = tail call noundef zeroext i1 @_Z14IsFullRootPathPKw(ptr noundef %3)
-  br i1 %9, label %74, label %.preheader
+  br i1 %9, label %73, label %.preheader
 
 .preheader:                                       ; preds = %8, %.thread
   %.035 = phi i32 [ %34, %.thread ], [ 0, %8 ]
@@ -590,7 +588,7 @@ define noundef zeroext i1 @_Z21IsRelativeSymlinkSafeP11CommandDataPKwS2_S2_(ptr 
 
 11:                                               ; preds = %.preheader
   %12 = icmp sgt i32 %.033, 0
-  br i1 %12, label %35, label %57
+  br i1 %12, label %35, label %56
 
 13:                                               ; preds = %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %.032, i64 4
@@ -629,7 +627,7 @@ define noundef zeroext i1 @_Z21IsRelativeSymlinkSafeP11CommandDataPKwS2_S2_(ptr 
   %32 = phi i32 [ %26, %.thread39 ], [ %.033, %21 ], [ %.033, %13 ], [ %.033, %.preheader ], [ %spec.select, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %.032, i64 4
   %34 = add nuw nsw i32 %.035, 1
-  br label %.preheader, !llvm.loop !94
+  br label %.preheader, !llvm.loop !93
 
 35:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %5) #13
@@ -641,9 +639,9 @@ define noundef zeroext i1 @_Z21IsRelativeSymlinkSafeP11CommandDataPKwS2_S2_(ptr 
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %5, ptr noundef %2, i64 noundef 2048)
   %39 = call i64 @wcslen(ptr noundef nonnull %5) #14
   %40 = getelementptr inbounds nuw i32, ptr %5, i64 %39
-  %.013.i = getelementptr inbounds i8, ptr %40, i64 -4
-  %.not14.i = icmp ugt ptr %.013.i, %5
-  br i1 %.not14.i, label %.lr.ph.i, label %_ZL10LinkInPathPKw.exit
+  %.016.i = getelementptr inbounds i8, ptr %40, i64 -4
+  %.not1517.i = icmp ugt ptr %.016.i, %5
+  br i1 %.not1517.i, label %.lr.ph.i, label %_ZL10LinkInPathPKw.exit
 
 .lr.ph.i:                                         ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8208
@@ -651,83 +649,82 @@ define noundef zeroext i1 @_Z21IsRelativeSymlinkSafeP11CommandDataPKwS2_S2_(ptr 
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8204
   br label %44
 
-44:                                               ; preds = %56, %.lr.ph.i
-  %.015.i = phi ptr [ %.013.i, %.lr.ph.i ], [ %.0.i, %56 ]
-  %45 = load i32, ptr %.015.i, align 4, !tbaa !80
+44:                                               ; preds = %55, %.lr.ph.i
+  %.018.i = phi ptr [ %.016.i, %.lr.ph.i ], [ %.0.i, %55 ]
+  %45 = load i32, ptr %.018.i, align 4, !tbaa !80
   %46 = call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %45)
-  br i1 %46, label %47, label %56
+  br i1 %46, label %47, label %55
 
 47:                                               ; preds = %44
-  store i32 0, ptr %.015.i, align 4, !tbaa !80
+  store i32 0, ptr %.018.i, align 4, !tbaa !80
   call void @llvm.lifetime.start.p0(i64 8240, ptr nonnull %6) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   %48 = call noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext true)
   br i1 %48, label %49, label %.critedge.i
 
 49:                                               ; preds = %47
-  %50 = load i8, ptr %42, align 1, !tbaa !95, !range !32, !noundef !33
+  %50 = load i8, ptr %42, align 1, !tbaa !94, !range !32, !noundef !33
   %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %55, label %52
+  %.not.i = xor i1 %51, true
+  %52 = load i8, ptr %43, align 4, !range !32
+  %53 = trunc nuw i8 %52 to i1
+  %or.cond.i = select i1 %.not.i, i1 %53, i1 false
+  br i1 %or.cond.i, label %.critedge.i, label %54
 
-52:                                               ; preds = %49
-  %53 = load i8, ptr %43, align 4, !tbaa !97, !range !32, !noundef !33
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %.critedge.i, label %55
-
-.critedge.i:                                      ; preds = %52, %47
+.critedge.i:                                      ; preds = %49, %47
   call void @llvm.lifetime.end.p0(i64 8240, ptr nonnull %6) #13
-  br label %56
+  br label %55
 
-55:                                               ; preds = %52, %49
+54:                                               ; preds = %49
   call void @llvm.lifetime.end.p0(i64 8240, ptr nonnull %6) #13
   br label %_ZL10LinkInPathPKw.exit.thread
 
-56:                                               ; preds = %.critedge.i, %44
-  %.0.i = getelementptr inbounds i8, ptr %.015.i, i64 -4
-  %.not.i = icmp ugt ptr %.0.i, %5
-  br i1 %.not.i, label %44, label %_ZL10LinkInPathPKw.exit, !llvm.loop !98
+55:                                               ; preds = %.critedge.i, %44
+  %.0.i = getelementptr inbounds i8, ptr %.018.i, i64 -4
+  %.not15.i = icmp ugt ptr %.0.i, %5
+  br i1 %.not15.i, label %44, label %_ZL10LinkInPathPKw.exit, !llvm.loop !96
 
-_ZL10LinkInPathPKw.exit.thread:                   ; preds = %35, %55
+_ZL10LinkInPathPKw.exit.thread:                   ; preds = %35, %54
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #13
-  br label %74
+  br label %73
 
-_ZL10LinkInPathPKw.exit:                          ; preds = %56, %38
+_ZL10LinkInPathPKw.exit:                          ; preds = %55, %38
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #13
-  br label %57
+  br label %56
 
-57:                                               ; preds = %_ZL10LinkInPathPKw.exit, %11
-  %58 = call fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr noundef %1)
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16416
-  %60 = call i64 @wcslen(ptr noundef nonnull %59) #14
-  %.not38 = icmp eq i64 %60, 0
-  br i1 %.not38, label %.loopexit, label %61
+56:                                               ; preds = %_ZL10LinkInPathPKw.exit, %11
+  %57 = call fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr noundef %1)
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16416
+  %59 = call i64 @wcslen(ptr noundef nonnull %58) #14
+  %.not38 = icmp eq i64 %59, 0
+  br i1 %.not38, label %.loopexit, label %60
 
-61:                                               ; preds = %57
-  %62 = call i32 @wcsncmp(ptr noundef %2, ptr noundef nonnull %59, i64 noundef %60) #14
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %.loopexit
+60:                                               ; preds = %56
+  %61 = call i32 @wcsncmp(ptr noundef %2, ptr noundef nonnull %58, i64 noundef %59) #14
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %.loopexit
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i32, ptr %2, i64 %60
-  br label %66
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i32, ptr %2, i64 %59
+  br label %65
 
-66:                                               ; preds = %66, %64
-  %.131 = phi ptr [ %65, %64 ], [ %69, %66 ]
-  %67 = load i32, ptr %.131, align 4, !tbaa !80
-  %68 = call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %67)
-  %69 = getelementptr inbounds nuw i8, ptr %.131, i64 4
-  br i1 %68, label %66, label %.loopexit, !llvm.loop !99
+65:                                               ; preds = %65, %63
+  %.131 = phi ptr [ %64, %63 ], [ %68, %65 ]
+  %66 = load i32, ptr %.131, align 4, !tbaa !80
+  %67 = call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %66)
+  %68 = getelementptr inbounds nuw i8, ptr %.131, i64 4
+  br i1 %67, label %65, label %.loopexit, !llvm.loop !97
 
-.loopexit:                                        ; preds = %66, %61, %57
-  %.030 = phi ptr [ %2, %61 ], [ %2, %57 ], [ %.131, %66 ]
-  %70 = call fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr noundef %.030)
-  %71 = icmp sge i32 %58, %.033
-  %72 = icmp sge i32 %70, %.033
-  %73 = and i1 %71, %72
-  br label %74
+.loopexit:                                        ; preds = %65, %60, %56
+  %.030 = phi ptr [ %2, %60 ], [ %2, %56 ], [ %.131, %65 ]
+  %69 = call fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr noundef %.030)
+  %70 = icmp sge i32 %57, %.033
+  %71 = icmp sge i32 %69, %.033
+  %72 = and i1 %70, %71
+  br label %73
 
-74:                                               ; preds = %_ZL10LinkInPathPKw.exit.thread, %.loopexit, %4, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %4 ], [ %73, %.loopexit ], [ false, %_ZL10LinkInPathPKw.exit.thread ]
+73:                                               ; preds = %_ZL10LinkInPathPKw.exit.thread, %.loopexit, %4, %8
+  %.0 = phi i1 [ false, %8 ], [ false, %4 ], [ %72, %.loopexit ], [ false, %_ZL10LinkInPathPKw.exit.thread ]
   ret i1 %.0
 }
 
@@ -738,21 +735,21 @@ declare noundef zeroext i1 @_Z9IsPathDivi(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDepthPKw(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4, !tbaa !80
-  %.not26 = icmp eq i32 %2, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %.not27 = icmp eq i32 %2, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %37
   %3 = phi i32 [ %39, %37 ], [ %2, %1 ]
-  %.028 = phi ptr [ %38, %37 ], [ %0, %1 ]
-  %.01827 = phi i32 [ %.1, %37 ], [ 0, %1 ]
+  %.029 = phi ptr [ %38, %37 ], [ %0, %1 ]
+  %.01928 = phi i32 [ %.1, %37 ], [ 0, %1 ]
   %4 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %3)
   br i1 %4, label %5, label %37
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw i8, ptr %.028, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %.029, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !80
-  %.not21 = icmp eq i32 %7, 0
-  br i1 %.not21, label %37, label %8
+  %.not22 = icmp eq i32 %7, 0
+  br i1 %.not22, label %37, label %8
 
 8:                                                ; preds = %5
   %9 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %7)
@@ -764,7 +761,7 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDe
   br i1 %12, label %13, label %.thread.thread
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %.028, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %15 = load i32, ptr %14, align 4, !tbaa !80
   %16 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %15)
   br i1 %16, label %20, label %17
@@ -786,13 +783,13 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDe
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %.028, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %.029, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !80
   %28 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %27)
-  br i1 %28, label %.thread24, label %30
+  br i1 %28, label %.thread25, label %30
 
-.thread24:                                        ; preds = %25
-  %29 = add nsw i32 %.01827, -1
+.thread25:                                        ; preds = %25
+  %29 = add nsw i32 %.01928, -1
   br label %37
 
 30:                                               ; preds = %25
@@ -807,24 +804,24 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDe
   br i1 %.ph, label %36, label %.thread.thread
 
 .thread.thread:                                   ; preds = %10, %30, %.thread
-  %35 = add nsw i32 %.01827, 1
+  %35 = add nsw i32 %.01928, 1
   br label %37
 
 36:                                               ; preds = %30, %.thread
-  %cond.fr31 = phi i32 [ %34, %30 ], [ 0, %.thread ]
-  %spec.select = add nsw i32 %cond.fr31, %.01827
+  %cond.fr32 = phi i32 [ %34, %30 ], [ 0, %.thread ]
+  %spec.select = add nsw i32 %cond.fr32, %.01928
   br label %37
 
-37:                                               ; preds = %36, %.thread24, %.thread.thread, %8, %5, %.lr.ph
-  %.1 = phi i32 [ %.01827, %8 ], [ %.01827, %5 ], [ %.01827, %.lr.ph ], [ %35, %.thread.thread ], [ %29, %.thread24 ], [ %spec.select, %36 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.028, i64 4
+37:                                               ; preds = %36, %.thread25, %.thread.thread, %8, %5, %.lr.ph
+  %.1 = phi i32 [ %.01928, %8 ], [ %.01928, %5 ], [ %.01928, %.lr.ph ], [ %35, %.thread.thread ], [ %29, %.thread25 ], [ %spec.select, %36 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.029, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !80
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %37, %1
-  %.018.lcssa = phi i32 [ 0, %1 ], [ %.1, %37 ]
-  %40 = tail call i32 @llvm.smax.i32(i32 %.018.lcssa, i32 0)
+  %.019.lcssa = phi i32 [ 0, %1 ], [ %.1, %37 ]
+  %40 = tail call i32 @llvm.smax.i32(i32 %.019.lcssa, i32 0)
   ret i32 %40
 }
 
@@ -840,7 +837,7 @@ define noundef zeroext i1 @_Z14ExtractSymlinkP11CommandDataR11ComprDataIOR7Archi
   %7 = alloca [2048 x i32], align 16
   %8 = alloca [2048 x i8], align 16
   %9 = alloca [2048 x i32], align 16
-  store i8 1, ptr %4, align 1, !tbaa !101
+  store i8 1, ptr %4, align 1, !tbaa !99
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48840
   %11 = load i32, ptr %10, align 8, !tbaa !38
   switch i32 %11, label %112 [
@@ -853,11 +850,11 @@ define noundef zeroext i1 @_Z14ExtractSymlinkP11CommandDataR11ComprDataIOR7Archi
   %13 = tail call ptr @wcsstr(ptr noundef nonnull %12, ptr noundef nonnull @.str.1) #14
   %14 = icmp ne ptr %13, null
   %15 = zext i1 %14 to i8
-  store i8 %15, ptr %4, align 1, !tbaa !101
+  store i8 %15, ptr %4, align 1, !tbaa !99
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6) #13
   %16 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %12, ptr noundef nonnull %6, i64 noundef 2048)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 22440
-  %18 = load i32, ptr %17, align 8, !tbaa !102
+  %18 = load i32, ptr %17, align 8, !tbaa !100
   %19 = and i32 %18, -2
   %switch.i = icmp eq i32 %19, 2
   br i1 %switch.i, label %78, label %80
@@ -871,7 +868,7 @@ define noundef zeroext i1 @_Z14ExtractSymlinkP11CommandDataR11ComprDataIOR7Archi
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 22264
-  %26 = load i64, ptr %25, align 8, !tbaa !103
+  %26 = load i64, ptr %25, align 8, !tbaa !101
   %27 = icmp ugt i64 %26, 2047
   br i1 %27, label %_ZL17ExtractUnixLink30P11CommandDataR11ComprDataIOR7ArchivePKwRb.exit, label %28
 
@@ -886,13 +883,13 @@ define noundef zeroext i1 @_Z14ExtractSymlinkP11CommandDataR11ComprDataIOR7Archi
   store i8 0, ptr %32, align 1, !tbaa !81
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 22288
-  %35 = load i32, ptr %34, align 8, !tbaa !104
+  %35 = load i32, ptr %34, align 8, !tbaa !102
   call void @_ZN8DataHash4InitE9HASH_TYPEj(ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef %35, i32 noundef 1)
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
   call void @_ZN8DataHash6UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %8, i64 noundef %36)
   call void @_ZN8DataHash6ResultEP9HashValue(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %34)
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 22378
-  %38 = load i8, ptr %37, align 2, !tbaa !105, !range !32, !noundef !33
+  %38 = load i8, ptr %37, align 2, !tbaa !103, !range !32, !noundef !33
   %39 = trunc nuw i8 %38 to i1
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 22379
   %41 = select i1 %39, ptr %40, ptr null
@@ -928,7 +925,7 @@ define noundef zeroext i1 @_Z14ExtractSymlinkP11CommandDataR11ComprDataIOR7Archi
 53:                                               ; preds = %51, %.preheader30.i.i
   %.125.i.i = phi i32 [ %52, %51 ], [ %.024.i.i, %.preheader30.i.i ]
   %54 = add i32 %.022.i.i, 1
-  br label %.preheader30.i.i, !llvm.loop !106
+  br label %.preheader30.i.i, !llvm.loop !104
 
 .preheader.i.i:                                   ; preds = %.preheader30.i.i, %58
   %55 = phi i32 [ %.pre.i.i, %58 ], [ %46, %.preheader30.i.i ]
@@ -950,7 +947,7 @@ define noundef zeroext i1 @_Z14ExtractSymlinkP11CommandDataR11ComprDataIOR7Archi
   %.phi.trans.insert.i.i = zext i32 %59 to i64
   %.phi.trans.insert31.i.i = getelementptr inbounds nuw i32, ptr %9, i64 %.phi.trans.insert.i.i
   %.pre.i.i = load i32, ptr %.phi.trans.insert31.i.i, align 4, !tbaa !80
-  br label %.preheader.i.i, !llvm.loop !107
+  br label %.preheader.i.i, !llvm.loop !105
 
 _ZL14SafeCharToWidePKcPwm.exit.i:                 ; preds = %.preheader.i.i
   %60 = icmp eq i32 %.024.i.i, %.023.i.i
@@ -958,7 +955,7 @@ _ZL14SafeCharToWidePKcPwm.exit.i:                 ; preds = %.preheader.i.i
 
 61:                                               ; preds = %_ZL14SafeCharToWidePKcPwm.exit.i
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 57491
-  %63 = load i8, ptr %62, align 1, !tbaa !108, !range !32, !noundef !33
+  %63 = load i8, ptr %62, align 1, !tbaa !106, !range !32, !noundef !33
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %70, label %65
 
@@ -975,7 +972,7 @@ _ZL14SafeCharToWidePKcPwm.exit.i:                 ; preds = %.preheader.i.i
   %71 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.2) #14
   %72 = icmp ne ptr %71, null
   %73 = zext i1 %72 to i8
-  store i8 %73, ptr %4, align 1, !tbaa !101
+  store i8 %73, ptr %4, align 1, !tbaa !99
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 22240
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 22256
   %76 = getelementptr i8, ptr %0, i64 57431
@@ -1033,7 +1030,7 @@ _ZL17ExtractUnixLink30P11CommandDataR11ComprDataIOR7ArchivePKwRb.exit: ; preds =
 90:                                               ; preds = %88, %.preheader30.i.i18
   %.125.i.i21 = phi i32 [ %89, %88 ], [ %.024.i.i19, %.preheader30.i.i18 ]
   %91 = add i32 %.022.i.i20, 1
-  br label %.preheader30.i.i18, !llvm.loop !106
+  br label %.preheader30.i.i18, !llvm.loop !104
 
 .preheader.i.i23:                                 ; preds = %.preheader30.i.i18, %95
   %92 = phi i32 [ %.pre.i.i29, %95 ], [ %83, %.preheader30.i.i18 ]
@@ -1055,7 +1052,7 @@ _ZL17ExtractUnixLink30P11CommandDataR11ComprDataIOR7ArchivePKwRb.exit: ; preds =
   %.phi.trans.insert.i.i27 = zext i32 %96 to i64
   %.phi.trans.insert31.i.i28 = getelementptr inbounds nuw i32, ptr %7, i64 %.phi.trans.insert.i.i27
   %.pre.i.i29 = load i32, ptr %.phi.trans.insert31.i.i28, align 4, !tbaa !80
-  br label %.preheader.i.i23, !llvm.loop !107
+  br label %.preheader.i.i23, !llvm.loop !105
 
 _ZL14SafeCharToWidePKcPwm.exit.i30:               ; preds = %.preheader.i.i23
   %97 = icmp eq i32 %.024.i.i19, %.023.i.i24
@@ -1063,7 +1060,7 @@ _ZL14SafeCharToWidePKcPwm.exit.i30:               ; preds = %.preheader.i.i23
 
 98:                                               ; preds = %_ZL14SafeCharToWidePKcPwm.exit.i30
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 57491
-  %100 = load i8, ptr %99, align 1, !tbaa !108, !range !32, !noundef !33
+  %100 = load i8, ptr %99, align 1, !tbaa !106, !range !32, !noundef !33
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %107, label %102
 
@@ -1143,7 +1140,7 @@ define internal fastcc noundef zeroext i1 @_ZL11UnixSymlinkP11CommandDataPKcPKwP
 
 15:                                               ; preds = %4
   %16 = tail call ptr @__errno_location() #15
-  %17 = load i32, ptr %16, align 4, !tbaa !109
+  %17 = load i32, ptr %16, align 4, !tbaa !107
   %18 = icmp eq i32 %17, 17
   br i1 %18, label %19, label %25
 
@@ -1201,8 +1198,8 @@ _Z5uiMsgIJPwRPKwEEv14UIMESSAGE_CODEDpOT_.exit:    ; preds = %26
 32:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
   %33 = call noundef i64 @_ZN7RarTime7GetUnixEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store i64 %33, ptr %8, align 16, !tbaa !110
-  %34 = load i64, ptr %3, align 8, !tbaa !112
+  store i64 %33, ptr %8, align 16, !tbaa !108
+  %34 = load i64, ptr %3, align 8, !tbaa !110
   %.not = icmp eq i64 %34, 0
   br i1 %.not, label %38, label %35
 
@@ -1214,11 +1211,11 @@ _Z5uiMsgIJPwRPKwEEv14UIMESSAGE_CODEDpOT_.exit:    ; preds = %26
 38:                                               ; preds = %32, %35
   %39 = phi i64 [ %37, %35 ], [ 1073741823, %32 ]
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %39, ptr %40, align 8, !tbaa !113
+  store i64 %39, ptr %40, align 8, !tbaa !111
   %41 = call noundef i64 @_ZN7RarTime7GetUnixEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %41, ptr %42, align 16, !tbaa !110
-  %43 = load i64, ptr %2, align 8, !tbaa !112
+  store i64 %41, ptr %42, align 16, !tbaa !108
+  %43 = load i64, ptr %2, align 8, !tbaa !110
   %.not5 = icmp eq i64 %43, 0
   br i1 %.not5, label %47, label %44
 
@@ -1230,7 +1227,7 @@ _Z5uiMsgIJPwRPKwEEv14UIMESSAGE_CODEDpOT_.exit:    ; preds = %26
 47:                                               ; preds = %38, %44
   %48 = phi i64 [ %46, %44 ], [ 1073741823, %38 ]
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %48, ptr %49, align 8, !tbaa !113
+  store i64 %48, ptr %49, align 8, !tbaa !111
   %50 = call i32 @utimensat(i32 noundef -100, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 256) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
   br label %51
@@ -1382,24 +1379,22 @@ attributes #15 = { nounwind willreturn memory(none) }
 !90 = !{!68, !12, i64 17180}
 !91 = !{!16, !17, i64 58617}
 !92 = !{!16, !17, i64 57488}
-!93 = !{!39, !17, i64 30637}
-!94 = distinct !{!94, !9}
-!95 = !{!96, !17, i64 8205}
-!96 = !{!"_ZTS8FindData", !6, i64 0, !18, i64 8192, !12, i64 8200, !17, i64 8204, !17, i64 8205, !28, i64 8208, !28, i64 8216, !28, i64 8224, !12, i64 8232, !17, i64 8236}
-!97 = !{!96, !17, i64 8204}
+!93 = distinct !{!93, !9}
+!94 = !{!95, !17, i64 8205}
+!95 = !{!"_ZTS8FindData", !6, i64 0, !18, i64 8192, !12, i64 8200, !17, i64 8204, !17, i64 8205, !28, i64 8208, !28, i64 8216, !28, i64 8224, !12, i64 8232, !17, i64 8236}
+!96 = distinct !{!96, !9}
+!97 = distinct !{!97, !9}
 !98 = distinct !{!98, !9}
-!99 = distinct !{!99, !9}
-!100 = distinct !{!100, !9}
-!101 = !{!17, !17, i64 0}
-!102 = !{!68, !72, i64 8464}
-!103 = !{!39, !18, i64 22264}
-!104 = !{!39, !24, i64 22288}
-!105 = !{!39, !17, i64 22378}
-!106 = distinct !{!106, !9}
-!107 = distinct !{!107, !9}
-!108 = !{!16, !17, i64 57491}
-!109 = !{!12, !12, i64 0}
-!110 = !{!111, !18, i64 0}
-!111 = !{!"_ZTS8timespec", !18, i64 0, !18, i64 8}
-!112 = !{!28, !18, i64 0}
-!113 = !{!111, !18, i64 8}
+!99 = !{!17, !17, i64 0}
+!100 = !{!68, !72, i64 8464}
+!101 = !{!39, !18, i64 22264}
+!102 = !{!39, !24, i64 22288}
+!103 = !{!39, !17, i64 22378}
+!104 = distinct !{!104, !9}
+!105 = distinct !{!105, !9}
+!106 = !{!16, !17, i64 57491}
+!107 = !{!12, !12, i64 0}
+!108 = !{!109, !18, i64 0}
+!109 = !{!"_ZTS8timespec", !18, i64 0, !18, i64 8}
+!110 = !{!28, !18, i64 0}
+!111 = !{!109, !18, i64 8}

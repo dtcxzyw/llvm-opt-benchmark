@@ -43,7 +43,7 @@ define noundef i32 @_ZN3zmq15proxy_steerableEPNS_13socket_base_tES1_S1_S1_(ptr n
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #11
   %12 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %572
+  br i1 %.not, label %13, label %569
 
 13:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #11
@@ -76,8 +76,8 @@ define noundef i32 @_ZN3zmq15proxy_steerableEPNS_13socket_base_tES1_S1_S1_(ptr n
           to label %25 unwind label %46
 
 25:                                               ; preds = %24, %21
-  %.not428 = icmp eq ptr %0, %1
-  br i1 %.not428, label %56, label %26
+  %.not436 = icmp eq ptr %0, %1
+  br i1 %.not436, label %56, label %26
 
 26:                                               ; preds = %25
   %27 = call noalias noundef dereferenceable_or_null(56) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #12
@@ -118,53 +118,53 @@ define noundef i32 @_ZN3zmq15proxy_steerableEPNS_13socket_base_tES1_S1_S1_(ptr n
 42:                                               ; preds = %16
   %43 = landingpad { ptr, i32 }
           cleanup
-  br label %571
+  br label %568
 
 44:                                               ; preds = %20
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %571
+  br label %568
 
 46:                                               ; preds = %24
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %571
+  br label %568
 
 48:                                               ; preds = %29
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %571
+  br label %568
 
 50:                                               ; preds = %33
   %51 = landingpad { ptr, i32 }
           cleanup
-  br label %571
+  br label %568
 
 52:                                               ; preds = %37
   %53 = landingpad { ptr, i32 }
           cleanup
-  br label %571
+  br label %568
 
 54:                                               ; preds = %41
   %55 = landingpad { ptr, i32 }
           cleanup
-  br label %571
+  br label %568
 
 56:                                               ; preds = %25, %38, %41
-  %.0377 = phi ptr [ %27, %41 ], [ %27, %38 ], [ null, %25 ]
-  %.0376 = phi ptr [ %31, %41 ], [ %31, %38 ], [ null, %25 ]
-  %.0375 = phi ptr [ %35, %41 ], [ %35, %38 ], [ null, %25 ]
-  %.0374 = phi ptr [ %39, %41 ], [ null, %38 ], [ null, %25 ]
+  %.0385 = phi ptr [ %27, %41 ], [ %27, %38 ], [ null, %25 ]
+  %.0384 = phi ptr [ %31, %41 ], [ %31, %38 ], [ null, %25 ]
+  %.0383 = phi ptr [ %35, %41 ], [ %35, %38 ], [ null, %25 ]
+  %.0382 = phi ptr [ %39, %41 ], [ null, %38 ], [ null, %25 ]
   %or.cond = or i1 %15, %19
   %or.cond3 = or i1 %or.cond, %23
   br i1 %or.cond3, label %60, label %57
 
 57:                                               ; preds = %56
-  %58 = icmp ne ptr %.0377, null
-  %59 = icmp ne ptr %.0376, null
-  %or.cond5.not476 = and i1 %58, %59
-  %brmerge = or i1 %.not428, %or.cond5.not476
-  br i1 %brmerge, label %88, label %.thread
+  %58 = icmp ne ptr %.0385, null
+  %59 = icmp ne ptr %.0384, null
+  %or.cond5.not443 = and i1 %58, %59
+  %or.cond7 = or i1 %.not436, %or.cond5.not443
+  br i1 %or.cond7, label %88, label %.thread
 
 60:                                               ; preds = %56
   br i1 %15, label %61, label %.thread
@@ -191,39 +191,39 @@ define noundef i32 @_ZN3zmq15proxy_steerableEPNS_13socket_base_tES1_S1_S1_(ptr n
   br label %65
 
 65:                                               ; preds = %64, %63
-  %66 = icmp eq ptr %.0377, null
+  %66 = icmp eq ptr %.0385, null
   br i1 %66, label %68, label %67
 
 67:                                               ; preds = %65
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %68
 
 68:                                               ; preds = %67, %65
-  %69 = icmp eq ptr %.0376, null
+  %69 = icmp eq ptr %.0384, null
   br i1 %69, label %71, label %70
 
 70:                                               ; preds = %68
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %71
 
 71:                                               ; preds = %70, %68
-  %72 = icmp eq ptr %.0375, null
+  %72 = icmp eq ptr %.0383, null
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %71
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %74
 
 74:                                               ; preds = %73, %71
-  %75 = icmp eq ptr %.0374, null
+  %75 = icmp eq ptr %.0382, null
   br i1 %75, label %77, label %76
 
 76:                                               ; preds = %74
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %77
 
 77:                                               ; preds = %76, %74
@@ -245,7 +245,7 @@ define noundef i32 @_ZN3zmq15proxy_steerableEPNS_13socket_base_tES1_S1_S1_(ptr n
 
 _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit:      ; preds = %77, %81
   store i32 %79, ptr %78, align 4, !tbaa !3
-  br label %570
+  br label %567
 
 88:                                               ; preds = %57
   %89 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef %0, ptr noundef null, i16 noundef signext 3)
@@ -262,42 +262,42 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit:      ; preds = %77, %81
   br i1 %58, label %92, label %93
 
 92:                                               ; preds = %91
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %93
 
 93:                                               ; preds = %92, %91
   br i1 %59, label %94, label %95
 
 94:                                               ; preds = %93
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %95
 
 95:                                               ; preds = %94, %93
-  %96 = icmp eq ptr %.0375, null
+  %96 = icmp eq ptr %.0383, null
   br i1 %96, label %98, label %97
 
 97:                                               ; preds = %95
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %98
 
 98:                                               ; preds = %97, %95
-  %99 = icmp eq ptr %.0374, null
+  %99 = icmp eq ptr %.0382, null
   br i1 %99, label %101, label %100
 
 100:                                              ; preds = %98
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %101
 
 101:                                              ; preds = %100, %98
   %102 = tail call ptr @__errno_location() #14
   %103 = load i32, ptr %102, align 4, !tbaa !3
   %104 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
-  %.not.i447 = icmp eq i32 %104, 0
-  br i1 %.not.i447, label %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit448, label %105, !prof !7
+  %.not.i456 = icmp eq i32 %104, 0
+  br i1 %.not.i456, label %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit457, label %105, !prof !7
 
 105:                                              ; preds = %101
   %106 = load i32, ptr %102, align 4, !tbaa !3
@@ -307,11 +307,11 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit:      ; preds = %77, %81
   %110 = load ptr, ptr @stderr, align 8, !tbaa !8
   %111 = call i32 @fflush(ptr noundef %110)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %107)
-  br label %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit448
+  br label %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit457
 
-_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit448:   ; preds = %101, %105
+_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit457:   ; preds = %101, %105
   store i32 %103, ptr %102, align 4, !tbaa !3
-  br label %570
+  br label %567
 
 112:                                              ; preds = %88
   %113 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef %0, ptr noundef null, i16 noundef signext 1)
@@ -328,42 +328,42 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit448:   ; preds = %101, %105
   br i1 %58, label %116, label %117
 
 116:                                              ; preds = %115
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %117
 
 117:                                              ; preds = %116, %115
   br i1 %59, label %118, label %119
 
 118:                                              ; preds = %117
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %119
 
 119:                                              ; preds = %118, %117
-  %120 = icmp eq ptr %.0375, null
+  %120 = icmp eq ptr %.0383, null
   br i1 %120, label %122, label %121
 
 121:                                              ; preds = %119
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %122
 
 122:                                              ; preds = %121, %119
-  %123 = icmp eq ptr %.0374, null
+  %123 = icmp eq ptr %.0382, null
   br i1 %123, label %125, label %124
 
 124:                                              ; preds = %122
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %125
 
 125:                                              ; preds = %124, %122
   %126 = tail call ptr @__errno_location() #14
   %127 = load i32, ptr %126, align 4, !tbaa !3
   %128 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
-  %.not.i449 = icmp eq i32 %128, 0
-  br i1 %.not.i449, label %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450, label %129, !prof !7
+  %.not.i458 = icmp eq i32 %128, 0
+  br i1 %.not.i458, label %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit459, label %129, !prof !7
 
 129:                                              ; preds = %125
   %130 = load i32, ptr %126, align 4, !tbaa !3
@@ -373,14 +373,14 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit448:   ; preds = %101, %105
   %134 = load ptr, ptr @stderr, align 8, !tbaa !8
   %135 = call i32 @fflush(ptr noundef %134)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %131)
-  br label %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450
+  br label %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit459
 
-_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
+_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit459:   ; preds = %125, %129
   store i32 %127, ptr %126, align 4, !tbaa !3
-  br label %570
+  br label %567
 
 136:                                              ; preds = %112
-  br i1 %.not428, label %137, label %152
+  br i1 %.not436, label %137, label %152
 
 137:                                              ; preds = %136
   %138 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef %0, ptr noundef null, i16 noundef signext 2)
@@ -397,39 +397,39 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   br i1 %58, label %141, label %142
 
 141:                                              ; preds = %140
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %142
 
 142:                                              ; preds = %141, %140
   br i1 %59, label %143, label %144
 
 143:                                              ; preds = %142
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %144
 
 144:                                              ; preds = %143, %142
-  %145 = icmp eq ptr %.0375, null
+  %145 = icmp eq ptr %.0383, null
   br i1 %145, label %147, label %146
 
 146:                                              ; preds = %144
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %147
 
 147:                                              ; preds = %146, %144
-  %148 = icmp eq ptr %.0374, null
+  %148 = icmp eq ptr %.0382, null
   br i1 %148, label %150, label %149
 
 149:                                              ; preds = %147
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %150
 
 150:                                              ; preds = %149, %147
   %151 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 152:                                              ; preds = %136
   %153 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef %1, ptr noundef null, i16 noundef signext 3)
@@ -446,39 +446,39 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   br i1 %58, label %156, label %157
 
 156:                                              ; preds = %155
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %157
 
 157:                                              ; preds = %156, %155
   br i1 %59, label %158, label %159
 
 158:                                              ; preds = %157
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %159
 
 159:                                              ; preds = %158, %157
-  %160 = icmp eq ptr %.0375, null
+  %160 = icmp eq ptr %.0383, null
   br i1 %160, label %162, label %161
 
 161:                                              ; preds = %159
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %162
 
 162:                                              ; preds = %161, %159
-  %163 = icmp eq ptr %.0374, null
+  %163 = icmp eq ptr %.0382, null
   br i1 %163, label %165, label %164
 
 164:                                              ; preds = %162
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %165
 
 165:                                              ; preds = %164, %162
   %166 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 167:                                              ; preds = %152
   %168 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef %1, ptr noundef null, i16 noundef signext 1)
@@ -495,42 +495,42 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   br i1 %58, label %171, label %172
 
 171:                                              ; preds = %170
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %172
 
 172:                                              ; preds = %171, %170
   br i1 %59, label %173, label %174
 
 173:                                              ; preds = %172
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %174
 
 174:                                              ; preds = %173, %172
-  %175 = icmp eq ptr %.0375, null
+  %175 = icmp eq ptr %.0383, null
   br i1 %175, label %177, label %176
 
 176:                                              ; preds = %174
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %177
 
 177:                                              ; preds = %176, %174
-  %178 = icmp eq ptr %.0374, null
+  %178 = icmp eq ptr %.0382, null
   br i1 %178, label %180, label %179
 
 179:                                              ; preds = %177
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %180
 
 180:                                              ; preds = %179, %177
   %181 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 182:                                              ; preds = %167
-  %183 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0376, ptr noundef %0, ptr noundef null, i16 noundef signext 2)
+  %183 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0384, ptr noundef %0, ptr noundef null, i16 noundef signext 2)
   %184 = icmp slt i32 %183, 0
   br i1 %184, label %185, label %195
 
@@ -544,36 +544,36 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   br i1 %58, label %186, label %187
 
 186:                                              ; preds = %185
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %187
 
 187:                                              ; preds = %186, %185
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
-  %188 = icmp eq ptr %.0375, null
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  %188 = icmp eq ptr %.0383, null
   br i1 %188, label %190, label %189
 
 189:                                              ; preds = %187
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %190
 
 190:                                              ; preds = %189, %187
-  %191 = icmp eq ptr %.0374, null
+  %191 = icmp eq ptr %.0382, null
   br i1 %191, label %193, label %192
 
 192:                                              ; preds = %190
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %193
 
 193:                                              ; preds = %192, %190
   %194 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 195:                                              ; preds = %182
-  %196 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0376, ptr noundef %1, ptr noundef null, i16 noundef signext 2)
+  %196 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0384, ptr noundef %1, ptr noundef null, i16 noundef signext 2)
   %197 = icmp slt i32 %196, 0
   br i1 %197, label %198, label %208
 
@@ -587,36 +587,36 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   br i1 %58, label %199, label %200
 
 199:                                              ; preds = %198
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %200
 
 200:                                              ; preds = %199, %198
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
-  %201 = icmp eq ptr %.0375, null
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  %201 = icmp eq ptr %.0383, null
   br i1 %201, label %203, label %202
 
 202:                                              ; preds = %200
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %203
 
 203:                                              ; preds = %202, %200
-  %204 = icmp eq ptr %.0374, null
+  %204 = icmp eq ptr %.0382, null
   br i1 %204, label %206, label %205
 
 205:                                              ; preds = %203
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %206
 
 206:                                              ; preds = %205, %203
   %207 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 208:                                              ; preds = %195
-  %209 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0377, ptr noundef %1, ptr noundef null, i16 noundef signext 2)
+  %209 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0385, ptr noundef %1, ptr noundef null, i16 noundef signext 2)
   %210 = icmp slt i32 %209, 0
   br i1 %210, label %211, label %219
 
@@ -627,33 +627,33 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   call void @_ZdlPv(ptr noundef nonnull %18) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #11
   call void @_ZdlPv(ptr noundef nonnull %22) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
-  %212 = icmp eq ptr %.0375, null
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  %212 = icmp eq ptr %.0383, null
   br i1 %212, label %214, label %213
 
 213:                                              ; preds = %211
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %214
 
 214:                                              ; preds = %213, %211
-  %215 = icmp eq ptr %.0374, null
+  %215 = icmp eq ptr %.0382, null
   br i1 %215, label %217, label %216
 
 216:                                              ; preds = %214
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %217
 
 217:                                              ; preds = %216, %214
   %218 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 219:                                              ; preds = %208
-  %220 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0377, ptr noundef %0, ptr noundef null, i16 noundef signext 3)
+  %220 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0385, ptr noundef %0, ptr noundef null, i16 noundef signext 3)
   %221 = icmp slt i32 %220, 0
   br i1 %221, label %222, label %230
 
@@ -664,30 +664,30 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   call void @_ZdlPv(ptr noundef nonnull %18) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #11
   call void @_ZdlPv(ptr noundef nonnull %22) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
-  %223 = icmp eq ptr %.0375, null
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  %223 = icmp eq ptr %.0383, null
   br i1 %223, label %225, label %224
 
 224:                                              ; preds = %222
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %225
 
 225:                                              ; preds = %224, %222
-  %226 = icmp eq ptr %.0374, null
+  %226 = icmp eq ptr %.0382, null
   br i1 %226, label %228, label %227
 
 227:                                              ; preds = %225
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %228
 
 228:                                              ; preds = %227, %225
   %229 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 230:                                              ; preds = %219
   %231 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef %0, ptr noundef null, i16 noundef signext 2)
@@ -701,30 +701,30 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   call void @_ZdlPv(ptr noundef nonnull %18) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #11
   call void @_ZdlPv(ptr noundef nonnull %22) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
-  %234 = icmp eq ptr %.0375, null
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  %234 = icmp eq ptr %.0383, null
   br i1 %234, label %236, label %235
 
 235:                                              ; preds = %233
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %236
 
 236:                                              ; preds = %235, %233
-  %237 = icmp eq ptr %.0374, null
+  %237 = icmp eq ptr %.0382, null
   br i1 %237, label %239, label %238
 
 238:                                              ; preds = %236
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %239
 
 239:                                              ; preds = %238, %236
   %240 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 241:                                              ; preds = %230
   %242 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef %1, ptr noundef null, i16 noundef signext 3)
@@ -738,33 +738,33 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   call void @_ZdlPv(ptr noundef nonnull %18) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #11
   call void @_ZdlPv(ptr noundef nonnull %22) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
-  %245 = icmp eq ptr %.0375, null
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  %245 = icmp eq ptr %.0383, null
   br i1 %245, label %247, label %246
 
 246:                                              ; preds = %244
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %247
 
 247:                                              ; preds = %246, %244
-  %248 = icmp eq ptr %.0374, null
+  %248 = icmp eq ptr %.0382, null
   br i1 %248, label %250, label %249
 
 249:                                              ; preds = %247
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %250
 
 250:                                              ; preds = %249, %247
   %251 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 252:                                              ; preds = %241
-  %253 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0375, ptr noundef %0, ptr noundef null, i16 noundef signext 3)
+  %253 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0383, ptr noundef %0, ptr noundef null, i16 noundef signext 3)
   %254 = icmp slt i32 %253, 0
   br i1 %254, label %255, label %260
 
@@ -775,26 +775,26 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   call void @_ZdlPv(ptr noundef nonnull %18) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #11
   call void @_ZdlPv(ptr noundef nonnull %22) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
-  %256 = icmp eq ptr %.0374, null
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
+  %256 = icmp eq ptr %.0382, null
   br i1 %256, label %258, label %257
 
 257:                                              ; preds = %255
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %258
 
 258:                                              ; preds = %257, %255
   %259 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 260:                                              ; preds = %252
-  %261 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0374, ptr noundef %1, ptr noundef null, i16 noundef signext 3)
+  %261 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0382, ptr noundef %1, ptr noundef null, i16 noundef signext 3)
   %262 = icmp slt i32 %261, 0
   br i1 %262, label %263, label %265
 
@@ -805,20 +805,20 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   call void @_ZdlPv(ptr noundef nonnull %18) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #11
   call void @_ZdlPv(ptr noundef nonnull %22) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   %264 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 265:                                              ; preds = %260, %137
-  %.not433 = icmp eq ptr %3, null
-  br i1 %.not433, label %348, label %266
+  %.not444 = icmp eq ptr %3, null
+  br i1 %.not444, label %348, label %266
 
 266:                                              ; preds = %265
   %267 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull %3, ptr noundef null, i16 noundef signext 1)
@@ -835,39 +835,39 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   br i1 %58, label %270, label %271
 
 270:                                              ; preds = %269
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %271
 
 271:                                              ; preds = %270, %269
   br i1 %59, label %272, label %273
 
 272:                                              ; preds = %271
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %273
 
 273:                                              ; preds = %272, %271
-  %274 = icmp eq ptr %.0375, null
+  %274 = icmp eq ptr %.0383, null
   br i1 %274, label %276, label %275
 
 275:                                              ; preds = %273
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %276
 
 276:                                              ; preds = %275, %273
-  %277 = icmp eq ptr %.0374, null
+  %277 = icmp eq ptr %.0382, null
   br i1 %277, label %279, label %278
 
 278:                                              ; preds = %276
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %279
 
 279:                                              ; preds = %278, %276
   %280 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 281:                                              ; preds = %266
   %282 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull %3, ptr noundef null, i16 noundef signext 1)
@@ -884,39 +884,39 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   br i1 %58, label %285, label %286
 
 285:                                              ; preds = %284
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %286
 
 286:                                              ; preds = %285, %284
   br i1 %59, label %287, label %288
 
 287:                                              ; preds = %286
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %288
 
 288:                                              ; preds = %287, %286
-  %289 = icmp eq ptr %.0375, null
+  %289 = icmp eq ptr %.0383, null
   br i1 %289, label %291, label %290
 
 290:                                              ; preds = %288
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %291
 
 291:                                              ; preds = %290, %288
-  %292 = icmp eq ptr %.0374, null
+  %292 = icmp eq ptr %.0382, null
   br i1 %292, label %294, label %293
 
 293:                                              ; preds = %291
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %294
 
 294:                                              ; preds = %293, %291
   %295 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 296:                                              ; preds = %281
   %297 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull %3, ptr noundef null, i16 noundef signext 1)
@@ -933,42 +933,42 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   br i1 %58, label %300, label %301
 
 300:                                              ; preds = %299
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %301
 
 301:                                              ; preds = %300, %299
   br i1 %59, label %302, label %303
 
 302:                                              ; preds = %301
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %303
 
 303:                                              ; preds = %302, %301
-  %304 = icmp eq ptr %.0375, null
+  %304 = icmp eq ptr %.0383, null
   br i1 %304, label %306, label %305
 
 305:                                              ; preds = %303
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %306
 
 306:                                              ; preds = %305, %303
-  %307 = icmp eq ptr %.0374, null
+  %307 = icmp eq ptr %.0382, null
   br i1 %307, label %309, label %308
 
 308:                                              ; preds = %306
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %309
 
 309:                                              ; preds = %308, %306
   %310 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 311:                                              ; preds = %296
-  %312 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0377, ptr noundef nonnull %3, ptr noundef null, i16 noundef signext 1)
+  %312 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0385, ptr noundef nonnull %3, ptr noundef null, i16 noundef signext 1)
   %313 = icmp slt i32 %312, 0
   br i1 %313, label %314, label %324
 
@@ -979,39 +979,39 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   call void @_ZdlPv(ptr noundef nonnull %18) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #11
   call void @_ZdlPv(ptr noundef nonnull %22) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br i1 %59, label %315, label %316
 
 315:                                              ; preds = %314
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %316
 
 316:                                              ; preds = %315, %314
-  %317 = icmp eq ptr %.0375, null
+  %317 = icmp eq ptr %.0383, null
   br i1 %317, label %319, label %318
 
 318:                                              ; preds = %316
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %319
 
 319:                                              ; preds = %318, %316
-  %320 = icmp eq ptr %.0374, null
+  %320 = icmp eq ptr %.0382, null
   br i1 %320, label %322, label %321
 
 321:                                              ; preds = %319
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %322
 
 322:                                              ; preds = %321, %319
   %323 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 324:                                              ; preds = %311
-  %325 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0376, ptr noundef nonnull %3, ptr noundef null, i16 noundef signext 1)
+  %325 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0384, ptr noundef nonnull %3, ptr noundef null, i16 noundef signext 1)
   %326 = icmp slt i32 %325, 0
   br i1 %326, label %327, label %335
 
@@ -1022,33 +1022,33 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   call void @_ZdlPv(ptr noundef nonnull %18) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #11
   call void @_ZdlPv(ptr noundef nonnull %22) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
-  %328 = icmp eq ptr %.0375, null
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  %328 = icmp eq ptr %.0383, null
   br i1 %328, label %330, label %329
 
 329:                                              ; preds = %327
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %330
 
 330:                                              ; preds = %329, %327
-  %331 = icmp eq ptr %.0374, null
+  %331 = icmp eq ptr %.0382, null
   br i1 %331, label %333, label %332
 
 332:                                              ; preds = %330
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %333
 
 333:                                              ; preds = %332, %330
   %334 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 335:                                              ; preds = %324
-  %336 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0375, ptr noundef nonnull %3, ptr noundef null, i16 noundef signext 1)
+  %336 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0383, ptr noundef nonnull %3, ptr noundef null, i16 noundef signext 1)
   %337 = icmp slt i32 %336, 0
   br i1 %337, label %338, label %343
 
@@ -1059,26 +1059,26 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   call void @_ZdlPv(ptr noundef nonnull %18) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #11
   call void @_ZdlPv(ptr noundef nonnull %22) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
-  %339 = icmp eq ptr %.0374, null
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
+  %339 = icmp eq ptr %.0382, null
   br i1 %339, label %341, label %340
 
 340:                                              ; preds = %338
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %341
 
 341:                                              ; preds = %340, %338
   %342 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 343:                                              ; preds = %335
-  %344 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0374, ptr noundef nonnull %3, ptr noundef null, i16 noundef signext 1)
+  %344 = call noundef i32 @_ZN3zmq15socket_poller_t3addEPNS_13socket_base_tEPvs(ptr noundef nonnull align 8 dereferenceable(56) %.0382, ptr noundef nonnull %3, ptr noundef null, i16 noundef signext 1)
   %345 = icmp slt i32 %344, 0
   br i1 %345, label %346, label %348
 
@@ -1089,19 +1089,19 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   call void @_ZdlPv(ptr noundef nonnull %18) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #11
   call void @_ZdlPv(ptr noundef nonnull %22) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   %347 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 348:                                              ; preds = %343, %265
-  %.0406 = phi i32 [ 4, %343 ], [ 3, %265 ]
+  %.0414 = phi i32 [ 4, %343 ], [ 3, %265 ]
   %349 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %350 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %351 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -1118,22 +1118,22 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   %362 = getelementptr inbounds nuw i8, ptr %11, i64 40
   br label %363
 
-363:                                              ; preds = %348, %557
-  %.0363509 = phi ptr [ %18, %348 ], [ %.1, %557 ]
-  %.0378508 = phi i8 [ 0, %348 ], [ %.3381, %557 ]
-  %.0383507 = phi i8 [ 0, %348 ], [ %.3386, %557 ]
-  %.0388506 = phi i8 [ 0, %348 ], [ %.3391, %557 ]
-  %.0393505 = phi i8 [ 0, %348 ], [ %.3396, %557 ]
-  %.0453504 = phi i32 [ 0, %348 ], [ %.1454.lcssa, %557 ]
-  %364 = call noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr noundef nonnull align 8 dereferenceable(56) %.0363509, ptr noundef nonnull %10, i32 noundef %.0406, i64 noundef -1)
+363:                                              ; preds = %348, %554
+  %.0371513 = phi ptr [ %18, %348 ], [ %.1, %554 ]
+  %.0386512 = phi i8 [ 0, %348 ], [ %.3389, %554 ]
+  %.0391511 = phi i8 [ 0, %348 ], [ %.3394, %554 ]
+  %.0396510 = phi i8 [ 0, %348 ], [ %.3399, %554 ]
+  %.0401509 = phi i8 [ 0, %348 ], [ %.3404, %554 ]
+  %.0462508 = phi i32 [ 0, %348 ], [ %.1463.lcssa, %554 ]
+  %364 = call noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr noundef nonnull align 8 dereferenceable(56) %.0371513, ptr noundef nonnull %10, i32 noundef %.0414, i64 noundef -1)
   %365 = icmp slt i32 %364, 0
   br i1 %365, label %366, label %.critedge
 
 366:                                              ; preds = %363
   %367 = tail call ptr @__errno_location() #14
   %368 = load i32, ptr %367, align 4, !tbaa !3
-  %.not477 = icmp eq i32 %368, 11
-  br i1 %.not477, label %.critedge, label %369
+  %.not481 = icmp eq i32 %368, 11
+  br i1 %.not481, label %.critedge, label %369
 
 369:                                              ; preds = %366
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #11
@@ -1145,42 +1145,42 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   br i1 %58, label %370, label %371
 
 370:                                              ; preds = %369
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %371
 
 371:                                              ; preds = %370, %369
   br i1 %59, label %372, label %373
 
 372:                                              ; preds = %371
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %373
 
 373:                                              ; preds = %372, %371
-  %374 = icmp eq ptr %.0375, null
+  %374 = icmp eq ptr %.0383, null
   br i1 %374, label %376, label %375
 
 375:                                              ; preds = %373
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %376
 
 376:                                              ; preds = %375, %373
-  %377 = icmp eq ptr %.0374, null
+  %377 = icmp eq ptr %.0382, null
   br i1 %377, label %379, label %378
 
 378:                                              ; preds = %376
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %379
 
 379:                                              ; preds = %378, %376
   %380 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 .critedge:                                        ; preds = %363, %366
-  %381 = call noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull %10, i32 noundef %.0406, i64 noundef 0)
+  %381 = call noundef i32 @_ZN3zmq15socket_poller_t4waitEP18zmq_poller_event_til(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull %10, i32 noundef %.0414, i64 noundef 0)
   %382 = icmp slt i32 %381, 0
   br i1 %382, label %383, label %select.unfold
 
@@ -1191,8 +1191,8 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450:   ; preds = %125, %129
   br i1 %386, label %._crit_edge, label %411
 
 select.unfold:                                    ; preds = %.critedge
-  %.not435488.not = icmp eq i32 %381, 0
-  br i1 %.not435488.not, label %._crit_edge, label %.lr.ph
+  %.not446492.not = icmp eq i32 %381, 0
+  br i1 %.not446492.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %select.unfold
   %387 = load i64, ptr %349, align 8
@@ -1203,19 +1203,19 @@ select.unfold:                                    ; preds = %.critedge
   %392 = load i64, ptr %359, align 8
   %393 = load i64, ptr %356, align 8
   %394 = load i64, ptr %362, align 8
-  br i1 %.not433, label %.lr.ph.split.us.preheader, label %.lr.ph.split
+  br i1 %.not444, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %wide.trip.count = zext nneg i32 %381 to i64
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %410
-  %indvars.iv511 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next512, %410 ]
-  %.1379493.us = phi i8 [ %.0378508, %.lr.ph.split.us.preheader ], [ %.2380.us, %410 ]
-  %.1384492.us = phi i8 [ %.0383507, %.lr.ph.split.us.preheader ], [ %.2385.us, %410 ]
-  %.1389491.us = phi i8 [ %.0388506, %.lr.ph.split.us.preheader ], [ %.2390.us, %410 ]
-  %.1394490.us = phi i8 [ %.0393505, %.lr.ph.split.us.preheader ], [ %.2395.us, %410 ]
-  %395 = getelementptr inbounds nuw [4 x %struct.zmq_poller_event_t], ptr %10, i64 0, i64 %indvars.iv511
+  %indvars.iv515 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next516, %410 ]
+  %.1387497.us = phi i8 [ %.0386512, %.lr.ph.split.us.preheader ], [ %.2388.us, %410 ]
+  %.1392496.us = phi i8 [ %.0391511, %.lr.ph.split.us.preheader ], [ %.2393.us, %410 ]
+  %.1397495.us = phi i8 [ %.0396510, %.lr.ph.split.us.preheader ], [ %.2398.us, %410 ]
+  %.1402494.us = phi i8 [ %.0401509, %.lr.ph.split.us.preheader ], [ %.2403.us, %410 ]
+  %395 = getelementptr inbounds nuw [4 x %struct.zmq_poller_event_t], ptr %10, i64 0, i64 %indvars.iv515
   %396 = load ptr, ptr %395, align 16, !tbaa !11
   %397 = icmp eq ptr %396, %0
   br i1 %397, label %405, label %398
@@ -1239,12 +1239,12 @@ select.unfold:                                    ; preds = %.critedge
   br label %410
 
 410:                                              ; preds = %405, %400, %398
-  %.2395.us = phi i8 [ %.1394490.us, %405 ], [ %404, %400 ], [ %.1394490.us, %398 ]
-  %.2390.us = phi i8 [ %.1389491.us, %405 ], [ %403, %400 ], [ %.1389491.us, %398 ]
-  %.2385.us = phi i8 [ %409, %405 ], [ %.1384492.us, %400 ], [ %.1384492.us, %398 ]
-  %.2380.us = phi i8 [ %408, %405 ], [ %.1379493.us, %400 ], [ %.1379493.us, %398 ]
-  %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next512, %wide.trip.count
+  %.2403.us = phi i8 [ %.1402494.us, %405 ], [ %404, %400 ], [ %.1402494.us, %398 ]
+  %.2398.us = phi i8 [ %.1397495.us, %405 ], [ %403, %400 ], [ %.1397495.us, %398 ]
+  %.2393.us = phi i8 [ %409, %405 ], [ %.1392496.us, %400 ], [ %.1392496.us, %398 ]
+  %.2388.us = phi i8 [ %408, %405 ], [ %.1387497.us, %400 ], [ %.1387497.us, %398 ]
+  %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next516, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
 
 411:                                              ; preds = %383
@@ -1257,48 +1257,48 @@ select.unfold:                                    ; preds = %.critedge
   br i1 %58, label %412, label %413
 
 412:                                              ; preds = %411
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %413
 
 413:                                              ; preds = %412, %411
   br i1 %59, label %414, label %415
 
 414:                                              ; preds = %413
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %415
 
 415:                                              ; preds = %414, %413
-  %416 = icmp eq ptr %.0375, null
+  %416 = icmp eq ptr %.0383, null
   br i1 %416, label %418, label %417
 
 417:                                              ; preds = %415
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %418
 
 418:                                              ; preds = %417, %415
-  %419 = icmp eq ptr %.0374, null
+  %419 = icmp eq ptr %.0382, null
   br i1 %419, label %421, label %420
 
 420:                                              ; preds = %418
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %421
 
 421:                                              ; preds = %420, %418
   %422 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %488
   %indvars.iv = phi i64 [ %indvars.iv.next, %488 ], [ 0, %.lr.ph ]
-  %.2370494 = phi i32 [ %.3371, %488 ], [ %381, %.lr.ph ]
-  %.1379493 = phi i8 [ %.2380, %488 ], [ %.0378508, %.lr.ph ]
-  %.1384492 = phi i8 [ %.2385, %488 ], [ %.0383507, %.lr.ph ]
-  %.1389491 = phi i8 [ %.2390, %488 ], [ %.0388506, %.lr.ph ]
-  %.1394490 = phi i8 [ %.2395, %488 ], [ %.0393505, %.lr.ph ]
-  %.1454489 = phi i32 [ %.3456, %488 ], [ %.0453504, %.lr.ph ]
+  %.2378498 = phi i32 [ %.3379, %488 ], [ %381, %.lr.ph ]
+  %.1387497 = phi i8 [ %.2388, %488 ], [ %.0386512, %.lr.ph ]
+  %.1392496 = phi i8 [ %.2393, %488 ], [ %.0391511, %.lr.ph ]
+  %.1397495 = phi i8 [ %.2398, %488 ], [ %.0396510, %.lr.ph ]
+  %.1402494 = phi i8 [ %.2403, %488 ], [ %.0401509, %.lr.ph ]
+  %.1463493 = phi i32 [ %.3465, %488 ], [ %.0462508, %.lr.ph ]
   %423 = getelementptr inbounds nuw [4 x %struct.zmq_poller_event_t], ptr %10, i64 0, i64 %indvars.iv
   %424 = load ptr, ptr %423, align 16, !tbaa !11
   %425 = icmp eq ptr %424, %3
@@ -1307,8 +1307,8 @@ select.unfold:                                    ; preds = %.critedge
 426:                                              ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11
   %427 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  %.not.i451 = icmp eq i32 %427, 0
-  br i1 %.not.i451, label %428, label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread
+  %.not.i460 = icmp eq i32 %427, 0
+  br i1 %.not.i460, label %428, label %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.thread
 
 428:                                              ; preds = %426
   %429 = call noundef i32 @_ZN3zmq13socket_base_t4recvEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %3, ptr noundef nonnull %5, i32 noundef 1)
@@ -1383,7 +1383,7 @@ select.unfold:                                    ; preds = %.critedge
   br label %453
 
 453:                                              ; preds = %.sink.split.i, %451, %449, %447, %434, %431
-  %.4 = phi i32 [ %.1454489, %431 ], [ %.sink.i, %.sink.split.i ], [ %.1454489, %451 ], [ %.1454489, %449 ], [ %.1454489, %447 ], [ %.1454489, %434 ]
+  %.4 = phi i32 [ %.1463493, %431 ], [ %.sink.i, %.sink.split.i ], [ %.1463493, %451 ], [ %.1463493, %449 ], [ %.1463493, %447 ], [ %.1463493, %434 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
   store i64 4, ptr %8, align 8, !tbaa !17
@@ -1412,7 +1412,7 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit.th
   br label %.loopexit
 
 _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ; preds = %446, %462
-  %.5457 = phi i32 [ %.4, %462 ], [ %.1454489, %446 ]
+  %.5466 = phi i32 [ %.4, %462 ], [ %.1463493, %446 ]
   %.032.i = phi i32 [ %.4.i, %462 ], [ %.lobit.i, %446 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11
   %463 = icmp slt i32 %.032.i, 0
@@ -1428,39 +1428,39 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   br i1 %58, label %464, label %465
 
 464:                                              ; preds = %.loopexit
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %465
 
 465:                                              ; preds = %464, %.loopexit
   br i1 %59, label %466, label %467
 
 466:                                              ; preds = %465
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %467
 
 467:                                              ; preds = %466, %465
-  %468 = icmp eq ptr %.0375, null
+  %468 = icmp eq ptr %.0383, null
   br i1 %468, label %470, label %469
 
 469:                                              ; preds = %467
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %470
 
 470:                                              ; preds = %469, %467
-  %471 = icmp eq ptr %.0374, null
-  br i1 %471, label %.thread463, label %472
+  %471 = icmp eq ptr %.0382, null
+  br i1 %471, label %.thread472, label %472
 
 472:                                              ; preds = %470
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
-  br label %.thread463
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
+  br label %.thread472
 
-.thread463:                                       ; preds = %470, %472
+.thread472:                                       ; preds = %470, %472
   %473 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
 474:                                              ; preds = %.lr.ph.split
   %475 = icmp eq ptr %424, %0
@@ -1485,32 +1485,32 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   br label %488
 
 488:                                              ; preds = %476, %483, %481, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit
-  %.3456 = phi i32 [ %.1454489, %476 ], [ %.1454489, %483 ], [ %.1454489, %481 ], [ %.5457, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %.2395 = phi i8 [ %.1394490, %476 ], [ %487, %483 ], [ %.1394490, %481 ], [ %.1394490, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %.2390 = phi i8 [ %.1389491, %476 ], [ %486, %483 ], [ %.1389491, %481 ], [ %.1389491, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %.2385 = phi i8 [ %480, %476 ], [ %.1384492, %483 ], [ %.1384492, %481 ], [ %.1384492, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %.2380 = phi i8 [ %479, %476 ], [ %.1379493, %483 ], [ %.1379493, %481 ], [ %.1379493, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %.3371 = phi i32 [ %.2370494, %476 ], [ %.2370494, %483 ], [ %.2370494, %481 ], [ 0, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %.3465 = phi i32 [ %.1463493, %476 ], [ %.1463493, %483 ], [ %.1463493, %481 ], [ %.5466, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %.2403 = phi i8 [ %.1402494, %476 ], [ %487, %483 ], [ %.1402494, %481 ], [ %.1402494, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %.2398 = phi i8 [ %.1397495, %476 ], [ %486, %483 ], [ %.1397495, %481 ], [ %.1397495, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %.2393 = phi i8 [ %480, %476 ], [ %.1392496, %483 ], [ %.1392496, %481 ], [ %.1392496, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %.2388 = phi i8 [ %479, %476 ], [ %.1387497, %483 ], [ %.1387497, %481 ], [ %.1387497, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %.3379 = phi i32 [ %.2378498, %476 ], [ %.2378498, %483 ], [ %.2378498, %481 ], [ 0, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %489 = zext nneg i32 %.3371 to i64
-  %.not435 = icmp samesign ult i64 %indvars.iv.next, %489
-  br i1 %.not435, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
+  %489 = zext nneg i32 %.3379 to i64
+  %.not446 = icmp samesign ult i64 %indvars.iv.next, %489
+  br i1 %.not446, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %488, %410, %383, %select.unfold
-  %.1454.lcssa = phi i32 [ %.0453504, %select.unfold ], [ %.0453504, %383 ], [ %.0453504, %410 ], [ %.3456, %488 ]
-  %.1394.lcssa = phi i8 [ %.0393505, %select.unfold ], [ %.0393505, %383 ], [ %.2395.us, %410 ], [ %.2395, %488 ]
-  %.1389.lcssa = phi i8 [ %.0388506, %select.unfold ], [ %.0388506, %383 ], [ %.2390.us, %410 ], [ %.2390, %488 ]
-  %.1384.lcssa = phi i8 [ %.0383507, %select.unfold ], [ %.0383507, %383 ], [ %.2385.us, %410 ], [ %.2385, %488 ]
-  %.1379.lcssa = phi i8 [ %.0378508, %select.unfold ], [ %.0378508, %383 ], [ %.2380.us, %410 ], [ %.2380, %488 ]
-  %490 = icmp eq i32 %.1454.lcssa, 0
-  br i1 %490, label %491, label %557
+  %.1463.lcssa = phi i32 [ %.0462508, %select.unfold ], [ %.0462508, %383 ], [ %.0462508, %410 ], [ %.3465, %488 ]
+  %.1402.lcssa = phi i8 [ %.0401509, %select.unfold ], [ %.0401509, %383 ], [ %.2403.us, %410 ], [ %.2403, %488 ]
+  %.1397.lcssa = phi i8 [ %.0396510, %select.unfold ], [ %.0396510, %383 ], [ %.2398.us, %410 ], [ %.2398, %488 ]
+  %.1392.lcssa = phi i8 [ %.0391511, %select.unfold ], [ %.0391511, %383 ], [ %.2393.us, %410 ], [ %.2393, %488 ]
+  %.1387.lcssa = phi i8 [ %.0386512, %select.unfold ], [ %.0386512, %383 ], [ %.2388.us, %410 ], [ %.2388, %488 ]
+  %490 = icmp eq i32 %.1463.lcssa, 0
+  br i1 %490, label %491, label %554
 
 491:                                              ; preds = %._crit_edge
-  %492 = trunc i8 %.1379.lcssa to i1
-  %493 = trunc i8 %.1394.lcssa to i1
-  %brmerge438 = or i1 %.not428, %493
-  %or.cond444 = select i1 %492, i1 %brmerge438, i1 false
-  br i1 %or.cond444, label %494, label %509
+  %492 = trunc i8 %.1387.lcssa to i1
+  %493 = trunc i8 %.1402.lcssa to i1
+  %or.cond9 = or i1 %.not436, %493
+  %or.cond449 = select i1 %492, i1 %or.cond9, i1 false
+  br i1 %or.cond449, label %494, label %.thread519
 
 494:                                              ; preds = %491
   %495 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(16) %349, ptr noundef nonnull align 8 dereferenceable(16) %356)
@@ -1527,244 +1527,234 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   br i1 %58, label %498, label %499
 
 498:                                              ; preds = %497
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
   br label %499
 
 499:                                              ; preds = %498, %497
   br i1 %59, label %500, label %501
 
 500:                                              ; preds = %499
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
   br label %501
 
 501:                                              ; preds = %500, %499
-  %502 = icmp eq ptr %.0375, null
+  %502 = icmp eq ptr %.0383, null
   br i1 %502, label %504, label %503
 
 503:                                              ; preds = %501
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %504
 
 504:                                              ; preds = %503, %501
-  %505 = icmp eq ptr %.0374, null
+  %505 = icmp eq ptr %.0382, null
   br i1 %505, label %507, label %506
 
 506:                                              ; preds = %504
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %507
 
 507:                                              ; preds = %506, %504
   %508 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+  br label %567
 
-509:                                              ; preds = %491, %494
-  %.4397 = phi i8 [ 0, %494 ], [ %.1394.lcssa, %491 ]
-  %.4382 = phi i8 [ 0, %494 ], [ %.1379.lcssa, %491 ]
-  %510 = trunc i8 %.1389.lcssa to i1
-  br i1 %510, label %511, label %528
+509:                                              ; preds = %494
+  %510 = trunc i8 %.1397.lcssa to i1
+  %511 = trunc i8 %.1392.lcssa to i1
+  %or.cond11 = select i1 %510, i1 %511, i1 false
+  br i1 %or.cond11, label %514, label %.thread475
 
-511:                                              ; preds = %509
-  %512 = trunc i8 %.1384.lcssa to i1
-  br i1 %512, label %513, label %528
+.thread519:                                       ; preds = %491
+  %512 = trunc i8 %.1397.lcssa to i1
+  %513 = trunc i8 %.1392.lcssa to i1
+  %or.cond11522 = select i1 %512, i1 %513, i1 false
+  br i1 %or.cond11522, label %514, label %541
 
-513:                                              ; preds = %511
-  %514 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(16) %357, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  %515 = icmp slt i32 %514, 0
-  br i1 %515, label %516, label %.thread466
+514:                                              ; preds = %.thread519, %509
+  %.4390528 = phi i8 [ %.1387.lcssa, %.thread519 ], [ 0, %509 ]
+  %.4405525 = phi i8 [ %.1402.lcssa, %.thread519 ], [ 0, %509 ]
+  %515 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(16) %357, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %516 = icmp slt i32 %515, 0
+  br i1 %516, label %517, label %.thread475
 
-516:                                              ; preds = %513
+517:                                              ; preds = %514
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #11
   call void @_ZdlPv(ptr noundef %14) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #11
   call void @_ZdlPv(ptr noundef %18) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #11
   call void @_ZdlPv(ptr noundef %22) #13
-  br i1 %58, label %517, label %518
+  br i1 %58, label %518, label %519
 
-517:                                              ; preds = %516
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
-  br label %518
+518:                                              ; preds = %517
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
+  br label %519
 
-518:                                              ; preds = %517, %516
-  br i1 %59, label %519, label %520
+519:                                              ; preds = %518, %517
+  br i1 %59, label %520, label %521
 
-519:                                              ; preds = %518
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
-  br label %520
+520:                                              ; preds = %519
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  br label %521
 
-520:                                              ; preds = %519, %518
-  %521 = icmp eq ptr %.0375, null
-  br i1 %521, label %523, label %522
+521:                                              ; preds = %520, %519
+  %522 = icmp eq ptr %.0383, null
+  br i1 %522, label %524, label %523
 
-522:                                              ; preds = %520
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
-  br label %523
+523:                                              ; preds = %521
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
+  br label %524
 
-523:                                              ; preds = %522, %520
-  %524 = icmp eq ptr %.0374, null
-  br i1 %524, label %526, label %525
+524:                                              ; preds = %523, %521
+  %525 = icmp eq ptr %.0382, null
+  br i1 %525, label %527, label %526
 
-525:                                              ; preds = %523
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
-  br label %526
+526:                                              ; preds = %524
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
+  br label %527
 
-526:                                              ; preds = %525, %523
-  %527 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
-  br label %570
+527:                                              ; preds = %526, %524
+  %528 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef -1)
+  br label %567
 
-528:                                              ; preds = %509, %511
-  %.4392 = phi i8 [ 1, %511 ], [ 0, %509 ]
-  %.4387 = phi i8 [ 0, %511 ], [ %.1384.lcssa, %509 ]
-  br i1 %or.cond444, label %.thread466.thread, label %541
+.thread475:                                       ; preds = %509, %514
+  %or.cond11529 = phi i1 [ true, %514 ], [ false, %509 ]
+  %.4390527 = phi i8 [ %.4390528, %514 ], [ 0, %509 ]
+  %.4405524 = phi i8 [ %.4405525, %514 ], [ 0, %509 ]
+  %.4395480 = phi i8 [ 0, %514 ], [ %.1392.lcssa, %509 ]
+  %.4400479 = phi i8 [ 0, %514 ], [ %.1397.lcssa, %509 ]
+  %.not447 = icmp eq ptr %.0371513, %18
+  br i1 %.not447, label %554, label %529
 
-.thread466:                                       ; preds = %513
-  %.not436 = icmp eq ptr %.0363509, %18
-  br i1 %.not436, label %557, label %529
+529:                                              ; preds = %.thread475
+  br i1 %or.cond449, label %530, label %535
 
-.thread466.thread:                                ; preds = %528
-  %.not436518 = icmp eq ptr %.0363509, %18
-  br i1 %.not436518, label %557, label %.thread522.thread
+530:                                              ; preds = %529
+  %531 = icmp eq ptr %.0371513, %.0384
+  br i1 %531, label %535, label %532
 
-529:                                              ; preds = %.thread466
-  br i1 %or.cond444, label %.thread522, label %.thread532
+532:                                              ; preds = %530
+  %533 = icmp eq ptr %.0371513, %22
+  %534 = icmp eq ptr %.0371513, %.0383
+  %or.cond450 = or i1 %533, %534
+  %spec.select454 = select i1 %or.cond450, ptr %18, ptr %.0371513
+  br label %535
 
-.thread522:                                       ; preds = %529
-  %530 = icmp eq ptr %.0363509, %.0376
-  br i1 %530, label %.thread532, label %534
+535:                                              ; preds = %532, %530, %529
+  %.2 = phi ptr [ %.0371513, %529 ], [ %.0385, %530 ], [ %spec.select454, %532 ]
+  br i1 %or.cond11529, label %536, label %554
 
-.thread522.thread:                                ; preds = %.thread466.thread
-  %531 = icmp eq ptr %.0363509, %.0376
-  br i1 %531, label %557, label %.thread546
+536:                                              ; preds = %535
+  %537 = icmp eq ptr %.2, %.0384
+  br i1 %537, label %554, label %538
 
-.thread546:                                       ; preds = %.thread522.thread
-  %532 = icmp eq ptr %.0363509, %22
-  %533 = icmp eq ptr %.0363509, %.0375
-  %or.cond440550 = or i1 %532, %533
-  %spec.select445551 = select i1 %or.cond440550, ptr %18, ptr %.0363509
-  br label %557
+538:                                              ; preds = %536
+  %539 = icmp eq ptr %.2, %.0385
+  %540 = icmp eq ptr %.2, %.0382
+  %or.cond451 = or i1 %539, %540
+  %spec.select455 = select i1 %or.cond451, ptr %18, ptr %.2
+  br label %554
 
-534:                                              ; preds = %.thread522
-  %535 = icmp eq ptr %.0363509, %22
-  %536 = icmp eq ptr %.0363509, %.0375
-  %or.cond440 = or i1 %535, %536
-  %spec.select445 = select i1 %or.cond440, ptr %18, ptr %.0363509
-  br label %.thread532
-
-.thread532:                                       ; preds = %.thread522, %534, %529
-  %.2539 = phi ptr [ %spec.select445, %534 ], [ %.0363509, %529 ], [ %.0377, %.thread522 ]
-  %537 = icmp eq ptr %.2539, %.0376
-  br i1 %537, label %557, label %538
-
-538:                                              ; preds = %.thread532
-  %539 = icmp eq ptr %.2539, %.0377
-  %540 = icmp eq ptr %.2539, %.0374
-  %or.cond441 = or i1 %539, %540
-  %spec.select446 = select i1 %or.cond441, ptr %18, ptr %.2539
-  br label %557
-
-541:                                              ; preds = %528
-  %542 = trunc i8 %.4382 to i1
-  br i1 %542, label %543, label %549
+541:                                              ; preds = %.thread519
+  %542 = trunc i8 %.1387.lcssa to i1
+  %.not539 = xor i1 %542, true
+  %brmerge = select i1 %.not539, i1 true, i1 %513
+  %.0371513.mux = select i1 %542, ptr %.0382, ptr %.0371513
+  br i1 %brmerge, label %547, label %543
 
 543:                                              ; preds = %541
-  %544 = trunc i8 %.4387 to i1
-  br i1 %544, label %549, label %545
+  %544 = icmp eq ptr %.0371513, %.0385
+  br i1 %544, label %547, label %545
 
 545:                                              ; preds = %543
-  %546 = icmp eq ptr %.0363509, %.0377
-  br i1 %546, label %549, label %547
+  %546 = icmp eq ptr %.0371513, %18
+  %spec.select452 = select i1 %546, ptr %22, ptr %.0371513
+  br label %547
 
-547:                                              ; preds = %545
-  %548 = icmp eq ptr %.0363509, %18
-  %spec.select442 = select i1 %548, ptr %22, ptr %.0363509
-  br label %549
+547:                                              ; preds = %541, %545, %543
+  %.3 = phi ptr [ %.0371513.mux, %541 ], [ %.0384, %543 ], [ %spec.select452, %545 ]
+  br i1 %512, label %548, label %554
 
-549:                                              ; preds = %547, %545, %543, %541
-  %.3 = phi ptr [ %.0363509, %541 ], [ %.0374, %543 ], [ %.0376, %545 ], [ %spec.select442, %547 ]
-  %550 = trunc nuw i8 %.4392 to i1
-  br i1 %550, label %551, label %557
+548:                                              ; preds = %547
+  %549 = trunc i8 %.1402.lcssa to i1
+  br i1 %549, label %554, label %550
 
-551:                                              ; preds = %549
-  %552 = trunc i8 %.4397 to i1
-  br i1 %552, label %557, label %553
+550:                                              ; preds = %548
+  %551 = icmp eq ptr %.3, %22
+  br i1 %551, label %554, label %552
 
-553:                                              ; preds = %551
-  %554 = icmp eq ptr %.3, %22
-  br i1 %554, label %557, label %555
+552:                                              ; preds = %550
+  %553 = icmp eq ptr %.3, %18
+  %spec.select453 = select i1 %553, ptr %.0385, ptr %.3
+  br label %554
 
-555:                                              ; preds = %553
-  %556 = icmp eq ptr %.3, %18
-  %spec.select443 = select i1 %556, ptr %.0377, ptr %.3
-  br label %557
+554:                                              ; preds = %538, %552, %550, %548, %536, %535, %.thread475, %547, %._crit_edge
+  %.3404 = phi i8 [ %.4405524, %535 ], [ %.4405524, %.thread475 ], [ %.1402.lcssa, %547 ], [ %.1402.lcssa, %._crit_edge ], [ %.4405524, %536 ], [ 1, %548 ], [ 0, %550 ], [ 0, %552 ], [ %.4405524, %538 ]
+  %.3399 = phi i8 [ %.4400479, %535 ], [ %.4400479, %.thread475 ], [ 0, %547 ], [ %.1397.lcssa, %._crit_edge ], [ %.4400479, %536 ], [ 1, %548 ], [ 1, %550 ], [ 1, %552 ], [ %.4400479, %538 ]
+  %.3394 = phi i8 [ %.4395480, %535 ], [ %.4395480, %.thread475 ], [ %.1392.lcssa, %547 ], [ %.1392.lcssa, %._crit_edge ], [ %.4395480, %536 ], [ %.1392.lcssa, %548 ], [ %.1392.lcssa, %550 ], [ %.1392.lcssa, %552 ], [ %.4395480, %538 ]
+  %.3389 = phi i8 [ %.4390527, %535 ], [ %.4390527, %.thread475 ], [ %.1387.lcssa, %547 ], [ %.1387.lcssa, %._crit_edge ], [ %.4390527, %536 ], [ %.1387.lcssa, %548 ], [ %.1387.lcssa, %550 ], [ %.1387.lcssa, %552 ], [ %.4390527, %538 ]
+  %.1 = phi ptr [ %.2, %535 ], [ %.0371513, %.thread475 ], [ %.3, %547 ], [ %.0371513, %._crit_edge ], [ %22, %536 ], [ %.0383, %548 ], [ %.0384, %550 ], [ %spec.select453, %552 ], [ %spec.select455, %538 ]
+  %.not445 = icmp eq i32 %.1463.lcssa, 2
+  br i1 %.not445, label %555, label %363, !llvm.loop !22
 
-557:                                              ; preds = %.thread522.thread, %.thread546, %.thread466.thread, %538, %555, %553, %551, %.thread532, %.thread466, %549, %._crit_edge
-  %.3396 = phi i8 [ %.4397, %.thread466 ], [ %.4397, %549 ], [ %.1394.lcssa, %._crit_edge ], [ %.4397, %.thread532 ], [ 1, %551 ], [ 0, %553 ], [ 0, %555 ], [ %.4397, %538 ], [ %.4397, %.thread466.thread ], [ %.4397, %.thread546 ], [ %.4397, %.thread522.thread ]
-  %.3391 = phi i8 [ 0, %.thread466 ], [ 0, %549 ], [ %.1389.lcssa, %._crit_edge ], [ 0, %.thread532 ], [ 1, %551 ], [ 1, %553 ], [ 1, %555 ], [ 0, %538 ], [ %.4392, %.thread466.thread ], [ %.4392, %.thread546 ], [ %.4392, %.thread522.thread ]
-  %.3386 = phi i8 [ 0, %.thread466 ], [ %.4387, %549 ], [ %.1384.lcssa, %._crit_edge ], [ 0, %.thread532 ], [ %.4387, %551 ], [ %.4387, %553 ], [ %.4387, %555 ], [ 0, %538 ], [ %.4387, %.thread466.thread ], [ %.4387, %.thread546 ], [ %.4387, %.thread522.thread ]
-  %.3381 = phi i8 [ %.4382, %.thread466 ], [ %.4382, %549 ], [ %.1379.lcssa, %._crit_edge ], [ %.4382, %.thread532 ], [ %.4382, %551 ], [ %.4382, %553 ], [ %.4382, %555 ], [ %.4382, %538 ], [ %.4382, %.thread466.thread ], [ %.4382, %.thread546 ], [ %.4382, %.thread522.thread ]
-  %.1 = phi ptr [ %.0363509, %.thread466 ], [ %.3, %549 ], [ %.0363509, %._crit_edge ], [ %22, %.thread532 ], [ %.0375, %551 ], [ %.0376, %553 ], [ %spec.select443, %555 ], [ %spec.select446, %538 ], [ %.0363509, %.thread466.thread ], [ %spec.select445551, %.thread546 ], [ %.0377, %.thread522.thread ]
-  %.not434 = icmp eq i32 %.1454.lcssa, 2
-  br i1 %.not434, label %558, label %363, !llvm.loop !22
-
-558:                                              ; preds = %557
+555:                                              ; preds = %554
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #11
   call void @_ZdlPv(ptr noundef %14) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #11
   call void @_ZdlPv(ptr noundef %18) #13
   call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #11
   call void @_ZdlPv(ptr noundef %22) #13
-  br i1 %58, label %559, label %560
+  br i1 %58, label %556, label %557
 
-559:                                              ; preds = %558
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0377) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0377) #13
-  br label %560
+556:                                              ; preds = %555
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0385) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0385) #13
+  br label %557
 
-560:                                              ; preds = %559, %558
-  br i1 %59, label %561, label %562
+557:                                              ; preds = %556, %555
+  br i1 %59, label %558, label %559
 
-561:                                              ; preds = %560
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0376) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0376) #13
+558:                                              ; preds = %557
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0384) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0384) #13
+  br label %559
+
+559:                                              ; preds = %558, %557
+  %560 = icmp eq ptr %.0383, null
+  br i1 %560, label %562, label %561
+
+561:                                              ; preds = %559
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0383) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0383) #13
   br label %562
 
-562:                                              ; preds = %561, %560
-  %563 = icmp eq ptr %.0375, null
+562:                                              ; preds = %561, %559
+  %563 = icmp eq ptr %.0382, null
   br i1 %563, label %565, label %564
 
 564:                                              ; preds = %562
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0375) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0375) #13
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0382) #11
+  call void @_ZdlPv(ptr noundef nonnull %.0382) #13
   br label %565
 
 565:                                              ; preds = %564, %562
-  %566 = icmp eq ptr %.0374, null
-  br i1 %566, label %568, label %567
+  %566 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef 0)
+  br label %567
 
-567:                                              ; preds = %565
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.0374) #11
-  call void @_ZdlPv(ptr noundef nonnull %.0374) #13
-  br label %568
-
-568:                                              ; preds = %567, %565
-  %569 = call noundef i32 @_ZN3zmq16close_and_returnEPNS_5msg_tEi(ptr noundef nonnull %9, i32 noundef 0)
-  br label %570
-
-570:                                              ; preds = %.thread463, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit448, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450, %150, %165, %180, %193, %206, %217, %228, %239, %250, %258, %263, %279, %294, %309, %322, %333, %341, %346, %568, %526, %507, %421, %379, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit
-  %.1365 = phi i32 [ -1, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit ], [ -1, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit448 ], [ -1, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit450 ], [ %151, %150 ], [ %280, %279 ], [ %295, %294 ], [ %310, %309 ], [ %323, %322 ], [ %334, %333 ], [ %342, %341 ], [ %347, %346 ], [ %166, %165 ], [ %181, %180 ], [ %194, %193 ], [ %207, %206 ], [ %218, %217 ], [ %229, %228 ], [ %240, %239 ], [ %251, %250 ], [ %259, %258 ], [ %264, %263 ], [ %380, %379 ], [ %422, %421 ], [ %508, %507 ], [ %527, %526 ], [ %569, %568 ], [ %473, %.thread463 ]
+567:                                              ; preds = %.thread472, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit457, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit459, %150, %165, %180, %193, %206, %217, %228, %239, %250, %258, %263, %279, %294, %309, %322, %333, %341, %346, %565, %527, %507, %421, %379, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit
+  %.1373 = phi i32 [ -1, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit ], [ -1, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit457 ], [ -1, %_ZN3zmq16close_and_returnEPNS_5msg_tEi.exit459 ], [ %151, %150 ], [ %280, %279 ], [ %295, %294 ], [ %310, %309 ], [ %323, %322 ], [ %334, %333 ], [ %342, %341 ], [ %347, %346 ], [ %166, %165 ], [ %181, %180 ], [ %194, %193 ], [ %207, %206 ], [ %218, %217 ], [ %229, %228 ], [ %240, %239 ], [ %251, %250 ], [ %259, %258 ], [ %264, %263 ], [ %380, %379 ], [ %422, %421 ], [ %508, %507 ], [ %528, %527 ], [ %566, %565 ], [ %473, %.thread472 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #11
-  br label %572
+  br label %569
 
-571:                                              ; preds = %44, %48, %50, %52, %54, %46, %42
+568:                                              ; preds = %44, %48, %50, %52, %54, %46, %42
   %.sink = phi ptr [ %18, %44 ], [ %27, %48 ], [ %31, %50 ], [ %35, %52 ], [ %39, %54 ], [ %22, %46 ], [ %14, %42 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %47, %46 ], [ %43, %42 ]
   call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %.sink, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #13
@@ -1773,10 +1763,10 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
   resume { ptr, i32 } %.pn.pn.pn.pn
 
-572:                                              ; preds = %4, %570
-  %.0364 = phi i32 [ %.1365, %570 ], [ -1, %4 ]
+569:                                              ; preds = %4, %567
+  %.0372 = phi i32 [ %.1373, %567 ], [ -1, %4 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
-  ret i32 %.0364
+  ret i32 %.0372
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

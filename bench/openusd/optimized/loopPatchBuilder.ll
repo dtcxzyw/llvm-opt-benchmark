@@ -3658,8 +3658,8 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
   %84 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<float>::CornerTopology"], ptr %82, i64 0, i64 %indvars.iv
   %85 = load i16, ptr %84, align 8
   %86 = and i16 %85, 8
-  %.not53 = icmp eq i16 %86, 0
-  br i1 %.not53, label %92, label %87
+  %.not52 = icmp eq i16 %86, 0
+  br i1 %.not52, label %92, label %87
 
 87:                                               ; preds = %83
   %88 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3669,35 +3669,35 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
 89:                                               ; preds = %70
   %90 = landingpad { ptr, i32 }
           cleanup
-  br label %193
+  br label %198
 
-.loopexit:                                        ; preds = %177
+.loopexit:                                        ; preds = %182
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.thread90, %102
-  %lpad.loopexit71 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %.thread86, %102
+  %lpad.loopexit67 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %87, %92
-  %lpad.loopexit74 = landingpad { ptr, i32 }
+  %lpad.loopexit70 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %182, %189
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %187, %194
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit71, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit74, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit67, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit70, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %91 = load ptr, ptr %79, align 8
   call void @_ZdlPv(ptr noundef %91) #16
   store ptr %81, ptr %5, align 8
   store i32 128, ptr %80, align 4
-  br label %193
+  br label %198
 
 92:                                               ; preds = %83
   %93 = load ptr, ptr %4, align 8
@@ -3708,7 +3708,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
 95:                                               ; preds = %87, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader70, label %83, !llvm.loop !30
+  br i1 %exitcond.not, label %.preheader66, label %83, !llvm.loop !30
 
 .preheader:                                       ; preds = %109
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3716,44 +3716,44 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %110
 
-.preheader70:                                     ; preds = %95, %109
-  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %109 ], [ 0, %95 ]
-  %99 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<float>::CornerTopology"], ptr %82, i64 0, i64 %indvars.iv80
+.preheader66:                                     ; preds = %95, %109
+  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %109 ], [ 0, %95 ]
+  %99 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<float>::CornerTopology"], ptr %82, i64 0, i64 %indvars.iv76
   %100 = load i16, ptr %99, align 8
   %101 = and i16 %100, 768
-  %or.cond = icmp eq i16 %101, 0
-  br i1 %or.cond, label %.thread90, label %102
+  %or.cond54 = icmp eq i16 %101, 0
+  br i1 %or.cond54, label %.thread86, label %102
 
-102:                                              ; preds = %.preheader70
-  %103 = trunc nuw nsw i64 %indvars.iv80 to i32
+102:                                              ; preds = %.preheader66
+  %103 = trunc nuw nsw i64 %indvars.iv76 to i32
   invoke void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE23assignRegularFacePointsEiRNS1_12SparseMatrixIfEE(ptr noundef nonnull align 8 dereferenceable(528) %0, i32 noundef %103, ptr noundef nonnull align 8 dereferenceable(88) %1)
           to label %104 unwind label %.loopexit.split-lp.loopexit
 
 104:                                              ; preds = %102
   %.pre = load i16, ptr %99, align 8
-  %.pre89 = and i16 %.pre, 768
-  %105 = icmp eq i16 %.pre89, 768
-  br i1 %105, label %109, label %.thread90
+  %.pre85 = and i16 %.pre, 768
+  %105 = icmp eq i16 %.pre85, 768
+  br i1 %105, label %109, label %.thread86
 
-.thread90:                                        ; preds = %.preheader70, %104
+.thread86:                                        ; preds = %.preheader66, %104
   %106 = load ptr, ptr %4, align 8
   %107 = load ptr, ptr %5, align 8
-  %108 = trunc nuw nsw i64 %indvars.iv80 to i32
+  %108 = trunc nuw nsw i64 %indvars.iv76 to i32
   invoke void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE26computeIrregularFacePointsEiRNS1_12SparseMatrixIfEEPfPi(ptr noundef nonnull align 8 dereferenceable(528) %0, i32 noundef %108, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %106, ptr noundef %107)
           to label %109 unwind label %.loopexit.split-lp.loopexit
 
-109:                                              ; preds = %104, %.thread90
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next81, 3
-  br i1 %exitcond83.not, label %.preheader, label %.preheader70, !llvm.loop !31
+109:                                              ; preds = %104, %.thread86
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %exitcond79.not = icmp eq i64 %indvars.iv.next77, 3
+  br i1 %exitcond79.not, label %.preheader, label %.preheader66, !llvm.loop !31
 
-110:                                              ; preds = %.preheader, %181
-  %indvars.iv84 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next85, %181 ]
-  %111 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<float>::CornerTopology"], ptr %82, i64 0, i64 %indvars.iv84
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %112 = icmp eq i64 %indvars.iv.next85, 3
-  %113 = trunc nuw nsw i64 %indvars.iv.next85 to i32
-  %114 = and i64 %indvars.iv.next85, 4294967295
+110:                                              ; preds = %.preheader, %186
+  %indvars.iv80 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next81, %186 ]
+  %111 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<float>::CornerTopology"], ptr %82, i64 0, i64 %indvars.iv80
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %112 = icmp eq i64 %indvars.iv.next81, 3
+  %113 = trunc nuw nsw i64 %indvars.iv.next81 to i32
+  %114 = and i64 %indvars.iv.next81, 4294967295
   %115 = select i1 %112, i64 0, i64 %114
   %116 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<float>::CornerTopology"], ptr %82, i64 0, i64 %115
   %117 = load i16, ptr %111, align 8
@@ -3761,151 +3761,156 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
   %.not = icmp eq i16 %118, 0
   %119 = load i16, ptr %116, align 8
   %120 = and i16 %119, 128
-  %.not4660 = icmp eq i16 %120, 0
-  br i1 %.not, label %.thread, label %121
+  br i1 %.not, label %.thread, label %122
 
-121:                                              ; preds = %110
-  %.not46 = icmp ne i16 %120, 0
-  br i1 %.not4660, label %.thread, label %.thread92
+.thread:                                          ; preds = %110
+  %121 = icmp ne i16 %120, 0
+  br label %132
 
-.thread92:                                        ; preds = %121
-  %122 = load ptr, ptr %96, align 8
-  %123 = getelementptr i32, ptr %122, i64 %indvars.iv84
-  %124 = getelementptr i8, ptr %123, i64 60
-  %125 = load i32, ptr %124, align 4
-  %126 = sext i32 %125 to i64
-  %127 = load ptr, ptr %97, align 8
-  %128 = getelementptr inbounds i32, ptr %127, i64 %126
-  %129 = load ptr, ptr %98, align 8
-  %130 = getelementptr inbounds float, ptr %129, i64 %126
-  br label %143
+122:                                              ; preds = %110
+  %.not65 = icmp eq i16 %120, 0
+  br i1 %.not65, label %132, label %.thread88
 
-.thread:                                          ; preds = %110, %121
-  %.not4661 = phi i1 [ %.not46, %121 ], [ %.not4660, %110 ]
-  %131 = and i16 %117, 8
-  %.not47 = icmp ne i16 %131, 0
-  %132 = and i16 %119, 8
-  %.not48 = icmp ne i16 %132, 0
-  %or.cond56.not69 = select i1 %.not47, i1 %.not48, i1 false
-  %brmerge.not = select i1 %or.cond56.not69, i1 %.not4661, i1 false
-  br i1 %brmerge.not, label %133, label %177
+.thread88:                                        ; preds = %122
+  %123 = load ptr, ptr %96, align 8
+  %124 = getelementptr i32, ptr %123, i64 %indvars.iv80
+  %125 = getelementptr i8, ptr %124, i64 60
+  %126 = load i32, ptr %125, align 4
+  %127 = sext i32 %126 to i64
+  %128 = load ptr, ptr %97, align 8
+  %129 = getelementptr inbounds i32, ptr %128, i64 %127
+  %130 = load ptr, ptr %98, align 8
+  %131 = getelementptr inbounds float, ptr %130, i64 %127
+  br label %148
 
-133:                                              ; preds = %.thread
-  %134 = load ptr, ptr %96, align 8
-  %135 = getelementptr i32, ptr %134, i64 %indvars.iv84
-  %136 = getelementptr i8, ptr %135, i64 60
-  %137 = load i32, ptr %136, align 4
-  %138 = sext i32 %137 to i64
-  %139 = load ptr, ptr %97, align 8
-  %140 = getelementptr inbounds i32, ptr %139, i64 %138
-  %141 = load ptr, ptr %98, align 8
-  %142 = getelementptr inbounds float, ptr %141, i64 %138
-  br i1 %.not, label %148, label %143
+132:                                              ; preds = %.thread, %122
+  %133 = phi i1 [ %121, %.thread ], [ true, %122 ]
+  %134 = and i16 %117, 8
+  %.not47 = icmp eq i16 %134, 0
+  br i1 %.not47, label %182, label %135
 
-143:                                              ; preds = %.thread92, %133
-  %144 = phi ptr [ %130, %.thread92 ], [ %142, %133 ]
-  %145 = phi ptr [ %128, %.thread92 ], [ %140, %133 ]
-  %146 = trunc nuw nsw i64 %indvars.iv84 to i32
-  store i32 %146, ptr %145, align 4
-  store float 5.000000e-01, ptr %144, align 4
-  %.cmp67.not = icmp eq i64 %indvars.iv84, 2
-  %147 = select i1 %.cmp67.not, i32 0, i32 %113
+135:                                              ; preds = %132
+  %136 = and i16 %119, 8
+  %137 = icmp eq i16 %136, 0
+  %or.cond = select i1 %137, i1 true, i1 %133
+  br i1 %or.cond, label %182, label %138
+
+138:                                              ; preds = %135
+  %139 = load ptr, ptr %96, align 8
+  %140 = getelementptr i32, ptr %139, i64 %indvars.iv80
+  %141 = getelementptr i8, ptr %140, i64 60
+  %142 = load i32, ptr %141, align 4
+  %143 = sext i32 %142 to i64
+  %144 = load ptr, ptr %97, align 8
+  %145 = getelementptr inbounds i32, ptr %144, i64 %143
+  %146 = load ptr, ptr %98, align 8
+  %147 = getelementptr inbounds float, ptr %146, i64 %143
+  br i1 %.not, label %153, label %148
+
+148:                                              ; preds = %.thread88, %138
+  %149 = phi ptr [ %131, %.thread88 ], [ %147, %138 ]
+  %150 = phi ptr [ %129, %.thread88 ], [ %145, %138 ]
+  %151 = trunc nuw nsw i64 %indvars.iv80 to i32
+  store i32 %151, ptr %150, align 4
+  store float 5.000000e-01, ptr %149, align 4
+  %.cmp64.not = icmp eq i64 %indvars.iv80, 2
+  %152 = select i1 %.cmp64.not, i32 0, i32 %113
   br label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIfEE.exit
 
-148:                                              ; preds = %133
-  %149 = and i16 %117, 1
-  %.not15.i = icmp eq i16 %149, 0
-  %150 = getelementptr inbounds nuw i8, ptr %111, i64 12
-  %151 = load i32, ptr %150, align 4
-  br i1 %.not15.i, label %154, label %152
+153:                                              ; preds = %138
+  %154 = and i16 %117, 1
+  %.not15.i = icmp eq i16 %154, 0
+  %155 = getelementptr inbounds nuw i8, ptr %111, i64 12
+  %156 = load i32, ptr %155, align 4
+  br i1 %.not15.i, label %159, label %157
 
-152:                                              ; preds = %148
-  %153 = add nsw i32 %151, -1
-  br label %157
+157:                                              ; preds = %153
+  %158 = add nsw i32 %156, -1
+  br label %162
 
-154:                                              ; preds = %148
-  %155 = add nsw i32 %151, 5
-  %156 = srem i32 %155, 6
-  br label %157
+159:                                              ; preds = %153
+  %160 = add nsw i32 %156, 5
+  %161 = srem i32 %160, 6
+  br label %162
 
-157:                                              ; preds = %154, %152
-  %158 = phi i32 [ %153, %152 ], [ %156, %154 ]
-  %159 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  %160 = load ptr, ptr %159, align 8
-  %161 = sext i32 %158 to i64
-  %162 = getelementptr inbounds i32, ptr %160, i64 %161
-  %163 = load i32, ptr %162, align 4
-  %164 = trunc nuw nsw i64 %indvars.iv84 to i32
-  store i32 %164, ptr %140, align 4
-  store float 0x3FD5555560000000, ptr %142, align 4
-  %.cmp.not = icmp eq i64 %indvars.iv84, 2
-  %165 = select i1 %.cmp.not, i32 0, i32 %113
-  %166 = getelementptr inbounds nuw i8, ptr %140, i64 4
-  store i32 %165, ptr %166, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  store float 0x3FD5555560000000, ptr %167, align 4
-  %.cmp64 = icmp eq i64 %indvars.iv84, 0
-  %168 = trunc i64 %indvars.iv84 to i32
-  %169 = add i32 %168, -1
-  %170 = select i1 %.cmp64, i32 2, i32 %169
-  %171 = getelementptr inbounds nuw i8, ptr %140, i64 8
+162:                                              ; preds = %159, %157
+  %163 = phi i32 [ %158, %157 ], [ %161, %159 ]
+  %164 = getelementptr inbounds nuw i8, ptr %111, i64 24
+  %165 = load ptr, ptr %164, align 8
+  %166 = sext i32 %163 to i64
+  %167 = getelementptr inbounds i32, ptr %165, i64 %166
+  %168 = load i32, ptr %167, align 4
+  %169 = trunc nuw nsw i64 %indvars.iv80 to i32
+  store i32 %169, ptr %145, align 4
+  store float 0x3FD5555560000000, ptr %147, align 4
+  %.cmp.not = icmp eq i64 %indvars.iv80, 2
+  %170 = select i1 %.cmp.not, i32 0, i32 %113
+  %171 = getelementptr inbounds nuw i8, ptr %145, i64 4
   store i32 %170, ptr %171, align 4
-  %172 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store float 0x3FC5555560000000, ptr %172, align 4
+  %172 = getelementptr inbounds nuw i8, ptr %147, i64 4
+  store float 0x3FD5555560000000, ptr %172, align 4
+  %.cmp61 = icmp eq i64 %indvars.iv80, 0
+  %173 = trunc i64 %indvars.iv80 to i32
+  %174 = add i32 %173, -1
+  %175 = select i1 %.cmp61, i32 2, i32 %174
+  %176 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  store i32 %175, ptr %176, align 4
+  %177 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  store float 0x3FC5555560000000, ptr %177, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIfEE.exit
 
-_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIfEE.exit: ; preds = %143, %157
-  %173 = phi ptr [ %142, %157 ], [ %144, %143 ]
-  %174 = phi ptr [ %140, %157 ], [ %145, %143 ]
-  %.sink30.i = phi i64 [ 12, %157 ], [ 4, %143 ]
-  %.sink28.i = phi i32 [ %163, %157 ], [ %147, %143 ]
-  %.sink.i = phi float [ 0x3FC5555560000000, %157 ], [ 5.000000e-01, %143 ]
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 %.sink30.i
-  store i32 %.sink28.i, ptr %175, align 4
-  %176 = getelementptr inbounds nuw i8, ptr %173, i64 %.sink30.i
-  store float %.sink.i, ptr %176, align 4
-  br label %181
+_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIfEE.exit: ; preds = %148, %162
+  %178 = phi ptr [ %147, %162 ], [ %149, %148 ]
+  %179 = phi ptr [ %145, %162 ], [ %150, %148 ]
+  %.sink30.i = phi i64 [ 12, %162 ], [ 4, %148 ]
+  %.sink28.i = phi i32 [ %168, %162 ], [ %152, %148 ]
+  %.sink.i = phi float [ 0x3FC5555560000000, %162 ], [ 5.000000e-01, %148 ]
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 %.sink30.i
+  store i32 %.sink28.i, ptr %180, align 4
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 %.sink30.i
+  store float %.sink.i, ptr %181, align 4
+  br label %186
 
-177:                                              ; preds = %.thread
-  %178 = load ptr, ptr %4, align 8
-  %179 = load ptr, ptr %5, align 8
-  %180 = trunc nuw nsw i64 %indvars.iv84 to i32
-  invoke void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE28computeIrregularMidEdgePointEiRNS1_12SparseMatrixIfEEPfPi(ptr noundef nonnull align 8 dereferenceable(528) %0, i32 noundef %180, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %178, ptr noundef %179)
-          to label %181 unwind label %.loopexit
-
-181:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIfEE.exit, %177
-  %exitcond88.not = icmp eq i64 %indvars.iv.next85, 3
-  br i1 %exitcond88.not, label %182, label %110, !llvm.loop !32
-
-182:                                              ; preds = %181
+182:                                              ; preds = %135, %132
   %183 = load ptr, ptr %4, align 8
   %184 = load ptr, ptr %5, align 8
-  invoke void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE31promoteCubicEdgePointsToQuarticERNS1_12SparseMatrixIfEEPfPi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %183, ptr noundef %184)
-          to label %185 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  %185 = trunc nuw nsw i64 %indvars.iv80 to i32
+  invoke void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE28computeIrregularMidEdgePointEiRNS1_12SparseMatrixIfEEPfPi(ptr noundef nonnull align 8 dereferenceable(528) %0, i32 noundef %185, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %183, ptr noundef %184)
+          to label %186 unwind label %.loopexit
 
-185:                                              ; preds = %182
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %187 = load i8, ptr %186, align 1
-  %188 = trunc i8 %187 to i1
-  br i1 %188, label %189, label %190
+186:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIfEE.exit, %182
+  %exitcond84.not = icmp eq i64 %indvars.iv.next81, 3
+  br i1 %exitcond84.not, label %187, label %110, !llvm.loop !32
 
-189:                                              ; preds = %185
-  invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_125_removeValence2DuplicatesIfEEvRNS1_12SparseMatrixIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %1)
+187:                                              ; preds = %186
+  %188 = load ptr, ptr %4, align 8
+  %189 = load ptr, ptr %5, align 8
+  invoke void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE31promoteCubicEdgePointsToQuarticERNS1_12SparseMatrixIfEEPfPi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %188, ptr noundef %189)
           to label %190 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-190:                                              ; preds = %189, %185
-  %191 = load ptr, ptr %79, align 8
-  call void @_ZdlPv(ptr noundef %191) #16
+190:                                              ; preds = %187
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %192 = load i8, ptr %191, align 1
+  %193 = trunc i8 %192 to i1
+  br i1 %193, label %194, label %195
+
+194:                                              ; preds = %190
+  invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_125_removeValence2DuplicatesIfEEvRNS1_12SparseMatrixIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %1)
+          to label %195 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+195:                                              ; preds = %194, %190
+  %196 = load ptr, ptr %79, align 8
+  call void @_ZdlPv(ptr noundef %196) #16
   store ptr %81, ptr %5, align 8
   store i32 128, ptr %80, align 4
-  %192 = load ptr, ptr %64, align 8
-  call void @_ZdlPv(ptr noundef %192) #16
+  %197 = load ptr, ptr %64, align 8
+  call void @_ZdlPv(ptr noundef %197) #16
   ret void
 
-193:                                              ; preds = %.loopexit.split-lp, %89
+198:                                              ; preds = %.loopexit.split-lp, %89
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %90, %89 ]
-  %194 = load ptr, ptr %64, align 8
-  call void @_ZdlPv(ptr noundef %194) #16
+  %199 = load ptr, ptr %64, align 8
+  call void @_ZdlPv(ptr noundef %199) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -9258,8 +9263,8 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
   %85 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology"], ptr %83, i64 0, i64 %indvars.iv
   %86 = load i16, ptr %85, align 8
   %87 = and i16 %86, 8
-  %.not53 = icmp eq i16 %87, 0
-  br i1 %.not53, label %93, label %88
+  %.not52 = icmp eq i16 %87, 0
+  br i1 %.not52, label %93, label %88
 
 88:                                               ; preds = %84
   %89 = trunc nuw nsw i64 %indvars.iv to i32
@@ -9269,35 +9274,35 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
 90:                                               ; preds = %70
   %91 = landingpad { ptr, i32 }
           cleanup
-  br label %194
+  br label %199
 
-.loopexit:                                        ; preds = %178
+.loopexit:                                        ; preds = %183
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.thread90, %103
-  %lpad.loopexit71 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %.thread86, %103
+  %lpad.loopexit67 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %88, %93
-  %lpad.loopexit74 = landingpad { ptr, i32 }
+  %lpad.loopexit70 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %183, %190
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %188, %195
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit71, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit74, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit67, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit70, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %92 = load ptr, ptr %80, align 8
   call void @_ZdlPv(ptr noundef %92) #16
   store ptr %82, ptr %5, align 8
   store i32 128, ptr %81, align 4
-  br label %194
+  br label %199
 
 93:                                               ; preds = %84
   %94 = load ptr, ptr %4, align 8
@@ -9308,7 +9313,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
 96:                                               ; preds = %88, %93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader70, label %84, !llvm.loop !70
+  br i1 %exitcond.not, label %.preheader66, label %84, !llvm.loop !70
 
 .preheader:                                       ; preds = %110
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -9316,44 +9321,44 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %111
 
-.preheader70:                                     ; preds = %96, %110
-  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %110 ], [ 0, %96 ]
-  %100 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology"], ptr %83, i64 0, i64 %indvars.iv80
+.preheader66:                                     ; preds = %96, %110
+  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %110 ], [ 0, %96 ]
+  %100 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology"], ptr %83, i64 0, i64 %indvars.iv76
   %101 = load i16, ptr %100, align 8
   %102 = and i16 %101, 768
-  %or.cond = icmp eq i16 %102, 0
-  br i1 %or.cond, label %.thread90, label %103
+  %or.cond54 = icmp eq i16 %102, 0
+  br i1 %or.cond54, label %.thread86, label %103
 
-103:                                              ; preds = %.preheader70
-  %104 = trunc nuw nsw i64 %indvars.iv80 to i32
+103:                                              ; preds = %.preheader66
+  %104 = trunc nuw nsw i64 %indvars.iv76 to i32
   invoke void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE23assignRegularFacePointsEiRNS1_12SparseMatrixIdEE(ptr noundef nonnull align 8 dereferenceable(552) %0, i32 noundef %104, ptr noundef nonnull align 8 dereferenceable(88) %1)
           to label %105 unwind label %.loopexit.split-lp.loopexit
 
 105:                                              ; preds = %103
   %.pre = load i16, ptr %100, align 8
-  %.pre89 = and i16 %.pre, 768
-  %106 = icmp eq i16 %.pre89, 768
-  br i1 %106, label %110, label %.thread90
+  %.pre85 = and i16 %.pre, 768
+  %106 = icmp eq i16 %.pre85, 768
+  br i1 %106, label %110, label %.thread86
 
-.thread90:                                        ; preds = %.preheader70, %105
+.thread86:                                        ; preds = %.preheader66, %105
   %107 = load ptr, ptr %4, align 8
   %108 = load ptr, ptr %5, align 8
-  %109 = trunc nuw nsw i64 %indvars.iv80 to i32
+  %109 = trunc nuw nsw i64 %indvars.iv76 to i32
   invoke void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE26computeIrregularFacePointsEiRNS1_12SparseMatrixIdEEPdPi(ptr noundef nonnull align 8 dereferenceable(552) %0, i32 noundef %109, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %107, ptr noundef %108)
           to label %110 unwind label %.loopexit.split-lp.loopexit
 
-110:                                              ; preds = %105, %.thread90
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next81, 3
-  br i1 %exitcond83.not, label %.preheader, label %.preheader70, !llvm.loop !71
+110:                                              ; preds = %105, %.thread86
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %exitcond79.not = icmp eq i64 %indvars.iv.next77, 3
+  br i1 %exitcond79.not, label %.preheader, label %.preheader66, !llvm.loop !71
 
-111:                                              ; preds = %.preheader, %182
-  %indvars.iv84 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next85, %182 ]
-  %112 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology"], ptr %83, i64 0, i64 %indvars.iv84
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %113 = icmp eq i64 %indvars.iv.next85, 3
-  %114 = trunc nuw nsw i64 %indvars.iv.next85 to i32
-  %115 = and i64 %indvars.iv.next85, 4294967295
+111:                                              ; preds = %.preheader, %187
+  %indvars.iv80 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next81, %187 ]
+  %112 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology"], ptr %83, i64 0, i64 %indvars.iv80
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %113 = icmp eq i64 %indvars.iv.next81, 3
+  %114 = trunc nuw nsw i64 %indvars.iv.next81 to i32
+  %115 = and i64 %indvars.iv.next81, 4294967295
   %116 = select i1 %113, i64 0, i64 %115
   %117 = getelementptr inbounds nuw [3 x %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology"], ptr %83, i64 0, i64 %116
   %118 = load i16, ptr %112, align 8
@@ -9361,152 +9366,157 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
   %.not = icmp eq i16 %119, 0
   %120 = load i16, ptr %117, align 8
   %121 = and i16 %120, 128
-  %.not4660 = icmp eq i16 %121, 0
-  br i1 %.not, label %.thread, label %122
+  br i1 %.not, label %.thread, label %123
 
-122:                                              ; preds = %111
-  %.not46 = icmp ne i16 %121, 0
-  br i1 %.not4660, label %.thread, label %.thread92
+.thread:                                          ; preds = %111
+  %122 = icmp ne i16 %121, 0
+  br label %133
 
-.thread92:                                        ; preds = %122
-  %123 = load ptr, ptr %97, align 8
-  %124 = getelementptr i32, ptr %123, i64 %indvars.iv84
-  %125 = getelementptr i8, ptr %124, i64 60
-  %126 = load i32, ptr %125, align 4
-  %127 = sext i32 %126 to i64
-  %128 = load ptr, ptr %98, align 8
-  %129 = getelementptr inbounds i32, ptr %128, i64 %127
-  %130 = load ptr, ptr %99, align 8
-  %131 = getelementptr inbounds double, ptr %130, i64 %127
-  br label %144
+123:                                              ; preds = %111
+  %.not65 = icmp eq i16 %121, 0
+  br i1 %.not65, label %133, label %.thread88
 
-.thread:                                          ; preds = %111, %122
-  %.not4661 = phi i1 [ %.not46, %122 ], [ %.not4660, %111 ]
-  %132 = and i16 %118, 8
-  %.not47 = icmp ne i16 %132, 0
-  %133 = and i16 %120, 8
-  %.not48 = icmp ne i16 %133, 0
-  %or.cond56.not69 = select i1 %.not47, i1 %.not48, i1 false
-  %brmerge.not = select i1 %or.cond56.not69, i1 %.not4661, i1 false
-  br i1 %brmerge.not, label %134, label %178
+.thread88:                                        ; preds = %123
+  %124 = load ptr, ptr %97, align 8
+  %125 = getelementptr i32, ptr %124, i64 %indvars.iv80
+  %126 = getelementptr i8, ptr %125, i64 60
+  %127 = load i32, ptr %126, align 4
+  %128 = sext i32 %127 to i64
+  %129 = load ptr, ptr %98, align 8
+  %130 = getelementptr inbounds i32, ptr %129, i64 %128
+  %131 = load ptr, ptr %99, align 8
+  %132 = getelementptr inbounds double, ptr %131, i64 %128
+  br label %149
 
-134:                                              ; preds = %.thread
-  %135 = load ptr, ptr %97, align 8
-  %136 = getelementptr i32, ptr %135, i64 %indvars.iv84
-  %137 = getelementptr i8, ptr %136, i64 60
-  %138 = load i32, ptr %137, align 4
-  %139 = sext i32 %138 to i64
-  %140 = load ptr, ptr %98, align 8
-  %141 = getelementptr inbounds i32, ptr %140, i64 %139
-  %142 = load ptr, ptr %99, align 8
-  %143 = getelementptr inbounds double, ptr %142, i64 %139
-  br i1 %.not, label %149, label %144
+133:                                              ; preds = %.thread, %123
+  %134 = phi i1 [ %122, %.thread ], [ true, %123 ]
+  %135 = and i16 %118, 8
+  %.not47 = icmp eq i16 %135, 0
+  br i1 %.not47, label %183, label %136
 
-144:                                              ; preds = %.thread92, %134
-  %145 = phi ptr [ %131, %.thread92 ], [ %143, %134 ]
-  %146 = phi ptr [ %129, %.thread92 ], [ %141, %134 ]
-  %147 = trunc nuw nsw i64 %indvars.iv84 to i32
-  store i32 %147, ptr %146, align 4
-  store double 5.000000e-01, ptr %145, align 8
-  %.cmp67.not = icmp eq i64 %indvars.iv84, 2
-  %148 = select i1 %.cmp67.not, i32 0, i32 %114
+136:                                              ; preds = %133
+  %137 = and i16 %120, 8
+  %138 = icmp eq i16 %137, 0
+  %or.cond = select i1 %138, i1 true, i1 %134
+  br i1 %or.cond, label %183, label %139
+
+139:                                              ; preds = %136
+  %140 = load ptr, ptr %97, align 8
+  %141 = getelementptr i32, ptr %140, i64 %indvars.iv80
+  %142 = getelementptr i8, ptr %141, i64 60
+  %143 = load i32, ptr %142, align 4
+  %144 = sext i32 %143 to i64
+  %145 = load ptr, ptr %98, align 8
+  %146 = getelementptr inbounds i32, ptr %145, i64 %144
+  %147 = load ptr, ptr %99, align 8
+  %148 = getelementptr inbounds double, ptr %147, i64 %144
+  br i1 %.not, label %154, label %149
+
+149:                                              ; preds = %.thread88, %139
+  %150 = phi ptr [ %132, %.thread88 ], [ %148, %139 ]
+  %151 = phi ptr [ %130, %.thread88 ], [ %146, %139 ]
+  %152 = trunc nuw nsw i64 %indvars.iv80 to i32
+  store i32 %152, ptr %151, align 4
+  store double 5.000000e-01, ptr %150, align 8
+  %.cmp64.not = icmp eq i64 %indvars.iv80, 2
+  %153 = select i1 %.cmp64.not, i32 0, i32 %114
   br label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIdEE.exit
 
-149:                                              ; preds = %134
-  %150 = and i16 %118, 1
-  %.not15.i = icmp eq i16 %150, 0
-  %151 = getelementptr inbounds nuw i8, ptr %112, i64 12
-  %152 = load i32, ptr %151, align 4
-  br i1 %.not15.i, label %155, label %153
+154:                                              ; preds = %139
+  %155 = and i16 %118, 1
+  %.not15.i = icmp eq i16 %155, 0
+  %156 = getelementptr inbounds nuw i8, ptr %112, i64 12
+  %157 = load i32, ptr %156, align 4
+  br i1 %.not15.i, label %160, label %158
 
-153:                                              ; preds = %149
-  %154 = add nsw i32 %152, -1
-  br label %158
+158:                                              ; preds = %154
+  %159 = add nsw i32 %157, -1
+  br label %163
 
-155:                                              ; preds = %149
-  %156 = add nsw i32 %152, 5
-  %157 = srem i32 %156, 6
-  br label %158
+160:                                              ; preds = %154
+  %161 = add nsw i32 %157, 5
+  %162 = srem i32 %161, 6
+  br label %163
 
-158:                                              ; preds = %155, %153
-  %159 = phi i32 [ %154, %153 ], [ %157, %155 ]
-  %160 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %161 = load ptr, ptr %160, align 8
-  %162 = sext i32 %159 to i64
-  %163 = getelementptr inbounds i32, ptr %161, i64 %162
-  %164 = load i32, ptr %163, align 4
-  %165 = trunc nuw nsw i64 %indvars.iv84 to i32
-  store i32 %165, ptr %141, align 4
-  store double 0x3FD5555555555555, ptr %143, align 8
-  %.cmp.not = icmp eq i64 %indvars.iv84, 2
-  %166 = select i1 %.cmp.not, i32 0, i32 %114
-  %167 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  store i32 %166, ptr %167, align 4
-  %168 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  store double 0x3FD5555555555555, ptr %168, align 8
-  %.cmp64 = icmp eq i64 %indvars.iv84, 0
-  %169 = trunc i64 %indvars.iv84 to i32
-  %170 = add i32 %169, -1
-  %171 = select i1 %.cmp64, i32 2, i32 %170
-  %172 = getelementptr inbounds nuw i8, ptr %141, i64 8
+163:                                              ; preds = %160, %158
+  %164 = phi i32 [ %159, %158 ], [ %162, %160 ]
+  %165 = getelementptr inbounds nuw i8, ptr %112, i64 32
+  %166 = load ptr, ptr %165, align 8
+  %167 = sext i32 %164 to i64
+  %168 = getelementptr inbounds i32, ptr %166, i64 %167
+  %169 = load i32, ptr %168, align 4
+  %170 = trunc nuw nsw i64 %indvars.iv80 to i32
+  store i32 %170, ptr %146, align 4
+  store double 0x3FD5555555555555, ptr %148, align 8
+  %.cmp.not = icmp eq i64 %indvars.iv80, 2
+  %171 = select i1 %.cmp.not, i32 0, i32 %114
+  %172 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store i32 %171, ptr %172, align 4
-  %173 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  store double 0x3FC5555555555555, ptr %173, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  store double 0x3FD5555555555555, ptr %173, align 8
+  %.cmp61 = icmp eq i64 %indvars.iv80, 0
+  %174 = trunc i64 %indvars.iv80 to i32
+  %175 = add i32 %174, -1
+  %176 = select i1 %.cmp61, i32 2, i32 %175
+  %177 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  store i32 %176, ptr %177, align 4
+  %178 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  store double 0x3FC5555555555555, ptr %178, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIdEE.exit
 
-_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIdEE.exit: ; preds = %144, %158
-  %174 = phi ptr [ %143, %158 ], [ %145, %144 ]
-  %175 = phi ptr [ %141, %158 ], [ %146, %144 ]
-  %.sink30.i = phi i64 [ 12, %158 ], [ 4, %144 ]
-  %.sink28.i = phi i32 [ %164, %158 ], [ %148, %144 ]
-  %.sink27.i = phi i64 [ 24, %158 ], [ 8, %144 ]
-  %.sink.i = phi double [ 0x3FC5555555555555, %158 ], [ 5.000000e-01, %144 ]
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 %.sink30.i
-  store i32 %.sink28.i, ptr %176, align 4
-  %177 = getelementptr inbounds nuw i8, ptr %174, i64 %.sink27.i
-  store double %.sink.i, ptr %177, align 8
-  br label %182
+_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIdEE.exit: ; preds = %149, %163
+  %179 = phi ptr [ %148, %163 ], [ %150, %149 ]
+  %180 = phi ptr [ %146, %163 ], [ %151, %149 ]
+  %.sink30.i = phi i64 [ 12, %163 ], [ 4, %149 ]
+  %.sink28.i = phi i32 [ %169, %163 ], [ %153, %149 ]
+  %.sink27.i = phi i64 [ 24, %163 ], [ 8, %149 ]
+  %.sink.i = phi double [ 0x3FC5555555555555, %163 ], [ 5.000000e-01, %149 ]
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %.sink30.i
+  store i32 %.sink28.i, ptr %181, align 4
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 %.sink27.i
+  store double %.sink.i, ptr %182, align 8
+  br label %187
 
-178:                                              ; preds = %.thread
-  %179 = load ptr, ptr %4, align 8
-  %180 = load ptr, ptr %5, align 8
-  %181 = trunc nuw nsw i64 %indvars.iv84 to i32
-  invoke void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE28computeIrregularMidEdgePointEiRNS1_12SparseMatrixIdEEPdPi(ptr noundef nonnull align 8 dereferenceable(552) %0, i32 noundef %181, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %179, ptr noundef %180)
-          to label %182 unwind label %.loopexit
-
-182:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIdEE.exit, %178
-  %exitcond88.not = icmp eq i64 %indvars.iv.next85, 3
-  br i1 %exitcond88.not, label %183, label %111, !llvm.loop !72
-
-183:                                              ; preds = %182
+183:                                              ; preds = %136, %133
   %184 = load ptr, ptr %4, align 8
   %185 = load ptr, ptr %5, align 8
-  invoke void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE31promoteCubicEdgePointsToQuarticERNS1_12SparseMatrixIdEEPdPi(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %184, ptr noundef %185)
-          to label %186 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+  %186 = trunc nuw nsw i64 %indvars.iv80 to i32
+  invoke void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE28computeIrregularMidEdgePointEiRNS1_12SparseMatrixIdEEPdPi(ptr noundef nonnull align 8 dereferenceable(552) %0, i32 noundef %186, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %184, ptr noundef %185)
+          to label %187 unwind label %.loopexit
 
-186:                                              ; preds = %183
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %188 = load i8, ptr %187, align 1
-  %189 = trunc i8 %188 to i1
-  br i1 %189, label %190, label %191
+187:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIdEE.exit, %183
+  %exitcond84.not = icmp eq i64 %indvars.iv.next81, 3
+  br i1 %exitcond84.not, label %188, label %111, !llvm.loop !72
 
-190:                                              ; preds = %186
-  invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_125_removeValence2DuplicatesIdEEvRNS1_12SparseMatrixIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %1)
+188:                                              ; preds = %187
+  %189 = load ptr, ptr %4, align 8
+  %190 = load ptr, ptr %5, align 8
+  invoke void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE31promoteCubicEdgePointsToQuarticERNS1_12SparseMatrixIdEEPdPi(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %189, ptr noundef %190)
           to label %191 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-191:                                              ; preds = %190, %186
-  %192 = load ptr, ptr %80, align 8
-  call void @_ZdlPv(ptr noundef %192) #16
+191:                                              ; preds = %188
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %193 = load i8, ptr %192, align 1
+  %194 = trunc i8 %193 to i1
+  br i1 %194, label %195, label %196
+
+195:                                              ; preds = %191
+  invoke fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_125_removeValence2DuplicatesIdEEvRNS1_12SparseMatrixIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %1)
+          to label %196 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+
+196:                                              ; preds = %195, %191
+  %197 = load ptr, ptr %80, align 8
+  call void @_ZdlPv(ptr noundef %197) #16
   store ptr %82, ptr %5, align 8
   store i32 128, ptr %81, align 4
-  %193 = load ptr, ptr %64, align 8
-  call void @_ZdlPv(ptr noundef %193) #16
+  %198 = load ptr, ptr %64, align 8
+  call void @_ZdlPv(ptr noundef %198) #16
   ret void
 
-194:                                              ; preds = %.loopexit.split-lp, %90
+199:                                              ; preds = %.loopexit.split-lp, %90
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %91, %90 ]
-  %195 = load ptr, ptr %64, align 8
-  call void @_ZdlPv(ptr noundef %195) #16
+  %200 = load ptr, ptr %64, align 8
+  call void @_ZdlPv(ptr noundef %200) #16
   resume { ptr, i32 } %.pn
 }
 

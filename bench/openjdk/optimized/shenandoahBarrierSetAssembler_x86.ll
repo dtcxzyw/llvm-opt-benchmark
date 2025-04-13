@@ -71,75 +71,71 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler18arraycopy_prologueEP14Ma
   %9 = alloca %class.Address, align 8
   %10 = alloca %class.Address, align 8
   %11 = and i64 %2, 4194304
-  %.not = icmp eq i64 %11, 0
-  %12 = and i8 %3, -2
-  %or.cond.i = icmp eq i8 %12, 12
-  br i1 %or.cond.i, label %13, label %_Z17is_reference_type9BasicTypeb.exit
+  %12 = icmp ne i64 %11, 0
+  %13 = and i8 %3, -2
+  %or.cond.i = icmp eq i8 %13, 12
+  br i1 %or.cond.i, label %14, label %_Z17is_reference_type9BasicTypeb.exit
 
-13:                                               ; preds = %7
-  %14 = load i8, ptr @ShenandoahSATBBarrier, align 1
-  %15 = trunc i8 %14 to i1
-  %brmerge.demorgan = and i1 %.not, %15
-  br i1 %brmerge.demorgan, label %22, label %16
-
-16:                                               ; preds = %13
+14:                                               ; preds = %7
+  %15 = load i8, ptr @ShenandoahSATBBarrier, align 1
+  %16 = trunc i8 %15 to i1
+  %.not45 = xor i1 %12, true
+  %or.cond.not = and i1 %.not45, %16
   %17 = load i8, ptr @ShenandoahIUBarrier, align 1
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %22, label %19
+  %or.cond3 = select i1 %or.cond.not, i1 true, i1 %18
+  %19 = load i8, ptr @ShenandoahLoadRefBarrier, align 1
+  %20 = trunc i8 %19 to i1
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %20
+  br i1 %or.cond5, label %21, label %_Z17is_reference_type9BasicTypeb.exit
 
-19:                                               ; preds = %16
-  %20 = load i8, ptr @ShenandoahLoadRefBarrier, align 1
-  %21 = trunc i8 %20 to i1
-  br i1 %21, label %22, label %_Z17is_reference_type9BasicTypeb.exit
-
-22:                                               ; preds = %13, %19, %16
+21:                                               ; preds = %14
   store i32 -1, ptr %8, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 0, ptr %25, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  store i32 0, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr null, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 0, ptr %24, align 8
   tail call void @_ZN14MacroAssembler7testptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %6, i32 %6) #6
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %8, i1 noundef zeroext true) #6
   store i32 15, ptr %9, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 -1, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 -1, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 -1, ptr %28, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 40, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i8 0, ptr %30, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 0, ptr %33, align 8
-  %34 = load i8, ptr @ShenandoahSATBBarrier, align 1
-  %35 = trunc i8 %34 to i1
-  %.not39 = xor i1 %35, true
-  %brmerge40 = or i1 %.not, %.not39
-  %.0 = select i1 %brmerge40, i32 3, i32 1
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 -1, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 -1, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 -1, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i32 40, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  store i8 0, ptr %29, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i32 0, ptr %32, align 8
+  %33 = load i8, ptr @ShenandoahSATBBarrier, align 1
+  %34 = trunc i8 %33 to i1
+  %or.cond7 = and i1 %12, %34
+  %. = select i1 %or.cond7, i32 1, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 21, i1 false)
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %37 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %36) #6
-  call void @_ZN9Assembler5testbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %10, i32 noundef %.0) #6
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %36 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %35) #6
+  call void @_ZN9Assembler5testbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %10, i32 noundef %.) #6
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %8, i1 noundef zeroext true) #6
   call void @_ZN14MacroAssembler13push_IU_stateEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #6
-  %38 = load i8, ptr @UseCompressedOops, align 1
-  %39 = trunc i8 %38 to i1
-  %_ZN17ShenandoahRuntime34arraycopy_barrier_narrow_oop_entryEP9narrowOopS1_m._ZN17ShenandoahRuntime27arraycopy_barrier_oop_entryEPP7oopDescS2_m = select i1 %39, ptr @_ZN17ShenandoahRuntime34arraycopy_barrier_narrow_oop_entryEP9narrowOopS1_m, ptr @_ZN17ShenandoahRuntime27arraycopy_barrier_oop_entryEPP7oopDescS2_m
+  %37 = load i8, ptr @UseCompressedOops, align 1
+  %38 = trunc i8 %37 to i1
+  %_ZN17ShenandoahRuntime34arraycopy_barrier_narrow_oop_entryEP9narrowOopS1_m._ZN17ShenandoahRuntime27arraycopy_barrier_oop_entryEPP7oopDescS2_m = select i1 %38, ptr @_ZN17ShenandoahRuntime34arraycopy_barrier_narrow_oop_entryEP9narrowOopS1_m, ptr @_ZN17ShenandoahRuntime27arraycopy_barrier_oop_entryEPP7oopDescS2_m
   call void @_ZN14MacroAssembler12call_VM_leafEPh8RegisterS1_S1_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %_ZN17ShenandoahRuntime34arraycopy_barrier_narrow_oop_entryEP9narrowOopS1_m._ZN17ShenandoahRuntime27arraycopy_barrier_oop_entryEPP7oopDescS2_m, i32 %4, i32 %5, i32 %6) #6
   call void @_ZN14MacroAssembler12pop_IU_stateEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #6
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %8) #6
   br label %_Z17is_reference_type9BasicTypeb.exit
 
-_Z17is_reference_type9BasicTypeb.exit:            ; preds = %7, %19, %22
+_Z17is_reference_type9BasicTypeb.exit:            ; preds = %7, %21, %14
   ret void
 }
 
@@ -2395,37 +2391,35 @@ declare void @_ZN14MacroAssembler6addptrE8Registeri(ptr noundef nonnull align 8 
 define hidden void @_ZN29ShenandoahBarrierSetAssembler10iu_barrierEP14MacroAssembler8RegisterS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i32 %2, i32 %3) local_unnamed_addr #0 align 2 {
   %5 = load i8, ptr @ShenandoahIUBarrier, align 1
   %6 = trunc i8 %5 to i1
-  %.not.i = icmp ne i32 %2, -1
-  %or.cond.not = select i1 %6, i1 %.not.i, i1 false
-  br i1 %or.cond.not, label %7, label %_ZN29ShenandoahBarrierSetAssembler15iu_barrier_implEP14MacroAssembler8RegisterS2_.exit
+  %7 = icmp ne i32 %2, -1
+  %or.cond = select i1 %6, i1 %7, i1 false
+  br i1 %or.cond, label %8, label %_ZN29ShenandoahBarrierSetAssembler15iu_barrier_implEP14MacroAssembler8RegisterS2_.exit
 
-7:                                                ; preds = %4
+8:                                                ; preds = %4
   tail call fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext true)
   tail call void @_ZN29ShenandoahBarrierSetAssembler22satb_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb(ptr nonnull readnone align 8 poison, ptr noundef %1, i32 -1, i32 %2, i32 15, i32 %3, i1 noundef zeroext true, i1 noundef zeroext false)
   tail call fastcc void @_ZL21restore_machine_stateP14MacroAssemblerbb(ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext true)
   br label %_ZN29ShenandoahBarrierSetAssembler15iu_barrier_implEP14MacroAssembler8RegisterS2_.exit
 
-_ZN29ShenandoahBarrierSetAssembler15iu_barrier_implEP14MacroAssembler8RegisterS2_.exit: ; preds = %7, %4
+_ZN29ShenandoahBarrierSetAssembler15iu_barrier_implEP14MacroAssembler8RegisterS2_.exit: ; preds = %8, %4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN29ShenandoahBarrierSetAssembler15iu_barrier_implEP14MacroAssembler8RegisterS2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i32 %2, i32 %3) local_unnamed_addr #0 align 2 {
-  %.not = icmp eq i32 %2, -1
-  br i1 %.not, label %9, label %5
-
-5:                                                ; preds = %4
+  %5 = icmp ne i32 %2, -1
   %6 = load i8, ptr @ShenandoahIUBarrier, align 1
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %9
+  %or.cond = select i1 %5, i1 %7, i1 false
+  br i1 %or.cond, label %8, label %9
 
-8:                                                ; preds = %5
+8:                                                ; preds = %4
   tail call fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext true)
   tail call void @_ZN29ShenandoahBarrierSetAssembler22satb_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb(ptr nonnull align 8 poison, ptr noundef %1, i32 -1, i32 %2, i32 15, i32 %3, i1 noundef zeroext true, i1 noundef zeroext false)
   tail call fastcc void @_ZL21restore_machine_stateP14MacroAssemblerbb(ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext true)
   br label %9
 
-9:                                                ; preds = %4, %8, %5
+9:                                                ; preds = %4, %8
   ret void
 }
 
@@ -2566,17 +2560,17 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler8store_atEP14MacroAssemble
   br i1 %or.cond.i, label %_Z17is_reference_type9BasicTypeb.exit, label %_Z17is_reference_type9BasicTypeb.exit.thread
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
-  %16 = and i64 %2, 8192
-  %.not68 = icmp eq i64 %16, 0
-  %17 = and i64 %2, 262144
-  %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %_Z17is_reference_type9BasicTypeb.exit.thread, label %18
+  %16 = and i64 %2, 262144
+  %.not85 = icmp eq i64 %16, 0
+  %17 = and i64 %2, 8192
+  %.not = icmp ne i64 %17, 0
+  br i1 %.not85, label %_Z17is_reference_type9BasicTypeb.exit.thread, label %18
 
 18:                                               ; preds = %_Z17is_reference_type9BasicTypeb.exit
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %19, align 4
-  %.not87 = icmp eq i32 %.sroa.0.0.copyload.i, -1
-  br i1 %.not87, label %20, label %.critedge
+  %.not86 = icmp eq i32 %.sroa.0.0.copyload.i, -1
+  br i1 %.not86, label %20, label %.critedge
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2585,12 +2579,12 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %20
-  %.sroa.0.0.copyload.i73 = load i32, ptr %4, align 8
-  %.not88 = icmp eq i32 %.sroa.0.0.copyload.i73, %6
-  br i1 %.not88, label %35, label %25
+  %.sroa.0.0.copyload.i72 = load i32, ptr %4, align 8
+  %.not87 = icmp eq i32 %.sroa.0.0.copyload.i72, %6
+  br i1 %.not87, label %35, label %25
 
 25:                                               ; preds = %24
-  tail call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %6, i32 %.sroa.0.0.copyload.i73) #6
+  tail call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %6, i32 %.sroa.0.0.copyload.i72) #6
   br label %35
 
 .critedge:                                        ; preds = %18, %20
@@ -2613,87 +2607,85 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   br label %35
 
 35:                                               ; preds = %24, %25, %.critedge
-  br i1 %.not68, label %_ZN29ShenandoahBarrierSetAssembler28shenandoah_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb.exit, label %36
+  %36 = load i8, ptr @ShenandoahSATBBarrier, align 1
+  %37 = trunc i8 %36 to i1
+  %or.cond = select i1 %.not, i1 %37, i1 false
+  br i1 %or.cond, label %38, label %_ZN29ShenandoahBarrierSetAssembler28shenandoah_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb.exit
 
-36:                                               ; preds = %35
-  %37 = load i8, ptr @ShenandoahSATBBarrier, align 1
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %39, label %_ZN29ShenandoahBarrierSetAssembler28shenandoah_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb.exit
-
-39:                                               ; preds = %36
-  %40 = icmp ne i32 %5, -1
-  call void @_ZN29ShenandoahBarrierSetAssembler22satb_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb(ptr nonnull readnone align 8 poison, ptr noundef %1, i32 %6, i32 %7, i32 15, i32 %8, i1 noundef zeroext %40, i1 noundef zeroext false)
+38:                                               ; preds = %35
+  %39 = icmp ne i32 %5, -1
+  call void @_ZN29ShenandoahBarrierSetAssembler22satb_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb(ptr nonnull readnone align 8 poison, ptr noundef %1, i32 %6, i32 %7, i32 15, i32 %8, i1 noundef zeroext %39, i1 noundef zeroext false)
   br label %_ZN29ShenandoahBarrierSetAssembler28shenandoah_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb.exit
 
-_ZN29ShenandoahBarrierSetAssembler28shenandoah_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb.exit: ; preds = %39, %36, %35
-  %.not89 = icmp eq i32 %5, -1
-  br i1 %.not89, label %41, label %50
+_ZN29ShenandoahBarrierSetAssembler28shenandoah_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb.exit: ; preds = %38, %35
+  %.not88 = icmp eq i32 %5, -1
+  br i1 %.not88, label %40, label %49
 
-41:                                               ; preds = %_ZN29ShenandoahBarrierSetAssembler28shenandoah_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb.exit
+40:                                               ; preds = %_ZN29ShenandoahBarrierSetAssembler28shenandoah_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb.exit
   store i32 %6, ptr %12, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 -1, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 -1, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 -1, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i8 0, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr null, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i32 0, ptr %49, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 -1, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 -1, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i32 -1, ptr %43, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i32 0, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  store i8 0, ptr %45, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr null, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store i32 0, ptr %48, align 8
   call void @_ZN19BarrierSetAssembler8store_atEP14MacroAssemblerm9BasicType7Address8RegisterS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull %12, i32 -1, i32 -1, i32 -1, i32 -1) #6
-  br label %67
+  br label %66
 
-50:                                               ; preds = %_ZN29ShenandoahBarrierSetAssembler28shenandoah_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb.exit
-  %51 = load i8, ptr @ShenandoahIUBarrier, align 1
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %_ZN29ShenandoahBarrierSetAssembler10iu_barrierEP14MacroAssembler8RegisterS2_.exit
+49:                                               ; preds = %_ZN29ShenandoahBarrierSetAssembler28shenandoah_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb.exit
+  %50 = load i8, ptr @ShenandoahIUBarrier, align 1
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %52, label %_ZN29ShenandoahBarrierSetAssembler10iu_barrierEP14MacroAssembler8RegisterS2_.exit
 
-53:                                               ; preds = %50
+52:                                               ; preds = %49
   call fastcc void @_ZL18save_machine_stateP14MacroAssemblerbb(ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext true)
   call void @_ZN29ShenandoahBarrierSetAssembler22satb_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb(ptr nonnull readnone align 8 poison, ptr noundef %1, i32 -1, i32 %5, i32 15, i32 %8, i1 noundef zeroext true, i1 noundef zeroext false)
   call fastcc void @_ZL21restore_machine_stateP14MacroAssemblerbb(ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext true)
   br label %_ZN29ShenandoahBarrierSetAssembler10iu_barrierEP14MacroAssembler8RegisterS2_.exit
 
-_ZN29ShenandoahBarrierSetAssembler10iu_barrierEP14MacroAssembler8RegisterS2_.exit: ; preds = %50, %53
+_ZN29ShenandoahBarrierSetAssembler10iu_barrierEP14MacroAssembler8RegisterS2_.exit: ; preds = %49, %52
   store i32 %6, ptr %13, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 -1, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 -1, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i32 -1, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i32 0, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  store i8 0, ptr %58, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr null, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i32 0, ptr %61, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 -1, ptr %53, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 -1, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store i32 -1, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i32 0, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  store i8 0, ptr %57, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store ptr null, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store i32 0, ptr %60, align 8
   call void @_ZN19BarrierSetAssembler8store_atEP14MacroAssemblerm9BasicType7Address8RegisterS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull %13, i32 %5, i32 -1, i32 -1, i32 -1) #6
-  br label %67
+  br label %66
 
 _Z17is_reference_type9BasicTypeb.exit.thread:     ; preds = %9, %_Z17is_reference_type9BasicTypeb.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
-  %62 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(40) %63, ptr noundef nonnull align 8 dereferenceable(40) %62) #6
+  %61 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(40) %62, ptr noundef nonnull align 8 dereferenceable(40) %61) #6
   call void @_ZN19BarrierSetAssembler8store_atEP14MacroAssemblerm9BasicType7Address8RegisterS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull %14, i32 %5, i32 %6, i32 %7, i32 %8) #6
-  br label %67
+  br label %66
 
-67:                                               ; preds = %41, %_ZN29ShenandoahBarrierSetAssembler10iu_barrierEP14MacroAssembler8RegisterS2_.exit, %_Z17is_reference_type9BasicTypeb.exit.thread
+66:                                               ; preds = %40, %_ZN29ShenandoahBarrierSetAssembler10iu_barrierEP14MacroAssembler8RegisterS2_.exit, %_Z17is_reference_type9BasicTypeb.exit.thread
   ret void
 }
 

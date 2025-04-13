@@ -130,18 +130,18 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %13
 
 13:                                               ; preds = %.backedge, %2
+  %.093 = phi ptr [ null, %2 ], [ %.093.be, %.backedge ]
   %.091 = phi ptr [ null, %2 ], [ %.091.be, %.backedge ]
   %.089 = phi ptr [ null, %2 ], [ %.089.be, %.backedge ]
   %.087 = phi ptr [ null, %2 ], [ %.087.be, %.backedge ]
   %.085 = phi ptr [ null, %2 ], [ %.085.be, %.backedge ]
   %.083 = phi ptr [ null, %2 ], [ %.083.be, %.backedge ]
-  %.081 = phi ptr [ null, %2 ], [ %.081.be, %.backedge ]
-  %.079 = phi i32 [ 0, %2 ], [ %.079.be, %.backedge ]
-  %.077 = phi i8 [ 0, %2 ], [ %.077.be, %.backedge ]
-  %.075 = phi i1 [ false, %2 ], [ %.075.be, %.backedge ]
-  %.073 = phi i8 [ 0, %2 ], [ %.073.be, %.backedge ]
-  %.071 = phi i1 [ false, %2 ], [ %.071.be, %.backedge ]
-  %.069 = phi i8 [ 0, %2 ], [ %.069.be, %.backedge ]
+  %.081 = phi i32 [ 0, %2 ], [ %.081.be, %.backedge ]
+  %.079 = phi i1 [ false, %2 ], [ %.079.be, %.backedge ]
+  %.077 = phi i1 [ false, %2 ], [ %.077.be, %.backedge ]
+  %.075 = phi i8 [ 0, %2 ], [ %.075.be, %.backedge ]
+  %.073 = phi i1 [ false, %2 ], [ %.073.be, %.backedge ]
+  %.071 = phi i8 [ 0, %2 ], [ %.071.be, %.backedge ]
   %.0 = phi i8 [ 0, %2 ], [ %.0.be, %.backedge ]
   %14 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.20, ptr noundef nonnull @main.long_options, ptr noundef nonnull %3) #11
   switch i32 %14, label %50 [
@@ -167,18 +167,18 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   ]
 
 .backedge:                                        ; preds = %13, %24, %47, %44, %43, %42, %41, %40, %37, %35, %33, %32, %29, %28, %22, %19, %18, %15
-  %.091.be = phi ptr [ %.091, %47 ], [ %.091, %44 ], [ %.091, %43 ], [ %.091, %42 ], [ %.091, %41 ], [ %.091, %40 ], [ %.091, %37 ], [ %.091, %35 ], [ %.091, %33 ], [ %.091, %32 ], [ %.091, %29 ], [ %.091, %28 ], [ %.091, %24 ], [ %.091, %22 ], [ %.091, %19 ], [ %.091, %18 ], [ %17, %15 ], [ %.091, %13 ]
-  %.089.be = phi ptr [ %.089, %47 ], [ %46, %44 ], [ %.089, %43 ], [ %.089, %42 ], [ %.089, %41 ], [ %.089, %40 ], [ %.089, %37 ], [ %.089, %35 ], [ %.089, %33 ], [ %.089, %32 ], [ %.089, %29 ], [ %.089, %28 ], [ %.089, %24 ], [ %.089, %22 ], [ %.089, %19 ], [ %.089, %18 ], [ %.089, %15 ], [ %.089, %13 ]
-  %.087.be = phi ptr [ %.087, %47 ], [ %.087, %44 ], [ %.087, %43 ], [ %.087, %42 ], [ %.087, %41 ], [ %.087, %40 ], [ %.087, %37 ], [ %.087, %35 ], [ %.087, %33 ], [ %.087, %32 ], [ %.087, %29 ], [ %.087, %28 ], [ %.087, %24 ], [ %.087, %22 ], [ %21, %19 ], [ %.087, %18 ], [ %.087, %15 ], [ %.087, %13 ]
-  %.085.be = phi ptr [ %.085, %47 ], [ %.085, %44 ], [ %.085, %43 ], [ %.085, %42 ], [ %.085, %41 ], [ %.085, %40 ], [ %.085, %37 ], [ %.085, %35 ], [ %.085, %33 ], [ %.085, %32 ], [ %31, %29 ], [ %.085, %28 ], [ %.085, %24 ], [ %.085, %22 ], [ %.085, %19 ], [ %.085, %18 ], [ %.085, %15 ], [ %.085, %13 ]
-  %.083.be = phi ptr [ %.083, %47 ], [ %.083, %44 ], [ %.083, %43 ], [ %.083, %42 ], [ %.083, %41 ], [ %.083, %40 ], [ %39, %37 ], [ %.083, %35 ], [ %.083, %33 ], [ %.083, %32 ], [ %.083, %29 ], [ %.083, %28 ], [ %.083, %24 ], [ %.083, %22 ], [ %.083, %19 ], [ %.083, %18 ], [ %.083, %15 ], [ %.083, %13 ]
-  %.081.be = phi ptr [ %49, %47 ], [ %.081, %44 ], [ %.081, %43 ], [ %.081, %42 ], [ %.081, %41 ], [ %.081, %40 ], [ %.081, %37 ], [ %.081, %35 ], [ %.081, %33 ], [ %.081, %32 ], [ %.081, %29 ], [ %.081, %28 ], [ %.081, %24 ], [ %.081, %22 ], [ %.081, %19 ], [ %.081, %18 ], [ %.081, %15 ], [ %.081, %13 ]
-  %.079.be = phi i32 [ %.079, %47 ], [ %.079, %44 ], [ %.079, %43 ], [ 2, %42 ], [ 1, %41 ], [ %.079, %40 ], [ %.079, %37 ], [ %.079, %35 ], [ %.079, %33 ], [ %.079, %32 ], [ %.079, %29 ], [ %.079, %28 ], [ %.079, %24 ], [ %.079, %22 ], [ %.079, %19 ], [ %.079, %18 ], [ %.079, %15 ], [ %.079, %13 ]
-  %.077.be = phi i8 [ %.077, %47 ], [ %.077, %44 ], [ %.077, %43 ], [ %.077, %42 ], [ %.077, %41 ], [ %.077, %40 ], [ %.077, %37 ], [ %.077, %35 ], [ %.077, %33 ], [ 1, %32 ], [ %.077, %29 ], [ %.077, %28 ], [ %.077, %24 ], [ %.077, %22 ], [ %.077, %19 ], [ %.077, %18 ], [ %.077, %15 ], [ %.077, %13 ]
-  %.075.be = phi i1 [ %.075, %47 ], [ %.075, %44 ], [ %.075, %43 ], [ %.075, %42 ], [ %.075, %41 ], [ %.075, %40 ], [ %.075, %37 ], [ %.075, %35 ], [ %.075, %33 ], [ %.075, %32 ], [ %.075, %29 ], [ %.075, %28 ], [ %.075, %24 ], [ %.075, %22 ], [ %.075, %19 ], [ %.075, %18 ], [ %.075, %15 ], [ true, %13 ]
-  %.073.be = phi i8 [ %.073, %47 ], [ %.073, %44 ], [ %.073, %43 ], [ %.073, %42 ], [ %.073, %41 ], [ %.073, %40 ], [ %.073, %37 ], [ %.073, %35 ], [ %.073, %33 ], [ %.073, %32 ], [ %.073, %29 ], [ %.073, %28 ], [ %.073, %24 ], [ %.073, %22 ], [ %.073, %19 ], [ 1, %18 ], [ %.073, %15 ], [ %.073, %13 ]
-  %.071.be = phi i1 [ %.071, %47 ], [ %.071, %44 ], [ %.071, %43 ], [ %.071, %42 ], [ %.071, %41 ], [ %.071, %40 ], [ %.071, %37 ], [ %.071, %35 ], [ %.071, %33 ], [ %.071, %32 ], [ %.071, %29 ], [ true, %28 ], [ %.071, %24 ], [ %.071, %22 ], [ %.071, %19 ], [ %.071, %18 ], [ %.071, %15 ], [ %.071, %13 ]
-  %.069.be = phi i8 [ %.069, %47 ], [ %.069, %44 ], [ %.069, %43 ], [ %.069, %42 ], [ %.069, %41 ], [ 1, %40 ], [ %.069, %37 ], [ %.069, %35 ], [ %.069, %33 ], [ %.069, %32 ], [ %.069, %29 ], [ %.069, %28 ], [ %.069, %24 ], [ %.069, %22 ], [ %.069, %19 ], [ %.069, %18 ], [ %.069, %15 ], [ %.069, %13 ]
+  %.093.be = phi ptr [ %.093, %47 ], [ %.093, %44 ], [ %.093, %43 ], [ %.093, %42 ], [ %.093, %41 ], [ %.093, %40 ], [ %.093, %37 ], [ %.093, %35 ], [ %.093, %33 ], [ %.093, %32 ], [ %.093, %29 ], [ %.093, %28 ], [ %.093, %24 ], [ %.093, %22 ], [ %.093, %19 ], [ %.093, %18 ], [ %17, %15 ], [ %.093, %13 ]
+  %.091.be = phi ptr [ %.091, %47 ], [ %46, %44 ], [ %.091, %43 ], [ %.091, %42 ], [ %.091, %41 ], [ %.091, %40 ], [ %.091, %37 ], [ %.091, %35 ], [ %.091, %33 ], [ %.091, %32 ], [ %.091, %29 ], [ %.091, %28 ], [ %.091, %24 ], [ %.091, %22 ], [ %.091, %19 ], [ %.091, %18 ], [ %.091, %15 ], [ %.091, %13 ]
+  %.089.be = phi ptr [ %.089, %47 ], [ %.089, %44 ], [ %.089, %43 ], [ %.089, %42 ], [ %.089, %41 ], [ %.089, %40 ], [ %.089, %37 ], [ %.089, %35 ], [ %.089, %33 ], [ %.089, %32 ], [ %.089, %29 ], [ %.089, %28 ], [ %.089, %24 ], [ %.089, %22 ], [ %21, %19 ], [ %.089, %18 ], [ %.089, %15 ], [ %.089, %13 ]
+  %.087.be = phi ptr [ %.087, %47 ], [ %.087, %44 ], [ %.087, %43 ], [ %.087, %42 ], [ %.087, %41 ], [ %.087, %40 ], [ %.087, %37 ], [ %.087, %35 ], [ %.087, %33 ], [ %.087, %32 ], [ %31, %29 ], [ %.087, %28 ], [ %.087, %24 ], [ %.087, %22 ], [ %.087, %19 ], [ %.087, %18 ], [ %.087, %15 ], [ %.087, %13 ]
+  %.085.be = phi ptr [ %.085, %47 ], [ %.085, %44 ], [ %.085, %43 ], [ %.085, %42 ], [ %.085, %41 ], [ %.085, %40 ], [ %39, %37 ], [ %.085, %35 ], [ %.085, %33 ], [ %.085, %32 ], [ %.085, %29 ], [ %.085, %28 ], [ %.085, %24 ], [ %.085, %22 ], [ %.085, %19 ], [ %.085, %18 ], [ %.085, %15 ], [ %.085, %13 ]
+  %.083.be = phi ptr [ %49, %47 ], [ %.083, %44 ], [ %.083, %43 ], [ %.083, %42 ], [ %.083, %41 ], [ %.083, %40 ], [ %.083, %37 ], [ %.083, %35 ], [ %.083, %33 ], [ %.083, %32 ], [ %.083, %29 ], [ %.083, %28 ], [ %.083, %24 ], [ %.083, %22 ], [ %.083, %19 ], [ %.083, %18 ], [ %.083, %15 ], [ %.083, %13 ]
+  %.081.be = phi i32 [ %.081, %47 ], [ %.081, %44 ], [ %.081, %43 ], [ 2, %42 ], [ 1, %41 ], [ %.081, %40 ], [ %.081, %37 ], [ %.081, %35 ], [ %.081, %33 ], [ %.081, %32 ], [ %.081, %29 ], [ %.081, %28 ], [ %.081, %24 ], [ %.081, %22 ], [ %.081, %19 ], [ %.081, %18 ], [ %.081, %15 ], [ %.081, %13 ]
+  %.079.be = phi i1 [ %.079, %47 ], [ %.079, %44 ], [ %.079, %43 ], [ %.079, %42 ], [ %.079, %41 ], [ %.079, %40 ], [ %.079, %37 ], [ %.079, %35 ], [ %.079, %33 ], [ true, %32 ], [ %.079, %29 ], [ %.079, %28 ], [ %.079, %24 ], [ %.079, %22 ], [ %.079, %19 ], [ %.079, %18 ], [ %.079, %15 ], [ %.079, %13 ]
+  %.077.be = phi i1 [ %.077, %47 ], [ %.077, %44 ], [ %.077, %43 ], [ %.077, %42 ], [ %.077, %41 ], [ %.077, %40 ], [ %.077, %37 ], [ %.077, %35 ], [ %.077, %33 ], [ %.077, %32 ], [ %.077, %29 ], [ %.077, %28 ], [ %.077, %24 ], [ %.077, %22 ], [ %.077, %19 ], [ %.077, %18 ], [ %.077, %15 ], [ true, %13 ]
+  %.075.be = phi i8 [ %.075, %47 ], [ %.075, %44 ], [ %.075, %43 ], [ %.075, %42 ], [ %.075, %41 ], [ %.075, %40 ], [ %.075, %37 ], [ %.075, %35 ], [ %.075, %33 ], [ %.075, %32 ], [ %.075, %29 ], [ %.075, %28 ], [ %.075, %24 ], [ %.075, %22 ], [ %.075, %19 ], [ 1, %18 ], [ %.075, %15 ], [ %.075, %13 ]
+  %.073.be = phi i1 [ %.073, %47 ], [ %.073, %44 ], [ %.073, %43 ], [ %.073, %42 ], [ %.073, %41 ], [ %.073, %40 ], [ %.073, %37 ], [ %.073, %35 ], [ %.073, %33 ], [ %.073, %32 ], [ %.073, %29 ], [ true, %28 ], [ %.073, %24 ], [ %.073, %22 ], [ %.073, %19 ], [ %.073, %18 ], [ %.073, %15 ], [ %.073, %13 ]
+  %.071.be = phi i8 [ %.071, %47 ], [ %.071, %44 ], [ %.071, %43 ], [ %.071, %42 ], [ %.071, %41 ], [ 1, %40 ], [ %.071, %37 ], [ %.071, %35 ], [ %.071, %33 ], [ %.071, %32 ], [ %.071, %29 ], [ %.071, %28 ], [ %.071, %24 ], [ %.071, %22 ], [ %.071, %19 ], [ %.071, %18 ], [ %.071, %15 ], [ %.071, %13 ]
   %.0.be = phi i8 [ %.0, %47 ], [ %.0, %44 ], [ 1, %43 ], [ %.0, %42 ], [ %.0, %41 ], [ %.0, %40 ], [ %.0, %37 ], [ %.0, %35 ], [ %.0, %33 ], [ %.0, %32 ], [ %.0, %29 ], [ %.0, %28 ], [ %.0, %24 ], [ %.0, %22 ], [ %.0, %19 ], [ %.0, %18 ], [ %.0, %15 ], [ %.0, %13 ]
   br label %13, !llvm.loop !4
 
@@ -265,7 +265,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 51:                                               ; preds = %13
   %52 = load i32, ptr @optind, align 4
   %53 = icmp slt i32 %52, %0
-  %54 = icmp eq ptr %.091, null
+  %54 = icmp eq ptr %.093, null
   %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %55, label %60
 
@@ -279,7 +279,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 60:                                               ; preds = %55, %51
   %61 = phi i32 [ %59, %55 ], [ %52, %51 ]
-  %.2 = phi ptr [ %58, %55 ], [ %.091, %51 ]
+  %.2 = phi ptr [ %58, %55 ], [ %.093, %51 ]
   %62 = icmp slt i32 %61, %0
   br i1 %62, label %63, label %67
 
@@ -294,223 +294,218 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 67:                                               ; preds = %60
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.087, ptr %68, align 8
+  store ptr %.089, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.085, ptr %69, align 8
+  store ptr %.087, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.083, ptr %70, align 8
+  store ptr %.085, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 %.079, ptr %71, align 8
+  store i32 %.081, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr null, ptr %72, align 8
   call void @setup_cancel_handler(ptr noundef null) #11
   %73 = load i32, ptr %8, align 4
   %74 = icmp sgt i32 %73, 1
-  br i1 %74, label %75, label %78
+  %or.cond3 = and i1 %74, %.079
+  br i1 %or.cond3, label %75, label %76
 
 75:                                               ; preds = %67
-  %76 = trunc nuw i8 %.077 to i1
-  br i1 %76, label %77, label %78
-
-77:                                               ; preds = %75
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.24) #11
   call void @exit(i32 noundef 1) #12
   unreachable
 
-78:                                               ; preds = %75, %67
-  %.not104 = icmp eq ptr %.2, null
-  br i1 %.075, label %79, label %118
+76:                                               ; preds = %67
+  %.not106 = icmp eq ptr %.2, null
+  br i1 %.077, label %77, label %115
 
-79:                                               ; preds = %78
-  br i1 %.not104, label %81, label %80
+77:                                               ; preds = %76
+  br i1 %.not106, label %79, label %78
 
-80:                                               ; preds = %79
+78:                                               ; preds = %77
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.25) #11
   call void @exit(i32 noundef 1) #12
   unreachable
 
-81:                                               ; preds = %79
-  store ptr %.089, ptr %4, align 8
-  %82 = trunc nuw i8 %.073 to i1
-  %83 = trunc nuw i8 %.069 to i1
-  %84 = trunc nuw i8 %.0 to i1
-  %85 = trunc nuw i8 %.077 to i1
-  %86 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %11, i1 noundef zeroext %82) #11
-  %87 = call ptr @executeQuery(ptr noundef %86, ptr noundef nonnull @.str.55, i1 noundef zeroext %82) #11
-  call void @PQfinish(ptr noundef %86) #11
-  %88 = call i32 @PQntuples(ptr noundef %87) #11
-  %89 = icmp sgt i32 %88, 0
-  br i1 %89, label %.lr.ph.i.preheader, label %reindex_all_databases.exit
+79:                                               ; preds = %77
+  store ptr %.091, ptr %4, align 8
+  %80 = trunc nuw i8 %.075 to i1
+  %81 = trunc nuw i8 %.071 to i1
+  %82 = trunc nuw i8 %.0 to i1
+  %83 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %11, i1 noundef zeroext %80) #11
+  %84 = call ptr @executeQuery(ptr noundef %83, ptr noundef nonnull @.str.55, i1 noundef zeroext %80) #11
+  call void @PQfinish(ptr noundef %83) #11
+  %85 = call i32 @PQntuples(ptr noundef %84) #11
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %.lr.ph.i.preheader, label %reindex_all_databases.exit
 
-.lr.ph.i.preheader:                               ; preds = %81
-  %.not105 = xor i1 %85, true
+.lr.ph.i.preheader:                               ; preds = %79
+  %.not107 = xor i1 %.079, true
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %114
-  %.062.i = phi i32 [ %115, %114 ], [ 0, %.lr.ph.i.preheader ]
-  %90 = call ptr @PQgetvalue(ptr noundef %87, i32 noundef %.062.i, i32 noundef 0) #11
-  br i1 %.071, label %95, label %91
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %111
+  %.062.i = phi i32 [ %112, %111 ], [ 0, %.lr.ph.i.preheader ]
+  %87 = call ptr @PQgetvalue(ptr noundef %84, i32 noundef %.062.i, i32 noundef 0) #11
+  br i1 %.073, label %92, label %88
 
-91:                                               ; preds = %.lr.ph.i
-  %92 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.56, ptr noundef %11, ptr noundef %90) #11
-  %93 = load ptr, ptr @stdout, align 8
-  %94 = call i32 @fflush(ptr noundef %93)
-  br label %95
+88:                                               ; preds = %.lr.ph.i
+  %89 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.56, ptr noundef %11, ptr noundef %87) #11
+  %90 = load ptr, ptr @stdout, align 8
+  %91 = call i32 @fflush(ptr noundef %90)
+  br label %92
 
-95:                                               ; preds = %91, %.lr.ph.i
-  store ptr %90, ptr %72, align 8
-  br i1 %85, label %96, label %97
+92:                                               ; preds = %88, %.lr.ph.i
+  store ptr %87, ptr %72, align 8
+  br i1 %.079, label %93, label %94
 
-96:                                               ; preds = %95
-  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 3, ptr noundef null, ptr noundef %11, i1 noundef zeroext %82, i1 noundef zeroext %83, i1 noundef zeroext %84, i32 noundef 1, ptr noundef %.081)
+93:                                               ; preds = %92
+  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 3, ptr noundef null, ptr noundef %11, i1 noundef zeroext %80, i1 noundef zeroext %81, i1 noundef zeroext %82, i32 noundef 1, ptr noundef %.083)
+  br label %94
+
+94:                                               ; preds = %93, %92
+  %95 = load ptr, ptr %7, align 8
+  %.not.i = icmp eq ptr %95, null
+  br i1 %.not.i, label %97, label %96
+
+96:                                               ; preds = %94
+  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %7, ptr noundef %11, i1 noundef zeroext %80, i1 noundef zeroext %81, i1 noundef zeroext %82, i32 noundef %73, ptr noundef %.083)
   br label %97
 
-97:                                               ; preds = %96, %95
-  %98 = load ptr, ptr %7, align 8
-  %.not.i = icmp eq ptr %98, null
-  br i1 %.not.i, label %100, label %99
+97:                                               ; preds = %96, %94
+  %98 = load ptr, ptr %5, align 8
+  %.not60.i = icmp eq ptr %98, null
+  br i1 %.not60.i, label %100, label %99
 
 99:                                               ; preds = %97
-  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %7, ptr noundef %11, i1 noundef zeroext %82, i1 noundef zeroext %83, i1 noundef zeroext %84, i32 noundef %73, ptr noundef %.081)
+  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5, ptr noundef %11, i1 noundef zeroext %80, i1 noundef zeroext %81, i1 noundef zeroext %82, i32 noundef 1, ptr noundef %.083)
   br label %100
 
 100:                                              ; preds = %99, %97
-  %101 = load ptr, ptr %5, align 8
-  %.not60.i = icmp eq ptr %101, null
-  br i1 %.not60.i, label %103, label %102
+  %101 = load ptr, ptr %6, align 8
+  %.not61.i = icmp eq ptr %101, null
+  br i1 %.not61.i, label %104, label %102
 
 102:                                              ; preds = %100
-  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5, ptr noundef %11, i1 noundef zeroext %82, i1 noundef zeroext %83, i1 noundef zeroext %84, i32 noundef 1, ptr noundef %.081)
-  br label %103
+  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 4, ptr noundef nonnull %6, ptr noundef %11, i1 noundef zeroext %80, i1 noundef zeroext %81, i1 noundef zeroext %82, i32 noundef %73, ptr noundef %.083)
+  %.pre166 = load ptr, ptr %6, align 8
+  %103 = icmp eq ptr %.pre166, null
+  br label %104
 
-103:                                              ; preds = %102, %100
-  %104 = load ptr, ptr %6, align 8
-  %.not61.i = icmp eq ptr %104, null
-  br i1 %.not61.i, label %107, label %105
+104:                                              ; preds = %102, %100
+  %105 = phi i1 [ %103, %102 ], [ true, %100 ]
+  %106 = load ptr, ptr %5, align 8
+  %107 = icmp eq ptr %106, null
+  %or.cond109 = select i1 %.not107, i1 %107, i1 false
+  %or.cond111 = select i1 %or.cond109, i1 %105, i1 false
+  %108 = load ptr, ptr %7, align 8
+  %109 = icmp eq ptr %108, null
+  %or.cond113 = select i1 %or.cond111, i1 %109, i1 false
+  br i1 %or.cond113, label %110, label %111
 
-105:                                              ; preds = %103
-  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 4, ptr noundef nonnull %6, ptr noundef %11, i1 noundef zeroext %82, i1 noundef zeroext %83, i1 noundef zeroext %84, i32 noundef %73, ptr noundef %.081)
-  %.pre164 = load ptr, ptr %6, align 8
-  %106 = icmp eq ptr %.pre164, null
-  br label %107
+110:                                              ; preds = %104
+  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef %11, i1 noundef zeroext %80, i1 noundef zeroext %81, i1 noundef zeroext %82, i32 noundef %73, ptr noundef %.083)
+  br label %111
 
-107:                                              ; preds = %105, %103
-  %108 = phi i1 [ %106, %105 ], [ true, %103 ]
-  %109 = load ptr, ptr %5, align 8
-  %110 = icmp eq ptr %109, null
-  %or.cond107 = select i1 %.not105, i1 %110, i1 false
-  %or.cond109 = select i1 %or.cond107, i1 %108, i1 false
-  %111 = load ptr, ptr %7, align 8
-  %112 = icmp eq ptr %111, null
-  %or.cond111 = select i1 %or.cond109, i1 %112, i1 false
-  br i1 %or.cond111, label %113, label %114
+111:                                              ; preds = %110, %104
+  %112 = add nuw nsw i32 %.062.i, 1
+  %113 = call i32 @PQntuples(ptr noundef %84) #11
+  %114 = icmp slt i32 %112, %113
+  br i1 %114, label %.lr.ph.i, label %reindex_all_databases.exit, !llvm.loop !6
 
-113:                                              ; preds = %107
-  call fastcc void @reindex_one_database(ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef %11, i1 noundef zeroext %82, i1 noundef zeroext %83, i1 noundef zeroext %84, i32 noundef %73, ptr noundef %.081)
-  br label %114
+reindex_all_databases.exit:                       ; preds = %111, %79
+  call void @PQclear(ptr noundef %84) #11
+  br label %160
 
-114:                                              ; preds = %113, %107
-  %115 = add nuw nsw i32 %.062.i, 1
-  %116 = call i32 @PQntuples(ptr noundef %87) #11
-  %117 = icmp slt i32 %115, %116
-  br i1 %117, label %.lr.ph.i, label %reindex_all_databases.exit, !llvm.loop !6
+115:                                              ; preds = %76
+  br i1 %.not106, label %116, label %122
 
-reindex_all_databases.exit:                       ; preds = %114, %81
-  call void @PQclear(ptr noundef %87) #11
-  br label %164
+116:                                              ; preds = %115
+  %117 = call ptr @getenv(ptr noundef nonnull @.str.26) #11
+  %.not101 = icmp eq ptr %117, null
+  br i1 %.not101, label %118, label %122
 
-118:                                              ; preds = %78
-  br i1 %.not104, label %119, label %125
+118:                                              ; preds = %116
+  %119 = call ptr @getenv(ptr noundef nonnull @.str.27) #11
+  %.not102 = icmp eq ptr %119, null
+  br i1 %.not102, label %120, label %122
 
-119:                                              ; preds = %118
-  %120 = call ptr @getenv(ptr noundef nonnull @.str.26) #11
-  %.not99 = icmp eq ptr %120, null
-  br i1 %.not99, label %121, label %125
+120:                                              ; preds = %118
+  %121 = call ptr @get_user_name_or_exit(ptr noundef %11) #11
+  br label %122
 
-121:                                              ; preds = %119
-  %122 = call ptr @getenv(ptr noundef nonnull @.str.27) #11
-  %.not100 = icmp eq ptr %122, null
-  br i1 %.not100, label %123, label %125
-
-123:                                              ; preds = %121
-  %124 = call ptr @get_user_name_or_exit(ptr noundef %11) #11
-  br label %125
-
-125:                                              ; preds = %121, %119, %123, %118
-  %.3 = phi ptr [ %124, %123 ], [ %.2, %118 ], [ %120, %119 ], [ %122, %121 ]
+122:                                              ; preds = %118, %116, %120, %115
+  %.3 = phi ptr [ %121, %120 ], [ %.2, %115 ], [ %117, %116 ], [ %119, %118 ]
   store ptr %.3, ptr %4, align 8
-  %126 = trunc nuw i8 %.077 to i1
-  br i1 %126, label %127, label %131
+  br i1 %.079, label %123, label %127
 
-127:                                              ; preds = %125
-  %128 = trunc nuw i8 %.073 to i1
-  %129 = trunc nuw i8 %.069 to i1
-  %130 = trunc nuw i8 %.0 to i1
-  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 3, ptr noundef null, ptr noundef %11, i1 noundef zeroext %128, i1 noundef zeroext %129, i1 noundef zeroext %130, i32 noundef 1, ptr noundef %.081)
-  br label %131
+123:                                              ; preds = %122
+  %124 = trunc nuw i8 %.075 to i1
+  %125 = trunc nuw i8 %.071 to i1
+  %126 = trunc nuw i8 %.0 to i1
+  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 3, ptr noundef null, ptr noundef %11, i1 noundef zeroext %124, i1 noundef zeroext %125, i1 noundef zeroext %126, i32 noundef 1, ptr noundef %.083)
+  br label %127
 
-131:                                              ; preds = %127, %125
-  %132 = load ptr, ptr %7, align 8
-  %.not101 = icmp eq ptr %132, null
-  br i1 %.not101, label %138, label %133
+127:                                              ; preds = %123, %122
+  %128 = load ptr, ptr %7, align 8
+  %.not103 = icmp eq ptr %128, null
+  br i1 %.not103, label %134, label %129
 
-133:                                              ; preds = %131
-  %134 = trunc nuw i8 %.073 to i1
-  %135 = trunc nuw i8 %.069 to i1
-  %136 = trunc nuw i8 %.0 to i1
-  %137 = load i32, ptr %8, align 4
-  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 2, ptr noundef nonnull %7, ptr noundef %11, i1 noundef zeroext %134, i1 noundef zeroext %135, i1 noundef zeroext %136, i32 noundef %137, ptr noundef %.081)
-  br label %138
+129:                                              ; preds = %127
+  %130 = trunc nuw i8 %.075 to i1
+  %131 = trunc nuw i8 %.071 to i1
+  %132 = trunc nuw i8 %.0 to i1
+  %133 = load i32, ptr %8, align 4
+  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 2, ptr noundef nonnull %7, ptr noundef %11, i1 noundef zeroext %130, i1 noundef zeroext %131, i1 noundef zeroext %132, i32 noundef %133, ptr noundef %.083)
+  br label %134
 
-138:                                              ; preds = %133, %131
-  %139 = load ptr, ptr %5, align 8
-  %.not102 = icmp eq ptr %139, null
-  br i1 %.not102, label %145, label %140
+134:                                              ; preds = %129, %127
+  %135 = load ptr, ptr %5, align 8
+  %.not104 = icmp eq ptr %135, null
+  br i1 %.not104, label %141, label %136
 
-140:                                              ; preds = %138
-  %141 = trunc nuw i8 %.073 to i1
-  %142 = trunc nuw i8 %.069 to i1
-  %143 = trunc nuw i8 %.0 to i1
-  %144 = load i32, ptr %8, align 4
-  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %5, ptr noundef %11, i1 noundef zeroext %141, i1 noundef zeroext %142, i1 noundef zeroext %143, i32 noundef %144, ptr noundef %.081)
-  br label %145
+136:                                              ; preds = %134
+  %137 = trunc nuw i8 %.075 to i1
+  %138 = trunc nuw i8 %.071 to i1
+  %139 = trunc nuw i8 %.0 to i1
+  %140 = load i32, ptr %8, align 4
+  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %5, ptr noundef %11, i1 noundef zeroext %137, i1 noundef zeroext %138, i1 noundef zeroext %139, i32 noundef %140, ptr noundef %.083)
+  br label %141
 
-145:                                              ; preds = %140, %138
-  %146 = load ptr, ptr %6, align 8
-  %.not103 = icmp eq ptr %146, null
-  br i1 %.not103, label %153, label %147
+141:                                              ; preds = %136, %134
+  %142 = load ptr, ptr %6, align 8
+  %.not105 = icmp eq ptr %142, null
+  br i1 %.not105, label %149, label %143
 
-147:                                              ; preds = %145
-  %148 = trunc nuw i8 %.073 to i1
-  %149 = trunc nuw i8 %.069 to i1
-  %150 = trunc nuw i8 %.0 to i1
-  %151 = load i32, ptr %8, align 4
-  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 4, ptr noundef nonnull %6, ptr noundef %11, i1 noundef zeroext %148, i1 noundef zeroext %149, i1 noundef zeroext %150, i32 noundef %151, ptr noundef %.081)
+143:                                              ; preds = %141
+  %144 = trunc nuw i8 %.075 to i1
+  %145 = trunc nuw i8 %.071 to i1
+  %146 = trunc nuw i8 %.0 to i1
+  %147 = load i32, ptr %8, align 4
+  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 4, ptr noundef nonnull %6, ptr noundef %11, i1 noundef zeroext %144, i1 noundef zeroext %145, i1 noundef zeroext %146, i32 noundef %147, ptr noundef %.083)
   %.pre = load ptr, ptr %6, align 8
-  %152 = icmp eq ptr %.pre, null
-  br label %153
+  %148 = icmp eq ptr %.pre, null
+  br label %149
 
-153:                                              ; preds = %147, %145
-  %154 = phi i1 [ %152, %147 ], [ true, %145 ]
-  %.not = xor i1 %126, true
-  %155 = load ptr, ptr %5, align 8
-  %156 = icmp eq ptr %155, null
-  %or.cond4 = select i1 %.not, i1 %156, i1 false
-  %or.cond7 = select i1 %or.cond4, i1 %154, i1 false
-  %157 = load ptr, ptr %7, align 8
-  %158 = icmp eq ptr %157, null
-  %or.cond10 = select i1 %or.cond7, i1 %158, i1 false
-  br i1 %or.cond10, label %159, label %164
+149:                                              ; preds = %143, %141
+  %150 = phi i1 [ %148, %143 ], [ true, %141 ]
+  %.not = xor i1 %.079, true
+  %151 = load ptr, ptr %5, align 8
+  %152 = icmp eq ptr %151, null
+  %or.cond6 = select i1 %.not, i1 %152, i1 false
+  %or.cond9 = select i1 %or.cond6, i1 %150, i1 false
+  %153 = load ptr, ptr %7, align 8
+  %154 = icmp eq ptr %153, null
+  %or.cond12 = select i1 %or.cond9, i1 %154, i1 false
+  br i1 %or.cond12, label %155, label %160
 
-159:                                              ; preds = %153
-  %160 = trunc nuw i8 %.073 to i1
-  %161 = trunc nuw i8 %.069 to i1
-  %162 = trunc nuw i8 %.0 to i1
-  %163 = load i32, ptr %8, align 4
-  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 0, ptr noundef null, ptr noundef %11, i1 noundef zeroext %160, i1 noundef zeroext %161, i1 noundef zeroext %162, i32 noundef %163, ptr noundef %.081)
-  br label %164
+155:                                              ; preds = %149
+  %156 = trunc nuw i8 %.075 to i1
+  %157 = trunc nuw i8 %.071 to i1
+  %158 = trunc nuw i8 %.0 to i1
+  %159 = load i32, ptr %8, align 4
+  call fastcc void @reindex_one_database(ptr noundef %4, i32 noundef 0, ptr noundef null, ptr noundef %11, i1 noundef zeroext %156, i1 noundef zeroext %157, i1 noundef zeroext %158, i32 noundef %159, ptr noundef %.083)
+  br label %160
 
-164:                                              ; preds = %153, %159, %reindex_all_databases.exit
+160:                                              ; preds = %149, %155, %reindex_all_databases.exit
   call void @exit(i32 noundef 0) #13
   unreachable
 }

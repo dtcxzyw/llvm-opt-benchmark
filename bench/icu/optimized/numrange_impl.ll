@@ -1841,9 +1841,9 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
 48:                                               ; preds = %42, %37, %29, %32
   %.1 = phi i1 [ true, %32 ], [ %41, %37 ], [ true, %29 ], [ %47, %42 ]
   %49 = load i32, ptr %15, align 4
-  %.not155 = icmp eq i32 %49, 3
-  %or.cond = select i1 %.1, i1 %.not155, i1 false
-  br i1 %or.cond, label %50, label %56
+  %.not158 = icmp eq i32 %49, 3
+  %or.cond164 = select i1 %.1, i1 %.not158, i1 false
+  br i1 %or.cond164, label %50, label %56
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 208
@@ -1854,8 +1854,8 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   br label %56
 
 56:                                               ; preds = %14, %50, %48, %23, %17
-  %.0143 = phi i1 [ false, %17 ], [ false, %23 ], [ %55, %50 ], [ false, %48 ], [ false, %14 ]
-  %.0142 = phi i1 [ false, %17 ], [ false, %23 ], [ true, %50 ], [ %.1, %48 ], [ false, %14 ]
+  %.0146 = phi i1 [ false, %17 ], [ false, %23 ], [ %55, %50 ], [ false, %48 ], [ false, %14 ]
+  %.0145 = phi i1 [ false, %17 ], [ false, %23 ], [ true, %50 ], [ %.1, %48 ], [ false, %14 ]
   %.0.shrunk = phi i1 [ false, %17 ], [ true, %23 ], [ true, %50 ], [ true, %48 ], [ false, %14 ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
@@ -1873,7 +1873,7 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   %64 = load i32, ptr %10, align 4, !tbaa !12
   %65 = add i32 %63, %64
   %66 = sub i32 %59, %65
-  br i1 %.0143, label %75, label %67
+  br i1 %.0146, label %75, label %67
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 208
@@ -1887,7 +1887,7 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
 
 75:                                               ; preds = %67, %62
   %76 = phi i1 [ false, %62 ], [ %74, %67 ]
-  br i1 %.0142, label %85, label %77
+  br i1 %.0145, label %85, label %77
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 200
@@ -1915,10 +1915,10 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
 
 95:                                               ; preds = %87, %85
   %96 = phi i1 [ false, %85 ], [ %94, %87 ]
-  %brmerge = or i1 %76, %86
-  %brmerge161 = or i1 %brmerge, %96
-  %.pre183 = load i32, ptr %9, align 4, !tbaa !12
-  br i1 %brmerge161, label %97, label %134
+  %or.cond = or i1 %76, %86
+  %or.cond3 = or i1 %or.cond, %96
+  %.pre187 = load i32, ptr %9, align 4, !tbaa !12
+  br i1 %or.cond3, label %97, label %134
 
 97:                                               ; preds = %95
   %98 = load i8, ptr %57, align 8, !tbaa !189, !range !48, !noundef !49
@@ -1928,14 +1928,14 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   %102 = select i1 %99, ptr %101, ptr %100
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %104 = load i32, ptr %103, align 8, !tbaa !190
-  %105 = add nsw i32 %104, %.pre183
+  %105 = add nsw i32 %104, %.pre187
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds i16, ptr %102, i64 %106
   %108 = load i16, ptr %107, align 2, !tbaa !137
   %109 = zext i16 %108 to i32
   %110 = call noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %109)
-  %.not157 = icmp eq i8 %110, 0
-  br i1 %.not157, label %111, label %115
+  %.not160 = icmp eq i8 %110, 0
+  br i1 %.not160, label %111, label %115
 
 111:                                              ; preds = %97
   %112 = load i32, ptr %9, align 4, !tbaa !12
@@ -1944,14 +1944,14 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   br label %115
 
 115:                                              ; preds = %111, %97
-  %.1150 = phi i32 [ %66, %97 ], [ %114, %111 ]
+  %.1153 = phi i32 [ %66, %97 ], [ %114, %111 ]
   %116 = load i32, ptr %9, align 4, !tbaa !12
   %117 = load i8, ptr %57, align 8, !tbaa !189, !range !48, !noundef !49
   %118 = trunc nuw i8 %117 to i1
   %119 = load ptr, ptr %100, align 8
   %120 = select i1 %118, ptr %119, ptr %100
   %121 = load i32, ptr %103, align 8, !tbaa !190
-  %122 = add i32 %.1150, -1
+  %122 = add i32 %.1153, -1
   %123 = add i32 %122, %116
   %124 = add nsw i32 %123, %121
   %125 = sext i32 %124 to i64
@@ -1959,20 +1959,20 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   %127 = load i16, ptr %126, align 2, !tbaa !137
   %128 = zext i16 %127 to i32
   %129 = call noundef signext i8 @_ZN6icu_7712PatternProps12isWhiteSpaceEi(i32 noundef %128)
-  %.not158 = icmp eq i8 %129, 0
-  %.pre184 = load i32, ptr %9, align 4, !tbaa !12
-  br i1 %.not158, label %130, label %134
+  %.not161 = icmp eq i8 %129, 0
+  %.pre186 = load i32, ptr %9, align 4, !tbaa !12
+  br i1 %.not161, label %130, label %134
 
 130:                                              ; preds = %115
-  %131 = add nsw i32 %.pre184, %.1150
+  %131 = add nsw i32 %.pre186, %.1153
   %132 = call noundef i32 @_ZN6icu_7722FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %57, i32 noundef %131, i32 noundef 32, i8 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %133 = add nsw i32 %132, %.1150
+  %133 = add nsw i32 %132, %.1153
   %.pre = load i32, ptr %9, align 4, !tbaa !12
   br label %134
 
-134:                                              ; preds = %95, %115, %130
-  %135 = phi i32 [ %.pre184, %115 ], [ %.pre, %130 ], [ %.pre183, %95 ]
-  %.0149 = phi i32 [ %.1150, %115 ], [ %133, %130 ], [ %66, %95 ]
+134:                                              ; preds = %115, %130, %95
+  %135 = phi i32 [ %.pre186, %115 ], [ %.pre, %130 ], [ %.pre187, %95 ]
+  %.0152 = phi i32 [ %.1153, %115 ], [ %133, %130 ], [ %66, %95 ]
   %136 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %138 = call noundef i32 @_ZN6icu_776number4impl19NumberFormatterImpl11writeNumberERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %136, ptr noundef nonnull align 8 dereferenceable(66) %137, ptr noundef nonnull align 8 dereferenceable(136) %57, i32 noundef %135, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -1985,7 +1985,7 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
 
 142:                                              ; preds = %134
   %143 = load i32, ptr %9, align 4, !tbaa !12
-  %144 = add i32 %138, %.0149
+  %144 = add i32 %138, %.0152
   %145 = add i32 %144, %143
   %146 = invoke noundef i32 @_ZN6icu_7722FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %57, i32 noundef %145, ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %147 unwind label %204
@@ -1993,7 +1993,7 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
 147:                                              ; preds = %142
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %149 = load ptr, ptr %148, align 8, !tbaa !152
-  br i1 %.0143, label %150, label %208
+  br i1 %.0146, label %150, label %208
 
 150:                                              ; preds = %147
   %151 = getelementptr inbounds nuw i8, ptr %3, i64 208
@@ -2007,34 +2007,34 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 56
   %155 = load ptr, ptr %154, align 8
   invoke void %155(ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %.noexc162 unwind label %206
+          to label %.noexc165 unwind label %206
 
-.noexc162:                                        ; preds = %.noexc
+.noexc165:                                        ; preds = %.noexc
   %156 = load ptr, ptr %8, align 8, !tbaa !191
   %157 = icmp eq ptr %156, null
   br i1 %157, label %177, label %158
 
-158:                                              ; preds = %.noexc162
+158:                                              ; preds = %.noexc165
   %159 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %160 = load i32, ptr %159, align 4, !tbaa !192
   %161 = load ptr, ptr %152, align 8, !tbaa !127
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 56
   %163 = load ptr, ptr %162, align 8
   invoke void %163(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %.noexc163 unwind label %206
+          to label %.noexc166 unwind label %206
 
-.noexc163:                                        ; preds = %158
+.noexc166:                                        ; preds = %158
   %164 = load ptr, ptr %8, align 8, !tbaa !191
   %165 = icmp eq ptr %164, null
   br i1 %165, label %177, label %166
 
-166:                                              ; preds = %.noexc163
+166:                                              ; preds = %.noexc166
   %167 = load i32, ptr %159, align 4, !tbaa !192
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %169 = invoke noundef i32 @_ZNK6icu_7720StandardPluralRanges7resolveENS_14StandardPlural4FormES2_(ptr noundef nonnull align 8 dereferenceable(60) %168, i32 noundef %160, i32 noundef %167)
-          to label %.noexc164 unwind label %206
+          to label %.noexc167 unwind label %206
 
-.noexc164:                                        ; preds = %166
+.noexc167:                                        ; preds = %166
   %170 = load ptr, ptr %8, align 8, !tbaa !191
   %171 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %172 = load i32, ptr %171, align 8, !tbaa !193
@@ -2044,8 +2044,8 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   %176 = invoke noundef ptr %175(ptr noundef nonnull align 8 dereferenceable(8) %170, i32 noundef %172, i32 noundef %169)
           to label %177 unwind label %206
 
-177:                                              ; preds = %.noexc163, %.noexc162, %.noexc164
-  %.0.i = phi ptr [ %149, %.noexc162 ], [ %149, %.noexc163 ], [ %176, %.noexc164 ]
+177:                                              ; preds = %.noexc166, %.noexc165, %.noexc167
+  %.0.i = phi ptr [ %149, %.noexc165 ], [ %149, %.noexc166 ], [ %176, %.noexc167 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
   %178 = load i32, ptr %9, align 4, !tbaa !12
   %179 = load i32, ptr %10, align 4, !tbaa !12
@@ -2089,7 +2089,7 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
           cleanup
   br label %406
 
-206:                                              ; preds = %.noexc164, %166, %158, %.noexc, %150, %194, %187, %177
+206:                                              ; preds = %.noexc167, %166, %158, %.noexc, %150, %194, %187, %177
   %207 = landingpad { ptr, i32 }
           cleanup
   br label %406
@@ -2108,7 +2108,7 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   %217 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %218 = load ptr, ptr %217, align 8, !tbaa !152
   %219 = load i32, ptr %9, align 4, !tbaa !12
-  %220 = add i32 %216, %.0149
+  %220 = add i32 %216, %.0152
   %221 = add i32 %220, %219
   %222 = load i32, ptr %10, align 4, !tbaa !12
   %223 = add i32 %222, %146
@@ -2124,52 +2124,52 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   br label %231
 
 231:                                              ; preds = %229, %201
-  %.0151 = phi i32 [ %146, %201 ], [ %230, %229 ]
-  %.0147 = phi i32 [ %138, %201 ], [ %216, %229 ]
+  %.0154 = phi i32 [ %146, %201 ], [ %230, %229 ]
+  %.0150 = phi i32 [ %138, %201 ], [ %216, %229 ]
   %232 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %233 = load ptr, ptr %232, align 8, !tbaa !153
-  br i1 %.0142, label %234, label %291
+  br i1 %.0145, label %234, label %291
 
 234:                                              ; preds = %231
   %235 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %236 = load ptr, ptr %235, align 8, !tbaa !153
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
   invoke void @_ZN6icu_776number4impl8Modifier10ParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %.noexc167 unwind label %289
+          to label %.noexc170 unwind label %289
 
-.noexc167:                                        ; preds = %234
+.noexc170:                                        ; preds = %234
   %237 = load ptr, ptr %233, align 8, !tbaa !127
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 56
   %239 = load ptr, ptr %238, align 8
   invoke void %239(ptr noundef nonnull align 8 dereferenceable(8) %233, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %.noexc168 unwind label %289
+          to label %.noexc171 unwind label %289
 
-.noexc168:                                        ; preds = %.noexc167
+.noexc171:                                        ; preds = %.noexc170
   %240 = load ptr, ptr %7, align 8, !tbaa !191
   %241 = icmp eq ptr %240, null
   br i1 %241, label %261, label %242
 
-242:                                              ; preds = %.noexc168
+242:                                              ; preds = %.noexc171
   %243 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %244 = load i32, ptr %243, align 4, !tbaa !192
   %245 = load ptr, ptr %236, align 8, !tbaa !127
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 56
   %247 = load ptr, ptr %246, align 8
   invoke void %247(ptr noundef nonnull align 8 dereferenceable(8) %236, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %.noexc169 unwind label %289
+          to label %.noexc172 unwind label %289
 
-.noexc169:                                        ; preds = %242
+.noexc172:                                        ; preds = %242
   %248 = load ptr, ptr %7, align 8, !tbaa !191
   %249 = icmp eq ptr %248, null
   br i1 %249, label %261, label %250
 
-250:                                              ; preds = %.noexc169
+250:                                              ; preds = %.noexc172
   %251 = load i32, ptr %243, align 4, !tbaa !192
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %253 = invoke noundef i32 @_ZNK6icu_7720StandardPluralRanges7resolveENS_14StandardPlural4FormES2_(ptr noundef nonnull align 8 dereferenceable(60) %252, i32 noundef %244, i32 noundef %251)
-          to label %.noexc170 unwind label %289
+          to label %.noexc173 unwind label %289
 
-.noexc170:                                        ; preds = %250
+.noexc173:                                        ; preds = %250
   %254 = load ptr, ptr %7, align 8, !tbaa !191
   %255 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %256 = load i32, ptr %255, align 8, !tbaa !193
@@ -2179,39 +2179,39 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   %260 = invoke noundef ptr %259(ptr noundef nonnull align 8 dereferenceable(8) %254, i32 noundef %256, i32 noundef %253)
           to label %261 unwind label %289
 
-261:                                              ; preds = %.noexc169, %.noexc168, %.noexc170
-  %.0.i166 = phi ptr [ %233, %.noexc168 ], [ %233, %.noexc169 ], [ %260, %.noexc170 ]
+261:                                              ; preds = %.noexc172, %.noexc171, %.noexc173
+  %.0.i169 = phi ptr [ %233, %.noexc171 ], [ %233, %.noexc172 ], [ %260, %.noexc173 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   %262 = load i32, ptr %9, align 4, !tbaa !12
   %263 = load i32, ptr %10, align 4, !tbaa !12
-  %264 = add i32 %.0151, %.0149
-  %265 = add i32 %264, %.0147
+  %264 = add i32 %.0154, %.0152
+  %265 = add i32 %264, %.0150
   %266 = add i32 %265, %262
   %267 = add nsw i32 %266, %263
-  %268 = load ptr, ptr %.0.i166, align 8, !tbaa !127
+  %268 = load ptr, ptr %.0.i169, align 8, !tbaa !127
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 16
   %270 = load ptr, ptr %269, align 8
-  %271 = invoke noundef i32 %270(ptr noundef nonnull align 8 dereferenceable(8) %.0.i166, ptr noundef nonnull align 8 dereferenceable(136) %57, i32 noundef %262, i32 noundef %267, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %271 = invoke noundef i32 %270(ptr noundef nonnull align 8 dereferenceable(8) %.0.i169, ptr noundef nonnull align 8 dereferenceable(136) %57, i32 noundef %262, i32 noundef %267, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %272 unwind label %289
 
 272:                                              ; preds = %261
   %273 = load i32, ptr %10, align 4, !tbaa !12
   %274 = add nsw i32 %273, %271
   store i32 %274, ptr %10, align 4, !tbaa !12
-  %275 = load ptr, ptr %.0.i166, align 8, !tbaa !127
+  %275 = load ptr, ptr %.0.i169, align 8, !tbaa !127
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 24
   %277 = load ptr, ptr %276, align 8
-  %278 = invoke noundef i32 %277(ptr noundef nonnull align 8 dereferenceable(8) %.0.i166)
+  %278 = invoke noundef i32 %277(ptr noundef nonnull align 8 dereferenceable(8) %.0.i169)
           to label %279 unwind label %289
 
 279:                                              ; preds = %272
   %280 = load i32, ptr %9, align 4, !tbaa !12
   %281 = add nsw i32 %280, %278
   store i32 %281, ptr %9, align 4, !tbaa !12
-  %282 = load ptr, ptr %.0.i166, align 8, !tbaa !127
+  %282 = load ptr, ptr %.0.i169, align 8, !tbaa !127
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 24
   %284 = load ptr, ptr %283, align 8
-  %285 = invoke noundef i32 %284(ptr noundef nonnull align 8 dereferenceable(8) %.0.i166)
+  %285 = invoke noundef i32 %284(ptr noundef nonnull align 8 dereferenceable(8) %.0.i169)
           to label %286 unwind label %289
 
 286:                                              ; preds = %279
@@ -2220,14 +2220,14 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   store i32 %288, ptr %10, align 4, !tbaa !12
   br label %314
 
-289:                                              ; preds = %.noexc170, %250, %242, %.noexc167, %234, %279, %272, %261
+289:                                              ; preds = %.noexc173, %250, %242, %.noexc170, %234, %279, %272, %261
   %290 = landingpad { ptr, i32 }
           cleanup
   br label %406
 
 291:                                              ; preds = %231
   %292 = load i32, ptr %9, align 4, !tbaa !12
-  %293 = add nsw i32 %292, %.0147
+  %293 = add nsw i32 %292, %.0150
   %294 = load ptr, ptr %233, align 8, !tbaa !127
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %296 = load ptr, ptr %295, align 8
@@ -2235,14 +2235,14 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
           to label %298 unwind label %204
 
 298:                                              ; preds = %291
-  %299 = add nsw i32 %297, %.0147
+  %299 = add nsw i32 %297, %.0150
   %300 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %301 = load ptr, ptr %300, align 8, !tbaa !153
   %302 = load i32, ptr %9, align 4, !tbaa !12
-  %303 = add i32 %299, %.0149
+  %303 = add i32 %299, %.0152
   %304 = add i32 %303, %302
   %305 = load i32, ptr %10, align 4, !tbaa !12
-  %306 = add i32 %305, %.0151
+  %306 = add i32 %305, %.0154
   %307 = add i32 %306, %304
   %308 = load ptr, ptr %301, align 8, !tbaa !127
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 16
@@ -2251,12 +2251,12 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
           to label %312 unwind label %204
 
 312:                                              ; preds = %298
-  %313 = add nsw i32 %311, %.0151
+  %313 = add nsw i32 %311, %.0154
   br label %314
 
 314:                                              ; preds = %312, %286
-  %.1152 = phi i32 [ %.0151, %286 ], [ %313, %312 ]
-  %.1148 = phi i32 [ %.0147, %286 ], [ %299, %312 ]
+  %.1155 = phi i32 [ %.0154, %286 ], [ %313, %312 ]
+  %.1151 = phi i32 [ %.0150, %286 ], [ %299, %312 ]
   %315 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %316 = load ptr, ptr %315, align 8, !tbaa !154
   br i1 %.0.shrunk, label %317, label %374
@@ -2266,41 +2266,41 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   %319 = load ptr, ptr %318, align 8, !tbaa !154
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   invoke void @_ZN6icu_776number4impl8Modifier10ParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %.noexc174 unwind label %372
+          to label %.noexc177 unwind label %372
 
-.noexc174:                                        ; preds = %317
+.noexc177:                                        ; preds = %317
   %320 = load ptr, ptr %316, align 8, !tbaa !127
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 56
   %322 = load ptr, ptr %321, align 8
   invoke void %322(ptr noundef nonnull align 8 dereferenceable(8) %316, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %.noexc175 unwind label %372
+          to label %.noexc178 unwind label %372
 
-.noexc175:                                        ; preds = %.noexc174
+.noexc178:                                        ; preds = %.noexc177
   %323 = load ptr, ptr %6, align 8, !tbaa !191
   %324 = icmp eq ptr %323, null
   br i1 %324, label %344, label %325
 
-325:                                              ; preds = %.noexc175
+325:                                              ; preds = %.noexc178
   %326 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %327 = load i32, ptr %326, align 4, !tbaa !192
   %328 = load ptr, ptr %319, align 8, !tbaa !127
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 56
   %330 = load ptr, ptr %329, align 8
   invoke void %330(ptr noundef nonnull align 8 dereferenceable(8) %319, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %.noexc176 unwind label %372
+          to label %.noexc179 unwind label %372
 
-.noexc176:                                        ; preds = %325
+.noexc179:                                        ; preds = %325
   %331 = load ptr, ptr %6, align 8, !tbaa !191
   %332 = icmp eq ptr %331, null
   br i1 %332, label %344, label %333
 
-333:                                              ; preds = %.noexc176
+333:                                              ; preds = %.noexc179
   %334 = load i32, ptr %326, align 4, !tbaa !192
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %336 = invoke noundef i32 @_ZNK6icu_7720StandardPluralRanges7resolveENS_14StandardPlural4FormES2_(ptr noundef nonnull align 8 dereferenceable(60) %335, i32 noundef %327, i32 noundef %334)
-          to label %.noexc177 unwind label %372
+          to label %.noexc180 unwind label %372
 
-.noexc177:                                        ; preds = %333
+.noexc180:                                        ; preds = %333
   %337 = load ptr, ptr %6, align 8, !tbaa !191
   %338 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %339 = load i32, ptr %338, align 8, !tbaa !193
@@ -2310,39 +2310,39 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   %343 = invoke noundef ptr %342(ptr noundef nonnull align 8 dereferenceable(8) %337, i32 noundef %339, i32 noundef %336)
           to label %344 unwind label %372
 
-344:                                              ; preds = %.noexc176, %.noexc175, %.noexc177
-  %.0.i173 = phi ptr [ %316, %.noexc175 ], [ %316, %.noexc176 ], [ %343, %.noexc177 ]
+344:                                              ; preds = %.noexc179, %.noexc178, %.noexc180
+  %.0.i176 = phi ptr [ %316, %.noexc178 ], [ %316, %.noexc179 ], [ %343, %.noexc180 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   %345 = load i32, ptr %9, align 4, !tbaa !12
   %346 = load i32, ptr %10, align 4, !tbaa !12
-  %347 = add i32 %.1152, %.0149
-  %348 = add i32 %347, %.1148
+  %347 = add i32 %.1155, %.0152
+  %348 = add i32 %347, %.1151
   %349 = add i32 %348, %345
   %350 = add nsw i32 %349, %346
-  %351 = load ptr, ptr %.0.i173, align 8, !tbaa !127
+  %351 = load ptr, ptr %.0.i176, align 8, !tbaa !127
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 16
   %353 = load ptr, ptr %352, align 8
-  %354 = invoke noundef i32 %353(ptr noundef nonnull align 8 dereferenceable(8) %.0.i173, ptr noundef nonnull align 8 dereferenceable(136) %57, i32 noundef %345, i32 noundef %350, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %354 = invoke noundef i32 %353(ptr noundef nonnull align 8 dereferenceable(8) %.0.i176, ptr noundef nonnull align 8 dereferenceable(136) %57, i32 noundef %345, i32 noundef %350, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %355 unwind label %372
 
 355:                                              ; preds = %344
   %356 = load i32, ptr %10, align 4, !tbaa !12
   %357 = add nsw i32 %356, %354
   store i32 %357, ptr %10, align 4, !tbaa !12
-  %358 = load ptr, ptr %.0.i173, align 8, !tbaa !127
+  %358 = load ptr, ptr %.0.i176, align 8, !tbaa !127
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 24
   %360 = load ptr, ptr %359, align 8
-  %361 = invoke noundef i32 %360(ptr noundef nonnull align 8 dereferenceable(8) %.0.i173)
+  %361 = invoke noundef i32 %360(ptr noundef nonnull align 8 dereferenceable(8) %.0.i176)
           to label %362 unwind label %372
 
 362:                                              ; preds = %355
   %363 = load i32, ptr %9, align 4, !tbaa !12
   %364 = add nsw i32 %363, %361
   store i32 %364, ptr %9, align 4, !tbaa !12
-  %365 = load ptr, ptr %.0.i173, align 8, !tbaa !127
+  %365 = load ptr, ptr %.0.i176, align 8, !tbaa !127
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 24
   %367 = load ptr, ptr %366, align 8
-  %368 = invoke noundef i32 %367(ptr noundef nonnull align 8 dereferenceable(8) %.0.i173)
+  %368 = invoke noundef i32 %367(ptr noundef nonnull align 8 dereferenceable(8) %.0.i176)
           to label %369 unwind label %372
 
 369:                                              ; preds = %362
@@ -2351,14 +2351,14 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
   store i32 %371, ptr %10, align 4, !tbaa !12
   br label %397
 
-372:                                              ; preds = %.noexc177, %333, %325, %.noexc174, %317, %362, %355, %344
+372:                                              ; preds = %.noexc180, %333, %325, %.noexc177, %317, %362, %355, %344
   %373 = landingpad { ptr, i32 }
           cleanup
   br label %406
 
 374:                                              ; preds = %314
   %375 = load i32, ptr %9, align 4, !tbaa !12
-  %376 = add nsw i32 %375, %.1148
+  %376 = add nsw i32 %375, %.1151
   %377 = load ptr, ptr %316, align 8, !tbaa !127
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 16
   %379 = load ptr, ptr %378, align 8
@@ -2366,14 +2366,14 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
           to label %381 unwind label %204
 
 381:                                              ; preds = %374
-  %382 = add nsw i32 %380, %.1148
+  %382 = add nsw i32 %380, %.1151
   %383 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %384 = load ptr, ptr %383, align 8, !tbaa !154
   %385 = load i32, ptr %9, align 4, !tbaa !12
-  %386 = add i32 %382, %.0149
+  %386 = add i32 %382, %.0152
   %387 = add i32 %386, %385
   %388 = load i32, ptr %10, align 4, !tbaa !12
-  %389 = add i32 %388, %.1152
+  %389 = add i32 %388, %.1155
   %390 = add i32 %389, %387
   %391 = load ptr, ptr %384, align 8, !tbaa !127
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 16
@@ -2382,21 +2382,21 @@ define void @_ZNK6icu_776number4impl24NumberRangeFormatterImpl11formatRangeERNS1
           to label %395 unwind label %204
 
 395:                                              ; preds = %381
-  %396 = add nsw i32 %394, %.1152
+  %396 = add nsw i32 %394, %.1155
   br label %397
 
 397:                                              ; preds = %395, %369
-  %.2153 = phi i32 [ %.1152, %369 ], [ %396, %395 ]
-  %.2 = phi i32 [ %.1148, %369 ], [ %382, %395 ]
+  %.2156 = phi i32 [ %.1155, %369 ], [ %396, %395 ]
+  %.2 = phi i32 [ %.1151, %369 ], [ %382, %395 ]
   %398 = load i32, ptr %9, align 4, !tbaa !12
   invoke void @_ZN6icu_7731FormattedValueStringBuilderImpl14appendSpanInfoE14UFieldCategoryiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(300) %1, i32 noundef 4098, i32 noundef 0, i32 noundef %398, i32 noundef %.2, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %399 unwind label %204
 
 399:                                              ; preds = %397
   %400 = load i32, ptr %9, align 4, !tbaa !12
-  %401 = add i32 %.2, %.0149
+  %401 = add i32 %.2, %.0152
   %402 = add i32 %401, %400
-  invoke void @_ZN6icu_7731FormattedValueStringBuilderImpl14appendSpanInfoE14UFieldCategoryiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(300) %1, i32 noundef 4098, i32 noundef 1, i32 noundef %402, i32 noundef %.2153, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  invoke void @_ZN6icu_7731FormattedValueStringBuilderImpl14appendSpanInfoE14UFieldCategoryiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(300) %1, i32 noundef 4098, i32 noundef 1, i32 noundef %402, i32 noundef %.2156, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %403 unwind label %204
 
 403:                                              ; preds = %399

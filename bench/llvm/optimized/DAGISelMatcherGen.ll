@@ -7681,19 +7681,18 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3MVT15SimpleValueTypeELb1EE9push_backES2_.e
   %901 = call noundef nonnull align 8 dereferenceable(984) ptr @_ZNK4llvm13CodeGenTarget10getRegBankEv(ptr noundef nonnull align 8 dereferenceable(764) %552) #17
   %902 = getelementptr inbounds nuw i8, ptr %901, i64 712
   %.sroa.012.017.i = load ptr, ptr %902, align 8, !tbaa !558
-  %.not18.i = icmp eq ptr %.sroa.012.017.i, %902
-  br i1 %.not18.i, label %_ZL20getRegisterValueTypePKN4llvm6RecordERKNS_13CodeGenTargetE.exit, label %.lr.ph.i54
+  %.not1618.i = icmp eq ptr %.sroa.012.017.i, %902
+  br i1 %.not1618.i, label %_ZL20getRegisterValueTypePKN4llvm6RecordERKNS_13CodeGenTargetE.exit, label %.lr.ph.i54
 
 .lr.ph.i54:                                       ; preds = %898, %915
   %.sroa.012.021.i = phi ptr [ %.sroa.012.0.i, %915 ], [ %.sroa.012.017.i, %898 ]
-  %.020.i = phi i1 [ %.1.i56, %915 ], [ false, %898 ]
+  %.020.i = phi i1 [ %.1.i57, %915 ], [ false, %898 ]
   %.01019.i = phi i16 [ %.111.i, %915 ], [ 1, %898 ]
   %903 = getelementptr inbounds nuw i8, ptr %.sroa.012.021.i, i64 16
   %904 = call noundef zeroext i1 @_ZNK4llvm20CodeGenRegisterClass8containsEPKNS_15CodeGenRegisterE(ptr noundef nonnull align 8 dereferenceable(684) %903, ptr noundef %900) #17
-  %.not16.i = xor i1 %904, true
-  %brmerge.i55 = select i1 %.not16.i, i1 true, i1 %.020.i
-  %.0.mux.i = select i1 %904, i1 true, i1 %.020.i
-  br i1 %brmerge.i55, label %915, label %905
+  %.not.i55 = xor i1 %904, true
+  %or.cond.i56 = select i1 %.not.i55, i1 true, i1 %.020.i
+  br i1 %or.cond.i56, label %915, label %905
 
 905:                                              ; preds = %.lr.ph.i54
   %906 = getelementptr inbounds nuw i8, ptr %.sroa.012.021.i, i64 368
@@ -7710,10 +7709,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3MVT15SimpleValueTypeELb1EE9push_backES2_.e
 
 915:                                              ; preds = %905, %.lr.ph.i54
   %.111.i = phi i16 [ %914, %905 ], [ %.01019.i, %.lr.ph.i54 ]
-  %.1.i56 = phi i1 [ true, %905 ], [ %.0.mux.i, %.lr.ph.i54 ]
+  %.1.i57 = phi i1 [ true, %905 ], [ %.020.i, %.lr.ph.i54 ]
   %.sroa.012.0.i = load ptr, ptr %.sroa.012.021.i, align 8, !tbaa !558
-  %.not.i57 = icmp eq ptr %.sroa.012.0.i, %902
-  br i1 %.not.i57, label %_ZL20getRegisterValueTypePKN4llvm6RecordERKNS_13CodeGenTargetE.exit, label %.lr.ph.i54
+  %.not16.i = icmp eq ptr %.sroa.012.0.i, %902
+  br i1 %.not16.i, label %_ZL20getRegisterValueTypePKN4llvm6RecordERKNS_13CodeGenTargetE.exit, label %.lr.ph.i54
 
 _ZL20getRegisterValueTypePKN4llvm6RecordERKNS_13CodeGenTargetE.exit: ; preds = %915, %898
   %.010.lcssa.i = phi i16 [ 1, %898 ], [ %.111.i, %915 ]

@@ -274,7 +274,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   %48 = load ptr, ptr %9, align 8
   %49 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %48, ptr noundef nonnull @.str.11) #10
   store i8 1, ptr %34, align 1
-  br label %156
+  br label %155
 
 50:                                               ; preds = %33, %_ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit
   %.0.i37 = phi i32 [ %.0.i38, %33 ], [ %.1.i, %_ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit ]
@@ -303,7 +303,7 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   %69 = load ptr, ptr %9, align 8
   %70 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %69, ptr noundef nonnull @.str.11) #10
   store i8 1, ptr %55, align 1
-  br label %156
+  br label %155
 
 71:                                               ; preds = %54, %50
   %72 = add nsw i32 %52, %.0.i37
@@ -343,11 +343,11 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   %97 = load ptr, ptr %78, align 8
   %98 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %97, ptr noundef nonnull @.str.11) #10
   store i8 1, ptr %83, align 1
-  br label %156
+  br label %155
 
 99:                                               ; preds = %82, %77
   %100 = add nsw i32 %80, %.032
-  br label %156
+  br label %155
 
 101:                                              ; preds = %73
   %102 = call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %2, i8 noundef zeroext 17) #10
@@ -360,20 +360,20 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 157
   br label %128
 
-._crit_edge:                                      ; preds = %151, %101
-  %.033.lcssa = phi ptr [ %102, %101 ], [ %152, %151 ]
-  %.2.lcssa = phi i32 [ %.032, %101 ], [ %.3, %151 ]
+._crit_edge:                                      ; preds = %150, %101
+  %.033.lcssa = phi ptr [ %102, %101 ], [ %151, %150 ]
+  %.2.lcssa = phi i32 [ %.032, %101 ], [ %.3, %150 ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %108 = load ptr, ptr %107, align 8
   %109 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %108, ptr noundef nonnull @.str.13, ptr noundef %.033.lcssa) #10
   %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %155
+  br i1 %110, label %111, label %154
 
 111:                                              ; preds = %._crit_edge
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %113 = load i8, ptr %112, align 1
   %114 = trunc i8 %113 to i1
-  br i1 %114, label %155, label %115
+  br i1 %114, label %154, label %115
 
 115:                                              ; preds = %111
   %116 = load i8, ptr @DisplayVMOutputToStdout, align 1
@@ -389,56 +389,54 @@ _ZN19LogFileStreamOutput17write_decorationsERK14LogDecorations.exit: ; preds = %
   %126 = load ptr, ptr %107, align 8
   %127 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %126, ptr noundef nonnull @.str.11) #10
   store i8 1, ptr %112, align 1
-  br label %156
+  br label %155
 
-128:                                              ; preds = %.lr.ph, %151
-  %129 = phi ptr [ %103, %.lr.ph ], [ %153, %151 ]
-  %.247 = phi i32 [ %.032, %.lr.ph ], [ %.3, %151 ]
-  %.03346 = phi ptr [ %102, %.lr.ph ], [ %152, %151 ]
+128:                                              ; preds = %.lr.ph, %150
+  %129 = phi ptr [ %103, %.lr.ph ], [ %152, %150 ]
+  %.247 = phi i32 [ %.032, %.lr.ph ], [ %.3, %150 ]
+  %.03346 = phi ptr [ %102, %.lr.ph ], [ %151, %150 ]
   %130 = load i8, ptr %129, align 1
   %131 = icmp eq i8 %130, 10
   %.str.15..str.16 = select i1 %131, ptr @.str.15, ptr @.str.16
   store i8 0, ptr %129, align 1
   %132 = load ptr, ptr %105, align 8
   %133 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %132, ptr noundef nonnull @.str.17, ptr noundef %.03346, ptr noundef nonnull %.str.15..str.16) #10
-  %134 = icmp slt i32 %133, 0
-  br i1 %134, label %135, label %151
+  %134 = icmp sgt i32 %133, -1
+  %135 = load i8, ptr %106, align 1
+  %136 = trunc i8 %135 to i1
+  %or.cond = select i1 %134, i1 true, i1 %136
+  br i1 %or.cond, label %150, label %137
 
-135:                                              ; preds = %128
-  %136 = load i8, ptr %106, align 1
-  %137 = trunc i8 %136 to i1
-  br i1 %137, label %151, label %138
-
-138:                                              ; preds = %135
-  %139 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %140 = trunc i8 %139 to i1
-  %141 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %142 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %143 = select i1 %140, ptr %141, ptr %142
-  %144 = load ptr, ptr %0, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
-  %146 = load ptr, ptr %145, align 8
-  %147 = call noundef ptr %146(ptr noundef nonnull align 8 dereferenceable(156) %0) #10
-  %148 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %143, ptr noundef nonnull @.str.10, ptr noundef %147) #10
-  %149 = load ptr, ptr %105, align 8
-  %150 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %149, ptr noundef nonnull @.str.11) #10
+137:                                              ; preds = %128
+  %138 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %139 = trunc i8 %138 to i1
+  %140 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %141 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %142 = select i1 %139, ptr %140, ptr %141
+  %143 = load ptr, ptr %0, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 32
+  %145 = load ptr, ptr %144, align 8
+  %146 = call noundef ptr %145(ptr noundef nonnull align 8 dereferenceable(156) %0) #10
+  %147 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %142, ptr noundef nonnull @.str.10, ptr noundef %146) #10
+  %148 = load ptr, ptr %105, align 8
+  %149 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %148, ptr noundef nonnull @.str.11) #10
   store i8 1, ptr %106, align 1
-  br label %156
+  br label %155
 
-151:                                              ; preds = %128, %135
-  %152 = getelementptr inbounds nuw i8, ptr %129, i64 1
+150:                                              ; preds = %128
+  %151 = getelementptr inbounds nuw i8, ptr %129, i64 1
   %.3 = add nsw i32 %133, %.247
-  %153 = call noundef ptr @strpbrk(ptr noundef nonnull %152, ptr noundef nonnull @.str.14) #9
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %._crit_edge, label %128, !llvm.loop !8
+  %152 = call noundef ptr @strpbrk(ptr noundef nonnull %151, ptr noundef nonnull @.str.14) #9
+  %153 = icmp eq ptr %152, null
+  br i1 %153, label %._crit_edge, label %128, !llvm.loop !8
 
-155:                                              ; preds = %._crit_edge, %111
+154:                                              ; preds = %._crit_edge, %111
   %.341 = add nsw i32 %109, %.2.lcssa
   call void @_ZN2os4freeEPv(ptr noundef %102) #10
-  br label %156
+  br label %155
 
-156:                                              ; preds = %99, %155, %138, %115, %86, %58, %37
-  %.0 = phi i32 [ -1, %115 ], [ -1, %138 ], [ -1, %86 ], [ -1, %58 ], [ -1, %37 ], [ %.341, %155 ], [ %100, %99 ]
+155:                                              ; preds = %99, %154, %137, %115, %86, %58, %37
+  %.0 = phi i32 [ -1, %115 ], [ -1, %137 ], [ -1, %86 ], [ -1, %58 ], [ -1, %37 ], [ %.341, %154 ], [ %100, %99 ]
   ret i32 %.0
 }
 

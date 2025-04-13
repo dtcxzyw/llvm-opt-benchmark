@@ -2285,8 +2285,8 @@ define void @_ZN13notifications17NotificationStore23load_more_notifications17hed
   %9 = load i8, ptr %8, align 8, !range !70, !noundef !4
   %10 = trunc nuw i8 %9 to i1
   %.not = xor i1 %10, true
-  %brmerge = or i1 %2, %.not
-  br i1 %brmerge, label %11, label %12
+  %or.cond = or i1 %2, %.not
+  br i1 %or.cond, label %11, label %12
 
 11:                                               ; preds = %4
   br i1 %2, label %33, label %14
@@ -2340,14 +2340,14 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
   br label %33
 
 33:                                               ; preds = %30, %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit", %11
-  %.sroa.02.0 = phi i64 [ 0, %11 ], [ 1, %30 ], [ 0, %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit" ]
+  %.sroa.03.0 = phi i64 [ 0, %11 ], [ 1, %30 ], [ 0, %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit" ]
   %.sroa.4.0 = phi i64 [ undef, %11 ], [ %32, %30 ], [ undef, %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit" ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %5)
-  call void @_ZN6client6Client16request_envelope17h1448423b66d8a51cE(ptr noalias noundef nonnull sret([352 x i8]) align 8 captures(none) dereferenceable(352) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 %36, i64 noundef %.sroa.02.0, i64 %.sroa.4.0)
+  call void @_ZN6client6Client16request_envelope17h1448423b66d8a51cE(ptr noalias noundef nonnull sret([352 x i8]) align 8 captures(none) dereferenceable(352) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 %36, i64 noundef %.sroa.03.0, i64 %.sroa.4.0)
   store ptr %6, ptr %5, align 8
   call void @"_ZN4gpui3app13model_context21ModelContext$LT$T$GT$5spawn17h33680d53c3401356E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(360) %5)
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %5)

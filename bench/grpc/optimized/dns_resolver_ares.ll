@@ -6816,21 +6816,19 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseIN9grpc_core8Resolver6Res
   %4 = load i8, ptr %3, align 8, !tbaa !188, !range !177, !noundef !178
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %7 = load i8, ptr %6, align 8, !tbaa !188, !range !177, !noundef !178
+  %7 = load i8, ptr %6, align 8, !range !177
   %8 = trunc nuw i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %62
-
-10:                                               ; preds = %9
-  %11 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN9grpc_core8Resolver6ResultaSEOS1_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1)
+  %10 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN9grpc_core8Resolver6ResultaSEOS1_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1)
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core8Resolver6ResultEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %12, label %_ZNSt22_Optional_payload_baseIN9grpc_core8Resolver6ResultEE8_M_resetEv.exit
+11:                                               ; preds = %2
+  br i1 %8, label %12, label %62
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %11
   %13 = load i64, ptr %1, align 8, !tbaa !21
   %14 = icmp eq i64 %13, 1
   br i1 %14, label %15, label %25
@@ -6939,12 +6937,15 @@ _ZNSt22_Optional_payload_baseIN9grpc_core8Resolver6ResultEE12_M_constructIJS2_EE
   store i8 1, ptr %3, align 8, !tbaa !188
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core8Resolver6ResultEE8_M_resetEv.exit
 
-62:                                               ; preds = %9
+62:                                               ; preds = %11
+  br i1 %5, label %63, label %_ZNSt22_Optional_payload_baseIN9grpc_core8Resolver6ResultEE8_M_resetEv.exit
+
+63:                                               ; preds = %62
   store i8 0, ptr %3, align 8, !tbaa !188
   tail call void @_ZN9grpc_core8Resolver6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %0) #34
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core8Resolver6ResultEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN9grpc_core8Resolver6ResultEE8_M_resetEv.exit: ; preds = %.thread, %62, %_ZNSt22_Optional_payload_baseIN9grpc_core8Resolver6ResultEE12_M_constructIJS2_EEEvDpOT_.exit, %10
+_ZNSt22_Optional_payload_baseIN9grpc_core8Resolver6ResultEE8_M_resetEv.exit: ; preds = %63, %62, %_ZNSt22_Optional_payload_baseIN9grpc_core8Resolver6ResultEE12_M_constructIJS2_EEEvDpOT_.exit, %9
   ret void
 }
 
@@ -10712,9 +10713,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp ugt i64 %9, 1
-  %or.cond = select i1 %7, i1 %.not.i, i1 false
+  %or.cond57 = select i1 %7, i1 %.not.i, i1 false
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %or.cond, label %11, label %..thread_crit_edge
+  br i1 %or.cond57, label %11, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %2
   %.sroa.0.0.copyload.i.pre = load ptr, ptr %10, align 8
@@ -10749,7 +10750,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %30 = phi i8 [ %27, %11 ], [ -128, %..thread_crit_edge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #34
   %31 = zext i1 %7 to i8
-  %32 = zext i1 %or.cond to i8
+  %32 = zext i1 %or.cond57 to i8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %5, ptr %33, align 8, !tbaa !301
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -10766,9 +10767,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   store ptr %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !51
   store i64 %1, ptr %0, align 8, !tbaa !233
   %40 = call noundef zeroext i1 @_ZN4absl12lts_2024072218container_internal19HashSetResizeHelper15InitializeSlotsISaIcELm16ELb1ELb1ELm8EEEbRNS1_12CommonFieldsET_NS1_6ctrl_tEmm(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4, i8 noundef signext %30, i64 noundef 16, i64 noundef 16)
-  %.not31 = xor i1 %7, true
-  %brmerge = select i1 %.not31, i1 true, i1 %.not.i
-  br i1 %brmerge, label %41, label %162
+  %.not = xor i1 %7, true
+  %or.cond = select i1 %.not, i1 true, i1 %.not.i
+  br i1 %or.cond, label %41, label %162
 
 41:                                               ; preds = %.thread
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10803,7 +10804,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !310
   %67 = icmp slt i8 %66, -1
-  br i1 %67, label %.thread54, label %.preheader.i.i
+  br i1 %67, label %.thread55, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %43
   %68 = load <16 x i8>, ptr %65, align 1, !tbaa !51
@@ -10819,7 +10820,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %72 = zext nneg i16 %71 to i64
   %73 = add i64 %.sroa.5.0.lcssa.i.i, %72
   %74 = and i64 %73, %59
-  br label %.thread54
+  br label %.thread55
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.sroa.12.028.i.i = phi i64 [ %75, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
@@ -10834,7 +10835,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %.not.i.i = icmp eq i16 %81, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %.thread.i.i, !llvm.loop !312
 
-.thread54:                                        ; preds = %.thread.i.i, %43
+.thread55:                                        ; preds = %.thread.i.i, %43
   %.sroa.011.0.i.i = phi i64 [ %64, %43 ], [ %74, %.thread.i.i ]
   %82 = trunc i128 %56 to i8
   %83 = and i8 %82, 127
@@ -10853,20 +10854,20 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 91:                                               ; preds = %42
   %.sroa.0.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !51
   %92 = load i64, ptr %33, align 8, !tbaa !301
-  %.not60 = icmp eq i64 %92, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph
+  %.not3162 = icmp eq i64 %92, 0
+  br i1 %.not3162, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %91, %148
   %93 = phi i64 [ %149, %148 ], [ %92, %91 ]
-  %.062 = phi i64 [ %150, %148 ], [ 0, %91 ]
+  %.064 = phi i64 [ %150, %148 ], [ 0, %91 ]
   %94 = load ptr, ptr %3, align 8, !tbaa !51
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %.062
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %.064
   %96 = load i8, ptr %95, align 1, !tbaa !310
   %97 = icmp sgt i8 %96, -1
   br i1 %97, label %98, label %148
 
 98:                                               ; preds = %.lr.ph
-  %99 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i, i64 %.062
+  %99 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i, i64 %.064
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i64, ptr %99, align 8, !tbaa !116
   %102 = load i64, ptr %100, align 8, !tbaa !116
@@ -10892,59 +10893,59 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %122 = getelementptr inbounds nuw i8, ptr %115, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !310
   %124 = icmp slt i8 %123, -1
-  br i1 %124, label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS6_E_clESK_.exit44, label %.preheader.i.i32
+  br i1 %124, label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS6_E_clESK_.exit45, label %.preheader.i.i33
 
-.preheader.i.i32:                                 ; preds = %98
+.preheader.i.i33:                                 ; preds = %98
   %125 = load <16 x i8>, ptr %122, align 1, !tbaa !51
   %126 = icmp slt <16 x i8> %125, splat (i8 -1)
   %127 = bitcast <16 x i1> %126 to i16
-  %.not26.i.i33 = icmp eq i16 %127, 0
-  br i1 %.not26.i.i33, label %.lr.ph.i.i40, label %.thread.i.i34
+  %.not26.i.i34 = icmp eq i16 %127, 0
+  br i1 %.not26.i.i34, label %.lr.ph.i.i41, label %.thread.i.i35
 
-.thread.i.i34:                                    ; preds = %.lr.ph.i.i40, %.preheader.i.i32
-  %.sroa.5.0.lcssa.i.i35 = phi i64 [ %121, %.preheader.i.i32 ], [ %134, %.lr.ph.i.i40 ]
-  %.lcssa.i.i37 = phi i16 [ %127, %.preheader.i.i32 ], [ %138, %.lr.ph.i.i40 ]
-  %128 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i37, i1 true)
+.thread.i.i35:                                    ; preds = %.lr.ph.i.i41, %.preheader.i.i33
+  %.sroa.5.0.lcssa.i.i36 = phi i64 [ %121, %.preheader.i.i33 ], [ %134, %.lr.ph.i.i41 ]
+  %.lcssa.i.i38 = phi i16 [ %127, %.preheader.i.i33 ], [ %138, %.lr.ph.i.i41 ]
+  %128 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i38, i1 true)
   %129 = zext nneg i16 %128 to i64
-  %130 = add i64 %.sroa.5.0.lcssa.i.i35, %129
+  %130 = add i64 %.sroa.5.0.lcssa.i.i36, %129
   %131 = and i64 %130, %116
-  br label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS6_E_clESK_.exit44
+  br label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS6_E_clESK_.exit45
 
-.lr.ph.i.i40:                                     ; preds = %.preheader.i.i32, %.lr.ph.i.i40
-  %.sroa.12.028.i.i41 = phi i64 [ %132, %.lr.ph.i.i40 ], [ 0, %.preheader.i.i32 ]
-  %.sroa.5.027.i.i42 = phi i64 [ %134, %.lr.ph.i.i40 ], [ %121, %.preheader.i.i32 ]
-  %132 = add i64 %.sroa.12.028.i.i41, 16
-  %133 = add i64 %132, %.sroa.5.027.i.i42
+.lr.ph.i.i41:                                     ; preds = %.preheader.i.i33, %.lr.ph.i.i41
+  %.sroa.12.028.i.i42 = phi i64 [ %132, %.lr.ph.i.i41 ], [ 0, %.preheader.i.i33 ]
+  %.sroa.5.027.i.i43 = phi i64 [ %134, %.lr.ph.i.i41 ], [ %121, %.preheader.i.i33 ]
+  %132 = add i64 %.sroa.12.028.i.i42, 16
+  %133 = add i64 %132, %.sroa.5.027.i.i43
   %134 = and i64 %133, %116
   %135 = getelementptr inbounds nuw i8, ptr %115, i64 %134
   %136 = load <16 x i8>, ptr %135, align 1, !tbaa !51
   %137 = icmp slt <16 x i8> %136, splat (i8 -1)
   %138 = bitcast <16 x i1> %137 to i16
-  %.not.i.i43 = icmp eq i16 %138, 0
-  br i1 %.not.i.i43, label %.lr.ph.i.i40, label %.thread.i.i34, !llvm.loop !312
+  %.not.i.i44 = icmp eq i16 %138, 0
+  br i1 %.not.i.i44, label %.lr.ph.i.i41, label %.thread.i.i35, !llvm.loop !312
 
-_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS6_E_clESK_.exit44: ; preds = %98, %.thread.i.i34
-  %.sroa.011.0.i.i38 = phi i64 [ %121, %98 ], [ %131, %.thread.i.i34 ]
+_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS6_E_clESK_.exit45: ; preds = %98, %.thread.i.i35
+  %.sroa.011.0.i.i39 = phi i64 [ %121, %98 ], [ %131, %.thread.i.i35 ]
   %139 = trunc i128 %113 to i8
   %140 = and i8 %139, 127
-  %141 = getelementptr inbounds nuw i8, ptr %115, i64 %.sroa.011.0.i.i38
+  %141 = getelementptr inbounds nuw i8, ptr %115, i64 %.sroa.011.0.i.i39
   store i8 %140, ptr %141, align 1, !tbaa !310
-  %142 = add i64 %.sroa.011.0.i.i38, -15
+  %142 = add i64 %.sroa.011.0.i.i39, -15
   %143 = and i64 %142, %116
   %144 = and i64 %116, 15
   %145 = getelementptr i8, ptr %115, i64 %143
   %146 = getelementptr i8, ptr %145, i64 %144
   store i8 %140, ptr %146, align 1, !tbaa !310
-  %147 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i38
+  %147 = getelementptr inbounds nuw %"struct.grpc_core::DNSResolver::LookupTaskHandle", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %147, ptr noundef nonnull align 8 dereferenceable(16) %99, i64 16, i1 false)
   %.pre = load i64, ptr %33, align 8, !tbaa !301
   br label %148
 
-148:                                              ; preds = %.lr.ph, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS6_E_clESK_.exit44
-  %149 = phi i64 [ %.pre, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS6_E_clESK_.exit44 ], [ %93, %.lr.ph ]
-  %150 = add i64 %.062, 1
-  %.not = icmp eq i64 %150, %149
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !316
+148:                                              ; preds = %.lr.ph, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS6_E_clESK_.exit45
+  %149 = phi i64 [ %.pre, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core11DNSResolver16LookupTaskHandleEEEN17grpc_event_engine12experimental20TaskHandleComparatorIS6_E4HashESt8equal_toIS6_ESaIS6_EE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPS6_E_clESK_.exit45 ], [ %93, %.lr.ph ]
+  %150 = add i64 %.064, 1
+  %.not31 = icmp eq i64 %150, %149
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !316
 
 ._crit_edge:                                      ; preds = %148, %91
   %151 = phi i64 [ 0, %91 ], [ %149, %148 ]
@@ -10962,7 +10963,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   call void @_ZdlPvm(ptr noundef nonnull %159, i64 noundef %161) #37
   br label %162
 
-162:                                              ; preds = %._crit_edge, %41, %.thread54, %.thread
+162:                                              ; preds = %._crit_edge, %41, %.thread55, %.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #34
   ret void
 }
@@ -11005,8 +11006,8 @@ _ZN4absl12lts_2024072218container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit: ; p
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %31 = load i8, ptr %30, align 1, !tbaa !305, !range !177, !noundef !178
   %32 = trunc nuw i8 %31 to i1
-  %brmerge.demorgan = and i1 %29, %32
-  br i1 %brmerge.demorgan, label %33, label %38
+  %or.cond = and i1 %29, %32
+  br i1 %or.cond, label %33, label %38
 
 33:                                               ; preds = %_ZN4absl12lts_2024072218container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit
   tail call void @_ZN4absl12lts_2024072218container_internal19HashSetResizeHelper24InitControlBytesAfterSooEPNS1_6ctrl_tES3_m(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull %15, i8 noundef signext %3, i64 noundef %7)

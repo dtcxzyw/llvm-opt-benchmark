@@ -140,20 +140,18 @@ declare void @_Z18invoke_exit_actionj(i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN2lp19lp_status_to_stringENS_9lp_statusE(i32 noundef %0) local_unnamed_addr #3 {
   %2 = icmp ult i32 %0, 12
-  br i1 %2, label %switch.hole_check, label %3
+  %switch.maskindex = trunc i32 %0 to i16
+  %switch.shifted = lshr i16 4091, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %3
 
-3:                                                ; preds = %switch.hole_check, %1
+3:                                                ; preds = %1
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.5, i32 noundef 53, ptr noundef nonnull @.str.6)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %5
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i32 %0 to i16
-  %switch.shifted = lshr i16 4091, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN2lp19lp_status_to_stringENS_9lp_statusE, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8

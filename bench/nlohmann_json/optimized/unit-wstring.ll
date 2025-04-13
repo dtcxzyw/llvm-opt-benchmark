@@ -4981,14 +4981,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %.backedge
 
-.preheader:                                       ; preds = %1, %.preheader.backedge
+.preheader:                                       ; preds = %1, %.preheader
   %9 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKwNS7_IwS8_IwESaIwEEEEEEEwEEE3getEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %switch.tableidx = add i32 %9, 1
   %10 = icmp ult i32 %switch.tableidx, 15
-  br i1 %10, label %switch.hole_check, label %.preheader.backedge
-
-.preheader.backedge:                              ; preds = %.preheader, %switch.hole_check
-  br label %.preheader
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 18435, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %10, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.loopexit, label %.preheader
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader2
   %11 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKwNS7_IwS8_IwESaIwEEEEEEEwEEE3getEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
@@ -5047,14 +5048,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_3
   store ptr %.str.25.sink, ptr %30, align 8, !tbaa !197
   br label %.loopexit
 
-switch.hole_check:                                ; preds = %.preheader
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 18435, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %.loopexit, label %.preheader.backedge
-
-.loopexit:                                        ; preds = %12, %switch.hole_check, %.loopexit.sink.split
-  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %switch.hole_check ], [ true, %12 ]
+.loopexit:                                        ; preds = %12, %.preheader, %.loopexit.sink.split
+  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.preheader ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -29552,14 +29547,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %.backedge
 
-.preheader:                                       ; preds = %1, %.preheader.backedge
+.preheader:                                       ; preds = %1, %.preheader
   %9 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDsNS7_IDsS8_IDsESaIDsEEEEEEEDsEEE3getEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %switch.tableidx = add i32 %9, 1
   %10 = icmp ult i32 %switch.tableidx, 15
-  br i1 %10, label %switch.hole_check, label %.preheader.backedge
-
-.preheader.backedge:                              ; preds = %.preheader, %switch.hole_check
-  br label %.preheader
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 18435, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %10, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.loopexit, label %.preheader
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader2
   %11 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDsNS7_IDsS8_IDsESaIDsEEEEEEEDsEEE3getEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
@@ -29618,14 +29614,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_3
   store ptr %.str.25.sink, ptr %30, align 8, !tbaa !432
   br label %.loopexit
 
-switch.hole_check:                                ; preds = %.preheader
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 18435, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %.loopexit, label %.preheader.backedge
-
-.loopexit:                                        ; preds = %12, %switch.hole_check, %.loopexit.sink.split
-  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %switch.hole_check ], [ true, %12 ]
+.loopexit:                                        ; preds = %12, %.preheader, %.loopexit.sink.split
+  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.preheader ], [ true, %12 ]
   ret i1 %.0
 }
 
@@ -44133,14 +44123,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %.backedge
 
-.preheader:                                       ; preds = %1, %.preheader.backedge
+.preheader:                                       ; preds = %1, %.preheader
   %9 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDiNS7_IDiS8_IDiESaIDiEEEEEEEDiEEE3getEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %switch.tableidx = add i32 %9, 1
   %10 = icmp ult i32 %switch.tableidx, 15
-  br i1 %10, label %switch.hole_check, label %.preheader.backedge
-
-.preheader.backedge:                              ; preds = %.preheader, %switch.hole_check
-  br label %.preheader
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 18435, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %10, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.loopexit, label %.preheader
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader2
   %11 = tail call noundef i32 @_ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_25wide_string_input_adapterINS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKDiNS7_IDiS8_IDiESaIDiEEEEEEEDiEEE3getEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
@@ -44199,14 +44190,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_3
   store ptr %.str.25.sink, ptr %30, align 8, !tbaa !484
   br label %.loopexit
 
-switch.hole_check:                                ; preds = %.preheader
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 18435, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %.loopexit, label %.preheader.backedge
-
-.loopexit:                                        ; preds = %12, %switch.hole_check, %.loopexit.sink.split
-  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %switch.hole_check ], [ true, %12 ]
+.loopexit:                                        ; preds = %12, %.preheader, %.loopexit.sink.split
+  %.0 = phi i1 [ false, %.loopexit.sink.split ], [ true, %.preheader ], [ true, %12 ]
   ret i1 %.0
 }
 

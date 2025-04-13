@@ -4206,19 +4206,19 @@ define noundef zeroext i1 @_ZNK13sentencepiece16TrainerInterface20IsValidSentenc
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !141
   %.not37.i.i.i.i = icmp eq i32 %24, 9601
-  br i1 %.not37.i.i.i.i, label %25, label %.lr.ph.loopexit.split.loop.exit144
+  br i1 %.not37.i.i.i.i, label %25, label %.lr.ph.loopexit.split.loop.exit143
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !141
   %.not38.i.i.i.i = icmp eq i32 %27, 9601
-  br i1 %.not38.i.i.i.i, label %28, label %.lr.ph.loopexit.split.loop.exit142
+  br i1 %.not38.i.i.i.i, label %28, label %.lr.ph.loopexit.split.loop.exit141
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !141
   %.not39.i.i.i.i = icmp eq i32 %30, 9601
-  br i1 %.not39.i.i.i.i, label %31, label %.lr.ph.loopexit.split.loop.exit140
+  br i1 %.not39.i.i.i.i, label %31, label %.lr.ph.loopexit.split.loop.exit139
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 16
@@ -4267,20 +4267,20 @@ define noundef zeroext i1 @_ZNK13sentencepiece16TrainerInterface20IsValidSentenc
   %spec.select.i.i.i.i = select i1 %.not35.i.i.i.i, ptr %6, ptr %.sroa.025.2.i.i.i.i
   br label %.lr.ph
 
-.lr.ph.loopexit.split.loop.exit140:               ; preds = %28
+.lr.ph.loopexit.split.loop.exit139:               ; preds = %28
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 12
   br label %.lr.ph
 
-.lr.ph.loopexit.split.loop.exit142:               ; preds = %25
+.lr.ph.loopexit.split.loop.exit141:               ; preds = %25
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 8
   br label %.lr.ph
 
-.lr.ph.loopexit.split.loop.exit144:               ; preds = %22
+.lr.ph.loopexit.split.loop.exit143:               ; preds = %22
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 4
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.i.i.i.i, %.lr.ph.loopexit.split.loop.exit140, %.lr.ph.loopexit.split.loop.exit142, %.lr.ph.loopexit.split.loop.exit144, %44, %40, %36, %._crit_edge.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %36 ], [ %.sroa.025.1.i.i.i.i, %40 ], [ %6, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %44 ], [ %46, %.lr.ph.loopexit.split.loop.exit140 ], [ %47, %.lr.ph.loopexit.split.loop.exit142 ], [ %48, %.lr.ph.loopexit.split.loop.exit144 ], [ %.sroa.025.050.i.i.i.i, %.lr.ph.i.i.i.i ]
+.lr.ph:                                           ; preds = %.lr.ph.i.i.i.i, %.lr.ph.loopexit.split.loop.exit139, %.lr.ph.loopexit.split.loop.exit141, %.lr.ph.loopexit.split.loop.exit143, %44, %40, %36, %._crit_edge.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %36 ], [ %.sroa.025.1.i.i.i.i, %40 ], [ %6, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %44 ], [ %46, %.lr.ph.loopexit.split.loop.exit139 ], [ %47, %.lr.ph.loopexit.split.loop.exit141 ], [ %48, %.lr.ph.loopexit.split.loop.exit143 ], [ %.sroa.025.050.i.i.i.i, %.lr.ph.i.i.i.i ]
   %49 = icmp eq ptr %6, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 430
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 367
@@ -4290,14 +4290,14 @@ define noundef zeroext i1 @_ZNK13sentencepiece16TrainerInterface20IsValidSentenc
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 431
   br label %56
 
-56:                                               ; preds = %.lr.ph, %.critedge81
-  %57 = phi ptr [ %4, %.lr.ph ], [ %137, %.critedge81 ]
-  %58 = phi ptr [ %6, %.lr.ph ], [ %138, %.critedge81 ]
-  %59 = phi i64 [ %12, %.lr.ph ], [ %143, %.critedge81 ]
-  %60 = phi i64 [ %11, %.lr.ph ], [ %142, %.critedge81 ]
-  %.067114 = phi i32 [ -1, %.lr.ph ], [ %.269, %.critedge81 ]
-  %.073113 = phi i64 [ 0, %.lr.ph ], [ %139, %.critedge81 ]
-  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %.073113
+56:                                               ; preds = %.lr.ph, %.critedge83
+  %57 = phi ptr [ %4, %.lr.ph ], [ %137, %.critedge83 ]
+  %58 = phi ptr [ %6, %.lr.ph ], [ %138, %.critedge83 ]
+  %59 = phi i64 [ %12, %.lr.ph ], [ %143, %.critedge83 ]
+  %60 = phi i64 [ %11, %.lr.ph ], [ %142, %.critedge83 ]
+  %.069113 = phi i32 [ -1, %.lr.ph ], [ %.271, %.critedge83 ]
+  %.075112 = phi i64 [ 0, %.lr.ph ], [ %139, %.critedge83 ]
+  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %.075112
   %62 = load i32, ptr %61, align 4, !tbaa !141
   switch i32 %62, label %78 [
     i32 9605, label %.critedge86
@@ -4371,8 +4371,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93: ; preds = %_ZStl
 85:                                               ; preds = %83
   %86 = load i8, ptr %53, align 2, !tbaa !169, !range !42, !noundef !43
   %87 = trunc nuw i8 %86 to i1
-  %brmerge.not = and i1 %49, %87
-  br i1 %brmerge.not, label %.critedge81, label %88
+  %or.cond = and i1 %49, %87
+  br i1 %or.cond, label %.critedge83, label %88
 
 88:                                               ; preds = %85
   %89 = load i8, ptr %54, align 1, !tbaa !170, !range !42, !noundef !43
@@ -4386,27 +4386,27 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93: ; preds = %_ZStl
 
 94:                                               ; preds = %93
   %95 = add nsw i64 %59, -1
-  %96 = icmp ult i64 %.073113, %95
-  br i1 %96, label %.critedge86, label %.critedge81
+  %96 = icmp ult i64 %.075112, %95
+  br i1 %96, label %.critedge86, label %.critedge83
 
 97:                                               ; preds = %93
-  %98 = icmp eq i64 %.073113, 0
+  %98 = icmp eq i64 %.075112, 0
   %99 = icmp ne i64 %60, 4
-  %or.cond = and i1 %98, %99
-  br i1 %or.cond, label %.critedge86, label %.critedge81
+  %or.cond5 = and i1 %98, %99
+  br i1 %or.cond5, label %.critedge86, label %.critedge83
 
 100:                                              ; preds = %88
-  %101 = icmp ne i64 %.073113, 0
-  %or.cond5 = and i1 %101, %92
-  br i1 %or.cond5, label %.critedge86, label %102
+  %101 = icmp ne i64 %.075112, 0
+  %or.cond7 = and i1 %101, %92
+  br i1 %or.cond7, label %.critedge86, label %102
 
 102:                                              ; preds = %100
   %.not = xor i1 %92, true
-  %or.cond7 = and i1 %101, %.not
+  %or.cond9 = and i1 %101, %.not
   %103 = add nsw i64 %59, -1
-  %104 = icmp eq i64 %.073113, %103
-  %or.cond102 = select i1 %or.cond7, i1 %104, i1 false
-  br i1 %or.cond102, label %.critedge86, label %.critedge81
+  %104 = icmp eq i64 %.075112, %103
+  %or.cond102 = select i1 %or.cond9, i1 %104, i1 false
+  br i1 %or.cond102, label %.critedge86, label %.critedge83
 
 105:                                              ; preds = %83
   %106 = tail call noundef i32 @_ZN13sentencepiece14unicode_script9GetScriptEj(i32 noundef %62)
@@ -4427,7 +4427,7 @@ switch.early.test:                                ; preds = %105
   br label %109
 
 109:                                              ; preds = %switch.early.test, %switch.early.test, %.fold.split, %105, %108
-  %.0 = phi i32 [ %.067114, %108 ], [ 41, %switch.early.test ], [ 41, %switch.early.test ], [ 41, %105 ], [ %106, %.fold.split ]
+  %.0 = phi i32 [ %.069113, %108 ], [ 41, %switch.early.test ], [ 41, %switch.early.test ], [ 41, %105 ], [ %106, %.fold.split ]
   %110 = load i8, ptr %50, align 2, !tbaa !172, !range !42, !noundef !43
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %117, label %112
@@ -4469,33 +4469,33 @@ switch.early.test:                                ; preds = %105
   %134 = trunc nuw i8 %133 to i1
   %135 = icmp eq i32 %.1, -1
   %not. = xor i1 %134, true
-  %or.cond13 = select i1 %not., i1 true, i1 %135
-  %136 = icmp eq i32 %.067114, -1
-  %or.cond15 = select i1 %or.cond13, i1 true, i1 %136
-  %.not79 = icmp eq i32 %.067114, %.1
-  %or.cond84 = select i1 %or.cond15, i1 true, i1 %.not79
-  br i1 %or.cond84, label %..critedge81_crit_edge, label %.critedge86
+  %or.cond15 = select i1 %not., i1 true, i1 %135
+  %136 = icmp eq i32 %.069113, -1
+  %or.cond17 = select i1 %or.cond15, i1 true, i1 %136
+  %.not81 = icmp eq i32 %.069113, %.1
+  %or.cond84 = select i1 %or.cond17, i1 true, i1 %.not81
+  br i1 %or.cond84, label %..critedge83_crit_edge, label %.critedge86
 
-..critedge81_crit_edge:                           ; preds = %132
+..critedge83_crit_edge:                           ; preds = %132
   %.pre = load ptr, ptr %5, align 8, !tbaa !174
-  %.pre139 = load ptr, ptr %1, align 8, !tbaa !176
-  br label %.critedge81
+  %.pre138 = load ptr, ptr %1, align 8, !tbaa !176
+  br label %.critedge83
 
-.critedge81:                                      ; preds = %..critedge81_crit_edge, %94, %85, %102, %97
-  %137 = phi ptr [ %57, %97 ], [ %57, %102 ], [ %.pre139, %..critedge81_crit_edge ], [ %57, %85 ], [ %57, %94 ]
-  %138 = phi ptr [ %58, %97 ], [ %58, %102 ], [ %.pre, %..critedge81_crit_edge ], [ %58, %85 ], [ %58, %94 ]
-  %.269 = phi i32 [ %.067114, %97 ], [ %.067114, %102 ], [ %.1, %..critedge81_crit_edge ], [ %.067114, %85 ], [ %.067114, %94 ]
-  %139 = add nuw i64 %.073113, 1
+.critedge83:                                      ; preds = %..critedge83_crit_edge, %94, %85, %102, %97
+  %137 = phi ptr [ %57, %85 ], [ %57, %97 ], [ %57, %102 ], [ %.pre138, %..critedge83_crit_edge ], [ %57, %94 ]
+  %138 = phi ptr [ %58, %85 ], [ %58, %97 ], [ %58, %102 ], [ %.pre, %..critedge83_crit_edge ], [ %58, %94 ]
+  %.271 = phi i32 [ %.069113, %85 ], [ %.069113, %97 ], [ %.069113, %102 ], [ %.1, %..critedge83_crit_edge ], [ %.069113, %94 ]
+  %139 = add nuw i64 %.075112, 1
   %140 = ptrtoint ptr %138 to i64
   %141 = ptrtoint ptr %137 to i64
   %142 = sub i64 %140, %141
   %143 = ashr exact i64 %142, 2
-  %.not80.not = icmp ult i64 %139, %143
-  br i1 %.not80.not, label %56, label %.critedge86, !llvm.loop !178
+  %.not82.not = icmp ult i64 %139, %143
+  br i1 %.not82.not, label %56, label %.critedge86, !llvm.loop !178
 
-.critedge86:                                      ; preds = %.critedge81, %132, %56, %56, %56, %78, %97, %94, %100, %125, %102, %.critedge, %63, %2, %8
-  %.065 = phi i1 [ false, %8 ], [ false, %2 ], [ false, %63 ], [ false, %.critedge ], [ true, %.critedge81 ], [ false, %132 ], [ false, %56 ], [ false, %56 ], [ false, %56 ], [ false, %78 ], [ false, %97 ], [ false, %94 ], [ false, %100 ], [ false, %125 ], [ false, %102 ]
-  ret i1 %.065
+.critedge86:                                      ; preds = %.critedge83, %132, %56, %56, %56, %78, %97, %94, %100, %125, %102, %.critedge, %63, %2, %8
+  %.067 = phi i1 [ false, %8 ], [ false, %2 ], [ false, %63 ], [ false, %.critedge ], [ true, %.critedge83 ], [ false, %132 ], [ false, %56 ], [ false, %56 ], [ false, %56 ], [ false, %78 ], [ false, %97 ], [ false, %94 ], [ false, %100 ], [ false, %125 ], [ false, %102 ]
+  ret i1 %.067
 }
 
 declare noundef i32 @_ZN13sentencepiece14unicode_script9GetScriptEj(i32 noundef) local_unnamed_addr #0

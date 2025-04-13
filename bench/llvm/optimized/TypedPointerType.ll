@@ -256,20 +256,18 @@ define dso_local noundef zeroext i1 @_ZN4llvm16TypedPointerType18isValidElementT
   %trunc = trunc i32 %3 to i8
   %switch.tableidx = add i8 %trunc, -7
   %4 = icmp ult i8 %switch.tableidx, 5
-  br i1 %4, label %switch.hole_check, label %5
+  %switch.shifted = lshr i8 23, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %4, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %5
 
-5:                                                ; preds = %switch.hole_check, %1
+5:                                                ; preds = %1
   %6 = and i32 %3, 255
   %7 = icmp ne i32 %6, 10
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %1
-  %switch.shifted = lshr i8 23, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %5
-
-switch.lookup:                                    ; preds = %switch.hole_check, %5
-  %8 = phi i1 [ %7, %5 ], [ false, %switch.hole_check ]
+switch.lookup:                                    ; preds = %1, %5
+  %8 = phi i1 [ %7, %5 ], [ false, %1 ]
   ret i1 %8
 }
 

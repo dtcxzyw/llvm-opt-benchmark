@@ -317,18 +317,16 @@ if.end:                                           ; preds = %entry
   %calculated_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i8, ptr %calculated_, align 8, !tbaa !23, !range !21, !noundef !22
   %loadedv2 = trunc nuw i8 %1 to i1
-  br i1 %loadedv2, label %if.then4, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
   %alwaysForward_ = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %2 = load i8, ptr %alwaysForward_, align 2, !tbaa !24, !range !21, !noundef !22
+  %2 = load i8, ptr %alwaysForward_, align 2, !range !21
   %loadedv3 = trunc nuw i8 %2 to i1
-  br i1 %loadedv3, label %if.then4, label %if.end9
+  %or.cond = select i1 %loadedv2, i1 true, i1 %loadedv3
+  br i1 %or.cond, label %if.then4, label %if.end9
 
-if.then4:                                         ; preds = %lor.lhs.false, %if.end
+if.then4:                                         ; preds = %if.end
   store i8 0, ptr %calculated_, align 8, !tbaa !23
   %frozen_ = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %3 = load i8, ptr %frozen_, align 1, !tbaa !25, !range !21, !noundef !22
+  %3 = load i8, ptr %frozen_, align 1, !tbaa !24, !range !21, !noundef !22
   %loadedv6 = trunc nuw i8 %3 to i1
   br i1 %loadedv6, label %if.end9, label %if.then7
 
@@ -346,7 +344,7 @@ lpad:                                             ; preds = %if.then7
   store i8 0, ptr %updating_, align 1, !tbaa !18
   resume { ptr, i32 } %4
 
-if.end9:                                          ; preds = %if.then4, %if.then7, %lor.lhs.false
+if.end9:                                          ; preds = %if.end, %if.then4, %if.then7
   store i8 0, ptr %updating_, align 1, !tbaa !18
   br label %return
 
@@ -373,18 +371,16 @@ if.end.i:                                         ; preds = %entry
   %calculated_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i8, ptr %calculated_.i, align 8, !tbaa !23, !range !21, !noundef !22
   %loadedv2.i = trunc nuw i8 %4 to i1
-  br i1 %loadedv2.i, label %if.then4.i, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %if.end.i
   %alwaysForward_.i = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %5 = load i8, ptr %alwaysForward_.i, align 2, !tbaa !24, !range !21, !noundef !22
+  %5 = load i8, ptr %alwaysForward_.i, align 2, !range !21
   %loadedv3.i = trunc nuw i8 %5 to i1
-  br i1 %loadedv3.i, label %if.then4.i, label %if.end9.i
+  %or.cond.i = select i1 %loadedv2.i, i1 true, i1 %loadedv3.i
+  br i1 %or.cond.i, label %if.then4.i, label %if.end9.i
 
-if.then4.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
+if.then4.i:                                       ; preds = %if.end.i
   store i8 0, ptr %calculated_.i, align 8, !tbaa !23
   %frozen_.i = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %6 = load i8, ptr %frozen_.i, align 1, !tbaa !25, !range !21, !noundef !22
+  %6 = load i8, ptr %frozen_.i, align 1, !tbaa !24, !range !21, !noundef !22
   %loadedv6.i = trunc nuw i8 %6 to i1
   br i1 %loadedv6.i, label %if.end9.i, label %if.then7.i
 
@@ -402,7 +398,7 @@ lpad.i:                                           ; preds = %if.then7.i
   store i8 0, ptr %updating_.i, align 1, !tbaa !18
   resume { ptr, i32 } %7
 
-if.end9.i:                                        ; preds = %if.then7.i, %if.then4.i, %lor.lhs.false.i
+if.end9.i:                                        ; preds = %if.then7.i, %if.then4.i, %if.end.i
   store i8 0, ptr %updating_.i, align 1, !tbaa !18
   br label %_ZN8QuantLib10LazyObject6updateEv.exit
 
@@ -457,10 +453,10 @@ entry:
   %calculated_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %calculated_.i.i, align 8, !tbaa !23
   %frozen_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  store i8 0, ptr %frozen_.i.i, align 1, !tbaa !25
+  store i8 0, ptr %frozen_.i.i, align 1, !tbaa !24
   %alwaysForward_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %7 = load i8, ptr @_ZZN8QuantLib9SingletonINS_10LazyObject8DefaultsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 1, !tbaa !26, !range !21, !noundef !22
-  store i8 %7, ptr %alwaysForward_.i.i, align 2, !tbaa !24
+  %7 = load i8, ptr @_ZZN8QuantLib9SingletonINS_10LazyObject8DefaultsESt17integral_constantIbLb0EEE8instanceEvE8instance, align 1, !tbaa !25, !range !21, !noundef !22
+  store i8 %7, ptr %alwaysForward_.i.i, align 2, !tbaa !27
   %updating_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 11
   store i8 0, ptr %updating_.i.i, align 1, !tbaa !18
   %8 = load ptr, ptr %0, align 8
@@ -3908,15 +3904,13 @@ entry:
   %calculated_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %calculated_, align 8, !tbaa !23, !range !21, !noundef !22
   %loadedv = trunc nuw i8 %0 to i1
-  br i1 %loadedv, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
   %frozen_ = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %1 = load i8, ptr %frozen_, align 1, !tbaa !25, !range !21, !noundef !22
+  %1 = load i8, ptr %frozen_, align 1, !range !21
   %loadedv2 = trunc nuw i8 %1 to i1
-  br i1 %loadedv2, label %if.end, label %if.then
+  %or.cond = select i1 %loadedv, i1 true, i1 %loadedv2
+  br i1 %or.cond, label %if.end, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %entry
   store i8 1, ptr %calculated_, align 8, !tbaa !23
   %vtable = load ptr, ptr %this, align 8, !tbaa !14
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
@@ -3939,7 +3933,7 @@ lpad5:                                            ; preds = %lpad
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+if.end:                                           ; preds = %if.then, %entry
   ret void
 
 eh.resume:                                        ; preds = %lpad5
@@ -4348,10 +4342,10 @@ attributes #33 = { builtin allocsize(0) }
 !21 = !{i8 0, i8 2}
 !22 = !{}
 !23 = !{!19, !20, i64 8}
-!24 = !{!19, !20, i64 10}
-!25 = !{!19, !20, i64 9}
-!26 = !{!27, !20, i64 0}
-!27 = !{!"_ZTSN8QuantLib10LazyObject8DefaultsE", !20, i64 0}
+!24 = !{!19, !20, i64 9}
+!25 = !{!26, !20, i64 0}
+!26 = !{!"_ZTSN8QuantLib10LazyObject8DefaultsE", !20, i64 0}
+!27 = !{!19, !20, i64 10}
 !28 = !{!29, !5, i64 0}
 !29 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib22CapFloorTermVolSurfaceEEE", !5, i64 0, !17, i64 8}
 !30 = !{!31, !5, i64 0}

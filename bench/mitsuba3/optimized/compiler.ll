@@ -1090,7 +1090,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   %53 = trunc nuw i32 %27 to i8
   %switch.tableidx = add i8 %53, -1
   %54 = icmp ult i8 %switch.tableidx, 8
-  br i1 %54, label %switch.hole_check, label %64
+  %switch.shifted = lshr i8 -117, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %54, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %64
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i64 %22
@@ -1115,7 +1118,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %64, label %78
 
-64:                                               ; preds = %switch.hole_check, %52, %61, %55, %32
+64:                                               ; preds = %52, %61, %55, %32
   %65 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 3, ptr noundef null)
   br label %100
 
@@ -1132,12 +1135,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   %76 = load i8, ptr %75, align 1, !tbaa !111
   br label %.sink.split
 
-switch.hole_check:                                ; preds = %52
-  %switch.shifted = lshr i8 -117, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %64
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %52
   %77 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %77 to i64
   %switch.downshift = lshr i64 3458764514609081901, %switch.shiftamt

@@ -2405,22 +2405,20 @@ getTestOption.exit:                               ; preds = %4, %5, %7, %9, %11,
   %.0 = phi i32 [ %19, %getTestOption.exit ], [ %1, %2 ]
   %switch.tableidx = add i32 %0, -1
   %21 = icmp ult i32 %switch.tableidx, 7
-  br i1 %21, label %switch.hole_check, label %23
-
-switch.hole_check:                                ; preds = %20
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 123, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %23
+  %or.cond = select i1 %21, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %23
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %20
   %22 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.setTestOption, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   store i32 %.0, ptr %switch.load, align 4, !tbaa !18
   br label %23
 
-23:                                               ; preds = %switch.hole_check, %20, %switch.lookup
+23:                                               ; preds = %20, %switch.lookup
   ret void
 }
 

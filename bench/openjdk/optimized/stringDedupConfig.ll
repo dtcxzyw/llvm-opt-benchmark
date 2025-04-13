@@ -181,73 +181,65 @@ define hidden noundef zeroext i1 @_ZN11StringDedup6Config15ergo_initializeEv() l
   %1 = alloca i8, align 1
   %2 = load i8, ptr @UseStringDeduplication, align 1
   %3 = trunc i8 %2 to i1
-  br i1 %3, label %4, label %34
+  br i1 %3, label %4, label %30
 
 4:                                                ; preds = %0
   %5 = load i8, ptr @UseG1GC, align 1
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %24, label %7
-
-7:                                                ; preds = %4
-  %8 = load i8, ptr @UseShenandoahGC, align 1
-  %9 = trunc i8 %8 to i1
-  br i1 %9, label %24, label %10
-
-10:                                               ; preds = %7
-  %11 = load i8, ptr @UseZGC, align 1
+  %7 = load i8, ptr @UseShenandoahGC, align 1
+  %8 = trunc i8 %7 to i1
+  %or.cond = select i1 %6, i1 true, i1 %8
+  %9 = load i8, ptr @UseZGC, align 1
+  %10 = trunc i8 %9 to i1
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %10
+  %11 = load i8, ptr @UseParallelGC, align 1
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %24, label %13
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %12
+  %13 = load i8, ptr @UseSerialGC, align 1
+  %14 = trunc i8 %13 to i1
+  %or.cond7 = select i1 %or.cond5, i1 true, i1 %14
+  br i1 %or.cond7, label %20, label %15
 
-13:                                               ; preds = %10
-  %14 = load i8, ptr @UseParallelGC, align 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %24, label %16
+15:                                               ; preds = %4
+  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %18, label %17
 
-16:                                               ; preds = %13
-  %17 = load i8, ptr @UseSerialGC, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %24, label %19
-
-19:                                               ; preds = %16
-  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %22, label %21
-
-21:                                               ; preds = %19
+17:                                               ; preds = %15
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str)
-  br label %22
+  br label %18
 
-22:                                               ; preds = %19, %21
+18:                                               ; preds = %15, %17
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   store i8 0, ptr %1, align 1
-  %23 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 885, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 5) #7
+  %19 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 885, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 5) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
-  br label %34
+  br label %30
 
-24:                                               ; preds = %4, %7, %10, %13, %16
-  %25 = load double, ptr @StringDeduplicationShrinkTableLoad, align 8
-  %26 = load double, ptr @StringDeduplicationTargetTableLoad, align 8
-  %27 = fcmp ule double %25, %26
-  br i1 %27, label %29, label %28
+20:                                               ; preds = %4
+  %21 = load double, ptr @StringDeduplicationShrinkTableLoad, align 8
+  %22 = load double, ptr @StringDeduplicationTargetTableLoad, align 8
+  %23 = fcmp ule double %21, %22
+  br i1 %23, label %25, label %24
 
-28:                                               ; preds = %24
-  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext true, ptr noundef nonnull @.str.4, double noundef %25, double noundef %26) #7
+24:                                               ; preds = %20
+  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext true, ptr noundef nonnull @.str.4, double noundef %21, double noundef %22) #7
   %.pre = load double, ptr @StringDeduplicationTargetTableLoad, align 8
-  br label %29
+  br label %25
 
-29:                                               ; preds = %28, %24
-  %30 = phi double [ %.pre, %28 ], [ %26, %24 ]
-  %31 = load double, ptr @StringDeduplicationGrowTableLoad, align 8
-  %32 = fcmp ogt double %30, %31
-  br i1 %32, label %33, label %34
+25:                                               ; preds = %24, %20
+  %26 = phi double [ %.pre, %24 ], [ %22, %20 ]
+  %27 = load double, ptr @StringDeduplicationGrowTableLoad, align 8
+  %28 = fcmp ogt double %26, %27
+  br i1 %28, label %29, label %30
 
-33:                                               ; preds = %29
-  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext true, ptr noundef nonnull @.str.5, double noundef %30, double noundef %31) #7
-  br label %34
+29:                                               ; preds = %25
+  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext true, ptr noundef nonnull @.str.5, double noundef %26, double noundef %27) #7
+  br label %30
 
-34:                                               ; preds = %29, %33, %0, %22
-  %.01 = phi i1 [ true, %22 ], [ true, %0 ], [ false, %33 ], [ %27, %29 ]
-  ret i1 %.01
+30:                                               ; preds = %25, %29, %0, %18
+  %.08 = phi i1 [ true, %18 ], [ true, %0 ], [ false, %29 ], [ %23, %25 ]
+  ret i1 %.08
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

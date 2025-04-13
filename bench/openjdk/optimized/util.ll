@@ -5809,22 +5809,20 @@ define hidden range(i32 0, 21) i32 @jdwp2EventIndex(i8 noundef zeroext %0) local
 define hidden range(i32 0, 23) i32 @jvmti2EventIndex(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -50
   %2 = icmp ult i32 %switch.tableidx, 39
-  br i1 %2, label %switch.hole_check, label %3
+  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
+  %switch.shifted = lshr i64 412442820463, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %3
 
-3:                                                ; preds = %switch.hole_check, %1
+3:                                                ; preds = %1
   %4 = load ptr, ptr @stderr, align 8
   %5 = tail call ptr @jvmtiErrorText(i32 noundef 191) #14
   tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %5, i32 noundef 191, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.4, i32 noundef 2155) #14
   tail call void @debugInit_exit(i32 noundef 191, ptr noundef nonnull @.str.124) #14
   br label %7
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
-  %switch.shifted = lshr i64 412442820463, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [39 x i32], ptr @switch.table.jvmti2EventIndex, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4

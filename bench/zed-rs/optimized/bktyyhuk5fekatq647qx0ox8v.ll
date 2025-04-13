@@ -4428,9 +4428,12 @@ define noundef zeroext i1 @"_ZN105_$LT$$LT$proto..Error$u20$as$u20$core..fmt..De
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !1323, !noundef !4
   %4 = load i32, ptr %3, align 4, !noundef !4
   %5 = icmp ult i32 %4, 19
-  br i1 %5, label %switch.hole_check, label %_ZN5proto9ErrorCode8from_i3217h0ac7852fd343765fE.exit
+  %switch.shifted = lshr i32 524223, %4
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %_ZN5proto9ErrorCode8from_i3217h0ac7852fd343765fE.exit
 
-_ZN5proto9ErrorCode8from_i3217h0ac7852fd343765fE.exit: ; preds = %switch.hole_check, %2
+_ZN5proto9ErrorCode8from_i3217h0ac7852fd343765fE.exit: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %7 = load i32, ptr %6, align 4, !alias.scope !1346, !noalias !1349, !noundef !4
   %8 = and i32 %7, 16
@@ -4454,12 +4457,7 @@ _ZN5proto9ErrorCode8from_i3217h0ac7852fd343765fE.exit: ; preds = %switch.hole_ch
   %18 = tail call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17h6dd0cff90be599d3E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h9cf06a587452b549E.llvm.13408623423305182581.exit"
 
-switch.hole_check:                                ; preds = %2
-  %switch.shifted = lshr i32 524223, %4
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN5proto9ErrorCode8from_i3217h0ac7852fd343765fE.exit
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %19 = zext nneg i32 %4 to i64
   %switch.gep = getelementptr inbounds nuw [19 x i64], ptr @"switch.table._ZN105_$LT$$LT$proto..Error$u20$as$u20$core..fmt..Debug$GT$..fmt..ScalarWrapper$u20$as$u20$core..fmt..Debug$GT$3fmt17hac12f1a37342a4cfE", i64 0, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8

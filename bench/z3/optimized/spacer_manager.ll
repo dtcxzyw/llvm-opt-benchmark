@@ -3591,8 +3591,8 @@ define hidden noundef zeroext i1 @_ZN6spacer10sk_lt_procclEPK3appS3_(ptr noundef
   store i32 0, ptr %5, align 4, !tbaa !32
   %8 = call noundef zeroext i1 @_ZN6spacer11is_zk_constEPK3appRi(ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %9 = call noundef zeroext i1 @_ZN6spacer11is_zk_constEPK3appRi(ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %brmerge.demorgan = and i1 %8, %9
-  br i1 %brmerge.demorgan, label %10, label %14
+  %or.cond = and i1 %8, %9
+  br i1 %or.cond, label %10, label %14
 
 10:                                               ; preds = %7
   %11 = load i32, ptr %4, align 4, !tbaa !32

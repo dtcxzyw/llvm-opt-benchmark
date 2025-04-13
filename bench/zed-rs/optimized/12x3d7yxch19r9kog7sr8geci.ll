@@ -10097,14 +10097,14 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
 .noexc.i:                                         ; preds = %46
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !2031
   invoke void @"_ZN10async_task4task17Task$LT$T$C$M$GT$12set_detached17h05687cd6ce090281E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %47)
-          to label %.noexc20.i unwind label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hf115292b263d1b7bE.exit.i", !noalias !2030
+          to label %.noexc21.i unwind label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hf115292b263d1b7bE.exit.i", !noalias !2030
 
-.noexc20.i:                                       ; preds = %.noexc.i
+.noexc21.i:                                       ; preds = %.noexc.i
   %48 = load i64, ptr %6, align 8, !range !175, !alias.scope !2038, !noalias !2031, !noundef !7
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %"_ZN4core3ptr87drop_in_place$LT$async_task..task..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hbf0bb92b83727d80E.exit.i.i.i", label %50
 
-50:                                               ; preds = %.noexc20.i
+50:                                               ; preds = %.noexc21.i
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !2041, !noalias !2031, !noundef !7
   %53 = icmp eq ptr %52, null
@@ -10114,7 +10114,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h2f7d50eed7dec92aE.llvm.11611006770570263672"(ptr noalias noundef nonnull align 8 dereferenceable(16) %51)
           to label %"_ZN4core3ptr87drop_in_place$LT$async_task..task..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hbf0bb92b83727d80E.exit.i.i.i" unwind label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hf115292b263d1b7bE.exit.i", !noalias !2030
 
-"_ZN4core3ptr87drop_in_place$LT$async_task..task..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hbf0bb92b83727d80E.exit.i.i.i": ; preds = %54, %50, %.noexc20.i
+"_ZN4core3ptr87drop_in_place$LT$async_task..task..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hbf0bb92b83727d80E.exit.i.i.i": ; preds = %54, %50, %.noexc21.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2031
   br label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h2377d2b7c90f6af1E.exit.i"
 
@@ -10146,8 +10146,8 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !2024
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !2024
   store ptr %10, ptr %8, align 8, !noalias !2024
-  %.sroa.413.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @"_ZN6anyhow5error60_$LT$impl$u20$core..fmt..Debug$u20$for$u20$anyhow..Error$GT$3fmt17h99a2ef9cf5d496a8E", ptr %.sroa.413.0..sroa_idx.i, align 8, !noalias !2024
+  %.sroa.416.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @"_ZN6anyhow5error60_$LT$impl$u20$core..fmt..Debug$u20$for$u20$anyhow..Error$GT$3fmt17h99a2ef9cf5d496a8E", ptr %.sroa.416.0..sroa_idx.i, align 8, !noalias !2024
   store ptr @anon.a418b928032bac1fce5a85baf8cbb58d.128, ptr %9, align 8, !noalias !2024
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 1, ptr %63, align 8, !noalias !2024
@@ -10191,15 +10191,15 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
 77:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !2048
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9e4bf36e8f6e8a05E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %23)
-          to label %.noexc23.i unwind label %87, !noalias !2030
+          to label %.noexc24.i unwind label %87, !noalias !2030
 
-.noexc23.i:                                       ; preds = %77
+.noexc24.i:                                       ; preds = %77
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %79 = load i64, ptr %78, align 8, !range !176, !noalias !2048, !noundef !7
   %80 = icmp eq i64 %79, 0
   br i1 %80, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit.i.i", label %81
 
-81:                                               ; preds = %.noexc23.i
+81:                                               ; preds = %.noexc24.i
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %83 = load i64, ptr %82, align 8, !noalias !2048, !noundef !7
   %84 = icmp eq i64 %83, 0
@@ -10210,7 +10210,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   call void @__rust_dealloc(ptr noundef nonnull %86, i64 noundef %83, i64 noundef %79) #45, !noalias !2030
   br label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit.i.i"
 
-"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit.i.i": ; preds = %85, %81, %.noexc23.i
+"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfcb71f57f90ca525E.exit.i.i": ; preds = %85, %81, %.noexc24.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !2048
   br label %"_ZN4core3ptr50drop_in_place$LT$auto_update..AutoUpdateStatus$GT$17h46114038ca7b8b46E.exit.i"
 
@@ -10224,12 +10224,12 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store i64 -9223372036854775803, ptr %23, align 8, !alias.scope !2021, !noalias !2030
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 1048
   %90 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hf3316c946e261753E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %89, i32 noundef %.sroa.018.0.copyload, i32 noundef %.sroa.419.0.copyload)
-          to label %.noexc24.i unwind label %57, !noalias !2030
+          to label %.noexc25.i unwind label %57, !noalias !2030
 
-.noexc24.i:                                       ; preds = %"_ZN4core3ptr50drop_in_place$LT$auto_update..AutoUpdateStatus$GT$17h46114038ca7b8b46E.exit.i"
+.noexc25.i:                                       ; preds = %"_ZN4core3ptr50drop_in_place$LT$auto_update..AutoUpdateStatus$GT$17h46114038ca7b8b46E.exit.i"
   br i1 %90, label %"_ZN4gpui3app13model_context21ModelContext$LT$T$GT$6notify17hc5a6487acf33c1a5E.exit.i", label %91
 
-91:                                               ; preds = %.noexc24.i
+91:                                               ; preds = %.noexc25.i
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 728
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !2061
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -10238,13 +10238,13 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   store i32 %.sroa.419.0.copyload, ptr %94, align 8, !noalias !2061
   store i32 0, ptr %4, align 8, !noalias !2061
   invoke void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9push_back17h8a9e5ef0c2447e20E.llvm.2454018765792292134"(ptr noalias noundef nonnull align 8 dereferenceable(32) %92, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %.noexc25.i unwind label %57, !noalias !2030
+          to label %.noexc26.i unwind label %57, !noalias !2030
 
-.noexc25.i:                                       ; preds = %91
+.noexc26.i:                                       ; preds = %91
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2061
   br label %"_ZN4gpui3app13model_context21ModelContext$LT$T$GT$6notify17hc5a6487acf33c1a5E.exit.i"
 
-"_ZN4gpui3app13model_context21ModelContext$LT$T$GT$6notify17hc5a6487acf33c1a5E.exit.i": ; preds = %.noexc25.i, %.noexc24.i
+"_ZN4gpui3app13model_context21ModelContext$LT$T$GT$6notify17hc5a6487acf33c1a5E.exit.i": ; preds = %.noexc26.i, %.noexc25.i
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
           to label %.noexc11 unwind label %99
 

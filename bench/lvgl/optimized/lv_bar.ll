@@ -107,14 +107,14 @@ define internal void @lv_bar_event(ptr readnone captures(none) %0, ptr noundef %
   %10 = alloca %struct._lv_draw_image_dsc_t, align 8
   %11 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_bar_class, ptr noundef %1) #7
   %.not = icmp eq i32 %11, 1
-  %.sink281.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %.sink281.i.sroa.gep51 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br i1 %.not, label %12, label %284
+  %.sink284.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %.sink284.i.sroa.gep51 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br i1 %.not, label %12, label %285
 
 12:                                               ; preds = %2
   %13 = tail call i32 @lv_event_get_code(ptr noundef %1) #7
   %14 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #7
-  switch i32 %13, label %284 [
+  switch i32 %13, label %285 [
     i32 27, label %15
     i32 11, label %34
     i32 1, label %34
@@ -143,18 +143,18 @@ define internal void @lv_bar_event(ptr readnone captures(none) %0, ptr noundef %
   %28 = tail call i32 @llvm.smin.i32(i32 %.sroa.0.0.extract.trunc.i49, i32 %.sroa.0.0.extract.trunc.i50)
   %29 = tail call i32 @llvm.smin.i32(i32 %27, i32 %28)
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %31, label %284
+  br i1 %30, label %31, label %285
 
 31:                                               ; preds = %15
   %32 = load i32, ptr %17, align 4, !tbaa !26
   %33 = sub nsw i32 %32, %29
   store i32 %33, ptr %17, align 4, !tbaa !26
-  br label %284
+  br label %285
 
 34:                                               ; preds = %12, %12
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 80
   tail call void @lv_obj_invalidate_area(ptr noundef %14, ptr noundef nonnull %35) #7
-  br label %284
+  br label %285
 
 36:                                               ; preds = %12
   %37 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #7
@@ -194,14 +194,14 @@ define internal void @lv_bar_event(ptr readnone captures(none) %0, ptr noundef %
   br label %58
 
 58:                                               ; preds = %56, %55, %36
-  %.0216.i = phi i1 [ %57, %56 ], [ false, %55 ], [ true, %36 ]
+  %.0218.i = phi i1 [ %57, %56 ], [ false, %55 ], [ true, %36 ]
   %59 = and i8 %52, 7
   %60 = icmp eq i8 %59, 1
   %61 = icmp slt i32 %48, 0
-  %or.cond267.i = select i1 %60, i1 %61, i1 false
+  %or.cond270.i = select i1 %60, i1 %61, i1 false
   %62 = icmp sgt i32 %46, 0
-  %or.cond268.i = select i1 %or.cond267.i, i1 %62, i1 false
-  br i1 %or.cond268.i, label %63, label %lv_bar_is_symmetrical.exit.i
+  %or.cond271.i = select i1 %or.cond270.i, i1 %62, i1 false
+  br i1 %or.cond271.i, label %63, label %lv_bar_is_symmetrical.exit.i
 
 63:                                               ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %37, i64 76
@@ -242,7 +242,7 @@ lv_bar_is_symmetrical.exit.i:                     ; preds = %63, %58
   store i32 %89, ptr %80, align 4, !tbaa !33
   %90 = sub nsw i32 %85, %.sroa.0.0.extract.trunc.i258.i
   store i32 %90, ptr %86, align 4, !tbaa !34
-  br i1 %.0216.i, label %91, label %.critedge.i
+  br i1 %.0218.i, label %91, label %.critedge.i
 
 91:                                               ; preds = %lv_bar_is_symmetrical.exit.i
   %92 = call i32 @lv_area_get_height(ptr noundef nonnull %76) #7
@@ -277,12 +277,12 @@ lv_bar_is_symmetrical.exit.i:                     ; preds = %63, %58
   br label %110
 
 110:                                              ; preds = %103, %.critedge.i, %94, %91
-  %.242.i = phi ptr [ %76, %91 ], [ %80, %.critedge.i ], [ %80, %103 ], [ %76, %94 ]
+  %.244.i = phi ptr [ %76, %91 ], [ %80, %.critedge.i ], [ %80, %103 ], [ %76, %94 ]
   %..i = phi ptr [ %83, %91 ], [ %86, %.critedge.i ], [ %86, %103 ], [ %83, %94 ]
   %lv_area_get_width.lv_area_get_height.i = phi ptr [ @lv_area_get_width, %91 ], [ @lv_area_get_height, %.critedge.i ], [ @lv_area_get_height, %103 ], [ @lv_area_get_width, %94 ]
   %111 = call i32 @lv_area_get_width(ptr noundef nonnull %76) #7
   %112 = call i32 @lv_area_get_height(ptr noundef nonnull %76) #7
-  %113 = select i1 %.0216.i, i32 %111, i32 %112
+  %113 = select i1 %.0218.i, i32 %111, i32 %112
   %114 = getelementptr inbounds nuw i8, ptr %37, i64 144
   %115 = load i32, ptr %114, align 8, !tbaa !37
   %.not.i = icmp eq i32 %115, -1
@@ -315,11 +315,11 @@ lv_bar_is_symmetrical.exit.i:                     ; preds = %63, %58
   br label %138
 
 138:                                              ; preds = %132, %117
-  %.0219.i = phi i32 [ %131, %117 ], [ %137, %132 ]
+  %.0221.i = phi i32 [ %131, %117 ], [ %137, %132 ]
   %139 = getelementptr inbounds nuw i8, ptr %37, i64 120
   %140 = load i32, ptr %139, align 8, !tbaa !40
-  %.not238.i = icmp eq i32 %140, -1
-  br i1 %.not238.i, label %156, label %141
+  %.not240.i = icmp eq i32 %140, -1
+  br i1 %.not240.i, label %156, label %141
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %37, i64 112
@@ -347,67 +347,67 @@ lv_bar_is_symmetrical.exit.i:                     ; preds = %63, %58
   br label %162
 
 162:                                              ; preds = %156, %141
-  %.0217.i = phi i32 [ %155, %141 ], [ %161, %156 ]
+  %.0219.i = phi i32 [ %155, %141 ], [ %161, %156 ]
   %163 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %37, i32 noundef 0, i8 noundef zeroext 39) #7
   %164 = ptrtoint ptr %163 to i64
   %165 = and i64 %164, 4294967295
   %166 = icmp eq i64 %165, 1
-  %167 = select i1 %.0216.i, i1 %166, i1 false
+  %167 = select i1 %.0218.i, i1 %166, i1 false
   %168 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %169 = load i8, ptr %168, align 8, !tbaa !20, !range !43, !noundef !44
   %170 = zext i1 %167 to i8
-  %.not239.i = icmp eq i8 %169, %170
-  br i1 %.not239.i, label %174, label %171
+  %.not241.i = icmp eq i8 %169, %170
+  br i1 %.not241.i, label %174, label %171
 
 171:                                              ; preds = %162
-  %172 = sub nsw i32 0, %.0217.i
-  %173 = sub nsw i32 0, %.0219.i
+  %172 = sub nsw i32 0, %.0219.i
+  %173 = sub nsw i32 0, %.0221.i
   br label %174
 
 174:                                              ; preds = %171, %162
-  %.1224.i = phi ptr [ %.242.i, %171 ], [ %..i, %162 ]
-  %.1222.i = phi ptr [ %..i, %171 ], [ %.242.i, %162 ]
-  %.1220.i = phi i32 [ %173, %171 ], [ %.0219.i, %162 ]
-  %.1218.i = phi i32 [ %172, %171 ], [ %.0217.i, %162 ]
-  br i1 %.0216.i, label %175, label %.thread.i
+  %.1226.i = phi ptr [ %.244.i, %171 ], [ %..i, %162 ]
+  %.1224.i = phi ptr [ %..i, %171 ], [ %.244.i, %162 ]
+  %.1222.i = phi i32 [ %173, %171 ], [ %.0221.i, %162 ]
+  %.1220.i = phi i32 [ %172, %171 ], [ %.0219.i, %162 ]
+  br i1 %.0218.i, label %175, label %.thread.i
 
 175:                                              ; preds = %174
-  %176 = load i32, ptr %.1222.i, align 4, !tbaa !26
-  %177 = add nsw i32 %176, %.1218.i
-  store i32 %177, ptr %.1224.i, align 4, !tbaa !26
-  %178 = add nsw i32 %176, %.1220.i
-  store i32 %178, ptr %.1222.i, align 4, !tbaa !26
-  br i1 %67, label %182, label %.critedge244.i
+  %176 = load i32, ptr %.1224.i, align 4, !tbaa !26
+  %177 = add nsw i32 %176, %.1220.i
+  store i32 %177, ptr %.1226.i, align 4, !tbaa !26
+  %178 = add nsw i32 %176, %.1222.i
+  store i32 %178, ptr %.1224.i, align 4, !tbaa !26
+  br i1 %67, label %182, label %.critedge246.i
 
 .thread.i:                                        ; preds = %174
-  %179 = load i32, ptr %.1224.i, align 4, !tbaa !26
-  %reass.sub.i = sub i32 %179, %.1218.i
+  %179 = load i32, ptr %.1226.i, align 4, !tbaa !26
+  %reass.sub.i = sub i32 %179, %.1220.i
   %180 = add i32 %reass.sub.i, 1
-  store i32 %180, ptr %.1222.i, align 4, !tbaa !26
-  %181 = sub nsw i32 %179, %.1220.i
-  store i32 %181, ptr %.1224.i, align 4, !tbaa !26
-  br i1 %67, label %192, label %.critedge244.i
+  store i32 %180, ptr %.1224.i, align 4, !tbaa !26
+  %181 = sub nsw i32 %179, %.1222.i
+  store i32 %181, ptr %.1226.i, align 4, !tbaa !26
+  br i1 %67, label %192, label %.critedge246.i
 
 182:                                              ; preds = %175
   %183 = load i32, ptr %47, align 4, !tbaa !3
   %184 = mul i32 %111, %183
   %185 = sub i32 0, %184
   %186 = sdiv i32 %185, %spec.store.select.i
-  %reass.sub278.i = add i32 %178, 1
-  %187 = sub i32 %reass.sub278.i, %186
+  %reass.sub281.i = add i32 %178, 1
+  %187 = sub i32 %reass.sub281.i, %186
   %188 = add nsw i32 %186, %178
-  %.0225.i = select i1 %.not239.i, i32 %188, i32 %187
-  %189 = icmp sgt i32 %177, %.0225.i
+  %.0227.i = select i1 %.not241.i, i32 %188, i32 %187
+  %189 = icmp sgt i32 %177, %.0227.i
   br i1 %189, label %190, label %191
 
 190:                                              ; preds = %182
   store i32 %177, ptr %83, align 4, !tbaa !26
-  store i32 %.0225.i, ptr %76, align 4, !tbaa !26
+  store i32 %.0227.i, ptr %76, align 4, !tbaa !26
   br label %206
 
 191:                                              ; preds = %182
   store i32 %177, ptr %76, align 4, !tbaa !26
-  store i32 %.0225.i, ptr %83, align 4, !tbaa !26
+  store i32 %.0227.i, ptr %83, align 4, !tbaa !26
   br label %206
 
 192:                                              ; preds = %.thread.i
@@ -416,32 +416,32 @@ lv_bar_is_symmetrical.exit.i:                     ; preds = %63, %58
   %195 = sub i32 0, %194
   %196 = sdiv i32 %195, %spec.store.select.i
   %197 = add nsw i32 %196, %181
-  %reass.sub277.i = add i32 %181, 1
-  %198 = sub i32 %reass.sub277.i, %196
-  %.1226.i = select i1 %.not239.i, i32 %198, i32 %197
-  %199 = icmp sgt i32 %180, %.1226.i
+  %reass.sub280.i = add i32 %181, 1
+  %198 = sub i32 %reass.sub280.i, %196
+  %.1228.i = select i1 %.not241.i, i32 %198, i32 %197
+  %199 = icmp sgt i32 %180, %.1228.i
   br i1 %199, label %200, label %201
 
 200:                                              ; preds = %192
   store i32 %180, ptr %86, align 4, !tbaa !26
-  store i32 %.1226.i, ptr %80, align 4, !tbaa !26
+  store i32 %.1228.i, ptr %80, align 4, !tbaa !26
   br label %206
 
 201:                                              ; preds = %192
   store i32 %180, ptr %80, align 4, !tbaa !26
-  store i32 %.1226.i, ptr %86, align 4, !tbaa !26
+  store i32 %.1228.i, ptr %86, align 4, !tbaa !26
   br label %206
 
-.critedge244.i:                                   ; preds = %.thread.i, %175
+.critedge246.i:                                   ; preds = %.thread.i, %175
   %202 = call i32 %lv_area_get_width.lv_area_get_height.i(ptr noundef nonnull %76) #7, !callees !45
   %203 = icmp slt i32 %202, 2
   br i1 %203, label %204, label %206
 
-204:                                              ; preds = %.critedge244.i
+204:                                              ; preds = %.critedge246.i
   %205 = call i32 @lv_obj_send_event(ptr noundef nonnull %37, i32 noundef 34, ptr noundef null) #7
   br label %draw_indic.exit
 
-206:                                              ; preds = %.critedge244.i, %201, %200, %191, %190
+206:                                              ; preds = %.critedge246.i, %201, %200, %191, %190
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   %207 = load i32, ptr %76, align 4, !tbaa !27
   store i32 %207, ptr %4, align 4, !tbaa !27
@@ -483,35 +483,39 @@ lv_bar_is_symmetrical.exit.i:                     ; preds = %63, %58
 228:                                              ; preds = %226, %224
   %229 = phi i32 [ %225, %224 ], [ %227, %226 ]
   %230 = ashr i32 %229, 1
-  %spec.select245.i = call i32 @llvm.smin.i32(i32 %220, i32 %230)
+  %spec.select247.i = call i32 @llvm.smin.i32(i32 %220, i32 %230)
   %231 = getelementptr inbounds nuw i8, ptr %5, i64 67
   %232 = load i8, ptr %231, align 1
   %233 = and i8 %232, 15
-  %.282.i = select i1 %.0216.i, i8 2, i8 1
-  %234 = icmp eq i8 %233, %.282.i
+  %.285.i = select i1 %.0218.i, i8 2, i8 1
+  %234 = icmp ne i8 %233, %.285.i
   %235 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %236 = load ptr, ptr %235, align 8, !tbaa !54
-  %.not240.i = icmp ne ptr %236, null
-  %narrow.i = select i1 %.not240.i, i1 true, i1 %234
+  %.not242.i = icmp eq ptr %236, null
+  %spec.select251.not287.i = select i1 %.not242.i, i1 %234, i1 false
   %237 = icmp sgt i32 %.sroa.0.0.extract.trunc.i255.i, -1
   %238 = icmp sgt i32 %.sroa.0.0.extract.trunc.i256.i, -1
-  %or.cond.not275.i = select i1 %237, i1 %238, i1 false
+  %or.cond.not278.i = select i1 %237, i1 %238, i1 false
   %239 = icmp sgt i32 %.sroa.0.0.extract.trunc.i257.i, -1
-  %or.cond3.not272.i = select i1 %or.cond.not275.i, i1 %239, i1 false
+  %or.cond3.not275.i = select i1 %or.cond.not278.i, i1 %239, i1 false
   %240 = icmp sgt i32 %.sroa.0.0.extract.trunc.i258.i, -1
-  %or.cond5.not270.i = select i1 %or.cond3.not272.i, i1 %240, i1 false
-  %.not241.i = icmp slt i32 %spec.select245.i, %spec.select.i
-  %or.cond253.i = select i1 %or.cond5.not270.i, i1 %.not241.i, i1 false
+  %or.cond5.not273.i = select i1 %or.cond3.not275.i, i1 %240, i1 false
+  %.not243.i = icmp slt i32 %spec.select247.i, %spec.select.i
+  %or.cond253.i = select i1 %or.cond5.not273.i, i1 %.not243.i, i1 false
   br i1 %or.cond253.i, label %241, label %.thread262.i
 
 241:                                              ; preds = %228
   %242 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %spec.select.i) #7
-  br i1 %242, label %.thread262.i, label %.critedge252.i
+  %or.cond7.not.i = and i1 %spec.select251.not287.i, %242
+  br i1 %or.cond7.not.i, label %283, label %243
 
-.thread262.i:                                     ; preds = %241, %228
-  br i1 %narrow.i, label %243, label %282
+.thread262.i:                                     ; preds = %228
+  br i1 %spec.select251.not287.i, label %283, label %.thread266.i
 
-243:                                              ; preds = %.thread262.i
+243:                                              ; preds = %241
+  br i1 %242, label %.thread266.i, label %248
+
+.thread266.i:                                     ; preds = %243, %.thread262.i
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false), !tbaa.struct !55
   %244 = getelementptr inbounds nuw i8, ptr %6, i64 104
@@ -524,117 +528,117 @@ lv_bar_is_symmetrical.exit.i:                     ; preds = %63, %58
   store i8 0, ptr %247, align 1, !tbaa !64
   call void @lv_draw_rect(ptr noundef %38, ptr noundef nonnull %6, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #7
-  br label %250
+  br label %251
 
-.critedge252.i:                                   ; preds = %241
-  %248 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i8 0, ptr %248, align 8, !tbaa !61
-  %249 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  store i8 0, ptr %249, align 8, !tbaa !62
-  br label %250
+248:                                              ; preds = %243
+  %249 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  store i8 0, ptr %249, align 8, !tbaa !61
+  %250 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  store i8 0, ptr %250, align 8, !tbaa !62
+  br label %251
 
-250:                                              ; preds = %.critedge252.i, %243
-  %.0264.i = phi i1 [ true, %.critedge252.i ], [ false, %243 ]
-  %251 = getelementptr inbounds nuw i8, ptr %5, i64 140
-  store i8 0, ptr %251, align 4, !tbaa !65
+251:                                              ; preds = %248, %.thread266.i
+  %.0265268.i = phi i1 [ true, %248 ], [ false, %.thread266.i ]
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 140
+  store i8 0, ptr %252, align 4, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false), !tbaa.struct !55
-  %252 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  store i8 0, ptr %252, align 8, !tbaa !61
-  %253 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store i8 0, ptr %253, align 8, !tbaa !62
-  %254 = getelementptr inbounds nuw i8, ptr %7, i64 140
-  store i8 0, ptr %254, align 4, !tbaa !65
+  %253 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  store i8 0, ptr %253, align 8, !tbaa !61
+  %254 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  store i8 0, ptr %254, align 8, !tbaa !62
+  %255 = getelementptr inbounds nuw i8, ptr %7, i64 140
+  store i8 0, ptr %255, align 4, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !66
-  br i1 %narrow.i, label %255, label %269
+  br i1 %spec.select251.not287.i, label %270, label %256
 
-255:                                              ; preds = %250
-  br i1 %.0216.i, label %256, label %261
+256:                                              ; preds = %251
+  br i1 %.0218.i, label %257, label %262
 
-256:                                              ; preds = %255
-  %257 = load i32, ptr %3, align 4, !tbaa !27
-  %258 = add nsw i32 %257, %.sroa.0.0.extract.trunc.i255.i
-  store i32 %258, ptr %8, align 4, !tbaa !27
-  %259 = load i32, ptr %81, align 4, !tbaa !29
-  %260 = sub nsw i32 %259, %.sroa.0.0.extract.trunc.i256.i
-  br label %267
+257:                                              ; preds = %256
+  %258 = load i32, ptr %3, align 4, !tbaa !27
+  %259 = add nsw i32 %258, %.sroa.0.0.extract.trunc.i255.i
+  store i32 %259, ptr %8, align 4, !tbaa !27
+  %260 = load i32, ptr %81, align 4, !tbaa !29
+  %261 = sub nsw i32 %260, %.sroa.0.0.extract.trunc.i256.i
+  br label %268
 
-261:                                              ; preds = %255
-  %262 = load i32, ptr %78, align 4, !tbaa !28
-  %263 = add nsw i32 %262, %.sroa.0.0.extract.trunc.i257.i
-  %264 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %263, ptr %264, align 4, !tbaa !28
-  %265 = load i32, ptr %84, align 4, !tbaa !30
-  %266 = sub nsw i32 %265, %.sroa.0.0.extract.trunc.i258.i
-  br label %267
+262:                                              ; preds = %256
+  %263 = load i32, ptr %78, align 4, !tbaa !28
+  %264 = add nsw i32 %263, %.sroa.0.0.extract.trunc.i257.i
+  %265 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 %264, ptr %265, align 4, !tbaa !28
+  %266 = load i32, ptr %84, align 4, !tbaa !30
+  %267 = sub nsw i32 %266, %.sroa.0.0.extract.trunc.i258.i
+  br label %268
 
-267:                                              ; preds = %261, %256
-  %.sink281.i.sroa.phi = phi ptr [ %.sink281.i.sroa.gep, %261 ], [ %.sink281.i.sroa.gep51, %256 ]
-  %.sink279.i = phi i32 [ %266, %261 ], [ %260, %256 ]
-  store i32 %.sink279.i, ptr %.sink281.i.sroa.phi, align 4, !tbaa !26
-  %268 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i32 0, ptr %268, align 8, !tbaa !53
-  br label %269
+268:                                              ; preds = %262, %257
+  %.sink284.i.sroa.phi = phi ptr [ %.sink284.i.sroa.gep, %262 ], [ %.sink284.i.sroa.gep51, %257 ]
+  %.sink282.i = phi i32 [ %267, %262 ], [ %261, %257 ]
+  store i32 %.sink282.i, ptr %.sink284.i.sroa.phi, align 4, !tbaa !26
+  %269 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store i32 0, ptr %269, align 8, !tbaa !53
+  br label %270
 
-269:                                              ; preds = %267, %250
-  %270 = call ptr @lv_draw_layer_create(ptr noundef %38, i32 noundef 16, ptr noundef nonnull %8) #7
-  call void @lv_draw_rect(ptr noundef %270, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
+270:                                              ; preds = %268, %251
+  %271 = call ptr @lv_draw_layer_create(ptr noundef %38, i32 noundef 16, ptr noundef nonnull %8) #7
+  call void @lv_draw_rect(ptr noundef %271, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #7
   call void @lv_draw_mask_rect_dsc_init(ptr noundef nonnull %9) #7
-  br i1 %.0264.i, label %271, label %274
+  br i1 %.0265268.i, label %272, label %275
 
-271:                                              ; preds = %269
-  %272 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !66
-  %273 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store i32 %spec.select.i, ptr %273, align 8, !tbaa !67
-  call void @lv_draw_mask_rect(ptr noundef %270, ptr noundef nonnull %9) #7
-  br label %274
+272:                                              ; preds = %270
+  %273 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %273, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !66
+  %274 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  store i32 %spec.select.i, ptr %274, align 8, !tbaa !67
+  call void @lv_draw_mask_rect(ptr noundef %271, ptr noundef nonnull %9) #7
+  br label %275
 
-274:                                              ; preds = %271, %269
-  br i1 %narrow.i, label %275, label %278
+275:                                              ; preds = %272, %270
+  br i1 %spec.select251.not287.i, label %279, label %276
 
-275:                                              ; preds = %274
-  %276 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %276, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !66
-  %277 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store i32 %spec.select245.i, ptr %277, align 8, !tbaa !67
-  call void @lv_draw_mask_rect(ptr noundef %270, ptr noundef nonnull %9) #7
-  br label %278
+276:                                              ; preds = %275
+  %277 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %277, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !66
+  %278 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  store i32 %spec.select247.i, ptr %278, align 8, !tbaa !67
+  call void @lv_draw_mask_rect(ptr noundef %271, ptr noundef nonnull %9) #7
+  br label %279
 
-278:                                              ; preds = %275, %274
+279:                                              ; preds = %276, %275
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #7
   call void @lv_draw_image_dsc_init(ptr noundef nonnull %10) #7
-  %279 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr %270, ptr %279, align 8, !tbaa !69
+  %280 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store ptr %271, ptr %280, align 8, !tbaa !69
   call void @lv_draw_layer(ptr noundef %38, ptr noundef nonnull %10, ptr noundef nonnull %8) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false), !tbaa.struct !55
-  %280 = getelementptr inbounds nuw i8, ptr %7, i64 52
-  store i8 0, ptr %280, align 4, !tbaa !63
-  %281 = getelementptr inbounds nuw i8, ptr %7, i64 91
-  store i8 0, ptr %281, align 1, !tbaa !64
+  %281 = getelementptr inbounds nuw i8, ptr %7, i64 52
+  store i8 0, ptr %281, align 4, !tbaa !63
+  %282 = getelementptr inbounds nuw i8, ptr %7, i64 91
+  store i8 0, ptr %282, align 1, !tbaa !64
   call void @lv_draw_rect(ptr noundef %38, ptr noundef nonnull %7, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #7
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #7
-  br label %283
+  br label %284
 
-282:                                              ; preds = %.thread262.i
+283:                                              ; preds = %.thread262.i, %241
   call void @lv_draw_rect(ptr noundef %38, ptr noundef nonnull %5, ptr noundef nonnull %4) #7
-  br label %283
+  br label %284
 
-283:                                              ; preds = %282, %278
+284:                                              ; preds = %283, %279
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   br label %draw_indic.exit
 
-draw_indic.exit:                                  ; preds = %204, %283
+draw_indic.exit:                                  ; preds = %204, %284
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
-  br label %284
+  br label %285
 
-284:                                              ; preds = %12, %draw_indic.exit, %34, %31, %15, %2
+285:                                              ; preds = %12, %draw_indic.exit, %34, %31, %15, %2
   ret void
 }
 

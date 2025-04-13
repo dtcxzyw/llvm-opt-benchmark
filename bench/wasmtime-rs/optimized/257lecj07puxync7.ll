@@ -187,8 +187,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_81_$LT$impl$u20$syn..parse.
   %.0 = select i1 %22, i32 %24, i32 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
@@ -264,8 +264,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_89_$LT$impl$u20$syn..parse.
   %.0 = select i1 %22, i32 %24, i32 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
@@ -341,8 +341,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
   %.0 = select i1 %22, i32 %24, i32 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
@@ -418,8 +418,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
   %.0 = select i1 %22, i32 %24, i32 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
@@ -495,8 +495,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_83_$LT$impl$u20$syn..parse.
   %.0 = select i1 %22, i32 %24, i32 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
@@ -572,8 +572,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_85_$LT$impl$u20$syn..parse.
   %.0 = select i1 %22, i32 %24, i32 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
@@ -649,8 +649,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
   %.0 = select i1 %22, i32 %24, i32 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
@@ -726,8 +726,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_84_$LT$impl$u20$syn..parse.
   %.0 = select i1 %22, i32 %24, i32 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
@@ -803,8 +803,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_88_$LT$impl$u20$syn..parse.
   %.0 = select i1 %22, i32 %24, i32 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
@@ -880,8 +880,8 @@ define hidden void @"_ZN15wiggle_generate6config2kw1_86_$LT$impl$u20$syn..parse.
   %.0 = select i1 %22, i32 %24, i32 0
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0, ptr %25, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %.sroa.21.0..sroa_idx, align 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8

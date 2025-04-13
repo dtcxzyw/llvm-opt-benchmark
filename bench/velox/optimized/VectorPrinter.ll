@@ -3129,15 +3129,13 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %tobool2.i = trunc i8 %.pre to i1
-  br i1 %tobool2.i, label %if.then4.i, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %if.end.i
   %hasExtraNulls_.i = getelementptr inbounds nuw i8, ptr %decodedVector, i64 57
   %1 = load i8, ptr %hasExtraNulls_.i, align 1
   %tobool3.i = trunc i8 %1 to i1
-  br i1 %tobool3.i, label %if.then4.i, label %if.end6.i
+  %or.cond.i = select i1 %tobool2.i, i1 true, i1 %tobool3.i
+  br i1 %or.cond.i, label %if.then4.i, label %if.end6.i
 
-if.then4.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
+if.then4.i:                                       ; preds = %if.end.i
   %conv.i.i.i = sext i32 %index to i64
   %div2.i.i.i = lshr i64 %conv.i.i.i, 6
   %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %0, i64 %div2.i.i.i
@@ -3148,7 +3146,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %i
   %tobool.i.not.i.i = icmp eq i64 %and2.i.i.i, 0
   br i1 %tobool.i.not.i.i, label %if.then, label %if.end
 
-if.end6.i:                                        ; preds = %lor.lhs.false.i
+if.end6.i:                                        ; preds = %if.end.i
   %isConstantMapping_.i = getelementptr inbounds nuw i8, ptr %decodedVector, i64 59
   %3 = load i8, ptr %isConstantMapping_.i, align 1
   %tobool7.i = trunc i8 %3 to i1
@@ -3260,15 +3258,13 @@ if.end.i:                                         ; preds = %entry
   %isIdentityMapping_.i = getelementptr inbounds nuw i8, ptr %this, i64 66
   %1 = load i8, ptr %isIdentityMapping_.i, align 2
   %tobool2.i = trunc i8 %1 to i1
-  br i1 %tobool2.i, label %if.then4.i, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %if.end.i
   %hasExtraNulls_.i = getelementptr inbounds nuw i8, ptr %this, i64 65
   %2 = load i8, ptr %hasExtraNulls_.i, align 1
   %tobool3.i = trunc i8 %2 to i1
-  br i1 %tobool3.i, label %if.then4.i, label %if.end6.i
+  %or.cond.i = select i1 %tobool2.i, i1 true, i1 %tobool3.i
+  br i1 %or.cond.i, label %if.then4.i, label %if.end6.i
 
-if.then4.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
+if.then4.i:                                       ; preds = %if.end.i
   %conv.i.i.i = sext i32 %index to i64
   %div2.i.i.i = lshr i64 %conv.i.i.i, 6
   %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %0, i64 %div2.i.i.i
@@ -3279,7 +3275,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %i
   %tobool.i.not.i.i = icmp eq i64 %and2.i.i.i, 0
   br i1 %tobool.i.not.i.i, label %call2.i.noexc, label %if.end
 
-if.end6.i:                                        ; preds = %lor.lhs.false.i
+if.end6.i:                                        ; preds = %if.end.i
   %isConstantMapping_.i = getelementptr inbounds nuw i8, ptr %this, i64 67
   %4 = load i8, ptr %isConstantMapping_.i, align 1
   %tobool7.i = trunc i8 %4 to i1
@@ -3359,15 +3355,13 @@ if.end.i:                                         ; preds = %entry
   %isIdentityMapping_.i = getelementptr inbounds nuw i8, ptr %this, i64 66
   %1 = load i8, ptr %isIdentityMapping_.i, align 2
   %tobool2.i = trunc i8 %1 to i1
-  br i1 %tobool2.i, label %if.then4.i, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %if.end.i
   %hasExtraNulls_.i = getelementptr inbounds nuw i8, ptr %this, i64 65
   %2 = load i8, ptr %hasExtraNulls_.i, align 1
   %tobool3.i = trunc i8 %2 to i1
-  br i1 %tobool3.i, label %if.then4.i, label %if.end6.i
+  %or.cond.i = select i1 %tobool2.i, i1 true, i1 %tobool3.i
+  br i1 %or.cond.i, label %if.then4.i, label %if.end6.i
 
-if.then4.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
+if.then4.i:                                       ; preds = %if.end.i
   %conv.i.i.i = sext i32 %index to i64
   %div2.i.i.i = lshr i64 %conv.i.i.i, 6
   %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %0, i64 %div2.i.i.i
@@ -3378,7 +3372,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %i
   %tobool.i.not.i.i = icmp eq i64 %and2.i.i.i, 0
   br i1 %tobool.i.not.i.i, label %if.then, label %if.end
 
-if.end6.i:                                        ; preds = %lor.lhs.false.i
+if.end6.i:                                        ; preds = %if.end.i
   %isConstantMapping_.i = getelementptr inbounds nuw i8, ptr %this, i64 67
   %4 = load i8, ptr %isConstantMapping_.i, align 1
   %tobool7.i = trunc i8 %4 to i1

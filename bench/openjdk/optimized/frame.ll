@@ -536,40 +536,38 @@ _ZNK16stackChunkHandleclEv.exit1:                 ; preds = %_ZNK16stackChunkHan
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %7 = load i8, ptr @UseZGC, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %21
+  %.not.i = xor i1 %8, true
+  %9 = load i8, ptr @ZGenerational, align 1
+  %10 = trunc i8 %9 to i1
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %10
+  %11 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_cont_offsetE, align 4
+  br i1 %or.cond.i, label %20, label %12
 
-9:                                                ; preds = %_ZNK16stackChunkHandleclEv.exit1
-  %10 = load i8, ptr @ZGenerational, align 1
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %21, label %12
-
-12:                                               ; preds = %9
-  %13 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_cont_offsetE, align 4
-  %14 = ptrtoint ptr %6 to i64
-  %15 = sext i32 %13 to i64
-  %16 = add nsw i64 %15, %14
-  %17 = inttoptr i64 %16 to ptr
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %2, align 8
-  %19 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %20 = call noundef ptr %19(ptr noundef nonnull %2) #21
+12:                                               ; preds = %_ZNK16stackChunkHandleclEv.exit1
+  %13 = ptrtoint ptr %6 to i64
+  %14 = sext i32 %11 to i64
+  %15 = add nsw i64 %14, %13
+  %16 = inttoptr i64 %15 to ptr
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %2, align 8
+  %18 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %19 = call noundef ptr %18(ptr noundef nonnull %2) #21
   br label %_ZNK17stackChunkOopDesc4contEv.exit
 
-21:                                               ; preds = %9, %_ZNK16stackChunkHandleclEv.exit1
-  %22 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_cont_offsetE, align 4
-  %23 = sext i32 %22 to i64
-  %24 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %23) #21
+20:                                               ; preds = %_ZNK16stackChunkHandleclEv.exit1
+  %21 = sext i32 %11 to i64
+  %22 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %21) #21
   br label %_ZNK17stackChunkOopDesc4contEv.exit
 
-_ZNK17stackChunkOopDesc4contEv.exit:              ; preds = %12, %21
-  %.0.i = phi ptr [ %25, %21 ], [ %20, %12 ]
+_ZNK17stackChunkOopDesc4contEv.exit:              ; preds = %12, %20
+  %.0.i = phi ptr [ %23, %20 ], [ %19, %12 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %_ZNK16stackChunkHandleclEv.exit.thread
 
 _ZNK16stackChunkHandleclEv.exit.thread:           ; preds = %1, %_ZNK16stackChunkHandleclEv.exit, %_ZNK17stackChunkOopDesc4contEv.exit
-  %26 = phi ptr [ %.0.i, %_ZNK17stackChunkOopDesc4contEv.exit ], [ null, %_ZNK16stackChunkHandleclEv.exit ], [ null, %1 ]
-  ret ptr %26
+  %24 = phi ptr [ %.0.i, %_ZNK17stackChunkOopDesc4contEv.exit ], [ null, %_ZNK16stackChunkHandleclEv.exit ], [ null, %1 ]
+  ret ptr %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

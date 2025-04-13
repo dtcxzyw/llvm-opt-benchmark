@@ -1474,9 +1474,12 @@ define void @_ZN7jsonnet8internal12CompilerPass9visitExprERPNS0_3ASTE(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i32, ptr %4, align 8, !tbaa !95
   %6 = icmp ult i32 %5, 31
-  br i1 %6, label %switch.hole_check, label %7
+  %switch.shifted = lshr i32 2147483631, %5
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-7:                                                ; preds = %switch.hole_check, %2
+7:                                                ; preds = %2
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str)
   %9 = load ptr, ptr %1, align 8, !tbaa !54
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
@@ -1484,12 +1487,7 @@ define void @_ZN7jsonnet8internal12CompilerPass9visitExprERPNS0_3ASTE(ptr nounde
   tail call void @abort() #21
   unreachable
 
-switch.hole_check:                                ; preds = %2
-  %switch.shifted = lshr i32 2147483631, %5
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %12 = zext nneg i32 %5 to i64
   %switch.gep = getelementptr inbounds nuw [31 x i64], ptr @switch.table._ZN7jsonnet8internal12CompilerPass9visitExprERPNS0_3ASTE, i64 0, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8

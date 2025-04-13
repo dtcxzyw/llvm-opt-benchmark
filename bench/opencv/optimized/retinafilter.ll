@@ -952,8 +952,8 @@ define hidden noundef zeroext i1 @_ZN2cv11bioinspired12RetinaFilter9runFilterERK
   store i8 %9, ptr %13, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %15 = load ptr, ptr %14, align 8, !tbaa !11
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %20, label %16
+  %.not24 = icmp eq ptr %15, null
+  br i1 %.not24, label %20, label %16
 
 16:                                               ; preds = %8
   %17 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspired21ImageLogPolProjection13runProjectionERKSt8valarrayIfEb(ptr noundef nonnull align 8 dereferenceable(301) %15, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %4)
@@ -963,9 +963,9 @@ define hidden noundef zeroext i1 @_ZN2cv11bioinspired12RetinaFilter9runFilterERK
 
 20:                                               ; preds = %16, %8
   %.0 = phi ptr [ %19, %16 ], [ %1, %8 ]
-  %.not21 = xor i1 %4, true
-  %brmerge = or i1 %5, %.not21
-  br i1 %brmerge, label %26, label %21
+  %.not = xor i1 %4, true
+  %or.cond = or i1 %5, %.not
+  br i1 %or.cond, label %26, label %21
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 848
@@ -975,8 +975,8 @@ define hidden noundef zeroext i1 @_ZN2cv11bioinspired12RetinaFilter9runFilterERK
   %25 = load ptr, ptr %23, align 8, !tbaa !92
   br label %26
 
-26:                                               ; preds = %20, %21
-  %.1 = phi ptr [ %25, %21 ], [ %.0, %20 ]
+26:                                               ; preds = %21, %20
+  %.1 = phi ptr [ %.0, %20 ], [ %25, %21 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -987,275 +987,277 @@ define hidden noundef zeroext i1 @_ZN2cv11bioinspired12RetinaFilter9runFilterERK
   %34 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspired17ParvoRetinaFilter9runFilterERKSt8valarrayIfEb(ptr noundef nonnull align 8 dereferenceable(304) %28, ptr noundef nonnull align 8 dereferenceable(16) %31, i1 noundef zeroext %33)
   %35 = load i8, ptr %0, align 8, !tbaa !49, !range !93, !noundef !94
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit
+  br i1 %36, label %38, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit.thread
 
-37:                                               ; preds = %26
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %39 = load i64, ptr %38, align 8, !tbaa !68
-  %40 = and i64 %39, 4294967295
-  %.not.i.i = icmp eq i64 %40, 0
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %42 = load ptr, ptr %41, align 8
+_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit.thread: ; preds = %26
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  br label %_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit
+
+38:                                               ; preds = %26
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %40 = load i64, ptr %39, align 8, !tbaa !68
+  %41 = and i64 %40, 4294967295
+  %.not.i.i = icmp eq i64 %41, 0
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %43 = load ptr, ptr %42, align 8
   br i1 %.not.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %37, %.lr.ph.i.i
-  %.024.i.i = phi i64 [ %50, %.lr.ph.i.i ], [ 0, %37 ]
-  %.02023.i.i = phi ptr [ %49, %.lr.ph.i.i ], [ %42, %37 ]
-  %43 = load float, ptr %.02023.i.i, align 4, !tbaa !61
-  %44 = fmul float %43, 2.550000e+02
-  %45 = tail call noundef float @llvm.fabs.f32(float %43)
-  %46 = fadd float %45, 2.550000e+02
-  %47 = fdiv float %44, %46
-  %48 = fadd float %47, 0.000000e+00
-  %49 = getelementptr i8, ptr %.02023.i.i, i64 4
-  store float %48, ptr %.02023.i.i, align 4, !tbaa !61
-  %50 = add nuw nsw i64 %.024.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %50, %40
+.lr.ph.i.i:                                       ; preds = %38, %.lr.ph.i.i
+  %.024.i.i = phi i64 [ %51, %.lr.ph.i.i ], [ 0, %38 ]
+  %.02023.i.i = phi ptr [ %50, %.lr.ph.i.i ], [ %43, %38 ]
+  %44 = load float, ptr %.02023.i.i, align 4, !tbaa !61
+  %45 = fmul float %44, 2.550000e+02
+  %46 = tail call noundef float @llvm.fabs.f32(float %44)
+  %47 = fadd float %46, 2.550000e+02
+  %48 = fdiv float %45, %47
+  %49 = fadd float %48, 0.000000e+00
+  %50 = getelementptr i8, ptr %.02023.i.i, i64 4
+  store float %49, ptr %.02023.i.i, align 4, !tbaa !61
+  %51 = add nuw nsw i64 %.024.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %51, %41
   br i1 %exitcond.not.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit.thread, label %.lr.ph.i.i, !llvm.loop !95
 
 _ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit.thread: ; preds = %.lr.ph.i.i
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %52 = load ptr, ptr %51, align 8
-  br label %.lr.ph.i.i26.preheader
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %53 = load ptr, ptr %52, align 8
+  br label %.lr.ph.i.i34.preheader
 
-_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit: ; preds = %37
-  %.not.i.i25 = icmp eq i64 %39, 0
-  br i1 %.not.i.i25, label %_ZN2cv11bioinspired17BasicRetinaFilter26centerReductImageLuminanceEv.exit, label %.lr.ph.i.i26.preheader
+_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit: ; preds = %38
+  %.not.i.i33 = icmp eq i64 %40, 0
+  br i1 %.not.i.i33, label %_ZN2cv11bioinspired17BasicRetinaFilter26centerReductImageLuminanceEv.exit, label %.lr.ph.i.i34.preheader
 
-.lr.ph.i.i26.preheader:                           ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit.thread, %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit
-  %53 = phi ptr [ %52, %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit.thread ], [ %42, %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit ]
-  br label %.lr.ph.i.i26
+.lr.ph.i.i34.preheader:                           ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit.thread, %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit
+  %54 = phi ptr [ %53, %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit.thread ], [ %43, %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit ]
+  br label %.lr.ph.i.i34
 
-.lr.ph40.preheader.i.i:                           ; preds = %.lr.ph.i.i26
-  %54 = uitofp i64 %39 to float
-  %55 = fdiv float %58, %54
+.lr.ph40.preheader.i.i:                           ; preds = %.lr.ph.i.i34
+  %55 = uitofp i64 %40 to float
+  %56 = fdiv float %59, %55
   br label %.lr.ph40.i.i
 
-.lr.ph.i.i26:                                     ; preds = %.lr.ph.i.i26.preheader, %.lr.ph.i.i26
-  %.02734.i.i = phi i64 [ %59, %.lr.ph.i.i26 ], [ 0, %.lr.ph.i.i26.preheader ]
-  %.02933.i.i = phi float [ %58, %.lr.ph.i.i26 ], [ 0.000000e+00, %.lr.ph.i.i26.preheader ]
-  %56 = getelementptr inbounds nuw float, ptr %53, i64 %.02734.i.i
-  %57 = load float, ptr %56, align 4, !tbaa !61
-  %58 = fadd float %.02933.i.i, %57
-  %59 = add nuw i64 %.02734.i.i, 1
-  %exitcond.not.i.i27 = icmp eq i64 %59, %39
-  br i1 %exitcond.not.i.i27, label %.lr.ph40.preheader.i.i, label %.lr.ph.i.i26, !llvm.loop !96
+.lr.ph.i.i34:                                     ; preds = %.lr.ph.i.i34.preheader, %.lr.ph.i.i34
+  %.02734.i.i = phi i64 [ %60, %.lr.ph.i.i34 ], [ 0, %.lr.ph.i.i34.preheader ]
+  %.02933.i.i = phi float [ %59, %.lr.ph.i.i34 ], [ 0.000000e+00, %.lr.ph.i.i34.preheader ]
+  %57 = getelementptr inbounds nuw float, ptr %54, i64 %.02734.i.i
+  %58 = load float, ptr %57, align 4, !tbaa !61
+  %59 = fadd float %.02933.i.i, %58
+  %60 = add nuw i64 %.02734.i.i, 1
+  %exitcond.not.i.i35 = icmp eq i64 %60, %40
+  br i1 %exitcond.not.i.i35, label %.lr.ph40.preheader.i.i, label %.lr.ph.i.i34, !llvm.loop !96
 
 .lr.ph46.preheader.i.i:                           ; preds = %.lr.ph40.i.i
-  %60 = fdiv float %65, %54
-  %61 = tail call noundef float @sqrtf(float noundef %60) #21, !tbaa !71
+  %61 = fdiv float %66, %55
+  %62 = tail call noundef float @sqrtf(float noundef %61) #21, !tbaa !71
   br label %.lr.ph46.i.i
 
 .lr.ph40.i.i:                                     ; preds = %.lr.ph40.i.i, %.lr.ph40.preheader.i.i
-  %.02538.i.i = phi i64 [ %66, %.lr.ph40.i.i ], [ 0, %.lr.ph40.preheader.i.i ]
-  %.02637.i.i = phi ptr [ %62, %.lr.ph40.i.i ], [ %53, %.lr.ph40.preheader.i.i ]
-  %.02836.i.i = phi float [ %65, %.lr.ph40.i.i ], [ 0.000000e+00, %.lr.ph40.preheader.i.i ]
-  %62 = getelementptr inbounds nuw i8, ptr %.02637.i.i, i64 4
-  %63 = load float, ptr %.02637.i.i, align 4, !tbaa !61
-  %64 = fsub float %63, %55
-  %65 = tail call float @llvm.fmuladd.f32(float %64, float %64, float %.02836.i.i)
-  %66 = add nuw i64 %.02538.i.i, 1
-  %exitcond51.not.i.i = icmp eq i64 %66, %39
+  %.02538.i.i = phi i64 [ %67, %.lr.ph40.i.i ], [ 0, %.lr.ph40.preheader.i.i ]
+  %.02637.i.i = phi ptr [ %63, %.lr.ph40.i.i ], [ %54, %.lr.ph40.preheader.i.i ]
+  %.02836.i.i = phi float [ %66, %.lr.ph40.i.i ], [ 0.000000e+00, %.lr.ph40.preheader.i.i ]
+  %63 = getelementptr inbounds nuw i8, ptr %.02637.i.i, i64 4
+  %64 = load float, ptr %.02637.i.i, align 4, !tbaa !61
+  %65 = fsub float %64, %56
+  %66 = tail call float @llvm.fmuladd.f32(float %65, float %65, float %.02836.i.i)
+  %67 = add nuw i64 %.02538.i.i, 1
+  %exitcond51.not.i.i = icmp eq i64 %67, %40
   br i1 %exitcond51.not.i.i, label %.lr.ph46.preheader.i.i, label %.lr.ph40.i.i, !llvm.loop !97
 
 .lr.ph46.i.i:                                     ; preds = %.lr.ph46.i.i, %.lr.ph46.preheader.i.i
-  %.044.i.i = phi i64 [ %70, %.lr.ph46.i.i ], [ 0, %.lr.ph46.preheader.i.i ]
-  %.143.i.i = phi ptr [ %71, %.lr.ph46.i.i ], [ %53, %.lr.ph46.preheader.i.i ]
-  %67 = load float, ptr %.143.i.i, align 4, !tbaa !61
-  %68 = fsub float %67, %55
-  %69 = fdiv float %68, %61
-  store float %69, ptr %.143.i.i, align 4, !tbaa !61
-  %70 = add nuw i64 %.044.i.i, 1
-  %71 = getelementptr inbounds nuw i8, ptr %.143.i.i, i64 4
-  %exitcond52.not.i.i = icmp eq i64 %70, %39
+  %.044.i.i = phi i64 [ %71, %.lr.ph46.i.i ], [ 0, %.lr.ph46.preheader.i.i ]
+  %.143.i.i = phi ptr [ %72, %.lr.ph46.i.i ], [ %54, %.lr.ph46.preheader.i.i ]
+  %68 = load float, ptr %.143.i.i, align 4, !tbaa !61
+  %69 = fsub float %68, %56
+  %70 = fdiv float %69, %62
+  store float %70, ptr %.143.i.i, align 4, !tbaa !61
+  %71 = add nuw i64 %.044.i.i, 1
+  %72 = getelementptr inbounds nuw i8, ptr %.143.i.i, i64 4
+  %exitcond52.not.i.i = icmp eq i64 %71, %40
   br i1 %exitcond52.not.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter26centerReductImageLuminanceEv.exit, label %.lr.ph46.i.i, !llvm.loop !98
 
 _ZN2cv11bioinspired17BasicRetinaFilter26centerReductImageLuminanceEv.exit: ; preds = %.lr.ph46.i.i, %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit
-  %72 = phi ptr [ %42, %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit ], [ %53, %.lr.ph46.i.i ]
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1209
-  %74 = load i8, ptr %73, align 1, !tbaa !52, !range !93, !noundef !94
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %76, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit.thread
+  %73 = phi ptr [ %43, %_ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exit ], [ %54, %.lr.ph46.i.i ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1209
+  %75 = load i8, ptr %74, align 1, !tbaa !52, !range !93, !noundef !94
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %77, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit
 
-76:                                               ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter26centerReductImageLuminanceEv.exit
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1212
-  %78 = load float, ptr %77, align 4, !tbaa !54
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %80 = load i64, ptr %79, align 8, !tbaa !3
-  %.not.i.i.i = icmp eq i64 %80, 0
-  br i1 %.not.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit.thread, label %.lr.ph.i.preheader.i.i
+77:                                               ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter26centerReductImageLuminanceEv.exit
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1212
+  %79 = load float, ptr %78, align 4, !tbaa !54
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %81 = load i64, ptr %80, align 8, !tbaa !3
+  %.not.i.i.i = icmp eq i64 %81, 0
+  br i1 %.not.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit, label %.lr.ph.i.preheader.i.i
 
-.lr.ph.i.preheader.i.i:                           ; preds = %76
-  %81 = load float, ptr %72, align 4, !tbaa !61
+.lr.ph.i.preheader.i.i:                           ; preds = %77
+  %82 = load float, ptr %73, align 4, !tbaa !61
   br label %.lr.ph.i.i.i
 
-.lr.ph43.preheader.i.i.i:                         ; preds = %92
-  %82 = fsub float %.1.i.i.i, %.128.i.i.i
-  %83 = fdiv float %78, %82
-  %84 = fneg float %.128.i.i.i
-  %85 = fmul float %83, %84
+.lr.ph43.preheader.i.i.i:                         ; preds = %93
+  %83 = fsub float %.1.i.i.i, %.128.i.i.i
+  %84 = fdiv float %79, %83
+  %85 = fneg float %.128.i.i.i
+  %86 = fmul float %84, %85
   br label %.lr.ph43.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %92, %.lr.ph.i.preheader.i.i
-  %.02638.i.i.i = phi float [ %.1.i.i.i, %92 ], [ %81, %.lr.ph.i.preheader.i.i ]
-  %.02737.i.i.i = phi float [ %.128.i.i.i, %92 ], [ %81, %.lr.ph.i.preheader.i.i ]
-  %.02936.i.i.i = phi ptr [ %86, %92 ], [ %72, %.lr.ph.i.preheader.i.i ]
-  %.03135.i.i.i = phi i64 [ %93, %92 ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %86 = getelementptr inbounds nuw i8, ptr %.02936.i.i.i, i64 4
-  %87 = load float, ptr %.02936.i.i.i, align 4, !tbaa !61
-  %88 = fcmp olt float %.02638.i.i.i, %87
-  br i1 %88, label %92, label %89
+.lr.ph.i.i.i:                                     ; preds = %93, %.lr.ph.i.preheader.i.i
+  %.02638.i.i.i = phi float [ %.1.i.i.i, %93 ], [ %82, %.lr.ph.i.preheader.i.i ]
+  %.02737.i.i.i = phi float [ %.128.i.i.i, %93 ], [ %82, %.lr.ph.i.preheader.i.i ]
+  %.02936.i.i.i = phi ptr [ %87, %93 ], [ %73, %.lr.ph.i.preheader.i.i ]
+  %.03135.i.i.i = phi i64 [ %94, %93 ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %87 = getelementptr inbounds nuw i8, ptr %.02936.i.i.i, i64 4
+  %88 = load float, ptr %.02936.i.i.i, align 4, !tbaa !61
+  %89 = fcmp olt float %.02638.i.i.i, %88
+  br i1 %89, label %93, label %90
 
-89:                                               ; preds = %.lr.ph.i.i.i
-  %90 = fcmp ogt float %.02737.i.i.i, %87
-  br i1 %90, label %91, label %92
+90:                                               ; preds = %.lr.ph.i.i.i
+  %91 = fcmp ogt float %.02737.i.i.i, %88
+  br i1 %91, label %92, label %93
 
-91:                                               ; preds = %89
-  br label %92
+92:                                               ; preds = %90
+  br label %93
 
-92:                                               ; preds = %91, %89, %.lr.ph.i.i.i
-  %.128.i.i.i = phi float [ %87, %91 ], [ %.02737.i.i.i, %89 ], [ %.02737.i.i.i, %.lr.ph.i.i.i ]
-  %.1.i.i.i = phi float [ %.02638.i.i.i, %91 ], [ %.02638.i.i.i, %89 ], [ %87, %.lr.ph.i.i.i ]
-  %93 = add nuw i64 %.03135.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %93, %80
+93:                                               ; preds = %92, %90, %.lr.ph.i.i.i
+  %.128.i.i.i = phi float [ %88, %92 ], [ %.02737.i.i.i, %90 ], [ %.02737.i.i.i, %.lr.ph.i.i.i ]
+  %.1.i.i.i = phi float [ %.02638.i.i.i, %92 ], [ %.02638.i.i.i, %90 ], [ %88, %.lr.ph.i.i.i ]
+  %94 = add nuw i64 %.03135.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %94, %81
   br i1 %exitcond.not.i.i.i, label %.lr.ph43.preheader.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !99
 
 .lr.ph43.i.i.i:                                   ; preds = %.lr.ph43.i.i.i, %.lr.ph43.preheader.i.i.i
-  %.041.i.i.i = phi i64 [ %96, %.lr.ph43.i.i.i ], [ 0, %.lr.ph43.preheader.i.i.i ]
-  %.13040.i.i.i = phi ptr [ %97, %.lr.ph43.i.i.i ], [ %72, %.lr.ph43.preheader.i.i.i ]
-  %94 = load float, ptr %.13040.i.i.i, align 4, !tbaa !61
-  %95 = tail call float @llvm.fmuladd.f32(float %94, float %83, float %85)
-  store float %95, ptr %.13040.i.i.i, align 4, !tbaa !61
-  %96 = add nuw i64 %.041.i.i.i, 1
-  %97 = getelementptr inbounds nuw i8, ptr %.13040.i.i.i, i64 4
-  %exitcond46.not.i.i.i = icmp eq i64 %96, %80
-  br i1 %exitcond46.not.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit.thread, label %.lr.ph43.i.i.i, !llvm.loop !100
+  %.041.i.i.i = phi i64 [ %97, %.lr.ph43.i.i.i ], [ 0, %.lr.ph43.preheader.i.i.i ]
+  %.13040.i.i.i = phi ptr [ %98, %.lr.ph43.i.i.i ], [ %73, %.lr.ph43.preheader.i.i.i ]
+  %95 = load float, ptr %.13040.i.i.i, align 4, !tbaa !61
+  %96 = tail call float @llvm.fmuladd.f32(float %95, float %84, float %86)
+  store float %96, ptr %.13040.i.i.i, align 4, !tbaa !61
+  %97 = add nuw i64 %.041.i.i.i, 1
+  %98 = getelementptr inbounds nuw i8, ptr %.13040.i.i.i, i64 4
+  %exitcond46.not.i.i.i = icmp eq i64 %97, %81
+  br i1 %exitcond46.not.i.i.i, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit, label %.lr.ph43.i.i.i, !llvm.loop !100
 
-_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit.thread: ; preds = %.lr.ph43.i.i.i, %_ZN2cv11bioinspired17BasicRetinaFilter26centerReductImageLuminanceEv.exit, %76
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %99 = load i8, ptr %98, align 1, !tbaa !50, !range !93, !noundef !94
-  %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %101, label %_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit
+_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit: ; preds = %.lr.ph43.i.i.i, %77, %_ZN2cv11bioinspired17BasicRetinaFilter26centerReductImageLuminanceEv.exit
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %100 = load i8, ptr %99, align 1, !range !93
+  %101 = trunc nuw i8 %100 to i1
+  br i1 %101, label %102, label %_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit
 
-101:                                              ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit.thread
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %105 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspired17MagnoRetinaFilter9runFilterERKSt8valarrayIfES5_(ptr noundef nonnull align 8 dereferenceable(324) %102, ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %104)
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1210
-  %107 = load i8, ptr %106, align 2, !tbaa !53, !range !93, !noundef !94
-  %108 = trunc nuw i8 %107 to i1
-  br i1 %108, label %109, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit43
+102:                                              ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %106 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspired17MagnoRetinaFilter9runFilterERKSt8valarrayIfES5_(ptr noundef nonnull align 8 dereferenceable(324) %103, ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(16) %105)
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1210
+  %108 = load i8, ptr %107, align 2, !tbaa !53, !range !93, !noundef !94
+  %109 = trunc nuw i8 %108 to i1
+  br i1 %109, label %110, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit51
 
-109:                                              ; preds = %101
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1212
-  %111 = load float, ptr %110, align 4, !tbaa !54
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %113 = load ptr, ptr %112, align 8, !tbaa !10
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %115 = load i64, ptr %114, align 8, !tbaa !3
-  %.not.i.i.i28 = icmp eq i64 %115, 0
-  br i1 %.not.i.i.i28, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit43, label %.lr.ph.i.preheader.i.i29
+110:                                              ; preds = %102
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 1212
+  %112 = load float, ptr %111, align 4, !tbaa !54
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %114 = load ptr, ptr %113, align 8, !tbaa !10
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %116 = load i64, ptr %115, align 8, !tbaa !3
+  %.not.i.i.i36 = icmp eq i64 %116, 0
+  br i1 %.not.i.i.i36, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit51, label %.lr.ph.i.preheader.i.i37
 
-.lr.ph.i.preheader.i.i29:                         ; preds = %109
-  %116 = load float, ptr %113, align 4, !tbaa !61
-  br label %.lr.ph.i.i.i30
+.lr.ph.i.preheader.i.i37:                         ; preds = %110
+  %117 = load float, ptr %114, align 4, !tbaa !61
+  br label %.lr.ph.i.i.i38
 
-.lr.ph43.preheader.i.i.i38:                       ; preds = %127
-  %117 = fsub float %.1.i.i.i36, %.128.i.i.i35
-  %118 = fdiv float %111, %117
-  %119 = fneg float %.128.i.i.i35
-  %120 = fmul float %118, %119
-  br label %.lr.ph43.i.i.i39
+.lr.ph43.preheader.i.i.i46:                       ; preds = %128
+  %118 = fsub float %.1.i.i.i44, %.128.i.i.i43
+  %119 = fdiv float %112, %118
+  %120 = fneg float %.128.i.i.i43
+  %121 = fmul float %119, %120
+  br label %.lr.ph43.i.i.i47
 
-.lr.ph.i.i.i30:                                   ; preds = %127, %.lr.ph.i.preheader.i.i29
-  %.02638.i.i.i31 = phi float [ %.1.i.i.i36, %127 ], [ %116, %.lr.ph.i.preheader.i.i29 ]
-  %.02737.i.i.i32 = phi float [ %.128.i.i.i35, %127 ], [ %116, %.lr.ph.i.preheader.i.i29 ]
-  %.02936.i.i.i33 = phi ptr [ %121, %127 ], [ %113, %.lr.ph.i.preheader.i.i29 ]
-  %.03135.i.i.i34 = phi i64 [ %128, %127 ], [ 0, %.lr.ph.i.preheader.i.i29 ]
-  %121 = getelementptr inbounds nuw i8, ptr %.02936.i.i.i33, i64 4
-  %122 = load float, ptr %.02936.i.i.i33, align 4, !tbaa !61
-  %123 = fcmp olt float %.02638.i.i.i31, %122
-  br i1 %123, label %127, label %124
+.lr.ph.i.i.i38:                                   ; preds = %128, %.lr.ph.i.preheader.i.i37
+  %.02638.i.i.i39 = phi float [ %.1.i.i.i44, %128 ], [ %117, %.lr.ph.i.preheader.i.i37 ]
+  %.02737.i.i.i40 = phi float [ %.128.i.i.i43, %128 ], [ %117, %.lr.ph.i.preheader.i.i37 ]
+  %.02936.i.i.i41 = phi ptr [ %122, %128 ], [ %114, %.lr.ph.i.preheader.i.i37 ]
+  %.03135.i.i.i42 = phi i64 [ %129, %128 ], [ 0, %.lr.ph.i.preheader.i.i37 ]
+  %122 = getelementptr inbounds nuw i8, ptr %.02936.i.i.i41, i64 4
+  %123 = load float, ptr %.02936.i.i.i41, align 4, !tbaa !61
+  %124 = fcmp olt float %.02638.i.i.i39, %123
+  br i1 %124, label %128, label %125
 
-124:                                              ; preds = %.lr.ph.i.i.i30
-  %125 = fcmp ogt float %.02737.i.i.i32, %122
-  br i1 %125, label %126, label %127
+125:                                              ; preds = %.lr.ph.i.i.i38
+  %126 = fcmp ogt float %.02737.i.i.i40, %123
+  br i1 %126, label %127, label %128
 
-126:                                              ; preds = %124
-  br label %127
+127:                                              ; preds = %125
+  br label %128
 
-127:                                              ; preds = %126, %124, %.lr.ph.i.i.i30
-  %.128.i.i.i35 = phi float [ %122, %126 ], [ %.02737.i.i.i32, %124 ], [ %.02737.i.i.i32, %.lr.ph.i.i.i30 ]
-  %.1.i.i.i36 = phi float [ %.02638.i.i.i31, %126 ], [ %.02638.i.i.i31, %124 ], [ %122, %.lr.ph.i.i.i30 ]
-  %128 = add nuw i64 %.03135.i.i.i34, 1
-  %exitcond.not.i.i.i37 = icmp eq i64 %128, %115
-  br i1 %exitcond.not.i.i.i37, label %.lr.ph43.preheader.i.i.i38, label %.lr.ph.i.i.i30, !llvm.loop !99
+128:                                              ; preds = %127, %125, %.lr.ph.i.i.i38
+  %.128.i.i.i43 = phi float [ %123, %127 ], [ %.02737.i.i.i40, %125 ], [ %.02737.i.i.i40, %.lr.ph.i.i.i38 ]
+  %.1.i.i.i44 = phi float [ %.02638.i.i.i39, %127 ], [ %.02638.i.i.i39, %125 ], [ %123, %.lr.ph.i.i.i38 ]
+  %129 = add nuw i64 %.03135.i.i.i42, 1
+  %exitcond.not.i.i.i45 = icmp eq i64 %129, %116
+  br i1 %exitcond.not.i.i.i45, label %.lr.ph43.preheader.i.i.i46, label %.lr.ph.i.i.i38, !llvm.loop !99
 
-.lr.ph43.i.i.i39:                                 ; preds = %.lr.ph43.i.i.i39, %.lr.ph43.preheader.i.i.i38
-  %.041.i.i.i40 = phi i64 [ %131, %.lr.ph43.i.i.i39 ], [ 0, %.lr.ph43.preheader.i.i.i38 ]
-  %.13040.i.i.i41 = phi ptr [ %132, %.lr.ph43.i.i.i39 ], [ %113, %.lr.ph43.preheader.i.i.i38 ]
-  %129 = load float, ptr %.13040.i.i.i41, align 4, !tbaa !61
-  %130 = tail call float @llvm.fmuladd.f32(float %129, float %118, float %120)
-  store float %130, ptr %.13040.i.i.i41, align 4, !tbaa !61
-  %131 = add nuw i64 %.041.i.i.i40, 1
-  %132 = getelementptr inbounds nuw i8, ptr %.13040.i.i.i41, i64 4
-  %exitcond46.not.i.i.i42 = icmp eq i64 %131, %115
-  br i1 %exitcond46.not.i.i.i42, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit43, label %.lr.ph43.i.i.i39, !llvm.loop !100
+.lr.ph43.i.i.i47:                                 ; preds = %.lr.ph43.i.i.i47, %.lr.ph43.preheader.i.i.i46
+  %.041.i.i.i48 = phi i64 [ %132, %.lr.ph43.i.i.i47 ], [ 0, %.lr.ph43.preheader.i.i.i46 ]
+  %.13040.i.i.i49 = phi ptr [ %133, %.lr.ph43.i.i.i47 ], [ %114, %.lr.ph43.preheader.i.i.i46 ]
+  %130 = load float, ptr %.13040.i.i.i49, align 4, !tbaa !61
+  %131 = tail call float @llvm.fmuladd.f32(float %130, float %119, float %121)
+  store float %131, ptr %.13040.i.i.i49, align 4, !tbaa !61
+  %132 = add nuw i64 %.041.i.i.i48, 1
+  %133 = getelementptr inbounds nuw i8, ptr %.13040.i.i.i49, i64 4
+  %exitcond46.not.i.i.i50 = icmp eq i64 %132, %116
+  br i1 %exitcond46.not.i.i.i50, label %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit51, label %.lr.ph43.i.i.i47, !llvm.loop !100
 
-_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit43: ; preds = %.lr.ph43.i.i.i39, %109, %101
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %134 = load i64, ptr %133, align 8, !tbaa !68
-  %.not.i.i44 = icmp eq i64 %134, 0
-  br i1 %.not.i.i44, label %_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit, label %.lr.ph.preheader.i.i
+_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit51: ; preds = %.lr.ph43.i.i.i47, %110, %102
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %135 = load i64, ptr %134, align 8, !tbaa !68
+  %.not.i.i52 = icmp eq i64 %135, 0
+  br i1 %.not.i.i52, label %_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit43
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %136 = load ptr, ptr %135, align 8, !tbaa !101
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %138 = load ptr, ptr %137, align 8, !tbaa !10
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %140 = load ptr, ptr %139, align 8, !tbaa !102
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  %142 = load ptr, ptr %141, align 8, !tbaa !10
-  %143 = icmp eq ptr %138, null
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %145 = load ptr, ptr %144, align 8
-  %.021.i.i = select i1 %143, ptr %145, ptr %138
-  %146 = icmp eq ptr %142, null
-  %.0.i.i = select i1 %146, ptr %145, ptr %142
-  br label %.lr.ph.i.i45
+.lr.ph.preheader.i.i:                             ; preds = %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit51
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %137 = load ptr, ptr %136, align 8, !tbaa !101
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %139 = load ptr, ptr %138, align 8, !tbaa !10
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 824
+  %141 = load ptr, ptr %140, align 8, !tbaa !102
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %143 = load ptr, ptr %142, align 8, !tbaa !10
+  %144 = icmp eq ptr %139, null
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %146 = load ptr, ptr %145, align 8
+  %.021.i.i = select i1 %144, ptr %146, ptr %139
+  %147 = icmp eq ptr %143, null
+  %.0.i.i = select i1 %147, ptr %146, ptr %143
+  br label %.lr.ph.i.i53
 
-.lr.ph.i.i45:                                     ; preds = %.lr.ph.i.i45, %.lr.ph.preheader.i.i
-  %.01826.i.i = phi i64 [ %154, %.lr.ph.i.i45 ], [ 0, %.lr.ph.preheader.i.i ]
-  %.01925.i.i = phi ptr [ %153, %.lr.ph.i.i45 ], [ %.021.i.i, %.lr.ph.preheader.i.i ]
-  %.02024.i.i = phi ptr [ %155, %.lr.ph.i.i45 ], [ %.0.i.i, %.lr.ph.preheader.i.i ]
-  %147 = load float, ptr %.02024.i.i, align 4, !tbaa !61
-  %148 = fmul float %147, %147
-  %149 = fmul float %147, %148
-  %150 = fmul float %149, 2.550000e+02
-  %151 = fadd float %149, 6.400000e+04
-  %152 = fdiv float %150, %151
-  %153 = getelementptr inbounds nuw i8, ptr %.01925.i.i, i64 4
-  store float %152, ptr %.01925.i.i, align 4, !tbaa !61
-  %154 = add nuw i64 %.01826.i.i, 1
-  %155 = getelementptr inbounds nuw i8, ptr %.02024.i.i, i64 4
-  %exitcond.not.i.i46 = icmp eq i64 %154, %134
-  br i1 %exitcond.not.i.i46, label %_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit, label %.lr.ph.i.i45, !llvm.loop !103
+.lr.ph.i.i53:                                     ; preds = %.lr.ph.i.i53, %.lr.ph.preheader.i.i
+  %.01826.i.i = phi i64 [ %155, %.lr.ph.i.i53 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.01925.i.i = phi ptr [ %154, %.lr.ph.i.i53 ], [ %.021.i.i, %.lr.ph.preheader.i.i ]
+  %.02024.i.i = phi ptr [ %156, %.lr.ph.i.i53 ], [ %.0.i.i, %.lr.ph.preheader.i.i ]
+  %148 = load float, ptr %.02024.i.i, align 4, !tbaa !61
+  %149 = fmul float %148, %148
+  %150 = fmul float %148, %149
+  %151 = fmul float %150, 2.550000e+02
+  %152 = fadd float %150, 6.400000e+04
+  %153 = fdiv float %151, %152
+  %154 = getelementptr inbounds nuw i8, ptr %.01925.i.i, i64 4
+  store float %153, ptr %.01925.i.i, align 4, !tbaa !61
+  %155 = add nuw i64 %.01826.i.i, 1
+  %156 = getelementptr inbounds nuw i8, ptr %.02024.i.i, i64 4
+  %exitcond.not.i.i54 = icmp eq i64 %155, %135
+  br i1 %exitcond.not.i.i54, label %_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit, label %.lr.ph.i.i53, !llvm.loop !103
 
-_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit: ; preds = %.lr.ph.i.i45, %26, %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit43, %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit.thread
-  %156 = load i8, ptr %0, align 8, !tbaa !49, !range !93, !noundef !94
-  %157 = trunc nuw i8 %156 to i1
-  br i1 %157, label %158, label %213
-
-158:                                              ; preds = %_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %160 = load i8, ptr %159, align 1, !tbaa !50, !range !93, !noundef !94
+_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit: ; preds = %.lr.ph.i.i53, %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit51, %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit.thread, %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit
+  %157 = phi ptr [ %37, %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit.thread ], [ %99, %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit ], [ %99, %_ZN2cv11bioinspired17BasicRetinaFilter36normalizeGrayOutput_0_maxOutputValueEf.exit51 ], [ %99, %.lr.ph.i.i53 ]
+  %158 = load i8, ptr %0, align 8, !tbaa !49, !range !93, !noundef !94
+  %159 = trunc nuw i8 %158 to i1
+  %160 = load i8, ptr %157, align 1, !range !93
   %161 = trunc nuw i8 %160 to i1
-  %brmerge24.demorgan = and i1 %3, %161
-  br i1 %brmerge24.demorgan, label %162, label %206
+  %or.cond3 = and i1 %3, %161
+  %or.cond30 = select i1 %159, i1 %or.cond3, i1 false
+  br i1 %or.cond30, label %162, label %206
 
-162:                                              ; preds = %158
+162:                                              ; preds = %_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %164 = load ptr, ptr %163, align 8, !tbaa !10
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1275,12 +1277,12 @@ _ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigm
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %162
   %174 = and i64 %166, 4294967295
-  %.not.i.i47 = icmp eq i64 %174, 0
-  br i1 %.not.i.i47, label %_ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoMappingEv.exit, label %.lr.ph.i.preheader.i48
+  %.not.i.i55 = icmp eq i64 %174, 0
+  br i1 %.not.i.i55, label %_ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoMappingEv.exit, label %.lr.ph.i.preheader.i56
 
-.lr.ph.i.preheader.i48:                           ; preds = %._crit_edge.i
+.lr.ph.i.preheader.i56:                           ; preds = %._crit_edge.i
   %175 = load float, ptr %164, align 4, !tbaa !61
-  br label %.lr.ph.i.i49
+  br label %.lr.ph.i.i57
 
 .lr.ph43.preheader.i.i:                           ; preds = %186
   %176 = fsub float %.1.i.i, %.128.i.i
@@ -1289,29 +1291,29 @@ _ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigm
   %179 = fmul float %177, %178
   br label %.lr.ph43.i.i
 
-.lr.ph.i.i49:                                     ; preds = %186, %.lr.ph.i.preheader.i48
-  %.02638.i.i = phi float [ %.1.i.i, %186 ], [ %175, %.lr.ph.i.preheader.i48 ]
-  %.02737.i.i = phi float [ %.128.i.i, %186 ], [ %175, %.lr.ph.i.preheader.i48 ]
-  %.02936.i.i = phi ptr [ %180, %186 ], [ %164, %.lr.ph.i.preheader.i48 ]
-  %.03135.i.i = phi i64 [ %187, %186 ], [ 0, %.lr.ph.i.preheader.i48 ]
+.lr.ph.i.i57:                                     ; preds = %186, %.lr.ph.i.preheader.i56
+  %.02638.i.i = phi float [ %.1.i.i, %186 ], [ %175, %.lr.ph.i.preheader.i56 ]
+  %.02737.i.i = phi float [ %.128.i.i, %186 ], [ %175, %.lr.ph.i.preheader.i56 ]
+  %.02936.i.i = phi ptr [ %180, %186 ], [ %164, %.lr.ph.i.preheader.i56 ]
+  %.03135.i.i = phi i64 [ %187, %186 ], [ 0, %.lr.ph.i.preheader.i56 ]
   %180 = getelementptr inbounds nuw i8, ptr %.02936.i.i, i64 4
   %181 = load float, ptr %.02936.i.i, align 4, !tbaa !61
   %182 = fcmp olt float %.02638.i.i, %181
   br i1 %182, label %186, label %183
 
-183:                                              ; preds = %.lr.ph.i.i49
+183:                                              ; preds = %.lr.ph.i.i57
   %184 = fcmp ogt float %.02737.i.i, %181
   br i1 %184, label %185, label %186
 
 185:                                              ; preds = %183
   br label %186
 
-186:                                              ; preds = %185, %183, %.lr.ph.i.i49
-  %.128.i.i = phi float [ %181, %185 ], [ %.02737.i.i, %183 ], [ %.02737.i.i, %.lr.ph.i.i49 ]
-  %.1.i.i = phi float [ %.02638.i.i, %185 ], [ %.02638.i.i, %183 ], [ %181, %.lr.ph.i.i49 ]
+186:                                              ; preds = %185, %183, %.lr.ph.i.i57
+  %.128.i.i = phi float [ %181, %185 ], [ %.02737.i.i, %183 ], [ %.02737.i.i, %.lr.ph.i.i57 ]
+  %.1.i.i = phi float [ %.02638.i.i, %185 ], [ %.02638.i.i, %183 ], [ %181, %.lr.ph.i.i57 ]
   %187 = add nuw nsw i64 %.03135.i.i, 1
-  %exitcond.not.i.i50 = icmp eq i64 %187, %174
-  br i1 %exitcond.not.i.i50, label %.lr.ph43.preheader.i.i, label %.lr.ph.i.i49, !llvm.loop !99
+  %exitcond.not.i.i58 = icmp eq i64 %187, %174
+  br i1 %exitcond.not.i.i58, label %.lr.ph43.preheader.i.i, label %.lr.ph.i.i57, !llvm.loop !99
 
 .lr.ph43.i.i:                                     ; preds = %.lr.ph43.i.i, %.lr.ph43.preheader.i.i
   %.041.i.i = phi i64 [ %190, %.lr.ph43.i.i ], [ 0, %.lr.ph43.preheader.i.i ]
@@ -1351,21 +1353,22 @@ _ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoMappingEv.exit: ; pre
   %205 = trunc nuw i8 %204 to i1
   br i1 %205, label %.sink.split, label %213
 
-206:                                              ; preds = %158
-  %207 = load i8, ptr %13, align 8, !tbaa !51, !range !93, !noundef !94
+206:                                              ; preds = %_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit
+  %207 = load i8, ptr %13, align 8, !range !93
   %208 = trunc nuw i8 %207 to i1
-  br i1 %208, label %.sink.split, label %213
+  %or.cond32 = select i1 %159, i1 %208, i1 false
+  br i1 %or.cond32, label %.sink.split, label %213
 
 .sink.split:                                      ; preds = %206, %_ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoMappingEv.exit
-  %.sink59 = phi i64 [ 16, %_ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoMappingEv.exit ], [ 232, %206 ]
+  %.sink67 = phi i64 [ 16, %_ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoMappingEv.exit ], [ 232, %206 ]
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink59
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink67
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 1212
   %212 = load float, ptr %211, align 4, !tbaa !54
   tail call void @_ZN2cv11bioinspired11RetinaColor22runColorDemultiplexingERKSt8valarrayIfEbf(ptr noundef nonnull align 8 dereferenceable(349) %209, ptr noundef nonnull align 8 dereferenceable(16) %210, i1 noundef zeroext %2, float noundef %212)
   br label %213
 
-213:                                              ; preds = %.sink.split, %_ZN2cv11bioinspired17MagnoRetinaFilter44normalizeGrayOutputNearZeroCentreredSigmoideEv.exit, %_ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoMappingEv.exit, %206, %6
+213:                                              ; preds = %.sink.split, %_ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoMappingEv.exit, %206, %6
   ret i1 %7
 }
 

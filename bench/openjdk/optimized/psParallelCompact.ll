@@ -2939,31 +2939,31 @@ define hidden noundef zeroext i1 @_ZN17PSParallelCompact24check_maximum_compacti
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = lshr i64 %21, 3
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  %24 = load i32, ptr %23, align 4
-  %25 = load i32, ptr @_ZN17PSParallelCompact26_maximum_compaction_gc_numE, align 4
-  %26 = sub i32 %24, %25
-  %27 = zext i32 %26 to i64
-  %28 = load i64, ptr @HeapMaximumCompactionInterval, align 8
-  %29 = icmp ult i64 %28, %27
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %31 = load volatile ptr, ptr %30, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = and i64 %32, -524288
-  %34 = inttoptr i64 %33 to ptr
-  %.not = icmp uge ptr %2, %34
-  %35 = icmp ugt i64 %0, %22
-  %or.cond = or i1 %14, %35
-  %brmerge = select i1 %or.cond, i1 true, i1 %29
-  %brmerge13 = or i1 %brmerge, %.not
-  br i1 %brmerge13, label %36, label %37
+  %23 = icmp ugt i64 %0, %22
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  %25 = load i32, ptr %24, align 4
+  %26 = load i32, ptr @_ZN17PSParallelCompact26_maximum_compaction_gc_numE, align 4
+  %27 = sub i32 %25, %26
+  %28 = zext i32 %27 to i64
+  %29 = load i64, ptr @HeapMaximumCompactionInterval, align 8
+  %30 = icmp ult i64 %29, %28
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %32 = load volatile ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = and i64 %33, -524288
+  %35 = inttoptr i64 %34 to ptr
+  %36 = icmp uge ptr %2, %35
+  %or.cond = or i1 %14, %23
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %30
+  %or.cond5 = or i1 %or.cond3, %36
+  br i1 %or.cond5, label %37, label %38
 
-36:                                               ; preds = %13
-  store i32 %24, ptr @_ZN17PSParallelCompact26_maximum_compaction_gc_numE, align 4
-  br label %37
+37:                                               ; preds = %13
+  store i32 %25, ptr @_ZN17PSParallelCompact26_maximum_compaction_gc_numE, align 4
+  br label %38
 
-37:                                               ; preds = %13, %36
-  ret i1 %brmerge13
+38:                                               ; preds = %13, %37
+  ret i1 %or.cond5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3176,248 +3176,248 @@ _ZN19ParallelCompactData19live_words_in_spaceEPK12MutableSpacePPP12HeapWordImpl.
   %114 = ptrtoint ptr %112 to i64
   %115 = sub i64 %113, %114
   %116 = lshr i64 %115, 3
-  %117 = getelementptr inbounds nuw i8, ptr %99, i64 76
-  %118 = load i32, ptr %117, align 4
-  %119 = load i32, ptr @_ZN17PSParallelCompact26_maximum_compaction_gc_numE, align 4
-  %120 = sub i32 %118, %119
-  %121 = zext i32 %120 to i64
-  %122 = load i64, ptr @HeapMaximumCompactionInterval, align 8
-  %123 = icmp ult i64 %122, %121
-  %124 = load volatile ptr, ptr %42, align 8
-  %125 = ptrtoint ptr %124 to i64
-  %126 = and i64 %125, -524288
-  %127 = inttoptr i64 %126 to ptr
-  %.not.i = icmp uge ptr %.2, %127
-  %128 = icmp ugt i64 %93, %116
-  %or.cond.i = or i1 %109, %128
-  %brmerge.i = select i1 %or.cond.i, i1 true, i1 %123
-  %brmerge13.i = or i1 %brmerge.i, %.not.i
-  br i1 %brmerge13.i, label %129, label %_ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImpl.exit
+  %117 = icmp ugt i64 %93, %116
+  %118 = getelementptr inbounds nuw i8, ptr %99, i64 76
+  %119 = load i32, ptr %118, align 4
+  %120 = load i32, ptr @_ZN17PSParallelCompact26_maximum_compaction_gc_numE, align 4
+  %121 = sub i32 %119, %120
+  %122 = zext i32 %121 to i64
+  %123 = load i64, ptr @HeapMaximumCompactionInterval, align 8
+  %124 = icmp ult i64 %123, %122
+  %125 = load volatile ptr, ptr %42, align 8
+  %126 = ptrtoint ptr %125 to i64
+  %127 = and i64 %126, -524288
+  %128 = inttoptr i64 %127 to ptr
+  %129 = icmp uge ptr %.2, %128
+  %or.cond.i = or i1 %109, %117
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %124
+  %or.cond5.i = or i1 %or.cond3.i, %129
+  br i1 %or.cond5.i, label %130, label %_ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImpl.exit
 
-129:                                              ; preds = %108
-  store i32 %118, ptr @_ZN17PSParallelCompact26_maximum_compaction_gc_numE, align 4
-  br label %165
+130:                                              ; preds = %108
+  store i32 %119, ptr @_ZN17PSParallelCompact26_maximum_compaction_gc_numE, align 4
+  br label %166
 
 _ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImpl.exit: ; preds = %108
-  %130 = ptrtoint ptr %.2 to i64
-  %131 = sub i64 %130, %39
-  %132 = lshr i64 %131, 19
-  %133 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %.pre.pre, i64 %132
-  %134 = load volatile ptr, ptr %42, align 8
-  %135 = ptrtoint ptr %134 to i64
-  %136 = sub i64 %135, %39
-  %137 = lshr i64 %136, 19
-  %138 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %.pre.pre, i64 %137
-  %139 = icmp samesign ult i64 %132, %137
-  br i1 %139, label %.lr.ph.preheader.i, label %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit
+  %131 = ptrtoint ptr %.2 to i64
+  %132 = sub i64 %131, %39
+  %133 = lshr i64 %132, 19
+  %134 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %.pre.pre, i64 %133
+  %135 = load volatile ptr, ptr %42, align 8
+  %136 = ptrtoint ptr %135 to i64
+  %137 = sub i64 %136, %39
+  %138 = lshr i64 %137, 19
+  %139 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %.pre.pre, i64 %138
+  %140 = icmp samesign ult i64 %133, %138
+  br i1 %140, label %.lr.ph.preheader.i, label %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImpl.exit
-  %140 = load i32, ptr @MarkSweepDeadRatio, align 4
-  %141 = uitofp i32 %140 to double
-  %142 = fdiv double %141, 1.000000e+02
-  %143 = uitofp nneg i64 %116 to double
-  %144 = fmul double %142, %143
-  %145 = fptoui double %144 to i64
+  %141 = load i32, ptr @MarkSweepDeadRatio, align 4
+  %142 = uitofp i32 %141 to double
+  %143 = fdiv double %142, 1.000000e+02
+  %144 = uitofp nneg i64 %116 to double
+  %145 = fmul double %143, %144
+  %146 = fptoui double %145 to i64
   br label %.lr.ph.i77
 
-.lr.ph.i77:                                       ; preds = %156, %.lr.ph.preheader.i
-  %.021.i = phi i64 [ %157, %156 ], [ %145, %.lr.ph.preheader.i ]
-  %.01620.i = phi ptr [ %158, %156 ], [ %133, %.lr.ph.preheader.i ]
-  %146 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 24
-  %147 = load i32, ptr %146, align 8
-  %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 28
-  %150 = load volatile i32, ptr %149, align 4
-  %151 = and i32 %150, 134217727
-  %152 = zext nneg i32 %151 to i64
-  %153 = add nuw nsw i64 %148, %152
-  %154 = sub nsw i64 65536, %153
-  %155 = icmp ult i64 %.021.i, %154
-  br i1 %155, label %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit, label %156
+.lr.ph.i77:                                       ; preds = %157, %.lr.ph.preheader.i
+  %.021.i = phi i64 [ %158, %157 ], [ %146, %.lr.ph.preheader.i ]
+  %.01620.i = phi ptr [ %159, %157 ], [ %134, %.lr.ph.preheader.i ]
+  %147 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 24
+  %148 = load i32, ptr %147, align 8
+  %149 = zext i32 %148 to i64
+  %150 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 28
+  %151 = load volatile i32, ptr %150, align 4
+  %152 = and i32 %151, 134217727
+  %153 = zext nneg i32 %152 to i64
+  %154 = add nuw nsw i64 %149, %153
+  %155 = sub nsw i64 65536, %154
+  %156 = icmp ult i64 %.021.i, %155
+  br i1 %156, label %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit, label %157
 
-156:                                              ; preds = %.lr.ph.i77
-  %157 = sub nuw i64 %.021.i, %154
-  %158 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 40
-  %159 = icmp ult ptr %158, %138
-  br i1 %159, label %.lr.ph.i77, label %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit, !llvm.loop !16
+157:                                              ; preds = %.lr.ph.i77
+  %158 = sub nuw i64 %.021.i, %155
+  %159 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 40
+  %160 = icmp ult ptr %159, %139
+  br i1 %160, label %.lr.ph.i77, label %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit, !llvm.loop !16
 
-_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit: ; preds = %.lr.ph.i77, %156, %_ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImpl.exit
-  %.016.lcssa.i = phi ptr [ %133, %_ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImpl.exit ], [ %158, %156 ], [ %.01620.i, %.lr.ph.i77 ]
-  %160 = ptrtoint ptr %.016.lcssa.i to i64
-  %161 = ptrtoint ptr %.pre.pre to i64
-  %162 = sub i64 %160, %161
-  %163 = udiv i64 %162, 40
-  %.idx.i.i.i = shl i64 %163, 19
-  %164 = getelementptr inbounds i8, ptr %37, i64 %.idx.i.i.i
-  br label %165
+_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit: ; preds = %.lr.ph.i77, %157, %_ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImpl.exit
+  %.016.lcssa.i = phi ptr [ %134, %_ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImpl.exit ], [ %159, %157 ], [ %.01620.i, %.lr.ph.i77 ]
+  %161 = ptrtoint ptr %.016.lcssa.i to i64
+  %162 = ptrtoint ptr %.pre.pre to i64
+  %163 = sub i64 %161, %162
+  %164 = udiv i64 %163, 40
+  %.idx.i.i.i = shl i64 %164, 19
+  %165 = getelementptr inbounds i8, ptr %37, i64 %.idx.i.i.i
+  br label %166
 
-165:                                              ; preds = %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit, %129
-  %166 = phi ptr [ %.2, %129 ], [ %164, %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit ]
-  store ptr %166, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact11_space_infoE, i64 16), align 16
-  %.not = icmp eq ptr %166, %112
-  br i1 %.not, label %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit, label %167
+166:                                              ; preds = %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit, %130
+  %167 = phi ptr [ %.2, %130 ], [ %165, %_ZN17PSParallelCompact34compute_dense_prefix_for_old_spaceEP12MutableSpacePP12HeapWordImpl.exit ]
+  store ptr %167, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact11_space_infoE, i64 16), align 16
+  %.not = icmp eq ptr %167, %112
+  br i1 %.not, label %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit, label %168
 
-167:                                              ; preds = %165
+168:                                              ; preds = %166
   call void @_ZN17PSParallelCompact21fill_dense_prefix_endENS_7SpaceIdE(i32 noundef 0)
-  %168 = load ptr, ptr %35, align 8
-  %169 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
-  %170 = ptrtoint ptr %168 to i64
+  %169 = load ptr, ptr %35, align 8
+  %170 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
   %171 = ptrtoint ptr %169 to i64
-  %172 = sub i64 %170, %171
-  %173 = lshr i64 %172, 19
-  %174 = ptrtoint ptr %166 to i64
-  %175 = sub i64 %174, %171
-  %176 = lshr i64 %175, 19
-  %177 = icmp samesign ult i64 %173, %176
-  br i1 %177, label %.lr.ph.i79, label %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit
+  %172 = ptrtoint ptr %170 to i64
+  %173 = sub i64 %171, %172
+  %174 = lshr i64 %173, 19
+  %175 = ptrtoint ptr %167 to i64
+  %176 = sub i64 %175, %172
+  %177 = lshr i64 %176, 19
+  %178 = icmp samesign ult i64 %174, %177
+  br i1 %178, label %.lr.ph.i79, label %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit
 
-.lr.ph.i79:                                       ; preds = %167, %.lr.ph.i79
-  %.017.i = phi i64 [ %195, %.lr.ph.i79 ], [ %173, %167 ]
-  %.01516.i = phi ptr [ %196, %.lr.ph.i79 ], [ %168, %167 ]
-  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
-  %179 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %178, i64 %.017.i
-  store ptr %.01516.i, ptr %179, align 8
-  %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
-  %181 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %180, i64 %.017.i, i32 4
-  %182 = load volatile i32, ptr %181, align 4
-  %183 = and i32 %182, 134217727
-  store volatile i32 %183, ptr %181, align 4
-  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
-  %185 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %184, i64 %.017.i, i32 1
-  store i64 %.017.i, ptr %185, align 8
-  %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
-  %187 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %186, i64 %.017.i
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
-  %189 = load i32, ptr %188, align 8
-  %190 = sub i32 65536, %189
-  %191 = getelementptr inbounds nuw i8, ptr %187, i64 28
-  %192 = load volatile i32, ptr %191, align 4
-  %193 = and i32 %192, -134217728
-  %194 = or i32 %193, %190
-  store volatile i32 %194, ptr %191, align 4
-  %195 = add nuw nsw i64 %.017.i, 1
-  %196 = getelementptr inbounds nuw i8, ptr %.01516.i, i64 524288
-  %exitcond.not.i80 = icmp eq i64 %195, %176
+.lr.ph.i79:                                       ; preds = %168, %.lr.ph.i79
+  %.017.i = phi i64 [ %196, %.lr.ph.i79 ], [ %174, %168 ]
+  %.01516.i = phi ptr [ %197, %.lr.ph.i79 ], [ %169, %168 ]
+  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
+  %180 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %179, i64 %.017.i
+  store ptr %.01516.i, ptr %180, align 8
+  %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
+  %182 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %181, i64 %.017.i, i32 4
+  %183 = load volatile i32, ptr %182, align 4
+  %184 = and i32 %183, 134217727
+  store volatile i32 %184, ptr %182, align 4
+  %185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
+  %186 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %185, i64 %.017.i, i32 1
+  store i64 %.017.i, ptr %186, align 8
+  %187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact13_summary_dataE, i64 24), align 8
+  %188 = getelementptr inbounds nuw %"class.ParallelCompactData::RegionData", ptr %187, i64 %.017.i
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 24
+  %190 = load i32, ptr %189, align 8
+  %191 = sub i32 65536, %190
+  %192 = getelementptr inbounds nuw i8, ptr %188, i64 28
+  %193 = load volatile i32, ptr %192, align 4
+  %194 = and i32 %193, -134217728
+  %195 = or i32 %194, %191
+  store volatile i32 %195, ptr %192, align 4
+  %196 = add nuw nsw i64 %.017.i, 1
+  %197 = getelementptr inbounds nuw i8, ptr %.01516.i, i64 524288
+  %exitcond.not.i80 = icmp eq i64 %196, %177
   br i1 %exitcond.not.i80, label %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit, label %.lr.ph.i79, !llvm.loop !10
 
-_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit: ; preds = %.lr.ph.i79, %167, %165
-  %197 = load volatile ptr, ptr %42, align 8
-  %198 = load ptr, ptr %110, align 8
-  %199 = call noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfoPP12HeapWordImplS4_PS4_S4_S4_S5_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17PSParallelCompact13_summary_dataE, ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact11_space_infoE, i64 32), ptr noundef %166, ptr noundef %197, ptr noundef null, ptr noundef %166, ptr noundef %198, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact11_space_infoE, i64 8))
-  %200 = load ptr, ptr %110, align 8
-  br label %201
+_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit: ; preds = %.lr.ph.i79, %168, %166
+  %198 = load volatile ptr, ptr %42, align 8
+  %199 = load ptr, ptr %110, align 8
+  %200 = call noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfoPP12HeapWordImplS4_PS4_S4_S4_S5_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17PSParallelCompact13_summary_dataE, ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact11_space_infoE, i64 32), ptr noundef %167, ptr noundef %198, ptr noundef null, ptr noundef %167, ptr noundef %199, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact11_space_infoE, i64 8))
+  %201 = load ptr, ptr %110, align 8
+  br label %202
 
-201:                                              ; preds = %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit, %236
-  %indvars.iv98 = phi i64 [ 1, %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit ], [ %indvars.iv.next99, %236 ]
-  %.06694 = phi ptr [ %200, %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit ], [ %.1, %236 ]
-  %.06793 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact11_space_infoE, i64 8), %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit ], [ %.168, %236 ]
-  %202 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv98
-  %203 = load ptr, ptr %202, align 16
-  %204 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %203, i64 32
-  %207 = load ptr, ptr %206, align 8
-  %208 = ptrtoint ptr %205 to i64
-  %209 = ptrtoint ptr %207 to i64
-  %210 = sub i64 %208, %209
-  %211 = lshr i64 %210, 3
-  %212 = load ptr, ptr %.06793, align 8
-  %213 = ptrtoint ptr %.06694 to i64
-  %214 = ptrtoint ptr %212 to i64
-  %215 = sub i64 %213, %214
-  %216 = lshr i64 %215, 3
-  %.not72 = icmp ult i64 %210, 8
-  %.not73 = icmp samesign ugt i64 %211, %216
+202:                                              ; preds = %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit, %237
+  %indvars.iv98 = phi i64 [ 1, %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit ], [ %indvars.iv.next99, %237 ]
+  %.06694 = phi ptr [ %201, %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit ], [ %.1, %237 ]
+  %.06793 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact11_space_infoE, i64 8), %_ZN19ParallelCompactData22summarize_dense_prefixEPP12HeapWordImplS2_.exit ], [ %.168, %237 ]
+  %203 = getelementptr inbounds nuw [4 x %class.SpaceInfo], ptr @_ZN17PSParallelCompact11_space_infoE, i64 0, i64 %indvars.iv98
+  %204 = load ptr, ptr %203, align 16
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 8
+  %206 = load ptr, ptr %205, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %204, i64 32
+  %208 = load ptr, ptr %207, align 8
+  %209 = ptrtoint ptr %206 to i64
+  %210 = ptrtoint ptr %208 to i64
+  %211 = sub i64 %209, %210
+  %212 = lshr i64 %211, 3
+  %213 = load ptr, ptr %.06793, align 8
+  %214 = ptrtoint ptr %.06694 to i64
+  %215 = ptrtoint ptr %213 to i64
+  %216 = sub i64 %214, %215
+  %217 = lshr i64 %216, 3
+  %.not72 = icmp ult i64 %211, 8
+  %.not73 = icmp samesign ugt i64 %212, %217
   %or.cond = or i1 %.not72, %.not73
-  br i1 %or.cond, label %223, label %217
+  br i1 %or.cond, label %224, label %218
 
-217:                                              ; preds = %201
-  %218 = getelementptr inbounds nuw i8, ptr %202, i64 32
-  %219 = getelementptr inbounds nuw i8, ptr %203, i64 40
-  %220 = load volatile ptr, ptr %219, align 8
-  %221 = call noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfoPP12HeapWordImplS4_PS4_S4_S4_S5_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17PSParallelCompact13_summary_dataE, ptr noundef nonnull align 8 dereferenceable(48) %218, ptr noundef %207, ptr noundef %220, ptr noundef null, ptr noundef %212, ptr noundef %.06694, ptr noundef nonnull %.06793)
-  %222 = load ptr, ptr %206, align 8
-  store ptr %222, ptr %204, align 8
-  br label %236
+218:                                              ; preds = %202
+  %219 = getelementptr inbounds nuw i8, ptr %203, i64 32
+  %220 = getelementptr inbounds nuw i8, ptr %204, i64 40
+  %221 = load volatile ptr, ptr %220, align 8
+  %222 = call noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfoPP12HeapWordImplS4_PS4_S4_S4_S5_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17PSParallelCompact13_summary_dataE, ptr noundef nonnull align 8 dereferenceable(48) %219, ptr noundef %208, ptr noundef %221, ptr noundef null, ptr noundef %213, ptr noundef %.06694, ptr noundef nonnull %.06793)
+  %223 = load ptr, ptr %207, align 8
+  store ptr %223, ptr %205, align 8
+  br label %237
 
-223:                                              ; preds = %201
-  br i1 %.not72, label %236, label %224
+224:                                              ; preds = %202
+  br i1 %.not72, label %237, label %225
 
-224:                                              ; preds = %223
+225:                                              ; preds = %224
   store ptr null, ptr %2, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %202, i64 32
-  %226 = getelementptr inbounds nuw i8, ptr %203, i64 40
-  %227 = load volatile ptr, ptr %226, align 8
-  %228 = load ptr, ptr %.06793, align 8
-  %229 = call noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfoPP12HeapWordImplS4_PS4_S4_S4_S5_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17PSParallelCompact13_summary_dataE, ptr noundef nonnull align 8 dereferenceable(48) %225, ptr noundef %207, ptr noundef %227, ptr noundef nonnull %2, ptr noundef %228, ptr noundef %.06694, ptr noundef nonnull %.06793)
-  %230 = getelementptr inbounds nuw i8, ptr %203, i64 48
-  %231 = load ptr, ptr %230, align 8
-  %232 = load ptr, ptr %2, align 8
-  %233 = load volatile ptr, ptr %226, align 8
-  %234 = load ptr, ptr %206, align 8
-  %235 = call noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfoPP12HeapWordImplS4_PS4_S4_S4_S5_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17PSParallelCompact13_summary_dataE, ptr noundef nonnull align 8 dereferenceable(48) %225, ptr noundef %232, ptr noundef %233, ptr noundef null, ptr noundef %234, ptr noundef %231, ptr noundef nonnull %204)
-  br label %236
+  %226 = getelementptr inbounds nuw i8, ptr %203, i64 32
+  %227 = getelementptr inbounds nuw i8, ptr %204, i64 40
+  %228 = load volatile ptr, ptr %227, align 8
+  %229 = load ptr, ptr %.06793, align 8
+  %230 = call noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfoPP12HeapWordImplS4_PS4_S4_S4_S5_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17PSParallelCompact13_summary_dataE, ptr noundef nonnull align 8 dereferenceable(48) %226, ptr noundef %208, ptr noundef %228, ptr noundef nonnull %2, ptr noundef %229, ptr noundef %.06694, ptr noundef nonnull %.06793)
+  %231 = getelementptr inbounds nuw i8, ptr %204, i64 48
+  %232 = load ptr, ptr %231, align 8
+  %233 = load ptr, ptr %2, align 8
+  %234 = load volatile ptr, ptr %227, align 8
+  %235 = load ptr, ptr %207, align 8
+  %236 = call noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfoPP12HeapWordImplS4_PS4_S4_S4_S5_(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17PSParallelCompact13_summary_dataE, ptr noundef nonnull align 8 dereferenceable(48) %226, ptr noundef %233, ptr noundef %234, ptr noundef null, ptr noundef %235, ptr noundef %232, ptr noundef nonnull %205)
+  br label %237
 
-236:                                              ; preds = %217, %224, %223
-  %.168 = phi ptr [ %.06793, %217 ], [ %204, %224 ], [ %.06793, %223 ]
-  %.1 = phi ptr [ %.06694, %217 ], [ %231, %224 ], [ %.06694, %223 ]
+237:                                              ; preds = %218, %225, %224
+  %.168 = phi ptr [ %.06793, %218 ], [ %205, %225 ], [ %.06793, %224 ]
+  %.1 = phi ptr [ %.06694, %218 ], [ %232, %225 ], [ %.06694, %224 ]
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, 4
-  br i1 %exitcond101.not, label %237, label %201, !llvm.loop !23
+  br i1 %exitcond101.not, label %238, label %202, !llvm.loop !23
 
-237:                                              ; preds = %236
-  %238 = load ptr, ptr %18, align 8
-  %.not.i.i.i.i = icmp ne ptr %238, null
-  %239 = load ptr, ptr %20, align 8
-  %.not1.i.i.i.i = icmp ne ptr %239, null
+238:                                              ; preds = %237
+  %239 = load ptr, ptr %18, align 8
+  %.not.i.i.i.i = icmp ne ptr %239, null
+  %240 = load ptr, ptr %20, align 8
+  %.not1.i.i.i.i = icmp ne ptr %240, null
   %or.cond.i.not16.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %.not1.i.i.i.i
-  %240 = load ptr, ptr %21, align 8
-  %241 = icmp ne ptr %240, null
-  %or.cond.i.i.i = select i1 %or.cond.i.not16.i.i.i, i1 true, i1 %241
-  br i1 %or.cond.i.i.i, label %242, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
+  %241 = load ptr, ptr %21, align 8
+  %242 = icmp ne ptr %241, null
+  %or.cond.i.i.i = select i1 %or.cond.i.not16.i.i.i, i1 true, i1 %242
+  br i1 %or.cond.i.i.i, label %243, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
-242:                                              ; preds = %237
-  %243 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #25
-  %244 = extractvalue { i64, i64 } %243, 0
-  %245 = extractvalue { i64, i64 } %243, 1
+243:                                              ; preds = %238
+  %244 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #25
+  %245 = extractvalue { i64, i64 } %244, 0
+  %246 = extractvalue { i64, i64 } %244, 1
   %.pre.i.i.i82 = load ptr, ptr %18, align 8
   %.not.i5.i.i.i = icmp eq ptr %.pre.i.i.i82, null
-  br i1 %.not.i5.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i, label %246
+  br i1 %.not.i5.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i, label %247
 
-246:                                              ; preds = %242
-  %247 = load ptr, ptr %.pre.i.i.i82, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  %249 = load ptr, ptr %248, align 8
-  call void %249(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i.i.i82, i64 %244, i64 %245) #25
+247:                                              ; preds = %243
+  %248 = load ptr, ptr %.pre.i.i.i82, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  %250 = load ptr, ptr %249, align 8
+  call void %250(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i.i.i82, i64 %245, i64 %246) #25
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
-_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %246, %242, %237
-  %.sroa.5.021.i.i.i = phi i64 [ %245, %242 ], [ %245, %246 ], [ 0, %237 ]
-  %.sroa.0.020.i.i.i = phi i64 [ %244, %242 ], [ %244, %246 ], [ 0, %237 ]
-  %250 = load ptr, ptr %20, align 8
-  %.not.i6.i.i.i = icmp eq ptr %250, null
-  br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %251
+_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %247, %243, %238
+  %.sroa.5.021.i.i.i = phi i64 [ %246, %243 ], [ %246, %247 ], [ 0, %238 ]
+  %.sroa.0.020.i.i.i = phi i64 [ %245, %243 ], [ %245, %247 ], [ 0, %238 ]
+  %251 = load ptr, ptr %20, align 8
+  %.not.i6.i.i.i = icmp eq ptr %251, null
+  br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %252
 
-251:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
-  %252 = load ptr, ptr %250, align 8
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  %254 = load ptr, ptr %253, align 8
-  call void %254(ptr noundef nonnull align 8 dereferenceable(8) %250, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #25
+252:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
+  %253 = load ptr, ptr %251, align 8
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
+  %255 = load ptr, ptr %254, align 8
+  call void %255(ptr noundef nonnull align 8 dereferenceable(8) %251, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #25
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
 
-_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i: ; preds = %251, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
-  %255 = load ptr, ptr %21, align 8
-  %.not.i8.i.i.i81 = icmp eq ptr %255, null
-  br i1 %.not.i8.i.i.i81, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %256
+_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i: ; preds = %252, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
+  %256 = load ptr, ptr %21, align 8
+  %.not.i8.i.i.i81 = icmp eq ptr %256, null
+  br i1 %.not.i8.i.i.i81, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %257
 
-256:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
-  %257 = load ptr, ptr %255, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
-  %259 = load ptr, ptr %258, align 8
-  call void %259(ptr noundef nonnull align 8 dereferenceable(8) %255, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #25
+257:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
+  %258 = load ptr, ptr %256, align 8
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  %260 = load ptr, ptr %259, align 8
+  call void %260(ptr noundef nonnull align 8 dereferenceable(8) %256, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #25
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
 
-_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, %256
+_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, %257
   ret void
 }
 
@@ -3463,7 +3463,7 @@ define hidden noundef zeroext i1 @_ZN17PSParallelCompact16invoke_no_policyEb(i1 
   %11 = alloca %class.TimeInstant, align 8
   %12 = alloca %class.TimeInstant, align 8
   %13 = tail call noundef zeroext i1 @_ZN8GCLocker22check_active_before_gcEv() #25
-  br i1 %13, label %289, label %14
+  br i1 %13, label %290, label %14
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -3587,8 +3587,8 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
   %75 = load ptr, ptr %74, align 8
   call void @_ZN23TraceMemoryManagerStatsC1EP15GCMemoryManagerN7GCCause5CauseEPKcbbbbbbbb(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %75, i32 noundef %23, ptr noundef nonnull @.str.20, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true) #25
   %76 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not72 = icmp eq ptr %76, null
-  br i1 %.not72, label %78, label %77
+  %.not73 = icmp eq ptr %76, null
+  br i1 %.not73, label %78, label %77
 
 77:                                               ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
   call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN17PSParallelCompact17_accumulated_timeE) #25
@@ -3630,12 +3630,12 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
   call void @_ZN20PSAdaptiveSizePolicy20major_collection_endEmN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(312) %26, i64 noundef %96, i32 noundef %23) #25
   %97 = load i8, ptr @UseAdaptiveSizePolicy, align 1
   %98 = trunc i8 %97 to i1
-  br i1 %98, label %99, label %198
+  br i1 %98, label %99, label %200
 
 99:                                               ; preds = %78
   %100 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not73 = icmp eq ptr %100, null
-  br i1 %.not73, label %104, label %101
+  %.not74 = icmp eq ptr %100, null
+  br i1 %.not74, label %104, label %101
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %15, i64 72
@@ -3645,8 +3645,8 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
 
 104:                                              ; preds = %99, %101
   %105 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not74 = icmp eq ptr %105, null
-  br i1 %.not74, label %117, label %106
+  %.not75 = icmp eq ptr %105, null
+  br i1 %.not75, label %117, label %106
 
 106:                                              ; preds = %104
   %107 = load ptr, ptr %90, align 8
@@ -3665,169 +3665,165 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
 117:                                              ; preds = %104, %106
   %118 = load i8, ptr @UseAdaptiveGenerationSizePolicyAtMajorCollection, align 1
   %119 = trunc i8 %118 to i1
-  br i1 %119, label %120, label %193
+  br i1 %119, label %120, label %195
 
 120:                                              ; preds = %117
-  switch i32 %23, label %193 [
-    i32 23, label %121
-    i32 0, label %121
+  %121 = icmp eq i32 %23, 0
+  %122 = icmp eq i32 %23, 23
+  %123 = or i1 %121, %122
+  %124 = load i8, ptr @UseAdaptiveSizePolicyWithSystemGC, align 1
+  %125 = trunc i8 %124 to i1
+  %or.cond.i = select i1 %123, i1 %125, i1 false
+  br i1 %or.cond.i, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit
+
+_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit: ; preds = %120
+  switch i32 %23, label %195 [
     i32 18, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
     i32 13, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
   ]
 
-121:                                              ; preds = %120, %120
-  %122 = load i8, ptr @UseAdaptiveSizePolicyWithSystemGC, align 1
-  %123 = trunc i8 %122 to i1
-  br i1 %123, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit
-
-_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit: ; preds = %121
-  switch i32 %23, label %193 [
-    i32 18, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
-    i32 13, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
-  ]
-
-_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread: ; preds = %120, %120, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit, %121
-  %124 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %125 = load ptr, ptr %124, align 8
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 80
+_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread: ; preds = %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit, %120
+  %126 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %127 = load ptr, ptr %126, align 8
   %128 = load ptr, ptr %127, align 8
-  %129 = call noundef i64 %128(ptr noundef nonnull align 8 dereferenceable(56) %125) #25
-  %130 = icmp eq i64 %129, 0
-  br i1 %130, label %131, label %136
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 80
+  %130 = load ptr, ptr %129, align 8
+  %131 = call noundef i64 %130(ptr noundef nonnull align 8 dereferenceable(56) %127) #25
+  %132 = icmp eq i64 %131, 0
+  br i1 %132, label %133, label %138
 
-131:                                              ; preds = %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
-  %132 = load ptr, ptr %124, align 8
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 32
+133:                                              ; preds = %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
+  %134 = load ptr, ptr %126, align 8
   %135 = load ptr, ptr %134, align 8
-  call void %135(ptr noundef nonnull align 8 dereferenceable(56) %132, i1 noundef zeroext true) #25
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
+  %137 = load ptr, ptr %136, align 8
+  call void %137(ptr noundef nonnull align 8 dereferenceable(56) %134, i1 noundef zeroext true) #25
   call void @_ZN10PSYoungGen11swap_spacesEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #25
-  br label %136
+  br label %138
 
-136:                                              ; preds = %131, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
-  %137 = call noundef i64 @_ZNK10PSYoungGen13used_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #25
-  %138 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %139 = load ptr, ptr %138, align 8
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 80
+138:                                              ; preds = %133, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
+  %139 = call noundef i64 @_ZNK10PSYoungGen13used_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #25
+  %140 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
-  %143 = call noundef i64 %142(ptr noundef nonnull align 8 dereferenceable(56) %139) #25
-  %144 = shl i64 %143, 3
-  %145 = load ptr, ptr %90, align 8
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 80
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 80
+  %144 = load ptr, ptr %143, align 8
+  %145 = call noundef i64 %144(ptr noundef nonnull align 8 dereferenceable(56) %141) #25
+  %146 = shl i64 %145, 3
+  %147 = load ptr, ptr %90, align 8
   %148 = load ptr, ptr %147, align 8
-  %149 = call noundef i64 %148(ptr noundef nonnull align 8 dereferenceable(56) %145) #25
-  %150 = shl i64 %149, 3
-  %151 = load ptr, ptr %138, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 48
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %151, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 80
+  %150 = load ptr, ptr %149, align 8
+  %151 = call noundef i64 %150(ptr noundef nonnull align 8 dereferenceable(56) %147) #25
+  %152 = shl i64 %151, 3
+  %153 = load ptr, ptr %140, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %155 = load ptr, ptr %154, align 8
-  %156 = ptrtoint ptr %153 to i64
-  %157 = ptrtoint ptr %155 to i64
-  %158 = sub i64 %156, %157
-  %159 = and i64 %158, -8
-  %160 = getelementptr inbounds nuw i8, ptr %25, i64 120
-  %161 = load i64, ptr %160, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 32
+  %157 = load ptr, ptr %156, align 8
+  %158 = ptrtoint ptr %155 to i64
+  %159 = ptrtoint ptr %157 to i64
+  %160 = sub i64 %158, %159
+  %161 = and i64 %160, -8
+  %162 = getelementptr inbounds nuw i8, ptr %25, i64 120
   %163 = load i64, ptr %162, align 8
-  %164 = load ptr, ptr %124, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 48
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %164, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %165 = load i64, ptr %164, align 8
+  %166 = load ptr, ptr %126, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 48
   %168 = load ptr, ptr %167, align 8
-  %169 = ptrtoint ptr %166 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = and i64 %171, -8
-  %173 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 32
+  %170 = load ptr, ptr %169, align 8
+  %171 = ptrtoint ptr %168 to i64
+  %172 = ptrtoint ptr %170 to i64
+  %173 = sub i64 %171, %172
+  %174 = and i64 %173, -8
+  %175 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %174, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 48
   %178 = load ptr, ptr %177, align 8
-  %179 = ptrtoint ptr %176 to i64
-  %180 = ptrtoint ptr %178 to i64
-  %181 = sub i64 %179, %180
-  %182 = and i64 %181, -8
-  %183 = add i64 %172, %182
-  %184 = sub i64 %163, %183
-  %185 = load ptr, ptr %26, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 48
-  %187 = load ptr, ptr %186, align 8
-  call void %187(ptr noundef nonnull align 8 dereferenceable(312) %26) #25
-  call void @_ZN20PSAdaptiveSizePolicy30compute_generations_free_spaceEmmmmmmb(ptr noundef nonnull align 8 dereferenceable(312) %26, i64 noundef %137, i64 noundef %144, i64 noundef %150, i64 noundef %159, i64 noundef %161, i64 noundef %184, i1 noundef zeroext true) #25
-  call void @_ZN18AdaptiveSizePolicy23check_gc_overhead_limitEmmmbN7GCCause5CauseEP13SoftRefPolicy(ptr noundef nonnull align 8 dereferenceable(232) %26, i64 noundef %144, i64 noundef %161, i64 noundef %184, i1 noundef zeroext true, i32 noundef %23, ptr noundef nonnull %27) #25
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 32
+  %180 = load ptr, ptr %179, align 8
+  %181 = ptrtoint ptr %178 to i64
+  %182 = ptrtoint ptr %180 to i64
+  %183 = sub i64 %181, %182
+  %184 = and i64 %183, -8
+  %185 = add i64 %174, %184
+  %186 = sub i64 %165, %185
+  %187 = load ptr, ptr %26, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 48
+  %189 = load ptr, ptr %188, align 8
+  call void %189(ptr noundef nonnull align 8 dereferenceable(312) %26) #25
+  call void @_ZN20PSAdaptiveSizePolicy30compute_generations_free_spaceEmmmmmmb(ptr noundef nonnull align 8 dereferenceable(312) %26, i64 noundef %139, i64 noundef %146, i64 noundef %152, i64 noundef %161, i64 noundef %163, i64 noundef %186, i1 noundef zeroext true) #25
+  call void @_ZN18AdaptiveSizePolicy23check_gc_overhead_limitEmmmbN7GCCause5CauseEP13SoftRefPolicy(ptr noundef nonnull align 8 dereferenceable(232) %26, i64 noundef %146, i64 noundef %163, i64 noundef %186, i1 noundef zeroext true, i32 noundef %23, ptr noundef nonnull %27) #25
   call void @_ZN20PSAdaptiveSizePolicy25decay_supplemental_growthEb(ptr noundef nonnull align 8 dereferenceable(312) %26, i1 noundef zeroext true) #25
-  %188 = call noundef i64 @_ZNK20PSAdaptiveSizePolicy33calculated_old_free_size_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(312) %26) #25
-  call void @_ZN20ParallelScavengeHeap14resize_old_genEm(ptr noundef nonnull align 8 dereferenceable(264) %15, i64 noundef %188) #25
-  %189 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %190 = load i64, ptr %189, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %190 = call noundef i64 @_ZNK20PSAdaptiveSizePolicy33calculated_old_free_size_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(312) %26) #25
+  call void @_ZN20ParallelScavengeHeap14resize_old_genEm(ptr noundef nonnull align 8 dereferenceable(264) %15, i64 noundef %190) #25
+  %191 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %192 = load i64, ptr %191, align 8
-  call void @_ZN20ParallelScavengeHeap16resize_young_genEmm(ptr noundef nonnull align 8 dereferenceable(264) %15, i64 noundef %190, i64 noundef %192) #25
-  br label %193
+  %193 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %194 = load i64, ptr %193, align 8
+  call void @_ZN20ParallelScavengeHeap16resize_young_genEmm(ptr noundef nonnull align 8 dereferenceable(264) %15, i64 noundef %192, i64 noundef %194) #25
+  br label %195
 
-193:                                              ; preds = %120, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit, %136, %117
-  %194 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not75 = icmp eq ptr %194, null
-  br i1 %.not75, label %198, label %195
+195:                                              ; preds = %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit, %138, %117
+  %196 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not76 = icmp eq ptr %196, null
+  br i1 %.not76, label %200, label %197
 
-195:                                              ; preds = %193
-  %196 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %197 = load i32, ptr %196, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.23, i32 noundef %197)
-  br label %198
+197:                                              ; preds = %195
+  %198 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %199 = load i32, ptr %198, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.23, i32 noundef %199)
+  br label %200
 
-198:                                              ; preds = %195, %193, %78
-  %199 = load i8, ptr @UsePerfData, align 1
-  %200 = trunc i8 %199 to i1
-  br i1 %200, label %201, label %223
+200:                                              ; preds = %197, %195, %78
+  %201 = load i8, ptr @UsePerfData, align 1
+  %202 = trunc i8 %201 to i1
+  br i1 %202, label %203, label %225
 
-201:                                              ; preds = %198
-  %202 = load ptr, ptr @_ZN20ParallelScavengeHeap19_gc_policy_countersE, align 8
-  %203 = load ptr, ptr %202, align 8
-  %204 = load ptr, ptr %203, align 8
-  call void %204(ptr noundef nonnull align 8 dereferenceable(432) %202) #25
-  %205 = load ptr, ptr %90, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 48
-  %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %205, i64 32
+203:                                              ; preds = %200
+  %204 = load ptr, ptr @_ZN20ParallelScavengeHeap19_gc_policy_countersE, align 8
+  %205 = load ptr, ptr %204, align 8
+  %206 = load ptr, ptr %205, align 8
+  call void %206(ptr noundef nonnull align 8 dereferenceable(432) %204) #25
+  %207 = load ptr, ptr %90, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 48
   %209 = load ptr, ptr %208, align 8
-  %210 = ptrtoint ptr %207 to i64
-  %211 = ptrtoint ptr %209 to i64
-  %212 = sub i64 %210, %211
-  %213 = and i64 %212, -8
-  %214 = getelementptr inbounds nuw i8, ptr %202, i64 376
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 40
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 32
+  %211 = load ptr, ptr %210, align 8
+  %212 = ptrtoint ptr %209 to i64
+  %213 = ptrtoint ptr %211 to i64
+  %214 = sub i64 %212, %213
+  %215 = and i64 %214, -8
+  %216 = getelementptr inbounds nuw i8, ptr %204, i64 376
   %217 = load ptr, ptr %216, align 8
-  store i64 %213, ptr %217, align 8
-  %218 = call noundef i64 @_ZNK10PSYoungGen17capacity_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #25
-  %219 = getelementptr inbounds nuw i8, ptr %202, i64 56
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 40
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 40
+  %219 = load ptr, ptr %218, align 8
+  store i64 %215, ptr %219, align 8
+  %220 = call noundef i64 @_ZNK10PSYoungGen17capacity_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #25
+  %221 = getelementptr inbounds nuw i8, ptr %204, i64 56
   %222 = load ptr, ptr %221, align 8
-  store i64 %218, ptr %222, align 8
-  br label %223
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 40
+  %224 = load ptr, ptr %223, align 8
+  store i64 %220, ptr %224, align 8
+  br label %225
 
-223:                                              ; preds = %201, %198
-  %224 = load ptr, ptr %15, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  %226 = load ptr, ptr %225, align 8
-  call void %226(ptr noundef nonnull align 8 dereferenceable(264) %15) #25
+225:                                              ; preds = %203, %200
+  %226 = load ptr, ptr %15, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %228 = load ptr, ptr %227, align 8
+  call void %228(ptr noundef nonnull align 8 dereferenceable(264) %15) #25
   call void @_ZN11MetaspaceGC16compute_new_sizeEv() #25
-  %227 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not76 = icmp eq ptr %227, null
-  br i1 %.not76, label %229, label %228
+  %229 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not77 = icmp eq ptr %229, null
+  br i1 %.not77, label %231, label %230
 
-228:                                              ; preds = %223
+230:                                              ; preds = %225
   call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN17PSParallelCompact17_accumulated_timeE) #25
-  br label %229
+  br label %231
 
-229:                                              ; preds = %228, %223
+231:                                              ; preds = %230, %225
   call void @_ZNK20ParallelScavengeHeap17print_heap_changeERK14PreGenGCValues(ptr noundef nonnull align 8 dereferenceable(264) %15, ptr noundef nonnull align 8 dereferenceable(136) %5) #25
   call void @_ZN13MemoryService18track_memory_usageEv() #25
   call void @_ZN20ParallelScavengeHeap15update_countersEv(ptr noundef nonnull align 8 dereferenceable(264) %15) #25
@@ -3835,138 +3831,136 @@ _ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread:
   call void @_ZN21ClassUnloadingContextD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %10) #25
   call void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
   call void @_ZN19TraceCollectorStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #25
-  %230 = load ptr, ptr %56, align 8
-  %.not.i.i.i.i = icmp ne ptr %230, null
-  %231 = load ptr, ptr %58, align 8
-  %.not1.i.i.i.i = icmp ne ptr %231, null
+  %232 = load ptr, ptr %56, align 8
+  %.not.i.i.i.i = icmp ne ptr %232, null
+  %233 = load ptr, ptr %58, align 8
+  %.not1.i.i.i.i = icmp ne ptr %233, null
   %or.cond.i.not16.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %.not1.i.i.i.i
-  %232 = load ptr, ptr %59, align 8
-  %233 = icmp ne ptr %232, null
-  %or.cond.i.i.i = select i1 %or.cond.i.not16.i.i.i, i1 true, i1 %233
-  br i1 %or.cond.i.i.i, label %234, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
+  %234 = load ptr, ptr %59, align 8
+  %235 = icmp ne ptr %234, null
+  %or.cond.i.i.i = select i1 %or.cond.i.not16.i.i.i, i1 true, i1 %235
+  br i1 %or.cond.i.i.i, label %236, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
-234:                                              ; preds = %229
-  %235 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #25
-  %236 = extractvalue { i64, i64 } %235, 0
-  %237 = extractvalue { i64, i64 } %235, 1
+236:                                              ; preds = %231
+  %237 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #25
+  %238 = extractvalue { i64, i64 } %237, 0
+  %239 = extractvalue { i64, i64 } %237, 1
   %.pre.i.i.i67 = load ptr, ptr %56, align 8
   %.not.i5.i.i.i = icmp eq ptr %.pre.i.i.i67, null
-  br i1 %.not.i5.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i, label %238
+  br i1 %.not.i5.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i, label %240
 
-238:                                              ; preds = %234
-  %239 = load ptr, ptr %.pre.i.i.i67, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  %241 = load ptr, ptr %240, align 8
-  call void %241(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i.i.i67, i64 %236, i64 %237) #25
+240:                                              ; preds = %236
+  %241 = load ptr, ptr %.pre.i.i.i67, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load ptr, ptr %242, align 8
+  call void %243(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i.i.i67, i64 %238, i64 %239) #25
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
-_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %238, %234, %229
-  %.sroa.5.021.i.i.i = phi i64 [ %237, %234 ], [ %237, %238 ], [ 0, %229 ]
-  %.sroa.0.020.i.i.i = phi i64 [ %236, %234 ], [ %236, %238 ], [ 0, %229 ]
-  %242 = load ptr, ptr %58, align 8
-  %.not.i6.i.i.i = icmp eq ptr %242, null
-  br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %243
+_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %240, %236, %231
+  %.sroa.5.021.i.i.i = phi i64 [ %239, %236 ], [ %239, %240 ], [ 0, %231 ]
+  %.sroa.0.020.i.i.i = phi i64 [ %238, %236 ], [ %238, %240 ], [ 0, %231 ]
+  %244 = load ptr, ptr %58, align 8
+  %.not.i6.i.i.i = icmp eq ptr %244, null
+  br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %245
 
-243:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
-  %244 = load ptr, ptr %242, align 8
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
-  %246 = load ptr, ptr %245, align 8
-  call void %246(ptr noundef nonnull align 8 dereferenceable(8) %242, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #25
+245:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
+  %246 = load ptr, ptr %244, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
+  %248 = load ptr, ptr %247, align 8
+  call void %248(ptr noundef nonnull align 8 dereferenceable(8) %244, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #25
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
 
-_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i: ; preds = %243, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
-  %247 = load ptr, ptr %59, align 8
-  %.not.i8.i.i.i66 = icmp eq ptr %247, null
-  br i1 %.not.i8.i.i.i66, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %248
+_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i: ; preds = %245, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
+  %249 = load ptr, ptr %59, align 8
+  %.not.i8.i.i.i66 = icmp eq ptr %249, null
+  br i1 %.not.i8.i.i.i66, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %250
 
-248:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
-  %249 = load ptr, ptr %247, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  %251 = load ptr, ptr %250, align 8
-  call void %251(ptr noundef nonnull align 8 dereferenceable(8) %247, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #25
+250:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
+  %251 = load ptr, ptr %249, align 8
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %253 = load ptr, ptr %252, align 8
+  call void %253(ptr noundef nonnull align 8 dereferenceable(8) %249, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #25
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
 
-_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, %248
+_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, %250
   call void @_ZN14GCTraceCPUTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #25
-  %252 = load i8, ptr @VerifyAfterGC, align 1
-  %253 = trunc i8 %252 to i1
-  br i1 %253, label %254, label %260
+  %254 = load i8, ptr @VerifyAfterGC, align 1
+  %255 = trunc i8 %254 to i1
+  br i1 %255, label %256, label %262
 
-254:                                              ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
-  %255 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %256 = load i32, ptr %255, align 8
-  %257 = zext i32 %256 to i64
-  %258 = load i64, ptr @VerifyGCStartAt, align 8
-  %.not = icmp ugt i64 %258, %257
-  br i1 %.not, label %260, label %259
+256:                                              ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
+  %257 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %258 = load i32, ptr %257, align 8
+  %259 = zext i32 %258 to i64
+  %260 = load i64, ptr @VerifyGCStartAt, align 8
+  %.not = icmp ugt i64 %260, %259
+  br i1 %.not, label %262, label %261
 
-259:                                              ; preds = %254
+261:                                              ; preds = %256
   call void @_ZN8Universe6verifyE12VerifyOptionPKc(i32 noundef 0, ptr noundef nonnull @.str.24) #25
-  br label %260
+  br label %262
 
-260:                                              ; preds = %259, %254, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
+262:                                              ; preds = %261, %256, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
   call void @_ZN13CollectedHeap19print_heap_after_gcEv(ptr noundef nonnull align 8 dereferenceable(104) %15) #25
   call void @_ZN13CollectedHeap19trace_heap_after_gcEPK8GCTracer(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull @_ZN17PSParallelCompact10_gc_tracerE) #25
-  %261 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %262 = load i32, ptr %261, align 8
-  %263 = load i8, ptr @UseParallelGC, align 1
-  %264 = trunc i8 %263 to i1
-  br i1 %264, label %265, label %_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit
+  %263 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %264 = load i32, ptr %263, align 8
+  %265 = load i8, ptr @UseParallelGC, align 1
+  %266 = trunc i8 %265 to i1
+  %267 = load i8, ptr @UseAdaptiveSizePolicy, align 1
+  %268 = trunc i8 %267 to i1
+  %or.cond.i.i = select i1 %266, i1 %268, i1 false
+  br i1 %or.cond.i.i, label %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i, label %_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit
 
-265:                                              ; preds = %260
-  %266 = load i8, ptr @UseAdaptiveSizePolicy, align 1
-  %267 = trunc i8 %266 to i1
-  br i1 %267, label %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i, label %_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit
+_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i:   ; preds = %262
+  %269 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %270 = icmp ne ptr %269, null
+  %271 = load i64, ptr @AdaptiveSizePolicyOutputInterval, align 8
+  %272 = icmp ne i64 %271, 0
+  %or.cond.i68 = select i1 %270, i1 %272, i1 false
+  br i1 %or.cond.i68, label %273, label %_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit
 
-_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i:   ; preds = %265
-  %268 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %269 = icmp ne ptr %268, null
-  %270 = load i64, ptr @AdaptiveSizePolicyOutputInterval, align 8
-  %271 = icmp ne i64 %270, 0
-  %or.cond.i = select i1 %269, i1 %271, i1 false
-  br i1 %or.cond.i, label %272, label %_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit
+273:                                              ; preds = %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i
+  %274 = zext i32 %264 to i64
+  %275 = urem i64 %274, %271
+  %276 = icmp eq i64 %275, 0
+  br i1 %276, label %277, label %_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit
 
-272:                                              ; preds = %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i
-  %273 = zext i32 %262 to i64
-  %274 = urem i64 %273, %270
-  %275 = icmp eq i64 %274, 0
-  br i1 %275, label %276, label %_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit
-
-276:                                              ; preds = %272
-  %277 = load ptr, ptr %26, align 8
-  %278 = getelementptr inbounds nuw i8, ptr %277, i64 72
-  %279 = load ptr, ptr %278, align 8
-  %280 = call noundef zeroext i1 %279(ptr noundef nonnull align 8 dereferenceable(232) %26) #25
+277:                                              ; preds = %273
+  %278 = load ptr, ptr %26, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 72
+  %280 = load ptr, ptr %279, align 8
+  %281 = call noundef zeroext i1 %280(ptr noundef nonnull align 8 dereferenceable(232) %26) #25
   br label %_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit
 
-_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit: ; preds = %260, %265, %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i, %272, %276
-  %281 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #25
-  %282 = extractvalue { i64, i64 } %281, 0
-  store i64 %282, ptr %11, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %284 = extractvalue { i64, i64 } %281, 1
-  store i64 %284, ptr %283, align 8
+_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit: ; preds = %262, %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i, %273, %277
+  %282 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #25
+  %283 = extractvalue { i64, i64 } %282, 0
+  store i64 %283, ptr %11, align 8
+  %284 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %285 = extractvalue { i64, i64 } %282, 1
+  store i64 %285, ptr %284, align 8
   call void @_ZN10STWGCTimer15register_gc_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112) @_ZN17PSParallelCompact9_gc_timerE, ptr noundef nonnull align 8 dereferenceable(16) %11) #25
-  %285 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact11_space_infoE, i64 16), align 16
-  call void @_ZN17ParallelOldTracer19report_dense_prefixEPv(ptr noundef nonnull align 8 dereferenceable(88) @_ZN17PSParallelCompact10_gc_tracerE, ptr noundef %285) #25
-  %.sroa.0.0.copyload.i68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact9_gc_timerE, i64 24), align 8
-  %.sroa.2.0.copyload.i69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact9_gc_timerE, i64 32), align 8
-  store i64 %.sroa.0.0.copyload.i68, ptr %12, align 8
-  %286 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %.sroa.2.0.copyload.i69, ptr %286, align 8
+  %286 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact11_space_infoE, i64 16), align 16
+  call void @_ZN17ParallelOldTracer19report_dense_prefixEPv(ptr noundef nonnull align 8 dereferenceable(88) @_ZN17PSParallelCompact10_gc_tracerE, ptr noundef %286) #25
+  %.sroa.0.0.copyload.i69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact9_gc_timerE, i64 24), align 8
+  %.sroa.2.0.copyload.i70 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact9_gc_timerE, i64 32), align 8
+  store i64 %.sroa.0.0.copyload.i69, ptr %12, align 8
+  %287 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %.sroa.2.0.copyload.i70, ptr %287, align 8
   call void @_ZN8GCTracer13report_gc_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(80) @_ZN17PSParallelCompact10_gc_tracerE, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN17PSParallelCompact9_gc_timerE, i64 40)) #25
-  br i1 %0, label %287, label %_ZN18ClearedAllSoftRefsD2Ev.exit
+  br i1 %0, label %288, label %_ZN18ClearedAllSoftRefsD2Ev.exit
 
-287:                                              ; preds = %_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit
-  %288 = getelementptr inbounds nuw i8, ptr %15, i64 33
-  store i8 1, ptr %288, align 1
+288:                                              ; preds = %_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit
+  %289 = getelementptr inbounds nuw i8, ptr %15, i64 33
+  store i8 1, ptr %289, align 1
   br label %_ZN18ClearedAllSoftRefsD2Ev.exit
 
-_ZN18ClearedAllSoftRefsD2Ev.exit:                 ; preds = %_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit, %287
+_ZN18ClearedAllSoftRefsD2Ev.exit:                 ; preds = %_ZN24AdaptiveSizePolicyOutput5printEP18AdaptiveSizePolicyj.exit, %288
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #25
-  br label %289
+  br label %290
 
-289:                                              ; preds = %1, %_ZN18ClearedAllSoftRefsD2Ev.exit
+290:                                              ; preds = %1, %_ZN18ClearedAllSoftRefsD2Ev.exit
   %.0 = xor i1 %13, true
   ret i1 %.0
 }

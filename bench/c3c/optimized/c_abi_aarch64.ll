@@ -430,36 +430,36 @@ define dso_local ptr @aarch64_classify_return_type(ptr noundef readonly captures
 
 10:                                               ; preds = %2
   %11 = tail call ptr @abi_arg_ignore() #4
-  br label %91
+  br label %90
 
 12:                                               ; preds = %2
   %13 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %13, 37
-  br i1 %.not, label %14, label %.critedge51
+  br i1 %.not, label %14, label %.critedge53
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %16 = load i32, ptr %15, align 8
   %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
-  %or.cond55 = icmp eq i32 %17, 1
-  br i1 %or.cond55, label %18, label %.critedge49
+  %or.cond57 = icmp eq i32 %17, 1
+  br i1 %or.cond57, label %18, label %.critedge51
 
 18:                                               ; preds = %14
   %19 = tail call i32 @type_size(ptr noundef nonnull %5) #4
-  switch i32 %19, label %.critedge49 [
-    i32 8, label %.critedge51
+  switch i32 %19, label %.critedge51 [
+    i32 8, label %.critedge53
     i32 16, label %20
   ]
 
 20:                                               ; preds = %18
   %21 = icmp eq i32 %16, 1
-  br i1 %21, label %.critedge49, label %.critedge51
+  br i1 %21, label %.critedge51, label %.critedge53
 
-.critedge49:                                      ; preds = %14, %18, %20
+.critedge51:                                      ; preds = %14, %18, %20
   %22 = tail call ptr @aarch64_coerce_illegal_vector(ptr noundef nonnull %5)
-  br label %91
+  br label %90
 
-.critedge51:                                      ; preds = %12, %18, %20
+.critedge53:                                      ; preds = %12, %18, %20
   %23 = tail call i32 @type_size(ptr noundef nonnull %5) #4
   %24 = load i32, ptr %5, align 8
   %25 = icmp eq i32 %24, 37
@@ -467,11 +467,11 @@ define dso_local ptr @aarch64_classify_return_type(ptr noundef readonly captures
   %or.cond = select i1 %25, i1 %26, i1 false
   br i1 %or.cond, label %27, label %29
 
-27:                                               ; preds = %.critedge51
+27:                                               ; preds = %.critedge53
   %28 = tail call ptr @abi_arg_new_direct_coerce_type(ptr noundef nonnull %5) #4
-  br label %91
+  br label %90
 
-29:                                               ; preds = %.critedge51
+29:                                               ; preds = %.critedge53
   %30 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef nonnull %5) #4
   br i1 %30, label %52, label %31
 
@@ -502,24 +502,24 @@ define dso_local ptr @aarch64_classify_return_type(ptr noundef readonly captures
 46:                                               ; preds = %40
   %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
   %48 = and i8 %47, 2
-  %.not46 = icmp eq i8 %48, 0
-  br i1 %.not46, label %.critedge, label %49
+  %.not48 = icmp eq i8 %48, 0
+  br i1 %.not48, label %.critedge, label %49
 
 49:                                               ; preds = %46
   %50 = tail call ptr @abi_arg_new_direct_int_ext(ptr noundef nonnull %5) #4
-  br label %91
+  br label %90
 
 .critedge:                                        ; preds = %37, %46, %40
   %51 = tail call ptr @abi_arg_new_direct() #4
-  br label %91
+  br label %90
 
 52:                                               ; preds = %29
-  %.not47 = icmp eq i32 %23, 0
-  br i1 %.not47, label %53, label %55
+  %.not49 = icmp eq i32 %23, 0
+  br i1 %.not49, label %53, label %55
 
 53:                                               ; preds = %52
   %54 = tail call ptr @abi_arg_ignore() #4
-  br label %91
+  br label %90
 
 55:                                               ; preds = %52
   store ptr null, ptr %3, align 8
@@ -530,62 +530,60 @@ define dso_local ptr @aarch64_classify_return_type(ptr noundef readonly captures
 57:                                               ; preds = %55
   %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   %59 = icmp eq i32 %58, 5
-  %brmerge.not = and i1 %1, %59
-  br i1 %brmerge.not, label %62, label %60
+  %or.cond3 = and i1 %1, %59
+  br i1 %or.cond3, label %62, label %60
 
 60:                                               ; preds = %57
   %61 = call ptr @abi_arg_new_direct() #4
-  br label %91
+  br label %90
 
 62:                                               ; preds = %57, %55
   %63 = icmp ult i32 %23, 17
-  br i1 %63, label %64, label %89
+  br i1 %63, label %64, label %88
 
 64:                                               ; preds = %62
-  %65 = icmp samesign ult i32 %23, 9
-  br i1 %65, label %66, label %74
+  %65 = icmp samesign ugt i32 %23, 8
+  %66 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 272), align 8
+  %67 = trunc i8 %66 to i1
+  %or.cond55 = select i1 %65, i1 true, i1 %67
+  br i1 %or.cond55, label %73, label %68
 
-66:                                               ; preds = %64
-  %67 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 272), align 8
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %74, label %69
+68:                                               ; preds = %64
+  %69 = shl nuw nsw i32 %23, 3
+  %70 = zext nneg i32 %69 to i64
+  %71 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %70) #4
+  %72 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %71) #4
+  br label %90
 
-69:                                               ; preds = %66
-  %70 = shl nuw nsw i32 %23, 3
-  %71 = zext nneg i32 %70 to i64
-  %72 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %71) #4
-  %73 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %72) #4
-  br label %91
+73:                                               ; preds = %64
+  %74 = call i32 @type_abi_alignment(ptr noundef nonnull %5) #4
+  %75 = add nuw nsw i32 %23, 7
+  %76 = and i32 %75, 56
+  %77 = icmp ult i32 %74, 16
+  %78 = icmp eq i32 %76, 16
+  %or.cond5 = select i1 %77, i1 %78, i1 false
+  br i1 %or.cond5, label %79, label %83
 
-74:                                               ; preds = %66, %64
-  %75 = call i32 @type_abi_alignment(ptr noundef nonnull %5) #4
-  %76 = add nuw nsw i32 %23, 7
-  %77 = and i32 %76, 56
-  %78 = icmp ult i32 %75, 16
-  %79 = icmp eq i32 %77, 16
-  %or.cond3 = select i1 %78, i1 %79, i1 false
-  br i1 %or.cond3, label %80, label %84
+79:                                               ; preds = %73
+  %80 = load ptr, ptr @type_ulong, align 8
+  %81 = call ptr @type_get_array(ptr noundef %80, i32 noundef 2) #4
+  %82 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %81) #4
+  br label %90
 
-80:                                               ; preds = %74
-  %81 = load ptr, ptr @type_ulong, align 8
-  %82 = call ptr @type_get_array(ptr noundef %81, i32 noundef 2) #4
-  %83 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %82) #4
-  br label %91
+83:                                               ; preds = %73
+  %84 = shl nuw nsw i32 %76, 3
+  %85 = zext nneg i32 %84 to i64
+  %86 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %85) #4
+  %87 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %86) #4
+  br label %90
 
-84:                                               ; preds = %74
-  %85 = shl nuw nsw i32 %77, 3
-  %86 = zext nneg i32 %85 to i64
-  %87 = call ptr @type_int_unsigned_by_bitsize(i64 noundef %86) #4
-  %88 = call ptr @abi_arg_new_direct_coerce_type(ptr noundef %87) #4
-  br label %91
+88:                                               ; preds = %62
+  %89 = call ptr @abi_arg_new_indirect_by_val(ptr noundef nonnull %5) #4
+  br label %90
 
-89:                                               ; preds = %62
-  %90 = call ptr @abi_arg_new_indirect_by_val(ptr noundef nonnull %5) #4
-  br label %91
-
-91:                                               ; preds = %89, %84, %80, %69, %60, %53, %.critedge, %49, %27, %.critedge49, %10
-  %.042 = phi ptr [ %11, %10 ], [ %22, %.critedge49 ], [ %28, %27 ], [ %83, %80 ], [ %88, %84 ], [ %73, %69 ], [ %90, %89 ], [ %61, %60 ], [ %54, %53 ], [ %50, %49 ], [ %51, %.critedge ]
-  ret ptr %.042
+90:                                               ; preds = %88, %83, %79, %68, %60, %53, %.critedge, %49, %27, %.critedge51, %10
+  %.044 = phi ptr [ %11, %10 ], [ %22, %.critedge51 ], [ %28, %27 ], [ %82, %79 ], [ %87, %83 ], [ %72, %68 ], [ %89, %88 ], [ %61, %60 ], [ %54, %53 ], [ %50, %49 ], [ %51, %.critedge ]
+  ret ptr %.044
 }
 
 declare ptr @type_int_unsigned_by_bitsize(i64 noundef) local_unnamed_addr #1

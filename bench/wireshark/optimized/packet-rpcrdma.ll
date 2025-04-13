@@ -243,12 +243,12 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %11 = call i32 @tvb_captured_length(ptr noundef %0)
   %12 = icmp ult i32 %11, 16
-  br i1 %12, label %157, label %13
+  br i1 %12, label %156, label %13
 
 13:                                               ; preds = %4
   %14 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
-  %.not147 = icmp eq i32 %14, 1
-  br i1 %.not147, label %15, label %157
+  %.not = icmp eq i32 %14, 1
+  br i1 %.not, label %15, label %156
 
 15:                                               ; preds = %13
   %16 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
@@ -271,24 +271,24 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %31 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %30, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   %32 = load i32, ptr @hf_rpcordma_message_type, align 4
   %33 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %32, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
-  switch i32 %17, label %156 [
+  switch i32 %17, label %155 [
     i32 0, label %34
-    i32 1, label %114
-    i32 2, label %135
-    i32 4, label %144
+    i32 1, label %113
+    i32 2, label %134
+    i32 4, label %143
   ]
 
 34:                                               ; preds = %15
   %35 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef nonnull %6)
   call void @proto_item_set_len(ptr noundef %23, i32 noundef %35)
   %36 = call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %35, ptr noundef %1, ptr noundef %2)
-  %.not150 = icmp eq ptr %36, null
-  br i1 %.not150, label %40, label %37
+  %.not151 = icmp eq ptr %36, null
+  br i1 %.not151, label %40, label %37
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr @rpc_handler, align 8
   %39 = call i32 @call_dissector(ptr noundef %38, ptr noundef nonnull %36, ptr noundef %1, ptr noundef %2)
-  br label %157
+  br label %156
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -296,32 +296,30 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 57
   %44 = load i16, ptr %43, align 1
   %45 = and i16 %44, 8
-  %.not151 = icmp eq i16 %45, 0
-  br i1 %.not151, label %49, label %46
-
-46:                                               ; preds = %40
+  %46 = icmp eq i16 %45, 0
   %.b152 = load i1, ptr @g_needs_reassembly, align 1
+  %or.cond = select i1 %46, i1 true, i1 %.b152
   %47 = load ptr, ptr %6, align 8
   %48 = icmp eq ptr %47, null
-  %or.cond.not = select i1 %.b152, i1 true, i1 %48
-  br i1 %or.cond.not, label %49, label %157
+  %or.cond4.not = select i1 %or.cond, i1 true, i1 %48
+  br i1 %or.cond4.not, label %49, label %156
 
-49:                                               ; preds = %46, %40
+49:                                               ; preds = %40
   %50 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %35)
   store volatile ptr %50, ptr %5, align 8
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = call fastcc i32 @get_rdma_list_size(ptr noundef %52, ptr noundef %1)
-  %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %.critedge, label %54
+  %.not154 = icmp eq i32 %53, 0
+  br i1 %.not154, label %.critedge, label %54
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr %41, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 57
   %57 = load i16, ptr %56, align 1
   %58 = and i16 %57, 8
-  %.not154 = icmp eq i16 %58, 0
-  br i1 %.not154, label %59, label %88
+  %.not155 = icmp eq i16 %58, 0
+  br i1 %.not155, label %59, label %88
 
 59:                                               ; preds = %54
   %60 = call ptr @wmem_packet_scope()
@@ -336,68 +334,68 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_rpcrdma.catch_spec, i64 noundef 1)
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %63 = call i32 @_setjmp(ptr noundef nonnull %62) #12
-  %.not155 = icmp eq i32 %63, 0
+  %.not156 = icmp eq i32 %63, 0
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink = select i1 %.not155, ptr null, ptr %64
+  %.sink = select i1 %.not156, ptr null, ptr %64
   store volatile ptr %.sink, ptr %7, align 8
   %.0..0..0..0. = load volatile i32, ptr %8, align 4
   %65 = and i32 %.0..0..0..0., 1
-  %.not156 = icmp eq i32 %65, 0
-  br i1 %.not156, label %68, label %66
+  %.not157 = icmp eq i32 %65, 0
+  br i1 %.not157, label %68, label %66
 
 66:                                               ; preds = %59
-  %.0..0..0..0.3 = load volatile i32, ptr %8, align 4
-  %67 = or i32 %.0..0..0..0.3, 2
+  %.0..0..0..0.5 = load volatile i32, ptr %8, align 4
+  %67 = or i32 %.0..0..0..0.5, 2
   store volatile i32 %67, ptr %8, align 4
   br label %68
 
 68:                                               ; preds = %66, %59
-  %.0..0..0..0.4 = load volatile i32, ptr %8, align 4
-  %69 = and i32 %.0..0..0..0.4, -2
+  %.0..0..0..0.6 = load volatile i32, ptr %8, align 4
+  %69 = and i32 %.0..0..0..0.6, -2
   store volatile i32 %69, ptr %8, align 4
-  %.0..0..0..0.5 = load volatile i32, ptr %8, align 4
-  %70 = icmp eq i32 %.0..0..0..0.5, 0
+  %.0..0..0..0.7 = load volatile i32, ptr %8, align 4
+  %70 = icmp eq i32 %.0..0..0..0.7, 0
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %68
-  %.0..0..0..0.9 = load volatile ptr, ptr %7, align 8
-  %72 = icmp eq ptr %.0..0..0..0.9, null
+  %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
+  %72 = icmp eq ptr %.0..0..0..0.11, null
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %71
   store i1 true, ptr @g_rpcrdma_reduced, align 1
   %74 = load ptr, ptr @rpc_handler, align 8
-  %.0..0..0..0.74 = load volatile ptr, ptr %5, align 8
-  %75 = call i32 @call_dissector(ptr noundef %74, ptr noundef %.0..0..0..0.74, ptr noundef %1, ptr noundef %2)
+  %.0..0..0..0.76 = load volatile ptr, ptr %5, align 8
+  %75 = call i32 @call_dissector(ptr noundef %74, ptr noundef %.0..0..0..0.76, ptr noundef %1, ptr noundef %2)
   br label %76
 
 76:                                               ; preds = %73, %71, %68
-  %.0..0..0..0.6 = load volatile i32, ptr %8, align 4
-  %77 = and i32 %.0..0..0..0.6, 4
-  %.not157 = icmp eq i32 %77, 0
-  br i1 %.not157, label %78, label %80
+  %.0..0..0..0.8 = load volatile i32, ptr %8, align 4
+  %77 = and i32 %.0..0..0..0.8, 4
+  %.not158 = icmp eq i32 %77, 0
+  br i1 %.not158, label %78, label %80
 
 78:                                               ; preds = %76
-  %.0..0..0..0.7 = load volatile i32, ptr %8, align 4
-  %79 = or i32 %.0..0..0..0.7, 4
+  %.0..0..0..0.9 = load volatile i32, ptr %8, align 4
+  %79 = or i32 %.0..0..0..0.9, 4
   store volatile i32 %79, ptr %8, align 4
   store i1 false, ptr @g_rpcrdma_reduced, align 1
   br label %80
 
 80:                                               ; preds = %78, %76
-  %.0..0..0..0.8 = load volatile i32, ptr %8, align 4
-  %81 = and i32 %.0..0..0..0.8, 1
-  %.not158 = icmp eq i32 %81, 0
-  br i1 %.not158, label %82, label %84
+  %.0..0..0..0.10 = load volatile i32, ptr %8, align 4
+  %81 = and i32 %.0..0..0..0.10, 1
+  %.not159 = icmp eq i32 %81, 0
+  br i1 %.not159, label %82, label %84
 
 82:                                               ; preds = %80
-  %.0..0..0..0.10 = load volatile ptr, ptr %7, align 8
-  %.not159 = icmp eq ptr %.0..0..0..0.10, null
-  br i1 %.not159, label %84, label %83
+  %.0..0..0..0.12 = load volatile ptr, ptr %7, align 8
+  %.not160 = icmp eq ptr %.0..0..0..0.12, null
+  br i1 %.not160, label %84, label %83
 
 83:                                               ; preds = %82
-  %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.11) #13
+  %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
+  call void @except_rethrow(ptr noundef %.0..0..0..0.13) #13
   unreachable
 
 84:                                               ; preds = %82, %80
@@ -415,8 +413,8 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %89 = call ptr @wmem_file_scope()
   %90 = load i32, ptr @proto_rpcordma, align 4
   %91 = call ptr @p_get_proto_data(ptr noundef %89, ptr noundef %1, i32 noundef %90, i32 noundef 0)
-  %.not161 = icmp eq ptr %91, null
-  br i1 %.not161, label %.critedge, label %92
+  %.not162 = icmp eq ptr %91, null
+  br i1 %.not162, label %.critedge, label %92
 
 92:                                               ; preds = %88
   %93 = load ptr, ptr %41, align 8
@@ -436,118 +434,116 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %49, %92, %88, %84
-  %.0..0..0..0.75 = load volatile ptr, ptr %5, align 8
-  %105 = call fastcc ptr @process_rdma_lists(ptr noundef %.0..0..0..0.75, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2)
+  %.0..0..0..0.77 = load volatile ptr, ptr %5, align 8
+  %105 = call fastcc ptr @process_rdma_lists(ptr noundef %.0..0..0..0.77, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2)
   store ptr null, ptr @gp_rdma_write_offsets, align 8
-  %106 = load ptr, ptr %6, align 8
-  %.not162 = icmp eq ptr %106, null
-  br i1 %.not162, label %109, label %107
+  br i1 %48, label %108, label %106
 
-107:                                              ; preds = %.critedge
-  %.0..0..0..0.76 = load volatile ptr, ptr %5, align 8
-  %108 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.76, ptr noundef %1, ptr noundef %2)
+106:                                              ; preds = %.critedge
+  %.0..0..0..0.78 = load volatile ptr, ptr %5, align 8
+  %107 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.78, ptr noundef %1, ptr noundef %2)
+  br label %155
+
+108:                                              ; preds = %.critedge
+  %.not164 = icmp eq ptr %105, null
+  br i1 %.not164, label %110, label %109
+
+109:                                              ; preds = %108
+  store volatile ptr %105, ptr %5, align 8
+  br label %110
+
+110:                                              ; preds = %108, %109
+  %111 = load ptr, ptr @rpc_handler, align 8
+  %.0..0..0..0.79 = load volatile ptr, ptr %5, align 8
+  %112 = call i32 @call_dissector(ptr noundef %111, ptr noundef %.0..0..0..0.79, ptr noundef %1, ptr noundef %2)
   br label %156
 
-109:                                              ; preds = %.critedge
-  %.not163 = icmp eq ptr %105, null
-  br i1 %.not163, label %111, label %110
+113:                                              ; preds = %15
+  %114 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef nonnull %6)
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 57
+  %118 = load i16, ptr %117, align 1
+  %119 = and i16 %118, 8
+  %.not149 = icmp eq i16 %119, 0
+  %120 = call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %114, ptr noundef %1, ptr noundef %2)
+  %.not.i = icmp eq ptr %120, null
+  %or.cond165 = select i1 %.not149, i1 %.not.i, i1 false
+  br i1 %or.cond165, label %121, label %process_rdma_lists.exit
 
-110:                                              ; preds = %109
-  store volatile ptr %105, ptr %5, align 8
-  br label %111
-
-111:                                              ; preds = %109, %110
-  %112 = load ptr, ptr @rpc_handler, align 8
-  %.0..0..0..0.77 = load volatile ptr, ptr %5, align 8
-  %113 = call i32 @call_dissector(ptr noundef %112, ptr noundef %.0..0..0..0.77, ptr noundef %1, ptr noundef %2)
-  br label %157
-
-114:                                              ; preds = %15
-  %115 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef nonnull %6)
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 57
-  %119 = load i16, ptr %118, align 1
-  %120 = and i16 %119, 8
-  %.not148 = icmp eq i16 %120, 0
-  %121 = call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %115, ptr noundef %1, ptr noundef %2)
-  %.not.i = icmp eq ptr %121, null
-  %or.cond = select i1 %.not148, i1 %.not.i, i1 false
-  br i1 %or.cond, label %122, label %process_rdma_lists.exit
-
-122:                                              ; preds = %114
-  %123 = load ptr, ptr %6, align 8
-  %124 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %115, ptr noundef %123, ptr noundef %1, ptr noundef %2)
-  %125 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %126 = load ptr, ptr %125, align 8
-  %127 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %115, ptr noundef %126, ptr noundef %1, ptr noundef %2)
-  %128 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %115, ptr noundef %129, ptr noundef %1, ptr noundef %2)
-  %.not29.i = icmp eq ptr %127, null
-  %.not30.i = icmp eq ptr %130, null
-  %131 = select i1 %.not29.i, ptr %130, ptr null
-  %spec.select.i = select i1 %.not30.i, ptr %127, ptr %131
+121:                                              ; preds = %113
+  %122 = load ptr, ptr %6, align 8
+  %123 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %114, ptr noundef %122, ptr noundef %1, ptr noundef %2)
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %125 = load ptr, ptr %124, align 8
+  %126 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %114, ptr noundef %125, ptr noundef %1, ptr noundef %2)
+  %127 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %114, ptr noundef %128, ptr noundef %1, ptr noundef %2)
+  %.not29.i = icmp eq ptr %126, null
+  %.not30.i = icmp eq ptr %129, null
+  %130 = select i1 %.not29.i, ptr %129, ptr null
+  %spec.select.i = select i1 %.not30.i, ptr %126, ptr %130
   br label %process_rdma_lists.exit
 
-process_rdma_lists.exit:                          ; preds = %122, %114
-  %.0.i.sink = phi ptr [ %121, %114 ], [ %spec.select.i, %122 ]
+process_rdma_lists.exit:                          ; preds = %121, %113
+  %.0.i.sink = phi ptr [ %120, %113 ], [ %spec.select.i, %121 ]
   store volatile ptr %.0.i.sink, ptr %5, align 8
-  %.0..0..0..0.78 = load volatile ptr, ptr %5, align 8
-  %.not149 = icmp eq ptr %.0..0..0..0.78, null
-  br i1 %.not149, label %156, label %132
+  %.0..0..0..0.80 = load volatile ptr, ptr %5, align 8
+  %.not150 = icmp eq ptr %.0..0..0..0.80, null
+  br i1 %.not150, label %155, label %131
 
-132:                                              ; preds = %process_rdma_lists.exit
-  %133 = load ptr, ptr @rpc_handler, align 8
-  %.0..0..0..0.79 = load volatile ptr, ptr %5, align 8
-  %134 = call i32 @call_dissector(ptr noundef %133, ptr noundef %.0..0..0..0.79, ptr noundef %1, ptr noundef %2)
+131:                                              ; preds = %process_rdma_lists.exit
+  %132 = load ptr, ptr @rpc_handler, align 8
+  %.0..0..0..0.81 = load volatile ptr, ptr %5, align 8
+  %133 = call i32 @call_dissector(ptr noundef %132, ptr noundef %.0..0..0..0.81, ptr noundef %1, ptr noundef %2)
+  br label %155
+
+134:                                              ; preds = %15
+  %135 = load i32, ptr @hf_rpcordma_rdma_align, align 4
+  %136 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %135, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
+  %137 = load i32, ptr @hf_rpcordma_rdma_thresh, align 4
+  %138 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %137, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
+  %139 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 24, ptr noundef %25, ptr noundef nonnull %6)
+  call void @proto_item_set_len(ptr noundef %23, i32 noundef %139)
+  %140 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %139)
+  store volatile ptr %140, ptr %5, align 8
+  %141 = load ptr, ptr @rpc_handler, align 8
+  %.0..0..0..0.82 = load volatile ptr, ptr %5, align 8
+  %142 = call i32 @call_dissector(ptr noundef %141, ptr noundef %.0..0..0..0.82, ptr noundef %1, ptr noundef %2)
   br label %156
 
-135:                                              ; preds = %15
-  %136 = load i32, ptr @hf_rpcordma_rdma_align, align 4
-  %137 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %136, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
-  %138 = load i32, ptr @hf_rpcordma_rdma_thresh, align 4
-  %139 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %138, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
-  %140 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 24, ptr noundef %25, ptr noundef nonnull %6)
-  call void @proto_item_set_len(ptr noundef %23, i32 noundef %140)
-  %141 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %140)
-  store volatile ptr %141, ptr %5, align 8
-  %142 = load ptr, ptr @rpc_handler, align 8
-  %.0..0..0..0.80 = load volatile ptr, ptr %5, align 8
-  %143 = call i32 @call_dissector(ptr noundef %142, ptr noundef %.0..0..0..0.80, ptr noundef %1, ptr noundef %2)
-  br label %157
-
-144:                                              ; preds = %15
-  %145 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
-  %146 = load i32, ptr @hf_rpcordma_errcode, align 4
-  %147 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %146, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
-  switch i32 %145, label %153 [
-    i32 1, label %148
-    i32 2, label %156
+143:                                              ; preds = %15
+  %144 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
+  %145 = load i32, ptr @hf_rpcordma_errcode, align 4
+  %146 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %145, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
+  switch i32 %144, label %152 [
+    i32 1, label %147
+    i32 2, label %155
   ]
 
-148:                                              ; preds = %144
-  %149 = load i32, ptr @hf_rpcordma_vers_low, align 4
-  %150 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %149, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
-  %151 = load i32, ptr @hf_rpcordma_vers_high, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %151, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0)
+147:                                              ; preds = %143
+  %148 = load i32, ptr @hf_rpcordma_vers_low, align 4
+  %149 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %148, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
+  %150 = load i32, ptr @hf_rpcordma_vers_high, align 4
+  %151 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %150, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0)
+  br label %155
+
+152:                                              ; preds = %143
+  call void @proto_item_set_len(ptr noundef %23, i32 noundef 20)
+  %153 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 20)
+  store volatile ptr %153, ptr %5, align 8
+  %.0..0..0..0.83 = load volatile ptr, ptr %5, align 8
+  %154 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.83, ptr noundef %1, ptr noundef %2)
   br label %156
 
-153:                                              ; preds = %144
-  call void @proto_item_set_len(ptr noundef %23, i32 noundef 20)
-  %154 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 20)
-  store volatile ptr %154, ptr %5, align 8
-  %.0..0..0..0.81 = load volatile ptr, ptr %5, align 8
-  %155 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.81, ptr noundef %1, ptr noundef %2)
-  br label %157
+155:                                              ; preds = %143, %147, %process_rdma_lists.exit, %131, %106, %15
+  %.0145 = phi i32 [ 16, %15 ], [ 20, %143 ], [ 28, %147 ], [ %114, %131 ], [ %114, %process_rdma_lists.exit ], [ %35, %106 ]
+  call void @proto_item_set_len(ptr noundef %23, i32 noundef %.0145)
+  br label %156
 
-156:                                              ; preds = %144, %148, %process_rdma_lists.exit, %132, %107, %15
-  %.0143 = phi i32 [ 16, %15 ], [ 20, %144 ], [ 28, %148 ], [ %115, %132 ], [ %115, %process_rdma_lists.exit ], [ %35, %107 ]
-  call void @proto_item_set_len(ptr noundef %23, i32 noundef %.0143)
-  br label %157
-
-157:                                              ; preds = %46, %13, %4, %156, %153, %135, %111, %37
-  %.0 = phi i32 [ %.0143, %156 ], [ %155, %153 ], [ %143, %135 ], [ %39, %37 ], [ %113, %111 ], [ 0, %4 ], [ 0, %13 ], [ 0, %46 ]
+156:                                              ; preds = %40, %13, %4, %155, %152, %134, %110, %37
+  %.0 = phi i32 [ %.0145, %155 ], [ %154, %152 ], [ %142, %134 ], [ %39, %37 ], [ %112, %110 ], [ 0, %4 ], [ 0, %13 ], [ 0, %40 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret i32 %.0
@@ -594,8 +590,8 @@ define internal zeroext i1 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i8, ptr %8, align 8
   switch i8 %9, label %add_request_info.exit64 [
-    i8 4, label %110
-    i8 23, label %110
+    i8 4, label %109
+    i8 23, label %109
     i8 0, label %10
     i8 1, label %10
     i8 2, label %12
@@ -619,7 +615,7 @@ define internal zeroext i1 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef 
 
 12:                                               ; preds = %5, %5
   %13 = tail call fastcc ptr @add_send_fragment(ptr noundef %6, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %110
+  br label %109
 
 14:                                               ; preds = %5, %5
   %15 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -764,8 +760,8 @@ find_segment_info.exit.i63:                       ; preds = %70
 
 95:                                               ; preds = %5, %5
   %96 = tail call fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %6, i1 noundef zeroext false, ptr noundef %1, ptr noundef %2)
-  %.not54.not = icmp eq ptr %96, null
-  br i1 %.not54.not, label %97, label %105
+  %.not71 = icmp eq ptr %96, null
+  br i1 %.not71, label %97, label %.thread72
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -780,28 +776,29 @@ find_segment_info.exit.i63:                       ; preds = %70
   %104 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2)
   br label %105
 
-105:                                              ; preds = %.thread, %95, %100
-  %.050 = phi ptr [ %96, %95 ], [ %104, %100 ], [ %94, %.thread ]
-  %.not56 = icmp eq ptr %.050, null
-  br i1 %.not56, label %add_request_info.exit64, label %106
+105:                                              ; preds = %.thread, %100
+  %.051 = phi ptr [ %104, %100 ], [ %94, %.thread ]
+  %.not56 = icmp eq ptr %.051, null
+  br i1 %.not56, label %add_request_info.exit64, label %.thread72
 
-106:                                              ; preds = %105
-  %107 = load ptr, ptr @rpc_handler, align 8
-  %108 = tail call i32 @call_dissector(ptr noundef %107, ptr noundef nonnull %.050, ptr noundef %1, ptr noundef %2)
-  %109 = icmp ne i32 %108, 0
+.thread72:                                        ; preds = %95, %105
+  %.05175 = phi ptr [ %.051, %105 ], [ %96, %95 ]
+  %106 = load ptr, ptr @rpc_handler, align 8
+  %107 = tail call i32 @call_dissector(ptr noundef %106, ptr noundef nonnull %.05175, ptr noundef %1, ptr noundef %2)
+  %108 = icmp ne i32 %107, 0
   br label %add_request_info.exit64
 
-110:                                              ; preds = %5, %5, %12
-  %.051 = phi ptr [ %13, %12 ], [ %0, %5 ], [ %0, %5 ]
-  %111 = tail call fastcc zeroext i1 @packet_is_rpcordma(ptr noundef %.051)
-  br i1 %111, label %112, label %add_request_info.exit64
+109:                                              ; preds = %5, %5, %12
+  %.052 = phi ptr [ %13, %12 ], [ %0, %5 ], [ %0, %5 ]
+  %110 = tail call fastcc zeroext i1 @packet_is_rpcordma(ptr noundef %.052)
+  br i1 %110, label %111, label %add_request_info.exit64
 
-112:                                              ; preds = %110
-  %113 = tail call i32 @dissect_rpcrdma(ptr noundef %.051, ptr noundef %1, ptr noundef %2, ptr poison)
+111:                                              ; preds = %109
+  %112 = tail call i32 @dissect_rpcrdma(ptr noundef %.052, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %add_request_info.exit64
 
-add_request_info.exit64:                          ; preds = %97, %find_segment_info.exit.i63, %70, %67, %61, %57, %110, %5, %105, %4, %112, %106, %add_request_info.exit, %14, %10
-  %.0 = phi i1 [ %109, %106 ], [ false, %add_request_info.exit ], [ false, %14 ], [ true, %112 ], [ false, %10 ], [ false, %4 ], [ false, %105 ], [ false, %5 ], [ false, %110 ], [ false, %57 ], [ false, %61 ], [ false, %67 ], [ false, %70 ], [ false, %find_segment_info.exit.i63 ], [ false, %97 ]
+add_request_info.exit64:                          ; preds = %97, %find_segment_info.exit.i63, %70, %67, %61, %57, %109, %5, %105, %4, %111, %.thread72, %add_request_info.exit, %14, %10
+  %.0 = phi i1 [ %108, %.thread72 ], [ false, %add_request_info.exit ], [ false, %14 ], [ true, %111 ], [ false, %10 ], [ false, %4 ], [ false, %105 ], [ false, %5 ], [ false, %109 ], [ false, %57 ], [ false, %61 ], [ false, %67 ], [ false, %70 ], [ false, %find_segment_info.exit.i63 ], [ false, %97 ]
   ret i1 %.0
 }
 
@@ -1563,40 +1560,40 @@ declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %152, label %6
+  br i1 %.not, label %154, label %6
 
 6:                                                ; preds = %5
   %7 = tail call fastcc ptr @get_rdma_conv_info(ptr noundef %3)
   %8 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %2)
-  %.not198 = icmp eq i32 %8, 0
-  br i1 %.not198, label %._crit_edge190, label %.lr.ph189
+  %.not200 = icmp eq i32 %8, 0
+  br i1 %.not200, label %._crit_edge192, label %.lr.ph191
 
-.lr.ph189:                                        ; preds = %6
+.lr.ph191:                                        ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %10
 
-10:                                               ; preds = %.lr.ph189, %112
-  %.0120187 = phi ptr [ null, %.lr.ph189 ], [ %.1.lcssa, %112 ]
-  %.0121186 = phi i1 [ false, %.lr.ph189 ], [ %.1122.lcssa, %112 ]
-  %.0124185 = phi ptr [ null, %.lr.ph189 ], [ %.1125.lcssa, %112 ]
-  %.0128184 = phi ptr [ %0, %.lr.ph189 ], [ %.2130, %112 ]
-  %.0131183 = phi i32 [ %1, %.lr.ph189 ], [ %.2133, %112 ]
-  %.0135182 = phi i32 [ 0, %.lr.ph189 ], [ %113, %112 ]
-  %.0138181 = phi i32 [ 0, %.lr.ph189 ], [ %90, %112 ]
-  %.0139180 = phi i32 [ 0, %.lr.ph189 ], [ %.2141, %112 ]
-  %.0142179 = phi i32 [ 0, %.lr.ph189 ], [ %.1143, %112 ]
-  %.0144178 = phi i32 [ 0, %.lr.ph189 ], [ %.1145, %112 ]
-  %.0146177 = phi i32 [ 0, %.lr.ph189 ], [ %.2148.lcssa, %112 ]
-  %.0150176 = phi i32 [ 0, %.lr.ph189 ], [ %.1151.lcssa, %112 ]
-  %11 = tail call ptr @wmem_array_index(ptr noundef nonnull %2, i32 noundef %.0135182)
+10:                                               ; preds = %.lr.ph191, %112
+  %.0122189 = phi ptr [ null, %.lr.ph191 ], [ %.1.lcssa, %112 ]
+  %.0123188 = phi i1 [ false, %.lr.ph191 ], [ %.1124.lcssa, %112 ]
+  %.0126187 = phi ptr [ null, %.lr.ph191 ], [ %.1127.lcssa, %112 ]
+  %.0130186 = phi ptr [ %0, %.lr.ph191 ], [ %.2132, %112 ]
+  %.0133185 = phi i32 [ %1, %.lr.ph191 ], [ %.2135, %112 ]
+  %.0137184 = phi i32 [ 0, %.lr.ph191 ], [ %113, %112 ]
+  %.0140183 = phi i32 [ 0, %.lr.ph191 ], [ %90, %112 ]
+  %.0141182 = phi i32 [ 0, %.lr.ph191 ], [ %.2143, %112 ]
+  %.0144181 = phi i32 [ 0, %.lr.ph191 ], [ %.1145, %112 ]
+  %.0146180 = phi i32 [ 0, %.lr.ph191 ], [ %.1147, %112 ]
+  %.0148179 = phi i32 [ 0, %.lr.ph191 ], [ %.2150.lcssa, %112 ]
+  %.0152178 = phi i32 [ 0, %.lr.ph191 ], [ %.1153.lcssa, %112 ]
+  %11 = tail call ptr @wmem_array_index(ptr noundef nonnull %2, i32 noundef %.0137184)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4
   %13 = load i32, ptr %11, align 8
   %14 = icmp eq i32 %13, 1
   %15 = load ptr, ptr @gp_rdma_write_offsets, align 8
   %16 = icmp ne ptr %15, null
-  %or.cond5 = select i1 %14, i1 %16, i1 false
-  br i1 %or.cond5, label %17, label %28
+  %or.cond7 = select i1 %14, i1 %16, i1 false
+  br i1 %or.cond7, label %17, label %28
 
 17:                                               ; preds = %10
   %18 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %15)
@@ -1606,30 +1603,30 @@ define internal fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %1, pt
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr @gp_rdma_write_offsets, align 8
-  %23 = tail call ptr @wmem_array_index(ptr noundef %22, i32 noundef %.0135182)
-  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.0128184, i32 noundef %.0131183)
+  %23 = tail call ptr @wmem_array_index(ptr noundef %22, i32 noundef %.0137184)
+  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.0130186, i32 noundef %.0133185)
   %25 = load i32, ptr %23, align 4
-  %26 = add i32 %24, %.0138181
+  %26 = add i32 %24, %.0140183
   %27 = sub i32 %26, %25
   br label %28
 
 28:                                               ; preds = %17, %21, %10
-  %.1147 = phi i32 [ %27, %21 ], [ %.0146177, %17 ], [ %.0146177, %10 ]
-  %.1137 = phi ptr [ %23, %21 ], [ null, %17 ], [ null, %10 ]
+  %.1149 = phi i32 [ %27, %21 ], [ %.0148179, %17 ], [ %.0148179, %10 ]
+  %.1139 = phi ptr [ %23, %21 ], [ null, %17 ], [ null, %10 ]
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @wmem_array_get_count(ptr noundef %30)
-  %.not199 = icmp eq i32 %31, 0
-  br i1 %.not199, label %._crit_edge, label %.lr.ph
+  %.not201 = icmp eq i32 %31, 0
+  br i1 %.not201, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %81
-  %.1171 = phi ptr [ %.2, %81 ], [ %.0120187, %28 ]
-  %.1122170 = phi i1 [ %.2123, %81 ], [ %.0121186, %28 ]
-  %.2148169 = phi i32 [ %.3149, %81 ], [ %.1147, %28 ]
-  %.1151168 = phi i32 [ %.2152, %81 ], [ %.0150176, %28 ]
-  %.0154167 = phi i32 [ %85, %81 ], [ 0, %28 ]
+  %.1173 = phi ptr [ %.2, %81 ], [ %.0122189, %28 ]
+  %.1124172 = phi i1 [ %.2125, %81 ], [ %.0123188, %28 ]
+  %.2150171 = phi i32 [ %.3151, %81 ], [ %.1149, %28 ]
+  %.1153170 = phi i32 [ %.2154, %81 ], [ %.0152178, %28 ]
+  %.0156169 = phi i32 [ %85, %81 ], [ 0, %28 ]
   %32 = load ptr, ptr %29, align 8
-  %33 = tail call ptr @wmem_array_index(ptr noundef %32, i32 noundef %.0154167)
+  %33 = tail call ptr @wmem_array_index(ptr noundef %32, i32 noundef %.0156169)
   %34 = load i32, ptr %11, align 8
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %38
@@ -1639,7 +1636,7 @@ define internal fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %1, pt
   br label %38
 
 38:                                               ; preds = %36, %.lr.ph
-  %.3149 = phi i32 [ %37, %36 ], [ %.2148169, %.lr.ph ]
+  %.3151 = phi i32 [ %37, %36 ], [ %.2150171, %.lr.ph ]
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -1670,7 +1667,7 @@ find_segment_info.exit:                           ; preds = %47
   br label %81
 
 55:                                               ; preds = %38, %44, %47
-  %56 = icmp eq i32 %.1151168, 0
+  %56 = icmp eq i32 %.1153170, 0
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %55
@@ -1685,8 +1682,8 @@ find_segment_info.exit:                           ; preds = %47
   br label %63
 
 63:                                               ; preds = %57, %55
-  %.3153 = phi i32 [ %spec.select.i, %57 ], [ %.1151168, %55 ]
-  %.3 = phi ptr [ %61, %57 ], [ %.1171, %55 ]
+  %.3155 = phi i32 [ %spec.select.i, %57 ], [ %.1153170, %55 ]
+  %.3 = phi ptr [ %61, %57 ], [ %.1173, %55 ]
   %64 = tail call ptr @wmem_file_scope()
   %65 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %64, i64 noundef 40) #14
   %66 = load i32, ptr %39, align 4
@@ -1699,7 +1696,7 @@ find_segment_info.exit:                           ; preds = %47
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %70, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store i32 %.3153, ptr %72, align 8
+  store i32 %.3155, ptr %72, align 8
   %73 = load i32, ptr %12, align 4
   %74 = getelementptr inbounds nuw i8, ptr %65, i64 20
   store i32 %73, ptr %74, align 4
@@ -1707,7 +1704,7 @@ find_segment_info.exit:                           ; preds = %47
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i32 %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 28
-  store i32 %.3149, ptr %77, align 4
+  store i32 %.3151, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 36
   store i32 0, ptr %78, align 4
   %79 = load ptr, ptr %7, align 8
@@ -1719,153 +1716,153 @@ find_segment_info.exit:                           ; preds = %47
 
 81:                                               ; preds = %63, %find_segment_info.exit
   %82 = phi i32 [ %54, %find_segment_info.exit ], [ %.pre, %63 ]
-  %.2152 = phi i32 [ %.1151168, %find_segment_info.exit ], [ %.3153, %63 ]
-  %.2126 = phi ptr [ %43, %find_segment_info.exit ], [ %65, %63 ]
-  %.2123 = phi i1 [ %.1122170, %find_segment_info.exit ], [ true, %63 ]
-  %.2 = phi ptr [ %.1171, %find_segment_info.exit ], [ %.3, %63 ]
+  %.2154 = phi i32 [ %.1153170, %find_segment_info.exit ], [ %.3155, %63 ]
+  %.2128 = phi ptr [ %43, %find_segment_info.exit ], [ %65, %63 ]
+  %.2125 = phi i1 [ %.1124172, %find_segment_info.exit ], [ true, %63 ]
+  %.2 = phi ptr [ %.1173, %find_segment_info.exit ], [ %.3, %63 ]
   %83 = load i32, ptr %12, align 4
   %84 = add i32 %83, %82
   store i32 %84, ptr %12, align 4
-  %85 = add nuw i32 %.0154167, 1
+  %85 = add nuw i32 %.0156169, 1
   %86 = load ptr, ptr %29, align 8
   %87 = tail call i32 @wmem_array_get_count(ptr noundef %86)
   %88 = icmp ult i32 %85, %87
   br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %81, %28
-  %.1151.lcssa = phi i32 [ %.0150176, %28 ], [ %.2152, %81 ]
-  %.2148.lcssa = phi i32 [ %.1147, %28 ], [ %.3149, %81 ]
-  %.1125.lcssa = phi ptr [ %.0124185, %28 ], [ %.2126, %81 ]
-  %.1122.lcssa = phi i1 [ %.0121186, %28 ], [ %.2123, %81 ]
-  %.1.lcssa = phi ptr [ %.0120187, %28 ], [ %.2, %81 ]
+  %.1153.lcssa = phi i32 [ %.0152178, %28 ], [ %.2154, %81 ]
+  %.2150.lcssa = phi i32 [ %.1149, %28 ], [ %.3151, %81 ]
+  %.1127.lcssa = phi ptr [ %.0126187, %28 ], [ %.2128, %81 ]
+  %.1124.lcssa = phi i1 [ %.0123188, %28 ], [ %.2125, %81 ]
+  %.1.lcssa = phi ptr [ %.0122189, %28 ], [ %.2, %81 ]
   %89 = load i32, ptr %12, align 4
-  %90 = add i32 %89, %.0138181
+  %90 = add i32 %89, %.0140183
   %91 = load i32, ptr %11, align 8
   %92 = icmp eq i32 %91, 0
-  %93 = icmp ne ptr %.1137, null
+  %93 = icmp ne ptr %.1139, null
   %or.cond = select i1 %92, i1 true, i1 %93
   br i1 %or.cond, label %94, label %112
 
 94:                                               ; preds = %._crit_edge
-  %95 = add i32 %.0142179, %.0144178
-  %96 = sub i32 %.2148.lcssa, %95
-  %.not162 = icmp eq i32 %.2148.lcssa, %95
-  br i1 %.not162, label %110, label %97
+  %95 = add i32 %.0144181, %.0146180
+  %96 = sub i32 %.2150.lcssa, %95
+  %.not164 = icmp eq i32 %.2150.lcssa, %95
+  br i1 %.not164, label %110, label %97
 
 97:                                               ; preds = %94
-  %98 = tail call i32 @tvb_captured_length_remaining(ptr noundef %.0128184, i32 noundef %.0131183)
+  %98 = tail call i32 @tvb_captured_length_remaining(ptr noundef %.0130186, i32 noundef %.0133185)
   %99 = icmp sgt i32 %98, 0
-  %100 = icmp ne ptr %.1125.lcssa, null
+  %100 = icmp ne ptr %.1127.lcssa, null
   %or.cond3 = select i1 %99, i1 %100, i1 false
   br i1 %or.cond3, label %101, label %110
 
 101:                                              ; preds = %97
-  %102 = tail call ptr @tvb_new_subset_length(ptr noundef %.0128184, i32 noundef %.0131183, i32 noundef %96)
-  %103 = getelementptr inbounds nuw i8, ptr %.1125.lcssa, i64 16
+  %102 = tail call ptr @tvb_new_subset_length(ptr noundef %.0130186, i32 noundef %.0133185, i32 noundef %96)
+  %103 = getelementptr inbounds nuw i8, ptr %.1127.lcssa, i64 16
   %104 = load i32, ptr %103, align 8
-  %105 = tail call fastcc ptr @add_fragment(ptr noundef %102, i32 noundef 0, i32 noundef %104, i32 noundef %.0139180, i1 noundef zeroext true, ptr noundef %7, ptr noundef %3, ptr noundef %4)
+  %105 = tail call fastcc ptr @add_fragment(ptr noundef %102, i32 noundef 0, i32 noundef %104, i32 noundef %.0141182, i1 noundef zeroext true, ptr noundef %7, ptr noundef %3, ptr noundef %4)
   %106 = load i32, ptr %12, align 4
-  %107 = add i32 %106, %.0139180
-  %108 = add i32 %96, %.0131183
-  %109 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.0128184, i32 noundef %108)
+  %107 = add i32 %106, %.0141182
+  %108 = add i32 %96, %.0133185
+  %109 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.0130186, i32 noundef %108)
   br label %110
 
 110:                                              ; preds = %101, %97, %94
-  %.1140 = phi i32 [ %107, %101 ], [ %.0139180, %97 ], [ %.0139180, %94 ]
-  %.1132 = phi i32 [ 0, %101 ], [ %.0131183, %97 ], [ %.0131183, %94 ]
-  %.1129 = phi ptr [ %109, %101 ], [ %.0128184, %97 ], [ %.0128184, %94 ]
+  %.1142 = phi i32 [ %107, %101 ], [ %.0141182, %97 ], [ %.0141182, %94 ]
+  %.1134 = phi i32 [ 0, %101 ], [ %.0133185, %97 ], [ %.0133185, %94 ]
+  %.1131 = phi ptr [ %109, %101 ], [ %.0130186, %97 ], [ %.0130186, %94 ]
   %111 = load i32, ptr %12, align 4
   br label %112
 
 112:                                              ; preds = %110, %._crit_edge
-  %.1145 = phi i32 [ %.2148.lcssa, %110 ], [ %.0144178, %._crit_edge ]
-  %.1143 = phi i32 [ %111, %110 ], [ %.0142179, %._crit_edge ]
-  %.2141 = phi i32 [ %.1140, %110 ], [ %.0139180, %._crit_edge ]
-  %.2133 = phi i32 [ %.1132, %110 ], [ %.0131183, %._crit_edge ]
-  %.2130 = phi ptr [ %.1129, %110 ], [ %.0128184, %._crit_edge ]
-  %113 = add nuw i32 %.0135182, 1
+  %.1147 = phi i32 [ %.2150.lcssa, %110 ], [ %.0146180, %._crit_edge ]
+  %.1145 = phi i32 [ %111, %110 ], [ %.0144181, %._crit_edge ]
+  %.2143 = phi i32 [ %.1142, %110 ], [ %.0141182, %._crit_edge ]
+  %.2135 = phi i32 [ %.1134, %110 ], [ %.0133185, %._crit_edge ]
+  %.2132 = phi ptr [ %.1131, %110 ], [ %.0130186, %._crit_edge ]
+  %113 = add nuw i32 %.0137184, 1
   %114 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %2)
   %115 = icmp ult i32 %113, %114
-  br i1 %115, label %10, label %._crit_edge190.loopexit, !llvm.loop !15
+  br i1 %115, label %10, label %._crit_edge192.loopexit, !llvm.loop !15
 
-._crit_edge190.loopexit:                          ; preds = %112
-  %116 = icmp eq ptr %.1137, null
-  br label %._crit_edge190
+._crit_edge192.loopexit:                          ; preds = %112
+  %116 = icmp eq ptr %.1139, null
+  br label %._crit_edge192
 
-._crit_edge190:                                   ; preds = %._crit_edge190.loopexit, %6
-  %.0139.lcssa = phi i32 [ 0, %6 ], [ %.2141, %._crit_edge190.loopexit ]
-  %.0136.lcssa = phi i1 [ true, %6 ], [ %116, %._crit_edge190.loopexit ]
-  %.0131.lcssa = phi i32 [ %1, %6 ], [ %.2133, %._crit_edge190.loopexit ]
-  %.0128.lcssa = phi ptr [ %0, %6 ], [ %.2130, %._crit_edge190.loopexit ]
-  %.0127.lcssa = phi ptr [ null, %6 ], [ %11, %._crit_edge190.loopexit ]
-  %.0124.lcssa = phi ptr [ null, %6 ], [ %.1125.lcssa, %._crit_edge190.loopexit ]
-  %.0121.lcssa = phi i1 [ false, %6 ], [ %.1122.lcssa, %._crit_edge190.loopexit ]
+._crit_edge192:                                   ; preds = %._crit_edge192.loopexit, %6
+  %.0141.lcssa = phi i32 [ 0, %6 ], [ %.2143, %._crit_edge192.loopexit ]
+  %.0138.lcssa = phi i1 [ true, %6 ], [ %116, %._crit_edge192.loopexit ]
+  %.0133.lcssa = phi i32 [ %1, %6 ], [ %.2135, %._crit_edge192.loopexit ]
+  %.0130.lcssa = phi ptr [ %0, %6 ], [ %.2132, %._crit_edge192.loopexit ]
+  %.0129.lcssa = phi ptr [ null, %6 ], [ %11, %._crit_edge192.loopexit ]
+  %.0126.lcssa = phi ptr [ null, %6 ], [ %.1127.lcssa, %._crit_edge192.loopexit ]
+  %.0123.lcssa = phi i1 [ false, %6 ], [ %.1124.lcssa, %._crit_edge192.loopexit ]
   %117 = tail call ptr @wmem_file_scope()
   %118 = load i32, ptr @proto_rpcordma, align 4
   %119 = tail call ptr @p_get_proto_data(ptr noundef %117, ptr noundef %3, i32 noundef %118, i32 noundef 1)
   %120 = icmp ne ptr %119, null
-  %121 = icmp eq ptr %.0124.lcssa, null
-  %or.cond164 = select i1 %120, i1 true, i1 %121
-  br i1 %or.cond164, label %152, label %122
+  %121 = icmp eq ptr %.0126.lcssa, null
+  %or.cond166 = select i1 %120, i1 true, i1 %121
+  br i1 %or.cond166, label %154, label %122
 
-122:                                              ; preds = %._crit_edge190
-  %123 = load i32, ptr %.0127.lcssa, align 8
-  switch i32 %123, label %.thread [
-    i32 2, label %124
-    i32 0, label %138
-  ]
+122:                                              ; preds = %._crit_edge192
+  %123 = load i32, ptr %.0129.lcssa, align 8
+  %124 = icmp ne i32 %123, 2
+  %or.cond5 = select i1 %124, i1 true, i1 %.0123.lcssa
+  br i1 %or.cond5, label %138, label %125
 
-124:                                              ; preds = %122
-  br i1 %.0121.lcssa, label %.thread, label %125
-
-125:                                              ; preds = %124
+125:                                              ; preds = %122
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 57
   %129 = load i16, ptr %128, align 1
   %130 = and i16 %129, 8
-  %.not159 = icmp eq i16 %130, 0
-  br i1 %.not159, label %131, label %.thread
+  %.not161 = icmp eq i16 %130, 0
+  br i1 %.not161, label %131, label %.thread
 
 131:                                              ; preds = %125
-  %132 = getelementptr inbounds nuw i8, ptr %.0127.lcssa, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %.0129.lcssa, i64 4
   %133 = load i32, ptr %132, align 4
-  %.not160 = icmp eq i32 %133, 0
-  br i1 %.not160, label %.thread, label %134
+  %.not162 = icmp eq i32 %133, 0
+  br i1 %.not162, label %.thread, label %134
 
 134:                                              ; preds = %131
-  %135 = getelementptr inbounds nuw i8, ptr %.0124.lcssa, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %.0126.lcssa, i64 16
   %136 = load i32, ptr %135, align 8
-  %137 = tail call fastcc ptr @add_fragment(ptr noundef %.0128.lcssa, i32 noundef %.0131.lcssa, i32 noundef %136, i32 noundef 0, i1 noundef zeroext false, ptr noundef %7, ptr noundef %3, ptr noundef %4)
-  br label %152
+  %137 = tail call fastcc ptr @add_fragment(ptr noundef %.0130.lcssa, i32 noundef %.0133.lcssa, i32 noundef %136, i32 noundef 0, i1 noundef zeroext false, ptr noundef %7, ptr noundef %3, ptr noundef %4)
+  br label %154
 
 138:                                              ; preds = %122
-  %139 = tail call i32 @tvb_captured_length_remaining(ptr noundef %.0128.lcssa, i32 noundef %.0131.lcssa)
-  %140 = icmp sgt i32 %139, 0
-  br i1 %140, label %141, label %.thread
+  %139 = icmp eq i32 %123, 0
+  br i1 %139, label %140, label %.thread
 
-141:                                              ; preds = %138
-  %142 = getelementptr inbounds nuw i8, ptr %.0124.lcssa, i64 16
-  %143 = load i32, ptr %142, align 8
-  %144 = tail call fastcc ptr @add_fragment(ptr noundef %.0128.lcssa, i32 noundef %.0131.lcssa, i32 noundef %143, i32 noundef %.0139.lcssa, i1 noundef zeroext true, ptr noundef %7, ptr noundef %3, ptr noundef %4)
-  br label %152
+140:                                              ; preds = %138
+  %141 = tail call i32 @tvb_captured_length_remaining(ptr noundef %.0130.lcssa, i32 noundef %.0133.lcssa)
+  %142 = icmp sgt i32 %141, 0
+  br i1 %142, label %143, label %.thread
 
-.thread:                                          ; preds = %122, %124, %125, %131, %138
-  br i1 %.0136.lcssa, label %152, label %145
+143:                                              ; preds = %140
+  %144 = getelementptr inbounds nuw i8, ptr %.0126.lcssa, i64 16
+  %145 = load i32, ptr %144, align 8
+  %146 = tail call fastcc ptr @add_fragment(ptr noundef %.0130.lcssa, i32 noundef %.0133.lcssa, i32 noundef %145, i32 noundef %.0141.lcssa, i1 noundef zeroext true, ptr noundef %7, ptr noundef %3, ptr noundef %4)
+  br label %154
 
-145:                                              ; preds = %.thread
-  %146 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.0128.lcssa, i32 noundef %.0131.lcssa)
-  %147 = icmp sgt i32 %146, 0
-  br i1 %147, label %148, label %152
+.thread:                                          ; preds = %125, %131, %140, %138
+  br i1 %.0138.lcssa, label %154, label %147
 
-148:                                              ; preds = %145
-  %149 = getelementptr inbounds nuw i8, ptr %.0124.lcssa, i64 16
-  %150 = load i32, ptr %149, align 8
-  %151 = tail call fastcc ptr @add_fragment(ptr noundef %.0128.lcssa, i32 noundef %.0131.lcssa, i32 noundef %150, i32 noundef %.0139.lcssa, i1 noundef zeroext true, ptr noundef %7, ptr noundef %3, ptr noundef %4)
-  br label %152
+147:                                              ; preds = %.thread
+  %148 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.0130.lcssa, i32 noundef %.0133.lcssa)
+  %149 = icmp sgt i32 %148, 0
+  br i1 %149, label %150, label %154
 
-152:                                              ; preds = %5, %141, %148, %145, %.thread, %134, %._crit_edge190
-  %.0 = phi ptr [ null, %141 ], [ %151, %148 ], [ null, %145 ], [ null, %.thread ], [ %137, %134 ], [ null, %._crit_edge190 ], [ null, %5 ]
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds nuw i8, ptr %.0126.lcssa, i64 16
+  %152 = load i32, ptr %151, align 8
+  %153 = tail call fastcc ptr @add_fragment(ptr noundef %.0130.lcssa, i32 noundef %.0133.lcssa, i32 noundef %152, i32 noundef %.0141.lcssa, i1 noundef zeroext true, ptr noundef %7, ptr noundef %3, ptr noundef %4)
+  br label %154
+
+154:                                              ; preds = %5, %143, %150, %147, %.thread, %134, %._crit_edge192
+  %.0 = phi ptr [ null, %143 ], [ %153, %150 ], [ null, %147 ], [ null, %.thread ], [ %137, %134 ], [ null, %._crit_edge192 ], [ null, %5 ]
   ret ptr %.0
 }
 
@@ -1903,85 +1900,85 @@ define internal fastcc ptr @add_fragment(ptr noundef %0, i32 noundef %1, i32 nou
   %17 = tail call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %6, i32 noundef %16, i32 noundef 1)
   %18 = icmp eq ptr %17, null
   %19 = icmp sgt i32 %3, -1
-  %or.cond3 = and i1 %19, %18
-  br i1 %or.cond3, label %20, label %set_fragment_head.exit
+  %or.cond5 = and i1 %19, %18
+  br i1 %or.cond5, label %20, label %set_fragment_head.exit
 
 20:                                               ; preds = %14
   %21 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1)
-  %.not51 = icmp ne i32 %21, 0
-  %brmerge = or i1 %4, %.not51
-  br i1 %brmerge, label %22, label %45
+  %22 = icmp ne i32 %21, 0
+  %or.cond = or i1 %4, %22
+  br i1 %or.cond, label %23, label %46
 
-22:                                               ; preds = %20
-  %23 = icmp ne i32 %.0, 0
-  %24 = icmp ne ptr %5, null
-  %or.cond = and i1 %24, %23
-  br i1 %or.cond, label %25, label %39
+23:                                               ; preds = %20
+  %24 = icmp ne i32 %.0, 0
+  %25 = icmp ne ptr %5, null
+  %or.cond3 = and i1 %25, %24
+  br i1 %or.cond3, label %26, label %40
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %27 = load ptr, ptr %26, align 8
-  %.not53 = icmp eq ptr %27, null
-  br i1 %.not53, label %39, label %28
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %28 = load ptr, ptr %27, align 8
+  %.not54 = icmp eq ptr %28, null
+  br i1 %.not54, label %40, label %29
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %39
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %40
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 28
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %39
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 28
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %32
-  %37 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1)
-  %38 = sub i32 %37, %.0
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %38, i32 %21)
-  br label %39
+37:                                               ; preds = %33
+  %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1)
+  %39 = sub i32 %38, %.0
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %39, i32 %21)
+  br label %40
 
-39:                                               ; preds = %36, %32, %28, %25, %22
-  %.042 = phi i32 [ %21, %32 ], [ %21, %28 ], [ %21, %25 ], [ %21, %22 ], [ %spec.select, %36 ]
-  %40 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %0, i32 noundef %1, ptr noundef %6, i32 noundef %2, ptr noundef null, i32 noundef %3, i32 noundef %.042, i1 noundef zeroext %4)
-  %41 = tail call ptr @wmem_file_scope()
-  %42 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %41, i64 noundef 4) #14
-  store i32 %2, ptr %42, align 4
-  %43 = tail call ptr @wmem_file_scope()
-  %44 = load i32, ptr @proto_rpcordma, align 4
-  tail call void @p_add_proto_data(ptr noundef %43, ptr noundef %6, i32 noundef %44, i32 noundef 0, ptr noundef %42)
-  br label %48
+40:                                               ; preds = %37, %33, %29, %26, %23
+  %.044 = phi i32 [ %21, %33 ], [ %21, %29 ], [ %21, %26 ], [ %21, %23 ], [ %spec.select, %37 ]
+  %41 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %0, i32 noundef %1, ptr noundef %6, i32 noundef %2, ptr noundef null, i32 noundef %3, i32 noundef %.044, i1 noundef zeroext %4)
+  %42 = tail call ptr @wmem_file_scope()
+  %43 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %42, i64 noundef 4) #14
+  store i32 %2, ptr %43, align 4
+  %44 = tail call ptr @wmem_file_scope()
+  %45 = load i32, ptr @proto_rpcordma, align 4
+  tail call void @p_add_proto_data(ptr noundef %44, ptr noundef %6, i32 noundef %45, i32 noundef 0, ptr noundef %43)
+  br label %49
 
-45:                                               ; preds = %20
-  %.not52 = icmp eq ptr %5, null
-  br i1 %.not52, label %set_fragment_head.exit, label %46
+46:                                               ; preds = %20
+  %.not53 = icmp eq ptr %5, null
+  br i1 %.not53, label %set_fragment_head.exit, label %47
 
-46:                                               ; preds = %45
-  %47 = tail call fastcc ptr @end_reassembly(i32 noundef %2, ptr noundef nonnull %5, ptr noundef %6)
-  br label %48
+47:                                               ; preds = %46
+  %48 = tail call fastcc ptr @end_reassembly(i32 noundef %2, ptr noundef nonnull %5, ptr noundef %6)
+  br label %49
 
-48:                                               ; preds = %46, %39
-  %.041 = phi ptr [ %40, %39 ], [ %47, %46 ]
-  %.not.i = icmp eq ptr %.041, null
-  br i1 %.not.i, label %set_fragment_head.exit, label %49
+49:                                               ; preds = %47, %40
+  %.043 = phi ptr [ %41, %40 ], [ %48, %47 ]
+  %.not.i = icmp eq ptr %.043, null
+  br i1 %.not.i, label %set_fragment_head.exit, label %50
 
-49:                                               ; preds = %48
-  %50 = tail call ptr @wmem_file_scope()
-  %51 = load i32, ptr @proto_rpcordma, align 4
-  %52 = tail call ptr @p_get_proto_data(ptr noundef %50, ptr noundef %6, i32 noundef %51, i32 noundef 1)
-  %.not5.i = icmp eq ptr %.041, %52
-  br i1 %.not5.i, label %set_fragment_head.exit, label %53
+50:                                               ; preds = %49
+  %51 = tail call ptr @wmem_file_scope()
+  %52 = load i32, ptr @proto_rpcordma, align 4
+  %53 = tail call ptr @p_get_proto_data(ptr noundef %51, ptr noundef %6, i32 noundef %52, i32 noundef 1)
+  %.not5.i = icmp eq ptr %.043, %53
+  br i1 %.not5.i, label %set_fragment_head.exit, label %54
 
-53:                                               ; preds = %49
-  %54 = tail call ptr @wmem_file_scope()
-  %55 = load i32, ptr @proto_rpcordma, align 4
-  tail call void @p_add_proto_data(ptr noundef %54, ptr noundef %6, i32 noundef %55, i32 noundef 1, ptr noundef nonnull %.041)
+54:                                               ; preds = %50
+  %55 = tail call ptr @wmem_file_scope()
+  %56 = load i32, ptr @proto_rpcordma, align 4
+  tail call void @p_add_proto_data(ptr noundef %55, ptr noundef %6, i32 noundef %56, i32 noundef 1, ptr noundef nonnull %.043)
   br label %set_fragment_head.exit
 
-set_fragment_head.exit:                           ; preds = %45, %53, %49, %48, %14
-  %56 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %6, ptr noundef %7)
-  ret ptr %56
+set_fragment_head.exit:                           ; preds = %46, %54, %50, %49, %14
+  %57 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %6, ptr noundef %7)
+  ret ptr %57
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2000,13 +1997,13 @@ define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_nu
   %10 = icmp eq i8 %8, 1
   %11 = icmp eq i8 %8, 2
   %12 = icmp eq i8 %8, 22
-  %narrow = or i1 %11, %12
+  %spec.select = or i1 %11, %12
   br label %26
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr @gp_rdmap_info, align 8
-  %.not66 = icmp eq ptr %14, null
-  br i1 %.not66, label %26, label %15
+  %.not70 = icmp eq ptr %14, null
+  br i1 %.not70, label %26, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 1
@@ -2026,12 +2023,12 @@ define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_nu
   br label %26
 
 26:                                               ; preds = %21, %24, %13, %6
-  %.053 = phi i1 [ %9, %6 ], [ false, %13 ], [ false, %24 ], [ %22, %21 ]
-  %.052 = phi i1 [ %10, %6 ], [ false, %13 ], [ false, %24 ], [ %23, %21 ]
-  %.051.shrunk = phi i1 [ %narrow, %6 ], [ false, %13 ], [ %25, %24 ], [ false, %21 ]
-  %brmerge = select i1 %.053, i1 true, i1 %.052
-  %brmerge88 = select i1 %brmerge, i1 true, i1 %.051.shrunk
-  br i1 %brmerge88, label %27, label %115
+  %.057 = phi i1 [ %9, %6 ], [ false, %13 ], [ false, %24 ], [ %22, %21 ]
+  %.056 = phi i1 [ %10, %6 ], [ false, %13 ], [ false, %24 ], [ %23, %21 ]
+  %.055 = phi i1 [ %spec.select, %6 ], [ false, %13 ], [ %25, %24 ], [ false, %21 ]
+  %or.cond = select i1 %.057, i1 true, i1 %.056
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %.055
+  br i1 %or.cond3, label %27, label %115
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -2039,15 +2036,15 @@ define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_nu
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 57
   %31 = load i16, ptr %30, align 1
   %32 = and i16 %31, 8
-  %.not67 = icmp eq i16 %32, 0
-  br i1 %.not67, label %35, label %33
+  %.not71 = icmp eq i16 %32, 0
+  br i1 %.not71, label %35, label %33
 
 33:                                               ; preds = %27
   %34 = tail call fastcc ptr @get_reassembled_data(ptr noundef %1, i32 noundef 0, ptr noundef %2, ptr noundef %3)
   br label %115
 
 35:                                               ; preds = %27
-  br i1 %.053, label %36, label %57
+  br i1 %.057, label %36, label %57
 
 36:                                               ; preds = %35
   %37 = tail call ptr @wmem_file_scope()
@@ -2060,8 +2057,8 @@ define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_nu
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 0, ptr %41, align 4
   %42 = load ptr, ptr @gp_infiniband_info, align 8
-  %.not70 = icmp eq ptr %42, null
-  br i1 %.not70, label %49, label %43
+  %.not74 = icmp eq ptr %42, null
+  br i1 %.not74, label %49, label %43
 
 43:                                               ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 28
@@ -2075,8 +2072,8 @@ define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_nu
 
 49:                                               ; preds = %36
   %50 = load ptr, ptr @gp_rdmap_info, align 8
-  %.not71 = icmp eq ptr %50, null
-  br i1 %.not71, label %72, label %51
+  %.not75 = icmp eq ptr %50, null
+  br i1 %.not75, label %72, label %51
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -2101,8 +2098,8 @@ define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_nu
 
 64:                                               ; preds = %57
   %65 = load ptr, ptr @gp_rdmap_info, align 8
-  %.not69 = icmp eq ptr %65, null
-  br i1 %.not69, label %.thread83, label %66
+  %.not73 = icmp eq ptr %65, null
+  br i1 %.not73, label %.thread87, label %66
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2114,8 +2111,8 @@ define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_nu
 
 72:                                               ; preds = %58, %66, %43, %51, %49
   %.0 = phi ptr [ %38, %43 ], [ %38, %51 ], [ %38, %49 ], [ %63, %58 ], [ %71, %66 ]
-  %.not72 = icmp eq ptr %.0, null
-  br i1 %.not72, label %.thread83, label %73
+  %.not76 = icmp eq ptr %.0, null
+  br i1 %.not76, label %.thread87, label %73
 
 73:                                               ; preds = %72
   %74 = tail call i32 @tvb_reported_length(ptr noundef %1)
@@ -2125,8 +2122,8 @@ define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_nu
   store i32 %77, ptr %75, align 4
   %78 = load i32, ptr %.0, align 4
   %79 = load ptr, ptr @gp_infiniband_info, align 8
-  %.not73 = icmp eq ptr %79, null
-  br i1 %.not73, label %86, label %80
+  %.not77 = icmp eq ptr %79, null
+  br i1 %.not77, label %86, label %80
 
 80:                                               ; preds = %73
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 28
@@ -2138,8 +2135,8 @@ define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_nu
 
 86:                                               ; preds = %73
   %87 = load ptr, ptr @gp_rdmap_info, align 8
-  %.not74 = icmp eq ptr %87, null
-  br i1 %.not74, label %.thread83, label %88
+  %.not78 = icmp eq ptr %87, null
+  br i1 %.not78, label %.thread87, label %88
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
@@ -2147,28 +2144,28 @@ define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_nu
   br label %91
 
 91:                                               ; preds = %80, %88
-  %.055 = phi i32 [ %85, %80 ], [ %90, %88 ]
+  %.059 = phi i32 [ %85, %80 ], [ %90, %88 ]
   %92 = icmp ne i32 %78, 0
-  %93 = icmp sgt i32 %.055, -1
-  %or.cond = select i1 %92, i1 %93, i1 false
-  br i1 %or.cond, label %94, label %.thread83
+  %93 = icmp sgt i32 %.059, -1
+  %or.cond5 = select i1 %92, i1 %93, i1 false
+  br i1 %or.cond5, label %94, label %.thread87
 
 94:                                               ; preds = %91
-  %95 = xor i1 %.051.shrunk, true
-  %96 = tail call fastcc ptr @add_fragment(ptr noundef %1, i32 noundef 0, i32 noundef %78, i32 noundef %.055, i1 noundef zeroext %95, ptr noundef %0, ptr noundef %2, ptr noundef %3)
+  %95 = xor i1 %.055, true
+  %96 = tail call fastcc ptr @add_fragment(ptr noundef %1, i32 noundef 0, i32 noundef %78, i32 noundef %.059, i1 noundef zeroext %95, ptr noundef %0, ptr noundef %2, ptr noundef %3)
   %97 = icmp eq ptr %96, null
-  %or.cond3.not76 = select i1 %.051.shrunk, i1 %97, i1 false
+  %or.cond7.not80 = select i1 %.055, i1 %97, i1 false
   %98 = load ptr, ptr @gp_rdmap_info, align 8
   %99 = icmp ne ptr %98, null
-  %or.cond5 = select i1 %or.cond3.not76, i1 %99, i1 false
-  br i1 %or.cond5, label %100, label %.thread83
+  %or.cond9 = select i1 %or.cond7.not80, i1 %99, i1 false
+  br i1 %or.cond9, label %100, label %.thread87
 
 100:                                              ; preds = %94
   %101 = load i32, ptr %75, align 4
   %102 = tail call i32 @tvb_reported_length(ptr noundef %1)
-  %103 = add i32 %102, %.055
+  %103 = add i32 %102, %.059
   %104 = icmp eq i32 %101, %103
-  br i1 %104, label %105, label %.thread83
+  br i1 %104, label %105, label %.thread87
 
 105:                                              ; preds = %100
   %106 = tail call ptr @fragment_end_seq_next(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %2, i32 noundef %78, ptr noundef null)
@@ -2190,17 +2187,17 @@ define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_nu
 
 end_reassembly.exit:                              ; preds = %105, %107, %111
   %114 = tail call fastcc ptr @get_reassembled_data(ptr noundef %1, i32 noundef 0, ptr noundef %2, ptr noundef %3)
-  br label %.thread83
+  br label %.thread87
 
-.thread83:                                        ; preds = %64, %86, %72, %94, %end_reassembly.exit, %100, %91
-  %.054 = phi ptr [ %114, %end_reassembly.exit ], [ null, %100 ], [ %96, %94 ], [ null, %91 ], [ null, %72 ], [ null, %86 ], [ null, %64 ]
-  %.not77 = icmp eq ptr %.054, null
-  %..054 = select i1 %.not77, ptr %1, ptr %.054
+.thread87:                                        ; preds = %64, %86, %72, %94, %end_reassembly.exit, %100, %91
+  %.058 = phi ptr [ %114, %end_reassembly.exit ], [ null, %100 ], [ %96, %94 ], [ null, %91 ], [ null, %72 ], [ null, %86 ], [ null, %64 ]
+  %.not81 = icmp eq ptr %.058, null
+  %..058 = select i1 %.not81, ptr %1, ptr %.058
   br label %115
 
-115:                                              ; preds = %26, %.thread83, %33
-  %.057 = phi ptr [ %34, %33 ], [ %..054, %.thread83 ], [ %1, %26 ]
-  ret ptr %.057
+115:                                              ; preds = %.thread87, %26, %33
+  %.061 = phi ptr [ %34, %33 ], [ %1, %26 ], [ %..058, %.thread87 ]
+  ret ptr %.061
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2498,8 +2495,8 @@ define internal fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef captu
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 57
   %8 = load i16, ptr %7, align 1
   %9 = and i16 %8, 8
-  %.not75 = icmp eq i16 %9, 0
-  br i1 %.not75, label %10, label %find_segment_info.exit.thread.sink.split
+  %.not77 = icmp eq i16 %9, 0
+  br i1 %.not77, label %10, label %find_segment_info.exit.thread.sink.split
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr @gp_rdmap_info, align 8
@@ -2513,8 +2510,8 @@ define internal fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef captu
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = tail call ptr @wmem_tree_lookup32(ptr noundef %16, i32 noundef %18)
-  %.not76 = icmp eq ptr %19, null
-  br i1 %.not76, label %find_segment_info.exit.thread, label %20
+  %.not78 = icmp eq ptr %19, null
+  br i1 %.not78, label %find_segment_info.exit.thread, label %20
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -2536,20 +2533,20 @@ define internal fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef captu
   br label %35
 
 35:                                               ; preds = %20, %31
-  %.069.in = phi ptr [ %21, %20 ], [ %32, %31 ]
-  %.068 = phi i64 [ %30, %20 ], [ %34, %31 ]
-  %.069 = load i32, ptr %.069.in, align 8
+  %.073.in = phi ptr [ %21, %20 ], [ %32, %31 ]
+  %.072 = phi i64 [ %30, %20 ], [ %34, %31 ]
+  %.073 = load i32, ptr %.073.in, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr null, ptr %36, align 8
   %.val = load ptr, ptr %1, align 8
-  %37 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %.069)
+  %37 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %.073)
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %find_segment_info.exit.thread, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i64, ptr %39, align 8
-  %.not12.i = icmp ult i64 %.068, %40
+  %.not12.i = icmp ult i64 %.072, %40
   br i1 %.not12.i, label %find_segment_info.exit.thread, label %41
 
 41:                                               ; preds = %38
@@ -2557,11 +2554,11 @@ define internal fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef captu
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
   %45 = add i64 %40, %44
-  %46 = icmp ult i64 %.068, %45
+  %46 = icmp ult i64 %.072, %45
   br i1 %46, label %find_segment_info.exit, label %find_segment_info.exit.thread
 
 find_segment_info.exit:                           ; preds = %41
-  %47 = sub i64 %.068, %40
+  %47 = sub i64 %.072, %40
   %48 = trunc i64 %47 to i32
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %50 = load i32, ptr %49, align 4
@@ -2585,91 +2582,91 @@ find_segment_info.exit:                           ; preds = %41
   %64 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %65 = load i32, ptr %64, align 8
   %66 = tail call ptr @wmem_tree_lookup32(ptr noundef %63, i32 noundef %65)
-  %.not78 = icmp eq ptr %66, null
-  br i1 %.not78, label %.loopexit, label %67
+  %.not80 = icmp eq ptr %66, null
+  br i1 %.not80, label %.loopexit, label %67
 
 67:                                               ; preds = %61
   %68 = tail call ptr @wmem_list_head(ptr noundef nonnull %66)
-  %.not7992 = icmp eq ptr %68, null
-  br i1 %.not7992, label %.loopexit, label %.lr.ph
+  %.not8190 = icmp eq ptr %68, null
+  br i1 %.not8190, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %67, %.lr.ph
-  %.295 = phi i32 [ %72, %.lr.ph ], [ 0, %67 ]
-  %.06394 = phi ptr [ %76, %.lr.ph ], [ %68, %67 ]
-  %.26693 = phi i32 [ %75, %.lr.ph ], [ 0, %67 ]
-  %69 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.06394)
+  %.293 = phi i32 [ %72, %.lr.ph ], [ 0, %67 ]
+  %.06792 = phi ptr [ %76, %.lr.ph ], [ %68, %67 ]
+  %.27091 = phi i32 [ %75, %.lr.ph ], [ 0, %67 ]
+  %69 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.06792)
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load i32, ptr %70, align 8
-  %72 = add i32 %71, %.295
+  %72 = add i32 %71, %.293
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 36
   %74 = load i32, ptr %73, align 4
-  %75 = add i32 %74, %.26693
-  %76 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.06394)
-  %.not79 = icmp eq ptr %76, null
-  br i1 %.not79, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  %75 = add i32 %74, %.27091
+  %76 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.06792)
+  %.not81 = icmp eq ptr %76, null
+  br i1 %.not81, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %67, %61
-  %.165 = phi i32 [ 0, %61 ], [ 0, %67 ], [ %75, %.lr.ph ]
+  %.169 = phi i32 [ 0, %61 ], [ 0, %67 ], [ %75, %.lr.ph ]
   %.1 = phi i32 [ 0, %61 ], [ 0, %67 ], [ %72, %.lr.ph ]
-  %77 = icmp ne i32 %.165, %.1
-  %or.cond.not91 = select i1 %13, i1 true, i1 %77
+  %77 = icmp ne i32 %.169, %.1
+  %or.cond84.not = select i1 %13, i1 true, i1 %77
   br label %78
 
 78:                                               ; preds = %.loopexit, %find_segment_info.exit
-  %.067 = phi i1 [ true, %find_segment_info.exit ], [ %or.cond.not91, %.loopexit ]
-  %.064 = phi i32 [ 0, %find_segment_info.exit ], [ %.165, %.loopexit ]
-  %.062 = phi i32 [ 0, %find_segment_info.exit ], [ %.1, %.loopexit ]
+  %.071 = phi i1 [ true, %find_segment_info.exit ], [ %or.cond84.not, %.loopexit ]
+  %.068 = phi i32 [ 0, %find_segment_info.exit ], [ %.169, %.loopexit ]
+  %.066 = phi i32 [ 0, %find_segment_info.exit ], [ %.1, %.loopexit ]
   %79 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %80 = load i32, ptr %79, align 8
   %81 = tail call fastcc ptr @add_fragment(ptr noundef %0, i32 noundef 0, i32 noundef %80, i32 noundef %52, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %.not81 = icmp ne ptr %81, null
-  %brmerge = or i1 %.067, %.not81
-  br i1 %brmerge, label %82, label %88
+  %82 = icmp ne ptr %81, null
+  %or.cond = or i1 %.071, %82
+  br i1 %or.cond, label %83, label %89
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr @gp_rdmap_info, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
-  %85 = load i8, ptr %84, align 1, !range !6, !noundef !7
-  %86 = trunc nuw i8 %85 to i1
-  %or.cond.not = and i1 %13, %86
-  %87 = icmp eq i32 %.064, %.062
-  %or.cond83 = select i1 %or.cond.not, i1 %87, i1 false
-  br i1 %or.cond83, label %88, label %find_segment_info.exit.thread
+83:                                               ; preds = %78
+  %84 = load ptr, ptr @gp_rdmap_info, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1
+  %86 = load i8, ptr %85, align 1, !range !6, !noundef !7
+  %87 = trunc nuw i8 %86 to i1
+  %or.cond3.not = and i1 %13, %87
+  %88 = icmp eq i32 %.068, %.066
+  %or.cond85 = select i1 %or.cond3.not, i1 %88, i1 false
+  br i1 %or.cond85, label %89, label %find_segment_info.exit.thread
 
-88:                                               ; preds = %82, %78
-  %89 = load i32, ptr %79, align 8
-  %90 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
-  %91 = sub i32 0, %90
-  %92 = and i32 %91, 3
-  %.not.i86 = icmp eq i32 %92, 0
-  br i1 %.not.i86, label %add_iwarp_padding.exit, label %93
+89:                                               ; preds = %83, %78
+  %90 = load i32, ptr %79, align 8
+  %91 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+  %92 = sub i32 0, %91
+  %93 = and i32 %92, 3
+  %.not.i86 = icmp eq i32 %93, 0
+  br i1 %.not.i86, label %add_iwarp_padding.exit, label %94
 
-93:                                               ; preds = %88
-  %94 = add i32 %51, 2
-  %95 = getelementptr inbounds nuw i8, ptr %2, i64 408
-  %96 = load ptr, ptr %95, align 8
-  %97 = zext nneg i32 %92 to i64
-  %98 = tail call noalias ptr @wmem_alloc(ptr noundef %96, i64 noundef %97) #14
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %98, i8 noundef 0, i64 noundef range(i64 1, 4) %97, i1 noundef false) #11
-  %99 = tail call ptr @tvb_new_real_data(ptr noundef %98, i32 noundef %92, i32 noundef %92)
-  %100 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %99, i32 noundef 0, ptr noundef %2, i32 noundef %89, ptr noundef null, i32 noundef %94, i32 noundef %92, i1 noundef zeroext true)
+94:                                               ; preds = %89
+  %95 = add i32 %51, 2
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %97 = load ptr, ptr %96, align 8
+  %98 = zext nneg i32 %93 to i64
+  %99 = tail call noalias ptr @wmem_alloc(ptr noundef %97, i64 noundef %98) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %99, i8 noundef 0, i64 noundef range(i64 1, 4) %98, i1 noundef false) #11
+  %100 = tail call ptr @tvb_new_real_data(ptr noundef %99, i32 noundef %93, i32 noundef %93)
+  %101 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %100, i32 noundef 0, ptr noundef %2, i32 noundef %90, ptr noundef null, i32 noundef %95, i32 noundef %93, i1 noundef zeroext true)
   br label %add_iwarp_padding.exit
 
-add_iwarp_padding.exit:                           ; preds = %93, %88
-  br i1 %brmerge, label %find_segment_info.exit.thread, label %101
+add_iwarp_padding.exit:                           ; preds = %94, %89
+  br i1 %or.cond, label %find_segment_info.exit.thread, label %102
 
-101:                                              ; preds = %add_iwarp_padding.exit
-  %102 = load i32, ptr %79, align 8
-  %103 = tail call fastcc ptr @end_reassembly(i32 noundef %102, ptr noundef %1, ptr noundef %2)
+102:                                              ; preds = %add_iwarp_padding.exit
+  %103 = load i32, ptr %79, align 8
+  %104 = tail call fastcc ptr @end_reassembly(i32 noundef %103, ptr noundef %1, ptr noundef %2)
   br label %find_segment_info.exit.thread.sink.split
 
-find_segment_info.exit.thread.sink.split:         ; preds = %4, %101
-  %104 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
+find_segment_info.exit.thread.sink.split:         ; preds = %4, %102
+  %105 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
   br label %find_segment_info.exit.thread
 
-find_segment_info.exit.thread:                    ; preds = %find_segment_info.exit.thread.sink.split, %82, %41, %38, %35, %add_iwarp_padding.exit, %14
-  %.061 = phi ptr [ null, %14 ], [ %81, %add_iwarp_padding.exit ], [ null, %35 ], [ null, %38 ], [ null, %41 ], [ %81, %82 ], [ %104, %find_segment_info.exit.thread.sink.split ]
-  ret ptr %.061
+find_segment_info.exit.thread:                    ; preds = %find_segment_info.exit.thread.sink.split, %83, %41, %38, %35, %add_iwarp_padding.exit, %14
+  %.065 = phi ptr [ null, %14 ], [ %81, %add_iwarp_padding.exit ], [ null, %35 ], [ null, %38 ], [ null, %41 ], [ %81, %83 ], [ %105, %find_segment_info.exit.thread.sink.split ]
+  ret ptr %.065
 }
 
 ; Function Attrs: null_pointer_is_valid

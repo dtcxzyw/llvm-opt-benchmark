@@ -164,19 +164,22 @@ define internal fastcc void @extcap_ensure_all_interfaces_loaded() unnamed_addr 
   %6 = alloca %struct._extcap_callback_info_t, align 8
   %7 = load ptr, ptr @_loaded_interfaces, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %11, label %8
+  br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %0
   %9 = tail call i32 @g_hash_table_size(ptr noundef nonnull %7)
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %extcap_load_interface_list.exit
+  %10 = icmp ne i32 %9, 0
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 361), align 1, !range !6
+  %12 = trunc nuw i8 %11 to i1
+  %or.cond = select i1 %10, i1 true, i1 %12
+  br i1 %or.cond, label %extcap_load_interface_list.exit, label %14
 
-11:                                               ; preds = %8, %0
-  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 361), align 1, !range !6, !noundef !7
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %extcap_load_interface_list.exit, label %14
+13:                                               ; preds = %0
+  %.old = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 361), align 1, !range !6, !noundef !7
+  %.old1 = trunc nuw i8 %.old to i1
+  br i1 %.old1, label %extcap_load_interface_list.exit, label %14
 
-14:                                               ; preds = %11
+14:                                               ; preds = %8, %13
   %15 = load ptr, ptr @_toolbars, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %23, label %16
@@ -719,7 +722,7 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   br label %extcap_load_interface_list.exit
 
-extcap_load_interface_list.exit:                  ; preds = %.critedge.critedge.i, %240, %extcap_free_extcaps_info_array.exit.i, %25, %11, %8
+extcap_load_interface_list.exit:                  ; preds = %.critedge.critedge.i, %240, %extcap_free_extcaps_info_array.exit.i, %25, %13, %8
   ret void
 }
 
@@ -2132,30 +2135,28 @@ define hidden noalias noundef ptr @extcap_get_tool_by_ifname(ptr noundef %0) loc
 
 5:                                                ; preds = %1
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %3, ptr noundef nonnull %0)
-  %.not.not = icmp eq ptr %6, null
-  br i1 %.not.not, label %extcap_ensure_interface.exit, label %7
+  %.not = icmp eq ptr %6, null
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 361), align 1, !range !6
+  %8 = trunc nuw i8 %7 to i1
+  %or.cond12 = select i1 %.not, i1 true, i1 %8
+  br i1 %or.cond12, label %extcap_ensure_interface.exit, label %9
 
-7:                                                ; preds = %5
-  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 361), align 1, !range !6, !noundef !7
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %extcap_ensure_interface.exit, label %10
+9:                                                ; preds = %5
+  %10 = load ptr, ptr @_loaded_interfaces, align 8
+  %.not26.i = icmp eq ptr %10, null
+  br i1 %.not26.i, label %11, label %13
 
-10:                                               ; preds = %7
-  %11 = load ptr, ptr @_loaded_interfaces, align 8
-  %.not25.i = icmp eq ptr %11, null
-  br i1 %.not25.i, label %12, label %14
+11:                                               ; preds = %9
+  %12 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @extcap_free_interface)
+  store ptr %12, ptr @_loaded_interfaces, align 8
+  br label %13
 
-12:                                               ; preds = %10
-  %13 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @extcap_free_interface)
-  store ptr %13, ptr @_loaded_interfaces, align 8
-  br label %14
-
-14:                                               ; preds = %12, %10
-  %15 = phi ptr [ %13, %12 ], [ %11, %10 ]
-  %16 = tail call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef nonnull %6)
+13:                                               ; preds = %11, %9
+  %14 = phi ptr [ %12, %11 ], [ %10, %9 ]
+  %15 = tail call ptr @g_hash_table_lookup(ptr noundef %14, ptr noundef nonnull %6)
   br label %extcap_ensure_interface.exit
 
-extcap_ensure_interface.exit:                     ; preds = %7, %14, %1, %5
+extcap_ensure_interface.exit:                     ; preds = %13, %1, %5
   ret ptr null
 }
 
@@ -2169,8 +2170,8 @@ define internal fastcc ptr @extcap_ensure_interface(ptr noundef %0, i1 noundef z
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @_loaded_interfaces, align 8
-  %.not25 = icmp eq ptr %6, null
-  br i1 %.not25, label %7, label %9
+  %.not26 = icmp eq ptr %6, null
+  br i1 %.not26, label %7, label %9
 
 7:                                                ; preds = %5
   %8 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @extcap_free_interface)
@@ -2180,8 +2181,8 @@ define internal fastcc ptr @extcap_ensure_interface(ptr noundef %0, i1 noundef z
 9:                                                ; preds = %7, %5
   %10 = phi ptr [ %8, %7 ], [ %6, %5 ]
   %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %0)
-  %.not26 = icmp eq ptr %11, null
-  %brmerge.not = and i1 %1, %.not26
+  %.not27 = icmp eq ptr %11, null
+  %brmerge.not = and i1 %1, %.not27
   br i1 %brmerge.not, label %12, label %19
 
 12:                                               ; preds = %9
@@ -2209,8 +2210,8 @@ define hidden noalias noundef ptr @extcap_get_tool_info(ptr noundef %0) local_un
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @_loaded_interfaces, align 8
-  %.not25.i = icmp eq ptr %5, null
-  br i1 %.not25.i, label %6, label %8
+  %.not26.i = icmp eq ptr %5, null
+  br i1 %.not26.i, label %6, label %8
 
 6:                                                ; preds = %4
   %7 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @extcap_free_interface)

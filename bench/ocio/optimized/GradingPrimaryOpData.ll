@@ -895,8 +895,8 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData22getIdentity
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %10 = load double, ptr %9, align 8, !tbaa !46
   %11 = tail call noundef double @_ZN19OpenColorIO_v2_5dev14GradingPrimary12NoClampBlackEv()
-  %12 = fcmp une double %10, %11
-  br i1 %12, label %15, label %13
+  %12 = fcmp oeq double %10, %11
+  br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
   %14 = tail call noundef double @_ZN19OpenColorIO_v2_5dev11RangeOpData10EmptyValueEv()
@@ -912,7 +912,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData22getIdentity
 
 20:                                               ; preds = %15
   %21 = tail call noundef double @_ZN19OpenColorIO_v2_5dev11RangeOpData10EmptyValueEv()
-  br i1 %12, label %.thread, label %22
+  br i1 %12, label %22, label %.thread
 
 22:                                               ; preds = %20
   %23 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #21, !noalias !85
@@ -936,7 +936,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12Ma
   br label %common.resume
 
 .thread:                                          ; preds = %15, %20
-  %.01722 = phi double [ %21, %20 ], [ %17, %15 ]
+  %.01720 = phi double [ %21, %20 ], [ %17, %15 ]
   %28 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #21, !noalias !88
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 1, ptr %29, align 8, !tbaa !52, !noalias !88
@@ -944,7 +944,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12Ma
   store i32 1, ptr %30, align 4, !tbaa !55, !noalias !88
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %28, align 8, !tbaa !3, !noalias !88
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  invoke void @_ZN19OpenColorIO_v2_5dev11RangeOpDataC1Edddd(ptr noundef nonnull align 8 dereferenceable(228) %31, double noundef %.0, double noundef %.01722, double noundef %.0, double noundef %.01722)
+  invoke void @_ZN19OpenColorIO_v2_5dev11RangeOpDataC1Edddd(ptr noundef nonnull align 8 dereferenceable(228) %31, double noundef %.0, double noundef %.01720, double noundef %.0, double noundef %.01720)
           to label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, !noalias !88
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i: ; preds = %.thread
@@ -954,9 +954,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11Ra
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12MatrixOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.thread, %22
-  %.sink24 = phi ptr [ %26, %22 ], [ %31, %.thread ]
+  %.sink22 = phi ptr [ %26, %22 ], [ %31, %.thread ]
   %.sink = phi ptr [ %23, %22 ], [ %28, %.thread ]
-  store ptr %.sink24, ptr %0, align 8, !tbaa !91
+  store ptr %.sink22, ptr %0, align 8, !tbaa !91
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %33, align 8, !tbaa !56
   ret void

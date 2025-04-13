@@ -1098,21 +1098,19 @@ define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm7remarks11S
   %4 = load i8, ptr %3, align 8, !tbaa !3, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %7 = load i8, ptr %6, align 8, !tbaa !3, !range !8, !noundef !9
+  %7 = load i8, ptr %6, align 8, !range !8
   %8 = trunc nuw i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %58
-
-10:                                               ; preds = %9
-  %11 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN4llvm7remarks11StringTableaSEOS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1)
+  %10 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN4llvm7remarks11StringTableaSEOS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1)
   br label %_ZNSt22_Optional_payload_baseIN4llvm7remarks11StringTableEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %12, label %_ZNSt22_Optional_payload_baseIN4llvm7remarks11StringTableEE8_M_resetEv.exit
+11:                                               ; preds = %2
+  br i1 %8, label %12, label %58
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %11
   %13 = load ptr, ptr %1, align 8, !tbaa !10
   store ptr %13, ptr %0, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1194,15 +1192,18 @@ _ZNSt22_Optional_payload_baseIN4llvm7remarks11StringTableEE12_M_constructIJS2_EE
   store i8 1, ptr %3, align 8, !tbaa !3
   br label %_ZNSt22_Optional_payload_baseIN4llvm7remarks11StringTableEE8_M_resetEv.exit
 
-58:                                               ; preds = %9
+58:                                               ; preds = %11
+  br i1 %5, label %59, label %_ZNSt22_Optional_payload_baseIN4llvm7remarks11StringTableEE8_M_resetEv.exit
+
+59:                                               ; preds = %58
   store i8 0, ptr %3, align 8, !tbaa !3
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %59) #14
-  %60 = load ptr, ptr %0, align 8, !tbaa !10
-  tail call void @free(ptr noundef %60) #14
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %60) #14
+  %61 = load ptr, ptr %0, align 8, !tbaa !10
+  tail call void @free(ptr noundef %61) #14
   br label %_ZNSt22_Optional_payload_baseIN4llvm7remarks11StringTableEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN4llvm7remarks11StringTableEE8_M_resetEv.exit: ; preds = %.thread, %58, %_ZNSt22_Optional_payload_baseIN4llvm7remarks11StringTableEE12_M_constructIJS2_EEEvDpOT_.exit, %10
+_ZNSt22_Optional_payload_baseIN4llvm7remarks11StringTableEE8_M_resetEv.exit: ; preds = %59, %58, %_ZNSt22_Optional_payload_baseIN4llvm7remarks11StringTableEE12_M_constructIJS2_EEEvDpOT_.exit, %9
   ret void
 }
 

@@ -292,27 +292,25 @@ define range(i32 0, 2) i32 @H5A_top_term_package() local_unnamed_addr #0 {
   %4 = trunc nuw i8 %3 to i1
   %5 = xor i1 %4, true
   %6 = select i1 %2, i1 true, i1 %5
-  br i1 %6, label %7, label %13, !prof !9
+  %.b4 = load i1, ptr @H5A_top_package_initialize_s, align 1
+  %or.cond = select i1 %6, i1 %.b4, i1 false
+  br i1 %or.cond, label %7, label %12, !prof !12
 
 7:                                                ; preds = %0
-  %.b3 = load i1, ptr @H5A_top_package_initialize_s, align 1
-  br i1 %.b3, label %8, label %13
+  %8 = tail call i64 @H5I_nmembers(i32 noundef 7) #12
+  %9 = icmp slt i64 %8, 1
+  br i1 %9, label %.critedge, label %10
 
-8:                                                ; preds = %7
-  %9 = tail call i64 @H5I_nmembers(i32 noundef 7) #12
-  %10 = icmp slt i64 %9, 1
-  br i1 %10, label %.critedge, label %11
+10:                                               ; preds = %7
+  %11 = tail call i32 @H5I_clear_type(i32 noundef 7, i1 noundef zeroext false, i1 noundef zeroext false) #12
+  br label %12
 
-11:                                               ; preds = %8
-  %12 = tail call i32 @H5I_clear_type(i32 noundef 7, i1 noundef zeroext false, i1 noundef zeroext false) #12
-  br label %13
-
-.critedge:                                        ; preds = %8
+.critedge:                                        ; preds = %7
   store i1 false, ptr @H5A_top_package_initialize_s, align 1
-  br label %13
+  br label %12
 
-13:                                               ; preds = %11, %7, %.critedge, %0
-  %.0 = phi i32 [ 0, %.critedge ], [ 1, %11 ], [ 0, %7 ], [ 0, %0 ]
+12:                                               ; preds = %10, %.critedge, %0
+  %.0 = phi i32 [ 0, %.critedge ], [ 1, %10 ], [ 0, %0 ]
   ret i32 %.0
 }
 
@@ -335,7 +333,7 @@ define range(i32 0, 2) i32 @H5A_term_package() local_unnamed_addr #0 {
   store i8 0, ptr @H5A_init_g, align 1, !tbaa !3
   br label %7
 
-7:                                                ; preds = %0, %6, %3
+7:                                                ; preds = %6, %3, %0
   %.0 = phi i32 [ 0, %6 ], [ 1, %3 ], [ 0, %0 ]
   ret i32 %.0
 }
@@ -790,15 +788,15 @@ define range(i32 -1, 1) i32 @H5A__set_version(ptr noundef %0, ptr noundef readon
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8, !tbaa !28
   %.not = icmp eq i32 %23, 0
-  %brmerge = select i1 %15, i1 true, i1 %20
-  %spec.select = select i1 %brmerge, i32 2, i32 1
-  %.014 = select i1 %.not, i32 %spec.select, i32 3
+  %or.cond = or i1 %15, %20
+  %. = select i1 %or.cond, i32 2, i32 1
+  %.015 = select i1 %.not, i32 %., i32 3
   %24 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #12
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds [7 x i32], ptr @H5O_attr_ver_bounds, i64 0, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !43
   %28 = and i32 %27, 255
-  %29 = icmp samesign ugt i32 %.014, %28
+  %29 = icmp samesign ugt i32 %.015, %28
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %9
@@ -810,7 +808,7 @@ define range(i32 -1, 1) i32 @H5A__set_version(ptr noundef %0, ptr noundef readon
   br label %36
 
 36:                                               ; preds = %9, %30
-  %37 = phi i32 [ %35, %30 ], [ %.014, %9 ]
+  %37 = phi i32 [ %35, %30 ], [ %.015, %9 ]
   %38 = tail call i32 @H5F_get_high_bound(ptr noundef %0) #12
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds [7 x i32], ptr @H5O_attr_ver_bounds, i64 0, i64 %39
@@ -2530,8 +2528,8 @@ define range(i32 -1, 1) i32 @H5A__compact_build_table(ptr noundef %0, ptr nounde
   %49 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !10
   %50 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5A__compact_build_table, i32 noundef 1576, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.59) #12
   %51 = load ptr, ptr %15, align 8, !tbaa !79
-  %.not20 = icmp eq ptr %51, null
-  br i1 %.not20, label %H5A__attr_sort_table.exit.thread, label %52
+  %.not21 = icmp eq ptr %51, null
+  br i1 %.not21, label %H5A__attr_sort_table.exit.thread, label %52
 
 52:                                               ; preds = %47
   %53 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8

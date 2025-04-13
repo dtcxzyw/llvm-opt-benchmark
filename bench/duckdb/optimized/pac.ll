@@ -103,8 +103,8 @@ define internal ptr @pac_alloc_impl(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.val = load ptr, ptr %9, align 8, !tbaa !14
   %10 = tail call ptr @duckdb_je_base_ehooks_get(ptr noundef %.val) #9
   %.not = xor i1 %5, true
-  %brmerge = or i1 %6, %.not
-  br i1 %brmerge, label %11, label %pac_alloc_real.exit
+  %or.cond = or i1 %6, %.not
+  br i1 %or.cond, label %11, label %pac_alloc_real.exit
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -143,8 +143,8 @@ pac_alloc_real.exit:                              ; preds = %.thread.i, %8
 29:                                               ; preds = %pac_alloc_real.exit
   %30 = load i8, ptr @duckdb_je_opt_retain, align 1, !tbaa !42, !range !43, !noundef !44
   %31 = trunc nuw i8 %30 to i1
-  %brmerge.demorgan.i = and i1 %6, %31
-  br i1 %brmerge.demorgan.i, label %32, label %35
+  %or.cond.i = and i1 %6, %31
+  br i1 %or.cond.i, label %32, label %35
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 58520

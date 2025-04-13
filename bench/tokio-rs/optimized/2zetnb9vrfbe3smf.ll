@@ -972,9 +972,9 @@ define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_w
   unreachable
 
 .thread.i:                                        ; preds = %187, %.body40.i, %26
-  %.122.i = phi i8 [ %.4.i, %26 ], [ %.3.i, %187 ], [ %.3.i, %.body40.i ]
-  %.pn29.i = phi { ptr, i32 } [ %27, %26 ], [ %.pn.i, %187 ], [ %.pn.i, %.body40.i ]
-  %25 = trunc nuw i8 %.122.i to i1
+  %.125.i = phi i8 [ %.4.i, %26 ], [ %.3.i, %187 ], [ %.3.i, %.body40.i ]
+  %.pn30.i = phi { ptr, i32 } [ %27, %26 ], [ %.pn.i, %187 ], [ %.pn.i, %.body40.i ]
+  %25 = trunc nuw i8 %.125.i to i1
   br i1 %25, label %188, label %.body.thread
 
 26:                                               ; preds = %170
@@ -984,20 +984,20 @@ define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_w
 
 28:                                               ; preds = %39, %34, %"_ZN5tokio4util7rc_cell15RcCell$LT$T$GT$3get17h9bed25f9da383b37E.exit.thread.i"
   %29 = invoke noundef i64 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h75bb82850986e17fE.llvm.11424388141523703806"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.b9c08160b8d52b2f9d67197464302e31.46.llvm.11424388141523703806)
-          to label %_ZN5tokio7runtime7context9thread_id17h5538a9be9999d5adE.exit.i unwind label %31
+          to label %_ZN5tokio7runtime7context9thread_id17h5538a9be9999d5adE.exit.i unwind label %32
 
-.body40.i:                                        ; preds = %137, %.body43.i, %97, %31
-  %.3.i = phi i8 [ 0, %137 ], [ 0, %.body43.i ], [ %.223.i, %31 ], [ 0, %97 ]
-  %.120.i = phi i1 [ false, %137 ], [ false, %.body43.i ], [ %32, %31 ], [ false, %97 ]
-  %.pn.i = phi { ptr, i32 } [ %111, %137 ], [ %114, %.body43.i ], [ %33, %31 ], [ %98, %97 ]
+.body40.i:                                        ; preds = %137, %.body43.i, %97, %32
+  %.3.i = phi i8 [ 0, %137 ], [ 0, %.body43.i ], [ %.226.i, %32 ], [ 0, %97 ]
+  %.123.i = phi i1 [ true, %137 ], [ true, %.body43.i ], [ %.022.i, %32 ], [ true, %97 ]
+  %.pn.i = phi { ptr, i32 } [ %111, %137 ], [ %114, %.body43.i ], [ %33, %32 ], [ %98, %97 ]
   %30 = load ptr, ptr %9, align 8, !noundef !19
-  %.not27.i = icmp eq ptr %30, null
-  %brmerge32.i = or i1 %.120.i, %.not27.i
-  br i1 %brmerge32.i, label %.thread.i, label %187
+  %31 = icmp ne ptr %30, null
+  %or.cond3.i = and i1 %.123.i, %31
+  br i1 %or.cond3.i, label %187, label %.thread.i
 
-31:                                               ; preds = %157, %143, %142, %138, %88, %73, %28
-  %.223.i = phi i8 [ 1, %28 ], [ 0, %73 ], [ 1, %88 ], [ 1, %138 ], [ 1, %142 ], [ 0, %143 ], [ 0, %157 ]
-  %32 = phi i1 [ false, %28 ], [ true, %73 ], [ false, %88 ], [ false, %138 ], [ false, %142 ], [ false, %143 ], [ false, %157 ]
+32:                                               ; preds = %157, %143, %142, %138, %88, %73, %28
+  %.226.i = phi i8 [ 1, %28 ], [ 0, %73 ], [ 1, %88 ], [ 1, %138 ], [ 1, %142 ], [ 0, %143 ], [ 0, %157 ]
+  %.022.i = phi i1 [ true, %28 ], [ false, %73 ], [ true, %88 ], [ true, %138 ], [ true, %142 ], [ true, %143 ], [ true, %157 ]
   %33 = landingpad { ptr, i32 }
           cleanup
   br label %.body40.i
@@ -1077,7 +1077,7 @@ define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_w
   %67 = add i64 %66, -1
   store i64 %67, ptr %17, align 8, !noalias !215
   %68 = icmp eq i64 %67, 0
-  br i1 %68, label %69, label %.thread82.i
+  br i1 %68, label %69, label %.thread78.i
 
 69:                                               ; preds = %54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
@@ -1091,7 +1091,7 @@ define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_w
 73:                                               ; preds = %69
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6fe7563c8a1f282aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %35)
-          to label %"_ZN4core3ptr48drop_in_place$LT$tokio..task..local..Context$GT$17h1f81e2c99d116b66E.exit.i.i.i" unwind label %31
+          to label %"_ZN4core3ptr48drop_in_place$LT$tokio..task..local..Context$GT$17h1f81e2c99d116b66E.exit.i.i.i" unwind label %32
 
 "_ZN4core3ptr48drop_in_place$LT$tokio..task..local..Context$GT$17h1f81e2c99d116b66E.exit.i.i.i": ; preds = %73, %69
   %74 = load ptr, ptr %8, align 8, !alias.scope !215, !nonnull !19, !noundef !19
@@ -1100,22 +1100,22 @@ define hidden noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_w
   %77 = add i64 %76, -1
   store i64 %77, ptr %75, align 8, !noalias !215
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %79, label %.thread82.i
+  br i1 %78, label %79, label %.thread78.i
 
 79:                                               ; preds = %"_ZN4core3ptr48drop_in_place$LT$tokio..task..local..Context$GT$17h1f81e2c99d116b66E.exit.i.i.i"
   tail call void @__rust_dealloc(ptr noundef nonnull %74, i64 noundef 32, i64 noundef 8) #26, !noalias !215
-  br label %.thread82.i
+  br label %.thread78.i
 
-.thread82.i:                                      ; preds = %79, %"_ZN4core3ptr48drop_in_place$LT$tokio..task..local..Context$GT$17h1f81e2c99d116b66E.exit.i.i.i", %54
+.thread78.i:                                      ; preds = %79, %"_ZN4core3ptr48drop_in_place$LT$tokio..task..local..Context$GT$17h1f81e2c99d116b66E.exit.i.i.i", %54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %"_ZN5tokio4task5local6Shared8schedule28_$u7b$$u7b$closure$u7d$$u7d$17hf7f7b7fd2f7d6698E.exit"
 
 _ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE.exit58.i: ; preds = %157, %.noexc56.i, %.noexc48.i
   %80 = phi ptr [ %.pre.i, %.noexc48.i ], [ %17, %157 ], [ %17, %.noexc56.i ]
-  %.4.i = phi i8 [ %.01877.i, %.noexc48.i ], [ 0, %157 ], [ 0, %.noexc56.i ]
-  %.not28.i = icmp eq ptr %80, null
-  br i1 %.not28.i, label %"_ZN4core3ptr69drop_in_place$LT$alloc..rc..Rc$LT$tokio..task..local..Context$GT$$GT$17hf7bfa893b31c4123E.exit61.i", label %161
+  %.4.i = phi i8 [ %.02173.i, %.noexc48.i ], [ 0, %157 ], [ 0, %.noexc56.i ]
+  %.not.i = icmp eq ptr %80, null
+  br i1 %.not.i, label %"_ZN4core3ptr69drop_in_place$LT$alloc..rc..Rc$LT$tokio..task..local..Context$GT$$GT$17hf7bfa893b31c4123E.exit61.i", label %161
 
 81:                                               ; preds = %188, %187, %137, %.body.i
   %82 = landingpad { ptr, i32 }
@@ -1137,7 +1137,7 @@ _ZN5tokio7runtime7context9thread_id17h5538a9be9999d5adE.exit.i: ; preds = %28
 
 88:                                               ; preds = %85
   %89 = invoke noundef zeroext i1 @_ZN11parking_lot9raw_mutex8RawMutex9lock_slow17ha7d07771867e5354E(ptr noundef nonnull align 1 %86, i64 undef, i32 noundef 1000000000)
-          to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9993772341007493287.exit.i" unwind label %31
+          to label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9993772341007493287.exit.i" unwind label %32
 
 90:                                               ; preds = %_ZN5tokio7runtime7context9thread_id17h5538a9be9999d5adE.exit.i
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1267,14 +1267,14 @@ _ZN5tokio7runtime7context9thread_id17h5538a9be9999d5adE.exit.i: ; preds = %28
           to label %.body40.i unwind label %81
 
 .noexc48.i:                                       ; preds = %142, %.noexc50.i, %134, %.noexc47.i
-  %.01877.i = phi i8 [ 0, %.noexc47.i ], [ 0, %134 ], [ 1, %142 ], [ 1, %.noexc50.i ]
+  %.02173.i = phi i8 [ 0, %.noexc47.i ], [ 0, %134 ], [ 1, %142 ], [ 1, %.noexc50.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.pre.i = load ptr, ptr %9, align 8
   br label %_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE.exit58.i
 
 138:                                              ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.9993772341007493287.exit.i"
   %139 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.700930863383756518(ptr noundef nonnull align 1 %86, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
-          to label %.noexc50.i unwind label %31
+          to label %.noexc50.i unwind label %32
 
 .noexc50.i:                                       ; preds = %138
   %.fca.0.extract.i.i.i.i49.i = extractvalue { i8, i8 } %139, 0
@@ -1284,7 +1284,7 @@ _ZN5tokio7runtime7context9thread_id17h5538a9be9999d5adE.exit.i: ; preds = %28
 
 142:                                              ; preds = %.noexc50.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17hece2ff75ef233b4aE(ptr noundef nonnull align 1 %86, i1 noundef zeroext false)
-          to label %.noexc48.i unwind label %31
+          to label %.noexc48.i unwind label %32
 
 143:                                              ; preds = %._crit_edge.i.i37.i, %90
   %144 = phi i64 [ %.pre1.i.i39.i, %._crit_edge.i.i37.i ], [ %94, %90 ]
@@ -1305,7 +1305,7 @@ _ZN5tokio7runtime7context9thread_id17h5538a9be9999d5adE.exit.i: ; preds = %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %156 = invoke { ptr, ptr } @_ZN5tokio4sync4task12atomic_waker11AtomicWaker10take_waker17hd9e974a843dff871E(ptr noundef nonnull align 8 %155)
-          to label %.noexc56.i unwind label %31
+          to label %.noexc56.i unwind label %32
 
 .noexc56.i:                                       ; preds = %143
   %.fca.0.extract.i53.i = extractvalue { ptr, ptr } %156, 0
@@ -1317,7 +1317,7 @@ _ZN5tokio7runtime7context9thread_id17h5538a9be9999d5adE.exit.i: ; preds = %28
   %158 = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i53.i, i64 8
   %159 = load ptr, ptr %158, align 8, !nonnull !19, !noundef !19
   invoke void %159(ptr noundef %.fca.1.extract.i55.i)
-          to label %_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE.exit58.i unwind label %31
+          to label %_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE.exit58.i unwind label %32
 
 "_ZN4core3ptr69drop_in_place$LT$alloc..rc..Rc$LT$tokio..task..local..Context$GT$$GT$17hf7bfa893b31c4123E.exit61.i": ; preds = %176, %"_ZN4core3ptr48drop_in_place$LT$tokio..task..local..Context$GT$17h1f81e2c99d116b66E.exit.i.i59.i", %161, %_ZN5tokio4sync4task12atomic_waker11AtomicWaker4wake17h86303582b8c2e7afE.exit58.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -1396,7 +1396,7 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i: ; p
   invoke void @"_ZN4core3ptr109drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$17hde242ce25ce1f459E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16) #27
           to label %.body.thread unwind label %81
 
-"_ZN5tokio4task5local6Shared8schedule28_$u7b$$u7b$closure$u7d$$u7d$17hf7f7b7fd2f7d6698E.exit": ; preds = %181, %.thread82.i, %"_ZN4core3ptr69drop_in_place$LT$alloc..rc..Rc$LT$tokio..task..local..Context$GT$$GT$17hf7bfa893b31c4123E.exit61.i", %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i
+"_ZN5tokio4task5local6Shared8schedule28_$u7b$$u7b$closure$u7d$$u7d$17hf7f7b7fd2f7d6698E.exit": ; preds = %181, %.thread78.i, %"_ZN4core3ptr69drop_in_place$LT$alloc..rc..Rc$LT$tokio..task..local..Context$GT$$GT$17hf7bfa893b31c4123E.exit61.i", %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZN4core3ptr86drop_in_place$LT$tokio..task..local..Shared..schedule..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0cce0b77a8d33dabE.exit"
 
@@ -1426,7 +1426,7 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i15: ;
   ret i1 %14
 
 .body.thread:                                     ; preds = %188, %.body.i, %.thread.i, %198
-  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %198 ], [ %.pn29.i, %188 ], [ %.pn29.i, %.thread.i ], [ %51, %.body.i ]
+  %eh.lpad-body19 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %198 ], [ %.pn30.i, %188 ], [ %.pn30.i, %.thread.i ], [ %51, %.body.i ]
   resume { ptr, i32 } %eh.lpad-body19
 
 198:                                              ; preds = %3
@@ -3428,10 +3428,15 @@ define noundef zeroext i1 @_ZN5tokio7runtime7context8blocking25try_enter_blockin
 define noundef zeroext i1 @_ZN5tokio7runtime7context8blocking23disallow_block_in_place17h1c55b0b09dfd36fdE() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   %2 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h5f8ec821a32f13ccE, align 1, !noundef !19
-  switch i8 %2, label %9 [
+  switch i8 %2, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb0e6719803c54d2fE.exit.thread" [
     i8 0, label %3
     i8 1, label %4
   ]
+
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb0e6719803c54d2fE.exit.thread": ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
+  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.3f5780a7fef518180bd2fb61a12abd81.54.llvm.9993772341007493287, i64 noundef 70, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.27.llvm.9993772341007493287, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.56.llvm.9993772341007493287) #25
+  unreachable
 
 3:                                                ; preds = %0
   tail call void @_ZN3std3sys4unix17thread_local_dtor13register_dtor17h386ba5c2183d9221E(ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit7destroy17hee31cdf84bf17fd5E)
@@ -3440,25 +3445,15 @@ define noundef zeroext i1 @_ZN5tokio7runtime7context8blocking23disallow_block_in
 
 4:                                                ; preds = %3, %0
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2, !range !199, !noundef !19
-  %.not.i.i = icmp eq i8 %5, 2
-  br i1 %.not.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit", label %6
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb0e6719803c54d2fE.exit"
 
-6:                                                ; preds = %4
-  %7 = trunc nuw i8 %5 to i1
-  br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit"
-
-8:                                                ; preds = %6
+7:                                                ; preds = %4
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17hb55c26beb3ee4bafE, i64 78), align 2
-  br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit"
+  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb0e6719803c54d2fE.exit"
 
-9:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
-  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.3f5780a7fef518180bd2fb61a12abd81.54.llvm.9993772341007493287, i64 noundef 70, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.27.llvm.9993772341007493287, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.56.llvm.9993772341007493287) #25
-  unreachable
-
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit": ; preds = %8, %6, %4
-  %.0.i.ph = phi i1 [ false, %4 ], [ false, %6 ], [ true, %8 ]
-  ret i1 %.0.i.ph
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hb0e6719803c54d2fE.exit": ; preds = %4, %7
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -4841,9 +4836,9 @@ define hidden noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6wor
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %.val33 = load ptr, ptr %0, align 8, !nonnull !19, !noundef !19
+  %.val32 = load ptr, ptr %0, align 8, !nonnull !19, !noundef !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !876)
-  %11 = getelementptr inbounds nuw i8, ptr %.val33, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.val32, i64 16
   %12 = load ptr, ptr %11, align 8, !noalias !876, !nonnull !19, !noundef !19
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 84
   %14 = load i8, ptr %13, align 4, !range !82, !noalias !876, !noundef !19
@@ -4853,33 +4848,33 @@ define hidden noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6wor
   %17 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hcaf082b521a24e93E()
           to label %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_scheduled_tasks17h8d71b731befdf6d2E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread
 
-.body:                                            ; preds = %.body74, %521
-  br i1 %.6, label %.body.thread, label %.body.thread104
+.body:                                            ; preds = %521, %.body73
+  br i1 %.6, label %.body.thread, label %.body.thread103
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %.noexc35
+.loopexit:                                        ; preds = %.lr.ph.i.i, %.noexc34
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
 .loopexit.split-lp.loopexit:                      ; preds = %.lr.ph10.i.i
-  %lpad.loopexit145 = landingpad { ptr, i32 }
+  %lpad.loopexit140 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %344
-  %lpad.loopexit152 = landingpad { ptr, i32 }
+  %lpad.loopexit147 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread: ; preds = %515, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit._crit_edge.i", %300, %.noexc49, %271, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interval17h594c9c712810aaaaE.exit.i
-  %.0.ph.ph.ph.ph.ph = phi ptr [ %.2.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interval17h594c9c712810aaaaE.exit.i ], [ %.2.i, %271 ], [ %.2.i, %.noexc49 ], [ %.2.i, %300 ], [ %.2.i, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit._crit_edge.i" ], [ %.017, %515 ]
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread: ; preds = %515, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit._crit_edge.i", %300, %.noexc48, %271, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interval17h594c9c712810aaaaE.exit.i
+  %.0.ph.ph.ph.ph.ph = phi ptr [ %.2.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interval17h594c9c712810aaaaE.exit.i ], [ %.2.i, %271 ], [ %.2.i, %.noexc48 ], [ %.2.i, %300 ], [ %.2.i, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit._crit_edge.i" ], [ %.020, %515 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread: ; preds = %72, %._crit_edge, %163, %513, %349, %2
-  %.0.ph.ph.ph.ph161.ph = phi ptr [ %1, %2 ], [ %.2.i, %349 ], [ %.017, %513 ], [ %.2.i, %163 ], [ %.2.lcssa, %._crit_edge ], [ %.2.lcssa, %72 ]
-  %lpad.thr_comm346 = landingpad { ptr, i32 }
+  %.0.ph.ph.ph.ph156.ph = phi ptr [ %1, %2 ], [ %.2.i, %349 ], [ %.020, %513 ], [ %.2.i, %163 ], [ %.2.lcssa, %._crit_edge ], [ %.2.lcssa, %72 ]
+  %lpad.thr_comm341 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
@@ -4941,7 +4936,7 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_schedule
   %55 = icmp ult i64 %51, %54
   br i1 %55, label %.lr.ph10.i.i, label %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$22close_and_shutdown_all17h9794a27c3921210cE.exit.i"
 
-.loopexit.i.i:                                    ; preds = %.noexc36, %.noexc34
+.loopexit.i.i:                                    ; preds = %.noexc35, %.noexc33
   %exitcond.not.i.i = icmp eq i64 %56, %54
   br i1 %exitcond.not.i.i, label %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$22close_and_shutdown_all17h9794a27c3921210cE.exit.i", label %.lr.ph10.i.i
 
@@ -4949,26 +4944,26 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_schedule
   %.sroa.01.09.i.i = phi i64 [ %56, %.loopexit.i.i ], [ %51, %.noexc ]
   %56 = add i64 %.sroa.01.09.i.i, 1
   %57 = invoke noundef ptr @"_ZN5tokio4util12sharded_list82ShardedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$8pop_back17h4e46d3278368f835E"(ptr noundef nonnull align 8 %44, i64 noundef %.sroa.01.09.i.i)
-          to label %.noexc34 unwind label %.loopexit.split-lp.loopexit
+          to label %.noexc33 unwind label %.loopexit.split-lp.loopexit
 
-.noexc34:                                         ; preds = %.lr.ph10.i.i
+.noexc33:                                         ; preds = %.lr.ph10.i.i
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.loopexit.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.noexc34, %.noexc36
-  %59 = phi ptr [ %64, %.noexc36 ], [ %57, %.noexc34 ]
+.lr.ph.i.i:                                       ; preds = %.noexc33, %.noexc35
+  %59 = phi ptr [ %64, %.noexc35 ], [ %57, %.noexc33 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8, !noalias !882, !nonnull !19, !align !32, !noundef !19
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load ptr, ptr %62, align 8, !noalias !882, !nonnull !19, !noundef !19
   invoke void %63(ptr noundef nonnull %59)
+          to label %.noexc34 unwind label %.loopexit
+
+.noexc34:                                         ; preds = %.lr.ph.i.i
+  %64 = invoke noundef ptr @"_ZN5tokio4util12sharded_list82ShardedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$8pop_back17h4e46d3278368f835E"(ptr noundef nonnull align 8 %44, i64 noundef %.sroa.01.09.i.i)
           to label %.noexc35 unwind label %.loopexit
 
-.noexc35:                                         ; preds = %.lr.ph.i.i
-  %64 = invoke noundef ptr @"_ZN5tokio4util12sharded_list82ShardedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$8pop_back17h4e46d3278368f835E"(ptr noundef nonnull align 8 %44, i64 noundef %.sroa.01.09.i.i)
-          to label %.noexc36 unwind label %.loopexit
-
-.noexc36:                                         ; preds = %.noexc35
+.noexc35:                                         ; preds = %.noexc34
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.loopexit.i.i, label %.lr.ph.i.i
 
@@ -4983,14 +4978,14 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_schedule
 
 72:                                               ; preds = %"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$22close_and_shutdown_all17h9794a27c3921210cE.exit.i"
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %68, i64 noundef %70, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.76) #25
-          to label %.noexc37 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread
+          to label %.noexc36 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread
 
-.noexc37:                                         ; preds = %72
+.noexc36:                                         ; preds = %72
   unreachable
 
 73:                                               ; preds = %.lr.ph, %.backedge
-  %.2258 = phi ptr [ %1, %.lr.ph ], [ %.2.be, %.backedge ]
-  %74 = getelementptr inbounds nuw i8, ptr %.2258, i64 64
+  %.2253 = phi ptr [ %1, %.lr.ph ], [ %.2.be, %.backedge ]
+  %74 = getelementptr inbounds nuw i8, ptr %.2253, i64 64
   %75 = load i32, ptr %74, align 8, !alias.scope !890, !noundef !19
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 8, !alias.scope !890
@@ -5010,30 +5005,30 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_schedule
 
 86:                                               ; preds = %73
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.64) #25
-          to label %87 unwind label %.loopexit.split-lp156, !noalias !893
+          to label %87 unwind label %.loopexit.split-lp151, !noalias !893
 
 87:                                               ; preds = %86
   unreachable
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds nuw i8, ptr %.2258, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %.2253, i64 32
   %90 = load i64, ptr %89, align 8, !alias.scope !897, !noundef !19
   %.not.i.i = icmp eq i64 %90, 0
   br i1 %.not.i.i, label %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_tasks17hef33a816d9ad1a56E.exit.i, label %91
 
 91:                                               ; preds = %88
   %92 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hcaf082b521a24e93E()
-          to label %.noexc.i unwind label %.loopexit155, !noalias !893
+          to label %.noexc.i unwind label %.loopexit150, !noalias !893
 
 .noexc.i:                                         ; preds = %91
   %93 = extractvalue { i64, i32 } %92, 0
   %94 = extractvalue { i64, i32 } %92, 1
-  %95 = getelementptr inbounds nuw i8, ptr %.2258, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %.2253, i64 48
   %96 = load i64, ptr %95, align 8, !alias.scope !897, !noundef !19
-  %97 = getelementptr inbounds nuw i8, ptr %.2258, i64 56
+  %97 = getelementptr inbounds nuw i8, ptr %.2253, i64 56
   %98 = load i32, ptr %97, align 8, !range !900, !alias.scope !897, !noundef !19
   %99 = invoke { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17h491018ed01dab4a4E"(i64 noundef %93, i32 noundef %94, i64 noundef %96, i32 noundef %98)
-          to label %.noexc7.i unwind label %.loopexit155, !noalias !893
+          to label %.noexc7.i unwind label %.loopexit150, !noalias !893
 
 .noexc7.i:                                        ; preds = %.noexc.i
   %.fca.0.extract.i.i = extractvalue { i64, i32 } %99, 0
@@ -5049,7 +5044,7 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_schedule
   %108 = fsub double 1.000000e+00, %107
   %109 = fmul double %108, %106
   %110 = fsub double 1.000000e+00, %108
-  %111 = getelementptr inbounds nuw i8, ptr %.2258, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %.2253, i64 40
   %112 = load double, ptr %111, align 8, !alias.scope !897, !noundef !19
   %113 = fmul double %110, %112
   %114 = fadd double %109, %113
@@ -5057,7 +5052,7 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_schedule
   br label %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_tasks17hef33a816d9ad1a56E.exit.i
 
 _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_tasks17hef33a816d9ad1a56E.exit.i: ; preds = %.noexc7.i, %88
-  %115 = tail call fastcc noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6worker7Context12park_timeout17h5667328b2caf6934E(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 %.2258, i64 0, i32 noundef 0)
+  %115 = tail call fastcc noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6worker7Context12park_timeout17h5667328b2caf6934E(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 %.2253, i64 0, i32 noundef 0)
   %116 = load ptr, ptr %0, align 8, !noalias !893, !nonnull !19, !noundef !19
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !901)
@@ -5077,7 +5072,7 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_
 
 128:                                              ; preds = %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_tasks17hef33a816d9ad1a56E.exit.i
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %120, i64 noundef %122, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.75) #25
-          to label %.noexc8.i unwind label %.loopexit.split-lp156
+          to label %.noexc8.i unwind label %.loopexit.split-lp151
 
 .noexc8.i:                                        ; preds = %128
   unreachable
@@ -5090,7 +5085,7 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_
 
 132:                                              ; preds = %129
   %133 = invoke noundef zeroext i1 @_ZN11parking_lot9raw_mutex8RawMutex9lock_slow17ha7d07771867e5354E(ptr noundef nonnull align 1 %130, i64 undef, i32 noundef 1000000000)
-          to label %.noexc9.i unwind label %.loopexit155
+          to label %.noexc9.i unwind label %.loopexit150
 
 "_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i": ; preds = %142, %.noexc10.i, %124
   %134 = getelementptr inbounds nuw i8, ptr %115, i64 75
@@ -5103,7 +5098,7 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_
   %138 = load i8, ptr %137, align 8, !range !82, !noalias !901, !noundef !19
   store i8 %138, ptr %125, align 2, !alias.scope !901
   %139 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.700930863383756518(ptr noundef nonnull align 1 %130, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
-          to label %.noexc10.i unwind label %.loopexit155
+          to label %.noexc10.i unwind label %.loopexit150
 
 .noexc10.i:                                       ; preds = %.noexc9.i
   %.fca.0.extract.i.i.i.i.i.i = extractvalue { i8, i8 } %139, 0
@@ -5113,7 +5108,7 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_
 
 142:                                              ; preds = %.noexc10.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17hece2ff75ef233b4aE(ptr noundef nonnull align 1 %130, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i" unwind label %.loopexit155
+          to label %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i" unwind label %.loopexit150
 
 143:                                              ; preds = %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i"
   store i8 0, ptr %134, align 1, !alias.scope !901
@@ -5121,7 +5116,7 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_
 
 _ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i: ; preds = %143, %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i"
   %144 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hcaf082b521a24e93E()
-          to label %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_scheduled_tasks17h8d71b731befdf6d2E.exit.i unwind label %.loopexit155
+          to label %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_scheduled_tasks17h8d71b731befdf6d2E.exit.i unwind label %.loopexit150
 
 _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_scheduled_tasks17h8d71b731befdf6d2E.exit.i: ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i
   %145 = getelementptr inbounds nuw i8, ptr %115, i64 32
@@ -5141,27 +5136,27 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_schedule
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28
   unreachable
 
-.loopexit155:                                     ; preds = %91, %.noexc.i, %132, %.noexc9.i, %142, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i
-  %.0.i.ph = phi ptr [ %.2258, %91 ], [ %.2258, %.noexc.i ], [ %115, %132 ], [ %115, %.noexc9.i ], [ %115, %142 ], [ %115, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i ]
-  %lpad.loopexit158 = landingpad { ptr, i32 }
+.loopexit150:                                     ; preds = %91, %.noexc.i, %132, %.noexc9.i, %142, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i
+  %.0.i.ph = phi ptr [ %.2253, %91 ], [ %.2253, %.noexc.i ], [ %115, %132 ], [ %115, %.noexc9.i ], [ %115, %142 ], [ %115, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i ]
+  %lpad.loopexit153 = landingpad { ptr, i32 }
           cleanup
   br label %152
 
-.loopexit.split-lp156:                            ; preds = %86, %128
-  %.0.i.ph157 = phi ptr [ %115, %128 ], [ %.2258, %86 ]
-  %lpad.loopexit.split-lp159 = landingpad { ptr, i32 }
+.loopexit.split-lp151:                            ; preds = %86, %128
+  %.0.i.ph152 = phi ptr [ %115, %128 ], [ %.2253, %86 ]
+  %lpad.loopexit.split-lp154 = landingpad { ptr, i32 }
           cleanup
   br label %152
 
-152:                                              ; preds = %.loopexit.split-lp156, %.loopexit155
-  %.0.i = phi ptr [ %.0.i.ph, %.loopexit155 ], [ %.0.i.ph157, %.loopexit.split-lp156 ]
-  %lpad.phi160 = phi { ptr, i32 } [ %lpad.loopexit158, %.loopexit155 ], [ %lpad.loopexit.split-lp159, %.loopexit.split-lp156 ]
+152:                                              ; preds = %.loopexit.split-lp151, %.loopexit150
+  %.0.i = phi ptr [ %.0.i.ph, %.loopexit150 ], [ %.0.i.ph152, %.loopexit.split-lp151 ]
+  %lpad.phi155 = phi { ptr, i32 } [ %lpad.loopexit153, %.loopexit150 ], [ %lpad.loopexit.split-lp154, %.loopexit.split-lp151 ]
   invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7906750d7d0e8f69E"(ptr %.0.i) #27
-          to label %.body.thread104 unwind label %150
+          to label %.body.thread103 unwind label %150
 
 _ZN5tokio7runtime9scheduler12multi_thread6worker7Context11maintenance17h05568a916300e8c5E.exit: ; preds = %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_scheduled_tasks17h8d71b731befdf6d2E.exit.i, %83
   %153 = phi ptr [ %.pre, %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_scheduled_tasks17h8d71b731befdf6d2E.exit.i ], [ %77, %83 ]
-  %.2.i = phi ptr [ %115, %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_scheduled_tasks17h8d71b731befdf6d2E.exit.i ], [ %.2258, %83 ]
+  %.2.i = phi ptr [ %115, %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_scheduled_tasks17h8d71b731befdf6d2E.exit.i ], [ %.2253, %83 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !907)
   %155 = getelementptr inbounds nuw i8, ptr %.2.i, i64 68
@@ -5178,9 +5173,9 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker7Context11maintenance17h05568a91
 
 163:                                              ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker7Context11maintenance17h05568a916300e8c5E.exit
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.71) #25
-          to label %.noexc41 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread
+          to label %.noexc40 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread
 
-.noexc41:                                         ; preds = %163
+.noexc40:                                         ; preds = %163
   unreachable
 
 164:                                              ; preds = %158
@@ -5221,16 +5216,16 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats27tuned_global_queue_interv
 
 _ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interval17h594c9c712810aaaaE.exit.i: ; preds = %179, %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats27tuned_global_queue_interval17hcc70b58c0019288fE.exit.i.i
   %180 = invoke noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$16next_remote_task17h44d46a729715548eE"(ptr noundef nonnull align 8 %165)
-          to label %.noexc42 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread
+          to label %.noexc41 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread
 
-.noexc42:                                         ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interval17h594c9c712810aaaaE.exit.i
+.noexc41:                                         ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interval17h594c9c712810aaaaE.exit.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !919)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !907
   store ptr %180, ptr %5, align 8, !noalias !922
   %181 = icmp eq ptr %180, null
   br i1 %181, label %182, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h6057a1d6ffadddd0E.exit.i"
 
-182:                                              ; preds = %.noexc42
+182:                                              ; preds = %.noexc41
   tail call void @llvm.experimental.noalias.scope.decl(metadata !923)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !926)
   %183 = load ptr, ptr %.2.i, align 8, !alias.scope !929, !noundef !19
@@ -5272,8 +5267,8 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core26tune_global_queue_interva
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28
   unreachable
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h6057a1d6ffadddd0E.exit.i": ; preds = %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit.i.i", %.noexc42
-  %.04.i.i = phi ptr [ %.04.i.i.i.i.i, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit.i.i" ], [ %180, %.noexc42 ]
+"_ZN4core6option15Option$LT$T$GT$7or_else17h6057a1d6ffadddd0E.exit.i": ; preds = %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit.i.i", %.noexc41
+  %.04.i.i = phi ptr [ %.04.i.i.i.i.i, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit.i.i" ], [ %180, %.noexc41 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !907
   br label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9next_task17ha7ecdbfb974f612cE.exit
 
@@ -5314,18 +5309,18 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core15next_local_task17h180ebb4
   %.not.i = icmp eq ptr %199, null
   br i1 %.not.i, label %205, label %.thread.i
 
-204:                                              ; preds = %.loopexit166, %.loopexit.split-lp167, %236
-  %.pn10.i = phi { ptr, i32 } [ %.pn.pn.i, %236 ], [ %lpad.loopexit168, %.loopexit166 ], [ %lpad.loopexit.split-lp169, %.loopexit.split-lp167 ]
+204:                                              ; preds = %.loopexit161, %.loopexit.split-lp162, %236
+  %.pn10.i = phi { ptr, i32 } [ %.pn.pn.i, %236 ], [ %lpad.loopexit163, %.loopexit161 ], [ %lpad.loopexit.split-lp164, %.loopexit.split-lp162 ]
   invoke void @"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #27
           to label %.body.thread unwind label %263
 
-.loopexit166:                                     ; preds = %205, %209, %.noexc.i40, %215, %234, %258, %262
-  %lpad.loopexit168 = landingpad { ptr, i32 }
+.loopexit161:                                     ; preds = %205, %209, %.noexc.i39, %215, %234, %258, %262
+  %lpad.loopexit163 = landingpad { ptr, i32 }
           cleanup
   br label %204
 
-.loopexit.split-lp167:                            ; preds = %227
-  %lpad.loopexit.split-lp169 = landingpad { ptr, i32 }
+.loopexit.split-lp162:                            ; preds = %227
+  %lpad.loopexit.split-lp164 = landingpad { ptr, i32 }
           cleanup
   br label %204
 
@@ -5333,7 +5328,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core15next_local_task17h180ebb4
   %.val.i = load ptr, ptr %154, align 8, !noalias !907, !nonnull !19, !noundef !19
   %206 = getelementptr inbounds nuw i8, ptr %.val.i, i64 168
   %207 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.13045902235258919337(ptr noundef nonnull align 8 %206, i8 noundef 2)
-          to label %"_ZN5tokio7runtime9scheduler6inject6shared15Shared$LT$T$GT$3len17h4d6162cb69944adeE.exit.i" unwind label %.loopexit166
+          to label %"_ZN5tokio7runtime9scheduler6inject6shared15Shared$LT$T$GT$3len17h4d6162cb69944adeE.exit.i" unwind label %.loopexit161
 
 "_ZN5tokio7runtime9scheduler6inject6shared15Shared$LT$T$GT$3len17h4d6162cb69944adeE.exit.i": ; preds = %205
   %208 = icmp eq i64 %207, 0
@@ -5343,19 +5338,19 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core15next_local_task17h180ebb4
   %210 = load ptr, ptr %198, align 8, !alias.scope !940, !nonnull !19, !noundef !19
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %212 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h39ab0d2e952ad884E.llvm.5542961546488995764(ptr noundef nonnull %211, i8 noundef 2)
-          to label %.noexc.i40 unwind label %.loopexit166
+          to label %.noexc.i39 unwind label %.loopexit161
 
-.noexc.i40:                                       ; preds = %209
+.noexc.i39:                                       ; preds = %209
   %213 = getelementptr inbounds nuw i8, ptr %210, i64 32
   %214 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17h83391542aba19ea3E.llvm.5542961546488995764(ptr noundef nonnull %213, i8 noundef 2)
-          to label %215 unwind label %.loopexit166
+          to label %215 unwind label %.loopexit161
 
 .thread.i:                                        ; preds = %"_ZN5tokio7runtime9scheduler6inject6shared15Shared$LT$T$GT$3len17h4d6162cb69944adeE.exit.i", %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core15next_local_task17h180ebb463260e269E.llvm.9993772341007493287.exit.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core15next_local_task17h180ebb463260e269E.llvm.9993772341007493287.exit.thread.i
   %.137.i = phi ptr [ %195, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core15next_local_task17h180ebb463260e269E.llvm.9993772341007493287.exit.thread.i ], [ %199, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core15next_local_task17h180ebb463260e269E.llvm.9993772341007493287.exit.i ], [ null, %"_ZN5tokio7runtime9scheduler6inject6shared15Shared$LT$T$GT$3len17h4d6162cb69944adeE.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !907
   br label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9next_task17ha7ecdbfb974f612cE.exit
 
-215:                                              ; preds = %.noexc.i40
+215:                                              ; preds = %.noexc.i39
   %216 = lshr i64 %212, 32
   %217 = trunc nuw i64 %216 to i32
   %218 = sub i32 %214, %217
@@ -5364,7 +5359,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core15next_local_task17h180ebb4
   %.val12.i = load ptr, ptr %154, align 8, !noalias !907, !nonnull !19, !noundef !19
   %221 = getelementptr inbounds nuw i8, ptr %.val12.i, i64 168
   %222 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.13045902235258919337(ptr noundef nonnull align 8 %221, i8 noundef 2)
-          to label %"_ZN5tokio7runtime9scheduler6inject6shared15Shared$LT$T$GT$3len17h4d6162cb69944adeE.exit17.i" unwind label %.loopexit166
+          to label %"_ZN5tokio7runtime9scheduler6inject6shared15Shared$LT$T$GT$3len17h4d6162cb69944adeE.exit17.i" unwind label %.loopexit161
 
 "_ZN5tokio7runtime9scheduler6inject6shared15Shared$LT$T$GT$3len17h4d6162cb69944adeE.exit17.i": ; preds = %215
   %223 = load ptr, ptr %154, align 8, !noalias !907, !nonnull !19, !noundef !19
@@ -5375,7 +5370,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core15next_local_task17h180ebb4
 
 227:                                              ; preds = %"_ZN5tokio7runtime9scheduler6inject6shared15Shared$LT$T$GT$3len17h4d6162cb69944adeE.exit17.i"
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @str.1, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.72) #25
-          to label %228 unwind label %.loopexit.split-lp167
+          to label %228 unwind label %.loopexit.split-lp162
 
 228:                                              ; preds = %227
   unreachable
@@ -5394,7 +5389,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core15next_local_task17h180ebb4
 
 234:                                              ; preds = %229
   %235 = invoke noundef zeroext i1 @_ZN11parking_lot9raw_mutex8RawMutex9lock_slow17ha7d07771867e5354E(ptr noundef nonnull align 1 %232, i64 undef, i32 noundef 1000000000)
-          to label %239 unwind label %.loopexit166
+          to label %239 unwind label %.loopexit161
 
 236:                                              ; preds = %256, %237
   %.pn.pn.i = phi { ptr, i32 } [ %238, %237 ], [ %257, %256 ]
@@ -5467,7 +5462,7 @@ _ZN5tokio7runtime9scheduler6inject6synced6Synced3pop17h277017e74d01f25fE.exit.i.
 258:                                              ; preds = %"_ZN111_$LT$tokio..runtime..scheduler..inject..pop..Pop$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cb0db8ac1bef0b5E.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !907
   %259 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.700930863383756518(ptr noundef nonnull align 1 %232, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
-          to label %.noexc24.i unwind label %.loopexit166
+          to label %.noexc24.i unwind label %.loopexit161
 
 .noexc24.i:                                       ; preds = %258
   %.fca.0.extract.i.i.i.i.i = extractvalue { i8, i8 } %259, 0
@@ -5477,7 +5472,7 @@ _ZN5tokio7runtime9scheduler6inject6synced6Synced3pop17h277017e74d01f25fE.exit.i.
 
 262:                                              ; preds = %.noexc24.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17hece2ff75ef233b4aE(ptr noundef nonnull align 1 %232, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit29.i" unwind label %.loopexit166
+          to label %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit29.i" unwind label %.loopexit161
 
 "_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit29.i": ; preds = %262, %.noexc24.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !907
@@ -5491,26 +5486,26 @@ _ZN5tokio7runtime9scheduler6inject6synced6Synced3pop17h277017e74d01f25fE.exit.i.
   unreachable
 
 _ZN5tokio7runtime9scheduler12multi_thread6worker4Core9next_task17ha7ecdbfb974f612cE.exit: ; preds = %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit29.i", %.thread.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h6057a1d6ffadddd0E.exit.i"
-  %.0.i39 = phi ptr [ %.04.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h6057a1d6ffadddd0E.exit.i" ], [ %.137.i, %.thread.i ], [ %.0.i.i, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit29.i" ]
-  %.not = icmp eq ptr %.0.i39, null
+  %.0.i38 = phi ptr [ %.04.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h6057a1d6ffadddd0E.exit.i" ], [ %.137.i, %.thread.i ], [ %.0.i.i, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit29.i" ]
+  %.not = icmp eq ptr %.0.i38, null
   br i1 %.not, label %268, label %265
 
 265:                                              ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9next_task17ha7ecdbfb974f612cE.exit
-  %266 = tail call fastcc noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6worker7Context8run_task17hb0cc598917bc2fb8E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %.0.i39, ptr noalias noundef nonnull align 8 %.2.i)
+  %266 = tail call fastcc noundef align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6worker7Context8run_task17hb0cc598917bc2fb8E(ptr noundef nonnull align 8 %0, ptr noundef nonnull %.0.i38, ptr noalias noundef nonnull align 8 %.2.i)
   %267 = icmp eq ptr %266, null
-  br i1 %267, label %.loopexit171, label %.backedge
+  br i1 %267, label %.loopexit166, label %.backedge
 
 268:                                              ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9next_task17ha7ecdbfb974f612cE.exit
   %269 = getelementptr inbounds nuw i8, ptr %.2.i, i64 32
   %270 = load i64, ptr %269, align 8, !alias.scope !950, !noundef !19
-  %.not.i48 = icmp eq i64 %270, 0
-  br i1 %.not.i48, label %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_tasks17hef33a816d9ad1a56E.exit, label %271
+  %.not.i47 = icmp eq i64 %270, 0
+  br i1 %.not.i47, label %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_tasks17hef33a816d9ad1a56E.exit, label %271
 
 271:                                              ; preds = %268
   %272 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hcaf082b521a24e93E()
-          to label %.noexc49 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread
+          to label %.noexc48 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread
 
-.noexc49:                                         ; preds = %271
+.noexc48:                                         ; preds = %271
   %273 = extractvalue { i64, i32 } %272, 0
   %274 = extractvalue { i64, i32 } %272, 1
   %275 = getelementptr inbounds nuw i8, ptr %.2.i, i64 48
@@ -5518,9 +5513,9 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core9next_task17ha7ecdbfb974f61
   %277 = getelementptr inbounds nuw i8, ptr %.2.i, i64 56
   %278 = load i32, ptr %277, align 8, !range !900, !alias.scope !950, !noundef !19
   %279 = invoke { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17h491018ed01dab4a4E"(i64 noundef %273, i32 noundef %274, i64 noundef %276, i32 noundef %278)
-          to label %.noexc50 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread
+          to label %.noexc49 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread
 
-.noexc50:                                         ; preds = %.noexc49
+.noexc49:                                         ; preds = %.noexc48
   %.fca.0.extract.i = extractvalue { i64, i32 } %279, 0
   %.fca.1.extract.i = extractvalue { i64, i32 } %279, 1
   %280 = zext i64 %.fca.0.extract.i to i128
@@ -5541,7 +5536,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core9next_task17ha7ecdbfb974f61
   store double %294, ptr %291, align 8, !alias.scope !950
   br label %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_tasks17hef33a816d9ad1a56E.exit
 
-_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_tasks17hef33a816d9ad1a56E.exit: ; preds = %.noexc50, %268
+_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_tasks17hef33a816d9ad1a56E.exit: ; preds = %.noexc49, %268
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %295 = load ptr, ptr %0, align 8, !nonnull !19, !noundef !19
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 16
@@ -5556,22 +5551,22 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_
   %301 = load ptr, ptr %296, align 8, !noalias !959, !nonnull !19, !noundef !19
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 176
   %303 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.7600499188078001995(ptr noundef nonnull align 8 %302, i8 noundef 4)
-          to label %.noexc54 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread
+          to label %.noexc53 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread
 
-.noexc54:                                         ; preds = %300
+.noexc53:                                         ; preds = %300
   %304 = shl i64 %303, 1
   %305 = and i64 %304, 131070
   %306 = getelementptr inbounds nuw i8, ptr %301, i64 184
   %307 = load i64, ptr %306, align 8, !noalias !959, !noundef !19
-  %.not.i.i.i51 = icmp ult i64 %305, %307
-  br i1 %.not.i.i.i51, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread8.i, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread
+  %.not.i.i.i50 = icmp ult i64 %305, %307
+  br i1 %.not.i.i.i50, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread8.i, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread
 
-_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread8.i: ; preds = %.noexc54
+_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread8.i: ; preds = %.noexc53
   %308 = atomicrmw add ptr %302, i64 1 seq_cst, align 8, !noalias !959
   store i8 1, ptr %297, align 1, !alias.scope !959
   br label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread.i
 
-_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread: ; preds = %.noexc54
+_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread: ; preds = %.noexc53
   store i8 0, ptr %297, align 1, !alias.scope !959
   store ptr null, ptr %10, align 8
   br label %353
@@ -5625,7 +5620,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17
   %338 = icmp eq i64 %336, %337
   br i1 %338, label %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit.backedge.i", label %339
 
-"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit.backedge.i": ; preds = %.noexc56, %333
+"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit.backedge.i": ; preds = %.noexc55, %333
   %exitcond.not.i = icmp eq i64 %334, %311
   br i1 %exitcond.not.i, label %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit._crit_edge.loopexit.i", label %333
 
@@ -5641,30 +5636,30 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17
   %346 = load ptr, ptr %345, align 8, !nonnull !19, !align !32, !noundef !19
   %347 = getelementptr inbounds [0 x { ptr, ptr }], ptr %346, i64 0, i64 %336
   %348 = invoke noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Steal$LT$T$GT$10steal_into17h72f46fc01fde9417E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %347, ptr noalias noundef nonnull align 8 dereferenceable(8) %329, ptr noalias noundef nonnull align 8 dereferenceable(32) %269)
-          to label %.noexc56 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc55 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc56:                                         ; preds = %344
-  %.not.i53 = icmp eq ptr %348, null
-  br i1 %.not.i53, label %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit.backedge.i", label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread115
+.noexc55:                                         ; preds = %344
+  %.not.i52 = icmp eq ptr %348, null
+  br i1 %.not.i52, label %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit.backedge.i", label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread112
 
-_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread115: ; preds = %.noexc56
+_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread112: ; preds = %.noexc55
   store ptr %348, ptr %10, align 8
   br label %350
 
 349:                                              ; preds = %339
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %336, i64 noundef %342, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.74) #25
-          to label %.noexc57 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread
+          to label %.noexc56 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread
 
-.noexc57:                                         ; preds = %349
+.noexc56:                                         ; preds = %349
   unreachable
 
 _ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit: ; preds = %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit._crit_edge.i"
   store ptr %332, ptr %10, align 8
-  %.not23 = icmp eq ptr %332, null
-  br i1 %.not23, label %353, label %350
+  %.not26 = icmp eq ptr %332, null
+  br i1 %.not26, label %353, label %350
 
-350:                                              ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread115, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit
-  %351 = phi ptr [ %348, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread115 ], [ %332, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit ]
+350:                                              ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread112, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit
+  %351 = phi ptr [ %348, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread112 ], [ %332, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %351, ptr %9, align 8
   %352 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hcaf082b521a24e93E()
@@ -5677,9 +5672,9 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fd
 
 356:                                              ; preds = %353
   invoke void @_ZN4core4cell30panic_already_mutably_borrowed17hbc333334528bd302E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ba4985a049956e0df762c1765696dc31.61.llvm.4117860391599875382) #25
-          to label %.noexc60 unwind label %.loopexit.split-lp149.loopexit.split-lp
+          to label %.noexc59 unwind label %.loopexit.split-lp144.loopexit.split-lp
 
-.noexc60:                                         ; preds = %356
+.noexc59:                                         ; preds = %356
   unreachable
 
 357:                                              ; preds = %350
@@ -5697,31 +5692,31 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fd
 
 364:                                              ; preds = %357
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %.loopexit171
+  br label %.loopexit166
 
 365:                                              ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker7Context4park17hae57339741c23c66E.exit
-  %366 = getelementptr inbounds nuw i8, ptr %.017, i64 32
+  %366 = getelementptr inbounds nuw i8, ptr %.020, i64 32
   %367 = extractvalue { i64, i32 } %507, 0
   %368 = extractvalue { i64, i32 } %507, 1
-  %369 = getelementptr inbounds nuw i8, ptr %.017, i64 48
+  %369 = getelementptr inbounds nuw i8, ptr %.020, i64 48
   store i64 %367, ptr %369, align 8, !alias.scope !968
-  %370 = getelementptr inbounds nuw i8, ptr %.017, i64 56
+  %370 = getelementptr inbounds nuw i8, ptr %.020, i64 56
   store i32 %368, ptr %370, align 8, !alias.scope !968
   store i64 0, ptr %366, align 8, !alias.scope !968
   %371 = load ptr, ptr %10, align 8, !noundef !19
-  %.not26 = icmp eq ptr %371, null
-  br i1 %.not26, label %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E.exit", label %511
+  %.not139 = icmp eq ptr %371, null
+  br i1 %.not139, label %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E.exit", label %511
 
-.loopexit171:                                     ; preds = %265, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core12pre_shutdown17h94c76ba298f420baE.exit, %364
+.loopexit166:                                     ; preds = %265, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core12pre_shutdown17h94c76ba298f420baE.exit, %364
   ret ptr null
 
-.body74:                                          ; preds = %.loopexit148, %.loopexit.split-lp149.loopexit.split-lp, %.loopexit.split-lp149.loopexit, %503, %.loopexit.split-lp.i
-  %.596 = phi ptr [ %.2.i, %503 ], [ %.2.i, %.loopexit.split-lp.i ], [ %.2.i, %.loopexit148 ], [ %.017, %.loopexit.split-lp149.loopexit ], [ %.2.i, %.loopexit.split-lp149.loopexit.split-lp ]
-  %.6 = phi i1 [ false, %503 ], [ false, %.loopexit.split-lp.i ], [ false, %.loopexit148 ], [ true, %.loopexit.split-lp149.loopexit ], [ true, %.loopexit.split-lp149.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %504, %503 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %lpad.loopexit150, %.loopexit148 ], [ %lpad.loopexit175, %.loopexit.split-lp149.loopexit ], [ %lpad.loopexit.split-lp176, %.loopexit.split-lp149.loopexit.split-lp ]
+.body73:                                          ; preds = %.loopexit143, %.loopexit.split-lp144.loopexit.split-lp, %.loopexit.split-lp144.loopexit, %503, %.loopexit.split-lp.i
+  %.595 = phi ptr [ %.2.i, %503 ], [ %.2.i, %.loopexit.split-lp.i ], [ %.2.i, %.loopexit143 ], [ %.020, %.loopexit.split-lp144.loopexit ], [ %.2.i, %.loopexit.split-lp144.loopexit.split-lp ]
+  %.6 = phi i1 [ false, %503 ], [ false, %.loopexit.split-lp.i ], [ false, %.loopexit143 ], [ true, %.loopexit.split-lp144.loopexit ], [ true, %.loopexit.split-lp144.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %504, %503 ], [ %lpad.phi.i, %.loopexit.split-lp.i ], [ %lpad.loopexit145, %.loopexit143 ], [ %lpad.loopexit170, %.loopexit.split-lp144.loopexit ], [ %lpad.loopexit.split-lp171, %.loopexit.split-lp144.loopexit.split-lp ]
   %372 = load ptr, ptr %10, align 8, !noundef !19
-  %.not25 = icmp eq ptr %372, null
-  br i1 %.not25, label %.body, label %521
+  %.not138 = icmp eq ptr %372, null
+  br i1 %.not138, label %.body, label %521
 
 373:                                              ; preds = %350
   %374 = landingpad { ptr, i32 }
@@ -5735,20 +5730,20 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fd
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28
   unreachable
 
-.loopexit148:                                     ; preds = %434
-  %lpad.loopexit150 = landingpad { ptr, i32 }
+.loopexit143:                                     ; preds = %434
+  %lpad.loopexit145 = landingpad { ptr, i32 }
           cleanup
-  br label %.body74
+  br label %.body73
 
-.loopexit.split-lp149.loopexit:                   ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker7Context4park17hae57339741c23c66E.exit
-  %lpad.loopexit175 = landingpad { ptr, i32 }
+.loopexit.split-lp144.loopexit:                   ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker7Context4park17hae57339741c23c66E.exit
+  %lpad.loopexit170 = landingpad { ptr, i32 }
           cleanup
-  br label %.body74
+  br label %.body73
 
-.loopexit.split-lp149.loopexit.split-lp:          ; preds = %356
-  %lpad.loopexit.split-lp176 = landingpad { ptr, i32 }
+.loopexit.split-lp144.loopexit.split-lp:          ; preds = %356
+  %lpad.loopexit.split-lp171 = landingpad { ptr, i32 }
           cleanup
-  br label %.body74
+  br label %.body73
 
 377:                                              ; preds = %353
   %378 = load i64, ptr %27, align 8, !noundef !19
@@ -5762,8 +5757,8 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fd
   %383 = load ptr, ptr %382, align 8, !noalias !971, !nonnull !19, !noundef !19
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 32
   %385 = load ptr, ptr %384, align 8, !noalias !971, !noundef !19
-  %.not.i61 = icmp eq ptr %385, null
-  br i1 %.not.i61, label %397, label %386
+  %.not.i60 = icmp eq ptr %385, null
+  br i1 %.not.i60, label %397, label %386
 
 386:                                              ; preds = %380
   %387 = getelementptr inbounds nuw i8, ptr %383, i64 40
@@ -5780,41 +5775,39 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fd
           to label %._crit_edge.i unwind label %.loopexit.split-lp.i.loopexit, !noalias !971
 
 ._crit_edge.i:                                    ; preds = %386
-  %.pre.i62 = load ptr, ptr %0, align 8, !noalias !971
+  %.pre.i61 = load ptr, ptr %0, align 8, !noalias !971
   br label %397
 
 397:                                              ; preds = %._crit_edge.i, %380
-  %398 = phi ptr [ %.pre.i62, %._crit_edge.i ], [ %381, %380 ]
+  %398 = phi ptr [ %.pre.i61, %._crit_edge.i ], [ %381, %380 ]
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !974)
   %.val.i.i = load ptr, ptr %.2.i, align 8, !alias.scope !977, !noundef !19
-  %.not.i.i.i63 = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i63, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i.i, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i
+  %.not.i.i.i62 = icmp eq ptr %.val.i.i, null
+  br i1 %.not.i.i.i62, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i.i, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i
 
 _ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i.i: ; preds = %397
   %400 = getelementptr inbounds nuw i8, ptr %.2.i, i64 24
-  %.val1.i.i = load ptr, ptr %400, align 8, !alias.scope !977, !nonnull !19, !noundef !19
-  %401 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 24
+  %.val3.i.i = load ptr, ptr %400, align 8, !alias.scope !977, !nonnull !19, !noundef !19
+  %401 = getelementptr inbounds nuw i8, ptr %.val3.i.i, i64 24
   %402 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h39ab0d2e952ad884E.llvm.5542961546488995764(ptr noundef nonnull %401, i8 noundef 2)
-          to label %.noexc.i64 unwind label %.loopexit.split-lp.i.loopexit, !noalias !971
+          to label %.noexc.i63 unwind label %.loopexit.split-lp.i.loopexit, !noalias !971
 
-.noexc.i64:                                       ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i.i
-  %403 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 32
+.noexc.i63:                                       ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i.i
+  %403 = getelementptr inbounds nuw i8, ptr %.val3.i.i, i64 32
   %404 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17h83391542aba19ea3E.llvm.5542961546488995764(ptr noundef nonnull %403, i8 noundef 2)
           to label %.noexc3.i unwind label %.loopexit.split-lp.i.loopexit, !noalias !971
 
-.noexc3.i:                                        ; preds = %.noexc.i64
+.noexc3.i:                                        ; preds = %.noexc.i63
   %405 = trunc i64 %402 to i32
-  %.not.i.i65 = icmp eq i32 %404, %405
-  br i1 %.not.i.i65, label %406, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i
-
-406:                                              ; preds = %.noexc3.i
+  %406 = icmp ne i32 %404, %405
   %407 = getelementptr inbounds nuw i8, ptr %.2.i, i64 75
-  %408 = load i8, ptr %407, align 1, !range !82, !alias.scope !977, !noundef !19
+  %408 = load i8, ptr %407, align 1, !range !82, !alias.scope !977
   %409 = trunc nuw i8 %408 to i1
-  br i1 %409, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i, label %410
+  %or.cond.i.i = select i1 %406, i1 true, i1 %409
+  br i1 %or.cond.i.i, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i, label %410
 
-410:                                              ; preds = %406
+410:                                              ; preds = %.noexc3.i
   %411 = load ptr, ptr %399, align 8, !noalias !977, !nonnull !19, !noundef !19
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 16
   %413 = getelementptr inbounds nuw i8, ptr %411, i64 176
@@ -5838,8 +5831,8 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h
   invoke void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$22notify_if_work_pending17h4a7d8251be2a452fE"(ptr noundef nonnull align 8 %421)
           to label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i.preheader unwind label %.loopexit.split-lp.i.loopexit, !noalias !971
 
-_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i: ; preds = %430, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i, %488, %.noexc19.i, %406, %.noexc3.i, %397
-  %.1.i = phi ptr [ %.2.i, %.noexc3.i ], [ %.2.i, %406 ], [ %.2.i, %397 ], [ %435, %.noexc19.i ], [ %435, %488 ], [ %.2.i66, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i ], [ %.2.i66, %430 ]
+_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i: ; preds = %430, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i, %488, %.noexc17.i, %.noexc3.i, %397
+  %.1.i = phi ptr [ %.2.i, %.noexc3.i ], [ %.2.i, %397 ], [ %435, %.noexc17.i ], [ %435, %488 ], [ %.2.i64, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i ], [ %.2.i64, %430 ]
   %422 = load ptr, ptr %0, align 8, !noalias !971, !nonnull !19, !noundef !19
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 16
   %424 = load ptr, ptr %423, align 8, !nonnull !19, !noundef !19
@@ -5848,24 +5841,24 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92
   %.not2.i = icmp eq ptr %426, null
   br i1 %.not2.i, label %_ZN5tokio7runtime9scheduler12multi_thread6worker7Context4park17hae57339741c23c66E.exit, label %490
 
-_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i: ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i.preheader, %.noexc18.i
-  %.2.i66 = phi ptr [ %435, %.noexc18.i ], [ %.2.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i.preheader ]
-  %427 = getelementptr inbounds nuw i8, ptr %.2.i66, i64 74
+_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i: ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i.preheader, %.noexc16.i
+  %.2.i64 = phi ptr [ %435, %.noexc16.i ], [ %.2.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i.preheader ]
+  %427 = getelementptr inbounds nuw i8, ptr %.2.i64, i64 74
   %428 = load i8, ptr %427, align 2, !range !82, !noundef !19
   %429 = trunc nuw i8 %428 to i1
   br i1 %429, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i, label %430
 
 430:                                              ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i
-  %431 = getelementptr inbounds nuw i8, ptr %.2.i66, i64 75
+  %431 = getelementptr inbounds nuw i8, ptr %.2.i64, i64 75
   %432 = load i8, ptr %431, align 1, !range !82, !noundef !19
   %433 = trunc nuw i8 %432 to i1
   br i1 %433, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i, label %434
 
 434:                                              ; preds = %430
-  %435 = invoke fastcc noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6worker7Context12park_timeout17h5667328b2caf6934E(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 %.2.i66, i64 undef, i32 noundef 1000000000)
-          to label %.noexc73 unwind label %.loopexit148
+  %435 = invoke fastcc noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6worker7Context12park_timeout17h5667328b2caf6934E(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 %.2.i64, i64 undef, i32 noundef 1000000000)
+          to label %.noexc72 unwind label %.loopexit143
 
-.noexc73:                                         ; preds = %434
+.noexc72:                                         ; preds = %434
   %436 = load ptr, ptr %0, align 8, !noalias !971, !nonnull !19, !noundef !19
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !978)
@@ -5877,13 +5870,13 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h
   %443 = icmp ult i64 %440, %442
   br i1 %443, label %444, label %448, !prof !623
 
-444:                                              ; preds = %.noexc73
+444:                                              ; preds = %.noexc72
   %445 = getelementptr inbounds nuw i8, ptr %435, i64 74
   %446 = load i8, ptr %445, align 2, !range !82, !alias.scope !978, !noundef !19
   %447 = trunc nuw i8 %446 to i1
-  br i1 %447, label %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i71", label %449
+  br i1 %447, label %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i69", label %449
 
-448:                                              ; preds = %.noexc73
+448:                                              ; preds = %.noexc72
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %440, i64 noundef %442, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f5780a7fef518180bd2fb61a12abd81.75) #25
           to label %.noexc6.i unwind label %.loopexit.split-lp.i.loopexit.split-lp
 
@@ -5893,41 +5886,41 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h
 449:                                              ; preds = %444
   %450 = getelementptr inbounds nuw i8, ptr %438, i64 192
   %451 = cmpxchg weak ptr %450, i8 0, i8 1 acquire monotonic, align 1, !noalias !978
-  %.sroa.18.0.in.i.i.i.i67 = extractvalue { i8, i1 } %451, 1
-  br i1 %.sroa.18.0.in.i.i.i.i67, label %.noexc7.i68, label %452
+  %.sroa.18.0.in.i.i.i.i65 = extractvalue { i8, i1 } %451, 1
+  br i1 %.sroa.18.0.in.i.i.i.i65, label %.noexc7.i66, label %452
 
 452:                                              ; preds = %449
   %453 = invoke noundef zeroext i1 @_ZN11parking_lot9raw_mutex8RawMutex9lock_slow17ha7d07771867e5354E(ptr noundef nonnull align 1 %450, i64 undef, i32 noundef 1000000000)
-          to label %.noexc7.i68 unwind label %.loopexit.i
+          to label %.noexc7.i66 unwind label %.loopexit.i
 
-"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i71": ; preds = %462, %.noexc8.i69, %444
+"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i69": ; preds = %462, %.noexc8.i67, %444
   %454 = getelementptr inbounds nuw i8, ptr %435, i64 75
   %455 = load i8, ptr %454, align 1, !range !82, !alias.scope !978, !noundef !19
   %456 = trunc nuw i8 %455 to i1
-  br i1 %456, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i72, label %463
+  br i1 %456, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i70, label %463
 
-.noexc7.i68:                                      ; preds = %452, %449
+.noexc7.i66:                                      ; preds = %452, %449
   %457 = getelementptr inbounds nuw i8, ptr %438, i64 240
   %458 = load i8, ptr %457, align 8, !range !82, !noalias !978, !noundef !19
   store i8 %458, ptr %445, align 2, !alias.scope !978
   %459 = invoke { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.700930863383756518(ptr noundef nonnull align 1 %450, i8 noundef 1, i8 noundef 0, i8 noundef 1, i8 noundef 0)
-          to label %.noexc8.i69 unwind label %.loopexit.i
+          to label %.noexc8.i67 unwind label %.loopexit.i
 
-.noexc8.i69:                                      ; preds = %.noexc7.i68
-  %.fca.0.extract.i.i.i.i.i.i70 = extractvalue { i8, i8 } %459, 0
-  %460 = and i8 %.fca.0.extract.i.i.i.i.i.i70, 1
+.noexc8.i67:                                      ; preds = %.noexc7.i66
+  %.fca.0.extract.i.i.i.i.i.i68 = extractvalue { i8, i8 } %459, 0
+  %460 = and i8 %.fca.0.extract.i.i.i.i.i.i68, 1
   %461 = icmp eq i8 %460, 0
-  br i1 %461, label %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i71", label %462
+  br i1 %461, label %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i69", label %462
 
-462:                                              ; preds = %.noexc8.i69
+462:                                              ; preds = %.noexc8.i67
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17hece2ff75ef233b4aE(ptr noundef nonnull align 1 %450, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i71" unwind label %.loopexit.i
+          to label %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i69" unwind label %.loopexit.i
 
-463:                                              ; preds = %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i71"
+463:                                              ; preds = %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i69"
   store i8 0, ptr %454, align 1, !alias.scope !978
-  br label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i72
+  br label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i70
 
-_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i72: ; preds = %463, %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i71"
+_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i70: ; preds = %463, %"_ZN4core3ptr125drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..scheduler..multi_thread..worker..Synced$GT$$GT$17h1d2ddc1041d723daE.exit.i.i69"
   %464 = load ptr, ptr %0, align 8, !noalias !971, !nonnull !19, !noundef !19
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !981)
@@ -5935,52 +5928,52 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469e
   %.not.i.i11.i = icmp eq ptr %.val.i10.i, null
   br i1 %.not.i.i11.i, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i13.i, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i
 
-_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i13.i: ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i72
+_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i13.i: ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i70
   %466 = getelementptr inbounds nuw i8, ptr %435, i64 24
-  %.val1.i14.i = load ptr, ptr %466, align 8, !alias.scope !981, !nonnull !19, !noundef !19
-  %467 = getelementptr inbounds nuw i8, ptr %.val1.i14.i, i64 24
+  %.val1.i.i = load ptr, ptr %466, align 8, !alias.scope !981, !nonnull !19, !noundef !19
+  %467 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 24
   %468 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h39ab0d2e952ad884E.llvm.5542961546488995764(ptr noundef nonnull %467, i8 noundef 2)
-          to label %.noexc16.i unwind label %.loopexit.i
+          to label %.noexc14.i unwind label %.loopexit.i
 
-.noexc16.i:                                       ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i13.i
-  %469 = getelementptr inbounds nuw i8, ptr %.val1.i14.i, i64 32
+.noexc14.i:                                       ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i13.i
+  %469 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 32
   %470 = invoke noundef i32 @_ZN4core4sync6atomic11atomic_load17h83391542aba19ea3E.llvm.5542961546488995764(ptr noundef nonnull %469, i8 noundef 2)
-          to label %.noexc17.i unwind label %.loopexit.i
+          to label %.noexc15.i unwind label %.loopexit.i
 
-.noexc17.i:                                       ; preds = %.noexc16.i
+.noexc15.i:                                       ; preds = %.noexc14.i
   %471 = trunc i64 %468 to i32
-  %.not.i15.i = icmp eq i32 %470, %471
-  br i1 %.not.i15.i, label %472, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i
+  %.not.i.i71 = icmp eq i32 %470, %471
+  br i1 %.not.i.i71, label %472, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i
 
-472:                                              ; preds = %.noexc17.i
+472:                                              ; preds = %.noexc15.i
   %473 = load ptr, ptr %465, align 8, !noalias !981, !nonnull !19, !noundef !19
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 16
   %475 = getelementptr inbounds nuw i8, ptr %473, i64 176
   %476 = getelementptr inbounds nuw i8, ptr %464, i64 24
   %477 = load i64, ptr %476, align 8, !noalias !981, !noundef !19
   %478 = invoke noundef zeroext i1 @_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle9is_parked17h95116629dcbd71eeE(ptr noundef nonnull align 8 %475, ptr noundef nonnull align 8 %474, i64 noundef %477)
-          to label %.noexc18.i unwind label %.loopexit.i
+          to label %.noexc16.i unwind label %.loopexit.i
 
-.noexc18.i:                                       ; preds = %472
+.noexc16.i:                                       ; preds = %472
   br i1 %478, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core22transition_from_parked17h21df41e6277ddbfaE.exit.i, label %488
 
-_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i: ; preds = %.noexc17.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i72
+_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i: ; preds = %.noexc15.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core11maintenance17h5e630ff469eec18dE.exit.i70
   %479 = load ptr, ptr %465, align 8, !noalias !981, !nonnull !19, !noundef !19
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 16
   %481 = getelementptr inbounds nuw i8, ptr %479, i64 176
   %482 = getelementptr inbounds nuw i8, ptr %464, i64 24
   %483 = load i64, ptr %482, align 8, !noalias !981, !noundef !19
   %484 = invoke noundef zeroext i1 @_ZN5tokio7runtime9scheduler12multi_thread4idle4Idle19unpark_worker_by_id17h2bbd28d8c383d017E(ptr noundef nonnull align 8 %481, ptr noundef nonnull align 8 %480, i64 noundef %483)
-          to label %.noexc19.i unwind label %.loopexit.split-lp.i.loopexit
+          to label %.noexc17.i unwind label %.loopexit.split-lp.i.loopexit
 
-.noexc19.i:                                       ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i
+.noexc17.i:                                       ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i
   %485 = getelementptr inbounds nuw i8, ptr %435, i64 73
   %486 = xor i1 %484, true
   %487 = zext i1 %486 to i8
   store i8 %487, ptr %485, align 1, !alias.scope !981
   br label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i
 
-488:                                              ; preds = %.noexc18.i
+488:                                              ; preds = %.noexc16.i
   %489 = getelementptr inbounds nuw i8, ptr %435, i64 73
   store i8 1, ptr %489, align 1, !alias.scope !981
   br label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i
@@ -5999,27 +5992,27 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9
   invoke void %500(ptr noundef align 1 %498)
           to label %_ZN5tokio7runtime9scheduler12multi_thread6worker7Context4park17hae57339741c23c66E.exit unwind label %.loopexit.split-lp.i.loopexit
 
-.loopexit.i:                                      ; preds = %472, %.noexc16.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i13.i, %462, %.noexc7.i68, %452
+.loopexit.i:                                      ; preds = %472, %.noexc14.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i13.i, %462, %.noexc7.i66, %452
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
 
-.loopexit.split-lp.i.loopexit:                    ; preds = %386, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i.i, %.noexc.i64, %410, %419, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i, %490
-  %.024.ph.ph.i.ph = phi ptr [ %.2.i, %386 ], [ %.2.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i.i ], [ %.2.i, %.noexc.i64 ], [ %.2.i, %410 ], [ %.2.i, %419 ], [ %435, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i ], [ %.1.i, %490 ]
-  %lpad.loopexit172 = landingpad { ptr, i32 }
+.loopexit.split-lp.i.loopexit:                    ; preds = %386, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i.i, %.noexc.i63, %410, %419, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i, %490
+  %.022.ph.ph.i.ph = phi ptr [ %.2.i, %386 ], [ %.2.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.i.i ], [ %.2.i, %.noexc.i63 ], [ %.2.i, %410 ], [ %.2.i, %419 ], [ %435, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9eeE.exit.thread.i.i ], [ %.1.i, %490 ]
+  %lpad.loopexit167 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i.loopexit.split-lp:           ; preds = %448
-  %lpad.loopexit.split-lp173 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp168 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i:                             ; preds = %.loopexit.split-lp.i.loopexit, %.loopexit.split-lp.i.loopexit.split-lp, %.loopexit.i
-  %.024.ph.i = phi ptr [ %435, %.loopexit.i ], [ %.024.ph.ph.i.ph, %.loopexit.split-lp.i.loopexit ], [ %435, %.loopexit.split-lp.i.loopexit.split-lp ]
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit172, %.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp.i.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7906750d7d0e8f69E"(ptr %.024.ph.i) #27
-          to label %.body74 unwind label %501
+  %.022.ph.i = phi ptr [ %435, %.loopexit.i ], [ %.022.ph.ph.i.ph, %.loopexit.split-lp.i.loopexit ], [ %435, %.loopexit.split-lp.i.loopexit.split-lp ]
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit167, %.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp168, %.loopexit.split-lp.i.loopexit.split-lp ]
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7906750d7d0e8f69E"(ptr %.022.ph.i) #27
+          to label %.body73 unwind label %501
 
 501:                                              ; preds = %.loopexit.split-lp.i
   %502 = landingpad { ptr, i32 }
@@ -6030,24 +6023,24 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core9has_tasks17h4a8ee5d9cd4bd9
 503:                                              ; preds = %505
   %504 = landingpad { ptr, i32 }
           cleanup
-  br label %.body74
+  br label %.body73
 
 505:                                              ; preds = %377
   %506 = invoke fastcc noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler12multi_thread6worker7Context12park_timeout17h5667328b2caf6934E(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 %.2.i, i64 0, i32 noundef 0)
           to label %_ZN5tokio7runtime9scheduler12multi_thread6worker7Context4park17hae57339741c23c66E.exit unwind label %503
 
 _ZN5tokio7runtime9scheduler12multi_thread6worker7Context4park17hae57339741c23c66E.exit: ; preds = %505, %490, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i
-  %.017 = phi ptr [ %.1.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i ], [ %.1.i, %490 ], [ %506, %505 ]
+  %.020 = phi ptr [ %.1.i, %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core20transition_to_parked17h92ad0cd502996371E.exit.thread.i ], [ %.1.i, %490 ], [ %506, %505 ]
   %507 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hcaf082b521a24e93E()
-          to label %365 unwind label %.loopexit.split-lp149.loopexit
+          to label %365 unwind label %.loopexit.split-lp144.loopexit
 
 "_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E.exit": ; preds = %357, %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i, %515, %365
-  %.697128 = phi ptr [ %.017, %365 ], [ %.017, %515 ], [ %.017, %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i ], [ %362, %357 ]
+  %.696123 = phi ptr [ %.020, %365 ], [ %.020, %515 ], [ %.020, %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i ], [ %362, %357 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %.backedge
 
 .backedge:                                        ; preds = %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E.exit", %265
-  %.2.be = phi ptr [ %.697128, %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E.exit" ], [ %266, %265 ]
+  %.2.be = phi ptr [ %.696123, %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E.exit" ], [ %266, %265 ]
   %508 = getelementptr inbounds nuw i8, ptr %.2.be, i64 74
   %509 = load i8, ptr %508, align 2, !range !82, !noundef !19
   %510 = trunc nuw i8 %509 to i1
@@ -6063,9 +6056,9 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker7Context4park17hae57339741c23c66
 
 513:                                              ; preds = %511
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.149.llvm.5542961546488995764, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.150.llvm.5542961546488995764) #25
-          to label %.noexc78 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread
+          to label %.noexc77 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread
 
-.noexc78:                                         ; preds = %513
+.noexc77:                                         ; preds = %513
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i: ; preds = %511
@@ -6082,7 +6075,7 @@ _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i: ; pre
   invoke void %520(ptr noundef nonnull %516)
           to label %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread
 
-521:                                              ; preds = %.body74
+521:                                              ; preds = %.body73
   invoke void @"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h00c58693331cd200E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10) #27
           to label %.body unwind label %375
 
@@ -6092,17 +6085,17 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core12pre_shutdown17h94c76ba298
   %524 = load ptr, ptr %523, align 8, !nonnull !19, !noundef !19
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 16
   tail call void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$13shutdown_core17h31c7b50d80122807E"(ptr noundef nonnull align 8 %525, ptr noalias noundef nonnull align 8 %.2.lcssa)
-  br label %.loopexit171
+  br label %.loopexit166
 
-.body.thread104:                                  ; preds = %152, %.body.thread, %.body
-  %.pn27102 = phi { ptr, i32 } [ %.pn27103, %.body.thread ], [ %.pn, %.body ], [ %lpad.phi160, %152 ]
-  resume { ptr, i32 } %.pn27102
+.body.thread103:                                  ; preds = %152, %.body.thread, %.body
+  %.pn28101 = phi { ptr, i32 } [ %.pn28102, %.body.thread ], [ %.pn, %.body ], [ %lpad.phi155, %152 ]
+  resume { ptr, i32 } %.pn28101
 
 .body.thread:                                     ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread, %373, %204, %200, %.body.i.i, %.body
-  %.pn27103 = phi { ptr, i32 } [ %.pn, %.body ], [ %189, %.body.i.i ], [ %201, %200 ], [ %.pn10.i, %204 ], [ %374, %373 ], [ %lpad.thr_comm, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread ], [ %lpad.thr_comm346, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread ], [ %lpad.loopexit152, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit145, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
-  %.194101 = phi ptr [ %.596, %.body ], [ %.2.i, %.body.i.i ], [ %.2.i, %200 ], [ %.2.i, %204 ], [ %.2.i, %373 ], [ %.0.ph.ph.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread ], [ %.0.ph.ph.ph.ph161.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread ], [ %.2.i, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.2.lcssa, %.loopexit.split-lp.loopexit ], [ %.2.lcssa, %.loopexit ]
-  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7906750d7d0e8f69E"(ptr %.194101) #27
-          to label %.body.thread104 unwind label %375
+  %.pn28102 = phi { ptr, i32 } [ %.pn, %.body ], [ %189, %.body.i.i ], [ %201, %200 ], [ %.pn10.i, %204 ], [ %374, %373 ], [ %lpad.thr_comm, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread ], [ %lpad.thr_comm341, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread ], [ %lpad.loopexit147, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit140, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
+  %.193100 = phi ptr [ %.595, %.body ], [ %.2.i, %.body.i.i ], [ %.2.i, %200 ], [ %.2.i, %204 ], [ %.2.i, %373 ], [ %.0.ph.ph.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread ], [ %.0.ph.ph.ph.ph156.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.thread ], [ %.2.i, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.2.lcssa, %.loopexit.split-lp.loopexit ], [ %.2.lcssa, %.loopexit ]
+  invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..multi_thread..worker..Core$GT$$GT$17h7906750d7d0e8f69E"(ptr %.193100) #27
+          to label %.body.thread103 unwind label %375
 }
 
 ; Function Attrs: nonlazybind uwtable

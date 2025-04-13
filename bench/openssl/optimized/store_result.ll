@@ -312,15 +312,13 @@ try_key_ref.exit.i:                               ; preds = %136
   %149 = load i64, ptr %148, align 8, !tbaa !46
   store i64 %149, ptr %19, align 8, !tbaa !47
   %150 = icmp ult i32 %.val.i, 5
-  br i1 %150, label %switch.hole_check, label %try_key_value.exit.thread.i
-
-switch.hole_check:                                ; preds = %145
-  %switch.maskindex = trunc nuw i32 %.val.i to i8
+  %switch.maskindex = trunc i32 %.val.i to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %try_key_value.exit.thread.i
+  %or.cond104 = select i1 %150, i1 %switch.lobit, i1 false
+  br i1 %or.cond104, label %switch.lookup, label %try_key_value.exit.thread.i
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %145
   %151 = zext nneg i32 %.val.i to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ossl_store_handle_load_result, i64 0, i64 %151
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -348,7 +346,7 @@ try_key_value.exit.i._crit_edge:                  ; preds = %switch.lookup
   %.pre = load i32, ptr %147, align 8, !tbaa !42
   br label %163
 
-try_key_value.exit.thread.i:                      ; preds = %switch.hole_check, %145
+try_key_value.exit.thread.i:                      ; preds = %145
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #5

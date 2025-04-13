@@ -354,15 +354,13 @@ _ZNK10ciMetadata9is_loadedEv.exit46:              ; preds = %_ZN7ciField4typeEv.
 _ZNK10ciMetadata9is_loadedEv.exit46.thread:       ; preds = %_ZN7ciField4typeEv.exit44, %_ZNK10ciMetadata9is_loadedEv.exit46
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %2, align 8
   %74 = and i64 %.sroa.0.0.copyload.i.i.i, 8
-  %.not.i47 = icmp eq i64 %74, 0
-  br i1 %.not.i47, label %_ZN7ciField18is_static_constantEv.exit.thread, label %75
-
-75:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit46.thread
+  %75 = icmp ne i64 %74, 0
   %76 = load i8, ptr %15, align 4
   %77 = trunc i8 %76 to i1
-  br i1 %77, label %_ZN7ciField18is_static_constantEv.exit, label %_ZN7ciField18is_static_constantEv.exit.thread
+  %or.cond.i47 = select i1 %75, i1 %77, i1 false
+  br i1 %or.cond.i47, label %_ZN7ciField18is_static_constantEv.exit, label %_ZN7ciField18is_static_constantEv.exit.thread
 
-_ZN7ciField18is_static_constantEv.exit:           ; preds = %75
+_ZN7ciField18is_static_constantEv.exit:           ; preds = %_ZNK10ciMetadata9is_loadedEv.exit46.thread
   %78 = tail call { i8, i64 } @_ZN7ciField14constant_valueEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #7
   %79 = extractvalue { i8, i64 } %78, 0
   %.not51 = icmp eq i8 %79, 99
@@ -391,7 +389,7 @@ _ZN7ciField18is_static_constantEv.exit:           ; preds = %75
   %95 = select i1 %or.cond.i48, ptr %91, ptr null
   br label %100
 
-_ZN7ciField18is_static_constantEv.exit.thread:    ; preds = %_ZNK10ciMetadata9is_loadedEv.exit46.thread, %75, %_ZN7ciField18is_static_constantEv.exit
+_ZN7ciField18is_static_constantEv.exit.thread:    ; preds = %_ZNK10ciMetadata9is_loadedEv.exit46.thread, %_ZN7ciField18is_static_constantEv.exit
   %96 = tail call noundef ptr @_ZN10TypeOopPtr22make_from_klass_commonEP7ciKlassbbN4Type17InterfaceHandlingE(ptr noundef %44, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 1) #7
   br label %100
 

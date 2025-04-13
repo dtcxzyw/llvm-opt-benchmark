@@ -405,8 +405,8 @@ sz_psz2ind.exit.i:                                ; preds = %14, %11
   br i1 %42, label %.lr.ph.i.i, label %fb_ffs.exit.i
 
 .lr.ph.i.i:                                       ; preds = %36, %45
-  %.038.i4.i.i = phi i64 [ %43, %45 ], [ %37, %36 ]
-  %43 = add nuw nsw i64 %.038.i4.i.i, 1
+  %.039.i4.i.i = phi i64 [ %43, %45 ], [ %37, %36 ]
+  %43 = add nuw nsw i64 %.039.i4.i.i, 1
   %44 = icmp eq i64 %43, 4
   br i1 %44, label %eset_first_fit.exit, label %45
 
@@ -417,10 +417,10 @@ sz_psz2ind.exit.i:                                ; preds = %14, %11
   br i1 %48, label %.lr.ph.i.i, label %fb_ffs.exit.i, !llvm.loop !25
 
 fb_ffs.exit.i:                                    ; preds = %45, %36
-  %.140.i.lcssa.i.i = phi i64 [ %41, %36 ], [ %47, %45 ]
-  %.038.i.lcssa.i.i = phi i64 [ %37, %36 ], [ %43, %45 ]
-  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.140.i.lcssa.i.i, i1 true)
-  %50 = shl i64 %.038.i.lcssa.i.i, 6
+  %.141.i.lcssa.i.i = phi i64 [ %41, %36 ], [ %47, %45 ]
+  %.039.i.lcssa.i.i = phi i64 [ %37, %36 ], [ %43, %45 ]
+  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i.i, i1 true)
+  %50 = shl i64 %.039.i.lcssa.i.i, 6
   %51 = or disjoint i64 %50, %49
   %52 = and i64 %51, 4294967295
   %53 = icmp samesign ult i64 %52, 200
@@ -497,8 +497,8 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   br i1 %86, label %.lr.ph.i35.i, label %fb_ffs.exit37.i
 
 .lr.ph.i35.i:                                     ; preds = %79, %89
-  %.038.i4.i36.i = phi i64 [ %87, %89 ], [ %81, %79 ]
-  %87 = add nuw nsw i64 %.038.i4.i36.i, 1
+  %.039.i4.i36.i = phi i64 [ %87, %89 ], [ %81, %79 ]
+  %87 = add nuw nsw i64 %.039.i4.i36.i, 1
   %88 = icmp eq i64 %87, 4
   br i1 %88, label %eset_first_fit.exit, label %89
 
@@ -509,10 +509,10 @@ fb_ffs.exit.i:                                    ; preds = %45, %36
   br i1 %92, label %.lr.ph.i35.i, label %fb_ffs.exit37.i, !llvm.loop !25
 
 fb_ffs.exit37.i:                                  ; preds = %89, %79
-  %.140.i.lcssa.i32.i = phi i64 [ %85, %79 ], [ %91, %89 ]
-  %.038.i.lcssa.i33.i = phi i64 [ %81, %79 ], [ %87, %89 ]
-  %93 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.140.i.lcssa.i32.i, i1 true)
-  %94 = shl i64 %.038.i.lcssa.i33.i, 6
+  %.141.i.lcssa.i32.i = phi i64 [ %85, %79 ], [ %91, %89 ]
+  %.039.i.lcssa.i33.i = phi i64 [ %81, %79 ], [ %87, %89 ]
+  %93 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i32.i, i1 true)
+  %94 = shl i64 %.039.i.lcssa.i33.i, 6
   %95 = or disjoint i64 %94, %93
   %96 = and i64 %95, 4294967295
   %97 = icmp samesign ult i64 %96, 200
@@ -585,8 +585,8 @@ sz_psz2ind.exit.i20:                              ; preds = %121, %sz_psz2ind.ex
   br i1 %141, label %.lr.ph.i.i27, label %._crit_edge.i.i
 
 .lr.ph.i.i27:                                     ; preds = %sz_psz2ind.exit.i20, %144
-  %.038.i4.i.i28 = phi i64 [ %142, %144 ], [ %136, %sz_psz2ind.exit.i20 ]
-  %142 = add nuw nsw i64 %.038.i4.i.i28, 1
+  %.039.i4.i.i28 = phi i64 [ %142, %144 ], [ %136, %sz_psz2ind.exit.i20 ]
+  %142 = add nuw nsw i64 %.039.i4.i.i28, 1
   %143 = icmp eq i64 %142, 4
   br i1 %143, label %fb_ffs.exit.i25, label %144
 
@@ -597,10 +597,10 @@ sz_psz2ind.exit.i20:                              ; preds = %121, %sz_psz2ind.ex
   br i1 %147, label %.lr.ph.i.i27, label %._crit_edge.i.i, !llvm.loop !25
 
 ._crit_edge.i.i:                                  ; preds = %144, %sz_psz2ind.exit.i20
-  %.140.i.lcssa.i.i23 = phi i64 [ %140, %sz_psz2ind.exit.i20 ], [ %146, %144 ]
-  %.038.i.lcssa.i.i24 = phi i64 [ %136, %sz_psz2ind.exit.i20 ], [ %142, %144 ]
-  %148 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.140.i.lcssa.i.i23, i1 true)
-  %149 = shl i64 %.038.i.lcssa.i.i24, 6
+  %.141.i.lcssa.i.i23 = phi i64 [ %140, %sz_psz2ind.exit.i20 ], [ %146, %144 ]
+  %.039.i.lcssa.i.i24 = phi i64 [ %136, %sz_psz2ind.exit.i20 ], [ %142, %144 ]
+  %148 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i.i23, i1 true)
+  %149 = shl i64 %.039.i.lcssa.i.i24, 6
   %150 = or disjoint i64 %149, %148
   br label %fb_ffs.exit.i25
 
@@ -654,8 +654,8 @@ select.unfold.i:                                  ; preds = %154
   br i1 %177, label %.lr.ph.i44.i, label %._crit_edge.i40.i
 
 .lr.ph.i44.i:                                     ; preds = %select.unfold.i, %180
-  %.038.i4.i45.i = phi i64 [ %178, %180 ], [ %172, %select.unfold.i ]
-  %178 = add nuw nsw i64 %.038.i4.i45.i, 1
+  %.039.i4.i45.i = phi i64 [ %178, %180 ], [ %172, %select.unfold.i ]
+  %178 = add nuw nsw i64 %.039.i4.i45.i, 1
   %179 = icmp eq i64 %178, 4
   br i1 %179, label %fb_ffs.exit46.i, label %180
 
@@ -666,10 +666,10 @@ select.unfold.i:                                  ; preds = %154
   br i1 %183, label %.lr.ph.i44.i, label %._crit_edge.i40.i, !llvm.loop !25
 
 ._crit_edge.i40.i:                                ; preds = %180, %select.unfold.i
-  %.140.i.lcssa.i41.i = phi i64 [ %176, %select.unfold.i ], [ %182, %180 ]
-  %.038.i.lcssa.i42.i = phi i64 [ %172, %select.unfold.i ], [ %178, %180 ]
-  %184 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.140.i.lcssa.i41.i, i1 true)
-  %185 = shl i64 %.038.i.lcssa.i42.i, 6
+  %.141.i.lcssa.i41.i = phi i64 [ %176, %select.unfold.i ], [ %182, %180 ]
+  %.039.i.lcssa.i42.i = phi i64 [ %172, %select.unfold.i ], [ %178, %180 ]
+  %184 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.141.i.lcssa.i41.i, i1 true)
+  %185 = shl i64 %.039.i.lcssa.i42.i, 6
   %186 = or disjoint i64 %185, %184
   br label %fb_ffs.exit46.i
 

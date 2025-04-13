@@ -8410,8 +8410,8 @@ define hidden noundef i32 @_ZN3smt17theory_array_full21assert_delayed_axiomsEv(p
 _ZNK3smt6theory12get_num_varsEv.exit:             ; preds = %7
   %12 = getelementptr inbounds i8, ptr %10, i64 -4
   %13 = load i32, ptr %12, align 4, !tbaa !535
-  %.not30 = icmp eq i32 %13, 0
-  br i1 %.not30, label %._crit_edge, label %.lr.ph
+  %.not28 = icmp eq i32 %13, 0
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3smt6theory12get_num_varsEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -8420,16 +8420,16 @@ _ZNK3smt6theory12get_num_varsEv.exit:             ; preds = %7
   %wide.trip.count = zext i32 %13 to i64
   br label %17
 
-17:                                               ; preds = %.lr.ph, %.thread34
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread34 ]
-  %.129 = phi i32 [ %8, %.lr.ph ], [ %.3, %.thread34 ]
+17:                                               ; preds = %.lr.ph, %.thread32
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread32 ]
+  %.127 = phi i32 [ %8, %.lr.ph ], [ %.3, %.thread32 ]
   %18 = load ptr, ptr %14, align 8, !tbaa !604
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !605
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i8, ptr %21, align 8, !tbaa !667, !range !592, !noundef !593
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %24, label %.thread34
+  br i1 %23, label %24, label %.thread32
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr %15, align 8, !tbaa !6
@@ -8493,10 +8493,10 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit18.i:  ; preds = %44, %41
   br label %41, !llvm.loop !665
 
 54:                                               ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i
-  %spec.select = select i1 %.0.i, i32 1, i32 %.129
+  %spec.select = select i1 %.0.i, i32 1, i32 %.127
   %.pre = load i8, ptr %21, align 8, !tbaa !667, !range !592
   %55 = trunc nuw i8 %.pre to i1
-  br i1 %55, label %56, label %.thread34
+  br i1 %55, label %56, label %.thread32
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr %16, align 8, !tbaa !603
@@ -8562,17 +8562,17 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i18:  ; preds = %70, %67
   br label %67, !llvm.loop !702
 
 _ZN3smt17theory_array_full33instantiate_parent_stores_defaultEi.exit: ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i18
-  %spec.select13 = select i1 %.0.i17, i32 1, i32 %spec.select
-  br label %.thread34
+  %spec.select14 = select i1 %.0.i17, i32 1, i32 %spec.select
+  br label %.thread32
 
-.thread34:                                        ; preds = %17, %_ZN3smt17theory_array_full33instantiate_parent_stores_defaultEi.exit, %54
-  %.3 = phi i32 [ %spec.select, %54 ], [ %spec.select13, %_ZN3smt17theory_array_full33instantiate_parent_stores_defaultEi.exit ], [ %.129, %17 ]
+.thread32:                                        ; preds = %17, %_ZN3smt17theory_array_full33instantiate_parent_stores_defaultEi.exit, %54
+  %.3 = phi i32 [ %spec.select, %54 ], [ %spec.select14, %_ZN3smt17theory_array_full33instantiate_parent_stores_defaultEi.exit ], [ %.127, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !781
 
-._crit_edge:                                      ; preds = %.thread34, %7, %_ZNK3smt6theory12get_num_varsEv.exit
-  %.1.lcssa = phi i32 [ %8, %_ZNK3smt6theory12get_num_varsEv.exit ], [ %8, %7 ], [ %.3, %.thread34 ]
+._crit_edge:                                      ; preds = %.thread32, %7, %_ZNK3smt6theory12get_num_varsEv.exit
+  %.1.lcssa = phi i32 [ %8, %_ZNK3smt6theory12get_num_varsEv.exit ], [ %8, %7 ], [ %.3, %.thread32 ]
   %89 = icmp eq i32 %.1.lcssa, 0
   br i1 %89, label %.thread, label %94
 
@@ -8591,7 +8591,7 @@ _ZN3smt17theory_array_full33instantiate_parent_stores_defaultEi.exit: ; preds = 
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %96 = load i8, ptr %95, align 1, !tbaa !782, !range !592, !noundef !593
   %97 = trunc nuw i8 %96 to i1
-  br i1 %97, label %.thread26, label %98
+  br i1 %97, label %108, label %98
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -8605,18 +8605,18 @@ _ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit: ; preds = %98
   %104 = getelementptr inbounds i8, ptr %100, i64 -4
   %105 = load i32, ptr %104, align 4, !tbaa !535
   %106 = icmp ult i32 %103, %105
-  br i1 %106, label %.thread26, label %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit.thread
+  br i1 %106, label %108, label %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit.thread
 
 _ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit.thread: ; preds = %98, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit
   %107 = tail call noundef zeroext i1 @_ZN3smt17theory_array_full21has_non_beta_as_arrayEv(ptr noundef nonnull align 8 dereferenceable(608) %0)
-  %spec.select27 = select i1 %107, i32 2, i32 0
-  br label %.thread26
+  br label %108
 
-.thread26:                                        ; preds = %94, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit.thread
-  %108 = phi i32 [ %spec.select27, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit.thread ], [ 2, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit ], [ 2, %94 ]
-  %109 = icmp eq i32 %.4, 0
-  %.5 = select i1 %109, i32 %108, i32 %.4
-  ret i32 %.5
+108:                                              ; preds = %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit.thread, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit, %94
+  %109 = phi i1 [ true, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit ], [ true, %94 ], [ %107, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit.thread ]
+  %110 = icmp eq i32 %.4, 0
+  %or.cond = and i1 %110, %109
+  %spec.store.select = select i1 %or.cond, i32 2, i32 %.4
+  ret i32 %spec.store.select
 }
 
 declare noundef i32 @_ZN3smt12theory_array21assert_delayed_axiomsEv(ptr noundef nonnull align 8 dereferenceable(444)) unnamed_addr #0

@@ -103,31 +103,31 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h0227a2efa0a7777cE.exit: ; preds = 
   %15 = load i64, ptr %14, align 8, !range !29, !noundef !30
   %.val = load ptr, ptr %1, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val7 = load i64, ptr %16, align 8
-  switch i64 %15, label %.critedge.i11 [
+  %.val14 = load i64, ptr %16, align 8
+  switch i64 %15, label %.critedge.i18 [
     i64 2, label %23
     i64 0, label %21
   ]
 
-.critedge.i11:                                    ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h0227a2efa0a7777cE.exit
+.critedge.i18:                                    ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h0227a2efa0a7777cE.exit
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i64, ptr %.sroa.7.0.copyload, i64 %.val7
+  %19 = getelementptr inbounds i64, ptr %.sroa.7.0.copyload, i64 %.val14
   store i64 %18, ptr %19, align 8, !noalias !41
-  %20 = add i64 %.val7, 1
+  %20 = add i64 %.val14, 1
   br label %21
 
-21:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h0227a2efa0a7777cE.exit, %.critedge.i11
-  %.val4.i = phi i64 [ %20, %.critedge.i11 ], [ %.val7, %_ZN4core4iter6traits8iterator8Iterator4fold17h0227a2efa0a7777cE.exit ]
+21:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h0227a2efa0a7777cE.exit, %.critedge.i18
+  %.val4.i = phi i64 [ %20, %.critedge.i18 ], [ %.val14, %_ZN4core4iter6traits8iterator8Iterator4fold17h0227a2efa0a7777cE.exit ]
   %22 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %22)
   br label %23
 
 23:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h0227a2efa0a7777cE.exit, %21
-  %.val7.sink = phi i64 [ %.val4.i, %21 ], [ %.val7, %_ZN4core4iter6traits8iterator8Iterator4fold17h0227a2efa0a7777cE.exit ]
-  store i64 %.val7.sink, ptr %.val, align 8
+  %.val14.sink = phi i64 [ %.val4.i, %21 ], [ %.val14, %_ZN4core4iter6traits8iterator8Iterator4fold17h0227a2efa0a7777cE.exit ]
+  store i64 %.val14.sink, ptr %.val, align 8
   ret void
 }
 

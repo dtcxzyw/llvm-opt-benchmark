@@ -219,39 +219,39 @@ _ZTWN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E.exit: ; preds = %_ZN
   %13 = load ptr, ptr %11, align 8, !tbaa !14
   store i8 0, ptr %13, align 1, !tbaa !13
   %14 = tail call ptr @dlsym(ptr noundef %0, ptr noundef %1) #4
-  %.not = icmp eq ptr %14, null
-  %brmerge.not = and i1 %2, %.not
-  br i1 %brmerge.not, label %15, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
+  %15 = icmp eq ptr %14, null
+  %or.cond = and i1 %2, %15
+  br i1 %or.cond, label %16, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 
-15:                                               ; preds = %_ZTWN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E.exit
-  %16 = tail call ptr @dlerror() #4
-  %17 = load i8, ptr @__tls_guard, align 1
-  %18 = icmp eq i8 %17, 0
-  br i1 %18, label %19, label %_ZTWN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E.exit7, !prof !3
+16:                                               ; preds = %_ZTWN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E.exit
+  %17 = tail call ptr @dlerror() #4
+  %18 = load i8, ptr @__tls_guard, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %_ZTWN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E.exit7, !prof !3
 
-19:                                               ; preds = %15
+20:                                               ; preds = %16
   store i8 1, ptr @__tls_guard, align 1
-  %20 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @__tls_guard)
+  %21 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @__tls_guard)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E, i64 16), ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E, align 8, !tbaa !4
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E, i64 8), align 8, !tbaa !10
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E, i64 16), align 8, !tbaa !13
-  %21 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E, ptr nonnull @__dso_handle) #4
+  %22 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E, ptr nonnull @__dso_handle) #4
   br label %_ZTWN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E.exit7
 
-_ZTWN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E.exit7: ; preds = %15, %19
-  %22 = load i64, ptr %12, align 8, !tbaa !10
-  %23 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #4
-  %24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 0, i64 noundef %22, ptr noundef nonnull %16, i64 noundef %23)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %25
+_ZTWN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E.exit7: ; preds = %16, %20
+  %23 = load i64, ptr %12, align 8, !tbaa !10
+  %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #4
+  %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef 0, i64 noundef %23, ptr noundef nonnull %17, i64 noundef %24)
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %26
 
-25:                                               ; preds = %_ZTWN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E.exit7
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %_ZTWN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E.exit7
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %27 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_112plugin_mutexE) #4
-  resume { ptr, i32 } %26
+  %28 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_112plugin_mutexE) #4
+  resume { ptr, i32 } %27
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZTWN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E.exit7, %_ZTWN11OpenImageIO6v3_1_012_GLOBAL__N_110last_errorB5cxx11E.exit
-  %28 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_112plugin_mutexE) #4
+  %29 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_112plugin_mutexE) #4
   ret ptr %14
 }
 

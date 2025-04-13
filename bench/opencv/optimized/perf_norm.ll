@@ -33610,18 +33610,18 @@ define internal fastcc void @_ZN7testing8internal16UniversalPrinterIN11opencv_te
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %.preheader13.i.i
+  br label %.preheader11.i.i
 
-.preheader13.i.i:                                 ; preds = %.thread.i.i, %1
-  %indvars.iv41.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next42.i.i, %.thread.i.i ]
-  %.03635.i.i = phi i32 [ %.0.val, %1 ], [ %.25.i.i, %.thread.i.i ]
-  %.03934.i.i = phi i32 [ 0, %1 ], [ %.241.lcssa.i.i, %.thread.i.i ]
-  %.04332.i.i = phi i8 [ 1, %1 ], [ %.44.i.i, %.thread.i.i ]
-  %6 = sext i32 %.03934.i.i to i64
+.preheader11.i.i:                                 ; preds = %.thread.i.i, %1
+  %indvars.iv39.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next40.i.i, %.thread.i.i ]
+  %.03633.i.i = phi i32 [ %.0.val, %1 ], [ %.25.i.i, %.thread.i.i ]
+  %.03932.i.i = phi i32 [ 0, %1 ], [ %.241.lcssa.i.i, %.thread.i.i ]
+  %.04330.i.i = phi i8 [ 1, %1 ], [ %.44.i.i, %.thread.i.i ]
+  %6 = sext i32 %.03932.i.i to i64
   br label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %.critedge.i.i, %.preheader13.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.i.i ], [ %6, %.preheader13.i.i ]
+.critedge.i.i:                                    ; preds = %.critedge.i.i, %.preheader11.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.i.i ], [ %6, %.preheader11.i.i ]
   %7 = getelementptr inbounds i8, ptr @.str.114, i64 %indvars.iv.i.i
   %8 = load i8, ptr %7, align 1, !tbaa !14
   %9 = sext i8 %8 to i32
@@ -33642,46 +33642,46 @@ define internal fastcc void @_ZN7testing8internal16UniversalPrinterIN11opencv_te
   %17 = sext i8 %16 to i32
   %18 = call i32 @isspace(i32 noundef %17) #36
   %.fr.i.i = freeze i32 %18
-  %.not5024.i.i = icmp eq i32 %.fr.i.i, 0
-  br i1 %.not5024.i.i, label %switch.early.test.i.i, label %.critedge55.i.i
+  %.not5022.i.i = icmp eq i32 %.fr.i.i, 0
+  br i1 %.not5022.i.i, label %switch.early.test.i.i, label %.critedge55.i.i
 
 switch.early.test.i.i:                            ; preds = %.preheader.i.i, %20
-  %indvars.iv39.i.i = phi i64 [ %indvars.iv.next40.i.i, %20 ], [ %indvars.iv.i.i, %.preheader.i.i ]
+  %indvars.iv37.i.i = phi i64 [ %indvars.iv.next38.i.i, %20 ], [ %indvars.iv.i.i, %.preheader.i.i ]
   %19 = phi i8 [ %23, %20 ], [ %16, %.preheader.i.i ]
-  %.24125.i.i = phi i32 [ %21, %20 ], [ %13, %.preheader.i.i ]
+  %.24123.i.i = phi i32 [ %21, %20 ], [ %13, %.preheader.i.i ]
   switch i8 %19, label %20 [
     i8 44, label %.critedge55.loopexit.split.loop.exit.i.i
     i8 0, label %.critedge55.loopexit.split.loop.exit.i.i
   ]
 
 20:                                               ; preds = %switch.early.test.i.i
-  %indvars.iv.next40.i.i = add nsw i64 %indvars.iv39.i.i, 1
-  %21 = add nsw i32 %.24125.i.i, 1
-  %22 = getelementptr inbounds i8, ptr @.str.114, i64 %indvars.iv.next40.i.i
+  %indvars.iv.next38.i.i = add nsw i64 %indvars.iv37.i.i, 1
+  %21 = add nsw i32 %.24123.i.i, 1
+  %22 = getelementptr inbounds i8, ptr @.str.114, i64 %indvars.iv.next38.i.i
   %23 = load i8, ptr %22, align 1, !tbaa !14
   %24 = sext i8 %23 to i32
   %25 = call i32 @isspace(i32 noundef %24) #36
-  %.fr36.i.i = freeze i32 %25
-  %.not50.i.i = icmp eq i32 %.fr36.i.i, 0
+  %.fr34.i.i = freeze i32 %25
+  %.not50.i.i = icmp eq i32 %.fr34.i.i, 0
   br i1 %.not50.i.i, label %switch.early.test.i.i, label %.critedge55.i.i, !llvm.loop !854
 
 .critedge55.loopexit.split.loop.exit.i.i:         ; preds = %switch.early.test.i.i, %switch.early.test.i.i
-  %26 = trunc nsw i64 %indvars.iv39.i.i to i32
+  %26 = trunc nsw i64 %indvars.iv37.i.i to i32
   br label %.critedge55.i.i
 
 .critedge55.i.i:                                  ; preds = %20, %.critedge55.loopexit.split.loop.exit.i.i, %.preheader.i.i
   %.241.lcssa.i.i = phi i32 [ %13, %.preheader.i.i ], [ %26, %.critedge55.loopexit.split.loop.exit.i.i ], [ %21, %20 ]
-  %.lcssa16.i.i = phi i64 [ %14, %.preheader.i.i ], [ %indvars.iv39.i.i, %.critedge55.loopexit.split.loop.exit.i.i ], [ %indvars.iv.next40.i.i, %20 ]
-  %27 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_18NormType7PrintToEPSo.vals, i64 0, i64 %indvars.iv41.i.i
+  %.lcssa14.i.i = phi i64 [ %14, %.preheader.i.i ], [ %indvars.iv37.i.i, %.critedge55.loopexit.split.loop.exit.i.i ], [ %indvars.iv.next38.i.i, %20 ]
+  %27 = getelementptr inbounds nuw [8 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_18NormType7PrintToEPSo.vals, i64 0, i64 %indvars.iv39.i.i
   %28 = load i32, ptr %27, align 4, !tbaa !245
-  %29 = and i32 %28, %.03635.i.i
+  %29 = and i32 %28, %.03633.i.i
   %30 = icmp eq i32 %29, %28
   br i1 %30, label %31, label %.thread.i.i
 
 31:                                               ; preds = %.critedge55.i.i
   %32 = xor i32 %28, -1
-  %33 = and i32 %.03635.i.i, %32
-  %34 = trunc nuw i8 %.04332.i.i to i1
+  %33 = and i32 %.03633.i.i, %32
+  %34 = trunc nuw i8 %.04330.i.i to i1
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %31
@@ -33693,7 +33693,7 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i, %20
   store ptr %4, ptr %3, align 8, !tbaa !4
   store i64 0, ptr %5, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #30
-  %gepdiff.i.i = sub nsw i64 %.lcssa16.i.i, %indvars.iv.i.i
+  %gepdiff.i.i = sub nsw i64 %.lcssa14.i.i, %indvars.iv.i.i
   store i64 %gepdiff.i.i, ptr %2, align 8, !tbaa !10
   %38 = icmp ugt i64 %gepdiff.i.i, 15
   br i1 %38, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -33752,19 +33752,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
           cleanup
   %57 = load ptr, ptr %3, align 8, !tbaa !12
   %58 = icmp eq ptr %57, %4
-  br i1 %58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59.i.i
+  br i1 %58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60.i.i: ; preds = %55
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61.i.i: ; preds = %55
   %59 = load i64, ptr %5, align 8, !tbaa !15
   %60 = icmp ult i64 %59, 16
   call void @llvm.assume(i1 %60)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i.i
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59.i.i: ; preds = %55
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60.i.i: ; preds = %55
   call void @_ZdlPv(ptr noundef %57) #33
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i.i
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #30
   resume { ptr, i32 } %56
 
@@ -33774,11 +33774,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i.i: ; preds = 
   br i1 %.not52.not.i.i, label %_ZN11opencv_test12_GLOBAL__N_17PrintToERKNS0_8NormTypeEPSo.exit, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %61, %.critedge55.i.i
-  %.25.i.i = phi i32 [ %33, %61 ], [ %.03635.i.i, %.critedge55.i.i ]
-  %.44.i.i = phi i8 [ 0, %61 ], [ %.04332.i.i, %.critedge55.i.i ]
-  %indvars.iv.next42.i.i = add nuw nsw i64 %indvars.iv41.i.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next42.i.i, 8
-  br i1 %exitcond.i.i, label %62, label %.preheader13.i.i, !llvm.loop !855
+  %.25.i.i = phi i32 [ %33, %61 ], [ %.03633.i.i, %.critedge55.i.i ]
+  %.44.i.i = phi i8 [ 0, %61 ], [ %.04330.i.i, %.critedge55.i.i ]
+  %indvars.iv.next40.i.i = add nuw nsw i64 %indvars.iv39.i.i, 1
+  %exitcond.i.i = icmp eq i64 %indvars.iv.next40.i.i, 8
+  br i1 %exitcond.i.i, label %62, label %.preheader11.i.i, !llvm.loop !855
 
 62:                                               ; preds = %.thread.i.i
   %63 = trunc nuw i8 %.44.i.i to i1

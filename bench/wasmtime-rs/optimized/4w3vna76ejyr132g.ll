@@ -313,26 +313,26 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen15parse_multiline17h077a9f
   %38 = load <4 x i8>, ptr %4, align 4
   %39 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %39, align 8
-  %.sroa.05.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 %2, ptr %.sroa.05.sroa.2.0..sroa_idx, align 8
-  %.sroa.05.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %1, ptr %.sroa.05.sroa.3.0..sroa_idx, align 8
-  %.sroa.05.sroa.3.sroa.2.0..sroa.05.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i64 %2, ptr %.sroa.05.sroa.3.sroa.2.0..sroa.05.sroa.3.0..sroa_idx.sroa_idx, align 8
-  %.sroa.05.sroa.3.sroa.3.0..sroa.05.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store i64 0, ptr %.sroa.05.sroa.3.sroa.3.0..sroa.05.sroa.3.0..sroa_idx.sroa_idx, align 8
-  %.sroa.05.sroa.3.sroa.4.0..sroa.05.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store i64 %2, ptr %.sroa.05.sroa.3.sroa.4.0..sroa.05.sroa.3.0..sroa_idx.sroa_idx, align 8
-  %.sroa.05.sroa.3.sroa.5.0..sroa.05.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 56
-  store i64 %37, ptr %.sroa.05.sroa.3.sroa.5.0..sroa.05.sroa.3.0..sroa_idx.sroa_idx, align 8
-  %.sroa.05.sroa.3.sroa.6.0..sroa.05.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store <4 x i8> %38, ptr %.sroa.05.sroa.3.sroa.6.0..sroa.05.sroa.3.0..sroa_idx.sroa_idx, align 8
-  %.sroa.05.sroa.3.sroa.7.0..sroa.05.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 68
-  store i32 10, ptr %.sroa.05.sroa.3.sroa.7.0..sroa.05.sroa.3.0..sroa_idx.sroa_idx, align 4
-  %.sroa.05.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store i8 0, ptr %.sroa.05.sroa.4.0..sroa_idx, align 8
-  %.sroa.05.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 73
-  store i8 0, ptr %.sroa.05.sroa.5.0..sroa_idx, align 1
+  %.sroa.08.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i64 %2, ptr %.sroa.08.sroa.2.0..sroa_idx, align 8
+  %.sroa.08.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store ptr %1, ptr %.sroa.08.sroa.3.0..sroa_idx, align 8
+  %.sroa.08.sroa.3.sroa.2.0..sroa.08.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store i64 %2, ptr %.sroa.08.sroa.3.sroa.2.0..sroa.08.sroa.3.0..sroa_idx.sroa_idx, align 8
+  %.sroa.08.sroa.3.sroa.3.0..sroa.08.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 40
+  store i64 0, ptr %.sroa.08.sroa.3.sroa.3.0..sroa.08.sroa.3.0..sroa_idx.sroa_idx, align 8
+  %.sroa.08.sroa.3.sroa.4.0..sroa.08.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 48
+  store i64 %2, ptr %.sroa.08.sroa.3.sroa.4.0..sroa.08.sroa.3.0..sroa_idx.sroa_idx, align 8
+  %.sroa.08.sroa.3.sroa.5.0..sroa.08.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 56
+  store i64 %37, ptr %.sroa.08.sroa.3.sroa.5.0..sroa.08.sroa.3.0..sroa_idx.sroa_idx, align 8
+  %.sroa.08.sroa.3.sroa.6.0..sroa.08.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 64
+  store <4 x i8> %38, ptr %.sroa.08.sroa.3.sroa.6.0..sroa.08.sroa.3.0..sroa_idx.sroa_idx, align 8
+  %.sroa.08.sroa.3.sroa.7.0..sroa.08.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 68
+  store i32 10, ptr %.sroa.08.sroa.3.sroa.7.0..sroa.08.sroa.3.0..sroa_idx.sroa_idx, align 4
+  %.sroa.08.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store i8 0, ptr %.sroa.08.sroa.4.0..sroa_idx, align 8
+  %.sroa.08.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 73
+  store i8 0, ptr %.sroa.08.sroa.5.0..sroa_idx, align 1
   store ptr %22, ptr %16, align 8
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he03a221276bed8aaE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %17, ptr nonnull align 8 %16)
           to label %40 unwind label %34
@@ -344,10 +344,10 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen15parse_multiline17h077a9f
   %44 = load i64, ptr %43, align 8, !noundef !3
   %45 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %42, i64 %44
   store ptr %42, ptr %15, align 8
-  %.sroa.08.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %45, ptr %.sroa.08.sroa.2.0..sroa_idx, align 8
-  %.sroa.08.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 1, ptr %.sroa.08.sroa.3.0..sroa_idx, align 8
+  %.sroa.011.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %45, ptr %.sroa.011.sroa.2.0..sroa_idx, align 8
+  %.sroa.011.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i64 1, ptr %.sroa.011.sroa.3.0..sroa_idx, align 8
   %46 = invoke { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator6reduce17hddb33fbbec9ef123E(ptr nonnull align 8 %15)
           to label %50 unwind label %48
 
@@ -392,7 +392,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen15parse_multiline17h077a9f
           cleanup
   br label %.thread
 
-66:                                               ; preds = %.thread97
+66:                                               ; preds = %.thread95
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %47
@@ -432,8 +432,8 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen15parse_multiline17h077a9f
   store i64 %82, ptr %12, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %83, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 %77, ptr %.sroa.3.0..sroa_idx101, align 8
+  %.sroa.3.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 %77, ptr %.sroa.3.0..sroa_idx99, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf0f602e3422191b1E"(ptr nonnull align 8 %13, ptr nonnull align 8 %12)
           to label %.thread92 unwind label %.thread83
 
@@ -443,8 +443,8 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen15parse_multiline17h077a9f
 
 87:                                               ; preds = %.thread92
   store i64 %52, ptr %10, align 8
-  %.sroa.021.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.021.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  %.sroa.024.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.024.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   store ptr %10, ptr %9, align 8
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h46129889870da17cE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %11, ptr nonnull align 8 %9)
           to label %89 unwind label %.thread83
@@ -483,8 +483,8 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen15parse_multiline17h077a9f
 
 93:                                               ; preds = %92
   %94 = load i64, ptr %7, align 8, !range !4, !noundef !3
-  %.not74 = icmp eq i64 %94, -9223372036854775808
-  br i1 %.not74, label %.thread97, label %95
+  %.not76 = icmp eq i64 %94, -9223372036854775808
+  br i1 %.not76, label %.thread95, label %95
 
 95:                                               ; preds = %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -499,14 +499,14 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen15parse_multiline17h077a9f
 99:                                               ; preds = %95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf0f602e3422191b1E"(ptr nonnull align 8 %13, ptr nonnull align 8 %5)
-          to label %.thread97 unwind label %.loopexit.split-lp
+          to label %.thread95 unwind label %.loopexit.split-lp
 
-.thread97:                                        ; preds = %93, %99
+.thread95:                                        ; preds = %93, %99
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8be6d95f1e23f02fE"(ptr nonnull align 8 %11)
           to label %100 unwind label %66
 
-100:                                              ; preds = %.thread97
+100:                                              ; preds = %.thread95
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8be6d95f1e23f02fE"(ptr nonnull align 8 %17)
           to label %101 unwind label %34
 

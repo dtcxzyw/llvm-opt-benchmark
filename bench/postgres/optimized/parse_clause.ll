@@ -2534,45 +2534,46 @@ define dso_local ptr @transformGroupClause(ptr noundef %0, ptr noundef %1, ptr n
   store i8 0, ptr %9, align 1
   %10 = call fastcc ptr @flatten_grouping_sets(ptr noundef %1, i1 noundef zeroext true, ptr noundef nonnull %9)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %.lr.ph
+  %12 = load i8, ptr %9, align 1, !range !4
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond = select i1 %11, i1 %13, i1 false
+  br i1 %or.cond, label %14, label %18
 
-12:                                               ; preds = %7
-  %13 = load i8, ptr %9, align 1, !range !4, !noundef !5
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %15, label %._crit_edge
+14:                                               ; preds = %7
+  %15 = call i32 @exprLocation(ptr noundef %1) #9
+  %16 = call ptr @makeGroupingSet(i32 noundef 0, ptr noundef null, i32 noundef %15) #9
+  %17 = call ptr @list_make1_impl(i32 noundef 1, ptr %16) #9
+  br label %18
 
-15:                                               ; preds = %12
-  %16 = call i32 @exprLocation(ptr noundef %1) #9
-  %17 = call ptr @makeGroupingSet(i32 noundef 0, ptr noundef null, i32 noundef %16) #9
-  %18 = call ptr @list_make1_impl(i32 noundef 1, ptr %17) #9
-  %.not = icmp eq ptr %18, null
+18:                                               ; preds = %14, %7
+  %.0 = phi ptr [ %17, %14 ], [ %10, %7 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %15
-  %.063 = phi ptr [ %18, %15 ], [ %10, %7 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.063, i64 4
-  %20 = getelementptr inbounds nuw i8, ptr %.063, i64 16
+.lr.ph:                                           ; preds = %18
+  %20 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %21 = load i32, ptr %19, align 4
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph67, label %._crit_edge
+  br i1 %22, label %.lr.ph60, label %._crit_edge
 
-._crit_edge:                                      ; preds = %45, %.lr.ph, %12, %15
-  %.038.lcssa = phi ptr [ null, %15 ], [ null, %12 ], [ null, %.lr.ph ], [ %.2, %45 ]
-  %.not48 = icmp eq ptr %2, null
-  br i1 %.not48, label %50, label %49
+._crit_edge:                                      ; preds = %45, %.lr.ph, %18
+  %.039.lcssa = phi ptr [ null, %18 ], [ null, %.lr.ph ], [ %.2, %45 ]
+  %.not47 = icmp eq ptr %2, null
+  br i1 %.not47, label %50, label %49
 
-.lr.ph67:                                         ; preds = %.lr.ph, %45
-  %.0405366 = phi ptr [ %.141, %45 ], [ null, %.lr.ph ]
-  %.0385465 = phi ptr [ %.2, %45 ], [ null, %.lr.ph ]
-  %indvars.iv64 = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
+.lr.ph60:                                         ; preds = %.lr.ph, %45
+  %.0415259 = phi ptr [ %.142, %45 ], [ null, %.lr.ph ]
+  %.0395358 = phi ptr [ %.2, %45 ], [ null, %.lr.ph ]
+  %indvars.iv57 = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv64
+  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv57
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 107
   br i1 %27, label %28, label %33
 
-28:                                               ; preds = %.lr.ph67
+28:                                               ; preds = %.lr.ph60
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %30 = load i32, ptr %29, align 4
   switch i32 %30, label %45 [
@@ -2586,13 +2587,13 @@ define dso_local ptr @transformGroupClause(ptr noundef %0, ptr noundef %1, ptr n
   %32 = call fastcc ptr @transformGroupingSet(ptr noundef %8, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6)
   br label %.sink.split
 
-33:                                               ; preds = %.lr.ph67
-  %34 = call fastcc i32 @transformGroupClauseExpr(ptr noundef %8, ptr noundef %.0405366, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext true)
-  %.not49 = icmp eq i32 %34, 0
-  br i1 %.not49, label %45, label %35
+33:                                               ; preds = %.lr.ph60
+  %34 = call fastcc i32 @transformGroupClauseExpr(ptr noundef %8, ptr noundef %.0415259, ptr noundef %0, ptr noundef nonnull %25, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext true)
+  %.not48 = icmp eq i32 %34, 0
+  br i1 %.not48, label %45, label %35
 
 35:                                               ; preds = %33
-  %36 = call ptr @bms_add_member(ptr noundef %.0405366, i32 noundef %34) #9
+  %36 = call ptr @bms_add_member(ptr noundef %.0415259, i32 noundef %34) #9
   %37 = load i8, ptr %9, align 1, !range !4, !noundef !5
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %39, label %45
@@ -2607,21 +2608,21 @@ define dso_local ptr @transformGroupClause(ptr noundef %0, ptr noundef %1, ptr n
 
 .sink.split:                                      ; preds = %28, %31, %39
   %.sink = phi ptr [ %43, %39 ], [ %32, %31 ], [ %25, %28 ]
-  %.141.ph = phi ptr [ %36, %39 ], [ %.0405366, %31 ], [ %.0405366, %28 ]
-  %44 = call ptr @lappend(ptr noundef %.0385465, ptr noundef %.sink) #9
+  %.142.ph = phi ptr [ %36, %39 ], [ %.0415259, %31 ], [ %.0415259, %28 ]
+  %44 = call ptr @lappend(ptr noundef %.0395358, ptr noundef %.sink) #9
   br label %45
 
 45:                                               ; preds = %.sink.split, %33, %35, %28
-  %.141 = phi ptr [ %.0405366, %28 ], [ %36, %35 ], [ %.0405366, %33 ], [ %.141.ph, %.sink.split ]
-  %.2 = phi ptr [ %.0385465, %28 ], [ %.0385465, %35 ], [ %.0385465, %33 ], [ %44, %.sink.split ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv64, 1
+  %.142 = phi ptr [ %.0415259, %28 ], [ %36, %35 ], [ %.0415259, %33 ], [ %.142.ph, %.sink.split ]
+  %.2 = phi ptr [ %.0395358, %28 ], [ %.0395358, %35 ], [ %.0395358, %33 ], [ %44, %.sink.split ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv57, 1
   %46 = load i32, ptr %19, align 4
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph67, label %._crit_edge
+  br i1 %48, label %.lr.ph60, label %._crit_edge
 
 49:                                               ; preds = %._crit_edge
-  store ptr %.038.lcssa, ptr %2, align 8
+  store ptr %.039.lcssa, ptr %2, align 8
   br label %50
 
 50:                                               ; preds = %49, %._crit_edge

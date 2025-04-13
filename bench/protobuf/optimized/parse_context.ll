@@ -905,10 +905,10 @@ if.end16:                                         ; preds = %if.end6
   %sub = sub nsw i32 %conv13, %size
   %conv23 = add i32 %9, 16
   %patch_buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %cmp26 = icmp slt i32 %conv23, 33
   %10 = ptrtoint ptr %patch_buffer_ to i64
   %sub24 = sub i64 %sub.ptr.rhs.cast, %10
   %cmp25 = icmp ult i64 %sub24, 33
+  %cmp26 = icmp slt i32 %conv23, 33
   %or.cond = select i1 %cmp26, i1 %cmp25, i1 false
   br i1 %or.cond, label %if.else, label %if.then27
 
@@ -991,8 +991,8 @@ if.else52:                                        ; preds = %if.else48
   br label %if.end58
 
 if.end58:                                         ; preds = %if.else36.if.end58_crit_edge, %if.then35, %if.else52, %if.then27
-  %24 = phi i32 [ %add.i, %if.then27 ], [ %add.i37, %if.then35 ], [ %.pre, %if.else36.if.end58_crit_edge ], [ %add.i43, %if.else52 ]
-  %size.addr.0 = phi i32 [ %size, %if.then27 ], [ %size, %if.then35 ], [ %sub37, %if.else36.if.end58_crit_edge ], [ %sub37, %if.else52 ]
+  %24 = phi i32 [ %add.i37, %if.then35 ], [ %.pre, %if.else36.if.end58_crit_edge ], [ %add.i43, %if.else52 ], [ %add.i, %if.then27 ]
+  %size.addr.0 = phi i32 [ %size, %if.then35 ], [ %sub37, %if.else36.if.end58_crit_edge ], [ %sub37, %if.else52 ], [ %size, %if.then27 ]
   %overall_limit_ = getelementptr inbounds nuw i8, ptr %this, i64 84
   %cmp59 = icmp sgt i32 %size.addr.0, %24
   br i1 %cmp59, label %return, label %if.end61

@@ -308,7 +308,7 @@ define dso_local ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.slurm_cred_create, i32 noundef %15) #11
-  br label %53
+  br label %52
 
 17:                                               ; preds = %3
   %18 = icmp eq i32 %10, 99
@@ -318,7 +318,7 @@ define dso_local ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.slurm_cred_create, i32 noundef %21) #11
-  br label %53
+  br label %52
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -329,8 +329,8 @@ define dso_local ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i
 .preheader:                                       ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %27 = load i32, ptr %26, align 4
-  %.not52 = icmp eq i32 %27, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph.preheader
+  %.not51 = icmp eq i32 %27, 0
+  br i1 %.not51, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i32 %27 to i64
@@ -338,10 +338,10 @@ define dso_local ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
-  %.03349 = phi i32 [ 0, %.lr.ph.preheader ], [ %30, %31 ]
+  %.03448 = phi i32 [ 0, %.lr.ph.preheader ], [ %30, %31 ]
   %28 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
-  %30 = add i32 %29, %.03349
+  %30 = add i32 %29, %.03448
   %.not41 = icmp ult i32 %30, %27
   br i1 %.not41, label %31, label %._crit_edge.loopexit.split.loop.exit
 
@@ -361,61 +361,60 @@ define dso_local ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit, %23
-  %.034 = phi i16 [ 0, %23 ], [ 1, %.preheader ], [ %34, %._crit_edge.loopexit ]
+  %.035 = phi i16 [ 0, %23 ], [ 1, %.preheader ], [ %34, %._crit_edge.loopexit ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i16 %.034, ptr %35, align 8
+  store i16 %.035, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not42 = icmp eq ptr %37, null
-  br i1 %.not42, label %38, label %45
+  br i1 %.not42, label %38, label %44
 
 38:                                               ; preds = %._crit_edge
-  %.b3943 = load i1, ptr @enable_nss_slurm, align 1
-  br i1 %.b3943, label %40, label %39
+  %.b43 = load i1, ptr @enable_nss_slurm, align 1
+  %.b40 = load i1, ptr @enable_send_gids, align 1
+  %not..b40 = xor i1 %.b40, true
+  %or.cond = select i1 %.b43, i1 true, i1 %not..b40
+  br i1 %or.cond, label %39, label %43
 
 39:                                               ; preds = %38
-  %.b40 = load i1, ptr @enable_send_gids, align 1
-  br i1 %.b40, label %44, label %40
+  %40 = tail call ptr @fetch_identity(i32 noundef %7, i32 noundef %10, i1 noundef zeroext %.b43) #11
+  store ptr %40, ptr %36, align 8
+  %.not44 = icmp eq ptr %40, null
+  br i1 %.not44, label %41, label %44
 
-40:                                               ; preds = %39, %38
-  %41 = tail call ptr @fetch_identity(i32 noundef %7, i32 noundef %10, i1 noundef zeroext %.b3943) #11
-  store ptr %41, ptr %36, align 8
-  %.not45 = icmp eq ptr %41, null
-  br i1 %.not45, label %42, label %45
-
-42:                                               ; preds = %40
-  %43 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.slurm_cred_create) #11
-  br label %53
-
-44:                                               ; preds = %39
-  store ptr %4, ptr %36, align 8
-  br label %45
-
-45:                                               ; preds = %._crit_edge, %44, %40
-  %46 = phi ptr [ %4, %44 ], [ %41, %40 ], [ %37, %._crit_edge ]
-  %.0 = phi i1 [ false, %44 ], [ true, %40 ], [ false, %._crit_edge ]
-  call void @identity_debug2(ptr noundef nonnull %46, ptr noundef nonnull @__func__.slurm_cred_create) #11
-  %47 = load ptr, ptr @ops, align 8
-  %48 = call ptr %47(ptr noundef nonnull %0, i1 noundef zeroext %1, i16 noundef zeroext %2) #11
-  br i1 %.0, label %49, label %53
-
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %36, align 8
-  %.not47 = icmp eq ptr %50, null
-  br i1 %.not47, label %52, label %51
-
-51:                                               ; preds = %49
-  call void @destroy_identity(ptr noundef nonnull %50) #11
+41:                                               ; preds = %39
+  %42 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.slurm_cred_create) #11
   br label %52
 
-52:                                               ; preds = %51, %49
-  store ptr null, ptr %36, align 8
-  br label %53
+43:                                               ; preds = %38
+  store ptr %4, ptr %36, align 8
+  br label %44
 
-53:                                               ; preds = %45, %52, %42, %19, %13
-  %.035 = phi ptr [ null, %13 ], [ null, %19 ], [ null, %42 ], [ %48, %52 ], [ %48, %45 ]
+44:                                               ; preds = %._crit_edge, %43, %39
+  %45 = phi ptr [ %4, %43 ], [ %40, %39 ], [ %37, %._crit_edge ]
+  %.0 = phi i1 [ false, %43 ], [ true, %39 ], [ false, %._crit_edge ]
+  call void @identity_debug2(ptr noundef nonnull %45, ptr noundef nonnull @__func__.slurm_cred_create) #11
+  %46 = load ptr, ptr @ops, align 8
+  %47 = call ptr %46(ptr noundef nonnull %0, i1 noundef zeroext %1, i16 noundef zeroext %2) #11
+  br i1 %.0, label %48, label %52
+
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %36, align 8
+  %.not46 = icmp eq ptr %49, null
+  br i1 %.not46, label %51, label %50
+
+50:                                               ; preds = %48
+  call void @destroy_identity(ptr noundef nonnull %49) #11
+  br label %51
+
+51:                                               ; preds = %50, %48
+  store ptr null, ptr %36, align 8
+  br label %52
+
+52:                                               ; preds = %44, %51, %41, %19, %13
+  %.036 = phi ptr [ null, %13 ], [ null, %19 ], [ null, %41 ], [ %47, %51 ], [ %47, %44 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #11
-  ret ptr %.035
+  ret ptr %.036
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1402,58 +1401,59 @@ define dso_local ptr @create_sbcast_cred(ptr noundef %0, i32 noundef %1, i32 nou
   store i8 1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %11, label %17
-
-11:                                               ; preds = %4
+  %11 = icmp ne ptr %10, null
   %.b = load i1, ptr @enable_send_gids, align 1
-  br i1 %.b, label %16, label %12
+  %or.cond.not = select i1 %11, i1 true, i1 %.b
+  br i1 %or.cond.not, label %16, label %12
 
-12:                                               ; preds = %11
+12:                                               ; preds = %4
   %13 = tail call ptr @fetch_identity(i32 noundef %1, i32 noundef %2, i1 noundef zeroext false) #11
   store ptr %13, ptr %9, align 8
-  %.not17 = icmp eq ptr %13, null
-  br i1 %.not17, label %14, label %17
+  %.not18 = icmp eq ptr %13, null
+  br i1 %.not18, label %14, label %18
 
 14:                                               ; preds = %12
   %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.create_sbcast_cred) #11
-  br label %27
+  br label %28
 
-16:                                               ; preds = %11
+16:                                               ; preds = %4
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %17, label %18
+
+17:                                               ; preds = %16
   store ptr %5, ptr %9, align 8
-  br label %17
+  br label %18
 
-17:                                               ; preds = %4, %16, %12
-  %.0 = phi i1 [ false, %16 ], [ true, %12 ], [ false, %4 ]
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 32), align 8
-  %19 = call ptr %18(ptr noundef nonnull %0, i16 noundef zeroext %3) #11
-  %.not19 = icmp eq ptr %19, null
-  br i1 %.not19, label %20, label %22
+18:                                               ; preds = %16, %17, %12
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 32), align 8
+  %20 = call ptr %19(ptr noundef nonnull %0, i16 noundef zeroext %3) #11
+  %.not19 = icmp eq ptr %20, null
+  br i1 %.not19, label %21, label %23
 
-20:                                               ; preds = %17
-  %21 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.create_sbcast_cred) #11
-  br label %22
+21:                                               ; preds = %18
+  %22 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.create_sbcast_cred) #11
+  br label %23
 
-22:                                               ; preds = %20, %17
-  br i1 %.0, label %23, label %27
+23:                                               ; preds = %21, %18
+  br i1 %or.cond.not, label %28, label %24
 
-23:                                               ; preds = %22
-  %24 = load ptr, ptr %9, align 8
-  %.not20 = icmp eq ptr %24, null
-  br i1 %.not20, label %26, label %25
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %9, align 8
+  %.not20 = icmp eq ptr %25, null
+  br i1 %.not20, label %27, label %26
 
-25:                                               ; preds = %23
-  call void @destroy_identity(ptr noundef nonnull %24) #11
-  br label %26
-
-26:                                               ; preds = %25, %23
-  store ptr null, ptr %9, align 8
+26:                                               ; preds = %24
+  call void @destroy_identity(ptr noundef nonnull %25) #11
   br label %27
 
-27:                                               ; preds = %22, %26, %14
-  %.015 = phi ptr [ null, %14 ], [ %19, %26 ], [ %19, %22 ]
+27:                                               ; preds = %26, %24
+  store ptr null, ptr %9, align 8
+  br label %28
+
+28:                                               ; preds = %23, %27, %14
+  %.016 = phi ptr [ null, %14 ], [ %20, %27 ], [ %20, %23 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #11
-  ret ptr %.015
+  ret ptr %.016
 }
 
 ; Function Attrs: nounwind uwtable

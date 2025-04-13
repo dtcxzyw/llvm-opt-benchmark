@@ -3142,7 +3142,11 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
 37:                                               ; preds = %36
   %switch.tableidx = add i32 %.07392.us, -1
   %38 = icmp ult i32 %switch.tableidx, 5
-  br i1 %38, label %switch.hole_check, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 27, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %38, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
 
 39:                                               ; preds = %36
   switch i32 %.07392.us, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us [
@@ -3156,27 +3160,19 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
 41:                                               ; preds = %36
   %switch.tableidx108 = add i32 %.07392.us, -1
   %42 = icmp ult i32 %switch.tableidx108, 5
-  br i1 %42, label %switch.hole_check109, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
+  %switch.maskindex111 = trunc i32 %switch.tableidx108 to i8
+  %switch.shifted112 = lshr i8 27, %switch.maskindex111
+  %switch.lobit113 = trunc i8 %switch.shifted112 to i1
+  %or.cond116 = select i1 %42, i1 %switch.lobit113, i1 false
+  br i1 %or.cond116, label %switch.lookup110, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
 
-switch.hole_check:                                ; preds = %37
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 27, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %37
   %43 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3, i64 0, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split.i.us
 
-switch.hole_check109:                             ; preds = %41
-  %switch.maskindex111 = trunc nuw i32 %switch.tableidx108 to i8
-  %switch.shifted112 = lshr i8 27, %switch.maskindex111
-  %switch.lobit113 = trunc i8 %switch.shifted112 to i1
-  br i1 %switch.lobit113, label %switch.lookup110, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
-
-switch.lookup110:                                 ; preds = %switch.hole_check109
+switch.lookup110:                                 ; preds = %41
   %44 = zext nneg i32 %switch.tableidx108 to i64
   %switch.gep114 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.2, i64 0, i64 %44
   %switch.load115 = load i32, ptr %switch.gep114, align 4
@@ -3186,12 +3182,16 @@ switch.lookup110:                                 ; preds = %switch.hole_check10
   %.sink.i.us = phi i32 [ 5, %40 ], [ 0, %33 ], [ %.0.i637577.us, %36 ], [ 4, %39 ], [ %switch.load, %switch.lookup ], [ %switch.load115, %switch.lookup110 ]
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
 
-_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us: ; preds = %switch.hole_check109, %41, %switch.hole_check, %37, %.sink.split.i.us, %39, %36
-  %.2.us = phi i32 [ %.sink.i.us, %.sink.split.i.us ], [ %.07392.us, %36 ], [ %.07392.us, %37 ], [ %.07392.us, %39 ], [ %.07392.us, %41 ], [ %.07392.us, %switch.hole_check ], [ %.07392.us, %switch.hole_check109 ]
+_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us: ; preds = %41, %37, %.sink.split.i.us, %39, %36
+  %.2.us = phi i32 [ %.sink.i.us, %.sink.split.i.us ], [ %.07392.us, %36 ], [ %.07392.us, %37 ], [ %.07392.us, %39 ], [ %.07392.us, %41 ]
   %45 = icmp ult i32 %.2.us, 6
-  br i1 %45, label %switch.hole_check117, label %.critedge.us
+  %switch.maskindex119 = trunc i32 %.2.us to i8
+  %switch.shifted120 = lshr i8 57, %switch.maskindex119
+  %switch.lobit121 = trunc i8 %switch.shifted120 to i1
+  %or.cond149 = select i1 %45, i1 %switch.lobit121, i1 false
+  br i1 %or.cond149, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread81, label %.critedge.us
 
-.critedge.us:                                     ; preds = %switch.hole_check117, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
+.critedge.us:                                     ; preds = %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge61, label %21, !llvm.loop !124
@@ -3248,12 +3248,20 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
 61:                                               ; preds = %60
   %switch.tableidx123 = add i32 %.07392, -1
   %62 = icmp ult i32 %switch.tableidx123, 5
-  br i1 %62, label %switch.hole_check124, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
+  %switch.maskindex126 = trunc i32 %switch.tableidx123 to i8
+  %switch.shifted127 = lshr i8 27, %switch.maskindex126
+  %switch.lobit128 = trunc i8 %switch.shifted127 to i1
+  %or.cond140 = select i1 %62, i1 %switch.lobit128, i1 false
+  br i1 %or.cond140, label %switch.lookup125, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
 
 63:                                               ; preds = %60
   %switch.tableidx132 = add i32 %.07392, -1
   %64 = icmp ult i32 %switch.tableidx132, 5
-  br i1 %64, label %switch.hole_check133, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
+  %switch.maskindex135 = trunc i32 %switch.tableidx132 to i8
+  %switch.shifted136 = lshr i8 27, %switch.maskindex135
+  %switch.lobit137 = trunc i8 %switch.shifted136 to i1
+  %or.cond141 = select i1 %64, i1 %switch.lobit137, i1 false
+  br i1 %or.cond141, label %switch.lookup134, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
 
 65:                                               ; preds = %60
   switch i32 %.07392, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit [
@@ -3264,25 +3272,13 @@ _ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialE
 66:                                               ; preds = %65
   br label %.sink.split.i
 
-switch.hole_check124:                             ; preds = %61
-  %switch.maskindex126 = trunc nuw i32 %switch.tableidx123 to i8
-  %switch.shifted127 = lshr i8 27, %switch.maskindex126
-  %switch.lobit128 = trunc i8 %switch.shifted127 to i1
-  br i1 %switch.lobit128, label %switch.lookup125, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
-
-switch.lookup125:                                 ; preds = %switch.hole_check124
+switch.lookup125:                                 ; preds = %61
   %67 = zext nneg i32 %switch.tableidx123 to i64
   %switch.gep129 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.2, i64 0, i64 %67
   %switch.load130 = load i32, ptr %switch.gep129, align 4
   br label %.sink.split.i
 
-switch.hole_check133:                             ; preds = %63
-  %switch.maskindex135 = trunc nuw i32 %switch.tableidx132 to i8
-  %switch.shifted136 = lshr i8 27, %switch.maskindex135
-  %switch.lobit137 = trunc i8 %switch.shifted136 to i1
-  br i1 %switch.lobit137, label %switch.lookup134, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
-
-switch.lookup134:                                 ; preds = %switch.hole_check133
+switch.lookup134:                                 ; preds = %63
   %68 = zext nneg i32 %switch.tableidx132 to i64
   %switch.gep138 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb.3, i64 0, i64 %68
   %switch.load139 = load i32, ptr %switch.gep138, align 4
@@ -3292,8 +3288,8 @@ switch.lookup134:                                 ; preds = %switch.hole_check13
   %.sink.i = phi i32 [ 5, %66 ], [ 0, %57 ], [ %.0.i637577, %60 ], [ 4, %65 ], [ %switch.load130, %switch.lookup125 ], [ %switch.load139, %switch.lookup134 ]
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit
 
-_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit: ; preds = %switch.hole_check133, %63, %switch.hole_check124, %61, %60, %65, %.sink.split.i
-  %.2 = phi i32 [ %.sink.i, %.sink.split.i ], [ %.07392, %60 ], [ %.07392, %63 ], [ %.07392, %65 ], [ %.07392, %61 ], [ %.07392, %switch.hole_check124 ], [ %.07392, %switch.hole_check133 ]
+_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit: ; preds = %63, %61, %60, %65, %.sink.split.i
+  %.2 = phi i32 [ %.sink.i, %.sink.split.i ], [ %.07392, %60 ], [ %.07392, %63 ], [ %.07392, %65 ], [ %.07392, %61 ]
   %69 = icmp eq i32 %.2, 3
   br i1 %69, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread81, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread
 
@@ -3327,7 +3323,7 @@ _ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread: ;
 
 77:                                               ; preds = %75
   %78 = icmp ult i32 %.053, 5
-  br i1 %78, label %switch.lookup140, label %.thread86.thread
+  br i1 %78, label %switch.lookup142, label %.thread86.thread
 
 79:                                               ; preds = %75
   %80 = icmp eq i32 %.073.lcssa, 4
@@ -3338,32 +3334,26 @@ _ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread: ;
 .thread86:                                        ; preds = %79
   %82 = icmp eq i32 %.073.lcssa, 1
   %83 = icmp ult i32 %.053, 6
-  %or.cond = and i1 %82, %83
-  br i1 %or.cond, label %switch.lookup141, label %.thread86.thread
+  %or.cond148 = and i1 %82, %83
+  br i1 %or.cond148, label %switch.lookup143, label %.thread86.thread
 
 .thread86.thread:                                 ; preds = %77, %70, %.thread86
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread81
 
-switch.hole_check117:                             ; preds = %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us
-  %switch.maskindex119 = trunc nuw i32 %.2.us to i8
-  %switch.shifted120 = lshr i8 57, %switch.maskindex119
-  %switch.lobit121 = trunc i8 %switch.shifted120 to i1
-  br i1 %switch.lobit121, label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread81, label %.critedge.us
-
-switch.lookup140:                                 ; preds = %77
+switch.lookup142:                                 ; preds = %77
   %switch.cast = trunc nuw i32 %.053 to i5
   %switch.downshift = lshr i5 12, %switch.cast
   %switch.masked = trunc i5 %switch.downshift to i1
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread81
 
-switch.lookup141:                                 ; preds = %.thread86
-  %switch.cast142 = trunc nuw i32 %.053 to i6
-  %switch.downshift144 = lshr i6 26, %switch.cast142
-  %switch.masked145 = trunc i6 %switch.downshift144 to i1
+switch.lookup143:                                 ; preds = %.thread86
+  %switch.cast144 = trunc nuw i32 %.053 to i6
+  %switch.downshift146 = lshr i6 26, %switch.cast144
+  %switch.masked147 = trunc i6 %switch.downshift146 to i1
   br label %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread81
 
-_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread81: ; preds = %switch.hole_check117, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit68.thread.us, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit68.us, %.thread.us, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit, %.thread, %switch.lookup141, %switch.lookup140, %.thread86.thread, %.critedge61, %70, %72, %79, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %.thread86.thread ], [ true, %.critedge61 ], [ false, %70 ], [ false, %72 ], [ false, %79 ], [ %switch.masked, %switch.lookup140 ], [ %switch.masked145, %switch.lookup141 ], [ true, %.thread ], [ true, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit ], [ true, %.thread.us ], [ true, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit68.us ], [ true, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit68.thread.us ], [ true, %switch.hole_check117 ]
+_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.thread81: ; preds = %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit68.thread.us, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit68.us, %.thread.us, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit, %.thread, %switch.lookup143, %switch.lookup142, %.thread86.thread, %.critedge61, %70, %72, %79, %7
+  %.0 = phi i1 [ true, %7 ], [ true, %.thread86.thread ], [ true, %.critedge61 ], [ false, %70 ], [ false, %72 ], [ false, %79 ], [ %switch.masked, %switch.lookup142 ], [ %switch.masked147, %switch.lookup143 ], [ true, %.thread ], [ true, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit ], [ true, %.thread.us ], [ true, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit68.us ], [ true, %_ZN5nlsat14simple_checker3imp20get_poly_sign_degreeEPKN10polynomial10polynomialEb.exit68.thread.us ], [ true, %_ZN5nlsat14simple_checker3imp14merge_mul_signERNS1_9sign_kindES2_.exit.us ]
   ret i1 %.0
 }
 
@@ -5750,7 +5740,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp27pr
 
 40:                                               ; preds = %39
   %41 = icmp ult i32 %2, 6
-  br i1 %41, label %switch.hole_check, label %.invoke139
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 55, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %41, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %.invoke139
 
 42:                                               ; preds = %.invoke139, %.invoke, %25, %6
   %43 = landingpad { ptr, i32 }
@@ -5949,8 +5943,8 @@ _ZN5nlsat14simple_checker3imp15Domain_IntervalD2Ev.exit116: ; preds = %_ZN5nlsat
 112:                                              ; preds = %88
   br label %310
 
-.invoke139:                                       ; preds = %switch.hole_check, %40, %88
-  %113 = phi i32 [ 467, %40 ], [ 492, %88 ], [ 467, %switch.hole_check ]
+.invoke139:                                       ; preds = %40, %88
+  %113 = phi i32 [ 467, %40 ], [ 492, %88 ]
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.5, i32 noundef %113, ptr noundef nonnull @.str.6)
           to label %.invoke unwind label %42
 
@@ -6495,13 +6489,7 @@ _ZN5nlsat14simple_checker3imp15Domain_IntervalD2Ev.exit135: ; preds = %_ZN5nlsat
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #20
   br label %310
 
-switch.hole_check:                                ; preds = %40
-  %switch.maskindex = trunc nuw i32 %2 to i8
-  %switch.shifted = lshr i8 55, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.invoke139
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %40
   %switch.cast = trunc nuw i32 %2 to i6
   %switch.downshift = lshr i6 -28, %switch.cast
   %switch.masked = trunc i6 %switch.downshift to i1

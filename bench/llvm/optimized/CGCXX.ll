@@ -660,9 +660,13 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit: ; preds = %_ZN4llvm11Glob
 197:                                              ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit
   %switch.tableidx = add i32 %159, -2
   %198 = icmp ult i32 %switch.tableidx, 9
-  br i1 %198, label %switch.hole_check, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit115
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 399, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %198, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit115
 
-_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit115: ; preds = %switch.hole_check, %197
+_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit115: ; preds = %197
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #10
   %199 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -702,14 +706,8 @@ _ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit115: ; preds = %s
   call void @_ZN5clang7CodeGen13CodeGenModule19SetCommonAttributesENS_10GlobalDeclEPN4llvm11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(3608) %0, i64 %151, i32 0, ptr noundef nonnull %202) #10
   br label %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread
 
-switch.hole_check:                                ; preds = %197
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 399, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread, label %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit115
-
-_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %switch.hole_check, %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit, %186, %214, %187, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit, %167, %165
-  %.13 = phi i1 [ false, %165 ], [ false, %167 ], [ false, %214 ], [ false, %186 ], [ true, %187 ], [ true, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit ], [ true, %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit ], [ true, %switch.hole_check ]
+_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %197, %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit, %186, %214, %187, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit, %167, %165
+  %.13 = phi i1 [ false, %165 ], [ false, %167 ], [ false, %214 ], [ false, %186 ], [ true, %187 ], [ true, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit ], [ true, %_ZN4llvm11GlobalValue15isWeakForLinkerENS0_12LinkageTypesE.exit ], [ true, %197 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
   br label %.thread139
 

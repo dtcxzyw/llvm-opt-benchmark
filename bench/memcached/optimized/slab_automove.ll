@@ -76,12 +76,12 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
 
 7:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %7 ]
-  %.0100142 = phi i64 [ 0, %3 ], [ %13, %7 ]
+  %.0102143 = phi i64 [ 0, %3 ], [ %13, %7 ]
   %8 = getelementptr inbounds nuw [64 x %struct.item_stats_automove], ptr %4, i64 0, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw [64 x %struct.item_stats_automove], ptr %6, i64 0, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !tbaa !22
-  %12 = add i64 %9, %.0100142
+  %12 = add i64 %9, %.0102143
   %13 = sub i64 %12, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -103,11 +103,11 @@ define dso_local void @slab_automove_run(ptr noundef %0, ptr noundef writeonly c
   %22 = phi ptr [ %.pre163, %14 ], [ %62, %108 ]
   %23 = phi i32 [ %.pre, %14 ], [ %65, %108 ]
   %indvars.iv160 = phi i64 [ 1, %14 ], [ %indvars.iv.next161, %108 ]
-  %.090148 = phi i32 [ -1, %14 ], [ %.3, %108 ]
-  %.092147 = phi i64 [ 0, %14 ], [ %.395, %108 ]
-  %.096146 = phi i32 [ -1, %14 ], [ %.298.ph, %108 ]
-  %.0101145 = phi i1 [ false, %14 ], [ %.2103.ph, %108 ]
-  %.0105144 = phi i64 [ -1, %14 ], [ %.2107.ph, %108 ]
+  %.092149 = phi i32 [ -1, %14 ], [ %.3, %108 ]
+  %.094148 = phi i64 [ 0, %14 ], [ %.397, %108 ]
+  %.098147 = phi i32 [ -1, %14 ], [ %.2100.ph, %108 ]
+  %.0103146 = phi i1 [ false, %14 ], [ %.2105.ph, %108 ]
+  %.0107145 = phi i64 [ -1, %14 ], [ %.2109.ph, %108 ]
   %24 = trunc nuw nsw i64 %indvars.iv160 to i32
   %25 = mul i32 %23, %24
   %26 = load i32, ptr %15, align 4, !tbaa !26
@@ -209,17 +209,17 @@ window_sum.exit.loopexit:                         ; preds = %66
   %89 = uitofp i32 %88 to double
   %90 = fmul double %89, 2.500000e+00
   %91 = fcmp olt double %90, %87
-  %or.cond4 = select i1 %91, i1 %83, i1 false
-  br i1 %or.cond4, label %107, label %92
+  %or.cond6 = select i1 %91, i1 %83, i1 false
+  br i1 %or.cond6, label %107, label %92
 
 92:                                               ; preds = %window_sum.exit.loopexit
-  %93 = icmp ugt i64 %84, %.092147
+  %93 = icmp ugt i64 %84, %.094148
   %94 = icmp sgt i64 %53, 2
-  %95 = tail call i64 @llvm.umax.i64(i64 %84, i64 %.092147)
-  %.395 = select i1 %94, i64 %95, i64 %.092147
+  %95 = tail call i64 @llvm.umax.i64(i64 %84, i64 %.094148)
+  %.397 = select i1 %94, i64 %95, i64 %.094148
   %96 = and i1 %94, %93
-  %.3 = select i1 %96, i32 %24, i32 %.090148
-  %97 = icmp ult i64 %84, %.0105144
+  %.3 = select i1 %96, i32 %24, i32 %.092149
+  %97 = icmp ult i64 %84, %.0107145
   br i1 %97, label %98, label %108
 
 98:                                               ; preds = %92
@@ -243,24 +243,24 @@ window_sum.exit.loopexit:                         ; preds = %66
   br label %.loopexit
 
 108:                                              ; preds = %106, %102, %92
-  %.2107.ph = phi i64 [ %.0105144, %92 ], [ %.0105144, %102 ], [ %84, %106 ]
-  %.2103.ph = phi i1 [ %.0101145, %92 ], [ %.0101145, %102 ], [ %.not, %106 ]
-  %.298.ph = phi i32 [ %.096146, %92 ], [ %.096146, %102 ], [ %24, %106 ]
+  %.2109.ph = phi i64 [ %.0107145, %92 ], [ %.0107145, %102 ], [ %84, %106 ]
+  %.2105.ph = phi i1 [ %.0103146, %92 ], [ %.0103146, %102 ], [ %.not, %106 ]
+  %.2100.ph = phi i32 [ %.098147, %92 ], [ %.098147, %102 ], [ %24, %106 ]
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next161, 64
   br i1 %exitcond162.not, label %.loopexit, label %21, !llvm.loop !40
 
 .loopexit:                                        ; preds = %108, %107
-  %.0105141 = phi i64 [ %.0105144, %107 ], [ %.2107.ph, %108 ]
-  %.0101139 = phi i1 [ %.0101145, %107 ], [ %.2103.ph, %108 ]
-  %.092136 = phi i64 [ %.092147, %107 ], [ %.395, %108 ]
-  %.197 = phi i32 [ -1, %107 ], [ %.298.ph, %108 ]
-  %.191 = phi i32 [ -1, %107 ], [ %.3, %108 ]
+  %.0107142 = phi i64 [ %.0107145, %107 ], [ %.2109.ph, %108 ]
+  %.0103140 = phi i1 [ %.0103146, %107 ], [ %.2105.ph, %108 ]
+  %.094137 = phi i64 [ %.094148, %107 ], [ %.397, %108 ]
+  %.199 = phi i32 [ -1, %107 ], [ %.2100.ph, %108 ]
+  %.193 = phi i32 [ -1, %107 ], [ %.3, %108 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %6, ptr noundef nonnull align 8 dereferenceable(1536) %4, i64 1536, i1 false)
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 3096
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %109, ptr noundef nonnull align 8 dereferenceable(1536) %5, i64 1536, i1 false)
-  %110 = icmp ne i32 %.197, -1
-  %111 = icmp ne i32 %.191, -1
+  %110 = icmp ne i32 %.199, -1
+  %111 = icmp ne i32 %.193, -1
   %or.cond = select i1 %110, i1 %111, i1 false
   br i1 %or.cond, label %112, label %124
 
@@ -271,18 +271,18 @@ window_sum.exit.loopexit:                         ; preds = %66
   br i1 %115, label %116, label %124
 
 116:                                              ; preds = %112
-  %117 = uitofp i64 %.0105141 to double
-  %118 = uitofp i64 %.092136 to double
+  %117 = uitofp i64 %.0107142 to double
+  %118 = uitofp i64 %.094137 to double
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %120 = load double, ptr %119, align 8, !tbaa !20
   %121 = fmul double %120, %118
   %122 = fcmp ogt double %121, %117
-  %brmerge.not = select i1 %122, i1 %.0101139, i1 false
-  br i1 %brmerge.not, label %123, label %124
+  %or.cond3 = select i1 %122, i1 %.0103140, i1 false
+  br i1 %or.cond3, label %123, label %124
 
 123:                                              ; preds = %116
-  store i32 %.191, ptr %1, align 4, !tbaa !21
-  store i32 %.197, ptr %2, align 4, !tbaa !21
+  store i32 %.193, ptr %1, align 4, !tbaa !21
+  store i32 %.199, ptr %2, align 4, !tbaa !21
   br label %124
 
 124:                                              ; preds = %116, %123, %112, %.loopexit

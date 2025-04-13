@@ -194,8 +194,8 @@ define hidden void @_ZN4llvm12ARMException11endFunctionEPKNS_15MachineFunctionE(
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2, !tbaa !256
   %12 = and i16 %11, 8
-  %.not20 = icmp eq i16 %12, 0
-  br i1 %.not20, label %.critedge, label %13
+  %.not21 = icmp eq i16 %12, 0
+  br i1 %.not21, label %.critedge, label %13
 
 13:                                               ; preds = %2
   %14 = tail call noundef ptr @_ZNK4llvm8Function16getPersonalityFnEv(ptr noundef nonnull align 8 dereferenceable(136) %9) #6
@@ -204,8 +204,8 @@ define hidden void @_ZN4llvm12ARMException11endFunctionEPKNS_15MachineFunctionE(
   %17 = icmp eq i8 %16, 0
   %spec.select.i.i = select i1 %17, ptr %15, ptr null
   %.pre = load i16, ptr %10, align 2, !tbaa !256
-  %.pre23 = and i16 %.pre, 8
-  %18 = icmp eq i16 %.pre23, 0
+  %.pre24 = and i16 %.pre, 8
+  %18 = icmp eq i16 %.pre24, 0
   br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %13
@@ -226,11 +226,11 @@ define hidden void @_ZN4llvm12ARMException11endFunctionEPKNS_15MachineFunctionE(
 _ZNK4llvm8Function21needsUnwindTableEntryEv.exit: ; preds = %24
   %26 = load i16, ptr %10, align 2, !tbaa !256
   %27 = and i16 %26, 8
-  %.not22 = icmp eq i16 %27, 0
-  br i1 %.not22, label %.critedge, label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread
+  %.not23 = icmp eq i16 %27, 0
+  br i1 %.not23, label %.critedge, label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread
 
 .critedge:                                        ; preds = %2, %19, %13, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit
-  %.027 = phi ptr [ %spec.select.i.i, %19 ], [ %spec.select.i.i, %13 ], [ %spec.select.i.i, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit ], [ null, %2 ]
+  %.028 = phi ptr [ %spec.select.i.i, %19 ], [ %spec.select.i.i, %13 ], [ %spec.select.i.i, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit ], [ null, %2 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %29 = load ptr, ptr %28, align 8, !tbaa !262
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 440
@@ -239,7 +239,7 @@ _ZNK4llvm8Function21needsUnwindTableEntryEv.exit: ; preds = %24
   br label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread
 
 _ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread: ; preds = %21, %24, %.critedge, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit
-  %.026 = phi ptr [ %spec.select.i.i, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit ], [ %.027, %.critedge ], [ %spec.select.i.i, %24 ], [ %spec.select.i.i, %21 ]
+  %.027 = phi ptr [ %spec.select.i.i, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit ], [ %.028, %.critedge ], [ %spec.select.i.i, %24 ], [ %spec.select.i.i, %21 ]
   %33 = phi i1 [ true, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit ], [ %32, %.critedge ], [ true, %24 ], [ true, %21 ]
   %34 = load ptr, ptr %3, align 8, !tbaa !16
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 88
@@ -247,38 +247,38 @@ _ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread: ; preds = %21, %24, %.c
   %37 = load ptr, ptr %36, align 8, !tbaa !152
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 120
   %39 = tail call noundef i32 @_ZNK4llvm13AttributeList14getUWTableKindEv(ptr noundef nonnull align 8 dereferenceable(8) %38) #6
-  %.not.i17 = icmp eq i32 %39, 0
-  br i1 %.not.i17, label %40, label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit18.thread
+  %.not.i18 = icmp eq i32 %39, 0
+  br i1 %.not.i18, label %40, label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit19.thread
 
 40:                                               ; preds = %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread
   %41 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %37, i32 noundef 41) #6
-  br i1 %41, label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit18, label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit18.thread
+  br i1 %41, label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit19, label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit19.thread
 
-_ZNK4llvm8Function21needsUnwindTableEntryEv.exit18: ; preds = %40
+_ZNK4llvm8Function21needsUnwindTableEntryEv.exit19: ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %43 = load i16, ptr %42, align 2, !tbaa !256
   %44 = and i16 %43, 8
   %45 = icmp ne i16 %44, 0
-  %brmerge = or i1 %33, %45
-  br i1 %brmerge, label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit18.thread, label %46
+  %or.cond = or i1 %33, %45
+  br i1 %or.cond, label %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit19.thread, label %46
 
-46:                                               ; preds = %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit18
+46:                                               ; preds = %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit19
   %47 = load ptr, ptr %8, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 104
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(24) %8) #6
   br label %62
 
-_ZNK4llvm8Function21needsUnwindTableEntryEv.exit18.thread: ; preds = %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread, %40, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit18
+_ZNK4llvm8Function21needsUnwindTableEntryEv.exit19.thread: ; preds = %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread, %40, %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit19
   br i1 %33, label %50, label %62
 
-50:                                               ; preds = %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit18.thread
-  %.not = icmp eq ptr %.026, null
+50:                                               ; preds = %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit19.thread
+  %.not = icmp eq ptr %.027, null
   br i1 %.not, label %57, label %51
 
 51:                                               ; preds = %50
   %52 = load ptr, ptr %3, align 8, !tbaa !16
-  %53 = tail call noundef ptr @_ZNK4llvm10AsmPrinter9getSymbolEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(777) %52, ptr noundef nonnull %.026) #6
+  %53 = tail call noundef ptr @_ZNK4llvm10AsmPrinter9getSymbolEPKNS_11GlobalValueE(ptr noundef nonnull align 8 dereferenceable(777) %52, ptr noundef nonnull %.027) #6
   %54 = load ptr, ptr %8, align 8, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 112
   %56 = load ptr, ptr %55, align 8
@@ -293,7 +293,7 @@ _ZNK4llvm8Function21needsUnwindTableEntryEv.exit18.thread: ; preds = %_ZNK4llvm8
   %61 = tail call noundef ptr @_ZN4llvm10EHStreamer18emitExceptionTableEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6
   br label %62
 
-62:                                               ; preds = %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit18.thread, %57, %46
+62:                                               ; preds = %_ZNK4llvm8Function21needsUnwindTableEntryEv.exit19.thread, %57, %46
   %63 = load ptr, ptr %3, align 8, !tbaa !16
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %65 = load ptr, ptr %64, align 8, !tbaa !21

@@ -772,22 +772,20 @@ invoke.cont:                                      ; preds = %entry
   %cmp4 = icmp ne ptr %1, %prev
   %tobool = icmp ne ptr %prev, null
   %or.cond = and i1 %tobool, %cmp4
-  br i1 %or.cond, label %land.lhs.true6, label %if.end
-
-land.lhs.true6:                                   ; preds = %invoke.cont
   %nextElementIsPaused_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %2 = load i8, ptr %nextElementIsPaused_, align 8
   %tobool7 = trunc i8 %2 to i1
-  br i1 %tobool7, label %if.then, label %if.end
+  %or.cond1 = select i1 %or.cond, i1 %tobool7, i1 false
+  br i1 %or.cond1, label %if.then, label %if.end
 
-if.then:                                          ; preds = %land.lhs.true6
+if.then:                                          ; preds = %invoke.cont
   %vtable = load ptr, ptr %prev, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 240
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(49) %prev) #21
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %land.lhs.true6, %invoke.cont, %entry
+if.end:                                           ; preds = %if.then, %invoke.cont, %entry
   %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen17HTTPMessageFilterEEET_PKciS7_OS5_(ptr noundef nonnull @.str.3, i32 noundef 33, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %prev.addr)
           to label %invoke.cont8 unwind label %terminate.lpad
 
@@ -864,22 +862,20 @@ invoke.cont:                                      ; preds = %land.lhs.true
   %cmp4 = icmp ne ptr %2, %prev
   %tobool = icmp ne ptr %prev, null
   %or.cond = and i1 %tobool, %cmp4
-  br i1 %or.cond, label %land.lhs.true6, label %if.end
-
-land.lhs.true6:                                   ; preds = %invoke.cont
   %nextElementIsPaused_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load i8, ptr %nextElementIsPaused_, align 8
   %tobool7 = trunc i8 %3 to i1
-  br i1 %tobool7, label %if.then, label %if.end
+  %or.cond1 = select i1 %or.cond, i1 %tobool7, i1 false
+  br i1 %or.cond1, label %if.then, label %if.end
 
-if.then:                                          ; preds = %land.lhs.true6
+if.then:                                          ; preds = %invoke.cont
   %vtable = load ptr, ptr %prev, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 224
   %4 = load ptr, ptr %vfn, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %prev)
           to label %if.end unwind label %terminate.lpad
 
-if.end:                                           ; preds = %if.then, %land.lhs.true6, %invoke.cont, %entry
+if.end:                                           ; preds = %if.then, %invoke.cont, %entry
   %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen8HTTPSinkEEET_PKciS7_OS5_(ptr noundef nonnull @.str.3, i32 noundef 40, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %prev.addr)
           to label %invoke.cont9 unwind label %terminate.lpad
 

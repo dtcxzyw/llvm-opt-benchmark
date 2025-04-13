@@ -144,8 +144,8 @@ define dso_local noundef ptr @inv_open(i32 noundef %0, i32 noundef %1, ptr nound
   br label %15
 
 15:                                               ; preds = %12, %13
-  %.027 = phi ptr [ %14, %13 ], [ null, %12 ]
-  %16 = tail call zeroext i1 @LargeObjectExistsWithSnapshot(i32 noundef %0, ptr noundef %.027) #9
+  %.030 = phi ptr [ %14, %13 ], [ null, %12 ]
+  %16 = tail call zeroext i1 @LargeObjectExistsWithSnapshot(i32 noundef %0, ptr noundef %.030) #9
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %15
@@ -158,19 +158,21 @@ define dso_local noundef ptr @inv_open(i32 noundef %0, i32 noundef %1, ptr nound
 
 21:                                               ; preds = %15
   %22 = and i32 %.1, 1
-  %.not30 = icmp eq i32 %22, 0
-  br i1 %.not30, label %33, label %23
-
-23:                                               ; preds = %21
-  %24 = load i8, ptr @lo_compat_privileges, align 1, !range !4, !noundef !5
+  %23 = icmp eq i32 %22, 0
+  %24 = load i8, ptr @lo_compat_privileges, align 1, !range !4
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %33, label %26
+  %or.cond = select i1 %23, i1 true, i1 %25
+  br i1 %or.cond, label %33, label %26
 
-26:                                               ; preds = %23
+26:                                               ; preds = %21
   %27 = tail call i32 @GetUserId() #9
-  %28 = tail call i32 @pg_largeobject_aclcheck_snapshot(i32 noundef %0, i32 noundef %27, i64 noundef 2, ptr noundef %.027) #9
-  %.not31 = icmp eq i32 %28, 0
-  br i1 %.not31, label %33, label %29
+  %28 = tail call i32 @pg_largeobject_aclcheck_snapshot(i32 noundef %0, i32 noundef %27, i64 noundef 2, ptr noundef %.030) #9
+  %.not33 = icmp eq i32 %28, 0
+  br i1 %.not33, label %._crit_edge, label %29
+
+._crit_edge:                                      ; preds = %26
+  %.pre = load i8, ptr @lo_compat_privileges, align 1, !range !4
+  br label %33
 
 29:                                               ; preds = %26
   %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -180,40 +182,38 @@ define dso_local noundef ptr @inv_open(i32 noundef %0, i32 noundef %1, ptr nound
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 260, ptr noundef nonnull @__func__.inv_open) #9
   unreachable
 
-33:                                               ; preds = %23, %26, %21
-  br i1 %.not, label %44, label %34
+33:                                               ; preds = %._crit_edge, %21
+  %34 = phi i8 [ %.pre, %._crit_edge ], [ %24, %21 ]
+  %35 = trunc nuw i8 %34 to i1
+  %or.cond3 = select i1 %.not, i1 true, i1 %35
+  br i1 %or.cond3, label %43, label %36
 
-34:                                               ; preds = %33
-  %35 = load i8, ptr @lo_compat_privileges, align 1, !range !4, !noundef !5
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %44, label %37
+36:                                               ; preds = %33
+  %37 = tail call i32 @GetUserId() #9
+  %38 = tail call i32 @pg_largeobject_aclcheck_snapshot(i32 noundef %0, i32 noundef %37, i64 noundef 4, ptr noundef %.030) #9
+  %.not34 = icmp eq i32 %38, 0
+  br i1 %.not34, label %43, label %39
 
-37:                                               ; preds = %34
-  %38 = tail call i32 @GetUserId() #9
-  %39 = tail call i32 @pg_largeobject_aclcheck_snapshot(i32 noundef %0, i32 noundef %38, i64 noundef 4, ptr noundef %.027) #9
-  %.not32 = icmp eq i32 %39, 0
-  br i1 %.not32, label %44, label %40
-
-40:                                               ; preds = %37
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 @errcode(i32 noundef 16797828) #9
-  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %0) #9
+39:                                               ; preds = %36
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %40)
+  %41 = tail call i32 @errcode(i32 noundef 16797828) #9
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, i32 noundef %0) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 272, ptr noundef nonnull @__func__.inv_open) #9
   unreachable
 
-44:                                               ; preds = %34, %37, %33
-  %45 = tail call ptr @MemoryContextAlloc(ptr noundef %2, i64 noundef 40) #9
-  store i32 %0, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store i64 0, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store i32 %.1, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store ptr %.027, ptr %49, align 8
-  ret ptr %45
+43:                                               ; preds = %36, %33
+  %44 = tail call ptr @MemoryContextAlloc(ptr noundef %2, i64 noundef 40) #9
+  store i32 %0, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  store i64 0, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  store i32 %.1, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store i32 0, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store ptr %.030, ptr %48, align 8
+  ret ptr %44
 }
 
 ; Function Attrs: cold
@@ -1046,7 +1046,7 @@ getdatafield.exit:                                ; preds = %96
   %.1 = add i32 %.pn, %.0115168
   %189 = add i32 %.0116167, 1
   %190 = icmp slt i32 %.1, %2
-  br i1 %190, label %71, label %._crit_edge, !llvm.loop !6
+  br i1 %190, label %71, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %188
   call void @systable_endscan_ordered(ptr noundef %60) #9
@@ -1385,7 +1385,7 @@ getdatafield.exit:                                ; preds = %74
   call void @CatalogTupleDelete(ptr noundef %160, ptr noundef nonnull %161) #9
   %162 = call ptr @systable_getnext_ordered(ptr noundef %51, i32 noundef 1) #9
   %.not90 = icmp eq ptr %162, null
-  br i1 %.not90, label %.loopexit, label %.lr.ph108, !llvm.loop !8
+  br i1 %.not90, label %.loopexit, label %.lr.ph108, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph108, %.preheader, %.loopexit102
   call void @systable_endscan_ordered(ptr noundef %51) #9
@@ -1441,7 +1441,6 @@ attributes #10 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
-!5 = !{}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

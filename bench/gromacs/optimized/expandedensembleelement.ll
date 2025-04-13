@@ -352,8 +352,8 @@ _Z11do_per_stepll.exit:                           ; preds = %4, %8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %1, %25
-  %or.cond = select i1 %23, i1 %26, i1 false
-  br i1 %or.cond, label %27, label %31
+  %or.cond17 = select i1 %23, i1 %26, i1 false
+  br i1 %or.cond17, label %27, label %31
 
 27:                                               ; preds = %_Z11do_per_stepll.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -363,8 +363,8 @@ _Z11do_per_stepll.exit:                           ; preds = %4, %8
 
 31:                                               ; preds = %27, %_Z11do_per_stepll.exit
   %32 = phi i1 [ false, %_Z11do_per_stepll.exit ], [ %30, %27 ]
-  %brmerge = select i1 %.0.i, i1 true, i1 %32
-  br i1 %brmerge, label %33, label %_ZNSt14_Function_baseD2Ev.exit
+  %or.cond = select i1 %.0.i, i1 true, i1 %32
+  br i1 %or.cond, label %33, label %_ZNSt14_Function_baseD2Ev.exit
 
 33:                                               ; preds = %31
   %34 = zext i1 %32 to i8
@@ -403,8 +403,8 @@ _Z11do_per_stepll.exit:                           ; preds = %4, %8
 
 _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %42
   %45 = load ptr, ptr %35, align 8, !tbaa !43
-  %.not.i17 = icmp eq ptr %45, null
-  br i1 %.not.i17, label %_ZNSt14_Function_baseD2Ev.exit, label %46
+  %.not.i19 = icmp eq ptr %45, null
+  br i1 %.not.i19, label %_ZNSt14_Function_baseD2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit
   %47 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
@@ -421,12 +421,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %42
   %52 = landingpad { ptr, i32 }
           cleanup
   %53 = load ptr, ptr %35, align 8, !tbaa !43
-  %.not.i18 = icmp eq ptr %53, null
-  br i1 %.not.i18, label %_ZNSt14_Function_baseD2Ev.exit19, label %54
+  %.not.i20 = icmp eq ptr %53, null
+  br i1 %.not.i20, label %_ZNSt14_Function_baseD2Ev.exit21, label %54
 
 54:                                               ; preds = %51
   %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit19 unwind label %56
+          to label %_ZNSt14_Function_baseD2Ev.exit21 unwind label %56
 
 56:                                               ; preds = %54
   %57 = landingpad { ptr, i32 }
@@ -435,7 +435,7 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %42
   call void @__clang_call_terminate(ptr %58) #30
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit19:                 ; preds = %51, %54
+_ZNSt14_Function_baseD2Ev.exit21:                 ; preds = %51, %54
   resume { ptr, i32 } %52
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %46, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit, %31

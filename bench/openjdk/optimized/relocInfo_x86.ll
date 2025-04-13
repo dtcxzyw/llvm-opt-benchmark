@@ -336,8 +336,8 @@ switch.edge.thread.i:                             ; preds = %36, %36, %36
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %34, %34, %switch.edge.thread.i
-  %.in4.i = phi ptr [ %37, %switch.edge.thread.i ], [ %35, %34 ], [ %35, %34 ]
-  %38 = load i8, ptr %.in4.i, align 1
+  %.in5.i = phi ptr [ %37, %switch.edge.thread.i ], [ %35, %34 ], [ %35, %34 ]
+  %38 = load i8, ptr %.in5.i, align 1
   %39 = and i8 %38, -8
   %40 = icmp eq i8 %39, -72
   br i1 %40, label %41, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread
@@ -472,8 +472,8 @@ switch.edge.thread.i:                             ; preds = %61, %61, %61
   br label %_ZN17NativeInstruction16is_mov_literal64Ev.exit
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %59, %59, %switch.edge.thread.i
-  %.in4.i = phi ptr [ %62, %switch.edge.thread.i ], [ %60, %59 ], [ %60, %59 ]
-  %63 = load i8, ptr %.in4.i, align 1
+  %.in5.i = phi ptr [ %62, %switch.edge.thread.i ], [ %60, %59 ], [ %60, %59 ]
+  %63 = load i8, ptr %.in5.i, align 1
   %64 = and i8 %63, -8
   %65 = icmp eq i8 %64, -72
   br i1 %65, label %66, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread

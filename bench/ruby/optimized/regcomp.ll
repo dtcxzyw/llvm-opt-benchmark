@@ -1336,14 +1336,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 19:                                               ; preds = %tailrecurse
   br label %tailrecurse.backedge
 
-switch.hole_check:                                ; preds = %98
-  %switch.maskindex = trunc nuw i32 %102 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %tailrecurse.backedge, label %.critedge
-
-tailrecurse.backedge:                             ; preds = %switch.hole_check, %tailrecurse, %19
-  %.sink = phi i64 [ 8, %19 ], [ 24, %tailrecurse ], [ 8, %switch.hole_check ]
+tailrecurse.backedge:                             ; preds = %98, %tailrecurse, %19
+  %.sink = phi i64 [ 8, %19 ], [ 24, %tailrecurse ], [ 8, %98 ]
   %20 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
   %.tr.be = load ptr, ptr %20, align 8, !tbaa !34
   br label %tailrecurse
@@ -1481,10 +1475,14 @@ tailrecurse.backedge:                             ; preds = %switch.hole_check, 
   %101 = add i32 %100, -1024
   %102 = tail call i32 @llvm.fshl.i32(i32 %101, i32 %101, i32 22)
   %103 = icmp ult i32 %102, 8
-  br i1 %103, label %switch.hole_check, label %.critedge
+  %switch.maskindex = trunc i32 %102 to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %103, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %tailrecurse.backedge, label %.critedge
 
-.critedge:                                        ; preds = %tailrecurse, %98, %switch.hole_check, %16, %.preheader98, %9, %.preheader, %.thread, %38, %57, %45, %62
-  %.3 = phi i32 [ 0, %62 ], [ %.sink117, %.thread ], [ -209, %38 ], [ -217, %57 ], [ -218, %45 ], [ %7, %.preheader ], [ 0, %9 ], [ %14, %.preheader98 ], [ 0, %16 ], [ 0, %switch.hole_check ], [ 0, %98 ], [ 0, %tailrecurse ]
+.critedge:                                        ; preds = %tailrecurse, %98, %16, %.preheader98, %9, %.preheader, %.thread, %38, %57, %45, %62
+  %.3 = phi i32 [ 0, %62 ], [ %.sink117, %.thread ], [ -209, %38 ], [ -217, %57 ], [ -218, %45 ], [ %7, %.preheader ], [ 0, %9 ], [ %14, %.preheader98 ], [ 0, %16 ], [ 0, %98 ], [ 0, %tailrecurse ]
   ret i32 %.3
 }
 
@@ -1627,14 +1625,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.not31 = icmp eq ptr %11, null
   br i1 %.not31, label %.critedge, label %4, !llvm.loop !145
 
-switch.hole_check:                                ; preds = %13
-  %switch.maskindex = trunc nuw i32 %17 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %tailrecurse.backedge, label %.critedge
-
-tailrecurse.backedge:                             ; preds = %switch.hole_check, %tailrecurse, %29, %19
-  %.sink = phi i64 [ 24, %19 ], [ 24, %29 ], [ 8, %tailrecurse ], [ 8, %switch.hole_check ]
+tailrecurse.backedge:                             ; preds = %13, %tailrecurse, %29, %19
+  %.sink = phi i64 [ 24, %19 ], [ 24, %29 ], [ 8, %tailrecurse ], [ 8, %13 ]
   %12 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
   %.tr.be = load ptr, ptr %12, align 8, !tbaa !34
   br label %tailrecurse
@@ -1645,7 +1637,11 @@ tailrecurse.backedge:                             ; preds = %switch.hole_check, 
   %16 = add i32 %15, -1024
   %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %16, i32 22)
   %18 = icmp ult i32 %17, 8
-  br i1 %18, label %switch.hole_check, label %.critedge
+  %switch.maskindex = trunc i32 %17 to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %18, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %tailrecurse.backedge, label %.critedge
 
 19:                                               ; preds = %tailrecurse
   %20 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
@@ -1669,8 +1665,8 @@ tailrecurse.backedge:                             ; preds = %switch.hole_check, 
   store i32 %31, ptr %20, align 4, !tbaa !34
   br label %tailrecurse.backedge
 
-.critedge:                                        ; preds = %23, %tailrecurse, %13, %switch.hole_check, %9, %4
-  %.1 = phi i32 [ %7, %4 ], [ 0, %9 ], [ 0, %switch.hole_check ], [ -221, %23 ], [ 0, %13 ], [ 0, %tailrecurse ]
+.critedge:                                        ; preds = %23, %tailrecurse, %13, %9, %4
+  %.1 = phi i32 [ %7, %4 ], [ 0, %9 ], [ -221, %23 ], [ 0, %13 ], [ 0, %tailrecurse ]
   ret i32 %.1
 }
 
@@ -6791,7 +6787,7 @@ define internal fastcc i32 @subexp_inf_recursive_check(ptr noundef captures(none
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %3
   %.tr = phi ptr [ %0, %3 ], [ %.tr.be, %tailrecurse.backedge ]
   %5 = load i32, ptr %.tr, align 8, !tbaa !34
-  switch i32 %5, label %common.ret115 [
+  switch i32 %5, label %common.ret116 [
     i32 8, label %6
     i32 9, label %.preheader
     i32 5, label %33
@@ -6843,11 +6839,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 .thread:                                          ; preds = %7, %15
   %.0.ph = phi i32 [ %17, %15 ], [ %10, %7 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  br label %common.ret115
+  br label %common.ret116
 
 23:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  br label %common.ret115
+  br label %common.ret116
 
 .preheader:                                       ; preds = %tailrecurse, %29
   %.3 = phi i32 [ %30, %29 ], [ 1, %tailrecurse ]
@@ -6858,28 +6854,28 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %27 = icmp sgt i32 %26, -1
   %28 = icmp ne i32 %26, 2
   %or.cond4.not = and i1 %27, %28
-  br i1 %or.cond4.not, label %29, label %common.ret115
+  br i1 %or.cond4.not, label %29, label %common.ret116
 
 29:                                               ; preds = %.preheader
   %30 = and i32 %26, %.3
   %31 = getelementptr inbounds nuw i8, ptr %.054, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !34
   %.not71 = icmp eq ptr %32, null
-  br i1 %.not71, label %common.ret115, label %.preheader, !llvm.loop !230
+  br i1 %.not71, label %common.ret116, label %.preheader, !llvm.loop !230
 
 33:                                               ; preds = %tailrecurse
   %34 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !34
   %36 = tail call fastcc i32 @subexp_inf_recursive_check(ptr noundef %35, ptr noundef %1, i32 noundef %2)
   %37 = icmp eq i32 %36, 1
-  br i1 %37, label %38, label %common.ret115
+  br i1 %37, label %38, label %common.ret116
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %40 = load i32, ptr %39, align 8, !tbaa !34
   %41 = icmp ne i32 %40, 0
   %spec.select78 = zext i1 %41 to i32
-  br label %common.ret115
+  br label %common.ret116
 
 42:                                               ; preds = %tailrecurse
   %43 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
@@ -6887,16 +6883,14 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %45 = add i32 %44, -1024
   %46 = tail call i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 22)
   %47 = icmp ult i32 %46, 8
-  br i1 %47, label %switch.hole_check, label %common.ret115
-
-switch.hole_check:                                ; preds = %42
-  %switch.maskindex = trunc nuw i32 %46 to i8
+  %switch.maskindex = trunc i32 %46 to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %tailrecurse.backedge, label %common.ret115
+  %or.cond106 = select i1 %47, i1 %switch.lobit, i1 false
+  br i1 %or.cond106, label %tailrecurse.backedge, label %common.ret116
 
-tailrecurse.backedge:                             ; preds = %switch.hole_check, %tailrecurse
-  %.sink = phi i64 [ 32, %tailrecurse ], [ 8, %switch.hole_check ]
+tailrecurse.backedge:                             ; preds = %42, %tailrecurse
+  %.sink = phi i64 [ 32, %tailrecurse ], [ 8, %42 ]
   %48 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
   %.tr.be = load ptr, ptr %48, align 8, !tbaa !34
   br label %tailrecurse
@@ -6906,7 +6900,7 @@ tailrecurse.backedge:                             ; preds = %switch.hole_check, 
   %51 = load i32, ptr %50, align 4, !tbaa !34
   %52 = and i32 %51, 16
   %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %53, label %common.ret115
+  br i1 %.not, label %53, label %common.ret116
 
 53:                                               ; preds = %49
   %54 = and i32 %51, 8
@@ -6916,11 +6910,11 @@ tailrecurse.backedge:                             ; preds = %switch.hole_check, 
 55:                                               ; preds = %53
   %56 = icmp eq i32 %2, 0
   %57 = select i1 %56, i32 1, i32 2
-  br label %common.ret115
+  br label %common.ret116
 
-common.ret115:                                    ; preds = %33, %38, %23, %.thread, %49, %55, %29, %.preheader, %switch.hole_check, %42, %tailrecurse, %58
-  %common.ret115.op = phi i32 [ %62, %58 ], [ %57, %55 ], [ 0, %49 ], [ %.0.ph, %.thread ], [ %36, %33 ], [ %14, %23 ], [ %spec.select78, %38 ], [ %30, %29 ], [ %26, %.preheader ], [ 0, %switch.hole_check ], [ 0, %42 ], [ 0, %tailrecurse ]
-  ret i32 %common.ret115.op
+common.ret116:                                    ; preds = %33, %38, %23, %.thread, %49, %55, %29, %.preheader, %42, %tailrecurse, %58
+  %common.ret116.op = phi i32 [ %62, %58 ], [ %57, %55 ], [ 0, %49 ], [ %.0.ph, %.thread ], [ %36, %33 ], [ %14, %23 ], [ %spec.select78, %38 ], [ %30, %29 ], [ %26, %.preheader ], [ 0, %42 ], [ 0, %tailrecurse ]
+  ret i32 %common.ret116.op
 
 58:                                               ; preds = %53
   %59 = or disjoint i32 %51, 16
@@ -6931,7 +6925,7 @@ common.ret115:                                    ; preds = %33, %38, %23, %.thr
   %63 = load i32, ptr %50, align 4, !tbaa !34
   %64 = and i32 %63, -17
   store i32 %64, ptr %50, align 4, !tbaa !34
-  br label %common.ret115
+  br label %common.ret116
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable

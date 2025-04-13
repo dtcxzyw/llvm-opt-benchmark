@@ -504,7 +504,7 @@ define hidden noundef ptr @_ZN9metaspace14MetaspaceArena14allocate_innerEm(ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.thread43, label %5
+  br i1 %.not, label %.thread44, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -520,12 +520,12 @@ define hidden noundef ptr @_ZN9metaspace14MetaspaceArena14allocate_innerEm(ptr n
 
 15:                                               ; preds = %5
   %16 = icmp eq i8 %7, 0
-  br i1 %16, label %.thread43, label %17
+  br i1 %16, label %.thread44, label %17
 
 17:                                               ; preds = %15
   %18 = add i64 %12, %1
   %19 = icmp ugt i64 %18, 2097152
-  br i1 %19, label %.thread43, label %20
+  br i1 %19, label %.thread44, label %20
 
 20:                                               ; preds = %17
   %21 = tail call noundef signext i8 @_ZN9metaspace10chunklevel23level_fitting_word_sizeEm(i64 noundef %18) #9
@@ -534,7 +534,7 @@ define hidden noundef ptr @_ZN9metaspace14MetaspaceArena14allocate_innerEm(ptr n
   %24 = sext i8 %23 to i32
   %25 = add nsw i32 %24, -1
   %26 = icmp sgt i32 %25, %22
-  br i1 %26, label %.thread43, label %27
+  br i1 %26, label %.thread44, label %27
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr %4, align 8
@@ -547,7 +547,7 @@ define hidden noundef ptr @_ZN9metaspace14MetaspaceArena14allocate_innerEm(ptr n
   %35 = add nsw i64 %33, -1
   %36 = and i64 %35, %34
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %.thread43
+  br i1 %37, label %38, label %.thread44
 
 38:                                               ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -566,17 +566,17 @@ define hidden noundef ptr @_ZN9metaspace14MetaspaceArena14allocate_innerEm(ptr n
   %.0.in.i.i.i = select i1 %.not.i.i.i, ptr %50, ptr %48
   %.0.i.i.i = load i8, ptr %.0.in.i.i.i, align 1
   %51 = icmp sgt i8 %.0.i.i.i, %23
-  br i1 %51, label %.thread43, label %_ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit
+  br i1 %51, label %.thread44, label %_ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit
 
 _ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit: ; preds = %38
   %52 = load ptr, ptr %0, align 8
   %53 = tail call noundef zeroext i1 @_ZN9metaspace12ChunkManager21attempt_enlarge_chunkEPNS_9MetachunkE(ptr noundef nonnull align 8 dereferenceable(376) %52, ptr noundef nonnull %4) #9
-  br i1 %53, label %54, label %.thread43
+  br i1 %53, label %54, label %.thread44
 
 54:                                               ; preds = %_ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit
   %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not59 = icmp eq ptr %55, null
-  br i1 %.not59, label %60, label %56
+  %.not60 = icmp eq ptr %55, null
+  br i1 %.not60, label %60, label %56
 
 56:                                               ; preds = %54
   %57 = ptrtoint ptr %0 to i64
@@ -595,33 +595,33 @@ _ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit: ; preds = %
 
 66:                                               ; preds = %60
   %67 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not60 = icmp eq ptr %67, null
-  br i1 %.not60, label %.thread43, label %68
+  %.not61 = icmp eq ptr %67, null
+  br i1 %.not61, label %.thread44, label %68
 
 68:                                               ; preds = %66
   %69 = ptrtoint ptr %0 to i64
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load ptr, ptr %70, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.14, i64 noundef %69, ptr noundef %71, i64 noundef %1)
-  br label %.thread43
+  br label %.thread44
 
 72:                                               ; preds = %60
   %73 = load ptr, ptr %3, align 8
   %74 = tail call noundef ptr @_ZN9metaspace9Metachunk8allocateEm(ptr noundef nonnull align 8 dereferenceable(72) %73, i64 noundef %1) #9
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread43, label %.thread52
+  br i1 %75, label %.thread44, label %.thread53
 
-.thread43:                                        ; preds = %38, %27, %20, %17, %15, %68, %66, %_ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit, %2, %72
+.thread44:                                        ; preds = %38, %27, %20, %17, %15, %68, %66, %_ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm.exit, %2, %72
   %76 = icmp ult i64 %1, 2097153
   br i1 %76, label %_ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit, label %77
 
-77:                                               ; preds = %.thread43
+77:                                               ; preds = %.thread44
   %78 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %78, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef %1, i64 noundef 2097152) #10
   unreachable
 
-_ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
+_ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread44
   %79 = tail call noundef signext i8 @_ZN9metaspace10chunklevel23level_fitting_word_sizeEm(i64 noundef %1) #9
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = load i32, ptr %80, align 8
@@ -629,25 +629,25 @@ _ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load i32, ptr %84, align 8
-  %.not.i.i.i30 = icmp slt i32 %81, %85
+  %.not.i.i.i31 = icmp slt i32 %81, %85
   %86 = load ptr, ptr %83, align 8
   %87 = sext i32 %85 to i64
   %88 = getelementptr i8, ptr %86, i64 %87
   %89 = getelementptr i8, ptr %88, i64 -1
   %90 = sext i32 %81 to i64
   %91 = getelementptr inbounds i8, ptr %86, i64 %90
-  %.0.in.i.i.i31 = select i1 %.not.i.i.i30, ptr %91, ptr %89
-  %.0.i.i.i32 = load i8, ptr %.0.in.i.i.i31, align 1
-  %92 = tail call noundef i8 @llvm.smin.i8(i8 %79, i8 %.0.i.i.i32)
+  %.0.in.i.i.i32 = select i1 %.not.i.i.i31, ptr %91, ptr %89
+  %.0.i.i.i33 = load i8, ptr %.0.in.i.i.i32, align 1
+  %92 = tail call noundef i8 @llvm.smin.i8(i8 %79, i8 %.0.i.i.i33)
   %93 = load ptr, ptr %0, align 8
   %94 = tail call noundef ptr @_ZN9metaspace12ChunkManager9get_chunkEaam(ptr noundef nonnull align 8 dereferenceable(376) %93, i8 noundef signext %92, i8 noundef signext %79, i64 noundef %1) #9
-  %.not28 = icmp eq ptr %94, null
-  br i1 %.not28, label %116, label %95
+  %.not29 = icmp eq ptr %94, null
+  br i1 %.not29, label %116, label %95
 
 95:                                               ; preds = %_ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit
   %96 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not61 = icmp eq ptr %96, null
-  br i1 %.not61, label %109, label %97
+  %.not62 = icmp eq ptr %96, null
+  br i1 %.not62, label %109, label %97
 
 97:                                               ; preds = %95
   %98 = ptrtoint ptr %0 to i64
@@ -666,10 +666,10 @@ _ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
 
 109:                                              ; preds = %95, %97
   %110 = load ptr, ptr %3, align 8
-  %.not29 = icmp eq ptr %110, null
-  br i1 %.not29, label %.thread45, label %112
+  %.not30 = icmp eq ptr %110, null
+  br i1 %.not30, label %.thread46, label %112
 
-.thread45:                                        ; preds = %109
+.thread46:                                        ; preds = %109
   %111 = getelementptr inbounds nuw i8, ptr %94, i64 48
   store ptr null, ptr %111, align 8
   br label %122
@@ -689,48 +689,48 @@ _ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
 
 116:                                              ; preds = %_ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit
   %117 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not64 = icmp eq ptr %117, null
-  br i1 %.not64, label %.thread48, label %118
+  %.not65 = icmp eq ptr %117, null
+  br i1 %.not65, label %.thread49, label %118
 
 118:                                              ; preds = %116
   %119 = ptrtoint ptr %0 to i64
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %121 = load ptr, ptr %120, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.16, i64 noundef %119, ptr noundef %121, i64 noundef %1)
-  br label %.thread48
+  br label %.thread49
 
-122:                                              ; preds = %114, %112, %.thread45
+122:                                              ; preds = %114, %112, %.thread46
   store ptr %94, ptr %3, align 8
   %123 = load i32, ptr %80, align 8
   %124 = add i32 %123, 1
   store i32 %124, ptr %80, align 8
   %125 = tail call noundef ptr @_ZN9metaspace9Metachunk8allocateEm(ptr noundef nonnull align 8 dereferenceable(72) %94, i64 noundef %1) #9
   %126 = icmp eq ptr %125, null
-  br i1 %126, label %.thread48, label %.thread52
+  br i1 %126, label %.thread49, label %.thread53
 
-.thread48:                                        ; preds = %116, %118, %122
+.thread49:                                        ; preds = %116, %118, %122
   %127 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull @_ZN9metaspace13InternalStats24_num_allocs_failed_limitE) #9, !srcloc !6
   %128 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not65 = icmp eq ptr %128, null
-  br i1 %.not65, label %168, label %129
+  %.not66 = icmp eq ptr %128, null
+  br i1 %.not66, label %168, label %129
 
-129:                                              ; preds = %.thread48
+129:                                              ; preds = %.thread49
   %130 = ptrtoint ptr %0 to i64
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %132 = load ptr, ptr %131, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.17, i64 noundef %130, ptr noundef %132)
   br label %168
 
-.thread52:                                        ; preds = %72, %122
-  %.154 = phi ptr [ %125, %122 ], [ %74, %72 ]
+.thread53:                                        ; preds = %72, %122
+  %.155 = phi ptr [ %125, %122 ], [ %74, %72 ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %134 = load ptr, ptr %133, align 8
   %135 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull align 8 dereferenceable(8) %134) #9, !srcloc !6
   %136 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not62 = icmp eq ptr %136, null
-  br i1 %.not62, label %161, label %137
+  %.not63 = icmp eq ptr %136, null
+  br i1 %.not63, label %161, label %137
 
-137:                                              ; preds = %.thread52
+137:                                              ; preds = %.thread53
   %138 = ptrtoint ptr %0 to i64
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %140 = load ptr, ptr %139, align 8
@@ -757,22 +757,22 @@ _ZN9metaspace14MetaspaceArena18allocate_new_chunkEm.exit: ; preds = %.thread43
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.18, i64 noundef %138, ptr noundef %140, i32 noundef %142, i64 noundef %144, i32 noundef %146, i64 noundef %149, i32 noundef %152, i64 noundef %155, i64 noundef %157, i64 noundef %159, i64 noundef %160)
   br label %161
 
-161:                                              ; preds = %.thread52, %137
+161:                                              ; preds = %.thread53, %137
   %162 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not63 = icmp eq ptr %162, null
-  br i1 %.not63, label %168, label %163
+  %.not64 = icmp eq ptr %162, null
+  br i1 %.not64, label %168, label %163
 
 163:                                              ; preds = %161
   %164 = ptrtoint ptr %0 to i64
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %166 = load ptr, ptr %165, align 8
-  %167 = ptrtoint ptr %.154 to i64
+  %167 = ptrtoint ptr %.155 to i64
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.19, i64 noundef %164, ptr noundef %166, i64 noundef %167)
   br label %168
 
-168:                                              ; preds = %163, %161, %129, %.thread48
-  %.15057 = phi ptr [ %.154, %163 ], [ %.154, %161 ], [ null, %129 ], [ null, %.thread48 ]
-  ret ptr %.15057
+168:                                              ; preds = %163, %161, %129, %.thread49
+  %.15158 = phi ptr [ %.155, %163 ], [ %.155, %161 ], [ null, %129 ], [ null, %.thread49 ]
+  ret ptr %.15158
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -419,118 +419,116 @@ define internal fastcc void @prte_info_show_mca_group_params(ptr noundef %0) unn
   %.val = load i64, ptr %8, align 8, !tbaa !37
   %9 = trunc i64 %.val to i32
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph30.preheader, label %._crit_edge31
+  br i1 %10, label %.lr.ph32.preheader, label %._crit_edge33
 
-.lr.ph30.preheader:                               ; preds = %1
+.lr.ph32.preheader:                               ; preds = %1
   %wide.trip.count = and i64 %.val, 2147483647
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  br label %.lr.ph30
+  br label %.lr.ph32
 
-.lr.ph30:                                         ; preds = %.lr.ph30.preheader, %43
-  %indvars.iv38 = phi i64 [ 0, %.lr.ph30.preheader ], [ %indvars.iv.next39, %43 ]
-  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv38
+.lr.ph32:                                         ; preds = %.lr.ph32.preheader, %42
+  %indvars.iv40 = phi i64 [ 0, %.lr.ph32.preheader ], [ %indvars.iv.next41, %42 ]
+  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv40
   %13 = load i32, ptr %12, align 4, !tbaa !38
   %14 = call i32 @pmix_mca_base_var_get(i32 noundef %13, ptr noundef nonnull %3) #8
-  %.not22 = icmp eq i32 %14, 0
-  br i1 %.not22, label %15, label %43
+  %.not24 = icmp eq i32 %14, 0
+  br i1 %.not24, label %15, label %42
 
-15:                                               ; preds = %.lr.ph30
+15:                                               ; preds = %.lr.ph32
   %16 = load i32, ptr %12, align 4, !tbaa !38
   %17 = load i8, ptr @prte_info_pretty, align 1, !tbaa !39, !range !40, !noundef !41
   %18 = xor i8 %17, 1
   %19 = zext nneg i8 %18 to i32
   %20 = call i32 @pmix_mca_base_var_dump(i32 noundef %16, ptr noundef nonnull %4, i32 noundef %19) #8
-  %.not23 = icmp eq i32 %20, 0
-  br i1 %.not23, label %.preheader, label %43
+  %.not25 = icmp eq i32 %20, 0
+  br i1 %.not25, label %.preheader, label %42
 
 .preheader:                                       ; preds = %15
   %21 = load ptr, ptr %4, align 8, !tbaa !42
   %22 = load ptr, ptr %21, align 8, !tbaa !21
-  %.not2426 = icmp eq ptr %22, null
-  br i1 %.not2426, label %._crit_edge, label %.lr.ph
+  %.not2628 = icmp eq ptr %22, null
+  br i1 %.not2628, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %36
-  %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.preheader ]
-  %23 = phi ptr [ %42, %36 ], [ %22, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %35
+  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.preheader ]
+  %23 = phi ptr [ %41, %35 ], [ %22, %.preheader ]
   %24 = icmp eq i64 %indvars.iv, 0
-  br i1 %24, label %25, label %35
+  %25 = load i8, ptr @prte_info_pretty, align 1, !range !40
+  %26 = trunc nuw i8 %25 to i1
+  %or.cond = select i1 %24, i1 %26, i1 false
+  br i1 %or.cond, label %27, label %34
 
-25:                                               ; preds = %.lr.ph
-  %26 = load i8, ptr @prte_info_pretty, align 1, !tbaa !39, !range !40, !noundef !41
-  %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %28, label %35
-
-28:                                               ; preds = %25
+27:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  %29 = load ptr, ptr %11, align 8, !tbaa !43
-  %30 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.106, ptr noundef %29) #8
-  %31 = load ptr, ptr %5, align 8, !tbaa !21
-  %32 = load ptr, ptr %4, align 8, !tbaa !42
-  %33 = load ptr, ptr %32, align 8, !tbaa !21
-  call void @prte_info_out(ptr noundef %31, ptr noundef %31, ptr noundef %33) #8
-  %34 = load ptr, ptr %5, align 8, !tbaa !21
-  call void @free(ptr noundef %34) #8
+  %28 = load ptr, ptr %11, align 8, !tbaa !43
+  %29 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.106, ptr noundef %28) #8
+  %30 = load ptr, ptr %5, align 8, !tbaa !21
+  %31 = load ptr, ptr %4, align 8, !tbaa !42
+  %32 = load ptr, ptr %31, align 8, !tbaa !21
+  call void @prte_info_out(ptr noundef %30, ptr noundef %30, ptr noundef %32) #8
+  %33 = load ptr, ptr %5, align 8, !tbaa !21
+  call void @free(ptr noundef %33) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
-  br label %36
+  br label %35
 
-35:                                               ; preds = %25, %.lr.ph
+34:                                               ; preds = %.lr.ph
   call void @prte_info_out(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.107, ptr noundef nonnull %23) #8
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %28
-  %37 = load ptr, ptr %4, align 8, !tbaa !42
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
-  %39 = load ptr, ptr %38, align 8, !tbaa !21
-  call void @free(ptr noundef %39) #8
+35:                                               ; preds = %34, %27
+  %36 = load ptr, ptr %4, align 8, !tbaa !42
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %38 = load ptr, ptr %37, align 8, !tbaa !21
+  call void @free(ptr noundef %38) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = load ptr, ptr %4, align 8, !tbaa !42
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next
-  %42 = load ptr, ptr %41, align 8, !tbaa !21
-  %.not24 = icmp eq ptr %42, null
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  %39 = load ptr, ptr %4, align 8, !tbaa !42
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.next
+  %41 = load ptr, ptr %40, align 8, !tbaa !21
+  %.not26 = icmp eq ptr %41, null
+  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
-._crit_edge:                                      ; preds = %36, %.preheader
-  %.lcssa = phi ptr [ %21, %.preheader ], [ %40, %36 ]
+._crit_edge:                                      ; preds = %35, %.preheader
+  %.lcssa = phi ptr [ %21, %.preheader ], [ %39, %35 ]
   call void @free(ptr noundef nonnull %.lcssa) #8
-  br label %43
+  br label %42
 
-43:                                               ; preds = %15, %.lr.ph30, %._crit_edge
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge31, label %.lr.ph30, !llvm.loop !45
+42:                                               ; preds = %15, %.lr.ph32, %._crit_edge
+  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge33, label %.lr.ph32, !llvm.loop !45
 
-._crit_edge31:                                    ; preds = %43, %1
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %45 = load ptr, ptr %44, align 8, !tbaa !46
-  %46 = getelementptr i8, ptr %0, i64 328
-  %.val25 = load i64, ptr %46, align 8, !tbaa !37
-  %47 = trunc i64 %.val25 to i32
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph34.preheader, label %._crit_edge35
+._crit_edge33:                                    ; preds = %42, %1
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %44 = load ptr, ptr %43, align 8, !tbaa !46
+  %45 = getelementptr i8, ptr %0, i64 328
+  %.val27 = load i64, ptr %45, align 8, !tbaa !37
+  %46 = trunc i64 %.val27 to i32
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %.lr.ph36.preheader, label %._crit_edge37
 
-.lr.ph34.preheader:                               ; preds = %._crit_edge31
-  %wide.trip.count44 = and i64 %.val25, 2147483647
-  br label %.lr.ph34
+.lr.ph36.preheader:                               ; preds = %._crit_edge33
+  %wide.trip.count46 = and i64 %.val27, 2147483647
+  br label %.lr.ph36
 
-.lr.ph34:                                         ; preds = %.lr.ph34.preheader, %54
-  %indvars.iv41 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next42, %54 ]
-  %49 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv41
-  %50 = load i32, ptr %49, align 4, !tbaa !38
-  %51 = call i32 @pmix_mca_base_var_group_get(i32 noundef %50, ptr noundef nonnull %2) #8
-  %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %52, label %54
+.lr.ph36:                                         ; preds = %.lr.ph36.preheader, %53
+  %indvars.iv43 = phi i64 [ 0, %.lr.ph36.preheader ], [ %indvars.iv.next44, %53 ]
+  %48 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv43
+  %49 = load i32, ptr %48, align 4, !tbaa !38
+  %50 = call i32 @pmix_mca_base_var_group_get(i32 noundef %49, ptr noundef nonnull %2) #8
+  %.not = icmp eq i32 %50, 0
+  br i1 %.not, label %51, label %53
 
-52:                                               ; preds = %.lr.ph34
-  %53 = load ptr, ptr %2, align 8, !tbaa !27
-  call fastcc void @prte_info_show_mca_group_params(ptr noundef %53)
-  br label %54
+51:                                               ; preds = %.lr.ph36
+  %52 = load ptr, ptr %2, align 8, !tbaa !27
+  call fastcc void @prte_info_show_mca_group_params(ptr noundef %52)
+  br label %53
 
-54:                                               ; preds = %.lr.ph34, %52
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !47
+53:                                               ; preds = %.lr.ph36, %51
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
+  br i1 %exitcond47.not, label %._crit_edge37, label %.lr.ph36, !llvm.loop !47
 
-._crit_edge35:                                    ; preds = %54, %._crit_edge31
+._crit_edge37:                                    ; preds = %53, %._crit_edge33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret void

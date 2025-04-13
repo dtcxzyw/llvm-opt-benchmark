@@ -1344,23 +1344,23 @@ land.lhs.true:                                    ; preds = %entry
 
 for.cond.preheader:                               ; preds = %land.lhs.true
   %storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %storage.i.i46 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
+  %storage.i.i45 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i, i64 %indvars.iv
-  %arrayidx20 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i46, i64 %indvars.iv
+  %arrayidx20 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i45, i64 %indvars.iv
   %agg.tmp28.sroa.0.0.copyload = load ptr, ptr %arrayidx20, align 8
   %agg.tmp28.sroa.0.0.copyload.fr = freeze ptr %agg.tmp28.sroa.0.0.copyload
-  %cmp7.i65 = icmp eq ptr %agg.tmp28.sroa.0.0.copyload.fr, inttoptr (i64 -1 to ptr)
-  br i1 %cmp7.i65, label %if.end.thread, label %land.end38
+  %cmp7.i64 = icmp eq ptr %agg.tmp28.sroa.0.0.copyload.fr, inttoptr (i64 -1 to ptr)
+  br i1 %cmp7.i64, label %if.end.thread, label %land.end38
 
 land.end38:                                       ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %arrayidx, align 8
-  %cmp18.i75.not = icmp eq ptr %agg.tmp28.sroa.0.0.copyload.fr, inttoptr (i64 -2 to ptr)
+  %cmp18.i74.not = icmp eq ptr %agg.tmp28.sroa.0.0.copyload.fr, inttoptr (i64 -2 to ptr)
   %switch = icmp ugt ptr %agg.tmp.sroa.0.0.copyload, inttoptr (i64 -3 to ptr)
-  %or.cond = select i1 %cmp18.i75.not, i1 true, i1 %switch
+  %or.cond = select i1 %cmp18.i74.not, i1 true, i1 %switch
   br i1 %or.cond, label %if.end, label %if.then43
 
 if.then43:                                        ; preds = %land.end38
@@ -1396,12 +1396,12 @@ land.lhs.true62:                                  ; preds = %entry
   br i1 %tobool65.not, label %if.then66, label %if.end73
 
 if.then66:                                        ; preds = %land.lhs.true62
-  %storage.i.i86 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %storage.i.i87 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
-  %2 = load ptr, ptr %storage.i.i86, align 8
-  %3 = load ptr, ptr %storage.i.i87, align 8
-  store ptr %3, ptr %storage.i.i86, align 8
-  store ptr %2, ptr %storage.i.i87, align 8
+  %storage.i.i85 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %storage.i.i86 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
+  %2 = load ptr, ptr %storage.i.i85, align 8
+  %3 = load ptr, ptr %storage.i.i86, align 8
+  store ptr %3, ptr %storage.i.i85, align 8
+  store ptr %2, ptr %storage.i.i86, align 8
   %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   %NumBuckets72 = getelementptr inbounds nuw i8, ptr %RHS, i64 16
   %4 = load i32, ptr %NumBuckets, align 8
@@ -1414,27 +1414,27 @@ if.end73:                                         ; preds = %land.lhs.true, %lan
   %bf.load86 = phi i32 [ %bf.load63, %land.lhs.true ], [ %bf.load12, %land.lhs.true62 ]
   %cond-lvalue83 = phi ptr [ %RHS, %land.lhs.true ], [ %this, %land.lhs.true62 ]
   %cond-lvalue = phi ptr [ %this, %land.lhs.true ], [ %RHS, %land.lhs.true62 ]
-  %storage.i.i90 = getelementptr inbounds nuw i8, ptr %cond-lvalue83, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %TmpRep, ptr noundef nonnull align 8 dereferenceable(16) %storage.i.i90, i64 16, i1 false)
+  %storage.i.i89 = getelementptr inbounds nuw i8, ptr %cond-lvalue83, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %TmpRep, ptr noundef nonnull align 8 dereferenceable(16) %storage.i.i89, i64 16, i1 false)
   %bf.set88 = or i32 %bf.load86, 1
   store i32 %bf.set88, ptr %cond-lvalue83, align 8
-  %storage.i.i93 = getelementptr inbounds nuw i8, ptr %cond-lvalue, i64 8
-  br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106
+  %storage.i.i92 = getelementptr inbounds nuw i8, ptr %cond-lvalue, i64 8
+  br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105
 
-_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106: ; preds = %if.end73, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106
-  %indvars.iv128 = phi i64 [ 0, %if.end73 ], [ %indvars.iv.next129, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106 ]
-  %arrayidx96 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i90, i64 %indvars.iv128
-  %arrayidx99 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i93, i64 %indvars.iv128
+_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105: ; preds = %if.end73, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105
+  %indvars.iv124 = phi i64 [ 0, %if.end73 ], [ %indvars.iv.next125, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105 ]
+  %arrayidx96 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i89, i64 %indvars.iv124
+  %arrayidx99 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %storage.i.i92, i64 %indvars.iv124
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx96, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx99, i64 16, i1 false)
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %cmp92.not = icmp eq i64 %indvars.iv.next129, 4
-  br i1 %cmp92.not, label %for.end119, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106, !llvm.loop !25
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %cmp92.not = icmp eq i64 %indvars.iv.next125, 4
+  br i1 %cmp92.not, label %for.end119, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105, !llvm.loop !25
 
-for.end119:                                       ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit106
+for.end119:                                       ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit105
   %bf.load120 = load i32, ptr %cond-lvalue, align 8
   %bf.clear121 = and i32 %bf.load120, -2
   store i32 %bf.clear121, ptr %cond-lvalue, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage.i.i93, ptr noundef nonnull align 8 dereferenceable(16) %TmpRep, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage.i.i92, ptr noundef nonnull align 8 dereferenceable(16) %TmpRep, i64 16, i1 false)
   br label %return
 
 return:                                           ; preds = %for.inc, %for.end119, %if.then66

@@ -472,14 +472,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 lor.end:                                          ; preds = %for.body
   %sub12 = add i64 %indvars.iv40, 4294967294
   %conv13 = and i64 %sub12, 4294967295
-  %add.ptr.i24 = getelementptr inbounds nuw i64, ptr %2, i64 %conv13
-  %7 = load i64, ptr %add.ptr.i24, align 8
+  %add.ptr.i25 = getelementptr inbounds nuw i64, ptr %2, i64 %conv13
+  %7 = load i64, ptr %add.ptr.i25, align 8
   %cmp15 = icmp ult i64 %7, %minSizeClass
   %div = sdiv i32 %needed.037, 8
   %add = add nsw i32 %div, %needed.037
   %cmp16 = icmp sge i32 %add, %conv9
-  %brmerge = select i1 %cmp16, i1 true, i1 %cmp15
-  br i1 %brmerge, label %if.end18, label %for.inc
+  %or.cond = select i1 %cmp16, i1 true, i1 %cmp15
+  br i1 %or.cond, label %if.end18, label %for.inc
 
 if.end18:                                         ; preds = %for.body, %lor.end
   %8 = phi i1 [ %cmp15, %lor.end ], [ true, %for.body ]
@@ -488,8 +488,8 @@ if.end18:                                         ; preds = %for.body, %lor.end
   %mul = mul nsw i32 %.sroa.speculated, %conv9
   %sub22 = sub nsw i32 %needed.037, %mul
   %cmp25 = icmp sgt i32 %sub22, 0
-  %or.cond = select i1 %8, i1 %cmp25, i1 false
-  %inc = zext i1 %or.cond to i32
+  %or.cond1 = select i1 %8, i1 %cmp25, i1 false
+  %inc = zext i1 %or.cond1 to i32
   %numUnits.0 = add nuw nsw i32 %.sroa.speculated, %inc
   %mul29 = mul nsw i32 %numUnits.0, %conv9
   %cmp30 = icmp ugt i32 %mul29, 65535
@@ -500,7 +500,7 @@ if.then32:                                        ; preds = %if.end18
   unreachable
 
 if.end33:                                         ; preds = %if.end18
-  %sub27 = select i1 %or.cond, i32 %conv9, i32 0
+  %sub27 = select i1 %or.cond1, i32 %conv9, i32 0
   %needed.2 = sub nsw i32 %sub22, %sub27
   %9 = load i32, ptr %numSizes, align 4
   %conv34 = sext i32 %9 to i64
@@ -511,13 +511,13 @@ if.end33:                                         ; preds = %if.end18
   %inc39 = add nsw i32 %10, 1
   store i32 %inc39, ptr %numSizes, align 4
   %conv40 = sext i32 %10 to i64
-  %arrayidx.i.i25 = getelementptr inbounds [12 x i32], ptr %agg.result, i64 0, i64 %conv40
+  %arrayidx.i.i26 = getelementptr inbounds [12 x i32], ptr %agg.result, i64 0, i64 %conv40
   %11 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %11, ptr %arrayidx.i.i25, align 4
+  store i32 %11, ptr %arrayidx.i.i26, align 4
   %cmp42 = icmp slt i32 %needed.2, 1
   br i1 %cmp42, label %for.end, label %for.inc
 
-for.inc:                                          ; preds = %lor.end, %if.end33
+for.inc:                                          ; preds = %if.end33, %lor.end
   %pagesToAlloc.2 = phi i32 [ %add37, %if.end33 ], [ %pagesToAlloc.036, %lor.end ]
   %needed.1 = phi i32 [ %needed.2, %if.end33 ], [ %needed.037, %lor.end ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1

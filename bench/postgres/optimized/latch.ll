@@ -957,8 +957,8 @@ define dso_local range(i32 0, 152) i32 @WaitLatchOrSocket(ptr noundef %0, i32 no
   %.not = icmp eq i32 %9, 0
   %spec.select = select i1 %.not, i64 -1, i64 %3
   %10 = and i32 %1, 1
-  %.not22 = icmp eq i32 %10, 0
-  br i1 %.not22, label %13, label %11
+  %.not25 = icmp eq i32 %10, 0
+  br i1 %.not25, label %13, label %11
 
 11:                                               ; preds = %5
   %12 = tail call i32 @AddWaitEventToSet(ptr noundef %8, i32 noundef 1, i32 noundef -1, ptr noundef %0, ptr noundef null)
@@ -966,15 +966,13 @@ define dso_local range(i32 0, 152) i32 @WaitLatchOrSocket(ptr noundef %0, i32 no
 
 13:                                               ; preds = %11, %5
   %14 = and i32 %1, 16
-  %.not23 = icmp eq i32 %14, 0
-  br i1 %.not23, label %30, label %15
-
-15:                                               ; preds = %13
-  %16 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
+  %15 = icmp ne i32 %14, 0
+  %16 = load i8, ptr @IsUnderPostmaster, align 1, !range !4
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %30
+  %or.cond = select i1 %15, i1 %17, i1 false
+  br i1 %or.cond, label %18, label %30
 
-18:                                               ; preds = %15
+18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -993,19 +991,18 @@ define dso_local range(i32 0, 152) i32 @WaitLatchOrSocket(ptr noundef %0, i32 no
   %29 = load i32, ptr @postmaster_alive_fds, align 4
   store i32 %29, ptr %26, align 8
   tail call fastcc void @WaitEventAdjustEpoll(ptr noundef nonnull %8, ptr noundef nonnull %24, i32 noundef 1)
+  %.pre = load i8, ptr @IsUnderPostmaster, align 1, !range !4
   br label %30
 
-30:                                               ; preds = %18, %15, %13
-  %31 = and i32 %1, 32
-  %.not24 = icmp eq i32 %31, 0
-  br i1 %.not24, label %48, label %32
+30:                                               ; preds = %18, %13
+  %31 = phi i8 [ %.pre, %18 ], [ %16, %13 ]
+  %32 = and i32 %1, 32
+  %33 = icmp ne i32 %32, 0
+  %34 = trunc nuw i8 %31 to i1
+  %or.cond3 = select i1 %33, i1 %34, i1 false
+  br i1 %or.cond3, label %35, label %48
 
-32:                                               ; preds = %30
-  %33 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %35, label %48
-
-35:                                               ; preds = %32
+35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i8 1, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1028,10 +1025,10 @@ define dso_local range(i32 0, 152) i32 @WaitLatchOrSocket(ptr noundef %0, i32 no
   tail call fastcc void @WaitEventAdjustEpoll(ptr noundef nonnull %8, ptr noundef nonnull %42, i32 noundef 1)
   br label %48
 
-48:                                               ; preds = %35, %32, %30
+48:                                               ; preds = %35, %30
   %49 = and i32 %1, 134
-  %.not25 = icmp eq i32 %49, 0
-  br i1 %.not25, label %52, label %50
+  %.not26 = icmp eq i32 %49, 0
+  br i1 %.not26, label %52, label %50
 
 50:                                               ; preds = %48
   %51 = tail call i32 @AddWaitEventToSet(ptr noundef %8, i32 noundef %49, i32 noundef %2, ptr noundef null, ptr noundef null)
@@ -1054,14 +1051,14 @@ define dso_local range(i32 0, 152) i32 @WaitLatchOrSocket(ptr noundef %0, i32 no
 FreeWaitEventSet.exit:                            ; preds = %52, %57
   %59 = icmp eq i32 %53, 0
   %60 = and i32 %55, 151
-  %.020 = select i1 %59, i32 8, i32 %60
+  %.023 = select i1 %59, i32 8, i32 %60
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %62 = load i32, ptr %61, align 8
   %63 = tail call i32 @close(i32 noundef %62) #14
   tail call void @ReleaseExternalFD() #14
   tail call void @pfree(ptr noundef nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
-  ret i32 %.020
+  ret i32 %.023
 }
 
 ; Function Attrs: nounwind uwtable

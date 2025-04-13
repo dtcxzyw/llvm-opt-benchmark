@@ -624,7 +624,7 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   %195 = call noundef i32 @_ZNK4llvm14RISCVSubtarget25getMaxRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(413544) %189) #14
   %196 = icmp eq i32 %195, 0
   %197 = select i1 %196, i32 65536, i32 %195
-  %.not.i53.not.i = icmp eq i32 %194, %197
+  %.not.i53.i = icmp eq i32 %194, %197
   %198 = load i32, ptr %188, align 8
   %199 = and i32 %198, 255
   %200 = icmp eq i32 %199, 1
@@ -662,7 +662,7 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
 
 _ZNK12_GLOBAL__N_119RISCVVectorPeephole11getConstantERKN4llvm14MachineOperandE.exit.i: ; preds = %215, %201
   %.sroa.02.0.i.in.i = phi ptr [ %202, %201 ], [ %216, %215 ]
-  br i1 %.not.i53.not.i, label %217, label %_ZNK12_GLOBAL__N_119RISCVVectorPeephole11getConstantERKN4llvm14MachineOperandE.exit.thread.i
+  br i1 %.not.i53.i, label %217, label %_ZNK12_GLOBAL__N_119RISCVVectorPeephole11getConstantERKN4llvm14MachineOperandE.exit.thread.i
 
 217:                                              ; preds = %_ZNK12_GLOBAL__N_119RISCVVectorPeephole11getConstantERKN4llvm14MachineOperandE.exit.i
   %.sroa.02.0.i.i = load i64, ptr %.sroa.02.0.i.in.i, align 8, !tbaa !391
@@ -713,10 +713,10 @@ _ZNK12_GLOBAL__N_119RISCVVectorPeephole11getConstantERKN4llvm14MachineOperandE.e
   br label %246
 
 246:                                              ; preds = %240, %234
-  %.sink71.i = phi ptr [ %242, %240 ], [ %236, %234 ]
+  %.sink72.i = phi ptr [ %242, %240 ], [ %236, %234 ]
   %.038.i = phi i64 [ %245, %240 ], [ %239, %234 ]
   %247 = load ptr, ptr %23, align 8, !tbaa !284
-  %248 = getelementptr inbounds nuw i8, ptr %.sink71.i, i64 36
+  %248 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 36
   %249 = load i32, ptr %248, align 4, !tbaa !391
   %250 = call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %247, i32 %249) #14
   %.not44.i = icmp eq ptr %250, null

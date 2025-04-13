@@ -684,20 +684,18 @@ define hidden i32 @mbedtls_ssl_tls13_calculate_verify_data(ptr noundef %0, ptr n
   %15 = or disjoint i32 %14, 33554432
   %switch.tableidx = add nsw i32 %14, -3
   %16 = icmp ult i32 %switch.tableidx, 16
-  br i1 %16, label %switch.hole_check, label %17
+  %switch.maskindex = trunc nsw i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 -6169, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %16, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %17
 
-17:                                               ; preds = %switch.hole_check, %5
+17:                                               ; preds = %5
   %18 = icmp eq i8 %13, 19
   %19 = select i1 %18, i64 64, i64 0
   br label %21
 
-switch.hole_check:                                ; preds = %5
-  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -6169, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %17
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %20 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.13, i64 0, i64 %20
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1114,20 +1112,18 @@ define hidden i32 @mbedtls_ssl_tls13_key_schedule_stage_early(ptr noundef %0) lo
 25:                                               ; preds = %21
   %switch.tableidx = add nsw i32 %11, -3
   %26 = icmp ult i32 %switch.tableidx, 16
-  br i1 %26, label %switch.hole_check, label %27
+  %switch.maskindex = trunc nsw i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 -6169, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %26, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %27
 
-27:                                               ; preds = %switch.hole_check, %25
+27:                                               ; preds = %25
   %28 = icmp eq i8 %10, 19
   %29 = select i1 %28, i64 64, i64 0
   br label %31
 
-switch.hole_check:                                ; preds = %25
-  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -6169, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %27
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %25
   %30 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.13, i64 0, i64 %30
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1190,21 +1186,19 @@ define hidden i32 @mbedtls_ssl_tls13_compute_handshake_transform(ptr noundef %0)
   %22 = load i16, ptr %21, align 8, !tbaa !62
   %switch.tableidx = add i16 %22, -23
   %23 = icmp ult i16 %switch.tableidx, 8
-  br i1 %23, label %switch.hole_check, label %24
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -57, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit83.thread.i, label %24
 
-24:                                               ; preds = %switch.hole_check, %20
+24:                                               ; preds = %20
   %25 = add i16 %22, -261
   %26 = icmp ult i16 %25, -5
   br i1 %26, label %54, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit83.thread.i
 
-switch.hole_check:                                ; preds = %20
-  %switch.maskindex = trunc nuw i16 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -57, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit83.thread.i, label %24
-
-mbedtls_ssl_tls13_named_group_is_ecdhe.exit83.thread.i: ; preds = %24, %switch.hole_check
-  %27 = phi i32 [ 151126016, %switch.hole_check ], [ 151060480, %24 ]
+mbedtls_ssl_tls13_named_group_is_ecdhe.exit83.thread.i: ; preds = %24, %20
+  %27 = phi i32 [ 151126016, %20 ], [ 151060480, %24 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 632
@@ -1287,20 +1281,18 @@ mbedtls_ssl_tls13_named_group_is_ecdhe.exit83.thread.i: ; preds = %24, %switch.h
 60:                                               ; preds = %55
   %switch.tableidx43 = add nsw i32 %16, -3
   %61 = icmp ult i32 %switch.tableidx43, 16
-  br i1 %61, label %switch.hole_check44, label %62
+  %switch.maskindex44 = trunc nsw i32 %switch.tableidx43 to i16
+  %switch.shifted45 = lshr i16 -6169, %switch.maskindex44
+  %switch.lobit46 = trunc i16 %switch.shifted45 to i1
+  %or.cond47 = select i1 %61, i1 %switch.lobit46, i1 false
+  br i1 %or.cond47, label %switch.lookup, label %62
 
-62:                                               ; preds = %switch.hole_check44, %60
+62:                                               ; preds = %60
   %63 = icmp eq i8 %15, 19
   %64 = select i1 %63, i64 64, i64 0
   br label %66
 
-switch.hole_check44:                              ; preds = %60
-  %switch.maskindex45 = trunc nuw nsw i32 %switch.tableidx43 to i16
-  %switch.shifted46 = lshr i16 -6169, %switch.maskindex45
-  %switch.lobit47 = trunc i16 %switch.shifted46 to i1
-  br i1 %switch.lobit47, label %switch.lookup, label %62
-
-switch.lookup:                                    ; preds = %switch.hole_check44
+switch.lookup:                                    ; preds = %60
   %65 = zext nneg i32 %switch.tableidx43 to i64
   %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.13, i64 0, i64 %65
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1391,27 +1383,25 @@ ssl_tls13_get_cipher_key_info.exit.i:             ; preds = %72
   %91 = or disjoint i32 %90, 33554432
   %switch.tableidx49 = add nsw i32 %90, -3
   %92 = icmp ult i32 %switch.tableidx49, 16
-  br i1 %92, label %switch.hole_check50, label %93
+  %switch.maskindex51 = trunc nsw i32 %switch.tableidx49 to i16
+  %switch.shifted52 = lshr i16 -6169, %switch.maskindex51
+  %switch.lobit53 = trunc i16 %switch.shifted52 to i1
+  %or.cond56 = select i1 %92, i1 %switch.lobit53, i1 false
+  br i1 %or.cond56, label %switch.lookup50, label %93
 
-93:                                               ; preds = %switch.hole_check50, %87
+93:                                               ; preds = %87
   %94 = icmp eq i8 %89, 19
   %95 = select i1 %94, i64 64, i64 0
   br label %97
 
-switch.hole_check50:                              ; preds = %87
-  %switch.maskindex52 = trunc nuw nsw i32 %switch.tableidx49 to i16
-  %switch.shifted53 = lshr i16 -6169, %switch.maskindex52
-  %switch.lobit54 = trunc i16 %switch.shifted53 to i1
-  br i1 %switch.lobit54, label %switch.lookup51, label %93
-
-switch.lookup51:                                  ; preds = %switch.hole_check50
+switch.lookup50:                                  ; preds = %87
   %96 = zext nneg i32 %switch.tableidx49 to i64
-  %switch.gep55 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.13, i64 0, i64 %96
-  %switch.load56 = load i64, ptr %switch.gep55, align 8
+  %switch.gep54 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.13, i64 0, i64 %96
+  %switch.load55 = load i64, ptr %switch.gep54, align 8
   br label %97
 
-97:                                               ; preds = %switch.lookup51, %93
-  %98 = phi i64 [ %95, %93 ], [ %switch.load56, %switch.lookup51 ]
+97:                                               ; preds = %switch.lookup50, %93
+  %98 = phi i64 [ %95, %93 ], [ %switch.load55, %switch.lookup50 ]
   %99 = call i32 @mbedtls_ssl_get_handshake_transcript(ptr noundef nonnull %0, i32 noundef %90, ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull %6) #8
   %.not84.i = icmp eq i32 %99, 0
   br i1 %.not84.i, label %101, label %100
@@ -1598,20 +1588,18 @@ mbedtls_ssl_tls13_derive_resumption_master_secret.exit: ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 428
   %switch.tableidx48 = add nsw i32 %11, -3
   %32 = icmp ult i32 %switch.tableidx48, 16
-  br i1 %32, label %switch.hole_check49, label %33
+  %switch.maskindex51 = trunc nsw i32 %switch.tableidx48 to i16
+  %switch.shifted52 = lshr i16 -6169, %switch.maskindex51
+  %switch.lobit53 = trunc i16 %switch.shifted52 to i1
+  %or.cond = select i1 %32, i1 %switch.lobit53, i1 false
+  br i1 %or.cond, label %switch.lookup50, label %33
 
-33:                                               ; preds = %switch.hole_check49, %29
+33:                                               ; preds = %29
   %34 = icmp eq i8 %10, 19
   %35 = select i1 %34, i64 64, i64 0
   br label %37
 
-switch.hole_check49:                              ; preds = %29
-  %switch.maskindex51 = trunc nuw nsw i32 %switch.tableidx48 to i16
-  %switch.shifted52 = lshr i16 -6169, %switch.maskindex51
-  %switch.lobit53 = trunc i16 %switch.shifted52 to i1
-  br i1 %switch.lobit53, label %switch.lookup50, label %33
-
-switch.lookup50:                                  ; preds = %switch.hole_check49
+switch.lookup50:                                  ; preds = %29
   %36 = zext nneg i32 %switch.tableidx48 to i64
   %switch.gep54 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.13, i64 0, i64 %36
   %switch.load55 = load i64, ptr %switch.gep54, align 8
@@ -1655,9 +1643,13 @@ define hidden i32 @mbedtls_ssl_tls13_compute_application_transform(ptr noundef %
 18:                                               ; preds = %1
   %switch.tableidx = add nsw i32 %14, -3
   %19 = icmp ult i32 %switch.tableidx, 16
-  br i1 %19, label %switch.hole_check, label %20
+  %switch.maskindex = trunc nsw i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 -6169, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %19, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %20
 
-20:                                               ; preds = %switch.hole_check, %18
+20:                                               ; preds = %18
   %21 = icmp eq i8 %13, 19
   %22 = select i1 %21, i64 64, i64 0
   br label %25
@@ -1667,13 +1659,7 @@ define hidden i32 @mbedtls_ssl_tls13_compute_application_transform(ptr noundef %
   tail call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1799, ptr noundef nonnull @.str.25, i32 noundef %17) #8
   br label %99
 
-switch.hole_check:                                ; preds = %18
-  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -6169, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %20
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %18
   %24 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.13, i64 0, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1737,27 +1723,25 @@ ssl_tls13_get_cipher_key_info.exit.i:             ; preds = %25
   %48 = or disjoint i32 %47, 33554432
   %switch.tableidx38 = add nsw i32 %47, -3
   %49 = icmp ult i32 %switch.tableidx38, 16
-  br i1 %49, label %switch.hole_check39, label %50
+  %switch.maskindex40 = trunc nsw i32 %switch.tableidx38 to i16
+  %switch.shifted41 = lshr i16 -6169, %switch.maskindex40
+  %switch.lobit42 = trunc i16 %switch.shifted41 to i1
+  %or.cond45 = select i1 %49, i1 %switch.lobit42, i1 false
+  br i1 %or.cond45, label %switch.lookup39, label %50
 
-50:                                               ; preds = %switch.hole_check39, %43
+50:                                               ; preds = %43
   %51 = icmp eq i8 %46, 19
   %52 = select i1 %51, i64 64, i64 0
   br label %54
 
-switch.hole_check39:                              ; preds = %43
-  %switch.maskindex41 = trunc nuw nsw i32 %switch.tableidx38 to i16
-  %switch.shifted42 = lshr i16 -6169, %switch.maskindex41
-  %switch.lobit43 = trunc i16 %switch.shifted42 to i1
-  br i1 %switch.lobit43, label %switch.lookup40, label %50
-
-switch.lookup40:                                  ; preds = %switch.hole_check39
+switch.lookup39:                                  ; preds = %43
   %53 = zext nneg i32 %switch.tableidx38 to i64
-  %switch.gep44 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.13, i64 0, i64 %53
-  %switch.load45 = load i64, ptr %switch.gep44, align 8
+  %switch.gep43 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.13, i64 0, i64 %53
+  %switch.load44 = load i64, ptr %switch.gep43, align 8
   br label %54
 
-54:                                               ; preds = %switch.lookup40, %50
-  %55 = phi i64 [ %52, %50 ], [ %switch.load45, %switch.lookup40 ]
+54:                                               ; preds = %switch.lookup39, %50
+  %55 = phi i64 [ %52, %50 ], [ %switch.load44, %switch.lookup39 ]
   %56 = call i32 @mbedtls_ssl_get_handshake_transcript(ptr noundef nonnull %0, i32 noundef %47, ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull %6) #8
   %.not74.i = icmp eq i32 %56, 0
   br i1 %.not74.i, label %57, label %ssl_tls13_generate_application_keys.exit

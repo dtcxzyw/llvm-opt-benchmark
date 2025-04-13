@@ -5120,21 +5120,21 @@ define void @_ZN5tokio2fs8read_dir7ReadDir15poll_next_entry17h0d537625bf908f9fE(
   %6 = alloca { { { i64, ptr }, i64, i64 }, { ptr, i8 } }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sroa.8.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.8.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %.pre = load i64, ptr %1, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %3
-  %.sroa.04.0.copyload = phi i64 [ %.pre, %3 ], [ %.sroa.04.0.copyload.be, %.backedge.backedge ]
-  switch i64 %.sroa.04.0.copyload, label %16 [
+  %.sroa.05.0.copyload = phi i64 [ %.pre, %3 ], [ %.sroa.05.0.copyload.be, %.backedge.backedge ]
+  switch i64 %.sroa.05.0.copyload, label %16 [
     i64 -9223372036854775807, label %13
     i64 -9223372036854775808, label %15
   ]
@@ -5161,8 +5161,8 @@ define void @_ZN5tokio2fs8read_dir7ReadDir15poll_next_entry17h0d537625bf908f9fE(
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hb2f481bdb94e0121E.exit": ; preds = %16
   %19 = load i64, ptr %9, align 8, !alias.scope !1124, !noalias !1127, !noundef !79
   %20 = add i64 %19, 1
-  %.not.i.i = icmp ult i64 %20, %.sroa.04.0.copyload
-  %21 = select i1 %.not.i.i, i64 0, i64 %.sroa.04.0.copyload
+  %.not.i.i = icmp ult i64 %20, %.sroa.05.0.copyload
+  %21 = select i1 %.not.i.i, i64 0, i64 %.sroa.05.0.copyload
   %.0.i.i = sub nuw i64 %20, %21
   store i64 %.0.i.i, ptr %9, align 8, !alias.scope !1124, !noalias !1127
   %22 = add i64 %17, -1
@@ -5176,14 +5176,14 @@ define void @_ZN5tokio2fs8read_dir7ReadDir15poll_next_entry17h0d537625bf908f9fE(
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h523cc4aa52b9744fE.exit": ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hb2f481bdb94e0121E.exit"
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !1124
-  %.sroa.6.0..sroa_idx87 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %.sroa.6.0.copyload88 = load i32, ptr %.sroa.6.0..sroa_idx87, align 4, !noalias !1124
+  %.sroa.6.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %.sroa.6.0.copyload86 = load i32, ptr %.sroa.6.0..sroa_idx85, align 4, !noalias !1124
   %25 = icmp eq i32 %.sroa.0.0.copyload, 2
   %spec.select = select i1 %25, i32 3, i32 %.sroa.0.0.copyload
-  %spec.select76 = select i1 %25, i32 undef, i32 %.sroa.6.0.copyload88
+  %spec.select74 = select i1 %25, i32 undef, i32 %.sroa.6.0.copyload86
   store i32 %spec.select, ptr %0, align 8
   %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %spec.select76, ptr %.sroa.567.0..sroa_idx, align 4
+  store i32 %spec.select74, ptr %.sroa.567.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.copyload, ptr %.sroa.6.0..sroa_idx68, align 8
   br label %36
@@ -5199,12 +5199,12 @@ define void @_ZN5tokio2fs8read_dir7ReadDir15poll_next_entry17h0d537625bf908f9fE(
 
 29:                                               ; preds = %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hb2f481bdb94e0121E.exit.thread"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.449.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %.sroa.57.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx36, align 8, !nonnull !79, !noundef !79
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.450.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  %.sroa.58.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx37, align 8, !nonnull !79, !noundef !79
   %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %1, align 8
-  store i64 %.sroa.04.0.copyload, ptr %6, align 8
-  store ptr %.sroa.57.0.copyload, ptr %11, align 8
+  store i64 %.sroa.05.0.copyload, ptr %6, align 8
+  store ptr %.sroa.58.0.copyload, ptr %11, align 8
   %30 = and i8 %.sroa.6.0.copyload, 1
   store i8 %30, ptr %12, align 8
   %31 = call noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool14spawn_blocking17ha572a6025ba58498E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2bdad5a339b8ccffc81f3a5f40aece8.49)
@@ -5225,7 +5225,7 @@ define void @_ZN5tokio2fs8read_dir7ReadDir15poll_next_entry17h0d537625bf908f9fE(
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %34, %43
-  %.sroa.04.0.copyload.be = phi i64 [ -9223372036854775807, %34 ], [ %14, %43 ]
+  %.sroa.05.0.copyload.be = phi i64 [ -9223372036854775807, %34 ], [ %14, %43 ]
   br label %.backedge
 
 35:                                               ; preds = %41, %32
@@ -5248,8 +5248,8 @@ define void @_ZN5tokio2fs8read_dir7ReadDir15poll_next_entry17h0d537625bf908f9fE(
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   %40 = call noundef nonnull ptr @"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
   store i32 3, ptr %0, align 8
-  %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %40, ptr %.sroa.445.0..sroa_idx, align 8
+  %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %40, ptr %.sroa.446.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %44
 
@@ -5258,13 +5258,13 @@ define void @_ZN5tokio2fs8read_dir7ReadDir15poll_next_entry17h0d537625bf908f9fE(
           cleanup
   store i64 %14, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx36, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.424.0..sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx37, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.425.0..sroa_idx, i64 24, i1 false)
   br label %35
 
 43:                                               ; preds = %38
   store i64 %14, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx36, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.424.0..sroa_idx, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx37, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.425.0..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   br label %.backedge.backedge
 

@@ -1103,21 +1103,19 @@ define hidden void @_ZN7XDriver12pause_verifyEv(ptr noundef nonnull readnone ali
   %2 = alloca %class.VM_XVerify, align 8
   %3 = load i8, ptr @ZVerifyRoots, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %8, label %5
+  %5 = load i8, ptr @ZVerifyObjects, align 1
+  %6 = trunc i8 %5 to i1
+  %or.cond = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond, label %7, label %9
 
-5:                                                ; preds = %1
-  %6 = load i8, ptr @ZVerifyObjects, align 1
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %10
-
-8:                                                ; preds = %5, %1
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %9, align 8
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr null, ptr %8, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV10VM_XVerify, i64 16), ptr %2, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %2) #12
-  br label %10
+  br label %9
 
-10:                                               ; preds = %8, %5
+9:                                                ; preds = %1, %7
   ret void
 }
 
@@ -1619,79 +1617,77 @@ _ZN7XDriver31concurrent_reset_relocation_setEv.exit: ; preds = %_ZN10XStatTimerC
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %121 = load i8, ptr @ZVerifyRoots, align 1
   %122 = trunc i8 %121 to i1
-  br i1 %122, label %126, label %123
+  %123 = load i8, ptr @ZVerifyObjects, align 1
+  %124 = trunc i8 %123 to i1
+  %or.cond.i = select i1 %122, i1 true, i1 %124
+  br i1 %or.cond.i, label %125, label %_ZN7XDriver12pause_verifyEv.exit
 
-123:                                              ; preds = %120
-  %124 = load i8, ptr @ZVerifyObjects, align 1
-  %125 = trunc i8 %124 to i1
-  br i1 %125, label %126, label %_ZN7XDriver12pause_verifyEv.exit
-
-126:                                              ; preds = %123, %120
-  %127 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %127, align 8
+125:                                              ; preds = %120
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %126, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV10VM_XVerify, i64 16), ptr %5, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %5) #12
   br label %_ZN7XDriver12pause_verifyEv.exit
 
-_ZN7XDriver12pause_verifyEv.exit:                 ; preds = %123, %126
+_ZN7XDriver12pause_verifyEv.exit:                 ; preds = %120, %125
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %128 = load i32, ptr %17, align 4
-  %.not.i.i8 = icmp eq i32 %128, 0
-  %129 = zext i1 %.not.i.i8 to i8
-  store i8 %129, ptr %4, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @_ZL35XPhaseConcurrentSelectRelocationSet, ptr %130, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %132 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #12
-  %133 = extractvalue { i64, i64 } %132, 0
-  store i64 %133, ptr %131, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %135 = extractvalue { i64, i64 } %132, 1
-  store i64 %135, ptr %134, align 8
-  br i1 %.not.i.i8, label %136, label %_ZN10XStatTimerC2ERK10XStatPhase.exit.i9
+  %127 = load i32, ptr %17, align 4
+  %.not.i.i8 = icmp eq i32 %127, 0
+  %128 = zext i1 %.not.i.i8 to i8
+  store i8 %128, ptr %4, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @_ZL35XPhaseConcurrentSelectRelocationSet, ptr %129, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %131 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #12
+  %132 = extractvalue { i64, i64 } %131, 0
+  store i64 %132, ptr %130, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %134 = extractvalue { i64, i64 } %131, 1
+  store i64 %134, ptr %133, align 8
+  br i1 %.not.i.i8, label %135, label %_ZN10XStatTimerC2ERK10XStatPhase.exit.i9
 
-136:                                              ; preds = %_ZN7XDriver12pause_verifyEv.exit
-  %137 = load ptr, ptr @_ZL35XPhaseConcurrentSelectRelocationSet, align 8
-  %138 = load ptr, ptr %137, align 8
-  call void %138(ptr noundef nonnull align 8 dereferenceable(48) @_ZL35XPhaseConcurrentSelectRelocationSet, ptr noundef nonnull align 8 dereferenceable(16) %131) #12
+135:                                              ; preds = %_ZN7XDriver12pause_verifyEv.exit
+  %136 = load ptr, ptr @_ZL35XPhaseConcurrentSelectRelocationSet, align 8
+  %137 = load ptr, ptr %136, align 8
+  call void %137(ptr noundef nonnull align 8 dereferenceable(48) @_ZL35XPhaseConcurrentSelectRelocationSet, ptr noundef nonnull align 8 dereferenceable(16) %130) #12
   br label %_ZN10XStatTimerC2ERK10XStatPhase.exit.i9
 
-_ZN10XStatTimerC2ERK10XStatPhase.exit.i9:         ; preds = %136, %_ZN7XDriver12pause_verifyEv.exit
-  %139 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
-  call void @_ZN5XHeap21select_relocation_setEv(ptr noundef nonnull align 64 dereferenceable(4088) %139) #12
+_ZN10XStatTimerC2ERK10XStatPhase.exit.i9:         ; preds = %135, %_ZN7XDriver12pause_verifyEv.exit
+  %138 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
+  call void @_ZN5XHeap21select_relocation_setEv(ptr noundef nonnull align 64 dereferenceable(4088) %138) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %140 = load i8, ptr %4, align 8
-  %141 = trunc i8 %140 to i1
-  br i1 %141, label %142, label %_ZN7XDriver32concurrent_select_relocation_setEv.exit
+  %139 = load i8, ptr %4, align 8
+  %140 = trunc i8 %139 to i1
+  br i1 %140, label %141, label %_ZN7XDriver32concurrent_select_relocation_setEv.exit
 
-142:                                              ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit.i9
-  %143 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #12
-  %144 = extractvalue { i64, i64 } %143, 0
-  store i64 %144, ptr %3, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %146 = extractvalue { i64, i64 } %143, 1
-  store i64 %146, ptr %145, align 8
-  %147 = load ptr, ptr %130, align 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %150 = load ptr, ptr %149, align 8
-  call void %150(ptr noundef nonnull align 8 dereferenceable(48) %147, ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+141:                                              ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit.i9
+  %142 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #12
+  %143 = extractvalue { i64, i64 } %142, 0
+  store i64 %143, ptr %3, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %145 = extractvalue { i64, i64 } %142, 1
+  store i64 %145, ptr %144, align 8
+  %146 = load ptr, ptr %129, align 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %149 = load ptr, ptr %148, align 8
+  call void %149(ptr noundef nonnull align 8 dereferenceable(48) %146, ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   br label %_ZN7XDriver32concurrent_select_relocation_setEv.exit
 
-_ZN7XDriver32concurrent_select_relocation_setEv.exit: ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit.i9, %142
+_ZN7XDriver32concurrent_select_relocation_setEv.exit: ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit.i9, %141
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %151 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
-  br i1 %151, label %.loopexit, label %152
+  %150 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
+  br i1 %150, label %.loopexit, label %151
 
-152:                                              ; preds = %_ZN7XDriver32concurrent_select_relocation_setEv.exit
-  %153 = call noundef zeroext i1 @_ZN7XDriver5pauseI17VM_XRelocateStartEEbv(ptr noundef nonnull align 8 dereferenceable(1216) %0)
+151:                                              ; preds = %_ZN7XDriver32concurrent_select_relocation_setEv.exit
+  %152 = call noundef zeroext i1 @_ZN7XDriver5pauseI17VM_XRelocateStartEEbv(ptr noundef nonnull align 8 dereferenceable(1216) %0)
   call void @_ZN7XDriver19concurrent_relocateEv(ptr nonnull align 8 poison)
-  %154 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
+  %153 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN7XDriver24concurrent_mark_continueEv.exit, %152, %_ZN7XDriver32concurrent_select_relocation_setEv.exit, %_ZN7XDriver31concurrent_reset_relocation_setEv.exit, %_ZN7XDriver40concurrent_process_non_strong_referencesEv.exit, %_ZN7XDriver20concurrent_mark_freeEv.exit, %2
+.loopexit:                                        ; preds = %_ZN7XDriver24concurrent_mark_continueEv.exit, %151, %_ZN7XDriver32concurrent_select_relocation_setEv.exit, %_ZN7XDriver31concurrent_reset_relocation_setEv.exit, %_ZN7XDriver40concurrent_process_non_strong_referencesEv.exit, %_ZN7XDriver20concurrent_mark_freeEv.exit, %2
   call void @_ZN14XDriverGCScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %14) #12
   ret void
 }

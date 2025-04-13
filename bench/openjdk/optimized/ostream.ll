@@ -2040,59 +2040,57 @@ define hidden void @_ZN13defaultStream4initEv(ptr noundef nonnull align 8 derefe
   store i8 1, ptr %2, align 8
   %3 = load i8, ptr @LogVMOutput, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %8, label %5
+  %5 = load i8, ptr @LogCompilation, align 1
+  %6 = trunc i8 %5 to i1
+  %or.cond = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond, label %7, label %_ZN13defaultStream8init_logEv.exit
 
-5:                                                ; preds = %1
-  %6 = load i8, ptr @LogCompilation, align 1
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %_ZN13defaultStream8init_logEv.exit
+7:                                                ; preds = %1
+  %8 = load ptr, ptr @LogFile, align 8
+  %.not.i = icmp eq ptr %8, null
+  %9 = select i1 %.not.i, ptr @.str.26, ptr %8
+  %10 = tail call noundef ptr @_ZN13defaultStream9open_fileEPKc(ptr nonnull align 8 poison, ptr noundef nonnull %9)
+  %.not6.i = icmp eq ptr %10, null
+  br i1 %.not6.i, label %25, label %11
 
-8:                                                ; preds = %5, %1
-  %9 = load ptr, ptr @LogFile, align 8
-  %.not.i = icmp eq ptr %9, null
-  %10 = select i1 %.not.i, ptr @.str.26, ptr %9
-  %11 = tail call noundef ptr @_ZN13defaultStream9open_fileEPKc(ptr nonnull align 8 poison, ptr noundef nonnull %10)
-  %.not6.i = icmp eq ptr %11, null
-  br i1 %.not6.i, label %26, label %12
-
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %11, ptr %13, align 8
-  %14 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #21
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store i8 0, ptr %18, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV9xmlStream, i64 16), ptr %14, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %14, i64 88
-  %20 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %14, i64 112
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %14, i64 100
-  store i8 0, ptr %23, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV13xmlTextStream, i64 16), ptr %19, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  store ptr null, ptr %24, align 8
-  tail call void @_ZN9xmlStream10initializeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr noundef nonnull %11) #21
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %14, ptr %25, align 8
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %10, ptr %12, align 8
+  %13 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #21
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i32 0, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 0, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store i8 0, ptr %17, align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV9xmlStream, i64 16), ptr %13, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 104
+  store i32 0, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 96
+  store i32 0, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 100
+  store i8 0, ptr %22, align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV13xmlTextStream, i64 16), ptr %18, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 144
+  store ptr null, ptr %23, align 8
+  tail call void @_ZN9xmlStream10initializeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(152) %13, ptr noundef nonnull %10) #21
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %13, ptr %24, align 8
   tail call void @_ZN13defaultStream9start_logEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
   br label %_ZN13defaultStream8init_logEv.exit
 
-26:                                               ; preds = %8
+25:                                               ; preds = %7
   store i8 0, ptr @LogVMOutput, align 1
   store i8 1, ptr @DisplayVMOutput, align 1
   store i8 0, ptr @LogCompilation, align 1
   br label %_ZN13defaultStream8init_logEv.exit
 
-_ZN13defaultStream8init_logEv.exit:               ; preds = %26, %12, %5
+_ZN13defaultStream8init_logEv.exit:               ; preds = %25, %11, %1
   ret void
 }
 
@@ -2632,88 +2630,86 @@ define hidden noundef i64 @_ZN13defaultStream4holdEl(ptr noundef nonnull align 8
 _ZN13defaultStream12has_log_fileEv.exit:          ; preds = %2, %6, %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
-  %.not11 = icmp eq ptr %10, null
+  %.not13 = icmp eq ptr %10, null
   %11 = icmp eq i64 %1, -1
   %12 = load ptr, ptr @tty_lock, align 8
   %13 = icmp eq ptr %12, null
   %or.cond = select i1 %11, i1 true, i1 %13
-  br i1 %or.cond, label %53, label %14
+  br i1 %or.cond, label %52, label %14
 
 14:                                               ; preds = %_ZN13defaultStream12has_log_fileEv.exit
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %53, label %18
+  %17 = icmp ne ptr %16, null
+  %18 = load i8, ptr @SerializeVMOutput, align 1
+  %19 = trunc i8 %18 to i1
+  %or.cond3 = select i1 %17, i1 %19, i1 false
+  br i1 %or.cond3, label %20, label %52
 
-18:                                               ; preds = %14
-  %19 = load i8, ptr @SerializeVMOutput, align 1
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %53
+20:                                               ; preds = %14
+  %21 = tail call noundef zeroext i1 @_ZN7VMError17is_error_reportedEv() #21
+  br i1 %21, label %52, label %22
 
-21:                                               ; preds = %18
-  %22 = tail call noundef zeroext i1 @_ZN7VMError17is_error_reportedEv() #21
-  br i1 %22, label %53, label %23
+22:                                               ; preds = %20
+  %23 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %25, label %31
 
-23:                                               ; preds = %21
-  %24 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %25 = icmp eq i32 %24, 1
-  br i1 %25, label %26, label %32
+25:                                               ; preds = %22
+  %26 = load ptr, ptr %15, align 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(888) %26) #21
+  br i1 %30, label %52, label %31
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %15, align 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(888) %27) #21
-  br i1 %31, label %53, label %32
+31:                                               ; preds = %25, %22
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %33 = load i64, ptr %32, align 8
+  %34 = icmp eq i64 %33, %1
+  br i1 %34, label %52, label %35
 
-32:                                               ; preds = %26, %23
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %34 = load i64, ptr %33, align 8
-  %35 = icmp eq i64 %34, %1
-  br i1 %35, label %53, label %36
+35:                                               ; preds = %31
+  %36 = load ptr, ptr @tty_lock, align 8
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %36) #21
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %38 = load i64, ptr %37, align 8
+  %.not = icmp eq i64 %1, %38
+  br i1 %.not, label %51, label %39
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr @tty_lock, align 8
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %37) #21
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %39 = load i64, ptr %38, align 8
-  %.not = icmp eq i64 %1, %39
-  br i1 %.not, label %52, label %40
+39:                                               ; preds = %35
+  br i1 %.not13, label %50, label %40
 
-40:                                               ; preds = %36
-  br i1 %.not11, label %51, label %41
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %45, label %_ZN12outputStream3bolEv.exit
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %46, label %_ZN12outputStream3bolEv.exit
-
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %42, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8
-  tail call void %49(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull @.str.5, i64 noundef 1) #21
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %41, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load ptr, ptr %47, align 8
+  tail call void %48(ptr noundef nonnull align 8 dereferenceable(56) %41, ptr noundef nonnull @.str.5, i64 noundef 1) #21
   %.pre = load ptr, ptr %9, align 8
   br label %_ZN12outputStream3bolEv.exit
 
-_ZN12outputStream3bolEv.exit:                     ; preds = %41, %46
-  %50 = phi ptr [ %42, %41 ], [ %.pre, %46 ]
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull @.str.41, i64 noundef %1)
+_ZN12outputStream3bolEv.exit:                     ; preds = %40, %45
+  %49 = phi ptr [ %41, %40 ], [ %.pre, %45 ]
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull @.str.41, i64 noundef %1)
+  br label %50
+
+50:                                               ; preds = %_ZN12outputStream3bolEv.exit, %39
+  store i64 %1, ptr %37, align 8
   br label %51
 
-51:                                               ; preds = %_ZN12outputStream3bolEv.exit, %40
-  store i64 %1, ptr %38, align 8
+51:                                               ; preds = %50, %35
+  store i64 %1, ptr %32, align 8
   br label %52
 
-52:                                               ; preds = %51, %36
-  store i64 %1, ptr %33, align 8
-  br label %53
-
-53:                                               ; preds = %32, %_ZN13defaultStream12has_log_fileEv.exit, %14, %18, %21, %26, %52
-  %.0 = phi i64 [ %1, %52 ], [ -1, %26 ], [ -1, %21 ], [ -1, %18 ], [ -1, %14 ], [ -1, %_ZN13defaultStream12has_log_fileEv.exit ], [ -1, %32 ]
+52:                                               ; preds = %31, %_ZN13defaultStream12has_log_fileEv.exit, %14, %20, %25, %51
+  %.0 = phi i64 [ %1, %51 ], [ -1, %25 ], [ -1, %20 ], [ -1, %14 ], [ -1, %_ZN13defaultStream12has_log_fileEv.exit ], [ -1, %31 ]
   ret i64 %.0
 }
 

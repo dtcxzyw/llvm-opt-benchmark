@@ -1525,8 +1525,8 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE8ScopedCSC2EP6ThreadP
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 2
-  %.not.i46 = icmp eq i64 %39, 0
-  br i1 %.not.i46, label %_ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE10get_bucketEm.exit, label %40
+  %.not.i47 = icmp eq i64 %39, 0
+  br i1 %.not.i47, label %_ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE10get_bucketEm.exit, label %40
 
 40:                                               ; preds = %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE8ScopedCSC2EP6ThreadPS2_.exit
   %41 = load volatile ptr, ptr %19, align 8
@@ -1570,18 +1570,18 @@ _ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE10get_bucketEm.exit:
 61:                                               ; preds = %.lr.ph.i
   %62 = load volatile ptr, ptr %.018.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
-  %.not.i47 = icmp eq ptr %62, null
-  br i1 %.not.i47, label %_ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE8get_nodeI19ThreadIdTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread, label %.lr.ph.i, !llvm.loop !11
+  %.not.i48 = icmp eq ptr %62, null
+  br i1 %.not.i48, label %_ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE8get_nodeI19ThreadIdTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread, label %.lr.ph.i, !llvm.loop !11
 
 _ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE8get_nodeI19ThreadIdTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread: ; preds = %61, %_ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE10get_bucketEm.exit
-  %.1.i61 = phi i64 [ 0, %_ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE10get_bucketEm.exit ], [ %55, %61 ]
+  %.1.i62 = phi i64 [ 0, %_ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE10get_bucketEm.exit ], [ %55, %61 ]
   store volatile ptr %50, ptr %13, align 8
   %63 = load volatile ptr, ptr %.0.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   %64 = ptrtoint ptr %63 to i64
   %65 = and i64 %64, 1
-  %.not.i48 = icmp eq i64 %65, 0
-  br i1 %.not.i48, label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS2_4NodeES5_.exit, label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
+  %.not.i49 = icmp eq i64 %65, 0
+  br i1 %.not.i49, label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS2_4NodeES5_.exit, label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
 
 _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS2_4NodeES5_.exit: ; preds = %_ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE8get_nodeI19ThreadIdTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread
   %66 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr %50, ptr nonnull align 8 dereferenceable(8) %.0.i) #12, !srcloc !18
@@ -1590,8 +1590,8 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS
 
 68:                                               ; preds = %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS2_4NodeES5_.exit
   %69 = load ptr, ptr %0, align 8
-  %.not.i50 = icmp eq ptr %69, null
-  br i1 %.not.i50, label %.thread, label %70
+  %.not.i51 = icmp eq ptr %69, null
+  br i1 %.not.i51, label %.thread, label %70
 
 70:                                               ; preds = %68
   tail call void @_ZN19TableRateStatistics3addEv(ptr noundef nonnull align 8 dereferenceable(64) %69) #12
@@ -1638,37 +1638,37 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %13) #12
   %82 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull @_ZL12_items_count) #12, !srcloc !14
   %83 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_157ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i.i.i51 = icmp eq ptr %83, null
-  br i1 %.not.i.i.i51, label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEPvPS3_.exit, label %84
+  %.not.i.i.i52 = icmp eq ptr %83, null
+  br i1 %.not.i.i.i52, label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEPvPS3_.exit, label %84
 
 84:                                               ; preds = %81
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE159ELS1_157ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.4)
   br label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEPvPS3_.exit
 
 _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEPvPS3_.exit: ; preds = %.thread, %84, %81
-  %.1.ph82 = phi i1 [ false, %81 ], [ false, %84 ], [ true, %.thread ]
-  %.1.i60.ph80 = phi i64 [ %55, %81 ], [ %55, %84 ], [ %.1.i61, %.thread ]
-  %.not44 = icmp eq ptr %5, null
-  br i1 %.not44, label %90, label %85
+  %.1.ph83 = phi i1 [ true, %.thread ], [ false, %81 ], [ false, %84 ]
+  %.1.i61.ph81 = phi i64 [ %.1.i62, %.thread ], [ %55, %81 ], [ %55, %84 ]
+  %.not45 = icmp eq ptr %5, null
+  br i1 %.not45, label %90, label %85
 
 85:                                               ; preds = %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEPvPS3_.exit
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %87 = load i64, ptr %86, align 8
-  %88 = icmp ugt i64 %.1.i60.ph80, %87
+  %88 = icmp ugt i64 %.1.i61.ph81, %87
   %89 = zext i1 %88 to i8
   store i8 %89, ptr %5, align 1
   br label %90
 
 90:                                               ; preds = %85, %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEPvPS3_.exit
-  %.not45 = icmp eq ptr %6, null
-  br i1 %.not45, label %92, label %91
+  %.not46 = icmp eq ptr %6, null
+  br i1 %.not46, label %92, label %91
 
 91:                                               ; preds = %90
   store i8 0, ptr %6, align 1
   br label %92
 
 92:                                               ; preds = %91, %90
-  ret i1 %.1.ph82
+  ret i1 %.1.ph83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1592,13 +1592,13 @@ define internal fastcc void @dissect_isis_lsp(ptr noundef %0, ptr noundef %1, pt
 thread-pre-split:                                 ; preds = %29, %21
   %ei_isis_lsp_short_pdu.sink = phi ptr [ @ei_isis_lsp_short_pdu, %21 ], [ @ei_isis_lsp_long_pdu, %29 ]
   %35 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %25, ptr noundef nonnull %ei_isis_lsp_short_pdu.sink)
-  %.0143.ph = xor i1 %28, true
+  %.0144.ph = xor i1 %28, true
   %.pr = load i8, ptr %4, align 8
   br label %36
 
 36:                                               ; preds = %thread-pre-split, %29
   %37 = phi i8 [ %.pr, %thread-pre-split ], [ %31, %29 ]
-  %.0143 = phi i1 [ %.0143.ph, %thread-pre-split ], [ false, %29 ]
+  %.0144 = phi i1 [ %.0144.ph, %thread-pre-split ], [ false, %29 ]
   %38 = icmp ult i8 %37, 12
   br i1 %38, label %39, label %45
 
@@ -1667,8 +1667,8 @@ thread-pre-split:                                 ; preds = %29, %21
   %90 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %86)
   %91 = load i8, ptr %51, align 1
   %92 = zext i8 %91 to i32
-  %.neg148 = add nuw nsw i32 %74, 10
-  %93 = sub nsw i32 %.neg148, %92
+  %.neg149 = add nuw nsw i32 %74, 10
+  %93 = sub nsw i32 %.neg149, %92
   %94 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %93)
   %95 = zext i16 %94 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %89, i32 noundef 25, ptr noundef nonnull @.str.799, i32 noundef %90, i32 noundef %95)
@@ -1704,8 +1704,8 @@ thread-pre-split:                                 ; preds = %29, %21
   br label %134
 
 115:                                              ; preds = %109
-  %brmerge = or i1 %28, %.0143
-  br i1 %brmerge, label %116, label %120
+  %or.cond = or i1 %28, %.0144
+  br i1 %or.cond, label %116, label %120
 
 116:                                              ; preds = %115
   %117 = load i32, ptr @hf_isis_lsp_checksum, align 4
@@ -1725,8 +1725,8 @@ thread-pre-split:                                 ; preds = %29, %21
   %127 = zext i16 %126 to i32
   %128 = call ptr @proto_tree_add_checksum(ptr noundef %12, ptr noundef %0, i32 noundef %77, i32 noundef %123, i32 noundef %124, ptr noundef nonnull @ei_isis_lsp_bad_checksum, ptr noundef %1, i32 noundef %127, i32 noundef 0, i32 noundef 1)
   %129 = load i16, ptr %6, align 2
-  %.not146 = icmp eq i16 %110, %129
-  br i1 %.not146, label %134, label %130
+  %.not147 = icmp eq i16 %110, %129
+  br i1 %.not147, label %134, label %130
 
 130:                                              ; preds = %125
   %131 = load ptr, ptr %7, align 8
@@ -1756,8 +1756,8 @@ thread-pre-split:                                 ; preds = %29, %21
   br label %177
 
 148:                                              ; preds = %134
-  %.not147 = icmp eq ptr %2, null
-  br i1 %.not147, label %170, label %149
+  %.not148 = icmp eq ptr %2, null
+  br i1 %.not148, label %170, label %149
 
 149:                                              ; preds = %148
   %150 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %135)

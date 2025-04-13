@@ -2726,28 +2726,28 @@ define hidden { i64, ptr } @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext
   call void @llvm.experimental.noalias.scope.decl(metadata !547)
   call void @llvm.experimental.noalias.scope.decl(metadata !550)
   invoke void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %117)
-          to label %.noexc3.i.i.i unwind label %171, !noalias !516
+          to label %.noexc4.i.i.i unwind label %171, !noalias !516
 
-.noexc3.i.i.i:                                    ; preds = %114
+.noexc4.i.i.i:                                    ; preds = %114
   %120 = load i32, ptr %117, align 8, !range !347, !alias.scope !552, !noalias !553, !noundef !4
   %121 = getelementptr inbounds nuw i8, ptr %68, i64 116
   %122 = load i32, ptr %121, align 4, !alias.scope !552, !noalias !553, !noundef !4
   %123 = invoke { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h6ed989652af3a5c4E.llvm.15062602425096084778"(ptr noalias noundef nonnull align 8 dereferenceable(40) %63, i32 noundef %120, i32 noundef %122)
-          to label %.noexc4.i.i.i unwind label %171, !noalias !516
+          to label %.noexc5.i.i.i unwind label %171, !noalias !516
 
-.noexc4.i.i.i:                                    ; preds = %.noexc3.i.i.i
+.noexc5.i.i.i:                                    ; preds = %.noexc4.i.i.i
   %124 = extractvalue { ptr, ptr } %123, 0
   %125 = icmp eq ptr %124, null
   br i1 %125, label %126, label %127
 
-126:                                              ; preds = %.noexc4.i.i.i
+126:                                              ; preds = %.noexc5.i.i.i
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17h5ad00cf500b2767cE.llvm.15062602425096084778(ptr noalias noundef nonnull readonly align 1 @anon.b40dd030759c036da893701b64f6ac65.33.llvm.15062602425096084778, i64 noundef 6) #32
-          to label %.noexc5.i.i.i unwind label %171, !noalias !516
+          to label %.noexc6.i.i.i unwind label %171, !noalias !516
 
-.noexc5.i.i.i:                                    ; preds = %126
+.noexc6.i.i.i:                                    ; preds = %126
   unreachable
 
-127:                                              ; preds = %.noexc4.i.i.i
+127:                                              ; preds = %.noexc5.i.i.i
   %128 = extractvalue { ptr, ptr } %123, 1
   %129 = icmp ne ptr %128, null
   call void @llvm.assume(i1 %129)
@@ -2892,7 +2892,7 @@ define hidden { i64, ptr } @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #31, !noalias !576
   unreachable
 
-171:                                              ; preds = %.noexc6.i.i.i, %179, %173, %126, %.noexc3.i.i.i, %114
+171:                                              ; preds = %.noexc7.i.i.i, %179, %173, %126, %.noexc4.i.i.i, %114
   %172 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
@@ -2929,9 +2929,9 @@ define hidden { i64, ptr } @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %181, ptr noundef nonnull align 8 dereferenceable(24) @anon.15de0479b8d920f50331e226f9d3dc9b.22, i64 24, i1 false), !noalias !584
   invoke void @_ZN4gpui8executor18ForegroundExecutor5spawn17hb0a4dd6312ea4581E.llvm.13927245002288521540(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %178, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %.noexc6.i.i.i unwind label %171, !noalias !517
+          to label %.noexc7.i.i.i unwind label %171, !noalias !517
 
-.noexc6.i.i.i:                                    ; preds = %179
+.noexc7.i.i.i:                                    ; preds = %179
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !577
   invoke void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17hc71132ae4ffcda59E.llvm.13927245002288521540"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5)
           to label %185 unwind label %171, !noalias !517
@@ -2948,7 +2948,7 @@ define hidden { i64, ptr } @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #31, !noalias !585
   unreachable
 
-185:                                              ; preds = %.noexc6.i.i.i
+185:                                              ; preds = %.noexc7.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !577
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !515
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !515

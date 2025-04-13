@@ -32339,10 +32339,10 @@ define internal fastcc void @_ZN6ide_db13source_change19SourceChangeBuilder6comm
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   store i64 0, ptr %0, align 8
-  %.sroa.09.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.09.sroa.2.0..sroa_idx, align 8
-  %.sroa.09.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %.sroa.09.sroa.3.0..sroa_idx, align 8
+  %.sroa.010.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.010.sroa.2.0..sroa_idx, align 8
+  %.sroa.010.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %.sroa.010.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN9text_edit15TextEditBuilder6finish17hc98931e69c83963cE(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
           to label %62 unwind label %57
 
@@ -32354,8 +32354,8 @@ define internal fastcc void @_ZN6ide_db13source_change19SourceChangeBuilder6comm
 64:                                               ; preds = %62
   %65 = load i64, ptr %12, align 8, !range !1407
   %.not19 = icmp eq i64 %65, -9223372036854775808
-  %or.cond = select i1 %63, i1 %.not19, i1 false
-  br i1 %or.cond, label %70, label %66
+  %or.cond22 = select i1 %63, i1 %.not19, i1 false
+  br i1 %or.cond22, label %70, label %66
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -32390,15 +32390,15 @@ define internal fastcc void @_ZN6ide_db13source_change19SourceChangeBuilder6comm
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde4f94f6378dd19cE.llvm.17272167133303916261.exit.i.i": ; preds = %70
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !7774
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hed67bdc77cdc32baE.llvm.17272167133303916261"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
-          to label %.noexc29 unwind label %57
+          to label %.noexc30 unwind label %57
 
-.noexc29:                                         ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde4f94f6378dd19cE.llvm.17272167133303916261.exit.i.i"
+.noexc30:                                         ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hde4f94f6378dd19cE.llvm.17272167133303916261.exit.i.i"
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %78 = load i64, ptr %77, align 8, !range !1407, !noalias !7774, !noundef !4
   %.not.i.i.i.i = icmp eq i64 %78, 0
   br i1 %.not.i.i.i.i, label %87, label %79
 
-79:                                               ; preds = %.noexc29
+79:                                               ; preds = %.noexc30
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %81 = load i64, ptr %80, align 8, !noalias !7774, !noundef !4
   %82 = icmp eq i64 %81, 0
@@ -32419,7 +32419,7 @@ define internal fastcc void @_ZN6ide_db13source_change19SourceChangeBuilder6comm
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   ret void
 
-87:                                               ; preds = %.noexc29, %79, %83
+87:                                               ; preds = %.noexc30, %79, %83
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !7774
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !7779)
@@ -33665,14 +33665,14 @@ _ZN6ide_db7imports13import_assets20item_for_path_search17h68dec98b6edf4bbeE.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !7949
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hc1271946027e9556E.exit"
 
-"_ZN4core3ptr50drop_in_place$LT$hir_expand..mod_path..ModPath$GT$17h8b55643e61148bd6E.exit.i": ; preds = %43
-  resume { ptr, i32 } %44
-
 50:                                               ; preds = %43
   %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #64, !noalias !7949
   unreachable
+
+"_ZN4core3ptr50drop_in_place$LT$hir_expand..mod_path..ModPath$GT$17h8b55643e61148bd6E.exit.i": ; preds = %43
+  resume { ptr, i32 } %44
 
 52:                                               ; preds = %_ZN6ide_db7imports13import_assets20item_for_path_search17h68dec98b6edf4bbeE.exit, %_ZN6ide_db7imports13import_assets20item_for_path_search17h68dec98b6edf4bbeE.exit.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5)

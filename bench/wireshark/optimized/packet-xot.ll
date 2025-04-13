@@ -142,12 +142,12 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_xot_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %6 = icmp slt i32 %5, 2
-  br i1 %6, label %18, label %7
+  br i1 %6, label %19, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
   %.not = icmp eq i16 %8, 0
-  br i1 %.not, label %9, label %18
+  br i1 %.not, label %9, label %19
 
 9:                                                ; preds = %7
   %10 = tail call ptr @find_or_create_conversation(ptr noundef %1)
@@ -155,27 +155,25 @@ define internal i32 @dissect_xot_tcp_heur(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @conversation_set_dissector(ptr noundef %10, ptr noundef %11)
   %12 = load i8, ptr @x25_desegment, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
-  %.pre.i = load i8, ptr @xot_desegment, align 1, !range !6
-  %14 = trunc nuw i8 %.pre.i to i1
-  %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %16, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %9
-  %.not.i = xor i1 %13, true
-  %.mux.i = select i1 %.not.i, i1 %14, i1 false
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %.mux.i, i32 noundef 4, ptr noundef nonnull @get_xot_pdu_len, ptr noundef nonnull @dissect_xot_pdu, ptr noundef %3)
-  br label %dissect_xot_tcp.exit
+  %14 = load i8, ptr @xot_desegment, align 1, !range !6
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond.i = select i1 %13, i1 %15, i1 false
+  br i1 %or.cond.i, label %17, label %16
 
 16:                                               ; preds = %9
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %15, i32 noundef 4, ptr noundef nonnull @get_xot_pdu_len, ptr noundef nonnull @dissect_xot_pdu, ptr noundef %3)
+  br label %dissect_xot_tcp.exit
+
+17:                                               ; preds = %9
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 4, ptr noundef nonnull @get_xot_pdu_len_mult, ptr noundef nonnull @dissect_xot_mult, ptr noundef %3)
   br label %dissect_xot_tcp.exit
 
-dissect_xot_tcp.exit:                             ; preds = %._crit_edge.i, %16
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  br label %18
+dissect_xot_tcp.exit:                             ; preds = %16, %17
+  %18 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  br label %19
 
-18:                                               ; preds = %4, %7, %dissect_xot_tcp.exit
-  %.0 = phi i32 [ %17, %dissect_xot_tcp.exit ], [ 0, %7 ], [ 0, %4 ]
+19:                                               ; preds = %4, %7, %dissect_xot_tcp.exit
+  %.0 = phi i32 [ %18, %dissect_xot_tcp.exit ], [ 0, %7 ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -186,24 +184,22 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 define internal i32 @dissect_xot_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load i8, ptr @x25_desegment, align 1, !range !6, !noundef !7
   %6 = trunc nuw i8 %5 to i1
-  %.pre = load i8, ptr @xot_desegment, align 1, !range !6
-  %7 = trunc nuw i8 %.pre to i1
-  %8 = select i1 %6, i1 %7, i1 false
-  br i1 %8, label %9, label %._crit_edge
-
-._crit_edge:                                      ; preds = %4
-  %.not = xor i1 %6, true
-  %.mux = select i1 %.not, i1 %7, i1 false
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %.mux, i32 noundef 4, ptr noundef nonnull @get_xot_pdu_len, ptr noundef nonnull @dissect_xot_pdu, ptr noundef %3)
-  br label %10
+  %7 = load i8, ptr @xot_desegment, align 1, !range !6
+  %8 = trunc nuw i8 %7 to i1
+  %or.cond = select i1 %6, i1 %8, i1 false
+  br i1 %or.cond, label %10, label %9
 
 9:                                                ; preds = %4
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 4, ptr noundef nonnull @get_xot_pdu_len_mult, ptr noundef nonnull @dissect_xot_mult, ptr noundef %3)
-  br label %10
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %8, i32 noundef 4, ptr noundef nonnull @get_xot_pdu_len, ptr noundef nonnull @dissect_xot_pdu, ptr noundef %3)
+  br label %11
 
-10:                                               ; preds = %9, %._crit_edge
-  %11 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  ret i32 %11
+10:                                               ; preds = %4
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 4, ptr noundef nonnull @get_xot_pdu_len_mult, ptr noundef nonnull @dissect_xot_mult, ptr noundef %3)
+  br label %11
+
+11:                                               ; preds = %10, %9
+  %12 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  ret i32 %12
 }
 
 ; Function Attrs: null_pointer_is_valid

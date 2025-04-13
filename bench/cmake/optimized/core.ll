@@ -1292,15 +1292,13 @@ define dso_local range(i32 -22, 1) i32 @uv_fileno(ptr noundef readonly captures(
   %4 = load i32, ptr %3, align 8, !tbaa !13
   %switch.tableidx = add i32 %4, -7
   %5 = icmp ult i32 %switch.tableidx, 9
-  br i1 %5, label %switch.hole_check, label %14
-
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 419, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %14
+  %or.cond10 = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond10, label %switch.lookup, label %14
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1318,8 +1316,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %.0, ptr %1, align 4, !tbaa !26
   br label %14
 
-14:                                               ; preds = %switch.hole_check, %2, %switch.lookup, %13
-  %.09 = phi i32 [ 0, %13 ], [ -22, %2 ], [ -9, %switch.lookup ], [ -22, %switch.hole_check ]
+14:                                               ; preds = %2, %switch.lookup, %13
+  %.09 = phi i32 [ 0, %13 ], [ -22, %2 ], [ -9, %switch.lookup ]
   ret i32 %.09
 }
 
@@ -2619,15 +2617,13 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__getsockpeername(pt
   %7 = load i32, ptr %6, align 8, !tbaa !13
   %switch.tableidx = add i32 %7, -7
   %8 = icmp ult i32 %switch.tableidx, 9
-  br i1 %8, label %switch.hole_check, label %uv_fileno.exit.thread
-
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 419, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %uv_fileno.exit.thread
+  %or.cond = select i1 %8, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %uv_fileno.exit.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
   %9 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -2659,8 +2655,8 @@ uv_fileno.exit:                                   ; preds = %switch.lookup
   store i32 %23, ptr %3, align 4, !tbaa !26
   br label %uv_fileno.exit.thread
 
-uv_fileno.exit.thread:                            ; preds = %switch.hole_check, %4, %switch.lookup, %22, %18
-  %.0 = phi i32 [ %21, %18 ], [ 0, %22 ], [ -9, %switch.lookup ], [ -22, %4 ], [ -22, %switch.hole_check ]
+uv_fileno.exit.thread:                            ; preds = %4, %switch.lookup, %22, %18
+  %.0 = phi i32 [ %21, %18 ], [ 0, %22 ], [ -9, %switch.lookup ], [ -22, %4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %.0
 }

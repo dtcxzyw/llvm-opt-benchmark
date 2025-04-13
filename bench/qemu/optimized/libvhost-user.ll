@@ -946,425 +946,425 @@ define dso_local noundef zeroext i1 @vu_dispatch(ptr noundef %0) local_unnamed_a
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
   %7 = call zeroext i1 %5(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull %3) #21
-  br i1 %7, label %8, label %164
+  br i1 %7, label %8, label %165
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
+  %11 = and i32 %10, 8
+  %12 = icmp eq i32 %11, 0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #21
   store i32 0, ptr %2, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 316
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 316
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %15 = load ptr, ptr %14, align 8
-  %.not76.i = icmp eq ptr %15, null
-  br i1 %.not76.i, label %21, label %16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %17 = load ptr, ptr %16, align 8
+  %.not76.i = icmp eq ptr %17, null
+  br i1 %.not76.i, label %23, label %18
 
-16:                                               ; preds = %8
-  %17 = call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %2) #21
-  %.not77.i = icmp eq i32 %17, 0
-  br i1 %.not77.i, label %21, label %18
+18:                                               ; preds = %8
+  %19 = call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %2) #21
+  %.not77.i = icmp eq i32 %19, 0
+  br i1 %.not77.i, label %23, label %20
 
-18:                                               ; preds = %16
-  %19 = load i32, ptr %2, align 4
-  %20 = icmp ne i32 %19, 0
+20:                                               ; preds = %18
+  %21 = load i32, ptr %2, align 4
+  %22 = icmp ne i32 %21, 0
   br label %vu_process_message.exit
 
-21:                                               ; preds = %16, %8
-  %22 = load i32, ptr %3, align 4
-  switch i32 %22, label %142 [
-    i32 1, label %23
-    i32 2, label %32
-    i32 15, label %34
-    i32 16, label %35
+23:                                               ; preds = %18, %8
+  %24 = load i32, ptr %3, align 4
+  switch i32 %24, label %144 [
+    i32 1, label %25
+    i32 2, label %34
+    i32 15, label %36
+    i32 16, label %37
     i32 3, label %vu_process_message.exit
-    i32 4, label %37
-    i32 5, label %47
-    i32 6, label %48
-    i32 7, label %49
-    i32 8, label %50
-    i32 9, label %56
-    i32 10, label %57
-    i32 11, label %67
-    i32 12, label %68
-    i32 13, label %69
-    i32 14, label %71
-    i32 17, label %72
-    i32 18, label %77
-    i32 21, label %91
-    i32 24, label %92
-    i32 25, label %103
-    i32 0, label %104
-    i32 28, label %105
-    i32 29, label %106
-    i32 30, label %114
-    i32 31, label %123
-    i32 32, label %124
-    i32 35, label %125
-    i32 36, label %127
-    i32 37, label %130
-    i32 38, label %132
-    i32 41, label %133
+    i32 4, label %39
+    i32 5, label %49
+    i32 6, label %50
+    i32 7, label %51
+    i32 8, label %52
+    i32 9, label %58
+    i32 10, label %59
+    i32 11, label %69
+    i32 12, label %70
+    i32 13, label %71
+    i32 14, label %73
+    i32 17, label %74
+    i32 18, label %79
+    i32 21, label %93
+    i32 24, label %94
+    i32 25, label %105
+    i32 0, label %106
+    i32 28, label %107
+    i32 29, label %108
+    i32 30, label %116
+    i32 31, label %125
+    i32 32, label %126
+    i32 35, label %127
+    i32 36, label %129
+    i32 37, label %132
+    i32 38, label %134
+    i32 41, label %135
   ]
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i64 6257901568, ptr %24, align 4
-  %25 = load ptr, ptr %12, align 8
-  %26 = load ptr, ptr %25, align 8
-  %.not.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i, label %vu_get_features_exec.exit.i, label %27
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i64 6257901568, ptr %26, align 4
+  %27 = load ptr, ptr %14, align 8
+  %28 = load ptr, ptr %27, align 8
+  %.not.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i, label %vu_get_features_exec.exit.i, label %29
 
-27:                                               ; preds = %23
-  %28 = call i64 %26(ptr noundef nonnull %0) #21
-  %29 = load i64, ptr %24, align 4
-  %30 = or i64 %29, %28
-  store i64 %30, ptr %24, align 4
+29:                                               ; preds = %25
+  %30 = call i64 %28(ptr noundef nonnull %0) #21
+  %31 = load i64, ptr %26, align 4
+  %32 = or i64 %31, %30
+  store i64 %32, ptr %26, align 4
   br label %vu_get_features_exec.exit.i
 
-vu_get_features_exec.exit.i:                      ; preds = %27, %23
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 8, ptr %31, align 4
-  store i32 0, ptr %11, align 4
+vu_get_features_exec.exit.i:                      ; preds = %29, %25
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 8, ptr %33, align 4
+  store i32 0, ptr %13, align 4
   br label %.thread
 
-32:                                               ; preds = %21
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.val.i = load i64, ptr %33, align 4
+34:                                               ; preds = %23
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.val.i = load i64, ptr %35, align 4
   call fastcc void @vu_set_features_exec(ptr noundef nonnull %0, i64 %.val.i)
   br label %vu_process_message.exit
 
-34:                                               ; preds = %21
+36:                                               ; preds = %23
   call fastcc void @vu_get_protocol_features_exec(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %.thread
 
-35:                                               ; preds = %21
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.val78.i = load i64, ptr %36, align 4
+37:                                               ; preds = %23
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.val78.i = load i64, ptr %38, align 4
   call fastcc void @vu_set_protocol_features_exec(ptr noundef nonnull %0, i64 %.val78.i)
   br label %vu_process_message.exit
 
-37:                                               ; preds = %21
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %39 = load i16, ptr %38, align 2
-  %.not.i.i.i = icmp eq i16 %39, 0
+39:                                               ; preds = %23
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  %41 = load i16, ptr %40, align 2
+  %.not.i.i.i = icmp eq i16 %41, 0
   br i1 %.not.i.i.i, label %vu_process_message.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %41
+.lr.ph.i.i.i:                                     ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %43
 
-41:                                               ; preds = %41, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %41 ]
-  %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr inbounds nuw %struct.VuVirtq, ptr %42, i64 %indvars.iv.i.i.i, i32 16
-  store i32 0, ptr %43, align 4
+43:                                               ; preds = %43, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %43 ]
+  %44 = load ptr, ptr %42, align 8
+  %45 = getelementptr inbounds nuw %struct.VuVirtq, ptr %44, i64 %indvars.iv.i.i.i, i32 16
+  store i32 0, ptr %45, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %44 = load i16, ptr %38, align 2
-  %45 = zext i16 %44 to i64
-  %46 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %45
-  br i1 %46, label %41, label %vu_process_message.exit
+  %46 = load i16, ptr %40, align 2
+  %47 = zext i16 %46 to i64
+  %48 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %47
+  br i1 %48, label %43, label %vu_process_message.exit
 
-47:                                               ; preds = %21
+49:                                               ; preds = %23
   call fastcc void @vu_set_mem_table_exec(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %vu_process_message.exit
 
-48:                                               ; preds = %21
+50:                                               ; preds = %23
   call fastcc void @vu_set_log_base_exec(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %.thread
 
-49:                                               ; preds = %21
+51:                                               ; preds = %23
   call fastcc void @vu_set_log_fd_exec(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %vu_process_message.exit
 
-50:                                               ; preds = %21
-  %51 = getelementptr i8, ptr %0, i64 16
-  %.val79.i = load ptr, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.val80.i = load i32, ptr %52, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.val81.i = load i32, ptr %53, align 4
-  %54 = zext i32 %.val80.i to i64
-  %55 = getelementptr inbounds nuw %struct.VuVirtq, ptr %.val79.i, i64 %54
-  store i32 %.val81.i, ptr %55, align 8
+52:                                               ; preds = %23
+  %53 = getelementptr i8, ptr %0, i64 16
+  %.val79.i = load ptr, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.val80.i = load i32, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.val81.i = load i32, ptr %55, align 4
+  %56 = zext i32 %.val80.i to i64
+  %57 = getelementptr inbounds nuw %struct.VuVirtq, ptr %.val79.i, i64 %56
+  store i32 %.val81.i, ptr %57, align 8
   br label %vu_process_message.exit
 
-56:                                               ; preds = %21
+58:                                               ; preds = %23
   call fastcc void @vu_set_vring_addr_exec(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %vu_process_message.exit
 
-57:                                               ; preds = %21
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.val82.i = load i32, ptr %58, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.val83.i = load i32, ptr %59, align 4
-  %60 = trunc i32 %.val83.i to i16
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = zext i32 %.val82.i to i64
-  %64 = getelementptr inbounds nuw %struct.VuVirtq, ptr %62, i64 %63, i32 5
-  store i16 %60, ptr %64, align 8
-  %65 = load ptr, ptr %61, align 8
-  %66 = getelementptr inbounds nuw %struct.VuVirtq, ptr %65, i64 %63, i32 6
-  store i16 %60, ptr %66, align 2
+59:                                               ; preds = %23
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.val82.i = load i32, ptr %60, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.val83.i = load i32, ptr %61, align 4
+  %62 = trunc i32 %.val83.i to i16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = zext i32 %.val82.i to i64
+  %66 = getelementptr inbounds nuw %struct.VuVirtq, ptr %64, i64 %65, i32 5
+  store i16 %62, ptr %66, align 8
+  %67 = load ptr, ptr %63, align 8
+  %68 = getelementptr inbounds nuw %struct.VuVirtq, ptr %67, i64 %65, i32 6
+  store i16 %62, ptr %68, align 2
   br label %vu_process_message.exit
 
-67:                                               ; preds = %21
+69:                                               ; preds = %23
   call fastcc void @vu_get_vring_base_exec(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %.thread
 
-68:                                               ; preds = %21
+70:                                               ; preds = %23
   call fastcc void @vu_set_vring_kick_exec(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %vu_process_message.exit
 
-69:                                               ; preds = %21
-  %70 = call fastcc zeroext i1 @vu_set_vring_call_exec(ptr noundef nonnull %0, ptr noundef nonnull %3)
+71:                                               ; preds = %23
+  %72 = call fastcc zeroext i1 @vu_set_vring_call_exec(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %vu_process_message.exit
 
-71:                                               ; preds = %21
+73:                                               ; preds = %23
   call fastcc void @vu_set_vring_err_exec(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %vu_process_message.exit
 
-72:                                               ; preds = %21
-  %73 = getelementptr i8, ptr %0, i64 138
-  %.val84.i = load i16, ptr %73, align 2
-  %74 = zext i16 %.val84.i to i64
+74:                                               ; preds = %23
+  %75 = getelementptr i8, ptr %0, i64 138
+  %.val84.i = load i16, ptr %75, align 2
+  %76 = zext i16 %.val84.i to i64
   store i32 0, ptr %9, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 8, ptr %75, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i64 %74, ptr %76, align 4
-  store i32 0, ptr %11, align 4
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 8, ptr %77, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i64 %76, ptr %78, align 4
+  store i32 0, ptr %13, align 4
   br label %.thread
 
-77:                                               ; preds = %21
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 138
-  %81 = load i16, ptr %80, align 2
-  %82 = zext i16 %81 to i32
-  %.not.i = icmp ult i32 %79, %82
-  br i1 %.not.i, label %84, label %83
+79:                                               ; preds = %23
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %81 = load i32, ptr %80, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 138
+  %83 = load i16, ptr %82, align 2
+  %84 = zext i16 %83 to i32
+  %.not.i = icmp ult i32 %81, %84
+  br i1 %.not.i, label %86, label %85
 
-83:                                               ; preds = %77
-  call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, i32 noundef %79)
+85:                                               ; preds = %79
+  call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, i32 noundef %81)
   br label %vu_process_message.exit
 
-84:                                               ; preds = %77
-  %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %88 = load ptr, ptr %87, align 8
-  %89 = zext nneg i32 %79 to i64
-  %90 = getelementptr inbounds nuw %struct.VuVirtq, ptr %88, i64 %89, i32 16
-  store i32 %86, ptr %90, align 4
+86:                                               ; preds = %79
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %88 = load i32, ptr %87, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %90 = load ptr, ptr %89, align 8
+  %91 = zext nneg i32 %81 to i64
+  %92 = getelementptr inbounds nuw %struct.VuVirtq, ptr %90, i64 %91, i32 16
+  store i32 %88, ptr %92, align 4
   br label %vu_process_message.exit
 
-91:                                               ; preds = %21
+93:                                               ; preds = %23
   call fastcc void @vu_set_backend_req_fd(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %vu_process_message.exit
 
-92:                                               ; preds = %21
-  %93 = load ptr, ptr %12, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
-  %95 = load ptr, ptr %94, align 8
-  %.not.i86.i = icmp eq ptr %95, null
-  br i1 %.not.i86.i, label %.critedge.i.i, label %96
+94:                                               ; preds = %23
+  %95 = load ptr, ptr %14, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 56
+  %97 = load ptr, ptr %96, align 8
+  %.not.i86.i = icmp eq ptr %97, null
+  br i1 %.not.i86.i, label %.critedge.i.i, label %98
 
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load i32, ptr %98, align 4
-  %100 = call i32 %95(ptr noundef nonnull %0, ptr noundef nonnull %97, i32 noundef %99) #21
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %.thread, label %.critedge.i.i
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %101 = load i32, ptr %100, align 4
+  %102 = call i32 %97(ptr noundef nonnull %0, ptr noundef nonnull %99, i32 noundef %101) #21
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %.thread, label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %96, %92
-  %102 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %102, align 4
+.critedge.i.i:                                    ; preds = %98, %94
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %104, align 4
   br label %.thread
 
-103:                                              ; preds = %21
+105:                                              ; preds = %23
   call fastcc void @vu_set_config(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %vu_process_message.exit
 
-104:                                              ; preds = %21
+106:                                              ; preds = %23
   call void @exit(i32 noundef 0) #23
   unreachable
 
-105:                                              ; preds = %21
+107:                                              ; preds = %23
   call fastcc void @vu_set_postcopy_advise(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %.thread
 
-106:                                              ; preds = %21
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %108 = load i32, ptr %107, align 4
-  %.not.i87.i = icmp eq i32 %108, 0
-  br i1 %.not.i87.i, label %110, label %109
+108:                                              ; preds = %23
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %110 = load i32, ptr %109, align 4
+  %.not.i87.i = icmp eq i32 %110, 0
+  br i1 %.not.i87.i, label %112, label %111
 
-109:                                              ; preds = %106
+111:                                              ; preds = %108
   call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.84)
   br label %vu_set_postcopy_listen.exit.i
 
-110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i8 1, ptr %111, align 4
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  store i8 1, ptr %113, align 4
   br label %vu_set_postcopy_listen.exit.i
 
-vu_set_postcopy_listen.exit.i:                    ; preds = %110, %109
-  %.sink.i.i = phi i64 [ 0, %110 ], [ -1, %109 ]
+vu_set_postcopy_listen.exit.i:                    ; preds = %112, %111
+  %.sink.i.i = phi i64 [ 0, %112 ], [ -1, %111 ]
   store i32 0, ptr %9, align 4
-  %112 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 8, ptr %112, align 4
-  %113 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i64 %.sink.i.i, ptr %113, align 4
-  store i32 0, ptr %11, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 8, ptr %114, align 4
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i64 %.sink.i.i, ptr %115, align 4
+  store i32 0, ptr %13, align 4
   br label %.thread
 
-114:                                              ; preds = %21
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i8 0, ptr %115, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %117 = load i32, ptr %116, align 8
-  %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %119, label %vu_set_postcopy_end.exit.i
+116:                                              ; preds = %23
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  store i8 0, ptr %117, align 4
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %119 = load i32, ptr %118, align 8
+  %120 = icmp sgt i32 %119, 0
+  br i1 %120, label %121, label %vu_set_postcopy_end.exit.i
 
-119:                                              ; preds = %114
-  %120 = call i32 @close(i32 noundef %117) #21
-  store i32 -1, ptr %116, align 8
+121:                                              ; preds = %116
+  %122 = call i32 @close(i32 noundef %119) #21
+  store i32 -1, ptr %118, align 8
   br label %vu_set_postcopy_end.exit.i
 
-vu_set_postcopy_end.exit.i:                       ; preds = %119, %114
+vu_set_postcopy_end.exit.i:                       ; preds = %121, %116
   store i32 0, ptr %9, align 4
-  %121 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 8, ptr %121, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i64 0, ptr %122, align 4
-  store i32 0, ptr %11, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 8, ptr %123, align 4
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i64 0, ptr %124, align 4
+  store i32 0, ptr %13, align 4
   br label %.thread
 
-123:                                              ; preds = %21
+125:                                              ; preds = %23
   call fastcc void @vu_get_inflight_fd(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %.thread
 
-124:                                              ; preds = %21
+126:                                              ; preds = %23
   call fastcc void @vu_set_inflight_fd(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %vu_process_message.exit
 
-125:                                              ; preds = %21
-  %126 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.val85.i = load i32, ptr %126, align 4
+127:                                              ; preds = %23
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.val85.i = load i32, ptr %128, align 4
   call fastcc void @vu_handle_vring_kick(ptr noundef nonnull %0, i32 %.val85.i)
   br label %vu_process_message.exit
 
-127:                                              ; preds = %21
+129:                                              ; preds = %23
   store i32 0, ptr %9, align 4
-  %128 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 8, ptr %128, align 4
-  %129 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i64 509, ptr %129, align 4
-  store i32 0, ptr %11, align 4
+  %130 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 8, ptr %130, align 4
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i64 509, ptr %131, align 4
+  store i32 0, ptr %13, align 4
   br label %.thread
 
-130:                                              ; preds = %21
-  %131 = call fastcc zeroext i1 @vu_add_mem_reg(ptr noundef nonnull %0, ptr noundef nonnull %3)
+132:                                              ; preds = %23
+  %133 = call fastcc zeroext i1 @vu_add_mem_reg(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %vu_process_message.exit
 
-132:                                              ; preds = %21
+134:                                              ; preds = %23
   call fastcc void @vu_rem_mem_reg(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %vu_process_message.exit
 
-133:                                              ; preds = %21
-  %134 = load ptr, ptr %12, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 72
-  %136 = load ptr, ptr %135, align 8
-  %.not.i88.i = icmp eq ptr %136, null
-  br i1 %.not.i88.i, label %vu_get_shared_object.exit.i, label %137
+135:                                              ; preds = %23
+  %136 = load ptr, ptr %14, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 72
+  %138 = load ptr, ptr %137, align 8
+  %.not.i88.i = icmp eq ptr %138, null
+  br i1 %.not.i88.i, label %vu_get_shared_object.exit.i, label %139
 
-137:                                              ; preds = %133
-  %138 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %139 = call i32 %136(ptr noundef nonnull %0, ptr noundef nonnull %138) #21
-  %.not11.i.i = icmp eq i32 %139, -1
-  br i1 %.not11.i.i, label %vu_get_shared_object.exit.i, label %140
+139:                                              ; preds = %135
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %141 = call i32 %138(ptr noundef nonnull %0, ptr noundef nonnull %140) #21
+  %.not11.i.i = icmp eq i32 %141, -1
+  br i1 %.not11.i.i, label %vu_get_shared_object.exit.i, label %142
 
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds nuw i8, ptr %3, i64 284
-  store i32 %139, ptr %141, align 4
+142:                                              ; preds = %139
+  %143 = getelementptr inbounds nuw i8, ptr %3, i64 284
+  store i32 %141, ptr %143, align 4
   br label %vu_get_shared_object.exit.i
 
-vu_get_shared_object.exit.i:                      ; preds = %140, %137, %133
-  %.09.i.i = phi i32 [ 1, %140 ], [ 0, %137 ], [ 0, %133 ]
-  store i32 %.09.i.i, ptr %11, align 4
+vu_get_shared_object.exit.i:                      ; preds = %142, %139, %135
+  %.09.i.i = phi i32 [ 1, %142 ], [ 0, %139 ], [ 0, %135 ]
+  store i32 %.09.i.i, ptr %13, align 4
   br label %.thread
 
-142:                                              ; preds = %21
-  %143 = load i32, ptr %11, align 4
-  %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %.lr.ph.i.i, label %vmsg_close_fds.exit.i
+144:                                              ; preds = %23
+  %145 = load i32, ptr %13, align 4
+  %146 = icmp sgt i32 %145, 0
+  br i1 %146, label %.lr.ph.i.i, label %vmsg_close_fds.exit.i
 
-.lr.ph.i.i:                                       ; preds = %142
-  %145 = getelementptr inbounds nuw i8, ptr %3, i64 284
-  br label %146
+.lr.ph.i.i:                                       ; preds = %144
+  %147 = getelementptr inbounds nuw i8, ptr %3, i64 284
+  br label %148
 
-146:                                              ; preds = %146, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %146 ]
-  %147 = getelementptr inbounds nuw [8 x i32], ptr %145, i64 0, i64 %indvars.iv.i.i
-  %148 = load i32, ptr %147, align 4
-  %149 = call i32 @close(i32 noundef %148) #21
+148:                                              ; preds = %148, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %148 ]
+  %149 = getelementptr inbounds nuw [8 x i32], ptr %147, i64 0, i64 %indvars.iv.i.i
+  %150 = load i32, ptr %149, align 4
+  %151 = call i32 @close(i32 noundef %150) #21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %150 = load i32, ptr %11, align 4
-  %151 = sext i32 %150 to i64
-  %152 = icmp slt i64 %indvars.iv.next.i.i, %151
-  br i1 %152, label %146, label %vmsg_close_fds.exit.loopexit.i
+  %152 = load i32, ptr %13, align 4
+  %153 = sext i32 %152 to i64
+  %154 = icmp slt i64 %indvars.iv.next.i.i, %153
+  br i1 %154, label %148, label %vmsg_close_fds.exit.loopexit.i
 
-vmsg_close_fds.exit.loopexit.i:                   ; preds = %146
+vmsg_close_fds.exit.loopexit.i:                   ; preds = %148
   %.pre.i = load i32, ptr %3, align 4
   br label %vmsg_close_fds.exit.i
 
-vmsg_close_fds.exit.i:                            ; preds = %vmsg_close_fds.exit.loopexit.i, %142
-  %153 = phi i32 [ %.pre.i, %vmsg_close_fds.exit.loopexit.i ], [ %22, %142 ]
-  call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.59, i32 noundef %153)
+vmsg_close_fds.exit.i:                            ; preds = %vmsg_close_fds.exit.loopexit.i, %144
+  %155 = phi i32 [ %.pre.i, %vmsg_close_fds.exit.loopexit.i ], [ %24, %144 ]
+  call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.59, i32 noundef %155)
   br label %vu_process_message.exit
 
-.thread:                                          ; preds = %.critedge.i.i, %96, %vu_get_features_exec.exit.i, %34, %48, %67, %72, %105, %vu_set_postcopy_listen.exit.i, %vu_set_postcopy_end.exit.i, %123, %127, %vu_get_shared_object.exit.i
+.thread:                                          ; preds = %.critedge.i.i, %98, %vu_get_features_exec.exit.i, %36, %50, %69, %74, %107, %vu_set_postcopy_listen.exit.i, %vu_set_postcopy_end.exit.i, %125, %129, %vu_get_shared_object.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #21
-  br label %158
+  br label %159
 
-vu_process_message.exit:                          ; preds = %41, %84, %83, %18, %21, %32, %35, %37, %47, %49, %50, %56, %57, %68, %69, %71, %91, %103, %124, %125, %130, %132, %vmsg_close_fds.exit.i
-  %.074.i = phi i1 [ %20, %18 ], [ false, %vmsg_close_fds.exit.i ], [ false, %132 ], [ %131, %130 ], [ false, %125 ], [ false, %124 ], [ false, %103 ], [ false, %91 ], [ false, %71 ], [ %70, %69 ], [ false, %68 ], [ false, %57 ], [ false, %56 ], [ false, %50 ], [ false, %49 ], [ false, %47 ], [ false, %35 ], [ false, %32 ], [ false, %21 ], [ false, %37 ], [ false, %83 ], [ false, %84 ], [ false, %41 ]
+vu_process_message.exit:                          ; preds = %43, %86, %85, %20, %23, %34, %37, %39, %49, %51, %52, %58, %59, %70, %71, %73, %93, %105, %126, %127, %132, %134, %vmsg_close_fds.exit.i
+  %.074.i = phi i1 [ %22, %20 ], [ false, %vmsg_close_fds.exit.i ], [ false, %134 ], [ %133, %132 ], [ false, %127 ], [ false, %126 ], [ false, %105 ], [ false, %93 ], [ false, %73 ], [ %72, %71 ], [ false, %70 ], [ false, %59 ], [ false, %58 ], [ false, %52 ], [ false, %51 ], [ false, %49 ], [ false, %37 ], [ false, %34 ], [ false, %23 ], [ false, %39 ], [ false, %85 ], [ false, %86 ], [ false, %43 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #21
-  %154 = and i32 %10, 8
-  %.not = icmp eq i32 %154, 0
-  %or.cond = select i1 %.074.i, i1 true, i1 %.not
-  br i1 %or.cond, label %157, label %.critedge
+  %or.cond.not = select i1 %.074.i, i1 true, i1 %12
+  br i1 %or.cond.not, label %158, label %.critedge
 
 .critedge:                                        ; preds = %vu_process_message.exit
   store i32 0, ptr %9, align 4
-  %155 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 8, ptr %155, align 4
-  %156 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i64 0, ptr %156, align 4
-  store i32 0, ptr %11, align 4
-  br label %158
+  %156 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 8, ptr %156, align 4
+  %157 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i64 0, ptr %157, align 4
+  store i32 0, ptr %13, align 4
+  br label %159
 
-157:                                              ; preds = %vu_process_message.exit
-  br i1 %.074.i, label %158, label %164
+158:                                              ; preds = %vu_process_message.exit
+  br i1 %.074.i, label %159, label %165
 
-158:                                              ; preds = %.thread, %.critedge, %157
-  %159 = load i32, ptr %0, align 8
-  %160 = load i32, ptr %9, align 4
-  %161 = and i32 %160, -8
-  %162 = or disjoint i32 %161, 5
-  store i32 %162, ptr %9, align 4
-  %163 = call fastcc noundef zeroext i1 @vu_message_write(ptr noundef nonnull %0, i32 noundef %159, ptr noundef nonnull %3)
-  br label %164
+159:                                              ; preds = %.thread, %.critedge, %158
+  %160 = load i32, ptr %0, align 8
+  %161 = load i32, ptr %9, align 4
+  %162 = and i32 %161, -8
+  %163 = or disjoint i32 %162, 5
+  store i32 %163, ptr %9, align 4
+  %164 = call fastcc noundef zeroext i1 @vu_message_write(ptr noundef nonnull %0, i32 noundef %160, ptr noundef nonnull %3)
+  br label %165
 
-164:                                              ; preds = %158, %157, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %157 ], [ %163, %158 ]
-  %165 = getelementptr inbounds nuw i8, ptr %3, i64 320
-  %166 = load ptr, ptr %165, align 4
-  call void @free(ptr noundef %166) #21
+165:                                              ; preds = %159, %158, %1
+  %.0 = phi i1 [ false, %1 ], [ true, %158 ], [ %164, %159 ]
+  %166 = getelementptr inbounds nuw i8, ptr %3, i64 320
+  %167 = load ptr, ptr %166, align 4
+  call void @free(ptr noundef %167) #21
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %3) #21
   ret i1 %.0
 }

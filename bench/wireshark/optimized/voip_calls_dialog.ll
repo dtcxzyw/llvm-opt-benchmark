@@ -5494,9 +5494,9 @@ define void @_ZN15VoipCallsDialog13updateWidgetsEv(ptr noundef align 8 dereferen
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
-  %.not8.not = icmp ne ptr %12, null
-  %brmerge.not = and i1 %7, %.not8.not
-  br i1 %brmerge.not, label %13, label %.thread
+  %.not9 = icmp ne ptr %12, null
+  %or.cond = and i1 %7, %.not9
+  br i1 %or.cond, label %13, label %.thread
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5505,7 +5505,7 @@ define void @_ZN15VoipCallsDialog13updateWidgetsEv(ptr noundef align 8 dereferen
   %17 = xor i1 %16, true
   br label %.thread
 
-.thread:                                          ; preds = %1, %10, %13
+.thread:                                          ; preds = %1, %13, %10
   %18 = phi i1 [ false, %10 ], [ %17, %13 ], [ false, %1 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %20 = load ptr, ptr %19, align 8

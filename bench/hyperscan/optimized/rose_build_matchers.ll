@@ -6730,8 +6730,8 @@ define internal fastcc void @_ZN3ue2L14addLiteralMaskERKNS_15rose_literal_idERSt
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %9, i64 8)
-  %.not62 = icmp ne i64 %9, 0
-  br i1 %.not62, label %.lr.ph.i, label %_ZN3ue220mixed_sensitivity_inINS_11ue2_literal14const_iteratorEEEbT_S3_.exit
+  %.not63 = icmp ne i64 %9, 0
+  br i1 %.not63, label %.lr.ph.i, label %_ZN3ue220mixed_sensitivity_inINS_11ue2_literal14const_iteratorEEEbT_S3_.exit
 
 .lr.ph.i:                                         ; preds = %3
   %10 = sub i64 %9, %.sroa.speculated
@@ -6775,10 +6775,10 @@ _ZN3ue220mixed_sensitivity_inINS_11ue2_literal14const_iteratorEEEbT_S3_.exit: ; 
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = icmp ne ptr %29, %31
-  %brmerge = or i1 %.02.lcssa.i, %32
-  br i1 %brmerge, label %.preheader64, label %106
+  %or.cond = or i1 %.02.lcssa.i, %32
+  br i1 %or.cond, label %.preheader65, label %106
 
-.preheader64:                                     ; preds = %_ZN3ue220mixed_sensitivity_inINS_11ue2_literal14const_iteratorEEEbT_S3_.exit
+.preheader65:                                     ; preds = %_ZN3ue220mixed_sensitivity_inINS_11ue2_literal14const_iteratorEEEbT_S3_.exit
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %1, align 8
@@ -6788,8 +6788,8 @@ _ZN3ue220mixed_sensitivity_inINS_11ue2_literal14const_iteratorEEEbT_S3_.exit: ; 
   %39 = icmp ult i64 %38, 8
   br i1 %39, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader64, %.lr.ph
-  %40 = phi ptr [ %45, %.lr.ph ], [ %35, %.preheader64 ]
+.lr.ph:                                           ; preds = %.preheader65, %.lr.ph
+  %40 = phi ptr [ %45, %.lr.ph ], [ %35, %.preheader65 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #26
   store i8 0, ptr %4, align 1
   %41 = call ptr @_ZNSt6vectorIhSaIhEE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKhS1_EEOh(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %40, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -6809,32 +6809,32 @@ _ZN3ue220mixed_sensitivity_inINS_11ue2_literal14const_iteratorEEEbT_S3_.exit: ; 
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %28, align 8
-  %.pre72 = load ptr, ptr %30, align 8
+  %.pre73 = load ptr, ptr %30, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader64
-  %50 = phi ptr [ %.pre72, %._crit_edge.loopexit ], [ %31, %.preheader64 ]
-  %51 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %29, %.preheader64 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader65
+  %50 = phi ptr [ %.pre73, %._crit_edge.loopexit ], [ %31, %.preheader65 ]
+  %51 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %29, %.preheader65 ]
   %52 = icmp eq ptr %51, %50
-  br i1 %52, label %.loopexit63, label %.lr.ph66
+  br i1 %52, label %.loopexit64, label %.lr.ph67
 
-.lr.ph66:                                         ; preds = %._crit_edge
+.lr.ph67:                                         ; preds = %._crit_edge
   %53 = ptrtoint ptr %50 to i64
   %54 = ptrtoint ptr %51 to i64
   %55 = sub i64 %53, %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %57
 
-57:                                               ; preds = %.lr.ph66, %57
-  %58 = phi i64 [ %55, %.lr.ph66 ], [ %81, %57 ]
-  %59 = phi ptr [ %51, %.lr.ph66 ], [ %78, %57 ]
-  %.065 = phi i64 [ 0, %.lr.ph66 ], [ %76, %57 ]
+57:                                               ; preds = %.lr.ph67, %57
+  %58 = phi i64 [ %55, %.lr.ph67 ], [ %81, %57 ]
+  %59 = phi ptr [ %51, %.lr.ph67 ], [ %78, %57 ]
+  %.066 = phi i64 [ 0, %.lr.ph67 ], [ %76, %57 ]
   %60 = load ptr, ptr %33, align 8
   %61 = load ptr, ptr %1, align 8
   %62 = ptrtoint ptr %60 to i64
   %63 = ptrtoint ptr %61 to i64
   %64 = sub i64 %62, %63
-  %65 = xor i64 %.065, -1
+  %65 = xor i64 %.066, -1
   %66 = add i64 %64, %65
   %67 = add i64 %58, %65
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 %67
@@ -6847,29 +6847,29 @@ _ZN3ue220mixed_sensitivity_inINS_11ue2_literal14const_iteratorEEEbT_S3_.exit: ; 
   %74 = load ptr, ptr %2, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 %66
   store i8 %73, ptr %75, align 1
-  %76 = add nuw i64 %.065, 1
+  %76 = add nuw i64 %.066, 1
   %77 = load ptr, ptr %30, align 8
   %78 = load ptr, ptr %28, align 8
   %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
   %82 = icmp ult i64 %76, %81
-  br i1 %82, label %57, label %.loopexit63, !llvm.loop !290
+  br i1 %82, label %57, label %.loopexit64, !llvm.loop !290
 
-.loopexit63:                                      ; preds = %57, %._crit_edge
-  %brmerge73.not = and i1 %.not62, %.02.lcssa.i
-  br i1 %brmerge73.not, label %.lr.ph70, label %.loopexit
+.loopexit64:                                      ; preds = %57, %._crit_edge
+  %brmerge.not = and i1 %.not63, %.02.lcssa.i
+  br i1 %brmerge.not, label %.lr.ph71, label %.loopexit
 
-.lr.ph70:                                         ; preds = %.loopexit63
+.lr.ph71:                                         ; preds = %.loopexit64
   %83 = load i64, ptr %8, align 8, !noalias !291
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %85
 
-85:                                               ; preds = %.lr.ph70, %104
-  %.04568 = phi i64 [ 0, %.lr.ph70 ], [ %105, %104 ]
-  %.sroa.4.067 = phi i64 [ %83, %.lr.ph70 ], [ %86, %104 ]
+85:                                               ; preds = %.lr.ph71, %104
+  %.04669 = phi i64 [ 0, %.lr.ph71 ], [ %105, %104 ]
+  %.sroa.4.068 = phi i64 [ %83, %.lr.ph71 ], [ %86, %104 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #26
-  %86 = add i64 %.sroa.4.067, -1
+  %86 = add i64 %.sroa.4.068, -1
   %87 = load ptr, ptr %0, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 %86
   %89 = load i8, ptr %88, align 1
@@ -6889,7 +6889,7 @@ _ZN3ue220mixed_sensitivity_inINS_11ue2_literal14const_iteratorEEEbT_S3_.exit: ; 
   br i1 %97, label %104, label %98
 
 98:                                               ; preds = %85
-  %99 = sub nuw nsw i64 7, %.04568
+  %99 = sub nuw nsw i64 7, %.04669
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
   call void @_ZNK3ue211ue2_literal4elemcvNS_9CharReachEEv(ptr dead_on_unwind nonnull writable sret(%"class.ue2::CharReach") align 8 %7, ptr noundef nonnull align 1 dereferenceable(2) %6)
   %100 = load ptr, ptr %1, align 8
@@ -6902,11 +6902,11 @@ _ZN3ue220mixed_sensitivity_inINS_11ue2_literal14const_iteratorEEEbT_S3_.exit: ; 
 
 104:                                              ; preds = %98, %85
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #26
-  %105 = add nuw nsw i64 %.04568, 1
+  %105 = add nuw nsw i64 %.04669, 1
   %exitcond.not = icmp eq i64 %105, %.sroa.speculated
   br i1 %exitcond.not, label %.loopexit, label %85, !llvm.loop !294
 
-.loopexit:                                        ; preds = %104, %.loopexit63
+.loopexit:                                        ; preds = %104, %.loopexit64
   call void @_ZN3ue220normaliseLiteralMaskERKNS_11ue2_literalERSt6vectorIhSaIhEES6_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %106
 

@@ -154,8 +154,8 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   tail call void @libpqrcv_check_conninfo(ptr noundef %0, i1 noundef zeroext %3)
   store ptr @.str.2, ptr %7, align 16
   store ptr %0, ptr %8, align 16
-  %.sink63.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink63.sroa.gep64 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink64.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink64.sroa.gep65 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br i1 %1, label %10, label %20
 
 10:                                               ; preds = %6
@@ -181,20 +181,20 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %15
-  %.sink63.sroa.phi = phi ptr [ %.sink63.sroa.gep, %15 ], [ %.sink63.sroa.gep64, %19 ]
+  %.sink64.sroa.phi = phi ptr [ %.sink64.sroa.gep, %15 ], [ %.sink64.sroa.gep65, %19 ]
   %.str.8.sink = phi ptr [ @.str.8, %15 ], [ @.str.3, %19 ]
-  %.056.ph = phi i32 [ 4, %15 ], [ 3, %19 ]
-  store ptr %.str.8.sink, ptr %.sink63.sroa.phi, align 8
+  %.057.ph = phi i32 [ 4, %15 ], [ 3, %19 ]
+  store ptr %.str.8.sink, ptr %.sink64.sroa.phi, align 8
   br label %20
 
 20:                                               ; preds = %.sink.split, %6
-  %.056 = phi i32 [ 1, %6 ], [ %.056.ph, %.sink.split ]
-  %21 = zext nneg i32 %.056 to i64
+  %.057 = phi i32 [ 1, %6 ], [ %.057.ph, %.sink.split ]
+  %21 = zext nneg i32 %.057 to i64
   %22 = getelementptr inbounds nuw [6 x ptr], ptr %7, i64 0, i64 %21
   store ptr @.str.9, ptr %22, align 8
   %23 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %21
   store ptr %4, ptr %23, align 8
-  %24 = add nuw nsw i32 %.056, 1
+  %24 = add nuw nsw i32 %.057, 1
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds nuw [6 x ptr], ptr %7, i64 0, i64 %25
   store ptr null, ptr %26, align 8
@@ -208,8 +208,8 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   br i1 %31, label %72, label %.preheader
 
 .preheader:                                       ; preds = %20, %46
-  %.054 = phi i32 [ %.1, %46 ], [ 2, %20 ]
-  %32 = icmp eq i32 %.054, 1
+  %.055 = phi i32 [ %.1, %46 ], [ 2, %20 ]
+  %32 = icmp eq i32 %.055, 1
   %. = select i1 %32, i32 2, i32 4
   %33 = load ptr, ptr @MyLatch, align 8
   %34 = or disjoint i32 %., 33
@@ -217,8 +217,8 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   %36 = call i32 @PQsocket(ptr noundef %35) #11
   %37 = call i32 @WaitLatchOrSocket(ptr noundef %33, i32 noundef %34, i32 noundef %36, i64 noundef 0, i32 noundef 100663299) #11
   %38 = and i32 %37, 1
-  %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %41, label %39
+  %.not58 = icmp eq i32 %38, 0
+  br i1 %.not58, label %41, label %39
 
 39:                                               ; preds = %.preheader
   %40 = load ptr, ptr @MyLatch, align 8
@@ -228,8 +228,8 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
 
 41:                                               ; preds = %39, %.preheader
   %42 = and i32 %37, %.
-  %.not57 = icmp eq i32 %42, 0
-  br i1 %.not57, label %46, label %43
+  %.not59 = icmp eq i32 %42, 0
+  br i1 %.not59, label %46, label %43
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %28, align 8
@@ -237,7 +237,7 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   br label %46
 
 46:                                               ; preds = %43, %41
-  %.1 = phi i32 [ %45, %43 ], [ %.054, %41 ]
+  %.1 = phi i32 [ %45, %43 ], [ %.055, %41 ]
   switch i32 %.1, label %.preheader [
     i32 3, label %47
     i32 0, label %47
@@ -246,8 +246,8 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
 47:                                               ; preds = %46, %46
   %48 = load ptr, ptr %28, align 8
   %49 = call i32 @PQstatus(ptr noundef %48) #11
-  %.not58 = icmp eq i32 %49, 0
-  br i1 %.not58, label %50, label %72
+  %.not60 = icmp eq i32 %49, 0
+  br i1 %.not60, label %50, label %72
 
 50:                                               ; preds = %47
   br i1 %3, label %51, label %61
@@ -255,8 +255,8 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
 51:                                               ; preds = %50
   %52 = load ptr, ptr %28, align 8
   %53 = call i32 @PQconnectionUsedPassword(ptr noundef %52) #11
-  %.not59 = icmp eq i32 %53, 0
-  br i1 %.not59, label %54, label %61
+  %.not61 = icmp eq i32 %53, 0
+  br i1 %.not61, label %54, label %61
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %28, align 8
@@ -272,17 +272,17 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   unreachable
 
 61:                                               ; preds = %51, %50
-  %.not61 = xor i1 %1, true
-  %brmerge = or i1 %2, %.not61
-  br i1 %brmerge, label %62, label %.thread
+  %.not = xor i1 %1, true
+  %or.cond = or i1 %2, %.not
+  br i1 %or.cond, label %62, label %.thread
 
 62:                                               ; preds = %61
   %63 = load ptr, ptr %28, align 8
   %64 = call fastcc ptr @libpqrcv_PQexec(ptr noundef %63, ptr noundef nonnull @.str.13)
   %65 = call i32 @PQresultStatus(ptr noundef %64) #11
-  %.not60 = icmp eq i32 %65, 2
+  %.not62 = icmp eq i32 %65, 2
   call void @PQclear(ptr noundef %64) #11
-  br i1 %.not60, label %.thread, label %66
+  br i1 %.not62, label %.thread, label %66
 
 66:                                               ; preds = %62
   %67 = load ptr, ptr %28, align 8
@@ -311,10 +311,10 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   br label %78
 
 78:                                               ; preds = %76, %.thread
-  %.053 = phi ptr [ null, %76 ], [ %28, %.thread ]
+  %.054 = phi ptr [ null, %76 ], [ %28, %.thread ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #11
-  ret ptr %.053
+  ret ptr %.054
 }
 
 ; Function Attrs: nounwind uwtable

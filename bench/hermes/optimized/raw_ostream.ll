@@ -2550,9 +2550,21 @@ if.then:                                          ; preds = %entry
   %HexPrefix = getelementptr inbounds nuw i8, ptr %FN, i64 22
   %2 = load i8, ptr %HexPrefix, align 2
   %tobool3 = trunc i8 %2 to i1
-  %spec.select = select i1 %tobool3, i32 2, i32 0
-  %spec.select17 = select i1 %tobool3, i32 3, i32 1
-  %Style.0 = select i1 %tobool2, i32 %spec.select, i32 %spec.select17
+  %or.cond = select i1 %tobool2, i1 %tobool3, i1 false
+  br i1 %or.cond, label %if.end20, label %if.else
+
+if.else:                                          ; preds = %if.then
+  %tobool6.not = xor i1 %tobool2, true
+  %or.cond12 = select i1 %tobool6.not, i1 true, i1 %tobool3
+  br i1 %or.cond12, label %if.else11, label %if.end20
+
+if.else11:                                        ; preds = %if.else
+  %or.cond13 = select i1 %tobool6.not, i1 %tobool3, i1 false
+  %spec.select = select i1 %or.cond13, i32 3, i32 1
+  br label %if.end20
+
+if.end20:                                         ; preds = %if.else11, %if.else, %if.then
+  %Style.0 = phi i32 [ 2, %if.then ], [ 0, %if.else ], [ %spec.select, %if.else11 ]
   %3 = load i64, ptr %FN, align 8
   %Width = getelementptr inbounds nuw i8, ptr %FN, i64 16
   %4 = load i32, ptr %Width, align 8
@@ -2603,8 +2615,8 @@ while.body.i.i:                                   ; preds = %if.then24, %while.b
 if.end30:                                         ; preds = %while.body.i.i, %if.then.i.i, %if.else21
   %8 = load ptr, ptr %Buffer, align 8
   %9 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %conv.i.i14 = zext i32 %9 to i64
-  %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %8, i64 noundef %conv.i.i14)
+  %conv.i.i16 = zext i32 %9 to i64
+  %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %8, i64 noundef %conv.i.i16)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh11raw_ostreamE, i64 16), ptr %Stream, align 8
   %BufferMode.i.i.i = getelementptr inbounds nuw i8, ptr %Stream, i64 32
   %10 = load i32, ptr %BufferMode.i.i.i, align 8
@@ -2623,13 +2635,13 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
 _ZN4llvh19raw_svector_ostreamD2Ev.exit:           ; preds = %if.end30, %if.then.i.i.i, %delete.notnull.i.i.i
   %12 = load ptr, ptr %Buffer, align 8
   %cmp.i.i.i.i = icmp eq ptr %12, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp.i.i.i.i, label %if.end32, label %if.then.i.i.i16
+  br i1 %cmp.i.i.i.i, label %if.end32, label %if.then.i.i.i18
 
-if.then.i.i.i16:                                  ; preds = %_ZN4llvh19raw_svector_ostreamD2Ev.exit
+if.then.i.i.i18:                                  ; preds = %_ZN4llvh19raw_svector_ostreamD2Ev.exit
   call void @free(ptr noundef %12) #26
   br label %if.end32
 
-if.end32:                                         ; preds = %if.then.i.i.i16, %_ZN4llvh19raw_svector_ostreamD2Ev.exit, %if.then
+if.end32:                                         ; preds = %if.then.i.i.i18, %_ZN4llvh19raw_svector_ostreamD2Ev.exit, %if.end20
   ret ptr %this
 }
 

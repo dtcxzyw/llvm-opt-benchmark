@@ -179,13 +179,11 @@ _ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit: ; preds = %
 if.end:                                           ; preds = %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 152), align 8
   %tobool.i.i6 = trunc i8 %7 to i1
-  br i1 %tobool.i.i6, label %if.then8, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
   %.b1 = load i1, ptr @_ZL7Enabled, align 1
-  br i1 %.b1, label %if.then8, label %if.end9
+  %or.cond = select i1 %tobool.i.i6, i1 true, i1 %.b1
+  br i1 %or.cond, label %if.then8, label %if.end9
 
-if.then8:                                         ; preds = %lor.lhs.false, %if.end
+if.then8:                                         ; preds = %if.end
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i3, i64 8
   %8 = load ptr, ptr %_M_finish.i.i, align 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i3, i64 16
@@ -248,7 +246,7 @@ _ZNSt6vectorIPN4llvh9StatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %if.end9
 
-if.end9:                                          ; preds = %_ZNSt6vectorIPN4llvh9StatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i7, %lor.lhs.false
+if.end9:                                          ; preds = %_ZNSt6vectorIPN4llvh9StatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i7, %if.end
   store atomic i8 1, ptr %Initialized release, align 4
   br label %cleanup
 
@@ -2686,15 +2684,13 @@ entry:
   %Valid.i = getelementptr inbounds nuw i8, ptr %V, i64 9
   %0 = load i8, ptr %Valid.i, align 1
   %tobool.i = trunc i8 %0 to i1
-  br i1 %tobool.i, label %if.end, label %return
-
-if.end:                                           ; preds = %entry
   %Valid.i2 = getelementptr inbounds nuw i8, ptr %this, i64 9
   %1 = load i8, ptr %Valid.i2, align 1
   %tobool.i3 = trunc i8 %1 to i1
-  br i1 %tobool.i3, label %land.rhs.i, label %return
+  %or.cond = select i1 %tobool.i, i1 %tobool.i3, i1 false
+  br i1 %or.cond, label %land.rhs.i, label %return
 
-land.rhs.i:                                       ; preds = %if.end
+land.rhs.i:                                       ; preds = %entry
   %Value.i = getelementptr inbounds nuw i8, ptr %V, i64 8
   %Value.i4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %Value.i4, align 8
@@ -2704,8 +2700,8 @@ land.rhs.i:                                       ; preds = %if.end
   %cmp.i = icmp ne i8 %5, 0
   br label %return
 
-return:                                           ; preds = %land.rhs.i, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ %cmp.i, %land.rhs.i ]
+return:                                           ; preds = %land.rhs.i, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp.i, %land.rhs.i ]
   ret i1 %retval.0
 }
 
@@ -2768,19 +2764,16 @@ entry:
 delete.notnull:                                   ; preds = %entry
   %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL5Stats, i64 152), align 8
   %tobool.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i, label %_ZNSt10unique_ptrIN4llvh14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.i.i, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %delete.notnull
   %1 = load i8, ptr @_ZL11PrintOnExit, align 1
   %tobool.i = trunc nuw i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %if.end.i
+  %or.cond.i = select i1 %tobool.i.i.i, i1 true, i1 %tobool.i
+  br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %lor.lhs.false.i
+if.then.i:                                        ; preds = %delete.notnull
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  br label %_ZN4llvh15PrintStatisticsEv.exit.i
+  br i1 %tobool.i.i.i, label %_ZNSt10unique_ptrIN4llvh14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.i.i, label %_ZN4llvh15PrintStatisticsEv.exit.i
 
-_ZNSt10unique_ptrIN4llvh14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %delete.notnull
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+_ZNSt10unique_ptrIN4llvh14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %if.then.i
   call void @_ZN4llvh20CreateInfoOutputFileEv(ptr nonnull sret(%"class.std::unique_ptr.22") align 8 %ref.tmp.i.i) #21
   %2 = load ptr, ptr %ref.tmp.i.i, align 8
   store ptr null, ptr %ref.tmp.i.i, align 8
@@ -2841,7 +2834,7 @@ _ZN4llvh15PrintStatisticsEv.exit.i:               ; preds = %_ZNSt10unique_ptrIN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   br label %if.end.i
 
-if.end.i:                                         ; preds = %_ZN4llvh15PrintStatisticsEv.exit.i, %lor.lhs.false.i
+if.end.i:                                         ; preds = %_ZN4llvh15PrintStatisticsEv.exit.i, %delete.notnull
   %10 = load ptr, ptr %Ptr, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %_ZN12_GLOBAL__N_113StatisticInfoD2Ev.exit, label %if.then.i.i.i1.i

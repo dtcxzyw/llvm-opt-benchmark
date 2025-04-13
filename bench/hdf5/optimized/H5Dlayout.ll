@@ -623,8 +623,8 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   %34 = load ptr, ptr %33, align 8, !tbaa !47
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !59
-  %.not90 = icmp eq ptr %36, null
-  br i1 %.not90, label %44, label %37
+  %.not91 = icmp eq ptr %36, null
+  br i1 %.not91, label %44, label %37
 
 37:                                               ; preds = %.thread
   %38 = call i32 %36(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %3) #4
@@ -659,8 +659,8 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 216
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 232
   %59 = load i64, ptr %58, align 8, !tbaa !46
-  %.not91 = icmp eq i64 %59, 0
-  br i1 %.not91, label %129, label %60
+  %.not92 = icmp eq i64 %59, 0
+  br i1 %.not92, label %129, label %60
 
 60:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
@@ -669,15 +669,15 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   br label %63
 
 63:                                               ; preds = %60, %63
-  %.0112 = phi i64 [ 0, %60 ], [ %70, %63 ]
-  %.079111 = phi i64 [ 8, %60 ], [ %69, %63 ]
-  %64 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %62, i64 %.0112, i32 1
+  %.0109 = phi i64 [ 0, %60 ], [ %70, %63 ]
+  %.080108 = phi i64 [ 8, %60 ], [ %69, %63 ]
+  %64 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %62, i64 %.0109, i32 1
   %65 = load ptr, ptr %64, align 8, !tbaa !63
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #5
   %67 = add i64 %66, 8
   %68 = and i64 %67, 4294967288
-  %69 = add i64 %68, %.079111
-  %70 = add nuw i64 %.0112, 1
+  %69 = add i64 %68, %.080108
+  %70 = add nuw i64 %.0109, 1
   %exitcond.not = icmp eq i64 %70, %59
   br i1 %exitcond.not, label %71, label %63, !llvm.loop !65
 
@@ -711,11 +711,11 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
 
 .preheader:                                       ; preds = %86
   %89 = load i64, ptr %58, align 8, !tbaa !67
-  %.not114 = icmp eq i64 %89, 0
-  br i1 %.not114, label %._crit_edge, label %.lr.ph
+  %.not111 = icmp eq i64 %89, 0
+  br i1 %.not111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %.pre115 = load ptr, ptr %61, align 8, !tbaa !62
+  %.pre112 = load ptr, ptr %61, align 8, !tbaa !62
   br label %95
 
 90:                                               ; preds = %86
@@ -726,9 +726,9 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   br label %.thread100
 
 95:                                               ; preds = %.lr.ph, %108
-  %96 = phi ptr [ %.pre115, %.lr.ph ], [ %110, %108 ]
-  %.1113 = phi i64 [ 0, %.lr.ph ], [ %112, %108 ]
-  %97 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %96, i64 %.1113, i32 1
+  %96 = phi ptr [ %.pre112, %.lr.ph ], [ %110, %108 ]
+  %.1110 = phi i64 [ 0, %.lr.ph ], [ %112, %108 ]
+  %97 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %96, i64 %.1110, i32 1
   %98 = load ptr, ptr %97, align 8, !tbaa !63
   %99 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #5
   %100 = add i64 %99, 1
@@ -746,9 +746,9 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
 108:                                              ; preds = %95
   %109 = load i64, ptr %6, align 8, !tbaa !49
   %110 = load ptr, ptr %61, align 8, !tbaa !62
-  %111 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %110, i64 %.1113
+  %111 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %110, i64 %.1110
   store i64 %109, ptr %111, align 8, !tbaa !68
-  %112 = add nuw i64 %.1113, 1
+  %112 = add nuw i64 %.1110, 1
   %113 = load i64, ptr %58, align 8, !tbaa !67
   %114 = icmp ult i64 %112, %113
   br i1 %114, label %95, label %._crit_edge, !llvm.loop !69
@@ -790,28 +790,28 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
 
 132:                                              ; preds = %129
   %133 = load i32, ptr %18, align 8, !tbaa !50
-  %.not92 = icmp eq i32 %133, 0
-  br i1 %.not92, label %142, label %134
+  %.not93 = icmp eq i32 %133, 0
+  br i1 %.not93, label %142, label %134
 
 134:                                              ; preds = %132
   %135 = load ptr, ptr %16, align 8, !tbaa !10
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 200
   %137 = load i64, ptr %136, align 8, !tbaa !70
-  %.not93 = icmp eq i64 %137, 0
-  br i1 %.not93, label %138, label %142
+  %.not94 = icmp eq i64 %137, 0
+  br i1 %.not94, label %138, label %142
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %140 = load ptr, ptr %139, align 8, !tbaa !71
   %141 = call i64 @H5S_get_simple_extent_npoints(ptr noundef %140) #4
-  %.not94 = icmp eq i64 %141, 0
-  br i1 %.not94, label %142, label %143
+  %.not95 = icmp eq i64 %141, 0
+  br i1 %.not95, label %142, label %143
 
 142:                                              ; preds = %138, %134, %132, %129
   br label %143
 
 143:                                              ; preds = %138, %142
-  %.083 = phi i32 [ 0, %142 ], [ 1, %138 ]
+  %.084 = phi i32 [ 0, %142 ], [ 1, %138 ]
   %144 = load i32, ptr %18, align 8, !tbaa !50
   %145 = icmp eq i32 %144, 3
   br i1 %145, label %146, label %153
@@ -828,7 +828,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   br label %160
 
 153:                                              ; preds = %146, %143
-  %154 = call i32 @H5O_msg_append_oh(ptr noundef %0, ptr noundef %1, i32 noundef 8, i32 noundef %.083, i32 noundef 0, ptr noundef nonnull %18) #4
+  %154 = call i32 @H5O_msg_append_oh(ptr noundef %0, ptr noundef %1, i32 noundef 8, i32 noundef %.084, i32 noundef 0, ptr noundef nonnull %18) #4
   %155 = icmp slt i32 %154, 0
   br i1 %155, label %156, label %.thread104
 
@@ -844,8 +844,8 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   %163 = load ptr, ptr %162, align 8, !tbaa !47
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 96
   %165 = load ptr, ptr %164, align 8, !tbaa !72
-  %.not95 = icmp eq ptr %165, null
-  br i1 %.not95, label %.thread104, label %166
+  %.not96 = icmp eq ptr %165, null
+  br i1 %.not96, label %.thread104, label %166
 
 166:                                              ; preds = %160
   %167 = call i32 %165(ptr noundef nonnull %2) #4
@@ -859,11 +859,11 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   br label %.thread104
 
 .thread104:                                       ; preds = %40, %28, %153, %4, %169, %166, %160
-  %.084 = phi i32 [ -1, %169 ], [ -1, %166 ], [ -1, %160 ], [ 0, %4 ], [ 0, %153 ], [ -1, %40 ], [ -1, %28 ]
+  %.085 = phi i32 [ -1, %169 ], [ -1, %166 ], [ -1, %160 ], [ 0, %4 ], [ 0, %153 ], [ -1, %40 ], [ -1, %28 ]
   %173 = load i64, ptr %5, align 8, !tbaa !49
   call void @H5AC_tag(i64 noundef %173, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  ret i32 %.084
+  ret i32 %.085
 }
 
 declare void @H5AC_tag(i64 noundef, ptr noundef) local_unnamed_addr #2

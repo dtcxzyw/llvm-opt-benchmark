@@ -1486,8 +1486,8 @@ lpad6:                                            ; preds = %if.else
 
 if.end8:                                          ; preds = %entry
   %cmp9 = icmp eq i32 %op, 6
-  %brmerge.not = and i1 %cmp9, %can_factor
-  br i1 %brmerge.not, label %if.then10, label %if.end24
+  %or.cond = and i1 %cmp9, %can_factor
+  br i1 %or.cond, label %if.then10, label %if.end24
 
 if.then10:                                        ; preds = %if.end8
   %cmp.i.i = icmp slt i32 %nsub, 0
@@ -1520,15 +1520,15 @@ cleanup.thread:                                   ; preds = %invoke.cont18
   br label %if.then.i.i69
 
 lpad11:                                           ; preds = %if.then.i59, %if.then.i, %if.end4.i.i, %if.then3.i.i, %if.end54, %for.end, %if.then26, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit
-  %subcopy.sroa.292.1 = phi ptr [ %subcopy.sroa.292.0, %for.end ], [ %subcopy.sroa.292.0, %if.then.i ], [ %subcopy.sroa.292.0, %if.then26 ], [ %subcopy.sroa.292.0, %if.then.i59 ], [ %subcopy.sroa.292.0, %if.end54 ], [ null, %if.then3.i.i ], [ %call5.i3.i46, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ null, %if.end4.i.i ]
+  %subcopy.sroa.292.1 = phi ptr [ null, %if.then3.i.i ], [ %subcopy.sroa.292.0, %for.end ], [ %subcopy.sroa.292.0, %if.then.i ], [ %subcopy.sroa.292.0, %if.then26 ], [ %subcopy.sroa.292.0, %if.then.i59 ], [ %subcopy.sroa.292.0, %if.end54 ], [ %call5.i3.i46, %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ null, %if.end4.i.i ]
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-if.end24:                                         ; preds = %if.end8, %invoke.cont18
-  %subcopy.sroa.292.0 = phi ptr [ null, %if.end8 ], [ %call5.i3.i46, %invoke.cont18 ]
-  %nsub.addr.0 = phi i32 [ %nsub, %if.end8 ], [ %call19, %invoke.cont18 ]
-  %sub.addr.0 = phi ptr [ %sub, %if.end8 ], [ %call5.i3.i46, %invoke.cont18 ]
+if.end24:                                         ; preds = %invoke.cont18, %if.end8
+  %subcopy.sroa.292.0 = phi ptr [ %call5.i3.i46, %invoke.cont18 ], [ null, %if.end8 ]
+  %nsub.addr.0 = phi i32 [ %call19, %invoke.cont18 ], [ %nsub, %if.end8 ]
+  %sub.addr.0 = phi ptr [ %call5.i3.i46, %invoke.cont18 ], [ %sub, %if.end8 ]
   %cmp25 = icmp sgt i32 %nsub.addr.0, 65535
   br i1 %cmp25, label %if.then26, label %if.end54
 

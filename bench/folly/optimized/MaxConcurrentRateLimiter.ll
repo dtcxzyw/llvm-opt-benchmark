@@ -2373,8 +2373,8 @@ define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicE14do_reclamationEi(
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 424
   br label %12
 
-12:                                               ; preds = %167, %2
-  %.08 = phi i32 [ %1, %2 ], [ %.0.i15, %167 ]
+12:                                               ; preds = %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit, %2
+  %.09 = phi i32 [ %1, %2 ], [ %.0.i, %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #23
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #23
@@ -2413,9 +2413,9 @@ define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicE14do_reclamationEi(
   %27 = lshr i64 %23, 22
   %28 = load i64, ptr %7, align 8, !tbaa !159, !noalias !160
   %29 = lshr i64 %28, 8
-  %.not.i11 = icmp ult i64 %28, 256
+  %.not.i12 = icmp ult i64 %28, 256
   %.pre.i = load ptr, ptr %6, align 8, !tbaa !153, !noalias !160
-  br i1 %.not.i11, label %.thread65.i, label %30
+  br i1 %.not.i12, label %.thread65.i, label %30
 
 30:                                               ; preds = %.lr.ph.i
   %31 = shl nuw nsw i64 %26, 1
@@ -2612,7 +2612,7 @@ _ZN5folly13hazptr_domainISt6atomicE16load_hazptr_valsEv.exit: ; preds = %_ZN5fol
 
 128:                                              ; preds = %126
   %129 = add i32 %125, %127
-  %130 = sub i32 %.08, %129
+  %130 = sub i32 %.09, %129
   %131 = load ptr, ptr %6, align 8, !tbaa !153
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 15
   %133 = load i8, ptr %132, align 1, !tbaa !180
@@ -2661,7 +2661,7 @@ _ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPKvvvvvEEED2Ev.exit
   br label %common.resume
 
 151:                                              ; preds = %_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPKvvvvvEEED2Ev.exit, %12
-  %.1 = phi i32 [ %130, %_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPKvvvvvEEED2Ev.exit ], [ %.08, %12 ]
+  %.1 = phi i32 [ %130, %_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPKvvvvvEEED2Ev.exit ], [ %.09, %12 ]
   %.not = icmp eq i32 %.1, 0
   br i1 %.not, label %154, label %152
 
@@ -2675,46 +2675,42 @@ _ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPKvvvvvEEED2Ev.exit
   %157 = shl nsw i32 %156, 1
   %.sroa.speculated.i7.i = call noundef i32 @llvm.smax.i32(i32 %157, i32 1000)
   %.not8.i = icmp slt i32 %155, %.sroa.speculated.i7.i
-  br i1 %.not8.i, label %.loopexit, label %.lr.ph.i9
+  br i1 %.not8.i, label %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit, label %.lr.ph.i10
 
-.lr.ph.i9:                                        ; preds = %154, %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i
+.lr.ph.i10:                                       ; preds = %154, %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i
   %.039.i = phi i32 [ %160, %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i ], [ %155, %154 ]
   %158 = cmpxchg weak ptr %9, i32 %.039.i, i32 0 acq_rel monotonic, align 4
   %159 = extractvalue { i32, i1 } %158, 1
-  br i1 %159, label %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit, label %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i
+  br i1 %159, label %163, label %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i
 
-_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i: ; preds = %.lr.ph.i9
+_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i: ; preds = %.lr.ph.i10
   %160 = extractvalue { i32, i1 } %158, 0
   %161 = load atomic i32, ptr %10 acquire, align 8
   %162 = shl nsw i32 %161, 1
   %.sroa.speculated.i.i = call noundef i32 @llvm.smax.i32(i32 %162, i32 1000)
-  %.not.i10 = icmp slt i32 %160, %.sroa.speculated.i.i
-  br i1 %.not.i10, label %.loopexit, label %.lr.ph.i9
+  %.not.i11 = icmp slt i32 %160, %.sroa.speculated.i.i
+  br i1 %.not.i11, label %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit, label %.lr.ph.i10
 
-_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit: ; preds = %.lr.ph.i9
-  %163 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
-  %164 = add i64 %163, 2000000000
-  store atomic i64 %164, ptr %11 release, align 8
-  br label %167
+163:                                              ; preds = %.lr.ph.i10
+  %164 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
+  %165 = add i64 %164, 2000000000
+  store atomic i64 %165, ptr %11 release, align 8
+  br label %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit
 
-.loopexit:                                        ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i, %154
-  %165 = load i8, ptr %5, align 1, !tbaa !149, !range !104, !noundef !105
-  %166 = trunc nuw i8 %165 to i1
-  br i1 %166, label %168, label %167
-
-167:                                              ; preds = %.loopexit, %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit
-  %.0.i15 = phi i32 [ %.039.i, %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit ], [ 0, %.loopexit ]
+_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit: ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i, %154, %163
+  %.0.i = phi i32 [ %.039.i, %163 ], [ 0, %154 ], [ 0, %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i ]
+  %166 = icmp eq i32 %.0.i, 0
+  %167 = load i8, ptr %5, align 1, !range !104
+  %168 = trunc nuw i8 %167 to i1
+  %or.cond = select i1 %166, i1 %168, i1 false
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #23
-  br label %12
+  br i1 %or.cond, label %169, label %12
 
-168:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #23
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %170 = atomicrmw sub ptr %169, i16 1 release, align 2
+169:                                              ; preds = %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %171 = atomicrmw sub ptr %170, i16 1 release, align 2
   ret void
 }
 

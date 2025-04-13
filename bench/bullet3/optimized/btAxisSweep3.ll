@@ -983,7 +983,7 @@ define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalItE25calculateOverl
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  br i1 %10, label %11, label %130
+  br i1 %10, label %11, label %126
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8, !tbaa !21
@@ -1053,216 +1053,210 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i: ; preds = %32
 _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i: ; preds = %39, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !91
-  %.not.i5.i.i = icmp eq ptr %44, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i, label %45
+  %.not.i5.i.i = icmp ne ptr %44, null
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %46 = load i8, ptr %45, align 8, !range !82
+  %47 = trunc nuw i8 %46 to i1
+  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %47, i1 false
+  br i1 %or.cond.i.i, label %48, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i
 
-45:                                               ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
-  %46 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %47 = load i8, ptr %46, align 8, !tbaa !26, !range !82, !noundef !83
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i
-
-49:                                               ; preds = %45
+48:                                               ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %44)
   br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i: ; preds = %49, %45, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i8 1, ptr %50, align 8, !tbaa !26
+_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i: ; preds = %48, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
+  store i8 1, ptr %45, align 8, !tbaa !26
   store ptr %.0.i.i.i, ptr %43, align 8, !tbaa !91
   store i32 %25, ptr %28, align 8, !tbaa !90
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i, %27
-  %51 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %52 = sext i32 %22 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %50 = sext i32 %22 to i64
   %wide.trip.count.i = sext i32 %25 to i64
-  br label %53
+  br label %51
 
-53:                                               ; preds = %53, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %52, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
-  %54 = load ptr, ptr %51, align 8, !tbaa !91
-  %55 = getelementptr inbounds %struct.btBroadphasePair, ptr %54, i64 %indvars.iv.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false)
+51:                                               ; preds = %51, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %50, %.lr.ph.i ], [ %indvars.iv.next.i, %51 ]
+  %52 = load ptr, ptr %49, align 8, !tbaa !91
+  %53 = getelementptr inbounds %struct.btBroadphasePair, ptr %52, i64 %indvars.iv.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, label %53, !llvm.loop !97
+  br i1 %exitcond.not.i, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, label %51, !llvm.loop !97
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit: ; preds = %53, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit
+_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit: ; preds = %51, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit
   store i32 %25, ptr %17, align 4, !tbaa !30
   store i32 0, ptr %23, align 4, !tbaa !24
-  %56 = icmp sgt i32 %25, 0
-  br i1 %56, label %.lr.ph, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit43
+  %54 = icmp sgt i32 %25, 0
+  br i1 %54, label %.lr.ph, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44
 
 .lr.ph:                                           ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit
-  %57 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  br label %58
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  br label %56
 
-58:                                               ; preds = %.lr.ph, %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit
-  %59 = phi i32 [ 0, %.lr.ph ], [ %92, %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
-  %.pr50 = phi i32 [ %25, %.lr.ph ], [ %.pr, %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
+56:                                               ; preds = %.lr.ph, %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit
+  %57 = phi i32 [ 0, %.lr.ph ], [ %90, %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
+  %.pr51 = phi i32 [ %25, %.lr.ph ], [ %.pr, %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
-  %.sroa.6.047 = phi ptr [ null, %.lr.ph ], [ %65, %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
-  %.sroa.0.046 = phi ptr [ null, %.lr.ph ], [ %62, %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
-  %60 = load ptr, ptr %57, align 8, !tbaa !91
-  %61 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %60, i64 %indvars.iv
-  %62 = load ptr, ptr %61, align 8, !tbaa !98
-  %63 = icmp eq ptr %62, %.sroa.0.046
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, %.sroa.6.047
-  %67 = select i1 %63, i1 %66, i1 false
-  br i1 %67, label %.critedge, label %68
+  %.sroa.6.048 = phi ptr [ null, %.lr.ph ], [ %63, %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
+  %.sroa.0.047 = phi ptr [ null, %.lr.ph ], [ %60, %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
+  %58 = load ptr, ptr %55, align 8, !tbaa !91
+  %59 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %58, i64 %indvars.iv
+  %60 = load ptr, ptr %59, align 8, !tbaa !98
+  %61 = icmp eq ptr %60, %.sroa.0.047
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, %.sroa.6.048
+  %65 = select i1 %61, i1 %64, i1 false
+  br i1 %65, label %.critedge, label %66
 
-68:                                               ; preds = %58
-  %69 = getelementptr inbounds nuw i8, ptr %62, i64 58
-  %70 = getelementptr inbounds nuw i8, ptr %65, i64 58
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 52
-  %72 = getelementptr inbounds nuw i8, ptr %62, i64 52
-  br label %74
+66:                                               ; preds = %56
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 58
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 58
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 52
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 52
+  br label %72
 
-73:                                               ; preds = %80
+71:                                               ; preds = %78
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i24, 3
-  br i1 %exitcond.i, label %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit, label %74, !llvm.loop !100
+  br i1 %exitcond.i, label %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit, label %72, !llvm.loop !100
 
-74:                                               ; preds = %73, %68
-  %indvars.iv.i23 = phi i64 [ 0, %68 ], [ %indvars.iv.next.i24, %73 ]
+72:                                               ; preds = %71, %66
+  %indvars.iv.i23 = phi i64 [ 0, %66 ], [ %indvars.iv.next.i24, %71 ]
+  %73 = getelementptr inbounds nuw [3 x i16], ptr %67, i64 0, i64 %indvars.iv.i23
+  %74 = load i16, ptr %73, align 2, !tbaa !47
   %75 = getelementptr inbounds nuw [3 x i16], ptr %69, i64 0, i64 %indvars.iv.i23
   %76 = load i16, ptr %75, align 2, !tbaa !47
-  %77 = getelementptr inbounds nuw [3 x i16], ptr %71, i64 0, i64 %indvars.iv.i23
-  %78 = load i16, ptr %77, align 2, !tbaa !47
-  %79 = icmp ult i16 %76, %78
-  br i1 %79, label %.critedge, label %80
+  %77 = icmp ult i16 %74, %76
+  br i1 %77, label %.critedge, label %78
 
-80:                                               ; preds = %74
+78:                                               ; preds = %72
+  %79 = getelementptr inbounds nuw [3 x i16], ptr %68, i64 0, i64 %indvars.iv.i23
+  %80 = load i16, ptr %79, align 2, !tbaa !47
   %81 = getelementptr inbounds nuw [3 x i16], ptr %70, i64 0, i64 %indvars.iv.i23
   %82 = load i16, ptr %81, align 2, !tbaa !47
-  %83 = getelementptr inbounds nuw [3 x i16], ptr %72, i64 0, i64 %indvars.iv.i23
-  %84 = load i16, ptr %83, align 2, !tbaa !47
-  %85 = icmp ult i16 %82, %84
-  br i1 %85, label %.critedge, label %73
+  %83 = icmp ult i16 %80, %82
+  br i1 %83, label %.critedge, label %71
 
-.critedge:                                        ; preds = %74, %80, %58
-  %86 = load ptr, ptr %5, align 8, !tbaa !21
-  %87 = load ptr, ptr %86, align 8, !tbaa !4
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
-  %89 = load ptr, ptr %88, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef %1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
-  %90 = load i32, ptr %23, align 4, !tbaa !24
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %23, align 4, !tbaa !24
+.critedge:                                        ; preds = %72, %78, %56
+  %84 = load ptr, ptr %5, align 8, !tbaa !21
+  %85 = load ptr, ptr %84, align 8, !tbaa !4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 64
+  %87 = load ptr, ptr %86, align 8
+  call void %87(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef %1)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
+  %88 = load i32, ptr %23, align 4, !tbaa !24
+  %89 = add nsw i32 %88, 1
+  store i32 %89, ptr %23, align 4, !tbaa !24
   %.pr.pre = load i32, ptr %17, align 4, !tbaa !30
   br label %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit
 
-_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit: ; preds = %73, %.critedge
-  %92 = phi i32 [ %91, %.critedge ], [ %59, %73 ]
-  %.pr = phi i32 [ %.pr.pre, %.critedge ], [ %.pr50, %73 ]
+_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit: ; preds = %71, %.critedge
+  %90 = phi i32 [ %89, %.critedge ], [ %57, %71 ]
+  %.pr = phi i32 [ %.pr.pre, %.critedge ], [ %.pr51, %71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %93 = sext i32 %.pr to i64
-  %94 = icmp slt i64 %indvars.iv.next, %93
-  br i1 %94, label %58, label %._crit_edge, !llvm.loop !101
+  %91 = sext i32 %.pr to i64
+  %92 = icmp slt i64 %indvars.iv.next, %91
+  br i1 %92, label %56, label %._crit_edge, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %_ZN20btAxisSweep3InternalItE15testAabbOverlapEP17btBroadphaseProxyS2_.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
-  %95 = icmp sgt i32 %.pr, 1
-  br i1 %95, label %96, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
+  %93 = icmp sgt i32 %.pr, 1
+  br i1 %93, label %94, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
 
-96:                                               ; preds = %._crit_edge
-  %97 = add nsw i32 %.pr, -1
-  call void @_ZN20btAlignedObjectArrayI16btBroadphasePairE17quickSortInternalI29btBroadphasePairSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %16, ptr noundef nonnull align 1 dereferenceable(1) %4, i32 noundef 0, i32 noundef %97)
-  %.pre52 = load i32, ptr %17, align 4, !tbaa !30
-  %.pre53 = load i32, ptr %23, align 4, !tbaa !24
+94:                                               ; preds = %._crit_edge
+  %95 = add nsw i32 %.pr, -1
+  call void @_ZN20btAlignedObjectArrayI16btBroadphasePairE17quickSortInternalI29btBroadphasePairSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %16, ptr noundef nonnull align 1 dereferenceable(1) %4, i32 noundef 0, i32 noundef %95)
+  %.pre53 = load i32, ptr %17, align 4, !tbaa !30
+  %.pre54 = load i32, ptr %23, align 4, !tbaa !24
   br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25: ; preds = %._crit_edge, %96
-  %98 = phi i32 [ %92, %._crit_edge ], [ %.pre53, %96 ]
-  %99 = phi i32 [ %.pr, %._crit_edge ], [ %.pre52, %96 ]
+_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25: ; preds = %._crit_edge, %94
+  %96 = phi i32 [ %90, %._crit_edge ], [ %.pre54, %94 ]
+  %97 = phi i32 [ %.pr, %._crit_edge ], [ %.pre53, %94 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #11
-  %100 = sub nsw i32 %99, %98
-  %101 = icmp slt i32 %98, 0
-  br i1 %101, label %102, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit43
+  %98 = sub nsw i32 %97, %96
+  %99 = icmp slt i32 %96, 0
+  br i1 %99, label %100, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44
 
-102:                                              ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
-  %103 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %104 = load i32, ptr %103, align 8, !tbaa !90
-  %105 = icmp slt i32 %104, %100
-  br i1 %105, label %106, label %.lr.ph.i26
+100:                                              ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
+  %101 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %102 = load i32, ptr %101, align 8, !tbaa !90
+  %103 = icmp slt i32 %102, %98
+  br i1 %103, label %104, label %.lr.ph.i26
 
-106:                                              ; preds = %102
-  %.not.i.i.i31 = icmp eq i32 %99, %98
+104:                                              ; preds = %100
+  %.not.i.i.i31 = icmp eq i32 %97, %96
   br i1 %.not.i.i.i31, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33: ; preds = %106
-  %107 = sext i32 %100 to i64
-  %108 = shl nsw i64 %107, 5
-  %109 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %108, i32 noundef 16)
+_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33: ; preds = %104
+  %105 = sext i32 %98 to i64
+  %106 = shl nsw i64 %105, 5
+  %107 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %106, i32 noundef 16)
   %.pre.i32 = load i32, ptr %17, align 4, !tbaa !30
-  %110 = icmp sgt i32 %.pre.i32, 0
-  br i1 %110, label %.lr.ph.i.i.i38, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
+  %108 = icmp sgt i32 %.pre.i32, 0
+  br i1 %108, label %.lr.ph.i.i.i39, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
 
-.lr.ph.i.i.i38:                                   ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
-  %111 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %wide.trip.count.i.i.i39 = zext nneg i32 %.pre.i32 to i64
-  br label %112
+.lr.ph.i.i.i39:                                   ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
+  %109 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %wide.trip.count.i.i.i40 = zext nneg i32 %.pre.i32 to i64
+  br label %110
 
-112:                                              ; preds = %112, %.lr.ph.i.i.i38
-  %indvars.iv.i.i.i40 = phi i64 [ 0, %.lr.ph.i.i.i38 ], [ %indvars.iv.next.i.i.i41, %112 ]
-  %113 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %109, i64 %indvars.iv.i.i.i40
-  %114 = load ptr, ptr %111, align 8, !tbaa !91
-  %115 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %114, i64 %indvars.iv.i.i.i40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %115, i64 32, i1 false), !tbaa.struct !92
-  %indvars.iv.next.i.i.i41 = add nuw nsw i64 %indvars.iv.i.i.i40, 1
-  %exitcond.not.i.i.i42 = icmp eq i64 %indvars.iv.next.i.i.i41, %wide.trip.count.i.i.i39
-  br i1 %exitcond.not.i.i.i42, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35, label %112, !llvm.loop !96
+110:                                              ; preds = %110, %.lr.ph.i.i.i39
+  %indvars.iv.i.i.i41 = phi i64 [ 0, %.lr.ph.i.i.i39 ], [ %indvars.iv.next.i.i.i42, %110 ]
+  %111 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %107, i64 %indvars.iv.i.i.i41
+  %112 = load ptr, ptr %109, align 8, !tbaa !91
+  %113 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %112, i64 %indvars.iv.i.i.i41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %113, i64 32, i1 false), !tbaa.struct !92
+  %indvars.iv.next.i.i.i42 = add nuw nsw i64 %indvars.iv.i.i.i41, 1
+  %exitcond.not.i.i.i43 = icmp eq i64 %indvars.iv.next.i.i.i42, %wide.trip.count.i.i.i40
+  br i1 %exitcond.not.i.i.i43, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35, label %110, !llvm.loop !96
 
-_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35: ; preds = %112, %106, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
-  %.0.i.i.i3456 = phi ptr [ %109, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ null, %106 ], [ %109, %112 ]
-  %116 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %117 = load ptr, ptr %116, align 8, !tbaa !91
-  %.not.i5.i.i36 = icmp eq ptr %117, null
-  br i1 %.not.i5.i.i36, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i37, label %118
+_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35: ; preds = %110, %104, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
+  %.0.i.i.i3457 = phi ptr [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ null, %104 ], [ %107, %110 ]
+  %114 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %115 = load ptr, ptr %114, align 8, !tbaa !91
+  %.not.i5.i.i36 = icmp ne ptr %115, null
+  %116 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %117 = load i8, ptr %116, align 8, !range !82
+  %118 = trunc nuw i8 %117 to i1
+  %or.cond.i.i37 = select i1 %.not.i5.i.i36, i1 %118, i1 false
+  br i1 %or.cond.i.i37, label %119, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38
 
-118:                                              ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
-  %119 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %120 = load i8, ptr %119, align 8, !tbaa !26, !range !82, !noundef !83
-  %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %122, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i37
+119:                                              ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
+  call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %115)
+  br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38
 
-122:                                              ; preds = %118
-  call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %117)
-  br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i37
-
-_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i37: ; preds = %122, %118, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
-  %123 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i8 1, ptr %123, align 8, !tbaa !26
-  store ptr %.0.i.i.i3456, ptr %116, align 8, !tbaa !91
-  store i32 %100, ptr %103, align 8, !tbaa !90
+_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38: ; preds = %119, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
+  store i8 1, ptr %116, align 8, !tbaa !26
+  store ptr %.0.i.i.i3457, ptr %114, align 8, !tbaa !91
+  store i32 %98, ptr %101, align 8, !tbaa !90
   br label %.lr.ph.i26
 
-.lr.ph.i26:                                       ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i37, %102
-  %124 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %125 = sext i32 %99 to i64
-  %wide.trip.count.i27 = sext i32 %100 to i64
-  br label %126
+.lr.ph.i26:                                       ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38, %100
+  %120 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %121 = sext i32 %97 to i64
+  %wide.trip.count.i27 = sext i32 %98 to i64
+  br label %122
 
-126:                                              ; preds = %126, %.lr.ph.i26
-  %indvars.iv.i28 = phi i64 [ %125, %.lr.ph.i26 ], [ %indvars.iv.next.i29, %126 ]
-  %127 = load ptr, ptr %124, align 8, !tbaa !91
-  %128 = getelementptr inbounds %struct.btBroadphasePair, ptr %127, i64 %indvars.iv.i28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 32, i1 false)
+122:                                              ; preds = %122, %.lr.ph.i26
+  %indvars.iv.i28 = phi i64 [ %121, %.lr.ph.i26 ], [ %indvars.iv.next.i29, %122 ]
+  %123 = load ptr, ptr %120, align 8, !tbaa !91
+  %124 = getelementptr inbounds %struct.btBroadphasePair, ptr %123, i64 %indvars.iv.i28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 32, i1 false)
   %indvars.iv.next.i29 = add nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i27
-  br i1 %exitcond.not.i30, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit43, label %126, !llvm.loop !97
+  br i1 %exitcond.not.i30, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44, label %122, !llvm.loop !97
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit43: ; preds = %126, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
-  %129 = phi i32 [ %100, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25 ], [ %25, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit ], [ %100, %126 ]
-  store i32 %129, ptr %17, align 4, !tbaa !30
+_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44: ; preds = %122, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
+  %125 = phi i32 [ %98, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25 ], [ %25, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit ], [ %98, %122 ]
+  store i32 %125, ptr %17, align 4, !tbaa !30
   store i32 0, ptr %23, align 4, !tbaa !24
-  br label %130
+  br label %126
 
-130:                                              ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit43, %2
+126:                                              ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44, %2
   ret void
 }
 
@@ -1721,7 +1715,7 @@ define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalIjE25calculateOverl
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  br i1 %10, label %11, label %130
+  br i1 %10, label %11, label %126
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8, !tbaa !62
@@ -1791,216 +1785,210 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i: ; preds = %32
 _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i: ; preds = %39, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !91
-  %.not.i5.i.i = icmp eq ptr %44, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i, label %45
+  %.not.i5.i.i = icmp ne ptr %44, null
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %46 = load i8, ptr %45, align 8, !range !82
+  %47 = trunc nuw i8 %46 to i1
+  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %47, i1 false
+  br i1 %or.cond.i.i, label %48, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i
 
-45:                                               ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
-  %46 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %47 = load i8, ptr %46, align 8, !tbaa !26, !range !82, !noundef !83
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i
-
-49:                                               ; preds = %45
+48:                                               ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %44)
   br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i: ; preds = %49, %45, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i8 1, ptr %50, align 8, !tbaa !26
+_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i: ; preds = %48, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
+  store i8 1, ptr %45, align 8, !tbaa !26
   store ptr %.0.i.i.i, ptr %43, align 8, !tbaa !91
   store i32 %25, ptr %28, align 8, !tbaa !90
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i, %27
-  %51 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %52 = sext i32 %22 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %50 = sext i32 %22 to i64
   %wide.trip.count.i = sext i32 %25 to i64
-  br label %53
+  br label %51
 
-53:                                               ; preds = %53, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %52, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
-  %54 = load ptr, ptr %51, align 8, !tbaa !91
-  %55 = getelementptr inbounds %struct.btBroadphasePair, ptr %54, i64 %indvars.iv.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false)
+51:                                               ; preds = %51, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %50, %.lr.ph.i ], [ %indvars.iv.next.i, %51 ]
+  %52 = load ptr, ptr %49, align 8, !tbaa !91
+  %53 = getelementptr inbounds %struct.btBroadphasePair, ptr %52, i64 %indvars.iv.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, label %53, !llvm.loop !97
+  br i1 %exitcond.not.i, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, label %51, !llvm.loop !97
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit: ; preds = %53, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit
+_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit: ; preds = %51, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit
   store i32 %25, ptr %17, align 4, !tbaa !30
   store i32 0, ptr %23, align 4, !tbaa !65
-  %56 = icmp sgt i32 %25, 0
-  br i1 %56, label %.lr.ph, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit43
+  %54 = icmp sgt i32 %25, 0
+  br i1 %54, label %.lr.ph, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44
 
 .lr.ph:                                           ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit
-  %57 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  br label %58
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  br label %56
 
-58:                                               ; preds = %.lr.ph, %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit
-  %59 = phi i32 [ 0, %.lr.ph ], [ %92, %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
-  %.pr50 = phi i32 [ %25, %.lr.ph ], [ %.pr, %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
+56:                                               ; preds = %.lr.ph, %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit
+  %57 = phi i32 [ 0, %.lr.ph ], [ %90, %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
+  %.pr51 = phi i32 [ %25, %.lr.ph ], [ %.pr, %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
-  %.sroa.6.047 = phi ptr [ null, %.lr.ph ], [ %65, %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
-  %.sroa.0.046 = phi ptr [ null, %.lr.ph ], [ %62, %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
-  %60 = load ptr, ptr %57, align 8, !tbaa !91
-  %61 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %60, i64 %indvars.iv
-  %62 = load ptr, ptr %61, align 8, !tbaa !98
-  %63 = icmp eq ptr %62, %.sroa.0.046
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, %.sroa.6.047
-  %67 = select i1 %63, i1 %66, i1 false
-  br i1 %67, label %.critedge, label %68
+  %.sroa.6.048 = phi ptr [ null, %.lr.ph ], [ %63, %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
+  %.sroa.0.047 = phi ptr [ null, %.lr.ph ], [ %60, %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit ]
+  %58 = load ptr, ptr %55, align 8, !tbaa !91
+  %59 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %58, i64 %indvars.iv
+  %60 = load ptr, ptr %59, align 8, !tbaa !98
+  %61 = icmp eq ptr %60, %.sroa.0.047
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, %.sroa.6.048
+  %65 = select i1 %61, i1 %64, i1 false
+  br i1 %65, label %.critedge, label %66
 
-68:                                               ; preds = %58
-  %69 = getelementptr inbounds nuw i8, ptr %62, i64 64
-  %70 = getelementptr inbounds nuw i8, ptr %65, i64 64
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 52
-  %72 = getelementptr inbounds nuw i8, ptr %62, i64 52
-  br label %74
+66:                                               ; preds = %56
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 52
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 52
+  br label %72
 
-73:                                               ; preds = %80
+71:                                               ; preds = %78
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i24, 3
-  br i1 %exitcond.i, label %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit, label %74, !llvm.loop !108
+  br i1 %exitcond.i, label %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit, label %72, !llvm.loop !108
 
-74:                                               ; preds = %73, %68
-  %indvars.iv.i23 = phi i64 [ 0, %68 ], [ %indvars.iv.next.i24, %73 ]
+72:                                               ; preds = %71, %66
+  %indvars.iv.i23 = phi i64 [ 0, %66 ], [ %indvars.iv.next.i24, %71 ]
+  %73 = getelementptr inbounds nuw [3 x i32], ptr %67, i64 0, i64 %indvars.iv.i23
+  %74 = load i32, ptr %73, align 4, !tbaa !72
   %75 = getelementptr inbounds nuw [3 x i32], ptr %69, i64 0, i64 %indvars.iv.i23
   %76 = load i32, ptr %75, align 4, !tbaa !72
-  %77 = getelementptr inbounds nuw [3 x i32], ptr %71, i64 0, i64 %indvars.iv.i23
-  %78 = load i32, ptr %77, align 4, !tbaa !72
-  %79 = icmp ult i32 %76, %78
-  br i1 %79, label %.critedge, label %80
+  %77 = icmp ult i32 %74, %76
+  br i1 %77, label %.critedge, label %78
 
-80:                                               ; preds = %74
+78:                                               ; preds = %72
+  %79 = getelementptr inbounds nuw [3 x i32], ptr %68, i64 0, i64 %indvars.iv.i23
+  %80 = load i32, ptr %79, align 4, !tbaa !72
   %81 = getelementptr inbounds nuw [3 x i32], ptr %70, i64 0, i64 %indvars.iv.i23
   %82 = load i32, ptr %81, align 4, !tbaa !72
-  %83 = getelementptr inbounds nuw [3 x i32], ptr %72, i64 0, i64 %indvars.iv.i23
-  %84 = load i32, ptr %83, align 4, !tbaa !72
-  %85 = icmp ult i32 %82, %84
-  br i1 %85, label %.critedge, label %73
+  %83 = icmp ult i32 %80, %82
+  br i1 %83, label %.critedge, label %71
 
-.critedge:                                        ; preds = %74, %80, %58
-  %86 = load ptr, ptr %5, align 8, !tbaa !62
-  %87 = load ptr, ptr %86, align 8, !tbaa !4
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
-  %89 = load ptr, ptr %88, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef %1)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
-  %90 = load i32, ptr %23, align 4, !tbaa !65
-  %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %23, align 4, !tbaa !65
+.critedge:                                        ; preds = %72, %78, %56
+  %84 = load ptr, ptr %5, align 8, !tbaa !62
+  %85 = load ptr, ptr %84, align 8, !tbaa !4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 64
+  %87 = load ptr, ptr %86, align 8
+  call void %87(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef %1)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
+  %88 = load i32, ptr %23, align 4, !tbaa !65
+  %89 = add nsw i32 %88, 1
+  store i32 %89, ptr %23, align 4, !tbaa !65
   %.pr.pre = load i32, ptr %17, align 4, !tbaa !30
   br label %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit
 
-_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit: ; preds = %73, %.critedge
-  %92 = phi i32 [ %91, %.critedge ], [ %59, %73 ]
-  %.pr = phi i32 [ %.pr.pre, %.critedge ], [ %.pr50, %73 ]
+_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit: ; preds = %71, %.critedge
+  %90 = phi i32 [ %89, %.critedge ], [ %57, %71 ]
+  %.pr = phi i32 [ %.pr.pre, %.critedge ], [ %.pr51, %71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %93 = sext i32 %.pr to i64
-  %94 = icmp slt i64 %indvars.iv.next, %93
-  br i1 %94, label %58, label %._crit_edge, !llvm.loop !109
+  %91 = sext i32 %.pr to i64
+  %92 = icmp slt i64 %indvars.iv.next, %91
+  br i1 %92, label %56, label %._crit_edge, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %_ZN20btAxisSweep3InternalIjE15testAabbOverlapEP17btBroadphaseProxyS2_.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
-  %95 = icmp sgt i32 %.pr, 1
-  br i1 %95, label %96, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
+  %93 = icmp sgt i32 %.pr, 1
+  br i1 %93, label %94, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
 
-96:                                               ; preds = %._crit_edge
-  %97 = add nsw i32 %.pr, -1
-  call void @_ZN20btAlignedObjectArrayI16btBroadphasePairE17quickSortInternalI29btBroadphasePairSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %16, ptr noundef nonnull align 1 dereferenceable(1) %4, i32 noundef 0, i32 noundef %97)
-  %.pre52 = load i32, ptr %17, align 4, !tbaa !30
-  %.pre53 = load i32, ptr %23, align 4, !tbaa !65
+94:                                               ; preds = %._crit_edge
+  %95 = add nsw i32 %.pr, -1
+  call void @_ZN20btAlignedObjectArrayI16btBroadphasePairE17quickSortInternalI29btBroadphasePairSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %16, ptr noundef nonnull align 1 dereferenceable(1) %4, i32 noundef 0, i32 noundef %95)
+  %.pre53 = load i32, ptr %17, align 4, !tbaa !30
+  %.pre54 = load i32, ptr %23, align 4, !tbaa !65
   br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25: ; preds = %._crit_edge, %96
-  %98 = phi i32 [ %92, %._crit_edge ], [ %.pre53, %96 ]
-  %99 = phi i32 [ %.pr, %._crit_edge ], [ %.pre52, %96 ]
+_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25: ; preds = %._crit_edge, %94
+  %96 = phi i32 [ %90, %._crit_edge ], [ %.pre54, %94 ]
+  %97 = phi i32 [ %.pr, %._crit_edge ], [ %.pre53, %94 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #11
-  %100 = sub nsw i32 %99, %98
-  %101 = icmp slt i32 %98, 0
-  br i1 %101, label %102, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit43
+  %98 = sub nsw i32 %97, %96
+  %99 = icmp slt i32 %96, 0
+  br i1 %99, label %100, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44
 
-102:                                              ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
-  %103 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %104 = load i32, ptr %103, align 8, !tbaa !90
-  %105 = icmp slt i32 %104, %100
-  br i1 %105, label %106, label %.lr.ph.i26
+100:                                              ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
+  %101 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %102 = load i32, ptr %101, align 8, !tbaa !90
+  %103 = icmp slt i32 %102, %98
+  br i1 %103, label %104, label %.lr.ph.i26
 
-106:                                              ; preds = %102
-  %.not.i.i.i31 = icmp eq i32 %99, %98
+104:                                              ; preds = %100
+  %.not.i.i.i31 = icmp eq i32 %97, %96
   br i1 %.not.i.i.i31, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33: ; preds = %106
-  %107 = sext i32 %100 to i64
-  %108 = shl nsw i64 %107, 5
-  %109 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %108, i32 noundef 16)
+_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33: ; preds = %104
+  %105 = sext i32 %98 to i64
+  %106 = shl nsw i64 %105, 5
+  %107 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %106, i32 noundef 16)
   %.pre.i32 = load i32, ptr %17, align 4, !tbaa !30
-  %110 = icmp sgt i32 %.pre.i32, 0
-  br i1 %110, label %.lr.ph.i.i.i38, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
+  %108 = icmp sgt i32 %.pre.i32, 0
+  br i1 %108, label %.lr.ph.i.i.i39, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
 
-.lr.ph.i.i.i38:                                   ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
-  %111 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %wide.trip.count.i.i.i39 = zext nneg i32 %.pre.i32 to i64
-  br label %112
+.lr.ph.i.i.i39:                                   ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
+  %109 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %wide.trip.count.i.i.i40 = zext nneg i32 %.pre.i32 to i64
+  br label %110
 
-112:                                              ; preds = %112, %.lr.ph.i.i.i38
-  %indvars.iv.i.i.i40 = phi i64 [ 0, %.lr.ph.i.i.i38 ], [ %indvars.iv.next.i.i.i41, %112 ]
-  %113 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %109, i64 %indvars.iv.i.i.i40
-  %114 = load ptr, ptr %111, align 8, !tbaa !91
-  %115 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %114, i64 %indvars.iv.i.i.i40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %115, i64 32, i1 false), !tbaa.struct !92
-  %indvars.iv.next.i.i.i41 = add nuw nsw i64 %indvars.iv.i.i.i40, 1
-  %exitcond.not.i.i.i42 = icmp eq i64 %indvars.iv.next.i.i.i41, %wide.trip.count.i.i.i39
-  br i1 %exitcond.not.i.i.i42, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35, label %112, !llvm.loop !96
+110:                                              ; preds = %110, %.lr.ph.i.i.i39
+  %indvars.iv.i.i.i41 = phi i64 [ 0, %.lr.ph.i.i.i39 ], [ %indvars.iv.next.i.i.i42, %110 ]
+  %111 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %107, i64 %indvars.iv.i.i.i41
+  %112 = load ptr, ptr %109, align 8, !tbaa !91
+  %113 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %112, i64 %indvars.iv.i.i.i41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %113, i64 32, i1 false), !tbaa.struct !92
+  %indvars.iv.next.i.i.i42 = add nuw nsw i64 %indvars.iv.i.i.i41, 1
+  %exitcond.not.i.i.i43 = icmp eq i64 %indvars.iv.next.i.i.i42, %wide.trip.count.i.i.i40
+  br i1 %exitcond.not.i.i.i43, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35, label %110, !llvm.loop !96
 
-_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35: ; preds = %112, %106, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
-  %.0.i.i.i3456 = phi ptr [ %109, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ null, %106 ], [ %109, %112 ]
-  %116 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %117 = load ptr, ptr %116, align 8, !tbaa !91
-  %.not.i5.i.i36 = icmp eq ptr %117, null
-  br i1 %.not.i5.i.i36, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i37, label %118
+_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35: ; preds = %110, %104, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
+  %.0.i.i.i3457 = phi ptr [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ null, %104 ], [ %107, %110 ]
+  %114 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %115 = load ptr, ptr %114, align 8, !tbaa !91
+  %.not.i5.i.i36 = icmp ne ptr %115, null
+  %116 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %117 = load i8, ptr %116, align 8, !range !82
+  %118 = trunc nuw i8 %117 to i1
+  %or.cond.i.i37 = select i1 %.not.i5.i.i36, i1 %118, i1 false
+  br i1 %or.cond.i.i37, label %119, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38
 
-118:                                              ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
-  %119 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %120 = load i8, ptr %119, align 8, !tbaa !26, !range !82, !noundef !83
-  %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %122, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i37
+119:                                              ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
+  call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %115)
+  br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38
 
-122:                                              ; preds = %118
-  call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %117)
-  br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i37
-
-_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i37: ; preds = %122, %118, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
-  %123 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i8 1, ptr %123, align 8, !tbaa !26
-  store ptr %.0.i.i.i3456, ptr %116, align 8, !tbaa !91
-  store i32 %100, ptr %103, align 8, !tbaa !90
+_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38: ; preds = %119, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
+  store i8 1, ptr %116, align 8, !tbaa !26
+  store ptr %.0.i.i.i3457, ptr %114, align 8, !tbaa !91
+  store i32 %98, ptr %101, align 8, !tbaa !90
   br label %.lr.ph.i26
 
-.lr.ph.i26:                                       ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i37, %102
-  %124 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %125 = sext i32 %99 to i64
-  %wide.trip.count.i27 = sext i32 %100 to i64
-  br label %126
+.lr.ph.i26:                                       ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38, %100
+  %120 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %121 = sext i32 %97 to i64
+  %wide.trip.count.i27 = sext i32 %98 to i64
+  br label %122
 
-126:                                              ; preds = %126, %.lr.ph.i26
-  %indvars.iv.i28 = phi i64 [ %125, %.lr.ph.i26 ], [ %indvars.iv.next.i29, %126 ]
-  %127 = load ptr, ptr %124, align 8, !tbaa !91
-  %128 = getelementptr inbounds %struct.btBroadphasePair, ptr %127, i64 %indvars.iv.i28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 32, i1 false)
+122:                                              ; preds = %122, %.lr.ph.i26
+  %indvars.iv.i28 = phi i64 [ %121, %.lr.ph.i26 ], [ %indvars.iv.next.i29, %122 ]
+  %123 = load ptr, ptr %120, align 8, !tbaa !91
+  %124 = getelementptr inbounds %struct.btBroadphasePair, ptr %123, i64 %indvars.iv.i28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, i8 0, i64 32, i1 false)
   %indvars.iv.next.i29 = add nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i27
-  br i1 %exitcond.not.i30, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit43, label %126, !llvm.loop !97
+  br i1 %exitcond.not.i30, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44, label %122, !llvm.loop !97
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit43: ; preds = %126, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
-  %129 = phi i32 [ %100, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25 ], [ %25, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit ], [ %100, %126 ]
-  store i32 %129, ptr %17, align 4, !tbaa !30
+_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44: ; preds = %122, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25
+  %125 = phi i32 [ %98, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit25 ], [ %25, %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit ], [ %98, %122 ]
+  store i32 %125, ptr %17, align 4, !tbaa !30
   store i32 0, ptr %23, align 4, !tbaa !65
-  br label %130
+  br label %126
 
-130:                                              ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit43, %2
+126:                                              ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit44, %2
   ret void
 }
 
@@ -2114,34 +2102,31 @@ define linkonce_odr dso_local void @_ZN15btNullPairCacheD2Ev(ptr noundef nonnull
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTV15btNullPairCache, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !91
-  %.not.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev.exit, label %4
+  %.not.i.i.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = load i8, ptr %4, align 8, !range !82
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 %6, i1 false
+  br i1 %or.cond.i.i, label %7, label %_ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev.exit
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i8, ptr %5, align 8, !tbaa !26, !range !82, !noundef !83
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %_ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev.exit
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
-          to label %_ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev.exit unwind label %9
+          to label %_ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev.exit unwind label %8
 
-9:                                                ; preds = %8
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %7
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #12
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #12
   unreachable
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev.exit: ; preds = %1, %4, %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %13, align 8, !tbaa !26
+_ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev.exit: ; preds = %1, %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 1, ptr %4, align 8, !tbaa !26
   store ptr null, ptr %2, align 8, !tbaa !91
-  store i32 0, ptr %12, align 4, !tbaa !30
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %14, align 8, !tbaa !90
+  store i32 0, ptr %11, align 4, !tbaa !30
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %12, align 8, !tbaa !90
   ret void
 }
 
@@ -2150,27 +2135,25 @@ define linkonce_odr dso_local void @_ZN15btNullPairCacheD0Ev(ptr noundef nonnull
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTV15btNullPairCache, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !91
-  %.not.i.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i.i, label %_ZN15btNullPairCacheD2Ev.exit, label %4
+  %.not.i.i.i.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = load i8, ptr %4, align 8, !range !82
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i.i.i = select i1 %.not.i.i.i.i, i1 %6, i1 false
+  br i1 %or.cond.i.i.i, label %7, label %_ZN15btNullPairCacheD2Ev.exit
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i8, ptr %5, align 8, !tbaa !26, !range !82, !noundef !83
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %_ZN15btNullPairCacheD2Ev.exit
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
-          to label %_ZN15btNullPairCacheD2Ev.exit unwind label %9
+          to label %_ZN15btNullPairCacheD2Ev.exit unwind label %8
 
-9:                                                ; preds = %8
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %7
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #12
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #12
   unreachable
 
-_ZN15btNullPairCacheD2Ev.exit:                    ; preds = %1, %4, %8
+_ZN15btNullPairCacheD2Ev.exit:                    ; preds = %1, %7
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #13
   ret void
 }

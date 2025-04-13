@@ -6788,8 +6788,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i15 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %4 = load ptr, ptr %env_.i.i15, align 8
+  %env_.i.i16 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %4 = load ptr, ptr %env_.i.i16, align 8
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %4, i64 88
   %5 = load ptr, ptr %isolate_.i.i, align 8
   %call.i.i = call ptr @_ZN4node25ERR_CRYPTO_UNKNOWN_CIPHERIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %5, ptr noundef nonnull @.str.129)
@@ -6798,8 +6798,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call5 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef nonnull %call3) #20
-  %call.i16 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %call3) #20
-  switch i32 %call.i16, label %sw.default.i [
+  %call.i17 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %call3) #20
+  switch i32 %call.i17, label %sw.default.i [
     i32 7, label %_ZN4node6crypto12_GLOBAL__N_128IsSupportedAuthenticatedModeEPK13evp_cipher_st.exit
     i32 6, label %_ZN4node6crypto12_GLOBAL__N_128IsSupportedAuthenticatedModeEPK13evp_cipher_st.exit
     i32 65539, label %_ZN4node6crypto12_GLOBAL__N_128IsSupportedAuthenticatedModeEPK13evp_cipher_st.exit
@@ -6808,46 +6808,46 @@ if.end:                                           ; preds = %entry
 
 sw.bb1.i:                                         ; preds = %if.end
   %call2.i = call i32 @EVP_CIPHER_get_nid(ptr noundef nonnull %call3) #20
-  %cmp.i = icmp eq i32 %call2.i, 1018
+  %cmp.i = icmp ne i32 %call2.i, 1018
   br label %_ZN4node6crypto12_GLOBAL__N_128IsSupportedAuthenticatedModeEPK13evp_cipher_st.exit
 
 sw.default.i:                                     ; preds = %if.end
   br label %_ZN4node6crypto12_GLOBAL__N_128IsSupportedAuthenticatedModeEPK13evp_cipher_st.exit
 
 _ZN4node6crypto12_GLOBAL__N_128IsSupportedAuthenticatedModeEPK13evp_cipher_st.exit: ; preds = %if.end, %if.end, %if.end, %sw.bb1.i, %sw.default.i
-  %retval.0.i = phi i1 [ false, %sw.default.i ], [ %cmp.i, %sw.bb1.i ], [ true, %if.end ], [ true, %if.end ], [ true, %if.end ]
+  %retval.0.i = phi i1 [ true, %sw.default.i ], [ %cmp.i, %sw.bb1.i ], [ false, %if.end ], [ false, %if.end ], [ false, %if.end ]
   %length_.i = getelementptr inbounds nuw i8, ptr %iv_buf, i64 16
   %6 = load i64, ptr %length_.i, align 8
-  %cmp8.not = icmp eq i64 %6, 0
-  %cmp10 = icmp ne i32 %call5, 0
-  %or.cond = select i1 %cmp8.not, i1 %cmp10, i1 false
-  br i1 %or.cond, label %if.then11, label %if.end13
+  %cmp8 = icmp ne i64 %6, 0
+  %cmp10 = icmp eq i32 %call5, 0
+  %or.cond.not = select i1 %cmp8, i1 true, i1 %cmp10
+  br i1 %or.cond.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %_ZN4node6crypto12_GLOBAL__N_128IsSupportedAuthenticatedModeEPK13evp_cipher_st.exit
   %7 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i18 = getelementptr inbounds nuw i8, ptr %7, i64 176
-  %8 = load ptr, ptr %env_.i.i18, align 8
-  %isolate_.i.i19 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %9 = load ptr, ptr %isolate_.i.i19, align 8
-  %call.i.i20 = call ptr @_ZN4node21ERR_CRYPTO_INVALID_IVIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %9, ptr noundef nonnull @.str.131)
-  %call6.i.i21 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr %call.i.i20) #20
+  %env_.i.i19 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  %8 = load ptr, ptr %env_.i.i19, align 8
+  %isolate_.i.i20 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %9 = load ptr, ptr %isolate_.i.i20, align 8
+  %call.i.i21 = call ptr @_ZN4node21ERR_CRYPTO_INVALID_IVIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %9, ptr noundef nonnull @.str.131)
+  %call6.i.i22 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr %call.i.i21) #20
   br label %cleanup
 
 if.end13:                                         ; preds = %_ZN4node6crypto12_GLOBAL__N_128IsSupportedAuthenticatedModeEPK13evp_cipher_st.exit
-  %brmerge = or i1 %retval.0.i, %cmp8.not
+  %or.cond1 = and i1 %retval.0.i, %cmp8
   %conv = trunc i64 %6 to i32
-  %cmp19.not = icmp eq i32 %call5, %conv
-  %or.cond38 = select i1 %brmerge, i1 true, i1 %cmp19.not
-  br i1 %or.cond38, label %if.end22, label %if.then20
+  %cmp19.not = icmp ne i32 %call5, %conv
+  %or.cond.not39 = select i1 %or.cond1, i1 %cmp19.not, i1 false
+  br i1 %or.cond.not39, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %if.end13
   %10 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i24 = getelementptr inbounds nuw i8, ptr %10, i64 176
-  %11 = load ptr, ptr %env_.i.i24, align 8
-  %isolate_.i.i25 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %12 = load ptr, ptr %isolate_.i.i25, align 8
-  %call.i.i26 = call ptr @_ZN4node21ERR_CRYPTO_INVALID_IVIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %12, ptr noundef nonnull @.str.131)
-  %call6.i.i27 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr %call.i.i26) #20
+  %env_.i.i25 = getelementptr inbounds nuw i8, ptr %10, i64 176
+  %11 = load ptr, ptr %env_.i.i25, align 8
+  %isolate_.i.i26 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  %12 = load ptr, ptr %isolate_.i.i26, align 8
+  %call.i.i27 = call ptr @_ZN4node21ERR_CRYPTO_INVALID_IVIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %12, ptr noundef nonnull @.str.131)
+  %call6.i.i28 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr %call.i.i27) #20
   br label %cleanup
 
 if.end22:                                         ; preds = %if.end13
@@ -6860,7 +6860,7 @@ if.end22.if.end40_crit_edge:                      ; preds = %if.end22
   br label %if.end40
 
 do.body:                                          ; preds = %if.end22
-  br i1 %cmp8.not, label %do.body31, label %do.end34
+  br i1 %cmp8, label %do.end34, label %do.body31
 
 do.body31:                                        ; preds = %do.body
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto10CipherBase6InitIvEPKcRKNS0_10ByteSourceERKNS0_25ArrayBufferOrViewContentsIhEEjE4args) #20
@@ -6874,12 +6874,12 @@ do.end34:                                         ; preds = %do.body
 
 if.then37:                                        ; preds = %do.end34
   %14 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i30 = getelementptr inbounds nuw i8, ptr %14, i64 176
-  %15 = load ptr, ptr %env_.i.i30, align 8
-  %isolate_.i.i31 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  %16 = load ptr, ptr %isolate_.i.i31, align 8
-  %call.i.i32 = call ptr @_ZN4node21ERR_CRYPTO_INVALID_IVIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.131)
-  %call6.i.i33 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr %call.i.i32) #20
+  %env_.i.i31 = getelementptr inbounds nuw i8, ptr %14, i64 176
+  %15 = load ptr, ptr %env_.i.i31, align 8
+  %isolate_.i.i32 = getelementptr inbounds nuw i8, ptr %15, i64 88
+  %16 = load ptr, ptr %isolate_.i.i32, align 8
+  %call.i.i33 = call ptr @_ZN4node21ERR_CRYPTO_INVALID_IVIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %16, ptr noundef nonnull @.str.131)
+  %call6.i.i34 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr %call.i.i33) #20
   br label %cleanup
 
 if.end40:                                         ; preds = %if.end22.if.end40_crit_edge, %do.end34
@@ -6888,19 +6888,19 @@ if.end40:                                         ; preds = %if.end22.if.end40_c
   %size_.i = getelementptr inbounds nuw i8, ptr %key_buf, i64 16
   %19 = load i64, ptr %size_.i, align 8
   %conv43 = trunc i64 %19 to i32
-  %cmp.i34 = icmp eq i64 %17, 0
+  %cmp.i35 = icmp eq i64 %17, 0
   %data_.i = getelementptr inbounds nuw i8, ptr %iv_buf, i64 24
   %20 = load ptr, ptr %data_.i, align 8
   %offset_.i = getelementptr inbounds nuw i8, ptr %iv_buf, i64 8
   %21 = load i64, ptr %offset_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %20, i64 %21
-  %retval.0.i35 = select i1 %cmp.i34, ptr %iv_buf, ptr %add.ptr.i
+  %retval.0.i36 = select i1 %cmp.i35, ptr %iv_buf, ptr %add.ptr.i
   %conv46 = trunc i64 %17 to i32
-  call void @_ZN4node6crypto10CipherBase10CommonInitEPKcPK13evp_cipher_stPKhiS8_ij(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %cipher_type, ptr noundef nonnull %call3, ptr noundef %18, i32 noundef %conv43, ptr noundef %retval.0.i35, i32 noundef %conv46, i32 noundef %auth_tag_len)
+  call void @_ZN4node6crypto10CipherBase10CommonInitEPKcPK13evp_cipher_stPKhiS8_ij(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %cipher_type, ptr noundef nonnull %call3, ptr noundef %18, i32 noundef %conv43, ptr noundef %retval.0.i36, i32 noundef %conv46, i32 noundef %auth_tag_len)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end40, %if.then37, %if.then20, %if.then11, %if.then
-  %call.i37 = call i32 @ERR_pop_to_mark() #20
+  %call.i38 = call i32 @ERR_pop_to_mark() #20
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #20
   ret void
 }

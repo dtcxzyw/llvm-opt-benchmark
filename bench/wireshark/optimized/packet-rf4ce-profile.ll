@@ -595,405 +595,403 @@ sub_0:
   %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %15 = and i8 %14, 15
   %16 = and i8 %14, 64
-  %.not43 = icmp ne i8 %16, 0
-  %17 = load i8, ptr %3, align 1
-  %18 = zext i8 %17 to i32
-  %19 = sub nsw i32 71, %18
-  %.not44 = icmp eq i8 %17, 71
-  br i1 %.not44, label %sub_1, label %.tail
+  %17 = icmp ne i8 %16, 0
+  %18 = load i8, ptr %3, align 1
+  %19 = zext i8 %18 to i32
+  %20 = sub nsw i32 71, %19
+  %.not46 = icmp eq i8 %18, 71
+  br i1 %.not46, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = sub nsw i32 68, %22
-  %.not45 = icmp eq i8 %21, 68
-  br i1 %.not45, label %sub_2, label %.tail
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i32
+  %24 = sub nsw i32 68, %23
+  %.not47 = icmp eq i8 %22, 68
+  br i1 %.not47, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  %27 = sub nsw i32 80, %26
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %26 = load i8, ptr %25, align 1
+  %27 = zext i8 %26 to i32
+  %28 = sub nsw i32 80, %27
   br label %.tail
 
 .tail:                                            ; preds = %sub_0, %sub_1, %sub_2
-  %28 = phi i32 [ %19, %sub_0 ], [ %23, %sub_1 ], [ %27, %sub_2 ]
-  %.not = icmp eq i32 %28, 0
-  %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.356, ptr noundef %3, i64 noundef 7) #8
-  %.not38 = icmp eq i32 %29, 0
-  %30 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.357, ptr noundef %3, i64 noundef 7) #8
-  %.not39 = icmp eq i32 %30, 0
+  %29 = phi i32 [ %20, %sub_0 ], [ %24, %sub_1 ], [ %28, %sub_2 ]
+  %.not = icmp eq i32 %29, 0
+  %30 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.356, ptr noundef %3, i64 noundef 7) #8
+  %.not43 = icmp eq i32 %30, 0
+  %31 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.357, ptr noundef %3, i64 noundef 7) #8
+  %.not44 = icmp eq i32 %31, 0
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %9) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %9, i8 0, i64 14, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load ptr, ptr %31, align 8
-  tail call void @col_clear(ptr noundef %32, i32 noundef 25)
-  %brmerge = select i1 %.not, i1 true, i1 %.not38
-  %brmerge47 = select i1 %brmerge, i1 true, i1 %.not39
-  br i1 %brmerge47, label %.sink.split, label %36
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %33 = load ptr, ptr %32, align 8
+  tail call void @col_clear(ptr noundef %33, i32 noundef 25)
+  %brmerge = select i1 %.not, i1 true, i1 %.not43
+  %brmerge49 = select i1 %brmerge, i1 true, i1 %.not44
+  br i1 %brmerge49, label %.sink.split, label %37
 
 .sink.split:                                      ; preds = %.tail
-  %brmerge.not = select i1 %.not38, i1 %.not43, i1 false
-  %or.cond = select i1 %.not, i1 true, i1 %brmerge.not
-  %dissect_rf4ce_profile_common.gdp_fcf_bits.mux = select i1 %or.cond, ptr @dissect_rf4ce_profile_common.gdp_fcf_bits, ptr @dissect_rf4ce_profile_common.zrc20_fcf_bits
+  %or.cond = select i1 %.not43, i1 %17, i1 false
+  %or.cond45 = select i1 %.not, i1 true, i1 %or.cond
+  %dissect_rf4ce_profile_common.gdp_fcf_bits.mux = select i1 %or.cond45, ptr @dissect_rf4ce_profile_common.gdp_fcf_bits, ptr @dissect_rf4ce_profile_common.zrc20_fcf_bits
   %dissect_rf4ce_profile_common.gdp_fcf_bits.mux.mux = select i1 %brmerge, ptr %dissect_rf4ce_profile_common.gdp_fcf_bits.mux, ptr @dissect_rf4ce_profile_common.zrc10_fcf_bits
   %hf_rf4ce_profile_fcf.val = load i32, ptr @hf_rf4ce_profile_fcf, align 4
   %hf_rf4ce_zrc10_fcf.val = load i32, ptr @hf_rf4ce_zrc10_fcf, align 4
-  %33 = select i1 %brmerge, i32 %hf_rf4ce_profile_fcf.val, i32 %hf_rf4ce_zrc10_fcf.val
-  %34 = load i32, ptr @ett_rf4ce_profile, align 4
-  %35 = tail call ptr @proto_tree_add_bitmask(ptr noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %33, i32 noundef %34, ptr noundef nonnull %dissect_rf4ce_profile_common.gdp_fcf_bits.mux.mux, i32 noundef -2147483648)
+  %34 = select i1 %brmerge, i32 %hf_rf4ce_profile_fcf.val, i32 %hf_rf4ce_zrc10_fcf.val
+  %35 = load i32, ptr @ett_rf4ce_profile, align 4
+  %36 = tail call ptr @proto_tree_add_bitmask(ptr noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %34, i32 noundef %35, ptr noundef nonnull %dissect_rf4ce_profile_common.gdp_fcf_bits.mux.mux, i32 noundef -2147483648)
   store i32 1, ptr %8, align 4
-  br label %36
+  br label %37
 
-36:                                               ; preds = %.tail, %.sink.split
-  %37 = phi i32 [ 1, %.sink.split ], [ 0, %.tail ]
-  %38 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %9, i64 noundef 14, i32 noundef 2, i64 noundef 14, ptr noundef nonnull @.str.358, ptr noundef nonnull @.str.359, ptr noundef %3)
-  %39 = load ptr, ptr %31, align 8
-  call void @col_add_str(ptr noundef %39, i32 noundef 35, ptr noundef nonnull %9)
-  %brmerge41 = select i1 %.not, i1 true, i1 %.not38
-  %brmerge42 = select i1 %brmerge41, i1 true, i1 %.not39
-  br i1 %brmerge42, label %40, label %dissect_rf4ce_profile_cmd.exit
+37:                                               ; preds = %.tail, %.sink.split
+  %38 = phi i32 [ 1, %.sink.split ], [ 0, %.tail ]
+  %39 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %9, i64 noundef 14, i32 noundef 2, i64 noundef 14, ptr noundef nonnull @.str.358, ptr noundef nonnull @.str.359, ptr noundef %3)
+  %40 = load ptr, ptr %32, align 8
+  call void @col_add_str(ptr noundef %40, i32 noundef 35, ptr noundef nonnull %9)
+  %or.cond3 = select i1 %.not, i1 true, i1 %.not43
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %.not44
+  br i1 %or.cond5, label %41, label %dissect_rf4ce_profile_cmd.exit
 
-40:                                               ; preds = %36
-  %41 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.357, ptr noundef readonly %3, i64 noundef 7) #8
-  %42 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.356, ptr noundef readonly %3, i64 noundef 7) #8
-  %.not30.i = icmp eq i32 %42, 0
-  %43 = call i32 @tvb_captured_length(ptr noundef %0)
-  %44 = sub i32 %43, %37
-  %45 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4
-  %46 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %37, i32 noundef %44, i32 noundef %45, ptr noundef null, ptr noundef nonnull @.str.360)
-  br i1 %.not43, label %47, label %139
-
-47:                                               ; preds = %40
-  %48 = load ptr, ptr %31, align 8
+41:                                               ; preds = %37
+  %42 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.357, ptr noundef readonly %3, i64 noundef 7) #8
+  %43 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.356, ptr noundef readonly %3, i64 noundef 7) #8
+  %44 = call i32 @tvb_captured_length(ptr noundef %0)
+  %45 = sub i32 %44, %38
+  %46 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4
+  %47 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %38, i32 noundef %45, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.360)
+  %48 = load ptr, ptr %32, align 8
   %49 = zext nneg i8 %15 to i32
-  %50 = call ptr @val_to_str_const(i32 noundef %49, ptr noundef nonnull @rf4ce_profile_fcf_cmd_id_vals, ptr noundef nonnull @.str.361)
-  call void @col_set_str(ptr noundef %48, i32 noundef 25, ptr noundef %50)
+  br i1 %17, label %50, label %140
+
+50:                                               ; preds = %41
+  %.not31.i = icmp eq i32 %43, 0
+  %51 = call ptr @val_to_str_const(i32 noundef %49, ptr noundef nonnull @rf4ce_profile_fcf_cmd_id_vals, ptr noundef nonnull @.str.361)
+  call void @col_set_str(ptr noundef %48, i32 noundef 25, ptr noundef %51)
   switch i8 %15, label %dissect_rf4ce_profile_cmd.exit [
-    i8 0, label %51
-    i8 1, label %56
-    i8 2, label %61
-    i8 3, label %66
-    i8 4, label %67
-    i8 5, label %68
-    i8 6, label %69
-    i8 7, label %70
-    i8 8, label %71
-    i8 9, label %72
-    i8 10, label %82
-    i8 11, label %97
+    i8 0, label %52
+    i8 1, label %57
+    i8 2, label %62
+    i8 3, label %67
+    i8 4, label %68
+    i8 5, label %69
+    i8 6, label %70
+    i8 7, label %71
+    i8 8, label %72
+    i8 9, label %73
+    i8 10, label %83
+    i8 11, label %98
   ]
 
-51:                                               ; preds = %47
-  %52 = load i32, ptr @hf_rf4ce_profile_cmd_generic_resp_status, align 4
-  %53 = load i32, ptr %8, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef -2147483648)
-  %55 = add i32 %53, 1
-  store i32 %55, ptr %8, align 4
+52:                                               ; preds = %50
+  %53 = load i32, ptr @hf_rf4ce_profile_cmd_generic_resp_status, align 4
+  %54 = load i32, ptr %8, align 4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %53, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef -2147483648)
+  %56 = add i32 %54, 1
+  store i32 %56, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-56:                                               ; preds = %47
-  %57 = load i32, ptr @hf_rf4ce_profile_cmd_configuration_complete_status, align 4
-  %58 = load i32, ptr %8, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %57, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef -2147483648)
-  %60 = add i32 %58, 1
-  store i32 %60, ptr %8, align 4
+57:                                               ; preds = %50
+  %58 = load i32, ptr @hf_rf4ce_profile_cmd_configuration_complete_status, align 4
+  %59 = load i32, ptr %8, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %58, ptr noundef %0, i32 noundef %59, i32 noundef 1, i32 noundef -2147483648)
+  %61 = add i32 %59, 1
+  store i32 %61, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-61:                                               ; preds = %47
-  %62 = load i32, ptr @hf_rf4ce_profile_cmd_heartbeat_trigger, align 4
-  %63 = load i32, ptr %8, align 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef -2147483648)
-  %65 = add i32 %63, 1
-  store i32 %65, ptr %8, align 4
+62:                                               ; preds = %50
+  %63 = load i32, ptr @hf_rf4ce_profile_cmd_heartbeat_trigger, align 4
+  %64 = load i32, ptr %8, align 4
+  %65 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef -2147483648)
+  %66 = add i32 %64, 1
+  store i32 %66, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-66:                                               ; preds = %47
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %8, i8 noundef zeroext 3, i1 noundef zeroext %.not30.i)
+67:                                               ; preds = %50
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 3, i1 noundef zeroext %.not31.i)
   br label %dissect_rf4ce_profile_cmd.exit
 
-67:                                               ; preds = %47
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %8, i8 noundef zeroext 31, i1 noundef zeroext %.not30.i)
+68:                                               ; preds = %50
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 31, i1 noundef zeroext %.not31.i)
   br label %dissect_rf4ce_profile_cmd.exit
 
-68:                                               ; preds = %47
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %8, i8 noundef zeroext 27, i1 noundef zeroext %.not30.i)
+69:                                               ; preds = %50
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 27, i1 noundef zeroext %.not31.i)
   br label %dissect_rf4ce_profile_cmd.exit
 
-69:                                               ; preds = %47
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %8, i8 noundef zeroext 27, i1 noundef zeroext %.not30.i)
+70:                                               ; preds = %50
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 27, i1 noundef zeroext %.not31.i)
   br label %dissect_rf4ce_profile_cmd.exit
 
-70:                                               ; preds = %47
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %8, i8 noundef zeroext 3, i1 noundef zeroext %.not30.i)
+71:                                               ; preds = %50
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 3, i1 noundef zeroext %.not31.i)
   br label %dissect_rf4ce_profile_cmd.exit
 
-71:                                               ; preds = %47
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %8, i8 noundef zeroext 31, i1 noundef zeroext %.not30.i)
+72:                                               ; preds = %50
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 31, i1 noundef zeroext %.not31.i)
   br label %dissect_rf4ce_profile_cmd.exit
 
-72:                                               ; preds = %47
-  %73 = load i32, ptr %8, align 4
-  %74 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %73)
-  %75 = load i32, ptr @hf_rf4ce_profile_cmd_check_validation_sub_type, align 4
-  %76 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %75, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef -2147483648)
-  %77 = add i32 %73, 1
-  store i32 %77, ptr %8, align 4
-  switch i8 %74, label %dissect_rf4ce_profile_cmd.exit [
+73:                                               ; preds = %50
+  %74 = load i32, ptr %8, align 4
+  %75 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %74)
+  %76 = load i32, ptr @hf_rf4ce_profile_cmd_check_validation_sub_type, align 4
+  %77 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %76, ptr noundef %0, i32 noundef %74, i32 noundef 1, i32 noundef -2147483648)
+  %78 = add i32 %74, 1
+  store i32 %78, ptr %8, align 4
+  switch i8 %75, label %dissect_rf4ce_profile_cmd.exit [
     i8 0, label %.sink.split.i.i.i
-    i8 1, label %78
+    i8 1, label %79
   ]
 
-78:                                               ; preds = %72
+79:                                               ; preds = %73
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %78, %72
-  %hf_rf4ce_profile_cmd_check_validation_status.sink.i.i.i = phi ptr [ @hf_rf4ce_profile_cmd_check_validation_status, %78 ], [ @hf_rf4ce_profile_cmd_check_validation_control, %72 ]
-  %79 = load i32, ptr %hf_rf4ce_profile_cmd_check_validation_status.sink.i.i.i, align 4
-  %80 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %79, ptr noundef %0, i32 noundef %77, i32 noundef 1, i32 noundef -2147483648)
-  %81 = add i32 %73, 2
-  store i32 %81, ptr %8, align 4
+.sink.split.i.i.i:                                ; preds = %79, %73
+  %hf_rf4ce_profile_cmd_check_validation_status.sink.i.i.i = phi ptr [ @hf_rf4ce_profile_cmd_check_validation_status, %79 ], [ @hf_rf4ce_profile_cmd_check_validation_control, %73 ]
+  %80 = load i32, ptr %hf_rf4ce_profile_cmd_check_validation_status.sink.i.i.i, align 4
+  %81 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %80, ptr noundef %0, i32 noundef %78, i32 noundef 1, i32 noundef -2147483648)
+  %82 = add i32 %74, 2
+  store i32 %82, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-82:                                               ; preds = %47
-  %83 = load i32, ptr %8, align 4
-  %84 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %83)
-  %85 = load i32, ptr @hf_rf4ce_profile_cmd_client_notification_sub_type, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %85, ptr noundef %0, i32 noundef %83, i32 noundef 1, i32 noundef -2147483648)
-  %87 = add i32 %83, 1
-  store i32 %87, ptr %8, align 4
-  %88 = icmp eq i8 %84, 0
-  br i1 %88, label %89, label %dissect_rf4ce_profile_cmd.exit
+83:                                               ; preds = %50
+  %84 = load i32, ptr %8, align 4
+  %85 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %84)
+  %86 = load i32, ptr @hf_rf4ce_profile_cmd_client_notification_sub_type, align 4
+  %87 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %86, ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef -2147483648)
+  %88 = add i32 %84, 1
+  store i32 %88, ptr %8, align 4
+  %89 = icmp eq i8 %85, 0
+  br i1 %89, label %90, label %dissect_rf4ce_profile_cmd.exit
 
-89:                                               ; preds = %82
-  %90 = load i32, ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags, align 4
-  %91 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4
-  %92 = call ptr @proto_tree_add_bitmask(ptr noundef %46, ptr noundef %0, i32 noundef %87, i32 noundef %90, i32 noundef %91, ptr noundef nonnull @dissect_rf4ce_profile_cmd_client_notification.identify_bits, i32 noundef -2147483648)
-  %93 = add i32 %83, 2
-  %94 = load i32, ptr @hf_rf4ce_profile_cmd_client_notification_identify_time, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef 2, i32 noundef -2147483648)
-  %96 = add i32 %83, 4
-  store i32 %96, ptr %8, align 4
+90:                                               ; preds = %83
+  %91 = load i32, ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags, align 4
+  %92 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4
+  %93 = call ptr @proto_tree_add_bitmask(ptr noundef %47, ptr noundef %0, i32 noundef %88, i32 noundef %91, i32 noundef %92, ptr noundef nonnull @dissect_rf4ce_profile_cmd_client_notification.identify_bits, i32 noundef -2147483648)
+  %94 = add i32 %84, 2
+  %95 = load i32, ptr @hf_rf4ce_profile_cmd_client_notification_identify_time, align 4
+  %96 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %95, ptr noundef %0, i32 noundef %94, i32 noundef 2, i32 noundef -2147483648)
+  %97 = add i32 %84, 4
+  store i32 %97, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-97:                                               ; preds = %47
-  %98 = load i32, ptr %8, align 4
-  %99 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %98)
-  %100 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_sub_type, align 4
-  %101 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %100, ptr noundef %0, i32 noundef %98, i32 noundef 1, i32 noundef -2147483648)
-  %102 = add i32 %98, 1
-  store i32 %102, ptr %8, align 4
-  %or.cond.i.i.i = icmp ult i8 %99, 2
-  br i1 %or.cond.i.i.i, label %103, label %108
+98:                                               ; preds = %50
+  %99 = load i32, ptr %8, align 4
+  %100 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %99)
+  %101 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_sub_type, align 4
+  %102 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %101, ptr noundef %0, i32 noundef %99, i32 noundef 1, i32 noundef -2147483648)
+  %103 = add i32 %99, 1
+  store i32 %103, ptr %8, align 4
+  %or.cond.i.i.i = icmp ult i8 %100, 2
+  br i1 %or.cond.i.i.i, label %104, label %109
 
-103:                                              ; preds = %97
-  %104 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_flags, align 4
-  %105 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4
-  %106 = call ptr @proto_tree_add_bitmask(ptr noundef %46, ptr noundef %0, i32 noundef %102, i32 noundef %104, i32 noundef %105, ptr noundef nonnull @dissect_rf4ce_profile_cmd_key_exchange.key_exchange_bits, i32 noundef -2147483648)
-  %107 = add i32 %98, 3
-  store i32 %107, ptr %8, align 4
-  br label %108
+104:                                              ; preds = %98
+  %105 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_flags, align 4
+  %106 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4
+  %107 = call ptr @proto_tree_add_bitmask(ptr noundef %47, ptr noundef %0, i32 noundef %103, i32 noundef %105, i32 noundef %106, ptr noundef nonnull @dissect_rf4ce_profile_cmd_key_exchange.key_exchange_bits, i32 noundef -2147483648)
+  %108 = add i32 %99, 3
+  store i32 %108, ptr %8, align 4
+  br label %109
 
-108:                                              ; preds = %103, %97
-  %109 = phi i32 [ %102, %97 ], [ %107, %103 ]
-  switch i8 %99, label %dissect_rf4ce_profile_cmd.exit [
-    i8 0, label %110
-    i8 1, label %120
-    i8 2, label %135
+109:                                              ; preds = %104, %98
+  %110 = phi i32 [ %103, %98 ], [ %108, %104 ]
+  switch i8 %100, label %dissect_rf4ce_profile_cmd.exit [
+    i8 0, label %111
+    i8 1, label %121
+    i8 2, label %136
   ]
 
-110:                                              ; preds = %108
+111:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  %111 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_rand_a, align 4
-  %112 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %111, ptr noundef %0, i32 noundef %109, i32 noundef 8, i32 noundef 0)
-  %113 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %109, i64 noundef 8)
-  %114 = add i32 %109, 8
-  store i32 %114, ptr %8, align 4
-  %115 = call zeroext i1 @key_exchange_context_is_procedure_started()
-  br i1 %115, label %119, label %116
+  %112 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_rand_a, align 4
+  %113 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %112, ptr noundef %0, i32 noundef %110, i32 noundef 8, i32 noundef 0)
+  %114 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %110, i64 noundef 8)
+  %115 = add i32 %110, 8
+  store i32 %115, ptr %8, align 4
+  %116 = call zeroext i1 @key_exchange_context_is_procedure_started()
+  br i1 %116, label %120, label %117
 
-116:                                              ; preds = %110
-  %117 = call zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef nonnull %5, ptr noundef %1, i1 noundef zeroext true)
-  br i1 %117, label %118, label %119
+117:                                              ; preds = %111
+  %118 = call zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef nonnull %5, ptr noundef %1, i1 noundef zeroext true)
+  br i1 %118, label %119, label %120
 
-118:                                              ; preds = %116
+119:                                              ; preds = %117
   call void @key_exchange_context_init()
   call void @key_exchange_context_set_rand_a(ptr noundef nonnull %4)
   call void @key_exchange_context_set_mac_a(ptr noundef nonnull %5)
   call void @key_exchange_context_start_procedure()
-  br label %119
+  br label %120
 
-119:                                              ; preds = %118, %116, %110
+120:                                              ; preds = %119, %117, %111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   br label %dissect_rf4ce_profile_cmd.exit
 
-120:                                              ; preds = %108
+121:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  %121 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_rand_b, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %121, ptr noundef %0, i32 noundef %109, i32 noundef 8, i32 noundef 0)
-  %123 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %109, i64 noundef 8)
-  %124 = add i32 %109, 8
-  %125 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_tag_b, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %125, ptr noundef %0, i32 noundef %124, i32 noundef 4, i32 noundef 0)
-  %127 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %124, i32 noundef -2147483648)
-  %128 = add i32 %109, 12
-  store i32 %128, ptr %8, align 4
-  %129 = call zeroext i1 @key_exchange_context_is_procedure_started()
-  br i1 %129, label %130, label %134
+  %122 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_rand_b, align 4
+  %123 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %122, ptr noundef %0, i32 noundef %110, i32 noundef 8, i32 noundef 0)
+  %124 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %110, i64 noundef 8)
+  %125 = add i32 %110, 8
+  %126 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_tag_b, align 4
+  %127 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 4, i32 noundef 0)
+  %128 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %125, i32 noundef -2147483648)
+  %129 = add i32 %110, 12
+  store i32 %129, ptr %8, align 4
+  %130 = call zeroext i1 @key_exchange_context_is_procedure_started()
+  br i1 %130, label %131, label %135
 
-130:                                              ; preds = %120
-  %131 = call zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef nonnull %7, ptr noundef %1, i1 noundef zeroext true)
-  br i1 %131, label %132, label %133
+131:                                              ; preds = %121
+  %132 = call zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef nonnull %7, ptr noundef %1, i1 noundef zeroext true)
+  br i1 %132, label %133, label %134
 
-132:                                              ; preds = %130
+133:                                              ; preds = %131
   call void @key_exchange_context_set_rand_b(ptr noundef nonnull %6)
   call void @key_exchange_context_set_mac_b(ptr noundef nonnull %7)
-  call void @key_exchange_calc_key(i32 noundef %127)
-  br label %133
-
-133:                                              ; preds = %132, %130
-  call void @key_exchange_context_stop_procedure()
+  call void @key_exchange_calc_key(i32 noundef %128)
   br label %134
 
-134:                                              ; preds = %133, %120
+134:                                              ; preds = %133, %131
+  call void @key_exchange_context_stop_procedure()
+  br label %135
+
+135:                                              ; preds = %134, %121
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   br label %dissect_rf4ce_profile_cmd.exit
 
-135:                                              ; preds = %108
-  %136 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_tag_a, align 4
-  %137 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %136, ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef 0)
-  %138 = add i32 %109, 4
-  store i32 %138, ptr %8, align 4
+136:                                              ; preds = %109
+  %137 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_tag_a, align 4
+  %138 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %137, ptr noundef %0, i32 noundef %110, i32 noundef 4, i32 noundef 0)
+  %139 = add i32 %110, 4
+  store i32 %139, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-139:                                              ; preds = %40
-  %.not.i = icmp eq i32 %41, 0
-  %140 = load ptr, ptr %31, align 8
-  %141 = zext nneg i8 %15 to i32
-  br i1 %.not.i, label %142, label %181
+140:                                              ; preds = %41
+  %.not.i = icmp eq i32 %42, 0
+  br i1 %.not.i, label %141, label %180
 
-142:                                              ; preds = %139
-  %143 = call ptr @val_to_str_const(i32 noundef %141, ptr noundef nonnull @rf4ce_zrc10_fcf_cmd_id_vals, ptr noundef nonnull @.str.361)
-  call void @col_set_str(ptr noundef %140, i32 noundef 25, ptr noundef %143)
+141:                                              ; preds = %140
+  %142 = call ptr @val_to_str_const(i32 noundef %49, ptr noundef nonnull @rf4ce_zrc10_fcf_cmd_id_vals, ptr noundef nonnull @.str.361)
+  call void @col_set_str(ptr noundef %48, i32 noundef 25, ptr noundef %142)
   switch i8 %15, label %dissect_rf4ce_profile_cmd.exit [
-    i8 1, label %144
-    i8 2, label %154
-    i8 3, label %164
-    i8 4, label %168
-    i8 5, label %172
+    i8 1, label %143
+    i8 2, label %153
+    i8 3, label %163
+    i8 4, label %167
+    i8 5, label %171
   ]
 
-144:                                              ; preds = %142
-  %145 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, align 4
-  %146 = load i32, ptr %8, align 4
-  %147 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %145, ptr noundef %0, i32 noundef %146, i32 noundef 1, i32 noundef 0)
-  %148 = add i32 %146, 1
-  store i32 %148, ptr %8, align 4
-  %149 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %148)
-  %150 = icmp sgt i32 %149, 0
-  br i1 %150, label %151, label %dissect_rf4ce_profile_cmd.exit
+143:                                              ; preds = %141
+  %144 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, align 4
+  %145 = load i32, ptr %8, align 4
+  %146 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %144, ptr noundef %0, i32 noundef %145, i32 noundef 1, i32 noundef 0)
+  %147 = add i32 %145, 1
+  store i32 %147, ptr %8, align 4
+  %148 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %147)
+  %149 = icmp sgt i32 %148, 0
+  br i1 %149, label %150, label %dissect_rf4ce_profile_cmd.exit
 
-151:                                              ; preds = %144
-  %152 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_payload, align 4
-  %153 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %152, ptr noundef %0, i32 noundef %148, i32 noundef %149, i32 noundef 0)
+150:                                              ; preds = %143
+  %151 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_payload, align 4
+  %152 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %151, ptr noundef %0, i32 noundef %147, i32 noundef %148, i32 noundef 0)
   br label %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i
 
-154:                                              ; preds = %142
-  %155 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, align 4
-  %156 = load i32, ptr %8, align 4
-  %157 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %155, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0)
-  %158 = add i32 %156, 1
-  store i32 %158, ptr %8, align 4
-  %159 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %158)
-  %160 = icmp sgt i32 %159, 0
-  br i1 %160, label %161, label %dissect_rf4ce_profile_cmd.exit
+153:                                              ; preds = %141
+  %154 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, align 4
+  %155 = load i32, ptr %8, align 4
+  %156 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %154, ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef 0)
+  %157 = add i32 %155, 1
+  store i32 %157, ptr %8, align 4
+  %158 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %157)
+  %159 = icmp sgt i32 %158, 0
+  br i1 %159, label %160, label %dissect_rf4ce_profile_cmd.exit
 
-161:                                              ; preds = %154
-  %162 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_payload, align 4
-  %163 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %162, ptr noundef %0, i32 noundef %158, i32 noundef %159, i32 noundef 0)
+160:                                              ; preds = %153
+  %161 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_payload, align 4
+  %162 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %161, ptr noundef %0, i32 noundef %157, i32 noundef %158, i32 noundef 0)
   br label %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i
 
-164:                                              ; preds = %142
-  %165 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, align 4
-  %166 = load i32, ptr %8, align 4
-  %167 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %165, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0)
+163:                                              ; preds = %141
+  %164 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, align 4
+  %165 = load i32, ptr %8, align 4
+  %166 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %164, ptr noundef %0, i32 noundef %165, i32 noundef 1, i32 noundef 0)
   br label %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i
 
-168:                                              ; preds = %142
-  %169 = load i32, ptr @hf_rf4ce_zrc10_cmd_disc_reserved, align 4
-  %170 = load i32, ptr %8, align 4
-  %171 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %169, ptr noundef %0, i32 noundef %170, i32 noundef 1, i32 noundef -2147483648)
+167:                                              ; preds = %141
+  %168 = load i32, ptr @hf_rf4ce_zrc10_cmd_disc_reserved, align 4
+  %169 = load i32, ptr %8, align 4
+  %170 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %168, ptr noundef %0, i32 noundef %169, i32 noundef 1, i32 noundef -2147483648)
   br label %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i
 
-172:                                              ; preds = %142
-  %173 = load i32, ptr %8, align 4
-  %174 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %173)
-  %175 = icmp sgt i32 %174, 0
-  br i1 %175, label %176, label %dissect_rf4ce_profile_cmd.exit
+171:                                              ; preds = %141
+  %172 = load i32, ptr %8, align 4
+  %173 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %172)
+  %174 = icmp sgt i32 %173, 0
+  br i1 %174, label %175, label %dissect_rf4ce_profile_cmd.exit
 
-176:                                              ; preds = %172
-  %177 = load i32, ptr @hf_rf4ce_zrc10_cmd_disc_rsp_supported_commands, align 4
-  %178 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %177, ptr noundef %0, i32 noundef %173, i32 noundef %174, i32 noundef 0)
+175:                                              ; preds = %171
+  %176 = load i32, ptr @hf_rf4ce_zrc10_cmd_disc_rsp_supported_commands, align 4
+  %177 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %176, ptr noundef %0, i32 noundef %172, i32 noundef %173, i32 noundef 0)
   br label %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i
 
-dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i: ; preds = %176, %168, %164, %161, %151
-  %179 = phi i32 [ %173, %176 ], [ %158, %161 ], [ %148, %151 ], [ %170, %168 ], [ %166, %164 ]
-  %.sink17.i.i = phi i32 [ %174, %176 ], [ %159, %161 ], [ %149, %151 ], [ 1, %168 ], [ 1, %164 ]
-  %180 = add i32 %179, %.sink17.i.i
-  store i32 %180, ptr %8, align 4
+dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i: ; preds = %175, %167, %163, %160, %150
+  %178 = phi i32 [ %172, %175 ], [ %157, %160 ], [ %147, %150 ], [ %169, %167 ], [ %165, %163 ]
+  %.sink17.i.i = phi i32 [ %173, %175 ], [ %158, %160 ], [ %148, %150 ], [ 1, %167 ], [ 1, %163 ]
+  %179 = add i32 %178, %.sink17.i.i
+  store i32 %179, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-181:                                              ; preds = %139
-  %182 = call ptr @val_to_str_const(i32 noundef %141, ptr noundef nonnull @rf4ce_zrc20_fcf_cmd_id_vals, ptr noundef nonnull @.str.361)
-  call void @col_set_str(ptr noundef %140, i32 noundef 25, ptr noundef %182)
-  %183 = icmp eq i8 %15, 6
-  br i1 %183, label %184, label %dissect_rf4ce_profile_cmd.exit
+180:                                              ; preds = %140
+  %181 = call ptr @val_to_str_const(i32 noundef %49, ptr noundef nonnull @rf4ce_zrc20_fcf_cmd_id_vals, ptr noundef nonnull @.str.361)
+  call void @col_set_str(ptr noundef %48, i32 noundef 25, ptr noundef %181)
+  %182 = icmp eq i8 %15, 6
+  br i1 %182, label %183, label %dissect_rf4ce_profile_cmd.exit
 
-184:                                              ; preds = %181
-  %185 = load i32, ptr %8, align 4
-  %186 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %185)
-  %187 = icmp sgt i32 %186, 0
-  %188 = load i32, ptr @ett_rf4ce_profile_action_records, align 4
-  br i1 %187, label %189, label %195
+183:                                              ; preds = %180
+  %184 = load i32, ptr %8, align 4
+  %185 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %184)
+  %186 = icmp sgt i32 %185, 0
+  %187 = load i32, ptr @ett_rf4ce_profile_action_records, align 4
+  br i1 %186, label %188, label %194
 
-189:                                              ; preds = %184
-  %190 = call ptr @proto_tree_add_subtree(ptr noundef %46, ptr noundef %0, i32 noundef %185, i32 noundef %186, i32 noundef %188, ptr noundef null, ptr noundef nonnull @.str.369)
-  br label %191
+188:                                              ; preds = %183
+  %189 = call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %0, i32 noundef %184, i32 noundef %185, i32 noundef %187, ptr noundef null, ptr noundef nonnull @.str.369)
+  br label %190
 
-191:                                              ; preds = %191, %189
-  call fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %190, ptr noundef nonnull %8, i1 noundef zeroext true)
-  %192 = load i32, ptr %8, align 4
-  %193 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %192)
-  %194 = icmp sgt i32 %193, 0
-  br i1 %194, label %191, label %dissect_rf4ce_profile_cmd.exit, !llvm.loop !6
+190:                                              ; preds = %190, %188
+  call fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %189, ptr noundef nonnull %8, i1 noundef zeroext true)
+  %191 = load i32, ptr %8, align 4
+  %192 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %191)
+  %193 = icmp sgt i32 %192, 0
+  br i1 %193, label %190, label %dissect_rf4ce_profile_cmd.exit, !llvm.loop !6
 
-195:                                              ; preds = %184
-  %196 = call ptr @proto_tree_add_subtree(ptr noundef %46, ptr noundef %0, i32 noundef %185, i32 noundef %186, i32 noundef %188, ptr noundef null, ptr noundef nonnull @.str.370)
+194:                                              ; preds = %183
+  %195 = call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %0, i32 noundef %184, i32 noundef %185, i32 noundef %187, ptr noundef null, ptr noundef nonnull @.str.370)
   br label %dissect_rf4ce_profile_cmd.exit
 
-dissect_rf4ce_profile_cmd.exit:                   ; preds = %191, %195, %181, %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i, %172, %154, %144, %142, %135, %134, %119, %108, %89, %82, %.sink.split.i.i.i, %72, %71, %70, %69, %68, %67, %66, %61, %56, %51, %47, %36
-  %197 = load i32, ptr %8, align 4
-  %198 = call i32 @tvb_captured_length(ptr noundef %0)
-  %199 = icmp ult i32 %197, %198
-  br i1 %199, label %200, label %205
+dissect_rf4ce_profile_cmd.exit:                   ; preds = %190, %194, %180, %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i, %171, %153, %143, %141, %136, %135, %120, %109, %90, %83, %.sink.split.i.i.i, %73, %72, %71, %70, %69, %68, %67, %62, %57, %52, %50, %37
+  %196 = load i32, ptr %8, align 4
+  %197 = call i32 @tvb_captured_length(ptr noundef %0)
+  %198 = icmp ult i32 %196, %197
+  br i1 %198, label %199, label %204
 
-200:                                              ; preds = %dissect_rf4ce_profile_cmd.exit
-  %201 = call i32 @tvb_captured_length(ptr noundef %0)
-  %202 = sub i32 %201, %197
-  %203 = load i32, ptr @hf_rf4ce_profile_unparsed_payload, align 4
-  %204 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %203, ptr noundef %0, i32 noundef %197, i32 noundef %202, i32 noundef 0)
-  br label %205
+199:                                              ; preds = %dissect_rf4ce_profile_cmd.exit
+  %200 = call i32 @tvb_captured_length(ptr noundef %0)
+  %201 = sub i32 %200, %196
+  %202 = load i32, ptr @hf_rf4ce_profile_unparsed_payload, align 4
+  %203 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %202, ptr noundef %0, i32 noundef %196, i32 noundef %201, i32 noundef 0)
+  br label %204
 
-205:                                              ; preds = %200, %dissect_rf4ce_profile_cmd.exit
-  %206 = phi i32 [ %201, %200 ], [ %197, %dissect_rf4ce_profile_cmd.exit ]
+204:                                              ; preds = %199, %dissect_rf4ce_profile_cmd.exit
+  %205 = phi i32 [ %200, %199 ], [ %196, %dissect_rf4ce_profile_cmd.exit ]
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  ret i32 %206
+  ret i32 %205
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
@@ -1188,22 +1186,22 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
 
 83:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %7) #7
-  %.not108112.i = icmp ult i8 %.191102, 3
-  br i1 %.not108112.i, label %._crit_edge.i, label %.lr.ph114.preheader.i
+  %.not111113.i = icmp ult i8 %.191102, 3
+  br i1 %.not111113.i, label %._crit_edge.i, label %.lr.ph115.preheader.i
 
-.lr.ph114.preheader.i:                            ; preds = %83
+.lr.ph115.preheader.i:                            ; preds = %83
   %84 = udiv i8 %.191102, 3
   %narrow.i = add nuw nsw i8 %84, 1
   %85 = zext nneg i8 %narrow.i to i32
-  br label %.lr.ph114.i
+  br label %.lr.ph115.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph114.i, %83
+._crit_edge.i:                                    ; preds = %.lr.ph115.i, %83
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %7) #7
   br label %dissect_rf4ce_profile_zrc20_attrs.exit.thread
 
-.lr.ph114.i:                                      ; preds = %.lr.ph114.i, %.lr.ph114.preheader.i
-  %.0100113.i = phi i32 [ %106, %.lr.ph114.i ], [ 1, %.lr.ph114.preheader.i ]
-  %86 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 11, i32 noundef 2, i64 noundef 11, ptr noundef nonnull @.str.364, i32 noundef %.0100113.i)
+.lr.ph115.i:                                      ; preds = %.lr.ph115.i, %.lr.ph115.preheader.i
+  %.0104114.i = phi i32 [ %106, %.lr.ph115.i ], [ 1, %.lr.ph115.preheader.i ]
+  %86 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 11, i32 noundef 2, i64 noundef 11, ptr noundef nonnull @.str.364, i32 noundef %.0104114.i)
   %87 = load i32, ptr %2, align 4
   %88 = call i32 @tvb_captured_length(ptr noundef %0)
   %89 = load i32, ptr %2, align 4
@@ -1226,9 +1224,9 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   %104 = load i32, ptr %2, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr %2, align 4
-  %106 = add nuw nsw i32 %.0100113.i, 1
+  %106 = add nuw nsw i32 %.0104114.i, 1
   %exitcond.not.i = icmp eq i32 %106, %85
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph114.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph115.i, !llvm.loop !8
 
 107:                                              ; preds = %82
   %108 = load i32, ptr %2, align 4
@@ -1242,8 +1240,8 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   %116 = add i32 %115, 1
   store i32 %116, ptr %2, align 4
   %117 = and i32 %110, 65
-  %brmerge.not.i = icmp eq i32 %117, 1
-  br i1 %brmerge.not.i, label %118, label %142
+  %or.cond.not.i = icmp eq i32 %117, 1
+  br i1 %or.cond.not.i, label %118, label %142
 
 118:                                              ; preds = %107
   %119 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1271,8 +1269,8 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   %139 = load i32, ptr %2, align 4
   %140 = add i32 %139, 1
   store i32 %140, ptr %2, align 4
-  %.not105.i = icmp eq i8 %138, 0
-  br i1 %.not105.i, label %142, label %141
+  %.not.i = icmp eq i8 %138, 0
+  br i1 %.not.i, label %142, label %141
 
 141:                                              ; preds = %118
   call fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %123, ptr noundef %2, i1 noundef zeroext false)
@@ -1280,8 +1278,8 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
 
 142:                                              ; preds = %141, %118, %107
   %143 = and i32 %110, 66
-  %brmerge110.not.i = icmp eq i32 %143, 2
-  br i1 %brmerge110.not.i, label %144, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread
+  %or.cond4.not.i = icmp eq i32 %143, 2
+  br i1 %or.cond4.not.i, label %144, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread
 
 144:                                              ; preds = %142
   %145 = load i32, ptr %2, align 4
@@ -1300,8 +1298,8 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   %158 = add i32 %157, 1
   store i32 %158, ptr %2, align 4
   %159 = and i8 %156, 1
-  %.not106.i = icmp eq i8 %159, 0
-  br i1 %.not106.i, label %165, label %160
+  %.not109.i = icmp eq i8 %159, 0
+  br i1 %.not109.i, label %165, label %160
 
 160:                                              ; preds = %144
   %161 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_vendor_id, align 4
@@ -1320,8 +1318,8 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
   %171 = load i32, ptr %2, align 4
   %172 = add i32 %171, 1
   store i32 %172, ptr %2, align 4
-  %.not107.i = icmp eq i8 %170, 0
-  br i1 %.not107.i, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread, label %173
+  %.not110.i = icmp eq i8 %170, 0
+  br i1 %.not110.i, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread, label %173
 
 173:                                              ; preds = %165
   %174 = zext i8 %170 to i32
@@ -1344,14 +1342,14 @@ define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %183 = phi i32 [ %187, %.lr.ph.i ], [ %.pre.i, %.lr.ph.preheader.i ]
-  %.0111.i = phi i32 [ %188, %.lr.ph.i ], [ %181, %.lr.ph.preheader.i ]
+  %.0112.i = phi i32 [ %188, %.lr.ph.i ], [ %181, %.lr.ph.preheader.i ]
   %184 = load i32, ptr @hf_rf4ce_profile_zrc20_irdb_vendor_support_vendor_id, align 4
   %185 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %184, ptr noundef %0, i32 noundef %183, i32 noundef 2, i32 noundef -2147483648)
   %186 = load i32, ptr %2, align 4
   %187 = add i32 %186, 2
   store i32 %187, ptr %2, align 4
-  %188 = add nsw i32 %.0111.i, -2
-  %189 = icmp samesign ugt i32 %.0111.i, 2
+  %188 = add nsw i32 %.0112.i, -2
+  %189 = icmp samesign ugt i32 %.0112.i, 2
   br i1 %189, label %.lr.ph.i, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread, !llvm.loop !9
 
 190:                                              ; preds = %81

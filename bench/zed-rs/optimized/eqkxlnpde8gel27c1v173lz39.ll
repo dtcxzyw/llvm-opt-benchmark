@@ -63,16 +63,16 @@ define hidden void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element
           to label %19 unwind label %17
 
 15:                                               ; preds = %.body, %17
-  %.pn12 = phi { ptr, i32 } [ %18, %17 ], [ %.pn10, %.body ]
-  %.sroa.07.1 = phi i1 [ %.sroa.07.0, %17 ], [ %.sroa.07.3, %.body ]
-  %.sroa.03.1 = phi i8 [ %.sroa.03.0, %17 ], [ %.sroa.03.4, %.body ]
+  %.pn17 = phi { ptr, i32 } [ %18, %17 ], [ %.pn15, %.body ]
+  %.sroa.012.1 = phi i1 [ %.sroa.012.0, %17 ], [ %.sroa.012.3, %.body ]
+  %.sroa.08.1 = phi i8 [ %.sroa.08.0, %17 ], [ %.sroa.08.4, %.body ]
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h36ec66527b2bc9eeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #9
-          to label %171 unwind label %70
+          to label %170 unwind label %70
 
 17:                                               ; preds = %146, %3
-  %.sroa.07.0 = phi i1 [ false, %146 ], [ true, %3 ]
-  %.sroa.03.0 = phi i8 [ %.sroa.03.2, %146 ], [ 1, %3 ]
+  %.sroa.012.0 = phi i1 [ false, %146 ], [ true, %3 ]
+  %.sroa.08.0 = phi i8 [ %.sroa.08.2, %146 ], [ 1, %3 ]
   %18 = landingpad { ptr, i32 }
           cleanup
   br label %15
@@ -108,7 +108,7 @@ define hidden void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element
           to label %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17h18b632a83a65c827E.exit" unwind label %63
 
 31:                                               ; preds = %19, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$gpui..text_system..font_fallbacks..FontFallbacks$GT$$GT$17h0ede3d25883c69e4E.exit"
-  %.sroa.03.2 = phi i8 [ 1, %19 ], [ 0, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$gpui..text_system..font_fallbacks..FontFallbacks$GT$$GT$17h0ede3d25883c69e4E.exit" ]
+  %.sroa.08.2 = phi i8 [ 1, %19 ], [ 0, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$gpui..text_system..font_fallbacks..FontFallbacks$GT$$GT$17h0ede3d25883c69e4E.exit" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   invoke void @_ZN2ui6styles5color5Color5color17hd8f34534a5b39647E(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %10, ptr noalias noundef readonly align 4 dereferenceable(20) @anon.c2874306f840af312fd4e9248a3b7c6c.21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)
           to label %72 unwind label %52
@@ -158,16 +158,16 @@ define hidden void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5135e5ea36813e6fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45)
           to label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$gpui..text_system..font_fallbacks..FontFallbacks$GT$$GT$17h0ede3d25883c69e4E.exit" unwind label %52
 
-.body:                                            ; preds = %79, %59, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit23", %62, %52
-  %.pn10 = phi { ptr, i32 } [ %53, %52 ], [ %.pn27, %62 ], [ %.pn27, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit23" ], [ %.pn27, %59 ], [ %.pn.i, %79 ]
-  %.sroa.07.3 = phi i1 [ %.sroa.07.2, %52 ], [ true, %62 ], [ true, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit23" ], [ true, %59 ], [ true, %79 ]
-  %.sroa.03.4 = phi i8 [ %.sroa.03.3, %52 ], [ 0, %62 ], [ 0, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit23" ], [ 0, %59 ], [ %.sroa.03.2, %79 ]
+.body:                                            ; preds = %79, %59, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27", %62, %52
+  %.pn15 = phi { ptr, i32 } [ %53, %52 ], [ %.pn31, %62 ], [ %.pn31, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27" ], [ %.pn31, %59 ], [ %.pn.i, %79 ]
+  %.sroa.012.3 = phi i1 [ %.sroa.012.2, %52 ], [ true, %62 ], [ true, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27" ], [ true, %59 ], [ true, %79 ]
+  %.sroa.08.4 = phi i8 [ %.sroa.08.3, %52 ], [ 0, %62 ], [ 0, %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27" ], [ 0, %59 ], [ %.sroa.08.2, %79 ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$gpui..style..TextStyle$GT$17hb13c96102991fcfaE"(ptr noalias noundef nonnull align 8 dereferenceable(152) %13) #9
           to label %15 unwind label %70
 
 52:                                               ; preds = %51, %145, %144, %130, %31
-  %.sroa.07.2 = phi i1 [ false, %145 ], [ false, %144 ], [ true, %130 ], [ true, %31 ], [ true, %51 ]
-  %.sroa.03.3 = phi i8 [ %.sroa.03.2, %145 ], [ %.sroa.03.2, %144 ], [ %.sroa.03.2, %130 ], [ %.sroa.03.2, %31 ], [ 0, %51 ]
+  %.sroa.012.2 = phi i1 [ false, %145 ], [ false, %144 ], [ true, %130 ], [ true, %31 ], [ true, %51 ]
+  %.sroa.08.3 = phi i8 [ %.sroa.08.2, %145 ], [ %.sroa.08.2, %144 ], [ %.sroa.08.2, %130 ], [ %.sroa.08.2, %31 ], [ 0, %51 ]
   %53 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -180,17 +180,17 @@ define hidden void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element
   %55 = landingpad { ptr, i32 }
           cleanup
   store ptr %33, ptr %34, align 8
-  br label %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit23"
+  br label %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27"
 
-"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit23": ; preds = %63, %69, %54
-  %.pn27 = phi { ptr, i32 } [ %55, %54 ], [ %64, %69 ], [ %64, %63 ]
+"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27": ; preds = %63, %69, %54
+  %.pn31 = phi { ptr, i32 } [ %55, %54 ], [ %64, %69 ], [ %64, %63 ]
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %57 = load ptr, ptr %56, align 8, !alias.scope !51, !noundef !12
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.body, label %59
 
-59:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit23"
+59:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27"
   %60 = atomicrmw sub ptr %57, i64 1 release, align 8, !noalias !54
   %61 = icmp eq i64 %60, 1
   br i1 %61, label %62, label %.body
@@ -211,14 +211,14 @@ define hidden void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element
   %66 = load ptr, ptr %65, align 8, !alias.scope !70, !nonnull !12, !noundef !12
   %67 = atomicrmw sub ptr %66, i64 1 release, align 8, !noalias !70
   %68 = icmp eq i64 %67, 1
-  br i1 %68, label %69, label %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit23"
+  br i1 %68, label %69, label %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27"
 
 69:                                               ; preds = %63
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he9e4bd83da85a9b1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %65)
-          to label %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit23" unwind label %70
+          to label %"_ZN4core3ptr67drop_in_place$LT$gpui..text_system..font_features..FontFeatures$GT$17h83374abdb9110903E.exit27" unwind label %70
 
-70:                                               ; preds = %69, %62, %180, %170, %.body, %15
+70:                                               ; preds = %69, %62, %179, %169, %.body, %15
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
@@ -455,91 +455,85 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i: ; preds = %.
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !93
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0381b6d35d5157bdE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %74)
-          to label %.noexc24 unwind label %157
+          to label %.noexc28 unwind label %157
 
-.noexc24:                                         ; preds = %147
+.noexc28:                                         ; preds = %147
   %148 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %149 = load i64, ptr %148, align 8, !range !102, !noalias !93, !noundef !12
   %150 = icmp eq i64 %149, 0
-  br i1 %150, label %160, label %151
+  br i1 %150, label %162, label %151
 
-151:                                              ; preds = %.noexc24
+151:                                              ; preds = %.noexc28
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %153 = load i64, ptr %152, align 8, !noalias !93, !noundef !12
   %154 = icmp eq i64 %153, 0
-  br i1 %154, label %160, label %155
+  br i1 %154, label %162, label %155
 
 155:                                              ; preds = %151
   %156 = load ptr, ptr %4, align 8, !noalias !93, !nonnull !12, !noundef !12
   call void @__rust_dealloc(ptr noundef nonnull %156, i64 noundef %153, i64 noundef %149) #11
-  br label %160
+  br label %162
 
 157:                                              ; preds = %147
   %158 = landingpad { ptr, i32 }
           cleanup
   %159 = load i64, ptr %2, align 8, !range !14, !noundef !12
-  %.not14 = icmp eq i64 %159, 2
-  br i1 %.not14, label %169, label %167
+  %160 = icmp ne i64 %159, 2
+  %161 = trunc nuw i8 %.sroa.08.2 to i1
+  %or.cond3 = select i1 %160, i1 %161, i1 false
+  br i1 %or.cond3, label %169, label %168
 
-160:                                              ; preds = %155, %151, %.noexc24
+162:                                              ; preds = %155, %151, %.noexc28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !93
-  %161 = load i64, ptr %2, align 8, !range !14, !noundef !12
-  %162 = icmp eq i64 %161, 2
-  br i1 %162, label %165, label %163
+  %163 = load i64, ptr %2, align 8, !range !14, !noundef !12
+  %164 = icmp ne i64 %163, 2
+  %165 = trunc nuw i8 %.sroa.08.2 to i1
+  %or.cond = select i1 %164, i1 %165, i1 false
+  br i1 %or.cond, label %167, label %166
 
-163:                                              ; preds = %160
-  %164 = trunc nuw i8 %.sroa.03.2 to i1
-  br i1 %164, label %166, label %165
-
-165:                                              ; preds = %160, %166, %163
+166:                                              ; preds = %162, %167
   ret void
 
-166:                                              ; preds = %163
+167:                                              ; preds = %162
   call void @"_ZN4core3ptr44drop_in_place$LT$gpui..text_system..Font$GT$17h0893171075b3e64dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2)
-  br label %165
+  br label %166
 
-167:                                              ; preds = %157
-  %168 = trunc nuw i8 %.sroa.03.2 to i1
-  br i1 %168, label %170, label %169
+168:                                              ; preds = %179, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit", %169, %157
+  %.pn19 = phi { ptr, i32 } [ %158, %169 ], [ %158, %157 ], [ %.pn17, %179 ], [ %.pn17, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit" ]
+  resume { ptr, i32 } %.pn19
 
-169:                                              ; preds = %180, %178, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit", %170, %167, %157
-  %.pn15 = phi { ptr, i32 } [ %158, %170 ], [ %158, %167 ], [ %158, %157 ], [ %.pn12, %180 ], [ %.pn12, %178 ], [ %.pn12, %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit" ]
-  resume { ptr, i32 } %.pn15
-
-170:                                              ; preds = %167
+169:                                              ; preds = %157
   invoke void @"_ZN4core3ptr44drop_in_place$LT$gpui..text_system..Font$GT$17h0893171075b3e64dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2) #9
-          to label %169 unwind label %70
+          to label %168 unwind label %70
 
-171:                                              ; preds = %15
-  br i1 %.sroa.07.1, label %173, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit"
+170:                                              ; preds = %15
+  br i1 %.sroa.012.1, label %174, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit"
 
-"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit": ; preds = %175, %173, %173, %171
-  %172 = load i64, ptr %2, align 8, !range !14, !noundef !12
-  %.not = icmp eq i64 %172, 2
-  br i1 %.not, label %169, label %178
+"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit": ; preds = %176, %174, %174, %170
+  %171 = load i64, ptr %2, align 8, !range !14, !noundef !12
+  %172 = icmp ne i64 %171, 2
+  %173 = trunc nuw i8 %.sroa.08.1 to i1
+  %or.cond5 = select i1 %172, i1 %173, i1 false
+  br i1 %or.cond5, label %179, label %168
 
-173:                                              ; preds = %171
-  %174 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %.val = load i64, ptr %174, align 8, !range !102, !noundef !12
-  switch i64 %.val, label %175 [
+174:                                              ; preds = %170
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %.val = load i64, ptr %175, align 8, !range !102, !noundef !12
+  switch i64 %.val, label %176 [
     i64 -9223372036854775808, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit"
     i64 0, label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit"
   ]
 
-175:                                              ; preds = %173
-  %176 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %.val17 = load ptr, ptr %176, align 8, !nonnull !12, !noundef !12
-  %177 = shl nuw i64 %.val, 7
-  call void @__rust_dealloc(ptr noundef nonnull %.val17, i64 noundef %177, i64 noundef 8) #11, !noalias !103
+176:                                              ; preds = %174
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %.val21 = load ptr, ptr %177, align 8, !nonnull !12, !noundef !12
+  %178 = shl nuw i64 %.val, 7
+  call void @__rust_dealloc(ptr noundef nonnull %.val21, i64 noundef %178, i64 noundef 8) #11, !noalias !103
   br label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit"
 
-178:                                              ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit"
-  %179 = trunc nuw i8 %.sroa.03.1 to i1
-  br i1 %179, label %180, label %169
-
-180:                                              ; preds = %178
+179:                                              ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$gpui..style..HighlightStyle$RP$$GT$$GT$$GT$17h2ffc4447e92f32c5E.exit"
   invoke void @"_ZN4core3ptr44drop_in_place$LT$gpui..text_system..Font$GT$17h0893171075b3e64dE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2) #9
-          to label %169 unwind label %70
+          to label %168 unwind label %70
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

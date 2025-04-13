@@ -113,8 +113,8 @@ default.unreachable186:                           ; preds = %2
   %26 = tail call { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h95291b5fb90975d4E.llvm.15005499655690089915"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23)
   %27 = extractvalue { ptr, ptr } %26, 0
   %28 = extractvalue { ptr, ptr } %26, 1
-  %.not.not.i = icmp eq ptr %27, null
-  br i1 %.not.not.i, label %125, label %29
+  %.not.i = icmp eq ptr %27, null
+  br i1 %.not.i, label %125, label %29
 
 29:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1cdd99ee948e014dE.llvm.15005499655690089915.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)

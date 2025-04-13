@@ -3185,14 +3185,14 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i203.i = load ptr, ptr %98, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i221.i = load ptr, ptr %98, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #19
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 1, ptr %100, align 1, !tbaa !96
   store ptr @.str.254, ptr %11, align 8, !tbaa !24
   store i8 3, ptr %99, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i203.i, ptr noundef nonnull align 8 dereferenceable(34) %11) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i221.i, ptr noundef nonnull align 8 dereferenceable(34) %11) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #19
   br label %101
 
@@ -3220,32 +3220,32 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
 
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i204.i = load ptr, ptr %118, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i222.i = load ptr, ptr %118, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #19
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %120 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 1, ptr %120, align 1, !tbaa !96
   store ptr @.str.254, ptr %12, align 8, !tbaa !24
   store i8 3, ptr %119, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i204.i, ptr noundef nonnull align 8 dereferenceable(34) %12) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i222.i, ptr noundef nonnull align 8 dereferenceable(34) %12) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #19
   br label %121
 
 121:                                              ; preds = %117, %114
   %122 = and i64 %.0, 3
-  %.not195.i = icmp eq i64 %122, 0
-  br i1 %.not195.i, label %127, label %123
+  %.not214.i = icmp eq i64 %122, 0
+  br i1 %.not214.i, label %127, label %123
 
 123:                                              ; preds = %121
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i205.i = load ptr, ptr %124, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i223.i = load ptr, ptr %124, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #19
   %125 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %126 = getelementptr inbounds nuw i8, ptr %13, i64 33
   store i8 1, ptr %126, align 1, !tbaa !96
   store ptr @.str.255, ptr %13, align 8, !tbaa !24
   store i8 3, ptr %125, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i205.i, ptr noundef nonnull align 8 dereferenceable(34) %13) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i223.i, ptr noundef nonnull align 8 dereferenceable(34) %13) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #19
   br label %127
 
@@ -3255,196 +3255,196 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
 130:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit
-  %131 = icmp eq i32 %.val56, 1
+  %131 = icmp ne i32 %.val56, 1
+  %or.cond.i = or i1 %7, %131
   %132 = and i64 %.0, 4095
-  %spec.select.i = select i1 %7, i64 %.0, i64 %132
-  %.0177.i = select i1 %131, i64 %spec.select.i, i64 %.0
-  %133 = icmp ult i64 %.0177.i, 4096
+  %spec.select.i = select i1 %or.cond.i, i64 %.0, i64 %132
+  %133 = icmp ult i64 %spec.select.i, 4096
   br i1 %133, label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split, label %134
 
 134:                                              ; preds = %130
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i206.i = load ptr, ptr %135, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i224.i = load ptr, ptr %135, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #19
   %136 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %137 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 1, ptr %137, align 1, !tbaa !96
   store ptr @.str.254, ptr %14, align 8, !tbaa !24
   store i8 3, ptr %136, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i206.i, ptr noundef nonnull align 8 dereferenceable(34) %14) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i224.i, ptr noundef nonnull align 8 dereferenceable(34) %14) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #19
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
 138:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
-  %139 = icmp eq i32 %.val56, 1
+  %139 = icmp ne i32 %.val56, 1
+  %or.cond4.i = or i1 %7, %139
   %140 = and i64 %.0, 4095
-  %spec.select196.i = select i1 %7, i64 %.0, i64 %140
-  %.1178.i = select i1 %139, i64 %spec.select196.i, i64 %.0
-  %141 = icmp ult i64 %.1178.i, 8192
+  %spec.select215.i = select i1 %or.cond4.i, i64 %.0, i64 %140
+  %141 = icmp ult i64 %spec.select215.i, 8192
   br i1 %141, label %146, label %142
 
 142:                                              ; preds = %138
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i207.i = load ptr, ptr %143, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i225.i = load ptr, ptr %143, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #19
   %144 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %145 = getelementptr inbounds nuw i8, ptr %15, i64 33
   store i8 1, ptr %145, align 1, !tbaa !96
   store ptr @.str.254, ptr %15, align 8, !tbaa !24
   store i8 3, ptr %144, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i207.i, ptr noundef nonnull align 8 dereferenceable(34) %15) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i225.i, ptr noundef nonnull align 8 dereferenceable(34) %15) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #19
   br label %146
 
 146:                                              ; preds = %142, %138
-  %147 = and i64 %.1178.i, 1
-  %.not194.i = icmp eq i64 %147, 0
-  br i1 %.not194.i, label %152, label %148
+  %147 = and i64 %spec.select215.i, 1
+  %.not213.i = icmp eq i64 %147, 0
+  br i1 %.not213.i, label %152, label %148
 
 148:                                              ; preds = %146
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i208.i = load ptr, ptr %149, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i226.i = load ptr, ptr %149, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #19
   %150 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %151 = getelementptr inbounds nuw i8, ptr %16, i64 33
   store i8 1, ptr %151, align 1, !tbaa !96
   store ptr @.str.256, ptr %16, align 8, !tbaa !24
   store i8 3, ptr %150, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i208.i, ptr noundef nonnull align 8 dereferenceable(34) %16) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i226.i, ptr noundef nonnull align 8 dereferenceable(34) %16) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #19
   br label %152
 
 152:                                              ; preds = %148, %146
-  %153 = lshr i64 %.1178.i, 1
+  %153 = lshr i64 %spec.select215.i, 1
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
 154:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
-  %155 = icmp eq i32 %.val56, 1
+  %155 = icmp ne i32 %.val56, 1
+  %or.cond7.i = or i1 %7, %155
   %156 = and i64 %.0, 4095
-  %spec.select197.i = select i1 %7, i64 %.0, i64 %156
-  %.2.i = select i1 %155, i64 %spec.select197.i, i64 %.0
-  %157 = icmp ult i64 %.2.i, 16384
+  %spec.select216.i = select i1 %or.cond7.i, i64 %.0, i64 %156
+  %157 = icmp ult i64 %spec.select216.i, 16384
   br i1 %157, label %162, label %158
 
 158:                                              ; preds = %154
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i209.i = load ptr, ptr %159, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i227.i = load ptr, ptr %159, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #19
   %160 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %161 = getelementptr inbounds nuw i8, ptr %17, i64 33
   store i8 1, ptr %161, align 1, !tbaa !96
   store ptr @.str.254, ptr %17, align 8, !tbaa !24
   store i8 3, ptr %160, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i209.i, ptr noundef nonnull align 8 dereferenceable(34) %17) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i227.i, ptr noundef nonnull align 8 dereferenceable(34) %17) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #19
   br label %162
 
 162:                                              ; preds = %158, %154
-  %163 = and i64 %.2.i, 3
-  %.not193.i = icmp eq i64 %163, 0
-  br i1 %.not193.i, label %168, label %164
+  %163 = and i64 %spec.select216.i, 3
+  %.not212.i = icmp eq i64 %163, 0
+  br i1 %.not212.i, label %168, label %164
 
 164:                                              ; preds = %162
   %165 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i210.i = load ptr, ptr %165, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i228.i = load ptr, ptr %165, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #19
   %166 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %167 = getelementptr inbounds nuw i8, ptr %18, i64 33
   store i8 1, ptr %167, align 1, !tbaa !96
   store ptr @.str.257, ptr %18, align 8, !tbaa !24
   store i8 3, ptr %166, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i210.i, ptr noundef nonnull align 8 dereferenceable(34) %18) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i228.i, ptr noundef nonnull align 8 dereferenceable(34) %18) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #19
   br label %168
 
 168:                                              ; preds = %164, %162
-  %169 = lshr i64 %.2.i, 2
+  %169 = lshr i64 %spec.select216.i, 2
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
 170:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
-  %171 = icmp eq i32 %.val56, 1
+  %171 = icmp ne i32 %.val56, 1
+  %or.cond10.i = or i1 %7, %171
   %172 = and i64 %.0, 4095
-  %spec.select198.i = select i1 %7, i64 %.0, i64 %172
-  %.3.i = select i1 %171, i64 %spec.select198.i, i64 %.0
-  %173 = icmp ult i64 %.3.i, 32768
+  %spec.select217.i = select i1 %or.cond10.i, i64 %.0, i64 %172
+  %173 = icmp ult i64 %spec.select217.i, 32768
   br i1 %173, label %178, label %174
 
 174:                                              ; preds = %170
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i211.i = load ptr, ptr %175, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i229.i = load ptr, ptr %175, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19) #19
   %176 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %177 = getelementptr inbounds nuw i8, ptr %19, i64 33
   store i8 1, ptr %177, align 1, !tbaa !96
   store ptr @.str.254, ptr %19, align 8, !tbaa !24
   store i8 3, ptr %176, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i211.i, ptr noundef nonnull align 8 dereferenceable(34) %19) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i229.i, ptr noundef nonnull align 8 dereferenceable(34) %19) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #19
   br label %178
 
 178:                                              ; preds = %174, %170
-  %179 = and i64 %.3.i, 7
-  %.not192.i = icmp eq i64 %179, 0
-  br i1 %.not192.i, label %184, label %180
+  %179 = and i64 %spec.select217.i, 7
+  %.not211.i = icmp eq i64 %179, 0
+  br i1 %.not211.i, label %184, label %180
 
 180:                                              ; preds = %178
   %181 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i212.i = load ptr, ptr %181, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i230.i = load ptr, ptr %181, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20) #19
   %182 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %183 = getelementptr inbounds nuw i8, ptr %20, i64 33
   store i8 1, ptr %183, align 1, !tbaa !96
   store ptr @.str.258, ptr %20, align 8, !tbaa !24
   store i8 3, ptr %182, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i212.i, ptr noundef nonnull align 8 dereferenceable(34) %20) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i230.i, ptr noundef nonnull align 8 dereferenceable(34) %20) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #19
   br label %184
 
 184:                                              ; preds = %180, %178
-  %185 = lshr i64 %.3.i, 3
+  %185 = lshr i64 %spec.select217.i, 3
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
 186:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
-  %187 = icmp eq i32 %.val56, 1
+  %187 = icmp ne i32 %.val56, 1
+  %or.cond13.i = or i1 %7, %187
   %188 = and i64 %.0, 4095
-  %spec.select199.i = select i1 %7, i64 %.0, i64 %188
-  %.4.i = select i1 %187, i64 %spec.select199.i, i64 %.0
-  %189 = icmp ult i64 %.4.i, 65536
+  %spec.select218.i = select i1 %or.cond13.i, i64 %.0, i64 %188
+  %189 = icmp ult i64 %spec.select218.i, 65536
   br i1 %189, label %194, label %190
 
 190:                                              ; preds = %186
   %191 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i213.i = load ptr, ptr %191, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i231.i = load ptr, ptr %191, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21) #19
   %192 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %193 = getelementptr inbounds nuw i8, ptr %21, i64 33
   store i8 1, ptr %193, align 1, !tbaa !96
   store ptr @.str.254, ptr %21, align 8, !tbaa !24
   store i8 3, ptr %192, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i213.i, ptr noundef nonnull align 8 dereferenceable(34) %21) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i231.i, ptr noundef nonnull align 8 dereferenceable(34) %21) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #19
   br label %194
 
 194:                                              ; preds = %190, %186
-  %195 = and i64 %.4.i, 15
-  %.not191.i = icmp eq i64 %195, 0
-  br i1 %.not191.i, label %200, label %196
+  %195 = and i64 %spec.select218.i, 15
+  %.not210.i = icmp eq i64 %195, 0
+  br i1 %.not210.i, label %200, label %196
 
 196:                                              ; preds = %194
   %197 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i214.i = load ptr, ptr %197, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i232.i = load ptr, ptr %197, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #19
   %198 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %199 = getelementptr inbounds nuw i8, ptr %22, i64 33
   store i8 1, ptr %199, align 1, !tbaa !96
   store ptr @.str.259, ptr %22, align 8, !tbaa !24
   store i8 3, ptr %198, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i214.i, ptr noundef nonnull align 8 dereferenceable(34) %22) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i232.i, ptr noundef nonnull align 8 dereferenceable(34) %22) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #19
   br label %200
 
 200:                                              ; preds = %196, %194
-  %201 = lshr i64 %.4.i, 4
+  %201 = lshr i64 %spec.select218.i, 4
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
 202:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
@@ -3455,42 +3455,42 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
   ]
 
 204:                                              ; preds = %202
-  %.not190.i = icmp eq i32 %.val, 0
-  br i1 %.not190.i, label %205, label %212
+  %.not209.i = icmp eq i32 %.val, 0
+  br i1 %.not209.i, label %205, label %212
 
 205:                                              ; preds = %204
   %206 = add i64 %.0, -65536
-  %or.cond.i = icmp ult i64 %206, -131071
-  br i1 %or.cond.i, label %207, label %211
+  %or.cond15.i = icmp ult i64 %206, -131071
+  br i1 %or.cond15.i, label %207, label %211
 
 207:                                              ; preds = %205
   %208 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i215.i = load ptr, ptr %208, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i233.i = load ptr, ptr %208, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23) #19
   %209 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %210 = getelementptr inbounds nuw i8, ptr %23, i64 33
   store i8 1, ptr %210, align 1, !tbaa !96
   store ptr @.str.260, ptr %23, align 8, !tbaa !24
   store i8 3, ptr %209, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i215.i, ptr noundef nonnull align 8 dereferenceable(34) %23) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i233.i, ptr noundef nonnull align 8 dereferenceable(34) %23) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #19
   br label %211
 
 211:                                              ; preds = %207, %205
   %.lobit.i = ashr i64 %.0, 63
-  %spec.select200.i = xor i64 %.lobit.i, %.0
+  %spec.select219.i = xor i64 %.lobit.i, %.0
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
 212:                                              ; preds = %204
   %213 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i216.i = load ptr, ptr %213, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i234.i = load ptr, ptr %213, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #19
   %214 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %215 = getelementptr inbounds nuw i8, ptr %24, i64 33
   store i8 1, ptr %215, align 1, !tbaa !96
   store ptr @.str.261, ptr %24, align 8, !tbaa !24
   store i8 3, ptr %214, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i216.i, ptr noundef nonnull align 8 dereferenceable(34) %24) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i234.i, ptr noundef nonnull align 8 dereferenceable(34) %24) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #19
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
@@ -3502,14 +3502,14 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
 
 217:                                              ; preds = %.thread.i, %216
   %218 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i217.i = load ptr, ptr %218, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i235.i = load ptr, ptr %218, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25) #19
   %219 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %220 = getelementptr inbounds nuw i8, ptr %25, i64 33
   store i8 1, ptr %220, align 1, !tbaa !96
   store ptr @.str.262, ptr %25, align 8, !tbaa !24
   store i8 3, ptr %219, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i217.i, ptr noundef nonnull align 8 dereferenceable(34) %25) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i235.i, ptr noundef nonnull align 8 dereferenceable(34) %25) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #19
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
@@ -3567,11 +3567,11 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
 
 243:                                              ; preds = %240, %238, %236, %232, %229, %227, %225, %221
   %244 = phi i1 [ true, %229 ], [ true, %227 ], [ true, %225 ], [ true, %221 ], [ false, %240 ], [ false, %238 ], [ false, %236 ], [ false, %232 ]
-  %.1180.i = phi i64 [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %.0, %221 ], [ %.0, %240 ], [ %.0, %238 ], [ %.0, %236 ], [ %.0, %232 ]
+  %.1197.i = phi i64 [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %.0, %221 ], [ %.0, %240 ], [ %.0, %238 ], [ %.0, %236 ], [ %.0, %232 ]
   %.6.i = phi i64 [ %.0, %229 ], [ %.0, %227 ], [ %.0, %225 ], [ %.0, %221 ], [ %241, %240 ], [ %239, %238 ], [ %237, %236 ], [ %.0, %232 ]
   %245 = and i32 %.val, 256
-  %.not189.i = icmp eq i32 %245, 0
-  br i1 %.not189.i, label %248, label %246
+  %.not208.i = icmp eq i32 %245, 0
+  br i1 %.not208.i, label %248, label %246
 
 246:                                              ; preds = %243
   %247 = and i64 %.6.i, 65535
@@ -3581,26 +3581,26 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
   br i1 %244, label %249, label %256
 
 249:                                              ; preds = %248
-  %250 = add i64 %.1180.i, -65536
-  %or.cond3.i = icmp ult i64 %250, -131071
-  br i1 %or.cond3.i, label %251, label %255
+  %250 = add i64 %.1197.i, -65536
+  %or.cond17.i = icmp ult i64 %250, -131071
+  br i1 %or.cond17.i, label %251, label %255
 
 251:                                              ; preds = %249
   %252 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i218.i = load ptr, ptr %252, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i236.i = load ptr, ptr %252, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #19
   %253 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %254 = getelementptr inbounds nuw i8, ptr %26, i64 33
   store i8 1, ptr %254, align 1, !tbaa !96
   store ptr @.str.254, ptr %26, align 8, !tbaa !24
   store i8 3, ptr %253, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i218.i, ptr noundef nonnull align 8 dereferenceable(34) %26) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i236.i, ptr noundef nonnull align 8 dereferenceable(34) %26) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #19
   br label %255
 
 255:                                              ; preds = %251, %249
-  %.1180.lobit.i = ashr i64 %.1180.i, 63
-  %spec.select201.i = xor i64 %.1180.lobit.i, %.1180.i
+  %.1197.lobit.i = ashr i64 %.1197.i, 63
+  %spec.select220.i = xor i64 %.1197.lobit.i, %.1197.i
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
 256:                                              ; preds = %248
@@ -3609,14 +3609,14 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
 
 258:                                              ; preds = %256
   %259 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i219.i = load ptr, ptr %259, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i237.i = load ptr, ptr %259, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27) #19
   %260 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %261 = getelementptr inbounds nuw i8, ptr %27, i64 33
   store i8 1, ptr %261, align 1, !tbaa !96
   store ptr @.str.254, ptr %27, align 8, !tbaa !24
   store i8 3, ptr %260, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i219.i, ptr noundef nonnull align 8 dereferenceable(34) %27) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i237.i, ptr noundef nonnull align 8 dereferenceable(34) %27) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27) #19
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
@@ -3627,32 +3627,32 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
 
 265:                                              ; preds = %262
   %266 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i220.i = load ptr, ptr %266, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i238.i = load ptr, ptr %266, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28) #19
   %267 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %268 = getelementptr inbounds nuw i8, ptr %28, i64 33
   store i8 1, ptr %268, align 1, !tbaa !96
   store ptr @.str.254, ptr %28, align 8, !tbaa !24
   store i8 3, ptr %267, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i220.i, ptr noundef nonnull align 8 dereferenceable(34) %28) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i238.i, ptr noundef nonnull align 8 dereferenceable(34) %28) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28) #19
   br label %269
 
 269:                                              ; preds = %265, %262
   %270 = and i64 %.0, 3
-  %.not186.i = icmp eq i64 %270, 0
-  br i1 %.not186.i, label %275, label %271
+  %.not205.i = icmp eq i64 %270, 0
+  br i1 %.not205.i, label %275, label %271
 
 271:                                              ; preds = %269
   %272 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i221.i = load ptr, ptr %272, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i239.i = load ptr, ptr %272, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29) #19
   %273 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %274 = getelementptr inbounds nuw i8, ptr %29, i64 33
   store i8 1, ptr %274, align 1, !tbaa !96
   store ptr @.str.255, ptr %29, align 8, !tbaa !24
   store i8 3, ptr %273, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i221.i, ptr noundef nonnull align 8 dereferenceable(34) %29) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i239.i, ptr noundef nonnull align 8 dereferenceable(34) %29) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #19
   br label %275
 
@@ -3668,32 +3668,32 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
 
 281:                                              ; preds = %278
   %282 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i222.i = load ptr, ptr %282, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i240.i = load ptr, ptr %282, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30) #19
   %283 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %284 = getelementptr inbounds nuw i8, ptr %30, i64 33
   store i8 1, ptr %284, align 1, !tbaa !96
   store ptr @.str.254, ptr %30, align 8, !tbaa !24
   store i8 3, ptr %283, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i222.i, ptr noundef nonnull align 8 dereferenceable(34) %30) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i240.i, ptr noundef nonnull align 8 dereferenceable(34) %30) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30) #19
   br label %285
 
 285:                                              ; preds = %281, %278
   %286 = and i64 %.0, 3
-  %.not185.i = icmp eq i64 %286, 0
-  br i1 %.not185.i, label %291, label %287
+  %.not204.i = icmp eq i64 %286, 0
+  br i1 %.not204.i, label %291, label %287
 
 287:                                              ; preds = %285
   %288 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i223.i = load ptr, ptr %288, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i241.i = load ptr, ptr %288, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31) #19
   %289 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %290 = getelementptr inbounds nuw i8, ptr %31, i64 33
   store i8 1, ptr %290, align 1, !tbaa !96
   store ptr @.str.255, ptr %31, align 8, !tbaa !24
   store i8 3, ptr %289, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i223.i, ptr noundef nonnull align 8 dereferenceable(34) %31) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i241.i, ptr noundef nonnull align 8 dereferenceable(34) %31) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31) #19
   br label %291
 
@@ -3704,37 +3704,37 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
 
 294:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit
   %295 = sub nsw i64 0, %.0
-  %or.cond5.i = icmp ult i64 %.0, -262143
-  br i1 %or.cond5.i, label %296, label %300
+  %or.cond19.i = icmp ult i64 %.0, -262143
+  br i1 %or.cond19.i, label %296, label %300
 
 296:                                              ; preds = %294
   %297 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i224.i = load ptr, ptr %297, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i242.i = load ptr, ptr %297, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %32) #19
   %298 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %299 = getelementptr inbounds nuw i8, ptr %32, i64 33
   store i8 1, ptr %299, align 1, !tbaa !96
   store ptr @.str.254, ptr %32, align 8, !tbaa !24
   store i8 3, ptr %298, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i224.i, ptr noundef nonnull align 8 dereferenceable(34) %32) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i242.i, ptr noundef nonnull align 8 dereferenceable(34) %32) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32) #19
   br label %300
 
 300:                                              ; preds = %296, %294
   %301 = and i64 %295, 3
-  %.not184.i = icmp eq i64 %301, 0
-  br i1 %.not184.i, label %306, label %302
+  %.not203.i = icmp eq i64 %301, 0
+  br i1 %.not203.i, label %306, label %302
 
 302:                                              ; preds = %300
   %303 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i225.i = load ptr, ptr %303, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i243.i = load ptr, ptr %303, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33) #19
   %304 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %305 = getelementptr inbounds nuw i8, ptr %33, i64 33
   store i8 1, ptr %305, align 1, !tbaa !96
   store ptr @.str.255, ptr %33, align 8, !tbaa !24
   store i8 3, ptr %304, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i225.i, ptr noundef nonnull align 8 dereferenceable(34) %33) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i243.i, ptr noundef nonnull align 8 dereferenceable(34) %33) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33) #19
   br label %306
 
@@ -3745,19 +3745,19 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
 
 309:                                              ; preds = %_ZL20getFixupKindNumBytesj.exit, %_ZL20getFixupKindNumBytesj.exit
   %310 = icmp ne i32 %.val56, 1
-  %brmerge.i = or i1 %7, %310
-  br i1 %brmerge.i, label %315, label %311
+  %or.cond22.not.not.i = or i1 %7, %310
+  br i1 %or.cond22.not.not.i, label %315, label %311
 
 311:                                              ; preds = %309
   %312 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i226.i = load ptr, ptr %312, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i244.i = load ptr, ptr %312, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34) #19
   %313 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %314 = getelementptr inbounds nuw i8, ptr %34, i64 33
   store i8 1, ptr %314, align 1, !tbaa !96
   store ptr @.str.263, ptr %34, align 8, !tbaa !24
   store i8 3, ptr %313, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i226.i, ptr noundef nonnull align 8 dereferenceable(34) %34) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i244.i, ptr noundef nonnull align 8 dereferenceable(34) %34) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34) #19
   br label %315
 
@@ -3768,32 +3768,32 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
 
 318:                                              ; preds = %315
   %319 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i227.i = load ptr, ptr %319, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i245.i = load ptr, ptr %319, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35) #19
   %320 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %321 = getelementptr inbounds nuw i8, ptr %35, i64 33
   store i8 1, ptr %321, align 1, !tbaa !96
   store ptr @.str.254, ptr %35, align 8, !tbaa !24
   store i8 3, ptr %320, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i227.i, ptr noundef nonnull align 8 dereferenceable(34) %35) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i245.i, ptr noundef nonnull align 8 dereferenceable(34) %35) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %35) #19
   br label %322
 
 322:                                              ; preds = %318, %315
   %323 = and i64 %.0, 3
-  %.not.i = icmp eq i64 %323, 0
-  br i1 %.not.i, label %328, label %324
+  %.not202.i = icmp eq i64 %323, 0
+  br i1 %.not202.i, label %328, label %324
 
 324:                                              ; preds = %322
   %325 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i228.i = load ptr, ptr %325, align 8, !tbaa !95
+  %.sroa.0.0.copyload.i246.i = load ptr, ptr %325, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %36) #19
   %326 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %327 = getelementptr inbounds nuw i8, ptr %36, i64 33
   store i8 1, ptr %327, align 1, !tbaa !96
   store ptr @.str.255, ptr %36, align 8, !tbaa !24
   store i8 3, ptr %326, align 8, !tbaa !99
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i228.i, ptr noundef nonnull align 8 dereferenceable(34) %36) #19
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %75, ptr %.sroa.0.0.copyload.i246.i, ptr noundef nonnull align 8 dereferenceable(34) %36) #19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36) #19
   br label %328
 
@@ -3803,7 +3803,7 @@ _ZL20getFixupKindNumBytesj.exit:                  ; preds = %65, %67, %68, %69, 
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split
 
 _ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exitthread-pre-split: ; preds = %328, %306, %291, %275, %258, %256, %255, %246, %217, %212, %211, %200, %184, %168, %152, %134, %130, %127, %107, %101, %86
-  %.0.i58.ph = phi i64 [ %.6.i, %256 ], [ %.6.i, %258 ], [ %spec.select201.i, %255 ], [ %247, %246 ], [ %spec.select200.i, %211 ], [ %.0, %212 ], [ %.0, %217 ], [ %.0177.i, %130 ], [ %.0177.i, %134 ], [ %91, %86 ], [ %113, %107 ], [ %106, %101 ], [ %129, %127 ], [ %153, %152 ], [ %169, %168 ], [ %185, %184 ], [ %201, %200 ], [ %277, %275 ], [ %293, %291 ], [ %308, %306 ], [ %330, %328 ]
+  %.0.i58.ph = phi i64 [ %.6.i, %256 ], [ %.6.i, %258 ], [ %spec.select220.i, %255 ], [ %247, %246 ], [ %spec.select219.i, %211 ], [ %.0, %212 ], [ %.0, %217 ], [ %spec.select.i, %130 ], [ %spec.select.i, %134 ], [ %91, %86 ], [ %113, %107 ], [ %106, %101 ], [ %129, %127 ], [ %153, %152 ], [ %169, %168 ], [ %185, %184 ], [ %201, %200 ], [ %277, %275 ], [ %293, %291 ], [ %308, %306 ], [ %330, %328 ]
   %.pr = load i32, ptr %37, align 4, !tbaa !38
   br label %_ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6TripleEb.exit
 

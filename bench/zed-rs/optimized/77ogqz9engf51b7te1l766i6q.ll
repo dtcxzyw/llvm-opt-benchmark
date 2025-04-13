@@ -11922,133 +11922,130 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
 .split.us.preheader:                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.8)
   %14 = icmp eq i64 %2, 0
-  br i1 %14, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit", label %.lr.ph76.preheader
+  br i1 %14, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit", label %.lr.ph76
 
-.lr.ph76.preheader:                               ; preds = %.split.us.preheader
+.lr.ph76:                                         ; preds = %.split.us.preheader
+  %15 = and i64 %.promoted, 1
+  %16 = icmp eq i64 %15, 0
   store i64 2, ptr %1, align 8, !alias.scope !3311, !noalias !3314
-  br label %.lr.ph76
+  br label %18
 
 .split.preheader:                                 ; preds = %4
   %.promoted23 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.8)
-  %15 = icmp eq i64 %2, 0
-  br i1 %15, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit", label %.lr.ph
+  %17 = icmp eq i64 %2, 0
+  br i1 %17, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit", label %.lr.ph
 
-.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.split.us
-  %.sroa.0.0.idx.us74 = phi i64 [ %.sroa.0.0.add.us, %.split.us ], [ %.add, %.lr.ph76.preheader ]
-  %.sroa.4.0.us73 = phi i64 [ %16, %.split.us ], [ %2, %.lr.ph76.preheader ]
-  %.sroa.5.0.us72 = phi i64 [ %22, %.split.us ], [ %7, %.lr.ph76.preheader ]
-  %.sroa.0.0.copyload.i.i.i22.us71 = phi i64 [ 2, %.split.us ], [ %.promoted, %.lr.ph76.preheader ]
+18:                                               ; preds = %.lr.ph76, %.split.us
+  %.sroa.0.0.idx.us74 = phi i64 [ %.add, %.lr.ph76 ], [ %.sroa.0.0.add.us, %.split.us ]
+  %.sroa.4.0.us73 = phi i64 [ %2, %.lr.ph76 ], [ %19, %.split.us ]
+  %.sroa.5.0.us72 = phi i64 [ %7, %.lr.ph76 ], [ %23, %.split.us ]
+  %.sroa.0.0.copyload.i.i.i22.us71 = phi i1 [ %16, %.lr.ph76 ], [ true, %.split.us ]
   %.sroa.0.0.ptr.us75 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0.idx.us74
-  %16 = add i64 %.sroa.4.0.us73, -1
-  %17 = icmp eq i64 %.sroa.0.0.copyload.i.i.i22.us71, 2
-  br i1 %17, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit", label %18
+  %19 = add i64 %.sroa.4.0.us73, -1
+  br i1 %.sroa.0.0.copyload.i.i.i22.us71, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit", label %20
 
-18:                                               ; preds = %.lr.ph76
-  %trunc.us = trunc nuw i64 %.sroa.0.0.copyload.i.i.i22.us71 to i1
-  br i1 %trunc.us, label %19, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit"
-
-19:                                               ; preds = %18
+20:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx.i.i.i, i64 56, i1 false)
-  %20 = icmp eq i64 %.sroa.0.0.idx.us74, 680
-  br i1 %20, label %21, label %.split.us
+  %21 = icmp eq i64 %.sroa.0.0.idx.us74, 680
+  br i1 %21, label %22, label %.split.us
 
-21:                                               ; preds = %19
+22:                                               ; preds = %20
   invoke void @_ZN8arrayvec8arrayvec12extend_panic17hddd0611bc9dc1911E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
           to label %.split.us unwind label %.split28.us
 
-.split.us:                                        ; preds = %21, %19
+.split.us:                                        ; preds = %22, %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.0.ptr.us75, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx.i.i.i, i64 56, i1 false)
   %.sroa.0.0.add.us = add nuw nsw i64 %.sroa.0.0.idx.us74, 56
-  %22 = add i64 %.sroa.5.0.us72, 1
+  %23 = add i64 %.sroa.5.0.us72, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.8)
-  %23 = icmp eq i64 %16, 0
-  br i1 %23, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit", label %.lr.ph76
+  %24 = icmp eq i64 %19, 0
+  br i1 %24, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit", label %18
 
-.split28.us:                                      ; preds = %21
-  %24 = landingpad { ptr, i32 }
+.split28.us:                                      ; preds = %22
+  %25 = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %38
 
 .lr.ph:                                           ; preds = %.split.preheader, %.split
   %.sroa.0.0.idx65 = phi i64 [ %.sroa.0.0.add, %.split ], [ %.add, %.split.preheader ]
-  %.sroa.4.064 = phi i64 [ %26, %.split ], [ %2, %.split.preheader ]
-  %.sroa.5.063 = phi i64 [ %39, %.split ], [ %7, %.split.preheader ]
+  %.sroa.4.064 = phi i64 [ %27, %.split ], [ %2, %.split.preheader ]
+  %.sroa.5.063 = phi i64 [ %40, %.split ], [ %7, %.split.preheader ]
   %.sroa.0.0.copyload.i.i.i2262 = phi i64 [ 2, %.split ], [ %.promoted, %.split.preheader ]
-  %25 = phi ptr [ %33, %.split ], [ %.promoted23, %.split.preheader ]
+  %26 = phi ptr [ %34, %.split ], [ %.promoted23, %.split.preheader ]
   %.sroa.0.0.ptr66 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0.idx65
-  %26 = add i64 %.sroa.4.064, -1
+  %27 = add i64 %.sroa.4.064, -1
   store i64 2, ptr %1, align 8, !alias.scope !3311, !noalias !3314
-  %27 = icmp eq i64 %.sroa.0.0.copyload.i.i.i2262, 2
-  br i1 %27, label %28, label %31
+  %28 = icmp eq i64 %.sroa.0.0.copyload.i.i.i2262, 2
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %.lr.ph
-  %29 = icmp eq ptr %25, %12
-  br i1 %29, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit", label %.thread49
+29:                                               ; preds = %.lr.ph
+  %30 = icmp eq ptr %26, %12
+  br i1 %30, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit", label %.thread49
 
-.thread49:                                        ; preds = %28
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  store ptr %30, ptr %13, align 8, !alias.scope !3321, !noalias !3328
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(56) %25, i64 56, i1 false), !noalias !3332
-  br label %32
+.thread49:                                        ; preds = %29
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 56
+  store ptr %31, ptr %13, align 8, !alias.scope !3321, !noalias !3328
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(56) %26, i64 56, i1 false), !noalias !3332
+  br label %33
 
-31:                                               ; preds = %.lr.ph
+32:                                               ; preds = %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx.i.i.i, i64 56, i1 false), !noalias !3332
   %trunc = trunc nuw i64 %.sroa.0.0.copyload.i.i.i2262 to i1
-  br i1 %trunc, label %32, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit"
+  br i1 %trunc, label %33, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit"
 
-32:                                               ; preds = %.thread49, %31
-  %33 = phi ptr [ %30, %.thread49 ], [ %25, %31 ]
+33:                                               ; preds = %.thread49, %32
+  %34 = phi ptr [ %31, %.thread49 ], [ %26, %32 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8, i64 56, i1 false)
-  %34 = icmp eq i64 %.sroa.0.0.idx65, 680
-  br i1 %34, label %35, label %.split
+  %35 = icmp eq i64 %.sroa.0.0.idx65, 680
+  br i1 %35, label %36, label %.split
 
-35:                                               ; preds = %32
+36:                                               ; preds = %33
   invoke void @_ZN8arrayvec8arrayvec12extend_panic17hddd0611bc9dc1911E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
           to label %.split unwind label %.split28
 
-.split28:                                         ; preds = %35
-  %36 = landingpad { ptr, i32 }
+.split28:                                         ; preds = %36
+  %37 = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %38
 
-37:                                               ; preds = %.split28.us, %.split28
+38:                                               ; preds = %.split28.us, %.split28
   %.us-phi29 = phi i64 [ %.sroa.5.063, %.split28 ], [ %.sroa.5.0.us72, %.split28.us ]
-  %.us-phi30 = phi { ptr, i32 } [ %36, %.split28 ], [ %24, %.split28.us ]
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57d68c881112cfc6E.llvm.2219080522599368724"(ptr noalias noundef nonnull align 8 dereferenceable(40) %38)
-          to label %44 unwind label %41
+  %.us-phi30 = phi { ptr, i32 } [ %37, %.split28 ], [ %25, %.split28.us ]
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57d68c881112cfc6E.llvm.2219080522599368724"(ptr noalias noundef nonnull align 8 dereferenceable(40) %39)
+          to label %45 unwind label %42
 
-.split:                                           ; preds = %35, %32
+.split:                                           ; preds = %36, %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.0.ptr66, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8, i64 56, i1 false)
   %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx65, 56
-  %39 = add i64 %.sroa.5.063, 1
+  %40 = add i64 %.sroa.5.063, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.8)
-  %40 = icmp eq i64 %26, 0
-  br i1 %40, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit", label %.lr.ph
+  %41 = icmp eq i64 %27, 0
+  br i1 %41, label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit", label %.lr.ph
 
-41:                                               ; preds = %37
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %38
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #20
   unreachable
 
-"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit": ; preds = %.split, %28, %31, %.split.us, %.lr.ph76, %18, %.split.preheader, %.split.us.preheader
-  %.us-phi26 = phi i64 [ %7, %.split.us.preheader ], [ %7, %.split.preheader ], [ %.sroa.5.0.us72, %18 ], [ %.sroa.5.0.us72, %.lr.ph76 ], [ %22, %.split.us ], [ %.sroa.5.063, %31 ], [ %.sroa.5.063, %28 ], [ %39, %.split ]
+"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$text..InsertionFragment$GT$$GT$17h1027a15fe4fde192E.exit": ; preds = %.split, %29, %32, %.split.us, %18, %.split.preheader, %.split.us.preheader
+  %.us-phi26 = phi i64 [ %7, %.split.us.preheader ], [ %7, %.split.preheader ], [ %.sroa.5.0.us72, %18 ], [ %23, %.split.us ], [ %.sroa.5.063, %32 ], [ %.sroa.5.063, %29 ], [ %40, %.split ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.8)
-  %43 = trunc i64 %.us-phi26 to i32
-  store i32 %43, ptr %0, align 8, !noalias !3333
+  %44 = trunc i64 %.us-phi26 to i32
+  store i32 %44, ptr %0, align 8, !noalias !3333
   ret void
 
-44:                                               ; preds = %37
-  %45 = trunc i64 %.us-phi29 to i32
-  store i32 %45, ptr %0, align 8, !noalias !3341
+45:                                               ; preds = %38
+  %46 = trunc i64 %.us-phi29 to i32
+  store i32 %46, ptr %0, align 8, !noalias !3341
   resume { ptr, i32 } %.us-phi30
 }
 

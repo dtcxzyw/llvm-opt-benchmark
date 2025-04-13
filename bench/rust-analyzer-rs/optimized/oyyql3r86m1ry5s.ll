@@ -2026,8 +2026,8 @@ define hidden void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #45, !noalias !723
   unreachable
 
-common.resume:                                    ; preds = %103, %108, %30, %35, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit26.i", %51
-  %common.resume.op = phi { ptr, i32 } [ %31, %35 ], [ %31, %30 ], [ %.pn.i, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit26.i" ], [ %.pn.i, %51 ], [ %104, %108 ], [ %104, %103 ]
+common.resume:                                    ; preds = %103, %108, %30, %35, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit27.i", %51
+  %common.resume.op = phi { ptr, i32 } [ %31, %35 ], [ %31, %30 ], [ %.pn.i, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit27.i" ], [ %.pn.i, %51 ], [ %104, %108 ], [ %104, %103 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN7ide_ssr9resolving8Resolver20resolve_pattern_tree28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h78768c7bfc7e4bc5E.exit.i": ; preds = %39, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h3e09f874d5afc6adE.exit.i.i"
@@ -2047,7 +2047,7 @@ common.resume:                                    ; preds = %103, %108, %30, %35
 .noexc.i:                                         ; preds = %47
   unreachable
 
-"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit26.i": ; preds = %79, %73, %52
+"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit27.i": ; preds = %79, %73, %52
   %.pn.i = phi { ptr, i32 } [ %53, %52 ], [ %74, %79 ], [ %74, %73 ]
   %48 = load i32, ptr %43, align 4, !noalias !738, !noundef !4
   %49 = add i32 %48, -1
@@ -2055,14 +2055,14 @@ common.resume:                                    ; preds = %103, %108, %30, %35
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %common.resume
 
-51:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit26.i"
+51:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit27.i"
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %20)
           to label %common.resume unwind label %84, !noalias !717
 
 52:                                               ; preds = %65, %54, %47
   %53 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit26.i"
+  br label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit27.i"
 
 54:                                               ; preds = %42
   %55 = extractvalue { i32, i1 } %45, 0
@@ -2071,8 +2071,8 @@ common.resume:                                    ; preds = %103, %108, %30, %35
           to label %57 unwind label %52, !noalias !723
 
 57:                                               ; preds = %54
-  %.not15.i = icmp eq ptr %56, null
-  br i1 %.not15.i, label %86, label %58
+  %.not19.i = icmp eq ptr %56, null
+  br i1 %.not19.i, label %86, label %58
 
 58:                                               ; preds = %57
   %59 = icmp eq i8 %.val3, 1
@@ -2108,16 +2108,16 @@ common.resume:                                    ; preds = %103, %108, %30, %35
   %77 = add i32 %76, -1
   store i32 %77, ptr %75, align 4, !noalias !754
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit26.i"
+  br i1 %78, label %79, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit27.i"
 
 79:                                               ; preds = %73
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %56)
-          to label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit26.i" unwind label %84, !noalias !717
+          to label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17h0bdc015e7475eb00E.exit27.i" unwind label %84, !noalias !717
 
 80:                                               ; preds = %66
   %81 = extractvalue { i32, i32 } %72, 0
-  %.not16.i = icmp eq i32 %81, 3
-  br i1 %.not16.i, label %60, label %82
+  %.not20.i = icmp eq i32 %81, 3
+  br i1 %.not20.i, label %60, label %82
 
 82:                                               ; preds = %80
   %83 = invoke { ptr, ptr } @_ZN7ide_ssr9resolving15ResolutionScope14qualifier_type17h15717d8cb0da3520E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)

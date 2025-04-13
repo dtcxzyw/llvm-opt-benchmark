@@ -846,8 +846,8 @@ call.i.i.i.i.noexc.i37:                           ; preds = %_ZNK8proxygen15HPAC
   %18 = icmp ult i64 %17, 87
   %19 = load ptr, ptr %agg.tmp19, align 8
   %isnull.i.i44 = icmp eq ptr %19, null
-  %or.cond = select i1 %18, i1 true, i1 %isnull.i.i44
-  br i1 %or.cond, label %if.end68, label %if.end68.sink.split
+  %or.cond292 = select i1 %18, i1 true, i1 %isnull.i.i44
+  br i1 %or.cond292, label %if.end68, label %if.end68.sink.split
 
 terminate.lpad.i36:                               ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i34
   %20 = landingpad { ptr, i32 }
@@ -954,8 +954,8 @@ call.i.i.i.i.noexc.i80:                           ; preds = %_ZNK8proxygen15HPAC
   %34 = icmp ult i64 %33, 87
   %35 = load ptr, ptr %agg.tmp44, align 8
   %isnull.i.i87 = icmp eq ptr %35, null
-  %or.cond292 = select i1 %34, i1 true, i1 %isnull.i.i87
-  br i1 %or.cond292, label %if.end68, label %if.end68.sink.split
+  %or.cond293 = select i1 %34, i1 true, i1 %isnull.i.i87
+  br i1 %or.cond293, label %if.end68, label %if.end68.sink.split
 
 terminate.lpad.i79:                               ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i77
   %36 = landingpad { ptr, i32 }
@@ -1002,8 +1002,8 @@ call.i.i.i.i.noexc.i101:                          ; preds = %_ZNK8proxygen15HPAC
   %41 = icmp ult i64 %40, 87
   %42 = load ptr, ptr %agg.tmp57, align 8
   %isnull.i.i108 = icmp eq ptr %42, null
-  %or.cond293 = select i1 %41, i1 true, i1 %isnull.i.i108
-  br i1 %or.cond293, label %if.end68, label %if.end68.sink.split
+  %or.cond294 = select i1 %41, i1 true, i1 %isnull.i.i108
+  br i1 %or.cond294, label %if.end68, label %if.end68.sink.split
 
 terminate.lpad.i100:                              ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i98
   %43 = landingpad { ptr, i32 }
@@ -1036,12 +1036,12 @@ invoke.cont71:                                    ; preds = %if.end68
   %.not = select i1 %tobool.i.i.i.i, i1 %cmp.i.i, i1 false
   %48 = load i32, ptr %upgradeWebsocket_.i, align 4
   %cmp.i112 = icmp ne i32 %48, 2
-  %or.cond.not285 = select i1 %.not, i1 %cmp.i112, i1 false
+  %or.cond283.not285 = select i1 %.not, i1 %cmp.i112, i1 false
   %upgradeProtocol_.i113 = getelementptr inbounds nuw i8, ptr %msg, i64 568
   %49 = load ptr, ptr %upgradeProtocol_.i113, align 8
   %tobool77.not = icmp eq ptr %49, null
-  %or.cond283 = select i1 %or.cond.not285, i1 %tobool77.not, i1 false
-  br i1 %or.cond283, label %if.end103, label %if.then78
+  %or.cond284 = select i1 %or.cond283.not285, i1 %tobool77.not, i1 false
+  br i1 %or.cond284, label %if.end103, label %if.then78
 
 if.then78:                                        ; preds = %invoke.cont71
   store ptr null, ptr %agg.tmp80, align 8
@@ -1240,8 +1240,8 @@ call.i.i.i.i.noexc.i169:                          ; preds = %_ZNK8proxygen15HPAC
   %72 = icmp ult i64 %71, 87
   %73 = load ptr, ptr %agg.tmp110, align 8
   %isnull.i.i176 = icmp eq ptr %73, null
-  %or.cond294 = select i1 %72, i1 true, i1 %isnull.i.i176
-  br i1 %or.cond294, label %if.end150, label %if.end150.sink.split
+  %or.cond295 = select i1 %72, i1 true, i1 %isnull.i.i176
+  br i1 %or.cond295, label %if.end150, label %if.end150.sink.split
 
 terminate.lpad.i168:                              ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i166
   %74 = landingpad { ptr, i32 }
@@ -1287,8 +1287,8 @@ call.i.i.i.i.noexc.i192:                          ; preds = %_ZNK8proxygen15HPAC
   %79 = icmp ult i64 %78, 87
   %80 = load ptr, ptr %agg.tmp124, align 8
   %isnull.i.i199 = icmp eq ptr %80, null
-  %or.cond295 = select i1 %79, i1 true, i1 %isnull.i.i199
-  br i1 %or.cond295, label %if.end150, label %if.end150.sink.split
+  %or.cond296 = select i1 %79, i1 true, i1 %isnull.i.i199
+  br i1 %or.cond296, label %if.end150, label %if.end150.sink.split
 
 terminate.lpad.i191:                              ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i189
   %81 = landingpad { ptr, i32 }
@@ -1405,8 +1405,8 @@ call.i.i.i.i.noexc.i218:                          ; preds = %_ZNK8proxygen15HPAC
   %97 = icmp ult i64 %96, 87
   %98 = load ptr, ptr %agg.tmp135, align 8
   %isnull.i.i225 = icmp eq ptr %98, null
-  %or.cond296 = select i1 %97, i1 true, i1 %isnull.i.i225
-  br i1 %or.cond296, label %if.end150, label %if.end150.sink.split
+  %or.cond297 = select i1 %97, i1 true, i1 %isnull.i.i225
+  br i1 %or.cond297, label %if.end150, label %if.end150.sink.split
 
 terminate.lpad.i217:                              ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i215
   %99 = landingpad { ptr, i32 }
@@ -1459,17 +1459,17 @@ invoke.cont157:                                   ; preds = %invoke.cont154
           to label %if.end161 unwind label %terminate.lpad
 
 if.end161:                                        ; preds = %invoke.cont157, %invoke.cont154
-  %102 = load i8, ptr %fields_.i, align 8
-  %cmp.i231 = icmp eq i8 %102, 2
-  %or.cond284 = select i1 %includeDate, i1 %cmp.i231, i1 false
-  br i1 %or.cond284, label %land.lhs.true165, label %if.end180
+  br i1 %includeDate, label %land.lhs.true, label %if.end180
 
-land.lhs.true165:                                 ; preds = %if.end161
+land.lhs.true:                                    ; preds = %if.end161
+  %102 = load i8, ptr %fields_.i, align 8
+  %cmp.i231 = icmp ne i8 %102, 2
   %103 = load i8, ptr %hasDateHeader, align 1
   %tobool166 = trunc i8 %103 to i1
-  br i1 %tobool166, label %if.end180, label %if.then167
+  %or.cond = select i1 %cmp.i231, i1 true, i1 %tobool166
+  br i1 %or.cond, label %if.end180, label %if.then167
 
-if.then167:                                       ; preds = %land.lhs.true165
+if.then167:                                       ; preds = %land.lhs.true
   store ptr null, ptr %agg.tmp169, align 8
   %call.i.i233 = invoke noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 1)
           to label %invoke.cont170 unwind label %terminate.lpad
@@ -1532,7 +1532,7 @@ _ZN8proxygen15HPACKHeaderNameD2Ev.exit252:        ; preds = %invoke.cont175, %ca
   store ptr null, ptr %agg.tmp169, align 8
   br label %if.end180
 
-if.end180:                                        ; preds = %_ZN8proxygen15HPACKHeaderNameD2Ev.exit252, %land.lhs.true165, %if.end161
+if.end180:                                        ; preds = %_ZN8proxygen15HPACKHeaderNameD2Ev.exit252, %land.lhs.true, %if.end161
   %113 = load i32, ptr %baseIndex, align 4
   %114 = load i32, ptr %requiredInsertCount, align 4
   invoke void @_ZN8proxygen12QPACKEncoder14completeEncodeEmjj(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(624) %encoder_, i64 noundef %streamId, i32 noundef %113, i32 noundef %114)

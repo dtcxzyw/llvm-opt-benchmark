@@ -398,8 +398,8 @@ define dso_local void @_ZN4llvm17GuardWideningPass3runERNS_8FunctionERNS_15Analy
   %15 = phi i1 [ false, %4 ], [ %13, %10 ]
   %16 = load ptr, ptr %7, align 8, !tbaa !56
   %17 = tail call noundef ptr @_ZN4llvm9Intrinsic22getDeclarationIfExistsEPKNS_6ModuleEj(ptr noundef %16, i32 noundef 169) #24
-  %.not27 = icmp eq ptr %17, null
-  br i1 %.not27, label %22, label %18
+  %.not28 = icmp eq ptr %17, null
+  br i1 %.not28, label %22, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -409,8 +409,8 @@ define dso_local void @_ZN4llvm17GuardWideningPass3runERNS_8FunctionERNS_15Analy
 
 22:                                               ; preds = %18, %14
   %23 = phi i1 [ false, %14 ], [ %21, %18 ]
-  %brmerge = or i1 %15, %23
-  br i1 %brmerge, label %35, label %24
+  %or.cond = or i1 %15, %23
+  br i1 %or.cond, label %35, label %24
 
 24:                                               ; preds = %22
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -669,18 +669,18 @@ _ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit: ; preds = %
   br label %164
 
 164:                                              ; preds = %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit, %163
-  %.not.i35 = icmp eq ptr %124, null
-  br i1 %.not.i35, label %_ZNSt10unique_ptrIN4llvm16MemorySSAUpdaterESt14default_deleteIS1_EED2Ev.exit36, label %165
+  %.not.i36 = icmp eq ptr %124, null
+  br i1 %.not.i36, label %_ZNSt10unique_ptrIN4llvm16MemorySSAUpdaterESt14default_deleteIS1_EED2Ev.exit37, label %165
 
 165:                                              ; preds = %164
   call void @_ZNKSt14default_deleteIN4llvm16MemorySSAUpdaterEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %124)
-  br label %_ZNSt10unique_ptrIN4llvm16MemorySSAUpdaterESt14default_deleteIS1_EED2Ev.exit36
+  br label %_ZNSt10unique_ptrIN4llvm16MemorySSAUpdaterESt14default_deleteIS1_EED2Ev.exit37
 
-_ZNSt10unique_ptrIN4llvm16MemorySSAUpdaterESt14default_deleteIS1_EED2Ev.exit36: ; preds = %164, %165
+_ZNSt10unique_ptrIN4llvm16MemorySSAUpdaterESt14default_deleteIS1_EED2Ev.exit37: ; preds = %164, %165
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   br label %166
 
-166:                                              ; preds = %_ZNSt10unique_ptrIN4llvm16MemorySSAUpdaterESt14default_deleteIS1_EED2Ev.exit36, %24
+166:                                              ; preds = %_ZNSt10unique_ptrIN4llvm16MemorySSAUpdaterESt14default_deleteIS1_EED2Ev.exit37, %24
   ret void
 }
 

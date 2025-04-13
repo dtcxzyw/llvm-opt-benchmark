@@ -34,21 +34,21 @@ define void @_ZN3gmx25mdAlgorithmsSetupAtomDataEPK9t_commrecRK10t_inputrecRK10gm
   br label %25
 
 25:                                               ; preds = %22, %16
-  %.067 = phi i32 [ %21, %16 ], [ %24, %22 ]
-  %.066 = phi i32 [ %19, %16 ], [ %24, %22 ]
+  %.069 = phi i32 [ %21, %16 ], [ %24, %22 ]
+  %.068 = phi i32 [ %19, %16 ], [ %24, %22 ]
   %.0 = phi i32 [ %17, %16 ], [ -1, %22 ]
-  %.not72 = icmp eq ptr %5, null
-  br i1 %.not72, label %27, label %26
+  %.not74 = icmp eq ptr %5, null
+  br i1 %.not74, label %27, label %26
 
 26:                                               ; preds = %25
-  tail call void @_ZN3gmx12ForceBuffers6resizeEi(ptr noundef nonnull align 8 dereferenceable(137) %5, i32 noundef %.067)
+  tail call void @_ZN3gmx12ForceBuffers6resizeEi(ptr noundef nonnull align 8 dereferenceable(137) %5, i32 noundef %.069)
   br label %27
 
 27:                                               ; preds = %26, %25
   br i1 %15, label %32, label %.thread97
 
 .thread97:                                        ; preds = %27
-  tail call void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEEiPNS5_7MDAtomsE(ptr noundef nonnull align 8 dereferenceable(768) %2, ptr noundef nonnull align 8 dereferenceable(880) %1, i32 noundef %.0, ptr null, ptr null, i32 noundef %.066, ptr noundef %6)
+  tail call void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEEiPNS5_7MDAtomsE(ptr noundef nonnull align 8 dereferenceable(768) %2, ptr noundef nonnull align 8 dereferenceable(880) %1, i32 noundef %.0, ptr null, ptr null, i32 noundef %.068, ptr noundef %6)
   %28 = load ptr, ptr %6, align 8, !tbaa !83
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 420
   %30 = load i32, ptr %29, align 4, !tbaa !85
@@ -66,12 +66,12 @@ define void @_ZN3gmx25mdAlgorithmsSetupAtomDataEPK9t_commrecRK10t_inputrecRK10gm
   %39 = ptrtoint ptr %35 to i64
   %40 = sub i64 %38, %39
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 %40
-  tail call void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEEiPNS5_7MDAtomsE(ptr noundef nonnull align 8 dereferenceable(768) %2, ptr noundef nonnull align 8 dereferenceable(880) %1, i32 noundef %.0, ptr %35, ptr %41, i32 noundef %.066, ptr noundef %6)
+  tail call void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEEiPNS5_7MDAtomsE(ptr noundef nonnull align 8 dereferenceable(768) %2, ptr noundef nonnull align 8 dereferenceable(880) %1, i32 noundef %.0, ptr %35, ptr %41, i32 noundef %.068, ptr noundef %6)
   %42 = load ptr, ptr %6, align 8, !tbaa !83
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %44 = load ptr, ptr %43, align 8, !tbaa !177
-  %.not101 = icmp eq ptr %44, null
-  br i1 %.not101, label %57, label %45
+  %.not99 = icmp eq ptr %44, null
+  br i1 %.not99, label %57, label %45
 
 45:                                               ; preds = %32
   %46 = load ptr, ptr %14, align 8, !tbaa !4
@@ -88,10 +88,10 @@ define void @_ZN3gmx25mdAlgorithmsSetupAtomDataEPK9t_commrecRK10t_inputrecRK10gm
   tail call void @_ZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_t(ptr noundef nonnull align 8 dereferenceable(216) %44, ptr %48, ptr %54, ptr noundef nonnull align 1 %56)
   br label %57
 
-57:                                               ; preds = %.thread97, %32, %45
-  %58 = phi ptr [ %28, %.thread97 ], [ %42, %32 ], [ %42, %45 ]
-  %.not73 = icmp eq ptr %8, null
-  br i1 %.not73, label %75, label %59
+57:                                               ; preds = %.thread97, %45, %32
+  %58 = phi ptr [ %28, %.thread97 ], [ %42, %45 ], [ %42, %32 ]
+  %.not75 = icmp eq ptr %8, null
+  br i1 %.not75, label %75, label %59
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -116,8 +116,8 @@ define void @_ZN3gmx25mdAlgorithmsSetupAtomDataEPK9t_commrecRK10t_inputrecRK10gm
 
 75:                                               ; preds = %59, %57
   %76 = icmp eq ptr %9, null
-  %or.cond.not = or i1 %76, %15
-  br i1 %or.cond.not, label %78, label %77
+  %or.cond3.not = or i1 %76, %15
+  br i1 %or.cond3.not, label %78, label %77
 
 77:                                               ; preds = %75
   tail call void @_ZN3gmx17make_local_shellsEPK9t_commrecRK9t_mdatomsP13gmx_shellfc_t(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(648) %58, ptr noundef nonnull %9)
@@ -128,8 +128,8 @@ define void @_ZN3gmx25mdAlgorithmsSetupAtomDataEPK9t_commrecRK10t_inputrecRK10gm
   %80 = load ptr, ptr %79, align 8, !tbaa !214
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 472
   %82 = load ptr, ptr %81, align 8, !tbaa !214
-  %.not102103 = icmp eq ptr %80, %82
-  br i1 %.not102103, label %._crit_edge, label %.lr.ph
+  %.not100101 = icmp eq ptr %80, %82
+  br i1 %.not100101, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 296
@@ -153,7 +153,7 @@ define void @_ZN3gmx25mdAlgorithmsSetupAtomDataEPK9t_commrecRK10t_inputrecRK10gm
   ]
 
 91:                                               ; preds = %.lr.ph, %91
-  %.sroa.087.0104 = phi ptr [ %80, %.lr.ph ], [ %108, %91 ]
+  %.sroa.087.0102 = phi ptr [ %80, %.lr.ph ], [ %108, %91 ]
   %92 = load i32, ptr %83, align 8, !tbaa !219
   %93 = load ptr, ptr %84, align 8, !tbaa !310
   %94 = icmp ne ptr %93, null
@@ -170,10 +170,10 @@ define void @_ZN3gmx25mdAlgorithmsSetupAtomDataEPK9t_commrecRK10t_inputrecRK10gm
   %105 = sub i64 %103, %104
   %106 = sdiv exact i64 %105, 12
   %107 = trunc i64 %106 to i32
-  tail call void @_ZN12ListedForces5setupERK22InteractionDefinitionsibN3gmx8ArrayRefIKtEEi(ptr noundef nonnull align 8 dereferenceable(2912) %.sroa.087.0104, ptr noundef nonnull align 8 dereferenceable(2760) %3, i32 noundef %92, i1 noundef zeroext %94, ptr %95, ptr %100, i32 noundef %107)
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.087.0104, i64 2912
-  %.not102 = icmp eq ptr %108, %82
-  br i1 %.not102, label %._crit_edge, label %91
+  tail call void @_ZN12ListedForces5setupERK22InteractionDefinitionsibN3gmx8ArrayRefIKtEEi(ptr noundef nonnull align 8 dereferenceable(2912) %.sroa.087.0102, ptr noundef nonnull align 8 dereferenceable(2760) %3, i32 noundef %92, i1 noundef zeroext %94, ptr %95, ptr %100, i32 noundef %107)
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.087.0102, i64 2912
+  %.not100 = icmp eq ptr %108, %82
+  br i1 %.not100, label %._crit_edge, label %91
 
 _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %._crit_edge
   %.val79 = load i32, ptr %89, align 4, !tbaa !315
@@ -190,7 +190,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %._crit_edge, %._c
 113:                                              ; preds = %_ZL8usingPmeRK22CoulombInteractionType.exit.thread
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 412
   %115 = load i32, ptr %114, align 4, !tbaa !317
-  %116 = sub nsw i32 %.066, %115
+  %116 = sub nsw i32 %.068, %115
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %118 = load ptr, ptr %117, align 8, !tbaa !318
   %119 = getelementptr inbounds nuw i8, ptr %58, i64 176
@@ -213,8 +213,8 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %._crit_edge, %._c
   br label %135
 
 135:                                              ; preds = %113, %_ZL8usingPmeRK22CoulombInteractionType.exit.thread, %_ZL8usingPmeRK22CoulombInteractionType.exit
-  %.not75 = icmp eq ptr %7, null
-  br i1 %.not75, label %172, label %136
+  %.not77 = icmp eq ptr %7, null
+  br i1 %.not77, label %172, label %136
 
 136:                                              ; preds = %135
   %137 = getelementptr inbounds nuw i8, ptr %58, i64 12

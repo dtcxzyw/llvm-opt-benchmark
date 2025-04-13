@@ -9592,8 +9592,8 @@ if.then.i.i.i.i:                                  ; preds = %cleanup.i
 
 _ZN6wangle18LRUPersistentCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8proxygen23PersistentQuicCachedPskESt5mutexE4loadERNS_16CachePersistenceE.exit: ; preds = %cleanup.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %kvPairs.i)
-  %brmerge.demorgan = and i1 %syncVersion, %tobool.i.i.i
-  br i1 %brmerge.demorgan, label %invoke.cont10, label %monotonic_fail22.i
+  %or.cond = and i1 %syncVersion, %tobool.i.i.i
+  br i1 %or.cond, label %invoke.cont10, label %monotonic_fail22.i
 
 invoke.cont10:                                    ; preds = %_ZN6wangle18LRUPersistentCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8proxygen23PersistentQuicCachedPskESt5mutexE4loadERNS_16CachePersistenceE.exit
   %6 = load ptr, ptr %persistence_, align 8

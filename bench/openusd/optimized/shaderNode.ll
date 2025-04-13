@@ -5309,8 +5309,8 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS0_17SdrShad
   %240 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %241 = load ptr, ptr %240, align 8
   %242 = icmp eq ptr %241, null
-  %brmerge.i.i = or i1 %239, %242
-  br i1 %brmerge.i.i, label %243, label %245
+  %or.cond.i.i = or i1 %239, %242
+  br i1 %or.cond.i.i, label %243, label %245
 
 243:                                              ; preds = %233
   %244 = xor i1 %239, %242
@@ -5364,8 +5364,8 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS0_17SdrShad
   %272 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %273 = load ptr, ptr %272, align 8
   %274 = icmp eq ptr %273, null
-  %brmerge.i.i31 = or i1 %271, %274
-  br i1 %brmerge.i.i31, label %275, label %278
+  %or.cond.i.i31 = or i1 %271, %274
+  br i1 %or.cond.i.i31, label %275, label %278
 
 275:                                              ; preds = %268
   %276 = xor i1 %271, %274

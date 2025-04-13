@@ -9256,21 +9256,19 @@ define internal void @"_ZNSt17_Function_handlerIFvRK9DfgVertexEZL29dumpDotUpstre
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load i8, ptr %5, align 8, !tbaa !196, !range !193, !noundef !194
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.thread.i.i.i, label %8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 97
+  %9 = load i8, ptr %8, align 1, !range !193
+  %10 = trunc nuw i8 %9 to i1
+  %or.cond.i.i.i.i = select i1 %7, i1 true, i1 %10
+  br i1 %or.cond.i.i.i.i, label %_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.thread.i.i.i, label %_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.i.i.i
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 97
-  %10 = load i8, ptr %9, align 1, !tbaa !195, !range !193, !noundef !194
-  %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.thread.i.i.i, label %_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.i.i.i
+_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.i.i.i: ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 98
+  %12 = load i8, ptr %11, align 2, !tbaa !192, !range !193, !noundef !194
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.thread.i.i.i, label %"_ZSt10__invoke_rIvRZL29dumpDotUpstreamConeFromVertexRSoRK9DfgVertexE3$_1JS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
-_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.i.i.i: ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 98
-  %13 = load i8, ptr %12, align 2, !tbaa !192, !range !193, !noundef !194
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.thread.i.i.i, label %"_ZSt10__invoke_rIvRZL29dumpDotUpstreamConeFromVertexRSoRK9DfgVertexE3$_1JS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
-
-_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.thread.i.i.i: ; preds = %_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.i.i.i, %8, %4
+_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.thread.i.i.i: ; preds = %_ZNK12DfgVertexVar15hasNonLocalRefsEv.exit.i.i.i, %4
   tail call fastcc void @_ZL27dumpDotVertexAndSourceEdgesRSoRK9DfgVertex(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull align 8 dereferenceable(72) %1)
   br label %"_ZSt10__invoke_rIvRZL29dumpDotUpstreamConeFromVertexRSoRK9DfgVertexE3$_1JS3_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
@@ -10098,23 +10096,21 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRK12DfgVarPacked
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load i8, ptr %3, align 8, !tbaa !196, !range !193, !noundef !194
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %"_ZSt10__invoke_rIbRZZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERK9DfgVertexEUlRK12DfgVarPackedE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %6
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 97
+  %7 = load i8, ptr %6, align 1, !range !193
+  %8 = trunc nuw i8 %7 to i1
+  %or.cond.i.i.i.i = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond.i.i.i.i, label %"_ZSt10__invoke_rIbRZZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERK9DfgVertexEUlRK12DfgVarPackedE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %9
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 97
-  %8 = load i8, ptr %7, align 1, !tbaa !195, !range !193, !noundef !194
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %"_ZSt10__invoke_rIbRZZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERK9DfgVertexEUlRK12DfgVarPackedE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit", label %10
-
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 98
-  %12 = load i8, ptr %11, align 2, !tbaa !192, !range !193, !noundef !194
-  %13 = trunc nuw i8 %12 to i1
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 98
+  %11 = load i8, ptr %10, align 2, !tbaa !192, !range !193, !noundef !194
+  %12 = trunc nuw i8 %11 to i1
   br label %"_ZSt10__invoke_rIbRZZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERK9DfgVertexEUlRK12DfgVarPackedE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit"
 
-"_ZSt10__invoke_rIbRZZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERK9DfgVertexEUlRK12DfgVarPackedE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %2, %6, %10
-  %14 = phi i1 [ true, %6 ], [ true, %2 ], [ %13, %10 ]
-  ret i1 %14
+"_ZSt10__invoke_rIbRZZNK8DfgGraph26dumpDotAllVarConesPrefixedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clERK9DfgVertexEUlRK12DfgVarPackedE_JSF_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESJ_E4typeEOSK_DpOSL_.exit": ; preds = %2, %9
+  %13 = phi i1 [ true, %2 ], [ %12, %9 ]
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

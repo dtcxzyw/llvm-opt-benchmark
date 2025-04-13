@@ -2354,52 +2354,52 @@ _ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit: ; preds = %_ZN4llvmeqEN
   %17 = icmp eq i64 %.fr27.i.i, 0
   %18 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.57, i64 15) #9
   %19 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nonnull @.str.57, i64 15, i32 noundef %18) #9
-  %20 = icmp eq i32 %19, -1
+  %20 = icmp ne i32 %19, -1
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = sext i32 %19 to i64
-  %25 = icmp eq i64 %24, %23
-  %.not28 = select i1 %20, i1 true, i1 %25
-  %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.58, i64 15) #9
-  %27 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nonnull @.str.58, i64 15, i32 noundef %26) #9
-  %28 = icmp eq i32 %27, -1
-  %29 = load i32, ptr %21, align 8
-  %30 = zext i32 %29 to i64
-  %31 = sext i32 %27 to i64
-  %32 = icmp eq i64 %31, %30
-  %.not30 = select i1 %28, i1 true, i1 %32
-  %brmerge = or i1 %.not28, %.not30
-  br i1 %brmerge, label %36, label %33
+  %25 = icmp ne i64 %24, %23
+  %26 = select i1 %20, i1 %25, i1 false
+  %27 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.58, i64 15) #9
+  %28 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nonnull @.str.58, i64 15, i32 noundef %27) #9
+  %29 = icmp ne i32 %28, -1
+  %30 = load i32, ptr %21, align 8
+  %31 = zext i32 %30 to i64
+  %32 = sext i32 %28 to i64
+  %33 = icmp ne i64 %32, %31
+  %34 = select i1 %29, i1 %33, i1 false
+  %or.cond = and i1 %26, %34
+  br i1 %or.cond, label %35, label %38
 
-33:                                               ; preds = %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit
+35:                                               ; preds = %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit
   store i32 1, ptr %0, align 8, !tbaa !39
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.61, ptr %34, align 8, !tbaa !42
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 62, ptr %35, align 8, !tbaa !43
-  br label %48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @.str.61, ptr %36, align 8, !tbaa !42
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 62, ptr %37, align 8, !tbaa !43
+  br label %49
 
-36:                                               ; preds = %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit
-  %brmerge14 = or i1 %17, %.not28
-  %brmerge15 = or i1 %.0.i, %brmerge14
-  br i1 %brmerge15, label %40, label %37
+38:                                               ; preds = %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit
+  %.not = xor i1 %26, true
+  %or.cond3 = or i1 %17, %.not
+  %or.cond5 = or i1 %.0.i, %or.cond3
+  br i1 %or.cond5, label %42, label %39
 
-37:                                               ; preds = %36
+39:                                               ; preds = %38
   store i32 2, ptr %0, align 8, !tbaa !39
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.57, ptr %38, align 8, !tbaa !42
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 15, ptr %39, align 8, !tbaa !43
-  br label %48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @.str.57, ptr %40, align 8, !tbaa !42
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 15, ptr %41, align 8, !tbaa !43
+  br label %49
 
-40:                                               ; preds = %36
-  %41 = and i1 %.not28, %.not30
-  %42 = xor i1 %41, true
-  %brmerge17 = or i1 %17, %42
-  br i1 %brmerge17, label %46, label %43
+42:                                               ; preds = %38
+  %43 = or i1 %26, %34
+  %or.cond21.demorgan = or i1 %17, %43
+  br i1 %or.cond21.demorgan, label %47, label %44
 
-43:                                               ; preds = %40
+44:                                               ; preds = %42
   %.str.57..str.58 = select i1 %.0.i, ptr @.str.57, ptr @.str.58
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store ptr %.str.57..str.58, ptr %6, align 8
@@ -2407,18 +2407,18 @@ _ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit: ; preds = %_ZN4llvmeqEN
   store i64 15, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 8
-  %44 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.str.57..str.58, i64 15) #9
-  %45 = call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJbEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nonnull %.str.57..str.58, i64 15, i32 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.2.0..sroa_idx)
+  %45 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.str.57..str.58, i64 15) #9
+  %46 = call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJbEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nonnull %.str.57..str.58, i64 15, i32 noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.2.0..sroa_idx)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %46
+  br label %47
 
-46:                                               ; preds = %40, %43
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
+47:                                               ; preds = %44, %42
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   store i32 0, ptr %0, align 8, !tbaa !39
-  br label %48
+  br label %49
 
-48:                                               ; preds = %46, %37, %33
+49:                                               ; preds = %47, %39, %35
   ret void
 }
 

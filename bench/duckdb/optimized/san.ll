@@ -24,8 +24,8 @@ san_find_guarded_addr.exit:                       ; preds = %8, %7
   %9 = getelementptr i8, ptr %2, i64 16
   %.val = load i64, ptr %9, align 8, !tbaa !3
   %10 = and i64 %.val, -4096
-  %brmerge.demorgan = and i1 %4, %5
-  %.v = select i1 %brmerge.demorgan, i64 -8192, i64 -4096
+  %or.cond = and i1 %4, %5
+  %.v = select i1 %or.cond, i64 -8192, i64 -4096
   %11 = add i64 %10, %.v
   %12 = getelementptr i8, ptr %2, i64 8
   %.val23 = load ptr, ptr %12, align 8, !tbaa !6
@@ -97,8 +97,8 @@ define void @duckdb_je_san_unguard_pages(ptr noundef %0, ptr noundef readonly ca
 
 san_unguard_pages_impl.exit:                      ; preds = %6, %17
   %.0.i = select i1 %4, ptr %14, ptr %13
-  %brmerge.demorgan.i = and i1 %4, %5
-  %.v.i = select i1 %brmerge.demorgan.i, i64 8192, i64 4096
+  %or.cond.i = and i1 %4, %5
+  %.v.i = select i1 %or.cond.i, i64 8192, i64 4096
   %19 = add i64 %8, %.v.i
   %20 = load i64, ptr %7, align 8, !tbaa !3
   %21 = and i64 %20, 4095

@@ -1284,17 +1284,17 @@ define internal fastcc void @telnet_add_text(ptr noundef %0, ptr noundef %1, i32
   br label %6
 
 6:                                                ; preds = %4, %.critedge3
-  %.02937 = phi i32 [ %2, %4 ], [ %33, %.critedge3 ]
-  %.03036 = phi i32 [ %3, %4 ], [ %.1, %.critedge3 ]
-  %7 = call zeroext i1 @tvb_offset_exists(ptr noundef %1, i32 noundef %.02937)
+  %.03140 = phi i32 [ %2, %4 ], [ %34, %.critedge3 ]
+  %.03239 = phi i32 [ %3, %4 ], [ %.1, %.critedge3 ]
+  %7 = call zeroext i1 @tvb_offset_exists(ptr noundef %1, i32 noundef %.03140)
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %6
-  %9 = call i32 @tvb_find_line_end(ptr noundef %1, i32 noundef %.02937, i32 noundef %.03036, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %9 = call i32 @tvb_find_line_end(ptr noundef %1, i32 noundef %.03140, i32 noundef %.03239, ptr noundef nonnull %5, i1 noundef zeroext false)
   %10 = load i32, ptr %5, align 4
-  %.neg = sub i32 %.02937, %10
-  %11 = add i32 %.neg, %.03036
-  %12 = add i32 %9, %.02937
+  %.neg = sub i32 %.03140, %10
+  %11 = add i32 %.neg, %.03239
+  %12 = add i32 %9, %.03140
   %13 = add i32 %12, 1
   %14 = icmp eq i32 %10, %13
   %15 = icmp sgt i32 %11, 0
@@ -1304,43 +1304,41 @@ define internal fastcc void @telnet_add_text(ptr noundef %0, ptr noundef %1, i32
 16:                                               ; preds = %8
   %17 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %12)
   %18 = icmp eq i8 %17, 13
-  %.pre39 = load i32, ptr %5, align 4
+  %.pre42 = load i32, ptr %5, align 4
   br i1 %18, label %.preheader, label %.critedge3
 
-.preheader:                                       ; preds = %16, %27
-  %19 = phi i32 [ %24, %27 ], [ %.pre39, %16 ]
-  %.035 = phi i1 [ %28, %27 ], [ true, %16 ]
-  %.234 = phi i32 [ %25, %27 ], [ %11, %16 ]
+.preheader:                                       ; preds = %16, %28
+  %19 = phi i32 [ %24, %28 ], [ %.pre42, %16 ]
+  %.038 = phi i1 [ %29, %28 ], [ true, %16 ]
+  %.237 = phi i32 [ %25, %28 ], [ %11, %16 ]
   %20 = call zeroext i1 @tvb_offset_exists(ptr noundef %1, i32 noundef %19)
-  %.pre38.pre = load i32, ptr %5, align 4
+  %.pre41.pre = load i32, ptr %5, align 4
   br i1 %20, label %21, label %.critedge3
 
 21:                                               ; preds = %.preheader
-  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.pre38.pre)
+  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.pre41.pre)
   %23 = load i32, ptr %5, align 4
   %24 = add i32 %23, 1
   store i32 %24, ptr %5, align 4
-  %25 = add nsw i32 %.234, -1
-  switch i8 %22, label %27 [
-    i8 10, label %.critedge3
-    i8 0, label %26
-  ]
+  %25 = add nsw i32 %.237, -1
+  %26 = icmp eq i8 %22, 10
+  %27 = icmp eq i8 %22, 0
+  %or.cond5 = and i1 %.038, %27
+  %or.cond36 = or i1 %26, %or.cond5
+  br i1 %or.cond36, label %.critedge3, label %28
 
-26:                                               ; preds = %21
-  br i1 %.035, label %.critedge3, label %27
+28:                                               ; preds = %21
+  %29 = icmp eq i8 %22, 13
+  %.not35 = icmp eq i32 %25, 0
+  br i1 %.not35, label %.critedge3, label %.preheader, !llvm.loop !11
 
-27:                                               ; preds = %21, %26
-  %28 = icmp eq i8 %22, 13
-  %.not33 = icmp eq i32 %25, 0
-  br i1 %.not33, label %.critedge3, label %.preheader, !llvm.loop !11
-
-.critedge3:                                       ; preds = %21, %27, %26, %.preheader, %16, %8
-  %29 = phi i32 [ %.pre39, %16 ], [ %10, %8 ], [ %24, %27 ], [ %.pre38.pre, %.preheader ], [ %24, %26 ], [ %24, %21 ]
-  %.1 = phi i32 [ %11, %16 ], [ %11, %8 ], [ 0, %27 ], [ %.234, %.preheader ], [ %25, %26 ], [ %25, %21 ]
-  %30 = sub i32 %29, %.02937
-  %31 = load i32, ptr @hf_telnet_data, align 4
-  %32 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %.02937, i32 noundef %30, i32 noundef 0)
-  %33 = load i32, ptr %5, align 4
+.critedge3:                                       ; preds = %28, %21, %.preheader, %16, %8
+  %30 = phi i32 [ %.pre42, %16 ], [ %10, %8 ], [ %24, %28 ], [ %.pre41.pre, %.preheader ], [ %24, %21 ]
+  %.1 = phi i32 [ %11, %16 ], [ %11, %8 ], [ 0, %28 ], [ %.237, %.preheader ], [ %25, %21 ]
+  %31 = sub i32 %30, %.03140
+  %32 = load i32, ptr @hf_telnet_data, align 4
+  %33 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef %.03140, i32 noundef %31, i32 noundef 0)
+  %34 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %.1, 0
   br i1 %.not, label %.critedge, label %6, !llvm.loop !12
 

@@ -59,14 +59,14 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
   br label %.preheader85
 
 .preheader85:                                     ; preds = %.preheader86, %._crit_edge
-  %.067.ptr92 = phi ptr [ %10, %.preheader86 ], [ %.067.ptr, %._crit_edge ]
-  %.067.idx91 = phi i64 [ 24, %.preheader86 ], [ %.067.add, %._crit_edge ]
-  %18 = load i32, ptr %.067.ptr92, align 4, !tbaa !3
+  %.069.ptr92 = phi ptr [ %10, %.preheader86 ], [ %.069.ptr, %._crit_edge ]
+  %.069.idx91 = phi i64 [ 24, %.preheader86 ], [ %.069.add, %._crit_edge ]
+  %18 = load i32, ptr %.069.ptr92, align 4, !tbaa !3
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader85
-  %20 = getelementptr inbounds nuw i8, ptr %.067.ptr92, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.069.ptr92, i64 4
   br label %39
 
 21:                                               ; preds = %._crit_edge
@@ -97,13 +97,13 @@ define void @_ZN5ZXing10DataMatrix13GetDataBlocksERKNS_9ByteArrayERKNS0_7Version
   br label %132
 
 ._crit_edge:                                      ; preds = %_ZN5ZXing10DataMatrix9DataBlockD2Ev.exit, %.preheader85
-  %.067.add = add nuw nsw i64 %.067.idx91, 8
-  %.067.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.067.add
-  %.not = icmp eq i64 %.067.add, 40
+  %.069.add = add nuw nsw i64 %.069.idx91, 8
+  %.069.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.069.add
+  %.not = icmp eq i64 %.069.add, 40
   br i1 %.not, label %21, label %.preheader85
 
 39:                                               ; preds = %.lr.ph, %_ZN5ZXing10DataMatrix9DataBlockD2Ev.exit
-  %.07289 = phi i32 [ 0, %.lr.ph ], [ %52, %_ZN5ZXing10DataMatrix9DataBlockD2Ev.exit ]
+  %.07489 = phi i32 [ 0, %.lr.ph ], [ %52, %_ZN5ZXing10DataMatrix9DataBlockD2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #10
   %40 = load i32, ptr %20, align 4, !tbaa !18
   store i32 %40, ptr %8, align 8, !tbaa !19
@@ -137,8 +137,8 @@ _ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE9push_backEOS2_.exit: ; preds
 
 _ZN5ZXing10DataMatrix9DataBlockD2Ev.exit:         ; preds = %_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE9push_backEOS2_.exit, %47
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
-  %52 = add nuw nsw i32 %.07289, 1
-  %53 = load i32, ptr %.067.ptr92, align 4, !tbaa !3
+  %52 = add nuw nsw i32 %.07489, 1
+  %53 = load i32, ptr %.069.ptr92, align 4, !tbaa !3
   %54 = icmp slt i32 %52, %53
   br i1 %54, label %39, label %._crit_edge, !llvm.loop !27
 
@@ -169,15 +169,15 @@ _ZN5ZXing10DataMatrix9DataBlockD2Ev.exit82:       ; preds = %60, %57, %55
 
 .preheader84:                                     ; preds = %.preheader84.lr.ph, %._crit_edge96
   %indvars.iv123 = phi i64 [ 0, %.preheader84.lr.ph ], [ %indvars.iv.next124, %._crit_edge96 ]
-  %.07097 = phi i32 [ 0, %.preheader84.lr.ph ], [ %.171.lcssa, %._crit_edge96 ]
+  %.07297 = phi i32 [ 0, %.preheader84.lr.ph ], [ %.173.lcssa, %._crit_edge96 ]
   br i1 %35, label %.lr.ph95, label %._crit_edge96
 
 .lr.ph95:                                         ; preds = %.preheader84
-  %65 = sext i32 %.07097 to i64
+  %65 = sext i32 %.07297 to i64
   br label %75
 
 ._crit_edge99:                                    ; preds = %._crit_edge96, %21
-  %.070.lcssa = phi i32 [ 0, %21 ], [ %.171.lcssa, %._crit_edge96 ]
+  %.072.lcssa = phi i32 [ 0, %21 ], [ %.173.lcssa, %._crit_edge96 ]
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !29
   %68 = icmp eq i32 %67, 144
@@ -187,7 +187,7 @@ _ZN5ZXing10DataMatrix9DataBlockD2Ev.exit82:       ; preds = %60, %57, %55
 
 .lr.ph105:                                        ; preds = %._crit_edge99
   %71 = sext i32 %33 to i64
-  %72 = sext i32 %.070.lcssa to i64
+  %72 = sext i32 %.072.lcssa to i64
   %wide.trip.count133 = zext nneg i32 %69 to i64
   br label %86
 
@@ -196,7 +196,7 @@ _ZN5ZXing10DataMatrix9DataBlockD2Ev.exit82:       ; preds = %60, %57, %55
   br label %._crit_edge96
 
 ._crit_edge96:                                    ; preds = %._crit_edge96.loopexit, %.preheader84
-  %.171.lcssa = phi i32 [ %.07097, %.preheader84 ], [ %73, %._crit_edge96.loopexit ]
+  %.173.lcssa = phi i32 [ %.07297, %.preheader84 ], [ %73, %._crit_edge96.loopexit ]
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %74 = icmp samesign ult i64 %indvars.iv.next124, %36
   br i1 %74, label %.preheader84, label %._crit_edge99, !llvm.loop !31
@@ -222,13 +222,13 @@ _ZN5ZXing10DataMatrix9DataBlockD2Ev.exit82:       ; preds = %60, %57, %55
   br label %.preheader83
 
 .preheader83:                                     ; preds = %.preheader83.loopexit, %._crit_edge99
-  %.2.lcssa = phi i32 [ %.070.lcssa, %._crit_edge99 ], [ %83, %.preheader83.loopexit ]
+  %.2.lcssa = phi i32 [ %.072.lcssa, %._crit_edge99 ], [ %83, %.preheader83.loopexit ]
   %84 = icmp sgt i32 %31, 0
   br i1 %84, label %.preheader.lr.ph, label %._crit_edge114
 
 .preheader.lr.ph:                                 ; preds = %.preheader83
   %85 = icmp sgt i32 %14, 0
-  %brmerge.demorgan = and i1 %3, %68
+  %or.cond = and i1 %3, %68
   br label %.preheader
 
 86:                                               ; preds = %.lr.ph105, %86
@@ -248,7 +248,7 @@ _ZN5ZXing10DataMatrix9DataBlockD2Ev.exit82:       ; preds = %60, %57, %55
   br i1 %exitcond134.not, label %.preheader83.loopexit, label %86, !llvm.loop !33
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge110
-  %.065113 = phi i32 [ %32, %.preheader.lr.ph ], [ %103, %._crit_edge110 ]
+  %.067113 = phi i32 [ %32, %.preheader.lr.ph ], [ %103, %._crit_edge110 ]
   %.3112 = phi i32 [ %.2.lcssa, %.preheader.lr.ph ], [ %.4.lcssa, %._crit_edge110 ]
   br i1 %85, label %.lr.ph109.preheader, label %._crit_edge110
 
@@ -265,8 +265,8 @@ _ZN5ZXing10DataMatrix9DataBlockD2Ev.exit82:       ; preds = %60, %57, %55
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %98, %99
   %101 = trunc i64 %100 to i32
-  %.not76 = icmp eq i32 %.3.lcssa, %101
-  br i1 %.not76, label %123, label %131
+  %.not78 = icmp eq i32 %.3.lcssa, %101
+  br i1 %.not78, label %123, label %131
 
 ._crit_edge110.loopexit:                          ; preds = %108
   %102 = trunc nsw i64 %indvars.iv.next136 to i32
@@ -274,26 +274,26 @@ _ZN5ZXing10DataMatrix9DataBlockD2Ev.exit82:       ; preds = %60, %57, %55
 
 ._crit_edge110:                                   ; preds = %._crit_edge110.loopexit, %.preheader
   %.4.lcssa = phi i32 [ %.3112, %.preheader ], [ %102, %._crit_edge110.loopexit ]
-  %103 = add nsw i32 %.065113, 1
+  %103 = add nsw i32 %.067113, 1
   %104 = icmp slt i32 %103, %30
   br i1 %104, label %.preheader, label %._crit_edge114, !llvm.loop !34
 
 .lr.ph109:                                        ; preds = %.lr.ph109.preheader, %108
   %indvars.iv135 = phi i64 [ %94, %.lr.ph109.preheader ], [ %indvars.iv.next136, %108 ]
-  %.064108 = phi i32 [ 0, %.lr.ph109.preheader ], [ %122, %108 ]
-  br i1 %brmerge.demorgan, label %105, label %108
+  %.066108 = phi i32 [ 0, %.lr.ph109.preheader ], [ %122, %108 ]
+  br i1 %or.cond, label %105, label %108
 
 105:                                              ; preds = %.lr.ph109
-  %106 = add nuw nsw i32 %.064108, 8
+  %106 = add nuw nsw i32 %.066108, 8
   %107 = urem i32 %106, %14
   br label %108
 
 108:                                              ; preds = %.lr.ph109, %105
-  %109 = phi i32 [ %107, %105 ], [ %.064108, %.lr.ph109 ]
+  %109 = phi i32 [ %107, %105 ], [ %.066108, %.lr.ph109 ]
   %110 = icmp sgt i32 %109, 7
-  %or.cond = and i1 %68, %110
-  %111 = sext i1 %or.cond to i32
-  %112 = add nsw i32 %.065113, %111
+  %or.cond3 = and i1 %68, %110
+  %111 = sext i1 %or.cond3 to i32
+  %112 = add nsw i32 %.067113, %111
   %indvars.iv.next136 = add nsw i64 %indvars.iv135, 1
   %113 = load ptr, ptr %1, align 8, !tbaa !15
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv135
@@ -305,7 +305,7 @@ _ZN5ZXing10DataMatrix9DataBlockD2Ev.exit82:       ; preds = %60, %57, %55
   %120 = load ptr, ptr %118, align 8, !tbaa !15
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %119
   store i8 %115, ptr %121, align 1, !tbaa !25
-  %122 = add nuw nsw i32 %.064108, 1
+  %122 = add nuw nsw i32 %.066108, 1
   %exitcond138.not = icmp eq i32 %122, %14
   br i1 %exitcond138.not, label %._crit_edge110.loopexit, label %.lr.ph109, !llvm.loop !35
 

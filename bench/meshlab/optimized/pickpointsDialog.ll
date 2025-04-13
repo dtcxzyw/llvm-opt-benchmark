@@ -6361,113 +6361,113 @@ define void @_ZN16PickPointsDialog8addPointERN3vcg6Point3IfEER7QStringb(ptr noun
   %11 = alloca %"class.vcg::Point3", align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %13 = load ptr, ptr %12, align 8
-  %.not = icmp ne ptr %13, null
-  %brmerge.not = and i1 %3, %.not
-  br i1 %brmerge.not, label %14, label %56
+  %14 = icmp ne ptr %13, null
+  %or.cond = and i1 %3, %14
+  br i1 %or.cond, label %15, label %57
 
-14:                                               ; preds = %4
+15:                                               ; preds = %4
   tail call void @_ZN9MeshModel14updateDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %13, i32 noundef 131072)
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %16 = load ptr, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
-  %18 = load float, ptr %17, align 8
-  store float %18, ptr %6, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  %21 = call noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI6CFaceOfEENS_4face24PointDistanceBaseFunctorIfEENS_3tri9FaceTmarkI6CMeshOEEEENT_6ObjPtrERSB_T0_RT1_RKNSE_9QueryTypeERKNSB_10ScalarTypeERSK_RNSB_9CoordTypeE(ptr noundef nonnull align 8 dereferenceable(112) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(12) %5)
-  %22 = load float, ptr %6, align 4
-  %23 = load float, ptr %17, align 8
-  %24 = fcmp oeq float %22, %23
-  br i1 %24, label %25, label %_ZN14GetClosestFace7getFaceERN3vcg6Point3IfEE.exit
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
+  %19 = load float, ptr %18, align 8
+  store float %19, ptr %6, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 120
+  %22 = call noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI6CFaceOfEENS_4face24PointDistanceBaseFunctorIfEENS_3tri9FaceTmarkI6CMeshOEEEENT_6ObjPtrERSB_T0_RT1_RKNSE_9QueryTypeERKNSB_10ScalarTypeERSK_RNSB_9CoordTypeE(ptr noundef nonnull align 8 dereferenceable(112) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(12) %5)
+  %23 = load float, ptr %6, align 4
+  %24 = load float, ptr %18, align 8
+  %25 = fcmp oeq float %23, %24
+  br i1 %25, label %26, label %_ZN14GetClosestFace7getFaceERN3vcg6Point3IfEE.exit
 
-25:                                               ; preds = %14
+26:                                               ; preds = %15
   store i32 2, ptr %8, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %26, i8 0, i64 20, i1 false)
-  store ptr @.str.97, ptr %27, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %27, i8 0, i64 20, i1 false)
+  store ptr @.str.97, ptr %28, align 8
   call void @_ZNK14QMessageLogger5debugEv(ptr dead_on_unwind nonnull writable sret(%class.QDebug) align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.100)
-          to label %29 unwind label %30
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.100)
+          to label %30 unwind label %31
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #29
   br label %_ZN14GetClosestFace7getFaceERN3vcg6Point3IfEE.exit
 
-common.resume:                                    ; preds = %51, %30
-  %.sink = phi ptr [ %9, %51 ], [ %7, %30 ]
-  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %31, %30 ]
+common.resume:                                    ; preds = %52, %31
+  %.sink = phi ptr [ %9, %52 ], [ %7, %31 ]
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %32, %31 ]
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #29
   resume { ptr, i32 } %common.resume.op
 
-30:                                               ; preds = %25
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %26
+  %32 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN14GetClosestFace7getFaceERN3vcg6Point3IfEE.exit: ; preds = %14, %29
+_ZN14GetClosestFace7getFaceERN3vcg6Point3IfEE.exit: ; preds = %15, %30
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  %32 = icmp eq ptr %21, null
-  br i1 %32, label %33, label %53
+  %33 = icmp eq ptr %22, null
+  br i1 %33, label %34, label %54
 
-33:                                               ; preds = %_ZN14GetClosestFace7getFaceERN3vcg6Point3IfEE.exit
+34:                                               ; preds = %_ZN14GetClosestFace7getFaceERN3vcg6Point3IfEE.exit
   store i32 2, ptr %10, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %35 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %34, i8 0, i64 20, i1 false)
-  store ptr @.str.97, ptr %35, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %35, i8 0, i64 20, i1 false)
+  store ptr @.str.97, ptr %36, align 8
   call void @_ZNK14QMessageLogger5debugEv(ptr dead_on_unwind nonnull writable sret(%class.QDebug) align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.99)
-          to label %37 unwind label %51
+  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.99)
+          to label %38 unwind label %52
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 %40
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %43 = load i32, ptr %42, align 4
-  %44 = zext i32 %43 to i64
-  invoke void @_ZN6QDebug9putStringEPK5QCharm(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull %41, i64 noundef %44)
-          to label %.noexc unwind label %51
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %2, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = zext i32 %44 to i64
+  invoke void @_ZN6QDebug9putStringEPK5QCharm(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull %42, i64 noundef %45)
+          to label %.noexc unwind label %52
 
-.noexc:                                           ; preds = %37
-  %45 = load ptr, ptr %36, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %47 = load i8, ptr %46, align 8
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %_ZN6QDebuglsERK7QString.exit
+.noexc:                                           ; preds = %38
+  %46 = load ptr, ptr %37, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %48 = load i8, ptr %47, align 8
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %_ZN6QDebuglsERK7QString.exit
 
-49:                                               ; preds = %.noexc
-  %50 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 noundef signext 32)
-          to label %_ZN6QDebuglsERK7QString.exit unwind label %51
+50:                                               ; preds = %.noexc
+  %51 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 noundef signext 32)
+          to label %_ZN6QDebuglsERK7QString.exit unwind label %52
 
-_ZN6QDebuglsERK7QString.exit:                     ; preds = %.noexc, %49
+_ZN6QDebuglsERK7QString.exit:                     ; preds = %.noexc, %50
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #29
-  br label %56
+  br label %57
 
-51:                                               ; preds = %49, %37, %33
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %50, %38, %34
+  %53 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-53:                                               ; preds = %_ZN14GetClosestFace7getFaceERN3vcg6Point3IfEE.exit
-  %54 = getelementptr inbounds nuw i8, ptr %21, i64 36
-  %55 = call noundef ptr @_ZN16PickPointsDialog25addTreeWidgetItemForPointERN3vcg6Point3IfEER7QStringS3_b(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %54, i1 noundef zeroext true)
-  br label %58
+54:                                               ; preds = %_ZN14GetClosestFace7getFaceERN3vcg6Point3IfEE.exit
+  %55 = getelementptr inbounds nuw i8, ptr %22, i64 36
+  %56 = call noundef ptr @_ZN16PickPointsDialog25addTreeWidgetItemForPointERN3vcg6Point3IfEER7QStringS3_b(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %55, i1 noundef zeroext true)
+  br label %59
 
-56:                                               ; preds = %_ZN6QDebuglsERK7QString.exit, %4
-  %57 = call noundef ptr @_ZN16PickPointsDialog25addTreeWidgetItemForPointERN3vcg6Point3IfEER7QStringS3_b(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %11, i1 noundef zeroext %3)
-  br label %58
+57:                                               ; preds = %_ZN6QDebuglsERK7QString.exit, %4
+  %58 = call noundef ptr @_ZN16PickPointsDialog25addTreeWidgetItemForPointERN3vcg6Point3IfEER7QStringS3_b(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %11, i1 noundef zeroext %3)
+  br label %59
 
-58:                                               ; preds = %56, %53
+59:                                               ; preds = %57, %54
   ret void
 }
 

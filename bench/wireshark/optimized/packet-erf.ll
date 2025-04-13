@@ -2569,80 +2569,74 @@ channelised_fill_sdh_g707_format.exit.i.i:        ; preds = %channelised_fill_sd
   %322 = getelementptr [6 x ptr], ptr @channelised_fill_vc_id_string.g_vc_size_strings, i64 0, i64 %321
   %323 = load ptr, ptr %322, align 8
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %295, ptr noundef nonnull @.str.412, ptr noundef %323)
-  switch i8 %315, label %.lr.ph.i35.i.i [
-    i8 0, label %.preheader35.i.i.i
+  switch i8 %315, label %.lr.ph.i36.i.i [
+    i8 0, label %.preheader36.i.i.i
     i8 1, label %.preheader.i.i.i
   ]
 
-.preheader35.i.i.i:                               ; preds = %320, %331
-  %indvars.iv47.i.i.i = phi i64 [ %indvars.iv.next48.i.i.i, %331 ], [ 3, %320 ]
-  %.041.i.i.i = phi i8 [ %.1.i.i.i, %331 ], [ %315, %320 ]
-  %324 = getelementptr [4 x i8], ptr %192, i64 0, i64 %indvars.iv47.i.i.i
+.preheader36.i.i.i:                               ; preds = %320, %331
+  %indvars.iv48.i.i.i = phi i64 [ %indvars.iv.next49.i.i.i, %331 ], [ 3, %320 ]
+  %.042.i.i.i = phi i8 [ %.1.i.i.i, %331 ], [ %315, %320 ]
+  %324 = getelementptr [4 x i8], ptr %192, i64 0, i64 %indvars.iv48.i.i.i
   %325 = load i8, ptr %324, align 1
   %326 = icmp sgt i8 %325, 0
-  %.pre.i.i.i = trunc nuw i8 %.041.i.i.i to i1
-  br i1 %326, label %._crit_edge.i.i.i, label %328
+  %327 = trunc nuw i8 %.042.i.i.i to i1
+  %or.cond.i35.i.i = select i1 %326, i1 true, i1 %327
+  br i1 %or.cond.i35.i.i, label %328, label %331
 
-._crit_edge.i.i.i:                                ; preds = %.preheader35.i.i.i
-  %327 = select i1 %.pre.i.i.i, ptr @.str.414, ptr @.str.403
-  br label %329
-
-328:                                              ; preds = %.preheader35.i.i.i
-  br i1 %.pre.i.i.i, label %329, label %331
-
-329:                                              ; preds = %328, %._crit_edge.i.i.i
-  %.pre-phi.i.i.i = phi ptr [ %327, %._crit_edge.i.i.i ], [ @.str.414, %328 ]
-  %330 = sext i8 %325 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %295, ptr noundef nonnull @.str.413, ptr noundef nonnull %.pre-phi.i.i.i, i32 noundef %330)
+328:                                              ; preds = %.preheader36.i.i.i
+  %329 = sext i8 %325 to i32
+  %330 = select i1 %327, ptr @.str.414, ptr @.str.403
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %295, ptr noundef nonnull @.str.413, ptr noundef nonnull %330, i32 noundef %329)
   br label %331
 
-331:                                              ; preds = %329, %328
-  %.1.i.i.i = phi i8 [ 1, %329 ], [ 0, %328 ]
-  %indvars.iv.next48.i.i.i = add nsw i64 %indvars.iv47.i.i.i, -1
-  %.not49.i.i.i = icmp eq i64 %indvars.iv47.i.i.i, 0
-  br i1 %.not49.i.i.i, label %.loopexit36.i.i.i, label %.preheader35.i.i.i, !llvm.loop !15
+331:                                              ; preds = %328, %.preheader36.i.i.i
+  %.1.i.i.i = phi i8 [ 1, %328 ], [ 0, %.preheader36.i.i.i ]
+  %indvars.iv.next49.i.i.i = add nsw i64 %indvars.iv48.i.i.i, -1
+  %.not50.i.i.i = icmp eq i64 %indvars.iv48.i.i.i, 0
+  br i1 %.not50.i.i.i, label %.loopexit37.i.i.i, label %.preheader36.i.i.i, !llvm.loop !15
 
-.lr.ph.i35.i.i:                                   ; preds = %320
+.lr.ph.i36.i.i:                                   ; preds = %320
   %332 = zext nneg i8 %315 to i64
   %333 = add nuw nsw i64 %332, 4294967294
   %334 = and i64 %333, 4294967295
   br label %335
 
-335:                                              ; preds = %335, %.lr.ph.i35.i.i
-  %indvars.iv.i36.i.i = phi i64 [ %334, %.lr.ph.i35.i.i ], [ %indvars.iv.next.i37.i.i, %335 ]
-  %.339.i.i.i = phi ptr [ @.str.403, %.lr.ph.i35.i.i ], [ @.str.414, %335 ]
-  %336 = getelementptr [4 x i8], ptr %192, i64 0, i64 %indvars.iv.i36.i.i
+335:                                              ; preds = %335, %.lr.ph.i36.i.i
+  %indvars.iv.i37.i.i = phi i64 [ %334, %.lr.ph.i36.i.i ], [ %indvars.iv.next.i38.i.i, %335 ]
+  %.340.i.i.i = phi ptr [ @.str.403, %.lr.ph.i36.i.i ], [ @.str.414, %335 ]
+  %336 = getelementptr [4 x i8], ptr %192, i64 0, i64 %indvars.iv.i37.i.i
   %337 = load i8, ptr %336, align 1
   %338 = sext i8 %337 to i32
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %295, ptr noundef nonnull @.str.413, ptr noundef nonnull %.339.i.i.i, i32 noundef %338)
-  %indvars.iv.next.i37.i.i = add nsw i64 %indvars.iv.i36.i.i, -1
-  %.not.i38.i.i = icmp eq i64 %indvars.iv.i36.i.i, 0
-  br i1 %.not.i38.i.i, label %.loopexit.i.i.i, label %335, !llvm.loop !16
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %295, ptr noundef nonnull @.str.413, ptr noundef nonnull %.340.i.i.i, i32 noundef %338)
+  %indvars.iv.next.i38.i.i = add nsw i64 %indvars.iv.i37.i.i, -1
+  %.not.i39.i.i = icmp eq i64 %indvars.iv.i37.i.i, 0
+  br i1 %.not.i39.i.i, label %.loopexit.i.i.i, label %335, !llvm.loop !16
 
-.loopexit36.i.i.i:                                ; preds = %331
+.loopexit37.i.i.i:                                ; preds = %331
   %339 = trunc nuw i8 %.1.i.i.i to i1
   %340 = icmp ult i8 %316, 3
   %or.cond3.not.i.i = select i1 %339, i1 true, i1 %340
-  br i1 %or.cond3.not.i.i, label %.loopexit.i.i.i, label %.lr.ph44.i.preheader.i.i
+  br i1 %or.cond3.not.i.i, label %.loopexit.i.i.i, label %.lr.ph45.i.preheader.i.i
 
 .preheader.i.i.i:                                 ; preds = %320
   %.old2.i.i = icmp samesign ugt i8 %316, 2
-  br i1 %.old2.i.i, label %.lr.ph44.i.preheader.i.i, label %.loopexit.i.i.i
+  br i1 %.old2.i.i, label %.lr.ph45.i.preheader.i.i, label %.loopexit.i.i.i
 
-.lr.ph44.i.preheader.i.i:                         ; preds = %.preheader.i.i.i, %.loopexit36.i.i.i
+.lr.ph45.i.preheader.i.i:                         ; preds = %.preheader.i.i.i, %.loopexit37.i.i.i
   %341 = zext nneg i8 %316 to i32
   %342 = add nsw i32 %341, -3
-  br label %.lr.ph44.i.i.i
+  br label %.lr.ph45.i.i.i
 
-.lr.ph44.i.i.i:                                   ; preds = %.lr.ph44.i.i.i, %.lr.ph44.i.preheader.i.i
-  %.443.i.i.i = phi ptr [ @.str.414, %.lr.ph44.i.i.i ], [ @.str.403, %.lr.ph44.i.preheader.i.i ]
-  %.23242.i.i.i = phi i32 [ %343, %.lr.ph44.i.i.i ], [ 0, %.lr.ph44.i.preheader.i.i ]
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %295, ptr noundef nonnull @.str.415, ptr noundef nonnull %.443.i.i.i)
-  %343 = add nuw nsw i32 %.23242.i.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %.23242.i.i.i, %342
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i.i, label %.lr.ph44.i.i.i, !llvm.loop !17
+.lr.ph45.i.i.i:                                   ; preds = %.lr.ph45.i.i.i, %.lr.ph45.i.preheader.i.i
+  %.444.i.i.i = phi ptr [ @.str.414, %.lr.ph45.i.i.i ], [ @.str.403, %.lr.ph45.i.preheader.i.i ]
+  %.23343.i.i.i = phi i32 [ %343, %.lr.ph45.i.i.i ], [ 0, %.lr.ph45.i.preheader.i.i ]
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %295, ptr noundef nonnull @.str.415, ptr noundef nonnull %.444.i.i.i)
+  %343 = add nuw nsw i32 %.23343.i.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %.23343.i.i.i, %342
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i.i, label %.lr.ph45.i.i.i, !llvm.loop !17
 
-.loopexit.i.i.i:                                  ; preds = %.lr.ph44.i.i.i, %335, %.preheader.i.i.i, %.loopexit36.i.i.i
+.loopexit.i.i.i:                                  ; preds = %.lr.ph45.i.i.i, %335, %.preheader.i.i.i, %.loopexit37.i.i.i
   call void @wmem_strbuf_append_c(ptr noundef %295, i8 noundef signext 41)
   br label %dissect_channelised_ex_header.exit.i
 
@@ -3609,7 +3603,7 @@ dissect_mc_hdlc_header.exit:                      ; preds = %960, %964
   switch i32 %971, label %1450 [
     i32 4, label %972
     i32 0, label %.thread
-    i32 1, label %.thread159
+    i32 1, label %.thread160
     i32 2, label %979
     i32 3, label %983
   ]
@@ -3618,14 +3612,14 @@ dissect_mc_hdlc_header.exit:                      ; preds = %960, %964
   %973 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %974 = and i8 %973, 127
   %or.cond = icmp eq i8 %974, 15
-  br i1 %or.cond, label %.thread, label %.thread159
+  br i1 %or.cond, label %.thread, label %.thread160
 
 .thread:                                          ; preds = %970, %972
   %975 = load ptr, ptr @chdlc_handle, align 8
   %976 = call i32 @call_dissector(ptr noundef %975, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %1450
 
-.thread159:                                       ; preds = %970, %972
+.thread160:                                       ; preds = %970, %972
   %977 = load ptr, ptr @ppp_handle, align 8
   %978 = call i32 @call_dissector(ptr noundef %977, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %1450
@@ -3682,27 +3676,27 @@ dissect_mc_hdlc_header.exit:                      ; preds = %960, %964
 
 1004:                                             ; preds = %1429, %.lr.ph.i
   %1005 = phi i32 [ %996, %.lr.ph.i ], [ %1433, %1429 ]
-  %.0621.i = phi ptr [ %33, %.lr.ph.i ], [ %.1584.i, %1429 ]
-  %.0397620.i = phi ptr [ null, %.lr.ph.i ], [ %.1398582.i, %1429 ]
-  %.0399619.i = phi i16 [ 0, %.lr.ph.i ], [ %.3580.i, %1429 ]
-  %.0403618.i = phi i16 [ 0, %.lr.ph.i ], [ %.1404578.i, %1429 ]
-  %.0405617.i = phi i32 [ 0, %.lr.ph.i ], [ %.1406576.i, %1429 ]
-  %.0407613.i = phi i32 [ 0, %.lr.ph.i ], [ %1432, %1429 ]
-  %1006 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0407613.i)
-  %1007 = or disjoint i32 %.0407613.i, 2
+  %.0623.i = phi ptr [ %33, %.lr.ph.i ], [ %.1585.i, %1429 ]
+  %.0400622.i = phi ptr [ null, %.lr.ph.i ], [ %.1401583.i, %1429 ]
+  %.0402621.i = phi i16 [ 0, %.lr.ph.i ], [ %.3581.i, %1429 ]
+  %.0406620.i = phi i16 [ 0, %.lr.ph.i ], [ %.1407579.i, %1429 ]
+  %.0408619.i = phi i32 [ 0, %.lr.ph.i ], [ %.1409577.i, %1429 ]
+  %.0410615.i = phi i32 [ 0, %.lr.ph.i ], [ %1432, %1429 ]
+  %1006 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0410615.i)
+  %1007 = or disjoint i32 %.0410615.i, 2
   %1008 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1007)
   store ptr null, ptr %8, align 8
   %1009 = zext i16 %1006 to i32
-  %.not424.i = icmp eq i16 %1006, 0
-  %.not424.not.i = xor i1 %.not424.i, true
+  %.not427.i = icmp eq i16 %1006, 0
+  %.not427.not.i = xor i1 %.not427.i, true
   %1010 = and i32 %1009, 65280
   %1011 = icmp eq i32 %1010, 65280
-  %or.cond.i140 = select i1 %.not424.not.i, i1 %1011, i1 false
-  %.1400.i = select i1 %or.cond.i140, i16 %1006, i16 %.0399619.i
+  %or.cond.i140 = select i1 %.not427.not.i, i1 %1011, i1 false
+  %.1403.i = select i1 %or.cond.i140, i16 %1006, i16 %.0402621.i
   store i16 %1006, ptr %11, align 8
-  store i16 %.1400.i, ptr %988, align 2
+  store i16 %.1403.i, ptr %988, align 2
   %1012 = load ptr, ptr @erf_meta_index.0, align 8
-  %1013 = zext i16 %.1400.i to i64
+  %1013 = zext i16 %.1403.i to i64
   %1014 = shl nuw nsw i64 %1013, 16
   %1015 = zext i16 %1006 to i64
   %1016 = or disjoint i64 %1014, %1015
@@ -3710,9 +3704,9 @@ dissect_mc_hdlc_header.exit:                      ; preds = %960, %964
   %1018 = call ptr @wmem_map_lookup(ptr noundef %1012, ptr noundef %1017)
   %1019 = icmp eq ptr %1018, null
   %spec.store.select.i = select i1 %1019, ptr %11, ptr %1018
-  %.sroa.gep526.i = getelementptr inbounds nuw i8, ptr %1018, i64 8
-  %spec.store.select.sroa.sel527.i = select i1 %1019, ptr %989, ptr %.sroa.gep526.i
-  %1020 = load ptr, ptr %spec.store.select.sroa.sel527.i, align 8
+  %.sroa.gep528.i = getelementptr inbounds nuw i8, ptr %1018, i64 8
+  %spec.store.select.sroa.sel529.i = select i1 %1019, ptr %989, ptr %.sroa.gep528.i
+  %1020 = load ptr, ptr %spec.store.select.sroa.sel529.i, align 8
   %1021 = getelementptr inbounds nuw i8, ptr %1020, i64 24
   %1022 = load i32, ptr %1021, align 8
   %1023 = and i32 %1022, -2
@@ -3748,145 +3742,141 @@ meta_tag_expected_length.exit.i:                  ; preds = %1029, %1028, %1026
   %1031 = add nuw nsw i32 %1030, 4
   %1032 = icmp samesign ult i32 %1005, %1031
   %1033 = icmp sgt i32 %.1.i.i142, %1030
-  %or.cond440.i = select i1 %1032, i1 true, i1 %1033
-  %spec.select586.i = select i1 %or.cond440.i, ptr @ei_erf_meta_truncated_tag, ptr null
+  %or.cond442.i = select i1 %1032, i1 true, i1 %1033
+  %spec.select587.i = select i1 %or.cond442.i, ptr @ei_erf_meta_truncated_tag, ptr null
   %1034 = icmp ne i16 %1008, 0
-  %brmerge.i = or i1 %.not424.i, %1034
-  %or.cond447.i = select i1 %brmerge.i, i1 true, i1 %1011
-  %.not426.i = icmp ne i32 %.1.i.i142, 0
-  %.1557.i = select i1 %or.cond447.i, ptr %spec.select586.i, ptr @ei_erf_meta_zero_len_tag
-  %not.or.cond447.i = xor i1 %or.cond447.i, true
-  %1035 = select i1 %not.or.cond447.i, i1 %.not426.i, i1 false
-  %narrow.i = select i1 %1035, i1 true, i1 %or.cond440.i
-  br i1 %or.cond.i140, label %1036, label %1092
+  %brmerge.i = or i1 %.not427.i, %1034
+  %or.cond449.i = select i1 %brmerge.i, i1 true, i1 %1011
+  %.1559.i = select i1 %or.cond449.i, ptr %spec.select587.i, ptr @ei_erf_meta_zero_len_tag
+  br i1 %or.cond.i140, label %1035, label %1091
 
-1036:                                             ; preds = %meta_tag_expected_length.exit.i
-  %1037 = load ptr, ptr %9, align 8
-  %.not430.i = icmp eq ptr %1037, null
-  br i1 %.not430.i, label %check_section_length.exit.i, label %1038
+1035:                                             ; preds = %meta_tag_expected_length.exit.i
+  %1036 = load ptr, ptr %9, align 8
+  %.not433.i = icmp eq ptr %1036, null
+  br i1 %.not433.i, label %check_section_length.exit.i, label %1037
 
-1038:                                             ; preds = %1036
-  %1039 = sub i32 %.0407613.i, %.0405617.i
-  call void @proto_item_set_len(ptr noundef nonnull %1037, i32 noundef %1039)
-  %.not431.i = icmp eq ptr %.0397620.i, null
-  br i1 %.not431.i, label %check_section_length.exit.i, label %1040
+1037:                                             ; preds = %1035
+  %1038 = sub i32 %.0410615.i, %.0408619.i
+  call void @proto_item_set_len(ptr noundef nonnull %1036, i32 noundef %1038)
+  %.not434.i = icmp eq ptr %.0400622.i, null
+  br i1 %.not434.i, label %check_section_length.exit.i, label %1039
 
-1040:                                             ; preds = %1038
-  %1041 = zext i16 %.0403618.i to i32
-  %1042 = icmp eq i32 %1039, %1041
-  br i1 %1042, label %1043, label %1044
+1039:                                             ; preds = %1037
+  %1040 = zext i16 %.0406620.i to i32
+  %1041 = icmp eq i32 %1038, %1040
+  br i1 %1041, label %1042, label %1043
 
-1043:                                             ; preds = %1040
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0397620.i, ptr noundef nonnull @.str.444)
+1042:                                             ; preds = %1039
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0400622.i, ptr noundef nonnull @.str.444)
   br label %check_section_length.exit.i
 
-1044:                                             ; preds = %1040
-  %.not12.i.i = icmp eq i16 %.0403618.i, 0
-  br i1 %.not12.i.i, label %check_section_length.exit.i, label %1045
+1043:                                             ; preds = %1039
+  %.not12.i.i = icmp eq i16 %.0406620.i, 0
+  br i1 %.not12.i.i, label %check_section_length.exit.i, label %1044
 
-1045:                                             ; preds = %1044
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0397620.i, ptr noundef nonnull @.str.445, i32 noundef %1039)
-  %1046 = call ptr @expert_add_info(ptr noundef %1, ptr noundef nonnull %.0397620.i, ptr noundef nonnull @ei_erf_meta_section_len_error)
+1044:                                             ; preds = %1043
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0400622.i, ptr noundef nonnull @.str.445, i32 noundef %1038)
+  %1045 = call ptr @expert_add_info(ptr noundef %1, ptr noundef nonnull %.0400622.i, ptr noundef nonnull @ei_erf_meta_section_len_error)
   br label %check_section_length.exit.i
 
-check_section_length.exit.i:                      ; preds = %1045, %1044, %1043, %1038, %1036
-  %1047 = load ptr, ptr %spec.store.select.sroa.sel527.i, align 8
-  %1048 = icmp eq ptr %1047, %10
-  %1049 = load ptr, ptr @erf_meta_index.5, align 8
-  %spec.select444.i = select i1 %1048, ptr %1049, ptr %spec.store.select.i
-  %spec.select445.i = select i1 %1048, i16 1, i16 %1006
-  %spec.select444.sroa.sel524.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %1048, ptr %1049, ptr %spec.store.select.i
-  %spec.select444.sroa.sel524.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select444.sroa.sel524.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
-  %1050 = load ptr, ptr %spec.select444.sroa.sel524.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  %.not432.i = icmp eq ptr %1050, null
-  br i1 %.not432.i, label %1051, label %1052
+check_section_length.exit.i:                      ; preds = %1044, %1043, %1042, %1037, %1035
+  %1046 = load ptr, ptr %spec.store.select.sroa.sel529.i, align 8
+  %1047 = icmp eq ptr %1046, %10
+  %1048 = load ptr, ptr @erf_meta_index.5, align 8
+  %spec.select446.i = select i1 %1047, ptr %1048, ptr %spec.store.select.i
+  %spec.select447.i = select i1 %1047, i16 1, i16 %1006
+  %spec.select446.sroa.sel526.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %1047, ptr %1048, ptr %spec.store.select.i
+  %spec.select446.sroa.sel526.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select446.sroa.sel526.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
+  %1049 = load ptr, ptr %spec.select446.sroa.sel526.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  %.not435.i = icmp eq ptr %1049, null
+  br i1 %.not435.i, label %1050, label %1051
 
-1051:                                             ; preds = %check_section_length.exit.i
+1050:                                             ; preds = %check_section_length.exit.i
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2771, ptr noundef nonnull @.str.427) #13
   unreachable
 
-1052:                                             ; preds = %check_section_length.exit.i
-  %1053 = load ptr, ptr @erf_meta_index.3, align 8
-  %1054 = call ptr @wmem_array_get_raw(ptr noundef %1053)
-  %1055 = call ptr @val_to_str(i32 noundef %1009, ptr noundef %1054, ptr noundef nonnull @.str.428)
-  %1056 = load ptr, ptr %25, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %1056, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.429, ptr noundef %1055)
-  %1057 = load ptr, ptr %spec.select444.sroa.sel524.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  %1058 = load i32, ptr %1057, align 4
-  %1059 = call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %.0407613.i, i32 noundef 0, i32 noundef %1058, ptr noundef nonnull %9, ptr noundef %1055)
-  %1060 = call i32 @llvm.umin.i32(i32 %1031, i32 %1005)
-  %spec.select444.sroa.sel521.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %1048, ptr %1049, ptr %spec.store.select.i
-  %spec.select444.sroa.sel521.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select444.sroa.sel521.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 24
-  %1061 = load i32, ptr %spec.select444.sroa.sel521.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  %1062 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1059, ptr noundef %0, i32 noundef %.0407613.i, i32 noundef %1060, i32 noundef %1061, ptr noundef nonnull %8, ptr noundef nonnull @.str.430, ptr noundef %1055)
-  %1063 = icmp ugt i16 %1008, 3
-  br i1 %1063, label %1064, label %1091
+1051:                                             ; preds = %check_section_length.exit.i
+  %1052 = load ptr, ptr @erf_meta_index.3, align 8
+  %1053 = call ptr @wmem_array_get_raw(ptr noundef %1052)
+  %1054 = call ptr @val_to_str(i32 noundef %1009, ptr noundef %1053, ptr noundef nonnull @.str.428)
+  %1055 = load ptr, ptr %25, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %1055, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.429, ptr noundef %1054)
+  %1056 = load ptr, ptr %spec.select446.sroa.sel526.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  %1057 = load i32, ptr %1056, align 4
+  %1058 = call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %.0410615.i, i32 noundef 0, i32 noundef %1057, ptr noundef nonnull %9, ptr noundef %1054)
+  %1059 = call i32 @llvm.umin.i32(i32 %1031, i32 %1005)
+  %spec.select446.sroa.sel523.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %1047, ptr %1048, ptr %spec.store.select.i
+  %spec.select446.sroa.sel523.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select446.sroa.sel523.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 24
+  %1060 = load i32, ptr %spec.select446.sroa.sel523.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  %1061 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1058, ptr noundef %0, i32 noundef %.0410615.i, i32 noundef %1059, i32 noundef %1060, ptr noundef nonnull %8, ptr noundef nonnull @.str.430, ptr noundef %1054)
+  %1062 = icmp ult i16 %1008, 4
+  %or.cond5.i154 = select i1 %1062, i1 true, i1 %or.cond442.i
+  br i1 %or.cond5.i154, label %1090, label %1063
 
-1064:                                             ; preds = %1052
-  br i1 %narrow.i, label %.thread.i153, label %1065
-
-1065:                                             ; preds = %1064
-  %1066 = add i32 %.0407613.i, 4
+1063:                                             ; preds = %1051
+  %1064 = add i32 %.0410615.i, 4
+  %1065 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1064)
+  %1066 = add i32 %.0410615.i, 6
   %1067 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1066)
-  %1068 = add i32 %.0407613.i, 6
-  %1069 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1068)
-  %spec.select444.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %1048, ptr %1049, ptr %spec.store.select.i
-  %spec.select444.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select444.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 28
-  %1070 = load i32, ptr %spec.select444.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
-  %1071 = zext i16 %1067 to i32
-  %1072 = call ptr @proto_tree_add_uint(ptr noundef %1062, i32 noundef %1070, ptr noundef %0, i32 noundef %1066, i32 noundef 2, i32 noundef %1071)
-  %.not433.i = icmp eq i16 %1067, 0
-  br i1 %.not433.i, label %1078, label %1073
+  %spec.select446.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %1047, ptr %1048, ptr %spec.store.select.i
+  %spec.select446.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select446.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 28
+  %1068 = load i32, ptr %spec.select446.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %1069 = zext i16 %1065 to i32
+  %1070 = call ptr @proto_tree_add_uint(ptr noundef %1061, i32 noundef %1068, ptr noundef %0, i32 noundef %1064, i32 noundef 2, i32 noundef %1069)
+  %.not436.i = icmp eq i16 %1065, 0
+  br i1 %.not436.i, label %1076, label %1071
 
-1073:                                             ; preds = %1065
-  %.not434.i = icmp sgt i16 %1067, -1
-  %1074 = load ptr, ptr %9, align 8
-  br i1 %.not434.i, label %1077, label %1075
+1071:                                             ; preds = %1063
+  %.not437.i = icmp sgt i16 %1065, -1
+  %1072 = load ptr, ptr %9, align 8
+  br i1 %.not437.i, label %1075, label %1073
 
-1075:                                             ; preds = %1073
-  %1076 = and i32 %1071, 32767
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1074, ptr noundef nonnull @.str.431, i32 noundef %1076)
-  br label %1078
+1073:                                             ; preds = %1071
+  %1074 = and i32 %1069, 32767
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1072, ptr noundef nonnull @.str.431, i32 noundef %1074)
+  br label %1076
 
-1077:                                             ; preds = %1073
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1074, ptr noundef nonnull @.str.432, i32 noundef %1071)
-  br label %1078
+1075:                                             ; preds = %1071
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1072, ptr noundef nonnull @.str.432, i32 noundef %1069)
+  br label %1076
 
-1078:                                             ; preds = %1077, %1075, %1065
-  %1079 = load ptr, ptr %spec.select444.sroa.sel524.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  %1080 = getelementptr inbounds nuw i8, ptr %1079, i64 4
-  %1081 = load i32, ptr %1080, align 4
-  %1082 = zext i16 %1069 to i32
-  %1083 = call ptr @proto_tree_add_uint(ptr noundef %1062, i32 noundef %1081, ptr noundef %0, i32 noundef %1068, i32 noundef 2, i32 noundef %1082)
-  %.not435.i = icmp eq i16 %1008, 4
-  br i1 %.not435.i, label %1402, label %1084
+1076:                                             ; preds = %1075, %1073, %1063
+  %1077 = load ptr, ptr %spec.select446.sroa.sel526.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  %1078 = getelementptr inbounds nuw i8, ptr %1077, i64 4
+  %1079 = load i32, ptr %1078, align 4
+  %1080 = zext i16 %1067 to i32
+  %1081 = call ptr @proto_tree_add_uint(ptr noundef %1061, i32 noundef %1079, ptr noundef %0, i32 noundef %1066, i32 noundef 2, i32 noundef %1080)
+  %1082 = icmp ugt i16 %1008, 4
+  br i1 %1082, label %1083, label %1402
 
-1084:                                             ; preds = %1078
-  %1085 = load ptr, ptr %spec.select444.sroa.sel524.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
-  %1086 = getelementptr i8, ptr %1085, i64 8
-  %1087 = load i32, ptr %1086, align 4
-  %1088 = add i32 %.0407613.i, 8
-  %1089 = add nsw i32 %1030, -4
-  %1090 = call ptr @proto_tree_add_item(ptr noundef %1062, i32 noundef %1087, ptr noundef %0, i32 noundef %1088, i32 noundef %1089, i32 noundef 0)
+1083:                                             ; preds = %1076
+  %1084 = load ptr, ptr %spec.select446.sroa.sel526.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
+  %1085 = getelementptr i8, ptr %1084, i64 8
+  %1086 = load i32, ptr %1085, align 4
+  %1087 = add i32 %.0410615.i, 8
+  %1088 = add nsw i32 %1030, -4
+  %1089 = call ptr @proto_tree_add_item(ptr noundef %1061, i32 noundef %1086, ptr noundef %0, i32 noundef %1087, i32 noundef %1088, i32 noundef 0)
   br label %1402
 
-1091:                                             ; preds = %1052
-  br i1 %1034, label %.thread.i153, label %1402
-
-.thread.i153:                                     ; preds = %1091, %1064
+1090:                                             ; preds = %1051
+  %spec.select589.i = select i1 %1034, ptr @ei_erf_meta_truncated_tag, ptr %.1559.i
   br label %1402
 
-1092:                                             ; preds = %meta_tag_expected_length.exit.i
-  br i1 %narrow.i, label %.thread563.i, label %1093
+1091:                                             ; preds = %meta_tag_expected_length.exit.i
+  %not.or.cond449.i = xor i1 %or.cond449.i, true
+  %.not429.i = icmp ne i32 %.1.i.i142, 0
+  %1092 = select i1 %not.or.cond449.i, i1 %.not429.i, i1 false
+  %narrow.i = select i1 %1092, i1 true, i1 %or.cond442.i
+  br i1 %narrow.i, label %.thread.i149, label %1093
 
-1093:                                             ; preds = %1092
+1093:                                             ; preds = %1091
   call void @llvm.lifetime.start.p0(i64 241, ptr nonnull %12) #11
-  %1094 = load ptr, ptr %spec.store.select.sroa.sel527.i, align 8
+  %1094 = load ptr, ptr %spec.store.select.sroa.sel529.i, align 8
   %1095 = getelementptr inbounds nuw i8, ptr %1094, i64 24
   %1096 = load i32, ptr %1095, align 8
-  %.fr589.i = freeze i32 %1096
+  %.fr591.i = freeze i32 %1096
   store i8 0, ptr %12, align 16
-  %1097 = icmp eq i32 %.0407613.i, 0
+  %1097 = icmp eq i32 %.0410615.i, 0
   br i1 %1097, label %1098, label %1101
 
 1098:                                             ; preds = %1093
@@ -3895,7 +3885,7 @@ check_section_length.exit.i:                      ; preds = %1045, %1044, %1043,
   br label %1101
 
 1101:                                             ; preds = %1098, %1093
-  %.2.i143 = phi ptr [ %1100, %1098 ], [ %.0621.i, %1093 ]
+  %.2.i143 = phi ptr [ %1100, %1098 ], [ %.0623.i, %1093 ]
   switch i16 %1006, label %1360 [
     i16 66, label %1102
     i16 75, label %1102
@@ -3940,23 +3930,23 @@ check_section_length.exit.i:                      ; preds = %1045, %1044, %1043,
   ]
 
 1102:                                             ; preds = %1101, %1101
-  %1103 = add i32 %.0407613.i, 4
+  %1103 = add i32 %.0410615.i, 4
   %1104 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %1103)
   %1105 = call ptr @format_size_wmem(ptr noundef null, i64 noundef %1104, i32 noundef 3, i16 noundef zeroext 1)
-  %.sroa.gep501.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel502.i = select i1 %1019, ptr %993, ptr %.sroa.gep501.i
-  %1106 = load i32, ptr %spec.store.select.sroa.sel502.i, align 4
+  %.sroa.gep503.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel504.i = select i1 %1019, ptr %993, ptr %.sroa.gep503.i
+  %1106 = load i32, ptr %spec.store.select.sroa.sel504.i, align 4
   %1107 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format_value(ptr noundef %.2.i143, i32 noundef %1106, ptr noundef %0, i32 noundef %1103, i32 noundef %1030, i64 noundef %1104, ptr noundef nonnull @.str.434, ptr noundef %1105, i64 noundef %1104)
   store ptr %1107, ptr %8, align 8
   call void @g_free(ptr noundef %1105)
   br label %.critedge.i
 
 1108:                                             ; preds = %1101, %1101
-  %1109 = add i32 %.0407613.i, 4
+  %1109 = add i32 %.0410615.i, 4
   %1110 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1109)
-  %.sroa.gep498.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel499.i = select i1 %1019, ptr %993, ptr %.sroa.gep498.i
-  %1111 = load i32, ptr %spec.store.select.sroa.sel499.i, align 4
+  %.sroa.gep500.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel501.i = select i1 %1019, ptr %993, ptr %.sroa.gep500.i
+  %1111 = load i32, ptr %spec.store.select.sroa.sel501.i, align 4
   %1112 = sitofp i32 %1110 to double
   %1113 = fdiv double %1112, 1.000000e+02
   %1114 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.2.i143, i32 noundef %1111, ptr noundef %0, i32 noundef %1109, i32 noundef %1030, i32 noundef %1110, ptr noundef nonnull @.str.435, double noundef %1113)
@@ -3964,23 +3954,23 @@ check_section_length.exit.i:                      ; preds = %1045, %1044, %1043,
   br label %.critedge.i
 
 1115:                                             ; preds = %1101, %1101
-  %1116 = add i32 %.0407613.i, 4
+  %1116 = add i32 %.0410615.i, 4
   %1117 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1116)
   %1118 = sitofp i32 %1117 to float
   %1119 = fdiv float %1118, 1.000000e+03
-  %.sroa.gep495.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel496.i = select i1 %1019, ptr %993, ptr %.sroa.gep495.i
-  %1120 = load i32, ptr %spec.store.select.sroa.sel496.i, align 4
+  %.sroa.gep497.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel498.i = select i1 %1019, ptr %993, ptr %.sroa.gep497.i
+  %1120 = load i32, ptr %spec.store.select.sroa.sel498.i, align 4
   %1121 = call ptr @proto_tree_add_float(ptr noundef %.2.i143, i32 noundef %1120, ptr noundef %0, i32 noundef %1116, i32 noundef %1030, float noundef %1119)
   store ptr %1121, ptr %8, align 8
   br label %.critedge.i
 
 1122:                                             ; preds = %1101, %1101
-  %1123 = add i32 %.0407613.i, 4
+  %1123 = add i32 %.0410615.i, 4
   %1124 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1123)
-  %.sroa.gep492.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel493.i = select i1 %1019, ptr %993, ptr %.sroa.gep492.i
-  %1125 = load i32, ptr %spec.store.select.sroa.sel493.i, align 4
+  %.sroa.gep494.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel495.i = select i1 %1019, ptr %993, ptr %.sroa.gep494.i
+  %1125 = load i32, ptr %spec.store.select.sroa.sel495.i, align 4
   %1126 = sitofp i32 %1124 to double
   %1127 = fmul double %1126, 1.000000e+06
   %1128 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %.2.i143, i32 noundef %1125, ptr noundef %0, i32 noundef %1123, i32 noundef %1030, i32 noundef %1124, ptr noundef nonnull @.str.436, double noundef %1127)
@@ -3988,56 +3978,56 @@ check_section_length.exit.i:                      ; preds = %1045, %1044, %1043,
   br label %.critedge.i
 
 1129:                                             ; preds = %1101
-  %1130 = add i32 %.0407613.i, 4
+  %1130 = add i32 %.0410615.i, 4
   %1131 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1130)
-  %.sroa.gep489.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel490.i = select i1 %1019, ptr %993, ptr %.sroa.gep489.i
-  %1132 = load i32, ptr %spec.store.select.sroa.sel490.i, align 4
+  %.sroa.gep491.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel492.i = select i1 %1019, ptr %993, ptr %.sroa.gep491.i
+  %1132 = load i32, ptr %spec.store.select.sroa.sel492.i, align 4
   %1133 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.2.i143, i32 noundef %1132, ptr noundef %0, i32 noundef %1130, i32 noundef %1030, i32 noundef %1131, ptr noundef nonnull @.str.437, i32 noundef %1131)
   store ptr %1133, ptr %8, align 8
   br label %.critedge.i
 
 1134:                                             ; preds = %1101
-  %1135 = add i32 %.0407613.i, 4
+  %1135 = add i32 %.0410615.i, 4
   %1136 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %1135)
   %1137 = call ptr @format_size_wmem(ptr noundef null, i64 noundef %1136, i32 noundef 1, i16 noundef zeroext 2)
-  %.sroa.gep486.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel487.i = select i1 %1019, ptr %993, ptr %.sroa.gep486.i
-  %1138 = load i32, ptr %spec.store.select.sroa.sel487.i, align 4
+  %.sroa.gep488.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel489.i = select i1 %1019, ptr %993, ptr %.sroa.gep488.i
+  %1138 = load i32, ptr %spec.store.select.sroa.sel489.i, align 4
   %1139 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format_value(ptr noundef %.2.i143, i32 noundef %1138, ptr noundef %0, i32 noundef %1135, i32 noundef %1030, i64 noundef %1136, ptr noundef nonnull @.str.438, ptr noundef %1137, i64 noundef %1136)
   store ptr %1139, ptr %8, align 8
   call void @g_free(ptr noundef %1137)
   br label %.critedge.i
 
 1140:                                             ; preds = %1101
-  %.sroa.gep480.i = getelementptr inbounds nuw i8, ptr %1018, i64 32
-  %spec.store.select.sroa.sel481.i = select i1 %1019, ptr %995, ptr %.sroa.gep480.i
-  %1141 = load ptr, ptr %spec.store.select.sroa.sel481.i, align 8
-  %.not429.i = icmp eq ptr %1141, null
-  br i1 %.not429.i, label %1142, label %1143
+  %.sroa.gep482.i = getelementptr inbounds nuw i8, ptr %1018, i64 32
+  %spec.store.select.sroa.sel483.i = select i1 %1019, ptr %995, ptr %.sroa.gep482.i
+  %1141 = load ptr, ptr %spec.store.select.sroa.sel483.i, align 8
+  %.not432.i = icmp eq ptr %1141, null
+  br i1 %.not432.i, label %1142, label %1143
 
 1142:                                             ; preds = %1140
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2867, ptr noundef nonnull @.str.427) #13
   unreachable
 
 1143:                                             ; preds = %1140
-  %1144 = add i32 %.0407613.i, 4
+  %1144 = add i32 %.0410615.i, 4
   %1145 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1144)
   %1146 = zext i16 %1145 to i32
-  %.sroa.gep483.i = getelementptr inbounds nuw i8, ptr %1018, i64 24
-  %spec.store.select.sroa.sel484.i = select i1 %1019, ptr %991, ptr %.sroa.gep483.i
-  %1147 = load i32, ptr %spec.store.select.sroa.sel484.i, align 8
-  %1148 = load ptr, ptr %spec.store.select.sroa.sel527.i, align 8
+  %.sroa.gep485.i = getelementptr inbounds nuw i8, ptr %1018, i64 24
+  %spec.store.select.sroa.sel486.i = select i1 %1019, ptr %991, ptr %.sroa.gep485.i
+  %1147 = load i32, ptr %spec.store.select.sroa.sel486.i, align 8
+  %1148 = load ptr, ptr %spec.store.select.sroa.sel529.i, align 8
   %1149 = getelementptr inbounds nuw i8, ptr %1148, i64 8
   %1150 = load ptr, ptr %1149, align 8
   %1151 = load ptr, ptr @erf_meta_index.3, align 8
   %1152 = call ptr @wmem_array_get_raw(ptr noundef %1151)
   %1153 = call ptr @val_to_str(i32 noundef %1146, ptr noundef %1152, ptr noundef nonnull @.str.440)
-  %1154 = add i32 %.0407613.i, 6
+  %1154 = add i32 %.0410615.i, 6
   %1155 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1154)
   %1156 = zext i16 %1155 to i32
   %1157 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.2.i143, ptr noundef %0, i32 noundef %1144, i32 noundef %1030, i32 noundef %1147, ptr noundef nonnull %8, ptr noundef nonnull @.str.439, ptr noundef %1150, ptr noundef %1153, i32 noundef %1156)
-  %1158 = load ptr, ptr %spec.store.select.sroa.sel481.i, align 8
+  %1158 = load ptr, ptr %spec.store.select.sroa.sel483.i, align 8
   %1159 = getelementptr inbounds nuw i8, ptr %1158, i64 4
   %1160 = load i32, ptr %1159, align 4
   %1161 = call i32 @llvm.umin.i32(i32 %1030, i32 2)
@@ -4045,7 +4035,7 @@ check_section_length.exit.i:                      ; preds = %1045, %1044, %1043,
   %1163 = call ptr @wmem_array_get_raw(ptr noundef %1162)
   %1164 = call ptr @val_to_str_const(i32 noundef %1146, ptr noundef %1163, ptr noundef nonnull @.str.423)
   %1165 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1157, i32 noundef %1160, ptr noundef %0, i32 noundef %1144, i32 noundef %1161, i32 noundef %1146, ptr noundef nonnull @.str.441, ptr noundef %1164, i32 noundef %1146)
-  %1166 = load ptr, ptr %spec.store.select.sroa.sel481.i, align 8
+  %1166 = load ptr, ptr %spec.store.select.sroa.sel483.i, align 8
   %1167 = getelementptr i8, ptr %1166, i64 8
   %1168 = load i32, ptr %1167, align 4
   %1169 = call i32 @llvm.umin.i32(i32 %1030, i32 4)
@@ -4054,10 +4044,10 @@ check_section_length.exit.i:                      ; preds = %1045, %1044, %1043,
   br label %.critedge.i
 
 1172:                                             ; preds = %1101
-  %.sroa.gep477.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel478.i = select i1 %1019, ptr %993, ptr %.sroa.gep477.i
-  %1173 = load i32, ptr %spec.store.select.sroa.sel478.i, align 4
-  %1174 = add i32 %.0407613.i, 4
+  %.sroa.gep479.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel480.i = select i1 %1019, ptr %993, ptr %.sroa.gep479.i
+  %1173 = load i32, ptr %spec.store.select.sroa.sel480.i, align 4
+  %1174 = add i32 %.0410615.i, 4
   %1175 = call ptr @proto_tree_add_item(ptr noundef %.2.i143, i32 noundef %1173, ptr noundef %0, i32 noundef %1174, i32 noundef %1030, i32 noundef 0)
   store ptr %1175, ptr %8, align 8
   %1176 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1175, ptr noundef nonnull @ei_erf_meta_reset)
@@ -4065,26 +4055,26 @@ check_section_length.exit.i:                      ; preds = %1045, %1044, %1043,
 
 1177:                                             ; preds = %1101, %1101, %1101, %1101, %1101, %1101
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
-  %.sroa.gep529.i = getelementptr inbounds nuw i8, ptr %1018, i64 32
-  %spec.store.select.sroa.sel530.i = select i1 %1019, ptr %995, ptr %.sroa.gep529.i
-  %1178 = load ptr, ptr %spec.store.select.sroa.sel530.i, align 8
-  %.not.i448.i = icmp eq ptr %1178, null
-  br i1 %.not.i448.i, label %1181, label %.preheader.i.i
+  %.sroa.gep531.i = getelementptr inbounds nuw i8, ptr %1018, i64 32
+  %spec.store.select.sroa.sel532.i = select i1 %1019, ptr %995, ptr %.sroa.gep531.i
+  %1178 = load ptr, ptr %spec.store.select.sroa.sel532.i, align 8
+  %.not.i450.i = icmp eq ptr %1178, null
+  br i1 %.not.i450.i, label %1181, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %1177
   %1179 = getelementptr inbounds nuw i8, ptr %1178, i64 4
   %1180 = load i32, ptr %1179, align 4
   %.not1719.i.i = icmp eq i32 %1180, -1
-  br i1 %.not1719.i.i, label %dissect_meta_tag_bitfield.exit.i, label %.lr.ph.i.i152
+  br i1 %.not1719.i.i, label %dissect_meta_tag_bitfield.exit.i, label %.lr.ph.i.i153
 
 1181:                                             ; preds = %1177
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2466, ptr noundef nonnull @.str.427) #13
   unreachable
 
-.lr.ph.i.i152:                                    ; preds = %.preheader.i.i, %.lr.ph.i.i152
-  %1182 = phi ptr [ %1187, %.lr.ph.i.i152 ], [ %1179, %.preheader.i.i ]
-  %1183 = phi i64 [ %1186, %.lr.ph.i.i152 ], [ 0, %.preheader.i.i ]
-  %.020.i.i = phi i32 [ %1185, %.lr.ph.i.i152 ], [ 0, %.preheader.i.i ]
+.lr.ph.i.i153:                                    ; preds = %.preheader.i.i, %.lr.ph.i.i153
+  %1182 = phi ptr [ %1187, %.lr.ph.i.i153 ], [ %1179, %.preheader.i.i ]
+  %1183 = phi i64 [ %1186, %.lr.ph.i.i153 ], [ 0, %.preheader.i.i ]
+  %.020.i.i = phi i32 [ %1185, %.lr.ph.i.i153 ], [ 0, %.preheader.i.i ]
   %1184 = getelementptr [32 x ptr], ptr %7, i64 0, i64 %1183
   store ptr %1182, ptr %1184, align 8
   %1185 = add i32 %.020.i.i, 1
@@ -4092,19 +4082,19 @@ check_section_length.exit.i:                      ; preds = %1045, %1044, %1043,
   %1187 = getelementptr [32 x i32], ptr %1179, i64 0, i64 %1186
   %1188 = load i32, ptr %1187, align 4
   %.not17.i.i = icmp eq i32 %1188, -1
-  br i1 %.not17.i.i, label %dissect_meta_tag_bitfield.exit.i, label %.lr.ph.i.i152, !llvm.loop !22
+  br i1 %.not17.i.i, label %dissect_meta_tag_bitfield.exit.i, label %.lr.ph.i.i153, !llvm.loop !22
 
-dissect_meta_tag_bitfield.exit.i:                 ; preds = %.lr.ph.i.i152, %.preheader.i.i
-  %.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %1186, %.lr.ph.i.i152 ]
+dissect_meta_tag_bitfield.exit.i:                 ; preds = %.lr.ph.i.i153, %.preheader.i.i
+  %.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %1186, %.lr.ph.i.i153 ]
   %1189 = getelementptr [32 x ptr], ptr %7, i64 0, i64 %.lcssa.i.i
   store ptr null, ptr %1189, align 8
-  %1190 = add i32 %.0407613.i, 4
-  %.sroa.gep532.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel533.i = select i1 %1019, ptr %993, ptr %.sroa.gep532.i
-  %1191 = load i32, ptr %spec.store.select.sroa.sel533.i, align 4
-  %.sroa.gep535.i = getelementptr inbounds nuw i8, ptr %1018, i64 24
-  %spec.store.select.sroa.sel536.i = select i1 %1019, ptr %991, ptr %.sroa.gep535.i
-  %1192 = load i32, ptr %spec.store.select.sroa.sel536.i, align 8
+  %1190 = add i32 %.0410615.i, 4
+  %.sroa.gep534.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel535.i = select i1 %1019, ptr %993, ptr %.sroa.gep534.i
+  %1191 = load i32, ptr %spec.store.select.sroa.sel535.i, align 4
+  %.sroa.gep537.i = getelementptr inbounds nuw i8, ptr %1018, i64 24
+  %spec.store.select.sroa.sel538.i = select i1 %1019, ptr %991, ptr %.sroa.gep537.i
+  %1192 = load i32, ptr %spec.store.select.sroa.sel538.i, align 8
   %1193 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.2.i143, ptr noundef %0, i32 noundef %1190, i32 noundef %1191, i32 noundef %1192, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0)
   %1194 = call ptr @proto_item_get_subtree(ptr noundef %1193)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
@@ -4112,39 +4102,39 @@ dissect_meta_tag_bitfield.exit.i:                 ; preds = %.lr.ph.i.i152, %.pr
   br label %.critedge.i
 
 1195:                                             ; preds = %1101, %1101, %1101, %1101, %1101, %1101, %1101, %1101, %1101, %1101
-  %1196 = call i32 @ftype_wire_size(i32 noundef %.fr589.i)
-  %.sroa.gep471.i = getelementptr inbounds nuw i8, ptr %1018, i64 32
-  %spec.store.select.sroa.sel472.i = select i1 %1019, ptr %995, ptr %.sroa.gep471.i
-  %1197 = load ptr, ptr %spec.store.select.sroa.sel472.i, align 8
-  %.not427.i = icmp eq ptr %1197, null
-  br i1 %.not427.i, label %1198, label %1199
+  %1196 = call i32 @ftype_wire_size(i32 noundef %.fr591.i)
+  %.sroa.gep473.i = getelementptr inbounds nuw i8, ptr %1018, i64 32
+  %spec.store.select.sroa.sel474.i = select i1 %1019, ptr %995, ptr %.sroa.gep473.i
+  %1197 = load ptr, ptr %spec.store.select.sroa.sel474.i, align 8
+  %.not430.i = icmp eq ptr %1197, null
+  br i1 %.not430.i, label %1198, label %1199
 
 1198:                                             ; preds = %1195
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2909, ptr noundef nonnull @.str.427) #13
   unreachable
 
 1199:                                             ; preds = %1195
-  %1200 = add i32 %.0407613.i, 4
-  %.sroa.gep474.i = getelementptr inbounds nuw i8, ptr %1018, i64 24
-  %spec.store.select.sroa.sel475.i = select i1 %1019, ptr %991, ptr %.sroa.gep474.i
-  %1201 = load i32, ptr %spec.store.select.sroa.sel475.i, align 8
-  %1202 = load ptr, ptr %spec.store.select.sroa.sel527.i, align 8
+  %1200 = add i32 %.0410615.i, 4
+  %.sroa.gep476.i = getelementptr inbounds nuw i8, ptr %1018, i64 24
+  %spec.store.select.sroa.sel477.i = select i1 %1019, ptr %991, ptr %.sroa.gep476.i
+  %1201 = load i32, ptr %spec.store.select.sroa.sel477.i, align 8
+  %1202 = load ptr, ptr %spec.store.select.sroa.sel529.i, align 8
   %1203 = getelementptr inbounds nuw i8, ptr %1202, i64 8
   %1204 = load ptr, ptr %1203, align 8
   %1205 = call ptr @proto_tree_add_subtree(ptr noundef %.2.i143, ptr noundef %0, i32 noundef %1200, i32 noundef %1030, i32 noundef %1201, ptr noundef nonnull %8, ptr noundef %1204)
-  %1206 = load ptr, ptr %spec.store.select.sroa.sel472.i, align 8
+  %1206 = load ptr, ptr %spec.store.select.sroa.sel474.i, align 8
   %1207 = getelementptr inbounds nuw i8, ptr %1206, i64 4
   %1208 = load i32, ptr %1207, align 4
   %1209 = call i32 @llvm.smin.i32(i32 %1196, i32 %1030)
   %1210 = call ptr @proto_tree_add_item(ptr noundef %1205, i32 noundef %1208, ptr noundef %0, i32 noundef %1200, i32 noundef %1209, i32 noundef 0)
-  %1211 = load ptr, ptr %spec.store.select.sroa.sel472.i, align 8
+  %1211 = load ptr, ptr %spec.store.select.sroa.sel474.i, align 8
   %1212 = getelementptr i8, ptr %1211, i64 8
   %1213 = load i32, ptr %1212, align 4
   %1214 = add i32 %1196, %1200
   %1215 = sub i32 %1030, %1196
   %1216 = call ptr @proto_tree_add_item(ptr noundef %1205, i32 noundef %1213, ptr noundef %0, i32 noundef %1214, i32 noundef %1215, i32 noundef 2)
-  %.not428.i = icmp eq ptr %1210, null
-  br i1 %.not428.i, label %.critedge.i, label %1217
+  %.not431.i = icmp eq ptr %1210, null
+  br i1 %.not431.i, label %.critedge.i, label %1217
 
 1217:                                             ; preds = %1199
   %1218 = getelementptr inbounds nuw i8, ptr %1210, i64 40
@@ -4157,11 +4147,11 @@ dissect_meta_tag_bitfield.exit.i:                 ; preds = %.lr.ph.i.i152, %.pr
   br label %.critedge.i
 
 1223:                                             ; preds = %1101, %1101
-  %1224 = add i32 %.0407613.i, 4
+  %1224 = add i32 %.0410615.i, 4
   %1225 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %1224)
-  %.sroa.gep468.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel469.i = select i1 %1019, ptr %993, ptr %.sroa.gep468.i
-  %1226 = load i32, ptr %spec.store.select.sroa.sel469.i, align 4
+  %.sroa.gep470.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel471.i = select i1 %1019, ptr %993, ptr %.sroa.gep470.i
+  %1226 = load i32, ptr %spec.store.select.sroa.sel471.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   %1227 = call i64 @llvm.abs.i64(i64 %1225, i1 false)
   %1228 = shl i64 %1227, 1
@@ -4188,9 +4178,9 @@ thread-pre-split.i.i:                             ; preds = %1236, %1223
   %1240 = phi i64 [ %1237, %1236 ], [ %1232, %1223 ]
   %1241 = icmp eq i64 %1240, 0
   %1242 = add nsw i32 %1239, 999999
-  %or.cond.i.i.i149 = icmp ult i32 %1242, 1999999
-  %or.cond.i.i150 = select i1 %1241, i1 %or.cond.i.i.i149, i1 false
-  br i1 %or.cond.i.i150, label %1243, label %1245
+  %or.cond.i.i.i150 = icmp ult i32 %1242, 1999999
+  %or.cond.i.i151 = select i1 %1241, i1 %or.cond.i.i.i150, i1 false
+  br i1 %or.cond.i.i151, label %1243, label %1245
 
 1243:                                             ; preds = %thread-pre-split.i.i
   %1244 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %.2.i143, i32 noundef %1226, ptr noundef %0, i32 noundef %1224, i32 noundef range(i32 0, 65536) %1030, ptr noundef nonnull %6, ptr noundef nonnull @.str.447, i32 noundef %1239)
@@ -4201,21 +4191,21 @@ thread-pre-split.i.i:                             ; preds = %1236, %1223
   br label %dissect_ptp_timeinterval.exit.i
 
 dissect_ptp_timeinterval.exit.i:                  ; preds = %1245, %1243
-  %.0.i.i.i151 = phi ptr [ %1244, %1243 ], [ %1246, %1245 ]
+  %.0.i.i.i152 = phi ptr [ %1244, %1243 ], [ %1246, %1245 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  store ptr %.0.i.i.i151, ptr %8, align 8
+  store ptr %.0.i.i.i152, ptr %8, align 8
   br label %.critedge.i
 
 1247:                                             ; preds = %1101
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #11
-  %1248 = add i32 %.0407613.i, 4
+  %1248 = add i32 %.0410615.i, 4
   %1249 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1248)
   %1250 = sext i32 %1249 to i64
   store i64 %1250, ptr %13, align 8
   store i32 0, ptr %999, align 8
-  %.sroa.gep465.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel466.i = select i1 %1019, ptr %993, ptr %.sroa.gep465.i
-  %1251 = load i32, ptr %spec.store.select.sroa.sel466.i, align 4
+  %.sroa.gep467.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel468.i = select i1 %1019, ptr %993, ptr %.sroa.gep467.i
+  %1251 = load i32, ptr %spec.store.select.sroa.sel468.i, align 4
   %1252 = icmp eq i32 %1249, 0
   br i1 %1252, label %1253, label %1255
 
@@ -4228,13 +4218,13 @@ dissect_ptp_timeinterval.exit.i:                  ; preds = %1245, %1243
   br label %dissect_relative_time.exit.i
 
 dissect_relative_time.exit.i:                     ; preds = %1255, %1253
-  %.0.i450.i = phi ptr [ %1254, %1253 ], [ %1256, %1255 ]
-  store ptr %.0.i450.i, ptr %8, align 8
+  %.0.i452.i = phi ptr [ %1254, %1253 ], [ %1256, %1255 ]
+  store ptr %.0.i452.i, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #11
   br label %.critedge.i
 
 1257:                                             ; preds = %1101, %1101, %1101, %1101, %1101, %1101, %1101
-  %1258 = add i32 %.0407613.i, 4
+  %1258 = add i32 %.0410615.i, 4
   %1259 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1258)
   %1260 = trunc i32 %1259 to i8
   %1261 = icmp eq i8 %1260, 0
@@ -4242,9 +4232,9 @@ dissect_relative_time.exit.i:                     ; preds = %1255, %1253
   %1263 = fadd float %1262, 1.000000e+00
   %1264 = fmul float %1263, 3.125000e-02
   %1265 = select i1 %1261, float 0.000000e+00, float %1264
-  %.sroa.gep462.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel463.i = select i1 %1019, ptr %993, ptr %.sroa.gep462.i
-  %1266 = load i32, ptr %spec.store.select.sroa.sel463.i, align 4
+  %.sroa.gep464.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel465.i = select i1 %1019, ptr %993, ptr %.sroa.gep464.i
+  %1266 = load i32, ptr %spec.store.select.sroa.sel465.i, align 4
   %1267 = fpext float %1265 to double
   %1268 = fcmp oeq float %1265, 0.000000e+00
   %1269 = select i1 %1268, ptr @.str.421, ptr @.str.422
@@ -4257,25 +4247,25 @@ dissect_relative_time.exit.i:                     ; preds = %1255, %1253
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %1272 = call i32 @llvm.umin.i32(i32 range(i32 0, 65536) %1030, i32 16)
   %spec.select.i.i144 = lshr i32 %1272, 2
-  %.sroa.gep538.i = getelementptr inbounds nuw i8, ptr %1018, i64 32
-  %spec.store.select.sroa.sel539.i = select i1 %1019, ptr %995, ptr %.sroa.gep538.i
-  %1273 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
-  %.not.i452.i = icmp eq ptr %1273, null
-  br i1 %.not.i452.i, label %1274, label %1275
+  %.sroa.gep540.i = getelementptr inbounds nuw i8, ptr %1018, i64 32
+  %spec.store.select.sroa.sel541.i = select i1 %1019, ptr %995, ptr %.sroa.gep540.i
+  %1273 = load ptr, ptr %spec.store.select.sroa.sel541.i, align 8
+  %.not.i454.i = icmp eq ptr %1273, null
+  br i1 %.not.i454.i, label %1274, label %1275
 
 1274:                                             ; preds = %1271
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.426, i32 noundef 2497, ptr noundef nonnull @.str.427) #13
   unreachable
 
 1275:                                             ; preds = %1271
-  %.sroa.gep541.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel542.i = select i1 %1019, ptr %993, ptr %.sroa.gep541.i
-  %1276 = load i32, ptr %spec.store.select.sroa.sel542.i, align 4
-  %1277 = add i32 %.0407613.i, 4
+  %.sroa.gep543.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel544.i = select i1 %1019, ptr %993, ptr %.sroa.gep543.i
+  %1276 = load i32, ptr %spec.store.select.sroa.sel544.i, align 4
+  %1277 = add i32 %.0410615.i, 4
   %1278 = call ptr @proto_tree_add_item(ptr noundef %.2.i143, i32 noundef %1276, ptr noundef %0, i32 noundef %1277, i32 noundef range(i32 0, 65536) %1030, i32 noundef 0)
-  %.sroa.gep544.i = getelementptr inbounds nuw i8, ptr %1018, i64 24
-  %spec.store.select.sroa.sel545.i = select i1 %1019, ptr %991, ptr %.sroa.gep544.i
-  %1279 = load i32, ptr %spec.store.select.sroa.sel545.i, align 8
+  %.sroa.gep546.i = getelementptr inbounds nuw i8, ptr %1018, i64 24
+  %spec.store.select.sroa.sel547.i = select i1 %1019, ptr %991, ptr %.sroa.gep546.i
+  %1279 = load i32, ptr %spec.store.select.sroa.sel547.i, align 8
   %1280 = call ptr @proto_item_add_subtree(ptr noundef %1278, i32 noundef %1279)
   %.not95.i.i = icmp ult i16 %1008, 4
   br i1 %.not95.i.i, label %._crit_edge92.thread.i.i, label %.lr.ph.preheader.i.i
@@ -4286,11 +4276,11 @@ dissect_relative_time.exit.i:                     ; preds = %1255, %1253
 
 .lr.ph.preheader.i.i:                             ; preds = %1275
   %wide.trip.count.i.i = zext nneg i32 %spec.select.i.i144 to i64
-  br label %.lr.ph.i453.i
+  br label %.lr.ph.i455.i
 
-.lr.ph.i453.i:                                    ; preds = %.lr.ph.i453.i, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i145 = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i146, %.lr.ph.i453.i ]
-  %.076.i.i = phi i1 [ true, %.lr.ph.preheader.i.i ], [ %spec.select74.i.i, %.lr.ph.i453.i ]
+.lr.ph.i455.i:                                    ; preds = %.lr.ph.i455.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i145 = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i146, %.lr.ph.i455.i ]
+  %.076.i.i = phi i1 [ true, %.lr.ph.preheader.i.i ], [ %spec.select74.i.i, %.lr.ph.i455.i ]
   %indvars.iv.tr.i.i = trunc i64 %indvars.iv.i.i145 to i32
   %1281 = shl i32 %indvars.iv.tr.i.i, 2
   %1282 = add i32 %1281, %1277
@@ -4301,9 +4291,9 @@ dissect_relative_time.exit.i:                     ; preds = %1255, %1253
   %spec.select74.i.i = select i1 %.not73.i.i, i1 %.076.i.i, i1 false
   %indvars.iv.next.i.i146 = add nuw nsw i64 %indvars.iv.i.i145, 1
   %exitcond.not.i.i147 = icmp eq i64 %indvars.iv.next.i.i146, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i147, label %._crit_edge.i.i, label %.lr.ph.i453.i, !llvm.loop !23
+  br i1 %exitcond.not.i.i147, label %._crit_edge.i.i, label %.lr.ph.i455.i, !llvm.loop !23
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i453.i
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i455.i
   br i1 %spec.select74.i.i, label %.lr.ph91.split.us.preheader.i.i, label %.lr.ph91.split.preheader.i.i
 
 .lr.ph91.split.preheader.i.i:                     ; preds = %._crit_edge.i.i
@@ -4321,7 +4311,7 @@ dissect_relative_time.exit.i:                     ; preds = %1255, %1253
   %indvars.iv105.i.i = phi i64 [ 0, %.lr.ph91.split.us.preheader.i.i ], [ %indvars.iv.next106.i.i, %.split85.us.us.i.i ]
   %.05989.us.i.i = phi i8 [ 1, %.lr.ph91.split.us.preheader.i.i ], [ %.2.us.us.i.i, %.split85.us.us.i.i ]
   %.06188.us.i.i = phi i32 [ 0, %.lr.ph91.split.us.preheader.i.i ], [ %1319, %.split85.us.us.i.i ]
-  %1289 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
+  %1289 = load ptr, ptr %spec.store.select.sroa.sel541.i, align 8
   %1290 = getelementptr inbounds nuw i8, ptr %1289, i64 4
   %1291 = getelementptr [32 x i32], ptr %1290, i64 0, i64 %indvars.iv105.i.i
   %1292 = load i32, ptr %1291, align 4
@@ -4333,9 +4323,9 @@ dissect_relative_time.exit.i:                     ; preds = %1255, %1253
   br i1 %1296, label %1297, label %.split.us.us.i.i
 
 1297:                                             ; preds = %.lr.ph91.split.us.i.i
-  %1298 = load i32, ptr %spec.store.select.sroa.sel545.i, align 8
+  %1298 = load i32, ptr %spec.store.select.sroa.sel547.i, align 8
   %1299 = call ptr @proto_item_add_subtree(ptr noundef %1295, i32 noundef %1298)
-  %1300 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
+  %1300 = load ptr, ptr %spec.store.select.sroa.sel541.i, align 8
   %1301 = getelementptr i8, ptr %1300, i64 20
   %1302 = load i32, ptr %1301, align 4
   %.not7177.us.i.i = icmp eq i32 %1302, -1
@@ -4346,7 +4336,7 @@ dissect_relative_time.exit.i:                     ; preds = %1255, %1253
   %.06678.us.i.i = phi i32 [ %1305, %.lr.ph80.us.i.i ], [ 4, %1297 ]
   %1304 = call ptr @proto_tree_add_boolean(ptr noundef %1299, i32 noundef %1303, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i64 noundef %1288)
   %1305 = add i32 %.06678.us.i.i, 1
-  %1306 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
+  %1306 = load ptr, ptr %spec.store.select.sroa.sel541.i, align 8
   %1307 = getelementptr inbounds nuw i8, ptr %1306, i64 4
   %1308 = sext i32 %1305 to i64
   %1309 = getelementptr [32 x i32], ptr %1307, i64 0, i64 %1308
@@ -4389,7 +4379,7 @@ dissect_relative_time.exit.i:                     ; preds = %1255, %1253
   %indvars.iv100.i.i = phi i64 [ 0, %.lr.ph91.split.preheader.i.i ], [ %indvars.iv.next101.i.i, %.split85.i.i ]
   %.05989.i.i = phi i8 [ 1, %.lr.ph91.split.preheader.i.i ], [ %.2.i.i, %.split85.i.i ]
   %.06188.i.i = phi i32 [ 0, %.lr.ph91.split.preheader.i.i ], [ %1354, %.split85.i.i ]
-  %1321 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
+  %1321 = load ptr, ptr %spec.store.select.sroa.sel541.i, align 8
   %1322 = getelementptr inbounds nuw i8, ptr %1321, i64 4
   %1323 = getelementptr [32 x i32], ptr %1322, i64 0, i64 %indvars.iv100.i.i
   %1324 = load i32, ptr %1323, align 4
@@ -4401,9 +4391,9 @@ dissect_relative_time.exit.i:                     ; preds = %1255, %1253
   br i1 %1328, label %1329, label %.split.i.i
 
 1329:                                             ; preds = %.lr.ph91.split.i.i
-  %1330 = load i32, ptr %spec.store.select.sroa.sel545.i, align 8
+  %1330 = load i32, ptr %spec.store.select.sroa.sel547.i, align 8
   %1331 = call ptr @proto_item_add_subtree(ptr noundef %1327, i32 noundef %1330)
-  %1332 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
+  %1332 = load ptr, ptr %spec.store.select.sroa.sel541.i, align 8
   %1333 = getelementptr i8, ptr %1332, i64 20
   %1334 = load i32, ptr %1333, align 4
   %.not7177.i.i = icmp eq i32 %1334, -1
@@ -4414,7 +4404,7 @@ dissect_relative_time.exit.i:                     ; preds = %1255, %1253
   %.06678.i.i = phi i32 [ %1337, %.lr.ph80.i.i ], [ 4, %1329 ]
   %1336 = call ptr @proto_tree_add_boolean(ptr noundef %1331, i32 noundef %1335, ptr noundef %0, i32 noundef %1326, i32 noundef 4, i64 noundef %1286)
   %1337 = add i32 %.06678.i.i, 1
-  %1338 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
+  %1338 = load ptr, ptr %spec.store.select.sroa.sel541.i, align 8
   %1339 = getelementptr inbounds nuw i8, ptr %1338, i64 4
   %1340 = sext i32 %1337 to i64
   %1341 = getelementptr [32 x i32], ptr %1339, i64 0, i64 %1340
@@ -4470,19 +4460,19 @@ dissect_meta_tag_ext_hdrs.exit.i:                 ; preds = %1357, %._crit_edge9
   %1358 = icmp ugt i16 %1008, 15
   %1359 = and i32 %1030, 3
   %.not70.i.i = icmp eq i32 %1359, 0
-  %or.cond.i454.i = or i1 %1358, %.not70.i.i
-  %spec.select588.i = select i1 %or.cond.i454.i, ptr %.1557.i, ptr @ei_erf_meta_truncated_tag
+  %or.cond.i456.i = or i1 %1358, %.not70.i.i
+  %spec.select590.i = select i1 %or.cond.i456.i, ptr %.1559.i, ptr @ei_erf_meta_truncated_tag
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   store ptr %1278, ptr %8, align 8
   br label %.critedge.i
 
 1360:                                             ; preds = %1101
-  %1361 = add i32 %.fr589.i, -3
+  %1361 = add i32 %.fr591.i, -3
   %1362 = icmp ult i32 %1361, 9
   br i1 %1362, label %1363, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %1360
-  switch i32 %.fr589.i, label %1371 [
+  switch i32 %.fr591.i, label %1371 [
     i32 35, label %1363
     i32 19, label %1363
     i32 18, label %1363
@@ -4501,38 +4491,38 @@ switch.early.test.i:                              ; preds = %1360
   ]
 
 1363:                                             ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %1360
-  %.sroa.gep513.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel514.i = select i1 %1019, ptr %993, ptr %.sroa.gep513.i
-  %1364 = load i32, ptr %spec.store.select.sroa.sel514.i, align 4
-  %1365 = add i32 %.0407613.i, 4
+  %.sroa.gep515.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel516.i = select i1 %1019, ptr %993, ptr %.sroa.gep515.i
+  %1364 = load i32, ptr %spec.store.select.sroa.sel516.i, align 4
+  %1365 = add i32 %.0410615.i, 4
   %1366 = call ptr @proto_tree_add_item(ptr noundef %.2.i143, i32 noundef %1364, ptr noundef %0, i32 noundef %1365, i32 noundef %1030, i32 noundef 0)
   store ptr %1366, ptr %8, align 8
   br label %.critedge.i
 
 1367:                                             ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
-  %.sroa.gep510.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel511.i = select i1 %1019, ptr %993, ptr %.sroa.gep510.i
-  %1368 = load i32, ptr %spec.store.select.sroa.sel511.i, align 4
-  %1369 = add i32 %.0407613.i, 4
+  %.sroa.gep512.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel513.i = select i1 %1019, ptr %993, ptr %.sroa.gep512.i
+  %1368 = load i32, ptr %spec.store.select.sroa.sel513.i, align 4
+  %1369 = add i32 %.0410615.i, 4
   %1370 = call ptr @proto_tree_add_item(ptr noundef %.2.i143, i32 noundef %1368, ptr noundef %0, i32 noundef %1369, i32 noundef %1030, i32 noundef 2)
   store ptr %1370, ptr %8, align 8
   br label %.critedge.i
 
 1371:                                             ; preds = %switch.early.test.i
-  %1372 = and i32 %.fr589.i, -2
-  %or.cond71.i = icmp eq i32 %1372, 24
-  br i1 %or.cond71.i, label %1373, label %1398
+  %1372 = and i32 %.fr591.i, -2
+  %or.cond74.i = icmp eq i32 %1372, 24
+  br i1 %or.cond74.i, label %1373, label %1398
 
 1373:                                             ; preds = %1371
-  %1374 = icmp eq i32 %.fr589.i, 25
+  %1374 = icmp eq i32 %.fr591.i, 25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #11
-  %1375 = add i32 %.0407613.i, 4
+  %1375 = add i32 %.0410615.i, 4
   %1376 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %1375)
   %1377 = call i64 @llvm.abs.i64(i64 %1376, i1 false)
-  %.0.i455.i = select i1 %1374, i64 %1377, i64 %1376
-  %1378 = lshr i64 %.0.i455.i, 32
+  %.0.i457.i = select i1 %1374, i64 %1377, i64 %1376
+  %1378 = lshr i64 %.0.i457.i, 32
   store i64 %1378, ptr %14, align 8
-  %1379 = and i64 %.0.i455.i, 4294967295
+  %1379 = and i64 %.0.i457.i, 4294967295
   %1380 = mul nuw nsw i64 %1379, 1000000000
   %1381 = mul nuw nsw i64 %1379, 2000000000
   %1382 = and i64 %1381, 4294967296
@@ -4553,8 +4543,8 @@ switch.early.test.i:                              ; preds = %1360
   %1390 = phi i32 [ 0, %1387 ], [ %1385, %1373 ]
   %1391 = phi i64 [ %1388, %1387 ], [ %1378, %1373 ]
   %1392 = icmp slt i64 %1376, 0
-  %or.cond.i456.i = and i1 %1374, %1392
-  br i1 %or.cond.i456.i, label %1393, label %erf_ts_to_nstime.exit.i
+  %or.cond.i458.i = and i1 %1374, %1392
+  br i1 %or.cond.i458.i, label %1393, label %erf_ts_to_nstime.exit.i
 
 1393:                                             ; preds = %1389
   %1394 = sub nsw i64 0, %1391
@@ -4564,108 +4554,108 @@ switch.early.test.i:                              ; preds = %1360
   br label %erf_ts_to_nstime.exit.i
 
 erf_ts_to_nstime.exit.i:                          ; preds = %1393, %1389
-  %.sroa.gep507.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel508.i = select i1 %1019, ptr %993, ptr %.sroa.gep507.i
-  %1396 = load i32, ptr %spec.store.select.sroa.sel508.i, align 4
+  %.sroa.gep509.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel510.i = select i1 %1019, ptr %993, ptr %.sroa.gep509.i
+  %1396 = load i32, ptr %spec.store.select.sroa.sel510.i, align 4
   %1397 = call fastcc ptr @dissect_relative_time(ptr noundef %.2.i143, i32 noundef %1396, ptr noundef %0, i32 noundef %1375, i32 noundef %1030, ptr noundef nonnull %14)
   store ptr %1397, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #11
   br label %.critedge.i
 
 1398:                                             ; preds = %1371
-  %.sroa.gep504.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
-  %spec.store.select.sroa.sel505.i = select i1 %1019, ptr %993, ptr %.sroa.gep504.i
-  %1399 = load i32, ptr %spec.store.select.sroa.sel505.i, align 4
-  %1400 = add i32 %.0407613.i, 4
+  %.sroa.gep506.i = getelementptr inbounds nuw i8, ptr %1018, i64 28
+  %spec.store.select.sroa.sel507.i = select i1 %1019, ptr %993, ptr %.sroa.gep506.i
+  %1399 = load i32, ptr %spec.store.select.sroa.sel507.i, align 4
+  %1400 = add i32 %.0410615.i, 4
   %1401 = call ptr @proto_tree_add_item(ptr noundef %.2.i143, i32 noundef %1399, ptr noundef %0, i32 noundef %1400, i32 noundef %1030, i32 noundef 0)
   store ptr %1401, ptr %8, align 8
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %1398, %erf_ts_to_nstime.exit.i, %1367, %1363, %dissect_meta_tag_ext_hdrs.exit.i, %1257, %dissect_relative_time.exit.i, %dissect_ptp_timeinterval.exit.i, %1217, %1199, %dissect_meta_tag_bitfield.exit.i, %1172, %1143, %1134, %1129, %1122, %1115, %1108, %1102
-  %.1561.i = phi ptr [ null, %1363 ], [ null, %erf_ts_to_nstime.exit.i ], [ null, %1398 ], [ null, %1367 ], [ %1280, %dissect_meta_tag_ext_hdrs.exit.i ], [ null, %1257 ], [ null, %dissect_relative_time.exit.i ], [ null, %dissect_ptp_timeinterval.exit.i ], [ %1205, %1199 ], [ %1205, %1217 ], [ %1194, %dissect_meta_tag_bitfield.exit.i ], [ null, %1172 ], [ %1157, %1143 ], [ null, %1134 ], [ null, %1129 ], [ null, %1122 ], [ null, %1115 ], [ null, %1108 ], [ null, %1102 ]
-  %.3559.i = phi ptr [ %.1557.i, %1363 ], [ %.1557.i, %erf_ts_to_nstime.exit.i ], [ %.1557.i, %1398 ], [ %.1557.i, %1367 ], [ %spec.select588.i, %dissect_meta_tag_ext_hdrs.exit.i ], [ %.1557.i, %1257 ], [ %.1557.i, %dissect_relative_time.exit.i ], [ %.1557.i, %dissect_ptp_timeinterval.exit.i ], [ %.1557.i, %1199 ], [ %.1557.i, %1217 ], [ %.1557.i, %dissect_meta_tag_bitfield.exit.i ], [ %.1557.i, %1172 ], [ %.1557.i, %1143 ], [ %.1557.i, %1134 ], [ %.1557.i, %1129 ], [ %.1557.i, %1122 ], [ %.1557.i, %1115 ], [ %.1557.i, %1108 ], [ %.1557.i, %1102 ]
+  %.1563.i = phi ptr [ null, %1363 ], [ null, %erf_ts_to_nstime.exit.i ], [ null, %1398 ], [ null, %1367 ], [ %1280, %dissect_meta_tag_ext_hdrs.exit.i ], [ null, %1257 ], [ null, %dissect_relative_time.exit.i ], [ null, %dissect_ptp_timeinterval.exit.i ], [ %1205, %1199 ], [ %1205, %1217 ], [ %1194, %dissect_meta_tag_bitfield.exit.i ], [ null, %1172 ], [ %1157, %1143 ], [ null, %1134 ], [ null, %1129 ], [ null, %1122 ], [ null, %1115 ], [ null, %1108 ], [ null, %1102 ]
+  %.3561.i = phi ptr [ %.1559.i, %1363 ], [ %.1559.i, %erf_ts_to_nstime.exit.i ], [ %.1559.i, %1398 ], [ %.1559.i, %1367 ], [ %spec.select590.i, %dissect_meta_tag_ext_hdrs.exit.i ], [ %.1559.i, %1257 ], [ %.1559.i, %dissect_relative_time.exit.i ], [ %.1559.i, %dissect_ptp_timeinterval.exit.i ], [ %.1559.i, %1199 ], [ %.1559.i, %1217 ], [ %.1559.i, %dissect_meta_tag_bitfield.exit.i ], [ %.1559.i, %1172 ], [ %.1559.i, %1143 ], [ %.1559.i, %1134 ], [ %.1559.i, %1129 ], [ %.1559.i, %1122 ], [ %.1559.i, %1115 ], [ %.1559.i, %1108 ], [ %.1559.i, %1102 ]
   call void @llvm.lifetime.end.p0(i64 241, ptr nonnull %12) #11
   br label %1402
 
-1402:                                             ; preds = %.critedge.i, %.thread.i153, %1091, %1084, %1078
-  %.0560.i = phi ptr [ %1062, %1091 ], [ %1062, %.thread.i153 ], [ %1062, %1078 ], [ %1062, %1084 ], [ %.1561.i, %.critedge.i ]
-  %.2558.i = phi ptr [ %.1557.i, %1091 ], [ @ei_erf_meta_truncated_tag, %.thread.i153 ], [ %.1557.i, %1078 ], [ %.1557.i, %1084 ], [ %.3559.i, %.critedge.i ]
-  %.1411.i = phi ptr [ %spec.select444.i, %1091 ], [ %spec.select444.i, %.thread.i153 ], [ %spec.select444.i, %1078 ], [ %spec.select444.i, %1084 ], [ %spec.store.select.i, %.critedge.i ]
-  %.1406.i = phi i32 [ %.0407613.i, %1091 ], [ %.0407613.i, %.thread.i153 ], [ %.0407613.i, %1078 ], [ %.0407613.i, %1084 ], [ %.0405617.i, %.critedge.i ]
-  %.1404.i = phi i16 [ %.0403618.i, %1091 ], [ %.0403618.i, %.thread.i153 ], [ %1069, %1078 ], [ %1069, %1084 ], [ %.0403618.i, %.critedge.i ]
-  %.3.i = phi i16 [ %spec.select445.i, %1091 ], [ %spec.select445.i, %.thread.i153 ], [ %spec.select445.i, %1078 ], [ %spec.select445.i, %1084 ], [ %.1400.i, %.critedge.i ]
-  %.1398.i = phi ptr [ %.0397620.i, %1091 ], [ %.0397620.i, %.thread.i153 ], [ %1083, %1078 ], [ %1083, %1084 ], [ %.0397620.i, %.critedge.i ]
-  %.1.i148 = phi ptr [ %1059, %1091 ], [ %1059, %.thread.i153 ], [ %1059, %1078 ], [ %1059, %1084 ], [ %.2.i143, %.critedge.i ]
-  %.not437.i = icmp eq ptr %.0560.i, null
-  br i1 %.not437.i, label %.thread563.i, label %1418
+1402:                                             ; preds = %.critedge.i, %1090, %1083, %1076
+  %.0562.i = phi ptr [ %1061, %1083 ], [ %1061, %1076 ], [ %.1563.i, %.critedge.i ], [ %1061, %1090 ]
+  %.2560.i = phi ptr [ %.1559.i, %1083 ], [ %.1559.i, %1076 ], [ %.3561.i, %.critedge.i ], [ %spec.select589.i, %1090 ]
+  %.1414.i = phi ptr [ %spec.select446.i, %1083 ], [ %spec.select446.i, %1076 ], [ %spec.store.select.i, %.critedge.i ], [ %spec.select446.i, %1090 ]
+  %.1409.i = phi i32 [ %.0410615.i, %1083 ], [ %.0410615.i, %1076 ], [ %.0408619.i, %.critedge.i ], [ %.0410615.i, %1090 ]
+  %.1407.i = phi i16 [ %1067, %1083 ], [ %1067, %1076 ], [ %.0406620.i, %.critedge.i ], [ %.0406620.i, %1090 ]
+  %.3.i = phi i16 [ %spec.select447.i, %1083 ], [ %spec.select447.i, %1076 ], [ %.1403.i, %.critedge.i ], [ %spec.select447.i, %1090 ]
+  %.1401.i = phi ptr [ %1081, %1083 ], [ %1081, %1076 ], [ %.0400622.i, %.critedge.i ], [ %.0400622.i, %1090 ]
+  %.1.i148 = phi ptr [ %1058, %1083 ], [ %1058, %1076 ], [ %.2.i143, %.critedge.i ], [ %1058, %1090 ]
+  %.not439.i = icmp eq ptr %.0562.i, null
+  br i1 %.not439.i, label %.thread.i149, label %1418
 
-.thread563.i:                                     ; preds = %1402, %1092
-  %.1585.i = phi ptr [ %.1.i148, %1402 ], [ %.0621.i, %1092 ]
-  %.1398583.i = phi ptr [ %.1398.i, %1402 ], [ %.0397620.i, %1092 ]
-  %.3581.i = phi i16 [ %.3.i, %1402 ], [ %.0399619.i, %1092 ]
-  %.1404579.i = phi i16 [ %.1404.i, %1402 ], [ %.0403618.i, %1092 ]
-  %.1406577.i = phi i32 [ %.1406.i, %1402 ], [ %.0405617.i, %1092 ]
-  %.1411575.i = phi ptr [ %.1411.i, %1402 ], [ %spec.store.select.i, %1092 ]
-  %.2558574.i = phi ptr [ %.2558.i, %1402 ], [ %.1557.i, %1092 ]
+.thread.i149:                                     ; preds = %1402, %1091
+  %.1586.i = phi ptr [ %.1.i148, %1402 ], [ %.0623.i, %1091 ]
+  %.1401584.i = phi ptr [ %.1401.i, %1402 ], [ %.0400622.i, %1091 ]
+  %.3582.i = phi i16 [ %.3.i, %1402 ], [ %.0402621.i, %1091 ]
+  %.1407580.i = phi i16 [ %.1407.i, %1402 ], [ %.0406620.i, %1091 ]
+  %.1409578.i = phi i32 [ %.1409.i, %1402 ], [ %.0408619.i, %1091 ]
+  %.1414576.i = phi ptr [ %.1414.i, %1402 ], [ %spec.store.select.i, %1091 ]
+  %.2560575.i = phi ptr [ %.2560.i, %1402 ], [ %.1559.i, %1091 ]
   %1403 = load ptr, ptr %8, align 8
   %1404 = icmp eq ptr %1403, null
-  %or.cond74.i = and i1 %1003, %1404
-  br i1 %or.cond74.i, label %1409, label %1405
+  %or.cond77.i = and i1 %1003, %1404
+  br i1 %or.cond77.i, label %1409, label %1405
 
-1405:                                             ; preds = %.thread563.i
-  %1406 = getelementptr inbounds nuw i8, ptr %.1411575.i, i64 24
+1405:                                             ; preds = %.thread.i149
+  %1406 = getelementptr inbounds nuw i8, ptr %.1414576.i, i64 24
   %1407 = load i32, ptr %1406, align 8
   %1408 = call ptr @proto_item_add_subtree(ptr noundef %1403, i32 noundef %1407)
   br label %1418
 
-1409:                                             ; preds = %.thread563.i
+1409:                                             ; preds = %.thread.i149
   %1410 = call i32 @llvm.smin.i32(i32 %1031, i32 %1005)
-  %1411 = getelementptr inbounds nuw i8, ptr %.1411575.i, i64 24
+  %1411 = getelementptr inbounds nuw i8, ptr %.1414576.i, i64 24
   %1412 = load i32, ptr %1411, align 8
-  %1413 = getelementptr inbounds nuw i8, ptr %.1411575.i, i64 8
+  %1413 = getelementptr inbounds nuw i8, ptr %.1414576.i, i64 8
   %1414 = load ptr, ptr %1413, align 8
   %1415 = getelementptr inbounds nuw i8, ptr %1414, i64 8
   %1416 = load ptr, ptr %1415, align 8
-  %1417 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.1585.i, ptr noundef %0, i32 noundef %.0407613.i, i32 noundef %1410, i32 noundef %1412, ptr noundef nonnull %8, ptr noundef nonnull @.str.443, ptr noundef %1416)
+  %1417 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.1586.i, ptr noundef %0, i32 noundef %.0410615.i, i32 noundef %1410, i32 noundef %1412, ptr noundef nonnull %8, ptr noundef nonnull @.str.443, ptr noundef %1416)
   br label %1418
 
 1418:                                             ; preds = %1409, %1405, %1402
-  %.1584.i = phi ptr [ %.1585.i, %1409 ], [ %.1585.i, %1405 ], [ %.1.i148, %1402 ]
-  %.1398582.i = phi ptr [ %.1398583.i, %1409 ], [ %.1398583.i, %1405 ], [ %.1398.i, %1402 ]
-  %.3580.i = phi i16 [ %.3581.i, %1409 ], [ %.3581.i, %1405 ], [ %.3.i, %1402 ]
-  %.1404578.i = phi i16 [ %.1404579.i, %1409 ], [ %.1404579.i, %1405 ], [ %.1404.i, %1402 ]
-  %.1406576.i = phi i32 [ %.1406577.i, %1409 ], [ %.1406577.i, %1405 ], [ %.1406.i, %1402 ]
-  %.2558573.i = phi ptr [ %.2558574.i, %1409 ], [ %.2558574.i, %1405 ], [ %.2558.i, %1402 ]
-  %.2562.i = phi ptr [ %1417, %1409 ], [ %1408, %1405 ], [ %.0560.i, %1402 ]
+  %.1585.i = phi ptr [ %.1586.i, %1409 ], [ %.1586.i, %1405 ], [ %.1.i148, %1402 ]
+  %.1401583.i = phi ptr [ %.1401584.i, %1409 ], [ %.1401584.i, %1405 ], [ %.1401.i, %1402 ]
+  %.3581.i = phi i16 [ %.3582.i, %1409 ], [ %.3582.i, %1405 ], [ %.3.i, %1402 ]
+  %.1407579.i = phi i16 [ %.1407580.i, %1409 ], [ %.1407580.i, %1405 ], [ %.1407.i, %1402 ]
+  %.1409577.i = phi i32 [ %.1409578.i, %1409 ], [ %.1409578.i, %1405 ], [ %.1409.i, %1402 ]
+  %.2560574.i = phi ptr [ %.2560575.i, %1409 ], [ %.2560575.i, %1405 ], [ %.2560.i, %1402 ]
+  %.2564.i = phi ptr [ %1417, %1409 ], [ %1408, %1405 ], [ %.0562.i, %1402 ]
   %1419 = load i32, ptr @hf_erf_meta_tag_type, align 4
   %1420 = load ptr, ptr @erf_meta_index.4, align 8
   %1421 = call ptr @wmem_array_get_raw(ptr noundef %1420)
   %1422 = call ptr @val_to_str_const(i32 noundef %1009, ptr noundef %1421, ptr noundef nonnull @.str.423)
-  %1423 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.2562.i, i32 noundef %1419, ptr noundef %0, i32 noundef %.0407613.i, i32 noundef 2, i32 noundef %1009, ptr noundef nonnull @.str.441, ptr noundef %1422, i32 noundef %1009)
+  %1423 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.2564.i, i32 noundef %1419, ptr noundef %0, i32 noundef %.0410615.i, i32 noundef 2, i32 noundef %1009, ptr noundef nonnull @.str.441, ptr noundef %1422, i32 noundef %1009)
   %1424 = load i32, ptr @hf_erf_meta_tag_len, align 4
-  %1425 = call ptr @proto_tree_add_uint(ptr noundef %.2562.i, i32 noundef %1424, ptr noundef %0, i32 noundef %1007, i32 noundef 2, i32 noundef %1030)
-  %.not438.i = icmp eq ptr %.2558573.i, null
-  br i1 %.not438.i, label %1429, label %1426
+  %1425 = call ptr @proto_tree_add_uint(ptr noundef %.2564.i, i32 noundef %1424, ptr noundef %0, i32 noundef %1007, i32 noundef 2, i32 noundef %1030)
+  %.not440.i = icmp eq ptr %.2560574.i, null
+  br i1 %.not440.i, label %1429, label %1426
 
 1426:                                             ; preds = %1418
   %1427 = load ptr, ptr %8, align 8
-  %1428 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1427, ptr noundef nonnull %.2558573.i)
+  %1428 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1427, ptr noundef nonnull %.2560574.i)
   br label %1429
 
 1429:                                             ; preds = %1426, %1418
   %1430 = add nuw nsw i32 %1030, 7
   %1431 = and i32 %1430, 131068
-  %1432 = add i32 %1431, %.0407613.i
+  %1432 = add i32 %1431, %.0410615.i
   %1433 = sub i32 %996, %1432
   %1434 = icmp sgt i32 %1433, 3
   br i1 %1434, label %1004, label %._crit_edge.i138, !llvm.loop !27
 
 ._crit_edge.i138:                                 ; preds = %1429, %987
-  %.0407.lcssa.i = phi i32 [ 0, %987 ], [ %1432, %1429 ]
-  %.0405.lcssa.i = phi i32 [ 0, %987 ], [ %.1406576.i, %1429 ]
-  %.0403.lcssa.i = phi i16 [ 0, %987 ], [ %.1404578.i, %1429 ]
-  %.0397.lcssa.i = phi ptr [ null, %987 ], [ %.1398582.i, %1429 ]
-  %.not.i139 = icmp eq i32 %996, %.0407.lcssa.i
+  %.0410.lcssa.i = phi i32 [ 0, %987 ], [ %1432, %1429 ]
+  %.0408.lcssa.i = phi i32 [ 0, %987 ], [ %.1409577.i, %1429 ]
+  %.0406.lcssa.i = phi i16 [ 0, %987 ], [ %.1407579.i, %1429 ]
+  %.0400.lcssa.i = phi ptr [ null, %987 ], [ %.1401583.i, %1429 ]
+  %.not.i139 = icmp eq i32 %996, %.0410.lcssa.i
   br i1 %.not.i139, label %1438, label %1435
 
 1435:                                             ; preds = %._crit_edge.i138
@@ -4675,27 +4665,27 @@ erf_ts_to_nstime.exit.i:                          ; preds = %1393, %1389
 
 1438:                                             ; preds = %1435, %._crit_edge.i138
   %1439 = load ptr, ptr %9, align 8
-  %1440 = sub i32 %.0407.lcssa.i, %.0405.lcssa.i
+  %1440 = sub i32 %.0410.lcssa.i, %.0408.lcssa.i
   call void @proto_item_set_len(ptr noundef %1439, i32 noundef %1440)
-  %.not.i457.i = icmp eq ptr %.0397.lcssa.i, null
-  br i1 %.not.i457.i, label %dissect_meta_record_tags.exit, label %1441
+  %.not.i459.i = icmp eq ptr %.0400.lcssa.i, null
+  br i1 %.not.i459.i, label %dissect_meta_record_tags.exit, label %1441
 
 1441:                                             ; preds = %1438
-  %1442 = zext i16 %.0403.lcssa.i to i32
+  %1442 = zext i16 %.0406.lcssa.i to i32
   %1443 = icmp eq i32 %1440, %1442
   br i1 %1443, label %1444, label %1445
 
 1444:                                             ; preds = %1441
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0397.lcssa.i, ptr noundef nonnull @.str.444)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0400.lcssa.i, ptr noundef nonnull @.str.444)
   br label %dissect_meta_record_tags.exit
 
 1445:                                             ; preds = %1441
-  %.not12.i458.i = icmp eq i16 %.0403.lcssa.i, 0
-  br i1 %.not12.i458.i, label %dissect_meta_record_tags.exit, label %1446
+  %.not12.i460.i = icmp eq i16 %.0406.lcssa.i, 0
+  br i1 %.not12.i460.i, label %dissect_meta_record_tags.exit, label %1446
 
 1446:                                             ; preds = %1445
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0397.lcssa.i, ptr noundef nonnull @.str.445, i32 noundef %1440)
-  %1447 = call ptr @expert_add_info(ptr noundef %1, ptr noundef nonnull %.0397.lcssa.i, ptr noundef nonnull @ei_erf_meta_section_len_error)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.0400.lcssa.i, ptr noundef nonnull @.str.445, i32 noundef %1440)
+  %1447 = call ptr @expert_add_info(ptr noundef %1, ptr noundef nonnull %.0400.lcssa.i, ptr noundef nonnull @ei_erf_meta_section_len_error)
   br label %dissect_meta_record_tags.exit
 
 dissect_meta_record_tags.exit:                    ; preds = %1438, %1444, %1445, %1446
@@ -4709,7 +4699,7 @@ dissect_meta_record_tags.exit:                    ; preds = %1438, %1444, %1445,
   %1449 = call i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %1450
 
-1450:                                             ; preds = %970, %.thread, %.thread159, %979, %983, %755, %758, %dissect_erf_pseudo_extension_header.exit, %dissect_erf_pseudo_extension_header.exit, %dissect_erf_pseudo_extension_header.exit, %642, %645, %622, %624, %1448, %dissect_meta_record_tags.exit, %873, %822, %819, %674, %647, %dissect_erf_pseudo_extension_header.exit
+1450:                                             ; preds = %970, %.thread, %.thread160, %979, %983, %755, %758, %dissect_erf_pseudo_extension_header.exit, %dissect_erf_pseudo_extension_header.exit, %dissect_erf_pseudo_extension_header.exit, %642, %645, %622, %624, %1448, %dissect_meta_record_tags.exit, %873, %822, %819, %674, %647, %dissect_erf_pseudo_extension_header.exit
   %1451 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %19) #11
   ret i32 %1451

@@ -3517,20 +3517,20 @@ define noundef zeroext i1 @_ZN10open_spiel9laser_tag13LaserTagState11ResolveMove
   %24 = add nsw i32 %23, %11
   %25 = or i32 %24, %20
   %or.cond.i = icmp sgt i32 %25, -1
-  br i1 %or.cond.i, label %26, label %.critedge82
+  br i1 %or.cond.i, label %26, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
 26:                                               ; preds = %3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %28, align 8
   %30 = icmp slt i32 %20, %29
-  br i1 %30, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit, label %.critedge82
+  br i1 %30, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
 _ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit: ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %24, %32
-  br i1 %33, label %34, label %.critedge82
+  br i1 %33, label %34, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
 34:                                               ; preds = %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -3540,7 +3540,7 @@ _ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit: ; preds = %26
   %39 = load ptr, ptr %35, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 %38
   %41 = load i8, ptr %40, align 1
-  switch i32 %2, label %.critedge82 [
+  switch i32 %2, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread [
     i32 0, label %42
     i32 1, label %54
     i32 8, label %66
@@ -3586,43 +3586,43 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit: ; preds = %42, %_ZNSt8_R
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 36
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %13, align 4
-  br label %.critedge82
+  br label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
 54:                                               ; preds = %34
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 16), align 8
-  %.not10.i.i.i83 = icmp eq ptr %55, null
-  br i1 %.not10.i.i.i83, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit95, label %.lr.ph.i.i.i84
+  %.not10.i.i.i93 = icmp eq ptr %55, null
+  br i1 %.not10.i.i.i93, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit105, label %.lr.ph.i.i.i94
 
-.lr.ph.i.i.i84:                                   ; preds = %54, %.lr.ph.i.i.i84
-  %.012.i.i.i85 = phi ptr [ %.1.i.i.i90, %.lr.ph.i.i.i84 ], [ %55, %54 ]
-  %.0811.i.i.i86 = phi ptr [ %.19.i.i.i87, %.lr.ph.i.i.i84 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), %54 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i85, i64 32
+.lr.ph.i.i.i94:                                   ; preds = %54, %.lr.ph.i.i.i94
+  %.012.i.i.i95 = phi ptr [ %.1.i.i.i100, %.lr.ph.i.i.i94 ], [ %55, %54 ]
+  %.0811.i.i.i96 = phi ptr [ %.19.i.i.i97, %.lr.ph.i.i.i94 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), %54 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i95, i64 32
   %57 = load i32, ptr %56, align 4
   %58 = icmp slt i32 %57, %14
-  %.19.i.i.i87 = select i1 %58, ptr %.0811.i.i.i86, ptr %.012.i.i.i85
-  %.1.in.v.i.i.i88 = select i1 %58, i64 24, i64 16
-  %.1.in.i.i.i89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i85, i64 %.1.in.v.i.i.i88
-  %.1.i.i.i90 = load ptr, ptr %.1.in.i.i.i89, align 8
-  %.not.i.i.i91 = icmp eq ptr %.1.i.i.i90, null
-  br i1 %.not.i.i.i91, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i92, label %.lr.ph.i.i.i84, !llvm.loop !11
+  %.19.i.i.i97 = select i1 %58, ptr %.0811.i.i.i96, ptr %.012.i.i.i95
+  %.1.in.v.i.i.i98 = select i1 %58, i64 24, i64 16
+  %.1.in.i.i.i99 = getelementptr inbounds nuw i8, ptr %.012.i.i.i95, i64 %.1.in.v.i.i.i98
+  %.1.i.i.i100 = load ptr, ptr %.1.in.i.i.i99, align 8
+  %.not.i.i.i101 = icmp eq ptr %.1.i.i.i100, null
+  br i1 %.not.i.i.i101, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i102, label %.lr.ph.i.i.i94, !llvm.loop !11
 
-_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i92: ; preds = %.lr.ph.i.i.i84
-  %59 = icmp eq ptr %.19.i.i.i87, getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8)
-  br i1 %59, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit95, label %60
+_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i102: ; preds = %.lr.ph.i.i.i94
+  %59 = icmp eq ptr %.19.i.i.i97, getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8)
+  br i1 %59, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit105, label %60
 
-60:                                               ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i92
-  %61 = getelementptr inbounds nuw i8, ptr %.19.i.i.i87, i64 32
+60:                                               ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i102
+  %61 = getelementptr inbounds nuw i8, ptr %.19.i.i.i97, i64 32
   %62 = load i32, ptr %61, align 4
   %63 = icmp slt i32 %14, %62
-  %spec.select.i.i93 = select i1 %63, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), ptr %.19.i.i.i87
-  br label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit95
+  %spec.select.i.i103 = select i1 %63, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), ptr %.19.i.i.i97
+  br label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit105
 
-_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit95: ; preds = %54, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i92, %60
-  %.sroa.0.0.i.i94 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i92 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), %54 ], [ %spec.select.i.i93, %60 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i94, i64 36
+_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit105: ; preds = %54, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i102, %60
+  %.sroa.0.0.i.i104 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i102 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), %54 ], [ %spec.select.i.i103, %60 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i104, i64 36
   %65 = load i32, ptr %64, align 4
   store i32 %65, ptr %13, align 4
-  br label %.critedge82
+  br label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
 66:                                               ; preds = %34, %34, %34, %34, %34, %34
   %67 = mul nsw i32 %32, %20
@@ -3631,7 +3631,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit95: ; preds = %54, %_ZNSt8
   %70 = getelementptr inbounds i8, ptr %39, i64 %69
   %71 = load i8, ptr %70, align 1
   %72 = icmp eq i8 %71, 46
-  br i1 %72, label %73, label %.critedge82
+  br i1 %72, label %73, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
 73:                                               ; preds = %66
   store i8 46, ptr %40, align 1
@@ -3662,82 +3662,82 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit95: ; preds = %54, %_ZNSt8
   br label %_ZN10open_spiel9laser_tag13LaserTagState8SetFieldEiic.exit
 
 _ZN10open_spiel9laser_tag13LaserTagState8SetFieldEiic.exit: ; preds = %73, %.sink.split.i
-  switch i32 %2, label %.critedge82 [
+  switch i32 %2, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread [
     i32 7, label %85
     i32 8, label %97
   ]
 
 85:                                               ; preds = %_ZN10open_spiel9laser_tag13LaserTagState8SetFieldEiic.exit
   %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111leftMappingE, i64 16), align 8
-  %.not10.i.i.i96 = icmp eq ptr %86, null
-  br i1 %.not10.i.i.i96, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit108, label %.lr.ph.i.i.i97
+  %.not10.i.i.i106 = icmp eq ptr %86, null
+  br i1 %.not10.i.i.i106, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit118, label %.lr.ph.i.i.i107
 
-.lr.ph.i.i.i97:                                   ; preds = %85, %.lr.ph.i.i.i97
-  %.012.i.i.i98 = phi ptr [ %.1.i.i.i103, %.lr.ph.i.i.i97 ], [ %86, %85 ]
-  %.0811.i.i.i99 = phi ptr [ %.19.i.i.i100, %.lr.ph.i.i.i97 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111leftMappingE, i64 8), %85 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i98, i64 32
+.lr.ph.i.i.i107:                                  ; preds = %85, %.lr.ph.i.i.i107
+  %.012.i.i.i108 = phi ptr [ %.1.i.i.i113, %.lr.ph.i.i.i107 ], [ %86, %85 ]
+  %.0811.i.i.i109 = phi ptr [ %.19.i.i.i110, %.lr.ph.i.i.i107 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111leftMappingE, i64 8), %85 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i108, i64 32
   %88 = load i32, ptr %87, align 4
   %89 = icmp slt i32 %88, %14
-  %.19.i.i.i100 = select i1 %89, ptr %.0811.i.i.i99, ptr %.012.i.i.i98
-  %.1.in.v.i.i.i101 = select i1 %89, i64 24, i64 16
-  %.1.in.i.i.i102 = getelementptr inbounds nuw i8, ptr %.012.i.i.i98, i64 %.1.in.v.i.i.i101
-  %.1.i.i.i103 = load ptr, ptr %.1.in.i.i.i102, align 8
-  %.not.i.i.i104 = icmp eq ptr %.1.i.i.i103, null
-  br i1 %.not.i.i.i104, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i105, label %.lr.ph.i.i.i97, !llvm.loop !11
+  %.19.i.i.i110 = select i1 %89, ptr %.0811.i.i.i109, ptr %.012.i.i.i108
+  %.1.in.v.i.i.i111 = select i1 %89, i64 24, i64 16
+  %.1.in.i.i.i112 = getelementptr inbounds nuw i8, ptr %.012.i.i.i108, i64 %.1.in.v.i.i.i111
+  %.1.i.i.i113 = load ptr, ptr %.1.in.i.i.i112, align 8
+  %.not.i.i.i114 = icmp eq ptr %.1.i.i.i113, null
+  br i1 %.not.i.i.i114, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i115, label %.lr.ph.i.i.i107, !llvm.loop !11
 
-_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i105: ; preds = %.lr.ph.i.i.i97
-  %90 = icmp eq ptr %.19.i.i.i100, getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111leftMappingE, i64 8)
-  br i1 %90, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit108, label %91
+_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i115: ; preds = %.lr.ph.i.i.i107
+  %90 = icmp eq ptr %.19.i.i.i110, getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111leftMappingE, i64 8)
+  br i1 %90, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit118, label %91
 
-91:                                               ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i105
-  %92 = getelementptr inbounds nuw i8, ptr %.19.i.i.i100, i64 32
+91:                                               ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i115
+  %92 = getelementptr inbounds nuw i8, ptr %.19.i.i.i110, i64 32
   %93 = load i32, ptr %92, align 4
   %94 = icmp slt i32 %14, %93
-  %spec.select.i.i106 = select i1 %94, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111leftMappingE, i64 8), ptr %.19.i.i.i100
-  br label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit108
+  %spec.select.i.i116 = select i1 %94, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111leftMappingE, i64 8), ptr %.19.i.i.i110
+  br label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit118
 
-_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit108: ; preds = %85, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i105, %91
-  %.sroa.0.0.i.i107 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111leftMappingE, i64 8), %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i105 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111leftMappingE, i64 8), %85 ], [ %spec.select.i.i106, %91 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i107, i64 36
+_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit118: ; preds = %85, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i115, %91
+  %.sroa.0.0.i.i117 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111leftMappingE, i64 8), %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i115 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111leftMappingE, i64 8), %85 ], [ %spec.select.i.i116, %91 ]
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i117, i64 36
   %96 = load i32, ptr %95, align 4
   store i32 %96, ptr %13, align 4
-  br label %.critedge82
+  br label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
 97:                                               ; preds = %_ZN10open_spiel9laser_tag13LaserTagState8SetFieldEiic.exit
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 16), align 8
-  %.not10.i.i.i109 = icmp eq ptr %98, null
-  br i1 %.not10.i.i.i109, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit121, label %.lr.ph.i.i.i110
+  %.not10.i.i.i119 = icmp eq ptr %98, null
+  br i1 %.not10.i.i.i119, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit131, label %.lr.ph.i.i.i120
 
-.lr.ph.i.i.i110:                                  ; preds = %97, %.lr.ph.i.i.i110
-  %.012.i.i.i111 = phi ptr [ %.1.i.i.i116, %.lr.ph.i.i.i110 ], [ %98, %97 ]
-  %.0811.i.i.i112 = phi ptr [ %.19.i.i.i113, %.lr.ph.i.i.i110 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), %97 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.012.i.i.i111, i64 32
+.lr.ph.i.i.i120:                                  ; preds = %97, %.lr.ph.i.i.i120
+  %.012.i.i.i121 = phi ptr [ %.1.i.i.i126, %.lr.ph.i.i.i120 ], [ %98, %97 ]
+  %.0811.i.i.i122 = phi ptr [ %.19.i.i.i123, %.lr.ph.i.i.i120 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), %97 ]
+  %99 = getelementptr inbounds nuw i8, ptr %.012.i.i.i121, i64 32
   %100 = load i32, ptr %99, align 4
   %101 = icmp slt i32 %100, %14
-  %.19.i.i.i113 = select i1 %101, ptr %.0811.i.i.i112, ptr %.012.i.i.i111
-  %.1.in.v.i.i.i114 = select i1 %101, i64 24, i64 16
-  %.1.in.i.i.i115 = getelementptr inbounds nuw i8, ptr %.012.i.i.i111, i64 %.1.in.v.i.i.i114
-  %.1.i.i.i116 = load ptr, ptr %.1.in.i.i.i115, align 8
-  %.not.i.i.i117 = icmp eq ptr %.1.i.i.i116, null
-  br i1 %.not.i.i.i117, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i118, label %.lr.ph.i.i.i110, !llvm.loop !11
+  %.19.i.i.i123 = select i1 %101, ptr %.0811.i.i.i122, ptr %.012.i.i.i121
+  %.1.in.v.i.i.i124 = select i1 %101, i64 24, i64 16
+  %.1.in.i.i.i125 = getelementptr inbounds nuw i8, ptr %.012.i.i.i121, i64 %.1.in.v.i.i.i124
+  %.1.i.i.i126 = load ptr, ptr %.1.in.i.i.i125, align 8
+  %.not.i.i.i127 = icmp eq ptr %.1.i.i.i126, null
+  br i1 %.not.i.i.i127, label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i128, label %.lr.ph.i.i.i120, !llvm.loop !11
 
-_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i118: ; preds = %.lr.ph.i.i.i110
-  %102 = icmp eq ptr %.19.i.i.i113, getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8)
-  br i1 %102, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit121, label %103
+_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i128: ; preds = %.lr.ph.i.i.i120
+  %102 = icmp eq ptr %.19.i.i.i123, getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8)
+  br i1 %102, label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit131, label %103
 
-103:                                              ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i118
-  %104 = getelementptr inbounds nuw i8, ptr %.19.i.i.i113, i64 32
+103:                                              ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i128
+  %104 = getelementptr inbounds nuw i8, ptr %.19.i.i.i123, i64 32
   %105 = load i32, ptr %104, align 4
   %106 = icmp slt i32 %14, %105
-  %spec.select.i.i119 = select i1 %106, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), ptr %.19.i.i.i113
-  br label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit121
+  %spec.select.i.i129 = select i1 %106, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), ptr %.19.i.i.i123
+  br label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit131
 
-_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit121: ; preds = %97, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i118, %103
-  %.sroa.0.0.i.i120 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i118 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), %97 ], [ %spec.select.i.i119, %103 ]
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i120, i64 36
+_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit131: ; preds = %97, %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i128, %103
+  %.sroa.0.0.i.i130 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i128 ], [ getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_112rightMappingE, i64 8), %97 ], [ %spec.select.i.i129, %103 ]
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i130, i64 36
   %108 = load i32, ptr %107, align 4
   store i32 %108, ptr %13, align 4
-  br label %.critedge82
+  br label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
 109:                                              ; preds = %34
   switch i32 %14, label %118 [
@@ -3767,27 +3767,27 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit121: ; preds = %97, %_ZNSt
   %.072 = phi i32 [ %24, %110 ], [ %24, %112 ], [ %115, %114 ], [ %117, %116 ], [ %24, %109 ]
   %.071 = phi i32 [ %111, %110 ], [ %113, %112 ], [ %8, %114 ], [ %8, %116 ], [ %8, %109 ]
   %119 = or i32 %.071, %.072
-  %or.cond.i122138 = icmp sgt i32 %119, -1
-  br i1 %or.cond.i122138, label %.lr.ph, label %.critedge82
+  %or.cond.i132158 = icmp sgt i32 %119, -1
+  br i1 %or.cond.i132158, label %.lr.ph, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
 .lr.ph:                                           ; preds = %118, %137
-  %.1140 = phi i32 [ %.2, %137 ], [ %.071, %118 ]
-  %.173139 = phi i32 [ %.274, %137 ], [ %.072, %118 ]
-  %120 = icmp slt i32 %.1140, %29
-  %121 = icmp slt i32 %.173139, %32
-  %or.cond = and i1 %121, %120
-  br i1 %or.cond, label %122, label %.critedge82
+  %.1160 = phi i32 [ %.2, %137 ], [ %.071, %118 ]
+  %.173159 = phi i32 [ %.274, %137 ], [ %.072, %118 ]
+  %120 = icmp slt i32 %.1160, %29
+  %121 = icmp slt i32 %.173159, %32
+  %or.cond157 = and i1 %121, %120
+  br i1 %or.cond157, label %122, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
 122:                                              ; preds = %.lr.ph
-  %123 = mul nsw i32 %.1140, %32
-  %124 = add nsw i32 %123, %.173139
+  %123 = mul nsw i32 %.1160, %32
+  %124 = add nsw i32 %123, %.173159
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds i8, ptr %39, i64 %125
   %127 = load i8, ptr %126, align 1
   switch i8 %127, label %128 [
     i8 65, label %.loopexit.loopexit
     i8 66, label %.loopexit
-    i8 42, label %.critedge82
+    i8 42, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
   ]
 
 128:                                              ; preds = %122
@@ -3799,34 +3799,34 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit121: ; preds = %97, %_ZNSt
   ]
 
 129:                                              ; preds = %128
-  %130 = add nsw i32 %.1140, -1
+  %130 = add nsw i32 %.1160, -1
   br label %137
 
 131:                                              ; preds = %128
-  %132 = add nsw i32 %.1140, 1
+  %132 = add nsw i32 %.1160, 1
   br label %137
 
 133:                                              ; preds = %128
-  %134 = add nsw i32 %.173139, 1
+  %134 = add nsw i32 %.173159, 1
   br label %137
 
 135:                                              ; preds = %128
-  %136 = add nsw i32 %.173139, -1
+  %136 = add nsw i32 %.173159, -1
   br label %137
 
 137:                                              ; preds = %128, %131, %135, %133, %129
-  %.274 = phi i32 [ %.173139, %129 ], [ %.173139, %131 ], [ %134, %133 ], [ %136, %135 ], [ %.173139, %128 ]
-  %.2 = phi i32 [ %130, %129 ], [ %132, %131 ], [ %.1140, %133 ], [ %.1140, %135 ], [ %.1140, %128 ]
+  %.274 = phi i32 [ %.173159, %129 ], [ %.173159, %131 ], [ %134, %133 ], [ %136, %135 ], [ %.173159, %128 ]
+  %.2 = phi i32 [ %130, %129 ], [ %132, %131 ], [ %.1160, %133 ], [ %.1160, %135 ], [ %.1160, %128 ]
   %138 = or i32 %.2, %.274
-  %or.cond.i122 = icmp sgt i32 %138, -1
-  br i1 %or.cond.i122, label %.lr.ph, label %.critedge82, !llvm.loop !12
+  %or.cond.i132 = icmp sgt i32 %138, -1
+  br i1 %or.cond.i132, label %.lr.ph, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread, !llvm.loop !12
 
 .loopexit.loopexit:                               ; preds = %122
   br label %.loopexit
 
 .loopexit:                                        ; preds = %122, %.loopexit.loopexit
   %.ph = phi i1 [ false, %.loopexit.loopexit ], [ true, %122 ]
-  %.ph133 = phi i1 [ true, %.loopexit.loopexit ], [ false, %122 ]
+  %.ph143 = phi i1 [ true, %.loopexit.loopexit ], [ false, %122 ]
   %.075.ph = phi i32 [ 0, %.loopexit.loopexit ], [ 1, %122 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %140 = load i32, ptr %139, align 8
@@ -3852,58 +3852,71 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit121: ; preds = %97, %_ZNSt
   store i8 46, ptr %156, align 1
   store i32 -1, ptr %145, align 4
   store i32 -1, ptr %147, align 4
-  br i1 %.ph, label %157, label %.critedge
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %158 = load i8, ptr %157, align 8
+  %159 = trunc i8 %158 to i1
+  %or.cond = select i1 %.ph, i1 %159, i1 false
+  br i1 %or.cond, label %160, label %169
 
-157:                                              ; preds = %.loopexit
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %159 = load i8, ptr %158, align 8
-  %160 = trunc i8 %159 to i1
+160:                                              ; preds = %.loopexit
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %162 = load ptr, ptr %161, align 8
   %163 = load double, ptr %162, align 8
   %164 = fadd double %163, 1.000000e+00
   store double %164, ptr %162, align 8
-  br i1 %160, label %165, label %.critedge82
+  %165 = load ptr, ptr %161, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %167 = load double, ptr %166, align 8
+  %168 = fadd double %167, -1.000000e+00
+  store double %168, ptr %166, align 8
+  br label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
-165:                                              ; preds = %157
-  %166 = load ptr, ptr %161, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %168 = load double, ptr %167, align 8
-  %169 = fadd double %168, -1.000000e+00
-  store double %169, ptr %167, align 8
-  br label %.critedge82
+169:                                              ; preds = %.loopexit
+  %.not = xor i1 %.ph, true
+  %or.cond85 = select i1 %.not, i1 true, i1 %159
+  br i1 %or.cond85, label %175, label %170
 
-.critedge:                                        ; preds = %.loopexit
-  br i1 %.ph133, label %170, label %.critedge82
+170:                                              ; preds = %169
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %172 = load ptr, ptr %171, align 8
+  %173 = load double, ptr %172, align 8
+  %174 = fadd double %173, 1.000000e+00
+  store double %174, ptr %172, align 8
+  br label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
-170:                                              ; preds = %.critedge
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %172 = load i8, ptr %171, align 8
-  %173 = trunc i8 %172 to i1
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %175 = load ptr, ptr %174, align 8
-  br i1 %173, label %176, label %183
+175:                                              ; preds = %169
+  %or.cond88 = select i1 %.ph143, i1 %159, i1 false
+  br i1 %or.cond88, label %176, label %185
 
-176:                                              ; preds = %170
-  %177 = load double, ptr %175, align 8
-  %178 = fadd double %177, -1.000000e+00
-  store double %178, ptr %175, align 8
-  %179 = load ptr, ptr %174, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %181 = load double, ptr %180, align 8
-  %182 = fadd double %181, 1.000000e+00
-  store double %182, ptr %180, align 8
-  br label %.critedge82
+176:                                              ; preds = %175
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %178 = load ptr, ptr %177, align 8
+  %179 = load double, ptr %178, align 8
+  %180 = fadd double %179, -1.000000e+00
+  store double %180, ptr %178, align 8
+  %181 = load ptr, ptr %177, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
+  %183 = load double, ptr %182, align 8
+  %184 = fadd double %183, 1.000000e+00
+  store double %184, ptr %182, align 8
+  br label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
 
-183:                                              ; preds = %170
-  %184 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %185 = load double, ptr %184, align 8
-  %186 = fadd double %185, 1.000000e+00
-  store double %186, ptr %184, align 8
-  br label %.critedge82
+185:                                              ; preds = %175
+  %.not89 = xor i1 %.ph143, true
+  %or.cond92 = select i1 %.not89, i1 true, i1 %159
+  br i1 %or.cond92, label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread, label %186
 
-.critedge82:                                      ; preds = %122, %137, %.lr.ph, %157, %118, %34, %3, %26, %165, %176, %183, %.critedge, %66, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit121, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit108, %_ZN10open_spiel9laser_tag13LaserTagState8SetFieldEiic.exit, %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit95, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit
-  %.0 = phi i1 [ false, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit ], [ false, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit95 ], [ false, %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit ], [ false, %_ZN10open_spiel9laser_tag13LaserTagState8SetFieldEiic.exit ], [ false, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit108 ], [ false, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit121 ], [ false, %66 ], [ true, %.critedge ], [ true, %183 ], [ true, %176 ], [ true, %165 ], [ false, %26 ], [ false, %3 ], [ false, %34 ], [ false, %118 ], [ true, %157 ], [ false, %.lr.ph ], [ false, %137 ], [ false, %122 ]
+186:                                              ; preds = %185
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  %190 = load double, ptr %189, align 8
+  %191 = fadd double %190, 1.000000e+00
+  store double %191, ptr %189, align 8
+  br label %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread
+
+_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit.thread: ; preds = %122, %137, %.lr.ph, %118, %34, %3, %26, %160, %176, %186, %185, %170, %66, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit131, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit118, %_ZN10open_spiel9laser_tag13LaserTagState8SetFieldEiic.exit, %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit105, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit
+  %.0 = phi i1 [ false, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit ], [ false, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit105 ], [ false, %_ZNK10open_spiel9laser_tag13LaserTagState8InBoundsEii.exit ], [ false, %_ZN10open_spiel9laser_tag13LaserTagState8SetFieldEiic.exit ], [ false, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit118 ], [ false, %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit131 ], [ false, %66 ], [ true, %170 ], [ true, %185 ], [ true, %186 ], [ true, %176 ], [ true, %160 ], [ false, %26 ], [ false, %3 ], [ false, %34 ], [ false, %118 ], [ false, %.lr.ph ], [ false, %137 ], [ false, %122 ]
   ret i1 %.0
 }
 

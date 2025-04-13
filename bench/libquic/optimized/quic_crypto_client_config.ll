@@ -7232,12 +7232,12 @@ define noundef range(i32 0, 46) i32 @_ZN3net22QuicCryptoClientConfig20CacheNewSe
   br label %30
 
 30:                                               ; preds = %26, %23
-  %.sroa.022.0 = phi i64 [ %29, %26 ], [ 0, %23 ]
-  %.sroa.015.0.copyload = load ptr, ptr %11, align 8, !tbaa !108
-  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.216.0.copyload = load i64, ptr %.sroa.216.0..sroa_idx, align 8, !tbaa !97
-  %.sroa.014.0.copyload = load i64, ptr %10, align 8, !tbaa !97
-  %31 = call noundef i32 @_ZN3net22QuicCryptoClientConfig11CachedState15SetServerConfigEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_12QuicWallTimeESB_PS9_(ptr noundef nonnull align 8 dereferenceable(384) %7, ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload, i64 %.sroa.014.0.copyload, i64 %.sroa.022.0, ptr noundef %8)
+  %.sroa.028.0 = phi i64 [ %29, %26 ], [ 0, %23 ]
+  %.sroa.021.0.copyload = load ptr, ptr %11, align 8, !tbaa !108
+  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.222.0.copyload = load i64, ptr %.sroa.222.0..sroa_idx, align 8, !tbaa !97
+  %.sroa.020.0.copyload = load i64, ptr %10, align 8, !tbaa !97
+  %31 = call noundef i32 @_ZN3net22QuicCryptoClientConfig11CachedState15SetServerConfigEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_12QuicWallTimeESB_PS9_(ptr noundef nonnull align 8 dereferenceable(384) %7, ptr %.sroa.021.0.copyload, i64 %.sroa.222.0.copyload, i64 %.sroa.020.0.copyload, i64 %.sroa.028.0, ptr noundef %8)
   switch i32 %31, label %32 [
     i32 3, label %101
     i32 5, label %33
@@ -7253,10 +7253,10 @@ define noundef range(i32 0, 46) i32 @_ZN3net22QuicCryptoClientConfig20CacheNewSe
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %33
-  %.sroa.011.0.copyload = load ptr, ptr %13, align 8, !tbaa !108
-  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8, !tbaa !97
-  call void @_ZN3net22QuicCryptoClientConfig11CachedState24set_source_address_tokenEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(384) %7, ptr %.sroa.011.0.copyload, i64 %.sroa.212.0.copyload)
+  %.sroa.017.0.copyload = load ptr, ptr %13, align 8, !tbaa !108
+  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.218.0.copyload = load i64, ptr %.sroa.218.0..sroa_idx, align 8, !tbaa !97
+  call void @_ZN3net22QuicCryptoClientConfig11CachedState24set_source_address_tokenEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(384) %7, ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload)
   br label %36
 
 36:                                               ; preds = %35, %33
@@ -7268,20 +7268,18 @@ define noundef range(i32 0, 46) i32 @_ZN3net22QuicCryptoClientConfig20CacheNewSe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %37 = call noundef zeroext i1 @_ZNK3net22CryptoHandshakeMessage14GetStringPieceEjPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 1179603536, ptr noundef nonnull %14)
   %38 = call noundef zeroext i1 @_ZNK3net22CryptoHandshakeMessage14GetStringPieceEjPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef -11251133, ptr noundef nonnull %15)
-  %.not = xor i1 %37, true
-  %.not46 = xor i1 %38, true
-  %brmerge = or i1 %.not, %.not46
-  br i1 %brmerge, label %65, label %39
+  %or.cond = and i1 %37, %38
+  br i1 %or.cond, label %39, label %65
 
 39:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  %.sroa.03.0.copyload = load ptr, ptr %15, align 8, !tbaa !108
-  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !97
+  %.sroa.09.0.copyload = load ptr, ptr %15, align 8, !tbaa !108
+  %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.210.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !97
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %41 = load ptr, ptr %40, align 8, !tbaa !180
-  %42 = invoke noundef zeroext i1 @_ZN3net14CertCompressor15DecompressChainEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKSt6vectorIS8_SaIS8_EEPKNS_14CommonCertSetsEPSC_(ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %41, ptr noundef nonnull %17)
+  %42 = invoke noundef zeroext i1 @_ZN3net14CertCompressor15DecompressChainEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKSt6vectorIS8_SaIS8_EEPKNS_14CommonCertSetsEPSC_(ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %41, ptr noundef nonnull %17)
           to label %43 unwind label %48
 
 43:                                               ; preds = %39
@@ -7311,10 +7309,10 @@ define noundef range(i32 0, 46) i32 @_ZN3net22QuicCryptoClientConfig20CacheNewSe
           to label %52 unwind label %48
 
 52:                                               ; preds = %50
-  %.sroa.01.0.copyload = load ptr, ptr %16, align 8, !tbaa !108
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !97
-  invoke void @_ZN3net22QuicCryptoClientConfig11CachedState8SetProofERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEN4base16BasicStringPieceIS8_EESF_SF_(ptr noundef nonnull align 8 dereferenceable(384) %7, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload, ptr %4, i64 %5, ptr noundef nonnull byval(%"class.base::BasicStringPiece") align 8 %14)
+  %.sroa.07.0.copyload = load ptr, ptr %16, align 8, !tbaa !108
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !97
+  invoke void @_ZN3net22QuicCryptoClientConfig11CachedState8SetProofERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEN4base16BasicStringPieceIS8_EESF_SF_(ptr noundef nonnull align 8 dereferenceable(384) %7, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload, ptr %4, i64 %5, ptr noundef nonnull byval(%"class.base::BasicStringPiece") align 8 %14)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %48
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %44, %52
@@ -7375,8 +7373,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %71 = load ptr, ptr %70, align 8, !tbaa !38
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %73 = load ptr, ptr %72, align 8, !tbaa !41
-  %.not.i.i.i51 = icmp eq ptr %73, %71
-  br i1 %.not.i.i.i51, label %_ZN3net22QuicCryptoClientConfig11CachedState10ClearProofEv.exit, label %.lr.ph.i.i.i.i.i.i
+  %.not.i.i.i53 = icmp eq ptr %73, %71
+  br i1 %.not.i.i.i53, label %_ZN3net22QuicCryptoClientConfig11CachedState10ClearProofEv.exit, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %65, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %80, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i.i ], [ %71, %65 ]
@@ -7421,8 +7419,9 @@ _ZN3net22QuicCryptoClientConfig11CachedState10ClearProofEv.exit: ; preds = %65, 
   store i64 0, ptr %88, align 8, !tbaa !24
   %89 = load ptr, ptr %87, align 8, !tbaa !27
   store i8 0, ptr %89, align 1, !tbaa !26
-  %brmerge48 = or i1 %38, %.not
-  br i1 %brmerge48, label %94, label %90
+  %.not = xor i1 %37, true
+  %or.cond3 = or i1 %38, %.not
+  br i1 %or.cond3, label %94, label %90
 
 90:                                               ; preds = %_ZN3net22QuicCryptoClientConfig11CachedState10ClearProofEv.exit
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -7431,8 +7430,8 @@ _ZN3net22QuicCryptoClientConfig11CachedState10ClearProofEv.exit: ; preds = %65, 
   br label %100
 
 94:                                               ; preds = %_ZN3net22QuicCryptoClientConfig11CachedState10ClearProofEv.exit
-  %brmerge50 = or i1 %37, %.not46
-  br i1 %brmerge50, label %99, label %95
+  %or.cond6 = and i1 %38, %.not
+  br i1 %or.cond6, label %95, label %99
 
 95:                                               ; preds = %94
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 8

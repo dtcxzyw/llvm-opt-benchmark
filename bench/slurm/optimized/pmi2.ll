@@ -933,18 +933,16 @@ define internal i32 @_handle_info_getnodeattr(i32 noundef %0, i32 noundef %1, pt
   %12 = call zeroext i1 @client_req_get_bool(ptr noundef %2, ptr noundef nonnull @.str.67, ptr noundef nonnull %5) #7
   %13 = load ptr, ptr %4, align 8
   %14 = call ptr @node_attr_get(ptr noundef %13) #7
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %15, label %18
-
-15:                                               ; preds = %9
-  %16 = load i8, ptr %5, align 1, !range !13, !noundef !14
+  %15 = icmp eq ptr %14, null
+  %16 = load i8, ptr %5, align 1, !range !13
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %24, label %18
+  %or.cond = select i1 %15, i1 %17, i1 false
+  br i1 %or.cond, label %24, label %18
 
-18:                                               ; preds = %15, %9
+18:                                               ; preds = %9
   %19 = call ptr @client_resp_new() #7
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %19, ptr noundef nonnull @.str.68) #7
-  br i1 %.not, label %20, label %21
+  br i1 %15, label %20, label %21
 
 20:                                               ; preds = %18
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %19, ptr noundef nonnull @.str.69) #7
@@ -959,13 +957,13 @@ define internal i32 @_handle_info_getnodeattr(i32 noundef %0, i32 noundef %1, pt
   call void @client_resp_free(ptr noundef %19) #7
   br label %27
 
-24:                                               ; preds = %15
+24:                                               ; preds = %9
   %25 = load ptr, ptr %4, align 8
   %26 = call i32 @enqueue_nag_req(i32 noundef %0, i32 noundef %1, ptr noundef %25) #7
   br label %27
 
 27:                                               ; preds = %24, %22
-  %.0 = phi i32 [ %23, %22 ], [ %26, %24 ]
+  %.0 = phi i32 [ %26, %24 ], [ %23, %22 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #7
   %28 = call i32 @slurm_get_log_level() #7
   %29 = icmp sgt i32 %28, 6

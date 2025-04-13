@@ -893,7 +893,7 @@ define noundef zeroext i1 @_ZN3net12HpackDecoder16DecodeNextOpcodeEPNS_16HpackIn
 _ZN3net12HpackDecoder23DecodeNextIndexedHeaderEPNS_16HpackInputStreamE.exit: ; preds = %6, %8, %13
   %.0.i = phi i1 [ false, %6 ], [ false, %8 ], [ true, %13 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
-  br label %50
+  br label %49
 
 17:                                               ; preds = %2
   %18 = tail call noundef zeroext i1 @_ZN3net16HpackInputStream21MatchPrefixAndConsumeENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(33) %1, i8 1, i64 2)
@@ -901,7 +901,7 @@ _ZN3net12HpackDecoder23DecodeNextIndexedHeaderEPNS_16HpackInputStreamE.exit: ; p
 
 19:                                               ; preds = %17
   %20 = tail call noundef zeroext i1 @_ZN3net12HpackDecoder23DecodeNextLiteralHeaderEPNS_16HpackInputStreamEb(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull %1, i1 noundef zeroext true)
-  br label %50
+  br label %49
 
 21:                                               ; preds = %17
   %22 = tail call noundef zeroext i1 @_ZN3net16HpackInputStream21MatchPrefixAndConsumeENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(33) %1, i8 0, i64 4)
@@ -909,7 +909,7 @@ _ZN3net12HpackDecoder23DecodeNextIndexedHeaderEPNS_16HpackInputStreamE.exit: ; p
 
 23:                                               ; preds = %21
   %24 = tail call noundef zeroext i1 @_ZN3net12HpackDecoder23DecodeNextLiteralHeaderEPNS_16HpackInputStreamEb(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull %1, i1 noundef zeroext false)
-  br label %50
+  br label %49
 
 25:                                               ; preds = %21
   %26 = tail call noundef zeroext i1 @_ZN3net16HpackInputStream21MatchPrefixAndConsumeENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(33) %1, i8 1, i64 4)
@@ -917,51 +917,49 @@ _ZN3net12HpackDecoder23DecodeNextIndexedHeaderEPNS_16HpackInputStreamE.exit: ; p
 
 27:                                               ; preds = %25
   %28 = tail call noundef zeroext i1 @_ZN3net12HpackDecoder23DecodeNextLiteralHeaderEPNS_16HpackInputStreamEb(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull %1, i1 noundef zeroext false)
-  br label %50
+  br label %49
 
 29:                                               ; preds = %25
   %30 = tail call noundef zeroext i1 @_ZN3net16HpackInputStream21MatchPrefixAndConsumeENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(33) %1, i8 1, i64 3)
-  br i1 %30, label %31, label %50
+  br i1 %30, label %31, label %49
 
 31:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
   store i32 0, ptr %3, align 4, !tbaa !96
   %32 = call noundef zeroext i1 @_ZN3net16HpackInputStream16DecodeNextUint32EPj(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull %3)
-  br i1 %32, label %33, label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 478
+  %34 = load i8, ptr %33, align 2, !range !70
+  %35 = trunc nuw i8 %34 to i1
+  %or.cond.i = select i1 %32, i1 %35, i1 false
+  br i1 %or.cond.i, label %36, label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 478
-  %35 = load i8, ptr %34, align 2, !tbaa !72, !range !70, !noundef !71
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit
+36:                                               ; preds = %31
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 477
+  %38 = load i8, ptr %37, align 1, !tbaa !73
+  %39 = add i8 %38, 1
+  store i8 %39, ptr %37, align 1, !tbaa !73
+  %40 = icmp ugt i8 %39, 2
+  br i1 %40, label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit, label %41
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 477
-  %39 = load i8, ptr %38, align 1, !tbaa !73
-  %40 = add i8 %39, 1
-  store i8 %40, ptr %38, align 1, !tbaa !73
-  %41 = icmp ugt i8 %40, 2
-  br i1 %41, label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit, label %42
+41:                                               ; preds = %36
+  %42 = load i32, ptr %3, align 4, !tbaa !96
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %45 = load i64, ptr %44, align 8, !tbaa !97
+  %46 = icmp ult i64 %45, %43
+  br i1 %46, label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit, label %47
 
-42:                                               ; preds = %37
-  %43 = load i32, ptr %3, align 4, !tbaa !96
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %46 = load i64, ptr %45, align 8, !tbaa !97
-  %47 = icmp ult i64 %46, %44
-  br i1 %47, label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit, label %48
-
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN3net16HpackHeaderTable10SetMaxSizeEm(ptr noundef nonnull align 8 dereferenceable(256) %49, i64 noundef %44)
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @_ZN3net16HpackHeaderTable10SetMaxSizeEm(ptr noundef nonnull align 8 dereferenceable(256) %48, i64 noundef %43)
   br label %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit
 
-_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit: ; preds = %31, %33, %37, %42, %48
-  %.0.i25 = phi i1 [ true, %48 ], [ false, %31 ], [ false, %33 ], [ false, %37 ], [ false, %42 ]
+_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit: ; preds = %31, %36, %41, %47
+  %.0.i25 = phi i1 [ true, %47 ], [ false, %31 ], [ false, %36 ], [ false, %41 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
-  br label %50
+  br label %49
 
-50:                                               ; preds = %29, %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit, %27, %23, %19, %_ZN3net12HpackDecoder23DecodeNextIndexedHeaderEPNS_16HpackInputStreamE.exit
+49:                                               ; preds = %29, %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit, %27, %23, %19, %_ZN3net12HpackDecoder23DecodeNextIndexedHeaderEPNS_16HpackInputStreamE.exit
   %.0 = phi i1 [ %.0.i, %_ZN3net12HpackDecoder23DecodeNextIndexedHeaderEPNS_16HpackInputStreamE.exit ], [ %20, %19 ], [ %24, %23 ], [ %28, %27 ], [ %.0.i25, %_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdateEPNS_16HpackInputStreamE.exit ], [ false, %29 ]
   ret i1 %.0
 }
@@ -1080,37 +1078,35 @@ define noundef zeroext i1 @_ZN3net12HpackDecoder31DecodeNextHeaderTableSizeUpdat
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
   store i32 0, ptr %3, align 4, !tbaa !96
   %4 = call noundef zeroext i1 @_ZN3net16HpackInputStream16DecodeNextUint32EPj(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull %3)
-  br i1 %4, label %5, label %22
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 478
+  %6 = load i8, ptr %5, align 2, !range !70
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond, label %8, label %21
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 478
-  %7 = load i8, ptr %6, align 2, !tbaa !72, !range !70, !noundef !71
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %22
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 477
+  %10 = load i8, ptr %9, align 1, !tbaa !73
+  %11 = add i8 %10, 1
+  store i8 %11, ptr %9, align 1, !tbaa !73
+  %12 = icmp ugt i8 %11, 2
+  br i1 %12, label %21, label %13
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 477
-  %11 = load i8, ptr %10, align 1, !tbaa !73
-  %12 = add i8 %11, 1
-  store i8 %12, ptr %10, align 1, !tbaa !73
-  %13 = icmp ugt i8 %12, 2
-  br i1 %13, label %22, label %14
+13:                                               ; preds = %8
+  %14 = load i32, ptr %3, align 4, !tbaa !96
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %17 = load i64, ptr %16, align 8, !tbaa !97
+  %18 = icmp ult i64 %17, %15
+  br i1 %18, label %21, label %19
 
-14:                                               ; preds = %9
-  %15 = load i32, ptr %3, align 4, !tbaa !96
-  %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %18 = load i64, ptr %17, align 8, !tbaa !97
-  %19 = icmp ult i64 %18, %16
-  br i1 %19, label %22, label %20
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @_ZN3net16HpackHeaderTable10SetMaxSizeEm(ptr noundef nonnull align 8 dereferenceable(256) %20, i64 noundef %15)
+  br label %21
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN3net16HpackHeaderTable10SetMaxSizeEm(ptr noundef nonnull align 8 dereferenceable(256) %21, i64 noundef %16)
-  br label %22
-
-22:                                               ; preds = %14, %9, %5, %2, %20
-  %.0 = phi i1 [ true, %20 ], [ false, %2 ], [ false, %5 ], [ false, %9 ], [ false, %14 ]
+21:                                               ; preds = %13, %8, %2, %19
+  %.0 = phi i1 [ true, %19 ], [ false, %2 ], [ false, %8 ], [ false, %13 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
   ret i1 %.0
 }

@@ -381,8 +381,8 @@ define range(i32 -43, 1) i32 @prte_util_register_stackhandlers() local_unnamed_a
 
 38:                                               ; preds = %35
   %39 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 58) #17
-  %.not = icmp eq ptr %39, null
-  br i1 %.not, label %.thread, label %40
+  %.not40 = icmp eq ptr %39, null
+  br i1 %.not40, label %.thread, label %40
 
 .thread:                                          ; preds = %38
   tail call void @free(ptr noundef nonnull %4) #15
@@ -417,34 +417,34 @@ define range(i32 -43, 1) i32 @prte_util_register_stackhandlers() local_unnamed_a
   store i32 -2147483644, ptr %51, align 8, !tbaa !26
   %52 = load ptr, ptr @prte_signal_string, align 8, !tbaa !10
   store ptr %52, ptr %3, align 8, !tbaa !10
-  %.not3758 = icmp eq ptr %52, null
-  br i1 %.not3758, label %.critedge, label %.lr.ph.preheader
+  %.not4162 = icmp eq ptr %52, null
+  br i1 %.not4162, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %49
   %53 = load i8, ptr %52, align 1, !tbaa !24
-  %.not3876 = icmp eq i8 %53, 0
-  br i1 %.not3876, label %.critedge, label %.lr.ph79
+  %.not4280 = icmp eq i8 %53, 0
+  br i1 %.not4280, label %.critedge, label %.lr.ph83
 
-.lr.ph79:                                         ; preds = %.lr.ph.preheader, %.thread51
-  %.0295978 = phi i1 [ %.13055, %.thread51 ], [ false, %.lr.ph.preheader ]
-  %.0256077 = phi ptr [ %85, %.thread51 ], [ %52, %.lr.ph.preheader ]
-  %54 = call i64 @strtol(ptr noundef nonnull %.0256077, ptr noundef nonnull %3, i32 noundef 10) #15
+.lr.ph83:                                         ; preds = %.lr.ph.preheader, %.thread55
+  %.0326382 = phi i1 [ %.13359, %.thread55 ], [ false, %.lr.ph.preheader ]
+  %.0286481 = phi ptr [ %85, %.thread55 ], [ %52, %.lr.ph.preheader ]
+  %54 = call i64 @strtol(ptr noundef nonnull %.0286481, ptr noundef nonnull %3, i32 noundef 10) #15
   %55 = trunc i64 %54 to i32
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %60
 
-57:                                               ; preds = %.lr.ph79
+57:                                               ; preds = %.lr.ph83
   %58 = load ptr, ptr %3, align 8, !tbaa !10
-  %59 = icmp eq ptr %.0256077, %58
+  %59 = icmp eq ptr %.0286481, %58
   br i1 %59, label %61, label %64
 
-60:                                               ; preds = %.lr.ph79
-  %or.cond43 = icmp ugt i32 %55, 64
-  br i1 %or.cond43, label %61, label %thread-pre-split
+60:                                               ; preds = %.lr.ph83
+  %or.cond47 = icmp ugt i32 %55, 64
+  br i1 %or.cond47, label %61, label %thread-pre-split
 
 61:                                               ; preds = %60, %57
   %62 = load ptr, ptr @prte_signal_string, align 8, !tbaa !10
-  %63 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 1, ptr noundef %62, ptr noundef nonnull %.0256077) #15
+  %63 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 1, ptr noundef %62, ptr noundef nonnull %.0286481) #15
   br label %.critedge
 
 thread-pre-split:                                 ; preds = %60
@@ -476,10 +476,10 @@ thread-pre-split:                                 ; preds = %60
 
 74:                                               ; preds = %67, %67, %72
   %75 = phi ptr [ %73, %72 ], [ %65, %67 ], [ %65, %67 ]
-  %.028.not = phi i1 [ false, %72 ], [ true, %67 ], [ true, %67 ]
+  %.031.not = phi i1 [ false, %72 ], [ true, %67 ], [ true, %67 ]
   %76 = call i32 @sigaction(i32 noundef %55, ptr noundef null, ptr noundef nonnull %2) #15
-  %.not41 = icmp eq i32 %76, 0
-  br i1 %.not41, label %77, label %.critedge
+  %.not45 = icmp eq i32 %76, 0
+  br i1 %.not45, label %77, label %.critedge
 
 77:                                               ; preds = %74
   %78 = load ptr, ptr %2, align 8, !tbaa !24
@@ -487,28 +487,28 @@ thread-pre-split:                                 ; preds = %60
   br i1 %switch, label %83, label %79
 
 79:                                               ; preds = %77
-  %brmerge = or i1 %.0295978, %.028.not
-  br i1 %brmerge, label %.thread51, label %80
+  %or.cond9.not = or i1 %.0326382, %.031.not
+  br i1 %or.cond9.not, label %.thread55, label %80
 
 80:                                               ; preds = %79
   %81 = load ptr, ptr @prte_signal_string, align 8, !tbaa !10
   %82 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.12, i32 noundef 1, i32 noundef %55, i32 noundef %55, i32 noundef %55, ptr noundef %81) #15
-  br label %.thread51
+  br label %.thread55
 
 83:                                               ; preds = %77
   %84 = call i32 @sigaction(i32 noundef %55, ptr noundef nonnull %1, ptr noundef null) #15
-  %.not42 = icmp eq i32 %84, 0
-  br i1 %.not42, label %.thread51, label %.critedge
+  %.not46 = icmp eq i32 %84, 0
+  br i1 %.not46, label %.thread55, label %.critedge
 
-.thread51:                                        ; preds = %80, %79, %83
-  %.13055 = phi i1 [ %.0295978, %83 ], [ true, %80 ], [ %.0295978, %79 ]
+.thread55:                                        ; preds = %80, %79, %83
+  %.13359 = phi i1 [ %.0326382, %83 ], [ %.0326382, %79 ], [ true, %80 ]
   %85 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %86 = load i8, ptr %75, align 1, !tbaa !24
-  %.not38 = icmp eq i8 %86, 0
-  br i1 %.not38, label %.critedge, label %.lr.ph79
+  %.not42 = icmp eq i8 %86, 0
+  br i1 %.not42, label %.critedge, label %.lr.ph83
 
-.critedge:                                        ; preds = %67, %69, %74, %64, %.thread51, %83, %.lr.ph.preheader, %49, %61, %.thread
-  %.2 = phi i32 [ -13, %.thread ], [ -43, %61 ], [ 0, %49 ], [ 0, %.lr.ph.preheader ], [ -11, %83 ], [ 0, %.thread51 ], [ -5, %64 ], [ -11, %74 ], [ -5, %69 ], [ -5, %67 ]
+.critedge:                                        ; preds = %67, %69, %74, %64, %.thread55, %83, %.lr.ph.preheader, %49, %61, %.thread
+  %.2 = phi i32 [ -13, %.thread ], [ -43, %61 ], [ 0, %49 ], [ 0, %.lr.ph.preheader ], [ -11, %83 ], [ 0, %.thread55 ], [ -5, %64 ], [ -11, %74 ], [ -5, %69 ], [ -5, %67 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2) #15
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #15

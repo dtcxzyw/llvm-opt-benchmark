@@ -1031,18 +1031,18 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit101: ; preds = %446, %441, %448
 
 .noexc102:                                        ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit101
   %456 = load i8, ptr %6, align 8, !tbaa !138, !range !146, !noundef !147
-  %.mux.i.not.i.i.i = icmp eq i8 %456, 0
-  br i1 %.mux.i.not.i.i.i, label %457, label %462
+  %457 = trunc nuw i8 %456 to i1
+  br i1 %457, label %462, label %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i
 
-457:                                              ; preds = %.noexc102
+_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i: ; preds = %.noexc102
   %458 = load ptr, ptr %309, align 8, !tbaa !148, !noalias !149
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %460 = load i64, ptr %459, align 8, !tbaa !53, !noalias !152
   %461 = trunc i64 %460 to i32
   br label %462
 
-462:                                              ; preds = %457, %.noexc102
-  %.0.i.i.i = phi i32 [ %461, %457 ], [ 0, %.noexc102 ]
+462:                                              ; preds = %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i, %.noexc102
+  %.0.i.i.i = phi i32 [ %461, %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i ], [ 0, %.noexc102 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
   %463 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapImiSt4lessImESaISt4pairIKmiEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %464 unwind label %486

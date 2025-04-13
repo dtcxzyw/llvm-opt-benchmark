@@ -787,8 +787,8 @@ define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager13normalize_rowEP3mpzjS
   store i8 0, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %10, align 8, !tbaa !26
-  %.not49.not = icmp eq i32 %2, 0
-  br i1 %.not49.not, label %.thread, label %.lr.ph
+  %.not50.not = icmp eq i32 %2, 0
+  br i1 %.not50.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %wide.trip.count = zext i32 %2 to i64
@@ -798,7 +798,7 @@ define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager13normalize_rowEP3mpzjS
   %12 = phi i32 [ 0, %.lr.ph ], [ %41, %40 ]
   %13 = phi i8 [ 0, %.lr.ph ], [ %42, %40 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %.03950 = phi i8 [ 1, %.lr.ph ], [ %.2, %40 ]
+  %.03951 = phi i8 [ 1, %.lr.ph ], [ %.2, %40 ]
   %14 = getelementptr inbounds nuw %class.mpz, ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 8, !tbaa !23
   %16 = icmp eq i32 %15, 0
@@ -810,7 +810,7 @@ define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager13normalize_rowEP3mpzjS
   br label %72
 
 19:                                               ; preds = %11
-  %20 = trunc nuw i8 %.03950 to i1
+  %20 = trunc nuw i8 %.03951 to i1
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %19
@@ -853,7 +853,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %26, %28
 40:                                               ; preds = %33, %11
   %41 = phi i32 [ %12, %11 ], [ %37, %33 ]
   %42 = phi i8 [ %13, %11 ], [ %34, %33 ]
-  %.2 = phi i8 [ %.03950, %11 ], [ 0, %33 ]
+  %.2 = phi i8 [ %.03951, %11 ], [ 0, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !41
@@ -871,11 +871,11 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %26, %28
 
 49:                                               ; preds = %44
   %.not43 = icmp eq ptr %3, null
-  br i1 %.not43, label %.lr.ph56.preheader, label %50
+  br i1 %.not43, label %.lr.ph57.preheader, label %50
 
-.lr.ph56.preheader:                               ; preds = %49
-  %wide.trip.count67 = zext i32 %2 to i64
-  br label %.lr.ph56
+.lr.ph57.preheader:                               ; preds = %49
+  %wide.trip.count68 = zext i32 %2 to i64
+  br label %.lr.ph57
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr %0, align 8, !tbaa !21
@@ -883,35 +883,35 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %26, %28
           to label %53 unwind label %55
 
 53:                                               ; preds = %50
-  br i1 %52, label %.lr.ph53.preheader, label %62
+  br i1 %52, label %.lr.ph54.preheader, label %62
 
-.lr.ph53.preheader:                               ; preds = %53
-  %wide.trip.count62 = zext i32 %2 to i64
-  br label %.lr.ph53
+.lr.ph54.preheader:                               ; preds = %53
+  %wide.trip.count63 = zext i32 %2 to i64
+  br label %.lr.ph54
 
-._crit_edge54:                                    ; preds = %59
+._crit_edge55:                                    ; preds = %59
   %54 = load ptr, ptr %0, align 8, !tbaa !21
   invoke void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %54, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %.loopexit unwind label %55
 
-55:                                               ; preds = %._crit_edge54, %50
+55:                                               ; preds = %._crit_edge55, %50
   %56 = landingpad { ptr, i32 }
           cleanup
   br label %72
 
-.lr.ph53:                                         ; preds = %.lr.ph53.preheader, %59
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next60, %59 ]
+.lr.ph54:                                         ; preds = %.lr.ph54.preheader, %59
+  %indvars.iv60 = phi i64 [ 0, %.lr.ph54.preheader ], [ %indvars.iv.next61, %59 ]
   %57 = load ptr, ptr %0, align 8, !tbaa !21
-  %58 = getelementptr inbounds nuw %class.mpz, ptr %1, i64 %indvars.iv59
+  %58 = getelementptr inbounds nuw %class.mpz, ptr %1, i64 %indvars.iv60
   invoke void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %57, ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %58)
           to label %59 unwind label %60
 
-59:                                               ; preds = %.lr.ph53
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !42
+59:                                               ; preds = %.lr.ph54
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
+  br i1 %exitcond64.not, label %._crit_edge55, label %.lr.ph54, !llvm.loop !42
 
-60:                                               ; preds = %.lr.ph53
+60:                                               ; preds = %.lr.ph54
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %72
@@ -919,24 +919,24 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %26, %28
 62:                                               ; preds = %53
   br i1 %4, label %.thread, label %.loopexit
 
-.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %65
-  %indvars.iv64 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next65, %65 ]
+.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %65
+  %indvars.iv65 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next66, %65 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !21
-  %64 = getelementptr inbounds nuw %class.mpz, ptr %1, i64 %indvars.iv64
+  %64 = getelementptr inbounds nuw %class.mpz, ptr %1, i64 %indvars.iv65
   invoke void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %63, ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %65 unwind label %66
 
-65:                                               ; preds = %.lr.ph56
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph56, !llvm.loop !43
+65:                                               ; preds = %.lr.ph57
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
+  br i1 %exitcond69.not, label %.loopexit, label %.lr.ph57, !llvm.loop !43
 
-66:                                               ; preds = %.lr.ph56
+66:                                               ; preds = %.lr.ph57
   %67 = landingpad { ptr, i32 }
           cleanup
   br label %72
 
-.loopexit:                                        ; preds = %65, %62, %._crit_edge54, %44
+.loopexit:                                        ; preds = %65, %62, %._crit_edge55, %44
   br label %.thread
 
 .thread:                                          ; preds = %33, %5, %62, %._crit_edge, %.loopexit

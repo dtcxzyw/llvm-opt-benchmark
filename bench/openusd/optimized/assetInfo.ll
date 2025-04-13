@@ -71,8 +71,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  %brmerge.i = or i1 %38, %41
-  br i1 %brmerge.i, label %42, label %45
+  %or.cond.i = or i1 %38, %41
+  br i1 %or.cond.i, label %42, label %45
 
 42:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit11.thread
   %43 = xor i1 %38, %41

@@ -2331,17 +2331,17 @@ define internal fastcc void @ComputeXidHorizons(ptr noundef nonnull captures(non
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 36
   br label %35
 
-._crit_edge:                                      ; preds = %71, %1
-  br i1 %3, label %75, label %KnownAssignedXidsGetOldestXmin.exit.thread156
+._crit_edge:                                      ; preds = %73, %1
+  br i1 %3, label %77, label %KnownAssignedXidsGetOldestXmin.exit.thread156
 
 KnownAssignedXidsGetOldestXmin.exit.thread156:    ; preds = %._crit_edge
   %33 = load ptr, ptr @MainLWLockArray, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 512
   tail call void @LWLockRelease(ptr noundef nonnull %34) #15
-  br label %111
+  br label %113
 
-35:                                               ; preds = %.lr.ph, %71
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
+35:                                               ; preds = %.lr.ph, %73
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
   %36 = getelementptr inbounds nuw [0 x i32], ptr %32, i64 0, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr @allProcs, align 8
@@ -2357,11 +2357,11 @@ KnownAssignedXidsGetOldestXmin.exit.thread156:    ; preds = %._crit_edge
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %49 = load volatile i32, ptr %48, align 8
   %.not.i = icmp eq i32 %49, 0
-  %.not82 = icmp eq i32 %47, 0
+  %.not84 = icmp eq i32 %47, 0
   br i1 %.not.i, label %TransactionIdOlder.exit, label %50
 
 50:                                               ; preds = %35
-  br i1 %.not82, label %TransactionIdOlder.exit.thread, label %51
+  br i1 %.not84, label %TransactionIdOlder.exit.thread, label %51
 
 51:                                               ; preds = %50
   %52 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %49, i32 noundef %47) #15
@@ -2369,7 +2369,7 @@ KnownAssignedXidsGetOldestXmin.exit.thread156:    ; preds = %._crit_edge
   br label %TransactionIdOlder.exit.thread
 
 TransactionIdOlder.exit:                          ; preds = %35
-  br i1 %.not82, label %71, label %TransactionIdOlder.exit.thread
+  br i1 %.not84, label %73, label %TransactionIdOlder.exit.thread
 
 TransactionIdOlder.exit.thread:                   ; preds = %51, %50, %TransactionIdOlder.exit
   %.0.i153 = phi i32 [ %47, %TransactionIdOlder.exit ], [ %..i, %51 ], [ %49, %50 ]
@@ -2386,8 +2386,8 @@ TransactionIdOlder.exit90:                        ; preds = %TransactionIdOlder.
   %.0.i89 = phi i32 [ %.0.i153, %TransactionIdOlder.exit.thread ], [ %..i88, %54 ]
   store i32 %.0.i89, ptr %16, align 8
   %56 = and i8 %45, 18
-  %.not83 = icmp eq i8 %56, 0
-  br i1 %.not83, label %57, label %71
+  %.not85 = icmp eq i8 %56, 0
+  br i1 %.not85, label %57, label %73
 
 57:                                               ; preds = %TransactionIdOlder.exit90
   %58 = load i32, ptr %17, align 4
@@ -2407,373 +2407,375 @@ TransactionIdOlder.exit95:                        ; preds = %57, %59
   %63 = load i32, ptr @MyDatabaseId, align 4
   %64 = icmp eq i32 %62, %63
   %65 = icmp eq i32 %63, 0
-  %or.cond.not182.not186 = or i1 %64, %65
-  %66 = and i8 %45, 32
-  %.not84 = icmp ne i8 %66, 0
-  %or.cond85.not183 = select i1 %or.cond.not182.not186, i1 true, i1 %.not84
-  %brmerge = select i1 %or.cond85.not183, i1 true, i1 %3
-  br i1 %brmerge, label %67, label %71
+  %or.cond = or i1 %64, %65
+  br i1 %or.cond, label %69, label %66
 
-67:                                               ; preds = %TransactionIdOlder.exit95
-  %68 = load i32, ptr %18, align 8
-  %.not.i96 = icmp eq i32 %68, 0
-  br i1 %.not.i96, label %TransactionIdOlder.exit100, label %69
+66:                                               ; preds = %TransactionIdOlder.exit95
+  %67 = and i8 %45, 32
+  %68 = icmp ne i8 %67, 0
+  %or.cond3 = select i1 %68, i1 true, i1 %3
+  br i1 %or.cond3, label %69, label %73
 
-69:                                               ; preds = %67
-  %70 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %68, i32 noundef %.0.i153) #15
-  %..i98 = select i1 %70, i32 %68, i32 %.0.i153
+69:                                               ; preds = %66, %TransactionIdOlder.exit95
+  %70 = load i32, ptr %18, align 8
+  %.not.i96 = icmp eq i32 %70, 0
+  br i1 %.not.i96, label %TransactionIdOlder.exit100, label %71
+
+71:                                               ; preds = %69
+  %72 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %70, i32 noundef %.0.i153) #15
+  %..i98 = select i1 %72, i32 %70, i32 %.0.i153
   br label %TransactionIdOlder.exit100
 
-TransactionIdOlder.exit100:                       ; preds = %67, %69
-  %.0.i99 = phi i32 [ %.0.i153, %67 ], [ %..i98, %69 ]
+TransactionIdOlder.exit100:                       ; preds = %69, %71
+  %.0.i99 = phi i32 [ %.0.i153, %69 ], [ %..i98, %71 ]
   store i32 %.0.i99, ptr %18, align 8
-  br label %71
+  br label %73
 
-71:                                               ; preds = %TransactionIdOlder.exit100, %TransactionIdOlder.exit95, %TransactionIdOlder.exit90, %TransactionIdOlder.exit
+73:                                               ; preds = %TransactionIdOlder.exit100, %66, %TransactionIdOlder.exit90, %TransactionIdOlder.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %72 = load i32, ptr %2, align 4
-  %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %74, label %35, label %._crit_edge, !llvm.loop !36
+  %74 = load i32, ptr %2, align 4
+  %75 = sext i32 %74 to i64
+  %76 = icmp slt i64 %indvars.iv.next, %75
+  br i1 %76, label %35, label %._crit_edge, !llvm.loop !36
 
-75:                                               ; preds = %._crit_edge
-  %76 = load ptr, ptr @procArray, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 20
+77:                                               ; preds = %._crit_edge
+  %78 = load ptr, ptr @procArray, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load i32, ptr %79, align 4
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 20
+  %82 = load i32, ptr %81, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !37
-  %81 = icmp slt i32 %78, %80
-  br i1 %81, label %.lr.ph.i, label %.thread
+  %83 = icmp slt i32 %80, %82
+  br i1 %83, label %.lr.ph.i, label %.thread
 
-.lr.ph.i:                                         ; preds = %75
-  %82 = load ptr, ptr @KnownAssignedXidsValid, align 8
-  %83 = sext i32 %78 to i64
-  br label %85
+.lr.ph.i:                                         ; preds = %77
+  %84 = load ptr, ptr @KnownAssignedXidsValid, align 8
+  %85 = sext i32 %80 to i64
+  br label %87
 
-84:                                               ; preds = %85
+86:                                               ; preds = %87
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %80, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %KnownAssignedXidsGetOldestXmin.exit, label %85, !llvm.loop !38
+  %exitcond.not.i = icmp eq i32 %82, %lftr.wideiv.i
+  br i1 %exitcond.not.i, label %KnownAssignedXidsGetOldestXmin.exit, label %87, !llvm.loop !38
 
-85:                                               ; preds = %84, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %83, %.lr.ph.i ], [ %indvars.iv.next.i, %84 ]
-  %86 = getelementptr inbounds i8, ptr %82, i64 %indvars.iv.i
-  %87 = load i8, ptr %86, align 1, !range !4, !noundef !5
-  %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %89, label %84
+87:                                               ; preds = %86, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %85, %.lr.ph.i ], [ %indvars.iv.next.i, %86 ]
+  %88 = getelementptr inbounds i8, ptr %84, i64 %indvars.iv.i
+  %89 = load i8, ptr %88, align 1, !range !4, !noundef !5
+  %90 = trunc nuw i8 %89 to i1
+  br i1 %90, label %91, label %86
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr @KnownAssignedXids, align 8
-  %91 = getelementptr inbounds i32, ptr %90, i64 %indvars.iv.i
-  %92 = load i32, ptr %91, align 4
+91:                                               ; preds = %87
+  %92 = load ptr, ptr @KnownAssignedXids, align 8
+  %93 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv.i
+  %94 = load i32, ptr %93, align 4
   br label %KnownAssignedXidsGetOldestXmin.exit
 
-KnownAssignedXidsGetOldestXmin.exit:              ; preds = %84, %89
-  %.0 = phi i32 [ %92, %89 ], [ 0, %84 ]
-  %93 = load ptr, ptr @MainLWLockArray, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 512
-  tail call void @LWLockRelease(ptr noundef nonnull %94) #15
-  %95 = load i32, ptr %16, align 8
-  %.not.i101 = icmp eq i32 %95, 0
-  br i1 %.not.i101, label %TransactionIdOlder.exit105, label %99
+KnownAssignedXidsGetOldestXmin.exit:              ; preds = %86, %91
+  %.0 = phi i32 [ %94, %91 ], [ 0, %86 ]
+  %95 = load ptr, ptr @MainLWLockArray, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 512
+  tail call void @LWLockRelease(ptr noundef nonnull %96) #15
+  %97 = load i32, ptr %16, align 8
+  %.not.i101 = icmp eq i32 %97, 0
+  br i1 %.not.i101, label %TransactionIdOlder.exit105, label %101
 
-.thread:                                          ; preds = %75
-  %96 = load ptr, ptr @MainLWLockArray, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 512
-  tail call void @LWLockRelease(ptr noundef nonnull %97) #15
-  %98 = load i32, ptr %16, align 8
+.thread:                                          ; preds = %77
+  %98 = load ptr, ptr @MainLWLockArray, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 512
+  tail call void @LWLockRelease(ptr noundef nonnull %99) #15
+  %100 = load i32, ptr %16, align 8
   br label %TransactionIdOlder.exit105
 
-99:                                               ; preds = %KnownAssignedXidsGetOldestXmin.exit
+101:                                              ; preds = %KnownAssignedXidsGetOldestXmin.exit
   %.not11.i102 = icmp eq i32 %.0, 0
-  br i1 %.not11.i102, label %TransactionIdOlder.exit105, label %100
+  br i1 %.not11.i102, label %TransactionIdOlder.exit105, label %102
 
-100:                                              ; preds = %99
-  %101 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %95, i32 noundef %.0) #15
-  %..i103 = select i1 %101, i32 %95, i32 %.0
+102:                                              ; preds = %101
+  %103 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %97, i32 noundef %.0) #15
+  %..i103 = select i1 %103, i32 %97, i32 %.0
   br label %TransactionIdOlder.exit105
 
-TransactionIdOlder.exit105:                       ; preds = %.thread, %KnownAssignedXidsGetOldestXmin.exit, %99, %100
-  %.0155161 = phi i32 [ %.0, %KnownAssignedXidsGetOldestXmin.exit ], [ 0, %99 ], [ %.0, %100 ], [ 0, %.thread ]
-  %.0.i104 = phi i32 [ %.0, %KnownAssignedXidsGetOldestXmin.exit ], [ %95, %99 ], [ %..i103, %100 ], [ %98, %.thread ]
+TransactionIdOlder.exit105:                       ; preds = %.thread, %KnownAssignedXidsGetOldestXmin.exit, %101, %102
+  %.0155161 = phi i32 [ %.0, %KnownAssignedXidsGetOldestXmin.exit ], [ 0, %101 ], [ %.0, %102 ], [ 0, %.thread ]
+  %.0.i104 = phi i32 [ %.0, %KnownAssignedXidsGetOldestXmin.exit ], [ %97, %101 ], [ %..i103, %102 ], [ %100, %.thread ]
   store i32 %.0.i104, ptr %16, align 8
-  %102 = load i32, ptr %17, align 4
-  %.not.i106 = icmp eq i32 %102, 0
-  br i1 %.not.i106, label %TransactionIdOlder.exit110, label %103
+  %104 = load i32, ptr %17, align 4
+  %.not.i106 = icmp eq i32 %104, 0
+  br i1 %.not.i106, label %TransactionIdOlder.exit110, label %105
 
-103:                                              ; preds = %TransactionIdOlder.exit105
+105:                                              ; preds = %TransactionIdOlder.exit105
   %.not11.i107 = icmp eq i32 %.0155161, 0
-  br i1 %.not11.i107, label %TransactionIdOlder.exit110.thread, label %104
+  br i1 %.not11.i107, label %TransactionIdOlder.exit110.thread, label %106
 
-104:                                              ; preds = %103
-  %105 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %102, i32 noundef %.0155161) #15
-  %..i108 = select i1 %105, i32 %102, i32 %.0155161
+106:                                              ; preds = %105
+  %107 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %104, i32 noundef %.0155161) #15
+  %..i108 = select i1 %107, i32 %104, i32 %.0155161
   br label %TransactionIdOlder.exit110
 
-TransactionIdOlder.exit110:                       ; preds = %TransactionIdOlder.exit105, %104
-  %.0.i109 = phi i32 [ %.0155161, %TransactionIdOlder.exit105 ], [ %..i108, %104 ]
+TransactionIdOlder.exit110:                       ; preds = %TransactionIdOlder.exit105, %106
+  %.0.i109 = phi i32 [ %.0155161, %TransactionIdOlder.exit105 ], [ %..i108, %106 ]
   store i32 %.0.i109, ptr %17, align 4
-  %106 = load i32, ptr %18, align 8
-  %.not.i111 = icmp eq i32 %106, 0
-  br i1 %.not.i111, label %TransactionIdOlder.exit115, label %108
+  %108 = load i32, ptr %18, align 8
+  %.not.i111 = icmp eq i32 %108, 0
+  br i1 %.not.i111, label %TransactionIdOlder.exit115, label %110
 
-TransactionIdOlder.exit110.thread:                ; preds = %103
-  %107 = load i32, ptr %18, align 8
+TransactionIdOlder.exit110.thread:                ; preds = %105
+  %109 = load i32, ptr %18, align 8
   br label %TransactionIdOlder.exit115
 
-108:                                              ; preds = %TransactionIdOlder.exit110
+110:                                              ; preds = %TransactionIdOlder.exit110
   %.not11.i112 = icmp eq i32 %.0155161, 0
-  br i1 %.not11.i112, label %TransactionIdOlder.exit115, label %109
+  br i1 %.not11.i112, label %TransactionIdOlder.exit115, label %111
 
-109:                                              ; preds = %108
-  %110 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %106, i32 noundef %.0155161) #15
-  %..i113 = select i1 %110, i32 %106, i32 %.0155161
+111:                                              ; preds = %110
+  %112 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %108, i32 noundef %.0155161) #15
+  %..i113 = select i1 %112, i32 %108, i32 %.0155161
   br label %TransactionIdOlder.exit115
 
-TransactionIdOlder.exit115:                       ; preds = %TransactionIdOlder.exit110.thread, %TransactionIdOlder.exit110, %108, %109
-  %.0.i114 = phi i32 [ %.0155161, %TransactionIdOlder.exit110 ], [ %106, %108 ], [ %..i113, %109 ], [ %107, %TransactionIdOlder.exit110.thread ]
+TransactionIdOlder.exit115:                       ; preds = %TransactionIdOlder.exit110.thread, %TransactionIdOlder.exit110, %110, %111
+  %.0.i114 = phi i32 [ %.0155161, %TransactionIdOlder.exit110 ], [ %108, %110 ], [ %..i113, %111 ], [ %109, %TransactionIdOlder.exit110.thread ]
   store i32 %.0.i114, ptr %18, align 8
-  br label %111
+  br label %113
 
-111:                                              ; preds = %KnownAssignedXidsGetOldestXmin.exit.thread156, %TransactionIdOlder.exit115
-  %112 = load i32, ptr %17, align 4
-  %113 = load i32, ptr %26, align 8
-  %.not.i116 = icmp eq i32 %112, 0
-  br i1 %.not.i116, label %TransactionIdOlder.exit120, label %114
+113:                                              ; preds = %KnownAssignedXidsGetOldestXmin.exit.thread156, %TransactionIdOlder.exit115
+  %114 = load i32, ptr %17, align 4
+  %115 = load i32, ptr %26, align 8
+  %.not.i116 = icmp eq i32 %114, 0
+  br i1 %.not.i116, label %TransactionIdOlder.exit120, label %116
 
-114:                                              ; preds = %111
-  %.not11.i117 = icmp eq i32 %113, 0
-  br i1 %.not11.i117, label %TransactionIdOlder.exit120.thread, label %115
+116:                                              ; preds = %113
+  %.not11.i117 = icmp eq i32 %115, 0
+  br i1 %.not11.i117, label %TransactionIdOlder.exit120.thread, label %117
 
-115:                                              ; preds = %114
-  %116 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %112, i32 noundef %113) #15
-  %..i118 = select i1 %116, i32 %112, i32 %113
+117:                                              ; preds = %116
+  %118 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %114, i32 noundef %115) #15
+  %..i118 = select i1 %118, i32 %114, i32 %115
   %.pr = load i32, ptr %26, align 8
   br label %TransactionIdOlder.exit120
 
-TransactionIdOlder.exit120:                       ; preds = %111, %115
-  %117 = phi i32 [ %113, %111 ], [ %.pr, %115 ]
-  %.0.i119 = phi i32 [ %113, %111 ], [ %..i118, %115 ]
+TransactionIdOlder.exit120:                       ; preds = %113, %117
+  %119 = phi i32 [ %115, %113 ], [ %.pr, %117 ]
+  %.0.i119 = phi i32 [ %115, %113 ], [ %..i118, %117 ]
   store i32 %.0.i119, ptr %17, align 4
-  %118 = load i32, ptr %18, align 8
-  %.not.i121 = icmp eq i32 %118, 0
-  br i1 %.not.i121, label %TransactionIdOlder.exit125, label %122
+  %120 = load i32, ptr %18, align 8
+  %.not.i121 = icmp eq i32 %120, 0
+  br i1 %.not.i121, label %TransactionIdOlder.exit125, label %124
 
-TransactionIdOlder.exit120.thread:                ; preds = %114
-  %119 = load i32, ptr %18, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %112, ptr %120, align 8
-  %121 = load i32, ptr %29, align 4
-  br label %128
+TransactionIdOlder.exit120.thread:                ; preds = %116
+  %121 = load i32, ptr %18, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %114, ptr %122, align 8
+  %123 = load i32, ptr %29, align 4
+  br label %130
 
-122:                                              ; preds = %TransactionIdOlder.exit120
-  %.not11.i122 = icmp eq i32 %117, 0
-  br i1 %.not11.i122, label %TransactionIdOlder.exit125, label %123
+124:                                              ; preds = %TransactionIdOlder.exit120
+  %.not11.i122 = icmp eq i32 %119, 0
+  br i1 %.not11.i122, label %TransactionIdOlder.exit125, label %125
 
-123:                                              ; preds = %122
-  %124 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %118, i32 noundef %117) #15
-  %..i123 = select i1 %124, i32 %118, i32 %117
+125:                                              ; preds = %124
+  %126 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %120, i32 noundef %119) #15
+  %..i123 = select i1 %126, i32 %120, i32 %119
   %.pr169 = load i32, ptr %17, align 4
   br label %TransactionIdOlder.exit125
 
-TransactionIdOlder.exit125:                       ; preds = %TransactionIdOlder.exit120, %122, %123
-  %125 = phi i32 [ %.0.i119, %TransactionIdOlder.exit120 ], [ %.0.i119, %122 ], [ %.pr169, %123 ]
-  %.0.i124 = phi i32 [ %117, %TransactionIdOlder.exit120 ], [ %118, %122 ], [ %..i123, %123 ]
+TransactionIdOlder.exit125:                       ; preds = %TransactionIdOlder.exit120, %124, %125
+  %127 = phi i32 [ %.0.i119, %TransactionIdOlder.exit120 ], [ %.0.i119, %124 ], [ %.pr169, %125 ]
+  %.0.i124 = phi i32 [ %119, %TransactionIdOlder.exit120 ], [ %120, %124 ], [ %..i123, %125 ]
   store i32 %.0.i124, ptr %18, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %125, ptr %126, align 8
-  %127 = load i32, ptr %29, align 4
-  %.not.i126 = icmp eq i32 %125, 0
-  br i1 %.not.i126, label %TransactionIdOlder.exit130, label %128
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %127, ptr %128, align 8
+  %129 = load i32, ptr %29, align 4
+  %.not.i126 = icmp eq i32 %127, 0
+  br i1 %.not.i126, label %TransactionIdOlder.exit130, label %130
 
-128:                                              ; preds = %TransactionIdOlder.exit120.thread, %TransactionIdOlder.exit125
-  %129 = phi i32 [ %121, %TransactionIdOlder.exit120.thread ], [ %127, %TransactionIdOlder.exit125 ]
-  %.0.i124202 = phi i32 [ %119, %TransactionIdOlder.exit120.thread ], [ %.0.i124, %TransactionIdOlder.exit125 ]
-  %130 = phi i32 [ %112, %TransactionIdOlder.exit120.thread ], [ %125, %TransactionIdOlder.exit125 ]
-  %.not11.i127 = icmp eq i32 %129, 0
-  br i1 %.not11.i127, label %TransactionIdOlder.exit130.thread, label %131
+130:                                              ; preds = %TransactionIdOlder.exit120.thread, %TransactionIdOlder.exit125
+  %131 = phi i32 [ %123, %TransactionIdOlder.exit120.thread ], [ %129, %TransactionIdOlder.exit125 ]
+  %.0.i124195 = phi i32 [ %121, %TransactionIdOlder.exit120.thread ], [ %.0.i124, %TransactionIdOlder.exit125 ]
+  %132 = phi i32 [ %114, %TransactionIdOlder.exit120.thread ], [ %127, %TransactionIdOlder.exit125 ]
+  %.not11.i127 = icmp eq i32 %131, 0
+  br i1 %.not11.i127, label %TransactionIdOlder.exit130.thread, label %133
 
-131:                                              ; preds = %128
-  %132 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %130, i32 noundef %129) #15
-  %..i128 = select i1 %132, i32 %130, i32 %129
+133:                                              ; preds = %130
+  %134 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %132, i32 noundef %131) #15
+  %..i128 = select i1 %134, i32 %132, i32 %131
   %.pr170.pre = load i32, ptr %18, align 8
   %.pr171.pre = load i32, ptr %29, align 4
   br label %TransactionIdOlder.exit130
 
-TransactionIdOlder.exit130:                       ; preds = %131, %TransactionIdOlder.exit125
-  %133 = phi i32 [ %127, %TransactionIdOlder.exit125 ], [ %.pr171.pre, %131 ]
-  %134 = phi i32 [ %.0.i124, %TransactionIdOlder.exit125 ], [ %.pr170.pre, %131 ]
-  %.0.i129 = phi i32 [ %127, %TransactionIdOlder.exit125 ], [ %..i128, %131 ]
+TransactionIdOlder.exit130:                       ; preds = %133, %TransactionIdOlder.exit125
+  %135 = phi i32 [ %129, %TransactionIdOlder.exit125 ], [ %.pr171.pre, %133 ]
+  %136 = phi i32 [ %.0.i124, %TransactionIdOlder.exit125 ], [ %.pr170.pre, %133 ]
+  %.0.i129 = phi i32 [ %129, %TransactionIdOlder.exit125 ], [ %..i128, %133 ]
   store i32 %.0.i129, ptr %17, align 4
-  store i32 %134, ptr %7, align 4
-  %.not.i131 = icmp eq i32 %134, 0
-  br i1 %.not.i131, label %TransactionIdOlder.exit135, label %135
+  store i32 %136, ptr %7, align 4
+  %.not.i131 = icmp eq i32 %136, 0
+  br i1 %.not.i131, label %TransactionIdOlder.exit135, label %137
 
-TransactionIdOlder.exit130.thread:                ; preds = %128
-  store i32 %130, ptr %17, align 4
+TransactionIdOlder.exit130.thread:                ; preds = %130
+  store i32 %132, ptr %17, align 4
   br label %TransactionIdOlder.exit135
 
-135:                                              ; preds = %TransactionIdOlder.exit130
-  %.not11.i132 = icmp eq i32 %133, 0
-  br i1 %.not11.i132, label %TransactionIdOlder.exit135, label %136
+137:                                              ; preds = %TransactionIdOlder.exit130
+  %.not11.i132 = icmp eq i32 %135, 0
+  br i1 %.not11.i132, label %TransactionIdOlder.exit135, label %138
 
-136:                                              ; preds = %135
-  %137 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %134, i32 noundef %133) #15
-  %..i133 = select i1 %137, i32 %134, i32 %133
+138:                                              ; preds = %137
+  %139 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %136, i32 noundef %135) #15
+  %..i133 = select i1 %139, i32 %136, i32 %135
   %.pr172 = load i32, ptr %17, align 4
   br label %TransactionIdOlder.exit135
 
-TransactionIdOlder.exit135:                       ; preds = %TransactionIdOlder.exit130.thread, %TransactionIdOlder.exit130, %135, %136
-  %138 = phi i32 [ %.0.i129, %TransactionIdOlder.exit130 ], [ %.0.i129, %135 ], [ %.pr172, %136 ], [ %130, %TransactionIdOlder.exit130.thread ]
-  %139 = phi i32 [ %133, %TransactionIdOlder.exit130 ], [ %134, %135 ], [ %..i133, %136 ], [ %.0.i124202, %TransactionIdOlder.exit130.thread ]
-  store i32 %139, ptr %7, align 4
-  %140 = load i32, ptr %16, align 8
-  %.not.i136 = icmp eq i32 %140, 0
-  br i1 %.not.i136, label %TransactionIdOlder.exit140, label %141
+TransactionIdOlder.exit135:                       ; preds = %TransactionIdOlder.exit130.thread, %TransactionIdOlder.exit130, %137, %138
+  %140 = phi i32 [ %.0.i129, %TransactionIdOlder.exit130 ], [ %.0.i129, %137 ], [ %.pr172, %138 ], [ %132, %TransactionIdOlder.exit130.thread ]
+  %141 = phi i32 [ %135, %TransactionIdOlder.exit130 ], [ %136, %137 ], [ %..i133, %138 ], [ %.0.i124195, %TransactionIdOlder.exit130.thread ]
+  store i32 %141, ptr %7, align 4
+  %142 = load i32, ptr %16, align 8
+  %.not.i136 = icmp eq i32 %142, 0
+  br i1 %.not.i136, label %TransactionIdOlder.exit140, label %143
 
-141:                                              ; preds = %TransactionIdOlder.exit135
-  %.not11.i137 = icmp eq i32 %138, 0
-  br i1 %.not11.i137, label %TransactionIdOlder.exit140.thread, label %142
+143:                                              ; preds = %TransactionIdOlder.exit135
+  %.not11.i137 = icmp eq i32 %140, 0
+  br i1 %.not11.i137, label %TransactionIdOlder.exit140.thread, label %144
 
-142:                                              ; preds = %141
-  %143 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %140, i32 noundef %138) #15
-  %..i138 = select i1 %143, i32 %140, i32 %138
+144:                                              ; preds = %143
+  %145 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %142, i32 noundef %140) #15
+  %..i138 = select i1 %145, i32 %142, i32 %140
   %.pre = load i32, ptr %7, align 4
   br label %TransactionIdOlder.exit140.thread
 
-TransactionIdOlder.exit140.thread:                ; preds = %141, %142
-  %144 = phi i32 [ %.pre, %142 ], [ %139, %141 ]
-  %.0.i139.ph = phi i32 [ %..i138, %142 ], [ %140, %141 ]
+TransactionIdOlder.exit140.thread:                ; preds = %143, %144
+  %146 = phi i32 [ %.pre, %144 ], [ %141, %143 ]
+  %.0.i139.ph = phi i32 [ %..i138, %144 ], [ %142, %143 ]
   store i32 %.0.i139.ph, ptr %16, align 8
-  br label %145
+  br label %147
 
 TransactionIdOlder.exit140:                       ; preds = %TransactionIdOlder.exit135
-  store i32 %138, ptr %16, align 8
-  %.not.i141 = icmp eq i32 %138, 0
-  br i1 %.not.i141, label %TransactionIdOlder.exit145, label %145
+  store i32 %140, ptr %16, align 8
+  %.not.i141 = icmp eq i32 %140, 0
+  br i1 %.not.i141, label %TransactionIdOlder.exit145, label %147
 
-145:                                              ; preds = %TransactionIdOlder.exit140.thread, %TransactionIdOlder.exit140
-  %146 = phi i32 [ %144, %TransactionIdOlder.exit140.thread ], [ %139, %TransactionIdOlder.exit140 ]
-  %.0.i139175 = phi i32 [ %.0.i139.ph, %TransactionIdOlder.exit140.thread ], [ %138, %TransactionIdOlder.exit140 ]
-  %.not11.i142 = icmp eq i32 %146, 0
-  br i1 %.not11.i142, label %TransactionIdOlder.exit145.thread, label %147
+147:                                              ; preds = %TransactionIdOlder.exit140.thread, %TransactionIdOlder.exit140
+  %148 = phi i32 [ %146, %TransactionIdOlder.exit140.thread ], [ %141, %TransactionIdOlder.exit140 ]
+  %.0.i139175 = phi i32 [ %.0.i139.ph, %TransactionIdOlder.exit140.thread ], [ %140, %TransactionIdOlder.exit140 ]
+  %.not11.i142 = icmp eq i32 %148, 0
+  br i1 %.not11.i142, label %TransactionIdOlder.exit145.thread, label %149
 
-147:                                              ; preds = %145
-  %148 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %.0.i139175, i32 noundef %146) #15
-  %..i143 = select i1 %148, i32 %.0.i139175, i32 %146
+149:                                              ; preds = %147
+  %150 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %.0.i139175, i32 noundef %148) #15
+  %..i143 = select i1 %150, i32 %.0.i139175, i32 %148
   br label %TransactionIdOlder.exit145.thread
 
-TransactionIdOlder.exit145.thread:                ; preds = %145, %147
-  %.0.i144.ph = phi i32 [ %..i143, %147 ], [ %.0.i139175, %145 ]
+TransactionIdOlder.exit145.thread:                ; preds = %147, %149
+  %.0.i144.ph = phi i32 [ %..i143, %149 ], [ %.0.i139175, %147 ]
   store i32 %.0.i144.ph, ptr %16, align 8
-  %149 = load i32, ptr %18, align 8
-  br label %151
+  %151 = load i32, ptr %18, align 8
+  br label %153
 
 TransactionIdOlder.exit145:                       ; preds = %TransactionIdOlder.exit140
-  store i32 %139, ptr %16, align 8
-  %150 = load i32, ptr %18, align 8
-  %.not.i146 = icmp eq i32 %139, 0
-  br i1 %.not.i146, label %TransactionIdOlder.exit150, label %151
+  store i32 %141, ptr %16, align 8
+  %152 = load i32, ptr %18, align 8
+  %.not.i146 = icmp eq i32 %141, 0
+  br i1 %.not.i146, label %TransactionIdOlder.exit150, label %153
 
-151:                                              ; preds = %TransactionIdOlder.exit145.thread, %TransactionIdOlder.exit145
-  %152 = phi i32 [ %149, %TransactionIdOlder.exit145.thread ], [ %150, %TransactionIdOlder.exit145 ]
-  %.0.i144178 = phi i32 [ %.0.i144.ph, %TransactionIdOlder.exit145.thread ], [ %139, %TransactionIdOlder.exit145 ]
-  %.not11.i147 = icmp eq i32 %152, 0
-  br i1 %.not11.i147, label %TransactionIdOlder.exit150, label %153
+153:                                              ; preds = %TransactionIdOlder.exit145.thread, %TransactionIdOlder.exit145
+  %154 = phi i32 [ %151, %TransactionIdOlder.exit145.thread ], [ %152, %TransactionIdOlder.exit145 ]
+  %.0.i144178 = phi i32 [ %.0.i144.ph, %TransactionIdOlder.exit145.thread ], [ %141, %TransactionIdOlder.exit145 ]
+  %.not11.i147 = icmp eq i32 %154, 0
+  br i1 %.not11.i147, label %TransactionIdOlder.exit150, label %155
 
-153:                                              ; preds = %151
-  %154 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %.0.i144178, i32 noundef %152) #15
-  %..i148 = select i1 %154, i32 %.0.i144178, i32 %152
-  %.pre193 = load i32, ptr %18, align 8
+155:                                              ; preds = %153
+  %156 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %.0.i144178, i32 noundef %154) #15
+  %..i148 = select i1 %156, i32 %.0.i144178, i32 %154
+  %.pre186 = load i32, ptr %18, align 8
   br label %TransactionIdOlder.exit150
 
-TransactionIdOlder.exit150:                       ; preds = %TransactionIdOlder.exit145, %151, %153
-  %155 = phi i32 [ %150, %TransactionIdOlder.exit145 ], [ 0, %151 ], [ %.pre193, %153 ]
-  %.0.i149 = phi i32 [ %150, %TransactionIdOlder.exit145 ], [ %.0.i144178, %151 ], [ %..i148, %153 ]
+TransactionIdOlder.exit150:                       ; preds = %TransactionIdOlder.exit145, %153, %155
+  %157 = phi i32 [ %152, %TransactionIdOlder.exit145 ], [ 0, %153 ], [ %.pre186, %155 ]
+  %.0.i149 = phi i32 [ %152, %TransactionIdOlder.exit145 ], [ %.0.i144178, %153 ], [ %..i148, %155 ]
   store i32 %.0.i149, ptr %16, align 8
-  %156 = load i32, ptr %17, align 4
-  %157 = load i64, ptr %0, align 8
-  %158 = trunc i64 %157 to i32
-  %159 = sub i32 %156, %158
-  %160 = sext i32 %159 to i64
-  %161 = add i64 %157, %160
-  store i64 %161, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisSharedRels, i64 8), align 8
-  %162 = load i32, ptr %7, align 4
-  %163 = load i64, ptr %0, align 8
-  %164 = trunc i64 %163 to i32
-  %165 = sub i32 %162, %164
-  %166 = sext i32 %165 to i64
-  %167 = add i64 %163, %166
-  store i64 %167, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisCatalogRels, i64 8), align 8
-  %168 = load i64, ptr %0, align 8
-  %169 = trunc i64 %168 to i32
-  %170 = sub i32 %155, %169
-  %171 = sext i32 %170 to i64
-  %172 = add i64 %168, %171
-  store i64 %172, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisDataRels, i64 8), align 8
-  %173 = load i32, ptr %22, align 4
-  %174 = load i64, ptr %0, align 8
-  %175 = trunc i64 %174 to i32
-  %176 = sub i32 %173, %175
-  %177 = sext i32 %176 to i64
-  %178 = add i64 %174, %177
-  store i64 %178, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisTempRels, i64 8), align 8
-  %179 = load i64, ptr @GlobalVisSharedRels, align 8
-  %180 = and i64 %161, 4294967295
-  %.not.i.i = icmp eq i64 %180, 0
-  br i1 %.not.i.i, label %FullTransactionIdNewer.exit.i, label %181
+  %158 = load i32, ptr %17, align 4
+  %159 = load i64, ptr %0, align 8
+  %160 = trunc i64 %159 to i32
+  %161 = sub i32 %158, %160
+  %162 = sext i32 %161 to i64
+  %163 = add i64 %159, %162
+  store i64 %163, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisSharedRels, i64 8), align 8
+  %164 = load i32, ptr %7, align 4
+  %165 = load i64, ptr %0, align 8
+  %166 = trunc i64 %165 to i32
+  %167 = sub i32 %164, %166
+  %168 = sext i32 %167 to i64
+  %169 = add i64 %165, %168
+  store i64 %169, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisCatalogRels, i64 8), align 8
+  %170 = load i64, ptr %0, align 8
+  %171 = trunc i64 %170 to i32
+  %172 = sub i32 %157, %171
+  %173 = sext i32 %172 to i64
+  %174 = add i64 %170, %173
+  store i64 %174, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisDataRels, i64 8), align 8
+  %175 = load i32, ptr %22, align 4
+  %176 = load i64, ptr %0, align 8
+  %177 = trunc i64 %176 to i32
+  %178 = sub i32 %175, %177
+  %179 = sext i32 %178 to i64
+  %180 = add i64 %176, %179
+  store i64 %180, ptr getelementptr inbounds nuw (i8, ptr @GlobalVisTempRels, i64 8), align 8
+  %181 = load i64, ptr @GlobalVisSharedRels, align 8
+  %182 = and i64 %163, 4294967295
+  %.not.i.i = icmp eq i64 %182, 0
+  br i1 %.not.i.i, label %FullTransactionIdNewer.exit.i, label %183
 
-181:                                              ; preds = %TransactionIdOlder.exit150
-  %182 = and i64 %179, 4294967295
-  %.not8.i.i = icmp eq i64 %182, 0
-  br i1 %.not8.i.i, label %FullTransactionIdNewer.exit.i, label %183
+183:                                              ; preds = %TransactionIdOlder.exit150
+  %184 = and i64 %181, 4294967295
+  %.not8.i.i = icmp eq i64 %184, 0
+  br i1 %.not8.i.i, label %FullTransactionIdNewer.exit.i, label %185
 
-183:                                              ; preds = %181
-  %..i.i = tail call i64 @llvm.umax.i64(i64 %161, i64 %179)
+185:                                              ; preds = %183
+  %..i.i = tail call i64 @llvm.umax.i64(i64 %163, i64 %181)
   br label %FullTransactionIdNewer.exit.i
 
-FullTransactionIdNewer.exit.i:                    ; preds = %183, %181, %TransactionIdOlder.exit150
-  %.sroa.06.0.i.i = phi i64 [ %179, %TransactionIdOlder.exit150 ], [ %161, %181 ], [ %..i.i, %183 ]
+FullTransactionIdNewer.exit.i:                    ; preds = %185, %183, %TransactionIdOlder.exit150
+  %.sroa.06.0.i.i = phi i64 [ %181, %TransactionIdOlder.exit150 ], [ %163, %183 ], [ %..i.i, %185 ]
   store i64 %.sroa.06.0.i.i, ptr @GlobalVisSharedRels, align 8
-  %184 = load i64, ptr @GlobalVisCatalogRels, align 8
-  %185 = and i64 %167, 4294967295
-  %.not.i14.i = icmp eq i64 %185, 0
-  br i1 %.not.i14.i, label %FullTransactionIdNewer.exit18.i, label %186
+  %186 = load i64, ptr @GlobalVisCatalogRels, align 8
+  %187 = and i64 %169, 4294967295
+  %.not.i14.i = icmp eq i64 %187, 0
+  br i1 %.not.i14.i, label %FullTransactionIdNewer.exit18.i, label %188
 
-186:                                              ; preds = %FullTransactionIdNewer.exit.i
-  %187 = and i64 %184, 4294967295
-  %.not8.i15.i = icmp eq i64 %187, 0
-  br i1 %.not8.i15.i, label %FullTransactionIdNewer.exit18.i, label %188
+188:                                              ; preds = %FullTransactionIdNewer.exit.i
+  %189 = and i64 %186, 4294967295
+  %.not8.i15.i = icmp eq i64 %189, 0
+  br i1 %.not8.i15.i, label %FullTransactionIdNewer.exit18.i, label %190
 
-188:                                              ; preds = %186
-  %..i16.i = tail call i64 @llvm.umax.i64(i64 %167, i64 %184)
+190:                                              ; preds = %188
+  %..i16.i = tail call i64 @llvm.umax.i64(i64 %169, i64 %186)
   br label %FullTransactionIdNewer.exit18.i
 
-FullTransactionIdNewer.exit18.i:                  ; preds = %188, %186, %FullTransactionIdNewer.exit.i
-  %.sroa.06.0.i17.i = phi i64 [ %184, %FullTransactionIdNewer.exit.i ], [ %167, %186 ], [ %..i16.i, %188 ]
+FullTransactionIdNewer.exit18.i:                  ; preds = %190, %188, %FullTransactionIdNewer.exit.i
+  %.sroa.06.0.i17.i = phi i64 [ %186, %FullTransactionIdNewer.exit.i ], [ %169, %188 ], [ %..i16.i, %190 ]
   store i64 %.sroa.06.0.i17.i, ptr @GlobalVisCatalogRels, align 8
-  %189 = load i64, ptr @GlobalVisDataRels, align 8
-  %190 = and i64 %172, 4294967295
-  %.not.i19.i = icmp eq i64 %190, 0
-  br i1 %.not.i19.i, label %GlobalVisUpdateApply.exit, label %191
+  %191 = load i64, ptr @GlobalVisDataRels, align 8
+  %192 = and i64 %174, 4294967295
+  %.not.i19.i = icmp eq i64 %192, 0
+  br i1 %.not.i19.i, label %GlobalVisUpdateApply.exit, label %193
 
-191:                                              ; preds = %FullTransactionIdNewer.exit18.i
-  %192 = and i64 %189, 4294967295
-  %.not8.i20.i = icmp eq i64 %192, 0
-  br i1 %.not8.i20.i, label %GlobalVisUpdateApply.exit, label %193
+193:                                              ; preds = %FullTransactionIdNewer.exit18.i
+  %194 = and i64 %191, 4294967295
+  %.not8.i20.i = icmp eq i64 %194, 0
+  br i1 %.not8.i20.i, label %GlobalVisUpdateApply.exit, label %195
 
-193:                                              ; preds = %191
-  %..i21.i = tail call i64 @llvm.umax.i64(i64 %172, i64 %189)
+195:                                              ; preds = %193
+  %..i21.i = tail call i64 @llvm.umax.i64(i64 %174, i64 %191)
   br label %GlobalVisUpdateApply.exit
 
-GlobalVisUpdateApply.exit:                        ; preds = %FullTransactionIdNewer.exit18.i, %191, %193
-  %.sroa.06.0.i22.i = phi i64 [ %189, %FullTransactionIdNewer.exit18.i ], [ %172, %191 ], [ %..i21.i, %193 ]
+GlobalVisUpdateApply.exit:                        ; preds = %FullTransactionIdNewer.exit18.i, %193, %195
+  %.sroa.06.0.i22.i = phi i64 [ %191, %FullTransactionIdNewer.exit18.i ], [ %174, %193 ], [ %..i21.i, %195 ]
   store i64 %.sroa.06.0.i22.i, ptr @GlobalVisDataRels, align 8
-  store i64 %178, ptr @GlobalVisTempRels, align 8
-  %194 = load i32, ptr @RecentXmin, align 4
-  store i32 %194, ptr @ComputeXidHorizonsResultLastXmin, align 4
+  store i64 %180, ptr @GlobalVisTempRels, align 8
+  %196 = load i32, ptr @RecentXmin, align 4
+  store i32 %196, ptr @ComputeXidHorizonsResultLastXmin, align 4
   ret void
 }
 

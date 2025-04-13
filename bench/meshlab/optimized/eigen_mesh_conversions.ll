@@ -3378,302 +3378,300 @@ _ZN3vcg18PointerToAttribute6ResizeEm.exit:        ; preds = %42
   %.not.i = icmp eq ptr %64, null
   %.not3.i = icmp eq ptr %60, %64
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not3.i
-  br i1 %or.cond.i, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit, label %65
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %66 = load i8, ptr %65, align 8
+  %67 = trunc i8 %66 to i1
+  %or.cond6.i = select i1 %or.cond.i, i1 true, i1 %67
+  br i1 %or.cond6.i, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit.thread
 
-65:                                               ; preds = %._crit_edge
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %67 = load i8, ptr %66, align 8
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit.thread
-
-_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit: ; preds = %._crit_edge, %65
-  %69 = load ptr, ptr %10, align 8
-  %70 = load ptr, ptr %12, align 8
-  %.not97 = icmp eq ptr %69, %70
+_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit: ; preds = %._crit_edge
+  %68 = load ptr, ptr %10, align 8
+  %69 = load ptr, ptr %12, align 8
+  %.not97 = icmp eq ptr %68, %69
   br i1 %.not97, label %.loopexit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit.thread
 
-_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit.thread: ; preds = %65, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %74 = load ptr, ptr %73, align 8
-  %.not98109 = icmp eq ptr %72, %74
+_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit.thread: ; preds = %._crit_edge, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %73 = load ptr, ptr %72, align 8
+  %.not98109 = icmp eq ptr %71, %73
   br i1 %.not98109, label %._crit_edge112, label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit.thread
-  %75 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %76
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br label %75
 
-76:                                               ; preds = %.lr.ph111, %.loopexit105
-  %77 = phi ptr [ %74, %.lr.ph111 ], [ %108, %.loopexit105 ]
-  %.sroa.081.0110 = phi ptr [ %72, %.lr.ph111 ], [ %109, %.loopexit105 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.081.0110, i64 32
-  %79 = load i32, ptr %78, align 8
-  %80 = and i32 %79, 1
-  %.not103 = icmp eq i32 %80, 0
+75:                                               ; preds = %.lr.ph111, %.loopexit105
+  %76 = phi ptr [ %73, %.lr.ph111 ], [ %107, %.loopexit105 ]
+  %.sroa.081.0110 = phi ptr [ %71, %.lr.ph111 ], [ %108, %.loopexit105 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.081.0110, i64 32
+  %78 = load i32, ptr %77, align 8
+  %79 = and i32 %78, 1
+  %.not103 = icmp eq i32 %79, 0
   br i1 %.not103, label %.preheader104, label %.loopexit105
 
-.preheader104:                                    ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.081.0110, i64 8
-  br label %82
+.preheader104:                                    ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.081.0110, i64 8
+  br label %81
 
-82:                                               ; preds = %.preheader104, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit
+81:                                               ; preds = %.preheader104, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit
   %indvars.iv = phi i64 [ 0, %.preheader104 ], [ %indvars.iv.next, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit ]
-  %83 = getelementptr inbounds nuw [3 x ptr], ptr %81, i64 0, i64 %indvars.iv
-  %84 = load ptr, ptr %83, align 8
-  %.not54 = icmp eq ptr %84, null
-  br i1 %.not54, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit, label %85
+  %82 = getelementptr inbounds nuw [3 x ptr], ptr %80, i64 0, i64 %indvars.iv
+  %83 = load ptr, ptr %82, align 8
+  %.not54 = icmp eq ptr %83, null
+  br i1 %.not54, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit, label %84
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %63, align 8
-  %87 = icmp ult ptr %84, %86
-  %88 = load ptr, ptr %75, align 8
-  %89 = icmp ugt ptr %84, %88
-  %or.cond.i55 = select i1 %87, i1 true, i1 %89
-  br i1 %or.cond.i55, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit, label %90
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %63, align 8
+  %86 = icmp ult ptr %83, %85
+  %87 = load ptr, ptr %74, align 8
+  %88 = icmp ugt ptr %83, %87
+  %or.cond.i55 = select i1 %86, i1 true, i1 %88
+  br i1 %or.cond.i55, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit, label %89
 
-90:                                               ; preds = %85
-  %91 = load ptr, ptr %2, align 8
-  %92 = ptrtoint ptr %84 to i64
-  %93 = ptrtoint ptr %86 to i64
-  %94 = sub i64 %92, %93
-  %95 = getelementptr inbounds i8, ptr %91, i64 %94
-  store ptr %95, ptr %83, align 8
-  %96 = load ptr, ptr %10, align 8
-  %97 = load ptr, ptr %12, align 8
-  %98 = icmp eq ptr %96, %97
-  br i1 %98, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit, label %99
+89:                                               ; preds = %84
+  %90 = load ptr, ptr %2, align 8
+  %91 = ptrtoint ptr %83 to i64
+  %92 = ptrtoint ptr %85 to i64
+  %93 = sub i64 %91, %92
+  %94 = getelementptr inbounds i8, ptr %90, i64 %93
+  store ptr %94, ptr %82, align 8
+  %95 = load ptr, ptr %10, align 8
+  %96 = load ptr, ptr %12, align 8
+  %97 = icmp eq ptr %95, %96
+  br i1 %97, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit, label %98
 
-99:                                               ; preds = %90
-  %100 = load ptr, ptr %2, align 8
-  %101 = ptrtoint ptr %95 to i64
-  %102 = ptrtoint ptr %100 to i64
-  %103 = sub i64 %101, %102
-  %104 = sdiv exact i64 %103, 6
-  %105 = getelementptr inbounds i8, ptr %96, i64 %104
-  %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds %class.CVertexO, ptr %100, i64 %106
-  store ptr %107, ptr %83, align 8
+98:                                               ; preds = %89
+  %99 = load ptr, ptr %2, align 8
+  %100 = ptrtoint ptr %94 to i64
+  %101 = ptrtoint ptr %99 to i64
+  %102 = sub i64 %100, %101
+  %103 = sdiv exact i64 %102, 6
+  %104 = getelementptr inbounds i8, ptr %95, i64 %103
+  %105 = load i64, ptr %104, align 8
+  %106 = getelementptr inbounds %class.CVertexO, ptr %99, i64 %105
+  store ptr %106, ptr %82, align 8
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit
 
-_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit: ; preds = %99, %90, %85, %82
+_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit: ; preds = %98, %89, %84, %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit105.loopexit, label %82, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit105.loopexit, label %81, !llvm.loop !34
 
 .loopexit105.loopexit:                            ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit
-  %.pre135 = load ptr, ptr %73, align 8
+  %.pre135 = load ptr, ptr %72, align 8
   br label %.loopexit105
 
-.loopexit105:                                     ; preds = %.loopexit105.loopexit, %76
-  %108 = phi ptr [ %.pre135, %.loopexit105.loopexit ], [ %77, %76 ]
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.081.0110, i64 48
-  %.not98 = icmp eq ptr %109, %108
-  br i1 %.not98, label %._crit_edge112, label %76, !llvm.loop !35
+.loopexit105:                                     ; preds = %.loopexit105.loopexit, %75
+  %107 = phi ptr [ %.pre135, %.loopexit105.loopexit ], [ %76, %75 ]
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.081.0110, i64 48
+  %.not98 = icmp eq ptr %108, %107
+  br i1 %.not98, label %._crit_edge112, label %75, !llvm.loop !35
 
 ._crit_edge112:                                   ; preds = %.loopexit105, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit.thread
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %113 = load ptr, ptr %112, align 8
-  %.not99113 = icmp eq ptr %111, %113
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %112 = load ptr, ptr %111, align 8
+  %.not99113 = icmp eq ptr %110, %112
   br i1 %.not99113, label %._crit_edge117, label %.lr.ph116
 
 .lr.ph116:                                        ; preds = %._crit_edge112
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %115
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br label %114
 
-115:                                              ; preds = %.lr.ph116, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59
-  %.sroa.075.0114 = phi ptr [ %111, %.lr.ph116 ], [ %167, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59 ]
-  %116 = load i32, ptr %.sroa.075.0114, align 4
-  %117 = and i32 %116, 1
-  %.not102 = icmp eq i32 %117, 0
-  br i1 %.not102, label %118, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59
+114:                                              ; preds = %.lr.ph116, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59
+  %.sroa.075.0114 = phi ptr [ %110, %.lr.ph116 ], [ %166, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59 ]
+  %115 = load i32, ptr %.sroa.075.0114, align 4
+  %116 = and i32 %115, 1
+  %.not102 = icmp eq i32 %116, 0
+  br i1 %.not102, label %117, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59
 
-118:                                              ; preds = %115
-  %119 = getelementptr inbounds nuw i8, ptr %.sroa.075.0114, i64 8
-  %120 = load ptr, ptr %119, align 8
-  %121 = load ptr, ptr %63, align 8
-  %122 = icmp ult ptr %120, %121
-  %123 = load ptr, ptr %114, align 8
-  %124 = icmp ugt ptr %120, %123
-  %or.cond.i56 = select i1 %122, i1 true, i1 %124
-  br i1 %or.cond.i56, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit57, label %125
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.075.0114, i64 8
+  %119 = load ptr, ptr %118, align 8
+  %120 = load ptr, ptr %63, align 8
+  %121 = icmp ult ptr %119, %120
+  %122 = load ptr, ptr %113, align 8
+  %123 = icmp ugt ptr %119, %122
+  %or.cond.i56 = select i1 %121, i1 true, i1 %123
+  br i1 %or.cond.i56, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit57, label %124
 
-125:                                              ; preds = %118
-  %126 = load ptr, ptr %2, align 8
+124:                                              ; preds = %117
+  %125 = load ptr, ptr %2, align 8
+  %126 = ptrtoint ptr %119 to i64
   %127 = ptrtoint ptr %120 to i64
-  %128 = ptrtoint ptr %121 to i64
-  %129 = sub i64 %127, %128
-  %130 = getelementptr inbounds i8, ptr %126, i64 %129
-  store ptr %130, ptr %119, align 8
-  %131 = load ptr, ptr %10, align 8
-  %132 = load ptr, ptr %12, align 8
-  %133 = icmp eq ptr %131, %132
-  br i1 %133, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit57, label %134
+  %128 = sub i64 %126, %127
+  %129 = getelementptr inbounds i8, ptr %125, i64 %128
+  store ptr %129, ptr %118, align 8
+  %130 = load ptr, ptr %10, align 8
+  %131 = load ptr, ptr %12, align 8
+  %132 = icmp eq ptr %130, %131
+  br i1 %132, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit57, label %133
 
-134:                                              ; preds = %125
-  %135 = load ptr, ptr %2, align 8
-  %136 = ptrtoint ptr %130 to i64
-  %137 = ptrtoint ptr %135 to i64
-  %138 = sub i64 %136, %137
-  %139 = sdiv exact i64 %138, 6
-  %140 = getelementptr inbounds i8, ptr %131, i64 %139
-  %141 = load i64, ptr %140, align 8
-  %142 = getelementptr inbounds %class.CVertexO, ptr %135, i64 %141
-  store ptr %142, ptr %119, align 8
+133:                                              ; preds = %124
+  %134 = load ptr, ptr %2, align 8
+  %135 = ptrtoint ptr %129 to i64
+  %136 = ptrtoint ptr %134 to i64
+  %137 = sub i64 %135, %136
+  %138 = sdiv exact i64 %137, 6
+  %139 = getelementptr inbounds i8, ptr %130, i64 %138
+  %140 = load i64, ptr %139, align 8
+  %141 = getelementptr inbounds %class.CVertexO, ptr %134, i64 %140
+  store ptr %141, ptr %118, align 8
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit57
 
-_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit57: ; preds = %118, %125, %134
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.075.0114, i64 16
-  %144 = load ptr, ptr %143, align 8
-  %145 = load ptr, ptr %63, align 8
-  %146 = icmp ult ptr %144, %145
-  %147 = load ptr, ptr %114, align 8
-  %148 = icmp ugt ptr %144, %147
-  %or.cond.i58 = select i1 %146, i1 true, i1 %148
-  br i1 %or.cond.i58, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59, label %149
+_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit57: ; preds = %117, %124, %133
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.075.0114, i64 16
+  %143 = load ptr, ptr %142, align 8
+  %144 = load ptr, ptr %63, align 8
+  %145 = icmp ult ptr %143, %144
+  %146 = load ptr, ptr %113, align 8
+  %147 = icmp ugt ptr %143, %146
+  %or.cond.i58 = select i1 %145, i1 true, i1 %147
+  br i1 %or.cond.i58, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59, label %148
 
-149:                                              ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit57
-  %150 = load ptr, ptr %2, align 8
+148:                                              ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit57
+  %149 = load ptr, ptr %2, align 8
+  %150 = ptrtoint ptr %143 to i64
   %151 = ptrtoint ptr %144 to i64
-  %152 = ptrtoint ptr %145 to i64
-  %153 = sub i64 %151, %152
-  %154 = getelementptr inbounds i8, ptr %150, i64 %153
-  store ptr %154, ptr %143, align 8
-  %155 = load ptr, ptr %10, align 8
-  %156 = load ptr, ptr %12, align 8
-  %157 = icmp eq ptr %155, %156
-  br i1 %157, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59, label %158
+  %152 = sub i64 %150, %151
+  %153 = getelementptr inbounds i8, ptr %149, i64 %152
+  store ptr %153, ptr %142, align 8
+  %154 = load ptr, ptr %10, align 8
+  %155 = load ptr, ptr %12, align 8
+  %156 = icmp eq ptr %154, %155
+  br i1 %156, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59, label %157
 
-158:                                              ; preds = %149
-  %159 = load ptr, ptr %2, align 8
-  %160 = ptrtoint ptr %154 to i64
-  %161 = ptrtoint ptr %159 to i64
-  %162 = sub i64 %160, %161
-  %163 = sdiv exact i64 %162, 6
-  %164 = getelementptr inbounds i8, ptr %155, i64 %163
-  %165 = load i64, ptr %164, align 8
-  %166 = getelementptr inbounds %class.CVertexO, ptr %159, i64 %165
-  store ptr %166, ptr %143, align 8
+157:                                              ; preds = %148
+  %158 = load ptr, ptr %2, align 8
+  %159 = ptrtoint ptr %153 to i64
+  %160 = ptrtoint ptr %158 to i64
+  %161 = sub i64 %159, %160
+  %162 = sdiv exact i64 %161, 6
+  %163 = getelementptr inbounds i8, ptr %154, i64 %162
+  %164 = load i64, ptr %163, align 8
+  %165 = getelementptr inbounds %class.CVertexO, ptr %158, i64 %164
+  store ptr %165, ptr %142, align 8
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59
 
-_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59: ; preds = %158, %149, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit57, %115
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.075.0114, i64 48
-  %168 = load ptr, ptr %112, align 8
-  %.not99 = icmp eq ptr %167, %168
-  br i1 %.not99, label %._crit_edge117, label %115, !llvm.loop !36
+_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59: ; preds = %157, %148, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit57, %114
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.075.0114, i64 48
+  %167 = load ptr, ptr %111, align 8
+  %.not99 = icmp eq ptr %166, %167
+  br i1 %.not99, label %._crit_edge117, label %114, !llvm.loop !36
 
 ._crit_edge117:                                   ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59, %._crit_edge112
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %172 = load ptr, ptr %171, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %171 = load ptr, ptr %170, align 8
   %_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp.promoted121 = load ptr, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
-  %.not101124 = icmp eq ptr %170, %172
+  %.not101124 = icmp eq ptr %169, %171
   br i1 %.not101124, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge117
-  %173 = load ptr, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cVEiE2vp, align 8
-  %.not = icmp eq ptr %173, null
-  %174 = load ptr, ptr %63, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %176 = load ptr, ptr %175, align 8
-  %177 = load ptr, ptr %2, align 8
-  %178 = ptrtoint ptr %174 to i64
-  %179 = load ptr, ptr %10, align 8
+  %172 = load ptr, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cVEiE2vp, align 8
+  %.not = icmp eq ptr %172, null
+  %173 = load ptr, ptr %63, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %175 = load ptr, ptr %174, align 8
+  %176 = load ptr, ptr %2, align 8
+  %177 = ptrtoint ptr %173 to i64
+  %178 = load ptr, ptr %10, align 8
   br i1 %.not, label %.loopexit, label %.preheader.lr.ph.split
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
-  %180 = load ptr, ptr %12, align 8
-  %181 = icmp eq ptr %179, %180
-  %.fr = freeze i1 %181
+  %179 = load ptr, ptr %12, align 8
+  %180 = icmp eq ptr %178, %179
+  %.fr = freeze i1 %180
   br i1 %.fr, label %.preheader.us126, label %.preheader
 
 .preheader.us126:                                 ; preds = %.preheader.lr.ph.split, %.split.split.us.us
-  %.sroa.064.0125.us127 = phi ptr [ %195, %.split.split.us.us ], [ %170, %.preheader.lr.ph.split ]
-  %182 = phi ptr [ %192, %.split.split.us.us ], [ %_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp.promoted121, %.preheader.lr.ph.split ]
-  br label %183
+  %.sroa.064.0125.us127 = phi ptr [ %194, %.split.split.us.us ], [ %169, %.preheader.lr.ph.split ]
+  %181 = phi ptr [ %191, %.split.split.us.us ], [ %_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp.promoted121, %.preheader.lr.ph.split ]
+  br label %182
 
-183:                                              ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us, %.preheader.us126
-  %184 = phi ptr [ %182, %.preheader.us126 ], [ %192, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us ]
-  %.052118.us119.us = phi i32 [ 0, %.preheader.us126 ], [ %194, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us ]
-  %185 = phi ptr [ %182, %.preheader.us126 ], [ %193, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us ]
-  %186 = icmp ult ptr %185, %174
-  %187 = icmp ugt ptr %185, %176
-  %or.cond.i62.us.us = select i1 %186, i1 true, i1 %187
-  br i1 %or.cond.i62.us.us, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us, label %188
+182:                                              ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us, %.preheader.us126
+  %183 = phi ptr [ %181, %.preheader.us126 ], [ %191, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us ]
+  %.052118.us119.us = phi i32 [ 0, %.preheader.us126 ], [ %193, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us ]
+  %184 = phi ptr [ %181, %.preheader.us126 ], [ %192, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us ]
+  %185 = icmp ult ptr %184, %173
+  %186 = icmp ugt ptr %184, %175
+  %or.cond.i62.us.us = select i1 %185, i1 true, i1 %186
+  br i1 %or.cond.i62.us.us, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us, label %187
 
-188:                                              ; preds = %183
-  %189 = ptrtoint ptr %185 to i64
-  %190 = sub i64 %189, %178
-  %191 = getelementptr inbounds i8, ptr %177, i64 %190
-  store ptr %191, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
+187:                                              ; preds = %182
+  %188 = ptrtoint ptr %184 to i64
+  %189 = sub i64 %188, %177
+  %190 = getelementptr inbounds i8, ptr %176, i64 %189
+  store ptr %190, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us
 
-_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us: ; preds = %188, %183
-  %192 = phi ptr [ %191, %188 ], [ %184, %183 ]
-  %193 = phi ptr [ %191, %188 ], [ %185, %183 ]
-  %194 = add nuw nsw i32 %.052118.us119.us, 1
-  %exitcond134.not = icmp eq i32 %194, 4
-  br i1 %exitcond134.not, label %.split.split.us.us, label %183, !llvm.loop !37
+_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us: ; preds = %187, %182
+  %191 = phi ptr [ %190, %187 ], [ %183, %182 ]
+  %192 = phi ptr [ %190, %187 ], [ %184, %182 ]
+  %193 = add nuw nsw i32 %.052118.us119.us, 1
+  %exitcond134.not = icmp eq i32 %193, 4
+  br i1 %exitcond134.not, label %.split.split.us.us, label %182, !llvm.loop !37
 
 .split.split.us.us:                               ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us
-  %195 = getelementptr inbounds nuw i8, ptr %.sroa.064.0125.us127, i64 1
-  %.not101.us128 = icmp eq ptr %195, %172
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.064.0125.us127, i64 1
+  %.not101.us128 = icmp eq ptr %194, %171
   br i1 %.not101.us128, label %.loopexit, label %.preheader.us126, !llvm.loop !38
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.split.split
-  %.sroa.064.0125 = phi ptr [ %213, %.split.split ], [ %170, %.preheader.lr.ph.split ]
-  %196 = phi ptr [ %210, %.split.split ], [ %_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp.promoted121, %.preheader.lr.ph.split ]
-  br label %197
+  %.sroa.064.0125 = phi ptr [ %212, %.split.split ], [ %169, %.preheader.lr.ph.split ]
+  %195 = phi ptr [ %209, %.split.split ], [ %_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp.promoted121, %.preheader.lr.ph.split ]
+  br label %196
 
-197:                                              ; preds = %.preheader, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63
-  %198 = phi ptr [ %196, %.preheader ], [ %210, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63 ]
-  %.052118 = phi i32 [ 0, %.preheader ], [ %212, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63 ]
-  %199 = phi ptr [ %196, %.preheader ], [ %211, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63 ]
-  %200 = icmp ult ptr %199, %174
-  %201 = icmp ugt ptr %199, %176
-  %or.cond.i62 = select i1 %200, i1 true, i1 %201
-  br i1 %or.cond.i62, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63, label %202
+196:                                              ; preds = %.preheader, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63
+  %197 = phi ptr [ %195, %.preheader ], [ %209, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63 ]
+  %.052118 = phi i32 [ 0, %.preheader ], [ %211, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63 ]
+  %198 = phi ptr [ %195, %.preheader ], [ %210, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63 ]
+  %199 = icmp ult ptr %198, %173
+  %200 = icmp ugt ptr %198, %175
+  %or.cond.i62 = select i1 %199, i1 true, i1 %200
+  br i1 %or.cond.i62, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63, label %201
 
-202:                                              ; preds = %197
-  %203 = ptrtoint ptr %199 to i64
-  %204 = sub i64 %203, %178
-  %205 = getelementptr inbounds i8, ptr %177, i64 %204
-  store ptr %205, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
-  %206 = sdiv exact i64 %204, 6
-  %207 = getelementptr inbounds i8, ptr %179, i64 %206
-  %208 = load i64, ptr %207, align 8
-  %209 = getelementptr inbounds %class.CVertexO, ptr %177, i64 %208
-  store ptr %209, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
+201:                                              ; preds = %196
+  %202 = ptrtoint ptr %198 to i64
+  %203 = sub i64 %202, %177
+  %204 = getelementptr inbounds i8, ptr %176, i64 %203
+  store ptr %204, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
+  %205 = sdiv exact i64 %203, 6
+  %206 = getelementptr inbounds i8, ptr %178, i64 %205
+  %207 = load i64, ptr %206, align 8
+  %208 = getelementptr inbounds %class.CVertexO, ptr %176, i64 %207
+  store ptr %208, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63
 
-_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63: ; preds = %202, %197
-  %210 = phi ptr [ %209, %202 ], [ %198, %197 ]
-  %211 = phi ptr [ %209, %202 ], [ %199, %197 ]
-  %212 = add nuw nsw i32 %.052118, 1
-  %exitcond133.not = icmp eq i32 %212, 4
-  br i1 %exitcond133.not, label %.split.split, label %197, !llvm.loop !37
+_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63: ; preds = %201, %196
+  %209 = phi ptr [ %208, %201 ], [ %197, %196 ]
+  %210 = phi ptr [ %208, %201 ], [ %198, %196 ]
+  %211 = add nuw nsw i32 %.052118, 1
+  %exitcond133.not = icmp eq i32 %211, 4
+  br i1 %exitcond133.not, label %.split.split, label %196, !llvm.loop !37
 
 .split.split:                                     ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63
-  %213 = getelementptr inbounds nuw i8, ptr %.sroa.064.0125, i64 1
-  %.not101 = icmp eq ptr %213, %172
+  %212 = getelementptr inbounds nuw i8, ptr %.sroa.064.0125, i64 1
+  %.not101 = icmp eq ptr %212, %171
   br i1 %.not101, label %.loopexit, label %.preheader, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.split.split, %.split.split.us.us, %.preheader.lr.ph, %._crit_edge117, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE10NeedUpdateEv.exit
-  %214 = load ptr, ptr %17, align 8
-  %215 = load ptr, ptr %15, align 8
+  %213 = load ptr, ptr %17, align 8
+  %214 = load ptr, ptr %15, align 8
+  %215 = ptrtoint ptr %213 to i64
   %216 = ptrtoint ptr %214 to i64
-  %217 = ptrtoint ptr %215 to i64
-  %218 = sub i64 %216, %217
-  %219 = sdiv exact i64 %218, 48
-  %220 = sub i64 %219, %1
-  %221 = getelementptr inbounds %class.CVertexO, ptr %215, i64 %220
+  %217 = sub i64 %215, %216
+  %218 = sdiv exact i64 %217, 48
+  %219 = sub i64 %218, %1
+  %220 = getelementptr inbounds %class.CVertexO, ptr %214, i64 %219
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP8CVertexOSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP8CVertexOSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit: ; preds = %.loopexit, %6
-  %.sroa.051.0 = phi ptr [ %8, %6 ], [ %221, %.loopexit ]
+  %.sroa.051.0 = phi ptr [ %8, %6 ], [ %220, %.loopexit ]
   ret ptr %.sroa.051.0
 }
 
@@ -5500,8 +5498,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP6CFaceOSt6vectorIS2_SaIS2_EEEEmEvRT
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 840
-  %.not129 = icmp eq ptr %44, %45
-  br i1 %.not129, label %._crit_edge, label %.lr.ph
+  %.not131 = icmp eq ptr %44, %45
+  br i1 %.not131, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP6CFaceOSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5509,13 +5507,13 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP6CFaceOSt6vectorIS2_SaIS2_EEEEmEvRT
   br label %48
 
 48:                                               ; preds = %.lr.ph, %_ZN3vcg18PointerToAttribute6ResizeEm.exit
-  %.sroa.0102.0130 = phi ptr [ %44, %.lr.ph ], [ %63, %_ZN3vcg18PointerToAttribute6ResizeEm.exit ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0130, i64 32
+  %.sroa.0102.0132 = phi ptr [ %44, %.lr.ph ], [ %63, %_ZN3vcg18PointerToAttribute6ResizeEm.exit ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0132, i64 32
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %4, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0130, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0132, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %51)
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0130, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0132, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
   %53 = load ptr, ptr %17, align 8
   %54 = load ptr, ptr %15, align 8
@@ -5532,7 +5530,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP6CFaceOSt6vectorIS2_SaIS2_EEEEmEvRT
 
 _ZN3vcg18PointerToAttribute6ResizeEm.exit:        ; preds = %48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #28
-  %63 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0102.0130) #30
+  %63 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0102.0132) #30
   %.not = icmp eq ptr %63, %45
   br i1 %.not, label %._crit_edge.loopexit, label %48, !llvm.loop !78
 
@@ -5543,11 +5541,11 @@ _ZN3vcg18PointerToAttribute6ResizeEm.exit:        ; preds = %48
   resume { ptr, i32 } %65
 
 ._crit_edge.loopexit:                             ; preds = %_ZN3vcg18PointerToAttribute6ResizeEm.exit
-  %.pre155 = load ptr, ptr %15, align 8
+  %.pre157 = load ptr, ptr %15, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP6CFaceOSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit
-  %66 = phi ptr [ %.pre155, %._crit_edge.loopexit ], [ %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP6CFaceOSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit ]
+  %66 = phi ptr [ %.pre157, %._crit_edge.loopexit ], [ %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIP6CFaceOSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit ]
   store ptr %66, ptr %2, align 8
   %67 = load ptr, ptr %17, align 8
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5557,296 +5555,292 @@ _ZN3vcg18PointerToAttribute6ResizeEm.exit:        ; preds = %48
   %.not.i = icmp eq ptr %70, null
   %.not3.i = icmp eq ptr %66, %70
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not3.i
-  br i1 %or.cond.i, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit, label %71
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %72 = load i8, ptr %71, align 8
+  %73 = trunc i8 %72 to i1
+  %or.cond6.i = select i1 %or.cond.i, i1 true, i1 %73
+  br i1 %or.cond6.i, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit.thread
 
-71:                                               ; preds = %._crit_edge
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %73 = load i8, ptr %72, align 8
-  %74 = trunc i8 %73 to i1
-  br i1 %74, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit.thread
+_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit: ; preds = %._crit_edge
+  %74 = load ptr, ptr %5, align 8
+  %75 = load ptr, ptr %7, align 8
+  %.not120 = icmp eq ptr %74, %75
+  br i1 %.not120, label %.loopexit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit.thread
 
-_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit: ; preds = %._crit_edge, %71
-  %75 = load ptr, ptr %5, align 8
-  %76 = load ptr, ptr %7, align 8
-  %.not118 = icmp eq ptr %75, %76
-  br i1 %.not118, label %.loopexit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit.thread
+_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit.thread: ; preds = %._crit_edge, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 577
+  %77 = load i8, ptr %76, align 1
+  %78 = trunc i8 %77 to i1
+  br i1 %78, label %79, label %.loopexit130
 
-_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit.thread: ; preds = %71, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 577
-  %78 = load i8, ptr %77, align 1
-  %79 = trunc i8 %78 to i1
-  br i1 %79, label %80, label %.loopexit128
+79:                                               ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit.thread
+  %80 = load ptr, ptr %15, align 8
+  %.not121134 = icmp eq ptr %80, %42
+  br i1 %.not121134, label %.loopexit130, label %.lr.ph138
 
-80:                                               ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit.thread
-  %81 = load ptr, ptr %15, align 8
-  %.not119132 = icmp eq ptr %81, %42
-  br i1 %.not119132, label %.loopexit128, label %.lr.ph136
+.lr.ph138:                                        ; preds = %79
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br label %82
 
-.lr.ph136:                                        ; preds = %80
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %83
+82:                                               ; preds = %.lr.ph138, %.loopexit129
+  %.sroa.094.0135 = phi ptr [ %80, %.lr.ph138 ], [ %127, %.loopexit129 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.094.0135, i64 32
+  %84 = load i32, ptr %83, align 8
+  %85 = and i32 %84, 1
+  %.not126 = icmp eq i32 %85, 0
+  br i1 %.not126, label %.preheader128, label %.loopexit129
 
-83:                                               ; preds = %.lr.ph136, %.loopexit127
-  %.sroa.094.0133 = phi ptr [ %81, %.lr.ph136 ], [ %128, %.loopexit127 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.094.0133, i64 32
-  %85 = load i32, ptr %84, align 8
-  %86 = and i32 %85, 1
-  %.not124 = icmp eq i32 %86, 0
-  br i1 %.not124, label %.preheader126, label %.loopexit127
+.preheader128:                                    ; preds = %82
+  %86 = ptrtoint ptr %.sroa.094.0135 to i64
+  %87 = load ptr, ptr %.sroa.094.0135, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 273
+  %89 = load i8, ptr %88, align 1
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %.preheader128.split, label %.loopexit129
 
-.preheader126:                                    ; preds = %83
-  %87 = ptrtoint ptr %.sroa.094.0133 to i64
-  %88 = load ptr, ptr %.sroa.094.0133, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 273
-  %90 = load i8, ptr %89, align 1
-  %91 = trunc i8 %90 to i1
-  br i1 %91, label %.preheader126.split, label %.loopexit127
+.preheader128.split:                              ; preds = %.preheader128, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit ], [ 0, %.preheader128 ]
+  %91 = load ptr, ptr %.sroa.094.0135, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 273
+  %93 = load i8, ptr %92, align 1
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %_ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfEEEE4cFFpEi.exit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit
 
-.preheader126.split:                              ; preds = %.preheader126, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit ], [ 0, %.preheader126 ]
-  %92 = load ptr, ptr %.sroa.094.0133, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 273
-  %94 = load i8, ptr %93, align 1
-  %95 = trunc i8 %94 to i1
-  br i1 %95, label %_ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfEEEE4cFFpEi.exit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit
+_ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfEEEE4cFFpEi.exit: ; preds = %.preheader128.split
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 240
+  %96 = load ptr, ptr %91, align 8
+  %97 = ptrtoint ptr %96 to i64
+  %98 = sub i64 %86, %97
+  %99 = sdiv exact i64 %98, 48
+  %100 = load ptr, ptr %95, align 8
+  %101 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %100, i64 %99
+  %102 = getelementptr inbounds nuw [3 x ptr], ptr %101, i64 0, i64 %indvars.iv
+  %103 = load ptr, ptr %102, align 8
+  %.not57 = icmp eq ptr %103, null
+  br i1 %.not57, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit, label %104
 
-_ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfEEEE4cFFpEi.exit: ; preds = %.preheader126.split
-  %96 = getelementptr inbounds nuw i8, ptr %92, i64 240
-  %97 = load ptr, ptr %92, align 8
-  %98 = ptrtoint ptr %97 to i64
-  %99 = sub i64 %87, %98
-  %100 = sdiv exact i64 %99, 48
-  %101 = load ptr, ptr %96, align 8
-  %102 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %101, i64 %100
-  %103 = getelementptr inbounds nuw [3 x ptr], ptr %102, i64 0, i64 %indvars.iv
-  %104 = load ptr, ptr %103, align 8
-  %.not57 = icmp eq ptr %104, null
-  br i1 %.not57, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit, label %105
+104:                                              ; preds = %_ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfEEEE4cFFpEi.exit
+  %105 = load ptr, ptr %69, align 8
+  %106 = icmp ult ptr %103, %105
+  %107 = load ptr, ptr %81, align 8
+  %108 = icmp ugt ptr %103, %107
+  %or.cond.i59 = select i1 %106, i1 true, i1 %108
+  br i1 %or.cond.i59, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit, label %109
 
-105:                                              ; preds = %_ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfEEEE4cFFpEi.exit
-  %106 = load ptr, ptr %69, align 8
-  %107 = icmp ult ptr %104, %106
-  %108 = load ptr, ptr %82, align 8
-  %109 = icmp ugt ptr %104, %108
-  %or.cond.i59 = select i1 %107, i1 true, i1 %109
-  br i1 %or.cond.i59, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit, label %110
+109:                                              ; preds = %104
+  %110 = load ptr, ptr %2, align 8
+  %111 = ptrtoint ptr %103 to i64
+  %112 = ptrtoint ptr %105 to i64
+  %113 = sub i64 %111, %112
+  %114 = getelementptr inbounds i8, ptr %110, i64 %113
+  store ptr %114, ptr %102, align 8
+  %115 = load ptr, ptr %5, align 8
+  %116 = load ptr, ptr %7, align 8
+  %117 = icmp eq ptr %115, %116
+  br i1 %117, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit, label %118
 
-110:                                              ; preds = %105
-  %111 = load ptr, ptr %2, align 8
-  %112 = ptrtoint ptr %104 to i64
-  %113 = ptrtoint ptr %106 to i64
-  %114 = sub i64 %112, %113
-  %115 = getelementptr inbounds i8, ptr %111, i64 %114
-  store ptr %115, ptr %103, align 8
-  %116 = load ptr, ptr %5, align 8
-  %117 = load ptr, ptr %7, align 8
-  %118 = icmp eq ptr %116, %117
-  br i1 %118, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit, label %119
-
-119:                                              ; preds = %110
-  %120 = load ptr, ptr %2, align 8
-  %121 = ptrtoint ptr %115 to i64
-  %122 = ptrtoint ptr %120 to i64
-  %123 = sub i64 %121, %122
-  %124 = sdiv exact i64 %123, 6
-  %125 = getelementptr inbounds i8, ptr %116, i64 %124
-  %126 = load i64, ptr %125, align 8
-  %127 = getelementptr inbounds %class.CFaceO, ptr %120, i64 %126
-  store ptr %127, ptr %103, align 8
+118:                                              ; preds = %109
+  %119 = load ptr, ptr %2, align 8
+  %120 = ptrtoint ptr %114 to i64
+  %121 = ptrtoint ptr %119 to i64
+  %122 = sub i64 %120, %121
+  %123 = sdiv exact i64 %122, 6
+  %124 = getelementptr inbounds i8, ptr %115, i64 %123
+  %125 = load i64, ptr %124, align 8
+  %126 = getelementptr inbounds %class.CFaceO, ptr %119, i64 %125
+  store ptr %126, ptr %102, align 8
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit
 
-_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit: ; preds = %.preheader126.split, %119, %110, %105, %_ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfEEEE4cFFpEi.exit
+_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit: ; preds = %.preheader128.split, %118, %109, %104, %_ZNK3vcg4face8FFAdjOcfINS_6Arity7INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfEEEE4cFFpEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit127, label %.preheader126.split, !llvm.loop !79
+  br i1 %exitcond.not, label %.loopexit129, label %.preheader128.split, !llvm.loop !79
 
-.loopexit127:                                     ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit, %.preheader126, %83
-  %128 = getelementptr inbounds nuw i8, ptr %.sroa.094.0133, i64 48
-  %.not119 = icmp eq ptr %128, %42
-  br i1 %.not119, label %.loopexit128, label %83, !llvm.loop !81
+.loopexit129:                                     ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit, %.preheader128, %82
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.094.0135, i64 48
+  %.not121 = icmp eq ptr %127, %42
+  br i1 %.not121, label %.loopexit130, label %82, !llvm.loop !81
 
-.loopexit128:                                     ; preds = %.loopexit127, %80, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit.thread
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %130 = load i8, ptr %129, align 8
-  %131 = trunc i8 %130 to i1
-  br i1 %131, label %132, label %.loopexit
+.loopexit130:                                     ; preds = %.loopexit129, %79, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit.thread
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %129 = load i8, ptr %128, align 8
+  %130 = trunc i8 %129 to i1
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %132 = load i8, ptr %131, align 8
+  %133 = trunc i8 %132 to i1
+  %or.cond = select i1 %130, i1 %133, i1 false
+  br i1 %or.cond, label %134, label %.loopexit
 
-132:                                              ; preds = %.loopexit128
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %134 = load i8, ptr %133, align 8
-  %135 = trunc i8 %134 to i1
-  br i1 %135, label %136, label %.loopexit
+134:                                              ; preds = %.loopexit130
+  %135 = load ptr, ptr %15, align 8
+  %.not122140 = icmp eq ptr %135, %42
+  br i1 %.not122140, label %._crit_edge145, label %.lr.ph144
 
-136:                                              ; preds = %132
-  %137 = load ptr, ptr %15, align 8
-  %.not120138 = icmp eq ptr %137, %42
-  br i1 %.not120138, label %._crit_edge143, label %.lr.ph142
+.lr.ph144:                                        ; preds = %134
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br label %137
 
-.lr.ph142:                                        ; preds = %136
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %139
+137:                                              ; preds = %.lr.ph144, %.loopexit127
+  %.sroa.088.0141 = phi ptr [ %135, %.lr.ph144 ], [ %182, %.loopexit127 ]
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.088.0141, i64 32
+  %139 = load i32, ptr %138, align 8
+  %140 = and i32 %139, 1
+  %.not125 = icmp eq i32 %140, 0
+  br i1 %.not125, label %.preheader, label %.loopexit127
 
-139:                                              ; preds = %.lr.ph142, %.loopexit125
-  %.sroa.088.0139 = phi ptr [ %137, %.lr.ph142 ], [ %184, %.loopexit125 ]
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.088.0139, i64 32
-  %141 = load i32, ptr %140, align 8
-  %142 = and i32 %141, 1
-  %.not123 = icmp eq i32 %142, 0
-  br i1 %.not123, label %.preheader, label %.loopexit125
-
-.preheader:                                       ; preds = %139
-  %143 = ptrtoint ptr %.sroa.088.0139 to i64
-  %144 = load ptr, ptr %.sroa.088.0139, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 272
-  %146 = load i8, ptr %145, align 8
-  %147 = trunc i8 %146 to i1
-  br i1 %147, label %.preheader.split, label %.loopexit125
+.preheader:                                       ; preds = %137
+  %141 = ptrtoint ptr %.sroa.088.0141 to i64
+  %142 = load ptr, ptr %.sroa.088.0141, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 272
+  %144 = load i8, ptr %143, align 8
+  %145 = trunc i8 %144 to i1
+  br i1 %145, label %.preheader.split, label %.loopexit127
 
 .preheader.split:                                 ; preds = %.preheader, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62
-  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62 ], [ 0, %.preheader ]
-  %148 = load ptr, ptr %.sroa.088.0139, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 272
-  %150 = load i8, ptr %149, align 8
-  %151 = trunc i8 %150 to i1
-  br i1 %151, label %_ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfENS0_8FFAdjOcfEEEE4cVFpEi.exit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62
+  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62 ], [ 0, %.preheader ]
+  %146 = load ptr, ptr %.sroa.088.0141, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 272
+  %148 = load i8, ptr %147, align 8
+  %149 = trunc i8 %148 to i1
+  br i1 %149, label %_ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfENS0_8FFAdjOcfEEEE4cVFpEi.exit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62
 
 _ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfENS0_8FFAdjOcfEEEE4cVFpEi.exit: ; preds = %.preheader.split
-  %152 = getelementptr inbounds nuw i8, ptr %148, i64 216
-  %153 = load ptr, ptr %148, align 8
-  %154 = ptrtoint ptr %153 to i64
-  %155 = sub i64 %143, %154
-  %156 = sdiv exact i64 %155, 48
-  %157 = load ptr, ptr %152, align 8
-  %158 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %157, i64 %156
-  %159 = getelementptr inbounds nuw [3 x ptr], ptr %158, i64 0, i64 %indvars.iv151
-  %160 = load ptr, ptr %159, align 8
-  %.not56 = icmp eq ptr %160, null
-  br i1 %.not56, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62, label %161
+  %150 = getelementptr inbounds nuw i8, ptr %146, i64 216
+  %151 = load ptr, ptr %146, align 8
+  %152 = ptrtoint ptr %151 to i64
+  %153 = sub i64 %141, %152
+  %154 = sdiv exact i64 %153, 48
+  %155 = load ptr, ptr %150, align 8
+  %156 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %155, i64 %154
+  %157 = getelementptr inbounds nuw [3 x ptr], ptr %156, i64 0, i64 %indvars.iv153
+  %158 = load ptr, ptr %157, align 8
+  %.not56 = icmp eq ptr %158, null
+  br i1 %.not56, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62, label %159
 
-161:                                              ; preds = %_ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfENS0_8FFAdjOcfEEEE4cVFpEi.exit
-  %162 = load ptr, ptr %69, align 8
-  %163 = icmp ult ptr %160, %162
-  %164 = load ptr, ptr %138, align 8
-  %165 = icmp ugt ptr %160, %164
-  %or.cond.i61 = select i1 %163, i1 true, i1 %165
-  br i1 %or.cond.i61, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62, label %166
+159:                                              ; preds = %_ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfENS0_8FFAdjOcfEEEE4cVFpEi.exit
+  %160 = load ptr, ptr %69, align 8
+  %161 = icmp ult ptr %158, %160
+  %162 = load ptr, ptr %136, align 8
+  %163 = icmp ugt ptr %158, %162
+  %or.cond.i61 = select i1 %161, i1 true, i1 %163
+  br i1 %or.cond.i61, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62, label %164
 
-166:                                              ; preds = %161
-  %167 = load ptr, ptr %2, align 8
-  %168 = ptrtoint ptr %160 to i64
-  %169 = ptrtoint ptr %162 to i64
-  %170 = sub i64 %168, %169
-  %171 = getelementptr inbounds i8, ptr %167, i64 %170
-  store ptr %171, ptr %159, align 8
-  %172 = load ptr, ptr %5, align 8
-  %173 = load ptr, ptr %7, align 8
-  %174 = icmp eq ptr %172, %173
-  br i1 %174, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62, label %175
+164:                                              ; preds = %159
+  %165 = load ptr, ptr %2, align 8
+  %166 = ptrtoint ptr %158 to i64
+  %167 = ptrtoint ptr %160 to i64
+  %168 = sub i64 %166, %167
+  %169 = getelementptr inbounds i8, ptr %165, i64 %168
+  store ptr %169, ptr %157, align 8
+  %170 = load ptr, ptr %5, align 8
+  %171 = load ptr, ptr %7, align 8
+  %172 = icmp eq ptr %170, %171
+  br i1 %172, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62, label %173
 
-175:                                              ; preds = %166
-  %176 = load ptr, ptr %2, align 8
-  %177 = ptrtoint ptr %171 to i64
-  %178 = ptrtoint ptr %176 to i64
-  %179 = sub i64 %177, %178
-  %180 = sdiv exact i64 %179, 6
-  %181 = getelementptr inbounds i8, ptr %172, i64 %180
-  %182 = load i64, ptr %181, align 8
-  %183 = getelementptr inbounds %class.CFaceO, ptr %176, i64 %182
-  store ptr %183, ptr %159, align 8
+173:                                              ; preds = %164
+  %174 = load ptr, ptr %2, align 8
+  %175 = ptrtoint ptr %169 to i64
+  %176 = ptrtoint ptr %174 to i64
+  %177 = sub i64 %175, %176
+  %178 = sdiv exact i64 %177, 6
+  %179 = getelementptr inbounds i8, ptr %170, i64 %178
+  %180 = load i64, ptr %179, align 8
+  %181 = getelementptr inbounds %class.CFaceO, ptr %174, i64 %180
+  store ptr %181, ptr %157, align 8
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62
 
-_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62: ; preds = %.preheader.split, %175, %166, %161, %_ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfENS0_8FFAdjOcfEEEE4cVFpEi.exit
-  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
-  %exitcond154.not = icmp eq i64 %indvars.iv.next152, 3
-  br i1 %exitcond154.not, label %.loopexit125, label %.preheader.split, !llvm.loop !82
+_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62: ; preds = %.preheader.split, %173, %164, %159, %_ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9VertexRefENS0_8BitFlagsENS0_8Normal3mENS0_11QualitymOcfENS0_7MarkOcfENS0_10Color4bOcfENS0_8FFAdjOcfEEEE4cVFpEi.exit
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+  %exitcond156.not = icmp eq i64 %indvars.iv.next154, 3
+  br i1 %exitcond156.not, label %.loopexit127, label %.preheader.split, !llvm.loop !82
 
-.loopexit125:                                     ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62, %.preheader, %139
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.088.0139, i64 48
-  %.not120 = icmp eq ptr %184, %42
-  br i1 %.not120, label %._crit_edge143, label %139, !llvm.loop !83
+.loopexit127:                                     ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit62, %.preheader, %137
+  %182 = getelementptr inbounds nuw i8, ptr %.sroa.088.0141, i64 48
+  %.not122 = icmp eq ptr %182, %42
+  br i1 %.not122, label %._crit_edge145, label %137, !llvm.loop !83
 
-._crit_edge143:                                   ; preds = %.loopexit125, %136
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
+._crit_edge145:                                   ; preds = %.loopexit127, %134
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %188 = load ptr, ptr %187, align 8
-  %.not121144 = icmp eq ptr %186, %188
-  br i1 %.not121144, label %.loopexit, label %.lr.ph147
+  %.not123146 = icmp eq ptr %184, %186
+  br i1 %.not123146, label %.loopexit, label %.lr.ph149
 
-.lr.ph147:                                        ; preds = %._crit_edge143
-  %189 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %190
+.lr.ph149:                                        ; preds = %._crit_edge145
+  %187 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br label %188
 
-190:                                              ; preds = %.lr.ph147, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66
-  %.sroa.083.0145 = phi ptr [ %186, %.lr.ph147 ], [ %232, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
-  %191 = getelementptr inbounds nuw i8, ptr %.sroa.083.0145, i64 20
-  %192 = load i32, ptr %191, align 4
-  %193 = and i32 %192, 1
-  %.not122 = icmp eq i32 %193, 0
-  br i1 %.not122, label %194, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66
+188:                                              ; preds = %.lr.ph149, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66
+  %.sroa.083.0147 = phi ptr [ %184, %.lr.ph149 ], [ %230, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
+  %189 = getelementptr inbounds nuw i8, ptr %.sroa.083.0147, i64 20
+  %190 = load i32, ptr %189, align 4
+  %191 = and i32 %190, 1
+  %.not124 = icmp eq i32 %191, 0
+  br i1 %.not124, label %192, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66
 
-194:                                              ; preds = %190
-  %195 = load ptr, ptr %.sroa.083.0145, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 248
-  %197 = load i8, ptr %196, align 8
-  %198 = trunc i8 %197 to i1
-  br i1 %198, label %_ZNK3vcg6vertex8VFAdjOcfINS_6Arity6INS0_9EmptyCoreI11CUsedTypesOEENS0_7InfoOcfENS0_7Coord3mENS0_8BitFlagsENS0_8Normal3mENS0_8QualitymENS0_7Color4bEEEE4cVFpEv.exit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66
+192:                                              ; preds = %188
+  %193 = load ptr, ptr %.sroa.083.0147, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 248
+  %195 = load i8, ptr %194, align 8
+  %196 = trunc i8 %195 to i1
+  br i1 %196, label %_ZNK3vcg6vertex8VFAdjOcfINS_6Arity6INS0_9EmptyCoreI11CUsedTypesOEENS0_7InfoOcfENS0_7Coord3mENS0_8BitFlagsENS0_8Normal3mENS0_8QualitymENS0_7Color4bEEEE4cVFpEv.exit, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66
 
-_ZNK3vcg6vertex8VFAdjOcfINS_6Arity6INS0_9EmptyCoreI11CUsedTypesOEENS0_7InfoOcfENS0_7Coord3mENS0_8BitFlagsENS0_8Normal3mENS0_8QualitymENS0_7Color4bEEEE4cVFpEv.exit: ; preds = %194
-  %199 = getelementptr inbounds nuw i8, ptr %195, i64 216
-  %200 = load ptr, ptr %195, align 8
-  %201 = ptrtoint ptr %.sroa.083.0145 to i64
-  %202 = ptrtoint ptr %200 to i64
-  %203 = sub i64 %201, %202
-  %204 = sdiv exact i64 %203, 48
-  %sext.i = shl i64 %204, 32
-  %205 = load ptr, ptr %199, align 8
-  %206 = ashr exact i64 %sext.i, 28
-  %207 = getelementptr inbounds i8, ptr %205, i64 %206
-  %208 = load ptr, ptr %207, align 8
-  %.not55 = icmp eq ptr %208, null
-  br i1 %.not55, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, label %209
+_ZNK3vcg6vertex8VFAdjOcfINS_6Arity6INS0_9EmptyCoreI11CUsedTypesOEENS0_7InfoOcfENS0_7Coord3mENS0_8BitFlagsENS0_8Normal3mENS0_8QualitymENS0_7Color4bEEEE4cVFpEv.exit: ; preds = %192
+  %197 = getelementptr inbounds nuw i8, ptr %193, i64 216
+  %198 = load ptr, ptr %193, align 8
+  %199 = ptrtoint ptr %.sroa.083.0147 to i64
+  %200 = ptrtoint ptr %198 to i64
+  %201 = sub i64 %199, %200
+  %202 = sdiv exact i64 %201, 48
+  %sext.i = shl i64 %202, 32
+  %203 = load ptr, ptr %197, align 8
+  %204 = ashr exact i64 %sext.i, 28
+  %205 = getelementptr inbounds i8, ptr %203, i64 %204
+  %206 = load ptr, ptr %205, align 8
+  %.not55 = icmp eq ptr %206, null
+  br i1 %.not55, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, label %207
 
-209:                                              ; preds = %_ZNK3vcg6vertex8VFAdjOcfINS_6Arity6INS0_9EmptyCoreI11CUsedTypesOEENS0_7InfoOcfENS0_7Coord3mENS0_8BitFlagsENS0_8Normal3mENS0_8QualitymENS0_7Color4bEEEE4cVFpEv.exit
-  %210 = load ptr, ptr %69, align 8
-  %211 = icmp ult ptr %208, %210
-  %212 = load ptr, ptr %189, align 8
-  %213 = icmp ugt ptr %208, %212
-  %or.cond.i65 = select i1 %211, i1 true, i1 %213
-  br i1 %or.cond.i65, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, label %214
+207:                                              ; preds = %_ZNK3vcg6vertex8VFAdjOcfINS_6Arity6INS0_9EmptyCoreI11CUsedTypesOEENS0_7InfoOcfENS0_7Coord3mENS0_8BitFlagsENS0_8Normal3mENS0_8QualitymENS0_7Color4bEEEE4cVFpEv.exit
+  %208 = load ptr, ptr %69, align 8
+  %209 = icmp ult ptr %206, %208
+  %210 = load ptr, ptr %187, align 8
+  %211 = icmp ugt ptr %206, %210
+  %or.cond.i65 = select i1 %209, i1 true, i1 %211
+  br i1 %or.cond.i65, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, label %212
 
-214:                                              ; preds = %209
-  %215 = load ptr, ptr %2, align 8
-  %216 = ptrtoint ptr %208 to i64
-  %217 = ptrtoint ptr %210 to i64
-  %218 = sub i64 %216, %217
-  %219 = getelementptr inbounds i8, ptr %215, i64 %218
-  store ptr %219, ptr %207, align 8
-  %220 = load ptr, ptr %5, align 8
-  %221 = load ptr, ptr %7, align 8
-  %222 = icmp eq ptr %220, %221
-  br i1 %222, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, label %223
+212:                                              ; preds = %207
+  %213 = load ptr, ptr %2, align 8
+  %214 = ptrtoint ptr %206 to i64
+  %215 = ptrtoint ptr %208 to i64
+  %216 = sub i64 %214, %215
+  %217 = getelementptr inbounds i8, ptr %213, i64 %216
+  store ptr %217, ptr %205, align 8
+  %218 = load ptr, ptr %5, align 8
+  %219 = load ptr, ptr %7, align 8
+  %220 = icmp eq ptr %218, %219
+  br i1 %220, label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, label %221
 
-223:                                              ; preds = %214
-  %224 = load ptr, ptr %2, align 8
-  %225 = ptrtoint ptr %219 to i64
-  %226 = ptrtoint ptr %224 to i64
-  %227 = sub i64 %225, %226
-  %228 = sdiv exact i64 %227, 6
-  %229 = getelementptr inbounds i8, ptr %220, i64 %228
-  %230 = load i64, ptr %229, align 8
-  %231 = getelementptr inbounds %class.CFaceO, ptr %224, i64 %230
-  store ptr %231, ptr %207, align 8
+221:                                              ; preds = %212
+  %222 = load ptr, ptr %2, align 8
+  %223 = ptrtoint ptr %217 to i64
+  %224 = ptrtoint ptr %222 to i64
+  %225 = sub i64 %223, %224
+  %226 = sdiv exact i64 %225, 6
+  %227 = getelementptr inbounds i8, ptr %218, i64 %226
+  %228 = load i64, ptr %227, align 8
+  %229 = getelementptr inbounds %class.CFaceO, ptr %222, i64 %228
+  store ptr %229, ptr %205, align 8
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66
 
-_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66: ; preds = %194, %223, %214, %209, %190, %_ZNK3vcg6vertex8VFAdjOcfINS_6Arity6INS0_9EmptyCoreI11CUsedTypesOEENS0_7InfoOcfENS0_7Coord3mENS0_8BitFlagsENS0_8Normal3mENS0_8QualitymENS0_7Color4bEEEE4cVFpEv.exit
-  %232 = getelementptr inbounds nuw i8, ptr %.sroa.083.0145, i64 48
-  %233 = load ptr, ptr %187, align 8
-  %.not121 = icmp eq ptr %232, %233
-  br i1 %.not121, label %.loopexit, label %190, !llvm.loop !84
+_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66: ; preds = %192, %221, %212, %207, %188, %_ZNK3vcg6vertex8VFAdjOcfINS_6Arity6INS0_9EmptyCoreI11CUsedTypesOEENS0_7InfoOcfENS0_7Coord3mENS0_8BitFlagsENS0_8Normal3mENS0_8QualitymENS0_7Color4bEEEE4cVFpEv.exit
+  %230 = getelementptr inbounds nuw i8, ptr %.sroa.083.0147, i64 48
+  %231 = load ptr, ptr %185, align 8
+  %.not123 = icmp eq ptr %230, %231
+  br i1 %.not123, label %.loopexit, label %188, !llvm.loop !84
 
-.loopexit:                                        ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, %._crit_edge143, %132, %.loopexit128, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit, %11
-  %.sroa.0106.0 = phi ptr [ %13, %11 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit ], [ %42, %.loopexit128 ], [ %42, %132 ], [ %42, %._crit_edge143 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
+.loopexit:                                        ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66, %._crit_edge145, %.loopexit130, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit, %11
+  %.sroa.0106.0 = phi ptr [ %13, %11 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE10NeedUpdateEv.exit ], [ %42, %.loopexit130 ], [ %42, %._crit_edge145 ], [ %42, %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP6CFaceOE6UpdateERS6_.exit66 ]
   ret ptr %.sroa.0106.0
 }
 
@@ -9830,310 +9824,308 @@ _ZN3vcg18PointerToAttribute6ResizeEm.exit:        ; preds = %49
   %.not.i = icmp eq ptr %71, null
   %.not3.i = icmp eq ptr %67, %71
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not3.i
-  br i1 %or.cond.i, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit, label %72
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %73 = load i8, ptr %72, align 8
+  %74 = trunc i8 %73 to i1
+  %or.cond6.i = select i1 %or.cond.i, i1 true, i1 %74
+  br i1 %or.cond6.i, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit.thread
 
-72:                                               ; preds = %._crit_edge
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %74 = load i8, ptr %73, align 8
-  %75 = trunc i8 %74 to i1
-  br i1 %75, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit.thread
-
-_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit: ; preds = %._crit_edge, %72
-  %76 = load ptr, ptr %10, align 8
-  %77 = load ptr, ptr %12, align 8
-  %.not97 = icmp eq ptr %76, %77
+_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit: ; preds = %._crit_edge
+  %75 = load ptr, ptr %10, align 8
+  %76 = load ptr, ptr %12, align 8
+  %.not97 = icmp eq ptr %75, %76
   br i1 %.not97, label %.loopexit, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit.thread
 
-_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit.thread: ; preds = %72, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %81 = load ptr, ptr %80, align 8
-  %.not98110 = icmp eq ptr %79, %81
+_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit.thread: ; preds = %._crit_edge, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %80 = load ptr, ptr %79, align 8
+  %.not98110 = icmp eq ptr %78, %80
   br i1 %.not98110, label %._crit_edge114, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit.thread
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %83
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br label %82
 
-83:                                               ; preds = %.lr.ph113, %.loopexit105
-  %84 = phi ptr [ %81, %.lr.ph113 ], [ %121, %.loopexit105 ]
-  %.sroa.081.0111 = phi ptr [ %79, %.lr.ph113 ], [ %122, %.loopexit105 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.081.0111, i64 24
-  %86 = load i32, ptr %85, align 8
-  %87 = and i32 %86, 1
-  %.not103 = icmp eq i32 %87, 0
+82:                                               ; preds = %.lr.ph113, %.loopexit105
+  %83 = phi ptr [ %80, %.lr.ph113 ], [ %120, %.loopexit105 ]
+  %.sroa.081.0111 = phi ptr [ %78, %.lr.ph113 ], [ %121, %.loopexit105 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.081.0111, i64 24
+  %85 = load i32, ptr %84, align 8
+  %86 = and i32 %85, 1
+  %.not103 = icmp eq i32 %86, 0
   br i1 %.not103, label %.preheader104, label %.loopexit105
 
-.preheader104:                                    ; preds = %83
-  %88 = load i32, ptr %.sroa.081.0111, align 4
-  %89 = icmp sgt i32 %88, 0
-  br i1 %89, label %.lr.ph109, label %.loopexit105
+.preheader104:                                    ; preds = %82
+  %87 = load i32, ptr %.sroa.081.0111, align 4
+  %88 = icmp sgt i32 %87, 0
+  br i1 %88, label %.lr.ph109, label %.loopexit105
 
 .lr.ph109:                                        ; preds = %.preheader104
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.081.0111, i64 8
-  br label %91
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.081.0111, i64 8
+  br label %90
 
-91:                                               ; preds = %.lr.ph109, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit
+90:                                               ; preds = %.lr.ph109, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit ]
-  %92 = load ptr, ptr %90, align 8
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
-  %94 = load ptr, ptr %93, align 8
-  %.not54 = icmp eq ptr %94, null
-  br i1 %.not54, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit, label %95
+  %91 = load ptr, ptr %89, align 8
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
+  %93 = load ptr, ptr %92, align 8
+  %.not54 = icmp eq ptr %93, null
+  br i1 %.not54, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit, label %94
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr %70, align 8
-  %97 = icmp ult ptr %94, %96
-  %98 = load ptr, ptr %82, align 8
-  %99 = icmp ugt ptr %94, %98
-  %or.cond.i55 = select i1 %97, i1 true, i1 %99
-  br i1 %or.cond.i55, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit, label %100
+94:                                               ; preds = %90
+  %95 = load ptr, ptr %70, align 8
+  %96 = icmp ult ptr %93, %95
+  %97 = load ptr, ptr %81, align 8
+  %98 = icmp ugt ptr %93, %97
+  %or.cond.i55 = select i1 %96, i1 true, i1 %98
+  br i1 %or.cond.i55, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit, label %99
 
-100:                                              ; preds = %95
-  %101 = load ptr, ptr %2, align 8
-  %102 = ptrtoint ptr %94 to i64
-  %103 = ptrtoint ptr %96 to i64
-  %104 = sub i64 %102, %103
-  %105 = getelementptr inbounds i8, ptr %101, i64 %104
-  store ptr %105, ptr %93, align 8
-  %106 = load ptr, ptr %10, align 8
-  %107 = load ptr, ptr %12, align 8
-  %108 = icmp eq ptr %106, %107
-  br i1 %108, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit, label %109
+99:                                               ; preds = %94
+  %100 = load ptr, ptr %2, align 8
+  %101 = ptrtoint ptr %93 to i64
+  %102 = ptrtoint ptr %95 to i64
+  %103 = sub i64 %101, %102
+  %104 = getelementptr inbounds i8, ptr %100, i64 %103
+  store ptr %104, ptr %92, align 8
+  %105 = load ptr, ptr %10, align 8
+  %106 = load ptr, ptr %12, align 8
+  %107 = icmp eq ptr %105, %106
+  br i1 %107, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit, label %108
 
-109:                                              ; preds = %100
-  %110 = load ptr, ptr %2, align 8
-  %111 = ptrtoint ptr %105 to i64
-  %112 = ptrtoint ptr %110 to i64
-  %113 = sub i64 %111, %112
-  %114 = sdiv exact i64 %113, 36
-  %115 = getelementptr inbounds i64, ptr %106, i64 %114
-  %116 = load i64, ptr %115, align 8
-  %117 = getelementptr inbounds %"class.vcg::PVertex", ptr %110, i64 %116
-  store ptr %117, ptr %93, align 8
+108:                                              ; preds = %99
+  %109 = load ptr, ptr %2, align 8
+  %110 = ptrtoint ptr %104 to i64
+  %111 = ptrtoint ptr %109 to i64
+  %112 = sub i64 %110, %111
+  %113 = sdiv exact i64 %112, 36
+  %114 = getelementptr inbounds i64, ptr %105, i64 %113
+  %115 = load i64, ptr %114, align 8
+  %116 = getelementptr inbounds %"class.vcg::PVertex", ptr %109, i64 %115
+  store ptr %116, ptr %92, align 8
   br label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit
 
-_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit: ; preds = %109, %100, %95, %91
+_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit: ; preds = %108, %99, %94, %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %118 = load i32, ptr %.sroa.081.0111, align 4
-  %119 = sext i32 %118 to i64
-  %120 = icmp slt i64 %indvars.iv.next, %119
-  br i1 %120, label %91, label %.loopexit105.loopexit, !llvm.loop !143
+  %117 = load i32, ptr %.sroa.081.0111, align 4
+  %118 = sext i32 %117 to i64
+  %119 = icmp slt i64 %indvars.iv.next, %118
+  br i1 %119, label %90, label %.loopexit105.loopexit, !llvm.loop !143
 
 .loopexit105.loopexit:                            ; preds = %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit
-  %.pre136 = load ptr, ptr %80, align 8
+  %.pre136 = load ptr, ptr %79, align 8
   br label %.loopexit105
 
-.loopexit105:                                     ; preds = %.loopexit105.loopexit, %.preheader104, %83
-  %121 = phi ptr [ %.pre136, %.loopexit105.loopexit ], [ %84, %.preheader104 ], [ %84, %83 ]
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.081.0111, i64 80
-  %.not98 = icmp eq ptr %122, %121
-  br i1 %.not98, label %._crit_edge114, label %83, !llvm.loop !144
+.loopexit105:                                     ; preds = %.loopexit105.loopexit, %.preheader104, %82
+  %120 = phi ptr [ %.pre136, %.loopexit105.loopexit ], [ %83, %.preheader104 ], [ %83, %82 ]
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.081.0111, i64 80
+  %.not98 = icmp eq ptr %121, %120
+  br i1 %.not98, label %._crit_edge114, label %82, !llvm.loop !144
 
 ._crit_edge114:                                   ; preds = %.loopexit105, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit.thread
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %126 = load ptr, ptr %125, align 8
-  %.not99115 = icmp eq ptr %124, %126
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %125 = load ptr, ptr %124, align 8
+  %.not99115 = icmp eq ptr %123, %125
   br i1 %.not99115, label %._crit_edge119, label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %._crit_edge114
-  %127 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %128
+  %126 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br label %127
 
-128:                                              ; preds = %.lr.ph118, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59
-  %.sroa.075.0116 = phi ptr [ %124, %.lr.ph118 ], [ %180, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.sroa.075.0116, i64 16
-  %130 = load i32, ptr %129, align 8
-  %131 = and i32 %130, 1
-  %.not102 = icmp eq i32 %131, 0
-  br i1 %.not102, label %132, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59
+127:                                              ; preds = %.lr.ph118, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59
+  %.sroa.075.0116 = phi ptr [ %123, %.lr.ph118 ], [ %179, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59 ]
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.075.0116, i64 16
+  %129 = load i32, ptr %128, align 8
+  %130 = and i32 %129, 1
+  %.not102 = icmp eq i32 %130, 0
+  br i1 %.not102, label %131, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59
 
-132:                                              ; preds = %128
-  %133 = load ptr, ptr %.sroa.075.0116, align 8
-  %134 = load ptr, ptr %70, align 8
-  %135 = icmp ult ptr %133, %134
-  %136 = load ptr, ptr %127, align 8
-  %137 = icmp ugt ptr %133, %136
-  %or.cond.i56 = select i1 %135, i1 true, i1 %137
-  br i1 %or.cond.i56, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit57, label %138
+131:                                              ; preds = %127
+  %132 = load ptr, ptr %.sroa.075.0116, align 8
+  %133 = load ptr, ptr %70, align 8
+  %134 = icmp ult ptr %132, %133
+  %135 = load ptr, ptr %126, align 8
+  %136 = icmp ugt ptr %132, %135
+  %or.cond.i56 = select i1 %134, i1 true, i1 %136
+  br i1 %or.cond.i56, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit57, label %137
 
-138:                                              ; preds = %132
-  %139 = load ptr, ptr %2, align 8
+137:                                              ; preds = %131
+  %138 = load ptr, ptr %2, align 8
+  %139 = ptrtoint ptr %132 to i64
   %140 = ptrtoint ptr %133 to i64
-  %141 = ptrtoint ptr %134 to i64
-  %142 = sub i64 %140, %141
-  %143 = getelementptr inbounds i8, ptr %139, i64 %142
-  store ptr %143, ptr %.sroa.075.0116, align 8
-  %144 = load ptr, ptr %10, align 8
-  %145 = load ptr, ptr %12, align 8
-  %146 = icmp eq ptr %144, %145
-  br i1 %146, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit57, label %147
+  %141 = sub i64 %139, %140
+  %142 = getelementptr inbounds i8, ptr %138, i64 %141
+  store ptr %142, ptr %.sroa.075.0116, align 8
+  %143 = load ptr, ptr %10, align 8
+  %144 = load ptr, ptr %12, align 8
+  %145 = icmp eq ptr %143, %144
+  br i1 %145, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit57, label %146
 
-147:                                              ; preds = %138
-  %148 = load ptr, ptr %2, align 8
-  %149 = ptrtoint ptr %143 to i64
-  %150 = ptrtoint ptr %148 to i64
-  %151 = sub i64 %149, %150
-  %152 = sdiv exact i64 %151, 36
-  %153 = getelementptr inbounds i64, ptr %144, i64 %152
-  %154 = load i64, ptr %153, align 8
-  %155 = getelementptr inbounds %"class.vcg::PVertex", ptr %148, i64 %154
-  store ptr %155, ptr %.sroa.075.0116, align 8
+146:                                              ; preds = %137
+  %147 = load ptr, ptr %2, align 8
+  %148 = ptrtoint ptr %142 to i64
+  %149 = ptrtoint ptr %147 to i64
+  %150 = sub i64 %148, %149
+  %151 = sdiv exact i64 %150, 36
+  %152 = getelementptr inbounds i64, ptr %143, i64 %151
+  %153 = load i64, ptr %152, align 8
+  %154 = getelementptr inbounds %"class.vcg::PVertex", ptr %147, i64 %153
+  store ptr %154, ptr %.sroa.075.0116, align 8
   br label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit57
 
-_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit57: ; preds = %132, %138, %147
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.075.0116, i64 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = load ptr, ptr %70, align 8
-  %159 = icmp ult ptr %157, %158
-  %160 = load ptr, ptr %127, align 8
-  %161 = icmp ugt ptr %157, %160
-  %or.cond.i58 = select i1 %159, i1 true, i1 %161
-  br i1 %or.cond.i58, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59, label %162
+_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit57: ; preds = %131, %137, %146
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.075.0116, i64 8
+  %156 = load ptr, ptr %155, align 8
+  %157 = load ptr, ptr %70, align 8
+  %158 = icmp ult ptr %156, %157
+  %159 = load ptr, ptr %126, align 8
+  %160 = icmp ugt ptr %156, %159
+  %or.cond.i58 = select i1 %158, i1 true, i1 %160
+  br i1 %or.cond.i58, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59, label %161
 
-162:                                              ; preds = %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit57
-  %163 = load ptr, ptr %2, align 8
+161:                                              ; preds = %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit57
+  %162 = load ptr, ptr %2, align 8
+  %163 = ptrtoint ptr %156 to i64
   %164 = ptrtoint ptr %157 to i64
-  %165 = ptrtoint ptr %158 to i64
-  %166 = sub i64 %164, %165
-  %167 = getelementptr inbounds i8, ptr %163, i64 %166
-  store ptr %167, ptr %156, align 8
-  %168 = load ptr, ptr %10, align 8
-  %169 = load ptr, ptr %12, align 8
-  %170 = icmp eq ptr %168, %169
-  br i1 %170, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59, label %171
+  %165 = sub i64 %163, %164
+  %166 = getelementptr inbounds i8, ptr %162, i64 %165
+  store ptr %166, ptr %155, align 8
+  %167 = load ptr, ptr %10, align 8
+  %168 = load ptr, ptr %12, align 8
+  %169 = icmp eq ptr %167, %168
+  br i1 %169, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59, label %170
 
-171:                                              ; preds = %162
-  %172 = load ptr, ptr %2, align 8
-  %173 = ptrtoint ptr %167 to i64
-  %174 = ptrtoint ptr %172 to i64
-  %175 = sub i64 %173, %174
-  %176 = sdiv exact i64 %175, 36
-  %177 = getelementptr inbounds i64, ptr %168, i64 %176
-  %178 = load i64, ptr %177, align 8
-  %179 = getelementptr inbounds %"class.vcg::PVertex", ptr %172, i64 %178
-  store ptr %179, ptr %156, align 8
+170:                                              ; preds = %161
+  %171 = load ptr, ptr %2, align 8
+  %172 = ptrtoint ptr %166 to i64
+  %173 = ptrtoint ptr %171 to i64
+  %174 = sub i64 %172, %173
+  %175 = sdiv exact i64 %174, 36
+  %176 = getelementptr inbounds i64, ptr %167, i64 %175
+  %177 = load i64, ptr %176, align 8
+  %178 = getelementptr inbounds %"class.vcg::PVertex", ptr %171, i64 %177
+  store ptr %178, ptr %155, align 8
   br label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59
 
-_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59: ; preds = %171, %162, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit57, %128
-  %180 = getelementptr inbounds nuw i8, ptr %.sroa.075.0116, i64 24
-  %181 = load ptr, ptr %125, align 8
-  %.not99 = icmp eq ptr %180, %181
-  br i1 %.not99, label %._crit_edge119, label %128, !llvm.loop !145
+_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59: ; preds = %170, %161, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit57, %127
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.075.0116, i64 24
+  %180 = load ptr, ptr %124, align 8
+  %.not99 = icmp eq ptr %179, %180
+  br i1 %.not99, label %._crit_edge119, label %127, !llvm.loop !145
 
 ._crit_edge119:                                   ; preds = %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit59, %._crit_edge114
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %185 = load ptr, ptr %184, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %182 = load ptr, ptr %181, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %184 = load ptr, ptr %183, align 8
   %_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp.promoted123 = load ptr, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
-  %.not101126 = icmp eq ptr %183, %185
+  %.not101126 = icmp eq ptr %182, %184
   br i1 %.not101126, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge119
-  %186 = load ptr, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cVEiE2vp, align 8
-  %.not = icmp eq ptr %186, null
-  %187 = load ptr, ptr %70, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %189 = load ptr, ptr %188, align 8
-  %190 = load ptr, ptr %2, align 8
-  %191 = ptrtoint ptr %187 to i64
-  %192 = load ptr, ptr %10, align 8
+  %185 = load ptr, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cVEiE2vp, align 8
+  %.not = icmp eq ptr %185, null
+  %186 = load ptr, ptr %70, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %188 = load ptr, ptr %187, align 8
+  %189 = load ptr, ptr %2, align 8
+  %190 = ptrtoint ptr %186 to i64
+  %191 = load ptr, ptr %10, align 8
   br i1 %.not, label %.loopexit, label %.preheader.lr.ph.split
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
-  %193 = load ptr, ptr %12, align 8
-  %194 = icmp eq ptr %192, %193
-  %.fr = freeze i1 %194
+  %192 = load ptr, ptr %12, align 8
+  %193 = icmp eq ptr %191, %192
+  %.fr = freeze i1 %193
   br i1 %.fr, label %.preheader.us128, label %.preheader
 
 .preheader.us128:                                 ; preds = %.preheader.lr.ph.split, %.split.split.us.us
-  %.sroa.064.0127.us129 = phi ptr [ %208, %.split.split.us.us ], [ %183, %.preheader.lr.ph.split ]
-  %195 = phi ptr [ %205, %.split.split.us.us ], [ %_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp.promoted123, %.preheader.lr.ph.split ]
-  br label %196
+  %.sroa.064.0127.us129 = phi ptr [ %207, %.split.split.us.us ], [ %182, %.preheader.lr.ph.split ]
+  %194 = phi ptr [ %204, %.split.split.us.us ], [ %_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp.promoted123, %.preheader.lr.ph.split ]
+  br label %195
 
-196:                                              ; preds = %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us, %.preheader.us128
-  %197 = phi ptr [ %195, %.preheader.us128 ], [ %205, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us ]
-  %.052120.us121.us = phi i32 [ 0, %.preheader.us128 ], [ %207, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us ]
-  %198 = phi ptr [ %195, %.preheader.us128 ], [ %206, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us ]
-  %199 = icmp ult ptr %198, %187
-  %200 = icmp ugt ptr %198, %189
-  %or.cond.i62.us.us = select i1 %199, i1 true, i1 %200
-  br i1 %or.cond.i62.us.us, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us, label %201
+195:                                              ; preds = %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us, %.preheader.us128
+  %196 = phi ptr [ %194, %.preheader.us128 ], [ %204, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us ]
+  %.052120.us121.us = phi i32 [ 0, %.preheader.us128 ], [ %206, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us ]
+  %197 = phi ptr [ %194, %.preheader.us128 ], [ %205, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us ]
+  %198 = icmp ult ptr %197, %186
+  %199 = icmp ugt ptr %197, %188
+  %or.cond.i62.us.us = select i1 %198, i1 true, i1 %199
+  br i1 %or.cond.i62.us.us, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us, label %200
 
-201:                                              ; preds = %196
-  %202 = ptrtoint ptr %198 to i64
-  %203 = sub i64 %202, %191
-  %204 = getelementptr inbounds i8, ptr %190, i64 %203
-  store ptr %204, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
+200:                                              ; preds = %195
+  %201 = ptrtoint ptr %197 to i64
+  %202 = sub i64 %201, %190
+  %203 = getelementptr inbounds i8, ptr %189, i64 %202
+  store ptr %203, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
   br label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us
 
-_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us: ; preds = %201, %196
-  %205 = phi ptr [ %204, %201 ], [ %197, %196 ]
-  %206 = phi ptr [ %204, %201 ], [ %198, %196 ]
-  %207 = add nuw nsw i32 %.052120.us121.us, 1
-  %exitcond135.not = icmp eq i32 %207, 4
-  br i1 %exitcond135.not, label %.split.split.us.us, label %196, !llvm.loop !146
+_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us: ; preds = %200, %195
+  %204 = phi ptr [ %203, %200 ], [ %196, %195 ]
+  %205 = phi ptr [ %203, %200 ], [ %197, %195 ]
+  %206 = add nuw nsw i32 %.052120.us121.us, 1
+  %exitcond135.not = icmp eq i32 %206, 4
+  br i1 %exitcond135.not, label %.split.split.us.us, label %195, !llvm.loop !146
 
 .split.split.us.us:                               ; preds = %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63.us122.us
-  %208 = getelementptr inbounds nuw i8, ptr %.sroa.064.0127.us129, i64 1
-  %.not101.us130 = icmp eq ptr %208, %185
+  %207 = getelementptr inbounds nuw i8, ptr %.sroa.064.0127.us129, i64 1
+  %.not101.us130 = icmp eq ptr %207, %184
   br i1 %.not101.us130, label %.loopexit, label %.preheader.us128, !llvm.loop !147
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.split.split
-  %.sroa.064.0127 = phi ptr [ %226, %.split.split ], [ %183, %.preheader.lr.ph.split ]
-  %209 = phi ptr [ %223, %.split.split ], [ %_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp.promoted123, %.preheader.lr.ph.split ]
-  br label %210
+  %.sroa.064.0127 = phi ptr [ %225, %.split.split ], [ %182, %.preheader.lr.ph.split ]
+  %208 = phi ptr [ %222, %.split.split ], [ %_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp.promoted123, %.preheader.lr.ph.split ]
+  br label %209
 
-210:                                              ; preds = %.preheader, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63
-  %211 = phi ptr [ %209, %.preheader ], [ %223, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63 ]
-  %.052120 = phi i32 [ 0, %.preheader ], [ %225, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63 ]
-  %212 = phi ptr [ %209, %.preheader ], [ %224, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63 ]
-  %213 = icmp ult ptr %212, %187
-  %214 = icmp ugt ptr %212, %189
-  %or.cond.i62 = select i1 %213, i1 true, i1 %214
-  br i1 %or.cond.i62, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63, label %215
+209:                                              ; preds = %.preheader, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63
+  %210 = phi ptr [ %208, %.preheader ], [ %222, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63 ]
+  %.052120 = phi i32 [ 0, %.preheader ], [ %224, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63 ]
+  %211 = phi ptr [ %208, %.preheader ], [ %223, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63 ]
+  %212 = icmp ult ptr %211, %186
+  %213 = icmp ugt ptr %211, %188
+  %or.cond.i62 = select i1 %212, i1 true, i1 %213
+  br i1 %or.cond.i62, label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63, label %214
 
-215:                                              ; preds = %210
-  %216 = ptrtoint ptr %212 to i64
-  %217 = sub i64 %216, %191
-  %218 = getelementptr inbounds i8, ptr %190, i64 %217
-  store ptr %218, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
-  %219 = sdiv exact i64 %217, 36
-  %220 = getelementptr inbounds i64, ptr %192, i64 %219
-  %221 = load i64, ptr %220, align 8
-  %222 = getelementptr inbounds %"class.vcg::PVertex", ptr %190, i64 %221
-  store ptr %222, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
+214:                                              ; preds = %209
+  %215 = ptrtoint ptr %211 to i64
+  %216 = sub i64 %215, %190
+  %217 = getelementptr inbounds i8, ptr %189, i64 %216
+  store ptr %217, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
+  %218 = sdiv exact i64 %216, 36
+  %219 = getelementptr inbounds i64, ptr %191, i64 %218
+  %220 = load i64, ptr %219, align 8
+  %221 = getelementptr inbounds %"class.vcg::PVertex", ptr %189, i64 %220
+  store ptr %221, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_7PVertexEE12AsVertexTypeENS4_INS_5PEdgeEE10AsEdgeTypeENS4_INS_5PFaceEE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
   br label %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63
 
-_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63: ; preds = %215, %210
-  %223 = phi ptr [ %222, %215 ], [ %211, %210 ]
-  %224 = phi ptr [ %222, %215 ], [ %212, %210 ]
-  %225 = add nuw nsw i32 %.052120, 1
-  %exitcond.not = icmp eq i32 %225, 4
-  br i1 %exitcond.not, label %.split.split, label %210, !llvm.loop !146
+_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63: ; preds = %214, %209
+  %222 = phi ptr [ %221, %214 ], [ %210, %209 ]
+  %223 = phi ptr [ %221, %214 ], [ %211, %209 ]
+  %224 = add nuw nsw i32 %.052120, 1
+  %exitcond.not = icmp eq i32 %224, 4
+  br i1 %exitcond.not, label %.split.split, label %209, !llvm.loop !146
 
 .split.split:                                     ; preds = %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE6UpdateERS6_.exit63
-  %226 = getelementptr inbounds nuw i8, ptr %.sroa.064.0127, i64 1
-  %.not101 = icmp eq ptr %226, %185
+  %225 = getelementptr inbounds nuw i8, ptr %.sroa.064.0127, i64 1
+  %.not101 = icmp eq ptr %225, %184
   br i1 %.not101, label %.loopexit, label %.preheader, !llvm.loop !147
 
 .loopexit:                                        ; preds = %.split.split, %.split.split.us.us, %.preheader.lr.ph, %._crit_edge119, %_ZN3vcg3tri9AllocatorI8PolyMeshE14PointerUpdaterIPNS_7PVertexEE10NeedUpdateEv.exit
-  %227 = load ptr, ptr %17, align 8
-  %228 = load ptr, ptr %15, align 8
+  %226 = load ptr, ptr %17, align 8
+  %227 = load ptr, ptr %15, align 8
+  %228 = ptrtoint ptr %226 to i64
   %229 = ptrtoint ptr %227 to i64
-  %230 = ptrtoint ptr %228 to i64
-  %231 = sub i64 %229, %230
-  %232 = sdiv exact i64 %231, 36
-  %233 = sub i64 %232, %1
-  %234 = getelementptr inbounds %"class.vcg::PVertex", ptr %228, i64 %233
+  %230 = sub i64 %228, %229
+  %231 = sdiv exact i64 %230, 36
+  %232 = sub i64 %231, %1
+  %233 = getelementptr inbounds %"class.vcg::PVertex", ptr %227, i64 %232
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN3vcg7PVertexESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN3vcg7PVertexESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit: ; preds = %.loopexit, %6
-  %.sroa.051.0 = phi ptr [ %8, %6 ], [ %234, %.loopexit ]
+  %.sroa.051.0 = phi ptr [ %8, %6 ], [ %233, %.loopexit ]
   ret ptr %.sroa.051.0
 }
 

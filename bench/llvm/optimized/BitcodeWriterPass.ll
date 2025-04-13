@@ -43,27 +43,26 @@ define dso_local void @_ZN4llvm17BitcodeWriterPass3runERNS_6ModuleERNS_15Analysi
   %8 = load i8, ptr @WriteNewDbgInfoFormatToBitcode, align 1, !range !102
   %9 = trunc nuw i8 %8 to i1
   %10 = select i1 %7, i1 %9, i1 false
-  %.not = xor i1 %7, true
-  %brmerge = or i1 %10, %.not
-  br i1 %brmerge, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit, label %11
+  %or.cond7.i.i = xor i1 %10, %7
+  br i1 %or.cond7.i.i, label %11, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.04.07.i2.i.i = load ptr, ptr %12, align 8, !tbaa !104
-  %.not8.i3.i.i = icmp eq ptr %.sroa.04.07.i2.i.i, %13
-  br i1 %.not8.i3.i.i, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, label %.lr.ph.i4.i.i
+  %.sroa.04.07.i8.i.i = load ptr, ptr %12, align 8, !tbaa !104
+  %.not8.i9.i.i = icmp eq ptr %.sroa.04.07.i8.i.i, %13
+  br i1 %.not8.i9.i.i, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, label %.lr.ph.i10.i.i
 
-.lr.ph.i4.i.i:                                    ; preds = %11, %.lr.ph.i4.i.i
-  %.sroa.04.09.i5.i.i = phi ptr [ %.sroa.04.0.i6.i.i, %.lr.ph.i4.i.i ], [ %.sroa.04.07.i2.i.i, %11 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.04.09.i5.i.i, i64 -56
+.lr.ph.i10.i.i:                                   ; preds = %11, %.lr.ph.i10.i.i
+  %.sroa.04.09.i11.i.i = phi ptr [ %.sroa.04.0.i12.i.i, %.lr.ph.i10.i.i ], [ %.sroa.04.07.i8.i.i, %11 ]
+  %14 = getelementptr inbounds i8, ptr %.sroa.04.09.i11.i.i, i64 -56
   tail call void @_ZN4llvm8Function23convertFromNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %14) #12
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i5.i.i, i64 8
-  %.sroa.04.0.i6.i.i = load ptr, ptr %15, align 8, !tbaa !104
-  %.not.i7.i.i = icmp eq ptr %.sroa.04.0.i6.i.i, %13
-  br i1 %.not.i7.i.i, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, label %.lr.ph.i4.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i11.i.i, i64 8
+  %.sroa.04.0.i12.i.i = load ptr, ptr %15, align 8, !tbaa !104
+  %.not.i13.i.i = icmp eq ptr %.sroa.04.0.i12.i.i, %13
+  br i1 %.not.i13.i.i, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, label %.lr.ph.i10.i.i
 
-_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread: ; preds = %.lr.ph.i4.i.i, %11
+_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread: ; preds = %.lr.ph.i10.i.i, %11
   store i8 0, ptr %5, align 8, !tbaa !3
   br label %18
 
@@ -118,54 +117,54 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %4
   store i8 1, ptr %43, align 4, !tbaa !118, !alias.scope !113
   store i32 1, ptr %35, align 4, !tbaa !119, !alias.scope !113, !noalias !120
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !123, !alias.scope !113, !noalias !120
-  %44 = load i8, ptr %5, align 8, !tbaa !3, !range !102, !noundef !103
+  %.not.i.i9 = xor i1 %7, true
+  %44 = load i8, ptr %5, align 8, !range !102
   %45 = trunc nuw i8 %44 to i1
-  br i1 %7, label %46, label %.critedge.i.i9
+  %or.cond.i.i10 = select i1 %.not.i.i9, i1 true, i1 %45
+  br i1 %or.cond.i.i10, label %51, label %46
 
 46:                                               ; preds = %25
-  br i1 %45, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit, label %47
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sroa.04.07.i.i.i11 = load ptr, ptr %47, align 8, !tbaa !104
+  %.not8.i.i.i12 = icmp eq ptr %.sroa.04.07.i.i.i11, %48
+  br i1 %.not8.i.i.i12, label %.sink.split.i.i17, label %.lr.ph.i.i.i13
 
-47:                                               ; preds = %46
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.04.07.i.i.i18 = load ptr, ptr %48, align 8, !tbaa !104
-  %.not8.i.i.i19 = icmp eq ptr %.sroa.04.07.i.i.i18, %49
-  br i1 %.not8.i.i.i19, label %.sink.split.i.i16, label %.lr.ph.i.i.i20
+.lr.ph.i.i.i13:                                   ; preds = %46, %.lr.ph.i.i.i13
+  %.sroa.04.09.i.i.i14 = phi ptr [ %.sroa.04.0.i.i.i15, %.lr.ph.i.i.i13 ], [ %.sroa.04.07.i.i.i11, %46 ]
+  %49 = getelementptr inbounds i8, ptr %.sroa.04.09.i.i.i14, i64 -56
+  tail call void @_ZN4llvm8Function21convertToNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %49) #12
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i.i14, i64 8
+  %.sroa.04.0.i.i.i15 = load ptr, ptr %50, align 8, !tbaa !104
+  %.not.i.i.i16 = icmp eq ptr %.sroa.04.0.i.i.i15, %48
+  br i1 %.not.i.i.i16, label %.sink.split.i.i17, label %.lr.ph.i.i.i13
 
-.lr.ph.i.i.i20:                                   ; preds = %47, %.lr.ph.i.i.i20
-  %.sroa.04.09.i.i.i21 = phi ptr [ %.sroa.04.0.i.i.i22, %.lr.ph.i.i.i20 ], [ %.sroa.04.07.i.i.i18, %47 ]
-  %50 = getelementptr inbounds i8, ptr %.sroa.04.09.i.i.i21, i64 -56
-  tail call void @_ZN4llvm8Function21convertToNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %50) #12
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i.i21, i64 8
-  %.sroa.04.0.i.i.i22 = load ptr, ptr %51, align 8, !tbaa !104
-  %.not.i.i.i23 = icmp eq ptr %.sroa.04.0.i.i.i22, %49
-  br i1 %.not.i.i.i23, label %.sink.split.i.i16, label %.lr.ph.i.i.i20
+51:                                               ; preds = %25
+  %or.cond7.i.i19 = select i1 %.not.i.i9, i1 %45, i1 false
+  br i1 %or.cond7.i.i19, label %52, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
 
-.critedge.i.i9:                                   ; preds = %25
-  br i1 %45, label %52, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
-
-52:                                               ; preds = %.critedge.i.i9
+52:                                               ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.04.07.i2.i.i10 = load ptr, ptr %53, align 8, !tbaa !104
-  %.not8.i3.i.i11 = icmp eq ptr %.sroa.04.07.i2.i.i10, %54
-  br i1 %.not8.i3.i.i11, label %.sink.split.i.i16, label %.lr.ph.i4.i.i12
+  %.sroa.04.07.i8.i.i20 = load ptr, ptr %53, align 8, !tbaa !104
+  %.not8.i9.i.i21 = icmp eq ptr %.sroa.04.07.i8.i.i20, %54
+  br i1 %.not8.i9.i.i21, label %.sink.split.i.i17, label %.lr.ph.i10.i.i22
 
-.lr.ph.i4.i.i12:                                  ; preds = %52, %.lr.ph.i4.i.i12
-  %.sroa.04.09.i5.i.i13 = phi ptr [ %.sroa.04.0.i6.i.i14, %.lr.ph.i4.i.i12 ], [ %.sroa.04.07.i2.i.i10, %52 ]
-  %55 = getelementptr inbounds i8, ptr %.sroa.04.09.i5.i.i13, i64 -56
+.lr.ph.i10.i.i22:                                 ; preds = %52, %.lr.ph.i10.i.i22
+  %.sroa.04.09.i11.i.i23 = phi ptr [ %.sroa.04.0.i12.i.i24, %.lr.ph.i10.i.i22 ], [ %.sroa.04.07.i8.i.i20, %52 ]
+  %55 = getelementptr inbounds i8, ptr %.sroa.04.09.i11.i.i23, i64 -56
   tail call void @_ZN4llvm8Function23convertFromNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %55) #12
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i5.i.i13, i64 8
-  %.sroa.04.0.i6.i.i14 = load ptr, ptr %56, align 8, !tbaa !104
-  %.not.i7.i.i15 = icmp eq ptr %.sroa.04.0.i6.i.i14, %54
-  br i1 %.not.i7.i.i15, label %.sink.split.i.i16, label %.lr.ph.i4.i.i12
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i11.i.i23, i64 8
+  %.sroa.04.0.i12.i.i24 = load ptr, ptr %56, align 8, !tbaa !104
+  %.not.i13.i.i25 = icmp eq ptr %.sroa.04.0.i12.i.i24, %54
+  br i1 %.not.i13.i.i25, label %.sink.split.i.i17, label %.lr.ph.i10.i.i22
 
-.sink.split.i.i16:                                ; preds = %.lr.ph.i4.i.i12, %.lr.ph.i.i.i20, %52, %47
-  %.sink.i.i17 = phi i8 [ 1, %47 ], [ 0, %52 ], [ 1, %.lr.ph.i.i.i20 ], [ 0, %.lr.ph.i4.i.i12 ]
-  store i8 %.sink.i.i17, ptr %5, align 8, !tbaa !3
+.sink.split.i.i17:                                ; preds = %.lr.ph.i.i.i13, %.lr.ph.i10.i.i22, %52, %46
+  %.sink.i.i18 = phi i8 [ 1, %46 ], [ 0, %52 ], [ 0, %.lr.ph.i10.i.i22 ], [ 1, %.lr.ph.i.i.i13 ]
+  store i8 %.sink.i.i18, ptr %5, align 8, !tbaa !3
   br label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
 
-_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit: ; preds = %46, %.critedge.i.i9, %.sink.split.i.i16
+_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit: ; preds = %51, %.sink.split.i.i17
   ret void
 }
 
@@ -399,27 +398,26 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116WriteBitcodePass11runOnMo
   %6 = load i8, ptr @WriteNewDbgInfoFormatToBitcode, align 1, !range !102
   %7 = trunc nuw i8 %6 to i1
   %8 = select i1 %5, i1 %7, i1 false
-  %.not = xor i1 %5, true
-  %brmerge = or i1 %8, %.not
-  br i1 %brmerge, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit, label %9
+  %or.cond7.i.i = xor i1 %8, %5
+  br i1 %or.cond7.i.i, label %9, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.04.07.i2.i.i = load ptr, ptr %10, align 8, !tbaa !104
-  %.not8.i3.i.i = icmp eq ptr %.sroa.04.07.i2.i.i, %11
-  br i1 %.not8.i3.i.i, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, label %.lr.ph.i4.i.i
+  %.sroa.04.07.i8.i.i = load ptr, ptr %10, align 8, !tbaa !104
+  %.not8.i9.i.i = icmp eq ptr %.sroa.04.07.i8.i.i, %11
+  br i1 %.not8.i9.i.i, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, label %.lr.ph.i10.i.i
 
-.lr.ph.i4.i.i:                                    ; preds = %9, %.lr.ph.i4.i.i
-  %.sroa.04.09.i5.i.i = phi ptr [ %.sroa.04.0.i6.i.i, %.lr.ph.i4.i.i ], [ %.sroa.04.07.i2.i.i, %9 ]
-  %12 = getelementptr inbounds i8, ptr %.sroa.04.09.i5.i.i, i64 -56
+.lr.ph.i10.i.i:                                   ; preds = %9, %.lr.ph.i10.i.i
+  %.sroa.04.09.i11.i.i = phi ptr [ %.sroa.04.0.i12.i.i, %.lr.ph.i10.i.i ], [ %.sroa.04.07.i8.i.i, %9 ]
+  %12 = getelementptr inbounds i8, ptr %.sroa.04.09.i11.i.i, i64 -56
   tail call void @_ZN4llvm8Function23convertFromNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %12) #12
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i5.i.i, i64 8
-  %.sroa.04.0.i6.i.i = load ptr, ptr %13, align 8, !tbaa !104
-  %.not.i7.i.i = icmp eq ptr %.sroa.04.0.i6.i.i, %11
-  br i1 %.not.i7.i.i, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, label %.lr.ph.i4.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i11.i.i, i64 8
+  %.sroa.04.0.i12.i.i = load ptr, ptr %13, align 8, !tbaa !104
+  %.not.i13.i.i = icmp eq ptr %.sroa.04.0.i12.i.i, %11
+  br i1 %.not.i13.i.i, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, label %.lr.ph.i10.i.i
 
-_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread: ; preds = %.lr.ph.i4.i.i, %9
+_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread: ; preds = %.lr.ph.i10.i.i, %9
   store i8 0, ptr %3, align 8, !tbaa !3
   br label %16
 
@@ -438,54 +436,54 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %2
   %20 = load i8, ptr %19, align 8, !tbaa !143, !range !102, !noundef !103
   %21 = trunc nuw i8 %20 to i1
   tail call void @_ZN4llvm18WriteBitcodeToFileERKNS_6ModuleERNS_11raw_ostreamEbPKNS_18ModuleSummaryIndexEbPSt5arrayIjLm5EE(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(48) %18, i1 noundef zeroext %21, ptr noundef null, i1 noundef zeroext false, ptr noundef null) #12
-  %22 = load i8, ptr %3, align 8, !tbaa !3, !range !102, !noundef !103
+  %.not.i.i6 = xor i1 %5, true
+  %22 = load i8, ptr %3, align 8, !range !102
   %23 = trunc nuw i8 %22 to i1
-  br i1 %5, label %24, label %.critedge.i.i6
+  %or.cond.i.i7 = select i1 %.not.i.i6, i1 true, i1 %23
+  br i1 %or.cond.i.i7, label %29, label %24
 
 24:                                               ; preds = %16
-  br i1 %23, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit, label %25
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.04.07.i.i.i8 = load ptr, ptr %25, align 8, !tbaa !104
+  %.not8.i.i.i9 = icmp eq ptr %.sroa.04.07.i.i.i8, %26
+  br i1 %.not8.i.i.i9, label %.sink.split.i.i14, label %.lr.ph.i.i.i10
 
-25:                                               ; preds = %24
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.04.07.i.i.i15 = load ptr, ptr %26, align 8, !tbaa !104
-  %.not8.i.i.i16 = icmp eq ptr %.sroa.04.07.i.i.i15, %27
-  br i1 %.not8.i.i.i16, label %.sink.split.i.i13, label %.lr.ph.i.i.i17
+.lr.ph.i.i.i10:                                   ; preds = %24, %.lr.ph.i.i.i10
+  %.sroa.04.09.i.i.i11 = phi ptr [ %.sroa.04.0.i.i.i12, %.lr.ph.i.i.i10 ], [ %.sroa.04.07.i.i.i8, %24 ]
+  %27 = getelementptr inbounds i8, ptr %.sroa.04.09.i.i.i11, i64 -56
+  tail call void @_ZN4llvm8Function21convertToNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %27) #12
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i.i11, i64 8
+  %.sroa.04.0.i.i.i12 = load ptr, ptr %28, align 8, !tbaa !104
+  %.not.i.i.i13 = icmp eq ptr %.sroa.04.0.i.i.i12, %26
+  br i1 %.not.i.i.i13, label %.sink.split.i.i14, label %.lr.ph.i.i.i10
 
-.lr.ph.i.i.i17:                                   ; preds = %25, %.lr.ph.i.i.i17
-  %.sroa.04.09.i.i.i18 = phi ptr [ %.sroa.04.0.i.i.i19, %.lr.ph.i.i.i17 ], [ %.sroa.04.07.i.i.i15, %25 ]
-  %28 = getelementptr inbounds i8, ptr %.sroa.04.09.i.i.i18, i64 -56
-  tail call void @_ZN4llvm8Function21convertToNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %28) #12
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i.i18, i64 8
-  %.sroa.04.0.i.i.i19 = load ptr, ptr %29, align 8, !tbaa !104
-  %.not.i.i.i20 = icmp eq ptr %.sroa.04.0.i.i.i19, %27
-  br i1 %.not.i.i.i20, label %.sink.split.i.i13, label %.lr.ph.i.i.i17
+29:                                               ; preds = %16
+  %or.cond7.i.i16 = select i1 %.not.i.i6, i1 %23, i1 false
+  br i1 %or.cond7.i.i16, label %30, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
 
-.critedge.i.i6:                                   ; preds = %16
-  br i1 %23, label %30, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
-
-30:                                               ; preds = %.critedge.i.i6
+30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.04.07.i2.i.i7 = load ptr, ptr %31, align 8, !tbaa !104
-  %.not8.i3.i.i8 = icmp eq ptr %.sroa.04.07.i2.i.i7, %32
-  br i1 %.not8.i3.i.i8, label %.sink.split.i.i13, label %.lr.ph.i4.i.i9
+  %.sroa.04.07.i8.i.i17 = load ptr, ptr %31, align 8, !tbaa !104
+  %.not8.i9.i.i18 = icmp eq ptr %.sroa.04.07.i8.i.i17, %32
+  br i1 %.not8.i9.i.i18, label %.sink.split.i.i14, label %.lr.ph.i10.i.i19
 
-.lr.ph.i4.i.i9:                                   ; preds = %30, %.lr.ph.i4.i.i9
-  %.sroa.04.09.i5.i.i10 = phi ptr [ %.sroa.04.0.i6.i.i11, %.lr.ph.i4.i.i9 ], [ %.sroa.04.07.i2.i.i7, %30 ]
-  %33 = getelementptr inbounds i8, ptr %.sroa.04.09.i5.i.i10, i64 -56
+.lr.ph.i10.i.i19:                                 ; preds = %30, %.lr.ph.i10.i.i19
+  %.sroa.04.09.i11.i.i20 = phi ptr [ %.sroa.04.0.i12.i.i21, %.lr.ph.i10.i.i19 ], [ %.sroa.04.07.i8.i.i17, %30 ]
+  %33 = getelementptr inbounds i8, ptr %.sroa.04.09.i11.i.i20, i64 -56
   tail call void @_ZN4llvm8Function23convertFromNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %33) #12
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i5.i.i10, i64 8
-  %.sroa.04.0.i6.i.i11 = load ptr, ptr %34, align 8, !tbaa !104
-  %.not.i7.i.i12 = icmp eq ptr %.sroa.04.0.i6.i.i11, %32
-  br i1 %.not.i7.i.i12, label %.sink.split.i.i13, label %.lr.ph.i4.i.i9
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i11.i.i20, i64 8
+  %.sroa.04.0.i12.i.i21 = load ptr, ptr %34, align 8, !tbaa !104
+  %.not.i13.i.i22 = icmp eq ptr %.sroa.04.0.i12.i.i21, %32
+  br i1 %.not.i13.i.i22, label %.sink.split.i.i14, label %.lr.ph.i10.i.i19
 
-.sink.split.i.i13:                                ; preds = %.lr.ph.i4.i.i9, %.lr.ph.i.i.i17, %30, %25
-  %.sink.i.i14 = phi i8 [ 1, %25 ], [ 0, %30 ], [ 1, %.lr.ph.i.i.i17 ], [ 0, %.lr.ph.i4.i.i9 ]
-  store i8 %.sink.i.i14, ptr %3, align 8, !tbaa !3
+.sink.split.i.i14:                                ; preds = %.lr.ph.i.i.i10, %.lr.ph.i10.i.i19, %30, %24
+  %.sink.i.i15 = phi i8 [ 1, %24 ], [ 0, %30 ], [ 0, %.lr.ph.i10.i.i19 ], [ 1, %.lr.ph.i.i.i10 ]
+  store i8 %.sink.i.i15, ptr %3, align 8, !tbaa !3
   br label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit
 
-_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit: ; preds = %24, %.critedge.i.i6, %.sink.split.i.i13
+_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEED2Ev.exit: ; preds = %29, %.sink.split.i.i14
   ret i1 false
 }
 

@@ -660,18 +660,18 @@ define dso_local void @_ZN4llvm8AliasSet17addMemoryLocationERNS_15AliasSetTracke
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 1073741824
   %8 = icmp ne i32 %7, 0
-  %brmerge = or i1 %3, %8
-  br i1 %brmerge, label %71, label %9
+  %or.cond = or i1 %3, %8
+  br i1 %or.cond, label %71, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load ptr, ptr %10, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val5 = load i32, ptr %11, align 8, !tbaa !26
-  %12 = zext i32 %.val5 to i64
+  %.val6 = load i32, ptr %11, align 8, !tbaa !26
+  %12 = zext i32 %.val6 to i64
   %13 = getelementptr inbounds nuw %"class.llvm::MemoryLocation", ptr %.val, i64 %12
   %14 = ptrtoint ptr %13 to i64
-  %.not.i = icmp ult i32 %.val5, 4
+  %.not.i = icmp ult i32 %.val6, 4
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %9
@@ -788,7 +788,7 @@ define dso_local void @_ZN4llvm8AliasSet17addMemoryLocationERNS_15AliasSetTracke
   store i32 %70, ptr %5, align 8
   br label %71
 
-71:                                               ; preds = %4, %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet17addMemoryLocationERNS_15AliasSetTrackerERKS2_bE3$_0EEbOT_T0_.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet17addMemoryLocationERNS_15AliasSetTrackerERKS2_bE3$_0EEbOT_T0_.exit.thread"
+71:                                               ; preds = %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet17addMemoryLocationERNS_15AliasSetTrackerERKS2_bE3$_0EEbOT_T0_.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_14MemoryLocationELj0EEEZNS_8AliasSet17addMemoryLocationERNS_15AliasSetTrackerERKS2_bE3$_0EEbOT_T0_.exit.thread", %4
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %74 = load i32, ptr %73, align 8, !tbaa !26

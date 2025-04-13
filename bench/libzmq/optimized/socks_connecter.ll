@@ -1659,9 +1659,13 @@ define void @_ZN3zmq17socks_connecter_t9out_eventEv(ptr noundef nonnull align 8 
   %4 = load i32, ptr %3, align 8, !tbaa !78
   %switch.tableidx = add i32 %4, -2
   %5 = icmp ult i32 %switch.tableidx, 6
-  br i1 %5, label %switch.hole_check, label %6
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 43, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond13 = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond13, label %switch.lookup, label %6
 
-6:                                                ; preds = %switch.hole_check, %1
+6:                                                ; preds = %1
   %7 = load ptr, ptr @stderr, align 8, !tbaa !81
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 142) #21
   %9 = load ptr, ptr @stderr, align 8, !tbaa !81
@@ -1669,13 +1673,7 @@ define void @_ZN3zmq17socks_connecter_t9out_eventEv(ptr noundef nonnull align 8 
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.4)
   br label %.critedge
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 43, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %6
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %11 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN3zmq17socks_connecter_t9out_eventEv, i64 0, i64 %11
   br label %.critedge

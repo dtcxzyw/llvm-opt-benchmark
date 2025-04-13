@@ -2483,41 +2483,41 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 67108864
-  %.not117 = icmp ne i64 %14, 0
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %16 = load ptr, ptr %15, align 8
-  %.not118 = icmp eq ptr %16, null
-  br i1 %.not118, label %20, label %17
+  %15 = icmp ne i64 %14, 0
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %17 = load ptr, ptr %16, align 8
+  %.not118 = icmp eq ptr %17, null
+  br i1 %.not118, label %21, label %18
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %16, i64 -8
-  %19 = load i32, ptr %18, align 4
-  br label %20
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds i8, ptr %17, i64 -8
+  %20 = load i32, ptr %19, align 4
+  br label %21
 
-20:                                               ; preds = %2, %17
-  %.0 = phi i32 [ %19, %17 ], [ 0, %2 ]
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %22 = load ptr, ptr %21, align 8
-  %23 = select i1 %11, i1 %.not117, i1 false
-  %.0106 = select i1 %23, i32 0, i32 %.0
-  %spec.select124 = select i1 %.not117, i1 %11, i1 false
-  %.not119 = icmp eq i32 %.0106, 0
+21:                                               ; preds = %2, %18
+  %.0 = phi i32 [ %20, %18 ], [ 0, %2 ]
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %23 = load ptr, ptr %22, align 8
+  %or.cond = select i1 %11, i1 %15, i1 false
+  %spec.select = select i1 %or.cond, i32 0, i32 %.0
+  %.0106 = select i1 %15, i1 %11, i1 false
+  %.not119 = icmp eq i32 %spec.select, 0
   br i1 %.not119, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %20
-  %24 = zext i32 %.0106 to i64
+.lr.ph:                                           ; preds = %21
+  %24 = zext i32 %spec.select to i64
   %25 = shl nuw nsw i64 %24, 3
   %26 = tail call ptr @calloc_arena(i64 noundef %25) #6
   %27 = load i64, ptr %12, align 8
-  %.fr138 = freeze i64 %27
-  %28 = and i64 %.fr138, 33554432
+  %.fr137 = freeze i64 %27
+  %28 = and i64 %.fr137, 33554432
   %.not120 = icmp eq i64 %28, 0
-  %wide.trip.count147 = zext i32 %.0106 to i64
+  %wide.trip.count146 = zext i32 %spec.select to i64
   br i1 %.not120, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %29 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv144
+  %indvars.iv143 = phi i64 [ %indvars.iv.next144, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %29 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv143
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
   tail call void @scratch_buffer_clear() #6
@@ -2526,11 +2526,11 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   %32 = tail call ptr @scratch_buffer_to_string() #6
   %33 = tail call ptr @scratch_buffer_to_string() #6
   %34 = tail call ptr @llvm_emit_string_const(ptr noundef nonnull %0, ptr noundef %31, ptr noundef %33) #6
-  %35 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv144
+  %35 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv143
   store ptr %34, ptr %35, align 8
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
-  br i1 %exitcond148.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
+  br i1 %exitcond147.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -2543,14 +2543,14 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   %39 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   store ptr %38, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count147
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count146
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %20
-  %40 = phi ptr [ null, %20 ], [ %26, %.lr.ph.split.us ], [ %26, %.lr.ph.split ]
+._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %21
+  %40 = phi ptr [ null, %21 ], [ %26, %.lr.ph.split.us ], [ %26, %.lr.ph.split ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call ptr @LLVMConstArray(ptr noundef %42, ptr noundef %40, i32 noundef %.0106) #6
+  %43 = tail call ptr @LLVMConstArray(ptr noundef %42, ptr noundef %40, i32 noundef %spec.select) #6
   br label %44
 
 44:                                               ; preds = %63, %._crit_edge
@@ -2595,16 +2595,16 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   br label %44
 
 type_base.exit:                                   ; preds = %44
-  %64 = zext i32 %.0106 to i64
-  %65 = tail call fastcc ptr @llvm_generate_introspection_global(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef 8, ptr noundef nonnull %46, i64 noundef %64, ptr noundef %43, i1 noundef zeroext %spec.select124)
-  %.not121 = icmp eq ptr %22, null
-  br i1 %.not121, label %._crit_edge136, label %66
+  %64 = zext i32 %spec.select to i64
+  %65 = tail call fastcc ptr @llvm_generate_introspection_global(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef 8, ptr noundef nonnull %46, i64 noundef %64, ptr noundef %43, i1 noundef zeroext %.0106)
+  %.not121 = icmp eq ptr %23, null
+  br i1 %.not121, label %._crit_edge135, label %66
 
 66:                                               ; preds = %type_base.exit
-  %67 = getelementptr inbounds i8, ptr %22, i64 -8
+  %67 = getelementptr inbounds i8, ptr %23, i64 -8
   %68 = load i32, ptr %67, align 4
-  %.not139 = icmp eq i32 %68, 0
-  br i1 %.not139, label %._crit_edge136, label %.preheader.lr.ph
+  %.not138 = icmp eq i32 %68, 0
+  br i1 %.not138, label %._crit_edge135, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2614,27 +2614,27 @@ type_base.exit:                                   ; preds = %44
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %wide.trip.count156 = zext i32 %68 to i64
+  %wide.trip.count155 = zext i32 %68 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %105
-  %indvars.iv153 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next154, %105 ]
-  br i1 %.not119, label %._crit_edge133.thread, label %.lr.ph132
+  %indvars.iv152 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next153, %105 ]
+  br i1 %.not119, label %._crit_edge132.thread, label %.lr.ph131
 
-._crit_edge133.thread:                            ; preds = %.preheader
-  %76 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv153
+._crit_edge132.thread:                            ; preds = %.preheader
+  %76 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv152
   %77 = load ptr, ptr %76, align 8
   br label %102
 
-.lr.ph132:                                        ; preds = %.preheader, %93
-  %indvars.iv149 = phi i64 [ %indvars.iv.next150, %93 ], [ 0, %.preheader ]
-  %.0108130 = phi i1 [ %.1, %93 ], [ false, %.preheader ]
-  %.0111129 = phi ptr [ %.1112, %93 ], [ null, %.preheader ]
-  %78 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv149
+.lr.ph131:                                        ; preds = %.preheader, %93
+  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %93 ], [ 0, %.preheader ]
+  %.0109129 = phi i1 [ %.1, %93 ], [ false, %.preheader ]
+  %.0112128 = phi ptr [ %.1113, %93 ], [ null, %.preheader ]
+  %78 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv148
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 80
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv153
+  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv152
   %83 = load ptr, ptr %82, align 8
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %83) #6
   %.val = load i8, ptr %3, align 8
@@ -2642,45 +2642,45 @@ type_base.exit:                                   ; preds = %44
   %85 = icmp eq i8 %84, 3
   br i1 %85, label %86, label %91
 
-86:                                               ; preds = %.lr.ph132
+86:                                               ; preds = %.lr.ph131
   %87 = load ptr, ptr %70, align 8
   %88 = load ptr, ptr %69, align 8
   %89 = load ptr, ptr %71, align 8
   %90 = call ptr @LLVMBuildZExt(ptr noundef %87, ptr noundef %88, ptr noundef %89, ptr noundef nonnull @.str.6) #6
   br label %93
 
-91:                                               ; preds = %.lr.ph132
+91:                                               ; preds = %.lr.ph131
   %92 = load ptr, ptr %69, align 8
   br label %93
 
 93:                                               ; preds = %91, %86
   %94 = phi ptr [ %90, %86 ], [ %92, %91 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv149
+  %95 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv148
   store ptr %94, ptr %95, align 8
-  %.not122 = icmp eq ptr %.0111129, null
+  %.not122 = icmp eq ptr %.0112128, null
   %96 = call ptr @LLVMTypeOf(ptr noundef %94) #6
-  %.not123 = icmp ne ptr %.0111129, %96
-  %spec.select126 = select i1 %.not123, i1 true, i1 %.0108130
-  %.1112 = select i1 %.not122, ptr %96, ptr %.0111129
-  %.1 = select i1 %.not122, i1 %.0108130, i1 %spec.select126
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
-  %exitcond152.not = icmp eq i64 %indvars.iv.next150, %64
-  br i1 %exitcond152.not, label %._crit_edge133, label %.lr.ph132, !llvm.loop !16
+  %.not123 = icmp ne ptr %.0112128, %96
+  %spec.select125 = select i1 %.not123, i1 true, i1 %.0109129
+  %.1113 = select i1 %.not122, ptr %96, ptr %.0112128
+  %.1 = select i1 %.not122, i1 %.0109129, i1 %spec.select125
+  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %exitcond151.not = icmp eq i64 %indvars.iv.next149, %64
+  br i1 %exitcond151.not, label %._crit_edge132, label %.lr.ph131, !llvm.loop !16
 
-._crit_edge133:                                   ; preds = %93
-  %97 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv153
+._crit_edge132:                                   ; preds = %93
+  %97 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv152
   %98 = load ptr, ptr %97, align 8
   br i1 %.1, label %99, label %102
 
-99:                                               ; preds = %._crit_edge133
+99:                                               ; preds = %._crit_edge132
   %100 = load ptr, ptr %72, align 8
-  %101 = call ptr @LLVMConstStructInContext(ptr noundef %100, ptr noundef nonnull %40, i32 noundef %.0106, i32 noundef 1) #6
+  %101 = call ptr @LLVMConstStructInContext(ptr noundef %100, ptr noundef nonnull %40, i32 noundef %spec.select, i32 noundef 1) #6
   br label %105
 
-102:                                              ; preds = %._crit_edge133.thread, %._crit_edge133
-  %103 = phi ptr [ %77, %._crit_edge133.thread ], [ %98, %._crit_edge133 ]
-  %.0111.lcssa163 = phi ptr [ null, %._crit_edge133.thread ], [ %.1112, %._crit_edge133 ]
-  %104 = call ptr @LLVMConstArray(ptr noundef %.0111.lcssa163, ptr noundef %40, i32 noundef %.0106) #6
+102:                                              ; preds = %._crit_edge132.thread, %._crit_edge132
+  %103 = phi ptr [ %77, %._crit_edge132.thread ], [ %98, %._crit_edge132 ]
+  %.0112.lcssa162 = phi ptr [ null, %._crit_edge132.thread ], [ %.1113, %._crit_edge132 ]
+  %104 = call ptr @LLVMConstArray(ptr noundef %.0112.lcssa162, ptr noundef %40, i32 noundef %spec.select) #6
   br label %105
 
 105:                                              ; preds = %102, %99
@@ -2704,11 +2704,11 @@ type_base.exit:                                   ; preds = %44
   call void @LLVMSetGlobalConstant(ptr noundef %113, i32 noundef 1) #6
   %116 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store ptr %113, ptr %116, align 8
-  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
-  br i1 %exitcond157.not, label %._crit_edge136, label %.preheader, !llvm.loop !17
+  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
+  %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
+  br i1 %exitcond156.not, label %._crit_edge135, label %.preheader, !llvm.loop !17
 
-._crit_edge136:                                   ; preds = %105, %type_base.exit, %66
+._crit_edge135:                                   ; preds = %105, %type_base.exit, %66
   ret ptr %65
 }
 

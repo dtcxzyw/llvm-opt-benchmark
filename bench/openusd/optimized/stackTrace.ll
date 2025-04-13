@@ -1140,8 +1140,8 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogPro
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [64 x i8], align 16
   %7 = atomicrmw xchg ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_E4busy, i8 1 acquire, align 1
-  %.not92 = icmp eq i8 %7, 0
-  br i1 %.not92, label %._crit_edge, label %.lr.ph
+  %.not93 = icmp eq i8 %7, 0
+  br i1 %.not93, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %8 = tail call noundef i32 @sched_yield() #31
@@ -1236,18 +1236,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; pre
 35:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i
   %36 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__13ArchGetTmpDirEv()
   %scevgep = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %scevgep99 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %scevgep102 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %scevgep105 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %scevgep110 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %scevgep100 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %scevgep103 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %scevgep106 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %scevgep111 = getelementptr inbounds nuw i8, ptr %5, i64 6
   br label %37
 
 37:                                               ; preds = %37, %35
-  %indvars.iv111 = phi ptr [ %scevgep112, %37 ], [ %scevgep110, %35 ]
-  %indvars.iv106 = phi ptr [ %scevgep107, %37 ], [ %scevgep105, %35 ]
-  %indvars.iv103 = phi ptr [ %scevgep104, %37 ], [ %scevgep102, %35 ]
-  %indvars.iv100 = phi ptr [ %scevgep101, %37 ], [ %scevgep99, %35 ]
-  %indvars.iv = phi ptr [ %scevgep98, %37 ], [ %scevgep, %35 ]
+  %indvars.iv112 = phi ptr [ %scevgep113, %37 ], [ %scevgep111, %35 ]
+  %indvars.iv107 = phi ptr [ %scevgep108, %37 ], [ %scevgep106, %35 ]
+  %indvars.iv104 = phi ptr [ %scevgep105, %37 ], [ %scevgep103, %35 ]
+  %indvars.iv101 = phi ptr [ %scevgep102, %37 ], [ %scevgep100, %35 ]
+  %indvars.iv = phi ptr [ %scevgep99, %37 ], [ %scevgep, %35 ]
   %.03.i.i = phi ptr [ %40, %37 ], [ %5, %35 ]
   %.0.i40.i = phi ptr [ %38, %37 ], [ %36, %35 ]
   %38 = getelementptr inbounds nuw i8, ptr %.0.i40.i, i64 1
@@ -1255,34 +1255,34 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i: ; pre
   %40 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 1
   store i8 %39, ptr %.03.i.i, align 1
   %.not.i41.i = icmp eq i8 %39, 0
-  %scevgep98 = getelementptr i8, ptr %indvars.iv, i64 1
-  %scevgep101 = getelementptr i8, ptr %indvars.iv100, i64 1
-  %scevgep104 = getelementptr i8, ptr %indvars.iv103, i64 1
-  %scevgep107 = getelementptr i8, ptr %indvars.iv106, i64 1
-  %scevgep112 = getelementptr i8, ptr %indvars.iv111, i64 1
+  %scevgep99 = getelementptr i8, ptr %indvars.iv, i64 1
+  %scevgep102 = getelementptr i8, ptr %indvars.iv101, i64 1
+  %scevgep105 = getelementptr i8, ptr %indvars.iv104, i64 1
+  %scevgep108 = getelementptr i8, ptr %indvars.iv107, i64 1
+  %scevgep113 = getelementptr i8, ptr %indvars.iv112, i64 1
   br i1 %.not.i41.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit.i.preheader, label %37, !llvm.loop !24
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit.i.preheader: ; preds = %37
   store i16 47, ptr %.03.i.i, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %indvars.iv, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
-  store i16 95, ptr %indvars.iv100, align 1
+  store i16 95, ptr %indvars.iv101, align 1
   %41 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L18_progNameForErrorsE, align 8
   %.not.i54.i = icmp eq ptr %41, null
   %.str.1..i55.i = select i1 %.not.i54.i, ptr @.str.1, ptr %41
   br label %42
 
 42:                                               ; preds = %42, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit.i.preheader
-  %indvars.iv113 = phi ptr [ %scevgep114, %42 ], [ %indvars.iv111, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit.i.preheader ]
-  %indvars.iv108 = phi ptr [ %scevgep109, %42 ], [ %indvars.iv106, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit.i.preheader ]
-  %.03.i56.i = phi ptr [ %45, %42 ], [ %indvars.iv103, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit.i.preheader ]
+  %indvars.iv114 = phi ptr [ %scevgep115, %42 ], [ %indvars.iv112, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit.i.preheader ]
+  %indvars.iv109 = phi ptr [ %scevgep110, %42 ], [ %indvars.iv107, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit.i.preheader ]
+  %.03.i56.i = phi ptr [ %45, %42 ], [ %indvars.iv104, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit.i.preheader ]
   %.0.i57.i = phi ptr [ %43, %42 ], [ %.str.1..i55.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit.i.preheader ]
   %43 = getelementptr inbounds nuw i8, ptr %.0.i57.i, i64 1
   %44 = load i8, ptr %.0.i57.i, align 1
   %45 = getelementptr inbounds nuw i8, ptr %.03.i56.i, i64 1
   store i8 %44, ptr %.03.i56.i, align 1
   %.not.i58.i = icmp eq i8 %44, 0
-  %scevgep109 = getelementptr i8, ptr %indvars.iv108, i64 1
-  %scevgep114 = getelementptr i8, ptr %indvars.iv113, i64 1
+  %scevgep110 = getelementptr i8, ptr %indvars.iv109, i64 1
+  %scevgep115 = getelementptr i8, ptr %indvars.iv114, i64 1
   br i1 %.not.i58.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit59.i.preheader, label %42, !llvm.loop !24
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit59.i.preheader: ; preds = %42
@@ -1294,12 +1294,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit59.i.preh
 
 49:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit59.i.preheader
   %50 = sub nsw i64 0, %47
-  store i8 45, ptr %indvars.iv108, align 1
+  store i8 45, ptr %indvars.iv109, align 1
   br label %51
 
 51:                                               ; preds = %49, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit59.i.preheader
   %.012.i.i = phi i64 [ %50, %49 ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit59.i.preheader ]
-  %.0.i64.i = phi ptr [ %indvars.iv113, %49 ], [ %indvars.iv108, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit59.i.preheader ]
+  %.0.i64.i = phi ptr [ %indvars.iv114, %49 ], [ %indvars.iv109, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18asstrcpyEPcPKc.exit59.i.preheader ]
   %52 = icmp samesign ugt i64 %.012.i.i, 9
   br i1 %52, label %.lr.ph.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i.i
 
@@ -1346,7 +1346,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.i: ; preds =
   %66 = phi ptr [ %57, %60 ], [ %59, %.preheader.i65.i ]
   %67 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %5, i32 noundef 705, i32 noundef 416)
   %cond99.i = icmp eq i32 %67, -1
-  br i1 %cond99.i, label %.lr.ph.i, label %.loopexit86
+  br i1 %cond99.i, label %.lr.ph.i, label %.loopexit87
 
 .lr.ph.i:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.i
   %68 = tail call ptr @__errno_location() #35
@@ -1430,7 +1430,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i80.i: ;
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit90.i: ; preds = %.preheader.i82.i
   %93 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %5, i32 noundef 705, i32 noundef 416)
   %cond.i = icmp eq i32 %93, -1
-  br i1 %cond.i, label %72, label %.loopexit86, !llvm.loop !25
+  br i1 %cond.i, label %72, label %.loopexit87, !llvm.loop !25
 
 .loopexit.sink.split:                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit73.i, %33
   %.sink = phi ptr [ %34, %33 ], [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit73.i ]
@@ -1444,14 +1444,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit90.i: ; preds
   store i32 %94, ptr %.pre-phi, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit
 
-.loopexit86:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit90.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.i
+.loopexit87:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit90.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.i
   %.0.lcssa.i = phi i32 [ %67, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit.i ], [ %93, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit90.i ]
   %96 = tail call i32 @close(i32 noundef %.0.lcssa.i)
   %97 = call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12ArchOpenFileEPKcS1_(ptr noundef nonnull %5, ptr noundef nonnull @.str.28)
   %.not52 = icmp eq ptr %97, null
   br i1 %.not52, label %117, label %98
 
-98:                                               ; preds = %.loopexit86
+98:                                               ; preds = %.loopexit87
   %.not53 = icmp eq ptr %1, null
   br i1 %.not53, label %102, label %99
 
@@ -1505,7 +1505,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit: ; pred
   %116 = call i32 @fclose(ptr noundef nonnull %97)
   br label %117
 
-117:                                              ; preds = %114, %.loopexit86
+117:                                              ; preds = %114, %.loopexit87
   %118 = call i32 @gethostname(ptr noundef nonnull %6, i64 noundef 64) #31
   %.not58 = icmp eq i32 %118, 0
   br i1 %.not58, label %120, label %119
@@ -1645,19 +1645,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit79: ; pr
   call fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_ENK3$_0clEi"(i32 noundef %.sroa.speculated)
   %184 = load ptr, ptr @stderr, align 8
   %fputc68 = call i32 @fputc(i32 10, ptr %184)
-  %.not69 = icmp eq i32 %174, 0
-  br i1 %.not69, label %_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit, label %185
+  %.not69 = icmp ne i32 %174, 0
+  %185 = load i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L19_shouldLogStackToDbE, align 1
+  %186 = trunc nuw i8 %185 to i1
+  %or.cond = select i1 %.not69, i1 %186, i1 false
+  br i1 %or.cond, label %187, label %_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit
 
-185:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit79
-  %186 = load i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L19_shouldLogStackToDbE, align 1
-  %187 = trunc nuw i8 %186 to i1
-  br i1 %187, label %188, label %_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit
-
-188:                                              ; preds = %185
+187:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit79
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_InvokeSessionLoggerEPKcS1_(ptr noundef nonnull %.str.1..i, ptr noundef nonnull %5)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit79, %185, %188, %.loopexit
+_ZN32pxrInternal_v0_24__pxrReserved__L29_FinishLoggingFatalStackTraceEPKcS1_S1_b.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L25ArchStackTrace_GetLogInfoEv.exit79, %187, %.loopexit
   store atomic i8 0, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__L26_ArchLogProcessStateHelperEbPKcS1_S1_E4busy release, align 1
   ret void
 }

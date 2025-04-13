@@ -1009,8 +1009,8 @@ define hidden noundef align 8 dereferenceable_or_null(3928) ptr @"_ZN4core6optio
   br label %9
 
 9:                                                ; preds = %4, %2
-  %.sroa.03.0 = phi ptr [ null, %2 ], [ %spec.select, %4 ]
-  ret ptr %.sroa.03.0
+  %.sroa.05.0 = phi ptr [ null, %2 ], [ %spec.select, %4 ]
+  ret ptr %.sroa.05.0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
@@ -10011,8 +10011,8 @@ define hidden noundef align 8 dereferenceable_or_null(3920) ptr @"_ZN7slotmap5ba
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h8e4deda37d8a72bcE.llvm.11372070486381688224.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17h8e4deda37d8a72bcE.llvm.11372070486381688224.exit": ; preds = %3, %11
-  %.sroa.03.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %11 ]
-  ret ptr %.sroa.03.0.i
+  %.sroa.05.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %11 ]
+  ret ptr %.sroa.05.0.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable

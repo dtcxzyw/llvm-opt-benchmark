@@ -119,47 +119,47 @@ define hidden i32 @b2BroadPhase_CreateProxy(ptr noundef %0, i32 noundef %1, <2 x
   %10 = tail call i32 @b2DynamicTree_CreateProxy(ptr noundef %9, <2 x float> %2, <2 x float> %3, i64 noundef %4, i32 noundef %5) #8
   %11 = shl i32 %10, 2
   %12 = or i32 %11, %1
-  %.not = icmp ne i32 %1, 0
-  %brmerge = or i1 %.not, %6
-  br i1 %brmerge, label %13, label %b2BufferMove.exit
+  %13 = icmp ne i32 %1, 0
+  %or.cond = or i1 %13, %6
+  br i1 %or.cond, label %14, label %b2BufferMove.exit
 
-13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %15 = add nsw i32 %12, 1
-  %16 = sext i32 %15 to i64
-  %17 = tail call zeroext i1 @b2AddKey(ptr noundef nonnull %14, i64 noundef %16) #8
-  br i1 %17, label %b2BufferMove.exit, label %18
+14:                                               ; preds = %7
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %16 = add nsw i32 %12, 1
+  %17 = sext i32 %16 to i64
+  %18 = tail call zeroext i1 @b2AddKey(ptr noundef nonnull %15, i64 noundef %17) #8
+  br i1 %18, label %b2BufferMove.exit, label %19
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %21 = load i32, ptr %20, align 8, !tbaa !29
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %23 = load i32, ptr %22, align 4, !tbaa !30
-  %24 = icmp eq i32 %21, %23
-  br i1 %24, label %25, label %b2IntArray_Push.exit.i
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %22 = load i32, ptr %21, align 8, !tbaa !29
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %24 = load i32, ptr %23, align 4, !tbaa !30
+  %25 = icmp eq i32 %22, %24
+  br i1 %25, label %26, label %b2IntArray_Push.exit.i
 
-25:                                               ; preds = %18
-  %26 = icmp slt i32 %21, 2
-  %27 = lshr i32 %21, 1
-  %28 = add nuw nsw i32 %27, %21
-  %29 = select i1 %26, i32 2, i32 %28
-  tail call void @b2IntArray_Reserve(ptr noundef nonnull %19, i32 noundef %29) #8
-  %.pre.i.i = load i32, ptr %20, align 8, !tbaa !29
+26:                                               ; preds = %19
+  %27 = icmp slt i32 %22, 2
+  %28 = lshr i32 %22, 1
+  %29 = add nuw nsw i32 %28, %22
+  %30 = select i1 %27, i32 2, i32 %29
+  tail call void @b2IntArray_Reserve(ptr noundef nonnull %20, i32 noundef %30) #8
+  %.pre.i.i = load i32, ptr %21, align 8, !tbaa !29
   br label %b2IntArray_Push.exit.i
 
-b2IntArray_Push.exit.i:                           ; preds = %25, %18
-  %30 = phi i32 [ %.pre.i.i, %25 ], [ %21, %18 ]
-  %31 = load ptr, ptr %19, align 8, !tbaa !31
-  %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds i32, ptr %31, i64 %32
-  store i32 %12, ptr %33, align 4, !tbaa !21
-  %34 = load i32, ptr %20, align 8, !tbaa !29
-  %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %20, align 8, !tbaa !29
+b2IntArray_Push.exit.i:                           ; preds = %26, %19
+  %31 = phi i32 [ %.pre.i.i, %26 ], [ %22, %19 ]
+  %32 = load ptr, ptr %20, align 8, !tbaa !31
+  %33 = sext i32 %31 to i64
+  %34 = getelementptr inbounds i32, ptr %32, i64 %33
+  store i32 %12, ptr %34, align 4, !tbaa !21
+  %35 = load i32, ptr %21, align 8, !tbaa !29
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %21, align 8, !tbaa !29
   br label %b2BufferMove.exit
 
-b2BufferMove.exit:                                ; preds = %b2IntArray_Push.exit.i, %13, %7
+b2BufferMove.exit:                                ; preds = %b2IntArray_Push.exit.i, %14, %7
   ret i32 %12
 }
 

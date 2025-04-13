@@ -2606,20 +2606,18 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %22 = load i32, ptr %21, align 8, !tbaa !96
   %23 = icmp ult i32 %22, 6
-  br i1 %23, label %switch.hole_check, label %24
+  %switch.maskindex = trunc i32 %22 to i8
+  %switch.shifted = lshr i8 39, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %24
 
-24:                                               ; preds = %switch.hole_check, %6
+24:                                               ; preds = %6
   %25 = icmp eq i32 %22, 3
   %26 = select i1 %25, i32 3, i32 4
   br label %28
 
-switch.hole_check:                                ; preds = %6
-  %switch.maskindex = trunc nuw i32 %22 to i8
-  %switch.shifted = lshr i8 39, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %24
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %6
   %27 = zext nneg i32 %22 to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.process, i64 0, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4

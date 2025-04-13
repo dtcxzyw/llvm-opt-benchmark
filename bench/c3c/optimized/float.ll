@@ -199,19 +199,17 @@ define dso_local { double, i32 } @float_from_string(ptr noundef readonly capture
   %.059.lcssa = phi i32 [ 0, %.preheader ], [ %53, %48 ]
   %57 = tail call i32 @llvm.fshl.i32(i32 %.059.lcssa, i32 %.059.lcssa, i32 28)
   %58 = icmp ult i32 %57, 9
-  br i1 %58, label %switch.hole_check, label %59
+  %switch.maskindex = trunc i32 %57 to i16
+  %switch.shifted = lshr i16 279, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond150 = select i1 %58, i1 %switch.lobit, i1 false
+  br i1 %or.cond150, label %switch.lookup, label %59
 
-59:                                               ; preds = %switch.hole_check, %.critedge12
+59:                                               ; preds = %.critedge12
   %.not78 = icmp eq ptr %1, null
   br i1 %.not78, label %77, label %.sink.split
 
-switch.hole_check:                                ; preds = %.critedge12
-  %switch.maskindex = trunc nuw i32 %57 to i16
-  %switch.shifted = lshr i16 279, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %59
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.critedge12
   %60 = zext nneg i32 %57 to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.float_from_hex, i64 0, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -414,19 +412,17 @@ define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(n
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %47, %42 ]
   %51 = tail call i32 @llvm.fshl.i32(i32 %.0.lcssa, i32 %.0.lcssa, i32 28)
   %52 = icmp ult i32 %51, 9
-  br i1 %52, label %switch.hole_check, label %53
+  %switch.maskindex = trunc i32 %51 to i16
+  %switch.shifted = lshr i16 279, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond137 = select i1 %52, i1 %switch.lobit, i1 false
+  br i1 %or.cond137, label %switch.lookup, label %53
 
-53:                                               ; preds = %switch.hole_check, %.critedge12
+53:                                               ; preds = %.critedge12
   %.not75 = icmp eq ptr %1, null
   br i1 %.not75, label %71, label %.sink.split
 
-switch.hole_check:                                ; preds = %.critedge12
-  %switch.maskindex = trunc nuw i32 %51 to i16
-  %switch.shifted = lshr i16 279, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %53
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.critedge12
   %54 = zext nneg i32 %51 to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.float_from_hex, i64 0, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4

@@ -102,9 +102,9 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %13
 
 13:                                               ; preds = %.lr.ph, %dissect_bzr_pdu.exit
-  %.02532 = phi i32 [ 0, %.lr.ph ], [ %119, %dissect_bzr_pdu.exit ]
+  %.02633 = phi i32 [ 0, %.lr.ph ], [ %119, %dissect_bzr_pdu.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
-  %14 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.02532, i32 noundef -1, ptr noundef nonnull %6, i1 noundef zeroext true)
+  %14 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.02633, i32 noundef -1, ptr noundef nonnull %6, i1 noundef zeroext true)
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %get_bzr_pdu_len.exit.thread, label %16
 
@@ -118,7 +118,7 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %22, label %get_bzr_pdu_len.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %16
-  %23 = add i32 %21, %.02532
+  %23 = add i32 %21, %.02633
   %24 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %23)
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph.i, label %get_bzr_pdu_len.exit.thread
@@ -136,7 +136,7 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 29:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %30 = add i32 %28, %.02532
+  %30 = add i32 %28, %.02633
   %31 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %30)
   %32 = add i32 %.0271.i, 5
   %33 = add i32 %32, %31
@@ -149,7 +149,7 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 37:                                               ; preds = %35, %29, %.lr.ph.i
   %.1.i = phi i32 [ %28, %.lr.ph.i ], [ %36, %35 ], [ %33, %29 ]
-  %38 = add i32 %.1.i, %.02532
+  %38 = add i32 %.1.i, %.02633
   %39 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %38)
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.i, label %get_bzr_pdu_len.exit.thread, !llvm.loop !6
@@ -165,28 +165,26 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
 
 42:                                               ; preds = %get_bzr_pdu_len.exit.thread, %get_bzr_pdu_len.exit
   %43 = load i16, ptr %12, align 8
-  %.not = icmp eq i16 %43, 0
-  br i1 %.not, label %50, label %44
-
-44:                                               ; preds = %42
-  %45 = load i8, ptr @bzr_desegment, align 1, !range !8, !noundef !9
+  %44 = icmp ne i16 %43, 0
+  %45 = load i8, ptr @bzr_desegment, align 1, !range !8
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %50
+  %or.cond = select i1 %44, i1 %46, i1 false
+  br i1 %or.cond, label %47, label %50
 
-47:                                               ; preds = %44
+47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 332
-  store i32 %.02532, ptr %48, align 4
+  store i32 %.02633, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %49, align 8
   br label %._crit_edge
 
-50:                                               ; preds = %44, %42
-  %51 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.02532)
+50:                                               ; preds = %42
+  %51 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.02633)
   br label %52
 
 52:                                               ; preds = %50, %get_bzr_pdu_len.exit
-  %.024 = phi i32 [ %51, %50 ], [ %28, %get_bzr_pdu_len.exit ]
-  %53 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.02532, i32 noundef %.024)
+  %.025 = phi i32 [ %51, %50 ], [ %28, %get_bzr_pdu_len.exit ]
+  %53 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.02633, i32 noundef %.025)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
   store i32 0, ptr %5, align 4
   %54 = load i32, ptr @proto_bzr, align 4
@@ -227,10 +225,10 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
   store i32 %78, ptr %5, align 4
   %79 = call i32 @tvb_reported_length_remaining(ptr noundef %53, i32 noundef %78)
   %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %.lr.ph.i27, label %dissect_bzr_pdu.exit
+  br i1 %80, label %.lr.ph.i28, label %dissect_bzr_pdu.exit
 
-.lr.ph.i27:                                       ; preds = %.sink.split.i, %116
-  %.023.i = phi i32 [ %.1.i28, %116 ], [ %78, %.sink.split.i ]
+.lr.ph.i28:                                       ; preds = %.sink.split.i, %116
+  %.023.i = phi i32 [ %.1.i29, %116 ], [ %78, %.sink.split.i ]
   %81 = call zeroext i8 @tvb_get_uint8(ptr noundef %53, i32 noundef %.023.i)
   %82 = load i32, ptr @hf_bzr_packet_kind, align 4
   %83 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %82, ptr noundef %53, i32 noundef %.023.i, i32 noundef 1, i32 noundef 0)
@@ -241,7 +239,7 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
     i8 111, label %112
   ]
 
-85:                                               ; preds = %.lr.ph.i27
+85:                                               ; preds = %.lr.ph.i28
   %86 = call i32 @tvb_get_ntohl(ptr noundef %53, i32 noundef %84)
   %87 = load i32, ptr @hf_bzr_prefixed_bencode, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %87, ptr noundef %53, i32 noundef %84, i32 noundef -1, i32 noundef 0)
@@ -258,7 +256,7 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
   %98 = add i32 %97, %84
   br label %116
 
-99:                                               ; preds = %.lr.ph.i27
+99:                                               ; preds = %.lr.ph.i28
   %100 = call i32 @tvb_get_ntohl(ptr noundef %53, i32 noundef %84)
   %101 = load i32, ptr @hf_bzr_bytes, align 4
   %102 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %101, ptr noundef %53, i32 noundef %84, i32 noundef -1, i32 noundef 0)
@@ -274,24 +272,24 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
   %111 = add i32 %110, %84
   br label %116
 
-112:                                              ; preds = %.lr.ph.i27
+112:                                              ; preds = %.lr.ph.i28
   %113 = load i32, ptr @hf_bzr_result, align 4
   %114 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %113, ptr noundef %53, i32 noundef %84, i32 noundef 1, i32 noundef 0)
   %115 = add i32 %.023.i, 2
   br label %116
 
-116:                                              ; preds = %112, %99, %85, %.lr.ph.i27
-  %.1.i28 = phi i32 [ %84, %.lr.ph.i27 ], [ %115, %112 ], [ %111, %99 ], [ %98, %85 ]
-  %117 = call i32 @tvb_reported_length_remaining(ptr noundef %53, i32 noundef %.1.i28)
+116:                                              ; preds = %112, %99, %85, %.lr.ph.i28
+  %.1.i29 = phi i32 [ %84, %.lr.ph.i28 ], [ %115, %112 ], [ %111, %99 ], [ %98, %85 ]
+  %117 = call i32 @tvb_reported_length_remaining(ptr noundef %53, i32 noundef %.1.i29)
   %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %.lr.ph.i27, label %dissect_bzr_pdu.exit, !llvm.loop !10
+  br i1 %118, label %.lr.ph.i28, label %dissect_bzr_pdu.exit, !llvm.loop !9
 
 dissect_bzr_pdu.exit:                             ; preds = %116, %.sink.split.i, %52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
-  %119 = add i32 %.024, %.02532
+  %119 = add i32 %.025, %.02633
   %120 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %119)
   %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %13, label %._crit_edge, !llvm.loop !11
+  br i1 %121, label %13, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %dissect_bzr_pdu.exit, %4, %47
   %122 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -378,6 +376,5 @@ attributes #3 = { nounwind }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{i8 0, i8 2}
-!9 = !{}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}

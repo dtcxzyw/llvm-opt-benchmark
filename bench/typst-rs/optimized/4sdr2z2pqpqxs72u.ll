@@ -5357,11 +5357,11 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17ha93d6491b18f6f46E"(p
   br i1 %or.cond, label %8, label %10
 
 8:                                                ; preds = %4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.5.0..sroa_idx, i64 32, i1 false)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %3, ptr %.sroa.4.0..sroa_idx, align 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.4.0..sroa_idx, i64 32, i1 false)
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %3, ptr %.sroa.49.0..sroa_idx, align 16
   br label %10
 
 10:                                               ; preds = %4, %8

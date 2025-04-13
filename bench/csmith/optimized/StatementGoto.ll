@@ -1416,35 +1416,35 @@ define dso_local noundef ptr @_ZN13StatementGoto20find_good_jump_blockERSt6vecto
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %tailrecurse.outer.backedge
-  %.tr101.ph119 = phi i1 [ %2, %.lr.ph.lr.ph ], [ %brmerge74.demorgan143, %tailrecurse.outer.backedge ]
+  %.tr101.ph119 = phi i1 [ %2, %.lr.ph.lr.ph ], [ %or.cond8143, %tailrecurse.outer.backedge ]
   br label %11
 
 11:                                               ; preds = %.lr.ph, %tailrecurse.backedge
   %12 = load i8, ptr %8, align 1, !tbaa !104, !range !105, !noundef !106
   %13 = trunc nuw i8 %12 to i1
-  %.not66 = xor i1 %13, true
-  %brmerge = or i1 %.tr101.ph119, %.not66
-  br i1 %brmerge, label %14, label %tailrecurse.outer._crit_edge
+  %.not = xor i1 %13, true
+  %or.cond = or i1 %.tr101.ph119, %.not
+  br i1 %or.cond, label %14, label %tailrecurse.outer._crit_edge
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %9, align 8, !tbaa !46
   %16 = load ptr, ptr %10, align 8, !tbaa !46
   %17 = icmp ne ptr %15, %16
-  %brmerge68 = or i1 %.tr101.ph119, %17
-  br i1 %brmerge68, label %18, label %tailrecurse.outer._crit_edge
+  %or.cond4 = or i1 %.tr101.ph119, %17
+  br i1 %or.cond4, label %18, label %tailrecurse.outer._crit_edge
 
 18:                                               ; preds = %14
   %19 = tail call noundef ptr @_ZNK5Block12get_last_stmEv(ptr noundef nonnull align 8 dereferenceable(192) %1)
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %25, label %20
+  %.not75 = icmp eq ptr %19, null
+  br i1 %.not75, label %25, label %20
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %19, align 8, !tbaa !51
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %19)
-  %brmerge71.demorgan = and i1 %.tr101.ph119, %24
-  br i1 %brmerge71.demorgan, label %tailrecurse.outer._crit_edge, label %25
+  %or.cond6 = and i1 %.tr101.ph119, %24
+  br i1 %or.cond6, label %tailrecurse.outer._crit_edge, label %25
 
 25:                                               ; preds = %20, %18
   %26 = load ptr, ptr %4, align 8, !tbaa !38
@@ -1457,8 +1457,8 @@ define dso_local noundef ptr @_ZN13StatementGoto20find_good_jump_blockERSt6vecto
   %33 = tail call noundef i32 @_Z8rnd_uptojPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %32, ptr noundef null, ptr noundef null)
   %34 = zext i32 %33 to i64
   %35 = load i32, ptr @_ZN5Error8r_error_E, align 4, !tbaa !43
-  %.not65 = icmp eq i32 %35, 0
-  br i1 %.not65, label %36, label %tailrecurse.outer._crit_edge
+  %.not76 = icmp eq i32 %35, 0
+  br i1 %.not76, label %36, label %tailrecurse.outer._crit_edge
 
 36:                                               ; preds = %25
   %37 = load ptr, ptr %0, align 8, !tbaa !40
@@ -1467,8 +1467,8 @@ define dso_local noundef ptr @_ZN13StatementGoto20find_good_jump_blockERSt6vecto
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 153
   %41 = load i8, ptr %40, align 1, !tbaa !104, !range !105, !noundef !106
   %42 = trunc nuw i8 %41 to i1
-  %brmerge74.demorgan = and i1 %.tr101.ph119, %42
-  br i1 %brmerge74.demorgan, label %43, label %51
+  %or.cond8 = and i1 %.tr101.ph119, %42
+  br i1 %or.cond8, label %43, label %51
 
 43:                                               ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -1487,7 +1487,7 @@ tailrecurse.outer.backedge.sink.split:            ; preds = %43, %75
   br label %tailrecurse.outer.backedge
 
 tailrecurse.outer.backedge:                       ; preds = %tailrecurse.outer.backedge.sink.split, %75, %43
-  %brmerge74.demorgan143 = phi i1 [ true, %43 ], [ false, %75 ], [ %brmerge74.demorgan, %tailrecurse.outer.backedge.sink.split ]
+  %or.cond8143 = phi i1 [ true, %43 ], [ false, %75 ], [ %or.cond8, %tailrecurse.outer.backedge.sink.split ]
   %.pn = phi ptr [ %45, %43 ], [ %77, %75 ], [ %.pre.i.i83, %tailrecurse.outer.backedge.sink.split ]
   %storemerge = getelementptr inbounds i8, ptr %.pn, i64 -8
   store ptr %storemerge, ptr %4, align 8, !tbaa !38
@@ -1537,8 +1537,8 @@ tailrecurse.backedge:                             ; preds = %_ZSt4moveIN9__gnu_c
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !94
   %74 = icmp ne i32 %73, 5
-  %brmerge76 = or i1 %.tr101.ph119, %74
-  br i1 %brmerge76, label %78, label %75
+  %or.cond10 = or i1 %.tr101.ph119, %74
+  br i1 %or.cond10, label %78, label %75
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %38, i64 8

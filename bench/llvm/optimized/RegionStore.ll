@@ -15570,7 +15570,7 @@ _ZN12_GLOBAL__N_118RegionStoreManager14getLazyBindingEPKN5clang4ento9SubRegionEN
 42:                                               ; preds = %.preheader, %59
   %.057 = phi ptr [ %.158, %59 ], [ %2, %.preheader ]
   %.054 = phi i1 [ %.256104, %59 ], [ false, %.preheader ]
-  %.050 = phi i1 [ %.252, %59 ], [ false, %.preheader ]
+  %.050 = phi i8 [ %.252, %59 ], [ 0, %.preheader ]
   %.sroa.033.1 = phi ptr [ %.sroa.033.3105, %59 ], [ undef, %.preheader ]
   %.sroa.8.1 = phi i8 [ %.sroa.8.3106, %59 ], [ undef, %.preheader ]
   %.not62 = icmp eq ptr %.057, null
@@ -15618,15 +15618,14 @@ _ZNK5clang4ento4SVal5getAsINS0_6nonloc15LazyCompoundValEEESt8optionalIT_Ev.exit:
   store ptr %.sroa.0.0.copyload.i, ptr %7, align 8
   store i8 %.sroa.2.0.copyload.i, ptr %.sroa.210.0..sroa_idx, align 8
   %55 = call noundef zeroext i1 @_ZNK5clang4ento4SVal10isConstantEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #21
-  %not. = xor i1 %55, true
-  %spec.select = select i1 %not., i1 true, i1 %.050
+  %spec.select = select i1 %55, i8 %.050, i8 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
   %.pre = load i32, ptr %51, align 8, !tbaa !422
   br label %56
 
 56:                                               ; preds = %53, %50
   %57 = phi i32 [ %.pre, %53 ], [ %52, %50 ]
-  %.353 = phi i1 [ %spec.select, %53 ], [ %.050, %50 ]
+  %.353 = phi i8 [ %spec.select, %53 ], [ %.050, %50 ]
   %58 = icmp sgt i32 %57, 8
   %spec.select.i.i67 = select i1 %58, ptr %45, ptr null
   br label %59
@@ -15636,7 +15635,7 @@ _ZNK5clang4ento4SVal5getAsINS0_6nonloc15LazyCompoundValEEESt8optionalIT_Ev.exit:
   %.sroa.033.3105 = phi ptr [ %.sroa.033.1, %56 ], [ %.sroa.033.3.ph, %.thread ]
   %.256104 = phi i1 [ %.054, %56 ], [ %.256.ph, %.thread ]
   %.158 = phi ptr [ %spec.select.i.i67, %56 ], [ %.057, %.thread ]
-  %.252 = phi i1 [ %.353, %56 ], [ %.050, %.thread ]
+  %.252 = phi i8 [ %.353, %56 ], [ %.050, %.thread ]
   %.1 = phi i32 [ 0, %56 ], [ %.0.ph, %.thread ]
   switch i32 %.1, label %_ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEED2Ev.exit [
     i32 0, label %42
@@ -15645,7 +15644,7 @@ _ZNK5clang4ento4SVal5getAsINS0_6nonloc15LazyCompoundValEEESt8optionalIT_Ev.exit:
 
 60:                                               ; preds = %59, %42
   %.155 = phi i1 [ %.256104, %59 ], [ %.054, %42 ]
-  %.151 = phi i1 [ %.252, %59 ], [ %.050, %42 ]
+  %.151 = phi i8 [ %.252, %59 ], [ %.050, %42 ]
   %61 = call noundef zeroext i1 @_ZNK5clang4ento9MemRegion28hasStackNonParametersStorageEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #21
   br i1 %61, label %62, label %.critedge
 
@@ -15683,52 +15682,54 @@ _ZNK5clang4ento4SVal5getAsINS0_6nonloc15LazyCompoundValEEESt8optionalIT_Ev.exit:
   %86 = load i8, ptr %85, align 16
   %87 = and i8 %86, -2
   %spec.select.i.i.i.i.i.i.i.i.i = icmp eq i8 %87, 56
-  %brmerge = select i1 %spec.select.i.i.i.i.i.i.i.i.i, i1 true, i1 %.151
-  br i1 %brmerge, label %_ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEED2Ev.exit, label %88
+  %88 = trunc nuw i8 %.151 to i1
+  %or.cond = select i1 %spec.select.i.i.i.i.i.i.i.i.i, i1 true, i1 %88
+  br i1 %or.cond, label %_ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEED2Ev.exit, label %89
 
 .thread108:                                       ; preds = %66, %62
-  br i1 %.151, label %_ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEED2Ev.exit, label %88
+  %.old = trunc nuw i8 %.151 to i1
+  br i1 %.old, label %_ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEED2Ev.exit, label %89
 
-88:                                               ; preds = %73, %.thread108
-  br i1 %.155, label %.critedge, label %89
+89:                                               ; preds = %73, %.thread108
+  br i1 %.155, label %.critedge, label %90
 
-89:                                               ; preds = %88
-  %90 = call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #21
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %92 = load i32, ptr %91, align 8, !tbaa !422
-  %93 = icmp eq i32 %92, 11
-  br i1 %93, label %.critedge, label %94
+90:                                               ; preds = %89
+  %91 = call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #21
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %93 = load i32, ptr %92, align 8, !tbaa !422
+  %94 = icmp eq i32 %93, 11
+  br i1 %94, label %.critedge, label %95
 
-94:                                               ; preds = %89
+95:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #21
   call fastcc void @_ZNK12_GLOBAL__N_117RegionBindingsRef17getDefaultBindingEPKN5clang4ento9MemRegionE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %2)
-  %95 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %96 = load i8, ptr %95, align 8, !tbaa !403, !range !415, !noundef !344
-  %97 = trunc nuw i8 %96 to i1
-  br i1 %97, label %.thread112, label %98
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %97 = load i8, ptr %96, align 8, !tbaa !403, !range !415, !noundef !344
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %.thread112, label %99
 
-.thread112:                                       ; preds = %94
+.thread112:                                       ; preds = %95
   %.sroa.033.0.copyload36 = load ptr, ptr %8, align 8, !tbaa !84
   %.sroa.8.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.8.0.copyload43 = load i8, ptr %.sroa.8.0..sroa_idx42, align 8, !tbaa !410
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #21
   br label %_ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEED2Ev.exit
 
-98:                                               ; preds = %94
+99:                                               ; preds = %95
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #21
   br label %_ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEED2Ev.exit
 
-.critedge:                                        ; preds = %88, %89, %60
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !433
-  %101 = call { ptr, i8 } @_ZN5clang4ento11SValBuilder23getRegionValueSymbolValEPKNS0_16TypedValueRegionE(ptr noundef nonnull align 8 dereferenceable(412) %100, ptr noundef nonnull %2) #21
-  %.fca.0.extract = extractvalue { ptr, i8 } %101, 0
-  %.fca.1.extract = extractvalue { ptr, i8 } %101, 1
+.critedge:                                        ; preds = %89, %90, %60
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %101 = load ptr, ptr %100, align 8, !tbaa !433
+  %102 = call { ptr, i8 } @_ZN5clang4ento11SValBuilder23getRegionValueSymbolValEPKNS0_16TypedValueRegionE(ptr noundef nonnull align 8 dereferenceable(412) %101, ptr noundef nonnull %2) #21
+  %.fca.0.extract = extractvalue { ptr, i8 } %102, 0
+  %.fca.1.extract = extractvalue { ptr, i8 } %102, 1
   br label %_ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEED2Ev.exit
 
-_ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEED2Ev.exit: ; preds = %59, %98, %.critedge, %.thread108, %.thread112, %73, %41, %36, %_ZN12_GLOBAL__N_118RegionStoreManager14getLazyBindingEPKN5clang4ento9SubRegionENS_17RegionBindingsRefE.exit
-  %.sroa.033.4.pn = phi ptr [ %spec.select115, %_ZN12_GLOBAL__N_118RegionStoreManager14getLazyBindingEPKN5clang4ento9SubRegionENS_17RegionBindingsRefE.exit ], [ %spec.select115, %36 ], [ %spec.select115, %41 ], [ %.fca.0.extract, %.critedge ], [ null, %98 ], [ null, %73 ], [ null, %.thread108 ], [ %.sroa.033.0.copyload36, %.thread112 ], [ %.sroa.033.3105, %59 ]
-  %.sroa.8.4.pn = phi i8 [ %spec.select116, %_ZN12_GLOBAL__N_118RegionStoreManager14getLazyBindingEPKN5clang4ento9SubRegionENS_17RegionBindingsRefE.exit ], [ %spec.select116, %36 ], [ %spec.select116, %41 ], [ %.fca.1.extract, %.critedge ], [ 0, %98 ], [ 1, %73 ], [ 1, %.thread108 ], [ %.sroa.8.0.copyload43, %.thread112 ], [ %.sroa.8.3106, %59 ]
+_ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEED2Ev.exit: ; preds = %59, %99, %.critedge, %73, %.thread108, %.thread112, %41, %36, %_ZN12_GLOBAL__N_118RegionStoreManager14getLazyBindingEPKN5clang4ento9SubRegionENS_17RegionBindingsRefE.exit
+  %.sroa.033.4.pn = phi ptr [ %spec.select115, %_ZN12_GLOBAL__N_118RegionStoreManager14getLazyBindingEPKN5clang4ento9SubRegionENS_17RegionBindingsRefE.exit ], [ %spec.select115, %36 ], [ %spec.select115, %41 ], [ %.fca.0.extract, %.critedge ], [ null, %99 ], [ null, %73 ], [ null, %.thread108 ], [ %.sroa.033.0.copyload36, %.thread112 ], [ %.sroa.033.3105, %59 ]
+  %.sroa.8.4.pn = phi i8 [ %spec.select116, %_ZN12_GLOBAL__N_118RegionStoreManager14getLazyBindingEPKN5clang4ento9SubRegionENS_17RegionBindingsRefE.exit ], [ %spec.select116, %36 ], [ %spec.select116, %41 ], [ %.fca.1.extract, %.critedge ], [ 0, %99 ], [ 1, %73 ], [ 1, %.thread108 ], [ %.sroa.8.0.copyload43, %.thread112 ], [ %.sroa.8.3106, %59 ]
   %.pn123 = insertvalue { ptr, i8 } poison, ptr %.sroa.033.4.pn, 0
   %.fca.1.insert.merged = insertvalue { ptr, i8 } %.pn123, i8 %.sroa.8.4.pn, 1
   ret { ptr, i8 } %.fca.1.insert.merged

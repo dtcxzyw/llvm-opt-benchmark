@@ -112,8 +112,8 @@ define internal ptr @hpa_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 tsdn_witness_tsdp_get.exit:
   %8 = alloca %struct.edata_list_active_t, align 8
   %9 = icmp ugt i64 %3, 4096
-  %brmerge = or i1 %9, %4
-  br i1 %brmerge, label %12, label %10
+  %or.cond = or i1 %9, %4
+  br i1 %or.cond, label %12, label %10
 
 10:                                               ; preds = %tsdn_witness_tsdp_get.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
@@ -148,252 +148,248 @@ tsdn_witness_tsdp_get.exit:
   store i8 0, ptr %8, align 1, !tbaa !43
   %15 = call fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %8, i64 noundef %3, ptr noundef %4, ptr noundef %6)
   %16 = icmp eq i64 %15, %3
-  br i1 %16, label %hpa_alloc_batch_psset.exit, label %17
+  %17 = load i8, ptr %8, align 1, !range !54
+  %18 = trunc nuw i8 %17 to i1
+  %or.cond.i = select i1 %16, i1 true, i1 %18
+  br i1 %or.cond.i, label %hpa_alloc_batch_psset.exit, label %19
 
-17:                                               ; preds = %14
-  %18 = load i8, ptr %8, align 1, !tbaa !43, !range !54, !noundef !55
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %hpa_alloc_batch_psset.exit, label %20
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %21 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %20) #8
+  %.not.i.i = icmp eq i32 %21, 0
+  br i1 %.not.i.i, label %25, label %22
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %22 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %21) #8
-  %.not.i.i = icmp eq i32 %22, 0
-  br i1 %.not.i.i, label %26, label %23
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  tail call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull %23) #8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  store atomic i8 1, ptr %24 monotonic, align 1
+  br label %25
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  tail call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull %24) #8
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  store atomic i8 1, ptr %25 monotonic, align 1
-  br label %26
+25:                                               ; preds = %22, %19
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %27 = load i64, ptr %26, align 8, !tbaa !55
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %26, align 8, !tbaa !55
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %30 = load ptr, ptr %29, align 8, !tbaa !59
+  %.not.i.i.i = icmp eq ptr %30, %0
+  br i1 %.not.i.i.i, label %malloc_mutex_lock.exit.i, label %31
 
-26:                                               ; preds = %23, %20
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %28 = load i64, ptr %27, align 8, !tbaa !56
-  %29 = add i64 %28, 1
-  store i64 %29, ptr %27, align 8, !tbaa !56
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %31 = load ptr, ptr %30, align 8, !tbaa !60
-  %.not.i.i.i = icmp eq ptr %31, %0
-  br i1 %.not.i.i.i, label %malloc_mutex_lock.exit.i, label %32
-
-32:                                               ; preds = %26
-  store ptr %0, ptr %30, align 8, !tbaa !60
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %34 = load i64, ptr %33, align 8, !tbaa !61
-  %35 = add i64 %34, 1
-  store i64 %35, ptr %33, align 8, !tbaa !61
+31:                                               ; preds = %25
+  store ptr %0, ptr %29, align 8, !tbaa !59
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %33 = load i64, ptr %32, align 8, !tbaa !60
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %32, align 8, !tbaa !60
   br label %malloc_mutex_lock.exit.i
 
-malloc_mutex_lock.exit.i:                         ; preds = %32, %26
-  %36 = sub i64 %3, %15
-  %37 = call fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %8, i64 noundef %36, ptr noundef %4, ptr noundef %6)
-  %38 = add i64 %37, %15
-  %39 = icmp eq i64 %38, %3
-  br i1 %39, label %43, label %40
+malloc_mutex_lock.exit.i:                         ; preds = %31, %25
+  %35 = sub i64 %3, %15
+  %36 = call fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %8, i64 noundef %35, ptr noundef %4, ptr noundef %6)
+  %37 = add i64 %36, %15
+  %38 = icmp eq i64 %37, %3
+  %39 = load i8, ptr %8, align 1, !range !54
+  %40 = trunc nuw i8 %39 to i1
+  %or.cond3.i = select i1 %38, i1 true, i1 %40
+  br i1 %or.cond3.i, label %41, label %44
 
-40:                                               ; preds = %malloc_mutex_lock.exit.i
-  %41 = load i8, ptr %8, align 1, !tbaa !43, !range !54, !noundef !55
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %46
-
-43:                                               ; preds = %40, %malloc_mutex_lock.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  store atomic i8 0, ptr %44 monotonic, align 1
-  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #8
+41:                                               ; preds = %malloc_mutex_lock.exit.i
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  store atomic i8 0, ptr %42 monotonic, align 1
+  %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #8
   br label %hpa_alloc_batch_psset.exit
 
-46:                                               ; preds = %40
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %48 = load ptr, ptr %47, align 8, !tbaa !15
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 72
-  %50 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %49) #8
-  %.not.i.i52.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i52.i, label %53, label %51
+44:                                               ; preds = %malloc_mutex_lock.exit.i
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %46 = load ptr, ptr %45, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
+  %48 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %47) #8
+  %.not.i.i55.i = icmp eq i32 %48, 0
+  br i1 %.not.i.i55.i, label %51, label %49
 
-51:                                               ; preds = %46
-  tail call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull %48) #8
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 64
-  store atomic i8 1, ptr %52 monotonic, align 1
-  br label %53
+49:                                               ; preds = %44
+  tail call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull %46) #8
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  store atomic i8 1, ptr %50 monotonic, align 1
+  br label %51
 
-53:                                               ; preds = %51, %46
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  %55 = load i64, ptr %54, align 8, !tbaa !56
-  %56 = add i64 %55, 1
-  store i64 %56, ptr %54, align 8, !tbaa !56
-  %57 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %58 = load ptr, ptr %57, align 8, !tbaa !60
-  %.not.i.i.i.i = icmp eq ptr %58, %0
-  br i1 %.not.i.i.i.i, label %malloc_mutex_lock.exit.i.i, label %59
+51:                                               ; preds = %49, %44
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 56
+  %53 = load i64, ptr %52, align 8, !tbaa !55
+  %54 = add i64 %53, 1
+  store i64 %54, ptr %52, align 8, !tbaa !55
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 48
+  %56 = load ptr, ptr %55, align 8, !tbaa !59
+  %.not.i.i.i.i = icmp eq ptr %56, %0
+  br i1 %.not.i.i.i.i, label %malloc_mutex_lock.exit.i.i, label %57
 
-59:                                               ; preds = %53
-  store ptr %0, ptr %57, align 8, !tbaa !60
-  %60 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %61 = load i64, ptr %60, align 8, !tbaa !61
-  %62 = add i64 %61, 1
-  store i64 %62, ptr %60, align 8, !tbaa !61
+57:                                               ; preds = %51
+  store ptr %0, ptr %55, align 8, !tbaa !59
+  %58 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %59 = load i64, ptr %58, align 8, !tbaa !60
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %58, align 8, !tbaa !60
   br label %malloc_mutex_lock.exit.i.i
 
-malloc_mutex_lock.exit.i.i:                       ; preds = %59, %53
+malloc_mutex_lock.exit.i.i:                       ; preds = %57, %51
   store i8 0, ptr %8, align 1, !tbaa !43
-  %63 = getelementptr inbounds nuw i8, ptr %48, i64 112
-  %64 = load ptr, ptr %63, align 8, !tbaa !62
-  %.not.i53.i = icmp eq ptr %64, null
-  br i1 %.not.i53.i, label %83, label %65
+  %61 = getelementptr inbounds nuw i8, ptr %46, i64 112
+  %62 = load ptr, ptr %61, align 8, !tbaa !61
+  %.not.i56.i = icmp eq ptr %62, null
+  br i1 %.not.i56.i, label %81, label %63
 
-65:                                               ; preds = %malloc_mutex_lock.exit.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %48, i64 120
-  %67 = load i64, ptr %66, align 8, !tbaa !63
-  %68 = icmp eq i64 %67, 2097152
-  %69 = getelementptr i8, ptr %48, i64 128
-  %.val.i.i = load ptr, ptr %69, align 8, !tbaa !3
-  %70 = tail call ptr @duckdb_je_base_alloc(ptr noundef %0, ptr noundef %.val.i.i, i64 noundef 248, i64 noundef 64) #8
-  %71 = icmp eq ptr %70, null
-  br i1 %68, label %72, label %95
+63:                                               ; preds = %malloc_mutex_lock.exit.i.i
+  %64 = getelementptr inbounds nuw i8, ptr %46, i64 120
+  %65 = load i64, ptr %64, align 8, !tbaa !62
+  %66 = icmp eq i64 %65, 2097152
+  %67 = getelementptr i8, ptr %46, i64 128
+  %.val.i.i = load ptr, ptr %67, align 8, !tbaa !3
+  %68 = tail call ptr @duckdb_je_base_alloc(ptr noundef %0, ptr noundef %.val.i.i, i64 noundef 248, i64 noundef 64) #8
+  %69 = icmp eq ptr %68, null
+  br i1 %66, label %70, label %93
 
-72:                                               ; preds = %65
-  br i1 %71, label %73, label %76
+70:                                               ; preds = %63
+  br i1 %69, label %71, label %74
 
-73:                                               ; preds = %72
-  %74 = getelementptr inbounds nuw i8, ptr %48, i64 64
-  store atomic i8 0, ptr %74 monotonic, align 1
-  %75 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %49) #8
-  br label %111
+71:                                               ; preds = %70
+  %72 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  store atomic i8 0, ptr %72 monotonic, align 1
+  %73 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %47) #8
+  br label %109
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %63, align 8, !tbaa !62
-  %78 = getelementptr inbounds nuw i8, ptr %48, i64 136
-  %79 = load i64, ptr %78, align 8, !tbaa !12
-  %80 = add i64 %79, 1
-  store i64 %80, ptr %78, align 8, !tbaa !12
-  tail call void @duckdb_je_hpdata_init(ptr noundef nonnull %70, ptr noundef %77, i64 noundef %79) #8
-  %81 = getelementptr inbounds nuw i8, ptr %48, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
-  store atomic i8 0, ptr %81 monotonic, align 1
-  %82 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %49) #8
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %61, align 8, !tbaa !61
+  %76 = getelementptr inbounds nuw i8, ptr %46, i64 136
+  %77 = load i64, ptr %76, align 8, !tbaa !12
+  %78 = add i64 %77, 1
+  store i64 %78, ptr %76, align 8, !tbaa !12
+  tail call void @duckdb_je_hpdata_init(ptr noundef nonnull %68, ptr noundef %75, i64 noundef %77) #8
+  %79 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
+  store atomic i8 0, ptr %79 monotonic, align 1
+  %80 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %47) #8
   br label %duckdb_je_hpa_central_extract.exit.i
 
-83:                                               ; preds = %malloc_mutex_lock.exit.i.i
+81:                                               ; preds = %malloc_mutex_lock.exit.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #8
   store i8 1, ptr %7, align 1, !tbaa !43
-  %84 = call ptr @duckdb_je_pages_map(ptr noundef null, i64 noundef 268435456, i64 noundef 2097152, ptr noundef nonnull %7) #8
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %.thread62.i.i, label %86
+  %82 = call ptr @duckdb_je_pages_map(ptr noundef null, i64 noundef 268435456, i64 noundef 2097152, ptr noundef nonnull %7) #8
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %.thread62.i.i, label %84
 
-86:                                               ; preds = %83
-  %87 = getelementptr i8, ptr %48, i64 128
-  %.val60.i.i = load ptr, ptr %87, align 8, !tbaa !3
-  %88 = call ptr @duckdb_je_base_alloc(ptr noundef %0, ptr noundef %.val60.i.i, i64 noundef 248, i64 noundef 64) #8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %93
+84:                                               ; preds = %81
+  %85 = getelementptr i8, ptr %46, i64 128
+  %.val60.i.i = load ptr, ptr %85, align 8, !tbaa !3
+  %86 = call ptr @duckdb_je_base_alloc(ptr noundef %0, ptr noundef %.val60.i.i, i64 noundef 248, i64 noundef 64) #8
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %88, label %91
 
-90:                                               ; preds = %86
-  call void @duckdb_je_pages_unmap(ptr noundef nonnull %84, i64 noundef 268435456) #8
+88:                                               ; preds = %84
+  call void @duckdb_je_pages_unmap(ptr noundef nonnull %82, i64 noundef 268435456) #8
   br label %.thread62.i.i
 
-.thread62.i.i:                                    ; preds = %90, %83
-  %91 = getelementptr inbounds nuw i8, ptr %48, i64 64
-  store atomic i8 0, ptr %91 monotonic, align 1
-  %92 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %49) #8
+.thread62.i.i:                                    ; preds = %88, %81
+  %89 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  store atomic i8 0, ptr %89 monotonic, align 1
+  %90 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %47) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
-  br label %111
+  br label %109
 
-93:                                               ; preds = %86
-  store ptr %84, ptr %63, align 8, !tbaa !62
-  %94 = getelementptr inbounds nuw i8, ptr %48, i64 120
-  store i64 268435456, ptr %94, align 8, !tbaa !63
+91:                                               ; preds = %84
+  store ptr %82, ptr %61, align 8, !tbaa !61
+  %92 = getelementptr inbounds nuw i8, ptr %46, i64 120
+  store i64 268435456, ptr %92, align 8, !tbaa !62
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
-  br label %99
+  br label %97
 
-95:                                               ; preds = %65
-  br i1 %71, label %96, label %._crit_edge.i.i
+93:                                               ; preds = %63
+  br i1 %69, label %94, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %95
-  %.pre.i.i = load ptr, ptr %63, align 8, !tbaa !62
-  br label %99
+._crit_edge.i.i:                                  ; preds = %93
+  %.pre.i.i = load ptr, ptr %61, align 8, !tbaa !61
+  br label %97
 
-96:                                               ; preds = %95
-  %97 = getelementptr inbounds nuw i8, ptr %48, i64 64
-  store atomic i8 0, ptr %97 monotonic, align 1
-  %98 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %49) #8
-  br label %111
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  store atomic i8 0, ptr %95 monotonic, align 1
+  %96 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %47) #8
+  br label %109
 
-99:                                               ; preds = %._crit_edge.i.i, %93
-  %100 = phi ptr [ %84, %93 ], [ %.pre.i.i, %._crit_edge.i.i ]
-  %.154.i.i = phi ptr [ %88, %93 ], [ %70, %._crit_edge.i.i ]
-  %101 = getelementptr inbounds nuw i8, ptr %48, i64 136
-  %102 = load i64, ptr %101, align 8, !tbaa !12
-  %103 = add i64 %102, 1
-  store i64 %103, ptr %101, align 8, !tbaa !12
-  call void @duckdb_je_hpdata_init(ptr noundef nonnull %.154.i.i, ptr noundef %100, i64 noundef %102) #8
-  %104 = load ptr, ptr %63, align 8, !tbaa !62
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 2097152
-  store ptr %105, ptr %63, align 8, !tbaa !62
-  %106 = getelementptr inbounds nuw i8, ptr %48, i64 120
-  %107 = load i64, ptr %106, align 8, !tbaa !63
-  %108 = add i64 %107, -2097152
-  store i64 %108, ptr %106, align 8, !tbaa !63
-  %109 = getelementptr inbounds nuw i8, ptr %48, i64 64
-  store atomic i8 0, ptr %109 monotonic, align 1
-  %110 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %49) #8
+97:                                               ; preds = %._crit_edge.i.i, %91
+  %98 = phi ptr [ %82, %91 ], [ %.pre.i.i, %._crit_edge.i.i ]
+  %.154.i.i = phi ptr [ %86, %91 ], [ %68, %._crit_edge.i.i ]
+  %99 = getelementptr inbounds nuw i8, ptr %46, i64 136
+  %100 = load i64, ptr %99, align 8, !tbaa !12
+  %101 = add i64 %100, 1
+  store i64 %101, ptr %99, align 8, !tbaa !12
+  call void @duckdb_je_hpdata_init(ptr noundef nonnull %.154.i.i, ptr noundef %98, i64 noundef %100) #8
+  %102 = load ptr, ptr %61, align 8, !tbaa !61
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 2097152
+  store ptr %103, ptr %61, align 8, !tbaa !61
+  %104 = getelementptr inbounds nuw i8, ptr %46, i64 120
+  %105 = load i64, ptr %104, align 8, !tbaa !62
+  %106 = add i64 %105, -2097152
+  store i64 %106, ptr %104, align 8, !tbaa !62
+  %107 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  store atomic i8 0, ptr %107 monotonic, align 1
+  %108 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %47) #8
   br label %duckdb_je_hpa_central_extract.exit.i
 
-111:                                              ; preds = %96, %.thread62.i.i, %73
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  store atomic i8 0, ptr %112 monotonic, align 1
-  %113 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #8
+109:                                              ; preds = %94, %.thread62.i.i, %71
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  store atomic i8 0, ptr %110 monotonic, align 1
+  %111 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #8
   br label %hpa_alloc_batch_psset.exit
 
-duckdb_je_hpa_central_extract.exit.i:             ; preds = %99, %76
-  %.0.i.i = phi ptr [ %70, %76 ], [ %.154.i.i, %99 ]
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %115 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %114) #8
-  %.not.i54.i = icmp eq i32 %115, 0
-  br i1 %.not.i54.i, label %119, label %116
+duckdb_je_hpa_central_extract.exit.i:             ; preds = %97, %74
+  %.0.i.i = phi ptr [ %68, %74 ], [ %.154.i.i, %97 ]
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %113 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %112) #8
+  %.not.i57.i = icmp eq i32 %113, 0
+  br i1 %.not.i57.i, label %117, label %114
 
-116:                                              ; preds = %duckdb_je_hpa_central_extract.exit.i
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull %117) #8
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store atomic i8 1, ptr %118 monotonic, align 1
-  br label %119
+114:                                              ; preds = %duckdb_je_hpa_central_extract.exit.i
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull %115) #8
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  store atomic i8 1, ptr %116 monotonic, align 1
+  br label %117
 
-119:                                              ; preds = %116, %duckdb_je_hpa_central_extract.exit.i
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %121 = load i64, ptr %120, align 8, !tbaa !56
-  %122 = add i64 %121, 1
-  store i64 %122, ptr %120, align 8, !tbaa !56
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %124 = load ptr, ptr %123, align 8, !tbaa !60
-  %.not.i.i55.i = icmp eq ptr %124, %0
-  br i1 %.not.i.i55.i, label %malloc_mutex_lock.exit56.i, label %125
+117:                                              ; preds = %114, %duckdb_je_hpa_central_extract.exit.i
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %119 = load i64, ptr %118, align 8, !tbaa !55
+  %120 = add i64 %119, 1
+  store i64 %120, ptr %118, align 8, !tbaa !55
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %122 = load ptr, ptr %121, align 8, !tbaa !59
+  %.not.i.i58.i = icmp eq ptr %122, %0
+  br i1 %.not.i.i58.i, label %malloc_mutex_lock.exit59.i, label %123
 
-125:                                              ; preds = %119
-  store ptr %0, ptr %123, align 8, !tbaa !60
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %127 = load i64, ptr %126, align 8, !tbaa !61
-  %128 = add i64 %127, 1
-  store i64 %128, ptr %126, align 8, !tbaa !61
-  br label %malloc_mutex_lock.exit56.i
+123:                                              ; preds = %117
+  store ptr %0, ptr %121, align 8, !tbaa !59
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %125 = load i64, ptr %124, align 8, !tbaa !60
+  %126 = add i64 %125, 1
+  store i64 %126, ptr %124, align 8, !tbaa !60
+  br label %malloc_mutex_lock.exit59.i
 
-malloc_mutex_lock.exit56.i:                       ; preds = %125, %119
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  call void @duckdb_je_psset_insert(ptr noundef nonnull %129, ptr noundef nonnull %.0.i.i) #8
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store atomic i8 0, ptr %130 monotonic, align 1
-  %131 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %114) #8
-  %132 = sub i64 %3, %38
-  %133 = call fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %8, i64 noundef %132, ptr noundef %4, ptr noundef %6)
-  %134 = add i64 %133, %38
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  store atomic i8 0, ptr %135 monotonic, align 1
-  %136 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %21) #8
+malloc_mutex_lock.exit59.i:                       ; preds = %123, %117
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  call void @duckdb_je_psset_insert(ptr noundef nonnull %127, ptr noundef nonnull %.0.i.i) #8
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  store atomic i8 0, ptr %128 monotonic, align 1
+  %129 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %112) #8
+  %130 = sub i64 %3, %37
+  %131 = call fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %8, i64 noundef %130, ptr noundef %4, ptr noundef %6)
+  %132 = add i64 %131, %37
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  store atomic i8 0, ptr %133 monotonic, align 1
+  %134 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %20) #8
   br label %hpa_alloc_batch_psset.exit
 
-hpa_alloc_batch_psset.exit:                       ; preds = %14, %17, %43, %111, %malloc_mutex_lock.exit56.i
-  %.0.i = phi i64 [ %38, %43 ], [ %15, %17 ], [ %3, %14 ], [ %38, %111 ], [ %134, %malloc_mutex_lock.exit56.i ]
+hpa_alloc_batch_psset.exit:                       ; preds = %14, %41, %109, %malloc_mutex_lock.exit59.i
+  %.0.i = phi i64 [ %37, %41 ], [ %15, %14 ], [ %37, %109 ], [ %132, %malloc_mutex_lock.exit59.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #8
   br label %tsdn_witness_tsdp_get.exit16
 
@@ -418,9 +414,9 @@ edata_list_active_append.exit:
   %4 = alloca %struct.edata_list_active_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %2, ptr %5, align 8, !tbaa !64
+  store ptr %2, ptr %5, align 8, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr %2, ptr %6, align 8, !tbaa !64
+  store ptr %2, ptr %6, align 8, !tbaa !63
   store ptr %2, ptr %4, align 8, !tbaa !52
   call void @hpa_dalloc_batch(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
@@ -442,18 +438,18 @@ select.unfold:                                    ; preds = %.lr.ph, %select.unf
   %.035 = phi ptr [ %6, %.lr.ph ], [ %16, %select.unfold ]
   %.val = load ptr, ptr %7, align 8, !tbaa !39
   %8 = getelementptr i8, ptr %.035, i64 8
-  %.val.i = load ptr, ptr %8, align 8, !tbaa !65
+  %.val.i = load ptr, ptr %8, align 8, !tbaa !64
   %9 = ptrtoint ptr %.val.i to i64
   %10 = and i64 %9, 4095
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i8, ptr %.val.i, i64 %11
-  store ptr %12, ptr %8, align 8, !tbaa !65
-  %13 = load i64, ptr %.035, align 8, !tbaa !67
+  store ptr %12, ptr %8, align 8, !tbaa !64
+  %13 = load i64, ptr %.035, align 8, !tbaa !66
   %14 = and i64 %13, -32769
-  store i64 %14, ptr %.035, align 8, !tbaa !67
+  store i64 %14, ptr %.035, align 8, !tbaa !66
   tail call void @duckdb_je_emap_deregister_boundary(ptr noundef %0, ptr noundef %.val, ptr noundef nonnull %.035) #8
   %15 = getelementptr inbounds nuw i8, ptr %.035, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %15, align 8, !tbaa !63
   %17 = load ptr, ptr %2, align 8, !tbaa !52
   %.not27 = icmp eq ptr %16, %17
   %.not40 = icmp eq ptr %16, null
@@ -475,20 +471,20 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %4
 
 23:                                               ; preds = %20, %select.unfold._crit_edge
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %25 = load i64, ptr %24, align 8, !tbaa !56
+  %25 = load i64, ptr %24, align 8, !tbaa !55
   %26 = add i64 %25, 1
-  store i64 %26, ptr %24, align 8, !tbaa !56
+  store i64 %26, ptr %24, align 8, !tbaa !55
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %28 = load ptr, ptr %27, align 8, !tbaa !60
+  %28 = load ptr, ptr %27, align 8, !tbaa !59
   %.not.i.i = icmp eq ptr %28, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %29
 
 29:                                               ; preds = %23
-  store ptr %0, ptr %27, align 8, !tbaa !60
+  store ptr %0, ptr %27, align 8, !tbaa !59
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %31 = load i64, ptr %30, align 8, !tbaa !61
+  %31 = load i64, ptr %30, align 8, !tbaa !60
   %32 = add i64 %31, 1
-  store i64 %32, ptr %30, align 8, !tbaa !61
+  store i64 %32, ptr %30, align 8, !tbaa !60
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %23, %29
@@ -506,33 +502,33 @@ malloc_mutex_lock.exit:                           ; preds = %23, %29
 37:                                               ; preds = %.lr.ph39, %hpa_dalloc_locked.exit
   %.val2838 = phi ptr [ %.val2836, %.lr.ph39 ], [ %.val28, %hpa_dalloc_locked.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %.val2838, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !64
+  %39 = load ptr, ptr %38, align 8, !tbaa !63
   store ptr %39, ptr %2, align 8, !tbaa !52
   %.not.i29 = icmp eq ptr %39, %.val2838
   br i1 %.not.i29, label %57, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %42 = load ptr, ptr %41, align 8, !tbaa !64
+  %42 = load ptr, ptr %41, align 8, !tbaa !63
   %43 = getelementptr inbounds nuw i8, ptr %.val2838, i64 48
-  %44 = load ptr, ptr %43, align 8, !tbaa !64
+  %44 = load ptr, ptr %43, align 8, !tbaa !63
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  store ptr %42, ptr %45, align 8, !tbaa !64
-  %46 = load ptr, ptr %43, align 8, !tbaa !64
-  %47 = load ptr, ptr %38, align 8, !tbaa !64
+  store ptr %42, ptr %45, align 8, !tbaa !63
+  %46 = load ptr, ptr %43, align 8, !tbaa !63
+  %47 = load ptr, ptr %38, align 8, !tbaa !63
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  store ptr %46, ptr %48, align 8, !tbaa !64
+  store ptr %46, ptr %48, align 8, !tbaa !63
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %50 = load ptr, ptr %49, align 8, !tbaa !64
-  store ptr %50, ptr %43, align 8, !tbaa !64
-  %51 = load ptr, ptr %38, align 8, !tbaa !64
+  %50 = load ptr, ptr %49, align 8, !tbaa !63
+  store ptr %50, ptr %43, align 8, !tbaa !63
+  %51 = load ptr, ptr %38, align 8, !tbaa !63
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  %53 = load ptr, ptr %52, align 8, !tbaa !64
+  %53 = load ptr, ptr %52, align 8, !tbaa !63
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store ptr %51, ptr %54, align 8, !tbaa !64
-  %55 = load ptr, ptr %43, align 8, !tbaa !64
+  store ptr %51, ptr %54, align 8, !tbaa !63
+  %55 = load ptr, ptr %43, align 8, !tbaa !63
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  store ptr %.val2838, ptr %56, align 8, !tbaa !64
+  store ptr %.val2838, ptr %56, align 8, !tbaa !63
   br label %edata_list_active_remove.exit
 
 57:                                               ; preds = %37
@@ -541,23 +537,23 @@ malloc_mutex_lock.exit:                           ; preds = %23, %29
 
 edata_list_active_remove.exit:                    ; preds = %40, %57
   %58 = getelementptr i8, ptr %.val2838, i64 24
-  %.val.i30 = load ptr, ptr %58, align 8, !tbaa !68
+  %.val.i30 = load ptr, ptr %58, align 8, !tbaa !67
   %59 = getelementptr i8, ptr %.val2838, i64 8
-  %.val17.i = load ptr, ptr %59, align 8, !tbaa !65
+  %.val17.i = load ptr, ptr %59, align 8, !tbaa !64
   %60 = getelementptr i8, ptr %.val2838, i64 16
-  %.val18.i = load i64, ptr %60, align 8, !tbaa !64
+  %.val18.i = load i64, ptr %60, align 8, !tbaa !63
   %61 = and i64 %.val18.i, -4096
   call void @duckdb_je_edata_cache_fast_put(ptr noundef %0, ptr noundef nonnull %33, ptr noundef nonnull %.val2838) #8
   call void @duckdb_je_psset_update_begin(ptr noundef nonnull %34, ptr noundef %.val.i30) #8
   call void @duckdb_je_hpdata_unreserve(ptr noundef %.val.i30, ptr noundef %.val17.i, i64 noundef %61) #8
   %62 = getelementptr inbounds nuw i8, ptr %.val.i30, i64 33
-  %63 = load i8, ptr %62, align 1, !tbaa !69, !range !54, !noundef !55
+  %63 = load i8, ptr %62, align 1, !tbaa !68, !range !54, !noundef !71
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %hpdata_changing_state_get.exit.thread.i.i, label %hpdata_changing_state_get.exit.i.i
 
 hpdata_changing_state_get.exit.i.i:               ; preds = %edata_list_active_remove.exit
   %65 = getelementptr inbounds nuw i8, ptr %.val.i30, i64 34
-  %66 = load i8, ptr %65, align 2, !tbaa !72, !range !54, !noundef !55
+  %66 = load i8, ptr %65, align 2, !tbaa !72, !range !54, !noundef !71
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %hpdata_changing_state_get.exit.thread.i.i, label %69
 
@@ -582,7 +578,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
 
 76:                                               ; preds = %69
   %77 = getelementptr i8, ptr %.val.i30, i64 16
-  %.val18.i.i = load i8, ptr %77, align 8, !tbaa !77, !range !54, !noundef !55
+  %.val18.i.i = load i8, ptr %77, align 8, !tbaa !77, !range !54, !noundef !71
   %78 = trunc nuw i8 %.val18.i.i to i1
   br i1 %78, label %86, label %79
 
@@ -725,20 +721,20 @@ define internal i64 @hpa_time_until_deferred_work(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %6, %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %11 = load i64, ptr %10, align 8, !tbaa !56
+  %11 = load i64, ptr %10, align 8, !tbaa !55
   %12 = add i64 %11, 1
-  store i64 %12, ptr %10, align 8, !tbaa !56
+  store i64 %12, ptr %10, align 8, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %14 = load ptr, ptr %13, align 8, !tbaa !60
+  %14 = load ptr, ptr %13, align 8, !tbaa !59
   %.not.i.i = icmp eq ptr %14, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %15
 
 15:                                               ; preds = %9
-  store ptr %0, ptr %13, align 8, !tbaa !60
+  store ptr %0, ptr %13, align 8, !tbaa !59
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %17 = load i64, ptr %16, align 8, !tbaa !61
+  %17 = load i64, ptr %16, align 8, !tbaa !60
   %18 = add i64 %17, 1
-  store i64 %18, ptr %16, align 8, !tbaa !61
+  store i64 %18, ptr %16, align 8, !tbaa !60
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %9, %15
@@ -940,20 +936,20 @@ define void @duckdb_je_hpa_shard_stats_merge(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %6, %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %11 = load i64, ptr %10, align 8, !tbaa !56
+  %11 = load i64, ptr %10, align 8, !tbaa !55
   %12 = add i64 %11, 1
-  store i64 %12, ptr %10, align 8, !tbaa !56
+  store i64 %12, ptr %10, align 8, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %14 = load ptr, ptr %13, align 8, !tbaa !60
+  %14 = load ptr, ptr %13, align 8, !tbaa !59
   %.not.i.i = icmp eq ptr %14, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %15
 
 15:                                               ; preds = %9
-  store ptr %0, ptr %13, align 8, !tbaa !60
+  store ptr %0, ptr %13, align 8, !tbaa !59
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %17 = load i64, ptr %16, align 8, !tbaa !61
+  %17 = load i64, ptr %16, align 8, !tbaa !60
   %18 = add i64 %17, 1
-  store i64 %18, ptr %16, align 8, !tbaa !61
+  store i64 %18, ptr %16, align 8, !tbaa !60
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %9, %15
@@ -971,20 +967,20 @@ malloc_mutex_lock.exit:                           ; preds = %9, %15
 
 24:                                               ; preds = %21, %malloc_mutex_lock.exit
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %26 = load i64, ptr %25, align 8, !tbaa !56
+  %26 = load i64, ptr %25, align 8, !tbaa !55
   %27 = add i64 %26, 1
-  store i64 %27, ptr %25, align 8, !tbaa !56
+  store i64 %27, ptr %25, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %29 = load ptr, ptr %28, align 8, !tbaa !60
+  %29 = load ptr, ptr %28, align 8, !tbaa !59
   %.not.i.i14 = icmp eq ptr %29, %0
   br i1 %.not.i.i14, label %malloc_mutex_lock.exit15, label %30
 
 30:                                               ; preds = %24
-  store ptr %0, ptr %28, align 8, !tbaa !60
+  store ptr %0, ptr %28, align 8, !tbaa !59
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %32 = load i64, ptr %31, align 8, !tbaa !61
+  %32 = load i64, ptr %31, align 8, !tbaa !60
   %33 = add i64 %32, 1
-  store i64 %33, ptr %31, align 8, !tbaa !61
+  store i64 %33, ptr %31, align 8, !tbaa !60
   br label %malloc_mutex_lock.exit15
 
 malloc_mutex_lock.exit15:                         ; preds = %24, %30
@@ -1039,20 +1035,20 @@ define void @duckdb_je_hpa_shard_disable(ptr noundef %0, ptr noundef %1) local_u
 
 8:                                                ; preds = %5, %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %10 = load i64, ptr %9, align 8, !tbaa !56
+  %10 = load i64, ptr %9, align 8, !tbaa !55
   %11 = add i64 %10, 1
-  store i64 %11, ptr %9, align 8, !tbaa !56
+  store i64 %11, ptr %9, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %13 = load ptr, ptr %12, align 8, !tbaa !60
+  %13 = load ptr, ptr %12, align 8, !tbaa !59
   %.not.i.i = icmp eq ptr %13, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %14
 
 14:                                               ; preds = %8
-  store ptr %0, ptr %12, align 8, !tbaa !60
+  store ptr %0, ptr %12, align 8, !tbaa !59
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %16 = load i64, ptr %15, align 8, !tbaa !61
+  %16 = load i64, ptr %15, align 8, !tbaa !60
   %17 = add i64 %16, 1
-  store i64 %17, ptr %15, align 8, !tbaa !61
+  store i64 %17, ptr %15, align 8, !tbaa !60
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %8, %14
@@ -1114,36 +1110,36 @@ define void @duckdb_je_hpa_shard_set_deferral_allowed(ptr noundef %0, ptr nounde
 
 10:                                               ; preds = %7, %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %12 = load i64, ptr %11, align 8, !tbaa !56
+  %12 = load i64, ptr %11, align 8, !tbaa !55
   %13 = add i64 %12, 1
-  store i64 %13, ptr %11, align 8, !tbaa !56
+  store i64 %13, ptr %11, align 8, !tbaa !55
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %15 = load ptr, ptr %14, align 8, !tbaa !60
+  %15 = load ptr, ptr %14, align 8, !tbaa !59
   %.not.i.i = icmp eq ptr %15, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %16
 
 16:                                               ; preds = %10
-  store ptr %0, ptr %14, align 8, !tbaa !60
+  store ptr %0, ptr %14, align 8, !tbaa !59
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %18 = load i64, ptr %17, align 8, !tbaa !61
+  %18 = load i64, ptr %17, align 8, !tbaa !60
   %19 = add i64 %18, 1
-  store i64 %19, ptr %17, align 8, !tbaa !61
+  store i64 %19, ptr %17, align 8, !tbaa !60
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %10, %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 5644
-  %21 = load i8, ptr %20, align 4, !tbaa !93, !range !54, !noundef !55
+  %21 = load i8, ptr %20, align 4, !tbaa !93, !range !54, !noundef !71
   %22 = trunc nuw i8 %21 to i1
   store i8 %4, ptr %20, align 4, !tbaa !93
   %.not = xor i1 %22, true
-  %brmerge = or i1 %2, %.not
-  br i1 %brmerge, label %24, label %23
+  %or.cond = or i1 %2, %.not
+  br i1 %or.cond, label %24, label %23
 
 23:                                               ; preds = %malloc_mutex_lock.exit
   tail call fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext true)
   br label %24
 
-24:                                               ; preds = %malloc_mutex_lock.exit, %23
+24:                                               ; preds = %23, %malloc_mutex_lock.exit
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store atomic i8 0, ptr %25 monotonic, align 1
   %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #8
@@ -1162,7 +1158,7 @@ define internal fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %0, pt
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 5644
-  %12 = load i8, ptr %11, align 4, !tbaa !93, !range !54, !noundef !55
+  %12 = load i8, ptr %11, align 4, !tbaa !93, !range !54, !noundef !71
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %.critedge, label %14
 
@@ -1192,7 +1188,7 @@ define internal fastcc void @hpa_shard_maybe_do_deferred_work(ptr noundef %0, pt
   br label %37
 
 37:                                               ; preds = %.backedge, %14
-  %.024 = phi i1 [ false, %14 ], [ %.024.be, %.backedge ]
+  %.025 = phi i1 [ false, %14 ], [ %.025.be, %.backedge ]
   %.1 = phi i64 [ 0, %14 ], [ %.1.be, %.backedge ]
   %.val.i = load i64, ptr %17, align 8, !tbaa !80
   %.val9.i = load i64, ptr %18, align 8, !tbaa !44
@@ -1269,7 +1265,7 @@ hpa_should_purge.exit:                            ; preds = %hpa_ndirty_max.exit
   br i1 %72, label %73, label %hpa_should_purge.exit.thread
 
 73:                                               ; preds = %hpa_should_purge.exit
-  %74 = load i8, ptr %23, align 8, !tbaa !94, !range !54, !noundef !55
+  %74 = load i8, ptr %23, align 8, !tbaa !94, !range !54, !noundef !71
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %82
 
@@ -1290,7 +1286,7 @@ hpa_should_purge.exit:                            ; preds = %hpa_ndirty_max.exit
 84:                                               ; preds = %82
   call void @duckdb_je_psset_update_begin(ptr noundef nonnull %21, ptr noundef nonnull %83) #8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 33
-  store i8 1, ptr %85, align 1, !tbaa !69
+  store i8 1, ptr %85, align 1, !tbaa !68
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 19
   store i8 0, ptr %86, align 1, !tbaa !73
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 20
@@ -1299,8 +1295,8 @@ hpa_should_purge.exit:                            ; preds = %hpa_ndirty_max.exit
   store i8 0, ptr %88, align 1, !tbaa !95
   call void @duckdb_je_psset_update_end(ptr noundef nonnull %21, ptr noundef nonnull %83) #8
   %89 = getelementptr i8, ptr %83, i64 16
-  %.val.i26 = load i8, ptr %89, align 8, !tbaa !77, !range !54, !noundef !55
-  %90 = trunc nuw i8 %.val.i26 to i1
+  %.val.i28 = load i8, ptr %89, align 8, !tbaa !77, !range !54, !noundef !71
+  %90 = trunc nuw i8 %.val.i28 to i1
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #8
   %91 = call i64 @duckdb_je_hpdata_purge_begin(ptr noundef nonnull %83, ptr noundef nonnull %7) #8
   %92 = load i64, ptr %18, align 8, !tbaa !44
@@ -1348,18 +1344,18 @@ hpa_should_purge.exit:                            ; preds = %hpa_ndirty_max.exit
   br label %110
 
 110:                                              ; preds = %109, %._crit_edge.i
-  %111 = load i64, ptr %28, align 8, !tbaa !56
+  %111 = load i64, ptr %28, align 8, !tbaa !55
   %112 = add i64 %111, 1
-  store i64 %112, ptr %28, align 8, !tbaa !56
-  %113 = load ptr, ptr %29, align 8, !tbaa !60
+  store i64 %112, ptr %28, align 8, !tbaa !55
+  %113 = load ptr, ptr %29, align 8, !tbaa !59
   %.not.i.i.i = icmp eq ptr %113, %0
   br i1 %.not.i.i.i, label %malloc_mutex_lock.exit.i, label %114
 
 114:                                              ; preds = %110
-  store ptr %0, ptr %29, align 8, !tbaa !60
-  %115 = load i64, ptr %30, align 8, !tbaa !61
+  store ptr %0, ptr %29, align 8, !tbaa !59
+  %115 = load i64, ptr %30, align 8, !tbaa !60
   %116 = add i64 %115, 1
-  store i64 %116, ptr %30, align 8, !tbaa !61
+  store i64 %116, ptr %30, align 8, !tbaa !60
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %114, %110
@@ -1392,10 +1388,10 @@ malloc_mutex_lock.exit.i:                         ; preds = %114, %110
 
 hpdata_changing_state_get.exit.i.i:               ; preds = %.critedge.i, %126
   call void @duckdb_je_hpdata_purge_end(ptr noundef nonnull %83, ptr noundef nonnull %7) #8
-  store i8 0, ptr %85, align 1, !tbaa !69
+  store i8 0, ptr %85, align 1, !tbaa !68
   store i8 1, ptr %88, align 1, !tbaa !95
   %129 = getelementptr inbounds nuw i8, ptr %83, i64 34
-  %130 = load i8, ptr %129, align 2, !tbaa !72, !range !54, !noundef !55
+  %130 = load i8, ptr %129, align 2, !tbaa !72, !range !54, !noundef !71
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %hpdata_changing_state_get.exit.thread.i.i, label %132
 
@@ -1405,19 +1401,19 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
 
 132:                                              ; preds = %hpdata_changing_state_get.exit.i.i
   %133 = getelementptr i8, ptr %83, i64 104
-  %.val.i.i27 = load i64, ptr %133, align 8, !tbaa !74
+  %.val.i.i29 = load i64, ptr %133, align 8, !tbaa !74
   %134 = getelementptr i8, ptr %83, i64 176
   %.val14.i.i = load i64, ptr %134, align 8, !tbaa !75
-  %135 = icmp ne i64 %.val14.i.i, %.val.i.i27
+  %135 = icmp ne i64 %.val14.i.i, %.val.i.i29
   %136 = zext i1 %135 to i8
   store i8 %136, ptr %86, align 1, !tbaa !73
   %.val16.i.i = load i64, ptr %34, align 8, !tbaa !76
-  %137 = shl i64 %.val.i.i27, 12
+  %137 = shl i64 %.val.i.i29, 12
   %.not.i59.i = icmp ult i64 %137, %.val16.i.i
   br i1 %.not.i59.i, label %146, label %138
 
 138:                                              ; preds = %132
-  %.val18.i.i = load i8, ptr %89, align 8, !tbaa !77, !range !54, !noundef !55
+  %.val18.i.i = load i8, ptr %89, align 8, !tbaa !77, !range !54, !noundef !71
   %139 = trunc nuw i8 %.val18.i.i to i1
   br i1 %139, label %146, label %140
 
@@ -1436,7 +1432,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   br label %146
 
 146:                                              ; preds = %140, %138, %132
-  %.val15.i.i = phi i64 [ %.val15.pre.i.i, %140 ], [ %.val.i.i27, %138 ], [ %.val.i.i27, %132 ]
+  %.val15.i.i = phi i64 [ %.val15.pre.i.i, %140 ], [ %.val.i.i29, %138 ], [ %.val.i.i29, %132 ]
   %147 = icmp eq i64 %.val15.i.i, 0
   br i1 %147, label %.sink.split.i.i, label %148
 
@@ -1453,48 +1449,48 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   br label %.backedge
 
 .backedge:                                        ; preds = %148, %hpa_try_hugify.exit.thread
-  %.024.be = phi i1 [ true, %148 ], [ false, %hpa_try_hugify.exit.thread ]
+  %.025.be = phi i1 [ true, %148 ], [ false, %hpa_try_hugify.exit.thread ]
   %.1.be = phi i64 [ %149, %148 ], [ %217, %hpa_try_hugify.exit.thread ]
   br label %37
 
 hpa_should_purge.exit.thread:                     ; preds = %82, %76, %hpa_ndirty_max.exit.thread.i, %hpa_should_purge.exit
-  %.125 = phi i1 [ %.024, %hpa_should_purge.exit ], [ %.024, %hpa_ndirty_max.exit.thread.i ], [ false, %76 ], [ false, %82 ]
+  %.126 = phi i1 [ %.025, %hpa_should_purge.exit ], [ %.025, %hpa_ndirty_max.exit.thread.i ], [ false, %76 ], [ false, %82 ]
   %150 = call ptr @duckdb_je_psset_pick_hugify(ptr noundef nonnull %21) #8
   %151 = icmp eq ptr %150, null
   br i1 %151, label %hpa_hugify_blocked_by_ndirty.exit.thread.i, label %152
 
 152:                                              ; preds = %hpa_should_purge.exit.thread
-  %.val.i.i28 = load i64, ptr %17, align 8, !tbaa !80
-  %.val11.i.i29 = load i64, ptr %18, align 8, !tbaa !44
+  %.val.i.i30 = load i64, ptr %17, align 8, !tbaa !80
+  %.val11.i.i31 = load i64, ptr %18, align 8, !tbaa !44
   %153 = getelementptr i8, ptr %150, i64 176
-  %.val12.i.i30 = load i64, ptr %153, align 8, !tbaa !75
-  %.neg53 = add i64 %.val.i.i28, 512
-  %154 = add i64 %.val11.i.i29, %.val12.i.i30
-  %155 = sub i64 %.neg53, %154
+  %.val12.i.i32 = load i64, ptr %153, align 8, !tbaa !75
+  %.neg55 = add i64 %.val.i.i30, 512
+  %154 = add i64 %.val11.i.i31, %.val12.i.i32
+  %155 = sub i64 %.neg55, %154
   %156 = load i32, ptr %19, align 8, !tbaa !81
   %157 = icmp eq i32 %156, -1
   br i1 %157, label %hpa_hugify_blocked_by_ndirty.exit.thread.i, label %158
 
 158:                                              ; preds = %152
-  %.val.i.i.i32 = load i64, ptr %20, align 8, !tbaa !82
-  %159 = icmp ult i64 %.val.i.i.i32, 281474976710656
+  %.val.i.i.i34 = load i64, ptr %20, align 8, !tbaa !82
+  %159 = icmp ult i64 %.val.i.i.i34, 281474976710656
   br i1 %159, label %160, label %164
 
 160:                                              ; preds = %158
   %161 = zext i32 %156 to i64
-  %162 = mul i64 %.val.i.i.i32, %161
+  %162 = mul i64 %.val.i.i.i34, %161
   %163 = lshr i64 %162, 16
   br label %hpa_hugify_blocked_by_ndirty.exit.i
 
 164:                                              ; preds = %158
-  %165 = lshr i64 %.val.i.i.i32, 16
+  %165 = lshr i64 %.val.i.i.i34, 16
   %166 = zext i32 %156 to i64
   %167 = mul i64 %165, %166
   br label %hpa_hugify_blocked_by_ndirty.exit.i
 
 hpa_hugify_blocked_by_ndirty.exit.i:              ; preds = %164, %160
-  %.0.i.i.i33 = phi i64 [ %163, %160 ], [ %167, %164 ]
-  %168 = icmp ugt i64 %155, %.0.i.i.i33
+  %.0.i.i.i35 = phi i64 [ %163, %160 ], [ %167, %164 ]
+  %168 = icmp ugt i64 %155, %.0.i.i.i35
   br i1 %168, label %hpa_try_hugify.exit.thread, label %hpa_hugify_blocked_by_ndirty.exit.thread.i
 
 hpa_hugify_blocked_by_ndirty.exit.thread.i:       ; preds = %hpa_hugify_blocked_by_ndirty.exit.i, %152, %hpa_should_purge.exit.thread
@@ -1505,8 +1501,8 @@ hpa_hugify_blocked_by_ndirty.exit.thread.i:       ; preds = %hpa_hugify_blocked_
 171:                                              ; preds = %hpa_hugify_blocked_by_ndirty.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   %172 = getelementptr i8, ptr %169, i64 24
-  %.val.i34 = load i64, ptr %172, align 8, !tbaa !41
-  store i64 %.val.i34, ptr %5, align 8
+  %.val.i36 = load i64, ptr %172, align 8, !tbaa !41
+  store i64 %.val.i36, ptr %5, align 8
   %173 = load ptr, ptr %16, align 8, !tbaa !15
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 192
   %175 = load ptr, ptr %174, align 8, !tbaa !83
@@ -1532,8 +1528,8 @@ hpa_hugify_blocked_by_ndirty.exit.thread.i:       ; preds = %hpa_hugify_blocked_
   %.val34.i = load ptr, ptr %169, align 8, !tbaa !92
   call void %185(ptr noundef %.val34.i, i64 noundef 2097152) #8
   %186 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %27) #8
-  %.not.i.i36 = icmp eq i32 %186, 0
-  br i1 %.not.i.i36, label %188, label %187
+  %.not.i.i38 = icmp eq i32 %186, 0
+  br i1 %.not.i.i38, label %188, label %187
 
 187:                                              ; preds = %178
   call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull %22) #8
@@ -1541,21 +1537,21 @@ hpa_hugify_blocked_by_ndirty.exit.thread.i:       ; preds = %hpa_hugify_blocked_
   br label %188
 
 188:                                              ; preds = %187, %178
-  %189 = load i64, ptr %28, align 8, !tbaa !56
+  %189 = load i64, ptr %28, align 8, !tbaa !55
   %190 = add i64 %189, 1
-  store i64 %190, ptr %28, align 8, !tbaa !56
-  %191 = load ptr, ptr %29, align 8, !tbaa !60
-  %.not.i.i.i37 = icmp eq ptr %191, %0
-  br i1 %.not.i.i.i37, label %malloc_mutex_lock.exit.i38, label %192
+  store i64 %190, ptr %28, align 8, !tbaa !55
+  %191 = load ptr, ptr %29, align 8, !tbaa !59
+  %.not.i.i.i39 = icmp eq ptr %191, %0
+  br i1 %.not.i.i.i39, label %malloc_mutex_lock.exit.i40, label %192
 
 192:                                              ; preds = %188
-  store ptr %0, ptr %29, align 8, !tbaa !60
-  %193 = load i64, ptr %30, align 8, !tbaa !61
+  store ptr %0, ptr %29, align 8, !tbaa !59
+  %193 = load i64, ptr %30, align 8, !tbaa !60
   %194 = add i64 %193, 1
-  store i64 %194, ptr %30, align 8, !tbaa !61
-  br label %malloc_mutex_lock.exit.i38
+  store i64 %194, ptr %30, align 8, !tbaa !60
+  br label %malloc_mutex_lock.exit.i40
 
-malloc_mutex_lock.exit.i38:                       ; preds = %192, %188
+malloc_mutex_lock.exit.i40:                       ; preds = %192, %188
   %195 = load i64, ptr %36, align 8, !tbaa !101
   %196 = add i64 %195, 1
   store i64 %196, ptr %36, align 8, !tbaa !101
@@ -1563,31 +1559,31 @@ malloc_mutex_lock.exit.i38:                       ; preds = %192, %188
   call void @duckdb_je_hpdata_hugify(ptr noundef nonnull %169) #8
   store i8 0, ptr %179, align 2, !tbaa !72
   %197 = getelementptr inbounds nuw i8, ptr %169, i64 33
-  %198 = load i8, ptr %197, align 1, !tbaa !69, !range !54, !noundef !55
+  %198 = load i8, ptr %197, align 1, !tbaa !68, !range !54, !noundef !71
   %199 = trunc nuw i8 %198 to i1
-  br i1 %199, label %hpdata_changing_state_get.exit.thread.i.i47, label %hpdata_changing_state_get.exit.i.i39
+  br i1 %199, label %hpdata_changing_state_get.exit.thread.i.i49, label %hpdata_changing_state_get.exit.i.i41
 
-hpdata_changing_state_get.exit.thread.i.i47:      ; preds = %malloc_mutex_lock.exit.i38
+hpdata_changing_state_get.exit.thread.i.i49:      ; preds = %malloc_mutex_lock.exit.i40
   store i8 0, ptr %180, align 1, !tbaa !73
-  br label %.sink.split.i.i46
+  br label %.sink.split.i.i48
 
-hpdata_changing_state_get.exit.i.i39:             ; preds = %malloc_mutex_lock.exit.i38
+hpdata_changing_state_get.exit.i.i41:             ; preds = %malloc_mutex_lock.exit.i40
   %200 = getelementptr i8, ptr %169, i64 104
   %.val.i35.i = load i64, ptr %200, align 8, !tbaa !74
   %201 = getelementptr i8, ptr %169, i64 176
-  %.val14.i.i40 = load i64, ptr %201, align 8, !tbaa !75
-  %202 = icmp ne i64 %.val14.i.i40, %.val.i35.i
+  %.val14.i.i42 = load i64, ptr %201, align 8, !tbaa !75
+  %202 = icmp ne i64 %.val14.i.i42, %.val.i35.i
   %203 = zext i1 %202 to i8
   store i8 %203, ptr %180, align 1, !tbaa !73
-  %.val16.i.i41 = load i64, ptr %34, align 8, !tbaa !76
+  %.val16.i.i43 = load i64, ptr %34, align 8, !tbaa !76
   %204 = shl i64 %.val.i35.i, 12
-  %.not.i36.i = icmp ult i64 %204, %.val16.i.i41
+  %.not.i36.i = icmp ult i64 %204, %.val16.i.i43
   br i1 %.not.i36.i, label %213, label %205
 
-205:                                              ; preds = %hpdata_changing_state_get.exit.i.i39
+205:                                              ; preds = %hpdata_changing_state_get.exit.i.i41
   %206 = getelementptr i8, ptr %169, i64 16
-  %.val18.i.i42 = load i8, ptr %206, align 8, !tbaa !77, !range !54, !noundef !55
-  %207 = trunc nuw i8 %.val18.i.i42 to i1
+  %.val18.i.i44 = load i8, ptr %206, align 8, !tbaa !77, !range !54, !noundef !71
+  %207 = trunc nuw i8 %.val18.i.i44 to i1
   br i1 %207, label %213, label %208
 
 208:                                              ; preds = %205
@@ -1600,15 +1596,15 @@ hpdata_changing_state_get.exit.i.i39:             ; preds = %malloc_mutex_lock.e
   store i8 1, ptr %181, align 4, !tbaa !79
   store i64 %212, ptr %172, align 8, !tbaa !41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  %.val15.pre.i.i43 = load i64, ptr %200, align 8, !tbaa !74
+  %.val15.pre.i.i45 = load i64, ptr %200, align 8, !tbaa !74
   br label %213
 
-213:                                              ; preds = %208, %205, %hpdata_changing_state_get.exit.i.i39
-  %.val15.i.i44 = phi i64 [ %.val15.pre.i.i43, %208 ], [ %.val.i35.i, %205 ], [ %.val.i35.i, %hpdata_changing_state_get.exit.i.i39 ]
-  %214 = icmp eq i64 %.val15.i.i44, 0
-  br i1 %214, label %.sink.split.i.i46, label %215
+213:                                              ; preds = %208, %205, %hpdata_changing_state_get.exit.i.i41
+  %.val15.i.i46 = phi i64 [ %.val15.pre.i.i45, %208 ], [ %.val.i35.i, %205 ], [ %.val.i35.i, %hpdata_changing_state_get.exit.i.i41 ]
+  %214 = icmp eq i64 %.val15.i.i46, 0
+  br i1 %214, label %.sink.split.i.i48, label %215
 
-.sink.split.i.i46:                                ; preds = %213, %hpdata_changing_state_get.exit.thread.i.i47
+.sink.split.i.i48:                                ; preds = %213, %hpdata_changing_state_get.exit.thread.i.i49
   store i8 0, ptr %181, align 4, !tbaa !79
   br label %215
 
@@ -1616,19 +1612,19 @@ hpa_try_hugify.exit:                              ; preds = %171
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   br label %hpa_try_hugify.exit.thread
 
-215:                                              ; preds = %213, %.sink.split.i.i46
+215:                                              ; preds = %213, %.sink.split.i.i48
   call void @duckdb_je_psset_update_end(ptr noundef nonnull %21, ptr noundef nonnull %169) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   %216 = add i64 %.1, 1
   br label %hpa_try_hugify.exit.thread
 
 hpa_try_hugify.exit.thread:                       ; preds = %hpa_hugify_blocked_by_ndirty.exit.thread.i, %hpa_hugify_blocked_by_ndirty.exit.i, %hpa_try_hugify.exit, %215
-  %.0.i3551 = phi i1 [ true, %215 ], [ false, %hpa_try_hugify.exit ], [ false, %hpa_hugify_blocked_by_ndirty.exit.i ], [ false, %hpa_hugify_blocked_by_ndirty.exit.thread.i ]
+  %.0.i3753 = phi i1 [ true, %215 ], [ false, %hpa_try_hugify.exit ], [ false, %hpa_hugify_blocked_by_ndirty.exit.i ], [ false, %hpa_hugify_blocked_by_ndirty.exit.thread.i ]
   %217 = phi i64 [ %216, %215 ], [ %.1, %hpa_try_hugify.exit ], [ %.1, %hpa_hugify_blocked_by_ndirty.exit.i ], [ %.1, %hpa_hugify_blocked_by_ndirty.exit.thread.i ]
-  %brmerge = or i1 %.125, %.0.i3551
+  %or.cond = or i1 %.126, %.0.i3753
   %218 = icmp ult i64 %217, %15
-  %or.cond = select i1 %brmerge, i1 %218, i1 false
-  br i1 %or.cond, label %.backedge, label %.critedge
+  %or.cond27 = select i1 %or.cond, i1 %218, i1 false
+  br i1 %or.cond27, label %.backedge, label %.critedge
 
 .critedge:                                        ; preds = %hpa_try_hugify.exit.thread, %10
   ret void
@@ -1650,20 +1646,20 @@ define void @duckdb_je_hpa_shard_do_deferred_work(ptr noundef %0, ptr noundef %1
 
 8:                                                ; preds = %5, %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %10 = load i64, ptr %9, align 8, !tbaa !56
+  %10 = load i64, ptr %9, align 8, !tbaa !55
   %11 = add i64 %10, 1
-  store i64 %11, ptr %9, align 8, !tbaa !56
+  store i64 %11, ptr %9, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %13 = load ptr, ptr %12, align 8, !tbaa !60
+  %13 = load ptr, ptr %12, align 8, !tbaa !59
   %.not.i.i = icmp eq ptr %13, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %14
 
 14:                                               ; preds = %8
-  store ptr %0, ptr %12, align 8, !tbaa !60
+  store ptr %0, ptr %12, align 8, !tbaa !59
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %16 = load i64, ptr %15, align 8, !tbaa !61
+  %16 = load i64, ptr %15, align 8, !tbaa !60
   %17 = add i64 %16, 1
-  store i64 %17, ptr %15, align 8, !tbaa !61
+  store i64 %17, ptr %15, align 8, !tbaa !60
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %8, %14
@@ -1739,20 +1735,20 @@ define internal fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %0, ptr noun
 
 14:                                               ; preds = %11, %7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %16 = load i64, ptr %15, align 8, !tbaa !56
+  %16 = load i64, ptr %15, align 8, !tbaa !55
   %17 = add i64 %16, 1
-  store i64 %17, ptr %15, align 8, !tbaa !56
+  store i64 %17, ptr %15, align 8, !tbaa !55
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %19 = load ptr, ptr %18, align 8, !tbaa !60
+  %19 = load ptr, ptr %18, align 8, !tbaa !59
   %.not.i.i = icmp eq ptr %19, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %20
 
 20:                                               ; preds = %14
-  store ptr %0, ptr %18, align 8, !tbaa !60
+  store ptr %0, ptr %18, align 8, !tbaa !59
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %22 = load i64, ptr %21, align 8, !tbaa !61
+  %22 = load i64, ptr %21, align 8, !tbaa !60
   %23 = add i64 %22, 1
-  store i64 %23, ptr %21, align 8, !tbaa !61
+  store i64 %23, ptr %21, align 8, !tbaa !60
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %14, %20
@@ -1808,24 +1804,24 @@ malloc_mutex_lock.exit:                           ; preds = %14, %20
   %48 = load i32, ptr %27, align 8, !tbaa !38
   %49 = getelementptr i8, ptr %36, i64 8
   %.val47.i = load i64, ptr %49, align 8, !tbaa !102
-  %50 = load i64, ptr %32, align 8, !tbaa !67
+  %50 = load i64, ptr %32, align 8, !tbaa !66
   %51 = and i64 %50, -17592454479872
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %47, ptr %52, align 8, !tbaa !65
+  store ptr %47, ptr %52, align 8, !tbaa !64
   %53 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !64
+  %54 = load i64, ptr %53, align 8, !tbaa !63
   %55 = and i64 %54, 4095
   %56 = or i64 %55, %2
-  store i64 %56, ptr %53, align 8, !tbaa !64
+  store i64 %56, ptr %53, align 8, !tbaa !63
   %57 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i64 %.val47.i, ptr %57, align 8, !tbaa !103
   %58 = and i32 %48, -268431361
   %59 = or disjoint i32 %58, 243294208
   %60 = zext i32 %59 to i64
   %61 = or i64 %51, %60
-  store i64 %61, ptr %32, align 8, !tbaa !67
+  store i64 %61, ptr %32, align 8, !tbaa !66
   %62 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr %36, ptr %62, align 8, !tbaa !68
+  store ptr %36, ptr %62, align 8, !tbaa !67
   %63 = load ptr, ptr %28, align 8, !tbaa !39
   %64 = call zeroext i1 @duckdb_je_emap_register_boundary(ptr noundef %0, ptr noundef %63, ptr noundef nonnull %32, i32 noundef 232, i1 noundef zeroext false) #8
   br i1 %64, label %65, label %69
@@ -1833,8 +1829,8 @@ malloc_mutex_lock.exit:                           ; preds = %14, %20
 65:                                               ; preds = %46
   %66 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %.val.i = load ptr, ptr %66, align 8, !tbaa !65
-  %.val45.i = load i64, ptr %67, align 8, !tbaa !64
+  %.val.i = load ptr, ptr %66, align 8, !tbaa !64
+  %.val45.i = load i64, ptr %67, align 8, !tbaa !63
   %68 = and i64 %.val45.i, -4096
   call void @duckdb_je_hpdata_unreserve(ptr noundef nonnull %36, ptr noundef %.val.i, i64 noundef %68) #8
   call void @duckdb_je_psset_update_end(ptr noundef nonnull %25, ptr noundef nonnull %36) #8
@@ -1844,13 +1840,13 @@ malloc_mutex_lock.exit:                           ; preds = %14, %20
 
 69:                                               ; preds = %46
   %70 = getelementptr inbounds nuw i8, ptr %36, i64 33
-  %71 = load i8, ptr %70, align 1, !tbaa !69, !range !54, !noundef !55
+  %71 = load i8, ptr %70, align 1, !tbaa !68, !range !54, !noundef !71
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %hpdata_changing_state_get.exit.thread.i.i, label %hpdata_changing_state_get.exit.i.i
 
 hpdata_changing_state_get.exit.i.i:               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %36, i64 34
-  %74 = load i8, ptr %73, align 2, !tbaa !72, !range !54, !noundef !55
+  %74 = load i8, ptr %73, align 2, !tbaa !72, !range !54, !noundef !71
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %hpdata_changing_state_get.exit.thread.i.i, label %77
 
@@ -1874,7 +1870,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
 
 83:                                               ; preds = %77
   %84 = getelementptr i8, ptr %36, i64 16
-  %.val18.i.i = load i8, ptr %84, align 8, !tbaa !77, !range !54, !noundef !55
+  %.val18.i.i = load i8, ptr %84, align 8, !tbaa !77, !range !54, !noundef !71
   %85 = trunc nuw i8 %.val18.i.i to i1
   br i1 %85, label %93, label %86
 
@@ -1906,33 +1902,33 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
 96:                                               ; preds = %.sink.split.i.i, %93
   call void @duckdb_je_psset_update_end(ptr noundef nonnull %25, ptr noundef nonnull %36) #8
   %97 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store ptr %32, ptr %97, align 8, !tbaa !64
+  store ptr %32, ptr %97, align 8, !tbaa !63
   %98 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  store ptr %32, ptr %98, align 8, !tbaa !64
+  store ptr %32, ptr %98, align 8, !tbaa !63
   %99 = load ptr, ptr %5, align 8, !tbaa !52
   %100 = icmp eq ptr %99, null
   br i1 %100, label %115, label %101
 
 101:                                              ; preds = %96
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 48
-  %103 = load ptr, ptr %102, align 8, !tbaa !64
-  store ptr %103, ptr %97, align 8, !tbaa !64
+  %103 = load ptr, ptr %102, align 8, !tbaa !63
+  store ptr %103, ptr %97, align 8, !tbaa !63
   %104 = load ptr, ptr %5, align 8, !tbaa !52
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 48
-  store ptr %32, ptr %105, align 8, !tbaa !64
-  %106 = load ptr, ptr %98, align 8, !tbaa !64
+  store ptr %32, ptr %105, align 8, !tbaa !63
+  %106 = load ptr, ptr %98, align 8, !tbaa !63
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
-  %108 = load ptr, ptr %107, align 8, !tbaa !64
-  store ptr %108, ptr %98, align 8, !tbaa !64
+  %108 = load ptr, ptr %107, align 8, !tbaa !63
+  store ptr %108, ptr %98, align 8, !tbaa !63
   %109 = load ptr, ptr %5, align 8, !tbaa !52
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 48
-  %111 = load ptr, ptr %110, align 8, !tbaa !64
+  %111 = load ptr, ptr %110, align 8, !tbaa !63
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 40
-  store ptr %109, ptr %112, align 8, !tbaa !64
-  %113 = load ptr, ptr %98, align 8, !tbaa !64
+  store ptr %109, ptr %112, align 8, !tbaa !63
+  %113 = load ptr, ptr %98, align 8, !tbaa !63
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
-  store ptr %32, ptr %114, align 8, !tbaa !64
-  %.pre.i = load ptr, ptr %97, align 8, !tbaa !64
+  store ptr %32, ptr %114, align 8, !tbaa !63
+  %.pre.i = load ptr, ptr %97, align 8, !tbaa !63
   br label %115
 
 115:                                              ; preds = %101, %96
@@ -2147,31 +2143,31 @@ attributes #8 = { nounwind }
 !52 = !{!20, !22, i64 0}
 !53 = !{!16, !9, i64 5624}
 !54 = !{i8 0, i8 2}
-!55 = !{}
-!56 = !{!57, !9, i64 56}
-!57 = !{!"", !35, i64 0, !35, i64 8, !9, i64 16, !9, i64 24, !31, i64 32, !58, i64 36, !9, i64 40, !59, i64 48, !9, i64 56}
-!58 = !{!"", !31, i64 0}
-!59 = !{!"p1 _ZTS6tsdn_s", !8, i64 0}
-!60 = !{!57, !59, i64 48}
-!61 = !{!57, !9, i64 40}
-!62 = !{!4, !8, i64 112}
-!63 = !{!4, !9, i64 120}
-!64 = !{!6, !6, i64 0}
-!65 = !{!66, !8, i64 8}
-!66 = !{!"edata_s", !9, i64 0, !8, i64 8, !6, i64 16, !30, i64 24, !9, i64 32, !6, i64 40, !6, i64 64}
-!67 = !{!66, !9, i64 0}
-!68 = !{!66, !30, i64 24}
-!69 = !{!70, !24, i64 33}
-!70 = !{!"hpdata_s", !8, i64 0, !9, i64 8, !24, i64 16, !24, i64 17, !24, i64 18, !24, i64 19, !24, i64 20, !35, i64 24, !24, i64 32, !24, i64 33, !24, i64 34, !24, i64 35, !24, i64 36, !6, i64 40, !71, i64 64, !71, i64 80, !9, i64 96, !9, i64 104, !6, i64 112, !9, i64 176, !6, i64 184}
-!71 = !{!"", !30, i64 0, !30, i64 8}
-!72 = !{!70, !24, i64 34}
-!73 = !{!70, !24, i64 19}
-!74 = !{!70, !9, i64 104}
-!75 = !{!70, !9, i64 176}
+!55 = !{!56, !9, i64 56}
+!56 = !{!"", !35, i64 0, !35, i64 8, !9, i64 16, !9, i64 24, !31, i64 32, !57, i64 36, !9, i64 40, !58, i64 48, !9, i64 56}
+!57 = !{!"", !31, i64 0}
+!58 = !{!"p1 _ZTS6tsdn_s", !8, i64 0}
+!59 = !{!56, !58, i64 48}
+!60 = !{!56, !9, i64 40}
+!61 = !{!4, !8, i64 112}
+!62 = !{!4, !9, i64 120}
+!63 = !{!6, !6, i64 0}
+!64 = !{!65, !8, i64 8}
+!65 = !{!"edata_s", !9, i64 0, !8, i64 8, !6, i64 16, !30, i64 24, !9, i64 32, !6, i64 40, !6, i64 64}
+!66 = !{!65, !9, i64 0}
+!67 = !{!65, !30, i64 24}
+!68 = !{!69, !24, i64 33}
+!69 = !{!"hpdata_s", !8, i64 0, !9, i64 8, !24, i64 16, !24, i64 17, !24, i64 18, !24, i64 19, !24, i64 20, !35, i64 24, !24, i64 32, !24, i64 33, !24, i64 34, !24, i64 35, !24, i64 36, !6, i64 40, !70, i64 64, !70, i64 80, !9, i64 96, !9, i64 104, !6, i64 112, !9, i64 176, !6, i64 184}
+!70 = !{!"", !30, i64 0, !30, i64 8}
+!71 = !{}
+!72 = !{!69, !24, i64 34}
+!73 = !{!69, !24, i64 19}
+!74 = !{!69, !9, i64 104}
+!75 = !{!69, !9, i64 176}
 !76 = !{!16, !9, i64 5632}
-!77 = !{!70, !24, i64 16}
+!77 = !{!69, !24, i64 16}
 !78 = !{!4, !8, i64 184}
-!79 = !{!70, !24, i64 20}
+!79 = !{!69, !24, i64 20}
 !80 = !{!25, !9, i64 1048}
 !81 = !{!16, !31, i64 5640}
 !82 = !{!25, !9, i64 1040}
@@ -2184,15 +2180,15 @@ attributes #8 = { nounwind }
 !89 = !{!34, !9, i64 16}
 !90 = !{!34, !9, i64 24}
 !91 = !{!4, !8, i64 152}
-!92 = !{!70, !8, i64 0}
+!92 = !{!69, !8, i64 0}
 !93 = !{!16, !24, i64 5644}
 !94 = !{!16, !24, i64 5664}
-!95 = !{!70, !24, i64 17}
+!95 = !{!69, !24, i64 17}
 !96 = !{!4, !8, i64 176}
 !97 = !{!4, !8, i64 160}
 !98 = !{!16, !9, i64 5688}
 !99 = !{!16, !9, i64 5704}
 !100 = !{!4, !8, i64 168}
 !101 = !{!16, !9, i64 5696}
-!102 = !{!70, !9, i64 8}
-!103 = !{!66, !9, i64 32}
+!102 = !{!69, !9, i64 8}
+!103 = !{!65, !9, i64 32}

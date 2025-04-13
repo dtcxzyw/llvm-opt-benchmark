@@ -740,36 +740,35 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %42, %44
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not = icmp eq i32 %5, -1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %54, i8 0, i64 11, i1 false)
-  br i1 %.not, label %59, label %56
+  br i1 %.not, label %60, label %56
 
 56:                                               ; preds = %48
   %57 = load i32, ptr %15, align 8
   %58 = sext i32 %57 to i64
   tail call void @_ZN6BitMap9set_rangeEmm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef 0, i64 noundef %58) #19
-  br label %59
+  %.pre = load i8, ptr %52, align 4
+  %59 = trunc i8 %.pre to i1
+  br label %60
 
-59:                                               ; preds = %56, %48
-  br i1 %6, label %60, label %68
+60:                                               ; preds = %56, %48
+  %61 = phi i1 [ %59, %56 ], [ %51, %48 ]
+  %or.cond = select i1 %6, i1 %61, i1 false
+  br i1 %or.cond, label %62, label %67
 
-60:                                               ; preds = %59
-  %61 = load i8, ptr %52, align 4
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %68
-
-63:                                               ; preds = %60
+62:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8)
   call void @_ZN12GraphBuilderC1EP11CompilationP7IRScope(ptr noundef nonnull align 8 dereferenceable(97) %8, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(96) %0) #19
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %65 = load ptr, ptr %64, align 8
-  %.not.i = icmp eq ptr %65, null
-  %66 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %67 = load ptr, ptr %66, align 8
-  %.0.i = select i1 %.not.i, ptr %67, ptr null
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %64 = load ptr, ptr %63, align 8
+  %.not.i = icmp eq ptr %64, null
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %66 = load ptr, ptr %65, align 8
+  %.0.i = select i1 %.not.i, ptr %66, ptr null
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8)
   store ptr %.0.i, ptr %55, align 8
-  br label %68
+  br label %67
 
-68:                                               ; preds = %63, %60, %59
+67:                                               ; preds = %62, %60
   ret void
 }
 
@@ -1219,24 +1218,20 @@ define hidden void @_ZN2IR15optimize_blocksEv(ptr noundef nonnull align 8 derefe
   %5 = load ptr, ptr %4, align 8
   %6 = call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %5) #19
   %7 = icmp eq i32 %6, 3
-  br i1 %7, label %8, label %_ZN11Compilation16profile_branchesEv.exit.thread
+  %8 = load i8, ptr @C1UpdateMethodData, align 1
+  %9 = trunc i8 %8 to i1
+  %or.cond.i = select i1 %7, i1 %9, i1 false
+  %10 = load i8, ptr @C1ProfileBranches, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond = select i1 %or.cond.i, i1 %11, i1 false
+  br i1 %or.cond, label %12, label %_ZN11Compilation16profile_branchesEv.exit.thread
 
-8:                                                ; preds = %1
-  %9 = load i8, ptr @C1UpdateMethodData, align 1
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %_ZN11Compilation16profile_branchesEv.exit, label %_ZN11Compilation16profile_branchesEv.exit.thread
-
-_ZN11Compilation16profile_branchesEv.exit:        ; preds = %8
-  %11 = load i8, ptr @C1ProfileBranches, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %_ZN11Compilation16profile_branchesEv.exit.thread
-
-_ZN11Compilation16profile_branchesEv.exit.thread: ; preds = %1, %8, %_ZN11Compilation16profile_branchesEv.exit
+_ZN11Compilation16profile_branchesEv.exit.thread: ; preds = %1
   call void @_ZN9Optimizer33eliminate_conditional_expressionsEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
   call void @_ZN9Optimizer16eliminate_blocksEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  br label %13
+  br label %12
 
-13:                                               ; preds = %_ZN11Compilation16profile_branchesEv.exit.thread, %_ZN11Compilation16profile_branchesEv.exit
+12:                                               ; preds = %1, %_ZN11Compilation16profile_branchesEv.exit.thread
   ret void
 }
 

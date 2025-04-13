@@ -4867,8 +4867,8 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   store i64 %1, ptr %0, align 8, !tbaa !70
   %15 = call noundef zeroext i1 @_ZN4absl12lts_2024072218container_internal19HashSetResizeHelper15InitializeSlotsISaIcELm48ELb0ELb0ELm8EEEbRNS1_12CommonFieldsET_NS1_6ctrl_tEmm(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4, i8 noundef signext -128, i64 noundef 32, i64 noundef 48)
   %16 = load i64, ptr %5, align 8, !tbaa !185
-  %.not76 = icmp eq i64 %16, 0
-  br i1 %.not76, label %98, label %17
+  %.not = icmp eq i64 %16, 0
+  br i1 %.not, label %98, label %17
 
 17:                                               ; preds = %2
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !25
@@ -4905,15 +4905,15 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 
 .lr.ph:                                           ; preds = %17, %84
   %34 = phi i64 [ %85, %84 ], [ %16, %17 ]
-  %.082 = phi i64 [ %86, %84 ], [ 0, %17 ]
+  %.083 = phi i64 [ %86, %84 ], [ 0, %17 ]
   %35 = load ptr, ptr %3, align 8, !tbaa !25
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.082
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.083
   %37 = load i8, ptr %36, align 1, !tbaa !132
   %38 = icmp sgt i8 %37, -1
   br i1 %38, label %39, label %84
 
 39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i14.i, i64 %.082
+  %40 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i14.i, i64 %.083
   %41 = load ptr, ptr %40, align 8, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !26
@@ -4934,59 +4934,59 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !132
   %60 = icmp slt i8 %59, -1
-  br i1 %60, label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIS9_SE_EEE_clESS_.exit49, label %.preheader.i.i37
+  br i1 %60, label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIS9_SE_EEE_clESS_.exit51, label %.preheader.i.i39
 
-.preheader.i.i37:                                 ; preds = %39
+.preheader.i.i39:                                 ; preds = %39
   %61 = load <16 x i8>, ptr %58, align 1, !tbaa !25
   %62 = icmp slt <16 x i8> %61, splat (i8 -1)
   %63 = bitcast <16 x i1> %62 to i16
-  %.not26.i.i38 = icmp eq i16 %63, 0
-  br i1 %.not26.i.i38, label %.lr.ph.i.i45, label %.thread.i.i39
+  %.not26.i.i40 = icmp eq i16 %63, 0
+  br i1 %.not26.i.i40, label %.lr.ph.i.i47, label %.thread.i.i41
 
-.thread.i.i39:                                    ; preds = %.lr.ph.i.i45, %.preheader.i.i37
-  %.sroa.5.0.lcssa.i.i40 = phi i64 [ %57, %.preheader.i.i37 ], [ %70, %.lr.ph.i.i45 ]
-  %.lcssa.i.i42 = phi i16 [ %63, %.preheader.i.i37 ], [ %74, %.lr.ph.i.i45 ]
-  %64 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i42, i1 true)
+.thread.i.i41:                                    ; preds = %.lr.ph.i.i47, %.preheader.i.i39
+  %.sroa.5.0.lcssa.i.i42 = phi i64 [ %57, %.preheader.i.i39 ], [ %70, %.lr.ph.i.i47 ]
+  %.lcssa.i.i44 = phi i16 [ %63, %.preheader.i.i39 ], [ %74, %.lr.ph.i.i47 ]
+  %64 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i44, i1 true)
   %65 = zext nneg i16 %64 to i64
-  %66 = add i64 %.sroa.5.0.lcssa.i.i40, %65
+  %66 = add i64 %.sroa.5.0.lcssa.i.i42, %65
   %67 = and i64 %66, %52
-  br label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIS9_SE_EEE_clESS_.exit49
+  br label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIS9_SE_EEE_clESS_.exit51
 
-.lr.ph.i.i45:                                     ; preds = %.preheader.i.i37, %.lr.ph.i.i45
-  %.sroa.12.028.i.i46 = phi i64 [ %68, %.lr.ph.i.i45 ], [ 0, %.preheader.i.i37 ]
-  %.sroa.5.027.i.i47 = phi i64 [ %70, %.lr.ph.i.i45 ], [ %57, %.preheader.i.i37 ]
-  %68 = add i64 %.sroa.12.028.i.i46, 16
-  %69 = add i64 %68, %.sroa.5.027.i.i47
+.lr.ph.i.i47:                                     ; preds = %.preheader.i.i39, %.lr.ph.i.i47
+  %.sroa.12.028.i.i48 = phi i64 [ %68, %.lr.ph.i.i47 ], [ 0, %.preheader.i.i39 ]
+  %.sroa.5.027.i.i49 = phi i64 [ %70, %.lr.ph.i.i47 ], [ %57, %.preheader.i.i39 ]
+  %68 = add i64 %.sroa.12.028.i.i48, 16
+  %69 = add i64 %68, %.sroa.5.027.i.i49
   %70 = and i64 %69, %52
   %71 = getelementptr inbounds nuw i8, ptr %51, i64 %70
   %72 = load <16 x i8>, ptr %71, align 1, !tbaa !25
   %73 = icmp slt <16 x i8> %72, splat (i8 -1)
   %74 = bitcast <16 x i1> %73 to i16
-  %.not.i.i48 = icmp eq i16 %74, 0
-  br i1 %.not.i.i48, label %.lr.ph.i.i45, label %.thread.i.i39, !llvm.loop !195
+  %.not.i.i50 = icmp eq i16 %74, 0
+  br i1 %.not.i.i50, label %.lr.ph.i.i47, label %.thread.i.i41, !llvm.loop !195
 
-_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIS9_SE_EEE_clESS_.exit49: ; preds = %39, %.thread.i.i39
-  %.sroa.011.0.i.i43 = phi i64 [ %57, %39 ], [ %67, %.thread.i.i39 ]
+_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIS9_SE_EEE_clESS_.exit51: ; preds = %39, %.thread.i.i41
+  %.sroa.011.0.i.i45 = phi i64 [ %57, %39 ], [ %67, %.thread.i.i41 ]
   %75 = trunc i128 %49 to i8
   %76 = and i8 %75, 127
-  %77 = getelementptr inbounds nuw i8, ptr %51, i64 %.sroa.011.0.i.i43
+  %77 = getelementptr inbounds nuw i8, ptr %51, i64 %.sroa.011.0.i.i45
   store i8 %76, ptr %77, align 1, !tbaa !132
-  %78 = add i64 %.sroa.011.0.i.i43, -15
+  %78 = add i64 %.sroa.011.0.i.i45, -15
   %79 = and i64 %78, %52
   %80 = and i64 %52, 15
   %81 = getelementptr i8, ptr %51, i64 %79
   %82 = getelementptr i8, ptr %81, i64 %80
   store i8 %76, ptr %82, align 1, !tbaa !132
-  %83 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i43
+  %83 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i45
   call void @_ZN4absl12lts_2024072218container_internal15map_slot_policyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEE8transferISaISt4pairIKS8_SD_EEEEDaPT_PNS1_13map_slot_typeIS8_SD_EESO_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %83, ptr noundef nonnull %40)
   %.pre = load i64, ptr %5, align 8, !tbaa !185
   br label %84
 
-84:                                               ; preds = %.lr.ph, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIS9_SE_EEE_clESS_.exit49
-  %85 = phi i64 [ %.pre, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIS9_SE_EEE_clESS_.exit49 ], [ %34, %.lr.ph ]
-  %86 = add i64 %.082, 1
-  %.not = icmp eq i64 %86, %85
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !196
+84:                                               ; preds = %.lr.ph, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIS9_SE_EEE_clESS_.exit51
+  %85 = phi i64 [ %.pre, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN9grpc_core12experimental3CrlEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SE_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIS9_SE_EEE_clESS_.exit51 ], [ %34, %.lr.ph ]
+  %86 = add i64 %.083, 1
+  %.not34 = icmp eq i64 %86, %85
+  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !196
 
 .loopexit:                                        ; preds = %84, %30
   %87 = phi i64 [ %31, %30 ], [ %85, %84 ]
@@ -5044,25 +5044,25 @@ _ZN4absl12lts_2024072218container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit: ; p
   %27 = icmp ult i64 %7, 17
   %28 = icmp ult i64 %26, %7
   %29 = and i1 %27, %28
-  %.not = icmp ne i64 %26, 0
-  %brmerge.not = and i1 %.not, %29
-  br i1 %brmerge.not, label %30, label %31
-
-30:                                               ; preds = %_ZN4absl12lts_2024072218container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit
-  tail call void @_ZNK4absl12lts_2024072218container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS1_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull %15, i64 noundef %7)
-  %.pre = load i64, ptr %20, align 8, !tbaa !72
-  br label %33
+  %30 = icmp ne i64 %26, 0
+  %or.cond = and i1 %30, %29
+  br i1 %or.cond, label %31, label %32
 
 31:                                               ; preds = %_ZN4absl12lts_2024072218container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %15, i8 -128, i64 %8, i1 false)
-  %32 = getelementptr inbounds nuw i8, ptr %15, i64 %7
-  store i8 -1, ptr %32, align 1, !tbaa !132
-  br label %33
+  tail call void @_ZNK4absl12lts_2024072218container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS1_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull %15, i64 noundef %7)
+  %.pre = load i64, ptr %20, align 8, !tbaa !72
+  br label %34
 
-33:                                               ; preds = %30, %31
-  %34 = phi i64 [ %.pre, %30 ], [ %21, %31 ]
-  %35 = and i64 %34, -2
-  store i64 %35, ptr %20, align 8, !tbaa !72
+32:                                               ; preds = %_ZN4absl12lts_2024072218container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %15, i8 -128, i64 %8, i1 false)
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 %7
+  store i8 -1, ptr %33, align 1, !tbaa !132
+  br label %34
+
+34:                                               ; preds = %31, %32
+  %35 = phi i64 [ %.pre, %31 ], [ %21, %32 ]
+  %36 = and i64 %35, -2
+  store i64 %36, ptr %20, align 8, !tbaa !72
   ret i1 %29
 }
 

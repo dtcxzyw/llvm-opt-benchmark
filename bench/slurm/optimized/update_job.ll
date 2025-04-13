@@ -595,95 +595,93 @@ declare void @slurm_init_job_desc_msg(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @_is_job_id(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %31, label %2
+  br i1 %.not, label %30, label %2
 
 2:                                                ; preds = %1
   %3 = tail call ptr @xstrdup(ptr noundef nonnull %0) #13
   store ptr %3, ptr @local_job_str, align 8
   br label %4
 
-4:                                                ; preds = %24, %2
-  %5 = phi ptr [ %25, %24 ], [ %3, %2 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %2 ]
-  %.027 = phi i1 [ %.128, %24 ], [ false, %2 ]
-  %.025 = phi i8 [ %.126, %24 ], [ 0, %2 ]
-  %.024 = phi i32 [ %.1, %24 ], [ 0, %2 ]
+4:                                                ; preds = %23, %2
+  %5 = phi ptr [ %24, %23 ], [ %3, %2 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %2 ]
+  %.028 = phi i1 [ %.129, %23 ], [ false, %2 ]
+  %.026 = phi i8 [ %.127, %23 ], [ 0, %2 ]
+  %.025 = phi i32 [ %.1, %23 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  switch i8 %7, label %22 [
-    i8 0, label %26
+  switch i8 %7, label %21 [
+    i8 0, label %25
     i8 43, label %8
     i8 95, label %9
     i8 91, label %11
     i8 93, label %13
     i8 45, label %15
-    i8 44, label %19
-    i8 32, label %19
+    i8 44, label %18
+    i8 32, label %18
   ]
 
 8:                                                ; preds = %4
-  br i1 %.027, label %.loopexit, label %24
+  br i1 %.028, label %.loopexit, label %23
 
 9:                                                ; preds = %4
-  %10 = trunc nuw i8 %.025 to i1
-  br i1 %10, label %.loopexit, label %24
+  %10 = trunc nuw i8 %.026 to i1
+  br i1 %10, label %.loopexit, label %23
 
 11:                                               ; preds = %4
-  %12 = add nsw i32 %.024, 1
-  br label %24
+  %12 = add nsw i32 %.025, 1
+  br label %23
 
 13:                                               ; preds = %4
-  %14 = add nsw i32 %.024, -1
-  br label %24
+  %14 = add nsw i32 %.025, -1
+  br label %23
 
 15:                                               ; preds = %4
-  %16 = icmp eq i32 %.024, 0
-  br i1 %16, label %17, label %24
+  %16 = icmp ne i32 %.025, 0
+  %17 = trunc nuw i8 %.026 to i1
+  %or.cond = select i1 %16, i1 true, i1 %17
+  br i1 %or.cond, label %23, label %.loopexit
 
-17:                                               ; preds = %15
-  %18 = trunc nuw i8 %.025 to i1
-  br i1 %18, label %24, label %.loopexit
+18:                                               ; preds = %4, %4
+  %19 = icmp eq i32 %.025, 0
+  br i1 %19, label %20, label %23
 
-19:                                               ; preds = %4, %4
-  %20 = icmp eq i32 %.024, 0
-  br i1 %20, label %21, label %24
-
-21:                                               ; preds = %19
+20:                                               ; preds = %18
   store i8 94, ptr %6, align 1
   %.pre = load ptr, ptr @local_job_str, align 8
-  br label %24
+  br label %23
 
-22:                                               ; preds = %4
-  %23 = add i8 %7, -58
-  %or.cond = icmp ult i8 %23, -10
-  br i1 %or.cond, label %.loopexit, label %24
+21:                                               ; preds = %4
+  %22 = add i8 %7, -58
+  %or.cond36 = icmp ult i8 %22, -10
+  br i1 %or.cond36, label %.loopexit, label %23
 
-24:                                               ; preds = %22, %9, %8, %11, %17, %15, %19, %21, %13
-  %25 = phi ptr [ %5, %11 ], [ %5, %13 ], [ %5, %17 ], [ %5, %15 ], [ %.pre, %21 ], [ %5, %19 ], [ %5, %8 ], [ %5, %9 ], [ %5, %22 ]
-  %.128 = phi i1 [ %.027, %11 ], [ %.027, %13 ], [ %.027, %17 ], [ %.027, %15 ], [ false, %21 ], [ %.027, %19 ], [ true, %8 ], [ %.027, %9 ], [ %.027, %22 ]
-  %.126 = phi i8 [ %.025, %11 ], [ %.025, %13 ], [ 1, %17 ], [ %.025, %15 ], [ 0, %21 ], [ %.025, %19 ], [ %.025, %8 ], [ 1, %9 ], [ %.025, %22 ]
-  %.1 = phi i32 [ %12, %11 ], [ %14, %13 ], [ 0, %17 ], [ %.024, %15 ], [ 0, %21 ], [ %.024, %19 ], [ %.024, %8 ], [ %.024, %9 ], [ %.024, %22 ]
+23:                                               ; preds = %21, %9, %8, %11, %15, %18, %20, %13
+  %24 = phi ptr [ %5, %11 ], [ %5, %13 ], [ %5, %15 ], [ %.pre, %20 ], [ %5, %18 ], [ %5, %8 ], [ %5, %9 ], [ %5, %21 ]
+  %.129 = phi i1 [ %.028, %11 ], [ %.028, %13 ], [ %.028, %15 ], [ false, %20 ], [ %.028, %18 ], [ true, %8 ], [ %.028, %9 ], [ %.028, %21 ]
+  %.127 = phi i8 [ %.026, %11 ], [ %.026, %13 ], [ %.026, %15 ], [ 0, %20 ], [ %.026, %18 ], [ %.026, %8 ], [ 1, %9 ], [ %.026, %21 ]
+  %.1 = phi i32 [ %12, %11 ], [ %14, %13 ], [ %.025, %15 ], [ 0, %20 ], [ %.025, %18 ], [ %.025, %8 ], [ %.025, %9 ], [ %.025, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %4, !llvm.loop !14
 
-26:                                               ; preds = %4
-  %.not34 = icmp eq i32 %.024, 0
-  br i1 %.not34, label %31, label %.loopexit
+25:                                               ; preds = %4
+  %.not35 = icmp eq i32 %.025, 0
+  br i1 %.not35, label %30, label %.loopexit
 
-.loopexit:                                        ; preds = %22, %17, %9, %8, %26
+.loopexit:                                        ; preds = %21, %15, %9, %8, %25
   tail call void @slurm_xfree(ptr noundef nonnull @local_job_str) #13
-  %27 = tail call i32 @get_log_level() #13
-  %28 = icmp sgt i32 %27, 4
-  br i1 %28, label %29, label %31
+  %26 = tail call i32 @get_log_level() #13
+  %27 = icmp sgt i32 %26, 4
+  br i1 %27, label %28, label %30
 
-29:                                               ; preds = %.loopexit
-  %30 = trunc i64 %indvars.iv to i32
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.144, i32 noundef %30, ptr noundef nonnull %0) #13
-  br label %31
+28:                                               ; preds = %.loopexit
+  %29 = trunc i64 %indvars.iv to i32
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.144, i32 noundef %29, ptr noundef nonnull %0) #13
+  br label %30
 
-31:                                               ; preds = %.loopexit, %29, %26, %1
-  %.029 = phi i1 [ false, %1 ], [ true, %26 ], [ false, %29 ], [ false, %.loopexit ]
-  ret i1 %.029
+30:                                               ; preds = %.loopexit, %28, %25, %1
+  %.030 = phi i1 [ false, %1 ], [ true, %25 ], [ false, %28 ], [ false, %.loopexit ]
+  ret i1 %.030
 }
 
 ; Function Attrs: nounwind uwtable

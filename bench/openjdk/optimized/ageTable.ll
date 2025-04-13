@@ -203,56 +203,54 @@ define hidden void @_ZN8AgeTable5mergeEPKS_(ptr noundef nonnull align 8 captures
 define hidden noundef i32 @_ZN8AgeTable26compute_tenuring_thresholdEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @AlwaysTenure, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %8, label %5
+  %5 = load i8, ptr @NeverTenure, align 1
+  %6 = trunc i8 %5 to i1
+  %or.cond = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond, label %7, label %.preheader
 
-5:                                                ; preds = %2
-  %6 = load i8, ptr @NeverTenure, align 1
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %.preheader
+7:                                                ; preds = %2
+  %8 = load i32, ptr @MaxTenuringThreshold, align 4
+  br label %17
 
-8:                                                ; preds = %5, %2
-  %9 = load i32, ptr @MaxTenuringThreshold, align 4
-  br label %18
+.preheader:                                       ; preds = %2, %13
+  %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 1, %2 ]
+  %.01215 = phi i64 [ %11, %13 ], [ 0, %2 ]
+  %9 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %10 = load i64, ptr %9, align 8
+  %11 = add i64 %10, %.01215
+  %12 = icmp ugt i64 %11, %1
+  br i1 %12, label %.split.loop.exit, label %13
 
-.preheader:                                       ; preds = %5, %14
-  %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 1, %5 ]
-  %.01114 = phi i64 [ %12, %14 ], [ 0, %5 ]
-  %10 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %indvars.iv
-  %11 = load i64, ptr %10, align 8
-  %12 = add i64 %11, %.01114
-  %13 = icmp ugt i64 %12, %1
-  br i1 %13, label %.split.loop.exit, label %14
-
-14:                                               ; preds = %.preheader
+13:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.split.loop.exit17, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %.split.loop.exit18, label %.preheader, !llvm.loop !9
 
 .split.loop.exit:                                 ; preds = %.preheader
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit17
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.split.loop.exit18
 
-.split.loop.exit17:                               ; preds = %14, %.split.loop.exit
-  %.0.lcssa = phi i32 [ %15, %.split.loop.exit ], [ 16, %14 ]
-  %16 = load i32, ptr @MaxTenuringThreshold, align 4
-  %17 = tail call i32 @llvm.umin.i32(i32 %.0.lcssa, i32 %16)
-  br label %18
+.split.loop.exit18:                               ; preds = %13, %.split.loop.exit
+  %.0.lcssa = phi i32 [ %14, %.split.loop.exit ], [ 16, %13 ]
+  %15 = load i32, ptr @MaxTenuringThreshold, align 4
+  %16 = tail call i32 @llvm.umin.i32(i32 %.0.lcssa, i32 %15)
+  br label %17
 
-18:                                               ; preds = %.split.loop.exit17, %8
-  %19 = phi i32 [ %9, %8 ], [ %16, %.split.loop.exit17 ]
-  %.012 = phi i32 [ %9, %8 ], [ %17, %.split.loop.exit17 ]
-  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %24, label %21
+17:                                               ; preds = %.split.loop.exit18, %7
+  %18 = phi i32 [ %8, %7 ], [ %15, %.split.loop.exit18 ]
+  %.013 = phi i32 [ %8, %7 ], [ %16, %.split.loop.exit18 ]
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %23, label %20
 
-21:                                               ; preds = %18
-  %22 = shl i64 %1, 3
-  %23 = zext i32 %.012 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.7, i64 noundef %22, i64 noundef %23, i32 noundef %19)
-  br label %24
+20:                                               ; preds = %17
+  %21 = shl i64 %1, 3
+  %22 = zext i32 %.013 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.7, i64 noundef %21, i64 noundef %22, i32 noundef %18)
+  br label %23
 
-24:                                               ; preds = %18, %21
-  ret i32 %.012
+23:                                               ; preds = %17, %20
+  ret i32 %.013
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -268,20 +266,18 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0
 define hidden void @_ZN8AgeTable15print_age_tableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.LogStream, align 8
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %10
-
-4:                                                ; preds = %1
+  %4 = icmp ne ptr %3, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %10, label %8
+  %or.cond = select i1 %4, i1 true, i1 %7
+  br i1 %or.cond, label %10, label %8
 
-8:                                                ; preds = %4
+8:                                                ; preds = %1
   %9 = tail call noundef zeroext i1 @_ZN14AgeTableTracer38is_tenuring_distribution_event_enabledEv() #11
-  br i1 %9, label %10, label %32
+  br i1 %9, label %10, label %31
 
-10:                                               ; preds = %8, %4, %1
+10:                                               ; preds = %8, %1
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -292,56 +288,55 @@ define hidden void @_ZN8AgeTable15print_age_tableEv(ptr noundef nonnull readonly
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_2ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.8) #11
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  br label %15
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  br label %14
 
-15:                                               ; preds = %31, %10
-  %indvars.iv.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i, %31 ]
-  %.018.i = phi i64 [ 0, %10 ], [ %18, %31 ]
-  %16 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %indvars.iv.i
-  %17 = load i64, ptr %16, align 8
-  %18 = add i64 %17, %.018.i
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %._crit_edge.i, label %19
+14:                                               ; preds = %30, %10
+  %indvars.iv.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i, %30 ]
+  %.018.i = phi i64 [ 0, %10 ], [ %17, %30 ]
+  %15 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %indvars.iv.i
+  %16 = load i64, ptr %15, align 8
+  %17 = add i64 %16, %.018.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %._crit_edge.i, label %18
 
-._crit_edge.i:                                    ; preds = %15
+._crit_edge.i:                                    ; preds = %14
   %.pre20.i = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %23
+  br label %22
 
-19:                                               ; preds = %15
+18:                                               ; preds = %14
+  %19 = shl i64 %16, 3
   %20 = shl i64 %17, 3
-  %21 = shl i64 %18, 3
-  %22 = trunc nuw nsw i64 %indvars.iv.i to i32
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.9, i32 noundef %22, i64 noundef %20, i64 noundef %21) #11
-  br label %23
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.9, i32 noundef %21, i64 noundef %19, i64 noundef %20) #11
+  br label %22
 
-23:                                               ; preds = %19, %._crit_edge.i
-  %.pre-phi21.i = phi i32 [ %.pre20.i, %._crit_edge.i ], [ %22, %19 ]
-  %.pre-phi.i = phi i64 [ 0, %._crit_edge.i ], [ %20, %19 ]
+22:                                               ; preds = %18, %._crit_edge.i
+  %.pre-phi21.i = phi i32 [ %.pre20.i, %._crit_edge.i ], [ %21, %18 ]
+  %.pre-phi.i = phi i64 [ 0, %._crit_edge.i ], [ %19, %18 ]
   call void @_ZN14AgeTableTracer32send_tenuring_distribution_eventEjm(i32 noundef %.pre-phi21.i, i64 noundef %.pre-phi.i) #11
-  %24 = load i8, ptr %13, align 8
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %31
+  %23 = load i8, ptr %5, align 8
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %30
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw [16 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %30 = load ptr, ptr %29, align 8
-  store i64 %.pre-phi.i, ptr %30, align 8
-  br label %31
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw [16 x ptr], ptr %13, i64 0, i64 %indvars.iv.i
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %29 = load ptr, ptr %28, align 8
+  store i64 %.pre-phi.i, ptr %29, align 8
+  br label %30
 
-31:                                               ; preds = %26, %23
+30:                                               ; preds = %25, %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %_ZN8AgeTable8print_onEP12outputStream.exit, label %15, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN8AgeTable8print_onEP12outputStream.exit, label %14, !llvm.loop !10
 
-_ZN8AgeTable8print_onEP12outputStream.exit:       ; preds = %31
+_ZN8AgeTable8print_onEP12outputStream.exit:       ; preds = %30
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #11
-  br label %32
+  br label %31
 
-32:                                               ; preds = %_ZN8AgeTable8print_onEP12outputStream.exit, %8
+31:                                               ; preds = %_ZN8AgeTable8print_onEP12outputStream.exit, %8
   ret void
 }
 

@@ -5357,14 +5357,14 @@ define dso_local void @StartRestoreLO(ptr noundef initializes((648, 656)) %0, i3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store i64 0, ptr %17, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.65, i32 noundef %1) #23
-  %brmerge.not = and i1 %2, %6
-  br i1 %brmerge.not, label %18, label %19
+  %or.cond = and i1 %2, %6
+  br i1 %or.cond, label %18, label %19
 
 18:                                               ; preds = %16
   tail call void @DropLOIfExists(ptr noundef nonnull %0, i32 noundef %1) #23
   br label %19
 
-19:                                               ; preds = %16, %18
+19:                                               ; preds = %18, %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
@@ -5376,10 +5376,10 @@ define dso_local void @StartRestoreLO(ptr noundef initializes((648, 656)) %0, i3
 23:                                               ; preds = %22
   %24 = tail call i32 @lo_create(ptr noundef nonnull %21, i32 noundef %1) #23
   %25 = icmp ne i32 %24, 0
-  %.not32 = icmp eq i32 %24, %1
-  %or.cond = and i1 %25, %.not32
+  %.not33 = icmp eq i32 %24, %1
+  %or.cond34 = and i1 %25, %.not33
   %.pre = load ptr, ptr %20, align 8
-  br i1 %or.cond, label %28, label %26
+  br i1 %or.cond34, label %28, label %26
 
 26:                                               ; preds = %23
   %27 = tail call ptr @PQerrorMessage(ptr noundef %.pre) #23

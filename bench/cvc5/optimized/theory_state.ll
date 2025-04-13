@@ -403,8 +403,8 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit14: ; preds = %36, %42
 
 44:                                               ; preds = %30
   %45 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %brmerge.demorgan = and i1 %45, %.08
-  br i1 %brmerge.demorgan, label %48, label %.thread22
+  %or.cond = and i1 %45, %.08
+  br i1 %or.cond, label %48, label %.thread22
 
 46:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit14
   %47 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -433,7 +433,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit14: ; preds = %36, %42
   %58 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine11areDisequalENS0_12NodeTemplateILb0EEES5_b(ptr noundef nonnull align 8 dereferenceable(1784) %56, ptr noundef nonnull %10, ptr noundef nonnull %11, i1 noundef zeroext false)
   br label %.thread22
 
-.thread22:                                        ; preds = %44, %53, %.thread, %48, %28, %52, %3
+.thread22:                                        ; preds = %53, %.thread, %48, %28, %44, %52, %3
   %.010 = phi i1 [ false, %3 ], [ %51, %48 ], [ false, %28 ], [ false, %44 ], [ false, %52 ], [ false, %.thread ], [ %58, %53 ]
   ret i1 %.010
 }

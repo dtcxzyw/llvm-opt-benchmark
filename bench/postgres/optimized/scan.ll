@@ -1321,9 +1321,13 @@ check_string_escape_warning.exit:                 ; preds = %670, %697, %700
   %705 = add nsw i32 %704, -98
   %706 = tail call i32 @llvm.fshl.i32(i32 %705, i32 %705, i32 31)
   %707 = icmp ult i32 %706, 11
-  br i1 %707, label %switch.hole_check, label %708
+  %switch.maskindex = trunc i32 %706 to i16
+  %switch.shifted = lshr i16 1861, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %707, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %708
 
-708:                                              ; preds = %switch.hole_check, %check_string_escape_warning.exit
+708:                                              ; preds = %check_string_escape_warning.exit
   %or.cond.i = icmp sgt i8 %703, 0
   br i1 %or.cond.i, label %unescape_single_char.exit, label %709
 
@@ -1333,13 +1337,7 @@ check_string_escape_warning.exit:                 ; preds = %670, %697, %700
   store i8 1, ptr %711, align 1
   br label %unescape_single_char.exit
 
-switch.hole_check:                                ; preds = %check_string_escape_warning.exit
-  %switch.maskindex = trunc nuw i32 %706 to i16
-  %switch.shifted = lshr i16 1861, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %708
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %check_string_escape_warning.exit
   %712 = zext nneg i32 %706 to i64
   %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table.core_yylex, i64 0, i64 %712
   %switch.load = load i8, ptr %switch.gep, align 1

@@ -1020,15 +1020,13 @@ define dso_local void @print_error_with_chain_status(ptr noundef %0, ptr noundef
   %11 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %7, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %10) #13
   %switch.tableidx = add i32 %4, -2
   %12 = icmp ult i32 %switch.tableidx, 9
-  br i1 %12, label %switch.hole_check, label %16
-
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 351, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %16
+  %or.cond = select i1 %12, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %16
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %13 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.print_error_with_chain_status, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -1036,7 +1034,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %15 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %14, i32 noundef 1, ptr noundef nonnull %switch.load) #13
   br label %16
 
-16:                                               ; preds = %switch.hole_check, %2, %switch.lookup
+16:                                               ; preds = %2, %switch.lookup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
   ret void
 }

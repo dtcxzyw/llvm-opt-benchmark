@@ -4569,8 +4569,8 @@ define noundef float @_ZN10open_spiel2go16TrompTaylorScoreERKNS0_7GoBoardEfi(ptr
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
-  %.not31 = icmp eq ptr %14, %16
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not3335 = icmp eq ptr %14, %16
+  br i1 %.not3335, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4579,14 +4579,14 @@ define noundef float @_ZN10open_spiel2go16TrompTaylorScoreERKNS0_7GoBoardEfi(ptr
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %21
 
-21:                                               ; preds = %.lr.ph, %.thread
-  %.02333 = phi i32 [ 0, %.lr.ph ], [ %.1, %.thread ]
-  %.sroa.026.032 = phi ptr [ %14, %.lr.ph ], [ %55, %.thread ]
-  %22 = load i16, ptr %.sroa.026.032, align 2
+21:                                               ; preds = %.lr.ph, %55
+  %.02737 = phi i32 [ 0, %.lr.ph ], [ %.1, %55 ]
+  %.sroa.030.036 = phi ptr [ %14, %.lr.ph ], [ %56, %55 ]
+  %22 = load i16, ptr %.sroa.030.036, align 2
   %23 = zext i16 %22 to i64
   %24 = getelementptr inbounds nuw [441 x %"struct.open_spiel::go::GoBoard::Vertex"], ptr %0, i64 0, i64 %23, i32 2
   %25 = load i8, ptr %24, align 2
-  switch i8 %25, label %.thread [
+  switch i8 %25, label %55 [
     i8 0, label %26
     i8 1, label %28
     i8 2, label %30
@@ -4594,18 +4594,18 @@ define noundef float @_ZN10open_spiel2go16TrompTaylorScoreERKNS0_7GoBoardEfi(ptr
   ]
 
 26:                                               ; preds = %21
-  %27 = add nsw i32 %.02333, 1
-  br label %.thread
+  %27 = add nsw i32 %.02737, 1
+  br label %55
 
 28:                                               ; preds = %21
-  %29 = add nsw i32 %.02333, -1
-  br label %.thread
+  %29 = add nsw i32 %.02737, -1
+  br label %55
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw [441 x i8], ptr %6, i64 0, i64 %23
   %32 = load i8, ptr %31, align 1
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %.thread, label %_ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_.exit
+  br i1 %33, label %55, label %_ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_.exit
 
 _ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_.exit: ; preds = %30
   store i8 0, ptr %7, align 1
@@ -4632,19 +4632,21 @@ _ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_.
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %39 = load i8, ptr %7, align 1
   %40 = trunc i8 %39 to i1
+  %.not = xor i1 %40, true
   %41 = load i8, ptr %8, align 1
   %42 = trunc i8 %41 to i1
-  br i1 %40, label %43, label %45
+  %or.cond = select i1 %.not, i1 true, i1 %42
+  br i1 %or.cond, label %45, label %43
 
 43:                                               ; preds = %_ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_.exit
-  %44 = select i1 %42, i32 0, i32 %38
-  %spec.select29 = add nsw i32 %44, %.02333
-  br label %.thread
+  %44 = add nsw i32 %38, %.02737
+  br label %55
 
 45:                                               ; preds = %_ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_.exit
-  %46 = select i1 %42, i32 %38, i32 0
-  %spec.select = sub nsw i32 %.02333, %46
-  br label %.thread
+  %or.cond4 = select i1 %.not, i1 %42, i1 false
+  %46 = select i1 %or.cond4, i32 %38, i32 0
+  %spec.select = sub nsw i32 %.02737, %46
+  br label %55
 
 47:                                               ; preds = %21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #27
@@ -4674,23 +4676,23 @@ _ZN10open_spiel2go19NumSurroundedPointsERKNS0_7GoBoardEtPSt5arrayIbLm441EEPbS7_.
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #27
   resume { ptr, i32 } %.pn
 
-.thread:                                          ; preds = %43, %45, %21, %26, %28, %30
-  %.1 = phi i32 [ %.02333, %21 ], [ %.02333, %30 ], [ %29, %28 ], [ %27, %26 ], [ %spec.select, %45 ], [ %spec.select29, %43 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.026.032, i64 2
-  %.not = icmp eq ptr %55, %16
-  br i1 %.not, label %._crit_edge.loopexit, label %21
+55:                                               ; preds = %45, %21, %26, %28, %43, %30
+  %.1 = phi i32 [ %.02737, %21 ], [ %.02737, %30 ], [ %44, %43 ], [ %29, %28 ], [ %27, %26 ], [ %spec.select, %45 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.030.036, i64 2
+  %.not33 = icmp eq ptr %56, %16
+  br i1 %.not33, label %._crit_edge.loopexit, label %21
 
-._crit_edge.loopexit:                             ; preds = %.thread
-  %56 = sitofp i32 %.1 to float
+._crit_edge.loopexit:                             ; preds = %55
+  %57 = sitofp i32 %.1 to float
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.023.lcssa = phi float [ 0.000000e+00, %3 ], [ %56, %._crit_edge.loopexit ]
-  %57 = fsub float %.023.lcssa, %1
-  %58 = icmp sgt i32 %2, 1
-  %59 = uitofp nneg i32 %2 to float
-  %60 = fsub float %57, %59
-  %.0 = select i1 %58, float %60, float %57
+  %.027.lcssa = phi float [ 0.000000e+00, %3 ], [ %57, %._crit_edge.loopexit ]
+  %58 = fsub float %.027.lcssa, %1
+  %59 = icmp sgt i32 %2, 1
+  %60 = uitofp nneg i32 %2 to float
+  %61 = fsub float %58, %60
+  %.0 = select i1 %59, float %61, float %58
   ret float %.0
 }
 

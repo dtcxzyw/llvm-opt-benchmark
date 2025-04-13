@@ -891,8 +891,8 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   %15 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %8) #9
-  %.not = icmp eq i32 %15, 1
-  br i1 %.not, label %19, label %16
+  %.not72 = icmp eq i32 %15, 1
+  br i1 %.not72, label %19, label %16
 
 16:                                               ; preds = %2
   %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -942,8 +942,8 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
 
 38:                                               ; preds = %34
   %39 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %30, i8 1, ptr nonnull elementtype(i8) %30) #9, !srcloc !6
-  %.not70 = icmp eq i8 %39, 0
-  br i1 %.not70, label %48, label %40
+  %.not73 = icmp eq i8 %39, 0
+  br i1 %.not73, label %48, label %40
 
 40:                                               ; preds = %38
   %41 = call i32 @s_lock(ptr noundef nonnull %30, ptr noundef nonnull @.str.1, i32 noundef 645, ptr noundef nonnull @__func__.copy_replication_slot) #9
@@ -1010,42 +1010,42 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %74 = load i16, ptr %73, align 2
   %75 = icmp sgt i16 %74, 2
-  br i1 %75, label %76, label %.thread82
+  br i1 %75, label %76, label %.thread84
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %78 = load i64, ptr %77, align 8
   %79 = icmp ne i64 %78, 0
-  %.not85 = icmp eq i16 %74, 3
-  br i1 %.not85, label %.thread82, label %80
+  %.not87 = icmp eq i16 %74, 3
+  br i1 %.not87, label %.thread84, label %80
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %82 = load i64, ptr %81, align 8
   %83 = inttoptr i64 %82 to ptr
-  br label %.thread82
+  br label %.thread84
 
-.thread82:                                        ; preds = %72, %80, %76
-  %.062.in84 = phi i1 [ %79, %80 ], [ %79, %76 ], [ %58, %72 ]
-  %.063 = phi ptr [ %83, %80 ], [ %60, %76 ], [ %60, %72 ]
+.thread84:                                        ; preds = %72, %80, %76
+  %.064.in86 = phi i1 [ %79, %80 ], [ %79, %76 ], [ %58, %72 ]
+  %.065 = phi ptr [ %83, %80 ], [ %60, %76 ], [ %60, %72 ]
   br i1 %1, label %84, label %create_physical_replication_slot.exit
 
-84:                                               ; preds = %.thread82
+84:                                               ; preds = %.thread84
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %85 = select i1 %.062.in84, i32 2, i32 1
+  %85 = select i1 %.064.in86, i32 2, i32 1
   call void @ReplicationSlotCreate(ptr noundef %14, i1 noundef zeroext true, i32 noundef %85, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #9
   store ptr @read_local_xlog_page, ptr %3, align 8
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @wal_segment_open, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @wal_segment_close, ptr %87, align 8
-  %88 = call ptr @CreateInitDecodingContext(ptr noundef %.063, ptr noundef null, i1 noundef zeroext false, i64 noundef %55, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null) #9
+  %88 = call ptr @CreateInitDecodingContext(ptr noundef %.065, ptr noundef null, i1 noundef zeroext false, i64 noundef %55, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null) #9
   call void @FreeDecodingContext(ptr noundef %88) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %92
 
-create_physical_replication_slot.exit:            ; preds = %.thread82
-  %89 = select i1 %.062.in84, i32 2, i32 0
+create_physical_replication_slot.exit:            ; preds = %.thread84
+  %89 = select i1 %.064.in86, i32 2, i32 0
   call void @ReplicationSlotCreate(ptr noundef %14, i1 noundef zeroext false, i32 noundef %89, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #9
   %90 = load ptr, ptr @MyReplicationSlot, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 104
@@ -1056,8 +1056,8 @@ create_physical_replication_slot.exit:            ; preds = %.thread82
 
 92:                                               ; preds = %create_physical_replication_slot.exit, %84
   %93 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %30, i8 1, ptr nonnull elementtype(i8) %30) #9, !srcloc !6
-  %.not72 = icmp eq i8 %93, 0
-  br i1 %.not72, label %96, label %94
+  %.not75 = icmp eq i8 %93, 0
+  br i1 %.not75, label %96, label %94
 
 94:                                               ; preds = %92
   %95 = call i32 @s_lock(ptr noundef nonnull %30, ptr noundef nonnull @.str.1, i32 noundef 735, ptr noundef nonnull @__func__.copy_replication_slot) #9
@@ -1087,13 +1087,13 @@ create_physical_replication_slot.exit:            ; preds = %.thread82
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %113 = load i32, ptr %112, align 8
   %114 = icmp eq i32 %113, 0
-  %.not73 = xor i1 %53, %114
-  br i1 %.not73, label %115, label %117
+  %.not76 = xor i1 %53, %114
+  br i1 %.not76, label %115, label %117
 
 115:                                              ; preds = %111
   %116 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %11) #11
-  %.not74 = icmp eq i32 %116, 0
-  br i1 %.not74, label %121, label %117
+  %.not77 = icmp eq i32 %116, 0
+  br i1 %.not77, label %121, label %117
 
 117:                                              ; preds = %115, %111, %96
   %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -1120,8 +1120,8 @@ create_physical_replication_slot.exit:            ; preds = %.thread82
 128:                                              ; preds = %121
   %129 = load ptr, ptr @MyReplicationSlot, align 8
   %130 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %129, i8 1, ptr elementtype(i8) %129) #9, !srcloc !6
-  %.not75 = icmp eq i8 %130, 0
-  br i1 %.not75, label %134, label %131
+  %.not78 = icmp eq i8 %130, 0
+  br i1 %.not78, label %134, label %131
 
 131:                                              ; preds = %128
   %132 = load ptr, ptr @MyReplicationSlot, align 8
@@ -1149,15 +1149,15 @@ create_physical_replication_slot.exit:            ; preds = %.thread82
   call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #9
   call void @ReplicationSlotsComputeRequiredLSN() #9
   call void @ReplicationSlotSave() #9
-  %.not76 = xor i1 %1, true
-  %brmerge = select i1 %.not76, i1 true, i1 %.062.in84
-  br i1 %brmerge, label %144, label %143
+  %.not = xor i1 %1, true
+  %or.cond3 = select i1 %.not, i1 true, i1 %.064.in86
+  br i1 %or.cond3, label %144, label %143
 
 143:                                              ; preds = %134
   call void @ReplicationSlotPersist() #9
   br label %144
 
-144:                                              ; preds = %134, %143
+144:                                              ; preds = %143, %134
   store i64 %13, ptr %6, align 16
   store i8 0, ptr %7, align 1
   %145 = load ptr, ptr @MyReplicationSlot, align 8

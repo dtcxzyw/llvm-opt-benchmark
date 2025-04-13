@@ -5790,20 +5790,18 @@ define internal void @_ZN12_GLOBAL__N_115RISCVPassConfig14addPreRegAllocEv(ptr n
   %17 = load ptr, ptr %3, align 8, !tbaa !492
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 648
   %19 = load i32, ptr %18, align 8, !tbaa !196
-  %.not1 = icmp eq i32 %19, 0
-  br i1 %.not1, label %26, label %20
+  %.not1 = icmp ne i32 %19, 0
+  %20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableMachinePipeliner, i64 120), align 8, !range !50
+  %21 = trunc nuw i8 %20 to i1
+  %or.cond = select i1 %.not1, i1 %21, i1 false
+  br i1 %or.cond, label %22, label %25
 
-20:                                               ; preds = %13
-  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22EnableMachinePipeliner, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %26
+22:                                               ; preds = %13
+  %23 = load ptr, ptr @_ZN4llvm18MachinePipelinerIDE, align 8, !tbaa !44
+  %24 = tail call noundef ptr @_ZN4llvm16TargetPassConfig7addPassEPKv(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %23) #27
+  br label %25
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr @_ZN4llvm18MachinePipelinerIDE, align 8, !tbaa !44
-  %25 = tail call noundef ptr @_ZN4llvm16TargetPassConfig7addPassEPKv(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %24) #27
-  br label %26
-
-26:                                               ; preds = %23, %20, %13
+25:                                               ; preds = %22, %13
   ret void
 }
 
@@ -5840,20 +5838,18 @@ define internal void @_ZN12_GLOBAL__N_115RISCVPassConfig15addPostRegAllocEv(ptr 
   %3 = load ptr, ptr %2, align 8, !tbaa !492
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 648
   %5 = load i32, ptr %4, align 8, !tbaa !196
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %11, label %6
+  %.not = icmp ne i32 %5, 0
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL30EnableRedundantCopyElimination, i64 120), align 8, !range !50
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %.not, i1 %7, i1 false
+  br i1 %or.cond, label %8, label %10
 
-6:                                                ; preds = %1
-  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL30EnableRedundantCopyElimination, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %11
+8:                                                ; preds = %1
+  %9 = tail call noundef ptr @_ZN4llvm39createRISCVRedundantCopyEliminationPassEv() #27
+  tail call void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %9) #27
+  br label %10
 
-9:                                                ; preds = %6
-  %10 = tail call noundef ptr @_ZN4llvm39createRISCVRedundantCopyEliminationPassEv() #27
-  tail call void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %10) #27
-  br label %11
-
-11:                                               ; preds = %9, %6, %1
+10:                                               ; preds = %8, %1
   ret void
 }
 
@@ -5879,23 +5875,21 @@ define internal void @_ZN12_GLOBAL__N_115RISCVPassConfig14addPreEmitPassEv(ptr n
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 648
   %5 = load i32, ptr %4, align 8, !tbaa !196
   %6 = icmp sgt i32 %5, 1
-  br i1 %6, label %7, label %12
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL26EnableRISCVCopyPropagation, i64 120), align 8, !range !50
+  %8 = trunc nuw i8 %7 to i1
+  %or.cond = select i1 %6, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %11
 
-7:                                                ; preds = %1
-  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL26EnableRISCVCopyPropagation, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %12
+9:                                                ; preds = %1
+  %10 = tail call noundef ptr @_ZN4llvm32createMachineCopyPropagationPassEb(i1 noundef zeroext true) #27
+  tail call void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %10) #27
+  br label %11
 
-10:                                               ; preds = %7
-  %11 = tail call noundef ptr @_ZN4llvm32createMachineCopyPropagationPassEb(i1 noundef zeroext true) #27
-  tail call void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %11) #27
-  br label %12
-
-12:                                               ; preds = %10, %7, %1
-  %13 = load ptr, ptr @_ZN4llvm22BranchRelaxationPassIDE, align 8, !tbaa !44
-  %14 = tail call noundef ptr @_ZN4llvm16TargetPassConfig7addPassEPKv(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %13) #27
-  %15 = tail call noundef ptr @_ZN4llvm34createRISCVMakeCompressibleOptPassEv() #27
-  tail call void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %15) #27
+11:                                               ; preds = %9, %1
+  %12 = load ptr, ptr @_ZN4llvm22BranchRelaxationPassIDE, align 8, !tbaa !44
+  %13 = tail call noundef ptr @_ZN4llvm16TargetPassConfig7addPassEPKv(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %12) #27
+  %14 = tail call noundef ptr @_ZN4llvm34createRISCVMakeCompressibleOptPassEv() #27
+  tail call void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %14) #27
   ret void
 }
 
@@ -6010,22 +6004,20 @@ _ZN12_GLOBAL__N_115RISCVPassConfig21createRVVRegAllocPassEb.exit: ; preds = %9, 
   %21 = load ptr, ptr %20, align 8, !tbaa !492
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 648
   %23 = load i32, ptr %22, align 8, !tbaa !196
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %29, label %24
+  %.not = icmp ne i32 %23, 0
+  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL34EnableRISCVDeadRegisterElimination, i64 120), align 8, !range !50
+  %25 = trunc nuw i8 %24 to i1
+  %or.cond = select i1 %.not, i1 %25, i1 false
+  br i1 %or.cond, label %26, label %28
 
-24:                                               ; preds = %_ZN12_GLOBAL__N_115RISCVPassConfig21createRVVRegAllocPassEb.exit
-  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL34EnableRISCVDeadRegisterElimination, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %27, label %29
+26:                                               ; preds = %_ZN12_GLOBAL__N_115RISCVPassConfig21createRVVRegAllocPassEb.exit
+  %27 = call noundef ptr @_ZN4llvm38createRISCVDeadRegisterDefinitionsPassEv() #27
+  call void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %27) #27
+  br label %28
 
-27:                                               ; preds = %24
-  %28 = call noundef ptr @_ZN4llvm38createRISCVDeadRegisterDefinitionsPassEv() #27
-  call void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %28) #27
-  br label %29
-
-29:                                               ; preds = %27, %24, %_ZN12_GLOBAL__N_115RISCVPassConfig21createRVVRegAllocPassEb.exit
-  %30 = call noundef zeroext i1 @_ZN4llvm16TargetPassConfig26addRegAssignAndRewriteFastEv(ptr noundef nonnull align 8 dereferenceable(134) %0) #27
-  ret i1 %30
+28:                                               ; preds = %26, %_ZN12_GLOBAL__N_115RISCVPassConfig21createRVVRegAllocPassEb.exit
+  %29 = call noundef zeroext i1 @_ZN4llvm16TargetPassConfig26addRegAssignAndRewriteFastEv(ptr noundef nonnull align 8 dereferenceable(134) %0) #27
+  ret i1 %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6091,22 +6083,20 @@ _ZN12_GLOBAL__N_115RISCVPassConfig21createRVVRegAllocPassEb.exit: ; preds = %9, 
   %22 = load ptr, ptr %21, align 8, !tbaa !492
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 648
   %24 = load i32, ptr %23, align 8, !tbaa !196
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %30, label %25
+  %.not = icmp ne i32 %24, 0
+  %25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL34EnableRISCVDeadRegisterElimination, i64 120), align 8, !range !50
+  %26 = trunc nuw i8 %25 to i1
+  %or.cond = select i1 %.not, i1 %26, i1 false
+  br i1 %or.cond, label %27, label %29
 
-25:                                               ; preds = %_ZN12_GLOBAL__N_115RISCVPassConfig21createRVVRegAllocPassEb.exit
-  %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL34EnableRISCVDeadRegisterElimination, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
-  %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %28, label %30
+27:                                               ; preds = %_ZN12_GLOBAL__N_115RISCVPassConfig21createRVVRegAllocPassEb.exit
+  %28 = call noundef ptr @_ZN4llvm38createRISCVDeadRegisterDefinitionsPassEv() #27
+  call void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %28) #27
+  br label %29
 
-28:                                               ; preds = %25
-  %29 = call noundef ptr @_ZN4llvm38createRISCVDeadRegisterDefinitionsPassEv() #27
-  call void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %29) #27
-  br label %30
-
-30:                                               ; preds = %28, %25, %_ZN12_GLOBAL__N_115RISCVPassConfig21createRVVRegAllocPassEb.exit
-  %31 = call noundef zeroext i1 @_ZN4llvm16TargetPassConfig31addRegAssignAndRewriteOptimizedEv(ptr noundef nonnull align 8 dereferenceable(134) %0) #27
-  ret i1 %31
+29:                                               ; preds = %27, %_ZN12_GLOBAL__N_115RISCVPassConfig21createRVVRegAllocPassEb.exit
+  %30 = call noundef zeroext i1 @_ZN4llvm16TargetPassConfig31addRegAssignAndRewriteOptimizedEv(ptr noundef nonnull align 8 dereferenceable(134) %0) #27
+  ret i1 %30
 }
 
 declare void @_ZN4llvm16TargetPassConfig6setOptERbb(ptr noundef nonnull align 8 dereferenceable(134), ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #4

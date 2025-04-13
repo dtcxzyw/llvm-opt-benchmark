@@ -19354,21 +19354,19 @@ define void @"_ZN116_$LT$wasmtime_cranelift..func_environ..FuncEnvironment$u20$a
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 34
   %9 = load i8, ptr %8, align 2, !range !121, !noundef !4
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %12, label %11
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 240
+  %12 = load i8, ptr %11, align 8, !range !121
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond = select i1 %10, i1 %13, i1 false
+  br i1 %or.cond, label %15, label %14
 
-11:                                               ; preds = %16, %12, %5
+14:                                               ; preds = %15, %5
   store i64 -9223372036854775805, ptr %0, align 8
   ret void
 
-12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 240
-  %14 = load i8, ptr %13, align 8, !range !121, !noundef !4
-  %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %16, label %11
-
-16:                                               ; preds = %12
+15:                                               ; preds = %5
   tail call void @_ZN18wasmtime_cranelift12func_environ15FuncEnvironment13fuel_after_op17h46a51ad33ee86d95E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(520) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
-  br label %11
+  br label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -19533,60 +19531,58 @@ define void @"_ZN116_$LT$wasmtime_cranelift..func_environ..FuncEnvironment$u20$a
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 34
   %10 = load i8, ptr %9, align 2, !range !121, !noundef !4
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %13, label %12
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 240
+  %13 = load i8, ptr %12, align 8, !range !121
+  %14 = trunc nuw i8 %13 to i1
+  %or.cond = select i1 %11, i1 %14, i1 false
+  br i1 %or.cond, label %16, label %15
 
-12:                                               ; preds = %17, %13, %4
+15:                                               ; preds = %16, %4
   store i64 -9223372036854775805, ptr %0, align 8
   ret void
 
-13:                                               ; preds = %4
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 240
-  %15 = load i8, ptr %14, align 8, !range !121, !noundef !4
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %12
-
-17:                                               ; preds = %13
+16:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3001)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3004)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3007)
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 508
-  %19 = load i32, ptr %18, align 4, !alias.scope !3010, !noalias !3011, !noundef !4
-  %20 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder7use_var17h7ab07a03444b3a73E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %19), !noalias !3010
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 492
-  %22 = load i8, ptr %21, align 4, !alias.scope !3010, !noalias !3011, !noundef !4
-  %23 = zext i8 %22 to i32
-  %24 = tail call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %23), !noalias !3010
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 504
-  %26 = load i32, ptr %25, align 8, !alias.scope !3015, !noalias !3016, !noundef !4
-  %27 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder7use_var17h7ab07a03444b3a73E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %26), !noalias !3015
-  %28 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2), !noalias !3015
-  %29 = extractvalue { ptr, i32 } %28, 0
-  %30 = extractvalue { ptr, i32 } %28, 1
-  %31 = tail call noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags7trusted17h2b2827b34ed60931E(), !noalias !3015
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 508
+  %18 = load i32, ptr %17, align 4, !alias.scope !3010, !noalias !3011, !noundef !4
+  %19 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder7use_var17h7ab07a03444b3a73E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %18), !noalias !3010
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 492
+  %21 = load i8, ptr %20, align 4, !alias.scope !3010, !noalias !3011, !noundef !4
+  %22 = zext i8 %21 to i32
+  %23 = tail call noundef i32 @"_ZN94_$LT$cranelift_codegen..ir..immediates..Offset32$u20$as$u20$core..convert..From$LT$i32$GT$$GT$4from17hcd11248f6ed987afE"(i32 noundef %22), !noalias !3010
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 504
+  %25 = load i32, ptr %24, align 8, !alias.scope !3015, !noalias !3016, !noundef !4
+  %26 = tail call noundef i32 @_ZN18cranelift_frontend8frontend15FunctionBuilder7use_var17h7ab07a03444b3a73E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %25), !noalias !3015
+  %27 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2), !noalias !3015
+  %28 = extractvalue { ptr, i32 } %27, 0
+  %29 = extractvalue { ptr, i32 } %27, 1
+  %30 = tail call noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags7trusted17h2b2827b34ed60931E(), !noalias !3015
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !3017
-  store ptr %29, ptr %6, align 8, !noalias !3018
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %30, ptr %32, align 8, !noalias !3018
-  %33 = call noundef align 8 dereferenceable(416) ptr @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$15data_flow_graph17h837c0f80df8160fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !3015
-  %34 = call noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %33, i32 noundef %27), !noalias !3015
-  %35 = load ptr, ptr %6, align 8, !noalias !3018, !nonnull !4, !align !11, !noundef !4
-  %36 = load i32, ptr %32, align 8, !noalias !3018, !noundef !4
+  store ptr %28, ptr %6, align 8, !noalias !3018
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %29, ptr %31, align 8, !noalias !3018
+  %32 = call noundef align 8 dereferenceable(416) ptr @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$15data_flow_graph17h837c0f80df8160fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !3015
+  %33 = call noundef i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph10value_type17h3e8c85df69a903a8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %32, i32 noundef %26), !noalias !3015
+  %34 = load ptr, ptr %6, align 8, !noalias !3018, !nonnull !4, !align !11, !noundef !4
+  %35 = load i32, ptr %31, align 8, !noalias !3018, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3018
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 31, ptr %37, align 1, !noalias !3021
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %27, ptr %38, align 4, !noalias !3021
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 31, ptr %36, align 1, !noalias !3021
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %26, ptr %37, align 4, !noalias !3021
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %20, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !3021
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i16 %31, ptr %39, align 2, !noalias !3021
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %24, ptr %40, align 4, !noalias !3021
+  store i32 %19, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !3021
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i16 %30, ptr %38, align 2, !noalias !3021
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 %23, ptr %39, align 4, !noalias !3021
   store i8 25, ptr %5, align 8, !noalias !3021
-  %41 = call { i32, ptr } @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17h4da45ded74cc4ea2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35, i32 noundef %36, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5, i16 noundef %34), !noalias !3015
+  %40 = call { i32, ptr } @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17h4da45ded74cc4ea2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34, i32 noundef %35, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5, i16 noundef %33), !noalias !3015
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3018
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !3017
-  br label %12
+  br label %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable

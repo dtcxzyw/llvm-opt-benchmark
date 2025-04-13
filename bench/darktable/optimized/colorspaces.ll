@@ -4402,7 +4402,11 @@ define range(i32 -1, 27) i32 @dt_colorspaces_cicp_to_type(ptr noundef readonly c
   %14 = load i32, ptr %13, align 4, !tbaa !161
   %switch.tableidx = add i32 %14, -1
   %15 = icmp ult i32 %switch.tableidx, 15
-  br i1 %15, label %switch.hole_check, label %29
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 28833, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond14 = select i1 %15, i1 %switch.lobit, i1 false
+  br i1 %or.cond14, label %switch.lookup, label %29
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4440,7 +4444,7 @@ define range(i32 -1, 27) i32 @dt_colorspaces_cicp_to_type(ptr noundef readonly c
   %cond = icmp eq i32 %28, 8
   br i1 %cond, label %39, label %29
 
-29:                                               ; preds = %switch.hole_check, %12, %2, %26, %21, %16, %4
+29:                                               ; preds = %12, %2, %26, %21, %16, %4
   %.not.old = icmp eq ptr %1, null
   br i1 %.not.old, label %39, label %30
 
@@ -4458,13 +4462,7 @@ define range(i32 -1, 27) i32 @dt_colorspaces_cicp_to_type(ptr noundef readonly c
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.77, ptr noundef nonnull %1, i32 noundef %3, i32 noundef %35, i32 noundef %37) #23
   br label %39
 
-switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 28833, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %29
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %12
   %38 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table.dt_colorspaces_cicp_to_type, i64 0, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4

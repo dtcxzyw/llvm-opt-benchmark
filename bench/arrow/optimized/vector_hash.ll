@@ -1991,15 +1991,13 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow7compute14VectorFun
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 40
   %231 = load i32, ptr %230, align 8, !tbaa !96
   %232 = icmp ult i32 %231, 41
-  br i1 %232, label %switch.hole_check, label %.invoke
-
-switch.hole_check:                                ; preds = %228
   %switch.maskindex = zext nneg i32 %231 to i64
   %switch.shifted = lshr i64 1846869490687, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.invoke
+  %or.cond = select i1 %232, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %.invoke
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %228
   %233 = zext nneg i32 %231 to i64
   %switch.gep = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_12UniqueActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %233
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2719,20 +2717,18 @@ _ZN5arrow7compute12VectorKernelD2Ev.exit.i:       ; preds = %486, %_ZN5arrow6Sta
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %99) #33
   %519 = load i32, ptr %.061.ptr414.i, align 4, !tbaa !143
   %520 = icmp ult i32 %519, 41
-  br i1 %520, label %switch.hole_check965, label %.invoke
+  %switch.maskindex966 = zext nneg i32 %519 to i64
+  %switch.shifted967 = lshr i64 1846869490687, %switch.maskindex966
+  %switch.lobit968 = trunc i64 %switch.shifted967 to i1
+  %or.cond971 = select i1 %520, i1 %switch.lobit968, i1 false
+  br i1 %or.cond971, label %switch.lookup965, label %.invoke
 
-switch.hole_check965:                             ; preds = %518
-  %switch.maskindex967 = zext nneg i32 %519 to i64
-  %switch.shifted968 = lshr i64 1846869490687, %switch.maskindex967
-  %switch.lobit969 = trunc i64 %switch.shifted968 to i1
-  br i1 %switch.lobit969, label %switch.lookup966, label %.invoke
-
-switch.lookup966:                                 ; preds = %switch.hole_check965
+switch.lookup965:                                 ; preds = %518
   %521 = zext nneg i32 %519 to i64
-  %switch.gep970 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_12UniqueActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %521
-  %switch.load971 = load ptr, ptr %switch.gep970, align 8
+  %switch.gep969 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_12UniqueActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %521
+  %switch.load970 = load ptr, ptr %switch.gep969, align 8
   store i64 0, ptr %208, align 8, !alias.scope !144
-  store ptr %switch.load971, ptr %99, align 8, !tbaa !71, !alias.scope !144
+  store ptr %switch.load970, ptr %99, align 8, !tbaa !71, !alias.scope !144
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %89) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %207, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %209, i64 16, i1 false), !tbaa.struct !114
@@ -2746,11 +2742,11 @@ switch.lookup966:                                 ; preds = %switch.hole_check96
   %.not.i.i117.i = icmp eq ptr %522, null
   br i1 %.not.i.i117.i, label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit119.thread.i, label %524
 
-_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit119.thread.i: ; preds = %switch.lookup966
+_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit119.thread.i: ; preds = %switch.lookup965
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %89) #33
   br label %_ZNSt14_Function_baseD2Ev.exit121.i
 
-524:                                              ; preds = %switch.lookup966
+524:                                              ; preds = %switch.lookup965
   %525 = invoke noundef zeroext i1 %522(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %89, i32 noundef 3)
           to label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit119.i unwind label %526
 
@@ -3308,20 +3304,18 @@ _ZN5arrow7compute12VectorKernelD2Ev.exit168.i:    ; preds = %711, %_ZN5arrow6Sta
   %747 = load i32, ptr %.062.ptr.i, align 4, !tbaa !143
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %107) #33
   %748 = icmp ult i32 %747, 41
-  br i1 %748, label %switch.hole_check973, label %.invoke
+  %switch.maskindex974 = zext nneg i32 %747 to i64
+  %switch.shifted975 = lshr i64 1846869490687, %switch.maskindex974
+  %switch.lobit976 = trunc i64 %switch.shifted975 to i1
+  %or.cond979 = select i1 %748, i1 %switch.lobit976, i1 false
+  br i1 %or.cond979, label %switch.lookup973, label %.invoke
 
-switch.hole_check973:                             ; preds = %746
-  %switch.maskindex975 = zext nneg i32 %747 to i64
-  %switch.shifted976 = lshr i64 1846869490687, %switch.maskindex975
-  %switch.lobit977 = trunc i64 %switch.shifted976 to i1
-  br i1 %switch.lobit977, label %switch.lookup974, label %.invoke
-
-switch.lookup974:                                 ; preds = %switch.hole_check973
+switch.lookup973:                                 ; preds = %746
   %749 = zext nneg i32 %747 to i64
-  %switch.gep978 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_12UniqueActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %749
-  %switch.load979 = load ptr, ptr %switch.gep978, align 8
+  %switch.gep977 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_12UniqueActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %749
+  %switch.load978 = load ptr, ptr %switch.gep977, align 8
   store i64 0, ptr %502, align 8, !alias.scope !147
-  store ptr %switch.load979, ptr %107, align 8, !tbaa !71, !alias.scope !147
+  store ptr %switch.load978, ptr %107, align 8, !tbaa !71, !alias.scope !147
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %501, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %209, i64 16, i1 false), !tbaa.struct !114
@@ -3335,11 +3329,11 @@ switch.lookup974:                                 ; preds = %switch.hole_check97
   %.not.i.i174.i = icmp eq ptr %750, null
   br i1 %.not.i.i174.i, label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit176.thread.i, label %752
 
-_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit176.thread.i: ; preds = %switch.lookup974
+_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit176.thread.i: ; preds = %switch.lookup973
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %87) #33
   br label %_ZNSt14_Function_baseD2Ev.exit178.i
 
-752:                                              ; preds = %switch.lookup974
+752:                                              ; preds = %switch.lookup973
   %753 = invoke noundef zeroext i1 %750(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %87, i32 noundef 3)
           to label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit176.i unwind label %754
 
@@ -3871,27 +3865,25 @@ _ZN5arrow7compute12VectorKernelD2Ev.exit226.i:    ; preds = %939, %_ZN5arrow6Sta
   %956 = getelementptr inbounds nuw i8, ptr %955, i64 40
   %957 = load i32, ptr %956, align 8, !tbaa !96
   %958 = icmp ult i32 %957, 41
-  br i1 %958, label %switch.hole_check981, label %.invoke
+  %switch.maskindex982 = zext nneg i32 %957 to i64
+  %switch.shifted983 = lshr i64 1846869490687, %switch.maskindex982
+  %switch.lobit984 = trunc i64 %switch.shifted983 to i1
+  %or.cond987 = select i1 %958, i1 %switch.lobit984, i1 false
+  br i1 %or.cond987, label %switch.lookup981, label %.invoke
 
-.invoke:                                          ; preds = %228, %switch.hole_check, %518, %switch.hole_check965, %746, %switch.hole_check973, %954, %switch.hole_check981
+.invoke:                                          ; preds = %228, %518, %746, %954
   invoke void @_ZN5arrow11UnreachableEPKc(ptr noundef nonnull @.str.26) #32
           to label %.cont unwind label %.loopexit.split-lp935.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-switch.hole_check981:                             ; preds = %954
-  %switch.maskindex983 = zext nneg i32 %957 to i64
-  %switch.shifted984 = lshr i64 1846869490687, %switch.maskindex983
-  %switch.lobit985 = trunc i64 %switch.shifted984 to i1
-  br i1 %switch.lobit985, label %switch.lookup982, label %.invoke
-
-switch.lookup982:                                 ; preds = %switch.hole_check981
+switch.lookup981:                                 ; preds = %954
   %959 = zext nneg i32 %957 to i64
-  %switch.gep986 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_12UniqueActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %959
-  %switch.load987 = load ptr, ptr %switch.gep986, align 8
+  %switch.gep985 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_12UniqueActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %959
+  %switch.load986 = load ptr, ptr %switch.gep985, align 8
   store i64 0, ptr %731, align 8, !alias.scope !150
-  store ptr %switch.load987, ptr %114, align 8, !tbaa !71, !alias.scope !150
+  store ptr %switch.load986, ptr %114, align 8, !tbaa !71, !alias.scope !150
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %85) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %730, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %209, i64 16, i1 false), !tbaa.struct !114
@@ -3905,11 +3897,11 @@ switch.lookup982:                                 ; preds = %switch.hole_check98
   %.not.i.i232.i = icmp eq ptr %960, null
   br i1 %.not.i.i232.i, label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit234.thread.i, label %962
 
-_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit234.thread.i: ; preds = %switch.lookup982
+_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit234.thread.i: ; preds = %switch.lookup981
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %85) #33
   br label %_ZNSt14_Function_baseD2Ev.exit236.i
 
-962:                                              ; preds = %switch.lookup982
+962:                                              ; preds = %switch.lookup981
   %963 = invoke noundef zeroext i1 %960(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %85, i32 noundef 3)
           to label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit234.i unwind label %964
 
@@ -5453,20 +5445,18 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow7compute14VectorFun
   %1568 = getelementptr inbounds nuw i8, ptr %1567, i64 40
   %1569 = load i32, ptr %1568, align 8, !tbaa !96
   %1570 = icmp ult i32 %1569, 41
-  br i1 %1570, label %switch.hole_check989, label %.invoke951
+  %switch.maskindex990 = zext nneg i32 %1569 to i64
+  %switch.shifted991 = lshr i64 1846869490687, %switch.maskindex990
+  %switch.lobit992 = trunc i64 %switch.shifted991 to i1
+  %or.cond995 = select i1 %1570, i1 %switch.lobit992, i1 false
+  br i1 %or.cond995, label %switch.lookup989, label %.invoke951
 
-switch.hole_check989:                             ; preds = %1566
-  %switch.maskindex991 = zext nneg i32 %1569 to i64
-  %switch.shifted992 = lshr i64 1846869490687, %switch.maskindex991
-  %switch.lobit993 = trunc i64 %switch.shifted992 to i1
-  br i1 %switch.lobit993, label %switch.lookup990, label %.invoke951
-
-switch.lookup990:                                 ; preds = %switch.hole_check989
+switch.lookup989:                                 ; preds = %1566
   %1571 = zext nneg i32 %1569 to i64
-  %switch.gep994 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_17ValueCountsActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %1571
-  %switch.load995 = load ptr, ptr %switch.gep994, align 8
+  %switch.gep993 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_17ValueCountsActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %1571
+  %switch.load994 = load ptr, ptr %switch.gep993, align 8
   store i64 0, ptr %1526, align 8, !alias.scope !161
-  store ptr %switch.load995, ptr %50, align 8, !tbaa !71, !alias.scope !161
+  store ptr %switch.load994, ptr %50, align 8, !tbaa !71, !alias.scope !161
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1525, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %1527, i64 16, i1 false), !tbaa.struct !114
@@ -5480,11 +5470,11 @@ switch.lookup990:                                 ; preds = %switch.hole_check98
   %.not.i.i.i124 = icmp eq ptr %1572, null
   br i1 %.not.i.i.i124, label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit.thread.i417, label %1574
 
-_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit.thread.i417: ; preds = %switch.lookup990
+_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit.thread.i417: ; preds = %switch.lookup989
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #33
   br label %_ZNSt14_Function_baseD2Ev.exit.i128
 
-1574:                                             ; preds = %switch.lookup990
+1574:                                             ; preds = %switch.lookup989
   %1575 = invoke noundef zeroext i1 %1572(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 3)
           to label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit.i125 unwind label %1576
 
@@ -6181,20 +6171,18 @@ _ZN5arrow7compute12VectorKernelD2Ev.exit.i193:    ; preds = %1824, %_ZN5arrow6St
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58) #33
   %1857 = load i32, ptr %.061.ptr414.i197, align 4, !tbaa !143
   %1858 = icmp ult i32 %1857, 41
-  br i1 %1858, label %switch.hole_check997, label %.invoke951
+  %switch.maskindex998 = zext nneg i32 %1857 to i64
+  %switch.shifted999 = lshr i64 1846869490687, %switch.maskindex998
+  %switch.lobit1000 = trunc i64 %switch.shifted999 to i1
+  %or.cond1003 = select i1 %1858, i1 %switch.lobit1000, i1 false
+  br i1 %or.cond1003, label %switch.lookup997, label %.invoke951
 
-switch.hole_check997:                             ; preds = %1856
-  %switch.maskindex999 = zext nneg i32 %1857 to i64
-  %switch.shifted1000 = lshr i64 1846869490687, %switch.maskindex999
-  %switch.lobit1001 = trunc i64 %switch.shifted1000 to i1
-  br i1 %switch.lobit1001, label %switch.lookup998, label %.invoke951
-
-switch.lookup998:                                 ; preds = %switch.hole_check997
+switch.lookup997:                                 ; preds = %1856
   %1859 = zext nneg i32 %1857 to i64
-  %switch.gep1002 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_17ValueCountsActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %1859
-  %switch.load1003 = load ptr, ptr %switch.gep1002, align 8
+  %switch.gep1001 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_17ValueCountsActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %1859
+  %switch.load1002 = load ptr, ptr %switch.gep1001, align 8
   store i64 0, ptr %1546, align 8, !alias.scope !164
-  store ptr %switch.load1003, ptr %58, align 8, !tbaa !71, !alias.scope !164
+  store ptr %switch.load1002, ptr %58, align 8, !tbaa !71, !alias.scope !164
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1545, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %1547, i64 16, i1 false), !tbaa.struct !114
@@ -6208,11 +6196,11 @@ switch.lookup998:                                 ; preds = %switch.hole_check99
   %.not.i.i117.i199 = icmp eq ptr %1860, null
   br i1 %.not.i.i117.i199, label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit119.thread.i406, label %1862
 
-_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit119.thread.i406: ; preds = %switch.lookup998
+_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit119.thread.i406: ; preds = %switch.lookup997
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48) #33
   br label %_ZNSt14_Function_baseD2Ev.exit121.i203
 
-1862:                                             ; preds = %switch.lookup998
+1862:                                             ; preds = %switch.lookup997
   %1863 = invoke noundef zeroext i1 %1860(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %48, i32 noundef 3)
           to label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit119.i200 unwind label %1864
 
@@ -6770,20 +6758,18 @@ _ZN5arrow7compute12VectorKernelD2Ev.exit168.i248: ; preds = %2049, %_ZN5arrow6St
   %2085 = load i32, ptr %.062.ptr.i252, align 4, !tbaa !143
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66) #33
   %2086 = icmp ult i32 %2085, 41
-  br i1 %2086, label %switch.hole_check1005, label %.invoke951
+  %switch.maskindex1006 = zext nneg i32 %2085 to i64
+  %switch.shifted1007 = lshr i64 1846869490687, %switch.maskindex1006
+  %switch.lobit1008 = trunc i64 %switch.shifted1007 to i1
+  %or.cond1011 = select i1 %2086, i1 %switch.lobit1008, i1 false
+  br i1 %or.cond1011, label %switch.lookup1005, label %.invoke951
 
-switch.hole_check1005:                            ; preds = %2084
-  %switch.maskindex1007 = zext nneg i32 %2085 to i64
-  %switch.shifted1008 = lshr i64 1846869490687, %switch.maskindex1007
-  %switch.lobit1009 = trunc i64 %switch.shifted1008 to i1
-  br i1 %switch.lobit1009, label %switch.lookup1006, label %.invoke951
-
-switch.lookup1006:                                ; preds = %switch.hole_check1005
+switch.lookup1005:                                ; preds = %2084
   %2087 = zext nneg i32 %2085 to i64
-  %switch.gep1010 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_17ValueCountsActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %2087
-  %switch.load1011 = load ptr, ptr %switch.gep1010, align 8
+  %switch.gep1009 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_17ValueCountsActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %2087
+  %switch.load1010 = load ptr, ptr %switch.gep1009, align 8
   store i64 0, ptr %1840, align 8, !alias.scope !167
-  store ptr %switch.load1011, ptr %66, align 8, !tbaa !71, !alias.scope !167
+  store ptr %switch.load1010, ptr %66, align 8, !tbaa !71, !alias.scope !167
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1839, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %1547, i64 16, i1 false), !tbaa.struct !114
@@ -6797,11 +6783,11 @@ switch.lookup1006:                                ; preds = %switch.hole_check10
   %.not.i.i174.i254 = icmp eq ptr %2088, null
   br i1 %.not.i.i174.i254, label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit176.thread.i399, label %2090
 
-_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit176.thread.i399: ; preds = %switch.lookup1006
+_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit176.thread.i399: ; preds = %switch.lookup1005
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46) #33
   br label %_ZNSt14_Function_baseD2Ev.exit178.i258
 
-2090:                                             ; preds = %switch.lookup1006
+2090:                                             ; preds = %switch.lookup1005
   %2091 = invoke noundef zeroext i1 %2088(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 3)
           to label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit176.i255 unwind label %2092
 
@@ -7333,27 +7319,25 @@ _ZN5arrow7compute12VectorKernelD2Ev.exit226.i304: ; preds = %2277, %_ZN5arrow6St
   %2294 = getelementptr inbounds nuw i8, ptr %2293, i64 40
   %2295 = load i32, ptr %2294, align 8, !tbaa !96
   %2296 = icmp ult i32 %2295, 41
-  br i1 %2296, label %switch.hole_check1013, label %.invoke951
+  %switch.maskindex1014 = zext nneg i32 %2295 to i64
+  %switch.shifted1015 = lshr i64 1846869490687, %switch.maskindex1014
+  %switch.lobit1016 = trunc i64 %switch.shifted1015 to i1
+  %or.cond1019 = select i1 %2296, i1 %switch.lobit1016, i1 false
+  br i1 %or.cond1019, label %switch.lookup1013, label %.invoke951
 
-.invoke951:                                       ; preds = %1566, %switch.hole_check989, %1856, %switch.hole_check997, %2084, %switch.hole_check1005, %2292, %switch.hole_check1013
+.invoke951:                                       ; preds = %1566, %1856, %2084, %2292
   invoke void @_ZN5arrow11UnreachableEPKc(ptr noundef nonnull @.str.26) #32
           to label %.cont952 unwind label %.loopexit.split-lp921.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont952:                                         ; preds = %.invoke951
   unreachable
 
-switch.hole_check1013:                            ; preds = %2292
-  %switch.maskindex1015 = zext nneg i32 %2295 to i64
-  %switch.shifted1016 = lshr i64 1846869490687, %switch.maskindex1015
-  %switch.lobit1017 = trunc i64 %switch.shifted1016 to i1
-  br i1 %switch.lobit1017, label %switch.lookup1014, label %.invoke951
-
-switch.lookup1014:                                ; preds = %switch.hole_check1013
+switch.lookup1013:                                ; preds = %2292
   %2297 = zext nneg i32 %2295 to i64
-  %switch.gep1018 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_17ValueCountsActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %2297
-  %switch.load1019 = load ptr, ptr %switch.gep1018, align 8
+  %switch.gep1017 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_17ValueCountsActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %2297
+  %switch.load1018 = load ptr, ptr %switch.gep1017, align 8
   store i64 0, ptr %2069, align 8, !alias.scope !170
-  store ptr %switch.load1019, ptr %73, align 8, !tbaa !71, !alias.scope !170
+  store ptr %switch.load1018, ptr %73, align 8, !tbaa !71, !alias.scope !170
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2068, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %1547, i64 16, i1 false), !tbaa.struct !114
@@ -7367,11 +7351,11 @@ switch.lookup1014:                                ; preds = %switch.hole_check10
   %.not.i.i232.i312 = icmp eq ptr %2298, null
   br i1 %.not.i.i232.i312, label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit234.thread.i392, label %2300
 
-_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit234.thread.i392: ; preds = %switch.lookup1014
+_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit234.thread.i392: ; preds = %switch.lookup1013
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44) #33
   br label %_ZNSt14_Function_baseD2Ev.exit236.i316
 
-2300:                                             ; preds = %switch.lookup1014
+2300:                                             ; preds = %switch.lookup1013
   %2301 = invoke noundef zeroext i1 %2298(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef 3)
           to label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit234.i313 unwind label %2302
 
@@ -8939,20 +8923,18 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow7compute14VectorFun
   %2909 = getelementptr inbounds nuw i8, ptr %2908, i64 40
   %2910 = load i32, ptr %2909, align 8, !tbaa !96
   %2911 = icmp ult i32 %2910, 41
-  br i1 %2911, label %switch.hole_check1021, label %.invoke953
+  %switch.maskindex1022 = zext nneg i32 %2910 to i64
+  %switch.shifted1023 = lshr i64 1846869490687, %switch.maskindex1022
+  %switch.lobit1024 = trunc i64 %switch.shifted1023 to i1
+  %or.cond1027 = select i1 %2911, i1 %switch.lobit1024, i1 false
+  br i1 %or.cond1027, label %switch.lookup1021, label %.invoke953
 
-switch.hole_check1021:                            ; preds = %2907
-  %switch.maskindex1023 = zext nneg i32 %2910 to i64
-  %switch.shifted1024 = lshr i64 1846869490687, %switch.maskindex1023
-  %switch.lobit1025 = trunc i64 %switch.shifted1024 to i1
-  br i1 %switch.lobit1025, label %switch.lookup1022, label %.invoke953
-
-switch.lookup1022:                                ; preds = %switch.hole_check1021
+switch.lookup1021:                                ; preds = %2907
   %2912 = zext nneg i32 %2910 to i64
-  %switch.gep1026 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal18RegisterVectorHashEPNS0_16FunctionRegistryE.945, i64 0, i64 %2912
-  %switch.load1027 = load ptr, ptr %switch.gep1026, align 8
+  %switch.gep1025 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal18RegisterVectorHashEPNS0_16FunctionRegistryE.945, i64 0, i64 %2912
+  %switch.load1026 = load ptr, ptr %switch.gep1025, align 8
   store i64 0, ptr %2867, align 8, !alias.scope !179
-  store ptr %switch.load1027, ptr %9, align 8, !tbaa !71, !alias.scope !179
+  store ptr %switch.load1026, ptr %9, align 8, !tbaa !71, !alias.scope !179
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2866, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2868, i64 16, i1 false), !tbaa.struct !114
@@ -8966,11 +8948,11 @@ switch.lookup1022:                                ; preds = %switch.hole_check10
   %.not.i.i.i523 = icmp eq ptr %2913, null
   br i1 %.not.i.i.i523, label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit.thread.i816, label %2915
 
-_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit.thread.i816: ; preds = %switch.lookup1022
+_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit.thread.i816: ; preds = %switch.lookup1021
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #33
   br label %_ZNSt14_Function_baseD2Ev.exit.i527
 
-2915:                                             ; preds = %switch.lookup1022
+2915:                                             ; preds = %switch.lookup1021
   %2916 = invoke noundef zeroext i1 %2913(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3)
           to label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit.i524 unwind label %2917
 
@@ -9667,20 +9649,18 @@ _ZN5arrow7compute12VectorKernelD2Ev.exit.i592:    ; preds = %3165, %_ZN5arrow6St
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #33
   %3198 = load i32, ptr %.061.ptr414.i596, align 4, !tbaa !143
   %3199 = icmp ult i32 %3198, 41
-  br i1 %3199, label %switch.hole_check1029, label %.invoke953
+  %switch.maskindex1030 = zext nneg i32 %3198 to i64
+  %switch.shifted1031 = lshr i64 1846869490687, %switch.maskindex1030
+  %switch.lobit1032 = trunc i64 %switch.shifted1031 to i1
+  %or.cond1035 = select i1 %3199, i1 %switch.lobit1032, i1 false
+  br i1 %or.cond1035, label %switch.lookup1029, label %.invoke953
 
-switch.hole_check1029:                            ; preds = %3197
-  %switch.maskindex1031 = zext nneg i32 %3198 to i64
-  %switch.shifted1032 = lshr i64 1846869490687, %switch.maskindex1031
-  %switch.lobit1033 = trunc i64 %switch.shifted1032 to i1
-  br i1 %switch.lobit1033, label %switch.lookup1030, label %.invoke953
-
-switch.lookup1030:                                ; preds = %switch.hole_check1029
+switch.lookup1029:                                ; preds = %3197
   %3200 = zext nneg i32 %3198 to i64
-  %switch.gep1034 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal18RegisterVectorHashEPNS0_16FunctionRegistryE.945, i64 0, i64 %3200
-  %switch.load1035 = load ptr, ptr %switch.gep1034, align 8
+  %switch.gep1033 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal18RegisterVectorHashEPNS0_16FunctionRegistryE.945, i64 0, i64 %3200
+  %switch.load1034 = load ptr, ptr %switch.gep1033, align 8
   store i64 0, ptr %2887, align 8, !alias.scope !182
-  store ptr %switch.load1035, ptr %17, align 8, !tbaa !71, !alias.scope !182
+  store ptr %switch.load1034, ptr %17, align 8, !tbaa !71, !alias.scope !182
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2886, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2888, i64 16, i1 false), !tbaa.struct !114
@@ -9694,11 +9674,11 @@ switch.lookup1030:                                ; preds = %switch.hole_check10
   %.not.i.i117.i598 = icmp eq ptr %3201, null
   br i1 %.not.i.i117.i598, label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit119.thread.i805, label %3203
 
-_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit119.thread.i805: ; preds = %switch.lookup1030
+_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit119.thread.i805: ; preds = %switch.lookup1029
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #33
   br label %_ZNSt14_Function_baseD2Ev.exit121.i602
 
-3203:                                             ; preds = %switch.lookup1030
+3203:                                             ; preds = %switch.lookup1029
   %3204 = invoke noundef zeroext i1 %3201(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 3)
           to label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit119.i599 unwind label %3205
 
@@ -10256,20 +10236,18 @@ _ZN5arrow7compute12VectorKernelD2Ev.exit168.i647: ; preds = %3390, %_ZN5arrow6St
   %3426 = load i32, ptr %.062.ptr.i651, align 4, !tbaa !143
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #33
   %3427 = icmp ult i32 %3426, 41
-  br i1 %3427, label %switch.hole_check1037, label %.invoke953
+  %switch.maskindex1038 = zext nneg i32 %3426 to i64
+  %switch.shifted1039 = lshr i64 1846869490687, %switch.maskindex1038
+  %switch.lobit1040 = trunc i64 %switch.shifted1039 to i1
+  %or.cond1043 = select i1 %3427, i1 %switch.lobit1040, i1 false
+  br i1 %or.cond1043, label %switch.lookup1037, label %.invoke953
 
-switch.hole_check1037:                            ; preds = %3425
-  %switch.maskindex1039 = zext nneg i32 %3426 to i64
-  %switch.shifted1040 = lshr i64 1846869490687, %switch.maskindex1039
-  %switch.lobit1041 = trunc i64 %switch.shifted1040 to i1
-  br i1 %switch.lobit1041, label %switch.lookup1038, label %.invoke953
-
-switch.lookup1038:                                ; preds = %switch.hole_check1037
+switch.lookup1037:                                ; preds = %3425
   %3428 = zext nneg i32 %3426 to i64
-  %switch.gep1042 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal18RegisterVectorHashEPNS0_16FunctionRegistryE.945, i64 0, i64 %3428
-  %switch.load1043 = load ptr, ptr %switch.gep1042, align 8
+  %switch.gep1041 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal18RegisterVectorHashEPNS0_16FunctionRegistryE.945, i64 0, i64 %3428
+  %switch.load1042 = load ptr, ptr %switch.gep1041, align 8
   store i64 0, ptr %3181, align 8, !alias.scope !185
-  store ptr %switch.load1043, ptr %25, align 8, !tbaa !71, !alias.scope !185
+  store ptr %switch.load1042, ptr %25, align 8, !tbaa !71, !alias.scope !185
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3180, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2888, i64 16, i1 false), !tbaa.struct !114
@@ -10283,11 +10261,11 @@ switch.lookup1038:                                ; preds = %switch.hole_check10
   %.not.i.i174.i653 = icmp eq ptr %3429, null
   br i1 %.not.i.i174.i653, label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit176.thread.i798, label %3431
 
-_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit176.thread.i798: ; preds = %switch.lookup1038
+_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit176.thread.i798: ; preds = %switch.lookup1037
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #33
   br label %_ZNSt14_Function_baseD2Ev.exit178.i657
 
-3431:                                             ; preds = %switch.lookup1038
+3431:                                             ; preds = %switch.lookup1037
   %3432 = invoke noundef zeroext i1 %3429(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit176.i654 unwind label %3433
 
@@ -10819,27 +10797,25 @@ _ZN5arrow7compute12VectorKernelD2Ev.exit226.i703: ; preds = %3618, %_ZN5arrow6St
   %3635 = getelementptr inbounds nuw i8, ptr %3634, i64 40
   %3636 = load i32, ptr %3635, align 8, !tbaa !96
   %3637 = icmp ult i32 %3636, 41
-  br i1 %3637, label %switch.hole_check1045, label %.invoke953
+  %switch.maskindex1046 = zext nneg i32 %3636 to i64
+  %switch.shifted1047 = lshr i64 1846869490687, %switch.maskindex1046
+  %switch.lobit1048 = trunc i64 %switch.shifted1047 to i1
+  %or.cond1051 = select i1 %3637, i1 %switch.lobit1048, i1 false
+  br i1 %or.cond1051, label %switch.lookup1045, label %.invoke953
 
-.invoke953:                                       ; preds = %2907, %switch.hole_check1021, %3197, %switch.hole_check1029, %3425, %switch.hole_check1037, %3633, %switch.hole_check1045
+.invoke953:                                       ; preds = %2907, %3197, %3425, %3633
   invoke void @_ZN5arrow11UnreachableEPKc(ptr noundef nonnull @.str.26) #32
           to label %.cont954 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont954:                                         ; preds = %.invoke953
   unreachable
 
-switch.hole_check1045:                            ; preds = %3633
-  %switch.maskindex1047 = zext nneg i32 %3636 to i64
-  %switch.shifted1048 = lshr i64 1846869490687, %switch.maskindex1047
-  %switch.lobit1049 = trunc i64 %switch.shifted1048 to i1
-  br i1 %switch.lobit1049, label %switch.lookup1046, label %.invoke953
-
-switch.lookup1046:                                ; preds = %switch.hole_check1045
+switch.lookup1045:                                ; preds = %3633
   %3638 = zext nneg i32 %3636 to i64
-  %switch.gep1050 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal18RegisterVectorHashEPNS0_16FunctionRegistryE.945, i64 0, i64 %3638
-  %switch.load1051 = load ptr, ptr %switch.gep1050, align 8
+  %switch.gep1049 = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal18RegisterVectorHashEPNS0_16FunctionRegistryE.945, i64 0, i64 %3638
+  %switch.load1050 = load ptr, ptr %switch.gep1049, align 8
   store i64 0, ptr %3410, align 8, !alias.scope !188
-  store ptr %switch.load1051, ptr %32, align 8, !tbaa !71, !alias.scope !188
+  store ptr %switch.load1050, ptr %32, align 8, !tbaa !71, !alias.scope !188
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3409, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2888, i64 16, i1 false), !tbaa.struct !114
@@ -10853,11 +10829,11 @@ switch.lookup1046:                                ; preds = %switch.hole_check10
   %.not.i.i232.i711 = icmp eq ptr %3639, null
   br i1 %.not.i.i232.i711, label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit234.thread.i791, label %3641
 
-_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit234.thread.i791: ; preds = %switch.lookup1046
+_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit234.thread.i791: ; preds = %switch.lookup1045
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #33
   br label %_ZNSt14_Function_baseD2Ev.exit236.i715
 
-3641:                                             ; preds = %switch.lookup1046
+3641:                                             ; preds = %switch.lookup1045
   %3642 = invoke noundef zeroext i1 %3639(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
           to label %_ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSEOSF_.exit234.i712 unwind label %3643
 
@@ -12772,19 +12748,17 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashIn
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8, !tbaa !96
   %13 = icmp ult i32 %12, 41
-  br i1 %13, label %switch.hole_check, label %14
-
-14:                                               ; preds = %switch.hole_check, %3
-  tail call void @_ZN5arrow11UnreachableEPKc(ptr noundef nonnull @.str.26) #32, !noalias !233
-  unreachable
-
-switch.hole_check:                                ; preds = %3
   %switch.maskindex = zext nneg i32 %12 to i64
   %switch.shifted = lshr i64 1846869490687, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %14
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %14
 
-switch.lookup:                                    ; preds = %switch.hole_check
+14:                                               ; preds = %3
+  tail call void @_ZN5arrow11UnreachableEPKc(ptr noundef nonnull @.str.26) #32, !noalias !233
+  unreachable
+
+switch.lookup:                                    ; preds = %3
   %15 = zext nneg i32 %12 to i64
   %switch.gep = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_12UniqueActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -14366,19 +14340,17 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashIn
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8, !tbaa !96
   %13 = icmp ult i32 %12, 41
-  br i1 %13, label %switch.hole_check, label %14
-
-14:                                               ; preds = %switch.hole_check, %3
-  tail call void @_ZN5arrow11UnreachableEPKc(ptr noundef nonnull @.str.26) #32, !noalias !313
-  unreachable
-
-switch.hole_check:                                ; preds = %3
   %switch.maskindex = zext nneg i32 %12 to i64
   %switch.shifted = lshr i64 1846869490687, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %14
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %14
 
-switch.lookup:                                    ; preds = %switch.hole_check
+14:                                               ; preds = %3
+  tail call void @_ZN5arrow11UnreachableEPKc(ptr noundef nonnull @.str.26) #32, !noalias !313
+  unreachable
+
+switch.lookup:                                    ; preds = %3
   %15 = zext nneg i32 %12 to i64
   %switch.gep = getelementptr inbounds nuw [41 x ptr], ptr @switch.table._ZN5arrow7compute8internal12_GLOBAL__N_118DictionaryHashInitINS2_17ValueCountsActionEEENS_6ResultISt10unique_ptrINS0_11KernelStateESt14default_deleteIS7_EEEEPNS0_13KernelContextERKNS0_14KernelInitArgsE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8

@@ -5237,100 +5237,94 @@ entry:
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %this) #25
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
+  %stopped_ = getelementptr inbounds nuw i8, ptr %this, i64 140
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i3 = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i3, label %land.rhs.lr.ph, label %while.end
-
-land.rhs.lr.ph:                                   ; preds = %entry
-  %stopped_ = getelementptr inbounds nuw i8, ptr %this, i64 140
-  %tasks_available_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %cmp.i.i.i3 = icmp ne ptr %0, %1
   %2 = load i8, ptr %stopped_, align 4
-  %tobool5 = trunc i8 %2 to i1
-  br i1 %tobool5, label %while.end, label %while.body
+  %tobool4 = trunc i8 %2 to i1
+  %or.cond5 = select i1 %cmp.i.i.i3, i1 true, i1 %tobool4
+  br i1 %or.cond5, label %while.end, label %while.body.lr.ph
 
-land.rhs:                                         ; preds = %while.body
-  %3 = load i8, ptr %stopped_, align 4
-  %tobool = trunc i8 %3 to i1
-  br i1 %tobool, label %while.end, label %while.body, !llvm.loop !111
+while.body.lr.ph:                                 ; preds = %entry
+  %tasks_available_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  br label %while.body
 
-while.body:                                       ; preds = %land.rhs.lr.ph, %land.rhs
+while.body:                                       ; preds = %while.body.lr.ph, %while.body
   tail call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %tasks_available_, ptr noundef nonnull %this) #25
-  %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %5 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %4, %5
-  br i1 %cmp.i.i.i, label %land.rhs, label %while.body.while.end.loopexit_crit_edge, !llvm.loop !111
+  %3 = load ptr, ptr %_M_finish.i.i, align 8
+  %4 = load ptr, ptr %_M_start.i.i, align 8
+  %cmp.i.i.i = icmp ne ptr %3, %4
+  %5 = load i8, ptr %stopped_, align 4
+  %tobool = trunc i8 %5 to i1
+  %or.cond = select i1 %cmp.i.i.i, i1 true, i1 %tobool
+  br i1 %or.cond, label %while.end, label %while.body, !llvm.loop !111
 
-while.body.while.end.loopexit_crit_edge:          ; preds = %while.body
-  br label %while.end, !llvm.loop !111
-
-while.end:                                        ; preds = %land.rhs, %land.rhs.lr.ph, %while.body.while.end.loopexit_crit_edge, %entry
-  %.lcssa = phi ptr [ %1, %entry ], [ %5, %while.body.while.end.loopexit_crit_edge ], [ %1, %land.rhs.lr.ph ], [ %5, %land.rhs ]
-  %stopped_2 = getelementptr inbounds nuw i8, ptr %this, i64 140
-  %6 = load i8, ptr %stopped_2, align 4
-  %tobool3 = trunc i8 %6 to i1
-  br i1 %tobool3, label %if.then, label %if.end
+while.end:                                        ; preds = %while.body, %entry
+  %.lcssa = phi ptr [ %1, %entry ], [ %4, %while.body ]
+  %tobool.lcssa = phi i1 [ %tobool4, %entry ], [ %tobool, %while.body ]
+  br i1 %tobool.lcssa, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
   store ptr null, ptr %agg.result, align 8
   br label %cleanup
 
 if.end:                                           ; preds = %while.end
-  %7 = load i64, ptr %.lcssa, align 8
-  store i64 %7, ptr %agg.result, align 8
+  %6 = load i64, ptr %.lcssa, align 8
+  store i64 %6, ptr %agg.result, align 8
   store ptr null, ptr %.lcssa, align 8
-  %8 = load ptr, ptr %_M_start.i.i, align 8
+  %7 = load ptr, ptr %_M_start.i.i, align 8
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %9 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 -8
-  %cmp.not.i.i = icmp eq ptr %8, %add.ptr.i.i
-  %10 = load ptr, ptr %8, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %10, null
+  %8 = load ptr, ptr %_M_last.i.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 -8
+  %cmp.not.i.i = icmp eq ptr %7, %add.ptr.i.i
+  %9 = load ptr, ptr %7, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i: ; preds = %if.then.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %10, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %9, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 8
-  %11 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #25
+  %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
   br label %_ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i
 
 _ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i, %if.then.i.i
-  store ptr null, ptr %8, align 8
-  %12 = load ptr, ptr %_M_start.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr null, ptr %7, align 8
+  %11 = load ptr, ptr %_M_start.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %_ZNSt5queueISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESt5dequeIS5_SaIS5_EEE3popEv.exit
 
 if.else.i.i:                                      ; preds = %if.end
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i, label %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %if.else.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %9, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
-  %13 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #25
+  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
   br label %_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i
 
 _ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i: ; preds = %_ZNKSt14default_deleteIN2v84TaskEEclEPS1_.exit.i.i.i.i.i.i, %if.else.i.i
-  store ptr null, ptr %8, align 8
+  store ptr null, ptr %7, align 8
   %_M_first.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %14 = load ptr, ptr %_M_first.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %14) #28
+  %13 = load ptr, ptr %_M_first.i.i.i, align 8
+  tail call void @_ZdlPv(ptr noundef %13) #28
   %_M_node.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %15 = load ptr, ptr %_M_node.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %14 = load ptr, ptr %_M_node.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_node.i.i.i, align 8
-  %16 = load ptr, ptr %add.ptr.i.i.i, align 8
-  store ptr %16, ptr %_M_first.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 512
+  %15 = load ptr, ptr %add.ptr.i.i.i, align 8
+  store ptr %15, ptr %_M_first.i.i.i, align 8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 512
   store ptr %add.ptr.i.i.i.i, ptr %_M_last.i.i, align 8
   br label %_ZNSt5queueISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESt5dequeIS5_SaIS5_EEE3popEv.exit
 
 _ZNSt5queueISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESt5dequeIS5_SaIS5_EEE3popEv.exit: ; preds = %_ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i, %_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i
-  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i ], [ %16, %_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i ]
+  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %_ZNSt16allocator_traitsISaISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EEEE7destroyIS5_EEvRS6_PT_.exit.i.i ], [ %15, %_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EE16_M_pop_front_auxEv.exit.i.i ]
   store ptr %storemerge.i.i, ptr %_M_start.i.i, align 8
   br label %cleanup
 

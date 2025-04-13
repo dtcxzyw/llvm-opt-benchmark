@@ -1277,8 +1277,8 @@ define linkonce_odr dso_local void @_ZN13SensorBookend4StepER8Settings(ptr nound
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %.sroa.011.0.copyload = load i32, ptr %4, align 4
-  call void @b2World_GetSensorEvents(ptr dead_on_unwind nonnull writable sret(%struct.b2SensorEvents) align 8 %3, i32 %.sroa.011.0.copyload)
+  %.sroa.013.0.copyload = load i32, ptr %4, align 4
+  call void @b2World_GetSensorEvents(ptr dead_on_unwind nonnull writable sret(%struct.b2SensorEvents) align 8 %3, i32 %.sroa.013.0.copyload)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !64
   %7 = icmp sgt i32 %6, 0
@@ -1300,9 +1300,9 @@ define linkonce_odr dso_local void @_ZN13SensorBookend4StepER8Settings(ptr nound
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %17 = load i32, ptr %16, align 4, !tbaa !81
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph19, label %._crit_edge
+  br i1 %18, label %.lr.ph20, label %._crit_edge
 
-.lr.ph19:                                         ; preds = %.preheader
+.lr.ph20:                                         ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -1313,9 +1313,9 @@ define linkonce_odr dso_local void @_ZN13SensorBookend4StepER8Settings(ptr nound
 24:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %25 = getelementptr inbounds nuw %struct.b2SensorBeginTouchEvent, ptr %8, i64 %indvars.iv
-  %.sroa.37.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.sroa.37.0.copyload = load i32, ptr %.sroa.37.0..sroa_idx, align 4, !tbaa !82
-  %26 = icmp eq i32 %.sroa.37.0.copyload, %10
+  %.sroa.39.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sroa.39.0.copyload = load i32, ptr %.sroa.39.0..sroa_idx, align 4, !tbaa !82
+  %26 = icmp eq i32 %.sroa.39.0.copyload, %10
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %24
@@ -1353,10 +1353,10 @@ define linkonce_odr dso_local void @_ZN13SensorBookend4StepER8Settings(ptr nound
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
   ret void
 
-42:                                               ; preds = %.lr.ph19, %57
-  %indvars.iv21 = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next22, %57 ]
+42:                                               ; preds = %.lr.ph20, %57
+  %indvars.iv22 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next23, %57 ]
   %43 = load ptr, ptr %19, align 8, !tbaa !87
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw %struct.b2SensorEndTouchEvent, ptr %43, i64 %indvars.iv21, i32 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw %struct.b2SensorEndTouchEvent, ptr %43, i64 %indvars.iv22, i32 1
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 4
   %44 = call zeroext i1 @b2Shape_IsValid(i64 %.sroa.3.0.copyload)
   %.sroa.3.8.extract.trunc = trunc i64 %.sroa.3.0.copyload to i32
@@ -1376,21 +1376,21 @@ define linkonce_odr dso_local void @_ZN13SensorBookend4StepER8Settings(ptr nound
   %52 = load i16, ptr %22, align 2, !tbaa !89
   %53 = zext i16 %52 to i64
   %54 = icmp ne i64 %.sroa.3.14.extract.shift, %53
-  %brmerge.not = select i1 %54, i1 %44, i1 false
-  br i1 %brmerge.not, label %57, label %56
+  %or.cond.not = select i1 %54, i1 %44, i1 false
+  br i1 %or.cond.not, label %57, label %56
 
 55:                                               ; preds = %47, %42
   br i1 %44, label %57, label %56
 
-56:                                               ; preds = %51, %55
+56:                                               ; preds = %55, %51
   store i8 0, ptr %23, align 8, !tbaa !77
   br label %57
 
 57:                                               ; preds = %51, %56, %55
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %58 = load i32, ptr %16, align 4, !tbaa !81
   %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %indvars.iv.next22, %59
+  %60 = icmp slt i64 %indvars.iv.next23, %59
   br i1 %60, label %42, label %._crit_edge, !llvm.loop !90
 }
 

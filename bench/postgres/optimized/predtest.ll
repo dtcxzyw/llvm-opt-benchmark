@@ -336,85 +336,85 @@ define internal fastcc zeroext i1 @predicate_implied_by_recurse(ptr noundef %0, 
 126:                                              ; preds = %124
   %127 = load i32, ptr %.054, align 4
   %cond.i = icmp eq i32 %127, 17
-  br i1 %cond.i, label %128, label %.critedge41.threadthread-pre-split.i
+  br i1 %cond.i, label %128, label %.critedge42.threadthread-pre-split.i
 
 128:                                              ; preds = %126
   %129 = getelementptr inbounds nuw i8, ptr %.054, i64 4
   %130 = load i32, ptr %129, align 4
   %131 = icmp eq i32 %130, 91
-  br i1 %131, label %132, label %.critedge41.threadthread-pre-split.i
+  br i1 %131, label %132, label %.critedge42.threadthread-pre-split.i
 
 132:                                              ; preds = %128
   %133 = getelementptr inbounds nuw i8, ptr %.054, i64 32
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr i8, ptr %134, i64 16
-  %.val43.i = load ptr, ptr %135, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %.val43.i, i64 8
+  %.val44.i = load ptr, ptr %135, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %.val44.i, i64 8
   %137 = load ptr, ptr %136, align 8
-  %.not39.i = icmp eq ptr %137, null
-  br i1 %.not39.i, label %.critedge41.threadthread-pre-split.i, label %138
+  %.not40.i = icmp eq ptr %137, null
+  br i1 %.not40.i, label %.critedge42.threadthread-pre-split.i, label %138
 
 138:                                              ; preds = %132
   %139 = load i32, ptr %137, align 4
   %140 = icmp eq i32 %139, 7
-  br i1 %140, label %141, label %.critedge41.threadthread-pre-split.i
+  br i1 %140, label %141, label %.critedge42.threadthread-pre-split.i
 
 141:                                              ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 32
   %143 = load i8, ptr %142, align 8, !range !14, !noundef !15
   %144 = trunc nuw i8 %143 to i1
-  br i1 %144, label %.critedge41.threadthread-pre-split.i, label %145
+  br i1 %144, label %.critedge42.threadthread-pre-split.i, label %145
 
 145:                                              ; preds = %141
-  %146 = load ptr, ptr %.val43.i, align 8
+  %146 = load ptr, ptr %.val44.i, align 8
   %147 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %148 = load i64, ptr %147, align 8
-  %.not49.i = icmp eq i64 %148, 0
-  br i1 %.not49.i, label %151, label %149
+  %.not50.i = icmp eq i64 %148, 0
+  br i1 %.not50.i, label %151, label %149
 
 149:                                              ; preds = %145
   %150 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef %146) #7
-  br i1 %150, label %predicate_implied_by_simple_clause.exit, label %.critedge41.threadthread-pre-split.i
+  br i1 %150, label %predicate_implied_by_simple_clause.exit, label %.critedge42.threadthread-pre-split.i
 
 151:                                              ; preds = %145
   %.not.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i, label %.critedge41.threadthread-pre-split.i, label %152
+  br i1 %.not.i.i, label %.critedge42.threadthread-pre-split.i, label %152
 
 152:                                              ; preds = %151
   %153 = load i32, ptr %1, align 4
   %154 = icmp eq i32 %153, 21
-  br i1 %154, label %is_notclause.exit.i, label %.critedge41.thread.i
+  br i1 %154, label %is_notclause.exit.i, label %.critedge42.thread.i
 
 is_notclause.exit.i:                              ; preds = %152
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %156 = load i32, ptr %155, align 4
   %157 = icmp eq i32 %156, 2
-  br i1 %157, label %158, label %.critedge41.threadthread-pre-split.i
+  br i1 %157, label %158, label %.critedge42.threadthread-pre-split.i
 
 158:                                              ; preds = %is_notclause.exit.i
   %159 = getelementptr i8, ptr %1, i64 8
-  %.val44.i = load ptr, ptr %159, align 8
-  %160 = getelementptr i8, ptr %.val44.i, i64 16
-  %.val44.val.i = load ptr, ptr %160, align 8
-  %.val44.val.val.i = load ptr, ptr %.val44.val.i, align 8
-  %161 = tail call zeroext i1 @equal(ptr noundef %.val44.val.val.i, ptr noundef %146) #7
-  br i1 %161, label %predicate_implied_by_simple_clause.exit, label %.critedge41.threadthread-pre-split.i
+  %.val45.i = load ptr, ptr %159, align 8
+  %160 = getelementptr i8, ptr %.val45.i, i64 16
+  %.val45.val.i = load ptr, ptr %160, align 8
+  %.val45.val.val.i = load ptr, ptr %.val45.val.i, align 8
+  %161 = tail call zeroext i1 @equal(ptr noundef %.val45.val.val.i, ptr noundef %146) #7
+  br i1 %161, label %predicate_implied_by_simple_clause.exit, label %.critedge42.threadthread-pre-split.i
 
-.critedge41.threadthread-pre-split.i:             ; preds = %158, %is_notclause.exit.i, %151, %149, %141, %138, %132, %128, %126
+.critedge42.threadthread-pre-split.i:             ; preds = %158, %is_notclause.exit.i, %151, %149, %141, %138, %132, %128, %126
   %.pr.i = load i32, ptr %1, align 4
-  br label %.critedge41.thread.i
+  br label %.critedge42.thread.i
 
-.critedge41.thread.i:                             ; preds = %.critedge41.threadthread-pre-split.i, %152
-  %162 = phi i32 [ %.pr.i, %.critedge41.threadthread-pre-split.i ], [ %153, %152 ]
+.critedge42.thread.i:                             ; preds = %.critedge42.threadthread-pre-split.i, %152
+  %162 = phi i32 [ %.pr.i, %.critedge42.threadthread-pre-split.i ], [ %153, %152 ]
   %cond1.i = icmp eq i32 %162, 52
   br i1 %cond1.i, label %163, label %.thread.i
 
-163:                                              ; preds = %.critedge41.thread.i
+163:                                              ; preds = %.critedge42.thread.i
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %165 = load i32, ptr %164, align 8
   %cond2.i = icmp ne i32 %165, 1
-  %brmerge.i = or i1 %2, %cond2.i
-  br i1 %brmerge.i, label %.thread.i, label %166
+  %or.cond.i = or i1 %2, %cond2.i
+  br i1 %or.cond.i, label %.thread.i, label %166
 
 166:                                              ; preds = %163
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -428,7 +428,7 @@ is_notclause.exit.i:                              ; preds = %152
   %173 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef nonnull %.054, ptr noundef %172, i1 noundef zeroext true)
   br i1 %173, label %predicate_implied_by_simple_clause.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %170, %166, %163, %.critedge41.thread.i
+.thread.i:                                        ; preds = %170, %166, %163, %.critedge42.thread.i
   %174 = tail call fastcc zeroext i1 @operator_predicate_proof(ptr noundef nonnull %1, ptr noundef nonnull %.054, i1 noundef zeroext false, i1 noundef zeroext %2)
   br label %predicate_implied_by_simple_clause.exit
 
@@ -1797,41 +1797,41 @@ is_opclause.exit:                                 ; preds = %4
 8:                                                ; preds = %is_opclause.exit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  %.not.i132 = icmp eq ptr %10, null
-  br i1 %.not.i132, label %is_opclause.exit.thread, label %list_length.exit
+  %.not.i134 = icmp eq ptr %10, null
+  br i1 %.not.i134, label %is_opclause.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
-  %.not = icmp ne i32 %12, 2
-  %.not.i133 = icmp eq ptr %1, null
-  %or.cond139 = or i1 %.not.i133, %.not
-  br i1 %or.cond139, label %is_opclause.exit.thread, label %is_opclause.exit134
+  %.not115 = icmp ne i32 %12, 2
+  %.not.i135 = icmp eq ptr %1, null
+  %or.cond141 = or i1 %.not.i135, %.not115
+  br i1 %or.cond141, label %is_opclause.exit.thread, label %is_opclause.exit136
 
-is_opclause.exit134:                              ; preds = %list_length.exit
+is_opclause.exit136:                              ; preds = %list_length.exit
   %13 = load i32, ptr %1, align 4
   %14 = icmp eq i32 %13, 17
   br i1 %14, label %15, label %is_opclause.exit.thread
 
-15:                                               ; preds = %is_opclause.exit134
+15:                                               ; preds = %is_opclause.exit136
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
-  %.not.i135 = icmp eq ptr %17, null
-  br i1 %.not.i135, label %is_opclause.exit.thread, label %list_length.exit136
+  %.not.i137 = icmp eq ptr %17, null
+  br i1 %.not.i137, label %is_opclause.exit.thread, label %list_length.exit138
 
-list_length.exit136:                              ; preds = %15
+list_length.exit138:                              ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
-  %.not114 = icmp eq i32 %19, 2
-  br i1 %.not114, label %20, label %is_opclause.exit.thread
+  %.not116 = icmp eq i32 %19, 2
+  br i1 %.not116, label %20, label %is_opclause.exit.thread
 
-20:                                               ; preds = %list_length.exit136
+20:                                               ; preds = %list_length.exit138
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i32, ptr %23, align 8
-  %.not115 = icmp eq i32 %22, %24
-  br i1 %.not115, label %25, label %is_opclause.exit.thread
+  %.not117 = icmp eq i32 %22, %24
+  br i1 %.not117, label %25, label %is_opclause.exit.thread
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1839,14 +1839,14 @@ list_length.exit136:                              ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr i8, ptr %10, i64 16
-  %.val131 = load ptr, ptr %30, align 8
-  %31 = load ptr, ptr %.val131, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %.val131, i64 8
+  %.val133 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %.val133, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %.val133, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %17, i64 16
-  %.val129 = load ptr, ptr %34, align 8
-  %35 = load ptr, ptr %.val129, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %.val129, i64 8
+  %.val131 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %.val131, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %.val131, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i1 @equal(ptr noundef %31, ptr noundef %35) #7
   %39 = tail call zeroext i1 @equal(ptr noundef %33, ptr noundef %37) #7
@@ -1867,8 +1867,8 @@ list_length.exit136:                              ; preds = %15
   %46 = load i32, ptr %33, align 4
   %47 = icmp ne i32 %46, 7
   %48 = icmp eq ptr %37, null
-  %or.cond = select i1 %47, i1 true, i1 %48
-  br i1 %or.cond, label %is_opclause.exit.thread, label %49
+  %or.cond125 = select i1 %47, i1 true, i1 %48
+  br i1 %or.cond125, label %is_opclause.exit.thread, label %49
 
 49:                                               ; preds = %45
   %50 = load i32, ptr %37, align 4
@@ -1886,8 +1886,8 @@ list_length.exit136:                              ; preds = %15
   %56 = load i32, ptr %31, align 4
   %57 = icmp ne i32 %56, 7
   %58 = icmp eq ptr %35, null
-  %or.cond124 = or i1 %58, %57
-  br i1 %or.cond124, label %is_opclause.exit.thread, label %59
+  %or.cond126 = or i1 %58, %57
+  br i1 %or.cond126, label %is_opclause.exit.thread, label %59
 
 59:                                               ; preds = %55
   %60 = load i32, ptr %35, align 4
@@ -1896,13 +1896,13 @@ list_length.exit136:                              ; preds = %15
 
 62:                                               ; preds = %59
   %63 = tail call i32 @get_commutator(i32 noundef %27) #7
-  %.not119 = icmp eq i32 %63, 0
-  br i1 %.not119, label %is_opclause.exit.thread, label %64
+  %.not121 = icmp eq i32 %63, 0
+  br i1 %.not121, label %is_opclause.exit.thread, label %64
 
 64:                                               ; preds = %62
   %65 = tail call i32 @get_commutator(i32 noundef %29) #7
-  %.not120 = icmp eq i32 %65, 0
-  br i1 %.not120, label %is_opclause.exit.thread, label %96
+  %.not122 = icmp eq i32 %65, 0
+  br i1 %.not122, label %is_opclause.exit.thread, label %96
 
 66:                                               ; preds = %52
   %67 = tail call zeroext i1 @equal(ptr noundef %31, ptr noundef %37) #7
@@ -1914,8 +1914,8 @@ list_length.exit136:                              ; preds = %15
 
 70:                                               ; preds = %69
   %71 = tail call i32 @get_commutator(i32 noundef %27) #7
-  %.not118 = icmp eq i32 %71, 0
-  br i1 %.not118, label %is_opclause.exit.thread, label %72
+  %.not120 = icmp eq i32 %71, 0
+  br i1 %.not120, label %is_opclause.exit.thread, label %72
 
 72:                                               ; preds = %70
   %73 = tail call fastcc zeroext i1 @operator_same_subexprs_proof(i32 noundef %71, i32 noundef %29, i1 noundef zeroext %2)
@@ -1929,8 +1929,8 @@ list_length.exit136:                              ; preds = %15
   %77 = load i32, ptr %33, align 4
   %78 = icmp ne i32 %77, 7
   %79 = icmp eq ptr %35, null
-  %or.cond125 = or i1 %79, %78
-  br i1 %or.cond125, label %is_opclause.exit.thread, label %80
+  %or.cond127 = or i1 %79, %78
+  br i1 %or.cond127, label %is_opclause.exit.thread, label %80
 
 80:                                               ; preds = %76
   %81 = load i32, ptr %35, align 4
@@ -1939,20 +1939,20 @@ list_length.exit136:                              ; preds = %15
 
 83:                                               ; preds = %80
   %84 = tail call i32 @get_commutator(i32 noundef %29) #7
-  %.not117 = icmp eq i32 %84, 0
-  br i1 %.not117, label %is_opclause.exit.thread, label %96
+  %.not119 = icmp eq i32 %84, 0
+  br i1 %.not119, label %is_opclause.exit.thread, label %96
 
 85:                                               ; preds = %66
   %86 = icmp ne ptr %31, null
-  %or.cond127.not = and i1 %86, %68
-  br i1 %or.cond127.not, label %87, label %is_opclause.exit.thread
+  %or.cond129.not = and i1 %86, %68
+  br i1 %or.cond129.not, label %87, label %is_opclause.exit.thread
 
 87:                                               ; preds = %85
   %88 = load i32, ptr %31, align 4
   %89 = icmp ne i32 %88, 7
   %90 = icmp eq ptr %37, null
-  %or.cond128 = select i1 %89, i1 true, i1 %90
-  br i1 %or.cond128, label %is_opclause.exit.thread, label %91
+  %or.cond130 = select i1 %89, i1 true, i1 %90
+  br i1 %or.cond130, label %is_opclause.exit.thread, label %91
 
 91:                                               ; preds = %87
   %92 = load i32, ptr %37, align 4
@@ -1961,43 +1961,43 @@ list_length.exit136:                              ; preds = %15
 
 94:                                               ; preds = %91
   %95 = tail call i32 @get_commutator(i32 noundef %27) #7
-  %.not116 = icmp eq i32 %95, 0
-  br i1 %.not116, label %is_opclause.exit.thread, label %96
+  %.not118 = icmp eq i32 %95, 0
+  br i1 %.not118, label %is_opclause.exit.thread, label %96
 
 96:                                               ; preds = %49, %64, %94, %83
-  %.098 = phi ptr [ %35, %64 ], [ %35, %83 ], [ %37, %94 ], [ %37, %49 ]
-  %.097 = phi ptr [ %31, %64 ], [ %33, %83 ], [ %31, %94 ], [ %33, %49 ]
-  %.096 = phi i32 [ %65, %64 ], [ %84, %83 ], [ %29, %94 ], [ %29, %49 ]
-  %.095 = phi i32 [ %63, %64 ], [ %27, %83 ], [ %95, %94 ], [ %27, %49 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.098, i64 32
+  %.099 = phi ptr [ %35, %64 ], [ %35, %83 ], [ %37, %94 ], [ %37, %49 ]
+  %.098 = phi ptr [ %31, %64 ], [ %33, %83 ], [ %31, %94 ], [ %33, %49 ]
+  %.097 = phi i32 [ %65, %64 ], [ %84, %83 ], [ %29, %94 ], [ %29, %49 ]
+  %.096 = phi i32 [ %63, %64 ], [ %27, %83 ], [ %95, %94 ], [ %27, %49 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.099, i64 32
   %98 = load i8, ptr %97, align 8, !range !14, !noundef !15
   %99 = trunc nuw i8 %98 to i1
   br i1 %99, label %100, label %110
 
 100:                                              ; preds = %96
-  %101 = tail call zeroext i1 @op_strict(i32 noundef %.096) #7
+  %101 = tail call zeroext i1 @op_strict(i32 noundef %.097) #7
   br i1 %101, label %102, label %is_opclause.exit.thread
 
 102:                                              ; preds = %100
-  %.not123 = xor i1 %3, true
-  %brmerge = or i1 %2, %.not123
-  br i1 %brmerge, label %is_opclause.exit.thread, label %103
+  %.not = xor i1 %3, true
+  %or.cond = or i1 %2, %.not
+  br i1 %or.cond, label %is_opclause.exit.thread, label %103
 
 103:                                              ; preds = %102
-  %104 = getelementptr inbounds nuw i8, ptr %.097, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %.098, i64 32
   %105 = load i8, ptr %104, align 8, !range !14, !noundef !15
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %103
-  %108 = tail call zeroext i1 @op_strict(i32 noundef %.095) #7
+  %108 = tail call zeroext i1 @op_strict(i32 noundef %.096) #7
   br i1 %108, label %is_opclause.exit.thread, label %109
 
 109:                                              ; preds = %107, %103
   br label %is_opclause.exit.thread
 
 110:                                              ; preds = %96
-  %111 = getelementptr inbounds nuw i8, ptr %.097, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %.098, i64 32
   %112 = load i8, ptr %111, align 8, !range !14, !noundef !15
   %113 = trunc nuw i8 %112 to i1
   br i1 %113, label %114, label %118
@@ -2006,19 +2006,19 @@ list_length.exit136:                              ; preds = %15
   br i1 %3, label %115, label %117
 
 115:                                              ; preds = %114
-  %116 = tail call zeroext i1 @op_strict(i32 noundef %.095) #7
+  %116 = tail call zeroext i1 @op_strict(i32 noundef %.096) #7
   br i1 %116, label %is_opclause.exit.thread, label %117
 
 117:                                              ; preds = %115, %114
   br label %is_opclause.exit.thread
 
 118:                                              ; preds = %110
-  %119 = tail call fastcc ptr @lookup_proof_cache(i32 noundef %.095, i32 noundef %.096, i1 noundef zeroext %2)
+  %119 = tail call fastcc ptr @lookup_proof_cache(i32 noundef %.096, i32 noundef %.097, i1 noundef zeroext %2)
   %.0.in.v.i = select i1 %2, i64 16, i64 12
   %.0.in.i = getelementptr inbounds nuw i8, ptr %119, i64 %.0.in.v.i
   %.0.i = load i32, ptr %.0.in.i, align 4
-  %.not121 = icmp eq i32 %.0.i, 0
-  br i1 %.not121, label %is_opclause.exit.thread, label %120
+  %.not123 = icmp eq i32 %.0.i, 0
+  br i1 %.not123, label %is_opclause.exit.thread, label %120
 
 120:                                              ; preds = %118
   %121 = tail call ptr @CreateExecutorState() #7
@@ -2026,13 +2026,13 @@ list_length.exit136:                              ; preds = %15
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %123, ptr @CurrentMemoryContext, align 8
-  %125 = tail call ptr @make_opclause(i32 noundef %.0.i, i32 noundef 16, i1 noundef zeroext false, ptr noundef nonnull %.097, ptr noundef nonnull %.098, i32 noundef 0, i32 noundef %22) #7
+  %125 = tail call ptr @make_opclause(i32 noundef %.0.i, i32 noundef 16, i1 noundef zeroext false, ptr noundef nonnull %.098, ptr noundef nonnull %.099, i32 noundef 0, i32 noundef %22) #7
   tail call void @fix_opfuncids(ptr noundef %125) #7
   %126 = tail call ptr @ExecInitExpr(ptr noundef %125, ptr noundef null) #7
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 264
   %128 = load ptr, ptr %127, align 8
-  %.not122 = icmp eq ptr %128, null
-  br i1 %.not122, label %129, label %131
+  %.not124 = icmp eq ptr %128, null
+  br i1 %.not124, label %129, label %131
 
 129:                                              ; preds = %120
   %130 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %121) #7
@@ -2065,8 +2065,8 @@ list_length.exit136:                              ; preds = %15
   %145 = icmp ne i64 %137, 0
   br label %is_opclause.exit.thread
 
-is_opclause.exit.thread:                          ; preds = %15, %8, %4, %140, %142, %118, %115, %107, %102, %100, %85, %94, %91, %87, %83, %80, %74, %76, %70, %64, %62, %59, %53, %55, %49, %43, %45, %20, %list_length.exit136, %is_opclause.exit134, %list_length.exit, %is_opclause.exit, %144, %117, %109, %72, %41
-  %.0 = phi i1 [ %42, %41 ], [ false, %109 ], [ false, %117 ], [ %145, %144 ], [ %73, %72 ], [ false, %is_opclause.exit ], [ false, %list_length.exit ], [ false, %is_opclause.exit134 ], [ false, %list_length.exit136 ], [ false, %20 ], [ false, %45 ], [ false, %43 ], [ false, %49 ], [ false, %55 ], [ false, %53 ], [ false, %59 ], [ false, %62 ], [ false, %64 ], [ false, %70 ], [ false, %76 ], [ false, %74 ], [ false, %80 ], [ false, %83 ], [ false, %87 ], [ false, %91 ], [ false, %94 ], [ false, %85 ], [ false, %100 ], [ true, %102 ], [ true, %107 ], [ true, %115 ], [ false, %118 ], [ false, %142 ], [ false, %140 ], [ false, %4 ], [ false, %8 ], [ false, %15 ]
+is_opclause.exit.thread:                          ; preds = %15, %8, %4, %140, %142, %118, %115, %107, %102, %100, %85, %94, %91, %87, %83, %80, %74, %76, %70, %64, %62, %59, %53, %55, %49, %43, %45, %20, %list_length.exit138, %is_opclause.exit136, %list_length.exit, %is_opclause.exit, %144, %117, %109, %72, %41
+  %.0 = phi i1 [ %42, %41 ], [ false, %109 ], [ false, %117 ], [ %145, %144 ], [ %73, %72 ], [ false, %is_opclause.exit ], [ false, %list_length.exit ], [ false, %is_opclause.exit136 ], [ false, %list_length.exit138 ], [ false, %20 ], [ false, %45 ], [ false, %43 ], [ false, %49 ], [ false, %55 ], [ false, %53 ], [ false, %59 ], [ false, %62 ], [ false, %64 ], [ false, %70 ], [ false, %76 ], [ false, %74 ], [ false, %80 ], [ false, %83 ], [ false, %87 ], [ false, %91 ], [ false, %94 ], [ false, %85 ], [ false, %100 ], [ true, %102 ], [ true, %107 ], [ true, %115 ], [ false, %118 ], [ false, %142 ], [ false, %140 ], [ false, %4 ], [ false, %8 ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
   ret i1 %.0
 }

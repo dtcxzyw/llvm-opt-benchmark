@@ -3549,9 +3549,13 @@ define dso_local noundef range(i32 2415, 2518) i32 @_ZNK4llvm19X86GenSubtargetIn
   %639 = load i64, ptr %638, align 8, !tbaa !368
   %switch.tableidx = add i64 %639, -6
   %640 = icmp ult i64 %switch.tableidx, 9
-  br i1 %640, label %switch.hole_check, label %641
+  %switch.maskindex = trunc i64 %switch.tableidx to i16
+  %switch.shifted = lshr i16 451, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %640, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.fold.split, label %641
 
-641:                                              ; preds = %switch.hole_check, %635
+641:                                              ; preds = %635
   %642 = icmp eq i64 %639, 15
   %.1236 = select i1 %642, i32 2483, i32 2480
   br label %.fold.split
@@ -6693,14 +6697,8 @@ define dso_local noundef range(i32 2415, 2518) i32 @_ZNK4llvm19X86GenSubtargetIn
 .fold.split2089:                                  ; preds = %._crit_edge, %._crit_edge
   br label %.fold.split
 
-switch.hole_check:                                ; preds = %635
-  %switch.maskindex = trunc nuw i64 %switch.tableidx to i16
-  %switch.shifted = lshr i16 451, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %.fold.split, label %641
-
-.fold.split:                                      ; preds = %switch.hole_check, %._crit_edge, %._crit_edge, %._crit_edge2023, %._crit_edge2023, %._crit_edge2026, %._crit_edge2026, %._crit_edge2029, %._crit_edge2029, %._crit_edge2032, %._crit_edge2032, %._crit_edge2035, %._crit_edge2035, %._crit_edge2038, %._crit_edge2038, %._crit_edge2041, %._crit_edge2041, %._crit_edge2044, %._crit_edge2044, %._crit_edge2047, %._crit_edge2047, %1843, %1843, %.fold.split2089, %.fold.split2088, %.fold.split2087, %.fold.split2086, %1830, %1830, %.fold.split2085, %.fold.split2084, %.fold.split2083, %.fold.split2082, %1817, %1817, %.fold.split2081, %.fold.split2080, %.fold.split2079, %.fold.split2078, %1143, %1143, %.fold.split2077, %.fold.split2076, %.fold.split2075, %.fold.split2074, %1130, %1130, %.fold.split2073, %.fold.split2072, %.fold.split2071, %.fold.split2070, %67, %67, %.fold.split2069, %.fold.split2068, %.fold.split2067, %.fold.split2066, %54, %54, %.fold.split2065, %.fold.split2064, %.fold.split2063, %.fold.split2062, %41, %41, %.fold.split2061, %.fold.split2060, %.fold.split2059, %.fold.split2058, %28, %28, %.fold.split2057, %.fold.split2056, %.fold.split2055, %.fold.split2054, %15, %15, %.fold.split2053, %.fold.split2052, %.fold.split2051, %.fold.split2050, %745, %.fold.split2002, %.fold.split2000, %.fold.split1992, %.fold.split1990, %.fold.split1982, %.fold.split1980, %.fold.split1972, %.fold.split1970, %.fold.split1962, %.fold.split1960, %987, %.fold.split1952, %.fold.split1950, %.fold.split1942, %.fold.split1940, %.fold.split1932, %.fold.split1930, %.fold.split1922, %.fold.split1920, %.fold.split1912, %.fold.split1910, %798, %790, %782, %774, %766, %758, %740, %732, %724, %716, %708, %700, %689, %681, %673, %665, %657, %649, %630, %622, %614, %606, %598, %590, %2422, %2410, %2402, %2391, %2383, %2375, %2367, %2359, %2351, %2343, %2335, %2327, %2319, %2310, %2298, %2290, %2282, %2271, %2263, %2255, %2244, %2236, %2228, %2217, %2209, %2201, %2190, %2182, %2174, %2163, %2155, %2147, %2136, %2124, %2112, %2100, %2092, %2084, %2076, %2068, %2060, %2052, %2041, %2033, %2025, %2017, %2009, %2001, %1993, %1985, %1977, %1969, %1958, %1950, %1942, %1934, %1926, %1918, %1910, %1902, %1891, %1883, %1872, %1860, %1850, %1844, %1831, %1818, %1799, %1791, %1780, %1772, %1761, %1753, %1742, %1734, %1723, %1715, %1706, %1694, %1686, %1678, %1667, %1659, %1651, %1640, %1632, %1624, %1613, %1601, %1589, %1577, %1565, %1553, %1541, %1533, %1525, %1517, %1509, %1501, %1493, %1485, %1477, %1469, %1458, %1450, %1439, %1431, %1423, %1415, %1404, %1396, %1388, %1380, %1372, %1364, %1356, %1348, %1340, %1332, %1321, %1313, %1305, %1294, %1286, %1278, %1270, %1259, %1251, %1243, %1235, %1227, %1219, %1211, %1203, %1195, %1187, %1176, %1168, %1157, %1149, %1144, %1131, %1107, %1116, %1094, %1103, %1081, %1090, %1068, %1077, %1061, %1041, %1033, %1025, %1017, %1009, %1001, %993, %969, %961, %953, %945, %937, %929, %921, %910, %902, %894, %886, %878, %870, %862, %851, %843, %835, %827, %819, %811, %803, %792, %784, %776, %768, %760, %752, %750, %734, %726, %718, %710, %702, %694, %683, %675, %667, %659, %651, %643, %641, %624, %616, %608, %600, %592, %584, %573, %565, %557, %549, %541, %533, %525, %517, %509, %498, %490, %482, %474, %466, %458, %450, %442, %431, %423, %415, %407, %399, %391, %383, %375, %364, %356, %348, %340, %332, %324, %316, %308, %297, %289, %281, %273, %265, %257, %249, %241, %233, %222, %214, %206, %198, %190, %182, %174, %166, %155, %147, %139, %131, %123, %115, %107, %99, %91, %83, %74, %68, %55, %42, %29, %16, %1119, %1106, %1093, %1080, %.critedge2, %.critedge
-  %.0 = phi i32 [ 2508, %1080 ], [ 2508, %1093 ], [ 2508, %1106 ], [ 2508, %1119 ], [ 2506, %.critedge2 ], [ 2505, %.critedge ], [ 2415, %15 ], [ %., %16 ], [ 2425, %28 ], [ %.1171, %29 ], [ 2415, %41 ], [ %.1172, %42 ], [ 2435, %54 ], [ %.1173, %55 ], [ 2435, %67 ], [ %.1174, %68 ], [ %.1175, %74 ], [ %.1176, %83 ], [ %.1177, %91 ], [ %.1178, %99 ], [ %.1179, %107 ], [ %.1180, %115 ], [ %.1181, %123 ], [ %.1182, %131 ], [ %.1183, %139 ], [ %.1184, %147 ], [ %.1185, %155 ], [ %.1186, %166 ], [ %.1187, %174 ], [ %.1188, %182 ], [ %.1189, %190 ], [ %.1190, %198 ], [ %.1191, %206 ], [ %.1192, %214 ], [ %.1193, %222 ], [ %.1194, %233 ], [ %.1195, %241 ], [ %.1196, %249 ], [ %.1197, %257 ], [ %.1198, %265 ], [ %.1199, %273 ], [ %.1200, %281 ], [ %.1201, %289 ], [ %.1202, %297 ], [ %.1203, %308 ], [ %.1204, %316 ], [ %.1205, %324 ], [ %.1206, %332 ], [ %.1207, %340 ], [ %.1208, %348 ], [ %.1209, %356 ], [ %.1210, %364 ], [ %.1211, %375 ], [ %.1212, %383 ], [ %.1213, %391 ], [ %.1214, %399 ], [ %.1215, %407 ], [ %.1216, %415 ], [ %.1217, %423 ], [ %.1218, %431 ], [ %.1219, %442 ], [ %.1220, %450 ], [ %.1221, %458 ], [ %.1222, %466 ], [ %.1223, %474 ], [ %.1224, %482 ], [ %.1225, %490 ], [ %.1226, %498 ], [ %.1227, %509 ], [ %.1228, %517 ], [ %.1229, %525 ], [ %.1230, %533 ], [ %.1231, %541 ], [ %.1232, %549 ], [ %.1233, %557 ], [ %.1234, %565 ], [ %.1235, %573 ], [ 2475, %584 ], [ 2477, %592 ], [ 2472, %600 ], [ 2474, %608 ], [ 2478, %616 ], [ 2476, %624 ], [ %.1236, %641 ], [ 2482, %643 ], [ 2485, %651 ], [ 2479, %659 ], [ 2481, %667 ], [ 2486, %675 ], [ 2484, %683 ], [ 2490, %694 ], [ 2492, %702 ], [ 2487, %710 ], [ 2489, %718 ], [ 2493, %726 ], [ 2491, %734 ], [ %.1237, %750 ], [ 2497, %752 ], [ 2500, %760 ], [ 2494, %768 ], [ 2496, %776 ], [ 2501, %784 ], [ 2499, %792 ], [ %.1238, %803 ], [ %.1239, %811 ], [ %.1240, %819 ], [ %.1241, %827 ], [ %.1242, %835 ], [ %.1243, %843 ], [ %.1244, %851 ], [ %.1245, %862 ], [ %.1246, %870 ], [ %.1247, %878 ], [ %.1248, %886 ], [ %.1249, %894 ], [ %.1250, %902 ], [ %.1251, %910 ], [ %.1252, %921 ], [ %.1253, %929 ], [ %.1254, %937 ], [ %.1255, %945 ], [ %.1256, %953 ], [ %.1257, %961 ], [ %.1258, %969 ], [ %.1259, %993 ], [ %.1260, %1001 ], [ %.1261, %1009 ], [ %.1262, %1017 ], [ %.1263, %1025 ], [ %.1264, %1033 ], [ %.1265, %1041 ], [ 2460, %1061 ], [ 2510, %1077 ], [ 2510, %1068 ], [ 2511, %1090 ], [ 2511, %1081 ], [ 2507, %1103 ], [ 2507, %1094 ], [ 2509, %1116 ], [ 2509, %1107 ], [ 2415, %1130 ], [ %.1266, %1131 ], [ 2435, %1143 ], [ %.1267, %1144 ], [ %.1268, %1149 ], [ %.1269, %1157 ], [ %.1270, %1168 ], [ %.1271, %1176 ], [ %.1272, %1187 ], [ %.1273, %1195 ], [ %.1274, %1203 ], [ %.1275, %1211 ], [ %.1276, %1219 ], [ %.1277, %1227 ], [ %.1278, %1235 ], [ %.1279, %1243 ], [ %.1280, %1251 ], [ %.1281, %1259 ], [ %.1282, %1270 ], [ %.1283, %1278 ], [ %.1284, %1286 ], [ %.1285, %1294 ], [ %.1286, %1305 ], [ %.1287, %1313 ], [ %.1288, %1321 ], [ %.1289, %1332 ], [ %.1290, %1340 ], [ %.1291, %1348 ], [ %.1292, %1356 ], [ %.1293, %1364 ], [ %.1294, %1372 ], [ %.1295, %1380 ], [ %.1296, %1388 ], [ %.1297, %1396 ], [ %.1298, %1404 ], [ %.1299, %1415 ], [ %.1300, %1423 ], [ %.1301, %1431 ], [ %.1302, %1439 ], [ %.1303, %1450 ], [ %.1304, %1458 ], [ %.1305, %1469 ], [ %.1306, %1477 ], [ %.1307, %1485 ], [ %.1308, %1493 ], [ %.1309, %1501 ], [ %.1310, %1509 ], [ %.1311, %1517 ], [ %.1312, %1525 ], [ %.1313, %1533 ], [ %.1314, %1541 ], [ %.1315, %1553 ], [ %.1316, %1565 ], [ %.1317, %1577 ], [ %.1318, %1589 ], [ %.1319, %1601 ], [ %.1320, %1613 ], [ %.1321, %1624 ], [ %.1322, %1632 ], [ %.1323, %1640 ], [ %.1324, %1651 ], [ %.1325, %1659 ], [ %.1326, %1667 ], [ %.1327, %1678 ], [ %.1328, %1686 ], [ %.1329, %1694 ], [ %.1330, %1706 ], [ %.1331, %1715 ], [ %.1332, %1723 ], [ %.1333, %1734 ], [ %.1334, %1742 ], [ %.1335, %1753 ], [ %.1336, %1761 ], [ %.1337, %1772 ], [ %.1338, %1780 ], [ %.1339, %1791 ], [ %.1340, %1799 ], [ 2415, %1817 ], [ %.1341, %1818 ], [ 2425, %1830 ], [ %.1342, %1831 ], [ 2435, %1843 ], [ %.1343, %1844 ], [ %.1344, %1850 ], [ %.1345, %1860 ], [ %.1346, %1872 ], [ %.1347, %1883 ], [ %.1348, %1891 ], [ %.1349, %1902 ], [ %.1350, %1910 ], [ %.1351, %1918 ], [ %.1352, %1926 ], [ %.1353, %1934 ], [ %.1354, %1942 ], [ %.1355, %1950 ], [ %.1356, %1958 ], [ %.1357, %1969 ], [ %.1358, %1977 ], [ %.1359, %1985 ], [ %.1360, %1993 ], [ %.1361, %2001 ], [ %.1362, %2009 ], [ %.1363, %2017 ], [ %.1364, %2025 ], [ %.1365, %2033 ], [ %.1366, %2041 ], [ %.1367, %2052 ], [ %.1368, %2060 ], [ %.1369, %2068 ], [ %.1370, %2076 ], [ %.1371, %2084 ], [ %.1372, %2092 ], [ %.1373, %2100 ], [ %.1374, %2112 ], [ %.1375, %2124 ], [ %.1376, %2136 ], [ %.1377, %2147 ], [ %.1378, %2155 ], [ %.1379, %2163 ], [ %.1380, %2174 ], [ %.1381, %2182 ], [ %.1382, %2190 ], [ %.1383, %2201 ], [ %.1384, %2209 ], [ %.1385, %2217 ], [ %.1386, %2228 ], [ %.1387, %2236 ], [ %.1388, %2244 ], [ %.1389, %2255 ], [ %.1390, %2263 ], [ %.1391, %2271 ], [ %.1392, %2282 ], [ %.1393, %2290 ], [ %.1394, %2298 ], [ %.1395, %2310 ], [ %.1396, %2319 ], [ %.1397, %2327 ], [ %.1398, %2335 ], [ %.1399, %2343 ], [ %.1400, %2351 ], [ %.1401, %2359 ], [ %.1402, %2367 ], [ %.1403, %2375 ], [ %.1404, %2383 ], [ %.1405, %2391 ], [ %.1406, %2402 ], [ %.1407, %2410 ], [ %.1408, %2422 ], [ %spec.select, %590 ], [ %spec.select1409, %598 ], [ %spec.select1410, %606 ], [ %spec.select1411, %614 ], [ %spec.select1412, %622 ], [ %spec.select1413, %630 ], [ %spec.select1414, %649 ], [ %spec.select1415, %657 ], [ %spec.select1416, %665 ], [ %spec.select1417, %673 ], [ %spec.select1418, %681 ], [ %spec.select1419, %689 ], [ %spec.select1420, %700 ], [ %spec.select1421, %708 ], [ %spec.select1422, %716 ], [ %spec.select1423, %724 ], [ %spec.select1424, %732 ], [ %spec.select1425, %740 ], [ %spec.select1426, %758 ], [ %spec.select1427, %766 ], [ %spec.select1428, %774 ], [ %spec.select1429, %782 ], [ %spec.select1430, %790 ], [ %spec.select1431, %798 ], [ 2415, %15 ], [ 2421, %.fold.split1910 ], [ 2422, %.fold.split1912 ], [ 2425, %28 ], [ 2431, %.fold.split1920 ], [ 2432, %.fold.split1922 ], [ 2415, %41 ], [ 2421, %.fold.split1930 ], [ 2422, %.fold.split1932 ], [ 2435, %54 ], [ 2441, %.fold.split1940 ], [ 2442, %.fold.split1942 ], [ 2435, %67 ], [ 2441, %.fold.split1950 ], [ 2442, %.fold.split1952 ], [ 2498, %745 ], [ 2504, %987 ], [ 2415, %1130 ], [ 2421, %.fold.split1960 ], [ 2422, %.fold.split1962 ], [ 2435, %1143 ], [ 2441, %.fold.split1970 ], [ 2442, %.fold.split1972 ], [ 2415, %1817 ], [ 2421, %.fold.split1980 ], [ 2422, %.fold.split1982 ], [ 2425, %1830 ], [ 2431, %.fold.split1990 ], [ 2432, %.fold.split1992 ], [ 2435, %1843 ], [ 2441, %.fold.split2000 ], [ 2442, %.fold.split2002 ], [ 2416, %.fold.split2050 ], [ 2417, %.fold.split2051 ], [ 2418, %.fold.split2052 ], [ 2419, %.fold.split2053 ], [ 2426, %.fold.split2054 ], [ 2427, %.fold.split2055 ], [ 2428, %.fold.split2056 ], [ 2429, %.fold.split2057 ], [ 2416, %.fold.split2058 ], [ 2417, %.fold.split2059 ], [ 2418, %.fold.split2060 ], [ 2419, %.fold.split2061 ], [ 2436, %.fold.split2062 ], [ 2437, %.fold.split2063 ], [ 2438, %.fold.split2064 ], [ 2439, %.fold.split2065 ], [ 2436, %.fold.split2066 ], [ 2437, %.fold.split2067 ], [ 2438, %.fold.split2068 ], [ 2439, %.fold.split2069 ], [ 2416, %.fold.split2070 ], [ 2417, %.fold.split2071 ], [ 2418, %.fold.split2072 ], [ 2419, %.fold.split2073 ], [ 2436, %.fold.split2074 ], [ 2437, %.fold.split2075 ], [ 2438, %.fold.split2076 ], [ 2439, %.fold.split2077 ], [ 2416, %.fold.split2078 ], [ 2417, %.fold.split2079 ], [ 2418, %.fold.split2080 ], [ 2419, %.fold.split2081 ], [ 2426, %.fold.split2082 ], [ 2427, %.fold.split2083 ], [ 2428, %.fold.split2084 ], [ 2429, %.fold.split2085 ], [ 2436, %.fold.split2086 ], [ 2437, %.fold.split2087 ], [ 2438, %.fold.split2088 ], [ 2439, %.fold.split2089 ], [ 2420, %._crit_edge2047 ], [ 2420, %._crit_edge2047 ], [ 2430, %._crit_edge2044 ], [ 2430, %._crit_edge2044 ], [ 2420, %._crit_edge2041 ], [ 2420, %._crit_edge2041 ], [ 2440, %._crit_edge2038 ], [ 2440, %._crit_edge2038 ], [ 2440, %._crit_edge2035 ], [ 2440, %._crit_edge2035 ], [ 2420, %._crit_edge2032 ], [ 2420, %._crit_edge2032 ], [ 2440, %._crit_edge2029 ], [ 2440, %._crit_edge2029 ], [ 2420, %._crit_edge2026 ], [ 2420, %._crit_edge2026 ], [ 2430, %._crit_edge2023 ], [ 2430, %._crit_edge2023 ], [ 2440, %._crit_edge ], [ 2440, %._crit_edge ], [ 2483, %switch.hole_check ]
+.fold.split:                                      ; preds = %635, %._crit_edge, %._crit_edge, %._crit_edge2023, %._crit_edge2023, %._crit_edge2026, %._crit_edge2026, %._crit_edge2029, %._crit_edge2029, %._crit_edge2032, %._crit_edge2032, %._crit_edge2035, %._crit_edge2035, %._crit_edge2038, %._crit_edge2038, %._crit_edge2041, %._crit_edge2041, %._crit_edge2044, %._crit_edge2044, %._crit_edge2047, %._crit_edge2047, %1843, %1843, %.fold.split2089, %.fold.split2088, %.fold.split2087, %.fold.split2086, %1830, %1830, %.fold.split2085, %.fold.split2084, %.fold.split2083, %.fold.split2082, %1817, %1817, %.fold.split2081, %.fold.split2080, %.fold.split2079, %.fold.split2078, %1143, %1143, %.fold.split2077, %.fold.split2076, %.fold.split2075, %.fold.split2074, %1130, %1130, %.fold.split2073, %.fold.split2072, %.fold.split2071, %.fold.split2070, %67, %67, %.fold.split2069, %.fold.split2068, %.fold.split2067, %.fold.split2066, %54, %54, %.fold.split2065, %.fold.split2064, %.fold.split2063, %.fold.split2062, %41, %41, %.fold.split2061, %.fold.split2060, %.fold.split2059, %.fold.split2058, %28, %28, %.fold.split2057, %.fold.split2056, %.fold.split2055, %.fold.split2054, %15, %15, %.fold.split2053, %.fold.split2052, %.fold.split2051, %.fold.split2050, %745, %.fold.split2002, %.fold.split2000, %.fold.split1992, %.fold.split1990, %.fold.split1982, %.fold.split1980, %.fold.split1972, %.fold.split1970, %.fold.split1962, %.fold.split1960, %987, %.fold.split1952, %.fold.split1950, %.fold.split1942, %.fold.split1940, %.fold.split1932, %.fold.split1930, %.fold.split1922, %.fold.split1920, %.fold.split1912, %.fold.split1910, %798, %790, %782, %774, %766, %758, %740, %732, %724, %716, %708, %700, %689, %681, %673, %665, %657, %649, %630, %622, %614, %606, %598, %590, %2422, %2410, %2402, %2391, %2383, %2375, %2367, %2359, %2351, %2343, %2335, %2327, %2319, %2310, %2298, %2290, %2282, %2271, %2263, %2255, %2244, %2236, %2228, %2217, %2209, %2201, %2190, %2182, %2174, %2163, %2155, %2147, %2136, %2124, %2112, %2100, %2092, %2084, %2076, %2068, %2060, %2052, %2041, %2033, %2025, %2017, %2009, %2001, %1993, %1985, %1977, %1969, %1958, %1950, %1942, %1934, %1926, %1918, %1910, %1902, %1891, %1883, %1872, %1860, %1850, %1844, %1831, %1818, %1799, %1791, %1780, %1772, %1761, %1753, %1742, %1734, %1723, %1715, %1706, %1694, %1686, %1678, %1667, %1659, %1651, %1640, %1632, %1624, %1613, %1601, %1589, %1577, %1565, %1553, %1541, %1533, %1525, %1517, %1509, %1501, %1493, %1485, %1477, %1469, %1458, %1450, %1439, %1431, %1423, %1415, %1404, %1396, %1388, %1380, %1372, %1364, %1356, %1348, %1340, %1332, %1321, %1313, %1305, %1294, %1286, %1278, %1270, %1259, %1251, %1243, %1235, %1227, %1219, %1211, %1203, %1195, %1187, %1176, %1168, %1157, %1149, %1144, %1131, %1107, %1116, %1094, %1103, %1081, %1090, %1068, %1077, %1061, %1041, %1033, %1025, %1017, %1009, %1001, %993, %969, %961, %953, %945, %937, %929, %921, %910, %902, %894, %886, %878, %870, %862, %851, %843, %835, %827, %819, %811, %803, %792, %784, %776, %768, %760, %752, %750, %734, %726, %718, %710, %702, %694, %683, %675, %667, %659, %651, %643, %641, %624, %616, %608, %600, %592, %584, %573, %565, %557, %549, %541, %533, %525, %517, %509, %498, %490, %482, %474, %466, %458, %450, %442, %431, %423, %415, %407, %399, %391, %383, %375, %364, %356, %348, %340, %332, %324, %316, %308, %297, %289, %281, %273, %265, %257, %249, %241, %233, %222, %214, %206, %198, %190, %182, %174, %166, %155, %147, %139, %131, %123, %115, %107, %99, %91, %83, %74, %68, %55, %42, %29, %16, %1119, %1106, %1093, %1080, %.critedge2, %.critedge
+  %.0 = phi i32 [ 2508, %1080 ], [ 2508, %1093 ], [ 2508, %1106 ], [ 2508, %1119 ], [ 2506, %.critedge2 ], [ 2505, %.critedge ], [ 2415, %15 ], [ %., %16 ], [ 2425, %28 ], [ %.1171, %29 ], [ 2415, %41 ], [ %.1172, %42 ], [ 2435, %54 ], [ %.1173, %55 ], [ 2435, %67 ], [ %.1174, %68 ], [ %.1175, %74 ], [ %.1176, %83 ], [ %.1177, %91 ], [ %.1178, %99 ], [ %.1179, %107 ], [ %.1180, %115 ], [ %.1181, %123 ], [ %.1182, %131 ], [ %.1183, %139 ], [ %.1184, %147 ], [ %.1185, %155 ], [ %.1186, %166 ], [ %.1187, %174 ], [ %.1188, %182 ], [ %.1189, %190 ], [ %.1190, %198 ], [ %.1191, %206 ], [ %.1192, %214 ], [ %.1193, %222 ], [ %.1194, %233 ], [ %.1195, %241 ], [ %.1196, %249 ], [ %.1197, %257 ], [ %.1198, %265 ], [ %.1199, %273 ], [ %.1200, %281 ], [ %.1201, %289 ], [ %.1202, %297 ], [ %.1203, %308 ], [ %.1204, %316 ], [ %.1205, %324 ], [ %.1206, %332 ], [ %.1207, %340 ], [ %.1208, %348 ], [ %.1209, %356 ], [ %.1210, %364 ], [ %.1211, %375 ], [ %.1212, %383 ], [ %.1213, %391 ], [ %.1214, %399 ], [ %.1215, %407 ], [ %.1216, %415 ], [ %.1217, %423 ], [ %.1218, %431 ], [ %.1219, %442 ], [ %.1220, %450 ], [ %.1221, %458 ], [ %.1222, %466 ], [ %.1223, %474 ], [ %.1224, %482 ], [ %.1225, %490 ], [ %.1226, %498 ], [ %.1227, %509 ], [ %.1228, %517 ], [ %.1229, %525 ], [ %.1230, %533 ], [ %.1231, %541 ], [ %.1232, %549 ], [ %.1233, %557 ], [ %.1234, %565 ], [ %.1235, %573 ], [ 2475, %584 ], [ 2477, %592 ], [ 2472, %600 ], [ 2474, %608 ], [ 2478, %616 ], [ 2476, %624 ], [ %.1236, %641 ], [ 2482, %643 ], [ 2485, %651 ], [ 2479, %659 ], [ 2481, %667 ], [ 2486, %675 ], [ 2484, %683 ], [ 2490, %694 ], [ 2492, %702 ], [ 2487, %710 ], [ 2489, %718 ], [ 2493, %726 ], [ 2491, %734 ], [ %.1237, %750 ], [ 2497, %752 ], [ 2500, %760 ], [ 2494, %768 ], [ 2496, %776 ], [ 2501, %784 ], [ 2499, %792 ], [ %.1238, %803 ], [ %.1239, %811 ], [ %.1240, %819 ], [ %.1241, %827 ], [ %.1242, %835 ], [ %.1243, %843 ], [ %.1244, %851 ], [ %.1245, %862 ], [ %.1246, %870 ], [ %.1247, %878 ], [ %.1248, %886 ], [ %.1249, %894 ], [ %.1250, %902 ], [ %.1251, %910 ], [ %.1252, %921 ], [ %.1253, %929 ], [ %.1254, %937 ], [ %.1255, %945 ], [ %.1256, %953 ], [ %.1257, %961 ], [ %.1258, %969 ], [ %.1259, %993 ], [ %.1260, %1001 ], [ %.1261, %1009 ], [ %.1262, %1017 ], [ %.1263, %1025 ], [ %.1264, %1033 ], [ %.1265, %1041 ], [ 2460, %1061 ], [ 2510, %1077 ], [ 2510, %1068 ], [ 2511, %1090 ], [ 2511, %1081 ], [ 2507, %1103 ], [ 2507, %1094 ], [ 2509, %1116 ], [ 2509, %1107 ], [ 2415, %1130 ], [ %.1266, %1131 ], [ 2435, %1143 ], [ %.1267, %1144 ], [ %.1268, %1149 ], [ %.1269, %1157 ], [ %.1270, %1168 ], [ %.1271, %1176 ], [ %.1272, %1187 ], [ %.1273, %1195 ], [ %.1274, %1203 ], [ %.1275, %1211 ], [ %.1276, %1219 ], [ %.1277, %1227 ], [ %.1278, %1235 ], [ %.1279, %1243 ], [ %.1280, %1251 ], [ %.1281, %1259 ], [ %.1282, %1270 ], [ %.1283, %1278 ], [ %.1284, %1286 ], [ %.1285, %1294 ], [ %.1286, %1305 ], [ %.1287, %1313 ], [ %.1288, %1321 ], [ %.1289, %1332 ], [ %.1290, %1340 ], [ %.1291, %1348 ], [ %.1292, %1356 ], [ %.1293, %1364 ], [ %.1294, %1372 ], [ %.1295, %1380 ], [ %.1296, %1388 ], [ %.1297, %1396 ], [ %.1298, %1404 ], [ %.1299, %1415 ], [ %.1300, %1423 ], [ %.1301, %1431 ], [ %.1302, %1439 ], [ %.1303, %1450 ], [ %.1304, %1458 ], [ %.1305, %1469 ], [ %.1306, %1477 ], [ %.1307, %1485 ], [ %.1308, %1493 ], [ %.1309, %1501 ], [ %.1310, %1509 ], [ %.1311, %1517 ], [ %.1312, %1525 ], [ %.1313, %1533 ], [ %.1314, %1541 ], [ %.1315, %1553 ], [ %.1316, %1565 ], [ %.1317, %1577 ], [ %.1318, %1589 ], [ %.1319, %1601 ], [ %.1320, %1613 ], [ %.1321, %1624 ], [ %.1322, %1632 ], [ %.1323, %1640 ], [ %.1324, %1651 ], [ %.1325, %1659 ], [ %.1326, %1667 ], [ %.1327, %1678 ], [ %.1328, %1686 ], [ %.1329, %1694 ], [ %.1330, %1706 ], [ %.1331, %1715 ], [ %.1332, %1723 ], [ %.1333, %1734 ], [ %.1334, %1742 ], [ %.1335, %1753 ], [ %.1336, %1761 ], [ %.1337, %1772 ], [ %.1338, %1780 ], [ %.1339, %1791 ], [ %.1340, %1799 ], [ 2415, %1817 ], [ %.1341, %1818 ], [ 2425, %1830 ], [ %.1342, %1831 ], [ 2435, %1843 ], [ %.1343, %1844 ], [ %.1344, %1850 ], [ %.1345, %1860 ], [ %.1346, %1872 ], [ %.1347, %1883 ], [ %.1348, %1891 ], [ %.1349, %1902 ], [ %.1350, %1910 ], [ %.1351, %1918 ], [ %.1352, %1926 ], [ %.1353, %1934 ], [ %.1354, %1942 ], [ %.1355, %1950 ], [ %.1356, %1958 ], [ %.1357, %1969 ], [ %.1358, %1977 ], [ %.1359, %1985 ], [ %.1360, %1993 ], [ %.1361, %2001 ], [ %.1362, %2009 ], [ %.1363, %2017 ], [ %.1364, %2025 ], [ %.1365, %2033 ], [ %.1366, %2041 ], [ %.1367, %2052 ], [ %.1368, %2060 ], [ %.1369, %2068 ], [ %.1370, %2076 ], [ %.1371, %2084 ], [ %.1372, %2092 ], [ %.1373, %2100 ], [ %.1374, %2112 ], [ %.1375, %2124 ], [ %.1376, %2136 ], [ %.1377, %2147 ], [ %.1378, %2155 ], [ %.1379, %2163 ], [ %.1380, %2174 ], [ %.1381, %2182 ], [ %.1382, %2190 ], [ %.1383, %2201 ], [ %.1384, %2209 ], [ %.1385, %2217 ], [ %.1386, %2228 ], [ %.1387, %2236 ], [ %.1388, %2244 ], [ %.1389, %2255 ], [ %.1390, %2263 ], [ %.1391, %2271 ], [ %.1392, %2282 ], [ %.1393, %2290 ], [ %.1394, %2298 ], [ %.1395, %2310 ], [ %.1396, %2319 ], [ %.1397, %2327 ], [ %.1398, %2335 ], [ %.1399, %2343 ], [ %.1400, %2351 ], [ %.1401, %2359 ], [ %.1402, %2367 ], [ %.1403, %2375 ], [ %.1404, %2383 ], [ %.1405, %2391 ], [ %.1406, %2402 ], [ %.1407, %2410 ], [ %.1408, %2422 ], [ %spec.select, %590 ], [ %spec.select1409, %598 ], [ %spec.select1410, %606 ], [ %spec.select1411, %614 ], [ %spec.select1412, %622 ], [ %spec.select1413, %630 ], [ %spec.select1414, %649 ], [ %spec.select1415, %657 ], [ %spec.select1416, %665 ], [ %spec.select1417, %673 ], [ %spec.select1418, %681 ], [ %spec.select1419, %689 ], [ %spec.select1420, %700 ], [ %spec.select1421, %708 ], [ %spec.select1422, %716 ], [ %spec.select1423, %724 ], [ %spec.select1424, %732 ], [ %spec.select1425, %740 ], [ %spec.select1426, %758 ], [ %spec.select1427, %766 ], [ %spec.select1428, %774 ], [ %spec.select1429, %782 ], [ %spec.select1430, %790 ], [ %spec.select1431, %798 ], [ 2415, %15 ], [ 2421, %.fold.split1910 ], [ 2422, %.fold.split1912 ], [ 2425, %28 ], [ 2431, %.fold.split1920 ], [ 2432, %.fold.split1922 ], [ 2415, %41 ], [ 2421, %.fold.split1930 ], [ 2422, %.fold.split1932 ], [ 2435, %54 ], [ 2441, %.fold.split1940 ], [ 2442, %.fold.split1942 ], [ 2435, %67 ], [ 2441, %.fold.split1950 ], [ 2442, %.fold.split1952 ], [ 2498, %745 ], [ 2504, %987 ], [ 2415, %1130 ], [ 2421, %.fold.split1960 ], [ 2422, %.fold.split1962 ], [ 2435, %1143 ], [ 2441, %.fold.split1970 ], [ 2442, %.fold.split1972 ], [ 2415, %1817 ], [ 2421, %.fold.split1980 ], [ 2422, %.fold.split1982 ], [ 2425, %1830 ], [ 2431, %.fold.split1990 ], [ 2432, %.fold.split1992 ], [ 2435, %1843 ], [ 2441, %.fold.split2000 ], [ 2442, %.fold.split2002 ], [ 2416, %.fold.split2050 ], [ 2417, %.fold.split2051 ], [ 2418, %.fold.split2052 ], [ 2419, %.fold.split2053 ], [ 2426, %.fold.split2054 ], [ 2427, %.fold.split2055 ], [ 2428, %.fold.split2056 ], [ 2429, %.fold.split2057 ], [ 2416, %.fold.split2058 ], [ 2417, %.fold.split2059 ], [ 2418, %.fold.split2060 ], [ 2419, %.fold.split2061 ], [ 2436, %.fold.split2062 ], [ 2437, %.fold.split2063 ], [ 2438, %.fold.split2064 ], [ 2439, %.fold.split2065 ], [ 2436, %.fold.split2066 ], [ 2437, %.fold.split2067 ], [ 2438, %.fold.split2068 ], [ 2439, %.fold.split2069 ], [ 2416, %.fold.split2070 ], [ 2417, %.fold.split2071 ], [ 2418, %.fold.split2072 ], [ 2419, %.fold.split2073 ], [ 2436, %.fold.split2074 ], [ 2437, %.fold.split2075 ], [ 2438, %.fold.split2076 ], [ 2439, %.fold.split2077 ], [ 2416, %.fold.split2078 ], [ 2417, %.fold.split2079 ], [ 2418, %.fold.split2080 ], [ 2419, %.fold.split2081 ], [ 2426, %.fold.split2082 ], [ 2427, %.fold.split2083 ], [ 2428, %.fold.split2084 ], [ 2429, %.fold.split2085 ], [ 2436, %.fold.split2086 ], [ 2437, %.fold.split2087 ], [ 2438, %.fold.split2088 ], [ 2439, %.fold.split2089 ], [ 2420, %._crit_edge2047 ], [ 2420, %._crit_edge2047 ], [ 2430, %._crit_edge2044 ], [ 2430, %._crit_edge2044 ], [ 2420, %._crit_edge2041 ], [ 2420, %._crit_edge2041 ], [ 2440, %._crit_edge2038 ], [ 2440, %._crit_edge2038 ], [ 2440, %._crit_edge2035 ], [ 2440, %._crit_edge2035 ], [ 2420, %._crit_edge2032 ], [ 2420, %._crit_edge2032 ], [ 2440, %._crit_edge2029 ], [ 2440, %._crit_edge2029 ], [ 2420, %._crit_edge2026 ], [ 2420, %._crit_edge2026 ], [ 2430, %._crit_edge2023 ], [ 2430, %._crit_edge2023 ], [ 2440, %._crit_edge ], [ 2440, %._crit_edge ], [ 2483, %635 ]
   ret i32 %.0
 }
 
@@ -8431,9 +8429,9 @@ define dso_local void @_ZN4llvm12X86Subtarget21initSubtargetFeaturesENS_9StringR
   %15 = alloca %"class.llvm::StringRef", align 8
   %16 = icmp eq i64 %2, 0
   %spec.select = select i1 %16, ptr @.str.3, ptr %1
-  %spec.select106 = select i1 %16, i64 7, i64 %2
+  %spec.select115 = select i1 %16, i64 7, i64 %2
   %17 = icmp eq i64 %4, 0
-  %.sroa.089.0 = select i1 %17, ptr @.str.4, ptr %3
+  %.sroa.095.0 = select i1 %17, ptr @.str.4, ptr %3
   %.sroa.3.0 = select i1 %17, i64 4, i64 %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -8441,9 +8439,9 @@ define dso_local void @_ZN4llvm12X86Subtarget21initSubtargetFeaturesENS_9StringR
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !516
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %73, label %_ZN4llvmplERKNS_5TwineES2_.exit45
+  br i1 %21, label %73, label %_ZN4llvmplERKNS_5TwineES2_.exit51
 
-_ZN4llvmplERKNS_5TwineES2_.exit45:                ; preds = %6
+_ZN4llvmplERKNS_5TwineES2_.exit51:                ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #23
@@ -8458,8 +8456,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit45:                ; preds = %6
   store ptr %11, ptr %10, align 8, !alias.scope !527
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %25, ptr %26, align 8, !alias.scope !527
-  %.sroa.2.0..sroa_idx.i.i.i44 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %20, ptr %.sroa.2.0..sroa_idx.i.i.i44, align 8, !tbaa !368, !alias.scope !527
+  %.sroa.2.0..sroa_idx.i.i.i50 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i64 %20, ptr %.sroa.2.0..sroa_idx.i.i.i50, align 8, !tbaa !368, !alias.scope !527
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 2, ptr %27, align 8, !tbaa !522, !alias.scope !527
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 33
@@ -8470,7 +8468,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit45:                ; preds = %6
   %31 = icmp eq ptr %29, %30
   br i1 %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit45
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit51
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !533
   %34 = icmp ult i64 %33, 16
@@ -8480,7 +8478,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %37 = icmp eq ptr %35, %36
   br i1 %37, label %41, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit45
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit51
   %38 = load ptr, ptr %9, align 8, !tbaa !532
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %40 = icmp eq ptr %38, %39
@@ -8576,61 +8574,61 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %73
 
 73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %6
-  switch i64 %spec.select106, label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread103 [
+  switch i64 %spec.select115, label %_ZN4llvmeqENS_9StringRefES0_.exit60.thread109 [
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit
-    i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit50
-    i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit54
+    i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit56
+    i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit60
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %73
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %spec.select, ptr noundef nonnull dereferenceable(7) @.str.3, i64 7)
   %74 = icmp eq i32 %bcmp.i, 0
-  br i1 %74, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread97
+  br i1 %74, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread103
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread97:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
-  switch i64 %2, label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread103 [
-    i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit50
-    i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit54
+_ZN4llvmeqENS_9StringRefES0_.exit.thread103:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
+  switch i64 %2, label %_ZN4llvmeqENS_9StringRefES0_.exit60.thread109 [
+    i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit56
+    i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit60
   ]
 
-_ZN4llvmeqENS_9StringRefES0_.exit50:              ; preds = %73, %_ZN4llvmeqENS_9StringRefES0_.exit.thread97
-  %bcmp.i49 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) @.str.6, i64 %spec.select106)
-  %75 = icmp eq i32 %bcmp.i49, 0
-  br i1 %75, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread103
+_ZN4llvmeqENS_9StringRefES0_.exit56:              ; preds = %73, %_ZN4llvmeqENS_9StringRefES0_.exit.thread103
+  %bcmp.i55 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) @.str.6, i64 %spec.select115)
+  %75 = icmp eq i32 %bcmp.i55, 0
+  br i1 %75, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit60.thread109
 
-_ZN4llvmeqENS_9StringRefES0_.exit54:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread97, %73
-  %bcmp.i53 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) @.str.7, i64 %spec.select106)
-  %76 = icmp eq i32 %bcmp.i53, 0
-  br i1 %76, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread103
+_ZN4llvmeqENS_9StringRefES0_.exit60:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread103, %73
+  %bcmp.i59 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) @.str.7, i64 %spec.select115)
+  %76 = icmp eq i32 %bcmp.i59, 0
+  br i1 %76, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit60.thread109
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit54, %_ZN4llvmeqENS_9StringRefES0_.exit50, %_ZN4llvmeqENS_9StringRefES0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit60, %_ZN4llvmeqENS_9StringRefES0_.exit56, %_ZN4llvmeqENS_9StringRefES0_.exit
   %77 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.8, i64 8) #23
   %78 = load i64, ptr %19, align 8, !tbaa !516
-  %.not.i55 = icmp ult i64 %78, 8
-  br i1 %.not.i55, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread105, label %_ZNK4llvm9StringRef9ends_withES0_.exit
+  %.not.i61 = icmp ult i64 %78, 8
+  br i1 %.not.i61, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread111, label %_ZNK4llvm9StringRef9ends_withES0_.exit
 
 _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %79 = load ptr, ptr %5, align 8, !tbaa !526
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 %78
   %81 = getelementptr inbounds i8, ptr %80, i64 -8
-  %bcmp.i56 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %81, ptr noundef nonnull dereferenceable(8) @.str.9, i64 8)
-  %82 = icmp eq i32 %bcmp.i56, 0
-  br i1 %82, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread105
+  %bcmp.i62 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %81, ptr noundef nonnull dereferenceable(8) @.str.9, i64 8)
+  %82 = icmp eq i32 %bcmp.i62, 0
+  br i1 %82, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread111
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread:    ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit
   %83 = add i64 %78, -8
   br label %85
 
-_ZNK4llvm9StringRef9ends_withES0_.exit.thread105: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZNK4llvm9StringRef9ends_withES0_.exit
+_ZNK4llvm9StringRef9ends_withES0_.exit.thread111: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZNK4llvm9StringRef9ends_withES0_.exit
   %84 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.10, i64 9) #23
   br label %85
 
-85:                                               ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread105, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread
-  %86 = phi i64 [ %83, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ], [ %84, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread105 ]
+85:                                               ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread111, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread
+  %86 = phi i64 [ %83, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread ], [ %84, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread111 ]
   %87 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.11, i64 8) #23
   %88 = call noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.12, i64 7) #23
   %.not = icmp eq i64 %88, -1
-  br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread103, label %89
+  br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit60.thread109, label %89
 
 89:                                               ; preds = %85
   %90 = icmp eq i64 %86, -1
@@ -8639,7 +8637,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread105: ; preds = %_ZN4llvmeqENS_9Stri
   %92 = and i64 %87, %77
   %or.cond = icmp eq i64 %92, -1
   %or.cond30 = and i1 %or.cond, %or.cond29
-  br i1 %or.cond30, label %93, label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread103
+  br i1 %or.cond30, label %93, label %_ZN4llvmeqENS_9StringRefES0_.exit60.thread109
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -8654,9 +8652,9 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread105: ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %93
   %99 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.13, i64 noundef 9) #23
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit54.thread103
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit60.thread109
 
-_ZN4llvmeqENS_9StringRefES0_.exit54.thread103:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit50, %73, %_ZN4llvmeqENS_9StringRefES0_.exit.thread97, %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, %89, %_ZN4llvmeqENS_9StringRefES0_.exit54
+_ZN4llvmeqENS_9StringRefES0_.exit60.thread109:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit56, %73, %_ZN4llvmeqENS_9StringRefES0_.exit.thread103, %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, %89, %_ZN4llvmeqENS_9StringRefES0_.exit60
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %12) #23
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %100, ptr %12, align 8, !tbaa !384
@@ -8669,13 +8667,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit54.thread103:    ; preds = %_ZN4llvmeqENS_9Stri
   %.not26 = icmp eq i64 %103, -1
   br i1 %.not26, label %.loopexit, label %104
 
-104:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit54.thread103
+104:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit60.thread109
   %105 = load ptr, ptr %12, align 8, !tbaa !384
   %106 = load i32, ptr %101, align 8, !tbaa !385
   %107 = zext i32 %106 to i64
   %108 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %105, i64 %107
-  %.not27107 = icmp eq i32 %106, 0
-  br i1 %.not27107, label %.loopexit, label %.lr.ph
+  %.not27116 = icmp eq i32 %106, 0
+  br i1 %.not27116, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %104
   %109 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -8685,17 +8683,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit54.thread103:    ; preds = %_ZN4llvmeqENS_9Stri
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %114
 
-114:                                              ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65
-  %.0108 = phi ptr [ %105, %.lr.ph ], [ %159, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65 ]
-  %.sroa.069.0.copyload = load ptr, ptr %.0108, align 8, !tbaa !405
-  %.sroa.4.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.0108, i64 8
+114:                                              ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71
+  %.0117 = phi ptr [ %105, %.lr.ph ], [ %159, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71 ]
+  %.sroa.075.0.copyload = load ptr, ptr %.0117, align 8, !tbaa !405
+  %.sroa.4.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.0117, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..0.sroa_idx, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #23
   call void @llvm.experimental.noalias.scope.decl(metadata !534)
-  %.not.i57 = icmp eq ptr %.sroa.069.0.copyload, null
+  %.not.i63 = icmp eq ptr %.sroa.075.0.copyload, null
   store ptr %109, ptr %14, align 8, !tbaa !537, !alias.scope !534
-  br i1 %.not.i57, label %115, label %116
+  br i1 %.not.i63, label %115, label %116
 
 115:                                              ; preds = %114
   store i64 0, ptr %110, align 8, !tbaa !533, !alias.scope !534
@@ -8723,12 +8721,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit54.thread103:    ; preds = %_ZN4llvmeqENS_9Stri
   ]
 
 122:                                              ; preds = %._crit_edge.i.i.i
-  %123 = load i8, ptr %.sroa.069.0.copyload, align 1, !tbaa !368
+  %123 = load i8, ptr %.sroa.075.0.copyload, align 1, !tbaa !368
   store i8 %123, ptr %121, align 1, !tbaa !368
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i
 
 124:                                              ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %121, ptr nonnull align 1 %.sroa.069.0.copyload, i64 %.sroa.4.0.copyload, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %121, ptr nonnull align 1 %.sroa.075.0.copyload, i64 %.sroa.4.0.copyload, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i: ; preds = %124, %122, %._crit_edge.i.i.i
@@ -8747,7 +8745,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %115, %_ZNSt7__cxx11
   %129 = load ptr, ptr %128, align 8, !tbaa !532
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %131 = icmp eq ptr %129, %130
-  br i1 %131, label %132, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58
+  br i1 %131, label %132, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
 
 132:                                              ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   %133 = getelementptr inbounds nuw i8, ptr %128, i64 8
@@ -8758,16 +8756,16 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %115, %_ZNSt7__cxx11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %111, ptr noundef nonnull align 8 dereferenceable(1) %130, i64 %136, i1 false)
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   store ptr %129, ptr %13, align 8, !tbaa !532, !alias.scope !538
   %137 = load i64, ptr %130, align 8, !tbaa !368
   store i64 %137, ptr %111, align 8, !tbaa !368, !alias.scope !538
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %.pre.i59 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !533
+  %.pre.i65 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !533
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit
 
-_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit: ; preds = %132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58
-  %138 = phi i64 [ %134, %132 ], [ %.pre.i59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58 ]
+_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit: ; preds = %132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
+  %138 = phi i64 [ %134, %132 ], [ %.pre.i65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64 ]
   %139 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i64 %138, ptr %112, align 8, !tbaa !533, !alias.scope !538
   store ptr %130, ptr %128, align 8, !tbaa !532
@@ -8788,106 +8786,103 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit: ; preds = %_
   %146 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %145, i64 noundef %140) #23
   %147 = load ptr, ptr %13, align 8, !tbaa !532
   %148 = icmp eq ptr %147, %111
-  br i1 %148, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
+  br i1 %148, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i67: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
   %149 = load i64, ptr %112, align 8, !tbaa !533
   %150 = icmp ult i64 %149, 16
   call void @llvm.assume(i1 %150)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
   %151 = load i64, ptr %111, align 8, !tbaa !368
   %152 = add i64 %151, 1
   call void @_ZdlPvm(ptr noundef %147, i64 noundef %152) #26
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66
   %153 = load ptr, ptr %14, align 8, !tbaa !532
   %154 = icmp eq ptr %153, %109
-  br i1 %154, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63
+  br i1 %154, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i70, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i64: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i70: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68
   %155 = load i64, ptr %110, align 8, !tbaa !533
   %156 = icmp ult i64 %155, 16
   call void @llvm.assume(i1 %156)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68
   %157 = load i64, ptr %109, align 8, !tbaa !368
   %158 = add i64 %157, 1
   call void @_ZdlPvm(ptr noundef %153, i64 noundef %158) #26
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #23
-  %159 = getelementptr inbounds nuw i8, ptr %.0108, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %.0117, i64 16
   %.not27 = icmp eq ptr %159, %108
   br i1 %.not27, label %.loopexit, label %114
 
-.loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65, %104, %_ZN4llvmeqENS_9StringRefES0_.exit54.thread103
+.loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71, %104, %_ZN4llvmeqENS_9StringRefES0_.exit60.thread109
   %160 = load ptr, ptr %8, align 8, !tbaa !532
   store ptr %160, ptr %15, align 8, !tbaa !526
   %161 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %162 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %163 = load i64, ptr %162, align 8, !tbaa !533
   store i64 %163, ptr %161, align 8, !tbaa !516
-  call void @_ZN4llvm12X86Subtarget22ParseSubtargetFeaturesENS_9StringRefES1_S1_(ptr noundef nonnull align 8 dereferenceable(413568) %0, ptr %spec.select, i64 %spec.select106, ptr %.sroa.089.0, i64 %.sroa.3.0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %15)
+  call void @_ZN4llvm12X86Subtarget22ParseSubtargetFeaturesENS_9StringRefES1_S1_(ptr noundef nonnull align 8 dereferenceable(413568) %0, ptr %spec.select, i64 %spec.select115, ptr %.sroa.095.0, i64 %.sroa.3.0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %15)
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %165 = load i32, ptr %164, align 8, !tbaa !154
   %166 = icmp sgt i32 %165, 5
-  br i1 %166, label %171, label %167
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 447
+  %168 = load i8, ptr %167, align 1, !range !406
+  %169 = trunc nuw i8 %168 to i1
+  %or.cond114 = select i1 %166, i1 true, i1 %169
+  br i1 %or.cond114, label %170, label %172
 
-167:                                              ; preds = %.loopexit
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 447
-  %169 = load i8, ptr %168, align 1, !tbaa !240, !range !406, !noundef !407
-  %170 = trunc nuw i8 %169 to i1
-  br i1 %170, label %171, label %173
+170:                                              ; preds = %.loopexit
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 482
+  store i8 0, ptr %171, align 2, !tbaa !327
+  br label %172
 
-171:                                              ; preds = %167, %.loopexit
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 482
-  store i8 0, ptr %172, align 2, !tbaa !327
-  br label %173
+172:                                              ; preds = %.loopexit, %170
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 477
+  %174 = load i8, ptr %173, align 1, !tbaa !271, !range !406, !noundef !407
+  %175 = trunc nuw i8 %174 to i1
+  %.not31 = xor i1 %175, true
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 466
+  %177 = load i8, ptr %176, align 2, !range !406
+  %178 = trunc nuw i8 %177 to i1
+  %or.cond34 = select i1 %.not31, i1 true, i1 %178
+  br i1 %or.cond34, label %180, label %179
 
-173:                                              ; preds = %167, %171
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 477
-  %175 = load i8, ptr %174, align 1, !tbaa !271, !range !406, !noundef !407
-  %176 = trunc nuw i8 %175 to i1
-  br i1 %176, label %177, label %182
-
-177:                                              ; preds = %173
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 466
-  %179 = load i8, ptr %178, align 2, !tbaa !261, !range !406, !noundef !407
-  %180 = trunc nuw i8 %179 to i1
-  br i1 %180, label %182, label %181
-
-181:                                              ; preds = %177
+179:                                              ; preds = %172
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.25, i1 noundef zeroext true) #24
   unreachable
 
-182:                                              ; preds = %177, %173
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 609
-  %184 = load i8, ptr %183, align 1, !tbaa !541, !range !406, !noundef !407
-  %185 = trunc nuw i8 %184 to i1
-  br i1 %185, label %186, label %190
+180:                                              ; preds = %172
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 609
+  %182 = load i8, ptr %181, align 1, !tbaa !541, !range !406, !noundef !407
+  %183 = trunc nuw i8 %182 to i1
+  br i1 %183, label %184, label %188
 
-186:                                              ; preds = %182
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %189 = load i8, ptr %187, align 8, !tbaa !368
-  store i8 %189, ptr %188, align 8, !tbaa !368
-  br label %197
+184:                                              ; preds = %180
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %187 = load i8, ptr %185, align 8, !tbaa !368
+  store i8 %187, ptr %186, align 8, !tbaa !368
+  br label %196
 
-190:                                              ; preds = %182
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  %192 = load i32, ptr %191, align 4, !tbaa !503
-  %193 = and i32 %192, -9
-  %spec.select.i.i.i = icmp eq i32 %193, 1
-  br i1 %spec.select.i.i.i, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread, label %194
+188:                                              ; preds = %180
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 564
+  %190 = load i32, ptr %189, align 4, !tbaa !503
+  %191 = and i32 %190, -9
+  %spec.select.i.i.i = icmp eq i32 %191, 1
+  br i1 %spec.select.i.i.i, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread, label %192
 
-194:                                              ; preds = %190
-  switch i32 %192, label %195 [
+192:                                              ; preds = %188
+  switch i32 %190, label %193 [
     i32 26, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread
     i32 5, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread
     i32 27, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread
@@ -8895,70 +8890,71 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65: ; preds = %_ZN
     i32 30, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread
     i32 7, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread
     i32 6, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread
-    i32 18, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread
   ]
 
-195:                                              ; preds = %194
-  br i1 %176, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread, label %197
+193:                                              ; preds = %192
+  %194 = icmp eq i32 %190, 18
+  %or.cond36 = or i1 %194, %175
+  br i1 %or.cond36, label %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread, label %196
 
-_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread: ; preds = %194, %194, %194, %194, %194, %194, %194, %194, %190, %195
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  store i8 4, ptr %196, align 8, !tbaa !368
-  br label %197
+_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread: ; preds = %192, %192, %192, %192, %192, %192, %192, %188, %193
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  store i8 4, ptr %195, align 8, !tbaa !368
+  br label %196
 
-197:                                              ; preds = %195, %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread, %186
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 612
-  %199 = load i32, ptr %198, align 4, !tbaa !542
-  %.not28 = icmp eq i32 %199, 0
-  br i1 %.not28, label %200, label %.sink.split
+196:                                              ; preds = %193, %_ZNK4llvm12X86Subtarget14isTargetDarwinEv.exit.thread, %184
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 612
+  %198 = load i32, ptr %197, align 4, !tbaa !542
+  %.not28 = icmp eq i32 %198, 0
+  br i1 %.not28, label %199, label %.sink.split
 
-200:                                              ; preds = %197
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 490
-  %202 = load i8, ptr %201, align 2, !tbaa !309, !range !406, !noundef !407
-  %203 = trunc nuw i8 %202 to i1
-  br i1 %203, label %.sink.split, label %204
+199:                                              ; preds = %196
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 490
+  %201 = load i8, ptr %200, align 2, !tbaa !309, !range !406, !noundef !407
+  %202 = trunc nuw i8 %201 to i1
+  br i1 %202, label %.sink.split, label %203
 
-204:                                              ; preds = %200
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 491
-  %206 = load i8, ptr %205, align 1, !tbaa !310, !range !406, !noundef !407
-  %207 = trunc nuw i8 %206 to i1
-  br i1 %207, label %.sink.split, label %209
+203:                                              ; preds = %199
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 491
+  %205 = load i8, ptr %204, align 1, !tbaa !310, !range !406, !noundef !407
+  %206 = trunc nuw i8 %205 to i1
+  br i1 %206, label %.sink.split, label %208
 
-.sink.split:                                      ; preds = %204, %200, %197
-  %.sink = phi i32 [ %199, %197 ], [ 128, %200 ], [ 256, %204 ]
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  store i32 %.sink, ptr %208, align 8, !tbaa !543
-  br label %209
+.sink.split:                                      ; preds = %203, %199, %196
+  %.sink = phi i32 [ %198, %196 ], [ 128, %199 ], [ 256, %203 ]
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  store i32 %.sink, ptr %207, align 8, !tbaa !543
+  br label %208
 
-209:                                              ; preds = %.sink.split, %204
-  %210 = load ptr, ptr %12, align 8, !tbaa !384
-  %211 = icmp eq ptr %210, %100
-  br i1 %211, label %_ZN4llvm11SmallVectorINS_9StringRefELj9EED2Ev.exit, label %212
+208:                                              ; preds = %.sink.split, %203
+  %209 = load ptr, ptr %12, align 8, !tbaa !384
+  %210 = icmp eq ptr %209, %100
+  br i1 %210, label %_ZN4llvm11SmallVectorINS_9StringRefELj9EED2Ev.exit, label %211
 
-212:                                              ; preds = %209
-  call void @free(ptr noundef %210) #23
+211:                                              ; preds = %208
+  call void @free(ptr noundef %209) #23
   br label %_ZN4llvm11SmallVectorINS_9StringRefELj9EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_9StringRefELj9EED2Ev.exit: ; preds = %209, %212
+_ZN4llvm11SmallVectorINS_9StringRefELj9EED2Ev.exit: ; preds = %208, %211
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %12) #23
-  %213 = load ptr, ptr %8, align 8, !tbaa !532
-  %214 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %215 = icmp eq ptr %213, %214
-  br i1 %215, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66
+  %212 = load ptr, ptr %8, align 8, !tbaa !532
+  %213 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %214 = icmp eq ptr %212, %213
+  br i1 %214, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i72
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i67: ; preds = %_ZN4llvm11SmallVectorINS_9StringRefELj9EED2Ev.exit
-  %216 = load i64, ptr %162, align 8, !tbaa !533
-  %217 = icmp ult i64 %216, 16
-  call void @llvm.assume(i1 %217)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i73: ; preds = %_ZN4llvm11SmallVectorINS_9StringRefELj9EED2Ev.exit
+  %215 = load i64, ptr %162, align 8, !tbaa !533
+  %216 = icmp ult i64 %215, 16
+  call void @llvm.assume(i1 %216)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66: ; preds = %_ZN4llvm11SmallVectorINS_9StringRefELj9EED2Ev.exit
-  %218 = load i64, ptr %214, align 8, !tbaa !368
-  %219 = add i64 %218, 1
-  call void @_ZdlPvm(ptr noundef %213, i64 noundef %219) #26
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i72: ; preds = %_ZN4llvm11SmallVectorINS_9StringRefELj9EED2Ev.exit
+  %217 = load i64, ptr %213, align 8, !tbaa !368
+  %218 = add i64 %217, 1
+  call void @_ZdlPvm(ptr noundef %212, i64 noundef %218) #26
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i72
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
   ret void
 }
@@ -9267,21 +9263,19 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12X86Subtarget23enableEarlyIfConve
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   %or.cond.i = select i1 %4, i1 true, i1 %7
-  br i1 %or.cond.i, label %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread, label %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit
-
-_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit:       ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 477
-  %9 = load i8, ptr %8, align 1, !tbaa !271, !range !406, !noundef !407
+  %9 = load i8, ptr %8, align 1, !range !406
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread, label %13
+  %or.cond = select i1 %or.cond.i, i1 true, i1 %10
+  br i1 %or.cond, label %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread, label %13
 
-_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread: ; preds = %1, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit
+_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread: ; preds = %1
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14X86EarlyIfConv, i64 120), align 8, !tbaa !393, !range !406, !noundef !407
   %12 = trunc nuw i8 %11 to i1
   br label %13
 
-13:                                               ; preds = %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit
-  %14 = phi i1 [ false, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit ], [ %12, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread ]
+13:                                               ; preds = %1, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread
+  %14 = phi i1 [ %12, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit.thread ], [ false, %1 ]
   ret i1 %14
 }
 

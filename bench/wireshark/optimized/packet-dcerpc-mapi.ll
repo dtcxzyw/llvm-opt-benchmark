@@ -10020,43 +10020,43 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
   %14 = trunc nuw i8 %13 to i1
   %15 = and i32 %1, 1
   %.not = icmp eq i32 %15, 0
-  %or.cond = or i1 %.not, %14
+  %or.cond101 = or i1 %.not, %14
   %16 = and i32 %1, -2
   %17 = add i32 %16, 2
-  %.078 = select i1 %or.cond, i32 %1, i32 %17
-  %.not86 = icmp eq ptr %3, null
-  br i1 %.not86, label %22, label %18
+  %.081 = select i1 %or.cond101, i32 %1, i32 %17
+  %.not89 = icmp eq ptr %3, null
+  br i1 %.not89, label %22, label %18
 
 18:                                               ; preds = %8
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.078, i32 noundef -1, i32 noundef 0)
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.081, i32 noundef -1, i32 noundef 0)
   %20 = load i32, ptr @ett_mapi_RPC_HEADER_EXT, align 4
   %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20)
   br label %22
 
 22:                                               ; preds = %18, %8
-  %.080 = phi ptr [ %19, %18 ], [ null, %8 ]
-  %.079 = phi ptr [ %21, %18 ], [ null, %8 ]
+  %.083 = phi ptr [ %19, %18 ], [ null, %8 ]
+  %.082 = phi ptr [ %21, %18 ], [ null, %8 ]
   %23 = load i32, ptr @hf_mapi_RPC_HEADER_EXT_Version, align 4
-  %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.078, ptr noundef %2, ptr noundef %.079, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
+  %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.081, ptr noundef %2, ptr noundef %.082, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = load i8, ptr %12, align 1, !range !9, !noundef !10
   %26 = trunc nuw i8 %25 to i1
   %27 = and i32 %24, 1
-  %.not87 = icmp eq i32 %27, 0
-  %or.cond98 = or i1 %.not87, %26
+  %.not90 = icmp eq i32 %27, 0
+  %or.cond102 = or i1 %.not90, %26
   %28 = and i32 %24, -2
   %29 = add i32 %28, 2
-  %.1 = select i1 %or.cond98, i32 %24, i32 %29
+  %.1 = select i1 %or.cond102, i32 %24, i32 %29
   %30 = load i32, ptr @hf_mapi_RPC_HEADER_EXT_Flags, align 4
   %31 = load i32, ptr @ett_mapi_RPC_HEADER_EXT_Flags, align 4
   %32 = load i8, ptr %5, align 1
   %33 = and i8 %32, 16
   %34 = zext nneg i8 %33 to i32
   %35 = shl nuw i32 %34, 27
-  %36 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.079, ptr noundef %0, i32 noundef %.1, i32 noundef %30, i32 noundef %31, ptr noundef nonnull @dissect_RPC_HEADER_EXT.mapi_RPC_HEADER_EXT_Flags_fields, i32 noundef %35, i32 noundef 4)
-  %37 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %.079, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %9)
+  %36 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.082, ptr noundef %0, i32 noundef %.1, i32 noundef %30, i32 noundef %31, ptr noundef nonnull @dissect_RPC_HEADER_EXT.mapi_RPC_HEADER_EXT_Flags_fields, i32 noundef %35, i32 noundef 4)
+  %37 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %.082, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %9)
   %38 = load i16, ptr %9, align 2
-  %.not89 = icmp eq i16 %38, 0
-  br i1 %.not89, label %39, label %40
+  %.not92 = icmp eq i16 %38, 0
+  br i1 %.not92, label %39, label %40
 
 39:                                               ; preds = %22
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.3868)
@@ -10066,8 +10066,8 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
 40:                                               ; preds = %39, %22
   %41 = phi i16 [ %.pre, %39 ], [ %38, %22 ]
   %42 = and i16 %41, -8
-  %.not90 = icmp eq i16 %42, 0
-  br i1 %.not90, label %45, label %43
+  %.not93 = icmp eq i16 %42, 0
+  br i1 %.not93, label %45, label %43
 
 43:                                               ; preds = %40
   store i16 %42, ptr %9, align 2
@@ -10077,25 +10077,25 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
 
 45:                                               ; preds = %43, %40
   %46 = load i32, ptr @hf_mapi_RPC_HEADER_EXT_Size, align 4
-  %47 = call i32 @PIDL_dissect_uint16_val(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.079, ptr noundef %4, ptr noundef %5, i32 noundef %46, i32 noundef 0, ptr noundef nonnull %10)
+  %47 = call i32 @PIDL_dissect_uint16_val(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.082, ptr noundef %4, ptr noundef %5, i32 noundef %46, i32 noundef 0, ptr noundef nonnull %10)
   %48 = load i32, ptr @hf_mapi_RPC_HEADER_EXT_SizeActual, align 4
-  %49 = call i32 @PIDL_dissect_uint16_val(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.079, ptr noundef %4, ptr noundef %5, i32 noundef %48, i32 noundef 0, ptr noundef nonnull %11)
+  %49 = call i32 @PIDL_dissect_uint16_val(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.082, ptr noundef %4, ptr noundef %5, i32 noundef %48, i32 noundef 0, ptr noundef nonnull %11)
   call void @proto_item_set_len(ptr noundef %36, i32 noundef 2)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 1
-  %.not91 = icmp eq i32 %54, 0
-  br i1 %.not91, label %62, label %55
+  %.not94 = icmp eq i32 %54, 0
+  br i1 %.not94, label %62, label %55
 
 55:                                               ; preds = %45
   %56 = load i8, ptr %12, align 1, !range !9, !noundef !10
   %57 = trunc nuw i8 %56 to i1
   %58 = and i32 %49, 1
-  %.not92 = icmp eq i32 %58, 0
-  %or.cond99 = select i1 %57, i1 true, i1 %.not92
-  br i1 %or.cond99, label %62, label %59
+  %.not95 = icmp eq i32 %58, 0
+  %or.cond103 = select i1 %57, i1 true, i1 %.not95
+  br i1 %or.cond103, label %62, label %59
 
 59:                                               ; preds = %55
   %60 = and i32 %49, -2
@@ -10107,18 +10107,18 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
   %63 = load i16, ptr %9, align 2
   %64 = zext i16 %63 to i32
   %65 = and i32 %64, 4
-  %.not93 = icmp ne i32 %65, 0
+  %.not96 = icmp eq i32 %65, 0
   %66 = and i32 %64, 2
-  %.not95 = icmp eq i32 %66, 0
+  %.not98 = icmp eq i32 %66, 0
   %67 = and i32 %64, 3
-  %brmerge = icmp ne i32 %67, 3
-  %or.cond100 = and i1 %.not93, %brmerge
-  br i1 %or.cond100, label %68, label %102
+  %or.cond = icmp eq i32 %67, 3
+  %or.cond104 = or i1 %.not96, %or.cond
+  br i1 %or.cond104, label %102, label %68
 
 68:                                               ; preds = %62
   %69 = and i32 %64, 1
-  %.not94 = icmp eq i32 %69, 0
-  br i1 %.not94, label %74, label %70
+  %.not97 = icmp eq i32 %69, 0
+  br i1 %.not97, label %74, label %70
 
 70:                                               ; preds = %68
   %71 = load i16, ptr %10, align 2
@@ -10129,7 +10129,7 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
 74:                                               ; preds = %68
   %75 = load i16, ptr %11, align 2
   %76 = zext i16 %75 to i32
-  br i1 %.not95, label %89, label %77
+  br i1 %.not98, label %89, label %77
 
 77:                                               ; preds = %74
   %78 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2)
@@ -10164,15 +10164,15 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %77
 91:                                               ; preds = %mapi_deobfuscate.exit, %89, %70
   %.sink = phi ptr [ %88, %mapi_deobfuscate.exit ], [ %90, %89 ], [ %73, %70 ]
   store ptr %.sink, ptr %7, align 8
-  %.not96 = icmp eq ptr %.sink, null
-  br i1 %.not96, label %96, label %92
+  %.not99 = icmp eq ptr %.sink, null
+  br i1 %.not99, label %96, label %92
 
 92:                                               ; preds = %91
   %93 = call i32 @tvb_reported_length(ptr noundef nonnull %.sink)
   %94 = load i16, ptr %11, align 2
   %95 = zext i16 %94 to i32
-  %.not97 = icmp eq i32 %93, %95
-  br i1 %.not97, label %97, label %96
+  %.not100 = icmp eq i32 %93, %95
+  br i1 %.not100, label %97, label %96
 
 96:                                               ; preds = %92, %91
   store ptr null, ptr %7, align 8
@@ -10183,7 +10183,7 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %77
   %99 = zext i16 %98 to i32
   %100 = add i32 %.2, %99
   %101 = sub i32 %100, %1
-  call void @proto_item_set_len(ptr noundef %.080, i32 noundef %101)
+  call void @proto_item_set_len(ptr noundef %.083, i32 noundef %101)
   br label %102
 
 102:                                              ; preds = %62, %97, %96

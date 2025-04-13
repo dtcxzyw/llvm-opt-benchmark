@@ -17,19 +17,19 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   %.sroa.0 = alloca i8, align 8
   %.sroa.4 = alloca i8, align 2
   %.sroa.5 = alloca i8, align 1
-  %.sroa.689 = alloca ptr, align 8
+  %.sroa.690 = alloca ptr, align 8
   %.sroa.8 = alloca i64, align 8
   store i8 100, ptr %.sroa.0, align 8
   store i8 1, ptr %.sroa.4, align 2
   store i8 0, ptr %.sroa.5, align 1
-  store ptr null, ptr %.sroa.689, align 8
+  store ptr null, ptr %.sroa.690, align 8
   store i64 4194304, ptr %.sroa.8, align 8
   %7 = load ptr, ptr @g_readytorun, align 8
   %.not = icmp eq ptr %2, null
-  %.062.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %.062.sroa.gep69 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.062.sroa.gep75 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.062.sroa.gep78 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %.063.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %.063.sroa.gep70 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.063.sroa.gep76 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.063.sroa.gep79 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br i1 %.not, label %8, label %15
 
 8:                                                ; preds = %5
@@ -45,14 +45,14 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   br label %15
 
 15:                                               ; preds = %8, %12, %5
-  %.062.sroa.phi = phi ptr [ %.062.sroa.gep, %5 ], [ %.sroa.5, %12 ], [ %.sroa.5, %8 ]
-  %.062.sroa.phi71 = phi ptr [ %.062.sroa.gep69, %5 ], [ %.sroa.689, %12 ], [ %.sroa.689, %8 ]
-  %.062.sroa.phi77 = phi ptr [ %.062.sroa.gep78, %5 ], [ %.sroa.4, %12 ], [ %.sroa.4, %8 ]
-  %.062.sroa.phi83 = phi ptr [ %2, %5 ], [ %.sroa.0, %12 ], [ %.sroa.0, %8 ]
-  %.062.sroa.phi86 = phi ptr [ %.062.sroa.gep75, %5 ], [ %.sroa.8, %12 ], [ %.sroa.8, %8 ]
+  %.063.sroa.phi = phi ptr [ %.063.sroa.gep, %5 ], [ %.sroa.5, %12 ], [ %.sroa.5, %8 ]
+  %.063.sroa.phi72 = phi ptr [ %.063.sroa.gep70, %5 ], [ %.sroa.690, %12 ], [ %.sroa.690, %8 ]
+  %.063.sroa.phi78 = phi ptr [ %.063.sroa.gep79, %5 ], [ %.sroa.4, %12 ], [ %.sroa.4, %8 ]
+  %.063.sroa.phi84 = phi ptr [ %2, %5 ], [ %.sroa.0, %12 ], [ %.sroa.0, %8 ]
+  %.063.sroa.phi87 = phi ptr [ %.063.sroa.gep76, %5 ], [ %.sroa.8, %12 ], [ %.sroa.8, %8 ]
   %16 = tail call noalias dereferenceable_or_null(1040) ptr @zalloc(i64 noundef 1040) #7
-  %.not99 = icmp eq ptr %16, null
-  br i1 %.not99, label %91, label %17
+  %.not100 = icmp eq ptr %16, null
+  br i1 %.not100, label %91, label %17
 
 17:                                               ; preds = %15
   %18 = tail call i32 @group_bind(ptr noundef nonnull %16) #8
@@ -60,7 +60,7 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   br i1 %19, label %87, label %20
 
 20:                                               ; preds = %17
-  %21 = load i8, ptr %.062.sroa.phi, align 1
+  %21 = load i8, ptr %.063.sroa.phi, align 1
   %22 = icmp eq i8 %21, 1
   br i1 %22, label %23, label %27
 
@@ -72,10 +72,10 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %23, %20
-  %28 = load ptr, ptr %.062.sroa.phi71, align 8
-  %.not100 = icmp eq ptr %28, null
-  %29 = load i64, ptr %.062.sroa.phi86, align 8
-  br i1 %.not100, label %32, label %30
+  %28 = load ptr, ptr %.063.sroa.phi72, align 8
+  %.not101 = icmp eq ptr %28, null
+  %29 = load i64, ptr %.063.sroa.phi87, align 8
+  br i1 %.not101, label %32, label %30
 
 30:                                               ; preds = %27
   %31 = tail call i32 @up_use_stack(ptr noundef nonnull %16, ptr noundef nonnull %28, i64 noundef %29) #8
@@ -86,21 +86,21 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   br label %34
 
 34:                                               ; preds = %32, %30
-  %.065 = phi i32 [ %31, %30 ], [ %33, %32 ]
-  %.not101 = icmp eq i32 %.065, 0
-  br i1 %.not101, label %35, label %87
+  %.066 = phi i32 [ %31, %30 ], [ %33, %32 ]
+  %.not102 = icmp eq i32 %.066, 0
+  br i1 %.not102, label %35, label %87
 
 35:                                               ; preds = %34
   %36 = tail call i32 @tls_init_info(ptr noundef nonnull %16) #8
-  %.not102 = icmp eq i32 %36, 0
-  br i1 %.not102, label %39, label %37
+  %.not103 = icmp eq i32 %36, 0
+  br i1 %.not103, label %39, label %37
 
 37:                                               ; preds = %35
   %38 = sub nsw i32 0, %36
   br label %87
 
 39:                                               ; preds = %35
-  %40 = load i8, ptr %.062.sroa.phi77, align 2
+  %40 = load i8, ptr %.063.sroa.phi78, align 2
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %42, label %52
 
@@ -127,7 +127,7 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   br label %87
 
 52:                                               ; preds = %39
-  %53 = load i8, ptr %.062.sroa.phi83, align 8
+  %53 = load i8, ptr %.063.sroa.phi84, align 8
   %54 = zext i8 %53 to i32
   store i32 %54, ptr %6, align 4
   br label %55
@@ -135,8 +135,8 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
 55:                                               ; preds = %._crit_edge, %52
   %56 = phi i32 [ %.pre, %._crit_edge ], [ %54, %52 ]
   %57 = call i32 @pthread_setup_scheduler(ptr noundef nonnull %16, i32 noundef %56, ptr noundef nonnull @pthread_start, ptr noundef %3) #8
-  %.not103 = icmp eq i32 %57, 0
-  br i1 %.not103, label %58, label %87
+  %.not104 = icmp eq i32 %57, 0
+  br i1 %.not104, label %58, label %87
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %16, i64 976
@@ -163,8 +163,8 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
 
 74:                                               ; preds = %66
   call void @nxtask_activate(ptr noundef nonnull %16) #8
-  %.not106 = icmp eq ptr %1, null
-  br i1 %.not106, label %76, label %75
+  %.not107 = icmp eq ptr %1, null
+  br i1 %.not107, label %76, label %75
 
 75:                                               ; preds = %74
   store i32 %71, ptr %1, align 4
@@ -179,11 +179,11 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   %80 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %16, align 8
-  %.not104 = icmp eq ptr %81, null
-  %g_inactivetasks. = select i1 %.not104, ptr @g_inactivetasks, ptr %81
+  %.not105 = icmp eq ptr %81, null
+  %g_inactivetasks. = select i1 %.not105, ptr @g_inactivetasks, ptr %81
   store ptr %82, ptr %g_inactivetasks., align 8
-  %.not105 = icmp eq ptr %82, null
-  br i1 %.not105, label %83, label %84
+  %.not106 = icmp eq ptr %82, null
+  br i1 %.not106, label %83, label %84
 
 83:                                               ; preds = %78
   store ptr %81, ptr getelementptr inbounds nuw (i8, ptr @g_inactivetasks, i64 8), align 8
@@ -199,18 +199,18 @@ define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0
   br label %89
 
 87:                                               ; preds = %37, %45, %50, %17, %34, %55, %58
-  %.066.ph = phi i32 [ 12, %58 ], [ 16, %55 ], [ 12, %34 ], [ 12, %17 ], [ %51, %50 ], [ %46, %45 ], [ %38, %37 ]
+  %.067.ph = phi i32 [ 12, %58 ], [ 16, %55 ], [ 12, %34 ], [ 12, %17 ], [ %51, %50 ], [ %46, %45 ], [ %38, %37 ]
   %88 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr null, ptr %88, align 16
   br label %89
 
 89:                                               ; preds = %86, %87
-  %.066110 = phi i32 [ %.066.ph, %87 ], [ 5, %86 ]
+  %.067111 = phi i32 [ %.067.ph, %87 ], [ 5, %86 ]
   %90 = call i32 @nxsched_release_tcb(ptr noundef nonnull %16, i8 noundef zeroext 1) #8
   br label %91
 
 91:                                               ; preds = %15, %89, %76
-  %.0 = phi i32 [ %.066110, %89 ], [ 0, %76 ], [ 12, %15 ]
+  %.0 = phi i32 [ %.067111, %89 ], [ 0, %76 ], [ 12, %15 ]
   ret i32 %.0
 }
 

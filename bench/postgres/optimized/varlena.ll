@@ -3272,10 +3272,10 @@ check_collation_set.exit:                         ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   switch i32 %1, label %17 [
     i32 1042, label %24
-    i32 19, label %.thread46
+    i32 19, label %.thread47
   ]
 
-.thread46:                                        ; preds = %15
+.thread47:                                        ; preds = %15
   store ptr @namefastcmp_c, ptr %16, align 8
   br label %51
 
@@ -3300,7 +3300,7 @@ check_collation_set.exit:                         ; preds = %3
   br i1 %25, label %26, label %51
 
 26:                                               ; preds = %.thread, %24
-  %spec.select49 = phi ptr [ %11, %.thread ], [ null, %24 ]
+  %spec.select50 = phi ptr [ %11, %.thread ], [ null, %24 ]
   %27 = phi i1 [ %23, %.thread ], [ true, %24 ]
   %28 = tail call ptr @palloc(i64 noundef 144) #19
   %29 = tail call ptr @palloc(i64 noundef 1024) #19
@@ -3319,7 +3319,7 @@ check_collation_set.exit:                         ; preds = %3
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i32 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 136
-  store ptr %spec.select49, ptr %37, align 8
+  store ptr %spec.select50, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 36
   store i8 1, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 37
@@ -3348,7 +3348,7 @@ check_collation_set.exit:                         ; preds = %3
   store ptr @varstr_abbrev_abort, ptr %50, align 8
   br label %51
 
-51:                                               ; preds = %.thread46, %24, %26, %42
+51:                                               ; preds = %.thread47, %26, %42, %24
   ret void
 }
 

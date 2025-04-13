@@ -2033,8 +2033,8 @@ define internal fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, 
   %14 = load ptr, ptr @fatal_filter, align 8
   %.not = icmp eq ptr %14, null
   %15 = icmp eq ptr %0, null
-  %or.cond62 = or i1 %15, %.not
-  br i1 %or.cond62, label %filter_contains.exit.thread, label %16
+  %or.cond56 = or i1 %15, %.not
+  br i1 %or.cond56, label %filter_contains.exit.thread, label %16
 
 16:                                               ; preds = %13
   %17 = load i8, ptr %0, align 1
@@ -2103,64 +2103,47 @@ filter_contains.exit.thread:                      ; preds = %22, %19, %16, %8, %
 46:                                               ; preds = %44
   %47 = load ptr, ptr @registered_log_writer_data, align 8
   call void %45(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %47)
-  br label %65
+  br label %62
 
 48:                                               ; preds = %44
   %49 = icmp ult i32 %1, 4
-  br i1 %49, label %50, label %console_file.exit
+  %50 = load i8, ptr @stdout_logging_enabled, align 1, !range !8
+  %51 = trunc nuw i8 %50 to i1
+  %or.cond.i = select i1 %49, i1 %51, i1 false
+  %stdout.val.i = load ptr, ptr @stdout, align 8
+  %stderr.val.i = load ptr, ptr @stderr, align 8
+  %.0.i = select i1 %or.cond.i, ptr %stdout.val.i, ptr %stderr.val.i
+  %stdout_color_enabled.val.i = load i8, ptr @stdout_color_enabled, align 1, !range !8
+  %stderr_color_enabled.val.i = load i8, ptr @stderr_color_enabled, align 1, !range !8
+  %.0.in.i = select i1 %or.cond.i, i8 %stdout_color_enabled.val.i, i8 %stderr_color_enabled.val.i
+  %.0.i50 = trunc nuw i8 %.0.in.i to i1
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %55 = load i64, ptr %54, align 8
+  call fastcc void @log_write_do_work(ptr noundef %.0.i, i1 noundef zeroext %.0.i50, ptr noundef %5, i64 noundef %53, i64 noundef %55, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
+  br i1 %.not46, label %62, label %56
 
-50:                                               ; preds = %48
-  %51 = load i8, ptr @stdout_logging_enabled, align 1, !range !8, !noundef !9
-  %52 = trunc nuw i8 %51 to i1
-  %.0.i56 = load ptr, ptr @stdout, align 8
-  %.0.i61 = load ptr, ptr @stderr, align 8
-  %.0.i59 = select i1 %52, ptr %.0.i56, ptr %.0.i61
-  %spec.select = select i1 %52, ptr @stdout_color_enabled, ptr @stderr_color_enabled
-  br label %console_color_enabled.exit
+56:                                               ; preds = %48
+  %57 = load i8, ptr @stdout_logging_enabled, align 1, !range !8
+  %58 = trunc nuw i8 %57 to i1
+  %or.cond.i51 = select i1 %49, i1 %58, i1 false
+  %stdout.val.i52 = load ptr, ptr @stdout, align 8
+  %stderr.val.i53 = load ptr, ptr @stderr, align 8
+  %.0.i54 = select i1 %or.cond.i51, ptr %stdout.val.i52, ptr %stderr.val.i53
+  %59 = load i64, ptr %54, align 8
+  %60 = load ptr, ptr @registered_progname, align 8
+  %61 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %.0.i54, i32 noundef 2, ptr noundef nonnull @.str.66, ptr noundef %60, i64 noundef %59, ptr noundef nonnull %.0)
+  br label %62
 
-console_file.exit:                                ; preds = %48
-  %.0.i = load ptr, ptr @stderr, align 8
-  br label %console_color_enabled.exit
+62:                                               ; preds = %48, %56, %46
+  br i1 %.042, label %63, label %64
 
-console_color_enabled.exit:                       ; preds = %50, %console_file.exit
-  %.0.i58 = phi ptr [ %.0.i, %console_file.exit ], [ %.0.i59, %50 ]
-  %.0.in.in.i = phi ptr [ @stderr_color_enabled, %console_file.exit ], [ %spec.select, %50 ]
-  %.0.in.i49 = load i8, ptr %.0.in.in.i, align 1, !range !8, !noundef !9
-  %.0.i50 = trunc nuw i8 %.0.in.i49 to i1
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %56 = load i64, ptr %55, align 8
-  call fastcc void @log_write_do_work(ptr noundef %.0.i58, i1 noundef zeroext %.0.i50, ptr noundef %5, i64 noundef %54, i64 noundef %56, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
-  br i1 %.not46, label %65, label %57
-
-57:                                               ; preds = %console_color_enabled.exit
-  br i1 %49, label %58, label %61
-
-58:                                               ; preds = %57
-  %59 = load i8, ptr @stdout_logging_enabled, align 1, !range !8, !noundef !9
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %console_file.exit53, label %61
-
-61:                                               ; preds = %58, %57
-  br label %console_file.exit53
-
-console_file.exit53:                              ; preds = %58, %61
-  %.0.in.i51 = phi ptr [ @stderr, %61 ], [ @stdout, %58 ]
-  %.0.i52 = load ptr, ptr %.0.in.i51, align 8
-  %62 = load i64, ptr %55, align 8
-  %63 = load ptr, ptr @registered_progname, align 8
-  %64 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %.0.i52, i32 noundef 2, ptr noundef nonnull @.str.66, ptr noundef %63, i64 noundef %62, ptr noundef nonnull %.0)
-  br label %65
-
-65:                                               ; preds = %console_color_enabled.exit, %console_file.exit53, %46
-  br i1 %.042, label %66, label %67
-
-66:                                               ; preds = %65
+63:                                               ; preds = %62
   call void @abort() #24
   unreachable
 
-67:                                               ; preds = %65
+64:                                               ; preds = %62
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #23
   ret void
 }
@@ -2715,31 +2698,21 @@ ws_log_level_to_string.exit:                      ; preds = %33, %level_color_on
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @ws_log_console_writer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = icmp ult i32 %1, 4
-  br i1 %9, label %10, label %console_file.exit
-
-10:                                               ; preds = %8
-  %11 = load i8, ptr @stdout_logging_enabled, align 1, !range !8, !noundef !9
-  %12 = trunc nuw i8 %11 to i1
-  %.0.i14 = load ptr, ptr @stdout, align 8
-  %.0.i19 = load ptr, ptr @stderr, align 8
-  %.0.i17 = select i1 %12, ptr %.0.i14, ptr %.0.i19
-  %spec.select = select i1 %12, ptr @stdout_color_enabled, ptr @stderr_color_enabled
-  br label %console_color_enabled.exit
-
-console_file.exit:                                ; preds = %8
-  %.0.i = load ptr, ptr @stderr, align 8
-  br label %console_color_enabled.exit
-
-console_color_enabled.exit:                       ; preds = %10, %console_file.exit
-  %.0.i16 = phi ptr [ %.0.i, %console_file.exit ], [ %.0.i17, %10 ]
-  %.0.in.in.i = phi ptr [ @stderr_color_enabled, %console_file.exit ], [ %spec.select, %10 ]
-  %.0.in.i11 = load i8, ptr %.0.in.in.i, align 1, !range !8, !noundef !9
-  %.0.i12 = trunc nuw i8 %.0.in.i11 to i1
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %16 = load i64, ptr %15, align 8
-  tail call fastcc void @log_write_do_work(ptr noundef %.0.i16, i1 noundef zeroext %.0.i12, ptr noundef %5, i64 noundef %14, i64 noundef %16, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
+  %10 = load i8, ptr @stdout_logging_enabled, align 1, !range !8
+  %11 = trunc nuw i8 %10 to i1
+  %or.cond.i = select i1 %9, i1 %11, i1 false
+  %stdout.val.i = load ptr, ptr @stdout, align 8
+  %stderr.val.i = load ptr, ptr @stderr, align 8
+  %.0.i = select i1 %or.cond.i, ptr %stdout.val.i, ptr %stderr.val.i
+  %stdout_color_enabled.val.i = load i8, ptr @stdout_color_enabled, align 1, !range !8
+  %stderr_color_enabled.val.i = load i8, ptr @stderr_color_enabled, align 1, !range !8
+  %.0.in.i = select i1 %or.cond.i, i8 %stdout_color_enabled.val.i, i8 %stderr_color_enabled.val.i
+  %.0.i12 = trunc nuw i8 %.0.in.i to i1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %15 = load i64, ptr %14, align 8
+  tail call fastcc void @log_write_do_work(ptr noundef %.0.i, i1 noundef zeroext %.0.i12, ptr noundef %5, i64 noundef %13, i64 noundef %15, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
   ret void
 }
 

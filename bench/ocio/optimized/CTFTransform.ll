@@ -568,46 +568,46 @@ define hidden void @_ZN19OpenColorIO_v2_5dev10CTFVersion11ReadVersionERKNSt7__cx
   br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %17
-  %.02853 = phi i1 [ %isdigit, %17 ], [ false, %2 ]
-  %.03052 = phi i32 [ %.131, %17 ], [ 0, %2 ]
-  %.03251 = phi i32 [ %.133, %17 ], [ 0, %2 ]
-  %.sroa.039.050 = phi ptr [ %.sroa.039.1, %17 ], [ %5, %2 ]
-  %9 = load i8, ptr %.sroa.039.050, align 1, !tbaa !15
+  %.03056 = phi i1 [ %isdigit, %17 ], [ false, %2 ]
+  %.03255 = phi i32 [ %.133, %17 ], [ 0, %2 ]
+  %.03454 = phi i32 [ %.135, %17 ], [ 0, %2 ]
+  %.sroa.041.053 = phi ptr [ %.sroa.041.1, %17 ], [ %5, %2 ]
+  %9 = load i8, ptr %.sroa.041.053, align 1, !tbaa !15
   %10 = sext i8 %9 to i32
   %isdigittmp = add nsw i32 %10, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
   br i1 %isdigit, label %11, label %13
 
 11:                                               ; preds = %.lr.ph
-  %12 = add i32 %.03251, 1
+  %12 = add i32 %.03454, 1
   br label %17
 
 13:                                               ; preds = %.lr.ph
   %14 = icmp eq i8 %9, 46
-  %brmerge.not = and i1 %.02853, %14
-  br i1 %brmerge.not, label %15, label %._crit_edge
+  %or.cond = and i1 %.03056, %14
+  br i1 %or.cond, label %15, label %._crit_edge
 
 15:                                               ; preds = %13
-  %16 = add i32 %.03251, 1
+  %16 = add i32 %.03454, 1
   br label %17
 
 17:                                               ; preds = %15, %11
-  %.133 = phi i32 [ %.03251, %11 ], [ %16, %15 ]
-  %.131 = phi i32 [ %12, %11 ], [ %.03052, %15 ]
-  %.sroa.039.1 = getelementptr inbounds nuw i8, ptr %.sroa.039.050, i64 1
-  %.not62 = icmp eq ptr %.sroa.039.1, %8
-  br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  %.135 = phi i32 [ %.03454, %11 ], [ %16, %15 ]
+  %.133 = phi i32 [ %12, %11 ], [ %.03255, %15 ]
+  %.sroa.041.1 = getelementptr inbounds nuw i8, ptr %.sroa.041.053, i64 1
+  %.not65 = icmp eq ptr %.sroa.041.1, %8
+  br i1 %.not65, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %13, %17
-  %.032.lcssa = phi i32 [ %.133, %17 ], [ %.03251, %13 ]
-  %.030.lcssa = phi i32 [ %.131, %17 ], [ %.03052, %13 ]
+  %.034.lcssa = phi i32 [ %.135, %17 ], [ %.03454, %13 ]
+  %.032.lcssa = phi i32 [ %.133, %17 ], [ %.03255, %13 ]
   %.lcssa = phi i1 [ false, %17 ], [ true, %13 ]
-  %18 = add i32 %.030.lcssa, -4
+  %18 = add i32 %.032.lcssa, -4
   %19 = icmp ult i32 %18, -3
-  %or.cond3 = select i1 %.lcssa, i1 true, i1 %19
-  %20 = icmp eq i32 %.030.lcssa, %.032.lcssa
-  %or.cond = select i1 %or.cond3, i1 true, i1 %20
-  br i1 %or.cond, label %.critedge, label %46
+  %or.cond5 = select i1 %.lcssa, i1 true, i1 %19
+  %20 = icmp eq i32 %.032.lcssa, %.034.lcssa
+  %or.cond50 = select i1 %or.cond5, i1 true, i1 %20
+  br i1 %or.cond50, label %.critedge, label %46
 
 .critedge:                                        ; preds = %2, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %3) #29
@@ -623,19 +623,19 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %.crited
 
 _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.13, i64 noundef 26)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36 unwind label %31
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38 unwind label %31
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.14, i64 noundef 35)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37 unwind label %31
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39 unwind label %31
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38
   %27 = call ptr @__cxa_allocate_exception(i64 16) #29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #29
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %28 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
-28:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37
+28:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39
   %29 = load ptr, ptr %4, align 8, !tbaa !9
   invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef %29)
           to label %30 unwind label %34
@@ -644,12 +644,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %_ZStl
   invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #30
           to label %50 unwind label %34
 
-31:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %.critedge
+31:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %.critedge
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %45
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #29
@@ -680,12 +680,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %34
   br i1 %.0, label %44, label %45
 
 44:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn47 = phi { ptr, i32 } [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn49 = phi { ptr, i32 } [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %27) #29
   br label %45
 
 45:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %44, %31
-  %.pn.pn = phi { ptr, i32 } [ %.pn47, %44 ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %32, %31 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn49, %44 ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %32, %31 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #29
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3) #29
   resume { ptr, i32 } %.pn.pn
@@ -3729,14 +3729,12 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6Op
   %216 = load i32, ptr %215, align 8, !tbaa !141, !noalias !108
   %switch.tableidx = add i32 %216, -10
   %217 = icmp ult i32 %switch.tableidx, 26
-  br i1 %217, label %switch.hole_check, label %_ZN19OpenColorIO_v2_5dev10CTFVersionaSERKS0_.exit24.i.i
-
-switch.hole_check:                                ; preds = %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i
   %switch.shifted = lshr i32 67104771, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN19OpenColorIO_v2_5dev10CTFVersionaSERKS0_.exit24.i.i
+  %or.cond268 = select i1 %217, i1 %switch.lobit, i1 false
+  br i1 %or.cond268, label %switch.lookup, label %_ZN19OpenColorIO_v2_5dev10CTFVersionaSERKS0_.exit24.i.i
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i
   %218 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [26 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv, i64 0, i64 %218
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -3751,10 +3749,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.sink.i.i = load i32, ptr %switch.load267, align 4, !tbaa !22, !noalias !111
   br label %_ZN19OpenColorIO_v2_5dev10CTFVersionaSERKS0_.exit24.i.i
 
-_ZN19OpenColorIO_v2_5dev10CTFVersionaSERKS0_.exit24.i.i: ; preds = %switch.hole_check, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %switch.lookup
-  %.sroa.37.1.i = phi i32 [ %202, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i ], [ %.sink.i.i, %switch.lookup ], [ %202, %switch.hole_check ]
-  %.sroa.20.1.i = phi i32 [ %201, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i ], [ %storemerge12.i, %switch.lookup ], [ %201, %switch.hole_check ]
-  %.sroa.0.1.i = phi i32 [ %200, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i ], [ %storemerge13.i, %switch.lookup ], [ %200, %switch.hole_check ]
+_ZN19OpenColorIO_v2_5dev10CTFVersionaSERKS0_.exit24.i.i: ; preds = %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i, %switch.lookup
+  %.sroa.37.1.i = phi i32 [ %202, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i ], [ %.sink.i.i, %switch.lookup ]
+  %.sroa.20.1.i = phi i32 [ %201, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i ], [ %storemerge12.i, %switch.lookup ]
+  %.sroa.0.1.i = phi i32 [ %200, %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i ], [ %storemerge13.i, %switch.lookup ]
   br i1 %.not.i.i.i.i21.i.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_119GetOpMinimumVersionERKSt10shared_ptrIKNS_6OpDataEE.exit.i, label %221
 
 221:                                              ; preds = %_ZN19OpenColorIO_v2_5dev10CTFVersionaSERKS0_.exit24.i.i
@@ -15000,9 +14998,13 @@ define internal fastcc noundef range(i32 1, 9) i32 @_ZN19OpenColorIO_v2_5dev12_G
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = icmp ult i32 %0, 9
-  br i1 %7, label %switch.hole_check, label %8
+  %switch.maskindex = trunc i32 %0 to i16
+  %switch.shifted = lshr i16 431, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %7, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %8
 
-8:                                                ; preds = %switch.hole_check, %2
+8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #29
   %9 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev11GetTypeNameENS_6OpData4TypeE(i32 noundef %1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #29
@@ -15125,13 +15127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #29
   resume { ptr, i32 } %.pn.pn.pn
 
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc nuw i32 %0 to i16
-  %switch.shifted = lshr i16 431, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %8
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %50 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124GetValidatedFileBitDepthENS_8BitDepthENS_6OpData4TypeE, i64 0, i64 %50
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -18529,9 +18525,13 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit41: 
   %148 = load i32, ptr %147, align 8, !tbaa !208
   %switch.tableidx = add i32 %148, -1
   %149 = icmp ult i32 %switch.tableidx, 8
-  br i1 %149, label %switch.hole_check, label %150
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -41, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %149, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %150
 
-150:                                              ; preds = %switch.hole_check, %146
+150:                                              ; preds = %146
   %151 = call ptr @__cxa_allocate_exception(i64 16) #29
   invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull @.str.37)
           to label %152 unwind label %153
@@ -18549,13 +18549,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit41: 
   call void @__cxa_free_exception(ptr nonnull %151) #29
   br label %.body
 
-switch.hole_check:                                ; preds = %146
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -41, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %150
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %146
   %155 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE.13, i64 0, i64 %155
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -18694,9 +18688,13 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit55: 
   %209 = load i32, ptr %208, align 4, !tbaa !210
   %switch.tableidx98 = add i32 %209, -1
   %210 = icmp ult i32 %switch.tableidx98, 8
-  br i1 %210, label %switch.hole_check99, label %211
+  %switch.maskindex100 = trunc i32 %switch.tableidx98 to i8
+  %switch.shifted101 = lshr i8 -41, %switch.maskindex100
+  %switch.lobit102 = trunc i8 %switch.shifted101 to i1
+  %or.cond105 = select i1 %210, i1 %switch.lobit102, i1 false
+  br i1 %or.cond105, label %switch.lookup99, label %211
 
-211:                                              ; preds = %switch.hole_check99, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit55
+211:                                              ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit55
   %212 = call ptr @__cxa_allocate_exception(i64 16) #29
   invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %212, ptr noundef nonnull @.str.37)
           to label %213 unwind label %214
@@ -18714,22 +18712,16 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit55: 
   call void @__cxa_free_exception(ptr nonnull %212) #29
   br label %.body58
 
-switch.hole_check99:                              ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit55
-  %switch.maskindex101 = trunc nuw i32 %switch.tableidx98 to i8
-  %switch.shifted102 = lshr i8 -41, %switch.maskindex101
-  %switch.lobit103 = trunc i8 %switch.shifted102 to i1
-  br i1 %switch.lobit103, label %switch.lookup100, label %211
-
-switch.lookup100:                                 ; preds = %switch.hole_check99
+switch.lookup99:                                  ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit55
   %216 = zext nneg i32 %switch.tableidx98 to i64
-  %switch.gep104 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE.13, i64 0, i64 %216
-  %switch.load105 = load ptr, ptr %switch.gep104, align 8
-  store ptr %switch.load105, ptr %8, align 8, !tbaa !24
+  %switch.gep103 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE.13, i64 0, i64 %216
+  %switch.load104 = load ptr, ptr %switch.gep103, align 8
+  store ptr %switch.load104, ptr %8, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #29
   invoke void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRA12_KcRPS8_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISE_SF_EEEbE4typeELb1EEEOSE_OSF_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 1 dereferenceable(12) @_ZN19OpenColorIO_v2_5devL17ATTR_BITDEPTH_OUTE, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %217 unwind label %299
 
-217:                                              ; preds = %switch.lookup100
+217:                                              ; preds = %switch.lookup99
   %218 = load ptr, ptr %157, align 8, !tbaa !103
   %219 = load ptr, ptr %159, align 8, !tbaa !106
   %.not.i.i61 = icmp eq ptr %218, %219
@@ -18933,7 +18925,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2E
           cleanup
   br label %.body58
 
-299:                                              ; preds = %switch.lookup100
+299:                                              ; preds = %switch.lookup99
   %300 = landingpad { ptr, i32 }
           cleanup
   br label %303

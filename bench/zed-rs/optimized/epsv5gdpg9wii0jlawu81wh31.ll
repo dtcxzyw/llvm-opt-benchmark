@@ -544,31 +544,31 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hb72bf91e6580cc46E.exit: ; preds = 
   %15 = load i64, ptr %14, align 8, !range !111, !noundef !19
   %.val = load ptr, ptr %1, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val7 = load i64, ptr %16, align 8
-  switch i64 %15, label %.critedge.i11 [
+  %.val14 = load i64, ptr %16, align 8
+  switch i64 %15, label %.critedge.i18 [
     i64 2, label %23
     i64 0, label %21
   ]
 
-.critedge.i11:                                    ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hb72bf91e6580cc46E.exit
+.critedge.i18:                                    ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hb72bf91e6580cc46E.exit
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i64, ptr %.sroa.7.0.copyload, i64 %.val7
+  %19 = getelementptr inbounds i64, ptr %.sroa.7.0.copyload, i64 %.val14
   store i64 %18, ptr %19, align 8, !noalias !122
-  %20 = add i64 %.val7, 1
+  %20 = add i64 %.val14, 1
   br label %21
 
-21:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hb72bf91e6580cc46E.exit, %.critedge.i11
-  %.val4.i = phi i64 [ %20, %.critedge.i11 ], [ %.val7, %_ZN4core4iter6traits8iterator8Iterator4fold17hb72bf91e6580cc46E.exit ]
+21:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hb72bf91e6580cc46E.exit, %.critedge.i18
+  %.val4.i = phi i64 [ %20, %.critedge.i18 ], [ %.val14, %_ZN4core4iter6traits8iterator8Iterator4fold17hb72bf91e6580cc46E.exit ]
   %22 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %22)
   br label %23
 
 23:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hb72bf91e6580cc46E.exit, %21
-  %.val7.sink = phi i64 [ %.val4.i, %21 ], [ %.val7, %_ZN4core4iter6traits8iterator8Iterator4fold17hb72bf91e6580cc46E.exit ]
-  store i64 %.val7.sink, ptr %.val, align 8, !noalias !19
+  %.val14.sink = phi i64 [ %.val4.i, %21 ], [ %.val14, %_ZN4core4iter6traits8iterator8Iterator4fold17hb72bf91e6580cc46E.exit ]
+  store i64 %.val14.sink, ptr %.val, align 8, !noalias !19
   ret void
 }
 
@@ -8582,10 +8582,6 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h52a01be8a0022408E"(p
   store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8
   br label %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hf28936fb28a214b9E.llvm.15433337729052942980.exit"
 
-"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hf28936fb28a214b9E.llvm.15433337729052942980.exit": ; preds = %15, %12, %10, %11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  ret void
-
 12:                                               ; preds = %10
   %13 = atomicrmw sub ptr %1, i64 1 release, align 8, !noalias !2212
   %14 = icmp eq i64 %13, 1
@@ -8595,6 +8591,10 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h52a01be8a0022408E"(p
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h96cccd6d228fc6e4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   br label %"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hf28936fb28a214b9E.llvm.15433337729052942980.exit"
+
+"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17hf28936fb28a214b9E.llvm.15433337729052942980.exit": ; preds = %15, %12, %10, %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

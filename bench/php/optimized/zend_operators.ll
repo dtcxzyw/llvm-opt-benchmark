@@ -4232,34 +4232,34 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
 
 ._crit_edge:                                      ; preds = %10, %8
   %18 = phi i8 [ %7, %8 ], [ %14, %10 ]
-  %.054 = phi ptr [ %1, %8 ], [ %12, %10 ]
+  %.055 = phi ptr [ %1, %8 ], [ %12, %10 ]
   %19 = icmp eq i8 %18, 8
   br i1 %19, label %20, label %29, !prof !41
 
 20:                                               ; preds = %._crit_edge
-  %21 = load ptr, ptr %.054, align 8, !tbaa !4
+  %21 = load ptr, ptr %.055, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %25 = load ptr, ptr %24, align 8, !tbaa !89
-  %.not70 = icmp eq ptr %25, null
-  br i1 %.not70, label %29, label %26, !prof !38
+  %.not71 = icmp eq ptr %25, null
+  br i1 %.not71, label %29, label %26, !prof !38
 
 26:                                               ; preds = %20
-  %27 = tail call i32 %25(i8 noundef zeroext 5, ptr noundef %0, ptr noundef nonnull %.054, ptr noundef %2) #28
+  %27 = tail call i32 %25(i8 noundef zeroext 5, ptr noundef %0, ptr noundef nonnull %.055, ptr noundef %2) #28
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.thread, label %29, !prof !38
 
 29:                                               ; preds = %26, %20, %._crit_edge
-  %30 = call fastcc i64 @zendi_try_get_long(ptr noundef nonnull %.054, ptr noundef nonnull %4)
+  %30 = call fastcc i64 @zendi_try_get_long(ptr noundef nonnull %.055, ptr noundef nonnull %4)
   %31 = load i8, ptr %4, align 1, !tbaa !39, !range !68, !noundef !69
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %36, !prof !41
 
 33:                                               ; preds = %29
-  tail call fastcc void @zend_binop_error(ptr noundef nonnull @.str.10, ptr noundef nonnull %.054, ptr noundef %2)
-  %.not71 = icmp eq ptr %0, %.054
-  br i1 %.not71, label %.thread, label %34
+  tail call fastcc void @zend_binop_error(ptr noundef nonnull @.str.10, ptr noundef nonnull %.055, ptr noundef %2)
+  %.not72 = icmp eq ptr %0, %.055
+  br i1 %.not72, label %.thread, label %34
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4272,8 +4272,8 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
   br label %96
 
 36:                                               ; preds = %29, %16
-  %.061 = phi i64 [ %17, %16 ], [ %30, %29 ]
-  %.155 = phi ptr [ %12, %16 ], [ %.054, %29 ]
+  %.062 = phi i64 [ %17, %16 ], [ %30, %29 ]
+  %.156 = phi ptr [ %12, %16 ], [ %.055, %29 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #28
   br label %39
 
@@ -4282,12 +4282,12 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
   br label %39
 
 39:                                               ; preds = %36, %37
-  %.162 = phi i64 [ %.061, %36 ], [ %38, %37 ]
-  %.256 = phi ptr [ %.155, %36 ], [ %1, %37 ]
+  %.163 = phi i64 [ %.062, %36 ], [ %38, %37 ]
+  %.257 = phi ptr [ %.156, %36 ], [ %1, %37 ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !4
-  %.not72 = icmp eq i8 %41, 4
-  br i1 %.not72, label %71, label %42, !prof !38
+  %.not73 = icmp eq i8 %41, 4
+  br i1 %.not73, label %71, label %42, !prof !38
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #28
@@ -4308,34 +4308,34 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
 
 ._crit_edge86:                                    ; preds = %44, %42
   %52 = phi i8 [ %41, %42 ], [ %48, %44 ]
-  %.063 = phi ptr [ %2, %42 ], [ %46, %44 ]
+  %.064 = phi ptr [ %2, %42 ], [ %46, %44 ]
   %53 = icmp eq i8 %52, 8
   br i1 %53, label %54, label %63, !prof !41
 
 54:                                               ; preds = %._crit_edge86
-  %55 = load ptr, ptr %.063, align 8, !tbaa !4
+  %55 = load ptr, ptr %.064, align 8, !tbaa !4
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !16
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 176
   %59 = load ptr, ptr %58, align 8, !tbaa !89
-  %.not73 = icmp eq ptr %59, null
-  br i1 %.not73, label %63, label %60, !prof !38
+  %.not74 = icmp eq ptr %59, null
+  br i1 %.not74, label %63, label %60, !prof !38
 
 60:                                               ; preds = %54
-  %61 = tail call i32 %59(i8 noundef zeroext 5, ptr noundef %0, ptr noundef nonnull %.256, ptr noundef nonnull %.063) #28
+  %61 = tail call i32 %59(i8 noundef zeroext 5, ptr noundef %0, ptr noundef nonnull %.257, ptr noundef nonnull %.064) #28
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %.thread82, label %63, !prof !38
 
 63:                                               ; preds = %60, %54, %._crit_edge86
-  %64 = call fastcc i64 @zendi_try_get_long(ptr noundef nonnull %.063, ptr noundef nonnull %5)
+  %64 = call fastcc i64 @zendi_try_get_long(ptr noundef nonnull %.064, ptr noundef nonnull %5)
   %65 = load i8, ptr %5, align 1, !tbaa !39, !range !68, !noundef !69
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %70, !prof !41
 
 67:                                               ; preds = %63
-  tail call fastcc void @zend_binop_error(ptr noundef nonnull @.str.10, ptr noundef nonnull %.256, ptr noundef nonnull %.063)
-  %.not74 = icmp eq ptr %0, %.256
-  br i1 %.not74, label %.thread82, label %68
+  tail call fastcc void @zend_binop_error(ptr noundef nonnull @.str.10, ptr noundef nonnull %.257, ptr noundef nonnull %.064)
+  %.not75 = icmp eq ptr %0, %.257
+  br i1 %.not75, label %.thread82, label %68
 
 68:                                               ; preds = %67
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4348,7 +4348,7 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
   br label %96
 
 70:                                               ; preds = %63, %50
-  %.059 = phi i64 [ %51, %50 ], [ %64, %63 ]
+  %.060 = phi i64 [ %51, %50 ], [ %64, %63 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #28
   br label %73
 
@@ -4357,27 +4357,25 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
   br label %73
 
 73:                                               ; preds = %70, %71
-  %.160 = phi i64 [ %.059, %70 ], [ %72, %71 ]
-  %74 = icmp eq i64 %.160, 0
+  %.161 = phi i64 [ %.060, %70 ], [ %72, %71 ]
+  %74 = icmp eq i64 %.161, 0
   br i1 %74, label %75, label %86
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !97
-  %.not75 = icmp eq ptr %76, null
-  br i1 %.not75, label %83, label %77
-
-77:                                               ; preds = %75
-  %78 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1, !tbaa !98, !range !68, !noundef !69
+  %77 = icmp eq ptr %76, null
+  %78 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1, !range !68
   %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %83, label %80
+  %or.cond = select i1 %77, i1 true, i1 %79
+  br i1 %or.cond, label %83, label %80
 
-80:                                               ; preds = %77
+80:                                               ; preds = %75
   %81 = load ptr, ptr @zend_ce_division_by_zero_error, align 8, !tbaa !80
   %82 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %81, i64 noundef 0, ptr noundef nonnull @.str.11) #28
-  %.not76 = icmp eq ptr %.256, %0
+  %.not76 = icmp eq ptr %.257, %0
   br i1 %.not76, label %96, label %84
 
-83:                                               ; preds = %77, %75
+83:                                               ; preds = %75
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11) #31
   unreachable
 
@@ -4387,7 +4385,7 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
   br label %96
 
 86:                                               ; preds = %73
-  %87 = icmp eq ptr %.256, %0
+  %87 = icmp eq ptr %.257, %0
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %86
@@ -4395,7 +4393,7 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
   br label %89
 
 89:                                               ; preds = %88, %86
-  %90 = icmp eq i64 %.160, -1
+  %90 = icmp eq i64 %.161, -1
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %89
@@ -4405,7 +4403,7 @@ define dso_local range(i32 -1, 1) i32 @mod_function(ptr noundef %0, ptr noundef 
   br label %96
 
 93:                                               ; preds = %89
-  %94 = srem i64 %.162, %.160
+  %94 = srem i64 %.163, %.161
   store i64 %94, ptr %0, align 8, !tbaa !4
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %95, align 8, !tbaa !4
@@ -4429,7 +4427,7 @@ define dso_local noundef i32 @boolean_xor_function(ptr noundef %0, ptr noundef %
     i8 2, label %25
     i8 3, label %.fold.split
     i8 10, label %6
-  ], !prof !112
+  ], !prof !98
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %1, align 8, !tbaa !4
@@ -4439,7 +4437,7 @@ define dso_local noundef i32 @boolean_xor_function(ptr noundef %0, ptr noundef %
   switch i8 %10, label %._crit_edge [
     i8 2, label %25
     i8 3, label %.fold.split37
-  ], !prof !113
+  ], !prof !99
 
 ._crit_edge:                                      ; preds = %6, %3
   %11 = phi i8 [ %5, %3 ], [ %10, %6 ]
@@ -4481,7 +4479,7 @@ define dso_local noundef i32 @boolean_xor_function(ptr noundef %0, ptr noundef %
     i8 2, label %48
     i8 3, label %.fold.split38
     i8 10, label %28
-  ], !prof !112
+  ], !prof !98
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %2, align 8, !tbaa !4
@@ -4490,7 +4488,7 @@ define dso_local noundef i32 @boolean_xor_function(ptr noundef %0, ptr noundef %
   switch i8 %31, label %._crit_edge40 [
     i8 2, label %48
     i8 3, label %.fold.split39
-  ], !prof !113
+  ], !prof !99
 
 ._crit_edge40:                                    ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -4642,7 +4640,7 @@ define dso_local noundef i32 @boolean_not_function(ptr noundef %0, ptr noundef %
   switch i8 %4, label %15 [
     i8 3, label %.sink.split
     i8 10, label %7
-  ], !prof !114
+  ], !prof !100
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %1, align 8, !tbaa !4
@@ -4708,7 +4706,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_not_function(ptr noundef %0, ptr 
     i8 6, label %34
     i8 10, label %73
     i8 8, label %76
-  ], !prof !115
+  ], !prof !101
 
 6:                                                ; preds = %3
   %7 = load i64, ptr %.048, align 8, !tbaa !4
@@ -4890,7 +4888,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_or_function(ptr noundef %0, ptr n
   switch i8 %7, label %.thread [
     i8 4, label %8
     i8 10, label %17
-  ], !prof !116
+  ], !prof !102
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4931,7 +4929,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_or_function(ptr noundef %0, ptr n
   switch i8 %28, label %111 [
     i8 6, label %29
     i8 4, label %130
-  ], !prof !117
+  ], !prof !103
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %.097, i64 8
@@ -4957,7 +4955,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_or_function(ptr noundef %0, ptr n
   %41 = icmp eq i64 %36, 1
   %42 = icmp eq i64 %39, 1
   %or.cond = and i1 %41, %42
-  br i1 %or.cond, label %43, label %._crit_edge137, !prof !118
+  br i1 %or.cond, label %43, label %._crit_edge137, !prof !104
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -5087,7 +5085,7 @@ zval_ptr_dtor_str.exit123:                        ; preds = %108, %103, %100, %.
 111:                                              ; preds = %26
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #28
   %112 = icmp eq i8 %28, 8
-  br i1 %112, label %113, label %122, !prof !119
+  br i1 %112, label %113, label %122, !prof !105
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %.096, align 8, !tbaa !4
@@ -5220,7 +5218,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_and_function(ptr noundef %0, ptr 
   switch i8 %7, label %.thread [
     i8 4, label %8
     i8 10, label %17
-  ], !prof !116
+  ], !prof !102
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5261,7 +5259,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_and_function(ptr noundef %0, ptr 
   switch i8 %28, label %105 [
     i8 6, label %29
     i8 4, label %124
-  ], !prof !120
+  ], !prof !106
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %.093, i64 8
@@ -5287,7 +5285,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_and_function(ptr noundef %0, ptr 
   %41 = icmp eq i64 %36, 1
   %42 = icmp eq i64 %39, 1
   %or.cond = and i1 %41, %42
-  br i1 %or.cond, label %43, label %._crit_edge133, !prof !118
+  br i1 %or.cond, label %43, label %._crit_edge133, !prof !104
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -5410,7 +5408,7 @@ zval_ptr_dtor_str.exit:                           ; preds = %102, %97, %94, %._c
 105:                                              ; preds = %26
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #28
   %106 = icmp eq i8 %28, 8
-  br i1 %106, label %107, label %116, !prof !119
+  br i1 %106, label %107, label %116, !prof !105
 
 107:                                              ; preds = %105
   %108 = load ptr, ptr %.092, align 8, !tbaa !4
@@ -5540,7 +5538,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_xor_function(ptr noundef %0, ptr 
   switch i8 %7, label %.thread [
     i8 4, label %8
     i8 10, label %17
-  ], !prof !116
+  ], !prof !102
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5581,7 +5579,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_xor_function(ptr noundef %0, ptr 
   switch i8 %28, label %105 [
     i8 6, label %29
     i8 4, label %124
-  ], !prof !120
+  ], !prof !106
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %.093, i64 8
@@ -5607,7 +5605,7 @@ define dso_local range(i32 -1, 1) i32 @bitwise_xor_function(ptr noundef %0, ptr 
   %41 = icmp eq i64 %36, 1
   %42 = icmp eq i64 %39, 1
   %or.cond = and i1 %41, %42
-  br i1 %or.cond, label %43, label %._crit_edge133, !prof !118
+  br i1 %or.cond, label %43, label %._crit_edge133, !prof !104
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -5730,7 +5728,7 @@ zval_ptr_dtor_str.exit:                           ; preds = %102, %97, %94, %._c
 105:                                              ; preds = %26
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #28
   %106 = icmp eq i8 %28, 8
-  br i1 %106, label %107, label %116, !prof !119
+  br i1 %106, label %107, label %116, !prof !105
 
 107:                                              ; preds = %105
   %108 = load ptr, ptr %.092, align 8, !tbaa !4
@@ -5879,34 +5877,34 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
 
 ._crit_edge:                                      ; preds = %10, %8
   %18 = phi i8 [ %7, %8 ], [ %14, %10 ]
-  %.057 = phi ptr [ %1, %8 ], [ %12, %10 ]
+  %.058 = phi ptr [ %1, %8 ], [ %12, %10 ]
   %19 = icmp eq i8 %18, 8
   br i1 %19, label %20, label %29, !prof !41
 
 20:                                               ; preds = %._crit_edge
-  %21 = load ptr, ptr %.057, align 8, !tbaa !4
+  %21 = load ptr, ptr %.058, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %25 = load ptr, ptr %24, align 8, !tbaa !89
-  %.not73 = icmp eq ptr %25, null
-  br i1 %.not73, label %29, label %26, !prof !38
+  %.not74 = icmp eq ptr %25, null
+  br i1 %.not74, label %29, label %26, !prof !38
 
 26:                                               ; preds = %20
-  %27 = tail call i32 %25(i8 noundef zeroext 6, ptr noundef %0, ptr noundef nonnull %.057, ptr noundef %2) #28
+  %27 = tail call i32 %25(i8 noundef zeroext 6, ptr noundef %0, ptr noundef nonnull %.058, ptr noundef %2) #28
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.thread, label %29, !prof !38
 
 29:                                               ; preds = %26, %20, %._crit_edge
-  %30 = call fastcc i64 @zendi_try_get_long(ptr noundef nonnull %.057, ptr noundef nonnull %4)
+  %30 = call fastcc i64 @zendi_try_get_long(ptr noundef nonnull %.058, ptr noundef nonnull %4)
   %31 = load i8, ptr %4, align 1, !tbaa !39, !range !68, !noundef !69
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %36, !prof !41
 
 33:                                               ; preds = %29
-  tail call fastcc void @zend_binop_error(ptr noundef nonnull @.str.16, ptr noundef nonnull %.057, ptr noundef %2)
-  %.not74 = icmp eq ptr %0, %.057
-  br i1 %.not74, label %.thread, label %34
+  tail call fastcc void @zend_binop_error(ptr noundef nonnull @.str.16, ptr noundef nonnull %.058, ptr noundef %2)
+  %.not75 = icmp eq ptr %0, %.058
+  br i1 %.not75, label %.thread, label %34
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5919,8 +5917,8 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
   br label %99
 
 36:                                               ; preds = %29, %16
-  %.064 = phi i64 [ %17, %16 ], [ %30, %29 ]
-  %.158 = phi ptr [ %12, %16 ], [ %.057, %29 ]
+  %.065 = phi i64 [ %17, %16 ], [ %30, %29 ]
+  %.159 = phi ptr [ %12, %16 ], [ %.058, %29 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #28
   br label %39
 
@@ -5929,12 +5927,12 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
   br label %39
 
 39:                                               ; preds = %36, %37
-  %.165 = phi i64 [ %.064, %36 ], [ %38, %37 ]
-  %.259 = phi ptr [ %.158, %36 ], [ %1, %37 ]
+  %.166 = phi i64 [ %.065, %36 ], [ %38, %37 ]
+  %.260 = phi ptr [ %.159, %36 ], [ %1, %37 ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !4
-  %.not75 = icmp eq i8 %41, 4
-  br i1 %.not75, label %71, label %42, !prof !38
+  %.not76 = icmp eq i8 %41, 4
+  br i1 %.not76, label %71, label %42, !prof !38
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #28
@@ -5955,34 +5953,34 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
 
 ._crit_edge89:                                    ; preds = %44, %42
   %52 = phi i8 [ %41, %42 ], [ %48, %44 ]
-  %.066 = phi ptr [ %2, %42 ], [ %46, %44 ]
+  %.067 = phi ptr [ %2, %42 ], [ %46, %44 ]
   %53 = icmp eq i8 %52, 8
   br i1 %53, label %54, label %63, !prof !41
 
 54:                                               ; preds = %._crit_edge89
-  %55 = load ptr, ptr %.066, align 8, !tbaa !4
+  %55 = load ptr, ptr %.067, align 8, !tbaa !4
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !16
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 176
   %59 = load ptr, ptr %58, align 8, !tbaa !89
-  %.not76 = icmp eq ptr %59, null
-  br i1 %.not76, label %63, label %60, !prof !38
+  %.not77 = icmp eq ptr %59, null
+  br i1 %.not77, label %63, label %60, !prof !38
 
 60:                                               ; preds = %54
-  %61 = tail call i32 %59(i8 noundef zeroext 6, ptr noundef %0, ptr noundef nonnull %.259, ptr noundef nonnull %.066) #28
+  %61 = tail call i32 %59(i8 noundef zeroext 6, ptr noundef %0, ptr noundef nonnull %.260, ptr noundef nonnull %.067) #28
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %.thread85, label %63, !prof !38
 
 63:                                               ; preds = %60, %54, %._crit_edge89
-  %64 = call fastcc i64 @zendi_try_get_long(ptr noundef nonnull %.066, ptr noundef nonnull %5)
+  %64 = call fastcc i64 @zendi_try_get_long(ptr noundef nonnull %.067, ptr noundef nonnull %5)
   %65 = load i8, ptr %5, align 1, !tbaa !39, !range !68, !noundef !69
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %70, !prof !41
 
 67:                                               ; preds = %63
-  tail call fastcc void @zend_binop_error(ptr noundef nonnull @.str.16, ptr noundef nonnull %.259, ptr noundef nonnull %.066)
-  %.not77 = icmp eq ptr %0, %.259
-  br i1 %.not77, label %.thread85, label %68
+  tail call fastcc void @zend_binop_error(ptr noundef nonnull @.str.16, ptr noundef nonnull %.260, ptr noundef nonnull %.067)
+  %.not78 = icmp eq ptr %0, %.260
+  br i1 %.not78, label %.thread85, label %68
 
 68:                                               ; preds = %67
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5995,7 +5993,7 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
   br label %99
 
 70:                                               ; preds = %63, %50
-  %.062 = phi i64 [ %51, %50 ], [ %64, %63 ]
+  %.063 = phi i64 [ %51, %50 ], [ %64, %63 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #28
   br label %73
 
@@ -6004,16 +6002,16 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
   br label %73
 
 73:                                               ; preds = %70, %71
-  %.163 = phi i64 [ %.062, %70 ], [ %72, %71 ]
-  %74 = icmp ugt i64 %.163, 63
+  %.164 = phi i64 [ %.063, %70 ], [ %72, %71 ]
+  %74 = icmp ugt i64 %.164, 63
   br i1 %74, label %75, label %93, !prof !41
 
 75:                                               ; preds = %73
-  %76 = icmp sgt i64 %.163, 0
+  %76 = icmp sgt i64 %.164, 0
   br i1 %76, label %77, label %82, !prof !38
 
 77:                                               ; preds = %75
-  %78 = icmp eq ptr %.259, %0
+  %78 = icmp eq ptr %.260, %0
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %77
@@ -6028,21 +6026,19 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
 
 82:                                               ; preds = %75
   %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !97
-  %.not78 = icmp eq ptr %83, null
-  br i1 %.not78, label %90, label %84
-
-84:                                               ; preds = %82
-  %85 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1, !tbaa !98, !range !68, !noundef !69
+  %84 = icmp eq ptr %83, null
+  %85 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1, !range !68
   %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %90, label %87
+  %or.cond = select i1 %84, i1 true, i1 %86
+  br i1 %or.cond, label %90, label %87
 
-87:                                               ; preds = %84
+87:                                               ; preds = %82
   %88 = load ptr, ptr @zend_ce_arithmetic_error, align 8, !tbaa !80
   %89 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %88, i64 noundef 0, ptr noundef nonnull @.str.17) #28
-  %.not79 = icmp eq ptr %.259, %0
+  %.not79 = icmp eq ptr %.260, %0
   br i1 %.not79, label %99, label %91
 
-90:                                               ; preds = %84, %82
+90:                                               ; preds = %82
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.17) #31
   unreachable
 
@@ -6052,7 +6048,7 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
   br label %99
 
 93:                                               ; preds = %73
-  %94 = icmp eq ptr %.259, %0
+  %94 = icmp eq ptr %.260, %0
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %93
@@ -6060,7 +6056,7 @@ define dso_local range(i32 -1, 1) i32 @shift_left_function(ptr noundef %0, ptr n
   br label %96
 
 96:                                               ; preds = %93, %95
-  %97 = shl i64 %.165, %.163
+  %97 = shl i64 %.166, %.164
   store i64 %97, ptr %0, align 8, !tbaa !4
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %98, align 8, !tbaa !4
@@ -6099,34 +6095,34 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
 
 ._crit_edge:                                      ; preds = %10, %8
   %18 = phi i8 [ %7, %8 ], [ %14, %10 ]
-  %.058 = phi ptr [ %1, %8 ], [ %12, %10 ]
+  %.059 = phi ptr [ %1, %8 ], [ %12, %10 ]
   %19 = icmp eq i8 %18, 8
   br i1 %19, label %20, label %29, !prof !41
 
 20:                                               ; preds = %._crit_edge
-  %21 = load ptr, ptr %.058, align 8, !tbaa !4
+  %21 = load ptr, ptr %.059, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %25 = load ptr, ptr %24, align 8, !tbaa !89
-  %.not74 = icmp eq ptr %25, null
-  br i1 %.not74, label %29, label %26, !prof !38
+  %.not75 = icmp eq ptr %25, null
+  br i1 %.not75, label %29, label %26, !prof !38
 
 26:                                               ; preds = %20
-  %27 = tail call i32 %25(i8 noundef zeroext 7, ptr noundef %0, ptr noundef nonnull %.058, ptr noundef %2) #28
+  %27 = tail call i32 %25(i8 noundef zeroext 7, ptr noundef %0, ptr noundef nonnull %.059, ptr noundef %2) #28
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.thread, label %29, !prof !38
 
 29:                                               ; preds = %26, %20, %._crit_edge
-  %30 = call fastcc i64 @zendi_try_get_long(ptr noundef nonnull %.058, ptr noundef nonnull %4)
+  %30 = call fastcc i64 @zendi_try_get_long(ptr noundef nonnull %.059, ptr noundef nonnull %4)
   %31 = load i8, ptr %4, align 1, !tbaa !39, !range !68, !noundef !69
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %36, !prof !41
 
 33:                                               ; preds = %29
-  tail call fastcc void @zend_binop_error(ptr noundef nonnull @.str.18, ptr noundef nonnull %.058, ptr noundef %2)
-  %.not75 = icmp eq ptr %0, %.058
-  br i1 %.not75, label %.thread, label %34
+  tail call fastcc void @zend_binop_error(ptr noundef nonnull @.str.18, ptr noundef nonnull %.059, ptr noundef %2)
+  %.not76 = icmp eq ptr %0, %.059
+  br i1 %.not76, label %.thread, label %34
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6139,8 +6135,8 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
   br label %99
 
 36:                                               ; preds = %29, %16
-  %.065 = phi i64 [ %17, %16 ], [ %30, %29 ]
-  %.159 = phi ptr [ %12, %16 ], [ %.058, %29 ]
+  %.066 = phi i64 [ %17, %16 ], [ %30, %29 ]
+  %.160 = phi ptr [ %12, %16 ], [ %.059, %29 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #28
   br label %39
 
@@ -6149,12 +6145,12 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
   br label %39
 
 39:                                               ; preds = %36, %37
-  %.166 = phi i64 [ %.065, %36 ], [ %38, %37 ]
-  %.260 = phi ptr [ %.159, %36 ], [ %1, %37 ]
+  %.167 = phi i64 [ %.066, %36 ], [ %38, %37 ]
+  %.261 = phi ptr [ %.160, %36 ], [ %1, %37 ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !4
-  %.not76 = icmp eq i8 %41, 4
-  br i1 %.not76, label %71, label %42, !prof !38
+  %.not77 = icmp eq i8 %41, 4
+  br i1 %.not77, label %71, label %42, !prof !38
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #28
@@ -6175,34 +6171,34 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
 
 ._crit_edge90:                                    ; preds = %44, %42
   %52 = phi i8 [ %41, %42 ], [ %48, %44 ]
-  %.067 = phi ptr [ %2, %42 ], [ %46, %44 ]
+  %.068 = phi ptr [ %2, %42 ], [ %46, %44 ]
   %53 = icmp eq i8 %52, 8
   br i1 %53, label %54, label %63, !prof !41
 
 54:                                               ; preds = %._crit_edge90
-  %55 = load ptr, ptr %.067, align 8, !tbaa !4
+  %55 = load ptr, ptr %.068, align 8, !tbaa !4
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !16
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 176
   %59 = load ptr, ptr %58, align 8, !tbaa !89
-  %.not77 = icmp eq ptr %59, null
-  br i1 %.not77, label %63, label %60, !prof !38
+  %.not78 = icmp eq ptr %59, null
+  br i1 %.not78, label %63, label %60, !prof !38
 
 60:                                               ; preds = %54
-  %61 = tail call i32 %59(i8 noundef zeroext 7, ptr noundef %0, ptr noundef nonnull %.260, ptr noundef nonnull %.067) #28
+  %61 = tail call i32 %59(i8 noundef zeroext 7, ptr noundef %0, ptr noundef nonnull %.261, ptr noundef nonnull %.068) #28
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %.thread86, label %63, !prof !38
 
 63:                                               ; preds = %60, %54, %._crit_edge90
-  %64 = call fastcc i64 @zendi_try_get_long(ptr noundef nonnull %.067, ptr noundef nonnull %5)
+  %64 = call fastcc i64 @zendi_try_get_long(ptr noundef nonnull %.068, ptr noundef nonnull %5)
   %65 = load i8, ptr %5, align 1, !tbaa !39, !range !68, !noundef !69
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %70, !prof !41
 
 67:                                               ; preds = %63
-  tail call fastcc void @zend_binop_error(ptr noundef nonnull @.str.18, ptr noundef nonnull %.260, ptr noundef nonnull %.067)
-  %.not78 = icmp eq ptr %0, %.260
-  br i1 %.not78, label %.thread86, label %68
+  tail call fastcc void @zend_binop_error(ptr noundef nonnull @.str.18, ptr noundef nonnull %.261, ptr noundef nonnull %.068)
+  %.not79 = icmp eq ptr %0, %.261
+  br i1 %.not79, label %.thread86, label %68
 
 68:                                               ; preds = %67
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6215,7 +6211,7 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
   br label %99
 
 70:                                               ; preds = %63, %50
-  %.063 = phi i64 [ %51, %50 ], [ %64, %63 ]
+  %.064 = phi i64 [ %51, %50 ], [ %64, %63 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #28
   br label %73
 
@@ -6224,16 +6220,16 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
   br label %73
 
 73:                                               ; preds = %70, %71
-  %.164 = phi i64 [ %.063, %70 ], [ %72, %71 ]
-  %74 = icmp ugt i64 %.164, 63
+  %.165 = phi i64 [ %.064, %70 ], [ %72, %71 ]
+  %74 = icmp ugt i64 %.165, 63
   br i1 %74, label %75, label %93, !prof !41
 
 75:                                               ; preds = %73
-  %76 = icmp sgt i64 %.164, 0
+  %76 = icmp sgt i64 %.165, 0
   br i1 %76, label %77, label %82, !prof !38
 
 77:                                               ; preds = %75
-  %78 = icmp eq ptr %.260, %0
+  %78 = icmp eq ptr %.261, %0
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %77
@@ -6241,29 +6237,27 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
   br label %80
 
 80:                                               ; preds = %77, %79
-  %.166.lobit = ashr i64 %.166, 63
-  store i64 %.166.lobit, ptr %0, align 8, !tbaa !4
+  %.167.lobit = ashr i64 %.167, 63
+  store i64 %.167.lobit, ptr %0, align 8, !tbaa !4
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %81, align 8, !tbaa !4
   br label %99
 
 82:                                               ; preds = %75
   %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !97
-  %.not79 = icmp eq ptr %83, null
-  br i1 %.not79, label %90, label %84
-
-84:                                               ; preds = %82
-  %85 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1, !tbaa !98, !range !68, !noundef !69
+  %84 = icmp eq ptr %83, null
+  %85 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1, !range !68
   %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %90, label %87
+  %or.cond = select i1 %84, i1 true, i1 %86
+  br i1 %or.cond, label %90, label %87
 
-87:                                               ; preds = %84
+87:                                               ; preds = %82
   %88 = load ptr, ptr @zend_ce_arithmetic_error, align 8, !tbaa !80
   %89 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %88, i64 noundef 0, ptr noundef nonnull @.str.17) #28
-  %.not80 = icmp eq ptr %.260, %0
+  %.not80 = icmp eq ptr %.261, %0
   br i1 %.not80, label %99, label %91
 
-90:                                               ; preds = %84, %82
+90:                                               ; preds = %82
   tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.17) #31
   unreachable
 
@@ -6273,7 +6267,7 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
   br label %99
 
 93:                                               ; preds = %73
-  %94 = icmp eq ptr %.260, %0
+  %94 = icmp eq ptr %.261, %0
   br i1 %94, label %95, label %96
 
 95:                                               ; preds = %93
@@ -6281,7 +6275,7 @@ define dso_local range(i32 -1, 1) i32 @shift_right_function(ptr noundef %0, ptr 
   br label %96
 
 96:                                               ; preds = %93, %95
-  %97 = ashr i64 %.166, %.164
+  %97 = ashr i64 %.167, %.165
   store i64 %97, ptr %0, align 8, !tbaa !4
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 4, ptr %98, align 8, !tbaa !4
@@ -6299,7 +6293,7 @@ define dso_local range(i32 -1, 1) i32 @concat_function(ptr noundef %0, ptr nound
   switch i8 %5, label %._crit_edge [
     i8 6, label %6
     i8 10, label %8
-  ], !prof !114
+  ], !prof !100
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %1, align 8, !tbaa !4
@@ -6405,7 +6399,7 @@ zend_string_release.exit:                         ; preds = %43, %47, %54, %55
   %59 = icmp eq ptr %0, %.0145
   %60 = icmp eq ptr %.0145, %2
   %or.cond = and i1 %59, %60
-  br i1 %or.cond, label %125, label %61, !prof !121
+  br i1 %or.cond, label %125, label %61, !prof !107
 
 61:                                               ; preds = %14, %6, %58
   %.1157 = phi i8 [ 0, %6 ], [ 0, %14 ], [ 1, %58 ]
@@ -6416,7 +6410,7 @@ zend_string_release.exit:                         ; preds = %43, %47, %54, %55
   switch i8 %63, label %74 [
     i8 6, label %64
     i8 10, label %66
-  ], !prof !114
+  ], !prof !100
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %2, align 8, !tbaa !4
@@ -7418,7 +7412,7 @@ zval_get_tmp_string.exit18:                       ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !4
   %26 = icmp eq i8 %.pre, 6
-  br i1 %26, label %27, label %zval_get_tmp_string.exit18.thread, !prof !119
+  br i1 %26, label %27, label %zval_get_tmp_string.exit18.thread, !prof !105
 
 27:                                               ; preds = %zval_get_tmp_string.exit18
   %28 = load ptr, ptr %1, align 8, !tbaa !4
@@ -7574,7 +7568,7 @@ zval_get_tmp_string.exit18:                       ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !4
   %42 = icmp eq i8 %.pre, 6
-  br i1 %42, label %43, label %zval_get_tmp_string.exit18.thread, !prof !119
+  br i1 %42, label %43, label %zval_get_tmp_string.exit18.thread, !prof !105
 
 43:                                               ; preds = %zval_get_tmp_string.exit18
   %44 = load ptr, ptr %1, align 8, !tbaa !4
@@ -8083,7 +8077,7 @@ define dso_local i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed
     i8 8, label %100
     i8 3, label %104
     i8 2, label %104
-  ], !prof !122
+  ], !prof !108
 
 ._crit_edge:                                      ; preds = %97
   %.pre = load ptr, ptr %.081..080, align 8, !tbaa !4
@@ -8140,7 +8134,7 @@ define dso_local i32 @zend_compare(ptr noundef %0, ptr noundef %1) local_unnamed
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = load ptr, ptr %127, align 8, !tbaa !16
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 184
-  %130 = load ptr, ptr %129, align 8, !tbaa !123
+  %130 = load ptr, ptr %129, align 8, !tbaa !109
   %131 = call i32 %130(ptr noundef nonnull %.081.ph.lcssa281, ptr noundef nonnull %.080) #28
   br label %zend_compare_arrays.exit
 
@@ -8951,18 +8945,18 @@ define dso_local noundef i32 @is_smaller_or_equal_function(ptr noundef writeonly
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
 define dso_local noundef zeroext i1 @zend_class_implements_interface(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %4 = load i32, ptr %3, align 4, !tbaa !124
+  %4 = load i32, ptr %3, align 4, !tbaa !110
   %5 = and i32 %4, 1
   %6 = icmp ne i32 %5, 0
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %8 = load i32, ptr %7, align 8, !tbaa !125
+  %8 = load i32, ptr %7, align 8, !tbaa !111
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.loopexit, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %11 = load i32, ptr %10, align 4, !tbaa !124
+  %11 = load i32, ptr %10, align 4, !tbaa !110
   %12 = and i32 %11, 262144
   %13 = icmp ne i32 %12, 0
   tail call void @llvm.assume(i1 %13)
@@ -8991,20 +8985,20 @@ define dso_local noundef zeroext i1 @instanceof_function_slow(ptr noundef readon
   %3 = icmp ne ptr %0, %1
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !124
+  %5 = load i32, ptr %4, align 4, !tbaa !110
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.preheader, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %9 = load i32, ptr %8, align 8, !tbaa !125
+  %9 = load i32, ptr %8, align 8, !tbaa !111
   %.not18 = icmp eq i32 %9, 0
   br i1 %.not18, label %.loopexit, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %12 = load i32, ptr %11, align 4, !tbaa !124
+  %12 = load i32, ptr %11, align 4, !tbaa !110
   %13 = and i32 %12, 262144
   %14 = icmp ne i32 %13, 0
   tail call void @llvm.assume(i1 %14)
@@ -9111,7 +9105,7 @@ define dso_local range(i32 -1, 1) i32 @increment_function(ptr noundef %0) local_
 
 11:                                               ; preds = %9
   callbr void asm sideeffect "addq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.058.ph) #28
-          to label %fast_long_increment_function.exit [label %12], !srcloc !126
+          to label %fast_long_increment_function.exit [label %12], !srcloc !112
 
 12:                                               ; preds = %11
   store double 0x43E0000000000000, ptr %.058.ph, align 8, !tbaa !4
@@ -9655,7 +9649,7 @@ define dso_local range(i32 -1, 1) i32 @decrement_function(ptr noundef %0) local_
 
 11:                                               ; preds = %9
   callbr void asm sideeffect "subq $$1,($0)\0A\09jo  ${1:l}\0A", "r,!i,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.088.ph) #28
-          to label %fast_long_decrement_function.exit [label %12], !srcloc !127
+          to label %fast_long_decrement_function.exit [label %12], !srcloc !113
 
 12:                                               ; preds = %11
   store double 0xC3E0000000000000, ptr %.088.ph, align 8, !tbaa !4
@@ -9966,8 +9960,8 @@ define dso_local void @zend_update_current_locale() local_unnamed_addr #1 {
 
 3:                                                ; preds = %0
   %4 = tail call ptr @nl_langinfo(i32 noundef 14) #28
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 154), align 2, !tbaa !128
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 155), align 1, !tbaa !129
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 154), align 2, !tbaa !114
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 155), align 1, !tbaa !128
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -10014,16 +10008,16 @@ zend_binary_strcasecmp.exit:                      ; preds = %13
 
 .critedge:                                        ; preds = %14, %zend_binary_strcasecmp.exit
   %27 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !130
+  %28 = load ptr, ptr %27, align 8, !tbaa !129
   %.not9 = icmp eq ptr %28, null
   br i1 %.not9, label %.loopexit, label %7
 
 29:                                               ; preds = %0
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 154), align 2, !tbaa !128
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 154), align 2, !tbaa !114
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %zend_binary_strcasecmp.exit, %7, %29
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 155), align 1, !tbaa !129
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 155), align 1, !tbaa !128
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit.sink.split, %3
@@ -10989,7 +10983,7 @@ tolower.exit:                                     ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %.021, i64 1
   %11 = load i8, ptr %.021, align 1, !tbaa !4
   %12 = tail call ptr @__ctype_tolower_loc() #33
-  %13 = load ptr, ptr %12, align 8, !tbaa !131
+  %13 = load ptr, ptr %12, align 8, !tbaa !130
   %14 = zext i8 %11 to i64
   %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !95
@@ -11036,7 +11030,7 @@ tolower.exit:                                     ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %.039, i64 1
   %12 = load i8, ptr %.039, align 1, !tbaa !4
   %13 = tail call ptr @__ctype_tolower_loc() #33
-  %14 = load ptr, ptr %13, align 8, !tbaa !131
+  %14 = load ptr, ptr %13, align 8, !tbaa !130
   %15 = zext i8 %12 to i64
   %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !95
@@ -11293,7 +11287,7 @@ define dso_local i32 @zend_compare_objects(ptr noundef %0, ptr noundef %1) local
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 184
-  %10 = load ptr, ptr %9, align 8, !tbaa !123
+  %10 = load ptr, ptr %9, align 8, !tbaa !109
   %11 = icmp eq ptr %10, null
   br i1 %11, label %14, label %12
 
@@ -11548,7 +11542,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
   br label %13
 
 17:                                               ; preds = %13
-  store ptr %.0105, ptr %8, align 8, !tbaa !130
+  store ptr %.0105, ptr %8, align 8, !tbaa !129
   %.not135 = icmp eq i8 %14, 45
   switch i8 %14, label %19 [
     i8 45, label %.sink.split
@@ -11557,7 +11551,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
 
 .sink.split:                                      ; preds = %17, %17
   %18 = getelementptr inbounds nuw i8, ptr %.0105, i64 1
-  store ptr %18, ptr %8, align 8, !tbaa !130
+  store ptr %18, ptr %8, align 8, !tbaa !129
   br label %19
 
 19:                                               ; preds = %17, %.sink.split
@@ -11574,7 +11568,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
 .lr.ph:                                           ; preds = %.preheader146, %.lr.ph
   %23 = phi ptr [ %24, %.lr.ph ], [ %.promoted, %.preheader146 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store ptr %24, ptr %8, align 8, !tbaa !130
+  store ptr %24, ptr %8, align 8, !tbaa !129
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = icmp eq i8 %25, 48
   br i1 %26, label %.lr.ph, label %.loopexit
@@ -11609,7 +11603,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
   %39 = add i64 %38, %37
   %40 = add nsw i32 %.2102, 1
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store ptr %41, ptr %8, align 8, !tbaa !130
+  store ptr %41, ptr %8, align 8, !tbaa !129
   br label %.loopexit
 
 42:                                               ; preds = %31
@@ -11642,7 +11636,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
 
 54:                                               ; preds = %51, %51
   %55 = getelementptr inbounds nuw i8, ptr %32, i64 2
-  store ptr %52, ptr %8, align 8, !tbaa !130
+  store ptr %52, ptr %8, align 8, !tbaa !129
   %.pre = load i8, ptr %55, align 1, !tbaa !4
   br label %56
 
@@ -11692,7 +11686,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
 
 76:                                               ; preds = %74
   %77 = call double @zend_strtod(ptr noundef nonnull %.0105, ptr noundef nonnull %8) #28
-  %.pre147 = load ptr, ptr %8, align 8, !tbaa !130
+  %.pre147 = load ptr, ptr %8, align 8, !tbaa !129
   br label %84
 
 78:                                               ; preds = %74
@@ -11701,7 +11695,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
 
 79:                                               ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 1
-  store ptr %80, ptr %8, align 8, !tbaa !130
+  store ptr %80, ptr %8, align 8, !tbaa !129
   %81 = load i8, ptr %75, align 1, !tbaa !4
   %82 = icmp eq i8 %81, 46
   %83 = select i1 %82, i32 1, i32 2
@@ -12353,38 +12347,37 @@ attributes #33 = { nounwind willreturn memory(none) }
 !95 = !{!9, !9, i64 0}
 !96 = !{!"branch_weights", i32 2000, i32 4002000, i32 1}
 !97 = !{!43, !48, i64 512}
-!98 = !{!99, !40, i64 81}
-!99 = !{!"_zend_compiler_globals", !50, i64 0, !18, i64 24, !26, i64 32, !9, i64 40, !100, i64 48, !20, i64 56, !20, i64 64, !20, i64 72, !5, i64 80, !40, i64 81, !40, i64 82, !40, i64 83, !40, i64 84, !101, i64 88, !103, i64 144, !40, i64 152, !40, i64 153, !40, i64 154, !40, i64 155, !26, i64 160, !9, i64 168, !9, i64 172, !104, i64 176, !107, i64 256, !109, i64 360, !28, i64 368, !110, i64 424, !12, i64 432, !40, i64 440, !40, i64 441, !40, i64 442, !111, i64 448, !109, i64 456, !50, i64 464, !20, i64 488, !9, i64 496, !15, i64 504, !15, i64 512, !12, i64 520, !12, i64 528, !20, i64 536, !20, i64 544, !20, i64 552, !18, i64 560, !9, i64 568, !15, i64 576, !9, i64 584, !50, i64 592}
-!100 = !{!"p1 _ZTS14_zend_op_array", !15, i64 0}
-!101 = !{!"_zend_llist", !102, i64 0, !102, i64 8, !12, i64 16, !12, i64 24, !15, i64 32, !5, i64 40, !102, i64 48}
-!102 = !{!"p1 _ZTS19_zend_llist_element", !15, i64 0}
-!103 = !{!"p1 _ZTS22_zend_ini_parser_param", !15, i64 0}
-!104 = !{!"_zend_oparray_context", !105, i64 0, !100, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !106, i64 48, !20, i64 56, !26, i64 64, !9, i64 72, !40, i64 76}
-!105 = !{!"p1 _ZTS21_zend_oparray_context", !15, i64 0}
-!106 = !{!"p1 _ZTS22_zend_brk_cont_element", !15, i64 0}
-!107 = !{!"_zend_file_context", !108, i64 0, !26, i64 8, !40, i64 16, !40, i64 17, !20, i64 24, !20, i64 32, !20, i64 40, !28, i64 48}
-!108 = !{!"_zend_declarables", !12, i64 0}
-!109 = !{!"p1 _ZTS11_zend_arena", !15, i64 0}
-!110 = !{!"p2 _ZTS14_zend_encoding", !15, i64 0}
-!111 = !{!"p1 _ZTS9_zend_ast", !15, i64 0}
-!112 = !{!"branch_weights", i32 1, i32 4002, i32 4000, i32 1}
-!113 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
-!114 = !{!"branch_weights", i32 1, i32 4000, i32 1}
-!115 = !{!"branch_weights", i32 2000, i32 2001, i32 2001, i32 2001, i32 2001, i32 1}
-!116 = !{!"branch_weights", i32 2095056, i32 -100663296, i32 2095}
-!117 = !{!"branch_weights", i32 536, i32 -2147483648, i32 2147483112}
-!118 = !{!"branch_weights", i32 2000, i32 2002}
-!119 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!120 = !{!"branch_weights", i32 0, i32 -2147483648, i32 -2147483648}
-!121 = !{!"branch_weights", i32 1, i32 4001}
-!122 = !{!"branch_weights", i32 1, i32 8000, i32 2, i32 1}
-!123 = !{!22, !15, i64 184}
-!124 = !{!25, !9, i64 28}
-!125 = !{!25, !9, i64 424}
-!126 = !{i64 2862811, i64 2862826}
-!127 = !{i64 2865017, i64 2865032}
-!128 = !{!99, !40, i64 154}
-!129 = !{!99, !40, i64 155}
-!130 = !{!67, !67, i64 0}
-!131 = !{!132, !132, i64 0}
-!132 = !{!"p1 int", !15, i64 0}
+!98 = !{!"branch_weights", i32 1, i32 4002, i32 4000, i32 1}
+!99 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
+!100 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!101 = !{!"branch_weights", i32 2000, i32 2001, i32 2001, i32 2001, i32 2001, i32 1}
+!102 = !{!"branch_weights", i32 2095056, i32 -100663296, i32 2095}
+!103 = !{!"branch_weights", i32 536, i32 -2147483648, i32 2147483112}
+!104 = !{!"branch_weights", i32 2000, i32 2002}
+!105 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!106 = !{!"branch_weights", i32 0, i32 -2147483648, i32 -2147483648}
+!107 = !{!"branch_weights", i32 1, i32 4001}
+!108 = !{!"branch_weights", i32 1, i32 8000, i32 2, i32 1}
+!109 = !{!22, !15, i64 184}
+!110 = !{!25, !9, i64 28}
+!111 = !{!25, !9, i64 424}
+!112 = !{i64 2862811, i64 2862826}
+!113 = !{i64 2865017, i64 2865032}
+!114 = !{!115, !40, i64 154}
+!115 = !{!"_zend_compiler_globals", !50, i64 0, !18, i64 24, !26, i64 32, !9, i64 40, !116, i64 48, !20, i64 56, !20, i64 64, !20, i64 72, !5, i64 80, !40, i64 81, !40, i64 82, !40, i64 83, !40, i64 84, !117, i64 88, !119, i64 144, !40, i64 152, !40, i64 153, !40, i64 154, !40, i64 155, !26, i64 160, !9, i64 168, !9, i64 172, !120, i64 176, !123, i64 256, !125, i64 360, !28, i64 368, !126, i64 424, !12, i64 432, !40, i64 440, !40, i64 441, !40, i64 442, !127, i64 448, !125, i64 456, !50, i64 464, !20, i64 488, !9, i64 496, !15, i64 504, !15, i64 512, !12, i64 520, !12, i64 528, !20, i64 536, !20, i64 544, !20, i64 552, !18, i64 560, !9, i64 568, !15, i64 576, !9, i64 584, !50, i64 592}
+!116 = !{!"p1 _ZTS14_zend_op_array", !15, i64 0}
+!117 = !{!"_zend_llist", !118, i64 0, !118, i64 8, !12, i64 16, !12, i64 24, !15, i64 32, !5, i64 40, !118, i64 48}
+!118 = !{!"p1 _ZTS19_zend_llist_element", !15, i64 0}
+!119 = !{!"p1 _ZTS22_zend_ini_parser_param", !15, i64 0}
+!120 = !{!"_zend_oparray_context", !121, i64 0, !116, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !122, i64 48, !20, i64 56, !26, i64 64, !9, i64 72, !40, i64 76}
+!121 = !{!"p1 _ZTS21_zend_oparray_context", !15, i64 0}
+!122 = !{!"p1 _ZTS22_zend_brk_cont_element", !15, i64 0}
+!123 = !{!"_zend_file_context", !124, i64 0, !26, i64 8, !40, i64 16, !40, i64 17, !20, i64 24, !20, i64 32, !20, i64 40, !28, i64 48}
+!124 = !{!"_zend_declarables", !12, i64 0}
+!125 = !{!"p1 _ZTS11_zend_arena", !15, i64 0}
+!126 = !{!"p2 _ZTS14_zend_encoding", !15, i64 0}
+!127 = !{!"p1 _ZTS9_zend_ast", !15, i64 0}
+!128 = !{!115, !40, i64 155}
+!129 = !{!67, !67, i64 0}
+!130 = !{!131, !131, i64 0}
+!131 = !{!"p1 int", !15, i64 0}

@@ -7669,12 +7669,12 @@ define dso_local noundef ptr @_ZN5clang16PackIndexingExpr6CreateERNS_10ASTContex
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i8, ptr %9, align 8, !tbaa !608, !range !92, !noundef !93
   %11 = trunc nuw i8 %10 to i1
-  %brmerge.demorgan = and i1 %7, %11
+  %or.cond = and i1 %7, %11
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = icmp ne i64 %13, 0
-  %or.cond.not = select i1 %brmerge.demorgan, i1 %14, i1 false
-  br i1 %or.cond.not, label %15, label %20
+  %or.cond18.not = select i1 %or.cond, i1 %14, i1 false
+  br i1 %or.cond18.not, label %15, label %20
 
 15:                                               ; preds = %8
   %16 = load i64, ptr %5, align 8, !tbaa !184

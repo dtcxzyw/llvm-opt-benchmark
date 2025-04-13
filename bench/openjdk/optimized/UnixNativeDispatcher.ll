@@ -2676,9 +2676,13 @@ thread-pre-split:                                 ; preds = %.critedge, %27, %30
 .critedge.thread:                                 ; preds = %21, %thread-pre-split
   %33 = phi i32 [ %.pr, %thread-pre-split ], [ %22, %21 ]
   %34 = icmp ult i32 %33, 10
-  br i1 %34, label %switch.hole_check, label %35
+  %switch.maskindex = trunc i32 %33 to i16
+  %switch.shifted = lshr i16 527, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond30 = select i1 %34, i1 %switch.lobit, i1 false
+  br i1 %or.cond30, label %throwUnixException.exit, label %35
 
-35:                                               ; preds = %switch.hole_check, %.critedge.thread
+35:                                               ; preds = %.critedge.thread
   %36 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %33) #11
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %throwUnixException.exit, label %37
@@ -2695,14 +2699,8 @@ thread-pre-split:                                 ; preds = %.critedge, %27, %30
   %44 = load i32, ptr %43, align 8
   br label %throwUnixException.exit
 
-switch.hole_check:                                ; preds = %.critedge.thread
-  %switch.maskindex = trunc nuw i32 %33 to i16
-  %switch.shifted = lshr i16 527, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %throwUnixException.exit, label %35
-
-throwUnixException.exit:                          ; preds = %switch.hole_check, %37, %35, %42
-  %.1 = phi i32 [ %44, %42 ], [ -1, %35 ], [ -1, %37 ], [ -1, %switch.hole_check ]
+throwUnixException.exit:                          ; preds = %.critedge.thread, %37, %35, %42
+  %.1 = phi i32 [ %44, %42 ], [ -1, %35 ], [ -1, %37 ], [ -1, %.critedge.thread ]
   call void @free(ptr noundef nonnull %12) #11
   br label %45
 

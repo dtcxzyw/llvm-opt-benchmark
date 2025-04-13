@@ -316,8 +316,8 @@ define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr nou
   %13 = load i8, ptr %12, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
   %.not = xor i1 %14, true
-  %brmerge = or i1 %2, %.not
-  br i1 %brmerge, label %27, label %15
+  %or.cond = or i1 %2, %.not
+  br i1 %or.cond, label %27, label %15
 
 15:                                               ; preds = %3
   %16 = icmp eq i32 %4, 158
@@ -341,8 +341,8 @@ define dso_local noundef i64 @BuildQueryCompletionString(ptr noundef %0, ptr nou
   %26 = getelementptr inbounds i8, ptr %21, i64 %25
   br label %27
 
-27:                                               ; preds = %3, %20
-  %.0 = phi ptr [ %26, %20 ], [ %11, %3 ]
+27:                                               ; preds = %20, %3
+  %.0 = phi ptr [ %11, %3 ], [ %26, %20 ]
   store i8 0, ptr %.0, align 1
   %28 = ptrtoint ptr %.0 to i64
   %29 = ptrtoint ptr %0 to i64

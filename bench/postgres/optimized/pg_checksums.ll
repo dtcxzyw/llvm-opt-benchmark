@@ -925,8 +925,8 @@ define internal fastcc void @progress_report(i1 noundef zeroext %0) unnamed_addr
   %2 = tail call i64 @time(ptr noundef null) #12
   %3 = load i64, ptr @last_progress_report, align 8
   %4 = icmp ne i64 %2, %3
-  %brmerge = or i1 %0, %4
-  br i1 %brmerge, label %5, label %31
+  %or.cond = or i1 %0, %4
+  br i1 %or.cond, label %5, label %31
 
 5:                                                ; preds = %1
   store i64 %2, ptr @last_progress_report, align 8
@@ -962,8 +962,8 @@ define internal fastcc void @progress_report(i1 noundef zeroext %0) unnamed_addr
   %23 = load ptr, ptr @stderr, align 8
   %24 = tail call i32 @fileno(ptr noundef %23) #12
   %25 = tail call i32 @isatty(i32 noundef %24) #12
-  %.not6 = icmp eq i32 %25, 0
-  %26 = select i1 %.not6, i32 10, i32 13
+  %.not7 = icmp eq i32 %25, 0
+  %26 = select i1 %.not7, i32 10, i32 13
   br label %27
 
 27:                                               ; preds = %22, %16

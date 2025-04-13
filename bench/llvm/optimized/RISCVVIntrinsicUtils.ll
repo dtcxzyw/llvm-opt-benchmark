@@ -10308,11 +10308,11 @@ _ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EEC2IS3_vEENS_8Arra
   br i1 %37, label %51, label %.thread
 
 .thread59:                                        ; preds = %35
-  %.sroa.311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %.sroa.311.0.copyload = load i8, ptr %.sroa.311.0..sroa_idx, align 1, !tbaa !11
+  %.sroa.315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %.sroa.315.0.copyload = load i8, ptr %.sroa.315.0..sroa_idx, align 1, !tbaa !11
   %38 = trunc i32 %6 to i8
   %39 = add i8 %38, 32
-  %40 = and i8 %.sroa.311.0.copyload, -2
+  %40 = and i8 %.sroa.315.0.copyload, -2
   %41 = load ptr, ptr %0, align 8, !tbaa !305
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 3
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %16) #22
@@ -10330,18 +10330,18 @@ _ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EEC2IS3_vEENS_8Arra
 .thread56:                                        ; preds = %35
   %44 = load ptr, ptr %0, align 8, !tbaa !305
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 3
-  %.sroa.08.sroa.0.0.copyload = load i16, ptr %45, align 1
-  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 5
-  %.sroa.49.0.copyload = load i8, ptr %.sroa.49.0..sroa_idx, align 1, !tbaa !11
-  %46 = and i8 %.sroa.49.0.copyload, -2
+  %.sroa.012.sroa.0.0.copyload = load i16, ptr %45, align 1
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 5
+  %.sroa.413.0.copyload = load i8, ptr %.sroa.413.0..sroa_idx, align 1, !tbaa !11
+  %46 = and i8 %.sroa.413.0.copyload, -2
   %47 = zext i32 %6 to i64
   %48 = getelementptr inbounds nuw %"struct.clang::RISCV::PrototypeDescriptor", ptr %44, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 3
-  %.sroa.49.0.insert.ext = zext i8 %46 to i24
-  %.sroa.49.0.insert.shift = shl nuw i24 %.sroa.49.0.insert.ext, 16
-  %.sroa.08.0.insert.ext = zext i16 %.sroa.08.sroa.0.0.copyload to i24
-  %.sroa.08.0.insert.insert = or disjoint i24 %.sroa.49.0.insert.shift, %.sroa.08.0.insert.ext
-  %50 = tail call noundef ptr @_ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6insertEPS3_mS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %49, i64 noundef %47, i24 %.sroa.08.0.insert.insert)
+  %.sroa.413.0.insert.ext = zext i8 %46 to i24
+  %.sroa.413.0.insert.shift = shl nuw i24 %.sroa.413.0.insert.ext, 16
+  %.sroa.012.0.insert.ext = zext i16 %.sroa.012.sroa.0.0.copyload to i24
+  %.sroa.012.0.insert.insert = or disjoint i24 %.sroa.413.0.insert.shift, %.sroa.012.0.insert.ext
+  %50 = tail call noundef ptr @_ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6insertEPS3_mS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %49, i64 noundef %47, i24 %.sroa.012.0.insert.insert)
   br label %.thread58
 
 51:                                               ; preds = %36
@@ -10381,15 +10381,15 @@ _ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EEC2IS3_vEENS_8Arra
   br label %86
 
 62:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EEC2IS3_vEENS_8ArrayRefIT_EE.exit
-  %63 = icmp ne i8 %7, 1
+  %63 = icmp eq i8 %7, 1
   %64 = icmp eq i32 %6, 1
   %65 = and i64 %8, 4294967295
-  %66 = icmp ne i64 %65, 0
-  %brmerge = or i1 %63, %66
+  %66 = icmp eq i64 %65, 0
+  %or.cond3 = and i1 %63, %66
   br i1 %64, label %67, label %71
 
 67:                                               ; preds = %62
-  br i1 %brmerge, label %86, label %68
+  br i1 %or.cond3, label %68, label %86
 
 68:                                               ; preds = %67
   %69 = load ptr, ptr %0, align 8, !tbaa !305
@@ -10401,7 +10401,7 @@ _ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EEC2IS3_vEENS_8Arra
   br label %86
 
 71:                                               ; preds = %62
-  br i1 %brmerge, label %86, label %72
+  br i1 %or.cond3, label %72, label %86
 
 72:                                               ; preds = %71
   %73 = load ptr, ptr %0, align 8, !tbaa !305
@@ -10427,7 +10427,7 @@ _ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EEC2IS3_vEENS_8Arra
 
 79:                                               ; preds = %72
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %.sroa.04.sroa.0.0.copyload = load i16, ptr %80, align 1
+  %.sroa.08.sroa.0.0.copyload = load i16, ptr %80, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 5
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !11
   %81 = and i8 %.sroa.4.0.copyload, -2
@@ -10436,12 +10436,12 @@ _ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EEC2IS3_vEENS_8Arra
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 3
   %.sroa.4.0.insert.ext = zext i8 %81 to i24
   %.sroa.4.0.insert.shift = shl nuw i24 %.sroa.4.0.insert.ext, 16
-  %.sroa.04.0.insert.ext = zext i16 %.sroa.04.sroa.0.0.copyload to i24
-  %.sroa.04.0.insert.insert = or disjoint i24 %.sroa.4.0.insert.shift, %.sroa.04.0.insert.ext
-  %85 = tail call noundef ptr @_ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6insertEPS3_mS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %84, i64 noundef %82, i24 %.sroa.04.0.insert.insert)
+  %.sroa.08.0.insert.ext = zext i16 %.sroa.08.sroa.0.0.copyload to i24
+  %.sroa.08.0.insert.insert = or disjoint i24 %.sroa.4.0.insert.shift, %.sroa.08.0.insert.ext
+  %85 = tail call noundef ptr @_ZN4llvm15SmallVectorImplIN5clang5RISCV19PrototypeDescriptorEE6insertEPS3_mS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %84, i64 noundef %82, i24 %.sroa.08.0.insert.insert)
   br label %86
 
-86:                                               ; preds = %71, %67, %68, %74, %79, %.thread, %.thread58, %.thread61
+86:                                               ; preds = %68, %67, %74, %79, %71, %.thread, %.thread58, %.thread61
   br i1 %5, label %87, label %97
 
 87:                                               ; preds = %86
@@ -10674,8 +10674,8 @@ define dso_local void @_ZN5clang5RISCV12RVVIntrinsic28getSupportedUnMaskedPolici
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
 define dso_local void @_ZN5clang5RISCV12RVVIntrinsic26getSupportedMaskedPoliciesEbb(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.54") align 8 %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #7 align 2 {
-  %brmerge.not = and i1 %1, %2
-  br i1 %brmerge.not, label %4, label %8
+  %or.cond = and i1 %1, %2
+  br i1 %or.cond, label %4, label %8
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10684,8 +10684,8 @@ define dso_local void @_ZN5clang5RISCV12RVVIntrinsic26getSupportedMaskedPolicies
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 6, ptr %7, align 4, !tbaa !299
   store i32 0, ptr %5, align 8
-  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 1, ptr %.sroa.418.0..sroa_idx, align 4
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 1, ptr %.sroa.421.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -10699,8 +10699,8 @@ define dso_local void @_ZN5clang5RISCV12RVVIntrinsic26getSupportedMaskedPolicies
 
 8:                                                ; preds = %3
   %.not = xor i1 %1, true
-  %brmerge12 = or i1 %2, %.not
-  br i1 %brmerge12, label %13, label %9
+  %or.cond3 = or i1 %2, %.not
+  br i1 %or.cond3, label %13, label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10709,13 +10709,14 @@ define dso_local void @_ZN5clang5RISCV12RVVIntrinsic26getSupportedMaskedPolicies
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 6, ptr %12, align 4, !tbaa !299
   store i32 0, ptr %10, align 8
-  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 1, ptr %.sroa.416.0..sroa_idx, align 4
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 1, ptr %.sroa.419.0..sroa_idx, align 4
   store i32 1, ptr %11, align 8, !tbaa !298
   br label %17
 
 13:                                               ; preds = %8
   tail call void @llvm.assume(i1 %2)
+  tail call void @llvm.assume(i1 %.not)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %0, align 8, !tbaa !296
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8

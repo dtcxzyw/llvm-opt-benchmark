@@ -1043,184 +1043,184 @@ define hidden void @Curl_cpool_disconnect(ptr noundef %0, ptr noundef %1, i1 nou
   %.0.i.ph = phi ptr [ %21, %18 ], [ %17, %16 ], [ %12, %11 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 1000
   %24 = tail call i64 @Curl_llist_count(ptr noundef nonnull %23) #8
-  %.not53 = icmp eq i64 %24, 0
-  %brmerge = or i1 %2, %.not53
-  br i1 %brmerge, label %25, label %cpool_get_instance.exit
+  %25 = icmp eq i64 %24, 0
+  %or.cond = or i1 %2, %25
+  br i1 %or.cond, label %26, label %cpool_get_instance.exit
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 152
-  %27 = load i8, ptr %26, align 8
-  %28 = and i8 %27, 1
-  %.not54 = icmp eq i8 %28, 0
-  br i1 %.not54, label %29, label %43
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 152
+  %28 = load i8, ptr %27, align 8
+  %29 = and i8 %28, 1
+  %.not55 = icmp eq i8 %29, 0
+  br i1 %.not55, label %30, label %44
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 136
-  %31 = load ptr, ptr %30, align 8, !tbaa !81
-  %.not55 = icmp eq ptr %31, null
-  br i1 %.not55, label %40, label %32
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 136
+  %32 = load ptr, ptr %31, align 8, !tbaa !81
+  %.not56 = icmp eq ptr %32, null
+  br i1 %.not56, label %41, label %33
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !89
-  %35 = and i32 %34, 32
-  %.not56 = icmp eq i32 %35, 0
-  br i1 %.not56, label %40, label %36
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %35 = load i32, ptr %34, align 4, !tbaa !89
+  %36 = and i32 %35, 32
+  %.not57 = icmp eq i32 %36, 0
+  br i1 %.not57, label %41, label %37
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 120
-  %38 = load ptr, ptr %37, align 8, !tbaa !3
-  %39 = tail call i32 @Curl_share_lock(ptr noundef %38, i32 noundef 5, i32 noundef 2) #8
-  %.pre = load i8, ptr %26, align 8
-  br label %40
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 120
+  %39 = load ptr, ptr %38, align 8, !tbaa !3
+  %40 = tail call i32 @Curl_share_lock(ptr noundef %39, i32 noundef 5, i32 noundef 2) #8
+  %.pre = load i8, ptr %27, align 8
+  br label %41
 
-40:                                               ; preds = %29, %32, %36
-  %41 = phi i8 [ %27, %29 ], [ %27, %32 ], [ %.pre, %36 ]
-  %42 = or i8 %41, 1
-  store i8 %42, ptr %26, align 8
-  br label %43
+41:                                               ; preds = %30, %33, %37
+  %42 = phi i8 [ %28, %30 ], [ %28, %33 ], [ %.pre, %37 ]
+  %43 = or i8 %42, 1
+  store i8 %43, ptr %27, align 8
+  br label %44
 
-43:                                               ; preds = %40, %25
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 952
-  %45 = load i64, ptr %44, align 8
-  %46 = and i64 %45, 8589934592
-  %.not57 = icmp eq i64 %46, 0
-  br i1 %.not57, label %cpool_remove_conn.exit, label %47
+44:                                               ; preds = %41, %26
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 952
+  %46 = load i64, ptr %45, align 8
+  %47 = and i64 %46, 8589934592
+  %.not58 = icmp eq i64 %47, 0
+  br i1 %.not58, label %cpool_remove_conn.exit, label %48
 
-47:                                               ; preds = %43
-  %48 = tail call ptr @Curl_node_llist(ptr noundef nonnull %1) #8
-  %.not.i67 = icmp eq ptr %48, null
-  br i1 %.not.i67, label %cpool_remove_conn.exit, label %49
+48:                                               ; preds = %44
+  %49 = tail call ptr @Curl_node_llist(ptr noundef nonnull %1) #8
+  %.not.i68 = icmp eq ptr %49, null
+  br i1 %.not.i68, label %cpool_remove_conn.exit, label %50
 
-49:                                               ; preds = %47
-  %50 = getelementptr i8, ptr %1, i64 56
-  %.val.i = load ptr, ptr %50, align 8, !tbaa !97
-  %51 = getelementptr i8, ptr %1, i64 64
-  %.val17.i = load i64, ptr %51, align 8, !tbaa !106
-  %52 = tail call ptr @Curl_hash_pick(ptr noundef nonnull %.0.i.ph, ptr noundef %.val.i, i64 noundef %.val17.i) #8
-  %53 = icmp eq ptr %48, %52
-  br i1 %53, label %54, label %cpool_remove_conn.exit
+50:                                               ; preds = %48
+  %51 = getelementptr i8, ptr %1, i64 56
+  %.val.i = load ptr, ptr %51, align 8, !tbaa !97
+  %52 = getelementptr i8, ptr %1, i64 64
+  %.val17.i = load i64, ptr %52, align 8, !tbaa !106
+  %53 = tail call ptr @Curl_hash_pick(ptr noundef nonnull %.0.i.ph, ptr noundef %.val.i, i64 noundef %.val17.i) #8
+  %54 = icmp eq ptr %49, %53
+  br i1 %54, label %55, label %cpool_remove_conn.exit
 
-54:                                               ; preds = %49
+55:                                               ; preds = %50
   tail call void @Curl_node_remove(ptr noundef nonnull %1) #8
-  %55 = load i64, ptr %44, align 8
-  %56 = and i64 %55, -8589934593
-  store i64 %56, ptr %44, align 8
-  %57 = tail call i64 @Curl_llist_count(ptr noundef nonnull %52) #8
-  %.not16.i68 = icmp eq i64 %57, 0
-  br i1 %.not16.i68, label %58, label %63
+  %56 = load i64, ptr %45, align 8
+  %57 = and i64 %56, -8589934593
+  store i64 %57, ptr %45, align 8
+  %58 = tail call i64 @Curl_llist_count(ptr noundef nonnull %53) #8
+  %.not16.i69 = icmp eq i64 %58, 0
+  br i1 %.not16.i69, label %59, label %64
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %60 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %61 = load i64, ptr %60, align 8, !tbaa !107
-  %62 = tail call i32 @Curl_hash_delete(ptr noundef nonnull %.0.i.ph, ptr noundef nonnull %59, i64 noundef %61) #8
-  br label %63
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %62 = load i64, ptr %61, align 8, !tbaa !107
+  %63 = tail call i32 @Curl_hash_delete(ptr noundef nonnull %.0.i.ph, ptr noundef nonnull %60, i64 noundef %62) #8
+  br label %64
 
-63:                                               ; preds = %58, %54
-  %64 = load i64, ptr %44, align 8
-  %65 = and i64 %64, -8589934593
-  store i64 %65, ptr %44, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 48
-  %67 = load i64, ptr %66, align 8, !tbaa !109
-  %68 = add i64 %67, -1
-  store i64 %68, ptr %66, align 8, !tbaa !109
+64:                                               ; preds = %59, %55
+  %65 = load i64, ptr %45, align 8
+  %66 = and i64 %65, -8589934593
+  store i64 %66, ptr %45, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 48
+  %68 = load i64, ptr %67, align 8, !tbaa !109
+  %69 = add i64 %68, -1
+  store i64 %69, ptr %67, align 8, !tbaa !109
   br label %cpool_remove_conn.exit
 
-cpool_remove_conn.exit:                           ; preds = %63, %49, %47, %43
-  %69 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 144
-  %70 = load ptr, ptr %69, align 8, !tbaa !18
-  %71 = tail call zeroext i1 %70(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %2) #8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %73 = load ptr, ptr %72, align 8, !tbaa !20
-  %.not58 = icmp eq ptr %73, null
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 2658
-  %75 = load i64, ptr %74, align 2
-  %76 = and i64 %75, 2147483648
-  %.not60 = icmp eq i64 %76, 0
-  br i1 %.not58, label %92, label %77
+cpool_remove_conn.exit:                           ; preds = %64, %50, %48, %44
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 144
+  %71 = load ptr, ptr %70, align 8, !tbaa !18
+  %72 = tail call zeroext i1 %71(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %2) #8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %74 = load ptr, ptr %73, align 8, !tbaa !20
+  %.not59 = icmp eq ptr %74, null
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 2658
+  %76 = load i64, ptr %75, align 2
+  %77 = and i64 %76, 2147483648
+  %.not61 = icmp eq i64 %77, 0
+  br i1 %.not59, label %93, label %78
 
-77:                                               ; preds = %cpool_remove_conn.exit
-  br i1 %.not60, label %89, label %78
+78:                                               ; preds = %cpool_remove_conn.exit
+  br i1 %.not61, label %90, label %79
 
-78:                                               ; preds = %77
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %80 = load ptr, ptr %79, align 8, !tbaa !134
-  %.not64 = icmp eq ptr %80, null
-  br i1 %.not64, label %85, label %81
+79:                                               ; preds = %78
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 4864
+  %81 = load ptr, ptr %80, align 8, !tbaa !134
+  %.not65 = icmp eq ptr %81, null
+  br i1 %.not65, label %86, label %82
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %83 = load i32, ptr %82, align 8, !tbaa !135
-  %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %85, label %89
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %84 = load i32, ptr %83, align 8, !tbaa !135
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %86, label %90
 
-85:                                               ; preds = %81, %78
-  %86 = select i1 %71, ptr @.str.2, ptr @.str.3
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %88 = load i64, ptr %87, align 8, !tbaa !137
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %86, i64 noundef %88) #8
-  %.pre72 = load ptr, ptr %72, align 8, !tbaa !20
-  br label %89
+86:                                               ; preds = %82, %79
+  %87 = select i1 %72, ptr @.str.2, ptr @.str.3
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %89 = load i64, ptr %88, align 8, !tbaa !137
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %87, i64 noundef %89) #8
+  %.pre73 = load ptr, ptr %73, align 8, !tbaa !20
+  br label %90
 
-89:                                               ; preds = %85, %81, %77
-  %90 = phi ptr [ %.pre72, %85 ], [ %73, %81 ], [ %73, %77 ]
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 416
-  tail call fastcc void @cpool_discard_conn(ptr noundef nonnull %91, ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %71)
-  br label %105
+90:                                               ; preds = %86, %82, %78
+  %91 = phi ptr [ %.pre73, %86 ], [ %74, %82 ], [ %74, %78 ]
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 416
+  tail call fastcc void @cpool_discard_conn(ptr noundef nonnull %92, ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %72)
+  br label %106
 
-92:                                               ; preds = %cpool_remove_conn.exit
-  br i1 %.not60, label %103, label %93
+93:                                               ; preds = %cpool_remove_conn.exit
+  br i1 %.not61, label %104, label %94
 
-93:                                               ; preds = %92
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %95 = load ptr, ptr %94, align 8, !tbaa !134
-  %.not61 = icmp eq ptr %95, null
-  br i1 %.not61, label %100, label %96
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 4864
+  %96 = load ptr, ptr %95, align 8, !tbaa !134
+  %.not62 = icmp eq ptr %96, null
+  br i1 %.not62, label %101, label %97
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %98 = load i32, ptr %97, align 8, !tbaa !135
-  %99 = icmp sgt i32 %98, 0
-  br i1 %99, label %100, label %103
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %99 = load i32, ptr %98, align 8, !tbaa !135
+  %100 = icmp sgt i32 %99, 0
+  br i1 %100, label %101, label %104
 
-100:                                              ; preds = %96, %93
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %102 = load i64, ptr %101, align 8, !tbaa !137
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i64 noundef %102) #8
-  br label %103
+101:                                              ; preds = %97, %94
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %103 = load i64, ptr %102, align 8, !tbaa !137
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i64 noundef %103) #8
+  br label %104
 
-103:                                              ; preds = %100, %96, %92
-  %104 = xor i1 %71, true
-  tail call fastcc void @cpool_close_and_destroy(ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull %0, i1 noundef zeroext %104)
-  br label %105
+104:                                              ; preds = %101, %97, %93
+  %105 = xor i1 %72, true
+  tail call fastcc void @cpool_close_and_destroy(ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull %0, i1 noundef zeroext %105)
+  br label %106
 
-105:                                              ; preds = %103, %89
-  br i1 %.not54, label %106, label %cpool_get_instance.exit
+106:                                              ; preds = %104, %90
+  br i1 %.not55, label %107, label %cpool_get_instance.exit
 
-106:                                              ; preds = %105
-  %107 = load i8, ptr %26, align 8
-  %108 = and i8 %107, -2
-  store i8 %108, ptr %26, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 136
-  %110 = load ptr, ptr %109, align 8, !tbaa !81
-  %.not65 = icmp eq ptr %110, null
-  br i1 %.not65, label %cpool_get_instance.exit, label %111
+107:                                              ; preds = %106
+  %108 = load i8, ptr %27, align 8
+  %109 = and i8 %108, -2
+  store i8 %109, ptr %27, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 136
+  %111 = load ptr, ptr %110, align 8, !tbaa !81
+  %.not66 = icmp eq ptr %111, null
+  br i1 %.not66, label %cpool_get_instance.exit, label %112
 
-111:                                              ; preds = %106
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 4
-  %113 = load i32, ptr %112, align 4, !tbaa !89
-  %114 = and i32 %113, 32
-  %.not66 = icmp eq i32 %114, 0
-  br i1 %.not66, label %cpool_get_instance.exit, label %115
+112:                                              ; preds = %107
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  %114 = load i32, ptr %113, align 4, !tbaa !89
+  %115 = and i32 %114, 32
+  %.not67 = icmp eq i32 %115, 0
+  br i1 %.not67, label %cpool_get_instance.exit, label %116
 
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 120
-  %117 = load ptr, ptr %116, align 8, !tbaa !3
-  %118 = tail call i32 @Curl_share_unlock(ptr noundef %117, i32 noundef 5) #8
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 120
+  %118 = load ptr, ptr %117, align 8, !tbaa !3
+  %119 = tail call i32 @Curl_share_unlock(ptr noundef %118, i32 noundef 5) #8
   br label %cpool_get_instance.exit
 
-cpool_get_instance.exit:                          ; preds = %18, %3, %105, %106, %111, %115, %22
+cpool_get_instance.exit:                          ; preds = %18, %3, %106, %107, %112, %116, %22
   ret void
 }
 
@@ -1756,142 +1756,142 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1000
   %10 = tail call i64 @Curl_llist_count(ptr noundef nonnull %9) #8
-  %.not = icmp eq i64 %10, 0
-  %brmerge = or i1 %3, %.not
-  br i1 %brmerge, label %11, label %62
+  %11 = icmp eq i64 %10, 0
+  %or.cond = or i1 %3, %11
+  br i1 %or.cond, label %12, label %63
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 1413
-  %13 = load i8, ptr %12, align 1, !tbaa !138
-  %.not34 = icmp ne i8 %13, 0
-  %spec.select = or i1 %3, %.not34
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 952
-  %15 = load i64, ptr %14, align 8
-  %16 = select i1 %spec.select, i64 1073741824, i64 0
-  %17 = and i64 %15, -1073741825
-  %18 = or disjoint i64 %16, %17
-  store i64 %18, ptr %14, align 8
-  br i1 %spec.select, label %.thread42, label %19
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 1413
+  %14 = load i8, ptr %13, align 1, !tbaa !138
+  %.not = icmp ne i8 %14, 0
+  %spec.select = or i1 %3, %.not
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 952
+  %16 = load i64, ptr %15, align 8
+  %17 = select i1 %spec.select, i64 1073741824, i64 0
+  %18 = and i64 %16, -1073741825
+  %19 = or disjoint i64 %17, %18
+  store i64 %19, ptr %15, align 8
+  br i1 %spec.select, label %.thread42, label %20
 
-19:                                               ; preds = %11
+20:                                               ; preds = %12
   tail call void @Curl_attach_connection(ptr noundef %1, ptr noundef nonnull %2) #8
   call fastcc void @cpool_run_conn_shutdown(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %8)
   tail call void @Curl_detach_connection(ptr noundef %1) #8
   %.pre = load i8, ptr %8, align 1, !tbaa !145, !range !110
-  %20 = trunc nuw i8 %.pre to i1
-  br i1 %20, label %.thread42, label %21
+  %21 = trunc nuw i8 %.pre to i1
+  br i1 %21, label %.thread42, label %22
 
-.thread42:                                        ; preds = %11, %19
+.thread42:                                        ; preds = %12, %20
   tail call fastcc void @cpool_close_and_destroy(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %1, i1 noundef zeroext false)
-  br label %62
+  br label %63
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %23 = load ptr, ptr %22, align 8, !tbaa !20
-  %.not35 = icmp eq ptr %23, null
-  br i1 %.not35, label %cpool_shutdown_destroy_oldest.exit.thread, label %24
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %24 = load ptr, ptr %23, align 8, !tbaa !20
+  %.not35 = icmp eq ptr %24, null
+  br i1 %.not35, label %cpool_shutdown_destroy_oldest.exit.thread, label %25
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 584
-  %26 = load i64, ptr %25, align 8, !tbaa !131
-  %27 = icmp sgt i64 %26, 0
-  br i1 %27, label %28, label %cpool_shutdown_destroy_oldest.exit
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 584
+  %27 = load i64, ptr %26, align 8, !tbaa !131
+  %28 = icmp sgt i64 %27, 0
+  br i1 %28, label %29, label %cpool_shutdown_destroy_oldest.exit
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load i64, ptr %29, align 8, !tbaa !109
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %32 = tail call i64 @Curl_llist_count(ptr noundef nonnull %31) #8
-  %33 = add i64 %32, %30
-  %.not36 = icmp sgt i64 %26, %33
-  br i1 %.not36, label %cpool_shutdown_destroy_oldest.exit, label %34
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %31 = load i64, ptr %30, align 8, !tbaa !109
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %33 = tail call i64 @Curl_llist_count(ptr noundef nonnull %32) #8
+  %34 = add i64 %33, %31
+  %.not36 = icmp sgt i64 %27, %34
+  br i1 %.not36, label %cpool_shutdown_destroy_oldest.exit, label %35
 
-34:                                               ; preds = %28
-  %35 = tail call ptr @Curl_llist_head(ptr noundef nonnull %31) #8
-  %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %cpool_shutdown_destroy_oldest.exit, label %36
+35:                                               ; preds = %29
+  %36 = tail call ptr @Curl_llist_head(ptr noundef nonnull %32) #8
+  %.not.i = icmp eq ptr %36, null
+  br i1 %.not.i, label %cpool_shutdown_destroy_oldest.exit, label %37
 
-36:                                               ; preds = %34
+37:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7) #8
-  %37 = tail call ptr @Curl_node_elem(ptr noundef nonnull %35) #8
-  tail call void @Curl_node_remove(ptr noundef nonnull %35) #8
+  %38 = tail call ptr @Curl_node_elem(ptr noundef nonnull %36) #8
+  tail call void @Curl_node_remove(ptr noundef nonnull %36) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %7, i8 0, i64 160, i1 false)
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 152
-  store i8 1, ptr %38, align 8, !tbaa !84
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %40 = load ptr, ptr %39, align 8, !tbaa !3
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2658
-  %42 = load i64, ptr %41, align 2
-  %43 = and i64 %42, 17179869184
-  %.not.i.not.i = icmp eq i64 %43, 0
-  br i1 %.not.i.not.i, label %44, label %sigpipe_apply.exit.i
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  store i8 1, ptr %39, align 8, !tbaa !84
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %41 = load ptr, ptr %40, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 2658
+  %43 = load i64, ptr %42, align 2
+  %44 = and i64 %43, 17179869184
+  %.not.i.not.i = icmp eq i64 %44, 0
+  br i1 %.not.i.not.i, label %45, label %sigpipe_apply.exit.i
 
-44:                                               ; preds = %36
-  store i8 0, ptr %38, align 8, !tbaa !84
+45:                                               ; preds = %37
+  store i8 0, ptr %39, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #8
-  %45 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %7) #8
+  %46 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %7) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %7, i64 152, i1 false), !tbaa.struct !112
   store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !tbaa !113
-  %46 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %6, ptr noundef null) #8
+  %47 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %6, ptr noundef null) #8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6) #8
   br label %sigpipe_apply.exit.i
 
-sigpipe_apply.exit.i:                             ; preds = %44, %36
-  call fastcc void @cpool_close_and_destroy(ptr noundef nonnull %0, ptr noundef %37, ptr noundef null, i1 noundef zeroext false)
-  %47 = load i8, ptr %38, align 8, !tbaa !84, !range !110, !noundef !111
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %sigpipe_restore.exit.i, label %49
+sigpipe_apply.exit.i:                             ; preds = %45, %37
+  call fastcc void @cpool_close_and_destroy(ptr noundef nonnull %0, ptr noundef %38, ptr noundef null, i1 noundef zeroext false)
+  %48 = load i8, ptr %39, align 8, !tbaa !84, !range !110, !noundef !111
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %sigpipe_restore.exit.i, label %50
 
-49:                                               ; preds = %sigpipe_apply.exit.i
-  %50 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %7, ptr noundef null) #8
+50:                                               ; preds = %sigpipe_apply.exit.i
+  %51 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %7, ptr noundef null) #8
   br label %sigpipe_restore.exit.i
 
-sigpipe_restore.exit.i:                           ; preds = %49, %sigpipe_apply.exit.i
+sigpipe_restore.exit.i:                           ; preds = %50, %sigpipe_apply.exit.i
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #8
   br label %cpool_shutdown_destroy_oldest.exit
 
-cpool_shutdown_destroy_oldest.exit:               ; preds = %sigpipe_restore.exit.i, %34, %28, %24
-  %.pr = load ptr, ptr %22, align 8, !tbaa !20
+cpool_shutdown_destroy_oldest.exit:               ; preds = %sigpipe_restore.exit.i, %35, %29, %25
+  %.pr = load ptr, ptr %23, align 8, !tbaa !20
   %.not37 = icmp eq ptr %.pr, null
-  br i1 %.not37, label %cpool_shutdown_destroy_oldest.exit.thread, label %51
+  br i1 %.not37, label %cpool_shutdown_destroy_oldest.exit.thread, label %52
 
-51:                                               ; preds = %cpool_shutdown_destroy_oldest.exit
-  %52 = getelementptr inbounds nuw i8, ptr %.pr, i64 152
-  %53 = load ptr, ptr %52, align 8, !tbaa !146
-  %.not38 = icmp eq ptr %53, null
-  br i1 %.not38, label %cpool_shutdown_destroy_oldest.exit.thread, label %54
+52:                                               ; preds = %cpool_shutdown_destroy_oldest.exit
+  %53 = getelementptr inbounds nuw i8, ptr %.pr, i64 152
+  %54 = load ptr, ptr %53, align 8, !tbaa !146
+  %.not38 = icmp eq ptr %54, null
+  br i1 %.not38, label %cpool_shutdown_destroy_oldest.exit.thread, label %55
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 664
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false)
-  %56 = load ptr, ptr %22, align 8, !tbaa !20
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %58 = load ptr, ptr %57, align 8, !tbaa !3
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 664
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 32, i1 false)
+  %57 = load ptr, ptr %23, align 8, !tbaa !20
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %59 = load ptr, ptr %58, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  call void @Curl_attach_connection(ptr noundef %58, ptr noundef nonnull %2) #8
-  call void @Curl_conn_adjust_pollset(ptr noundef %58, ptr noundef nonnull %5) #8
-  call void @Curl_detach_connection(ptr noundef %58) #8
-  %59 = call i32 @Curl_multi_pollset_ev(ptr noundef %56, ptr noundef %58, ptr noundef nonnull %5, ptr noundef nonnull %55) #8
-  %.not.i40 = icmp eq i32 %59, 0
-  br i1 %.not.i40, label %cpool_update_shutdown_ev.exit.thread, label %60
+  call void @Curl_attach_connection(ptr noundef %59, ptr noundef nonnull %2) #8
+  call void @Curl_conn_adjust_pollset(ptr noundef %59, ptr noundef nonnull %5) #8
+  call void @Curl_detach_connection(ptr noundef %59) #8
+  %60 = call i32 @Curl_multi_pollset_ev(ptr noundef %57, ptr noundef %59, ptr noundef nonnull %5, ptr noundef nonnull %56) #8
+  %.not.i40 = icmp eq i32 %60, 0
+  br i1 %.not.i40, label %cpool_update_shutdown_ev.exit.thread, label %61
 
-cpool_update_shutdown_ev.exit.thread:             ; preds = %54
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false)
+cpool_update_shutdown_ev.exit.thread:             ; preds = %55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
   br label %cpool_shutdown_destroy_oldest.exit.thread
 
-60:                                               ; preds = %54
+61:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
   call fastcc void @cpool_close_and_destroy(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %1, i1 noundef zeroext false)
-  br label %62
+  br label %63
 
-cpool_shutdown_destroy_oldest.exit.thread:        ; preds = %21, %cpool_update_shutdown_ev.exit.thread, %51, %cpool_shutdown_destroy_oldest.exit
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  call void @Curl_llist_append(ptr noundef nonnull %61, ptr noundef nonnull %2, ptr noundef nonnull %2) #8
-  br label %62
+cpool_shutdown_destroy_oldest.exit.thread:        ; preds = %22, %cpool_update_shutdown_ev.exit.thread, %52, %cpool_shutdown_destroy_oldest.exit
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  call void @Curl_llist_append(ptr noundef nonnull %62, ptr noundef nonnull %2, ptr noundef nonnull %2) #8
+  br label %63
 
-62:                                               ; preds = %4, %cpool_shutdown_destroy_oldest.exit.thread, %60, %.thread42
+63:                                               ; preds = %4, %cpool_shutdown_destroy_oldest.exit.thread, %61, %.thread42
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #8
   ret void
 }

@@ -7135,8 +7135,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCodeEEE
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %35
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %35
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
@@ -34197,8 +34197,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5Va
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %35
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %35
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
@@ -34307,8 +34307,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo11I
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %35
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %35
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
@@ -34415,8 +34415,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo8In
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %35
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %35
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
@@ -35417,8 +35417,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo12I
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %35
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %35
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
@@ -35527,8 +35527,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger5errorIA27_cEEvRKT_(ptr nounde
   %8 = icmp slt i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %9)
-  %brmerge.i.i.i = or i1 %8, %10
-  br i1 %brmerge.i.i.i, label %11, label %_ZN6spdlog6logger3logIA27_cEEvNS_5level10level_enumERKT_.exit
+  %or.cond.i.i.i = or i1 %8, %10
+  br i1 %or.cond.i.i.i, label %11, label %_ZN6spdlog6logger3logIA27_cEEvNS_5level10level_enumERKT_.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35557,8 +35557,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger5errorIA190_cEEvRKT_(ptr nound
   %8 = icmp slt i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %9)
-  %brmerge.i.i.i = or i1 %8, %10
-  br i1 %brmerge.i.i.i, label %11, label %_ZN6spdlog6logger3logIA190_cEEvNS_5level10level_enumERKT_.exit
+  %or.cond.i.i.i = or i1 %8, %10
+  br i1 %or.cond.i.i.i, label %11, label %_ZN6spdlog6logger3logIA190_cEEvNS_5level10level_enumERKT_.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8

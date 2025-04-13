@@ -376,49 +376,48 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN31G1ConcurrentRefineThreadControl24create_refinement_threadEjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  br i1 %2, label %7, label %4
+  %.not = xor i1 %2, true
+  %4 = load i8, ptr @InjectGCWorkerCreationFailure, align 1
+  %5 = trunc i8 %4 to i1
+  %or.cond = select i1 %.not, i1 %5, i1 false
+  br i1 %or.cond, label %.thread, label %6
 
-4:                                                ; preds = %3
-  %5 = load i8, ptr @InjectGCWorkerCreationFailure, align 1
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %.thread, label %7
+6:                                                ; preds = %3
+  %7 = load ptr, ptr %0, align 8
+  %8 = tail call noundef ptr @_ZN24G1ConcurrentRefineThread6createEP18G1ConcurrentRefinej(ptr noundef %7, i32 noundef %1) #17
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %.thread, label %10
 
-7:                                                ; preds = %3, %4
-  %8 = load ptr, ptr %0, align 8
-  %9 = tail call noundef ptr @_ZN24G1ConcurrentRefineThread6createEP18G1ConcurrentRefinej(ptr noundef %8, i32 noundef %1) #17
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread, label %11
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 792
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %.thread, label %23
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 792
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread, label %24
+.thread:                                          ; preds = %3, %10, %6
+  %14 = phi i1 [ false, %10 ], [ true, %6 ], [ true, %3 ]
+  %.012 = phi ptr [ %8, %10 ], [ null, %6 ], [ null, %3 ]
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not13 = icmp eq ptr %15, null
+  br i1 %.not13, label %18, label %16
 
-.thread:                                          ; preds = %4, %11, %7
-  %15 = phi i1 [ false, %11 ], [ true, %7 ], [ true, %4 ]
-  %.010 = phi ptr [ %9, %11 ], [ null, %7 ], [ null, %4 ]
-  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %19, label %17
+16:                                               ; preds = %.thread
+  %17 = select i1 %14, ptr @.str.4, ptr @.str.5
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str, i32 noundef %1, ptr noundef nonnull %17)
+  br label %18
 
-17:                                               ; preds = %.thread
-  %18 = select i1 %15, ptr @.str.4, ptr @.str.5
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str, i32 noundef %1, ptr noundef nonnull %18)
-  br label %19
+18:                                               ; preds = %.thread, %16
+  br i1 %14, label %23, label %19
 
-19:                                               ; preds = %.thread, %17
-  br i1 %15, label %24, label %20
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %.012, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(1104) %.012) #17
+  br label %23
 
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %.010, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(1104) %.010) #17
-  br label %24
-
-24:                                               ; preds = %19, %20, %11
-  %.1 = phi ptr [ null, %20 ], [ null, %19 ], [ %9, %11 ]
+23:                                               ; preds = %18, %19, %10
+  %.1 = phi ptr [ null, %19 ], [ null, %18 ], [ %8, %10 ]
   ret ptr %.1
 }
 
@@ -599,8 +598,8 @@ define hidden noundef zeroext i1 @_ZN31G1ConcurrentRefineThreadControl22ensure_t
   %.us-phi10 = phi i1 [ true, %.lr.ph.split.us ], [ true, %.lr.ph.split ], [ true, %..thread.i.loopexit_crit_edge ], [ false, %.lr.ph30.preheader ], [ false, %.lr.ph30 ], [ false, %30 ], [ true, %.lr.ph14 ], [ true, %23 ]
   %.us-phi11 = phi ptr [ null, %.lr.ph.split.us ], [ null, %.lr.ph.split ], [ null, %..thread.i.loopexit_crit_edge ], [ %8, %.lr.ph30.preheader ], [ %14, %.lr.ph30 ], [ %28, %30 ], [ null, %.lr.ph14 ], [ null, %23 ]
   %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %37, label %35
+  %.not13.i = icmp eq ptr %34, null
+  br i1 %.not13.i, label %37, label %35
 
 35:                                               ; preds = %.thread.i
   %36 = select i1 %.us-phi10, ptr @.str.4, ptr @.str.5
@@ -652,8 +651,8 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN31G1ConcurrentRefineThreadControl
 
 .thread.i:                                        ; preds = %10, %6
   %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %17, label %15
+  %.not13.i = icmp eq ptr %14, null
+  br i1 %.not13.i, label %17, label %15
 
 15:                                               ; preds = %.thread.i
   %16 = select i1 %9, ptr @.str.4, ptr @.str.5
@@ -740,8 +739,8 @@ define hidden noundef zeroext i1 @_ZN31G1ConcurrentRefineThreadControl8activateE
   %.us-phi10.i = phi i1 [ true, %.lr.ph.i ], [ true, %8 ], [ true, %.lr.ph14.i ], [ false, %15 ]
   %.us-phi11.i = phi ptr [ null, %.lr.ph.i ], [ null, %8 ], [ null, %.lr.ph14.i ], [ %13, %15 ]
   %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %22, label %20
+  %.not13.i.i = icmp eq ptr %19, null
+  br i1 %.not13.i.i, label %22, label %20
 
 20:                                               ; preds = %.thread.i.i
   %21 = select i1 %.us-phi10.i, ptr @.str.4, ptr @.str.5

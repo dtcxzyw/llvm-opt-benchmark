@@ -2717,26 +2717,25 @@ define void @_ZNK19OpenColorIO_v2_5dev9Processor4Impl24getOptimizedCPUProcessorE
   %11 = tail call fastcc noundef i64 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_119EnvironmentOverrideENS_17OptimizationFlagsE(i64 noundef %4)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %13 = load i32, ptr %12, align 8, !tbaa !142
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev10OpRcPtrVec9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(144) %14) #29
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 456
-  %18 = load i8, ptr %17, align 8, !tbaa !37, !range !116, !noundef !117
-  %19 = trunc nuw i8 %18 to i1
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 457
-  %21 = load i8, ptr %20, align 1, !range !116
+  %14 = and i32 %13, 2
+  %15 = icmp ne i32 %14, 0
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev10OpRcPtrVec9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #29
+  %not. = xor i1 %17, true
+  %18 = select i1 %not., i1 true, i1 %15
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 456
+  %21 = load i8, ptr %20, align 8, !tbaa !37, !range !116, !noundef !117
   %22 = trunc nuw i8 %21 to i1
-  %not..i = xor i1 %19, true
-  %23 = select i1 %not..i, i1 %22, i1 false
-  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12CPUProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 457
+  %24 = load i8, ptr %23, align 1, !range !116
+  %25 = trunc nuw i8 %24 to i1
+  %not..i = xor i1 %22, true
+  %26 = select i1 %not..i, i1 %25, i1 false
+  %or.cond = select i1 %26, i1 %18, i1 false
+  br i1 %or.cond, label %27, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12CPUProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32
 
-24:                                               ; preds = %5
-  %25 = and i32 %13, 2
-  %26 = icmp eq i32 %25, 0
-  %.not20 = select i1 %15, i1 %26, i1 false
-  br i1 %.not20, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12CPUProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32, label %27
-
-27:                                               ; preds = %24
+27:                                               ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %29 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %28) #29
   %.not.i.i = icmp eq i32 %29, 0
@@ -2850,14 +2849,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #29
   store i64 %63, ptr %7, align 8, !tbaa !74
-  %73 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN19OpenColorIO_v2_5dev12GenericCacheImSt10shared_ptrINS_12CPUProcessorEEEixERKm(ptr noundef nonnull align 8 dereferenceable(104) %16, ptr noundef nonnull align 8 dereferenceable(8) %7) #29
+  %73 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN19OpenColorIO_v2_5dev12GenericCacheImSt10shared_ptrINS_12CPUProcessorEEEixERKm(ptr noundef nonnull align 8 dereferenceable(104) %19, ptr noundef nonnull align 8 dereferenceable(8) %7) #29
   %74 = load ptr, ptr %73, align 8, !tbaa !172
   %.not = icmp eq ptr %74, null
   br i1 %.not, label %75, label %131
 
 75:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #29
-  invoke fastcc void @"_ZZNK19OpenColorIO_v2_5dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKNS_10OpRcPtrVecES2_S2_S3_"(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(144) %14, i32 noundef %2, i32 noundef %3, i64 noundef %11)
+  invoke fastcc void @"_ZZNK19OpenColorIO_v2_5dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKNS_10OpRcPtrVecES2_S2_S3_"(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(144) %16, i32 noundef %2, i32 noundef %3, i64 noundef %11)
           to label %76 unwind label %129
 
 76:                                               ; preds = %75
@@ -3072,9 +3071,9 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %165 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %28) #29
   resume { ptr, i32 } %.pn.pn.pn
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12CPUProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32: ; preds = %5, %24
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12CPUProcessorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32: ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #29
-  call fastcc void @"_ZZNK19OpenColorIO_v2_5dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKNS_10OpRcPtrVecES2_S2_S3_"(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(144) %14, i32 noundef %2, i32 noundef %3, i64 noundef %11)
+  call fastcc void @"_ZZNK19OpenColorIO_v2_5dev9Processor4Impl24getOptimizedCPUProcessorENS_8BitDepthES2_NS_17OptimizationFlagsEENK3$_0clERKNS_10OpRcPtrVecES2_S2_S3_"(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(144) %16, i32 noundef %2, i32 noundef %3, i64 noundef %11)
   %166 = load ptr, ptr %10, align 8, !tbaa !172
   store ptr %166, ptr %0, align 8, !tbaa !176
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8

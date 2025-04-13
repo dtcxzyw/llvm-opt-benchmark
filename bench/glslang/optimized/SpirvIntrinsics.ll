@@ -5252,8 +5252,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %42
   %bcmp.i.i = tail call i32 @bcmp(ptr %55, ptr %53, i64 %.sroa.speculated.i.i.i)
   %.not.i.i.i = icmp ne i32 %bcmp.i.i, 0
   %56 = icmp ne i64 %48, %50
-  %or.cond = or i1 %56, %.not.i.i.i
-  br i1 %or.cond, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread, label %57
+  %or.cond129 = or i1 %56, %.not.i.i.i
+  br i1 %or.cond129, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread, label %57
 
 _ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit: ; preds = %42
   %.old.not = icmp eq i64 %48, %50
@@ -5277,7 +5277,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i: ; preds = %_ZNSt11char_tr
 
 _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i
   %.0.i.i = phi i1 [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %61, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i ]
-  br i1 %.not, label %62, label %81
+  br i1 %.not, label %62, label %82
 
 62:                                               ; preds = %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -5298,351 +5298,351 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   %78 = ptrtoint ptr %76 to i64
   %79 = ptrtoint ptr %77 to i64
   %80 = sub i64 %78, %79
-  %.not58 = icmp eq i64 %71, %80
-  %brmerge = or i1 %.0.i.i, %.not58
-  br i1 %brmerge, label %81, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
+  %81 = icmp eq i64 %71, %80
+  %or.cond = or i1 %.0.i.i, %81
+  br i1 %or.cond, label %82, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
 
-81:                                               ; preds = %62, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  br label %84
+82:                                               ; preds = %62, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  br label %85
 
-84:                                               ; preds = %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, %81
-  %.053 = phi i64 [ 0, %81 ], [ %263, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119 ]
-  %.0 = phi i64 [ 0, %81 ], [ %264, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119 ]
-  %85 = load ptr, ptr %82, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr %86, align 8
-  %90 = ptrtoint ptr %88 to i64
+85:                                               ; preds = %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, %82
+  %.054 = phi i64 [ 0, %82 ], [ %264, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119 ]
+  %.0 = phi i64 [ 0, %82 ], [ %265, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119 ]
+  %86 = load ptr, ptr %83, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %87, align 8
   %91 = ptrtoint ptr %89 to i64
-  %92 = sub i64 %90, %91
-  %93 = ashr exact i64 %92, 5
-  %94 = icmp ult i64 %.053, %93
-  br i1 %94, label %.critedge, label %95
+  %92 = ptrtoint ptr %90 to i64
+  %93 = sub i64 %91, %92
+  %94 = ashr exact i64 %93, 5
+  %95 = icmp ult i64 %.054, %94
+  br i1 %95, label %.critedge, label %96
 
-95:                                               ; preds = %84
-  %96 = load ptr, ptr %83, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = load ptr, ptr %97, align 8
-  %101 = ptrtoint ptr %99 to i64
+96:                                               ; preds = %85
+  %97 = load ptr, ptr %84, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %98, align 8
   %102 = ptrtoint ptr %100 to i64
-  %103 = sub i64 %101, %102
-  %104 = ashr exact i64 %103, 5
-  %105 = icmp ult i64 %.0, %104
-  br i1 %105, label %.critedge, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
+  %103 = ptrtoint ptr %101 to i64
+  %104 = sub i64 %102, %103
+  %105 = ashr exact i64 %104, 5
+  %106 = icmp ult i64 %.0, %105
+  br i1 %106, label %.critedge, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
 
-.critedge:                                        ; preds = %84, %95
-  br i1 %.not, label %109, label %106
+.critedge:                                        ; preds = %85, %96
+  br i1 %.not, label %110, label %107
 
-106:                                              ; preds = %.critedge
-  %107 = trunc i64 %.053 to i32
-  store i32 %107, ptr %2, align 4
-  %108 = trunc i64 %.0 to i32
-  store i32 %108, ptr %3, align 4
-  %.pre = load ptr, ptr %82, align 8
+107:                                              ; preds = %.critedge
+  %108 = trunc i64 %.054 to i32
+  store i32 %108, ptr %2, align 4
+  %109 = trunc i64 %.0 to i32
+  store i32 %109, ptr %3, align 4
+  %.pre = load ptr, ptr %83, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre137 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert138 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre139 = load ptr, ptr %.phi.trans.insert138, align 8
-  %.pre140 = ptrtoint ptr %.pre137 to i64
-  %.pre141 = ptrtoint ptr %.pre139 to i64
-  %.pre143 = sub i64 %.pre140, %.pre141
-  %.pre145 = ashr exact i64 %.pre143, 5
-  br label %109
+  %.pre138 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert139 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %.pre140 = load ptr, ptr %.phi.trans.insert139, align 8
+  %.pre141 = ptrtoint ptr %.pre138 to i64
+  %.pre142 = ptrtoint ptr %.pre140 to i64
+  %.pre144 = sub i64 %.pre141, %.pre142
+  %.pre146 = ashr exact i64 %.pre144, 5
+  br label %110
 
-109:                                              ; preds = %106, %.critedge
-  %.pre-phi146 = phi i64 [ %.pre145, %106 ], [ %93, %.critedge ]
-  %110 = phi ptr [ %.pre139, %106 ], [ %89, %.critedge ]
-  %111 = icmp ult i64 %.053, %.pre-phi146
-  %112 = load ptr, ptr %83, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  br i1 %111, label %114, label %239
+110:                                              ; preds = %107, %.critedge
+  %.pre-phi147 = phi i64 [ %.pre146, %107 ], [ %94, %.critedge ]
+  %111 = phi ptr [ %.pre140, %107 ], [ %90, %.critedge ]
+  %112 = icmp ult i64 %.054, %.pre-phi147
+  %113 = load ptr, ptr %84, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  br i1 %112, label %115, label %240
 
-114:                                              ; preds = %109
-  %115 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %116 = load ptr, ptr %115, align 8
-  %117 = load ptr, ptr %113, align 8
-  %118 = ptrtoint ptr %116 to i64
+115:                                              ; preds = %110
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %117 = load ptr, ptr %116, align 8
+  %118 = load ptr, ptr %114, align 8
   %119 = ptrtoint ptr %117 to i64
-  %120 = sub i64 %118, %119
-  %121 = ashr exact i64 %120, 5
-  %122 = icmp ult i64 %.0, %121
-  %123 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %110, i64 %.053
-  %124 = load ptr, ptr %123, align 8
+  %120 = ptrtoint ptr %118 to i64
+  %121 = sub i64 %119, %120
+  %122 = ashr exact i64 %121, 5
+  %123 = icmp ult i64 %.0, %122
+  %124 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %111, i64 %.054
   %125 = load ptr, ptr %124, align 8
-  br i1 %122, label %126, label %219
+  %126 = load ptr, ptr %125, align 8
+  br i1 %123, label %127, label %220
 
-126:                                              ; preds = %114
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 48
-  %128 = load ptr, ptr %127, align 8
-  %129 = tail call noundef nonnull align 8 dereferenceable(40) ptr %128(ptr noundef nonnull align 8 dereferenceable(152) %124) #14
-  %130 = load ptr, ptr %83, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %132, i64 %.0
-  %134 = load ptr, ptr %133, align 8
+127:                                              ; preds = %115
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 48
+  %129 = load ptr, ptr %128, align 8
+  %130 = tail call noundef nonnull align 8 dereferenceable(40) ptr %129(ptr noundef nonnull align 8 dereferenceable(152) %125) #14
+  %131 = load ptr, ptr %84, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %133, i64 %.0
   %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 48
-  %137 = load ptr, ptr %136, align 8
-  %138 = tail call noundef nonnull align 8 dereferenceable(40) ptr %137(ptr noundef nonnull align 8 dereferenceable(152) %134) #14
-  %139 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %140 = load i64, ptr %139, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %142 = load i64, ptr %141, align 8
-  %.sroa.speculated.i.i59 = tail call i64 @llvm.umin.i64(i64 %142, i64 %140)
-  %143 = icmp eq i64 %.sroa.speculated.i.i59, 0
-  br i1 %143, label %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i60
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 48
+  %138 = load ptr, ptr %137, align 8
+  %139 = tail call noundef nonnull align 8 dereferenceable(40) ptr %138(ptr noundef nonnull align 8 dereferenceable(152) %135) #14
+  %140 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %141 = load i64, ptr %140, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %143 = load i64, ptr %142, align 8
+  %.sroa.speculated.i.i59 = tail call i64 @llvm.umin.i64(i64 %143, i64 %141)
+  %144 = icmp eq i64 %.sroa.speculated.i.i59, 0
+  br i1 %144, label %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i60
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i60: ; preds = %126
-  %144 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %147 = load ptr, ptr %146, align 8
-  %bcmp.i61 = tail call i32 @bcmp(ptr %147, ptr %145, i64 %.sroa.speculated.i.i59)
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i60: ; preds = %127
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %bcmp.i61 = tail call i32 @bcmp(ptr %148, ptr %146, i64 %.sroa.speculated.i.i59)
   %.not.i.i62 = icmp eq i32 %bcmp.i61, 0
-  %148 = icmp eq i64 %140, %142
-  %or.cond130 = and i1 %148, %.not.i.i62
-  br i1 %or.cond130, label %149, label %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
+  %149 = icmp eq i64 %141, %143
+  %or.cond131 = and i1 %149, %.not.i.i62
+  br i1 %or.cond131, label %150, label %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
 
-_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit: ; preds = %126
-  %.old129 = icmp eq i64 %140, %142
-  br i1 %.old129, label %149, label %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
+_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit: ; preds = %127
+  %.old130 = icmp eq i64 %141, %143
+  br i1 %.old130, label %150, label %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
 
-149:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i60, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit
-  %150 = load ptr, ptr %82, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %152, i64 %.053
-  %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %83, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %157, i64 %.0
-  %159 = load ptr, ptr %158, align 8
-  %160 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %154, ptr noundef nonnull align 8 dereferenceable(152) %159)
-  br i1 %160, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
+150:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i60, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit
+  %151 = load ptr, ptr %83, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %153, i64 %.054
+  %155 = load ptr, ptr %154, align 8
+  %156 = load ptr, ptr %84, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %158, i64 %.0
+  %160 = load ptr, ptr %159, align 8
+  %161 = tail call noundef zeroext i1 @_ZNK7glslang5TTypeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %155, ptr noundef nonnull align 8 dereferenceable(152) %160)
+  br i1 %161, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
 
 _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i60, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit
-  %161 = load ptr, ptr %82, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %163, i64 %.053
-  %165 = load ptr, ptr %164, align 8
+  %162 = load ptr, ptr %83, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %164, i64 %.054
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 24
-  %168 = load ptr, ptr %167, align 8
-  %169 = tail call noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(152) %165) #14
-  br i1 %169, label %170, label %172
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
+  %169 = load ptr, ptr %168, align 8
+  %170 = tail call noundef zeroext i1 %169(ptr noundef nonnull align 8 dereferenceable(152) %166) #14
+  br i1 %170, label %171, label %173
 
-170:                                              ; preds = %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
-  %171 = add i64 %.0, -1
+171:                                              ; preds = %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
+  %172 = add i64 %.0, -1
   br label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119
 
-172:                                              ; preds = %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
-  %173 = load ptr, ptr %83, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %175, i64 %.0
-  %177 = load ptr, ptr %176, align 8
+173:                                              ; preds = %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
+  %174 = load ptr, ptr %84, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %176, i64 %.0
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
-  %180 = load ptr, ptr %179, align 8
-  %181 = tail call noundef zeroext i1 %180(ptr noundef nonnull align 8 dereferenceable(152) %177) #14
-  br i1 %181, label %182, label %184
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 24
+  %181 = load ptr, ptr %180, align 8
+  %182 = tail call noundef zeroext i1 %181(ptr noundef nonnull align 8 dereferenceable(152) %178) #14
+  br i1 %182, label %183, label %185
 
-182:                                              ; preds = %172
-  %183 = add i64 %.053, -1
+183:                                              ; preds = %173
+  %184 = add i64 %.054, -1
   br label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119
 
-184:                                              ; preds = %172
-  br i1 %.0.i.i, label %185, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
+185:                                              ; preds = %173
+  br i1 %.0.i.i, label %186, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
 
-185:                                              ; preds = %184
-  %186 = load ptr, ptr %82, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %188, i64 %.053
-  %190 = load ptr, ptr %189, align 8
+186:                                              ; preds = %185
+  %187 = load ptr, ptr %83, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %189, i64 %.054
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 48
-  %193 = load ptr, ptr %192, align 8
-  %194 = tail call noundef nonnull align 8 dereferenceable(40) ptr %193(ptr noundef nonnull align 8 dereferenceable(152) %190) #14
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
-  %196 = load i64, ptr %195, align 8
-  %cond.i = icmp eq i64 %196, 0
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 48
+  %194 = load ptr, ptr %193, align 8
+  %195 = tail call noundef nonnull align 8 dereferenceable(40) ptr %194(ptr noundef nonnull align 8 dereferenceable(152) %191) #14
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
+  %197 = load i64, ptr %196, align 8
+  %cond.i = icmp eq i64 %197, 0
   br i1 %cond.i, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread113, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i65
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i65: ; preds = %185
-  %.sroa.speculated.i.i.i66 = tail call i64 @llvm.umin.i64(i64 %196, i64 22)
-  %197 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  %198 = load ptr, ptr %197, align 8
-  %bcmp.i.i67 = tail call i32 @bcmp(ptr %198, ptr nonnull @.str.21, i64 %.sroa.speculated.i.i.i66)
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i65: ; preds = %186
+  %.sroa.speculated.i.i.i66 = tail call i64 @llvm.umin.i64(i64 %197, i64 22)
+  %198 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %199 = load ptr, ptr %198, align 8
+  %bcmp.i.i67 = tail call i32 @bcmp(ptr %199, ptr nonnull @.str.21, i64 %.sroa.speculated.i.i.i66)
   %.not.i.i.i68 = icmp eq i32 %bcmp.i.i67, 0
-  %199 = icmp eq i64 %196, 22
-  %or.cond.i = and i1 %199, %.not.i.i.i68
+  %200 = icmp eq i64 %197, 22
+  %or.cond.i = and i1 %200, %.not.i.i.i68
   br i1 %or.cond.i, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i65
-  %.sroa.speculated.i.i3.i = tail call i64 @llvm.umin.i64(i64 %196, i64 20)
-  %bcmp.i5.i = tail call i32 @bcmp(ptr %198, ptr nonnull @.str.22, i64 %.sroa.speculated.i.i3.i)
+  %.sroa.speculated.i.i3.i = tail call i64 @llvm.umin.i64(i64 %197, i64 20)
+  %bcmp.i5.i = tail call i32 @bcmp(ptr %199, ptr nonnull @.str.22, i64 %.sroa.speculated.i.i3.i)
   %.not.i.i6.i = icmp eq i32 %bcmp.i5.i, 0
-  %200 = icmp eq i64 %196, 20
-  %or.cond132 = and i1 %200, %.not.i.i6.i
-  br i1 %or.cond132, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread113
+  %201 = icmp eq i64 %197, 20
+  %or.cond133 = and i1 %201, %.not.i.i6.i
+  br i1 %or.cond133, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread113
 
 _ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i65
-  %201 = add i64 %.0, -1
+  %202 = add i64 %.0, -1
   br label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119
 
-_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread113: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i, %185
-  %202 = load ptr, ptr %83, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %204, i64 %.0
-  %206 = load ptr, ptr %205, align 8
+_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread113: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i, %186
+  %203 = load ptr, ptr %84, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
+  %205 = load ptr, ptr %204, align 8
+  %206 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %205, i64 %.0
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 48
-  %209 = load ptr, ptr %208, align 8
-  %210 = tail call noundef nonnull align 8 dereferenceable(40) ptr %209(ptr noundef nonnull align 8 dereferenceable(152) %206) #14
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
-  %212 = load i64, ptr %211, align 8
-  %.fr = freeze i64 %212
+  %208 = load ptr, ptr %207, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 48
+  %210 = load ptr, ptr %209, align 8
+  %211 = tail call noundef nonnull align 8 dereferenceable(40) ptr %210(ptr noundef nonnull align 8 dereferenceable(152) %207) #14
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
+  %213 = load i64, ptr %212, align 8
+  %.fr = freeze i64 %213
   %cond.i69 = icmp eq i64 %.fr, 0
   br i1 %cond.i69, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i70
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i70: ; preds = %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread113
   %.sroa.speculated.i.i.i71 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 22)
-  %213 = getelementptr inbounds nuw i8, ptr %210, i64 8
-  %214 = load ptr, ptr %213, align 8
-  %bcmp.i.i72 = tail call i32 @bcmp(ptr %214, ptr nonnull @.str.21, i64 %.sroa.speculated.i.i.i71)
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %215 = load ptr, ptr %214, align 8
+  %bcmp.i.i72 = tail call i32 @bcmp(ptr %215, ptr nonnull @.str.21, i64 %.sroa.speculated.i.i.i71)
   %.not.i.i.i73 = icmp eq i32 %bcmp.i.i72, 0
-  %215 = icmp eq i64 %.fr, 22
-  %or.cond.i74 = and i1 %215, %.not.i.i.i73
+  %216 = icmp eq i64 %.fr, 22
+  %or.cond.i74 = and i1 %216, %.not.i.i.i73
   br i1 %or.cond.i74, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i75
 
 _ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i70
-  %216 = add i64 %.053, -1
+  %217 = add i64 %.054, -1
   br label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i75: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i70
   %.sroa.speculated.i.i3.i76 = tail call i64 @llvm.umin.i64(i64 %.fr, i64 20)
-  %bcmp.i5.i77 = tail call i32 @bcmp(ptr %214, ptr nonnull @.str.22, i64 %.sroa.speculated.i.i3.i76)
+  %bcmp.i5.i77 = tail call i32 @bcmp(ptr %215, ptr nonnull @.str.22, i64 %.sroa.speculated.i.i3.i76)
   %.not.i.i6.i78 = icmp eq i32 %bcmp.i5.i77, 0
   br i1 %.not.i.i6.i78, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119
 
 _ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i75
-  %217 = icmp eq i64 %.fr, 20
-  %218 = sext i1 %217 to i64
-  %spec.select = add i64 %.053, %218
+  %218 = icmp eq i64 %.fr, 20
+  %219 = sext i1 %218 to i64
+  %spec.select = add i64 %.054, %219
   br label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119
 
-219:                                              ; preds = %114
-  %220 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  %221 = load ptr, ptr %220, align 8
-  %222 = tail call noundef zeroext i1 %221(ptr noundef nonnull align 8 dereferenceable(152) %124) #14
-  br i1 %222, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %223
+220:                                              ; preds = %115
+  %221 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %222 = load ptr, ptr %221, align 8
+  %223 = tail call noundef zeroext i1 %222(ptr noundef nonnull align 8 dereferenceable(152) %125) #14
+  br i1 %223, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %224
 
-223:                                              ; preds = %219
-  %224 = load ptr, ptr %82, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %226, i64 %.053
-  %228 = load ptr, ptr %227, align 8
+224:                                              ; preds = %220
+  %225 = load ptr, ptr %83, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %227, i64 %.054
   %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 48
-  %231 = load ptr, ptr %230, align 8
-  %232 = tail call noundef nonnull align 8 dereferenceable(40) ptr %231(ptr noundef nonnull align 8 dereferenceable(152) %228) #14
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
-  %234 = load i64, ptr %233, align 8
-  %cond.i82 = icmp eq i64 %234, 0
+  %230 = load ptr, ptr %229, align 8
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 48
+  %232 = load ptr, ptr %231, align 8
+  %233 = tail call noundef nonnull align 8 dereferenceable(40) ptr %232(ptr noundef nonnull align 8 dereferenceable(152) %229) #14
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
+  %235 = load i64, ptr %234, align 8
+  %cond.i82 = icmp eq i64 %235, 0
   br i1 %cond.i82, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread124, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i83
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i83: ; preds = %223
-  %.sroa.speculated.i.i.i84 = tail call i64 @llvm.umin.i64(i64 %234, i64 22)
-  %235 = getelementptr inbounds nuw i8, ptr %232, i64 8
-  %236 = load ptr, ptr %235, align 8
-  %bcmp.i.i85 = tail call i32 @bcmp(ptr %236, ptr nonnull @.str.21, i64 %.sroa.speculated.i.i.i84)
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i83: ; preds = %224
+  %.sroa.speculated.i.i.i84 = tail call i64 @llvm.umin.i64(i64 %235, i64 22)
+  %236 = getelementptr inbounds nuw i8, ptr %233, i64 8
+  %237 = load ptr, ptr %236, align 8
+  %bcmp.i.i85 = tail call i32 @bcmp(ptr %237, ptr nonnull @.str.21, i64 %.sroa.speculated.i.i.i84)
   %.not.i.i.i86 = icmp eq i32 %bcmp.i.i85, 0
-  %237 = icmp eq i64 %234, 22
-  %or.cond.i87 = and i1 %237, %.not.i.i.i86
+  %238 = icmp eq i64 %235, 22
+  %or.cond.i87 = and i1 %238, %.not.i.i.i86
   br i1 %or.cond.i87, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i88
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i88: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i83
-  %.sroa.speculated.i.i3.i89 = tail call i64 @llvm.umin.i64(i64 %234, i64 20)
-  %bcmp.i5.i90 = tail call i32 @bcmp(ptr %236, ptr nonnull @.str.22, i64 %.sroa.speculated.i.i3.i89)
+  %.sroa.speculated.i.i3.i89 = tail call i64 @llvm.umin.i64(i64 %235, i64 20)
+  %bcmp.i5.i90 = tail call i32 @bcmp(ptr %237, ptr nonnull @.str.22, i64 %.sroa.speculated.i.i3.i89)
   %.not.i.i6.i91 = icmp eq i32 %bcmp.i5.i90, 0
-  %238 = icmp eq i64 %234, 20
-  %or.cond134 = and i1 %238, %.not.i.i6.i91
-  br i1 %or.cond134, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread124
+  %239 = icmp eq i64 %235, 20
+  %or.cond135 = and i1 %239, %.not.i.i6.i91
+  br i1 %or.cond135, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread124
 
-_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread124: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i88, %223
+_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread124: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i88, %224
   br i1 %.not, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread.sink.split
 
-239:                                              ; preds = %109
-  %240 = load ptr, ptr %113, align 8
-  %241 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %240, i64 %.0
-  %242 = load ptr, ptr %241, align 8
+240:                                              ; preds = %110
+  %241 = load ptr, ptr %114, align 8
+  %242 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %241, i64 %.0
   %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 24
-  %245 = load ptr, ptr %244, align 8
-  %246 = tail call noundef zeroext i1 %245(ptr noundef nonnull align 8 dereferenceable(152) %242) #14
-  br i1 %246, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %247
+  %244 = load ptr, ptr %243, align 8
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 24
+  %246 = load ptr, ptr %245, align 8
+  %247 = tail call noundef zeroext i1 %246(ptr noundef nonnull align 8 dereferenceable(152) %243) #14
+  br i1 %247, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %248
 
-247:                                              ; preds = %239
-  %248 = load ptr, ptr %83, align 8
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %250, i64 %.0
-  %252 = load ptr, ptr %251, align 8
+248:                                              ; preds = %240
+  %249 = load ptr, ptr %84, align 8
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
+  %251 = load ptr, ptr %250, align 8
+  %252 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %251, i64 %.0
   %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 48
-  %255 = load ptr, ptr %254, align 8
-  %256 = tail call noundef nonnull align 8 dereferenceable(40) ptr %255(ptr noundef nonnull align 8 dereferenceable(152) %252) #14
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 16
-  %258 = load i64, ptr %257, align 8
-  %cond.i95 = icmp eq i64 %258, 0
+  %254 = load ptr, ptr %253, align 8
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 48
+  %256 = load ptr, ptr %255, align 8
+  %257 = tail call noundef nonnull align 8 dereferenceable(40) ptr %256(ptr noundef nonnull align 8 dereferenceable(152) %253) #14
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
+  %259 = load i64, ptr %258, align 8
+  %cond.i95 = icmp eq i64 %259, 0
   br i1 %cond.i95, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread128, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i96
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i96: ; preds = %247
-  %.sroa.speculated.i.i.i97 = tail call i64 @llvm.umin.i64(i64 %258, i64 22)
-  %259 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  %260 = load ptr, ptr %259, align 8
-  %bcmp.i.i98 = tail call i32 @bcmp(ptr %260, ptr nonnull @.str.21, i64 %.sroa.speculated.i.i.i97)
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i96: ; preds = %248
+  %.sroa.speculated.i.i.i97 = tail call i64 @llvm.umin.i64(i64 %259, i64 22)
+  %260 = getelementptr inbounds nuw i8, ptr %257, i64 8
+  %261 = load ptr, ptr %260, align 8
+  %bcmp.i.i98 = tail call i32 @bcmp(ptr %261, ptr nonnull @.str.21, i64 %.sroa.speculated.i.i.i97)
   %.not.i.i.i99 = icmp eq i32 %bcmp.i.i98, 0
-  %261 = icmp eq i64 %258, 22
-  %or.cond.i100 = and i1 %261, %.not.i.i.i99
+  %262 = icmp eq i64 %259, 22
+  %or.cond.i100 = and i1 %262, %.not.i.i.i99
   br i1 %or.cond.i100, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i101
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i101: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i96
-  %.sroa.speculated.i.i3.i102 = tail call i64 @llvm.umin.i64(i64 %258, i64 20)
-  %bcmp.i5.i103 = tail call i32 @bcmp(ptr %260, ptr nonnull @.str.22, i64 %.sroa.speculated.i.i3.i102)
+  %.sroa.speculated.i.i3.i102 = tail call i64 @llvm.umin.i64(i64 %259, i64 20)
+  %bcmp.i5.i103 = tail call i32 @bcmp(ptr %261, ptr nonnull @.str.22, i64 %.sroa.speculated.i.i3.i102)
   %.not.i.i6.i104 = icmp eq i32 %bcmp.i5.i103, 0
-  %262 = icmp eq i64 %258, 20
-  %or.cond136 = and i1 %262, %.not.i.i6.i104
-  br i1 %or.cond136, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread128
+  %263 = icmp eq i64 %259, 20
+  %or.cond137 = and i1 %263, %.not.i.i6.i104
+  br i1 %or.cond137, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119, label %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread128
 
-_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread128: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i101, %247
+_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread128: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i101, %248
   br i1 %.not, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread, label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread.sink.split
 
-_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119: ; preds = %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i101, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i88, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i96, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i83, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i75, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread113, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread, %149, %239, %219, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread, %182, %170
-  %.154 = phi i64 [ %.053, %149 ], [ %.053, %170 ], [ %183, %182 ], [ %.053, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread ], [ %.053, %219 ], [ %.053, %239 ], [ %216, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread ], [ %.053, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread113 ], [ %.053, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i75 ], [ %.053, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i83 ], [ %.053, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i96 ], [ %spec.select, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81 ], [ %.053, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i88 ], [ %.053, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i101 ]
-  %.1 = phi i64 [ %.0, %149 ], [ %171, %170 ], [ %.0, %182 ], [ %201, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread ], [ %.0, %219 ], [ %.0, %239 ], [ %.0, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread ], [ %.0, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread113 ], [ %.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i75 ], [ %.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i83 ], [ %.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i96 ], [ %.0, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81 ], [ %.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i88 ], [ %.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i101 ]
-  %263 = add i64 %.154, 1
-  %264 = add i64 %.1, 1
-  br label %84, !llvm.loop !29
+_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread119: ; preds = %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i101, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i88, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i96, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i83, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i75, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread113, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread, %150, %240, %220, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread, %183, %171
+  %.155 = phi i64 [ %.054, %150 ], [ %.054, %171 ], [ %184, %183 ], [ %.054, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread ], [ %.054, %220 ], [ %.054, %240 ], [ %217, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread ], [ %.054, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread113 ], [ %.054, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i75 ], [ %.054, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i83 ], [ %.054, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i96 ], [ %spec.select, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81 ], [ %.054, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i88 ], [ %.054, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i101 ]
+  %.1 = phi i64 [ %.0, %150 ], [ %172, %171 ], [ %.0, %183 ], [ %202, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread ], [ %.0, %220 ], [ %.0, %240 ], [ %.0, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81.thread ], [ %.0, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread113 ], [ %.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i75 ], [ %.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i83 ], [ %.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i96 ], [ %.0, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit81 ], [ %.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i88 ], [ %.0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i4.i101 ]
+  %264 = add i64 %.155, 1
+  %265 = add i64 %.1, 1
+  br label %85, !llvm.loop !29
 
 _ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread.sink.split: ; preds = %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread128, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread124
   %.sink = phi ptr [ %3, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread124 ], [ %2, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread128 ]
   store i32 -1, ptr %.sink, align 4
   br label %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread
 
-_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread: ; preds = %95, %184, %149, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread.sink.split, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread128, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread124, %62, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit, %32, %37, %11, %26
-  %.055 = phi i1 [ true, %26 ], [ true, %11 ], [ false, %37 ], [ false, %32 ], [ false, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit ], [ false, %62 ], [ false, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread124 ], [ false, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread128 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread.sink.split ], [ true, %95 ], [ false, %184 ], [ false, %149 ]
-  ret i1 %.055
+_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread: ; preds = %96, %185, %150, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread.sink.split, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread128, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread124, %62, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit, %32, %37, %11, %26
+  %.056 = phi i1 [ true, %26 ], [ true, %11 ], [ false, %37 ], [ false, %32 ], [ false, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit ], [ false, %62 ], [ false, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit94.thread124 ], [ false, %_ZNK7glslang5TType31isInconsistentGLPerVertexMemberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit107.thread128 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %_ZStneIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESC_.exit.thread.sink.split ], [ true, %96 ], [ false, %185 ], [ false, %150 ]
+  ret i1 %.056
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

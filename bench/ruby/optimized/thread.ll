@@ -6379,8 +6379,8 @@ define dso_local ptr @rb_nogvl(ptr noundef nonnull %0, ptr noundef %1, ptr nound
 
 10:                                               ; preds = %5
   %11 = call i64 @rb_fiber_scheduler_current() #17
-  %.not51 = icmp eq i64 %11, 4
-  br i1 %.not51, label %.thread, label %12
+  %.not53 = icmp eq i64 %11, 4
+  br i1 %.not53, label %.thread, label %12
 
 12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
@@ -6429,10 +6429,10 @@ rb_ec_vm_ptr.exit:                                ; preds = %.thread, %22
   %30 = load ptr, ptr %29, align 8, !tbaa !52
   %31 = call i32 @rb_ractor_living_thread_num(ptr noundef %30) #17
   %32 = icmp ne i32 %31, 1
-  %brmerge = select i1 %32, i1 true, i1 %27
+  %or.cond3.not68 = select i1 %32, i1 true, i1 %27
   %33 = and i32 %4, 2
-  %.not53 = icmp eq i32 %33, 0
-  %or.cond = or i1 %.not53, %brmerge
+  %.not55 = icmp eq i32 %33, 0
+  %or.cond = or i1 %.not55, %or.cond3.not68
   br i1 %or.cond, label %36, label %34
 
 34:                                               ; preds = %28
@@ -6443,16 +6443,16 @@ rb_ec_vm_ptr.exit:                                ; preds = %.thread, %22
 .fold.split:                                      ; preds = %rb_ec_vm_ptr.exit
   br label %36
 
-36:                                               ; preds = %28, %rb_ec_vm_ptr.exit, %.fold.split, %34
-  %.045 = phi ptr [ %3, %34 ], [ %3, %28 ], [ %.val, %rb_ec_vm_ptr.exit ], [ %3, %.fold.split ]
-  %.044 = phi ptr [ %2, %34 ], [ %2, %28 ], [ @ubf_select, %rb_ec_vm_ptr.exit ], [ null, %.fold.split ]
+36:                                               ; preds = %rb_ec_vm_ptr.exit, %.fold.split, %28, %34
+  %.047 = phi ptr [ %3, %34 ], [ %3, %28 ], [ %.val, %rb_ec_vm_ptr.exit ], [ %3, %.fold.split ]
+  %.046 = phi ptr [ %2, %34 ], [ %2, %28 ], [ @ubf_select, %rb_ec_vm_ptr.exit ], [ null, %.fold.split ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store volatile ptr %.0.i, ptr %7, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
   %37 = and i32 %4, 1
-  %38 = call fastcc i32 @blocking_region_begin(ptr noundef %.val, ptr noundef %8, ptr noundef %.044, ptr noundef %.045, i32 noundef %37)
-  %.not54 = icmp eq i32 %38, 0
-  br i1 %.not54, label %56, label %39
+  %38 = call fastcc i32 @blocking_region_begin(ptr noundef %.val, ptr noundef %8, ptr noundef %.046, ptr noundef %.047, i32 noundef %37)
+  %.not56 = icmp eq i32 %38, 0
+  br i1 %.not56, label %56, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -6491,7 +6491,7 @@ thread_sched_to_waiting.exit:                     ; preds = %thread_sched_lock_.
   br label %56
 
 56:                                               ; preds = %thread_sched_to_waiting.exit, %36
-  %.046 = phi ptr [ %54, %thread_sched_to_waiting.exit ], [ null, %36 ]
+  %.048 = phi ptr [ %54, %thread_sched_to_waiting.exit ], [ null, %36 ]
   %.0 = phi i32 [ %55, %thread_sched_to_waiting.exit ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
   %.0..0..0..0. = load volatile ptr, ptr %7, align 8, !tbaa !147
@@ -6560,7 +6560,7 @@ vm_check_ints_blocking.exit:                      ; preds = %83, %72, %59
   br label %85
 
 85:                                               ; preds = %15, %vm_check_ints_blocking.exit
-  %.3 = phi ptr [ %.046, %vm_check_ints_blocking.exit ], [ %18, %15 ]
+  %.3 = phi ptr [ %.048, %vm_check_ints_blocking.exit ], [ %18, %15 ]
   ret ptr %.3
 }
 
@@ -17410,8 +17410,8 @@ thread_sched_lock_.exit:                          ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %11 = icmp ne ptr %10, %0
-  %brmerge.not = and i1 %6, %11
-  br i1 %brmerge.not, label %12, label %thread_sched_to_ready_common.exit
+  %or.cond = and i1 %6, %11
+  br i1 %or.cond, label %12, label %thread_sched_to_ready_common.exit
 
 12:                                               ; preds = %thread_sched_lock_.exit
   %13 = load ptr, ptr @rb_internal_thread_event_hooks, align 8, !tbaa !78
@@ -17442,8 +17442,8 @@ thread_sched_lock_.exit:                          ; preds = %1
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 344
   %25 = load ptr, ptr %24, align 8, !tbaa !54
-  %.not.i.i13 = icmp eq ptr %25, %24
-  br i1 %.not.i.i13, label %26, label %thread_sched_enq.exit.i
+  %.not.i.i14 = icmp eq ptr %25, %24
+  br i1 %.not.i.i14, label %26, label %thread_sched_enq.exit.i
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -17469,8 +17469,8 @@ thread_sched_enq.exit.i:                          ; preds = %26, %23, %19
 
 thread_sched_to_ready_common.exit:                ; preds = %thread_sched_enq.exit.i, %18, %thread_sched_lock_.exit
   %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #17
-  %.not.i.i14 = icmp eq i32 %37, 0
-  br i1 %.not.i.i14, label %thread_sched_unlock_.exit, label %38
+  %.not.i.i15 = icmp eq i32 %37, 0
+  br i1 %.not.i.i15, label %thread_sched_unlock_.exit, label %38
 
 38:                                               ; preds = %thread_sched_to_ready_common.exit
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %37) #38

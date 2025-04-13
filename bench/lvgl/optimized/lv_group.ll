@@ -194,7 +194,7 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @lv_group_add_obj(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %35, label %4
+  br i1 %3, label %37, label %4
 
 4:                                                ; preds = %2
   tail call void @lv_group_remove_obj(ptr noundef %1)
@@ -223,7 +223,7 @@ define void @lv_group_add_obj(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   store ptr %1, ptr %12, align 8, !tbaa !13
   %14 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %0) #10
   %15 = icmp eq ptr %14, %12
-  br i1 %15, label %16, label %35
+  br i1 %15, label %16, label %37
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -233,39 +233,39 @@ define void @lv_group_add_obj(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %20 = and i8 %18, 4
   %21 = icmp eq i8 %20, 0
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br i1 %21, label %23, label %27
+  br i1 %21, label %23, label %28
 
 23:                                               ; preds = %16
   %24 = tail call fastcc zeroext i1 @focus_next_core(ptr noundef nonnull %0, ptr noundef nonnull @lv_ll_get_head, ptr noundef nonnull @lv_ll_get_next)
   %25 = load ptr, ptr %22, align 8, !tbaa !51
-  %.not6.i.i = icmp eq ptr %25, null
-  %brmerge.i.i = or i1 %24, %.not6.i.i
-  br i1 %brmerge.i.i, label %lv_group_refocus.exit, label %26
+  %26 = icmp eq ptr %25, null
+  %or.cond.i.i = or i1 %24, %26
+  br i1 %or.cond.i.i, label %lv_group_refocus.exit, label %27
 
-26:                                               ; preds = %23
+27:                                               ; preds = %23
   tail call void %25(ptr noundef nonnull %0, i1 noundef zeroext true) #10
   br label %lv_group_refocus.exit
 
-27:                                               ; preds = %16
-  %28 = tail call fastcc zeroext i1 @focus_next_core(ptr noundef nonnull %0, ptr noundef nonnull @lv_ll_get_tail, ptr noundef nonnull @lv_ll_get_prev)
-  %29 = load ptr, ptr %22, align 8, !tbaa !51
-  %.not6.i7.i = icmp eq ptr %29, null
-  %brmerge.i8.i = or i1 %28, %.not6.i7.i
-  br i1 %brmerge.i8.i, label %lv_group_refocus.exit, label %30
+28:                                               ; preds = %16
+  %29 = tail call fastcc zeroext i1 @focus_next_core(ptr noundef nonnull %0, ptr noundef nonnull @lv_ll_get_tail, ptr noundef nonnull @lv_ll_get_prev)
+  %30 = load ptr, ptr %22, align 8, !tbaa !51
+  %31 = icmp eq ptr %30, null
+  %or.cond.i7.i = or i1 %29, %31
+  br i1 %or.cond.i7.i, label %lv_group_refocus.exit, label %32
 
-30:                                               ; preds = %27
-  tail call void %29(ptr noundef nonnull %0, i1 noundef zeroext false) #10
+32:                                               ; preds = %28
+  tail call void %30(ptr noundef nonnull %0, i1 noundef zeroext false) #10
   br label %lv_group_refocus.exit
 
-lv_group_refocus.exit:                            ; preds = %23, %26, %27, %30
-  %31 = and i8 %18, 8
-  %32 = load i8, ptr %17, align 8
-  %33 = and i8 %32, -9
-  %34 = or disjoint i8 %33, %31
-  store i8 %34, ptr %17, align 8
-  br label %35
+lv_group_refocus.exit:                            ; preds = %23, %27, %28, %32
+  %33 = and i8 %18, 8
+  %34 = load i8, ptr %17, align 8
+  %35 = and i8 %34, -9
+  %36 = or disjoint i8 %35, %33
+  store i8 %36, ptr %17, align 8
+  br label %37
 
-35:                                               ; preds = %13, %lv_group_refocus.exit, %2
+37:                                               ; preds = %13, %lv_group_refocus.exit, %2
   ret void
 }
 
@@ -334,7 +334,7 @@ define void @lv_group_remove_obj(ptr noundef %0) local_unnamed_addr #0 {
 get_indev.exit:                                   ; preds = %.lr.ph.i, %28, %24
   %.2.i = phi ptr [ null, %24 ], [ %spec.select.i, %28 ], [ %.01122.i, %.lr.ph.i ]
   %32 = tail call i32 @lv_obj_send_event(ptr noundef %25, i32 noundef 20, ptr noundef %.2.i) #10
-  br label %51
+  br label %53
 
 33:                                               ; preds = %20, %16
   %34 = load i8, ptr %11, align 8
@@ -343,86 +343,86 @@ get_indev.exit:                                   ; preds = %.lr.ph.i, %28, %24
   %36 = and i8 %34, 4
   %37 = icmp eq i8 %36, 0
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  br i1 %37, label %39, label %43
+  br i1 %37, label %39, label %44
 
 39:                                               ; preds = %33
   %40 = tail call fastcc zeroext i1 @focus_next_core(ptr noundef nonnull %2, ptr noundef nonnull @lv_ll_get_head, ptr noundef nonnull @lv_ll_get_next)
   %41 = load ptr, ptr %38, align 8, !tbaa !51
-  %.not6.i.i = icmp eq ptr %41, null
-  %brmerge.i.i = or i1 %40, %.not6.i.i
-  br i1 %brmerge.i.i, label %lv_group_refocus.exit, label %42
+  %42 = icmp eq ptr %41, null
+  %or.cond.i.i = or i1 %40, %42
+  br i1 %or.cond.i.i, label %lv_group_refocus.exit, label %43
 
-42:                                               ; preds = %39
+43:                                               ; preds = %39
   tail call void %41(ptr noundef nonnull %2, i1 noundef zeroext true) #10
   br label %lv_group_refocus.exit
 
-43:                                               ; preds = %33
-  %44 = tail call fastcc zeroext i1 @focus_next_core(ptr noundef nonnull %2, ptr noundef nonnull @lv_ll_get_tail, ptr noundef nonnull @lv_ll_get_prev)
-  %45 = load ptr, ptr %38, align 8, !tbaa !51
-  %.not6.i7.i = icmp eq ptr %45, null
-  %brmerge.i8.i = or i1 %44, %.not6.i7.i
-  br i1 %brmerge.i8.i, label %lv_group_refocus.exit, label %46
+44:                                               ; preds = %33
+  %45 = tail call fastcc zeroext i1 @focus_next_core(ptr noundef nonnull %2, ptr noundef nonnull @lv_ll_get_tail, ptr noundef nonnull @lv_ll_get_prev)
+  %46 = load ptr, ptr %38, align 8, !tbaa !51
+  %47 = icmp eq ptr %46, null
+  %or.cond.i7.i = or i1 %45, %47
+  br i1 %or.cond.i7.i, label %lv_group_refocus.exit, label %48
 
-46:                                               ; preds = %43
-  tail call void %45(ptr noundef nonnull %2, i1 noundef zeroext false) #10
+48:                                               ; preds = %44
+  tail call void %46(ptr noundef nonnull %2, i1 noundef zeroext false) #10
   br label %lv_group_refocus.exit
 
-lv_group_refocus.exit:                            ; preds = %39, %42, %43, %46
-  %47 = and i8 %34, 8
-  %48 = load i8, ptr %11, align 8
-  %49 = and i8 %48, -9
-  %50 = or disjoint i8 %49, %47
-  store i8 %50, ptr %11, align 8
-  br label %51
+lv_group_refocus.exit:                            ; preds = %39, %43, %44, %48
+  %49 = and i8 %34, 8
+  %50 = load i8, ptr %11, align 8
+  %51 = and i8 %50, -9
+  %52 = or disjoint i8 %51, %49
+  store i8 %52, ptr %11, align 8
+  br label %53
 
-51:                                               ; preds = %get_indev.exit, %lv_group_refocus.exit
+53:                                               ; preds = %get_indev.exit, %lv_group_refocus.exit
   %.pr = load ptr, ptr %5, align 8, !tbaa !3
   %.not36 = icmp eq ptr %.pr, null
   br i1 %.not36, label %.thread, label %..thread40_crit_edge
 
-..thread40_crit_edge:                             ; preds = %51
+..thread40_crit_edge:                             ; preds = %53
   %.pre = load ptr, ptr %.pr, align 8, !tbaa !13
   br label %.thread40
 
 .thread40:                                        ; preds = %..thread40_crit_edge, %7
-  %52 = phi ptr [ %.pre, %..thread40_crit_edge ], [ %8, %7 ]
-  %53 = icmp eq ptr %52, %0
-  br i1 %53, label %54, label %.thread
+  %54 = phi ptr [ %.pre, %..thread40_crit_edge ], [ %8, %7 ]
+  %55 = icmp eq ptr %54, %0
+  br i1 %55, label %56, label %.thread
 
-54:                                               ; preds = %.thread40
+56:                                               ; preds = %.thread40
   store ptr null, ptr %5, align 8, !tbaa !3
   br label %.thread
 
-.thread:                                          ; preds = %4, %54, %.thread40, %51
-  %55 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %2) #10
-  %.not3743 = icmp eq ptr %55, null
+.thread:                                          ; preds = %4, %56, %.thread40, %53
+  %57 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %2) #10
+  %.not3743 = icmp eq ptr %57, null
   br i1 %.not3743, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread, %63
-  %.044 = phi ptr [ %64, %63 ], [ %55, %.thread ]
-  %56 = load ptr, ptr %.044, align 8, !tbaa !13
-  %57 = icmp eq ptr %56, %0
-  br i1 %57, label %58, label %63
+.lr.ph:                                           ; preds = %.thread, %65
+  %.044 = phi ptr [ %66, %65 ], [ %57, %.thread ]
+  %58 = load ptr, ptr %.044, align 8, !tbaa !13
+  %59 = icmp eq ptr %58, %0
+  br i1 %59, label %60, label %65
 
-58:                                               ; preds = %.lr.ph
+60:                                               ; preds = %.lr.ph
   tail call void @lv_ll_remove(ptr noundef nonnull %2, ptr noundef nonnull %.044) #10
   tail call void @lv_free(ptr noundef nonnull %.044) #10
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !17
-  %.not38 = icmp eq ptr %60, null
-  br i1 %.not38, label %.loopexit, label %61
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %62 = load ptr, ptr %61, align 8, !tbaa !17
+  %.not38 = icmp eq ptr %62, null
+  br i1 %.not38, label %.loopexit, label %63
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr null, ptr %62, align 8, !tbaa !24
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store ptr null, ptr %64, align 8, !tbaa !24
   br label %.loopexit
 
-63:                                               ; preds = %.lr.ph
-  %64 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %2, ptr noundef nonnull %.044) #10
-  %.not37 = icmp eq ptr %64, null
+65:                                               ; preds = %.lr.ph
+  %66 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %2, ptr noundef nonnull %.044) #10
+  %.not37 = icmp eq ptr %66, null
   br i1 %.not37, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
-.loopexit:                                        ; preds = %63, %.thread, %58, %61, %1
+.loopexit:                                        ; preds = %65, %.thread, %60, %63, %1
   ret void
 }
 
@@ -792,15 +792,15 @@ define void @lv_group_focus_next(ptr noundef %0) local_unnamed_addr #0 {
   %3 = tail call fastcc zeroext i1 @focus_next_core(ptr noundef %0, ptr noundef nonnull @lv_ll_get_head, ptr noundef nonnull @lv_ll_get_next)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !51
-  %.not6 = icmp eq ptr %5, null
-  %brmerge = or i1 %3, %.not6
-  br i1 %brmerge, label %7, label %6
+  %6 = icmp eq ptr %5, null
+  %or.cond = or i1 %3, %6
+  br i1 %or.cond, label %8, label %7
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void %5(ptr noundef nonnull %0, i1 noundef zeroext true) #10
-  br label %7
+  br label %8
 
-7:                                                ; preds = %2, %6
+8:                                                ; preds = %7, %2
   ret void
 }
 
@@ -829,9 +829,9 @@ define internal fastcc noundef zeroext i1 @focus_next_core(ptr noundef nonnull %
   %12 = and i8 %11, 8
   %13 = icmp ne i8 %12, 0
   %14 = icmp eq ptr %.058, null
-  %or.cond.not99.not102 = select i1 %13, i1 true, i1 %14
-  %brmerge.not = select i1 %or.cond.not99.not102, i1 %.054, i1 false
-  br i1 %brmerge.not, label %15, label %.critedge76
+  %or.cond = select i1 %13, i1 true, i1 %14
+  %or.cond77 = select i1 %or.cond, i1 %.054, i1 false
+  br i1 %or.cond77, label %15, label %.critedge76
 
 15:                                               ; preds = %10
   %16 = tail call ptr %1(ptr noundef nonnull %0) #10, !callees !57
@@ -873,21 +873,21 @@ define internal fastcc noundef zeroext i1 @focus_next_core(ptr noundef nonnull %
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %.262, align 8, !tbaa !13
-  %.not7093 = icmp eq ptr %32, null
-  br i1 %.not7093, label %.loopexit, label %.lr.ph
+  %.not7094 = icmp eq ptr %32, null
+  br i1 %.not7094, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %34
-  %.05394 = phi ptr [ %35, %34 ], [ %32, %31 ]
-  %33 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.05394, i32 noundef 1) #10
+  %.05395 = phi ptr [ %35, %34 ], [ %32, %31 ]
+  %33 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.05395, i32 noundef 1) #10
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %.lr.ph
-  %35 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %.05394) #10
+  %35 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %.05395) #10
   %.not70 = icmp eq ptr %35, null
   br i1 %.not70, label %.loopexit, label %.lr.ph, !llvm.loop !59
 
 36:                                               ; preds = %.lr.ph
-  %37 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.05394, i32 noundef 1) #10
+  %37 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.05395, i32 noundef 1) #10
   br i1 %37, label %.backedge.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %36, %31, %34
@@ -936,31 +936,31 @@ get_indev.exit:                                   ; preds = %.lr.ph.i, %45, %41
   store ptr %.262, ptr %8, align 8, !tbaa !3
   %54 = load ptr, ptr %.262, align 8, !tbaa !13
   %55 = tail call ptr @lv_indev_get_next(ptr noundef null) #10
-  %.not20.i77 = icmp eq ptr %55, null
-  br i1 %.not20.i77, label %get_indev.exit85, label %.lr.ph.i78
+  %.not20.i78 = icmp eq ptr %55, null
+  br i1 %.not20.i78, label %get_indev.exit86, label %.lr.ph.i79
 
-.lr.ph.i78:                                       ; preds = %53, %57
-  %.01122.i79 = phi ptr [ %60, %57 ], [ %55, %53 ]
-  %.01321.i80 = phi ptr [ %spec.select.i82, %57 ], [ null, %53 ]
-  %56 = tail call i32 @lv_indev_get_type(ptr noundef nonnull %.01122.i79) #10
-  %.not16.i81 = icmp eq i32 %56, 1
-  br i1 %.not16.i81, label %get_indev.exit85, label %57
+.lr.ph.i79:                                       ; preds = %53, %57
+  %.01122.i80 = phi ptr [ %60, %57 ], [ %55, %53 ]
+  %.01321.i81 = phi ptr [ %spec.select.i83, %57 ], [ null, %53 ]
+  %56 = tail call i32 @lv_indev_get_type(ptr noundef nonnull %.01122.i80) #10
+  %.not16.i82 = icmp eq i32 %56, 1
+  br i1 %.not16.i82, label %get_indev.exit86, label %57
 
-57:                                               ; preds = %.lr.ph.i78
-  %58 = tail call ptr @lv_indev_get_group(ptr noundef nonnull %.01122.i79) #10
+57:                                               ; preds = %.lr.ph.i79
+  %58 = tail call ptr @lv_indev_get_group(ptr noundef nonnull %.01122.i80) #10
   %59 = icmp eq ptr %58, %0
-  %spec.select.i82 = select i1 %59, ptr %.01122.i79, ptr %.01321.i80
-  %60 = tail call ptr @lv_indev_get_next(ptr noundef nonnull %.01122.i79) #10
-  %.not.i83 = icmp eq ptr %60, null
-  br i1 %.not.i83, label %get_indev.exit85, label %.lr.ph.i78, !llvm.loop !15
+  %spec.select.i83 = select i1 %59, ptr %.01122.i80, ptr %.01321.i81
+  %60 = tail call ptr @lv_indev_get_next(ptr noundef nonnull %.01122.i80) #10
+  %.not.i84 = icmp eq ptr %60, null
+  br i1 %.not.i84, label %get_indev.exit86, label %.lr.ph.i79, !llvm.loop !15
 
-get_indev.exit85:                                 ; preds = %.lr.ph.i78, %57, %53
-  %.2.i84 = phi ptr [ null, %53 ], [ %spec.select.i82, %57 ], [ %.01122.i79, %.lr.ph.i78 ]
-  %61 = tail call i32 @lv_obj_send_event(ptr noundef %54, i32 noundef 19, ptr noundef %.2.i84) #10
+get_indev.exit86:                                 ; preds = %.lr.ph.i79, %57, %53
+  %.2.i85 = phi ptr [ null, %53 ], [ %spec.select.i83, %57 ], [ %.01122.i80, %.lr.ph.i79 ]
+  %61 = tail call i32 @lv_obj_send_event(ptr noundef %54, i32 noundef 19, ptr noundef %.2.i85) #10
   %.not73 = icmp eq i32 %61, 1
   br i1 %.not73, label %62, label %.critedge76
 
-62:                                               ; preds = %get_indev.exit85
+62:                                               ; preds = %get_indev.exit86
   %63 = load ptr, ptr %8, align 8, !tbaa !3
   %64 = load ptr, ptr %63, align 8, !tbaa !13
   tail call void @lv_obj_invalidate(ptr noundef %64) #10
@@ -973,8 +973,8 @@ get_indev.exit85:                                 ; preds = %.lr.ph.i78, %57, %5
   tail call void %66(ptr noundef nonnull %0) #10
   br label %.critedge76
 
-.critedge76:                                      ; preds = %10, %19, %22, %.loopexit, %62, %67, %get_indev.exit85, %get_indev.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %.loopexit ], [ true, %62 ], [ true, %67 ], [ false, %get_indev.exit85 ], [ false, %get_indev.exit ], [ false, %22 ], [ false, %19 ], [ false, %10 ]
+.critedge76:                                      ; preds = %10, %19, %22, %.loopexit, %62, %67, %get_indev.exit86, %get_indev.exit, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %.loopexit ], [ true, %62 ], [ true, %67 ], [ false, %get_indev.exit86 ], [ false, %get_indev.exit ], [ false, %22 ], [ false, %19 ], [ false, %10 ]
   ret i1 %.0
 }
 
@@ -990,15 +990,15 @@ define void @lv_group_focus_prev(ptr noundef %0) local_unnamed_addr #0 {
   %3 = tail call fastcc zeroext i1 @focus_next_core(ptr noundef %0, ptr noundef nonnull @lv_ll_get_tail, ptr noundef nonnull @lv_ll_get_prev)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !51
-  %.not6 = icmp eq ptr %5, null
-  %brmerge = or i1 %3, %.not6
-  br i1 %brmerge, label %7, label %6
+  %6 = icmp eq ptr %5, null
+  %or.cond = or i1 %3, %6
+  br i1 %or.cond, label %8, label %7
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void %5(ptr noundef nonnull %0, i1 noundef zeroext false) #10
-  br label %7
+  br label %8
 
-7:                                                ; preds = %2, %6
+8:                                                ; preds = %7, %2
   ret void
 }
 

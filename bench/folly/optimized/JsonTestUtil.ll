@@ -528,15 +528,15 @@ define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIN5folly7dynamic19const_i
   %10 = getelementptr inbounds i8, ptr %.sroa.015.029, i64 -16
   %.neg.i.i.i.i.i = mul i64 %.sroa.9.030, -8
   %11 = getelementptr inbounds i8, ptr %10, i64 %.neg.i.i.i.i.i
-  %.not.i6.i.i.i = icmp eq i64 %.sroa.9.030, 0
-  br i1 %.not.i6.i.i.i, label %.critedge.i.i.i.i.preheader, label %thread-pre-split.i.i.i
+  %.not19.i6.i.i.i = icmp eq i64 %.sroa.9.030, 0
+  br i1 %.not19.i6.i.i.i, label %.critedge.i.i.i.i.preheader, label %thread-pre-split.i.i.i
 
 .critedge.i.i.i.i.preheader:                      ; preds = %12, %9
   br label %.critedge.i.i.i.i
 
 12:                                               ; preds = %thread-pre-split.i.i.i
-  %.not.i.i.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i.i.i, label %.critedge.i.i.i.i.preheader, label %thread-pre-split.i.i.i
+  %.not19.i.i.i.i = icmp eq i64 %15, 0
+  br i1 %.not19.i.i.i.i, label %.critedge.i.i.i.i.preheader, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %9, %12
   %13 = phi i64 [ %15, %12 ], [ %.sroa.9.030, %9 ]
@@ -549,20 +549,20 @@ thread-pre-split.i.i.i:                           ; preds = %9, %12
   br i1 %.not.i.i.i, label %12, label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit, !prof !29, !llvm.loop !30
 
 .critedge.i.i.i.i:                                ; preds = %.critedge.i.i.i.i.preheader, %22
-  %.016.i.i.i.i = phi ptr [ %23, %22 ], [ %11, %.critedge.i.i.i.i.preheader ]
-  %19 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 14
+  %.017.i.i.i.i = phi ptr [ %23, %22 ], [ %11, %.critedge.i.i.i.i.preheader ]
+  %19 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i, i64 14
   %20 = load i8, ptr %19, align 1, !tbaa !28
   %21 = and i8 %20, 15
   %.not2.i.i.i = icmp eq i8 %21, 0
   br i1 %.not2.i.i.i, label %22, label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit, !prof !31
 
 22:                                               ; preds = %.critedge.i.i.i.i
-  %23 = getelementptr inbounds i8, ptr %.016.i.i.i.i, i64 -128
+  %23 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 -128
   %24 = load <16 x i8>, ptr %23, align 16, !tbaa !28
   %25 = icmp slt <16 x i8> %24, zeroinitializer
   %26 = bitcast <16 x i1> %25 to i16
   %27 = and i16 %26, 16383
-  %28 = getelementptr inbounds i8, ptr %.016.i.i.i.i, i64 -256
+  %28 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 -256
   tail call void @llvm.prefetch.p0(ptr nonnull %28, i32 0, i32 3, i32 1)
   %.not3.i.i.i = icmp eq i16 %27, 0
   br i1 %.not3.i.i.i, label %.critedge.i.i.i.i, label %29, !prof !29, !llvm.loop !32
@@ -574,7 +574,7 @@ thread-pre-split.i.i.i:                           ; preds = %9, %12
   %33 = zext nneg i32 %32 to i64
   %34 = icmp ne ptr %23, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %34)
-  %35 = getelementptr inbounds i8, ptr %.016.i.i.i.i, i64 -112
+  %35 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 -112
   %36 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %35, i64 0, i64 %33
   br label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit
 
@@ -1010,15 +1010,15 @@ _ZNK5folly7dynamic5itemsEv.exit58:                ; preds = %91
   %111 = getelementptr inbounds i8, ptr %.sroa.079.097142, i64 -16
   %.neg.i.i.i.i.i.i = mul i64 %.sroa.9.098141, -8
   %112 = getelementptr inbounds i8, ptr %111, i64 %.neg.i.i.i.i.i.i
-  %.not.i6.i.i.i.i = icmp eq i64 %.sroa.9.098141, 0
-  br i1 %.not.i6.i.i.i.i, label %.critedge.i.i.i.i.i.preheader, label %thread-pre-split.i.i.i.i
+  %.not19.i6.i.i.i.i = icmp eq i64 %.sroa.9.098141, 0
+  br i1 %.not19.i6.i.i.i.i, label %.critedge.i.i.i.i.i.preheader, label %thread-pre-split.i.i.i.i
 
 .critedge.i.i.i.i.i.preheader:                    ; preds = %113, %110
   br label %.critedge.i.i.i.i.i
 
 113:                                              ; preds = %thread-pre-split.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq i64 %116, 0
-  br i1 %.not.i.i.i.i.i, label %.critedge.i.i.i.i.i.preheader, label %thread-pre-split.i.i.i.i
+  %.not19.i.i.i.i.i = icmp eq i64 %116, 0
+  br i1 %.not19.i.i.i.i.i, label %.critedge.i.i.i.i.i.preheader, label %thread-pre-split.i.i.i.i
 
 thread-pre-split.i.i.i.i:                         ; preds = %110, %113
   %114 = phi i64 [ %116, %113 ], [ %.sroa.9.098141, %110 ]
@@ -1031,20 +1031,20 @@ thread-pre-split.i.i.i.i:                         ; preds = %110, %113
   br i1 %.not.i.i.i.i, label %113, label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i, !prof !29, !llvm.loop !30
 
 .critedge.i.i.i.i.i:                              ; preds = %.critedge.i.i.i.i.i.preheader, %123
-  %.016.i.i.i.i.i = phi ptr [ %124, %123 ], [ %112, %.critedge.i.i.i.i.i.preheader ]
-  %120 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 14
+  %.017.i.i.i.i.i = phi ptr [ %124, %123 ], [ %112, %.critedge.i.i.i.i.i.preheader ]
+  %120 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i.i, i64 14
   %121 = load i8, ptr %120, align 1, !tbaa !28
   %122 = and i8 %121, 15
   %.not2.i.i.i.i = icmp eq i8 %122, 0
   br i1 %.not2.i.i.i.i, label %123, label %"_ZSt9__find_ifIN5folly7dynamic19const_item_iteratorEN9__gnu_cxx5__ops12_Iter_negateIZNS0_27compareDynamicWithToleranceERKS1_S7_dE3$_0EEET_SA_SA_T0_St18input_iterator_tag.exit", !prof !31
 
 123:                                              ; preds = %.critedge.i.i.i.i.i
-  %124 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i, i64 -128
+  %124 = getelementptr inbounds i8, ptr %.017.i.i.i.i.i, i64 -128
   %125 = load <16 x i8>, ptr %124, align 16, !tbaa !28
   %126 = icmp slt <16 x i8> %125, zeroinitializer
   %127 = bitcast <16 x i1> %126 to i16
   %128 = and i16 %127, 16383
-  %129 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i, i64 -256
+  %129 = getelementptr inbounds i8, ptr %.017.i.i.i.i.i, i64 -256
   tail call void @llvm.prefetch.p0(ptr nonnull %129, i32 0, i32 3, i32 1)
   %.not3.i.i.i.i = icmp eq i16 %128, 0
   br i1 %.not3.i.i.i.i, label %.critedge.i.i.i.i.i, label %130, !prof !29, !llvm.loop !32
@@ -1056,7 +1056,7 @@ thread-pre-split.i.i.i.i:                         ; preds = %110, %113
   %134 = zext nneg i32 %133 to i64
   %135 = icmp ne ptr %124, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %135)
-  %136 = getelementptr inbounds i8, ptr %.016.i.i.i.i.i, i64 -112
+  %136 = getelementptr inbounds i8, ptr %.017.i.i.i.i.i, i64 -112
   %137 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %136, i64 0, i64 %134
   br label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit.i
 

@@ -56,36 +56,37 @@ define hidden noundef zeroext i1 @_ZN24WorkerThreadsBarrierSync5enterEv(ptr noun
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %8, %11
-  br i1 %12, label %14, label %.lr.ph
+  br i1 %12, label %16, label %.preheader
 
-.lr.ph:                                           ; preds = %7
+.preheader:                                       ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 113
-  br label %15
+  %14 = load i8, ptr %13, align 1
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %_ZN13MonitorLockerD2Ev.exit, label %_ZN13MonitorLocker4waitEl.exit
 
-14:                                               ; preds = %7
+16:                                               ; preds = %7
   store i8 1, ptr %2, align 8
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #4
+  %.phi.trans.insert7 = getelementptr inbounds nuw i8, ptr %0, i64 113
+  %.pre8 = load i8, ptr %.phi.trans.insert7, align 1
+  %.pre9 = trunc i8 %.pre8 to i1
   br label %_ZN13MonitorLockerD2Ev.exit
 
-15:                                               ; preds = %.lr.ph, %_ZN13MonitorLocker4waitEl.exit
-  %16 = load i8, ptr %13, align 1
-  %17 = trunc i8 %16 to i1
-  br i1 %17, label %_ZN13MonitorLockerD2Ev.exit, label %_ZN13MonitorLocker4waitEl.exit
+_ZN13MonitorLocker4waitEl.exit:                   ; preds = %.preheader, %_ZN13MonitorLocker4waitEl.exit
+  %17 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef 0) #4
+  %18 = load i32, ptr %9, align 4
+  %19 = load i32, ptr %10, align 8
+  %.not = icmp eq i32 %18, %19
+  %20 = load i8, ptr %13, align 1
+  %21 = trunc i8 %20 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %21
+  br i1 %or.cond, label %_ZN13MonitorLockerD2Ev.exit, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !6
 
-_ZN13MonitorLocker4waitEl.exit:                   ; preds = %15
-  %18 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef 0) #4
-  %19 = load i32, ptr %9, align 4
-  %20 = load i32, ptr %10, align 8
-  %.not = icmp eq i32 %19, %20
-  br i1 %.not, label %_ZN13MonitorLockerD2Ev.exit, label %15, !llvm.loop !6
-
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %15, %14
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 113
-  %22 = load i8, ptr %21, align 1
-  %23 = trunc i8 %22 to i1
-  %24 = xor i1 %23, true
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %.preheader, %16
+  %.pre-phi = phi i1 [ true, %.preheader ], [ %.pre9, %16 ], [ %21, %_ZN13MonitorLocker4waitEl.exit ]
+  %22 = xor i1 %.pre-phi, true
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #4
-  ret i1 %24
+  ret i1 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

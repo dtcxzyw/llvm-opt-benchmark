@@ -856,311 +856,311 @@ define dso_local range(i32 -1, 1) i32 @slurm_process_option(ptr noundef %0, i32 
   %13 = phi ptr [ @slurm_opt__unknown_, %.preheader ], [ %41, %39 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
-  %.not112 = icmp eq i32 %15, %1
-  br i1 %.not112, label %16, label %39
+  %.not113 = icmp eq i32 %15, %1
+  br i1 %.not113, label %16, label %39
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %18 = load ptr, ptr %17, align 8
-  %.not113 = icmp eq ptr %18, null
-  br i1 %.not113, label %19, label %45
+  %.not114 = icmp eq ptr %18, null
+  br i1 %.not114, label %19, label %.thread
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %0, align 8
-  %.not114 = icmp eq ptr %20, null
-  br i1 %.not114, label %24, label %21
+  %.not115 = icmp eq ptr %20, null
+  br i1 %.not115, label %24, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %23 = load ptr, ptr %22, align 8
-  %.not115 = icmp eq ptr %23, null
-  br i1 %.not115, label %24, label %45
+  %.not116 = icmp eq ptr %23, null
+  br i1 %.not116, label %24, label %.thread
 
 24:                                               ; preds = %21, %19
   %25 = load ptr, ptr %8, align 8
-  %.not116 = icmp eq ptr %25, null
-  br i1 %.not116, label %29, label %26
+  %.not117 = icmp eq ptr %25, null
+  br i1 %.not117, label %29, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %28 = load ptr, ptr %27, align 8
-  %.not117 = icmp eq ptr %28, null
-  br i1 %.not117, label %29, label %45
+  %.not118 = icmp eq ptr %28, null
+  br i1 %.not118, label %29, label %.thread
 
 29:                                               ; preds = %26, %24
   %30 = load ptr, ptr %9, align 8
-  %.not118 = icmp eq ptr %30, null
-  br i1 %.not118, label %34, label %31
+  %.not119 = icmp eq ptr %30, null
+  br i1 %.not119, label %34, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %33 = load ptr, ptr %32, align 8
-  %.not119 = icmp eq ptr %33, null
-  br i1 %.not119, label %34, label %45
+  %.not120 = icmp eq ptr %33, null
+  br i1 %.not120, label %34, label %.thread
 
 34:                                               ; preds = %31, %29
   %35 = load ptr, ptr %10, align 8
-  %.not120 = icmp eq ptr %35, null
-  br i1 %.not120, label %39, label %36
+  %.not121 = icmp eq ptr %35, null
+  br i1 %.not121, label %39, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %38 = load ptr, ptr %37, align 8
-  %.not121 = icmp eq ptr %38, null
-  br i1 %.not121, label %39, label %45
+  %.not122 = icmp eq ptr %38, null
+  br i1 %.not122, label %39, label %.thread
 
 39:                                               ; preds = %34, %36, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.next
   %41 = load ptr, ptr %40, align 8
-  %cond = icmp eq i64 %indvars.iv.next, 163
-  br i1 %cond, label %42, label %12, !llvm.loop !14
+  %.not112 = icmp eq i64 %indvars.iv.next, 163
+  br i1 %.not112, label %42, label %12, !llvm.loop !14
 
 42:                                               ; preds = %39
-  br i1 %4, label %149, label %43
+  br i1 %4, label %148, label %43
 
 43:                                               ; preds = %42
   %44 = tail call i32 @spank_process_option(i32 noundef %1, ptr noundef %2) #22
   %.not123 = icmp ne i32 %44, 0
   %. = sext i1 %.not123 to i32
-  br label %149
+  br label %148
 
-45:                                               ; preds = %36, %31, %26, %21, %16
-  %46 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  br i1 %3, label %.critedge145, label %47
+.thread:                                          ; preds = %36, %31, %26, %21, %16
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  br i1 %3, label %.critedge144, label %46
 
-47:                                               ; preds = %45
-  %48 = load ptr, ptr %8, align 8
-  %.not125 = icmp eq ptr %48, null
-  br i1 %.not125, label %54, label %49
+46:                                               ; preds = %.thread
+  %47 = load ptr, ptr %8, align 8
+  %.not124 = icmp eq ptr %47, null
+  br i1 %.not124, label %53, label %48
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %13, i64 29
-  %51 = load i8, ptr %50, align 1, !range !12, !noundef !13
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %4, label %.critedge, label %53
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %13, i64 29
+  %50 = load i8, ptr %49, align 1, !range !12, !noundef !13
+  %51 = trunc nuw i8 %50 to i1
+  br i1 %4, label %.critedge, label %52
 
-53:                                               ; preds = %49
-  br i1 %52, label %149, label %.critedge145
+52:                                               ; preds = %48
+  br i1 %51, label %148, label %.critedge144
 
-.critedge:                                        ; preds = %49
-  br i1 %52, label %.critedge145, label %149
+.critedge:                                        ; preds = %48
+  br i1 %51, label %.critedge144, label %148
 
-54:                                               ; preds = %47
-  %55 = load ptr, ptr %10, align 8
-  %.not126 = icmp eq ptr %55, null
-  br i1 %.not126, label %.critedge145, label %56
+53:                                               ; preds = %46
+  %54 = load ptr, ptr %10, align 8
+  %.not125 = icmp eq ptr %54, null
+  br i1 %.not125, label %.critedge144, label %55
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 30
-  %58 = load i8, ptr %57, align 2, !range !12, !noundef !13
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %4, label %.critedge147, label %60
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 30
+  %57 = load i8, ptr %56, align 2, !range !12, !noundef !13
+  %58 = trunc nuw i8 %57 to i1
+  br i1 %4, label %.critedge146, label %59
 
-60:                                               ; preds = %56
-  br i1 %59, label %149, label %.critedge145
+59:                                               ; preds = %55
+  br i1 %58, label %148, label %.critedge144
 
-.critedge147:                                     ; preds = %56
-  br i1 %59, label %.critedge145, label %149
+.critedge146:                                     ; preds = %55
+  br i1 %58, label %.critedge144, label %148
 
-.critedge145:                                     ; preds = %60, %53, %45, %54, %.critedge147, %.critedge
-  %.not127 = icmp eq ptr %2, null
-  br i1 %.not127, label %80, label %61
+.critedge144:                                     ; preds = %59, %52, %.thread, %53, %.critedge146, %.critedge
+  %.not126 = icmp eq ptr %2, null
+  br i1 %.not126, label %79, label %60
 
-61:                                               ; preds = %.critedge145
-  %62 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %63 = load i32, ptr %62, align 8
-  switch i32 %63, label %80 [
-    i32 0, label %64
-    i32 2, label %77
+60:                                               ; preds = %.critedge144
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %62 = load i32, ptr %61, align 8
+  switch i32 %62, label %79 [
+    i32 0, label %63
+    i32 2, label %76
   ]
 
-64:                                               ; preds = %61
+63:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  %65 = load i8, ptr %2, align 1
-  %66 = icmp eq i8 %65, 0
-  br i1 %66, label %76, label %67
+  %64 = load i8, ptr %2, align 1
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %75, label %66
 
-67:                                               ; preds = %64
-  %68 = tail call i32 @xstrcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.5) #22
-  %.not128 = icmp eq i32 %68, 0
-  br i1 %.not128, label %76, label %69
+66:                                               ; preds = %63
+  %67 = tail call i32 @xstrcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.5) #22
+  %.not127 = icmp eq i32 %67, 0
+  br i1 %.not127, label %75, label %68
 
-69:                                               ; preds = %67
-  %70 = call i64 @strtol(ptr noundef nonnull %2, ptr noundef nonnull %6, i32 noundef 10) #22
-  %.not129 = icmp eq i64 %70, 0
-  br i1 %.not129, label %75, label %71
+68:                                               ; preds = %66
+  %69 = call i64 @strtol(ptr noundef nonnull %2, ptr noundef nonnull %6, i32 noundef 10) #22
+  %.not128 = icmp eq i64 %69, 0
+  br i1 %.not128, label %74, label %70
 
-71:                                               ; preds = %69
-  %72 = load ptr, ptr %6, align 8
-  %73 = load i8, ptr %72, align 1
-  %74 = icmp eq i8 %73, 0
-  br i1 %74, label %76, label %75
+70:                                               ; preds = %68
+  %71 = load ptr, ptr %6, align 8
+  %72 = load i8, ptr %71, align 1
+  %73 = icmp eq i8 %72, 0
+  br i1 %73, label %75, label %74
 
-75:                                               ; preds = %71, %69
-  br label %76
+74:                                               ; preds = %70, %68
+  br label %75
 
-76:                                               ; preds = %71, %67, %64, %75
-  %.1 = phi i1 [ false, %75 ], [ true, %64 ], [ true, %67 ], [ true, %71 ]
+75:                                               ; preds = %70, %66, %63, %74
+  %.1 = phi i1 [ false, %74 ], [ true, %63 ], [ true, %66 ], [ true, %70 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  br label %80
+  br label %79
 
-77:                                               ; preds = %61
-  %78 = load i8, ptr %2, align 1
-  %79 = icmp eq i8 %78, 0
-  %spec.select = select i1 %79, ptr null, ptr %2
-  br label %80
+76:                                               ; preds = %60
+  %77 = load i8, ptr %2, align 1
+  %78 = icmp eq i8 %77, 0
+  %spec.select = select i1 %78, ptr null, ptr %2
+  br label %79
 
-80:                                               ; preds = %77, %61, %76, %.critedge145
-  %.097 = phi ptr [ %2, %76 ], [ null, %.critedge145 ], [ %2, %61 ], [ %spec.select, %77 ]
-  %.0 = phi i1 [ %.1, %76 ], [ true, %.critedge145 ], [ true, %61 ], [ true, %77 ]
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %82 = load ptr, ptr %81, align 8
-  %.not.i = icmp eq ptr %82, null
-  br i1 %.not.i, label %83, label %_init_state.exit
+79:                                               ; preds = %76, %60, %75, %.critedge144
+  %.098 = phi ptr [ %2, %75 ], [ null, %.critedge144 ], [ %2, %60 ], [ %spec.select, %76 ]
+  %.0 = phi i1 [ %.1, %75 ], [ true, %.critedge144 ], [ true, %60 ], [ true, %76 ]
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %81 = load ptr, ptr %80, align 8
+  %.not.i = icmp eq ptr %81, null
+  br i1 %.not.i, label %82, label %_init_state.exit
 
-83:                                               ; preds = %80
-  %84 = tail call ptr @slurm_xcalloc(i64 noundef 1312, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 4340, ptr noundef nonnull @__func__._init_state) #22
-  store ptr %84, ptr %81, align 8
+82:                                               ; preds = %79
+  %83 = tail call ptr @slurm_xcalloc(i64 noundef 1312, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 4340, ptr noundef nonnull @__func__._init_state) #22
+  store ptr %83, ptr %80, align 8
   br label %_init_state.exit
 
-_init_state.exit:                                 ; preds = %80, %83
-  br i1 %.0, label %92, label %85
+_init_state.exit:                                 ; preds = %79, %82
+  br i1 %.0, label %91, label %84
 
-85:                                               ; preds = %_init_state.exit
-  %86 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %87 = load ptr, ptr %86, align 8
-  tail call void %87(ptr noundef nonnull %0) #22
-  %88 = load ptr, ptr %81, align 8
-  %89 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %88, i64 %indvars.iv
-  store i8 0, ptr %89, align 1
-  %90 = load ptr, ptr %81, align 8
-  %91 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %90, i64 %indvars.iv, i32 1
-  store i8 0, ptr %91, align 1
-  br label %149
+84:                                               ; preds = %_init_state.exit
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 80
+  %86 = load ptr, ptr %85, align 8
+  tail call void %86(ptr noundef nonnull %0) #22
+  %87 = load ptr, ptr %80, align 8
+  %88 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %87, i64 %indvars.iv
+  store i8 0, ptr %88, align 1
+  %89 = load ptr, ptr %80, align 8
+  %90 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %89, i64 %indvars.iv, i32 1
+  store i8 0, ptr %90, align 1
+  br label %148
 
-92:                                               ; preds = %_init_state.exit
-  %93 = load ptr, ptr %46, align 8
-  %.not130 = icmp eq ptr %93, null
-  br i1 %.not130, label %101, label %94
+91:                                               ; preds = %_init_state.exit
+  %92 = load ptr, ptr %45, align 8
+  %.not129 = icmp eq ptr %92, null
+  br i1 %.not129, label %100, label %93
 
-94:                                               ; preds = %92
-  %95 = tail call i32 %93(ptr noundef nonnull %0, ptr noundef %.097) #22
-  %.not143 = icmp eq i32 %95, 0
-  br i1 %.not143, label %96, label %149
+93:                                               ; preds = %91
+  %94 = tail call i32 %92(ptr noundef nonnull %0, ptr noundef %.098) #22
+  %.not142 = icmp eq i32 %94, 0
+  br i1 %.not142, label %95, label %148
 
-96:                                               ; preds = %94
-  %97 = load ptr, ptr %81, align 8
-  %98 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %97, i64 %indvars.iv
-  store i8 1, ptr %98, align 1
-  %99 = load ptr, ptr %81, align 8
-  %100 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %99, i64 %indvars.iv, i32 1
-  store i8 %7, ptr %100, align 1
-  br label %149
+95:                                               ; preds = %93
+  %96 = load ptr, ptr %80, align 8
+  %97 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %96, i64 %indvars.iv
+  store i8 1, ptr %97, align 1
+  %98 = load ptr, ptr %80, align 8
+  %99 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %98, i64 %indvars.iv, i32 1
+  store i8 %7, ptr %99, align 1
+  br label %148
 
-101:                                              ; preds = %92
-  %102 = load ptr, ptr %0, align 8
-  %.not131 = icmp eq ptr %102, null
-  br i1 %.not131, label %113, label %103
+100:                                              ; preds = %91
+  %101 = load ptr, ptr %0, align 8
+  %.not130 = icmp eq ptr %101, null
+  br i1 %.not130, label %112, label %102
 
-103:                                              ; preds = %101
-  %104 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %105 = load ptr, ptr %104, align 8
-  %.not132 = icmp eq ptr %105, null
-  br i1 %.not132, label %113, label %106
+102:                                              ; preds = %100
+  %103 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %104 = load ptr, ptr %103, align 8
+  %.not131 = icmp eq ptr %104, null
+  br i1 %.not131, label %112, label %105
 
-106:                                              ; preds = %103
-  %107 = tail call i32 %105(ptr noundef nonnull %0, ptr noundef %.097) #22
-  %.not142 = icmp eq i32 %107, 0
-  br i1 %.not142, label %108, label %149
+105:                                              ; preds = %102
+  %106 = tail call i32 %104(ptr noundef nonnull %0, ptr noundef %.098) #22
+  %.not141 = icmp eq i32 %106, 0
+  br i1 %.not141, label %107, label %148
 
-108:                                              ; preds = %106
-  %109 = load ptr, ptr %81, align 8
-  %110 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %109, i64 %indvars.iv
-  store i8 1, ptr %110, align 1
-  %111 = load ptr, ptr %81, align 8
-  %112 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %111, i64 %indvars.iv, i32 1
-  store i8 %7, ptr %112, align 1
-  br label %149
+107:                                              ; preds = %105
+  %108 = load ptr, ptr %80, align 8
+  %109 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %108, i64 %indvars.iv
+  store i8 1, ptr %109, align 1
+  %110 = load ptr, ptr %80, align 8
+  %111 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %110, i64 %indvars.iv, i32 1
+  store i8 %7, ptr %111, align 1
+  br label %148
 
-113:                                              ; preds = %103, %101
-  %114 = load ptr, ptr %8, align 8
-  %.not133 = icmp eq ptr %114, null
-  br i1 %.not133, label %125, label %115
+112:                                              ; preds = %102, %100
+  %113 = load ptr, ptr %8, align 8
+  %.not132 = icmp eq ptr %113, null
+  br i1 %.not132, label %124, label %114
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %117 = load ptr, ptr %116, align 8
-  %.not134 = icmp eq ptr %117, null
-  br i1 %.not134, label %125, label %118
+114:                                              ; preds = %112
+  %115 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %116 = load ptr, ptr %115, align 8
+  %.not133 = icmp eq ptr %116, null
+  br i1 %.not133, label %124, label %117
 
-118:                                              ; preds = %115
-  %119 = tail call i32 %117(ptr noundef nonnull %0, ptr noundef %.097) #22
-  %.not141 = icmp eq i32 %119, 0
-  br i1 %.not141, label %120, label %149
+117:                                              ; preds = %114
+  %118 = tail call i32 %116(ptr noundef nonnull %0, ptr noundef %.098) #22
+  %.not140 = icmp eq i32 %118, 0
+  br i1 %.not140, label %119, label %148
 
-120:                                              ; preds = %118
-  %121 = load ptr, ptr %81, align 8
-  %122 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %121, i64 %indvars.iv
-  store i8 1, ptr %122, align 1
-  %123 = load ptr, ptr %81, align 8
-  %124 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %123, i64 %indvars.iv, i32 1
-  store i8 %7, ptr %124, align 1
-  br label %149
+119:                                              ; preds = %117
+  %120 = load ptr, ptr %80, align 8
+  %121 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %120, i64 %indvars.iv
+  store i8 1, ptr %121, align 1
+  %122 = load ptr, ptr %80, align 8
+  %123 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %122, i64 %indvars.iv, i32 1
+  store i8 %7, ptr %123, align 1
+  br label %148
 
-125:                                              ; preds = %115, %113
-  %126 = load ptr, ptr %9, align 8
-  %.not135 = icmp eq ptr %126, null
-  br i1 %.not135, label %137, label %127
+124:                                              ; preds = %114, %112
+  %125 = load ptr, ptr %9, align 8
+  %.not134 = icmp eq ptr %125, null
+  br i1 %.not134, label %136, label %126
 
-127:                                              ; preds = %125
-  %128 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %129 = load ptr, ptr %128, align 8
-  %.not136 = icmp eq ptr %129, null
-  br i1 %.not136, label %137, label %130
+126:                                              ; preds = %124
+  %127 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %128 = load ptr, ptr %127, align 8
+  %.not135 = icmp eq ptr %128, null
+  br i1 %.not135, label %136, label %129
 
-130:                                              ; preds = %127
-  %131 = tail call i32 %129(ptr noundef nonnull %0, ptr noundef %.097) #22
-  %.not140 = icmp eq i32 %131, 0
-  br i1 %.not140, label %132, label %149
+129:                                              ; preds = %126
+  %130 = tail call i32 %128(ptr noundef nonnull %0, ptr noundef %.098) #22
+  %.not139 = icmp eq i32 %130, 0
+  br i1 %.not139, label %131, label %148
 
-132:                                              ; preds = %130
-  %133 = load ptr, ptr %81, align 8
-  %134 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %133, i64 %indvars.iv
-  store i8 1, ptr %134, align 1
-  %135 = load ptr, ptr %81, align 8
-  %136 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %135, i64 %indvars.iv, i32 1
-  store i8 %7, ptr %136, align 1
-  br label %149
+131:                                              ; preds = %129
+  %132 = load ptr, ptr %80, align 8
+  %133 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %132, i64 %indvars.iv
+  store i8 1, ptr %133, align 1
+  %134 = load ptr, ptr %80, align 8
+  %135 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %134, i64 %indvars.iv, i32 1
+  store i8 %7, ptr %135, align 1
+  br label %148
 
-137:                                              ; preds = %127, %125
-  %138 = load ptr, ptr %10, align 8
-  %.not137 = icmp eq ptr %138, null
-  br i1 %.not137, label %149, label %139
+136:                                              ; preds = %126, %124
+  %137 = load ptr, ptr %10, align 8
+  %.not136 = icmp eq ptr %137, null
+  br i1 %.not136, label %148, label %138
 
-139:                                              ; preds = %137
-  %140 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %141 = load ptr, ptr %140, align 8
-  %.not138 = icmp eq ptr %141, null
-  br i1 %.not138, label %149, label %142
+138:                                              ; preds = %136
+  %139 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %140 = load ptr, ptr %139, align 8
+  %.not137 = icmp eq ptr %140, null
+  br i1 %.not137, label %148, label %141
 
-142:                                              ; preds = %139
-  %143 = tail call i32 %141(ptr noundef nonnull %0, ptr noundef %.097) #22
-  %.not139 = icmp eq i32 %143, 0
-  br i1 %.not139, label %144, label %149
+141:                                              ; preds = %138
+  %142 = tail call i32 %140(ptr noundef nonnull %0, ptr noundef %.098) #22
+  %.not138 = icmp eq i32 %142, 0
+  br i1 %.not138, label %143, label %148
 
-144:                                              ; preds = %142
-  %145 = load ptr, ptr %81, align 8
-  %146 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %145, i64 %indvars.iv
-  store i8 1, ptr %146, align 1
-  %147 = load ptr, ptr %81, align 8
-  %148 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %147, i64 %indvars.iv, i32 1
-  store i8 %7, ptr %148, align 1
-  br label %149
+143:                                              ; preds = %141
+  %144 = load ptr, ptr %80, align 8
+  %145 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %144, i64 %indvars.iv
+  store i8 1, ptr %145, align 1
+  %146 = load ptr, ptr %80, align 8
+  %147 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %146, i64 %indvars.iv, i32 1
+  store i8 %7, ptr %147, align 1
+  br label %148
 
-149:                                              ; preds = %42, %94, %118, %137, %139, %142, %130, %106, %.critedge147, %60, %.critedge, %53, %43, %144, %132, %120, %108, %96, %85
-  %.099 = phi i32 [ 0, %96 ], [ 0, %108 ], [ 0, %120 ], [ 0, %132 ], [ 0, %144 ], [ 0, %85 ], [ %., %43 ], [ 0, %53 ], [ 0, %.critedge ], [ 0, %60 ], [ 0, %.critedge147 ], [ -1, %106 ], [ -1, %130 ], [ -1, %142 ], [ -1, %139 ], [ -1, %137 ], [ -1, %118 ], [ -1, %94 ], [ 0, %42 ]
-  ret i32 %.099
+148:                                              ; preds = %42, %93, %117, %136, %138, %141, %129, %105, %.critedge146, %59, %.critedge, %52, %43, %143, %131, %119, %107, %95, %84
+  %.0100 = phi i32 [ 0, %95 ], [ 0, %107 ], [ 0, %119 ], [ 0, %131 ], [ 0, %143 ], [ 0, %84 ], [ %., %43 ], [ 0, %52 ], [ 0, %.critedge ], [ 0, %59 ], [ 0, %.critedge146 ], [ -1, %105 ], [ -1, %129 ], [ -1, %141 ], [ -1, %138 ], [ -1, %136 ], [ -1, %117 ], [ -1, %93 ], [ 0, %42 ]
+  ret i32 %.0100
 }
 
 ; Function Attrs: noreturn
@@ -1507,8 +1507,8 @@ define dso_local i32 @slurm_option_set(ptr noundef %0, ptr noundef %1, ptr nound
 _find_option_idx.exit:                            ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %12, null
-  br i1 %.not, label %20, label %13
+  %.not49 = icmp eq ptr %12, null
+  br i1 %.not49, label %20, label %13
 
 13:                                               ; preds = %_find_option_idx.exit
   %14 = and i64 %indvars.iv.i, 4294967295
@@ -1517,16 +1517,16 @@ _find_option_idx.exit:                            ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 29
   %18 = load i8, ptr %17, align 1, !range !12, !noundef !13
   %19 = trunc nuw i8 %18 to i1
-  %.not55 = xor i1 %19, true
-  %brmerge = or i1 %3, %.not55
-  br i1 %brmerge, label %20, label %_find_option_idx.exit.thread
+  %.not = xor i1 %19, true
+  %or.cond = or i1 %3, %.not
+  br i1 %or.cond, label %20, label %_find_option_idx.exit.thread
 
 20:                                               ; preds = %13, %_find_option_idx.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  %.not45 = icmp eq ptr %22, null
+  %.not50 = icmp eq ptr %22, null
   %.pre = and i64 %indvars.iv.i, 4294967295
-  br i1 %.not45, label %._crit_edge, label %23
+  br i1 %.not50, label %._crit_edge, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %.pre
@@ -1534,54 +1534,54 @@ _find_option_idx.exit:                            ; preds = %5
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 30
   %27 = load i8, ptr %26, align 2, !range !12, !noundef !13
   %28 = trunc nuw i8 %27 to i1
-  %.not56 = xor i1 %28, true
-  %brmerge57 = or i1 %3, %.not56
-  br i1 %brmerge57, label %._crit_edge, label %_find_option_idx.exit.thread
+  %.not2 = xor i1 %28, true
+  %or.cond4 = or i1 %3, %.not2
+  br i1 %or.cond4, label %._crit_edge, label %_find_option_idx.exit.thread
 
 ._crit_edge:                                      ; preds = %20, %23
   %29 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %.pre
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
-  %.not46 = icmp eq ptr %32, null
-  br i1 %.not46, label %33, label %50
+  %.not51 = icmp eq ptr %32, null
+  br i1 %.not51, label %33, label %50
 
 33:                                               ; preds = %._crit_edge
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %35 = load ptr, ptr %34, align 8
-  %.not47 = icmp eq ptr %35, null
-  br i1 %.not47, label %38, label %36
+  %.not52 = icmp eq ptr %35, null
+  br i1 %.not52, label %38, label %36
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %0, align 8
-  %.not48 = icmp eq ptr %37, null
-  br i1 %.not48, label %38, label %50
+  %.not53 = icmp eq ptr %37, null
+  br i1 %.not53, label %38, label %50
 
 38:                                               ; preds = %36, %33
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %40 = load ptr, ptr %39, align 8
-  %.not49 = icmp eq ptr %40, null
-  %brmerge61 = or i1 %.not, %.not49
-  br i1 %brmerge61, label %41, label %50
+  %.not54 = icmp eq ptr %40, null
+  %brmerge = or i1 %.not49, %.not54
+  br i1 %brmerge, label %41, label %50
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %43 = load ptr, ptr %42, align 8
-  %.not51 = icmp eq ptr %43, null
-  br i1 %.not51, label %47, label %44
+  %.not56 = icmp eq ptr %43, null
+  br i1 %.not56, label %47, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
-  %.not52 = icmp eq ptr %46, null
-  br i1 %.not52, label %47, label %50
+  %.not57 = icmp eq ptr %46, null
+  br i1 %.not57, label %47, label %50
 
 47:                                               ; preds = %44, %41
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %49 = load ptr, ptr %48, align 8
-  %.not53 = icmp eq ptr %49, null
-  %brmerge62 = or i1 %.not45, %.not53
-  br i1 %brmerge62, label %_find_option_idx.exit.thread, label %50
+  %.not58 = icmp eq ptr %49, null
+  %brmerge63 = or i1 %.not50, %.not58
+  br i1 %brmerge63, label %_find_option_idx.exit.thread, label %50
 
 50:                                               ; preds = %47, %44, %38, %36, %._crit_edge
   %.sink = phi ptr [ %32, %._crit_edge ], [ %35, %36 ], [ %40, %38 ], [ %43, %44 ], [ %49, %47 ]
@@ -1592,8 +1592,8 @@ _find_option_idx.exit:                            ; preds = %5
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load ptr, ptr %54, align 8
-  %.not.i58 = icmp eq ptr %55, null
-  br i1 %.not.i58, label %56, label %_init_state.exit
+  %.not.i60 = icmp eq ptr %55, null
+  br i1 %.not.i60, label %56, label %_init_state.exit
 
 56:                                               ; preds = %53
   %57 = tail call ptr @slurm_xcalloc(i64 noundef 1312, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 4340, ptr noundef nonnull @__func__._init_state) #22
@@ -2787,84 +2787,84 @@ slurm_option_set_by_cli.exit.i:                   ; preds = %32, %28, %25, %24, 
   br label %37
 
 37:                                               ; preds = %43, %slurm_option_set_by_cli.exit.i
-  %indvars.iv.i.i54.i = phi i64 [ 0, %slurm_option_set_by_cli.exit.i ], [ %indvars.iv.next.i.i55.i, %43 ]
-  %38 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i54.i
+  %indvars.iv.i.i53.i = phi i64 [ 0, %slurm_option_set_by_cli.exit.i ], [ %indvars.iv.next.i.i54.i, %43 ]
+  %38 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i53.i
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 332
-  br i1 %42, label %.split.loop.exit10.i.i62.i, label %43
+  br i1 %42, label %.split.loop.exit10.i.i61.i, label %43
 
 43:                                               ; preds = %37
-  %indvars.iv.next.i.i55.i = add nuw nsw i64 %indvars.iv.i.i54.i, 1
-  %.not.i.i56.i = icmp eq i64 %indvars.iv.next.i.i55.i, 163
-  br i1 %.not.i.i56.i, label %_find_option_index_from_optval.exit.i57.i, label %37, !llvm.loop !17
+  %indvars.iv.next.i.i54.i = add nuw nsw i64 %indvars.iv.i.i53.i, 1
+  %.not.i.i55.i = icmp eq i64 %indvars.iv.next.i.i54.i, 163
+  br i1 %.not.i.i55.i, label %_find_option_index_from_optval.exit.i56.i, label %37, !llvm.loop !17
 
-.split.loop.exit10.i.i62.i:                       ; preds = %37
-  %sext.i63.i = shl i64 %indvars.iv.i.i54.i, 32
-  %44 = ashr exact i64 %sext.i63.i, 32
-  br label %_find_option_index_from_optval.exit.i57.i
+.split.loop.exit10.i.i61.i:                       ; preds = %37
+  %sext.i62.i = shl i64 %indvars.iv.i.i53.i, 32
+  %44 = ashr exact i64 %sext.i62.i, 32
+  br label %_find_option_index_from_optval.exit.i56.i
 
-_find_option_index_from_optval.exit.i57.i:        ; preds = %43, %.split.loop.exit10.i.i62.i
-  %.06.i.i58.i = phi i64 [ %44, %.split.loop.exit10.i.i62.i ], [ 0, %43 ]
+_find_option_index_from_optval.exit.i56.i:        ; preds = %43, %.split.loop.exit10.i.i61.i
+  %.06.i.i57.i = phi i64 [ %44, %.split.loop.exit10.i.i61.i ], [ 0, %43 ]
   br i1 %.not.i2.i.i, label %45, label %49
 
-45:                                               ; preds = %_find_option_index_from_optval.exit.i57.i
+45:                                               ; preds = %_find_option_index_from_optval.exit.i56.i
   %46 = tail call i32 @get_log_level() #22
   %47 = icmp sgt i32 %46, 6
-  br i1 %47, label %48, label %slurm_option_set_by_cli.exit64.i
+  br i1 %47, label %48, label %slurm_option_set_by_cli.exit63.i
 
 48:                                               ; preds = %45
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
-  br label %slurm_option_set_by_cli.exit64.i
+  br label %slurm_option_set_by_cli.exit63.i
 
-49:                                               ; preds = %_find_option_index_from_optval.exit.i57.i
+49:                                               ; preds = %_find_option_index_from_optval.exit.i56.i
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
-  %.not8.i.i60.i = icmp eq ptr %51, null
-  br i1 %.not8.i.i60.i, label %slurm_option_set_by_cli.exit64.i, label %52
+  %.not8.i.i59.i = icmp eq ptr %51, null
+  br i1 %.not8.i.i59.i, label %slurm_option_set_by_cli.exit63.i, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %51, i64 %.06.i.i58.i
+  %53 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %51, i64 %.06.i.i57.i
   %54 = load i8, ptr %53, align 1, !range !12, !noundef !13
   %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %56, label %slurm_option_set_by_cli.exit64.i
+  br i1 %55, label %56, label %slurm_option_set_by_cli.exit63.i
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %58 = load i8, ptr %57, align 1, !range !12, !noundef !13
   %59 = trunc nuw i8 %58 to i1
   %60 = xor i1 %59, true
-  br label %slurm_option_set_by_cli.exit64.i
+  br label %slurm_option_set_by_cli.exit63.i
 
-slurm_option_set_by_cli.exit64.i:                 ; preds = %56, %52, %49, %48, %45
-  %.0.i.i61.i = phi i1 [ false, %48 ], [ false, %45 ], [ false, %49 ], [ false, %52 ], [ %60, %56 ]
+slurm_option_set_by_cli.exit63.i:                 ; preds = %56, %52, %49, %48, %45
+  %.0.i.i60.i = phi i1 [ false, %48 ], [ false, %45 ], [ false, %49 ], [ false, %52 ], [ %60, %56 ]
   br label %61
 
-61:                                               ; preds = %67, %slurm_option_set_by_cli.exit64.i
-  %indvars.iv.i.i65.i = phi i64 [ 0, %slurm_option_set_by_cli.exit64.i ], [ %indvars.iv.next.i.i66.i, %67 ]
-  %62 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i65.i
+61:                                               ; preds = %67, %slurm_option_set_by_cli.exit63.i
+  %indvars.iv.i.i64.i = phi i64 [ 0, %slurm_option_set_by_cli.exit63.i ], [ %indvars.iv.next.i.i65.i, %67 ]
+  %62 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i64.i
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 335
-  br i1 %66, label %.split.loop.exit10.i.i72.i, label %67
+  br i1 %66, label %.split.loop.exit10.i.i71.i, label %67
 
 67:                                               ; preds = %61
-  %indvars.iv.next.i.i66.i = add nuw nsw i64 %indvars.iv.i.i65.i, 1
-  %.not.i.i67.i = icmp eq i64 %indvars.iv.next.i.i66.i, 163
-  br i1 %.not.i.i67.i, label %_find_option_index_from_optval.exit.i68.i, label %61, !llvm.loop !17
+  %indvars.iv.next.i.i65.i = add nuw nsw i64 %indvars.iv.i.i64.i, 1
+  %.not.i.i66.i = icmp eq i64 %indvars.iv.next.i.i65.i, 163
+  br i1 %.not.i.i66.i, label %_find_option_index_from_optval.exit.i67.i, label %61, !llvm.loop !17
 
-.split.loop.exit10.i.i72.i:                       ; preds = %61
-  %sext.i73.i = shl i64 %indvars.iv.i.i65.i, 32
-  %68 = ashr exact i64 %sext.i73.i, 32
-  br label %_find_option_index_from_optval.exit.i68.i
+.split.loop.exit10.i.i71.i:                       ; preds = %61
+  %sext.i72.i = shl i64 %indvars.iv.i.i64.i, 32
+  %68 = ashr exact i64 %sext.i72.i, 32
+  br label %_find_option_index_from_optval.exit.i67.i
 
-_find_option_index_from_optval.exit.i68.i:        ; preds = %67, %.split.loop.exit10.i.i72.i
-  %.06.i.i69.i = phi i64 [ %68, %.split.loop.exit10.i.i72.i ], [ 0, %67 ]
+_find_option_index_from_optval.exit.i67.i:        ; preds = %67, %.split.loop.exit10.i.i71.i
+  %.06.i.i68.i = phi i64 [ %68, %.split.loop.exit10.i.i71.i ], [ 0, %67 ]
   br i1 %.not.i2.i.i, label %69, label %73
 
-69:                                               ; preds = %_find_option_index_from_optval.exit.i68.i
+69:                                               ; preds = %_find_option_index_from_optval.exit.i67.i
   %70 = tail call i32 @get_log_level() #22
   %71 = icmp sgt i32 %70, 6
   br i1 %71, label %72, label %slurm_option_set_by_env.exit.i
@@ -2873,120 +2873,117 @@ _find_option_index_from_optval.exit.i68.i:        ; preds = %67, %.split.loop.ex
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
   br label %slurm_option_set_by_env.exit.i
 
-73:                                               ; preds = %_find_option_index_from_optval.exit.i68.i
+73:                                               ; preds = %_find_option_index_from_optval.exit.i67.i
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %75 = load ptr, ptr %74, align 8
   %.not6.i.i.i = icmp eq ptr %75, null
   br i1 %.not6.i.i.i, label %slurm_option_set_by_env.exit.i, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %75, i64 %.06.i.i69.i, i32 1
+  %77 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %75, i64 %.06.i.i68.i, i32 1
   %78 = load i8, ptr %77, align 1, !range !12, !noundef !13
   %79 = trunc nuw i8 %78 to i1
   br label %slurm_option_set_by_env.exit.i
 
 slurm_option_set_by_env.exit.i:                   ; preds = %76, %73, %72, %69
-  %.0.i.i71.i = phi i1 [ %79, %76 ], [ false, %72 ], [ false, %69 ], [ false, %73 ]
+  %.0.i.i70.i = phi i1 [ %79, %76 ], [ false, %72 ], [ false, %69 ], [ false, %73 ]
   br label %80
 
 80:                                               ; preds = %86, %slurm_option_set_by_env.exit.i
-  %indvars.iv.i.i74.i = phi i64 [ 0, %slurm_option_set_by_env.exit.i ], [ %indvars.iv.next.i.i75.i, %86 ]
-  %81 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i74.i
+  %indvars.iv.i.i73.i = phi i64 [ 0, %slurm_option_set_by_env.exit.i ], [ %indvars.iv.next.i.i74.i, %86 ]
+  %81 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i73.i
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load i32, ptr %83, align 8
   %85 = icmp eq i32 %84, 332
-  br i1 %85, label %.split.loop.exit10.i.i82.i, label %86
+  br i1 %85, label %.split.loop.exit10.i.i81.i, label %86
 
 86:                                               ; preds = %80
-  %indvars.iv.next.i.i75.i = add nuw nsw i64 %indvars.iv.i.i74.i, 1
-  %.not.i.i76.i = icmp eq i64 %indvars.iv.next.i.i75.i, 163
-  br i1 %.not.i.i76.i, label %_find_option_index_from_optval.exit.i77.i, label %80, !llvm.loop !17
+  %indvars.iv.next.i.i74.i = add nuw nsw i64 %indvars.iv.i.i73.i, 1
+  %.not.i.i75.i = icmp eq i64 %indvars.iv.next.i.i74.i, 163
+  br i1 %.not.i.i75.i, label %_find_option_index_from_optval.exit.i76.i, label %80, !llvm.loop !17
 
-.split.loop.exit10.i.i82.i:                       ; preds = %80
-  %sext.i83.i = shl i64 %indvars.iv.i.i74.i, 32
-  %87 = ashr exact i64 %sext.i83.i, 32
-  br label %_find_option_index_from_optval.exit.i77.i
+.split.loop.exit10.i.i81.i:                       ; preds = %80
+  %sext.i82.i = shl i64 %indvars.iv.i.i73.i, 32
+  %87 = ashr exact i64 %sext.i82.i, 32
+  br label %_find_option_index_from_optval.exit.i76.i
 
-_find_option_index_from_optval.exit.i77.i:        ; preds = %86, %.split.loop.exit10.i.i82.i
-  %.06.i.i78.i = phi i64 [ %87, %.split.loop.exit10.i.i82.i ], [ 0, %86 ]
+_find_option_index_from_optval.exit.i76.i:        ; preds = %86, %.split.loop.exit10.i.i81.i
+  %.06.i.i77.i = phi i64 [ %87, %.split.loop.exit10.i.i81.i ], [ 0, %86 ]
   br i1 %.not.i2.i.i, label %88, label %92
 
-88:                                               ; preds = %_find_option_index_from_optval.exit.i77.i
+88:                                               ; preds = %_find_option_index_from_optval.exit.i76.i
   %89 = tail call i32 @get_log_level() #22
   %90 = icmp sgt i32 %89, 6
-  br i1 %90, label %91, label %slurm_option_set_by_env.exit84.i
+  br i1 %90, label %91, label %slurm_option_set_by_env.exit83.i
 
 91:                                               ; preds = %88
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
-  br label %slurm_option_set_by_env.exit84.i
+  br label %slurm_option_set_by_env.exit83.i
 
-92:                                               ; preds = %_find_option_index_from_optval.exit.i77.i
+92:                                               ; preds = %_find_option_index_from_optval.exit.i76.i
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %94 = load ptr, ptr %93, align 8
-  %.not6.i.i80.i = icmp eq ptr %94, null
-  br i1 %.not6.i.i80.i, label %slurm_option_set_by_env.exit84.i, label %95
+  %.not6.i.i79.i = icmp eq ptr %94, null
+  br i1 %.not6.i.i79.i, label %slurm_option_set_by_env.exit83.i, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %94, i64 %.06.i.i78.i, i32 1
+  %96 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %94, i64 %.06.i.i77.i, i32 1
   %97 = load i8, ptr %96, align 1, !range !12, !noundef !13
   %98 = trunc nuw i8 %97 to i1
-  br label %slurm_option_set_by_env.exit84.i
+  br label %slurm_option_set_by_env.exit83.i
 
-slurm_option_set_by_env.exit84.i:                 ; preds = %95, %92, %91, %88
-  %.0.i.i81.i = phi i1 [ %98, %95 ], [ false, %91 ], [ false, %88 ], [ false, %92 ]
-  %brmerge.i = select i1 %.0.i.i.i, i1 true, i1 %.0.i.i61.i
-  %99 = select i1 %brmerge.i, i1 true, i1 %.0.i.i71.i
-  %or.cond.i = select i1 %99, i1 true, i1 %.0.i.i81.i
-  br i1 %or.cond.i, label %.critedge.i, label %_validate_ntasks_per_gpu.exit.preheader
+slurm_option_set_by_env.exit83.i:                 ; preds = %95, %92, %91, %88
+  %.0.i.i80.i = phi i1 [ %98, %95 ], [ false, %91 ], [ false, %88 ], [ false, %92 ]
+  %or.cond.i = select i1 %.0.i.i.i, i1 true, i1 %.0.i.i60.i
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %.0.i.i70.i
+  %spec.select.i = select i1 %or.cond3.i, i1 true, i1 %.0.i.i80.i
+  br i1 %spec.select.i, label %99, label %_validate_ntasks_per_gpu.exit.preheader
 
-.critedge.i:                                      ; preds = %slurm_option_set_by_env.exit84.i
-  %.not42.i = xor i1 %.0.i.i61.i, true
-  %.not43.i = xor i1 %.0.i.i.i, true
-  %brmerge44.i = select i1 %.not42.i, i1 true, i1 %.not43.i
-  br i1 %brmerge44.i, label %106, label %100
+99:                                               ; preds = %slurm_option_set_by_env.exit83.i
+  %or.cond5.i = select i1 %.0.i.i60.i, i1 %.0.i.i.i, i1 false
+  br i1 %or.cond5.i, label %100, label %106
 
-100:                                              ; preds = %.critedge.i
+100:                                              ; preds = %99
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %102 = load i32, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %104 = load i32, ptr %103, align 4
-  %.not41.i = icmp eq i32 %102, %104
-  br i1 %.not41.i, label %slurm_option_reset.exit.i.preheader, label %105
+  %.not52.i = icmp eq i32 %102, %104
+  br i1 %.not52.i, label %slurm_option_reset.exit.i.preheader, label %105
 
-slurm_option_reset.exit.i.preheader:              ; preds = %119, %142, %153, %152, %150, %_find_option_idx.exit.i92.i, %127, %_find_option_idx.exit.i.i, %100
+slurm_option_reset.exit.i.preheader:              ; preds = %142, %119, %153, %152, %150, %_find_option_idx.exit.i91.i, %127, %_find_option_idx.exit.i.i, %100
   br label %slurm_option_reset.exit.i
 
 105:                                              ; preds = %100
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.480, i32 noundef %102, i32 noundef %104) #23
   unreachable
 
-106:                                              ; preds = %.critedge.i
-  %.not46.i = xor i1 %.0.i.i71.i, true
-  %brmerge47.i = select i1 %.not42.i, i1 true, i1 %.not46.i
-  br i1 %brmerge47.i, label %129, label %107
+106:                                              ; preds = %99
+  %or.cond7.i = select i1 %.0.i.i60.i, i1 %.0.i.i70.i, i1 false
+  br i1 %or.cond7.i, label %107, label %129
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %109 = load i32, ptr %108, align 4
-  %.not40.i = icmp eq i32 %109, 0
-  br i1 %.not40.i, label %.preheader449, label %110
+  %.not51.i = icmp eq i32 %109, 0
+  br i1 %.not51.i, label %.preheader464, label %110
 
 110:                                              ; preds = %107
   %111 = tail call i32 @get_log_level() #22
   %112 = icmp sgt i32 %111, 2
-  br i1 %112, label %113, label %.preheader449
+  br i1 %112, label %113, label %.preheader464
 
 113:                                              ; preds = %110
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.481) #22
-  br label %.preheader449
+  br label %.preheader464
 
-.preheader449:                                    ; preds = %113, %110, %107
+.preheader464:                                    ; preds = %113, %110, %107
   br label %114
 
-114:                                              ; preds = %.preheader449, %119
-  %indvars.iv.i.i85.i = phi i64 [ %indvars.iv.next.i.i86.i, %119 ], [ 0, %.preheader449 ]
-  %115 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i85.i
+114:                                              ; preds = %.preheader464, %119
+  %indvars.iv.i.i84.i = phi i64 [ %indvars.iv.next.i.i85.i, %119 ], [ 0, %.preheader464 ]
+  %115 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i84.i
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %116, align 8
   %118 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.328, ptr noundef %117) #22
@@ -2994,12 +2991,12 @@ slurm_option_reset.exit.i.preheader:              ; preds = %119, %142, %153, %1
   br i1 %.not9.i.i.i, label %_find_option_idx.exit.i.i, label %119
 
 119:                                              ; preds = %114
-  %indvars.iv.next.i.i86.i = add nuw nsw i64 %indvars.iv.i.i85.i, 1
-  %.not.i.i87.i = icmp eq i64 %indvars.iv.next.i.i86.i, 163
-  br i1 %.not.i.i87.i, label %slurm_option_reset.exit.i.preheader, label %114, !llvm.loop !18
+  %indvars.iv.next.i.i85.i = add nuw nsw i64 %indvars.iv.i.i84.i, 1
+  %.not.i.i86.i = icmp eq i64 %indvars.iv.next.i.i85.i, 163
+  br i1 %.not.i.i86.i, label %slurm_option_reset.exit.i.preheader, label %114, !llvm.loop !18
 
 _find_option_idx.exit.i.i:                        ; preds = %114
-  %120 = and i64 %indvars.iv.i.i85.i, 4294967295
+  %120 = and i64 %indvars.iv.i.i84.i, 4294967295
   %121 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %120
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 80
@@ -3016,44 +3013,43 @@ _find_option_idx.exit.i.i:                        ; preds = %114
   br label %slurm_option_reset.exit.i.preheader
 
 129:                                              ; preds = %106
-  %.not49.i = xor i1 %.0.i.i81.i, true
-  %brmerge50.i = select i1 %.not43.i, i1 true, i1 %.not49.i
-  br i1 %brmerge50.i, label %152, label %130
+  %or.cond9.i = select i1 %.0.i.i.i, i1 %.0.i.i80.i, i1 false
+  br i1 %or.cond9.i, label %130, label %152
 
 130:                                              ; preds = %129
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %132 = load i32, ptr %131, align 4
-  %.not39.i = icmp eq i32 %132, 0
-  br i1 %.not39.i, label %.preheader447, label %133
+  %.not50.i = icmp eq i32 %132, 0
+  br i1 %.not50.i, label %.preheader466, label %133
 
 133:                                              ; preds = %130
   %134 = tail call i32 @get_log_level() #22
   %135 = icmp sgt i32 %134, 2
-  br i1 %135, label %136, label %.preheader447
+  br i1 %135, label %136, label %.preheader466
 
 136:                                              ; preds = %133
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.482) #22
-  br label %.preheader447
+  br label %.preheader466
 
-.preheader447:                                    ; preds = %136, %133, %130
+.preheader466:                                    ; preds = %136, %133, %130
   br label %137
 
-137:                                              ; preds = %.preheader447, %142
-  %indvars.iv.i.i88.i = phi i64 [ %indvars.iv.next.i.i90.i, %142 ], [ 0, %.preheader447 ]
-  %138 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i88.i
+137:                                              ; preds = %.preheader466, %142
+  %indvars.iv.i.i87.i = phi i64 [ %indvars.iv.next.i.i89.i, %142 ], [ 0, %.preheader466 ]
+  %138 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i87.i
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %139, align 8
   %141 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.319, ptr noundef %140) #22
-  %.not9.i.i89.i = icmp eq i32 %141, 0
-  br i1 %.not9.i.i89.i, label %_find_option_idx.exit.i92.i, label %142
+  %.not9.i.i88.i = icmp eq i32 %141, 0
+  br i1 %.not9.i.i88.i, label %_find_option_idx.exit.i91.i, label %142
 
 142:                                              ; preds = %137
-  %indvars.iv.next.i.i90.i = add nuw nsw i64 %indvars.iv.i.i88.i, 1
-  %.not.i.i91.i = icmp eq i64 %indvars.iv.next.i.i90.i, 163
-  br i1 %.not.i.i91.i, label %slurm_option_reset.exit.i.preheader, label %137, !llvm.loop !18
+  %indvars.iv.next.i.i89.i = add nuw nsw i64 %indvars.iv.i.i87.i, 1
+  %.not.i.i90.i = icmp eq i64 %indvars.iv.next.i.i89.i, 163
+  br i1 %.not.i.i90.i, label %slurm_option_reset.exit.i.preheader, label %137, !llvm.loop !18
 
-_find_option_idx.exit.i92.i:                      ; preds = %137
-  %143 = and i64 %indvars.iv.i.i88.i, 4294967295
+_find_option_idx.exit.i91.i:                      ; preds = %137
+  %143 = and i64 %indvars.iv.i.i87.i, 4294967295
   %144 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 80
@@ -3061,17 +3057,17 @@ _find_option_idx.exit.i92.i:                      ; preds = %137
   tail call void %147(ptr noundef %0) #22
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %149 = load ptr, ptr %148, align 8
-  %.not.i93.i = icmp eq ptr %149, null
-  br i1 %.not.i93.i, label %slurm_option_reset.exit.i.preheader, label %150
+  %.not.i92.i = icmp eq ptr %149, null
+  br i1 %.not.i92.i, label %slurm_option_reset.exit.i.preheader, label %150
 
-150:                                              ; preds = %_find_option_idx.exit.i92.i
+150:                                              ; preds = %_find_option_idx.exit.i91.i
   %151 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %149, i64 %143
   store i8 0, ptr %151, align 1
   br label %slurm_option_reset.exit.i.preheader
 
 152:                                              ; preds = %129
-  %brmerge53.i = select i1 %.not49.i, i1 true, i1 %.not46.i
-  br i1 %brmerge53.i, label %slurm_option_reset.exit.i.preheader, label %153
+  %or.cond11.i = select i1 %.0.i.i80.i, i1 %.0.i.i70.i, i1 false
+  br i1 %or.cond11.i, label %153, label %slurm_option_reset.exit.i.preheader
 
 153:                                              ; preds = %152
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -3086,410 +3082,410 @@ _find_option_idx.exit.i92.i:                      ; preds = %137
   unreachable
 
 slurm_option_reset.exit.i:                        ; preds = %slurm_option_reset.exit.i.preheader, %164
-  %indvars.iv.i.i95.i = phi i64 [ %indvars.iv.next.i.i96.i, %164 ], [ 0, %slurm_option_reset.exit.i.preheader ]
-  %159 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i95.i
+  %indvars.iv.i.i94.i = phi i64 [ %indvars.iv.next.i.i95.i, %164 ], [ 0, %slurm_option_reset.exit.i.preheader ]
+  %159 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i94.i
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
   %162 = load i32, ptr %161, align 8
   %163 = icmp eq i32 %162, 374
-  br i1 %163, label %.split.loop.exit10.i.i103.i, label %164
+  br i1 %163, label %.split.loop.exit10.i.i102.i, label %164
 
 164:                                              ; preds = %slurm_option_reset.exit.i
-  %indvars.iv.next.i.i96.i = add nuw nsw i64 %indvars.iv.i.i95.i, 1
-  %.not.i.i97.i = icmp eq i64 %indvars.iv.next.i.i96.i, 163
-  br i1 %.not.i.i97.i, label %_find_option_index_from_optval.exit.i98.i, label %slurm_option_reset.exit.i, !llvm.loop !17
+  %indvars.iv.next.i.i95.i = add nuw nsw i64 %indvars.iv.i.i94.i, 1
+  %.not.i.i96.i = icmp eq i64 %indvars.iv.next.i.i95.i, 163
+  br i1 %.not.i.i96.i, label %_find_option_index_from_optval.exit.i97.i, label %slurm_option_reset.exit.i, !llvm.loop !17
 
-.split.loop.exit10.i.i103.i:                      ; preds = %slurm_option_reset.exit.i
-  %sext.i104.i = shl i64 %indvars.iv.i.i95.i, 32
-  %165 = ashr exact i64 %sext.i104.i, 32
-  br label %_find_option_index_from_optval.exit.i98.i
+.split.loop.exit10.i.i102.i:                      ; preds = %slurm_option_reset.exit.i
+  %sext.i103.i = shl i64 %indvars.iv.i.i94.i, 32
+  %165 = ashr exact i64 %sext.i103.i, 32
+  br label %_find_option_index_from_optval.exit.i97.i
 
-_find_option_index_from_optval.exit.i98.i:        ; preds = %164, %.split.loop.exit10.i.i103.i
-  %.06.i.i99.i = phi i64 [ %165, %.split.loop.exit10.i.i103.i ], [ 0, %164 ]
+_find_option_index_from_optval.exit.i97.i:        ; preds = %164, %.split.loop.exit10.i.i102.i
+  %.06.i.i98.i = phi i64 [ %165, %.split.loop.exit10.i.i102.i ], [ 0, %164 ]
   br i1 %.not.i2.i.i, label %166, label %170
 
-166:                                              ; preds = %_find_option_index_from_optval.exit.i98.i
+166:                                              ; preds = %_find_option_index_from_optval.exit.i97.i
   %167 = tail call i32 @get_log_level() #22
   %168 = icmp sgt i32 %167, 6
-  br i1 %168, label %169, label %slurm_option_set_by_cli.exit105.thread.i.preheader
+  br i1 %168, label %169, label %slurm_option_set_by_cli.exit104.thread.i.preheader
 
-slurm_option_set_by_cli.exit105.thread.i.preheader: ; preds = %slurm_option_set_by_cli.exit105.i, %173, %170, %169, %166
-  br label %slurm_option_set_by_cli.exit105.thread.i
+slurm_option_set_by_cli.exit104.thread.i.preheader: ; preds = %slurm_option_set_by_cli.exit104.i, %173, %170, %169, %166
+  br label %slurm_option_set_by_cli.exit104.thread.i
 
 169:                                              ; preds = %166
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
-  br label %slurm_option_set_by_cli.exit105.thread.i.preheader
+  br label %slurm_option_set_by_cli.exit104.thread.i.preheader
 
-170:                                              ; preds = %_find_option_index_from_optval.exit.i98.i
+170:                                              ; preds = %_find_option_index_from_optval.exit.i97.i
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %172 = load ptr, ptr %171, align 8
-  %.not8.i.i101.i = icmp eq ptr %172, null
-  br i1 %.not8.i.i101.i, label %slurm_option_set_by_cli.exit105.thread.i.preheader, label %173
+  %.not8.i.i100.i = icmp eq ptr %172, null
+  br i1 %.not8.i.i100.i, label %slurm_option_set_by_cli.exit104.thread.i.preheader, label %173
 
 173:                                              ; preds = %170
-  %174 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %172, i64 %.06.i.i99.i
+  %174 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %172, i64 %.06.i.i98.i
   %175 = load i8, ptr %174, align 1, !range !12, !noundef !13
   %176 = trunc nuw i8 %175 to i1
-  br i1 %176, label %slurm_option_set_by_cli.exit105.i, label %slurm_option_set_by_cli.exit105.thread.i.preheader
+  br i1 %176, label %slurm_option_set_by_cli.exit104.i, label %slurm_option_set_by_cli.exit104.thread.i.preheader
 
-slurm_option_set_by_cli.exit105.i:                ; preds = %173
+slurm_option_set_by_cli.exit104.i:                ; preds = %173
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 1
   %178 = load i8, ptr %177, align 1, !range !12, !noundef !13
   %179 = trunc nuw i8 %178 to i1
-  br i1 %179, label %slurm_option_set_by_cli.exit105.thread.i.preheader, label %180
+  br i1 %179, label %slurm_option_set_by_cli.exit104.thread.i.preheader, label %180
 
-180:                                              ; preds = %slurm_option_set_by_cli.exit105.i
+180:                                              ; preds = %slurm_option_set_by_cli.exit104.i
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.484) #23
   unreachable
 
-slurm_option_set_by_cli.exit105.thread.i:         ; preds = %slurm_option_set_by_cli.exit105.thread.i.preheader, %186
-  %indvars.iv.i.i106.i = phi i64 [ %indvars.iv.next.i.i107.i, %186 ], [ 0, %slurm_option_set_by_cli.exit105.thread.i.preheader ]
-  %181 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i106.i
+slurm_option_set_by_cli.exit104.thread.i:         ; preds = %slurm_option_set_by_cli.exit104.thread.i.preheader, %186
+  %indvars.iv.i.i105.i = phi i64 [ %indvars.iv.next.i.i106.i, %186 ], [ 0, %slurm_option_set_by_cli.exit104.thread.i.preheader ]
+  %181 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i105.i
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %184 = load i32, ptr %183, align 8
   %185 = icmp eq i32 %184, 374
-  br i1 %185, label %.split.loop.exit10.i.i114.i, label %186
+  br i1 %185, label %.split.loop.exit10.i.i113.i, label %186
 
-186:                                              ; preds = %slurm_option_set_by_cli.exit105.thread.i
-  %indvars.iv.next.i.i107.i = add nuw nsw i64 %indvars.iv.i.i106.i, 1
-  %.not.i.i108.i = icmp eq i64 %indvars.iv.next.i.i107.i, 163
-  br i1 %.not.i.i108.i, label %_find_option_index_from_optval.exit.i109.i, label %slurm_option_set_by_cli.exit105.thread.i, !llvm.loop !17
+186:                                              ; preds = %slurm_option_set_by_cli.exit104.thread.i
+  %indvars.iv.next.i.i106.i = add nuw nsw i64 %indvars.iv.i.i105.i, 1
+  %.not.i.i107.i = icmp eq i64 %indvars.iv.next.i.i106.i, 163
+  br i1 %.not.i.i107.i, label %_find_option_index_from_optval.exit.i108.i, label %slurm_option_set_by_cli.exit104.thread.i, !llvm.loop !17
 
-.split.loop.exit10.i.i114.i:                      ; preds = %slurm_option_set_by_cli.exit105.thread.i
-  %sext.i115.i = shl i64 %indvars.iv.i.i106.i, 32
-  %187 = ashr exact i64 %sext.i115.i, 32
-  br label %_find_option_index_from_optval.exit.i109.i
+.split.loop.exit10.i.i113.i:                      ; preds = %slurm_option_set_by_cli.exit104.thread.i
+  %sext.i114.i = shl i64 %indvars.iv.i.i105.i, 32
+  %187 = ashr exact i64 %sext.i114.i, 32
+  br label %_find_option_index_from_optval.exit.i108.i
 
-_find_option_index_from_optval.exit.i109.i:       ; preds = %186, %.split.loop.exit10.i.i114.i
-  %.06.i.i110.i = phi i64 [ %187, %.split.loop.exit10.i.i114.i ], [ 0, %186 ]
+_find_option_index_from_optval.exit.i108.i:       ; preds = %186, %.split.loop.exit10.i.i113.i
+  %.06.i.i109.i = phi i64 [ %187, %.split.loop.exit10.i.i113.i ], [ 0, %186 ]
   br i1 %.not.i2.i.i, label %188, label %192
 
-188:                                              ; preds = %_find_option_index_from_optval.exit.i109.i
+188:                                              ; preds = %_find_option_index_from_optval.exit.i108.i
   %189 = tail call i32 @get_log_level() #22
   %190 = icmp sgt i32 %189, 6
-  br i1 %190, label %191, label %slurm_option_set_by_env.exit116.thread.i.preheader
+  br i1 %190, label %191, label %slurm_option_set_by_env.exit115.thread.i.preheader
 
-slurm_option_set_by_env.exit116.thread.i.preheader: ; preds = %slurm_option_set_by_env.exit116.i, %192, %191, %188
-  br label %slurm_option_set_by_env.exit116.thread.i
+slurm_option_set_by_env.exit115.thread.i.preheader: ; preds = %slurm_option_set_by_env.exit115.i, %192, %191, %188
+  br label %slurm_option_set_by_env.exit115.thread.i
 
 191:                                              ; preds = %188
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
-  br label %slurm_option_set_by_env.exit116.thread.i.preheader
+  br label %slurm_option_set_by_env.exit115.thread.i.preheader
 
-192:                                              ; preds = %_find_option_index_from_optval.exit.i109.i
+192:                                              ; preds = %_find_option_index_from_optval.exit.i108.i
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %194 = load ptr, ptr %193, align 8
-  %.not6.i.i112.i = icmp eq ptr %194, null
-  br i1 %.not6.i.i112.i, label %slurm_option_set_by_env.exit116.thread.i.preheader, label %slurm_option_set_by_env.exit116.i
+  %.not6.i.i111.i = icmp eq ptr %194, null
+  br i1 %.not6.i.i111.i, label %slurm_option_set_by_env.exit115.thread.i.preheader, label %slurm_option_set_by_env.exit115.i
 
-slurm_option_set_by_env.exit116.i:                ; preds = %192
-  %195 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %194, i64 %.06.i.i110.i, i32 1
+slurm_option_set_by_env.exit115.i:                ; preds = %192
+  %195 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %194, i64 %.06.i.i109.i, i32 1
   %196 = load i8, ptr %195, align 1, !range !12, !noundef !13
   %197 = trunc nuw i8 %196 to i1
-  br i1 %197, label %198, label %slurm_option_set_by_env.exit116.thread.i.preheader
+  br i1 %197, label %198, label %slurm_option_set_by_env.exit115.thread.i.preheader
 
-198:                                              ; preds = %slurm_option_set_by_env.exit116.i
+198:                                              ; preds = %slurm_option_set_by_env.exit115.i
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.485) #23
   unreachable
 
-slurm_option_set_by_env.exit116.thread.i:         ; preds = %slurm_option_set_by_env.exit116.thread.i.preheader, %204
-  %indvars.iv.i.i117.i = phi i64 [ %indvars.iv.next.i.i118.i, %204 ], [ 0, %slurm_option_set_by_env.exit116.thread.i.preheader ]
-  %199 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i117.i
+slurm_option_set_by_env.exit115.thread.i:         ; preds = %slurm_option_set_by_env.exit115.thread.i.preheader, %204
+  %indvars.iv.i.i116.i = phi i64 [ %indvars.iv.next.i.i117.i, %204 ], [ 0, %slurm_option_set_by_env.exit115.thread.i.preheader ]
+  %199 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i116.i
   %200 = load ptr, ptr %199, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %202 = load i32, ptr %201, align 8
   %203 = icmp eq i32 %202, 300
-  br i1 %203, label %.split.loop.exit10.i.i125.i, label %204
+  br i1 %203, label %.split.loop.exit10.i.i124.i, label %204
 
-204:                                              ; preds = %slurm_option_set_by_env.exit116.thread.i
-  %indvars.iv.next.i.i118.i = add nuw nsw i64 %indvars.iv.i.i117.i, 1
-  %.not.i.i119.i = icmp eq i64 %indvars.iv.next.i.i118.i, 163
-  br i1 %.not.i.i119.i, label %_find_option_index_from_optval.exit.i120.i, label %slurm_option_set_by_env.exit116.thread.i, !llvm.loop !17
+204:                                              ; preds = %slurm_option_set_by_env.exit115.thread.i
+  %indvars.iv.next.i.i117.i = add nuw nsw i64 %indvars.iv.i.i116.i, 1
+  %.not.i.i118.i = icmp eq i64 %indvars.iv.next.i.i117.i, 163
+  br i1 %.not.i.i118.i, label %_find_option_index_from_optval.exit.i119.i, label %slurm_option_set_by_env.exit115.thread.i, !llvm.loop !17
 
-.split.loop.exit10.i.i125.i:                      ; preds = %slurm_option_set_by_env.exit116.thread.i
-  %sext.i126.i = shl i64 %indvars.iv.i.i117.i, 32
-  %205 = ashr exact i64 %sext.i126.i, 32
-  br label %_find_option_index_from_optval.exit.i120.i
+.split.loop.exit10.i.i124.i:                      ; preds = %slurm_option_set_by_env.exit115.thread.i
+  %sext.i125.i = shl i64 %indvars.iv.i.i116.i, 32
+  %205 = ashr exact i64 %sext.i125.i, 32
+  br label %_find_option_index_from_optval.exit.i119.i
 
-_find_option_index_from_optval.exit.i120.i:       ; preds = %204, %.split.loop.exit10.i.i125.i
-  %.06.i.i121.i = phi i64 [ %205, %.split.loop.exit10.i.i125.i ], [ 0, %204 ]
+_find_option_index_from_optval.exit.i119.i:       ; preds = %204, %.split.loop.exit10.i.i124.i
+  %.06.i.i120.i = phi i64 [ %205, %.split.loop.exit10.i.i124.i ], [ 0, %204 ]
   br i1 %.not.i2.i.i, label %206, label %210
 
-206:                                              ; preds = %_find_option_index_from_optval.exit.i120.i
+206:                                              ; preds = %_find_option_index_from_optval.exit.i119.i
   %207 = tail call i32 @get_log_level() #22
   %208 = icmp sgt i32 %207, 6
-  br i1 %208, label %209, label %slurm_option_set_by_cli.exit127.thread.i.preheader
+  br i1 %208, label %209, label %slurm_option_set_by_cli.exit126.thread.i.preheader
 
-slurm_option_set_by_cli.exit127.thread.i.preheader: ; preds = %slurm_option_set_by_cli.exit127.i, %213, %210, %209, %206
-  br label %slurm_option_set_by_cli.exit127.thread.i
+slurm_option_set_by_cli.exit126.thread.i.preheader: ; preds = %slurm_option_set_by_cli.exit126.i, %213, %210, %209, %206
+  br label %slurm_option_set_by_cli.exit126.thread.i
 
 209:                                              ; preds = %206
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
-  br label %slurm_option_set_by_cli.exit127.thread.i.preheader
+  br label %slurm_option_set_by_cli.exit126.thread.i.preheader
 
-210:                                              ; preds = %_find_option_index_from_optval.exit.i120.i
+210:                                              ; preds = %_find_option_index_from_optval.exit.i119.i
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %212 = load ptr, ptr %211, align 8
-  %.not8.i.i123.i = icmp eq ptr %212, null
-  br i1 %.not8.i.i123.i, label %slurm_option_set_by_cli.exit127.thread.i.preheader, label %213
+  %.not8.i.i122.i = icmp eq ptr %212, null
+  br i1 %.not8.i.i122.i, label %slurm_option_set_by_cli.exit126.thread.i.preheader, label %213
 
 213:                                              ; preds = %210
-  %214 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %212, i64 %.06.i.i121.i
+  %214 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %212, i64 %.06.i.i120.i
   %215 = load i8, ptr %214, align 1, !range !12, !noundef !13
   %216 = trunc nuw i8 %215 to i1
-  br i1 %216, label %slurm_option_set_by_cli.exit127.i, label %slurm_option_set_by_cli.exit127.thread.i.preheader
+  br i1 %216, label %slurm_option_set_by_cli.exit126.i, label %slurm_option_set_by_cli.exit126.thread.i.preheader
 
-slurm_option_set_by_cli.exit127.i:                ; preds = %213
+slurm_option_set_by_cli.exit126.i:                ; preds = %213
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 1
   %218 = load i8, ptr %217, align 1, !range !12, !noundef !13
   %219 = trunc nuw i8 %218 to i1
-  br i1 %219, label %slurm_option_set_by_cli.exit127.thread.i.preheader, label %220
+  br i1 %219, label %slurm_option_set_by_cli.exit126.thread.i.preheader, label %220
 
-220:                                              ; preds = %slurm_option_set_by_cli.exit127.i
+220:                                              ; preds = %slurm_option_set_by_cli.exit126.i
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.486) #23
   unreachable
 
-slurm_option_set_by_cli.exit127.thread.i:         ; preds = %slurm_option_set_by_cli.exit127.thread.i.preheader, %226
-  %indvars.iv.i.i128.i = phi i64 [ %indvars.iv.next.i.i129.i, %226 ], [ 0, %slurm_option_set_by_cli.exit127.thread.i.preheader ]
-  %221 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i128.i
+slurm_option_set_by_cli.exit126.thread.i:         ; preds = %slurm_option_set_by_cli.exit126.thread.i.preheader, %226
+  %indvars.iv.i.i127.i = phi i64 [ %indvars.iv.next.i.i128.i, %226 ], [ 0, %slurm_option_set_by_cli.exit126.thread.i.preheader ]
+  %221 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i127.i
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 24
   %224 = load i32, ptr %223, align 8
   %225 = icmp eq i32 %224, 300
-  br i1 %225, label %.split.loop.exit10.i.i136.i, label %226
+  br i1 %225, label %.split.loop.exit10.i.i135.i, label %226
 
-226:                                              ; preds = %slurm_option_set_by_cli.exit127.thread.i
-  %indvars.iv.next.i.i129.i = add nuw nsw i64 %indvars.iv.i.i128.i, 1
-  %.not.i.i130.i = icmp eq i64 %indvars.iv.next.i.i129.i, 163
-  br i1 %.not.i.i130.i, label %_find_option_index_from_optval.exit.i131.i, label %slurm_option_set_by_cli.exit127.thread.i, !llvm.loop !17
+226:                                              ; preds = %slurm_option_set_by_cli.exit126.thread.i
+  %indvars.iv.next.i.i128.i = add nuw nsw i64 %indvars.iv.i.i127.i, 1
+  %.not.i.i129.i = icmp eq i64 %indvars.iv.next.i.i128.i, 163
+  br i1 %.not.i.i129.i, label %_find_option_index_from_optval.exit.i130.i, label %slurm_option_set_by_cli.exit126.thread.i, !llvm.loop !17
 
-.split.loop.exit10.i.i136.i:                      ; preds = %slurm_option_set_by_cli.exit127.thread.i
-  %sext.i137.i = shl i64 %indvars.iv.i.i128.i, 32
-  %227 = ashr exact i64 %sext.i137.i, 32
-  br label %_find_option_index_from_optval.exit.i131.i
+.split.loop.exit10.i.i135.i:                      ; preds = %slurm_option_set_by_cli.exit126.thread.i
+  %sext.i136.i = shl i64 %indvars.iv.i.i127.i, 32
+  %227 = ashr exact i64 %sext.i136.i, 32
+  br label %_find_option_index_from_optval.exit.i130.i
 
-_find_option_index_from_optval.exit.i131.i:       ; preds = %226, %.split.loop.exit10.i.i136.i
-  %.06.i.i132.i = phi i64 [ %227, %.split.loop.exit10.i.i136.i ], [ 0, %226 ]
+_find_option_index_from_optval.exit.i130.i:       ; preds = %226, %.split.loop.exit10.i.i135.i
+  %.06.i.i131.i = phi i64 [ %227, %.split.loop.exit10.i.i135.i ], [ 0, %226 ]
   br i1 %.not.i2.i.i, label %228, label %232
 
-228:                                              ; preds = %_find_option_index_from_optval.exit.i131.i
+228:                                              ; preds = %_find_option_index_from_optval.exit.i130.i
   %229 = tail call i32 @get_log_level() #22
   %230 = icmp sgt i32 %229, 6
-  br i1 %230, label %231, label %slurm_option_set_by_env.exit138.thread.i.preheader
+  br i1 %230, label %231, label %slurm_option_set_by_env.exit137.thread.i.preheader
 
-slurm_option_set_by_env.exit138.thread.i.preheader: ; preds = %slurm_option_set_by_env.exit138.i, %232, %231, %228
-  br label %slurm_option_set_by_env.exit138.thread.i
+slurm_option_set_by_env.exit137.thread.i.preheader: ; preds = %slurm_option_set_by_env.exit137.i, %232, %231, %228
+  br label %slurm_option_set_by_env.exit137.thread.i
 
 231:                                              ; preds = %228
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
-  br label %slurm_option_set_by_env.exit138.thread.i.preheader
+  br label %slurm_option_set_by_env.exit137.thread.i.preheader
 
-232:                                              ; preds = %_find_option_index_from_optval.exit.i131.i
+232:                                              ; preds = %_find_option_index_from_optval.exit.i130.i
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %234 = load ptr, ptr %233, align 8
-  %.not6.i.i134.i = icmp eq ptr %234, null
-  br i1 %.not6.i.i134.i, label %slurm_option_set_by_env.exit138.thread.i.preheader, label %slurm_option_set_by_env.exit138.i
+  %.not6.i.i133.i = icmp eq ptr %234, null
+  br i1 %.not6.i.i133.i, label %slurm_option_set_by_env.exit137.thread.i.preheader, label %slurm_option_set_by_env.exit137.i
 
-slurm_option_set_by_env.exit138.i:                ; preds = %232
-  %235 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %234, i64 %.06.i.i132.i, i32 1
+slurm_option_set_by_env.exit137.i:                ; preds = %232
+  %235 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %234, i64 %.06.i.i131.i, i32 1
   %236 = load i8, ptr %235, align 1, !range !12, !noundef !13
   %237 = trunc nuw i8 %236 to i1
-  br i1 %237, label %238, label %slurm_option_set_by_env.exit138.thread.i.preheader
+  br i1 %237, label %238, label %slurm_option_set_by_env.exit137.thread.i.preheader
 
-238:                                              ; preds = %slurm_option_set_by_env.exit138.i
+238:                                              ; preds = %slurm_option_set_by_env.exit137.i
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.487) #23
   unreachable
 
-slurm_option_set_by_env.exit138.thread.i:         ; preds = %slurm_option_set_by_env.exit138.thread.i.preheader, %244
-  %indvars.iv.i.i139.i = phi i64 [ %indvars.iv.next.i.i140.i, %244 ], [ 0, %slurm_option_set_by_env.exit138.thread.i.preheader ]
-  %239 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i139.i
+slurm_option_set_by_env.exit137.thread.i:         ; preds = %slurm_option_set_by_env.exit137.thread.i.preheader, %244
+  %indvars.iv.i.i138.i = phi i64 [ %indvars.iv.next.i.i139.i, %244 ], [ 0, %slurm_option_set_by_env.exit137.thread.i.preheader ]
+  %239 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i138.i
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 24
   %242 = load i32, ptr %241, align 8
   %243 = icmp eq i32 %242, 299
-  br i1 %243, label %.split.loop.exit10.i.i147.i, label %244
+  br i1 %243, label %.split.loop.exit10.i.i146.i, label %244
 
-244:                                              ; preds = %slurm_option_set_by_env.exit138.thread.i
-  %indvars.iv.next.i.i140.i = add nuw nsw i64 %indvars.iv.i.i139.i, 1
-  %.not.i.i141.i = icmp eq i64 %indvars.iv.next.i.i140.i, 163
-  br i1 %.not.i.i141.i, label %_find_option_index_from_optval.exit.i142.i, label %slurm_option_set_by_env.exit138.thread.i, !llvm.loop !17
+244:                                              ; preds = %slurm_option_set_by_env.exit137.thread.i
+  %indvars.iv.next.i.i139.i = add nuw nsw i64 %indvars.iv.i.i138.i, 1
+  %.not.i.i140.i = icmp eq i64 %indvars.iv.next.i.i139.i, 163
+  br i1 %.not.i.i140.i, label %_find_option_index_from_optval.exit.i141.i, label %slurm_option_set_by_env.exit137.thread.i, !llvm.loop !17
 
-.split.loop.exit10.i.i147.i:                      ; preds = %slurm_option_set_by_env.exit138.thread.i
-  %sext.i148.i = shl i64 %indvars.iv.i.i139.i, 32
-  %245 = ashr exact i64 %sext.i148.i, 32
-  br label %_find_option_index_from_optval.exit.i142.i
+.split.loop.exit10.i.i146.i:                      ; preds = %slurm_option_set_by_env.exit137.thread.i
+  %sext.i147.i = shl i64 %indvars.iv.i.i138.i, 32
+  %245 = ashr exact i64 %sext.i147.i, 32
+  br label %_find_option_index_from_optval.exit.i141.i
 
-_find_option_index_from_optval.exit.i142.i:       ; preds = %244, %.split.loop.exit10.i.i147.i
-  %.06.i.i143.i = phi i64 [ %245, %.split.loop.exit10.i.i147.i ], [ 0, %244 ]
+_find_option_index_from_optval.exit.i141.i:       ; preds = %244, %.split.loop.exit10.i.i146.i
+  %.06.i.i142.i = phi i64 [ %245, %.split.loop.exit10.i.i146.i ], [ 0, %244 ]
   br i1 %.not.i2.i.i, label %246, label %250
 
-246:                                              ; preds = %_find_option_index_from_optval.exit.i142.i
+246:                                              ; preds = %_find_option_index_from_optval.exit.i141.i
   %247 = tail call i32 @get_log_level() #22
   %248 = icmp sgt i32 %247, 6
-  br i1 %248, label %249, label %slurm_option_set_by_cli.exit149.thread.i.preheader
+  br i1 %248, label %249, label %slurm_option_set_by_cli.exit148.thread.i.preheader
 
-slurm_option_set_by_cli.exit149.thread.i.preheader: ; preds = %slurm_option_set_by_cli.exit149.i, %253, %250, %249, %246
-  br label %slurm_option_set_by_cli.exit149.thread.i
+slurm_option_set_by_cli.exit148.thread.i.preheader: ; preds = %slurm_option_set_by_cli.exit148.i, %253, %250, %249, %246
+  br label %slurm_option_set_by_cli.exit148.thread.i
 
 249:                                              ; preds = %246
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
-  br label %slurm_option_set_by_cli.exit149.thread.i.preheader
+  br label %slurm_option_set_by_cli.exit148.thread.i.preheader
 
-250:                                              ; preds = %_find_option_index_from_optval.exit.i142.i
+250:                                              ; preds = %_find_option_index_from_optval.exit.i141.i
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %252 = load ptr, ptr %251, align 8
-  %.not8.i.i145.i = icmp eq ptr %252, null
-  br i1 %.not8.i.i145.i, label %slurm_option_set_by_cli.exit149.thread.i.preheader, label %253
+  %.not8.i.i144.i = icmp eq ptr %252, null
+  br i1 %.not8.i.i144.i, label %slurm_option_set_by_cli.exit148.thread.i.preheader, label %253
 
 253:                                              ; preds = %250
-  %254 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %252, i64 %.06.i.i143.i
+  %254 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %252, i64 %.06.i.i142.i
   %255 = load i8, ptr %254, align 1, !range !12, !noundef !13
   %256 = trunc nuw i8 %255 to i1
-  br i1 %256, label %slurm_option_set_by_cli.exit149.i, label %slurm_option_set_by_cli.exit149.thread.i.preheader
+  br i1 %256, label %slurm_option_set_by_cli.exit148.i, label %slurm_option_set_by_cli.exit148.thread.i.preheader
 
-slurm_option_set_by_cli.exit149.i:                ; preds = %253
+slurm_option_set_by_cli.exit148.i:                ; preds = %253
   %257 = getelementptr inbounds nuw i8, ptr %254, i64 1
   %258 = load i8, ptr %257, align 1, !range !12, !noundef !13
   %259 = trunc nuw i8 %258 to i1
-  br i1 %259, label %slurm_option_set_by_cli.exit149.thread.i.preheader, label %260
+  br i1 %259, label %slurm_option_set_by_cli.exit148.thread.i.preheader, label %260
 
-260:                                              ; preds = %slurm_option_set_by_cli.exit149.i
+260:                                              ; preds = %slurm_option_set_by_cli.exit148.i
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.488) #23
   unreachable
 
-slurm_option_set_by_cli.exit149.thread.i:         ; preds = %slurm_option_set_by_cli.exit149.thread.i.preheader, %266
-  %indvars.iv.i.i150.i = phi i64 [ %indvars.iv.next.i.i151.i, %266 ], [ 0, %slurm_option_set_by_cli.exit149.thread.i.preheader ]
-  %261 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i150.i
+slurm_option_set_by_cli.exit148.thread.i:         ; preds = %slurm_option_set_by_cli.exit148.thread.i.preheader, %266
+  %indvars.iv.i.i149.i = phi i64 [ %indvars.iv.next.i.i150.i, %266 ], [ 0, %slurm_option_set_by_cli.exit148.thread.i.preheader ]
+  %261 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i149.i
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 24
   %264 = load i32, ptr %263, align 8
   %265 = icmp eq i32 %264, 299
-  br i1 %265, label %.split.loop.exit10.i.i158.i, label %266
+  br i1 %265, label %.split.loop.exit10.i.i157.i, label %266
 
-266:                                              ; preds = %slurm_option_set_by_cli.exit149.thread.i
-  %indvars.iv.next.i.i151.i = add nuw nsw i64 %indvars.iv.i.i150.i, 1
-  %.not.i.i152.i = icmp eq i64 %indvars.iv.next.i.i151.i, 163
-  br i1 %.not.i.i152.i, label %_find_option_index_from_optval.exit.i153.i, label %slurm_option_set_by_cli.exit149.thread.i, !llvm.loop !17
+266:                                              ; preds = %slurm_option_set_by_cli.exit148.thread.i
+  %indvars.iv.next.i.i150.i = add nuw nsw i64 %indvars.iv.i.i149.i, 1
+  %.not.i.i151.i = icmp eq i64 %indvars.iv.next.i.i150.i, 163
+  br i1 %.not.i.i151.i, label %_find_option_index_from_optval.exit.i152.i, label %slurm_option_set_by_cli.exit148.thread.i, !llvm.loop !17
 
-.split.loop.exit10.i.i158.i:                      ; preds = %slurm_option_set_by_cli.exit149.thread.i
-  %sext.i159.i = shl i64 %indvars.iv.i.i150.i, 32
-  %267 = ashr exact i64 %sext.i159.i, 32
-  br label %_find_option_index_from_optval.exit.i153.i
+.split.loop.exit10.i.i157.i:                      ; preds = %slurm_option_set_by_cli.exit148.thread.i
+  %sext.i158.i = shl i64 %indvars.iv.i.i149.i, 32
+  %267 = ashr exact i64 %sext.i158.i, 32
+  br label %_find_option_index_from_optval.exit.i152.i
 
-_find_option_index_from_optval.exit.i153.i:       ; preds = %266, %.split.loop.exit10.i.i158.i
-  %.06.i.i154.i = phi i64 [ %267, %.split.loop.exit10.i.i158.i ], [ 0, %266 ]
+_find_option_index_from_optval.exit.i152.i:       ; preds = %266, %.split.loop.exit10.i.i157.i
+  %.06.i.i153.i = phi i64 [ %267, %.split.loop.exit10.i.i157.i ], [ 0, %266 ]
   br i1 %.not.i2.i.i, label %268, label %272
 
-268:                                              ; preds = %_find_option_index_from_optval.exit.i153.i
+268:                                              ; preds = %_find_option_index_from_optval.exit.i152.i
   %269 = tail call i32 @get_log_level() #22
   %270 = icmp sgt i32 %269, 6
-  br i1 %270, label %271, label %slurm_option_set_by_env.exit160.thread.i.preheader
+  br i1 %270, label %271, label %slurm_option_set_by_env.exit159.thread.i.preheader
 
-slurm_option_set_by_env.exit160.thread.i.preheader: ; preds = %slurm_option_set_by_env.exit160.i, %272, %271, %268
-  br label %slurm_option_set_by_env.exit160.thread.i
+slurm_option_set_by_env.exit159.thread.i.preheader: ; preds = %slurm_option_set_by_env.exit159.i, %272, %271, %268
+  br label %slurm_option_set_by_env.exit159.thread.i
 
 271:                                              ; preds = %268
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
-  br label %slurm_option_set_by_env.exit160.thread.i.preheader
+  br label %slurm_option_set_by_env.exit159.thread.i.preheader
 
-272:                                              ; preds = %_find_option_index_from_optval.exit.i153.i
+272:                                              ; preds = %_find_option_index_from_optval.exit.i152.i
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %274 = load ptr, ptr %273, align 8
-  %.not6.i.i156.i = icmp eq ptr %274, null
-  br i1 %.not6.i.i156.i, label %slurm_option_set_by_env.exit160.thread.i.preheader, label %slurm_option_set_by_env.exit160.i
+  %.not6.i.i155.i = icmp eq ptr %274, null
+  br i1 %.not6.i.i155.i, label %slurm_option_set_by_env.exit159.thread.i.preheader, label %slurm_option_set_by_env.exit159.i
 
-slurm_option_set_by_env.exit160.i:                ; preds = %272
-  %275 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %274, i64 %.06.i.i154.i, i32 1
+slurm_option_set_by_env.exit159.i:                ; preds = %272
+  %275 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %274, i64 %.06.i.i153.i, i32 1
   %276 = load i8, ptr %275, align 1, !range !12, !noundef !13
   %277 = trunc nuw i8 %276 to i1
-  br i1 %277, label %278, label %slurm_option_set_by_env.exit160.thread.i.preheader
+  br i1 %277, label %278, label %slurm_option_set_by_env.exit159.thread.i.preheader
 
-278:                                              ; preds = %slurm_option_set_by_env.exit160.i
+278:                                              ; preds = %slurm_option_set_by_env.exit159.i
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.489) #23
   unreachable
 
-slurm_option_set_by_env.exit160.thread.i:         ; preds = %slurm_option_set_by_env.exit160.thread.i.preheader, %284
-  %indvars.iv.i.i161.i = phi i64 [ %indvars.iv.next.i.i162.i, %284 ], [ 0, %slurm_option_set_by_env.exit160.thread.i.preheader ]
-  %279 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i161.i
+slurm_option_set_by_env.exit159.thread.i:         ; preds = %slurm_option_set_by_env.exit159.thread.i.preheader, %284
+  %indvars.iv.i.i160.i = phi i64 [ %indvars.iv.next.i.i161.i, %284 ], [ 0, %slurm_option_set_by_env.exit159.thread.i.preheader ]
+  %279 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i160.i
   %280 = load ptr, ptr %279, align 8
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 24
   %282 = load i32, ptr %281, align 8
   %283 = icmp eq i32 %282, 333
-  br i1 %283, label %.split.loop.exit10.i.i169.i, label %284
+  br i1 %283, label %.split.loop.exit10.i.i168.i, label %284
 
-284:                                              ; preds = %slurm_option_set_by_env.exit160.thread.i
-  %indvars.iv.next.i.i162.i = add nuw nsw i64 %indvars.iv.i.i161.i, 1
-  %.not.i.i163.i = icmp eq i64 %indvars.iv.next.i.i162.i, 163
-  br i1 %.not.i.i163.i, label %_find_option_index_from_optval.exit.i164.i, label %slurm_option_set_by_env.exit160.thread.i, !llvm.loop !17
+284:                                              ; preds = %slurm_option_set_by_env.exit159.thread.i
+  %indvars.iv.next.i.i161.i = add nuw nsw i64 %indvars.iv.i.i160.i, 1
+  %.not.i.i162.i = icmp eq i64 %indvars.iv.next.i.i161.i, 163
+  br i1 %.not.i.i162.i, label %_find_option_index_from_optval.exit.i163.i, label %slurm_option_set_by_env.exit159.thread.i, !llvm.loop !17
 
-.split.loop.exit10.i.i169.i:                      ; preds = %slurm_option_set_by_env.exit160.thread.i
-  %sext.i170.i = shl i64 %indvars.iv.i.i161.i, 32
-  %285 = ashr exact i64 %sext.i170.i, 32
-  br label %_find_option_index_from_optval.exit.i164.i
+.split.loop.exit10.i.i168.i:                      ; preds = %slurm_option_set_by_env.exit159.thread.i
+  %sext.i169.i = shl i64 %indvars.iv.i.i160.i, 32
+  %285 = ashr exact i64 %sext.i169.i, 32
+  br label %_find_option_index_from_optval.exit.i163.i
 
-_find_option_index_from_optval.exit.i164.i:       ; preds = %284, %.split.loop.exit10.i.i169.i
-  %.06.i.i165.i = phi i64 [ %285, %.split.loop.exit10.i.i169.i ], [ 0, %284 ]
+_find_option_index_from_optval.exit.i163.i:       ; preds = %284, %.split.loop.exit10.i.i168.i
+  %.06.i.i164.i = phi i64 [ %285, %.split.loop.exit10.i.i168.i ], [ 0, %284 ]
   br i1 %.not.i2.i.i, label %286, label %290
 
-286:                                              ; preds = %_find_option_index_from_optval.exit.i164.i
+286:                                              ; preds = %_find_option_index_from_optval.exit.i163.i
   %287 = tail call i32 @get_log_level() #22
   %288 = icmp sgt i32 %287, 6
-  br i1 %288, label %289, label %slurm_option_set_by_cli.exit171.thread.i.preheader
+  br i1 %288, label %289, label %slurm_option_set_by_cli.exit170.thread.i.preheader
 
-slurm_option_set_by_cli.exit171.thread.i.preheader: ; preds = %slurm_option_set_by_cli.exit171.i, %293, %290, %289, %286
-  br label %slurm_option_set_by_cli.exit171.thread.i
+slurm_option_set_by_cli.exit170.thread.i.preheader: ; preds = %slurm_option_set_by_cli.exit170.i, %293, %290, %289, %286
+  br label %slurm_option_set_by_cli.exit170.thread.i
 
 289:                                              ; preds = %286
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
-  br label %slurm_option_set_by_cli.exit171.thread.i.preheader
+  br label %slurm_option_set_by_cli.exit170.thread.i.preheader
 
-290:                                              ; preds = %_find_option_index_from_optval.exit.i164.i
+290:                                              ; preds = %_find_option_index_from_optval.exit.i163.i
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %292 = load ptr, ptr %291, align 8
-  %.not8.i.i167.i = icmp eq ptr %292, null
-  br i1 %.not8.i.i167.i, label %slurm_option_set_by_cli.exit171.thread.i.preheader, label %293
+  %.not8.i.i166.i = icmp eq ptr %292, null
+  br i1 %.not8.i.i166.i, label %slurm_option_set_by_cli.exit170.thread.i.preheader, label %293
 
 293:                                              ; preds = %290
-  %294 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %292, i64 %.06.i.i165.i
+  %294 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %292, i64 %.06.i.i164.i
   %295 = load i8, ptr %294, align 1, !range !12, !noundef !13
   %296 = trunc nuw i8 %295 to i1
-  br i1 %296, label %slurm_option_set_by_cli.exit171.i, label %slurm_option_set_by_cli.exit171.thread.i.preheader
+  br i1 %296, label %slurm_option_set_by_cli.exit170.i, label %slurm_option_set_by_cli.exit170.thread.i.preheader
 
-slurm_option_set_by_cli.exit171.i:                ; preds = %293
+slurm_option_set_by_cli.exit170.i:                ; preds = %293
   %297 = getelementptr inbounds nuw i8, ptr %294, i64 1
   %298 = load i8, ptr %297, align 1, !range !12, !noundef !13
   %299 = trunc nuw i8 %298 to i1
-  br i1 %299, label %slurm_option_set_by_cli.exit171.thread.i.preheader, label %300
+  br i1 %299, label %slurm_option_set_by_cli.exit170.thread.i.preheader, label %300
 
-300:                                              ; preds = %slurm_option_set_by_cli.exit171.i
+300:                                              ; preds = %slurm_option_set_by_cli.exit170.i
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.490) #23
   unreachable
 
-slurm_option_set_by_cli.exit171.thread.i:         ; preds = %slurm_option_set_by_cli.exit171.thread.i.preheader, %306
-  %indvars.iv.i.i172.i = phi i64 [ %indvars.iv.next.i.i173.i, %306 ], [ 0, %slurm_option_set_by_cli.exit171.thread.i.preheader ]
-  %301 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i172.i
+slurm_option_set_by_cli.exit170.thread.i:         ; preds = %slurm_option_set_by_cli.exit170.thread.i.preheader, %306
+  %indvars.iv.i.i171.i = phi i64 [ %indvars.iv.next.i.i172.i, %306 ], [ 0, %slurm_option_set_by_cli.exit170.thread.i.preheader ]
+  %301 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i171.i
   %302 = load ptr, ptr %301, align 8
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 24
   %304 = load i32, ptr %303, align 8
   %305 = icmp eq i32 %304, 333
-  br i1 %305, label %.split.loop.exit10.i.i180.i, label %306
+  br i1 %305, label %.split.loop.exit10.i.i179.i, label %306
 
-306:                                              ; preds = %slurm_option_set_by_cli.exit171.thread.i
-  %indvars.iv.next.i.i173.i = add nuw nsw i64 %indvars.iv.i.i172.i, 1
-  %.not.i.i174.i = icmp eq i64 %indvars.iv.next.i.i173.i, 163
-  br i1 %.not.i.i174.i, label %_find_option_index_from_optval.exit.i175.i, label %slurm_option_set_by_cli.exit171.thread.i, !llvm.loop !17
+306:                                              ; preds = %slurm_option_set_by_cli.exit170.thread.i
+  %indvars.iv.next.i.i172.i = add nuw nsw i64 %indvars.iv.i.i171.i, 1
+  %.not.i.i173.i = icmp eq i64 %indvars.iv.next.i.i172.i, 163
+  br i1 %.not.i.i173.i, label %_find_option_index_from_optval.exit.i174.i, label %slurm_option_set_by_cli.exit170.thread.i, !llvm.loop !17
 
-.split.loop.exit10.i.i180.i:                      ; preds = %slurm_option_set_by_cli.exit171.thread.i
-  %sext.i181.i = shl i64 %indvars.iv.i.i172.i, 32
-  %307 = ashr exact i64 %sext.i181.i, 32
-  br label %_find_option_index_from_optval.exit.i175.i
+.split.loop.exit10.i.i179.i:                      ; preds = %slurm_option_set_by_cli.exit170.thread.i
+  %sext.i180.i = shl i64 %indvars.iv.i.i171.i, 32
+  %307 = ashr exact i64 %sext.i180.i, 32
+  br label %_find_option_index_from_optval.exit.i174.i
 
-_find_option_index_from_optval.exit.i175.i:       ; preds = %306, %.split.loop.exit10.i.i180.i
-  %.06.i.i176.i = phi i64 [ %307, %.split.loop.exit10.i.i180.i ], [ 0, %306 ]
+_find_option_index_from_optval.exit.i174.i:       ; preds = %306, %.split.loop.exit10.i.i179.i
+  %.06.i.i175.i = phi i64 [ %307, %.split.loop.exit10.i.i179.i ], [ 0, %306 ]
   br i1 %.not.i2.i.i, label %308, label %312
 
-308:                                              ; preds = %_find_option_index_from_optval.exit.i175.i
+308:                                              ; preds = %_find_option_index_from_optval.exit.i174.i
   %309 = tail call i32 @get_log_level() #22
   %310 = icmp sgt i32 %309, 6
   br i1 %310, label %311, label %_validate_ntasks_per_gpu.exit.preheader
@@ -3498,22 +3494,22 @@ _find_option_index_from_optval.exit.i175.i:       ; preds = %306, %.split.loop.e
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
   br label %_validate_ntasks_per_gpu.exit.preheader
 
-312:                                              ; preds = %_find_option_index_from_optval.exit.i175.i
+312:                                              ; preds = %_find_option_index_from_optval.exit.i174.i
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %314 = load ptr, ptr %313, align 8
-  %.not6.i.i178.i = icmp eq ptr %314, null
-  br i1 %.not6.i.i178.i, label %_validate_ntasks_per_gpu.exit.preheader, label %slurm_option_set_by_env.exit182.i
+  %.not6.i.i177.i = icmp eq ptr %314, null
+  br i1 %.not6.i.i177.i, label %_validate_ntasks_per_gpu.exit.preheader, label %slurm_option_set_by_env.exit181.i
 
-slurm_option_set_by_env.exit182.i:                ; preds = %312
-  %315 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %314, i64 %.06.i.i176.i, i32 1
+slurm_option_set_by_env.exit181.i:                ; preds = %312
+  %315 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %314, i64 %.06.i.i175.i, i32 1
   %316 = load i8, ptr %315, align 1, !range !12, !noundef !13
   %317 = trunc nuw i8 %316 to i1
   br i1 %317, label %318, label %_validate_ntasks_per_gpu.exit.preheader
 
-_validate_ntasks_per_gpu.exit.preheader:          ; preds = %slurm_option_set_by_env.exit84.i, %308, %311, %312, %slurm_option_set_by_env.exit182.i
+_validate_ntasks_per_gpu.exit.preheader:          ; preds = %slurm_option_set_by_env.exit83.i, %308, %311, %312, %slurm_option_set_by_env.exit181.i
   br label %_validate_ntasks_per_gpu.exit
 
-318:                                              ; preds = %slurm_option_set_by_env.exit182.i
+318:                                              ; preds = %slurm_option_set_by_env.exit181.i
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.491) #23
   unreachable
 
@@ -3524,27 +3520,27 @@ _validate_ntasks_per_gpu.exit:                    ; preds = %_validate_ntasks_pe
   %321 = load ptr, ptr %320, align 8
   %322 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.424, ptr noundef %321) #22
   %.not9.i.i.i11 = icmp eq i32 %322, 0
-  br i1 %.not9.i.i.i11, label %_find_option_idx.exit.i.i23, label %323
+  br i1 %.not9.i.i.i11, label %_find_option_idx.exit.i.i26, label %323
 
 323:                                              ; preds = %_validate_ntasks_per_gpu.exit
   %indvars.iv.next.i.i.i12 = add nuw nsw i64 %indvars.iv.i.i.i10, 1
   %.not.i.i.i13 = icmp eq i64 %indvars.iv.next.i.i.i12, 163
   br i1 %.not.i.i.i13, label %slurm_option_isset.exit.thread.i.preheader, label %_validate_ntasks_per_gpu.exit, !llvm.loop !18
 
-_find_option_idx.exit.i.i23:                      ; preds = %_validate_ntasks_per_gpu.exit
+_find_option_idx.exit.i.i26:                      ; preds = %_validate_ntasks_per_gpu.exit
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %325 = load ptr, ptr %324, align 8
-  %.not.i.i24 = icmp eq ptr %325, null
-  br i1 %.not.i.i24, label %slurm_option_isset.exit.thread.i.preheader, label %slurm_option_isset.exit.i
+  %.not.i.i27 = icmp eq ptr %325, null
+  br i1 %.not.i.i27, label %slurm_option_isset.exit.thread.i.preheader, label %slurm_option_isset.exit.i
 
-slurm_option_isset.exit.i:                        ; preds = %_find_option_idx.exit.i.i23
+slurm_option_isset.exit.i:                        ; preds = %_find_option_idx.exit.i.i26
   %326 = and i64 %indvars.iv.i.i.i10, 4294967295
   %327 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %325, i64 %326
   %328 = load i8, ptr %327, align 1, !range !12, !noundef !13
   %329 = trunc nuw i8 %328 to i1
   br i1 %329, label %341, label %slurm_option_isset.exit.thread.i.preheader
 
-slurm_option_isset.exit.thread.i.preheader:       ; preds = %323, %slurm_option_isset.exit.i, %_find_option_idx.exit.i.i23
+slurm_option_isset.exit.thread.i.preheader:       ; preds = %323, %slurm_option_isset.exit.i, %_find_option_idx.exit.i.i26
   br label %slurm_option_isset.exit.thread.i
 
 slurm_option_isset.exit.thread.i:                 ; preds = %slurm_option_isset.exit.thread.i.preheader, %334
@@ -3585,20 +3581,20 @@ slurm_option_isset.exit17.i:                      ; preds = %_find_option_idx.ex
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 24
   %347 = load i32, ptr %346, align 8
   %348 = icmp eq i32 %347, 83
-  br i1 %348, label %.split.loop.exit10.i.i.i21, label %349
+  br i1 %348, label %.split.loop.exit10.i.i.i24, label %349
 
 349:                                              ; preds = %343
   %indvars.iv.next.i.i19.i = add nuw nsw i64 %indvars.iv.i.i18.i, 1
   %.not.i.i20.i = icmp eq i64 %indvars.iv.next.i.i19.i, 163
   br i1 %.not.i.i20.i, label %_find_option_index_from_optval.exit.i.i14, label %343, !llvm.loop !17
 
-.split.loop.exit10.i.i.i21:                       ; preds = %343
-  %sext.i.i22 = shl i64 %indvars.iv.i.i18.i, 32
-  %350 = ashr exact i64 %sext.i.i22, 32
+.split.loop.exit10.i.i.i24:                       ; preds = %343
+  %sext.i.i25 = shl i64 %indvars.iv.i.i18.i, 32
+  %350 = ashr exact i64 %sext.i.i25, 32
   br label %_find_option_index_from_optval.exit.i.i14
 
-_find_option_index_from_optval.exit.i.i14:        ; preds = %349, %.split.loop.exit10.i.i.i21
-  %.06.i.i.i15 = phi i64 [ %350, %.split.loop.exit10.i.i.i21 ], [ 0, %349 ]
+_find_option_index_from_optval.exit.i.i14:        ; preds = %349, %.split.loop.exit10.i.i.i24
+  %.06.i.i.i15 = phi i64 [ %350, %.split.loop.exit10.i.i.i24 ], [ 0, %349 ]
   br i1 %.not.i2.i.i, label %351, label %355
 
 351:                                              ; preds = %_find_option_index_from_optval.exit.i.i14
@@ -3821,20 +3817,20 @@ slurm_option_set_by_cli.exit62.i:                 ; preds = %433, %_find_option_
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 24
   %442 = load i32, ptr %441, align 8
   %443 = icmp eq i32 %442, 367
-  br i1 %443, label %.split.loop.exit10.i.i71.i, label %444
+  br i1 %443, label %.split.loop.exit10.i.i71.i22, label %444
 
 444:                                              ; preds = %438
   %indvars.iv.next.i.i64.i = add nuw nsw i64 %indvars.iv.i.i63.i, 1
   %.not.i.i65.i = icmp eq i64 %indvars.iv.next.i.i64.i, 163
   br i1 %.not.i.i65.i, label %_find_option_index_from_optval.exit.i66.i, label %438, !llvm.loop !17
 
-.split.loop.exit10.i.i71.i:                       ; preds = %438
-  %sext.i72.i = shl i64 %indvars.iv.i.i63.i, 32
-  %445 = ashr exact i64 %sext.i72.i, 32
+.split.loop.exit10.i.i71.i22:                     ; preds = %438
+  %sext.i72.i23 = shl i64 %indvars.iv.i.i63.i, 32
+  %445 = ashr exact i64 %sext.i72.i23, 32
   br label %_find_option_index_from_optval.exit.i66.i
 
-_find_option_index_from_optval.exit.i66.i:        ; preds = %444, %.split.loop.exit10.i.i71.i
-  %.06.i.i67.i = phi i64 [ %445, %.split.loop.exit10.i.i71.i ], [ 0, %444 ]
+_find_option_index_from_optval.exit.i66.i:        ; preds = %444, %.split.loop.exit10.i.i71.i22
+  %.06.i.i67.i = phi i64 [ %445, %.split.loop.exit10.i.i71.i22 ], [ 0, %444 ]
   %446 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %418, i64 %.06.i.i67.i
   %447 = load i8, ptr %446, align 1, !range !12, !noundef !13
   %448 = trunc nuw i8 %447 to i1
@@ -3848,8 +3844,8 @@ _find_option_index_from_optval.exit.i66.i:        ; preds = %444, %.split.loop.e
   br label %slurm_option_set_by_cli.exit73.i
 
 slurm_option_set_by_cli.exit73.i:                 ; preds = %449, %_find_option_index_from_optval.exit.i66.i
-  %.0.i.i70.i = phi i1 [ false, %_find_option_index_from_optval.exit.i66.i ], [ %453, %449 ]
-  %454 = or i1 %.0.i.i59.i, %.0.i.i70.i
+  %.0.i.i70.i21 = phi i1 [ false, %_find_option_index_from_optval.exit.i66.i ], [ %453, %449 ]
+  %454 = or i1 %.0.i.i59.i, %.0.i.i70.i21
   br i1 %454, label %slurm_option_set_by_env.exit51.thread.i, label %455
 
 455:                                              ; preds = %slurm_option_set_by_cli.exit73.i
@@ -3875,34 +3871,34 @@ _validate_spec_cores_options.exit.preheader:      ; preds = %334, %_find_option_
   br label %_validate_spec_cores_options.exit
 
 _validate_spec_cores_options.exit:                ; preds = %_validate_spec_cores_options.exit.preheader, %468
-  %indvars.iv.i.i.i25 = phi i64 [ %indvars.iv.next.i.i.i27, %468 ], [ 0, %_validate_spec_cores_options.exit.preheader ]
-  %464 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i25
+  %indvars.iv.i.i.i28 = phi i64 [ %indvars.iv.next.i.i.i30, %468 ], [ 0, %_validate_spec_cores_options.exit.preheader ]
+  %464 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i28
   %465 = load ptr, ptr %464, align 8
   %466 = load ptr, ptr %465, align 8
   %467 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.13, ptr noundef %466) #22
-  %.not9.i.i.i26 = icmp eq i32 %467, 0
-  br i1 %.not9.i.i.i26, label %_find_option_idx.exit.i.i30, label %468
+  %.not9.i.i.i29 = icmp eq i32 %467, 0
+  br i1 %.not9.i.i.i29, label %_find_option_idx.exit.i.i33, label %468
 
 468:                                              ; preds = %_validate_spec_cores_options.exit
-  %indvars.iv.next.i.i.i27 = add nuw nsw i64 %indvars.iv.i.i.i25, 1
-  %.not.i.i.i28 = icmp eq i64 %indvars.iv.next.i.i.i27, 163
-  br i1 %.not.i.i.i28, label %_validate_threads_per_core_option.exit.preheader, label %_validate_spec_cores_options.exit, !llvm.loop !18
+  %indvars.iv.next.i.i.i30 = add nuw nsw i64 %indvars.iv.i.i.i28, 1
+  %.not.i.i.i31 = icmp eq i64 %indvars.iv.next.i.i.i30, 163
+  br i1 %.not.i.i.i31, label %_validate_threads_per_core_option.exit.preheader, label %_validate_spec_cores_options.exit, !llvm.loop !18
 
-_find_option_idx.exit.i.i30:                      ; preds = %_validate_spec_cores_options.exit
+_find_option_idx.exit.i.i33:                      ; preds = %_validate_spec_cores_options.exit
   %469 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %470 = load ptr, ptr %469, align 8
-  %.not.i.i31 = icmp eq ptr %470, null
-  br i1 %.not.i.i31, label %_validate_threads_per_core_option.exit.preheader, label %slurm_option_isset.exit.i32
+  %.not.i.i34 = icmp eq ptr %470, null
+  br i1 %.not.i.i34, label %_validate_threads_per_core_option.exit.preheader, label %slurm_option_isset.exit.i35
 
-slurm_option_isset.exit.i32:                      ; preds = %_find_option_idx.exit.i.i30
-  %471 = and i64 %indvars.iv.i.i.i25, 4294967295
+slurm_option_isset.exit.i35:                      ; preds = %_find_option_idx.exit.i.i33
+  %471 = and i64 %indvars.iv.i.i.i28, 4294967295
   %472 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %470, i64 %471
   %473 = load i8, ptr %472, align 1, !range !12, !noundef !13
   %474 = trunc nuw i8 %473 to i1
-  br i1 %474, label %.preheader.i33, label %_validate_threads_per_core_option.exit.preheader
+  br i1 %474, label %.preheader.i36, label %_validate_threads_per_core_option.exit.preheader
 
-.preheader.i33:                                   ; preds = %slurm_option_isset.exit.i32, %479
-  %indvars.iv.i.i22.i = phi i64 [ %indvars.iv.next.i.i24.i, %479 ], [ 0, %slurm_option_isset.exit.i32 ]
+.preheader.i36:                                   ; preds = %slurm_option_isset.exit.i35, %479
+  %indvars.iv.i.i22.i = phi i64 [ %indvars.iv.next.i.i24.i, %479 ], [ 0, %slurm_option_isset.exit.i35 ]
   %475 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i22.i
   %476 = load ptr, ptr %475, align 8
   %477 = load ptr, ptr %476, align 8
@@ -3910,12 +3906,12 @@ slurm_option_isset.exit.i32:                      ; preds = %_find_option_idx.ex
   %.not9.i.i23.i = icmp eq i32 %478, 0
   br i1 %.not9.i.i23.i, label %_find_option_idx.exit.i27.i, label %479
 
-479:                                              ; preds = %.preheader.i33
+479:                                              ; preds = %.preheader.i36
   %indvars.iv.next.i.i24.i = add nuw nsw i64 %indvars.iv.i.i22.i, 1
   %.not.i.i25.i = icmp eq i64 %indvars.iv.next.i.i24.i, 163
-  br i1 %.not.i.i25.i, label %slurm_option_isset.exit29.thread.i, label %.preheader.i33, !llvm.loop !18
+  br i1 %.not.i.i25.i, label %slurm_option_isset.exit29.thread.i, label %.preheader.i36, !llvm.loop !18
 
-_find_option_idx.exit.i27.i:                      ; preds = %.preheader.i33
+_find_option_idx.exit.i27.i:                      ; preds = %.preheader.i36
   %480 = load ptr, ptr %469, align 8
   %.not.i28.i = icmp eq ptr %480, null
   br i1 %.not.i28.i, label %slurm_option_isset.exit29.thread.i, label %slurm_option_isset.exit29.i
@@ -3930,8 +3926,8 @@ slurm_option_isset.exit29.i:                      ; preds = %_find_option_idx.ex
 slurm_option_isset.exit29.thread.i:               ; preds = %479, %slurm_option_isset.exit29.i, %_find_option_idx.exit.i27.i
   %485 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %486 = load i32, ptr %485, align 4
-  %.not.i34 = icmp eq i32 %486, 0
-  br i1 %.not.i34, label %491, label %487
+  %.not.i37 = icmp eq i32 %486, 0
+  br i1 %.not.i37, label %491, label %487
 
 487:                                              ; preds = %slurm_option_isset.exit29.thread.i
   %488 = tail call i32 @get_log_level() #22
@@ -4016,66 +4012,66 @@ slurm_option_isset.exit29.thread.i:               ; preds = %479, %slurm_option_
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.499) #22
   br label %_validate_threads_per_core_option.exit.preheader
 
-_validate_threads_per_core_option.exit.preheader: ; preds = %468, %_find_option_idx.exit.i.i30, %slurm_option_isset.exit.i32, %491, %494, %517, %519, %523, %527, %530
+_validate_threads_per_core_option.exit.preheader: ; preds = %468, %_find_option_idx.exit.i.i33, %slurm_option_isset.exit.i35, %491, %494, %517, %519, %523, %527, %530
   br label %_validate_threads_per_core_option.exit
 
 _validate_threads_per_core_option.exit:           ; preds = %_validate_threads_per_core_option.exit.preheader, %536
-  %indvars.iv.i.i.i35 = phi i64 [ %indvars.iv.next.i.i.i36, %536 ], [ 0, %_validate_threads_per_core_option.exit.preheader ]
-  %531 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i35
+  %indvars.iv.i.i.i38 = phi i64 [ %indvars.iv.next.i.i.i39, %536 ], [ 0, %_validate_threads_per_core_option.exit.preheader ]
+  %531 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i38
   %532 = load ptr, ptr %531, align 8
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 24
   %534 = load i32, ptr %533, align 8
   %535 = icmp eq i32 %534, 314
-  br i1 %535, label %.split.loop.exit10.i.i.i71, label %536
+  br i1 %535, label %.split.loop.exit10.i.i.i72, label %536
 
 536:                                              ; preds = %_validate_threads_per_core_option.exit
-  %indvars.iv.next.i.i.i36 = add nuw nsw i64 %indvars.iv.i.i.i35, 1
-  %.not.i.i.i37 = icmp eq i64 %indvars.iv.next.i.i.i36, 163
-  br i1 %.not.i.i.i37, label %_find_option_index_from_optval.exit.i.i38, label %_validate_threads_per_core_option.exit, !llvm.loop !17
+  %indvars.iv.next.i.i.i39 = add nuw nsw i64 %indvars.iv.i.i.i38, 1
+  %.not.i.i.i40 = icmp eq i64 %indvars.iv.next.i.i.i39, 163
+  br i1 %.not.i.i.i40, label %_find_option_index_from_optval.exit.i.i41, label %_validate_threads_per_core_option.exit, !llvm.loop !17
 
-.split.loop.exit10.i.i.i71:                       ; preds = %_validate_threads_per_core_option.exit
-  %sext.i.i72 = shl i64 %indvars.iv.i.i.i35, 32
-  %537 = ashr exact i64 %sext.i.i72, 32
-  br label %_find_option_index_from_optval.exit.i.i38
+.split.loop.exit10.i.i.i72:                       ; preds = %_validate_threads_per_core_option.exit
+  %sext.i.i73 = shl i64 %indvars.iv.i.i.i38, 32
+  %537 = ashr exact i64 %sext.i.i73, 32
+  br label %_find_option_index_from_optval.exit.i.i41
 
-_find_option_index_from_optval.exit.i.i38:        ; preds = %536, %.split.loop.exit10.i.i.i71
-  %.06.i.i.i39 = phi i64 [ %537, %.split.loop.exit10.i.i.i71 ], [ 0, %536 ]
+_find_option_index_from_optval.exit.i.i41:        ; preds = %536, %.split.loop.exit10.i.i.i72
+  %.06.i.i.i42 = phi i64 [ %537, %.split.loop.exit10.i.i.i72 ], [ 0, %536 ]
   br i1 %.not.i2.i.i, label %538, label %542
 
-538:                                              ; preds = %_find_option_index_from_optval.exit.i.i38
+538:                                              ; preds = %_find_option_index_from_optval.exit.i.i41
   %539 = tail call i32 @get_log_level() #22
   %540 = icmp sgt i32 %539, 6
-  br i1 %540, label %541, label %slurm_option_set_by_cli.exit.i42
+  br i1 %540, label %541, label %slurm_option_set_by_cli.exit.i45
 
 541:                                              ; preds = %538
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
-  br label %slurm_option_set_by_cli.exit.i42
+  br label %slurm_option_set_by_cli.exit.i45
 
-542:                                              ; preds = %_find_option_index_from_optval.exit.i.i38
+542:                                              ; preds = %_find_option_index_from_optval.exit.i.i41
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %544 = load ptr, ptr %543, align 8
-  %.not8.i.i.i41 = icmp eq ptr %544, null
-  br i1 %.not8.i.i.i41, label %slurm_option_set_by_cli.exit.i42, label %545
+  %.not8.i.i.i44 = icmp eq ptr %544, null
+  br i1 %.not8.i.i.i44, label %slurm_option_set_by_cli.exit.i45, label %545
 
 545:                                              ; preds = %542
-  %546 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %544, i64 %.06.i.i.i39
+  %546 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %544, i64 %.06.i.i.i42
   %547 = load i8, ptr %546, align 1, !range !12, !noundef !13
   %548 = trunc nuw i8 %547 to i1
-  br i1 %548, label %549, label %slurm_option_set_by_cli.exit.i42
+  br i1 %548, label %549, label %slurm_option_set_by_cli.exit.i45
 
 549:                                              ; preds = %545
   %550 = getelementptr inbounds nuw i8, ptr %546, i64 1
   %551 = load i8, ptr %550, align 1, !range !12, !noundef !13
   %552 = xor i8 %551, 1
   %553 = zext nneg i8 %552 to i32
-  br label %slurm_option_set_by_cli.exit.i42
+  br label %slurm_option_set_by_cli.exit.i45
 
-slurm_option_set_by_cli.exit.i42:                 ; preds = %549, %545, %542, %541, %538
-  %.0.i.i.i43 = phi i32 [ 0, %541 ], [ 0, %538 ], [ 0, %542 ], [ 0, %545 ], [ %553, %549 ]
+slurm_option_set_by_cli.exit.i45:                 ; preds = %549, %545, %542, %541, %538
+  %.0.i.i.i46 = phi i32 [ 0, %541 ], [ 0, %538 ], [ 0, %542 ], [ 0, %545 ], [ %553, %549 ]
   br label %554
 
-554:                                              ; preds = %560, %slurm_option_set_by_cli.exit.i42
-  %indvars.iv.i.i19.i = phi i64 [ 0, %slurm_option_set_by_cli.exit.i42 ], [ %indvars.iv.next.i.i20.i, %560 ]
+554:                                              ; preds = %560, %slurm_option_set_by_cli.exit.i45
+  %indvars.iv.i.i19.i = phi i64 [ 0, %slurm_option_set_by_cli.exit.i45 ], [ %indvars.iv.next.i.i20.i, %560 ]
   %555 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i19.i
   %556 = load ptr, ptr %555, align 8
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 24
@@ -4127,7 +4123,7 @@ _find_option_index_from_optval.exit.i22.i:        ; preds = %560, %.split.loop.e
 
 slurm_option_set_by_cli.exit29.i:                 ; preds = %573, %569, %566, %565, %562
   %.0.i.i26.i = phi i32 [ 0, %565 ], [ 0, %562 ], [ 0, %566 ], [ 0, %569 ], [ %577, %573 ]
-  %578 = add nuw nsw i32 %.0.i.i26.i, %.0.i.i.i43
+  %578 = add nuw nsw i32 %.0.i.i26.i, %.0.i.i.i46
   br label %579
 
 579:                                              ; preds = %585, %slurm_option_set_by_cli.exit29.i
@@ -4192,29 +4188,29 @@ slurm_option_set_by_cli.exit40.i:                 ; preds = %598, %594, %591, %5
   unreachable
 
 .preheader167.i:                                  ; preds = %slurm_option_set_by_cli.exit40.i, %611
-  %indvars.iv.i.i41.i44 = phi i64 [ %indvars.iv.next.i.i42.i45, %611 ], [ 0, %slurm_option_set_by_cli.exit40.i ]
-  %606 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i41.i44
+  %indvars.iv.i.i41.i47 = phi i64 [ %indvars.iv.next.i.i42.i48, %611 ], [ 0, %slurm_option_set_by_cli.exit40.i ]
+  %606 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i41.i47
   %607 = load ptr, ptr %606, align 8
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 24
   %609 = load i32, ptr %608, align 8
   %610 = icmp eq i32 %609, 314
-  br i1 %610, label %.split.loop.exit10.i.i49.i69, label %611
+  br i1 %610, label %.split.loop.exit10.i.i49.i70, label %611
 
 611:                                              ; preds = %.preheader167.i
-  %indvars.iv.next.i.i42.i45 = add nuw nsw i64 %indvars.iv.i.i41.i44, 1
-  %.not.i.i43.i46 = icmp eq i64 %indvars.iv.next.i.i42.i45, 163
-  br i1 %.not.i.i43.i46, label %_find_option_index_from_optval.exit.i44.i47, label %.preheader167.i, !llvm.loop !17
+  %indvars.iv.next.i.i42.i48 = add nuw nsw i64 %indvars.iv.i.i41.i47, 1
+  %.not.i.i43.i49 = icmp eq i64 %indvars.iv.next.i.i42.i48, 163
+  br i1 %.not.i.i43.i49, label %_find_option_index_from_optval.exit.i44.i50, label %.preheader167.i, !llvm.loop !17
 
-.split.loop.exit10.i.i49.i69:                     ; preds = %.preheader167.i
-  %sext.i50.i70 = shl i64 %indvars.iv.i.i41.i44, 32
-  %612 = ashr exact i64 %sext.i50.i70, 32
-  br label %_find_option_index_from_optval.exit.i44.i47
+.split.loop.exit10.i.i49.i70:                     ; preds = %.preheader167.i
+  %sext.i50.i71 = shl i64 %indvars.iv.i.i41.i47, 32
+  %612 = ashr exact i64 %sext.i50.i71, 32
+  br label %_find_option_index_from_optval.exit.i44.i50
 
-_find_option_index_from_optval.exit.i44.i47:      ; preds = %611, %.split.loop.exit10.i.i49.i69
-  %.06.i.i45.i48 = phi i64 [ %612, %.split.loop.exit10.i.i49.i69 ], [ 0, %611 ]
+_find_option_index_from_optval.exit.i44.i50:      ; preds = %611, %.split.loop.exit10.i.i49.i70
+  %.06.i.i45.i51 = phi i64 [ %612, %.split.loop.exit10.i.i49.i70 ], [ 0, %611 ]
   br i1 %.not.i2.i.i, label %613, label %617
 
-613:                                              ; preds = %_find_option_index_from_optval.exit.i44.i47
+613:                                              ; preds = %_find_option_index_from_optval.exit.i44.i50
   %614 = tail call i32 @get_log_level() #22
   %615 = icmp sgt i32 %614, 6
   br i1 %615, label %616, label %slurm_option_set_by_cli.exit51.thread.i.preheader
@@ -4226,14 +4222,14 @@ slurm_option_set_by_cli.exit51.thread.i.preheader: ; preds = %slurm_option_set_b
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
   br label %slurm_option_set_by_cli.exit51.thread.i.preheader
 
-617:                                              ; preds = %_find_option_index_from_optval.exit.i44.i47
+617:                                              ; preds = %_find_option_index_from_optval.exit.i44.i50
   %618 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %619 = load ptr, ptr %618, align 8
   %.not8.i.i47.i = icmp eq ptr %619, null
   br i1 %.not8.i.i47.i, label %slurm_option_set_by_cli.exit51.thread.i.preheader, label %620
 
 620:                                              ; preds = %617
-  %621 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %619, i64 %.06.i.i45.i48
+  %621 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %619, i64 %.06.i.i45.i51
   %622 = load i8, ptr %621, align 1, !range !12, !noundef !13
   %623 = trunc nuw i8 %622 to i1
   br i1 %623, label %slurm_option_set_by_cli.exit51.i, label %slurm_option_set_by_cli.exit51.thread.i.preheader
@@ -4245,40 +4241,40 @@ slurm_option_set_by_cli.exit51.i:                 ; preds = %620
   br i1 %626, label %slurm_option_set_by_cli.exit51.thread.i.preheader, label %.preheader166.i
 
 .preheader166.i:                                  ; preds = %slurm_option_set_by_cli.exit51.i, %631
-  %indvars.iv.i.i52.i62 = phi i64 [ %indvars.iv.next.i.i53.i64, %631 ], [ 0, %slurm_option_set_by_cli.exit51.i ]
-  %627 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i52.i62
+  %indvars.iv.i.i52.i63 = phi i64 [ %indvars.iv.next.i.i53.i65, %631 ], [ 0, %slurm_option_set_by_cli.exit51.i ]
+  %627 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i52.i63
   %628 = load ptr, ptr %627, align 8
   %629 = load ptr, ptr %628, align 8
   %630 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.273, ptr noundef %629) #22
-  %.not9.i.i.i63 = icmp eq i32 %630, 0
-  br i1 %.not9.i.i.i63, label %_find_option_idx.exit.i.i67, label %631
+  %.not9.i.i.i64 = icmp eq i32 %630, 0
+  br i1 %.not9.i.i.i64, label %_find_option_idx.exit.i.i68, label %631
 
 631:                                              ; preds = %.preheader166.i
-  %indvars.iv.next.i.i53.i64 = add nuw nsw i64 %indvars.iv.i.i52.i62, 1
-  %.not.i.i54.i65 = icmp eq i64 %indvars.iv.next.i.i53.i64, 163
-  br i1 %.not.i.i54.i65, label %slurm_option_reset.exit.i66.preheader, label %.preheader166.i, !llvm.loop !18
+  %indvars.iv.next.i.i53.i65 = add nuw nsw i64 %indvars.iv.i.i52.i63, 1
+  %.not.i.i54.i66 = icmp eq i64 %indvars.iv.next.i.i53.i65, 163
+  br i1 %.not.i.i54.i66, label %slurm_option_reset.exit.i67.preheader, label %.preheader166.i, !llvm.loop !18
 
-_find_option_idx.exit.i.i67:                      ; preds = %.preheader166.i
-  %632 = and i64 %indvars.iv.i.i52.i62, 4294967295
+_find_option_idx.exit.i.i68:                      ; preds = %.preheader166.i
+  %632 = and i64 %indvars.iv.i.i52.i63, 4294967295
   %633 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %632
   %634 = load ptr, ptr %633, align 8
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 80
   %636 = load ptr, ptr %635, align 8
   tail call void %636(ptr noundef nonnull %0) #22
   %637 = load ptr, ptr %618, align 8
-  %.not.i.i68 = icmp eq ptr %637, null
-  br i1 %.not.i.i68, label %slurm_option_reset.exit.i66.preheader, label %638
+  %.not.i.i69 = icmp eq ptr %637, null
+  br i1 %.not.i.i69, label %slurm_option_reset.exit.i67.preheader, label %638
 
-638:                                              ; preds = %_find_option_idx.exit.i.i67
+638:                                              ; preds = %_find_option_idx.exit.i.i68
   %639 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %637, i64 %632
   store i8 0, ptr %639, align 1
-  br label %slurm_option_reset.exit.i66.preheader
+  br label %slurm_option_reset.exit.i67.preheader
 
-slurm_option_reset.exit.i66.preheader:            ; preds = %631, %638, %_find_option_idx.exit.i.i67
-  br label %slurm_option_reset.exit.i66
+slurm_option_reset.exit.i67.preheader:            ; preds = %631, %638, %_find_option_idx.exit.i.i68
+  br label %slurm_option_reset.exit.i67
 
-slurm_option_reset.exit.i66:                      ; preds = %slurm_option_reset.exit.i66.preheader, %644
-  %indvars.iv.i.i55.i = phi i64 [ %indvars.iv.next.i.i57.i, %644 ], [ 0, %slurm_option_reset.exit.i66.preheader ]
+slurm_option_reset.exit.i67:                      ; preds = %slurm_option_reset.exit.i67.preheader, %644
+  %indvars.iv.i.i55.i = phi i64 [ %indvars.iv.next.i.i57.i, %644 ], [ 0, %slurm_option_reset.exit.i67.preheader ]
   %640 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i55.i
   %641 = load ptr, ptr %640, align 8
   %642 = load ptr, ptr %641, align 8
@@ -4286,12 +4282,12 @@ slurm_option_reset.exit.i66:                      ; preds = %slurm_option_reset.
   %.not9.i.i56.i = icmp eq i32 %643, 0
   br i1 %.not9.i.i56.i, label %_find_option_idx.exit.i59.i, label %644
 
-644:                                              ; preds = %slurm_option_reset.exit.i66
+644:                                              ; preds = %slurm_option_reset.exit.i67
   %indvars.iv.next.i.i57.i = add nuw nsw i64 %indvars.iv.i.i55.i, 1
   %.not.i.i58.i = icmp eq i64 %indvars.iv.next.i.i57.i, 163
-  br i1 %.not.i.i58.i, label %slurm_option_reset.exit61.i, label %slurm_option_reset.exit.i66, !llvm.loop !18
+  br i1 %.not.i.i58.i, label %slurm_option_reset.exit61.i, label %slurm_option_reset.exit.i67, !llvm.loop !18
 
-_find_option_idx.exit.i59.i:                      ; preds = %slurm_option_reset.exit.i66
+_find_option_idx.exit.i59.i:                      ; preds = %slurm_option_reset.exit.i67
   %645 = and i64 %indvars.iv.i.i55.i, 4294967295
   %646 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %645
   %647 = load ptr, ptr %646, align 8
@@ -4361,8 +4357,8 @@ slurm_option_set_by_cli.exit72.i:                 ; preds = %667
   br i1 %673, label %slurm_option_set_by_cli.exit72.thread.i.preheader, label %.preheader164.i
 
 .preheader164.i:                                  ; preds = %slurm_option_set_by_cli.exit72.i, %678
-  %indvars.iv.i.i73.i = phi i64 [ %indvars.iv.next.i.i75.i60, %678 ], [ 0, %slurm_option_set_by_cli.exit72.i ]
-  %674 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i73.i
+  %indvars.iv.i.i73.i62 = phi i64 [ %indvars.iv.next.i.i75.i, %678 ], [ 0, %slurm_option_set_by_cli.exit72.i ]
+  %674 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i73.i62
   %675 = load ptr, ptr %674, align 8
   %676 = load ptr, ptr %675, align 8
   %677 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.266, ptr noundef %676) #22
@@ -4370,12 +4366,12 @@ slurm_option_set_by_cli.exit72.i:                 ; preds = %667
   br i1 %.not9.i.i74.i, label %_find_option_idx.exit.i77.i, label %678
 
 678:                                              ; preds = %.preheader164.i
-  %indvars.iv.next.i.i75.i60 = add nuw nsw i64 %indvars.iv.i.i73.i, 1
-  %.not.i.i76.i61 = icmp eq i64 %indvars.iv.next.i.i75.i60, 163
-  br i1 %.not.i.i76.i61, label %slurm_option_reset.exit79.i.preheader, label %.preheader164.i, !llvm.loop !18
+  %indvars.iv.next.i.i75.i = add nuw nsw i64 %indvars.iv.i.i73.i62, 1
+  %.not.i.i76.i = icmp eq i64 %indvars.iv.next.i.i75.i, 163
+  br i1 %.not.i.i76.i, label %slurm_option_reset.exit79.i.preheader, label %.preheader164.i, !llvm.loop !18
 
 _find_option_idx.exit.i77.i:                      ; preds = %.preheader164.i
-  %679 = and i64 %indvars.iv.i.i73.i, 4294967295
+  %679 = and i64 %indvars.iv.i.i73.i62, 4294967295
   %680 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %679
   %681 = load ptr, ptr %680, align 8
   %682 = getelementptr inbounds nuw i8, ptr %681, i64 80
@@ -4424,8 +4420,8 @@ _find_option_idx.exit.i84.i:                      ; preds = %slurm_option_reset.
   br label %slurm_option_reset.exit61.i
 
 slurm_option_set_by_cli.exit72.thread.i:          ; preds = %slurm_option_set_by_cli.exit72.thread.i.preheader, %705
-  %indvars.iv.i.i87.i = phi i64 [ %indvars.iv.next.i.i88.i, %705 ], [ 0, %slurm_option_set_by_cli.exit72.thread.i.preheader ]
-  %700 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i87.i
+  %indvars.iv.i.i87.i52 = phi i64 [ %indvars.iv.next.i.i88.i, %705 ], [ 0, %slurm_option_set_by_cli.exit72.thread.i.preheader ]
+  %700 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i87.i52
   %701 = load ptr, ptr %700, align 8
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 24
   %703 = load i32, ptr %702, align 8
@@ -4433,12 +4429,12 @@ slurm_option_set_by_cli.exit72.thread.i:          ; preds = %slurm_option_set_by
   br i1 %704, label %.split.loop.exit10.i.i95.i, label %705
 
 705:                                              ; preds = %slurm_option_set_by_cli.exit72.thread.i
-  %indvars.iv.next.i.i88.i = add nuw nsw i64 %indvars.iv.i.i87.i, 1
+  %indvars.iv.next.i.i88.i = add nuw nsw i64 %indvars.iv.i.i87.i52, 1
   %.not.i.i89.i = icmp eq i64 %indvars.iv.next.i.i88.i, 163
   br i1 %.not.i.i89.i, label %_find_option_index_from_optval.exit.i90.i, label %slurm_option_set_by_cli.exit72.thread.i, !llvm.loop !17
 
 .split.loop.exit10.i.i95.i:                       ; preds = %slurm_option_set_by_cli.exit72.thread.i
-  %sext.i96.i = shl i64 %indvars.iv.i.i87.i, 32
+  %sext.i96.i = shl i64 %indvars.iv.i.i87.i52, 32
   %706 = ashr exact i64 %sext.i96.i, 32
   br label %_find_option_index_from_optval.exit.i90.i
 
@@ -4510,8 +4506,8 @@ slurm_option_reset.exit104.i.preheader:           ; preds = %725, %732, %_find_o
   br label %slurm_option_reset.exit104.i
 
 slurm_option_reset.exit104.i:                     ; preds = %slurm_option_reset.exit104.i.preheader, %738
-  %indvars.iv.i.i105.i = phi i64 [ %indvars.iv.next.i.i107.i58, %738 ], [ 0, %slurm_option_reset.exit104.i.preheader ]
-  %734 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i105.i
+  %indvars.iv.i.i105.i61 = phi i64 [ %indvars.iv.next.i.i107.i, %738 ], [ 0, %slurm_option_reset.exit104.i.preheader ]
+  %734 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i105.i61
   %735 = load ptr, ptr %734, align 8
   %736 = load ptr, ptr %735, align 8
   %737 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.273, ptr noundef %736) #22
@@ -4519,12 +4515,12 @@ slurm_option_reset.exit104.i:                     ; preds = %slurm_option_reset.
   br i1 %.not9.i.i106.i, label %_find_option_idx.exit.i109.i, label %738
 
 738:                                              ; preds = %slurm_option_reset.exit104.i
-  %indvars.iv.next.i.i107.i58 = add nuw nsw i64 %indvars.iv.i.i105.i, 1
-  %.not.i.i108.i59 = icmp eq i64 %indvars.iv.next.i.i107.i58, 163
-  br i1 %.not.i.i108.i59, label %slurm_option_reset.exit61.i, label %slurm_option_reset.exit104.i, !llvm.loop !18
+  %indvars.iv.next.i.i107.i = add nuw nsw i64 %indvars.iv.i.i105.i61, 1
+  %.not.i.i108.i = icmp eq i64 %indvars.iv.next.i.i107.i, 163
+  br i1 %.not.i.i108.i, label %slurm_option_reset.exit61.i, label %slurm_option_reset.exit104.i, !llvm.loop !18
 
 _find_option_idx.exit.i109.i:                     ; preds = %slurm_option_reset.exit104.i
-  %739 = and i64 %indvars.iv.i.i105.i, 4294967295
+  %739 = and i64 %indvars.iv.i.i105.i61, 4294967295
   %740 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %739
   %741 = load ptr, ptr %740, align 8
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 80
@@ -4565,30 +4561,30 @@ _find_option_index_from_optval.exit.i115.i:       ; preds = %752, %.split.loop.e
 754:                                              ; preds = %_find_option_index_from_optval.exit.i115.i
   %755 = tail call i32 @get_log_level() #22
   %756 = icmp sgt i32 %755, 6
-  br i1 %756, label %757, label %slurm_option_set_by_env.exit.i50
+  br i1 %756, label %757, label %slurm_option_set_by_env.exit.i54
 
 757:                                              ; preds = %754
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
-  br label %slurm_option_set_by_env.exit.i50
+  br label %slurm_option_set_by_env.exit.i54
 
 758:                                              ; preds = %_find_option_index_from_optval.exit.i115.i
   %759 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %760 = load ptr, ptr %759, align 8
-  %.not6.i.i.i49 = icmp eq ptr %760, null
-  br i1 %.not6.i.i.i49, label %slurm_option_set_by_env.exit.i50, label %761
+  %.not6.i.i.i53 = icmp eq ptr %760, null
+  br i1 %.not6.i.i.i53, label %slurm_option_set_by_env.exit.i54, label %761
 
 761:                                              ; preds = %758
   %762 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %760, i64 %.06.i.i116.i, i32 1
   %763 = load i8, ptr %762, align 1, !range !12, !noundef !13
   %764 = zext nneg i8 %763 to i32
-  br label %slurm_option_set_by_env.exit.i50
+  br label %slurm_option_set_by_env.exit.i54
 
-slurm_option_set_by_env.exit.i50:                 ; preds = %761, %758, %757, %754
+slurm_option_set_by_env.exit.i54:                 ; preds = %761, %758, %757, %754
   %.0.i.i118.i = phi i32 [ %764, %761 ], [ 0, %757 ], [ 0, %754 ], [ 0, %758 ]
   br label %765
 
-765:                                              ; preds = %771, %slurm_option_set_by_env.exit.i50
-  %indvars.iv.i.i121.i = phi i64 [ 0, %slurm_option_set_by_env.exit.i50 ], [ %indvars.iv.next.i.i122.i, %771 ]
+765:                                              ; preds = %771, %slurm_option_set_by_env.exit.i54
+  %indvars.iv.i.i121.i = phi i64 [ 0, %slurm_option_set_by_env.exit.i54 ], [ %indvars.iv.next.i.i122.i, %771 ]
   %766 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i121.i
   %767 = load ptr, ptr %766, align 8
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 24
@@ -4693,16 +4689,16 @@ slurm_option_set_by_env.exit142.i:                ; preds = %800, %797, %796, %7
 slurm_option_reset.exit61.i:                      ; preds = %644, %691, %738, %slurm_option_set_by_env.exit142.i, %745, %_find_option_idx.exit.i109.i, %698, %_find_option_idx.exit.i84.i, %651, %_find_option_idx.exit.i59.i
   %807 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %808 = and i16 %807, 16
-  %.not.i51 = icmp eq i16 %808, 0
-  br i1 %.not.i51, label %809, label %_validate_memory_options.exit.preheader
+  %.not.i55 = icmp eq i16 %808, 0
+  br i1 %.not.i55, label %809, label %_validate_memory_options.exit.preheader
 
 809:                                              ; preds = %slurm_option_reset.exit61.i
   %810 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %811 = load i32, ptr %810, align 4
-  %.not18.i52 = icmp eq i32 %811, 0
-  br i1 %.not18.i52, label %_validate_memory_options.exit.preheader, label %.preheader.i53
+  %.not18.i56 = icmp eq i32 %811, 0
+  br i1 %.not18.i56, label %_validate_memory_options.exit.preheader, label %.preheader.i57
 
-.preheader.i53:                                   ; preds = %809, %816
+.preheader.i57:                                   ; preds = %809, %816
   %indvars.iv.i.i143.i = phi i64 [ %indvars.iv.next.i.i145.i, %816 ], [ 0, %809 ]
   %812 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i143.i
   %813 = load ptr, ptr %812, align 8
@@ -4711,54 +4707,54 @@ slurm_option_reset.exit61.i:                      ; preds = %644, %691, %738, %s
   %.not9.i.i144.i = icmp eq i32 %815, 0
   br i1 %.not9.i.i144.i, label %_find_option_idx.exit.i147.i, label %816
 
-816:                                              ; preds = %.preheader.i53
+816:                                              ; preds = %.preheader.i57
   %indvars.iv.next.i.i145.i = add nuw nsw i64 %indvars.iv.i.i143.i, 1
   %.not.i.i146.i = icmp eq i64 %indvars.iv.next.i.i145.i, 163
-  br i1 %.not.i.i146.i, label %slurm_option_isset.exit.thread.i54.preheader, label %.preheader.i53, !llvm.loop !18
+  br i1 %.not.i.i146.i, label %slurm_option_isset.exit.thread.i58.preheader, label %.preheader.i57, !llvm.loop !18
 
-_find_option_idx.exit.i147.i:                     ; preds = %.preheader.i53
+_find_option_idx.exit.i147.i:                     ; preds = %.preheader.i57
   %817 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %818 = load ptr, ptr %817, align 8
   %.not.i148.i = icmp eq ptr %818, null
-  br i1 %.not.i148.i, label %slurm_option_isset.exit.thread.i54.preheader, label %slurm_option_isset.exit.i57
+  br i1 %.not.i148.i, label %slurm_option_isset.exit.thread.i58.preheader, label %slurm_option_isset.exit.i60
 
-slurm_option_isset.exit.thread.i54.preheader:     ; preds = %816, %slurm_option_isset.exit.i57, %_find_option_idx.exit.i147.i
-  br label %slurm_option_isset.exit.thread.i54
+slurm_option_isset.exit.thread.i58.preheader:     ; preds = %816, %slurm_option_isset.exit.i60, %_find_option_idx.exit.i147.i
+  br label %slurm_option_isset.exit.thread.i58
 
-slurm_option_isset.exit.i57:                      ; preds = %_find_option_idx.exit.i147.i
+slurm_option_isset.exit.i60:                      ; preds = %_find_option_idx.exit.i147.i
   %819 = and i64 %indvars.iv.i.i143.i, 4294967295
   %820 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %818, i64 %819
   %821 = load i8, ptr %820, align 1, !range !12, !noundef !13
   %822 = trunc nuw i8 %821 to i1
-  br i1 %822, label %823, label %slurm_option_isset.exit.thread.i54.preheader
+  br i1 %822, label %823, label %slurm_option_isset.exit.thread.i58.preheader
 
-823:                                              ; preds = %slurm_option_isset.exit.i57
+823:                                              ; preds = %slurm_option_isset.exit.i60
   %824 = tail call i32 @get_log_level() #22
   %825 = icmp sgt i32 %824, 2
   br i1 %825, label %slurm_option_isset.exit156.thread.sink.split.i, label %_validate_memory_options.exit.preheader
 
-slurm_option_isset.exit.thread.i54:               ; preds = %slurm_option_isset.exit.thread.i54.preheader, %830
-  %indvars.iv.i.i149.i = phi i64 [ %indvars.iv.next.i.i151.i55, %830 ], [ 0, %slurm_option_isset.exit.thread.i54.preheader ]
-  %826 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i149.i
+slurm_option_isset.exit.thread.i58:               ; preds = %slurm_option_isset.exit.thread.i58.preheader, %830
+  %indvars.iv.i.i149.i59 = phi i64 [ %indvars.iv.next.i.i151.i, %830 ], [ 0, %slurm_option_isset.exit.thread.i58.preheader ]
+  %826 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i149.i59
   %827 = load ptr, ptr %826, align 8
   %828 = load ptr, ptr %827, align 8
   %829 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.276, ptr noundef %828) #22
   %.not9.i.i150.i = icmp eq i32 %829, 0
   br i1 %.not9.i.i150.i, label %_find_option_idx.exit.i154.i, label %830
 
-830:                                              ; preds = %slurm_option_isset.exit.thread.i54
-  %indvars.iv.next.i.i151.i55 = add nuw nsw i64 %indvars.iv.i.i149.i, 1
-  %.not.i.i152.i56 = icmp eq i64 %indvars.iv.next.i.i151.i55, 163
-  br i1 %.not.i.i152.i56, label %_validate_memory_options.exit.preheader, label %slurm_option_isset.exit.thread.i54, !llvm.loop !18
+830:                                              ; preds = %slurm_option_isset.exit.thread.i58
+  %indvars.iv.next.i.i151.i = add nuw nsw i64 %indvars.iv.i.i149.i59, 1
+  %.not.i.i152.i = icmp eq i64 %indvars.iv.next.i.i151.i, 163
+  br i1 %.not.i.i152.i, label %_validate_memory_options.exit.preheader, label %slurm_option_isset.exit.thread.i58, !llvm.loop !18
 
-_find_option_idx.exit.i154.i:                     ; preds = %slurm_option_isset.exit.thread.i54
+_find_option_idx.exit.i154.i:                     ; preds = %slurm_option_isset.exit.thread.i58
   %831 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %832 = load ptr, ptr %831, align 8
   %.not.i155.i = icmp eq ptr %832, null
   br i1 %.not.i155.i, label %_validate_memory_options.exit.preheader, label %slurm_option_isset.exit156.i
 
 slurm_option_isset.exit156.i:                     ; preds = %_find_option_idx.exit.i154.i
-  %833 = and i64 %indvars.iv.i.i149.i, 4294967295
+  %833 = and i64 %indvars.iv.i.i149.i59, 4294967295
   %834 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %832, i64 %833
   %835 = load i8, ptr %834, align 1, !range !12, !noundef !13
   %836 = trunc nuw i8 %835 to i1
@@ -4778,8 +4774,8 @@ _validate_memory_options.exit.preheader:          ; preds = %830, %slurm_option_
   br label %_validate_memory_options.exit
 
 _validate_memory_options.exit:                    ; preds = %_validate_memory_options.exit.preheader, %845
-  %indvars.iv.i.i.i73 = phi i64 [ %indvars.iv.next.i.i.i74, %845 ], [ 0, %_validate_memory_options.exit.preheader ]
-  %840 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i73
+  %indvars.iv.i.i.i74 = phi i64 [ %indvars.iv.next.i.i.i75, %845 ], [ 0, %_validate_memory_options.exit.preheader ]
+  %840 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i74
   %841 = load ptr, ptr %840, align 8
   %842 = getelementptr inbounds nuw i8, ptr %841, i64 24
   %843 = load i32, ptr %842, align 8
@@ -4787,52 +4783,52 @@ _validate_memory_options.exit:                    ; preds = %_validate_memory_op
   br i1 %844, label %.split.loop.exit10.i.i.i83, label %845
 
 845:                                              ; preds = %_validate_memory_options.exit
-  %indvars.iv.next.i.i.i74 = add nuw nsw i64 %indvars.iv.i.i.i73, 1
-  %.not.i.i.i75 = icmp eq i64 %indvars.iv.next.i.i.i74, 163
-  br i1 %.not.i.i.i75, label %_find_option_index_from_optval.exit.i.i76, label %_validate_memory_options.exit, !llvm.loop !17
+  %indvars.iv.next.i.i.i75 = add nuw nsw i64 %indvars.iv.i.i.i74, 1
+  %.not.i.i.i76 = icmp eq i64 %indvars.iv.next.i.i.i75, 163
+  br i1 %.not.i.i.i76, label %_find_option_index_from_optval.exit.i.i77, label %_validate_memory_options.exit, !llvm.loop !17
 
 .split.loop.exit10.i.i.i83:                       ; preds = %_validate_memory_options.exit
-  %sext.i.i84 = shl i64 %indvars.iv.i.i.i73, 32
+  %sext.i.i84 = shl i64 %indvars.iv.i.i.i74, 32
   %846 = ashr exact i64 %sext.i.i84, 32
-  br label %_find_option_index_from_optval.exit.i.i76
+  br label %_find_option_index_from_optval.exit.i.i77
 
-_find_option_index_from_optval.exit.i.i76:        ; preds = %845, %.split.loop.exit10.i.i.i83
-  %.06.i.i.i77 = phi i64 [ %846, %.split.loop.exit10.i.i.i83 ], [ 0, %845 ]
+_find_option_index_from_optval.exit.i.i77:        ; preds = %845, %.split.loop.exit10.i.i.i83
+  %.06.i.i.i78 = phi i64 [ %846, %.split.loop.exit10.i.i.i83 ], [ 0, %845 ]
   br i1 %.not.i2.i.i, label %847, label %851
 
-847:                                              ; preds = %_find_option_index_from_optval.exit.i.i76
+847:                                              ; preds = %_find_option_index_from_optval.exit.i.i77
   %848 = tail call i32 @get_log_level() #22
   %849 = icmp sgt i32 %848, 6
-  br i1 %849, label %850, label %slurm_option_set_by_cli.exit.i80
+  br i1 %849, label %850, label %slurm_option_set_by_cli.exit.i81
 
 850:                                              ; preds = %847
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_cli) #22
-  br label %slurm_option_set_by_cli.exit.i80
+  br label %slurm_option_set_by_cli.exit.i81
 
-851:                                              ; preds = %_find_option_index_from_optval.exit.i.i76
+851:                                              ; preds = %_find_option_index_from_optval.exit.i.i77
   %852 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %853 = load ptr, ptr %852, align 8
-  %.not8.i.i.i79 = icmp eq ptr %853, null
-  br i1 %.not8.i.i.i79, label %slurm_option_set_by_cli.exit.i80, label %854
+  %.not8.i.i.i80 = icmp eq ptr %853, null
+  br i1 %.not8.i.i.i80, label %slurm_option_set_by_cli.exit.i81, label %854
 
 854:                                              ; preds = %851
-  %855 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %853, i64 %.06.i.i.i77
+  %855 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %853, i64 %.06.i.i.i78
   %856 = load i8, ptr %855, align 1, !range !12, !noundef !13
   %857 = trunc nuw i8 %856 to i1
-  br i1 %857, label %858, label %slurm_option_set_by_cli.exit.i80
+  br i1 %857, label %858, label %slurm_option_set_by_cli.exit.i81
 
 858:                                              ; preds = %854
   %859 = getelementptr inbounds nuw i8, ptr %855, i64 1
   %860 = load i8, ptr %859, align 1, !range !12, !noundef !13
   %861 = trunc nuw i8 %860 to i1
-  br label %slurm_option_set_by_cli.exit.i80
+  br label %slurm_option_set_by_cli.exit.i81
 
-slurm_option_set_by_cli.exit.i80:                 ; preds = %858, %854, %851, %850, %847
-  %.not.i81 = phi i1 [ true, %850 ], [ true, %847 ], [ true, %851 ], [ true, %854 ], [ %861, %858 ]
+slurm_option_set_by_cli.exit.i81:                 ; preds = %858, %854, %851, %850, %847
+  %.0.i.i.not.i82 = phi i1 [ true, %850 ], [ true, %847 ], [ true, %851 ], [ true, %854 ], [ %861, %858 ]
   br label %862
 
-862:                                              ; preds = %868, %slurm_option_set_by_cli.exit.i80
-  %indvars.iv.i.i4.i = phi i64 [ 0, %slurm_option_set_by_cli.exit.i80 ], [ %indvars.iv.next.i.i5.i, %868 ]
+862:                                              ; preds = %868, %slurm_option_set_by_cli.exit.i81
+  %indvars.iv.i.i4.i = phi i64 [ 0, %slurm_option_set_by_cli.exit.i81 ], [ %indvars.iv.next.i.i5.i, %868 ]
   %863 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i4.i
   %864 = load ptr, ptr %863, align 8
   %865 = getelementptr inbounds nuw i8, ptr %864, i64 24
@@ -4879,8 +4875,8 @@ slurm_option_set_by_cli.exit14.i:                 ; preds = %877
   %881 = getelementptr inbounds nuw i8, ptr %878, i64 1
   %882 = load i8, ptr %881, align 1, !range !12, !noundef !13
   %883 = trunc nuw i8 %882 to i1
-  %brmerge.i82 = select i1 %.not.i81, i1 true, i1 %883
-  br i1 %brmerge.i82, label %_validate_share_options.exit, label %884
+  %or.cond.not.i = select i1 %.0.i.i.not.i82, i1 true, i1 %883
+  br i1 %or.cond.not.i, label %_validate_share_options.exit, label %884
 
 884:                                              ; preds = %slurm_option_set_by_cli.exit14.i
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.504) #23
@@ -5115,29 +5111,29 @@ _validate_tres_per_task.exit:                     ; preds = %941, %.outer._crit_
   %981 = load ptr, ptr %885, align 8
   %982 = call ptr @xstrcasestr(ptr noundef %981, ptr noundef nonnull @.str.19) #22
   %.not.i88 = icmp eq ptr %982, null
-  br i1 %.not.i88, label %.preheader.i125, label %.preheader161.i
+  br i1 %.not.i88, label %.preheader.i143, label %.preheader159.i
 
-.preheader161.i:                                  ; preds = %_validate_tres_per_task.exit, %988
+.preheader159.i:                                  ; preds = %_validate_tres_per_task.exit, %988
   %indvars.iv.i.i.i89 = phi i64 [ %indvars.iv.next.i.i.i90, %988 ], [ 0, %_validate_tres_per_task.exit ]
   %983 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i89
   %984 = load ptr, ptr %983, align 8
   %985 = getelementptr inbounds nuw i8, ptr %984, i64 24
   %986 = load i32, ptr %985, align 8
   %987 = icmp eq i32 %986, 99
-  br i1 %987, label %.split.loop.exit10.i.i.i123, label %988
+  br i1 %987, label %.split.loop.exit10.i.i.i141, label %988
 
-988:                                              ; preds = %.preheader161.i
+988:                                              ; preds = %.preheader159.i
   %indvars.iv.next.i.i.i90 = add nuw nsw i64 %indvars.iv.i.i.i89, 1
   %.not.i.i.i91 = icmp eq i64 %indvars.iv.next.i.i.i90, 163
-  br i1 %.not.i.i.i91, label %_find_option_index_from_optval.exit.i.i92, label %.preheader161.i, !llvm.loop !17
+  br i1 %.not.i.i.i91, label %_find_option_index_from_optval.exit.i.i92, label %.preheader159.i, !llvm.loop !17
 
-.split.loop.exit10.i.i.i123:                      ; preds = %.preheader161.i
-  %sext.i.i124 = shl i64 %indvars.iv.i.i.i89, 32
-  %989 = ashr exact i64 %sext.i.i124, 32
+.split.loop.exit10.i.i.i141:                      ; preds = %.preheader159.i
+  %sext.i.i142 = shl i64 %indvars.iv.i.i.i89, 32
+  %989 = ashr exact i64 %sext.i.i142, 32
   br label %_find_option_index_from_optval.exit.i.i92
 
-_find_option_index_from_optval.exit.i.i92:        ; preds = %988, %.split.loop.exit10.i.i.i123
-  %.06.i.i.i93 = phi i64 [ %989, %.split.loop.exit10.i.i.i123 ], [ 0, %988 ]
+_find_option_index_from_optval.exit.i.i92:        ; preds = %988, %.split.loop.exit10.i.i.i141
+  %.06.i.i.i93 = phi i64 [ %989, %.split.loop.exit10.i.i.i141 ], [ 0, %988 ]
   br i1 %.not.i2.i.i, label %990, label %994
 
 990:                                              ; preds = %_find_option_index_from_optval.exit.i.i92
@@ -5159,15 +5155,15 @@ _find_option_index_from_optval.exit.i.i92:        ; preds = %988, %.split.loop.e
   %998 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %996, i64 %.06.i.i.i93
   %999 = load i8, ptr %998, align 1, !range !12, !noundef !13
   %1000 = trunc nuw i8 %999 to i1
-  br i1 %1000, label %slurm_option_set_by_cli.exit.i122, label %slurm_option_set_by_cli.exit.thread.i.preheader
+  br i1 %1000, label %slurm_option_set_by_cli.exit.i140, label %slurm_option_set_by_cli.exit.thread.i.preheader
 
-slurm_option_set_by_cli.exit.i122:                ; preds = %997
+slurm_option_set_by_cli.exit.i140:                ; preds = %997
   %1001 = getelementptr inbounds nuw i8, ptr %998, i64 1
   %1002 = load i8, ptr %1001, align 1, !range !12, !noundef !13
   %1003 = trunc nuw i8 %1002 to i1
   br i1 %1003, label %slurm_option_set_by_cli.exit.thread.i.preheader, label %slurm_option_set_by_cli.exit40.i102
 
-slurm_option_set_by_cli.exit.thread.i.preheader:  ; preds = %slurm_option_set_by_cli.exit.i122, %997, %994, %993, %990
+slurm_option_set_by_cli.exit.thread.i.preheader:  ; preds = %slurm_option_set_by_cli.exit.i140, %997, %994, %993, %990
   br label %slurm_option_set_by_cli.exit.thread.i
 
 slurm_option_set_by_cli.exit.thread.i:            ; preds = %slurm_option_set_by_cli.exit.thread.i.preheader, %1009
@@ -5177,20 +5173,20 @@ slurm_option_set_by_cli.exit.thread.i:            ; preds = %slurm_option_set_by
   %1006 = getelementptr inbounds nuw i8, ptr %1005, i64 24
   %1007 = load i32, ptr %1006, align 8
   %1008 = icmp eq i32 %1007, 374
-  br i1 %1008, label %.split.loop.exit10.i.i38.i120, label %1009
+  br i1 %1008, label %.split.loop.exit10.i.i38.i138, label %1009
 
 1009:                                             ; preds = %slurm_option_set_by_cli.exit.thread.i
   %indvars.iv.next.i.i31.i97 = add nuw nsw i64 %indvars.iv.i.i30.i96, 1
   %.not.i.i32.i98 = icmp eq i64 %indvars.iv.next.i.i31.i97, 163
   br i1 %.not.i.i32.i98, label %_find_option_index_from_optval.exit.i33.i99, label %slurm_option_set_by_cli.exit.thread.i, !llvm.loop !17
 
-.split.loop.exit10.i.i38.i120:                    ; preds = %slurm_option_set_by_cli.exit.thread.i
-  %sext.i39.i121 = shl i64 %indvars.iv.i.i30.i96, 32
-  %1010 = ashr exact i64 %sext.i39.i121, 32
+.split.loop.exit10.i.i38.i138:                    ; preds = %slurm_option_set_by_cli.exit.thread.i
+  %sext.i39.i139 = shl i64 %indvars.iv.i.i30.i96, 32
+  %1010 = ashr exact i64 %sext.i39.i139, 32
   br label %_find_option_index_from_optval.exit.i33.i99
 
-_find_option_index_from_optval.exit.i33.i99:      ; preds = %1009, %.split.loop.exit10.i.i38.i120
-  %.06.i.i34.i100 = phi i64 [ %1010, %.split.loop.exit10.i.i38.i120 ], [ 0, %1009 ]
+_find_option_index_from_optval.exit.i33.i99:      ; preds = %1009, %.split.loop.exit10.i.i38.i138
+  %.06.i.i34.i100 = phi i64 [ %1010, %.split.loop.exit10.i.i38.i138 ], [ 0, %1009 ]
   br i1 %.not.i2.i.i, label %1011, label %1015
 
 1011:                                             ; preds = %_find_option_index_from_optval.exit.i33.i99
@@ -5221,8 +5217,8 @@ _find_option_index_from_optval.exit.i33.i99:      ; preds = %1009, %.split.loop.
   %1026 = xor i1 %1025, true
   br label %slurm_option_set_by_cli.exit40.i102
 
-slurm_option_set_by_cli.exit40.i102:              ; preds = %1022, %1018, %1015, %1014, %1011, %slurm_option_set_by_cli.exit.i122
-  %1027 = phi i1 [ true, %slurm_option_set_by_cli.exit.i122 ], [ false, %1014 ], [ false, %1011 ], [ false, %1015 ], [ false, %1018 ], [ %1026, %1022 ]
+slurm_option_set_by_cli.exit40.i102:              ; preds = %1022, %1018, %1015, %1014, %1011, %slurm_option_set_by_cli.exit.i140
+  %1027 = phi i1 [ true, %slurm_option_set_by_cli.exit.i140 ], [ false, %1014 ], [ false, %1011 ], [ false, %1015 ], [ false, %1018 ], [ %1026, %1022 ]
   br label %1028
 
 1028:                                             ; preds = %1034, %slurm_option_set_by_cli.exit40.i102
@@ -5316,7 +5312,7 @@ _find_option_index_from_optval.exit.i53.i:        ; preds = %1051, %.split.loop.
   %1063 = trunc nuw i8 %1062 to i1
   br i1 %1027, label %1106, label %1129
 
-.preheader.i125:                                  ; preds = %_validate_tres_per_task.exit, %1069
+.preheader.i143:                                  ; preds = %_validate_tres_per_task.exit, %1069
   %indvars.iv.i.i61.i = phi i64 [ %indvars.iv.next.i.i62.i, %1069 ], [ 0, %_validate_tres_per_task.exit ]
   %1064 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i61.i
   %1065 = load ptr, ptr %1064, align 8
@@ -5325,12 +5321,12 @@ _find_option_index_from_optval.exit.i53.i:        ; preds = %1051, %.split.loop.
   %1068 = icmp eq i32 %1067, 99
   br i1 %1068, label %.split.loop.exit10.i.i69.i, label %1069
 
-1069:                                             ; preds = %.preheader.i125
+1069:                                             ; preds = %.preheader.i143
   %indvars.iv.next.i.i62.i = add nuw nsw i64 %indvars.iv.i.i61.i, 1
   %.not.i.i63.i = icmp eq i64 %indvars.iv.next.i.i62.i, 163
-  br i1 %.not.i.i63.i, label %_find_option_index_from_optval.exit.i64.i, label %.preheader.i125, !llvm.loop !17
+  br i1 %.not.i.i63.i, label %_find_option_index_from_optval.exit.i64.i, label %.preheader.i143, !llvm.loop !17
 
-.split.loop.exit10.i.i69.i:                       ; preds = %.preheader.i125
+.split.loop.exit10.i.i69.i:                       ; preds = %.preheader.i143
   %sext.i70.i = shl i64 %indvars.iv.i.i61.i, 32
   %1070 = ashr exact i64 %sext.i70.i, 32
   br label %_find_option_index_from_optval.exit.i64.i
@@ -5416,12 +5412,12 @@ _find_option_index_from_optval.exit.i75.i:        ; preds = %1093, %.split.loop.
   br i1 %.0.i.i68.i, label %1106, label %1129
 
 slurm_option_set_by_env.exit60.i:                 ; preds = %1099, %1095, %1057, %1053, %slurm_option_set_by_env.exit.i109
-  %.024.i = phi i1 [ %1027, %slurm_option_set_by_env.exit.i109 ], [ %1027, %1053 ], [ %1027, %1057 ], [ %.0.i.i68.i, %1095 ], [ %.0.i.i68.i, %1099 ]
-  %.023.i = phi i1 [ true, %slurm_option_set_by_env.exit.i109 ], [ false, %1053 ], [ false, %1057 ], [ false, %1095 ], [ false, %1099 ]
-  br i1 %.024.i, label %1106, label %1129
+  %.025.i = phi i1 [ %1027, %slurm_option_set_by_env.exit.i109 ], [ %1027, %1053 ], [ %1027, %1057 ], [ %.0.i.i68.i, %1095 ], [ %.0.i.i68.i, %1099 ]
+  %.024.i = phi i1 [ true, %slurm_option_set_by_env.exit.i109 ], [ false, %1053 ], [ false, %1057 ], [ false, %1095 ], [ false, %1099 ]
+  br i1 %.025.i, label %1106, label %1129
 
 1106:                                             ; preds = %slurm_option_set_by_env.exit60.i, %1102, %1098, %1060, %1056
-  %.023142.i = phi i1 [ false, %1056 ], [ %.023.i, %slurm_option_set_by_env.exit60.i ], [ %1063, %1060 ], [ false, %1098 ], [ %1105, %1102 ]
+  %.024142.i = phi i1 [ false, %1056 ], [ %.024.i, %slurm_option_set_by_env.exit60.i ], [ %1063, %1060 ], [ false, %1098 ], [ %1105, %1102 ]
   br label %1107
 
 1107:                                             ; preds = %1113, %1106
@@ -5469,7 +5465,7 @@ _find_option_index_from_optval.exit.i86.i:        ; preds = %1113, %.split.loop.
   br i1 %1125, label %slurm_option_set_by_cli.exit93.i, label %slurm_option_set_by_cli.exit93.thread.i
 
 slurm_option_set_by_cli.exit93.thread.i:          ; preds = %1122, %1119, %1118, %1115
-  br i1 %.023142.i, label %1130, label %.thread.i
+  br i1 %.024142.i, label %1130, label %.thread.i
 
 slurm_option_set_by_cli.exit93.i:                 ; preds = %1122
   %1126 = getelementptr inbounds nuw i8, ptr %1123, i64 1
@@ -5478,38 +5474,38 @@ slurm_option_set_by_cli.exit93.i:                 ; preds = %1122
   br i1 %1128, label %1129, label %1149
 
 1129:                                             ; preds = %slurm_option_set_by_cli.exit93.i, %slurm_option_set_by_env.exit60.i, %1102, %1060
-  %.023141.i = phi i1 [ %.023142.i, %slurm_option_set_by_cli.exit93.i ], [ %.023.i, %slurm_option_set_by_env.exit60.i ], [ %1063, %1060 ], [ %1105, %1102 ]
-  %.024139.i = phi i1 [ true, %slurm_option_set_by_cli.exit93.i ], [ false, %slurm_option_set_by_env.exit60.i ], [ false, %1060 ], [ false, %1102 ]
-  br i1 %.023141.i, label %1130, label %1150
+  %.024141.i = phi i1 [ %.024142.i, %slurm_option_set_by_cli.exit93.i ], [ %.024.i, %slurm_option_set_by_env.exit60.i ], [ %1063, %1060 ], [ %1105, %1102 ]
+  %.025139.i = phi i1 [ true, %slurm_option_set_by_cli.exit93.i ], [ false, %slurm_option_set_by_env.exit60.i ], [ false, %1060 ], [ false, %1102 ]
+  br i1 %.024141.i, label %1130, label %1150
 
 1130:                                             ; preds = %1129, %slurm_option_set_by_cli.exit93.thread.i
-  %.024139149.i = phi i1 [ true, %slurm_option_set_by_cli.exit93.thread.i ], [ %.024139.i, %1129 ]
+  %.025139149.i = phi i1 [ true, %slurm_option_set_by_cli.exit93.thread.i ], [ %.025139.i, %1129 ]
   br label %1131
 
 1131:                                             ; preds = %1137, %1130
-  %indvars.iv.i.i94.i = phi i64 [ 0, %1130 ], [ %indvars.iv.next.i.i95.i, %1137 ]
-  %1132 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i94.i
+  %indvars.iv.i.i94.i131 = phi i64 [ 0, %1130 ], [ %indvars.iv.next.i.i95.i132, %1137 ]
+  %1132 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i94.i131
   %1133 = load ptr, ptr %1132, align 8
   %1134 = getelementptr inbounds nuw i8, ptr %1133, i64 24
   %1135 = load i32, ptr %1134, align 8
   %1136 = icmp eq i32 %1135, 281
-  br i1 %1136, label %.split.loop.exit10.i.i102.i, label %1137
+  br i1 %1136, label %.split.loop.exit10.i.i102.i136, label %1137
 
 1137:                                             ; preds = %1131
-  %indvars.iv.next.i.i95.i = add nuw nsw i64 %indvars.iv.i.i94.i, 1
-  %.not.i.i96.i = icmp eq i64 %indvars.iv.next.i.i95.i, 163
-  br i1 %.not.i.i96.i, label %_find_option_index_from_optval.exit.i97.i, label %1131, !llvm.loop !17
+  %indvars.iv.next.i.i95.i132 = add nuw nsw i64 %indvars.iv.i.i94.i131, 1
+  %.not.i.i96.i133 = icmp eq i64 %indvars.iv.next.i.i95.i132, 163
+  br i1 %.not.i.i96.i133, label %_find_option_index_from_optval.exit.i97.i134, label %1131, !llvm.loop !17
 
-.split.loop.exit10.i.i102.i:                      ; preds = %1131
-  %sext.i103.i = shl i64 %indvars.iv.i.i94.i, 32
-  %1138 = ashr exact i64 %sext.i103.i, 32
-  br label %_find_option_index_from_optval.exit.i97.i
+.split.loop.exit10.i.i102.i136:                   ; preds = %1131
+  %sext.i103.i137 = shl i64 %indvars.iv.i.i94.i131, 32
+  %1138 = ashr exact i64 %sext.i103.i137, 32
+  br label %_find_option_index_from_optval.exit.i97.i134
 
-_find_option_index_from_optval.exit.i97.i:        ; preds = %1137, %.split.loop.exit10.i.i102.i
-  %.06.i.i98.i = phi i64 [ %1138, %.split.loop.exit10.i.i102.i ], [ 0, %1137 ]
+_find_option_index_from_optval.exit.i97.i134:     ; preds = %1137, %.split.loop.exit10.i.i102.i136
+  %.06.i.i98.i135 = phi i64 [ %1138, %.split.loop.exit10.i.i102.i136 ], [ 0, %1137 ]
   br i1 %.not.i2.i.i, label %1139, label %1143
 
-1139:                                             ; preds = %_find_option_index_from_optval.exit.i97.i
+1139:                                             ; preds = %_find_option_index_from_optval.exit.i97.i134
   %1140 = call i32 @get_log_level() #22
   %1141 = icmp sgt i32 %1140, 6
   br i1 %1141, label %1142, label %slurm_option_set_by_env.exit104.thread.i
@@ -5518,17 +5514,17 @@ _find_option_index_from_optval.exit.i97.i:        ; preds = %1137, %.split.loop.
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
   br label %slurm_option_set_by_env.exit104.thread.i
 
-1143:                                             ; preds = %_find_option_index_from_optval.exit.i97.i
+1143:                                             ; preds = %_find_option_index_from_optval.exit.i97.i134
   %1144 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1145 = load ptr, ptr %1144, align 8
   %.not6.i.i100.i = icmp eq ptr %1145, null
   br i1 %.not6.i.i100.i, label %slurm_option_set_by_env.exit104.thread.i, label %slurm_option_set_by_env.exit104.i
 
 slurm_option_set_by_env.exit104.thread.i:         ; preds = %1143, %1142, %1139
-  br i1 %.024139149.i, label %.thread.i, label %.thread151.i
+  br i1 %.025139149.i, label %.thread.i, label %.thread151.i
 
 slurm_option_set_by_env.exit104.i:                ; preds = %1143
-  %1146 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %1145, i64 %.06.i.i98.i, i32 1
+  %1146 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %1145, i64 %.06.i.i98.i135, i32 1
   %1147 = load i8, ptr %1146, align 1, !range !12, !noundef !13
   %1148 = trunc nuw i8 %1147 to i1
   br i1 %1148, label %1149, label %1150
@@ -5538,38 +5534,38 @@ slurm_option_set_by_env.exit104.i:                ; preds = %1143
   unreachable
 
 1150:                                             ; preds = %slurm_option_set_by_env.exit104.i, %1129
-  %.024139147.i = phi i1 [ %.024139149.i, %slurm_option_set_by_env.exit104.i ], [ %.024139.i, %1129 ]
-  %.023141146.i = phi i1 [ true, %slurm_option_set_by_env.exit104.i ], [ false, %1129 ]
-  br i1 %.024139147.i, label %.thread.i, label %.thread151.i
+  %.025139147.i = phi i1 [ %.025139149.i, %slurm_option_set_by_env.exit104.i ], [ %.025139.i, %1129 ]
+  %.024141146.i = phi i1 [ true, %slurm_option_set_by_env.exit104.i ], [ false, %1129 ]
+  br i1 %.025139147.i, label %.thread.i, label %.thread151.i
 
 .thread.i:                                        ; preds = %1150, %slurm_option_set_by_env.exit104.thread.i, %slurm_option_set_by_cli.exit93.thread.i
-  %.023141146155.i = phi i1 [ true, %slurm_option_set_by_env.exit104.thread.i ], [ %.023141146.i, %1150 ], [ false, %slurm_option_set_by_cli.exit93.thread.i ]
+  %.024141146155.i = phi i1 [ true, %slurm_option_set_by_env.exit104.thread.i ], [ %.024141146.i, %1150 ], [ false, %slurm_option_set_by_cli.exit93.thread.i ]
   br label %1151
 
 1151:                                             ; preds = %1157, %.thread.i
-  %indvars.iv.i.i105.i113 = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i.i106.i, %1157 ]
+  %indvars.iv.i.i105.i113 = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i.i106.i114, %1157 ]
   %1152 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i105.i113
   %1153 = load ptr, ptr %1152, align 8
   %1154 = getelementptr inbounds nuw i8, ptr %1153, i64 24
   %1155 = load i32, ptr %1154, align 8
   %1156 = icmp eq i32 %1155, 281
-  br i1 %1156, label %.split.loop.exit10.i.i113.i, label %1157
+  br i1 %1156, label %.split.loop.exit10.i.i113.i129, label %1157
 
 1157:                                             ; preds = %1151
-  %indvars.iv.next.i.i106.i = add nuw nsw i64 %indvars.iv.i.i105.i113, 1
-  %.not.i.i107.i = icmp eq i64 %indvars.iv.next.i.i106.i, 163
-  br i1 %.not.i.i107.i, label %_find_option_index_from_optval.exit.i108.i, label %1151, !llvm.loop !17
+  %indvars.iv.next.i.i106.i114 = add nuw nsw i64 %indvars.iv.i.i105.i113, 1
+  %.not.i.i107.i115 = icmp eq i64 %indvars.iv.next.i.i106.i114, 163
+  br i1 %.not.i.i107.i115, label %_find_option_index_from_optval.exit.i108.i116, label %1151, !llvm.loop !17
 
-.split.loop.exit10.i.i113.i:                      ; preds = %1151
-  %sext.i114.i = shl i64 %indvars.iv.i.i105.i113, 32
-  %1158 = ashr exact i64 %sext.i114.i, 32
-  br label %_find_option_index_from_optval.exit.i108.i
+.split.loop.exit10.i.i113.i129:                   ; preds = %1151
+  %sext.i114.i130 = shl i64 %indvars.iv.i.i105.i113, 32
+  %1158 = ashr exact i64 %sext.i114.i130, 32
+  br label %_find_option_index_from_optval.exit.i108.i116
 
-_find_option_index_from_optval.exit.i108.i:       ; preds = %1157, %.split.loop.exit10.i.i113.i
-  %.06.i.i109.i = phi i64 [ %1158, %.split.loop.exit10.i.i113.i ], [ 0, %1157 ]
+_find_option_index_from_optval.exit.i108.i116:    ; preds = %1157, %.split.loop.exit10.i.i113.i129
+  %.06.i.i109.i117 = phi i64 [ %1158, %.split.loop.exit10.i.i113.i129 ], [ 0, %1157 ]
   br i1 %.not.i2.i.i, label %1159, label %1163
 
-1159:                                             ; preds = %_find_option_index_from_optval.exit.i108.i
+1159:                                             ; preds = %_find_option_index_from_optval.exit.i108.i116
   %1160 = call i32 @get_log_level() #22
   %1161 = icmp sgt i32 %1160, 6
   br i1 %1161, label %1162, label %.thread151.i
@@ -5578,81 +5574,81 @@ _find_option_index_from_optval.exit.i108.i:       ; preds = %1157, %.split.loop.
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
   br label %.thread151.i
 
-1163:                                             ; preds = %_find_option_index_from_optval.exit.i108.i
+1163:                                             ; preds = %_find_option_index_from_optval.exit.i108.i116
   %1164 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1165 = load ptr, ptr %1164, align 8
-  %.not6.i.i111.i = icmp eq ptr %1165, null
-  br i1 %.not6.i.i111.i, label %.thread151.i, label %slurm_option_set_by_env.exit115.i
+  %.not6.i.i111.i118 = icmp eq ptr %1165, null
+  br i1 %.not6.i.i111.i118, label %.thread151.i, label %slurm_option_set_by_env.exit115.i119
 
-slurm_option_set_by_env.exit115.i:                ; preds = %1163
-  %1166 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %1165, i64 %.06.i.i109.i, i32 1
+slurm_option_set_by_env.exit115.i119:             ; preds = %1163
+  %1166 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %1165, i64 %.06.i.i109.i117, i32 1
   %1167 = load i8, ptr %1166, align 1, !range !12, !noundef !13
   %1168 = trunc nuw i8 %1167 to i1
   br i1 %1168, label %1169, label %.thread151.i
 
-1169:                                             ; preds = %slurm_option_set_by_env.exit115.i
+1169:                                             ; preds = %slurm_option_set_by_env.exit115.i119
   %1170 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %1171 = load i32, ptr %1170, align 4
-  %.not26.i114 = icmp eq i32 %1171, 0
-  br i1 %.not26.i114, label %.preheader395, label %1172
+  %.not27.i120 = icmp eq i32 %1171, 0
+  br i1 %.not27.i120, label %.preheader412, label %1172
 
 1172:                                             ; preds = %1169
   %1173 = load ptr, ptr %0, align 8
-  %.not27.i115 = icmp eq ptr %1173, null
-  br i1 %.not27.i115, label %1174, label %1177
+  %.not28.i121 = icmp eq ptr %1173, null
+  br i1 %.not28.i121, label %1174, label %1177
 
 1174:                                             ; preds = %1172
   %1175 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1176 = load ptr, ptr %1175, align 8
-  %.not28.i119 = icmp eq ptr %1176, null
-  %.str.543..str.542.i = select i1 %.not28.i119, ptr @.str.543, ptr @.str.542
+  %.not29.i128 = icmp eq ptr %1176, null
+  %.str.543..str.542.i = select i1 %.not29.i128, ptr @.str.543, ptr @.str.542
   br label %1177
 
 1177:                                             ; preds = %1174, %1172
   %.0.i = phi ptr [ @.str.541, %1172 ], [ %.str.543..str.542.i, %1174 ]
   %1178 = call i32 @get_log_level() #22
   %1179 = icmp sgt i32 %1178, 2
-  br i1 %1179, label %1180, label %.preheader395
+  br i1 %1179, label %1180, label %.preheader412
 
 1180:                                             ; preds = %1177
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.544, ptr noundef nonnull %.0.i) #22
-  br label %.preheader395
+  br label %.preheader412
 
-.preheader395:                                    ; preds = %1180, %1177, %1169
+.preheader412:                                    ; preds = %1180, %1177, %1169
   br label %1181
 
-1181:                                             ; preds = %.preheader395, %1186
-  %indvars.iv.i.i116.i = phi i64 [ %indvars.iv.next.i.i117.i, %1186 ], [ 0, %.preheader395 ]
-  %1182 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i116.i
+1181:                                             ; preds = %.preheader412, %1186
+  %indvars.iv.i.i116.i122 = phi i64 [ %indvars.iv.next.i.i117.i124, %1186 ], [ 0, %.preheader412 ]
+  %1182 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i116.i122
   %1183 = load ptr, ptr %1182, align 8
   %1184 = load ptr, ptr %1183, align 8
   %1185 = call i32 @xstrcmp(ptr noundef nonnull @.str.126, ptr noundef %1184) #22
-  %.not9.i.i.i116 = icmp eq i32 %1185, 0
-  br i1 %.not9.i.i.i116, label %_find_option_idx.exit.i.i117, label %1186
+  %.not9.i.i.i123 = icmp eq i32 %1185, 0
+  br i1 %.not9.i.i.i123, label %_find_option_idx.exit.i.i126, label %1186
 
 1186:                                             ; preds = %1181
-  %indvars.iv.next.i.i117.i = add nuw nsw i64 %indvars.iv.i.i116.i, 1
-  %.not.i.i118.i = icmp eq i64 %indvars.iv.next.i.i117.i, 163
-  br i1 %.not.i.i118.i, label %_validate_cpus_per_tres.exit, label %1181, !llvm.loop !18
+  %indvars.iv.next.i.i117.i124 = add nuw nsw i64 %indvars.iv.i.i116.i122, 1
+  %.not.i.i118.i125 = icmp eq i64 %indvars.iv.next.i.i117.i124, 163
+  br i1 %.not.i.i118.i125, label %_validate_cpus_per_tres.exit, label %1181, !llvm.loop !18
 
-_find_option_idx.exit.i.i117:                     ; preds = %1181
-  %1187 = and i64 %indvars.iv.i.i116.i, 4294967295
+_find_option_idx.exit.i.i126:                     ; preds = %1181
+  %1187 = and i64 %indvars.iv.i.i116.i122, 4294967295
   %1188 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %1187
   %1189 = load ptr, ptr %1188, align 8
   %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 80
   %1191 = load ptr, ptr %1190, align 8
   call void %1191(ptr noundef nonnull %0) #22
   %1192 = load ptr, ptr %1164, align 8
-  %.not.i.i118 = icmp eq ptr %1192, null
-  br i1 %.not.i.i118, label %_validate_cpus_per_tres.exit, label %1193
+  %.not.i.i127 = icmp eq ptr %1192, null
+  br i1 %.not.i.i127, label %_validate_cpus_per_tres.exit, label %1193
 
-1193:                                             ; preds = %_find_option_idx.exit.i.i117
+1193:                                             ; preds = %_find_option_idx.exit.i.i126
   %1194 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %1192, i64 %1187
   store i8 0, ptr %1194, align 1
   br label %_validate_cpus_per_tres.exit
 
-.thread151.i:                                     ; preds = %slurm_option_set_by_env.exit115.i, %1163, %1162, %1159, %1150, %slurm_option_set_by_env.exit104.thread.i, %1098, %1056
-  %.023141146154.i = phi i1 [ %.023141146155.i, %slurm_option_set_by_env.exit115.i ], [ %.023141146.i, %1150 ], [ true, %slurm_option_set_by_env.exit104.thread.i ], [ false, %1098 ], [ false, %1056 ], [ %.023141146155.i, %1162 ], [ %.023141146155.i, %1159 ], [ %.023141146155.i, %1163 ]
+.thread151.i:                                     ; preds = %slurm_option_set_by_env.exit115.i119, %1163, %1162, %1159, %1150, %slurm_option_set_by_env.exit104.thread.i, %1098, %1056
+  %.024141146154.i = phi i1 [ %.024141146155.i, %slurm_option_set_by_env.exit115.i119 ], [ %.024141146.i, %1150 ], [ true, %slurm_option_set_by_env.exit104.thread.i ], [ false, %1098 ], [ false, %1056 ], [ %.024141146155.i, %1162 ], [ %.024141146155.i, %1159 ], [ %.024141146155.i, %1163 ]
   br label %1195
 
 1195:                                             ; preds = %1201, %.thread151.i
@@ -5703,302 +5699,302 @@ slurm_option_set_by_cli.exit129.i:                ; preds = %1210
   %1214 = getelementptr inbounds nuw i8, ptr %1211, i64 1
   %1215 = load i8, ptr %1214, align 1, !range !12, !noundef !13
   %1216 = trunc nuw i8 %1215 to i1
-  %.023.not.i = xor i1 %.023141146154.i, true
-  %brmerge.i111 = or i1 %.023.not.i, %1216
-  br i1 %brmerge.i111, label %_validate_cpus_per_tres.exit, label %1217
+  %1217 = xor i1 %1216, true
+  %or.cond.i111 = and i1 %.024141146154.i, %1217
+  br i1 %or.cond.i111, label %1218, label %_validate_cpus_per_tres.exit
 
-1217:                                             ; preds = %slurm_option_set_by_cli.exit129.i
-  %1218 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  %1219 = load i32, ptr %1218, align 4
-  %.not25.i112 = icmp eq i32 %1219, 0
-  br i1 %.not25.i112, label %.preheader, label %1220
+1218:                                             ; preds = %slurm_option_set_by_cli.exit129.i
+  %1219 = getelementptr inbounds nuw i8, ptr %0, i64 364
+  %1220 = load i32, ptr %1219, align 4
+  %.not26.i112 = icmp eq i32 %1220, 0
+  br i1 %.not26.i112, label %.preheader, label %1221
 
-1220:                                             ; preds = %1217
-  %1221 = call i32 @get_log_level() #22
-  %1222 = icmp sgt i32 %1221, 2
-  br i1 %1222, label %1223, label %.preheader
+1221:                                             ; preds = %1218
+  %1222 = call i32 @get_log_level() #22
+  %1223 = icmp sgt i32 %1222, 2
+  br i1 %1223, label %1224, label %.preheader
 
-1223:                                             ; preds = %1220
+1224:                                             ; preds = %1221
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.545) #22
   br label %.preheader
 
-.preheader:                                       ; preds = %1223, %1220, %1217
-  br label %1224
+.preheader:                                       ; preds = %1224, %1221, %1218
+  br label %1225
 
-1224:                                             ; preds = %.preheader, %1229
-  %indvars.iv.i.i130.i = phi i64 [ %indvars.iv.next.i.i132.i, %1229 ], [ 0, %.preheader ]
-  %1225 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i130.i
-  %1226 = load ptr, ptr %1225, align 8
+1225:                                             ; preds = %.preheader, %1230
+  %indvars.iv.i.i130.i = phi i64 [ %indvars.iv.next.i.i132.i, %1230 ], [ 0, %.preheader ]
+  %1226 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i130.i
   %1227 = load ptr, ptr %1226, align 8
-  %1228 = call i32 @xstrcmp(ptr noundef nonnull @.str.129, ptr noundef %1227) #22
-  %.not9.i.i131.i = icmp eq i32 %1228, 0
-  br i1 %.not9.i.i131.i, label %_find_option_idx.exit.i134.i, label %1229
+  %1228 = load ptr, ptr %1227, align 8
+  %1229 = call i32 @xstrcmp(ptr noundef nonnull @.str.129, ptr noundef %1228) #22
+  %.not9.i.i131.i = icmp eq i32 %1229, 0
+  br i1 %.not9.i.i131.i, label %_find_option_idx.exit.i134.i, label %1230
 
-1229:                                             ; preds = %1224
+1230:                                             ; preds = %1225
   %indvars.iv.next.i.i132.i = add nuw nsw i64 %indvars.iv.i.i130.i, 1
   %.not.i.i133.i = icmp eq i64 %indvars.iv.next.i.i132.i, 163
-  br i1 %.not.i.i133.i, label %slurm_option_reset.exit136.i, label %1224, !llvm.loop !18
+  br i1 %.not.i.i133.i, label %slurm_option_reset.exit136.i, label %1225, !llvm.loop !18
 
-_find_option_idx.exit.i134.i:                     ; preds = %1224
-  %1230 = and i64 %indvars.iv.i.i130.i, 4294967295
-  %1231 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %1230
-  %1232 = load ptr, ptr %1231, align 8
-  %1233 = getelementptr inbounds nuw i8, ptr %1232, i64 80
-  %1234 = load ptr, ptr %1233, align 8
-  call void %1234(ptr noundef nonnull %0) #22
-  %1235 = load ptr, ptr %1208, align 8
-  %.not.i135.i = icmp eq ptr %1235, null
-  br i1 %.not.i135.i, label %slurm_option_reset.exit136.i, label %1236
+_find_option_idx.exit.i134.i:                     ; preds = %1225
+  %1231 = and i64 %indvars.iv.i.i130.i, 4294967295
+  %1232 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %1231
+  %1233 = load ptr, ptr %1232, align 8
+  %1234 = getelementptr inbounds nuw i8, ptr %1233, i64 80
+  %1235 = load ptr, ptr %1234, align 8
+  call void %1235(ptr noundef nonnull %0) #22
+  %1236 = load ptr, ptr %1208, align 8
+  %.not.i135.i = icmp eq ptr %1236, null
+  br i1 %.not.i135.i, label %slurm_option_reset.exit136.i, label %1237
 
-1236:                                             ; preds = %_find_option_idx.exit.i134.i
-  %1237 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %1235, i64 %1230
-  store i8 0, ptr %1237, align 1
+1237:                                             ; preds = %_find_option_idx.exit.i134.i
+  %1238 = getelementptr inbounds nuw %struct.slurm_opt_state_t, ptr %1236, i64 %1231
+  store i8 0, ptr %1238, align 1
   br label %slurm_option_reset.exit136.i
 
-slurm_option_reset.exit136.i:                     ; preds = %1229, %1236, %_find_option_idx.exit.i134.i
-  %1238 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %1239 = load i32, ptr %1238, align 8
-  call void @slurm_option_update_tres_per_task(i32 noundef %1239, ptr noundef nonnull @.str.19, ptr noundef nonnull %885)
+slurm_option_reset.exit136.i:                     ; preds = %1230, %1237, %_find_option_idx.exit.i134.i
+  %1239 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1240 = load i32, ptr %1239, align 8
+  call void @slurm_option_update_tres_per_task(i32 noundef %1240, ptr noundef nonnull @.str.19, ptr noundef nonnull %885)
   br label %_validate_cpus_per_tres.exit
 
-_validate_cpus_per_tres.exit:                     ; preds = %1186, %_find_option_idx.exit.i.i117, %1193, %1203, %1206, %1207, %1210, %slurm_option_set_by_cli.exit129.i, %slurm_option_reset.exit136.i
-  %1240 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %1241 = load ptr, ptr %1240, align 8
-  %.not.i126 = icmp eq ptr %1241, null
-  br i1 %.not.i126, label %1250, label %1242
+_validate_cpus_per_tres.exit:                     ; preds = %1186, %_find_option_idx.exit.i.i126, %1193, %1203, %1206, %1207, %1210, %slurm_option_set_by_cli.exit129.i, %slurm_option_reset.exit136.i
+  %1241 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %1242 = load ptr, ptr %1241, align 8
+  %.not.i144 = icmp eq ptr %1242, null
+  br i1 %.not.i144, label %1251, label %1243
 
-1242:                                             ; preds = %_validate_cpus_per_tres.exit
-  %1243 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  call void @slurm_xfree(ptr noundef nonnull %1243) #22
-  %1244 = load ptr, ptr %1240, align 8
-  %1245 = call ptr @slurm_read_hostfile(ptr noundef %1244, i32 noundef 0) #22
-  %.not21.i127 = icmp eq ptr %1245, null
-  br i1 %.not21.i127, label %1246, label %1248
+1243:                                             ; preds = %_validate_cpus_per_tres.exit
+  %1244 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  call void @slurm_xfree(ptr noundef nonnull %1244) #22
+  %1245 = load ptr, ptr %1241, align 8
+  %1246 = call ptr @slurm_read_hostfile(ptr noundef %1245, i32 noundef 0) #22
+  %.not21.i145 = icmp eq ptr %1246, null
+  br i1 %.not21.i145, label %1247, label %1249
 
-1246:                                             ; preds = %1242
-  %1247 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.546) #22
+1247:                                             ; preds = %1243
+  %1248 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.546) #22
   call void @exit(i32 noundef -1) #24
   unreachable
 
-1248:                                             ; preds = %1242
-  %1249 = call ptr @xstrdup(ptr noundef nonnull %1245) #22
-  store ptr %1249, ptr %1243, align 8
-  call void @free(ptr noundef nonnull %1245) #22
-  br label %1250
+1249:                                             ; preds = %1243
+  %1250 = call ptr @xstrdup(ptr noundef nonnull %1246) #22
+  store ptr %1250, ptr %1244, align 8
+  call void @free(ptr noundef nonnull %1246) #22
+  br label %1251
 
-1250:                                             ; preds = %1248, %_validate_cpus_per_tres.exit
-  %1251 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %1252 = load ptr, ptr %1251, align 8
-  %.not22.i128 = icmp eq ptr %1252, null
-  br i1 %.not22.i128, label %1253, label %1291
+1251:                                             ; preds = %1249, %_validate_cpus_per_tres.exit
+  %1252 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %1253 = load ptr, ptr %1252, align 8
+  %.not22.i146 = icmp eq ptr %1253, null
+  br i1 %.not22.i146, label %1254, label %1292
 
-1253:                                             ; preds = %1250
-  %1254 = call ptr @getenv(ptr noundef nonnull @.str.547) #22
-  %1255 = call ptr @xstrdup(ptr noundef %1254) #22
-  store ptr %1255, ptr %1251, align 8
-  %.not23.i129 = icmp eq ptr %1255, null
-  br i1 %.not23.i129, label %_validate_nodelist.exit, label %1256
+1254:                                             ; preds = %1251
+  %1255 = call ptr @getenv(ptr noundef nonnull @.str.547) #22
+  %1256 = call ptr @xstrdup(ptr noundef %1255) #22
+  store ptr %1256, ptr %1252, align 8
+  %.not23.i147 = icmp eq ptr %1256, null
+  br i1 %.not23.i147, label %_validate_nodelist.exit, label %1257
 
-1256:                                             ; preds = %1253
-  %1257 = call ptr @xstrstr(ptr noundef nonnull %1255, ptr noundef nonnull @.str.548) #22
-  %.not24.i130 = icmp eq ptr %1257, null
-  br i1 %.not24.i130, label %1258, label %1262
+1257:                                             ; preds = %1254
+  %1258 = call ptr @xstrstr(ptr noundef nonnull %1256, ptr noundef nonnull @.str.548) #22
+  %.not24.i148 = icmp eq ptr %1258, null
+  br i1 %.not24.i148, label %1259, label %1263
 
-1258:                                             ; preds = %1256
+1259:                                             ; preds = %1257
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
-  %1259 = call ptr @xstrdup(ptr noundef nonnull @.str.549) #22
-  store ptr %1259, ptr %7, align 8
-  %1260 = load ptr, ptr %1251, align 8
-  call void @_xstrcat(ptr noundef nonnull %7, ptr noundef %1260) #22
-  call void @slurm_xfree(ptr noundef nonnull %1251) #22
-  %1261 = load ptr, ptr %7, align 8
-  store ptr %1261, ptr %1251, align 8
+  %1260 = call ptr @xstrdup(ptr noundef nonnull @.str.549) #22
+  store ptr %1260, ptr %7, align 8
+  %1261 = load ptr, ptr %1252, align 8
+  call void @_xstrcat(ptr noundef nonnull %7, ptr noundef %1261) #22
+  call void @slurm_xfree(ptr noundef nonnull %1252) #22
+  %1262 = load ptr, ptr %7, align 8
+  store ptr %1262, ptr %1252, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  br label %1262
+  br label %1263
 
-1262:                                             ; preds = %1258, %1256
-  %1263 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %1264 = load i32, ptr %1263, align 4
-  %1265 = and i32 %1264, 16711680
-  %1266 = or disjoint i32 %1265, 3
-  store i32 %1266, ptr %1263, align 4
-  %1267 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %1268 = load i8, ptr %1267, align 4, !range !12, !noundef !13
-  %1269 = trunc nuw i8 %1268 to i1
-  br i1 %1269, label %1270, label %1273
+1263:                                             ; preds = %1259, %1257
+  %1264 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %1265 = load i32, ptr %1264, align 4
+  %1266 = and i32 %1265, 16711680
+  %1267 = or disjoint i32 %1266, 3
+  store i32 %1267, ptr %1264, align 4
+  %1268 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %1269 = load i8, ptr %1268, align 4, !range !12, !noundef !13
+  %1270 = trunc nuw i8 %1269 to i1
+  br i1 %1270, label %1271, label %1274
 
-1270:                                             ; preds = %1262
-  %1271 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %1272 = load i32, ptr %1271, align 8
+1271:                                             ; preds = %1263
+  %1272 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %1273 = load i32, ptr %1272, align 8
   br label %_valid_node_list.exit.i
 
-1273:                                             ; preds = %1262
-  %1274 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %1275 = load i8, ptr %1274, align 8, !range !12, !noundef !13
-  %1276 = trunc nuw i8 %1275 to i1
-  br i1 %1276, label %1277, label %_valid_node_list.exit.i
+1274:                                             ; preds = %1263
+  %1275 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %1276 = load i8, ptr %1275, align 8, !range !12, !noundef !13
+  %1277 = trunc nuw i8 %1276 to i1
+  br i1 %1277, label %1278, label %_valid_node_list.exit.i
 
-1277:                                             ; preds = %1273
-  %1278 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %1279 = load i32, ptr %1278, align 4
-  %.not.i.i131 = icmp eq i32 %1279, 0
-  br i1 %.not.i.i131, label %1280, label %_valid_node_list.exit.i
+1278:                                             ; preds = %1274
+  %1279 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %1280 = load i32, ptr %1279, align 4
+  %.not.i.i149 = icmp eq i32 %1280, 0
+  br i1 %.not.i.i149, label %1281, label %_valid_node_list.exit.i
 
-1280:                                             ; preds = %1277
-  %1281 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %1282 = load i32, ptr %1281, align 8
-  %.not11.i.i = icmp eq i32 %1282, 0
-  %spec.select.i.i = select i1 %.not11.i.i, i32 -2, i32 %1282
+1281:                                             ; preds = %1278
+  %1282 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %1283 = load i32, ptr %1282, align 8
+  %.not11.i.i = icmp eq i32 %1283, 0
+  %spec.select.i.i = select i1 %.not11.i.i, i32 -2, i32 %1283
   br label %_valid_node_list.exit.i
 
-_valid_node_list.exit.i:                          ; preds = %1280, %1277, %1273, %1270
-  %.0.i.i = phi i32 [ %1272, %1270 ], [ -2, %1273 ], [ %1279, %1277 ], [ %spec.select.i.i, %1280 ]
-  %1283 = call zeroext i1 @verify_node_list(ptr noundef nonnull %1251, i32 noundef %1266, i32 noundef %.0.i.i) #22
-  br i1 %1283, label %1286, label %1284
+_valid_node_list.exit.i:                          ; preds = %1281, %1278, %1274, %1271
+  %.0.i.i = phi i32 [ %1273, %1271 ], [ -2, %1274 ], [ %1280, %1278 ], [ %spec.select.i.i, %1281 ]
+  %1284 = call zeroext i1 @verify_node_list(ptr noundef nonnull %1252, i32 noundef %1267, i32 noundef %.0.i.i) #22
+  br i1 %1284, label %1287, label %1285
 
-1284:                                             ; preds = %_valid_node_list.exit.i
-  %1285 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.550) #22
+1285:                                             ; preds = %_valid_node_list.exit.i
+  %1286 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.550) #22
   call void @exit(i32 noundef 1) #24
   unreachable
 
-1286:                                             ; preds = %_valid_node_list.exit.i
-  %1287 = call i32 @get_log_level() #22
-  %1288 = icmp sgt i32 %1287, 4
-  br i1 %1288, label %1289, label %_validate_nodelist.exit
+1287:                                             ; preds = %_valid_node_list.exit.i
+  %1288 = call i32 @get_log_level() #22
+  %1289 = icmp sgt i32 %1288, 4
+  br i1 %1289, label %1290, label %_validate_nodelist.exit
 
-1289:                                             ; preds = %1286
-  %1290 = load ptr, ptr %1251, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.551, ptr noundef %1290) #22
+1290:                                             ; preds = %1287
+  %1291 = load ptr, ptr %1252, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.551, ptr noundef %1291) #22
   br label %_validate_nodelist.exit
 
-1291:                                             ; preds = %1250
-  %1292 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %1293 = load i8, ptr %1292, align 4, !range !12, !noundef !13
-  %1294 = trunc nuw i8 %1293 to i1
-  br i1 %1294, label %1295, label %1298
+1292:                                             ; preds = %1251
+  %1293 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %1294 = load i8, ptr %1293, align 4, !range !12, !noundef !13
+  %1295 = trunc nuw i8 %1294 to i1
+  br i1 %1295, label %1296, label %1299
 
-1295:                                             ; preds = %1291
-  %1296 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %1297 = load i32, ptr %1296, align 8
+1296:                                             ; preds = %1292
+  %1297 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %1298 = load i32, ptr %1297, align 8
   br label %_valid_node_list.exit29.i
 
-1298:                                             ; preds = %1291
-  %1299 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %1300 = load i8, ptr %1299, align 8, !range !12, !noundef !13
-  %1301 = trunc nuw i8 %1300 to i1
-  br i1 %1301, label %1302, label %_valid_node_list.exit29.i
+1299:                                             ; preds = %1292
+  %1300 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %1301 = load i8, ptr %1300, align 8, !range !12, !noundef !13
+  %1302 = trunc nuw i8 %1301 to i1
+  br i1 %1302, label %1303, label %_valid_node_list.exit29.i
 
-1302:                                             ; preds = %1298
-  %1303 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %1304 = load i32, ptr %1303, align 4
-  %.not.i26.i = icmp eq i32 %1304, 0
-  br i1 %.not.i26.i, label %1305, label %_valid_node_list.exit29.i
+1303:                                             ; preds = %1299
+  %1304 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %1305 = load i32, ptr %1304, align 4
+  %.not.i26.i = icmp eq i32 %1305, 0
+  br i1 %.not.i26.i, label %1306, label %_valid_node_list.exit29.i
 
-1305:                                             ; preds = %1302
-  %1306 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %1307 = load i32, ptr %1306, align 8
-  %.not11.i27.i = icmp eq i32 %1307, 0
-  %spec.select.i28.i = select i1 %.not11.i27.i, i32 -2, i32 %1307
+1306:                                             ; preds = %1303
+  %1307 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %1308 = load i32, ptr %1307, align 8
+  %.not11.i27.i = icmp eq i32 %1308, 0
+  %spec.select.i28.i = select i1 %.not11.i27.i, i32 -2, i32 %1308
   br label %_valid_node_list.exit29.i
 
-_valid_node_list.exit29.i:                        ; preds = %1305, %1302, %1298, %1295
-  %.0.i25.i = phi i32 [ %1297, %1295 ], [ -2, %1298 ], [ %1304, %1302 ], [ %spec.select.i28.i, %1305 ]
-  %1308 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %1309 = load i32, ptr %1308, align 4
-  %1310 = call zeroext i1 @verify_node_list(ptr noundef nonnull %1251, i32 noundef %1309, i32 noundef %.0.i25.i) #22
-  br i1 %1310, label %_validate_nodelist.exit, label %1311
+_valid_node_list.exit29.i:                        ; preds = %1306, %1303, %1299, %1296
+  %.0.i25.i = phi i32 [ %1298, %1296 ], [ -2, %1299 ], [ %1305, %1303 ], [ %spec.select.i28.i, %1306 ]
+  %1309 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %1310 = load i32, ptr %1309, align 4
+  %1311 = call zeroext i1 @verify_node_list(ptr noundef nonnull %1252, i32 noundef %1310, i32 noundef %.0.i25.i) #22
+  br i1 %1311, label %_validate_nodelist.exit, label %1312
 
-1311:                                             ; preds = %_valid_node_list.exit29.i
+1312:                                             ; preds = %_valid_node_list.exit29.i
   call void @exit(i32 noundef 1) #24
   unreachable
 
-_validate_nodelist.exit:                          ; preds = %1253, %1286, %1289, %_valid_node_list.exit29.i
-  %1312 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %1313 = load i32, ptr %1312, align 4
-  %1314 = and i32 %1313, 65535
-  %.not.i132 = icmp eq i32 %1314, 3
-  br i1 %.not.i132, label %1315, label %_validate_arbitrary.exit
+_validate_nodelist.exit:                          ; preds = %1254, %1287, %1290, %_valid_node_list.exit29.i
+  %1313 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %1314 = load i32, ptr %1313, align 4
+  %1315 = and i32 %1314, 65535
+  %.not.i150 = icmp eq i32 %1315, 3
+  br i1 %.not.i150, label %1316, label %_validate_arbitrary.exit
 
-1315:                                             ; preds = %_validate_nodelist.exit
-  %1316 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %1317 = load i8, ptr %1316, align 8, !range !12, !noundef !13
-  %1318 = trunc nuw i8 %1317 to i1
-  br i1 %1318, label %.preheader.i133, label %_validate_arbitrary.exit
+1316:                                             ; preds = %_validate_nodelist.exit
+  %1317 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %1318 = load i8, ptr %1317, align 8, !range !12, !noundef !13
+  %1319 = trunc nuw i8 %1318 to i1
+  br i1 %1319, label %.preheader.i151, label %_validate_arbitrary.exit
 
-.preheader.i133:                                  ; preds = %1315, %1324
-  %indvars.iv.i.i.i134 = phi i64 [ %indvars.iv.next.i.i.i135, %1324 ], [ 0, %1315 ]
-  %1319 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i134
-  %1320 = load ptr, ptr %1319, align 8
-  %1321 = getelementptr inbounds nuw i8, ptr %1320, i64 24
-  %1322 = load i32, ptr %1321, align 8
-  %1323 = icmp eq i32 %1322, 78
-  br i1 %1323, label %.split.loop.exit10.i.i.i143, label %1324
+.preheader.i151:                                  ; preds = %1316, %1325
+  %indvars.iv.i.i.i152 = phi i64 [ %indvars.iv.next.i.i.i153, %1325 ], [ 0, %1316 ]
+  %1320 = getelementptr inbounds nuw [164 x ptr], ptr @common_options, i64 0, i64 %indvars.iv.i.i.i152
+  %1321 = load ptr, ptr %1320, align 8
+  %1322 = getelementptr inbounds nuw i8, ptr %1321, i64 24
+  %1323 = load i32, ptr %1322, align 8
+  %1324 = icmp eq i32 %1323, 78
+  br i1 %1324, label %.split.loop.exit10.i.i.i161, label %1325
 
-1324:                                             ; preds = %.preheader.i133
-  %indvars.iv.next.i.i.i135 = add nuw nsw i64 %indvars.iv.i.i.i134, 1
-  %.not.i.i.i136 = icmp eq i64 %indvars.iv.next.i.i.i135, 163
-  br i1 %.not.i.i.i136, label %_find_option_index_from_optval.exit.i.i137, label %.preheader.i133, !llvm.loop !17
+1325:                                             ; preds = %.preheader.i151
+  %indvars.iv.next.i.i.i153 = add nuw nsw i64 %indvars.iv.i.i.i152, 1
+  %.not.i.i.i154 = icmp eq i64 %indvars.iv.next.i.i.i153, 163
+  br i1 %.not.i.i.i154, label %_find_option_index_from_optval.exit.i.i155, label %.preheader.i151, !llvm.loop !17
 
-.split.loop.exit10.i.i.i143:                      ; preds = %.preheader.i133
-  %sext.i.i144 = shl i64 %indvars.iv.i.i.i134, 32
-  %1325 = ashr exact i64 %sext.i.i144, 32
-  br label %_find_option_index_from_optval.exit.i.i137
+.split.loop.exit10.i.i.i161:                      ; preds = %.preheader.i151
+  %sext.i.i162 = shl i64 %indvars.iv.i.i.i152, 32
+  %1326 = ashr exact i64 %sext.i.i162, 32
+  br label %_find_option_index_from_optval.exit.i.i155
 
-_find_option_index_from_optval.exit.i.i137:       ; preds = %1324, %.split.loop.exit10.i.i.i143
-  %.06.i.i.i138 = phi i64 [ %1325, %.split.loop.exit10.i.i.i143 ], [ 0, %1324 ]
-  br i1 %.not.i2.i.i, label %1326, label %1330
+_find_option_index_from_optval.exit.i.i155:       ; preds = %1325, %.split.loop.exit10.i.i.i161
+  %.06.i.i.i156 = phi i64 [ %1326, %.split.loop.exit10.i.i.i161 ], [ 0, %1325 ]
+  br i1 %.not.i2.i.i, label %1327, label %1331
 
-1326:                                             ; preds = %_find_option_index_from_optval.exit.i.i137
-  %1327 = call i32 @get_log_level() #22
-  %1328 = icmp sgt i32 %1327, 6
-  br i1 %1328, label %1329, label %slurm_option_set_by_env.exit.thread.i142
+1327:                                             ; preds = %_find_option_index_from_optval.exit.i.i155
+  %1328 = call i32 @get_log_level() #22
+  %1329 = icmp sgt i32 %1328, 6
+  br i1 %1329, label %1330, label %slurm_option_set_by_env.exit.thread.i160
 
-1329:                                             ; preds = %1326
+1330:                                             ; preds = %1327
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.479, ptr noundef nonnull @__func__._option_index_set_by_env) #22
-  br label %slurm_option_set_by_env.exit.thread.i142
+  br label %slurm_option_set_by_env.exit.thread.i160
 
-1330:                                             ; preds = %_find_option_index_from_optval.exit.i.i137
-  %1331 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1332 = load ptr, ptr %1331, align 8
-  %.not6.i.i.i140 = icmp eq ptr %1332, null
-  br i1 %.not6.i.i.i140, label %slurm_option_set_by_env.exit.thread.i142, label %slurm_option_set_by_env.exit.i141
+1331:                                             ; preds = %_find_option_index_from_optval.exit.i.i155
+  %1332 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1333 = load ptr, ptr %1332, align 8
+  %.not6.i.i.i158 = icmp eq ptr %1333, null
+  br i1 %.not6.i.i.i158, label %slurm_option_set_by_env.exit.thread.i160, label %slurm_option_set_by_env.exit.i159
 
-slurm_option_set_by_env.exit.i141:                ; preds = %1330
-  %1333 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %1332, i64 %.06.i.i.i138, i32 1
-  %1334 = load i8, ptr %1333, align 1, !range !12, !noundef !13
-  %1335 = trunc nuw i8 %1334 to i1
-  br i1 %1335, label %_validate_arbitrary.exit, label %slurm_option_set_by_env.exit.thread.i142
+slurm_option_set_by_env.exit.i159:                ; preds = %1331
+  %1334 = getelementptr inbounds %struct.slurm_opt_state_t, ptr %1333, i64 %.06.i.i.i156, i32 1
+  %1335 = load i8, ptr %1334, align 1, !range !12, !noundef !13
+  %1336 = trunc nuw i8 %1335 to i1
+  br i1 %1336, label %_validate_arbitrary.exit, label %slurm_option_set_by_env.exit.thread.i160
 
-slurm_option_set_by_env.exit.thread.i142:         ; preds = %slurm_option_set_by_env.exit.i141, %1330, %1329, %1326
-  %1336 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.552) #22
+slurm_option_set_by_env.exit.thread.i160:         ; preds = %slurm_option_set_by_env.exit.i159, %1331, %1330, %1327
+  %1337 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.552) #22
   call void @exit(i32 noundef 1) #24
   unreachable
 
-_validate_arbitrary.exit:                         ; preds = %_validate_nodelist.exit, %1315, %slurm_option_set_by_env.exit.i141
-  %1337 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %1338 = load i64, ptr %1337, align 8
-  %1339 = and i64 %1338, 524288
-  %.not.i145 = icmp eq i64 %1339, 0
-  br i1 %.not.i145, label %1340, label %1345
+_validate_arbitrary.exit:                         ; preds = %_validate_nodelist.exit, %1316, %slurm_option_set_by_env.exit.i159
+  %1338 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %1339 = load i64, ptr %1338, align 8
+  %1340 = and i64 %1339, 524288
+  %.not.i163 = icmp eq i64 %1340, 0
+  br i1 %.not.i163, label %1341, label %1346
 
-1340:                                             ; preds = %_validate_arbitrary.exit
-  %1341 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
-  %1342 = and i16 %1341, 64
-  %.not6.i = icmp eq i16 %1342, 0
-  br i1 %.not6.i, label %1345, label %1343
+1341:                                             ; preds = %_validate_arbitrary.exit
+  %1342 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
+  %1343 = and i16 %1342, 64
+  %.not6.i = icmp eq i16 %1343, 0
+  br i1 %.not6.i, label %1346, label %1344
 
-1343:                                             ; preds = %1340
-  %1344 = or i64 %1338, 16
-  store i64 %1344, ptr %1337, align 8
-  br label %1345
+1344:                                             ; preds = %1341
+  %1345 = or i64 %1339, 16
+  store i64 %1345, ptr %1338, align 8
+  br label %1346
 
-1345:                                             ; preds = %1343, %1340, %_validate_arbitrary.exit
-  %1346 = phi i64 [ %1344, %1343 ], [ %1338, %1340 ], [ %1338, %_validate_arbitrary.exit ]
-  %1347 = and i64 %1346, 274877906944
-  %.not7.i = icmp eq i64 %1347, 0
-  br i1 %.not7.i, label %1360, label %1348
+1346:                                             ; preds = %1344, %1341, %_validate_arbitrary.exit
+  %1347 = phi i64 [ %1345, %1344 ], [ %1339, %1341 ], [ %1339, %_validate_arbitrary.exit ]
+  %1348 = and i64 %1347, 274877906944
+  %.not7.i = icmp eq i64 %1348, 0
+  br i1 %.not7.i, label %1361, label %1349
 
-1348:                                             ; preds = %1345
+1349:                                             ; preds = %1346
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
   store ptr @.str.18, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
@@ -6006,27 +6002,27 @@ _validate_arbitrary.exit:                         ; preds = %_validate_nodelist.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  br label %1349
+  br label %1350
 
-1349:                                             ; preds = %1356, %1348
-  %1350 = load ptr, ptr %885, align 8
-  %1351 = call i32 @slurm_get_next_tres(ptr noundef nonnull %2, ptr noundef %1350, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5) #22
-  %1352 = icmp eq i32 %1351, 0
-  %1353 = load ptr, ptr %5, align 8
-  %1354 = icmp ne ptr %1353, null
-  %1355 = select i1 %1352, i1 %1354, i1 false
-  br i1 %1355, label %1356, label %.critedge.i146
+1350:                                             ; preds = %1357, %1349
+  %1351 = load ptr, ptr %885, align 8
+  %1352 = call i32 @slurm_get_next_tres(ptr noundef nonnull %2, ptr noundef %1351, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5) #22
+  %1353 = icmp eq i32 %1352, 0
+  %1354 = load ptr, ptr %5, align 8
+  %1355 = icmp ne ptr %1354, null
+  %1356 = select i1 %1353, i1 %1355, i1 false
+  br i1 %1356, label %1357, label %.critedge.i
 
-1356:                                             ; preds = %1349
-  %1357 = load ptr, ptr %3, align 8
-  %1358 = call zeroext i1 @gres_is_shared_name(ptr noundef %1357) #22
-  br i1 %1358, label %1359, label %1349, !llvm.loop !21
+1357:                                             ; preds = %1350
+  %1358 = load ptr, ptr %3, align 8
+  %1359 = call zeroext i1 @gres_is_shared_name(ptr noundef %1358) #22
+  br i1 %1359, label %1360, label %1350, !llvm.loop !21
 
-.critedge.i146:                                   ; preds = %1349
+.critedge.i:                                      ; preds = %1350
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.553) #23
   unreachable
 
-1359:                                             ; preds = %1356
+1360:                                             ; preds = %1357
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
@@ -6034,23 +6030,23 @@ _validate_arbitrary.exit:                         ; preds = %_validate_nodelist.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
   br label %_validate_gres_flags.exit
 
-1360:                                             ; preds = %1345
-  %1361 = and i64 %1346, 549755813888
-  %.not8.i = icmp eq i64 %1361, 0
-  br i1 %.not8.i, label %1362, label %_validate_gres_flags.exit
+1361:                                             ; preds = %1346
+  %1362 = and i64 %1347, 549755813888
+  %.not8.i = icmp eq i64 %1362, 0
+  br i1 %.not8.i, label %1363, label %_validate_gres_flags.exit
 
-1362:                                             ; preds = %1360
-  %1363 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
-  %1364 = and i16 %1363, 128
-  %.not9.i147 = icmp eq i16 %1364, 0
-  br i1 %.not9.i147, label %_validate_gres_flags.exit, label %1365
+1363:                                             ; preds = %1361
+  %1364 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
+  %1365 = and i16 %1364, 128
+  %.not9.i164 = icmp eq i16 %1365, 0
+  br i1 %.not9.i164, label %_validate_gres_flags.exit, label %1366
 
-1365:                                             ; preds = %1362
-  %1366 = or disjoint i64 %1346, 274877906944
-  store i64 %1366, ptr %1337, align 8
+1366:                                             ; preds = %1363
+  %1367 = or disjoint i64 %1347, 274877906944
+  store i64 %1367, ptr %1338, align 8
   br label %_validate_gres_flags.exit
 
-_validate_gres_flags.exit:                        ; preds = %1359, %1360, %1362, %1365
+_validate_gres_flags.exit:                        ; preds = %1360, %1361, %1363, %1366
   ret void
 }
 
@@ -7309,13 +7305,13 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   %12 = sext i8 %8 to i64
   %13 = getelementptr inbounds i16, ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2
-  %.fr54 = freeze i16 %14
-  %15 = and i16 %.fr54, 1024
-  %16 = icmp eq i16 %15, 0
+  %.fr56 = freeze i16 %14
+  %15 = and i16 %.fr56, 1024
+  %16 = icmp ne i16 %15, 0
   br label %17
 
 17:                                               ; preds = %7, %9
-  %.not46 = phi i1 [ %16, %9 ], [ false, %7 ]
+  %.fr52 = phi i1 [ %16, %9 ], [ true, %7 ]
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %19 = icmp ugt i64 %18, 1
   br i1 %19, label %.split.preheader, label %20
@@ -7326,102 +7322,102 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
   %23 = sext i8 %8 to i64
   %24 = getelementptr inbounds i16, ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2
-  %.fr53 = freeze i16 %25
-  %26 = and i16 %.fr53, 1024
-  %27 = icmp eq i16 %26, 0
-  br i1 %27, label %.split.us, label %.split.preheader
+  %.fr54 = freeze i16 %25
+  %26 = and i16 %.fr54, 1024
+  %.not73 = icmp eq i16 %26, 0
+  br i1 %.not73, label %.split.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %17, %20
-  %28 = load ptr, ptr %0, align 8
-  %.not76 = icmp eq ptr %28, null
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load i32, ptr %29, align 8
-  %.not3977 = icmp eq i32 %30, 0
-  %or.cond7078 = select i1 %.not76, i1 %.not3977, i1 false
-  br i1 %or.cond7078, label %.split52.us, label %.critedge.preheader
+  %27 = load ptr, ptr %0, align 8
+  %.not79 = icmp eq ptr %27, null
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load i32, ptr %28, align 8
+  %.not4380 = icmp eq i32 %29, 0
+  %or.cond7281 = select i1 %.not79, i1 %.not4380, i1 false
+  br i1 %or.cond7281, label %.split51.us, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.split.preheader
-  %31 = tail call ptr @__ctype_b_loc() #26
+  %30 = tail call ptr @__ctype_b_loc() #26
   br label %.critedge
 
 .split.us:                                        ; preds = %20
-  br i1 %.not46, label %.split52.us, label %.split.us.split.preheader
+  br i1 %.fr52, label %.split.us.split.preheader, label %.split51.us
 
 .split.us.split.preheader:                        ; preds = %.split.us
-  %32 = load ptr, ptr %0, align 8
-  %.not.us72 = icmp eq ptr %32, null
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %34 = load i32, ptr %33, align 8
-  %.not39.us73 = icmp eq i32 %34, 0
-  %or.cond6974 = select i1 %.not.us72, i1 %.not39.us73, i1 false
-  br i1 %or.cond6974, label %.split52.us, label %.critedge.us.preheader
+  %31 = load ptr, ptr %0, align 8
+  %.not.us75 = icmp eq ptr %31, null
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %33 = load i32, ptr %32, align 8
+  %.not43.us76 = icmp eq i32 %33, 0
+  %or.cond7177 = select i1 %.not.us75, i1 %.not43.us76, i1 false
+  br i1 %or.cond7177, label %.split51.us, label %.critedge.us.preheader
 
 .critedge.us.preheader:                           ; preds = %.split.us.split.preheader
-  %35 = tail call ptr @__ctype_b_loc() #26
+  %34 = tail call ptr @__ctype_b_loc() #26
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %.critedge.us.preheader, %.split.us.split
-  %36 = phi i32 [ %52, %.split.us.split ], [ %34, %.critedge.us.preheader ]
-  %indvars.iv5875 = phi i64 [ %indvars.iv.next59, %.split.us.split ], [ 0, %.critedge.us.preheader ]
-  %37 = load ptr, ptr %35, align 8
-  %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds i16, ptr %37, i64 %38
-  %40 = load i16, ptr %39, align 2
-  %41 = and i16 %40, 1024
-  %.not41.us = icmp eq i16 %41, 0
-  br i1 %.not41.us, label %.split.us.split, label %42
+  %35 = phi i32 [ %51, %.split.us.split ], [ %33, %.critedge.us.preheader ]
+  %indvars.iv78 = phi i64 [ %indvars.iv.next, %.split.us.split ], [ 0, %.critedge.us.preheader ]
+  %36 = load ptr, ptr %34, align 8
+  %37 = sext i32 %35 to i64
+  %38 = getelementptr inbounds i16, ptr %36, i64 %37
+  %39 = load i16, ptr %38, align 2
+  %40 = and i16 %39, 1024
+  %.not57 = icmp eq i16 %40, 0
+  br i1 %.not57, label %.split.us.split, label %41
 
-42:                                               ; preds = %.critedge.us
-  %sext.us = shl i32 %36, 24
-  %43 = ashr exact i32 %sext.us, 24
-  %44 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.42, i32 noundef %43) #22
-  store ptr %44, ptr %4, align 8
-  %45 = call ptr @xstrstr(ptr noundef %44, ptr noundef nonnull %1) #22
-  %.not42.us = icmp eq ptr %45, null
-  br i1 %.not42.us, label %48, label %46
+41:                                               ; preds = %.critedge.us
+  %sext.us = shl i32 %35, 24
+  %42 = ashr exact i32 %sext.us, 24
+  %43 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.42, i32 noundef %42) #22
+  store ptr %43, ptr %4, align 8
+  %44 = call ptr @xstrstr(ptr noundef %43, ptr noundef nonnull %1) #22
+  %.not45.us = icmp eq ptr %44, null
+  br i1 %.not45.us, label %47, label %45
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, ptr noundef %47, i32 noundef 10) #22
-  br label %48
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %4, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, ptr noundef %46, i32 noundef 10) #22
+  br label %47
 
-48:                                               ; preds = %46, %42
+47:                                               ; preds = %45, %41
   call void @slurm_xfree(ptr noundef nonnull %4) #22
   br label %.split.us.split
 
-.split.us.split:                                  ; preds = %48, %.critedge.us
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv5875, 1
-  %49 = getelementptr inbounds nuw %struct.option, ptr %0, i64 %indvars.iv.next59
-  %50 = load ptr, ptr %49, align 8
-  %.not.us = icmp eq ptr %50, null
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %52 = load i32, ptr %51, align 8
-  %.not39.us = icmp eq i32 %52, 0
-  %or.cond69 = select i1 %.not.us, i1 %.not39.us, i1 false
-  br i1 %or.cond69, label %.split52.us, label %.critedge.us, !llvm.loop !24
+.split.us.split:                                  ; preds = %47, %.critedge.us
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv78, 1
+  %48 = getelementptr inbounds nuw %struct.option, ptr %0, i64 %indvars.iv.next
+  %49 = load ptr, ptr %48, align 8
+  %.not.us = icmp eq ptr %49, null
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %51 = load i32, ptr %50, align 8
+  %.not43.us = icmp eq i32 %51, 0
+  %or.cond71 = select i1 %.not.us, i1 %.not43.us, i1 false
+  br i1 %or.cond71, label %.split51.us, label %.critedge.us, !llvm.loop !24
 
 .critedge:                                        ; preds = %.critedge.preheader, %.split
-  %53 = phi i32 [ %88, %.split ], [ %30, %.critedge.preheader ]
-  %54 = phi ptr [ %86, %.split ], [ %28, %.critedge.preheader ]
-  %indvars.iv79 = phi i64 [ %indvars.iv.next, %.split ], [ 0, %.critedge.preheader ]
-  %55 = getelementptr inbounds nuw %struct.option, ptr %0, i64 %indvars.iv79
-  %56 = load ptr, ptr %31, align 8
-  %57 = sext i32 %53 to i64
-  %58 = getelementptr inbounds i16, ptr %56, i64 %57
-  %59 = load i16, ptr %58, align 2
-  %60 = and i16 %59, 1024
-  %.not41 = icmp eq i16 %60, 0
-  %brmerge = or i1 %.not41, %.not46
-  br i1 %brmerge, label %68, label %61
+  %52 = phi i32 [ %88, %.split ], [ %29, %.critedge.preheader ]
+  %53 = phi ptr [ %86, %.split ], [ %27, %.critedge.preheader ]
+  %indvars.iv6382 = phi i64 [ %indvars.iv.next64, %.split ], [ 0, %.critedge.preheader ]
+  %54 = getelementptr inbounds nuw %struct.option, ptr %0, i64 %indvars.iv6382
+  %55 = load ptr, ptr %30, align 8
+  %56 = sext i32 %52 to i64
+  %57 = getelementptr inbounds i16, ptr %55, i64 %56
+  %58 = load i16, ptr %57, align 2
+  %59 = and i16 %58, 1024
+  %60 = icmp ne i16 %59, 0
+  %or.cond3 = and i1 %60, %.fr52
+  br i1 %or.cond3, label %61, label %68
 
 61:                                               ; preds = %.critedge
-  %sext = shl i32 %53, 24
+  %sext = shl i32 %52, 24
   %62 = ashr exact i32 %sext, 24
   %63 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.42, i32 noundef %62) #22
   store ptr %63, ptr %4, align 8
   %64 = call ptr @xstrstr(ptr noundef %63, ptr noundef nonnull %1) #22
-  %.not42 = icmp eq ptr %64, null
-  br i1 %.not42, label %67, label %65
+  %.not45 = icmp eq ptr %64, null
+  br i1 %.not45, label %67, label %65
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr %4, align 8
@@ -7430,26 +7426,26 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
 
 67:                                               ; preds = %65, %61
   call void @slurm_xfree(ptr noundef nonnull %4) #22
-  %.pre64 = load ptr, ptr %55, align 8
+  %.pre68 = load ptr, ptr %54, align 8
   br label %68
 
-68:                                               ; preds = %.critedge, %67
-  %69 = phi ptr [ %54, %.critedge ], [ %.pre64, %67 ]
-  %.not43 = icmp eq ptr %69, null
-  br i1 %.not43, label %.split, label %70
+68:                                               ; preds = %67, %.critedge
+  %69 = phi ptr [ %.pre68, %67 ], [ %53, %.critedge ]
+  %.not58 = icmp eq ptr %69, null
+  br i1 %.not58, label %.split, label %70
 
 70:                                               ; preds = %68
   %71 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.44, ptr noundef nonnull %69) #22
   store ptr %71, ptr %4, align 8
   %72 = call ptr @xstrstr(ptr noundef %71, ptr noundef nonnull %1) #22
-  %.not44 = icmp eq ptr %72, null
-  br i1 %.not44, label %.sink.split, label %73
+  %.not46 = icmp eq ptr %72, null
+  br i1 %.not46, label %.sink.split, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %75 = load i32, ptr %74, align 8
-  %.not45 = icmp eq i32 %75, 0
-  br i1 %.not45, label %.thread50, label %76
+  %.not47 = icmp eq i32 %75, 0
+  br i1 %.not47, label %.thread49, label %76
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr %4, align 8
@@ -7461,45 +7457,45 @@ define dso_local void @suggest_completion(ptr noundef readonly captures(address_
 79:                                               ; preds = %76
   %80 = load ptr, ptr %4, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, ptr noundef %80, i32 noundef 10) #22
-  %.pr49 = load i32, ptr %74, align 8
+  %.pr48 = load i32, ptr %74, align 8
   br label %81
 
 81:                                               ; preds = %79, %76
-  %82 = phi i32 [ %.pr49, %79 ], [ %.pr, %76 ]
+  %82 = phi i32 [ %.pr48, %79 ], [ %.pr, %76 ]
   %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.thread50, label %.sink.split
+  br i1 %83, label %.thread49, label %.sink.split
 
-.thread50:                                        ; preds = %73, %81
+.thread49:                                        ; preds = %73, %81
   %84 = load ptr, ptr %4, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, ptr noundef %84, i32 noundef 10) #22
   br label %.sink.split
 
-.sink.split:                                      ; preds = %81, %.thread50, %70
+.sink.split:                                      ; preds = %81, %.thread49, %70
   call void @slurm_xfree(ptr noundef nonnull %4) #22
   br label %.split
 
 .split:                                           ; preds = %.sink.split, %68
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv79, 1
-  %85 = getelementptr inbounds nuw %struct.option, ptr %0, i64 %indvars.iv.next
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv6382, 1
+  %85 = getelementptr inbounds nuw %struct.option, ptr %0, i64 %indvars.iv.next64
   %86 = load ptr, ptr %85, align 8
   %.not = icmp eq ptr %86, null
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %88 = load i32, ptr %87, align 8
-  %.not39 = icmp eq i32 %88, 0
-  %or.cond70 = select i1 %.not, i1 %.not39, i1 false
-  br i1 %or.cond70, label %.split52.us, label %.critedge, !llvm.loop !24
+  %.not43 = icmp eq i32 %88, 0
+  %or.cond72 = select i1 %.not, i1 %.not43, i1 false
+  br i1 %or.cond72, label %.split51.us, label %.critedge, !llvm.loop !24
 
-.split52.us:                                      ; preds = %.split.us.split, %.split, %.split.us.split.preheader, %.split.preheader, %.split.us
+.split51.us:                                      ; preds = %.split.us.split, %.split, %.split.us.split.preheader, %.split.preheader, %.split.us
   %89 = load ptr, ptr %3, align 8
-  %.not40 = icmp eq ptr %89, null
-  br i1 %.not40, label %93, label %90
+  %.not44 = icmp eq ptr %89, null
+  br i1 %.not44, label %93, label %90
 
-90:                                               ; preds = %.split52.us
+90:                                               ; preds = %.split51.us
   %91 = load ptr, ptr @stdout, align 8
   %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.47, ptr noundef nonnull %89) #22
   br label %93
 
-93:                                               ; preds = %90, %.split52.us
+93:                                               ; preds = %90, %.split51.us
   call void @slurm_xfree(ptr noundef nonnull %3) #22
   br label %94
 
@@ -9397,23 +9393,21 @@ define internal ptr @arg_get_exclusive(ptr noundef readonly captures(none) %0) #
   %3 = load i16, ptr %2, align 2
   %switch.tableidx = add i16 %3, 2
   %4 = icmp ult i16 %switch.tableidx, 7
-  br i1 %4, label %switch.hole_check, label %7
-
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i16 %switch.tableidx to i8
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 125, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
+  %or.cond = select i1 %4, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %5 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.arg_get_exclusive, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = tail call ptr @xstrdup(ptr noundef nonnull %switch.load) #22
   br label %7
 
-7:                                                ; preds = %switch.hole_check, %1, %switch.lookup
-  %.0 = phi ptr [ null, %1 ], [ %6, %switch.lookup ], [ null, %switch.hole_check ]
+7:                                                ; preds = %1, %switch.lookup
+  %.0 = phi ptr [ null, %1 ], [ %6, %switch.lookup ]
   ret ptr %.0
 }
 

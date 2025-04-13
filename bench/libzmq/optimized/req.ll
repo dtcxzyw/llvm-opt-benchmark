@@ -648,20 +648,18 @@ define noundef zeroext i1 @_ZN3zmq5req_t8xhas_outEv(ptr noundef nonnull align 8 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1929
   %3 = load i8, ptr %2, align 1, !tbaa !6, !range !96, !noundef !97
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1952
+  %6 = load i8, ptr %5, align 8, !range !96
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond, label %10, label %8
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1952
-  %7 = load i8, ptr %6, align 8, !tbaa !94, !range !96, !noundef !97
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %11, label %9
+8:                                                ; preds = %1
+  %9 = tail call noundef zeroext i1 @_ZN3zmq8dealer_t8xhas_outEv(ptr noundef nonnull align 8 dereferenceable(1929) %0)
+  br label %10
 
-9:                                                ; preds = %5, %1
-  %10 = tail call noundef zeroext i1 @_ZN3zmq8dealer_t8xhas_outEv(ptr noundef nonnull align 8 dereferenceable(1929) %0)
-  br label %11
-
-11:                                               ; preds = %5, %9
-  %.0 = phi i1 [ %10, %9 ], [ false, %5 ]
+10:                                               ; preds = %1, %8
+  %.0 = phi i1 [ %9, %8 ], [ false, %1 ]
   ret i1 %.0
 }
 

@@ -460,9 +460,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14LandingPadInstELb1EE9push_backES2_.exit.
   %97 = call noundef i32 @_ZN4llvm21classifyEHPersonalityEPKNS_5ValueE(ptr noundef %96) #16
   %switch.tableidx = add i32 %97, -7
   %98 = icmp ult i32 %switch.tableidx, 6
-  br i1 %98, label %switch.hole_check, label %_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit.i.i
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 47, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %98, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EED2Ev.exit.i.i, label %_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit.i.i
 
-_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit.i.i: ; preds = %switch.hole_check, %95
+_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit.i.i: ; preds = %95
   %99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #16
   %100 = load i32, ptr %46, align 8, !tbaa !156
   %101 = zext i32 %100 to i64
@@ -1311,14 +1315,8 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit127.i.i: ; preds = %457, %454
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0135.0.lcssa.i.i, i64 noundef %461) #19
   br label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EED2Ev.exit.i.i
 
-switch.hole_check:                                ; preds = %95
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 47, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EED2Ev.exit.i.i, label %_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit.i.i
-
-_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EED2Ev.exit.i.i: ; preds = %switch.hole_check, %458, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit127.i.i, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit.i.i, %218, %._crit_edge.i.i
-  %.0.i.i = phi i1 [ false, %._crit_edge.i.i ], [ true, %218 ], [ true, %458 ], [ true, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit127.i.i ], [ true, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit.i.i ], [ false, %switch.hole_check ]
+_ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EED2Ev.exit.i.i: ; preds = %95, %458, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit127.i.i, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit.i.i, %218, %._crit_edge.i.i
+  %.0.i.i = phi i1 [ false, %._crit_edge.i.i ], [ true, %218 ], [ true, %458 ], [ true, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit127.i.i ], [ true, %_ZN4llvm11SmallVectorIPNS_5ValueELj1EED2Ev.exit.i.i ], [ false, %95 ]
   %462 = load ptr, ptr %12, align 8, !tbaa !155
   %463 = icmp eq ptr %462, %48
   br i1 %463, label %_ZN4llvm11SmallVectorIPNS_14LandingPadInstELj16EED2Ev.exit.i.i, label %464

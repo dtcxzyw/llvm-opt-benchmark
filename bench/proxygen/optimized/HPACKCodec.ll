@@ -1250,12 +1250,12 @@ invoke.cont51:                                    ; preds = %if.end48
   %.not = select i1 %tobool.i.i.i.i, i1 %cmp.i.i, i1 false
   %17 = load i32, ptr %upgradeWebsocket_.i, align 4
   %cmp.i24 = icmp ne i32 %17, 2
-  %or.cond.not69 = select i1 %.not, i1 %cmp.i24, i1 false
+  %or.cond67.not69 = select i1 %.not, i1 %cmp.i24, i1 false
   %upgradeProtocol_.i25 = getelementptr inbounds nuw i8, ptr %msg, i64 568
   %18 = load ptr, ptr %upgradeProtocol_.i25, align 8
   %tobool57.not = icmp eq ptr %18, null
-  %or.cond67 = select i1 %or.cond.not69, i1 %tobool57.not, i1 false
-  br i1 %or.cond67, label %if.end75, label %if.then58
+  %or.cond68 = select i1 %or.cond67.not69, i1 %tobool57.not, i1 false
+  br i1 %or.cond68, label %if.end75, label %if.then58
 
 if.then58:                                        ; preds = %invoke.cont51
   %scheme_.i = getelementptr inbounds nuw i8, ptr %msg, i64 612
@@ -1446,17 +1446,17 @@ invoke.cont116:                                   ; preds = %invoke.cont113
           to label %if.end120 unwind label %terminate.lpad
 
 if.end120:                                        ; preds = %invoke.cont116, %invoke.cont113
-  %37 = load i8, ptr %fields_.i, align 8
-  %cmp.i38 = icmp eq i8 %37, 2
-  %or.cond68 = select i1 %includeDate, i1 %cmp.i38, i1 false
-  br i1 %or.cond68, label %land.lhs.true124, label %if.end135
+  br i1 %includeDate, label %land.lhs.true, label %if.end135
 
-land.lhs.true124:                                 ; preds = %if.end120
+land.lhs.true:                                    ; preds = %if.end120
+  %37 = load i8, ptr %fields_.i, align 8
+  %cmp.i38 = icmp ne i8 %37, 2
   %38 = load i8, ptr %hasDateHeader, align 1
   %tobool125 = trunc i8 %38 to i1
-  br i1 %tobool125, label %if.end135, label %if.then126
+  %or.cond = select i1 %cmp.i38, i1 true, i1 %tobool125
+  br i1 %or.cond, label %if.end135, label %if.then126
 
-if.then126:                                       ; preds = %land.lhs.true124
+if.then126:                                       ; preds = %land.lhs.true
   invoke void @_ZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp128)
           to label %invoke.cont129 unwind label %terminate.lpad
 
@@ -1472,7 +1472,7 @@ invoke.cont130:                                   ; preds = %invoke.cont129
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128) #28
   br label %if.end135
 
-if.end135:                                        ; preds = %invoke.cont130, %land.lhs.true124, %if.end120
+if.end135:                                        ; preds = %invoke.cont130, %land.lhs.true, %if.end120
   invoke void @_ZN8proxygen12HPACKEncoder14completeEncodeEv(ptr noundef nonnull align 8 dereferenceable(236) %encoder_)
           to label %invoke.cont137 unwind label %terminate.lpad
 

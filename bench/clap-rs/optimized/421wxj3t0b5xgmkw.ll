@@ -2960,11 +2960,11 @@ define void @"_ZN116_$LT$clap_builder..parser..matches..arg_matches..GroupedValu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !833)
   %10 = load ptr, ptr %9, align 8, !alias.scope !836, !noalias !837, !nonnull !18, !noundef !18
   call void %10(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6), !noalias !842
-  %.sroa.0.0.copyload5 = load i64, ptr %3, align 8, !noalias !821
-  %.sroa.6.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx6, i64 16, i1 false)
+  %.sroa.0.0.copyload3 = load i64, ptr %3, align 8, !noalias !821
+  %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !829
-  %.not = icmp eq i64 %.sroa.0.0.copyload5, -9223372036854775808
+  %.not = icmp eq i64 %.sroa.0.0.copyload3, -9223372036854775808
   br i1 %.not, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd901bd2f2b75b16eE.exit.thread", label %11
 
 11:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd901bd2f2b75b16eE.exit"
@@ -2972,7 +2972,7 @@ define void @"_ZN116_$LT$clap_builder..parser..matches..arg_matches..GroupedValu
   %13 = load i64, ptr %12, align 8, !noundef !18
   %14 = add i64 %13, -1
   store i64 %14, ptr %12, align 8
-  store i64 %.sroa.0.0.copyload5, ptr %0, align 8
+  store i64 %.sroa.0.0.copyload3, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   br label %15
@@ -3017,11 +3017,11 @@ define void @"_ZN131_$LT$clap_builder..parser..matches..arg_matches..GroupedValu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !858)
   %10 = load ptr, ptr %9, align 8, !alias.scope !861, !noalias !862, !nonnull !18, !noundef !18
   call void %10(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8), !noalias !867
-  %.sroa.0.0.copyload5 = load i64, ptr %3, align 8, !noalias !843
-  %.sroa.6.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx6, i64 16, i1 false)
+  %.sroa.0.0.copyload3 = load i64, ptr %3, align 8, !noalias !843
+  %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !854
-  %.not = icmp eq i64 %.sroa.0.0.copyload5, -9223372036854775808
+  %.not = icmp eq i64 %.sroa.0.0.copyload3, -9223372036854775808
   br i1 %.not, label %"_ZN117_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h88cf84871efdfec4E.exit.thread", label %11
 
 11:                                               ; preds = %"_ZN117_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h88cf84871efdfec4E.exit"
@@ -3029,7 +3029,7 @@ define void @"_ZN131_$LT$clap_builder..parser..matches..arg_matches..GroupedValu
   %13 = load i64, ptr %12, align 8, !noundef !18
   %14 = add i64 %13, -1
   store i64 %14, ptr %12, align 8
-  store i64 %.sroa.0.0.copyload5, ptr %0, align 8
+  store i64 %.sroa.0.0.copyload3, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   br label %15

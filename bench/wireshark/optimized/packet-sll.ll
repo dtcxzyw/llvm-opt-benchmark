@@ -381,15 +381,13 @@ define internal fastcc i32 @dissect_sll_common(ptr noundef %0, ptr noundef %1, p
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.sink)
   %9 = zext i16 %8 to i32
   %10 = icmp ult i16 %8, 5
-  br i1 %10, label %switch.hole_check, label %13
-
-switch.hole_check:                                ; preds = %7
-  %switch.maskindex = trunc nuw i16 %8 to i8
+  %switch.maskindex = trunc i16 %8 to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %13
+  %or.cond = select i1 %10, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %13
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %7
   %11 = zext nneg i16 %8 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.dissect_sll_common, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -397,7 +395,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %switch.load, ptr %12, align 4
   br label %13
 
-13:                                               ; preds = %switch.hole_check, %7, %switch.lookup
+13:                                               ; preds = %7, %switch.lookup
   switch i8 %trunc, label %15 [
     i8 25, label %16
     i8 -46, label %14

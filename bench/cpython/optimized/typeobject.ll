@@ -2187,15 +2187,13 @@ skip_signature.exit.thread:                       ; preds = %.preheader, %15, %9
   %22 = add i32 %21, -4
   %23 = tail call i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 30)
   %24 = icmp ult i32 %23, 10
-  br i1 %24, label %switch.hole_check, label %signature_from_flags.exit
-
-switch.hole_check:                                ; preds = %skip_signature.exit.thread
-  %switch.maskindex = trunc nuw i32 %23 to i16
+  %switch.maskindex = trunc i32 %23 to i16
   %switch.shifted = lshr i16 819, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %signature_from_flags.exit
+  %or.cond = select i1 %24, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %signature_from_flags.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %skip_signature.exit.thread
   %25 = zext nneg i32 %23 to i64
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._PyType_GetTextSignatureFromInternalDoc, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2210,8 +2208,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %32 = tail call ptr @PyUnicode_FromStringAndSize(ptr noundef nonnull %10, i64 noundef %31) #24
   br label %signature_from_flags.exit
 
-signature_from_flags.exit:                        ; preds = %switch.hole_check, %skip_signature.exit.thread, %27, %switch.lookup
-  %.012 = phi ptr [ %32, %27 ], [ %26, %switch.lookup ], [ @_Py_NoneStruct, %skip_signature.exit.thread ], [ @_Py_NoneStruct, %switch.hole_check ]
+signature_from_flags.exit:                        ; preds = %skip_signature.exit.thread, %27, %switch.lookup
+  %.012 = phi ptr [ %32, %27 ], [ %26, %switch.lookup ], [ @_Py_NoneStruct, %skip_signature.exit.thread ]
   ret ptr %.012
 }
 

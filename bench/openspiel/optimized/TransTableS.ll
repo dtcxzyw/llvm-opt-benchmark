@@ -1154,9 +1154,9 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit: ; pre
 58:                                               ; preds = %50
   %59 = load ptr, ptr %.046.i, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread, label %.lr.ph.i30
+  br i1 %60, label %_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread, label %.lr.ph.i31
 
-.lr.ph.i30:                                       ; preds = %58, %.backedge.i
+.lr.ph.i31:                                       ; preds = %58, %.backedge.i
   %.039.i = phi i32 [ %.0.be.i, %.backedge.i ], [ 0, %58 ]
   %.02238.i = phi ptr [ %.022.be.i, %.backedge.i ], [ %59, %58 ]
   %61 = getelementptr inbounds nuw i8, ptr %.02238.i, i64 4
@@ -1169,7 +1169,7 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit: ; pre
   %68 = icmp eq i32 %66, %67
   br i1 %68, label %69, label %.preheader
 
-69:                                               ; preds = %.lr.ph.i30
+69:                                               ; preds = %.lr.ph.i31
   %.not28.i = icmp eq i32 %.039.i, 3
   br i1 %.not28.i, label %74, label %70
 
@@ -1181,9 +1181,9 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit: ; pre
 
 .backedge.i:                                      ; preds = %84, %70
   %.022.be.i = phi ptr [ %72, %70 ], [ %86, %84 ]
-  %.0.be.i = phi i32 [ %73, %70 ], [ %.1.i31, %84 ]
-  %.not.i32 = icmp eq ptr %.022.be.i, null
-  br i1 %.not.i32, label %_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread, label %.lr.ph.i30, !llvm.loop !33
+  %.0.be.i = phi i32 [ %73, %70 ], [ %.1.i32, %84 ]
+  %.not.i33 = icmp eq ptr %.022.be.i, null
+  br i1 %.not.i33, label %_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread, label %.lr.ph.i31, !llvm.loop !33
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %.02238.i, i64 8
@@ -1200,12 +1200,12 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit: ; pre
   %.not29.i = icmp slt i32 %5, %83
   br i1 %.not29.i, label %.preheader, label %.loopexit30.sink.split.i
 
-.preheader:                                       ; preds = %81, %.lr.ph.i30
+.preheader:                                       ; preds = %81, %.lr.ph.i31
   br label %84
 
 84:                                               ; preds = %.preheader, %88
   %.123.i = phi ptr [ %90, %88 ], [ %.02238.i, %.preheader ]
-  %.1.i31 = phi i32 [ %91, %88 ], [ %.039.i, %.preheader ]
+  %.1.i32 = phi i32 [ %91, %88 ], [ %.039.i, %.preheader ]
   %85 = getelementptr inbounds nuw i8, ptr %.123.i, i64 32
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
@@ -1214,7 +1214,7 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit: ; pre
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %.123.i, i64 16
   %90 = load ptr, ptr %89, align 8
-  %91 = add nsw i32 %.1.i31, -1
+  %91 = add nsw i32 %.1.i32, -1
   %92 = icmp eq ptr %90, null
   br i1 %92, label %_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread, label %84, !llvm.loop !34
 
@@ -1226,8 +1226,8 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit: ; pre
   br label %_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread
 
 _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit.thread: ; preds = %41, %38, %.backedge.i, %88, %.loopexit30.sink.split.i, %58
-  %.026 = phi ptr [ null, %58 ], [ %94, %.loopexit30.sink.split.i ], [ null, %88 ], [ null, %.backedge.i ], [ null, %38 ], [ null, %41 ]
-  ret ptr %.026
+  %.027 = phi ptr [ null, %58 ], [ %94, %.loopexit30.sink.split.i ], [ null, %88 ], [ null, %.backedge.i ], [ null, %38 ], [ null, %41 ]
+  ret ptr %.027
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable

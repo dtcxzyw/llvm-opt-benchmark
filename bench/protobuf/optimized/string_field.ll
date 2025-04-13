@@ -2918,15 +2918,19 @@ land.lhs.true:                                    ; preds = %entry
   %2 = getelementptr i8, ptr %this.val, i64 80
   %this.val.val = load ptr, ptr %2, align 8
   %call2.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %this.val.val) #30
-  br i1 %call2.i, label %if.end12, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.lhs.true, %entry
   %is_oneof_.i = getelementptr inbounds nuw i8, ptr %this, i64 76
   %3 = load i8, ptr %is_oneof_.i, align 4
   %tobool.i3 = trunc i8 %3 to i1
-  br i1 %tobool.i3, label %if.end12, label %if.end
+  %or.cond = select i1 %call2.i, i1 true, i1 %tobool.i3
+  br i1 %or.cond, label %if.end12, label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false
+lor.lhs.false:                                    ; preds = %entry
+  %is_oneof_.i.old = getelementptr inbounds nuw i8, ptr %this, i64 76
+  %.old = load i8, ptr %is_oneof_.i.old, align 4
+  %tobool.i3.old = trunc i8 %.old to i1
+  br i1 %tobool.i3.old, label %if.end12, label %if.end
+
+if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 31, ptr nonnull @.str.100)
   %field_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %4 = load ptr, ptr %field_, align 8

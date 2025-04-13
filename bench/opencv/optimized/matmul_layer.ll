@@ -3234,36 +3234,33 @@ declare noundef i32 @_ZN2cv3dnn14dnn4_v202412235Layer17outputNameToIndexERKNSt7_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn15MatMulLayerImpl14supportBackendEi(ptr noundef nonnull align 8 dereferenceable(456) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
-  switch i32 %1, label %13 [
-    i32 1000000, label %15
-    i32 3, label %15
+  switch i32 %1, label %11 [
+    i32 1000000, label %13
+    i32 3, label %13
     i32 4, label %3
-    i32 5, label %15
+    i32 5, label %13
   ]
 
 3:                                                ; preds = %2
   %4 = tail call noundef zeroext i1 @_ZN2cv3dnn10haveVulkanEv()
-  br i1 %4, label %5, label %13
+  %.not = xor i1 %4, true
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %6 = load i8, ptr %5, align 4, !range !98
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 101
+  %9 = load i8, ptr %8, align 1, !range !98
+  %10 = trunc nuw i8 %9 to i1
+  %or.cond13 = select i1 %or.cond, i1 true, i1 %10
+  br i1 %or.cond13, label %11, label %13
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %7 = load i8, ptr %6, align 4, !tbaa !41, !range !98, !noundef !99
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %13, label %9
+11:                                               ; preds = %3, %2
+  %12 = icmp eq i32 %1, 8
+  br label %13
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 101
-  %11 = load i8, ptr %10, align 1, !tbaa !71, !range !98, !noundef !99
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %15
-
-13:                                               ; preds = %3, %5, %2, %9
-  %14 = icmp eq i32 %1, 8
-  br label %15
-
-15:                                               ; preds = %2, %2, %2, %13, %9
-  %16 = phi i1 [ true, %9 ], [ true, %2 ], [ %14, %13 ], [ true, %2 ], [ true, %2 ]
-  ret i1 %16
+13:                                               ; preds = %3, %2, %2, %2, %11
+  %14 = phi i1 [ true, %2 ], [ %12, %11 ], [ true, %2 ], [ true, %2 ], [ true, %3 ]
+  ret i1 %14
 }
 
 declare void @_ZN2cv3dnn14dnn4_v202412235Layer10initHalideERKSt6vectorINS_3PtrINS1_14BackendWrapperEEESaIS6_EE() unnamed_addr

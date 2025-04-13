@@ -869,79 +869,77 @@ define noundef ptr @_ZNK3gmx19TopologyInformation16expandedTopologyEv(ptr nounde
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !42
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %4, label %34
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i8, ptr %4, align 8, !range !137
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond = select i1 %.not.i, i1 %6, i1 false
+  br i1 %or.cond, label %7, label %33
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 8, !tbaa !10, !range !137, !noundef !138
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %34
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %0, align 8, !tbaa !47
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = tail call noalias noundef nonnull dereferenceable(2808) ptr @_Znwm(i64 noundef 2808) #24, !noalias !145
+  invoke void @_ZN14gmx_localtop_tC1ERK14gmx_ffparams_t(ptr noundef nonnull align 8 dereferenceable(2808) %10, ptr noundef nonnull align 8 dereferenceable(104) %9)
+          to label %_ZSt11make_uniqueI14gmx_localtop_tJR14gmx_ffparams_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %11, !noalias !145
 
-8:                                                ; preds = %4
-  %9 = load ptr, ptr %0, align 8, !tbaa !47
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = tail call noalias noundef nonnull dereferenceable(2808) ptr @_Znwm(i64 noundef 2808) #24, !noalias !145
-  invoke void @_ZN14gmx_localtop_tC1ERK14gmx_ffparams_t(ptr noundef nonnull align 8 dereferenceable(2808) %11, ptr noundef nonnull align 8 dereferenceable(104) %10)
-          to label %_ZSt11make_uniqueI14gmx_localtop_tJR14gmx_ffparams_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %12, !noalias !145
-
-12:                                               ; preds = %8
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %7
+  %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 2808) #23, !noalias !145
-  resume { ptr, i32 } %13
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 2808) #23, !noalias !145
+  resume { ptr, i32 } %12
 
-_ZSt11make_uniqueI14gmx_localtop_tJR14gmx_ffparams_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %8
-  %14 = load ptr, ptr %2, align 8, !tbaa !42
-  store ptr %11, ptr %2, align 8, !tbaa !42
-  %.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrI14gmx_localtop_tSt14default_deleteIS0_EED2Ev.exit, label %15
+_ZSt11make_uniqueI14gmx_localtop_tJR14gmx_ffparams_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %7
+  %13 = load ptr, ptr %2, align 8, !tbaa !42
+  store ptr %10, ptr %2, align 8, !tbaa !42
+  %.not.i.i.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrI14gmx_localtop_tSt14default_deleteIS0_EED2Ev.exit, label %14
 
-15:                                               ; preds = %_ZSt11make_uniqueI14gmx_localtop_tJR14gmx_ffparams_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 2760
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 2784
-  %18 = load ptr, ptr %17, align 8, !tbaa !43
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i.i.i, label %19
+14:                                               ; preds = %_ZSt11make_uniqueI14gmx_localtop_tJR14gmx_ffparams_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 2760
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 2784
+  %17 = load ptr, ptr %16, align 8, !tbaa !43
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i.i.i, label %18
 
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %14, i64 2800
-  %21 = load ptr, ptr %20, align 8, !tbaa !46
-  %22 = ptrtoint ptr %21 to i64
-  %23 = ptrtoint ptr %18 to i64
-  %24 = sub i64 %22, %23
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %24) #23
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 2800
+  %20 = load ptr, ptr %19, align 8, !tbaa !46
+  %21 = ptrtoint ptr %20 to i64
+  %22 = ptrtoint ptr %17 to i64
+  %23 = sub i64 %21, %22
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %23) #23
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i.i.i
 
-_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i.i.i:      ; preds = %19, %15
-  %25 = load ptr, ptr %16, align 8, !tbaa !43
-  %.not.i.i.i1.i.i.i.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i1.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteI14gmx_localtop_tEclEPS0_.exit.i.i.i.i, label %26
+_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i.i.i:      ; preds = %18, %14
+  %24 = load ptr, ptr %15, align 8, !tbaa !43
+  %.not.i.i.i1.i.i.i.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i1.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteI14gmx_localtop_tEclEPS0_.exit.i.i.i.i, label %25
 
-26:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %14, i64 2776
-  %28 = load ptr, ptr %27, align 8, !tbaa !46
-  %29 = ptrtoint ptr %28 to i64
-  %30 = ptrtoint ptr %25 to i64
-  %31 = sub i64 %29, %30
-  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %31) #23
+25:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 2776
+  %27 = load ptr, ptr %26, align 8, !tbaa !46
+  %28 = ptrtoint ptr %27 to i64
+  %29 = ptrtoint ptr %24 to i64
+  %30 = sub i64 %28, %29
+  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %30) #23
   br label %_ZNKSt14default_deleteI14gmx_localtop_tEclEPS0_.exit.i.i.i.i
 
-_ZNKSt14default_deleteI14gmx_localtop_tEclEPS0_.exit.i.i.i.i: ; preds = %26, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i.i.i
-  tail call void @_ZN22InteractionDefinitionsD2Ev(ptr noundef nonnull align 8 dereferenceable(2808) %14) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef 2808) #23
+_ZNKSt14default_deleteI14gmx_localtop_tEclEPS0_.exit.i.i.i.i: ; preds = %25, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i.i.i.i
+  tail call void @_ZN22InteractionDefinitionsD2Ev(ptr noundef nonnull align 8 dereferenceable(2808) %13) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef 2808) #23
   %.pre = load ptr, ptr %2, align 8, !tbaa !42
   br label %_ZNSt10unique_ptrI14gmx_localtop_tSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI14gmx_localtop_tSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteI14gmx_localtop_tEclEPS0_.exit.i.i.i.i, %_ZSt11make_uniqueI14gmx_localtop_tJR14gmx_ffparams_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %32 = phi ptr [ %.pre, %_ZNKSt14default_deleteI14gmx_localtop_tEclEPS0_.exit.i.i.i.i ], [ %11, %_ZSt11make_uniqueI14gmx_localtop_tJR14gmx_ffparams_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
-  %33 = load ptr, ptr %0, align 8, !tbaa !47
-  tail call void @_Z27gmx_mtop_generate_local_topRK10gmx_mtop_tP14gmx_localtop_tb(ptr noundef nonnull align 8 dereferenceable(768) %33, ptr noundef %32, i1 noundef zeroext false)
-  %.pre3 = load ptr, ptr %2, align 8, !tbaa !42
-  br label %34
+  %31 = phi ptr [ %.pre, %_ZNKSt14default_deleteI14gmx_localtop_tEclEPS0_.exit.i.i.i.i ], [ %10, %_ZSt11make_uniqueI14gmx_localtop_tJR14gmx_ffparams_tEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
+  %32 = load ptr, ptr %0, align 8, !tbaa !47
+  tail call void @_Z27gmx_mtop_generate_local_topRK10gmx_mtop_tP14gmx_localtop_tb(ptr noundef nonnull align 8 dereferenceable(768) %32, ptr noundef %31, i1 noundef zeroext false)
+  %.pre5 = load ptr, ptr %2, align 8, !tbaa !42
+  br label %33
 
-34:                                               ; preds = %_ZNSt10unique_ptrI14gmx_localtop_tSt14default_deleteIS0_EED2Ev.exit, %4, %1
-  %35 = phi ptr [ %.pre3, %_ZNSt10unique_ptrI14gmx_localtop_tSt14default_deleteIS0_EED2Ev.exit ], [ null, %4 ], [ %3, %1 ]
-  ret ptr %35
+33:                                               ; preds = %_ZNSt10unique_ptrI14gmx_localtop_tSt14default_deleteIS0_EED2Ev.exit, %1
+  %34 = phi ptr [ %.pre5, %_ZNSt10unique_ptrI14gmx_localtop_tSt14default_deleteIS0_EED2Ev.exit ], [ %3, %1 ]
+  ret ptr %34
 }
 
 declare void @_Z27gmx_mtop_generate_local_topRK10gmx_mtop_tP14gmx_localtop_tb(ptr noundef nonnull align 8 dereferenceable(768), ptr noundef, i1 noundef zeroext) local_unnamed_addr #7

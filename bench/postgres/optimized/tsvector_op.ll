@@ -3574,8 +3574,8 @@ define internal fastcc zeroext i1 @TS_execute_locations_recurse(ptr noundef %0, 
   %43 = call fastcc zeroext i1 @TS_execute_locations_recurse(ptr noundef nonnull %42, ptr noundef %1, ptr noundef %2, ptr noundef %5)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %45 = call fastcc zeroext i1 @TS_execute_locations_recurse(ptr noundef nonnull %44, ptr noundef %1, ptr noundef %2, ptr noundef %6)
-  %brmerge = select i1 %43, i1 true, i1 %45
-  br i1 %brmerge, label %46, label %.loopexit
+  %or.cond = select i1 %43, i1 true, i1 %45
+  br i1 %or.cond, label %46, label %.loopexit
 
 46:                                               ; preds = %38
   %47 = load ptr, ptr %5, align 8
@@ -3594,32 +3594,32 @@ define internal fastcc zeroext i1 @TS_execute_locations_recurse(ptr noundef %0, 
 .preheader:                                       ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %54 = load i32, ptr %53, align 4
-  %.not7686 = icmp sgt i32 %54, 0
-  br i1 %.not7686, label %.lr.ph88, label %.loopexit
+  %.not7787 = icmp sgt i32 %54, 0
+  br i1 %.not7787, label %.lr.ph89, label %.loopexit
 
-.lr.ph88:                                         ; preds = %.preheader
+.lr.ph89:                                         ; preds = %.preheader
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %58 = load i32, ptr %56, align 4
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph88.split, label %.loopexit
+  br i1 %59, label %.lr.ph89.split, label %.loopexit
 
 60:                                               ; preds = %51
   store ptr %47, ptr %3, align 8
   br label %.loopexit
 
-.lr.ph88.split:                                   ; preds = %.lr.ph88, %._crit_edge
-  %61 = phi i32 [ %68, %._crit_edge ], [ %54, %.lr.ph88 ]
-  %62 = phi i32 [ %69, %._crit_edge ], [ %58, %.lr.ph88 ]
-  %indvars.iv91 = phi i64 [ %indvars.iv.next92, %._crit_edge ], [ 0, %.lr.ph88 ]
+.lr.ph89.split:                                   ; preds = %.lr.ph89, %._crit_edge
+  %61 = phi i32 [ %68, %._crit_edge ], [ %54, %.lr.ph89 ]
+  %62 = phi i32 [ %69, %._crit_edge ], [ %58, %.lr.ph89 ]
+  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %._crit_edge ], [ 0, %.lr.ph89 ]
   %63 = load ptr, ptr %55, align 8
-  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv91
+  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv92
   %65 = load ptr, ptr %64, align 8
   %66 = icmp sgt i32 %62, 0
   br i1 %66, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph88.split
+.lr.ph:                                           ; preds = %.lr.ph89.split
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
   br label %71
 
@@ -3627,13 +3627,13 @@ define internal fastcc zeroext i1 @TS_execute_locations_recurse(ptr noundef %0, 
   %.pre = load i32, ptr %53, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph88.split
-  %68 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %61, %.lr.ph88.split ]
-  %69 = phi i32 [ %86, %._crit_edge.loopexit ], [ %62, %.lr.ph88.split ]
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph89.split
+  %68 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %61, %.lr.ph89.split ]
+  %69 = phi i32 [ %86, %._crit_edge.loopexit ], [ %62, %.lr.ph89.split ]
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %70 = sext i32 %68 to i64
-  %.not76 = icmp slt i64 %indvars.iv.next92, %70
-  br i1 %.not76, label %.lr.ph88.split, label %.loopexit, !llvm.loop !35
+  %.not77 = icmp slt i64 %indvars.iv.next93, %70
+  br i1 %.not77, label %.lr.ph89.split, label %.loopexit, !llvm.loop !35
 
 71:                                               ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
@@ -3648,9 +3648,9 @@ define internal fastcc zeroext i1 @TS_execute_locations_recurse(ptr noundef %0, 
   %80 = load i32, ptr %67, align 8
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %82 = load i32, ptr %81, align 8
-  %.79 = tail call i32 @llvm.smax.i32(i32 %80, i32 %82)
+  %.80 = tail call i32 @llvm.smax.i32(i32 %80, i32 %82)
   %83 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store i32 %.79, ptr %83, align 8
+  store i32 %.80, ptr %83, align 8
   %84 = load ptr, ptr %3, align 8
   %85 = tail call ptr @lappend(ptr noundef %84, ptr noundef %75) #15
   store ptr %85, ptr %3, align 8
@@ -3690,8 +3690,8 @@ define internal fastcc zeroext i1 @TS_execute_locations_recurse(ptr noundef %0, 
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2140, ptr noundef nonnull @__func__.TS_execute_locations_recurse) #15
   unreachable
 
-.loopexit:                                        ; preds = %._crit_edge, %.lr.ph88, %.preheader, %93, %97, %38, %50, %60, %31, %25, %22, %99, %34, %18, %16
-  %.0 = phi i1 [ true, %16 ], [ false, %18 ], [ false, %99 ], [ true, %34 ], [ %not., %22 ], [ false, %25 ], [ false, %31 ], [ true, %60 ], [ true, %50 ], [ false, %38 ], [ true, %97 ], [ true, %93 ], [ true, %.preheader ], [ true, %.lr.ph88 ], [ true, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %.lr.ph89, %.preheader, %93, %97, %38, %50, %60, %31, %25, %22, %99, %34, %18, %16
+  %.0 = phi i1 [ true, %16 ], [ false, %18 ], [ false, %99 ], [ true, %34 ], [ %not., %22 ], [ false, %25 ], [ false, %31 ], [ true, %60 ], [ true, %50 ], [ false, %38 ], [ true, %97 ], [ true, %93 ], [ true, %.preheader ], [ true, %.lr.ph89 ], [ true, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   ret i1 %.0
@@ -5244,12 +5244,12 @@ define internal fastcc i32 @TS_phrase_execute(ptr noundef %0, ptr noundef %1, i3
 
 13:                                               ; preds = %10
   %14 = tail call i32 %3(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %4) #15
-  br label %159
+  br label %160
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %17 = load i8, ptr %16, align 1
-  switch i8 %17, label %153 [
+  switch i8 %17, label %154 [
     i8 1, label %18
     i8 4, label %37
     i8 2, label %37
@@ -5258,27 +5258,27 @@ define internal fastcc i32 @TS_phrase_execute(ptr noundef %0, ptr noundef %1, i3
 
 18:                                               ; preds = %15
   %19 = and i32 %2, 1
-  %.not104 = icmp eq i32 %19, 0
-  br i1 %.not104, label %22, label %20
+  %.not110 = icmp eq i32 %19, 0
+  br i1 %.not110, label %22, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 1, ptr %21, align 1
-  br label %159
+  br label %160
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %24 = tail call fastcc i32 @TS_phrase_execute(ptr noundef nonnull %23, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
-  switch i32 %24, label %158 [
+  switch i32 %24, label %159 [
     i32 0, label %25
     i32 1, label %27
-    i32 2, label %159
+    i32 2, label %160
   ]
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 1, ptr %26, align 1
-  br label %159
+  br label %160
 
 27:                                               ; preds = %22
   %28 = load i32, ptr %4, align 8
@@ -5290,15 +5290,15 @@ define internal fastcc i32 @TS_phrase_execute(ptr noundef %0, ptr noundef %1, i3
 32:                                               ; preds = %27
   %33 = xor i8 %31, 1
   store i8 %33, ptr %30, align 1
-  br label %159
+  br label %160
 
 34:                                               ; preds = %27
   %35 = trunc nuw i8 %31 to i1
-  br i1 %35, label %36, label %158
+  br i1 %35, label %36, label %159
 
 36:                                               ; preds = %34
   store i8 0, ptr %30, align 1
-  br label %159
+  br label %160
 
 37:                                               ; preds = %15, %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -5309,19 +5309,19 @@ define internal fastcc i32 @TS_phrase_execute(ptr noundef %0, ptr noundef %1, i3
   %41 = getelementptr inbounds nuw %union.QueryItem, ptr %0, i64 %40
   %42 = call fastcc i32 @TS_phrase_execute(ptr noundef nonnull %41, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %6)
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %159, label %44
+  br i1 %43, label %160, label %44
 
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %46 = call fastcc i32 @TS_phrase_execute(ptr noundef nonnull %45, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %7)
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %159, label %48
+  br i1 %47, label %160, label %48
 
 48:                                               ; preds = %44
   %49 = icmp eq i32 %42, 2
   %50 = icmp eq i32 %46, 2
   %or.cond = or i1 %49, %50
-  br i1 %or.cond, label %159, label %51
+  br i1 %or.cond, label %160, label %51
 
 51:                                               ; preds = %48
   %52 = load i8, ptr %16, align 1
@@ -5335,8 +5335,8 @@ define internal fastcc i32 @TS_phrase_execute(ptr noundef %0, ptr noundef %1, i3
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, %57
-  %.not102 = icmp eq ptr %4, null
-  br i1 %.not102, label %74, label %61
+  %.not108 = icmp eq ptr %4, null
+  br i1 %.not108, label %74, label %61
 
 61:                                               ; preds = %54
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -5352,62 +5352,63 @@ define internal fastcc i32 @TS_phrase_execute(ptr noundef %0, ptr noundef %1, i3
   %70 = call i32 @llvm.smax.i32(i32 %67, i32 %69)
   %71 = sub i32 %70, %67
   %72 = sub i32 %70, %69
-  %.not101 = icmp eq ptr %4, null
-  br i1 %.not101, label %74, label %.sink.split
+  %.not107 = icmp eq ptr %4, null
+  br i1 %.not107, label %74, label %.sink.split
 
 .sink.split:                                      ; preds = %65, %61
   %.sink = phi i32 [ %64, %61 ], [ %70, %65 ]
-  %.096.ph = phi i32 [ %60, %61 ], [ %71, %65 ]
+  %.0102.ph = phi i32 [ %60, %61 ], [ %71, %65 ]
   %.0.ph = phi i32 [ 0, %61 ], [ %72, %65 ]
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %.sink, ptr %73, align 8
   br label %74
 
 74:                                               ; preds = %.sink.split, %65, %54
-  %.096 = phi i32 [ %60, %54 ], [ %71, %65 ], [ %.096.ph, %.sink.split ]
+  %.0102 = phi i32 [ %60, %54 ], [ %71, %65 ], [ %.0102.ph, %.sink.split ]
   %.0 = phi i32 [ 0, %54 ], [ %72, %65 ], [ %.0.ph, %.sink.split ]
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %76 = load i8, ptr %75, align 1, !range !11, !noundef !12
   %77 = trunc nuw i8 %76 to i1
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 5
-  %79 = load i8, ptr %78, align 1, !range !11, !noundef !12
+  %79 = load i8, ptr %78, align 1, !range !11
   %80 = trunc nuw i8 %79 to i1
-  br i1 %77, label %81, label %92
+  %or.cond4 = select i1 %77, i1 %80, i1 false
+  br i1 %or.cond4, label %81, label %88
 
 81:                                               ; preds = %74
-  br i1 %80, label %82, label %89
+  %82 = load i32, ptr %6, align 8
+  %83 = load i32, ptr %7, align 8
+  %84 = add i32 %83, %82
+  %85 = call fastcc i32 @TS_phrase_output(ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 7, i32 noundef %.0102, i32 noundef %.0, i32 noundef %84)
+  %.not109 = icmp eq ptr %4, null
+  br i1 %.not109, label %160, label %86
 
-82:                                               ; preds = %81
-  %83 = load i32, ptr %6, align 8
-  %84 = load i32, ptr %7, align 8
-  %85 = add i32 %84, %83
-  %86 = call fastcc i32 @TS_phrase_output(ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 7, i32 noundef %.096, i32 noundef %.0, i32 noundef %85)
-  %.not103 = icmp eq ptr %4, null
-  br i1 %.not103, label %159, label %87
+86:                                               ; preds = %81
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  store i8 1, ptr %87, align 1
+  br label %160
 
-87:                                               ; preds = %82
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  store i8 1, ptr %88, align 1
-  br label %159
+88:                                               ; preds = %74
+  br i1 %77, label %89, label %92
 
-89:                                               ; preds = %81
+89:                                               ; preds = %88
   %90 = load i32, ptr %7, align 8
-  %91 = call fastcc i32 @TS_phrase_output(ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 2, i32 noundef %.096, i32 noundef %.0, i32 noundef %90)
-  br label %159
+  %91 = call fastcc i32 @TS_phrase_output(ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 2, i32 noundef %.0102, i32 noundef %.0, i32 noundef %90)
+  br label %160
 
-92:                                               ; preds = %74
+92:                                               ; preds = %88
   %93 = load i32, ptr %6, align 8
   br i1 %80, label %94, label %96
 
 94:                                               ; preds = %92
-  %95 = call fastcc i32 @TS_phrase_output(ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1, i32 noundef %.096, i32 noundef %.0, i32 noundef %93)
-  br label %159
+  %95 = call fastcc i32 @TS_phrase_output(ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1, i32 noundef %.0102, i32 noundef %.0, i32 noundef %93)
+  br label %160
 
 96:                                               ; preds = %92
   %97 = load i32, ptr %7, align 8
   %98 = call i32 @llvm.smin.i32(i32 %93, i32 %97)
-  %99 = call fastcc i32 @TS_phrase_output(ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 4, i32 noundef %.096, i32 noundef %.0, i32 noundef %98)
-  br label %159
+  %99 = call fastcc i32 @TS_phrase_output(ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 4, i32 noundef %.0102, i32 noundef %.0, i32 noundef %98)
+  br label %160
 
 100:                                              ; preds = %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -5421,14 +5422,14 @@ define internal fastcc i32 @TS_phrase_execute(ptr noundef %0, ptr noundef %1, i3
   %107 = call fastcc i32 @TS_phrase_execute(ptr noundef nonnull %106, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %7)
   %108 = icmp eq i32 %105, 0
   %109 = icmp eq i32 %107, 0
-  %or.cond3 = select i1 %108, i1 %109, i1 false
-  br i1 %or.cond3, label %159, label %110
+  %or.cond6 = select i1 %108, i1 %109, i1 false
+  br i1 %or.cond6, label %160, label %110
 
 110:                                              ; preds = %100
   %111 = icmp eq i32 %105, 2
   %112 = icmp eq i32 %107, 2
-  %or.cond5 = select i1 %111, i1 true, i1 %112
-  br i1 %or.cond5, label %159, label %113
+  %or.cond8 = select i1 %111, i1 true, i1 %112
+  br i1 %or.cond8, label %160, label %113
 
 113:                                              ; preds = %110
   br i1 %108, label %114, label %116
@@ -5463,62 +5464,64 @@ define internal fastcc i32 @TS_phrase_execute(ptr noundef %0, ptr noundef %1, i3
   %128 = load i8, ptr %127, align 1, !range !11, !noundef !12
   %129 = trunc nuw i8 %128 to i1
   %130 = getelementptr inbounds nuw i8, ptr %7, i64 5
-  %131 = load i8, ptr %130, align 1, !range !11, !noundef !12
+  %131 = load i8, ptr %130, align 1, !range !11
   %132 = trunc nuw i8 %131 to i1
-  br i1 %129, label %133, label %143
+  %or.cond11 = select i1 %129, i1 %132, i1 false
+  br i1 %or.cond11, label %133, label %139
 
 133:                                              ; preds = %119
   %134 = load i32, ptr %6, align 8
-  br i1 %132, label %135, label %140
+  %135 = load i32, ptr %7, align 8
+  %136 = call i32 @llvm.smin.i32(i32 %134, i32 %135)
+  %137 = call fastcc i32 @TS_phrase_output(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 4, i32 noundef %124, i32 noundef %125, i32 noundef %136)
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  store i8 1, ptr %138, align 1
+  br label %160
 
-135:                                              ; preds = %133
-  %136 = load i32, ptr %7, align 8
-  %137 = call i32 @llvm.smin.i32(i32 %134, i32 %136)
-  %138 = call fastcc i32 @TS_phrase_output(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 4, i32 noundef %124, i32 noundef %125, i32 noundef %137)
-  %139 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  store i8 1, ptr %139, align 1
-  br label %159
+139:                                              ; preds = %119
+  br i1 %129, label %140, label %144
 
-140:                                              ; preds = %133
-  %141 = call fastcc i32 @TS_phrase_output(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1, i32 noundef %124, i32 noundef %125, i32 noundef %134)
-  %142 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  store i8 1, ptr %142, align 1
-  br label %159
+140:                                              ; preds = %139
+  %141 = load i32, ptr %6, align 8
+  %142 = call fastcc i32 @TS_phrase_output(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1, i32 noundef %124, i32 noundef %125, i32 noundef %141)
+  %143 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  store i8 1, ptr %143, align 1
+  br label %160
 
-143:                                              ; preds = %119
-  br i1 %132, label %144, label %148
+144:                                              ; preds = %139
+  br i1 %132, label %145, label %149
 
-144:                                              ; preds = %143
-  %145 = load i32, ptr %7, align 8
-  %146 = call fastcc i32 @TS_phrase_output(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 2, i32 noundef %124, i32 noundef %125, i32 noundef %145)
-  %147 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  store i8 1, ptr %147, align 1
-  br label %159
+145:                                              ; preds = %144
+  %146 = load i32, ptr %7, align 8
+  %147 = call fastcc i32 @TS_phrase_output(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 2, i32 noundef %124, i32 noundef %125, i32 noundef %146)
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  store i8 1, ptr %148, align 1
+  br label %160
 
-148:                                              ; preds = %143
-  %149 = load i32, ptr %6, align 8
-  %150 = load i32, ptr %7, align 8
-  %151 = add i32 %150, %149
-  %152 = call fastcc i32 @TS_phrase_output(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 7, i32 noundef %124, i32 noundef %125, i32 noundef %151)
-  br label %159
+149:                                              ; preds = %144
+  %150 = load i32, ptr %6, align 8
+  %151 = load i32, ptr %7, align 8
+  %152 = add i32 %151, %150
+  %153 = call fastcc i32 @TS_phrase_output(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 7, i32 noundef %124, i32 noundef %125, i32 noundef %152)
+  br label %160
 
-153:                                              ; preds = %15
-  %154 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %154)
-  %155 = load i8, ptr %16, align 1
-  %156 = sext i8 %155 to i32
-  %157 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %156) #15
+154:                                              ; preds = %15
+  %155 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  tail call void @llvm.assume(i1 %155)
+  %156 = load i8, ptr %16, align 1
+  %157 = sext i8 %156 to i32
+  %158 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %157) #15
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1837, ptr noundef nonnull @__func__.TS_phrase_execute) #15
   unreachable
 
-158:                                              ; preds = %22, %34
-  br label %159
+159:                                              ; preds = %22, %34
+  br label %160
 
-159:                                              ; preds = %110, %100, %82, %87, %48, %44, %37, %22, %158, %148, %144, %140, %135, %96, %94, %89, %36, %32, %25, %20, %13
-  %.097 = phi i32 [ %14, %13 ], [ 1, %135 ], [ 1, %140 ], [ 1, %144 ], [ %152, %148 ], [ %91, %89 ], [ %95, %94 ], [ %99, %96 ], [ 1, %20 ], [ 0, %158 ], [ 1, %32 ], [ 0, %36 ], [ 1, %25 ], [ %24, %22 ], [ 0, %37 ], [ 0, %44 ], [ 2, %48 ], [ 1, %87 ], [ 1, %82 ], [ 0, %100 ], [ 2, %110 ]
+160:                                              ; preds = %110, %100, %81, %86, %48, %44, %37, %22, %159, %149, %145, %140, %133, %96, %94, %89, %36, %32, %25, %20, %13
+  %.0103 = phi i32 [ %14, %13 ], [ 1, %133 ], [ 1, %140 ], [ 1, %145 ], [ %153, %149 ], [ %91, %89 ], [ %95, %94 ], [ %99, %96 ], [ 1, %20 ], [ 0, %159 ], [ 1, %32 ], [ 0, %36 ], [ 1, %25 ], [ %24, %22 ], [ 0, %37 ], [ 0, %44 ], [ 2, %48 ], [ 1, %86 ], [ 1, %81 ], [ 0, %100 ], [ 2, %110 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
-  ret i32 %.097
+  ret i32 %.0103
 }
 
 ; Function Attrs: nounwind uwtable

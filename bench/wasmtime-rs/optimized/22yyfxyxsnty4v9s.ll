@@ -22973,19 +22973,17 @@ _ZN14cap_primitives2fs9dir_entry8DirEntry8metadata17h273772043d1436a4E.exit: ; p
 
 26:                                               ; preds = %_ZN14cap_primitives2fs9dir_entry8DirEntry8metadata17h273772043d1436a4E.exit
   %27 = icmp ult i8 %.sroa.643.0.copyload, 6
-  br i1 %27, label %switch.hole_check, label %28
+  %switch.shifted = lshr i8 39, %.sroa.643.0.copyload
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %27, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %28
 
-28:                                               ; preds = %switch.hole_check, %26
+28:                                               ; preds = %26
   %29 = icmp eq i8 %.sroa.643.0.copyload, 6
   %..i = select i1 %29, i8 6, i8 0
   br label %_ZN13wasmtime_wasi4host10filesystem19descriptortype_from17h9fd69df99357e0f9E.exit
 
-switch.hole_check:                                ; preds = %26
-  %switch.shifted = lshr i8 39, %.sroa.643.0.copyload
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %28
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %26
   %30 = shl nuw nsw i8 %.sroa.643.0.copyload, 3
   %switch.shiftamt = zext nneg i8 %30 to i48
   %switch.downshift = lshr i48 3298535014661, %switch.shiftamt

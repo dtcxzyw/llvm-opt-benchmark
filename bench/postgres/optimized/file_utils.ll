@@ -231,10 +231,10 @@ sub_0.lr.ph:                                      ; preds = %.preheader
 
 11:                                               ; preds = %3
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %0) #11
-  br label %45
+  br label %46
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %get_dirent_type.exit.thread
-  %12 = phi ptr [ %9, %sub_0.lr.ph ], [ %39, %get_dirent_type.exit.thread ]
+  %12 = phi ptr [ %9, %sub_0.lr.ph ], [ %40, %get_dirent_type.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 19
   %14 = load i8, ptr %13, align 1
@@ -263,63 +263,60 @@ sub_127:                                          ; preds = %.tail
   %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull %13) #11
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 18
   %25 = load i8, ptr %24, align 2
-  switch i8 %25, label %27 [
+  switch i8 %25, label %26 [
     i8 8, label %get_dirent_type.exit.thread17
     i8 4, label %get_dirent_type.exit.thread19
-    i8 10, label %26
   ]
 
 26:                                               ; preds = %.tail25.thread
-  br i1 %2, label %.thread15.i, label %get_dirent_type.exit.thread
+  %27 = icmp ne i8 %25, 10
+  %or.cond.i = or i1 %2, %27
+  br i1 %or.cond.i, label %28, label %get_dirent_type.exit.thread
 
-.thread15.i:                                      ; preds = %26
+28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #11
-  br label %28
+  br i1 %2, label %29, label %31
 
-27:                                               ; preds = %.tail25.thread
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #11
-  br i1 %2, label %28, label %30
+29:                                               ; preds = %28
+  %30 = call i32 @stat(ptr noundef nonnull %5, ptr noundef nonnull %4) #11
+  br label %33
 
-28:                                               ; preds = %27, %.thread15.i
-  %29 = call i32 @stat(ptr noundef nonnull %5, ptr noundef nonnull %4) #11
-  br label %32
+31:                                               ; preds = %28
+  %32 = call i32 @lstat(ptr noundef nonnull %5, ptr noundef nonnull %4) #11
+  br label %33
 
-30:                                               ; preds = %27
-  %31 = call i32 @lstat(ptr noundef nonnull %5, ptr noundef nonnull %4) #11
-  br label %32
+33:                                               ; preds = %31, %29
+  %.0.i = phi i32 [ %30, %29 ], [ %32, %31 ]
+  %34 = icmp slt i32 %.0.i, 0
+  br i1 %34, label %35, label %36
 
-32:                                               ; preds = %30, %28
-  %.0.i = phi i32 [ %29, %28 ], [ %31, %30 ]
-  %33 = icmp slt i32 %.0.i, 0
-  br i1 %33, label %34, label %35
-
-34:                                               ; preds = %32
+35:                                               ; preds = %33
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %5) #11
   br label %get_dirent_type.exit.thread21
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %10, align 8
-  %37 = trunc i32 %36 to i16
-  %trunc.i = and i16 %37, -4096
+36:                                               ; preds = %33
+  %37 = load i32, ptr %10, align 8
+  %38 = trunc i32 %37 to i16
+  %trunc.i = and i16 %38, -4096
   switch i16 %trunc.i, label %get_dirent_type.exit.thread21 [
     i16 -32768, label %get_dirent_type.exit.thread23
     i16 16384, label %get_dirent_type.exit
   ]
 
-get_dirent_type.exit.thread23:                    ; preds = %35
+get_dirent_type.exit.thread23:                    ; preds = %36
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #11
   br label %get_dirent_type.exit.thread17
 
-get_dirent_type.exit.thread21:                    ; preds = %34, %35
+get_dirent_type.exit.thread21:                    ; preds = %35, %36
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #11
   br label %get_dirent_type.exit.thread
 
-get_dirent_type.exit:                             ; preds = %35
+get_dirent_type.exit:                             ; preds = %36
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #11
   br label %get_dirent_type.exit.thread19
 
 get_dirent_type.exit.thread17:                    ; preds = %.tail25.thread, %get_dirent_type.exit.thread23
-  %38 = call i32 %1(ptr noundef nonnull %5, i1 noundef zeroext false) #11, !callees !6
+  %39 = call i32 %1(ptr noundef nonnull %5, i1 noundef zeroext false) #11, !callees !6
   br label %get_dirent_type.exit.thread
 
 get_dirent_type.exit.thread19:                    ; preds = %.tail25.thread, %get_dirent_type.exit
@@ -329,25 +326,25 @@ get_dirent_type.exit.thread19:                    ; preds = %.tail25.thread, %ge
 get_dirent_type.exit.thread:                      ; preds = %26, %get_dirent_type.exit.thread21, %get_dirent_type.exit.thread17, %get_dirent_type.exit.thread19, %.tail, %.tail25
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %5) #11
   store i32 0, ptr %8, align 4
-  %39 = call ptr @readdir(ptr noundef nonnull %6) #11
-  %.not = icmp eq ptr %39, null
+  %40 = call ptr @readdir(ptr noundef nonnull %6) #11
+  %.not = icmp eq ptr %40, null
   br i1 %.not, label %._crit_edge, label %sub_0
 
 ._crit_edge:                                      ; preds = %get_dirent_type.exit.thread, %.preheader
-  %40 = load i32, ptr %8, align 4
-  %.not15 = icmp eq i32 %40, 0
-  br i1 %.not15, label %42, label %41
+  %41 = load i32, ptr %8, align 4
+  %.not15 = icmp eq i32 %41, 0
+  br i1 %.not15, label %43, label %42
 
-41:                                               ; preds = %._crit_edge
+42:                                               ; preds = %._crit_edge
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %0) #11
-  br label %42
+  br label %43
 
-42:                                               ; preds = %41, %._crit_edge
-  %43 = call i32 @closedir(ptr noundef nonnull %6)
-  %44 = call i32 %1(ptr noundef %0, i1 noundef zeroext true) #11, !callees !6
-  br label %45
+43:                                               ; preds = %42, %._crit_edge
+  %44 = call i32 @closedir(ptr noundef nonnull %6)
+  %45 = call i32 %1(ptr noundef %0, i1 noundef zeroext true) #11, !callees !6
+  br label %46
 
-45:                                               ; preds = %42, %11
+46:                                               ; preds = %43, %11
   ret void
 }
 
@@ -571,70 +568,67 @@ define range(i32 0, 5) i32 @get_dirent_type(ptr noundef %0, ptr noundef readonly
   %5 = alloca %struct.stat, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %7 = load i8, ptr %6, align 2
-  switch i8 %7, label %10 [
+  switch i8 %7, label %9 [
     i8 8, label %.thread
     i8 4, label %8
-    i8 10, label %9
   ]
 
 8:                                                ; preds = %4
   br label %.thread
 
 9:                                                ; preds = %4
-  br i1 %2, label %.thread15, label %.thread
+  %10 = icmp ne i8 %7, 10
+  %or.cond = or i1 %2, %10
+  br i1 %or.cond, label %11, label %.thread
 
-.thread15:                                        ; preds = %9
+11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #11
-  br label %11
+  br i1 %2, label %12, label %14
 
-10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #11
-  br i1 %2, label %11, label %13
+12:                                               ; preds = %11
+  %13 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %5) #11
+  br label %16
 
-11:                                               ; preds = %.thread15, %10
-  %12 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %5) #11
-  br label %15
+14:                                               ; preds = %11
+  %15 = call i32 @lstat(ptr noundef %0, ptr noundef nonnull %5) #11
+  br label %16
 
-13:                                               ; preds = %10
-  %14 = call i32 @lstat(ptr noundef %0, ptr noundef nonnull %5) #11
-  br label %15
+16:                                               ; preds = %14, %12
+  %.0 = phi i32 [ %13, %12 ], [ %15, %14 ]
+  %17 = icmp slt i32 %.0, 0
+  br i1 %17, label %18, label %19
 
-15:                                               ; preds = %13, %11
-  %.0 = phi i32 [ %12, %11 ], [ %14, %13 ]
-  %16 = icmp slt i32 %.0, 0
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %15
+18:                                               ; preds = %16
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef %3, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %0) #11
-  br label %24
+  br label %25
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %20 = load i32, ptr %19, align 8
-  %21 = trunc i32 %20 to i16
-  %trunc = and i16 %21, -4096
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %21 = load i32, ptr %20, align 8
+  %22 = trunc i32 %21 to i16
+  %trunc = and i16 %22, -4096
   switch i16 %trunc, label %.fold.split [
-    i16 -32768, label %24
-    i16 16384, label %22
-    i16 -24576, label %23
+    i16 -32768, label %25
+    i16 16384, label %23
+    i16 -24576, label %24
   ]
 
-22:                                               ; preds = %18
-  br label %24
+23:                                               ; preds = %19
+  br label %25
 
-23:                                               ; preds = %18
-  br label %24
+24:                                               ; preds = %19
+  br label %25
 
-.fold.split:                                      ; preds = %18
-  br label %24
+.fold.split:                                      ; preds = %19
+  br label %25
 
-24:                                               ; preds = %18, %.fold.split, %23, %22, %17
-  %.2 = phi i32 [ 0, %17 ], [ 3, %22 ], [ 4, %23 ], [ 2, %18 ], [ 1, %.fold.split ]
+25:                                               ; preds = %19, %.fold.split, %24, %23, %18
+  %.2 = phi i32 [ 0, %18 ], [ 3, %23 ], [ 4, %24 ], [ 2, %19 ], [ 1, %.fold.split ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #11
   br label %.thread
 
-.thread:                                          ; preds = %9, %4, %8, %24
-  %.1 = phi i32 [ %.2, %24 ], [ 4, %9 ], [ 2, %4 ], [ 3, %8 ]
+.thread:                                          ; preds = %4, %8, %25, %9
+  %.1 = phi i32 [ %.2, %25 ], [ 4, %9 ], [ 2, %4 ], [ 3, %8 ]
   ret i32 %.1
 }
 

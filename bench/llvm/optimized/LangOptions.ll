@@ -1023,15 +1023,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i64 %176, ptr %171, align 8
   %switch.tableidx = add i32 %.0, -27
   %177 = icmp ult i32 %switch.tableidx, 15
-  br i1 %177, label %switch.hole_check, label %185
-
-switch.hole_check:                                ; preds = %168
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 32639, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %185
+  %or.cond193 = select i1 %177, i1 %switch.lobit, i1 false
+  br i1 %or.cond193, label %switch.lookup, label %185
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %168
   %178 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE, i64 0, i64 %178
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1048,7 +1046,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i64 %184, ptr %181, align 8
   br label %185
 
-185:                                              ; preds = %switch.hole_check, %168, %switch.lookup
+185:                                              ; preds = %168, %switch.lookup
   %.not120 = icmp eq i32 %170, 0
   br i1 %.not120, label %257, label %186
 

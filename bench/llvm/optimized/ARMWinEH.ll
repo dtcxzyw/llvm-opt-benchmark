@@ -14,10 +14,10 @@ define dso_local range(i64 0, 139637976793088) i64 @_ZN4llvm3ARM5WinEH17SavedReg
   %4 = lshr i32 %.0.copyload.i.i.i.i, 16
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   %5 = and i32 %.0.copyload.i.i.i.i, 524288
-  %.not45 = icmp eq i32 %5, 0
+  %.not43 = icmp eq i32 %5, 0
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   %6 = and i32 %.0.copyload.i.i.i.i, 1048576
-  %.not46 = icmp eq i32 %6, 0
+  %.not44 = icmp eq i32 %6, 0
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   %7 = lshr i32 %.0.copyload.i.i.i.i, 10
   %8 = trunc i32 %7 to i16
@@ -25,35 +25,35 @@ define dso_local range(i64 0, 139637976793088) i64 @_ZN4llvm3ARM5WinEH17SavedReg
   br i1 %1, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = select i1 %.not46, i16 0, i16 16384
+  %11 = select i1 %.not44, i16 0, i16 16384
   %12 = or disjoint i16 %11, %9
   br label %23
 
 13:                                               ; preds = %2
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   %14 = and i32 %.0.copyload.i.i.i.i, 24576
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %18, label %15
+  %.not22 = icmp eq i32 %14, 0
+  br i1 %.not22, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = select i1 %.not46, i16 0, i16 16384
+  %16 = select i1 %.not44, i16 0, i16 16384
   %17 = or disjoint i16 %16, %9
   br label %23
 
 18:                                               ; preds = %13
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   %19 = and i32 %.0.copyload.i.i.i.i, 32768
-  %.not48 = icmp eq i32 %19, 0
-  br i1 %.not48, label %20, label %23
+  %.not46 = icmp eq i32 %19, 0
+  br i1 %.not46, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = select i1 %.not46, i16 0, i16 -32768
+  %21 = select i1 %.not44, i16 0, i16 -32768
   %22 = or disjoint i16 %21, %9
   br label %23
 
 23:                                               ; preds = %15, %20, %18, %10
   %.039 = phi i16 [ %12, %10 ], [ %9, %18 ], [ %22, %20 ], [ %17, %15 ]
-  br i1 %.not45, label %31, label %24
+  br i1 %.not43, label %31, label %24
 
 24:                                               ; preds = %23
   %25 = add nuw nsw i32 %4, 1
@@ -83,33 +83,33 @@ define dso_local range(i64 0, 139637976793088) i64 @_ZN4llvm3ARM5WinEH17SavedReg
 
 _ZN4llvm3ARM5WinEH15PrologueFoldingERKNS1_15RuntimeFunctionE.exit: ; preds = %37
   %39 = and i32 %.0.copyload.i.i.i.i, 16777216
-  %.not49 = icmp ne i32 %39, 0
-  %brmerge.not = and i1 %1, %.not49
-  br i1 %brmerge.not, label %41, label %_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit
+  %40 = icmp ne i32 %39, 0
+  %or.cond = and i1 %1, %40
+  br i1 %or.cond, label %42, label %_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit
 
 _ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit: ; preds = %_ZN4llvm3ARM5WinEH15PrologueFoldingERKNS1_15RuntimeFunctionE.exit
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
-  %40 = and i32 %.0.copyload.i.i.i.i, 33554432
-  %.not50 = icmp eq i32 %40, 0
-  %brmerge23 = or i1 %1, %.not50
-  br i1 %brmerge23, label %_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit.thread, label %41
+  %41 = and i32 %.0.copyload.i.i.i.i, 33554432
+  %.not47 = icmp eq i32 %41, 0
+  %or.cond3 = or i1 %1, %.not47
+  br i1 %or.cond3, label %_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit.thread, label %42
 
-41:                                               ; preds = %_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit, %_ZN4llvm3ARM5WinEH15PrologueFoldingERKNS1_15RuntimeFunctionE.exit
+42:                                               ; preds = %_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit, %_ZN4llvm3ARM5WinEH15PrologueFoldingERKNS1_15RuntimeFunctionE.exit
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
-  %42 = lshr i32 %.0.copyload.i.i.i.i, 22
-  %43 = trunc nuw nsw i32 %42 to i16
-  %44 = and i16 %43, 3
-  %notmask19 = shl nsw i16 -2, %44
-  %45 = xor i16 %notmask19, -1
+  %43 = lshr i32 %.0.copyload.i.i.i.i, 22
+  %44 = trunc nuw nsw i32 %43 to i16
+  %45 = and i16 %44, 3
+  %notmask23 = shl nsw i16 -2, %45
+  %46 = xor i16 %notmask23, -1
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
-  %46 = xor i16 %44, 3
-  %47 = shl nuw nsw i16 %45, %46
-  %48 = or i16 %.1, %47
+  %47 = xor i16 %45, 3
+  %48 = shl nuw nsw i16 %46, %47
+  %49 = or i16 %.1, %48
   br label %_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit.thread
 
-_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit.thread: ; preds = %37, %_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit, %41
-  %.2 = phi i16 [ %.1, %_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit ], [ %48, %41 ], [ %.1, %37 ]
+_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit.thread: ; preds = %37, %42, %_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit
+  %.2 = phi i16 [ %49, %42 ], [ %.1, %_ZN4llvm3ARM5WinEH15EpilogueFoldingERKNS1_15RuntimeFunctionE.exit ], [ %.1, %37 ]
   %.sroa.0.0.insert.ext.i = zext i16 %.2 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.0, %.sroa.0.0.insert.ext.i
   ret i64 %.sroa.0.0.insert.insert.i

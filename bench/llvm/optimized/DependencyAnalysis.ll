@@ -27,9 +27,12 @@ $_ZN4llvm8CallBase7arg_endEv = comdat any
 define dso_local noundef zeroext i1 @_ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %3) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %3, -5
   %5 = icmp ult i32 %switch.tableidx, 19
-  br i1 %5, label %switch.hole_check, label %6
+  %switch.shifted = lshr i32 294915, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.loopexit, label %6
 
-6:                                                ; preds = %switch.hole_check, %4
+6:                                                ; preds = %4
   %7 = load ptr, ptr %2, align 8, !tbaa !3
   %8 = tail call i32 @_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %0) #7
   br label %9
@@ -82,13 +85,8 @@ _ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit: ; pre
   %.not.not = icmp eq ptr %32, %26
   br i1 %.not.not, label %.loopexit, label %.lr.ph
 
-switch.hole_check:                                ; preds = %4
-  %switch.shifted = lshr i32 294915, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %.loopexit, label %6
-
-.loopexit:                                        ; preds = %30, %.critedge, %switch.hole_check, %19, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit, %17
-  %.0 = phi i1 [ false, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit ], [ true, %17 ], [ false, %19 ], [ false, %switch.hole_check ], [ true, %30 ], [ false, %.critedge ]
+.loopexit:                                        ; preds = %30, %.critedge, %4, %19, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit, %17
+  %.0 = phi i1 [ false, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit ], [ true, %17 ], [ false, %19 ], [ false, %4 ], [ true, %30 ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -112,9 +110,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc20CanDecrementRefCountEPKNS
 6:                                                ; preds = %4
   %switch.tableidx = add i32 %3, -5
   %7 = icmp ult i32 %switch.tableidx, 19
-  br i1 %7, label %switch.hole_check, label %8
+  %switch.shifted = lshr i32 294915, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %7, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE.exit, label %8
 
-8:                                                ; preds = %switch.hole_check, %6
+8:                                                ; preds = %6
   %9 = load ptr, ptr %2, align 8, !tbaa !3
   %10 = tail call i32 @_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %0) #7
   br label %11
@@ -167,13 +168,8 @@ _ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit.i: ; p
   %.not.not.i = icmp eq ptr %34, %28
   br i1 %.not.not.i, label %_ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE.exit, label %.lr.ph.i
 
-switch.hole_check:                                ; preds = %6
-  %switch.shifted = lshr i32 294915, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE.exit, label %8
-
-_ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE.exit: ; preds = %.critedge.i, %32, %switch.hole_check, %21, %19, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit.i, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit.i ], [ true, %19 ], [ false, %21 ], [ false, %switch.hole_check ], [ false, %.critedge.i ], [ true, %32 ]
+_ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE.exit: ; preds = %.critedge.i, %32, %6, %21, %19, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit.i, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE15onlyReadsMemoryEv.exit.i ], [ true, %19 ], [ false, %21 ], [ false, %6 ], [ false, %.critedge.i ], [ true, %32 ]
   ret i1 %.0
 }
 
@@ -376,9 +372,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc7DependsENS0_14DependenceKi
   %14 = tail call noundef i32 @_ZN4llvm7objcarc14GetARCInstKindEPKNS_5ValueE(ptr noundef %1) #7
   %switch.tableidx = add i32 %14, -5
   %15 = icmp ult i32 %switch.tableidx, 20
-  br i1 %15, label %switch.hole_check, label %16
+  %switch.shifted = lshr i32 819215, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %15, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %16
 
-16:                                               ; preds = %switch.hole_check, %13
+16:                                               ; preds = %13
   %17 = load ptr, ptr %3, align 8, !tbaa !3
   %18 = tail call i32 @_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef %1) #7
   br label %19
@@ -614,12 +613,7 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit31.thread: ; preds = %92,
 132:                                              ; preds = %6
   unreachable
 
-switch.hole_check:                                ; preds = %13
-  %switch.shifted = lshr i32 819215, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %16
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %13
   %switch.cast = trunc nuw i32 %switch.tableidx to i20
   %switch.downshift = lshr i20 8, %switch.cast
   %switch.masked = trunc i20 %switch.downshift to i1

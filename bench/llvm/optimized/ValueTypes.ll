@@ -2374,20 +2374,18 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %8, %1
   %12 = phi i32 [ %.pre.i, %8 ], [ %5, %1 ]
   %trunc.i.i.i = trunc i32 %12 to i8
   %13 = icmp ult i8 %trunc.i.i.i, 6
-  br i1 %13, label %switch.hole_check, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i
+  %switch.shifted = lshr i8 47, %trunc.i.i.i
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i
 
-_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, %_ZNK4llvm4Type13getScalarTypeEv.exit.i
+_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i
   %14 = and i32 %12, 253
   %spec.select.i.i = icmp eq i32 %14, 4
   br label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit
 
-switch.hole_check:                                ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i
-  %switch.shifted = lshr i8 47, %trunc.i.i.i
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i
-
-_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit:          ; preds = %switch.hole_check, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i
-  %15 = phi i1 [ %spec.select.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ true, %switch.hole_check ]
+_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit:          ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i
+  %15 = phi i1 [ %spec.select.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ]
   ret i1 %15
 }
 
@@ -3928,20 +3926,18 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %15, %8
   %19 = phi i32 [ %.pre.i.i, %15 ], [ %12, %8 ]
   %trunc.i.i.i.i = trunc i32 %19 to i8
   %20 = icmp ult i8 %trunc.i.i.i.i, 6
-  br i1 %20, label %switch.hole_check, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i
+  %switch.shifted = lshr i8 47, %trunc.i.i.i.i
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %20, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZNK4llvm3MVT15isFloatingPointEv.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i
 
-_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i:      ; preds = %switch.hole_check, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
+_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i:      ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
   %21 = and i32 %19, 253
   %spec.select.i.i.i = icmp eq i32 %21, 4
   br label %_ZNK4llvm3MVT15isFloatingPointEv.exit
 
-switch.hole_check:                                ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %switch.shifted = lshr i8 47, %trunc.i.i.i.i
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK4llvm3MVT15isFloatingPointEv.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i
-
-_ZNK4llvm3MVT15isFloatingPointEv.exit:            ; preds = %switch.hole_check, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i, %6, %3
-  %22 = phi i1 [ true, %3 ], [ %spec.select.i, %6 ], [ %spec.select.i.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i ], [ true, %switch.hole_check ]
+_ZNK4llvm3MVT15isFloatingPointEv.exit:            ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i, %6, %3
+  %22 = phi i1 [ true, %3 ], [ %spec.select.i, %6 ], [ %spec.select.i.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ]
   ret i1 %22
 }
 

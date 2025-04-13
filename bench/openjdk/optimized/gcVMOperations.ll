@@ -444,43 +444,43 @@ define hidden noundef zeroext i1 @_ZNK15VM_GC_Operation14skip_operationEv(ptr no
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load i32, ptr %5, align 8
-  %.not5 = icmp ne i32 %3, %6
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i8, ptr %7, align 8
-  %9 = trunc i8 %8 to i1
-  %brmerge.not = select i1 %9, i1 %.not5, i1 false
-  br i1 %brmerge.not, label %10, label %15
+  %7 = icmp ne i32 %3, %6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load i8, ptr %8, align 8
+  %10 = trunc i8 %9 to i1
+  %or.cond = select i1 %10, i1 %7, i1 false
+  br i1 %or.cond, label %11, label %16
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  %14 = load i32, ptr %13, align 4
-  %.not = icmp eq i32 %12, %14
-  br i1 %.not, label %16, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  %15 = load i32, ptr %14, align 4
+  %.not = icmp eq i32 %13, %15
+  br i1 %.not, label %17, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-15:                                               ; preds = %1
-  br i1 %.not5, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread, label %16
+16:                                               ; preds = %1
+  br i1 %7, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread, label %17
 
-16:                                               ; preds = %10, %15
-  %17 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+17:                                               ; preds = %11, %16
+  %18 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-_ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %16
-  %19 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %21, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+_ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %17
+  %20 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %22, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-21:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(104) %4) #12
+22:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit
+  %23 = load ptr, ptr %4, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 112
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(104) %4) #12
   br label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %16, %10, %21, %_ZN8GCLocker22is_active_and_needs_gcEv.exit, %15
-  %.1.in = phi i1 [ true, %15 ], [ %25, %21 ], [ false, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ true, %10 ], [ false, %16 ]
+_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %17, %11, %22, %_ZN8GCLocker22is_active_and_needs_gcEv.exit, %16
+  %.1.in = phi i1 [ true, %16 ], [ %26, %22 ], [ false, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ true, %11 ], [ false, %17 ]
   ret i1 %.1.in
 }
 
@@ -588,24 +588,22 @@ define hidden noundef zeroext i1 @_ZN20VM_GC_HeapInspection13doit_prologueEv(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %13
+  %5 = load i8, ptr @UseZGC, align 1
+  %6 = trunc i8 %5 to i1
+  %or.cond = select i1 %4, i1 %6, i1 false
+  br i1 %or.cond, label %7, label %12
 
-5:                                                ; preds = %1
-  %6 = load i8, ptr @UseZGC, align 1
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %13
+7:                                                ; preds = %1
+  %8 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 192
+  %11 = load ptr, ptr %10, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(104) %8, i32 noundef 6) #12
+  br label %12
 
-8:                                                ; preds = %5
-  %9 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 192
-  %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(104) %9, i32 noundef 6) #12
-  br label %13
-
-13:                                               ; preds = %8, %5, %1
-  %14 = tail call noundef zeroext i1 @_ZN15VM_GC_Operation13doit_prologueEv(ptr noundef nonnull align 8 dereferenceable(33) %0)
-  ret i1 %14
+12:                                               ; preds = %7, %1
+  %13 = tail call noundef zeroext i1 @_ZN15VM_GC_Operation13doit_prologueEv(ptr noundef nonnull align 8 dereferenceable(33) %0)
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -775,99 +773,97 @@ define hidden void @_ZN31VM_CollectForMetadataAllocation4doitEv(ptr noundef nonn
 18:                                               ; preds = %1
   %19 = load i8, ptr @UseG1GC, align 1
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %35
+  %21 = load i8, ptr @ClassUnloadingWithConcurrentMark, align 1
+  %22 = trunc i8 %21 to i1
+  %or.cond = select i1 %20, i1 %22, i1 false
+  br i1 %or.cond, label %23, label %34
 
-21:                                               ; preds = %18
-  %22 = load i8, ptr @ClassUnloadingWithConcurrentMark, align 1
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %35
+23:                                               ; preds = %18
+  %24 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %25 = load i32, ptr %5, align 4
+  call void @_ZN15G1CollectedHeap43start_concurrent_gc_for_metadata_allocationEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(1488) %24, i32 noundef %25) #12
+  %26 = load ptr, ptr %9, align 8
+  %27 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %26) #12
+  %28 = load i64, ptr %12, align 8
+  %29 = load i32, ptr %14, align 8
+  %30 = call noundef ptr @_ZN20ClassLoaderMetaspace19expand_and_allocateEmN9Metaspace12MetadataTypeE(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef %28, i32 noundef %29) #12
+  store ptr %30, ptr %17, align 8
+  %.not5 = icmp eq ptr %30, null
+  br i1 %.not5, label %31, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %26 = load i32, ptr %5, align 4
-  call void @_ZN15G1CollectedHeap43start_concurrent_gc_for_metadata_allocationEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(1488) %25, i32 noundef %26) #12
-  %27 = load ptr, ptr %9, align 8
-  %28 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %27) #12
-  %29 = load i64, ptr %12, align 8
-  %30 = load i32, ptr %14, align 8
-  %31 = call noundef ptr @_ZN20ClassLoaderMetaspace19expand_and_allocateEmN9Metaspace12MetadataTypeE(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef %29, i32 noundef %30) #12
-  store ptr %31, ptr %17, align 8
-  %.not4 = icmp eq ptr %31, null
-  br i1 %.not4, label %32, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+31:                                               ; preds = %23
+  %32 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not9 = icmp eq ptr %32, null
+  br i1 %.not9, label %34, label %33
 
-32:                                               ; preds = %24
-  %33 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not8 = icmp eq ptr %33, null
-  br i1 %.not8, label %35, label %34
-
-34:                                               ; preds = %32
+33:                                               ; preds = %31
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.5)
-  br label %35
+  br label %34
 
-35:                                               ; preds = %34, %32, %21, %18
-  %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 208
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(104) %4, i32 noundef 16) #12
-  %39 = load ptr, ptr %9, align 8
-  %40 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %39) #12
-  %41 = load i64, ptr %12, align 8
-  %42 = load i32, ptr %14, align 8
-  %43 = call noundef ptr @_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE(ptr noundef nonnull align 8 dereferenceable(32) %40, i64 noundef %41, i32 noundef %42) #12
-  store ptr %43, ptr %17, align 8
-  %.not5 = icmp eq ptr %43, null
-  br i1 %.not5, label %44, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+34:                                               ; preds = %33, %31, %18
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 208
+  %37 = load ptr, ptr %36, align 8
+  call void %37(ptr noundef nonnull align 8 dereferenceable(104) %4, i32 noundef 16) #12
+  %38 = load ptr, ptr %9, align 8
+  %39 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %38) #12
+  %40 = load i64, ptr %12, align 8
+  %41 = load i32, ptr %14, align 8
+  %42 = call noundef ptr @_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE(ptr noundef nonnull align 8 dereferenceable(32) %39, i64 noundef %40, i32 noundef %41) #12
+  store ptr %42, ptr %17, align 8
+  %.not6 = icmp eq ptr %42, null
+  br i1 %.not6, label %43, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-44:                                               ; preds = %35
-  %45 = load ptr, ptr %9, align 8
-  %46 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %45) #12
-  %47 = load i64, ptr %12, align 8
-  %48 = load i32, ptr %14, align 8
-  %49 = call noundef ptr @_ZN20ClassLoaderMetaspace19expand_and_allocateEmN9Metaspace12MetadataTypeE(ptr noundef nonnull align 8 dereferenceable(32) %46, i64 noundef %47, i32 noundef %48) #12
-  store ptr %49, ptr %17, align 8
-  %.not6 = icmp eq ptr %49, null
-  br i1 %.not6, label %50, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+43:                                               ; preds = %34
+  %44 = load ptr, ptr %9, align 8
+  %45 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %44) #12
+  %46 = load i64, ptr %12, align 8
+  %47 = load i32, ptr %14, align 8
+  %48 = call noundef ptr @_ZN20ClassLoaderMetaspace19expand_and_allocateEmN9Metaspace12MetadataTypeE(ptr noundef nonnull align 8 dereferenceable(32) %45, i64 noundef %46, i32 noundef %47) #12
+  store ptr %48, ptr %17, align 8
+  %.not7 = icmp eq ptr %48, null
+  br i1 %.not7, label %49, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-50:                                               ; preds = %44
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 208
-  %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(104) %4, i32 noundef 17) #12
-  %54 = load ptr, ptr %9, align 8
-  %55 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %54) #12
-  %56 = load i64, ptr %12, align 8
-  %57 = load i32, ptr %14, align 8
-  %58 = call noundef ptr @_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE(ptr noundef nonnull align 8 dereferenceable(32) %55, i64 noundef %56, i32 noundef %57) #12
-  store ptr %58, ptr %17, align 8
-  %.not7 = icmp eq ptr %58, null
-  br i1 %.not7, label %59, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+49:                                               ; preds = %43
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 208
+  %52 = load ptr, ptr %51, align 8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(104) %4, i32 noundef 17) #12
+  %53 = load ptr, ptr %9, align 8
+  %54 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %53) #12
+  %55 = load i64, ptr %12, align 8
+  %56 = load i32, ptr %14, align 8
+  %57 = call noundef ptr @_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %55, i32 noundef %56) #12
+  store ptr %57, ptr %17, align 8
+  %.not8 = icmp eq ptr %57, null
+  br i1 %.not8, label %58, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-59:                                               ; preds = %50
-  %60 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not9 = icmp eq ptr %60, null
-  br i1 %.not9, label %63, label %61
+58:                                               ; preds = %49
+  %59 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not10 = icmp eq ptr %59, null
+  br i1 %.not10, label %62, label %60
 
-61:                                               ; preds = %59
-  %62 = load i64, ptr %12, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i64 noundef %62)
-  br label %63
+60:                                               ; preds = %58
+  %61 = load i64, ptr %12, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, i64 noundef %61)
+  br label %62
 
-63:                                               ; preds = %59, %61
-  %64 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+62:                                               ; preds = %58, %60
+  %63 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-_ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %63
-  %66 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %68, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+_ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %62
+  %65 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %67, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-68:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %69, align 8
+67:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 1, ptr %68, align 8
   br label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %63, %_ZN8GCLocker22is_active_and_needs_gcEv.exit, %68, %50, %44, %35, %24, %1
+_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %62, %_ZN8GCLocker22is_active_and_needs_gcEv.exit, %67, %49, %43, %34, %23, %1
   call void @_ZN13CollectedHeap12set_gc_causeEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(104) %4, i32 noundef %8) #12
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22gc__end\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "imr,~{dirflag},~{fpsr},~{flags}"(i32 0) #12, !srcloc !8
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9

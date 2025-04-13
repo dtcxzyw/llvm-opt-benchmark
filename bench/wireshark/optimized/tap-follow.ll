@@ -516,19 +516,17 @@ define internal void @follow_draw(ptr noundef %0) #0 {
   %27 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %26)
   %.val = load i32, ptr %5, align 8
   %28 = icmp ult i32 %.val, 7
-  br i1 %28, label %switch.hole_check, label %29
+  %switch.maskindex = trunc i32 %.val to i8
+  %switch.shifted = lshr i8 125, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %28, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %29
 
-29:                                               ; preds = %switch.hole_check, %22
+29:                                               ; preds = %22
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 89, ptr noundef nonnull @__func__.follow_str_type, ptr noundef nonnull @.str.41) #14
   unreachable
 
-switch.hole_check:                                ; preds = %22
-  %switch.maskindex = trunc nuw i32 %.val to i8
-  %switch.shifted = lshr i8 125, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %29
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %22
   %30 = zext nneg i32 %.val to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.follow_draw, i64 0, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8

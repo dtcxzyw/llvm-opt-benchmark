@@ -1015,27 +1015,27 @@ define internal fastcc noundef nonnull ptr @_ZN6hermes2vmL27getCJSModuleModeDesc
 entry:
   %runtimeModuleList_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9416
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9424
-  %__begin2.sroa.0.010 = load ptr, ptr %Next.i.i.i.i, align 8
-  %cmp.i.not11 = icmp eq ptr %__begin2.sroa.0.010, %runtimeModuleList_.i
-  br i1 %cmp.i.not11, label %.thread29, label %for.body
+  %__begin2.sroa.0.011 = load ptr, ptr %Next.i.i.i.i, align 8
+  %cmp.i.not12 = icmp eq ptr %__begin2.sroa.0.011, %runtimeModuleList_.i
+  br i1 %cmp.i.not12, label %.thread30, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %__begin2.sroa.0.014 = phi ptr [ %__begin2.sroa.0.0, %for.body ], [ %__begin2.sroa.0.010, %entry ]
-  %hasCJSModulesDynamic.013 = phi i1 [ %spec.select, %for.body ], [ false, %entry ]
-  %hasCJSModulesStatic.012 = phi i1 [ %hasCJSModulesStatic.1, %for.body ], [ false, %entry ]
-  %bcProvider_.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.014, i64 80
+  %__begin2.sroa.0.015 = phi ptr [ %__begin2.sroa.0.0, %for.body ], [ %__begin2.sroa.0.011, %entry ]
+  %hasCJSModulesDynamic.014 = phi i1 [ %spec.select, %for.body ], [ false, %entry ]
+  %hasCJSModulesStatic.013 = phi i1 [ %hasCJSModulesStatic.1, %for.body ], [ false, %entry ]
+  %bcProvider_.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.015, i64 80
   %0 = load ptr, ptr %bcProvider_.i.i, align 8
   %retval.sroa.2.0.cjsModuleTable_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 200
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.cjsModuleTable_.sroa_idx.i.i, align 8
   %retval.sroa.2.0.copyload.i.i.fr = freeze i64 %retval.sroa.2.0.copyload.i.i
   %cmp.i.i.not = icmp ne i64 %retval.sroa.2.0.copyload.i.i.fr, 0
-  %spec.select = select i1 %cmp.i.i.not, i1 true, i1 %hasCJSModulesDynamic.013
+  %spec.select = select i1 %cmp.i.i.not, i1 true, i1 %hasCJSModulesDynamic.014
   %retval.sroa.2.0.cjsModuleTableStatic_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %retval.sroa.2.0.copyload.i.i6 = load i64, ptr %retval.sroa.2.0.cjsModuleTableStatic_.sroa_idx.i.i, align 8
-  %retval.sroa.2.0.copyload.i.i6.fr = freeze i64 %retval.sroa.2.0.copyload.i.i6
-  %cmp.i.i7.not = icmp ne i64 %retval.sroa.2.0.copyload.i.i6.fr, 0
-  %hasCJSModulesStatic.1 = select i1 %cmp.i.i7.not, i1 true, i1 %hasCJSModulesStatic.012
-  %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.014, i64 8
+  %retval.sroa.2.0.copyload.i.i7 = load i64, ptr %retval.sroa.2.0.cjsModuleTableStatic_.sroa_idx.i.i, align 8
+  %retval.sroa.2.0.copyload.i.i7.fr = freeze i64 %retval.sroa.2.0.copyload.i.i7
+  %cmp.i.i8.not = icmp ne i64 %retval.sroa.2.0.copyload.i.i7.fr, 0
+  %hasCJSModulesStatic.1 = select i1 %cmp.i.i8.not, i1 true, i1 %hasCJSModulesStatic.013
+  %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.015, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %runtimeModuleList_.i
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -1043,11 +1043,11 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body
   %.str.27..str.28 = select i1 %hasCJSModulesStatic.1, ptr @.str.27, ptr @.str.28
   %.str.29..str.30 = select i1 %hasCJSModulesStatic.1, ptr @.str.29, ptr @.str.30
-  %spec.select33 = select i1 %spec.select, ptr %.str.27..str.28, ptr %.str.29..str.30
-  br label %.thread29
+  %spec.select34 = select i1 %spec.select, ptr %.str.27..str.28, ptr %.str.29..str.30
+  br label %.thread30
 
-.thread29:                                        ; preds = %for.end, %entry
-  %1 = phi ptr [ @.str.30, %entry ], [ %spec.select33, %for.end ]
+.thread30:                                        ; preds = %for.end, %entry
+  %1 = phi ptr [ @.str.30, %entry ], [ %spec.select34, %for.end ]
   ret ptr %1
 }
 

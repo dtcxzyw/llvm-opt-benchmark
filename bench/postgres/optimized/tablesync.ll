@@ -1721,7 +1721,7 @@ slot_getattr.exit152.i.i.i:                       ; preds = %slot_getsomeattrs.e
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.loopexit.i.i, %375
-  %.050.i.i = phi i1 [ false, %375 ], [ %449, %._crit_edge.i.loopexit.i.i ]
+  %.054.i.i = phi i1 [ false, %375 ], [ %449, %._crit_edge.i.loopexit.i.i ]
   %.1.lcssa.i.i.i = phi i32 [ 0, %375 ], [ %.2.i.i.i, %._crit_edge.i.loopexit.i.i ]
   call void @ExecDropSingleTupleTableSlot(ptr noundef %383) #12
   %450 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1798,7 +1798,7 @@ walrcv_clear_result.exit157.i.i.i:                ; preds = %459, %457
   br label %486
 
 486:                                              ; preds = %494, %.lr.ph179.i.i.i
-  %.152.i.i = phi ptr [ null, %.lr.ph179.i.i.i ], [ %500, %494 ]
+  %.156.i.i = phi ptr [ null, %.lr.ph179.i.i.i ], [ %500, %494 ]
   %487 = load i16, ptr %482, align 2
   %488 = icmp slt i16 %487, 1
   br i1 %488, label %slot_getsomeattrs.exit.i158.i.i.i, label %slot_getattr.exit159.i.i.i
@@ -1814,11 +1814,11 @@ slot_getattr.exit159.i.i.i:                       ; preds = %slot_getsomeattrs.e
   br i1 %491, label %492, label %494
 
 492:                                              ; preds = %slot_getattr.exit159.i.i.i
-  %.not130.i.i.i = icmp eq ptr %.152.i.i, null
+  %.not130.i.i.i = icmp eq ptr %.156.i.i, null
   br i1 %.not130.i.i.i, label %.thread.i.i.i, label %493
 
 493:                                              ; preds = %492
-  call void @list_free_deep(ptr noundef nonnull %.152.i.i) #12
+  call void @list_free_deep(ptr noundef nonnull %.156.i.i) #12
   br label %.thread.i.i.i
 
 494:                                              ; preds = %slot_getattr.exit159.i.i.i
@@ -1827,7 +1827,7 @@ slot_getattr.exit159.i.i.i:                       ; preds = %slot_getsomeattrs.e
   %497 = inttoptr i64 %496 to ptr
   %498 = call ptr @text_to_cstring(ptr noundef %497) #12
   %499 = call ptr @makeString(ptr noundef %498) #12
-  %500 = call ptr @lappend(ptr noundef %.152.i.i, ptr noundef %499) #12
+  %500 = call ptr @lappend(ptr noundef %.156.i.i, ptr noundef %499) #12
   %501 = load ptr, ptr %485, align 8
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 24
   %503 = load ptr, ptr %502, align 8
@@ -1837,7 +1837,7 @@ slot_getattr.exit159.i.i.i:                       ; preds = %slot_getsomeattrs.e
   br i1 %505, label %486, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %494, %493, %492, %475
-  %.051.i.i = phi ptr [ null, %492 ], [ null, %493 ], [ null, %475 ], [ %500, %494 ]
+  %.055.i.i = phi ptr [ null, %492 ], [ null, %493 ], [ null, %475 ], [ %500, %494 ]
   call void @ExecDropSingleTupleTableSlot(ptr noundef %478) #12
   %506 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %507 = load ptr, ptr %506, align 8
@@ -1872,7 +1872,7 @@ walrcv_clear_result.exit164.i.i.i:                ; preds = %514, %512
   br label %fetch_remote_table_info.exit.i.i
 
 fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result.exit164.i.i.i, %walrcv_clear_result.exit157.i.i.i
-  %.253.i.i = phi ptr [ %.051.i.i, %walrcv_clear_result.exit164.i.i.i ], [ null, %walrcv_clear_result.exit157.i.i.i ]
+  %.257.i.i = phi ptr [ %.055.i.i, %walrcv_clear_result.exit164.i.i.i ], [ null, %walrcv_clear_result.exit157.i.i.i ]
   %515 = load ptr, ptr %3, align 8
   call void @pfree(ptr noundef %515) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
@@ -1885,10 +1885,10 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
   call void @initStringInfo(ptr noundef nonnull %9) #12
   %518 = load i8, ptr %258, align 1
   %519 = icmp ne i8 %518, 114
-  %520 = icmp ne ptr %.253.i.i, null
-  %or.cond.not85.i.i = select i1 %519, i1 true, i1 %520
-  %brmerge.i.i = select i1 %or.cond.not85.i.i, i1 true, i1 %.050.i.i
-  br i1 %brmerge.i.i, label %538, label %521
+  %520 = icmp ne ptr %.257.i.i, null
+  %or.cond.not38.i.i = select i1 %519, i1 true, i1 %520
+  %or.cond3.i.i = select i1 %or.cond.not38.i.i, i1 true, i1 %.054.i.i
+  br i1 %or.cond3.i.i, label %538, label %521
 
 521:                                              ; preds = %fetch_remote_table_info.exit.i.i
   %522 = load ptr, ptr %208, align 8
@@ -1911,8 +1911,8 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
 
 .lr.ph.i.i:                                       ; preds = %526, %530
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %530 ], [ 0, %526 ]
-  %.not56.i.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %.not56.i.i, label %530, label %529
+  %.not60.i.i = icmp eq i64 %indvars.iv.i.i, 0
+  br i1 %.not60.i.i, label %530, label %529
 
 529:                                              ; preds = %.lr.ph.i.i
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.16) #12
@@ -1934,82 +1934,83 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.18) #12
   %539 = load i32, ptr %450, align 8
   %540 = icmp sgt i32 %539, 0
-  br i1 %540, label %.lr.ph63.i.i, label %._crit_edge64.i.i
+  br i1 %540, label %.lr.ph67.i.i, label %._crit_edge68.i.i
 
-._crit_edge64.i.i:                                ; preds = %552, %538
+._crit_edge68.i.i:                                ; preds = %552, %538
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.19) #12
   %541 = load i8, ptr %258, align 1
   %542 = icmp eq i8 %541, 114
   br i1 %542, label %556, label %557
 
-.lr.ph63.i.i:                                     ; preds = %538, %552
-  %indvars.iv73.i.i = phi i64 [ %indvars.iv.next74.i.i, %552 ], [ 0, %538 ]
+.lr.ph67.i.i:                                     ; preds = %538, %552
+  %indvars.iv77.i.i = phi i64 [ %indvars.iv.next78.i.i, %552 ], [ 0, %538 ]
   %543 = load ptr, ptr %377, align 8
-  %544 = getelementptr inbounds nuw ptr, ptr %543, i64 %indvars.iv73.i.i
+  %544 = getelementptr inbounds nuw ptr, ptr %543, i64 %indvars.iv77.i.i
   %545 = load ptr, ptr %544, align 8
   %546 = call ptr @quote_identifier(ptr noundef %545) #12
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef %546) #12
   %547 = load i32, ptr %450, align 8
   %548 = add i32 %547, -1
   %549 = sext i32 %548 to i64
-  %550 = icmp slt i64 %indvars.iv73.i.i, %549
+  %550 = icmp slt i64 %indvars.iv77.i.i, %549
   br i1 %550, label %551, label %552
 
-551:                                              ; preds = %.lr.ph63.i.i
+551:                                              ; preds = %.lr.ph67.i.i
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.16) #12
-  %.pre79.i.i = load i32, ptr %450, align 8
+  %.pre83.i.i = load i32, ptr %450, align 8
   br label %552
 
-552:                                              ; preds = %551, %.lr.ph63.i.i
-  %553 = phi i32 [ %547, %.lr.ph63.i.i ], [ %.pre79.i.i, %551 ]
-  %indvars.iv.next74.i.i = add nuw nsw i64 %indvars.iv73.i.i, 1
+552:                                              ; preds = %551, %.lr.ph67.i.i
+  %553 = phi i32 [ %547, %.lr.ph67.i.i ], [ %.pre83.i.i, %551 ]
+  %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %554 = sext i32 %553 to i64
-  %555 = icmp slt i64 %indvars.iv.next74.i.i, %554
-  br i1 %555, label %.lr.ph63.i.i, label %._crit_edge64.i.i, !llvm.loop !17
+  %555 = icmp slt i64 %indvars.iv.next78.i.i, %554
+  br i1 %555, label %.lr.ph67.i.i, label %._crit_edge68.i.i, !llvm.loop !17
 
-556:                                              ; preds = %._crit_edge64.i.i
+556:                                              ; preds = %._crit_edge68.i.i
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.20) #12
   br label %557
 
-557:                                              ; preds = %556, %._crit_edge64.i.i
+557:                                              ; preds = %556, %._crit_edge68.i.i
   %558 = load ptr, ptr %208, align 8
   %559 = load ptr, ptr %209, align 8
   %560 = call ptr @quote_qualified_identifier(ptr noundef %558, ptr noundef %559) #12
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef %560) #12
-  br i1 %520, label %561, label %577
+  %.not39.i.i = icmp eq ptr %.257.i.i, null
+  br i1 %.not39.i.i, label %577, label %561
 
 561:                                              ; preds = %557
-  %562 = getelementptr i8, ptr %.253.i.i, i64 16
+  %562 = getelementptr i8, ptr %.257.i.i, i64 16
   %.val.i.i = load ptr, ptr %562, align 8
   %563 = load ptr, ptr %.val.i.i, align 8
   %564 = getelementptr inbounds nuw i8, ptr %563, i64 8
   %565 = load ptr, ptr %564, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %9, ptr noundef nonnull @.str.21, ptr noundef %565) #12
-  %566 = getelementptr inbounds nuw i8, ptr %.253.i.i, i64 4
+  %566 = getelementptr inbounds nuw i8, ptr %.257.i.i, i64 4
   %567 = load i32, ptr %566, align 4
   %568 = icmp sgt i32 %567, 1
-  br i1 %568, label %.lr.ph67.i.i, label %._crit_edge68.i.i
+  br i1 %568, label %.lr.ph71.i.i, label %._crit_edge72.i.i
 
-._crit_edge68.i.i:                                ; preds = %.lr.ph67.i.i, %561
-  call void @list_free_deep(ptr noundef nonnull %.253.i.i) #12
+._crit_edge72.i.i:                                ; preds = %.lr.ph71.i.i, %561
+  call void @list_free_deep(ptr noundef nonnull %.257.i.i) #12
   br label %577
 
-.lr.ph67.i.i:                                     ; preds = %561, %.lr.ph67.i.i
-  %indvars.iv76.i.i = phi i64 [ %indvars.iv.next77.i.i, %.lr.ph67.i.i ], [ 1, %561 ]
+.lr.ph71.i.i:                                     ; preds = %561, %.lr.ph71.i.i
+  %indvars.iv80.i.i = phi i64 [ %indvars.iv.next81.i.i, %.lr.ph71.i.i ], [ 1, %561 ]
   %569 = load ptr, ptr %562, align 8
-  %570 = getelementptr inbounds nuw %union.ListCell, ptr %569, i64 %indvars.iv76.i.i
+  %570 = getelementptr inbounds nuw %union.ListCell, ptr %569, i64 %indvars.iv80.i.i
   %571 = load ptr, ptr %570, align 8
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 8
   %573 = load ptr, ptr %572, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %9, ptr noundef nonnull @.str.22, ptr noundef %573) #12
-  %indvars.iv.next77.i.i = add nuw nsw i64 %indvars.iv76.i.i, 1
+  %indvars.iv.next81.i.i = add nuw nsw i64 %indvars.iv80.i.i, 1
   %574 = load i32, ptr %566, align 4
   %575 = sext i32 %574 to i64
-  %576 = icmp slt i64 %indvars.iv.next77.i.i, %575
-  br i1 %576, label %.lr.ph67.i.i, label %._crit_edge68.i.i, !llvm.loop !18
+  %576 = icmp slt i64 %indvars.iv.next81.i.i, %575
+  br i1 %576, label %.lr.ph71.i.i, label %._crit_edge72.i.i, !llvm.loop !18
 
-577:                                              ; preds = %._crit_edge68.i.i, %557, %._crit_edge.i.i, %521
-  %.str.23.sink.i.i = phi ptr [ @.str.17, %._crit_edge.i.i ], [ @.str.17, %521 ], [ @.str.23, %._crit_edge68.i.i ], [ @.str.23, %557 ]
+577:                                              ; preds = %._crit_edge72.i.i, %557, %._crit_edge.i.i, %521
+  %.str.23.sink.i.i = phi ptr [ @.str.17, %._crit_edge.i.i ], [ @.str.17, %521 ], [ @.str.23, %._crit_edge72.i.i ], [ @.str.23, %557 ]
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull %.str.23.sink.i.i) #12
   %578 = load ptr, ptr @WalReceiverFunctions, align 8
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 48
@@ -2044,8 +2045,8 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
   %600 = load ptr, ptr %9, align 8
   call void @pfree(ptr noundef %600) #12
   %601 = load i32, ptr %599, align 8
-  %.not38.i.i = icmp eq i32 %601, 4
-  br i1 %.not38.i.i, label %610, label %602
+  %.not42.i.i = icmp eq i32 %601, 4
+  br i1 %.not42.i.i, label %610, label %602
 
 602:                                              ; preds = %593
   %603 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -2098,24 +2099,24 @@ walrcv_clear_result.exit.i.i:                     ; preds = %621, %618
   %625 = getelementptr inbounds nuw i8, ptr %517, i64 24
   %626 = load i32, ptr %625, align 8
   %627 = icmp sgt i32 %626, 0
-  br i1 %627, label %.lr.ph.i41.i.i, label %copy_table.exit.i
+  br i1 %627, label %.lr.ph.i45.i.i, label %copy_table.exit.i
 
-.lr.ph.i41.i.i:                                   ; preds = %walrcv_clear_result.exit.i.i
+.lr.ph.i45.i.i:                                   ; preds = %walrcv_clear_result.exit.i.i
   %628 = getelementptr inbounds nuw i8, ptr %517, i64 32
   br label %629
 
-629:                                              ; preds = %629, %.lr.ph.i41.i.i
-  %indvars.iv.i42.i.i = phi i64 [ 0, %.lr.ph.i41.i.i ], [ %indvars.iv.next.i43.i.i, %629 ]
-  %.067.i.i.i = phi ptr [ null, %.lr.ph.i41.i.i ], [ %634, %629 ]
+629:                                              ; preds = %629, %.lr.ph.i45.i.i
+  %indvars.iv.i46.i.i = phi i64 [ 0, %.lr.ph.i45.i.i ], [ %indvars.iv.next.i47.i.i, %629 ]
+  %.067.i.i.i = phi ptr [ null, %.lr.ph.i45.i.i ], [ %634, %629 ]
   %630 = load ptr, ptr %628, align 8
-  %631 = getelementptr inbounds nuw ptr, ptr %630, i64 %indvars.iv.i42.i.i
+  %631 = getelementptr inbounds nuw ptr, ptr %630, i64 %indvars.iv.i46.i.i
   %632 = load ptr, ptr %631, align 8
   %633 = call ptr @makeString(ptr noundef %632) #12
   %634 = call ptr @lappend(ptr noundef %.067.i.i.i, ptr noundef %633) #12
-  %indvars.iv.next.i43.i.i = add nuw nsw i64 %indvars.iv.i42.i.i, 1
+  %indvars.iv.next.i47.i.i = add nuw nsw i64 %indvars.iv.i46.i.i, 1
   %635 = load i32, ptr %625, align 8
   %636 = sext i32 %635 to i64
-  %637 = icmp slt i64 %indvars.iv.next.i43.i.i, %636
+  %637 = icmp slt i64 %indvars.iv.next.i47.i.i, %636
   br i1 %637, label %629, label %copy_table.exit.i, !llvm.loop !19
 
 copy_table.exit.i:                                ; preds = %629, %walrcv_clear_result.exit.i.i

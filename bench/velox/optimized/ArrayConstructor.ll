@@ -5829,19 +5829,17 @@ entry:
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %this, i64 37
   %0 = load i8, ptr %_M_engaged.i.i, align 1
   %tobool.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
   %1 = load i8, ptr %allSelected_, align 4
   %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then, label %if.end
+  %or.cond = select i1 %tobool.i.i, i1 %tobool, i1 false
+  br i1 %or.cond, label %if.then, label %if.end
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %entry
   %size_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %size_.i, align 8
   br label %return
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %begin_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %4 = load i32, ptr %begin_, align 4

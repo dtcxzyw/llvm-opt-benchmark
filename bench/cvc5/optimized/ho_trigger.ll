@@ -7245,17 +7245,17 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit318: ; preds = %_ZN4cvc58internal1
 
 .noexc319:                                        ; preds = %456
   %465 = load i8, ptr %46, align 8, !tbaa !475, !range !109, !noundef !110
-  %.mux.i.not.i.i.i = icmp eq i8 %465, 0
-  br i1 %.mux.i.not.i.i.i, label %466, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit384
+  %466 = trunc nuw i8 %465 to i1
+  br i1 %466, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit384, label %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i
 
-466:                                              ; preds = %.noexc319
+_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i: ; preds = %.noexc319
   %467 = load ptr, ptr %421, align 8, !tbaa !483, !noalias !484
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
   %469 = load i64, ptr %468, align 8, !tbaa !474, !noalias !487
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit384
 
-_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit384: ; preds = %466, %.noexc319
-  %.0.i.i.i = phi i64 [ %469, %466 ], [ 0, %.noexc319 ]
+_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit384: ; preds = %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i, %.noexc319
+  %.0.i.i.i = phi i64 [ %469, %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i ], [ 0, %.noexc319 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46) #22
   %470 = trunc i64 %.0.i.i.i to i32
   store i32 %470, ptr %54, align 4, !tbaa !490
@@ -10979,18 +10979,18 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit55: ; preds = %98, %103, %105
 
 .noexc56:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit55
   %113 = load i8, ptr %6, align 8, !tbaa !475, !range !109, !noundef !110
-  %.mux.i.not.i.i.i = icmp eq i8 %113, 0
-  br i1 %.mux.i.not.i.i.i, label %114, label %119
+  %114 = trunc nuw i8 %113 to i1
+  br i1 %114, label %119, label %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i
 
-114:                                              ; preds = %.noexc56
+_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i: ; preds = %.noexc56
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %116 = load ptr, ptr %115, align 8, !tbaa !483, !noalias !557
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i64, ptr %117, align 8, !tbaa !474, !noalias !560
   br label %119
 
-119:                                              ; preds = %114, %.noexc56
-  %.0.i.i.i = phi i64 [ %118, %114 ], [ 0, %.noexc56 ]
+119:                                              ; preds = %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i, %.noexc56
+  %.0.i.i.i = phi i64 [ %118, %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i ], [ 0, %.noexc56 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
   %120 = trunc i64 %.0.i.i.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22

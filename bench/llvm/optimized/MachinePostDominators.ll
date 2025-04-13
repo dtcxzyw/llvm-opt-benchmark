@@ -8352,24 +8352,22 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb1EE12getNodeIndexEPKS1_.ex
 define dso_local void @_ZNK4llvm35MachinePostDominatorTreeWrapperPass14verifyAnalysisEv(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr @_ZN4llvm20VerifyMachineDomInfoE, align 1, !tbaa !348, !range !29, !noundef !30
   %3 = trunc nuw i8 %2 to i1
-  br i1 %3, label %4, label %12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %5 = load i8, ptr %4, align 8, !range !29
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond = select i1 %3, i1 %6, i1 false
+  br i1 %or.cond, label %7, label %11
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %6 = load i8, ptr %5, align 8, !tbaa !332, !range !29, !noundef !30
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %12
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %9 = tail call noundef zeroext i1 @_ZN4llvm14DomTreeBuilder6VerifyINS_17DominatorTreeBaseINS_17MachineBasicBlockELb1EEEEEbRKT_NS5_17VerificationLevelE(ptr noundef nonnull align 8 dereferenceable(148) %8, i32 noundef 1)
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = tail call noundef zeroext i1 @_ZN4llvm14DomTreeBuilder6VerifyINS_17DominatorTreeBaseINS_17MachineBasicBlockELb1EEEEEbRKT_NS5_17VerificationLevelE(ptr noundef nonnull align 8 dereferenceable(148) %9, i32 noundef 1)
-  br i1 %10, label %12, label %11
-
-11:                                               ; preds = %8
+10:                                               ; preds = %7
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.8, i1 noundef zeroext true) #19
   unreachable
 
-12:                                               ; preds = %8, %4, %1
+11:                                               ; preds = %7, %1
   ret void
 }
 

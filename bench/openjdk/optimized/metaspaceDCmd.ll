@@ -250,85 +250,79 @@ define hidden void @_ZN9metaspace13MetaspaceDCmd7executeE10DCmdSourceP10JavaThre
   %19 = trunc i8 %18 to i1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 147
   %21 = load i8, ptr %20, align 1
-  br i1 %19, label %22, label %42
+  br i1 %19, label %22, label %39
 
 22:                                               ; preds = %16
   %23 = trunc i8 %21 to i1
-  br i1 %23, label %36, label %24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 259
+  %25 = load i8, ptr %24, align 1
+  %26 = trunc i8 %25 to i1
+  %or.cond = select i1 %23, i1 true, i1 %26
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 203
+  %28 = load i8, ptr %27, align 1
+  %29 = trunc i8 %28 to i1
+  %or.cond24 = select i1 %or.cond, i1 true, i1 %29
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 315
+  %31 = load i8, ptr %30, align 1
+  %32 = trunc i8 %31 to i1
+  %or.cond28 = select i1 %or.cond24, i1 true, i1 %32
+  br i1 %or.cond28, label %33, label %36
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 259
-  %26 = load i8, ptr %25, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %36, label %28
+33:                                               ; preds = %22
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull @.str.24) #4
+  br label %36
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 203
-  %30 = load i8, ptr %29, align 1
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %36, label %32
-
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 315
-  %34 = load i8, ptr %33, align 1
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %39
-
-36:                                               ; preds = %32, %28, %24, %22
+36:                                               ; preds = %22, %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull @.str.24) #4
-  br label %39
+  tail call void @_ZN14MetaspaceUtils18print_basic_reportEP12outputStreamm(ptr noundef %38, i64 noundef %.014) #4
+  br label %67
 
-39:                                               ; preds = %36, %32
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8
-  tail call void @_ZN14MetaspaceUtils18print_basic_reportEP12outputStreamm(ptr noundef %41, i64 noundef %.014) #4
-  br label %70
-
-42:                                               ; preds = %16
-  %43 = and i8 %21, 1
-  %spec.select = zext nneg i8 %43 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 491
-  %45 = load i8, ptr %44, align 1
-  %46 = trunc i8 %45 to i1
-  %47 = or disjoint i32 %spec.select, 16
-  %.1 = select i1 %46, i32 %47, i32 %spec.select
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 259
-  %49 = load i8, ptr %48, align 1
-  %50 = trunc i8 %49 to i1
-  %51 = or disjoint i32 %.1, 2
-  %.2 = select i1 %50, i32 %51, i32 %.1
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 203
-  %53 = load i8, ptr %52, align 1
-  %54 = trunc i8 %53 to i1
-  %55 = or i32 %.2, 4
-  %.3 = select i1 %54, i32 %55, i32 %.2
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 315
-  %57 = load i8, ptr %56, align 1
-  %58 = trunc i8 %57 to i1
-  %59 = or i32 %.3, 8
-  %.4 = select i1 %58, i32 %59, i32 %.3
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 371
-  %61 = load i8, ptr %60, align 1
-  %62 = trunc i8 %61 to i1
-  %63 = or i32 %.4, 32
-  %.5 = select i1 %62, i32 %63, i32 %.4
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %66, align 8
+39:                                               ; preds = %16
+  %40 = and i8 %21, 1
+  %spec.select = zext nneg i8 %40 to i32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 491
+  %42 = load i8, ptr %41, align 1
+  %43 = trunc i8 %42 to i1
+  %44 = or disjoint i32 %spec.select, 16
+  %.1 = select i1 %43, i32 %44, i32 %spec.select
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 259
+  %46 = load i8, ptr %45, align 1
+  %47 = trunc i8 %46 to i1
+  %48 = or disjoint i32 %.1, 2
+  %.2 = select i1 %47, i32 %48, i32 %.1
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 203
+  %50 = load i8, ptr %49, align 1
+  %51 = trunc i8 %50 to i1
+  %52 = or i32 %.2, 4
+  %.3 = select i1 %51, i32 %52, i32 %.2
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 315
+  %54 = load i8, ptr %53, align 1
+  %55 = trunc i8 %54 to i1
+  %56 = or i32 %.3, 8
+  %.4 = select i1 %55, i32 %56, i32 %.3
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 371
+  %58 = load i8, ptr %57, align 1
+  %59 = trunc i8 %58 to i1
+  %60 = or i32 %.4, 32
+  %.5 = select i1 %59, i32 %60, i32 %.4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %63, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV16VM_PrintMetadata, i64 16), ptr %4, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %65, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.014, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 %.5, ptr %69, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %62, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.014, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i32 %.5, ptr %66, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #4
-  br label %70
+  br label %67
 
-70:                                               ; preds = %42, %39
+67:                                               ; preds = %39, %36
   ret void
 }
 

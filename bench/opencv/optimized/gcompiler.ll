@@ -7080,16 +7080,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
   br label %common.resume
 
 .preheader:                                       ; preds = %_ZN2cv4util3getINS_12GComputation4Priv4ExprEJS4_NS_4gapi4s11n11GSerializedEEEERKT_RKNS0_7variantIJDpT0_EEE.exit, %231
-  %.sroa.0.0111 = phi ptr [ %234, %231 ], [ %115, %_ZN2cv4util3getINS_12GComputation4Priv4ExprEJS4_NS_4gapi4s11n11GSerializedEEEERKT_RKNS0_7variantIJDpT0_EEE.exit ]
-  %.sroa.31.0110 = phi i64 [ %232, %231 ], [ 0, %_ZN2cv4util3getINS_12GComputation4Priv4ExprEJS4_NS_4gapi4s11n11GSerializedEEEERKT_RKNS0_7variantIJDpT0_EEE.exit ]
-  %.sroa.10.0109 = phi ptr [ %233, %231 ], [ %108, %_ZN2cv4util3getINS_12GComputation4Priv4ExprEJS4_NS_4gapi4s11n11GSerializedEEEERKT_RKNS0_7variantIJDpT0_EEE.exit ]
-  %185 = icmp eq ptr %.sroa.10.0109, %107
-  %186 = icmp eq ptr %.sroa.0.0111, %114
+  %.sroa.0.0113 = phi ptr [ %234, %231 ], [ %115, %_ZN2cv4util3getINS_12GComputation4Priv4ExprEJS4_NS_4gapi4s11n11GSerializedEEEERKT_RKNS0_7variantIJDpT0_EEE.exit ]
+  %.sroa.31.0112 = phi i64 [ %232, %231 ], [ 0, %_ZN2cv4util3getINS_12GComputation4Priv4ExprEJS4_NS_4gapi4s11n11GSerializedEEEERKT_RKNS0_7variantIJDpT0_EEE.exit ]
+  %.sroa.10.0111 = phi ptr [ %233, %231 ], [ %108, %_ZN2cv4util3getINS_12GComputation4Priv4ExprEJS4_NS_4gapi4s11n11GSerializedEEEERKT_RKNS0_7variantIJDpT0_EEE.exit ]
+  %185 = icmp eq ptr %.sroa.10.0111, %107
+  %186 = icmp eq ptr %.sroa.0.0113, %114
   %narrow.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %185, i1 true, i1 %186
   br i1 %narrow.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.loopexit, label %_ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEENS3_IJRKSt6vectorIN2cv4util7variantIJNS8_9monostateENS7_8GMatDescENS7_11GScalarDescENS7_10GArrayDescENS7_11GOpaqueDescENS7_10GFrameDescEEEESaISG_EERKS6_INS9_IJNS7_4GMatENS7_5GMatPENS7_6GFrameENS7_7GScalarENS7_6detail7GArrayUENSP_8GOpaqueUEEEESaISS_EEEEEEEEE8iteratorneERKS10_.exit
 
 _ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEENS3_IJRKSt6vectorIN2cv4util7variantIJNS8_9monostateENS7_8GMatDescENS7_11GScalarDescENS7_10GArrayDescENS7_11GOpaqueDescENS7_10GFrameDescEEEESaISG_EERKS6_INS9_IJNS7_4GMatENS7_5GMatPENS7_6GFrameENS7_7GScalarENS7_6detail7GArrayUENSP_8GOpaqueUEEEESaISS_EEEEEEEEE8iteratorneERKS10_.exit: ; preds = %.preheader
-  %.val47 = load i64, ptr %.sroa.0.0111, align 8, !tbaa !305
+  %.val47 = load i64, ptr %.sroa.0.0113, align 8, !tbaa !305
   %187 = icmp ult i64 %.val47, 6
   br i1 %187, label %switch.lookup, label %188
 
@@ -7128,7 +7128,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %common.resume
 
 switch.lookup:                                    ; preds = %_ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEENS3_IJRKSt6vectorIN2cv4util7variantIJNS8_9monostateENS7_8GMatDescENS7_11GScalarDescENS7_10GArrayDescENS7_11GOpaqueDescENS7_10GFrameDescEEEESaISG_EERKS6_INS9_IJNS7_4GMatENS7_5GMatPENS7_6GFrameENS7_7GScalarENS7_6detail7GArrayUENSP_8GOpaqueUEEEESaISS_EEEEEEEEE8iteratorneERKS10_.exit
-  %.val = load i64, ptr %.sroa.10.0109, align 8
+  %.val = load i64, ptr %.sroa.10.0111, align 8
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN2cv5gimpl9GCompiler17validateInputMetaEv, i64 0, i64 %.val47
   %switch.load = load i64, ptr %switch.gep, align 8
   %198 = icmp eq i64 %.val, %switch.load
@@ -7139,7 +7139,7 @@ switch.lookup:                                    ; preds = %_ZNK3ade4util5Range
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #25
-  call void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, i64 noundef %.sroa.31.0110)
+  call void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, i64 noundef %.sroa.31.0112)
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull @.str.30, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %200 unwind label %204
 
@@ -7241,10 +7241,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   br label %common.resume
 
 231:                                              ; preds = %switch.lookup
-  tail call void @_ZN2cv5gimpl5proto23validate_input_meta_argERKNS_4util7variantIJNS2_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEE(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.10.0109)
-  %232 = add nuw i64 %.sroa.31.0110, 1
-  %233 = getelementptr inbounds nuw i8, ptr %.sroa.10.0109, i64 56
-  %234 = getelementptr inbounds nuw i8, ptr %.sroa.0.0111, i64 40
+  tail call void @_ZN2cv5gimpl5proto23validate_input_meta_argERKNS_4util7variantIJNS2_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEE(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.10.0111)
+  %232 = add nuw i64 %.sroa.31.0112, 1
+  %233 = getelementptr inbounds nuw i8, ptr %.sroa.10.0111, i64 56
+  %234 = getelementptr inbounds nuw i8, ptr %.sroa.0.0113, i64 40
   %235 = icmp eq i64 %232, -1
   br i1 %235, label %.loopexit, label %.preheader
 

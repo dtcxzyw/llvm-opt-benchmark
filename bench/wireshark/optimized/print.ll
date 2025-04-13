@@ -4592,8 +4592,8 @@ define internal fastcc void @write_json_proto_node_list(ptr noundef readonly cap
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void @json_dumper_begin_object(ptr noundef %7)
-  %.not83 = icmp eq ptr %0, null
-  br i1 %.not83, label %._crit_edge, label %.lr.ph
+  %.not84 = icmp eq ptr %0, null
+  br i1 %.not84, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4603,8 +4603,8 @@ define internal fastcc void @write_json_proto_node_list(ptr noundef readonly cap
   br label %12
 
 12:                                               ; preds = %.lr.ph, %195
-  %.04784 = phi ptr [ %0, %.lr.ph ], [ %197, %195 ]
-  %13 = load ptr, ptr %.04784, align 8
+  %.05885 = phi ptr [ %0, %.lr.ph ], [ %197, %195 ]
+  %13 = load ptr, ptr %.05885, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 40
   %.val = load ptr, ptr %15, align 8
@@ -4630,8 +4630,8 @@ define internal fastcc void @write_json_proto_node_list(ptr noundef readonly cap
 proto_node_to_json_key.exit:                      ; preds = %20, %23
   %.0.i = phi ptr [ %22, %20 ], [ %.str.60..i, %23 ]
   %26 = load ptr, ptr %8, align 8
-  %.not49 = icmp eq ptr %26, null
-  br i1 %.not49, label %36, label %27
+  %.not60 = icmp eq ptr %26, null
+  br i1 %.not60, label %36, label %27
 
 27:                                               ; preds = %proto_node_to_json_key.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
@@ -4654,13 +4654,13 @@ check_protocolfilter.exit:                        ; preds = %27, %29, %.sink.spl
   %35 = phi i1 [ false, %.sink.split.i ], [ true, %27 ], [ true, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
   %.pre = load ptr, ptr %15, align 8
-  %.pre85 = load ptr, ptr %.pre, align 8
+  %.pre86 = load ptr, ptr %.pre, align 8
   br label %36
 
 36:                                               ; preds = %check_protocolfilter.exit, %proto_node_to_json_key.exit
-  %37 = phi ptr [ %16, %proto_node_to_json_key.exit ], [ %.pre85, %check_protocolfilter.exit ]
+  %37 = phi ptr [ %16, %proto_node_to_json_key.exit ], [ %.pre86, %check_protocolfilter.exit ]
   %38 = phi ptr [ %.val, %proto_node_to_json_key.exit ], [ %.pre, %check_protocolfilter.exit ]
-  %.079 = phi i1 [ true, %proto_node_to_json_key.exit ], [ %.1, %check_protocolfilter.exit ]
+  %.082 = phi i1 [ true, %proto_node_to_json_key.exit ], [ %.1, %check_protocolfilter.exit ]
   %39 = phi i1 [ false, %proto_node_to_json_key.exit ], [ %35, %check_protocolfilter.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %41 = load ptr, ptr %40, align 8
@@ -4685,312 +4685,312 @@ check_protocolfilter.exit:                        ; preds = %27, %29, %.sink.spl
 
 any_has_children.exit:                            ; preds = %.lr.ph.i, %47, %36
   %.not.lcssa.i = phi i1 [ false, %36 ], [ %.not9.not.i.not.not, %47 ], [ %.not9.not.i.not.not, %.lr.ph.i ]
-  %.not50 = icmp ne ptr %44, null
-  %50 = load ptr, ptr %38, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %52 = load i32, ptr %51, align 8
-  %53 = load i32, ptr @hf_text_only, align 4
-  %54 = icmp eq i32 %52, %53
+  %50 = icmp ne ptr %44, null
+  %51 = load ptr, ptr %38, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  %53 = load i32, ptr %52, align 8
+  %54 = load i32, ptr @hf_text_only, align 4
+  %55 = icmp eq i32 %53, %54
   call void @wmem_free(ptr noundef null, ptr noundef %44)
-  %55 = load i8, ptr %9, align 8, !range !6, !noundef !7
-  %56 = trunc nuw i8 %55 to i1
-  %.pre87 = load i8, ptr %10, align 1, !range !6
-  br i1 %56, label %57, label %65
+  %56 = load i8, ptr %9, align 8, !range !6, !noundef !7
+  %57 = trunc nuw i8 %56 to i1
+  %.pre88 = load i8, ptr %10, align 1, !range !6
+  br i1 %57, label %58, label %66
 
-57:                                               ; preds = %any_has_children.exit
-  %58 = trunc nuw i8 %.pre87 to i1
-  br i1 %58, label %59, label %63
+58:                                               ; preds = %any_has_children.exit
+  %59 = trunc nuw i8 %.pre88 to i1
+  br i1 %59, label %60, label %64
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp slt i32 %61, 1
-  %brmerge = select i1 %62, i1 true, i1 %54
-  br i1 %brmerge, label %65, label %64
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp slt i32 %62, 1
+  %or.cond = select i1 %63, i1 true, i1 %55
+  br i1 %or.cond, label %66, label %65
 
-63:                                               ; preds = %57
-  br i1 %54, label %write_json_proto_node.exit, label %64
+64:                                               ; preds = %58
+  br i1 %55, label %write_json_proto_node.exit, label %65
 
-64:                                               ; preds = %59, %63
+65:                                               ; preds = %60, %64
   call fastcc void @write_json_proto_node(ptr noundef %13, ptr noundef nonnull @.str.87, ptr noundef nonnull @write_json_proto_node_hex_dump, ptr noundef %1)
-  %.pre86 = load i8, ptr %10, align 1, !range !6
-  br label %65
+  %.pre87 = load i8, ptr %10, align 1, !range !6
+  br label %66
 
-65:                                               ; preds = %59, %64, %any_has_children.exit
-  %66 = phi i8 [ 1, %59 ], [ %.pre86, %64 ], [ %.pre87, %any_has_children.exit ]
-  %67 = trunc nuw i8 %66 to i1
-  %brmerge55.not = select i1 %67, i1 %.not50, i1 false
-  br i1 %brmerge55.not, label %68, label %write_json_proto_node.exit
+66:                                               ; preds = %65, %60, %any_has_children.exit
+  %67 = phi i8 [ %.pre87, %65 ], [ 1, %60 ], [ %.pre88, %any_has_children.exit ]
+  %68 = trunc nuw i8 %67 to i1
+  %or.cond4 = select i1 %68, i1 %50, i1 false
+  br i1 %or.cond4, label %69, label %write_json_proto_node.exit
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %13, align 8
-  %70 = getelementptr i8, ptr %69, i64 40
-  %.val.i = load ptr, ptr %70, align 8
-  %71 = load ptr, ptr %.val.i, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  %73 = load i32, ptr %72, align 8
-  %74 = load i32, ptr @hf_text_only, align 4
-  %.not.i.i = icmp eq i32 %73, %74
-  br i1 %.not.i.i, label %78, label %75
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %13, align 8
+  %71 = getelementptr i8, ptr %70, i64 40
+  %.val.i = load ptr, ptr %71, align 8
+  %72 = load ptr, ptr %.val.i, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
+  %74 = load i32, ptr %73, align 8
+  %75 = load i32, ptr @hf_text_only, align 4
+  %.not.i.i = icmp eq i32 %74, %75
+  br i1 %.not.i.i, label %79, label %76
 
-75:                                               ; preds = %68
-  %76 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %77 = load ptr, ptr %76, align 8
+76:                                               ; preds = %69
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %78 = load ptr, ptr %77, align 8
   br label %proto_node_to_json_key.exit.i
 
-78:                                               ; preds = %68
-  %79 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
-  %80 = load ptr, ptr %79, align 8
-  %.not6.i.i = icmp eq ptr %80, null
-  %.str.60..i.i = select i1 %.not6.i.i, ptr @.str.60, ptr %80
+79:                                               ; preds = %69
+  %80 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
+  %81 = load ptr, ptr %80, align 8
+  %.not6.i.i = icmp eq ptr %81, null
+  %.str.60..i.i = select i1 %.not6.i.i, ptr @.str.60, ptr %81
   br label %proto_node_to_json_key.exit.i
 
-proto_node_to_json_key.exit.i:                    ; preds = %78, %75
-  %.0.i.i = phi ptr [ %77, %75 ], [ %.str.60..i.i, %78 ]
-  %81 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.89, ptr noundef %.0.i.i, ptr noundef nonnull @.str.60)
-  %82 = load ptr, ptr %6, align 8
-  call void @json_dumper_set_member_name(ptr noundef %82, ptr noundef %81)
-  call void @g_free(ptr noundef %81)
-  %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %86, label %97
+proto_node_to_json_key.exit.i:                    ; preds = %79, %76
+  %.0.i.i = phi ptr [ %78, %76 ], [ %.str.60..i.i, %79 ]
+  %82 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.89, ptr noundef %.0.i.i, ptr noundef nonnull @.str.60)
+  %83 = load ptr, ptr %6, align 8
+  call void @json_dumper_set_member_name(ptr noundef %83, ptr noundef %82)
+  call void @g_free(ptr noundef %82)
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %87, label %98
 
-86:                                               ; preds = %proto_node_to_json_key.exit.i
-  %87 = load ptr, ptr %13, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 48
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %89, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 20
-  %94 = load i32, ptr %93, align 4
-  %95 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %91, i32 noundef 2, i32 noundef %94)
-  %96 = load ptr, ptr %6, align 8
-  call void @json_dumper_value_string(ptr noundef %96, ptr noundef %95)
-  call void @wmem_free(ptr noundef null, ptr noundef %95)
+87:                                               ; preds = %proto_node_to_json_key.exit.i
+  %88 = load ptr, ptr %13, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %90, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 20
+  %95 = load i32, ptr %94, align 4
+  %96 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %92, i32 noundef 2, i32 noundef %95)
+  %97 = load ptr, ptr %6, align 8
+  call void @json_dumper_value_string(ptr noundef %97, ptr noundef %96)
+  call void @wmem_free(ptr noundef null, ptr noundef %96)
   br label %write_json_proto_node.exit
 
-97:                                               ; preds = %proto_node_to_json_key.exit.i
-  %98 = load ptr, ptr %6, align 8
-  call void @json_dumper_begin_array(ptr noundef %98)
+98:                                               ; preds = %proto_node_to_json_key.exit.i
+  %99 = load ptr, ptr %6, align 8
+  call void @json_dumper_begin_array(ptr noundef %99)
   br i1 %.not11.not.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %97, %.lr.ph.i.i
-  %.013.i.i = phi ptr [ %110, %.lr.ph.i.i ], [ %13, %97 ]
-  %99 = load ptr, ptr %.013.i.i, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
-  %103 = load ptr, ptr %102, align 8
-  %104 = load ptr, ptr %101, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 20
-  %106 = load i32, ptr %105, align 4
-  %107 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %103, i32 noundef 2, i32 noundef %106)
-  %108 = load ptr, ptr %6, align 8
-  call void @json_dumper_value_string(ptr noundef %108, ptr noundef %107)
-  call void @wmem_free(ptr noundef null, ptr noundef %107)
-  %109 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %.not.i10.i = icmp eq ptr %110, null
+.lr.ph.i.i:                                       ; preds = %98, %.lr.ph.i.i
+  %.013.i.i = phi ptr [ %111, %.lr.ph.i.i ], [ %13, %98 ]
+  %100 = load ptr, ptr %.013.i.i, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
+  %104 = load ptr, ptr %103, align 8
+  %105 = load ptr, ptr %102, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 20
+  %107 = load i32, ptr %106, align 4
+  %108 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %104, i32 noundef 2, i32 noundef %107)
+  %109 = load ptr, ptr %6, align 8
+  call void @json_dumper_value_string(ptr noundef %109, ptr noundef %108)
+  call void @wmem_free(ptr noundef null, ptr noundef %108)
+  %110 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
+  %111 = load ptr, ptr %110, align 8
+  %.not.i10.i = icmp eq ptr %111, null
   br i1 %.not.i10.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !46
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %97
-  %111 = load ptr, ptr %6, align 8
-  call void @json_dumper_end_array(ptr noundef %111)
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %98
+  %112 = load ptr, ptr %6, align 8
+  call void @json_dumper_end_array(ptr noundef %112)
   br label %write_json_proto_node.exit
 
-write_json_proto_node.exit:                       ; preds = %63, %._crit_edge.i.i, %86, %65
-  br i1 %.not.lcssa.i, label %112, label %186
+write_json_proto_node.exit:                       ; preds = %64, %._crit_edge.i.i, %87, %66
+  br i1 %.not.lcssa.i, label %113, label %187
 
-112:                                              ; preds = %write_json_proto_node.exit
-  %113 = select i1 %.not50, ptr @.str.88, ptr @.str.60
-  br i1 %39, label %.thread, label %114
+113:                                              ; preds = %write_json_proto_node.exit
+  %114 = select i1 %50, ptr @.str.88, ptr @.str.60
+  br i1 %39, label %.thread, label %115
 
-.thread:                                          ; preds = %112
-  call fastcc void @write_json_proto_node(ptr noundef %13, ptr noundef nonnull %113, ptr noundef nonnull @write_json_proto_node_filtered, ptr noundef %1)
+.thread:                                          ; preds = %113
+  call fastcc void @write_json_proto_node(ptr noundef %13, ptr noundef nonnull %114, ptr noundef nonnull @write_json_proto_node_filtered, ptr noundef %1)
   br label %195
 
-114:                                              ; preds = %112
-  br i1 %.079, label %117, label %115
+115:                                              ; preds = %113
+  br i1 %.082, label %118, label %116
 
-115:                                              ; preds = %114
-  %116 = load ptr, ptr %8, align 8
+116:                                              ; preds = %115
+  %117 = load ptr, ptr %8, align 8
   store ptr null, ptr %8, align 8
-  br label %117
+  br label %118
 
-117:                                              ; preds = %115, %114
-  %.0 = phi ptr [ %116, %115 ], [ null, %114 ]
-  %118 = load ptr, ptr %13, align 8
-  %119 = getelementptr i8, ptr %118, i64 40
-  %.val.i62 = load ptr, ptr %119, align 8
-  %120 = load ptr, ptr %.val.i62, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 48
-  %122 = load i32, ptr %121, align 8
-  %123 = load i32, ptr @hf_text_only, align 4
-  %.not.i.i63 = icmp eq i32 %122, %123
-  br i1 %.not.i.i63, label %127, label %124
+118:                                              ; preds = %116, %115
+  %.0 = phi ptr [ %117, %116 ], [ null, %115 ]
+  %119 = load ptr, ptr %13, align 8
+  %120 = getelementptr i8, ptr %119, i64 40
+  %.val.i65 = load ptr, ptr %120, align 8
+  %121 = load ptr, ptr %.val.i65, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 48
+  %123 = load i32, ptr %122, align 8
+  %124 = load i32, ptr @hf_text_only, align 4
+  %.not.i.i66 = icmp eq i32 %123, %124
+  br i1 %.not.i.i66, label %128, label %125
 
-124:                                              ; preds = %117
-  %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %126 = load ptr, ptr %125, align 8
-  br label %proto_node_to_json_key.exit.i64
+125:                                              ; preds = %118
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %127 = load ptr, ptr %126, align 8
+  br label %proto_node_to_json_key.exit.i67
 
-127:                                              ; preds = %117
-  %128 = getelementptr inbounds nuw i8, ptr %.val.i62, i64 32
-  %129 = load ptr, ptr %128, align 8
-  %.not6.i.i71 = icmp eq ptr %129, null
-  %.str.60..i.i72 = select i1 %.not6.i.i71, ptr @.str.60, ptr %129
-  br label %proto_node_to_json_key.exit.i64
+128:                                              ; preds = %118
+  %129 = getelementptr inbounds nuw i8, ptr %.val.i65, i64 32
+  %130 = load ptr, ptr %129, align 8
+  %.not6.i.i74 = icmp eq ptr %130, null
+  %.str.60..i.i75 = select i1 %.not6.i.i74, ptr @.str.60, ptr %130
+  br label %proto_node_to_json_key.exit.i67
 
-proto_node_to_json_key.exit.i64:                  ; preds = %127, %124
-  %.0.i.i65 = phi ptr [ %126, %124 ], [ %.str.60..i.i72, %127 ]
-  %130 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.89, ptr noundef %.0.i.i65, ptr noundef nonnull %113)
-  %131 = load ptr, ptr %6, align 8
-  call void @json_dumper_set_member_name(ptr noundef %131, ptr noundef %130)
-  call void @g_free(ptr noundef %130)
-  %132 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %133 = load ptr, ptr %132, align 8
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %135, label %158
+proto_node_to_json_key.exit.i67:                  ; preds = %128, %125
+  %.0.i.i68 = phi ptr [ %127, %125 ], [ %.str.60..i.i75, %128 ]
+  %131 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.89, ptr noundef %.0.i.i68, ptr noundef nonnull %114)
+  %132 = load ptr, ptr %6, align 8
+  call void @json_dumper_set_member_name(ptr noundef %132, ptr noundef %131)
+  call void @g_free(ptr noundef %131)
+  %133 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %136, label %159
 
-135:                                              ; preds = %proto_node_to_json_key.exit.i64
-  %136 = load ptr, ptr %13, align 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %139, label %155
+136:                                              ; preds = %proto_node_to_json_key.exit.i67
+  %137 = load ptr, ptr %13, align 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %140, label %156
 
-139:                                              ; preds = %135
-  %140 = getelementptr inbounds nuw i8, ptr %136, i64 40
-  %141 = load ptr, ptr %140, align 8
+140:                                              ; preds = %136
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 40
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  %144 = load i32, ptr %143, align 8
-  %145 = icmp eq i32 %144, 1
-  br i1 %145, label %146, label %153
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
+  %145 = load i32, ptr %144, align 8
+  %146 = icmp eq i32 %145, 1
+  br i1 %146, label %147, label %154
 
-146:                                              ; preds = %139
-  %147 = getelementptr inbounds nuw i8, ptr %141, i64 32
-  %148 = load ptr, ptr %147, align 8
-  %.not.i76 = icmp eq ptr %148, null
-  br i1 %.not.i76, label %151, label %149
+147:                                              ; preds = %140
+  %148 = getelementptr inbounds nuw i8, ptr %142, i64 32
+  %149 = load ptr, ptr %148, align 8
+  %.not.i79 = icmp eq ptr %149, null
+  br i1 %.not.i79, label %152, label %150
 
-149:                                              ; preds = %146
-  %150 = load ptr, ptr %6, align 8
-  call void @json_dumper_value_string(ptr noundef %150, ptr noundef nonnull %148)
-  br label %write_json_proto_node.exit73
+150:                                              ; preds = %147
+  %151 = load ptr, ptr %6, align 8
+  call void @json_dumper_value_string(ptr noundef %151, ptr noundef nonnull %149)
+  br label %write_json_proto_node.exit76
 
-151:                                              ; preds = %146
+152:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %3) #21
-  call void @proto_item_fill_label(ptr noundef %141, ptr noundef nonnull %3, ptr noundef null)
-  %152 = load ptr, ptr %6, align 8
-  call void @json_dumper_value_string(ptr noundef %152, ptr noundef nonnull %3)
+  call void @proto_item_fill_label(ptr noundef %142, ptr noundef nonnull %3, ptr noundef null)
+  %153 = load ptr, ptr %6, align 8
+  call void @json_dumper_value_string(ptr noundef %153, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %3) #21
-  br label %write_json_proto_node.exit73
+  br label %write_json_proto_node.exit76
 
-153:                                              ; preds = %139
-  %154 = load ptr, ptr %6, align 8
-  call void @json_dumper_value_string(ptr noundef %154, ptr noundef nonnull @.str.60)
-  br label %write_json_proto_node.exit73
+154:                                              ; preds = %140
+  %155 = load ptr, ptr %6, align 8
+  call void @json_dumper_value_string(ptr noundef %155, ptr noundef nonnull @.str.60)
+  br label %write_json_proto_node.exit76
 
-155:                                              ; preds = %135
-  %156 = load ptr, ptr %11, align 8
-  %157 = call ptr %156(ptr noundef %136)
-  call fastcc void @write_json_proto_node_list(ptr noundef %157, ptr noundef %1)
-  call void @g_slist_free_full(ptr noundef %157, ptr noundef nonnull @g_slist_free)
-  br label %write_json_proto_node.exit73
+156:                                              ; preds = %136
+  %157 = load ptr, ptr %11, align 8
+  %158 = call ptr %157(ptr noundef %137)
+  call fastcc void @write_json_proto_node_list(ptr noundef %158, ptr noundef %1)
+  call void @g_slist_free_full(ptr noundef %158, ptr noundef nonnull @g_slist_free)
+  br label %write_json_proto_node.exit76
 
-158:                                              ; preds = %proto_node_to_json_key.exit.i64
-  %159 = load ptr, ptr %6, align 8
-  call void @json_dumper_begin_array(ptr noundef %159)
-  br i1 %.not11.not.i, label %._crit_edge.i.i70, label %.lr.ph.i.i67
+159:                                              ; preds = %proto_node_to_json_key.exit.i67
+  %160 = load ptr, ptr %6, align 8
+  call void @json_dumper_begin_array(ptr noundef %160)
+  br i1 %.not11.not.i, label %._crit_edge.i.i73, label %.lr.ph.i.i70
 
-.lr.ph.i.i67:                                     ; preds = %158, %write_json_proto_node_dynamic.exit
-  %.013.i.i68 = phi ptr [ %183, %write_json_proto_node_dynamic.exit ], [ %13, %158 ]
-  %160 = load ptr, ptr %.013.i.i68, align 8
-  %161 = load ptr, ptr %160, align 8
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %163, label %179
+.lr.ph.i.i70:                                     ; preds = %159, %write_json_proto_node_dynamic.exit
+  %.013.i.i71 = phi ptr [ %184, %write_json_proto_node_dynamic.exit ], [ %13, %159 ]
+  %161 = load ptr, ptr %.013.i.i71, align 8
+  %162 = load ptr, ptr %161, align 8
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %164, label %180
 
-163:                                              ; preds = %.lr.ph.i.i67
-  %164 = getelementptr inbounds nuw i8, ptr %160, i64 40
-  %165 = load ptr, ptr %164, align 8
+164:                                              ; preds = %.lr.ph.i.i70
+  %165 = getelementptr inbounds nuw i8, ptr %161, i64 40
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  %168 = load i32, ptr %167, align 8
-  %169 = icmp eq i32 %168, 1
-  br i1 %169, label %170, label %177
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  %169 = load i32, ptr %168, align 8
+  %170 = icmp eq i32 %169, 1
+  br i1 %170, label %171, label %178
 
-170:                                              ; preds = %163
-  %171 = getelementptr inbounds nuw i8, ptr %165, i64 32
-  %172 = load ptr, ptr %171, align 8
-  %.not.i75 = icmp eq ptr %172, null
-  br i1 %.not.i75, label %175, label %173
+171:                                              ; preds = %164
+  %172 = getelementptr inbounds nuw i8, ptr %166, i64 32
+  %173 = load ptr, ptr %172, align 8
+  %.not.i78 = icmp eq ptr %173, null
+  br i1 %.not.i78, label %176, label %174
 
-173:                                              ; preds = %170
-  %174 = load ptr, ptr %6, align 8
-  call void @json_dumper_value_string(ptr noundef %174, ptr noundef nonnull %172)
+174:                                              ; preds = %171
+  %175 = load ptr, ptr %6, align 8
+  call void @json_dumper_value_string(ptr noundef %175, ptr noundef nonnull %173)
   br label %write_json_proto_node_dynamic.exit
 
-175:                                              ; preds = %170
+176:                                              ; preds = %171
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4) #21
-  call void @proto_item_fill_label(ptr noundef %165, ptr noundef nonnull %4, ptr noundef null)
-  %176 = load ptr, ptr %6, align 8
-  call void @json_dumper_value_string(ptr noundef %176, ptr noundef nonnull %4)
+  call void @proto_item_fill_label(ptr noundef %166, ptr noundef nonnull %4, ptr noundef null)
+  %177 = load ptr, ptr %6, align 8
+  call void @json_dumper_value_string(ptr noundef %177, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %4) #21
   br label %write_json_proto_node_dynamic.exit
 
-177:                                              ; preds = %163
-  %178 = load ptr, ptr %6, align 8
-  call void @json_dumper_value_string(ptr noundef %178, ptr noundef nonnull @.str.60)
+178:                                              ; preds = %164
+  %179 = load ptr, ptr %6, align 8
+  call void @json_dumper_value_string(ptr noundef %179, ptr noundef nonnull @.str.60)
   br label %write_json_proto_node_dynamic.exit
 
-179:                                              ; preds = %.lr.ph.i.i67
-  %180 = load ptr, ptr %11, align 8
-  %181 = call ptr %180(ptr noundef %160)
-  call fastcc void @write_json_proto_node_list(ptr noundef %181, ptr noundef %1)
-  call void @g_slist_free_full(ptr noundef %181, ptr noundef nonnull @g_slist_free)
+180:                                              ; preds = %.lr.ph.i.i70
+  %181 = load ptr, ptr %11, align 8
+  %182 = call ptr %181(ptr noundef %161)
+  call fastcc void @write_json_proto_node_list(ptr noundef %182, ptr noundef %1)
+  call void @g_slist_free_full(ptr noundef %182, ptr noundef nonnull @g_slist_free)
   br label %write_json_proto_node_dynamic.exit
 
-write_json_proto_node_dynamic.exit:               ; preds = %177, %175, %173, %179
-  %182 = getelementptr inbounds nuw i8, ptr %.013.i.i68, i64 8
-  %183 = load ptr, ptr %182, align 8
-  %.not.i10.i69 = icmp eq ptr %183, null
-  br i1 %.not.i10.i69, label %._crit_edge.i.i70, label %.lr.ph.i.i67, !llvm.loop !46
+write_json_proto_node_dynamic.exit:               ; preds = %178, %176, %174, %180
+  %183 = getelementptr inbounds nuw i8, ptr %.013.i.i71, i64 8
+  %184 = load ptr, ptr %183, align 8
+  %.not.i10.i72 = icmp eq ptr %184, null
+  br i1 %.not.i10.i72, label %._crit_edge.i.i73, label %.lr.ph.i.i70, !llvm.loop !46
 
-._crit_edge.i.i70:                                ; preds = %write_json_proto_node_dynamic.exit, %158
-  %184 = load ptr, ptr %6, align 8
-  call void @json_dumper_end_array(ptr noundef %184)
-  br label %write_json_proto_node.exit73
+._crit_edge.i.i73:                                ; preds = %write_json_proto_node_dynamic.exit, %159
+  %185 = load ptr, ptr %6, align 8
+  call void @json_dumper_end_array(ptr noundef %185)
+  br label %write_json_proto_node.exit76
 
-write_json_proto_node.exit73:                     ; preds = %155, %149, %151, %153, %._crit_edge.i.i70
-  br i1 %.079, label %186, label %185
+write_json_proto_node.exit76:                     ; preds = %156, %150, %152, %154, %._crit_edge.i.i73
+  br i1 %.082, label %187, label %186
 
-185:                                              ; preds = %write_json_proto_node.exit73
+186:                                              ; preds = %write_json_proto_node.exit76
   store ptr %.0, ptr %8, align 8
-  br label %186
+  br label %187
 
-186:                                              ; preds = %185, %write_json_proto_node.exit73, %write_json_proto_node.exit
-  %brmerge56 = or i1 %.not50, %.not.lcssa.i
-  br i1 %brmerge56, label %195, label %187
+187:                                              ; preds = %186, %write_json_proto_node.exit76, %write_json_proto_node.exit
+  %or.cond7 = or i1 %50, %.not.lcssa.i
+  br i1 %or.cond7, label %195, label %188
 
-187:                                              ; preds = %186
-  %188 = load i8, ptr %10, align 1, !range !6, !noundef !7
-  %189 = trunc nuw i8 %188 to i1
-  br i1 %189, label %194, label %190
+188:                                              ; preds = %187
+  %189 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %190 = trunc nuw i8 %189 to i1
+  br i1 %190, label %194, label %191
 
-190:                                              ; preds = %187
-  %191 = load i8, ptr %9, align 8, !range !6, !noundef !7
-  %192 = trunc nuw i8 %191 to i1
-  %193 = select i1 %192, i1 %54, i1 false
-  br i1 %193, label %194, label %195
+191:                                              ; preds = %188
+  %192 = load i8, ptr %9, align 8, !range !6, !noundef !7
+  %193 = trunc nuw i8 %192 to i1
+  %or.cond10 = select i1 %193, i1 %55, i1 false
+  br i1 %or.cond10, label %194, label %195
 
-194:                                              ; preds = %190, %187
+194:                                              ; preds = %191, %188
   call fastcc void @write_json_proto_node(ptr noundef %13, ptr noundef nonnull @.str.60, ptr noundef nonnull @write_json_proto_node_no_value, ptr noundef %1)
   br label %195
 
-195:                                              ; preds = %.thread, %190, %186, %194
-  %196 = getelementptr inbounds nuw i8, ptr %.04784, i64 8
+195:                                              ; preds = %.thread, %194, %191, %187
+  %196 = getelementptr inbounds nuw i8, ptr %.05885, i64 8
   %197 = load ptr, ptr %196, align 8
   %.not = icmp eq ptr %197, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !47

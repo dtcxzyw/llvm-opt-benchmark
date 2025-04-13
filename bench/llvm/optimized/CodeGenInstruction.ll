@@ -3949,8 +3949,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread134: ; preds = %4, %_ZNK4llvm9St
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %54 = add i64 %2, -1
-  %.not154 = icmp eq i64 %54, 0
-  br i1 %.not154, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
+  %.not155 = icmp eq i64 %54, 0
+  br i1 %.not155, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
   %55 = tail call ptr @memchr(ptr noundef nonnull %53, i32 noundef 46, i64 noundef %54) #18
@@ -3959,8 +3959,8 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %_ZNK4llvm9StringRef
   %57 = ptrtoint ptr %53 to i64
   %58 = sub i64 %56, %57
   %.not = icmp eq i64 %58, -1
-  %or.cond = select i1 %.not.i.i.i, i1 true, i1 %.not
-  br i1 %or.cond, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread, label %59
+  %or.cond154 = select i1 %.not.i.i.i, i1 true, i1 %.not
+  br i1 %or.cond154, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread, label %59
 
 59:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
   %60 = add nuw i64 %58, 1
@@ -4029,9 +4029,9 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit.thread: ; preds = %_ZNSt11char_traits
   %88 = load i32, ptr %87, align 8
   %89 = zext i32 %88 to i64
   %90 = sext i32 %85 to i64
-  %.not155156 = icmp eq i64 %90, %89
-  %.not155 = select i1 %86, i1 true, i1 %.not155156
-  br i1 %.not155, label %_ZNK4llvm14CGIOperandList18hasSubOperandAliasENS_9StringRefERSt4pairIjjE.exit, label %91
+  %.not156157 = icmp eq i64 %90, %89
+  %.not156 = select i1 %86, i1 true, i1 %.not156157
+  br i1 %.not156, label %_ZNK4llvm14CGIOperandList18hasSubOperandAliasENS_9StringRefERSt4pairIjjE.exit, label %91
 
 91:                                               ; preds = %_ZNK4llvm9StringRef13find_first_ofEcm.exit.thread
   %92 = icmp eq i64 %.sroa.5.0, 0
@@ -4103,8 +4103,8 @@ _ZNK4llvm14CGIOperandList18hasSubOperandAliasENS_9StringRefERSt4pairIjjE.exit: ;
   %123 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %121, i64 %120, i32 7
   %124 = load i32, ptr %123, align 4, !tbaa !206
   %125 = icmp ult i32 %124, 2
-  %brmerge = or i1 %3, %125
-  br i1 %brmerge, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %126
+  %or.cond = or i1 %3, %125
+  br i1 %or.cond, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %126
 
 126:                                              ; preds = %122
   %127 = load ptr, ptr %0, align 8, !tbaa !3
@@ -4152,8 +4152,8 @@ _ZNK4llvm14CGIOperandList18hasSubOperandAliasENS_9StringRefERSt4pairIjjE.exit: ;
 144:                                              ; preds = %_ZNK4llvm14CGIOperandList18hasSubOperandAliasENS_9StringRefERSt4pairIjjE.exit
   %145 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %121, i64 %120, i32 9
   %146 = load ptr, ptr %145, align 8, !tbaa !225
-  %.not33 = icmp eq ptr %146, null
-  br i1 %.not33, label %147, label %165
+  %.not34 = icmp eq ptr %146, null
+  br i1 %.not34, label %147, label %165
 
 147:                                              ; preds = %144
   %148 = load ptr, ptr %0, align 8, !tbaa !3
@@ -4201,8 +4201,8 @@ _ZNK4llvm14CGIOperandList18hasSubOperandAliasENS_9StringRefERSt4pairIjjE.exit: ;
 165:                                              ; preds = %144
   %166 = getelementptr inbounds nuw i8, ptr %146, i64 48
   %167 = load i32, ptr %166, align 8, !tbaa !88
-  %.not34158 = icmp eq i32 %167, 0
-  br i1 %.not34158, label %.critedge, label %.lr.ph
+  %.not35159 = icmp eq i32 %167, 0
+  br i1 %.not35159, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %165
   %168 = getelementptr inbounds nuw i8, ptr %146, i64 56
@@ -4232,8 +4232,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK4llvm7DagInit13
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread152:      ; preds = %171, %_ZNK4llvm7DagInit13getArgNameStrEj.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not34 = icmp eq i64 %indvars.iv.next, %169
-  br i1 %.not34, label %.critedge, label %171, !llvm.loop !229
+  %.not35 = icmp eq i64 %indvars.iv.next, %169
+  br i1 %.not35, label %.critedge, label %171, !llvm.loop !229
 
 .critedge:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread152, %165
   %176 = load ptr, ptr %0, align 8, !tbaa !3

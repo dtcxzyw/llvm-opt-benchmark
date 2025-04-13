@@ -913,95 +913,79 @@ declare noundef i32 @_Z12tMPI_BarrierP10tmpi_comm_(ptr noundef) local_unnamed_ad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z30wallcycle_scale_by_num_threadsP13gmx_wallcyclebii(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %.loopexit43, label %.preheader42
+  br i1 %5, label %.loopexit40, label %.preheader39
 
-.preheader42:                                     ; preds = %4
+.preheader39:                                     ; preds = %4
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2584
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   %9 = sext i32 %3 to i64
   br label %10
 
-10:                                               ; preds = %.preheader42, %.loopexit
-  %indvars.iv54 = phi i64 [ 0, %.preheader42 ], [ %indvars.iv.next55, %.loopexit ]
-  %11 = trunc i64 %indvars.iv54 to i32
+10:                                               ; preds = %.preheader39, %.loopexit
+  %indvars.iv50 = phi i64 [ 0, %.preheader39 ], [ %indvars.iv.next51, %.loopexit ]
+  %11 = trunc i64 %indvars.iv50 to i32
   %12 = add i32 %11, -18
   %13 = icmp ult i32 %12, 20
-  br i1 %13, label %.split, label %15
+  %14 = icmp eq i64 %indvars.iv50, 0
+  %or.cond = and i1 %1, %14
+  %or.cond33 = or i1 %13, %or.cond
+  %15 = getelementptr inbounds nuw [60 x %struct.wallcc_t], ptr %0, i64 0, i64 %indvars.iv50, i32 1
+  %16 = load i64, ptr %15, align 8, !tbaa !17
+  br i1 %or.cond33, label %17, label %28
 
-.split:                                           ; preds = %10
-  %14 = getelementptr inbounds nuw [60 x %struct.wallcc_t], ptr %0, i64 0, i64 %indvars.iv54
-  br label %.split31
+17:                                               ; preds = %10
+  %18 = mul i64 %16, %9
+  store i64 %18, ptr %15, align 8, !tbaa !17
+  %19 = load ptr, ptr %7, align 8, !tbaa !102
+  %20 = load ptr, ptr %8, align 8, !tbaa !102
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %.loopexit, label %.preheader
 
-15:                                               ; preds = %10
-  %16 = icmp eq i64 %indvars.iv54, 0
-  br i1 %16, label %18, label %.split32
+.preheader:                                       ; preds = %17
+  %22 = mul nuw nsw i64 %indvars.iv50, 60
+  br label %23
 
-.split32:                                         ; preds = %15
-  %17 = getelementptr inbounds nuw [60 x %struct.wallcc_t], ptr %0, i64 0, i64 %indvars.iv54
-  br label %.split33
+23:                                               ; preds = %.preheader, %23
+  %indvars.iv46 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next47, %23 ]
+  %24 = add nuw nsw i64 %indvars.iv46, %22
+  %25 = getelementptr inbounds nuw %struct.wallcc_t, ptr %19, i64 %24, i32 1
+  %26 = load i64, ptr %25, align 8, !tbaa !17
+  %27 = mul i64 %26, %9
+  store i64 %27, ptr %25, align 8, !tbaa !17
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %exitcond49.not = icmp eq i64 %indvars.iv.next47, 60
+  br i1 %exitcond49.not, label %.loopexit, label %23, !llvm.loop !107
 
-18:                                               ; preds = %15
-  br i1 %1, label %.split31, label %.split33
+28:                                               ; preds = %10
+  %29 = mul i64 %16, %6
+  store i64 %29, ptr %15, align 8, !tbaa !17
+  %30 = load ptr, ptr %7, align 8, !tbaa !102
+  %31 = load ptr, ptr %8, align 8, !tbaa !102
+  %32 = icmp eq ptr %30, %31
+  br i1 %32, label %.loopexit, label %.preheader37
 
-.split31:                                         ; preds = %18, %.split
-  %phi.call = phi ptr [ %14, %.split ], [ %0, %18 ]
-  %19 = getelementptr inbounds nuw i8, ptr %phi.call, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !17
-  %21 = mul i64 %20, %9
-  store i64 %21, ptr %19, align 8, !tbaa !17
-  %22 = load ptr, ptr %7, align 8, !tbaa !102
-  %23 = load ptr, ptr %8, align 8, !tbaa !102
-  %24 = icmp eq ptr %22, %23
-  br i1 %24, label %.loopexit, label %.preheader
+.preheader37:                                     ; preds = %28
+  %33 = mul nuw nsw i64 %indvars.iv50, 60
+  br label %34
 
-.preheader:                                       ; preds = %.split31
-  %25 = mul nuw nsw i64 %indvars.iv54, 60
-  br label %26
-
-26:                                               ; preds = %.preheader, %26
-  %indvars.iv50 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next51, %26 ]
-  %27 = add nuw nsw i64 %indvars.iv50, %25
-  %28 = getelementptr inbounds nuw %struct.wallcc_t, ptr %22, i64 %27, i32 1
-  %29 = load i64, ptr %28, align 8, !tbaa !17
-  %30 = mul i64 %29, %9
-  store i64 %30, ptr %28, align 8, !tbaa !17
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond53.not = icmp eq i64 %indvars.iv.next51, 60
-  br i1 %exitcond53.not, label %.loopexit, label %26, !llvm.loop !107
-
-.split33:                                         ; preds = %18, %.split32
-  %phi.call34 = phi ptr [ %17, %.split32 ], [ %0, %18 ]
-  %31 = getelementptr inbounds nuw i8, ptr %phi.call34, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !17
-  %33 = mul i64 %32, %6
-  store i64 %33, ptr %31, align 8, !tbaa !17
-  %34 = load ptr, ptr %7, align 8, !tbaa !102
-  %35 = load ptr, ptr %8, align 8, !tbaa !102
-  %36 = icmp eq ptr %34, %35
-  br i1 %36, label %.loopexit, label %.preheader40
-
-.preheader40:                                     ; preds = %.split33
-  %37 = mul nuw nsw i64 %indvars.iv54, 60
-  br label %38
-
-38:                                               ; preds = %.preheader40, %38
-  %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %38 ]
-  %39 = add nuw nsw i64 %indvars.iv, %37
-  %40 = getelementptr inbounds nuw %struct.wallcc_t, ptr %34, i64 %39, i32 1
-  %41 = load i64, ptr %40, align 8, !tbaa !17
-  %42 = mul i64 %41, %6
-  store i64 %42, ptr %40, align 8, !tbaa !17
+34:                                               ; preds = %.preheader37, %34
+  %indvars.iv = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next, %34 ]
+  %35 = add nuw nsw i64 %indvars.iv, %33
+  %36 = getelementptr inbounds nuw %struct.wallcc_t, ptr %30, i64 %35, i32 1
+  %37 = load i64, ptr %36, align 8, !tbaa !17
+  %38 = mul i64 %37, %6
+  store i64 %38, ptr %36, align 8, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 60
-  br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !108
+  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !108
 
-.loopexit:                                        ; preds = %38, %26, %.split33, %.split31
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %.not = icmp eq i64 %indvars.iv.next55, 60
-  br i1 %.not, label %.loopexit43, label %10
+.loopexit:                                        ; preds = %34, %23, %28, %17
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %.not = icmp eq i64 %indvars.iv.next51, 60
+  br i1 %.not, label %.loopexit40, label %10
 
-.loopexit43:                                      ; preds = %.loopexit, %4
+.loopexit40:                                      ; preds = %.loopexit, %4
   ret void
 }
 

@@ -978,83 +978,83 @@ define hidden void @_ZN9Assembler10emit_arithEii8RegisterS0_(ptr noundef nonnull
 define hidden noundef zeroext i1 @_ZN9Assembler26query_compressed_disp_byteEibiiii(i32 noundef %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #9 align 2 {
   %7 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %8 = and i64 %7, 134217728
-  %.not34 = icmp ne i64 %8, 0
-  %brmerge.not = and i1 %1, %.not34
-  br i1 %brmerge.not, label %9, label %36
+  %9 = icmp ne i64 %8, 0
+  %or.cond = and i1 %1, %9
+  br i1 %or.cond, label %10, label %37
 
-9:                                                ; preds = %6
+10:                                               ; preds = %6
   switch i32 %3, label %switch.lookup [
-    i32 0, label %10
-    i32 4, label %17
-    i32 15, label %21
-    i32 7, label %19
-    i32 11, label %21
-    i32 13, label %21
+    i32 0, label %11
+    i32 4, label %18
+    i32 15, label %22
+    i32 7, label %20
+    i32 11, label %22
+    i32 13, label %22
   ]
 
-10:                                               ; preds = %9
-  %11 = and i32 %5, 128
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %15, label %12
+11:                                               ; preds = %10
+  %12 = and i32 %5, 128
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %16, label %13
 
-12:                                               ; preds = %10
-  %13 = and i32 %5, 16
-  %.not31 = icmp eq i32 %13, 0
-  %14 = select i1 %.not31, i32 2, i32 3
+13:                                               ; preds = %11
+  %14 = and i32 %5, 16
+  %.not33 = icmp eq i32 %14, 0
+  %15 = select i1 %.not33, i32 2, i32 3
   br label %switch.lookup
 
-15:                                               ; preds = %10
-  %16 = lshr i32 %5, 4
-  %.lobit30 = and i32 %16, 1
+16:                                               ; preds = %11
+  %17 = lshr i32 %5, 4
+  %.lobit32 = and i32 %17, 1
   br label %switch.lookup
 
-17:                                               ; preds = %9
-  %18 = lshr i32 %5, 4
-  %.lobit = and i32 %18, 1
+18:                                               ; preds = %10
+  %19 = lshr i32 %5, 4
+  %.lobit = and i32 %19, 1
   br label %switch.lookup
 
-19:                                               ; preds = %9
+20:                                               ; preds = %10
   %switch.tableidx = add i32 %4, -1
-  %20 = icmp ult i32 %switch.tableidx, 3
-  %spec.select35 = select i1 %20, i32 %4, i32 0
+  %21 = icmp ult i32 %switch.tableidx, 3
+  %spec.select34 = select i1 %21, i32 %4, i32 0
   br label %switch.lookup
 
-21:                                               ; preds = %9, %9, %9
-  %22 = icmp eq i32 %4, 3
-  %23 = zext i1 %22 to i32
+22:                                               ; preds = %10, %10, %10
+  %23 = icmp eq i32 %4, 3
+  %24 = zext i1 %23 to i32
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %19, %9, %12, %15, %21, %17
-  %.026 = phi i32 [ 0, %9 ], [ %23, %21 ], [ %.lobit, %17 ], [ %14, %12 ], [ %.lobit30, %15 ], [ %spec.select35, %19 ]
-  %or.cond = icmp ult i32 %2, 3
-  br i1 %or.cond, label %24, label %36
+switch.lookup:                                    ; preds = %20, %10, %13, %16, %22, %18
+  %.028 = phi i32 [ 0, %10 ], [ %24, %22 ], [ %.lobit, %18 ], [ %15, %13 ], [ %.lobit32, %16 ], [ %spec.select34, %20 ]
+  %or.cond3 = icmp ult i32 %2, 3
+  br i1 %or.cond3, label %25, label %37
 
-24:                                               ; preds = %switch.lookup
-  %25 = add nsw i32 %.026, %3
-  %26 = sext i32 %25 to i64
-  %27 = zext nneg i32 %2 to i64
-  %28 = getelementptr inbounds [25 x [3 x i8]], ptr @_ZL11tuple_table, i64 0, i64 %26, i64 %27
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %31 = srem i32 %0, %30
-  %32 = sdiv i32 %0, %30
-  %33 = icmp eq i32 %31, 0
-  br i1 %33, label %34, label %39
+25:                                               ; preds = %switch.lookup
+  %26 = add nsw i32 %.028, %3
+  %27 = sext i32 %26 to i64
+  %28 = zext nneg i32 %2 to i64
+  %29 = getelementptr inbounds [25 x [3 x i8]], ptr @_ZL11tuple_table, i64 0, i64 %27, i64 %28
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i32
+  %32 = srem i32 %0, %31
+  %33 = sdiv i32 %0, %31
+  %34 = icmp eq i32 %32, 0
+  br i1 %34, label %35, label %40
 
-34:                                               ; preds = %24
-  %35 = add i32 %32, 128
-  %or.cond3 = icmp ult i32 %35, 256
-  %spec.select = select i1 %or.cond3, i32 %32, i32 %0
-  br label %36
+35:                                               ; preds = %25
+  %36 = add i32 %33, 128
+  %or.cond5 = icmp ult i32 %36, 256
+  %spec.select = select i1 %or.cond5, i32 %33, i32 %0
+  br label %37
 
-36:                                               ; preds = %34, %6, %switch.lookup
-  %.025 = phi i32 [ %0, %switch.lookup ], [ %0, %6 ], [ %spec.select, %34 ]
-  %37 = add i32 %.025, 128
-  %38 = icmp ult i32 %37, 256
-  br label %39
+37:                                               ; preds = %35, %switch.lookup, %6
+  %.027 = phi i32 [ %0, %switch.lookup ], [ %0, %6 ], [ %spec.select, %35 ]
+  %38 = add i32 %.027, 128
+  %39 = icmp ult i32 %38, 256
+  br label %40
 
-39:                                               ; preds = %24, %36
-  %.0 = phi i1 [ %38, %36 ], [ false, %24 ]
+40:                                               ; preds = %25, %37
+  %.0 = phi i1 [ %39, %37 ], [ false, %25 ]
   ret i1 %.0
 }
 
@@ -1255,7 +1255,7 @@ define hidden void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactor
   store i32 %5, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = icmp ne i32 %11, 0
+  %12 = icmp eq i32 %11, 0
   %13 = icmp sgt i32 %2, -1
   %14 = icmp sgt i32 %3, -1
   br i1 %13, label %15, label %180
@@ -1265,11 +1265,11 @@ define hidden void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactor
 
 16:                                               ; preds = %15
   %17 = or i32 %11, %5
-  %brmerge = icmp ne i32 %17, 0
+  %or.cond = icmp ne i32 %17, 0
   %18 = and i32 %2, 7
-  %.not50 = icmp eq i32 %18, 5
-  %or.cond = or i1 %.not50, %brmerge
-  br i1 %or.cond, label %35, label %19
+  %.not61 = icmp eq i32 %18, 5
+  %or.cond62 = or i1 %.not61, %or.cond
+  br i1 %or.cond62, label %35, label %19
 
 19:                                               ; preds = %16
   %20 = shl i32 %4, 6
@@ -1279,8 +1279,8 @@ define hidden void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactor
   %24 = or disjoint i32 %23, %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  %.tr89 = trunc i32 %1 to i8
-  %27 = shl i8 %.tr89, 3
+  %.tr84 = trunc i32 %1 to i8
+  %27 = shl i8 %.tr84, 3
   %28 = and i8 %27, 56
   %29 = or disjoint i8 %28, 4
   %30 = trunc i32 %24 to i8
@@ -1295,9 +1295,8 @@ define hidden void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactor
 
 35:                                               ; preds = %16
   %36 = call noundef zeroext i1 @_ZN9Assembler25emit_compressed_disp_byteERi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %.not53 = xor i1 %36, true
-  %brmerge55 = or i1 %12, %.not53
-  br i1 %brmerge55, label %56, label %37
+  %or.cond3 = and i1 %12, %36
+  br i1 %or.cond3, label %37, label %56
 
 37:                                               ; preds = %35
   %38 = load i32, ptr %9, align 4
@@ -1308,8 +1307,8 @@ define hidden void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactor
   %43 = or disjoint i32 %42, %18
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
-  %.tr90 = trunc i32 %1 to i8
-  %46 = shl i8 %.tr90, 3
+  %.tr86 = trunc i32 %1 to i8
+  %46 = shl i8 %.tr86, 3
   %47 = and i8 %46, 56
   %48 = or disjoint i8 %47, 68
   %49 = trunc i32 %43 to i8
@@ -1333,8 +1332,8 @@ define hidden void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactor
   %61 = or disjoint i32 %60, %18
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8
-  %.tr91 = trunc i32 %1 to i8
-  %64 = shl i8 %.tr91, 3
+  %.tr85 = trunc i32 %1 to i8
+  %64 = shl i8 %.tr85, 3
   %65 = and i8 %64, 56
   %66 = or disjoint i8 %65, -124
   %67 = trunc i32 %61 to i8
@@ -1374,14 +1373,14 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %56, %.sink.split
   br i1 %84, label %86, label %132
 
 86:                                               ; preds = %82
-  %brmerge58.not = icmp eq i32 %85, 0
-  br i1 %brmerge58.not, label %87, label %97
+  %or.cond5 = icmp eq i32 %85, 0
+  br i1 %or.cond5, label %87, label %97
 
 87:                                               ; preds = %86
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = load ptr, ptr %88, align 8
-  %.tr86 = trunc i32 %1 to i8
-  %90 = shl i8 %.tr86, 3
+  %.tr83 = trunc i32 %1 to i8
+  %90 = shl i8 %.tr83, 3
   %91 = and i8 %90, 56
   %92 = or disjoint i8 %91, 4
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 16
@@ -1395,16 +1394,15 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %56, %.sink.split
 
 97:                                               ; preds = %86
   %98 = call noundef zeroext i1 @_ZN9Assembler25emit_compressed_disp_byteERi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %.not59 = xor i1 %98, true
-  %brmerge61 = or i1 %12, %.not59
-  br i1 %brmerge61, label %112, label %99
+  %or.cond7 = and i1 %12, %98
+  br i1 %or.cond7, label %99, label %112
 
 99:                                               ; preds = %97
   %100 = load i32, ptr %9, align 4
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = load ptr, ptr %101, align 8
-  %.tr87 = trunc i32 %1 to i8
-  %103 = shl i8 %.tr87, 3
+  %.tr82 = trunc i32 %1 to i8
+  %103 = shl i8 %.tr82, 3
   %104 = and i8 %103, 56
   %105 = or disjoint i8 %104, 68
   %106 = trunc i32 %100 to i8
@@ -1422,8 +1420,8 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %56, %.sink.split
 112:                                              ; preds = %97
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %114 = load ptr, ptr %113, align 8
-  %.tr88 = trunc i32 %1 to i8
-  %115 = shl i8 %.tr88, 3
+  %.tr81 = trunc i32 %1 to i8
+  %115 = shl i8 %.tr81, 3
   %116 = and i8 %115, 56
   %117 = or disjoint i8 %116, -124
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 16
@@ -1435,17 +1433,17 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %56, %.sink.split
   store ptr %121, ptr %118, align 8
   %122 = load i32, ptr %9, align 4
   %123 = load i32, ptr %10, align 8
-  %.not.i69 = icmp eq i32 %123, 0
-  br i1 %.not.i69, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit71, label %.sink.split.i70
+  %.not.i64 = icmp eq i32 %123, 0
+  br i1 %.not.i64, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit66, label %.sink.split.i65
 
-.sink.split.i70:                                  ; preds = %112
+.sink.split.i65:                                  ; preds = %112
   %124 = load ptr, ptr %113, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
   tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %124, ptr noundef %126, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #18
-  br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit71
+  br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit66
 
-_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit71: ; preds = %112, %.sink.split.i70
+_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit66: ; preds = %112, %.sink.split.i65
   %127 = load ptr, ptr %113, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load ptr, ptr %128, align 8
@@ -1456,10 +1454,10 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit71: ; preds = %112, %.sink.sp
   br label %246
 
 132:                                              ; preds = %82
-  %brmerge64 = icmp ne i32 %85, 0
+  %or.cond9 = icmp ne i32 %85, 0
   %.not = icmp eq i32 %83, 5
-  %or.cond65 = or i1 %.not, %brmerge64
-  br i1 %or.cond65, label %143, label %133
+  %or.cond63 = or i1 %.not, %or.cond9
+  br i1 %or.cond63, label %143, label %133
 
 133:                                              ; preds = %132
   %134 = shl i32 %1, 3
@@ -1477,9 +1475,8 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit71: ; preds = %112, %.sink.sp
 
 143:                                              ; preds = %132
   %144 = call noundef zeroext i1 @_ZN9Assembler25emit_compressed_disp_byteERi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %.not66 = xor i1 %144, true
-  %brmerge68 = or i1 %12, %.not66
-  br i1 %brmerge68, label %159, label %145
+  %or.cond11 = and i1 %12, %144
+  br i1 %or.cond11, label %145, label %159
 
 145:                                              ; preds = %143
   %146 = load i32, ptr %9, align 4
@@ -1515,17 +1512,17 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit71: ; preds = %112, %.sink.sp
   store ptr %169, ptr %167, align 8
   %170 = load i32, ptr %9, align 4
   %171 = load i32, ptr %10, align 8
-  %.not.i72 = icmp eq i32 %171, 0
-  br i1 %.not.i72, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit74, label %.sink.split.i73
+  %.not.i67 = icmp eq i32 %171, 0
+  br i1 %.not.i67, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit69, label %.sink.split.i68
 
-.sink.split.i73:                                  ; preds = %159
+.sink.split.i68:                                  ; preds = %159
   %172 = load ptr, ptr %163, align 8
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load ptr, ptr %173, align 8
   tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %172, ptr noundef %174, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #18
-  br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit74
+  br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit69
 
-_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit74: ; preds = %159, %.sink.split.i73
+_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit69: ; preds = %159, %.sink.split.i68
   %175 = load ptr, ptr %163, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %177 = load ptr, ptr %176, align 8
@@ -1545,8 +1542,8 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit74: ; preds = %159, %.sink.sp
   %185 = or disjoint i32 %184, %182
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %187 = load ptr, ptr %186, align 8
-  %.tr85 = trunc i32 %1 to i8
-  %188 = shl i8 %.tr85, 3
+  %.tr80 = trunc i32 %1 to i8
+  %188 = shl i8 %.tr80, 3
   %189 = and i8 %188, 56
   %190 = or disjoint i8 %189, 4
   %191 = trunc i32 %185 to i8
@@ -1559,17 +1556,17 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit74: ; preds = %159, %.sink.sp
   store i8 %192, ptr %195, align 1
   store ptr %196, ptr %193, align 8
   %197 = load i32, ptr %10, align 8
-  %.not.i75 = icmp eq i32 %197, 0
-  br i1 %.not.i75, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit77, label %.sink.split.i76
+  %.not.i70 = icmp eq i32 %197, 0
+  br i1 %.not.i70, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit72, label %.sink.split.i71
 
-.sink.split.i76:                                  ; preds = %181
+.sink.split.i71:                                  ; preds = %181
   %198 = load ptr, ptr %186, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8
   tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %198, ptr noundef %200, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #18
-  br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit77
+  br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit72
 
-_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit77: ; preds = %181, %.sink.split.i76
+_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit72: ; preds = %181, %.sink.split.i71
   %201 = load ptr, ptr %186, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %203 = load ptr, ptr %202, align 8
@@ -1582,13 +1579,13 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit77: ; preds = %181, %.sink.sp
 206:                                              ; preds = %180
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %208 = load ptr, ptr %207, align 8
-  %.tr = trunc i32 %1 to i8
-  %209 = shl i8 %.tr, 3
+  %.tr79 = trunc i32 %1 to i8
+  %209 = shl i8 %.tr79, 3
   %210 = and i8 %209, 56
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 1
-  br i1 %12, label %214, label %234
+  br i1 %12, label %234, label %214
 
 214:                                              ; preds = %206
   %215 = or disjoint i8 %210, 5
@@ -1608,19 +1605,19 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit77: ; preds = %181, %.sink.sp
   %226 = trunc i64 %.neg to i32
   %227 = add i32 %5, %226
   %228 = load i32, ptr %10, align 8
-  %.not.i78 = icmp eq i32 %228, 0
-  br i1 %.not.i78, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit80, label %.sink.split.i79
+  %.not.i73 = icmp eq i32 %228, 0
+  br i1 %.not.i73, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit75, label %.sink.split.i74
 
-.sink.split.i79:                                  ; preds = %214
+.sink.split.i74:                                  ; preds = %214
   tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %216, ptr noundef %223, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #18
   %.pre = load ptr, ptr %207, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre92 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit80
+  %.pre87 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit75
 
-_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit80: ; preds = %214, %.sink.split.i79
-  %229 = phi ptr [ %218, %214 ], [ %.pre92, %.sink.split.i79 ]
-  %230 = phi ptr [ %216, %214 ], [ %.pre, %.sink.split.i79 ]
+_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit75: ; preds = %214, %.sink.split.i74
+  %229 = phi ptr [ %218, %214 ], [ %.pre87, %.sink.split.i74 ]
+  %230 = phi ptr [ %216, %214 ], [ %.pre, %.sink.split.i74 ]
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
   store i32 %227, ptr %229, align 1
   %232 = load ptr, ptr %231, align 8
@@ -1635,17 +1632,17 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit80: ; preds = %214, %.sink.sp
   store i8 37, ptr %213, align 1
   store ptr %236, ptr %211, align 8
   %237 = load i32, ptr %10, align 8
-  %.not.i81 = icmp eq i32 %237, 0
-  br i1 %.not.i81, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit83, label %.sink.split.i82
+  %.not.i76 = icmp eq i32 %237, 0
+  br i1 %.not.i76, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit78, label %.sink.split.i77
 
-.sink.split.i82:                                  ; preds = %234
+.sink.split.i77:                                  ; preds = %234
   %238 = load ptr, ptr %207, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %240 = load ptr, ptr %239, align 8
   tail call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %238, ptr noundef %240, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 1) #18
-  br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit83
+  br label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit78
 
-_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit83: ; preds = %234, %.sink.split.i82
+_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit78: ; preds = %234, %.sink.split.i77
   %241 = load ptr, ptr %207, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 16
   %243 = load ptr, ptr %242, align 8
@@ -1655,7 +1652,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit83: ; preds = %234, %.sink.sp
   store ptr %245, ptr %242, align 8
   br label %246
 
-246:                                              ; preds = %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit77, %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit83, %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit80, %37, %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit, %19, %133, %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit74, %145, %87, %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit71, %99
+246:                                              ; preds = %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit72, %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit78, %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit75, %37, %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit, %19, %133, %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit69, %145, %87, %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit66, %99
   ret void
 }
 
@@ -5007,228 +5004,226 @@ define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler21vex_prefix_and_encode
   %or.cond3 = or i1 %10, %11
   %spec.select = or i1 %or.cond3, %9
   %12 = and i32 %1, 8
-  %.not47 = icmp eq i32 %12, 0
+  %.not = icmp eq i32 %12, 0
   %13 = and i32 %3, 8
-  %.not48 = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %0, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = load i32, ptr @UseAVX, align 4
-  %20 = icmp slt i32 %19, 3
-  %or.cond5.not = select i1 %18, i1 true, i1 %20
-  br i1 %or.cond5.not, label %thread-pre-split, label %21
+  %14 = icmp ne i32 %13, 0
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr %0, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %6, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %18 = load i8, ptr %17, align 1
+  %19 = trunc i8 %18 to i1
+  %20 = load i32, ptr @UseAVX, align 4
+  %21 = icmp slt i32 %20, 3
+  %or.cond8.not = select i1 %19, i1 true, i1 %21
+  br i1 %or.cond8.not, label %thread-pre-split, label %22
 
-21:                                               ; preds = %8
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  %23 = load i8, ptr %22, align 1
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %thread-pre-split.thread, label %25
+22:                                               ; preds = %8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  %24 = load i8, ptr %23, align 1
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %thread-pre-split.thread, label %26
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %27 = load i8, ptr %26, align 1
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %29, label %32
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %28 = load i8, ptr %27, align 1
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %34
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %31 = load i32, ptr %30, align 8
-  %.not = icmp eq i32 %31, 2
-  %brmerge = or i1 %spec.select, %.not
-  br i1 %brmerge, label %thread-pre-split.thread, label %33
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp eq i32 %32, 2
+  %or.cond5 = or i1 %spec.select, %33
+  br i1 %or.cond5, label %thread-pre-split.thread, label %35
 
-32:                                               ; preds = %25
-  br i1 %spec.select, label %thread-pre-split.thread, label %33
+34:                                               ; preds = %26
+  br i1 %spec.select, label %thread-pre-split.thread, label %35
 
-33:                                               ; preds = %29, %32
-  store i8 1, ptr %16, align 1
+35:                                               ; preds = %30, %34
+  store i8 1, ptr %17, align 1
   %.pr.pre = load i32, ptr @UseAVX, align 4
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %33, %8
-  %34 = phi i8 [ %17, %8 ], [ 1, %33 ]
-  %35 = phi i32 [ %19, %8 ], [ %.pr.pre, %33 ]
-  %36 = icmp sgt i32 %35, 2
-  br i1 %36, label %thread-pre-split.thread, label %110
+thread-pre-split:                                 ; preds = %35, %8
+  %36 = phi i8 [ %18, %8 ], [ 1, %35 ]
+  %37 = phi i32 [ %20, %8 ], [ %.pr.pre, %35 ]
+  %38 = icmp sgt i32 %37, 2
+  br i1 %38, label %thread-pre-split.thread, label %112
 
-thread-pre-split.thread:                          ; preds = %29, %21, %32, %thread-pre-split
-  %37 = phi i8 [ %34, %thread-pre-split ], [ %17, %32 ], [ %17, %21 ], [ %17, %29 ]
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %105, label %39
+thread-pre-split.thread:                          ; preds = %22, %34, %30, %thread-pre-split
+  %39 = phi i8 [ %36, %thread-pre-split ], [ %18, %30 ], [ %18, %34 ], [ %18, %22 ]
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %107, label %41
 
-39:                                               ; preds = %thread-pre-split.thread
-  %40 = and i1 %9, %7
-  %41 = xor i1 %7, true
-  %42 = and i1 %9, %41
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  store i8 1, ptr %43, align 1
-  %44 = load ptr, ptr %15, align 8
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
-  %47 = select i1 %46, i32 128, i32 0
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 20
-  store i32 %47, ptr %48, align 4
-  %49 = load ptr, ptr %15, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 2
-  %51 = load i8, ptr %50, align 2
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %56, label %53
+41:                                               ; preds = %thread-pre-split.thread
+  %42 = and i1 %9, %7
+  %43 = xor i1 %7, true
+  %44 = and i1 %9, %43
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  store i8 1, ptr %45, align 1
+  %46 = load ptr, ptr %16, align 8
+  %47 = load i8, ptr %46, align 8
+  %48 = trunc i8 %47 to i1
+  %49 = select i1 %48, i32 128, i32 0
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 20
+  store i32 %49, ptr %50, align 4
+  %51 = load ptr, ptr %16, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  %53 = load i8, ptr %52, align 2
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %58, label %55
 
-53:                                               ; preds = %39
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %55 = load i32, ptr %54, align 8
-  br label %56
+55:                                               ; preds = %41
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %57 = load i32, ptr %56, align 8
+  br label %58
 
-56:                                               ; preds = %53, %39
-  %57 = phi i32 [ %55, %53 ], [ 0, %39 ]
-  %58 = select i1 %11, i32 0, i32 8
-  %59 = or i32 %57, %58
-  %60 = getelementptr inbounds nuw i8, ptr %49, i64 7
-  %61 = load i8, ptr %60, align 1
-  %62 = trunc i8 %61 to i1
-  %63 = select i1 %62, i32 16, i32 0
-  %64 = or i32 %59, %63
-  %65 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %66 = load i32, ptr %65, align 8
-  %67 = shl i32 %66, 5
-  %68 = and i32 %67, 96
-  %69 = or i32 %64, %68
-  br i1 %52, label %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit, label %70
+58:                                               ; preds = %55, %41
+  %59 = phi i32 [ %57, %55 ], [ 0, %41 ]
+  %60 = select i1 %11, i32 0, i32 8
+  %61 = or i32 %59, %60
+  %62 = getelementptr inbounds nuw i8, ptr %51, i64 7
+  %63 = load i8, ptr %62, align 1
+  %64 = trunc i8 %63 to i1
+  %65 = select i1 %64, i32 16, i32 0
+  %66 = or i32 %61, %65
+  %67 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %68 = load i32, ptr %67, align 8
+  %69 = shl i32 %68, 5
+  %70 = and i32 %69, 96
+  %71 = or i32 %66, %70
+  br i1 %54, label %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit, label %72
 
-70:                                               ; preds = %56
-  %71 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %72 = load i32, ptr %71, align 8
-  %.not.i = icmp eq i32 %72, 0
-  br i1 %.not.i, label %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit, label %73
+72:                                               ; preds = %58
+  %73 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %74 = load i32, ptr %73, align 8
+  %.not.i = icmp eq i32 %74, 0
+  br i1 %.not.i, label %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit, label %75
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %49, i64 6
-  %75 = load i8, ptr %74, align 2
-  %76 = trunc i8 %75 to i1
-  %77 = select i1 %76, i32 128, i32 0
-  %78 = or i32 %77, %69
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %51, i64 6
+  %77 = load i8, ptr %76, align 2
+  %78 = trunc i8 %77 to i1
+  %79 = select i1 %78, i32 128, i32 0
+  %80 = or i32 %79, %71
   br label %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
 
-_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit: ; preds = %56, %70, %73
-  %.0.i = phi i32 [ %78, %73 ], [ %69, %70 ], [ %69, %56 ]
-  %79 = shl i32 %2, 3
-  %80 = and i32 %79, 120
-  %81 = or disjoint i32 %47, %80
-  %82 = xor i32 %81, 124
-  %83 = or i32 %82, %4
-  %84 = select i1 %.not47, i32 240, i32 112
-  %85 = select i1 %42, i32 176, i32 240
-  %86 = select i1 %.not48, i32 240, i32 208
-  %87 = select i1 %10, i32 224, i32 240
-  %88 = and i32 %84, %87
-  %89 = and i32 %88, %86
-  %90 = and i32 %89, %85
-  %91 = select i1 %40, i32 8, i32 0
-  %92 = or disjoint i32 %91, %90
-  %93 = or i32 %92, %5
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = trunc i32 %93 to i8
-  %97 = trunc i32 %83 to i8
-  %98 = trunc i32 %.0.i to i8
-  %99 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
-  store i8 98, ptr %100, align 1
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 2
-  store i8 %96, ptr %101, align 1
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 3
-  store i8 %97, ptr %102, align 1
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 4
+_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit: ; preds = %58, %72, %75
+  %.0.i = phi i32 [ %80, %75 ], [ %71, %72 ], [ %71, %58 ]
+  %81 = shl i32 %2, 3
+  %82 = and i32 %81, 120
+  %83 = or disjoint i32 %49, %82
+  %84 = xor i32 %83, 124
+  %85 = or i32 %84, %4
+  %86 = select i1 %.not, i32 240, i32 112
+  %87 = select i1 %44, i32 176, i32 240
+  %88 = select i1 %14, i32 208, i32 240
+  %89 = select i1 %10, i32 224, i32 240
+  %90 = and i32 %86, %89
+  %91 = and i32 %90, %88
+  %92 = and i32 %91, %87
+  %93 = select i1 %42, i32 8, i32 0
+  %94 = or disjoint i32 %93, %92
+  %95 = or i32 %94, %5
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = trunc i32 %95 to i8
+  %99 = trunc i32 %85 to i8
+  %100 = trunc i32 %.0.i to i8
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1
+  store i8 98, ptr %102, align 1
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 2
   store i8 %98, ptr %103, align 1
-  store ptr %104, ptr %99, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 3
+  store i8 %99, ptr %104, align 1
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  store i8 %100, ptr %105, align 1
+  store ptr %106, ptr %101, align 8
   br label %_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
 
-105:                                              ; preds = %thread-pre-split.thread
-  %106 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %107 = load i8, ptr %106, align 4
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %109, label %110
+107:                                              ; preds = %thread-pre-split.thread
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %109 = load i8, ptr %108, align 4
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %111, label %112
 
-109:                                              ; preds = %105
+111:                                              ; preds = %107
   store i8 0, ptr %6, align 8
-  br label %110
+  br label %112
 
-110:                                              ; preds = %thread-pre-split, %109, %105
-  %111 = load ptr, ptr %15, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load i32, ptr %112, align 8
-  %114 = load i8, ptr %111, align 8
-  %115 = trunc i8 %114 to i1
-  br i1 %.not48, label %116, label %119
+112:                                              ; preds = %thread-pre-split, %111, %107
+  %113 = load ptr, ptr %16, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %115 = load i32, ptr %114, align 8
+  %116 = load i8, ptr %113, align 8
+  %117 = trunc i8 %116 to i1
+  %118 = and i32 %5, -2
+  %119 = icmp eq i32 %118, 2
+  %120 = or i1 %14, %119
+  %or.cond7.i = or i1 %120, %117
+  br i1 %or.cond7.i, label %121, label %144
 
-116:                                              ; preds = %110
-  %117 = and i32 %5, -2
-  %118 = icmp eq i32 %117, 2
-  %or.cond3.i = or i1 %118, %115
-  br i1 %or.cond3.i, label %119, label %142
-
-119:                                              ; preds = %116, %110
-  %120 = phi i32 [ -1, %116 ], [ -33, %110 ]
-  %121 = select i1 %.not47, i32 224, i32 96
-  %122 = and i32 %120, %121
-  %123 = or i32 %122, %5
-  %124 = shl i32 %2, 3
-  %125 = and i32 %124, 120
-  %126 = select i1 %115, i32 128, i32 0
-  %127 = icmp sgt i32 %113, 0
-  %128 = select i1 %127, i32 4, i32 0
-  %129 = or disjoint i32 %128, %125
-  %130 = or disjoint i32 %129, %126
-  %131 = xor i32 %130, 120
-  %132 = or i32 %131, %4
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %134 = load ptr, ptr %133, align 8
-  %135 = trunc i32 %123 to i8
-  %136 = trunc i32 %132 to i8
-  %137 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  store i8 -60, ptr %138, align 1
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  store i8 %135, ptr %139, align 1
-  %141 = getelementptr inbounds nuw i8, ptr %138, i64 3
-  store i8 %136, ptr %140, align 1
-  store ptr %141, ptr %137, align 8
+121:                                              ; preds = %112
+  %122 = select i1 %.not, i32 224, i32 96
+  %123 = select i1 %14, i32 192, i32 224
+  %124 = and i32 %123, %122
+  %125 = or i32 %124, %5
+  %126 = shl i32 %2, 3
+  %127 = and i32 %126, 120
+  %128 = select i1 %117, i32 128, i32 0
+  %129 = icmp sgt i32 %115, 0
+  %130 = select i1 %129, i32 4, i32 0
+  %131 = or disjoint i32 %130, %127
+  %132 = or disjoint i32 %131, %128
+  %133 = xor i32 %132, 120
+  %134 = or i32 %133, %4
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %136 = load ptr, ptr %135, align 8
+  %137 = trunc i32 %125 to i8
+  %138 = trunc i32 %134 to i8
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 1
+  store i8 -60, ptr %140, align 1
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 2
+  store i8 %137, ptr %141, align 1
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 3
+  store i8 %138, ptr %142, align 1
+  store ptr %143, ptr %139, align 8
   br label %_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
 
-142:                                              ; preds = %116
-  %143 = select i1 %.not47, i32 128, i32 0
-  %144 = shl i32 %2, 3
-  %145 = and i32 %144, 120
-  %146 = or disjoint i32 %145, %143
-  %147 = icmp sgt i32 %113, 0
-  %148 = select i1 %147, i32 4, i32 0
-  %149 = or disjoint i32 %146, %148
-  %150 = xor i32 %149, 120
-  %151 = or i32 %150, %4
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = trunc i32 %151 to i8
-  %155 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 1
-  store i8 -59, ptr %156, align 1
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 2
-  store i8 %154, ptr %157, align 1
-  store ptr %158, ptr %155, align 8
+144:                                              ; preds = %112
+  %145 = select i1 %.not, i32 128, i32 0
+  %146 = shl i32 %2, 3
+  %147 = and i32 %146, 120
+  %148 = or disjoint i32 %147, %145
+  %149 = icmp sgt i32 %115, 0
+  %150 = select i1 %149, i32 4, i32 0
+  %151 = or disjoint i32 %148, %150
+  %152 = xor i32 %151, 120
+  %153 = or i32 %152, %4
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %155 = load ptr, ptr %154, align 8
+  %156 = trunc i32 %153 to i8
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 1
+  store i8 -59, ptr %158, align 1
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 2
+  store i8 %156, ptr %159, align 1
+  store ptr %160, ptr %157, align 8
   br label %_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
 
-_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit: ; preds = %142, %119, %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
-  %159 = shl i32 %1, 3
-  %160 = and i32 %159, 56
-  %161 = and i32 %3, 7
-  %162 = or disjoint i32 %161, %160
-  ret i32 %162
+_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit: ; preds = %144, %121, %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
+  %161 = shl i32 %1, 3
+  %162 = and i32 %161, 56
+  %163 = and i32 %3, 7
+  %164 = or disjoint i32 %163, %162
+  ret i32 %164
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6725,9 +6720,9 @@ define hidden void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9V
   %21 = trunc i64 %20 to i32
   %22 = sub i32 %21, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %23 = and i32 %22, -16
-  %spec.select.i38 = icmp eq i32 %23, 16
+  %spec.select.i40 = icmp eq i32 %23, 16
   %24 = icmp sgt i32 %2, 15
-  %or.cond = or i1 %24, %spec.select.i38
+  %or.cond = or i1 %24, %spec.select.i40
   %25 = icmp sgt i32 %3, 15
   %spec.select = or i1 %25, %or.cond
   br label %.thread
@@ -6735,7 +6730,7 @@ define hidden void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9V
 .thread:                                          ; preds = %7, %15
   %26 = phi i1 [ %spec.select, %15 ], [ true, %7 ]
   %27 = and i32 %3, 8
-  %.not42 = icmp eq i32 %27, 0
+  %.not = icmp eq i32 %27, 0
   %28 = and i32 %13, -24
   %29 = icmp eq i32 %28, 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -6759,10 +6754,10 @@ define hidden void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9V
 
 43:                                               ; preds = %38, %33
   %.sink = phi ptr [ %42, %38 ], [ %37, %33 ]
-  %.sink44 = phi i32 [ ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32), %38 ], [ ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32), %33 ]
+  %.sink45 = phi i32 [ ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32), %38 ], [ ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32), %33 ]
   %44 = ptrtoint ptr %.sink to i64
   %45 = trunc i64 %44 to i32
-  %46 = sub i32 %45, %.sink44
+  %46 = sub i32 %45, %.sink45
   %.0.in.in = and i32 %46, -24
   %.0.in = icmp eq i32 %.0.in.in, 8
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -6774,8 +6769,8 @@ define hidden void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9V
   %51 = trunc i8 %50 to i1
   %52 = load i32, ptr @UseAVX, align 4
   %53 = icmp slt i32 %52, 3
-  %or.cond3.not = select i1 %51, i1 true, i1 %53
-  br i1 %or.cond3.not, label %thread-pre-split, label %54
+  %or.cond5.not = select i1 %51, i1 true, i1 %53
+  br i1 %or.cond5.not, label %thread-pre-split, label %54
 
 54:                                               ; preds = %43
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 5
@@ -6786,228 +6781,225 @@ define hidden void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9V
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %60 = load i32, ptr %59, align 8
-  %.not = icmp eq i32 %60, 2
-  %brmerge = or i1 %26, %.not
-  br i1 %brmerge, label %thread-pre-split.thread, label %61
+  %61 = icmp eq i32 %60, 2
+  %or.cond3 = or i1 %26, %61
+  br i1 %or.cond3, label %thread-pre-split.thread, label %62
 
-61:                                               ; preds = %58
+62:                                               ; preds = %58
   store i8 1, ptr %49, align 1
   %.pr.pre = load i32, ptr @UseAVX, align 4
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %61, %43
-  %62 = phi i8 [ %50, %43 ], [ 1, %61 ]
-  %63 = phi i32 [ %52, %43 ], [ %.pr.pre, %61 ]
-  %64 = icmp sgt i32 %63, 2
-  br i1 %64, label %thread-pre-split.thread, label %164
+thread-pre-split:                                 ; preds = %62, %43
+  %63 = phi i8 [ %50, %43 ], [ 1, %62 ]
+  %64 = phi i32 [ %52, %43 ], [ %.pr.pre, %62 ]
+  %65 = icmp sgt i32 %64, 2
+  br i1 %65, label %thread-pre-split.thread, label %165
 
-thread-pre-split.thread:                          ; preds = %58, %54, %thread-pre-split
-  %65 = phi i8 [ %62, %thread-pre-split ], [ %50, %54 ], [ %50, %58 ]
-  %66 = trunc i8 %65 to i1
-  br i1 %66, label %159, label %67
+thread-pre-split.thread:                          ; preds = %54, %58, %thread-pre-split
+  %66 = phi i8 [ %63, %thread-pre-split ], [ %50, %58 ], [ %50, %54 ]
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %160, label %68
 
-67:                                               ; preds = %thread-pre-split.thread
-  %68 = icmp sgt i32 %3, 15
-  %69 = load i8, ptr %30, align 4
-  %70 = trunc i8 %69 to i1
-  br i1 %70, label %71, label %79
+68:                                               ; preds = %thread-pre-split.thread
+  %69 = icmp sgt i32 %3, 15
+  %70 = load i8, ptr %30, align 4
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %72, label %80
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %73 = load i32, ptr %72, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %74
-  %76 = ptrtoint ptr %75 to i64
-  %77 = trunc i64 %76 to i32
-  %78 = sub i32 %77, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
-  br label %79
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %74 = load i32, ptr %73, align 4
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %75
+  %77 = ptrtoint ptr %76 to i64
+  %78 = trunc i64 %77 to i32
+  %79 = sub i32 %78, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
+  br label %80
 
-79:                                               ; preds = %67, %71
-  %.034.in.in = phi i32 [ %78, %71 ], [ %2, %67 ]
-  %.034.in = icmp sgt i32 %.034.in.in, 15
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %81 = load i32, ptr %80, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %82
-  %84 = ptrtoint ptr %83 to i64
-  %85 = trunc i64 %84 to i32
-  %86 = sub i32 %85, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %87 = and i32 %86, -16
-  %spec.select.i39 = icmp eq i32 %87, 16
-  %88 = load i32, ptr %1, align 4
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %89
-  %91 = ptrtoint ptr %90 to i64
-  %92 = trunc i64 %91 to i32
-  %93 = sub i32 %92, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %94 = and i32 %93, -16
-  %spec.select.i40 = icmp eq i32 %94, 16
-  %95 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  store i8 1, ptr %95, align 1
-  %96 = load ptr, ptr %48, align 8
-  %97 = load i8, ptr %96, align 8
-  %98 = trunc i8 %97 to i1
-  %99 = select i1 %98, i32 128, i32 0
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 20
-  store i32 %99, ptr %100, align 4
-  %101 = load ptr, ptr %48, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 2
-  %103 = load i8, ptr %102, align 2
-  %104 = trunc i8 %103 to i1
-  br i1 %104, label %108, label %105
+80:                                               ; preds = %68, %72
+  %.036.in.in = phi i32 [ %79, %72 ], [ %2, %68 ]
+  %.036.in = icmp sgt i32 %.036.in.in, 15
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %82 = load i32, ptr %81, align 4
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %83
+  %85 = ptrtoint ptr %84 to i64
+  %86 = trunc i64 %85 to i32
+  %87 = sub i32 %86, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %88 = and i32 %87, -16
+  %spec.select.i41 = icmp eq i32 %88, 16
+  %89 = load i32, ptr %1, align 4
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %90
+  %92 = ptrtoint ptr %91 to i64
+  %93 = trunc i64 %92 to i32
+  %94 = sub i32 %93, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %95 = and i32 %94, -16
+  %spec.select.i42 = icmp eq i32 %95, 16
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  store i8 1, ptr %96, align 1
+  %97 = load ptr, ptr %48, align 8
+  %98 = load i8, ptr %97, align 8
+  %99 = trunc i8 %98 to i1
+  %100 = select i1 %99, i32 128, i32 0
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 20
+  store i32 %100, ptr %101, align 4
+  %102 = load ptr, ptr %48, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 2
+  %104 = load i8, ptr %103, align 2
+  %105 = trunc i8 %104 to i1
+  br i1 %105, label %109, label %106
 
-105:                                              ; preds = %79
-  %106 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  %107 = load i32, ptr %106, align 8
-  br label %108
+106:                                              ; preds = %80
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %108 = load i32, ptr %107, align 8
+  br label %109
 
-108:                                              ; preds = %105, %79
-  %109 = phi i32 [ %107, %105 ], [ 0, %79 ]
-  %110 = select i1 %.034.in, i32 0, i32 8
-  %111 = or i32 %109, %110
-  %112 = getelementptr inbounds nuw i8, ptr %101, i64 7
-  %113 = load i8, ptr %112, align 1
-  %114 = trunc i8 %113 to i1
-  %115 = select i1 %114, i32 16, i32 0
-  %116 = or i32 %111, %115
-  %117 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %118 = load i32, ptr %117, align 8
-  %119 = shl i32 %118, 5
-  %120 = and i32 %119, 96
-  %121 = or i32 %116, %120
-  br i1 %104, label %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit, label %122
+109:                                              ; preds = %106, %80
+  %110 = phi i32 [ %108, %106 ], [ 0, %80 ]
+  %111 = select i1 %.036.in, i32 0, i32 8
+  %112 = or i32 %110, %111
+  %113 = getelementptr inbounds nuw i8, ptr %102, i64 7
+  %114 = load i8, ptr %113, align 1
+  %115 = trunc i8 %114 to i1
+  %116 = select i1 %115, i32 16, i32 0
+  %117 = or i32 %112, %116
+  %118 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %119 = load i32, ptr %118, align 8
+  %120 = shl i32 %119, 5
+  %121 = and i32 %120, 96
+  %122 = or i32 %117, %121
+  br i1 %105, label %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit, label %123
 
-122:                                              ; preds = %108
-  %123 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  %124 = load i32, ptr %123, align 8
-  %.not.i = icmp eq i32 %124, 0
-  br i1 %.not.i, label %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit, label %125
+123:                                              ; preds = %109
+  %124 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %125 = load i32, ptr %124, align 8
+  %.not.i = icmp eq i32 %125, 0
+  br i1 %.not.i, label %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit, label %126
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds nuw i8, ptr %101, i64 6
-  %127 = load i8, ptr %126, align 2
-  %128 = trunc i8 %127 to i1
-  %129 = select i1 %128, i32 128, i32 0
-  %130 = or i32 %129, %121
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds nuw i8, ptr %102, i64 6
+  %128 = load i8, ptr %127, align 2
+  %129 = trunc i8 %128 to i1
+  %130 = select i1 %129, i32 128, i32 0
+  %131 = or i32 %130, %122
   br label %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
 
-_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit: ; preds = %108, %122, %125
-  %.0.i = phi i32 [ %130, %125 ], [ %121, %122 ], [ %121, %108 ]
-  %131 = shl i32 %2, 3
-  %132 = and i32 %131, 120
-  %133 = select i1 %spec.select.i39, i32 0, i32 4
-  %134 = or disjoint i32 %132, %133
-  %135 = or disjoint i32 %134, %99
-  %136 = xor i32 %135, 120
-  %137 = or i32 %136, %4
-  %138 = select i1 %.not42, i32 240, i32 112
-  %139 = select i1 %.0.in, i32 176, i32 240
-  %140 = select i1 %29, i32 208, i32 240
-  %141 = select i1 %68, i32 224, i32 240
-  %142 = and i32 %138, %141
-  %143 = and i32 %142, %140
-  %144 = and i32 %143, %139
-  %145 = select i1 %spec.select.i40, i32 8, i32 0
-  %146 = or disjoint i32 %144, %145
-  %147 = or i32 %146, %5
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %149 = load ptr, ptr %148, align 8
-  %150 = trunc i32 %147 to i8
-  %151 = trunc i32 %137 to i8
-  %152 = trunc i32 %.0.i to i8
-  %153 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 1
-  store i8 98, ptr %154, align 1
-  %156 = getelementptr inbounds nuw i8, ptr %154, i64 2
-  store i8 %150, ptr %155, align 1
-  %157 = getelementptr inbounds nuw i8, ptr %154, i64 3
+_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit: ; preds = %109, %123, %126
+  %.0.i = phi i32 [ %131, %126 ], [ %122, %123 ], [ %122, %109 ]
+  %132 = shl i32 %2, 3
+  %133 = and i32 %132, 120
+  %134 = select i1 %spec.select.i41, i32 0, i32 4
+  %135 = or disjoint i32 %133, %134
+  %136 = or disjoint i32 %135, %100
+  %137 = xor i32 %136, 120
+  %138 = or i32 %137, %4
+  %139 = select i1 %.not, i32 240, i32 112
+  %140 = select i1 %.0.in, i32 176, i32 240
+  %141 = select i1 %29, i32 208, i32 240
+  %142 = select i1 %69, i32 224, i32 240
+  %143 = and i32 %139, %142
+  %144 = and i32 %143, %141
+  %145 = and i32 %144, %140
+  %146 = select i1 %spec.select.i42, i32 8, i32 0
+  %147 = or disjoint i32 %145, %146
+  %148 = or i32 %147, %5
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %150 = load ptr, ptr %149, align 8
+  %151 = trunc i32 %148 to i8
+  %152 = trunc i32 %138 to i8
+  %153 = trunc i32 %.0.i to i8
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 1
+  store i8 98, ptr %155, align 1
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 2
   store i8 %151, ptr %156, align 1
-  %158 = getelementptr inbounds nuw i8, ptr %154, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %155, i64 3
   store i8 %152, ptr %157, align 1
-  store ptr %158, ptr %153, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 4
+  store i8 %153, ptr %158, align 1
+  store ptr %159, ptr %154, align 8
   br label %_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
 
-159:                                              ; preds = %thread-pre-split.thread
-  %160 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %161 = load i8, ptr %160, align 4
-  %162 = trunc i8 %161 to i1
-  br i1 %162, label %163, label %164
+160:                                              ; preds = %thread-pre-split.thread
+  %161 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %162 = load i8, ptr %161, align 4
+  %163 = trunc i8 %162 to i1
+  br i1 %163, label %164, label %165
 
-163:                                              ; preds = %159
+164:                                              ; preds = %160
   store i8 0, ptr %6, align 8
-  br label %164
+  br label %165
 
-164:                                              ; preds = %thread-pre-split, %163, %159
-  %165 = load ptr, ptr %48, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %167 = load i32, ptr %166, align 8
-  %168 = load i8, ptr %165, align 8
-  %169 = trunc i8 %168 to i1
-  %brmerge.i = or i1 %29, %.0.in
-  %.mux.i = select i1 %29, i32 -33, i32 -1
-  br i1 %brmerge.i, label %173, label %170
-
-170:                                              ; preds = %164
+165:                                              ; preds = %thread-pre-split, %164, %160
+  %166 = load ptr, ptr %48, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
+  %168 = load i32, ptr %167, align 8
+  %169 = load i8, ptr %166, align 8
+  %170 = trunc i8 %169 to i1
   %171 = and i32 %5, -2
   %172 = icmp eq i32 %171, 2
-  %or.cond3.i = or i1 %172, %169
-  br i1 %or.cond3.i, label %173, label %198
+  %173 = or i1 %172, %.0.in
+  %174 = or i1 %29, %173
+  %or.cond7.i = or i1 %174, %170
+  br i1 %or.cond7.i, label %175, label %200
 
-173:                                              ; preds = %170, %164
-  %174 = phi i32 [ -1, %170 ], [ %.mux.i, %164 ]
-  %175 = select i1 %.not42, i32 224, i32 96
-  %176 = select i1 %.0.in, i32 160, i32 224
-  %177 = and i32 %176, %175
-  %178 = and i32 %177, %174
-  %179 = or i32 %178, %5
-  %180 = shl i32 %2, 3
-  %181 = and i32 %180, 120
-  %182 = select i1 %169, i32 128, i32 0
-  %183 = icmp sgt i32 %167, 0
-  %184 = select i1 %183, i32 4, i32 0
-  %185 = or disjoint i32 %184, %181
-  %186 = or disjoint i32 %185, %182
-  %187 = xor i32 %186, 120
-  %188 = or i32 %187, %4
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %190 = load ptr, ptr %189, align 8
-  %191 = trunc i32 %179 to i8
-  %192 = trunc i32 %188 to i8
-  %193 = getelementptr inbounds nuw i8, ptr %190, i64 16
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 1
-  store i8 -60, ptr %194, align 1
-  %196 = getelementptr inbounds nuw i8, ptr %194, i64 2
-  store i8 %191, ptr %195, align 1
-  %197 = getelementptr inbounds nuw i8, ptr %194, i64 3
-  store i8 %192, ptr %196, align 1
-  store ptr %197, ptr %193, align 8
+175:                                              ; preds = %165
+  %176 = select i1 %.not, i32 224, i32 96
+  %177 = select i1 %.0.in, i32 160, i32 224
+  %178 = select i1 %29, i32 192, i32 224
+  %179 = and i32 %178, %176
+  %180 = and i32 %179, %177
+  %181 = or i32 %180, %5
+  %182 = shl i32 %2, 3
+  %183 = and i32 %182, 120
+  %184 = select i1 %170, i32 128, i32 0
+  %185 = icmp sgt i32 %168, 0
+  %186 = select i1 %185, i32 4, i32 0
+  %187 = or disjoint i32 %186, %183
+  %188 = or disjoint i32 %187, %184
+  %189 = xor i32 %188, 120
+  %190 = or i32 %189, %4
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %192 = load ptr, ptr %191, align 8
+  %193 = trunc i32 %181 to i8
+  %194 = trunc i32 %190 to i8
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 16
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 1
+  store i8 -60, ptr %196, align 1
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 2
+  store i8 %193, ptr %197, align 1
+  %199 = getelementptr inbounds nuw i8, ptr %196, i64 3
+  store i8 %194, ptr %198, align 1
+  store ptr %199, ptr %195, align 8
   br label %_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
 
-198:                                              ; preds = %170
-  %199 = select i1 %.not42, i32 128, i32 0
-  %200 = shl i32 %2, 3
-  %201 = and i32 %200, 120
-  %202 = or disjoint i32 %199, %201
-  %203 = icmp sgt i32 %167, 0
-  %204 = select i1 %203, i32 4, i32 0
-  %205 = or disjoint i32 %202, %204
-  %206 = xor i32 %205, 120
-  %207 = or i32 %206, %4
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %209 = load ptr, ptr %208, align 8
-  %210 = trunc i32 %207 to i8
-  %211 = getelementptr inbounds nuw i8, ptr %209, i64 16
-  %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 1
-  store i8 -59, ptr %212, align 1
-  %214 = getelementptr inbounds nuw i8, ptr %212, i64 2
-  store i8 %210, ptr %213, align 1
-  store ptr %214, ptr %211, align 8
+200:                                              ; preds = %165
+  %201 = select i1 %.not, i32 128, i32 0
+  %202 = shl i32 %2, 3
+  %203 = and i32 %202, 120
+  %204 = or disjoint i32 %201, %203
+  %205 = icmp sgt i32 %168, 0
+  %206 = select i1 %205, i32 4, i32 0
+  %207 = or disjoint i32 %204, %206
+  %208 = xor i32 %207, 120
+  %209 = or i32 %208, %4
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %211 = load ptr, ptr %210, align 8
+  %212 = trunc i32 %209 to i8
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 16
+  %214 = load ptr, ptr %213, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 1
+  store i8 -59, ptr %214, align 1
+  %216 = getelementptr inbounds nuw i8, ptr %214, i64 2
+  store i8 %212, ptr %215, align 1
+  store ptr %216, ptr %213, align 8
   br label %_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
 
-_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit: ; preds = %198, %173, %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
+_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit: ; preds = %200, %175, %_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
   ret void
 }
 
@@ -15811,147 +15803,138 @@ define hidden void @_ZN9Assembler7ldmxcsrE7Address(ptr noundef nonnull align 8 d
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.Address, align 8
   %8 = load i32, ptr @UseAVX, align 4
-  %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %10, label %63
-
-10:                                               ; preds = %2
-  %11 = load i8, ptr @UseAPX, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %63, label %13
-
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = icmp slt i32 %8, 1
+  %10 = load i8, ptr @UseAPX, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond = select i1 %9, i1 true, i1 %11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %17, ptr %18, align 8
-  store i8 0, ptr %3, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 1, ptr %19, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 1, ptr %20, align 2
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 1, ptr %24, align 2
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 0, ptr %25, align 1
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 24, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 4, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %31, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
-  call void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3)
-  %37 = load ptr, ptr %14, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  store i8 -82, ptr %39, align 1
-  store ptr %40, ptr %38, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %42 = load ptr, ptr %33, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
-  %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.0.0.copyload.i = load i32, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %49 = load i32, ptr %48, align 8
-  %50 = sext i32 %.sroa.01.0.copyload.i to i64
-  %51 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %50
-  %52 = ptrtoint ptr %51 to i64
-  %53 = trunc i64 %52 to i32
-  %54 = sub i32 %53, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %55 = sext i32 %.sroa.0.0.copyload.i to i64
-  %56 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %55
-  %57 = ptrtoint ptr %56 to i64
-  %58 = trunc i64 %57 to i32
-  %59 = sub i32 %58, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  call void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef 2, i32 noundef %54, i32 noundef %59, i32 noundef %47, i32 noundef %49, ptr noundef nonnull align 8 dereferenceable(40) %41, i32 noundef 0)
-  %60 = load ptr, ptr %31, align 8
-  %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %61
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %15, ptr %16, align 8
+  br i1 %or.cond, label %62, label %17
 
-61:                                               ; preds = %13
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store ptr null, ptr %62, align 8
+17:                                               ; preds = %2
+  store i8 0, ptr %3, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 1, ptr %18, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i8 1, ptr %19, align 2
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i8 0, ptr %21, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  store i8 0, ptr %22, align 1
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i8 1, ptr %23, align 2
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 7
+  store i8 0, ptr %24, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 24, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 4, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 0, ptr %28, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 0, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %30, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3)
+  %36 = load ptr, ptr %12, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  store i8 -82, ptr %38, align 1
+  store ptr %39, ptr %37, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %41 = load ptr, ptr %32, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load ptr, ptr %42, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.0.0.copyload.i = load i32, ptr %44, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %46 = load i32, ptr %45, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %48 = load i32, ptr %47, align 8
+  %49 = sext i32 %.sroa.01.0.copyload.i to i64
+  %50 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %49
+  %51 = ptrtoint ptr %50 to i64
+  %52 = trunc i64 %51 to i32
+  %53 = sub i32 %52, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %54 = sext i32 %.sroa.0.0.copyload.i to i64
+  %55 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %54
+  %56 = ptrtoint ptr %55 to i64
+  %57 = trunc i64 %56 to i32
+  %58 = sub i32 %57, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  call void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef 2, i32 noundef %53, i32 noundef %58, i32 noundef %46, i32 noundef %48, ptr noundef nonnull align 8 dereferenceable(40) %40, i32 noundef 0)
+  %59 = load ptr, ptr %30, align 8
+  %.not.i = icmp eq ptr %59, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %60
+
+60:                                               ; preds = %17
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  store ptr null, ptr %61, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-63:                                               ; preds = %10, %2
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+62:                                               ; preds = %2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %67, ptr %68, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %73 = load ptr, ptr %72, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(40) %70, ptr noundef nonnull align 8 dereferenceable(40) %69) #18
+  call void %67(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %63) #18
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %6, i1 noundef zeroext true)
-  %74 = load ptr, ptr %64, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
-  store i8 -82, ptr %76, align 1
-  store ptr %77, ptr %75, align 8
+  %68 = load ptr, ptr %12, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
+  store i8 -82, ptr %70, align 1
+  store ptr %71, ptr %69, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %79 = load ptr, ptr %70, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = load ptr, ptr %80, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(40) %70, ptr noundef nonnull align 8 dereferenceable(40) %78) #18
-  %.sroa.01.0.copyload.i2 = load i32, ptr %7, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %.sroa.0.0.copyload.i3 = load i32, ptr %82, align 4
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %86 = load i32, ptr %85, align 8
-  %87 = sext i32 %.sroa.01.0.copyload.i2 to i64
-  %88 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %87
-  %89 = ptrtoint ptr %88 to i64
-  %90 = trunc i64 %89 to i32
-  %91 = sub i32 %90, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %92 = sext i32 %.sroa.0.0.copyload.i3 to i64
-  %93 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %92
-  %94 = ptrtoint ptr %93 to i64
-  %95 = trunc i64 %94 to i32
-  %96 = sub i32 %95, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  call void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef 2, i32 noundef %91, i32 noundef %96, i32 noundef %84, i32 noundef %86, ptr noundef nonnull align 8 dereferenceable(40) %78, i32 noundef 0)
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %73 = load ptr, ptr %64, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load ptr, ptr %74, align 8
+  call void %75(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %72) #18
+  %.sroa.01.0.copyload.i3 = load i32, ptr %7, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %.sroa.0.0.copyload.i4 = load i32, ptr %76, align 4
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %78 = load i32, ptr %77, align 4
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = sext i32 %.sroa.01.0.copyload.i3 to i64
+  %82 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %81
+  %83 = ptrtoint ptr %82 to i64
+  %84 = trunc i64 %83 to i32
+  %85 = sub i32 %84, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %86 = sext i32 %.sroa.0.0.copyload.i4 to i64
+  %87 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %86
+  %88 = ptrtoint ptr %87 to i64
+  %89 = trunc i64 %88 to i32
+  %90 = sub i32 %89, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  call void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef 2, i32 noundef %85, i32 noundef %90, i32 noundef %78, i32 noundef %80, ptr noundef nonnull align 8 dereferenceable(40) %72, i32 noundef 0)
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %61, %13, %63
-  %.sink5.in = phi ptr [ %64, %63 ], [ %14, %13 ], [ %14, %61 ]
-  %.sink5 = load ptr, ptr %.sink5.in, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %.sink5, i64 8
-  store ptr null, ptr %97, align 8
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %60, %17, %62
+  %91 = load ptr, ptr %12, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  store ptr null, ptr %92, align 8
   ret void
 }
 
@@ -51733,147 +51716,138 @@ define hidden void @_ZN9Assembler7stmxcsrE7Address(ptr noundef nonnull align 8 d
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.Address, align 8
   %8 = load i32, ptr @UseAVX, align 4
-  %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %10, label %63
-
-10:                                               ; preds = %2
-  %11 = load i8, ptr @UseAPX, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %63, label %13
-
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = icmp slt i32 %8, 1
+  %10 = load i8, ptr @UseAPX, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond = select i1 %9, i1 true, i1 %11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %17, ptr %18, align 8
-  store i8 0, ptr %3, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 1, ptr %19, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 1, ptr %20, align 2
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 1, ptr %24, align 2
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 0, ptr %25, align 1
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 24, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 4, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %31, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
-  call void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3)
-  %37 = load ptr, ptr %14, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  store i8 -82, ptr %39, align 1
-  store ptr %40, ptr %38, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %42 = load ptr, ptr %33, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
-  %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.0.0.copyload.i = load i32, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %49 = load i32, ptr %48, align 8
-  %50 = sext i32 %.sroa.01.0.copyload.i to i64
-  %51 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %50
-  %52 = ptrtoint ptr %51 to i64
-  %53 = trunc i64 %52 to i32
-  %54 = sub i32 %53, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %55 = sext i32 %.sroa.0.0.copyload.i to i64
-  %56 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %55
-  %57 = ptrtoint ptr %56 to i64
-  %58 = trunc i64 %57 to i32
-  %59 = sub i32 %58, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  call void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef 3, i32 noundef %54, i32 noundef %59, i32 noundef %47, i32 noundef %49, ptr noundef nonnull align 8 dereferenceable(40) %41, i32 noundef 0)
-  %60 = load ptr, ptr %31, align 8
-  %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %61
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %15, ptr %16, align 8
+  br i1 %or.cond, label %62, label %17
 
-61:                                               ; preds = %13
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store ptr null, ptr %62, align 8
+17:                                               ; preds = %2
+  store i8 0, ptr %3, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 1, ptr %18, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i8 1, ptr %19, align 2
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i8 0, ptr %21, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  store i8 0, ptr %22, align 1
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i8 1, ptr %23, align 2
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 7
+  store i8 0, ptr %24, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 24, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 4, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 0, ptr %28, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 0, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %30, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %31) #18
+  call void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3)
+  %36 = load ptr, ptr %12, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  store i8 -82, ptr %38, align 1
+  store ptr %39, ptr %37, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %41 = load ptr, ptr %32, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load ptr, ptr %42, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %40) #18
+  %.sroa.01.0.copyload.i = load i32, ptr %5, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.0.0.copyload.i = load i32, ptr %44, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %46 = load i32, ptr %45, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %48 = load i32, ptr %47, align 8
+  %49 = sext i32 %.sroa.01.0.copyload.i to i64
+  %50 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %49
+  %51 = ptrtoint ptr %50 to i64
+  %52 = trunc i64 %51 to i32
+  %53 = sub i32 %52, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %54 = sext i32 %.sroa.0.0.copyload.i to i64
+  %55 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %54
+  %56 = ptrtoint ptr %55 to i64
+  %57 = trunc i64 %56 to i32
+  %58 = sub i32 %57, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  call void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef 3, i32 noundef %53, i32 noundef %58, i32 noundef %46, i32 noundef %48, ptr noundef nonnull align 8 dereferenceable(40) %40, i32 noundef 0)
+  %59 = load ptr, ptr %30, align 8
+  %.not.i = icmp eq ptr %59, null
+  br i1 %.not.i, label %_ZN15InstructionAttrD2Ev.exit, label %60
+
+60:                                               ; preds = %17
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  store ptr null, ptr %61, align 8
   br label %_ZN15InstructionAttrD2Ev.exit
 
-63:                                               ; preds = %10, %2
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+62:                                               ; preds = %2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %67, ptr %68, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %73 = load ptr, ptr %72, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(40) %70, ptr noundef nonnull align 8 dereferenceable(40) %69) #18
+  call void %67(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %63) #18
   call void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %6, i1 noundef zeroext true)
-  %74 = load ptr, ptr %64, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
-  store i8 -82, ptr %76, align 1
-  store ptr %77, ptr %75, align 8
+  %68 = load ptr, ptr %12, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
+  store i8 -82, ptr %70, align 1
+  store ptr %71, ptr %69, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %79 = load ptr, ptr %70, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = load ptr, ptr %80, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(40) %70, ptr noundef nonnull align 8 dereferenceable(40) %78) #18
-  %.sroa.01.0.copyload.i2 = load i32, ptr %7, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %.sroa.0.0.copyload.i3 = load i32, ptr %82, align 4
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %86 = load i32, ptr %85, align 8
-  %87 = sext i32 %.sroa.01.0.copyload.i2 to i64
-  %88 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %87
-  %89 = ptrtoint ptr %88 to i64
-  %90 = trunc i64 %89 to i32
-  %91 = sub i32 %90, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %92 = sext i32 %.sroa.0.0.copyload.i3 to i64
-  %93 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %92
-  %94 = ptrtoint ptr %93 to i64
-  %95 = trunc i64 %94 to i32
-  %96 = sub i32 %95, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  call void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef 3, i32 noundef %91, i32 noundef %96, i32 noundef %84, i32 noundef %86, ptr noundef nonnull align 8 dereferenceable(40) %78, i32 noundef 0)
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %73 = load ptr, ptr %64, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load ptr, ptr %74, align 8
+  call void %75(ptr noundef nonnull align 8 dereferenceable(40) %64, ptr noundef nonnull align 8 dereferenceable(40) %72) #18
+  %.sroa.01.0.copyload.i3 = load i32, ptr %7, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %.sroa.0.0.copyload.i4 = load i32, ptr %76, align 4
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %78 = load i32, ptr %77, align 4
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = sext i32 %.sroa.01.0.copyload.i3 to i64
+  %82 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %81
+  %83 = ptrtoint ptr %82 to i64
+  %84 = trunc i64 %83 to i32
+  %85 = sub i32 %84, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %86 = sext i32 %.sroa.0.0.copyload.i4 to i64
+  %87 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %86
+  %88 = ptrtoint ptr %87 to i64
+  %89 = trunc i64 %88 to i32
+  %90 = sub i32 %89, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  call void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef 3, i32 noundef %85, i32 noundef %90, i32 noundef %78, i32 noundef %80, ptr noundef nonnull align 8 dereferenceable(40) %72, i32 noundef 0)
   br label %_ZN15InstructionAttrD2Ev.exit
 
-_ZN15InstructionAttrD2Ev.exit:                    ; preds = %61, %13, %63
-  %.sink5.in = phi ptr [ %64, %63 ], [ %14, %13 ], [ %14, %61 ]
-  %.sink5 = load ptr, ptr %.sink5.in, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %.sink5, i64 8
-  store ptr null, ptr %97, align 8
+_ZN15InstructionAttrD2Ev.exit:                    ; preds = %60, %17, %62
+  %91 = load ptr, ptr %12, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  store ptr null, ptr %92, align 8
   ret void
 }
 
@@ -95975,70 +95949,67 @@ define hidden void @_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpco
   %11 = load i32, ptr %10, align 8
   %12 = load i8, ptr %9, align 8
   %13 = trunc i8 %12 to i1
-  %brmerge = or i1 %2, %3
-  %.mux = select i1 %2, i32 -33, i32 -1
-  br i1 %brmerge, label %17, label %14
+  %14 = and i32 %6, -2
+  %15 = icmp eq i32 %14, 2
+  %16 = or i1 %3, %15
+  %17 = or i1 %2, %16
+  %or.cond7 = or i1 %17, %13
+  br i1 %or.cond7, label %18, label %43
 
-14:                                               ; preds = %7
-  %15 = and i32 %6, -2
-  %16 = icmp eq i32 %15, 2
-  %or.cond3 = or i1 %16, %13
-  br i1 %or.cond3, label %17, label %42
-
-17:                                               ; preds = %7, %14
-  %18 = phi i32 [ -1, %14 ], [ %.mux, %7 ]
+18:                                               ; preds = %7
   %19 = select i1 %1, i32 96, i32 224
   %20 = select i1 %3, i32 160, i32 224
-  %21 = and i32 %20, %19
-  %22 = and i32 %21, %18
-  %23 = or i32 %22, %6
-  %24 = shl i32 %4, 3
-  %25 = and i32 %24, 120
-  %26 = select i1 %13, i32 128, i32 0
-  %27 = icmp sgt i32 %11, 0
-  %28 = select i1 %27, i32 4, i32 0
-  %29 = or disjoint i32 %28, %25
+  %21 = select i1 %2, i32 192, i32 224
+  %22 = and i32 %21, %19
+  %23 = and i32 %22, %20
+  %24 = or i32 %23, %6
+  %25 = shl i32 %4, 3
+  %26 = and i32 %25, 120
+  %27 = select i1 %13, i32 128, i32 0
+  %28 = icmp sgt i32 %11, 0
+  %29 = select i1 %28, i32 4, i32 0
   %30 = or disjoint i32 %29, %26
-  %31 = xor i32 %30, 120
-  %32 = or i32 %31, %5
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = trunc i32 %23 to i8
-  %36 = trunc i32 %32 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  store i8 -60, ptr %38, align 1
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  store i8 %35, ptr %39, align 1
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 3
+  %31 = or disjoint i32 %30, %27
+  %32 = xor i32 %31, 120
+  %33 = or i32 %32, %5
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = trunc i32 %24 to i8
+  %37 = trunc i32 %33 to i8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  store i8 -60, ptr %39, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 2
   store i8 %36, ptr %40, align 1
-  store ptr %41, ptr %37, align 8
-  br label %59
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 3
+  store i8 %37, ptr %41, align 1
+  store ptr %42, ptr %38, align 8
+  br label %60
 
-42:                                               ; preds = %14
-  %43 = select i1 %1, i32 0, i32 128
-  %44 = shl i32 %4, 3
-  %45 = and i32 %44, 120
-  %46 = or disjoint i32 %45, %43
-  %47 = icmp sgt i32 %11, 0
-  %48 = select i1 %47, i32 4, i32 0
-  %49 = or disjoint i32 %46, %48
-  %50 = xor i32 %49, 120
-  %51 = or i32 %50, %5
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = trunc i32 %51 to i8
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
-  store i8 -59, ptr %56, align 1
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 2
-  store i8 %54, ptr %57, align 1
-  store ptr %58, ptr %55, align 8
-  br label %59
+43:                                               ; preds = %7
+  %44 = select i1 %1, i32 0, i32 128
+  %45 = shl i32 %4, 3
+  %46 = and i32 %45, 120
+  %47 = or disjoint i32 %46, %44
+  %48 = icmp sgt i32 %11, 0
+  %49 = select i1 %48, i32 4, i32 0
+  %50 = or disjoint i32 %47, %49
+  %51 = xor i32 %50, 120
+  %52 = or i32 %51, %5
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = trunc i32 %52 to i8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
+  store i8 -59, ptr %57, align 1
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 2
+  store i8 %55, ptr %58, align 1
+  store ptr %59, ptr %56, align 8
+  br label %60
 
-59:                                               ; preds = %42, %17
+60:                                               ; preds = %43, %18
   ret void
 }
 

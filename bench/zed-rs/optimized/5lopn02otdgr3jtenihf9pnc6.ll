@@ -3584,8 +3584,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17h0813
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not31 = icmp eq i8 %15, 0
-  br i1 %.not31, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3636,8 +3636,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17h2229
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not31 = icmp eq i8 %15, 0
-  br i1 %.not31, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3688,8 +3688,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17h2bd1
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not31 = icmp eq i8 %15, 0
-  br i1 %.not31, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3739,8 +3739,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17h479c
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit": ; preds = %10, %5, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = atomicrmw xchg ptr %13, i8 1 seq_cst, align 1
-  %.not31 = icmp eq i8 %14, 0
-  br i1 %.not31, label %15, label %.critedge
+  %.not32 = icmp eq i8 %14, 0
+  br i1 %.not32, label %15, label %.critedge
 
 15:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit"
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3791,8 +3791,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17h62bd
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not31 = icmp eq i8 %15, 0
-  br i1 %.not31, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3843,8 +3843,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17h8cbb
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not31 = icmp eq i8 %15, 0
-  br i1 %.not31, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3895,8 +3895,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17hc8e9
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not31 = icmp eq i8 %15, 0
-  br i1 %.not31, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3947,8 +3947,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17hccf9
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not31 = icmp eq i8 %15, 0
-  br i1 %.not31, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3999,8 +3999,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17hd80e
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not31 = icmp eq i8 %15, 0
-  br i1 %.not31, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4051,8 +4051,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17he3e1
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not31 = icmp eq i8 %15, 0
-  br i1 %.not31, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4103,8 +4103,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_rx17hfde2
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit": ; preds = %11, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not31 = icmp eq i8 %15, 0
-  br i1 %.not31, label %16, label %.critedge
+  %.not32 = icmp eq i8 %15, 0
+  br i1 %.not32, label %16, label %.critedge
 
 16:                                               ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h088ae02ebd377e12E.llvm.11720741875364829747.exit"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -4156,8 +4156,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h0b52
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not25 = icmp eq i8 %16, 0
-  br i1 %.not25, label %17, label %30
+  %.not26 = icmp eq i8 %16, 0
+  br i1 %.not26, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4219,8 +4219,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h3abf
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not25 = icmp eq i8 %16, 0
-  br i1 %.not25, label %17, label %30
+  %.not26 = icmp eq i8 %16, 0
+  br i1 %.not26, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -4282,8 +4282,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h4036
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not25 = icmp eq i8 %16, 0
-  br i1 %.not25, label %17, label %30
+  %.not26 = icmp eq i8 %16, 0
+  br i1 %.not26, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -4345,8 +4345,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h438e
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not25 = icmp eq i8 %16, 0
-  br i1 %.not25, label %17, label %30
+  %.not26 = icmp eq i8 %16, 0
+  br i1 %.not26, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -4408,8 +4408,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h4e14
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not25 = icmp eq i8 %16, 0
-  br i1 %.not25, label %17, label %30
+  %.not26 = icmp eq i8 %16, 0
+  br i1 %.not26, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4471,8 +4471,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17ha2bf
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not25 = icmp eq i8 %16, 0
-  br i1 %.not25, label %17, label %30
+  %.not26 = icmp eq i8 %16, 0
+  br i1 %.not26, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4534,8 +4534,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17ha92d
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not25 = icmp eq i8 %16, 0
-  br i1 %.not25, label %17, label %30
+  %.not26 = icmp eq i8 %16, 0
+  br i1 %.not26, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4596,8 +4596,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hac2d
 .critedge:                                        ; preds = %5, %11, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = atomicrmw xchg ptr %14, i8 1 seq_cst, align 1
-  %.not25 = icmp eq i8 %15, 0
-  br i1 %.not25, label %16, label %29
+  %.not26 = icmp eq i8 %15, 0
+  br i1 %.not26, label %16, label %29
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4659,8 +4659,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hae76
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not25 = icmp eq i8 %16, 0
-  br i1 %.not25, label %17, label %30
+  %.not26 = icmp eq i8 %16, 0
+  br i1 %.not26, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4722,8 +4722,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hd71b
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not25 = icmp eq i8 %16, 0
-  br i1 %.not25, label %17, label %30
+  %.not26 = icmp eq i8 %16, 0
+  br i1 %.not26, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4785,8 +4785,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hf49b
 .critedge:                                        ; preds = %5, %12, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = atomicrmw xchg ptr %15, i8 1 seq_cst, align 1
-  %.not25 = icmp eq i8 %16, 0
-  br i1 %.not25, label %17, label %30
+  %.not26 = icmp eq i8 %16, 0
+  br i1 %.not26, label %17, label %30
 
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -43049,8 +43049,8 @@ define hidden void @"_ZN93_$LT$ui..components..popover_menu..PopoverMenu$LT$M$GT
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store ptr %.sroa.0.0.copyload, ptr %9, align 8
-  %.sroa.5.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
+  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
   invoke void @_ZN4gpui7element10AnyElement5paint17hae99cd28a71b672eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
           to label %15 unwind label %13
 

@@ -223,16 +223,16 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %27
 
 27:                                               ; preds = %.backedge, %2
-  %.058 = phi ptr [ null, %2 ], [ %.058.be, %.backedge ]
-  %.056 = phi ptr [ null, %2 ], [ %.056.be, %.backedge ]
-  %.054 = phi ptr [ null, %2 ], [ %.054.be, %.backedge ]
-  %.052 = phi ptr [ null, %2 ], [ %.052.be, %.backedge ]
-  %.050 = phi ptr [ null, %2 ], [ %.050.be, %.backedge ]
-  %.048 = phi i32 [ 0, %2 ], [ %.048.be, %.backedge ]
-  %.046 = phi i8 [ 0, %2 ], [ %.046.be, %.backedge ]
-  %.044 = phi i8 [ 0, %2 ], [ %.044.be, %.backedge ]
-  %.042 = phi i8 [ 0, %2 ], [ %.042.be, %.backedge ]
-  %.041 = phi i32 [ 0, %2 ], [ %.041.be, %.backedge ]
+  %.067 = phi ptr [ null, %2 ], [ %.067.be, %.backedge ]
+  %.065 = phi ptr [ null, %2 ], [ %.065.be, %.backedge ]
+  %.063 = phi ptr [ null, %2 ], [ %.063.be, %.backedge ]
+  %.061 = phi ptr [ null, %2 ], [ %.061.be, %.backedge ]
+  %.059 = phi ptr [ null, %2 ], [ %.059.be, %.backedge ]
+  %.057 = phi i32 [ 0, %2 ], [ %.057.be, %.backedge ]
+  %.055 = phi i8 [ 0, %2 ], [ %.055.be, %.backedge ]
+  %.053 = phi i8 [ 0, %2 ], [ %.053.be, %.backedge ]
+  %.051 = phi i8 [ 0, %2 ], [ %.051.be, %.backedge ]
+  %.050 = phi i32 [ 0, %2 ], [ %.050.be, %.backedge ]
   %28 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.33, ptr noundef nonnull @main.long_options, ptr noundef nonnull %3) #10
   switch i32 %28, label %98 [
     i32 -1, label %99
@@ -270,16 +270,16 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   ]
 
 .backedge:                                        ; preds = %27, %85, %81, %57, %42, %escape_quotes.exit, %93, %92, %91, %90, %89, %80, %79, %78, %75, %74, %73, %72, %71, %70, %67, %62, %61, %54, %50, %46, %39, %38, %37, %32, %29
-  %.058.be = phi ptr [ %.058, %escape_quotes.exit ], [ %.058, %93 ], [ %.058, %92 ], [ %.058, %91 ], [ %.058, %90 ], [ %.058, %89 ], [ %.058, %85 ], [ %.058, %81 ], [ %.058, %80 ], [ %.058, %79 ], [ %.058, %78 ], [ %.058, %75 ], [ %.058, %74 ], [ %.058, %73 ], [ %.058, %72 ], [ %.058, %71 ], [ %.058, %70 ], [ %.058, %67 ], [ %.058, %62 ], [ %.058, %61 ], [ %.058, %57 ], [ %.058, %54 ], [ %.058, %50 ], [ %.058, %46 ], [ %.058, %42 ], [ %.058, %39 ], [ %.058, %38 ], [ %.058, %37 ], [ %36, %32 ], [ %.058, %29 ], [ %.058, %27 ]
-  %.056.be = phi ptr [ %.056, %escape_quotes.exit ], [ %.056, %93 ], [ %.056, %92 ], [ %.056, %91 ], [ %.056, %90 ], [ %.056, %89 ], [ %.056, %85 ], [ %.056, %81 ], [ %.056, %80 ], [ %.056, %79 ], [ %.056, %78 ], [ %77, %75 ], [ %.056, %74 ], [ %.056, %73 ], [ %.056, %72 ], [ %.056, %71 ], [ %.056, %70 ], [ %.056, %67 ], [ %.056, %62 ], [ %.056, %61 ], [ %.056, %57 ], [ %.056, %54 ], [ %.056, %50 ], [ %.056, %46 ], [ %.056, %42 ], [ %.056, %39 ], [ %.056, %38 ], [ %.056, %37 ], [ %.056, %32 ], [ %.056, %29 ], [ %.056, %27 ]
-  %.054.be = phi ptr [ %.054, %escape_quotes.exit ], [ %.054, %93 ], [ %.054, %92 ], [ %.054, %91 ], [ %.054, %90 ], [ %.054, %89 ], [ %.054, %85 ], [ %.054, %81 ], [ %.054, %80 ], [ %.054, %79 ], [ %.054, %78 ], [ %.054, %75 ], [ %.054, %74 ], [ %.054, %73 ], [ %.054, %72 ], [ %.054, %71 ], [ %.054, %70 ], [ %.054, %67 ], [ %.054, %62 ], [ %.054, %61 ], [ %.054, %57 ], [ %.054, %54 ], [ %.054, %50 ], [ %.054, %46 ], [ %.054, %42 ], [ %41, %39 ], [ %.054, %38 ], [ %.054, %37 ], [ %.054, %32 ], [ %.054, %29 ], [ %.054, %27 ]
-  %.052.be = phi ptr [ %.052, %escape_quotes.exit ], [ %.052, %93 ], [ %.052, %92 ], [ %.052, %91 ], [ %.052, %90 ], [ %.052, %89 ], [ %.052, %85 ], [ %.052, %81 ], [ %.052, %80 ], [ %.052, %79 ], [ %.052, %78 ], [ %.052, %75 ], [ %.052, %74 ], [ %.052, %73 ], [ %.052, %72 ], [ %.052, %71 ], [ %.052, %70 ], [ %.052, %67 ], [ %.052, %62 ], [ %.052, %61 ], [ %.052, %57 ], [ %56, %54 ], [ %.052, %50 ], [ %.052, %46 ], [ %.052, %42 ], [ %.052, %39 ], [ %.052, %38 ], [ %.052, %37 ], [ %.052, %32 ], [ %.052, %29 ], [ %.052, %27 ]
-  %.050.be = phi ptr [ %.050, %escape_quotes.exit ], [ %.050, %93 ], [ %.050, %92 ], [ %.050, %91 ], [ %.050, %90 ], [ %.050, %89 ], [ %.050, %85 ], [ %.050, %81 ], [ %.050, %80 ], [ %.050, %79 ], [ %.050, %78 ], [ %.050, %75 ], [ %.050, %74 ], [ %.050, %73 ], [ %.050, %72 ], [ %.050, %71 ], [ %.050, %70 ], [ %69, %67 ], [ %.050, %62 ], [ %.050, %61 ], [ %.050, %57 ], [ %.050, %54 ], [ %.050, %50 ], [ %.050, %46 ], [ %.050, %42 ], [ %.050, %39 ], [ %.050, %38 ], [ %.050, %37 ], [ %.050, %32 ], [ %.050, %29 ], [ %.050, %27 ]
-  %.048.be = phi i32 [ %.048, %escape_quotes.exit ], [ %.048, %93 ], [ %.048, %92 ], [ %.048, %91 ], [ %.048, %90 ], [ %.048, %89 ], [ %.048, %85 ], [ %.048, %81 ], [ %.048, %80 ], [ %.048, %79 ], [ %.048, %78 ], [ %.048, %75 ], [ %.048, %74 ], [ %.048, %73 ], [ 2, %72 ], [ 1, %71 ], [ %.048, %70 ], [ %.048, %67 ], [ %.048, %62 ], [ %.048, %61 ], [ %.048, %57 ], [ %.048, %54 ], [ %.048, %50 ], [ %.048, %46 ], [ %.048, %42 ], [ %.048, %39 ], [ %.048, %38 ], [ %.048, %37 ], [ %.048, %32 ], [ %.048, %29 ], [ %.048, %27 ]
-  %.046.be = phi i8 [ %.046, %escape_quotes.exit ], [ %.046, %93 ], [ %.046, %92 ], [ %.046, %91 ], [ %.046, %90 ], [ %.046, %89 ], [ %.046, %85 ], [ %.046, %81 ], [ %.046, %80 ], [ %.046, %79 ], [ %.046, %78 ], [ %.046, %75 ], [ %.046, %74 ], [ %.046, %73 ], [ %.046, %72 ], [ %.046, %71 ], [ %.046, %70 ], [ %.046, %67 ], [ %.046, %62 ], [ %.046, %61 ], [ %.046, %57 ], [ %.046, %54 ], [ %.046, %50 ], [ %.046, %46 ], [ %.046, %42 ], [ %.046, %39 ], [ %.046, %38 ], [ %.046, %37 ], [ %.046, %32 ], [ %.046, %29 ], [ 1, %27 ]
-  %.044.be = phi i8 [ %.044, %escape_quotes.exit ], [ %.044, %93 ], [ %.044, %92 ], [ %.044, %91 ], [ %.044, %90 ], [ %.044, %89 ], [ %.044, %85 ], [ %.044, %81 ], [ %.044, %80 ], [ %.044, %79 ], [ %.044, %78 ], [ %.044, %75 ], [ %.044, %74 ], [ %.044, %73 ], [ %.044, %72 ], [ %.044, %71 ], [ %.044, %70 ], [ %.044, %67 ], [ %.044, %62 ], [ 1, %61 ], [ %.044, %57 ], [ %.044, %54 ], [ %.044, %50 ], [ %.044, %46 ], [ %.044, %42 ], [ %.044, %39 ], [ %.044, %38 ], [ %.044, %37 ], [ %.044, %32 ], [ %.044, %29 ], [ %.044, %27 ]
-  %.042.be = phi i8 [ %.042, %escape_quotes.exit ], [ %.042, %93 ], [ %.042, %92 ], [ %.042, %91 ], [ %.042, %90 ], [ %.042, %89 ], [ %.042, %85 ], [ %.042, %81 ], [ %.042, %80 ], [ %.042, %79 ], [ 1, %78 ], [ %.042, %75 ], [ %.042, %74 ], [ %.042, %73 ], [ %.042, %72 ], [ %.042, %71 ], [ %.042, %70 ], [ %.042, %67 ], [ %.042, %62 ], [ %.042, %61 ], [ %.042, %57 ], [ %.042, %54 ], [ %.042, %50 ], [ %.042, %46 ], [ %.042, %42 ], [ %.042, %39 ], [ %.042, %38 ], [ %.042, %37 ], [ %.042, %32 ], [ %.042, %29 ], [ %.042, %27 ]
-  %.041.be = phi i32 [ %.041, %escape_quotes.exit ], [ %.041, %93 ], [ %.041, %92 ], [ %.041, %91 ], [ %.041, %90 ], [ %.041, %89 ], [ %.041, %85 ], [ %.041, %81 ], [ %.041, %80 ], [ %.041, %79 ], [ %.041, %78 ], [ %.041, %75 ], [ %.041, %74 ], [ %.041, %73 ], [ %.041, %72 ], [ %.041, %71 ], [ %.041, %70 ], [ %.041, %67 ], [ %66, %62 ], [ %.041, %61 ], [ %.041, %57 ], [ %.041, %54 ], [ %.041, %50 ], [ %.041, %46 ], [ %.041, %42 ], [ %.041, %39 ], [ %.041, %38 ], [ %.041, %37 ], [ %.041, %32 ], [ %.041, %29 ], [ %.041, %27 ]
+  %.067.be = phi ptr [ %.067, %escape_quotes.exit ], [ %.067, %93 ], [ %.067, %92 ], [ %.067, %91 ], [ %.067, %90 ], [ %.067, %89 ], [ %.067, %85 ], [ %.067, %81 ], [ %.067, %80 ], [ %.067, %79 ], [ %.067, %78 ], [ %.067, %75 ], [ %.067, %74 ], [ %.067, %73 ], [ %.067, %72 ], [ %.067, %71 ], [ %.067, %70 ], [ %.067, %67 ], [ %.067, %62 ], [ %.067, %61 ], [ %.067, %57 ], [ %.067, %54 ], [ %.067, %50 ], [ %.067, %46 ], [ %.067, %42 ], [ %.067, %39 ], [ %.067, %38 ], [ %.067, %37 ], [ %36, %32 ], [ %.067, %29 ], [ %.067, %27 ]
+  %.065.be = phi ptr [ %.065, %escape_quotes.exit ], [ %.065, %93 ], [ %.065, %92 ], [ %.065, %91 ], [ %.065, %90 ], [ %.065, %89 ], [ %.065, %85 ], [ %.065, %81 ], [ %.065, %80 ], [ %.065, %79 ], [ %.065, %78 ], [ %77, %75 ], [ %.065, %74 ], [ %.065, %73 ], [ %.065, %72 ], [ %.065, %71 ], [ %.065, %70 ], [ %.065, %67 ], [ %.065, %62 ], [ %.065, %61 ], [ %.065, %57 ], [ %.065, %54 ], [ %.065, %50 ], [ %.065, %46 ], [ %.065, %42 ], [ %.065, %39 ], [ %.065, %38 ], [ %.065, %37 ], [ %.065, %32 ], [ %.065, %29 ], [ %.065, %27 ]
+  %.063.be = phi ptr [ %.063, %escape_quotes.exit ], [ %.063, %93 ], [ %.063, %92 ], [ %.063, %91 ], [ %.063, %90 ], [ %.063, %89 ], [ %.063, %85 ], [ %.063, %81 ], [ %.063, %80 ], [ %.063, %79 ], [ %.063, %78 ], [ %.063, %75 ], [ %.063, %74 ], [ %.063, %73 ], [ %.063, %72 ], [ %.063, %71 ], [ %.063, %70 ], [ %.063, %67 ], [ %.063, %62 ], [ %.063, %61 ], [ %.063, %57 ], [ %.063, %54 ], [ %.063, %50 ], [ %.063, %46 ], [ %.063, %42 ], [ %41, %39 ], [ %.063, %38 ], [ %.063, %37 ], [ %.063, %32 ], [ %.063, %29 ], [ %.063, %27 ]
+  %.061.be = phi ptr [ %.061, %escape_quotes.exit ], [ %.061, %93 ], [ %.061, %92 ], [ %.061, %91 ], [ %.061, %90 ], [ %.061, %89 ], [ %.061, %85 ], [ %.061, %81 ], [ %.061, %80 ], [ %.061, %79 ], [ %.061, %78 ], [ %.061, %75 ], [ %.061, %74 ], [ %.061, %73 ], [ %.061, %72 ], [ %.061, %71 ], [ %.061, %70 ], [ %.061, %67 ], [ %.061, %62 ], [ %.061, %61 ], [ %.061, %57 ], [ %56, %54 ], [ %.061, %50 ], [ %.061, %46 ], [ %.061, %42 ], [ %.061, %39 ], [ %.061, %38 ], [ %.061, %37 ], [ %.061, %32 ], [ %.061, %29 ], [ %.061, %27 ]
+  %.059.be = phi ptr [ %.059, %escape_quotes.exit ], [ %.059, %93 ], [ %.059, %92 ], [ %.059, %91 ], [ %.059, %90 ], [ %.059, %89 ], [ %.059, %85 ], [ %.059, %81 ], [ %.059, %80 ], [ %.059, %79 ], [ %.059, %78 ], [ %.059, %75 ], [ %.059, %74 ], [ %.059, %73 ], [ %.059, %72 ], [ %.059, %71 ], [ %.059, %70 ], [ %69, %67 ], [ %.059, %62 ], [ %.059, %61 ], [ %.059, %57 ], [ %.059, %54 ], [ %.059, %50 ], [ %.059, %46 ], [ %.059, %42 ], [ %.059, %39 ], [ %.059, %38 ], [ %.059, %37 ], [ %.059, %32 ], [ %.059, %29 ], [ %.059, %27 ]
+  %.057.be = phi i32 [ %.057, %escape_quotes.exit ], [ %.057, %93 ], [ %.057, %92 ], [ %.057, %91 ], [ %.057, %90 ], [ %.057, %89 ], [ %.057, %85 ], [ %.057, %81 ], [ %.057, %80 ], [ %.057, %79 ], [ %.057, %78 ], [ %.057, %75 ], [ %.057, %74 ], [ %.057, %73 ], [ 2, %72 ], [ 1, %71 ], [ %.057, %70 ], [ %.057, %67 ], [ %.057, %62 ], [ %.057, %61 ], [ %.057, %57 ], [ %.057, %54 ], [ %.057, %50 ], [ %.057, %46 ], [ %.057, %42 ], [ %.057, %39 ], [ %.057, %38 ], [ %.057, %37 ], [ %.057, %32 ], [ %.057, %29 ], [ %.057, %27 ]
+  %.055.be = phi i8 [ %.055, %escape_quotes.exit ], [ %.055, %93 ], [ %.055, %92 ], [ %.055, %91 ], [ %.055, %90 ], [ %.055, %89 ], [ %.055, %85 ], [ %.055, %81 ], [ %.055, %80 ], [ %.055, %79 ], [ %.055, %78 ], [ %.055, %75 ], [ %.055, %74 ], [ %.055, %73 ], [ %.055, %72 ], [ %.055, %71 ], [ %.055, %70 ], [ %.055, %67 ], [ %.055, %62 ], [ %.055, %61 ], [ %.055, %57 ], [ %.055, %54 ], [ %.055, %50 ], [ %.055, %46 ], [ %.055, %42 ], [ %.055, %39 ], [ %.055, %38 ], [ %.055, %37 ], [ %.055, %32 ], [ %.055, %29 ], [ 1, %27 ]
+  %.053.be = phi i8 [ %.053, %escape_quotes.exit ], [ %.053, %93 ], [ %.053, %92 ], [ %.053, %91 ], [ %.053, %90 ], [ %.053, %89 ], [ %.053, %85 ], [ %.053, %81 ], [ %.053, %80 ], [ %.053, %79 ], [ %.053, %78 ], [ %.053, %75 ], [ %.053, %74 ], [ %.053, %73 ], [ %.053, %72 ], [ %.053, %71 ], [ %.053, %70 ], [ %.053, %67 ], [ %.053, %62 ], [ 1, %61 ], [ %.053, %57 ], [ %.053, %54 ], [ %.053, %50 ], [ %.053, %46 ], [ %.053, %42 ], [ %.053, %39 ], [ %.053, %38 ], [ %.053, %37 ], [ %.053, %32 ], [ %.053, %29 ], [ %.053, %27 ]
+  %.051.be = phi i8 [ %.051, %escape_quotes.exit ], [ %.051, %93 ], [ %.051, %92 ], [ %.051, %91 ], [ %.051, %90 ], [ %.051, %89 ], [ %.051, %85 ], [ %.051, %81 ], [ %.051, %80 ], [ %.051, %79 ], [ 1, %78 ], [ %.051, %75 ], [ %.051, %74 ], [ %.051, %73 ], [ %.051, %72 ], [ %.051, %71 ], [ %.051, %70 ], [ %.051, %67 ], [ %.051, %62 ], [ %.051, %61 ], [ %.051, %57 ], [ %.051, %54 ], [ %.051, %50 ], [ %.051, %46 ], [ %.051, %42 ], [ %.051, %39 ], [ %.051, %38 ], [ %.051, %37 ], [ %.051, %32 ], [ %.051, %29 ], [ %.051, %27 ]
+  %.050.be = phi i32 [ %.050, %escape_quotes.exit ], [ %.050, %93 ], [ %.050, %92 ], [ %.050, %91 ], [ %.050, %90 ], [ %.050, %89 ], [ %.050, %85 ], [ %.050, %81 ], [ %.050, %80 ], [ %.050, %79 ], [ %.050, %78 ], [ %.050, %75 ], [ %.050, %74 ], [ %.050, %73 ], [ %.050, %72 ], [ %.050, %71 ], [ %.050, %70 ], [ %.050, %67 ], [ %66, %62 ], [ %.050, %61 ], [ %.050, %57 ], [ %.050, %54 ], [ %.050, %50 ], [ %.050, %46 ], [ %.050, %42 ], [ %.050, %39 ], [ %.050, %38 ], [ %.050, %37 ], [ %.050, %32 ], [ %.050, %29 ], [ %.050, %27 ]
   br label %27, !llvm.loop !4
 
 29:                                               ; preds = %27
@@ -357,7 +357,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store i32 %64, ptr @objfilter, align 4
   %65 = load ptr, ptr @optarg, align 8
   call void @simple_string_list_append(ptr noundef nonnull %6, ptr noundef %65) #10
-  %66 = add i32 %.041, 1
+  %66 = add i32 %.050, 1
   br label %.backedge
 
 67:                                               ; preds = %27
@@ -461,7 +461,7 @@ escape_quotes.exit:                               ; preds = %94
 99:                                               ; preds = %27
   %100 = load i32, ptr @optind, align 4
   %101 = icmp slt i32 %100, %0
-  %102 = icmp eq ptr %.058, null
+  %102 = icmp eq ptr %.067, null
   %or.cond = select i1 %101, i1 %102, i1 false
   br i1 %or.cond, label %103, label %110
 
@@ -478,7 +478,7 @@ escape_quotes.exit:                               ; preds = %94
 
 110:                                              ; preds = %103, %99
   %111 = phi i32 [ %109, %103 ], [ %100, %99 ]
-  %.2 = phi ptr [ %108, %103 ], [ %.058, %99 ]
+  %.2 = phi ptr [ %108, %103 ], [ %.067, %99 ]
   %112 = icmp slt i32 %111, %0
   br i1 %112, label %113, label %117
 
@@ -580,145 +580,137 @@ escape_quotes.exit:                               ; preds = %94
 152:                                              ; preds = %148
   %153 = load i32, ptr %8, align 8
   %154 = icmp sgt i32 %153, -1
-  br i1 %154, label %157, label %161
+  br i1 %154, label %159, label %.thread207
 
 .thread:                                          ; preds = %117
   %155 = load i32, ptr %8, align 8
   %156 = icmp sgt i32 %155, -1
-  br i1 %156, label %.thread71, label %161
+  %157 = load i8, ptr %26, align 1, !range !6
+  %158 = trunc nuw i8 %157 to i1
+  %or.cond82 = select i1 %156, i1 %158, i1 false
+  br i1 %or.cond82, label %160, label %161
 
-157:                                              ; preds = %152
+159:                                              ; preds = %152
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.16) #10
   call void @exit(i32 noundef 1) #11
   unreachable
 
-.thread71:                                        ; preds = %.thread
-  %158 = load i8, ptr %26, align 1, !range !6, !noundef !7
-  %159 = trunc nuw i8 %158 to i1
-  br i1 %159, label %160, label %161
-
-160:                                              ; preds = %.thread71
+160:                                              ; preds = %.thread
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.16) #10
   call void @exit(i32 noundef 1) #11
   unreachable
 
-161:                                              ; preds = %.thread, %.thread71, %152
-  %162 = load i8, ptr %10, align 4, !range !6, !noundef !7
-  %163 = trunc nuw i8 %162 to i1
-  br i1 %163, label %164, label %168
+161:                                              ; preds = %.thread
+  %.pre = load i8, ptr %10, align 4, !range !6
+  %.pre204 = load i8, ptr %11, align 1, !range !6
+  %162 = trunc nuw i8 %.pre to i1
+  %163 = trunc nuw i8 %.pre204 to i1
+  %or.cond4 = select i1 %162, i1 %163, i1 false
+  br i1 %or.cond4, label %164, label %165
 
 164:                                              ; preds = %161
-  %165 = load i8, ptr %11, align 1, !range !6, !noundef !7
-  %166 = trunc nuw i8 %165 to i1
-  br i1 %166, label %167, label %168
-
-167:                                              ; preds = %164
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #10
   call void @exit(i32 noundef 1) #11
   unreachable
 
-168:                                              ; preds = %164, %161
-  %169 = load ptr, ptr %9, align 8
-  %.not64 = icmp eq ptr %169, null
-  br i1 %.not64, label %177, label %170
+165:                                              ; preds = %161
+  %166 = load ptr, ptr %9, align 8
+  %167 = icmp ne ptr %166, null
+  %168 = trunc nuw i8 %157 to i1
+  %or.cond7 = select i1 %167, i1 %168, i1 false
+  %or.cond7.not = xor i1 %or.cond7, true
+  %169 = load i8, ptr %23, align 2, !range !6
+  %170 = trunc nuw i8 %169 to i1
+  %or.cond10 = select i1 %or.cond7.not, i1 true, i1 %170
+  br i1 %or.cond10, label %.thread207, label %171
 
-170:                                              ; preds = %168
-  %171 = load i8, ptr %26, align 1, !range !6, !noundef !7
-  %172 = trunc nuw i8 %171 to i1
-  br i1 %172, label %173, label %177
-
-173:                                              ; preds = %170
-  %174 = load i8, ptr %23, align 2, !range !6, !noundef !7
-  %175 = trunc nuw i8 %174 to i1
-  br i1 %175, label %177, label %176
-
-176:                                              ; preds = %173
+171:                                              ; preds = %165
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.13) #10
   call void @exit(i32 noundef 1) #11
   unreachable
 
-177:                                              ; preds = %173, %170, %168
-  %178 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.054, ptr %178, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.052, ptr %179, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.050, ptr %180, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 %.048, ptr %181, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr null, ptr %182, align 8
+.thread207:                                       ; preds = %152, %165
+  %172 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %.063, ptr %172, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %.061, ptr %173, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %.059, ptr %174, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i32 %.057, ptr %175, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr null, ptr %176, align 8
   call void @setup_cancel_handler(ptr noundef null) #10
-  %.not65 = icmp ne i32 %.041, 0
-  %183 = load i32, ptr %7, align 4
-  %184 = icmp sgt i32 %183, %.041
-  %or.cond70 = select i1 %.not65, i1 %184, i1 false
-  br i1 %or.cond70, label %185, label %186
+  %.not73 = icmp ne i32 %.050, 0
+  %177 = load i32, ptr %7, align 4
+  %178 = icmp sgt i32 %177, %.050
+  %or.cond78 = select i1 %.not73, i1 %178, i1 false
+  br i1 %or.cond78, label %179, label %180
 
-185:                                              ; preds = %177
-  store i32 %.041, ptr %7, align 4
-  br label %186
+179:                                              ; preds = %.thread207
+  store i32 %.050, ptr %7, align 4
+  br label %180
 
-186:                                              ; preds = %185, %177
-  %187 = phi i32 [ %.041, %185 ], [ %183, %177 ]
-  %188 = load i32, ptr @objfilter, align 4
-  %189 = and i32 %188, 1
-  %.not66 = icmp eq i32 %189, 0
-  br i1 %.not66, label %194, label %190
+180:                                              ; preds = %179, %.thread207
+  %181 = phi i32 [ %.050, %179 ], [ %177, %.thread207 ]
+  %182 = load i32, ptr @objfilter, align 4
+  %183 = and i32 %182, 1
+  %.not74 = icmp eq i32 %183, 0
+  br i1 %.not74, label %188, label %184
 
-190:                                              ; preds = %186
-  store ptr %.056, ptr %4, align 8
-  %191 = trunc nuw i8 %.042 to i1
-  %192 = trunc nuw i8 %.046 to i1
-  %193 = trunc nuw i8 %.044 to i1
-  call fastcc void @vacuum_all_databases(ptr noundef %4, ptr noundef %5, i1 noundef zeroext %191, ptr noundef %6, i32 noundef %187, ptr noundef %17, i1 noundef zeroext %192, i1 noundef zeroext %193)
+184:                                              ; preds = %180
+  store ptr %.065, ptr %4, align 8
+  %185 = trunc nuw i8 %.051 to i1
+  %186 = trunc nuw i8 %.055 to i1
+  %187 = trunc nuw i8 %.053 to i1
+  call fastcc void @vacuum_all_databases(ptr noundef %4, ptr noundef %5, i1 noundef zeroext %185, ptr noundef %6, i32 noundef %181, ptr noundef %17, i1 noundef zeroext %186, i1 noundef zeroext %187)
   br label %.loopexit
 
-194:                                              ; preds = %186
-  %195 = icmp eq ptr %.2, null
-  br i1 %195, label %196, label %202
+188:                                              ; preds = %180
+  %189 = icmp eq ptr %.2, null
+  br i1 %189, label %190, label %196
 
-196:                                              ; preds = %194
-  %197 = call ptr @getenv(ptr noundef nonnull @.str.43) #10
-  %.not67 = icmp eq ptr %197, null
-  br i1 %.not67, label %198, label %202
+190:                                              ; preds = %188
+  %191 = call ptr @getenv(ptr noundef nonnull @.str.43) #10
+  %.not75 = icmp eq ptr %191, null
+  br i1 %.not75, label %192, label %196
 
-198:                                              ; preds = %196
-  %199 = call ptr @getenv(ptr noundef nonnull @.str.44) #10
-  %.not68 = icmp eq ptr %199, null
-  br i1 %.not68, label %200, label %202
+192:                                              ; preds = %190
+  %193 = call ptr @getenv(ptr noundef nonnull @.str.44) #10
+  %.not76 = icmp eq ptr %193, null
+  br i1 %.not76, label %194, label %196
 
-200:                                              ; preds = %198
-  %201 = call ptr @get_user_name_or_exit(ptr noundef %17) #10
-  br label %202
+194:                                              ; preds = %192
+  %195 = call ptr @get_user_name_or_exit(ptr noundef %17) #10
+  br label %196
 
-202:                                              ; preds = %198, %196, %200, %194
-  %.3 = phi ptr [ %201, %200 ], [ %.2, %194 ], [ %197, %196 ], [ %199, %198 ]
+196:                                              ; preds = %192, %190, %194, %188
+  %.3 = phi ptr [ %195, %194 ], [ %.2, %188 ], [ %191, %190 ], [ %193, %192 ]
   store ptr %.3, ptr %4, align 8
-  %203 = trunc nuw i8 %.042 to i1
-  br i1 %203, label %.preheader, label %209
+  %197 = trunc nuw i8 %.051 to i1
+  br i1 %197, label %.preheader, label %203
 
-.preheader:                                       ; preds = %202
-  %204 = trunc nuw i8 %.046 to i1
-  %205 = trunc nuw i8 %.044 to i1
-  br label %206
+.preheader:                                       ; preds = %196
+  %198 = trunc nuw i8 %.055 to i1
+  %199 = trunc nuw i8 %.053 to i1
+  br label %200
 
-206:                                              ; preds = %.preheader, %206
-  %.0132 = phi i32 [ 0, %.preheader ], [ %208, %206 ]
-  %207 = load i32, ptr %7, align 4
-  call fastcc void @vacuum_one_database(ptr noundef %4, ptr noundef %5, i32 noundef %.0132, ptr noundef %6, i32 noundef %207, ptr noundef %17, i1 noundef zeroext %204, i1 noundef zeroext %205)
-  %208 = add nuw nsw i32 %.0132, 1
-  %exitcond.not = icmp eq i32 %208, 3
-  br i1 %exitcond.not, label %.loopexit, label %206, !llvm.loop !8
+200:                                              ; preds = %.preheader, %200
+  %.0143 = phi i32 [ 0, %.preheader ], [ %202, %200 ]
+  %201 = load i32, ptr %7, align 4
+  call fastcc void @vacuum_one_database(ptr noundef %4, ptr noundef %5, i32 noundef %.0143, ptr noundef %6, i32 noundef %201, ptr noundef %17, i1 noundef zeroext %198, i1 noundef zeroext %199)
+  %202 = add nuw nsw i32 %.0143, 1
+  %exitcond.not = icmp eq i32 %202, 3
+  br i1 %exitcond.not, label %.loopexit, label %200, !llvm.loop !8
 
-209:                                              ; preds = %202
-  %210 = load i32, ptr %7, align 4
-  %211 = trunc nuw i8 %.046 to i1
-  %212 = trunc nuw i8 %.044 to i1
-  call fastcc void @vacuum_one_database(ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef %6, i32 noundef %210, ptr noundef %17, i1 noundef zeroext %211, i1 noundef zeroext %212)
+203:                                              ; preds = %196
+  %204 = load i32, ptr %7, align 4
+  %205 = trunc nuw i8 %.055 to i1
+  %206 = trunc nuw i8 %.053 to i1
+  call fastcc void @vacuum_one_database(ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef %6, i32 noundef %204, ptr noundef %17, i1 noundef zeroext %205, i1 noundef zeroext %206)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %206, %209, %190
+.loopexit:                                        ; preds = %200, %203, %184
   call void @exit(i32 noundef 0) #12
   unreachable
 }

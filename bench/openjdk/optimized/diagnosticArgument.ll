@@ -173,33 +173,32 @@ define hidden void @_ZN15GenDCmdArgument10read_valueEPKcmP10JavaThread(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %14
+  %.not = xor i1 %7, true
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  %9 = load i8, ptr %8, align 2
+  %10 = trunc i8 %9 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %10
+  br i1 %or.cond, label %13, label %11
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %10 = load i8, ptr %9, align 2
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %14, label %12
+11:                                               ; preds = %4
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 64, ptr noundef %12, ptr noundef nonnull @.str.4) #15
+  br label %19
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
-  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 64, ptr noundef %13, ptr noundef nonnull @.str.4) #15
-  br label %20
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %0, align 8
+  %15 = load ptr, ptr %14, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(51) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #15
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %.not7 = icmp eq ptr %17, null
+  br i1 %.not7, label %18, label %19
 
-14:                                               ; preds = %8, %4
-  %15 = load ptr, ptr %0, align 8
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(51) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #15
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %19, label %20
-
-19:                                               ; preds = %14
+18:                                               ; preds = %13
   store i8 1, ptr %5, align 8
-  br label %20
+  br label %19
 
-20:                                               ; preds = %14, %19, %12
+19:                                               ; preds = %13, %18, %11
   ret void
 }
 

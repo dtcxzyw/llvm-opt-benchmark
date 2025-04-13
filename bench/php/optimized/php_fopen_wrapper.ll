@@ -99,14 +99,14 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   %spec.select.idx = select i1 %.not, i64 6, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
   %11 = tail call i32 @strncasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.2, i64 noundef 4) #14
-  %.not125 = icmp eq i32 %11, 0
-  br i1 %.not125, label %12, label %23
+  %.not130 = icmp eq i32 %11, 0
+  br i1 %.not130, label %12, label %23
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
   %14 = tail call i32 @strncasecmp(ptr noundef nonnull %13, ptr noundef nonnull @.str.3, i64 noundef 11) #14
-  %.not126 = icmp eq i32 %14, 0
-  br i1 %.not126, label %15, label %20
+  %.not131 = icmp eq i32 %14, 0
+  br i1 %.not131, label %15, label %20
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %spec.select, i64 15
@@ -119,15 +119,15 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br label %192
 
 20:                                               ; preds = %15, %12
-  %.0111 = phi i64 [ 2097152, %12 ], [ %17, %15 ]
+  %.0116 = phi i64 [ 2097152, %12 ], [ %17, %15 ]
   %21 = tail call i32 @php_stream_mode_from_str(ptr noundef %2) #13
-  %22 = tail call ptr @_php_stream_temp_create(i32 noundef %21, i64 noundef %.0111) #13
+  %22 = tail call ptr @_php_stream_temp_create(i32 noundef %21, i64 noundef %.0116) #13
   br label %192
 
 23:                                               ; preds = %6
   %24 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.5) #14
-  %.not127 = icmp eq i32 %24, 0
-  br i1 %.not127, label %25, label %28
+  %.not132 = icmp eq i32 %24, 0
+  br i1 %.not132, label %25, label %28
 
 25:                                               ; preds = %23
   %26 = tail call i32 @php_stream_mode_from_str(ptr noundef %2) #13
@@ -136,8 +136,8 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
 
 28:                                               ; preds = %23
   %29 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.6) #14
-  %.not128 = icmp eq i32 %29, 0
-  br i1 %.not128, label %30, label %32
+  %.not133 = icmp eq i32 %29, 0
+  br i1 %.not133, label %30, label %32
 
 30:                                               ; preds = %28
   %31 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_output_ops, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.7) #13
@@ -145,44 +145,42 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
 
 32:                                               ; preds = %28
   %33 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.8) #14
-  %.not129 = icmp eq i32 %33, 0
-  br i1 %.not129, label %34, label %52
+  %.not134 = icmp eq i32 %33, 0
+  br i1 %.not134, label %34, label %52
 
 34:                                               ; preds = %32
   %35 = and i32 %3, 128
-  %.not130 = icmp eq i32 %35, 0
-  br i1 %.not130, label %42, label %36
-
-36:                                               ; preds = %34
-  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 579), align 1, !tbaa !9, !range !21, !noundef !22
+  %36 = icmp eq i32 %35, 0
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 579), align 1, !range !9
   %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %42, label %39
+  %or.cond = select i1 %36, i1 true, i1 %38
+  br i1 %or.cond, label %42, label %39
 
-39:                                               ; preds = %36
+39:                                               ; preds = %34
   %40 = and i32 %3, 8
-  %.not131 = icmp eq i32 %40, 0
-  br i1 %.not131, label %192, label %41
+  %.not135 = icmp eq i32 %40, 0
+  br i1 %.not135, label %192, label %41
 
 41:                                               ; preds = %39
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9) #13
   br label %192
 
-42:                                               ; preds = %36, %34
+42:                                               ; preds = %34
   %43 = tail call noalias dereferenceable_or_null(16) ptr @_ecalloc(i64 noundef 1, i64 noundef 16) #15
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 56), align 8, !tbaa !23
-  store ptr %44, ptr %43, align 8, !tbaa !40
-  %.not132 = icmp eq ptr %44, null
-  br i1 %.not132, label %47, label %45
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 56), align 8, !tbaa !10
+  store ptr %44, ptr %43, align 8, !tbaa !34
+  %.not136 = icmp eq ptr %44, null
+  br i1 %.not136, label %47, label %45
 
 45:                                               ; preds = %42
   %46 = tail call i32 @_php_stream_seek(ptr noundef nonnull %44, i64 noundef 0, i32 noundef 0) #13
   br label %50
 
 47:                                               ; preds = %42
-  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 128), align 8, !tbaa !42
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 128), align 8, !tbaa !36
   %49 = tail call ptr @_php_stream_temp_create_ex(i32 noundef 0, i64 noundef 16384, ptr noundef %48) #13
-  store ptr %49, ptr %43, align 8, !tbaa !40
-  store ptr %49, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 56), align 8, !tbaa !23
+  store ptr %49, ptr %43, align 8, !tbaa !34
+  store ptr %49, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 56), align 8, !tbaa !10
   br label %50
 
 50:                                               ; preds = %47, %45
@@ -191,33 +189,31 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
 
 52:                                               ; preds = %32
   %53 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.11) #14
-  %.not133 = icmp eq i32 %53, 0
-  br i1 %.not133, label %54, label %68
+  %.not137 = icmp eq i32 %53, 0
+  br i1 %.not137, label %54, label %68
 
 54:                                               ; preds = %52
   %55 = and i32 %3, 128
-  %.not134 = icmp eq i32 %55, 0
-  br i1 %.not134, label %62, label %56
-
-56:                                               ; preds = %54
-  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 579), align 1, !tbaa !9, !range !21, !noundef !22
+  %56 = icmp eq i32 %55, 0
+  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 579), align 1, !range !9
   %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %62, label %59
+  %or.cond4 = select i1 %56, i1 true, i1 %58
+  br i1 %or.cond4, label %62, label %59
 
-59:                                               ; preds = %56
+59:                                               ; preds = %54
   %60 = and i32 %3, 8
-  %.not135 = icmp eq i32 %60, 0
-  br i1 %.not135, label %192, label %61
+  %.not138 = icmp eq i32 %60, 0
+  br i1 %.not138, label %192, label %61
 
 61:                                               ; preds = %59
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9) #13
   br label %192
 
-62:                                               ; preds = %56, %54
-  %63 = load ptr, ptr @sapi_module, align 8, !tbaa !43
+62:                                               ; preds = %54
+  %63 = load ptr, ptr @sapi_module, align 8, !tbaa !41
   %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(4) @.str.12) #14
-  %.not136 = icmp eq i32 %64, 0
-  br i1 %.not136, label %65, label %171
+  %.not139 = icmp eq i32 %64, 0
+  br i1 %.not139, label %65, label %171
 
 65:                                               ; preds = %62
   %.b = load i1, ptr @php_stream_url_wrap_php.cli_in, align 4
@@ -225,71 +221,71 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
 
 66:                                               ; preds = %65
   store i1 true, ptr @php_stream_url_wrap_php.cli_in, align 4
-  %67 = load ptr, ptr @stdin, align 8, !tbaa !46
-  br label %.thread167
+  %67 = load ptr, ptr @stdin, align 8, !tbaa !44
+  br label %.thread170
 
 68:                                               ; preds = %52
   %69 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.13) #14
-  %.not137 = icmp eq i32 %69, 0
-  br i1 %.not137, label %70, label %78
+  %.not140 = icmp eq i32 %69, 0
+  br i1 %.not140, label %70, label %78
 
 70:                                               ; preds = %68
-  %71 = load ptr, ptr @sapi_module, align 8, !tbaa !43
+  %71 = load ptr, ptr @sapi_module, align 8, !tbaa !41
   %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(4) @.str.12) #14
-  %.not138 = icmp eq i32 %72, 0
-  br i1 %.not138, label %73, label %171
+  %.not141 = icmp eq i32 %72, 0
+  br i1 %.not141, label %73, label %171
 
 73:                                               ; preds = %70
-  %74 = load i32, ptr @php_stream_url_wrap_php.cli_out, align 4, !tbaa !48
+  %74 = load i32, ptr @php_stream_url_wrap_php.cli_out, align 4, !tbaa !46
   %75 = add nsw i32 %74, 1
-  store i32 %75, ptr @php_stream_url_wrap_php.cli_out, align 4, !tbaa !48
-  %.not139 = icmp eq i32 %74, 0
-  br i1 %.not139, label %76, label %171
+  store i32 %75, ptr @php_stream_url_wrap_php.cli_out, align 4, !tbaa !46
+  %.not142 = icmp eq i32 %74, 0
+  br i1 %.not142, label %76, label %171
 
 76:                                               ; preds = %73
-  store i32 1, ptr @php_stream_url_wrap_php.cli_out, align 4, !tbaa !48
-  %77 = load ptr, ptr @stdout, align 8, !tbaa !46
-  br label %.thread167
+  store i32 1, ptr @php_stream_url_wrap_php.cli_out, align 4, !tbaa !46
+  %77 = load ptr, ptr @stdout, align 8, !tbaa !44
+  br label %.thread170
 
 78:                                               ; preds = %68
   %79 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.14) #14
-  %.not140 = icmp eq i32 %79, 0
-  br i1 %.not140, label %80, label %88
+  %.not143 = icmp eq i32 %79, 0
+  br i1 %.not143, label %80, label %88
 
 80:                                               ; preds = %78
-  %81 = load ptr, ptr @sapi_module, align 8, !tbaa !43
+  %81 = load ptr, ptr @sapi_module, align 8, !tbaa !41
   %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(4) @.str.12) #14
-  %.not141 = icmp eq i32 %82, 0
-  br i1 %.not141, label %83, label %171
+  %.not144 = icmp eq i32 %82, 0
+  br i1 %.not144, label %83, label %171
 
 83:                                               ; preds = %80
-  %84 = load i32, ptr @php_stream_url_wrap_php.cli_err, align 4, !tbaa !48
+  %84 = load i32, ptr @php_stream_url_wrap_php.cli_err, align 4, !tbaa !46
   %85 = add nsw i32 %84, 1
-  store i32 %85, ptr @php_stream_url_wrap_php.cli_err, align 4, !tbaa !48
-  %.not142 = icmp eq i32 %84, 0
-  br i1 %.not142, label %86, label %171
+  store i32 %85, ptr @php_stream_url_wrap_php.cli_err, align 4, !tbaa !46
+  %.not145 = icmp eq i32 %84, 0
+  br i1 %.not145, label %86, label %171
 
 86:                                               ; preds = %83
-  store i32 1, ptr @php_stream_url_wrap_php.cli_err, align 4, !tbaa !48
-  %87 = load ptr, ptr @stderr, align 8, !tbaa !46
-  br label %.thread167
+  store i32 1, ptr @php_stream_url_wrap_php.cli_err, align 4, !tbaa !46
+  %87 = load ptr, ptr @stderr, align 8, !tbaa !44
+  br label %.thread170
 
 88:                                               ; preds = %78
   %89 = tail call i32 @strncasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.15, i64 noundef 3) #14
-  %.not143 = icmp eq i32 %89, 0
-  br i1 %.not143, label %90, label %126
+  %.not146 = icmp eq i32 %89, 0
+  br i1 %.not146, label %90, label %126
 
 90:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
-  %91 = load ptr, ptr @sapi_module, align 8, !tbaa !43
+  %91 = load ptr, ptr @sapi_module, align 8, !tbaa !41
   %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(4) @.str.12) #14
-  %.not144 = icmp eq i32 %92, 0
-  br i1 %.not144, label %96, label %93
+  %.not147 = icmp eq i32 %92, 0
+  br i1 %.not147, label %96, label %93
 
 93:                                               ; preds = %90
   %94 = and i32 %3, 8
-  %.not149 = icmp eq i32 %94, 0
-  br i1 %.not149, label %.thread, label %95
+  %.not151 = icmp eq i32 %94, 0
+  br i1 %.not151, label %.thread, label %95
 
 95:                                               ; preds = %93
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16) #13
@@ -297,24 +293,22 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
 
 96:                                               ; preds = %90
   %97 = and i32 %3, 128
-  %.not145 = icmp eq i32 %97, 0
-  br i1 %.not145, label %104, label %98
-
-98:                                               ; preds = %96
-  %99 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 579), align 1, !tbaa !9, !range !21, !noundef !22
+  %98 = icmp eq i32 %97, 0
+  %99 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 579), align 1, !range !9
   %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %104, label %101
+  %or.cond6 = select i1 %98, i1 true, i1 %100
+  br i1 %or.cond6, label %104, label %101
 
-101:                                              ; preds = %98
+101:                                              ; preds = %96
   %102 = and i32 %3, 8
-  %.not146 = icmp eq i32 %102, 0
-  br i1 %.not146, label %.thread, label %103
+  %.not148 = icmp eq i32 %102, 0
+  br i1 %.not148, label %.thread, label %103
 
 103:                                              ; preds = %101
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9) #13
   br label %.thread
 
-104:                                              ; preds = %98, %96
+104:                                              ; preds = %96
   %105 = getelementptr inbounds nuw i8, ptr %spec.select, i64 3
   %106 = call i64 @strtoll(ptr noundef nonnull %105, ptr noundef nonnull %8, i32 noundef 10) #13
   %107 = load ptr, ptr %8, align 8, !tbaa !4
@@ -322,9 +316,9 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br i1 %108, label %111, label %109
 
 109:                                              ; preds = %104
-  %110 = load i8, ptr %107, align 1, !tbaa !49
-  %.not147 = icmp eq i8 %110, 0
-  br i1 %.not147, label %112, label %111
+  %110 = load i8, ptr %107, align 1, !tbaa !47
+  %.not149 = icmp eq i8 %110, 0
+  br i1 %.not149, label %112, label %111
 
 111:                                              ; preds = %109, %104
   tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.17) #13
@@ -334,9 +328,9 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   %113 = tail call i32 @getdtablesize() #13
   %114 = icmp sgt i64 %106, -1
   %115 = sext i32 %113 to i64
-  %.not148 = icmp slt i64 %106, %115
-  %or.cond = select i1 %114, i1 %.not148, i1 false
-  br i1 %or.cond, label %117, label %116
+  %.not150 = icmp slt i64 %106, %115
+  %or.cond166 = select i1 %114, i1 %.not150, i1 false
+  br i1 %or.cond166, label %117, label %116
 
 116:                                              ; preds = %112
   tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.18, i32 noundef %113) #13
@@ -350,7 +344,7 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
 
 121:                                              ; preds = %117
   %122 = tail call ptr @__errno_location() #16
-  %123 = load i32, ptr %122, align 4, !tbaa !48
+  %123 = load i32, ptr %122, align 4, !tbaa !46
   %124 = tail call ptr @strerror(i32 noundef %123) #13
   tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.19, i64 noundef %106, i32 noundef %123, ptr noundef %124) #13
   br label %.thread
@@ -361,54 +355,54 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
 
 125:                                              ; preds = %117
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
-  br label %.thread167
+  br label %.thread170
 
 126:                                              ; preds = %88
   %127 = tail call i32 @strncasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.20, i64 noundef 7) #14
-  %.not152 = icmp eq i32 %127, 0
-  br i1 %.not152, label %128, label %170
+  %.not154 = icmp eq i32 %127, 0
+  br i1 %.not154, label %128, label %170
 
 128:                                              ; preds = %126
   %129 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 114) #14
-  %.not153 = icmp eq ptr %129, null
-  br i1 %.not153, label %130, label %132
+  %.not155 = icmp eq ptr %129, null
+  br i1 %.not155, label %130, label %132
 
 130:                                              ; preds = %128
   %131 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 43) #14
-  %.not154 = icmp eq ptr %131, null
-  br i1 %.not154, label %133, label %132
+  %.not156 = icmp eq ptr %131, null
+  br i1 %.not156, label %133, label %132
 
 132:                                              ; preds = %130, %128
   br label %133
 
 133:                                              ; preds = %132, %130
-  %.0106 = phi i32 [ 1, %132 ], [ 0, %130 ]
+  %.0111 = phi i32 [ 1, %132 ], [ 0, %130 ]
   %134 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 119) #14
-  %.not155 = icmp eq ptr %134, null
-  br i1 %.not155, label %135, label %139
+  %.not157 = icmp eq ptr %134, null
+  br i1 %.not157, label %135, label %139
 
 135:                                              ; preds = %133
   %136 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 43) #14
-  %.not156 = icmp eq ptr %136, null
-  br i1 %.not156, label %137, label %139
+  %.not158 = icmp eq ptr %136, null
+  br i1 %.not158, label %137, label %139
 
 137:                                              ; preds = %135
   %138 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 97) #14
-  %.not157 = icmp eq ptr %138, null
-  br i1 %.not157, label %141, label %139
+  %.not159 = icmp eq ptr %138, null
+  br i1 %.not159, label %141, label %139
 
 139:                                              ; preds = %137, %135, %133
-  %140 = or disjoint i32 %.0106, 2
+  %140 = or disjoint i32 %.0111, 2
   br label %141
 
 141:                                              ; preds = %139, %137
-  %.1107 = phi i32 [ %140, %139 ], [ %.0106, %137 ]
+  %.1112 = phi i32 [ %140, %139 ], [ %.0111, %137 ]
   %142 = getelementptr inbounds nuw i8, ptr %spec.select, i64 6
   %143 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %142) #14
   %144 = tail call noalias ptr @_estrndup(ptr noundef nonnull %142, i64 noundef %143) #13
   %145 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %144, ptr noundef nonnull dereferenceable(1) @.str.21) #14
-  %.not158 = icmp eq ptr %145, null
-  br i1 %.not158, label %146, label %147
+  %.not160 = icmp eq ptr %145, null
+  br i1 %.not160, label %146, label %147
 
 146:                                              ; preds = %141
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.22) #13
@@ -418,60 +412,60 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
 147:                                              ; preds = %141
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 10
   %149 = tail call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %148, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #13
-  %.not159 = icmp eq ptr %149, null
-  br i1 %.not159, label %150, label %151
+  %.not161 = icmp eq ptr %149, null
+  br i1 %.not161, label %150, label %151
 
 150:                                              ; preds = %147
   tail call void @_efree(ptr noundef nonnull %144) #13
   br label %192
 
 151:                                              ; preds = %147
-  store i8 0, ptr %145, align 1, !tbaa !49
+  store i8 0, ptr %145, align 1, !tbaa !47
   %152 = getelementptr inbounds nuw i8, ptr %144, i64 1
   %153 = call ptr @strtok_r(ptr noundef nonnull %152, ptr noundef nonnull @.str.23, ptr noundef nonnull %7) #13
-  %.not160176 = icmp eq ptr %153, null
-  br i1 %.not160176, label %._crit_edge, label %.lr.ph
+  %.not162179 = icmp eq ptr %153, null
+  br i1 %.not162179, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %151
-  %154 = and i32 %.1107, 1
-  %155 = and i32 %.1107, 2
+  %154 = and i32 %.1112, 1
+  %155 = and i32 %.1112, 2
   br label %156
 
 156:                                              ; preds = %.lr.ph, %165
-  %.0113177 = phi ptr [ %153, %.lr.ph ], [ %166, %165 ]
-  %157 = call i32 @strncasecmp(ptr noundef nonnull %.0113177, ptr noundef nonnull @.str.24, i64 noundef 5) #14
-  %.not162 = icmp eq i32 %157, 0
-  br i1 %.not162, label %158, label %160
+  %.0118180 = phi ptr [ %153, %.lr.ph ], [ %166, %165 ]
+  %157 = call i32 @strncasecmp(ptr noundef nonnull %.0118180, ptr noundef nonnull @.str.24, i64 noundef 5) #14
+  %.not164 = icmp eq i32 %157, 0
+  br i1 %.not164, label %158, label %160
 
 158:                                              ; preds = %156
-  %159 = getelementptr inbounds nuw i8, ptr %.0113177, i64 5
+  %159 = getelementptr inbounds nuw i8, ptr %.0118180, i64 5
   call fastcc void @php_stream_apply_filter_list(ptr noundef %149, ptr noundef %159, i32 noundef 1, i32 noundef 0)
   br label %165
 
 160:                                              ; preds = %156
-  %161 = call i32 @strncasecmp(ptr noundef nonnull %.0113177, ptr noundef nonnull @.str.25, i64 noundef 6) #14
-  %.not163 = icmp eq i32 %161, 0
-  br i1 %.not163, label %162, label %164
+  %161 = call i32 @strncasecmp(ptr noundef nonnull %.0118180, ptr noundef nonnull @.str.25, i64 noundef 6) #14
+  %.not165 = icmp eq i32 %161, 0
+  br i1 %.not165, label %162, label %164
 
 162:                                              ; preds = %160
-  %163 = getelementptr inbounds nuw i8, ptr %.0113177, i64 6
+  %163 = getelementptr inbounds nuw i8, ptr %.0118180, i64 6
   call fastcc void @php_stream_apply_filter_list(ptr noundef %149, ptr noundef %163, i32 noundef 0, i32 noundef 1)
   br label %165
 
 164:                                              ; preds = %160
-  call fastcc void @php_stream_apply_filter_list(ptr noundef %149, ptr noundef %.0113177, i32 noundef %154, i32 noundef %155)
+  call fastcc void @php_stream_apply_filter_list(ptr noundef %149, ptr noundef %.0118180, i32 noundef %154, i32 noundef %155)
   br label %165
 
 165:                                              ; preds = %162, %164, %158
   %166 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef nonnull %7) #13
-  %.not160 = icmp eq ptr %166, null
-  br i1 %.not160, label %._crit_edge, label %156
+  %.not162 = icmp eq ptr %166, null
+  br i1 %.not162, label %._crit_edge, label %156
 
 ._crit_edge:                                      ; preds = %165, %151
   call void @_efree(ptr noundef nonnull %144) #13
-  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !50
-  %.not161 = icmp eq ptr %167, null
-  br i1 %.not161, label %192, label %168
+  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !48
+  %.not163 = icmp eq ptr %167, null
+  br i1 %.not163, label %192, label %168
 
 168:                                              ; preds = %._crit_edge
   %169 = call i32 @_php_stream_free(ptr noundef nonnull %149, i32 noundef 3) #13
@@ -485,50 +479,50 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   %.sink = phi i32 [ 0, %65 ], [ 0, %62 ], [ 1, %73 ], [ 1, %70 ], [ 2, %83 ], [ 2, %80 ]
   %172 = tail call i32 @dup(i32 noundef %.sink) #13
   %173 = icmp eq i32 %172, -1
-  br i1 %173, label %192, label %.thread167
+  br i1 %173, label %192, label %.thread170
 
-.thread167:                                       ; preds = %66, %76, %86, %125, %171
-  %.0104171 = phi i32 [ %172, %171 ], [ 0, %66 ], [ 1, %76 ], [ 2, %86 ], [ %119, %125 ]
-  %.0110170 = phi ptr [ null, %171 ], [ %67, %66 ], [ %77, %76 ], [ %87, %86 ], [ null, %125 ]
+.thread170:                                       ; preds = %66, %76, %86, %125, %171
+  %.0109174 = phi i32 [ %172, %171 ], [ 0, %66 ], [ 1, %76 ], [ 2, %86 ], [ %119, %125 ]
+  %.0115173 = phi ptr [ null, %171 ], [ %67, %66 ], [ %77, %76 ], [ %87, %86 ], [ null, %125 ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, i8 0, i64 144, i1 false)
-  %174 = call i32 @fstat(i32 noundef %.0104171, ptr noundef nonnull %9) #13
+  %174 = call i32 @fstat(i32 noundef %.0109174, ptr noundef nonnull %9) #13
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %184
 
-176:                                              ; preds = %.thread167
+176:                                              ; preds = %.thread170
   %177 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %178 = load i32, ptr %177, align 8, !tbaa !74
+  %178 = load i32, ptr %177, align 8, !tbaa !72
   %179 = and i32 %178, 61440
   %180 = icmp eq i32 %179, 49152
   br i1 %180, label %181, label %184
 
 181:                                              ; preds = %176
-  %182 = tail call ptr @_php_stream_sock_open_from_socket(i32 noundef %.0104171, ptr noundef null) #13
-  %.not150 = icmp eq ptr %182, null
-  br i1 %.not150, label %184, label %183
+  %182 = tail call ptr @_php_stream_sock_open_from_socket(i32 noundef %.0109174, ptr noundef null) #13
+  %.not152 = icmp eq ptr %182, null
+  br i1 %.not152, label %184, label %183
 
 183:                                              ; preds = %181
-  store ptr @php_stream_socket_ops, ptr %182, align 8, !tbaa !75
+  store ptr @php_stream_socket_ops, ptr %182, align 8, !tbaa !73
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #13
   br label %192
 
-184:                                              ; preds = %181, %176, %.thread167
+184:                                              ; preds = %181, %176, %.thread170
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #13
-  %.not151 = icmp eq ptr %.0110170, null
-  br i1 %.not151, label %187, label %185
+  %.not153 = icmp eq ptr %.0115173, null
+  br i1 %.not153, label %187, label %185
 
 185:                                              ; preds = %184
-  %186 = tail call ptr @_php_stream_fopen_from_file(ptr noundef nonnull %.0110170, ptr noundef %2) #13
+  %186 = tail call ptr @_php_stream_fopen_from_file(ptr noundef nonnull %.0115173, ptr noundef %2) #13
   br label %192
 
 187:                                              ; preds = %184
-  %188 = tail call ptr @_php_stream_fopen_from_fd(i32 noundef %.0104171, ptr noundef %2, ptr noundef null, i1 noundef zeroext false) #13
+  %188 = tail call ptr @_php_stream_fopen_from_fd(i32 noundef %.0109174, ptr noundef %2, ptr noundef null, i1 noundef zeroext false) #13
   %189 = icmp eq ptr %188, null
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %187
-  %191 = tail call i32 @close(i32 noundef %.0104171) #13
+  %191 = tail call i32 @close(i32 noundef %.0109174) #13
   br label %192
 
 192:                                              ; preds = %183, %.thread, %185, %190, %187, %171, %._crit_edge, %59, %61, %50, %41, %39, %170, %168, %150, %146, %30, %25, %20, %19
@@ -778,15 +772,15 @@ define internal noundef i64 @php_stream_input_write(ptr readnone captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal i64 @php_stream_input_read(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !82
-  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 248), align 8, !tbaa !83
+  %5 = load ptr, ptr %4, align 8, !tbaa !80
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 248), align 8, !tbaa !81
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %7, label %20
 
 7:                                                ; preds = %3
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !84
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !82
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !85
+  %10 = load i64, ptr %9, align 8, !tbaa !83
   %11 = add i64 %10, %2
   %12 = icmp slt i64 %8, %11
   br i1 %12, label %13, label %20
@@ -797,24 +791,24 @@ define internal i64 @php_stream_input_read(ptr noundef captures(none) %0, ptr no
   br i1 %.not23, label %20, label %15
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr %5, align 8, !tbaa !40
+  %16 = load ptr, ptr %5, align 8, !tbaa !34
   %17 = tail call i32 @_php_stream_seek(ptr noundef %16, i64 noundef 0, i32 noundef 2) #13
-  %18 = load ptr, ptr %5, align 8, !tbaa !40
+  %18 = load ptr, ptr %5, align 8, !tbaa !34
   %19 = tail call i64 @_php_stream_write(ptr noundef %18, ptr noundef %1, i64 noundef %14) #13
   br label %20
 
 20:                                               ; preds = %13, %15, %7, %3
-  %21 = load ptr, ptr %5, align 8, !tbaa !40
+  %21 = load ptr, ptr %5, align 8, !tbaa !34
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !86
+  %23 = load ptr, ptr %22, align 8, !tbaa !84
   %.not24 = icmp eq ptr %23, null
   br i1 %.not24, label %24, label %28
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !85
+  %26 = load i64, ptr %25, align 8, !tbaa !83
   %27 = tail call i32 @_php_stream_seek(ptr noundef nonnull %21, i64 noundef %26, i32 noundef 0) #13
-  %.pre = load ptr, ptr %5, align 8, !tbaa !40
+  %.pre = load ptr, ptr %5, align 8, !tbaa !34
   br label %28
 
 28:                                               ; preds = %24, %20
@@ -833,9 +827,9 @@ define internal i64 @php_stream_input_read(ptr noundef captures(none) %0, ptr no
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !85
+  %38 = load i64, ptr %37, align 8, !tbaa !83
   %39 = add nsw i64 %38, %30
-  store i64 %39, ptr %37, align 8, !tbaa !85
+  store i64 %39, ptr %37, align 8, !tbaa !83
   br label %40
 
 40:                                               ; preds = %36, %32
@@ -845,9 +839,9 @@ define internal i64 @php_stream_input_read(ptr noundef captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_stream_input_close(ptr noundef captures(none) %0, i32 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !82
+  %4 = load ptr, ptr %3, align 8, !tbaa !80
   tail call void @_efree(ptr noundef %4) #13
-  store ptr null, ptr %3, align 8, !tbaa !82
+  store ptr null, ptr %3, align 8, !tbaa !80
   ret i32 0
 }
 
@@ -859,19 +853,19 @@ define internal noundef i32 @php_stream_input_flush(ptr readnone captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_stream_input_seek(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !82
-  %7 = load ptr, ptr %6, align 8, !tbaa !40
+  %6 = load ptr, ptr %5, align 8, !tbaa !80
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %4
   %9 = tail call i32 @_php_stream_seek(ptr noundef nonnull %7, i64 noundef %1, i32 noundef %2) #13
-  %10 = load ptr, ptr %6, align 8, !tbaa !40
+  %10 = load ptr, ptr %6, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
-  %12 = load i64, ptr %11, align 8, !tbaa !87
+  %12 = load i64, ptr %11, align 8, !tbaa !85
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %12, ptr %13, align 8, !tbaa !85
-  store i64 %12, ptr %3, align 8, !tbaa !88
+  store i64 %12, ptr %13, align 8, !tbaa !83
+  store i64 %12, ptr %3, align 8, !tbaa !86
   br label %14
 
 14:                                               ; preds = %4, %8
@@ -920,83 +914,81 @@ attributes #16 = { nounwind willreturn memory(none) }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!10, !12, i64 579}
-!10 = !{!"_php_core_globals", !11, i64 0, !12, i64 8, !12, i64 9, !7, i64 10, !12, i64 11, !12, i64 12, !12, i64 13, !12, i64 14, !12, i64 15, !5, i64 16, !5, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !12, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !11, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !13, i64 200, !5, i64 216, !14, i64 224, !17, i64 280, !12, i64 282, !7, i64 283, !18, i64 288, !7, i64 344, !12, i64 440, !12, i64 441, !12, i64 442, !12, i64 443, !12, i64 444, !5, i64 448, !5, i64 456, !11, i64 464, !7, i64 472, !12, i64 480, !12, i64 481, !12, i64 482, !12, i64 483, !12, i64 484, !12, i64 485, !16, i64 488, !16, i64 492, !20, i64 496, !20, i64 504, !5, i64 512, !5, i64 520, !11, i64 528, !11, i64 536, !5, i64 544, !11, i64 552, !5, i64 560, !5, i64 568, !12, i64 576, !12, i64 577, !12, i64 578, !12, i64 579, !12, i64 580, !12, i64 581, !11, i64 584, !5, i64 592, !11, i64 600, !11, i64 608}
-!11 = !{!"long", !7, i64 0}
-!12 = !{!"_Bool", !7, i64 0}
-!13 = !{!"_arg_separators", !5, i64 0, !5, i64 8}
-!14 = !{!"_zend_array", !15, i64 0, !7, i64 8, !16, i64 12, !7, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !11, i64 40, !6, i64 48}
-!15 = !{!"_zend_refcounted_h", !16, i64 0, !7, i64 4}
-!16 = !{!"int", !7, i64 0}
-!17 = !{!"short", !7, i64 0}
-!18 = !{!"_zend_llist", !19, i64 0, !19, i64 8, !11, i64 16, !11, i64 24, !6, i64 32, !7, i64 40, !19, i64 48}
-!19 = !{!"p1 _ZTS19_zend_llist_element", !6, i64 0}
-!20 = !{!"p1 _ZTS12_zend_string", !6, i64 0}
-!21 = !{i8 0, i8 2}
-!22 = !{}
-!23 = !{!24, !26, i64 56}
-!24 = !{!"_sapi_globals_struct", !6, i64 0, !25, i64 8, !29, i64 160, !11, i64 240, !7, i64 248, !7, i64 249, !30, i64 256, !5, i64 400, !5, i64 408, !32, i64 416, !11, i64 424, !16, i64 432, !12, i64 436, !33, i64 440, !14, i64 448, !34, i64 504, !35, i64 520, !39, i64 560}
-!25 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !11, i64 24, !5, i64 32, !5, i64 40, !26, i64 48, !5, i64 56, !12, i64 64, !12, i64 65, !12, i64 66, !27, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !16, i64 128, !16, i64 132, !28, i64 136, !16, i64 144}
-!26 = !{!"p1 _ZTS11_php_stream", !6, i64 0}
-!27 = !{!"p1 _ZTS16_sapi_post_entry", !6, i64 0}
-!28 = !{!"p2 omnipotent char", !6, i64 0}
-!29 = !{!"", !18, i64 0, !16, i64 56, !7, i64 60, !5, i64 64, !5, i64 72}
-!30 = !{!"stat", !11, i64 0, !11, i64 8, !11, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !31, i64 72, !31, i64 88, !31, i64 104, !7, i64 120}
-!31 = !{!"timespec", !11, i64 0, !11, i64 8}
-!32 = !{!"p1 _ZTS11_zend_array", !6, i64 0}
-!33 = !{!"double", !7, i64 0}
-!34 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
-!35 = !{!"_zend_fcall_info_cache", !36, i64 0, !37, i64 8, !37, i64 16, !38, i64 24, !38, i64 32}
-!36 = !{!"p1 _ZTS14_zend_function", !6, i64 0}
-!37 = !{!"p1 _ZTS17_zend_class_entry", !6, i64 0}
-!38 = !{!"p1 _ZTS12_zend_object", !6, i64 0}
-!39 = !{!"", !12, i64 0, !7, i64 8}
-!40 = !{!41, !26, i64 0}
-!41 = !{!"php_stream_input", !26, i64 0, !11, i64 8}
-!42 = !{!10, !5, i64 128}
-!43 = !{!44, !5, i64 0}
-!44 = !{!"_sapi_module_struct", !5, i64 0, !5, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !5, i64 160, !6, i64 168, !6, i64 176, !5, i64 184, !16, i64 192, !16, i64 196, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !16, i64 248, !5, i64 256, !45, i64 264, !6, i64 272}
-!45 = !{!"p1 _ZTS20_zend_function_entry", !6, i64 0}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!48 = !{!16, !16, i64 0}
-!49 = !{!7, !7, i64 0}
-!50 = !{!51, !38, i64 960}
-!51 = !{!"_zend_executor_globals", !34, i64 0, !34, i64 16, !7, i64 32, !52, i64 288, !52, i64 296, !14, i64 304, !14, i64 360, !53, i64 416, !16, i64 424, !12, i64 428, !34, i64 432, !16, i64 448, !32, i64 456, !32, i64 464, !32, i64 472, !54, i64 480, !54, i64 488, !55, i64 496, !11, i64 504, !56, i64 512, !37, i64 520, !16, i64 528, !56, i64 536, !16, i64 544, !11, i64 552, !16, i64 560, !16, i64 564, !16, i64 568, !12, i64 572, !12, i64 573, !57, i64 574, !57, i64 575, !32, i64 576, !11, i64 584, !6, i64 592, !6, i64 600, !14, i64 608, !14, i64 664, !16, i64 720, !12, i64 724, !34, i64 728, !34, i64 744, !58, i64 760, !58, i64 784, !58, i64 808, !37, i64 832, !16, i64 840, !16, i64 844, !11, i64 848, !32, i64 856, !32, i64 864, !59, i64 872, !60, i64 880, !62, i64 904, !38, i64 960, !38, i64 968, !63, i64 976, !7, i64 984, !64, i64 1080, !12, i64 1088, !7, i64 1089, !11, i64 1096, !16, i64 1104, !16, i64 1108, !65, i64 1112, !7, i64 1120, !6, i64 1376, !7, i64 1384, !66, i64 1640, !14, i64 1672, !11, i64 1728, !67, i64 1736, !68, i64 1760, !68, i64 1768, !69, i64 1776, !11, i64 1784, !12, i64 1792, !16, i64 1796, !70, i64 1800, !20, i64 1808, !11, i64 1816, !71, i64 1824, !11, i64 1840, !11, i64 1848, !72, i64 1856, !7, i64 1936}
-!52 = !{!"p2 _ZTS11_zend_array", !6, i64 0}
-!53 = !{!"p1 _ZTS13__jmp_buf_tag", !6, i64 0}
-!54 = !{!"p1 _ZTS12_zval_struct", !6, i64 0}
-!55 = !{!"p1 _ZTS14_zend_vm_stack", !6, i64 0}
-!56 = !{!"p1 _ZTS18_zend_execute_data", !6, i64 0}
-!57 = !{!"zend_atomic_bool_s", !7, i64 0}
-!58 = !{!"_zend_stack", !16, i64 0, !16, i64 4, !16, i64 8, !6, i64 16}
-!59 = !{!"p1 _ZTS15_zend_ini_entry", !6, i64 0}
-!60 = !{!"_zend_objects_store", !61, i64 0, !16, i64 8, !16, i64 12, !16, i64 16}
-!61 = !{!"p2 _ZTS12_zend_object", !6, i64 0}
-!62 = !{!"_zend_lazy_objects_store", !14, i64 0}
-!63 = !{!"p1 _ZTS8_zend_op", !6, i64 0}
-!64 = !{!"p1 _ZTS18_zend_module_entry", !6, i64 0}
-!65 = !{!"p1 _ZTS18_HashTableIterator", !6, i64 0}
-!66 = !{!"_zend_op", !6, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !16, i64 20, !16, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
-!67 = !{!"", !54, i64 0, !54, i64 8, !54, i64 16}
-!68 = !{!"p1 _ZTS19_zend_fiber_context", !6, i64 0}
-!69 = !{!"p1 _ZTS11_zend_fiber", !6, i64 0}
-!70 = !{!"p2 _ZTS16_zend_error_info", !6, i64 0}
-!71 = !{!"_zend_call_stack", !6, i64 0, !11, i64 8}
-!72 = !{!"_zend_strtod_state", !7, i64 0, !73, i64 64, !5, i64 72}
-!73 = !{!"p1 _ZTS19_zend_strtod_bigint", !6, i64 0}
-!74 = !{!30, !16, i64 24}
-!75 = !{!76, !77, i64 0}
-!76 = !{!"_php_stream", !77, i64 0, !6, i64 8, !78, i64 16, !78, i64 40, !80, i64 64, !6, i64 72, !34, i64 80, !17, i64 96, !17, i64 96, !17, i64 96, !17, i64 96, !17, i64 96, !17, i64 96, !17, i64 97, !7, i64 98, !16, i64 116, !81, i64 120, !47, i64 128, !5, i64 136, !81, i64 144, !11, i64 152, !5, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !26, i64 200}
-!77 = !{!"p1 _ZTS15_php_stream_ops", !6, i64 0}
-!78 = !{!"_php_stream_filter_chain", !79, i64 0, !79, i64 8, !26, i64 16}
-!79 = !{!"p1 _ZTS18_php_stream_filter", !6, i64 0}
-!80 = !{!"p1 _ZTS19_php_stream_wrapper", !6, i64 0}
-!81 = !{!"p1 _ZTS14_zend_resource", !6, i64 0}
-!82 = !{!76, !6, i64 8}
-!83 = !{!24, !7, i64 248}
-!84 = !{!24, !11, i64 240}
-!85 = !{!41, !11, i64 8}
-!86 = !{!76, !79, i64 16}
-!87 = !{!76, !11, i64 152}
-!88 = !{!11, !11, i64 0}
+!9 = !{i8 0, i8 2}
+!10 = !{!11, !14, i64 56}
+!11 = !{!"_sapi_globals_struct", !6, i64 0, !12, i64 8, !19, i64 160, !13, i64 240, !7, i64 248, !7, i64 249, !22, i64 256, !5, i64 400, !5, i64 408, !24, i64 416, !13, i64 424, !17, i64 432, !15, i64 436, !25, i64 440, !26, i64 448, !28, i64 504, !29, i64 520, !33, i64 560}
+!12 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !13, i64 24, !5, i64 32, !5, i64 40, !14, i64 48, !5, i64 56, !15, i64 64, !15, i64 65, !15, i64 66, !16, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !17, i64 128, !17, i64 132, !18, i64 136, !17, i64 144}
+!13 = !{!"long", !7, i64 0}
+!14 = !{!"p1 _ZTS11_php_stream", !6, i64 0}
+!15 = !{!"_Bool", !7, i64 0}
+!16 = !{!"p1 _ZTS16_sapi_post_entry", !6, i64 0}
+!17 = !{!"int", !7, i64 0}
+!18 = !{!"p2 omnipotent char", !6, i64 0}
+!19 = !{!"", !20, i64 0, !17, i64 56, !7, i64 60, !5, i64 64, !5, i64 72}
+!20 = !{!"_zend_llist", !21, i64 0, !21, i64 8, !13, i64 16, !13, i64 24, !6, i64 32, !7, i64 40, !21, i64 48}
+!21 = !{!"p1 _ZTS19_zend_llist_element", !6, i64 0}
+!22 = !{!"stat", !13, i64 0, !13, i64 8, !13, i64 16, !17, i64 24, !17, i64 28, !17, i64 32, !17, i64 36, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !23, i64 72, !23, i64 88, !23, i64 104, !7, i64 120}
+!23 = !{!"timespec", !13, i64 0, !13, i64 8}
+!24 = !{!"p1 _ZTS11_zend_array", !6, i64 0}
+!25 = !{!"double", !7, i64 0}
+!26 = !{!"_zend_array", !27, i64 0, !7, i64 8, !17, i64 12, !7, i64 16, !17, i64 24, !17, i64 28, !17, i64 32, !17, i64 36, !13, i64 40, !6, i64 48}
+!27 = !{!"_zend_refcounted_h", !17, i64 0, !7, i64 4}
+!28 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
+!29 = !{!"_zend_fcall_info_cache", !30, i64 0, !31, i64 8, !31, i64 16, !32, i64 24, !32, i64 32}
+!30 = !{!"p1 _ZTS14_zend_function", !6, i64 0}
+!31 = !{!"p1 _ZTS17_zend_class_entry", !6, i64 0}
+!32 = !{!"p1 _ZTS12_zend_object", !6, i64 0}
+!33 = !{!"", !15, i64 0, !7, i64 8}
+!34 = !{!35, !14, i64 0}
+!35 = !{!"php_stream_input", !14, i64 0, !13, i64 8}
+!36 = !{!37, !5, i64 128}
+!37 = !{!"_php_core_globals", !13, i64 0, !15, i64 8, !15, i64 9, !7, i64 10, !15, i64 11, !15, i64 12, !15, i64 13, !15, i64 14, !15, i64 15, !5, i64 16, !5, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !15, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !13, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !38, i64 200, !5, i64 216, !26, i64 224, !39, i64 280, !15, i64 282, !7, i64 283, !20, i64 288, !7, i64 344, !15, i64 440, !15, i64 441, !15, i64 442, !15, i64 443, !15, i64 444, !5, i64 448, !5, i64 456, !13, i64 464, !7, i64 472, !15, i64 480, !15, i64 481, !15, i64 482, !15, i64 483, !15, i64 484, !15, i64 485, !17, i64 488, !17, i64 492, !40, i64 496, !40, i64 504, !5, i64 512, !5, i64 520, !13, i64 528, !13, i64 536, !5, i64 544, !13, i64 552, !5, i64 560, !5, i64 568, !15, i64 576, !15, i64 577, !15, i64 578, !15, i64 579, !15, i64 580, !15, i64 581, !13, i64 584, !5, i64 592, !13, i64 600, !13, i64 608}
+!38 = !{!"_arg_separators", !5, i64 0, !5, i64 8}
+!39 = !{!"short", !7, i64 0}
+!40 = !{!"p1 _ZTS12_zend_string", !6, i64 0}
+!41 = !{!42, !5, i64 0}
+!42 = !{!"_sapi_module_struct", !5, i64 0, !5, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !5, i64 160, !6, i64 168, !6, i64 176, !5, i64 184, !17, i64 192, !17, i64 196, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !17, i64 248, !5, i64 256, !43, i64 264, !6, i64 272}
+!43 = !{!"p1 _ZTS20_zend_function_entry", !6, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!46 = !{!17, !17, i64 0}
+!47 = !{!7, !7, i64 0}
+!48 = !{!49, !32, i64 960}
+!49 = !{!"_zend_executor_globals", !28, i64 0, !28, i64 16, !7, i64 32, !50, i64 288, !50, i64 296, !26, i64 304, !26, i64 360, !51, i64 416, !17, i64 424, !15, i64 428, !28, i64 432, !17, i64 448, !24, i64 456, !24, i64 464, !24, i64 472, !52, i64 480, !52, i64 488, !53, i64 496, !13, i64 504, !54, i64 512, !31, i64 520, !17, i64 528, !54, i64 536, !17, i64 544, !13, i64 552, !17, i64 560, !17, i64 564, !17, i64 568, !15, i64 572, !15, i64 573, !55, i64 574, !55, i64 575, !24, i64 576, !13, i64 584, !6, i64 592, !6, i64 600, !26, i64 608, !26, i64 664, !17, i64 720, !15, i64 724, !28, i64 728, !28, i64 744, !56, i64 760, !56, i64 784, !56, i64 808, !31, i64 832, !17, i64 840, !17, i64 844, !13, i64 848, !24, i64 856, !24, i64 864, !57, i64 872, !58, i64 880, !60, i64 904, !32, i64 960, !32, i64 968, !61, i64 976, !7, i64 984, !62, i64 1080, !15, i64 1088, !7, i64 1089, !13, i64 1096, !17, i64 1104, !17, i64 1108, !63, i64 1112, !7, i64 1120, !6, i64 1376, !7, i64 1384, !64, i64 1640, !26, i64 1672, !13, i64 1728, !65, i64 1736, !66, i64 1760, !66, i64 1768, !67, i64 1776, !13, i64 1784, !15, i64 1792, !17, i64 1796, !68, i64 1800, !40, i64 1808, !13, i64 1816, !69, i64 1824, !13, i64 1840, !13, i64 1848, !70, i64 1856, !7, i64 1936}
+!50 = !{!"p2 _ZTS11_zend_array", !6, i64 0}
+!51 = !{!"p1 _ZTS13__jmp_buf_tag", !6, i64 0}
+!52 = !{!"p1 _ZTS12_zval_struct", !6, i64 0}
+!53 = !{!"p1 _ZTS14_zend_vm_stack", !6, i64 0}
+!54 = !{!"p1 _ZTS18_zend_execute_data", !6, i64 0}
+!55 = !{!"zend_atomic_bool_s", !7, i64 0}
+!56 = !{!"_zend_stack", !17, i64 0, !17, i64 4, !17, i64 8, !6, i64 16}
+!57 = !{!"p1 _ZTS15_zend_ini_entry", !6, i64 0}
+!58 = !{!"_zend_objects_store", !59, i64 0, !17, i64 8, !17, i64 12, !17, i64 16}
+!59 = !{!"p2 _ZTS12_zend_object", !6, i64 0}
+!60 = !{!"_zend_lazy_objects_store", !26, i64 0}
+!61 = !{!"p1 _ZTS8_zend_op", !6, i64 0}
+!62 = !{!"p1 _ZTS18_zend_module_entry", !6, i64 0}
+!63 = !{!"p1 _ZTS18_HashTableIterator", !6, i64 0}
+!64 = !{!"_zend_op", !6, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !17, i64 20, !17, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
+!65 = !{!"", !52, i64 0, !52, i64 8, !52, i64 16}
+!66 = !{!"p1 _ZTS19_zend_fiber_context", !6, i64 0}
+!67 = !{!"p1 _ZTS11_zend_fiber", !6, i64 0}
+!68 = !{!"p2 _ZTS16_zend_error_info", !6, i64 0}
+!69 = !{!"_zend_call_stack", !6, i64 0, !13, i64 8}
+!70 = !{!"_zend_strtod_state", !7, i64 0, !71, i64 64, !5, i64 72}
+!71 = !{!"p1 _ZTS19_zend_strtod_bigint", !6, i64 0}
+!72 = !{!22, !17, i64 24}
+!73 = !{!74, !75, i64 0}
+!74 = !{!"_php_stream", !75, i64 0, !6, i64 8, !76, i64 16, !76, i64 40, !78, i64 64, !6, i64 72, !28, i64 80, !39, i64 96, !39, i64 96, !39, i64 96, !39, i64 96, !39, i64 96, !39, i64 96, !39, i64 97, !7, i64 98, !17, i64 116, !79, i64 120, !45, i64 128, !5, i64 136, !79, i64 144, !13, i64 152, !5, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !14, i64 200}
+!75 = !{!"p1 _ZTS15_php_stream_ops", !6, i64 0}
+!76 = !{!"_php_stream_filter_chain", !77, i64 0, !77, i64 8, !14, i64 16}
+!77 = !{!"p1 _ZTS18_php_stream_filter", !6, i64 0}
+!78 = !{!"p1 _ZTS19_php_stream_wrapper", !6, i64 0}
+!79 = !{!"p1 _ZTS14_zend_resource", !6, i64 0}
+!80 = !{!74, !6, i64 8}
+!81 = !{!11, !7, i64 248}
+!82 = !{!11, !13, i64 240}
+!83 = !{!35, !13, i64 8}
+!84 = !{!74, !77, i64 16}
+!85 = !{!74, !13, i64 152}
+!86 = !{!13, !13, i64 0}

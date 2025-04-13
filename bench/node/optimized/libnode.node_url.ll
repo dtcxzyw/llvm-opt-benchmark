@@ -1851,15 +1851,13 @@ if.then.i.i.i:                                    ; preds = %if.then81
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then.i.i.i, %if.then81, %do.end80
-  br i1 %call50, label %land.lhs.true, label %if.end98
-
-land.lhs.true:                                    ; preds = %if.end86
   %_M_engaged.i.i.i34 = getelementptr inbounds nuw i8, ptr %out, i64 112
   %54 = load i8, ptr %_M_engaged.i.i.i34, align 8
   %tobool.i.i.i35 = trunc i8 %54 to i1
-  br i1 %tobool.i.i.i35, label %if.then90, label %if.end98
+  %or.cond = select i1 %call50, i1 %tobool.i.i.i35, i1 false
+  br i1 %or.cond, label %if.then90, label %if.end98
 
-if.then90:                                        ; preds = %land.lhs.true
+if.then90:                                        ; preds = %if.end86
   call void @_ZNK3ada3url12get_hostnameB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(272) %out) #22
   %call95 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93) #22
   %55 = extractvalue { i64, ptr } %call95, 0
@@ -1884,7 +1882,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93) #22
   br label %if.end98
 
-if.end98:                                         ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit, %land.lhs.true, %if.end86
+if.end98:                                         ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit, %if.end86
   br i1 %call58, label %if.end104, label %if.then100
 
 if.then100:                                       ; preds = %if.end98
@@ -1912,8 +1910,7 @@ if.then106:                                       ; preds = %if.end104
 if.end111:                                        ; preds = %if.then106, %if.end104
   call void @_ZNK3ada3url12get_protocolB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %result, ptr noundef nonnull align 8 dereferenceable(272) %out) #22
   %host.i = getelementptr inbounds nuw i8, ptr %out, i64 80
-  %_M_engaged.i.i42 = getelementptr inbounds nuw i8, ptr %out, i64 112
-  %59 = load i8, ptr %_M_engaged.i.i42, align 8
+  %59 = load i8, ptr %_M_engaged.i.i.i34, align 8
   %tobool.i.i43 = trunc i8 %59 to i1
   br i1 %tobool.i.i43, label %if.then.i270, label %if.else.i269
 
@@ -1959,7 +1956,7 @@ if.end.i275:                                      ; preds = %if.then7.i, %if.the
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i275, %lor.rhs.i
-  %60 = load i8, ptr %_M_engaged.i.i42, align 8
+  %60 = load i8, ptr %_M_engaged.i.i.i34, align 8
   %tobool.i.i49 = trunc i8 %60 to i1
   br i1 %tobool.i.i49, label %_ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.exit, label %if.end.i50
 
@@ -2375,15 +2372,14 @@ _ZN4node9Utf8ValueD2Ev.exit:                      ; preds = %_ZNSt8optionalINSt7
   call void @_ZN3ada5parseINS_14url_aggregatorEEEN2tl8expectedIT_NS_6errorsEEESt17basic_string_viewIcSt11char_traitsIcEEPKS4_(ptr nonnull sret(%"class.tl::expected.311") align 8 %ref.tmp48, i64 %52, ptr %53, ptr noundef null) #22
   %54 = load i8, ptr %m_has_val.i.i.i.i.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %54 to i1
-  %m_has_val2.i9.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp48, i64 80
-  %55 = load i8, ptr %m_has_val2.i9.i.i.i, align 8
-  %tobool3.i10.i.i.i = trunc i8 %55 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i.i.i, label %land.lhs.true.i.i.i
+  %tobool.not.i.i.i = xor i1 %tobool.i.i.i, true
+  %m_has_val2.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp48, i64 80
+  %55 = load i8, ptr %m_has_val2.i.i.i, align 8
+  %tobool3.i.i.i = trunc i8 %55 to i1
+  %or.cond.i.i.i = select i1 %tobool.not.i.i.i, i1 %tobool3.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
-land.lhs.true.i.i.i:                              ; preds = %_ZN4node9Utf8ValueD2Ev.exit
-  br i1 %tobool3.i10.i.i.i, label %if.then.i.i.i, label %if.then11.i.i.i.i
-
-if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
+if.then.i.i.i:                                    ; preds = %_ZN4node9Utf8ValueD2Ev.exit
   %is_valid2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp48, i64 8
   %56 = load i32, ptr %is_valid2.i.i.i.i.i.i, align 8
   store i32 %56, ptr %30, align 8
@@ -2395,8 +2391,11 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   store i8 1, ptr %m_has_val.i.i.i.i.i.i.i, align 8
   br label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEEaSEOS4_.exit
 
-if.then.i.i.i.i:                                  ; preds = %_ZN4node9Utf8ValueD2Ev.exit
-  br i1 %tobool3.i10.i.i.i, label %if.then4.i.i.i.i, label %if.else.i.i.i.i
+if.else.i.i.i:                                    ; preds = %_ZN4node9Utf8ValueD2Ev.exit
+  br i1 %tobool.i.i.i, label %if.then.i.i.i.i, label %if.else8.i.i.i.i
+
+if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
+  br i1 %tobool3.i.i.i, label %if.then4.i.i.i.i, label %if.else.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %is_valid2.i.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp48, i64 8
@@ -2417,13 +2416,16 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   store i8 0, ptr %m_has_val.i.i.i.i.i.i.i, align 8
   br label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEEaSEOS4_.exit
 
-if.then11.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i
+if.else8.i.i.i.i:                                 ; preds = %if.else.i.i.i
+  br i1 %tobool3.i.i.i, label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEEaSEOS4_.exit, label %if.then11.i.i.i.i
+
+if.then11.i.i.i.i:                                ; preds = %if.else8.i.i.i.i
   %60 = load i32, ptr %ref.tmp48, align 8
   store i32 %60, ptr %base, align 8
   br label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEEaSEOS4_.exit
 
-_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEEaSEOS4_.exit: ; preds = %if.then.i.i.i, %if.then4.i.i.i.i, %if.else.i.i.i.i, %if.then11.i.i.i.i
-  %61 = load i8, ptr %m_has_val2.i9.i.i.i, align 8
+_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEEaSEOS4_.exit: ; preds = %if.then.i.i.i, %if.then4.i.i.i.i, %if.else.i.i.i.i, %if.else8.i.i.i.i, %if.then11.i.i.i.i
+  %61 = load i8, ptr %m_has_val2.i.i.i, align 8
   %tobool.i.i.i.i.i.i.i = trunc i8 %61 to i1
   br i1 %tobool.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZN2tl8expectedIN3ada14url_aggregatorENS1_6errorsEED2Ev.exit
 

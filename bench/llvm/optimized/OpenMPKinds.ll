@@ -2418,13 +2418,13 @@ define dso_local void @_ZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorIm
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !9
   %.not.i = icmp eq i32 %11, 0
-  %brmerge.not = select i1 %.not.i, i1 %165, i1 false
-  br i1 %brmerge.not, label %167, label %._crit_edge.thread
+  %or.cond = select i1 %.not.i, i1 %165, i1 false
+  br i1 %or.cond, label %167, label %._crit_edge.thread
 
 12:                                               ; preds = %.lr.ph, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit"
   %.033 = phi i1 [ false, %.lr.ph ], [ %165, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit" ]
-  %.01232 = phi ptr [ %4, %.lr.ph ], [ %166, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit" ]
-  %13 = load i32, ptr %.01232, align 4, !tbaa !3
+  %.01332 = phi ptr [ %4, %.lr.ph ], [ %166, %"_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit" ]
+  %13 = load i32, ptr %.01332, align 4, !tbaa !3
   switch i32 %13, label %158 [
     i32 45, label %14
     i32 46, label %26
@@ -2786,7 +2786,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17: 
 "_ZZN5clang23getOpenMPCaptureRegionsERN4llvm15SmallVectorImplINS0_3omp9DirectiveEEES3_ENK3$_0clES3_.exit": ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit5.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit8.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit14.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit20.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit23.i, %108, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17, %157
   %.0.i = phi i1 [ false, %157 ], [ true, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.i ], [ true, %108 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ true, %12 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit23.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit20.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit14.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit8.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit5.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit.i ]
   %165 = or i1 %.033, %.0.i
-  %166 = getelementptr inbounds nuw i8, ptr %.01232, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %.01332, i64 4
   %.not = icmp eq ptr %166, %6
   br i1 %.not, label %._crit_edge, label %12
 
@@ -2813,7 +2813,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit: ; 
   store i32 %177, ptr %10, align 8, !tbaa !9
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %2, %._crit_edge, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit
+._crit_edge.thread:                               ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit, %._crit_edge
   ret void
 }
 

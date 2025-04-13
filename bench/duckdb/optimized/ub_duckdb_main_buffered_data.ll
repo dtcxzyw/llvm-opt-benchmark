@@ -1413,9 +1413,12 @@ define noundef zeroext range(i8 0, 7) i8 @_ZN6duckdb18SimpleBufferedData19Execut
 40:                                               ; preds = %39, %38
   %switch.tableidx = add i8 %29, -1
   %41 = icmp ult i8 %switch.tableidx, 5
-  br i1 %41, label %switch.hole_check, label %42
+  %switch.shifted = lshr i8 27, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %41, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %42
 
-42:                                               ; preds = %switch.hole_check, %40
+42:                                               ; preds = %40
   %43 = call ptr @__cxa_allocate_exception(i64 16) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #24
@@ -1510,12 +1513,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZN
   call void @__cxa_free_exception(ptr %43) #24
   br label %95
 
-switch.hole_check:                                ; preds = %40
-  %switch.shifted = lshr i8 27, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %42
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %40
   %70 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %70 to i40
   %switch.downshift = lshr i40 25786581505, %switch.shiftamt
@@ -3753,9 +3751,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %54, 
 _ZN6duckdb12BufferedData5CloseEv.exit:            ; preds = %57, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %45, %44
   %switch.tableidx = add i8 %30, -1
   %61 = icmp ult i8 %switch.tableidx, 5
-  br i1 %61, label %switch.hole_check, label %62
+  %switch.shifted = lshr i8 27, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %61, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %62
 
-62:                                               ; preds = %switch.hole_check, %_ZN6duckdb12BufferedData5CloseEv.exit
+62:                                               ; preds = %_ZN6duckdb12BufferedData5CloseEv.exit
   %63 = call ptr @__cxa_allocate_exception(i64 16) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #24
@@ -3850,12 +3851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
   call void @__cxa_free_exception(ptr %63) #24
   br label %115
 
-switch.hole_check:                                ; preds = %_ZN6duckdb12BufferedData5CloseEv.exit
-  %switch.shifted = lshr i8 27, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %62
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZN6duckdb12BufferedData5CloseEv.exit
   %90 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %90 to i40
   %switch.downshift = lshr i40 25786581505, %switch.shiftamt

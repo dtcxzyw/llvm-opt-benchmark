@@ -21003,103 +21003,101 @@ define void @rlCheckErrors() local_unnamed_addr #0 {
 define void @rlSetBlendMode(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2644), align 4
   %.not = icmp eq i32 %2, %0
-  br i1 %.not, label %3, label %8
+  br i1 %.not, label %3, label %7
 
 3:                                                ; preds = %1
   %4 = and i32 %0, -2
   %or.cond = icmp eq i32 %4, 6
-  br i1 %or.cond, label %5, label %44
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2684), align 4, !range !3
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond3 = select i1 %or.cond, i1 %6, i1 false
+  br i1 %or.cond3, label %7, label %43
 
-5:                                                ; preds = %3
-  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2684), align 4, !range !3, !noundef !4
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %44
-
-8:                                                ; preds = %5, %1
-  %9 = load ptr, ptr @RLGL, align 8
-  tail call void @rlDrawRenderBatch(ptr noundef %9)
-  switch i32 %0, label %43 [
-    i32 0, label %10
-    i32 1, label %13
-    i32 2, label %16
-    i32 3, label %19
-    i32 4, label %22
-    i32 5, label %25
-    i32 6, label %28
-    i32 7, label %34
+7:                                                ; preds = %3, %1
+  %8 = load ptr, ptr @RLGL, align 8
+  tail call void @rlDrawRenderBatch(ptr noundef %8)
+  switch i32 %0, label %42 [
+    i32 0, label %9
+    i32 1, label %12
+    i32 2, label %15
+    i32 3, label %18
+    i32 4, label %21
+    i32 5, label %24
+    i32 6, label %27
+    i32 7, label %33
   ]
 
-10:                                               ; preds = %8
-  %11 = load ptr, ptr @glad_glBlendFunc, align 8
-  tail call void %11(i32 noundef 770, i32 noundef 771) #60
-  %12 = load ptr, ptr @glad_glBlendEquation, align 8
-  tail call void %12(i32 noundef 32774) #60
-  br label %43
+9:                                                ; preds = %7
+  %10 = load ptr, ptr @glad_glBlendFunc, align 8
+  tail call void %10(i32 noundef 770, i32 noundef 771) #60
+  %11 = load ptr, ptr @glad_glBlendEquation, align 8
+  tail call void %11(i32 noundef 32774) #60
+  br label %42
 
-13:                                               ; preds = %8
-  %14 = load ptr, ptr @glad_glBlendFunc, align 8
-  tail call void %14(i32 noundef 770, i32 noundef 1) #60
-  %15 = load ptr, ptr @glad_glBlendEquation, align 8
-  tail call void %15(i32 noundef 32774) #60
-  br label %43
+12:                                               ; preds = %7
+  %13 = load ptr, ptr @glad_glBlendFunc, align 8
+  tail call void %13(i32 noundef 770, i32 noundef 1) #60
+  %14 = load ptr, ptr @glad_glBlendEquation, align 8
+  tail call void %14(i32 noundef 32774) #60
+  br label %42
 
-16:                                               ; preds = %8
-  %17 = load ptr, ptr @glad_glBlendFunc, align 8
-  tail call void %17(i32 noundef 774, i32 noundef 771) #60
-  %18 = load ptr, ptr @glad_glBlendEquation, align 8
-  tail call void %18(i32 noundef 32774) #60
-  br label %43
+15:                                               ; preds = %7
+  %16 = load ptr, ptr @glad_glBlendFunc, align 8
+  tail call void %16(i32 noundef 774, i32 noundef 771) #60
+  %17 = load ptr, ptr @glad_glBlendEquation, align 8
+  tail call void %17(i32 noundef 32774) #60
+  br label %42
 
-19:                                               ; preds = %8
-  %20 = load ptr, ptr @glad_glBlendFunc, align 8
-  tail call void %20(i32 noundef 1, i32 noundef 1) #60
-  %21 = load ptr, ptr @glad_glBlendEquation, align 8
-  tail call void %21(i32 noundef 32774) #60
-  br label %43
+18:                                               ; preds = %7
+  %19 = load ptr, ptr @glad_glBlendFunc, align 8
+  tail call void %19(i32 noundef 1, i32 noundef 1) #60
+  %20 = load ptr, ptr @glad_glBlendEquation, align 8
+  tail call void %20(i32 noundef 32774) #60
+  br label %42
 
-22:                                               ; preds = %8
-  %23 = load ptr, ptr @glad_glBlendFunc, align 8
-  tail call void %23(i32 noundef 1, i32 noundef 1) #60
-  %24 = load ptr, ptr @glad_glBlendEquation, align 8
-  tail call void %24(i32 noundef 32778) #60
-  br label %43
+21:                                               ; preds = %7
+  %22 = load ptr, ptr @glad_glBlendFunc, align 8
+  tail call void %22(i32 noundef 1, i32 noundef 1) #60
+  %23 = load ptr, ptr @glad_glBlendEquation, align 8
+  tail call void %23(i32 noundef 32778) #60
+  br label %42
 
-25:                                               ; preds = %8
-  %26 = load ptr, ptr @glad_glBlendFunc, align 8
-  tail call void %26(i32 noundef 1, i32 noundef 771) #60
-  %27 = load ptr, ptr @glad_glBlendEquation, align 8
-  tail call void %27(i32 noundef 32774) #60
-  br label %43
+24:                                               ; preds = %7
+  %25 = load ptr, ptr @glad_glBlendFunc, align 8
+  tail call void %25(i32 noundef 1, i32 noundef 771) #60
+  %26 = load ptr, ptr @glad_glBlendEquation, align 8
+  tail call void %26(i32 noundef 32774) #60
+  br label %42
 
-28:                                               ; preds = %8
-  %29 = load ptr, ptr @glad_glBlendFunc, align 8
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2648), align 8
-  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2652), align 4
-  tail call void %29(i32 noundef %30, i32 noundef %31) #60
-  %32 = load ptr, ptr @glad_glBlendEquation, align 8
-  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2656), align 8
-  tail call void %32(i32 noundef %33) #60
-  br label %43
+27:                                               ; preds = %7
+  %28 = load ptr, ptr @glad_glBlendFunc, align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2648), align 8
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2652), align 4
+  tail call void %28(i32 noundef %29, i32 noundef %30) #60
+  %31 = load ptr, ptr @glad_glBlendEquation, align 8
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2656), align 8
+  tail call void %31(i32 noundef %32) #60
+  br label %42
 
-34:                                               ; preds = %8
-  %35 = load ptr, ptr @glad_glBlendFuncSeparate, align 8
-  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2660), align 4
-  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2664), align 8
-  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2668), align 4
-  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2672), align 8
-  tail call void %35(i32 noundef %36, i32 noundef %37, i32 noundef %38, i32 noundef %39) #60
-  %40 = load ptr, ptr @glad_glBlendEquationSeparate, align 8
-  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2676), align 4
-  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2680), align 8
-  tail call void %40(i32 noundef %41, i32 noundef %42) #60
-  br label %43
+33:                                               ; preds = %7
+  %34 = load ptr, ptr @glad_glBlendFuncSeparate, align 8
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2660), align 4
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2664), align 8
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2668), align 4
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2672), align 8
+  tail call void %34(i32 noundef %35, i32 noundef %36, i32 noundef %37, i32 noundef %38) #60
+  %39 = load ptr, ptr @glad_glBlendEquationSeparate, align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2676), align 4
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2680), align 8
+  tail call void %39(i32 noundef %40, i32 noundef %41) #60
+  br label %42
 
-43:                                               ; preds = %8, %34, %28, %25, %22, %19, %16, %13, %10
+42:                                               ; preds = %7, %33, %27, %24, %21, %18, %15, %12, %9
   store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2644), align 4
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2684), align 4
-  br label %44
+  br label %43
 
-44:                                               ; preds = %3, %43, %5
+43:                                               ; preds = %3, %42
   ret void
 }
 
@@ -22510,52 +22508,52 @@ define i32 @rlLoadTextureDepth(i32 noundef %0, i32 noundef %1, i1 noundef zeroex
   store i32 0, ptr %4, align 4
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2699), align 1, !range !3, !noundef !4
   %6 = trunc nuw i8 %5 to i1
-  %7 = xor i1 %6, true
-  %brmerge = or i1 %2, %7
-  br i1 %brmerge, label %18, label %8
+  %.not8 = xor i1 %2, true
+  %.not = and i1 %.not8, %6
+  br i1 %.not, label %7, label %17
 
-8:                                                ; preds = %3
-  %9 = load ptr, ptr @glad_glGenTextures, align 8
-  call void %9(i32 noundef 1, ptr noundef nonnull %4) #60
-  %10 = load ptr, ptr @glad_glBindTexture, align 8
-  %11 = load i32, ptr %4, align 4
-  call void %10(i32 noundef 3553, i32 noundef %11) #60
-  %12 = load ptr, ptr @glad_glTexImage2D, align 8
-  call void %12(i32 noundef 3553, i32 noundef 0, i32 noundef 6402, i32 noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 6402, i32 noundef 5125, ptr noundef null) #60
+7:                                                ; preds = %3
+  %8 = load ptr, ptr @glad_glGenTextures, align 8
+  call void %8(i32 noundef 1, ptr noundef nonnull %4) #60
+  %9 = load ptr, ptr @glad_glBindTexture, align 8
+  %10 = load i32, ptr %4, align 4
+  call void %9(i32 noundef 3553, i32 noundef %10) #60
+  %11 = load ptr, ptr @glad_glTexImage2D, align 8
+  call void %11(i32 noundef 3553, i32 noundef 0, i32 noundef 6402, i32 noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 6402, i32 noundef 5125, ptr noundef null) #60
+  %12 = load ptr, ptr @glad_glTexParameteri, align 8
+  call void %12(i32 noundef 3553, i32 noundef 10241, i32 noundef 9728) #60
   %13 = load ptr, ptr @glad_glTexParameteri, align 8
-  call void %13(i32 noundef 3553, i32 noundef 10241, i32 noundef 9728) #60
+  call void %13(i32 noundef 3553, i32 noundef 10240, i32 noundef 9728) #60
   %14 = load ptr, ptr @glad_glTexParameteri, align 8
-  call void %14(i32 noundef 3553, i32 noundef 10240, i32 noundef 9728) #60
+  call void %14(i32 noundef 3553, i32 noundef 10242, i32 noundef 33071) #60
   %15 = load ptr, ptr @glad_glTexParameteri, align 8
-  call void %15(i32 noundef 3553, i32 noundef 10242, i32 noundef 33071) #60
-  %16 = load ptr, ptr @glad_glTexParameteri, align 8
-  call void %16(i32 noundef 3553, i32 noundef 10243, i32 noundef 33071) #60
-  %17 = load ptr, ptr @glad_glBindTexture, align 8
-  call void %17(i32 noundef 3553, i32 noundef 0) #60
+  call void %15(i32 noundef 3553, i32 noundef 10243, i32 noundef 33071) #60
+  %16 = load ptr, ptr @glad_glBindTexture, align 8
+  call void %16(i32 noundef 3553, i32 noundef 0) #60
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.48) #60
-  br label %28
+  br label %27
 
-18:                                               ; preds = %3
-  %19 = load ptr, ptr @glad_glGenRenderbuffers, align 8
-  call void %19(i32 noundef 1, ptr noundef nonnull %4) #60
-  %20 = load ptr, ptr @glad_glBindRenderbuffer, align 8
-  %21 = load i32, ptr %4, align 4
-  call void %20(i32 noundef 36161, i32 noundef %21) #60
-  %22 = load ptr, ptr @glad_glRenderbufferStorage, align 8
-  call void %22(i32 noundef 36161, i32 noundef 6402, i32 noundef %0, i32 noundef %1) #60
-  %23 = load ptr, ptr @glad_glBindRenderbuffer, align 8
-  call void %23(i32 noundef 36161, i32 noundef 0) #60
-  %24 = load i32, ptr %4, align 4
-  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2716), align 4
-  %26 = icmp sgt i32 %25, 23
-  %27 = select i1 %26, i32 %25, i32 16
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.49, i32 noundef %24, i32 noundef %27) #60
-  br label %28
+17:                                               ; preds = %3
+  %18 = load ptr, ptr @glad_glGenRenderbuffers, align 8
+  call void %18(i32 noundef 1, ptr noundef nonnull %4) #60
+  %19 = load ptr, ptr @glad_glBindRenderbuffer, align 8
+  %20 = load i32, ptr %4, align 4
+  call void %19(i32 noundef 36161, i32 noundef %20) #60
+  %21 = load ptr, ptr @glad_glRenderbufferStorage, align 8
+  call void %21(i32 noundef 36161, i32 noundef 6402, i32 noundef %0, i32 noundef %1) #60
+  %22 = load ptr, ptr @glad_glBindRenderbuffer, align 8
+  call void %22(i32 noundef 36161, i32 noundef 0) #60
+  %23 = load i32, ptr %4, align 4
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2716), align 4
+  %25 = icmp sgt i32 %24, 23
+  %26 = select i1 %25, i32 %24, i32 16
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.49, i32 noundef %23, i32 noundef %26) #60
+  br label %27
 
-28:                                               ; preds = %18, %8
-  %29 = load i32, ptr %4, align 4
+27:                                               ; preds = %17, %7
+  %28 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #60
-  ret i32 %29
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -22853,35 +22851,37 @@ define void @rlGenTextureMipmaps(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   %or.cond = and i1 %10, %11
   %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %2)
   %13 = icmp samesign ult i32 %12, 2
-  %or.cond19 = select i1 %or.cond, i1 %13, i1 false
-  br i1 %or.cond19, label %.critedge, label %14
+  %or.cond21 = select i1 %or.cond, i1 %13, i1 false
+  br label %14
 
-14:                                               ; preds = %5, %8
-  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2698), align 2, !range !3, !noundef !4
+14:                                               ; preds = %8, %5
+  %.0 = phi i1 [ false, %5 ], [ %or.cond21, %8 ]
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @RLGL, i64 2698), align 2, !range !3
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %.critedge, label %25
+  %or.cond3 = select i1 %.0, i1 true, i1 %16
+  br i1 %or.cond3, label %17, label %26
 
-.critedge:                                        ; preds = %8, %14
-  %17 = load ptr, ptr @glad_glGenerateMipmap, align 8
-  tail call void %17(i32 noundef 3553) #60
-  %18 = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
-  %19 = sitofp i32 %18 to double
-  %20 = tail call double @log(double noundef %19) #60
-  %21 = fdiv double %20, 0x3FE62E42FEFA39EF
-  %22 = tail call double @llvm.floor.f64(double %21)
-  %23 = fptosi double %22 to i32
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %4, align 4
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.57, i32 noundef %0, i32 noundef %24) #60
-  br label %26
+17:                                               ; preds = %14
+  %18 = load ptr, ptr @glad_glGenerateMipmap, align 8
+  tail call void %18(i32 noundef 3553) #60
+  %19 = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
+  %20 = sitofp i32 %19 to double
+  %21 = tail call double @log(double noundef %20) #60
+  %22 = fdiv double %21, 0x3FE62E42FEFA39EF
+  %23 = tail call double @llvm.floor.f64(double %22)
+  %24 = fptosi double %23 to i32
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %4, align 4
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.57, i32 noundef %0, i32 noundef %25) #60
+  br label %27
 
-25:                                               ; preds = %14
+26:                                               ; preds = %14
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.58, i32 noundef %0) #60
-  br label %26
+  br label %27
 
-26:                                               ; preds = %25, %.critedge
-  %27 = load ptr, ptr @glad_glBindTexture, align 8
-  tail call void %27(i32 noundef 3553, i32 noundef 0) #60
+27:                                               ; preds = %26, %17
+  %28 = load ptr, ptr @glad_glBindTexture, align 8
+  tail call void %28(i32 noundef 3553, i32 noundef 0) #60
   ret void
 }
 

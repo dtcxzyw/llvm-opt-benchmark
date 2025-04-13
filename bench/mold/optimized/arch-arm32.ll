@@ -1358,8 +1358,8 @@ _ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit: ; preds = %116
 _ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit.thread: ; preds = %116, %_ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit
   %138 = add i64 %78, %73
   %139 = sub i64 %138, %85
-  %.not221 = icmp eq i64 %86, 0
-  br i1 %.not221, label %.critedge, label %140
+  %.not222 = icmp eq i64 %86, 0
+  br i1 %.not222, label %.critedge, label %140
 
 140:                                              ; preds = %_ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit.thread
   %141 = add i64 %139, 16777216
@@ -1717,14 +1717,14 @@ _ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit235.thread: ; preds 
   br i1 %390, label %391, label %423
 
 391:                                              ; preds = %386
-  %.not220 = icmp eq i64 %86, 0
+  %.not221 = icmp eq i64 %86, 0
   store i8 0, ptr %72, align 1, !tbaa !15
   %392 = getelementptr inbounds nuw i8, ptr %72, i64 1
   store i8 0, ptr %392, align 1, !tbaa !15
   %393 = getelementptr inbounds nuw i8, ptr %72, i64 2
   store i8 0, ptr %393, align 1, !tbaa !15
   %394 = getelementptr inbounds nuw i8, ptr %72, i64 3
-  br i1 %.not220, label %411, label %395
+  br i1 %.not221, label %411, label %395
 
 395:                                              ; preds = %391
   store i8 -6, ptr %394, align 1, !tbaa !15
@@ -1879,8 +1879,8 @@ _ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit249: ; preds = %467
   br label %1253
 
 _ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit249.thread: ; preds = %467, %_ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit249
-  %.not219 = icmp eq i64 %86, 0
-  br i1 %.not219, label %489, label %494
+  %.not220 = icmp eq i64 %86, 0
+  br i1 %.not220, label %489, label %494
 
 489:                                              ; preds = %_ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit249.thread
   %490 = add i64 %78, %73
@@ -1942,17 +1942,17 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPmSt4spanImLm184467440737095516
   br label %523
 
 523:                                              ; preds = %"_ZZN4mold12InputSectionINS_5ARM32EE17apply_reloc_allocERNS_7ContextIS1_EEPhENK3$_2clEv.exit261", %489
-  %.0213 = phi i64 [ %522, %"_ZZN4mold12InputSectionINS_5ARM32EE17apply_reloc_allocERNS_7ContextIS1_EEPhENK3$_2clEv.exit261" ], [ %491, %489 ]
+  %.0214 = phi i64 [ %522, %"_ZZN4mold12InputSectionINS_5ARM32EE17apply_reloc_allocERNS_7ContextIS1_EEPhENK3$_2clEv.exit261" ], [ %491, %489 ]
   %524 = load i32, ptr %72, align 1
-  %525 = lshr i64 %.0213, 2
+  %525 = lshr i64 %.0214, 2
   %526 = trunc i64 %525 to i8
   store i8 %526, ptr %72, align 1, !tbaa !15
   %527 = getelementptr inbounds nuw i8, ptr %72, i64 1
-  %528 = lshr i64 %.0213, 10
+  %528 = lshr i64 %.0214, 10
   %529 = trunc i64 %528 to i8
   store i8 %529, ptr %527, align 1, !tbaa !15
   %530 = getelementptr inbounds nuw i8, ptr %72, i64 2
-  %531 = lshr i64 %.0213, 18
+  %531 = lshr i64 %.0214, 18
   %532 = trunc i64 %531 to i8
   store i8 %532, ptr %530, align 1, !tbaa !15
   %533 = getelementptr inbounds nuw i8, ptr %72, i64 3
@@ -1997,8 +1997,8 @@ _ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit264: ; preds = %536
   br label %1253
 
 _ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit264.thread: ; preds = %536, %_ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit264
-  %.not218 = icmp eq i64 %86, 0
-  br i1 %.not218, label %585, label %558
+  %.not219 = icmp eq i64 %86, 0
+  br i1 %.not219, label %585, label %558
 
 558:                                              ; preds = %_ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit264.thread
   %559 = sext i32 %88 to i64
@@ -2174,8 +2174,8 @@ _ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit279: ; preds = %647
   br label %1253
 
 _ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit279.thread: ; preds = %647, %_ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit279
-  %.not217 = icmp eq i64 %86, 0
-  br i1 %.not217, label %674, label %669
+  %.not218 = icmp eq i64 %86, 0
+  br i1 %.not218, label %674, label %669
 
 669:                                              ; preds = %_ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit279.thread
   %670 = add i64 %78, %73
@@ -2236,15 +2236,15 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPmSt4spanImLm184467440737095516
   br label %702
 
 702:                                              ; preds = %"_ZZN4mold12InputSectionINS_5ARM32EE17apply_reloc_allocERNS_7ContextIS1_EEPhENK3$_1clEv.exit291", %669
-  %.0212 = phi i64 [ %671, %669 ], [ %701, %"_ZZN4mold12InputSectionINS_5ARM32EE17apply_reloc_allocERNS_7ContextIS1_EEPhENK3$_1clEv.exit291" ]
-  %703 = trunc i64 %.0212 to i32
+  %.0213 = phi i64 [ %671, %669 ], [ %701, %"_ZZN4mold12InputSectionINS_5ARM32EE17apply_reloc_allocERNS_7ContextIS1_EEPhENK3$_1clEv.exit291" ]
+  %703 = trunc i64 %.0213 to i32
   %704 = lshr i32 %703, 24
   %705 = and i32 %704, 1
-  %706 = and i64 %.0212, 8388608
+  %706 = and i64 %.0213, 8388608
   %.not.i292 = icmp eq i64 %706, 0
   %707 = zext i1 %.not.i292 to i32
   %708 = xor i32 %705, %707
-  %709 = and i64 %.0212, 4194304
+  %709 = and i64 %.0213, 4194304
   %.not18.i293 = icmp eq i64 %709, 0
   %710 = zext i1 %.not18.i293 to i32
   %711 = xor i32 %705, %710
@@ -2690,9 +2690,9 @@ _ZNK4mold6SymbolINS_5ARM32EE16get_tlsdesc_addrERNS_7ContextIS1_EE.exit: ; preds 
   %1039 = sext i32 %1038 to i64
   %1040 = shl nsw i64 %1039, 2
   %1041 = and i64 %78, 1
-  %.not215 = icmp eq i64 %1041, 0
-  %.neg216 = select i1 %.not215, i64 4294967292, i64 4294967290
-  %1042 = add i64 %.neg216, %78
+  %.not216 = icmp eq i64 %1041, 0
+  %.neg217 = select i1 %.not216, i64 4294967292, i64 4294967290
+  %1042 = add i64 %.neg217, %78
   %1043 = sub i64 %1042, %85
   %1044 = add i64 %1043, %101
   %1045 = add i64 %1044, %1040

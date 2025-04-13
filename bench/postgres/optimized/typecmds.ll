@@ -314,13 +314,13 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 47:                                               ; preds = %39, %37, %31
-  %.0178 = phi i32 [ %36, %37 ], [ 0, %31 ], [ 0, %39 ]
+  %.0180 = phi i32 [ %36, %37 ], [ 0, %31 ], [ 0, %39 ]
   %48 = icmp eq ptr %2, null
-  %.not251 = icmp eq i32 %.0178, 0
+  %.not253 = icmp eq i32 %.0180, 0
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %47
-  br i1 %.not251, label %55, label %50
+  br i1 %.not253, label %55, label %50
 
 50:                                               ; preds = %49
   %51 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -335,16 +335,16 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   %56 = load ptr, ptr %6, align 8
   %57 = call i32 @GetUserId() #8
   %58 = call { i64, i32 } @TypeShellMake(ptr noundef %56, i32 noundef %32, i32 noundef %57) #8
-  br label %398
+  br label %397
 
 59:                                               ; preds = %47
-  br i1 %.not251, label %63, label %.preheader
+  br i1 %.not253, label %63, label %.preheader
 
 .preheader:                                       ; preds = %59
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %61 = load i32, ptr %60, align 4
-  %.not224256 = icmp sgt i32 %61, 0
-  br i1 %.not224256, label %.lr.ph, label %._crit_edge.thread
+  %.not226258 = icmp sgt i32 %61, 0
+  br i1 %.not226258, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -361,9 +361,9 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 ._crit_edge:                                      ; preds = %147
-  %.0..0..0..0.217.pre = load ptr, ptr %7, align 8
-  %.not225 = icmp eq ptr %.0..0..0..0.217.pre, null
-  br i1 %.not225, label %._crit_edge.thread, label %150
+  %.0..0..0..0.219.pre = load ptr, ptr %7, align 8
+  %.not227 = icmp eq ptr %.0..0..0..0.219.pre, null
+  br i1 %.not227, label %._crit_edge.thread, label %150
 
 69:                                               ; preds = %.lr.ph, %147
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %147 ]
@@ -486,28 +486,28 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   br label %147
 
 143:                                              ; preds = %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %98, %101, %95, %92, %89, %86, %83, %80, %77, %69
-  %.0165 = phi ptr [ %7, %69 ], [ %8, %77 ], [ %9, %80 ], [ %10, %83 ], [ %11, %86 ], [ %12, %89 ], [ %13, %92 ], [ %14, %95 ], [ %15, %101 ], [ %15, %98 ], [ %16, %104 ], [ %17, %107 ], [ %18, %110 ], [ %19, %113 ], [ %20, %116 ], [ %21, %119 ], [ %22, %122 ], [ %23, %125 ], [ %24, %128 ], [ %25, %131 ]
-  %144 = load ptr, ptr %.0165, align 8
-  %.not250 = icmp eq ptr %144, null
-  br i1 %.not250, label %146, label %145
+  %.0167 = phi ptr [ %7, %69 ], [ %8, %77 ], [ %9, %80 ], [ %10, %83 ], [ %11, %86 ], [ %12, %89 ], [ %13, %92 ], [ %14, %95 ], [ %15, %101 ], [ %15, %98 ], [ %16, %104 ], [ %17, %107 ], [ %18, %110 ], [ %19, %113 ], [ %20, %116 ], [ %21, %119 ], [ %22, %122 ], [ %23, %125 ], [ %24, %128 ], [ %25, %131 ]
+  %144 = load ptr, ptr %.0167, align 8
+  %.not252 = icmp eq ptr %144, null
+  br i1 %.not252, label %146, label %145
 
 145:                                              ; preds = %143
   call void @errorConflictingDefElem(ptr noundef nonnull %72, ptr noundef %0) #11
   unreachable
 
 146:                                              ; preds = %143
-  store ptr %72, ptr %.0165, align 8
+  store ptr %72, ptr %.0167, align 8
   br label %147
 
 147:                                              ; preds = %134, %136, %146
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %148 = load i32, ptr %60, align 4
   %149 = sext i32 %148 to i64
-  %.not224 = icmp slt i64 %indvars.iv.next, %149
-  br i1 %.not224, label %69, label %._crit_edge, !llvm.loop !4
+  %.not226 = icmp slt i64 %indvars.iv.next, %149
+  br i1 %.not226, label %69, label %._crit_edge, !llvm.loop !4
 
 150:                                              ; preds = %._crit_edge
-  %151 = call ptr @defGetTypeName(ptr noundef nonnull %.0..0..0..0.217.pre) #8
+  %151 = call ptr @defGetTypeName(ptr noundef nonnull %.0..0..0..0.219.pre) #8
   %152 = call ptr @typenameType(ptr noundef %0, ptr noundef %151, ptr noundef null) #8
   %153 = getelementptr i8, ptr %152, i64 16
   %.val = load ptr, ptr %153, align 8
@@ -527,107 +527,107 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %150, %._crit_edge
-  %.0170 = phi i8 [ %165, %150 ], [ 112, %._crit_edge ], [ 112, %.preheader ]
-  %.0168 = phi i8 [ %163, %150 ], [ 105, %._crit_edge ], [ 105, %.preheader ]
-  %.0166 = phi i8 [ %161, %150 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
+  %.0172 = phi i8 [ %165, %150 ], [ 112, %._crit_edge ], [ 112, %.preheader ]
+  %.0170 = phi i8 [ %163, %150 ], [ 105, %._crit_edge ], [ 105, %.preheader ]
+  %.0168 = phi i8 [ %161, %150 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
   %.0 = phi i16 [ %159, %150 ], [ -1, %._crit_edge ], [ -1, %.preheader ]
-  %.0..0..0..0.215 = load ptr, ptr %8, align 8
-  %.not226 = icmp eq ptr %.0..0..0..0.215, null
-  br i1 %.not226, label %169, label %166
+  %.0..0..0..0.217 = load ptr, ptr %8, align 8
+  %.not228 = icmp eq ptr %.0..0..0..0.217, null
+  br i1 %.not228, label %169, label %166
 
 166:                                              ; preds = %._crit_edge.thread
-  %167 = call i32 @defGetTypeLength(ptr noundef nonnull %.0..0..0..0.215) #8
+  %167 = call i32 @defGetTypeLength(ptr noundef nonnull %.0..0..0..0.217) #8
   %168 = trunc i32 %167 to i16
   br label %169
 
 169:                                              ; preds = %166, %._crit_edge.thread
   %.1 = phi i16 [ %168, %166 ], [ %.0, %._crit_edge.thread ]
-  %.0..0..0..0.213 = load ptr, ptr %9, align 8
-  %.not227 = icmp eq ptr %.0..0..0..0.213, null
-  br i1 %.not227, label %172, label %170
+  %.0..0..0..0.215 = load ptr, ptr %9, align 8
+  %.not229 = icmp eq ptr %.0..0..0..0.215, null
+  br i1 %.not229, label %172, label %170
 
 170:                                              ; preds = %169
-  %171 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.213) #8
+  %171 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.215) #8
   br label %172
 
 172:                                              ; preds = %170, %169
-  %.0152 = phi ptr [ %171, %170 ], [ null, %169 ]
-  %.0..0..0..0.211 = load ptr, ptr %10, align 8
-  %.not228 = icmp eq ptr %.0..0..0..0.211, null
-  br i1 %.not228, label %175, label %173
+  %.0154 = phi ptr [ %171, %170 ], [ null, %169 ]
+  %.0..0..0..0.213 = load ptr, ptr %10, align 8
+  %.not230 = icmp eq ptr %.0..0..0..0.213, null
+  br i1 %.not230, label %175, label %173
 
 173:                                              ; preds = %172
-  %174 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.211) #8
+  %174 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.213) #8
   br label %175
 
 175:                                              ; preds = %173, %172
-  %.0153 = phi ptr [ %174, %173 ], [ null, %172 ]
-  %.0..0..0..0.209 = load ptr, ptr %11, align 8
-  %.not229 = icmp eq ptr %.0..0..0..0.209, null
-  br i1 %.not229, label %178, label %176
+  %.0155 = phi ptr [ %174, %173 ], [ null, %172 ]
+  %.0..0..0..0.211 = load ptr, ptr %11, align 8
+  %.not231 = icmp eq ptr %.0..0..0..0.211, null
+  br i1 %.not231, label %178, label %176
 
 176:                                              ; preds = %175
-  %177 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.209) #8
+  %177 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.211) #8
   br label %178
 
 178:                                              ; preds = %176, %175
-  %.0154 = phi ptr [ %177, %176 ], [ null, %175 ]
-  %.0..0..0..0.207 = load ptr, ptr %12, align 8
-  %.not230 = icmp eq ptr %.0..0..0..0.207, null
-  br i1 %.not230, label %181, label %179
+  %.0156 = phi ptr [ %177, %176 ], [ null, %175 ]
+  %.0..0..0..0.209 = load ptr, ptr %12, align 8
+  %.not232 = icmp eq ptr %.0..0..0..0.209, null
+  br i1 %.not232, label %181, label %179
 
 179:                                              ; preds = %178
-  %180 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.207) #8
+  %180 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.209) #8
   br label %181
 
 181:                                              ; preds = %179, %178
-  %.0155 = phi ptr [ %180, %179 ], [ null, %178 ]
-  %.0..0..0..0.205 = load ptr, ptr %13, align 8
-  %.not231 = icmp eq ptr %.0..0..0..0.205, null
-  br i1 %.not231, label %184, label %182
+  %.0157 = phi ptr [ %180, %179 ], [ null, %178 ]
+  %.0..0..0..0.207 = load ptr, ptr %13, align 8
+  %.not233 = icmp eq ptr %.0..0..0..0.207, null
+  br i1 %.not233, label %184, label %182
 
 182:                                              ; preds = %181
-  %183 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.205) #8
+  %183 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.207) #8
   br label %184
 
 184:                                              ; preds = %182, %181
-  %.0156 = phi ptr [ %183, %182 ], [ null, %181 ]
-  %.0..0..0..0.203 = load ptr, ptr %14, align 8
-  %.not232 = icmp eq ptr %.0..0..0..0.203, null
-  br i1 %.not232, label %187, label %185
+  %.0158 = phi ptr [ %183, %182 ], [ null, %181 ]
+  %.0..0..0..0.205 = load ptr, ptr %14, align 8
+  %.not234 = icmp eq ptr %.0..0..0..0.205, null
+  br i1 %.not234, label %187, label %185
 
 185:                                              ; preds = %184
-  %186 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.203) #8
+  %186 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.205) #8
   br label %187
 
 187:                                              ; preds = %185, %184
-  %.0157 = phi ptr [ %186, %185 ], [ null, %184 ]
-  %.0..0..0..0.201 = load ptr, ptr %15, align 8
-  %.not233 = icmp eq ptr %.0..0..0..0.201, null
-  br i1 %.not233, label %190, label %188
+  %.0159 = phi ptr [ %186, %185 ], [ null, %184 ]
+  %.0..0..0..0.203 = load ptr, ptr %15, align 8
+  %.not235 = icmp eq ptr %.0..0..0..0.203, null
+  br i1 %.not235, label %190, label %188
 
 188:                                              ; preds = %187
-  %189 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.201) #8
+  %189 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.203) #8
   br label %190
 
 190:                                              ; preds = %188, %187
-  %.0158 = phi ptr [ %189, %188 ], [ null, %187 ]
-  %.0..0..0..0.199 = load ptr, ptr %16, align 8
-  %.not234 = icmp eq ptr %.0..0..0..0.199, null
-  br i1 %.not234, label %193, label %191
+  %.0160 = phi ptr [ %189, %188 ], [ null, %187 ]
+  %.0..0..0..0.201 = load ptr, ptr %16, align 8
+  %.not236 = icmp eq ptr %.0..0..0..0.201, null
+  br i1 %.not236, label %193, label %191
 
 191:                                              ; preds = %190
-  %192 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.199) #8
+  %192 = call ptr @defGetQualifiedName(ptr noundef nonnull %.0..0..0..0.201) #8
   br label %193
 
 193:                                              ; preds = %191, %190
-  %.0159 = phi ptr [ %192, %191 ], [ null, %190 ]
-  %.0..0..0..0.197 = load ptr, ptr %17, align 8
-  %.not235 = icmp eq ptr %.0..0..0..0.197, null
-  br i1 %.not235, label %202, label %194
+  %.0161 = phi ptr [ %192, %191 ], [ null, %190 ]
+  %.0..0..0..0.199 = load ptr, ptr %17, align 8
+  %.not237 = icmp eq ptr %.0..0..0..0.199, null
+  br i1 %.not237, label %202, label %194
 
 194:                                              ; preds = %193
-  %195 = call ptr @defGetString(ptr noundef nonnull %.0..0..0..0.197) #8
+  %195 = call ptr @defGetString(ptr noundef nonnull %.0..0..0..0.199) #8
   %196 = load i8, ptr %195, align 1
   %197 = add i8 %196, -127
   %or.cond = icmp ult i8 %197, -95
@@ -642,34 +642,34 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 202:                                              ; preds = %194, %193
-  %.0160 = phi i8 [ 85, %193 ], [ %196, %194 ]
-  %.0..0..0..0.195 = load ptr, ptr %18, align 8
-  %.not236 = icmp eq ptr %.0..0..0..0.195, null
-  br i1 %.not236, label %205, label %203
+  %.0162 = phi i8 [ 85, %193 ], [ %196, %194 ]
+  %.0..0..0..0.197 = load ptr, ptr %18, align 8
+  %.not238 = icmp eq ptr %.0..0..0..0.197, null
+  br i1 %.not238, label %205, label %203
 
 203:                                              ; preds = %202
-  %204 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %.0..0..0..0.195) #8
+  %204 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %.0..0..0..0.197) #8
   br label %205
 
 205:                                              ; preds = %203, %202
-  %.0161 = phi i1 [ %204, %203 ], [ false, %202 ]
-  %.0..0..0..0.193 = load ptr, ptr %19, align 8
-  %.not237 = icmp eq ptr %.0..0..0..0.193, null
-  br i1 %.not237, label %209, label %206
+  %.0163 = phi i1 [ %204, %203 ], [ false, %202 ]
+  %.0..0..0..0.195 = load ptr, ptr %19, align 8
+  %.not239 = icmp eq ptr %.0..0..0..0.195, null
+  br i1 %.not239, label %209, label %206
 
 206:                                              ; preds = %205
-  %207 = call ptr @defGetString(ptr noundef nonnull %.0..0..0..0.193) #8
+  %207 = call ptr @defGetString(ptr noundef nonnull %.0..0..0..0.195) #8
   %208 = load i8, ptr %207, align 1
   br label %209
 
 209:                                              ; preds = %206, %205
-  %.0162 = phi i8 [ %208, %206 ], [ 44, %205 ]
-  %.0..0..0..0.191 = load ptr, ptr %20, align 8
-  %.not238 = icmp eq ptr %.0..0..0..0.191, null
-  br i1 %.not238, label %220, label %210
+  %.0164 = phi i8 [ %208, %206 ], [ 44, %205 ]
+  %.0..0..0..0.193 = load ptr, ptr %20, align 8
+  %.not240 = icmp eq ptr %.0..0..0..0.193, null
+  br i1 %.not240, label %220, label %210
 
 210:                                              ; preds = %209
-  %211 = call ptr @defGetTypeName(ptr noundef nonnull %.0..0..0..0.191) #8
+  %211 = call ptr @defGetTypeName(ptr noundef nonnull %.0..0..0..0.193) #8
   %212 = call i32 @typenameTypeId(ptr noundef null, ptr noundef %211) #8
   %213 = call signext i8 @get_typtype(i32 noundef %212) #8
   %214 = icmp eq i8 %213, 112
@@ -685,34 +685,34 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 220:                                              ; preds = %210, %209
-  %.0163 = phi i32 [ %212, %210 ], [ 0, %209 ]
-  %.0..0..0..0.189 = load ptr, ptr %21, align 8
-  %.not239 = icmp eq ptr %.0..0..0..0.189, null
-  br i1 %.not239, label %223, label %221
+  %.0165 = phi i32 [ %212, %210 ], [ 0, %209 ]
+  %.0..0..0..0.191 = load ptr, ptr %21, align 8
+  %.not241 = icmp eq ptr %.0..0..0..0.191, null
+  br i1 %.not241, label %223, label %221
 
 221:                                              ; preds = %220
-  %222 = call ptr @defGetString(ptr noundef nonnull %.0..0..0..0.189) #8
+  %222 = call ptr @defGetString(ptr noundef nonnull %.0..0..0..0.191) #8
   br label %223
 
 223:                                              ; preds = %221, %220
-  %.0164 = phi ptr [ %222, %221 ], [ null, %220 ]
-  %.0..0..0..0.187 = load ptr, ptr %22, align 8
-  %.not240 = icmp eq ptr %.0..0..0..0.187, null
-  br i1 %.not240, label %227, label %224
+  %.0166 = phi ptr [ %222, %221 ], [ null, %220 ]
+  %.0..0..0..0.189 = load ptr, ptr %22, align 8
+  %.not242 = icmp eq ptr %.0..0..0..0.189, null
+  br i1 %.not242, label %227, label %224
 
 224:                                              ; preds = %223
-  %225 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %.0..0..0..0.187) #8
+  %225 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %.0..0..0..0.189) #8
   %226 = zext i1 %225 to i8
   br label %227
 
 227:                                              ; preds = %224, %223
-  %.1167 = phi i8 [ %226, %224 ], [ %.0166, %223 ]
-  %.0..0..0..0.185 = load ptr, ptr %23, align 8
-  %.not241 = icmp eq ptr %.0..0..0..0.185, null
-  br i1 %.not241, label %260, label %228
+  %.1169 = phi i8 [ %226, %224 ], [ %.0168, %223 ]
+  %.0..0..0..0.187 = load ptr, ptr %23, align 8
+  %.not243 = icmp eq ptr %.0..0..0..0.187, null
+  br i1 %.not243, label %260, label %228
 
 228:                                              ; preds = %227
-  %229 = call ptr @defGetString(ptr noundef nonnull %.0..0..0..0.185) #8
+  %229 = call ptr @defGetString(ptr noundef nonnull %.0..0..0..0.187) #8
   %230 = call i32 @pg_strcasecmp(ptr noundef %229, ptr noundef nonnull @.str.28) #8
   %231 = icmp eq i32 %230, 0
   br i1 %231, label %260, label %232
@@ -766,13 +766,13 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 260:                                              ; preds = %235, %232, %228, %241, %238, %247, %244, %253, %250, %227
-  %.1169 = phi i8 [ %.0168, %227 ], [ 100, %235 ], [ 100, %232 ], [ 100, %228 ], [ 105, %241 ], [ 105, %238 ], [ 115, %247 ], [ 115, %244 ], [ 99, %253 ], [ 99, %250 ]
-  %.0..0..0..0.183 = load ptr, ptr %24, align 8
-  %.not242 = icmp eq ptr %.0..0..0..0.183, null
-  br i1 %.not242, label %278, label %261
+  %.1171 = phi i8 [ %.0170, %227 ], [ 100, %235 ], [ 100, %232 ], [ 100, %228 ], [ 105, %241 ], [ 105, %238 ], [ 115, %247 ], [ 115, %244 ], [ 99, %253 ], [ 99, %250 ]
+  %.0..0..0..0.185 = load ptr, ptr %24, align 8
+  %.not244 = icmp eq ptr %.0..0..0..0.185, null
+  br i1 %.not244, label %278, label %261
 
 261:                                              ; preds = %260
-  %262 = call ptr @defGetString(ptr noundef nonnull %.0..0..0..0.183) #8
+  %262 = call ptr @defGetString(ptr noundef nonnull %.0..0..0..0.185) #8
   %263 = call i32 @pg_strcasecmp(ptr noundef %262, ptr noundef nonnull @.str.38) #8
   %264 = icmp eq i32 %263, 0
   br i1 %264, label %278, label %265
@@ -801,10 +801,10 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 278:                                              ; preds = %261, %265, %268, %271, %260
-  %.1171 = phi i8 [ %.0170, %260 ], [ 112, %261 ], [ 101, %265 ], [ 120, %268 ], [ 109, %271 ]
+  %.1173 = phi i8 [ %.0172, %260 ], [ 112, %261 ], [ 101, %265 ], [ 120, %268 ], [ 109, %271 ]
   %.0..0..0..0. = load ptr, ptr %25, align 8
-  %.not243 = icmp eq ptr %.0..0..0..0., null
-  br i1 %.not243, label %282, label %279
+  %.not245 = icmp eq ptr %.0..0..0..0., null
+  br i1 %.not245, label %282, label %279
 
 279:                                              ; preds = %278
   %280 = call zeroext i1 @defGetBoolean(ptr noundef nonnull %.0..0..0..0.) #8
@@ -812,8 +812,8 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   br label %282
 
 282:                                              ; preds = %279, %278
-  %.0173 = phi i32 [ %281, %279 ], [ 0, %278 ]
-  %283 = icmp eq ptr %.0152, null
+  %.0175 = phi i32 [ %281, %279 ], [ 0, %278 ]
+  %283 = icmp eq ptr %.0154, null
   br i1 %283, label %284, label %288
 
 284:                                              ; preds = %282
@@ -825,7 +825,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 288:                                              ; preds = %282
-  %289 = icmp eq ptr %.0153, null
+  %289 = icmp eq ptr %.0155, null
   br i1 %289, label %290, label %294
 
 290:                                              ; preds = %288
@@ -837,8 +837,8 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 294:                                              ; preds = %288
-  %295 = icmp eq ptr %.0156, null
-  %296 = icmp ne ptr %.0157, null
+  %295 = icmp eq ptr %.0158, null
+  %296 = icmp ne ptr %.0159, null
   %or.cond4 = select i1 %295, i1 %296, i1 false
   br i1 %or.cond4, label %297, label %301
 
@@ -857,8 +857,8 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   store i32 26, ptr %302, align 4
   %303 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 23, ptr %303, align 4
-  %304 = call i32 @LookupFuncName(ptr noundef nonnull %.0152, i32 noundef 1, ptr noundef nonnull %5, i1 noundef zeroext true) #8
-  %305 = call i32 @LookupFuncName(ptr noundef nonnull %.0152, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext true) #8
+  %304 = call i32 @LookupFuncName(ptr noundef nonnull %.0154, i32 noundef 1, ptr noundef nonnull %5, i1 noundef zeroext true) #8
+  %305 = call i32 @LookupFuncName(ptr noundef nonnull %.0154, i32 noundef 3, ptr noundef nonnull %5, i1 noundef zeroext true) #8
   %.not.i = icmp eq i32 %304, 0
   %.not17.i = icmp eq i32 %305, 0
   br i1 %.not.i, label %312, label %306
@@ -870,7 +870,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   %308 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %308)
   %309 = call i32 @errcode(i32 noundef 84439172) #8
-  %310 = call ptr @NameListToString(ptr noundef nonnull %.0152) #8
+  %310 = call ptr @NameListToString(ptr noundef nonnull %.0154) #8
   %311 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.102, ptr noundef %310) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2002, ptr noundef nonnull @__func__.findTypeInputFunction) #8
   unreachable
@@ -882,7 +882,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   %314 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %314)
   %315 = call i32 @errcode(i32 noundef 52461700) #8
-  %316 = call ptr @func_signature_string(ptr noundef nonnull %.0152, i32 noundef 1, ptr noundef null, ptr noundef nonnull %5) #8
+  %316 = call ptr @func_signature_string(ptr noundef nonnull %.0154, i32 noundef 1, ptr noundef null, ptr noundef nonnull %5) #8
   %317 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.103, ptr noundef %316) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2012, ptr noundef nonnull @__func__.findTypeInputFunction) #8
   unreachable
@@ -890,15 +890,15 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
 318:                                              ; preds = %312, %306
   %.0.i = phi i32 [ %304, %306 ], [ %305, %312 ]
   %319 = call i32 @get_func_rettype(i32 noundef %.0.i) #8
-  %.not19.i = icmp eq i32 %319, %.0178
+  %.not19.i = icmp eq i32 %319, %.0180
   br i1 %.not19.i, label %326, label %320
 
 320:                                              ; preds = %318
   %321 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %321)
   %322 = call i32 @errcode(i32 noundef 117833860) #8
-  %323 = call ptr @NameListToString(ptr noundef nonnull %.0152) #8
-  %324 = call ptr @format_type_be(i32 noundef range(i32 1, 0) %.0178) #8
+  %323 = call ptr @NameListToString(ptr noundef nonnull %.0154) #8
+  %324 = call ptr @format_type_be(i32 noundef range(i32 1, 0) %.0180) #8
   %325 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.104, ptr noundef %323, ptr noundef %324) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2020, ptr noundef nonnull @__func__.findTypeInputFunction) #8
   unreachable
@@ -914,7 +914,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
 
 331:                                              ; preds = %329
   %332 = call i32 @errcode(i32 noundef 117833860) #8
-  %333 = call ptr @NameListToString(ptr noundef nonnull %.0152) #8
+  %333 = call ptr @NameListToString(ptr noundef nonnull %.0154) #8
   %334 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.105, ptr noundef %333) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2036, ptr noundef nonnull @__func__.findTypeInputFunction) #8
   br label %findTypeInputFunction.exit
@@ -922,16 +922,16 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
 findTypeInputFunction.exit:                       ; preds = %326, %329, %331
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  store i32 %.0178, ptr %4, align 4
-  %335 = call i32 @LookupFuncName(ptr noundef nonnull %.0153, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext true) #8
-  %.not.i253 = icmp eq i32 %335, 0
-  br i1 %.not.i253, label %336, label %341
+  store i32 %.0180, ptr %4, align 4
+  %335 = call i32 @LookupFuncName(ptr noundef nonnull %.0155, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext true) #8
+  %.not.i255 = icmp eq i32 %335, 0
+  br i1 %.not.i255, label %336, label %341
 
 336:                                              ; preds = %findTypeInputFunction.exit
   %337 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %337)
   %338 = call i32 @errcode(i32 noundef 52461700) #8
-  %339 = call ptr @func_signature_string(ptr noundef nonnull %.0153, i32 noundef 1, ptr noundef null, ptr noundef nonnull %4) #8
+  %339 = call ptr @func_signature_string(ptr noundef nonnull %.0155, i32 noundef 1, ptr noundef null, ptr noundef nonnull %4) #8
   %340 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.103, ptr noundef %339) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2058, ptr noundef nonnull @__func__.findTypeOutputFunction) #8
   unreachable
@@ -945,7 +945,7 @@ findTypeInputFunction.exit:                       ; preds = %326, %329, %331
   %344 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %344)
   %345 = call i32 @errcode(i32 noundef 117833860) #8
-  %346 = call ptr @NameListToString(ptr noundef nonnull %.0153) #8
+  %346 = call ptr @NameListToString(ptr noundef nonnull %.0155) #8
   %347 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.106, ptr noundef %346, ptr noundef nonnull @.str.107) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2064, ptr noundef nonnull @__func__.findTypeOutputFunction) #8
   unreachable
@@ -961,106 +961,104 @@ findTypeInputFunction.exit:                       ; preds = %326, %329, %331
 
 353:                                              ; preds = %351
   %354 = call i32 @errcode(i32 noundef 117833860) #8
-  %355 = call ptr @NameListToString(ptr noundef nonnull %.0153) #8
+  %355 = call ptr @NameListToString(ptr noundef nonnull %.0155) #8
   %356 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.108, ptr noundef %355) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2071, ptr noundef nonnull @__func__.findTypeOutputFunction) #8
   br label %findTypeOutputFunction.exit
 
 findTypeOutputFunction.exit:                      ; preds = %348, %351, %353
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  %.not244 = icmp eq ptr %.0154, null
-  br i1 %.not244, label %359, label %357
+  %.not246 = icmp eq ptr %.0156, null
+  br i1 %.not246, label %359, label %357
 
 357:                                              ; preds = %findTypeOutputFunction.exit
-  %358 = call fastcc i32 @findTypeReceiveFunction(ptr noundef nonnull %.0154, i32 noundef %.0178)
+  %358 = call fastcc i32 @findTypeReceiveFunction(ptr noundef nonnull %.0156, i32 noundef %.0180)
   br label %359
 
 359:                                              ; preds = %357, %findTypeOutputFunction.exit
-  %.0174 = phi i32 [ %358, %357 ], [ 0, %findTypeOutputFunction.exit ]
-  %.not245 = icmp eq ptr %.0155, null
-  br i1 %.not245, label %362, label %360
+  %.0176 = phi i32 [ %358, %357 ], [ 0, %findTypeOutputFunction.exit ]
+  %.not247 = icmp eq ptr %.0157, null
+  br i1 %.not247, label %362, label %360
 
 360:                                              ; preds = %359
-  %361 = call fastcc i32 @findTypeSendFunction(ptr noundef nonnull %.0155, i32 noundef %.0178)
+  %361 = call fastcc i32 @findTypeSendFunction(ptr noundef nonnull %.0157, i32 noundef %.0180)
   br label %362
 
 362:                                              ; preds = %360, %359
-  %.0175 = phi i32 [ %361, %360 ], [ 0, %359 ]
+  %.0177 = phi i32 [ %361, %360 ], [ 0, %359 ]
   br i1 %295, label %365, label %363
 
 363:                                              ; preds = %362
-  %364 = call fastcc i32 @findTypeTypmodinFunction(ptr noundef nonnull %.0156)
+  %364 = call fastcc i32 @findTypeTypmodinFunction(ptr noundef nonnull %.0158)
   br label %365
 
 365:                                              ; preds = %363, %362
-  %.0176 = phi i32 [ %364, %363 ], [ 0, %362 ]
+  %.0178 = phi i32 [ %364, %363 ], [ 0, %362 ]
   br i1 %296, label %366, label %368
 
 366:                                              ; preds = %365
-  %367 = call fastcc i32 @findTypeTypmodoutFunction(ptr noundef nonnull %.0157)
+  %367 = call fastcc i32 @findTypeTypmodoutFunction(ptr noundef nonnull %.0159)
   br label %368
 
 368:                                              ; preds = %366, %365
-  %.0179 = phi i32 [ %367, %366 ], [ 0, %365 ]
-  %.not247 = icmp eq ptr %.0158, null
-  br i1 %.not247, label %371, label %369
+  %.0181 = phi i32 [ %367, %366 ], [ 0, %365 ]
+  %.not249 = icmp eq ptr %.0160, null
+  br i1 %.not249, label %371, label %369
 
 369:                                              ; preds = %368
-  %370 = call fastcc i32 @findTypeAnalyzeFunction(ptr noundef nonnull %.0158)
+  %370 = call fastcc i32 @findTypeAnalyzeFunction(ptr noundef nonnull %.0160)
   br label %371
 
 371:                                              ; preds = %369, %368
-  %.0180 = phi i32 [ %370, %369 ], [ 0, %368 ]
-  %.not248 = icmp eq ptr %.0159, null
-  br i1 %.not248, label %374, label %372
+  %.0182 = phi i32 [ %370, %369 ], [ 0, %368 ]
+  %.not250 = icmp eq ptr %.0161, null
+  br i1 %.not250, label %374, label %372
 
 372:                                              ; preds = %371
-  %373 = call fastcc i32 @findTypeSubscriptingFunction(ptr noundef nonnull %.0159)
-  br label %386
+  %373 = call fastcc i32 @findTypeSubscriptingFunction(ptr noundef nonnull %.0161)
+  br label %385
 
 374:                                              ; preds = %371
-  %.not249 = icmp eq i32 %.0163, 0
-  br i1 %.not249, label %386, label %375
+  %.not251 = icmp eq i32 %.0165, 0
+  br i1 %.not251, label %385, label %375
 
 375:                                              ; preds = %374
-  %376 = icmp sgt i16 %.1, 0
-  br i1 %376, label %377, label %382
+  %376 = icmp slt i16 %.1, 1
+  %377 = trunc nuw i8 %.1169 to i1
+  %or.cond6 = select i1 %376, i1 true, i1 %377
+  br i1 %or.cond6, label %381, label %378
 
-377:                                              ; preds = %375
-  %378 = trunc nuw i8 %.1167 to i1
-  br i1 %378, label %382, label %379
+378:                                              ; preds = %375
+  %379 = call signext i16 @get_typlen(i32 noundef %.0165) #8
+  %380 = icmp sgt i16 %379, 0
+  br i1 %380, label %385, label %381
 
-379:                                              ; preds = %377
-  %380 = call signext i16 @get_typlen(i32 noundef %.0163) #8
-  %381 = icmp sgt i16 %380, 0
-  br i1 %381, label %386, label %382
-
-382:                                              ; preds = %379, %377, %375
-  %383 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %383)
-  %384 = call i32 @errcode(i32 noundef 50856066) #8
-  %385 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46) #8
+381:                                              ; preds = %378, %375
+  %382 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %382)
+  %383 = call i32 @errcode(i32 noundef 50856066) #8
+  %384 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 516, ptr noundef nonnull @__func__.DefineType) #8
   unreachable
 
-386:                                              ; preds = %379, %374, %372
-  %.0181 = phi i32 [ %373, %372 ], [ 0, %374 ], [ 6180, %379 ]
-  %387 = call i32 @AssignTypeArrayOid()
-  %388 = load ptr, ptr %6, align 8
-  %389 = call i32 @GetUserId() #8
-  %390 = trunc nuw i8 %.1167 to i1
-  %391 = call { i64, i32 } @TypeCreate(i32 noundef 0, ptr noundef %388, i32 noundef %32, i32 noundef 0, i8 noundef signext 0, i32 noundef %389, i16 noundef signext %.1, i8 noundef signext 98, i8 noundef signext %.0160, i1 noundef zeroext %.0161, i8 noundef signext %.0162, i32 noundef %.0.i, i32 noundef %335, i32 noundef %.0174, i32 noundef %.0175, i32 noundef %.0176, i32 noundef %.0179, i32 noundef %.0180, i32 noundef %.0181, i32 noundef %.0163, i1 noundef zeroext false, i32 noundef %387, i32 noundef 0, ptr noundef %.0164, ptr noundef null, i1 noundef zeroext %390, i8 noundef signext %.1169, i8 noundef signext %.1171, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.0173) #8
-  %392 = load ptr, ptr %6, align 8
-  %393 = call ptr @makeArrayTypeName(ptr noundef %392, i32 noundef %32) #8
-  %394 = icmp eq i8 %.1169, 100
-  %395 = select i1 %394, i8 100, i8 105
-  %396 = call i32 @GetUserId() #8
-  %397 = call { i64, i32 } @TypeCreate(i32 noundef %387, ptr noundef %393, i32 noundef %32, i32 noundef 0, i8 noundef signext 0, i32 noundef %396, i16 noundef signext -1, i8 noundef signext 98, i8 noundef signext 65, i1 noundef zeroext false, i8 noundef signext %.0162, i32 noundef 750, i32 noundef 751, i32 noundef 2400, i32 noundef 2401, i32 noundef %.0176, i32 noundef %.0179, i32 noundef 3816, i32 noundef 6179, i32 noundef %.0178, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %395, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.0173) #8
-  call void @pfree(ptr noundef %393) #8
-  br label %398
+385:                                              ; preds = %378, %374, %372
+  %.0183 = phi i32 [ %373, %372 ], [ 0, %374 ], [ 6180, %378 ]
+  %386 = call i32 @AssignTypeArrayOid()
+  %387 = load ptr, ptr %6, align 8
+  %388 = call i32 @GetUserId() #8
+  %389 = trunc nuw i8 %.1169 to i1
+  %390 = call { i64, i32 } @TypeCreate(i32 noundef 0, ptr noundef %387, i32 noundef %32, i32 noundef 0, i8 noundef signext 0, i32 noundef %388, i16 noundef signext %.1, i8 noundef signext 98, i8 noundef signext %.0162, i1 noundef zeroext %.0163, i8 noundef signext %.0164, i32 noundef %.0.i, i32 noundef %335, i32 noundef %.0176, i32 noundef %.0177, i32 noundef %.0178, i32 noundef %.0181, i32 noundef %.0182, i32 noundef %.0183, i32 noundef %.0165, i1 noundef zeroext false, i32 noundef %386, i32 noundef 0, ptr noundef %.0166, ptr noundef null, i1 noundef zeroext %389, i8 noundef signext %.1171, i8 noundef signext %.1173, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.0175) #8
+  %391 = load ptr, ptr %6, align 8
+  %392 = call ptr @makeArrayTypeName(ptr noundef %391, i32 noundef %32) #8
+  %393 = icmp eq i8 %.1171, 100
+  %394 = select i1 %393, i8 100, i8 105
+  %395 = call i32 @GetUserId() #8
+  %396 = call { i64, i32 } @TypeCreate(i32 noundef %386, ptr noundef %392, i32 noundef %32, i32 noundef 0, i8 noundef signext 0, i32 noundef %395, i16 noundef signext -1, i8 noundef signext 98, i8 noundef signext 65, i1 noundef zeroext false, i8 noundef signext %.0164, i32 noundef 750, i32 noundef 751, i32 noundef 2400, i32 noundef 2401, i32 noundef %.0178, i32 noundef %.0181, i32 noundef 3816, i32 noundef 6179, i32 noundef %.0180, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %394, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.0175) #8
+  call void @pfree(ptr noundef %392) #8
+  br label %397
 
-398:                                              ; preds = %386, %55
-  %.pn = phi { i64, i32 } [ %58, %55 ], [ %391, %386 ]
+397:                                              ; preds = %385, %55
+  %.pn = phi { i64, i32 } [ %58, %55 ], [ %390, %385 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
@@ -1612,8 +1610,8 @@ list_length.exit:                                 ; preds = %2, %10
   %18 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %17, ptr noundef nonnull %3) #8
   %19 = call i32 @GetUserId() #8
   %20 = call i32 @object_aclcheck(i32 noundef 2615, i32 noundef %18, i32 noundef %19, i64 noundef 512) #8
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %.not198 = icmp eq i32 %20, 0
+  br i1 %.not198, label %23, label %21
 
 21:                                               ; preds = %list_length.exit
   %22 = call ptr @get_namespace_name(i32 noundef %18) #8
@@ -1625,8 +1623,8 @@ list_length.exit:                                 ; preds = %2, %10
   %25 = ptrtoint ptr %24 to i64
   %26 = zext i32 %18 to i64
   %27 = call i32 @GetSysCacheOid(i32 noundef 81, i16 noundef signext 1, i64 noundef %25, i64 noundef %26, i64 noundef 0, i64 noundef 0) #8
-  %.not194 = icmp eq i32 %27, 0
-  br i1 %.not194, label %36, label %28
+  %.not199 = icmp eq i32 %27, 0
+  br i1 %.not199, label %36, label %28
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %3, align 8
@@ -1680,8 +1678,8 @@ list_length.exit:                                 ; preds = %2, %10
 57:                                               ; preds = %36, %36, %36, %36, %36, %36
   %58 = call i32 @GetUserId() #8
   %59 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %44, i32 noundef %58, i64 noundef 256) #8
-  %.not195 = icmp eq i32 %59, 0
-  br i1 %.not195, label %61, label %60
+  %.not200 = icmp eq i32 %59, 0
+  br i1 %.not200, label %61, label %60
 
 60:                                               ; preds = %57
   call void @aclcheck_error_type(i32 noundef %59, i32 noundef %44) #8
@@ -1692,8 +1690,8 @@ list_length.exit:                                 ; preds = %2, %10
   %63 = load i32, ptr %62, align 4
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %65 = load ptr, ptr %64, align 8
-  %.not196 = icmp eq ptr %65, null
-  br i1 %.not196, label %70, label %66
+  %.not201 = icmp eq ptr %65, null
+  br i1 %.not201, label %70, label %66
 
 66:                                               ; preds = %61
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
@@ -1702,8 +1700,8 @@ list_length.exit:                                 ; preds = %2, %10
   br label %70
 
 70:                                               ; preds = %61, %66
-  %.0185 = phi i32 [ %69, %66 ], [ %63, %61 ]
-  %71 = icmp eq i32 %.0185, 0
+  %.0189 = phi i32 [ %69, %66 ], [ %63, %61 ]
+  %71 = icmp eq i32 %.0189, 0
   %72 = icmp ne i32 %63, 0
   %or.cond16 = select i1 %71, i1 true, i1 %72
   br i1 %or.cond16, label %82, label %73
@@ -1764,56 +1762,56 @@ list_length.exit:                                 ; preds = %2, %10
   br label %115
 
 115:                                              ; preds = %112, %108
-  %.0173 = phi ptr [ null, %108 ], [ %114, %112 ]
-  %.not197 = icmp eq ptr %15, null
-  br i1 %.not197, label %._crit_edge, label %.lr.ph
+  %.0177 = phi ptr [ null, %108 ], [ %114, %112 ]
+  %.not202 = icmp eq ptr %15, null
+  br i1 %.not202, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %115
   %116 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %117 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %118 = load i32, ptr %116, align 4
   %119 = icmp sgt i32 %118, 0
-  br i1 %119, label %.lr.ph335, label %._crit_edge
+  br i1 %119, label %.lr.ph340, label %._crit_edge
 
-._crit_edge.loopexit:                             ; preds = %254
-  %120 = trunc nuw i8 %.1180 to i1
+._crit_edge.loopexit:                             ; preds = %252
+  %120 = trunc nuw i8 %.1184 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %115
-  %.0179.lcssa = phi i1 [ false, %115 ], [ false, %.lr.ph ], [ %120, %._crit_edge.loopexit ]
-  %.1174.lcssa = phi ptr [ %.0173, %115 ], [ %.0173, %.lr.ph ], [ %.2175, %._crit_edge.loopexit ]
+  %.0183.lcssa = phi i1 [ false, %115 ], [ false, %.lr.ph ], [ %120, %._crit_edge.loopexit ]
+  %.1178.lcssa = phi ptr [ %.0177, %115 ], [ %.0177, %.lr.ph ], [ %.2179, %._crit_edge.loopexit ]
   %.1.lcssa = phi ptr [ %.0, %115 ], [ %.0, %.lr.ph ], [ %.2, %._crit_edge.loopexit ]
   %121 = call i32 @AssignTypeArrayOid()
   %122 = load ptr, ptr %3, align 8
   %123 = call i32 @GetUserId() #8
   %124 = load i32, ptr %5, align 4
-  %125 = call { i64, i32 } @TypeCreate(i32 noundef 0, ptr noundef %122, i32 noundef %18, i32 noundef 0, i8 noundef signext 0, i32 noundef %123, i16 noundef signext %91, i8 noundef signext 100, i8 noundef signext %93, i1 noundef zeroext false, i8 noundef signext %95, i32 noundef 2597, i32 noundef %97, i32 noundef 2598, i32 noundef %99, i32 noundef 0, i32 noundef 0, i32 noundef %101, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %121, i32 noundef %44, ptr noundef %.1.lcssa, ptr noundef %.1174.lcssa, i1 noundef zeroext %85, i8 noundef signext %87, i8 noundef signext %89, i32 noundef %124, i32 noundef %13, i1 noundef zeroext %.0179.lcssa, i32 noundef %.0185) #8
-  %.fca.0.extract27 = extractvalue { i64, i32 } %125, 0
-  %.sroa.2170.0.extract.shift = lshr i64 %.fca.0.extract27, 32
-  %.sroa.2170.0.extract.trunc = trunc nuw i64 %.sroa.2170.0.extract.shift to i32
+  %125 = call { i64, i32 } @TypeCreate(i32 noundef 0, ptr noundef %122, i32 noundef %18, i32 noundef 0, i8 noundef signext 0, i32 noundef %123, i16 noundef signext %91, i8 noundef signext 100, i8 noundef signext %93, i1 noundef zeroext false, i8 noundef signext %95, i32 noundef 2597, i32 noundef %97, i32 noundef 2598, i32 noundef %99, i32 noundef 0, i32 noundef 0, i32 noundef %101, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %121, i32 noundef %44, ptr noundef %.1.lcssa, ptr noundef %.1178.lcssa, i1 noundef zeroext %85, i8 noundef signext %87, i8 noundef signext %89, i32 noundef %124, i32 noundef %13, i1 noundef zeroext %.0183.lcssa, i32 noundef %.0189) #8
+  %.fca.0.extract31 = extractvalue { i64, i32 } %125, 0
+  %.sroa.2174.0.extract.shift = lshr i64 %.fca.0.extract31, 32
+  %.sroa.2174.0.extract.trunc = trunc nuw i64 %.sroa.2174.0.extract.shift to i32
   %126 = load ptr, ptr %3, align 8
   %127 = call ptr @makeArrayTypeName(ptr noundef %126, i32 noundef %18) #8
   %128 = icmp eq i8 %87, 100
   %129 = select i1 %128, i8 100, i8 105
   %130 = call i32 @GetUserId() #8
-  %131 = call { i64, i32 } @TypeCreate(i32 noundef %121, ptr noundef %127, i32 noundef %18, i32 noundef 0, i8 noundef signext 0, i32 noundef %130, i16 noundef signext -1, i8 noundef signext 98, i8 noundef signext 65, i1 noundef zeroext false, i8 noundef signext %95, i32 noundef 750, i32 noundef 751, i32 noundef 2400, i32 noundef 2401, i32 noundef 0, i32 noundef 0, i32 noundef 3816, i32 noundef 6179, i32 noundef %.sroa.2170.0.extract.trunc, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %129, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.0185) #8
+  %131 = call { i64, i32 } @TypeCreate(i32 noundef %121, ptr noundef %127, i32 noundef %18, i32 noundef 0, i8 noundef signext 0, i32 noundef %130, i16 noundef signext -1, i8 noundef signext 98, i8 noundef signext 65, i1 noundef zeroext false, i8 noundef signext %95, i32 noundef 750, i32 noundef 751, i32 noundef 2400, i32 noundef 2401, i32 noundef 0, i32 noundef 0, i32 noundef 3816, i32 noundef 6179, i32 noundef %.sroa.2174.0.extract.trunc, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %129, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.0189) #8
   call void @pfree(ptr noundef %127) #8
   %132 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  br i1 %.not197, label %._crit_edge343, label %.lr.ph342
+  br i1 %.not202, label %._crit_edge348, label %.lr.ph347
 
-.lr.ph342:                                        ; preds = %._crit_edge
+.lr.ph347:                                        ; preds = %._crit_edge
   %133 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %134 = load i32, ptr %132, align 4
   %135 = icmp sgt i32 %134, 0
-  br i1 %135, label %.lr.ph346, label %._crit_edge343
+  br i1 %135, label %.lr.ph351, label %._crit_edge348
 
-.lr.ph335:                                        ; preds = %.lr.ph, %254
-  %indvars.iv = phi i64 [ %indvars.iv.next, %254 ], [ 0, %.lr.ph ]
-  %.0181272333 = phi i8 [ %.1182, %254 ], [ 0, %.lr.ph ]
-  %.0179273332 = phi i8 [ %.1180, %254 ], [ 0, %.lr.ph ]
-  %.0177274331 = phi i1 [ %.1178, %254 ], [ false, %.lr.ph ]
-  %.1174275330 = phi ptr [ %.2175, %254 ], [ %.0173, %.lr.ph ]
-  %.1276329 = phi ptr [ %.2, %254 ], [ %.0, %.lr.ph ]
+.lr.ph340:                                        ; preds = %.lr.ph, %252
+  %indvars.iv = phi i64 [ %indvars.iv.next, %252 ], [ 0, %.lr.ph ]
+  %.0185277338 = phi i8 [ %.1186, %252 ], [ 0, %.lr.ph ]
+  %.0183278337 = phi i8 [ %.1184, %252 ], [ 0, %.lr.ph ]
+  %.0181279336 = phi i1 [ %.1182, %252 ], [ false, %.lr.ph ]
+  %.1178280335 = phi ptr [ %.2179, %252 ], [ %.0177, %.lr.ph ]
+  %.1281334 = phi ptr [ %.2, %252 ], [ %.0, %.lr.ph ]
   %136 = load ptr, ptr %117, align 8
   %137 = getelementptr inbounds nuw %union.ListCell, ptr %136, i64 %indvars.iv
   %138 = load ptr, ptr %137, align 8
@@ -1821,7 +1819,7 @@ list_length.exit:                                 ; preds = %2, %10
   %140 = icmp eq i32 %139, 160
   br i1 %140, label %144, label %.split
 
-.split:                                           ; preds = %.lr.ph335
+.split:                                           ; preds = %.lr.ph340
   %141 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %141)
   %142 = load i32, ptr %138, align 4
@@ -1829,32 +1827,32 @@ list_length.exit:                                 ; preds = %2, %10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 873, ptr noundef nonnull @__func__.DefineDomain) #8
   unreachable
 
-144:                                              ; preds = %.lr.ph335
+144:                                              ; preds = %.lr.ph340
   %145 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %146 = load i32, ptr %145, align 4
-  switch i32 %146, label %254 [
+  switch i32 %146, label %252 [
     i32 2, label %147
     i32 1, label %172
-    i32 0, label %192
-    i32 5, label %202
-    i32 7, label %.split290
-    i32 6, label %.split293
-    i32 8, label %.split296
-    i32 9, label %.split299
-    i32 10, label %.split302
-    i32 11, label %.split302
-    i32 12, label %.split302
-    i32 13, label %.split302
-    i32 4, label %.split305
-    i32 3, label %.split305
-    i32 14, label %.split308
-    i32 15, label %.split308
+    i32 0, label %191
+    i32 5, label %200
+    i32 7, label %.split295
+    i32 6, label %.split298
+    i32 8, label %.split301
+    i32 9, label %.split304
+    i32 10, label %.split307
+    i32 11, label %.split307
+    i32 12, label %.split307
+    i32 13, label %.split307
+    i32 4, label %.split310
+    i32 3, label %.split310
+    i32 14, label %.split313
+    i32 15, label %.split313
   ]
 
 147:                                              ; preds = %144
-  br i1 %.0177274331, label %.split323, label %154
+  br i1 %.0181279336, label %.split328, label %154
 
-.split323:                                        ; preds = %147
+.split328:                                        ; preds = %147
   %148 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %148)
   %149 = call i32 @errcode(i32 noundef 16801924) #8
@@ -1868,15 +1866,15 @@ list_length.exit:                                 ; preds = %2, %10
 154:                                              ; preds = %147
   %155 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %156 = load ptr, ptr %155, align 8
-  %.not200 = icmp eq ptr %156, null
-  br i1 %.not200, label %254, label %157
+  %.not205 = icmp eq ptr %156, null
+  br i1 %.not205, label %252, label %157
 
 157:                                              ; preds = %154
   %158 = load i32, ptr %5, align 4
   %159 = load ptr, ptr %3, align 8
   %160 = call ptr @cookDefault(ptr noundef %0, ptr noundef nonnull %156, i32 noundef %44, i32 noundef %158, ptr noundef %159, i8 noundef signext 0) #8
   %161 = icmp eq ptr %160, null
-  br i1 %161, label %254, label %162
+  br i1 %161, label %252, label %162
 
 162:                                              ; preds = %157
   %163 = load i32, ptr %160, align 4
@@ -1887,211 +1885,208 @@ list_length.exit:                                 ; preds = %2, %10
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 32
   %167 = load i8, ptr %166, align 8, !range !6, !noundef !7
   %168 = trunc nuw i8 %167 to i1
-  br i1 %168, label %254, label %169
+  br i1 %168, label %252, label %169
 
 169:                                              ; preds = %165, %162
   %170 = call ptr @deparse_expression(ptr noundef nonnull %160, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #8
   %171 = call ptr @nodeToString(ptr noundef nonnull %160) #8
-  br label %254
+  br label %252
 
 172:                                              ; preds = %144
-  %173 = trunc nuw i8 %.0181272333 to i1
-  br i1 %173, label %174, label %182
+  %173 = trunc nuw i8 %.0185277338 to i1
+  %.not = xor i1 %173, true
+  %174 = trunc nuw i8 %.0183278337 to i1
+  %or.cond18 = select i1 %.not, i1 true, i1 %174
+  br i1 %or.cond18, label %181, label %.split322
 
-174:                                              ; preds = %172
-  %175 = trunc nuw i8 %.0179273332 to i1
-  br i1 %175, label %182, label %.split317
-
-.split317:                                        ; preds = %174
-  %176 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %176)
-  %177 = call i32 @errcode(i32 noundef 16801924) #8
-  %178 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52) #8
-  %179 = getelementptr inbounds nuw i8, ptr %138, i64 180
-  %180 = load i32, ptr %179, align 4
-  %181 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %180) #8
+.split322:                                        ; preds = %172
+  %175 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %175)
+  %176 = call i32 @errcode(i32 noundef 16801924) #8
+  %177 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52) #8
+  %178 = getelementptr inbounds nuw i8, ptr %138, i64 180
+  %179 = load i32, ptr %178, align 4
+  %180 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %179) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 946, ptr noundef nonnull @__func__.DefineDomain) #8
   unreachable
 
-182:                                              ; preds = %174, %172
-  %183 = getelementptr inbounds nuw i8, ptr %138, i64 21
-  %184 = load i8, ptr %183, align 1, !range !6, !noundef !7
-  %185 = trunc nuw i8 %184 to i1
-  br i1 %185, label %.split320, label %254
+181:                                              ; preds = %172
+  %182 = getelementptr inbounds nuw i8, ptr %138, i64 21
+  %183 = load i8, ptr %182, align 1, !range !6, !noundef !7
+  %184 = trunc nuw i8 %183 to i1
+  br i1 %184, label %.split325, label %252
 
-.split320:                                        ; preds = %182
-  %186 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %186)
-  %187 = call i32 @errcode(i32 noundef 117833860) #8
-  %188 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #8
-  %189 = getelementptr inbounds nuw i8, ptr %138, i64 180
-  %190 = load i32, ptr %189, align 4
-  %191 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %190) #8
+.split325:                                        ; preds = %181
+  %185 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %185)
+  %186 = call i32 @errcode(i32 noundef 117833860) #8
+  %187 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #8
+  %188 = getelementptr inbounds nuw i8, ptr %138, i64 180
+  %189 = load i32, ptr %188, align 4
+  %190 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %189) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 951, ptr noundef nonnull @__func__.DefineDomain) #8
   unreachable
 
-192:                                              ; preds = %144
-  %193 = trunc nuw i8 %.0181272333 to i1
-  br i1 %193, label %194, label %254
+191:                                              ; preds = %144
+  %192 = trunc nuw i8 %.0185277338 to i1
+  %193 = trunc nuw i8 %.0183278337 to i1
+  %or.cond20 = select i1 %192, i1 %193, i1 false
+  br i1 %or.cond20, label %.split319, label %252
 
-194:                                              ; preds = %192
-  %195 = trunc nuw i8 %.0179273332 to i1
-  br i1 %195, label %.split314, label %254
-
-.split314:                                        ; preds = %194
-  %196 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %196)
-  %197 = call i32 @errcode(i32 noundef 16801924) #8
-  %198 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52) #8
-  %199 = getelementptr inbounds nuw i8, ptr %138, i64 180
-  %200 = load i32, ptr %199, align 4
-  %201 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %200) #8
+.split319:                                        ; preds = %191
+  %194 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %194)
+  %195 = call i32 @errcode(i32 noundef 16801924) #8
+  %196 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52) #8
+  %197 = getelementptr inbounds nuw i8, ptr %138, i64 180
+  %198 = load i32, ptr %197, align 4
+  %199 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %198) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 961, ptr noundef nonnull @__func__.DefineDomain) #8
   unreachable
 
-202:                                              ; preds = %144
-  %203 = getelementptr inbounds nuw i8, ptr %138, i64 21
-  %204 = load i8, ptr %203, align 1, !range !6, !noundef !7
-  %205 = trunc nuw i8 %204 to i1
-  br i1 %205, label %.split311, label %254
+200:                                              ; preds = %144
+  %201 = getelementptr inbounds nuw i8, ptr %138, i64 21
+  %202 = load i8, ptr %201, align 1, !range !6, !noundef !7
+  %203 = trunc nuw i8 %202 to i1
+  br i1 %203, label %.split316, label %252
 
-.split311:                                        ; preds = %202
-  %206 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %206)
-  %207 = call i32 @errcode(i32 noundef 117833860) #8
-  %208 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #8
-  %209 = getelementptr inbounds nuw i8, ptr %138, i64 180
-  %210 = load i32, ptr %209, align 4
-  %211 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %210) #8
+.split316:                                        ; preds = %200
+  %204 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %204)
+  %205 = call i32 @errcode(i32 noundef 117833860) #8
+  %206 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #8
+  %207 = getelementptr inbounds nuw i8, ptr %138, i64 180
+  %208 = load i32, ptr %207, align 4
+  %209 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %208) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 978, ptr noundef nonnull @__func__.DefineDomain) #8
   unreachable
 
-.split290:                                        ; preds = %144
-  %212 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %212)
-  %213 = call i32 @errcode(i32 noundef 16801924) #8
-  %214 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55) #8
-  %215 = getelementptr inbounds nuw i8, ptr %138, i64 180
-  %216 = load i32, ptr %215, align 4
-  %217 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %216) #8
+.split295:                                        ; preds = %144
+  %210 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %210)
+  %211 = call i32 @errcode(i32 noundef 16801924) #8
+  %212 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55) #8
+  %213 = getelementptr inbounds nuw i8, ptr %138, i64 180
+  %214 = load i32, ptr %213, align 4
+  %215 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %214) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 989, ptr noundef nonnull @__func__.DefineDomain) #8
   unreachable
 
-.split293:                                        ; preds = %144
-  %218 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %218)
-  %219 = call i32 @errcode(i32 noundef 16801924) #8
-  %220 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56) #8
-  %221 = getelementptr inbounds nuw i8, ptr %138, i64 180
-  %222 = load i32, ptr %221, align 4
-  %223 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %222) #8
+.split298:                                        ; preds = %144
+  %216 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %216)
+  %217 = call i32 @errcode(i32 noundef 16801924) #8
+  %218 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56) #8
+  %219 = getelementptr inbounds nuw i8, ptr %138, i64 180
+  %220 = load i32, ptr %219, align 4
+  %221 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %220) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 996, ptr noundef nonnull @__func__.DefineDomain) #8
   unreachable
 
-.split296:                                        ; preds = %144
-  %224 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %224)
-  %225 = call i32 @errcode(i32 noundef 16801924) #8
-  %226 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57) #8
-  %227 = getelementptr inbounds nuw i8, ptr %138, i64 180
-  %228 = load i32, ptr %227, align 4
-  %229 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %228) #8
+.split301:                                        ; preds = %144
+  %222 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %222)
+  %223 = call i32 @errcode(i32 noundef 16801924) #8
+  %224 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57) #8
+  %225 = getelementptr inbounds nuw i8, ptr %138, i64 180
+  %226 = load i32, ptr %225, align 4
+  %227 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %226) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1003, ptr noundef nonnull @__func__.DefineDomain) #8
   unreachable
 
-.split299:                                        ; preds = %144
-  %230 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %230)
-  %231 = call i32 @errcode(i32 noundef 16801924) #8
-  %232 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58) #8
-  %233 = getelementptr inbounds nuw i8, ptr %138, i64 180
-  %234 = load i32, ptr %233, align 4
-  %235 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %234) #8
+.split304:                                        ; preds = %144
+  %228 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %228)
+  %229 = call i32 @errcode(i32 noundef 16801924) #8
+  %230 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58) #8
+  %231 = getelementptr inbounds nuw i8, ptr %138, i64 180
+  %232 = load i32, ptr %231, align 4
+  %233 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %232) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1010, ptr noundef nonnull @__func__.DefineDomain) #8
   unreachable
 
-.split302:                                        ; preds = %144, %144, %144, %144
-  %236 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %236)
-  %237 = call i32 @errcode(i32 noundef 1088) #8
-  %238 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59) #8
-  %239 = getelementptr inbounds nuw i8, ptr %138, i64 180
-  %240 = load i32, ptr %239, align 4
-  %241 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %240) #8
+.split307:                                        ; preds = %144, %144, %144, %144
+  %234 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %234)
+  %235 = call i32 @errcode(i32 noundef 1088) #8
+  %236 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59) #8
+  %237 = getelementptr inbounds nuw i8, ptr %138, i64 180
+  %238 = load i32, ptr %237, align 4
+  %239 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %238) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1020, ptr noundef nonnull @__func__.DefineDomain) #8
   unreachable
 
-.split305:                                        ; preds = %144, %144
-  %242 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %242)
-  %243 = call i32 @errcode(i32 noundef 1088) #8
-  %244 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60) #8
-  %245 = getelementptr inbounds nuw i8, ptr %138, i64 180
-  %246 = load i32, ptr %245, align 4
-  %247 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %246) #8
+.split310:                                        ; preds = %144, %144
+  %240 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %240)
+  %241 = call i32 @errcode(i32 noundef 1088) #8
+  %242 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60) #8
+  %243 = getelementptr inbounds nuw i8, ptr %138, i64 180
+  %244 = load i32, ptr %243, align 4
+  %245 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %244) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1028, ptr noundef nonnull @__func__.DefineDomain) #8
   unreachable
 
-.split308:                                        ; preds = %144, %144
-  %248 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %248)
-  %249 = call i32 @errcode(i32 noundef 117833860) #8
-  %250 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61) #8
-  %251 = getelementptr inbounds nuw i8, ptr %138, i64 180
-  %252 = load i32, ptr %251, align 4
-  %253 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %252) #8
+.split313:                                        ; preds = %144, %144
+  %246 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %246)
+  %247 = call i32 @errcode(i32 noundef 117833860) #8
+  %248 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61) #8
+  %249 = getelementptr inbounds nuw i8, ptr %138, i64 180
+  %250 = load i32, ptr %249, align 4
+  %251 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %250) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1036, ptr noundef nonnull @__func__.DefineDomain) #8
   unreachable
 
-254:                                              ; preds = %192, %194, %182, %154, %169, %165, %157, %202, %144
-  %.1182 = phi i8 [ %.0181272333, %144 ], [ %.0181272333, %202 ], [ %.0181272333, %157 ], [ %.0181272333, %165 ], [ %.0181272333, %169 ], [ %.0181272333, %154 ], [ 1, %182 ], [ 1, %194 ], [ 1, %192 ]
-  %.1180 = phi i8 [ %.0179273332, %144 ], [ %.0179273332, %202 ], [ %.0179273332, %157 ], [ %.0179273332, %165 ], [ %.0179273332, %169 ], [ %.0179273332, %154 ], [ 1, %182 ], [ 0, %194 ], [ 0, %192 ]
-  %.1178 = phi i1 [ %.0177274331, %144 ], [ %.0177274331, %202 ], [ true, %157 ], [ true, %165 ], [ true, %169 ], [ true, %154 ], [ %.0177274331, %182 ], [ %.0177274331, %194 ], [ %.0177274331, %192 ]
-  %.2175 = phi ptr [ %.1174275330, %144 ], [ %.1174275330, %202 ], [ null, %157 ], [ null, %165 ], [ %171, %169 ], [ null, %154 ], [ %.1174275330, %182 ], [ %.1174275330, %194 ], [ %.1174275330, %192 ]
-  %.2 = phi ptr [ %.1276329, %144 ], [ %.1276329, %202 ], [ null, %157 ], [ null, %165 ], [ %170, %169 ], [ null, %154 ], [ %.1276329, %182 ], [ %.1276329, %194 ], [ %.1276329, %192 ]
+252:                                              ; preds = %191, %181, %154, %169, %165, %157, %200, %144
+  %.1186 = phi i8 [ %.0185277338, %144 ], [ %.0185277338, %200 ], [ %.0185277338, %157 ], [ %.0185277338, %165 ], [ %.0185277338, %169 ], [ %.0185277338, %154 ], [ 1, %181 ], [ 1, %191 ]
+  %.1184 = phi i8 [ %.0183278337, %144 ], [ %.0183278337, %200 ], [ %.0183278337, %157 ], [ %.0183278337, %165 ], [ %.0183278337, %169 ], [ %.0183278337, %154 ], [ 1, %181 ], [ 0, %191 ]
+  %.1182 = phi i1 [ %.0181279336, %144 ], [ %.0181279336, %200 ], [ true, %157 ], [ true, %165 ], [ true, %169 ], [ true, %154 ], [ %.0181279336, %181 ], [ %.0181279336, %191 ]
+  %.2179 = phi ptr [ %.1178280335, %144 ], [ %.1178280335, %200 ], [ null, %157 ], [ null, %165 ], [ %171, %169 ], [ null, %154 ], [ %.1178280335, %181 ], [ %.1178280335, %191 ]
+  %.2 = phi ptr [ %.1281334, %144 ], [ %.1281334, %200 ], [ null, %157 ], [ null, %165 ], [ %170, %169 ], [ null, %154 ], [ %.1281334, %181 ], [ %.1281334, %191 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %255 = load i32, ptr %116, align 4
-  %256 = sext i32 %255 to i64
-  %257 = icmp slt i64 %indvars.iv.next, %256
-  br i1 %257, label %.lr.ph335, label %._crit_edge.loopexit
+  %253 = load i32, ptr %116, align 4
+  %254 = sext i32 %253 to i64
+  %255 = icmp slt i64 %indvars.iv.next, %254
+  br i1 %255, label %.lr.ph340, label %._crit_edge.loopexit
 
-._crit_edge343:                                   ; preds = %269, %.lr.ph342, %._crit_edge
+._crit_edge348:                                   ; preds = %267, %.lr.ph347, %._crit_edge
   call void @ReleaseSysCache(ptr noundef nonnull %38) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret { i64, i32 } %125
 
-.lr.ph346:                                        ; preds = %.lr.ph342, %269
-  %indvars.iv360 = phi i64 [ %indvars.iv.next361, %269 ], [ 0, %.lr.ph342 ]
-  %258 = load ptr, ptr %133, align 8
-  %259 = getelementptr inbounds nuw %union.ListCell, ptr %258, i64 %indvars.iv360
-  %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 4
-  %262 = load i32, ptr %261, align 4
-  switch i32 %262, label %269 [
-    i32 5, label %263
-    i32 1, label %267
+.lr.ph351:                                        ; preds = %.lr.ph347, %267
+  %indvars.iv365 = phi i64 [ %indvars.iv.next366, %267 ], [ 0, %.lr.ph347 ]
+  %256 = load ptr, ptr %133, align 8
+  %257 = getelementptr inbounds nuw %union.ListCell, ptr %256, i64 %indvars.iv365
+  %258 = load ptr, ptr %257, align 8
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
+  %260 = load i32, ptr %259, align 4
+  switch i32 %260, label %267 [
+    i32 5, label %261
+    i32 1, label %265
   ]
 
-263:                                              ; preds = %.lr.ph346
-  %264 = load i32, ptr %5, align 4
-  %265 = load ptr, ptr %3, align 8
-  %266 = call fastcc ptr @domainAddCheckConstraint(i32 noundef %.sroa.2170.0.extract.trunc, i32 noundef %18, i32 noundef %44, i32 noundef %264, ptr noundef nonnull %260, ptr noundef %265, ptr noundef null)
-  br label %269
+261:                                              ; preds = %.lr.ph351
+  %262 = load i32, ptr %5, align 4
+  %263 = load ptr, ptr %3, align 8
+  %264 = call fastcc ptr @domainAddCheckConstraint(i32 noundef %.sroa.2174.0.extract.trunc, i32 noundef %18, i32 noundef %44, i32 noundef %262, ptr noundef nonnull %258, ptr noundef %263, ptr noundef null)
+  br label %267
 
-267:                                              ; preds = %.lr.ph346
-  %268 = load ptr, ptr %3, align 8
-  call fastcc void @domainAddNotNullConstraint(i32 noundef %.sroa.2170.0.extract.trunc, i32 noundef %18, ptr noundef nonnull %260, ptr noundef %268, ptr noundef null)
-  br label %269
+265:                                              ; preds = %.lr.ph351
+  %266 = load ptr, ptr %3, align 8
+  call fastcc void @domainAddNotNullConstraint(i32 noundef %.sroa.2174.0.extract.trunc, i32 noundef %18, ptr noundef nonnull %258, ptr noundef %266, ptr noundef null)
+  br label %267
 
-269:                                              ; preds = %.lr.ph346, %267, %263
+267:                                              ; preds = %.lr.ph351, %265, %261
   call void @CommandCounterIncrement() #8
-  %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
-  %270 = load i32, ptr %132, align 4
-  %271 = sext i32 %270 to i64
-  %272 = icmp slt i64 %indvars.iv.next361, %271
-  br i1 %272, label %.lr.ph346, label %._crit_edge343
+  %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
+  %268 = load i32, ptr %132, align 4
+  %269 = sext i32 %268 to i64
+  %270 = icmp slt i64 %indvars.iv.next366, %269
+  br i1 %270, label %.lr.ph351, label %._crit_edge348
 }
 
 declare i32 @object_aclcheck(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
@@ -4845,7 +4840,7 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %9, align 4
   %10 = call zeroext i1 @object_address_present(ptr noundef nonnull %7, ptr noundef %5) #8
-  br i1 %10, label %85, label %11
+  br i1 %10, label %86, label %11
 
 11:                                               ; preds = %6
   %12 = call ptr @table_open(i32 noundef 1247, i32 noundef 3) #8
@@ -4872,8 +4867,8 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %27 = load i32, ptr %26, align 4
-  %.not70 = icmp eq i32 %25, %1
-  br i1 %.not70, label %38, label %28
+  %.not74 = icmp eq i32 %25, %1
+  br i1 %.not74, label %38, label %28
 
 28:                                               ; preds = %18
   call void @CheckSetNamespace(i32 noundef %25, i32 noundef %1) #8
@@ -4913,7 +4908,7 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
 
 50:                                               ; preds = %49
   call void @table_close(ptr noundef %12, i32 noundef 3) #8
-  br label %85
+  br label %86
 
 51:                                               ; preds = %49
   br i1 %4, label %52, label %.thread79
@@ -4928,9 +4923,9 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4213, ptr noundef nonnull @__func__.AlterTypeNamespaceInternal) #8
   unreachable
 
-.thread79:                                        ; preds = %38, %42, %51
-  %58 = phi i1 [ %46, %42 ], [ %46, %51 ], [ false, %38 ]
-  br i1 %.not70, label %61, label %59
+.thread79:                                        ; preds = %38, %51, %42
+  %58 = phi i1 [ %46, %51 ], [ %46, %42 ], [ false, %38 ]
+  br i1 %.not74, label %61, label %59
 
 59:                                               ; preds = %.thread79
   store i32 %1, ptr %24, align 4
@@ -4951,7 +4946,7 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   br label %66
 
 66:                                               ; preds = %62, %65
-  br i1 %.not70, label %79, label %71
+  br i1 %.not74, label %80, label %71
 
 .thread:                                          ; preds = %61
   %67 = call ptr @table_open(i32 noundef 1259, i32 noundef 3) #8
@@ -4961,50 +4956,50 @@ define dso_local i32 @AlterTypeNamespaceInternal(i32 noundef %0, i32 noundef %1,
   call void @table_close(ptr noundef %67, i32 noundef 3) #8
   %70 = load i32, ptr %68, align 4
   call void @AlterConstraintNamespaces(i32 noundef %70, i32 noundef %25, i32 noundef %1, i1 noundef zeroext false, ptr noundef %5) #8
-  %brmerge78 = or i1 %2, %.not70
-  br i1 %brmerge78, label %79, label %73
+  %brmerge = or i1 %2, %.not74
+  br i1 %brmerge, label %80, label %74
 
 71:                                               ; preds = %66
   %72 = load i8, ptr %39, align 1
-  %.not71 = icmp eq i8 %72, 99
-  %brmerge76 = or i1 %2, %.not71
-  br i1 %brmerge76, label %79, label %73
+  %73 = icmp eq i8 %72, 99
+  %or.cond3 = or i1 %2, %73
+  br i1 %or.cond3, label %80, label %74
 
-73:                                               ; preds = %.thread, %71
-  %74 = call i64 @changeDependencyFor(i32 noundef 1247, i32 noundef %0, i32 noundef 2615, i32 noundef %25, i32 noundef %1) #8
-  %.not72 = icmp eq i64 %74, 1
-  br i1 %.not72, label %79, label %75
+74:                                               ; preds = %.thread, %71
+  %75 = call i64 @changeDependencyFor(i32 noundef 1247, i32 noundef %0, i32 noundef 2615, i32 noundef %25, i32 noundef %1) #8
+  %.not75 = icmp eq i64 %75, 1
+  br i1 %.not75, label %80, label %76
 
-75:                                               ; preds = %73
-  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %76)
-  %77 = call ptr @format_type_be(i32 noundef %0) #8
-  %78 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.90, ptr noundef %77) #8
+76:                                               ; preds = %74
+  %77 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  call void @llvm.assume(i1 %77)
+  %78 = call ptr @format_type_be(i32 noundef %0) #8
+  %79 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.90, ptr noundef %78) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4269, ptr noundef nonnull @__func__.AlterTypeNamespaceInternal) #8
   unreachable
 
-79:                                               ; preds = %.thread, %71, %66, %73
-  %80 = load ptr, ptr @object_access_hook, align 8
-  %.not73 = icmp eq ptr %80, null
-  br i1 %.not73, label %82, label %81
+80:                                               ; preds = %.thread, %66, %71, %74
+  %81 = load ptr, ptr @object_access_hook, align 8
+  %.not76 = icmp eq ptr %81, null
+  br i1 %.not76, label %83, label %82
 
-81:                                               ; preds = %79
+82:                                               ; preds = %80
   call void @RunObjectPostAlterHook(i32 noundef 1247, i32 noundef %0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #8
-  br label %82
+  br label %83
 
-82:                                               ; preds = %81, %79
+83:                                               ; preds = %82, %80
   call void @heap_freetuple(ptr noundef nonnull %14) #8
   call void @table_close(ptr noundef %12, i32 noundef 3) #8
   call void @add_exact_object_address(ptr noundef nonnull %7, ptr noundef %5) #8
-  %.not74 = icmp eq i32 %27, 0
-  br i1 %.not74, label %85, label %83
+  %.not77 = icmp eq i32 %27, 0
+  br i1 %.not77, label %86, label %84
 
-83:                                               ; preds = %82
-  %84 = call i32 @AlterTypeNamespaceInternal(i32 noundef %27, i32 noundef %1, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %5)
-  br label %85
+84:                                               ; preds = %83
+  %85 = call i32 @AlterTypeNamespaceInternal(i32 noundef %27, i32 noundef %1, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %5)
+  br label %86
 
-85:                                               ; preds = %82, %83, %6, %50
-  %.0 = phi i32 [ 0, %50 ], [ 0, %6 ], [ %25, %83 ], [ %25, %82 ]
+86:                                               ; preds = %83, %84, %6, %50
+  %.0 = phi i32 [ 0, %50 ], [ 0, %6 ], [ %25, %84 ], [ %25, %83 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #8
   ret i32 %.0
 }

@@ -8513,9 +8513,9 @@ define dso_local zeroext i16 @virtio_get_queue_index(ptr noundef readonly captur
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_queue_set_guest_notifier_fd_handler(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = xor i1 %1, true
-  %brmerge = or i1 %2, %.not
+  %or.cond = or i1 %2, %.not
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %.virtio_queue_guest_notifier_read = select i1 %brmerge, ptr null, ptr @virtio_queue_guest_notifier_read
+  %.virtio_queue_guest_notifier_read = select i1 %or.cond, ptr null, ptr @virtio_queue_guest_notifier_read
   tail call void @event_notifier_set_handler(ptr noundef nonnull %4, ptr noundef %.virtio_queue_guest_notifier_read) #24
   br i1 %1, label %7, label %5
 
@@ -8589,8 +8589,8 @@ virtio_irq.exit:                                  ; preds = %27, %24, %virtio_de
 define dso_local void @virtio_config_set_guest_notifier_fd_handler(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %.not = xor i1 %1, true
-  %brmerge = or i1 %2, %.not
-  %.virtio_config_guest_notifier_read = select i1 %brmerge, ptr null, ptr @virtio_config_guest_notifier_read
+  %or.cond = or i1 %2, %.not
+  %.virtio_config_guest_notifier_read = select i1 %or.cond, ptr null, ptr @virtio_config_guest_notifier_read
   tail call void @event_notifier_set_handler(ptr noundef nonnull %4, ptr noundef %.virtio_config_guest_notifier_read) #24
   br i1 %1, label %virtio_config_guest_notifier_read.exit, label %5
 

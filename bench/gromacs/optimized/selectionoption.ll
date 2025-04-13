@@ -5168,24 +5168,24 @@ define void @_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFla
   %16 = tail call { ptr, ptr } %15(ptr noundef nonnull align 8 dereferenceable(8) %12)
   %17 = extractvalue { ptr, ptr } %16, 0
   %18 = extractvalue { ptr, ptr } %16, 1
-  %.not7476 = icmp ne ptr %17, %18
+  %.not75 = icmp ne ptr %17, %18
   %19 = icmp eq i64 %1, 1
-  %20 = and i1 %19, %.not7476
-  %or.cond = and i1 %20, %2
-  br i1 %or.cond, label %.lr.ph.split.us, label %._crit_edge
+  %20 = and i1 %19, %.not75
+  %or.cond82 = and i1 %20, %2
+  br i1 %or.cond82, label %.lr.ph.split.us, label %._crit_edge
 
 .lr.ph.split.us:                                  ; preds = %3, %25
-  %.sroa.056.077.us = phi ptr [ %26, %25 ], [ %17, %3 ]
-  %21 = load ptr, ptr %.sroa.056.077.us, align 8, !tbaa !114
+  %.sroa.056.076.us = phi ptr [ %26, %25 ], [ %17, %3 ]
+  %21 = load ptr, ptr %.sroa.056.076.us, align 8, !tbaa !114
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 292
   %23 = load i8, ptr %22, align 4, !tbaa !168, !range !119, !noundef !120
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %.split.us, label %25
 
 25:                                               ; preds = %.lr.ph.split.us
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.056.077.us, i64 8
-  %.not74.us = icmp eq ptr %26, %18
-  br i1 %.not74.us, label %._crit_edge, label %.lr.ph.split.us
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.056.076.us, i64 8
+  %.not.us = icmp eq ptr %26, %18
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %25, %3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -5212,12 +5212,12 @@ _ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit: ; preds = %28, %31
   %39 = tail call { ptr, ptr } %38(ptr noundef nonnull align 8 dereferenceable(8) %35)
   %40 = extractvalue { ptr, ptr } %39, 0
   %41 = extractvalue { ptr, ptr } %39, 1
-  %.not7578 = icmp eq ptr %40, %41
-  br i1 %.not7578, label %._crit_edge81, label %.lr.ph80.preheader
+  %.not7477 = icmp eq ptr %40, %41
+  br i1 %.not7477, label %._crit_edge80, label %.lr.ph79.preheader
 
-.lr.ph80.preheader:                               ; preds = %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit
+.lr.ph79.preheader:                               ; preds = %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit
   %.sroa.0.0.copyload.pre = load i64, ptr %27, align 8, !tbaa !57
-  br label %.lr.ph80
+  br label %.lr.ph79
 
 .split.us:                                        ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
@@ -5390,7 +5390,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.thread: ; preds
   br label %99
 
 97:                                               ; preds = %69, %67
-  %.025 = phi i1 [ false, %69 ], [ true, %67 ]
+  %.026 = phi i1 [ false, %69 ], [ true, %67 ]
   %98 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
@@ -5399,8 +5399,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.thread: ; preds
   br label %99
 
 99:                                               ; preds = %95, %97
-  %.328 = phi i1 [ %.025, %97 ], [ true, %95 ]
-  %.pn31 = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ]
+  %.329 = phi i1 [ %.026, %97 ], [ true, %95 ]
+  %.pn32 = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #28
   %100 = load ptr, ptr %9, align 8, !tbaa !14
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -5435,7 +5435,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.assume(i1 %114)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #28
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #28
-  br i1 %.328, label %117, label %118
+  br i1 %.329, label %117, label %118
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %99
   %115 = load i64, ptr %101, align 8, !tbaa !20
@@ -5443,36 +5443,36 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %99
   call void @_ZdlPvm(ptr noundef %100, i64 noundef %116) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #28
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #28
-  br i1 %.328, label %117, label %118
+  br i1 %.329, label %117, label %118
 
 .sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.thread71
-  %.pn31.pn.pn62.ph = phi { ptr, i32 } [ %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.thread71 ], [ %103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50.thread ], [ %94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.thread ]
+  %.pn32.pn.pn62.ph = phi { ptr, i32 } [ %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.thread71 ], [ %103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50.thread ], [ %94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.thread ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #28
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #28
   br label %117
 
 117:                                              ; preds = %.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51
-  %.pn31.pn.pn62 = phi { ptr, i32 } [ %.pn31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %.pn31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50 ], [ %.pn31.pn.pn62.ph, %.sink.split ]
+  %.pn32.pn.pn62 = phi { ptr, i32 } [ %.pn32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %.pn32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50 ], [ %.pn32.pn.pn62.ph, %.sink.split ]
   call void @__cxa_free_exception(ptr %64) #28
   br label %118
 
 118:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51, %117, %92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48
-  %.pn31.pn.pn.pn = phi { ptr, i32 } [ %.pn31.pn.pn62, %117 ], [ %.pn31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %93, %92 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %.pn31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50 ]
+  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn62, %117 ], [ %.pn32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ], [ %93, %92 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48 ], [ %.pn32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50 ]
   call void @_ZN3gmx22MessageStringCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
-  resume { ptr, i32 } %.pn31.pn.pn.pn
+  resume { ptr, i32 } %.pn32.pn.pn.pn
 
-._crit_edge81:                                    ; preds = %.lr.ph80, %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit
+._crit_edge80:                                    ; preds = %.lr.ph79, %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit
   ret void
 
-.lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
-  %.sroa.0.079 = phi ptr [ %121, %.lr.ph80 ], [ %40, %.lr.ph80.preheader ]
-  %119 = load ptr, ptr %.sroa.0.079, align 8, !tbaa !114
+.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.lr.ph79
+  %.sroa.0.078 = phi ptr [ %121, %.lr.ph79 ], [ %40, %.lr.ph79.preheader ]
+  %119 = load ptr, ptr %.sroa.0.078, align 8, !tbaa !114
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 264
   store i64 %.sroa.0.0.copyload.pre, ptr %120, align 8, !tbaa !57
-  %121 = getelementptr inbounds nuw i8, ptr %.sroa.0.079, i64 8
-  %.not75 = icmp eq ptr %121, %41
-  br i1 %.not75, label %._crit_edge81, label %.lr.ph80
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.0.078, i64 8
+  %.not74 = icmp eq ptr %121, %41
+  br i1 %.not74, label %._crit_edge80, label %.lr.ph79
 
 122:                                              ; preds = %69
   unreachable
@@ -5540,23 +5540,23 @@ _ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i:
   %17 = tail call { ptr, ptr } %16(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
-  %.not7578.i = icmp eq ptr %18, %19
-  br i1 %.not7578.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph80.preheader.i
+  %.not7477.i = icmp eq ptr %18, %19
+  br i1 %.not7477.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph79.preheader.i
 
-.lr.ph80.preheader.i:                             ; preds = %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
+.lr.ph79.preheader.i:                             ; preds = %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
   %.sroa.0.0.copyload.pre.i = load i64, ptr %10, align 8, !tbaa !57
-  br label %.lr.ph80.i
+  br label %.lr.ph79.i
 
-.lr.ph80.i:                                       ; preds = %.lr.ph80.i, %.lr.ph80.preheader.i
-  %.sroa.0.079.i = phi ptr [ %22, %.lr.ph80.i ], [ %18, %.lr.ph80.preheader.i ]
-  %20 = load ptr, ptr %.sroa.0.079.i, align 8, !tbaa !114
+.lr.ph79.i:                                       ; preds = %.lr.ph79.i, %.lr.ph79.preheader.i
+  %.sroa.0.078.i = phi ptr [ %22, %.lr.ph79.i ], [ %18, %.lr.ph79.preheader.i ]
+  %20 = load ptr, ptr %.sroa.0.078.i, align 8, !tbaa !114
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 264
   store i64 %.sroa.0.0.copyload.pre.i, ptr %21, align 8, !tbaa !57
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.079.i, i64 8
-  %.not75.i = icmp eq ptr %22, %19
-  br i1 %.not75.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph80.i
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.078.i, i64 8
+  %.not74.i = icmp eq ptr %22, %19
+  br i1 %.not74.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph79.i
 
-_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit: ; preds = %.lr.ph80.i, %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
+_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit: ; preds = %.lr.ph79.i, %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
   ret void
 }
 
@@ -5584,23 +5584,23 @@ _ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i:
   %17 = tail call { ptr, ptr } %16(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
-  %.not7578.i = icmp eq ptr %18, %19
-  br i1 %.not7578.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph80.preheader.i
+  %.not7477.i = icmp eq ptr %18, %19
+  br i1 %.not7477.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph79.preheader.i
 
-.lr.ph80.preheader.i:                             ; preds = %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
+.lr.ph79.preheader.i:                             ; preds = %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
   %.sroa.0.0.copyload.pre.i = load i64, ptr %10, align 8, !tbaa !57
-  br label %.lr.ph80.i
+  br label %.lr.ph79.i
 
-.lr.ph80.i:                                       ; preds = %.lr.ph80.i, %.lr.ph80.preheader.i
-  %.sroa.0.079.i = phi ptr [ %22, %.lr.ph80.i ], [ %18, %.lr.ph80.preheader.i ]
-  %20 = load ptr, ptr %.sroa.0.079.i, align 8, !tbaa !114
+.lr.ph79.i:                                       ; preds = %.lr.ph79.i, %.lr.ph79.preheader.i
+  %.sroa.0.078.i = phi ptr [ %22, %.lr.ph79.i ], [ %18, %.lr.ph79.preheader.i ]
+  %20 = load ptr, ptr %.sroa.0.078.i, align 8, !tbaa !114
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 264
   store i64 %.sroa.0.0.copyload.pre.i, ptr %21, align 8, !tbaa !57
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.079.i, i64 8
-  %.not75.i = icmp eq ptr %22, %19
-  br i1 %.not75.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph80.i
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.078.i, i64 8
+  %.not74.i = icmp eq ptr %22, %19
+  br i1 %.not74.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph79.i
 
-_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit: ; preds = %.lr.ph80.i, %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
+_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit: ; preds = %.lr.ph79.i, %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
   ret void
 }
 
@@ -5628,23 +5628,23 @@ _ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i:
   %17 = tail call { ptr, ptr } %16(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
-  %.not7578.i = icmp eq ptr %18, %19
-  br i1 %.not7578.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph80.preheader.i
+  %.not7477.i = icmp eq ptr %18, %19
+  br i1 %.not7477.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph79.preheader.i
 
-.lr.ph80.preheader.i:                             ; preds = %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
+.lr.ph79.preheader.i:                             ; preds = %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
   %.sroa.0.0.copyload.pre.i = load i64, ptr %10, align 8, !tbaa !57
-  br label %.lr.ph80.i
+  br label %.lr.ph79.i
 
-.lr.ph80.i:                                       ; preds = %.lr.ph80.i, %.lr.ph80.preheader.i
-  %.sroa.0.079.i = phi ptr [ %22, %.lr.ph80.i ], [ %18, %.lr.ph80.preheader.i ]
-  %20 = load ptr, ptr %.sroa.0.079.i, align 8, !tbaa !114
+.lr.ph79.i:                                       ; preds = %.lr.ph79.i, %.lr.ph79.preheader.i
+  %.sroa.0.078.i = phi ptr [ %22, %.lr.ph79.i ], [ %18, %.lr.ph79.preheader.i ]
+  %20 = load ptr, ptr %.sroa.0.078.i, align 8, !tbaa !114
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 264
   store i64 %.sroa.0.0.copyload.pre.i, ptr %21, align 8, !tbaa !57
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.079.i, i64 8
-  %.not75.i = icmp eq ptr %22, %19
-  br i1 %.not75.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph80.i
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.078.i, i64 8
+  %.not74.i = icmp eq ptr %22, %19
+  br i1 %.not74.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph79.i
 
-_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit: ; preds = %.lr.ph80.i, %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
+_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit: ; preds = %.lr.ph79.i, %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
   ret void
 }
 
@@ -5680,23 +5680,23 @@ _ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i:
   %17 = tail call { ptr, ptr } %16(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %18 = extractvalue { ptr, ptr } %17, 0
   %19 = extractvalue { ptr, ptr } %17, 1
-  %.not7578.i = icmp eq ptr %18, %19
-  br i1 %.not7578.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph80.preheader.i
+  %.not7477.i = icmp eq ptr %18, %19
+  br i1 %.not7477.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph79.preheader.i
 
-.lr.ph80.preheader.i:                             ; preds = %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
+.lr.ph79.preheader.i:                             ; preds = %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
   %.sroa.0.0.copyload.pre.i = load i64, ptr %10, align 8, !tbaa !57
-  br label %.lr.ph80.i
+  br label %.lr.ph79.i
 
-.lr.ph80.i:                                       ; preds = %.lr.ph80.i, %.lr.ph80.preheader.i
-  %.sroa.0.079.i = phi ptr [ %22, %.lr.ph80.i ], [ %18, %.lr.ph80.preheader.i ]
-  %20 = load ptr, ptr %.sroa.0.079.i, align 8, !tbaa !114
+.lr.ph79.i:                                       ; preds = %.lr.ph79.i, %.lr.ph79.preheader.i
+  %.sroa.0.078.i = phi ptr [ %22, %.lr.ph79.i ], [ %18, %.lr.ph79.preheader.i ]
+  %20 = load ptr, ptr %.sroa.0.078.i, align 8, !tbaa !114
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 264
   store i64 %.sroa.0.0.copyload.pre.i, ptr %21, align 8, !tbaa !57
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.079.i, i64 8
-  %.not75.i = icmp eq ptr %22, %19
-  br i1 %.not75.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph80.i
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.078.i, i64 8
+  %.not74.i = icmp eq ptr %22, %19
+  br i1 %.not74.i, label %_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit, label %.lr.ph79.i
 
-_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit: ; preds = %.lr.ph80.i, %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
+_ZN3gmx22SelectionOptionStorage16setSelectionFlagENS_13SelectionFlagEb.exit: ; preds = %.lr.ph79.i, %_ZN3gmx13FlagsTemplateINS_13SelectionFlagEE3setES1_b.exit.i
   ret void
 }
 

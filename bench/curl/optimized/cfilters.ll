@@ -741,26 +741,26 @@ define hidden noundef zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef captures(
 
 5:                                                ; preds = %7, %4
   %.pn = phi ptr [ %0, %4 ], [ %6, %7 ]
-  %.015 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %6 = load ptr, ptr %.015, align 8, !tbaa !50
+  %.016 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
+  %6 = load ptr, ptr %.016, align 8, !tbaa !50
   %.not.not.not.not.not.not = icmp ne ptr %6, null
-  br i1 %.not.not.not.not.not.not, label %7, label %.critedge
+  br i1 %.not.not.not.not.not.not, label %7, label %11
 
 7:                                                ; preds = %5
   %8 = icmp eq ptr %6, %0
-  br i1 %8, label %9, label %5, !llvm.loop !125
+  br i1 %8, label %.thread, label %5, !llvm.loop !125
 
-9:                                                ; preds = %7
-  %.015.le = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !7
-  store ptr %11, ptr %.015.le, align 8, !tbaa !50
+.thread:                                          ; preds = %7
+  %.016.le = getelementptr inbounds nuw i8, ptr %.pn, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !7
+  store ptr %10, ptr %.016.le, align 8, !tbaa !50
   br label %12
 
-.critedge:                                        ; preds = %5
+11:                                               ; preds = %5
   br i1 %3, label %12, label %18
 
-12:                                               ; preds = %9, %.critedge
+12:                                               ; preds = %.thread, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %13, align 8, !tbaa !7
   %14 = load ptr, ptr %1, align 8, !tbaa !14
@@ -771,9 +771,9 @@ define hidden noundef zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef captures(
   tail call void %17(ptr noundef nonnull %1) #12
   br label %18
 
-18:                                               ; preds = %12, %.critedge
-  %.not.not.not25 = phi i1 [ %.not.not.not.not.not.not, %12 ], [ false, %.critedge ]
-  ret i1 %.not.not.not25
+18:                                               ; preds = %11, %12
+  %.not.not.not27 = phi i1 [ false, %11 ], [ %.not.not.not.not.not.not, %12 ]
+  ret i1 %.not.not.not27
 }
 
 ; Function Attrs: nounwind uwtable

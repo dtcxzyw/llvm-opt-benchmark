@@ -2752,7 +2752,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_119_getStringOrCopyKeyEPKcS1
   br label %62
 
 thread-pre-split:                                 ; preds = %21, %17
-  %.048 = phi ptr [ null, %17 ], [ %22, %21 ]
+  %.050 = phi ptr [ null, %17 ], [ %22, %21 ]
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %25
 
@@ -2773,13 +2773,13 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
 
 29:                                               ; preds = %15
   %30 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @_ZN12_GLOBAL__N_111_kLanguagesE, i64 noundef 9) #17
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %34, label %32
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
   %33 = tail call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #14
-  %.not53 = icmp eq i64 %33, 0
-  br i1 %.not53, label %34, label %.thread
+  %.not55 = icmp eq i64 %33, 0
+  br i1 %.not55, label %34, label %.thread
 
 .thread:                                          ; preds = %32
   store i32 2, ptr %8, align 4, !tbaa !13
@@ -2788,9 +2788,9 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
 34:                                               ; preds = %32, %29
   %35 = call ptr @uloc_getTableStringWithFallback_77(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %10, ptr noundef nonnull %8)
   %36 = load i32, ptr %8, align 4, !tbaa !13
-  %37 = icmp slt i32 %36, 1
-  %brmerge = or i1 %31, %37
-  br i1 %brmerge, label %45, label %38
+  %37 = icmp sgt i32 %36, 0
+  %or.cond = and i1 %31, %37
+  br i1 %or.cond, label %38, label %45
 
 38:                                               ; preds = %34
   store i32 0, ptr %8, align 4, !tbaa !13
@@ -2814,7 +2814,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %62
 
 thread-pre-split59:                               ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, %42
-  %.1.ph = phi ptr [ %41, %42 ], [ %.048, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit ]
+  %.1.ph = phi ptr [ %41, %42 ], [ %.050, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit ]
   %.pr = load i32, ptr %8, align 4, !tbaa !13
   br label %45
 
@@ -2829,8 +2829,8 @@ thread-pre-split59:                               ; preds = %_ZN6icu_778internal
   %50 = call i32 @uprv_min_77(i32 noundef %49, i32 noundef %7)
   %51 = icmp sgt i32 %50, 0
   %52 = icmp ne ptr %.1, null
-  %or.cond3 = select i1 %51, i1 %52, i1 false
-  br i1 %or.cond3, label %53, label %59
+  %or.cond5 = select i1 %51, i1 %52, i1 false
+  br i1 %or.cond5, label %53, label %59
 
 53:                                               ; preds = %48
   %54 = call ptr @u_memcpy_77(ptr noundef %6, ptr noundef nonnull %.1, i32 noundef %50)

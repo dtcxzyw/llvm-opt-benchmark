@@ -11765,29 +11765,29 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h9b
   %46 = load i32, ptr %9, align 8, !range !736, !alias.scope !3276, !noalias !3279, !noundef !9
   %47 = load i32, ptr %.sroa.5.0..sroa_idx2.i, align 4, !alias.scope !3276, !noalias !3279, !noundef !9
   %48 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17h9f21e16896c09799E.llvm.11830909381988143716"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %45, i32 noundef %46, i32 noundef %47)
-          to label %.noexc4.i.i unwind label %.loopexit, !noalias !3269
+          to label %.noexc5.i.i unwind label %.loopexit, !noalias !3269
 
-.noexc4.i.i:                                      ; preds = %.noexc.i.i
+.noexc5.i.i:                                      ; preds = %.noexc.i.i
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h83d04c4fd5ea29beE.exit.i.i.i"
 
-50:                                               ; preds = %.noexc4.i.i
+50:                                               ; preds = %.noexc5.i.i
   invoke void @_ZN3std9panicking11begin_panic17h0b3c1843bc139f32E(ptr noalias noundef nonnull readonly align 1 @anon.23d33c7d954b538a43596aafe1e302a5.187.llvm.11830909381988143716, i64 noundef 29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.adefa5a161298877cdfa92dc847684c4.63.llvm.8880388253394343444) #55
-          to label %.noexc5.i.i unwind label %.loopexit.split-lp, !noalias !3269
+          to label %.noexc6.i.i unwind label %.loopexit.split-lp, !noalias !3269
 
-.noexc5.i.i:                                      ; preds = %50
+.noexc6.i.i:                                      ; preds = %50
   unreachable
 
-"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h83d04c4fd5ea29beE.exit.i.i.i": ; preds = %.noexc4.i.i
+"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h83d04c4fd5ea29beE.exit.i.i.i": ; preds = %.noexc5.i.i
   %51 = load ptr, ptr %48, align 8, !noalias !3269, !nonnull !9, !align !1274, !noundef !9
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %53 = load ptr, ptr %52, align 8, !noalias !3269, !nonnull !9, !align !334, !noundef !9
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8, !invariant.load !9, !alias.scope !3281, !noalias !3269, !nonnull !9
   %56 = invoke { i64, i64 } %55(ptr noundef nonnull align 1 %51)
-          to label %.noexc6.i.i unwind label %.loopexit, !noalias !3269
+          to label %.noexc7.i.i unwind label %.loopexit, !noalias !3269
 
-.noexc6.i.i:                                      ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h83d04c4fd5ea29beE.exit.i.i.i"
+.noexc7.i.i:                                      ; preds = %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h83d04c4fd5ea29beE.exit.i.i.i"
   %57 = extractvalue { i64, i64 } %56, 0
   %58 = icmp eq i64 %57, 8736512259559809442
   %59 = extractvalue { i64, i64 } %56, 1
@@ -11795,11 +11795,11 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h9b
   %.sroa.0.0.i.i.i.i = select i1 %58, i1 %60, i1 false
   br i1 %.sroa.0.0.i.i.i.i, label %_ZN4gpui3app10entity_map9EntityMap4read17ha7a0a851490bffd3E.exit.i.i, label %61
 
-61:                                               ; preds = %.noexc6.i.i
+61:                                               ; preds = %.noexc7.i.i
   invoke void @_ZN4gpui3app10entity_map18double_lease_panic17hbb8eab47c447df57E.llvm.8880388253394343444(ptr noalias noundef nonnull readonly align 1 @anon.adefa5a161298877cdfa92dc847684c4.64.llvm.8880388253394343444, i64 noundef 4) #55
-          to label %.noexc7.i.i unwind label %.loopexit.split-lp, !noalias !3269
+          to label %.noexc8.i.i unwind label %.loopexit.split-lp, !noalias !3269
 
-.noexc7.i.i:                                      ; preds = %61
+.noexc8.i.i:                                      ; preds = %61
   unreachable
 
 .loopexit:                                        ; preds = %43, %.noexc.i.i, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h83d04c4fd5ea29beE.exit.i.i.i", %_ZN4gpui3app10entity_map9EntityMap4read17ha7a0a851490bffd3E.exit.i.i, %66, %86, %"_ZN4core3ptr101drop_in_place$LT$core..option..Option$LT$gpui..app..entity_map..Model$LT$project..Project$GT$$GT$$GT$17h79aeb3e23d76a3bcE.exit.i.i"
@@ -11817,7 +11817,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6retain17h9b
   invoke void @"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$project..Project$GT$$GT$17h769cc60ac8188cb9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #57
           to label %common.resume.i.i unwind label %141, !noalias !3269
 
-_ZN4gpui3app10entity_map9EntityMap4read17ha7a0a851490bffd3E.exit.i.i: ; preds = %.noexc6.i.i
+_ZN4gpui3app10entity_map9EntityMap4read17ha7a0a851490bffd3E.exit.i.i: ; preds = %.noexc7.i.i
   %62 = invoke { i64, i64 } @_ZN7project7Project9remote_id17he5ed023f95699a79E(ptr noalias noundef nonnull readonly align 8 dereferenceable(696) %51)
           to label %63 unwind label %.loopexit, !noalias !3269
 
@@ -11858,19 +11858,19 @@ _ZN4gpui3app10entity_map9EntityMap4read17ha7a0a851490bffd3E.exit.i.i: ; preds = 
   call void @llvm.experimental.noalias.scope.decl(metadata !3295)
   %77 = load ptr, ptr %24, align 8, !alias.scope !3298, !noalias !3272, !nonnull !9, !noundef !9
   %78 = icmp eq ptr %77, inttoptr (i64 -1 to ptr)
-  br i1 %78, label %.thread15.i.i, label %79
+  br i1 %78, label %.thread16.i.i, label %79
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %81 = atomicrmw sub ptr %80, i64 1 release, align 8, !noalias !3303
   %82 = icmp eq i64 %81, 1
-  br i1 %82, label %83, label %.thread15.i.i
+  br i1 %82, label %83, label %.thread16.i.i
 
 83:                                               ; preds = %79
   fence acquire
   %84 = load ptr, ptr %24, align 8, !alias.scope !3298, !noalias !3272, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %84, i64 noundef 80, i64 noundef 8) #58, !noalias !3303
-  br label %.thread15.i.i
+  br label %.thread16.i.i
 
 common.resume.sink.split.i.i:                     ; preds = %72, %128
   %common.resume.op.ph.i.i = phi { ptr, i32 } [ %125, %128 ], [ %69, %72 ]
@@ -11883,7 +11883,7 @@ common.resume.i.i:                                ; preds = %128, %124, %common.
   %common.resume.op.i.i = phi { ptr, i32 } [ %69, %72 ], [ %69, %68 ], [ %125, %128 ], [ %125, %124 ], [ %eh.lpad-body.i.i, %.body.i.i ], [ %common.resume.op.ph.i.i, %common.resume.sink.split.i.i ]
   resume { ptr, i32 } %common.resume.op.i.i
 
-.thread15.i.i:                                    ; preds = %83, %79, %76
+.thread16.i.i:                                    ; preds = %83, %79, %76
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !3272
   br label %143
 
@@ -12030,7 +12030,7 @@ common.resume.i.i:                                ; preds = %128, %124, %common.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !3272
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5erase17haadd9277d25d0c99E.exit"
 
-143:                                              ; preds = %.thread.i.i, %.thread15.i.i
+143:                                              ; preds = %.thread.i.i, %.thread16.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !3352)
   %144 = load ptr, ptr %0, align 8, !alias.scope !3355, !noalias !3358, !nonnull !9, !noundef !9
   %145 = ptrtoint ptr %144 to i64

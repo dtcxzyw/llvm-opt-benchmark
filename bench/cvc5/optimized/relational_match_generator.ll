@@ -464,18 +464,18 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit123: ; preds = %_ZN4cvc58internal1
 
 .noexc124:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit123
   %191 = load i8, ptr %7, align 8, !tbaa !139, !range !147, !noundef !148
-  %.mux.i.not.i.i.i = icmp eq i8 %191, 0
-  br i1 %.mux.i.not.i.i.i, label %192, label %197
+  %192 = trunc nuw i8 %191 to i1
+  br i1 %192, label %197, label %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i
 
-192:                                              ; preds = %.noexc124
+_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i: ; preds = %.noexc124
   %193 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %194 = load ptr, ptr %193, align 8, !tbaa !149, !noalias !150
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = load i64, ptr %195, align 8, !tbaa !138, !noalias !153
   br label %197
 
-197:                                              ; preds = %192, %.noexc124
-  %.0.i.i.i = phi i64 [ %196, %192 ], [ 0, %.noexc124 ]
+197:                                              ; preds = %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i, %.noexc124
+  %.0.i.i.i = phi i64 [ %196, %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i ], [ 0, %.noexc124 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #21
   store i64 %.0.i.i.i, ptr %56, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #21

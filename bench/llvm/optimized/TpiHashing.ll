@@ -814,12 +814,12 @@ define internal fastcc noundef i32 @_ZL13getHashForUdtRKN4llvm8codeview9TagRecor
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i16, ptr %4, align 4, !tbaa !21
   %6 = and i16 %5, 512
-  %.not23 = icmp eq i16 %6, 0
-  br i1 %.not23, label %_ZL11isAnonymousN4llvm9StringRefE.exit, label %7
+  %7 = icmp eq i16 %6, 0
+  br i1 %7, label %_ZL11isAnonymousN4llvm9StringRefE.exit, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !31
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !32
   switch i64 %.sroa.2.0.copyload.i, label %_ZN4llvmeqENS_9StringRefES0_.exit6.thread26.i [
@@ -827,73 +827,73 @@ define internal fastcc noundef i32 @_ZL13getHashForUdtRKN4llvm8codeview9TagRecor
     i64 9, label %_ZN4llvmeqENS_9StringRefES0_.exit6.i
   ]
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %7
+_ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %8
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(13) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(13) @.str.1, i64 13)
-  %9 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %9, label %.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i
+  %10 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %10, label %.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i
 
-_ZN4llvmeqENS_9StringRefES0_.exit6.i:             ; preds = %7
+_ZN4llvmeqENS_9StringRefES0_.exit6.i:             ; preds = %8
   %bcmp.i5.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(9) @.str.2, i64 9)
-  %10 = icmp eq i32 %bcmp.i5.i, 0
+  %11 = icmp eq i32 %bcmp.i5.i, 0
   br label %_ZL11isAnonymousN4llvm9StringRefE.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit6.thread26.i:    ; preds = %7
+_ZN4llvmeqENS_9StringRefES0_.exit6.thread26.i:    ; preds = %8
   %.not.i7.i = icmp ult i64 %.sroa.2.0.copyload.i, 15
   br i1 %.not.i7.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit6.thread26.i
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
-  %12 = getelementptr inbounds i8, ptr %11, i64 -15
-  %bcmp.i8.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) %12, ptr noundef nonnull dereferenceable(15) @.str.3, i64 15)
-  %13 = icmp eq i32 %bcmp.i8.i, 0
-  br i1 %13, label %.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %13 = getelementptr inbounds i8, ptr %12, i64 -15
+  %bcmp.i8.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(15) %13, ptr noundef nonnull dereferenceable(15) @.str.3, i64 15)
+  %14 = icmp eq i32 %bcmp.i8.i, 0
+  br i1 %14, label %.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread28.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit6.thread26.i
   %.not.i9.i = icmp samesign ult i64 %.sroa.2.0.copyload.i, 11
   br i1 %.not.i9.i, label %_ZL11isAnonymousN4llvm9StringRefE.exit, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
-  %15 = getelementptr inbounds i8, ptr %14, i64 -11
-  %bcmp.i10.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %15, ptr noundef nonnull dereferenceable(11) @.str.4, i64 11)
-  %16 = icmp eq i32 %bcmp.i10.i, 0
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %16 = getelementptr inbounds i8, ptr %15, i64 -11
+  %bcmp.i10.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %16, ptr noundef nonnull dereferenceable(11) @.str.4, i64 11)
+  %17 = icmp eq i32 %bcmp.i10.i, 0
   br label %_ZL11isAnonymousN4llvm9StringRefE.exit
 
 _ZL11isAnonymousN4llvm9StringRefE.exit:           ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.i, %_ZN4llvmeqENS_9StringRefES0_.exit6.i, %3
-  %17 = phi i1 [ false, %3 ], [ false, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.i ], [ %16, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i ], [ %10, %_ZN4llvmeqENS_9StringRefES0_.exit6.i ]
-  %18 = and i16 %5, 384
-  %brmerge = icmp ne i16 %18, 0
-  %brmerge24 = or i1 %brmerge, %17
-  br i1 %brmerge24, label %22, label %19
+  %18 = phi i1 [ false, %3 ], [ false, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.i ], [ %17, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread28.thread.i ], [ %11, %_ZN4llvmeqENS_9StringRefES0_.exit6.i ]
+  %19 = and i16 %5, 384
+  %or.cond = icmp ne i16 %19, 0
+  %or.cond3 = or i1 %or.cond, %18
+  br i1 %or.cond3, label %23, label %20
 
-19:                                               ; preds = %_ZL11isAnonymousN4llvm9StringRefE.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.copyload.i28 = load ptr, ptr %20, align 8, !tbaa !31
-  %.sroa.2.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.2.0.copyload.i30 = load i64, ptr %.sroa.2.0..sroa_idx.i29, align 8, !tbaa !32
-  %21 = tail call noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr %.sroa.0.0.copyload.i28, i64 %.sroa.2.0.copyload.i30) #13
-  br label %28
+20:                                               ; preds = %_ZL11isAnonymousN4llvm9StringRefE.exit
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.0.copyload.i31 = load ptr, ptr %21, align 8, !tbaa !31
+  %.sroa.2.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.2.0.copyload.i33 = load i64, ptr %.sroa.2.0..sroa_idx.i32, align 8, !tbaa !32
+  %22 = tail call noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr %.sroa.0.0.copyload.i31, i64 %.sroa.2.0.copyload.i33) #13
+  br label %29
 
-22:                                               ; preds = %_ZL11isAnonymousN4llvm9StringRefE.exit
-  %23 = and i16 %5, 640
-  %brmerge26 = icmp ne i16 %23, 512
-  %brmerge27 = or i1 %brmerge26, %17
-  br i1 %brmerge27, label %.thread, label %24
+23:                                               ; preds = %_ZL11isAnonymousN4llvm9StringRefE.exit
+  %24 = and i16 %5, 640
+  %or.cond5.not30 = icmp ne i16 %24, 512
+  %or.cond7 = or i1 %or.cond5.not30, %18
+  br i1 %or.cond7, label %.thread, label %25
 
-24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.0.0.copyload.i33 = load ptr, ptr %25, align 8, !tbaa !31
-  %.sroa.2.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.2.0.copyload.i35 = load i64, ptr %.sroa.2.0..sroa_idx.i34, align 8, !tbaa !32
-  %26 = tail call noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr %.sroa.0.0.copyload.i33, i64 %.sroa.2.0.copyload.i35) #13
-  br label %28
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.0.0.copyload.i36 = load ptr, ptr %26, align 8, !tbaa !31
+  %.sroa.2.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.2.0.copyload.i38 = load i64, ptr %.sroa.2.0..sroa_idx.i37, align 8, !tbaa !32
+  %27 = tail call noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr %.sroa.0.0.copyload.i36, i64 %.sroa.2.0.copyload.i38) #13
+  br label %29
 
-.thread:                                          ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %22
-  %27 = tail call noundef i32 @_ZN4llvm3pdb12hashBufferV8ENS_8ArrayRefIhEE(ptr %1, i64 %2) #13
-  br label %28
+.thread:                                          ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %23
+  %28 = tail call noundef i32 @_ZN4llvm3pdb12hashBufferV8ENS_8ArrayRefIhEE(ptr %1, i64 %2) #13
+  br label %29
 
-28:                                               ; preds = %.thread, %24, %19
-  %.0 = phi i32 [ %27, %.thread ], [ %26, %24 ], [ %21, %19 ]
+29:                                               ; preds = %.thread, %25, %20
+  %.0 = phi i32 [ %28, %.thread ], [ %27, %25 ], [ %22, %20 ]
   ret i32 %.0
 }
 

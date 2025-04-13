@@ -3759,8 +3759,8 @@ define void @"_ZN65_$LT$markup5ever_rcdom..Node$u20$as$u20$core..ops..drop..Drop
   %69 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %70 = load ptr, ptr %69, align 8, !noundef !4
   store ptr null, ptr %69, align 8
-  %.not20 = icmp eq ptr %70, null
-  br i1 %.not20, label %91, label %72
+  %.not21 = icmp eq ptr %70, null
+  br i1 %.not21, label %91, label %72
 
 71:                                               ; preds = %54
   invoke void @_ZN4core4cell22panic_already_borrowed17h3ef59d0d58797532E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.145d26ab9438a7fa9329688a3d201f86.6) #26

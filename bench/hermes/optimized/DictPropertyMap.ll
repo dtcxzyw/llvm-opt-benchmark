@@ -547,27 +547,25 @@ if.end39:                                         ; preds = %_ZNK6hermes2vm15Dic
   %add.ptr.i.i.i82 = getelementptr inbounds nuw i8, ptr %self.0, i64 28
   %idx.ext = zext i32 %numDescriptors.0 to i64
   %add.ptr = getelementptr inbounds nuw %"struct.std::pair", ptr %add.ptr.i.i.i82, i64 %idx.ext
-  %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %23 = load ptr, ptr %youngGen_.i.i.i, align 8
   %24 = ptrtoint ptr %add.ptr to i64
   %and.i.i.i.i = and i64 %24, -4194304
   %25 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i83 = icmp eq ptr %23, %25
-  br i1 %cmp.i.i.i83, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit, label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %if.end39
+  %cmp.i.i.i83 = icmp ne ptr %23, %25
   %ogMarkingBarriers_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
   %26 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
   %tobool.i.i = trunc i8 %26 to i1
-  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit
+  %or.cond.i.i = select i1 %cmp.i.i.i83, i1 %tobool.i.i, i1 false
+  br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit
 
-if.then.i.i:                                      ; preds = %land.rhs.i.i
+if.then.i.i:                                      ; preds = %if.end39
+  %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %add.ptr, align 4
   tail call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i32 %agg.tmp.sroa.0.0.copyload.i.i) #9
   br label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit
 
-_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit: ; preds = %if.end39, %land.rhs.i.i, %if.then.i.i
+_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit: ; preds = %if.end39, %if.then.i.i
   store i32 %id.coerce, ptr %add.ptr, align 4
   %numDescriptors_55 = getelementptr inbounds nuw i8, ptr %self.0, i64 12
   %27 = atomicrmw add ptr %numDescriptors_55, i32 1 acq_rel, align 4
@@ -608,27 +606,25 @@ entry:
   %bf.clear.i = and i32 %bf.load.i, 255
   %bf.set.i = or disjoint i32 %bf.clear.i, 256
   store i32 %bf.set.i, ptr %add.ptr, align 4
-  %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %1 = load ptr, ptr %youngGen_.i.i.i, align 8
   %2 = ptrtoint ptr %add.ptr4 to i64
   %and.i.i.i.i = and i64 %2, -4194304
   %3 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i = icmp eq ptr %1, %3
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit, label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %entry
+  %cmp.i.i.i = icmp ne ptr %1, %3
   %ogMarkingBarriers_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
   %4 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
   %tobool.i.i = trunc i8 %4 to i1
-  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit
+  %or.cond.i.i = select i1 %cmp.i.i.i, i1 %tobool.i.i, i1 false
+  br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit
 
-if.then.i.i:                                      ; preds = %land.rhs.i.i
+if.then.i.i:                                      ; preds = %entry
+  %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %add.ptr4, align 4
   tail call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i32 %agg.tmp.sroa.0.0.copyload.i.i) #9
   br label %_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit
 
-_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit: ; preds = %entry, %land.rhs.i.i, %if.then.i.i
+_ZN6hermes2vm10GCSymbolID3setENS0_8SymbolIDERNS0_7HadesGCE.exit: ; preds = %entry, %if.then.i.i
   store i32 536870910, ptr %add.ptr4, align 4
   %deletedListHead_ = getelementptr inbounds nuw i8, ptr %self, i64 20
   %5 = load i32, ptr %deletedListHead_, align 4

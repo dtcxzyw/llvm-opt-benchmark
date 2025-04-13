@@ -1301,32 +1301,32 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   br label %29
 
 29:                                               ; preds = %26, %15
-  %.0114 = phi ptr [ null, %26 ], [ %21, %15 ]
-  %.0113 = phi i32 [ 16, %26 ], [ %19, %15 ]
-  %.0116 = add i16 %3, 4
+  %.0120 = phi ptr [ null, %26 ], [ %21, %15 ]
+  %.0119 = phi i32 [ 16, %26 ], [ %19, %15 ]
+  %.0122 = add i16 %3, 4
   %30 = zext nneg i8 %11 to i32
-  %.not140 = icmp eq i8 %11, 0
-  br i1 %.not140, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i8 %11, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %6
   %31 = load i32, ptr @hf_mausb_mgmt_ep_handle_num, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %9, i32 noundef 1, i32 noundef -2147483648)
   %33 = load i32, ptr @hf_mausb_mgmt_ep_handle_pad, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef %9, i32 noundef 4, i32 noundef 0)
-  %.0116154 = add i16 %3, 4
+  %.0122157 = add i16 %3, 4
   %35 = zext nneg i8 %11 to i32
-  %.not140155 = icmp eq i8 %11, 0
-  br i1 %.not140155, label %._crit_edge, label %.lr.ph.split.us
+  %.not158 = icmp eq i8 %11, 0
+  br i1 %.not158, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph:                                           ; preds = %29
-  %36 = icmp samesign ugt i32 %.0113, 16
-  %37 = trunc nuw nsw i32 %.0113 to i16
+  %36 = icmp samesign ugt i32 %.0119, 16
+  %37 = trunc nuw nsw i32 %.0119 to i16
   br i1 %4, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.us:                                  ; preds = %.thread, %.lr.ph.split.us
-  %.0131.us = phi i32 [ %52, %.lr.ph.split.us ], [ 0, %.thread ]
-  %.1130.us = phi i16 [ %51, %.lr.ph.split.us ], [ %.0116154, %.thread ]
-  %38 = zext i16 %.1130.us to i32
+  %.0135.us = phi i32 [ %52, %.lr.ph.split.us ], [ 0, %.thread ]
+  %.1134.us = phi i16 [ %51, %.lr.ph.split.us ], [ %.0122157, %.thread ]
+  %38 = zext i16 %.1134.us to i32
   %39 = load i32, ptr @hf_mausb_ep_handle, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648)
   %41 = load i32, ptr @ett_mausb_ep_handle, align 4
@@ -1339,35 +1339,35 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %47, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648)
   %49 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %49, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648)
-  %51 = add i16 %.1130.us, 2
-  %52 = add nuw nsw i32 %.0131.us, 1
-  %exitcond150.not = icmp eq i32 %52, %35
-  br i1 %exitcond150.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+  %51 = add i16 %.1134.us, 2
+  %52 = add nuw nsw i32 %.0135.us, 1
+  %exitcond153.not = icmp eq i32 %52, %35
+  br i1 %exitcond153.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
-  %53 = icmp samesign ugt i32 %.0113, 8
+  %53 = icmp samesign ugt i32 %.0119, 8
   br i1 %53, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split.preheader
 
 .lr.ph.split.split.us.split.preheader:            ; preds = %.lr.ph.split.split.us
-  %.not.us135.not = icmp eq i32 %.0113, 8
+  %.not124.us139.not = icmp eq i32 %.0119, 8
   br label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %78
-  %.0131.us132.us = phi i32 [ %79, %78 ], [ 0, %.lr.ph.split.split.us ]
-  %.1130.us133.us = phi i16 [ %75, %78 ], [ %.0116, %.lr.ph.split.split.us ]
-  %54 = zext i16 %.1130.us133.us to i32
+  %.0135.us136.us = phi i32 [ %79, %78 ], [ 0, %.lr.ph.split.split.us ]
+  %.1134.us137.us = phi i16 [ %75, %78 ], [ %.0122, %.lr.ph.split.split.us ]
+  %54 = zext i16 %.1134.us137.us to i32
   %55 = call i32 @dissect_usb_endpoint_descriptor(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %54, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
-  %56 = add i16 %.1130.us133.us, 7
+  %56 = add i16 %.1134.us137.us, 7
   %57 = zext i16 %56 to i32
   %58 = call i32 @dissect_usb_unknown_descriptor(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %57, ptr noundef nonnull %7)
-  %59 = add i16 %.1130.us133.us, 13
+  %59 = add i16 %.1134.us137.us, 13
   br i1 %36, label %65, label %60
 
 60:                                               ; preds = %.lr.ph.split.split.us.split.us
   %61 = load i32, ptr @hf_mausb_ep_handle_req_pad, align 4
   %62 = zext i16 %59 to i32
   %63 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %61, ptr noundef %1, i32 noundef %62, i32 noundef 3, i32 noundef 0)
-  %64 = add i16 %.1130.us133.us, 16
+  %64 = add i16 %.1134.us137.us, 16
   br label %74
 
 65:                                               ; preds = %.lr.ph.split.split.us.split.us
@@ -1382,45 +1382,45 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   br label %74
 
 74:                                               ; preds = %65, %60
-  %.0115.us134.us = phi i16 [ %73, %65 ], [ %64, %60 ]
-  %75 = add i16 %.1130.us133.us, %37
-  %.not.us135.us.not = icmp eq i16 %.0115.us134.us, %75
-  br i1 %.not.us135.us.not, label %78, label %76
+  %.0121.us138.us = phi i16 [ %73, %65 ], [ %64, %60 ]
+  %75 = add i16 %.1134.us137.us, %37
+  %.not124.us139.us.not = icmp eq i16 %.0121.us138.us, %75
+  br i1 %.not124.us139.us.not, label %78, label %76
 
 76:                                               ; preds = %74
-  %77 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %.0114, ptr noundef nonnull @ei_ep_handle_len)
+  %77 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %.0120, ptr noundef nonnull @ei_ep_handle_len)
   br label %78
 
 78:                                               ; preds = %76, %74
-  %79 = add nuw nsw i32 %.0131.us132.us, 1
-  %exitcond149.not = icmp eq i32 %79, %30
-  br i1 %exitcond149.not, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !8
+  %79 = add nuw nsw i32 %.0135.us136.us, 1
+  %exitcond152.not = icmp eq i32 %79, %30
+  br i1 %exitcond152.not, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !8
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %89
-  %.0131.us132 = phi i32 [ %90, %89 ], [ 0, %.lr.ph.split.split.us.split.preheader ]
-  %.1130.us133 = phi i16 [ %86, %89 ], [ %.0116, %.lr.ph.split.split.us.split.preheader ]
-  %80 = zext i16 %.1130.us133 to i32
+  %.0135.us136 = phi i32 [ %90, %89 ], [ 0, %.lr.ph.split.split.us.split.preheader ]
+  %.1134.us137 = phi i16 [ %86, %89 ], [ %.0122, %.lr.ph.split.split.us.split.preheader ]
+  %80 = zext i16 %.1134.us137 to i32
   %81 = call i32 @dissect_usb_endpoint_descriptor(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
-  %82 = add i16 %.1130.us133, 7
+  %82 = add i16 %.1134.us137, 7
   %83 = load i32, ptr @hf_mausb_ep_handle_req_pad, align 4
   %84 = zext i16 %82 to i32
   %85 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %83, ptr noundef %1, i32 noundef %84, i32 noundef 1, i32 noundef 0)
-  %86 = add i16 %.1130.us133, %37
-  br i1 %.not.us135.not, label %89, label %87
+  %86 = add i16 %.1134.us137, %37
+  br i1 %.not124.us139.not, label %89, label %87
 
 87:                                               ; preds = %.lr.ph.split.split.us.split
-  %88 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %.0114, ptr noundef nonnull @ei_ep_handle_len)
+  %88 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %.0120, ptr noundef nonnull @ei_ep_handle_len)
   br label %89
 
 89:                                               ; preds = %87, %.lr.ph.split.split.us.split
-  %90 = add nuw nsw i32 %.0131.us132, 1
-  %exitcond148.not = icmp eq i32 %90, %30
-  br i1 %exitcond148.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !8
+  %90 = add nuw nsw i32 %.0135.us136, 1
+  %exitcond151.not = icmp eq i32 %90, %30
+  br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !8
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %.lr.ph.split.split
-  %.0131 = phi i32 [ %131, %.lr.ph.split.split ], [ 0, %.lr.ph ]
-  %.1130 = phi i16 [ %130, %.lr.ph.split.split ], [ %.0116, %.lr.ph ]
-  %91 = zext i16 %.1130 to i32
+  %.0135 = phi i32 [ %131, %.lr.ph.split.split ], [ 0, %.lr.ph ]
+  %.1134 = phi i16 [ %130, %.lr.ph.split.split ], [ %.0122, %.lr.ph ]
+  %91 = zext i16 %.1134 to i32
   %92 = load i32, ptr @hf_mausb_ep_handle, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %92, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %91, i32 noundef 2, i32 noundef -2147483648)
   %94 = load i32, ptr @ett_mausb_ep_handle, align 4
@@ -1433,7 +1433,7 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %100, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %91, i32 noundef 2, i32 noundef -2147483648)
   %102 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
   %103 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %102, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %91, i32 noundef 2, i32 noundef -2147483648)
-  %104 = add i16 %.1130, 2
+  %104 = add i16 %.1134, 2
   %105 = load i32, ptr @hf_mausb_ep_handle_resp_dir, align 4
   %106 = zext i16 %104 to i32
   %107 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %105, ptr noundef %1, i32 noundef %106, i32 noundef 1, i32 noundef -2147483648)
@@ -1443,29 +1443,29 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %110, ptr noundef %1, i32 noundef %106, i32 noundef 1, i32 noundef -2147483648)
   %112 = load i32, ptr @hf_mausb_ep_handle_resp_valid, align 4
   %113 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %112, ptr noundef %1, i32 noundef %106, i32 noundef 1, i32 noundef -2147483648)
-  %114 = add i16 %.1130, 4
+  %114 = add i16 %.1134, 4
   %115 = load i32, ptr @hf_mausb_ep_handle_resp_ccu, align 4
   %116 = zext i16 %114 to i32
   %117 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %115, ptr noundef %1, i32 noundef %116, i32 noundef 2, i32 noundef -2147483648)
-  %118 = add i16 %.1130, 8
+  %118 = add i16 %.1134, 8
   %119 = load i32, ptr @hf_mausb_ep_handle_resp_buf_size, align 4
   %120 = zext i16 %118 to i32
   %121 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %119, ptr noundef %1, i32 noundef %120, i32 noundef 4, i32 noundef -2147483648)
-  %122 = add i16 %.1130, 12
+  %122 = add i16 %.1134, 12
   %123 = load i32, ptr @hf_mausb_ep_handle_resp_iso_prog_dly, align 4
   %124 = zext i16 %122 to i32
   %125 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %123, ptr noundef %1, i32 noundef %124, i32 noundef 2, i32 noundef -2147483648)
-  %126 = add i16 %.1130, 14
+  %126 = add i16 %.1134, 14
   %127 = load i32, ptr @hf_mausb_ep_handle_resp_iso_resp_dly, align 4
   %128 = zext i16 %126 to i32
   %129 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %127, ptr noundef %1, i32 noundef %128, i32 noundef 2, i32 noundef -2147483648)
-  %130 = add i16 %.1130, %37
-  %131 = add nuw nsw i32 %.0131, 1
+  %130 = add i16 %.1134, %37
+  %131 = add nuw nsw i32 %.0135, 1
   %exitcond.not = icmp eq i32 %131, %30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %89, %78, %.lr.ph.split.us, %.thread, %29
-  %.1.lcssa = phi i16 [ %.0116, %29 ], [ %.0116154, %.thread ], [ %51, %.lr.ph.split.us ], [ %75, %78 ], [ %86, %89 ], [ %130, %.lr.ph.split.split ]
+  %.1.lcssa = phi i16 [ %.0122, %29 ], [ %.0122157, %.thread ], [ %51, %.lr.ph.split.us ], [ %75, %78 ], [ %86, %89 ], [ %130, %.lr.ph.split.split ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #7
   ret i16 %.1.lcssa

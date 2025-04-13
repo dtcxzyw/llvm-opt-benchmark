@@ -1760,11 +1760,11 @@ _ZNK5arrow3ipc7Message8metadataEv.exit31:         ; preds = %_ZNSt12__shared_ptr
 
 103:                                              ; preds = %97
   %104 = atomicrmw volatile add ptr %98, i32 1 acq_rel, align 4, !noalias !121
-  %.pre71 = load ptr, ptr %4, align 8, !tbaa !9
+  %.pre68 = load ptr, ptr %4, align 8, !tbaa !9
   br label %_ZNK5arrow3ipc7Message8metadataEv.exit34
 
 _ZNK5arrow3ipc7Message8metadataEv.exit34:         ; preds = %103, %100, %_ZNK5arrow3ipc7Message8metadataEv.exit31
-  %105 = phi ptr [ %.pre71, %103 ], [ %93, %100 ], [ %93, %_ZNK5arrow3ipc7Message8metadataEv.exit31 ]
+  %105 = phi ptr [ %.pre68, %103 ], [ %93, %100 ], [ %93, %_ZNK5arrow3ipc7Message8metadataEv.exit31 ]
   %106 = invoke noundef zeroext i1 @_ZNK5arrow6Buffer6EqualsERKS0_l(ptr noundef nonnull align 8 dereferenceable(80) %91, ptr noundef nonnull align 8 dereferenceable(80) %105, i64 noundef %.sroa.speculated65)
           to label %107 unwind label %152
 
@@ -1944,8 +1944,8 @@ _ZNK5arrow3ipc7Message4bodyEv.exit:               ; preds = %154, %164, %167
 
 _ZNK5arrow3ipc7Message4bodyEv.exit49:             ; preds = %181, %178, %_ZNK5arrow3ipc7Message4bodyEv.exit
   %183 = load ptr, ptr %5, align 8, !tbaa !9
-  %.not69 = icmp eq ptr %183, null
-  br i1 %.not69, label %188, label %184
+  %.not = icmp eq ptr %183, null
+  br i1 %.not, label %188, label %184
 
 184:                                              ; preds = %_ZNK5arrow3ipc7Message4bodyEv.exit49
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 24
@@ -1956,15 +1956,15 @@ _ZNK5arrow3ipc7Message4bodyEv.exit49:             ; preds = %181, %178, %_ZNK5ar
 188:                                              ; preds = %184, %_ZNK5arrow3ipc7Message4bodyEv.exit49
   %189 = phi i1 [ false, %_ZNK5arrow3ipc7Message4bodyEv.exit49 ], [ %187, %184 ]
   %190 = load ptr, ptr %6, align 8, !tbaa !9
-  %.not70 = icmp eq ptr %190, null
-  br i1 %.not70, label %.thread, label %191
+  %.not67 = icmp eq ptr %190, null
+  br i1 %.not67, label %.thread, label %191
 
 191:                                              ; preds = %188
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 24
   %193 = load i64, ptr %192, align 8, !tbaa !54
   %194 = icmp sgt i64 %193, 0
-  %brmerge.demorgan = and i1 %189, %194
-  br i1 %brmerge.demorgan, label %195, label %.thread
+  %or.cond = and i1 %189, %194
+  br i1 %or.cond, label %195, label %.thread
 
 195:                                              ; preds = %191
   %196 = invoke noundef zeroext i1 @_ZNK5arrow6Buffer6EqualsERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %183, ptr noundef nonnull align 8 dereferenceable(80) %190)
@@ -2094,8 +2094,8 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit59: ; 
   ret i1 %.0
 
 247:                                              ; preds = %197, %152
-  %.pn17.pn = phi { ptr, i32 } [ %198, %197 ], [ %153, %152 ]
-  resume { ptr, i32 } %.pn17.pn
+  %.pn18.pn = phi { ptr, i32 } [ %198, %197 ], [ %153, %152 ]
+  resume { ptr, i32 } %.pn18.pn
 }
 
 declare noundef zeroext i1 @_ZNK5arrow6Buffer6EqualsERKS0_l(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(80), i64 noundef) local_unnamed_addr #8

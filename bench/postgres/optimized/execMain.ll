@@ -2311,8 +2311,8 @@ define dso_local zeroext i1 @ExecPartitionCheck(ptr noundef %0, ptr noundef %1, 
 16:                                               ; preds = %8, %4
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %19, label %21
+  %.not20 = icmp eq ptr %18, null
+  br i1 %.not20, label %19, label %21
 
 19:                                               ; preds = %16
   %20 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %2) #9
@@ -2324,9 +2324,9 @@ define dso_local zeroext i1 @ExecPartitionCheck(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %23, align 8
   %24 = load ptr, ptr %5, align 8
   %25 = tail call zeroext i1 @ExecCheck(ptr noundef %24, ptr noundef %22) #9
-  %.not19 = xor i1 %3, true
-  %brmerge = or i1 %25, %.not19
-  br i1 %brmerge, label %27, label %26
+  %.not = xor i1 %25, true
+  %or.cond = and i1 %3, %.not
+  br i1 %or.cond, label %26, label %27
 
 26:                                               ; preds = %21
   tail call void @ExecPartitionCheckEmitError(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2)
@@ -2450,7 +2450,7 @@ define dso_local ptr @ExecBuildSlotValueDescription(i32 noundef %0, ptr noundef 
   br label %16
 
 16:                                               ; preds = %12, %15
-  %.042 = phi i8 [ 0, %15 ], [ 1, %12 ]
+  %.044 = phi i8 [ 0, %15 ], [ 1, %12 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 8
@@ -2471,7 +2471,7 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %slot_getallattrs.exit
-  %27 = trunc nuw i8 %.042 to i1
+  %27 = trunc nuw i8 %.044 to i1
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %30
@@ -2479,9 +2479,9 @@ slot_getallattrs.exit:                            ; preds = %16, %24
 30:                                               ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
   %31 = phi i32 [ %25, %.lr.ph ], [ %78, %77 ]
-  %.166 = phi i8 [ %.042, %.lr.ph ], [ %.2, %77 ]
-  %.04564 = phi i1 [ false, %.lr.ph ], [ %.146, %77 ]
-  %.04963 = phi i1 [ false, %.lr.ph ], [ %.150, %77 ]
+  %.168 = phi i8 [ %.044, %.lr.ph ], [ %.2, %77 ]
+  %.04766 = phi i1 [ false, %.lr.ph ], [ %.148, %77 ]
+  %.05165 = phi i1 [ false, %.lr.ph ], [ %.152, %77 ]
   %32 = sext i32 %31 to i64
   %33 = shl nsw i64 %32, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %33
@@ -2508,7 +2508,7 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   br i1 %or.cond, label %49, label %77
 
 49:                                               ; preds = %39
-  br i1 %.04564, label %50, label %51
+  br i1 %.04766, label %50, label %51
 
 50:                                               ; preds = %49
   call void @appendStringInfoString(ptr noundef nonnull %7, ptr noundef nonnull @.str.26) #9
@@ -2519,9 +2519,9 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   call void @appendStringInfoString(ptr noundef nonnull %7, ptr noundef nonnull %52) #9
   br label %.thread
 
-.thread:                                          ; preds = %51, %38
-  %.362 = phi i8 [ 1, %51 ], [ %.166, %38 ]
-  %.24761 = phi i1 [ true, %51 ], [ %.04564, %38 ]
+.thread:                                          ; preds = %38, %51
+  %.364 = phi i8 [ 1, %51 ], [ %.168, %38 ]
+  %.24963 = phi i1 [ true, %51 ], [ %.04766, %38 ]
   %53 = getelementptr inbounds nuw i8, ptr %34, i64 90
   %54 = load i8, ptr %53, align 2
   %55 = icmp eq i8 %54, 118
@@ -2550,33 +2550,33 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   br label %69
 
 69:                                               ; preds = %56, %.thread, %61
-  %.040 = phi ptr [ %68, %61 ], [ @.str.27, %.thread ], [ @.str.28, %56 ]
-  br i1 %.04963, label %70, label %71
+  %.042 = phi ptr [ %68, %61 ], [ @.str.27, %.thread ], [ @.str.28, %56 ]
+  br i1 %.05165, label %70, label %71
 
 70:                                               ; preds = %69
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.26) #9
   br label %71
 
 71:                                               ; preds = %69, %70
-  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.040) #11
+  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.042) #11
   %73 = trunc i64 %72 to i32
-  %.not56 = icmp slt i32 %4, %73
-  br i1 %.not56, label %75, label %74
+  %.not58 = icmp slt i32 %4, %73
+  br i1 %.not58, label %75, label %74
 
 74:                                               ; preds = %71
-  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.040, i32 noundef %73) #9
+  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.042, i32 noundef %73) #9
   br label %77
 
 75:                                               ; preds = %71
-  %76 = call i32 @pg_mbcliplen(ptr noundef nonnull %.040, i32 noundef %73, i32 noundef %4) #9
-  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.040, i32 noundef %76) #9
+  %76 = call i32 @pg_mbcliplen(ptr noundef nonnull %.042, i32 noundef %73, i32 noundef %4) #9
+  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.042, i32 noundef %76) #9
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.29) #9
   br label %77
 
 77:                                               ; preds = %39, %75, %74, %30
-  %.150 = phi i1 [ %.04963, %30 ], [ true, %74 ], [ true, %75 ], [ %.04963, %39 ]
-  %.146 = phi i1 [ %.04564, %30 ], [ %.24761, %74 ], [ %.24761, %75 ], [ %.04564, %39 ]
-  %.2 = phi i8 [ %.166, %30 ], [ %.362, %74 ], [ %.362, %75 ], [ %.166, %39 ]
+  %.152 = phi i1 [ %.05165, %30 ], [ true, %74 ], [ true, %75 ], [ %.05165, %39 ]
+  %.148 = phi i1 [ %.04766, %30 ], [ %.24963, %74 ], [ %.24963, %75 ], [ %.04766, %39 ]
+  %.2 = phi i8 [ %.168, %30 ], [ %.364, %74 ], [ %.364, %75 ], [ %.168, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = load i32, ptr %2, align 8
   %79 = sext i32 %78 to i64
@@ -2584,13 +2584,13 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   br i1 %80, label %30, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %77, %slot_getallattrs.exit
-  %.1.lcssa = phi i8 [ %.042, %slot_getallattrs.exit ], [ %.2, %77 ]
+  %.1.lcssa = phi i8 [ %.044, %slot_getallattrs.exit ], [ %.2, %77 ]
   %81 = trunc nuw i8 %.1.lcssa to i1
   br i1 %81, label %82, label %91
 
 82:                                               ; preds = %._crit_edge
   call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 41) #9
-  %83 = trunc nuw i8 %.042 to i1
+  %83 = trunc nuw i8 %.044 to i1
   br i1 %83, label %89, label %84
 
 84:                                               ; preds = %82

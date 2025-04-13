@@ -2797,9 +2797,9 @@ define internal fastcc void @dom_node_replace_child(ptr noundef readonly capture
   %67 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %68 = load ptr, ptr %67, align 8, !tbaa !46
   %.not = icmp eq ptr %66, %68
-  %.not84 = icmp eq ptr %66, null
-  %or.cond = or i1 %.not84, %.not
-  br i1 %or.cond, label %71, label %69
+  %.not85 = icmp eq ptr %66, null
+  %or.cond92 = or i1 %.not85, %.not
+  br i1 %or.cond92, label %71, label %69
 
 69:                                               ; preds = %60
   call void @php_dom_throw_error(i32 noundef 4, i1 noundef zeroext %64) #11
@@ -2820,8 +2820,8 @@ define internal fastcc void @dom_node_replace_child(ptr noundef readonly capture
 
 75:                                               ; preds = %72
   %76 = call i32 @dom_hierarchy(ptr noundef nonnull %31, ptr noundef nonnull %46) #11
-  %.not.i92 = icmp eq i32 %76, 0
-  br i1 %.not.i92, label %78, label %77
+  %.not.i93 = icmp eq i32 %76, 0
+  br i1 %.not.i93, label %78, label %77
 
 77:                                               ; preds = %75
   call void @php_dom_throw_error(i32 noundef 3, i1 noundef zeroext true) #11
@@ -2949,8 +2949,8 @@ define internal fastcc void @dom_node_replace_child(ptr noundef readonly capture
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %119 = load ptr, ptr %118, align 8, !tbaa !38
-  %.not85 = icmp eq ptr %119, null
-  br i1 %.not85, label %120, label %122
+  %.not86 = icmp eq ptr %119, null
+  br i1 %.not86, label %120, label %122
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2973,8 +2973,8 @@ define internal fastcc void @dom_node_replace_child(ptr noundef readonly capture
   %130 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %131 = load i32, ptr %130, align 8, !tbaa !26
   %132 = icmp ne i32 %131, 2
-  %.not86 = xor i1 %129, %132
-  br i1 %.not86, label %135, label %133
+  %.not87 = xor i1 %129, %132
+  br i1 %.not87, label %135, label %133
 
 133:                                              ; preds = %126
   call void @php_dom_throw_error(i32 noundef 3, i1 noundef zeroext %64) #11
@@ -2985,8 +2985,8 @@ define internal fastcc void @dom_node_replace_child(ptr noundef readonly capture
 135:                                              ; preds = %126
   %136 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %137 = load ptr, ptr %136, align 8, !tbaa !27
-  %.not87 = icmp eq ptr %137, %31
-  br i1 %.not87, label %dom_replace_node_validity_checks.exit, label %138
+  %.not88 = icmp eq ptr %137, %31
+  br i1 %.not88, label %dom_replace_node_validity_checks.exit, label %138
 
 138:                                              ; preds = %135
   call void @php_dom_throw_error(i32 noundef 8, i1 noundef zeroext %64) #11
@@ -3001,8 +3001,8 @@ dom_replace_node_validity_checks.exit:            ; preds = %108, %102, %97, %96
 
 142:                                              ; preds = %dom_replace_node_validity_checks.exit
   %143 = load ptr, ptr %67, align 8, !tbaa !46
-  %.not89 = icmp eq ptr %143, null
-  br i1 %.not89, label %146, label %144
+  %.not90 = icmp eq ptr %143, null
+  br i1 %.not90, label %146, label %144
 
 144:                                              ; preds = %142
   call void @xmlSetTreeDoc(ptr noundef nonnull %46, ptr noundef nonnull %143) #11
@@ -3026,8 +3026,8 @@ dom_replace_node_validity_checks.exit:            ; preds = %108, %102, %97, %96
   %156 = load ptr, ptr %155, align 8, !tbaa !43
   %157 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %158 = load ptr, ptr %157, align 8, !tbaa !38
-  %.not.i93 = icmp eq ptr %158, null
-  br i1 %.not.i93, label %dom_insert_fragment.exit.thread, label %159
+  %.not.i94 = icmp eq ptr %158, null
+  br i1 %.not.i94, label %dom_insert_fragment.exit.thread, label %159
 
 159:                                              ; preds = %150
   %160 = icmp eq ptr %152, null
@@ -3087,8 +3087,8 @@ dom_insert_fragment.exit:                         ; preds = %173, %176
   br label %dom_insert_fragment.exit.thread
 
 181:                                              ; preds = %146
-  %.not90 = icmp eq ptr %61, %46
-  br i1 %.not90, label %dom_insert_fragment.exit.thread, label %182
+  %.not91 = icmp eq ptr %61, %46
+  br i1 %.not91, label %dom_insert_fragment.exit.thread, label %182
 
 182:                                              ; preds = %181
   %183 = load ptr, ptr %67, align 8, !tbaa !46
@@ -3111,7 +3111,7 @@ dom_insert_fragment.exit:                         ; preds = %173, %176
   store ptr %46, ptr %192, align 8, !tbaa !106
   br label %dom_insert_fragment.exit.thread
 
-dom_insert_fragment.exit.thread:                  ; preds = %150, %189, %190, %179, %dom_insert_fragment.exit, %181
+dom_insert_fragment.exit.thread:                  ; preds = %150, %189, %190, %dom_insert_fragment.exit, %179, %181
   %193 = load ptr, ptr %62, align 8, !tbaa !29
   %.not.i = icmp eq ptr %193, null
   br i1 %.not.i, label %php_libxml_invalidate_node_list_cache.exit, label %194

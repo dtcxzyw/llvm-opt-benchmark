@@ -1486,8 +1486,8 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
 16:                                               ; preds = %.thread, %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %18 = load i64, ptr %17, align 8, !tbaa !54
-  %.not = icmp eq i64 %18, -1
-  br i1 %.not, label %84, label %19
+  %.not73 = icmp eq i64 %18, -1
+  br i1 %.not73, label %84, label %19
 
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
@@ -1500,19 +1500,19 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
   %23 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !11
   %24 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !11
   %25 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS_free, i32 noundef 897, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.26) #6
-  br label %.thread84
+  br label %.thread85
 
 26:                                               ; preds = %19
   %27 = load i32, ptr %4, align 4, !tbaa !65
   %28 = and i32 %27, 1
-  %.not72 = icmp eq i32 %28, 0
-  br i1 %.not72, label %29, label %32
+  %.not74 = icmp eq i32 %28, 0
+  br i1 %.not74, label %29, label %32
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %31 = load ptr, ptr %30, align 8, !tbaa !67
-  %.not73 = icmp eq ptr %31, null
-  br i1 %.not73, label %32, label %51
+  %.not75 = icmp eq ptr %31, null
+  br i1 %.not75, label %32, label %51
 
 32:                                               ; preds = %29, %26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
@@ -1530,7 +1530,7 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
   %39 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !11
   %40 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !11
   %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS_free, i32 noundef 908, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.27) #6
-  br label %.thread78
+  br label %.thread79
 
 42:                                               ; preds = %32
   %43 = load i64, ptr %17, align 8, !tbaa !54
@@ -1542,11 +1542,11 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
   %47 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !11
   %48 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !11
   %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS_free, i32 noundef 912, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.28) #6
-  br label %.thread78
+  br label %.thread79
 
-.thread78:                                        ; preds = %38, %46
+.thread79:                                        ; preds = %38, %46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  br label %.thread84
+  br label %.thread85
 
 50:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
@@ -1559,9 +1559,9 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
   store i64 -1, ptr %17, align 8, !tbaa !54
   store i64 0, ptr %53, align 8, !tbaa !66
   %55 = call zeroext i1 @H5F_is_tmp_addr(ptr noundef %0, i64 noundef %52) #6
-  %.not76 = xor i1 %2, true
-  %brmerge = or i1 %55, %.not76
-  br i1 %brmerge, label %63, label %56
+  %.not = xor i1 %55, true
+  %or.cond = and i1 %2, %.not
+  br i1 %or.cond, label %56, label %63
 
 56:                                               ; preds = %51
   %57 = call i32 @H5MF_xfree(ptr noundef %0, i32 noundef 5, i64 noundef %52, i64 noundef %54) #6
@@ -1572,9 +1572,9 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
   %60 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !11
   %61 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !11
   %62 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS_free, i32 noundef 924, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.13) #6
-  br label %.thread84
+  br label %.thread85
 
-63:                                               ; preds = %51, %56
+63:                                               ; preds = %56, %51
   %64 = load i8, ptr @H5FS_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %65 = trunc nuw i8 %64 to i1
   %66 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -1601,9 +1601,9 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
   %80 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !11
   %81 = load i64, ptr @H5E_CANTMARKDIRTY_g, align 8, !tbaa !11
   %82 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS_free, i32 noundef 929, i64 noundef %80, i64 noundef %81, ptr noundef nonnull @.str.15) #6
-  br label %.thread84
+  br label %.thread85
 
-.thread84:                                        ; preds = %22, %76, %59, %.thread78
+.thread85:                                        ; preds = %22, %59, %76, %.thread79
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   br label %159
 
@@ -1614,8 +1614,8 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
 84:                                               ; preds = %83, %16
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %86 = load i64, ptr %85, align 8, !tbaa !41
-  %.not74 = icmp eq i64 %86, -1
-  br i1 %.not74, label %159, label %87
+  %.not76 = icmp eq i64 %86, -1
+  br i1 %.not76, label %159, label %87
 
 87:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
@@ -1633,8 +1633,8 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
 94:                                               ; preds = %87
   %95 = load i32, ptr %6, align 4, !tbaa !65
   %96 = and i32 %95, 1
-  %.not75 = icmp eq i32 %96, 0
-  br i1 %.not75, label %124, label %97
+  %.not77 = icmp eq i32 %96, 0
+  br i1 %.not77, label %124, label %97
 
 97:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
@@ -1652,7 +1652,7 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
   %104 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !11
   %105 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !11
   %106 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS_free, i32 noundef 952, i64 noundef %104, i64 noundef %105, ptr noundef nonnull @.str.27) #6
-  br label %.thread89
+  br label %.thread90
 
 107:                                              ; preds = %97
   %108 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %101) #6
@@ -1663,7 +1663,7 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
   %111 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !11
   %112 = load i64, ptr @H5E_CANTUNPIN_g, align 8, !tbaa !11
   %113 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS_free, i32 noundef 956, i64 noundef %111, i64 noundef %112, ptr noundef nonnull @.str.29) #6
-  br label %.thread89
+  br label %.thread90
 
 114:                                              ; preds = %107
   %115 = getelementptr inbounds nuw i8, ptr %101, i64 344
@@ -1676,9 +1676,9 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
   %120 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !11
   %121 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !11
   %122 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS_free, i32 noundef 960, i64 noundef %120, i64 noundef %121, ptr noundef nonnull @.str.28) #6
-  br label %.thread89
+  br label %.thread90
 
-.thread89:                                        ; preds = %103, %110, %119
+.thread90:                                        ; preds = %103, %110, %119
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   br label %158
 
@@ -1687,8 +1687,8 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
   br label %124
 
 124:                                              ; preds = %123, %94
-  %.069 = phi ptr [ %101, %123 ], [ %1, %94 ]
-  %125 = getelementptr inbounds nuw i8, ptr %.069, i64 344
+  %.070 = phi ptr [ %101, %123 ], [ %1, %94 ]
+  %125 = getelementptr inbounds nuw i8, ptr %.070, i64 344
   %126 = load i64, ptr %125, align 8, !tbaa !41
   store i64 -1, ptr %125, align 8, !tbaa !41
   br i1 %2, label %127, label %158
@@ -1728,14 +1728,14 @@ define range(i32 -1, 1) i32 @H5FS_free(ptr noundef %0, ptr noundef %1, i1 nounde
   %157 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS_free, i32 noundef 969, i64 noundef %155, i64 noundef %156, ptr noundef nonnull @.str.30) #6
   br label %158
 
-158:                                              ; preds = %.thread89, %124, %127, %154, %90
-  %.5 = phi i32 [ -1, %90 ], [ -1, %154 ], [ 0, %127 ], [ 0, %124 ], [ -1, %.thread89 ]
+158:                                              ; preds = %.thread90, %124, %127, %154, %90
+  %.5 = phi i32 [ -1, %90 ], [ -1, %154 ], [ 0, %127 ], [ 0, %124 ], [ -1, %.thread90 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
   br label %159
 
-159:                                              ; preds = %.thread84, %158, %13, %84
-  %.064 = phi i32 [ %.5, %158 ], [ 0, %84 ], [ 0, %13 ], [ -1, %.thread84 ]
-  ret i32 %.064
+159:                                              ; preds = %.thread85, %158, %13, %84
+  %.065 = phi i32 [ %.5, %158 ], [ 0, %84 ], [ 0, %13 ], [ -1, %.thread85 ]
+  ret i32 %.065
 }
 
 declare i32 @H5SL_destroy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

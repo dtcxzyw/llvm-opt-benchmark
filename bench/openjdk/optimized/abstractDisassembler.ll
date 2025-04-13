@@ -80,98 +80,94 @@ define hidden noundef i32 @_ZN20AbstractDisassembler14print_locationEPhS0_S0_P12
   %8 = load i32, ptr %7, align 8
   %9 = load i8, ptr @_ZN20AbstractDisassembler8_show_pcE, align 1
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %14, label %11
+  %11 = load i8, ptr @_ZN20AbstractDisassembler12_show_offsetE, align 1
+  %12 = trunc i8 %11 to i1
+  %or.cond37 = select i1 %10, i1 true, i1 %12
+  br i1 %or.cond37, label %13, label %14
 
-11:                                               ; preds = %6
-  %12 = load i8, ptr @_ZN20AbstractDisassembler12_show_offsetE, align 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %11, %6
+13:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str) #3
   %.pre = load i8, ptr @_ZN20AbstractDisassembler8_show_pcE, align 1
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %11
-  %16 = phi i8 [ %.pre, %14 ], [ %9, %11 ]
-  %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %22
+14:                                               ; preds = %6, %13
+  %15 = phi i8 [ %9, %6 ], [ %.pre, %13 ]
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %21
 
-18:                                               ; preds = %15
-  br i1 %5, label %19, label %20
+17:                                               ; preds = %14
+  br i1 %5, label %18, label %19
 
-19:                                               ; preds = %18
+18:                                               ; preds = %17
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.4, i32 noundef 18, ptr noundef nonnull @.str.5) #3
-  br label %22
+  br label %21
 
-20:                                               ; preds = %18
-  %21 = ptrtoint ptr %0 to i64
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.6, i64 noundef %21) #3
-  br label %22
+19:                                               ; preds = %17
+  %20 = ptrtoint ptr %0 to i64
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.6, i64 noundef %20) #3
+  br label %21
 
-22:                                               ; preds = %19, %20, %15
-  %23 = load i8, ptr @_ZN20AbstractDisassembler12_show_offsetE, align 1
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %25, label %36
+21:                                               ; preds = %18, %19, %14
+  %22 = load i8, ptr @_ZN20AbstractDisassembler12_show_offsetE, align 1
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %35
 
-25:                                               ; preds = %22
-  %26 = ptrtoint ptr %2 to i64
-  %27 = ptrtoint ptr %1 to i64
-  %28 = sub i64 %26, %27
-  %29 = trunc i64 %28 to i32
-  %30 = icmp slt i32 %29, 256
-  %31 = icmp samesign ult i32 %29, 65536
-  %32 = icmp slt i32 %29, 16777216
-  %33 = select i1 %32, i32 6, i32 8
-  %34 = select i1 %31, i32 4, i32 %33
-  %35 = select i1 %30, i32 2, i32 %34
-  br i1 %5, label %.thread29, label %.thread
+24:                                               ; preds = %21
+  %25 = ptrtoint ptr %2 to i64
+  %26 = ptrtoint ptr %1 to i64
+  %27 = sub i64 %25, %26
+  %28 = trunc i64 %27 to i32
+  %29 = icmp slt i32 %28, 256
+  %30 = icmp samesign ult i32 %28, 65536
+  %31 = icmp slt i32 %28, 16777216
+  %32 = select i1 %31, i32 6, i32 8
+  %33 = select i1 %30, i32 4, i32 %32
+  %34 = select i1 %29, i32 2, i32 %33
+  br i1 %5, label %.thread31, label %.thread
 
-36:                                               ; preds = %22
-  %37 = load i8, ptr @_ZN20AbstractDisassembler8_show_pcE, align 1
-  %38 = trunc i8 %37 to i1
-  %.not = xor i1 %38, true
-  %brmerge41 = or i1 %5, %.not
-  br i1 %brmerge41, label %.thread30, label %.thread28
+35:                                               ; preds = %21
+  %36 = load i8, ptr @_ZN20AbstractDisassembler8_show_pcE, align 1
+  %37 = trunc i8 %36 to i1
+  %.not = xor i1 %37, true
+  %brmerge = or i1 %5, %.not
+  br i1 %brmerge, label %.thread32, label %.thread30
 
-.thread29:                                        ; preds = %25
-  %39 = add nuw nsw i32 %35, 5
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.4, i32 noundef %39, ptr noundef nonnull @.str.7) #3
-  br label %.thread30
+.thread31:                                        ; preds = %24
+  %38 = add nuw nsw i32 %34, 5
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.4, i32 noundef %38, ptr noundef nonnull @.str.7) #3
+  br label %.thread32
 
-.thread:                                          ; preds = %25
-  %40 = ptrtoint ptr %0 to i64
-  %41 = sub i64 %40, %27
-  %42 = trunc i64 %41 to i32
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.8, i32 noundef %35, i32 noundef %35, i32 noundef %42) #3
-  %43 = load i8, ptr @_ZN20AbstractDisassembler8_show_pcE, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %.thread28, label %45
+.thread:                                          ; preds = %24
+  %39 = ptrtoint ptr %0 to i64
+  %40 = sub i64 %39, %26
+  %41 = trunc i64 %40 to i32
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.8, i32 noundef %34, i32 noundef %34, i32 noundef %41) #3
+  %42 = load i8, ptr @_ZN20AbstractDisassembler8_show_pcE, align 1
+  %43 = trunc i8 %42 to i1
+  %.pre38 = load i8, ptr @_ZN20AbstractDisassembler12_show_offsetE, align 1
+  %.pre41 = trunc i8 %.pre38 to i1
+  %or.cond = select i1 %43, i1 true, i1 %.pre41
+  br i1 %or.cond, label %.thread30, label %.thread32
 
-45:                                               ; preds = %.thread
-  %.pre34 = load i8, ptr @_ZN20AbstractDisassembler12_show_offsetE, align 1
-  %.pre37 = trunc i8 %.pre34 to i1
-  br i1 %.pre37, label %.thread28, label %.thread30
-
-.thread28:                                        ; preds = %36, %.thread, %45
+.thread30:                                        ; preds = %35, %.thread
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.9) #3
-  br label %.thread30
+  br label %.thread32
 
-.thread30:                                        ; preds = %36, %.thread29, %45, %.thread28
-  %.pre36 = load i32, ptr %7, align 8
-  br i1 %4, label %46, label %50
+.thread32:                                        ; preds = %.thread, %35, %.thread31, %.thread30
+  %.pre40 = load i32, ptr %7, align 8
+  br i1 %4, label %44, label %48
 
-46:                                               ; preds = %.thread30
-  %47 = add i32 %.pre36, 7
-  %48 = and i32 %47, -8
-  %49 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %48) #3
-  %.pre35 = load i32, ptr %7, align 8
-  br label %50
+44:                                               ; preds = %.thread32
+  %45 = add i32 %.pre40, 7
+  %46 = and i32 %45, -8
+  %47 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %46) #3
+  %.pre39 = load i32, ptr %7, align 8
+  br label %48
 
-50:                                               ; preds = %46, %.thread30
-  %51 = phi i32 [ %.pre35, %46 ], [ %.pre36, %.thread30 ]
-  %52 = sub nsw i32 %51, %8
-  ret i32 %52
+48:                                               ; preds = %44, %.thread32
+  %49 = phi i32 [ %.pre39, %44 ], [ %.pre40, %.thread32 ]
+  %50 = sub nsw i32 %49, %8
+  ret i32 %50
 }
 
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1

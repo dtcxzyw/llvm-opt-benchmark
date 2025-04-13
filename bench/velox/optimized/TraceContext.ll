@@ -225,19 +225,17 @@ call.i.i.noexc.i:                                 ; preds = %.noexc
   store i64 %.sroa.speculated.i.i, ptr %maxMs.i.i, align 8
   %6 = load i32, ptr %call.i.i1.i, align 8
   %tobool.not.i.i = icmp eq i32 %6, 0
-  br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.then3.i.i.i.i
-
-land.lhs.true.i.i:                                ; preds = %call.i.i.noexc.i
   %isTemporary_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %7 = load i8, ptr %isTemporary_.i.i, align 8
   %tobool15.i.i = trunc i8 %7 to i1
-  br i1 %tobool15.i.i, label %if.then.i.i, label %if.then3.i.i.i.i
+  %or.cond = select i1 %tobool.not.i.i, i1 %tobool15.i.i, i1 false
+  br i1 %or.cond, label %if.then.i.i, label %if.then3.i.i.i.i
 
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+if.then.i.i:                                      ; preds = %call.i.i.noexc.i
   %call.i.i.i2.i = invoke noundef i64 @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox7process9TraceDataEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS7_(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %if.then3.i.i.i.i unwind label %lpad.i
 
-if.then3.i.i.i.i:                                 ; preds = %if.then.i.i, %land.lhs.true.i.i, %call.i.i.noexc.i
+if.then3.i.i.i.i:                                 ; preds = %if.then.i.i, %call.i.i.noexc.i
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 56))
           to label %invoke.cont2 unwind label %terminate.lpad.i.i.i
 

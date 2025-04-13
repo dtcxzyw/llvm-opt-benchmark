@@ -961,21 +961,21 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br i1 %105, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %find_wccp_address_table.exit.i, %148
-  %.0220.i = phi i32 [ %149, %148 ], [ 8, %find_wccp_address_table.exit.i ]
-  %.0176219.i = phi i1 [ %.1.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %.0177218.i = phi i1 [ %.1178.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %.0179217.i = phi i1 [ %.1180.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %.0181216.i = phi i1 [ %.1182.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %.0183215.i = phi i1 [ %.1184.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %.0185214.i = phi i1 [ %.1186.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %.0187213.i = phi i1 [ %.1188.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %.0189212.i = phi i1 [ %.1190.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %.0191211.i = phi i1 [ %.1192.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %.0193210.i = phi i1 [ %.1194.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %.0195209.i = phi i1 [ %.1196.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %.0197208.i = phi i1 [ %.1198.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %.0199207.i = phi i1 [ %.1200.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
-  %106 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0220.i)
+  %.0225.i = phi i32 [ %149, %148 ], [ 8, %find_wccp_address_table.exit.i ]
+  %.0181224.i = phi i1 [ %.1.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %.0182223.i = phi i1 [ %.1183.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %.0184222.i = phi i1 [ %.1185.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %.0186221.i = phi i1 [ %.1187.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %.0188220.i = phi i1 [ %.1189.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %.0190219.i = phi i1 [ %.1191.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %.0192218.i = phi i1 [ %.1193.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %.0194217.i = phi i1 [ %.1195.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %.0196216.i = phi i1 [ %.1197.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %.0198215.i = phi i1 [ %.1199.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %.0200214.i = phi i1 [ %.1201.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %.0202213.i = phi i1 [ %.1203.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %.0204212.i = phi i1 [ %.1205.i, %148 ], [ false, %find_wccp_address_table.exit.i ]
+  %106 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0225.i)
   %107 = zext i16 %106 to i32
   switch i16 %106, label %121 [
     i16 0, label %122
@@ -1037,37 +1037,37 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %122
 
 122:                                              ; preds = %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %.lr.ph.i
-  %.0202.in.i = phi ptr [ @ett_unknown_info, %121 ], [ @ett_command_extension, %120 ], [ @ett_assignment_map, %119 ], [ @ett_address_table, %118 ], [ @ett_alt_assignment_map, %117 ], [ @ett_alt_assignment_info, %116 ], [ @ett_capabilities_info, %115 ], [ @ett_query_info, %114 ], [ @ett_router_assignment_info, %113 ], [ @ett_wc_view_info, %112 ], [ @ett_router_view_info, %111 ], [ @ett_wc_identity_info, %110 ], [ @ett_router_identity_info, %109 ], [ @ett_service_info, %108 ], [ @ett_security_info, %.lr.ph.i ]
+  %.0207.in.i = phi ptr [ @ett_unknown_info, %121 ], [ @ett_command_extension, %120 ], [ @ett_assignment_map, %119 ], [ @ett_address_table, %118 ], [ @ett_alt_assignment_map, %117 ], [ @ett_alt_assignment_info, %116 ], [ @ett_capabilities_info, %115 ], [ @ett_query_info, %114 ], [ @ett_router_assignment_info, %113 ], [ @ett_wc_view_info, %112 ], [ @ett_router_view_info, %111 ], [ @ett_wc_identity_info, %110 ], [ @ett_router_identity_info, %109 ], [ @ett_service_info, %108 ], [ @ett_security_info, %.lr.ph.i ]
   %.not.i = phi i1 [ true, %121 ], [ false, %120 ], [ false, %119 ], [ false, %118 ], [ false, %117 ], [ false, %116 ], [ false, %115 ], [ false, %114 ], [ false, %113 ], [ false, %112 ], [ false, %111 ], [ false, %110 ], [ false, %109 ], [ false, %108 ], [ false, %.lr.ph.i ]
-  %.0201.i = phi ptr [ null, %121 ], [ @dissect_wccp2_command_extension, %120 ], [ @dissect_wccp2_assignment_map, %119 ], [ @dissect_wccp2r1_address_table_info, %118 ], [ @dissect_wccp2r1_alt_assignment_map_info, %117 ], [ @dissect_wccp2_alternate_assignment_info, %116 ], [ @dissect_wccp2_capability_info, %115 ], [ @dissect_wccp2_router_query_info, %114 ], [ @dissect_wccp2_assignment_info, %113 ], [ @dissect_wccp2_web_cache_view_info, %112 ], [ @dissect_wccp2_router_view_info, %111 ], [ @dissect_wccp2_wc_identity_info, %110 ], [ @dissect_wccp2_router_identity_info, %109 ], [ @dissect_wccp2_service_info, %108 ], [ @dissect_wccp2_security_info, %.lr.ph.i ]
-  %.1200.i = phi i1 [ %.0199207.i, %121 ], [ %.0199207.i, %120 ], [ %.0199207.i, %119 ], [ %.0199207.i, %118 ], [ %.0199207.i, %117 ], [ %.0199207.i, %116 ], [ %.0199207.i, %115 ], [ %.0199207.i, %114 ], [ %.0199207.i, %113 ], [ %.0199207.i, %112 ], [ %.0199207.i, %111 ], [ %.0199207.i, %110 ], [ %.0199207.i, %109 ], [ %.0199207.i, %108 ], [ true, %.lr.ph.i ]
-  %.1198.i = phi i1 [ %.0197208.i, %121 ], [ %.0197208.i, %120 ], [ %.0197208.i, %119 ], [ %.0197208.i, %118 ], [ %.0197208.i, %117 ], [ %.0197208.i, %116 ], [ %.0197208.i, %115 ], [ %.0197208.i, %114 ], [ %.0197208.i, %113 ], [ %.0197208.i, %112 ], [ %.0197208.i, %111 ], [ %.0197208.i, %110 ], [ %.0197208.i, %109 ], [ true, %108 ], [ %.0197208.i, %.lr.ph.i ]
-  %.1196.i = phi i1 [ %.0195209.i, %121 ], [ %.0195209.i, %120 ], [ %.0195209.i, %119 ], [ %.0195209.i, %118 ], [ %.0195209.i, %117 ], [ %.0195209.i, %116 ], [ %.0195209.i, %115 ], [ %.0195209.i, %114 ], [ %.0195209.i, %113 ], [ %.0195209.i, %112 ], [ %.0195209.i, %111 ], [ %.0195209.i, %110 ], [ true, %109 ], [ %.0195209.i, %108 ], [ %.0195209.i, %.lr.ph.i ]
-  %.1194.i = phi i1 [ %.0193210.i, %121 ], [ %.0193210.i, %120 ], [ %.0193210.i, %119 ], [ %.0193210.i, %118 ], [ %.0193210.i, %117 ], [ %.0193210.i, %116 ], [ %.0193210.i, %115 ], [ %.0193210.i, %114 ], [ %.0193210.i, %113 ], [ %.0193210.i, %112 ], [ %.0193210.i, %111 ], [ true, %110 ], [ %.0193210.i, %109 ], [ %.0193210.i, %108 ], [ %.0193210.i, %.lr.ph.i ]
-  %.1192.i = phi i1 [ %.0191211.i, %121 ], [ %.0191211.i, %120 ], [ %.0191211.i, %119 ], [ %.0191211.i, %118 ], [ %.0191211.i, %117 ], [ %.0191211.i, %116 ], [ %.0191211.i, %115 ], [ %.0191211.i, %114 ], [ %.0191211.i, %113 ], [ %.0191211.i, %112 ], [ true, %111 ], [ %.0191211.i, %110 ], [ %.0191211.i, %109 ], [ %.0191211.i, %108 ], [ %.0191211.i, %.lr.ph.i ]
-  %.1190.i = phi i1 [ %.0189212.i, %121 ], [ %.0189212.i, %120 ], [ %.0189212.i, %119 ], [ %.0189212.i, %118 ], [ %.0189212.i, %117 ], [ %.0189212.i, %116 ], [ %.0189212.i, %115 ], [ %.0189212.i, %114 ], [ %.0189212.i, %113 ], [ true, %112 ], [ %.0189212.i, %111 ], [ %.0189212.i, %110 ], [ %.0189212.i, %109 ], [ %.0189212.i, %108 ], [ %.0189212.i, %.lr.ph.i ]
-  %.1188.i = phi i1 [ %.0187213.i, %121 ], [ %.0187213.i, %120 ], [ %.0187213.i, %119 ], [ %.0187213.i, %118 ], [ %.0187213.i, %117 ], [ %.0187213.i, %116 ], [ %.0187213.i, %115 ], [ %.0187213.i, %114 ], [ true, %113 ], [ %.0187213.i, %112 ], [ %.0187213.i, %111 ], [ %.0187213.i, %110 ], [ %.0187213.i, %109 ], [ %.0187213.i, %108 ], [ %.0187213.i, %.lr.ph.i ]
-  %.1186.i = phi i1 [ %.0185214.i, %121 ], [ %.0185214.i, %120 ], [ %.0185214.i, %119 ], [ %.0185214.i, %118 ], [ %.0185214.i, %117 ], [ %.0185214.i, %116 ], [ %.0185214.i, %115 ], [ true, %114 ], [ %.0185214.i, %113 ], [ %.0185214.i, %112 ], [ %.0185214.i, %111 ], [ %.0185214.i, %110 ], [ %.0185214.i, %109 ], [ %.0185214.i, %108 ], [ %.0185214.i, %.lr.ph.i ]
-  %.1184.i = phi i1 [ %.0183215.i, %121 ], [ %.0183215.i, %120 ], [ %.0183215.i, %119 ], [ %.0183215.i, %118 ], [ %.0183215.i, %117 ], [ %.0183215.i, %116 ], [ true, %115 ], [ %.0183215.i, %114 ], [ %.0183215.i, %113 ], [ %.0183215.i, %112 ], [ %.0183215.i, %111 ], [ %.0183215.i, %110 ], [ %.0183215.i, %109 ], [ %.0183215.i, %108 ], [ %.0183215.i, %.lr.ph.i ]
-  %.1182.i = phi i1 [ %.0181216.i, %121 ], [ %.0181216.i, %120 ], [ %.0181216.i, %119 ], [ %.0181216.i, %118 ], [ %.0181216.i, %117 ], [ true, %116 ], [ %.0181216.i, %115 ], [ %.0181216.i, %114 ], [ %.0181216.i, %113 ], [ %.0181216.i, %112 ], [ %.0181216.i, %111 ], [ %.0181216.i, %110 ], [ %.0181216.i, %109 ], [ %.0181216.i, %108 ], [ %.0181216.i, %.lr.ph.i ]
-  %.1180.i = phi i1 [ %.0179217.i, %121 ], [ %.0179217.i, %120 ], [ true, %119 ], [ %.0179217.i, %118 ], [ %.0179217.i, %117 ], [ %.0179217.i, %116 ], [ %.0179217.i, %115 ], [ %.0179217.i, %114 ], [ %.0179217.i, %113 ], [ %.0179217.i, %112 ], [ %.0179217.i, %111 ], [ %.0179217.i, %110 ], [ %.0179217.i, %109 ], [ %.0179217.i, %108 ], [ %.0179217.i, %.lr.ph.i ]
-  %.1178.i = phi i1 [ %.0177218.i, %121 ], [ true, %120 ], [ %.0177218.i, %119 ], [ %.0177218.i, %118 ], [ %.0177218.i, %117 ], [ %.0177218.i, %116 ], [ %.0177218.i, %115 ], [ %.0177218.i, %114 ], [ %.0177218.i, %113 ], [ %.0177218.i, %112 ], [ %.0177218.i, %111 ], [ %.0177218.i, %110 ], [ %.0177218.i, %109 ], [ %.0177218.i, %108 ], [ %.0177218.i, %.lr.ph.i ]
-  %.1.i = phi i1 [ %.0176219.i, %121 ], [ %.0176219.i, %120 ], [ %.0176219.i, %119 ], [ %.0176219.i, %118 ], [ true, %117 ], [ %.0176219.i, %116 ], [ %.0176219.i, %115 ], [ %.0176219.i, %114 ], [ %.0176219.i, %113 ], [ %.0176219.i, %112 ], [ %.0176219.i, %111 ], [ %.0176219.i, %110 ], [ %.0176219.i, %109 ], [ %.0176219.i, %108 ], [ %.0176219.i, %.lr.ph.i ]
-  %.0202.i = load i32, ptr %.0202.in.i, align 4
+  %.0206.i = phi ptr [ null, %121 ], [ @dissect_wccp2_command_extension, %120 ], [ @dissect_wccp2_assignment_map, %119 ], [ @dissect_wccp2r1_address_table_info, %118 ], [ @dissect_wccp2r1_alt_assignment_map_info, %117 ], [ @dissect_wccp2_alternate_assignment_info, %116 ], [ @dissect_wccp2_capability_info, %115 ], [ @dissect_wccp2_router_query_info, %114 ], [ @dissect_wccp2_assignment_info, %113 ], [ @dissect_wccp2_web_cache_view_info, %112 ], [ @dissect_wccp2_router_view_info, %111 ], [ @dissect_wccp2_wc_identity_info, %110 ], [ @dissect_wccp2_router_identity_info, %109 ], [ @dissect_wccp2_service_info, %108 ], [ @dissect_wccp2_security_info, %.lr.ph.i ]
+  %.1205.i = phi i1 [ %.0204212.i, %121 ], [ %.0204212.i, %120 ], [ %.0204212.i, %119 ], [ %.0204212.i, %118 ], [ %.0204212.i, %117 ], [ %.0204212.i, %116 ], [ %.0204212.i, %115 ], [ %.0204212.i, %114 ], [ %.0204212.i, %113 ], [ %.0204212.i, %112 ], [ %.0204212.i, %111 ], [ %.0204212.i, %110 ], [ %.0204212.i, %109 ], [ %.0204212.i, %108 ], [ true, %.lr.ph.i ]
+  %.1203.i = phi i1 [ %.0202213.i, %121 ], [ %.0202213.i, %120 ], [ %.0202213.i, %119 ], [ %.0202213.i, %118 ], [ %.0202213.i, %117 ], [ %.0202213.i, %116 ], [ %.0202213.i, %115 ], [ %.0202213.i, %114 ], [ %.0202213.i, %113 ], [ %.0202213.i, %112 ], [ %.0202213.i, %111 ], [ %.0202213.i, %110 ], [ %.0202213.i, %109 ], [ true, %108 ], [ %.0202213.i, %.lr.ph.i ]
+  %.1201.i = phi i1 [ %.0200214.i, %121 ], [ %.0200214.i, %120 ], [ %.0200214.i, %119 ], [ %.0200214.i, %118 ], [ %.0200214.i, %117 ], [ %.0200214.i, %116 ], [ %.0200214.i, %115 ], [ %.0200214.i, %114 ], [ %.0200214.i, %113 ], [ %.0200214.i, %112 ], [ %.0200214.i, %111 ], [ %.0200214.i, %110 ], [ true, %109 ], [ %.0200214.i, %108 ], [ %.0200214.i, %.lr.ph.i ]
+  %.1199.i = phi i1 [ %.0198215.i, %121 ], [ %.0198215.i, %120 ], [ %.0198215.i, %119 ], [ %.0198215.i, %118 ], [ %.0198215.i, %117 ], [ %.0198215.i, %116 ], [ %.0198215.i, %115 ], [ %.0198215.i, %114 ], [ %.0198215.i, %113 ], [ %.0198215.i, %112 ], [ %.0198215.i, %111 ], [ true, %110 ], [ %.0198215.i, %109 ], [ %.0198215.i, %108 ], [ %.0198215.i, %.lr.ph.i ]
+  %.1197.i = phi i1 [ %.0196216.i, %121 ], [ %.0196216.i, %120 ], [ %.0196216.i, %119 ], [ %.0196216.i, %118 ], [ %.0196216.i, %117 ], [ %.0196216.i, %116 ], [ %.0196216.i, %115 ], [ %.0196216.i, %114 ], [ %.0196216.i, %113 ], [ %.0196216.i, %112 ], [ true, %111 ], [ %.0196216.i, %110 ], [ %.0196216.i, %109 ], [ %.0196216.i, %108 ], [ %.0196216.i, %.lr.ph.i ]
+  %.1195.i = phi i1 [ %.0194217.i, %121 ], [ %.0194217.i, %120 ], [ %.0194217.i, %119 ], [ %.0194217.i, %118 ], [ %.0194217.i, %117 ], [ %.0194217.i, %116 ], [ %.0194217.i, %115 ], [ %.0194217.i, %114 ], [ %.0194217.i, %113 ], [ true, %112 ], [ %.0194217.i, %111 ], [ %.0194217.i, %110 ], [ %.0194217.i, %109 ], [ %.0194217.i, %108 ], [ %.0194217.i, %.lr.ph.i ]
+  %.1193.i = phi i1 [ %.0192218.i, %121 ], [ %.0192218.i, %120 ], [ %.0192218.i, %119 ], [ %.0192218.i, %118 ], [ %.0192218.i, %117 ], [ %.0192218.i, %116 ], [ %.0192218.i, %115 ], [ %.0192218.i, %114 ], [ true, %113 ], [ %.0192218.i, %112 ], [ %.0192218.i, %111 ], [ %.0192218.i, %110 ], [ %.0192218.i, %109 ], [ %.0192218.i, %108 ], [ %.0192218.i, %.lr.ph.i ]
+  %.1191.i = phi i1 [ %.0190219.i, %121 ], [ %.0190219.i, %120 ], [ %.0190219.i, %119 ], [ %.0190219.i, %118 ], [ %.0190219.i, %117 ], [ %.0190219.i, %116 ], [ %.0190219.i, %115 ], [ true, %114 ], [ %.0190219.i, %113 ], [ %.0190219.i, %112 ], [ %.0190219.i, %111 ], [ %.0190219.i, %110 ], [ %.0190219.i, %109 ], [ %.0190219.i, %108 ], [ %.0190219.i, %.lr.ph.i ]
+  %.1189.i = phi i1 [ %.0188220.i, %121 ], [ %.0188220.i, %120 ], [ %.0188220.i, %119 ], [ %.0188220.i, %118 ], [ %.0188220.i, %117 ], [ %.0188220.i, %116 ], [ true, %115 ], [ %.0188220.i, %114 ], [ %.0188220.i, %113 ], [ %.0188220.i, %112 ], [ %.0188220.i, %111 ], [ %.0188220.i, %110 ], [ %.0188220.i, %109 ], [ %.0188220.i, %108 ], [ %.0188220.i, %.lr.ph.i ]
+  %.1187.i = phi i1 [ %.0186221.i, %121 ], [ %.0186221.i, %120 ], [ %.0186221.i, %119 ], [ %.0186221.i, %118 ], [ %.0186221.i, %117 ], [ true, %116 ], [ %.0186221.i, %115 ], [ %.0186221.i, %114 ], [ %.0186221.i, %113 ], [ %.0186221.i, %112 ], [ %.0186221.i, %111 ], [ %.0186221.i, %110 ], [ %.0186221.i, %109 ], [ %.0186221.i, %108 ], [ %.0186221.i, %.lr.ph.i ]
+  %.1185.i = phi i1 [ %.0184222.i, %121 ], [ %.0184222.i, %120 ], [ true, %119 ], [ %.0184222.i, %118 ], [ %.0184222.i, %117 ], [ %.0184222.i, %116 ], [ %.0184222.i, %115 ], [ %.0184222.i, %114 ], [ %.0184222.i, %113 ], [ %.0184222.i, %112 ], [ %.0184222.i, %111 ], [ %.0184222.i, %110 ], [ %.0184222.i, %109 ], [ %.0184222.i, %108 ], [ %.0184222.i, %.lr.ph.i ]
+  %.1183.i = phi i1 [ %.0182223.i, %121 ], [ true, %120 ], [ %.0182223.i, %119 ], [ %.0182223.i, %118 ], [ %.0182223.i, %117 ], [ %.0182223.i, %116 ], [ %.0182223.i, %115 ], [ %.0182223.i, %114 ], [ %.0182223.i, %113 ], [ %.0182223.i, %112 ], [ %.0182223.i, %111 ], [ %.0182223.i, %110 ], [ %.0182223.i, %109 ], [ %.0182223.i, %108 ], [ %.0182223.i, %.lr.ph.i ]
+  %.1.i = phi i1 [ %.0181224.i, %121 ], [ %.0181224.i, %120 ], [ %.0181224.i, %119 ], [ %.0181224.i, %118 ], [ true, %117 ], [ %.0181224.i, %116 ], [ %.0181224.i, %115 ], [ %.0181224.i, %114 ], [ %.0181224.i, %113 ], [ %.0181224.i, %112 ], [ %.0181224.i, %111 ], [ %.0181224.i, %110 ], [ %.0181224.i, %109 ], [ %.0181224.i, %108 ], [ %.0181224.i, %.lr.ph.i ]
+  %.0207.i = load i32, ptr %.0207.in.i, align 4
   %123 = call ptr @val_to_str(i32 noundef %107, ptr noundef nonnull @info_type_vals, ptr noundef nonnull @.str.413)
-  %124 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %0, i32 noundef %.0220.i, i32 noundef -1, i32 noundef %.0202.i, ptr noundef nonnull %5, ptr noundef %123)
+  %124 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %0, i32 noundef %.0225.i, i32 noundef -1, i32 noundef %.0207.i, ptr noundef nonnull %5, ptr noundef %123)
   %125 = load i32, ptr @hf_item_type, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %0, i32 noundef %.0220.i, i32 noundef 2, i32 noundef 0)
-  %127 = add i32 %.0220.i, 2
+  %126 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %0, i32 noundef %.0225.i, i32 noundef 2, i32 noundef 0)
+  %127 = add i32 %.0225.i, 2
   %128 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %127)
   %129 = load i32, ptr @hf_item_length, align 4
   %130 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %129, ptr noundef %0, i32 noundef %127, i32 noundef 2, i32 noundef 0)
-  %131 = add i32 %.0220.i, 4
+  %131 = add i32 %.0225.i, 4
   br i1 %.not.i, label %144, label %132
 
 132:                                              ; preds = %122
   %133 = zext i16 %128 to i32
-  %134 = call i32 %.0201.i(ptr noundef %0, i32 noundef %131, i32 noundef %133, ptr noundef %1, ptr noundef %124, ptr noundef nonnull %6)
+  %134 = call i32 %.0206.i(ptr noundef %0, i32 noundef %131, i32 noundef %133, ptr noundef %1, ptr noundef %124, ptr noundef nonnull %6)
   %135 = icmp sgt i32 %134, 0
   br i1 %135, label %.thread.i, label %138
 
@@ -1102,19 +1102,19 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br i1 %152, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %148, %find_wccp_address_table.exit.i
-  %.0199.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1200.i, %148 ]
-  %.0197.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1198.i, %148 ]
-  %.0195.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1196.i, %148 ]
-  %.0193.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1194.i, %148 ]
-  %.0191.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1192.i, %148 ]
-  %.0189.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1190.i, %148 ]
-  %.0187.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1188.i, %148 ]
-  %.0185.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1186.i, %148 ]
-  %.0183.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1184.i, %148 ]
-  %.0181.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1182.i, %148 ]
-  %.0179.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1180.i, %148 ]
-  %.0177.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1178.i, %148 ]
-  %.0176.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1.i, %148 ]
+  %.0204.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1205.i, %148 ]
+  %.0202.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1203.i, %148 ]
+  %.0200.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1201.i, %148 ]
+  %.0198.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1199.i, %148 ]
+  %.0196.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1197.i, %148 ]
+  %.0194.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1195.i, %148 ]
+  %.0192.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1193.i, %148 ]
+  %.0190.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1191.i, %148 ]
+  %.0188.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1189.i, %148 ]
+  %.0186.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1187.i, %148 ]
+  %.0184.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1185.i, %148 ]
+  %.0182.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1183.i, %148 ]
+  %.0181.lcssa.i = phi i1 [ false, %find_wccp_address_table.exit.i ], [ %.1.i, %148 ]
   switch i32 %7, label %dissect_wccp2_info.exit [
     i32 10, label %153
     i32 11, label %184
@@ -1123,292 +1123,292 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   ]
 
 153:                                              ; preds = %._crit_edge.i
-  br i1 %.0199.lcssa.i, label %156, label %154
+  br i1 %.0204.lcssa.i, label %156, label %154
 
 154:                                              ; preds = %153
   %155 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_security_info)
   br label %156
 
 156:                                              ; preds = %154, %153
-  br i1 %.0197.lcssa.i, label %159, label %157
+  br i1 %.0202.lcssa.i, label %159, label %157
 
 157:                                              ; preds = %156
   %158 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_service_info)
   br label %159
 
 159:                                              ; preds = %157, %156
-  br i1 %.0195.lcssa.i, label %160, label %162
+  br i1 %.0200.lcssa.i, label %160, label %162
 
 160:                                              ; preds = %159
   %161 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_router_id_info)
   br label %162
 
 162:                                              ; preds = %160, %159
-  br i1 %.0193.lcssa.i, label %165, label %163
+  br i1 %.0198.lcssa.i, label %165, label %163
 
 163:                                              ; preds = %162
   %164 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_wc_id_info)
   br label %165
 
 165:                                              ; preds = %163, %162
-  br i1 %.0191.lcssa.i, label %166, label %168
+  br i1 %.0196.lcssa.i, label %166, label %168
 
 166:                                              ; preds = %165
   %167 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_rtr_view_info)
   br label %168
 
 168:                                              ; preds = %166, %165
-  br i1 %.0189.lcssa.i, label %171, label %169
+  br i1 %.0194.lcssa.i, label %171, label %169
 
 169:                                              ; preds = %168
   %170 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_wc_view_info)
   br label %171
 
 171:                                              ; preds = %169, %168
-  br i1 %.0187.lcssa.i, label %172, label %174
+  br i1 %.0192.lcssa.i, label %172, label %174
 
 172:                                              ; preds = %171
   %173 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_redirect_assignment)
   br label %174
 
 174:                                              ; preds = %172, %171
-  br i1 %.0185.lcssa.i, label %175, label %177
+  br i1 %.0190.lcssa.i, label %175, label %177
 
 175:                                              ; preds = %174
   %176 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_query_info)
   br label %177
 
 177:                                              ; preds = %175, %174
-  br i1 %.0181.lcssa.i, label %178, label %180
+  br i1 %.0186.lcssa.i, label %178, label %180
 
 178:                                              ; preds = %177
   %179 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_alt_assignment)
   br label %180
 
 180:                                              ; preds = %178, %177
-  br i1 %.0179.lcssa.i, label %181, label %183
+  br i1 %.0184.lcssa.i, label %181, label %183
 
 181:                                              ; preds = %180
   %182 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_assign_map)
   br label %183
 
 183:                                              ; preds = %181, %180
-  br i1 %.0176.lcssa.i, label %.sink.split.i, label %dissect_wccp2_info.exit
+  br i1 %.0181.lcssa.i, label %.sink.split.i, label %dissect_wccp2_info.exit
 
 184:                                              ; preds = %._crit_edge.i
-  br i1 %.0199.lcssa.i, label %187, label %185
+  br i1 %.0204.lcssa.i, label %187, label %185
 
 185:                                              ; preds = %184
   %186 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_security_info)
   br label %187
 
 187:                                              ; preds = %185, %184
-  br i1 %.0197.lcssa.i, label %190, label %188
+  br i1 %.0202.lcssa.i, label %190, label %188
 
 188:                                              ; preds = %187
   %189 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_service_info)
   br label %190
 
 190:                                              ; preds = %188, %187
-  br i1 %.0195.lcssa.i, label %193, label %191
+  br i1 %.0200.lcssa.i, label %193, label %191
 
 191:                                              ; preds = %190
   %192 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_router_id_info)
   br label %193
 
 193:                                              ; preds = %191, %190
-  br i1 %.0193.lcssa.i, label %194, label %196
+  br i1 %.0198.lcssa.i, label %194, label %196
 
 194:                                              ; preds = %193
   %195 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_id_info)
   br label %196
 
 196:                                              ; preds = %194, %193
-  br i1 %.0191.lcssa.i, label %199, label %197
+  br i1 %.0196.lcssa.i, label %199, label %197
 
 197:                                              ; preds = %196
   %198 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_rtr_view_info)
   br label %199
 
 199:                                              ; preds = %197, %196
-  br i1 %.0189.lcssa.i, label %200, label %202
+  br i1 %.0194.lcssa.i, label %200, label %202
 
 200:                                              ; preds = %199
   %201 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_view_info)
   br label %202
 
 202:                                              ; preds = %200, %199
-  br i1 %.0187.lcssa.i, label %203, label %205
+  br i1 %.0192.lcssa.i, label %203, label %205
 
 203:                                              ; preds = %202
   %204 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_redirect_assignment)
   br label %205
 
 205:                                              ; preds = %203, %202
-  br i1 %.0185.lcssa.i, label %206, label %208
+  br i1 %.0190.lcssa.i, label %206, label %208
 
 206:                                              ; preds = %205
   %207 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_query_info)
   br label %208
 
 208:                                              ; preds = %206, %205
-  br i1 %.0176.lcssa.i, label %.sink.split.i, label %dissect_wccp2_info.exit
+  br i1 %.0181.lcssa.i, label %.sink.split.i, label %dissect_wccp2_info.exit
 
 209:                                              ; preds = %._crit_edge.i
-  br i1 %.0199.lcssa.i, label %212, label %210
+  br i1 %.0204.lcssa.i, label %212, label %210
 
 210:                                              ; preds = %209
   %211 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_security_info)
   br label %212
 
 212:                                              ; preds = %210, %209
-  br i1 %.0197.lcssa.i, label %215, label %213
+  br i1 %.0202.lcssa.i, label %215, label %213
 
 213:                                              ; preds = %212
   %214 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_service_info)
   br label %215
 
 215:                                              ; preds = %213, %212
-  br i1 %.0195.lcssa.i, label %216, label %218
+  br i1 %.0200.lcssa.i, label %216, label %218
 
 216:                                              ; preds = %215
   %217 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_router_id_info)
   br label %218
 
 218:                                              ; preds = %216, %215
-  br i1 %.0193.lcssa.i, label %219, label %221
+  br i1 %.0198.lcssa.i, label %219, label %221
 
 219:                                              ; preds = %218
   %220 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_id_info)
   br label %221
 
 221:                                              ; preds = %219, %218
-  br i1 %.0191.lcssa.i, label %222, label %224
+  br i1 %.0196.lcssa.i, label %222, label %224
 
 222:                                              ; preds = %221
   %223 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_rtr_view_info)
   br label %224
 
 224:                                              ; preds = %222, %221
-  br i1 %.0189.lcssa.i, label %225, label %227
+  br i1 %.0194.lcssa.i, label %225, label %227
 
 225:                                              ; preds = %224
   %226 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_view_info)
   br label %227
 
 227:                                              ; preds = %225, %224
-  br i1 %.0187.lcssa.i, label %228, label %230
+  br i1 %.0192.lcssa.i, label %228, label %230
 
 228:                                              ; preds = %227
   %229 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_redirect_assignment)
   br label %230
 
 230:                                              ; preds = %228, %227
-  br i1 %.0185.lcssa.i, label %233, label %231
+  br i1 %.0190.lcssa.i, label %233, label %231
 
 231:                                              ; preds = %230
   %232 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_query_info)
   br label %233
 
 233:                                              ; preds = %231, %230
-  br i1 %.0183.lcssa.i, label %234, label %236
+  br i1 %.0188.lcssa.i, label %234, label %236
 
 234:                                              ; preds = %233
   %235 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_capabilities_info)
   br label %236
 
 236:                                              ; preds = %234, %233
-  br i1 %.0181.lcssa.i, label %237, label %239
+  br i1 %.0186.lcssa.i, label %237, label %239
 
 237:                                              ; preds = %236
   %238 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_alt_assignment)
   br label %239
 
 239:                                              ; preds = %237, %236
-  br i1 %.0179.lcssa.i, label %240, label %242
+  br i1 %.0184.lcssa.i, label %240, label %242
 
 240:                                              ; preds = %239
   %241 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_assign_map)
   br label %242
 
 242:                                              ; preds = %240, %239
-  br i1 %.0177.lcssa.i, label %243, label %245
+  br i1 %.0182.lcssa.i, label %243, label %245
 
 243:                                              ; preds = %242
   %244 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_command_extension)
   br label %245
 
 245:                                              ; preds = %243, %242
-  br i1 %.0176.lcssa.i, label %.sink.split.i, label %dissect_wccp2_info.exit
+  br i1 %.0181.lcssa.i, label %.sink.split.i, label %dissect_wccp2_info.exit
 
 246:                                              ; preds = %._crit_edge.i
-  br i1 %.0199.lcssa.i, label %249, label %247
+  br i1 %.0204.lcssa.i, label %249, label %247
 
 247:                                              ; preds = %246
   %248 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_security_info)
   br label %249
 
 249:                                              ; preds = %247, %246
-  br i1 %.0197.lcssa.i, label %252, label %250
+  br i1 %.0202.lcssa.i, label %252, label %250
 
 250:                                              ; preds = %249
   %251 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_service_info)
   br label %252
 
 252:                                              ; preds = %250, %249
-  br i1 %.0195.lcssa.i, label %253, label %255
+  br i1 %.0200.lcssa.i, label %253, label %255
 
 253:                                              ; preds = %252
   %254 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_router_id_info)
   br label %255
 
 255:                                              ; preds = %253, %252
-  br i1 %.0193.lcssa.i, label %256, label %258
+  br i1 %.0198.lcssa.i, label %256, label %258
 
 256:                                              ; preds = %255
   %257 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_id_info)
   br label %258
 
 258:                                              ; preds = %256, %255
-  br i1 %.0191.lcssa.i, label %259, label %261
+  br i1 %.0196.lcssa.i, label %259, label %261
 
 259:                                              ; preds = %258
   %260 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_rtr_view_info)
   br label %261
 
 261:                                              ; preds = %259, %258
-  br i1 %.0189.lcssa.i, label %262, label %264
+  br i1 %.0194.lcssa.i, label %262, label %264
 
 262:                                              ; preds = %261
   %263 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_view_info)
   br label %264
 
 264:                                              ; preds = %262, %261
-  br i1 %.0185.lcssa.i, label %265, label %267
+  br i1 %.0190.lcssa.i, label %265, label %267
 
 265:                                              ; preds = %264
   %266 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_query_info)
   br label %267
 
 267:                                              ; preds = %265, %264
-  br i1 %.0183.lcssa.i, label %268, label %270
+  br i1 %.0188.lcssa.i, label %268, label %270
 
 268:                                              ; preds = %267
   %269 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_capabilities_info)
   br label %270
 
 270:                                              ; preds = %268, %267
-  %brmerge.i = select i1 %.0179.lcssa.i, i1 true, i1 %.0176.lcssa.i
-  %brmerge237.i = select i1 %brmerge.i, i1 true, i1 %.0181.lcssa.i
-  %brmerge238.i = select i1 %brmerge237.i, i1 true, i1 %.0187.lcssa.i
-  br i1 %brmerge238.i, label %273, label %271
+  %or.cond.i = select i1 %.0184.lcssa.i, i1 true, i1 %.0181.lcssa.i
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %.0186.lcssa.i
+  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %.0192.lcssa.i
+  br i1 %or.cond5.i, label %273, label %271
 
 271:                                              ; preds = %270
   %272 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_assignment)
   br label %273
 
 273:                                              ; preds = %271, %270
-  br i1 %.0177.lcssa.i, label %.sink.split.i, label %dissect_wccp2_info.exit
+  br i1 %.0182.lcssa.i, label %.sink.split.i, label %dissect_wccp2_info.exit
 
 .sink.split.i:                                    ; preds = %273, %245, %208, %183
   %ei_wccp_contains_command_extension.sink.i = phi ptr [ @ei_wccp_contains_alt_assignment_map, %183 ], [ @ei_wccp_contains_alt_assignment_map, %208 ], [ @ei_wccp_contains_alt_assignment_map, %245 ], [ @ei_wccp_contains_command_extension, %273 ]

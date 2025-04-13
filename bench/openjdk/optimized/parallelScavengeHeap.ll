@@ -783,13 +783,13 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap17mem_allocate_workEmbPb(ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.lr.ph
   %.0.ph79 = phi ptr [ undef, %.lr.ph.lr.ph ], [ %.1, %.lr.ph.backedge ]
-  %.034.ph78 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %85, %.lr.ph.backedge ]
-  %.037.ph77 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.138, %.lr.ph.backedge ]
+  %.036.ph78 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %85, %.lr.ph.backedge ]
+  %.039.ph77 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.140, %.lr.ph.backedge ]
   br label %18
 
 18:                                               ; preds = %.lr.ph, %.backedge
   %.074 = phi ptr [ %.0.ph79, %.lr.ph ], [ %.1, %.backedge ]
-  %.03773 = phi i32 [ %.037.ph77, %.lr.ph ], [ %.138, %.backedge ]
+  %.03973 = phi i32 [ %.039.ph77, %.lr.ph ], [ %.140, %.backedge ]
   %19 = load ptr, ptr @Heap_lock, align 8
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %20
@@ -815,11 +815,11 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %18, %20
 
 30:                                               ; preds = %29
   %31 = call noundef ptr @_ZN20ParallelScavengeHeap20mem_allocate_old_genEm(ptr nonnull align 8 poison, i64 noundef %1)
-  %.not44 = icmp eq ptr %31, null
-  br i1 %.not44, label %32, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+  %.not46 = icmp eq ptr %31, null
+  br i1 %.not46, label %32, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
 32:                                               ; preds = %30, %29
-  %33 = zext i32 %.03773 to i64
+  %33 = zext i32 %.03973 to i64
   %34 = load i64, ptr @GCLockerRetryAllocationCount, align 8
   %35 = icmp ult i64 %34, %33
   br i1 %35, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread, label %36
@@ -845,7 +845,7 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %41
   %46 = load ptr, ptr @Heap_lock, align 8
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %46) #15
   call void @_ZN8GCLocker17stall_until_clearEv() #15
-  %47 = add i32 %.03773, 1
+  %47 = add i32 %.03973, 1
   call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %46) #15
   br label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
@@ -861,9 +861,9 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %41
   unreachable
 
 _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %36, %_ZN8GCLocker22is_active_and_needs_gcEv.exit, %48, %32, %30, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %_ZN13MutexUnlockerD2Ev.exit
-  %.138 = phi i32 [ %47, %_ZN13MutexUnlockerD2Ev.exit ], [ %.03773, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %.03773, %30 ], [ %.03773, %32 ], [ %.03773, %48 ], [ %.03773, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ %.03773, %36 ]
-  %.035 = phi i32 [ 2, %_ZN13MutexUnlockerD2Ev.exit ], [ 1, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ 1, %30 ], [ 1, %32 ], [ 1, %48 ], [ 0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ 0, %36 ]
-  %.132 = phi ptr [ null, %_ZN13MutexUnlockerD2Ev.exit ], [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %31, %30 ], [ null, %32 ], [ null, %48 ], [ null, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ null, %36 ]
+  %.140 = phi i32 [ %47, %_ZN13MutexUnlockerD2Ev.exit ], [ %.03973, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %.03973, %30 ], [ %.03973, %32 ], [ %.03973, %48 ], [ %.03973, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ %.03973, %36 ]
+  %.037 = phi i32 [ 2, %_ZN13MutexUnlockerD2Ev.exit ], [ 1, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ 1, %30 ], [ 1, %32 ], [ 1, %48 ], [ 0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ 0, %36 ]
+  %.134 = phi ptr [ null, %_ZN13MutexUnlockerD2Ev.exit ], [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %31, %30 ], [ null, %32 ], [ null, %48 ], [ null, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ null, %36 ]
   %.1 = phi ptr [ %.074, %_ZN13MutexUnlockerD2Ev.exit ], [ %28, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %31, %30 ], [ null, %32 ], [ null, %48 ], [ %.074, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ %.074, %36 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %53
 
@@ -872,18 +872,18 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %36, %_ZN8GCLocker
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread, %53
-  switch i32 %.035, label %default.unreachable97 [
+  switch i32 %.037, label %default.unreachable97 [
     i32 0, label %55
     i32 1, label %.loopexit
     i32 2, label %.backedge
   ]
 
 .backedge:                                        ; preds = %_ZN11MutexLockerD2Ev.exit, %83
-  %54 = icmp eq ptr %.132, null
+  %54 = icmp eq ptr %.134, null
   br i1 %54, label %18, label %.loopexit
 
 55:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
-  %56 = icmp eq ptr %.132, null
+  %56 = icmp eq ptr %.134, null
   br i1 %56, label %57, label %.loopexit
 
 57:                                               ; preds = %55
@@ -906,8 +906,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
   %68 = load i8, ptr %67, align 1
   %69 = and i8 %66, 1
   %70 = and i8 %69, %68
-  %brmerge.demorgan.not = icmp eq i8 %70, 0
-  br i1 %brmerge.demorgan.not, label %80, label %71
+  %or.cond.not = icmp eq i8 %70, 0
+  br i1 %or.cond.not, label %80, label %71
 
 71:                                               ; preds = %63
   store i8 1, ptr %3, align 1
@@ -925,8 +925,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
 76:                                               ; preds = %71, %75
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %78 = load ptr, ptr %77, align 8
-  %.not45 = icmp eq ptr %78, null
-  br i1 %.not45, label %.thread, label %79
+  %.not47 = icmp eq ptr %78, null
+  br i1 %.not47, label %.thread, label %79
 
 79:                                               ; preds = %76
   call void @_ZN13CollectedHeap16fill_with_objectEPP12HeapWordImplmb(ptr noundef nonnull %78, i64 noundef %1, i1 noundef zeroext true) #15
@@ -948,7 +948,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
 
 84:                                               ; preds = %57
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %5) #15
-  %85 = add i32 %.034.ph78, 1
+  %85 = add i32 %.036.ph78, 1
   %86 = load i64, ptr @QueuedAllocationWarningCount, align 8
   %.not57 = icmp eq i64 %86, 0
   br i1 %.not57, label %.lr.ph.backedge, label %87
@@ -981,7 +981,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
   br label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %55, %_ZN11MutexLockerD2Ev.exit, %.backedge, %4, %.thread
-  %.2 = phi ptr [ %.4.ph, %.thread ], [ %12, %4 ], [ %.132, %55 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %.132, %.backedge ]
+  %.2 = phi ptr [ %.4.ph, %.thread ], [ %12, %4 ], [ %.134, %55 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %.134, %.backedge ]
   ret ptr %.2
 
 default.unreachable97:                            ; preds = %_ZN11MutexLockerD2Ev.exit
@@ -1170,8 +1170,8 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap24expand_heap_and_allocateEm
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %1) #15
   %11 = icmp ne ptr %10, null
-  %brmerge = or i1 %2, %11
-  br i1 %brmerge, label %_ZN8PSOldGen8allocateEm.exit, label %12
+  %or.cond = or i1 %2, %11
+  br i1 %or.cond, label %_ZN8PSOldGen8allocateEm.exit, label %12
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
@@ -1235,8 +1235,8 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %3
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(56) %12, i64 noundef %1) #15
   %17 = icmp ne ptr %16, null
-  %brmerge.i = or i1 %2, %17
-  br i1 %brmerge.i, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit, label %18
+  %or.cond.i = or i1 %2, %17
+  br i1 %or.cond.i, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit, label %18
 
 18:                                               ; preds = %9
   %19 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
@@ -1324,8 +1324,8 @@ _ZN20ParallelScavengeHeap20collect_at_safepointEb.exit: ; preds = %61, %63
   %70 = load ptr, ptr %69, align 8
   %71 = tail call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(56) %67, i64 noundef %1) #15
   %72 = icmp ne ptr %71, null
-  %brmerge.i18 = or i1 %2, %72
-  br i1 %brmerge.i18, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22, label %73
+  %or.cond.i18 = or i1 %2, %72
+  br i1 %or.cond.i18, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22, label %73
 
 73:                                               ; preds = %_ZN20ParallelScavengeHeap20collect_at_safepointEb.exit
   %74 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
@@ -1380,8 +1380,8 @@ _ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33: ; preds 
   %103 = load ptr, ptr %102, align 8
   %104 = tail call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(56) %100, i64 noundef %1) #15
   %105 = icmp ne ptr %104, null
-  %brmerge.i23 = or i1 %2, %105
-  br i1 %brmerge.i23, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit, label %106
+  %or.cond.i23 = or i1 %2, %105
+  br i1 %or.cond.i23, label %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit, label %106
 
 106:                                              ; preds = %_ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33
   %107 = load ptr, ptr @_ZN20ParallelScavengeHeap8_old_genE, align 8
@@ -2280,47 +2280,45 @@ declare void @_ZNK13WorkerThreads10threads_doEP13ThreadClosure(ptr noundef nonnu
 define hidden void @_ZNK20ParallelScavengeHeap18print_tracing_infoEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr @UseParallelGC, align 1
   %3 = trunc i8 %2 to i1
-  br i1 %3, label %4, label %_ZN24AdaptiveSizePolicyOutput5printEv.exit
+  %4 = load i8, ptr @UseAdaptiveSizePolicy, align 1
+  %5 = trunc i8 %4 to i1
+  %or.cond.i.i = select i1 %3, i1 %5, i1 false
+  br i1 %or.cond.i.i, label %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i, label %_ZN24AdaptiveSizePolicyOutput5printEv.exit
 
-4:                                                ; preds = %1
-  %5 = load i8, ptr @UseAdaptiveSizePolicy, align 1
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i, label %_ZN24AdaptiveSizePolicyOutput5printEv.exit
+_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i:   ; preds = %1
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i = icmp eq ptr %6, null
+  br i1 %.not.i, label %_ZN24AdaptiveSizePolicyOutput5printEv.exit, label %7
 
-_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i:   ; preds = %4
-  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %_ZN24AdaptiveSizePolicyOutput5printEv.exit, label %8
-
-8:                                                ; preds = %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i
-  %9 = load ptr, ptr @_ZN20ParallelScavengeHeap12_size_policyE, align 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(312) %9) #15
+7:                                                ; preds = %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i
+  %8 = load ptr, ptr @_ZN20ParallelScavengeHeap12_size_policyE, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(312) %8) #15
   br label %_ZN24AdaptiveSizePolicyOutput5printEv.exit
 
-_ZN24AdaptiveSizePolicyOutput5printEv.exit:       ; preds = %1, %4, %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i, %8
-  %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %17, label %15
+_ZN24AdaptiveSizePolicyOutput5printEv.exit:       ; preds = %1, %_ZN24AdaptiveSizePolicyOutput7enabledEv.exit.i, %7
+  %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %16, label %14
 
-15:                                               ; preds = %_ZN24AdaptiveSizePolicyOutput5printEv.exit
-  %16 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN10PSScavenge17_accumulated_timeE) #15
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.15, double noundef %16)
-  br label %17
+14:                                               ; preds = %_ZN24AdaptiveSizePolicyOutput5printEv.exit
+  %15 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN10PSScavenge17_accumulated_timeE) #15
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.15, double noundef %15)
+  br label %16
 
-17:                                               ; preds = %_ZN24AdaptiveSizePolicyOutput5printEv.exit, %15
-  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not1 = icmp eq ptr %18, null
-  br i1 %.not1, label %21, label %19
+16:                                               ; preds = %_ZN24AdaptiveSizePolicyOutput5printEv.exit, %14
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not1 = icmp eq ptr %17, null
+  br i1 %.not1, label %20, label %18
 
-19:                                               ; preds = %17
-  %20 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN17PSParallelCompact17_accumulated_timeE) #15
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, double noundef %20)
-  br label %21
+18:                                               ; preds = %16
+  %19 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN17PSParallelCompact17_accumulated_timeE) #15
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_43ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, double noundef %19)
+  br label %20
 
-21:                                               ; preds = %17, %19
+20:                                               ; preds = %16, %18
   ret void
 }
 

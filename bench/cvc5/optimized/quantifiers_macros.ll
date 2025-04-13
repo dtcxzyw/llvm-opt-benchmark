@@ -5713,8 +5713,8 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %55, %60
           to label %_ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit unwind label %105
 
 _ZNK4cvc58internal12NodeTemplateILb0EE9isClosureEv.exit: ; preds = %96
-  %brmerge.demorgan = and i1 %3, %102
-  br i1 %brmerge.demorgan, label %thread-pre-split, label %109
+  %or.cond = and i1 %3, %102
+  br i1 %or.cond, label %thread-pre-split, label %109
 
 103:                                              ; preds = %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i, %39
   %104 = landingpad { ptr, i32 }

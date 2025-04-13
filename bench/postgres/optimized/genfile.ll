@@ -578,97 +578,97 @@ define dso_local noundef i64 @pg_ls_dir(ptr noundef %0) local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %22, %26, %1
-  %.021 = phi i1 [ false, %22 ], [ %29, %26 ], [ false, %1 ]
-  %.020 = phi i1 [ %.1, %22 ], [ %.1, %26 ], [ false, %1 ]
+  %.022 = phi i1 [ false, %22 ], [ %29, %26 ], [ false, %1 ]
+  %.021 = phi i1 [ %.1, %22 ], [ %.1, %26 ], [ false, %1 ]
   tail call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 1) #9
   %31 = tail call ptr @AllocateDir(ptr noundef %10) #9
-  %.not = icmp eq ptr %31, null
-  %brmerge.not = select i1 %.not, i1 %.020, i1 false
-  br i1 %brmerge.not, label %32, label %36
+  %32 = icmp eq ptr %31, null
+  %or.cond = select i1 %32, i1 %.021, i1 false
+  br i1 %or.cond, label %33, label %37
 
-32:                                               ; preds = %30
-  %33 = tail call ptr @__errno_location() #11
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %34, 2
-  br i1 %35, label %65, label %36
+33:                                               ; preds = %30
+  %34 = tail call ptr @__errno_location() #11
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %35, 2
+  br i1 %36, label %66, label %37
 
-36:                                               ; preds = %30, %32
-  %37 = tail call ptr @ReadDir(ptr noundef %31, ptr noundef %10) #9
-  %.not2227 = icmp eq ptr %37, null
-  br i1 %.not2227, label %._crit_edge, label %.lr.ph
+37:                                               ; preds = %33, %30
+  %38 = tail call ptr @ReadDir(ptr noundef %31, ptr noundef %10) #9
+  %.not27 = icmp eq ptr %38, null
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %36
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  br i1 %.021, label %.lr.ph.split.us, label %sub_0
+.lr.ph:                                           ; preds = %37
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  br i1 %.022, label %.lr.ph.split.us, label %sub_0
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %40 = phi ptr [ %46, %.lr.ph.split.us ], [ %37, %.lr.ph ]
+  %41 = phi ptr [ %47, %.lr.ph.split.us ], [ %38, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 19
-  %42 = call ptr @cstring_to_text(ptr noundef nonnull %41) #9
-  %43 = ptrtoint ptr %42 to i64
-  store i64 %43, ptr %2, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 19
+  %43 = call ptr @cstring_to_text(ptr noundef nonnull %42) #9
+  %44 = ptrtoint ptr %43 to i64
+  store i64 %44, ptr %2, align 8
   store i8 0, ptr %3, align 1
-  %44 = load ptr, ptr %38, align 8
   %45 = load ptr, ptr %39, align 8
-  call void @tuplestore_putvalues(ptr noundef %44, ptr noundef %45, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  %46 = load ptr, ptr %40, align 8
+  call void @tuplestore_putvalues(ptr noundef %45, ptr noundef %46, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  %46 = call ptr @ReadDir(ptr noundef %31, ptr noundef %10) #9
-  %.not22.us = icmp eq ptr %46, null
-  br i1 %.not22.us, label %._crit_edge, label %.lr.ph.split.us
+  %47 = call ptr @ReadDir(ptr noundef %31, ptr noundef %10) #9
+  %.not.us = icmp eq ptr %47, null
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
-sub_0:                                            ; preds = %.lr.ph, %62
-  %47 = phi ptr [ %63, %62 ], [ %37, %.lr.ph ]
+sub_0:                                            ; preds = %.lr.ph, %63
+  %48 = phi ptr [ %64, %63 ], [ %38, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 19
-  %49 = load i8, ptr %48, align 1
-  %.not28 = icmp eq i8 %49, 46
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 19
+  %50 = load i8, ptr %49, align 1
+  %.not28 = icmp eq i8 %50, 46
   br i1 %.not28, label %.tail, label %.tail23.thread
 
 .tail:                                            ; preds = %sub_0
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 20
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, 0
-  br i1 %52, label %62, label %sub_125, !llvm.loop !6
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 20
+  %52 = load i8, ptr %51, align 1
+  %53 = icmp eq i8 %52, 0
+  br i1 %53, label %63, label %sub_125, !llvm.loop !6
 
 sub_125:                                          ; preds = %.tail
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 20
-  %54 = load i8, ptr %53, align 1
-  %.not30 = icmp eq i8 %54, 46
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 20
+  %55 = load i8, ptr %54, align 1
+  %.not30 = icmp eq i8 %55, 46
   br i1 %.not30, label %.tail23, label %.tail23.thread
 
 .tail23:                                          ; preds = %sub_125
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 21
-  %56 = load i8, ptr %55, align 1
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %62, label %.tail23.thread, !llvm.loop !6
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 21
+  %57 = load i8, ptr %56, align 1
+  %58 = icmp eq i8 %57, 0
+  br i1 %58, label %63, label %.tail23.thread, !llvm.loop !6
 
 .tail23.thread:                                   ; preds = %sub_0, %sub_125, %.tail23
-  %58 = call ptr @cstring_to_text(ptr noundef nonnull %48) #9
-  %59 = ptrtoint ptr %58 to i64
-  store i64 %59, ptr %2, align 8
+  %59 = call ptr @cstring_to_text(ptr noundef nonnull %49) #9
+  %60 = ptrtoint ptr %59 to i64
+  store i64 %60, ptr %2, align 8
   store i8 0, ptr %3, align 1
-  %60 = load ptr, ptr %38, align 8
   %61 = load ptr, ptr %39, align 8
-  call void @tuplestore_putvalues(ptr noundef %60, ptr noundef %61, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
-  br label %62
+  %62 = load ptr, ptr %40, align 8
+  call void @tuplestore_putvalues(ptr noundef %61, ptr noundef %62, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  br label %63
 
-62:                                               ; preds = %.tail, %.tail23, %.tail23.thread
+63:                                               ; preds = %.tail, %.tail23, %.tail23.thread
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  %63 = call ptr @ReadDir(ptr noundef %31, ptr noundef %10) #9
-  %.not22 = icmp eq ptr %63, null
-  br i1 %.not22, label %._crit_edge, label %sub_0
+  %64 = call ptr @ReadDir(ptr noundef %31, ptr noundef %10) #9
+  %.not = icmp eq ptr %64, null
+  br i1 %.not, label %._crit_edge, label %sub_0
 
-._crit_edge:                                      ; preds = %62, %.lr.ph.split.us, %36
-  %64 = call i32 @FreeDir(ptr noundef %31) #9
-  br label %65
+._crit_edge:                                      ; preds = %63, %.lr.ph.split.us, %37
+  %65 = call i32 @FreeDir(ptr noundef %31) #9
+  br label %66
 
-65:                                               ; preds = %32, %._crit_edge
+66:                                               ; preds = %33, %._crit_edge
   ret i64 0
 }
 
@@ -707,97 +707,97 @@ define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 
   %9 = load ptr, ptr %8, align 8
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #9
   %10 = tail call ptr @AllocateDir(ptr noundef %1) #9
-  %.not = icmp eq ptr %10, null
-  %brmerge.not = and i1 %2, %.not
-  br i1 %brmerge.not, label %11, label %15
+  %11 = icmp eq ptr %10, null
+  %or.cond = and i1 %2, %11
+  br i1 %or.cond, label %12, label %16
 
-11:                                               ; preds = %3
-  %12 = tail call ptr @__errno_location() #11
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, 2
-  br i1 %14, label %56, label %15
+12:                                               ; preds = %3
+  %13 = tail call ptr @__errno_location() #11
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp eq i32 %14, 2
+  br i1 %15, label %57, label %16
 
-15:                                               ; preds = %3, %11
-  %16 = tail call ptr @ReadDir(ptr noundef %10, ptr noundef %1) #9
-  %.not1416 = icmp eq ptr %16, null
-  br i1 %.not1416, label %._crit_edge, label %.lr.ph
+16:                                               ; preds = %12, %3
+  %17 = tail call ptr @ReadDir(ptr noundef %10, ptr noundef %1) #9
+  %.not15 = icmp eq ptr %17, null
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %15
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  br label %24
+.lr.ph:                                           ; preds = %16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  br label %25
 
-24:                                               ; preds = %.lr.ph, %53
-  %25 = phi ptr [ %16, %.lr.ph ], [ %54, %53 ]
+25:                                               ; preds = %.lr.ph, %54
+  %26 = phi ptr [ %17, %.lr.ph ], [ %55, %54 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #9
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 19
-  %27 = load i8, ptr %26, align 1
-  %28 = icmp eq i8 %27, 46
-  br i1 %28, label %53, label %29, !llvm.loop !8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 19
+  %28 = load i8, ptr %27, align 1
+  %29 = icmp eq i8 %28, 46
+  br i1 %29, label %54, label %30, !llvm.loop !8
 
-29:                                               ; preds = %24
-  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 2048, ptr noundef nonnull @.str.16, ptr noundef %1, ptr noundef nonnull %26) #9
-  %31 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %7) #9
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %33, label %41
+30:                                               ; preds = %25
+  %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 2048, ptr noundef nonnull @.str.16, ptr noundef %1, ptr noundef nonnull %27) #9
+  %32 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %42
 
-33:                                               ; preds = %29
-  %34 = tail call ptr @__errno_location() #11
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %35, 2
-  br i1 %36, label %53, label %37, !llvm.loop !8
+34:                                               ; preds = %30
+  %35 = tail call ptr @__errno_location() #11
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp eq i32 %36, 2
+  br i1 %37, label %54, label %38, !llvm.loop !8
 
-37:                                               ; preds = %33
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %38)
-  %39 = call i32 @errcode_for_file_access() #9
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %6) #9
+38:                                               ; preds = %34
+  %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %39)
+  %40 = call i32 @errcode_for_file_access() #9
+  %41 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %6) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 612, ptr noundef nonnull @__func__.pg_ls_dir_files) #9
   unreachable
 
-41:                                               ; preds = %29
-  %42 = load i32, ptr %17, align 8
-  %43 = and i32 %42, 61440
-  %44 = icmp eq i32 %43, 32768
-  br i1 %44, label %45, label %53, !llvm.loop !8
+42:                                               ; preds = %30
+  %43 = load i32, ptr %18, align 8
+  %44 = and i32 %43, 61440
+  %45 = icmp eq i32 %44, 32768
+  br i1 %45, label %46, label %54, !llvm.loop !8
 
-45:                                               ; preds = %41
-  %46 = call ptr @cstring_to_text(ptr noundef nonnull %26) #9
-  %47 = ptrtoint ptr %46 to i64
-  store i64 %47, ptr %4, align 16
-  %48 = load i64, ptr %18, align 8
-  store i64 %48, ptr %19, align 8
-  %49 = load i64, ptr %20, align 8
-  %50 = call i64 @time_t_to_timestamptz(i64 noundef %49) #9
-  store i64 %50, ptr %21, align 16
+46:                                               ; preds = %42
+  %47 = call ptr @cstring_to_text(ptr noundef nonnull %27) #9
+  %48 = ptrtoint ptr %47 to i64
+  store i64 %48, ptr %4, align 16
+  %49 = load i64, ptr %19, align 8
+  store i64 %49, ptr %20, align 8
+  %50 = load i64, ptr %21, align 8
+  %51 = call i64 @time_t_to_timestamptz(i64 noundef %50) #9
+  store i64 %51, ptr %22, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, i8 0, i64 3, i1 false)
-  %51 = load ptr, ptr %22, align 8
   %52 = load ptr, ptr %23, align 8
-  call void @tuplestore_putvalues(ptr noundef %51, ptr noundef %52, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
-  br label %53
+  %53 = load ptr, ptr %24, align 8
+  call void @tuplestore_putvalues(ptr noundef %52, ptr noundef %53, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  br label %54
 
-53:                                               ; preds = %41, %33, %24, %45
+54:                                               ; preds = %42, %34, %25, %46
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
-  %54 = call ptr @ReadDir(ptr noundef %10, ptr noundef %1) #9
-  %.not14 = icmp eq ptr %54, null
-  br i1 %.not14, label %._crit_edge, label %24
+  %55 = call ptr @ReadDir(ptr noundef %10, ptr noundef %1) #9
+  %.not = icmp eq ptr %55, null
+  br i1 %.not, label %._crit_edge, label %25
 
-._crit_edge:                                      ; preds = %53, %15
-  %55 = call i32 @FreeDir(ptr noundef %10) #9
-  br label %56
+._crit_edge:                                      ; preds = %54, %16
+  %56 = call i32 @FreeDir(ptr noundef %10) #9
+  br label %57
 
-56:                                               ; preds = %11, %._crit_edge
+57:                                               ; preds = %12, %._crit_edge
   ret void
 }
 

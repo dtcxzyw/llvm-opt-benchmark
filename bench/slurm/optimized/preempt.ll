@@ -238,27 +238,27 @@ slurm_preemption_enabled.exit:                    ; preds = %22
 
 33:                                               ; preds = %slurm_preemption_enabled.exit
   %34 = call zeroext i1 @job_uses_max_start_delay_resv(ptr noundef nonnull %0) #8
-  br i1 %34, label %35, label %.thread
+  br i1 %34, label %35, label %.thread19
 
 35:                                               ; preds = %slurm_preemption_enabled.exit, %33
   %36 = load ptr, ptr @job_list, align 8
   %37 = call i32 @list_for_each(ptr noundef %36, ptr noundef nonnull @_add_preemptable_job, ptr noundef nonnull %3) #8
   %.pre = load ptr, ptr %4, align 8
-  %.not16 = icmp eq ptr %.pre, null
-  br i1 %.not16, label %.thread, label %.thread.sink.split
+  %.not20 = icmp eq ptr %.pre, null
+  br i1 %.not20, label %.thread19, label %.thread19.sink.split
 
-.thread.sink.split:                               ; preds = %35
-  %.b17 = load i1, ptr @youngest_order, align 1
-  %_sort_by_youngest._sort_by_prio = select i1 %.b17, ptr @_sort_by_youngest, ptr @_sort_by_prio
-  call void @list_sort(ptr noundef nonnull %.pre, ptr noundef nonnull %_sort_by_youngest._sort_by_prio) #8
-  br label %.thread
+.thread19.sink.split:                             ; preds = %35
+  %.b16 = load i1, ptr @youngest_order, align 1
+  %_sort_by_youngest.mux = select i1 %.b16, ptr @_sort_by_youngest, ptr @_sort_by_prio
+  call void @list_sort(ptr noundef nonnull %.pre, ptr noundef nonnull %_sort_by_youngest.mux) #8
+  br label %.thread19
 
-.thread:                                          ; preds = %.thread.sink.split, %33, %35
+.thread19:                                        ; preds = %35, %.thread19.sink.split, %33
   %38 = load ptr, ptr %4, align 8
   br label %39
 
-39:                                               ; preds = %1, %.thread, %25, %20, %15, %8
-  %.0 = phi ptr [ %38, %.thread ], [ null, %25 ], [ null, %20 ], [ null, %15 ], [ null, %8 ], [ null, %1 ]
+39:                                               ; preds = %1, %.thread19, %25, %20, %15, %8
+  %.0 = phi ptr [ %38, %.thread19 ], [ null, %25 ], [ null, %20 ], [ null, %15 ], [ null, %8 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   ret ptr %.0
 }

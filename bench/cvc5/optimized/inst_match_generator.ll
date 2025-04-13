@@ -3405,18 +3405,18 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit318: ; preds = %_ZN4cvc58internal1
   %756 = load i64, ptr @_ZN4cvc58internal4expr9AttributeINS0_6theory21InstVarNumAttributeIdEmE4s_idE, align 8, !tbaa !176
   call void @_ZNK4cvc58internal4expr4attr8AttrHashImE4findESt4pairImPNS1_9NodeValueEE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::expr::attr::AttrHash<unsigned long>::Iterator") align 8 %7, ptr noundef nonnull align 8 dereferenceable(56) %755, i64 %756, ptr nonnull %743)
   %757 = load i8, ptr %7, align 8, !tbaa !177, !range !185, !noundef !186
-  %.mux.i.not.i.i.i = icmp eq i8 %757, 0
-  br i1 %.mux.i.not.i.i.i, label %758, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory21InstVarNumAttributeIdEmEEEENT_10value_typeERKS9_.exit
+  %758 = trunc nuw i8 %757 to i1
+  br i1 %758, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory21InstVarNumAttributeIdEmEEEENT_10value_typeERKS9_.exit, label %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i
 
-758:                                              ; preds = %749
+_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i: ; preds = %749
   %759 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %760 = load ptr, ptr %759, align 8, !tbaa !187, !noalias !188
   %761 = getelementptr inbounds nuw i8, ptr %760, i64 8
   %762 = load i64, ptr %761, align 8, !tbaa !176, !noalias !191
   br label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory21InstVarNumAttributeIdEmEEEENT_10value_typeERKS9_.exit
 
-_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory21InstVarNumAttributeIdEmEEEENT_10value_typeERKS9_.exit: ; preds = %749, %758
-  %.0.i.i.i = phi i64 [ %762, %758 ], [ 0, %749 ]
+_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory21InstVarNumAttributeIdEmEEEENT_10value_typeERKS9_.exit: ; preds = %749, %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i
+  %.0.i.i.i = phi i64 [ %762, %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i ], [ 0, %749 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
   %763 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %764 = load ptr, ptr %763, align 8, !tbaa !194
@@ -3695,17 +3695,17 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit326: ; preds = %862, %866, %872
 
 .noexc333:                                        ; preds = %898
   %905 = load i8, ptr %6, align 8, !tbaa !177, !range !185, !noundef !186
-  %.mux.i.not.i.i.i331 = icmp eq i8 %905, 0
-  br i1 %.mux.i.not.i.i.i331, label %906, label %910
+  %906 = trunc nuw i8 %905 to i1
+  br i1 %906, label %910, label %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i331
 
-906:                                              ; preds = %.noexc333
+_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i331: ; preds = %.noexc333
   %907 = load ptr, ptr %818, align 8, !tbaa !187, !noalias !198
   %908 = getelementptr inbounds nuw i8, ptr %907, i64 8
   %909 = load i64, ptr %908, align 8, !tbaa !176, !noalias !201
   br label %910
 
-910:                                              ; preds = %906, %.noexc333
-  %.0.i.i.i332 = phi i64 [ %909, %906 ], [ 0, %.noexc333 ]
+910:                                              ; preds = %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i331, %.noexc333
+  %.0.i.i.i332 = phi i64 [ %909, %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i331 ], [ 0, %.noexc333 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
   %911 = load ptr, ptr %816, align 8, !tbaa !194
   %912 = load ptr, ptr %817, align 8, !tbaa !62
@@ -7674,10 +7674,10 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit612:        ; preds = %317, %331, %_ZNSt6v
 
 .noexc617:                                        ; preds = %378
   %386 = load i8, ptr %7, align 8, !tbaa !177, !range !185, !noundef !186
-  %.mux.i.not.i.i.i = icmp eq i8 %386, 0
-  br i1 %.mux.i.not.i.i.i, label %387, label %393
+  %387 = trunc nuw i8 %386 to i1
+  br i1 %387, label %393, label %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i
 
-387:                                              ; preds = %.noexc617
+_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i: ; preds = %.noexc617
   %388 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %389 = load ptr, ptr %388, align 8, !tbaa !187, !noalias !462
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
@@ -7685,8 +7685,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit612:        ; preds = %317, %331, %_ZNSt6v
   %392 = trunc i64 %391 to i32
   br label %393
 
-393:                                              ; preds = %387, %.noexc617
-  %.0.i.i.i = phi i32 [ %392, %387 ], [ 0, %.noexc617 ]
+393:                                              ; preds = %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i, %.noexc617
+  %.0.i.i.i = phi i32 [ %392, %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i ], [ 0, %.noexc617 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
   store i32 %.0.i.i.i, ptr %18, align 4, !tbaa !453
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 40

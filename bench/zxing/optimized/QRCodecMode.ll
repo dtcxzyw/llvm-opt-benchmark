@@ -70,9 +70,13 @@ define noundef i32 @_ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE(i32 noundef %
 18:                                               ; preds = %17
   %switch.tableidx = add i32 %0, -7
   %19 = icmp ult i32 %switch.tableidx, 7
-  br i1 %19, label %switch.hole_check, label %.thread
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 71, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond42 = select i1 %19, i1 %switch.lobit, i1 false
+  br i1 %or.cond42, label %switch.lookup, label %.thread
 
-.thread:                                          ; preds = %switch.hole_check, %18, %11, %5
+.thread:                                          ; preds = %18, %11, %5
   %20 = tail call ptr @__cxa_allocate_exception(i64 48) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -150,13 +154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   call void @__cxa_free_exception(ptr %20) #11
   br label %50
 
-switch.hole_check:                                ; preds = %18
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 71, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.thread
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %18
   %48 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE, i64 0, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4

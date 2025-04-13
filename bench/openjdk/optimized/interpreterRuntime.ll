@@ -4014,23 +4014,23 @@ _ZN23JvmtiHideSingleSteppingC2EP10JavaThread.exit.thread: ; preds = %switch.edge
   call void @_ZN12LinkResolver20resolve_field_accessER15fieldDescriptorRK18constantPoolHandleiRK12methodHandleN9Bytecodes4CodeEbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %0, i1 noundef zeroext %4, ptr noundef %5) #14
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load ptr, ptr %14, align 8
-  %.not41 = icmp eq ptr %15, null
-  br i1 %.not41, label %20, label %107
+  %.not43 = icmp eq ptr %15, null
+  br i1 %.not43, label %20, label %107
 
 _ZN23JvmtiHideSingleSteppingC2EP10JavaThread.exit: ; preds = %switch.edge
   %16 = tail call noundef zeroext i1 @_ZN11JvmtiExport20hide_single_steppingEP10JavaThread(ptr noundef %5) #14
   call void @_ZN12LinkResolver20resolve_field_accessER15fieldDescriptorRK18constantPoolHandleiRK12methodHandleN9Bytecodes4CodeEbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %0, i1 noundef zeroext %4, ptr noundef %5) #14
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = load ptr, ptr %17, align 8
-  %.not42 = icmp eq ptr %18, null
+  %.not44 = icmp eq ptr %18, null
   br i1 %16, label %19, label %_ZN23JvmtiHideSingleSteppingD2Ev.exit
 
 19:                                               ; preds = %_ZN23JvmtiHideSingleSteppingC2EP10JavaThread.exit
   call void @_ZN11JvmtiExport22expose_single_steppingEP10JavaThread(ptr noundef nonnull %5) #14
-  br i1 %.not42, label %20, label %107
+  br i1 %.not44, label %20, label %107
 
 _ZN23JvmtiHideSingleSteppingD2Ev.exit:            ; preds = %_ZN23JvmtiHideSingleSteppingC2EP10JavaThread.exit
-  br i1 %.not42, label %20, label %107
+  br i1 %.not44, label %20, label %107
 
 20:                                               ; preds = %19, %_ZN23JvmtiHideSingleSteppingC2EP10JavaThread.exit.thread, %_ZN23JvmtiHideSingleSteppingD2Ev.exit
   %21 = load ptr, ptr %3, align 8
@@ -4090,18 +4090,18 @@ _ZNK18ResolvedFieldEntry11is_resolvedEN9Bytecodes4CodeE.exit: ; preds = %29, %32
   %45 = load i8, ptr %44, align 1
   %46 = sext i8 %45 to i32
   %47 = call noundef zeroext i8 @_ZN9Signature10basic_typeEi(i32 noundef %46) #14
-  %switch.tableidx46 = add i8 %47, -4
-  %48 = icmp ult i8 %switch.tableidx46, 11
-  br i1 %48, label %switch.lookup45, label %_Z11as_TosState9BasicType.exit
+  %switch.tableidx48 = add i8 %47, -4
+  %48 = icmp ult i8 %switch.tableidx48, 11
+  br i1 %48, label %switch.lookup47, label %_Z11as_TosState9BasicType.exit
 
-switch.lookup45:                                  ; preds = %37
-  %49 = zext nneg i8 %switch.tableidx46 to i64
+switch.lookup47:                                  ; preds = %37
+  %49 = zext nneg i8 %switch.tableidx48 to i64
   %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table._ZN18InterpreterRuntime15resolve_get_putEN9Bytecodes4CodeEiR12methodHandleR18constantPoolHandlebP10JavaThread, i64 0, i64 %49
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_Z11as_TosState9BasicType.exit
 
-_Z11as_TosState9BasicType.exit:                   ; preds = %37, %switch.lookup45
-  %.0.i34 = phi i8 [ %switch.load, %switch.lookup45 ], [ 11, %37 ]
+_Z11as_TosState9BasicType.exit:                   ; preds = %37, %switch.lookup47
+  %.0.i36 = phi i8 [ %switch.load, %switch.lookup47 ], [ 11, %37 ]
   %50 = load ptr, ptr %8, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
@@ -4140,23 +4140,23 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %37, %switch.lookup4
 
 75:                                               ; preds = %73
   %76 = select i1 %11, i8 -78, i8 -76
-  %brmerge = or i1 %.not, %74
-  br i1 %brmerge, label %77, label %.critedge
+  %or.cond3 = or i1 %.not, %74
+  br i1 %or.cond3, label %77, label %.critedge
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %78, align 4
   %79 = and i32 %.sroa.0.0.copyload.i.i, 16
-  %.not43 = icmp eq i32 %79, 0
-  br i1 %.not43, label %.critedge, label %81
+  %.not45 = icmp eq i32 %79, 0
+  br i1 %.not45, label %.critedge, label %81
 
 .critedge:                                        ; preds = %75, %77
   %80 = select i1 %11, i8 -77, i8 -75
   br label %81
 
 81:                                               ; preds = %77, %.critedge, %73
-  %.032 = phi i8 [ 0, %73 ], [ %76, %.critedge ], [ %76, %77 ]
-  %.031 = phi i8 [ 0, %73 ], [ %80, %.critedge ], [ 0, %77 ]
+  %.034 = phi i8 [ 0, %73 ], [ %76, %.critedge ], [ %76, %77 ]
+  %.033 = phi i8 [ 0, %73 ], [ %80, %.critedge ], [ 0, %77 ]
   %82 = load ptr, ptr %3, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
@@ -4165,8 +4165,8 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %37, %switch.lookup4
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = getelementptr inbounds %class.ResolvedFieldEntry, ptr %87, i64 %27
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %.sroa.0.0.copyload.i.i35 = load i32, ptr %89, align 4
-  %90 = trunc i32 %.sroa.0.0.copyload.i.i35 to i8
+  %.sroa.0.0.copyload.i.i37 = load i32, ptr %89, align 4
+  %90 = trunc i32 %.sroa.0.0.copyload.i.i37 to i8
   %91 = lshr i8 %90, 3
   %92 = and i8 %91, 2
   %93 = lshr i8 %90, 6
@@ -4187,13 +4187,13 @@ _Z11as_TosState9BasicType.exit:                   ; preds = %37, %switch.lookup4
   %103 = getelementptr inbounds nuw i8, ptr %88, i64 12
   store i16 %101, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  store i8 %.0.i34, ptr %104, align 8
+  store i8 %.0.i36, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %88, i64 18
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  store volatile i8 %.032, ptr %105, align 1
+  store volatile i8 %.034, ptr %105, align 1
   %106 = getelementptr inbounds nuw i8, ptr %88, i64 19
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
-  store volatile i8 %.031, ptr %106, align 1
+  store volatile i8 %.033, ptr %106, align 1
   br label %107
 
 107:                                              ; preds = %19, %_ZN23JvmtiHideSingleSteppingC2EP10JavaThread.exit.thread, %_ZNK18ResolvedFieldEntry11is_resolvedEN9Bytecodes4CodeE.exit, %_ZN23JvmtiHideSingleSteppingD2Ev.exit, %81

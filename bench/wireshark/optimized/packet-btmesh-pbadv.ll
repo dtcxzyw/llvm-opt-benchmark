@@ -205,7 +205,7 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
   %28 = zext nneg i8 %26 to i32
   %29 = call ptr @val_to_str_const(i32 noundef %28, ptr noundef nonnull @btmesh_generic_provisioning_control_format, ptr noundef nonnull @.str.75)
   call void @col_set_str(ptr noundef %27, i32 noundef 25, ptr noundef %29)
-  switch i8 %26, label %default.unreachable162 [
+  switch i8 %26, label %default.unreachable161 [
     i8 0, label %30
     i8 1, label %71
     i8 2, label %74
@@ -227,8 +227,8 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
 
 41:                                               ; preds = %30
   %42 = load ptr, ptr @btmesh_provisioning_handle, align 8
-  %.not150 = icmp eq ptr %42, null
-  br i1 %.not150, label %52, label %43
+  %.not151 = icmp eq ptr %42, null
+  br i1 %.not151, label %52, label %43
 
 43:                                               ; preds = %41
   %44 = call i32 @tvb_reported_length(ptr noundef %0)
@@ -255,13 +255,13 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 57
   %59 = load i16, ptr %58, align 1
   %60 = and i16 %59, 8
-  %.not147 = icmp eq i16 %60, 0
-  br i1 %.not147, label %61, label %68
+  %.not148 = icmp eq i16 %60, 0
+  br i1 %.not148, label %61, label %68
 
 61:                                               ; preds = %55
   %62 = call ptr @fragment_get(ptr noundef nonnull @pbadv_reassembly_table, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7)
-  %.not148 = icmp eq ptr %62, null
-  br i1 %.not148, label %64, label %63
+  %.not149 = icmp eq ptr %62, null
+  br i1 %.not149, label %64, label %63
 
 63:                                               ; preds = %61
   call void @fragment_set_tot_len(ptr noundef nonnull @pbadv_reassembly_table, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7, i32 noundef %35)
@@ -270,8 +270,8 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
 64:                                               ; preds = %63, %61
   %65 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 9)
   %66 = call ptr @fragment_add(ptr noundef nonnull @pbadv_reassembly_table, ptr noundef %0, i32 noundef 9, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef %65, i1 noundef zeroext true)
-  %.not149 = icmp eq ptr %66, null
-  br i1 %.not149, label %67, label %114
+  %.not150 = icmp eq ptr %66, null
+  br i1 %.not150, label %67, label %114
 
 67:                                               ; preds = %64
   call void @fragment_set_tot_len(ptr noundef nonnull @pbadv_reassembly_table, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7, i32 noundef %35)
@@ -298,8 +298,8 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 57
   %83 = load i16, ptr %82, align 1
   %84 = and i16 %83, 8
-  %.not146 = icmp eq i16 %84, 0
-  br i1 %.not146, label %85, label %90
+  %.not147 = icmp eq i16 %84, 0
+  br i1 %.not147, label %85, label %90
 
 85:                                               ; preds = %74
   %86 = mul nuw nsw i32 %79, 23
@@ -352,19 +352,19 @@ define internal i32 @dissect_btmesh_pbadv_msg(ptr noundef %0, ptr noundef %1, pt
   %113 = call ptr @proto_tree_add_expert(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_btmesh_gpcf_unknown_payload, ptr noundef %0, i32 noundef %.1, i32 noundef -1)
   br label %.thread
 
-default.unreachable162:                           ; preds = %4
+default.unreachable161:                           ; preds = %4
   unreachable
 
 114:                                              ; preds = %85, %90, %52, %43, %64, %67, %68
-  %.0143 = phi i32 [ 6, %90 ], [ 6, %85 ], [ 9, %43 ], [ 9, %52 ], [ 9, %68 ], [ 9, %64 ], [ 9, %67 ]
-  %.0142 = phi i32 [ %79, %90 ], [ %79, %85 ], [ 0, %43 ], [ 0, %52 ], [ 0, %68 ], [ 0, %64 ], [ 0, %67 ]
+  %.0144 = phi i32 [ 6, %90 ], [ 6, %85 ], [ 9, %43 ], [ 9, %52 ], [ 9, %68 ], [ 9, %64 ], [ 9, %67 ]
+  %.0143 = phi i32 [ %79, %90 ], [ %79, %85 ], [ 0, %43 ], [ 0, %52 ], [ 0, %68 ], [ 0, %64 ], [ 0, %67 ]
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 57
   %118 = load i16, ptr %117, align 1
   %119 = and i16 %118, 8
-  %.not151 = icmp eq i16 %119, 0
-  br i1 %.not151, label %.thread, label %120
+  %.not160 = icmp eq i16 %119, 0
+  br i1 %.not160, label %.thread, label %120
 
 120:                                              ; preds = %114
   %121 = call ptr @fragment_get(ptr noundef nonnull @pbadv_reassembly_table, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %7)
@@ -379,7 +379,7 @@ default.unreachable162:                           ; preds = %4
   br i1 %.not153, label %.thread, label %126
 
 126:                                              ; preds = %122
-  %127 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.0143, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %121, ptr noundef nonnull @btmesh_gpp_frag_items, ptr noundef null, ptr noundef %22)
+  %127 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.0144, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %121, ptr noundef nonnull @btmesh_gpp_frag_items, ptr noundef null, ptr noundef %22)
   %.not154 = icmp eq ptr %127, null
   %128 = load ptr, ptr %8, align 8
   br i1 %.not154, label %139, label %129
@@ -395,7 +395,7 @@ default.unreachable162:                           ; preds = %4
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 1, ptr %132, align 4
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %.0142, ptr %133, align 4
+  store i32 %.0143, ptr %133, align 4
   %134 = call ptr @proto_tree_get_root(ptr noundef %22)
   %135 = call i32 @call_dissector_with_data(ptr noundef nonnull %130, ptr noundef nonnull %127, ptr noundef %1, ptr noundef %134, ptr noundef nonnull %6)
   br label %.thread
@@ -406,10 +406,10 @@ default.unreachable162:                           ; preds = %4
   br label %.thread
 
 139:                                              ; preds = %126
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.78, i32 noundef %.0142)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.78, i32 noundef %.0143)
   br label %.thread
 
-.thread:                                          ; preds = %71, %110, %112, %139, %136, %131, %114, %120, %122
+.thread:                                          ; preds = %71, %110, %112, %139, %136, %131, %120, %122, %114
   %140 = call i32 @tvb_reported_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #5

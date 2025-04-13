@@ -39,28 +39,26 @@ define hidden noundef zeroext i1 @_ZN17JVMCICleaningTask19claim_cleaning_taskEv(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17JVMCICleaningTask4workEb(ptr noundef nonnull align 1 dereferenceable(1) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
-  br i1 %1, label %3, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.thread
+  %3 = load i8, ptr @EnableJVMCI, align 1
+  %4 = trunc i8 %3 to i1
+  %or.cond = select i1 %1, i1 %4, i1 false
+  br i1 %or.cond, label %5, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.thread
 
-3:                                                ; preds = %2
-  %4 = load i8, ptr @EnableJVMCI, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.thread
+5:                                                ; preds = %2
+  %6 = load volatile i8, ptr %0, align 1
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.thread, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit
 
-6:                                                ; preds = %3
-  %7 = load volatile i8, ptr %0, align 1
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.thread, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit
+_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit: ; preds = %5
+  %8 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull align 1 dereferenceable(1) %0) #3, !srcloc !6
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.thread, label %10
 
-_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit: ; preds = %6
-  %9 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull align 1 dereferenceable(1) %0) #3, !srcloc !6
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.thread, label %11
-
-11:                                               ; preds = %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit
+10:                                               ; preds = %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit
   tail call void @_ZN5JVMCI12do_unloadingEb(i1 noundef zeroext true) #3
   br label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.thread
 
-_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.thread: ; preds = %6, %11, %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit, %3, %2
+_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.thread: ; preds = %5, %10, %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit, %2
   ret void
 }
 
@@ -97,40 +95,38 @@ define hidden void @_ZN22G1ParallelCleaningTask4workEj(ptr noundef nonnull align
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %_ZN17JVMCICleaningTask4workEb.exit
+  %7 = load i8, ptr @EnableJVMCI, align 1
+  %8 = trunc i8 %7 to i1
+  %or.cond.i = select i1 %6, i1 %8, i1 false
+  br i1 %or.cond.i, label %9, label %_ZN17JVMCICleaningTask4workEb.exit
 
-7:                                                ; preds = %2
-  %8 = load i8, ptr @EnableJVMCI, align 1
-  %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %_ZN17JVMCICleaningTask4workEb.exit
+9:                                                ; preds = %2
+  %10 = load volatile i8, ptr %3, align 8
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %_ZN17JVMCICleaningTask4workEb.exit, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.i
 
-10:                                               ; preds = %7
-  %11 = load volatile i8, ptr %3, align 8
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %_ZN17JVMCICleaningTask4workEb.exit, label %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.i
+_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.i: ; preds = %9
+  %12 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull align 1 dereferenceable(1) %3) #3, !srcloc !6
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %_ZN17JVMCICleaningTask4workEb.exit, label %14
 
-_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.i: ; preds = %10
-  %13 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull align 1 dereferenceable(1) %3) #3, !srcloc !6
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %_ZN17JVMCICleaningTask4workEb.exit, label %15
-
-15:                                               ; preds = %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.i
+14:                                               ; preds = %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.i
   tail call void @_ZN5JVMCI12do_unloadingEb(i1 noundef zeroext true) #3
   br label %_ZN17JVMCICleaningTask4workEb.exit
 
-_ZN17JVMCICleaningTask4workEb.exit:               ; preds = %2, %7, %10, %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.i, %15
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN22CodeCacheUnloadingTask4workEj(ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %1) #3
-  %17 = load i8, ptr %4, align 4
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %21
+_ZN17JVMCICleaningTask4workEb.exit:               ; preds = %2, %9, %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.i, %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @_ZN22CodeCacheUnloadingTask4workEj(ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef %1) #3
+  %16 = load i8, ptr %4, align 4
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %20
 
-19:                                               ; preds = %_ZN17JVMCICleaningTask4workEb.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZN17KlassCleaningTask4workEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #3
-  br label %21
+18:                                               ; preds = %_ZN17JVMCICleaningTask4workEb.exit
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZN17KlassCleaningTask4workEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #3
+  br label %20
 
-21:                                               ; preds = %19, %_ZN17JVMCICleaningTask4workEb.exit
+20:                                               ; preds = %18, %_ZN17JVMCICleaningTask4workEb.exit
   ret void
 }
 

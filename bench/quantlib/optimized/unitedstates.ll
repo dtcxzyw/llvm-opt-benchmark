@@ -2307,8 +2307,8 @@ land.lhs.true9:                                   ; preds = %lor.lhs.false
   br i1 %cmp10.old, label %cleanup, label %lor.lhs.false11.thread
 
 lor.lhs.false11.thread:                           ; preds = %land.lhs.true9
-  %cmp14135 = icmp eq i32 %cond.i, 6
-  %cmp16137 = icmp eq i32 %call3, 12
+  %cmp14136 = icmp eq i32 %cond.i, 6
+  %cmp16138 = icmp eq i32 %call3, 12
   br label %lor.lhs.false17
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false6
@@ -2320,9 +2320,9 @@ lor.lhs.false11:                                  ; preds = %lor.lhs.false6
   br i1 %or.cond5, label %cleanup, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %lor.lhs.false11.thread, %lor.lhs.false11
-  %cmp16141 = phi i1 [ %cmp16137, %lor.lhs.false11.thread ], [ %cmp16, %lor.lhs.false11 ]
-  %cmp14140 = phi i1 [ %cmp14135, %lor.lhs.false11.thread ], [ %cmp14, %lor.lhs.false11 ]
-  %cmp12139 = phi i1 [ false, %lor.lhs.false11.thread ], [ %cmp12, %lor.lhs.false11 ]
+  %cmp16142 = phi i1 [ %cmp16138, %lor.lhs.false11.thread ], [ %cmp16, %lor.lhs.false11 ]
+  %cmp14141 = phi i1 [ %cmp14136, %lor.lhs.false11.thread ], [ %cmp14, %lor.lhs.false11 ]
+  %cmp12140 = phi i1 [ false, %lor.lhs.false11.thread ], [ %cmp12, %lor.lhs.false11 ]
   %2 = add i32 %sub.i, -15
   %or.cond7 = icmp ult i32 %2, 7
   %cmp22 = icmp eq i32 %cond.i, 2
@@ -2347,11 +2347,11 @@ if.else.i:                                        ; preds = %lor.lhs.false27
   %cmp6.i = icmp eq i32 %sub.i, 22
   %cmp7.i = icmp eq i32 %sub.i, 23
   %or.cond2.i = and i1 %cmp22, %cmp7.i
-  %or.cond172 = or i1 %cmp6.i, %or.cond2.i
+  %or.cond173 = or i1 %cmp6.i, %or.cond2.i
   %cmp11.i = icmp eq i32 %sub.i, 21
-  %or.cond3.i = and i1 %cmp11.i, %cmp14140
-  %or.cond173 = select i1 %or.cond172, i1 true, i1 %or.cond3.i
-  br i1 %or.cond173, label %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, label %if.else.i93
+  %or.cond3.i = and i1 %cmp11.i, %cmp14141
+  %or.cond174 = select i1 %or.cond173, i1 true, i1 %or.cond3.i
+  br i1 %or.cond174, label %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, label %if.else.i93
 
 _ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit: ; preds = %if.else.i
   %cmp15.i = icmp eq i32 %call3, 2
@@ -2366,22 +2366,22 @@ if.then.i104:                                     ; preds = %if.then.i
 
 if.else.i93:                                      ; preds = %if.else.i
   %cmp4.i94 = icmp eq i32 %sub.i, 30
-  %or.cond1.i98 = and i1 %cmp22, %cmp12139
-  %or.cond174 = or i1 %cmp4.i94, %or.cond1.i98
-  br i1 %or.cond174, label %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, label %lor.lhs.false8.i
+  %or.cond1.i98 = and i1 %cmp22, %cmp12140
+  %or.cond175 = or i1 %cmp4.i94, %or.cond1.i98
+  br i1 %or.cond175, label %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, label %lor.lhs.false8.i
 
 lor.lhs.false.i95:                                ; preds = %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit
   %cmp13.i103.old = icmp eq i32 %call3, 5
-  %7 = and i1 %cmp12139, %cmp13.i103.old
-  %or.cond181 = and i1 %7, %cmp22
-  br i1 %or.cond181, label %cleanup, label %lor.lhs.false31
+  %7 = and i1 %cmp12140, %cmp13.i103.old
+  %or.cond182 = and i1 %7, %cmp22
+  br i1 %or.cond182, label %cleanup, label %lor.lhs.false31
 
 lor.lhs.false8.i:                                 ; preds = %if.else.i93
   %cmp9.i99 = icmp eq i32 %sub.i, 29
   %cmp13.i103 = icmp eq i32 %call3, 5
   %8 = and i1 %cmp9.i99, %cmp13.i103
-  %or.cond175 = and i1 %8, %cmp14140
-  br i1 %or.cond175, label %cleanup, label %lor.lhs.false31
+  %or.cond176 = and i1 %8, %cmp14141
+  br i1 %or.cond176, label %cleanup, label %lor.lhs.false31
 
 _ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit: ; preds = %if.else.i93
   %cmp13.i103.old.old = icmp eq i32 %call3, 5
@@ -2391,15 +2391,15 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false.i95, 
   %cmp.i107 = icmp eq i32 %sub.i, 19
   %cmp1.i109 = icmp eq i32 %sub.i, 20
   %or.cond.i111 = and i1 %cmp22, %cmp1.i109
-  %or.cond176 = or i1 %cmp.i107, %or.cond.i111
-  br i1 %or.cond176, label %land.lhs.true8.i, label %lor.lhs.false3.i
+  %or.cond177 = or i1 %cmp.i107, %or.cond.i111
+  br i1 %or.cond177, label %land.lhs.true8.i, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false31
   %cmp4.i112 = icmp eq i32 %sub.i, 18
-  %cmp9.i115 = icmp eq i32 %call3, 6
-  %9 = and i1 %cmp4.i112, %cmp9.i115
-  %or.cond8.i = and i1 %9, %cmp14140
-  br i1 %or.cond8.i, label %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, label %lor.lhs.false33
+  %cmp9.i116 = icmp eq i32 %call3, 6
+  %9 = and i1 %cmp4.i112, %cmp9.i116
+  %or.cond3.i117 = and i1 %9, %cmp14141
+  br i1 %or.cond3.i117, label %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, label %lor.lhs.false33
 
 land.lhs.true8.i:                                 ; preds = %lor.lhs.false31
   %cmp9.old.i = icmp eq i32 %call3, 6
@@ -2420,31 +2420,31 @@ lor.lhs.false39:                                  ; preds = %lor.lhs.false33
   %cmp40 = icmp eq i32 %sub.i, 3
   %cmp44 = icmp eq i32 %call3, 7
   %10 = and i1 %cmp40, %cmp44
-  %or.cond19 = and i1 %10, %cmp14140
+  %or.cond19 = and i1 %10, %cmp14141
   br i1 %or.cond19, label %cleanup, label %lor.lhs.false39.split
 
 lor.lhs.false39.split:                            ; preds = %lor.lhs.false39
-  %cmp.i117 = icmp slt i32 %sub.i, 8
-  %cmp2.i120 = icmp eq i32 %call3, 9
-  %11 = and i1 %cmp.i117, %cmp2.i120
-  %spec.select.i121 = and i1 %cmp22, %11
-  br i1 %spec.select.i121, label %cleanup, label %lor.lhs.false47
+  %cmp.i118 = icmp slt i32 %sub.i, 8
+  %cmp2.i121 = icmp eq i32 %call3, 9
+  %11 = and i1 %cmp.i118, %cmp2.i121
+  %spec.select.i122 = and i1 %cmp22, %11
+  br i1 %spec.select.i122, label %cleanup, label %lor.lhs.false47
 
 land.lhs.true43:                                  ; preds = %lor.lhs.false33
   %cmp44.old = icmp eq i32 %call3, 7
-  %cmp2.i125 = icmp eq i32 %call3, 9
-  %spec.select.i126 = and i1 %cmp22, %cmp2.i125
-  %or.cond177 = or i1 %cmp44.old, %spec.select.i126
-  br i1 %or.cond177, label %cleanup, label %lor.lhs.false49
+  %cmp2.i126 = icmp eq i32 %call3, 9
+  %spec.select.i127 = and i1 %cmp22, %cmp2.i126
+  %or.cond178 = or i1 %cmp44.old, %spec.select.i127
+  br i1 %or.cond178, label %cleanup, label %lor.lhs.false49
 
 lor.lhs.false47:                                  ; preds = %lor.lhs.false39.split
   %12 = add i32 %sub.i, -8
-  %or.cond.i127 = icmp ult i32 %12, 7
-  %cmp5.i130 = icmp eq i32 %call3, 10
-  %13 = and i1 %cmp5.i130, %or.cond.i127
-  %or.cond2.i131 = and i1 %cmp22, %13
-  %spec.select.i133 = and i1 %cmp.i91, %or.cond2.i131
-  br i1 %spec.select.i133, label %cleanup, label %lor.lhs.false49
+  %or.cond.i128 = icmp ult i32 %12, 7
+  %cmp5.i131 = icmp eq i32 %call3, 10
+  %13 = and i1 %cmp5.i131, %or.cond.i128
+  %or.cond2.i132 = and i1 %cmp22, %13
+  %spec.select.i134 = and i1 %cmp.i91, %or.cond2.i132
+  br i1 %spec.select.i134, label %cleanup, label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %land.lhs.true43, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, %lor.lhs.false47
   %call50 = tail call fastcc noundef zeroext i1 @_ZN8QuantLib12_GLOBAL__N_113isVeteransDayEiNS_5MonthEiNS_7WeekdayE(i32 noundef %sub.i, i32 noundef %call3, i32 noundef %call4, i32 noundef %cond.i)
@@ -2468,12 +2468,12 @@ lor.lhs.false59:                                  ; preds = %lor.lhs.false51
 
 lor.lhs.false65:                                  ; preds = %lor.lhs.false59
   %cmp66 = icmp eq i32 %sub.i, 24
-  %or.cond29 = and i1 %cmp66, %cmp14140
-  %or.cond31 = and i1 %cmp16141, %or.cond29
+  %or.cond29 = and i1 %cmp66, %cmp14141
+  %or.cond31 = and i1 %cmp16142, %or.cond29
   br i1 %or.cond31, label %cleanup, label %if.end
 
 land.lhs.true69:                                  ; preds = %lor.lhs.false59
-  br i1 %cmp16141, label %cleanup, label %if.end
+  br i1 %cmp16142, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true69, %lor.lhs.false65
   br label %cleanup
@@ -2633,8 +2633,8 @@ if.else.i:                                        ; preds = %lor.lhs.false8.spli
   %cmp6.i = icmp eq i32 %sub.i, 22
   %cmp7.i = icmp eq i32 %sub.i, 23
   %or.cond2.i = and i1 %cmp10, %cmp7.i
-  %or.cond493 = or i1 %cmp6.i, %or.cond2.i
-  br i1 %or.cond493, label %land.rhs14.i, label %lor.lhs.false10.i
+  %or.cond494 = or i1 %cmp6.i, %or.cond2.i
+  br i1 %or.cond494, label %land.rhs14.i, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %if.else.i
   %cmp11.i = icmp eq i32 %sub.i, 21
@@ -2687,7 +2687,7 @@ lor.lhs.false8.i:                                 ; preds = %lor.lhs.false.i266
 
 _ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit: ; preds = %if.else.i264, %lor.lhs.false.i266, %lor.lhs.false8.i
   %cmp13.i274 = icmp eq i32 %call4, 5
-  br i1 %cmp13.i274, label %cleanup, label %lor.lhs.false35.thread487
+  br i1 %cmp13.i274, label %cleanup, label %lor.lhs.false35.thread488
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false8.i, %if.then.i275
   %cmp.i278 = icmp eq i32 %sub.i, 19
@@ -2702,20 +2702,20 @@ lor.lhs.false.i279:                               ; preds = %lor.lhs.false19
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i279
   %cmp4.i283 = icmp eq i32 %sub.i, 18
   %cmp6.i284 = icmp eq i32 %cond.i, 6
-  %cmp9.i286 = icmp eq i32 %call4, 6
-  %5 = and i1 %cmp4.i283, %cmp9.i286
-  %or.cond8.i = and i1 %5, %cmp6.i284
-  br i1 %or.cond8.i, label %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, label %lor.lhs.false21
+  %cmp9.i287 = icmp eq i32 %call4, 6
+  %5 = and i1 %cmp4.i283, %cmp9.i287
+  %or.cond3.i288 = and i1 %5, %cmp6.i284
+  br i1 %or.cond3.i288, label %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, label %lor.lhs.false21
 
 land.lhs.true8.i:                                 ; preds = %lor.lhs.false.i279, %lor.lhs.false19
   %cmp9.old.i = icmp eq i32 %call4, 6
   %cmp10.i = icmp sgt i32 %call5, 2021
-  %or.cond494 = and i1 %cmp9.old.i, %cmp10.i
-  br i1 %or.cond494, label %cleanup, label %lor.lhs.false35.thread487
+  %or.cond495 = and i1 %cmp9.old.i, %cmp10.i
+  br i1 %or.cond495, label %cleanup, label %lor.lhs.false35.thread488
 
 _ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit: ; preds = %lor.lhs.false3.i
   %cmp10.i.old = icmp sgt i32 %call5, 2021
-  br i1 %cmp10.i.old, label %cleanup, label %lor.lhs.false35.thread487
+  br i1 %cmp10.i.old, label %cleanup, label %lor.lhs.false35.thread488
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false3.i
   %cmp22 = icmp eq i32 %sub.i, 4
@@ -2732,25 +2732,25 @@ lor.lhs.false27:                                  ; preds = %lor.lhs.false21
   br i1 %or.cond7, label %cleanup, label %lor.lhs.false27.split
 
 lor.lhs.false27.split:                            ; preds = %lor.lhs.false27
-  %cmp.i288 = icmp slt i32 %sub.i, 8
-  %cmp2.i291 = icmp eq i32 %call4, 9
-  %7 = and i1 %cmp.i288, %cmp2.i291
-  %spec.select.i292 = and i1 %cmp2.i281, %7
-  br i1 %spec.select.i292, label %cleanup, label %lor.lhs.false35
+  %cmp.i289 = icmp slt i32 %sub.i, 8
+  %cmp2.i292 = icmp eq i32 %call4, 9
+  %7 = and i1 %cmp.i289, %cmp2.i292
+  %spec.select.i293 = and i1 %cmp2.i281, %7
+  br i1 %spec.select.i293, label %cleanup, label %lor.lhs.false35
 
 land.lhs.true31:                                  ; preds = %lor.lhs.false21
   %cmp32.old = icmp eq i32 %call4, 7
-  %cmp2.i296 = icmp eq i32 %call4, 9
-  %spec.select.i297 = and i1 %cmp2.i281, %cmp2.i296
-  %or.cond529 = or i1 %cmp32.old, %spec.select.i297
-  br i1 %or.cond529, label %cleanup, label %lor.lhs.false49.thread
+  %cmp2.i297 = icmp eq i32 %call4, 9
+  %spec.select.i298 = and i1 %cmp2.i281, %cmp2.i297
+  %or.cond530 = or i1 %cmp32.old, %spec.select.i298
+  br i1 %or.cond530, label %cleanup, label %lor.lhs.false49.thread
 
 lor.lhs.false49.thread:                           ; preds = %land.lhs.true31
-  %cmp42325 = icmp eq i32 %call4, 11
+  %cmp42326 = icmp eq i32 %call4, 11
   br label %if.end
 
-lor.lhs.false35.thread487:                        ; preds = %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true8.i, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit
-  %cmp42491 = icmp eq i32 %call4, 11
+lor.lhs.false35.thread488:                        ; preds = %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true8.i, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit
+  %cmp42492 = icmp eq i32 %call4, 11
   br label %lor.lhs.false43
 
 lor.lhs.false35:                                  ; preds = %lor.lhs.false27.split
@@ -2762,8 +2762,8 @@ lor.lhs.false35:                                  ; preds = %lor.lhs.false27.spl
   %or.cond13 = and i1 %or.cond11, %cmp42
   br i1 %or.cond13, label %cleanup, label %lor.lhs.false43
 
-lor.lhs.false43:                                  ; preds = %lor.lhs.false35.thread487, %lor.lhs.false35
-  %cmp42327 = phi i1 [ %cmp42, %lor.lhs.false35 ], [ %cmp42491, %lor.lhs.false35.thread487 ]
+lor.lhs.false43:                                  ; preds = %lor.lhs.false35.thread488, %lor.lhs.false35
+  %cmp42328 = phi i1 [ %cmp42, %lor.lhs.false35 ], [ %cmp42492, %lor.lhs.false35.thread488 ]
   %cmp44 = icmp eq i32 %sub.i, 25
   br i1 %cmp44, label %land.lhs.true53, label %lor.lhs.false45
 
@@ -2786,8 +2786,8 @@ land.lhs.true53:                                  ; preds = %lor.lhs.false45, %l
   br i1 %cmp54.old, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false49.thread, %land.lhs.true53, %lor.lhs.false49
-  %cmp44334 = phi i1 [ %cmp44, %land.lhs.true53 ], [ false, %lor.lhs.false49 ], [ false, %lor.lhs.false49.thread ]
-  %cmp42327331 = phi i1 [ %cmp42327, %land.lhs.true53 ], [ %cmp42327, %lor.lhs.false49 ], [ %cmp42325, %lor.lhs.false49.thread ]
+  %cmp44335 = phi i1 [ %cmp44, %land.lhs.true53 ], [ false, %lor.lhs.false49 ], [ false, %lor.lhs.false49.thread ]
+  %cmp42328332 = phi i1 [ %cmp42328, %land.lhs.true53 ], [ %cmp42328, %lor.lhs.false49 ], [ %cmp42326, %lor.lhs.false49.thread ]
   %cmp55 = icmp sgt i32 %call5, 1997
   %9 = add i32 %sub.i, -15
   %10 = icmp ult i32 %9, 7
@@ -2809,11 +2809,11 @@ lor.lhs.false67:                                  ; preds = %if.end65
 land.lhs.true69:                                  ; preds = %lor.lhs.false67
   %rem = and i32 %call5, 3
   %cmp70 = icmp eq i32 %rem, 0
-  %or.cond29 = and i1 %cmp70, %cmp42327331
+  %or.cond29 = and i1 %cmp70, %cmp42328332
   br i1 %or.cond29, label %land.lhs.true73, label %lor.lhs.false124
 
 land.lhs.true71:                                  ; preds = %if.end65
-  br i1 %cmp42327331, label %land.lhs.true73, label %lor.lhs.false124
+  br i1 %cmp42328332, label %land.lhs.true73, label %lor.lhs.false124
 
 land.lhs.true73:                                  ; preds = %land.lhs.true69, %land.lhs.true71
   %cmp74 = icmp slt i32 %sub.i, 8
@@ -2877,9 +2877,9 @@ lor.lhs.false118:                                 ; preds = %lor.lhs.false112
   br i1 %or.cond61, label %cleanup, label %lor.lhs.false166
 
 lor.lhs.false124:                                 ; preds = %land.lhs.true73, %land.lhs.true71, %land.lhs.true69
-  %cmp81353 = icmp eq i32 %call4, 12
-  %cmp83355 = icmp eq i32 %sub.i, 5
-  %cmp115406 = icmp eq i32 %call4, 4
+  %cmp81354 = icmp eq i32 %call4, 12
+  %cmp83356 = icmp eq i32 %sub.i, 5
+  %cmp115407 = icmp eq i32 %call4, 4
   %cmp125 = icmp eq i32 %call5, 1977
   %cmp127 = icmp eq i32 %call4, 7
   %cmp129 = icmp eq i32 %sub.i, 14
@@ -2890,14 +2890,14 @@ lor.lhs.false124:                                 ; preds = %land.lhs.true73, %l
 lor.lhs.false130:                                 ; preds = %lor.lhs.false124
   %cmp131 = icmp eq i32 %call5, 1973
   %or.cond67 = and i1 %cmp63, %cmp131
-  %or.cond69 = and i1 %or.cond67, %cmp44334
+  %or.cond69 = and i1 %or.cond67, %cmp44335
   br i1 %or.cond69, label %cleanup, label %lor.lhs.false136
 
 lor.lhs.false136:                                 ; preds = %lor.lhs.false130
   %cmp137 = icmp eq i32 %call5, 1972
   %cmp141 = icmp eq i32 %sub.i, 28
   %18 = and i1 %cmp141, %cmp137
-  %or.cond73 = and i1 %cmp81353, %18
+  %or.cond73 = and i1 %cmp81354, %18
   br i1 %or.cond73, label %cleanup, label %lor.lhs.false142
 
 lor.lhs.false142:                                 ; preds = %lor.lhs.false136
@@ -2923,30 +2923,30 @@ lor.lhs.false154:                                 ; preds = %lor.lhs.false148
 
 lor.lhs.false160:                                 ; preds = %lor.lhs.false154
   %cmp161 = icmp eq i32 %call5, 1968
-  %22 = and i1 %cmp83355, %cmp127
+  %22 = and i1 %cmp83356, %cmp127
   %or.cond89 = and i1 %cmp161, %22
   br i1 %or.cond89, label %cleanup, label %lor.lhs.false166
 
 lor.lhs.false166:                                 ; preds = %lor.lhs.false118, %lor.lhs.false160
-  %cmp161528 = phi i1 [ %cmp161, %lor.lhs.false160 ], [ false, %lor.lhs.false118 ]
-  %cmp115414425440451466477506517527 = phi i1 [ %cmp115406, %lor.lhs.false160 ], [ %cmp115, %lor.lhs.false118 ]
-  %cmp81358369378389398412427438453464479505518526 = phi i1 [ %cmp81353, %lor.lhs.false160 ], [ %cmp81, %lor.lhs.false118 ]
+  %cmp161529 = phi i1 [ %cmp161, %lor.lhs.false160 ], [ false, %lor.lhs.false118 ]
+  %cmp115415426441452467478507518528 = phi i1 [ %cmp115407, %lor.lhs.false160 ], [ %cmp115, %lor.lhs.false118 ]
+  %cmp81359370379390399413428439454465480506519527 = phi i1 [ %cmp81354, %lor.lhs.false160 ], [ %cmp81, %lor.lhs.false118 ]
   %cmp169 = icmp sgt i32 %conv.i244, 162
   %cmp171 = icmp eq i32 %cond.i, 4
   %23 = and i1 %cmp171, %cmp169
-  %or.cond93 = and i1 %cmp161528, %23
+  %or.cond93 = and i1 %cmp161529, %23
   br i1 %or.cond93, label %cleanup, label %lor.lhs.false172
 
 lor.lhs.false172:                                 ; preds = %lor.lhs.false166
   %cmp177 = icmp eq i32 %sub.i, 9
-  %24 = and i1 %cmp177, %cmp115414425440451466477506517527
-  %or.cond97 = and i1 %cmp161528, %24
+  %24 = and i1 %cmp177, %cmp115415426441452467478507518528
+  %or.cond97 = and i1 %cmp161529, %24
   br i1 %or.cond97, label %cleanup, label %lor.lhs.false178
 
 lor.lhs.false178:                                 ; preds = %lor.lhs.false172
   %cmp179 = icmp eq i32 %call5, 1963
-  %or.cond99 = and i1 %cmp179, %cmp42327331
-  %or.cond101 = and i1 %cmp44334, %or.cond99
+  %or.cond99 = and i1 %cmp179, %cmp42328332
+  %or.cond101 = and i1 %cmp44335, %or.cond99
   br i1 %or.cond101, label %cleanup, label %lor.lhs.false184
 
 lor.lhs.false184:                                 ; preds = %lor.lhs.false178
@@ -2961,7 +2961,7 @@ lor.lhs.false190:                                 ; preds = %lor.lhs.false184
   %cmp191 = icmp eq i32 %call5, 1958
   %cmp195 = icmp eq i32 %sub.i, 26
   %25 = and i1 %cmp195, %cmp191
-  %or.cond109 = and i1 %25, %cmp81358369378389398412427438453464479505518526
+  %or.cond109 = and i1 %25, %cmp81359370379390399413428439454465480506519527
   br i1 %or.cond109, label %cleanup, label %lor.lhs.false196
 
 lor.lhs.false196:                                 ; preds = %lor.lhs.false190
@@ -2972,7 +2972,7 @@ lor.lhs.false196:                                 ; preds = %lor.lhs.false190
   %or.cond113 = or i1 %cmp201, %or.cond111
   %cmp205 = icmp eq i32 %sub.i, 24
   %26 = and i1 %cmp205, %or.cond113
-  %or.cond117 = and i1 %26, %cmp81358369378389398412427438453464479505518526
+  %or.cond117 = and i1 %26, %cmp81359370379390399413428439454465480506519527
   %not.or.cond117 = xor i1 %or.cond117, true
   br label %cleanup
 
@@ -3057,16 +3057,16 @@ if.else.i:                                        ; preds = %lor.lhs.false23
   %cmp6.i = icmp eq i32 %sub.i, 22
   %cmp7.i = icmp eq i32 %sub.i, 23
   %or.cond2.i = and i1 %cmp18, %cmp7.i
-  %or.cond258 = or i1 %cmp6.i, %or.cond2.i
-  br i1 %or.cond258, label %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, label %lor.lhs.false10.i
+  %or.cond259 = or i1 %cmp6.i, %or.cond2.i
+  br i1 %or.cond259, label %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %if.else.i
   %cmp11.i = icmp eq i32 %sub.i, 21
   %cmp13.i = icmp eq i32 %cond.i, 6
   %or.cond3.i = and i1 %cmp13.i, %cmp11.i
   %cmp15.i = icmp eq i32 %call4, 2
-  %or.cond259 = and i1 %or.cond3.i, %cmp15.i
-  br i1 %or.cond259, label %cleanup, label %lor.lhs.false25
+  %or.cond260 = and i1 %or.cond3.i, %cmp15.i
+  br i1 %or.cond260, label %cleanup, label %lor.lhs.false25
 
 _ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit: ; preds = %if.else.i
   %cmp15.i.old = icmp eq i32 %call4, 2
@@ -3078,9 +3078,9 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false10.i, 
   br i1 %cmp26, label %cleanup, label %if.else.i116
 
 lor.lhs.false25.thread:                           ; preds = %if.then.i
-  %sub174 = add nsw i32 %call6, -3
-  %cmp26175 = icmp eq i32 %sub174, %conv.i113
-  br i1 %cmp26175, label %land.lhs.true27, label %if.then.i127
+  %sub175 = add nsw i32 %call6, -3
+  %cmp26176 = icmp eq i32 %sub175, %conv.i113
+  br i1 %cmp26176, label %land.lhs.true27, label %if.then.i127
 
 land.lhs.true27:                                  ; preds = %lor.lhs.false25.thread
   %cmp28 = icmp samesign ult i32 %call5, 1996
@@ -3099,8 +3099,8 @@ if.else.i116:                                     ; preds = %lor.lhs.false25
   %cmp4.i117 = icmp eq i32 %sub.i, 30
   %cmp5.i119 = icmp eq i32 %sub.i, 31
   %or.cond1.i121 = and i1 %cmp18, %cmp5.i119
-  %or.cond260 = or i1 %cmp4.i117, %or.cond1.i121
-  br i1 %or.cond260, label %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, label %lor.lhs.false8.i
+  %or.cond261 = or i1 %cmp4.i117, %or.cond1.i121
+  br i1 %or.cond261, label %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %if.else.i116
   %cmp9.i122 = icmp eq i32 %sub.i, 29
@@ -3116,16 +3116,16 @@ lor.lhs.false33:                                  ; preds = %lor.lhs.false8.i, %
   %cmp.i130 = icmp eq i32 %sub.i, 19
   %cmp1.i132 = icmp eq i32 %sub.i, 20
   %or.cond.i134 = and i1 %cmp18, %cmp1.i132
-  %or.cond261 = or i1 %cmp.i130, %or.cond.i134
-  br i1 %or.cond261, label %land.lhs.true8.i, label %lor.lhs.false3.i
+  %or.cond262 = or i1 %cmp.i130, %or.cond.i134
+  br i1 %or.cond262, label %land.lhs.true8.i, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false33
   %cmp4.i135 = icmp eq i32 %sub.i, 18
   %cmp6.i136 = icmp eq i32 %cond.i, 6
   %or.cond1.i137 = and i1 %cmp6.i136, %cmp4.i135
-  %cmp9.i138 = icmp eq i32 %call4, 6
-  %or.cond8.i = and i1 %or.cond1.i137, %cmp9.i138
-  br i1 %or.cond8.i, label %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, label %lor.lhs.false35
+  %cmp9.i139 = icmp eq i32 %call4, 6
+  %or.cond3.i140 = and i1 %or.cond1.i137, %cmp9.i139
+  br i1 %or.cond3.i140, label %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, label %lor.lhs.false35
 
 land.lhs.true8.i:                                 ; preds = %lor.lhs.false33
   %cmp9.old.i = icmp eq i32 %call4, 6
@@ -3151,63 +3151,63 @@ lor.lhs.false41:                                  ; preds = %lor.lhs.false35
   br i1 %or.cond17, label %cleanup, label %lor.lhs.false41.split
 
 lor.lhs.false41.split:                            ; preds = %lor.lhs.false41
-  %cmp.i140 = icmp slt i32 %sub.i, 8
-  %cmp2.i143 = icmp eq i32 %call4, 9
-  %8 = and i1 %cmp.i140, %cmp2.i143
-  %spec.select.i144 = and i1 %cmp18, %8
-  br i1 %spec.select.i144, label %cleanup, label %lor.lhs.false49
+  %cmp.i141 = icmp slt i32 %sub.i, 8
+  %cmp2.i144 = icmp eq i32 %call4, 9
+  %8 = and i1 %cmp.i141, %cmp2.i144
+  %spec.select.i145 = and i1 %cmp18, %8
+  br i1 %spec.select.i145, label %cleanup, label %lor.lhs.false49
 
 land.lhs.true45:                                  ; preds = %lor.lhs.false35
   %cmp46.old = icmp eq i32 %call4, 7
-  %cmp2.i148 = icmp eq i32 %call4, 9
-  %spec.select.i149 = and i1 %cmp18, %cmp2.i148
-  %or.cond264 = or i1 %cmp46.old, %spec.select.i149
-  br i1 %or.cond264, label %cleanup, label %lor.lhs.false49.thread
+  %cmp2.i149 = icmp eq i32 %call4, 9
+  %spec.select.i150 = and i1 %cmp18, %cmp2.i149
+  %or.cond265 = or i1 %cmp46.old, %spec.select.i150
+  br i1 %or.cond265, label %cleanup, label %lor.lhs.false49.thread
 
 lor.lhs.false49.thread:                           ; preds = %land.lhs.true45
-  %cmp5.i153205 = icmp eq i32 %call4, 10
+  %cmp5.i154206 = icmp eq i32 %call4, 10
   br label %lor.lhs.false51
 
 lor.lhs.false49:                                  ; preds = %lor.lhs.false41.split
   %9 = add i32 %sub.i, -8
-  %or.cond.i150 = icmp ult i32 %9, 7
-  %or.cond1.i152 = and i1 %cmp18, %or.cond.i150
-  %cmp5.i153 = icmp eq i32 %call4, 10
-  %or.cond2.i154 = and i1 %or.cond1.i152, %cmp5.i153
-  %spec.select.i156 = and i1 %cmp.i114, %or.cond2.i154
-  br i1 %spec.select.i156, label %cleanup, label %lor.lhs.false51
+  %or.cond.i151 = icmp ult i32 %9, 7
+  %or.cond1.i153 = and i1 %cmp18, %or.cond.i151
+  %cmp5.i154 = icmp eq i32 %call4, 10
+  %or.cond2.i155 = and i1 %or.cond1.i153, %cmp5.i154
+  %spec.select.i157 = and i1 %cmp.i114, %or.cond2.i155
+  br i1 %spec.select.i157, label %cleanup, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, %lor.lhs.false49.thread, %lor.lhs.false49
-  %cmp5.i153209 = phi i1 [ %cmp5.i153205, %lor.lhs.false49.thread ], [ %cmp5.i153, %lor.lhs.false49 ], [ false, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit ]
-  %cmp38190196208 = phi i1 [ %cmp38, %lor.lhs.false49.thread ], [ %cmp38, %lor.lhs.false49 ], [ false, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit ]
+  %cmp5.i154210 = phi i1 [ %cmp5.i154206, %lor.lhs.false49.thread ], [ %cmp5.i154, %lor.lhs.false49 ], [ false, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit ]
+  %cmp38191197209 = phi i1 [ %cmp38, %lor.lhs.false49.thread ], [ %cmp38, %lor.lhs.false49 ], [ false, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit ]
   %10 = add i32 %call5, -1978
-  %or.cond.i157 = icmp ult i32 %10, -7
-  br i1 %or.cond.i157, label %if.then.i165, label %if.else.i158
+  %or.cond.i158 = icmp ult i32 %10, -7
+  br i1 %or.cond.i158, label %if.then.i166, label %if.else.i159
 
-if.then.i165:                                     ; preds = %lor.lhs.false51
-  %cmp2.i166 = icmp eq i32 %sub.i, 11
-  %cmp4.i168 = icmp eq i32 %sub.i, 12
-  %or.cond1.i170 = and i1 %cmp18, %cmp4.i168
-  %or.cond262 = or i1 %cmp2.i166, %or.cond1.i170
-  br i1 %or.cond262, label %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit, label %if.then.i165.lor.lhs.false53_crit_edge
+if.then.i166:                                     ; preds = %lor.lhs.false51
+  %cmp2.i167 = icmp eq i32 %sub.i, 11
+  %cmp4.i169 = icmp eq i32 %sub.i, 12
+  %or.cond1.i171 = and i1 %cmp18, %cmp4.i169
+  %or.cond263 = or i1 %cmp2.i167, %or.cond1.i171
+  br i1 %or.cond263, label %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit, label %if.then.i166.lor.lhs.false53_crit_edge
 
-if.then.i165.lor.lhs.false53_crit_edge:           ; preds = %if.then.i165
+if.then.i166.lor.lhs.false53_crit_edge:           ; preds = %if.then.i166
   %.pre = add i32 %sub.i, -22
   br label %lor.lhs.false53
 
-if.else.i158:                                     ; preds = %lor.lhs.false51
+if.else.i159:                                     ; preds = %lor.lhs.false51
   %11 = add i32 %sub.i, -22
-  %or.cond2.i159 = icmp ult i32 %11, 7
-  %or.cond3.i161 = and i1 %cmp18, %or.cond2.i159
-  %spec.select.i163 = and i1 %or.cond3.i161, %cmp5.i153209
-  br i1 %spec.select.i163, label %cleanup, label %lor.lhs.false53
+  %or.cond2.i160 = icmp ult i32 %11, 7
+  %or.cond3.i162 = and i1 %cmp18, %or.cond2.i160
+  %spec.select.i164 = and i1 %or.cond3.i162, %cmp5.i154210
+  br i1 %spec.select.i164, label %cleanup, label %lor.lhs.false53
 
-_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit: ; preds = %if.then.i165
-  %cmp6.i172 = icmp eq i32 %call4, 11
-  br i1 %cmp6.i172, label %cleanup, label %lor.lhs.false61
+_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit: ; preds = %if.then.i166
+  %cmp6.i173 = icmp eq i32 %call4, 11
+  br i1 %cmp6.i173, label %cleanup, label %lor.lhs.false61
 
-lor.lhs.false53:                                  ; preds = %if.then.i165.lor.lhs.false53_crit_edge, %if.else.i158
-  %.pre-phi = phi i32 [ %.pre, %if.then.i165.lor.lhs.false53_crit_edge ], [ %11, %if.else.i158 ]
+lor.lhs.false53:                                  ; preds = %if.then.i166.lor.lhs.false53_crit_edge, %if.else.i159
+  %.pre-phi = phi i32 [ %.pre, %if.then.i166.lor.lhs.false53_crit_edge ], [ %11, %if.else.i159 ]
   %or.cond19 = icmp ult i32 %.pre-phi, 7
   %cmp58 = icmp eq i32 %cond.i, 5
   %or.cond21 = and i1 %cmp58, %or.cond19
@@ -3236,7 +3236,7 @@ land.lhs.true71:                                  ; preds = %lor.lhs.false61
 
 if.end:                                           ; preds = %lor.lhs.false67
   %cmp73 = icmp eq i32 %call5, 2018
-  %12 = and i1 %cmp73, %cmp38190196208
+  %12 = and i1 %cmp73, %cmp38191197209
   %or.cond33 = and i1 %12, %cmp72
   br i1 %or.cond33, label %cleanup, label %lor.lhs.false78
 
@@ -3244,19 +3244,19 @@ lor.lhs.false78:                                  ; preds = %if.end
   %cmp79 = icmp eq i32 %call5, 2012
   %cmp83 = icmp eq i32 %sub.i, 30
   %13 = and i1 %cmp83, %cmp79
-  %or.cond37 = and i1 %13, %cmp5.i153209
+  %or.cond37 = and i1 %13, %cmp5.i154210
   br i1 %or.cond37, label %cleanup, label %lor.lhs.false84
 
 lor.lhs.false84:                                  ; preds = %land.lhs.true71, %lor.lhs.false78
   %cmp85 = icmp ne i32 %call5, 2004
   %cmp87 = icmp ne i32 %call4, 6
-  %or.cond39.not263 = or i1 %cmp87, %cmp85
+  %or.cond39.not264 = or i1 %cmp87, %cmp85
   %cmp89 = icmp ne i32 %sub.i, 11
-  %or.cond41.not = or i1 %cmp89, %or.cond39.not263
+  %or.cond41.not = or i1 %cmp89, %or.cond39.not264
   br label %cleanup
 
-cleanup:                                          ; preds = %lor.lhs.false25, %lor.lhs.false10.i, %if.else.i158, %lor.lhs.false41.split, %if.then.i127, %if.then.i, %lor.lhs.false84, %if.end, %lor.lhs.false78, %entry, %land.lhs.true11, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true27, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, %land.lhs.true45, %lor.lhs.false49, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true71, %lor.lhs.false8, %lor.lhs.false13, %lor.lhs.false41, %lor.lhs.false53, %lor.lhs.false67
-  %retval.0 = phi i1 [ false, %lor.lhs.false67 ], [ false, %lor.lhs.false53 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false13 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true71 ], [ false, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %lor.lhs.false49 ], [ false, %land.lhs.true45 ], [ false, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true27 ], [ false, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true11 ], [ false, %entry ], [ false, %lor.lhs.false78 ], [ false, %if.end ], [ %or.cond41.not, %lor.lhs.false84 ], [ false, %if.then.i ], [ false, %if.then.i127 ], [ false, %lor.lhs.false41.split ], [ false, %if.else.i158 ], [ false, %lor.lhs.false10.i ], [ false, %lor.lhs.false25 ]
+cleanup:                                          ; preds = %lor.lhs.false25, %lor.lhs.false10.i, %if.else.i159, %lor.lhs.false41.split, %if.then.i127, %if.then.i, %lor.lhs.false84, %if.end, %lor.lhs.false78, %entry, %land.lhs.true11, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true27, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit, %land.lhs.true45, %lor.lhs.false49, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true71, %lor.lhs.false8, %lor.lhs.false13, %lor.lhs.false41, %lor.lhs.false53, %lor.lhs.false67
+  %retval.0 = phi i1 [ false, %lor.lhs.false67 ], [ false, %lor.lhs.false53 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false13 ], [ false, %lor.lhs.false8 ], [ false, %land.lhs.true71 ], [ false, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %lor.lhs.false49 ], [ false, %land.lhs.true45 ], [ false, %_ZN8QuantLib12_GLOBAL__N_112isJuneteenthEiNS_5MonthEiNS_7WeekdayEb.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true27 ], [ false, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true11 ], [ false, %entry ], [ false, %lor.lhs.false78 ], [ false, %if.end ], [ %or.cond41.not, %lor.lhs.false84 ], [ false, %if.then.i ], [ false, %if.then.i127 ], [ false, %lor.lhs.false41.split ], [ false, %if.else.i159 ], [ false, %lor.lhs.false10.i ], [ false, %lor.lhs.false25 ]
   ret i1 %retval.0
 }
 
@@ -3475,8 +3475,8 @@ if.else.i:                                        ; preds = %lor.lhs.false21
   %cmp6.i = icmp eq i32 %sub.i, 22
   %cmp7.i = icmp eq i32 %sub.i, 23
   %or.cond2.i = and i1 %cmp16, %cmp7.i
-  %or.cond215 = or i1 %cmp6.i, %or.cond2.i
-  br i1 %or.cond215, label %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, label %lor.lhs.false10.i
+  %or.cond216 = or i1 %cmp6.i, %or.cond2.i
+  br i1 %or.cond216, label %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %if.else.i
   %cmp11.i = icmp eq i32 %sub.i, 21
@@ -3486,7 +3486,7 @@ lor.lhs.false10.i:                                ; preds = %if.else.i
 
 _ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit: ; preds = %if.else.i, %lor.lhs.false10.i
   %cmp15.i = icmp eq i32 %call3, 2
-  br i1 %cmp15.i, label %cleanup, label %lor.lhs.false37.thread192
+  br i1 %cmp15.i, label %cleanup, label %lor.lhs.false37.thread193
 
 if.then.i87:                                      ; preds = %if.then.i
   %cmp1.i = icmp sgt i32 %sub.i, 24
@@ -3499,28 +3499,28 @@ if.else.i76:                                      ; preds = %lor.lhs.false10.i
   %cmp4.i77 = icmp eq i32 %sub.i, 30
   %cmp5.i79 = icmp eq i32 %sub.i, 31
   %or.cond1.i81 = and i1 %cmp16, %cmp5.i79
-  %or.cond216 = or i1 %cmp4.i77, %or.cond1.i81
+  %or.cond217 = or i1 %cmp4.i77, %or.cond1.i81
   %cmp9.i82 = icmp eq i32 %sub.i, 29
   %or.cond2.i84 = and i1 %cmp13.i, %cmp9.i82
-  %or.cond221 = or i1 %or.cond216, %or.cond2.i84
-  br i1 %or.cond221, label %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, label %lor.lhs.false25
+  %or.cond222 = or i1 %or.cond217, %or.cond2.i84
+  br i1 %or.cond222, label %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, label %lor.lhs.false25
 
 _ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit: ; preds = %if.else.i76
   %cmp13.i86 = icmp eq i32 %call3, 5
-  br i1 %cmp13.i86, label %cleanup, label %lor.lhs.false37.thread192
+  br i1 %cmp13.i86, label %cleanup, label %lor.lhs.false37.thread193
 
 lor.lhs.false25:                                  ; preds = %if.else.i76, %if.then.i87
   %cmp.i90 = icmp eq i32 %sub.i, 19
   %cmp1.i92 = icmp eq i32 %sub.i, 20
   %or.cond.i94 = and i1 %cmp16, %cmp1.i92
-  %or.cond217 = or i1 %cmp.i90, %or.cond.i94
-  br i1 %or.cond217, label %land.lhs.true8.i, label %lor.lhs.false27
+  %or.cond218 = or i1 %cmp.i90, %or.cond.i94
+  br i1 %or.cond218, label %land.lhs.true8.i, label %lor.lhs.false27
 
 land.lhs.true8.i:                                 ; preds = %lor.lhs.false25
   %cmp9.old.i = icmp eq i32 %call3, 6
   %cmp10.i = icmp sgt i32 %call4, 2021
-  %or.cond218 = and i1 %cmp9.old.i, %cmp10.i
-  br i1 %or.cond218, label %cleanup, label %lor.lhs.false37.thread192
+  %or.cond219 = and i1 %cmp9.old.i, %cmp10.i
+  br i1 %or.cond219, label %cleanup, label %lor.lhs.false37.thread193
 
 lor.lhs.false27:                                  ; preds = %lor.lhs.false25
   %cmp28 = icmp eq i32 %sub.i, 4
@@ -3533,63 +3533,63 @@ lor.lhs.false29:                                  ; preds = %lor.lhs.false27
   %or.cond13 = and i1 %cmp16, %6
   br i1 %or.cond13, label %cleanup, label %lor.lhs.false29.split
 
-lor.lhs.false37.thread192:                        ; preds = %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true8.i
-  %cmp5.i112195 = icmp eq i32 %call3, 10
+lor.lhs.false37.thread193:                        ; preds = %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true8.i
+  %cmp5.i113196 = icmp eq i32 %call3, 10
   br label %lor.lhs.false39
 
 lor.lhs.false29.split:                            ; preds = %lor.lhs.false29
-  %cmp.i100 = icmp slt i32 %sub.i, 8
-  %cmp2.i103 = icmp eq i32 %call3, 9
-  %7 = and i1 %cmp.i100, %cmp2.i103
-  %spec.select.i104 = and i1 %cmp16, %7
-  br i1 %spec.select.i104, label %cleanup, label %lor.lhs.false37
+  %cmp.i101 = icmp slt i32 %sub.i, 8
+  %cmp2.i104 = icmp eq i32 %call3, 9
+  %7 = and i1 %cmp.i101, %cmp2.i104
+  %spec.select.i105 = and i1 %cmp16, %7
+  br i1 %spec.select.i105, label %cleanup, label %lor.lhs.false37
 
 land.lhs.true33:                                  ; preds = %lor.lhs.false27
   %cmp34.old = icmp eq i32 %call3, 7
-  %cmp2.i107 = icmp eq i32 %call3, 9
-  %spec.select.i108 = and i1 %cmp16, %cmp2.i107
-  %or.cond219 = or i1 %cmp34.old, %spec.select.i108
-  br i1 %or.cond219, label %cleanup, label %if.end
+  %cmp2.i108 = icmp eq i32 %call3, 9
+  %spec.select.i109 = and i1 %cmp16, %cmp2.i108
+  %or.cond220 = or i1 %cmp34.old, %spec.select.i109
+  br i1 %or.cond220, label %cleanup, label %if.end
 
 lor.lhs.false37:                                  ; preds = %lor.lhs.false29.split
   %8 = add i32 %sub.i, -8
-  %or.cond.i109 = icmp ult i32 %8, 7
-  %or.cond1.i111 = and i1 %cmp16, %or.cond.i109
-  %cmp5.i112 = icmp eq i32 %call3, 10
-  %or.cond2.i113 = and i1 %cmp5.i112, %or.cond1.i111
-  %spec.select.i115 = and i1 %cmp.i74, %or.cond2.i113
-  br i1 %spec.select.i115, label %cleanup, label %lor.lhs.false39
+  %or.cond.i110 = icmp ult i32 %8, 7
+  %or.cond1.i112 = and i1 %cmp16, %or.cond.i110
+  %cmp5.i113 = icmp eq i32 %call3, 10
+  %or.cond2.i114 = and i1 %cmp5.i113, %or.cond1.i112
+  %spec.select.i116 = and i1 %cmp.i74, %or.cond2.i114
+  br i1 %spec.select.i116, label %cleanup, label %lor.lhs.false39
 
-lor.lhs.false39:                                  ; preds = %lor.lhs.false37.thread192, %lor.lhs.false37
-  %cmp5.i112198 = phi i1 [ %cmp5.i112195, %lor.lhs.false37.thread192 ], [ %cmp5.i112, %lor.lhs.false37 ]
+lor.lhs.false39:                                  ; preds = %lor.lhs.false37.thread193, %lor.lhs.false37
+  %cmp5.i113199 = phi i1 [ %cmp5.i113196, %lor.lhs.false37.thread193 ], [ %cmp5.i113, %lor.lhs.false37 ]
   %9 = add i32 %call4, -1978
-  %or.cond.i116 = icmp ult i32 %9, -7
-  br i1 %or.cond.i116, label %if.then.i124, label %if.else.i117
+  %or.cond.i117 = icmp ult i32 %9, -7
+  br i1 %or.cond.i117, label %if.then.i125, label %if.else.i118
 
-if.then.i124:                                     ; preds = %lor.lhs.false39
-  %cmp2.i125 = icmp eq i32 %sub.i, 11
-  %cmp4.i127 = icmp eq i32 %sub.i, 12
-  %or.cond1.i129 = and i1 %cmp16, %cmp4.i127
-  %or.cond220 = or i1 %cmp2.i125, %or.cond1.i129
-  br i1 %or.cond220, label %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit, label %if.then.i124.lor.lhs.false41_crit_edge
+if.then.i125:                                     ; preds = %lor.lhs.false39
+  %cmp2.i126 = icmp eq i32 %sub.i, 11
+  %cmp4.i128 = icmp eq i32 %sub.i, 12
+  %or.cond1.i130 = and i1 %cmp16, %cmp4.i128
+  %or.cond221 = or i1 %cmp2.i126, %or.cond1.i130
+  br i1 %or.cond221, label %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit, label %if.then.i125.lor.lhs.false41_crit_edge
 
-if.then.i124.lor.lhs.false41_crit_edge:           ; preds = %if.then.i124
+if.then.i125.lor.lhs.false41_crit_edge:           ; preds = %if.then.i125
   %.pre = add i32 %sub.i, -22
   br label %lor.lhs.false41
 
-if.else.i117:                                     ; preds = %lor.lhs.false39
+if.else.i118:                                     ; preds = %lor.lhs.false39
   %10 = add i32 %sub.i, -22
-  %or.cond2.i118 = icmp ult i32 %10, 7
-  %11 = and i1 %or.cond2.i118, %cmp5.i112198
-  %spec.select.i122 = and i1 %cmp16, %11
-  br i1 %spec.select.i122, label %cleanup, label %lor.lhs.false41
+  %or.cond2.i119 = icmp ult i32 %10, 7
+  %11 = and i1 %or.cond2.i119, %cmp5.i113199
+  %spec.select.i123 = and i1 %cmp16, %11
+  br i1 %spec.select.i123, label %cleanup, label %lor.lhs.false41
 
-_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit: ; preds = %if.then.i124
-  %cmp6.i131 = icmp eq i32 %call3, 11
-  br i1 %cmp6.i131, label %cleanup, label %if.end
+_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit: ; preds = %if.then.i125
+  %cmp6.i132 = icmp eq i32 %call3, 11
+  br i1 %cmp6.i132, label %cleanup, label %if.end
 
-lor.lhs.false41:                                  ; preds = %if.then.i124.lor.lhs.false41_crit_edge, %if.else.i117
-  %.pre-phi = phi i32 [ %.pre, %if.then.i124.lor.lhs.false41_crit_edge ], [ %10, %if.else.i117 ]
+lor.lhs.false41:                                  ; preds = %if.then.i125.lor.lhs.false41_crit_edge, %if.else.i118
+  %.pre-phi = phi i32 [ %.pre, %if.then.i125.lor.lhs.false41_crit_edge ], [ %10, %if.else.i118 ]
   %or.cond15 = icmp ult i32 %.pre-phi, 7
   %cmp46 = icmp eq i32 %cond.i, 5
   %or.cond17 = and i1 %cmp46, %or.cond15
@@ -3615,8 +3615,8 @@ land.lhs.true55:                                  ; preds = %lor.lhs.false49
 if.end:                                           ; preds = %land.lhs.true33, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true55, %lor.lhs.false51
   br label %cleanup
 
-cleanup:                                          ; preds = %land.lhs.true8.i, %if.else.i117, %lor.lhs.false29.split, %if.then.i87, %if.then.i, %entry, %land.lhs.true9, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true33, %lor.lhs.false37, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true55, %lor.lhs.false6, %lor.lhs.false11, %lor.lhs.false29, %lor.lhs.false41, %lor.lhs.false51, %if.end
-  %retval.0 = phi i1 [ true, %if.end ], [ false, %lor.lhs.false51 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false29 ], [ false, %lor.lhs.false11 ], [ false, %lor.lhs.false6 ], [ false, %land.lhs.true55 ], [ false, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %lor.lhs.false37 ], [ false, %land.lhs.true33 ], [ false, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true9 ], [ false, %entry ], [ false, %if.then.i ], [ false, %if.then.i87 ], [ false, %lor.lhs.false29.split ], [ false, %if.else.i117 ], [ false, %land.lhs.true8.i ]
+cleanup:                                          ; preds = %land.lhs.true8.i, %if.else.i118, %lor.lhs.false29.split, %if.then.i87, %if.then.i, %entry, %land.lhs.true9, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true33, %lor.lhs.false37, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit, %land.lhs.true55, %lor.lhs.false6, %lor.lhs.false11, %lor.lhs.false29, %lor.lhs.false41, %lor.lhs.false51, %if.end
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %lor.lhs.false51 ], [ false, %lor.lhs.false41 ], [ false, %lor.lhs.false29 ], [ false, %lor.lhs.false11 ], [ false, %lor.lhs.false6 ], [ false, %land.lhs.true55 ], [ false, %_ZN8QuantLib12_GLOBAL__N_123isVeteransDayNoSaturdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %lor.lhs.false37 ], [ false, %land.lhs.true33 ], [ false, %_ZN8QuantLib12_GLOBAL__N_113isMemorialDayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %_ZN8QuantLib12_GLOBAL__N_120isWashingtonBirthdayEiNS_5MonthEiNS_7WeekdayE.exit ], [ false, %land.lhs.true9 ], [ false, %entry ], [ false, %if.then.i ], [ false, %if.then.i87 ], [ false, %lor.lhs.false29.split ], [ false, %if.else.i118 ], [ false, %land.lhs.true8.i ]
   ret i1 %retval.0
 }
 

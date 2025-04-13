@@ -216,12 +216,12 @@ define internal i32 @dissect_brdwlk(ptr noundef %0, ptr noundef %1, ptr noundef 
   %51 = tail call ptr @wmem_file_scope()
   %52 = load i32, ptr @proto_brdwlk, align 4
   %53 = tail call ptr @p_get_proto_data(ptr noundef %51, ptr noundef %1, i32 noundef %52, i32 noundef 0)
-  %.not100 = icmp ne ptr %53, null
-  %spec.select102 = zext i1 %.not100 to i64
+  %.not101 = icmp ne ptr %53, null
+  %spec.select103 = zext i1 %.not101 to i64
   br label %54
 
-54:                                               ; preds = %44, %50
-  %.0 = phi i64 [ %spec.select102, %50 ], [ 0, %44 ]
+54:                                               ; preds = %50, %44
+  %.0 = phi i64 [ %spec.select103, %50 ], [ 0, %44 ]
   %55 = load i32, ptr @hf_brdwlk_drop, align 4
   %56 = tail call ptr @proto_tree_add_boolean(ptr noundef %21, i32 noundef %55, ptr noundef %0, i32 noundef %37, i32 noundef 0, i64 noundef %.0)
   %.not.i = icmp eq ptr %56, null
@@ -248,8 +248,8 @@ proto_item_set_hidden.exit:                       ; preds = %54, %57, %60
   %68 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %21, ptr noundef %0, i32 noundef %64, i32 noundef %66, i32 noundef %67, ptr noundef nonnull @dissect_brdwlk_err.flags, i32 noundef 0, i32 noundef 12)
   %69 = add i32 %36, -1
   %70 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %69)
-  %.not101 = icmp eq i8 %70, 3
-  %storemerge.v = select i1 %.not101, i8 64, i8 -128
+  %.not102 = icmp eq i8 %70, 3
+  %storemerge.v = select i1 %.not102, i8 64, i8 -128
   %storemerge = or disjoint i8 %storemerge.v, %17
   store i8 %storemerge, ptr %10, align 4
   %71 = load i32, ptr @hf_brdwlk_eof, align 4
@@ -268,10 +268,10 @@ proto_item_set_hidden.exit:                       ; preds = %54, %57, %60
   br label %81
 
 81:                                               ; preds = %31, %75, %proto_item_set_hidden.exit, %16
-  %.092 = phi i32 [ %27, %16 ], [ %35, %75 ], [ %35, %proto_item_set_hidden.exit ], [ %32, %31 ]
-  %.091 = phi i32 [ %26, %16 ], [ %34, %75 ], [ %34, %proto_item_set_hidden.exit ], [ %spec.select, %31 ]
+  %.094 = phi i32 [ %27, %16 ], [ %35, %75 ], [ %35, %proto_item_set_hidden.exit ], [ %32, %31 ]
+  %.093 = phi i32 [ %26, %16 ], [ %34, %75 ], [ %34, %proto_item_set_hidden.exit ], [ %spec.select, %31 ]
   store i32 34990, ptr %5, align 4
-  %82 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 2, i32 noundef %.091, i32 noundef %.092)
+  %82 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 2, i32 noundef %.093, i32 noundef %.094)
   %83 = load ptr, ptr @fc_dissector_handle, align 8
   %84 = call i32 @call_dissector_with_data(ptr noundef %83, ptr noundef %82, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   %85 = call i32 @tvb_captured_length(ptr noundef %0)

@@ -3547,19 +3547,19 @@ define hidden void @_ZN4core4iter8adapters11try_process17h53d8ec283075983fE(ptr 
           cleanup
   %10 = load ptr, ptr %7, align 8, !noundef !5
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %37, label %38
+  br i1 %.not, label %.thread, label %37
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !820
   %12 = load ptr, ptr %7, align 8, !noundef !5
   %.not.not = icmp eq ptr %12, null
-  br i1 %.not.not, label %.thread, label %14
+  br i1 %.not.not, label %.thread12, label %14
 
-.thread:                                          ; preds = %11
+.thread12:                                        ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %13
 
-13:                                               ; preds = %.thread, %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h046f507bdeaf942bE.exit"
+13:                                               ; preds = %.thread12, %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h046f507bdeaf942bE.exit"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
@@ -3623,18 +3623,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h53d8ec283075983fE(ptr 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !868
   br label %13
 
-35:                                               ; preds = %38
+35:                                               ; preds = %37
   %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #39
   unreachable
 
-37:                                               ; preds = %8, %38
+.thread:                                          ; preds = %37, %8
   resume { ptr, i32 } %9
 
-38:                                               ; preds = %8
+37:                                               ; preds = %8
   invoke void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$ockam_core..error..Error$GT$$GT$17h3579a7c926807f12E.llvm.18098550234714842923"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #38
-          to label %37 unwind label %35
+          to label %.thread unwind label %35
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3660,19 +3660,19 @@ define hidden void @_ZN4core4iter8adapters11try_process17heedd53285a4f3b10E(ptr 
           cleanup
   %10 = load ptr, ptr %7, align 8, !noundef !5
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %38, label %39
+  br i1 %.not, label %.thread, label %38
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !873
   %12 = load ptr, ptr %7, align 8, !noundef !5
   %.not.not = icmp eq ptr %12, null
-  br i1 %.not.not, label %.thread, label %14
+  br i1 %.not.not, label %.thread12, label %14
 
-.thread:                                          ; preds = %11
+.thread12:                                        ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %13
 
-13:                                               ; preds = %.thread, %"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$$GT$17h7596e360f8b3c46bE.exit"
+13:                                               ; preds = %.thread12, %"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$$GT$17h7596e360f8b3c46bE.exit"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
@@ -3733,18 +3733,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17heedd53285a4f3b10E(ptr 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !905
   br label %13
 
-36:                                               ; preds = %39
+36:                                               ; preds = %38
   %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #39
   unreachable
 
-38:                                               ; preds = %8, %39
+.thread:                                          ; preds = %38, %8
   resume { ptr, i32 } %9
 
-39:                                               ; preds = %8
+38:                                               ; preds = %8
   invoke void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$ockam_core..error..Error$GT$$GT$17h3579a7c926807f12E.llvm.18098550234714842923"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #38
-          to label %38 unwind label %36
+          to label %.thread unwind label %36
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

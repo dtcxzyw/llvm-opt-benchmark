@@ -1772,15 +1772,15 @@ _ZN8QuantLib12_GLOBAL__N_115daysBetweenImplERKNS_8CalendarERKNS_4DateES6_bb.exit
   br label %cond.end14
 
 cond.false10:                                     ; preds = %cond.false
-  %brmerge.demorgan = and i1 %includeFirst, %includeLast
-  br i1 %brmerge.demorgan, label %land.rhs, label %cond.end14
+  %or.cond = and i1 %includeFirst, %includeLast
+  br i1 %or.cond, label %land.rhs, label %cond.end14
 
 land.rhs:                                         ; preds = %cond.false10
   %call13 = tail call noundef zeroext i1 @_ZNK8QuantLib8Calendar13isBusinessDayERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %from)
   %16 = zext i1 %call13 to i64
   br label %cond.end14
 
-cond.end14:                                       ; preds = %land.rhs, %cond.false10, %_ZN8QuantLib12_GLOBAL__N_115daysBetweenImplERKNS_8CalendarERKNS_4DateES6_bb.exit33, %_ZN8QuantLib12_GLOBAL__N_115daysBetweenImplERKNS_8CalendarERKNS_4DateES6_bb.exit
+cond.end14:                                       ; preds = %cond.false10, %land.rhs, %_ZN8QuantLib12_GLOBAL__N_115daysBetweenImplERKNS_8CalendarERKNS_4DateES6_bb.exit33, %_ZN8QuantLib12_GLOBAL__N_115daysBetweenImplERKNS_8CalendarERKNS_4DateES6_bb.exit
   %cond15 = phi i64 [ %res.0.lcssa.i, %_ZN8QuantLib12_GLOBAL__N_115daysBetweenImplERKNS_8CalendarERKNS_4DateES6_bb.exit ], [ %sub, %_ZN8QuantLib12_GLOBAL__N_115daysBetweenImplERKNS_8CalendarERKNS_4DateES6_bb.exit33 ], [ 0, %cond.false10 ], [ %16, %land.rhs ]
   ret i64 %cond15
 }

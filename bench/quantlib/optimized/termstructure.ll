@@ -1028,15 +1028,13 @@ ehcleanup37:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.body39:                                        ; preds = %entry
-  br i1 %extrapolate, label %do.end99, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %do.body39
   %extrapolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %25 = load i8, ptr %extrapolate_.i, align 8, !tbaa !6, !range !42, !noundef !43
+  %25 = load i8, ptr %extrapolate_.i, align 8, !range !42
   %loadedv.i = trunc nuw i8 %25 to i1
-  br i1 %loadedv.i, label %do.end99, label %lor.rhs
+  %or.cond = select i1 %extrapolate, i1 true, i1 %loadedv.i
+  br i1 %or.cond, label %do.end99, label %lor.rhs
 
-lor.rhs:                                          ; preds = %lor.lhs.false
+lor.rhs:                                          ; preds = %do.body39
   %vtable42 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn43 = getelementptr inbounds nuw i8, ptr %vtable42, i64 24
   %26 = load ptr, ptr %vfn43, align 8
@@ -1233,7 +1231,7 @@ ehcleanup96:                                      ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream47) #22
   br label %eh.resume
 
-do.end99:                                         ; preds = %lor.lhs.false, %do.body39, %lor.rhs
+do.end99:                                         ; preds = %do.body39, %lor.rhs
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup96, %ehcleanup37
@@ -1548,15 +1546,13 @@ ehcleanup27:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.body29:                                        ; preds = %entry
-  br i1 %extrapolate, label %do.end88, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %do.body29
   %extrapolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %21 = load i8, ptr %extrapolate_.i, align 8, !tbaa !6, !range !42, !noundef !43
+  %21 = load i8, ptr %extrapolate_.i, align 8, !range !42
   %loadedv.i = trunc nuw i8 %21 to i1
-  br i1 %loadedv.i, label %do.end88, label %lor.lhs.false31
+  %or.cond = select i1 %extrapolate, i1 true, i1 %loadedv.i
+  br i1 %or.cond, label %do.end88, label %lor.lhs.false31
 
-lor.lhs.false31:                                  ; preds = %lor.lhs.false
+lor.lhs.false31:                                  ; preds = %do.body29
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %22 = load ptr, ptr %vfn, align 8
@@ -1772,7 +1768,7 @@ ehcleanup85:                                      ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream40) #22
   br label %eh.resume
 
-do.end88:                                         ; preds = %lor.lhs.false34, %if.then3.i, %do.body29, %lor.lhs.false, %lor.lhs.false31, %_ZN8QuantLib12close_enoughEdd.exit
+do.end88:                                         ; preds = %lor.lhs.false34, %if.then3.i, %do.body29, %lor.lhs.false31, %_ZN8QuantLib12close_enoughEdd.exit
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup85, %ehcleanup27

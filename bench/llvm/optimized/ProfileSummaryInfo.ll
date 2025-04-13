@@ -707,12 +707,15 @@ _ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit: ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %20 = load i8, ptr %19, align 8, !tbaa !106, !range !50, !noundef !51
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit.thread25, label %_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit.thread
-
-_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit.thread25: ; preds = %16, %_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit
-  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ScalePartialSampleProfileWorkingSetSize, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ScalePartialSampleProfileWorkingSetSize, i64 120), align 8, !range !50
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %31, label %_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit.thread
+  %or.cond = select i1 %21, i1 %23, i1 false
+  br i1 %or.cond, label %31, label %_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit.thread
+
+_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit.thread25: ; preds = %16
+  %.old = load i8, ptr getelementptr inbounds nuw (i8, ptr @ScalePartialSampleProfileWorkingSetSize, i64 120), align 8, !tbaa !34, !range !50, !noundef !51
+  %.old26 = trunc nuw i8 %.old to i1
+  br i1 %.old26, label %31, label %_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit.thread
 
 _ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit.thread: ; preds = %1, %13, %_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit.thread25, %_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -727,7 +730,7 @@ _ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit.thread: ; preds = 
   %30 = load i64, ptr %24, align 8, !tbaa !107
   br label %45
 
-31:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit.thread25
+31:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit, %_ZNK4llvm18ProfileSummaryInfo23hasPartialSampleProfileEv.exit.thread25
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %33 = load double, ptr %32, align 8, !tbaa !114
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 16

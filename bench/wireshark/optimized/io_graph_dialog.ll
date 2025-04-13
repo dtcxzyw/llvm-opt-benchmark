@@ -87,7 +87,6 @@ module asm ".previous"
 %class.QPainterPath = type { %class.QExplicitlySharedDataPointer.103 }
 %class.QExplicitlySharedDataPointer.103 = type { ptr }
 %class.QRectF = type { double, double, double, double }
-%class.QSharedPointer.102 = type { ptr, ptr }
 %class.QCPRange = type { double, double }
 %class.QRect = type { i32, i32, i32, i32 }
 %"struct.QHashPrivate::Span<QHashPrivate::Node<format_size_units_e, QHashDummyValue>>::Entry" = type { %"union.std::aligned_storage<4, 4>::type" }
@@ -144,8 +143,6 @@ $__clang_call_terminate = comdat any
 $_ZN8QVariantC2EPKc = comdat any
 
 $_ZN5QListI8QVariantED2Ev = comdat any
-
-$_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev = comdat any
 
 $_ZNK4QSetI19format_size_units_eE6valuesEv = comdat any
 
@@ -13027,8 +13024,8 @@ define void @_ZN13IOGraphDialog17toggleTracerStyleEb(ptr noundef readonly align 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i8, ptr %8, align 8, !range !12, !noundef !13
   %10 = trunc nuw i8 %9 to i1
-  %brmerge = or i1 %1, %10
-  br i1 %brmerge, label %11, label %47
+  %or.cond = or i1 %1, %10
+  br i1 %or.cond, label %11, label %47
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -13068,8 +13065,8 @@ define void @_ZN13IOGraphDialog17toggleTracerStyleEb(ptr noundef readonly align 
   %28 = load ptr, ptr %6, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 184
   %30 = load i32, ptr %29, align 8
-  %.not5 = icmp eq i32 %30, 3
-  br i1 %.not5, label %35, label %31
+  %.not6 = icmp eq i32 %30, 3
+  br i1 %.not6, label %35, label %31
 
 31:                                               ; preds = %27, %26
   invoke void @_ZN6QColor9setAlphaFEf(ptr noundef nonnull align 4 dereferenceable_or_null(14) %5, float noundef 1.000000e+00)
@@ -13127,7 +13124,7 @@ define void @_ZN13IOGraphDialog17toggleTracerStyleEb(ptr noundef readonly align 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #33
   br label %47
 
-47:                                               ; preds = %2, %11, %46
+47:                                               ; preds = %11, %2, %46
   ret void
 }
 
@@ -18213,8 +18210,8 @@ define void @_ZN7IOGraph12setNeedRetapEb(ptr noundef align 8 dereferenceable_or_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %4 = load i8, ptr %3, align 1, !range !12, !noundef !13
   %5 = trunc nuw i8 %4 to i1
-  %brmerge.demorgan = and i1 %1, %5
-  br i1 %brmerge.demorgan, label %6, label %7
+  %or.cond = and i1 %1, %5
+  br i1 %or.cond, label %6, label %7
 
 6:                                                ; preds = %2
   tail call void @_ZN7IOGraph12requestRetapEv(ptr noundef align 8 dereferenceable_or_null(252) %0)
@@ -21790,173 +21787,192 @@ declare void @_ZN15WiresharkDialog13updateWidgetsEv(ptr noundef align 8 derefere
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define void @_ZN13IOGraphDialog16updateStatisticsEv(ptr noundef align 8 dereferenceable_or_null(384) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca %class.QSharedPointer.102, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i32, ptr %5, align 8
-  %7 = and i32 %6, 32768
-  %.not6 = icmp eq i32 %7, 0
-  br i1 %.not6, label %92, label %8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = load i32, ptr %4, align 8
+  %6 = and i32 %5, 32768
+  %.not13 = icmp eq i32 %6, 0
+  br i1 %.not13, label %103, label %7
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 346
-  %10 = load i8, ptr %9, align 2, !range !12, !noundef !13
-  %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %28
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 346
+  %9 = load i8, ptr %8, align 2, !range !12, !noundef !13
+  %10 = trunc nuw i8 %9 to i1
+  br i1 %10, label %11, label %27
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = load i8, ptr %13, align 8, !range !12, !noundef !13
-  %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %28, label %16
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %13 = load i8, ptr %12, align 8, !range !12, !noundef !13
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %14, label %27, label %15
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %18 = load i32, ptr %17, align 8
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %28
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp eq i32 %17, 0
+  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 274), align 2, !range !12
+  %20 = trunc nuw i8 %19 to i1
+  %or.cond = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond, label %21, label %27
 
-19:                                               ; preds = %16
-  %20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 274), align 2, !range !12, !noundef !13
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %28
-
-22:                                               ; preds = %19
-  store i8 0, ptr %9, align 2
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #34
-  store i32 1, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM11CaptureFileFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i64 ptrtoint (ptr @_ZN11CaptureFile12retapPacketsEv to i64), ptr %27, align 8
-  %.repack7.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 24
+21:                                               ; preds = %15
+  store i8 0, ptr %8, align 2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #34
+  store i32 1, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr @_ZN9QtPrivate11QSlotObjectIM11CaptureFileFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i64 ptrtoint (ptr @_ZN11CaptureFile12retapPacketsEv to i64), ptr %26, align 8
+  %.repack7.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 0, ptr %.repack7.i.i.i, align 8
-  tail call void @_ZN6QTimer14singleShotImplEiN2Qt9TimerTypeEPK7QObjectPN9QtPrivate15QSlotObjectBaseE(i32 noundef 0, i32 noundef 0, ptr noundef %24, ptr noundef %25)
-  br label %92
+  tail call void @_ZN6QTimer14singleShotImplEiN2Qt9TimerTypeEPK7QObjectPN9QtPrivate15QSlotObjectBaseE(i32 noundef 0, i32 noundef 0, ptr noundef %23, ptr noundef %24)
+  br label %103
 
-28:                                               ; preds = %19, %16, %12, %8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 345
-  %30 = load i8, ptr %29, align 1, !range !12, !noundef !13
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %78
+27:                                               ; preds = %15, %11, %7
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 345
+  %29 = load i8, ptr %28, align 1, !range !12, !noundef !13
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %89
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %34 = load i8, ptr %33, align 8, !range !12, !noundef !13
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %78, label %36
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %33 = load i8, ptr %32, align 8, !range !12, !noundef !13
+  %34 = trunc nuw i8 %33 to i1
+  %.not = xor i1 %34, true
+  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 274), align 2, !range !12
+  %36 = trunc nuw i8 %35 to i1
+  %or.cond3 = select i1 %.not, i1 %36, i1 false
+  br i1 %or.cond3, label %37, label %89
 
-36:                                               ; preds = %32
-  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 274), align 2, !range !12, !noundef !13
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %78
+37:                                               ; preds = %31
+  store i8 0, ptr %28, align 1
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  store i8 1, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef align 8 dereferenceable_or_null(48) %40)
+  br i1 %41, label %42, label %_ZNK11CaptureFile7capFileEv.exit
 
-39:                                               ; preds = %36
-  store i8 0, ptr %29, align 1
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef align 8 dereferenceable_or_null(48) %42)
-  br i1 %43, label %44, label %_ZNK11CaptureFile7capFileEv.exit
-
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %46 = load ptr, ptr %45, align 8
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %44 = load ptr, ptr %43, align 8
   br label %_ZNK11CaptureFile7capFileEv.exit
 
-_ZNK11CaptureFile7capFileEv.exit:                 ; preds = %39, %44
-  %47 = phi ptr [ %46, %44 ], [ null, %39 ]
-  tail call void @_ZN13IOGraphDialog15recalcGraphDataEP13_capture_file(ptr noundef align 8 dereferenceable_or_null(384) %0, ptr noundef %47)
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 240
+_ZNK11CaptureFile7capFileEv.exit:                 ; preds = %37, %42
+  %45 = phi ptr [ %44, %42 ], [ null, %37 ]
+  tail call void @_ZN13IOGraphDialog15recalcGraphDataEP13_capture_file(ptr noundef align 8 dereferenceable_or_null(384) %0, ptr noundef %45)
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 192
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 192
-  %51 = load ptr, ptr %50, align 8
-  %.not4 = icmp eq ptr %51, null
-  br i1 %.not4, label %52, label %78
+  %.not7 = icmp eq ptr %49, null
+  br i1 %.not7, label %50, label %89
 
-52:                                               ; preds = %_ZNK11CaptureFile7capFileEv.exit
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %54 = load ptr, ptr %53, align 8
-  %.not5.not = icmp eq ptr %54, null
-  br i1 %.not5.not, label %.critedge.thread, label %55
+50:                                               ; preds = %_ZNK11CaptureFile7capFileEv.exit
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %52 = load ptr, ptr %51, align 8
+  %.not8.not = icmp eq ptr %52, null
+  br i1 %.not8.not, label %.sink.split, label %53
 
-55:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #33
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 192
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 192
+  %55 = load ptr, ptr %54, align 8, !noalias !167
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 200
   %57 = load ptr, ptr %56, align 8, !noalias !167
-  store ptr %57, ptr %2, align 8, !alias.scope !167
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 200
-  %60 = load ptr, ptr %59, align 8, !noalias !167
-  store ptr %60, ptr %58, align 8, !alias.scope !167
-  %.not.i.i = icmp eq ptr %60, null
-  br i1 %.not.i.i, label %.critedge, label %61
+  %.not.i.i = icmp eq ptr %57, null
+  br i1 %.not.i.i, label %.thread11, label %65
 
-61:                                               ; preds = %55
-  %62 = atomicrmw add ptr %60, i32 1 seq_cst, align 4, !noalias !167
-  %63 = load ptr, ptr %58, align 8, !alias.scope !167
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %65 = atomicrmw add ptr %64, i32 1 seq_cst, align 4, !noalias !167
-  %.pre = load ptr, ptr %2, align 8
-  br label %.critedge
+.thread11:                                        ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %61 = load i32, ptr %60, align 8
+  %62 = trunc i64 %59 to i32
+  %63 = sub i32 %62, %61
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %85, label %.sink.split
 
-.critedge:                                        ; preds = %61, %55
-  %66 = phi ptr [ %.pre, %61 ], [ %57, %55 ]
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %70 = load i32, ptr %69, align 8
-  %71 = trunc i64 %68 to i32
-  %72 = sub i32 %71, %70
-  %73 = icmp sgt i32 %72, 0
-  call void @_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %2) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #33
-  %.pre7 = load ptr, ptr %48, align 8
-  br i1 %73, label %74, label %.critedge.thread
+65:                                               ; preds = %53
+  %66 = atomicrmw add ptr %57, i32 1 seq_cst, align 4, !noalias !167
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %68 = atomicrmw add ptr %67, i32 1 seq_cst, align 4, !noalias !167
+  %69 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %70 = load i64, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %72 = load i32, ptr %71, align 8
+  %73 = trunc i64 %70 to i32
+  %74 = sub i32 %73, %72
+  %75 = icmp sgt i32 %74, 0
+  %76 = atomicrmw sub ptr %67, i32 1 seq_cst, align 4
+  %.not5.i.i.i = icmp eq i32 %76, 1
+  br i1 %.not5.i.i.i, label %77, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i
 
-74:                                               ; preds = %.critedge
-  %75 = load ptr, ptr %53, align 8
-  call void @_ZN13QCPItemTracer8setGraphEP8QCPGraph(ptr noundef align 8 dereferenceable_or_null(209) %.pre7, ptr noundef %75)
-  %76 = load ptr, ptr %48, align 8
-  call void @_ZN12QCPLayerable10setVisibleEb(ptr noundef align 8 dereferenceable_or_null(57) %76, i1 noundef zeroext true)
-  br label %78
+77:                                               ; preds = %65
+  %78 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %79 = load ptr, ptr %78, align 8
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable_or_null(16) %57)
+          to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %82
 
-.critedge.thread:                                 ; preds = %52, %.critedge
-  %77 = phi ptr [ %49, %52 ], [ %.pre7, %.critedge ]
-  call void @_ZN12QCPLayerable10setVisibleEb(ptr noundef align 8 dereferenceable_or_null(57) %77, i1 noundef zeroext false)
-  br label %78
+_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %77, %65
+  %80 = atomicrmw sub ptr %57, i32 1 seq_cst, align 4
+  %.not6.i.i.i = icmp eq i32 %80, 1
+  br i1 %.not6.i.i.i, label %81, label %.critedge
 
-78:                                               ; preds = %_ZNK11CaptureFile7capFileEv.exit, %.critedge.thread, %74, %36, %32, %28
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %80 = load i8, ptr %79, align 8, !range !12, !noundef !13
-  %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %82, label %92
+81:                                               ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %57) #33
+  br i1 %75, label %85, label %.sink.split
 
-82:                                               ; preds = %78
-  store i8 0, ptr %79, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 347
-  %84 = load i8, ptr %83, align 1, !range !12, !noundef !13
-  %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %87
+82:                                               ; preds = %77
+  %83 = landingpad { ptr, i32 }
+          catch ptr null
+  %84 = extractvalue { ptr, i32 } %83, 0
+  tail call void @__clang_call_terminate(ptr %84) #37
+  unreachable
 
-86:                                               ; preds = %82
-  call void @_ZN13IOGraphDialog9resetAxesEv(ptr noundef align 8 dereferenceable_or_null(384) %0)
-  br label %87
+.critedge:                                        ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i
+  br i1 %75, label %85, label %.sink.split
 
-87:                                               ; preds = %86, %82
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 208
-  %91 = load ptr, ptr %90, align 8
-  call void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef align 8 dereferenceable_or_null(513) %91, i32 noundef 2)
-  br label %92
+85:                                               ; preds = %81, %.thread11, %.critedge
+  %86 = load ptr, ptr %46, align 8
+  %87 = load ptr, ptr %51, align 8
+  tail call void @_ZN13QCPItemTracer8setGraphEP8QCPGraph(ptr noundef align 8 dereferenceable_or_null(209) %86, ptr noundef %87)
+  br label %.sink.split
 
-92:                                               ; preds = %78, %87, %1, %22
+.sink.split:                                      ; preds = %.critedge, %.thread11, %81, %50, %85
+  %.sink14 = phi i1 [ true, %85 ], [ false, %50 ], [ false, %81 ], [ false, %.thread11 ], [ false, %.critedge ]
+  %88 = load ptr, ptr %46, align 8
+  tail call void @_ZN12QCPLayerable10setVisibleEb(ptr noundef align 8 dereferenceable_or_null(57) %88, i1 noundef zeroext %.sink14)
+  br label %89
+
+89:                                               ; preds = %.sink.split, %_ZNK11CaptureFile7capFileEv.exit, %31, %27
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %91 = load i8, ptr %90, align 8, !range !12, !noundef !13
+  %92 = trunc nuw i8 %91 to i1
+  br i1 %92, label %93, label %103
+
+93:                                               ; preds = %89
+  store i8 0, ptr %90, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 347
+  %95 = load i8, ptr %94, align 1, !range !12, !noundef !13
+  %96 = trunc nuw i8 %95 to i1
+  br i1 %96, label %97, label %98
+
+97:                                               ; preds = %93
+  tail call void @_ZN13IOGraphDialog9resetAxesEv(ptr noundef align 8 dereferenceable_or_null(384) %0)
+  br label %98
+
+98:                                               ; preds = %97, %93
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 208
+  %102 = load ptr, ptr %101, align 8
+  tail call void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef align 8 dereferenceable_or_null(513) %102, i32 noundef 2)
+  br label %103
+
+103:                                              ; preds = %89, %98, %1, %21
   ret void
 }
 
@@ -23261,45 +23277,6 @@ declare i32 @nstime_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
-define linkonce_odr void @_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8
-  %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEE5derefEv.exit, label %4
-
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %6 = atomicrmw sub ptr %5, i32 1 seq_cst, align 4
-  %.not5.i.i = icmp eq i32 %6, 1
-  br i1 %.not5.i.i, label %7, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i
-
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load ptr, ptr %8, align 8
-  invoke void %9(ptr noundef nonnull align 8 dereferenceable_or_null(16) %3)
-          to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i unwind label %12
-
-_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i: ; preds = %7, %4
-  %10 = atomicrmw sub ptr %3, i32 1 seq_cst, align 4
-  %.not6.i.i = icmp eq i32 %10, 1
-  br i1 %.not6.i.i, label %11, label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEE5derefEv.exit
-
-11:                                               ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #33
-  br label %_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEE5derefEv.exit
-
-12:                                               ; preds = %7
-  %13 = landingpad { ptr, i32 }
-          catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #37
-  unreachable
-
-_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEE5derefEv.exit: ; preds = %1, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i, %11
-  ret void
-}
 
 ; Function Attrs: null_pointer_is_valid
 declare void @_ZN12QCPLayerable10setVisibleEb(ptr noundef align 8 dereferenceable_or_null(57), i1 noundef zeroext) local_unnamed_addr #3

@@ -194,8 +194,8 @@ entry:
   %declared_.i = getelementptr inbounds nuw i8, ptr %from, i64 56
   %0 = load i8, ptr %declared_.i, align 8
   %tobool.i = trunc i8 %0 to i1
-  %brmerge = or i1 %inhibitThrow, %tobool.i
-  br i1 %brmerge, label %if.then, label %if.end
+  %or.cond = or i1 %inhibitThrow, %tobool.i
+  br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call1 = tail call noundef ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #15
@@ -378,8 +378,8 @@ if.else:                                          ; preds = %entry
   %declared_.i.i = getelementptr inbounds nuw i8, ptr %from, i64 56
   %4 = load i8, ptr %declared_.i.i, align 8
   %tobool.i.i = trunc i8 %4 to i1
-  %brmerge.i = or i1 %inhibitThrow, %tobool.i.i
-  br i1 %brmerge.i, label %if.then.i, label %if.end.i
+  %or.cond.i = or i1 %inhibitThrow, %tobool.i.i
+  br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else
   %call1.i = tail call noundef ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %Builder10) #15

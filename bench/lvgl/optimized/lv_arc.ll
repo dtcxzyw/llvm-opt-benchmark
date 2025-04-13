@@ -87,8 +87,8 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
 
 22:                                               ; preds = %19
   %23 = tail call i32 @lv_indev_get_type(ptr noundef nonnull %20) #7
-  %.not282 = icmp eq i32 %23, 1
-  br i1 %.not282, label %24, label %.critedge
+  %.not284 = icmp eq i32 %23, 1
+  br i1 %.not284, label %24, label %.critedge
 
 24:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
@@ -138,20 +138,20 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   %50 = add nuw nsw i32 %49, %47
   %51 = mul nuw nsw i32 %spec.select, %spec.select
   %52 = icmp samesign ugt i32 %50, %51
-  %.pre349 = load i8, ptr %33, align 8
+  %.pre347 = load i8, ptr %33, align 8
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %45
-  %54 = or i8 %.pre349, 1
+  %54 = or i8 %.pre347, 1
   store i8 %54, ptr %33, align 8
   %55 = call i32 @lv_tick_get() #7
   %56 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store i32 %55, ptr %56, align 8, !tbaa !25
-  %.pre348 = load i8, ptr %33, align 8
+  %.pre346 = load i8, ptr %33, align 8
   br label %57
 
 57:                                               ; preds = %45, %53, %24
-  %58 = phi i8 [ %.pre349, %45 ], [ %.pre348, %53 ], [ %34, %24 ]
+  %58 = phi i8 [ %.pre347, %45 ], [ %.pre346, %53 ], [ %34, %24 ]
   %59 = and i8 %58, 1
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %186, label %61
@@ -171,7 +171,7 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   %70 = load float, ptr %69, align 4, !tbaa !17
   %71 = fcmp olt float %68, %70
   %72 = fadd float %68, 3.600000e+02
-  %.0253 = select i1 %71, float %72, float %68
+  %.0255 = select i1 %71, float %72, float %68
   %73 = call zeroext i16 @lv_atan2(i32 noundef %64, i32 noundef %62) #7
   %74 = uitofp i16 %73 to float
   %75 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -181,27 +181,27 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   %79 = load float, ptr %69, align 4, !tbaa !17
   %80 = fsub float %78, %79
   %81 = fcmp olt float %80, 0.000000e+00
-  br i1 %81, label %.lr.ph339, label %.preheader
+  br i1 %81, label %.lr.ph337, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph339, %66
-  %.0249.lcssa = phi float [ %80, %66 ], [ %83, %.lr.ph339 ]
-  %82 = fcmp ult float %.0249.lcssa, 3.600000e+02
-  br i1 %82, label %._crit_edge343, label %.lr.ph342
+.preheader:                                       ; preds = %.lr.ph337, %66
+  %.0251.lcssa = phi float [ %80, %66 ], [ %83, %.lr.ph337 ]
+  %82 = fcmp ult float %.0251.lcssa, 3.600000e+02
+  br i1 %82, label %._crit_edge341, label %.lr.ph340
 
-.lr.ph339:                                        ; preds = %66, %.lr.ph339
-  %.0249337 = phi float [ %83, %.lr.ph339 ], [ %80, %66 ]
-  %83 = fadd float %.0249337, 3.600000e+02
+.lr.ph337:                                        ; preds = %66, %.lr.ph337
+  %.0251335 = phi float [ %83, %.lr.ph337 ], [ %80, %66 ]
+  %83 = fadd float %.0251335, 3.600000e+02
   %84 = fcmp olt float %83, 0.000000e+00
-  br i1 %84, label %.lr.ph339, label %.preheader, !llvm.loop !31
+  br i1 %84, label %.lr.ph337, label %.preheader, !llvm.loop !31
 
-.lr.ph342:                                        ; preds = %.preheader, %.lr.ph342
-  %.1250341 = phi float [ %85, %.lr.ph342 ], [ %.0249.lcssa, %.preheader ]
-  %85 = fadd float %.1250341, -3.600000e+02
+.lr.ph340:                                        ; preds = %.preheader, %.lr.ph340
+  %.1252339 = phi float [ %85, %.lr.ph340 ], [ %.0251.lcssa, %.preheader ]
+  %85 = fadd float %.1252339, -3.600000e+02
   %86 = fcmp ult float %85, 3.600000e+02
-  br i1 %86, label %._crit_edge343, label %.lr.ph342, !llvm.loop !33
+  br i1 %86, label %._crit_edge341, label %.lr.ph340, !llvm.loop !33
 
-._crit_edge343:                                   ; preds = %.lr.ph342, %.preheader
-  %.1250.lcssa = phi float [ %.0249.lcssa, %.preheader ], [ %85, %.lr.ph342 ]
+._crit_edge341:                                   ; preds = %.lr.ph340, %.preheader
+  %.1252.lcssa = phi float [ %.0251.lcssa, %.preheader ], [ %85, %.lr.ph340 ]
   %87 = load i32, ptr %10, align 4, !tbaa !30
   %88 = mul i32 %87, 628
   %89 = udiv i32 %88, 100
@@ -210,16 +210,16 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   %92 = udiv i32 %91, %89
   %93 = uitofp i32 %92 to float
   %94 = load i8, ptr %33, align 8
-  %95 = call fastcc zeroext i1 @lv_arc_angle_within_bg_bounds(ptr noundef nonnull %17, float noundef %.1250.lcssa, float noundef %93)
+  %95 = call fastcc zeroext i1 @lv_arc_angle_within_bg_bounds(ptr noundef nonnull %17, float noundef %.1252.lcssa, float noundef %93)
   br i1 %95, label %96, label %186
 
-96:                                               ; preds = %._crit_edge343
+96:                                               ; preds = %._crit_edge341
   %97 = load float, ptr %69, align 4, !tbaa !17
-  %98 = fsub float %.0253, %97
+  %98 = fsub float %.0255, %97
   %99 = getelementptr inbounds nuw i8, ptr %17, i64 108
   %100 = load float, ptr %99, align 4, !tbaa !26
   %101 = fsub float %100, %97
-  %102 = fsub float %.1250.lcssa, %101
+  %102 = fsub float %.1252.lcssa, %101
   %103 = fcmp ogt float %102, 0.000000e+00
   %104 = fneg float %102
   %105 = select i1 %103, float %102, float %104
@@ -229,8 +229,8 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
 
 108:                                              ; preds = %96
   %109 = and i8 %107, 8
-  %.not285 = icmp eq i8 %109, 0
-  %.291 = select i1 %.not285, float %98, float 0.000000e+00
+  %.not287 = icmp eq i8 %109, 0
+  %.293 = select i1 %.not287, float %98, float 0.000000e+00
   br label %117
 
 110:                                              ; preds = %96
@@ -240,23 +240,23 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
 
 113:                                              ; preds = %110
   %114 = and i8 %107, 8
-  %.not284 = icmp eq i8 %114, 0
-  br i1 %.not284, label %117, label %115
+  %.not286 = icmp eq i8 %114, 0
+  br i1 %.not286, label %117, label %115
 
 115:                                              ; preds = %113
   %116 = fneg float %98
   br label %117
 
 117:                                              ; preds = %113, %108, %115, %110
-  %.2251 = phi float [ %116, %115 ], [ %.1250.lcssa, %110 ], [ %.291, %108 ], [ %98, %113 ]
+  %.2253 = phi float [ %116, %115 ], [ %.1252.lcssa, %110 ], [ %.293, %108 ], [ %98, %113 ]
   %118 = and i8 %94, 8
   %cond = icmp eq i8 %118, 0
   %119 = and i8 %107, 24
   br i1 %cond, label %123, label %120
 
 120:                                              ; preds = %117
-  %or.cond293 = icmp ne i8 %119, 0
-  %brmerge = or i1 %106, %or.cond293
+  %or.cond295 = icmp ne i8 %119, 0
+  %brmerge = or i1 %106, %or.cond295
   br i1 %brmerge, label %128, label %121
 
 121:                                              ; preds = %120
@@ -264,25 +264,25 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   br label %.sink.split
 
 123:                                              ; preds = %117
-  %or.cond296 = icmp eq i8 %119, 8
+  %or.cond298 = icmp eq i8 %119, 8
   %124 = fsub float 3.600000e+02, %105
   %125 = fcmp ogt float %124, 2.800000e+02
-  %or.cond298 = and i1 %125, %or.cond296
-  br i1 %or.cond298, label %126, label %128
+  %or.cond300 = and i1 %125, %or.cond298
+  br i1 %or.cond300, label %126, label %128
 
 126:                                              ; preds = %123
   %127 = and i8 %107, -25
   br label %.sink.split
 
 .sink.split:                                      ; preds = %121, %126
-  %.sink354 = phi i8 [ %127, %126 ], [ %122, %121 ]
-  %.3252.ph = phi float [ %98, %126 ], [ 0.000000e+00, %121 ]
-  store i8 %.sink354, ptr %33, align 8
+  %.sink352 = phi i8 [ %127, %126 ], [ %122, %121 ]
+  %.3254.ph = phi float [ %98, %126 ], [ 0.000000e+00, %121 ]
+  store i8 %.sink352, ptr %33, align 8
   br label %128
 
 128:                                              ; preds = %.sink.split, %120, %123
-  %.3252 = phi float [ %.2251, %123 ], [ %.2251, %120 ], [ %.3252.ph, %.sink.split ]
-  %129 = fsub float %.3252, %101
+  %.3254 = phi float [ %.2253, %123 ], [ %.2253, %120 ], [ %.3254.ph, %.sink.split ]
+  %129 = fsub float %.3254, %101
   %130 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %131 = load i32, ptr %130, align 8, !tbaa !25
   %132 = call i32 @lv_tick_elaps(i32 noundef %131) #7
@@ -303,10 +303,10 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   br label %143
 
 143:                                              ; preds = %128, %142, %139
-  %.0254 = phi float [ %140, %142 ], [ %129, %139 ], [ %137, %128 ]
-  %144 = fadd float %101, %.0254
+  %.0256 = phi float [ %140, %142 ], [ %129, %139 ], [ %137, %128 ]
+  %144 = fadd float %101, %.0256
   %145 = load float, ptr %69, align 4, !tbaa !17
-  %146 = fsub float %.0253, %145
+  %146 = fsub float %.0255, %145
   %147 = fmul float %146, 8.000000e+00
   %148 = getelementptr inbounds nuw i8, ptr %17, i64 92
   %149 = load i32, ptr %148, align 4, !tbaa !23
@@ -323,7 +323,7 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   %160 = load i32, ptr %159, align 4, !tbaa !21
   %161 = fptosi float %158 to i32
   %162 = fptosi float %145 to i32
-  %163 = fptosi float %.0253 to i32
+  %163 = fptosi float %.0255 to i32
   %164 = call i32 @lv_map(i32 noundef %161, i32 noundef %162, i32 noundef %163, i32 noundef %151, i32 noundef %149) #7
   %165 = load i8, ptr %33, align 8
   %166 = and i8 %165, 6
@@ -338,31 +338,31 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   br label %lv_arc_get_value.exit
 
 lv_arc_get_value.exit:                            ; preds = %143, %168
-  %.0255 = phi i32 [ %172, %168 ], [ %164, %143 ]
+  %.0257 = phi i32 [ %172, %168 ], [ %164, %143 ]
   %173 = load i32, ptr %159, align 4, !tbaa !21
-  %.not288 = icmp eq i32 %.0255, %173
-  br i1 %.not288, label %178, label %174
+  %.not290 = icmp eq i32 %.0257, %173
+  br i1 %.not290, label %178, label %174
 
 174:                                              ; preds = %lv_arc_get_value.exit
   %175 = call i32 @lv_tick_get() #7
   store i32 %175, ptr %130, align 8, !tbaa !25
-  call void @lv_arc_set_value(ptr noundef nonnull %17, i32 noundef %.0255)
-  %.not289 = icmp eq i32 %.0255, %160
-  br i1 %.not289, label %178, label %176
+  call void @lv_arc_set_value(ptr noundef nonnull %17, i32 noundef %.0257)
+  %.not291 = icmp eq i32 %.0257, %160
+  br i1 %.not291, label %178, label %176
 
 176:                                              ; preds = %174
   %177 = call i32 @lv_obj_send_event(ptr noundef nonnull %17, i32 noundef 35, ptr noundef null) #7
-  %.not290 = icmp eq i32 %177, 1
-  br i1 %.not290, label %178, label %186
+  %.not292 = icmp eq i32 %177, 1
+  br i1 %.not292, label %178, label %186
 
 178:                                              ; preds = %174, %176, %lv_arc_get_value.exit
   %179 = load i32, ptr %150, align 8, !tbaa !22
-  %180 = icmp eq i32 %.0255, %179
+  %180 = icmp eq i32 %.0257, %179
   br i1 %180, label %184, label %181
 
 181:                                              ; preds = %178
   %182 = load i32, ptr %148, align 4, !tbaa !23
-  %183 = icmp eq i32 %.0255, %182
+  %183 = icmp eq i32 %.0257, %182
   br i1 %183, label %184, label %186
 
 184:                                              ; preds = %181, %178
@@ -370,7 +370,7 @@ lv_arc_get_value.exit:                            ; preds = %143, %168
   store i32 %185, ptr %130, align 8, !tbaa !25
   br label %186
 
-186:                                              ; preds = %._crit_edge343, %181, %184, %176, %61, %57
+186:                                              ; preds = %._crit_edge341, %181, %184, %176, %61, %57
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
@@ -391,8 +391,8 @@ lv_arc_get_value.exit:                            ; preds = %143, %168
   %195 = tail call ptr @lv_indev_active() #7
   %196 = tail call i32 @lv_indev_get_type(ptr noundef %195) #7
   %197 = icmp eq i32 %196, 4
-  %brmerge301.not = select i1 %197, i1 %194, i1 false
-  br i1 %brmerge301.not, label %198, label %.critedge
+  %or.cond13 = select i1 %197, i1 %194, i1 false
+  br i1 %or.cond13, label %198, label %.critedge
 
 198:                                              ; preds = %189
   tail call void @lv_group_set_editing(ptr noundef %193, i1 noundef zeroext false) #7
@@ -413,24 +413,24 @@ lv_arc_get_value.exit:                            ; preds = %143, %168
   %203 = load i32, ptr %202, align 4, !tbaa !21
   %204 = and i32 %201, -3
   %or.cond9 = icmp eq i32 %204, 17
-  br i1 %or.cond9, label %.sink.split355, label %205
+  br i1 %or.cond9, label %.sink.split353, label %205
 
 205:                                              ; preds = %200
   switch i32 %201, label %207 [
-    i32 20, label %.sink.split355
-    i32 18, label %.sink.split355
+    i32 20, label %.sink.split353
+    i32 18, label %.sink.split353
   ]
 
-.sink.split355:                                   ; preds = %205, %205, %200
-  %.sink357 = phi i32 [ 1, %200 ], [ -1, %205 ], [ -1, %205 ]
-  %206 = add nsw i32 %203, %.sink357
+.sink.split353:                                   ; preds = %205, %205, %200
+  %.sink355 = phi i32 [ 1, %200 ], [ -1, %205 ], [ -1, %205 ]
+  %206 = add nsw i32 %203, %.sink355
   tail call void @lv_arc_set_value(ptr noundef nonnull %17, i32 noundef %206)
   br label %207
 
-207:                                              ; preds = %.sink.split355, %205
+207:                                              ; preds = %.sink.split353, %205
   %208 = load i32, ptr %202, align 4, !tbaa !21
-  %.not280 = icmp eq i32 %203, %208
-  br i1 %.not280, label %.critedge, label %209
+  %.not282 = icmp eq i32 %203, %208
+  br i1 %.not282, label %.critedge, label %209
 
 209:                                              ; preds = %207
   %210 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %17, i32 noundef 35, ptr noundef null) #7
@@ -458,8 +458,8 @@ lv_arc_set_value.exit:                            ; preds = %216
   store i32 %222, ptr %213, align 4, !tbaa !21
   tail call fastcc void @value_update(ptr noundef %17)
   %.pre = load i32, ptr %213, align 4, !tbaa !21
-  %.not278 = icmp eq i32 %214, %.pre
-  br i1 %.not278, label %.critedge, label %224
+  %.not280 = icmp eq i32 %214, %.pre
+  br i1 %.not280, label %.critedge, label %224
 
 224:                                              ; preds = %lv_arc_set_value.exit
   %225 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %17, i32 noundef 35, ptr noundef null) #7
@@ -472,8 +472,8 @@ lv_arc_set_value.exit:                            ; preds = %216
   call fastcc void @get_center(ptr noundef %17, ptr noundef %11, ptr noundef %12)
   %228 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %229 = load ptr, ptr %228, align 8, !tbaa !34
-  %.not277 = icmp eq ptr %229, null
-  br i1 %.not277, label %233, label %230
+  %.not279 = icmp eq ptr %229, null
+  br i1 %.not279, label %233, label %230
 
 230:                                              ; preds = %226
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 56
@@ -481,12 +481,12 @@ lv_arc_set_value.exit:                            ; preds = %216
   br label %233
 
 233:                                              ; preds = %230, %226
-  %.0256 = phi i32 [ %232, %230 ], [ 0, %226 ]
+  %.0258 = phi i32 [ %232, %230 ], [ 0, %226 ]
   %234 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %17, i32 noundef 0, i8 noundef zeroext 80) #7
   %235 = ptrtoint ptr %234 to i64
-  %.sroa.0.0.extract.trunc.i320 = trunc i64 %235 to i32
+  %.sroa.0.0.extract.trunc.i319 = trunc i64 %235 to i32
   %236 = load i32, ptr %12, align 4, !tbaa !30
-  %237 = add i32 %.0256, %.sroa.0.0.extract.trunc.i320
+  %237 = add i32 %.0258, %.sroa.0.0.extract.trunc.i319
   %238 = sub i32 %236, %237
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #7
   %239 = load i32, ptr %11, align 4, !tbaa !27
@@ -499,9 +499,9 @@ lv_arc_set_value.exit:                            ; preds = %216
   call void @lv_area_set(ptr noundef nonnull %13, i32 noundef %240, i32 noundef %243, i32 noundef %244, i32 noundef %245) #7
   %246 = load ptr, ptr %227, align 8, !tbaa !43
   %247 = call zeroext i1 @lv_area_is_point_on(ptr noundef nonnull %13, ptr noundef %246, i32 noundef 32767) #7
-  br i1 %247, label %.critedge307, label %249
+  br i1 %247, label %.critedge306, label %249
 
-.critedge307:                                     ; preds = %233
+.critedge306:                                     ; preds = %233
   %248 = getelementptr inbounds nuw i8, ptr %227, i64 8
   store i8 0, ptr %248, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
@@ -526,39 +526,39 @@ lv_arc_set_value.exit:                            ; preds = %216
   %263 = load float, ptr %262, align 4, !tbaa !17
   %264 = fsub float %261, %263
   %265 = fcmp olt float %264, 0.000000e+00
-  br i1 %265, label %.lr.ph, label %.preheader332
+  br i1 %265, label %.lr.ph, label %.preheader330
 
-.preheader332:                                    ; preds = %.lr.ph, %249
-  %.0257.lcssa = phi float [ %264, %249 ], [ %267, %.lr.ph ]
-  %266 = fcmp ult float %.0257.lcssa, 3.600000e+02
-  br i1 %266, label %._crit_edge, label %.lr.ph335
+.preheader330:                                    ; preds = %.lr.ph, %249
+  %.0259.lcssa = phi float [ %264, %249 ], [ %267, %.lr.ph ]
+  %266 = fcmp ult float %.0259.lcssa, 3.600000e+02
+  br i1 %266, label %._crit_edge, label %.lr.ph333
 
 .lr.ph:                                           ; preds = %249, %.lr.ph
-  %.0257333 = phi float [ %267, %.lr.ph ], [ %264, %249 ]
-  %267 = fadd float %.0257333, 3.600000e+02
+  %.0259331 = phi float [ %267, %.lr.ph ], [ %264, %249 ]
+  %267 = fadd float %.0259331, 3.600000e+02
   %268 = fcmp olt float %267, 0.000000e+00
-  br i1 %268, label %.lr.ph, label %.preheader332, !llvm.loop !46
+  br i1 %268, label %.lr.ph, label %.preheader330, !llvm.loop !46
 
-.lr.ph335:                                        ; preds = %.preheader332, %.lr.ph335
-  %.1258334 = phi float [ %269, %.lr.ph335 ], [ %.0257.lcssa, %.preheader332 ]
-  %269 = fadd float %.1258334, -3.600000e+02
+.lr.ph333:                                        ; preds = %.preheader330, %.lr.ph333
+  %.1260332 = phi float [ %269, %.lr.ph333 ], [ %.0259.lcssa, %.preheader330 ]
+  %269 = fadd float %.1260332, -3.600000e+02
   %270 = fcmp ult float %269, 3.600000e+02
-  br i1 %270, label %._crit_edge, label %.lr.ph335, !llvm.loop !47
+  br i1 %270, label %._crit_edge, label %.lr.ph333, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %.lr.ph335, %.preheader332
-  %.1258.lcssa = phi float [ %.0257.lcssa, %.preheader332 ], [ %269, %.lr.ph335 ]
+._crit_edge:                                      ; preds = %.lr.ph333, %.preheader330
+  %.1260.lcssa = phi float [ %.0259.lcssa, %.preheader330 ], [ %269, %.lr.ph333 ]
   %271 = mul i32 %238, 628
   %272 = udiv i32 %271, 100
   %273 = call i32 @lv_dpx(i32 noundef 50) #7
   %274 = mul nsw i32 %273, 360
   %275 = udiv i32 %274, %272
   %276 = uitofp i32 %275 to float
-  %277 = call fastcc zeroext i1 @lv_arc_angle_within_bg_bounds(ptr noundef nonnull %17, float noundef %.1258.lcssa, float noundef %276)
+  %277 = call fastcc zeroext i1 @lv_arc_angle_within_bg_bounds(ptr noundef nonnull %17, float noundef %.1260.lcssa, float noundef %276)
   br i1 %277, label %278, label %284
 
 278:                                              ; preds = %._crit_edge
-  %279 = shl nsw i32 %.0256, 1
-  %280 = add nsw i32 %279, %.sroa.0.0.extract.trunc.i320
+  %279 = shl nsw i32 %.0258, 1
+  %280 = add nsw i32 %279, %.sroa.0.0.extract.trunc.i319
   call void @lv_area_increase(ptr noundef nonnull %13, i32 noundef %280, i32 noundef %280) #7
   %281 = load ptr, ptr %227, align 8, !tbaa !43
   %282 = call zeroext i1 @lv_area_is_point_on(ptr noundef nonnull %13, ptr noundef %281, i32 noundef 32767) #7
@@ -577,36 +577,36 @@ lv_arc_set_value.exit:                            ; preds = %216
 286:                                              ; preds = %199
   %287 = tail call ptr @lv_obj_get_style_prop(ptr noundef %17, i32 noundef 0, i8 noundef zeroext 18) #7
   %288 = ptrtoint ptr %287 to i64
-  %.sroa.0.0.extract.trunc.i321 = trunc i64 %288 to i32
+  %.sroa.0.0.extract.trunc.i320 = trunc i64 %288 to i32
   %289 = tail call ptr @lv_obj_get_style_prop(ptr noundef %17, i32 noundef 0, i8 noundef zeroext 19) #7
   %290 = ptrtoint ptr %289 to i64
-  %.sroa.0.0.extract.trunc.i322 = trunc i64 %290 to i32
+  %.sroa.0.0.extract.trunc.i321 = trunc i64 %290 to i32
   %291 = tail call ptr @lv_obj_get_style_prop(ptr noundef %17, i32 noundef 0, i8 noundef zeroext 16) #7
   %292 = ptrtoint ptr %291 to i64
-  %.sroa.0.0.extract.trunc.i323 = trunc i64 %292 to i32
+  %.sroa.0.0.extract.trunc.i322 = trunc i64 %292 to i32
   %293 = tail call ptr @lv_obj_get_style_prop(ptr noundef %17, i32 noundef 0, i8 noundef zeroext 17) #7
   %294 = ptrtoint ptr %293 to i64
-  %.sroa.0.0.extract.trunc.i324 = trunc i64 %294 to i32
-  %295 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i321, i32 %.sroa.0.0.extract.trunc.i322)
-  %296 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i323, i32 %.sroa.0.0.extract.trunc.i324)
-  %.308 = tail call i32 @llvm.smax.i32(i32 %295, i32 %296)
+  %.sroa.0.0.extract.trunc.i323 = trunc i64 %294 to i32
+  %295 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i320, i32 %.sroa.0.0.extract.trunc.i321)
+  %296 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i322, i32 %.sroa.0.0.extract.trunc.i323)
+  %.307 = tail call i32 @llvm.smax.i32(i32 %295, i32 %296)
   %297 = tail call ptr @lv_obj_get_style_prop(ptr noundef %17, i32 noundef 196608, i8 noundef zeroext 18) #7
   %298 = ptrtoint ptr %297 to i64
-  %.sroa.0.0.extract.trunc.i325 = trunc i64 %298 to i32
+  %.sroa.0.0.extract.trunc.i324 = trunc i64 %298 to i32
   %299 = tail call ptr @lv_obj_get_style_prop(ptr noundef %17, i32 noundef 196608, i8 noundef zeroext 19) #7
   %300 = ptrtoint ptr %299 to i64
-  %.sroa.0.0.extract.trunc.i326 = trunc i64 %300 to i32
+  %.sroa.0.0.extract.trunc.i325 = trunc i64 %300 to i32
   %301 = tail call ptr @lv_obj_get_style_prop(ptr noundef %17, i32 noundef 196608, i8 noundef zeroext 16) #7
   %302 = ptrtoint ptr %301 to i64
-  %.sroa.0.0.extract.trunc.i327 = trunc i64 %302 to i32
+  %.sroa.0.0.extract.trunc.i326 = trunc i64 %302 to i32
   %303 = tail call ptr @lv_obj_get_style_prop(ptr noundef %17, i32 noundef 196608, i8 noundef zeroext 17) #7
   %304 = ptrtoint ptr %303 to i64
-  %.sroa.0.0.extract.trunc.i328 = trunc i64 %304 to i32
-  %305 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i325, i32 %.sroa.0.0.extract.trunc.i326)
-  %306 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i327, i32 %.sroa.0.0.extract.trunc.i328)
+  %.sroa.0.0.extract.trunc.i327 = trunc i64 %304 to i32
+  %305 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i324, i32 %.sroa.0.0.extract.trunc.i325)
+  %306 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i326, i32 %.sroa.0.0.extract.trunc.i327)
   %307 = tail call i32 @llvm.smax.i32(i32 %305, i32 %306)
   %308 = tail call fastcc i32 @knob_get_extra_size(ptr noundef %17)
-  %reass.sub = sub i32 %308, %.308
+  %reass.sub = sub i32 %308, %.307
   %309 = add i32 %reass.sub, 2
   %310 = add i32 %309, %307
   %311 = tail call ptr @lv_event_get_param(ptr noundef %1) #7
@@ -668,8 +668,8 @@ lv_arc_set_value.exit:                            ; preds = %216
   %.sroa.0.0.extract.trunc.i48.i = trunc i64 %344 to i32
   %345 = call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i.i, i32 %.sroa.0.0.extract.trunc.i46.i)
   %346 = call i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i47.i, i32 %.sroa.0.0.extract.trunc.i48.i)
-  %..i329 = call i32 @llvm.smax.i32(i32 %345, i32 %346)
-  %347 = sub nsw i32 %317, %..i329
+  %..i328 = call i32 @llvm.smax.i32(i32 %345, i32 %346)
+  %347 = sub nsw i32 %317, %..i328
   %348 = icmp sgt i32 %347, 0
   br i1 %348, label %349, label %._crit_edge.i
 
@@ -727,7 +727,7 @@ lv_arc_draw.exit:                                 ; preds = %._crit_edge.i, %349
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   br label %.critedge
 
-.critedge:                                        ; preds = %216, %211, %224, %209, %284, %lv_arc_set_value.exit, %207, %186, %.critedge307, %199, %198, %189, %286, %lv_arc_draw.exit, %22, %19, %2
+.critedge:                                        ; preds = %216, %211, %224, %209, %284, %lv_arc_set_value.exit, %207, %186, %.critedge306, %199, %189, %198, %286, %lv_arc_draw.exit, %22, %19, %2
   ret void
 }
 

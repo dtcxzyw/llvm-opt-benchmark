@@ -95,8 +95,8 @@ define dso_local i32 @get_opfamily_oid(i32 noundef %0, ptr noundef %1, i1 nounde
 
 7:                                                ; preds = %3
   %8 = call i32 @LookupExplicitNamespace(ptr noundef nonnull %6, i1 noundef zeroext %2) #6
-  %.not20.i = icmp eq i32 %8, 0
-  br i1 %.not20.i, label %21, label %9
+  %.not21.i = icmp eq i32 %8, 0
+  br i1 %.not21.i, label %21, label %9
 
 9:                                                ; preds = %7
   %10 = zext i32 %0 to i64
@@ -109,8 +109,8 @@ define dso_local i32 @get_opfamily_oid(i32 noundef %0, ptr noundef %1, i1 nounde
 15:                                               ; preds = %3
   %16 = load ptr, ptr %5, align 8
   %17 = call i32 @OpfamilynameGetOpfid(i32 noundef %0, ptr noundef %16) #6
-  %.not19.i = icmp eq i32 %17, 0
-  br i1 %.not19.i, label %21, label %18
+  %.not20.i = icmp eq i32 %17, 0
+  br i1 %.not20.i, label %21, label %18
 
 18:                                               ; preds = %15
   %19 = zext i32 %17 to i64
@@ -119,34 +119,34 @@ define dso_local i32 @get_opfamily_oid(i32 noundef %0, ptr noundef %1, i1 nounde
 
 21:                                               ; preds = %18, %15, %9, %7
   %.1.i = phi ptr [ %14, %9 ], [ null, %7 ], [ %20, %18 ], [ null, %15 ]
-  %.not21.i = icmp ne ptr %.1.i, null
-  %brmerge.i = or i1 %2, %.not21.i
-  br i1 %brmerge.i, label %OpFamilyCacheLookup.exit, label %22
+  %22 = icmp ne ptr %.1.i, null
+  %or.cond.i = or i1 %2, %22
+  br i1 %or.cond.i, label %OpFamilyCacheLookup.exit, label %23
 
-22:                                               ; preds = %21
-  %23 = zext i32 %0 to i64
-  %24 = call ptr @SearchSysCache1(i32 noundef 2, i64 noundef %23) #6
-  %.not22.i = icmp eq ptr %24, null
-  %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %25)
-  br i1 %.not22.i, label %26, label %28
+23:                                               ; preds = %21
+  %24 = zext i32 %0 to i64
+  %25 = call ptr @SearchSysCache1(i32 noundef 2, i64 noundef %24) #6
+  %.not22.i = icmp eq ptr %25, null
+  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %26)
+  br i1 %.not22.i, label %27, label %29
 
-26:                                               ; preds = %22
-  %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %0) #6
+27:                                               ; preds = %23
+  %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %0) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 121, ptr noundef nonnull @__func__.OpFamilyCacheLookup) #6
   unreachable
 
-28:                                               ; preds = %22
-  %29 = call i32 @errcode(i32 noundef 67137668) #6
-  %30 = call ptr @NameListToString(ptr noundef %1) #6
-  %31 = getelementptr i8, ptr %24, i64 16
-  %.val.i = load ptr, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
-  %33 = load i8, ptr %32, align 2
-  %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %37 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %30, ptr noundef nonnull %36) #6
+29:                                               ; preds = %23
+  %30 = call i32 @errcode(i32 noundef 67137668) #6
+  %31 = call ptr @NameListToString(ptr noundef %1) #6
+  %32 = getelementptr i8, ptr %25, i64 16
+  %.val.i = load ptr, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
+  %34 = load i8, ptr %33, align 2
+  %35 = zext i8 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %31, ptr noundef nonnull %37) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 126, ptr noundef nonnull @__func__.OpFamilyCacheLookup) #6
   unreachable
 
@@ -154,21 +154,21 @@ OpFamilyCacheLookup.exit:                         ; preds = %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   %.not = icmp eq ptr %.1.i, null
-  br i1 %.not, label %45, label %38
+  br i1 %.not, label %46, label %39
 
-38:                                               ; preds = %OpFamilyCacheLookup.exit
-  %39 = getelementptr i8, ptr %.1.i, i64 16
-  %.val = load ptr, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %41 = load i8, ptr %40, align 2
-  %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %.val, i64 %42
-  %44 = load i32, ptr %43, align 4
+39:                                               ; preds = %OpFamilyCacheLookup.exit
+  %40 = getelementptr i8, ptr %.1.i, i64 16
+  %.val = load ptr, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %42 = load i8, ptr %41, align 2
+  %43 = zext i8 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %.val, i64 %43
+  %45 = load i32, ptr %44, align 4
   call void @ReleaseSysCache(ptr noundef nonnull %.1.i) #6
-  br label %45
+  br label %46
 
-45:                                               ; preds = %OpFamilyCacheLookup.exit, %38
-  %.0 = phi i32 [ %44, %38 ], [ 0, %OpFamilyCacheLookup.exit ]
+46:                                               ; preds = %OpFamilyCacheLookup.exit, %39
+  %.0 = phi i32 [ %45, %39 ], [ 0, %OpFamilyCacheLookup.exit ]
   ret i32 %.0
 }
 
@@ -193,8 +193,8 @@ define dso_local i32 @get_opclass_oid(i32 noundef %0, ptr noundef %1, i1 noundef
 
 7:                                                ; preds = %3
   %8 = call i32 @LookupExplicitNamespace(ptr noundef nonnull %6, i1 noundef zeroext %2) #6
-  %.not20.i = icmp eq i32 %8, 0
-  br i1 %.not20.i, label %21, label %9
+  %.not21.i = icmp eq i32 %8, 0
+  br i1 %.not21.i, label %21, label %9
 
 9:                                                ; preds = %7
   %10 = zext i32 %0 to i64
@@ -207,8 +207,8 @@ define dso_local i32 @get_opclass_oid(i32 noundef %0, ptr noundef %1, i1 noundef
 15:                                               ; preds = %3
   %16 = load ptr, ptr %5, align 8
   %17 = call i32 @OpclassnameGetOpcid(i32 noundef %0, ptr noundef %16) #6
-  %.not19.i = icmp eq i32 %17, 0
-  br i1 %.not19.i, label %21, label %18
+  %.not20.i = icmp eq i32 %17, 0
+  br i1 %.not20.i, label %21, label %18
 
 18:                                               ; preds = %15
   %19 = zext i32 %17 to i64
@@ -217,34 +217,34 @@ define dso_local i32 @get_opclass_oid(i32 noundef %0, ptr noundef %1, i1 noundef
 
 21:                                               ; preds = %18, %15, %9, %7
   %.1.i = phi ptr [ %14, %9 ], [ null, %7 ], [ %20, %18 ], [ null, %15 ]
-  %.not21.i = icmp ne ptr %.1.i, null
-  %brmerge.i = or i1 %2, %.not21.i
-  br i1 %brmerge.i, label %OpClassCacheLookup.exit, label %22
+  %22 = icmp ne ptr %.1.i, null
+  %or.cond.i = or i1 %2, %22
+  br i1 %or.cond.i, label %OpClassCacheLookup.exit, label %23
 
-22:                                               ; preds = %21
-  %23 = zext i32 %0 to i64
-  %24 = call ptr @SearchSysCache1(i32 noundef 2, i64 noundef %23) #6
-  %.not22.i = icmp eq ptr %24, null
-  %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %25)
-  br i1 %.not22.i, label %26, label %28
+23:                                               ; preds = %21
+  %24 = zext i32 %0 to i64
+  %25 = call ptr @SearchSysCache1(i32 noundef 2, i64 noundef %24) #6
+  %.not22.i = icmp eq ptr %25, null
+  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %26)
+  br i1 %.not22.i, label %27, label %29
 
-26:                                               ; preds = %22
-  %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %0) #6
+27:                                               ; preds = %23
+  %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %0) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 202, ptr noundef nonnull @__func__.OpClassCacheLookup) #6
   unreachable
 
-28:                                               ; preds = %22
-  %29 = call i32 @errcode(i32 noundef 67137668) #6
-  %30 = call ptr @NameListToString(ptr noundef %1) #6
-  %31 = getelementptr i8, ptr %24, i64 16
-  %.val.i = load ptr, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
-  %33 = load i8, ptr %32, align 2
-  %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %37 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %30, ptr noundef nonnull %36) #6
+29:                                               ; preds = %23
+  %30 = call i32 @errcode(i32 noundef 67137668) #6
+  %31 = call ptr @NameListToString(ptr noundef %1) #6
+  %32 = getelementptr i8, ptr %25, i64 16
+  %.val.i = load ptr, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %.val.i, i64 22
+  %34 = load i8, ptr %33, align 2
+  %35 = zext i8 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %31, ptr noundef nonnull %37) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 207, ptr noundef nonnull @__func__.OpClassCacheLookup) #6
   unreachable
 
@@ -252,21 +252,21 @@ OpClassCacheLookup.exit:                          ; preds = %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   %.not = icmp eq ptr %.1.i, null
-  br i1 %.not, label %45, label %38
+  br i1 %.not, label %46, label %39
 
-38:                                               ; preds = %OpClassCacheLookup.exit
-  %39 = getelementptr i8, ptr %.1.i, i64 16
-  %.val = load ptr, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %41 = load i8, ptr %40, align 2
-  %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %.val, i64 %42
-  %44 = load i32, ptr %43, align 4
+39:                                               ; preds = %OpClassCacheLookup.exit
+  %40 = getelementptr i8, ptr %.1.i, i64 16
+  %.val = load ptr, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %42 = load i8, ptr %41, align 2
+  %43 = zext i8 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %.val, i64 %43
+  %45 = load i32, ptr %44, align 4
   call void @ReleaseSysCache(ptr noundef nonnull %.1.i) #6
-  br label %45
+  br label %46
 
-45:                                               ; preds = %OpClassCacheLookup.exit, %38
-  %.0 = phi i32 [ %44, %38 ], [ 0, %OpClassCacheLookup.exit ]
+46:                                               ; preds = %OpClassCacheLookup.exit, %39
+  %.0 = phi i32 [ %45, %39 ], [ 0, %OpClassCacheLookup.exit ]
   ret i32 %.0
 }
 

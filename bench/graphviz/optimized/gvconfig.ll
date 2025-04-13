@@ -166,8 +166,8 @@ define ptr @gvconfig_libdir(ptr noundef readonly captures(none) %0) local_unname
 3:                                                ; preds = %1
   %4 = tail call ptr @getenv(ptr noundef nonnull @.str) #22
   store ptr %4, ptr @gvconfig_libdir.libdir, align 8, !tbaa !47
-  %.not1 = icmp eq ptr %4, null
-  br i1 %.not1, label %5, label %7
+  %.not2 = icmp eq ptr %4, null
+  br i1 %.not2, label %5, label %7
 
 5:                                                ; preds = %3
   store ptr @.str.1, ptr @gvconfig_libdir.libdir, align 8, !tbaa !47
@@ -179,22 +179,20 @@ define ptr @gvconfig_libdir(ptr noundef readonly captures(none) %0) local_unname
   %8 = phi ptr [ %4, %3 ], [ @gvconfig_libdir.line, %5 ], [ %2, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !48
-  %.not2 = icmp eq i32 %10, 0
-  br i1 %.not2, label %15, label %11
-
-11:                                               ; preds = %7
+  %11 = icmp eq i32 %10, 0
   %.b3 = load i1, ptr @gvconfig_libdir.dirShown, align 1
-  br i1 %.b3, label %15, label %12
+  %or.cond = select i1 %11, i1 true, i1 %.b3
+  br i1 %or.cond, label %15, label %12
 
-12:                                               ; preds = %11
+12:                                               ; preds = %7
   %13 = load ptr, ptr @stderr, align 8, !tbaa !20
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #24
   store i1 true, ptr @gvconfig_libdir.dirShown, align 1
   %.pre = load ptr, ptr @gvconfig_libdir.libdir, align 8, !tbaa !47
   br label %15
 
-15:                                               ; preds = %12, %11, %7
-  %16 = phi ptr [ %.pre, %12 ], [ %8, %11 ], [ %8, %7 ]
+15:                                               ; preds = %12, %7
+  %16 = phi ptr [ %.pre, %12 ], [ %8, %7 ]
   ret ptr %16
 }
 
@@ -327,8 +325,8 @@ gvconfig_plugin_install_builtins.exit:            ; preds = %gvconfig_plugin_ins
 46:                                               ; preds = %44
   %47 = tail call ptr @getenv(ptr noundef nonnull @.str) #22
   store ptr %47, ptr @gvconfig_libdir.libdir, align 8, !tbaa !47
-  %.not1.i = icmp eq ptr %47, null
-  br i1 %.not1.i, label %48, label %50
+  %.not2.i = icmp eq ptr %47, null
+  br i1 %.not2.i, label %48, label %50
 
 48:                                               ; preds = %46
   store ptr @.str.1, ptr @gvconfig_libdir.libdir, align 8, !tbaa !47
@@ -340,22 +338,20 @@ gvconfig_plugin_install_builtins.exit:            ; preds = %gvconfig_plugin_ins
   %51 = phi ptr [ %47, %46 ], [ @gvconfig_libdir.line, %48 ], [ %45, %44 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i32, ptr %52, align 8, !tbaa !48
-  %.not2.i = icmp eq i32 %53, 0
-  br i1 %.not2.i, label %gvconfig_libdir.exit, label %54
-
-54:                                               ; preds = %50
+  %54 = icmp eq i32 %53, 0
   %.b3.i = load i1, ptr @gvconfig_libdir.dirShown, align 1
-  br i1 %.b3.i, label %gvconfig_libdir.exit, label %55
+  %or.cond.i = select i1 %54, i1 true, i1 %.b3.i
+  br i1 %or.cond.i, label %gvconfig_libdir.exit, label %55
 
-55:                                               ; preds = %54
+55:                                               ; preds = %50
   %56 = load ptr, ptr @stderr, align 8, !tbaa !20
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.2, ptr noundef nonnull %51) #24
   store i1 true, ptr @gvconfig_libdir.dirShown, align 1
   %.pre.i = load ptr, ptr @gvconfig_libdir.libdir, align 8, !tbaa !47
   br label %gvconfig_libdir.exit
 
-gvconfig_libdir.exit:                             ; preds = %50, %54, %55
-  %58 = phi ptr [ %.pre.i, %55 ], [ %51, %54 ], [ %51, %50 ]
+gvconfig_libdir.exit:                             ; preds = %50, %55
+  %58 = phi ptr [ %.pre.i, %55 ], [ %51, %50 ]
   %59 = tail call i32 @access(ptr noundef %58, i32 noundef 0) #22
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %469, label %61
@@ -463,8 +459,8 @@ agxbdisown.exit:                                  ; preds = %78, %.thread.i, %ag
 99:                                               ; preds = %97
   %100 = tail call ptr @getenv(ptr noundef nonnull @.str) #22
   store ptr %100, ptr @gvconfig_libdir.libdir, align 8, !tbaa !47
-  %.not1.i.i = icmp eq ptr %100, null
-  br i1 %.not1.i.i, label %101, label %103
+  %.not2.i.i = icmp eq ptr %100, null
+  br i1 %.not2.i.i, label %101, label %103
 
 101:                                              ; preds = %99
   store ptr @.str.1, ptr @gvconfig_libdir.libdir, align 8, !tbaa !47
@@ -475,22 +471,20 @@ agxbdisown.exit:                                  ; preds = %78, %.thread.i, %ag
 103:                                              ; preds = %101, %99, %97
   %104 = phi ptr [ %100, %99 ], [ @gvconfig_libdir.line, %101 ], [ %98, %97 ]
   %105 = load i32, ptr %52, align 8, !tbaa !48
-  %.not2.i.i = icmp eq i32 %105, 0
-  br i1 %.not2.i.i, label %gvconfig_libdir.exit.i, label %106
-
-106:                                              ; preds = %103
+  %106 = icmp eq i32 %105, 0
   %.b3.i.i = load i1, ptr @gvconfig_libdir.dirShown, align 1
-  br i1 %.b3.i.i, label %gvconfig_libdir.exit.i, label %107
+  %or.cond.i.i = select i1 %106, i1 true, i1 %.b3.i.i
+  br i1 %or.cond.i.i, label %gvconfig_libdir.exit.i, label %107
 
-107:                                              ; preds = %106
+107:                                              ; preds = %103
   %108 = load ptr, ptr @stderr, align 8, !tbaa !20
   %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.2, ptr noundef nonnull %104) #24
   store i1 true, ptr @gvconfig_libdir.dirShown, align 1
   %.pre.i.i = load ptr, ptr @gvconfig_libdir.libdir, align 8, !tbaa !47
   br label %gvconfig_libdir.exit.i
 
-gvconfig_libdir.exit.i:                           ; preds = %107, %106, %103
-  %110 = phi ptr [ %.pre.i.i, %107 ], [ %104, %106 ], [ %104, %103 ]
+gvconfig_libdir.exit.i:                           ; preds = %107, %103
+  %110 = phi ptr [ %.pre.i.i, %107 ], [ %104, %103 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr nonnull poison, ptr noundef %110, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17)
@@ -569,39 +563,39 @@ agxbuse.exit.i:                                   ; preds = %132, %agxbclear.exi
   %136 = call i32 @glob(ptr noundef %135, i32 noundef 0, ptr noundef null, ptr noundef nonnull %3) #22
   %137 = icmp ne i32 %136, 0
   %138 = load i64, ptr %3, align 8
-  %.not80.i = icmp eq i64 %138, 0
-  %or.cond.i = select i1 %137, i1 true, i1 %.not80.i
-  br i1 %or.cond.i, label %.loopexit.i, label %.lr.ph.i42
+  %.not81.i = icmp eq i64 %138, 0
+  %or.cond.i42 = select i1 %137, i1 true, i1 %.not81.i
+  br i1 %or.cond.i42, label %.loopexit.i, label %.lr.ph.i43
 
-.lr.ph.i42:                                       ; preds = %agxbuse.exit.i
+.lr.ph.i43:                                       ; preds = %agxbuse.exit.i
   %139 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %171
 
-.preheader.i44:                                   ; preds = %gvconfig_plugin_install_from_library.exit.i43
-  %.not81.i = icmp eq i64 %224, 0
-  br i1 %.not81.i, label %.loopexit.i, label %.lr.ph79.i
+.preheader.i45:                                   ; preds = %gvconfig_plugin_install_from_library.exit.i44
+  %.not82.i = icmp eq i64 %224, 0
+  br i1 %.not82.i, label %.loopexit.i, label %.lr.ph80.i
 
-.lr.ph79.i:                                       ; preds = %.preheader.i44
-  %.not82.i = icmp eq ptr %.041.i, null
-  br i1 %.not82.i, label %.lr.ph79.split.us.i, label %.lr.ph79.split.i
+.lr.ph80.i:                                       ; preds = %.preheader.i45
+  %.not83.i = icmp eq ptr %.041.i, null
+  br i1 %.not83.i, label %.lr.ph80.split.us.i, label %.lr.ph80.split.i
 
-.lr.ph79.split.us.i:                              ; preds = %.lr.ph79.i, %is_plugin.exit67.thread.us.i
-  %140 = phi i64 [ %168, %is_plugin.exit67.thread.us.i ], [ %224, %.lr.ph79.i ]
-  %.03978.us.i = phi i64 [ %169, %is_plugin.exit67.thread.us.i ], [ 0, %.lr.ph79.i ]
+.lr.ph80.split.us.i:                              ; preds = %.lr.ph80.i, %is_plugin.exit68.thread.us.i
+  %140 = phi i64 [ %168, %is_plugin.exit68.thread.us.i ], [ %224, %.lr.ph80.i ]
+  %.03979.us.i = phi i64 [ %169, %is_plugin.exit68.thread.us.i ], [ 0, %.lr.ph80.i ]
   %141 = load ptr, ptr %139, align 8, !tbaa !60
-  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %.03978.us.i
+  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %.03979.us.i
   %143 = load ptr, ptr %142, align 8, !tbaa !47
   %144 = icmp eq ptr %143, null
-  br i1 %144, label %is_plugin.exit67.thread.us.i, label %145
+  br i1 %144, label %is_plugin.exit68.thread.us.i, label %145
 
-145:                                              ; preds = %.lr.ph79.split.us.i
+145:                                              ; preds = %.lr.ph80.split.us.i
   %146 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %143) #26
   %147 = getelementptr inbounds nuw i8, ptr %143, i64 %146
-  %strcmpload.i56.us.i = load i8, ptr %147, align 1
-  %.not.i57.us.i = icmp ne i8 %strcmpload.i56.us.i, 0
+  %strcmpload.i57.us.i = load i8, ptr %147, align 1
+  %.not.i58.us.i = icmp ne i8 %strcmpload.i57.us.i, 0
   %148 = icmp eq i64 %146, 0
-  %or.cond.i58.us.i = or i1 %148, %.not.i57.us.i
-  br i1 %or.cond.i58.us.i, label %is_plugin.exit67.thread.us.i, label %149
+  %or.cond.i59.us.i = or i1 %148, %.not.i58.us.i
+  br i1 %or.cond.i59.us.i, label %is_plugin.exit68.thread.us.i, label %149
 
 149:                                              ; preds = %145
   %150 = getelementptr i8, ptr %147, i64 -1
@@ -609,55 +603,55 @@ agxbuse.exit.i:                                   ; preds = %132, %agxbclear.exi
   %152 = sext i8 %151 to i32
   %153 = add nsw i32 %152, -48
   %154 = icmp ult i32 %153, 10
-  br i1 %154, label %.lr.ph.preheader.i60.us.i, label %is_plugin.exit67.thread.us.i
+  br i1 %154, label %.lr.ph.preheader.i61.us.i, label %is_plugin.exit68.thread.us.i
 
-.lr.ph.preheader.i60.us.i:                        ; preds = %149
-  %invariant.gep.i61.us.i = getelementptr i8, ptr %143, i64 -1
-  br label %.lr.ph.i62.us.i
+.lr.ph.preheader.i61.us.i:                        ; preds = %149
+  %invariant.gep.i62.us.i = getelementptr i8, ptr %143, i64 -1
+  br label %.lr.ph.i63.us.i
 
-.lr.ph.i62.us.i:                                  ; preds = %166, %.lr.ph.preheader.i60.us.i
-  %.022.i63.us.i = phi i64 [ %167, %166 ], [ %146, %.lr.ph.preheader.i60.us.i ]
-  %gep.i64.us.i = getelementptr i8, ptr %invariant.gep.i61.us.i, i64 %.022.i63.us.i
-  %155 = load i8, ptr %gep.i64.us.i, align 1, !tbaa !54
+.lr.ph.i63.us.i:                                  ; preds = %166, %.lr.ph.preheader.i61.us.i
+  %.022.i64.us.i = phi i64 [ %167, %166 ], [ %146, %.lr.ph.preheader.i61.us.i ]
+  %gep.i65.us.i = getelementptr i8, ptr %invariant.gep.i62.us.i, i64 %.022.i64.us.i
+  %155 = load i8, ptr %gep.i65.us.i, align 1, !tbaa !54
   %156 = sext i8 %155 to i32
   %157 = add nsw i32 %156, -48
   %158 = icmp ult i32 %157, 10
-  br i1 %158, label %166, label %.critedge.i65.us.i
+  br i1 %158, label %166, label %.critedge.i66.us.i
 
-.critedge.i65.us.i:                               ; preds = %.lr.ph.i62.us.i
-  %159 = icmp ult i64 %.022.i63.us.i, 4
-  br i1 %159, label %is_plugin.exit67.thread.us.i, label %is_plugin.exit67.us.i
+.critedge.i66.us.i:                               ; preds = %.lr.ph.i63.us.i
+  %159 = icmp ult i64 %.022.i64.us.i, 4
+  br i1 %159, label %is_plugin.exit68.thread.us.i, label %is_plugin.exit68.us.i
 
-is_plugin.exit67.us.i:                            ; preds = %.critedge.i65.us.i
-  %160 = getelementptr inbounds nuw i8, ptr %143, i64 %.022.i63.us.i
+is_plugin.exit68.us.i:                            ; preds = %.critedge.i66.us.i
+  %160 = getelementptr inbounds nuw i8, ptr %143, i64 %.022.i64.us.i
   %161 = getelementptr inbounds i8, ptr %160, i64 -4
   %162 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %161, ptr noundef nonnull dereferenceable(5) @is_plugin.SO, i64 noundef 4) #26
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %164, label %is_plugin.exit67.thread.us.i
+  br i1 %163, label %164, label %is_plugin.exit68.thread.us.i
 
-164:                                              ; preds = %is_plugin.exit67.us.i
+164:                                              ; preds = %is_plugin.exit68.us.i
   %165 = call ptr @gvplugin_library_load(ptr noundef %0, ptr noundef nonnull %143) #22
-  %.pre.i46 = load i64, ptr %3, align 8, !tbaa !62
-  br label %is_plugin.exit67.thread.us.i
+  %.pre.i47 = load i64, ptr %3, align 8, !tbaa !62
+  br label %is_plugin.exit68.thread.us.i
 
-166:                                              ; preds = %.lr.ph.i62.us.i
-  %167 = add i64 %.022.i63.us.i, -1
-  %.not19.i66.us.i = icmp eq i64 %167, 0
-  br i1 %.not19.i66.us.i, label %is_plugin.exit67.thread.us.i, label %.lr.ph.i62.us.i, !llvm.loop !63
+166:                                              ; preds = %.lr.ph.i63.us.i
+  %167 = add i64 %.022.i64.us.i, -1
+  %.not19.i67.us.i = icmp eq i64 %167, 0
+  br i1 %.not19.i67.us.i, label %is_plugin.exit68.thread.us.i, label %.lr.ph.i63.us.i, !llvm.loop !63
 
-is_plugin.exit67.thread.us.i:                     ; preds = %166, %164, %is_plugin.exit67.us.i, %.critedge.i65.us.i, %149, %145, %.lr.ph79.split.us.i
-  %168 = phi i64 [ %.pre.i46, %164 ], [ %140, %is_plugin.exit67.us.i ], [ %140, %.critedge.i65.us.i ], [ %140, %149 ], [ %140, %145 ], [ %140, %.lr.ph79.split.us.i ], [ %140, %166 ]
-  %169 = add nuw i64 %.03978.us.i, 1
+is_plugin.exit68.thread.us.i:                     ; preds = %166, %164, %is_plugin.exit68.us.i, %.critedge.i66.us.i, %149, %145, %.lr.ph80.split.us.i
+  %168 = phi i64 [ %.pre.i47, %164 ], [ %140, %is_plugin.exit68.us.i ], [ %140, %.critedge.i66.us.i ], [ %140, %149 ], [ %140, %145 ], [ %140, %.lr.ph80.split.us.i ], [ %140, %166 ]
+  %169 = add nuw i64 %.03979.us.i, 1
   %170 = icmp ult i64 %169, %168
-  br i1 %170, label %.lr.ph79.split.us.i, label %.loopexit.i, !llvm.loop !64
+  br i1 %170, label %.lr.ph80.split.us.i, label %.loopexit.i, !llvm.loop !64
 
-171:                                              ; preds = %gvconfig_plugin_install_from_library.exit.i43, %.lr.ph.i42
-  %.04077.i = phi i64 [ 0, %.lr.ph.i42 ], [ %223, %gvconfig_plugin_install_from_library.exit.i43 ]
+171:                                              ; preds = %gvconfig_plugin_install_from_library.exit.i44, %.lr.ph.i43
+  %.04078.i = phi i64 [ 0, %.lr.ph.i43 ], [ %223, %gvconfig_plugin_install_from_library.exit.i44 ]
   %172 = load ptr, ptr %139, align 8, !tbaa !60
-  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %.04077.i
+  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %.04078.i
   %174 = load ptr, ptr %173, align 8, !tbaa !47
   %175 = icmp eq ptr %174, null
-  br i1 %175, label %gvconfig_plugin_install_from_library.exit.i43, label %176
+  br i1 %175, label %gvconfig_plugin_install_from_library.exit.i44, label %176
 
 176:                                              ; preds = %171
   %177 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %174) #26
@@ -665,8 +659,8 @@ is_plugin.exit67.thread.us.i:                     ; preds = %166, %164, %is_plug
   %strcmpload.i.i = load i8, ptr %178, align 1
   %.not.i53.i = icmp ne i8 %strcmpload.i.i, 0
   %179 = icmp eq i64 %177, 0
-  %or.cond.i.i = or i1 %179, %.not.i53.i
-  br i1 %or.cond.i.i, label %gvconfig_plugin_install_from_library.exit.i43, label %180
+  %or.cond.i54.i = or i1 %179, %.not.i53.i
+  br i1 %or.cond.i54.i, label %gvconfig_plugin_install_from_library.exit.i44, label %180
 
 180:                                              ; preds = %176
   %181 = getelementptr i8, ptr %178, i64 -1
@@ -674,13 +668,13 @@ is_plugin.exit67.thread.us.i:                     ; preds = %166, %164, %is_plug
   %183 = sext i8 %182 to i32
   %184 = add nsw i32 %183, -48
   %185 = icmp ult i32 %184, 10
-  br i1 %185, label %.lr.ph.preheader.i.i, label %gvconfig_plugin_install_from_library.exit.i43
+  br i1 %185, label %.lr.ph.preheader.i.i, label %gvconfig_plugin_install_from_library.exit.i44
 
 .lr.ph.preheader.i.i:                             ; preds = %180
   %invariant.gep.i.i = getelementptr i8, ptr %174, i64 -1
-  br label %.lr.ph.i.i47
+  br label %.lr.ph.i.i48
 
-.lr.ph.i.i47:                                     ; preds = %190, %.lr.ph.preheader.i.i
+.lr.ph.i.i48:                                     ; preds = %190, %.lr.ph.preheader.i.i
   %.022.i.i = phi i64 [ %191, %190 ], [ %177, %.lr.ph.preheader.i.i ]
   %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %.022.i.i
   %186 = load i8, ptr %gep.i.i, align 1, !tbaa !54
@@ -689,30 +683,30 @@ is_plugin.exit67.thread.us.i:                     ; preds = %166, %164, %is_plug
   %189 = icmp ult i32 %188, 10
   br i1 %189, label %190, label %.critedge.i.i
 
-190:                                              ; preds = %.lr.ph.i.i47
+190:                                              ; preds = %.lr.ph.i.i48
   %191 = add i64 %.022.i.i, -1
   %.not19.i.i = icmp eq i64 %191, 0
-  br i1 %.not19.i.i, label %gvconfig_plugin_install_from_library.exit.i43, label %.lr.ph.i.i47, !llvm.loop !63
+  br i1 %.not19.i.i, label %gvconfig_plugin_install_from_library.exit.i44, label %.lr.ph.i.i48, !llvm.loop !63
 
-.critedge.i.i:                                    ; preds = %.lr.ph.i.i47
+.critedge.i.i:                                    ; preds = %.lr.ph.i.i48
   %192 = icmp ult i64 %.022.i.i, 4
-  br i1 %192, label %gvconfig_plugin_install_from_library.exit.i43, label %is_plugin.exit.i
+  br i1 %192, label %gvconfig_plugin_install_from_library.exit.i44, label %is_plugin.exit.i
 
 is_plugin.exit.i:                                 ; preds = %.critedge.i.i
   %193 = getelementptr inbounds nuw i8, ptr %174, i64 %.022.i.i
   %194 = getelementptr inbounds i8, ptr %193, i64 -4
   %195 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %194, ptr noundef nonnull dereferenceable(5) @is_plugin.SO, i64 noundef 4) #26
   %196 = icmp eq i32 %195, 0
-  br i1 %196, label %197, label %gvconfig_plugin_install_from_library.exit.i43
+  br i1 %196, label %197, label %gvconfig_plugin_install_from_library.exit.i44
 
 197:                                              ; preds = %is_plugin.exit.i
   %198 = call ptr @gvplugin_library_load(ptr noundef %0, ptr noundef nonnull %174) #22
   %.not51.i = icmp eq ptr %198, null
-  br i1 %.not51.i, label %gvconfig_plugin_install_from_library.exit.i43, label %199
+  br i1 %.not51.i, label %gvconfig_plugin_install_from_library.exit.i44, label %199
 
 199:                                              ; preds = %197
   %200 = load ptr, ptr %139, align 8, !tbaa !60
-  %201 = getelementptr inbounds nuw ptr, ptr %200, i64 %.04077.i
+  %201 = getelementptr inbounds nuw ptr, ptr %200, i64 %.04078.i
   %202 = load ptr, ptr %201, align 8, !tbaa !47
   %203 = load ptr, ptr %198, align 8, !tbaa !3
   %204 = call fastcc ptr @gvplugin_package_record(ptr noundef %0, ptr noundef %202, ptr noundef %203)
@@ -720,60 +714,60 @@ is_plugin.exit.i:                                 ; preds = %.critedge.i.i
   %206 = load ptr, ptr %205, align 8, !tbaa !9
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = load ptr, ptr %207, align 8, !tbaa !10
-  %.not23.i.i48 = icmp eq ptr %208, null
-  br i1 %.not23.i.i48, label %gvconfig_plugin_install_from_library.exit.i43, label %.preheader.i.i49
+  %.not23.i.i49 = icmp eq ptr %208, null
+  br i1 %.not23.i.i49, label %gvconfig_plugin_install_from_library.exit.i44, label %.preheader.i.i50
 
-.preheader.i.i49:                                 ; preds = %199, %._crit_edge.i.i55
-  %209 = phi ptr [ %222, %._crit_edge.i.i55 ], [ %208, %199 ]
-  %.01724.i.i50 = phi ptr [ %220, %._crit_edge.i.i55 ], [ %206, %199 ]
+.preheader.i.i50:                                 ; preds = %199, %._crit_edge.i.i56
+  %209 = phi ptr [ %222, %._crit_edge.i.i56 ], [ %208, %199 ]
+  %.01724.i.i51 = phi ptr [ %220, %._crit_edge.i.i56 ], [ %206, %199 ]
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %211 = load ptr, ptr %210, align 8, !tbaa !13
-  %.not2021.i.i51 = icmp eq ptr %211, null
-  br i1 %.not2021.i.i51, label %._crit_edge.i.i55, label %.lr.ph.i54.i
+  %.not2021.i.i52 = icmp eq ptr %211, null
+  br i1 %.not2021.i.i52, label %._crit_edge.i.i56, label %.lr.ph.i55.i
 
-.lr.ph.i54.i:                                     ; preds = %.preheader.i.i49, %.lr.ph.i54.i
-  %indvars.iv.i.i52 = phi i64 [ %indvars.iv.next.i.i53, %.lr.ph.i54.i ], [ 0, %.preheader.i.i49 ]
-  %212 = phi ptr [ %219, %.lr.ph.i54.i ], [ %211, %.preheader.i.i49 ]
-  %213 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %209, i64 %indvars.iv.i.i52
-  %214 = load i32, ptr %.01724.i.i50, align 8, !tbaa !15
+.lr.ph.i55.i:                                     ; preds = %.preheader.i.i50, %.lr.ph.i55.i
+  %indvars.iv.i.i53 = phi i64 [ %indvars.iv.next.i.i54, %.lr.ph.i55.i ], [ 0, %.preheader.i.i50 ]
+  %212 = phi ptr [ %219, %.lr.ph.i55.i ], [ %211, %.preheader.i.i50 ]
+  %213 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %209, i64 %indvars.iv.i.i53
+  %214 = load i32, ptr %.01724.i.i51, align 8, !tbaa !15
   %215 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %216 = load i32, ptr %215, align 8, !tbaa !16
   %217 = call zeroext i1 @gvplugin_install(ptr noundef %0, i32 noundef %214, ptr noundef nonnull %212, i32 noundef %216, ptr noundef %204, ptr noundef nonnull %213) #22
-  %indvars.iv.next.i.i53 = add nuw nsw i64 %indvars.iv.i.i52, 1
-  %218 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %209, i64 %indvars.iv.next.i.i53, i32 1
+  %indvars.iv.next.i.i54 = add nuw nsw i64 %indvars.iv.i.i53, 1
+  %218 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %209, i64 %indvars.iv.next.i.i54, i32 1
   %219 = load ptr, ptr %218, align 8, !tbaa !13
-  %.not20.i.i54 = icmp eq ptr %219, null
-  br i1 %.not20.i.i54, label %._crit_edge.i.i55, label %.lr.ph.i54.i, !llvm.loop !17
+  %.not20.i.i55 = icmp eq ptr %219, null
+  br i1 %.not20.i.i55, label %._crit_edge.i.i56, label %.lr.ph.i55.i, !llvm.loop !17
 
-._crit_edge.i.i55:                                ; preds = %.lr.ph.i54.i, %.preheader.i.i49
-  %220 = getelementptr inbounds nuw i8, ptr %.01724.i.i50, i64 16
-  %221 = getelementptr inbounds nuw i8, ptr %.01724.i.i50, i64 24
+._crit_edge.i.i56:                                ; preds = %.lr.ph.i55.i, %.preheader.i.i50
+  %220 = getelementptr inbounds nuw i8, ptr %.01724.i.i51, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %.01724.i.i51, i64 24
   %222 = load ptr, ptr %221, align 8, !tbaa !10
-  %.not.i55.i = icmp eq ptr %222, null
-  br i1 %.not.i55.i, label %gvconfig_plugin_install_from_library.exit.i43, label %.preheader.i.i49, !llvm.loop !19
+  %.not.i56.i = icmp eq ptr %222, null
+  br i1 %.not.i56.i, label %gvconfig_plugin_install_from_library.exit.i44, label %.preheader.i.i50, !llvm.loop !19
 
-gvconfig_plugin_install_from_library.exit.i43:    ; preds = %190, %._crit_edge.i.i55, %199, %197, %is_plugin.exit.i, %.critedge.i.i, %180, %176, %171
-  %223 = add nuw i64 %.04077.i, 1
+gvconfig_plugin_install_from_library.exit.i44:    ; preds = %190, %._crit_edge.i.i56, %199, %197, %is_plugin.exit.i, %.critedge.i.i, %180, %176, %171
+  %223 = add nuw i64 %.04078.i, 1
   %224 = load i64, ptr %3, align 8, !tbaa !62
   %225 = icmp ult i64 %223, %224
-  br i1 %225, label %171, label %.preheader.i44, !llvm.loop !65
+  br i1 %225, label %171, label %.preheader.i45, !llvm.loop !65
 
-.lr.ph79.split.i:                                 ; preds = %.lr.ph79.i, %is_plugin.exit67.thread.i
-  %.03978.i = phi i64 [ %294, %is_plugin.exit67.thread.i ], [ 0, %.lr.ph79.i ]
+.lr.ph80.split.i:                                 ; preds = %.lr.ph80.i, %is_plugin.exit68.thread.i
+  %.03979.i = phi i64 [ %294, %is_plugin.exit68.thread.i ], [ 0, %.lr.ph80.i ]
   %226 = load ptr, ptr %139, align 8, !tbaa !60
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %.03978.i
+  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %.03979.i
   %228 = load ptr, ptr %227, align 8, !tbaa !47
   %229 = icmp eq ptr %228, null
-  br i1 %229, label %is_plugin.exit67.thread.i, label %230
+  br i1 %229, label %is_plugin.exit68.thread.i, label %230
 
-230:                                              ; preds = %.lr.ph79.split.i
+230:                                              ; preds = %.lr.ph80.split.i
   %231 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %228) #26
   %232 = getelementptr inbounds nuw i8, ptr %228, i64 %231
-  %strcmpload.i56.i = load i8, ptr %232, align 1
-  %.not.i57.i = icmp ne i8 %strcmpload.i56.i, 0
+  %strcmpload.i57.i = load i8, ptr %232, align 1
+  %.not.i58.i = icmp ne i8 %strcmpload.i57.i, 0
   %233 = icmp eq i64 %231, 0
-  %or.cond.i58.i = or i1 %233, %.not.i57.i
-  br i1 %or.cond.i58.i, label %is_plugin.exit67.thread.i, label %234
+  %or.cond.i59.i = or i1 %233, %.not.i58.i
+  br i1 %or.cond.i59.i, label %is_plugin.exit68.thread.i, label %234
 
 234:                                              ; preds = %230
   %235 = getelementptr i8, ptr %232, i64 -1
@@ -781,49 +775,49 @@ gvconfig_plugin_install_from_library.exit.i43:    ; preds = %190, %._crit_edge.i
   %237 = sext i8 %236 to i32
   %238 = add nsw i32 %237, -48
   %239 = icmp ult i32 %238, 10
-  br i1 %239, label %.lr.ph.preheader.i60.i, label %is_plugin.exit67.thread.i
+  br i1 %239, label %.lr.ph.preheader.i61.i, label %is_plugin.exit68.thread.i
 
-.lr.ph.preheader.i60.i:                           ; preds = %234
-  %invariant.gep.i61.i = getelementptr i8, ptr %228, i64 -1
-  br label %.lr.ph.i62.i
+.lr.ph.preheader.i61.i:                           ; preds = %234
+  %invariant.gep.i62.i = getelementptr i8, ptr %228, i64 -1
+  br label %.lr.ph.i63.i
 
-.lr.ph.i62.i:                                     ; preds = %244, %.lr.ph.preheader.i60.i
-  %.022.i63.i = phi i64 [ %245, %244 ], [ %231, %.lr.ph.preheader.i60.i ]
-  %gep.i64.i = getelementptr i8, ptr %invariant.gep.i61.i, i64 %.022.i63.i
-  %240 = load i8, ptr %gep.i64.i, align 1, !tbaa !54
+.lr.ph.i63.i:                                     ; preds = %244, %.lr.ph.preheader.i61.i
+  %.022.i64.i = phi i64 [ %245, %244 ], [ %231, %.lr.ph.preheader.i61.i ]
+  %gep.i65.i = getelementptr i8, ptr %invariant.gep.i62.i, i64 %.022.i64.i
+  %240 = load i8, ptr %gep.i65.i, align 1, !tbaa !54
   %241 = sext i8 %240 to i32
   %242 = add nsw i32 %241, -48
   %243 = icmp ult i32 %242, 10
-  br i1 %243, label %244, label %.critedge.i65.i
+  br i1 %243, label %244, label %.critedge.i66.i
 
-244:                                              ; preds = %.lr.ph.i62.i
-  %245 = add i64 %.022.i63.i, -1
-  %.not19.i66.i = icmp eq i64 %245, 0
-  br i1 %.not19.i66.i, label %is_plugin.exit67.thread.i, label %.lr.ph.i62.i, !llvm.loop !63
+244:                                              ; preds = %.lr.ph.i63.i
+  %245 = add i64 %.022.i64.i, -1
+  %.not19.i67.i = icmp eq i64 %245, 0
+  br i1 %.not19.i67.i, label %is_plugin.exit68.thread.i, label %.lr.ph.i63.i, !llvm.loop !63
 
-.critedge.i65.i:                                  ; preds = %.lr.ph.i62.i
-  %246 = icmp ult i64 %.022.i63.i, 4
-  br i1 %246, label %is_plugin.exit67.thread.i, label %is_plugin.exit67.i
+.critedge.i66.i:                                  ; preds = %.lr.ph.i63.i
+  %246 = icmp ult i64 %.022.i64.i, 4
+  br i1 %246, label %is_plugin.exit68.thread.i, label %is_plugin.exit68.i
 
-is_plugin.exit67.i:                               ; preds = %.critedge.i65.i
-  %247 = getelementptr inbounds nuw i8, ptr %228, i64 %.022.i63.i
+is_plugin.exit68.i:                               ; preds = %.critedge.i66.i
+  %247 = getelementptr inbounds nuw i8, ptr %228, i64 %.022.i64.i
   %248 = getelementptr inbounds i8, ptr %247, i64 -4
   %249 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %248, ptr noundef nonnull dereferenceable(5) @is_plugin.SO, i64 noundef 4) #26
   %250 = icmp eq i32 %249, 0
-  br i1 %250, label %251, label %is_plugin.exit67.thread.i
+  br i1 %250, label %251, label %is_plugin.exit68.thread.i
 
-251:                                              ; preds = %is_plugin.exit67.i
+251:                                              ; preds = %is_plugin.exit68.i
   %252 = call ptr @gvplugin_library_load(ptr noundef %0, ptr noundef nonnull %228) #22
   %.not49.i = icmp eq ptr %252, null
-  br i1 %.not49.i, label %is_plugin.exit67.thread.i, label %253
+  br i1 %.not49.i, label %is_plugin.exit68.thread.i, label %253
 
 253:                                              ; preds = %251
   %254 = load ptr, ptr %139, align 8, !tbaa !60
-  %255 = getelementptr inbounds nuw ptr, ptr %254, i64 %.03978.i
+  %255 = getelementptr inbounds nuw ptr, ptr %254, i64 %.03979.i
   %256 = load ptr, ptr %255, align 8, !tbaa !47
   %257 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %256, i32 noundef 47) #26
   %.not50.not.i = icmp eq ptr %257, null
-  br i1 %.not50.not.i, label %is_plugin.exit67.thread.i, label %258
+  br i1 %.not50.not.i, label %is_plugin.exit68.thread.i, label %258
 
 258:                                              ; preds = %253
   %259 = getelementptr inbounds nuw i8, ptr %257, i64 1
@@ -836,26 +830,26 @@ is_plugin.exit67.i:                               ; preds = %.critedge.i65.i
   %.not31.i.i = icmp eq ptr %265, null
   br i1 %.not31.i.i, label %gvconfig_write_library_config.exit.i, label %.lr.ph34.i.i
 
-.lr.ph34.i.i:                                     ; preds = %258, %._crit_edge.i69.i
-  %266 = phi ptr [ %275, %._crit_edge.i69.i ], [ %265, %258 ]
-  %.02432.i.i = phi ptr [ %273, %._crit_edge.i69.i ], [ %263, %258 ]
+.lr.ph34.i.i:                                     ; preds = %258, %._crit_edge.i70.i
+  %266 = phi ptr [ %275, %._crit_edge.i70.i ], [ %265, %258 ]
+  %.02432.i.i = phi ptr [ %273, %._crit_edge.i70.i ], [ %263, %258 ]
   %267 = load i32, ptr %.02432.i.i, align 8, !tbaa !15
   %268 = call ptr @gvplugin_api_name(i32 noundef %267) #22
   %269 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.041.i, ptr noundef nonnull @.str.26, ptr noundef %268) #22
   %270 = getelementptr inbounds nuw i8, ptr %266, i64 8
   %271 = load ptr, ptr %270, align 8, !tbaa !13
   %.not2729.i.i = icmp eq ptr %271, null
-  br i1 %.not2729.i.i, label %._crit_edge.i69.i, label %.lr.ph.i68.i
+  br i1 %.not2729.i.i, label %._crit_edge.i70.i, label %.lr.ph.i69.i
 
-._crit_edge.i69.i:                                ; preds = %285, %.lr.ph34.i.i
+._crit_edge.i70.i:                                ; preds = %285, %.lr.ph34.i.i
   %272 = call i64 @fwrite(ptr nonnull @.str.29, i64 3, i64 1, ptr nonnull %.041.i)
   %273 = getelementptr inbounds nuw i8, ptr %.02432.i.i, i64 16
   %274 = getelementptr inbounds nuw i8, ptr %.02432.i.i, i64 24
   %275 = load ptr, ptr %274, align 8, !tbaa !10
-  %.not.i70.i = icmp eq ptr %275, null
-  br i1 %.not.i70.i, label %gvconfig_write_library_config.exit.i, label %.lr.ph34.i.i, !llvm.loop !66
+  %.not.i71.i = icmp eq ptr %275, null
+  br i1 %.not.i71.i, label %gvconfig_write_library_config.exit.i, label %.lr.ph34.i.i, !llvm.loop !66
 
-.lr.ph.i68.i:                                     ; preds = %.lr.ph34.i.i, %285
+.lr.ph.i69.i:                                     ; preds = %.lr.ph34.i.i, %285
   %276 = phi ptr [ %292, %285 ], [ %271, %.lr.ph34.i.i ]
   %277 = phi ptr [ %291, %285 ], [ %270, %.lr.ph34.i.i ]
   %.030.i.i = phi i64 [ %290, %285 ], [ 0, %.lr.ph34.i.i ]
@@ -867,11 +861,11 @@ is_plugin.exit67.i:                               ; preds = %.critedge.i65.i
   %.not28.i.i = icmp eq ptr %282, null
   br i1 %.not28.i.i, label %283, label %285
 
-283:                                              ; preds = %.lr.ph.i68.i
+283:                                              ; preds = %.lr.ph.i69.i
   %284 = call i64 @fwrite(ptr nonnull @.str.27, i64 6, i64 1, ptr nonnull %.041.i)
   br label %285
 
-285:                                              ; preds = %283, %.lr.ph.i68.i
+285:                                              ; preds = %283, %.lr.ph.i69.i
   %286 = load ptr, ptr %277, align 8, !tbaa !13
   %287 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %266, i64 %.030.i.i, i32 2
   %288 = load i32, ptr %287, align 8, !tbaa !16
@@ -880,27 +874,27 @@ is_plugin.exit67.i:                               ; preds = %.critedge.i65.i
   %291 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %266, i64 %290, i32 1
   %292 = load ptr, ptr %291, align 8, !tbaa !13
   %.not27.i.i = icmp eq ptr %292, null
-  br i1 %.not27.i.i, label %._crit_edge.i69.i, label %.lr.ph.i68.i, !llvm.loop !67
+  br i1 %.not27.i.i, label %._crit_edge.i70.i, label %.lr.ph.i69.i, !llvm.loop !67
 
-gvconfig_write_library_config.exit.i:             ; preds = %._crit_edge.i69.i, %258
+gvconfig_write_library_config.exit.i:             ; preds = %._crit_edge.i70.i, %258
   %293 = call i64 @fwrite(ptr nonnull @.str.30, i64 2, i64 1, ptr nonnull %.041.i)
-  br label %is_plugin.exit67.thread.i
+  br label %is_plugin.exit68.thread.i
 
-is_plugin.exit67.thread.i:                        ; preds = %244, %gvconfig_write_library_config.exit.i, %253, %251, %is_plugin.exit67.i, %.critedge.i65.i, %234, %230, %.lr.ph79.split.i
-  %294 = add nuw i64 %.03978.i, 1
+is_plugin.exit68.thread.i:                        ; preds = %244, %gvconfig_write_library_config.exit.i, %253, %251, %is_plugin.exit68.i, %.critedge.i66.i, %234, %230, %.lr.ph80.split.i
+  %294 = add nuw i64 %.03979.i, 1
   %295 = load i64, ptr %3, align 8, !tbaa !62
   %296 = icmp ult i64 %294, %295
-  br i1 %296, label %.lr.ph79.split.i, label %.loopexit.i, !llvm.loop !64
+  br i1 %296, label %.lr.ph80.split.i, label %.loopexit.i, !llvm.loop !64
 
-.loopexit.i:                                      ; preds = %is_plugin.exit67.thread.i, %is_plugin.exit67.thread.us.i, %.preheader.i44, %agxbuse.exit.i
+.loopexit.i:                                      ; preds = %is_plugin.exit68.thread.i, %is_plugin.exit68.thread.us.i, %.preheader.i45, %agxbuse.exit.i
   call void @globfree(ptr noundef nonnull %3) #22
   %.val52.i = load i8, ptr %111, align 1, !tbaa !54
   %297 = icmp eq i8 %.val52.i, -1
   br i1 %297, label %298, label %agxbfree.exit.i
 
 298:                                              ; preds = %.loopexit.i
-  %.val.i45 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %.val.i45) #22
+  %.val.i46 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %.val.i46) #22
   br label %agxbfree.exit.i
 
 agxbfree.exit.i:                                  ; preds = %298, %.loopexit.i
@@ -1030,30 +1024,30 @@ gv_alloc.exit:                                    ; preds = %316
   br label %349
 
 349:                                              ; preds = %351, %.preheader90.i
-  %350 = phi i8 [ %.pre.i58, %351 ], [ %348, %.preheader90.i ]
+  %350 = phi i8 [ %.pre.i59, %351 ], [ %348, %.preheader90.i ]
   %.0.i25.i = phi ptr [ %352, %351 ], [ %.07797.i, %.preheader90.i ]
   switch i8 %350, label %351 [
-    i8 0, label %.preheader147
-    i8 125, label %.preheader147
-    i8 123, label %.preheader147
-    i8 35, label %.preheader147
-    i8 32, label %.preheader147
-    i8 10, label %.preheader147
-    i8 9, label %.preheader147
+    i8 0, label %.preheader148
+    i8 125, label %.preheader148
+    i8 123, label %.preheader148
+    i8 35, label %.preheader148
+    i8 32, label %.preheader148
+    i8 10, label %.preheader148
+    i8 9, label %.preheader148
   ]
 
-.preheader147:                                    ; preds = %349, %349, %349, %349, %349, %349, %349
+.preheader148:                                    ; preds = %349, %349, %349, %349, %349, %349, %349
   br label %353
 
 351:                                              ; preds = %349
   %352 = getelementptr inbounds nuw i8, ptr %.0.i25.i, i64 1
-  %.pre.i58 = load i8, ptr %352, align 1, !tbaa !54
+  %.pre.i59 = load i8, ptr %352, align 1, !tbaa !54
   br label %349, !llvm.loop !73
 
-353:                                              ; preds = %.preheader147, %.backedge.i.i.i
-  %354 = phi i8 [ %.pre104.i, %.backedge.i.i.i ], [ %350, %.preheader147 ]
-  %.8.i = phi i32 [ %.9.i, %.backedge.i.i.i ], [ %.098.i, %.preheader147 ]
-  %.0.i.i.i = phi ptr [ %.0.be.i.i.i, %.backedge.i.i.i ], [ %.0.i25.i, %.preheader147 ]
+353:                                              ; preds = %.preheader148, %.backedge.i.i.i
+  %354 = phi i8 [ %.pre104.i, %.backedge.i.i.i ], [ %350, %.preheader148 ]
+  %.8.i = phi i32 [ %.9.i, %.backedge.i.i.i ], [ %.098.i, %.preheader148 ]
+  %.0.i.i.i = phi ptr [ %.0.be.i.i.i, %.backedge.i.i.i ], [ %.0.i25.i, %.preheader148 ]
   switch i8 %354, label %token.exit.i [
     i8 9, label %368
     i8 35, label %355
@@ -1107,26 +1101,26 @@ token.exit.i:                                     ; preds = %353
   %.0.i26.i = phi ptr [ %373, %372 ], [ %.0.i.i.i, %token.exit.i ]
   %371 = load i8, ptr %.0.i26.i, align 1, !tbaa !54
   switch i8 %371, label %372 [
-    i8 0, label %.preheader146
-    i8 125, label %.preheader146
-    i8 123, label %.preheader146
-    i8 35, label %.preheader146
-    i8 32, label %.preheader146
-    i8 10, label %.preheader146
-    i8 9, label %.preheader146
+    i8 0, label %.preheader147
+    i8 125, label %.preheader147
+    i8 123, label %.preheader147
+    i8 35, label %.preheader147
+    i8 32, label %.preheader147
+    i8 10, label %.preheader147
+    i8 9, label %.preheader147
   ]
 
-.preheader146:                                    ; preds = %.preheader89.i, %.preheader89.i, %.preheader89.i, %.preheader89.i, %.preheader89.i, %.preheader89.i, %.preheader89.i
+.preheader147:                                    ; preds = %.preheader89.i, %.preheader89.i, %.preheader89.i, %.preheader89.i, %.preheader89.i, %.preheader89.i, %.preheader89.i
   br label %374
 
 372:                                              ; preds = %.preheader89.i
   %373 = getelementptr inbounds nuw i8, ptr %.0.i26.i, i64 1
   br label %.preheader89.i, !llvm.loop !73
 
-374:                                              ; preds = %.preheader146, %.backedge.i.i28.i
-  %375 = phi i8 [ %.pre105.i, %.backedge.i.i28.i ], [ %371, %.preheader146 ]
-  %.10.i = phi i32 [ %.11.i, %.backedge.i.i28.i ], [ 0, %.preheader146 ]
-  %.0.i.i27.i = phi ptr [ %.0.be.i.i29.i, %.backedge.i.i28.i ], [ %.0.i26.i, %.preheader146 ]
+374:                                              ; preds = %.preheader147, %.backedge.i.i28.i
+  %375 = phi i8 [ %.pre105.i, %.backedge.i.i28.i ], [ %371, %.preheader147 ]
+  %.10.i = phi i32 [ %.11.i, %.backedge.i.i28.i ], [ 0, %.preheader147 ]
+  %.0.i.i27.i = phi ptr [ %.0.be.i.i29.i, %.backedge.i.i28.i ], [ %.0.i26.i, %.preheader147 ]
   switch i8 %375, label %token.exit32.i [
     i8 9, label %389
     i8 35, label %376
@@ -1191,26 +1185,26 @@ token.exit32.i:                                   ; preds = %374
   %.0.i33.i = phi ptr [ %.279.i, %393 ], [ %397, %396 ]
   %395 = load i8, ptr %.0.i33.i, align 1, !tbaa !54
   switch i8 %395, label %396 [
-    i8 0, label %.preheader145
-    i8 125, label %.preheader145
-    i8 123, label %.preheader145
-    i8 35, label %.preheader145
-    i8 32, label %.preheader145
-    i8 10, label %.preheader145
-    i8 9, label %.preheader145
+    i8 0, label %.preheader146
+    i8 125, label %.preheader146
+    i8 123, label %.preheader146
+    i8 35, label %.preheader146
+    i8 32, label %.preheader146
+    i8 10, label %.preheader146
+    i8 9, label %.preheader146
   ]
 
-.preheader145:                                    ; preds = %394, %394, %394, %394, %394, %394, %394
+.preheader146:                                    ; preds = %394, %394, %394, %394, %394, %394, %394
   br label %398
 
 396:                                              ; preds = %394
   %397 = getelementptr inbounds nuw i8, ptr %.0.i33.i, i64 1
   br label %394, !llvm.loop !73
 
-398:                                              ; preds = %.preheader145, %.backedge.i.i35.i
-  %399 = phi i8 [ %.pre106.i, %.backedge.i.i35.i ], [ %395, %.preheader145 ]
-  %.12.i = phi i32 [ %.13.i, %.backedge.i.i35.i ], [ %.2.i, %.preheader145 ]
-  %.0.i.i34.i = phi ptr [ %.0.be.i.i36.i, %.backedge.i.i35.i ], [ %.0.i33.i, %.preheader145 ]
+398:                                              ; preds = %.preheader146, %.backedge.i.i35.i
+  %399 = phi i8 [ %.pre106.i, %.backedge.i.i35.i ], [ %395, %.preheader146 ]
+  %.12.i = phi i32 [ %.13.i, %.backedge.i.i35.i ], [ %.2.i, %.preheader146 ]
+  %.0.i.i34.i = phi ptr [ %.0.be.i.i36.i, %.backedge.i.i35.i ], [ %.0.i33.i, %.preheader146 ]
   switch i8 %399, label %token.exit39.i [
     i8 9, label %413
     i8 35, label %400
@@ -1275,26 +1269,26 @@ token.exit39.i:                                   ; preds = %398
   %.0.i40.i = phi ptr [ %421, %420 ], [ %.380.i, %.preheader88.i ]
   %419 = load i8, ptr %.0.i40.i, align 1, !tbaa !54
   switch i8 %419, label %420 [
-    i8 0, label %.preheader144
-    i8 125, label %.preheader144
-    i8 123, label %.preheader144
-    i8 35, label %.preheader144
-    i8 32, label %.preheader144
-    i8 10, label %.preheader144
-    i8 9, label %.preheader144
+    i8 0, label %.preheader145
+    i8 125, label %.preheader145
+    i8 123, label %.preheader145
+    i8 35, label %.preheader145
+    i8 32, label %.preheader145
+    i8 10, label %.preheader145
+    i8 9, label %.preheader145
   ]
 
-.preheader144:                                    ; preds = %.preheader87.i, %.preheader87.i, %.preheader87.i, %.preheader87.i, %.preheader87.i, %.preheader87.i, %.preheader87.i
+.preheader145:                                    ; preds = %.preheader87.i, %.preheader87.i, %.preheader87.i, %.preheader87.i, %.preheader87.i, %.preheader87.i, %.preheader87.i
   br label %422
 
 420:                                              ; preds = %.preheader87.i
   %421 = getelementptr inbounds nuw i8, ptr %.0.i40.i, i64 1
   br label %.preheader87.i, !llvm.loop !73
 
-422:                                              ; preds = %.preheader144, %.backedge.i.i42.i
-  %423 = phi i8 [ %.pre107.i, %.backedge.i.i42.i ], [ %419, %.preheader144 ]
-  %.14.i = phi i32 [ %.15.i, %.backedge.i.i42.i ], [ 2, %.preheader144 ]
-  %.0.i.i41.i = phi ptr [ %.0.be.i.i43.i, %.backedge.i.i42.i ], [ %.0.i40.i, %.preheader144 ]
+422:                                              ; preds = %.preheader145, %.backedge.i.i42.i
+  %423 = phi i8 [ %.pre107.i, %.backedge.i.i42.i ], [ %419, %.preheader145 ]
+  %.14.i = phi i32 [ %.15.i, %.backedge.i.i42.i ], [ 2, %.preheader145 ]
+  %.0.i.i41.i = phi ptr [ %.0.be.i.i43.i, %.backedge.i.i42.i ], [ %.0.i40.i, %.preheader145 ]
   switch i8 %423, label %token.exit46.i [
     i8 9, label %437
     i8 35, label %424
@@ -1342,9 +1336,9 @@ token.exit39.i:                                   ; preds = %398
 token.exit46.i:                                   ; preds = %422
   store i8 0, ptr %.0.i40.i, align 1, !tbaa !54
   %439 = icmp eq i32 %.14.i, 2
-  br i1 %439, label %.preheader.i57, label %462
+  br i1 %439, label %.preheader.i58, label %462
 
-.preheader.i57:                                   ; preds = %token.exit46.i, %441
+.preheader.i58:                                   ; preds = %token.exit46.i, %441
   %.0.i47.i = phi ptr [ %442, %441 ], [ %.0.i.i41.i, %token.exit46.i ]
   %440 = load i8, ptr %.0.i47.i, align 1, !tbaa !54
   switch i8 %440, label %441 [
@@ -1357,12 +1351,12 @@ token.exit46.i:                                   ; preds = %422
     i8 9, label %.preheader
   ]
 
-.preheader:                                       ; preds = %.preheader.i57, %.preheader.i57, %.preheader.i57, %.preheader.i57, %.preheader.i57, %.preheader.i57, %.preheader.i57
+.preheader:                                       ; preds = %.preheader.i58, %.preheader.i58, %.preheader.i58, %.preheader.i58, %.preheader.i58, %.preheader.i58, %.preheader.i58
   br label %443
 
-441:                                              ; preds = %.preheader.i57
+441:                                              ; preds = %.preheader.i58
   %442 = getelementptr inbounds nuw i8, ptr %.0.i47.i, i64 1
-  br label %.preheader.i57, !llvm.loop !73
+  br label %.preheader.i58, !llvm.loop !73
 
 443:                                              ; preds = %.preheader, %.backedge.i.i49.i
   %444 = phi i8 [ %.pre108.i, %.backedge.i.i49.i ], [ %440, %.preheader ]
@@ -1441,8 +1435,8 @@ token.exit53.i:                                   ; preds = %443
 
 separator.exit.i:                                 ; preds = %.critedge.thread.i
   %.pr.i = load i8, ptr %.58285.i, align 1, !tbaa !54
-  %.not.i56 = icmp eq i8 %.pr.i, 0
-  br i1 %.not.i56, label %gvconfig_plugin_install_from_config.exit, label %.preheader90.i, !llvm.loop !76
+  %.not.i57 = icmp eq i8 %.pr.i, 0
+  br i1 %.not.i57, label %gvconfig_plugin_install_from_config.exit, label %.preheader90.i, !llvm.loop !76
 
 gvconfig_plugin_install_from_config.exit:         ; preds = %331, %separator.exit.i, %464, %417, %327
   tail call void @free(ptr noundef %318) #22

@@ -187,8 +187,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i: ; preds = %_ZNK14JfrThreadL
   %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 954), align 2
   %34 = icmp ne i8 %33, 0
   %35 = tail call noundef zeroext i1 @_ZN8JfrEventI25EventMetaspaceGCThresholdE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %32, ptr noundef nonnull %26, i64 noundef 0, i64 noundef 0, i1 noundef zeroext %34)
-  %brmerge.i = or i1 %35, %34
-  br i1 %brmerge.i, label %_ZN8JfrEventI25EventMetaspaceGCThresholdE11write_eventEv.exit, label %36
+  %or.cond.i = or i1 %35, %34
+  br i1 %or.cond.i, label %_ZN8JfrEventI25EventMetaspaceGCThresholdE11write_eventEv.exit, label %36
 
 36:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
   %37 = tail call noundef zeroext i1 @_ZN8JfrEventI25EventMetaspaceGCThresholdE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %32, ptr noundef nonnull %26, i64 noundef 0, i64 noundef 0, i1 noundef zeroext true)
@@ -1575,8 +1575,8 @@ _ZN8JfrEventI31EventMetaspaceAllocationFailureE14stack_trace_idEP6ThreadPK14JfrT
   %11 = phi i64 [ %10, %9 ], [ 0, %1 ], [ %8, %6 ]
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %13 = load ptr, ptr %12, align 8
-  %.not.i16 = icmp eq ptr %13, null
-  br i1 %.not.i16, label %_ZNK14JfrThreadLocal13native_bufferEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
+  %.not.i17 = icmp eq ptr %13, null
+  br i1 %.not.i17, label %_ZNK14JfrThreadLocal13native_bufferEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
 
 _ZNK14JfrThreadLocal13native_bufferEv.exit:       ; preds = %_ZN8JfrEventI31EventMetaspaceAllocationFailureE14stack_trace_idEP6ThreadPK14JfrThreadLocal.exit
   %14 = tail call noundef ptr @_ZNK14JfrThreadLocal21install_native_bufferEv(ptr noundef nonnull align 8 dereferenceable(195) %4) #7
@@ -1588,8 +1588,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread: ; preds = %_ZN8JfrEventI31Eve
   %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 978), align 2
   %18 = icmp ne i8 %17, 0
   %19 = tail call noundef zeroext i1 @_ZN8JfrEventI31EventMetaspaceAllocationFailureE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %16, ptr noundef nonnull %3, i64 noundef 0, i64 noundef %11, i1 noundef zeroext %18)
-  %brmerge = or i1 %19, %18
-  br i1 %brmerge, label %23, label %20
+  %or.cond = or i1 %19, %18
+  br i1 %or.cond, label %23, label %20
 
 20:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
   %21 = tail call noundef zeroext i1 @_ZN8JfrEventI31EventMetaspaceAllocationFailureE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %16, ptr noundef nonnull %3, i64 noundef 0, i64 noundef %11, i1 noundef zeroext true)
@@ -1599,7 +1599,7 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread: ; preds = %_ZN8JfrEventI31Eve
   tail call void @_ZN15JfrEventSetting9set_largeE10JfrEventId(i32 noundef 40) #7
   br label %23
 
-23:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread, %20, %22, %_ZNK14JfrThreadLocal13native_bufferEv.exit
+23:                                               ; preds = %20, %22, %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread, %_ZNK14JfrThreadLocal13native_bufferEv.exit
   ret void
 }
 
@@ -1927,8 +1927,8 @@ _ZN8JfrEventI17EventMetaspaceOOME14stack_trace_idEP6ThreadPK14JfrThreadLocal.exi
   %11 = phi i64 [ %10, %9 ], [ 0, %1 ], [ %8, %6 ]
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %13 = load ptr, ptr %12, align 8
-  %.not.i16 = icmp eq ptr %13, null
-  br i1 %.not.i16, label %_ZNK14JfrThreadLocal13native_bufferEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
+  %.not.i17 = icmp eq ptr %13, null
+  br i1 %.not.i17, label %_ZNK14JfrThreadLocal13native_bufferEv.exit, label %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
 
 _ZNK14JfrThreadLocal13native_bufferEv.exit:       ; preds = %_ZN8JfrEventI17EventMetaspaceOOME14stack_trace_idEP6ThreadPK14JfrThreadLocal.exit
   %14 = tail call noundef ptr @_ZNK14JfrThreadLocal21install_native_bufferEv(ptr noundef nonnull align 8 dereferenceable(195) %4) #7
@@ -1940,8 +1940,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread: ; preds = %_ZN8JfrEventI17Eve
   %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1002), align 2
   %18 = icmp ne i8 %17, 0
   %19 = tail call noundef zeroext i1 @_ZN8JfrEventI17EventMetaspaceOOME17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %16, ptr noundef nonnull %3, i64 noundef 0, i64 noundef %11, i1 noundef zeroext %18)
-  %brmerge = or i1 %19, %18
-  br i1 %brmerge, label %23, label %20
+  %or.cond = or i1 %19, %18
+  br i1 %or.cond, label %23, label %20
 
 20:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread
   %21 = tail call noundef zeroext i1 @_ZN8JfrEventI17EventMetaspaceOOME17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %16, ptr noundef nonnull %3, i64 noundef 0, i64 noundef %11, i1 noundef zeroext true)
@@ -1951,7 +1951,7 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread: ; preds = %_ZN8JfrEventI17Eve
   tail call void @_ZN15JfrEventSetting9set_largeE10JfrEventId(i32 noundef 41) #7
   br label %23
 
-23:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread, %20, %22, %_ZNK14JfrThreadLocal13native_bufferEv.exit
+23:                                               ; preds = %20, %22, %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread, %_ZNK14JfrThreadLocal13native_bufferEv.exit
   ret void
 }
 

@@ -8146,11 +8146,11 @@ define hidden { ptr, i64 } @_ZN4core4iter8adapters11try_process17h61af7189b8e011
   br label %12
 
 12:                                               ; preds = %10, %15
-  %.sroa.0.016 = phi ptr [ null, %15 ], [ %7, %10 ]
-  %.sroa.3.014 = phi i64 [ undef, %15 ], [ %8, %10 ]
+  %.sroa.0.017 = phi ptr [ null, %15 ], [ %7, %10 ]
+  %.sroa.3.015 = phi i64 [ undef, %15 ], [ %8, %10 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.016, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.3.014, 1
+  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.017, 0
+  %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.3.015, 1
   ret { ptr, i64 } %14
 
 15:                                               ; preds = %2

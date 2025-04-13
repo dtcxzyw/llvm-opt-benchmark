@@ -226,17 +226,17 @@ define internal fastcc zeroext i1 @spl_array_has_dimension_ex(i1 noundef zeroext
   %16 = call ptr @zend_call_method(ptr noundef nonnull %1, ptr noundef %15, ptr noundef nonnull %11, ptr noundef nonnull @.str.24, i64 noundef 12, ptr noundef nonnull %7, i32 noundef 1, ptr noundef %2, ptr noundef null) #13
   %17 = call zeroext i1 @zend_is_true(ptr noundef nonnull %7) #13
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #13
-  br i1 %17, label %18, label %86
+  br i1 %17, label %18, label %88
 
 18:                                               ; preds = %13
-  %.not39 = icmp eq i32 %3, 0
-  br i1 %.not39, label %86, label %19
+  %.not40 = icmp eq i32 %3, 0
+  br i1 %.not40, label %88, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds i8, ptr %1, i64 -48
   %21 = load ptr, ptr %20, align 8, !tbaa !51
-  %.not40 = icmp eq ptr %21, null
-  br i1 %.not40, label %31, label %22
+  %.not41 = icmp eq ptr %21, null
+  br i1 %.not41, label %31, label %22
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
@@ -257,7 +257,7 @@ define internal fastcc zeroext i1 @spl_array_has_dimension_ex(i1 noundef zeroext
   %30 = icmp eq i8 %29, 0
   %executor_globals..i = select i1 %30, ptr @executor_globals, ptr %7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
-  br label %76
+  br label %78
 
 31:                                               ; preds = %19, %10, %4
   %32 = call fastcc ptr @spl_array_get_hash_table_ptr(ptr noundef nonnull %9)
@@ -273,12 +273,12 @@ define internal fastcc zeroext i1 @spl_array_has_dimension_ex(i1 noundef zeroext
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !53
   call void @zend_illegal_container_offset(ptr noundef %40, ptr noundef %2, i32 noundef 3) #13
-  br label %75
+  br label %77
 
 41:                                               ; preds = %31
   %42 = load ptr, ptr %8, align 8, !tbaa !63
-  %.not42 = icmp eq ptr %42, null
-  br i1 %.not42, label %57, label %43
+  %.not43 = icmp eq ptr %42, null
+  br i1 %.not43, label %57, label %43
 
 43:                                               ; preds = %41
   %44 = call ptr @zend_hash_find(ptr noundef %33, ptr noundef nonnull %42) #13
@@ -315,82 +315,82 @@ define internal fastcc zeroext i1 @spl_array_has_dimension_ex(i1 noundef zeroext
   br label %spl_hash_key_release.exit
 
 spl_hash_key_release.exit:                        ; preds = %56, %51, %47, %43, %57
-  %.033 = phi ptr [ %60, %57 ], [ %44, %43 ], [ %44, %47 ], [ %44, %51 ], [ %44, %56 ]
-  %.not43 = icmp eq ptr %.033, null
-  br i1 %.not43, label %75, label %61
+  %.034 = phi ptr [ %60, %57 ], [ %44, %43 ], [ %44, %47 ], [ %44, %51 ], [ %44, %56 ]
+  %.not44 = icmp eq ptr %.034, null
+  br i1 %.not44, label %77, label %61
 
 61:                                               ; preds = %spl_hash_key_release.exit
-  switch i32 %3, label %62 [
-    i32 2, label %75
-    i32 0, label %.thread51
-  ]
+  %62 = icmp eq i32 %3, 2
+  br i1 %62, label %77, label %63
 
-62:                                               ; preds = %61
-  br i1 %0, label %63, label %.thread51
+63:                                               ; preds = %61
+  %64 = icmp ne i32 %3, 0
+  %or.cond = and i1 %0, %64
+  br i1 %or.cond, label %65, label %.thread51
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %1, i64 -48
-  %65 = load ptr, ptr %64, align 8, !tbaa !51
-  %.not45 = icmp eq ptr %65, null
-  br i1 %.not45, label %.thread51, label %66
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds i8, ptr %1, i64 -48
+  %67 = load ptr, ptr %66, align 8, !tbaa !51
+  %.not45 = icmp eq ptr %67, null
+  br i1 %.not45, label %.thread51, label %68
 
-66:                                               ; preds = %63
+68:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   %.not52.i55 = icmp eq ptr %2, null
-  br i1 %.not52.i55, label %67, label %spl_array_read_dimension_ex.exit
+  br i1 %.not52.i55, label %69, label %spl_array_read_dimension_ex.exit
 
-67:                                               ; preds = %66
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %68, align 8, !tbaa !4
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 0, ptr %70, align 8, !tbaa !4
   br label %spl_array_read_dimension_ex.exit
 
-spl_array_read_dimension_ex.exit:                 ; preds = %66, %67
-  %.045.i56 = phi ptr [ %2, %66 ], [ %5, %67 ]
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !50
-  %71 = call ptr @zend_call_method(ptr noundef nonnull %1, ptr noundef %70, ptr noundef nonnull %64, ptr noundef nonnull @.str.25, i64 noundef 9, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %.045.i56, ptr noundef null) #13
-  %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %73 = load i8, ptr %72, align 8, !tbaa !4
-  %74 = icmp eq i8 %73, 0
-  %executor_globals..i57 = select i1 %74, ptr @executor_globals, ptr %7
+spl_array_read_dimension_ex.exit:                 ; preds = %68, %69
+  %.045.i56 = phi ptr [ %2, %68 ], [ %5, %69 ]
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %72 = load ptr, ptr %71, align 8, !tbaa !50
+  %73 = call ptr @zend_call_method(ptr noundef nonnull %1, ptr noundef %72, ptr noundef nonnull %66, ptr noundef nonnull @.str.25, i64 noundef 9, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %.045.i56, ptr noundef null) #13
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %75 = load i8, ptr %74, align 8, !tbaa !4
+  %76 = icmp eq i8 %75, 0
+  %executor_globals..i57 = select i1 %76, ptr @executor_globals, ptr %7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
   br label %.thread51
 
-.thread51:                                        ; preds = %62, %63, %spl_array_read_dimension_ex.exit, %61
-  %.2.ph = phi ptr [ %.033, %62 ], [ %.033, %63 ], [ %executor_globals..i57, %spl_array_read_dimension_ex.exit ], [ %.033, %61 ]
+.thread51:                                        ; preds = %63, %65, %spl_array_read_dimension_ex.exit
+  %.2.ph = phi ptr [ %.034, %63 ], [ %.034, %65 ], [ %executor_globals..i57, %spl_array_read_dimension_ex.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #13
-  br label %76
+  br label %78
 
-75:                                               ; preds = %61, %spl_hash_key_release.exit, %36
+77:                                               ; preds = %61, %spl_hash_key_release.exit, %36
   %.1 = phi i1 [ false, %36 ], [ false, %spl_hash_key_release.exit ], [ true, %61 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #13
-  br label %86
+  br label %88
 
-76:                                               ; preds = %.thread51, %25
-  %.135 = phi ptr [ %executor_globals..i, %25 ], [ %.2.ph, %.thread51 ]
-  %77 = icmp eq ptr %.135, %7
-  br i1 %77, label %78, label %79
+78:                                               ; preds = %.thread51, %25
+  %.136 = phi ptr [ %executor_globals..i, %25 ], [ %.2.ph, %.thread51 ]
+  %79 = icmp eq ptr %.136, %7
+  br i1 %79, label %80, label %81
 
-78:                                               ; preds = %76
+80:                                               ; preds = %78
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #13
-  br label %79
+  br label %81
 
-79:                                               ; preds = %78, %76
+81:                                               ; preds = %80, %78
   %.not46 = icmp eq i32 %3, 0
-  br i1 %.not46, label %82, label %80
+  br i1 %.not46, label %84, label %82
 
-80:                                               ; preds = %79
-  %81 = call zeroext i1 @zend_is_true(ptr noundef %.135) #13
-  br label %86
+82:                                               ; preds = %81
+  %83 = call zeroext i1 @zend_is_true(ptr noundef %.136) #13
+  br label %88
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %.135, i64 8
-  %84 = load i8, ptr %83, align 8, !tbaa !4
-  %85 = icmp ne i8 %84, 1
-  br label %86
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %.136, i64 8
+  %86 = load i8, ptr %85, align 8, !tbaa !4
+  %87 = icmp ne i8 %86, 1
+  br label %88
 
-86:                                               ; preds = %13, %75, %80, %82, %18
-  %.0 = phi i1 [ %.1, %75 ], [ true, %18 ], [ %81, %80 ], [ %85, %82 ], [ false, %13 ]
+88:                                               ; preds = %13, %77, %82, %84, %18
+  %.0 = phi i1 [ %.1, %77 ], [ true, %18 ], [ %83, %82 ], [ %87, %84 ], [ false, %13 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
   ret i1 %.0
 }

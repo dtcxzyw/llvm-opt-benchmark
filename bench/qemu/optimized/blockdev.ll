@@ -1031,13 +1031,13 @@ qemu_opt_rename.exit:                             ; preds = %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
   store i8 0, ptr %5, align 1, !annotation !10
   %24 = call i32 @bdrv_parse_cache_mode(ptr noundef nonnull %22, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  %.not195 = icmp eq i32 %24, 0
-  br i1 %.not195, label %25, label %47
+  %.not197 = icmp eq i32 %24, 0
+  br i1 %.not197, label %25, label %47
 
 25:                                               ; preds = %23
   %26 = call ptr @qemu_opt_get(ptr noundef %0, ptr noundef nonnull @.str.60) #14
-  %.not196 = icmp eq ptr %26, null
-  br i1 %.not196, label %27, label %32
+  %.not198 = icmp eq ptr %26, null
+  br i1 %.not198, label %27, label %32
 
 27:                                               ; preds = %25
   %28 = load i8, ptr %5, align 1, !range !6, !noundef !7
@@ -1048,8 +1048,8 @@ qemu_opt_rename.exit:                             ; preds = %13
 
 32:                                               ; preds = %27, %25
   %33 = call ptr @qemu_opt_get(ptr noundef %0, ptr noundef nonnull @.str.8) #14
-  %.not197 = icmp eq ptr %33, null
-  br i1 %.not197, label %34, label %39
+  %.not199 = icmp eq ptr %33, null
+  br i1 %.not199, label %34, label %39
 
 34:                                               ; preds = %32
   %35 = load i32, ptr %4, align 4
@@ -1060,8 +1060,8 @@ qemu_opt_rename.exit:                             ; preds = %13
 
 39:                                               ; preds = %34, %32
   %40 = call ptr @qemu_opt_get(ptr noundef %0, ptr noundef nonnull @.str.10) #14
-  %.not198 = icmp eq ptr %40, null
-  br i1 %.not198, label %41, label %.thread
+  %.not200 = icmp eq ptr %40, null
+  br i1 %.not200, label %41, label %.thread
 
 41:                                               ; preds = %39
   %42 = load i32, ptr %4, align 4
@@ -1087,384 +1087,384 @@ qemu_opt_rename.exit:                             ; preds = %13
   %50 = call ptr @qemu_opts_to_qdict(ptr noundef %0, ptr noundef %49) #14
   %51 = call ptr @qemu_opts_create(ptr noundef nonnull @qemu_legacy_drive_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #14
   %52 = call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef %51, ptr noundef %49, ptr noundef %2) #14
-  br i1 %52, label %53, label %174
+  br i1 %52, label %53, label %176
 
 53:                                               ; preds = %48
   %54 = call ptr @qemu_opt_get(ptr noundef %51, ptr noundef nonnull @.str.17) #14
-  %.not199 = icmp eq ptr %54, null
-  br i1 %.not199, label %60, label %55
+  %.not201 = icmp eq ptr %54, null
+  br i1 %.not201, label %60, label %55
 
 55:                                               ; preds = %53
   %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(5) @.str.61) #17
-  %.not200 = icmp eq i32 %56, 0
-  br i1 %.not200, label %60, label %57
+  %.not202 = icmp eq i32 %56, 0
+  br i1 %.not202, label %60, label %57
 
 57:                                               ; preds = %55
   %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(6) @.str.62) #17
-  %.not201 = icmp eq i32 %58, 0
-  br i1 %.not201, label %60, label %59
+  %.not203 = icmp eq i32 %58, 0
+  br i1 %.not203, label %60, label %59
 
 59:                                               ; preds = %57
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 874, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.63, ptr noundef nonnull %54) #14
-  br label %174
+  br label %176
 
 60:                                               ; preds = %57, %55, %53
   %61 = phi ptr [ @.str.72, %53 ], [ @.str.72, %55 ], [ @.str.71, %57 ]
   %62 = phi ptr [ @.str.80, %53 ], [ @.str.80, %55 ], [ @.str.79, %57 ]
-  %.0183 = phi i32 [ 0, %53 ], [ 0, %55 ], [ 1, %57 ]
+  %.0185 = phi i32 [ 0, %53 ], [ 0, %55 ], [ 1, %57 ]
   %63 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %51, ptr noundef nonnull @.str.11, i1 noundef zeroext false) #14
   %64 = zext i1 %63 to i32
-  %65 = or i32 %.0183, %64
-  %.not202 = icmp ne i32 %65, 0
-  %66 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %51, ptr noundef nonnull @.str.26, i1 noundef zeroext false) #14
-  %cond.fr = freeze i1 %66
-  %brmerge.not = and i1 %cond.fr, %.not202
-  br i1 %brmerge.not, label %.thread233, label %67
+  %65 = or i32 %.0185, %64
+  %66 = icmp ne i32 %65, 0
+  %67 = call zeroext i1 @qemu_opt_get_bool(ptr noundef %51, ptr noundef nonnull @.str.26, i1 noundef zeroext false) #14
+  %cond.fr = freeze i1 %67
+  %or.cond = and i1 %cond.fr, %66
+  br i1 %or.cond, label %.thread233, label %68
 
 .thread233:                                       ; preds = %60
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.64) #14
   call void @qdict_put_str(ptr noundef %49, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.65) #14
-  br label %68
+  br label %70
 
-67:                                               ; preds = %60
-  %.str.9.mux = select i1 %.not202, ptr @.str.65, ptr @.str.9
-  call void @qdict_put_str(ptr noundef %49, ptr noundef nonnull @.str.11, ptr noundef nonnull %.str.9.mux) #14
+68:                                               ; preds = %60
+  %69 = select i1 %66, ptr @.str.65, ptr @.str.9
+  call void @qdict_put_str(ptr noundef %49, ptr noundef nonnull @.str.11, ptr noundef nonnull %69) #14
   %spec.select258 = select i1 %cond.fr, ptr @.str.65, ptr @.str.9
-  br label %68
+  br label %70
 
-68:                                               ; preds = %67, %.thread233
-  %69 = phi ptr [ @.str.9, %.thread233 ], [ %spec.select258, %67 ]
-  call void @qdict_put_str(ptr noundef %49, ptr noundef nonnull @.str.26, ptr noundef nonnull %69) #14
-  %70 = call ptr @qemu_opt_get(ptr noundef %51, ptr noundef nonnull @.str.4) #14
-  %.not203 = icmp eq ptr %70, null
-  br i1 %.not203, label %.critedge.thread, label %.preheader260
+70:                                               ; preds = %68, %.thread233
+  %71 = phi ptr [ @.str.9, %.thread233 ], [ %spec.select258, %68 ]
+  call void @qdict_put_str(ptr noundef %49, ptr noundef nonnull @.str.26, ptr noundef nonnull %71) #14
+  %72 = call ptr @qemu_opt_get(ptr noundef %51, ptr noundef nonnull @.str.4) #14
+  %.not204 = icmp eq ptr %72, null
+  br i1 %.not204, label %.critedge.thread, label %.preheader260
 
-.preheader260:                                    ; preds = %68, %74
-  %indvars.iv284 = phi i64 [ %indvars.iv.next285, %74 ], [ 0, %68 ]
-  %71 = getelementptr inbounds nuw [9 x ptr], ptr @if_name, i64 0, i64 %indvars.iv284
-  %72 = load ptr, ptr %71, align 8
-  %73 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %72) #17
-  %.not204 = icmp eq i32 %73, 0
-  br i1 %.not204, label %.critedge.thread.loopexit, label %74
+.preheader260:                                    ; preds = %70, %76
+  %indvars.iv284 = phi i64 [ %indvars.iv.next285, %76 ], [ 0, %70 ]
+  %73 = getelementptr inbounds nuw [9 x ptr], ptr @if_name, i64 0, i64 %indvars.iv284
+  %74 = load ptr, ptr %73, align 8
+  %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %74) #17
+  %.not205 = icmp eq i32 %75, 0
+  br i1 %.not205, label %.critedge.thread.loopexit, label %76
 
-74:                                               ; preds = %.preheader260
+76:                                               ; preds = %.preheader260
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next285, 9
   br i1 %exitcond287.not, label %.critedge, label %.preheader260, !llvm.loop !16
 
-.critedge:                                        ; preds = %74
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 899, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.66, ptr noundef nonnull %70) #14
-  br label %174
+.critedge:                                        ; preds = %76
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 899, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.66, ptr noundef nonnull %72) #14
+  br label %176
 
 .critedge.thread.loopexit:                        ; preds = %.preheader260
-  %75 = trunc nuw nsw i64 %indvars.iv284 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv284 to i32
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %68
-  %.1182 = phi i32 [ %1, %68 ], [ %75, %.critedge.thread.loopexit ]
-  %76 = call i64 @qemu_opt_get_number(ptr noundef %51, ptr noundef nonnull @.str.12, i64 noundef 0) #14
-  %77 = trunc i64 %76 to i32
-  %78 = call i64 @qemu_opt_get_number(ptr noundef %51, ptr noundef nonnull @.str.14, i64 noundef -1) #14
+.critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %70
+  %.1184 = phi i32 [ %1, %70 ], [ %77, %.critedge.thread.loopexit ]
+  %78 = call i64 @qemu_opt_get_number(ptr noundef %51, ptr noundef nonnull @.str.12, i64 noundef 0) #14
   %79 = trunc i64 %78 to i32
-  %80 = call i64 @qemu_opt_get_number(ptr noundef %51, ptr noundef nonnull @.str.5, i64 noundef -1) #14
+  %80 = call i64 @qemu_opt_get_number(ptr noundef %51, ptr noundef nonnull @.str.14, i64 noundef -1) #14
   %81 = trunc i64 %80 to i32
-  %82 = sext i32 %.1182 to i64
-  %83 = getelementptr inbounds [9 x i32], ptr @if_max_devs, i64 0, i64 %82
-  %84 = load i32, ptr %83, align 4
-  %.not205 = icmp eq i32 %81, -1
-  br i1 %.not205, label %drive_index_to_unit_id.exit, label %85
+  %82 = call i64 @qemu_opt_get_number(ptr noundef %51, ptr noundef nonnull @.str.5, i64 noundef -1) #14
+  %83 = trunc i64 %82 to i32
+  %84 = sext i32 %.1184 to i64
+  %85 = getelementptr inbounds [9 x i32], ptr @if_max_devs, i64 0, i64 %84
+  %86 = load i32, ptr %85, align 4
+  %.not206 = icmp eq i32 %83, -1
+  br i1 %.not206, label %drive_index_to_unit_id.exit, label %87
 
-85:                                               ; preds = %.critedge.thread
-  %86 = icmp ne i32 %77, 0
-  %87 = icmp ne i32 %79, -1
-  %or.cond = select i1 %86, i1 true, i1 %87
-  br i1 %or.cond, label %88, label %89
+87:                                               ; preds = %.critedge.thread
+  %88 = icmp ne i32 %79, 0
+  %89 = icmp ne i32 %81, -1
+  %or.cond3 = select i1 %88, i1 true, i1 %89
+  br i1 %or.cond3, label %90, label %91
 
-88:                                               ; preds = %85
+90:                                               ; preds = %87
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 916, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.67) #14
-  br label %174
+  br label %176
 
-89:                                               ; preds = %85
-  %.not.i220 = icmp eq i32 %84, 0
-  br i1 %.not.i220, label %.thread240, label %90
+91:                                               ; preds = %87
+  %.not.i220 = icmp eq i32 %86, 0
+  br i1 %.not.i220, label %.thread240, label %92
 
-90:                                               ; preds = %89
-  %91 = sdiv i32 %81, %84
-  %92 = srem i32 %81, %84
+92:                                               ; preds = %91
+  %93 = sdiv i32 %83, %86
+  %94 = srem i32 %83, %86
   br label %drive_index_to_unit_id.exit
 
-drive_index_to_unit_id.exit:                      ; preds = %90, %.critedge.thread
-  %.0177 = phi i32 [ %77, %.critedge.thread ], [ %91, %90 ]
-  %.0175 = phi i32 [ %79, %.critedge.thread ], [ %92, %90 ]
-  %93 = icmp eq i32 %.0175, -1
-  br i1 %93, label %.preheader, label %drive_get.exit.thread
+drive_index_to_unit_id.exit:                      ; preds = %92, %.critedge.thread
+  %.0179 = phi i32 [ %79, %.critedge.thread ], [ %93, %92 ]
+  %.0177 = phi i32 [ %81, %.critedge.thread ], [ %94, %92 ]
+  %95 = icmp eq i32 %.0177, -1
+  br i1 %95, label %.preheader, label %drive_get.exit.thread
 
 .preheader:                                       ; preds = %drive_index_to_unit_id.exit
-  %94 = call zeroext i1 @qemu_in_main_thread() #14
-  br i1 %94, label %.lr.ph, label %._crit_edge
+  %96 = call zeroext i1 @qemu_in_main_thread() #14
+  br i1 %96, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %.not213 = icmp ne i32 %84, 0
-  br label %95
+  %.not214 = icmp ne i32 %86, 0
+  br label %97
 
 ._crit_edge:                                      ; preds = %drive_get.exit, %.preheader
   call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 226, ptr noundef nonnull @__PRETTY_FUNCTION__.drive_get) #15
   unreachable
 
-95:                                               ; preds = %.lr.ph, %drive_get.exit
+97:                                               ; preds = %.lr.ph, %drive_get.exit
   %.2272 = phi i32 [ 0, %.lr.ph ], [ %.3, %drive_get.exit ]
-  %.2179271 = phi i32 [ %.0177, %.lr.ph ], [ %.3180, %drive_get.exit ]
-  %96 = call ptr @blk_next(ptr noundef null) #14
-  %.not14.i = icmp eq ptr %96, null
+  %.2181271 = phi i32 [ %.0179, %.lr.ph ], [ %.3182, %drive_get.exit ]
+  %98 = call ptr @blk_next(ptr noundef null) #14
+  %.not14.i = icmp eq ptr %98, null
   br i1 %.not14.i, label %drive_get.exit.thread, label %.lr.ph.i222
 
-.lr.ph.i222:                                      ; preds = %95, %109
-  %.015.i = phi ptr [ %110, %109 ], [ %96, %95 ]
-  %97 = call ptr @blk_legacy_dinfo(ptr noundef nonnull %.015.i) #14
-  %.not13.i = icmp eq ptr %97, null
-  br i1 %.not13.i, label %109, label %98
+.lr.ph.i222:                                      ; preds = %97, %111
+  %.015.i = phi ptr [ %112, %111 ], [ %98, %97 ]
+  %99 = call ptr @blk_legacy_dinfo(ptr noundef nonnull %.015.i) #14
+  %.not13.i = icmp eq ptr %99, null
+  br i1 %.not13.i, label %111, label %100
 
-98:                                               ; preds = %.lr.ph.i222
-  %99 = load i32, ptr %97, align 8
-  %100 = icmp eq i32 %99, %.1182
-  br i1 %100, label %101, label %109
+100:                                              ; preds = %.lr.ph.i222
+  %101 = load i32, ptr %99, align 8
+  %102 = icmp eq i32 %101, %.1184
+  br i1 %102, label %103, label %111
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %103, %.2179271
-  br i1 %104, label %105, label %109
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 4
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %105, %.2181271
+  br i1 %106, label %107, label %111
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %107 = load i32, ptr %106, align 8
-  %108 = icmp eq i32 %107, %.2272
-  br i1 %108, label %drive_get.exit, label %109
+107:                                              ; preds = %103
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %109 = load i32, ptr %108, align 8
+  %110 = icmp eq i32 %109, %.2272
+  br i1 %110, label %drive_get.exit, label %111
 
-109:                                              ; preds = %105, %101, %98, %.lr.ph.i222
-  %110 = call ptr @blk_next(ptr noundef nonnull %.015.i) #14
-  %.not.i223 = icmp eq ptr %110, null
+111:                                              ; preds = %107, %103, %100, %.lr.ph.i222
+  %112 = call ptr @blk_next(ptr noundef nonnull %.015.i) #14
+  %.not.i223 = icmp eq ptr %112, null
   br i1 %.not.i223, label %drive_get.exit.thread, label %.lr.ph.i222, !llvm.loop !9
 
-drive_get.exit:                                   ; preds = %105
-  %111 = add i32 %.2272, 1
-  %.not214 = icmp sge i32 %111, %84
-  %or.cond217.not = and i1 %.not213, %.not214
-  %112 = zext i1 %or.cond217.not to i32
-  %.3180 = add i32 %.2179271, %112
-  %113 = select i1 %.not214, i32 %84, i32 0
-  %.3 = sub i32 %111, %113
-  %114 = call zeroext i1 @qemu_in_main_thread() #14
-  br i1 %114, label %95, label %._crit_edge, !llvm.loop !17
+drive_get.exit:                                   ; preds = %107
+  %113 = add i32 %.2272, 1
+  %.not215 = icmp sge i32 %113, %86
+  %or.cond217.not = and i1 %.not214, %.not215
+  %114 = zext i1 %or.cond217.not to i32
+  %.3182 = add i32 %.2181271, %114
+  %115 = select i1 %.not215, i32 %86, i32 0
+  %.3 = sub i32 %113, %115
+  %116 = call zeroext i1 @qemu_in_main_thread() #14
+  br i1 %116, label %97, label %._crit_edge, !llvm.loop !17
 
-drive_get.exit.thread:                            ; preds = %95, %109, %drive_index_to_unit_id.exit
-  %.1178 = phi i32 [ %.0177, %drive_index_to_unit_id.exit ], [ %.2179271, %109 ], [ %.2179271, %95 ]
-  %.1176 = phi i32 [ %.0175, %drive_index_to_unit_id.exit ], [ %.2272, %109 ], [ %.2272, %95 ]
-  %.not207 = icmp eq i32 %84, 0
-  %.not208 = icmp slt i32 %.1176, %84
-  %or.cond218 = or i1 %.not207, %.not208
-  br i1 %or.cond218, label %.thread240, label %115
+drive_get.exit.thread:                            ; preds = %97, %111, %drive_index_to_unit_id.exit
+  %.1180 = phi i32 [ %.0179, %drive_index_to_unit_id.exit ], [ %.2181271, %111 ], [ %.2181271, %97 ]
+  %.1178 = phi i32 [ %.0177, %drive_index_to_unit_id.exit ], [ %.2272, %111 ], [ %.2272, %97 ]
+  %.not208 = icmp eq i32 %86, 0
+  %.not209 = icmp slt i32 %.1178, %86
+  %or.cond218 = or i1 %.not208, %.not209
+  br i1 %or.cond218, label %.thread240, label %117
 
-115:                                              ; preds = %drive_get.exit.thread
-  %116 = add i32 %84, -1
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 935, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.68, i32 noundef %.1176, i32 noundef %116) #14
-  br label %174
+117:                                              ; preds = %drive_get.exit.thread
+  %118 = add i32 %86, -1
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 935, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.68, i32 noundef %.1178, i32 noundef %118) #14
+  br label %176
 
-.thread240:                                       ; preds = %89, %drive_get.exit.thread
-  %.not207250 = phi i1 [ %.not207, %drive_get.exit.thread ], [ true, %89 ]
-  %.1176248 = phi i32 [ %.1176, %drive_get.exit.thread ], [ %81, %89 ]
-  %.1178246 = phi i32 [ %.1178, %drive_get.exit.thread ], [ 0, %89 ]
-  %117 = call zeroext i1 @qemu_in_main_thread() #14
-  br i1 %117, label %119, label %118
+.thread240:                                       ; preds = %91, %drive_get.exit.thread
+  %.not208250 = phi i1 [ %.not208, %drive_get.exit.thread ], [ true, %91 ]
+  %.1178248 = phi i32 [ %.1178, %drive_get.exit.thread ], [ %83, %91 ]
+  %.1180246 = phi i32 [ %.1180, %drive_get.exit.thread ], [ 0, %91 ]
+  %119 = call zeroext i1 @qemu_in_main_thread() #14
+  br i1 %119, label %121, label %120
 
-118:                                              ; preds = %.thread240
+120:                                              ; preds = %.thread240
   call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 226, ptr noundef nonnull @__PRETTY_FUNCTION__.drive_get) #15
   unreachable
 
-119:                                              ; preds = %.thread240
-  %120 = call ptr @blk_next(ptr noundef null) #14
-  %.not14.i224 = icmp eq ptr %120, null
+121:                                              ; preds = %.thread240
+  %122 = call ptr @blk_next(ptr noundef null) #14
+  %.not14.i224 = icmp eq ptr %122, null
   br i1 %.not14.i224, label %.loopexit, label %.lr.ph.i225
 
-.lr.ph.i225:                                      ; preds = %119, %133
-  %.015.i226 = phi ptr [ %134, %133 ], [ %120, %119 ]
-  %121 = call ptr @blk_legacy_dinfo(ptr noundef nonnull %.015.i226) #14
-  %.not13.i227 = icmp eq ptr %121, null
-  br i1 %.not13.i227, label %133, label %122
+.lr.ph.i225:                                      ; preds = %121, %135
+  %.015.i226 = phi ptr [ %136, %135 ], [ %122, %121 ]
+  %123 = call ptr @blk_legacy_dinfo(ptr noundef nonnull %.015.i226) #14
+  %.not13.i227 = icmp eq ptr %123, null
+  br i1 %.not13.i227, label %135, label %124
 
-122:                                              ; preds = %.lr.ph.i225
-  %123 = load i32, ptr %121, align 8
-  %124 = icmp eq i32 %123, %.1182
-  br i1 %124, label %125, label %133
+124:                                              ; preds = %.lr.ph.i225
+  %125 = load i32, ptr %123, align 8
+  %126 = icmp eq i32 %125, %.1184
+  br i1 %126, label %127, label %135
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  %127 = load i32, ptr %126, align 4
-  %128 = icmp eq i32 %127, %.1178246
-  br i1 %128, label %129, label %133
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 4
+  %129 = load i32, ptr %128, align 4
+  %130 = icmp eq i32 %129, %.1180246
+  br i1 %130, label %131, label %135
 
-129:                                              ; preds = %125
-  %130 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %131 = load i32, ptr %130, align 8
-  %132 = icmp eq i32 %131, %.1176248
-  br i1 %132, label %drive_get.exit230, label %133
+131:                                              ; preds = %127
+  %132 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %133 = load i32, ptr %132, align 8
+  %134 = icmp eq i32 %133, %.1178248
+  br i1 %134, label %drive_get.exit230, label %135
 
-133:                                              ; preds = %129, %125, %122, %.lr.ph.i225
-  %134 = call ptr @blk_next(ptr noundef nonnull %.015.i226) #14
-  %.not.i228 = icmp eq ptr %134, null
+135:                                              ; preds = %131, %127, %124, %.lr.ph.i225
+  %136 = call ptr @blk_next(ptr noundef nonnull %.015.i226) #14
+  %.not.i228 = icmp eq ptr %136, null
   br i1 %.not.i228, label %.loopexit, label %.lr.ph.i225, !llvm.loop !9
 
-drive_get.exit230:                                ; preds = %129
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 941, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.69, i32 noundef %.1178246, i32 noundef %.1176248, i32 noundef %81) #14
-  br label %174
+drive_get.exit230:                                ; preds = %131
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 941, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.69, i32 noundef %.1180246, i32 noundef %.1178248, i32 noundef %83) #14
+  br label %176
 
-.loopexit:                                        ; preds = %133, %119
-  %135 = call ptr @qemu_opts_id(ptr noundef %0) #14
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %137, label %146
+.loopexit:                                        ; preds = %135, %121
+  %137 = call ptr @qemu_opts_id(ptr noundef %0) #14
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %139, label %148
 
-137:                                              ; preds = %.loopexit
-  %138 = add i32 %.1182, -1
-  %or.cond3 = icmp ult i32 %138, 2
-  %spec.select = select i1 %or.cond3, ptr %61, ptr @.str.70
-  %139 = getelementptr inbounds [9 x ptr], ptr @if_name, i64 0, i64 %82
-  %140 = load ptr, ptr %139, align 8
-  br i1 %.not207250, label %143, label %141
+139:                                              ; preds = %.loopexit
+  %140 = add i32 %.1184, -1
+  %or.cond5 = icmp ult i32 %140, 2
+  %spec.select = select i1 %or.cond5, ptr %61, ptr @.str.70
+  %141 = getelementptr inbounds [9 x ptr], ptr @if_name, i64 0, i64 %84
+  %142 = load ptr, ptr %141, align 8
+  br i1 %.not208250, label %145, label %143
 
-141:                                              ; preds = %137
-  %142 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.73, ptr noundef %140, i32 noundef %.1178246, ptr noundef nonnull %spec.select, i32 noundef %.1176248) #14
-  br label %145
+143:                                              ; preds = %139
+  %144 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.73, ptr noundef %142, i32 noundef %.1180246, ptr noundef nonnull %spec.select, i32 noundef %.1178248) #14
+  br label %147
 
-143:                                              ; preds = %137
-  %144 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, ptr noundef %140, ptr noundef nonnull %spec.select, i32 noundef %.1176248) #14
-  br label %145
+145:                                              ; preds = %139
+  %146 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, ptr noundef %142, ptr noundef nonnull %spec.select, i32 noundef %.1178248) #14
+  br label %147
 
-145:                                              ; preds = %143, %141
-  %.0170 = phi ptr [ %142, %141 ], [ %144, %143 ]
-  call void @qdict_put_str(ptr noundef %49, ptr noundef nonnull @.str.75, ptr noundef %.0170) #14
-  call void @g_free(ptr noundef %.0170) #14
-  br label %146
+147:                                              ; preds = %145, %143
+  %.0172 = phi ptr [ %144, %143 ], [ %146, %145 ]
+  call void @qdict_put_str(ptr noundef %49, ptr noundef nonnull @.str.75, ptr noundef %.0172) #14
+  call void @g_free(ptr noundef %.0172) #14
+  br label %148
 
-146:                                              ; preds = %145, %.loopexit
-  switch i32 %.1182, label %153 [
+148:                                              ; preds = %147, %.loopexit
+  switch i32 %.1184, label %155 [
     i32 7, label %.sink.split
-    i32 8, label %147
+    i32 8, label %149
   ]
 
-147:                                              ; preds = %146
+149:                                              ; preds = %148
   br label %.sink.split
 
-.sink.split:                                      ; preds = %146, %147
-  %.sink299 = phi ptr [ %62, %147 ], [ @.str.78, %146 ]
-  %148 = call ptr @qemu_find_opts(ptr noundef nonnull @.str.76) #14
-  %149 = call ptr @qemu_opts_create(ptr noundef %148, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #14
-  %150 = call zeroext i1 @qemu_opt_set(ptr noundef %149, ptr noundef nonnull @.str.77, ptr noundef nonnull %.sink299, ptr noundef nonnull @error_abort) #14
-  %151 = call ptr @qdict_get_str(ptr noundef %49, ptr noundef nonnull @.str.75) #14
-  %152 = call zeroext i1 @qemu_opt_set(ptr noundef %149, ptr noundef nonnull @.str.3, ptr noundef %151, ptr noundef nonnull @error_abort) #14
-  br label %153
+.sink.split:                                      ; preds = %148, %149
+  %.sink299 = phi ptr [ %62, %149 ], [ @.str.78, %148 ]
+  %150 = call ptr @qemu_find_opts(ptr noundef nonnull @.str.76) #14
+  %151 = call ptr @qemu_opts_create(ptr noundef %150, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #14
+  %152 = call zeroext i1 @qemu_opt_set(ptr noundef %151, ptr noundef nonnull @.str.77, ptr noundef nonnull %.sink299, ptr noundef nonnull @error_abort) #14
+  %153 = call ptr @qdict_get_str(ptr noundef %49, ptr noundef nonnull @.str.75) #14
+  %154 = call zeroext i1 @qemu_opt_set(ptr noundef %151, ptr noundef nonnull @.str.3, ptr noundef %153, ptr noundef nonnull @error_abort) #14
+  br label %155
 
-153:                                              ; preds = %.sink.split, %146
-  %154 = call ptr @qemu_opt_get(ptr noundef %51, ptr noundef nonnull @.str.6) #14
-  %155 = call ptr @qemu_opt_get(ptr noundef %51, ptr noundef nonnull @.str.24) #14
-  %.not210 = icmp eq ptr %155, null
-  br i1 %.not210, label %159, label %156
+155:                                              ; preds = %.sink.split, %148
+  %156 = call ptr @qemu_opt_get(ptr noundef %51, ptr noundef nonnull @.str.6) #14
+  %157 = call ptr @qemu_opt_get(ptr noundef %51, ptr noundef nonnull @.str.24) #14
+  %.not211 = icmp eq ptr %157, null
+  br i1 %.not211, label %161, label %158
 
-156:                                              ; preds = %153
-  switch i32 %.1182, label %157 [
-    i32 7, label %158
-    i32 2, label %158
-    i32 1, label %158
-    i32 0, label %158
+158:                                              ; preds = %155
+  switch i32 %.1184, label %159 [
+    i32 7, label %160
+    i32 2, label %160
+    i32 1, label %160
+    i32 0, label %160
   ]
 
-157:                                              ; preds = %156
+159:                                              ; preds = %158
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 989, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.81) #14
-  br label %174
+  br label %176
 
-158:                                              ; preds = %156, %156, %156, %156
-  call void @qdict_put_str(ptr noundef %49, ptr noundef nonnull @.str.24, ptr noundef nonnull %155) #14
-  br label %159
+160:                                              ; preds = %158, %158, %158, %158
+  call void @qdict_put_str(ptr noundef %49, ptr noundef nonnull @.str.24, ptr noundef nonnull %157) #14
+  br label %161
 
-159:                                              ; preds = %158, %153
-  %160 = call ptr @qemu_opt_get(ptr noundef %51, ptr noundef nonnull @.str.22) #14
-  %.not211 = icmp eq ptr %160, null
-  br i1 %.not211, label %164, label %161
+161:                                              ; preds = %160, %155
+  %162 = call ptr @qemu_opt_get(ptr noundef %51, ptr noundef nonnull @.str.22) #14
+  %.not212 = icmp eq ptr %162, null
+  br i1 %.not212, label %166, label %163
 
-161:                                              ; preds = %159
-  switch i32 %.1182, label %162 [
-    i32 7, label %163
-    i32 2, label %163
-    i32 1, label %163
-    i32 0, label %163
+163:                                              ; preds = %161
+  switch i32 %.1184, label %164 [
+    i32 7, label %165
+    i32 2, label %165
+    i32 1, label %165
+    i32 0, label %165
   ]
 
-162:                                              ; preds = %161
+164:                                              ; preds = %163
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 999, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.82) #14
-  br label %174
+  br label %176
 
-163:                                              ; preds = %161, %161, %161, %161
-  call void @qdict_put_str(ptr noundef %49, ptr noundef nonnull @.str.22, ptr noundef nonnull %160) #14
-  br label %164
+165:                                              ; preds = %163, %163, %163, %163
+  call void @qdict_put_str(ptr noundef %49, ptr noundef nonnull @.str.22, ptr noundef nonnull %162) #14
+  br label %166
 
-164:                                              ; preds = %163, %159
-  %165 = call fastcc ptr @blockdev_init(ptr noundef %154, ptr noundef %49, ptr noundef %2)
-  %.not212 = icmp eq ptr %165, null
-  br i1 %.not212, label %.thread253, label %166
+166:                                              ; preds = %165, %161
+  %167 = call fastcc ptr @blockdev_init(ptr noundef %156, ptr noundef %49, ptr noundef %2)
+  %.not213 = icmp eq ptr %167, null
+  br i1 %.not213, label %.thread253, label %168
 
-166:                                              ; preds = %164
-  %167 = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #18
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  store ptr %0, ptr %168, align 8
-  store i32 %.1182, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %167, i64 4
-  store i32 %.1178246, ptr %169, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  store i32 %.1176248, ptr %170, align 8
-  %171 = call ptr @blk_set_legacy_dinfo(ptr noundef nonnull %165, ptr noundef nonnull %167) #14
-  switch i32 %.1182, label %.thread253 [
-    i32 1, label %172
-    i32 2, label %172
-    i32 8, label %172
-    i32 0, label %172
+168:                                              ; preds = %166
+  %169 = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #18
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
+  store ptr %0, ptr %170, align 8
+  store i32 %.1184, ptr %169, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 4
+  store i32 %.1180246, ptr %171, align 4
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  store i32 %.1178248, ptr %172, align 8
+  %173 = call ptr @blk_set_legacy_dinfo(ptr noundef nonnull %167, ptr noundef nonnull %169) #14
+  switch i32 %.1184, label %.thread253 [
+    i32 1, label %174
+    i32 2, label %174
+    i32 8, label %174
+    i32 0, label %174
   ]
 
-172:                                              ; preds = %166, %166, %166, %166
-  %173 = getelementptr inbounds nuw i8, ptr %167, i64 20
-  store i32 %.0183, ptr %173, align 4
+174:                                              ; preds = %168, %168, %168, %168
+  %175 = getelementptr inbounds nuw i8, ptr %169, i64 20
+  store i32 %.0185, ptr %175, align 4
   br label %.thread253
 
-.thread253:                                       ; preds = %166, %172, %164
-  %.0167.ph = phi ptr [ null, %164 ], [ %167, %172 ], [ %167, %166 ]
+.thread253:                                       ; preds = %168, %174, %166
+  %.0169.ph = phi ptr [ null, %166 ], [ %169, %174 ], [ %169, %168 ]
   call void @qemu_opts_del(ptr noundef %51) #14
   br label %qobject_unref_impl.exit
 
-174:                                              ; preds = %48, %162, %157, %drive_get.exit230, %115, %88, %.critedge, %59
+176:                                              ; preds = %48, %164, %159, %drive_get.exit230, %117, %90, %.critedge, %59
   call void @qemu_opts_del(ptr noundef %51) #14
-  %.not215 = icmp eq ptr %49, null
-  br i1 %.not215, label %qobject_unref_impl.exit, label %175
+  %.not216 = icmp eq ptr %49, null
+  br i1 %.not216, label %qobject_unref_impl.exit, label %177
 
-175:                                              ; preds = %174
-  %176 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %177 = load i64, ptr %176, align 8
-  %.not5.i = icmp eq i64 %177, 0
-  br i1 %.not5.i, label %178, label %179
+177:                                              ; preds = %176
+  %178 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %179 = load i64, ptr %178, align 8
+  %.not5.i = icmp eq i64 %179, 0
+  br i1 %.not5.i, label %180, label %181
 
-178:                                              ; preds = %175
+180:                                              ; preds = %177
   call void @__assert_fail(ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.208, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #15
   unreachable
 
-179:                                              ; preds = %175
-  %180 = add i64 %177, -1
-  store i64 %180, ptr %176, align 8
-  %181 = icmp eq i64 %180, 0
-  br i1 %181, label %182, label %qobject_unref_impl.exit
+181:                                              ; preds = %177
+  %182 = add i64 %179, -1
+  store i64 %182, ptr %178, align 8
+  %183 = icmp eq i64 %182, 0
+  br i1 %183, label %184, label %qobject_unref_impl.exit
 
-182:                                              ; preds = %179
+184:                                              ; preds = %181
   call void @qobject_destroy(ptr noundef nonnull %49) #14
   br label %qobject_unref_impl.exit
 
-qobject_unref_impl.exit:                          ; preds = %182, %179, %174, %.thread253, %47, %qemu_opt_rename.exit
-  %.0 = phi ptr [ null, %47 ], [ null, %qemu_opt_rename.exit ], [ %.0167.ph, %.thread253 ], [ null, %174 ], [ null, %179 ], [ null, %182 ]
+qobject_unref_impl.exit:                          ; preds = %184, %181, %176, %.thread253, %47, %qemu_opt_rename.exit
+  %.0 = phi ptr [ null, %47 ], [ null, %qemu_opt_rename.exit ], [ %.0169.ph, %.thread253 ], [ null, %176 ], [ null, %181 ], [ null, %184 ]
   ret ptr %.0
 }
 
@@ -3669,10 +3669,10 @@ define dso_local void @qmp_block_stream(ptr noundef %0, ptr noundef %1, ptr noun
 
 31:                                               ; preds = %29
   %spec.select = and i1 %5, %6
-  %.098 = select i1 %10, i32 %11, i32 0
+  %.0103 = select i1 %10, i32 %11, i32 0
   %32 = tail call ptr @bdrv_lookup_bs(ptr noundef %1, ptr noundef %1, ptr noundef %17) #14
-  %.not = icmp eq ptr %32, null
-  br i1 %.not, label %97, label %33
+  %.not113 = icmp eq ptr %32, null
+  br i1 %.not113, label %97, label %33
 
 33:                                               ; preds = %31
   %34 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %32) #14
@@ -3698,13 +3698,13 @@ define dso_local void @qmp_block_stream(ptr noundef %0, ptr noundef %1, ptr noun
   unreachable
 
 43:                                               ; preds = %39, %33
-  %.094 = phi ptr [ %36, %39 ], [ null, %33 ]
+  %.099 = phi ptr [ %36, %39 ], [ null, %33 ]
   br i1 %24, label %44, label %56
 
 44:                                               ; preds = %43
   %45 = tail call ptr @bdrv_lookup_bs(ptr noundef null, ptr noundef nonnull %3, ptr noundef %17) #14
-  %.not108 = icmp eq ptr %45, null
-  br i1 %.not108, label %.loopexit, label %46
+  %.not114 = icmp eq ptr %45, null
+  br i1 %.not114, label %.loopexit, label %46
 
 46:                                               ; preds = %44
   %47 = icmp eq ptr %32, %45
@@ -3732,19 +3732,19 @@ define dso_local void @qmp_block_stream(ptr noundef %0, ptr noundef %1, ptr noun
   br label %56
 
 56:                                               ; preds = %55, %43
-  %.195 = phi ptr [ %45, %55 ], [ %.094, %43 ]
+  %.1100 = phi ptr [ %45, %55 ], [ %.099, %43 ]
   br i1 %27, label %57, label %bdrv_filter_or_cow_bs.exit
 
 57:                                               ; preds = %56
   %58 = tail call ptr @bdrv_lookup_bs(ptr noundef null, ptr noundef nonnull %7, ptr noundef %17) #14
-  %.not109 = icmp eq ptr %58, null
-  br i1 %.not109, label %.loopexit, label %59
+  %.not115 = icmp eq ptr %58, null
+  br i1 %.not115, label %.loopexit, label %59
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %61 = load ptr, ptr %60, align 8
-  %.not110 = icmp eq ptr %61, null
-  br i1 %.not110, label %62, label %63
+  %.not116 = icmp eq ptr %61, null
+  br i1 %.not116, label %62, label %63
 
 62:                                               ; preds = %59
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %17, ptr noundef nonnull @.str.1, i32 noundef 2382, ptr noundef nonnull @__func__.qmp_block_stream, ptr noundef nonnull @.str.96, ptr noundef nonnull %7) #14
@@ -3787,37 +3787,37 @@ define dso_local void @qmp_block_stream(ptr noundef %0, ptr noundef %1, ptr noun
   br label %bdrv_filter_or_cow_bs.exit
 
 bdrv_filter_or_cow_bs.exit:                       ; preds = %77, %56
-  %.093117 = phi ptr [ null, %56 ], [ %58, %77 ]
-  %79 = phi ptr [ %.195, %56 ], [ %78, %77 ]
-  %.not120 = icmp eq ptr %32, %79
-  br i1 %.not120, label %._crit_edge, label %.lr.ph.preheader
+  %.098122 = phi ptr [ null, %56 ], [ %58, %77 ]
+  %79 = phi ptr [ %.1100, %56 ], [ %78, %77 ]
+  %.not125 = icmp eq ptr %32, %79
+  br i1 %.not125, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %75, %bdrv_filter_or_cow_bs.exit
   %80 = phi ptr [ %79, %bdrv_filter_or_cow_bs.exit ], [ null, %75 ]
-  %.093117123 = phi ptr [ %.093117, %bdrv_filter_or_cow_bs.exit ], [ %58, %75 ]
+  %.098122128 = phi ptr [ %.098122, %bdrv_filter_or_cow_bs.exit ], [ %58, %75 ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %bdrv_filter_or_cow_bs.exit115
-  %.096119 = phi ptr [ %84, %bdrv_filter_or_cow_bs.exit115 ], [ %32, %.lr.ph.preheader ]
-  %81 = tail call zeroext i1 @bdrv_op_is_blocked(ptr noundef nonnull %.096119, i32 noundef 13, ptr noundef %17) #14
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %bdrv_filter_or_cow_bs.exit120
+  %.0101124 = phi ptr [ %84, %bdrv_filter_or_cow_bs.exit120 ], [ %32, %.lr.ph.preheader ]
+  %81 = tail call zeroext i1 @bdrv_op_is_blocked(ptr noundef nonnull %.0101124, i32 noundef 13, ptr noundef %17) #14
   br i1 %81, label %.loopexit, label %82
 
 82:                                               ; preds = %.lr.ph
-  %83 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef nonnull %.096119) #14
-  %.not.i.i114 = icmp eq ptr %83, null
-  br i1 %.not.i.i114, label %._crit_edge, label %bdrv_filter_or_cow_bs.exit115
+  %83 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef nonnull %.0101124) #14
+  %.not.i.i119 = icmp eq ptr %83, null
+  br i1 %.not.i.i119, label %._crit_edge, label %bdrv_filter_or_cow_bs.exit120
 
-bdrv_filter_or_cow_bs.exit115:                    ; preds = %82
+bdrv_filter_or_cow_bs.exit120:                    ; preds = %82
   %84 = load ptr, ptr %83, align 8
   %85 = icmp ne ptr %84, null
   %86 = icmp ne ptr %84, %80
   %87 = and i1 %85, %86
   br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %82, %bdrv_filter_or_cow_bs.exit115, %bdrv_filter_or_cow_bs.exit
-  %.093117124 = phi ptr [ %.093117, %bdrv_filter_or_cow_bs.exit ], [ %.093117123, %bdrv_filter_or_cow_bs.exit115 ], [ %.093117123, %82 ]
+._crit_edge:                                      ; preds = %82, %bdrv_filter_or_cow_bs.exit120, %bdrv_filter_or_cow_bs.exit
+  %.098122129 = phi ptr [ %.098122, %bdrv_filter_or_cow_bs.exit ], [ %.098122128, %bdrv_filter_or_cow_bs.exit120 ], [ %.098122128, %82 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #14
-  %88 = icmp eq ptr %.195, null
+  %88 = icmp eq ptr %.1100, null
   %89 = icmp ne ptr %4, null
   %or.cond7 = and i1 %89, %88
   br i1 %or.cond7, label %90, label %91
@@ -3827,16 +3827,18 @@ bdrv_filter_or_cow_bs.exit115:                    ; preds = %82
   br label %97
 
 91:                                               ; preds = %._crit_edge
-  %spec.select112 = select i1 %14, i32 0, i32 2
-  %.0 = select i1 %13, i32 %spec.select112, i32 0
-  %92 = or disjoint i32 %.0, 4
-  %spec.select113 = select i1 %16, i32 %.0, i32 %92
-  %.1 = select i1 %15, i32 %spec.select113, i32 %.0
+  %.not = xor i1 %13, true
+  %or.cond9 = or i1 %14, %.not
+  %spec.select118 = select i1 %or.cond9, i32 0, i32 2
+  %.not10 = xor i1 %15, true
+  %or.cond12 = or i1 %16, %.not10
+  %92 = or disjoint i32 %spec.select118, 4
+  %.1 = select i1 %or.cond12, i32 %spec.select118, i32 %92
   %93 = select i1 %8, i64 %9, i64 0
-  call void @stream_start(ptr noundef %0, ptr noundef nonnull %32, ptr noundef %.195, ptr noundef %4, i1 noundef zeroext %spec.select, ptr noundef %.093117124, i32 noundef %.1, i64 noundef %93, i32 noundef %.098, ptr noundef %12, ptr noundef nonnull %19) #14
+  call void @stream_start(ptr noundef %0, ptr noundef nonnull %32, ptr noundef %.1100, ptr noundef %4, i1 noundef zeroext %spec.select, ptr noundef %.098122129, i32 noundef %.1, i64 noundef %93, i32 noundef %.0103, ptr noundef %12, ptr noundef nonnull %19) #14
   %94 = load ptr, ptr %19, align 8
-  %.not111 = icmp eq ptr %94, null
-  br i1 %.not111, label %96, label %95
+  %.not117 = icmp eq ptr %94, null
+  br i1 %.not117, label %96, label %95
 
 95:                                               ; preds = %91
   call void @error_propagate(ptr noundef %17, ptr noundef nonnull %94) #14
@@ -3925,22 +3927,24 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
   store i64 0, ptr %22, align 8, !annotation !10
   tail call void @bdrv_graph_rdlock_main_loop() #14
   %spec.select = select i1 %9, i64 %10, i64 0
-  %.0116 = select i1 %11, i32 %12, i32 0
-  %spec.select136 = select i1 %15, i32 0, i32 2
-  %.0110 = select i1 %14, i32 %spec.select136, i32 0
-  %23 = or disjoint i32 %.0110, 4
-  %spec.select137 = select i1 %17, i32 %.0110, i32 %23
-  %.1 = select i1 %16, i32 %spec.select137, i32 %.0110
-  %spec.select138 = and i1 %7, %8
+  %.0121 = select i1 %11, i32 %12, i32 0
+  %.not = xor i1 %14, true
+  %or.cond = or i1 %15, %.not
+  %.0115 = select i1 %or.cond, i32 0, i32 2
+  %.not2 = xor i1 %16, true
+  %or.cond4 = or i1 %17, %.not2
+  %23 = or disjoint i32 %.0115, 4
+  %.1 = select i1 %or.cond4, i32 %.0115, i32 %23
+  %.0119 = and i1 %7, %8
   %24 = call fastcc ptr @qmp_get_root_bs(ptr noundef %1, ptr noundef nonnull %20)
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %25, label %30
+  %.not134 = icmp eq ptr %24, null
+  br i1 %.not134, label %25, label %30
 
 25:                                               ; preds = %19
   %26 = call ptr @bdrv_lookup_bs(ptr noundef %1, ptr noundef %1, ptr noundef null) #14
-  %.not129 = icmp eq ptr %26, null
+  %.not135 = icmp eq ptr %26, null
   %27 = load ptr, ptr %20, align 8
-  br i1 %.not129, label %28, label %29
+  br i1 %.not135, label %28, label %29
 
 28:                                               ; preds = %25
   call void @error_free(ptr noundef %27) #14
@@ -3959,8 +3963,8 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
 33:                                               ; preds = %30
   %34 = icmp ne ptr %4, null
   %35 = icmp ne ptr %5, null
-  %or.cond = and i1 %34, %35
-  br i1 %or.cond, label %36, label %37
+  %or.cond6 = and i1 %34, %35
+  br i1 %or.cond6, label %36, label %37
 
 36:                                               ; preds = %33
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %18, ptr noundef nonnull @.str.1, i32 noundef 2512, ptr noundef nonnull @__func__.qmp_block_commit, ptr noundef nonnull @.str.102) #14
@@ -3988,8 +3992,8 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
 45:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %24, i64 49
   %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %5) #17
-  %.not130 = icmp eq i32 %47, 0
-  br i1 %.not130, label %.thread, label %48
+  %.not136 = icmp eq i32 %47, 0
+  br i1 %.not136, label %.thread, label %48
 
 48:                                               ; preds = %45
   %49 = call ptr @bdrv_find_backing_image(ptr noundef nonnull %24, ptr noundef nonnull %5) #14
@@ -4001,8 +4005,8 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 .thread:                                          ; preds = %44, %45, %41, %48
-  %.0111143 = phi ptr [ %49, %48 ], [ %24, %44 ], [ %24, %45 ], [ %39, %41 ]
-  %52 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %.0111143) #14
+  %.0116146 = phi ptr [ %49, %48 ], [ %24, %44 ], [ %24, %45 ], [ %39, %41 ]
+  %52 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %.0116146) #14
   %53 = icmp eq ptr %52, %31
   br i1 %53, label %55, label %54
 
@@ -4013,8 +4017,8 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
 55:                                               ; preds = %.thread
   %56 = icmp ne ptr %2, null
   %57 = icmp ne ptr %3, null
-  %or.cond3 = and i1 %56, %57
-  br i1 %or.cond3, label %58, label %59
+  %or.cond8 = and i1 %56, %57
+  br i1 %or.cond8, label %58, label %59
 
 58:                                               ; preds = %55
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %18, ptr noundef nonnull @.str.1, i32 noundef 2542, ptr noundef nonnull @__func__.qmp_block_commit, ptr noundef nonnull @.str.107) #14
@@ -4029,7 +4033,7 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %62, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %63
 
 63:                                               ; preds = %60
-  %64 = call zeroext i1 @bdrv_chain_contains(ptr noundef nonnull %.0111143, ptr noundef nonnull %61) #14
+  %64 = call zeroext i1 @bdrv_chain_contains(ptr noundef nonnull %.0116146, ptr noundef nonnull %61) #14
   br i1 %64, label %75, label %65
 
 65:                                               ; preds = %63
@@ -4040,7 +4044,7 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %57, label %67, label %71
 
 67:                                               ; preds = %66
-  %68 = call ptr @bdrv_find_backing_image(ptr noundef nonnull %.0111143, ptr noundef nonnull %3) #14
+  %68 = call ptr @bdrv_find_backing_image(ptr noundef nonnull %.0116146, ptr noundef nonnull %3) #14
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %75
 
@@ -4049,7 +4053,7 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 71:                                               ; preds = %66
-  %72 = call ptr @bdrv_find_base(ptr noundef nonnull %.0111143) #14
+  %72 = call ptr @bdrv_find_base(ptr noundef nonnull %.0116146) #14
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %75
 
@@ -4058,8 +4062,8 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 75:                                               ; preds = %63, %71, %67
-  %.0112 = phi ptr [ %61, %63 ], [ %68, %67 ], [ %72, %71 ]
-  %76 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %.0112) #14
+  %.0117 = phi ptr [ %61, %63 ], [ %68, %67 ], [ %72, %71 ]
+  %76 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %.0117) #14
   %77 = icmp eq ptr %76, %31
   br i1 %77, label %.preheader, label %78
 
@@ -4068,8 +4072,8 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
   unreachable
 
 .preheader:                                       ; preds = %75, %.preheader.backedge
-  %.0113 = phi ptr [ %.0113.be, %.preheader.backedge ], [ %.0111143, %75 ]
-  %79 = call ptr @bdrv_filter_or_cow_child(ptr noundef nonnull %.0112) #14
+  %.0118 = phi ptr [ %.0118.be, %.preheader.backedge ], [ %.0116146, %75 ]
+  %79 = call ptr @bdrv_filter_or_cow_child(ptr noundef nonnull %.0117) #14
   %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %bdrv_filter_or_cow_bs.exit, label %80
 
@@ -4079,20 +4083,20 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
 
 bdrv_filter_or_cow_bs.exit:                       ; preds = %.preheader, %80
   %82 = phi ptr [ %81, %80 ], [ null, %.preheader ]
-  %.not131 = icmp eq ptr %.0113, %82
-  br i1 %.not131, label %89, label %83
+  %.not137 = icmp eq ptr %.0118, %82
+  br i1 %.not137, label %89, label %83
 
 83:                                               ; preds = %bdrv_filter_or_cow_bs.exit
-  %84 = call zeroext i1 @bdrv_op_is_blocked(ptr noundef %.0113, i32 noundef 4, ptr noundef %18) #14
+  %84 = call zeroext i1 @bdrv_op_is_blocked(ptr noundef %.0118, i32 noundef 4, ptr noundef %18) #14
   br i1 %84, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %85
 
 85:                                               ; preds = %83
-  %86 = call ptr @bdrv_filter_or_cow_child(ptr noundef %.0113) #14
-  %.not.i.i139 = icmp eq ptr %86, null
-  br i1 %.not.i.i139, label %.preheader.backedge, label %87
+  %86 = call ptr @bdrv_filter_or_cow_child(ptr noundef %.0118) #14
+  %.not.i.i142 = icmp eq ptr %86, null
+  br i1 %.not.i.i142, label %.preheader.backedge, label %87
 
 .preheader.backedge:                              ; preds = %85, %87
-  %.0113.be = phi ptr [ %88, %87 ], [ null, %85 ]
+  %.0118.be = phi ptr [ %88, %87 ], [ null, %85 ]
   br label %.preheader, !llvm.loop !22
 
 87:                                               ; preds = %85
@@ -4100,7 +4104,7 @@ bdrv_filter_or_cow_bs.exit:                       ; preds = %.preheader, %80
   br label %.preheader.backedge
 
 89:                                               ; preds = %bdrv_filter_or_cow_bs.exit
-  %90 = icmp eq ptr %.0111143, %.0112
+  %90 = icmp eq ptr %.0116146, %.0117
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %89
@@ -4108,24 +4112,24 @@ bdrv_filter_or_cow_bs.exit:                       ; preds = %.preheader, %80
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 92:                                               ; preds = %89
-  call void @bdrv_get_cumulative_perm(ptr noundef nonnull %.0111143, ptr noundef nonnull %21, ptr noundef nonnull %22) #14
+  call void @bdrv_get_cumulative_perm(ptr noundef nonnull %.0116146, ptr noundef nonnull %21, ptr noundef nonnull %22) #14
   %93 = load i64, ptr %21, align 8
   %94 = and i64 %93, 2
-  %.not132 = icmp eq i64 %94, 0
-  br i1 %.not132, label %95, label %99
+  %.not138 = icmp eq i64 %94, 0
+  br i1 %.not138, label %95, label %99
 
 95:                                               ; preds = %92
-  %96 = call ptr @bdrv_skip_filters(ptr noundef nonnull %.0111143) #14
+  %96 = call ptr @bdrv_skip_filters(ptr noundef nonnull %.0116146) #14
   %97 = call ptr @bdrv_skip_filters(ptr noundef nonnull %24) #14
   %98 = icmp eq ptr %96, %97
   br i1 %98, label %99, label %111
 
 99:                                               ; preds = %95, %92
-  %.not133 = icmp eq ptr %6, null
-  br i1 %.not133, label %106, label %100
+  %.not139 = icmp eq ptr %6, null
+  br i1 %.not139, label %106, label %100
 
 100:                                              ; preds = %99
-  %101 = call ptr @bdrv_skip_filters(ptr noundef nonnull %.0111143) #14
+  %101 = call ptr @bdrv_skip_filters(ptr noundef nonnull %.0116146) #14
   %102 = call ptr @bdrv_skip_filters(ptr noundef nonnull %24) #14
   %103 = icmp eq ptr %101, %102
   br i1 %103, label %104, label %105
@@ -4139,8 +4143,8 @@ bdrv_filter_or_cow_bs.exit:                       ; preds = %.preheader, %80
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 106:                                              ; preds = %99
-  %.not134 = icmp eq ptr %0, null
-  br i1 %.not134, label %107, label %109
+  %.not140 = icmp eq ptr %0, null
+  br i1 %.not140, label %107, label %109
 
 107:                                              ; preds = %106
   %108 = call ptr @bdrv_get_device_name(ptr noundef nonnull %24) #14
@@ -4148,22 +4152,22 @@ bdrv_filter_or_cow_bs.exit:                       ; preds = %.preheader, %80
 
 109:                                              ; preds = %107, %106
   %.0 = phi ptr [ %0, %106 ], [ %108, %107 ]
-  %110 = call ptr @commit_active_start(ptr noundef %.0, ptr noundef nonnull %.0111143, ptr noundef nonnull %.0112, i32 noundef %.1, i64 noundef %spec.select, i32 noundef %.0116, ptr noundef %13, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %20) #14
+  %110 = call ptr @commit_active_start(ptr noundef %.0, ptr noundef nonnull %.0116146, ptr noundef nonnull %.0117, i32 noundef %.1, i64 noundef %spec.select, i32 noundef %.0121, ptr noundef %13, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %20) #14
   br label %115
 
 111:                                              ; preds = %95
-  %112 = call ptr @bdrv_find_overlay(ptr noundef nonnull %24, ptr noundef nonnull %.0111143) #14
+  %112 = call ptr @bdrv_find_overlay(ptr noundef nonnull %24, ptr noundef nonnull %.0116146) #14
   %113 = call zeroext i1 @bdrv_op_is_blocked(ptr noundef %112, i32 noundef 4, ptr noundef %18) #14
   br i1 %113, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %114
 
 114:                                              ; preds = %111
-  call void @commit_start(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %.0112, ptr noundef nonnull %.0111143, i32 noundef %.1, i64 noundef %spec.select, i32 noundef %.0116, ptr noundef %6, i1 noundef zeroext %spec.select138, ptr noundef %13, ptr noundef nonnull %20) #14
+  call void @commit_start(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %.0117, ptr noundef nonnull %.0116146, i32 noundef %.1, i64 noundef %spec.select, i32 noundef %.0121, ptr noundef %6, i1 noundef zeroext %.0119, ptr noundef %13, ptr noundef nonnull %20) #14
   br label %115
 
 115:                                              ; preds = %114, %109
   %116 = load ptr, ptr %20, align 8
-  %.not135 = icmp eq ptr %116, null
-  br i1 %.not135, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %117
+  %.not141 = icmp eq ptr %116, null
+  br i1 %.not141, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %117
 
 117:                                              ; preds = %115
   call void @error_propagate(ptr noundef %18, ptr noundef nonnull %116) #14
@@ -4576,32 +4580,34 @@ define internal fastcc void @blockdev_mirror_common(ptr noundef %0, ptr noundef 
 30:                                               ; preds = %27
   tail call void @bdrv_graph_rdlock_main_loop() #14
   %spec.select = select i1 %7, i64 %8, i64 0
-  %.073 = select i1 %13, i32 %14, i32 0
-  %.074 = select i1 %15, i32 %16, i32 0
-  %.070 = select i1 %9, i32 %10, i32 0
-  %.071 = select i1 %11, i64 %12, i64 0
+  %.078 = select i1 %13, i32 %14, i32 0
+  %.079 = select i1 %15, i32 %16, i32 0
+  %.075 = select i1 %9, i32 %10, i32 0
+  %.076 = select i1 %11, i64 %12, i64 0
   %not. = xor i1 %17, true
-  %.075 = or i1 %18, %not.
-  %.072 = select i1 %20, i32 %21, i32 0
-  %spec.select90 = select i1 %23, i32 0, i32 2
-  %.067 = select i1 %22, i32 %spec.select90, i32 0
-  %31 = or disjoint i32 %.067, 4
-  %spec.select91 = select i1 %25, i32 %.067, i32 %31
-  %.1 = select i1 %24, i32 %spec.select91, i32 %.067
-  %.not = icmp ne i32 %.070, 0
-  %32 = add i32 %.070, -67108865
-  %or.cond = icmp ult i32 %32, -67108353
-  %or.cond92 = and i1 %.not, %or.cond
-  br i1 %or.cond92, label %33, label %34
+  %.080 = or i1 %18, %not.
+  %.077 = select i1 %20, i32 %21, i32 0
+  %.not = xor i1 %22, true
+  %or.cond = or i1 %23, %.not
+  %.072 = select i1 %or.cond, i32 0, i32 2
+  %.not2 = xor i1 %24, true
+  %or.cond4 = or i1 %25, %.not2
+  %31 = or disjoint i32 %.072, 4
+  %.1 = select i1 %or.cond4, i32 %.072, i32 %31
+  %.not89 = icmp ne i32 %.075, 0
+  %32 = add i32 %.075, -67108865
+  %or.cond6 = icmp ult i32 %32, -67108353
+  %or.cond96 = and i1 %.not89, %or.cond6
+  br i1 %or.cond96, label %33, label %34
 
 33:                                               ; preds = %30
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %26, ptr noundef nonnull @.str.1, i32 noundef 2852, ptr noundef nonnull @__func__.blockdev_mirror_common, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.241, ptr noundef nonnull @.str.242) #14
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 34:                                               ; preds = %30
-  %35 = tail call range(i32 0, 28) i32 @llvm.ctpop.i32(i32 %.070)
-  %.not84 = icmp samesign ult i32 %35, 2
-  br i1 %.not84, label %37, label %36
+  %35 = tail call range(i32 0, 28) i32 @llvm.ctpop.i32(i32 %.075)
+  %.not90 = icmp samesign ult i32 %35, 2
+  br i1 %.not90, label %37, label %36
 
 36:                                               ; preds = %34
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %26, ptr noundef nonnull @.str.1, i32 noundef 2857, ptr noundef nonnull @__func__.blockdev_mirror_common, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.241, ptr noundef nonnull @.str.243) #14
@@ -4619,19 +4625,19 @@ define internal fastcc void @blockdev_mirror_common(ptr noundef %0, ptr noundef 
   %42 = tail call ptr @bdrv_backing_chain_next(ptr noundef nonnull %1) #14
   %43 = icmp eq ptr %42, null
   %44 = icmp eq i32 %4, 0
-  %or.cond3 = and i1 %44, %43
-  %spec.store.select = select i1 %or.cond3, i32 1, i32 %4
-  %.not85 = icmp eq ptr %3, null
-  br i1 %.not85, label %45, label %48
+  %or.cond8 = and i1 %44, %43
+  %spec.store.select = select i1 %or.cond8, i32 1, i32 %4
+  %.not91 = icmp eq ptr %3, null
+  br i1 %.not91, label %45, label %48
 
 45:                                               ; preds = %41
   %46 = tail call ptr @bdrv_skip_implicit_filters(ptr noundef nonnull %1) #14
-  %.not86 = icmp eq ptr %46, %1
+  %.not92 = icmp eq ptr %46, %1
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16600
-  br i1 %.not86, label %64, label %48
+  br i1 %.not92, label %64, label %48
 
 48:                                               ; preds = %41, %45
-  %.068.ph = phi ptr [ %47, %45 ], [ %3, %41 ]
+  %.073.ph = phi ptr [ %47, %45 ], [ %3, %41 ]
   %49 = tail call i64 @bdrv_getlength(ptr noundef nonnull %1) #14
   %50 = icmp slt i64 %49, 0
   br i1 %50, label %51, label %54
@@ -4643,9 +4649,9 @@ define internal fastcc void @blockdev_mirror_common(ptr noundef %0, ptr noundef 
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 54:                                               ; preds = %48
-  %55 = tail call ptr @check_to_replace_node(ptr noundef nonnull %1, ptr noundef nonnull %.068.ph, ptr noundef %26) #14
-  %.not88 = icmp eq ptr %55, null
-  br i1 %.not88, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %56
+  %55 = tail call ptr @check_to_replace_node(ptr noundef nonnull %1, ptr noundef nonnull %.073.ph, ptr noundef %26) #14
+  %.not94 = icmp eq ptr %55, null
+  br i1 %.not94, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %56
 
 56:                                               ; preds = %54
   %57 = tail call i64 @bdrv_getlength(ptr noundef nonnull %55) #14
@@ -4659,16 +4665,16 @@ define internal fastcc void @blockdev_mirror_common(ptr noundef %0, ptr noundef 
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 62:                                               ; preds = %56
-  %.not89 = icmp eq i64 %49, %57
-  br i1 %.not89, label %64, label %63
+  %.not95 = icmp eq i64 %49, %57
+  br i1 %.not95, label %64, label %63
 
 63:                                               ; preds = %62
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %26, ptr noundef nonnull @.str.1, i32 noundef 2904, ptr noundef nonnull @__func__.blockdev_mirror_common, ptr noundef nonnull @.str.246) #14
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 64:                                               ; preds = %45, %62
-  %.06897 = phi ptr [ %.068.ph, %62 ], [ null, %45 ]
-  tail call void @mirror_start(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.06897, i32 noundef %.1, i64 noundef %spec.select, i32 noundef %.070, i64 noundef %.071, i32 noundef %spec.store.select, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %.073, i32 noundef %.074, i1 noundef zeroext %.075, ptr noundef %19, i32 noundef %.072, ptr noundef %26) #14
+  %.073101 = phi ptr [ %.073.ph, %62 ], [ null, %45 ]
+  tail call void @mirror_start(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.073101, i32 noundef %.1, i64 noundef %spec.select, i32 noundef %.075, i64 noundef %.076, i32 noundef %spec.store.select, i32 noundef %5, i1 noundef zeroext %6, i32 noundef %.078, i32 noundef %.079, i1 noundef zeroext %.080, ptr noundef %19, i32 noundef %.077, ptr noundef %26) #14
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %51, %59, %63, %54, %39, %37, %64, %36, %33
@@ -4759,9 +4765,9 @@ find_block_job_locked.exit.thread:                ; preds = %9
 find_block_job_locked.exit:                       ; preds = %9
   %spec.select = and i1 %1, %2
   %11 = tail call zeroext i1 @job_user_paused_locked(ptr noundef nonnull %10) #14
-  %.not12 = xor i1 %11, true
-  %brmerge = or i1 %spec.select, %.not12
-  br i1 %brmerge, label %13, label %12
+  %.not = xor i1 %11, true
+  %or.cond = or i1 %spec.select, %.not
+  br i1 %or.cond, label %13, label %12
 
 12:                                               ; preds = %find_block_job_locked.exit
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 3182, ptr noundef nonnull @__func__.qmp_block_job_cancel, ptr noundef nonnull @.str.116, ptr noundef nonnull %0) #14
@@ -5799,8 +5805,8 @@ define dso_local void @qmp_x_blockdev_set_iothread(ptr noundef %0, ptr noundef r
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 8:                                                ; preds = %5
-  %brmerge.demorgan = and i1 %2, %3
-  br i1 %brmerge.demorgan, label %12, label %9
+  %or.cond = and i1 %2, %3
+  br i1 %or.cond, label %12, label %9
 
 9:                                                ; preds = %8
   %10 = tail call zeroext i1 @bdrv_has_blk(ptr noundef nonnull %6) #14
@@ -5819,8 +5825,8 @@ define dso_local void @qmp_x_blockdev_set_iothread(ptr noundef %0, ptr noundef r
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @iothread_by_id(ptr noundef %17) #14
-  %.not21.not = icmp eq ptr %18, null
-  br i1 %.not21.not, label %.thread, label %20
+  %.not22.not = icmp eq ptr %18, null
+  br i1 %.not22.not, label %.thread, label %20
 
 .thread:                                          ; preds = %15
   %19 = load ptr, ptr %16, align 8

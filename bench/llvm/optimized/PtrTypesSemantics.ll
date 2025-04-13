@@ -475,8 +475,8 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit:  ; preds = %5, %16
 25:                                               ; preds = %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit
   %26 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEN4llvm9StringRefE(ptr noundef %24, ptr %1, i64 %2)
   %27 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126hasPublicMethodInBaseClassEPKN5clang13CXXRecordDeclEN4llvm9StringRefE(ptr noundef %24, ptr %3, i64 %4)
-  %brmerge.demorgan = and i1 %26, %27
-  br i1 %brmerge.demorgan, label %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread, label %28
+  %or.cond = and i1 %26, %27
+  br i1 %or.cond, label %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread, label %28
 
 28:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 368, ptr nonnull %8) #13
@@ -573,7 +573,7 @@ _ZN5clang12CXXBasePathsC2Ebbb.exit:               ; preds = %.lr.ph.i.i.i.i
   br label %67
 
 67:                                               ; preds = %51, %60
-  %.sroa.019.1 = phi i16 [ %66, %60 ], [ 0, %51 ]
+  %.sroa.018.1 = phi i16 [ %66, %60 ], [ 0, %51 ]
   %.sroa.3.1 = phi i16 [ %65, %60 ], [ 0, %51 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #13
@@ -639,10 +639,10 @@ _ZN5clang12CXXBasePathsD2Ev.exit:                 ; preds = %_ZNSt16allocator_tr
   br label %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread
 
 _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread: ; preds = %16, %25, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit, %_ZN5clang12CXXBasePathsD2Ev.exit
-  %.sroa.019.0 = phi i16 [ %.sroa.019.1, %_ZN5clang12CXXBasePathsD2Ev.exit ], [ 0, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ 1, %25 ], [ 0, %16 ]
+  %.sroa.018.0 = phi i16 [ %.sroa.018.1, %_ZN5clang12CXXBasePathsD2Ev.exit ], [ 0, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ 1, %25 ], [ 0, %16 ]
   %.sroa.3.0 = phi i16 [ %.sroa.3.1, %_ZN5clang12CXXBasePathsD2Ev.exit ], [ 0, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ 256, %25 ], [ 0, %16 ]
-  %.sroa.019.0.insert.insert = or i16 %.sroa.3.0, %.sroa.019.0
-  ret i16 %.sroa.019.0.insert.insert
+  %.sroa.018.0.insert.insert = or i16 %.sroa.3.0, %.sroa.018.0
+  ret i16 %.sroa.018.0.insert.insert
 }
 
 declare noundef zeroext i1 @_ZNK5clang13CXXRecordDecl13lookupInBasesEN4llvm12function_refIFbPKNS_16CXXBaseSpecifierERNS_11CXXBasePathEEEERNS_12CXXBasePathsEb(ptr noundef nonnull align 8 dereferenceable(144), ptr, i64, ptr noundef nonnull align 8 dereferenceable(363), i1 noundef zeroext) local_unnamed_addr #2
@@ -5330,22 +5330,20 @@ _ZN5clang11safeGetNameINS_13CXXMethodDeclEEENSt7__cxx1112basic_stringIcSt11char_
 
 60:                                               ; preds = %57
   %61 = call i16 @_ZN5clang17isGetterOfSafePtrEPKNS_13CXXMethodDeclE(ptr noundef nonnull %26)
-  %.not10 = icmp samesign ult i16 %61, 256
-  br i1 %.not10, label %64, label %62
-
-62:                                               ; preds = %60
+  %62 = icmp samesign ugt i16 %61, 255
   %63 = trunc i16 %61 to i1
-  br i1 %63, label %66, label %64
+  %or.cond = and i1 %62, %63
+  br i1 %or.cond, label %66, label %64
 
-64:                                               ; preds = %62, %60
+64:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %26, ptr %3, align 8, !tbaa !263
   %65 = call noundef zeroext i1 @_ZN5clang30TrivialFunctionAnalysisVisitor16WithCachedResultINS_4DeclEZNS0_17IsFunctionTrivialEPKS2_EUlvE_EEbPKT_T0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %26, ptr nonnull %3, ptr nonnull align 8 dereferenceable(32) %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %66
 
-66:                                               ; preds = %64, %62, %_ZN5clang11safeGetNameINS_13CXXMethodDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit, %57
-  %.3 = phi i1 [ true, %57 ], [ true, %_ZN5clang11safeGetNameINS_13CXXMethodDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit ], [ %65, %64 ], [ true, %62 ]
+66:                                               ; preds = %60, %64, %_ZN5clang11safeGetNameINS_13CXXMethodDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit, %57
+  %.3 = phi i1 [ true, %57 ], [ true, %_ZN5clang11safeGetNameINS_13CXXMethodDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit ], [ %65, %64 ], [ true, %60 ]
   %67 = load ptr, ptr %5, align 8, !tbaa !82
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %69 = icmp eq ptr %67, %68

@@ -12035,8 +12035,8 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$18confirm_completion17ha67d5a9d2
 
 38:                                               ; preds = %37
   %39 = load i64, ptr %8, align 8, !range !104, !noundef !4
-  %.not11.not = icmp eq i64 %39, -9223372036854775808
-  br i1 %.not11.not, label %"_ZN6picker15Picker$LT$D$GT$9set_query17h8d3e5a7dca69ee88E.llvm.1577834939787678043.exit", label %40
+  %.not9.not = icmp eq i64 %39, -9223372036854775808
+  br i1 %.not9.not, label %"_ZN6picker15Picker$LT$D$GT$9set_query17h8d3e5a7dca69ee88E.llvm.1577834939787678043.exit", label %40
 
 40:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2300
@@ -12061,7 +12061,7 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$18confirm_completion17ha67d5a9d2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2300
   br label %"_ZN6picker15Picker$LT$D$GT$9set_query17h8d3e5a7dca69ee88E.llvm.1577834939787678043.exit"
 
-50:                                               ; preds = %35, %51
+50:                                               ; preds = %51, %35
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
 51:                                               ; preds = %35

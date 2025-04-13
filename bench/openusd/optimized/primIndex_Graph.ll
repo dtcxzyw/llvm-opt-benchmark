@@ -2740,16 +2740,16 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %31
   br label %71
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt14_Bit_referenceaSEb.exit
-  %.050128 = phi i64 [ %61, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %.lr.ph.preheader ]
-  %45 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_UnsharedData", ptr %26, i64 %.050128, i32 2
+  %.051128 = phi i64 [ %61, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %.lr.ph.preheader ]
+  %45 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_UnsharedData", ptr %26, i64 %.051128, i32 2
   %46 = load i8, ptr %45, align 2
-  %47 = sdiv i64 %.050128, 64
+  %47 = sdiv i64 %.051128, 64
   %48 = getelementptr inbounds i64, ptr %35, i64 %47
-  %49 = and i64 %.050128, -9223372036854775745
+  %49 = and i64 %.051128, -9223372036854775745
   %50 = icmp ugt i64 %49, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %50, i64 -8, i64 0
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %48, i64 %storemerge.idx.i.i.i.i.i
-  %51 = and i64 %.050128, 63
+  %51 = and i64 %.051128, 63
   %52 = shl nuw i64 1, %51
   %53 = and i8 %46, 2
   %.not119 = icmp eq i8 %53, 0
@@ -2769,7 +2769,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %31
 _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %54, %57
   %storemerge = phi i64 [ %60, %57 ], [ %56, %54 ]
   store i64 %storemerge, ptr %storemerge.i.i.i.i.i, align 8
-  %61 = add i64 %.050128, 1
+  %61 = add i64 %.051128, 1
   %.not = icmp eq i64 %61, %30
   br i1 %.not, label %.preheader126, label %.lr.ph, !llvm.loop !30
 
@@ -2790,43 +2790,43 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %54, %57
   br label %.body
 
 71:                                               ; preds = %.lr.ph134, %.loopexit125
-  %.051133 = phi i64 [ 0, %.lr.ph134 ], [ %104, %.loopexit125 ]
-  %72 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %18, i64 %.051133, i32 3, i32 1
+  %.052133 = phi i64 [ 0, %.lr.ph134 ], [ %104, %.loopexit125 ]
+  %72 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %18, i64 %.052133, i32 3, i32 1
   %73 = load i16, ptr %72, align 2
   %74 = icmp eq i16 %73, -1
   br i1 %74, label %.loopexit125, label %.preheader124
 
 .preheader124:                                    ; preds = %71, %.loopexit
-  %.054 = phi i64 [ %103, %.loopexit ], [ %.051133, %71 ]
-  %.052 = phi i1 [ %.153, %.loopexit ], [ false, %71 ]
-  %75 = sdiv i64 %.054, 64
+  %.055 = phi i64 [ %103, %.loopexit ], [ %.052133, %71 ]
+  %.053 = phi i1 [ %.154, %.loopexit ], [ false, %71 ]
+  %75 = sdiv i64 %.055, 64
   %76 = getelementptr inbounds i64, ptr %.sroa.094.0146, i64 %75
-  %77 = and i64 %.054, -9223372036854775745
+  %77 = and i64 %.055, -9223372036854775745
   %78 = icmp ugt i64 %77, -9223372036854775808
   %storemerge.idx.i.i.i.i.i61 = select i1 %78, i64 -8, i64 0
   %storemerge.i.i.i.i.i62 = getelementptr inbounds i8, ptr %76, i64 %storemerge.idx.i.i.i.i.i61
-  %79 = and i64 %.054, 63
+  %79 = and i64 %.055, 63
   %80 = shl nuw i64 1, %79
   %81 = load i64, ptr %storemerge.i.i.i.i.i62, align 8
   %82 = and i64 %80, %81
   %.not122 = icmp eq i64 %82, 0
-  %.052.not = xor i1 %.052, true
-  %brmerge = select i1 %.not122, i1 true, i1 %.052.not
+  %.053.not = xor i1 %.053, true
+  %brmerge = select i1 %.not122, i1 true, i1 %.053.not
   br i1 %brmerge, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader124
-  %.not58129 = icmp eq i64 %.054, 65535
+  %.not58129 = icmp eq i64 %.055, 65535
   br i1 %.not58129, label %.loopexit, label %.lr.ph131
 
 .lr.ph131:                                        ; preds = %.preheader, %91
-  %.055130 = phi i64 [ %96, %91 ], [ %.054, %.preheader ]
-  %83 = sdiv i64 %.055130, 64
+  %.056130 = phi i64 [ %96, %91 ], [ %.055, %.preheader ]
+  %83 = sdiv i64 %.056130, 64
   %84 = getelementptr inbounds i64, ptr %.sroa.094.0146, i64 %83
-  %85 = and i64 %.055130, -9223372036854775745
+  %85 = and i64 %.056130, -9223372036854775745
   %86 = icmp ugt i64 %85, -9223372036854775808
   %storemerge.idx.i.i.i.i.i65 = select i1 %86, i64 -8, i64 0
   %storemerge.i.i.i.i.i66 = getelementptr inbounds i8, ptr %84, i64 %storemerge.idx.i.i.i.i.i65
-  %87 = and i64 %.055130, 63
+  %87 = and i64 %.056130, 63
   %88 = shl nuw i64 1, %87
   %89 = load i64, ptr %storemerge.i.i.i.i.i66, align 8
   %90 = and i64 %89, %88
@@ -2837,15 +2837,15 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %54, %57
   %92 = xor i64 %88, -1
   %93 = and i64 %89, %92
   store i64 %93, ptr %storemerge.i.i.i.i.i66, align 8
-  %94 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %18, i64 %.055130, i32 3
+  %94 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %18, i64 %.056130, i32 3
   %95 = load i16, ptr %94, align 8
   %96 = zext i16 %95 to i64
   %.not58 = icmp eq i16 %95, -1
   br i1 %.not58, label %.loopexit, label %.lr.ph131, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph131, %91, %.preheader, %.preheader124
-  %.153 = phi i1 [ %.not122, %.preheader124 ], [ %.052, %.preheader ], [ %.052, %91 ], [ %.052, %.lr.ph131 ]
-  %97 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %18, i64 %.054
+  %.154 = phi i1 [ %.not122, %.preheader124 ], [ %.053, %.preheader ], [ %.053, %91 ], [ %.053, %.lr.ph131 ]
+  %97 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %18, i64 %.055
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 26
   %99 = load i16, ptr %98, align 2
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
@@ -2855,7 +2855,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %54, %57
   br i1 %102, label %.loopexit125, label %.preheader124, !llvm.loop !32
 
 .loopexit125:                                     ; preds = %.loopexit, %71
-  %104 = add nuw i64 %.051133, 1
+  %104 = add nuw i64 %.052133, 1
   %exitcond.not = icmp eq i64 %104, %umax
   br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !33
 
@@ -2926,7 +2926,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %124, %126, %128, %1
 
 .lr.ph137:                                        ; preds = %.lr.ph137.preheader, %147
   %.0136 = phi i64 [ %148, %147 ], [ 0, %.lr.ph137.preheader ]
-  %.046135 = phi i64 [ %.1, %147 ], [ 0, %.lr.ph137.preheader ]
+  %.047135 = phi i64 [ %.1, %147 ], [ 0, %.lr.ph137.preheader ]
   %131 = sdiv i64 %.0136, 64
   %132 = getelementptr inbounds i64, ptr %.sroa.094.0146, i64 %131
   %133 = and i64 %.0136, -9223372036854775745
@@ -2944,18 +2944,18 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %124, %126, %128, %1
   %140 = load ptr, ptr %1, align 8
   %141 = getelementptr inbounds i64, ptr %140, i64 %.0136
   store i64 65535, ptr %141, align 8
-  %142 = add i64 %.046135, 1
+  %142 = add i64 %.047135, 1
   br label %147
 
 143:                                              ; preds = %.lr.ph137
-  %144 = sub i64 %.0136, %.046135
+  %144 = sub i64 %.0136, %.047135
   %145 = load ptr, ptr %1, align 8
   %146 = getelementptr inbounds i64, ptr %145, i64 %.0136
   store i64 %144, ptr %146, align 8
   br label %147
 
 147:                                              ; preds = %139, %143
-  %.1 = phi i64 [ %142, %139 ], [ %.046135, %143 ]
+  %.1 = phi i64 [ %142, %139 ], [ %.047135, %143 ]
   %148 = add nuw i64 %.0136, 1
   %exitcond141.not = icmp eq i64 %148, %umax140
   br i1 %exitcond141.not, label %_ZSt5countISt13_Bit_iteratorbENSt15iterator_traitsIT_E15difference_typeES2_S2_RKT0_.exit.thread.thread, label %.lr.ph137, !llvm.loop !35

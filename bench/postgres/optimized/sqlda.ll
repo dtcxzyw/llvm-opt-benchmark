@@ -650,7 +650,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
 
 18:                                               ; preds = %.lr.ph, %181
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %181 ]
-  %.0194195 = phi i64 [ %16, %.lr.ph ], [ %.0193, %181 ]
+  %.0195196 = phi i64 [ %16, %.lr.ph ], [ %.0194, %181 ]
   %19 = getelementptr inbounds nuw [1 x %struct.sqlvar_struct], ptr %17, i64 0, i64 %indvars.iv
   %20 = load i16, ptr %19, align 8
   switch i16 %20, label %154 [
@@ -673,11 +673,11 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   ]
 
 21:                                               ; preds = %18, %18
-  %22 = srem i64 %.0194195, 2
+  %22 = srem i64 %.0195196, 2
   %.not.i = icmp eq i64 %22, 0
   %23 = sub nsw i64 2, %22
   %24 = select i1 %.not.i, i64 0, i64 %23
-  %.0.i = add i64 %24, %.0194195
+  %.0.i = add i64 %24, %.0195196
   %25 = add i64 %.0.i, 2
   %26 = getelementptr inbounds i8, ptr %6, i64 %.0.i
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -687,13 +687,13 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   br label %169
 
 29:                                               ; preds = %18, %18
-  %30 = srem i64 %.0194195, 4
-  %.not.i138 = icmp eq i64 %30, 0
+  %30 = srem i64 %.0195196, 4
+  %.not.i139 = icmp eq i64 %30, 0
   %31 = sub nsw i64 4, %30
-  %32 = select i1 %.not.i138, i64 0, i64 %31
-  %.0.i139 = add i64 %32, %.0194195
-  %33 = add i64 %.0.i139, 4
-  %34 = getelementptr inbounds i8, ptr %6, i64 %.0.i139
+  %32 = select i1 %.not.i139, i64 0, i64 %31
+  %.0.i140 = add i64 %32, %.0195196
+  %33 = add i64 %.0.i140, 4
+  %34 = getelementptr inbounds i8, ptr %6, i64 %.0.i140
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %34, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -701,13 +701,13 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   br label %169
 
 37:                                               ; preds = %18, %18
-  %38 = srem i64 %.0194195, 8
-  %.not.i140 = icmp eq i64 %38, 0
+  %38 = srem i64 %.0195196, 8
+  %.not.i141 = icmp eq i64 %38, 0
   %39 = sub nsw i64 8, %38
-  %40 = select i1 %.not.i140, i64 0, i64 %39
-  %.0.i141 = add i64 %40, %.0194195
-  %41 = add i64 %.0.i141, 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 %.0.i141
+  %40 = select i1 %.not.i141, i64 0, i64 %39
+  %.0.i142 = add i64 %40, %.0195196
+  %41 = add i64 %.0.i142, 8
+  %42 = getelementptr inbounds i8, ptr %6, i64 %.0.i142
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %42, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -715,13 +715,13 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   br label %169
 
 45:                                               ; preds = %18, %18
-  %46 = srem i64 %.0194195, 8
-  %.not.i142 = icmp eq i64 %46, 0
+  %46 = srem i64 %.0195196, 8
+  %.not.i143 = icmp eq i64 %46, 0
   %47 = sub nsw i64 8, %46
-  %48 = select i1 %.not.i142, i64 0, i64 %47
-  %.0.i143 = add i64 %48, %.0194195
-  %49 = add i64 %.0.i143, 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 %.0.i143
+  %48 = select i1 %.not.i143, i64 0, i64 %47
+  %.0.i144 = add i64 %48, %.0195196
+  %49 = add i64 %.0.i144, 8
+  %50 = getelementptr inbounds i8, ptr %6, i64 %.0.i144
   %51 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -729,8 +729,8 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   br label %169
 
 53:                                               ; preds = %18
-  %54 = add i64 %.0194195, 1
-  %55 = getelementptr inbounds i8, ptr %6, i64 %.0194195
+  %54 = add i64 %.0195196, 1
+  %55 = getelementptr inbounds i8, ptr %6, i64 %.0195196
   %56 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %55, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -738,13 +738,13 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   br label %169
 
 58:                                               ; preds = %18
-  %59 = srem i64 %.0194195, 4
-  %.not.i146 = icmp eq i64 %59, 0
+  %59 = srem i64 %.0195196, 4
+  %.not.i147 = icmp eq i64 %59, 0
   %60 = sub nsw i64 4, %59
-  %61 = select i1 %.not.i146, i64 0, i64 %60
-  %.0.i147 = add i64 %61, %.0194195
-  %62 = add i64 %.0.i147, 4
-  %63 = getelementptr inbounds i8, ptr %6, i64 %.0.i147
+  %61 = select i1 %.not.i147, i64 0, i64 %60
+  %.0.i148 = add i64 %61, %.0195196
+  %62 = add i64 %.0.i148, 4
+  %63 = getelementptr inbounds i8, ptr %6, i64 %.0.i148
   %64 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %63, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -752,13 +752,13 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   br label %169
 
 66:                                               ; preds = %18
-  %67 = srem i64 %.0194195, 8
-  %.not.i148 = icmp eq i64 %67, 0
+  %67 = srem i64 %.0195196, 8
+  %.not.i149 = icmp eq i64 %67, 0
   %68 = sub nsw i64 8, %67
-  %69 = select i1 %.not.i148, i64 0, i64 %68
-  %.0.i149 = add i64 %69, %.0194195
-  %70 = add i64 %.0.i149, 8
-  %71 = getelementptr inbounds i8, ptr %6, i64 %.0.i149
+  %69 = select i1 %.not.i149, i64 0, i64 %68
+  %.0.i150 = add i64 %69, %.0195196
+  %70 = add i64 %.0.i150, 8
+  %71 = getelementptr inbounds i8, ptr %6, i64 %.0.i150
   %72 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %71, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -766,13 +766,13 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   br label %169
 
 74:                                               ; preds = %18
-  %75 = srem i64 %.0194195, 4
-  %.not.i150 = icmp eq i64 %75, 0
+  %75 = srem i64 %.0195196, 4
+  %.not.i151 = icmp eq i64 %75, 0
   %76 = sub nsw i64 4, %75
-  %77 = select i1 %.not.i150, i64 0, i64 %76
-  %.0.i151 = add i64 %77, %.0194195
-  %78 = add i64 %.0.i151, 52
-  %79 = getelementptr inbounds i8, ptr %6, i64 %.0.i151
+  %77 = select i1 %.not.i151, i64 0, i64 %76
+  %.0.i152 = add i64 %77, %.0195196
+  %78 = add i64 %.0.i152, 52
+  %79 = getelementptr inbounds i8, ptr %6, i64 %.0.i152
   %80 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %79, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -780,13 +780,13 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   br label %169
 
 82:                                               ; preds = %18
-  %83 = srem i64 %.0194195, 8
-  %.not.i152 = icmp eq i64 %83, 0
+  %83 = srem i64 %.0195196, 8
+  %.not.i153 = icmp eq i64 %83, 0
   %84 = sub nsw i64 8, %83
-  %85 = select i1 %.not.i152, i64 0, i64 %84
-  %.0.i153 = add i64 %85, %.0194195
-  %86 = add i64 %.0.i153, 40
-  %87 = getelementptr inbounds i8, ptr %6, i64 %.0.i153
+  %85 = select i1 %.not.i153, i64 0, i64 %84
+  %.0.i154 = add i64 %85, %.0195196
+  %86 = add i64 %.0.i154, 40
+  %87 = getelementptr inbounds i8, ptr %6, i64 %.0.i154
   %88 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -804,9 +804,9 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
 94:                                               ; preds = %82
   %95 = tail call ptr @PQgetvalue(ptr noundef %2, i32 noundef %3, i32 noundef %90) #6
   %96 = tail call ptr @PGTYPESnumeric_from_asc(ptr noundef %95, ptr noundef null) #6
-  %.not135 = icmp eq ptr %96, null
+  %.not136 = icmp eq ptr %96, null
   %97 = load ptr, ptr %88, align 8
-  br i1 %.not135, label %98, label %99
+  br i1 %.not136, label %98, label %99
 
 98:                                               ; preds = %94
   tail call void @ECPGset_noind_null(i32 noundef 16, ptr noundef %97) #6
@@ -816,8 +816,8 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %97, ptr noundef nonnull align 8 dereferenceable(40) %96, i64 40, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %101 = load ptr, ptr %100, align 8
-  %.not136 = icmp eq ptr %101, null
-  br i1 %.not136, label %129, label %102
+  %.not137 = icmp eq ptr %101, null
+  br i1 %.not137, label %129, label %102
 
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 32
@@ -829,13 +829,13 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   %109 = trunc i64 %107 to i32
   %110 = add i32 %108, %109
   %111 = srem i64 %86, 4
-  %.not.i154 = icmp eq i64 %111, 0
+  %.not.i155 = icmp eq i64 %111, 0
   %112 = sub nsw i64 4, %111
-  %113 = select i1 %.not.i154, i64 0, i64 %112
-  %.0.i155 = add i64 %113, %86
+  %113 = select i1 %.not.i155, i64 0, i64 %112
+  %.0.i156 = add i64 %113, %86
   %114 = sext i32 %110 to i64
-  %115 = add i64 %.0.i155, %114
-  %116 = getelementptr inbounds i8, ptr %6, i64 %.0.i155
+  %115 = add i64 %.0.i156, %114
+  %116 = getelementptr inbounds i8, ptr %6, i64 %.0.i156
   %117 = sext i32 %108 to i64
   %118 = add i64 %107, %117
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr nonnull align 1 %101, i64 %118, i1 false)
@@ -859,13 +859,13 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   br label %169
 
 130:                                              ; preds = %18
-  %131 = srem i64 %.0194195, 8
-  %.not.i156 = icmp eq i64 %131, 0
+  %131 = srem i64 %.0195196, 8
+  %.not.i157 = icmp eq i64 %131, 0
   %132 = sub nsw i64 8, %131
-  %133 = select i1 %.not.i156, i64 0, i64 %132
-  %.0.i157 = add i64 %133, %.0194195
-  %134 = add i64 %.0.i157, 8
-  %135 = getelementptr inbounds i8, ptr %6, i64 %.0.i157
+  %133 = select i1 %.not.i157, i64 0, i64 %132
+  %.0.i158 = add i64 %133, %.0195196
+  %134 = add i64 %.0.i158, 8
+  %135 = getelementptr inbounds i8, ptr %6, i64 %.0.i158
   %136 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %135, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -873,13 +873,13 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   br label %169
 
 138:                                              ; preds = %18
-  %139 = srem i64 %.0194195, 8
-  %.not.i158 = icmp eq i64 %139, 0
+  %139 = srem i64 %.0195196, 8
+  %.not.i159 = icmp eq i64 %139, 0
   %140 = sub nsw i64 8, %139
-  %141 = select i1 %.not.i158, i64 0, i64 %140
-  %.0.i159 = add i64 %141, %.0194195
-  %142 = add i64 %.0.i159, 8
-  %143 = getelementptr inbounds i8, ptr %6, i64 %.0.i159
+  %141 = select i1 %.not.i159, i64 0, i64 %140
+  %.0.i160 = add i64 %141, %.0195196
+  %142 = add i64 %.0.i160, 8
+  %143 = getelementptr inbounds i8, ptr %6, i64 %.0.i160
   %144 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %143, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -887,13 +887,13 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   br label %169
 
 146:                                              ; preds = %18
-  %147 = srem i64 %.0194195, 8
-  %.not.i160 = icmp eq i64 %147, 0
+  %147 = srem i64 %.0195196, 8
+  %.not.i161 = icmp eq i64 %147, 0
   %148 = sub nsw i64 8, %147
-  %149 = select i1 %.not.i160, i64 0, i64 %148
-  %.0.i161 = add i64 %149, %.0194195
-  %150 = add i64 %.0.i161, 16
-  %151 = getelementptr inbounds i8, ptr %6, i64 %.0.i161
+  %149 = select i1 %.not.i161, i64 0, i64 %148
+  %.0.i162 = add i64 %149, %.0195196
+  %150 = add i64 %.0.i162, 16
+  %151 = getelementptr inbounds i8, ptr %6, i64 %.0.i162
   %152 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %151, ptr %152, align 8
   %153 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -906,14 +906,14 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   %157 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %156) #7
   %158 = trunc i64 %157 to i32
   %159 = add i32 %158, 1
-  %160 = srem i64 %.0194195, 4
-  %.not.i162 = icmp eq i64 %160, 0
+  %160 = srem i64 %.0195196, 4
+  %.not.i163 = icmp eq i64 %160, 0
   %161 = sub nsw i64 4, %160
-  %162 = select i1 %.not.i162, i64 0, i64 %161
-  %.0.i163 = add i64 %162, %.0194195
+  %162 = select i1 %.not.i163, i64 0, i64 %161
+  %.0.i164 = add i64 %162, %.0195196
   %163 = sext i32 %159 to i64
-  %164 = add i64 %.0.i163, %163
-  %165 = getelementptr inbounds i8, ptr %6, i64 %.0.i163
+  %164 = add i64 %.0.i164, %163
+  %165 = getelementptr inbounds i8, ptr %6, i64 %.0.i164
   %166 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %165, ptr %166, align 8
   %167 = trunc i32 %159 to i16
@@ -922,18 +922,18 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   br label %169
 
 169:                                              ; preds = %92, %98, %129, %154, %146, %138, %130, %74, %66, %58, %53, %45, %37, %29, %21
-  %.0193 = phi i64 [ %164, %154 ], [ %150, %146 ], [ %142, %138 ], [ %134, %130 ], [ %86, %98 ], [ %.1, %129 ], [ %86, %92 ], [ %78, %74 ], [ %70, %66 ], [ %62, %58 ], [ %54, %53 ], [ %49, %45 ], [ %41, %37 ], [ %33, %29 ], [ %25, %21 ]
-  %.0131.not = phi i1 [ false, %154 ], [ false, %146 ], [ false, %138 ], [ false, %130 ], [ true, %98 ], [ true, %129 ], [ true, %92 ], [ false, %74 ], [ false, %66 ], [ false, %58 ], [ false, %53 ], [ false, %45 ], [ false, %37 ], [ false, %29 ], [ false, %21 ]
+  %.0194 = phi i64 [ %164, %154 ], [ %150, %146 ], [ %142, %138 ], [ %134, %130 ], [ %86, %98 ], [ %.1, %129 ], [ %86, %92 ], [ %78, %74 ], [ %70, %66 ], [ %62, %58 ], [ %54, %53 ], [ %49, %45 ], [ %41, %37 ], [ %33, %29 ], [ %25, %21 ]
+  %.0132 = phi i1 [ true, %154 ], [ true, %146 ], [ true, %138 ], [ true, %130 ], [ false, %98 ], [ false, %129 ], [ false, %92 ], [ true, %74 ], [ true, %66 ], [ true, %58 ], [ true, %53 ], [ true, %45 ], [ true, %37 ], [ true, %29 ], [ true, %21 ]
   %170 = trunc nuw nsw i64 %indvars.iv to i32
   %171 = tail call i32 @PQgetisnull(ptr noundef %2, i32 noundef %3, i32 noundef %170) #6
-  %.not137 = icmp ne i32 %171, 0
-  %172 = select i1 %.not137, ptr @.str.2, ptr @.str.3
+  %.not138 = icmp eq i32 %171, 0
+  %172 = select i1 %.not138, ptr @.str.3, ptr @.str.2
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.6, i32 noundef %0, i32 noundef %3, i32 noundef %170, ptr noundef nonnull %172) #6
-  %173 = select i1 %.not137, ptr @value_is_null, ptr @value_is_not_null
+  %173 = select i1 %.not138, ptr @value_is_not_null, ptr @value_is_null
   %174 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %173, ptr %174, align 8
-  %brmerge = or i1 %.0131.not, %.not137
-  br i1 %brmerge, label %181, label %175
+  %or.cond = and i1 %.0132, %.not138
+  br i1 %or.cond, label %175, label %181
 
 175:                                              ; preds = %169
   %176 = load i16, ptr %19, align 8
@@ -943,7 +943,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr noundef readonly captures
   %180 = tail call zeroext i1 @ecpg_get_data(ptr noundef %2, i32 noundef %3, i32 noundef %170, i32 noundef %0, i32 noundef %177, i32 noundef 29, ptr noundef %179, ptr noundef null, i64 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 4, i32 noundef %4, i1 noundef zeroext false) #6
   br label %181
 
-181:                                              ; preds = %169, %175
+181:                                              ; preds = %175, %169
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %182 = load i16, ptr %10, align 2
   %183 = sext i16 %182 to i64

@@ -4974,8 +4974,8 @@ define dso_local void @_ZNK5clang4ento21AnyCXXConstructorCall25getExtraInvalidat
   %.not.i = icmp eq ptr %6, null
   %spec.select.i = select i1 %.not.i, i8 1, i8 4
   store ptr %6, ptr %4, align 8
-  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %spec.select.i, ptr %.sroa.25.0..sroa_idx, align 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 %spec.select.i, ptr %.sroa.26.0..sroa_idx, align 8
   %7 = call noundef ptr @_ZNK5clang4ento4SVal11getAsSymbolEb(ptr noundef nonnull align 8 dereferenceable(9) %4, i1 noundef zeroext true) #20
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -4991,43 +4991,43 @@ define dso_local void @_ZNK5clang4ento21AnyCXXConstructorCall25getExtraInvalidat
   %13 = call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(72) %0) #20
   %14 = call noundef zeroext i1 @_ZN5clang4ento20isWithinStdNamespaceEPKNS_4DeclE(ptr noundef %13) #20
   %15 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #20
-  %.not11 = icmp ne ptr %15, null
-  %brmerge.not = and i1 %14, %.not11
-  br i1 %brmerge.not, label %16, label %17
+  %16 = icmp ne ptr %15, null
+  %or.cond = and i1 %14, %16
+  br i1 %or.cond, label %17, label %18
 
-16:                                               ; preds = %9
+17:                                               ; preds = %9
   call void @_ZN5clang4ento33RegionAndSymbolInvalidationTraits8setTraitEPKNS0_9MemRegionENS1_17InvalidationKindsE(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %15, i32 noundef 4) #20
-  br label %17
+  br label %18
 
-17:                                               ; preds = %9, %16
+18:                                               ; preds = %17, %9
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !198
-  %.sroa.2.0.copyload = load i8, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !725
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !159
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %21 = load i32, ptr %20, align 4, !tbaa !164
-  %.not.i.i.not.i = icmp ult i32 %19, %21
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento4SValELb1EE9push_backES3_.exit, label %22, !prof !187
+  %.sroa.2.0.copyload = load i8, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !725
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = load i32, ptr %19, align 8, !tbaa !159
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %22 = load i32, ptr %21, align 4, !tbaa !164
+  %.not.i.i.not.i = icmp ult i32 %20, %22
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento4SValELb1EE9push_backES3_.exit, label %23, !prof !187
 
-22:                                               ; preds = %17
-  %23 = zext i32 %19 to i64
-  %24 = add nuw nsw i64 %23, 1
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %25, i64 noundef %24, i64 noundef 16) #20
-  %.pre.i = load i32, ptr %18, align 8, !tbaa !159
+23:                                               ; preds = %18
+  %24 = zext i32 %20 to i64
+  %25 = add nuw nsw i64 %24, 1
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %26, i64 noundef %25, i64 noundef 16) #20
+  %.pre.i = load i32, ptr %19, align 8, !tbaa !159
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento4SValELb1EE9push_backES3_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento4SValELb1EE9push_backES3_.exit: ; preds = %17, %22
-  %26 = phi i32 [ %19, %17 ], [ %.pre.i, %22 ]
-  %27 = load ptr, ptr %1, align 8, !tbaa !158
-  %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw %"class.clang::ento::SVal", ptr %27, i64 %28
-  store ptr %.sroa.0.0.copyload, ptr %29, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
+_ZN4llvm23SmallVectorTemplateBaseIN5clang4ento4SValELb1EE9push_backES3_.exit: ; preds = %18, %23
+  %27 = phi i32 [ %20, %18 ], [ %.pre.i, %23 ]
+  %28 = load ptr, ptr %1, align 8, !tbaa !158
+  %29 = zext i32 %27 to i64
+  %30 = getelementptr inbounds nuw %"class.clang::ento::SVal", ptr %28, i64 %29
+  store ptr %.sroa.0.0.copyload, ptr %30, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i8 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %30 = load i32, ptr %18, align 8, !tbaa !159
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %18, align 8, !tbaa !159
+  %31 = load i32, ptr %19, align 8, !tbaa !159
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %19, align 8, !tbaa !159
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
   ret void
 }

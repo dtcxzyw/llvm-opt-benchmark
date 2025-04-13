@@ -186,19 +186,17 @@ define internal noundef i32 @expert_stat_packet(ptr noundef readonly captures(no
   %9 = add i32 %8, -1048576
   %10 = tail call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 12)
   %11 = icmp ult i32 %10, 8
-  br i1 %11, label %switch.hole_check, label %12
+  %switch.maskindex = trunc i32 %10 to i8
+  %switch.shifted = lshr i8 -85, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %11, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %12
 
-12:                                               ; preds = %switch.hole_check, %5
+12:                                               ; preds = %5
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.8, i32 noundef 7, ptr noundef nonnull @.str.9, i64 noundef 102, ptr noundef nonnull @__func__.expert_stat_packet, ptr noundef nonnull @.str.10) #12
   unreachable
 
-switch.hole_check:                                ; preds = %5
-  %switch.maskindex = trunc nuw i32 %10 to i8
-  %switch.shifted = lshr i8 -85, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %12
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %13 = zext nneg i32 %10 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.expert_stat_packet, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4

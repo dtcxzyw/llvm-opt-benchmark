@@ -747,7 +747,7 @@ define noundef i32 @H5MF__aggr_absorb(ptr noundef readnone captures(none) %0, pt
   %8 = trunc nuw i8 %7 to i1
   %9 = xor i1 %8, true
   %10 = select i1 %6, i1 true, i1 %9
-  br i1 %10, label %11, label %40, !prof !9
+  br i1 %10, label %11, label %41, !prof !9
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -757,56 +757,56 @@ define noundef i32 @H5MF__aggr_absorb(ptr noundef readnone captures(none) %0, pt
   %16 = add i64 %15, %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !48
-  %.not = icmp uge i64 %16, %18
-  %brmerge.not = and i1 %3, %.not
-  %19 = load i64, ptr %2, align 8, !tbaa !51
-  %20 = add i64 %19, %15
-  %.not39 = icmp eq i64 %20, -1
-  br i1 %brmerge.not, label %21, label %30
+  %19 = icmp uge i64 %16, %18
+  %or.cond = and i1 %3, %19
+  %20 = load i64, ptr %2, align 8, !tbaa !51
+  %21 = add i64 %20, %15
+  %.not39 = icmp eq i64 %21, -1
+  br i1 %or.cond, label %22, label %31
 
-21:                                               ; preds = %11
-  br i1 %.not39, label %26, label %22
+22:                                               ; preds = %11
+  br i1 %.not39, label %27, label %23
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = load i64, ptr %23, align 8, !tbaa !46
-  %25 = icmp eq i64 %20, %24
-  br i1 %25, label %28, label %26
+23:                                               ; preds = %22
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %25 = load i64, ptr %24, align 8, !tbaa !46
+  %26 = icmp eq i64 %21, %25
+  br i1 %26, label %29, label %27
 
-26:                                               ; preds = %22, %21
-  %27 = sub i64 %19, %13
-  store i64 %27, ptr %2, align 8, !tbaa !51
-  br label %28
+27:                                               ; preds = %23, %22
+  %28 = sub i64 %20, %13
+  store i64 %28, ptr %2, align 8, !tbaa !51
+  br label %29
 
-28:                                               ; preds = %22, %26
+29:                                               ; preds = %23, %27
   store i64 %16, ptr %14, align 8, !tbaa !54
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  br label %40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
+  br label %41
 
-30:                                               ; preds = %11
-  br i1 %.not39, label %39, label %31
+31:                                               ; preds = %11
+  br i1 %.not39, label %40, label %32
 
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %33 = load i64, ptr %32, align 8, !tbaa !46
-  %34 = icmp eq i64 %20, %33
-  br i1 %34, label %35, label %39
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %34 = load i64, ptr %33, align 8, !tbaa !46
+  %35 = icmp eq i64 %21, %34
+  br i1 %35, label %36, label %40
 
-35:                                               ; preds = %31
-  store i64 %19, ptr %32, align 8, !tbaa !46
+36:                                               ; preds = %32
+  store i64 %20, ptr %33, align 8, !tbaa !46
   store i64 %16, ptr %12, align 8, !tbaa !47
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !50
-  %38 = tail call i64 @llvm.usub.sat.i64(i64 %37, i64 %15)
-  store i64 %38, ptr %36, align 8, !tbaa !50
-  br label %40
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %38 = load i64, ptr %37, align 8, !tbaa !50
+  %39 = tail call i64 @llvm.usub.sat.i64(i64 %38, i64 %15)
+  store i64 %39, ptr %37, align 8, !tbaa !50
+  br label %41
 
-39:                                               ; preds = %31, %30
+40:                                               ; preds = %32, %31
   store i64 %16, ptr %12, align 8, !tbaa !47
-  br label %40
+  br label %41
 
-40:                                               ; preds = %28, %39, %35, %4
+41:                                               ; preds = %29, %40, %36, %4
   ret i32 0
 }
 

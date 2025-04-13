@@ -1495,8 +1495,8 @@ lor.end:                                          ; preds = %lor.rhs, %_ZN4llvh9
   store ptr %add.ptr, ptr %pCur, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %.pre, i64 %spec.select
   %cmp13 = icmp eq i64 %conv39, %spec.select
-  %brmerge.not = and i1 %cmp13, %3
-  br i1 %brmerge.not, label %land.lhs.true14, label %if.else
+  %or.cond = and i1 %cmp13, %3
+  br i1 %or.cond, label %land.lhs.true14, label %if.else
 
 land.lhs.true14:                                  ; preds = %lor.end
   %4 = load ptr, ptr %segments, align 8
@@ -1528,7 +1528,7 @@ if.else.i:                                        ; preds = %if.then16
   call void @_ZNSt6vectorIS_IN6hermes9SourceMap7SegmentESaIS2_EESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %lines, ptr %6, ptr noundef nonnull align 8 dereferenceable(24) %segments)
   br label %if.end56
 
-if.else:                                          ; preds = %lor.end, %land.lhs.true14
+if.else:                                          ; preds = %land.lhs.true14, %lor.end
   call void @_ZN6hermes15SourceMapParser12parseSegmentERKNS0_5StateERPKcS5_(ptr nonnull sret(%"class.llvh::Optional.85") align 4 %segmentOpt, ptr noundef nonnull align 4 dereferenceable(20) %state, ptr noundef nonnull align 8 dereferenceable(8) %pCur, ptr noundef %add.ptr12)
   %11 = load i8, ptr %hasVal.i, align 4
   %tobool.i = trunc i8 %11 to i1

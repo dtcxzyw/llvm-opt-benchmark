@@ -1101,19 +1101,17 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L19_fatalSignalHandle
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Tf_ScopeDescriptionStackReportLock", align 8
   %switch.tableidx = add i32 %0, -4
   %5 = icmp ult i32 %switch.tableidx, 8
-  br i1 %5, label %switch.hole_check, label %6
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %6
 
-6:                                                ; preds = %switch.hole_check, %3
+6:                                                ; preds = %3
   %7 = tail call ptr @strsignal(i32 noundef %0) #20
   br label %9
 
-switch.hole_check:                                ; preds = %3
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -99, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %6
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__L19_fatalSignalHandlerEiP9siginfo_tPv, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8

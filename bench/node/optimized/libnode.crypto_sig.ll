@@ -4050,21 +4050,19 @@ if.then:                                          ; preds = %lor.lhs.false5, %lo
 
 if.end:                                           ; preds = %if.then
   %cmp12 = icmp eq i32 %padding, 6
-  br i1 %cmp12, label %land.lhs.true, label %if.end21
-
-land.lhs.true:                                    ; preds = %if.end
   %0 = load i8, ptr %salt_len, align 4
   %tobool.i = trunc i8 %0 to i1
-  br i1 %tobool.i, label %_ZNKR2v85MaybeIiE8FromJustEv.exit, label %if.end21
+  %or.cond = select i1 %cmp12, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %_ZNKR2v85MaybeIiE8FromJustEv.exit, label %if.end21
 
-_ZNKR2v85MaybeIiE8FromJustEv.exit:                ; preds = %land.lhs.true
+_ZNKR2v85MaybeIiE8FromJustEv.exit:                ; preds = %if.end
   %value_.i = getelementptr inbounds nuw i8, ptr %salt_len, i64 4
   %1 = load i32, ptr %value_.i, align 4
   %call16 = tail call i32 @EVP_PKEY_CTX_set_rsa_pss_saltlen(ptr noundef %pkctx, i32 noundef %1) #21
   %cmp17 = icmp slt i32 %call16, 1
   br i1 %cmp17, label %return, label %if.end21
 
-if.end21:                                         ; preds = %if.end, %land.lhs.true, %_ZNKR2v85MaybeIiE8FromJustEv.exit, %lor.lhs.false5
+if.end21:                                         ; preds = %if.end, %_ZNKR2v85MaybeIiE8FromJustEv.exit, %lor.lhs.false5
   br label %return
 
 return:                                           ; preds = %_ZNKR2v85MaybeIiE8FromJustEv.exit, %if.then, %if.end21

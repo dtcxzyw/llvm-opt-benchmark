@@ -535,7 +535,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   unreachable
 
 .thread.i:                                        ; preds = %93, %66, %46, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.pn.i = phi { ptr, i32 } [ %67, %66 ], [ %lpad.thr_comm.split-lp.i, %93 ], [ %lpad.phi43.i, %46 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %67, %66 ], [ %lpad.thr_comm.split-lp.i, %93 ], [ %lpad.phi42.i, %46 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$$LP$$RP$$GT$$GT$17h1304efc12af6acbcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #20
           to label %51 unwind label %49
 
@@ -581,27 +581,27 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %42, align 8, !noalias !127
   invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5897250e680708717fcdbd33a59a3af2.4.llvm.8326862415837228122) #18
-          to label %45 unwind label %.loopexit.split-lp40.i, !noalias !122
+          to label %45 unwind label %.loopexit.split-lp39.i, !noalias !122
 
 43:                                               ; preds = %35
   %44 = invoke { i64, i32 } @_ZN17crossbeam_channel7channel4read17hb1cbdefc1e5d9766E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12, ptr noalias noundef nonnull align 8 dereferenceable(72) %28)
-          to label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hd532494fc2842e44E.exit21.i" unwind label %.loopexit39.i
+          to label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hd532494fc2842e44E.exit21.i" unwind label %.loopexit38.i
 
 45:                                               ; preds = %38
   unreachable
 
-.loopexit39.i:                                    ; preds = %43
-  %lpad.loopexit41.i = landingpad { ptr, i32 }
+.loopexit38.i:                                    ; preds = %43
+  %lpad.loopexit40.i = landingpad { ptr, i32 }
           cleanup
   br label %46
 
-.loopexit.split-lp40.i:                           ; preds = %38
-  %lpad.loopexit.split-lp42.i = landingpad { ptr, i32 }
+.loopexit.split-lp39.i:                           ; preds = %38
+  %lpad.loopexit.split-lp41.i = landingpad { ptr, i32 }
           cleanup
   br label %46
 
-46:                                               ; preds = %.loopexit.split-lp40.i, %.loopexit39.i
-  %lpad.phi43.i = phi { ptr, i32 } [ %lpad.loopexit41.i, %.loopexit39.i ], [ %lpad.loopexit.split-lp42.i, %.loopexit.split-lp40.i ]
+46:                                               ; preds = %.loopexit.split-lp39.i, %.loopexit38.i
+  %lpad.phi42.i = phi { ptr, i32 } [ %lpad.loopexit40.i, %.loopexit38.i ], [ %lpad.loopexit.split-lp41.i, %.loopexit.split-lp39.i ]
   invoke void @"_ZN86_$LT$crossbeam_channel..select..SelectedOperation$u20$as$u20$core..ops..drop..Drop$GT$4drop17h79ec0f24d4043fe2E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8)
           to label %.thread.i unwind label %47
 
@@ -622,20 +622,20 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9), !noalias !114
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !114
   invoke void @"_ZN4core3ptr73drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$$LP$$RP$$GT$$GT$17h1304efc12af6acbcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
-          to label %52 unwind label %.loopexit44.i
+          to label %52 unwind label %.loopexit43.i
 
-51:                                               ; preds = %.loopexit.split-lp45.i, %.loopexit44.i, %.thread.i
-  %.pn13.i = phi { ptr, i32 } [ %.pn.pn.i, %.thread.i ], [ %lpad.loopexit46.i, %.loopexit44.i ], [ %lpad.loopexit.split-lp47.i, %.loopexit.split-lp45.i ]
+51:                                               ; preds = %.loopexit.split-lp44.i, %.loopexit43.i, %.thread.i
+  %.pn13.i = phi { ptr, i32 } [ %.pn.pn.i, %.thread.i ], [ %lpad.loopexit45.i, %.loopexit43.i ], [ %lpad.loopexit.split-lp46.i, %.loopexit.split-lp44.i ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$std..time..Instant$GT$$GT$17hb9adf7365046b36cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #20
           to label %14 unwind label %49
 
-.loopexit44.i:                                    ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hd532494fc2842e44E.exit21.i"
-  %lpad.loopexit46.i = landingpad { ptr, i32 }
+.loopexit43.i:                                    ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hd532494fc2842e44E.exit21.i"
+  %lpad.loopexit45.i = landingpad { ptr, i32 }
           cleanup
   br label %51
 
-.loopexit.split-lp45.i:                           ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17h2233a815f598ad01E.exit.i
-  %lpad.loopexit.split-lp47.i = landingpad { ptr, i32 }
+.loopexit.split-lp44.i:                           ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17h2233a815f598ad01E.exit.i
+  %lpad.loopexit.split-lp46.i = landingpad { ptr, i32 }
           cleanup
   br label %51
 
@@ -691,7 +691,7 @@ _ZN17crossbeam_channel6select17SelectedOperation4recv17h2233a815f598ad01E.exit.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9), !noalias !114
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !114
   invoke void @"_ZN4core3ptr73drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$$LP$$RP$$GT$$GT$17h1304efc12af6acbcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
-          to label %70 unwind label %.loopexit.split-lp45.i
+          to label %70 unwind label %.loopexit.split-lp44.i
 
 70:                                               ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17h2233a815f598ad01E.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !114

@@ -926,8 +926,8 @@ define internal noundef ptr @copy_config_pdu_transport_config_cb(ptr noundef ret
 define internal noundef zeroext i1 @update_config_pdu_transport_config_item(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %9
+  %.not31 = icmp eq i32 %4, 0
+  br i1 %.not31, label %5, label %9
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -939,8 +939,8 @@ define internal noundef zeroext i1 @update_config_pdu_transport_config_item(ptr 
   %10 = phi i1 [ true, %2 ], [ %8, %5 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
-  %.not25 = icmp eq i32 %12, 0
-  br i1 %.not25, label %13, label %17
+  %.not32 = icmp eq i32 %12, 0
+  br i1 %.not32, label %13, label %17
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -952,8 +952,8 @@ define internal noundef zeroext i1 @update_config_pdu_transport_config_item(ptr 
   %18 = phi i1 [ true, %9 ], [ %16, %13 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
-  %.not26 = icmp eq i32 %20, 0
-  br i1 %.not26, label %21, label %25
+  %.not33 = icmp eq i32 %20, 0
+  br i1 %.not33, label %21, label %25
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -963,48 +963,48 @@ define internal noundef zeroext i1 @update_config_pdu_transport_config_item(ptr 
 
 25:                                               ; preds = %21, %17
   %26 = phi i1 [ true, %17 ], [ %24, %21 ]
-  br i1 %.not, label %30, label %27
+  br i1 %.not31, label %30, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 4
-  %.not28 = icmp eq i32 %29, -1
-  br i1 %.not28, label %30, label %.sink.split
+  %.not35 = icmp eq i32 %29, -1
+  br i1 %.not35, label %30, label %.sink.split
 
 30:                                               ; preds = %27, %25
-  br i1 %.not25, label %34, label %31
+  br i1 %.not32, label %34, label %31
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
-  %.not30 = icmp eq i32 %33, -1
-  br i1 %.not30, label %34, label %.sink.split
+  %.not37 = icmp eq i32 %33, -1
+  br i1 %.not37, label %34, label %.sink.split
 
 34:                                               ; preds = %31, %30
-  br i1 %.not26, label %38, label %35
+  br i1 %.not33, label %38, label %35
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i32, ptr %36, align 4
-  %.not32 = icmp eq i32 %37, -1
-  br i1 %.not32, label %38, label %.sink.split
+  %.not39 = icmp eq i32 %37, -1
+  br i1 %.not39, label %38, label %.sink.split
 
 38:                                               ; preds = %35, %34
-  %brmerge = select i1 %10, i1 true, i1 %18
-  %or.cond = select i1 %26, i1 %brmerge, i1 false
-  br i1 %or.cond, label %.sink.split, label %39
+  %or.cond = select i1 %10, i1 true, i1 %18
+  %or.cond40 = select i1 %26, i1 %or.cond, i1 false
+  br i1 %or.cond40, label %.sink.split, label %39
 
 39:                                               ; preds = %38
-  %40 = xor i1 %10, %18
-  br i1 %40, label %.sink.split, label %42
+  %or.cond41 = xor i1 %10, %18
+  br i1 %or.cond41, label %.sink.split, label %41
 
 .sink.split:                                      ; preds = %39, %38, %35, %31, %27
   %.str.207.sink = phi ptr [ @.str.203, %27 ], [ @.str.204, %31 ], [ @.str.205, %35 ], [ @.str.206, %38 ], [ @.str.207, %39 ]
-  %41 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.207.sink)
-  store ptr %41, ptr %1, align 8
-  br label %42
+  %40 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.207.sink)
+  store ptr %40, ptr %1, align 8
+  br label %41
 
-42:                                               ; preds = %.sink.split, %39
+41:                                               ; preds = %.sink.split, %39
   %.0 = phi i1 [ true, %39 ], [ false, %.sink.split ]
   ret i1 %.0
 }

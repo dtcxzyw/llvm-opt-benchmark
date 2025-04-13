@@ -12632,8 +12632,8 @@ define internal fastcc noundef ptr @new_keys_object(i8 noundef zeroext %0, i1 no
 
 19:                                               ; preds = %2
   %20 = icmp eq i8 %0, 3
-  %brmerge.not = and i1 %20, %1
-  br i1 %brmerge.not, label %21, label %.thread
+  %or.cond = and i1 %20, %1
+  br i1 %or.cond, label %21, label %.thread
 
 21:                                               ; preds = %19
   %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -12656,8 +12656,8 @@ _PyFreeList_PopMem.exit:                          ; preds = %21
   br label %41
 
 .thread:                                          ; preds = %15, %17, %11, %19, %21
-  %.0355.ph = phi i32 [ 3, %21 ], [ %4, %19 ], [ %18, %17 ], [ %16, %15 ], [ %12, %11 ]
-  %32 = zext nneg i32 %.0355.ph to i64
+  %.0363.ph = phi i32 [ 3, %21 ], [ %4, %19 ], [ %18, %17 ], [ %16, %15 ], [ %12, %11 ]
+  %32 = zext nneg i32 %.0363.ph to i64
   %33 = shl nuw i64 1, %32
   %34 = mul i64 %7, %3
   %35 = add i64 %34, 32
@@ -12672,12 +12672,12 @@ _PyFreeList_PopMem.exit:                          ; preds = %21
 
 41:                                               ; preds = %_PyFreeList_PopMem.exit, %.thread
   %.pre-phi = phi i64 [ %.pre, %_PyFreeList_PopMem.exit ], [ %34, %.thread ]
-  %.03559 = phi i32 [ 3, %_PyFreeList_PopMem.exit ], [ %.0355.ph, %.thread ]
+  %.03637 = phi i32 [ 3, %_PyFreeList_PopMem.exit ], [ %.0363.ph, %.thread ]
   %.1 = phi ptr [ %27, %_PyFreeList_PopMem.exit ], [ %37, %.thread ]
   store i64 1, ptr %.1, align 8, !tbaa !42
   %42 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   store i8 %0, ptr %42, align 8, !tbaa !41
-  %43 = trunc i32 %.03559 to i8
+  %43 = trunc i32 %.03637 to i8
   %44 = getelementptr inbounds nuw i8, ptr %.1, i64 9
   store i8 %43, ptr %44, align 1, !tbaa !41
   %45 = zext i1 %1 to i8
@@ -12690,7 +12690,7 @@ _PyFreeList_PopMem.exit:                          ; preds = %21
   %49 = getelementptr inbounds nuw i8, ptr %.1, i64 12
   store i32 0, ptr %49, align 4, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %.1, i64 32
-  %51 = zext nneg i32 %.03559 to i64
+  %51 = zext nneg i32 %.03637 to i64
   %52 = shl nuw i64 1, %51
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %50, i8 -1, i64 %52, i1 false)
   %53 = getelementptr [0 x i8], ptr %50, i64 0, i64 %52
@@ -12698,8 +12698,8 @@ _PyFreeList_PopMem.exit:                          ; preds = %21
   br label %54
 
 54:                                               ; preds = %41, %39
-  %.034 = phi ptr [ null, %39 ], [ %.1, %41 ]
-  ret ptr %.034
+  %.035 = phi ptr [ null, %39 ], [ %.1, %41 ]
+  ret ptr %.035
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable

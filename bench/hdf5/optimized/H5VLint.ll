@@ -794,8 +794,8 @@ define range(i32 0, 2) i32 @H5VL_term_package() local_unnamed_addr #0 {
 
 14:                                               ; preds = %7
   %15 = tail call i64 @H5VL__num_opt_operation() #15
-  %.not7 = icmp eq i64 %15, 0
-  br i1 %.not7, label %18, label %16
+  %.not8 = icmp eq i64 %15, 0
+  br i1 %.not8, label %18, label %16
 
 16:                                               ; preds = %14
   %17 = tail call i32 @H5VL__term_opt_operation() #15
@@ -810,7 +810,7 @@ define range(i32 0, 2) i32 @H5VL_term_package() local_unnamed_addr #0 {
   store i8 0, ptr @H5VL_init_g, align 1, !tbaa !3
   br label %22
 
-22:                                               ; preds = %0, %10, %18, %21, %16, %5
+22:                                               ; preds = %10, %18, %21, %16, %5, %0
   %.0 = phi i32 [ 1, %5 ], [ 1, %10 ], [ 1, %16 ], [ 0, %21 ], [ 1, %18 ], [ 0, %0 ]
   ret i32 %.0
 }

@@ -16330,146 +16330,140 @@ define void @_ZN5Ipopt27WarmStartIterateInitializer18adapt_to_target_muERNS_6Vec
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %8 = load i8, ptr %7, align 8, !tbaa !646, !range !37, !noundef !38
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %15
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 233
+  %11 = load i8, ptr %10, align 1, !range !37
+  %12 = trunc nuw i8 %11 to i1
+  %or.cond.i = select i1 %9, i1 %12, i1 false
+  br i1 %or.cond.i, label %13, label %14
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 233
-  %12 = load i8, ptr %11, align 1, !tbaa !650, !range !37, !noundef !38
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %10
+13:                                               ; preds = %4
   tail call void @_ZN5Ipopt11DenseVector22set_values_from_scalarEv(ptr noundef nonnull align 8 dereferenceable(248) %5)
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %10, %4
+14:                                               ; preds = %13, %4
   tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(248) %5)
   store i8 1, ptr %7, align 8, !tbaa !646
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 233
-  store i8 0, ptr %16, align 1, !tbaa !650
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  %18 = load ptr, ptr %17, align 8, !tbaa !651
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %_ZN5Ipopt11DenseVector6ValuesEv.exit
+  store i8 0, ptr %10, align 1, !tbaa !650
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 216
+  %16 = load ptr, ptr %15, align 8, !tbaa !651
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %_ZN5Ipopt11DenseVector6ValuesEv.exit
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 208
-  %22 = load ptr, ptr %21, align 8, !tbaa !652
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !653
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %26, label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 208
+  %20 = load ptr, ptr %19, align 8, !tbaa !652
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %22 = load i32, ptr %21, align 4, !tbaa !653
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %24, label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
 
-26:                                               ; preds = %20
-  %27 = zext nneg i32 %24 to i64
-  %28 = shl nuw nsw i64 %27, 3
-  %29 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %28) #22
+24:                                               ; preds = %18
+  %25 = zext nneg i32 %22 to i64
+  %26 = shl nuw nsw i64 %25, 3
+  %27 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %26) #22
   br label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
 
-_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i: ; preds = %26, %20
-  %.0.i.i.i = phi ptr [ %29, %26 ], [ null, %20 ]
-  store ptr %.0.i.i.i, ptr %17, align 8, !tbaa !651
+_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i: ; preds = %24, %18
+  %.0.i.i.i = phi ptr [ %27, %24 ], [ null, %18 ]
+  store ptr %.0.i.i.i, ptr %15, align 8, !tbaa !651
   br label %_ZN5Ipopt11DenseVector6ValuesEv.exit
 
-_ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %15, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
-  %30 = phi ptr [ %18, %15 ], [ %.0.i.i.i, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %32 = load i8, ptr %31, align 8, !tbaa !646, !range !37, !noundef !38
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %39
+_ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %14, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
+  %28 = phi ptr [ %16, %14 ], [ %.0.i.i.i, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i ]
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 232
+  %30 = load i8, ptr %29, align 8, !tbaa !646, !range !37, !noundef !38
+  %31 = trunc nuw i8 %30 to i1
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 233
+  %33 = load i8, ptr %32, align 1, !range !37
+  %34 = trunc nuw i8 %33 to i1
+  %or.cond.i49 = select i1 %31, i1 %34, i1 false
+  br i1 %or.cond.i49, label %35, label %36
 
-34:                                               ; preds = %_ZN5Ipopt11DenseVector6ValuesEv.exit
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 233
-  %36 = load i8, ptr %35, align 1, !tbaa !650, !range !37, !noundef !38
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %39
-
-38:                                               ; preds = %34
+35:                                               ; preds = %_ZN5Ipopt11DenseVector6ValuesEv.exit
   tail call void @_ZN5Ipopt11DenseVector22set_values_from_scalarEv(ptr noundef nonnull align 8 dereferenceable(248) %6)
-  br label %39
+  br label %36
 
-39:                                               ; preds = %38, %34, %_ZN5Ipopt11DenseVector6ValuesEv.exit
+36:                                               ; preds = %35, %_ZN5Ipopt11DenseVector6ValuesEv.exit
   tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(248) %6)
-  store i8 1, ptr %31, align 8, !tbaa !646
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 233
-  store i8 0, ptr %40, align 1, !tbaa !650
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 216
-  %42 = load ptr, ptr %41, align 8, !tbaa !651
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %_ZN5Ipopt11DenseVector6ValuesEv.exit51
+  store i8 1, ptr %29, align 8, !tbaa !646
+  store i8 0, ptr %32, align 1, !tbaa !650
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 216
+  %38 = load ptr, ptr %37, align 8, !tbaa !651
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %_ZN5Ipopt11DenseVector6ValuesEv.exit52
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 208
-  %46 = load ptr, ptr %45, align 8, !tbaa !652
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  %48 = load i32, ptr %47, align 4, !tbaa !653
-  %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %50, label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i49
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 208
+  %42 = load ptr, ptr %41, align 8, !tbaa !652
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
+  %44 = load i32, ptr %43, align 4, !tbaa !653
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %46, label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i50
 
-50:                                               ; preds = %44
-  %51 = zext nneg i32 %48 to i64
-  %52 = shl nuw nsw i64 %51, 3
-  %53 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %52) #22
-  br label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i49
+46:                                               ; preds = %40
+  %47 = zext nneg i32 %44 to i64
+  %48 = shl nuw nsw i64 %47, 3
+  %49 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %48) #22
+  br label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i50
 
-_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i49: ; preds = %50, %44
-  %.0.i.i.i50 = phi ptr [ %53, %50 ], [ null, %44 ]
-  store ptr %.0.i.i.i50, ptr %41, align 8, !tbaa !651
-  br label %_ZN5Ipopt11DenseVector6ValuesEv.exit51
+_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i50: ; preds = %46, %40
+  %.0.i.i.i51 = phi ptr [ %49, %46 ], [ null, %40 ]
+  store ptr %.0.i.i.i51, ptr %37, align 8, !tbaa !651
+  br label %_ZN5Ipopt11DenseVector6ValuesEv.exit52
 
-_ZN5Ipopt11DenseVector6ValuesEv.exit51:           ; preds = %39, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i49
-  %54 = phi ptr [ %42, %39 ], [ %.0.i.i.i50, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i49 ]
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %56 = load ptr, ptr %55, align 8, !tbaa !54
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %58 = load i32, ptr %57, align 4, !tbaa !653
-  %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph, label %._crit_edge
+_ZN5Ipopt11DenseVector6ValuesEv.exit52:           ; preds = %36, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i50
+  %50 = phi ptr [ %38, %36 ], [ %.0.i.i.i51, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i50 ]
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %52 = load ptr, ptr %51, align 8, !tbaa !54
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
+  %54 = load i32, ptr %53, align 4, !tbaa !653
+  %55 = icmp sgt i32 %54, 0
+  br i1 %55, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %78, %_ZN5Ipopt11DenseVector6ValuesEv.exit51
+._crit_edge:                                      ; preds = %74, %_ZN5Ipopt11DenseVector6ValuesEv.exit52
   ret void
 
-.lr.ph:                                           ; preds = %_ZN5Ipopt11DenseVector6ValuesEv.exit51, %78
-  %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %_ZN5Ipopt11DenseVector6ValuesEv.exit51 ]
-  %60 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
-  %61 = load double, ptr %60, align 8, !tbaa !655
-  %62 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv
-  %63 = load double, ptr %62, align 8, !tbaa !655
-  %64 = fmul double %63, 1.000000e+04
-  %65 = fcmp ogt double %61, %64
-  br i1 %65, label %66, label %70
+.lr.ph:                                           ; preds = %_ZN5Ipopt11DenseVector6ValuesEv.exit52, %74
+  %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %_ZN5Ipopt11DenseVector6ValuesEv.exit52 ]
+  %56 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv
+  %57 = load double, ptr %56, align 8, !tbaa !655
+  %58 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv
+  %59 = load double, ptr %58, align 8, !tbaa !655
+  %60 = fmul double %59, 1.000000e+04
+  %61 = fcmp ogt double %57, %60
+  br i1 %61, label %62, label %66
+
+62:                                               ; preds = %.lr.ph
+  %63 = fdiv double %3, %57
+  store double %63, ptr %58, align 8, !tbaa !655
+  %64 = load double, ptr %56, align 8, !tbaa !655
+  %65 = fcmp ogt double %63, %64
+  br i1 %65, label %.sink.split, label %74
 
 66:                                               ; preds = %.lr.ph
-  %67 = fdiv double %3, %61
-  store double %67, ptr %62, align 8, !tbaa !655
-  %68 = load double, ptr %60, align 8, !tbaa !655
-  %69 = fcmp ogt double %67, %68
-  br i1 %69, label %.sink.split, label %78
+  %67 = fmul double %57, 1.000000e+04
+  %68 = fcmp ogt double %59, %67
+  br i1 %68, label %69, label %.sink.split
 
-70:                                               ; preds = %.lr.ph
-  %71 = fmul double %61, 1.000000e+04
-  %72 = fcmp ogt double %63, %71
-  br i1 %72, label %73, label %.sink.split
+69:                                               ; preds = %66
+  %70 = fdiv double %3, %59
+  store double %70, ptr %56, align 8, !tbaa !655
+  %71 = load double, ptr %58, align 8, !tbaa !655
+  %72 = fcmp ogt double %70, %71
+  br i1 %72, label %.sink.split, label %74
 
-73:                                               ; preds = %70
-  %74 = fdiv double %3, %63
-  store double %74, ptr %60, align 8, !tbaa !655
-  %75 = load double, ptr %62, align 8, !tbaa !655
-  %76 = fcmp ogt double %74, %75
-  br i1 %76, label %.sink.split, label %78
+.sink.split:                                      ; preds = %66, %69, %62
+  %73 = tail call double @sqrt(double noundef %3) #19, !tbaa !656
+  store double %73, ptr %58, align 8, !tbaa !655
+  store double %73, ptr %56, align 8, !tbaa !655
+  br label %74
 
-.sink.split:                                      ; preds = %70, %73, %66
-  %77 = tail call double @sqrt(double noundef %3) #19, !tbaa !656
-  store double %77, ptr %62, align 8, !tbaa !655
-  store double %77, ptr %60, align 8, !tbaa !655
-  br label %78
-
-78:                                               ; preds = %.sink.split, %66, %73
+74:                                               ; preds = %.sink.split, %62, %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %79 = load i32, ptr %57, align 4, !tbaa !653
-  %80 = sext i32 %79 to i64
-  %81 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !657
+  %75 = load i32, ptr %53, align 4, !tbaa !653
+  %76 = sext i32 %75 to i64
+  %77 = icmp slt i64 %indvars.iv.next, %76
+  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !657
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

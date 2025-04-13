@@ -1734,10 +1734,10 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   br i1 %18, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %5, %65
-  %.058 = phi ptr [ %67, %65 ], [ %13, %5 ]
-  %.05057 = phi ptr [ %69, %65 ], [ %15, %5 ]
-  %.05156 = phi i8 [ %.1, %65 ], [ 0, %5 ]
-  %19 = load ptr, ptr %.05057, align 8
+  %.057 = phi ptr [ %67, %65 ], [ %13, %5 ]
+  %.05156 = phi ptr [ %69, %65 ], [ %15, %5 ]
+  %.05255 = phi i8 [ %.1, %65 ], [ 0, %5 ]
+  %19 = load ptr, ptr %.05156, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
@@ -1747,17 +1747,17 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   br i1 %4, label %24, label %28
 
 24:                                               ; preds = %23
-  %25 = trunc nuw i8 %.05156 to i1
+  %25 = trunc nuw i8 %.05255 to i1
   %.str.21..str.20 = select i1 %25, ptr @.str.21, ptr @.str.20
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull %.str.21..str.20)
-  %26 = load ptr, ptr %.058, align 8
+  %26 = load ptr, ptr %.057, align 8
   %27 = load ptr, ptr %19, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.22, ptr noundef %26, ptr noundef %27)
   br label %28
 
 28:                                               ; preds = %24, %23
-  %.2 = phi i8 [ 1, %24 ], [ %.05156, %23 ]
-  %29 = load ptr, ptr %.058, align 8
+  %.2 = phi i8 [ 1, %24 ], [ %.05255, %23 ]
+  %29 = load ptr, ptr %.057, align 8
   %30 = call i32 @strcmp(ptr noundef %29, ptr noundef nonnull dereferenceable(6) @.str.4) #11
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %40
@@ -1778,7 +1778,7 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %53, label %42
 
 42:                                               ; preds = %40
-  %43 = load ptr, ptr %.058, align 8
+  %43 = load ptr, ptr %.057, align 8
   %44 = icmp eq ptr %41, %43
   br i1 %44, label %45, label %53
 
@@ -1808,10 +1808,10 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   br label %65
 
 65:                                               ; preds = %45, %53, %32, %.lr.ph
-  %.1 = phi i8 [ %.05156, %.lr.ph ], [ %.2, %32 ], [ %.2, %53 ], [ %.2, %45 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.058, i64 8
+  %.1 = phi i8 [ %.05255, %.lr.ph ], [ %.2, %32 ], [ %.2, %53 ], [ %.2, %45 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.057, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %.05057, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.05156, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp ne ptr %67, null
   %71 = icmp ne ptr %69, null
@@ -1820,14 +1820,14 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge:                                      ; preds = %65
   %73 = trunc nuw i8 %.1 to i1
-  %brmerge.demorgan = and i1 %4, %73
-  br i1 %brmerge.demorgan, label %74, label %._crit_edge.thread
+  %or.cond = and i1 %4, %73
+  br i1 %or.cond, label %74, label %._crit_edge.thread
 
 74:                                               ; preds = %._crit_edge
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.24)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %5, %._crit_edge, %74
+._crit_edge.thread:                               ; preds = %5, %74, %._crit_edge
   %75 = call ptr @except_pop()
   %76 = load ptr, ptr %9, align 8
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 8

@@ -536,14 +536,14 @@ define dso_local range(i32 -1, 1) i32 @container_p_join(ptr noundef readonly cap
 
 13:                                               ; preds = %8
   %14 = tail call zeroext i1 @slurm_running_in_slurmd() #12
-  %brmerge.demorgan = and i1 %2, %14
-  br i1 %brmerge.demorgan, label %52, label %15
+  %or.cond = and i1 %2, %14
+  br i1 %or.cond, label %52, label %15
 
 15:                                               ; preds = %13
   %.pre = load ptr, ptr @jc_conf, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %.pre16 = load i8, ptr %.phi.trans.insert, align 8, !range !8
-  %16 = trunc nuw i8 %.pre16 to i1
+  %.pre15 = load i8, ptr %.phi.trans.insert, align 8, !range !8
+  %16 = trunc nuw i8 %.pre15 to i1
   br i1 %16, label %.thread, label %21
 
 .thread:                                          ; preds = %8, %15
@@ -581,8 +581,8 @@ define dso_local range(i32 -1, 1) i32 @container_p_join(ptr noundef readonly cap
 
 36:                                               ; preds = %25
   %37 = call i32 @setns(i32 noundef %31, i32 noundef 131072) #12
-  %.not12 = icmp eq i32 %37, 0
-  br i1 %.not12, label %42, label %38
+  %.not13 = icmp eq i32 %37, 0
+  br i1 %.not13, label %42, label %38
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %5, align 8
@@ -593,8 +593,8 @@ define dso_local range(i32 -1, 1) i32 @container_p_join(ptr noundef readonly cap
 42:                                               ; preds = %36
   %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %44 = and i64 %43, 16777216
-  %.not13 = icmp eq i64 %44, 0
-  br i1 %.not13, label %50, label %45
+  %.not14 = icmp eq i64 %44, 0
+  br i1 %.not14, label %50, label %45
 
 45:                                               ; preds = %42
   %46 = call i32 @slurm_get_log_level() #12

@@ -6051,27 +6051,27 @@ _ZN6google8protobuf8compiler3cpp17PrintFieldCommentINS0_15FieldDescriptorEEEvRKN
   %weak_.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 132
   %11 = load i8, ptr %weak_.i.i.i, align 4
   %tobool.i.i.i = trunc i8 %11 to i1
-  br i1 %tobool.i.i.i, label %if.then.i, label %if.else
-
-if.then.i:                                        ; preds = %_ZN6google8protobuf8compiler3cpp17PrintFieldCommentINS0_15FieldDescriptorEEEvRKNS2_9FormatterEPKT_RKNS2_7OptionsE.exit
   %opensource_runtime.i = getelementptr inbounds nuw i8, ptr %9, i64 199
   %12 = load i8, ptr %opensource_runtime.i, align 1
   %tobool.i = trunc i8 %12 to i1
-  br i1 %tobool.i, label %cond.false.i, label %if.then
+  %or.cond.i = select i1 %tobool.i.i.i, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %cond.false.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit
 
-cond.false.i:                                     ; preds = %if.then.i
+cond.false.i:                                     ; preds = %_ZN6google8protobuf8compiler3cpp17PrintFieldCommentINS0_15FieldDescriptorEEEvRKNS2_9FormatterEPKT_RKNS2_7OptionsE.exit
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i, ptr noundef nonnull @.str.219, i32 noundef 324, i64 27, ptr nonnull @.str.220) #29
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i) #30
   unreachable
 
-if.then:                                          ; preds = %if.then.i
+_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit: ; preds = %_ZN6google8protobuf8compiler3cpp17PrintFieldCommentINS0_15FieldDescriptorEEEvRKNS2_9FormatterEPKT_RKNS2_7OptionsE.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  br i1 %tobool.i.i.i, label %if.then, label %if.else
+
+if.then:                                          ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit
   %13 = load ptr, ptr %format, align 8
   call void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %13, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(32) %vars_.i, i64 21, ptr nonnull @.str.83)
   br label %if.end47
 
-if.else:                                          ; preds = %_ZN6google8protobuf8compiler3cpp17PrintFieldCommentINS0_15FieldDescriptorEEEvRKNS2_9FormatterEPKT_RKNS2_7OptionsE.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+if.else:                                          ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit
   %is_oneof_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   %bf.load.i.i = load i8, ptr %is_oneof_.i.i, align 1
   %14 = and i8 %bf.load.i.i, 16

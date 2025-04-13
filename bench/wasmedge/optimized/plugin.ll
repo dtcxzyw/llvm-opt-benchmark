@@ -2280,8 +2280,8 @@ define linkonce_odr hidden void @_ZN6spdlog5errorISt17basic_string_viewIcSt11cha
   %7 = icmp slt i32 %6, 5
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %9 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %8)
-  %brmerge.i.i.i.i = or i1 %7, %9
-  br i1 %brmerge.i.i.i.i, label %10, label %_ZN6spdlog6logger5errorISt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_.exit
+  %or.cond.i.i.i.i = or i1 %7, %9
+  br i1 %or.cond.i.i.i.i, label %10, label %_ZN6spdlog6logger5errorISt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_.exit
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2616,7 +2616,7 @@ define noundef zeroext i1 @_ZN8WasmEdge6Plugin6Plugin8loadFileERKNSt10filesystem
   %5 = alloca ptr, align 8
   %6 = alloca %"class.cxx20::expected", align 4
   %7 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
-          to label %.noexc unwind label %792
+          to label %.noexc unwind label %791
 
 .noexc:                                           ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2726,7 +2726,7 @@ _ZN8WasmEdge6Loader13SharedLibrary3getIFPKNS_6Plugin6Plugin16PluginDescriptorEvE
 
 50:                                               ; preds = %_ZN8WasmEdge6Loader13SharedLibrary3getIFPKNS_6Plugin6Plugin16PluginDescriptorEvEEENS_6SymbolIT_EEPKc.exit
   %51 = invoke noundef ptr %34()
-          to label %_ZNK8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEEclIJEEEDaDpT_.exit unwind label %792
+          to label %_ZNK8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEEclIJEEEDaDpT_.exit unwind label %791
 
 _ZNK8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEEclIJEEEDaDpT_.exit: ; preds = %50
   %52 = call noundef zeroext i1 @_ZN8WasmEdge6Plugin6Plugin14registerPluginEPKNS1_16PluginDescriptorE(ptr noundef %51) #27
@@ -2850,7 +2850,7 @@ _ZN8WasmEdge6Loader13SharedLibrary3getIFPK25WasmEdge_PluginDescriptorvEEENS_6Sym
 
 105:                                              ; preds = %_ZN8WasmEdge6Loader13SharedLibrary3getIFPK25WasmEdge_PluginDescriptorvEEENS_6SymbolIT_EEPKc.exit
   %106 = invoke noundef ptr %89()
-          to label %_ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit unwind label %792
+          to label %_ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit unwind label %791
 
 _ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit: ; preds = %105
   %.not = icmp eq ptr %106, null
@@ -2858,7 +2858,7 @@ _ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit: ; pred
 
 107:                                              ; preds = %_ZNK8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEEclIJEEEDaDpT_.exit
   %108 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #31
-          to label %.noexc20 unwind label %792
+          to label %.noexc20 unwind label %791
 
 .noexc20:                                         ; preds = %107
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !37
@@ -4152,7 +4152,7 @@ _ZZN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterC1EPK25WasmEdge_PluginDesc
 
 671:                                              ; preds = %665
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.191) #29
-          to label %.noexc22 unwind label %792
+          to label %.noexc22 unwind label %791
 
 .noexc22:                                         ; preds = %671
   unreachable
@@ -4169,7 +4169,7 @@ _ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegister
   call void @llvm.assume(i1 %.not.i.i.i)
   %678 = shl nuw nsw i64 %677, 3
   %679 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %678) #31
-          to label %.noexc23 unwind label %792
+          to label %.noexc23 unwind label %791
 
 .noexc23:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i
   %680 = getelementptr inbounds i8, ptr %679, i64 %669
@@ -4287,165 +4287,163 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit
 
 _ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit: ; preds = %707, %720, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i30
-  br i1 %cond, label %725, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
+  %725 = trunc i8 %.2 to i1
+  %or.cond = select i1 %cond, i1 %725, i1 false
+  br i1 %or.cond, label %.thread, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
 
-725:                                              ; preds = %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit
-  %726 = trunc i8 %.2 to i1
-  br i1 %726, label %.thread, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
+.thread:                                          ; preds = %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit, %_ZN8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEED2Ev.exit
+  %726 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8WasmEdge6Plugin6Plugin14PluginRegistryE, i64 8), align 8
+  %727 = getelementptr inbounds i8, ptr %726, i64 -224
+  %728 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx114pathaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %727, ptr noundef nonnull align 8 dereferenceable(40) %0)
+          to label %729 unwind label %791
 
-.thread:                                          ; preds = %_ZN8WasmEdge6SymbolIFPKNS_6Plugin6Plugin16PluginDescriptorEvEED2Ev.exit, %725
-  %727 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8WasmEdge6Plugin6Plugin14PluginRegistryE, i64 8), align 8
-  %728 = getelementptr inbounds i8, ptr %727, i64 -224
-  %729 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx114pathaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %728, ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %730 unwind label %792
+729:                                              ; preds = %.thread
+  %730 = getelementptr inbounds i8, ptr %726, i64 -176
+  store ptr %10, ptr %730, align 8
+  %731 = getelementptr inbounds i8, ptr %726, i64 -168
+  %732 = load ptr, ptr %731, align 8
+  store ptr %7, ptr %731, align 8
+  %.not.i.i.i.i31 = icmp eq ptr %732, null
+  br i1 %.not.i.i.i.i31, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit, label %733
 
-730:                                              ; preds = %.thread
-  %731 = getelementptr inbounds i8, ptr %727, i64 -176
-  store ptr %10, ptr %731, align 8
-  %732 = getelementptr inbounds i8, ptr %727, i64 -168
-  %733 = load ptr, ptr %732, align 8
-  store ptr %7, ptr %732, align 8
-  %.not.i.i.i.i31 = icmp eq ptr %733, null
-  br i1 %.not.i.i.i.i31, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit, label %734
+733:                                              ; preds = %729
+  %734 = getelementptr inbounds nuw i8, ptr %732, i64 8
+  %735 = load atomic i64, ptr %734 acquire, align 8
+  %736 = icmp eq i64 %735, 4294967297
+  %737 = trunc i64 %735 to i32
+  br i1 %736, label %738, label %740
 
-734:                                              ; preds = %730
-  %735 = getelementptr inbounds nuw i8, ptr %733, i64 8
-  %736 = load atomic i64, ptr %735 acquire, align 8
-  %737 = icmp eq i64 %736, 4294967297
-  %738 = trunc i64 %736 to i32
-  br i1 %737, label %739, label %741
-
-739:                                              ; preds = %734
-  store i32 0, ptr %735, align 8
-  %740 = getelementptr inbounds nuw i8, ptr %733, i64 12
-  store i32 0, ptr %740, align 4
+738:                                              ; preds = %733
+  store i32 0, ptr %734, align 8
+  %739 = getelementptr inbounds nuw i8, ptr %732, i64 12
+  store i32 0, ptr %739, align 4
   br label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split
 
-741:                                              ; preds = %734
-  %742 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i32 = icmp eq i8 %742, 0
-  br i1 %.not.i.i.i.i.i32, label %745, label %743
+740:                                              ; preds = %733
+  %741 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i32 = icmp eq i8 %741, 0
+  br i1 %.not.i.i.i.i.i32, label %744, label %742
 
-743:                                              ; preds = %741
-  %744 = add nsw i32 %738, -1
-  store i32 %744, ptr %735, align 4
-  br label %747
+742:                                              ; preds = %740
+  %743 = add nsw i32 %737, -1
+  store i32 %743, ptr %734, align 4
+  br label %746
 
-745:                                              ; preds = %741
-  %746 = atomicrmw volatile add ptr %735, i32 -1 acq_rel, align 4
-  br label %747
+744:                                              ; preds = %740
+  %745 = atomicrmw volatile add ptr %734, i32 -1 acq_rel, align 4
+  br label %746
 
-747:                                              ; preds = %745, %743
-  %.0.i.i.i.i.i33 = phi i32 [ %738, %743 ], [ %746, %745 ]
-  %748 = icmp eq i32 %.0.i.i.i.i.i33, 1
-  br i1 %748, label %749, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
+746:                                              ; preds = %744, %742
+  %.0.i.i.i.i.i33 = phi i32 [ %737, %742 ], [ %745, %744 ]
+  %747 = icmp eq i32 %.0.i.i.i.i.i33, 1
+  br i1 %747, label %748, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
 
-749:                                              ; preds = %747
-  %750 = load ptr, ptr %733, align 8
-  %751 = getelementptr inbounds nuw i8, ptr %750, i64 16
-  %752 = load ptr, ptr %751, align 8
-  call void %752(ptr noundef nonnull align 8 dereferenceable(16) %733) #27
-  %753 = getelementptr inbounds nuw i8, ptr %733, i64 12
-  %754 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i34 = icmp eq i8 %754, 0
-  br i1 %.not.i.i.i.i.i.i.i34, label %758, label %755
+748:                                              ; preds = %746
+  %749 = load ptr, ptr %732, align 8
+  %750 = getelementptr inbounds nuw i8, ptr %749, i64 16
+  %751 = load ptr, ptr %750, align 8
+  call void %751(ptr noundef nonnull align 8 dereferenceable(16) %732) #27
+  %752 = getelementptr inbounds nuw i8, ptr %732, i64 12
+  %753 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i34 = icmp eq i8 %753, 0
+  br i1 %.not.i.i.i.i.i.i.i34, label %757, label %754
 
-755:                                              ; preds = %749
-  %756 = load i32, ptr %753, align 4
-  %757 = add nsw i32 %756, -1
-  store i32 %757, ptr %753, align 4
-  br label %760
+754:                                              ; preds = %748
+  %755 = load i32, ptr %752, align 4
+  %756 = add nsw i32 %755, -1
+  store i32 %756, ptr %752, align 4
+  br label %759
 
-758:                                              ; preds = %749
-  %759 = atomicrmw volatile add ptr %753, i32 -1 acq_rel, align 4
-  br label %760
+757:                                              ; preds = %748
+  %758 = atomicrmw volatile add ptr %752, i32 -1 acq_rel, align 4
+  br label %759
 
-760:                                              ; preds = %758, %755
-  %.0.i.i.i.i.i.i.i35 = phi i32 [ %756, %755 ], [ %759, %758 ]
-  %761 = icmp eq i32 %.0.i.i.i.i.i.i.i35, 1
-  br i1 %761, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
+759:                                              ; preds = %757, %754
+  %.0.i.i.i.i.i.i.i35 = phi i32 [ %755, %754 ], [ %758, %757 ]
+  %760 = icmp eq i32 %.0.i.i.i.i.i.i.i35, 1
+  br i1 %760, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
 
-_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit: ; preds = %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit, %30, %725
-  %762 = load atomic i64, ptr %8 acquire, align 8
-  %763 = icmp eq i64 %762, 4294967297
-  %764 = trunc i64 %762 to i32
-  br i1 %763, label %765, label %766
+_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit: ; preds = %_ZN8WasmEdge6SymbolIFPK25WasmEdge_PluginDescriptorvEED2Ev.exit, %30
+  %761 = load atomic i64, ptr %8 acquire, align 8
+  %762 = icmp eq i64 %761, 4294967297
+  %763 = trunc i64 %761 to i32
+  br i1 %762, label %764, label %765
 
-765:                                              ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
+764:                                              ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
   store i32 0, ptr %8, align 8
   store i32 0, ptr %9, align 4
   br label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split
 
-766:                                              ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
-  %767 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i38 = icmp eq i8 %767, 0
-  br i1 %.not.i.i.i.i38, label %770, label %768
+765:                                              ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEEaSEOS3_.exit
+  %766 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i38 = icmp eq i8 %766, 0
+  br i1 %.not.i.i.i.i38, label %769, label %767
 
-768:                                              ; preds = %766
-  %769 = add nsw i32 %764, -1
-  store i32 %769, ptr %8, align 4
-  br label %772
+767:                                              ; preds = %765
+  %768 = add nsw i32 %763, -1
+  store i32 %768, ptr %8, align 4
+  br label %771
 
-770:                                              ; preds = %766
-  %771 = atomicrmw volatile add ptr %8, i32 -1 acq_rel, align 4
-  br label %772
+769:                                              ; preds = %765
+  %770 = atomicrmw volatile add ptr %8, i32 -1 acq_rel, align 4
+  br label %771
 
-772:                                              ; preds = %770, %768
-  %.0.i.i.i.i = phi i32 [ %764, %768 ], [ %771, %770 ]
-  %773 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %773, label %774, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
+771:                                              ; preds = %769, %767
+  %.0.i.i.i.i = phi i32 [ %763, %767 ], [ %770, %769 ]
+  %772 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %772, label %773, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
 
-774:                                              ; preds = %772
-  %775 = load ptr, ptr %7, align 8
-  %776 = getelementptr inbounds nuw i8, ptr %775, i64 16
-  %777 = load ptr, ptr %776, align 8
-  call void %777(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
-  %778 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i39 = icmp eq i8 %778, 0
-  br i1 %.not.i.i.i.i.i.i39, label %782, label %779
+773:                                              ; preds = %771
+  %774 = load ptr, ptr %7, align 8
+  %775 = getelementptr inbounds nuw i8, ptr %774, i64 16
+  %776 = load ptr, ptr %775, align 8
+  call void %776(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
+  %777 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i39 = icmp eq i8 %777, 0
+  br i1 %.not.i.i.i.i.i.i39, label %781, label %778
 
-779:                                              ; preds = %774
-  %780 = load i32, ptr %9, align 4
-  %781 = add nsw i32 %780, -1
-  store i32 %781, ptr %9, align 4
-  br label %784
+778:                                              ; preds = %773
+  %779 = load i32, ptr %9, align 4
+  %780 = add nsw i32 %779, -1
+  store i32 %780, ptr %9, align 4
+  br label %783
 
-782:                                              ; preds = %774
-  %783 = atomicrmw volatile add ptr %9, i32 -1 acq_rel, align 4
-  br label %784
+781:                                              ; preds = %773
+  %782 = atomicrmw volatile add ptr %9, i32 -1 acq_rel, align 4
+  br label %783
 
-784:                                              ; preds = %782, %779
-  %.0.i.i.i.i.i.i = phi i32 [ %780, %779 ], [ %783, %782 ]
-  %785 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %785, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
+783:                                              ; preds = %781, %778
+  %.0.i.i.i.i.i.i = phi i32 [ %779, %778 ], [ %782, %781 ]
+  %784 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %784, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
 
-_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split: ; preds = %739, %765
-  %.sink102 = phi ptr [ %7, %765 ], [ %733, %739 ]
-  %.056.ph.ph = phi i1 [ false, %765 ], [ true, %739 ]
-  %786 = load ptr, ptr %.sink102, align 8
-  %787 = getelementptr inbounds nuw i8, ptr %786, i64 16
-  %788 = load ptr, ptr %787, align 8
-  call void %788(ptr noundef nonnull align 8 dereferenceable(16) %.sink102) #27
+_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split: ; preds = %738, %764
+  %.sink102 = phi ptr [ %7, %764 ], [ %732, %738 ]
+  %.056.ph.ph = phi i1 [ false, %764 ], [ true, %738 ]
+  %785 = load ptr, ptr %.sink102, align 8
+  %786 = getelementptr inbounds nuw i8, ptr %785, i64 16
+  %787 = load ptr, ptr %786, align 8
+  call void %787(ptr noundef nonnull align 8 dereferenceable(16) %.sink102) #27
   br label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split
 
-_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split: ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split, %784, %760
-  %.sink98 = phi ptr [ %733, %760 ], [ %7, %784 ], [ %.sink102, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split ]
-  %.056.ph = phi i1 [ true, %760 ], [ false, %784 ], [ %.056.ph.ph, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split ]
-  %789 = load ptr, ptr %.sink98, align 8
-  %790 = getelementptr inbounds nuw i8, ptr %789, i64 24
-  %791 = load ptr, ptr %790, align 8
-  call void %791(ptr noundef nonnull align 8 dereferenceable(16) %.sink98) #27
+_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split: ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split, %783, %759
+  %.sink98 = phi ptr [ %732, %759 ], [ %7, %783 ], [ %.sink102, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split ]
+  %.056.ph = phi i1 [ true, %759 ], [ false, %783 ], [ %.056.ph.ph, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split.sink.split ]
+  %788 = load ptr, ptr %.sink98, align 8
+  %789 = getelementptr inbounds nuw i8, ptr %788, i64 24
+  %790 = load ptr, ptr %789, align 8
+  call void %790(ptr noundef nonnull align 8 dereferenceable(16) %.sink98) #27
   br label %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit
 
-_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, %760, %747, %730, %772, %784
-  %.056 = phi i1 [ false, %772 ], [ false, %784 ], [ true, %730 ], [ true, %747 ], [ true, %760 ], [ %.056.ph, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split ]
+_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split, %759, %746, %729, %771, %783
+  %.056 = phi i1 [ false, %771 ], [ false, %783 ], [ true, %729 ], [ true, %746 ], [ true, %759 ], [ %.056.ph, %_ZNSt10shared_ptrIN8WasmEdge6Loader13SharedLibraryEED2Ev.exit.sink.split ]
   ret i1 %.056
 
-792:                                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i, %671, %107, %105, %50, %1, %.thread
-  %793 = landingpad { ptr, i32 }
+791:                                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge6Plugin12_GLOBAL__N_118CAPIPluginRegisterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i, %671, %107, %105, %50, %1, %.thread
+  %792 = landingpad { ptr, i32 }
           catch ptr null
-  %794 = extractvalue { ptr, i32 } %793, 0
-  call void @__clang_call_terminate(ptr %794) #28
+  %793 = extractvalue { ptr, i32 } %792, 0
+  call void @__clang_call_terminate(ptr %793) #28
   unreachable
 }
 
@@ -5024,8 +5022,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5Va
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %35
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %35
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #27
@@ -47470,8 +47468,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKjRKPKcS3_EEEvNS_10sou
   %15 = icmp sge i32 %2, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %16)
-  %brmerge = or i1 %15, %17
-  br i1 %brmerge, label %18, label %41
+  %or.cond = or i1 %15, %17
+  br i1 %or.cond, label %18, label %41
 
 18:                                               ; preds = %8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #27
@@ -47549,8 +47547,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKPKcEEEvNS_10source_lo
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %35
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %35
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #27

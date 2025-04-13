@@ -11963,17 +11963,17 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %105 = sext i32 %104 to i64
   %106 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %105)
   %107 = load i8, ptr %106, align 1
-  %.not82 = icmp eq i8 %107, 125
-  br i1 %.not82, label %._crit_edge, label %.lr.ph
+  %.not84 = icmp eq i8 %107, 125
+  br i1 %.not84, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %.sroa.263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 520
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %.sroa.258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %.sroa.260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 504
   br label %122
 
 113:                                              ; preds = %101
@@ -12004,8 +12004,8 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
 
 122:                                              ; preds = %.lr.ph, %197
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %197 ]
-  %.086 = phi i8 [ 1, %.lr.ph ], [ %.1, %197 ]
-  %.06883 = phi double [ 0.000000e+00, %.lr.ph ], [ %164, %197 ]
+  %.088 = phi i8 [ 1, %.lr.ph ], [ %.1, %197 ]
+  %.07085 = phi double [ 0.000000e+00, %.lr.ph ], [ %164, %197 ]
   store double 0.000000e+00, ptr %25, align 8
   call void @_ZN10open_spiel8efg_game7EFGGame15NextPayoffTokenB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %26, ptr noundef nonnull align 8 dereferenceable(720) %0)
   %123 = invoke noundef zeroext i1 @_ZNK10open_spiel8efg_game7EFGGame16ParseDoubleValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPd(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull %25)
@@ -12112,15 +12112,15 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
 _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %139, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i
-  %.val70 = phi double [ %140, %139 ], [ %.pre, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ]
-  %164 = fadd double %.06883, %.val70
+  %.val72 = phi double [ %140, %139 ], [ %.pre, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ]
+  %164 = fadd double %.07085, %.val72
   %165 = load i8, ptr %111, align 8
   %166 = trunc i8 %165 to i1
   br i1 %166, label %168, label %167
 
 167:                                              ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
   store i8 1, ptr %111, align 8
-  store double %.val70, ptr %.sroa.261.0..sroa_idx, align 8
+  store double %.val72, ptr %.sroa.263.0..sroa_idx, align 8
   br label %168
 
 168:                                              ; preds = %167, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
@@ -12131,7 +12131,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %139, %_ZNSt6vectorI
 
 172:                                              ; preds = %168
   store i8 1, ptr %112, align 8
-  store double %.val70, ptr %.sroa.258.0..sroa_idx, align 8
+  store double %.val72, ptr %.sroa.260.0..sroa_idx, align 8
   br label %173
 
 173:                                              ; preds = %172, %168
@@ -12144,30 +12144,30 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %139, %_ZNSt6vectorI
   unreachable
 
 _ZNR4absl7debian28optionalIdE5valueEv.exit:       ; preds = %173
-  %177 = load double, ptr %.sroa.261.0..sroa_idx, align 8
-  %178 = fcmp olt double %.val70, %177
-  %179 = select i1 %178, double %.val70, double %177
+  %177 = load double, ptr %.sroa.263.0..sroa_idx, align 8
+  %178 = fcmp olt double %.val72, %177
+  %179 = select i1 %178, double %.val72, double %177
   store i8 1, ptr %111, align 8
-  store double %179, ptr %.sroa.261.0..sroa_idx, align 8
+  store double %179, ptr %.sroa.263.0..sroa_idx, align 8
   %180 = trunc i8 %174 to i1
-  br i1 %180, label %_ZNR4absl7debian28optionalIdE5valueEv.exit46, label %181
+  br i1 %180, label %_ZNR4absl7debian28optionalIdE5valueEv.exit48, label %181
 
 181:                                              ; preds = %_ZNR4absl7debian28optionalIdE5valueEv.exit
   call void @_ZN4absl7debian217optional_internal25throw_bad_optional_accessEv() #28
   unreachable
 
-_ZNR4absl7debian28optionalIdE5valueEv.exit46:     ; preds = %_ZNR4absl7debian28optionalIdE5valueEv.exit
-  %182 = load double, ptr %.sroa.258.0..sroa_idx, align 8
-  %183 = fcmp olt double %182, %.val70
-  %184 = select i1 %183, double %.val70, double %182
+_ZNR4absl7debian28optionalIdE5valueEv.exit48:     ; preds = %_ZNR4absl7debian28optionalIdE5valueEv.exit
+  %182 = load double, ptr %.sroa.260.0..sroa_idx, align 8
+  %183 = fcmp olt double %182, %.val72
+  %184 = select i1 %183, double %.val72, double %182
   store i8 1, ptr %112, align 8
-  store double %184, ptr %.sroa.258.0..sroa_idx, align 8
-  %185 = trunc nuw i8 %.086 to i1
+  store double %184, ptr %.sroa.260.0..sroa_idx, align 8
+  %185 = trunc nuw i8 %.088 to i1
   %186 = icmp ne i64 %indvars.iv, 0
   %or.cond = select i1 %185, i1 %186, i1 false
   br i1 %or.cond, label %187, label %196
 
-187:                                              ; preds = %_ZNR4absl7debian28optionalIdE5valueEv.exit46
+187:                                              ; preds = %_ZNR4absl7debian28optionalIdE5valueEv.exit48
   %188 = load ptr, ptr %108, align 8
   %189 = getelementptr double, ptr %188, i64 %indvars.iv
   %190 = getelementptr i8, ptr %189, i64 -8
@@ -12178,7 +12178,7 @@ _ZNR4absl7debian28optionalIdE5valueEv.exit46:     ; preds = %_ZNR4absl7debian28o
   %195 = fcmp ugt double %194, 0x3EB0C6F7A0000000
   br i1 %195, label %196, label %197
 
-196:                                              ; preds = %187, %_ZNR4absl7debian28optionalIdE5valueEv.exit46
+196:                                              ; preds = %187, %_ZNR4absl7debian28optionalIdE5valueEv.exit48
   br label %197
 
 197:                                              ; preds = %187, %196
@@ -12192,8 +12192,8 @@ _ZNR4absl7debian28optionalIdE5valueEv.exit46:     ; preds = %_ZNR4absl7debian28o
   br i1 %.not, label %._crit_edge, label %122, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %197, %.preheader
-  %.068.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %164, %197 ]
-  %.0.lcssa.not = phi i8 [ 1, %.preheader ], [ %.1, %197 ]
+  %.070.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %164, %197 ]
+  %.0.lcssa = phi i8 [ 1, %.preheader ], [ %.1, %197 ]
   %202 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %203 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %204 = load ptr, ptr %203, align 8
@@ -12277,8 +12277,8 @@ _ZNR4absl7debian28optionalIdE5valueEv.exit46:     ; preds = %_ZNR4absl7debian28o
 
 239:                                              ; preds = %235
   store i8 1, ptr %236, align 8
-  %.sroa.249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store double %.068.lcssa, ptr %.sroa.249.0..sroa_idx, align 8
+  %.sroa.251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 488
+  store double %.070.lcssa, ptr %.sroa.251.0..sroa_idx, align 8
   br label %240
 
 240:                                              ; preds = %239, %235
@@ -12290,38 +12290,39 @@ _ZNR4absl7debian28optionalIdE5valueEv.exit46:     ; preds = %_ZNR4absl7debian28o
 
 245:                                              ; preds = %240
   %246 = trunc i8 %241 to i1
-  br i1 %246, label %_ZNR4absl7debian28optionalIdE5valueEv.exit48, label %247
+  br i1 %246, label %_ZNR4absl7debian28optionalIdE5valueEv.exit50, label %247
 
 247:                                              ; preds = %245
   call void @_ZN4absl7debian217optional_internal25throw_bad_optional_accessEv() #28
   unreachable
 
-_ZNR4absl7debian28optionalIdE5valueEv.exit48:     ; preds = %245
+_ZNR4absl7debian28optionalIdE5valueEv.exit50:     ; preds = %245
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %249 = load double, ptr %248, align 8
-  %250 = fsub double %249, %.068.lcssa
+  %250 = fsub double %249, %.070.lcssa
   %251 = call double @llvm.fabs.f64(double %250)
   %252 = fcmp ugt double %251, 0x3EB0C6F7A0000000
   br i1 %252, label %253, label %254
 
-253:                                              ; preds = %_ZNR4absl7debian28optionalIdE5valueEv.exit48, %240
+253:                                              ; preds = %_ZNR4absl7debian28optionalIdE5valueEv.exit50, %240
   br label %254
 
-254:                                              ; preds = %_ZNR4absl7debian28optionalIdE5valueEv.exit48, %253
-  %storemerge = phi i8 [ 0, %253 ], [ 1, %_ZNR4absl7debian28optionalIdE5valueEv.exit48 ]
+254:                                              ; preds = %_ZNR4absl7debian28optionalIdE5valueEv.exit50, %253
+  %storemerge = phi i8 [ 0, %253 ], [ 1, %_ZNR4absl7debian28optionalIdE5valueEv.exit50 ]
   store i8 %storemerge, ptr %242, align 8
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 529
   %256 = load i8, ptr %255, align 1
-  %257 = trunc i8 %256 to i1
-  %storemerge33 = select i1 %257, i8 %.0.lcssa.not, i8 0
-  store i8 %storemerge33, ptr %255, align 1
+  %257 = and i8 %256, %.0.lcssa
+  %or.cond3.not = icmp ne i8 %257, 0
+  %. = zext i1 %or.cond3.not to i8
+  store i8 %., ptr %255, align 1
   ret void
 
 258:                                              ; preds = %231, %233, %219, %221, %132, %134, %118, %120, %88, %90, %66, %68, %46, %48, %130, %86
   %.sink = phi ptr [ %26, %130 ], [ %16, %86 ], [ %9, %48 ], [ %9, %46 ], [ %14, %68 ], [ %14, %66 ], [ %19, %90 ], [ %19, %88 ], [ %24, %120 ], [ %24, %118 ], [ %29, %134 ], [ %29, %132 ], [ %34, %221 ], [ %34, %219 ], [ %38, %233 ], [ %38, %231 ]
-  %.pn42.pn = phi { ptr, i32 } [ %131, %130 ], [ %87, %86 ], [ %49, %48 ], [ %47, %46 ], [ %69, %68 ], [ %67, %66 ], [ %91, %90 ], [ %89, %88 ], [ %121, %120 ], [ %119, %118 ], [ %135, %134 ], [ %133, %132 ], [ %222, %221 ], [ %220, %219 ], [ %234, %233 ], [ %232, %231 ]
+  %.pn44.pn = phi { ptr, i32 } [ %131, %130 ], [ %87, %86 ], [ %49, %48 ], [ %47, %46 ], [ %69, %68 ], [ %67, %66 ], [ %91, %90 ], [ %89, %88 ], [ %121, %120 ], [ %119, %118 ], [ %135, %134 ], [ %133, %132 ], [ %222, %221 ], [ %220, %219 ], [ %234, %233 ], [ %232, %231 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #29
-  resume { ptr, i32 } %.pn42.pn
+  resume { ptr, i32 } %.pn44.pn
 }
 
 ; Function Attrs: mustprogress uwtable

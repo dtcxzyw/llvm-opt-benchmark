@@ -16249,8 +16249,8 @@ define dso_local void @_ZN4llvm16AArch64Subtarget20initializePropertiesEb(ptr no
 140:                                              ; preds = %52, %47, %134, %129, %120, %116, %111, %102, %99, %95, %89, %84, %76, %74, %66, %59, %54, %45, %36, %31, %26, %22, %18, %16, %11, %7, %5, %2
   %141 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL30AArch64MinimumJumpTableEntries, i64 8), align 8, !tbaa !408
   %142 = icmp eq i16 %141, 0
-  %brmerge.not = and i1 %1, %142
-  br i1 %brmerge.not, label %146, label %143
+  %or.cond = and i1 %1, %142
+  br i1 %or.cond, label %146, label %143
 
 143:                                              ; preds = %140
   %144 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL30AArch64MinimumJumpTableEntries, i64 120), align 8, !tbaa !448
@@ -16855,25 +16855,14 @@ declare noundef ptr @_ZN4llvm32createAArch64InstructionSelectorERKNS_20AArch64Ta
 define dso_local noundef range(i32 0, 2) i32 @_ZNK4llvm16AArch64Subtarget12getHwModeSetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(413888) %0) unnamed_addr #7 align 2 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL24EnableZPRPredicateSpills, i64 120), align 8, !tbaa !441, !range !442, !noundef !443
   %3 = trunc nuw i8 %2 to i1
-  br i1 %3, label %4, label %13
-
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 785
-  %6 = load i8, ptr %5, align 1, !tbaa !523, !range !442, !noundef !443
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %12, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 786
-  %10 = load i8, ptr %9, align 2, !tbaa !524, !range !442, !noundef !443
-  %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %8, %4
-  br label %13
-
-13:                                               ; preds = %12, %8, %1
-  %.0 = phi i32 [ 1, %12 ], [ 0, %8 ], [ 0, %1 ]
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 785
+  %5 = load i8, ptr %4, align 1, !range !442
+  %6 = trunc nuw i8 %5 to i1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 786
+  %8 = load i8, ptr %7, align 2, !range !442
+  %9 = zext nneg i8 %8 to i32
+  %or.cond = select i1 %6, i32 1, i32 %9
+  %.0 = select i1 %3, i32 %or.cond, i32 0
   ret i32 %.0
 }
 

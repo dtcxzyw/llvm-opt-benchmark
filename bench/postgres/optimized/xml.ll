@@ -443,19 +443,19 @@ define dso_local i64 @xmltotext(ptr noundef readonly captures(none) %0) local_un
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @xmltotext_with_options(ptr noundef readnone returned captures(ret: address, provenance) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
-  %.not = icmp eq i32 %1, 0
-  %brmerge = or i1 %.not, %2
-  br i1 %brmerge, label %5, label %4
-
-4:                                                ; preds = %3
-  ret ptr %0
+  %4 = icmp eq i32 %1, 0
+  %or.cond = or i1 %4, %2
+  br i1 %or.cond, label %6, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 1088) #12
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
-  %9 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
+  ret ptr %0
+
+6:                                                ; preds = %3
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %7)
+  %8 = tail call i32 @errcode(i32 noundef 1088) #12
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %10 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1) #12
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 850, ptr noundef nonnull @__func__.xmltotext_with_options) #12
   unreachable
 }
@@ -744,8 +744,8 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   ]
 
 55:                                               ; preds = %53
-  %.not42 = icmp eq i64 %0, 0
-  %.str.7..str.8 = select i1 %.not42, ptr @.str.8, ptr @.str.7
+  %.not43 = icmp eq i64 %0, 0
+  %.str.7..str.8 = select i1 %.not43, ptr @.str.8, ptr @.str.7
   br label %112
 
 56:                                               ; preds = %53
@@ -867,8 +867,8 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   %107 = load i32, ptr %11, align 4
   %108 = call ptr @OidOutputFunctionCall(i32 noundef %107, i64 noundef %0) #12
   %109 = icmp ne i32 %54, 142
-  %brmerge.not = and i1 %2, %109
-  br i1 %brmerge.not, label %110, label %112
+  %or.cond7 = and i1 %2, %109
+  br i1 %or.cond7, label %110, label %112
 
 110:                                              ; preds = %106
   %111 = call ptr @escape_xml(ptr noundef %108)

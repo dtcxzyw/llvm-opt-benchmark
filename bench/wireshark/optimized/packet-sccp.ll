@@ -1208,8 +1208,8 @@ define internal fastcc zeroext i1 @sccp_called_calling_looks_valid(ptr noundef %
   %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %6 = icmp eq i8 %1, 2
   %7 = icmp sgt i8 %5, -1
-  %or.cond45 = select i1 %6, i1 %7, i1 false
-  br i1 %or.cond45, label %34, label %8
+  %or.cond47 = select i1 %6, i1 %7, i1 false
+  br i1 %or.cond47, label %34, label %8
 
 8:                                                ; preds = %3
   %9 = lshr i8 %5, 2
@@ -1230,7 +1230,7 @@ define internal fastcc zeroext i1 @sccp_called_calling_looks_valid(ptr noundef %
   %18 = and i8 %5, 2
   %19 = and i8 %5, 1
   %. = select i1 %6, i8 %19, i8 %18
-  %.46 = select i1 %6, i8 %18, i8 %19
+  %.48 = select i1 %6, i8 %18, i8 %19
   %20 = icmp ne i8 %17, 0
   %21 = icmp eq i8 %., 0
   %or.cond = select i1 %20, i1 %21, i1 false
@@ -1240,22 +1240,22 @@ define internal fastcc zeroext i1 @sccp_called_calling_looks_valid(ptr noundef %
   %23 = icmp eq i8 %17, 0
   %24 = icmp eq i8 %10, 0
   %or.cond5 = select i1 %23, i1 %24, i1 false
-  %brmerge.demorgan = and i1 %2, %23
-  %or.cond51 = or i1 %or.cond5, %brmerge.demorgan
-  br i1 %or.cond51, label %34, label %25
+  %or.cond7 = and i1 %2, %23
+  %or.cond50 = or i1 %or.cond5, %or.cond7
+  br i1 %or.cond50, label %34, label %25
 
 25:                                               ; preds = %22
   %spec.select = select i1 %21, i8 1, i8 2
-  %.not42 = icmp eq i8 %.46, 0
-  br i1 %.not42, label %30, label %26
+  %.not44 = icmp eq i8 %.48, 0
+  br i1 %.not44, label %30, label %26
 
 26:                                               ; preds = %25
   %27 = and i8 %1, -2
-  %or.cond8 = icmp eq i8 %27, 2
-  br i1 %or.cond8, label %28, label %29
+  %or.cond10 = icmp eq i8 %27, 2
+  br i1 %or.cond10, label %28, label %29
 
 28:                                               ; preds = %26
-  %narrow43 = add nuw nsw i8 %spec.select, 3
+  %narrow45 = add nuw nsw i8 %spec.select, 3
   br label %30
 
 29:                                               ; preds = %26
@@ -1263,7 +1263,7 @@ define internal fastcc zeroext i1 @sccp_called_calling_looks_valid(ptr noundef %
   br label %30
 
 30:                                               ; preds = %28, %29, %25
-  %.1 = phi i8 [ %narrow43, %28 ], [ %narrow, %29 ], [ %spec.select, %25 ]
+  %.1 = phi i8 [ %narrow45, %28 ], [ %narrow, %29 ], [ %spec.select, %25 ]
   %31 = add nuw nsw i8 %.1, 2
   %spec.select49 = select i1 %24, i8 %.1, i8 %31
   %32 = zext nneg i8 %spec.select49 to i32
@@ -1371,8 +1371,8 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
   %57 = load ptr, ptr @assocs, align 8
   %58 = call ptr @wmem_tree_lookup32_array(ptr noundef %57, ptr noundef nonnull %6)
   store ptr %58, ptr %16, align 8
-  %.not110 = icmp eq ptr %58, null
-  br i1 %.not110, label %59, label %72
+  %.not111 = icmp eq ptr %58, null
+  br i1 %.not111, label %59, label %72
 
 59:                                               ; preds = %48
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1380,8 +1380,8 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 57
   %63 = load i16, ptr %62, align 1
   %64 = and i16 %63, 8
-  %.not111 = icmp eq i16 %64, 0
-  br i1 %.not111, label %65, label %72
+  %.not112 = icmp eq i16 %64, 0
+  br i1 %.not112, label %65, label %72
 
 65:                                               ; preds = %59
   %66 = load i32, ptr %4, align 4
@@ -1439,15 +1439,15 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
   %91 = load ptr, ptr @assocs, align 8
   %92 = call ptr @wmem_tree_lookup32_array(ptr noundef %91, ptr noundef nonnull %8)
   store ptr %92, ptr %16, align 8
-  %.not106 = icmp eq ptr %92, null
-  br i1 %.not106, label %93, label %100
+  %.not107 = icmp eq ptr %92, null
+  br i1 %.not107, label %93, label %100
 
 93:                                               ; preds = %74
   %94 = load ptr, ptr @assocs, align 8
   %95 = call ptr @wmem_tree_lookup32_array(ptr noundef %94, ptr noundef nonnull %7)
   store ptr %95, ptr %16, align 8
-  %.not107 = icmp eq ptr %95, null
-  br i1 %.not107, label %96, label %100
+  %.not108 = icmp eq ptr %95, null
+  br i1 %.not108, label %96, label %100
 
 96:                                               ; preds = %93
   %97 = load i32, ptr %5, align 4
@@ -1464,8 +1464,8 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 57
   %105 = load i16, ptr %104, align 1
   %106 = and i16 %105, 8
-  %.not108 = icmp eq i16 %106, 0
-  br i1 %.not108, label %107, label %116
+  %.not109 = icmp eq i16 %106, 0
+  br i1 %.not109, label %107, label %116
 
 107:                                              ; preds = %100
   %108 = load ptr, ptr %16, align 8
@@ -1488,8 +1488,8 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
 116:                                              ; preds = %112, %107, %100
   %117 = phi i16 [ %.pre128, %112 ], [ %105, %107 ], [ %105, %100 ]
   %118 = and i16 %117, 8
-  %.not109 = icmp eq i16 %118, 0
-  br i1 %.not109, label %119, label %128
+  %.not110 = icmp eq i16 %118, 0
+  br i1 %.not110, label %119, label %128
 
 119:                                              ; preds = %116
   %120 = load ptr, ptr %16, align 8
@@ -1549,15 +1549,15 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
   %146 = load ptr, ptr @assocs, align 8
   %147 = call ptr @wmem_tree_lookup32_array(ptr noundef %146, ptr noundef nonnull %10)
   store ptr %147, ptr %16, align 8
-  %.not102 = icmp eq ptr %147, null
-  br i1 %.not102, label %148, label %164
+  %.not103 = icmp eq ptr %147, null
+  br i1 %.not103, label %148, label %164
 
 148:                                              ; preds = %129
   %149 = load ptr, ptr @assocs, align 8
   %150 = call ptr @wmem_tree_lookup32_array(ptr noundef %149, ptr noundef nonnull %9)
   store ptr %150, ptr %16, align 8
-  %.not103 = icmp eq ptr %150, null
-  br i1 %.not103, label %151, label %164
+  %.not104 = icmp eq ptr %150, null
+  br i1 %.not104, label %151, label %164
 
 151:                                              ; preds = %148
   %152 = load i32, ptr %5, align 4
@@ -1591,8 +1591,8 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 57
   %169 = load i16, ptr %168, align 1
   %170 = and i16 %169, 8
-  %.not104 = icmp eq i16 %170, 0
-  br i1 %.not104, label %171, label %180
+  %.not105 = icmp eq i16 %170, 0
+  br i1 %.not105, label %171, label %180
 
 171:                                              ; preds = %164
   %172 = load ptr, ptr %16, align 8
@@ -1615,8 +1615,8 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
 180:                                              ; preds = %176, %171, %164
   %181 = phi i16 [ %.pre125, %176 ], [ %169, %171 ], [ %169, %164 ]
   %182 = and i16 %181, 8
-  %.not105 = icmp eq i16 %182, 0
-  br i1 %.not105, label %183, label %192
+  %.not106 = icmp eq i16 %182, 0
+  br i1 %.not106, label %183, label %192
 
 183:                                              ; preds = %180
   %184 = load ptr, ptr %16, align 8
@@ -1659,8 +1659,8 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
   %202 = load ptr, ptr @assocs, align 8
   %203 = call ptr @wmem_tree_lookup32_array(ptr noundef %202, ptr noundef nonnull %11)
   store ptr %203, ptr %16, align 8
-  %.not112 = icmp eq ptr %203, null
-  br i1 %.not112, label %209, label %.sink.split
+  %.not113 = icmp eq ptr %203, null
+  br i1 %.not113, label %209, label %.sink.split
 
 .sink.split:                                      ; preds = %193
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 4
@@ -1678,15 +1678,13 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
 
 210:                                              ; preds = %209, %192, %128, %72
   %211 = load ptr, ptr %16, align 8
-  %.not113 = icmp eq ptr %211, null
-  br i1 %.not113, label %.loopexit, label %212
-
-212:                                              ; preds = %210
-  %213 = load i8, ptr @trace_sccp, align 1, !range !6, !noundef !7
+  %212 = icmp ne ptr %211, null
+  %213 = load i8, ptr @trace_sccp, align 1, !range !6
   %214 = trunc nuw i8 %213 to i1
-  br i1 %214, label %215, label %.loopexit
+  %or.cond = select i1 %212, i1 %214, i1 false
+  br i1 %or.cond, label %215, label %.loopexit
 
-215:                                              ; preds = %212
+215:                                              ; preds = %210
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %217 = load ptr, ptr %216, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 57
@@ -1718,14 +1716,14 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not115, label %238, label %.preheader
 
 .preheader:                                       ; preds = %221, %.preheader
-  %.094 = phi ptr [ %235, %.preheader ], [ %233, %221 ]
-  %234 = getelementptr inbounds nuw i8, ptr %.094, i64 48
+  %.095 = phi ptr [ %235, %.preheader ], [ %233, %221 ]
+  %234 = getelementptr inbounds nuw i8, ptr %.095, i64 48
   %235 = load ptr, ptr %234, align 8
   %.not116 = icmp eq ptr %235, null
   br i1 %.not116, label %236, label %.preheader, !llvm.loop !8
 
 236:                                              ; preds = %.preheader
-  %237 = getelementptr inbounds nuw i8, ptr %.094, i64 48
+  %237 = getelementptr inbounds nuw i8, ptr %.095, i64 48
   store ptr %223, ptr %237, align 8
   br label %.loopexit.sink.split
 
@@ -1786,17 +1784,17 @@ define hidden nonnull ptr @get_sccp_assoc(ptr noundef %0, i32 noundef %1, ptr no
   store ptr %.0123.lcssa.sink, ptr %264, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %261, %.loopexit.sink.split, %239, %212, %210
+.loopexit:                                        ; preds = %261, %.loopexit.sink.split, %239, %210
   %265 = load ptr, ptr %16, align 8
   %.not119 = icmp eq ptr %265, null
   %spec.select = select i1 %.not119, ptr @no_assoc, ptr %265
   br label %266
 
 266:                                              ; preds = %3, %.loopexit
-  %.095 = phi ptr [ %spec.select, %.loopexit ], [ %17, %3 ]
+  %.096 = phi ptr [ %spec.select, %.loopexit ], [ %17, %3 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  ret ptr %.095
+  ret ptr %.096
 }
 
 ; Function Attrs: null_pointer_is_valid

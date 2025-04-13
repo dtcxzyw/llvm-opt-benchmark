@@ -324,50 +324,47 @@ define void @_ZNK5Ipopt14DenseSymMatrix14MultVectorImplEdRKNS_6VectorEdRS1_(ptr 
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %19 = load i8, ptr %18, align 8, !tbaa !46, !range !47, !noundef !48
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %21, label %26
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 233
+  %22 = load i8, ptr %21, align 1, !range !47
+  %23 = trunc nuw i8 %22 to i1
+  %or.cond.i = select i1 %20, i1 %23, i1 false
+  br i1 %or.cond.i, label %24, label %25
 
-21:                                               ; preds = %5
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 233
-  %23 = load i8, ptr %22, align 1, !tbaa !49, !range !47, !noundef !48
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %21
+24:                                               ; preds = %5
   tail call void @_ZN5Ipopt11DenseVector22set_values_from_scalarEv(ptr noundef nonnull align 8 dereferenceable(248) %4)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %25, %21, %5
+25:                                               ; preds = %24, %5
   tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(248) %4)
   store i8 1, ptr %18, align 8, !tbaa !46
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 233
-  store i8 0, ptr %27, align 1, !tbaa !49
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 216
-  %29 = load ptr, ptr %28, align 8, !tbaa !37
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %_ZN5Ipopt11DenseVector6ValuesEv.exit
+  store i8 0, ptr %21, align 1, !tbaa !49
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 216
+  %27 = load ptr, ptr %26, align 8, !tbaa !37
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %_ZN5Ipopt11DenseVector6ValuesEv.exit
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 208
-  %33 = load ptr, ptr %32, align 8, !tbaa !50
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  %35 = load i32, ptr %34, align 4, !tbaa !51
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %37, label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 208
+  %31 = load ptr, ptr %30, align 8, !tbaa !50
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  %33 = load i32, ptr %32, align 4, !tbaa !51
+  %34 = icmp sgt i32 %33, 0
+  br i1 %34, label %35, label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
 
-37:                                               ; preds = %31
-  %38 = zext nneg i32 %35 to i64
-  %39 = shl nuw nsw i64 %38, 3
-  %40 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %39) #21
+35:                                               ; preds = %29
+  %36 = zext nneg i32 %33 to i64
+  %37 = shl nuw nsw i64 %36, 3
+  %38 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %37) #21
   br label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
 
-_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i: ; preds = %37, %31
-  %.0.i.i.i = phi ptr [ %40, %37 ], [ null, %31 ]
-  store ptr %.0.i.i.i, ptr %28, align 8, !tbaa !37
+_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i: ; preds = %35, %29
+  %.0.i.i.i = phi ptr [ %38, %35 ], [ null, %29 ]
+  store ptr %.0.i.i.i, ptr %26, align 8, !tbaa !37
   br label %_ZN5Ipopt11DenseVector6ValuesEv.exit
 
-_ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %26, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
-  %41 = phi ptr [ %29, %26 ], [ %.0.i.i.i, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i ]
-  tail call void @_ZN5Ipopt10IpBlasSymvEidPKdiS1_idPdi(i32 noundef %9, double noundef %1, ptr noundef %11, i32 noundef %15, ptr noundef %17, i32 noundef 1, double noundef %3, ptr noundef %41, i32 noundef 1)
+_ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %25, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
+  %39 = phi ptr [ %27, %25 ], [ %.0.i.i.i, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i ]
+  tail call void @_ZN5Ipopt10IpBlasSymvEidPKdiS1_idPdi(i32 noundef %9, double noundef %1, ptr noundef %11, i32 noundef %15, ptr noundef %17, i32 noundef 1, double noundef %3, ptr noundef %39, i32 noundef 1)
   ret void
 }
 
@@ -1357,96 +1354,93 @@ define void @_ZNK5Ipopt14DenseSymMatrix18ComputeRowAMaxImplERNS_6VectorEb(ptr no
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %5 = load i8, ptr %4, align 8, !tbaa !46, !range !47, !noundef !48
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %12
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 233
+  %8 = load i8, ptr %7, align 1, !range !47
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond.i = select i1 %6, i1 %9, i1 false
+  br i1 %or.cond.i, label %10, label %11
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 233
-  %9 = load i8, ptr %8, align 1, !tbaa !49, !range !47, !noundef !48
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %7
+10:                                               ; preds = %3
   tail call void @_ZN5Ipopt11DenseVector22set_values_from_scalarEv(ptr noundef nonnull align 8 dereferenceable(248) %1)
-  br label %12
+  br label %11
 
-12:                                               ; preds = %11, %7, %3
+11:                                               ; preds = %10, %3
   tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(248) %1)
   store i8 1, ptr %4, align 8, !tbaa !46
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 233
-  store i8 0, ptr %13, align 1, !tbaa !49
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %15 = load ptr, ptr %14, align 8, !tbaa !37
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %_ZN5Ipopt11DenseVector6ValuesEv.exit
+  store i8 0, ptr %7, align 1, !tbaa !49
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %13 = load ptr, ptr %12, align 8, !tbaa !37
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %_ZN5Ipopt11DenseVector6ValuesEv.exit
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %19 = load ptr, ptr %18, align 8, !tbaa !50
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %21 = load i32, ptr %20, align 4, !tbaa !51
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %23, label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %17 = load ptr, ptr %16, align 8, !tbaa !50
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %19 = load i32, ptr %18, align 4, !tbaa !51
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %21, label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
 
-23:                                               ; preds = %17
-  %24 = zext nneg i32 %21 to i64
-  %25 = shl nuw nsw i64 %24, 3
-  %26 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %25) #21
+21:                                               ; preds = %15
+  %22 = zext nneg i32 %19 to i64
+  %23 = shl nuw nsw i64 %22, 3
+  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #21
   br label %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
 
-_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i: ; preds = %23, %17
-  %.0.i.i.i = phi ptr [ %26, %23 ], [ null, %17 ]
-  store ptr %.0.i.i.i, ptr %14, align 8, !tbaa !37
+_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i: ; preds = %21, %15
+  %.0.i.i.i = phi ptr [ %24, %21 ], [ null, %15 ]
+  store ptr %.0.i.i.i, ptr %12, align 8, !tbaa !37
   br label %_ZN5Ipopt11DenseVector6ValuesEv.exit
 
-_ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %12, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
-  %27 = phi ptr [ %15, %12 ], [ %.0.i.i.i, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = load ptr, ptr %28, align 8, !tbaa !10
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !34
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.preheader.preheader, label %._crit_edge
+_ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %11, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i
+  %25 = phi ptr [ %13, %11 ], [ %.0.i.i.i, %_ZNK5Ipopt16DenseVectorSpace23AllocateInternalStorageEv.exit.i.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %27 = load ptr, ptr %26, align 8, !tbaa !10
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
+  %29 = load i32, ptr %28, align 4, !tbaa !34
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %.preheader.preheader, label %._crit_edge
 
 .preheader.preheader:                             ; preds = %_ZN5Ipopt11DenseVector6ValuesEv.exit
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %34 = load ptr, ptr %33, align 8, !tbaa !35
-  %wide.trip.count36 = zext nneg i32 %31 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %32 = load ptr, ptr %31, align 8, !tbaa !35
+  %wide.trip.count36 = zext nneg i32 %29 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %36
-  %indvars.iv31 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next32, %36 ]
-  %indvars.iv29 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next30, %36 ]
-  %.025 = phi ptr [ %34, %.preheader.preheader ], [ %45, %36 ]
-  %35 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv31
-  br label %37
+.preheader:                                       ; preds = %.preheader.preheader, %34
+  %indvars.iv31 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next32, %34 ]
+  %indvars.iv29 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next30, %34 ]
+  %.025 = phi ptr [ %32, %.preheader.preheader ], [ %43, %34 ]
+  %33 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv31
+  br label %35
 
-._crit_edge:                                      ; preds = %36, %_ZN5Ipopt11DenseVector6ValuesEv.exit
+._crit_edge:                                      ; preds = %34, %_ZN5Ipopt11DenseVector6ValuesEv.exit
   ret void
 
-36:                                               ; preds = %37
+34:                                               ; preds = %35
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count36
   br i1 %exitcond37.not, label %._crit_edge, label %.preheader, !llvm.loop !113
 
-37:                                               ; preds = %.preheader, %37
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %37 ]
-  %.123 = phi ptr [ %.025, %.preheader ], [ %45, %37 ]
-  %38 = load double, ptr %.123, align 8, !tbaa !55
-  %39 = tail call noundef double @llvm.fabs.f64(double %38)
-  %40 = load double, ptr %35, align 8, !tbaa !55
-  %41 = fcmp olt double %40, %39
-  %.sroa.speculated.i = select i1 %41, double %39, double %40
-  store double %.sroa.speculated.i, ptr %35, align 8, !tbaa !55
-  %42 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
-  %43 = load double, ptr %42, align 8, !tbaa !55
-  %44 = fcmp olt double %43, %39
-  %.sroa.speculated.i21 = select i1 %44, double %39, double %43
-  store double %.sroa.speculated.i21, ptr %42, align 8, !tbaa !55
-  %45 = getelementptr inbounds nuw i8, ptr %.123, i64 8
+35:                                               ; preds = %.preheader, %35
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %35 ]
+  %.123 = phi ptr [ %.025, %.preheader ], [ %43, %35 ]
+  %36 = load double, ptr %.123, align 8, !tbaa !55
+  %37 = tail call noundef double @llvm.fabs.f64(double %36)
+  %38 = load double, ptr %33, align 8, !tbaa !55
+  %39 = fcmp olt double %38, %37
+  %.sroa.speculated.i = select i1 %39, double %37, double %38
+  store double %.sroa.speculated.i, ptr %33, align 8, !tbaa !55
+  %40 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %41 = load double, ptr %40, align 8, !tbaa !55
+  %42 = fcmp olt double %41, %37
+  %.sroa.speculated.i21 = select i1 %42, double %37, double %41
+  store double %.sroa.speculated.i21, ptr %40, align 8, !tbaa !55
+  %43 = getelementptr inbounds nuw i8, ptr %.123, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv29
-  br i1 %exitcond.not, label %36, label %37, !llvm.loop !114
+  br i1 %exitcond.not, label %34, label %35, !llvm.loop !114
 }
 
 ; Function Attrs: mustprogress uwtable

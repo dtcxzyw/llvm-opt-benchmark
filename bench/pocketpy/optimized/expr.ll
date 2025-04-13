@@ -5387,20 +5387,20 @@ define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull 
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
-  %.not109 = icmp eq ptr %11, %13
-  br i1 %.not109, label %._crit_edge, label %.lr.ph
+  %.not110 = icmp eq ptr %11, %13
+  br i1 %.not110, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.0111 = phi i1 [ %spec.select, %.lr.ph ], [ false, %2 ]
-  %.066110 = phi ptr [ %20, %.lr.ph ], [ %11, %2 ]
-  %14 = load ptr, ptr %.066110, align 8
+  %.0112 = phi i1 [ %spec.select, %.lr.ph ], [ false, %2 ]
+  %.067111 = phi ptr [ %20, %.lr.ph ], [ %11, %2 ]
+  %14 = load ptr, ptr %.067111, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(12) %14)
   %19 = icmp sgt i32 %18, 0
-  %spec.select = select i1 %19, i1 true, i1 %.0111
-  %20 = getelementptr inbounds nuw i8, ptr %.066110, i64 8
+  %spec.select = select i1 %19, i1 true, i1 %.0112
+  %20 = getelementptr inbounds nuw i8, ptr %.067111, i64 8
   %.not = icmp eq ptr %20, %13
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -5410,26 +5410,26 @@ define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull 
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = load ptr, ptr %23, align 8
-  %.not106112 = icmp eq ptr %22, %24
-  br i1 %.not106112, label %._crit_edge117, label %.lr.ph116
+  %.not107113 = icmp eq ptr %22, %24
+  br i1 %.not107113, label %._crit_edge118, label %.lr.ph117
 
-.lr.ph116:                                        ; preds = %._crit_edge, %.lr.ph116
-  %.064114 = phi i1 [ %spec.select88, %.lr.ph116 ], [ false, %._crit_edge ]
-  %.sroa.0100.0113 = phi ptr [ %32, %.lr.ph116 ], [ %22, %._crit_edge ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0113, i64 32
+.lr.ph117:                                        ; preds = %._crit_edge, %.lr.ph117
+  %.065115 = phi i1 [ %spec.select89, %.lr.ph117 ], [ false, %._crit_edge ]
+  %.sroa.0101.0114 = phi ptr [ %32, %.lr.ph117 ], [ %22, %._crit_edge ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0114, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(12) %26)
   %31 = icmp sgt i32 %30, 0
-  %spec.select88 = select i1 %31, i1 true, i1 %.064114
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0113, i64 40
-  %.not106 = icmp eq ptr %32, %24
-  br i1 %.not106, label %._crit_edge117, label %.lr.ph116
+  %spec.select89 = select i1 %31, i1 true, i1 %.065115
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0114, i64 40
+  %.not107 = icmp eq ptr %32, %24
+  br i1 %.not107, label %._crit_edge118, label %.lr.ph117
 
-._crit_edge117:                                   ; preds = %.lr.ph116, %._crit_edge
-  %.064.lcssa = phi i1 [ false, %._crit_edge ], [ %spec.select88, %.lr.ph116 ]
+._crit_edge118:                                   ; preds = %.lr.ph117, %._crit_edge
+  %.065.lcssa = phi i1 [ false, %._crit_edge ], [ %spec.select89, %.lr.ph117 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
@@ -5439,7 +5439,7 @@ define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull 
   %39 = load ptr, ptr %33, align 8
   br i1 %38, label %40, label %51
 
-40:                                               ; preds = %._crit_edge117
+40:                                               ; preds = %._crit_edge118
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
@@ -5453,7 +5453,7 @@ define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull 
   %50 = tail call noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 noundef zeroext 20, i16 noundef zeroext %47, i32 noundef %49, i1 noundef zeroext false)
   br label %56
 
-51:                                               ; preds = %._crit_edge117
+51:                                               ; preds = %._crit_edge118
   %52 = load ptr, ptr %39, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
@@ -5462,34 +5462,34 @@ define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull 
   br label %56
 
 56:                                               ; preds = %51, %40
-  %brmerge = select i1 %.0.lcssa, i1 true, i1 %.064.lcssa
+  %or.cond = select i1 %.0.lcssa, i1 true, i1 %.065.lcssa
   %57 = load ptr, ptr %10, align 8
   %58 = load ptr, ptr %12, align 8
-  %.not82129 = icmp eq ptr %57, %58
-  br i1 %brmerge, label %59, label %151
+  %.not83130 = icmp eq ptr %57, %58
+  br i1 %or.cond, label %59, label %151
 
 59:                                               ; preds = %56
-  br i1 %.not82129, label %._crit_edge133, label %.lr.ph132
+  br i1 %.not83130, label %._crit_edge134, label %.lr.ph133
 
-.lr.ph132:                                        ; preds = %59, %.lr.ph132
-  %.067130 = phi ptr [ %64, %.lr.ph132 ], [ %57, %59 ]
-  %60 = load ptr, ptr %.067130, align 8
+.lr.ph133:                                        ; preds = %59, %.lr.ph133
+  %.068131 = phi ptr [ %64, %.lr.ph133 ], [ %57, %59 ]
+  %60 = load ptr, ptr %.068131, align 8
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(12) %60, ptr noundef nonnull %1)
-  %64 = getelementptr inbounds nuw i8, ptr %.067130, i64 8
-  %.not82 = icmp eq ptr %64, %58
-  br i1 %.not82, label %._crit_edge133.loopexit, label %.lr.ph132
+  %64 = getelementptr inbounds nuw i8, ptr %.068131, i64 8
+  %.not83 = icmp eq ptr %64, %58
+  br i1 %.not83, label %._crit_edge134.loopexit, label %.lr.ph133
 
-._crit_edge133.loopexit:                          ; preds = %.lr.ph132
-  %.pre136 = load ptr, ptr %12, align 8
-  %.pre137 = load ptr, ptr %10, align 8
-  br label %._crit_edge133
+._crit_edge134.loopexit:                          ; preds = %.lr.ph133
+  %.pre137 = load ptr, ptr %12, align 8
+  %.pre138 = load ptr, ptr %10, align 8
+  br label %._crit_edge134
 
-._crit_edge133:                                   ; preds = %._crit_edge133.loopexit, %59
-  %65 = phi ptr [ %.pre137, %._crit_edge133.loopexit ], [ %57, %59 ]
-  %66 = phi ptr [ %.pre136, %._crit_edge133.loopexit ], [ %57, %59 ]
+._crit_edge134:                                   ; preds = %._crit_edge134.loopexit, %59
+  %65 = phi ptr [ %.pre138, %._crit_edge134.loopexit ], [ %57, %59 ]
+  %66 = phi ptr [ %.pre137, %._crit_edge134.loopexit ], [ %57, %59 ]
   %67 = ptrtoint ptr %66 to i64
   %68 = ptrtoint ptr %65 to i64
   %69 = sub i64 %67, %68
@@ -5503,9 +5503,9 @@ define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull 
   %77 = icmp eq ptr %75, %76
   br i1 %77, label %148, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge133, %134
-  %.sroa.096.0134 = phi ptr [ %135, %134 ], [ %75, %._crit_edge133 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.096.0134, i64 32
+.preheader:                                       ; preds = %._crit_edge134, %134
+  %.sroa.097.0135 = phi ptr [ %135, %134 ], [ %75, %._crit_edge134 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.097.0135, i64 32
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
@@ -5574,34 +5574,34 @@ define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull 
   br label %110
 
 108:                                              ; preds = %100, %99
-  %.075 = phi i1 [ false, %100 ], [ true, %99 ]
+  %.076 = phi i1 [ false, %100 ], [ true, %99 ]
   %109 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #32
   br label %110
 
 110:                                              ; preds = %108, %106
-  %.479 = phi i1 [ %.075, %108 ], [ true, %106 ]
+  %.480 = phi i1 [ %.076, %108 ], [ true, %106 ]
   %.pn = phi { ptr, i32 } [ %109, %108 ], [ %107, %106 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #32
   br label %111
 
 111:                                              ; preds = %110, %104
-  %.378 = phi i1 [ %.479, %110 ], [ true, %104 ]
+  %.379 = phi i1 [ %.480, %110 ], [ true, %104 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %110 ], [ %105, %104 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #32
   br label %112
 
 112:                                              ; preds = %102, %111
-  %.277 = phi i1 [ %.378, %111 ], [ true, %102 ]
+  %.278 = phi i1 [ %.379, %111 ], [ true, %102 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %111 ], [ %103, %102 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #32
-  br i1 %.277, label %113, label %212
+  br i1 %.278, label %113, label %212
 
 113:                                              ; preds = %.thread, %112
-  %.pn.pn.pn.pn105 = phi { ptr, i32 } [ %101, %.thread ], [ %.pn.pn.pn, %112 ]
+  %.pn.pn.pn.pn106 = phi { ptr, i32 } [ %101, %.thread ], [ %.pn.pn.pn, %112 ]
   call void @__cxa_free_exception(ptr %93) #32
   br label %212
 
@@ -5614,9 +5614,9 @@ define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull 
   br label %134
 
 119:                                              ; preds = %.preheader
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.096.0134, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.097.0135, i64 8
   %121 = load ptr, ptr %120, align 8
-  %122 = load i32, ptr %.sroa.096.0134, align 8
+  %122 = load i32, ptr %.sroa.097.0135, align 8
   %123 = sext i32 %122 to i64
   %124 = tail call noundef i32 @_ZN4pkpy15CodeEmitContext16add_const_stringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(232) %1, i64 %123, ptr %121)
   %125 = trunc i32 %124 to i16
@@ -5632,9 +5632,9 @@ define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull 
   br label %134
 
 134:                                              ; preds = %114, %119
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.096.0134, i64 40
-  %.not108 = icmp eq ptr %135, %76
-  br i1 %.not108, label %136, label %.preheader
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.097.0135, i64 40
+  %.not109 = icmp eq ptr %135, %76
+  br i1 %.not109, label %136, label %.preheader
 
 136:                                              ; preds = %134
   %137 = load ptr, ptr %23, align 8
@@ -5650,41 +5650,41 @@ define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull 
   %147 = tail call noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 noundef zeroext 82, i16 noundef zeroext 1, i32 noundef %146, i1 noundef zeroext false)
   br label %211
 
-148:                                              ; preds = %._crit_edge133
+148:                                              ; preds = %._crit_edge134
   %149 = load i32, ptr %72, align 8
   %150 = tail call noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 noundef zeroext 82, i16 noundef zeroext 0, i32 noundef %149, i1 noundef zeroext false)
   br label %211
 
 151:                                              ; preds = %56
-  br i1 %.not82129, label %._crit_edge123, label %.lr.ph122
+  br i1 %.not83130, label %._crit_edge124, label %.lr.ph123
 
-.lr.ph122:                                        ; preds = %151, %.lr.ph122
-  %.080120 = phi ptr [ %156, %.lr.ph122 ], [ %57, %151 ]
-  %152 = load ptr, ptr %.080120, align 8
+.lr.ph123:                                        ; preds = %151, %.lr.ph123
+  %.081121 = phi ptr [ %156, %.lr.ph123 ], [ %57, %151 ]
+  %152 = load ptr, ptr %.081121, align 8
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load ptr, ptr %154, align 8
   tail call void %155(ptr noundef nonnull align 8 dereferenceable(12) %152, ptr noundef nonnull %1)
-  %156 = getelementptr inbounds nuw i8, ptr %.080120, i64 8
-  %.not81 = icmp eq ptr %156, %58
-  br i1 %.not81, label %._crit_edge123, label %.lr.ph122
+  %156 = getelementptr inbounds nuw i8, ptr %.081121, i64 8
+  %.not82 = icmp eq ptr %156, %58
+  br i1 %.not82, label %._crit_edge124, label %.lr.ph123
 
-._crit_edge123:                                   ; preds = %.lr.ph122, %151
+._crit_edge124:                                   ; preds = %.lr.ph123, %151
   %157 = load ptr, ptr %21, align 8
   %158 = load ptr, ptr %23, align 8
-  %.not107124 = icmp eq ptr %157, %158
-  br i1 %.not107124, label %._crit_edge128, label %.lr.ph127
+  %.not108125 = icmp eq ptr %157, %158
+  br i1 %.not108125, label %._crit_edge129, label %.lr.ph128
 
-.lr.ph127:                                        ; preds = %._crit_edge123
+.lr.ph128:                                        ; preds = %._crit_edge124
   %159 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %161
 
-161:                                              ; preds = %.lr.ph127, %_ZN4pkpy15CodeEmitContext8emit_intEli.exit
-  %.sroa.092.0125 = phi ptr [ %157, %.lr.ph127 ], [ %189, %_ZN4pkpy15CodeEmitContext8emit_intEli.exit ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.092.0125, i64 8
+161:                                              ; preds = %.lr.ph128, %_ZN4pkpy15CodeEmitContext8emit_intEli.exit
+  %.sroa.093.0126 = phi ptr [ %157, %.lr.ph128 ], [ %189, %_ZN4pkpy15CodeEmitContext8emit_intEli.exit ]
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.093.0126, i64 8
   %163 = load ptr, ptr %162, align 8
-  %164 = load i32, ptr %.sroa.092.0125, align 8
+  %164 = load i32, ptr %.sroa.093.0126, align 8
   %165 = sext i32 %164 to i64
   call void @_ZN4pkpy3StrC1ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 %165, ptr %163)
   %166 = load ptr, ptr %159, align 8
@@ -5716,15 +5716,15 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %161
   br label %_ZN4pkpy15CodeEmitContext8emit_intEli.exit
 
 _ZN4pkpy15CodeEmitContext8emit_intEli.exit:       ; preds = %172, %176
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.092.0125, i64 32
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.093.0126, i64 32
   %185 = load ptr, ptr %184, align 8
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %188 = load ptr, ptr %187, align 8
   call void %188(ptr noundef nonnull align 8 dereferenceable(12) %185, ptr noundef nonnull %1)
-  %189 = getelementptr inbounds nuw i8, ptr %.sroa.092.0125, i64 40
-  %.not107 = icmp eq ptr %189, %158
-  br i1 %.not107, label %._crit_edge128.loopexit, label %161
+  %189 = getelementptr inbounds nuw i8, ptr %.sroa.093.0126, i64 40
+  %.not108 = icmp eq ptr %189, %158
+  br i1 %.not108, label %._crit_edge129.loopexit, label %161
 
 190:                                              ; preds = %161
   %191 = landingpad { ptr, i32 }
@@ -5732,14 +5732,14 @@ _ZN4pkpy15CodeEmitContext8emit_intEli.exit:       ; preds = %172, %176
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #32
   br label %212
 
-._crit_edge128.loopexit:                          ; preds = %_ZN4pkpy15CodeEmitContext8emit_intEli.exit
+._crit_edge129.loopexit:                          ; preds = %_ZN4pkpy15CodeEmitContext8emit_intEli.exit
   %.pre = load ptr, ptr %23, align 8
-  %.pre135 = load ptr, ptr %21, align 8
-  br label %._crit_edge128
+  %.pre136 = load ptr, ptr %21, align 8
+  br label %._crit_edge129
 
-._crit_edge128:                                   ; preds = %._crit_edge128.loopexit, %._crit_edge123
-  %192 = phi ptr [ %.pre135, %._crit_edge128.loopexit ], [ %157, %._crit_edge123 ]
-  %193 = phi ptr [ %.pre, %._crit_edge128.loopexit ], [ %157, %._crit_edge123 ]
+._crit_edge129:                                   ; preds = %._crit_edge129.loopexit, %._crit_edge124
+  %192 = phi ptr [ %.pre136, %._crit_edge129.loopexit ], [ %157, %._crit_edge124 ]
+  %193 = phi ptr [ %.pre, %._crit_edge129.loopexit ], [ %157, %._crit_edge124 ]
   %194 = ptrtoint ptr %193 to i64
   %195 = ptrtoint ptr %192 to i64
   %196 = sub i64 %194, %195
@@ -5759,11 +5759,11 @@ _ZN4pkpy15CodeEmitContext8emit_intEli.exit:       ; preds = %172, %176
   %210 = call noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 noundef zeroext 81, i16 noundef zeroext %207, i32 noundef %209, i1 noundef zeroext false)
   br label %211
 
-211:                                              ; preds = %136, %148, %._crit_edge128
+211:                                              ; preds = %136, %148, %._crit_edge129
   ret void
 
 212:                                              ; preds = %112, %113, %190
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn105, %113 ], [ %.pn.pn.pn, %112 ], [ %191, %190 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn106, %113 ], [ %.pn.pn.pn, %112 ], [ %191, %190 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
 213:                                              ; preds = %100

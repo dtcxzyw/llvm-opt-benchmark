@@ -1758,9 +1758,13 @@ define hidden void @_ZN7nanogui6Shader5beginEv(ptr noundef nonnull align 8 deref
   %58 = load i32, ptr %57, align 4
   %switch.tableidx = add i32 %58, -1
   %59 = icmp ult i32 %switch.tableidx, 10
-  br i1 %59, label %switch.hole_check, label %60
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 831, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %59, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %60
 
-60:                                               ; preds = %switch.hole_check, %54
+60:                                               ; preds = %54
   %61 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull @.str.13)
           to label %62 unwind label %63
@@ -1775,13 +1779,7 @@ define hidden void @_ZN7nanogui6Shader5beginEv(ptr noundef nonnull align 8 deref
   tail call void @__cxa_free_exception(ptr nonnull %61) #15
   br label %385
 
-switch.hole_check:                                ; preds = %54
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 831, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %60
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %54
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.0239.0286, i64 64
   %66 = load i64, ptr %65, align 8
   %.not210 = icmp eq i64 %66, 2

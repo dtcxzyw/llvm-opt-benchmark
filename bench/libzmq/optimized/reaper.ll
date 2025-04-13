@@ -429,26 +429,24 @@ define void @_ZN3zmq8reaper_t14process_reapedEv(ptr noundef nonnull align 8 dere
   %4 = add nsw i32 %3, -1
   store i32 %4, ptr %2, align 8, !tbaa !44
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %15
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %6 = load i8, ptr %5, align 4, !range !45
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %.not, i1 %7, i1 false
+  br i1 %or.cond, label %8, label %14
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %7 = load i8, ptr %6, align 4, !tbaa !43, !range !45, !noundef !46
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %15
-
-9:                                                ; preds = %5
+8:                                                ; preds = %1
   tail call void @_ZN3zmq8object_t9send_doneEv(ptr noundef nonnull align 8 dereferenceable(20) %0)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %11 = load ptr, ptr %10, align 8, !tbaa !6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %13 = load ptr, ptr %12, align 8, !tbaa !33
-  tail call void @_ZN3zmq7epoll_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(224) %11, ptr noundef %13)
-  %14 = load ptr, ptr %10, align 8, !tbaa !6
-  tail call void @_ZN3zmq7epoll_t4stopEv(ptr noundef nonnull align 8 dereferenceable(224) %14)
-  br label %15
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %10 = load ptr, ptr %9, align 8, !tbaa !6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  tail call void @_ZN3zmq7epoll_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(224) %10, ptr noundef %12)
+  %13 = load ptr, ptr %9, align 8, !tbaa !6
+  tail call void @_ZN3zmq7epoll_t4stopEv(ptr noundef nonnull align 8 dereferenceable(224) %13)
+  br label %14
 
-15:                                               ; preds = %9, %5, %1
+14:                                               ; preds = %8, %1
   ret void
 }
 
@@ -560,4 +558,3 @@ attributes #19 = { nounwind willreturn memory(none) }
 !43 = !{!7, !29, i64 228}
 !44 = !{!7, !12, i64 224}
 !45 = !{i8 0, i8 2}
-!46 = !{}

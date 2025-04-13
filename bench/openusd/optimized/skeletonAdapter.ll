@@ -34658,60 +34658,62 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperEEaSEOS2
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %124 = load i8, ptr %123, align 8
   %125 = trunc i8 %124 to i1
-  br i1 %122, label %126, label %.thread.i.i.i.i.i
+  %or.cond.i.i.i.i.i = select i1 %122, i1 %125, i1 false
+  br i1 %or.cond.i.i.i.i.i, label %126, label %128
 
 126:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperEEaSEOS2_.exit20
-  br i1 %125, label %127, label %130
-
-127:                                              ; preds = %126
-  %128 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %118, ptr noundef nonnull align 8 dereferenceable(48) %119)
+  %127 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %118, ptr noundef nonnull align 8 dereferenceable(48) %119)
   br label %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit
 
-.thread.i.i.i.i.i:                                ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperEEaSEOS2_.exit20
-  br i1 %125, label %129, label %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit
+128:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapperEEaSEOS2_.exit20
+  br i1 %125, label %129, label %130
 
-129:                                              ; preds = %.thread.i.i.i.i.i
+129:                                              ; preds = %128
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEC1EOS2_(ptr noundef nonnull align 8 dereferenceable(48) %118, ptr noundef nonnull align 8 dereferenceable(48) %119)
   store i8 1, ptr %120, align 8
   br label %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit
 
-130:                                              ; preds = %126
+130:                                              ; preds = %128
+  br i1 %122, label %131, label %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit
+
+131:                                              ; preds = %130
   store i8 0, ptr %120, align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %118) #30
   br label %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit
 
-_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit: ; preds = %127, %.thread.i.i.i.i.i, %129, %130
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %134 = load i8, ptr %133, align 8
-  %135 = trunc i8 %134 to i1
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 392
-  %137 = load i8, ptr %136, align 8
-  %138 = trunc i8 %137 to i1
-  br i1 %135, label %139, label %.thread.i.i.i.i.i21
+_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit: ; preds = %126, %129, %130, %131
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %135 = load i8, ptr %134, align 8
+  %136 = trunc i8 %135 to i1
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 392
+  %138 = load i8, ptr %137, align 8
+  %139 = trunc i8 %138 to i1
+  %or.cond.i.i.i.i.i21 = select i1 %136, i1 %139, i1 false
+  br i1 %or.cond.i.i.i.i.i21, label %140, label %142
 
-139:                                              ; preds = %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit
-  br i1 %138, label %140, label %143
-
-140:                                              ; preds = %139
-  %141 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef nonnull align 8 dereferenceable(48) %132)
+140:                                              ; preds = %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit
+  %141 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %132, ptr noundef nonnull align 8 dereferenceable(48) %133)
   br label %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit22
 
-.thread.i.i.i.i.i21:                              ; preds = %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit
-  br i1 %138, label %142, label %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit22
+142:                                              ; preds = %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit
+  br i1 %139, label %143, label %144
 
-142:                                              ; preds = %.thread.i.i.i.i.i21
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEC1EOS2_(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef nonnull align 8 dereferenceable(48) %132)
-  store i8 1, ptr %133, align 8
+143:                                              ; preds = %142
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEC1EOS2_(ptr noundef nonnull align 8 dereferenceable(48) %132, ptr noundef nonnull align 8 dereferenceable(48) %133)
+  store i8 1, ptr %134, align 8
   br label %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit22
 
-143:                                              ; preds = %139
-  store i8 0, ptr %133, align 8
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %131) #30
+144:                                              ; preds = %142
+  br i1 %136, label %145, label %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit22
+
+145:                                              ; preds = %144
+  store i8 0, ptr %134, align 8
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %132) #30
   br label %_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit22
 
-_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit22: ; preds = %140, %.thread.i.i.i.i.i21, %142, %143
+_ZNSt8optionalIN32pxrInternal_v0_24__pxrReserved__7VtArrayINS0_7TfTokenEEEEaSEOS4_.exit22: ; preds = %140, %143, %144, %145
   ret ptr %0
 }
 

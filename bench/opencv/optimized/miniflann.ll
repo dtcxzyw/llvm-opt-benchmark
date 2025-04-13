@@ -10436,22 +10436,20 @@ define noundef zeroext i1 @_ZN2cv5flann5Index5load_ERKNSt7__cxx1112basic_stringI
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i32, ptr %18, align 8, !tbaa !100
   %20 = icmp ult i32 %19, 6
-  br i1 %20, label %switch.hole_check, label %21
+  %switch.maskindex = trunc i32 %19 to i8
+  %switch.shifted = lshr i8 55, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond42 = select i1 %20, i1 %switch.lobit, i1 false
+  br i1 %or.cond42, label %switch.lookup, label %21
 
-21:                                               ; preds = %switch.hole_check, %14
+21:                                               ; preds = %14
   %22 = icmp eq i32 %19, 8
   %23 = icmp eq i32 %19, 9
   %24 = select i1 %23, i32 6, i32 -1
   %25 = select i1 %22, i32 5, i32 %24
   br label %27
 
-switch.hole_check:                                ; preds = %14
-  %switch.maskindex = trunc nuw i32 %19 to i8
-  %switch.shifted = lshr i8 55, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %21
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %14
   %26 = zext nneg i32 %19 to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN2cv5flann5Index5load_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 0, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4

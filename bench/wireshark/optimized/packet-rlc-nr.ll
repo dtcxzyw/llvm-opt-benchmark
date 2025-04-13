@@ -2505,8 +2505,8 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 4
-  %or.cond89 = select i1 %24, i1 %27, i1 false
-  br i1 %or.cond89, label %39, label %.thread._crit_edge
+  %or.cond = select i1 %24, i1 %27, i1 false
+  br i1 %or.cond, label %39, label %.thread._crit_edge
 
 .thread._crit_edge:                               ; preds = %.thread
   %28 = icmp eq i8 %26, 5
@@ -2518,15 +2518,15 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   %32 = icmp eq i8 %31, 0
   %33 = load i32, ptr @global_rlc_nr_call_pdcp_for_ul_drb, align 4
   %34 = icmp ne i32 %33, 0
-  %or.cond = select i1 %32, i1 %34, i1 false
-  br i1 %or.cond, label %39, label %35
+  %or.cond3 = select i1 %32, i1 %34, i1 false
+  br i1 %or.cond3, label %39, label %35
 
 35:                                               ; preds = %29
   %36 = icmp eq i8 %31, 1
   %37 = load i32, ptr @global_rlc_nr_call_pdcp_for_dl_drb, align 4
   %38 = icmp ne i32 %37, 0
-  %or.cond3 = select i1 %36, i1 %38, i1 false
-  br i1 %or.cond3, label %39, label %149
+  %or.cond5 = select i1 %36, i1 %38, i1 false
+  br i1 %or.cond5, label %39, label %149
 
 39:                                               ; preds = %.thread, %35, %29
   %40 = call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %3, i32 noundef %4)
@@ -2545,13 +2545,13 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   br label %50
 
 50:                                               ; preds = %45, %39
-  %.075 = phi ptr [ %47, %45 ], [ %43, %39 ]
+  %.077 = phi ptr [ %47, %45 ], [ %43, %39 ]
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %52 = load i8, ptr %51, align 1
-  store i8 %52, ptr %.075, align 8
+  store i8 %52, ptr %.077, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %54 = load i16, ptr %53, align 2
-  %55 = getelementptr inbounds nuw i8, ptr %.075, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %.077, i64 2
   store i16 %54, ptr %55, align 2
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %57 = load i8, ptr %56, align 1
@@ -2561,39 +2561,39 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   ]
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw i8, ptr %.075, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %.077, i64 12
   store i32 1, ptr %59, align 4
-  %60 = getelementptr inbounds nuw i8, ptr %.075, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.077, i64 4
   store i32 1, ptr %60, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %.075, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.077, i64 16
   store i8 12, ptr %61, align 8
-  br label %.thread86
+  br label %.thread88
 
 62:                                               ; preds = %50
-  %63 = getelementptr inbounds nuw i8, ptr %.075, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %.077, i64 12
   store i32 2, ptr %63, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %.075, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.077, i64 4
   store i32 1, ptr %64, align 4
   %65 = load i8, ptr %51, align 1
   %66 = icmp eq i8 %65, 0
   %67 = load i32, ptr @global_rlc_nr_call_pdcp_for_ul_drb, align 4
   %68 = load i32, ptr @global_rlc_nr_call_pdcp_for_dl_drb, align 4
   %69 = select i1 %66, i32 %67, i32 %68
-  switch i32 %69, label %.thread86 [
+  switch i32 %69, label %.thread88 [
     i32 1, label %70
     i32 2, label %72
     i32 3, label %74
   ]
 
 70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %.075, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.077, i64 16
   store i8 12, ptr %71, align 8
-  br label %.thread86
+  br label %.thread88
 
 72:                                               ; preds = %62
-  %73 = getelementptr inbounds nuw i8, ptr %.075, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.077, i64 16
   store i8 18, ptr %73, align 8
-  br label %.thread86
+  br label %.thread88
 
 74:                                               ; preds = %62
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2614,18 +2614,18 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   %85 = load ptr, ptr @ue_parameters_tree, align 8
   %86 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %85, ptr noundef nonnull %9)
   %.not = icmp eq ptr %86, null
-  br i1 %.not, label %.thread86, label %87
+  br i1 %.not, label %.thread88, label %87
 
 87:                                               ; preds = %74
   %88 = load i32, ptr %86, align 4
   %89 = load i32, ptr %10, align 4
-  %.not78 = icmp eq i32 %88, %89
-  br i1 %.not78, label %90, label %.thread86
+  %.not80 = icmp eq i32 %88, %89
+  br i1 %.not80, label %90, label %.thread88
 
 90:                                               ; preds = %87
-  %91 = load i8, ptr %.075, align 8
+  %91 = load i8, ptr %.077, align 8
   %92 = icmp eq i8 %91, 0
-  %93 = getelementptr inbounds nuw i8, ptr %.075, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %.077, i64 16
   br i1 %92, label %94, label %100
 
 94:                                               ; preds = %90
@@ -2647,35 +2647,35 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   br i1 %105, label %.sink.split, label %109
 
 .sink.split:                                      ; preds = %100, %94
-  %.sink92 = phi i8 [ 1, %94 ], [ 2, %100 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.075, i64 19
+  %.sink93 = phi i8 [ 1, %94 ], [ 2, %100 ]
+  %106 = getelementptr inbounds nuw i8, ptr %.077, i64 19
   %107 = load i8, ptr %106, align 1
-  %108 = and i8 %107, %.sink92
+  %108 = and i8 %107, %.sink93
   store i8 %108, ptr %106, align 1
   br label %109
 
 109:                                              ; preds = %.sink.split, %100, %94
   %110 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %111 = load i8, ptr %110, align 4, !range !6, !noundef !7
-  %112 = getelementptr inbounds nuw i8, ptr %.075, i64 17
+  %112 = getelementptr inbounds nuw i8, ptr %.077, i64 17
   store i8 %111, ptr %112, align 1
   %113 = getelementptr inbounds nuw i8, ptr %86, i64 9
   %114 = load i8, ptr %113, align 1, !range !6, !noundef !7
-  %115 = getelementptr inbounds nuw i8, ptr %.075, i64 18
+  %115 = getelementptr inbounds nuw i8, ptr %.077, i64 18
   store i8 %114, ptr %115, align 2
-  br label %.thread86
+  br label %.thread88
 
-.thread86:                                        ; preds = %74, %87, %62, %70, %72, %109, %58
+.thread88:                                        ; preds = %74, %87, %62, %70, %72, %109, %58
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %117 = load i8, ptr %116, align 2
-  %118 = getelementptr inbounds nuw i8, ptr %.075, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.077, i64 8
   store i8 %117, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %.075, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %.077, i64 24
   store i8 0, ptr %119, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %.075, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %.077, i64 48
   store i8 0, ptr %120, align 8
   %121 = trunc i32 %4 to i16
-  %122 = getelementptr inbounds nuw i8, ptr %.075, i64 50
+  %122 = getelementptr inbounds nuw i8, ptr %.077, i64 50
   store i16 %121, ptr %122, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
@@ -2685,32 +2685,32 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   call void @except_setup_try(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull @show_PDU_in_tree.catch_spec, i64 noundef 1)
   %123 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %124 = call i32 @_setjmp(ptr noundef nonnull %123) #12
-  %.not80 = icmp eq i32 %124, 0
+  %.not82 = icmp eq i32 %124, 0
   %125 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sink = select i1 %.not80, ptr null, ptr %125
+  %.sink = select i1 %.not82, ptr null, ptr %125
   store volatile ptr %.sink, ptr %11, align 8
   %.0..0..0..0. = load volatile i32, ptr %12, align 4
   %126 = and i32 %.0..0..0..0., 1
-  %.not81 = icmp eq i32 %126, 0
-  br i1 %.not81, label %129, label %127
+  %.not83 = icmp eq i32 %126, 0
+  br i1 %.not83, label %129, label %127
 
-127:                                              ; preds = %.thread86
-  %.0..0..0..0.4 = load volatile i32, ptr %12, align 4
-  %128 = or i32 %.0..0..0..0.4, 2
+127:                                              ; preds = %.thread88
+  %.0..0..0..0.6 = load volatile i32, ptr %12, align 4
+  %128 = or i32 %.0..0..0..0.6, 2
   store volatile i32 %128, ptr %12, align 4
   br label %129
 
-129:                                              ; preds = %127, %.thread86
-  %.0..0..0..0.5 = load volatile i32, ptr %12, align 4
-  %130 = and i32 %.0..0..0..0.5, -2
+129:                                              ; preds = %127, %.thread88
+  %.0..0..0..0.7 = load volatile i32, ptr %12, align 4
+  %130 = and i32 %.0..0..0..0.7, -2
   store volatile i32 %130, ptr %12, align 4
-  %.0..0..0..0.6 = load volatile i32, ptr %12, align 4
-  %131 = icmp eq i32 %.0..0..0..0.6, 0
+  %.0..0..0..0.8 = load volatile i32, ptr %12, align 4
+  %131 = icmp eq i32 %.0..0..0..0.8, 0
   br i1 %131, label %132, label %137
 
 132:                                              ; preds = %129
-  %.0..0..0..0.10 = load volatile ptr, ptr %11, align 8
-  %133 = icmp eq ptr %.0..0..0..0.10, null
+  %.0..0..0..0.12 = load volatile ptr, ptr %11, align 8
+  %133 = icmp eq ptr %.0..0..0..0.12, null
   br i1 %133, label %134, label %137
 
 134:                                              ; preds = %132
@@ -2719,35 +2719,35 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   br label %137
 
 137:                                              ; preds = %134, %132, %129
-  %.0..0..0..0.7 = load volatile i32, ptr %12, align 4
-  %138 = icmp eq i32 %.0..0..0..0.7, 0
+  %.0..0..0..0.9 = load volatile i32, ptr %12, align 4
+  %138 = icmp eq i32 %.0..0..0..0.9, 0
   br i1 %138, label %139, label %142
 
 139:                                              ; preds = %137
-  %.0..0..0..0.11 = load volatile ptr, ptr %11, align 8
-  %.not82 = icmp eq ptr %.0..0..0..0.11, null
-  br i1 %.not82, label %142, label %140
+  %.0..0..0..0.13 = load volatile ptr, ptr %11, align 8
+  %.not84 = icmp eq ptr %.0..0..0..0.13, null
+  br i1 %.not84, label %142, label %140
 
 140:                                              ; preds = %139
-  %.0..0..0..0.8 = load volatile i32, ptr %12, align 4
-  %141 = or i32 %.0..0..0..0.8, 1
+  %.0..0..0..0.10 = load volatile i32, ptr %12, align 4
+  %141 = or i32 %.0..0..0..0.10, 1
   store volatile i32 %141, ptr %12, align 4
   br label %142
 
 142:                                              ; preds = %140, %139, %137
-  %.0..0..0..0.9 = load volatile i32, ptr %12, align 4
-  %143 = and i32 %.0..0..0..0.9, 1
-  %.not83 = icmp eq i32 %143, 0
-  br i1 %.not83, label %144, label %.critedge
+  %.0..0..0..0.11 = load volatile i32, ptr %12, align 4
+  %143 = and i32 %.0..0..0..0.11, 1
+  %.not85 = icmp eq i32 %143, 0
+  br i1 %.not85, label %144, label %.critedge
 
 144:                                              ; preds = %142
-  %.0..0..0..0.12 = load volatile ptr, ptr %11, align 8
-  %.not84 = icmp eq ptr %.0..0..0..0.12, null
-  br i1 %.not84, label %.critedge, label %145
+  %.0..0..0..0.14 = load volatile ptr, ptr %11, align 8
+  %.not86 = icmp eq ptr %.0..0..0..0.14, null
+  br i1 %.not86, label %.critedge, label %145
 
 145:                                              ; preds = %144
-  %.0..0..0..0.13 = load volatile ptr, ptr %11, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.13) #13
+  %.0..0..0..0.15 = load volatile ptr, ptr %11, align 8
+  call void @except_rethrow(ptr noundef %.0..0..0..0.15) #13
   unreachable
 
 .critedge:                                        ; preds = %144, %142
@@ -2761,7 +2761,7 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %149
 
-149:                                              ; preds = %35, %.thread._crit_edge, %15, %.critedge, %50
+149:                                              ; preds = %15, %35, %.thread._crit_edge, %.critedge, %50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #10
   ret void

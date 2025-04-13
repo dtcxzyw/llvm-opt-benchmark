@@ -42,72 +42,72 @@ define internal void @freesym(ptr noundef captures(none) %0) #0 {
 ; Function Attrs: nounwind uwtable
 define ptr @agdatadict(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call ptr @aggetrec(ptr noundef %0, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not = icmp eq ptr %3, null
-  %brmerge.not = and i1 %1, %.not
-  br i1 %brmerge.not, label %4, label %24
+  %4 = icmp eq ptr %3, null
+  %or.cond = and i1 %1, %4
+  br i1 %or.cond, label %5, label %25
 
-4:                                                ; preds = %2
-  %5 = tail call ptr @agroot(ptr noundef %0) #12
-  %6 = tail call i32 @agapply(ptr noundef %5, ptr noundef %5, ptr noundef nonnull @agraphattr_init_wrapper, ptr noundef null, i32 noundef 1) #12
-  %7 = tail call ptr @agfstnode(ptr noundef %5) #12
-  %.not.i13 = icmp eq ptr %7, null
+5:                                                ; preds = %2
+  %6 = tail call ptr @agroot(ptr noundef %0) #12
+  %7 = tail call i32 @agapply(ptr noundef %6, ptr noundef %6, ptr noundef nonnull @agraphattr_init_wrapper, ptr noundef null, i32 noundef 1) #12
+  %8 = tail call ptr @agfstnode(ptr noundef %6) #12
+  %.not.i13 = icmp eq ptr %8, null
   br i1 %.not.i13, label %init_all_attrs.exit, label %.lr.ph16
 
-.lr.ph16:                                         ; preds = %4, %._crit_edge
-  %.016.i14 = phi ptr [ %22, %._crit_edge ], [ %7, %4 ]
-  %8 = load ptr, ptr @AgDataRecName, align 8, !tbaa !15
-  %9 = tail call ptr @aggetrec(ptr noundef nonnull %.016.i14, ptr noundef %8, i32 noundef 0) #12
-  %.not.i8 = icmp eq ptr %9, null
-  br i1 %.not.i8, label %13, label %10
+.lr.ph16:                                         ; preds = %5, %._crit_edge
+  %.016.i14 = phi ptr [ %23, %._crit_edge ], [ %8, %5 ]
+  %9 = load ptr, ptr @AgDataRecName, align 8, !tbaa !15
+  %10 = tail call ptr @aggetrec(ptr noundef nonnull %.016.i14, ptr noundef %9, i32 noundef 0) #12
+  %.not.i8 = icmp eq ptr %10, null
+  br i1 %.not.i8, label %14, label %11
 
-10:                                               ; preds = %.lr.ph16
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !16
-  %.not5.i = icmp eq ptr %12, null
-  br i1 %.not5.i, label %13, label %agnodeattr_init.exit
+11:                                               ; preds = %.lr.ph16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !16
+  %.not5.i = icmp eq ptr %13, null
+  br i1 %.not5.i, label %14, label %agnodeattr_init.exit
 
-13:                                               ; preds = %10, %.lr.ph16
+14:                                               ; preds = %11, %.lr.ph16
   tail call fastcc void @agmakeattrs(ptr noundef %0, ptr noundef nonnull %.016.i14)
   br label %agnodeattr_init.exit
 
-agnodeattr_init.exit:                             ; preds = %10, %13
-  %14 = tail call ptr @agfstout(ptr noundef %5, ptr noundef nonnull %.016.i14) #12
-  %.not17.i11 = icmp eq ptr %14, null
+agnodeattr_init.exit:                             ; preds = %11, %14
+  %15 = tail call ptr @agfstout(ptr noundef %6, ptr noundef nonnull %.016.i14) #12
+  %.not17.i11 = icmp eq ptr %15, null
   br i1 %.not17.i11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %agnodeattr_init.exit, %agedgeattr_init.exit
-  %.0.i12 = phi ptr [ %21, %agedgeattr_init.exit ], [ %14, %agnodeattr_init.exit ]
-  %15 = load ptr, ptr @AgDataRecName, align 8, !tbaa !15
-  %16 = tail call ptr @aggetrec(ptr noundef nonnull %.0.i12, ptr noundef %15, i32 noundef 0) #12
-  %.not.i9 = icmp eq ptr %16, null
-  br i1 %.not.i9, label %20, label %17
+  %.0.i12 = phi ptr [ %22, %agedgeattr_init.exit ], [ %15, %agnodeattr_init.exit ]
+  %16 = load ptr, ptr @AgDataRecName, align 8, !tbaa !15
+  %17 = tail call ptr @aggetrec(ptr noundef nonnull %.0.i12, ptr noundef %16, i32 noundef 0) #12
+  %.not.i9 = icmp eq ptr %17, null
+  br i1 %.not.i9, label %21, label %18
 
-17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !16
-  %.not5.i10 = icmp eq ptr %19, null
-  br i1 %.not5.i10, label %20, label %agedgeattr_init.exit
+18:                                               ; preds = %.lr.ph
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !16
+  %.not5.i10 = icmp eq ptr %20, null
+  br i1 %.not5.i10, label %21, label %agedgeattr_init.exit
 
-20:                                               ; preds = %17, %.lr.ph
+21:                                               ; preds = %18, %.lr.ph
   tail call fastcc void @agmakeattrs(ptr noundef %0, ptr noundef nonnull %.0.i12)
   br label %agedgeattr_init.exit
 
-agedgeattr_init.exit:                             ; preds = %17, %20
-  %21 = tail call ptr @agnxtout(ptr noundef %5, ptr noundef nonnull %.0.i12) #12
-  %.not17.i = icmp eq ptr %21, null
+agedgeattr_init.exit:                             ; preds = %18, %21
+  %22 = tail call ptr @agnxtout(ptr noundef %6, ptr noundef nonnull %.0.i12) #12
+  %.not17.i = icmp eq ptr %22, null
   br i1 %.not17.i, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %agedgeattr_init.exit, %agnodeattr_init.exit
-  %22 = tail call ptr @agnxtnode(ptr noundef %5, ptr noundef nonnull %.016.i14) #12
-  %.not.i = icmp eq ptr %22, null
+  %23 = tail call ptr @agnxtnode(ptr noundef %6, ptr noundef nonnull %.016.i14) #12
+  %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %init_all_attrs.exit, label %.lr.ph16, !llvm.loop !24
 
-init_all_attrs.exit:                              ; preds = %._crit_edge, %4
-  %23 = tail call ptr @aggetrec(ptr noundef %0, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  br label %24
+init_all_attrs.exit:                              ; preds = %._crit_edge, %5
+  %24 = tail call ptr @aggetrec(ptr noundef %0, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
+  br label %25
 
-24:                                               ; preds = %2, %init_all_attrs.exit
-  %.0 = phi ptr [ %23, %init_all_attrs.exit ], [ %3, %2 ]
+25:                                               ; preds = %2, %init_all_attrs.exit
+  %.0 = phi ptr [ %24, %init_all_attrs.exit ], [ %3, %2 ]
   ret ptr %.0
 }
 
@@ -185,8 +185,8 @@ define internal fastcc ptr @agattr_(ptr noundef %0, i32 noundef %1, ptr noundef 
   %19 = tail call ptr @agroot(ptr noundef %.010) #12
   %20 = tail call ptr @agdatadict(ptr noundef %.010, i1 noundef zeroext true)
   %21 = tail call ptr @aggetrec(ptr noundef %.010, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i, label %agdictof.exit.i, label %22
+  %.not.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i, label %agdictof.exit.i, label %22
 
 22:                                               ; preds = %18
   switch i32 %1, label %32 [
@@ -247,14 +247,14 @@ agdictof.exit.i:                                  ; preds = %32, %29, %26, %23, 
 
 45:                                               ; preds = %43
   %46 = call ptr @aggetrec(ptr noundef %.010, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not.i.i.i.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i.i.i.i, label %unviewsubgraphsattr.exit.i, label %47
+  %.not.i.i.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i.i.i, label %unviewsubgraphsattr.exit.i, label %47
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %.0.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !34
-  %.not.i.i90.i = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not.i.i90.i, label %unviewsubgraphsattr.exit.i, label %getattr.exit.i.i
+  %.not.i.i.i = icmp eq ptr %.0.i.i.i.i, null
+  br i1 %.not.i.i.i, label %unviewsubgraphsattr.exit.i, label %getattr.exit.i.i
 
 getattr.exit.i.i:                                 ; preds = %47
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #12
@@ -263,8 +263,8 @@ getattr.exit.i.i:                                 ; preds = %47
   %50 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !25
   %51 = call ptr %50(ptr noundef nonnull %.0.i.i.i.i, ptr noundef nonnull %9, i32 noundef 4) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #12
-  %.not.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i, label %unviewsubgraphsattr.exit.i, label %52
+  %.not.i90.i = icmp eq ptr %51, null
+  br i1 %.not.i90.i, label %unviewsubgraphsattr.exit.i, label %52
 
 52:                                               ; preds = %getattr.exit.i.i
   %53 = call ptr @agfstsubg(ptr noundef %.010) #12
@@ -418,8 +418,8 @@ agnewsym.exit.i:                                  ; preds = %124, %122
 
 131:                                              ; preds = %106
   %132 = call ptr @aggetrec(ptr noundef %19, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not.i.i91.i = icmp eq ptr %132, null
-  br i1 %.not.i.i91.i, label %agdictof.exit93.i, label %133
+  %.not.i91.i = icmp eq ptr %132, null
+  br i1 %.not.i91.i, label %agdictof.exit93.i, label %133
 
 133:                                              ; preds = %131
   switch i32 %1, label %143 [
@@ -605,8 +605,8 @@ setattr.exit:                                     ; preds = %.lr.ph110.i, %164, 
 
 206:                                              ; preds = %17
   %207 = tail call ptr @aggetrec(ptr noundef %.010, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not.i.i.i13 = icmp eq ptr %207, null
-  br i1 %.not.i.i.i13, label %getattr.exit, label %208
+  %.not.i.i13 = icmp eq ptr %207, null
+  br i1 %.not.i.i13, label %getattr.exit, label %208
 
 208:                                              ; preds = %206
   %209 = icmp ult i32 %1, 4
@@ -648,8 +648,8 @@ define ptr @agattr_html(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noun
 ; Function Attrs: nounwind uwtable
 define ptr @agnxtattr(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @aggetrec(ptr noundef %0, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %agdictof.exit.thread, label %5
+  %.not.i = icmp eq ptr %4, null
+  br i1 %.not.i, label %agdictof.exit.thread, label %5
 
 5:                                                ; preds = %3
   %6 = icmp ult i32 %1, 4
@@ -764,8 +764,8 @@ define internal fastcc void @agmakeattrs(ptr noundef %0, ptr noundef %1) unnamed
   %4 = tail call ptr @agbindrec(ptr noundef %1, ptr noundef %3, i32 noundef 32, i32 noundef 0) #12
   %5 = load i32, ptr %1, align 8
   %6 = tail call ptr @aggetrec(ptr noundef %0, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not.i32 = icmp eq ptr %6, null
-  br i1 %.not.i32, label %agdictof.exit, label %switch.lookup
+  %.not.i = icmp eq ptr %6, null
+  br i1 %.not.i, label %agdictof.exit, label %switch.lookup
 
 switch.lookup:                                    ; preds = %2
   %7 = and i32 %5, 3
@@ -787,8 +787,8 @@ agdictof.exit:                                    ; preds = %switch.lookup, %2
   %15 = tail call ptr @agroot(ptr noundef %0) #12
   %16 = load i32, ptr %1, align 8
   %17 = tail call ptr @aggetrec(ptr noundef %15, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not.i34 = icmp eq ptr %17, null
-  br i1 %.not.i34, label %agdictof.exit29, label %switch.lookup1
+  %.not.i27 = icmp eq ptr %17, null
+  br i1 %.not.i27, label %agdictof.exit29, label %switch.lookup1
 
 switch.lookup1:                                   ; preds = %14
   %18 = and i32 %16, 3
@@ -806,8 +806,8 @@ agdictof.exit29:                                  ; preds = %switch.lookup1, %14
   %23 = tail call ptr @agroot(ptr noundef %22) #12
   %24 = load i32, ptr %1, align 8
   %25 = tail call ptr @aggetrec(ptr noundef %23, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %topdictsize.exit, label %switch.lookup4
+  %.not.i34 = icmp eq ptr %25, null
+  br i1 %.not.i34, label %topdictsize.exit, label %switch.lookup4
 
 switch.lookup4:                                   ; preds = %agdictof.exit29
   %26 = and i32 %24, 3
@@ -815,12 +815,12 @@ switch.lookup4:                                   ; preds = %agdictof.exit29
   %switch.gep5 = getelementptr inbounds nuw [4 x i64], ptr @switch.table.agcopyattr, i64 0, i64 %27
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 %switch.load6
-  %.0.i37 = load ptr, ptr %28, align 8, !tbaa !34
-  %.not.i30 = icmp eq ptr %.0.i37, null
+  %.0.i35 = load ptr, ptr %28, align 8, !tbaa !34
+  %.not.i30 = icmp eq ptr %.0.i35, null
   br i1 %.not.i30, label %topdictsize.exit, label %29
 
 29:                                               ; preds = %switch.lookup4
-  %30 = tail call i32 @dtsize(ptr noundef nonnull %.0.i37) #12
+  %30 = tail call i32 @dtsize(ptr noundef nonnull %.0.i35) #12
   br label %topdictsize.exit
 
 topdictsize.exit:                                 ; preds = %agdictof.exit29, %switch.lookup4, %29
@@ -843,18 +843,18 @@ gv_calloc.exit:                                   ; preds = %topdictsize.exit
   store ptr %33, ptr %39, align 8, !tbaa !35
   %40 = load ptr, ptr %.0.i, align 8, !tbaa !25
   %41 = tail call ptr %40(ptr noundef nonnull %.0.i, ptr noundef null, i32 noundef 128) #12
-  %.not44 = icmp eq ptr %41, null
-  br i1 %.not44, label %.loopexit, label %.lr.ph
+  %.not42 = icmp eq ptr %41, null
+  br i1 %.not42, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %gv_calloc.exit, %52
-  %.045 = phi ptr [ %58, %52 ], [ %41, %gv_calloc.exit ]
-  %42 = getelementptr inbounds nuw i8, ptr %.045, i64 24
+  %.043 = phi ptr [ %58, %52 ], [ %41, %gv_calloc.exit ]
+  %42 = getelementptr inbounds nuw i8, ptr %.043, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !14
   %44 = tail call i32 @aghtmlstr(ptr noundef %43) #12
   %.not26 = icmp eq i32 %44, 0
   %45 = tail call ptr @agraphof(ptr noundef nonnull %1) #12
   %46 = load ptr, ptr %42, align 8, !tbaa !14
-  %47 = getelementptr inbounds nuw i8, ptr %.045, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %.043, i64 32
   br i1 %.not26, label %50, label %48
 
 48:                                               ; preds = %.lr.ph
@@ -866,14 +866,14 @@ gv_calloc.exit:                                   ; preds = %topdictsize.exit
   br label %52
 
 52:                                               ; preds = %48, %50
-  %.sink49 = phi ptr [ %49, %48 ], [ %51, %50 ]
+  %.sink47 = phi ptr [ %49, %48 ], [ %51, %50 ]
   %53 = load ptr, ptr %39, align 8, !tbaa !35
   %54 = load i32, ptr %47, align 8, !tbaa !36
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds ptr, ptr %53, i64 %55
-  store ptr %.sink49, ptr %56, align 8, !tbaa !15
+  store ptr %.sink47, ptr %56, align 8, !tbaa !15
   %57 = load ptr, ptr %.0.i, align 8, !tbaa !25
-  %58 = tail call ptr %57(ptr noundef nonnull %.0.i, ptr noundef nonnull %.045, i32 noundef 8) #12
+  %58 = tail call ptr %57(ptr noundef nonnull %.0.i, ptr noundef nonnull %.043, i32 noundef 8) #12
   %.not = icmp eq ptr %58, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !45
 
@@ -938,8 +938,8 @@ define internal fastcc void @freeattr(ptr noundef %0, ptr noundef nonnull readon
   %5 = tail call ptr @agroot(ptr noundef %4) #12
   %6 = load i32, ptr %0, align 8
   %7 = tail call ptr @aggetrec(ptr noundef %5, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i, label %._crit_edge, label %switch.lookup
+  %.not.i.i = icmp eq ptr %7, null
+  br i1 %.not.i.i, label %._crit_edge, label %switch.lookup
 
 switch.lookup:                                    ; preds = %2
   %8 = and i32 %6, 3
@@ -1297,8 +1297,8 @@ define noundef i32 @agsafeset(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 15:                                               ; preds = %13, %10, %4
   %.010.i = phi ptr [ %6, %4 ], [ %14, %13 ], [ %11, %10 ]
   %16 = tail call ptr @aggetrec(ptr noundef %.010.i, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not.i.i.i13.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i13.i, label %agattr_.exit.thread, label %switch.lookup
+  %.not.i.i13.i = icmp eq ptr %16, null
+  br i1 %.not.i.i13.i, label %agattr_.exit.thread, label %switch.lookup
 
 switch.lookup:                                    ; preds = %15
   %17 = zext nneg i32 %8 to i64
@@ -1347,8 +1347,8 @@ define range(i32 0, 2) i32 @agcopyattr(ptr noundef %0, ptr noundef %1) local_unn
 
 .preheader:                                       ; preds = %2
   %9 = tail call ptr @aggetrec(ptr noundef %4, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not.i.i.i32 = icmp eq ptr %9, null
-  br i1 %.not.i.i.i32, label %agnxtattr.exit.thread, label %.lr.ph
+  %.not.i.i32 = icmp eq ptr %9, null
+  br i1 %.not.i.i32, label %agnxtattr.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1420,8 +1420,8 @@ agattrsym.exit:                                   ; preds = %22
   call fastcc void @agxset_(ptr noundef nonnull %1, ptr noundef nonnull %30, ptr noundef %40, i1 noundef zeroext %.not25)
   %42 = load i32, ptr %0, align 8
   %43 = call ptr @aggetrec(ptr noundef %4, ptr noundef nonnull @DataDictName, i32 noundef 0) #12
-  %.not.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i, label %agnxtattr.exit.thread, label %switch.lookup, !llvm.loop !49
+  %.not.i.i = icmp eq ptr %43, null
+  br i1 %.not.i.i, label %agnxtattr.exit.thread, label %switch.lookup, !llvm.loop !49
 
 agnxtattr.exit.thread:                            ; preds = %agattrsym.exit, %agnxtattr.exit, %switch.lookup, %31, %22, %.preheader, %2
   %.019 = phi i32 [ 1, %2 ], [ 1, %.preheader ], [ 1, %agattrsym.exit ], [ %.034, %agnxtattr.exit ], [ %.034, %switch.lookup ], [ 0, %31 ], [ 1, %22 ]

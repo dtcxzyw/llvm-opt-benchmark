@@ -2594,25 +2594,23 @@ _ZN5boost20environment_iteratorC2EPPc.exit:       ; preds = %3
 _ZN5boost9iterators6detail20iterator_facade_baseINS_20environment_iteratorEKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_ENS0_21forward_traversal_tagERSC_lLb0ELb0EEppEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, %_ZN5boost20environment_iteratorC2EPPc.exit
   %44 = load i8, ptr %6, align 8, !tbaa !121, !range !98, !noundef !99
   %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %75
+  %46 = load i8, ptr %7, align 8, !range !98
+  %47 = trunc nuw i8 %46 to i1
+  %or.cond.i.i.i = select i1 %45, i1 %47, i1 false
+  br i1 %or.cond.i.i.i, label %48, label %75
 
-46:                                               ; preds = %_ZN5boost9iterators6detail20iterator_facade_baseINS_20environment_iteratorEKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_ENS0_21forward_traversal_tagERSC_lLb0ELb0EEppEv.exit
-  %47 = load i8, ptr %7, align 8, !tbaa !121, !range !98, !noundef !99
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %_ZN5boost9iteratorsneINS_20environment_iteratorEKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENS0_21forward_traversal_tagERSB_lS2_SB_SC_SD_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSE_12always_bool2ESG_SH_E4typeEE4typeERKNS0_15iterator_facadeISG_T0_T1_T2_T3_EERKNSP_ISH_T5_T6_T7_T8_EE.exit, label %75
-
-_ZN5boost9iteratorsneINS_20environment_iteratorEKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENS0_21forward_traversal_tagERSB_lS2_SB_SC_SD_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSE_12always_bool2ESG_SH_E4typeEE4typeERKNS0_15iterator_facadeISG_T0_T1_T2_T3_EERKNSP_ISH_T5_T6_T7_T8_EE.exit: ; preds = %46
+48:                                               ; preds = %_ZN5boost9iterators6detail20iterator_facade_baseINS_20environment_iteratorEKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_ENS0_21forward_traversal_tagERSC_lLb0ELb0EEppEv.exit
   %49 = load ptr, ptr %26, align 8, !tbaa !34
   %50 = icmp eq ptr %49, %27
   br i1 %50, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZN5boost9iteratorsneINS_20environment_iteratorEKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENS0_21forward_traversal_tagERSB_lS2_SB_SC_SD_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSE_12always_bool2ESG_SH_E4typeEE4typeERKNS0_15iterator_facadeISG_T0_T1_T2_T3_EERKNSP_ISH_T5_T6_T7_T8_EE.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %48
   %51 = load i64, ptr %28, align 8, !tbaa !31
   %52 = icmp ult i64 %51, 16
   call void @llvm.assume(i1 %52)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZN5boost9iteratorsneINS_20environment_iteratorEKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENS0_21forward_traversal_tagERSB_lS2_SB_SC_SD_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSE_12always_bool2ESG_SH_E4typeEE4typeERKNS0_15iterator_facadeISG_T0_T1_T2_T3_EERKNSP_ISH_T5_T6_T7_T8_EE.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %48
   %53 = load i64, ptr %27, align 8, !tbaa !35
   %54 = add i64 %53, 1
   call void @_ZdlPvm(ptr noundef %49, i64 noundef %54) #25
@@ -2679,7 +2677,7 @@ _ZN5boost12eof_iteratorINS_20environment_iteratorESt4pairINSt7__cxx1112basic_str
           cleanup
   br label %190
 
-75:                                               ; preds = %46, %_ZN5boost9iterators6detail20iterator_facade_baseINS_20environment_iteratorEKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_ENS0_21forward_traversal_tagERSC_lLb0ELb0EEppEv.exit
+75:                                               ; preds = %_ZN5boost9iterators6detail20iterator_facade_baseINS_20environment_iteratorEKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_ENS0_21forward_traversal_tagERSC_lLb0ELb0EEppEv.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
   store ptr %29, ptr %9, align 8, !tbaa !38
   %76 = load ptr, ptr %14, align 8, !tbaa !34
@@ -7226,7 +7224,7 @@ define linkonce_odr hidden ptr @_ZSt14__copy_move_a2ILb0EN5boost15program_option
 
 _ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit: ; preds = %3, %12
   invoke void @_ZN5boost15program_options6detail27common_config_file_iteratorC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull align 8 dereferenceable(264) %1)
-          to label %.noexc unwind label %41
+          to label %.noexc unwind label %44
 
 .noexc:                                           ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIcEE, i64 16), ptr %5, align 8, !tbaa !26
@@ -7249,63 +7247,69 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit: ;
 _ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit6: ; preds = %21, %.noexc
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %.noexc10
+  %26 = load i8, ptr %24, align 8, !tbaa !46, !range !98, !noundef !99
+  %27 = trunc nuw i8 %26 to i1
+  %28 = load i8, ptr %25, align 8, !range !98
+  %29 = trunc nuw i8 %28 to i1
+  %or.cond.i.i.i1.i = select i1 %27, i1 %29, i1 false
+  br i1 %or.cond.i.i.i1.i, label %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN5boost15program_options6detail26basic_config_file_iteratorIcEESt20back_insert_iteratorISt6vectorINS4_12basic_optionIcEESaISB_EEEEET0_T_SG_SF_.exit, label %.lr.ph.i
 
-.noexc10:                                         ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i, %_ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit6
-  %29 = load i8, ptr %24, align 8, !tbaa !46, !range !98, !noundef !99
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %31, label %34
+.lr.ph.i:                                         ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit6
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %33
 
-31:                                               ; preds = %.noexc10
-  %32 = load i8, ptr %25, align 8, !tbaa !46, !range !98, !noundef !99
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN5boost15program_options6detail26basic_config_file_iteratorIcEESt20back_insert_iteratorISt6vectorINS4_12basic_optionIcEESaISB_EEEEET0_T_SG_SF_.exit, label %34
+33:                                               ; preds = %.noexc10, %.lr.ph.i
+  %34 = load ptr, ptr %31, align 8, !tbaa !49
+  %35 = load ptr, ptr %32, align 8, !tbaa !51
+  %.not.i.i.i7 = icmp eq ptr %34, %35
+  br i1 %.not.i.i.i7, label %39, label %36
 
-34:                                               ; preds = %31, %.noexc10
-  %35 = load ptr, ptr %27, align 8, !tbaa !49
-  %36 = load ptr, ptr %28, align 8, !tbaa !51
-  %.not.i.i.i7 = icmp eq ptr %35, %36
-  br i1 %.not.i.i.i7, label %40, label %37
+36:                                               ; preds = %33
+  invoke void @_ZN5boost15program_options12basic_optionIcEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(90) %34, ptr noundef nonnull align 8 dereferenceable(90) %30)
+          to label %.noexc8 unwind label %46
 
-37:                                               ; preds = %34
-  invoke void @_ZN5boost15program_options12basic_optionIcEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(90) %35, ptr noundef nonnull align 8 dereferenceable(90) %26)
-          to label %.noexc8 unwind label %43
-
-.noexc8:                                          ; preds = %37
-  %38 = load ptr, ptr %27, align 8, !tbaa !49
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
-  store ptr %39, ptr %27, align 8, !tbaa !49
+.noexc8:                                          ; preds = %36
+  %37 = load ptr, ptr %31, align 8, !tbaa !49
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
+  store ptr %38, ptr %31, align 8, !tbaa !49
   br label %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i
 
-40:                                               ; preds = %34
-  invoke void @_ZNSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %35, ptr noundef nonnull align 8 dereferenceable(90) %26)
-          to label %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i unwind label %43
+39:                                               ; preds = %33
+  invoke void @_ZNSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %34, ptr noundef nonnull align 8 dereferenceable(90) %30)
+          to label %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i unwind label %46
 
-_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i: ; preds = %40, %.noexc8
+_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i: ; preds = %39, %.noexc8
   invoke void @_ZN5boost15program_options6detail27common_config_file_iterator3getEv(ptr noundef nonnull align 8 dereferenceable(241) %4)
-          to label %.noexc10 unwind label %43, !llvm.loop !212
+          to label %.noexc10 unwind label %46
 
-_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN5boost15program_options6detail26basic_config_file_iteratorIcEESt20back_insert_iteratorISt6vectorINS4_12basic_optionIcEESaISB_EEEEET0_T_SG_SF_.exit: ; preds = %31
+.noexc10:                                         ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i
+  %40 = load i8, ptr %24, align 8, !tbaa !46, !range !98, !noundef !99
+  %41 = trunc nuw i8 %40 to i1
+  %42 = load i8, ptr %25, align 8, !range !98
+  %43 = trunc nuw i8 %42 to i1
+  %or.cond.i.i.i.i = select i1 %41, i1 %43, i1 false
+  br i1 %or.cond.i.i.i.i, label %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN5boost15program_options6detail26basic_config_file_iteratorIcEESt20back_insert_iteratorISt6vectorINS4_12basic_optionIcEESaISB_EEEEET0_T_SG_SF_.exit, label %33, !llvm.loop !212
+
+_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN5boost15program_options6detail26basic_config_file_iteratorIcEESt20back_insert_iteratorISt6vectorINS4_12basic_optionIcEESaISB_EEEEET0_T_SG_SF_.exit: ; preds = %.noexc10, %_ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit6
   call void @_ZN5boost15program_options6detail26basic_config_file_iteratorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #23
   call void @_ZN5boost15program_options6detail26basic_config_file_iteratorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4) #23
   ret ptr %2
 
-41:                                               ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit
-  %42 = landingpad { ptr, i32 }
+44:                                               ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIcEC2ERKS3_.exit
+  %45 = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %48
 
-43:                                               ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i, %40, %37
-  %44 = landingpad { ptr, i32 }
+46:                                               ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i, %39, %36
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost15program_options6detail26basic_config_file_iteratorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #23
-  br label %45
+  br label %48
 
-45:                                               ; preds = %43, %41
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
+48:                                               ; preds = %46, %44
+  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
   call void @_ZN5boost15program_options6detail26basic_config_file_iteratorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4) #23
   resume { ptr, i32 } %.pn
 }
@@ -7974,7 +7978,7 @@ define linkonce_odr hidden ptr @_ZSt14__copy_move_a2ILb0EN5boost15program_option
 
 _ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit: ; preds = %3, %12
   invoke void @_ZN5boost15program_options6detail27common_config_file_iteratorC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull align 8 dereferenceable(264) %1)
-          to label %.noexc unwind label %41
+          to label %.noexc unwind label %44
 
 .noexc:                                           ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options6detail26basic_config_file_iteratorIwEE, i64 16), ptr %5, align 8, !tbaa !26
@@ -7997,63 +8001,69 @@ _ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit: ;
 _ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit6: ; preds = %21, %.noexc
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %.noexc10
+  %26 = load i8, ptr %24, align 8, !tbaa !46, !range !98, !noundef !99
+  %27 = trunc nuw i8 %26 to i1
+  %28 = load i8, ptr %25, align 8, !range !98
+  %29 = trunc nuw i8 %28 to i1
+  %or.cond.i.i.i1.i = select i1 %27, i1 %29, i1 false
+  br i1 %or.cond.i.i.i1.i, label %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN5boost15program_options6detail26basic_config_file_iteratorIwEESt20back_insert_iteratorISt6vectorINS4_12basic_optionIcEESaISB_EEEEET0_T_SG_SF_.exit, label %.lr.ph.i
 
-.noexc10:                                         ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i, %_ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit6
-  %29 = load i8, ptr %24, align 8, !tbaa !46, !range !98, !noundef !99
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %31, label %34
+.lr.ph.i:                                         ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit6
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %33
 
-31:                                               ; preds = %.noexc10
-  %32 = load i8, ptr %25, align 8, !tbaa !46, !range !98, !noundef !99
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN5boost15program_options6detail26basic_config_file_iteratorIwEESt20back_insert_iteratorISt6vectorINS4_12basic_optionIcEESaISB_EEEEET0_T_SG_SF_.exit, label %34
+33:                                               ; preds = %.noexc10, %.lr.ph.i
+  %34 = load ptr, ptr %31, align 8, !tbaa !49
+  %35 = load ptr, ptr %32, align 8, !tbaa !51
+  %.not.i.i.i7 = icmp eq ptr %34, %35
+  br i1 %.not.i.i.i7, label %39, label %36
 
-34:                                               ; preds = %31, %.noexc10
-  %35 = load ptr, ptr %27, align 8, !tbaa !49
-  %36 = load ptr, ptr %28, align 8, !tbaa !51
-  %.not.i.i.i7 = icmp eq ptr %35, %36
-  br i1 %.not.i.i.i7, label %40, label %37
+36:                                               ; preds = %33
+  invoke void @_ZN5boost15program_options12basic_optionIcEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(90) %34, ptr noundef nonnull align 8 dereferenceable(90) %30)
+          to label %.noexc8 unwind label %46
 
-37:                                               ; preds = %34
-  invoke void @_ZN5boost15program_options12basic_optionIcEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(90) %35, ptr noundef nonnull align 8 dereferenceable(90) %26)
-          to label %.noexc8 unwind label %43
-
-.noexc8:                                          ; preds = %37
-  %38 = load ptr, ptr %27, align 8, !tbaa !49
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
-  store ptr %39, ptr %27, align 8, !tbaa !49
+.noexc8:                                          ; preds = %36
+  %37 = load ptr, ptr %31, align 8, !tbaa !49
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
+  store ptr %38, ptr %31, align 8, !tbaa !49
   br label %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i
 
-40:                                               ; preds = %34
-  invoke void @_ZNSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %35, ptr noundef nonnull align 8 dereferenceable(90) %26)
-          to label %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i unwind label %43
+39:                                               ; preds = %33
+  invoke void @_ZNSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %34, ptr noundef nonnull align 8 dereferenceable(90) %30)
+          to label %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i unwind label %46
 
-_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i: ; preds = %40, %.noexc8
+_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i: ; preds = %39, %.noexc8
   invoke void @_ZN5boost15program_options6detail27common_config_file_iterator3getEv(ptr noundef nonnull align 8 dereferenceable(241) %4)
-          to label %.noexc10 unwind label %43, !llvm.loop !235
+          to label %.noexc10 unwind label %46
 
-_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN5boost15program_options6detail26basic_config_file_iteratorIwEESt20back_insert_iteratorISt6vectorINS4_12basic_optionIcEESaISB_EEEEET0_T_SG_SF_.exit: ; preds = %31
+.noexc10:                                         ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i
+  %40 = load i8, ptr %24, align 8, !tbaa !46, !range !98, !noundef !99
+  %41 = trunc nuw i8 %40 to i1
+  %42 = load i8, ptr %25, align 8, !range !98
+  %43 = trunc nuw i8 %42 to i1
+  %or.cond.i.i.i.i = select i1 %41, i1 %43, i1 false
+  br i1 %or.cond.i.i.i.i, label %_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN5boost15program_options6detail26basic_config_file_iteratorIwEESt20back_insert_iteratorISt6vectorINS4_12basic_optionIcEESaISB_EEEEET0_T_SG_SF_.exit, label %33, !llvm.loop !235
+
+_ZNSt11__copy_moveILb0ELb0ESt20forward_iterator_tagE8__copy_mIN5boost15program_options6detail26basic_config_file_iteratorIwEESt20back_insert_iteratorISt6vectorINS4_12basic_optionIcEESaISB_EEEEET0_T_SG_SF_.exit: ; preds = %.noexc10, %_ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit6
   call void @_ZN5boost15program_options6detail26basic_config_file_iteratorIwED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #23
   call void @_ZN5boost15program_options6detail26basic_config_file_iteratorIwED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4) #23
   ret ptr %2
 
-41:                                               ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit
-  %42 = landingpad { ptr, i32 }
+44:                                               ; preds = %_ZN5boost15program_options6detail26basic_config_file_iteratorIwEC2ERKS3_.exit
+  %45 = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %48
 
-43:                                               ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i, %40, %37
-  %44 = landingpad { ptr, i32 }
+46:                                               ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN5boost15program_options12basic_optionIcEESaIS4_EEEaSERKS4_.exit.i, %39, %36
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost15program_options6detail26basic_config_file_iteratorIwED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #23
-  br label %45
+  br label %48
 
-45:                                               ; preds = %43, %41
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
+48:                                               ; preds = %46, %44
+  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
   call void @_ZN5boost15program_options6detail26basic_config_file_iteratorIwED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4) #23
   resume { ptr, i32 } %.pn
 }

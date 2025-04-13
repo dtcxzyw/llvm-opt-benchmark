@@ -23,311 +23,311 @@ define range(i32 -22, 1) i32 @nxsig_action(i32 noundef %0, ptr noundef readonly 
   br i1 %13, label %14, label %nxsig_release_action.exit
 
 14:                                               ; preds = %4
-  %.not = icmp eq ptr %1, null
-  %brmerge = or i1 %.not, %3
-  br i1 %brmerge, label %19, label %15
+  %15 = icmp eq ptr %1, null
+  %or.cond = or i1 %15, %3
+  br i1 %or.cond, label %20, label %16
 
-15:                                               ; preds = %14
-  %16 = load ptr, ptr %1, align 8
-  %.not91 = icmp eq ptr %16, inttoptr (i64 1 to ptr)
-  br i1 %.not91, label %19, label %17
+16:                                               ; preds = %14
+  %17 = load ptr, ptr %1, align 8
+  %.not = icmp eq ptr %17, inttoptr (i64 1 to ptr)
+  br i1 %.not, label %20, label %18
 
-17:                                               ; preds = %15
-  %18 = tail call zeroext i1 @nxsig_iscatchable(i32 noundef %0) #4
-  br i1 %18, label %19, label %nxsig_release_action.exit
+18:                                               ; preds = %16
+  %19 = tail call zeroext i1 @nxsig_iscatchable(i32 noundef %0) #4
+  br i1 %19, label %20, label %nxsig_release_action.exit
 
-19:                                               ; preds = %14, %17, %15
-  %20 = tail call ptr @nxsig_find_action(ptr noundef %12, i32 noundef %0) #4
-  %.not92 = icmp eq ptr %2, null
-  br i1 %.not92, label %40, label %21
+20:                                               ; preds = %18, %16, %14
+  %21 = tail call ptr @nxsig_find_action(ptr noundef %12, i32 noundef %0) #4
+  %.not93 = icmp eq ptr %2, null
+  br i1 %.not93, label %41, label %22
 
-21:                                               ; preds = %19
-  %22 = tail call zeroext i1 @nxsig_isdefault(ptr noundef nonnull %10, i32 noundef %0) #4
-  br i1 %22, label %23, label %27
+22:                                               ; preds = %20
+  %23 = tail call zeroext i1 @nxsig_isdefault(ptr noundef nonnull %10, i32 noundef %0) #4
+  br i1 %23, label %24, label %28
 
-23:                                               ; preds = %21
+24:                                               ; preds = %22
   store ptr inttoptr (i64 1 to ptr), ptr %2, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 2, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = tail call i32 @sigemptyset(ptr noundef nonnull %25) #4
-  br label %40
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 2, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %27 = tail call i32 @sigemptyset(ptr noundef nonnull %26) #4
+  br label %41
 
-27:                                               ; preds = %21
-  %.not93 = icmp eq ptr %20, null
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br i1 %.not93, label %37, label %29
+28:                                               ; preds = %22
+  %.not94 = icmp eq ptr %21, null
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br i1 %.not94, label %38, label %30
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %33 = load i64, ptr %32, align 8
-  store i64 %33, ptr %28, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %35, ptr %36, align 8
-  br label %40
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr %2, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %34 = load i64, ptr %33, align 8
+  store i64 %34, ptr %29, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 %36, ptr %37, align 8
+  br label %41
 
-37:                                               ; preds = %27
+38:                                               ; preds = %28
   store ptr null, ptr %2, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %38, align 8
-  %39 = tail call i32 @sigemptyset(ptr noundef nonnull %28) #4
-  br label %40
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 0, ptr %39, align 8
+  %40 = tail call i32 @sigemptyset(ptr noundef nonnull %29) #4
+  br label %41
 
-40:                                               ; preds = %23, %37, %29, %19
-  br i1 %.not, label %nxsig_release_action.exit, label %41
+41:                                               ; preds = %24, %38, %30, %20
+  br i1 %15, label %nxsig_release_action.exit, label %42
 
-41:                                               ; preds = %40
-  %42 = icmp eq i32 %0, 17
-  br i1 %42, label %43, label %up_irq_restore.exit
+42:                                               ; preds = %41
+  %43 = icmp eq i32 %0, 17
+  br i1 %43, label %44, label %up_irq_restore.exit
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %45 = load i32, ptr %44, align 8
-  %46 = and i32 %45, 4
-  %.not94 = icmp eq i32 %46, 0
-  br i1 %.not94, label %up_irq_restore.exit, label %47
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %46 = load i32, ptr %45, align 8
+  %47 = and i32 %46, 4
+  %.not95 = icmp eq i32 %47, 0
+  br i1 %.not95, label %up_irq_restore.exit, label %48
 
-47:                                               ; preds = %43
+48:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9) #4, !srcloc !6
-  %48 = load i64, ptr %9, align 8
+  %49 = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
-  %49 = load ptr, ptr %11, align 16
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i8, ptr %50, align 8
-  %52 = or i8 %51, 1
-  store i8 %52, ptr %50, align 8
-  %53 = load ptr, ptr %11, align 16
-  call void @group_remove_children(ptr noundef %53) #4
-  %54 = and i64 %48, 512
-  %.not.i = icmp eq i64 %54, 0
-  br i1 %.not.i, label %up_irq_restore.exit, label %55
+  %50 = load ptr, ptr %11, align 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load i8, ptr %51, align 8
+  %53 = or i8 %52, 1
+  store i8 %53, ptr %51, align 8
+  %54 = load ptr, ptr %11, align 16
+  call void @group_remove_children(ptr noundef %54) #4
+  %55 = and i64 %49, 512
+  %.not.i = icmp eq i64 %55, 0
+  br i1 %.not.i, label %up_irq_restore.exit, label %56
 
-55:                                               ; preds = %47
+56:                                               ; preds = %48
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
   br label %up_irq_restore.exit
 
-up_irq_restore.exit:                              ; preds = %55, %47, %43, %41
-  %56 = load ptr, ptr %1, align 8
-  %57 = icmp eq ptr %56, inttoptr (i64 1 to ptr)
-  br i1 %57, label %58, label %60
+up_irq_restore.exit:                              ; preds = %56, %48, %44, %42
+  %57 = load ptr, ptr %1, align 8
+  %58 = icmp eq ptr %57, inttoptr (i64 1 to ptr)
+  br i1 %58, label %59, label %61
 
-58:                                               ; preds = %up_irq_restore.exit
-  %59 = call ptr @nxsig_default(ptr noundef nonnull %10, i32 noundef %0, i1 noundef zeroext true) #4
-  br label %62
+59:                                               ; preds = %up_irq_restore.exit
+  %60 = call ptr @nxsig_default(ptr noundef nonnull %10, i32 noundef %0, i1 noundef zeroext true) #4
+  br label %63
 
-60:                                               ; preds = %up_irq_restore.exit
-  %61 = call ptr @nxsig_default(ptr noundef nonnull %10, i32 noundef %0, i1 noundef zeroext false) #4
-  br label %62
+61:                                               ; preds = %up_irq_restore.exit
+  %62 = call ptr @nxsig_default(ptr noundef nonnull %10, i32 noundef %0, i1 noundef zeroext false) #4
+  br label %63
 
-62:                                               ; preds = %60, %58
-  %.082 = phi ptr [ %59, %58 ], [ %56, %60 ]
-  %63 = icmp eq ptr %.082, null
-  %.not97 = icmp eq ptr %20, null
-  br i1 %63, label %64, label %87
+63:                                               ; preds = %61, %59
+  %.084 = phi ptr [ %60, %59 ], [ %57, %61 ]
+  %64 = icmp eq ptr %.084, null
+  %.not98 = icmp eq ptr %21, null
+  br i1 %64, label %65, label %88
 
-64:                                               ; preds = %62
-  br i1 %.not97, label %nxsig_release_action.exit, label %65
+65:                                               ; preds = %63
+  br i1 %.not98, label %nxsig_release_action.exit, label %66
 
-65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %12, i64 864
-  %67 = load ptr, ptr %66, align 8
-  %.not98 = icmp eq ptr %67, null
-  br i1 %.not98, label %.loopexit, label %68
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 864
+  %68 = load ptr, ptr %67, align 8
+  %.not99 = icmp eq ptr %68, null
+  br i1 %.not99, label %.loopexit, label %69
 
-68:                                               ; preds = %65
-  %69 = icmp eq ptr %20, %67
-  br i1 %69, label %70, label %.preheader
+69:                                               ; preds = %66
+  %70 = icmp eq ptr %21, %68
+  br i1 %70, label %71, label %.preheader
 
-70:                                               ; preds = %68
-  %71 = load ptr, ptr %20, align 8
-  store ptr %71, ptr %66, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %12, i64 872
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %20, %73
-  br i1 %74, label %75, label %.loopexit
+71:                                               ; preds = %69
+  %72 = load ptr, ptr %21, align 8
+  store ptr %72, ptr %67, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 872
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %21, %74
+  br i1 %75, label %76, label %.loopexit
 
-75:                                               ; preds = %70
-  store ptr null, ptr %72, align 8
+76:                                               ; preds = %71
+  store ptr null, ptr %73, align 8
   br label %.loopexit
 
-.preheader:                                       ; preds = %68, %80
-  %.080103 = phi ptr [ %81, %80 ], [ %67, %68 ]
-  %76 = load ptr, ptr %.080103, align 8
-  %77 = icmp eq ptr %76, %20
-  br i1 %77, label %78, label %80
+.preheader:                                       ; preds = %69, %81
+  %.082104 = phi ptr [ %82, %81 ], [ %68, %69 ]
+  %77 = load ptr, ptr %.082104, align 8
+  %78 = icmp eq ptr %77, %21
+  br i1 %78, label %79, label %81
 
-78:                                               ; preds = %.preheader
-  %79 = call ptr @sq_remafter(ptr noundef nonnull %.080103, ptr noundef nonnull %66) #4
-  %.pre = load ptr, ptr %.080103, align 8
-  br label %80
+79:                                               ; preds = %.preheader
+  %80 = call ptr @sq_remafter(ptr noundef nonnull %.082104, ptr noundef nonnull %67) #4
+  %.pre = load ptr, ptr %.082104, align 8
+  br label %81
 
-80:                                               ; preds = %.preheader, %78
-  %81 = phi ptr [ %76, %.preheader ], [ %.pre, %78 ]
-  %.not99 = icmp eq ptr %81, null
-  br i1 %.not99, label %.loopexit, label %.preheader, !llvm.loop !9
+81:                                               ; preds = %.preheader, %79
+  %82 = phi ptr [ %77, %.preheader ], [ %.pre, %79 ]
+  %.not100 = icmp eq ptr %82, null
+  br i1 %.not100, label %.loopexit, label %.preheader, !llvm.loop !9
 
-.loopexit:                                        ; preds = %80, %65, %70, %75
+.loopexit:                                        ; preds = %81, %66, %71, %76
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8) #4, !srcloc !6
-  %82 = load i64, ptr %8, align 8
+  %83 = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
-  store ptr null, ptr %20, align 8
-  %83 = load ptr, ptr @g_sigfreeaction, align 8
-  %.not.i100 = icmp eq ptr %83, null
-  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
-  %g_sigfreeaction.sink.i = select i1 %.not.i100, ptr @g_sigfreeaction, ptr %84
-  store ptr %20, ptr %g_sigfreeaction.sink.i, align 8
-  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
-  %85 = and i64 %82, 512
-  %.not.i.i = icmp eq i64 %85, 0
-  br i1 %.not.i.i, label %nxsig_release_action.exit, label %86
+  store ptr null, ptr %21, align 8
+  %84 = load ptr, ptr @g_sigfreeaction, align 8
+  %.not.i101 = icmp eq ptr %84, null
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
+  %g_sigfreeaction.sink.i = select i1 %.not.i101, ptr @g_sigfreeaction, ptr %85
+  store ptr %21, ptr %g_sigfreeaction.sink.i, align 8
+  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
+  %86 = and i64 %83, 512
+  %.not.i.i = icmp eq i64 %86, 0
+  br i1 %.not.i.i, label %nxsig_release_action.exit, label %87
 
-86:                                               ; preds = %.loopexit
+87:                                               ; preds = %.loopexit
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
   br label %nxsig_release_action.exit
 
-87:                                               ; preds = %62
-  br i1 %.not97, label %88, label %121
+88:                                               ; preds = %63
+  br i1 %.not98, label %89, label %122
 
-88:                                               ; preds = %87
+89:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #4, !srcloc !6
-  %89 = load i64, ptr %7, align 8
+  %90 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
-  %90 = call ptr @sq_remfirst(ptr noundef nonnull @g_sigfreeaction) #4
-  %91 = and i64 %89, 512
-  %.not.i.i101 = icmp eq i64 %91, 0
-  br i1 %.not.i.i101, label %up_irq_restore.exit.i, label %92
+  %91 = call ptr @sq_remfirst(ptr noundef nonnull @g_sigfreeaction) #4
+  %92 = and i64 %90, 512
+  %.not.i.i102 = icmp eq i64 %92, 0
+  br i1 %.not.i.i102, label %up_irq_restore.exit.i, label %93
 
-92:                                               ; preds = %88
+93:                                               ; preds = %89
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
   br label %up_irq_restore.exit.i
 
-up_irq_restore.exit.i:                            ; preds = %92, %88
-  %.not6.i = icmp eq ptr %90, null
+up_irq_restore.exit.i:                            ; preds = %93, %89
+  %.not6.i = icmp eq ptr %91, null
   br i1 %.not6.i, label %.lr.ph.i, label %nxsig_alloc_action.exit
 
 .lr.ph.i:                                         ; preds = %up_irq_restore.exit.i, %up_irq_restore.exit5.i
-  %93 = call noalias dereferenceable_or_null(192) ptr @malloc(i64 noundef 192) #5
-  %.not.i3.i = icmp eq ptr %93, null
-  br i1 %.not.i3.i, label %nxsig_alloc_actionblock.exit.i, label %94
+  %94 = call noalias dereferenceable_or_null(192) ptr @malloc(i64 noundef 192) #5
+  %.not.i3.i = icmp eq ptr %94, null
+  br i1 %.not.i3.i, label %nxsig_alloc_actionblock.exit.i, label %95
 
-94:                                               ; preds = %.lr.ph.i
+95:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #4, !srcloc !6
-  %95 = load i64, ptr %6, align 8
+  %96 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   %.pre14.i.i = load ptr, ptr @g_sigfreeaction, align 8
-  br label %96
+  br label %97
 
-96:                                               ; preds = %102, %94
-  %97 = phi ptr [ %.pre14.i.i, %94 ], [ %103, %102 ]
-  %.013.i.i = phi ptr [ %93, %94 ], [ %98, %102 ]
-  %.0912.i.i = phi i32 [ 0, %94 ], [ %104, %102 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 48
+97:                                               ; preds = %103, %95
+  %98 = phi ptr [ %.pre14.i.i, %95 ], [ %104, %103 ]
+  %.013.i.i = phi ptr [ %94, %95 ], [ %99, %103 ]
+  %.0912.i.i = phi i32 [ 0, %95 ], [ %105, %103 ]
+  %99 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 48
   store ptr null, ptr %.013.i.i, align 8
-  %.not11.i.i = icmp eq ptr %97, null
-  br i1 %.not11.i.i, label %99, label %100
+  %.not11.i.i = icmp eq ptr %98, null
+  br i1 %.not11.i.i, label %100, label %101
 
-99:                                               ; preds = %96
+100:                                              ; preds = %97
   store ptr %.013.i.i, ptr @g_sigfreeaction, align 8
-  br label %102
+  br label %103
 
-100:                                              ; preds = %96
-  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
-  store ptr %.013.i.i, ptr %101, align 8
+101:                                              ; preds = %97
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
+  store ptr %.013.i.i, ptr %102, align 8
   %.pre.i.i = load ptr, ptr @g_sigfreeaction, align 8
-  br label %102
+  br label %103
 
-102:                                              ; preds = %100, %99
-  %103 = phi ptr [ %.pre.i.i, %100 ], [ %.013.i.i, %99 ]
+103:                                              ; preds = %101, %100
+  %104 = phi ptr [ %.pre.i.i, %101 ], [ %.013.i.i, %100 ]
   store ptr %.013.i.i, ptr getelementptr inbounds nuw (i8, ptr @g_sigfreeaction, i64 8), align 8
-  %104 = add nuw nsw i32 %.0912.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %104, 4
-  br i1 %exitcond.not.i.i, label %105, label %96, !llvm.loop !11
+  %105 = add nuw nsw i32 %.0912.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %105, 4
+  br i1 %exitcond.not.i.i, label %106, label %97, !llvm.loop !11
 
-105:                                              ; preds = %102
-  %106 = and i64 %95, 512
-  %.not.i.i.i = icmp eq i64 %106, 0
-  br i1 %.not.i.i.i, label %nxsig_alloc_actionblock.exit.i, label %107
+106:                                              ; preds = %103
+  %107 = and i64 %96, 512
+  %.not.i.i.i = icmp eq i64 %107, 0
+  br i1 %.not.i.i.i, label %nxsig_alloc_actionblock.exit.i, label %108
 
-107:                                              ; preds = %105
+108:                                              ; preds = %106
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
   br label %nxsig_alloc_actionblock.exit.i
 
-nxsig_alloc_actionblock.exit.i:                   ; preds = %107, %105, %.lr.ph.i
+nxsig_alloc_actionblock.exit.i:                   ; preds = %108, %106, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #4, !srcloc !6
-  %108 = load i64, ptr %5, align 8
+  %109 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
-  %109 = call ptr @sq_remfirst(ptr noundef nonnull @g_sigfreeaction) #4
-  %110 = and i64 %108, 512
-  %.not.i4.i = icmp eq i64 %110, 0
-  br i1 %.not.i4.i, label %up_irq_restore.exit5.i, label %111
+  %110 = call ptr @sq_remfirst(ptr noundef nonnull @g_sigfreeaction) #4
+  %111 = and i64 %109, 512
+  %.not.i4.i = icmp eq i64 %111, 0
+  br i1 %.not.i4.i, label %up_irq_restore.exit5.i, label %112
 
-111:                                              ; preds = %nxsig_alloc_actionblock.exit.i
+112:                                              ; preds = %nxsig_alloc_actionblock.exit.i
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !8
   br label %up_irq_restore.exit5.i
 
-up_irq_restore.exit5.i:                           ; preds = %111, %nxsig_alloc_actionblock.exit.i
-  %.not.i102 = icmp eq ptr %109, null
-  br i1 %.not.i102, label %.lr.ph.i, label %nxsig_alloc_action.exit, !llvm.loop !12
+up_irq_restore.exit5.i:                           ; preds = %112, %nxsig_alloc_actionblock.exit.i
+  %.not.i103 = icmp eq ptr %110, null
+  br i1 %.not.i103, label %.lr.ph.i, label %nxsig_alloc_action.exit, !llvm.loop !12
 
 nxsig_alloc_action.exit:                          ; preds = %up_irq_restore.exit5.i, %up_irq_restore.exit.i
-  %.0.lcssa.i = phi ptr [ %90, %up_irq_restore.exit.i ], [ %109, %up_irq_restore.exit5.i ]
-  %112 = trunc nuw nsw i32 %0 to i8
-  %113 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 40
-  store i8 %112, ptr %113, align 8
+  %.0.lcssa.i = phi ptr [ %91, %up_irq_restore.exit.i ], [ %110, %up_irq_restore.exit5.i ]
+  %113 = trunc nuw nsw i32 %0 to i8
+  %114 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 40
+  store i8 %113, ptr %114, align 8
   store ptr null, ptr %.0.lcssa.i, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %12, i64 864
-  %115 = load ptr, ptr %114, align 8
-  %.not96 = icmp eq ptr %115, null
-  br i1 %.not96, label %116, label %118
+  %115 = getelementptr inbounds nuw i8, ptr %12, i64 864
+  %116 = load ptr, ptr %115, align 8
+  %.not97 = icmp eq ptr %116, null
+  br i1 %.not97, label %117, label %119
 
-116:                                              ; preds = %nxsig_alloc_action.exit
-  store ptr %.0.lcssa.i, ptr %114, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %12, i64 872
-  store ptr %.0.lcssa.i, ptr %117, align 8
-  br label %121
+117:                                              ; preds = %nxsig_alloc_action.exit
+  store ptr %.0.lcssa.i, ptr %115, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %12, i64 872
+  store ptr %.0.lcssa.i, ptr %118, align 8
+  br label %122
 
-118:                                              ; preds = %nxsig_alloc_action.exit
-  %119 = getelementptr inbounds nuw i8, ptr %12, i64 872
-  %120 = load ptr, ptr %119, align 8
+119:                                              ; preds = %nxsig_alloc_action.exit
+  %120 = getelementptr inbounds nuw i8, ptr %12, i64 872
+  %121 = load ptr, ptr %120, align 8
+  store ptr %.0.lcssa.i, ptr %121, align 8
   store ptr %.0.lcssa.i, ptr %120, align 8
-  store ptr %.0.lcssa.i, ptr %119, align 8
-  br label %121
+  br label %122
 
-121:                                              ; preds = %118, %116, %87
-  %.081 = phi ptr [ %.0.lcssa.i, %118 ], [ %.0.lcssa.i, %116 ], [ %20, %87 ]
-  %122 = getelementptr inbounds nuw i8, ptr %.081, i64 8
-  store ptr %.082, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %.081, i64 16
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %125 = load i64, ptr %124, align 8
-  store i64 %125, ptr %123, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %127 = load i32, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %.081, i64 24
-  store i32 %127, ptr %128, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %.081, i64 32
-  store ptr %130, ptr %131, align 8
+122:                                              ; preds = %119, %117, %88
+  %.083 = phi ptr [ %.0.lcssa.i, %119 ], [ %.0.lcssa.i, %117 ], [ %21, %88 ]
+  %123 = getelementptr inbounds nuw i8, ptr %.083, i64 8
+  store ptr %.084, ptr %123, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %.083, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %126 = load i64, ptr %125, align 8
+  store i64 %126, ptr %124, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %128 = load i32, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %.083, i64 24
+  store i32 %128, ptr %129, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %.083, i64 32
+  store ptr %131, ptr %132, align 8
   br label %nxsig_release_action.exit
 
-nxsig_release_action.exit:                        ; preds = %86, %.loopexit, %121, %64, %40, %17, %4
-  %.0 = phi i32 [ -22, %4 ], [ -22, %17 ], [ 0, %40 ], [ 0, %64 ], [ 0, %121 ], [ 0, %.loopexit ], [ 0, %86 ]
+nxsig_release_action.exit:                        ; preds = %87, %.loopexit, %122, %65, %41, %18, %4
+  %.0 = phi i32 [ -22, %4 ], [ -22, %18 ], [ 0, %41 ], [ 0, %65 ], [ 0, %122 ], [ 0, %.loopexit ], [ 0, %87 ]
   ret i32 %.0
 }
 

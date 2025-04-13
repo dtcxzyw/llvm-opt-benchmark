@@ -5842,9 +5842,12 @@ _ZN4llvm10prev_nodbgINS_26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEEEE
   %54 = load i16, ptr %53, align 4, !tbaa !280
   %switch.tableidx = add i16 %54, -14
   %55 = icmp ult i16 %switch.tableidx, 11
-  br i1 %55, label %switch.hole_check, label %56
+  %switch.shifted = lshr i16 1055, %switch.tableidx
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond35 = select i1 %55, i1 %switch.lobit, i1 false
+  br i1 %or.cond35, label %_ZNK4llvm18RegPressureTracker11isTopClosedEv.exit11, label %56
 
-56:                                               ; preds = %switch.hole_check, %52
+56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = load ptr, ptr %57, align 8, !tbaa !276
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
@@ -5961,13 +5964,8 @@ _ZN4llvm28skipDebugInstructionsForwardINS_14ilist_iteratorINS_12ilist_detail12no
   %111 = or disjoint i64 %110, 4
   br label %_ZNK4llvm18RegPressureTracker11isTopClosedEv.exit11
 
-switch.hole_check:                                ; preds = %52
-  %switch.shifted = lshr i16 1055, %switch.tableidx
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK4llvm18RegPressureTracker11isTopClosedEv.exit11, label %56
-
-_ZNK4llvm18RegPressureTracker11isTopClosedEv.exit11: ; preds = %switch.hole_check, %.loopexit
-  %.sroa.013.015 = phi i64 [ %111, %.loopexit ], [ 0, %switch.hole_check ]
+_ZNK4llvm18RegPressureTracker11isTopClosedEv.exit11: ; preds = %52, %.loopexit
+  %.sroa.013.015 = phi i64 [ %111, %.loopexit ], [ 0, %52 ]
   %112 = load ptr, ptr %5, align 8, !tbaa !238
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 312
   %.0.copyload.i.i.i.i.i10 = load i64, ptr %113, align 8

@@ -110,18 +110,18 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef zeroext i1 @_ZN19CompilationModeFlag10initializeEv() local_unnamed_addr #0 align 2 {
   store i32 0, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   %1 = load ptr, ptr @CompilationMode, align 8
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread4, label %2
+  %.not3 = icmp eq ptr %1, null
+  br i1 %.not3, label %.thread6, label %2
 
 2:                                                ; preds = %0
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.7) #10
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %.thread4, label %5
+  br i1 %4, label %.thread6, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.8) #10
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread4, label %8
+  br i1 %7, label %.thread6, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.9) #10
@@ -192,9 +192,9 @@ define hidden noundef zeroext i1 @_ZN19CompilationModeFlag10initializeEv() local
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #11
   %.pr.pre = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   %55 = icmp eq i32 %.pr.pre, 0
-  br i1 %55, label %.thread4, label %.thread
+  br i1 %55, label %.thread6, label %.thread
 
-.thread4:                                         ; preds = %2, %5, %0, %54
+.thread6:                                         ; preds = %2, %5, %0, %54
   %56 = load i32, ptr @_ZN9Arguments5_modeE, align 4
   %57 = icmp eq i32 %56, 0
   %58 = load i64, ptr @TieredStopAtLevel, align 8
@@ -202,40 +202,40 @@ define hidden noundef zeroext i1 @_ZN19CompilationModeFlag10initializeEv() local
   %60 = select i1 %57, i1 true, i1 %59
   br i1 %60, label %.thread, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %.thread4
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %.thread6
   %61 = load i8, ptr @TieredCompilation, align 1
   %62 = trunc i8 %61 to i1
   %63 = icmp eq i64 %58, 1
   %or.cond = select i1 %62, i1 %63, i1 false
-  br i1 %or.cond, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread6, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
+  br i1 %or.cond, label %64, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
 
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread6: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
+64:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
   store i32 1, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   br label %.thread
 
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i:     ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
-  %64 = add i64 %58, -1
-  %65 = icmp ult i64 %64, 3
-  %spec.select.i.i.i.i = select i1 %62, i1 %65, i1 false
-  %66 = load i8, ptr @UseJVMCICompiler, align 1
-  %67 = trunc i8 %66 to i1
-  %68 = select i1 %spec.select.i.i.i.i, i1 true, i1 %67
-  br i1 %68, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit
+  %65 = add i64 %58, -1
+  %66 = icmp ult i64 %65, 3
+  %spec.select.i.i.i.i = select i1 %62, i1 %66, i1 false
+  %67 = load i8, ptr @UseJVMCICompiler, align 1
+  %68 = trunc i8 %67 to i1
+  %69 = select i1 %spec.select.i.i.i.i, i1 true, i1 %68
+  br i1 %69, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit
 
 _ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  %69 = xor i1 %62, true
-  %or.cond12 = and i1 %69, %67
-  br i1 %or.cond12, label %70, label %.thread
+  %70 = xor i1 %62, true
+  %or.cond12 = and i1 %70, %68
+  br i1 %or.cond12, label %71, label %.thread
 
 _ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i
-  br i1 %62, label %.thread, label %70
+  br i1 %62, label %.thread, label %71
 
-70:                                               ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit
+71:                                               ; preds = %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit
   store i32 2, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   br label %.thread
 
-.thread:                                          ; preds = %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, %.thread4, %11, %22, %15, %54, %70, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread6, %23
-  %.0 = phi i1 [ false, %23 ], [ true, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread6 ], [ true, %70 ], [ true, %54 ], [ true, %15 ], [ true, %22 ], [ true, %11 ], [ true, %.thread4 ], [ true, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i ], [ true, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit ]
+.thread:                                          ; preds = %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i, %.thread6, %11, %22, %15, %54, %71, %64, %23
+  %.0 = phi i1 [ false, %23 ], [ true, %64 ], [ true, %71 ], [ true, %54 ], [ true, %15 ], [ true, %22 ], [ true, %11 ], [ true, %.thread6 ], [ true, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i ], [ true, %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit ]
   ret i1 %.0
 }
 
@@ -2083,176 +2083,171 @@ define hidden noundef zeroext i1 @_ZN14CompilerConfig22check_args_consistencyEb(
 65:                                               ; preds = %23, %44, %56, %52, %33, %12
   %.0 = phi i8 [ 0, %12 ], [ 0, %23 ], [ 0, %33 ], [ 0, %44 ], [ 0, %56 ], [ %8, %52 ]
   %66 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 657) #11
-  br i1 %66, label %73, label %67
+  br i1 %66, label %72, label %67
 
 67:                                               ; preds = %65
   %68 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 382) #11
-  br i1 %68, label %73, label %69
+  %.not = xor i1 %68, true
+  %69 = load i8, ptr @CICompilerCountPerCPU, align 1
+  %70 = trunc i8 %69 to i1
+  %or.cond = select i1 %.not, i1 %70, i1 false
+  br i1 %or.cond, label %71, label %72
 
-69:                                               ; preds = %67
-  %70 = load i8, ptr @CICompilerCountPerCPU, align 1
-  %71 = trunc i8 %70 to i1
-  br i1 %71, label %72, label %73
-
-72:                                               ; preds = %69
+71:                                               ; preds = %67
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.26) #11
-  br label %73
+  br label %72
 
-73:                                               ; preds = %72, %69, %67, %65
-  %74 = load i8, ptr @BackgroundCompilation, align 1
-  %75 = trunc i8 %74 to i1
-  br i1 %75, label %76, label %84
+72:                                               ; preds = %71, %67, %65
+  %73 = load i8, ptr @BackgroundCompilation, align 1
+  %74 = trunc i8 %73 to i1
+  %75 = load i8, ptr @ReplayCompiles, align 1
+  %76 = trunc i8 %75 to i1
+  %or.cond3 = select i1 %74, i1 %76, i1 false
+  br i1 %or.cond3, label %77, label %82
 
-76:                                               ; preds = %73
-  %77 = load i8, ptr @ReplayCompiles, align 1
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %79, label %84
+77:                                               ; preds = %72
+  %78 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 480) #11
+  br i1 %78, label %80, label %79
 
-79:                                               ; preds = %76
-  %80 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 480) #11
-  br i1 %80, label %82, label %81
-
-81:                                               ; preds = %79
+79:                                               ; preds = %77
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.27) #11
-  br label %82
+  br label %80
 
-82:                                               ; preds = %81, %79
+80:                                               ; preds = %79, %77
   tail call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 480) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   store i8 0, ptr %7, align 1
-  %83 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 480, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 1) #11
+  %81 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 480, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  br label %84
+  br label %82
 
-84:                                               ; preds = %82, %76, %73
-  %85 = load i32, ptr @_ZN9Arguments5_modeE, align 4
-  %86 = icmp eq i32 %85, 0
-  %87 = load i64, ptr @TieredStopAtLevel, align 8
-  %88 = icmp eq i64 %87, 0
-  %89 = select i1 %86, i1 true, i1 %88
-  br i1 %89, label %90, label %132
+82:                                               ; preds = %80, %72
+  %83 = load i32, ptr @_ZN9Arguments5_modeE, align 4
+  %84 = icmp eq i32 %83, 0
+  %85 = load i64, ptr @TieredStopAtLevel, align 8
+  %86 = icmp eq i64 %85, 0
+  %87 = select i1 %84, i1 true, i1 %86
+  br i1 %87, label %88, label %129
 
-90:                                               ; preds = %84
-  %91 = load i8, ptr @UseCompiler, align 1
-  %92 = trunc i8 %91 to i1
-  br i1 %92, label %93, label %98
+88:                                               ; preds = %82
+  %89 = load i8, ptr @UseCompiler, align 1
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %91, label %96
 
-93:                                               ; preds = %90
-  %94 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 741) #11
-  br i1 %94, label %96, label %95
+91:                                               ; preds = %88
+  %92 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 741) #11
+  br i1 %92, label %94, label %93
 
-95:                                               ; preds = %93
+93:                                               ; preds = %91
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.28) #11
-  br label %96
+  br label %94
 
-96:                                               ; preds = %95, %93
+94:                                               ; preds = %93, %91
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 741) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 0, ptr %6, align 1
-  %97 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 741, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1) #11
+  %95 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 741, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %98
+  br label %96
 
-98:                                               ; preds = %96, %90
-  %99 = load i8, ptr @ProfileInterpreter, align 1
-  %100 = trunc i8 %99 to i1
-  br i1 %100, label %101, label %106
+96:                                               ; preds = %94, %88
+  %97 = load i8, ptr @ProfileInterpreter, align 1
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %99, label %104
 
-101:                                              ; preds = %98
-  %102 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 735) #11
-  br i1 %102, label %104, label %103
+99:                                               ; preds = %96
+  %100 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 735) #11
+  br i1 %100, label %102, label %101
 
-103:                                              ; preds = %101
+101:                                              ; preds = %99
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.29) #11
-  br label %104
+  br label %102
 
-104:                                              ; preds = %103, %101
+102:                                              ; preds = %101, %99
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 735) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 0, ptr %5, align 1
-  %105 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 735, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 1) #11
+  %103 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 735, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  br label %106
+  br label %104
 
-106:                                              ; preds = %104, %98
-  %107 = load i8, ptr @TieredCompilation, align 1
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %109, label %114
+104:                                              ; preds = %102, %96
+  %105 = load i8, ptr @TieredCompilation, align 1
+  %106 = trunc i8 %105 to i1
+  br i1 %106, label %107, label %112
 
-109:                                              ; preds = %106
-  %110 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 845) #11
-  br i1 %110, label %112, label %111
+107:                                              ; preds = %104
+  %108 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 845) #11
+  br i1 %108, label %110, label %109
 
-111:                                              ; preds = %109
+109:                                              ; preds = %107
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.30) #11
-  br label %112
+  br label %110
 
-112:                                              ; preds = %111, %109
+110:                                              ; preds = %109, %107
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 845) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 0, ptr %4, align 1
-  %113 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 845, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 1) #11
+  %111 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 845, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %114
+  br label %112
 
-114:                                              ; preds = %112, %106
-  %115 = load i8, ptr @SegmentedCodeCache, align 1
-  %116 = trunc i8 %115 to i1
-  br i1 %116, label %117, label %118
+112:                                              ; preds = %110, %104
+  %113 = load i8, ptr @SegmentedCodeCache, align 1
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %115, label %116
 
-117:                                              ; preds = %114
+115:                                              ; preds = %112
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.31) #11
   store i8 0, ptr @SegmentedCodeCache, align 1
-  br label %118
+  br label %116
 
-118:                                              ; preds = %117, %114
-  %119 = load i8, ptr @EnableJVMCI, align 1
+116:                                              ; preds = %115, %112
+  %117 = load i8, ptr @EnableJVMCI, align 1
+  %118 = trunc i8 %117 to i1
+  %119 = load i8, ptr @UseJVMCICompiler, align 1
   %120 = trunc i8 %119 to i1
-  br i1 %120, label %124, label %121
+  %or.cond5 = select i1 %118, i1 true, i1 %120
+  br i1 %or.cond5, label %121, label %134
 
-121:                                              ; preds = %118
-  %122 = load i8, ptr @UseJVMCICompiler, align 1
-  %123 = trunc i8 %122 to i1
-  br i1 %123, label %124, label %137
+121:                                              ; preds = %116
+  %122 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 44) #11
+  br i1 %122, label %123, label %125
 
-124:                                              ; preds = %121, %118
-  %125 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 44) #11
-  br i1 %125, label %126, label %128
+123:                                              ; preds = %121
+  %124 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 47) #11
+  br i1 %124, label %126, label %125
 
-126:                                              ; preds = %124
-  %127 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 47) #11
-  br i1 %127, label %129, label %128
-
-128:                                              ; preds = %126, %124
+125:                                              ; preds = %123, %121
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.32) #11
-  br label %129
+  br label %126
 
-129:                                              ; preds = %128, %126
+126:                                              ; preds = %125, %123
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 44) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 0, ptr %3, align 1
-  %130 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 44, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 1) #11
+  %127 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 44, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 47) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 0, ptr %2, align 1
-  %131 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 47, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 1) #11
+  %128 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 47, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  br label %137
+  br label %134
 
-132:                                              ; preds = %84
-  %133 = trunc nuw i8 %.0 to i1
-  br i1 %133, label %134, label %137
+129:                                              ; preds = %82
+  %130 = trunc nuw i8 %.0 to i1
+  br i1 %130, label %131, label %134
 
-134:                                              ; preds = %132
-  %135 = call noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consistentEv() #11
-  %136 = zext i1 %135 to i8
-  br label %137
+131:                                              ; preds = %129
+  %132 = call noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consistentEv() #11
+  %133 = zext i1 %132 to i8
+  br label %134
 
-137:                                              ; preds = %132, %134, %121, %129
-  %.1 = phi i8 [ %.0, %129 ], [ %.0, %121 ], [ 0, %132 ], [ %136, %134 ]
-  %138 = trunc nuw i8 %.1 to i1
-  ret i1 %138
+134:                                              ; preds = %129, %131, %126, %116
+  %.1 = phi i8 [ %.0, %126 ], [ %.0, %116 ], [ 0, %129 ], [ %133, %131 ]
+  %135 = trunc nuw i8 %.1 to i1
+  ret i1 %135
 }
 
 declare noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consistentEv() local_unnamed_addr #2
@@ -2277,148 +2272,143 @@ define hidden void @_ZN14CompilerConfig15ergo_initializeEv() local_unnamed_addr 
 
 _ZN14CompilerConfig28is_compilation_mode_selectedEv.exit: ; preds = %7
   %9 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 47) #11
-  br i1 %9, label %10, label %_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit.thread
+  %10 = load i8, ptr @NeverActAsServerClassMachine, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond6 = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond6, label %12, label %_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit.thread
 
-10:                                               ; preds = %_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit
-  %11 = load i8, ptr @NeverActAsServerClassMachine, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit.thread
-
-13:                                               ; preds = %10
+12:                                               ; preds = %_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit
   tail call void @_ZN14CompilerConfig31set_client_emulation_mode_flagsEv()
   br label %_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit.thread
 
-_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit.thread: ; preds = %0, %3, %5, %7, %_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit, %10, %13
+_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit.thread: ; preds = %0, %3, %5, %7, %_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit, %12
   tail call void @_ZN14CompilerConfig26set_legacy_emulation_flagsEv()
   tail call void @_ZN14CompilerConfig28set_compilation_policy_flagsEv()
   tail call void @_ZN12JVMCIGlobals24check_jvmci_supported_gcEv() #11
   tail call void @_ZN14CompilerConfig24set_jvmci_specific_flagsEv()
-  %14 = load i8, ptr @UseOnStackReplacement, align 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %20
+  %13 = load i8, ptr @UseOnStackReplacement, align 1
+  %14 = trunc i8 %13 to i1
+  %.not = xor i1 %14, true
+  %15 = load i8, ptr @UseLoopCounter, align 1
+  %16 = trunc i8 %15 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %16
+  br i1 %or.cond, label %18, label %17
 
-16:                                               ; preds = %_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit.thread
-  %17 = load i8, ptr @UseLoopCounter, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %20, label %19
-
-19:                                               ; preds = %16
+17:                                               ; preds = %_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit.thread
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.33) #11
   store i8 1, ptr @UseLoopCounter, align 1
-  br label %20
+  br label %18
 
-20:                                               ; preds = %19, %16, %_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit.thread
-  %21 = load i8, ptr @ProfileInterpreter, align 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
+18:                                               ; preds = %17, %_ZN14CompilerConfig28is_compilation_mode_selectedEv.exit.thread
+  %19 = load i8, ptr @ProfileInterpreter, align 1
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr @_ZN9Arguments5_modeE, align 4
-  %25 = icmp eq i32 %24, 0
-  %26 = load i64, ptr @TieredStopAtLevel, align 8
-  %27 = icmp eq i64 %26, 0
-  %28 = select i1 %25, i1 true, i1 %27
-  br i1 %28, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
+21:                                               ; preds = %18
+  %22 = load i32, ptr @_ZN9Arguments5_modeE, align 4
+  %23 = icmp eq i32 %22, 0
+  %24 = load i64, ptr @TieredStopAtLevel, align 8
+  %25 = icmp eq i64 %24, 0
+  %26 = select i1 %23, i1 true, i1 %25
+  br i1 %26, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %23
-  %29 = load i8, ptr @TieredCompilation, align 1
-  %30 = trunc i8 %29 to i1
-  %31 = add i64 %26, -1
-  %32 = icmp ult i64 %31, 3
-  %spec.select.i.i = select i1 %30, i1 %32, i1 false
-  %33 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %34 = icmp eq i32 %33, 1
-  %35 = or i1 %spec.select.i.i, %34
-  br i1 %35, label %36, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %21
+  %27 = load i8, ptr @TieredCompilation, align 1
+  %28 = trunc i8 %27 to i1
+  %29 = add i64 %24, -1
+  %30 = icmp ult i64 %29, 3
+  %spec.select.i.i = select i1 %28, i1 %30, i1 false
+  %31 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %32 = icmp eq i32 %31, 1
+  %33 = or i1 %spec.select.i.i, %32
+  br i1 %33, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
 
-36:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
-  %37 = icmp eq i64 %26, 1
-  %38 = select i1 %30, i1 %37, i1 false
-  %39 = xor i1 %30, true
-  %40 = or i1 %38, %39
-  %or.cond = or i1 %34, %40
-  br i1 %or.cond, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread2, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
+_ZN14CompilerConfig17is_c1_simple_onlyEv.exit:    ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
+  %34 = icmp eq i64 %24, 1
+  %35 = select i1 %28, i1 %34, i1 false
+  %36 = xor i1 %28, true
+  %37 = or i1 %35, %36
+  %38 = or i1 %32, %37
+  br i1 %38, label %39, label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
 
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread2: ; preds = %36
-  %41 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 735) #11
-  br i1 %41, label %43, label %42
+39:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit
+  %40 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 735) #11
+  br i1 %40, label %42, label %41
 
-42:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread2
+41:                                               ; preds = %39
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.34) #11
-  br label %43
+  br label %42
 
-43:                                               ; preds = %42, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread2
+42:                                               ; preds = %41, %39
   tail call void @_ZN7JVMFlag12setOnCmdLineE12JVMFlagsEnum(i32 noundef 735) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   store i8 0, ptr %1, align 1
-  %44 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 735, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 1) #11
+  %43 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 735, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
   br label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
 
-_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread: ; preds = %36, %23, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %43, %20
-  %45 = load i8, ptr @EliminateLocks, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %48, label %47
+_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread: ; preds = %21, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %42, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit, %18
+  %44 = load i8, ptr @EliminateLocks, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %47, label %46
 
-47:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
+46:                                               ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
   store i8 0, ptr @EliminateNestedLocks, align 1
-  br label %48
+  br label %47
 
-48:                                               ; preds = %47, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
-  %49 = load i8, ptr @Inline, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %54
+47:                                               ; preds = %46, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread
+  %48 = load i8, ptr @Inline, align 1
+  %49 = trunc i8 %48 to i1
+  %50 = load i8, ptr @IncrementalInline, align 1
+  %51 = trunc i8 %50 to i1
+  %or.cond3 = select i1 %49, i1 %51, i1 false
+  br i1 %or.cond3, label %53, label %52
 
-51:                                               ; preds = %48
-  %52 = load i8, ptr @IncrementalInline, align 1
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %55, label %54
-
-54:                                               ; preds = %51, %48
+52:                                               ; preds = %47
   store i8 0, ptr @IncrementalInline, align 1
   store i8 0, ptr @IncrementalInlineMH, align 1
   store i8 0, ptr @IncrementalInlineVirtual, align 1
   store i8 0, ptr @StressIncrementalInlining, align 1
-  br label %55
+  br label %53
 
-55:                                               ; preds = %54, %51
-  %56 = load i8, ptr @UseTypeSpeculation, align 1
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %61, label %58
+53:                                               ; preds = %47, %52
+  %54 = load i8, ptr @UseTypeSpeculation, align 1
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %59, label %56
 
-58:                                               ; preds = %55
-  %59 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 710) #11
-  br i1 %59, label %60, label %61
+56:                                               ; preds = %53
+  %57 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 710) #11
+  br i1 %57, label %58, label %59
 
-60:                                               ; preds = %58
+58:                                               ; preds = %56
   store i32 0, ptr @TypeProfileLevel, align 4
-  br label %61
+  br label %59
 
-61:                                               ; preds = %60, %58, %55
-  %62 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 807) #11
-  br i1 %62, label %68, label %63
+59:                                               ; preds = %58, %56, %53
+  %60 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 807) #11
+  br i1 %60, label %66, label %61
+
+61:                                               ; preds = %59
+  %62 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 163) #11
+  br i1 %62, label %63, label %66
 
 63:                                               ; preds = %61
-  %64 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 163) #11
-  br i1 %64, label %65, label %68
+  %64 = load i64, ptr @OptoLoopAlignment, align 8
+  %65 = add nsw i64 %64, -1
+  store i64 %65, ptr @MaxLoopPad, align 8
+  br label %66
 
-65:                                               ; preds = %63
-  %66 = load i64, ptr @OptoLoopAlignment, align 8
-  %67 = add nsw i64 %66, -1
-  store i64 %67, ptr @MaxLoopPad, align 8
-  br label %68
+66:                                               ; preds = %63, %61, %59
+  %67 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 359) #11
+  br i1 %67, label %68, label %71
 
-68:                                               ; preds = %65, %63, %61
-  %69 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 359) #11
-  br i1 %69, label %70, label %73
+68:                                               ; preds = %66
+  %69 = load i64, ptr @LoopStripMiningIter, align 8
+  %70 = udiv i64 %69, 10
+  store i64 %70, ptr @LoopStripMiningIterShortLoop, align 8
+  br label %71
 
-70:                                               ; preds = %68
-  %71 = load i64, ptr @LoopStripMiningIter, align 8
-  %72 = udiv i64 %71, 10
-  store i64 %72, ptr @LoopStripMiningIterShortLoop, align 8
-  br label %73
-
-73:                                               ; preds = %70, %68
+71:                                               ; preds = %68, %66
   ret void
 }
 

@@ -207,7 +207,7 @@ define hidden noundef ptr @_ZN20ClassLoaderMetaspace19expand_and_allocateEmN9Met
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
-11:                                               ; preds = %21, %.split.us
+11:                                               ; preds = %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit.us, %.split.us
   %12 = call noundef zeroext i1 @_ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb(i64 noundef %8, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #6
   %13 = load ptr, ptr %0, align 8
   %.not.i.i.i.us = icmp eq ptr %13, null
@@ -227,83 +227,80 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.us.thread: ; preds = 
 
 _ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit.us: ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.us.thread, %16
   %19 = phi ptr [ %15, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.us.thread ], [ %18, %16 ]
-  %20 = icmp ne ptr %19, null
-  %or.cond.not.us = or i1 %12, %20
-  br i1 %or.cond.not.us, label %.critedge, label %21
+  %.not.us = xor i1 %12, true
+  %20 = icmp eq ptr %19, null
+  %or.cond.us = and i1 %20, %.not.us
+  %21 = load i8, ptr %6, align 1
+  %22 = trunc i8 %21 to i1
+  %or.cond3.us = select i1 %or.cond.us, i1 %22, i1 false
+  br i1 %or.cond3.us, label %11, label %.critedge, !llvm.loop !6
 
-21:                                               ; preds = %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit.us
-  %22 = load i8, ptr %6, align 1
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %11, label %.critedge.thread, !llvm.loop !6
+.split:                                           ; preds = %3, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit
+  %23 = call noundef zeroext i1 @_ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb(i64 noundef %8, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #6
+  %24 = load ptr, ptr %0, align 8
+  %.not.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, label %25
 
-.split:                                           ; preds = %3, %34
-  %24 = call noundef zeroext i1 @_ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb(i64 noundef %8, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #6
-  %25 = load ptr, ptr %0, align 8
-  %.not.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, label %26
-
-26:                                               ; preds = %.split
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %25) #6
+25:                                               ; preds = %.split
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #6
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %26, %.split
-  %27 = load i8, ptr @UseCompressedClassPointers, align 1
-  %28 = trunc i8 %27 to i1
-  %spec.select = select i1 %28, i64 24, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noundef ptr @_ZN9metaspace14MetaspaceArena8allocateEm(ptr noundef nonnull align 8 dereferenceable(56) %30, i64 noundef %1) #6
-  br i1 %.not.i.i.i, label %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit, label %32
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %25, %.split
+  %26 = load i8, ptr @UseCompressedClassPointers, align 1
+  %27 = trunc i8 %26 to i1
+  %spec.select = select i1 %27, i64 24, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select
+  %29 = load ptr, ptr %28, align 8
+  %30 = call noundef ptr @_ZN9metaspace14MetaspaceArena8allocateEm(ptr noundef nonnull align 8 dereferenceable(56) %29, i64 noundef %1) #6
+  br i1 %.not.i.i.i, label %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit, label %31
 
-32:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %25) #6
+31:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %24) #6
   br label %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit
 
-_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit: ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, %32
-  %33 = icmp ne ptr %31, null
-  %or.cond.not = or i1 %24, %33
-  br i1 %or.cond.not, label %.critedge, label %34
-
-34:                                               ; preds = %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit
-  %35 = load i8, ptr %6, align 1
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %.split, label %.critedge.thread, !llvm.loop !6
+_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit: ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, %31
+  %.not = xor i1 %23, true
+  %32 = icmp eq ptr %30, null
+  %or.cond = and i1 %32, %.not
+  %33 = load i8, ptr %6, align 1
+  %34 = trunc i8 %33 to i1
+  %or.cond3 = select i1 %or.cond, i1 %34, i1 false
+  br i1 %or.cond3, label %.split, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit.us, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit
-  %.us-phi = phi ptr [ %31, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit ], [ %19, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit.us ]
-  %.us-phi12 = phi i1 [ %24, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit ], [ %12, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit.us ]
-  br i1 %.us-phi12, label %37, label %.critedge.thread
+  %.us-phi = phi ptr [ %30, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit ], [ %19, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit.us ]
+  %.us-phi14 = phi i1 [ %23, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit ], [ %12, %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit.us ]
+  br i1 %.us-phi14, label %35, label %49
 
-37:                                               ; preds = %.critedge
-  %38 = load ptr, ptr @_ZN9Metaspace7_tracerE, align 8
-  %39 = load i64, ptr %4, align 8
-  %40 = load i64, ptr %5, align 8
-  call void @_ZNK15MetaspaceTracer19report_gc_thresholdEmmN27MetaspaceGCThresholdUpdater4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %38, i64 noundef %39, i64 noundef %40, i32 noundef 1) #6
-  %41 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not = icmp eq ptr %41, null
-  br i1 %.not, label %45, label %42
+35:                                               ; preds = %.critedge
+  %36 = load ptr, ptr @_ZN9Metaspace7_tracerE, align 8
+  %37 = load i64, ptr %4, align 8
+  %38 = load i64, ptr %5, align 8
+  call void @_ZNK15MetaspaceTracer19report_gc_thresholdEmmN27MetaspaceGCThresholdUpdater4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %36, i64 noundef %37, i64 noundef %38, i32 noundef 1) #6
+  %39 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not11 = icmp eq ptr %39, null
+  br i1 %.not11, label %43, label %40
 
-42:                                               ; preds = %37
-  %43 = load i64, ptr %4, align 8
-  %44 = load i64, ptr %5, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.7, i64 noundef %43, i64 noundef %44)
-  br label %45
+40:                                               ; preds = %35
+  %41 = load i64, ptr %4, align 8
+  %42 = load i64, ptr %5, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.7, i64 noundef %41, i64 noundef %42)
+  br label %43
 
-45:                                               ; preds = %37, %42
-  %46 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not10 = icmp eq ptr %46, null
-  br i1 %.not10, label %.critedge.thread, label %47
+43:                                               ; preds = %35, %40
+  %44 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not12 = icmp eq ptr %44, null
+  br i1 %.not12, label %49, label %45
 
-47:                                               ; preds = %45
-  %48 = ptrtoint ptr %0 to i64
-  %49 = load i64, ptr %4, align 8
-  %50 = load i64, ptr %5, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %48, i64 noundef %49, i64 noundef %50)
-  br label %.critedge.thread
+45:                                               ; preds = %43
+  %46 = ptrtoint ptr %0 to i64
+  %47 = load i64, ptr %4, align 8
+  %48 = load i64, ptr %5, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %46, i64 noundef %47, i64 noundef %48)
+  br label %49
 
-.critedge.thread:                                 ; preds = %21, %34, %47, %45, %.critedge
-  %.us-phi19 = phi ptr [ %.us-phi, %47 ], [ %.us-phi, %45 ], [ %.us-phi, %.critedge ], [ null, %34 ], [ null, %21 ]
-  ret ptr %.us-phi19
+49:                                               ; preds = %45, %43, %.critedge
+  ret ptr %.us-phi
 }
 
 declare noundef i64 @_ZN11MetaspaceGC23delta_capacity_until_GCEm(i64 noundef) local_unnamed_addr #1
@@ -340,8 +337,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #6
   %6 = load i8, ptr @UseCompressedClassPointers, align 1
   %7 = trunc i8 %6 to i1
-  %brmerge.demorgan = and i1 %3, %7
-  %. = select i1 %brmerge.demorgan, i64 24, i64 16
+  %or.cond = and i1 %3, %7
+  %. = select i1 %or.cond, i64 24, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN9metaspace14MetaspaceArena10deallocateEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %1, i64 noundef %2) #6
@@ -351,8 +348,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4
 _ZN11MutexLockerD2Ev.exit.critedge:               ; preds = %4
   %10 = load i8, ptr @UseCompressedClassPointers, align 1
   %11 = trunc i8 %10 to i1
-  %brmerge.demorgan.c = and i1 %3, %11
-  %..c = select i1 %brmerge.demorgan.c, i64 24, i64 16
+  %or.cond.c = and i1 %3, %11
+  %..c = select i1 %or.cond.c, i64 24, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %..c
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZN9metaspace14MetaspaceArena10deallocateEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef %1, i64 noundef %2) #6

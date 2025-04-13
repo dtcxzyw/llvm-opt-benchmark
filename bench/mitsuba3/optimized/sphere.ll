@@ -1852,98 +1852,90 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %94 = shufflevector <4 x i1> %93, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %95 = bitcast <8 x i1> %94 to i8
   %96 = and i8 %95, 7
-  %97 = icmp ne i8 %96, 7
+  %97 = icmp eq i8 %96, 7
   br label %98
 
 98:                                               ; preds = %92, %5
-  %.not292.i.i = phi i1 [ true, %5 ], [ %97, %92 ]
-  %99 = fptrunc double %90 to float
-  %100 = insertelement <4 x float> poison, float %99, i64 0
-  %101 = shufflevector <4 x float> %100, <4 x float> poison, <4 x i32> zeroinitializer
-  %102 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %69, <4 x float> %101, <4 x float> %68)
-  %103 = fpext <4 x float> %102 to <4 x double>
-  %104 = fsub contract <4 x double> %103, %76
-  %105 = fmul contract <4 x double> %104, %104
-  %shift232 = shufflevector <4 x double> %105, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %106 = fadd contract <4 x double> %shift232, %105
-  %shift233 = shufflevector <4 x double> %105, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %107 = fadd contract <4 x double> %shift233, %106
-  %108 = extractelement <4 x double> %107, i64 0
-  %109 = tail call contract noundef double @llvm.sqrt.f64(double %108)
-  %110 = fcmp contract ule double %109, %75
-  %.not.i.i = select i1 %110, i1 true, i1 %.not292.i.i
-  %111 = fmul contract <4 x double> %104, %79
-  %shift234 = shufflevector <4 x double> %111, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %112 = fadd contract <4 x double> %shift234, %111
-  %shift235 = shufflevector <4 x double> %111, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %113 = fadd contract <4 x double> %shift235, %112
-  %114 = extractelement <4 x double> %113, i64 0
-  %115 = fmul contract double %114, 2.000000e+00
-  %116 = fmul contract double %75, %75
-  %117 = fsub contract double %108, %116
-  %118 = fcmp contract une double %88, 0.000000e+00
-  %119 = fcmp contract une double %115, 0.000000e+00
-  %not..i.i = xor i1 %118, true
-  %.not356.i.i = select i1 %not..i.i, i1 %119, i1 false
-  %120 = fneg contract double %117
-  %121 = fdiv contract double %120, %115
-  %122 = fmul contract double %88, 4.000000e+00
-  %123 = fmul contract double %122, %120
-  %124 = tail call contract noundef double @llvm.fma.f64(double %115, double %115, double %123)
-  %125 = fcmp contract oge double %124, 0.000000e+00
-  %126 = and i1 %118, %125
-  br i1 %126, label %127, label %136
+  %99 = phi i1 [ false, %5 ], [ %97, %92 ]
+  %100 = fptrunc double %90 to float
+  %101 = insertelement <4 x float> poison, float %100, i64 0
+  %102 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> zeroinitializer
+  %103 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %69, <4 x float> %102, <4 x float> %68)
+  %104 = fpext <4 x float> %103 to <4 x double>
+  %105 = fsub contract <4 x double> %104, %76
+  %106 = fmul contract <4 x double> %105, %105
+  %shift232 = shufflevector <4 x double> %106, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %107 = fadd contract <4 x double> %shift232, %106
+  %shift233 = shufflevector <4 x double> %106, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %108 = fadd contract <4 x double> %shift233, %107
+  %109 = extractelement <4 x double> %108, i64 0
+  %110 = fmul contract <4 x double> %105, %79
+  %shift234 = shufflevector <4 x double> %110, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %111 = fadd contract <4 x double> %shift234, %110
+  %shift235 = shufflevector <4 x double> %110, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %112 = fadd contract <4 x double> %shift235, %111
+  %113 = extractelement <4 x double> %112, i64 0
+  %114 = fmul contract double %113, 2.000000e+00
+  %115 = fmul contract double %75, %75
+  %116 = fsub contract double %109, %115
+  %117 = fcmp contract une double %88, 0.000000e+00
+  %118 = fneg contract double %116
+  %119 = fdiv contract double %118, %114
+  %120 = fmul contract double %88, 4.000000e+00
+  %121 = fmul contract double %120, %118
+  %122 = tail call contract noundef double @llvm.fma.f64(double %114, double %114, double %121)
+  %123 = fcmp contract oge double %122, 0.000000e+00
+  %124 = and i1 %117, %123
+  br i1 %124, label %125, label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect_preliminaryERKNS_3RayINS_5PointIfLm3EEES5_EEjb.exit
 
-127:                                              ; preds = %98
-  %128 = tail call contract noundef double @llvm.sqrt.f64(double %124)
-  %129 = tail call double @llvm.copysign.f64(double %128, double %115)
-  %130 = fadd contract double %115, %129
-  %131 = fmul contract double %130, -5.000000e-01
-  %132 = fdiv contract double %131, %88
-  %133 = fdiv contract double %117, %131
-  %134 = fcmp contract olt double %133, %132
-  %..i.i.i = select contract i1 %134, double %133, double %132
-  %135 = fcmp contract olt double %132, %133
-  %..i297.i.i = select contract i1 %135, double %133, double %132
-  br label %136
-
-136:                                              ; preds = %127, %98
-  %.0354.i.i = phi double [ %..i297.i.i, %127 ], [ %121, %98 ]
-  %.0.i.i = phi double [ %..i.i.i, %127 ], [ %121, %98 ]
-  %narrow.i.i = or i1 %.not356.i.i, %126
-  %137 = select i1 %narrow.i.i, i1 %.not.i.i, i1 false
-  br i1 %137, label %138, label %.thread.i.i
-
-138:                                              ; preds = %136
-  %139 = fadd contract double %90, %.0.i.i
-  %140 = fcmp contract olt double %139, 0.000000e+00
-  %141 = fadd contract double %90, %.0354.i.i
-  %142 = fcmp contract ogt double %141, 0x47EFFFFFE0000000
-  %143 = select i1 %140, i1 %142, i1 false
-  %144 = fcmp contract ugt double %139, 0x47EFFFFFE0000000
-  %145 = fcmp contract ult double %141, 0.000000e+00
-  %146 = select i1 %144, i1 true, i1 %145
-  %spec.select.i.i = select i1 %146, i1 true, i1 %143
-  %.in.i.i = select i1 %140, double %141, double %139
-  %147 = fptrunc double %.in.i.i to float
-  %cond.fr.i.i = freeze i1 %spec.select.i.i
-  br i1 %cond.fr.i.i, label %.thread.i.i, label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect_preliminaryERKNS_3RayINS_5PointIfLm3EEES5_EEjb.exit
-
-.thread.i.i:                                      ; preds = %138, %136
+125:                                              ; preds = %98
+  %126 = tail call contract noundef double @llvm.sqrt.f64(double %122)
+  %127 = tail call double @llvm.copysign.f64(double %126, double %114)
+  %128 = fadd contract double %114, %127
+  %129 = fmul contract double %128, -5.000000e-01
+  %130 = fdiv contract double %129, %88
+  %131 = fdiv contract double %116, %129
+  %132 = fcmp contract olt double %131, %130
+  %..i.i.i = select contract i1 %132, double %131, double %130
+  %133 = fcmp contract olt double %130, %131
+  %..i297.i.i = select contract i1 %133, double %131, double %130
   br label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect_preliminaryERKNS_3RayINS_5PointIfLm3EEES5_EEjb.exit
 
-_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect_preliminaryERKNS_3RayINS_5PointIfLm3EEES5_EEjb.exit: ; preds = %138, %.thread.i.i
-  %148 = phi float [ 0x7FF0000000000000, %.thread.i.i ], [ %147, %138 ]
-  %149 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %150 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %151 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %152 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store float %148, ptr %7, align 8, !alias.scope !109
-  store i64 0, ptr %152, align 4, !alias.scope !109
-  store i32 -1, ptr %150, align 8, !alias.scope !109
-  store i32 0, ptr %151, align 4, !alias.scope !109
-  store ptr %1, ptr %149, align 8, !alias.scope !109
-  %153 = fcmp contract une float %148, 0x7FF0000000000000
+_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect_preliminaryERKNS_3RayINS_5PointIfLm3EEES5_EEjb.exit: ; preds = %98, %125
+  %.0354.i.i = phi double [ %..i297.i.i, %125 ], [ %119, %98 ]
+  %.0.i.i = phi double [ %..i.i.i, %125 ], [ %119, %98 ]
+  %134 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %138 = fcmp contract une double %114, 0.000000e+00
+  %not..i.i = xor i1 %117, true
+  %.not356.i.i = select i1 %not..i.i, i1 %138, i1 false
+  %139 = tail call contract noundef double @llvm.sqrt.f64(double %109)
+  %140 = fcmp contract ogt double %139, %75
+  %141 = select i1 %140, i1 %99, i1 false
+  %narrow.i.i = or i1 %.not356.i.i, %124
+  %142 = fadd contract double %90, %.0.i.i
+  %143 = fadd contract double %90, %.0354.i.i
+  %144 = fcmp contract ole double %142, 0x47EFFFFFE0000000
+  %145 = fcmp contract oge double %143, 0.000000e+00
+  %146 = fcmp contract uge double %142, 0.000000e+00
+  %147 = fcmp contract ule double %143, 0x47EFFFFFE0000000
+  %148 = select i1 %146, i1 true, i1 %147
+  %.not359.i.i = xor i1 %141, true
+  %not.or.cond.i.i = select i1 %narrow.i.i, i1 %.not359.i.i, i1 false
+  %149 = select i1 %not.or.cond.i.i, i1 %144, i1 false
+  %or.cond3.i.i = select i1 %149, i1 %145, i1 false
+  %150 = select i1 %or.cond3.i.i, i1 %148, i1 false
+  %.in.i.i = select i1 %146, double %142, double %143
+  %151 = fptrunc double %.in.i.i to float
+  %152 = select contract i1 %150, float %151, float 0x7FF0000000000000
+  store float %152, ptr %7, align 8, !alias.scope !109
+  store i64 0, ptr %137, align 4, !alias.scope !109
+  store i32 -1, ptr %135, align 8, !alias.scope !109
+  store i32 0, ptr %136, align 4, !alias.scope !109
+  store ptr %1, ptr %134, align 8, !alias.scope !109
+  %153 = fcmp contract une float %152, 0x7FF0000000000000
   %154 = and i1 %4, %153
   br i1 %154, label %159, label %155
 
@@ -1972,7 +1964,7 @@ _ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect_p
 
 .critedge.i:                                      ; preds = %161, %159
   %164 = phi <4 x i1> [ <i1 true, i1 true, i1 true, i1 false>, %159 ], [ zeroinitializer, %161 ]
-  %165 = load i32, ptr %151, align 4
+  %165 = load i32, ptr %136, align 4
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %165, ptr %166, align 16
   %167 = load float, ptr %72, align 4
@@ -2106,45 +2098,44 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %12 = fpext <4 x float> %11 to <4 x double>
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load float, ptr %13, align 16, !noalias !112
-  %15 = fpext float %14 to double
-  %16 = load <4 x float>, ptr %2, align 16, !noalias !112
-  %17 = fpext <4 x float> %16 to <4 x double>
-  %18 = fsub contract <4 x double> %17, %12
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %20 = load <4 x float>, ptr %19, align 16, !noalias !112
-  %21 = fpext <4 x float> %20 to <4 x double>
-  %22 = fneg <4 x double> %18
-  %23 = fmul contract <4 x double> %22, %21
-  %shift = shufflevector <4 x double> %23, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %24 = fadd contract <4 x double> %shift, %23
-  %shift35 = shufflevector <4 x double> %23, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %25 = fadd contract <4 x double> %shift35, %24
-  %26 = extractelement <4 x double> %25, i64 0
-  %27 = fmul contract <4 x double> %21, %21
-  %shift36 = shufflevector <4 x double> %27, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %28 = fadd contract <4 x double> %shift36, %27
-  %shift37 = shufflevector <4 x double> %27, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %29 = fadd contract <4 x double> %shift37, %28
-  %30 = extractelement <4 x double> %29, i64 0
-  %31 = tail call contract noundef double @llvm.sqrt.f64(double %30)
-  %32 = fdiv contract double %26, %31
-  %33 = fcmp contract oeq double %32, 0.000000e+00
-  br i1 %33, label %34, label %40
+  %15 = load <4 x float>, ptr %2, align 16, !noalias !112
+  %16 = fpext <4 x float> %15 to <4 x double>
+  %17 = fsub contract <4 x double> %16, %12
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %19 = load <4 x float>, ptr %18, align 16, !noalias !112
+  %20 = fpext <4 x float> %19 to <4 x double>
+  %21 = fneg <4 x double> %17
+  %22 = fmul contract <4 x double> %21, %20
+  %shift = shufflevector <4 x double> %22, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %23 = fadd contract <4 x double> %shift, %22
+  %shift35 = shufflevector <4 x double> %22, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %24 = fadd contract <4 x double> %shift35, %23
+  %25 = extractelement <4 x double> %24, i64 0
+  %26 = fmul contract <4 x double> %20, %20
+  %shift36 = shufflevector <4 x double> %26, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %27 = fadd contract <4 x double> %shift36, %26
+  %shift37 = shufflevector <4 x double> %26, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %28 = fadd contract <4 x double> %shift37, %27
+  %29 = extractelement <4 x double> %28, i64 0
+  %30 = tail call contract noundef double @llvm.sqrt.f64(double %29)
+  %31 = fdiv contract double %25, %30
+  %32 = fcmp contract oeq double %31, 0.000000e+00
+  br i1 %32, label %33, label %39
 
-34:                                               ; preds = %5
-  %35 = fcmp contract une <4 x float> %16, %11
-  %36 = shufflevector <4 x i1> %35, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %37 = bitcast <8 x i1> %36 to i8
-  %38 = and i8 %37, 7
-  %39 = icmp ne i8 %38, 7
-  br label %40
+33:                                               ; preds = %5
+  %34 = fcmp contract une <4 x float> %15, %11
+  %35 = shufflevector <4 x i1> %34, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %36 = bitcast <8 x i1> %35 to i8
+  %37 = and i8 %36, 7
+  %38 = icmp eq i8 %37, 7
+  br label %39
 
-40:                                               ; preds = %34, %5
-  %.not292.i = phi i1 [ true, %5 ], [ %39, %34 ]
-  %41 = fptrunc double %32 to float
+39:                                               ; preds = %33, %5
+  %40 = phi i1 [ false, %5 ], [ %38, %33 ]
+  %41 = fptrunc double %31 to float
   %42 = insertelement <4 x float> poison, float %41, i64 0
   %43 = shufflevector <4 x float> %42, <4 x float> poison, <4 x i32> zeroinitializer
-  %44 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %20, <4 x float> %43, <4 x float> %16)
+  %44 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %19, <4 x float> %43, <4 x float> %15)
   %45 = fpext <4 x float> %44 to <4 x double>
   %46 = fsub contract <4 x double> %45, %12
   %47 = fmul contract <4 x double> %46, %46
@@ -2153,80 +2144,73 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %shift39 = shufflevector <4 x double> %47, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %49 = fadd contract <4 x double> %shift39, %48
   %50 = extractelement <4 x double> %49, i64 0
-  %51 = tail call contract noundef double @llvm.sqrt.f64(double %50)
-  %52 = fcmp contract ule double %51, %9
-  %.not.i = select i1 %52, i1 true, i1 %.not292.i
-  %53 = fmul contract <4 x double> %46, %21
-  %shift40 = shufflevector <4 x double> %53, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %54 = fadd contract <4 x double> %shift40, %53
-  %shift41 = shufflevector <4 x double> %53, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %55 = fadd contract <4 x double> %shift41, %54
-  %56 = extractelement <4 x double> %55, i64 0
-  %57 = fmul contract double %56, 2.000000e+00
-  %58 = fmul contract double %9, %9
-  %59 = fsub contract double %50, %58
-  %60 = fcmp contract une double %30, 0.000000e+00
-  %61 = fcmp contract une double %57, 0.000000e+00
-  %not..i = xor i1 %60, true
-  %.not356.i = select i1 %not..i, i1 %61, i1 false
-  %62 = fneg contract double %59
-  %63 = fdiv contract double %62, %57
-  %64 = fmul contract double %30, 4.000000e+00
-  %65 = fmul contract double %64, %62
-  %66 = tail call contract noundef double @llvm.fma.f64(double %57, double %57, double %65)
-  %67 = fcmp contract oge double %66, 0.000000e+00
-  %68 = and i1 %60, %67
-  br i1 %68, label %69, label %78
+  %51 = fmul contract <4 x double> %46, %20
+  %shift40 = shufflevector <4 x double> %51, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %52 = fadd contract <4 x double> %shift40, %51
+  %shift41 = shufflevector <4 x double> %51, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %53 = fadd contract <4 x double> %shift41, %52
+  %54 = extractelement <4 x double> %53, i64 0
+  %55 = fmul contract double %54, 2.000000e+00
+  %56 = fmul contract double %9, %9
+  %57 = fsub contract double %50, %56
+  %58 = fcmp contract une double %29, 0.000000e+00
+  %59 = fneg contract double %57
+  %60 = fdiv contract double %59, %55
+  %61 = fmul contract double %29, 4.000000e+00
+  %62 = fmul contract double %61, %59
+  %63 = tail call contract noundef double @llvm.fma.f64(double %55, double %55, double %62)
+  %64 = fcmp contract oge double %63, 0.000000e+00
+  %65 = and i1 %58, %64
+  br i1 %65, label %66, label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit
 
-69:                                               ; preds = %40
-  %70 = tail call contract noundef double @llvm.sqrt.f64(double %66)
-  %71 = tail call double @llvm.copysign.f64(double %70, double %57)
-  %72 = fadd contract double %57, %71
-  %73 = fmul contract double %72, -5.000000e-01
-  %74 = fdiv contract double %73, %30
-  %75 = fdiv contract double %59, %73
-  %76 = fcmp contract olt double %75, %74
-  %..i.i = select contract i1 %76, double %75, double %74
-  %77 = fcmp contract olt double %74, %75
-  %..i297.i = select contract i1 %77, double %75, double %74
-  br label %78
-
-78:                                               ; preds = %69, %40
-  %.0354.i = phi double [ %..i297.i, %69 ], [ %63, %40 ]
-  %.0.i = phi double [ %..i.i, %69 ], [ %63, %40 ]
-  %narrow.i = or i1 %.not356.i, %68
-  %79 = select i1 %narrow.i, i1 %.not.i, i1 false
-  br i1 %79, label %80, label %.thread.i
-
-80:                                               ; preds = %78
-  %81 = fadd contract double %32, %.0.i
-  %82 = fcmp contract olt double %81, 0.000000e+00
-  %83 = fadd contract double %32, %.0354.i
-  %84 = fcmp contract ogt double %83, %15
-  %85 = select i1 %82, i1 %84, i1 false
-  %86 = fcmp contract ugt double %81, %15
-  %87 = fcmp contract ult double %83, 0.000000e+00
-  %88 = select i1 %86, i1 true, i1 %87
-  %spec.select.i = select i1 %88, i1 true, i1 %85
-  %.in.i = select i1 %82, double %83, double %81
-  %89 = fptrunc double %.in.i to float
-  %cond.fr.i = freeze i1 %spec.select.i
-  br i1 %cond.fr.i, label %.thread.i, label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit
-
-.thread.i:                                        ; preds = %80, %78
+66:                                               ; preds = %39
+  %67 = tail call contract noundef double @llvm.sqrt.f64(double %63)
+  %68 = tail call double @llvm.copysign.f64(double %67, double %55)
+  %69 = fadd contract double %55, %68
+  %70 = fmul contract double %69, -5.000000e-01
+  %71 = fdiv contract double %70, %29
+  %72 = fdiv contract double %57, %70
+  %73 = fcmp contract olt double %72, %71
+  %..i.i = select contract i1 %73, double %72, double %71
+  %74 = fcmp contract olt double %71, %72
+  %..i297.i = select contract i1 %74, double %72, double %71
   br label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit
 
-_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit: ; preds = %80, %.thread.i
-  %90 = phi float [ 0x7FF0000000000000, %.thread.i ], [ %89, %80 ]
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %90, ptr %0, align 8
-  store i64 0, ptr %94, align 4
-  store i32 -1, ptr %92, align 8
-  store i32 0, ptr %93, align 4
-  store ptr %1, ptr %91, align 8
+_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit: ; preds = %39, %66
+  %.0354.i = phi double [ %..i297.i, %66 ], [ %60, %39 ]
+  %.0.i = phi double [ %..i.i, %66 ], [ %60, %39 ]
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %79 = fcmp contract une double %55, 0.000000e+00
+  %not..i = xor i1 %58, true
+  %.not356.i = select i1 %not..i, i1 %79, i1 false
+  %80 = tail call contract noundef double @llvm.sqrt.f64(double %50)
+  %81 = fcmp contract ogt double %80, %9
+  %82 = select i1 %81, i1 %40, i1 false
+  %83 = fpext float %14 to double
+  %narrow.i = or i1 %.not356.i, %65
+  %84 = fadd contract double %31, %.0.i
+  %85 = fadd contract double %31, %.0354.i
+  %86 = fcmp contract ole double %84, %83
+  %87 = fcmp contract oge double %85, 0.000000e+00
+  %88 = fcmp contract uge double %84, 0.000000e+00
+  %89 = fcmp contract ule double %85, %83
+  %90 = select i1 %88, i1 true, i1 %89
+  %.not359.i = xor i1 %82, true
+  %not.or.cond.i = select i1 %narrow.i, i1 %.not359.i, i1 false
+  %91 = select i1 %not.or.cond.i, i1 %86, i1 false
+  %or.cond3.i = select i1 %91, i1 %87, i1 false
+  %92 = select i1 %or.cond3.i, i1 %90, i1 false
+  %.in.i = select i1 %88, double %84, double %85
+  %93 = fptrunc double %.in.i to float
+  %94 = select contract i1 %92, float %93, float 0x7FF0000000000000
+  store float %94, ptr %0, align 8
+  store i64 0, ptr %78, align 4
+  store i32 -1, ptr %76, align 8
+  store i32 0, ptr %77, align 4
+  store ptr %1, ptr %75, align 8
   ret void
 }
 
@@ -3213,80 +3197,73 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8Spec
   %10 = fpext <4 x float> %9 to <4 x double>
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load float, ptr %11, align 16
-  %13 = fpext float %12 to double
-  %14 = load <4 x float>, ptr %1, align 16
-  %15 = fpext <4 x float> %14 to <4 x double>
-  %16 = fsub contract <4 x double> %15, %10
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load <4 x float>, ptr %17, align 16
-  %19 = fpext <4 x float> %18 to <4 x double>
-  %20 = fmul contract <4 x double> %19, %19
-  %shift = shufflevector <4 x double> %20, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %21 = fadd contract <4 x double> %shift, %20
-  %shift3 = shufflevector <4 x double> %20, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %22 = fadd contract <4 x double> %shift3, %21
-  %23 = extractelement <4 x double> %22, i64 0
-  %24 = fmul contract <4 x double> %16, %19
-  %shift4 = shufflevector <4 x double> %24, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %25 = fadd contract <4 x double> %shift4, %24
-  %shift5 = shufflevector <4 x double> %24, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %26 = fadd contract <4 x double> %shift5, %25
-  %27 = extractelement <4 x double> %26, i64 0
-  %28 = fmul contract double %27, 2.000000e+00
-  %29 = fmul contract <4 x double> %16, %16
-  %shift6 = shufflevector <4 x double> %29, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %30 = fadd contract <4 x double> %shift6, %29
-  %shift7 = shufflevector <4 x double> %29, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %31 = fadd contract <4 x double> %shift7, %30
-  %32 = extractelement <4 x double> %31, i64 0
-  %33 = fmul contract double %7, %7
-  %34 = fsub contract double %32, %33
-  %35 = fcmp contract une double %23, 0.000000e+00
-  %36 = fcmp contract une double %28, 0.000000e+00
-  %not..i = xor i1 %35, true
-  %.not185.i = select i1 %not..i, i1 %36, i1 false
-  %37 = fneg contract double %34
-  %38 = fdiv contract double %37, %28
-  %39 = fmul contract double %23, 4.000000e+00
-  %40 = fmul contract double %39, %37
-  %41 = tail call contract noundef double @llvm.fma.f64(double %28, double %28, double %40)
-  %42 = fcmp contract oge double %41, 0.000000e+00
-  %43 = and i1 %35, %42
-  br i1 %43, label %44, label %53
+  %13 = load <4 x float>, ptr %1, align 16
+  %14 = fpext <4 x float> %13 to <4 x double>
+  %15 = fsub contract <4 x double> %14, %10
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = load <4 x float>, ptr %16, align 16
+  %18 = fpext <4 x float> %17 to <4 x double>
+  %19 = fmul contract <4 x double> %18, %18
+  %shift = shufflevector <4 x double> %19, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %20 = fadd contract <4 x double> %shift, %19
+  %shift3 = shufflevector <4 x double> %19, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %21 = fadd contract <4 x double> %shift3, %20
+  %22 = extractelement <4 x double> %21, i64 0
+  %23 = fmul contract <4 x double> %15, %18
+  %shift4 = shufflevector <4 x double> %23, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %24 = fadd contract <4 x double> %shift4, %23
+  %shift5 = shufflevector <4 x double> %23, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %25 = fadd contract <4 x double> %shift5, %24
+  %26 = extractelement <4 x double> %25, i64 0
+  %27 = fmul contract double %26, 2.000000e+00
+  %28 = fmul contract <4 x double> %15, %15
+  %shift6 = shufflevector <4 x double> %28, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %29 = fadd contract <4 x double> %shift6, %28
+  %shift7 = shufflevector <4 x double> %28, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %30 = fadd contract <4 x double> %shift7, %29
+  %31 = extractelement <4 x double> %30, i64 0
+  %32 = fmul contract double %7, %7
+  %33 = fsub contract double %31, %32
+  %34 = fcmp contract une double %22, 0.000000e+00
+  %35 = fneg contract double %33
+  %36 = fdiv contract double %35, %27
+  %37 = fmul contract double %22, 4.000000e+00
+  %38 = fmul contract double %37, %35
+  %39 = tail call contract noundef double @llvm.fma.f64(double %27, double %27, double %38)
+  %40 = fcmp contract oge double %39, 0.000000e+00
+  %41 = and i1 %34, %40
+  br i1 %41, label %42, label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit
 
-44:                                               ; preds = %4
-  %45 = tail call contract noundef double @llvm.sqrt.f64(double %41)
-  %46 = tail call double @llvm.copysign.f64(double %45, double %28)
-  %47 = fadd contract double %28, %46
-  %48 = fmul contract double %47, -5.000000e-01
-  %49 = fdiv contract double %48, %23
-  %50 = fdiv contract double %34, %48
-  %51 = fcmp contract olt double %50, %49
-  %..i.i = select contract i1 %51, double %50, double %49
-  %52 = fcmp contract olt double %49, %50
-  %..i150.i = select contract i1 %52, double %50, double %49
-  br label %53
-
-53:                                               ; preds = %44, %4
-  %.0183.i = phi double [ %..i150.i, %44 ], [ %38, %4 ]
-  %.0.i = phi double [ %..i.i, %44 ], [ %38, %4 ]
-  %narrow.i = or i1 %.not185.i, %43
-  %54 = fcmp contract ugt double %.0.i, %13
-  %55 = fcmp contract ult double %.0183.i, 0.000000e+00
-  %.not.i = xor i1 %narrow.i, true
-  %56 = select i1 %.not.i, i1 true, i1 %54
-  %brmerge.i = select i1 %56, i1 true, i1 %55
-  br i1 %brmerge.i, label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit, label %57
-
-57:                                               ; preds = %53
-  %58 = fcmp contract uge double %.0.i, 0.000000e+00
-  %59 = fcmp contract ule double %.0183.i, %13
-  %.not189.i = select i1 %58, i1 true, i1 %59
+42:                                               ; preds = %4
+  %43 = tail call contract noundef double @llvm.sqrt.f64(double %39)
+  %44 = tail call double @llvm.copysign.f64(double %43, double %27)
+  %45 = fadd contract double %27, %44
+  %46 = fmul contract double %45, -5.000000e-01
+  %47 = fdiv contract double %46, %22
+  %48 = fdiv contract double %33, %46
+  %49 = fcmp contract olt double %48, %47
+  %..i.i = select contract i1 %49, double %48, double %47
+  %50 = fcmp contract olt double %47, %48
+  %..i153.i = select contract i1 %50, double %48, double %47
   br label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit
 
-_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit: ; preds = %53, %57
-  %60 = phi i1 [ false, %53 ], [ %.not189.i, %57 ]
-  ret i1 %60
+_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit: ; preds = %4, %42
+  %.0186.i = phi double [ %..i153.i, %42 ], [ %36, %4 ]
+  %.0.i = phi double [ %..i.i, %42 ], [ %36, %4 ]
+  %51 = fcmp contract une double %27, 0.000000e+00
+  %not..i = xor i1 %34, true
+  %.not188.i = select i1 %not..i, i1 %51, i1 false
+  %52 = fpext float %12 to double
+  %narrow.i = or i1 %.not188.i, %41
+  %53 = fcmp contract ole double %.0.i, %52
+  %54 = fcmp contract oge double %.0186.i, 0.000000e+00
+  %55 = fcmp contract uge double %.0.i, 0.000000e+00
+  %56 = fcmp contract ule double %.0186.i, %52
+  %.not195.i = select i1 %55, i1 true, i1 %56
+  %.not190.i = select i1 %narrow.i, i1 %53, i1 false
+  %or.cond.not192.i = select i1 %.not190.i, i1 %54, i1 false
+  %or.cond3.not.i = select i1 %or.cond.not192.i, i1 %.not195.i, i1 false
+  ret i1 %or.cond3.not.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3300,45 +3277,44 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %9 = fpext <4 x float> %8 to <4 x double>
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load float, ptr %10, align 16, !noalias !118
-  %12 = fpext float %11 to double
-  %13 = load <4 x float>, ptr %2, align 16, !noalias !118
-  %14 = fpext <4 x float> %13 to <4 x double>
-  %15 = fsub contract <4 x double> %14, %9
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %17 = load <4 x float>, ptr %16, align 16, !noalias !118
-  %18 = fpext <4 x float> %17 to <4 x double>
-  %19 = fneg <4 x double> %15
-  %20 = fmul contract <4 x double> %19, %18
-  %shift = shufflevector <4 x double> %20, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %21 = fadd contract <4 x double> %shift, %20
-  %shift2 = shufflevector <4 x double> %20, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %22 = fadd contract <4 x double> %shift2, %21
-  %23 = extractelement <4 x double> %22, i64 0
-  %24 = fmul contract <4 x double> %18, %18
-  %shift3 = shufflevector <4 x double> %24, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %25 = fadd contract <4 x double> %shift3, %24
-  %shift4 = shufflevector <4 x double> %24, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %26 = fadd contract <4 x double> %shift4, %25
-  %27 = extractelement <4 x double> %26, i64 0
-  %28 = tail call contract noundef double @llvm.sqrt.f64(double %27)
-  %29 = fdiv contract double %23, %28
-  %30 = fcmp contract oeq double %29, 0.000000e+00
-  br i1 %30, label %31, label %37
+  %12 = load <4 x float>, ptr %2, align 16, !noalias !118
+  %13 = fpext <4 x float> %12 to <4 x double>
+  %14 = fsub contract <4 x double> %13, %9
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %16 = load <4 x float>, ptr %15, align 16, !noalias !118
+  %17 = fpext <4 x float> %16 to <4 x double>
+  %18 = fneg <4 x double> %14
+  %19 = fmul contract <4 x double> %18, %17
+  %shift = shufflevector <4 x double> %19, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %20 = fadd contract <4 x double> %shift, %19
+  %shift2 = shufflevector <4 x double> %19, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %21 = fadd contract <4 x double> %shift2, %20
+  %22 = extractelement <4 x double> %21, i64 0
+  %23 = fmul contract <4 x double> %17, %17
+  %shift3 = shufflevector <4 x double> %23, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %24 = fadd contract <4 x double> %shift3, %23
+  %shift4 = shufflevector <4 x double> %23, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %25 = fadd contract <4 x double> %shift4, %24
+  %26 = extractelement <4 x double> %25, i64 0
+  %27 = tail call contract noundef double @llvm.sqrt.f64(double %26)
+  %28 = fdiv contract double %22, %27
+  %29 = fcmp contract oeq double %28, 0.000000e+00
+  br i1 %29, label %30, label %36
 
-31:                                               ; preds = %3
-  %32 = fcmp contract une <4 x float> %13, %8
-  %33 = shufflevector <4 x i1> %32, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %34 = bitcast <8 x i1> %33 to i8
-  %35 = and i8 %34, 7
-  %36 = icmp ne i8 %35, 7
-  br label %37
+30:                                               ; preds = %3
+  %31 = fcmp contract une <4 x float> %12, %8
+  %32 = shufflevector <4 x i1> %31, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %33 = bitcast <8 x i1> %32 to i8
+  %34 = and i8 %33, 7
+  %35 = icmp eq i8 %34, 7
+  br label %36
 
-37:                                               ; preds = %31, %3
-  %.not292.i = phi i1 [ true, %3 ], [ %36, %31 ]
-  %38 = fptrunc double %29 to float
+36:                                               ; preds = %30, %3
+  %37 = phi i1 [ false, %3 ], [ %35, %30 ]
+  %38 = fptrunc double %28 to float
   %39 = insertelement <4 x float> poison, float %38, i64 0
   %40 = shufflevector <4 x float> %39, <4 x float> poison, <4 x i32> zeroinitializer
-  %41 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %17, <4 x float> %40, <4 x float> %13)
+  %41 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %16, <4 x float> %40, <4 x float> %12)
   %42 = fpext <4 x float> %41 to <4 x double>
   %43 = fsub contract <4 x double> %42, %9
   %44 = fmul contract <4 x double> %43, %43
@@ -3347,71 +3323,64 @@ define weak_odr void @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %shift6 = shufflevector <4 x double> %44, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %46 = fadd contract <4 x double> %shift6, %45
   %47 = extractelement <4 x double> %46, i64 0
-  %48 = tail call contract noundef double @llvm.sqrt.f64(double %47)
-  %49 = fcmp contract ule double %48, %6
-  %.not.i = select i1 %49, i1 true, i1 %.not292.i
-  %50 = fmul contract <4 x double> %43, %18
-  %shift7 = shufflevector <4 x double> %50, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %51 = fadd contract <4 x double> %shift7, %50
-  %shift8 = shufflevector <4 x double> %50, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %52 = fadd contract <4 x double> %shift8, %51
-  %53 = extractelement <4 x double> %52, i64 0
-  %54 = fmul contract double %53, 2.000000e+00
-  %55 = fmul contract double %6, %6
-  %56 = fsub contract double %47, %55
-  %57 = fcmp contract une double %27, 0.000000e+00
-  %58 = fcmp contract une double %54, 0.000000e+00
-  %not..i = xor i1 %57, true
-  %.not356.i = select i1 %not..i, i1 %58, i1 false
-  %59 = fneg contract double %56
-  %60 = fdiv contract double %59, %54
-  %61 = fmul contract double %27, 4.000000e+00
-  %62 = fmul contract double %61, %59
-  %63 = tail call contract noundef double @llvm.fma.f64(double %54, double %54, double %62)
-  %64 = fcmp contract oge double %63, 0.000000e+00
-  %65 = and i1 %57, %64
-  br i1 %65, label %66, label %75
+  %48 = fmul contract <4 x double> %43, %17
+  %shift7 = shufflevector <4 x double> %48, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %49 = fadd contract <4 x double> %shift7, %48
+  %shift8 = shufflevector <4 x double> %48, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %50 = fadd contract <4 x double> %shift8, %49
+  %51 = extractelement <4 x double> %50, i64 0
+  %52 = fmul contract double %51, 2.000000e+00
+  %53 = fmul contract double %6, %6
+  %54 = fsub contract double %47, %53
+  %55 = fcmp contract une double %26, 0.000000e+00
+  %56 = fneg contract double %54
+  %57 = fdiv contract double %56, %52
+  %58 = fmul contract double %26, 4.000000e+00
+  %59 = fmul contract double %58, %56
+  %60 = tail call contract noundef double @llvm.fma.f64(double %52, double %52, double %59)
+  %61 = fcmp contract oge double %60, 0.000000e+00
+  %62 = and i1 %55, %61
+  br i1 %62, label %63, label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit
 
-66:                                               ; preds = %37
-  %67 = tail call contract noundef double @llvm.sqrt.f64(double %63)
-  %68 = tail call double @llvm.copysign.f64(double %67, double %54)
-  %69 = fadd contract double %54, %68
-  %70 = fmul contract double %69, -5.000000e-01
-  %71 = fdiv contract double %70, %27
-  %72 = fdiv contract double %56, %70
-  %73 = fcmp contract olt double %72, %71
-  %..i.i = select contract i1 %73, double %72, double %71
-  %74 = fcmp contract olt double %71, %72
-  %..i297.i = select contract i1 %74, double %72, double %71
-  br label %75
-
-75:                                               ; preds = %66, %37
-  %.0354.i = phi double [ %..i297.i, %66 ], [ %60, %37 ]
-  %.0.i = phi double [ %..i.i, %66 ], [ %60, %37 ]
-  %narrow.i = or i1 %.not356.i, %65
-  %76 = select i1 %narrow.i, i1 %.not.i, i1 false
-  br i1 %76, label %77, label %.thread.i
-
-77:                                               ; preds = %75
-  %78 = fadd contract double %29, %.0.i
-  %79 = fcmp contract olt double %78, 0.000000e+00
-  %80 = fadd contract double %29, %.0354.i
-  %81 = fcmp contract ogt double %80, %12
-  %82 = select i1 %79, i1 %81, i1 false
-  %83 = fcmp contract ugt double %78, %12
-  %84 = fcmp contract ult double %80, 0.000000e+00
-  %85 = select i1 %83, i1 true, i1 %84
-  %spec.select.i = select i1 %85, i1 true, i1 %82
-  %.in.i = select i1 %79, double %80, double %78
-  %86 = fptrunc double %.in.i to float
-  %cond.fr.i = freeze i1 %spec.select.i
-  br i1 %cond.fr.i, label %.thread.i, label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit
-
-.thread.i:                                        ; preds = %77, %75
+63:                                               ; preds = %36
+  %64 = tail call contract noundef double @llvm.sqrt.f64(double %60)
+  %65 = tail call double @llvm.copysign.f64(double %64, double %52)
+  %66 = fadd contract double %52, %65
+  %67 = fmul contract double %66, -5.000000e-01
+  %68 = fdiv contract double %67, %26
+  %69 = fdiv contract double %54, %67
+  %70 = fcmp contract olt double %69, %68
+  %..i.i = select contract i1 %70, double %69, double %68
+  %71 = fcmp contract olt double %68, %69
+  %..i297.i = select contract i1 %71, double %69, double %68
   br label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit
 
-_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit: ; preds = %77, %.thread.i
-  %87 = phi float [ 0x7FF0000000000000, %.thread.i ], [ %86, %77 ]
+_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE30ray_intersect_preliminary_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENSt3__15tupleIJT_NS9_ISE_Lm2EEENS1_6detail14replace_scalarISE_jiE4typeESJ_EEERKT0_jNSG_4maskISE_iE4typeE.exit: ; preds = %36, %63
+  %.0354.i = phi double [ %..i297.i, %63 ], [ %57, %36 ]
+  %.0.i = phi double [ %..i.i, %63 ], [ %57, %36 ]
+  %72 = fcmp contract une double %52, 0.000000e+00
+  %not..i = xor i1 %55, true
+  %.not356.i = select i1 %not..i, i1 %72, i1 false
+  %73 = tail call contract noundef double @llvm.sqrt.f64(double %47)
+  %74 = fcmp contract ogt double %73, %6
+  %75 = select i1 %74, i1 %37, i1 false
+  %76 = fpext float %11 to double
+  %narrow.i = or i1 %.not356.i, %62
+  %77 = fadd contract double %28, %.0.i
+  %78 = fadd contract double %28, %.0354.i
+  %79 = fcmp contract ole double %77, %76
+  %80 = fcmp contract oge double %78, 0.000000e+00
+  %81 = fcmp contract uge double %77, 0.000000e+00
+  %82 = fcmp contract ule double %78, %76
+  %83 = select i1 %81, i1 true, i1 %82
+  %.not359.i = xor i1 %75, true
+  %not.or.cond.i = select i1 %narrow.i, i1 %.not359.i, i1 false
+  %84 = select i1 %not.or.cond.i, i1 %79, i1 false
+  %or.cond3.i = select i1 %84, i1 %80, i1 false
+  %85 = select i1 %or.cond3.i, i1 %83, i1 false
+  %.in.i = select i1 %81, double %77, double %78
+  %86 = fptrunc double %.in.i to float
+  %87 = select contract i1 %85, float %86, float 0x7FF0000000000000
   store float %87, ptr %0, align 4, !alias.scope !118
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i64 0, ptr %88, align 4, !alias.scope !118
@@ -3432,80 +3401,73 @@ define weak_odr noundef zeroext i1 @_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8Spec
   %8 = fpext <4 x float> %7 to <4 x double>
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load float, ptr %9, align 16
-  %11 = fpext float %10 to double
-  %12 = load <4 x float>, ptr %1, align 16
-  %13 = fpext <4 x float> %12 to <4 x double>
-  %14 = fsub contract <4 x double> %13, %8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load <4 x float>, ptr %15, align 16
-  %17 = fpext <4 x float> %16 to <4 x double>
-  %18 = fmul contract <4 x double> %17, %17
-  %shift = shufflevector <4 x double> %18, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %19 = fadd contract <4 x double> %shift, %18
-  %shift2 = shufflevector <4 x double> %18, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %20 = fadd contract <4 x double> %shift2, %19
-  %21 = extractelement <4 x double> %20, i64 0
-  %22 = fmul contract <4 x double> %14, %17
-  %shift3 = shufflevector <4 x double> %22, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %23 = fadd contract <4 x double> %shift3, %22
-  %shift4 = shufflevector <4 x double> %22, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %24 = fadd contract <4 x double> %shift4, %23
-  %25 = extractelement <4 x double> %24, i64 0
-  %26 = fmul contract double %25, 2.000000e+00
-  %27 = fmul contract <4 x double> %14, %14
-  %shift5 = shufflevector <4 x double> %27, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %28 = fadd contract <4 x double> %shift5, %27
-  %shift6 = shufflevector <4 x double> %27, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %29 = fadd contract <4 x double> %shift6, %28
-  %30 = extractelement <4 x double> %29, i64 0
-  %31 = fmul contract double %5, %5
-  %32 = fsub contract double %30, %31
-  %33 = fcmp contract une double %21, 0.000000e+00
-  %34 = fcmp contract une double %26, 0.000000e+00
-  %not..i = xor i1 %33, true
-  %.not185.i = select i1 %not..i, i1 %34, i1 false
-  %35 = fneg contract double %32
-  %36 = fdiv contract double %35, %26
-  %37 = fmul contract double %21, 4.000000e+00
-  %38 = fmul contract double %37, %35
-  %39 = tail call contract noundef double @llvm.fma.f64(double %26, double %26, double %38)
-  %40 = fcmp contract oge double %39, 0.000000e+00
-  %41 = and i1 %33, %40
-  br i1 %41, label %42, label %51
+  %11 = load <4 x float>, ptr %1, align 16
+  %12 = fpext <4 x float> %11 to <4 x double>
+  %13 = fsub contract <4 x double> %12, %8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load <4 x float>, ptr %14, align 16
+  %16 = fpext <4 x float> %15 to <4 x double>
+  %17 = fmul contract <4 x double> %16, %16
+  %shift = shufflevector <4 x double> %17, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %18 = fadd contract <4 x double> %shift, %17
+  %shift2 = shufflevector <4 x double> %17, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %19 = fadd contract <4 x double> %shift2, %18
+  %20 = extractelement <4 x double> %19, i64 0
+  %21 = fmul contract <4 x double> %13, %16
+  %shift3 = shufflevector <4 x double> %21, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %22 = fadd contract <4 x double> %shift3, %21
+  %shift4 = shufflevector <4 x double> %21, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %23 = fadd contract <4 x double> %shift4, %22
+  %24 = extractelement <4 x double> %23, i64 0
+  %25 = fmul contract double %24, 2.000000e+00
+  %26 = fmul contract <4 x double> %13, %13
+  %shift5 = shufflevector <4 x double> %26, <4 x double> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %27 = fadd contract <4 x double> %shift5, %26
+  %shift6 = shufflevector <4 x double> %26, <4 x double> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %28 = fadd contract <4 x double> %shift6, %27
+  %29 = extractelement <4 x double> %28, i64 0
+  %30 = fmul contract double %5, %5
+  %31 = fsub contract double %29, %30
+  %32 = fcmp contract une double %20, 0.000000e+00
+  %33 = fneg contract double %31
+  %34 = fdiv contract double %33, %25
+  %35 = fmul contract double %20, 4.000000e+00
+  %36 = fmul contract double %35, %33
+  %37 = tail call contract noundef double @llvm.fma.f64(double %25, double %25, double %36)
+  %38 = fcmp contract oge double %37, 0.000000e+00
+  %39 = and i1 %32, %38
+  br i1 %39, label %40, label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit
 
-42:                                               ; preds = %2
-  %43 = tail call contract noundef double @llvm.sqrt.f64(double %39)
-  %44 = tail call double @llvm.copysign.f64(double %43, double %26)
-  %45 = fadd contract double %26, %44
-  %46 = fmul contract double %45, -5.000000e-01
-  %47 = fdiv contract double %46, %21
-  %48 = fdiv contract double %32, %46
-  %49 = fcmp contract olt double %48, %47
-  %..i.i = select contract i1 %49, double %48, double %47
-  %50 = fcmp contract olt double %47, %48
-  %..i150.i = select contract i1 %50, double %48, double %47
-  br label %51
-
-51:                                               ; preds = %42, %2
-  %.0183.i = phi double [ %..i150.i, %42 ], [ %36, %2 ]
-  %.0.i = phi double [ %..i.i, %42 ], [ %36, %2 ]
-  %narrow.i = or i1 %.not185.i, %41
-  %52 = fcmp contract ugt double %.0.i, %11
-  %53 = fcmp contract ult double %.0183.i, 0.000000e+00
-  %.not.i = xor i1 %narrow.i, true
-  %54 = select i1 %.not.i, i1 true, i1 %52
-  %brmerge.i = select i1 %54, i1 true, i1 %53
-  br i1 %brmerge.i, label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit, label %55
-
-55:                                               ; preds = %51
-  %56 = fcmp contract uge double %.0.i, 0.000000e+00
-  %57 = fcmp contract ule double %.0183.i, %11
-  %.not189.i = select i1 %56, i1 true, i1 %57
+40:                                               ; preds = %2
+  %41 = tail call contract noundef double @llvm.sqrt.f64(double %37)
+  %42 = tail call double @llvm.copysign.f64(double %41, double %25)
+  %43 = fadd contract double %25, %42
+  %44 = fmul contract double %43, -5.000000e-01
+  %45 = fdiv contract double %44, %20
+  %46 = fdiv contract double %31, %44
+  %47 = fcmp contract olt double %46, %45
+  %..i.i = select contract i1 %47, double %46, double %45
+  %48 = fcmp contract olt double %45, %46
+  %..i153.i = select contract i1 %48, double %46, double %45
   br label %_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit
 
-_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit: ; preds = %51, %55
-  %58 = phi i1 [ false, %51 ], [ %.not189.i, %55 ]
-  ret i1 %58
+_ZNK7mitsuba6SphereIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_test_implIfNS_3RayINS_5PointIfLm3EEES5_EEEENS1_6detail4maskIT_iE4typeERKT0_jSG_.exit: ; preds = %2, %40
+  %.0186.i = phi double [ %..i153.i, %40 ], [ %34, %2 ]
+  %.0.i = phi double [ %..i.i, %40 ], [ %34, %2 ]
+  %49 = fcmp contract une double %25, 0.000000e+00
+  %not..i = xor i1 %32, true
+  %.not188.i = select i1 %not..i, i1 %49, i1 false
+  %50 = fpext float %10 to double
+  %narrow.i = or i1 %.not188.i, %39
+  %51 = fcmp contract ole double %.0.i, %50
+  %52 = fcmp contract oge double %.0186.i, 0.000000e+00
+  %53 = fcmp contract uge double %.0.i, 0.000000e+00
+  %54 = fcmp contract ule double %.0186.i, %50
+  %.not195.i = select i1 %53, i1 true, i1 %54
+  %.not190.i = select i1 %narrow.i, i1 %51, i1 false
+  %or.cond.not192.i = select i1 %.not190.i, i1 %52, i1 false
+  %or.cond3.not.i = select i1 %or.cond.not192.i, i1 %.not195.i, i1 false
+  ret i1 %or.cond3.not.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7552,7 +7514,7 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
   %12 = alloca %"class.std::__1::locale", align 8
   %13 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %13, 37
-  br i1 %.not, label %14, label %.loopexit118
+  br i1 %.not, label %14, label %.loopexit123
 
 14:                                               ; preds = %7
   %15 = load ptr, ptr %0, align 8
@@ -7622,7 +7584,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit: ; preds = %14,
 
 .outer:                                           ; preds = %113, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit
   %.pn.ph = phi ptr [ %storemerge, %113 ], [ %3, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit ]
-  %.061.ph = phi i64 [ 1, %113 ], [ 0, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit ]
+  %.064.ph = phi i64 [ 1, %113 ], [ 0, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit ]
   br label %48
 
 48:                                               ; preds = %.backedge, %.outer
@@ -7641,10 +7603,10 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit: ; preds = %14,
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr i8, ptr %51, i64 -24
   %53 = load i64, ptr %52, align 8
-  %gep156 = getelementptr i8, ptr %invariant.gep, i64 %53
-  %54 = load i32, ptr %gep156, align 8
+  %gep161 = getelementptr i8, ptr %invariant.gep, i64 %53
+  %54 = load i32, ptr %gep161, align 8
   %55 = or i32 %54, 1536
-  store i32 %55, ptr %gep156, align 8
+  store i32 %55, ptr %gep161, align 8
   br label %.backedge
 
 56:                                               ; preds = %48
@@ -7655,50 +7617,50 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit: ; preds = %14,
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 32
-  %.not73 = icmp eq i32 %63, 0
-  br i1 %.not73, label %64, label %.backedge
+  %.not76 = icmp eq i32 %63, 0
+  br i1 %.not76, label %64, label %.backedge
 
 64:                                               ; preds = %56
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 144
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, -1
-  br i1 %67, label %68, label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit80
+  br i1 %67, label %68, label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit82
 
 68:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %11, ptr noundef nonnull align 8 dereferenceable(148) %60)
   %69 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
-          to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i78 unwind label %74
+          to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i80 unwind label %74
 
-_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i78: ; preds = %68
+_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i80: ; preds = %68
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 56
   %72 = load ptr, ptr %71, align 8
   %73 = invoke noundef signext i8 %72(ptr noundef nonnull align 8 dereferenceable(25) %69, i8 noundef signext 32)
-          to label %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i79 unwind label %74
+          to label %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i81 unwind label %74
 
-74:                                               ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i78, %68
+74:                                               ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i80, %68
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i79: ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i78
+_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i81: ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i80
   call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %76 = sext i8 %73 to i32
   store i32 %76, ptr %65, align 8
-  br label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit80
+  br label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit82
 
-_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit80: ; preds = %64, %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i79
+_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit82: ; preds = %64, %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i81
   store i32 48, ptr %65, align 8
   %77 = load ptr, ptr %0, align 8
   %78 = getelementptr i8, ptr %77, i64 -24
   %79 = load i64, ptr %78, align 8
-  %gep154 = getelementptr i8, ptr %invariant.gep, i64 %79
-  %80 = load i32, ptr %gep154, align 8
+  %gep159 = getelementptr i8, ptr %invariant.gep, i64 %79
+  %80 = load i32, ptr %gep159, align 8
   %81 = and i32 %80, -177
   %82 = or disjoint i32 %81, 16
-  store i32 %82, ptr %gep154, align 8
+  store i32 %82, ptr %gep159, align 8
   br label %.backedge
 
 83:                                               ; preds = %48
@@ -7709,56 +7671,56 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit80: ; preds = %6
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 144
   %89 = load i32, ptr %88, align 8
   %90 = icmp eq i32 %89, -1
-  br i1 %90, label %91, label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit83
+  br i1 %90, label %91, label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit85
 
 91:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(148) %87)
   %92 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
-          to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i81 unwind label %97
+          to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i83 unwind label %97
 
-_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i81: ; preds = %91
+_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i83: ; preds = %91
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
   %95 = load ptr, ptr %94, align 8
   %96 = invoke noundef signext i8 %95(ptr noundef nonnull align 8 dereferenceable(25) %92, i8 noundef signext 32)
-          to label %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i82 unwind label %97
+          to label %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i84 unwind label %97
 
-97:                                               ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i81, %91
+97:                                               ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i83, %91
   %98 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i82: ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i81
+_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i84: ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i83
   call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %99 = sext i8 %96 to i32
   store i32 %99, ptr %88, align 8
-  br label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit83
+  br label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit85
 
-_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit83: ; preds = %83, %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i82
+_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit85: ; preds = %83, %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i84
   store i32 32, ptr %88, align 8
   %100 = load ptr, ptr %0, align 8
   %101 = getelementptr i8, ptr %100, i64 -24
   %102 = load i64, ptr %101, align 8
-  %gep152 = getelementptr i8, ptr %invariant.gep, i64 %102
-  %103 = load i32, ptr %gep152, align 8
+  %gep157 = getelementptr i8, ptr %invariant.gep, i64 %102
+  %103 = load i32, ptr %gep157, align 8
   %104 = and i32 %103, -177
   %105 = or disjoint i32 %104, 32
-  store i32 %105, ptr %gep152, align 8
+  store i32 %105, ptr %gep157, align 8
   br label %.backedge
 
 106:                                              ; preds = %48
   %107 = load ptr, ptr %0, align 8
   %108 = getelementptr i8, ptr %107, i64 -24
   %109 = load i64, ptr %108, align 8
-  %gep150 = getelementptr i8, ptr %invariant.gep, i64 %109
-  %110 = load i32, ptr %gep150, align 8
+  %gep155 = getelementptr i8, ptr %invariant.gep, i64 %109
+  %110 = load i32, ptr %gep155, align 8
   %111 = and i32 %110, 2048
-  %.not72 = icmp eq i32 %111, 0
-  br i1 %.not72, label %112, label %.backedge
+  %.not75 = icmp eq i32 %111, 0
+  br i1 %.not75, label %112, label %.backedge
 
-.backedge:                                        ; preds = %106, %112, %56, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit80, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit83, %50
+.backedge:                                        ; preds = %106, %112, %56, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit82, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit85, %50
   br label %48, !llvm.loop !380
 
 112:                                              ; preds = %106
@@ -7840,34 +7802,34 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 144
   %157 = load i32, ptr %156, align 8
   %158 = icmp eq i32 %157, -1
-  br i1 %158, label %159, label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86
+  br i1 %158, label %159, label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit88
 
 159:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %9, ptr noundef nonnull align 8 dereferenceable(148) %155)
   %160 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
-          to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i84 unwind label %165
+          to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i86 unwind label %165
 
-_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i84: ; preds = %159
+_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i86: ; preds = %159
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 56
   %163 = load ptr, ptr %162, align 8
   %164 = invoke noundef signext i8 %163(ptr noundef nonnull align 8 dereferenceable(25) %160, i8 noundef signext 32)
-          to label %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i85 unwind label %165
+          to label %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i87 unwind label %165
 
-165:                                              ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i84, %159
+165:                                              ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i86, %159
   %166 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i85: ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i84
+_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i87: ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i86
   call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %167 = sext i8 %164 to i32
   store i32 %167, ptr %156, align 8
-  br label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86
+  br label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit88
 
-_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %151, %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i85
+_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit88: ; preds = %151, %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i87
   store i32 32, ptr %156, align 8
   %168 = load ptr, ptr %0, align 8
   %169 = getelementptr i8, ptr %168, i64 -24
@@ -7881,8 +7843,8 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %176 = sub nsw i32 0, %149
   br label %.thread
 
-.thread:                                          ; preds = %139, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86, %142
-  %.1 = phi i32 [ %176, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86 ], [ %149, %142 ], [ 0, %139 ]
+.thread:                                          ; preds = %139, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit88, %142
+  %.1 = phi i32 [ %176, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit88 ], [ %149, %142 ], [ 0, %139 ]
   %177 = load ptr, ptr %0, align 8
   %178 = getelementptr i8, ptr %177, i64 -24
   %179 = load i64, ptr %178, align 8
@@ -7896,22 +7858,22 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
 
 184:                                              ; preds = %.thread, %136
   %185 = phi i8 [ %.pre, %.thread ], [ %137, %136 ]
-  %.1113 = phi ptr [ %183, %.thread ], [ %.0, %136 ]
-  %.164 = phi i1 [ true, %.thread ], [ %or.cond, %136 ]
+  %.1115 = phi ptr [ %183, %.thread ], [ %.0, %136 ]
+  %.167 = phi i1 [ true, %.thread ], [ %or.cond, %136 ]
   %186 = icmp ne i8 %185, 46
   br i1 %186, label %.preheader, label %187
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds nuw i8, ptr %.1113, i64 1
+  %188 = getelementptr inbounds nuw i8, ptr %.1115, i64 1
   %189 = load i8, ptr %188, align 1
   %190 = icmp eq i8 %189, 42
   br i1 %190, label %191, label %203
 
 191:                                              ; preds = %187
-  %192 = getelementptr inbounds nuw i8, ptr %.1113, i64 2
+  %192 = getelementptr inbounds nuw i8, ptr %.1115, i64 2
   %193 = load i32, ptr %5, align 4
   %194 = icmp slt i32 %193, %6
-  br i1 %194, label %195, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94
+  br i1 %194, label %195, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96
 
 195:                                              ; preds = %191
   %196 = add nsw i32 %193, 1
@@ -7922,86 +7884,86 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %200 = load ptr, ptr %199, align 8
   %201 = load ptr, ptr %198, align 8
   %202 = call noundef i32 %200(ptr noundef %201)
-  br label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94
+  br label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96
 
 203:                                              ; preds = %187
   %204 = add i8 %189, -48
-  %or.cond74 = icmp ult i8 %204, 10
-  br i1 %or.cond74, label %.lr.ph.i90, label %213
+  %or.cond79 = icmp ult i8 %204, 10
+  br i1 %or.cond79, label %.lr.ph.i92, label %213
 
-.lr.ph.i90:                                       ; preds = %203, %.lr.ph.i90
-  %205 = phi i8 [ %211, %.lr.ph.i90 ], [ %189, %203 ]
-  %.07.i91 = phi i32 [ %209, %.lr.ph.i90 ], [ 0, %203 ]
-  %206 = phi ptr [ %210, %.lr.ph.i90 ], [ %188, %203 ]
-  %207 = mul nsw i32 %.07.i91, 10
-  %narrow.i92 = add nsw i8 %205, -48
-  %208 = zext nneg i8 %narrow.i92 to i32
+.lr.ph.i92:                                       ; preds = %203, %.lr.ph.i92
+  %205 = phi i8 [ %211, %.lr.ph.i92 ], [ %189, %203 ]
+  %.07.i93 = phi i32 [ %209, %.lr.ph.i92 ], [ 0, %203 ]
+  %206 = phi ptr [ %210, %.lr.ph.i92 ], [ %188, %203 ]
+  %207 = mul nsw i32 %.07.i93, 10
+  %narrow.i94 = add nsw i8 %205, -48
+  %208 = zext nneg i8 %narrow.i94 to i32
   %209 = add nsw i32 %207, %208
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 1
   %211 = load i8, ptr %210, align 1
   %212 = add i8 %211, -48
-  %or.cond.i93 = icmp ult i8 %212, 10
-  br i1 %or.cond.i93, label %.lr.ph.i90, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94, !llvm.loop !381
+  %or.cond.i95 = icmp ult i8 %212, 10
+  br i1 %or.cond.i95, label %.lr.ph.i92, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96, !llvm.loop !381
 
 213:                                              ; preds = %203
   %214 = icmp eq i8 %189, 45
-  br i1 %214, label %215, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94
+  br i1 %214, label %215, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96
 
 215:                                              ; preds = %213
-  %216 = getelementptr inbounds nuw i8, ptr %.1113, i64 2
+  %216 = getelementptr inbounds nuw i8, ptr %.1115, i64 2
   %217 = load i8, ptr %216, align 1
   %218 = add i8 %217, -48
-  %or.cond6.i96 = icmp ult i8 %218, 10
-  br i1 %or.cond6.i96, label %.lr.ph.i98, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94
+  %or.cond6.i98 = icmp ult i8 %218, 10
+  br i1 %or.cond6.i98, label %.lr.ph.i100, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96
 
-.lr.ph.i98:                                       ; preds = %215, %.lr.ph.i98
-  %219 = phi ptr [ %220, %.lr.ph.i98 ], [ %216, %215 ]
+.lr.ph.i100:                                      ; preds = %215, %.lr.ph.i100
+  %219 = phi ptr [ %220, %.lr.ph.i100 ], [ %216, %215 ]
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 1
   %221 = load i8, ptr %220, align 1
   %222 = add i8 %221, -48
-  %or.cond.i101 = icmp ult i8 %222, 10
-  br i1 %or.cond.i101, label %.lr.ph.i98, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94, !llvm.loop !381
+  %or.cond.i103 = icmp ult i8 %222, 10
+  br i1 %or.cond.i103, label %.lr.ph.i100, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96, !llvm.loop !381
 
-_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %.lr.ph.i90, %215, %213, %195, %191
-  %.3 = phi ptr [ %192, %195 ], [ %192, %191 ], [ %188, %213 ], [ %216, %215 ], [ %210, %.lr.ph.i90 ], [ %220, %.lr.ph.i98 ]
-  %.059 = phi i32 [ %202, %195 ], [ 0, %191 ], [ 0, %213 ], [ 0, %215 ], [ %209, %.lr.ph.i90 ], [ 0, %.lr.ph.i98 ]
+_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, %.lr.ph.i92, %215, %213, %195, %191
+  %.3 = phi ptr [ %192, %195 ], [ %192, %191 ], [ %188, %213 ], [ %216, %215 ], [ %210, %.lr.ph.i92 ], [ %220, %.lr.ph.i100 ]
+  %.062 = phi i32 [ %202, %195 ], [ 0, %191 ], [ 0, %213 ], [ 0, %215 ], [ %209, %.lr.ph.i92 ], [ 0, %.lr.ph.i100 ]
   %223 = load ptr, ptr %0, align 8
   %224 = getelementptr i8, ptr %223, i64 -24
   %225 = load i64, ptr %224, align 8
   %226 = getelementptr inbounds i8, ptr %0, i64 %225
-  %227 = sext i32 %.059 to i64
+  %227 = sext i32 %.062 to i64
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 16
   store i64 %227, ptr %228, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94, %184
-  %.4.ph = phi ptr [ %.1113, %184 ], [ %.3, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94 ]
+.preheader:                                       ; preds = %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96, %184
+  %.4.ph = phi ptr [ %.3, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96 ], [ %.1115, %184 ]
   br label %229
 
 229:                                              ; preds = %.preheader, %.critedge
   %.4 = phi ptr [ %231, %.critedge ], [ %.4.ph, %.preheader ]
   %230 = load i8, ptr %.4, align 1
-  switch i8 %230, label %.critedge76 [
+  switch i8 %230, label %.thread117 [
     i8 108, label %.critedge
     i8 104, label %.critedge
     i8 76, label %.critedge
     i8 106, label %.critedge
     i8 122, label %.critedge
     i8 116, label %.critedge
-    i8 117, label %.loopexit229
-    i8 100, label %.loopexit229
-    i8 105, label %.loopexit229
-    i8 111, label %.loopexit260
+    i8 117, label %.loopexit234
+    i8 100, label %.loopexit234
+    i8 105, label %.loopexit234
+    i8 111, label %.loopexit265
     i8 88, label %232
     i8 120, label %.loopexit
     i8 112, label %.loopexit
     i8 69, label %240
-    i8 101, label %.loopexit115
+    i8 101, label %.loopexit120
     i8 70, label %264
-    i8 102, label %.loopexit116
+    i8 102, label %.loopexit121
     i8 71, label %280
-    i8 103, label %.loopexit117
-    i8 0, label %.loopexit118
+    i8 103, label %.loopexit122
+    i8 0, label %.loopexit123
     i8 115, label %303
   ]
 
@@ -8029,9 +7991,9 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   %246 = load i32, ptr %245, align 8
   %247 = or i32 %246, 16384
   store i32 %247, ptr %245, align 8
-  br label %.loopexit115
+  br label %.loopexit120
 
-.loopexit115:                                     ; preds = %229, %240
+.loopexit120:                                     ; preds = %229, %240
   %248 = load ptr, ptr %0, align 8
   %249 = getelementptr i8, ptr %248, i64 -24
   %250 = load i64, ptr %249, align 8
@@ -8050,7 +8012,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   %262 = and i32 %261, -75
   %263 = or disjoint i32 %262, 2
   store i32 %263, ptr %260, align 8
-  br label %.critedge76
+  br label %.thread117
 
 264:                                              ; preds = %229
   %265 = load ptr, ptr %0, align 8
@@ -8061,9 +8023,9 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   %270 = load i32, ptr %269, align 8
   %271 = or i32 %270, 16384
   store i32 %271, ptr %269, align 8
-  br label %.loopexit116
+  br label %.loopexit121
 
-.loopexit116:                                     ; preds = %229, %264
+.loopexit121:                                     ; preds = %229, %264
   %272 = load ptr, ptr %0, align 8
   %273 = getelementptr i8, ptr %272, i64 -24
   %274 = load i64, ptr %273, align 8
@@ -8073,7 +8035,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   %278 = and i32 %277, -261
   %279 = or disjoint i32 %278, 4
   store i32 %279, ptr %276, align 8
-  br label %.critedge76
+  br label %.thread117
 
 280:                                              ; preds = %229
   %281 = load ptr, ptr %0, align 8
@@ -8084,9 +8046,9 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   %286 = load i32, ptr %285, align 8
   %287 = or i32 %286, 16384
   store i32 %287, ptr %285, align 8
-  br label %.loopexit117
+  br label %.loopexit122
 
-.loopexit117:                                     ; preds = %229, %280
+.loopexit122:                                     ; preds = %229, %280
   %288 = load ptr, ptr %0, align 8
   %289 = getelementptr i8, ptr %288, i64 -24
   %290 = load i64, ptr %289, align 8
@@ -8104,25 +8066,25 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   %301 = load i32, ptr %300, align 8
   %302 = and i32 %301, -261
   store i32 %302, ptr %300, align 8
-  br label %.critedge76
+  br label %.thread117
 
 303:                                              ; preds = %229
-  %.pre188 = load ptr, ptr %0, align 8
+  %.pre193 = load ptr, ptr %0, align 8
   br i1 %186, label %311, label %304
 
 304:                                              ; preds = %303
-  %305 = getelementptr i8, ptr %.pre188, i64 -24
+  %305 = getelementptr i8, ptr %.pre193, i64 -24
   %306 = load i64, ptr %305, align 8
   %307 = getelementptr inbounds i8, ptr %0, i64 %306
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 16
   %309 = load i64, ptr %308, align 8
   %310 = trunc i64 %309 to i32
   store i32 %310, ptr %2, align 4
-  %.pre187 = load ptr, ptr %0, align 8
+  %.pre192 = load ptr, ptr %0, align 8
   br label %311
 
 311:                                              ; preds = %304, %303
-  %312 = phi ptr [ %.pre187, %304 ], [ %.pre188, %303 ]
+  %312 = phi ptr [ %.pre192, %304 ], [ %.pre193, %303 ]
   %313 = getelementptr i8, ptr %312, i64 -24
   %314 = load i64, ptr %313, align 8
   %315 = getelementptr inbounds i8, ptr %0, i64 %314
@@ -8130,16 +8092,16 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   %317 = load i32, ptr %316, align 8
   %318 = or i32 %317, 1
   store i32 %318, ptr %316, align 8
-  br label %.critedge76
+  br label %.thread117
 
-.loopexit229:                                     ; preds = %229, %229, %229
+.loopexit234:                                     ; preds = %229, %229, %229
   br label %.loopexit
 
-.loopexit260:                                     ; preds = %229
+.loopexit265:                                     ; preds = %229
   br label %.loopexit
 
-.loopexit:                                        ; preds = %232, %229, %229, %.loopexit260, %.loopexit229
-  %.sink222 = phi i32 [ 2, %.loopexit229 ], [ 64, %.loopexit260 ], [ 8, %229 ], [ 8, %229 ], [ 8, %232 ]
+.loopexit:                                        ; preds = %232, %229, %229, %.loopexit265, %.loopexit234
+  %.sink227 = phi i32 [ 2, %.loopexit234 ], [ 64, %.loopexit265 ], [ 8, %229 ], [ 8, %229 ], [ 8, %232 ]
   %319 = load ptr, ptr %0, align 8
   %320 = getelementptr i8, ptr %319, i64 -24
   %321 = load i64, ptr %320, align 8
@@ -8147,10 +8109,10 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %324 = load i32, ptr %323, align 8
   %325 = and i32 %324, -75
-  %326 = or disjoint i32 %325, %.sink222
+  %326 = or disjoint i32 %325, %.sink227
   store i32 %326, ptr %323, align 8
-  %brmerge = or i1 %.164, %186
-  br i1 %brmerge, label %.critedge76, label %327
+  %or.cond3 = or i1 %.167, %186
+  br i1 %or.cond3, label %.thread117, label %327
 
 327:                                              ; preds = %.loopexit
   %328 = load ptr, ptr %0, align 8
@@ -8159,7 +8121,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   %331 = getelementptr inbounds i8, ptr %0, i64 %330
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 16
   %333 = load i64, ptr %332, align 8
-  %334 = add nsw i64 %333, %.061.ph
+  %334 = add nsw i64 %333, %.064.ph
   %335 = getelementptr inbounds nuw i8, ptr %331, i64 24
   store i64 %334, ptr %335, align 8
   %336 = load ptr, ptr %0, align 8
@@ -8178,44 +8140,44 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 144
   %349 = load i32, ptr %348, align 8
   %350 = icmp eq i32 %349, -1
-  br i1 %350, label %351, label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105
+  br i1 %350, label %351, label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107
 
 351:                                              ; preds = %327
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %8, ptr noundef nonnull align 8 dereferenceable(148) %347)
   %352 = invoke noundef nonnull align 8 dereferenceable(25) ptr @_ZNKSt3__16locale9use_facetERNS0_2idE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(12) @_ZNSt3__15ctypeIcE2idE)
-          to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i103 unwind label %357
+          to label %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i105 unwind label %357
 
-_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i103: ; preds = %351
+_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i105: ; preds = %351
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 56
   %355 = load ptr, ptr %354, align 8
   %356 = invoke noundef signext i8 %355(ptr noundef nonnull align 8 dereferenceable(25) %352, i8 noundef signext 32)
-          to label %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i104 unwind label %357
+          to label %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i106 unwind label %357
 
-357:                                              ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i103, %351
+357:                                              ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i105, %351
   %358 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i104: ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i103
+_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i106: ; preds = %_ZNSt3__19use_facetB8ne190000INS_5ctypeIcEEEERKT_RKNS_6localeE.exit.i.i105
   call void @_ZNSt3__16localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %359 = sext i8 %356 to i32
   store i32 %359, ptr %348, align 8
-  br label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105
+  br label %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107
 
-_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %327, %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i104
+_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107: ; preds = %327, %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ne190000Ec.exit.i106
   store i32 48, ptr %348, align 8
-  br label %.critedge76
+  br label %.thread117
 
-.critedge76:                                      ; preds = %229, %311, %.loopexit117, %.loopexit116, %.loopexit115, %.loopexit, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105
+.thread117:                                       ; preds = %229, %.loopexit120, %.loopexit121, %.loopexit122, %311, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit107, %.loopexit
   %360 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  br label %.loopexit118
+  br label %.loopexit123
 
-.loopexit118:                                     ; preds = %229, %7, %.critedge76
-  %.066 = phi ptr [ %360, %.critedge76 ], [ %3, %7 ], [ %.4, %229 ]
-  ret ptr %.066
+.loopexit123:                                     ; preds = %229, %7, %.thread117
+  %.069 = phi ptr [ %360, %.thread117 ], [ %3, %7 ], [ %.4, %229 ]
+  ret ptr %.069
 }
 
 declare noundef nonnull align 8 dereferenceable(148) ptr @_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE7copyfmtERKS3_(ptr noundef nonnull align 8 dereferenceable(148), ptr noundef nonnull align 8 dereferenceable(148)) local_unnamed_addr #1

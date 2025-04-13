@@ -294,15 +294,15 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
   %42 = trunc nuw i8 %41 to i1
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1416), align 8
   %44 = tail call ptr @slurm_xstrstr(ptr noundef %43, ptr noundef nonnull @.str.23) #11
-  %.not17.not.i = icmp ne ptr %44, null
-  %brmerge.not.i = select i1 %42, i1 %.not17.not.i, i1 false
+  %.not18.i = icmp ne ptr %44, null
+  %or.cond.i = and i1 %.not18.i, %42
   %45 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %46 = and i64 %45, 262144
-  %.not19.i = icmp eq i64 %46, 0
-  br i1 %brmerge.not.i, label %47, label %51
+  %.not20.i = icmp eq i64 %46, 0
+  br i1 %or.cond.i, label %47, label %51
 
 47:                                               ; preds = %39
-  br i1 %.not19.i, label %55, label %48
+  br i1 %.not20.i, label %55, label %48
 
 48:                                               ; preds = %47
   %49 = tail call i32 @slurm_get_log_level() #11
@@ -310,7 +310,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
   br i1 %50, label %.sink.split.i, label %55
 
 51:                                               ; preds = %39
-  br i1 %.not19.i, label %55, label %52
+  br i1 %.not20.i, label %55, label %52
 
 52:                                               ; preds = %51
   %53 = tail call i32 @slurm_get_log_level() #11
@@ -329,15 +329,15 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
   br i1 %.not25.i, label %._crit_edge.i43, label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %55
-  br i1 %brmerge.not.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  br i1 %or.cond.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i40, %69
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %69 ], [ 0, %.lr.ph.i40 ]
   %indvars67 = trunc nuw nsw i64 %indvars.iv27.i to i32
   %57 = load ptr, ptr @saved_usable_gpus, align 8
   %58 = tail call i32 @slurm_bit_test(ptr noundef %57, i64 noundef %indvars.iv27.i) #11
-  %.not21.us.i = icmp eq i32 %58, 0
-  br i1 %.not21.us.i, label %62, label %59
+  %.not22.us.i = icmp eq i32 %58, 0
+  br i1 %.not22.us.i, label %62, label %59
 
 59:                                               ; preds = %.lr.ph.split.us.i
   %60 = load ptr, ptr @gpus, align 8
@@ -348,8 +348,8 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
 62:                                               ; preds = %.lr.ph.split.us.i
   %63 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %64 = and i64 %63, 262144
-  %.not22.us.i = icmp eq i64 %64, 0
-  br i1 %.not22.us.i, label %69, label %65
+  %.not23.us.i = icmp eq i64 %64, 0
+  br i1 %.not23.us.i, label %69, label %65
 
 65:                                               ; preds = %62
   %66 = tail call i32 @slurm_get_log_level() #11
@@ -382,8 +382,8 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
 ._crit_edge.i43:                                  ; preds = %.lr.ph.split.i, %69, %55
   %78 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %79 = and i64 %78, 262144
-  %.not20.i = icmp eq i64 %79, 0
-  br i1 %.not20.i, label %_get_node_energy.exit, label %80
+  %.not21.i = icmp eq i64 %79, 0
+  br i1 %.not21.i, label %_get_node_energy.exit, label %80
 
 80:                                               ; preds = %._crit_edge.i43
   %81 = tail call i32 @slurm_get_log_level() #11

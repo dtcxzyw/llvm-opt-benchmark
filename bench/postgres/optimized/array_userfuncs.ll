@@ -2374,7 +2374,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @array_position_co
 
 39:                                               ; preds = %._crit_edge86, %36
   %40 = phi i64 [ 4, %36 ], [ %33, %._crit_edge86 ]
-  %.060 = phi i64 [ %38, %36 ], [ 0, %._crit_edge86 ]
+  %.063 = phi i64 [ %38, %36 ], [ 0, %._crit_edge86 ]
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -2407,7 +2407,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @array_position_co
   br label %62
 
 62:                                               ; preds = %39, %58
-  %.062 = phi i32 [ %61, %58 ], [ %45, %39 ]
+  %.065 = phi i32 [ %61, %58 ], [ %45, %39 ]
   %63 = load ptr, ptr %0, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8
@@ -2430,20 +2430,20 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @array_position_co
 
 76:                                               ; preds = %62
   %.pre88 = load i32, ptr %65, align 8
-  %.not70 = icmp eq i32 %.pre88, %42
-  br i1 %.not70, label %95, label %77
+  %.not73 = icmp eq i32 %.pre88, %42
+  br i1 %.not73, label %95, label %77
 
 77:                                               ; preds = %.thread, %76
-  %.05991 = phi ptr [ %74, %.thread ], [ %65, %76 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.05991, i64 4
-  %79 = getelementptr inbounds nuw i8, ptr %.05991, i64 6
-  %80 = getelementptr inbounds nuw i8, ptr %.05991, i64 7
+  %.06291 = phi ptr [ %74, %.thread ], [ %65, %76 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.06291, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.06291, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %.06291, i64 7
   tail call void @get_typlenbyvalalign(i32 noundef %42, ptr noundef nonnull %78, ptr noundef nonnull %79, ptr noundef nonnull %80) #10
   %81 = tail call ptr @lookup_type_cache(i32 noundef %42, i32 noundef 32) #10
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 80
   %83 = load i32, ptr %82, align 8
-  %.not71 = icmp eq i32 %83, 0
-  br i1 %.not71, label %84, label %89
+  %.not74 = icmp eq i32 %83, 0
+  br i1 %.not74, label %84, label %89
 
 84:                                               ; preds = %77
   %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -2455,9 +2455,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @array_position_co
   unreachable
 
 89:                                               ; preds = %77
-  store i32 %42, ptr %.05991, align 8
+  store i32 %42, ptr %.06291, align 8
   %90 = load i32, ptr %82, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %.05991, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %.06291, i64 24
   %92 = load ptr, ptr %0, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8
@@ -2465,36 +2465,36 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @array_position_co
   br label %95
 
 95:                                               ; preds = %89, %76
-  %.05992 = phi ptr [ %.05991, %89 ], [ %65, %76 ]
-  %96 = tail call ptr @array_create_iterator(ptr noundef nonnull %15, i32 noundef 0, ptr noundef nonnull %.05992) #10
-  %97 = getelementptr inbounds nuw i8, ptr %.05992, i64 24
+  %.06292 = phi ptr [ %.06291, %89 ], [ %65, %76 ]
+  %96 = tail call ptr @array_create_iterator(ptr noundef nonnull %15, i32 noundef 0, ptr noundef nonnull %.06292) #10
+  %97 = getelementptr inbounds nuw i8, ptr %.06292, i64 24
   %98 = call zeroext i1 @array_iterate(ptr noundef %96, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   br i1 %98, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %95, %.backedge
-  %.06377 = phi i32 [ %99, %.backedge ], [ %46, %95 ]
-  %99 = add i32 %.06377, 1
-  %100 = icmp slt i32 %99, %.062
+  %.06677 = phi i32 [ %99, %.backedge ], [ %46, %95 ]
+  %99 = add i32 %.06677, 1
+  %100 = icmp slt i32 %99, %.065
   br i1 %100, label %.backedge, label %102
 
-.backedge:                                        ; preds = %.lr.ph, %107, %105
+.backedge:                                        ; preds = %.lr.ph, %105, %107
   %101 = call zeroext i1 @array_iterate(ptr noundef %96, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !55
 
 102:                                              ; preds = %.lr.ph
   %103 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %104 = or i8 %103, %28
-  %brmerge.not = icmp eq i8 %104, 0
-  br i1 %brmerge.not, label %107, label %105
+  %or.cond.not = icmp eq i8 %104, 0
+  br i1 %or.cond.not, label %107, label %105
 
 105:                                              ; preds = %102
   %106 = and i8 %103, %28
-  %brmerge75.demorgan.not = icmp eq i8 %106, 0
-  br i1 %brmerge75.demorgan.not, label %.backedge, label %._crit_edge
+  %or.cond3.not = icmp eq i8 %106, 0
+  br i1 %or.cond3.not, label %.backedge, label %._crit_edge
 
 107:                                              ; preds = %102
   %108 = load i64, ptr %2, align 8
-  %109 = call i64 @FunctionCall2Coll(ptr noundef nonnull %97, i32 noundef %5, i64 noundef %.060, i64 noundef %108) #10
+  %109 = call i64 @FunctionCall2Coll(ptr noundef nonnull %97, i32 noundef %5, i64 noundef %.063, i64 noundef %108) #10
   %.not76 = icmp eq i64 %109, 0
   br i1 %.not76, label %.backedge, label %._crit_edge
 
@@ -2504,8 +2504,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @array_position_co
   call void @array_free_iterator(ptr noundef %96) #10
   %110 = load i64, ptr %6, align 8
   %111 = inttoptr i64 %110 to ptr
-  %.not72 = icmp eq ptr %15, %111
-  br i1 %.not72, label %113, label %112
+  %.not75 = icmp eq ptr %15, %111
+  br i1 %.not75, label %113, label %112
 
 112:                                              ; preds = %._crit_edge
   call void @pfree(ptr noundef nonnull %15) #10
@@ -2610,7 +2610,7 @@ define dso_local i64 @array_positions(ptr noundef captures(none) %0) local_unnam
 
 43:                                               ; preds = %._crit_edge69, %40
   %44 = phi i32 [ %26, %40 ], [ %.pre, %._crit_edge69 ]
-  %.056 = phi i64 [ %42, %40 ], [ 0, %._crit_edge69 ]
+  %.059 = phi i64 [ %42, %40 ], [ 0, %._crit_edge69 ]
   %45 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -2645,16 +2645,16 @@ define dso_local i64 @array_positions(ptr noundef captures(none) %0) local_unnam
   br i1 %.not, label %85, label %67
 
 67:                                               ; preds = %.thread, %66
-  %.05574 = phi ptr [ %64, %.thread ], [ %55, %66 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.05574, i64 4
-  %69 = getelementptr inbounds nuw i8, ptr %.05574, i64 6
-  %70 = getelementptr inbounds nuw i8, ptr %.05574, i64 7
+  %.05874 = phi ptr [ %64, %.thread ], [ %55, %66 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.05874, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.05874, i64 6
+  %70 = getelementptr inbounds nuw i8, ptr %.05874, i64 7
   tail call void @get_typlenbyvalalign(i32 noundef %46, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70) #10
   %71 = tail call ptr @lookup_type_cache(i32 noundef %46, i32 noundef 32) #10
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 80
   %73 = load i32, ptr %72, align 8
-  %.not61 = icmp eq i32 %73, 0
-  br i1 %.not61, label %74, label %79
+  %.not64 = icmp eq i32 %73, 0
+  br i1 %.not64, label %74, label %79
 
 74:                                               ; preds = %67
   %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -2666,9 +2666,9 @@ define dso_local i64 @array_positions(ptr noundef captures(none) %0) local_unnam
   unreachable
 
 79:                                               ; preds = %67
-  store i32 %46, ptr %.05574, align 8
+  store i32 %46, ptr %.05874, align 8
   %80 = load i32, ptr %72, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %.05574, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.05874, i64 24
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %84 = load ptr, ptr %83, align 8
@@ -2676,28 +2676,28 @@ define dso_local i64 @array_positions(ptr noundef captures(none) %0) local_unnam
   br label %85
 
 85:                                               ; preds = %79, %66
-  %.05575 = phi ptr [ %.05574, %79 ], [ %55, %66 ]
-  %86 = tail call ptr @array_create_iterator(ptr noundef nonnull %15, i32 noundef 0, ptr noundef nonnull %.05575) #10
+  %.05875 = phi ptr [ %.05874, %79 ], [ %55, %66 ]
+  %86 = tail call ptr @array_create_iterator(ptr noundef nonnull %15, i32 noundef 0, ptr noundef nonnull %.05875) #10
   %87 = call zeroext i1 @array_iterate(ptr noundef %86, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   br i1 %87, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %85
-  %88 = getelementptr inbounds nuw i8, ptr %.05575, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %.05875, i64 24
   br label %89
 
 89:                                               ; preds = %.lr.ph, %.backedge
   %.068 = phi ptr [ %25, %.lr.ph ], [ %.0.be, %.backedge ]
-  %.05767 = phi i32 [ %52, %.lr.ph ], [ %90, %.backedge ]
-  %90 = add i32 %.05767, 1
+  %.06067 = phi i32 [ %52, %.lr.ph ], [ %90, %.backedge ]
+  %90 = add i32 %.06067, 1
   %91 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %92 = or i8 %91, %33
-  %brmerge.not = icmp eq i8 %92, 0
-  br i1 %brmerge.not, label %99, label %93
+  %or.cond.not = icmp eq i8 %92, 0
+  br i1 %or.cond.not, label %99, label %93
 
 93:                                               ; preds = %89
   %94 = and i8 %91, %33
-  %brmerge65.demorgan.not = icmp eq i8 %94, 0
-  br i1 %brmerge65.demorgan.not, label %.backedge, label %.backedge.sink.split
+  %or.cond3.not = icmp eq i8 %94, 0
+  br i1 %or.cond3.not, label %.backedge, label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %93, %99
   %95 = sext i32 %90 to i64
@@ -2712,7 +2712,7 @@ define dso_local i64 @array_positions(ptr noundef captures(none) %0) local_unnam
 
 99:                                               ; preds = %89
   %100 = load i64, ptr %2, align 8
-  %101 = call i64 @FunctionCall2Coll(ptr noundef nonnull %88, i32 noundef %5, i64 noundef %.056, i64 noundef %100) #10
+  %101 = call i64 @FunctionCall2Coll(ptr noundef nonnull %88, i32 noundef %5, i64 noundef %.059, i64 noundef %100) #10
   %.not66 = icmp eq i64 %101, 0
   br i1 %.not66, label %.backedge, label %.backedge.sink.split
 
@@ -2721,8 +2721,8 @@ define dso_local i64 @array_positions(ptr noundef captures(none) %0) local_unnam
   call void @array_free_iterator(ptr noundef %86) #10
   %102 = load i64, ptr %6, align 8
   %103 = inttoptr i64 %102 to ptr
-  %.not62 = icmp eq ptr %15, %103
-  br i1 %.not62, label %105, label %104
+  %.not65 = icmp eq ptr %15, %103
+  br i1 %.not65, label %105, label %104
 
 104:                                              ; preds = %._crit_edge
   call void @pfree(ptr noundef nonnull %15) #10
@@ -2734,10 +2734,10 @@ define dso_local i64 @array_positions(ptr noundef captures(none) %0) local_unnam
   br label %108
 
 108:                                              ; preds = %105, %37, %28, %10
-  %.053 = phi i64 [ 0, %10 ], [ %30, %28 ], [ %107, %105 ], [ %39, %37 ]
+  %.056 = phi i64 [ 0, %10 ], [ %30, %28 ], [ %107, %105 ], [ %39, %37 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
-  ret i64 %.053
+  ret i64 %.056
 }
 
 declare i64 @makeArrayResult(ptr noundef, ptr noundef) local_unnamed_addr #3

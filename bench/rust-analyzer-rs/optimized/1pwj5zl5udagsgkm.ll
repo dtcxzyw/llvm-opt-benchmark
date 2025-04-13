@@ -595,10 +595,10 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$16swap_remove_fu
   %26 = load i64, ptr %1, align 8, !alias.scope !78, !noalias !79, !noundef !21
   %27 = icmp ne i64 %26, 0
   tail call void @llvm.assume(i1 %27)
-  %.sroa.44.8.copyload.i = load i64, ptr %9, align 8, !noalias !82
+  %.sroa.45.8.copyload.i = load i64, ptr %9, align 8, !noalias !82
   %.sroa.6.8.copyload.i = load i64, ptr %10, align 8, !noalias !82
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = tail call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17h90e2d4440ce95e74E.llvm.9817217397473310483"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %28, i64 noundef %.sroa.44.8.copyload.i, i64 noundef 0), !noalias !83
+  %29 = tail call noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17h90e2d4440ce95e74E.llvm.9817217397473310483"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %28, i64 noundef %.sroa.45.8.copyload.i, i64 noundef 0), !noalias !83
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %36, label %30
 

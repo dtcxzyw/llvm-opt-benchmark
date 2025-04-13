@@ -2539,61 +2539,54 @@ define void @_ZN8LightGBM18MultiValBinWrapper9InitTrainERKSt6vectorIiSaIiEERKS1_
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !91
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %44, label %9
+  br i1 %.not.i, label %43, label %9
 
 9:                                                ; preds = %6
   tail call void @_ZN8LightGBM18MultiValBinWrapper21CopyMultiValBinSubsetERKSt6vectorIiSaIiEERKS1_ISt10unique_ptrINS_12FeatureGroupESt14default_deleteIS7_EESaISA_EERKS1_IaSaIaEEPKii(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4, i32 noundef %5)
   %10 = load i8, ptr %0, align 8, !tbaa !4, !range !29, !noundef !30
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %16, label %12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %13 = load i8, ptr %12, align 1, !range !29
+  %14 = trunc nuw i8 %13 to i1
+  %or.cond = select i1 %11, i1 true, i1 %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = select i1 %or.cond, ptr %16, ptr %17
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %43, label %19
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %14 = load i8, ptr %13, align 1, !tbaa !81, !range !29, !noundef !30
-  %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %16, label %18
+19:                                               ; preds = %9
+  %20 = load ptr, ptr %18, align 8, !tbaa !92
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(8) %18)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  store i32 %23, ptr %24, align 4, !tbaa !44
+  %25 = add nsw i32 %23, 31
+  %26 = sdiv i32 %25, 32
+  %27 = shl nsw i32 %26, 5
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 %27, ptr %28, align 8, !tbaa !34
+  %29 = load ptr, ptr %18, align 8, !tbaa !92
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef double %31(ptr noundef nonnull align 8 dereferenceable(8) %18)
+  %33 = load i32, ptr %24, align 4, !tbaa !44
+  %34 = sitofp i32 %33 to float
+  %35 = fmul float %34, 0x3FD3333340000000
+  %36 = fpext float %35 to double
+  %37 = fadd double %32, 0x38AA95A5C0000000
+  %38 = fdiv double %36, %37
+  %39 = fptosi double %38 to i32
+  %40 = tail call i32 @llvm.smin.i32(i32 %39, i32 1023)
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %42 = tail call i32 @llvm.smax.i32(i32 %40, i32 31)
+  %.sroa.speculated = add nuw nsw i32 %42, 1
+  store i32 %.sroa.speculated, ptr %41, align 4, !tbaa !95
+  br label %43
 
-16:                                               ; preds = %12, %9
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %18
-
-18:                                               ; preds = %12, %16
-  %.in = phi ptr [ %17, %16 ], [ %7, %12 ]
-  %19 = load ptr, ptr %.in, align 8, !tbaa !91
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %44, label %20
-
-20:                                               ; preds = %18
-  %21 = load ptr, ptr %19, align 8, !tbaa !92
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 %24, ptr %25, align 4, !tbaa !44
-  %26 = add nsw i32 %24, 31
-  %27 = sdiv i32 %26, 32
-  %28 = shl nsw i32 %27, 5
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %28, ptr %29, align 8, !tbaa !34
-  %30 = load ptr, ptr %19, align 8, !tbaa !92
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef double %32(ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %34 = load i32, ptr %25, align 4, !tbaa !44
-  %35 = sitofp i32 %34 to float
-  %36 = fmul float %35, 0x3FD3333340000000
-  %37 = fpext float %36 to double
-  %38 = fadd double %33, 0x38AA95A5C0000000
-  %39 = fdiv double %37, %38
-  %40 = fptosi double %39 to i32
-  %41 = tail call i32 @llvm.smin.i32(i32 %40, i32 1023)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %43 = tail call i32 @llvm.smax.i32(i32 %41, i32 31)
-  %.sroa.speculated = add nuw nsw i32 %43, 1
-  store i32 %.sroa.speculated, ptr %42, align 4, !tbaa !95
-  br label %44
-
-44:                                               ; preds = %18, %20, %6
+43:                                               ; preds = %9, %19, %6
   ret void
 }
 

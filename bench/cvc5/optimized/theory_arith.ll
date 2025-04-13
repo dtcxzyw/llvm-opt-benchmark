@@ -2712,12 +2712,12 @@ define hidden void @_ZN4cvc58internal6theory5arith11TheoryArith9postCheckENS1_6T
 8:                                                ; preds = %7, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %10 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear12LinearSolver9postCheckENS1_6Theory6EffortE(ptr noundef nonnull align 8 dereferenceable(9464) %9, i32 noundef %1)
-  br i1 %10, label %93, label %11
+  br i1 %10, label %92, label %11
 
 11:                                               ; preds = %8
   %12 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory22TheoryInferenceManager7hasSentEv(ptr noundef nonnull align 8 dereferenceable(240) %5)
   %brmerge = or i1 %6, %12
-  br i1 %brmerge, label %93, label %13
+  br i1 %brmerge, label %92, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 11048
@@ -2810,12 +2810,12 @@ _ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12Node
 50:                                               ; preds = %48
   br i1 %49, label %_ZN4cvc58internal6theory5arith11TheoryArith18finalizeModelCacheEv.exit, label %56
 
-.loopexit:                                        ; preds = %.noexc.i, %85, %87
+.loopexit:                                        ; preds = %.noexc.i, %84, %86
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %51
 
-.loopexit.split-lp:                               ; preds = %_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit, %48, %52, %55, %_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit17, %43, %46, %61, %64
+.loopexit.split-lp:                               ; preds = %_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit, %48, %52, %55, %_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit17, %43, %46, %60, %63
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %51
@@ -2839,103 +2839,101 @@ _ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12Node
 
 56:                                               ; preds = %54, %55, %50
   %57 = load ptr, ptr %41, align 8, !tbaa !703
-  %.not.i14 = icmp eq ptr %57, null
-  br i1 %.not.i14, label %58, label %_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit17
+  %.not.i14 = icmp ne ptr %57, null
+  %58 = load i8, ptr %35, align 8, !range !221
+  %59 = trunc nuw i8 %58 to i1
+  %or.cond = select i1 %.not.i14, i1 true, i1 %59
+  br i1 %or.cond, label %_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit17, label %60
 
-58:                                               ; preds = %56
-  %59 = load i8, ptr %35, align 8, !tbaa !232, !range !221, !noundef !222
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit17, label %61
-
-61:                                               ; preds = %58
+60:                                               ; preds = %56
   invoke void @_ZNK4cvc58internal6theory6Theory28collectAssertedTermsForModelERSt3setINS0_12NodeTemplateILb1EEESt4lessIS5_ESaIS5_EEb(ptr noundef nonnull align 8 dereferenceable(11256) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i1 noundef zeroext true)
           to label %.noexc15 unwind label %.loopexit.split-lp
 
-.noexc15:                                         ; preds = %61
-  %62 = load i8, ptr %35, align 8, !tbaa !232, !range !221, !noundef !222
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit17, label %64
+.noexc15:                                         ; preds = %60
+  %61 = load i8, ptr %35, align 8, !tbaa !232, !range !221, !noundef !222
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit17, label %63
 
-64:                                               ; preds = %.noexc15
+63:                                               ; preds = %.noexc15
   store i8 1, ptr %35, align 8, !tbaa !232
   invoke void @_ZN4cvc58internal6theory5arith6linear12LinearSolver18collectModelValuesERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS7_ESaIS7_EERSt3mapIS7_S7_S9_SaISt4pairIKS7_S7_EEESK_(ptr noundef nonnull align 8 dereferenceable(9464) %9, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %24)
           to label %_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit17 unwind label %.loopexit.split-lp
 
-_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit17: ; preds = %.noexc15, %58, %64, %56
-  %65 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory5arith11TheoryArith23sanityCheckIntegerModelEv(ptr noundef nonnull align 8 dereferenceable(11256) %0)
-          to label %66 unwind label %.loopexit.split-lp
+_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit17: ; preds = %.noexc15, %63, %56
+  %64 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory5arith11TheoryArith23sanityCheckIntegerModelEv(ptr noundef nonnull align 8 dereferenceable(11256) %0)
+          to label %65 unwind label %.loopexit.split-lp
 
-66:                                               ; preds = %_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit17
-  %67 = load ptr, ptr %21, align 8, !tbaa !229
-  %.not16.i = icmp eq ptr %67, %20
+65:                                               ; preds = %_ZN4cvc58internal6theory5arith11TheoryArith16updateModelCacheERSt3setINS0_12NodeTemplateILb1EEESt4lessIS6_ESaIS6_EE.exit17
+  %66 = load ptr, ptr %21, align 8, !tbaa !229
+  %.not16.i = icmp eq ptr %66, %20
   br i1 %.not16.i, label %_ZN4cvc58internal6theory5arith11TheoryArith18finalizeModelCacheEv.exit, label %.noexc.i
 
-.noexc.i:                                         ; preds = %66, %.noexc21
-  %.sroa.012.017.i = phi ptr [ %88, %.noexc21 ], [ %67, %66 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.012.017.i, i64 32
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.012.017.i, i64 40
-  %70 = load ptr, ptr %68, align 8, !tbaa !707
+.noexc.i:                                         ; preds = %65, %.noexc21
+  %.sroa.012.017.i = phi ptr [ %87, %.noexc21 ], [ %66, %65 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.012.017.i, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.012.017.i, i64 40
+  %69 = load ptr, ptr %67, align 8, !tbaa !707
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load i64, ptr %71, align 8
-  %73 = trunc i64 %72 to i32
-  %74 = and i32 %73, 1023
-  %75 = icmp eq i32 %74, 1023
-  %76 = select i1 %75, i32 -1, i32 %74
-  %77 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %76)
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %71 = load i64, ptr %70, align 8
+  %72 = trunc i64 %71 to i32
+  %73 = and i32 %72, 1023
+  %74 = icmp eq i32 %73, 1023
+  %75 = select i1 %74, i32 -1, i32 %73
+  %76 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %75)
           to label %.noexc19 unwind label %.loopexit
 
 .noexc19:                                         ; preds = %.noexc.i
-  %78 = icmp eq i32 %77, 2
-  %79 = load i64, ptr %71, align 8
-  %80 = lshr i64 %79, 32
-  %81 = and i64 %80, 67108863
-  %82 = sext i1 %78 to i64
-  %83 = add nsw i64 %81, %82
-  %84 = and i64 %83, 4294967295
-  %.not.i.i = icmp eq i64 %84, 0
-  br i1 %.not.i.i, label %.thread.i, label %85
+  %77 = icmp eq i32 %76, 2
+  %78 = load i64, ptr %70, align 8
+  %79 = lshr i64 %78, 32
+  %80 = and i64 %79, 67108863
+  %81 = sext i1 %77 to i64
+  %82 = add nsw i64 %80, %81
+  %83 = and i64 %82, 4294967295
+  %.not.i.i = icmp eq i64 %83, 0
+  br i1 %.not.i.i, label %.thread.i, label %84
 
 .thread.i:                                        ; preds = %.noexc19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %87
+  br label %86
 
-85:                                               ; preds = %.noexc19
-  store ptr %70, ptr %3, align 8, !tbaa !725
-  %86 = invoke noundef i32 @_ZN4cvc58internal6theory6Theory8theoryOfENS0_12NodeTemplateILb0EEENS0_7options12TheoryOfModeENS1_8TheoryIdE(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 2)
+84:                                               ; preds = %.noexc19
+  store ptr %69, ptr %3, align 8, !tbaa !725
+  %85 = invoke noundef i32 @_ZN4cvc58internal6theory6Theory8theoryOfENS0_12NodeTemplateILb0EEENS0_7options12TheoryOfModeENS1_8TheoryIdE(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 2)
           to label %.noexc20 unwind label %.loopexit
 
-.noexc20:                                         ; preds = %85
-  %.not15.i = icmp eq i32 %86, 3
+.noexc20:                                         ; preds = %84
+  %.not15.i = icmp eq i32 %85, 3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 %.not15.i, label %.noexc21, label %87
+  br i1 %.not15.i, label %.noexc21, label %86
 
-87:                                               ; preds = %.noexc20, %.thread.i
-  invoke void @_ZN4cvc58internal4Subs3addERKNS0_12NodeTemplateILb1EEES5_(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(8) %69)
+86:                                               ; preds = %.noexc20, %.thread.i
+  invoke void @_ZN4cvc58internal4Subs3addERKNS0_12NodeTemplateILb1EEES5_(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(8) %68)
           to label %.noexc21 unwind label %.loopexit
 
-.noexc21:                                         ; preds = %87, %.noexc20
-  %88 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.012.017.i) #27
-  %.not.i18 = icmp eq ptr %88, %20
+.noexc21:                                         ; preds = %86, %.noexc20
+  %87 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.012.017.i) #27
+  %.not.i18 = icmp eq ptr %87, %20
   br i1 %.not.i18, label %_ZN4cvc58internal6theory5arith11TheoryArith18finalizeModelCacheEv.exit, label %.noexc.i
 
-_ZN4cvc58internal6theory5arith11TheoryArith18finalizeModelCacheEv.exit: ; preds = %.noexc21, %66, %50
-  %89 = load ptr, ptr %37, align 8, !tbaa !228
-  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %89)
-          to label %_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %90
+_ZN4cvc58internal6theory5arith11TheoryArith18finalizeModelCacheEv.exit: ; preds = %.noexc21, %65, %50
+  %88 = load ptr, ptr %37, align 8, !tbaa !228
+  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %88)
+          to label %_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %89
 
-90:                                               ; preds = %_ZN4cvc58internal6theory5arith11TheoryArith18finalizeModelCacheEv.exit
-  %91 = landingpad { ptr, i32 }
+89:                                               ; preds = %_ZN4cvc58internal6theory5arith11TheoryArith18finalizeModelCacheEv.exit
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %92 = extractvalue { ptr, i32 } %91, 0
-  call void @__clang_call_terminate(ptr %92) #25
+  %91 = extractvalue { ptr, i32 } %90, 0
+  call void @__clang_call_terminate(ptr %91) #25
   unreachable
 
 _ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %_ZN4cvc58internal6theory5arith11TheoryArith18finalizeModelCacheEv.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #23
-  br label %93
+  br label %92
 
-93:                                               ; preds = %11, %_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev.exit, %8
+92:                                               ; preds = %11, %_ZNSt3setIN4cvc58internal12NodeTemplateILb1EEESt4lessIS3_ESaIS3_EED2Ev.exit, %8
   ret void
 }
 

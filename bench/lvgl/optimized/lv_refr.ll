@@ -1894,8 +1894,8 @@ define internal fastcc void @draw_buf_flush(ptr noundef %0) unnamed_addr #1 {
   %4 = load ptr, ptr %3, align 8, !tbaa !123
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !130
-  %.not26 = icmp eq ptr %6, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %.not25 = icmp eq ptr %6, null
+  br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   tail call void @lv_draw_dispatch_wait_for_request() #9
@@ -1947,14 +1947,14 @@ wait_for_flushing.exit:                           ; preds = %.preheader.i, %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = load volatile i8, ptr %24, align 8
   %26 = and i8 %25, 1
-  %.not21 = icmp eq i8 %26, 0
-  br i1 %.not21, label %30, label %27
+  %.not22 = icmp eq i8 %26, 0
+  br i1 %.not22, label %30, label %27
 
 27:                                               ; preds = %22
   %28 = load volatile i8, ptr %24, align 8
   %29 = and i8 %28, 2
-  %.not22 = icmp eq i8 %29, 0
-  br i1 %.not22, label %30, label %31
+  %.not23 = icmp eq i8 %29, 0
+  br i1 %.not23, label %30, label %31
 
 30:                                               ; preds = %27, %22
   br label %31
@@ -1965,77 +1965,77 @@ wait_for_flushing.exit:                           ; preds = %.preheader.i, %18
   store volatile i32 %.sink, ptr %32, align 4, !tbaa !66
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %34 = load volatile i32, ptr %33, align 4, !tbaa !66
-  %.not23 = icmp ne i32 %34, 0
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %36 = load ptr, ptr %35, align 8, !tbaa !137
-  %.not24 = icmp eq ptr %36, null
-  br i1 %.not24, label %63, label %37
+  %35 = icmp ne i32 %34, 0
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %37 = load ptr, ptr %36, align 8, !tbaa !137
+  %.not24 = icmp eq ptr %37, null
+  br i1 %.not24, label %64, label %38
 
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %39 = load ptr, ptr %4, align 8, !tbaa !124
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !47
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 916
+  %40 = load ptr, ptr %4, align 8, !tbaa !124
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
-  %42 = load i32, ptr %38, align 4, !tbaa !56
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = load i32, ptr %43, align 8, !tbaa !138
-  %45 = add nsw i32 %44, %42
-  store i32 %45, ptr %2, align 4, !tbaa !56
-  %46 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %48 = load i32, ptr %47, align 4, !tbaa !57
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %50 = load i32, ptr %49, align 4, !tbaa !139
-  %51 = add nsw i32 %50, %48
-  store i32 %51, ptr %46, align 4, !tbaa !57
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 924
-  %54 = load i32, ptr %53, align 4, !tbaa !58
-  %55 = add nsw i32 %54, %44
-  store i32 %55, ptr %52, align 4, !tbaa !58
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %58 = load i32, ptr %57, align 4, !tbaa !59
-  %59 = add nsw i32 %58, %50
-  store i32 %59, ptr %56, align 4, !tbaa !59
-  %60 = call i32 @lv_display_send_event(ptr noundef nonnull %0, i32 noundef 61, ptr noundef nonnull %2) #9
-  %61 = load ptr, ptr %35, align 8, !tbaa !137
-  call void %61(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %41) #9
-  %62 = call i32 @lv_display_send_event(ptr noundef nonnull %0, i32 noundef 62, ptr noundef nonnull %2) #9
+  %43 = load i32, ptr %39, align 4, !tbaa !56
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %45 = load i32, ptr %44, align 8, !tbaa !138
+  %46 = add nsw i32 %45, %43
+  store i32 %46, ptr %2, align 4, !tbaa !56
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %49 = load i32, ptr %48, align 4, !tbaa !57
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %51 = load i32, ptr %50, align 4, !tbaa !139
+  %52 = add nsw i32 %51, %49
+  store i32 %52, ptr %47, align 4, !tbaa !57
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 924
+  %55 = load i32, ptr %54, align 4, !tbaa !58
+  %56 = add nsw i32 %55, %45
+  store i32 %56, ptr %53, align 4, !tbaa !58
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %59 = load i32, ptr %58, align 4, !tbaa !59
+  %60 = add nsw i32 %59, %51
+  store i32 %60, ptr %57, align 4, !tbaa !59
+  %61 = call i32 @lv_display_send_event(ptr noundef nonnull %0, i32 noundef 61, ptr noundef nonnull %2) #9
+  %62 = load ptr, ptr %36, align 8, !tbaa !137
+  call void %62(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %42) #9
+  %63 = call i32 @lv_display_send_event(ptr noundef nonnull %0, i32 noundef 62, ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
-  br label %63
+  br label %64
 
-63:                                               ; preds = %37, %31
-  %64 = call zeroext i1 @lv_display_is_double_buffered(ptr noundef nonnull %0) #9
-  br i1 %64, label %65, label %77
+64:                                               ; preds = %38, %31
+  %65 = call zeroext i1 @lv_display_is_double_buffered(ptr noundef nonnull %0) #9
+  br i1 %65, label %66, label %79
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %67 = load i32, ptr %66, align 4, !tbaa !62
-  %.not25 = icmp ne i32 %67, 1
-  %brmerge = select i1 %.not25, i1 true, i1 %.not23
-  br i1 %brmerge, label %68, label %77
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %68 = load i32, ptr %67, align 4, !tbaa !62
+  %69 = icmp ne i32 %68, 1
+  %or.cond = select i1 %69, i1 true, i1 %35
+  br i1 %or.cond, label %70, label %79
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %70 = load ptr, ptr %69, align 8, !tbaa !46
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %72 = load ptr, ptr %71, align 8, !tbaa !67
-  %73 = icmp eq ptr %70, %72
-  br i1 %73, label %74, label %.sink.split
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %72 = load ptr, ptr %71, align 8, !tbaa !46
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %74 = load ptr, ptr %73, align 8, !tbaa !67
+  %75 = icmp eq ptr %72, %74
+  br i1 %75, label %76, label %.sink.split
 
-74:                                               ; preds = %68
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %76 = load ptr, ptr %75, align 8, !tbaa !68
+76:                                               ; preds = %70
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %78 = load ptr, ptr %77, align 8, !tbaa !68
   br label %.sink.split
 
-.sink.split:                                      ; preds = %68, %74
-  %.sink28 = phi ptr [ %76, %74 ], [ %72, %68 ]
-  store ptr %.sink28, ptr %69, align 8, !tbaa !46
-  br label %77
+.sink.split:                                      ; preds = %70, %76
+  %.sink27 = phi ptr [ %78, %76 ], [ %74, %70 ]
+  store ptr %.sink27, ptr %71, align 8, !tbaa !46
+  br label %79
 
-77:                                               ; preds = %.sink.split, %65, %63
+79:                                               ; preds = %.sink.split, %66, %64
   ret void
 }
 

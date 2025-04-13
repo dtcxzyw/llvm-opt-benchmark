@@ -30110,19 +30110,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %33 = zext i8 %30 to i32
   %34 = icmp sgt i8 %30, -1
   %35 = select i1 %32, i1 %34, i1 false
-  br i1 %35, label %36, label %.critedge.i.i
+  %36 = xor i32 %33, %31
+  %37 = and i32 %36, 223
+  %38 = icmp ne i32 %37, 0
+  %39 = icmp ugt i8 %28, 63
+  %40 = icmp ugt i8 %30, 63
+  %or.cond.i.i = select i1 %35, i1 %38, i1 false
+  %41 = select i1 %or.cond.i.i, i1 %39, i1 false
+  %or.cond3.i.i = select i1 %41, i1 %40, i1 false
+  br i1 %or.cond3.i.i, label %42, label %.critedge.i.i
 
-36:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3.i
-  %37 = icmp samesign ult i8 %28, 64
-  %38 = icmp samesign ult i8 %30, 64
-  %39 = xor i32 %33, %31
-  %40 = and i32 %39, 95
-  %.not.i.i = icmp eq i32 %40, 0
-  %41 = select i1 %.not.i.i, i1 true, i1 %37
-  %brmerge.i.i = select i1 %41, i1 true, i1 %38
-  br i1 %brmerge.i.i, label %.critedge.i.i, label %42
-
-42:                                               ; preds = %36
+42:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3.i
   %43 = add nuw nsw i32 %31, 5
   %44 = and i32 %43, 31
   %45 = add nuw nsw i32 %33, 5
@@ -30130,7 +30128,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %47 = icmp samesign ult i32 %44, %46
   br i1 %47, label %49, label %64
 
-.critedge.i.i:                                    ; preds = %36, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3.i
+.critedge.i.i:                                    ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3.i
   %48 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThan9_LessImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS2_7TfTokenENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit unwind label %58
 
@@ -30244,19 +30242,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %28 = zext i8 %25 to i32
   %29 = icmp sgt i8 %25, -1
   %30 = select i1 %27, i1 %29, i1 false
-  br i1 %30, label %31, label %.critedge.i
+  %31 = xor i32 %28, %26
+  %32 = and i32 %31, 223
+  %33 = icmp ne i32 %32, 0
+  %34 = icmp ugt i8 %23, 63
+  %35 = icmp ugt i8 %25, 63
+  %or.cond.i = select i1 %30, i1 %33, i1 false
+  %36 = select i1 %or.cond.i, i1 %34, i1 false
+  %or.cond3.i = select i1 %36, i1 %35, i1 false
+  br i1 %or.cond3.i, label %37, label %.critedge.i
 
-31:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2
-  %32 = icmp samesign ult i8 %23, 64
-  %33 = icmp samesign ult i8 %25, 64
-  %34 = xor i32 %28, %26
-  %35 = and i32 %34, 95
-  %.not.i = icmp eq i32 %35, 0
-  %36 = select i1 %.not.i, i1 true, i1 %32
-  %brmerge.i = select i1 %36, i1 true, i1 %33
-  br i1 %brmerge.i, label %.critedge.i, label %37
-
-37:                                               ; preds = %31
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2
   %38 = add nuw nsw i32 %26, 5
   %39 = and i32 %38, 31
   %40 = add nuw nsw i32 %28, 5
@@ -30264,7 +30260,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %42 = icmp samesign ult i32 %39, %41
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
-.critedge.i:                                      ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2
+.critedge.i:                                      ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2
   %43 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThan9_LessImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %21)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
@@ -30510,19 +30506,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %28 = zext i8 %25 to i32
   %29 = icmp sgt i8 %25, -1
   %30 = select i1 %27, i1 %29, i1 false
-  br i1 %30, label %31, label %.critedge.i
+  %31 = xor i32 %28, %26
+  %32 = and i32 %31, 223
+  %33 = icmp ne i32 %32, 0
+  %34 = icmp ugt i8 %23, 63
+  %35 = icmp ugt i8 %25, 63
+  %or.cond.i = select i1 %30, i1 %33, i1 false
+  %36 = select i1 %or.cond.i, i1 %34, i1 false
+  %or.cond3.i = select i1 %36, i1 %35, i1 false
+  br i1 %or.cond3.i, label %37, label %.critedge.i
 
-31:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
-  %32 = icmp samesign ult i8 %23, 64
-  %33 = icmp samesign ult i8 %25, 64
-  %34 = xor i32 %28, %26
-  %35 = and i32 %34, 95
-  %.not.i = icmp eq i32 %35, 0
-  %36 = select i1 %.not.i, i1 true, i1 %32
-  %brmerge.i = select i1 %36, i1 true, i1 %33
-  br i1 %brmerge.i, label %.critedge.i, label %37
-
-37:                                               ; preds = %31
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
   %38 = add nuw nsw i32 %26, 5
   %39 = and i32 %38, 31
   %40 = add nuw nsw i32 %28, 5
@@ -30530,7 +30524,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %42 = icmp samesign ult i32 %39, %41
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
-.critedge.i:                                      ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
+.critedge.i:                                      ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
   %43 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThan9_LessImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %21)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
@@ -30662,19 +30656,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %31 = zext i8 %28 to i32
   %32 = icmp sgt i8 %28, -1
   %33 = select i1 %30, i1 %32, i1 false
-  br i1 %33, label %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
+  %34 = xor i32 %31, %29
+  %35 = and i32 %34, 223
+  %36 = icmp ne i32 %35, 0
+  %37 = icmp ugt i8 %26, 63
+  %38 = icmp ugt i8 %28, 63
+  %or.cond.i.i = select i1 %33, i1 %36, i1 false
+  %39 = select i1 %or.cond.i.i, i1 %37, i1 false
+  %or.cond3.i.i = select i1 %39, i1 %38, i1 false
+  br i1 %or.cond3.i.i, label %40, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit
 
-34:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
-  %35 = icmp samesign ult i8 %26, 64
-  %36 = icmp samesign ult i8 %28, 64
-  %37 = xor i32 %31, %29
-  %38 = and i32 %37, 95
-  %.not.i.i = icmp eq i32 %38, 0
-  %39 = select i1 %.not.i.i, i1 true, i1 %35
-  %brmerge.i.i = select i1 %39, i1 true, i1 %36
-  br i1 %brmerge.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, label %40
-
-40:                                               ; preds = %34
+40:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
   %41 = add nuw nsw i32 %29, 5
   %42 = and i32 %41, 31
   %43 = add nuw nsw i32 %31, 5
@@ -30682,7 +30674,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %45 = icmp samesign ult i32 %42, %44
   br i1 %45, label %47, label %.preheader
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i, %34
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i
   %46 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThan9_LessImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %24)
   br i1 %46, label %47, label %.preheader
 
@@ -30739,19 +30731,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %74 = zext i8 %71 to i32
   %75 = icmp sgt i8 %71, -1
   %76 = select i1 %73, i1 %75, i1 false
-  br i1 %76, label %77, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit16
+  %77 = xor i32 %74, %72
+  %78 = and i32 %77, 223
+  %79 = icmp ne i32 %78, 0
+  %80 = icmp ugt i8 %69, 63
+  %81 = icmp ugt i8 %71, 63
+  %or.cond.i.i12 = select i1 %76, i1 %79, i1 false
+  %82 = select i1 %or.cond.i.i12, i1 %80, i1 false
+  %or.cond3.i.i13 = select i1 %82, i1 %81, i1 false
+  br i1 %or.cond3.i.i13, label %83, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit16
 
-77:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i11
-  %78 = icmp samesign ult i8 %69, 64
-  %79 = icmp samesign ult i8 %71, 64
-  %80 = xor i32 %74, %72
-  %81 = and i32 %80, 95
-  %.not.i.i14 = icmp eq i32 %81, 0
-  %82 = select i1 %.not.i.i14, i1 true, i1 %78
-  %brmerge.i.i15 = select i1 %82, i1 true, i1 %79
-  br i1 %brmerge.i.i15, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit16, label %83
-
-83:                                               ; preds = %77
+83:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i11
   %84 = add nuw nsw i32 %72, 5
   %85 = and i32 %84, 31
   %86 = add nuw nsw i32 %74, 5
@@ -30762,7 +30752,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
 .backedge:                                        ; preds = %83, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit16
   br label %49, !llvm.loop !320
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit16: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i11, %77
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanEEclINS_17__normal_iteratorIPNS2_7TfTokenESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit16: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit2.i11
   %89 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThan9_LessImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %67)
   br i1 %89, label %.backedge, label %90
 
@@ -31012,19 +31002,17 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %28 = zext i8 %25 to i32
   %29 = icmp sgt i8 %25, -1
   %30 = select i1 %27, i1 %29, i1 false
-  br i1 %30, label %31, label %.critedge.i
+  %31 = xor i32 %28, %26
+  %32 = and i32 %31, 223
+  %33 = icmp ne i32 %32, 0
+  %34 = icmp ugt i8 %23, 63
+  %35 = icmp ugt i8 %25, 63
+  %or.cond.i = select i1 %30, i1 %33, i1 false
+  %36 = select i1 %or.cond.i, i1 %34, i1 false
+  %or.cond3.i = select i1 %36, i1 %35, i1 false
+  br i1 %or.cond3.i, label %37, label %.critedge.i
 
-31:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
-  %32 = icmp samesign ult i8 %23, 64
-  %33 = icmp samesign ult i8 %25, 64
-  %34 = xor i32 %28, %26
-  %35 = and i32 %34, 95
-  %.not.i = icmp eq i32 %35, 0
-  %36 = select i1 %.not.i, i1 true, i1 %32
-  %brmerge.i = select i1 %36, i1 true, i1 %33
-  br i1 %brmerge.i, label %.critedge.i, label %37
-
-37:                                               ; preds = %31
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
   %38 = add nuw nsw i32 %26, 5
   %39 = and i32 %38, 31
   %40 = add nuw nsw i32 %28, 5
@@ -31032,7 +31020,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %42 = icmp samesign ult i32 %39, %41
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
-.critedge.i:                                      ; preds = %31, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
+.critedge.i:                                      ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit3
   %43 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThan9_LessImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %21)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__20TfDictionaryLessThanclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 

@@ -68,113 +68,113 @@ _Z11do_per_stepll.exit.thread:                    ; preds = %_Z11do_per_stepll.e
   %32 = phi i32 [ 0, %22 ], [ %spec.select, %_Z11do_per_stepll.exit ]
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 60
   %34 = load i32, ptr %33, align 4, !tbaa !102
-  %.fr164 = freeze i32 %34
-  %.not.i103 = icmp eq i32 %.fr164, 0
-  br i1 %.not.i103, label %_Z11do_per_stepll.exit105.thread, label %_Z11do_per_stepll.exit105
+  %.fr166 = freeze i32 %34
+  %.not.i105 = icmp eq i32 %.fr166, 0
+  br i1 %.not.i105, label %_Z11do_per_stepll.exit107.thread, label %_Z11do_per_stepll.exit107
 
-_Z11do_per_stepll.exit105:                        ; preds = %_Z11do_per_stepll.exit.thread
-  %35 = sext i32 %.fr164 to i64
+_Z11do_per_stepll.exit107:                        ; preds = %_Z11do_per_stepll.exit.thread
+  %35 = sext i32 %.fr166 to i64
   %36 = srem i64 %4, %35
   %37 = icmp eq i64 %36, 0
   %38 = or disjoint i32 %32, 2
-  %spec.select155 = select i1 %37, i32 %38, i32 %32
-  br label %_Z11do_per_stepll.exit105.thread
+  %spec.select157 = select i1 %37, i32 %38, i32 %32
+  br label %_Z11do_per_stepll.exit107.thread
 
-_Z11do_per_stepll.exit105.thread:                 ; preds = %_Z11do_per_stepll.exit105, %_Z11do_per_stepll.exit.thread
-  %39 = phi i32 [ %32, %_Z11do_per_stepll.exit.thread ], [ %spec.select155, %_Z11do_per_stepll.exit105 ]
+_Z11do_per_stepll.exit107.thread:                 ; preds = %_Z11do_per_stepll.exit107, %_Z11do_per_stepll.exit.thread
+  %39 = phi i32 [ %32, %_Z11do_per_stepll.exit.thread ], [ %spec.select157, %_Z11do_per_stepll.exit107 ]
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %41 = load i32, ptr %40, align 8, !tbaa !103
-  %.fr167 = freeze i32 %41
-  %.not.i106 = icmp eq i32 %.fr167, 0
-  br i1 %.not.i106, label %_Z11do_per_stepll.exit108.thread, label %_Z11do_per_stepll.exit108
+  %.fr169 = freeze i32 %41
+  %.not.i108 = icmp eq i32 %.fr169, 0
+  br i1 %.not.i108, label %_Z11do_per_stepll.exit110.thread, label %_Z11do_per_stepll.exit110
 
-_Z11do_per_stepll.exit108:                        ; preds = %_Z11do_per_stepll.exit105.thread
-  %42 = sext i32 %.fr167 to i64
+_Z11do_per_stepll.exit110:                        ; preds = %_Z11do_per_stepll.exit107.thread
+  %42 = sext i32 %.fr169 to i64
   %43 = srem i64 %4, %42
   %44 = icmp eq i64 %43, 0
   %45 = or i32 %39, 4
-  %spec.select156 = select i1 %44, i32 %45, i32 %39
-  br label %_Z11do_per_stepll.exit108.thread
+  %spec.select158 = select i1 %44, i32 %45, i32 %39
+  br label %_Z11do_per_stepll.exit110.thread
 
-_Z11do_per_stepll.exit108.thread:                 ; preds = %_Z11do_per_stepll.exit108, %_Z11do_per_stepll.exit105.thread
-  %46 = phi i32 [ %39, %_Z11do_per_stepll.exit105.thread ], [ %spec.select156, %_Z11do_per_stepll.exit108 ]
+_Z11do_per_stepll.exit110.thread:                 ; preds = %_Z11do_per_stepll.exit110, %_Z11do_per_stepll.exit107.thread
+  %46 = phi i32 [ %39, %_Z11do_per_stepll.exit107.thread ], [ %spec.select158, %_Z11do_per_stepll.exit110 ]
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %48 = load i32, ptr %47, align 8, !tbaa !104
-  %.fr170 = freeze i32 %48
-  %.not.i109 = icmp eq i32 %.fr170, 0
-  br i1 %.not.i109, label %_Z11do_per_stepll.exit111.thread, label %_Z11do_per_stepll.exit111
+  %.fr172 = freeze i32 %48
+  %.not.i111 = icmp eq i32 %.fr172, 0
+  br i1 %.not.i111, label %_Z11do_per_stepll.exit113.thread, label %_Z11do_per_stepll.exit113
 
-_Z11do_per_stepll.exit111:                        ; preds = %_Z11do_per_stepll.exit108.thread
-  %49 = sext i32 %.fr170 to i64
+_Z11do_per_stepll.exit113:                        ; preds = %_Z11do_per_stepll.exit110.thread
+  %49 = sext i32 %.fr172 to i64
   %50 = srem i64 %4, %49
   %51 = icmp eq i64 %50, 0
   %52 = or i32 %46, 8
-  %spec.select157 = select i1 %51, i32 %52, i32 %46
-  br label %_Z11do_per_stepll.exit111.thread
+  %spec.select159 = select i1 %51, i32 %52, i32 %46
+  br label %_Z11do_per_stepll.exit113.thread
 
-_Z11do_per_stepll.exit111.thread:                 ; preds = %_Z11do_per_stepll.exit111, %_Z11do_per_stepll.exit108.thread
-  %53 = phi i32 [ %46, %_Z11do_per_stepll.exit108.thread ], [ %spec.select157, %_Z11do_per_stepll.exit111 ]
+_Z11do_per_stepll.exit113.thread:                 ; preds = %_Z11do_per_stepll.exit113, %_Z11do_per_stepll.exit110.thread
+  %53 = phi i32 [ %46, %_Z11do_per_stepll.exit110.thread ], [ %spec.select159, %_Z11do_per_stepll.exit113 ]
   %54 = or i32 %53, 16
   %.4 = select i1 %17, i32 %54, i32 %53
   %55 = tail call noundef i32 @_Z34mdoutf_get_tng_box_output_intervalP10gmx_mdoutf(ptr noundef %13)
-  %.not.i112 = icmp eq i32 %55, 0
-  br i1 %.not.i112, label %_Z11do_per_stepll.exit114.thread, label %_Z11do_per_stepll.exit114
+  %.not.i114 = icmp eq i32 %55, 0
+  br i1 %.not.i114, label %_Z11do_per_stepll.exit116.thread, label %_Z11do_per_stepll.exit116
 
-_Z11do_per_stepll.exit114:                        ; preds = %_Z11do_per_stepll.exit111.thread
+_Z11do_per_stepll.exit116:                        ; preds = %_Z11do_per_stepll.exit113.thread
   %56 = sext i32 %55 to i64
   %57 = srem i64 %4, %56
   %58 = icmp eq i64 %57, 0
   %59 = or i32 %.4, 64
-  %spec.select158 = select i1 %58, i32 %59, i32 %.4
-  br label %_Z11do_per_stepll.exit114.thread
+  %spec.select160 = select i1 %58, i32 %59, i32 %.4
+  br label %_Z11do_per_stepll.exit116.thread
 
-_Z11do_per_stepll.exit114.thread:                 ; preds = %_Z11do_per_stepll.exit114, %_Z11do_per_stepll.exit111.thread
-  %60 = phi i32 [ %.4, %_Z11do_per_stepll.exit111.thread ], [ %spec.select158, %_Z11do_per_stepll.exit114 ]
+_Z11do_per_stepll.exit116.thread:                 ; preds = %_Z11do_per_stepll.exit116, %_Z11do_per_stepll.exit113.thread
+  %60 = phi i32 [ %.4, %_Z11do_per_stepll.exit113.thread ], [ %spec.select160, %_Z11do_per_stepll.exit116 ]
   %61 = tail call noundef i32 @_Z37mdoutf_get_tng_lambda_output_intervalP10gmx_mdoutf(ptr noundef %13)
-  %.not.i115 = icmp eq i32 %61, 0
-  br i1 %.not.i115, label %_Z11do_per_stepll.exit117.thread, label %_Z11do_per_stepll.exit117
+  %.not.i117 = icmp eq i32 %61, 0
+  br i1 %.not.i117, label %_Z11do_per_stepll.exit119.thread, label %_Z11do_per_stepll.exit119
 
-_Z11do_per_stepll.exit117:                        ; preds = %_Z11do_per_stepll.exit114.thread
+_Z11do_per_stepll.exit119:                        ; preds = %_Z11do_per_stepll.exit116.thread
   %62 = sext i32 %61 to i64
   %63 = srem i64 %4, %62
   %64 = icmp eq i64 %63, 0
   %65 = or i32 %60, 128
-  %spec.select159 = select i1 %64, i32 %65, i32 %60
-  br label %_Z11do_per_stepll.exit117.thread
+  %spec.select161 = select i1 %64, i32 %65, i32 %60
+  br label %_Z11do_per_stepll.exit119.thread
 
-_Z11do_per_stepll.exit117.thread:                 ; preds = %_Z11do_per_stepll.exit117, %_Z11do_per_stepll.exit114.thread
-  %66 = phi i32 [ %60, %_Z11do_per_stepll.exit114.thread ], [ %spec.select159, %_Z11do_per_stepll.exit117 ]
+_Z11do_per_stepll.exit119.thread:                 ; preds = %_Z11do_per_stepll.exit119, %_Z11do_per_stepll.exit116.thread
+  %66 = phi i32 [ %60, %_Z11do_per_stepll.exit116.thread ], [ %spec.select161, %_Z11do_per_stepll.exit119 ]
   %67 = tail call noundef i32 @_Z45mdoutf_get_tng_compressed_box_output_intervalP10gmx_mdoutf(ptr noundef %13)
-  %.not.i118 = icmp eq i32 %67, 0
-  br i1 %.not.i118, label %_Z11do_per_stepll.exit120.thread, label %_Z11do_per_stepll.exit120
+  %.not.i120 = icmp eq i32 %67, 0
+  br i1 %.not.i120, label %_Z11do_per_stepll.exit122.thread, label %_Z11do_per_stepll.exit122
 
-_Z11do_per_stepll.exit120:                        ; preds = %_Z11do_per_stepll.exit117.thread
+_Z11do_per_stepll.exit122:                        ; preds = %_Z11do_per_stepll.exit119.thread
   %68 = sext i32 %67 to i64
   %69 = srem i64 %4, %68
   %70 = icmp eq i64 %69, 0
   %71 = or i32 %66, 256
-  %spec.select160 = select i1 %70, i32 %71, i32 %66
-  br label %_Z11do_per_stepll.exit120.thread
+  %spec.select162 = select i1 %70, i32 %71, i32 %66
+  br label %_Z11do_per_stepll.exit122.thread
 
-_Z11do_per_stepll.exit120.thread:                 ; preds = %_Z11do_per_stepll.exit120, %_Z11do_per_stepll.exit117.thread
-  %72 = phi i32 [ %66, %_Z11do_per_stepll.exit117.thread ], [ %spec.select160, %_Z11do_per_stepll.exit120 ]
+_Z11do_per_stepll.exit122.thread:                 ; preds = %_Z11do_per_stepll.exit122, %_Z11do_per_stepll.exit119.thread
+  %72 = phi i32 [ %66, %_Z11do_per_stepll.exit119.thread ], [ %spec.select162, %_Z11do_per_stepll.exit122 ]
   %73 = tail call noundef i32 @_Z48mdoutf_get_tng_compressed_lambda_output_intervalP10gmx_mdoutf(ptr noundef %13)
-  %.not.i121 = icmp eq i32 %73, 0
-  br i1 %.not.i121, label %_Z11do_per_stepll.exit123.thread, label %_Z11do_per_stepll.exit123
+  %.not.i123 = icmp eq i32 %73, 0
+  br i1 %.not.i123, label %_Z11do_per_stepll.exit125.thread, label %_Z11do_per_stepll.exit125
 
-_Z11do_per_stepll.exit123:                        ; preds = %_Z11do_per_stepll.exit120.thread
+_Z11do_per_stepll.exit125:                        ; preds = %_Z11do_per_stepll.exit122.thread
   %74 = sext i32 %73 to i64
   %75 = srem i64 %4, %74
   %76 = icmp eq i64 %75, 0
   %77 = or i32 %72, 512
-  br i1 %76, label %.thread, label %_Z11do_per_stepll.exit123.thread
+  br i1 %76, label %.thread, label %_Z11do_per_stepll.exit125.thread
 
-_Z11do_per_stepll.exit123.thread:                 ; preds = %_Z11do_per_stepll.exit120.thread, %_Z11do_per_stepll.exit123
+_Z11do_per_stepll.exit125.thread:                 ; preds = %_Z11do_per_stepll.exit122.thread, %_Z11do_per_stepll.exit125
   %.not = icmp eq i32 %72, 0
   br i1 %.not, label %289, label %.thread
 
-.thread:                                          ; preds = %_Z11do_per_stepll.exit123, %_Z11do_per_stepll.exit123.thread
-  %78 = phi i32 [ %72, %_Z11do_per_stepll.exit123.thread ], [ %77, %_Z11do_per_stepll.exit123 ]
+.thread:                                          ; preds = %_Z11do_per_stepll.exit125, %_Z11do_per_stepll.exit125.thread
+  %78 = phi i32 [ %72, %_Z11do_per_stepll.exit125.thread ], [ %77, %_Z11do_per_stepll.exit125 ]
   %79 = tail call noundef ptr @_Z17mdoutf_get_wcycleP10gmx_mdoutf(ptr noundef %13)
   %80 = icmp eq ptr %79, null
   br i1 %80, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %81
@@ -307,8 +307,8 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %.thread, 
   %160 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %161 = load i64, ptr %160, align 8, !tbaa !244
   %162 = icmp eq i64 %5, %161
-  %brmerge.not = and i1 %20, %162
-  br i1 %brmerge.not, label %163, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
+  %or.cond = and i1 %20, %162
+  br i1 %or.cond, label %163, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
 
 163:                                              ; preds = %159
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -320,8 +320,8 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %.thread, 
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %169 = load i32, ptr %168, align 8, !tbaa !150
   %170 = icmp sgt i32 %169, 1
-  %brmerge101 = or i1 %18, %170
-  br i1 %brmerge101, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit, label %172
+  %or.cond3 = or i1 %18, %170
+  br i1 %or.cond3, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit, label %172
 
 171:                                              ; preds = %163
   br i1 %18, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit, label %172
@@ -330,19 +330,19 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %.thread, 
   %173 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %174 = load i8, ptr %173, align 4, !tbaa !245, !range !339, !noundef !340
   %175 = trunc nuw i8 %174 to i1
-  br i1 %175, label %176, label %.thread153
+  br i1 %175, label %176, label %.thread155
 
 176:                                              ; preds = %172
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 180
   %178 = load i8, ptr %177, align 4, !tbaa !341, !range !339, !noundef !340
   %179 = trunc nuw i8 %178 to i1
-  br i1 %179, label %.thread153, label %180
+  br i1 %179, label %.thread155, label %180
 
 180:                                              ; preds = %176
   %181 = invoke noundef zeroext i1 @_Z21ir_haveBoxDeformationRK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(880) %7)
           to label %186 unwind label %208
 
-.thread153:                                       ; preds = %172, %176
+.thread155:                                       ; preds = %172, %176
   %182 = getelementptr inbounds nuw i8, ptr %9, i64 416
   %183 = load ptr, ptr %182, align 8, !tbaa !342
   %184 = load ptr, ptr @stderr, align 8, !tbaa !343
@@ -351,8 +351,8 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %.thread, 
 
 186:                                              ; preds = %180
   %187 = icmp ne ptr %8, %9
-  %or.cond.not = or i1 %187, %181
-  br i1 %or.cond.not, label %210, label %188
+  %or.cond103.not = or i1 %187, %181
+  br i1 %or.cond103.not, label %210, label %188
 
 188:                                              ; preds = %186
   %189 = load i32, ptr %9, align 8, !tbaa !345
@@ -412,17 +412,17 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit:                ; preds = %.lr.ph.i, %192
   br label %217
 
 217:                                              ; preds = %_ZL10copy_rvecnPA3_KfPA3_fii.exit, %210
-  %.0151 = phi ptr [ %212, %210 ], [ %191, %_ZL10copy_rvecnPA3_KfPA3_fii.exit ]
-  %or.cond147150 = xor i1 %or.cond.not, true
+  %.0153 = phi ptr [ %212, %210 ], [ %191, %_ZL10copy_rvecnPA3_KfPA3_fii.exit ]
+  %or.cond103149152 = xor i1 %or.cond103.not, true
   %218 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %219 = load i32, ptr %218, align 8, !tbaa !349
   %220 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  invoke void @_Z11do_pbc_mtop7PbcTypePA3_KfPK10gmx_mtop_tPA3_f(i32 noundef %219, ptr noundef nonnull %220, ptr noundef nonnull %11, ptr noundef %.0151)
+  invoke void @_Z11do_pbc_mtop7PbcTypePA3_KfPK10gmx_mtop_tPA3_f(i32 noundef %219, ptr noundef nonnull %220, ptr noundef nonnull %11, ptr noundef %.0153)
           to label %221 unwind label %208
 
-221:                                              ; preds = %.thread153, %210, %217
-  %.0152 = phi ptr [ %212, %210 ], [ %.0151, %217 ], [ %183, %.thread153 ]
-  %or.cond147149 = phi i1 [ false, %210 ], [ %or.cond147150, %217 ], [ false, %.thread153 ]
+221:                                              ; preds = %.thread155, %210, %217
+  %.0154 = phi ptr [ %212, %210 ], [ %.0153, %217 ], [ %183, %.thread155 ]
+  %or.cond103149151 = phi i1 [ false, %210 ], [ %or.cond103149152, %217 ], [ false, %.thread155 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #14
   %222 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 10, i32 noundef %2, ptr noundef %3)
@@ -441,17 +441,17 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit:                ; preds = %.lr.ph.i, %192
   %229 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %230 = load i32, ptr %229, align 8, !tbaa !349
   %231 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  invoke void @_Z19write_sto_conf_mtopRKNSt10filesystem7__cxx114pathEPKcRK10gmx_mtop_tPA3_KfSB_7PbcTypeSB_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef %226, ptr noundef nonnull align 8 dereferenceable(768) %11, ptr noundef %.0152, ptr noundef %228, i32 noundef %230, ptr noundef nonnull %231)
+  invoke void @_Z19write_sto_conf_mtopRKNSt10filesystem7__cxx114pathEPKcRK10gmx_mtop_tPA3_KfSB_7PbcTypeSB_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef %226, ptr noundef nonnull align 8 dereferenceable(768) %11, ptr noundef %.0154, ptr noundef %228, i32 noundef %230, ptr noundef nonnull %231)
           to label %232 unwind label %236
 
 232:                                              ; preds = %224
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %25) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #14
-  br i1 %or.cond147149, label %233, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
+  br i1 %or.cond103149151, label %233, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
 
 233:                                              ; preds = %232
-  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 200, ptr noundef %.0152)
+  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 200, ptr noundef %.0154)
           to label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit unwind label %208
 
 234:                                              ; preds = %223, %221
@@ -471,7 +471,7 @@ _ZL10copy_rvecnPA3_KfPA3_fii.exit:                ; preds = %.lr.ph.i, %192
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #14
   br label %288
 
-_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %233, %232, %167, %159, %171, %158
+_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %233, %232, %171, %167, %159, %158
   %239 = invoke noundef ptr @_Z17mdoutf_get_wcycleP10gmx_mdoutf(ptr noundef %13)
           to label %240 unwind label %206
 
@@ -494,8 +494,8 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %233, %232, %167, %1
   %250 = getelementptr inbounds nuw i8, ptr %239, i64 1128
   %251 = getelementptr inbounds nuw i8, ptr %239, i64 1144
   %252 = load i64, ptr %251, align 8, !tbaa !106
-  %.not.i124 = icmp ult i64 %249, %252
-  br i1 %.not.i124, label %255, label %253
+  %.not.i126 = icmp ult i64 %249, %252
+  br i1 %.not.i126, label %255, label %253
 
 253:                                              ; preds = %.noexc
   %254 = sub nuw i64 %249, %252
@@ -507,10 +507,10 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %233, %232, %167, %1
   br label %257
 
 257:                                              ; preds = %255, %253
-  %.0.i125 = phi i64 [ %254, %253 ], [ 0, %255 ]
+  %.0.i127 = phi i64 [ %254, %253 ], [ 0, %255 ]
   %258 = getelementptr inbounds nuw i8, ptr %239, i64 1136
   %259 = load i64, ptr %258, align 8, !tbaa !131
-  %260 = add i64 %259, %.0.i125
+  %260 = add i64 %259, %.0.i127
   store i64 %260, ptr %258, align 8, !tbaa !131
   %261 = load i32, ptr %250, align 8, !tbaa !129
   %262 = add nsw i32 %261, 1
@@ -569,12 +569,12 @@ _ZN3gmx25WriteCheckpointDataHolderD2Ev.exit:      ; preds = %_ZNSt6vectorIN3gmx2
   br label %289
 
 288:                                              ; preds = %208, %238, %206
-  %.pn97 = phi { ptr, i32 } [ %207, %206 ], [ %209, %208 ], [ %.pn, %238 ]
+  %.pn101 = phi { ptr, i32 } [ %207, %206 ], [ %209, %208 ], [ %.pn, %238 ]
   call void @_ZN3gmx25WriteCheckpointDataHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %23) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %23) #14
-  resume { ptr, i32 } %.pn97
+  resume { ptr, i32 } %.pn101
 
-289:                                              ; preds = %_ZN3gmx25WriteCheckpointDataHolderD2Ev.exit, %_Z11do_per_stepll.exit123.thread
+289:                                              ; preds = %_ZN3gmx25WriteCheckpointDataHolderD2Ev.exit, %_Z11do_per_stepll.exit125.thread
   ret void
 }
 

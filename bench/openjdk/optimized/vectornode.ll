@@ -13183,14 +13183,14 @@ define hidden noundef ptr @_ZN15VectorUnboxNode5IdealEP8PhaseGVNb(ptr noundef no
   %8 = tail call noundef ptr @_ZNK4Node6uncastEb(ptr noundef nonnull align 8 dereferenceable(52) %7, i1 noundef zeroext false) #8
   %9 = load i8, ptr @EnableVectorReboxing, align 1
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %93
+  br i1 %10, label %11, label %92
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %8, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(52) %8) #8
   %15 = icmp eq i32 %14, 468
-  br i1 %15, label %16, label %93
+  br i1 %15, label %16, label %92
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %0, align 8
@@ -13206,7 +13206,7 @@ define hidden noundef ptr @_ZN15VectorUnboxNode5IdealEP8PhaseGVNb(ptr noundef no
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(52) %24) #8
   %29 = tail call noundef zeroext i1 @_ZN4Type6equalsEPKS_S1_(ptr noundef %20, ptr noundef %28) #8
-  br i1 %29, label %93, label %30
+  br i1 %29, label %92, label %30
 
 30:                                               ; preds = %16
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -13224,7 +13224,7 @@ define hidden noundef ptr @_ZN15VectorUnboxNode5IdealEP8PhaseGVNb(ptr noundef no
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %42, %44
-  br i1 %45, label %46, label %93
+  br i1 %45, label %46, label %92
 
 46:                                               ; preds = %30
   %47 = load ptr, ptr %21, align 8
@@ -13275,32 +13275,31 @@ define hidden noundef ptr @_ZN15VectorUnboxNode5IdealEP8PhaseGVNb(ptr noundef no
 _ZN4NodenwEm.exit:                                ; preds = %78, %80
   %.0.i.i.i = phi ptr [ %74, %78 ], [ %81, %80 ]
   %82 = icmp eq ptr %.0.i.i.i, null
-  br i1 %82, label %93, label %83
+  br i1 %82, label %92, label %83
 
 83:                                               ; preds = %_ZN4NodenwEm.exit
   tail call void @_ZN18VectorMaskCastNodeC2EP4NodePK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, ptr noundef %49, ptr noundef %63)
-  br label %93
+  br label %92
 
 84:                                               ; preds = %46
-  br i1 %53, label %85, label %93
+  %.not = xor i1 %53, true
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %86 = load i8, ptr %85, align 8
+  %87 = trunc i8 %86 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %87
+  br i1 %or.cond, label %92, label %88
 
-85:                                               ; preds = %84
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %87 = load i8, ptr %86, align 8
-  %88 = trunc i8 %87 to i1
-  br i1 %88, label %93, label %89
+88:                                               ; preds = %84
+  %89 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %92, label %91
 
-89:                                               ; preds = %85
-  %90 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #8
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %93, label %92
+91:                                               ; preds = %88
+  tail call void @_ZN21VectorLoadShuffleNodeC2EP4NodePK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef %49, ptr noundef nonnull %40)
+  br label %92
 
-92:                                               ; preds = %89
-  tail call void @_ZN21VectorLoadShuffleNodeC2EP4NodePK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %90, ptr noundef %49, ptr noundef nonnull %40)
-  br label %93
-
-93:                                               ; preds = %3, %11, %85, %84, %30, %16, %89, %92, %_ZN4NodenwEm.exit, %83
-  %.0 = phi ptr [ %.0.i.i.i, %83 ], [ null, %_ZN4NodenwEm.exit ], [ %90, %92 ], [ null, %89 ], [ null, %16 ], [ null, %30 ], [ null, %84 ], [ null, %85 ], [ null, %11 ], [ null, %3 ]
+92:                                               ; preds = %3, %11, %84, %30, %16, %88, %91, %_ZN4NodenwEm.exit, %83
+  %.0 = phi ptr [ %.0.i.i.i, %83 ], [ null, %_ZN4NodenwEm.exit ], [ %89, %91 ], [ null, %88 ], [ null, %16 ], [ null, %30 ], [ null, %84 ], [ null, %11 ], [ null, %3 ]
   ret ptr %.0
 }
 

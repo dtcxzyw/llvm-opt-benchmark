@@ -3092,8 +3092,8 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %9 = load i32, ptr %8, align 8, !tbaa !54
   %10 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprGroupEE5valueE, align 4, !tbaa !4
   %11 = icmp ne i32 %9, %10
-  %.not161 = icmp eq ptr %1, null
-  %.not = or i1 %.not161, %11
+  %.not162 = icmp eq ptr %1, null
+  %.not = or i1 %.not162, %11
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %2
@@ -3109,27 +3109,27 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %20 = icmp eq i32 %9, %19
   %21 = load i32, ptr @_ZN4Luau7AstRttiINS_19AstExprConstantBoolEE5valueE, align 4
   %22 = icmp eq i32 %9, %21
-  %or.cond = select i1 %20, i1 true, i1 %22
+  %or.cond157 = select i1 %20, i1 true, i1 %22
   %23 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantNumberEE5valueE, align 4
   %24 = icmp eq i32 %9, %23
-  %or.cond158 = select i1 %or.cond, i1 true, i1 %24
+  %or.cond159 = select i1 %or.cond157, i1 true, i1 %24
   %25 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantStringEE5valueE, align 4
   %26 = icmp eq i32 %9, %25
-  %or.cond160 = select i1 %or.cond158, i1 true, i1 %26
-  br i1 %or.cond160, label %276, label %27
+  %or.cond161 = select i1 %or.cond159, i1 true, i1 %26
+  br i1 %or.cond161, label %276, label %27
 
 27:                                               ; preds = %18
   %28 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprLocalEE5valueE, align 4, !tbaa !4
   %29 = icmp ne i32 %9, %28
-  %.not79 = or i1 %.not161, %29
-  br i1 %.not79, label %36, label %30
+  %.not80 = or i1 %.not162, %29
+  br i1 %.not80, label %36, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = tail call noundef ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalEmNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
-  %.not93 = icmp eq ptr %33, null
-  br i1 %.not93, label %276, label %34
+  %.not94 = icmp eq ptr %33, null
+  br i1 %.not94, label %276, label %34
 
 34:                                               ; preds = %30
   %35 = load i64, ptr %33, align 8, !tbaa !13
@@ -3151,23 +3151,23 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %44 = icmp eq i32 %9, %43
   %..i96 = select i1 %44, ptr %1, ptr null
   store ptr %..i96, ptr %3, align 8, !tbaa !104
-  %.not80 = icmp eq ptr %..i96, null
-  br i1 %.not80, label %100, label %45
+  %.not81 = icmp eq ptr %..i96, null
+  br i1 %.not81, label %100, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !106
   %48 = call noundef ptr @_ZNK4Luau12DenseHashMapIPNS_11AstExprCallEiNS_16DenseHashPointerESt8equal_toIS2_EE4findERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not92 = icmp eq ptr %48, null
+  %.not93 = icmp eq ptr %48, null
   %49 = load ptr, ptr %3, align 8, !tbaa !104
-  br i1 %.not92, label %.thread, label %50
+  br i1 %.not93, label %.thread, label %50
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %52 = load i64, ptr %51, align 8, !tbaa !107
-  %.fr186 = freeze i64 %52
-  %.not185 = icmp eq i64 %.fr186, 0
-  br i1 %.not185, label %.loopexit, label %.lr.ph
+  %.fr187 = freeze i64 %52
+  %.not186 = icmp eq i64 %.fr187, 0
+  br i1 %.not186, label %.loopexit, label %.lr.ph
 
 .thread:                                          ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -3182,36 +3182,36 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %62 = or i64 %61, %59
   %.pre = load ptr, ptr %3, align 8, !tbaa !104
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %.pre195 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !107
-  %.not185198 = icmp eq i64 %.pre195, 0
-  br i1 %.not185198, label %.loopexit, label %.lr.ph.split.preheader
+  %.pre196 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !107
+  %.not186199 = icmp eq i64 %.pre196, 0
+  br i1 %.not186199, label %.loopexit, label %.lr.ph.split.preheader
 
 .lr.ph:                                           ; preds = %50
-  %63 = icmp ult i64 %.fr186, 3
+  %63 = icmp ult i64 %.fr187, 3
   br i1 %63, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.thread, %.lr.ph
   %.ph = phi ptr [ %.pre, %.thread ], [ %49, %.lr.ph ]
-  %.sroa.0149.2174.ph = phi i64 [ %62, %.thread ], [ 2, %.lr.ph ]
+  %.sroa.0149.2175.ph = phi i64 [ %62, %.thread ], [ 2, %.lr.ph ]
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %64 = phi ptr [ %78, %.lr.ph.split.us ], [ %49, %.lr.ph ]
-  %.0175.us = phi i64 [ %77, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.sroa.0149.2174.us = phi i64 [ %76, %.lr.ph.split.us ], [ 2, %.lr.ph ]
+  %.0176.us = phi i64 [ %77, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.sroa.0149.2175.us = phi i64 [ %76, %.lr.ph.split.us ], [ 2, %.lr.ph ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load ptr, ptr %65, align 8, !tbaa !110
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.0175.us
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.0176.us
   %68 = load ptr, ptr %67, align 8, !tbaa !69
   %69 = call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %68)
   %70 = extractvalue { i64, i64 } %69, 0
-  %71 = add i64 %70, %.sroa.0149.2174.us
+  %71 = add i64 %70, %.sroa.0149.2175.us
   %72 = and i64 %71, -9187201950435737472
   %73 = and i64 %71, 9187201950435737471
   %74 = lshr exact i64 %72, 7
   %75 = sub i64 %72, %74
   %76 = or i64 %75, %73
-  %77 = add nuw i64 %.0175.us, 1
+  %77 = add nuw i64 %.0176.us, 1
   %78 = load ptr, ptr %3, align 8, !tbaa !104
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %80 = load i64, ptr %79, align 8, !tbaa !107
@@ -3220,22 +3220,22 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %82 = phi ptr [ %96, %.lr.ph.split ], [ %.ph, %.lr.ph.split.preheader ]
-  %.0175 = phi i64 [ %95, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
-  %.sroa.0149.2174 = phi i64 [ %94, %.lr.ph.split ], [ %.sroa.0149.2174.ph, %.lr.ph.split.preheader ]
+  %.0176 = phi i64 [ %95, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+  %.sroa.0149.2175 = phi i64 [ %94, %.lr.ph.split ], [ %.sroa.0149.2175.ph, %.lr.ph.split.preheader ]
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %84 = load ptr, ptr %83, align 8, !tbaa !110
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %.0175
+  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %.0176
   %86 = load ptr, ptr %85, align 8, !tbaa !69
   %87 = call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %86)
   %88 = extractvalue { i64, i64 } %87, 0
   %spec.select = call i64 @llvm.umax.i64(i64 %88, i64 1)
-  %89 = add i64 %spec.select, %.sroa.0149.2174
+  %89 = add i64 %spec.select, %.sroa.0149.2175
   %90 = and i64 %89, -9187201950435737472
   %91 = and i64 %89, 9187201950435737471
   %92 = lshr exact i64 %90, 7
   %93 = sub i64 %90, %92
   %94 = or i64 %93, %91
-  %95 = add nuw i64 %.0175, 1
+  %95 = add nuw i64 %.0176, 1
   %96 = load ptr, ptr %3, align 8, !tbaa !104
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = load i64, ptr %97, align 8, !tbaa !107
@@ -3245,8 +3245,8 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 100:                                              ; preds = %42
   %101 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexNameEE5valueE, align 4, !tbaa !4
   %102 = icmp ne i32 %9, %101
-  %.not81 = or i1 %.not161, %102
-  br i1 %.not81, label %114, label %103
+  %.not82 = or i1 %.not162, %102
+  br i1 %.not82, label %114, label %103
 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3264,8 +3264,8 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 114:                                              ; preds = %100
   %115 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexExprEE5valueE, align 4, !tbaa !4
   %116 = icmp ne i32 %9, %115
-  %.not82 = or i1 %.not161, %116
-  br i1 %.not82, label %138, label %117
+  %.not83 = or i1 %.not162, %116
+  br i1 %.not83, label %138, label %117
 
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3293,39 +3293,39 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 138:                                              ; preds = %114
   %139 = load i32, ptr @_ZN4Luau7AstRttiINS_15AstExprFunctionEE5valueE, align 4, !tbaa !4
   %140 = icmp ne i32 %9, %139
-  %.not83 = or i1 %.not161, %140
-  br i1 %.not83, label %141, label %.loopexit
+  %.not84 = or i1 %.not162, %140
+  br i1 %.not84, label %141, label %.loopexit
 
 141:                                              ; preds = %138
   %142 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprTableEE5valueE, align 4, !tbaa !4
   %143 = icmp ne i32 %9, %142
-  %.not84 = or i1 %.not161, %143
-  br i1 %.not84, label %181, label %.preheader
+  %.not85 = or i1 %.not162, %143
+  br i1 %.not85, label %181, label %.preheader
 
 .preheader:                                       ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %145 = load i64, ptr %144, align 8, !tbaa !119
-  %.not188 = icmp eq i64 %145, 0
-  br i1 %.not188, label %.loopexit, label %.lr.ph178
+  %.not189 = icmp eq i64 %145, 0
+  br i1 %.not189, label %.loopexit, label %.lr.ph179
 
-.lr.ph178:                                        ; preds = %.preheader
+.lr.ph179:                                        ; preds = %.preheader
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %147
 
-147:                                              ; preds = %.lr.ph178, %161
-  %.067177 = phi i64 [ 0, %.lr.ph178 ], [ %178, %161 ]
-  %.sroa.0149.4176 = phi i64 [ 10, %.lr.ph178 ], [ %177, %161 ]
+147:                                              ; preds = %.lr.ph179, %161
+  %.068178 = phi i64 [ 0, %.lr.ph179 ], [ %178, %161 ]
+  %.sroa.0149.4177 = phi i64 [ 10, %.lr.ph179 ], [ %177, %161 ]
   %148 = load ptr, ptr %146, align 8, !tbaa !123
-  %149 = getelementptr inbounds nuw %"struct.Luau::AstExprTable::Item", ptr %148, i64 %.067177
+  %149 = getelementptr inbounds nuw %"struct.Luau::AstExprTable::Item", ptr %148, i64 %.068178
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8, !tbaa !124
-  %.not91 = icmp eq ptr %151, null
-  br i1 %.not91, label %161, label %152
+  %.not92 = icmp eq ptr %151, null
+  br i1 %.not92, label %161, label %152
 
 152:                                              ; preds = %147
   %153 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %151)
   %154 = extractvalue { i64, i64 } %153, 0
-  %155 = add i64 %154, %.sroa.0149.4176
+  %155 = add i64 %154, %.sroa.0149.4177
   %156 = and i64 %155, -9187201950435737472
   %157 = and i64 %155, 9187201950435737471
   %158 = lshr exact i64 %156, 7
@@ -3334,7 +3334,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   br label %161
 
 161:                                              ; preds = %152, %147
-  %.sroa.0149.5 = phi i64 [ %.sroa.0149.4176, %147 ], [ %160, %152 ]
+  %.sroa.0149.5 = phi i64 [ %.sroa.0149.4177, %147 ], [ %160, %152 ]
   %162 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %163 = load ptr, ptr %162, align 8, !tbaa !127
   %164 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %163)
@@ -3351,7 +3351,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %175 = lshr exact i64 %173, 7
   %176 = sub i64 %173, %175
   %177 = or i64 %176, %174
-  %178 = add nuw i64 %.067177, 1
+  %178 = add nuw i64 %.068178, 1
   %179 = load i64, ptr %144, align 8, !tbaa !119
   %180 = icmp ult i64 %178, %179
   br i1 %180, label %147, label %.loopexit, !llvm.loop !128
@@ -3359,8 +3359,8 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 181:                                              ; preds = %141
   %182 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprUnaryEE5valueE, align 4, !tbaa !4
   %183 = icmp ne i32 %9, %182
-  %.not85 = or i1 %.not161, %183
-  br i1 %.not85, label %195, label %184
+  %.not86 = or i1 %.not162, %183
+  br i1 %.not86, label %195, label %184
 
 184:                                              ; preds = %181
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
@@ -3386,8 +3386,8 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 195:                                              ; preds = %181
   %196 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprBinaryEE5valueE, align 4, !tbaa !4
   %197 = icmp ne i32 %9, %196
-  %.not86 = or i1 %.not161, %197
-  br i1 %.not86, label %214, label %198
+  %.not87 = or i1 %.not162, %197
+  br i1 %.not87, label %214, label %198
 
 198:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
@@ -3418,8 +3418,8 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 214:                                              ; preds = %195
   %215 = load i32, ptr @_ZN4Luau7AstRttiINS_20AstExprTypeAssertionEE5valueE, align 4, !tbaa !4
   %216 = icmp ne i32 %9, %215
-  %.not87 = or i1 %.not161, %216
-  br i1 %.not87, label %223, label %217
+  %.not88 = or i1 %.not162, %216
+  br i1 %.not88, label %223, label %217
 
 217:                                              ; preds = %214
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3432,8 +3432,8 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 223:                                              ; preds = %214
   %224 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprIfElseEE5valueE, align 4, !tbaa !4
   %225 = icmp ne i32 %9, %224
-  %.not88 = or i1 %.not161, %225
-  br i1 %.not88, label %257, label %226
+  %.not89 = or i1 %.not162, %225
+  br i1 %.not89, label %257, label %226
 
 226:                                              ; preds = %223
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3471,8 +3471,8 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 257:                                              ; preds = %223
   %258 = load i32, ptr @_ZN4Luau7AstRttiINS_19AstExprInterpStringEE5valueE, align 4, !tbaa !4
   %259 = icmp ne i32 %9, %258
-  %.not89 = or i1 %.not161, %259
-  br i1 %.not89, label %.loopexit, label %260
+  %.not90 = or i1 %.not162, %259
+  br i1 %.not90, label %.loopexit, label %260
 
 260:                                              ; preds = %257
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3480,28 +3480,28 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %264 = load i64, ptr %263, align 8, !tbaa !140
   %265 = getelementptr inbounds nuw ptr, ptr %262, i64 %264
-  %.not90180 = icmp eq i64 %264, 0
-  br i1 %.not90180, label %.loopexit, label %.lr.ph183
+  %.not91181 = icmp eq i64 %264, 0
+  br i1 %.not91181, label %.loopexit, label %.lr.ph184
 
-.lr.ph183:                                        ; preds = %260, %.lr.ph183
-  %.066182 = phi ptr [ %275, %.lr.ph183 ], [ %262, %260 ]
-  %.sroa.0149.6181 = phi i64 [ %274, %.lr.ph183 ], [ 3, %260 ]
-  %266 = load ptr, ptr %.066182, align 8, !tbaa !69
+.lr.ph184:                                        ; preds = %260, %.lr.ph184
+  %.067183 = phi ptr [ %275, %.lr.ph184 ], [ %262, %260 ]
+  %.sroa.0149.6182 = phi i64 [ %274, %.lr.ph184 ], [ 3, %260 ]
+  %266 = load ptr, ptr %.067183, align 8, !tbaa !69
   %267 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %266)
   %268 = extractvalue { i64, i64 } %267, 0
-  %269 = add i64 %268, %.sroa.0149.6181
+  %269 = add i64 %268, %.sroa.0149.6182
   %270 = and i64 %269, -9187201950435737472
   %271 = and i64 %269, 9187201950435737471
   %272 = lshr exact i64 %270, 7
   %273 = sub i64 %270, %272
   %274 = or i64 %273, %271
-  %275 = getelementptr inbounds nuw i8, ptr %.066182, i64 8
-  %.not90 = icmp eq ptr %275, %265
-  br i1 %.not90, label %.loopexit, label %.lr.ph183
+  %275 = getelementptr inbounds nuw i8, ptr %.067183, i64 8
+  %.not91 = icmp eq ptr %275, %265
+  br i1 %.not91, label %.loopexit, label %.lr.ph184
 
-.loopexit:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split, %161, %.lr.ph183, %.thread, %50, %.preheader, %260, %257, %138, %103, %184, %217, %226, %198, %117
-  %.sroa.0149.3 = phi i64 [ %256, %226 ], [ %221, %217 ], [ %212, %198 ], [ %193, %184 ], [ %137, %117 ], [ %113, %103 ], [ 10, %138 ], [ 0, %257 ], [ 3, %260 ], [ 10, %.preheader ], [ 2, %50 ], [ %62, %.thread ], [ %274, %.lr.ph183 ], [ %177, %161 ], [ %94, %.lr.ph.split ], [ %76, %.lr.ph.split.us ]
-  %.sroa.29.3 = phi i64 [ 0, %226 ], [ %222, %217 ], [ %213, %198 ], [ %194, %184 ], [ 0, %117 ], [ 0, %103 ], [ 0, %138 ], [ 0, %257 ], [ 0, %260 ], [ 0, %.preheader ], [ 0, %50 ], [ 0, %.thread ], [ 0, %.lr.ph183 ], [ 0, %161 ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph.split.us ]
+.loopexit:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split, %161, %.lr.ph184, %.thread, %50, %.preheader, %260, %257, %138, %103, %184, %217, %226, %198, %117
+  %.sroa.0149.3 = phi i64 [ %256, %226 ], [ %221, %217 ], [ %212, %198 ], [ %193, %184 ], [ %137, %117 ], [ %113, %103 ], [ 10, %138 ], [ 0, %257 ], [ 3, %260 ], [ 10, %.preheader ], [ 2, %50 ], [ %62, %.thread ], [ %274, %.lr.ph184 ], [ %177, %161 ], [ %94, %.lr.ph.split ], [ %76, %.lr.ph.split.us ]
+  %.sroa.29.3 = phi i64 [ 0, %226 ], [ %222, %217 ], [ %213, %198 ], [ %194, %184 ], [ 0, %117 ], [ 0, %103 ], [ 0, %138 ], [ 0, %257 ], [ 0, %260 ], [ 0, %.preheader ], [ 0, %50 ], [ 0, %.thread ], [ 0, %.lr.ph184 ], [ 0, %161 ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph.split.us ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   br label %276
 

@@ -5,6 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
 %struct.RelFileLocator = type { i32, i32, i32 }
+%struct.DecodedBkpBlock = type { i8, %struct.RelFileLocator, i32, i32, i32, i8, i8, i8, ptr, i16, i16, i16, i8, i8, ptr, i16, i16 }
 %struct.BufferManagerRelation = type { ptr, ptr, i8 }
 %struct.xl_invalid_page_key = type { %struct.RelFileLocator, i32, i32 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -194,50 +195,49 @@ define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef 
   %19 = icmp ult i32 %18, 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load ptr, ptr %20, align 8
-  %22 = zext i8 %1 to i64
-  %.idx = shl nuw nsw i64 %22, 6
-  %23 = getelementptr i8, ptr %21, i64 116
-  %24 = getelementptr i8, ptr %23, i64 %.idx
-  %25 = load i8, ptr %24, align 4
-  %26 = and i8 %25, 64
-  %.not = icmp eq i8 %26, 0
-  %brmerge = or i1 %19, %.not
-  br i1 %brmerge, label %30, label %27
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
+  %23 = zext i8 %1 to i64
+  %24 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %22, i64 0, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 28
+  %26 = load i8, ptr %25, align 4
+  %27 = and i8 %26, 64
+  %.not44 = icmp eq i8 %27, 0
+  %or.cond = or i1 %19, %.not44
+  br i1 %or.cond, label %31, label %28
 
-27:                                               ; preds = %17
-  %28 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #9
-  call void @llvm.assume(i1 %28)
-  %29 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #8
+28:                                               ; preds = %17
+  %29 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #9
+  call void @llvm.assume(i1 %29)
+  %30 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 380, ptr noundef nonnull @__func__.XLogReadBufferForRedoExtended) #8
   unreachable
 
-30:                                               ; preds = %17
-  %brmerge42.demorgan = and i1 %19, %.not
-  br i1 %brmerge42.demorgan, label %31, label %34
+31:                                               ; preds = %17
+  %or.cond4 = and i1 %19, %.not44
+  br i1 %or.cond4, label %32, label %35
 
-31:                                               ; preds = %30
-  %32 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #9
-  call void @llvm.assume(i1 %32)
-  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #8
+32:                                               ; preds = %31
+  %33 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #9
+  call void @llvm.assume(i1 %33)
+  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 382, ptr noundef nonnull @__func__.XLogReadBufferForRedoExtended) #8
   unreachable
 
-34:                                               ; preds = %30
-  %35 = getelementptr i8, ptr %21, i64 118
-  %36 = getelementptr i8, ptr %35, i64 %.idx
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 30
   %37 = load i8, ptr %36, align 2, !range !4, !noundef !5
   %38 = trunc nuw i8 %37 to i1
   %39 = load i32, ptr %7, align 4
   %40 = load i32, ptr %8, align 4
   br i1 %38, label %41, label %79
 
-41:                                               ; preds = %34
+41:                                               ; preds = %35
   %42 = select i1 %3, i32 2, i32 1
   %43 = load i32, ptr %9, align 4
-  %.sroa.02.0.copyload = load i64, ptr %6, align 8
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.23.0.copyload = load i32, ptr %.sroa.23.0..sroa_idx, align 8
-  %44 = call i32 @XLogReadBufferExtended(i64 %.sroa.02.0.copyload, i32 %.sroa.23.0.copyload, i32 noundef %39, i32 noundef %40, i32 noundef %42, i32 noundef %43)
+  %.sroa.07.0.copyload = load i64, ptr %6, align 8
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.28.0.copyload = load i32, ptr %.sroa.28.0..sroa_idx, align 8
+  %44 = call i32 @XLogReadBufferExtended(i64 %.sroa.07.0.copyload, i32 %.sroa.28.0.copyload, i32 noundef %39, i32 noundef %40, i32 noundef %42, i32 noundef %43)
   store i32 %44, ptr %4, align 4
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %52
@@ -300,20 +300,20 @@ BufferGetPage.exit:                               ; preds = %46, %52
   call void @FlushOneBuffer(i32 noundef %78) #8
   br label %103
 
-79:                                               ; preds = %34
+79:                                               ; preds = %35
   %80 = load i32, ptr %9, align 4
   %.sroa.0.0.copyload = load i64, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %81 = call i32 @XLogReadBufferExtended(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef %39, i32 noundef %40, i32 noundef %2, i32 noundef %80)
   store i32 %81, ptr %4, align 4
-  %.not46 = icmp eq i32 %81, 0
-  br i1 %.not46, label %103, label %82
+  %.not48 = icmp eq i32 %81, 0
+  br i1 %.not48, label %103, label %82
 
 82:                                               ; preds = %79
   %83 = add i32 %2, -3
-  %or.cond = icmp ult i32 %83, -2
-  br i1 %or.cond, label %84, label %87
+  %or.cond6 = icmp ult i32 %83, -2
+  br i1 %or.cond6, label %84, label %87
 
 84:                                               ; preds = %82
   br i1 %3, label %85, label %86
@@ -341,7 +341,7 @@ thread-pre-split:                                 ; preds = %86, %85
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds nuw ptr, ptr %91, i64 %93
   %95 = load ptr, ptr %94, align 8
-  br label %BufferGetPage.exit45
+  br label %BufferGetPage.exit47
 
 96:                                               ; preds = %87
   %97 = load ptr, ptr @BufferBlocks, align 8
@@ -349,18 +349,18 @@ thread-pre-split:                                 ; preds = %86, %85
   %99 = sext i32 %98 to i64
   %100 = shl nsw i64 %99, 13
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 %100
-  br label %BufferGetPage.exit45
+  br label %BufferGetPage.exit47
 
-BufferGetPage.exit45:                             ; preds = %90, %96
-  %.0.i.i44 = phi ptr [ %95, %90 ], [ %101, %96 ]
-  %.val43 = load i64, ptr %.0.i.i44, align 4
-  %102 = call i64 @llvm.fshl.i64(i64 %.val43, i64 %.val43, i64 32)
-  %.not40 = icmp ule i64 %11, %102
-  %. = zext i1 %.not40 to i32
+BufferGetPage.exit47:                             ; preds = %90, %96
+  %.0.i.i46 = phi ptr [ %95, %90 ], [ %101, %96 ]
+  %.val45 = load i64, ptr %.0.i.i46, align 4
+  %102 = call i64 @llvm.fshl.i64(i64 %.val45, i64 %.val45, i64 32)
+  %.not = icmp ule i64 %11, %102
+  %. = zext i1 %.not to i32
   br label %103
 
-103:                                              ; preds = %79, %BufferGetPage.exit45, %73, %77
-  %.0 = phi i32 [ 2, %77 ], [ 2, %73 ], [ %., %BufferGetPage.exit45 ], [ 3, %79 ]
+103:                                              ; preds = %79, %BufferGetPage.exit47, %73, %77
+  %.0 = phi i32 [ 2, %77 ], [ 2, %73 ], [ %., %BufferGetPage.exit47 ], [ 3, %79 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8

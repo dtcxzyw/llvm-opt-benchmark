@@ -838,110 +838,110 @@ define void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fo
   %2 = alloca [0 x i8], align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %.not = icmp ne ptr %4, null
-  br i1 %.not, label %5, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit"
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit", label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17h900b20eb7a0a6ca7E(ptr nonnull align 1 %4, ptr align 8 %7, ptr nonnull align 1 %2)
-          to label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit" unwind label %33
+          to label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit" unwind label %36
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit": ; preds = %5, %1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   invoke void @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h38790ad2de5b8fbfE"(ptr align 1 %8, ptr %10, ptr nonnull align 1 %2)
-          to label %11 unwind label %30
+          to label %11 unwind label %33
 
 11:                                               ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit"
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %.not11 = icmp ne ptr %13, null
-  br i1 %.not11, label %14, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit21"
+  %.not20 = icmp eq ptr %13, null
+  br i1 %.not20, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit22", label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17h900b20eb7a0a6ca7E(ptr nonnull align 1 %13, ptr align 8 %16, ptr nonnull align 1 %2)
-          to label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit21" unwind label %30
+          to label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit22" unwind label %33
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit21": ; preds = %14, %11
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit22": ; preds = %14, %11
   %17 = load ptr, ptr %3, align 8
-  %.not14 = icmp eq ptr %17, null
-  %brmerge29 = or i1 %.not, %.not14
-  br i1 %brmerge29, label %18, label %20
+  %18 = icmp ne ptr %17, null
+  %or.cond = and i1 %.not, %18
+  br i1 %or.cond, label %22, label %19
 
-18:                                               ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit21", %20
-  %19 = load ptr, ptr %12, align 8
-  %.not17 = icmp eq ptr %19, null
-  %brmerge19 = or i1 %.not11, %.not17
-  br i1 %brmerge19, label %28, label %29
+19:                                               ; preds = %22, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit22"
+  %20 = load ptr, ptr %12, align 8
+  %21 = icmp ne ptr %20, null
+  %or.cond5 = and i1 %.not20, %21
+  br i1 %or.cond5, label %32, label %31
 
-20:                                               ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit21"
+22:                                               ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit22"
   invoke void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %3)
-          to label %18 unwind label %21
+          to label %19 unwind label %23
 
-21:                                               ; preds = %20
-  %22 = landingpad { ptr, i32 }
+23:                                               ; preds = %22
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %12, align 8
-  %.not15 = icmp eq ptr %23, null
-  %brmerge = or i1 %.not11, %.not15
-  br i1 %brmerge, label %24, label %25
+  %25 = load ptr, ptr %12, align 8
+  %26 = icmp ne ptr %25, null
+  %or.cond3 = and i1 %.not20, %26
+  br i1 %or.cond3, label %28, label %27
 
-24:                                               ; preds = %.thread31, %21, %37, %25
-  %.pn = phi { ptr, i32 } [ %22, %25 ], [ %22, %21 ], [ %lpad.phi2837, %37 ], [ %lpad.phi2837, %.thread31 ]
+27:                                               ; preds = %41, %.thread30, %28, %23
+  %.pn = phi { ptr, i32 } [ %24, %28 ], [ %24, %23 ], [ %lpad.phi2935, %41 ], [ %lpad.phi2935, %.thread30 ]
   resume { ptr, i32 } %.pn
 
-25:                                               ; preds = %21
+28:                                               ; preds = %23
   invoke void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %12) #6
-          to label %24 unwind label %26
+          to label %27 unwind label %29
 
-26:                                               ; preds = %37, %36, %33, %25
-  %27 = landingpad { ptr, i32 }
+29:                                               ; preds = %41, %40, %36, %28
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #7
   unreachable
 
-28:                                               ; preds = %18, %29
+31:                                               ; preds = %32, %19
   ret void
 
-29:                                               ; preds = %18
+32:                                               ; preds = %19
   call void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %12)
-  br label %28
+  br label %31
 
-30:                                               ; preds = %14, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit"
-  %31 = phi i1 [ true, %14 ], [ false, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit" ]
+33:                                               ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit", %14
+  %.sroa.013.0.ph = phi i1 [ false, %14 ], [ true, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h63cdaa9ea83c9b4cE.exit" ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %32 = load ptr, ptr %3, align 8
-  %.not12 = icmp eq ptr %32, null
-  %brmerge30 = or i1 %.not, %.not12
-  br i1 %brmerge30, label %.thread31, label %36
+  %34 = load ptr, ptr %3, align 8
+  %35 = icmp ne ptr %34, null
+  %or.cond7 = and i1 %.not, %35
+  br i1 %or.cond7, label %40, label %.thread30
 
-33:                                               ; preds = %5
+36:                                               ; preds = %5
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr372drop_in_place$LT$core..iter..adapters..fuse..Fuse$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$syn..punctuated..IterMut$LT$syn..path..PathSegment$GT$$C$logos_codegen..parser..type_params..replace_lifetime..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$logos_codegen..parser..type_params..replace_lifetime..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h82013272892bd534E"(ptr nonnull align 8 %0) #6
-          to label %.thread31 unwind label %26
+          to label %.thread30 unwind label %29
 
-.thread31:                                        ; preds = %33, %30, %36
-  %.sroa.04.02638 = phi i1 [ %31, %30 ], [ %31, %36 ], [ false, %33 ]
-  %lpad.phi2837 = phi { ptr, i32 } [ %lpad.thr_comm, %30 ], [ %lpad.thr_comm, %36 ], [ %lpad.thr_comm.split-lp, %33 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %.not13 = icmp eq ptr %35, null
-  %brmerge20 = or i1 %.sroa.04.02638, %.not13
-  br i1 %brmerge20, label %24, label %37
+.thread30:                                        ; preds = %36, %40, %33
+  %.sroa.013.02736 = phi i1 [ %.sroa.013.0.ph, %40 ], [ %.sroa.013.0.ph, %33 ], [ true, %36 ]
+  %lpad.phi2935 = phi { ptr, i32 } [ %lpad.thr_comm, %40 ], [ %lpad.thr_comm, %33 ], [ %lpad.thr_comm.split-lp, %36 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %38, null
+  %or.cond9 = and i1 %.sroa.013.02736, %39
+  br i1 %or.cond9, label %41, label %27
 
-36:                                               ; preds = %30
+40:                                               ; preds = %33
   invoke void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %3) #6
-          to label %.thread31 unwind label %26
+          to label %.thread30 unwind label %29
 
-37:                                               ; preds = %.thread31
-  invoke void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %34) #6
-          to label %24 unwind label %26
+41:                                               ; preds = %.thread30
+  invoke void @"_ZN4core3ptr79drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..GenericArgument$GT$$GT$17hab49355372a7ae97E"(ptr nonnull align 8 %37) #6
+          to label %27 unwind label %29
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -730,24 +730,23 @@ define dso_local void @CheckCmdReplicaIdentity(ptr noundef %0, i32 noundef %1) l
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 115
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 112
-  br i1 %8, label %108, label %9
+  br i1 %8, label %109, label %9
 
 9:                                                ; preds = %2
-  switch i32 %1, label %108 [
-    i32 4, label %10
-    i32 2, label %10
+  %10 = icmp ne i32 %1, 2
+  %11 = icmp ne i32 %1, 4
+  switch i32 %1, label %109 [
+    i32 4, label %12
+    i32 2, label %12
   ]
 
-10:                                               ; preds = %9, %9
+12:                                               ; preds = %9, %9
   call void @RelationBuildPublicationDesc(ptr noundef nonnull %0, ptr noundef nonnull %3) #5
-  %11 = icmp eq i32 %1, 2
-  br i1 %11, label %12, label %.critedge22
-
-12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
+  %14 = load i8, ptr %13, align 1, !range !4
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %23, label %16
+  %or.cond4 = select i1 %10, i1 true, i1 %15
+  br i1 %or.cond4, label %23, label %16
 
 16:                                               ; preds = %12
   %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -762,9 +761,10 @@ define dso_local void @CheckCmdReplicaIdentity(ptr noundef %0, i32 noundef %1) l
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %25 = load i8, ptr %24, align 1, !range !4, !noundef !5
+  %25 = load i8, ptr %24, align 1, !range !4
   %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %.critedge, label %27
+  %or.cond7 = select i1 %10, i1 true, i1 %26
+  br i1 %or.cond7, label %34, label %27
 
 27:                                               ; preds = %23
   %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -777,32 +777,30 @@ define dso_local void @CheckCmdReplicaIdentity(ptr noundef %0, i32 noundef %1) l
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 779, ptr noundef nonnull @__func__.CheckCmdReplicaIdentity) #5
   unreachable
 
-.critedge:                                        ; preds = %23
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %35 = load i8, ptr %34, align 1, !range !4, !noundef !5
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.critedge25, label %37
+34:                                               ; preds = %23
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %36 = load i8, ptr %35, align 1, !range !4
+  %37 = trunc nuw i8 %36 to i1
+  %or.cond10 = select i1 %10, i1 true, i1 %37
+  br i1 %or.cond10, label %45, label %38
 
-37:                                               ; preds = %.critedge
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %38)
-  %39 = call i32 @errcode(i32 noundef 393348) #5
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %41) #5
-  %43 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4) #5
+38:                                               ; preds = %34
+  %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  call void @llvm.assume(i1 %39)
+  %40 = call i32 @errcode(i32 noundef 393348) #5
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %42) #5
+  %44 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4) #5
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 785, ptr noundef nonnull @__func__.CheckCmdReplicaIdentity) #5
   unreachable
 
-.critedge22:                                      ; preds = %10
-  %44 = icmp eq i32 %1, 4
-  br i1 %44, label %45, label %.critedge25
-
-45:                                               ; preds = %.critedge22
+45:                                               ; preds = %34
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %47 = load i8, ptr %46, align 1, !range !4, !noundef !5
+  %47 = load i8, ptr %46, align 1, !range !4
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %56, label %49
+  %or.cond13 = select i1 %11, i1 true, i1 %48
+  br i1 %or.cond13, label %56, label %49
 
 49:                                               ; preds = %45
   %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -817,9 +815,10 @@ define dso_local void @CheckCmdReplicaIdentity(ptr noundef %0, i32 noundef %1) l
 
 56:                                               ; preds = %45
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  %58 = load i8, ptr %57, align 1, !range !4, !noundef !5
+  %58 = load i8, ptr %57, align 1, !range !4
   %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %.critedge24, label %60
+  %or.cond16 = select i1 %11, i1 true, i1 %59
+  br i1 %or.cond16, label %67, label %60
 
 60:                                               ; preds = %56
   %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -832,77 +831,75 @@ define dso_local void @CheckCmdReplicaIdentity(ptr noundef %0, i32 noundef %1) l
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 797, ptr noundef nonnull @__func__.CheckCmdReplicaIdentity) #5
   unreachable
 
-.critedge24:                                      ; preds = %56
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %68 = load i8, ptr %67, align 1, !range !4, !noundef !5
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %.critedge25, label %70
+67:                                               ; preds = %56
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %69 = load i8, ptr %68, align 1, !range !4
+  %70 = trunc nuw i8 %69 to i1
+  %or.cond19 = select i1 %11, i1 true, i1 %70
+  br i1 %or.cond19, label %78, label %71
 
-70:                                               ; preds = %.critedge24
-  %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %71)
-  %72 = call i32 @errcode(i32 noundef 393348) #5
-  %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %74) #5
-  %76 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4) #5
+71:                                               ; preds = %67
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  call void @llvm.assume(i1 %72)
+  %73 = call i32 @errcode(i32 noundef 393348) #5
+  %74 = load ptr, ptr %4, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  %76 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %75) #5
+  %77 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4) #5
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 803, ptr noundef nonnull @__func__.CheckCmdReplicaIdentity) #5
   unreachable
 
-.critedge25:                                      ; preds = %.critedge, %.critedge22, %.critedge24
-  %77 = phi i1 [ false, %.critedge22 ], [ true, %.critedge24 ], [ false, %.critedge ]
-  %78 = call i32 @RelationGetReplicaIndex(ptr noundef nonnull %0) #5
-  %.not = icmp eq i32 %78, 0
-  br i1 %.not, label %79, label %108
+78:                                               ; preds = %67
+  %79 = call i32 @RelationGetReplicaIndex(ptr noundef nonnull %0) #5
+  %.not = icmp eq i32 %79, 0
+  br i1 %.not, label %80, label %109
 
-79:                                               ; preds = %.critedge25
-  %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 126
-  %82 = load i8, ptr %81, align 2
-  %83 = icmp eq i8 %82, 102
-  br i1 %83, label %108, label %84
+80:                                               ; preds = %78
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 126
+  %83 = load i8, ptr %82, align 2
+  %84 = icmp eq i8 %83, 102
+  br i1 %84, label %109, label %85
 
-84:                                               ; preds = %79
-  br i1 %11, label %85, label %96
+85:                                               ; preds = %80
+  %86 = icmp eq i32 %1, 2
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %88 = load i8, ptr %87, align 1, !range !4
+  %89 = trunc nuw i8 %88 to i1
+  %or.cond23 = select i1 %86, i1 %89, i1 false
+  br i1 %or.cond23, label %90, label %97
 
-85:                                               ; preds = %84
-  %86 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %87 = load i8, ptr %86, align 1, !range !4, !noundef !5
-  %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %89, label %96
-
-89:                                               ; preds = %85
-  %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %90)
-  %91 = call i32 @errcode(i32 noundef 325) #5
-  %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  %94 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %93) #5
-  %95 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #5
+90:                                               ; preds = %85
+  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  call void @llvm.assume(i1 %91)
+  %92 = call i32 @errcode(i32 noundef 325) #5
+  %93 = load ptr, ptr %4, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %95 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %94) #5
+  %96 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #5
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 823, ptr noundef nonnull @__func__.CheckCmdReplicaIdentity) #5
   unreachable
 
-96:                                               ; preds = %85, %84
-  br i1 %77, label %97, label %108
+97:                                               ; preds = %85
+  %98 = icmp eq i32 %1, 4
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %100 = load i8, ptr %99, align 1, !range !4
+  %101 = trunc nuw i8 %100 to i1
+  %or.cond27 = select i1 %98, i1 %101, i1 false
+  br i1 %or.cond27, label %102, label %109
 
-97:                                               ; preds = %96
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %99 = load i8, ptr %98, align 1, !range !4, !noundef !5
-  %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %101, label %108
-
-101:                                              ; preds = %97
-  %102 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %102)
-  %103 = call i32 @errcode(i32 noundef 325) #5
-  %104 = load ptr, ptr %4, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  %106 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %105) #5
-  %107 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.9) #5
+102:                                              ; preds = %97
+  %103 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  call void @llvm.assume(i1 %103)
+  %104 = call i32 @errcode(i32 noundef 325) #5
+  %105 = load ptr, ptr %4, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  %107 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %106) #5
+  %108 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.9) #5
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 829, ptr noundef nonnull @__func__.CheckCmdReplicaIdentity) #5
   unreachable
 
-108:                                              ; preds = %97, %96, %79, %.critedge25, %9, %2
+109:                                              ; preds = %97, %80, %78, %9, %2
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #5
   ret void
 }

@@ -171,52 +171,49 @@ declare void @_ZN18ConcurrentGCThread16create_and_startE14ThreadPriority(ptr nou
 define hidden noundef zeroext i1 @_ZNK12ZUncommitter4waitEm(ptr noundef nonnull align 8 dereferenceable(1017) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %3) #9
-  %5 = load i8, ptr @ZUncommit, align 1
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %.critedge, label %.lr.ph
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1016
+  %6 = load i8, ptr @ZUncommit, align 1
+  %7 = trunc i8 %6 to i1
+  %8 = load i8, ptr %5, align 8
+  %9 = trunc i8 %8 to i1
+  %or.cond8 = select i1 %7, i1 true, i1 %9
+  br i1 %or.cond8, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  br label %8
-
-8:                                                ; preds = %.lr.ph, %11
-  %9 = load i8, ptr %7, align 8
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %.critedge, label %11
-
-11:                                               ; preds = %8
-  %12 = tail call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %3, i64 noundef 0) #9
-  %13 = load i8, ptr @ZUncommit, align 1
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %10 = tail call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %3, i64 noundef 0) #9
+  %11 = load i8, ptr @ZUncommit, align 1
+  %12 = trunc i8 %11 to i1
+  %13 = load i8, ptr %5, align 8
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %.critedge, label %8, !llvm.loop !6
+  %or.cond = select i1 %12, i1 true, i1 %14
+  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !6
 
-.critedge:                                        ; preds = %8, %11, %2
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  %16 = load i8, ptr %15, align 8
-  %17 = trunc i8 %16 to i1
-  %18 = icmp eq i64 %1, 0
-  %or.cond.not = or i1 %18, %17
-  br i1 %or.cond.not, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit, label %19
+.critedge:                                        ; preds = %.lr.ph, %2
+  %15 = phi i8 [ %8, %2 ], [ %13, %.lr.ph ]
+  %.lcssa = phi i1 [ %9, %2 ], [ %14, %.lr.ph ]
+  %16 = icmp eq i64 %1, 0
+  %or.cond.not = or i1 %16, %.lcssa
+  br i1 %or.cond.not, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit, label %17
 
-19:                                               ; preds = %.critedge
-  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %22, label %21
+17:                                               ; preds = %.critedge
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %20, label %19
 
-21:                                               ; preds = %19
+19:                                               ; preds = %17
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.7, i64 noundef %1)
-  br label %22
+  br label %20
 
-22:                                               ; preds = %19, %21
-  %23 = mul i64 %1, 1000
-  %24 = tail call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %3, i64 noundef %23) #9
-  %.pre = load i8, ptr %15, align 8
-  %.pre6 = trunc i8 %.pre to i1
+20:                                               ; preds = %17, %19
+  %21 = mul i64 %1, 1000
+  %22 = tail call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %3, i64 noundef %21) #9
+  %.pre = load i8, ptr %5, align 8
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
-_ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %22, %.critedge
-  %.pre-phi = phi i1 [ %.pre6, %22 ], [ %17, %.critedge ]
-  %25 = xor i1 %.pre-phi, true
+_ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %20, %.critedge
+  %23 = phi i8 [ %.pre, %20 ], [ %15, %.critedge ]
+  %24 = trunc i8 %23 to i1
+  %25 = xor i1 %24, true
   %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %3) #9
   ret i1 %25
 }
@@ -263,24 +260,25 @@ define hidden void @_ZN12ZUncommitter10run_threadEv(ptr noundef nonnull align 8 
   %14 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %4) #9
   %15 = load i8, ptr @ZUncommit, align 1
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %.critedge.i, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %12, %19
   %17 = load i8, ptr %5, align 8
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %.critedge.i, label %19
+  %or.cond8.i = select i1 %16, i1 true, i1 %18
+  br i1 %or.cond8.i, label %.critedge.i, label %.lr.ph.i
 
-19:                                               ; preds = %.lr.ph.i
-  %20 = call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %4, i64 noundef 0) #9
-  %21 = load i8, ptr @ZUncommit, align 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %.critedge.i, label %.lr.ph.i, !llvm.loop !6
+.lr.ph.i:                                         ; preds = %12, %.lr.ph.i
+  %19 = call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %4, i64 noundef 0) #9
+  %20 = load i8, ptr @ZUncommit, align 1
+  %21 = trunc i8 %20 to i1
+  %22 = load i8, ptr %5, align 8
+  %23 = trunc i8 %22 to i1
+  %or.cond.i = select i1 %21, i1 true, i1 %23
+  br i1 %or.cond.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !6
 
-.critedge.i:                                      ; preds = %19, %.lr.ph.i, %12
-  %23 = load i8, ptr %5, align 8
-  %24 = trunc i8 %23 to i1
+.critedge.i:                                      ; preds = %.lr.ph.i, %12
+  %24 = phi i8 [ %17, %12 ], [ %22, %.lr.ph.i ]
+  %.lcssa.i = phi i1 [ %18, %12 ], [ %23, %.lr.ph.i ]
   %25 = icmp eq i64 %13, 0
-  %or.cond.not.i = or i1 %25, %24
+  %or.cond.not.i = or i1 %25, %.lcssa.i
   br i1 %or.cond.not.i, label %_ZNK12ZUncommitter4waitEm.exit, label %26
 
 26:                                               ; preds = %.critedge.i
@@ -296,124 +294,124 @@ define hidden void @_ZN12ZUncommitter10run_threadEv(ptr noundef nonnull align 8 
   %30 = mul i64 %13, 1000
   %31 = call noundef i32 @_ZN15PlatformMonitor4waitEm(ptr noundef nonnull align 8 dereferenceable(88) %4, i64 noundef %30) #9
   %.pre.i = load i8, ptr %5, align 8
-  %.pre6.i = trunc i8 %.pre.i to i1
-  %32 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %4) #9
-  br i1 %.pre6.i, label %84, label %34
+  br label %_ZNK12ZUncommitter4waitEm.exit
 
-_ZNK12ZUncommitter4waitEm.exit:                   ; preds = %.critedge.i
-  %33 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %4) #9
-  br i1 %24, label %84, label %34
+_ZNK12ZUncommitter4waitEm.exit:                   ; preds = %.critedge.i, %29
+  %32 = phi i8 [ %.pre.i, %29 ], [ %24, %.critedge.i ]
+  %33 = trunc i8 %32 to i1
+  %34 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %4) #9
+  br i1 %33, label %85, label %35
 
-34:                                               ; preds = %29, %_ZNK12ZUncommitter4waitEm.exit
+35:                                               ; preds = %_ZNK12ZUncommitter4waitEm.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %3, i8 0, i64 19, i1 false)
-  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3689), align 1
-  %36 = icmp eq i8 %35, 0
-  br i1 %36, label %_ZN14EventZUncommitC2E14EventStartTime.exit, label %37
+  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3689), align 1
+  %37 = icmp eq i8 %36, 0
+  br i1 %37, label %_ZN14EventZUncommitC2E14EventStartTime.exit, label %38
 
-37:                                               ; preds = %34
-  %38 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #9
-  store i64 %38, ptr %3, align 8
+38:                                               ; preds = %35
+  %39 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #9
+  store i64 %39, ptr %3, align 8
   br label %_ZN14EventZUncommitC2E14EventStartTime.exit
 
-_ZN14EventZUncommitC2E14EventStartTime.exit:      ; preds = %34, %37
-  %39 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %4) #9
-  %40 = load i8, ptr %5, align 8
-  %41 = trunc i8 %40 to i1
-  %42 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %4) #9
-  br i1 %41, label %_ZN14EventZUncommit6commitEm.exit, label %.lr.ph
+_ZN14EventZUncommitC2E14EventStartTime.exit:      ; preds = %35, %38
+  %40 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %4) #9
+  %41 = load i8, ptr %5, align 8
+  %42 = trunc i8 %41 to i1
+  %43 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %4) #9
+  br i1 %42, label %_ZN14EventZUncommit6commitEm.exit, label %.lr.ph
 
-43:                                               ; preds = %.lr.ph
-  %44 = add i64 %50, %.011
-  %45 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %4) #9
-  %46 = load i8, ptr %5, align 8
-  %47 = trunc i8 %46 to i1
-  %48 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %4) #9
-  br i1 %47, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+44:                                               ; preds = %.lr.ph
+  %45 = add i64 %51, %.012
+  %46 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %4) #9
+  %47 = load i8, ptr %5, align 8
+  %48 = trunc i8 %47 to i1
+  %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %4) #9
+  br i1 %48, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-.lr.ph:                                           ; preds = %_ZN14EventZUncommitC2E14EventStartTime.exit, %43
-  %.011 = phi i64 [ %44, %43 ], [ 0, %_ZN14EventZUncommitC2E14EventStartTime.exit ]
-  %49 = load ptr, ptr %9, align 8
-  %50 = call noundef i64 @_ZN14ZPageAllocator8uncommitEPm(ptr noundef nonnull align 8 dereferenceable(609) %49, ptr noundef nonnull %2) #9
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %._crit_edge, label %43
+.lr.ph:                                           ; preds = %_ZN14EventZUncommitC2E14EventStartTime.exit, %44
+  %.012 = phi i64 [ %45, %44 ], [ 0, %_ZN14EventZUncommitC2E14EventStartTime.exit ]
+  %50 = load ptr, ptr %9, align 8
+  %51 = call noundef i64 @_ZN14ZPageAllocator8uncommitEPm(ptr noundef nonnull align 8 dereferenceable(609) %50, ptr noundef nonnull %2) #9
+  %52 = icmp eq i64 %51, 0
+  br i1 %52, label %._crit_edge, label %44
 
-._crit_edge:                                      ; preds = %43, %.lr.ph
-  %.0.lcssa = phi i64 [ %44, %43 ], [ %.011, %.lr.ph ]
+._crit_edge:                                      ; preds = %44, %.lr.ph
+  %.0.lcssa = phi i64 [ %45, %44 ], [ %.012, %.lr.ph ]
   %.not = icmp eq i64 %.0.lcssa, 0
-  br i1 %.not, label %_ZN14EventZUncommit6commitEm.exit, label %52
+  br i1 %.not, label %_ZN14EventZUncommit6commitEm.exit, label %53
 
-52:                                               ; preds = %._crit_edge
+53:                                               ; preds = %._crit_edge
   call void @_Z8ZStatIncRK12ZStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) @_ZL16ZCounterUncommit, i64 noundef %.0.lcssa) #9
-  %53 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not10 = icmp eq ptr %53, null
-  br i1 %.not10, label %63, label %54
+  %54 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not10 = icmp eq ptr %54, null
+  br i1 %.not10, label %64, label %55
 
-54:                                               ; preds = %52
-  %55 = lshr i64 %.0.lcssa, 20
-  %56 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  %57 = call noundef i64 @_ZNK5ZHeap12max_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %56) #9
-  %.not.i9 = icmp eq i64 %57, 0
-  %58 = uitofp i64 %.0.lcssa to double
-  %59 = uitofp i64 %57 to double
-  %60 = fdiv double %58, %59
-  %61 = fmul double %60, 1.000000e+02
-  %62 = select i1 %.not.i9, double 0.000000e+00, double %61
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %55, double noundef %62)
-  br label %63
+55:                                               ; preds = %53
+  %56 = lshr i64 %.0.lcssa, 20
+  %57 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
+  %58 = call noundef i64 @_ZNK5ZHeap12max_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %57) #9
+  %.not.i9 = icmp eq i64 %58, 0
+  %59 = uitofp i64 %.0.lcssa to double
+  %60 = uitofp i64 %58 to double
+  %61 = fdiv double %59, %60
+  %62 = fmul double %61, 1.000000e+02
+  %63 = select i1 %.not.i9, double 0.000000e+00, double %62
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %56, double noundef %63)
+  br label %64
 
-63:                                               ; preds = %52, %54
-  %64 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3689), align 1
-  %.not.i.i = icmp eq i8 %64, 0
-  br i1 %.not.i.i, label %_ZN14EventZUncommit6commitEm.exit, label %65
+64:                                               ; preds = %53, %55
+  %65 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3689), align 1
+  %.not.i.i = icmp eq i8 %65, 0
+  br i1 %.not.i.i, label %_ZN14EventZUncommit6commitEm.exit, label %66
 
-65:                                               ; preds = %63
-  %66 = load i8, ptr %6, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.thread.i, label %68
+66:                                               ; preds = %64
+  %67 = load i8, ptr %6, align 8
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.thread.i, label %69
 
-68:                                               ; preds = %65
-  %69 = load i64, ptr %3, align 8
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %73
+69:                                               ; preds = %66
+  %70 = load i64, ptr %3, align 8
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %72, label %74
 
-71:                                               ; preds = %68
-  %72 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #9
-  store i64 %72, ptr %3, align 8
+72:                                               ; preds = %69
+  %73 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #9
+  store i64 %73, ptr %3, align 8
   %.pre.i.i.i = load i64, ptr %10, align 8
   br label %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.i
 
-73:                                               ; preds = %68
-  %74 = load i64, ptr %10, align 8
-  %75 = icmp eq i64 %74, 0
-  br i1 %75, label %76, label %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.i
+74:                                               ; preds = %69
+  %75 = load i64, ptr %10, align 8
+  %76 = icmp eq i64 %75, 0
+  br i1 %76, label %77, label %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.i
 
-76:                                               ; preds = %73
-  %77 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #9
-  store i64 %77, ptr %10, align 8
+77:                                               ; preds = %74
+  %78 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #9
+  store i64 %78, ptr %10, align 8
   %.pre3.i.i.i = load i64, ptr %3, align 8
   br label %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.i
 
-_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.i: ; preds = %76, %73, %71
-  %78 = phi i64 [ %69, %73 ], [ %.pre3.i.i.i, %76 ], [ %72, %71 ]
-  %79 = phi i64 [ %74, %73 ], [ %77, %76 ], [ %.pre.i.i.i, %71 ]
-  %80 = sub nsw i64 %79, %78
-  %81 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3672), align 8
-  %82 = icmp sge i64 %80, %81
-  %83 = zext i1 %82 to i8
-  store i8 %83, ptr %7, align 1
+_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.i: ; preds = %77, %74, %72
+  %79 = phi i64 [ %70, %74 ], [ %.pre3.i.i.i, %77 ], [ %73, %72 ]
+  %80 = phi i64 [ %75, %74 ], [ %78, %77 ], [ %.pre.i.i.i, %72 ]
+  %81 = sub nsw i64 %80, %79
+  %82 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3672), align 8
+  %83 = icmp sge i64 %81, %82
+  %84 = zext i1 %83 to i8
+  store i8 %84, ptr %7, align 1
   store i8 1, ptr %8, align 2
-  br i1 %82, label %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.thread.i, label %_ZN14EventZUncommit6commitEm.exit
+  br i1 %83, label %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.thread.i, label %_ZN14EventZUncommit6commitEm.exit
 
-_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.thread.i: ; preds = %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.i, %65
+_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.thread.i: ; preds = %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.i, %66
   store i64 %.0.lcssa, ptr %11, align 8
   call void @_ZN8JfrEventI14EventZUncommitE6commitEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
   br label %_ZN14EventZUncommit6commitEm.exit
 
-_ZN14EventZUncommit6commitEm.exit:                ; preds = %_ZN14EventZUncommitC2E14EventStartTime.exit, %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.thread.i, %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.i, %63, %._crit_edge
+_ZN14EventZUncommit6commitEm.exit:                ; preds = %_ZN14EventZUncommitC2E14EventStartTime.exit, %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.thread.i, %_ZN8JfrEventI14EventZUncommitE13should_commitEv.exit.i, %64, %._crit_edge
   %.pre = load i64, ptr %2, align 8
   br label %12, !llvm.loop !9
 
-84:                                               ; preds = %29, %_ZNK12ZUncommitter4waitEm.exit
+85:                                               ; preds = %_ZNK12ZUncommitter4waitEm.exit
   ret void
 }
 
@@ -776,8 +774,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i: ; preds = %_ZNK14JfrThreadL
   %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3690), align 2
   %39 = icmp ne i8 %38, 0
   %40 = tail call noundef zeroext i1 @_ZN8JfrEventI14EventZUncommitE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %37, ptr noundef nonnull %30, i64 noundef %31, i64 noundef 0, i1 noundef zeroext %39)
-  %brmerge.i = or i1 %40, %39
-  br i1 %brmerge.i, label %_ZN8JfrEventI14EventZUncommitE11write_eventEv.exit, label %41
+  %or.cond.i = or i1 %40, %39
+  br i1 %or.cond.i, label %_ZN8JfrEventI14EventZUncommitE11write_eventEv.exit, label %41
 
 41:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
   %42 = tail call noundef zeroext i1 @_ZN8JfrEventI14EventZUncommitE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %37, ptr noundef nonnull %30, i64 noundef %31, i64 noundef 0, i1 noundef zeroext true)

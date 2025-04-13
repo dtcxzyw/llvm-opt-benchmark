@@ -161,7 +161,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %7)
           to label %.thread16 unwind label %.thread13
 
-32:                                               ; preds = %.thread24, %49, %45, %24
+32:                                               ; preds = %.thread22, %49, %45, %24
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
@@ -195,7 +195,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
           cleanup
   %43 = load i64, ptr %3, align 8
   %44 = icmp eq i64 %43, -9223372036854775807
-  br i1 %44, label %.thread24, label %49
+  br i1 %44, label %.thread22, label %49
 
 45:                                               ; preds = %16, %12
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -209,15 +209,15 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %48, label %38, label %36
 
 49:                                               ; preds = %.thread.thread, %.thread
-  %.pn.pn22 = phi { ptr, i32 } [ %42, %.thread.thread ], [ %.pn.pn, %.thread ]
+  %.pn.pn20 = phi { ptr, i32 } [ %42, %.thread.thread ], [ %.pn.pn, %.thread ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$logos_codegen..parser..nested..NestedValue$GT$17h2da3a33f6ba165f2E"(ptr nonnull align 8 %3) #5
           to label %50 unwind label %32
 
-50:                                               ; preds = %.thread, %.thread24, %49
-  %.pn.pn21 = phi { ptr, i32 } [ %42, %.thread24 ], [ %.pn.pn22, %49 ], [ %.pn.pn, %.thread ]
-  resume { ptr, i32 } %.pn.pn21
+50:                                               ; preds = %.thread, %.thread22, %49
+  %.pn.pn19 = phi { ptr, i32 } [ %42, %.thread22 ], [ %.pn.pn20, %49 ], [ %.pn.pn, %.thread ]
+  resume { ptr, i32 } %.pn.pn19
 
-.thread24:                                        ; preds = %.thread.thread
+.thread22:                                        ; preds = %.thread.thread
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %51) #5
           to label %50 unwind label %32
@@ -292,7 +292,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %7)
           to label %.thread16 unwind label %.thread13
 
-32:                                               ; preds = %.thread24, %49, %45, %24
+32:                                               ; preds = %.thread22, %49, %45, %24
   %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
@@ -326,7 +326,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
           cleanup
   %43 = load i64, ptr %3, align 8
   %44 = icmp eq i64 %43, -9223372036854775807
-  br i1 %44, label %.thread24, label %49
+  br i1 %44, label %.thread22, label %49
 
 45:                                               ; preds = %16, %12
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -340,15 +340,15 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %48, label %38, label %36
 
 49:                                               ; preds = %.thread.thread, %.thread
-  %.pn.pn22 = phi { ptr, i32 } [ %42, %.thread.thread ], [ %.pn.pn, %.thread ]
+  %.pn.pn20 = phi { ptr, i32 } [ %42, %.thread.thread ], [ %.pn.pn, %.thread ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$logos_codegen..parser..nested..NestedValue$GT$17h2da3a33f6ba165f2E"(ptr nonnull align 8 %3) #5
           to label %50 unwind label %32
 
-50:                                               ; preds = %.thread, %.thread24, %49
-  %.pn.pn21 = phi { ptr, i32 } [ %42, %.thread24 ], [ %.pn.pn22, %49 ], [ %.pn.pn, %.thread ]
-  resume { ptr, i32 } %.pn.pn21
+50:                                               ; preds = %.thread, %.thread22, %49
+  %.pn.pn19 = phi { ptr, i32 } [ %42, %.thread22 ], [ %.pn.pn20, %49 ], [ %.pn.pn, %.thread ]
+  resume { ptr, i32 } %.pn.pn19
 
-.thread24:                                        ; preds = %.thread.thread
+.thread22:                                        ; preds = %.thread.thread
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %51) #5
           to label %50 unwind label %32
@@ -479,8 +479,8 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
 
 19:                                               ; preds = %17
   store i64 %.sroa.0.0.copyload, ptr %7, align 8
-  %.sroa.3.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx29, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, i64 24, i1 false)
+  %.sroa.3.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx28, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, i64 24, i1 false)
   %20 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hfe641ffc7d3ca420E(ptr nonnull align 8 %1, ptr nonnull align 1 @anon.6177f42d22f570acfa2deddb7c55daa2.7, i64 31, i32 %16)
           to label %23 unwind label %21
 
@@ -506,7 +506,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %7)
           to label %.thread17 unwind label %14
 
-29:                                               ; preds = %.thread25, %46, %42, %21
+29:                                               ; preds = %.thread23, %46, %42, %21
   %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #6
@@ -540,7 +540,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
           cleanup
   %40 = load i64, ptr %3, align 8
   %41 = icmp eq i64 %40, -9223372036854775807
-  br i1 %41, label %.thread25, label %46
+  br i1 %41, label %.thread23, label %46
 
 42:                                               ; preds = %15, %10
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -554,15 +554,15 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %45, label %35, label %33
 
 46:                                               ; preds = %.thread.thread, %.thread
-  %.pn.pn23 = phi { ptr, i32 } [ %39, %.thread.thread ], [ %.pn.pn, %.thread ]
+  %.pn.pn21 = phi { ptr, i32 } [ %39, %.thread.thread ], [ %.pn.pn, %.thread ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$logos_codegen..parser..nested..NestedValue$GT$17h2da3a33f6ba165f2E"(ptr nonnull align 8 %3) #5
           to label %47 unwind label %29
 
-47:                                               ; preds = %.thread, %.thread25, %46
-  %.pn.pn22 = phi { ptr, i32 } [ %39, %.thread25 ], [ %.pn.pn23, %46 ], [ %.pn.pn, %.thread ]
-  resume { ptr, i32 } %.pn.pn22
+47:                                               ; preds = %.thread, %.thread23, %46
+  %.pn.pn20 = phi { ptr, i32 } [ %39, %.thread23 ], [ %.pn.pn21, %46 ], [ %.pn.pn, %.thread ]
+  resume { ptr, i32 } %.pn.pn20
 
-.thread25:                                        ; preds = %.thread.thread
+.thread23:                                        ; preds = %.thread.thread
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %48) #5
           to label %47 unwind label %29

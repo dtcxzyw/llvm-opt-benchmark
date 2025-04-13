@@ -786,8 +786,8 @@ arena_decay_impl.exit:                            ; preds = %14, %20
   br i1 %38, label %39, label %arena_background_thread_inactivity_check.exit
 
 39:                                               ; preds = %30
-  %.val5.i = load i32, ptr %31, align 8, !tbaa !138
-  tail call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val5.i, ptr noundef nonnull %2, i64 noundef 0)
+  %.val6.i = load i32, ptr %31, align 8, !tbaa !138
+  tail call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val6.i, ptr noundef nonnull %2, i64 noundef 0)
   br label %arena_background_thread_inactivity_check.exit
 
 arena_background_thread_inactivity_check.exit:    ; preds = %27, %30, %39
@@ -880,22 +880,22 @@ sz_size2index.exit:                               ; preds = %17, %15, %9
   br label %san_large_extent_decide_guard.exit
 
 san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit, %38, %48, %.sink.split.i
-  %.0.i36 = phi i1 [ false, %38 ], [ false, %sz_size2index.exit ], [ false, %48 ], [ %46, %.sink.split.i ]
+  %.0.i37 = phi i1 [ false, %38 ], [ false, %sz_size2index.exit ], [ false, %48 ], [ %46, %.sink.split.i ]
   %55 = load i64, ptr @duckdb_je_opt_calloc_madvise_threshold, align 8
   %56 = icmp uge i64 %2, %55
   %57 = select i1 %4, i1 %56, i1 false
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  %59 = call ptr @duckdb_je_pa_alloc(ptr noundef %0, ptr noundef nonnull %58, i64 noundef %32, i64 noundef %3, i1 noundef zeroext false, i32 noundef %.0.i, i1 noundef zeroext %57, i1 noundef zeroext %.0.i36, ptr noundef nonnull %7) #17
+  %59 = call ptr @duckdb_je_pa_alloc(ptr noundef %0, ptr noundef nonnull %58, i64 noundef %32, i64 noundef %3, i1 noundef zeroext false, i32 noundef %.0.i, i1 noundef zeroext %57, i1 noundef zeroext %.0.i37, ptr noundef nonnull %7) #17
   %60 = icmp eq ptr %59, null
   br i1 %60, label %94, label %61
 
 61:                                               ; preds = %san_large_extent_decide_guard.exit
   call fastcc void @arena_large_malloc_stats_update(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2)
   %62 = load i64, ptr @duckdb_je_sz_large_pad, align 8, !tbaa !10
-  %.not = icmp ne i64 %62, 0
+  %.not33 = icmp ne i64 %62, 0
   %63 = icmp ult i64 %3, 4096
-  %or.cond = and i1 %63, %.not
-  br i1 %or.cond, label %64, label %arena_cache_oblivious_randomize.exit
+  %or.cond39 = and i1 %63, %.not33
+  br i1 %or.cond39, label %64, label %arena_cache_oblivious_randomize.exit
 
 64:                                               ; preds = %61
   %65 = add nuw nsw i64 %3, 63
@@ -921,9 +921,9 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
   br label %79
 
 79:                                               ; preds = %75, %70
-  %.sink.i37 = phi i64 [ %78, %75 ], [ %74, %70 ]
+  %.sink.i38 = phi i64 [ %78, %75 ], [ %74, %70 ]
   %80 = sub nuw nsw i64 115, %67
-  %81 = lshr i64 %.sink.i37, %80
+  %81 = lshr i64 %.sink.i38, %80
   %82 = shl nuw nsw i64 %81, %68
   %83 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !145
@@ -933,27 +933,27 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
   br label %arena_cache_oblivious_randomize.exit
 
 arena_cache_oblivious_randomize.exit:             ; preds = %79, %61
-  %.not32 = xor i1 %4, true
-  %brmerge = or i1 %57, %.not32
-  br i1 %brmerge, label %94, label %86
+  %.not = xor i1 %4, true
+  %or.cond = or i1 %57, %.not
+  br i1 %or.cond, label %94, label %86
 
 86:                                               ; preds = %arena_cache_oblivious_randomize.exit
   %.val = load i64, ptr %59, align 8, !tbaa !147
   %87 = and i64 %.val, 32768
-  %.not38 = icmp eq i64 %87, 0
-  br i1 %.not38, label %88, label %94
+  %.not40 = icmp eq i64 %87, 0
+  br i1 %.not40, label %88, label %94
 
 88:                                               ; preds = %86
   %89 = getelementptr i8, ptr %59, i64 8
-  %.val33 = load ptr, ptr %89, align 8, !tbaa !145
+  %.val34 = load ptr, ptr %89, align 8, !tbaa !145
   %90 = lshr i64 %.val, 20
   %91 = and i64 %90, 255
   %92 = getelementptr inbounds nuw [232 x i64], ptr @duckdb_je_sz_index2size_tab, i64 0, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !10
-  call void @llvm.memset.p0.i64(ptr align 1 %.val33, i8 0, i64 %93, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %.val34, i8 0, i64 %93, i1 false)
   br label %94
 
-94:                                               ; preds = %86, %88, %arena_cache_oblivious_randomize.exit, %san_large_extent_decide_guard.exit
+94:                                               ; preds = %arena_cache_oblivious_randomize.exit, %86, %88, %san_large_extent_decide_guard.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #17
   ret ptr %59
 }
@@ -1273,8 +1273,8 @@ define void @duckdb_je_arena_do_deferred_work(ptr noundef %0, ptr noundef %1) lo
   store i64 %12, ptr %10, align 8, !tbaa !72
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 69384
   %14 = load ptr, ptr %13, align 8, !tbaa !74
-  %.not.i.i35.i6 = icmp eq ptr %14, %0
-  br i1 %.not.i.i35.i6, label %19, label %15
+  %.not.i.i36.i6 = icmp eq ptr %14, %0
+  br i1 %.not.i.i36.i6, label %19, label %15
 
 15:                                               ; preds = %9
   store ptr %0, ptr %13, align 8, !tbaa !74
@@ -1321,8 +1321,8 @@ pa_shard_dont_decay_muzzy.exit.thread.i.i:        ; preds = %pa_shard_dont_decay
   store i64 %42, ptr %40, align 8, !tbaa !72
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 71168
   %44 = load ptr, ptr %43, align 8, !tbaa !74
-  %.not.i.i35.i = icmp eq ptr %44, %0
-  br i1 %.not.i.i35.i, label %49, label %45
+  %.not.i.i36.i = icmp eq ptr %44, %0
+  br i1 %.not.i.i36.i, label %49, label %45
 
 45:                                               ; preds = %39
   store ptr %0, ptr %43, align 8, !tbaa !74
@@ -1746,8 +1746,8 @@ arena_decay_impl.exit.i50:                        ; preds = %155, %151
   br i1 %169, label %170, label %duckdb_je_arena_slab_dalloc.exit.i
 
 170:                                              ; preds = %162
-  %.val5.i.i47 = load i32, ptr %40, align 8, !tbaa !138
-  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val5.i.i47, ptr noundef nonnull %30, i64 noundef 0)
+  %.val6.i.i47 = load i32, ptr %40, align 8, !tbaa !138
+  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val6.i.i47, ptr noundef nonnull %30, i64 noundef 0)
   br label %duckdb_je_arena_slab_dalloc.exit.i
 
 duckdb_je_arena_slab_dalloc.exit.i:               ; preds = %170, %162, %159, %139
@@ -1853,8 +1853,8 @@ arena_decay_impl.exit.i44:                        ; preds = %201, %197
   br i1 %215, label %216, label %duckdb_je_arena_slab_dalloc.exit48.i
 
 216:                                              ; preds = %208
-  %.val5.i.i41 = load i32, ptr %40, align 8, !tbaa !138
-  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val5.i.i41, ptr noundef nonnull %30, i64 noundef 0)
+  %.val6.i.i41 = load i32, ptr %40, align 8, !tbaa !138
+  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val6.i.i41, ptr noundef nonnull %30, i64 noundef 0)
   br label %duckdb_je_arena_slab_dalloc.exit48.i
 
 duckdb_je_arena_slab_dalloc.exit48.i:             ; preds = %216, %208, %205, %185
@@ -2005,8 +2005,8 @@ arena_decay_impl.exit.i:                          ; preds = %269, %265
   br i1 %283, label %284, label %duckdb_je_arena_slab_dalloc.exit53.i
 
 284:                                              ; preds = %276
-  %.val5.i.i = load i32, ptr %40, align 8, !tbaa !138
-  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val5.i.i, ptr noundef nonnull %30, i64 noundef 0)
+  %.val6.i.i = load i32, ptr %40, align 8, !tbaa !138
+  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val6.i.i, ptr noundef nonnull %30, i64 noundef 0)
   br label %duckdb_je_arena_slab_dalloc.exit53.i
 
 duckdb_je_arena_slab_dalloc.exit53.i:             ; preds = %284, %276, %273, %arena_bin_slabs_full_remove.exit.i
@@ -3063,8 +3063,8 @@ arena_decay_impl.exit.i:                          ; preds = %417, %411
   br i1 %435, label %436, label %duckdb_je_arena_slab_dalloc.exit126
 
 436:                                              ; preds = %427
-  %.val5.i.i = load i32, ptr %428, align 8, !tbaa !138
-  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val5.i.i, ptr noundef nonnull %399, i64 noundef 0)
+  %.val6.i.i = load i32, ptr %428, align 8, !tbaa !138
+  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val6.i.i, ptr noundef nonnull %399, i64 noundef 0)
   br label %duckdb_je_arena_slab_dalloc.exit126
 
 duckdb_je_arena_slab_dalloc.exit126:              ; preds = %436, %427, %424, %.lr.ph188
@@ -3191,8 +3191,8 @@ arena_decay_impl.exit.i144:                       ; preds = %485, %479
   br i1 %503, label %504, label %duckdb_je_arena_slab_dalloc.exit131
 
 504:                                              ; preds = %495
-  %.val5.i.i141 = load i32, ptr %496, align 8, !tbaa !138
-  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val5.i.i141, ptr noundef nonnull %467, i64 noundef 0)
+  %.val6.i.i141 = load i32, ptr %496, align 8, !tbaa !138
+  call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val6.i.i141, ptr noundef nonnull %467, i64 noundef 0)
   br label %duckdb_je_arena_slab_dalloc.exit131
 
 duckdb_je_arena_slab_dalloc.exit131:              ; preds = %504, %495, %492, %edata_list_active_remove.exit128
@@ -6897,8 +6897,8 @@ malloc_mutex_lock.exit:                           ; preds = %13, %19
   store i64 %30, ptr %28, align 8, !tbaa !72
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !74
-  %.not.i.i35 = icmp eq ptr %32, %0
-  br i1 %.not.i.i35, label %37, label %33
+  %.not.i.i36 = icmp eq ptr %32, %0
+  br i1 %.not.i.i36, label %37, label %33
 
 33:                                               ; preds = %27
   store ptr %0, ptr %31, align 8, !tbaa !74
@@ -6935,20 +6935,20 @@ arena_decide_unforced_purge_eagerness.exit:       ; preds = %37, %38
   %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #17
   %48 = load atomic i8, ptr @duckdb_je_background_thread_enabled_state monotonic, align 1
   %49 = trunc i8 %48 to i1
-  %brmerge.demorgan = and i1 %42, %49
-  %brmerge = xor i1 %brmerge.demorgan, true
-  %brmerge33 = or i1 %5, %brmerge
-  br i1 %brmerge33, label %malloc_mutex_trylock.exit, label %50
+  %or.cond = and i1 %42, %49
+  %or.cond.not = xor i1 %or.cond, true
+  %or.cond3 = or i1 %5, %or.cond.not
+  br i1 %or.cond3, label %malloc_mutex_trylock.exit, label %50
 
 50:                                               ; preds = %45
   %51 = getelementptr i8, ptr %1, i64 78952
-  %.val34 = load i32, ptr %51, align 8, !tbaa !138
-  tail call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val34, ptr noundef nonnull %2, i64 noundef %.0)
+  %.val35 = load i32, ptr %51, align 8, !tbaa !138
+  tail call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val35, ptr noundef nonnull %2, i64 noundef %.0)
   br label %malloc_mutex_trylock.exit
 
-malloc_mutex_trylock.exit:                        ; preds = %26, %50, %45, %malloc_mutex_lock.exit
-  %.030 = phi i1 [ false, %malloc_mutex_lock.exit ], [ false, %45 ], [ false, %50 ], [ true, %26 ]
-  ret i1 %.030
+malloc_mutex_trylock.exit:                        ; preds = %26, %45, %50, %malloc_mutex_lock.exit
+  %.033 = phi i1 [ false, %malloc_mutex_lock.exit ], [ false, %50 ], [ false, %45 ], [ true, %26 ]
+  ret i1 %.033
 }
 
 declare void @duckdb_je_pac_decay_all(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2

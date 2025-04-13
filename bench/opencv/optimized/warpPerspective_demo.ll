@@ -2126,10 +2126,9 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
 .preheader:                                       ; preds = %5
   %13 = sitofp i32 %1 to float
   %14 = sitofp i32 %2 to float
-  switch i32 %0, label %64 [
+  switch i32 %0, label %55 [
     i32 1, label %.preheader.split.us
-    i32 4, label %53
-    i32 0, label %54
+    i32 4, label %54
   ]
 
 .preheader.split.us:                              ; preds = %.preheader, %28
@@ -2161,10 +2160,9 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   br i1 %exitcond.not, label %.split.us, label %.preheader.split.us, !llvm.loop !106
 
 29:                                               ; preds = %5
-  switch i32 %0, label %64 [
+  switch i32 %0, label %55 [
     i32 1, label %30
-    i32 4, label %53
-    i32 0, label %54
+    i32 4, label %54
   ]
 
 30:                                               ; preds = %29
@@ -2176,8 +2174,8 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
 
 34:                                               ; preds = %30
   store float %31, ptr %6, align 4
-  %.sroa_idx15 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store float %32, ptr %.sroa_idx15, align 4
+  %.sroa_idx16 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store float %32, ptr %.sroa_idx16, align 4
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 8), align 8, !tbaa !57
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 8), align 8, !tbaa !57
@@ -2203,8 +2201,8 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %
   %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #23
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 %10
   store float %31, ptr %46, align 4
-  %.sroa_idx17 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store float %32, ptr %.sroa_idx17, align 4
+  %.sroa_idx18 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  store float %32, ptr %.sroa_idx18, align 4
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %7, %6
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -2239,36 +2237,36 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__n
 
 .thread:                                          ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %34
   store i8 1, ptr @validation_needed, align 1, !tbaa !81
-  br label %64
+  br label %.thread21
 
 .split.us:                                        ; preds = %28
-  switch i32 %0, label %64 [
-    i32 4, label %53
-    i32 0, label %54
-  ]
-
-53:                                               ; preds = %.preheader, %29, %.split.us
-  store i8 0, ptr @dragging, align 1, !tbaa !81
-  br label %64
+  %53 = icmp eq i32 %0, 4
+  br i1 %53, label %54, label %55
 
 54:                                               ; preds = %.preheader, %29, %.split.us
-  %55 = load i8, ptr @dragging, align 1, !tbaa !81, !range !82, !noundef !83
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %57, label %64
+  store i8 0, ptr @dragging, align 1, !tbaa !81
+  br label %.thread21
 
-57:                                               ; preds = %54
-  %58 = sitofp i32 %1 to float
-  %59 = load i32, ptr @selected_corner_index, align 4, !tbaa !105
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"class.cv::Point_", ptr %7, i64 %60
-  store float %58, ptr %61, align 4, !tbaa !88
-  %62 = sitofp i32 %2 to float
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  store float %62, ptr %63, align 4, !tbaa !91
+55:                                               ; preds = %.preheader, %29, %.split.us
+  %56 = icmp eq i32 %0, 0
+  %57 = load i8, ptr @dragging, align 1, !range !82
+  %58 = trunc nuw i8 %57 to i1
+  %or.cond = select i1 %56, i1 %58, i1 false
+  br i1 %or.cond, label %59, label %.thread21
+
+59:                                               ; preds = %55
+  %60 = sitofp i32 %1 to float
+  %61 = load i32, ptr @selected_corner_index, align 4, !tbaa !105
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds nuw %"class.cv::Point_", ptr %7, i64 %62
+  store float %60, ptr %63, align 4, !tbaa !88
+  %64 = sitofp i32 %2 to float
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  store float %64, ptr %65, align 4, !tbaa !91
   store i8 1, ptr @validation_needed, align 1, !tbaa !81
-  br label %64
+  br label %.thread21
 
-64:                                               ; preds = %.preheader, %53, %.thread, %29, %.split.us, %57, %54
+.thread21:                                        ; preds = %54, %.thread, %59, %55
   ret void
 }
 

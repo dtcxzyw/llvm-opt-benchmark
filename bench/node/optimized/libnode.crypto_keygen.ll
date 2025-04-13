@@ -4125,13 +4125,13 @@ lor.rhs.i:                                        ; preds = %if.then
   %arrayidx4.i = getelementptr inbounds nuw i8, ptr %keys.i, i64 8
   %call5.i = call i16 @_ZN4node6crypto14ManagedEVPPKey19ToEncodedPrivateKeyEPNS_11EnvironmentERKNS0_24PrivateKeyEncodingConfigEPN2v85LocalINS7_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(32) %key.i, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %private_key_encoding.i, ptr noundef nonnull %arrayidx4.i) #17
   %tobool.i.i = trunc i16 %call5.i to i1
-  br i1 %tobool.i.i, label %if.then7, label %_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread
+  br i1 %tobool.i.i, label %_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit, label %_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread
 
 _ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread: ; preds = %if.then, %lor.rhs.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %keys.i)
   br label %return
 
-if.then7:                                         ; preds = %lor.rhs.i
+_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit: ; preds = %lor.rhs.i
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 88
   %3 = load ptr, ptr %isolate_.i.i, align 8
   %call11.i = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %3, ptr noundef nonnull %keys.i, i64 noundef 2) #17
@@ -4174,9 +4174,9 @@ do.end26:                                         ; preds = %do.body
   %10 = select i1 %cmp.i.i.not, i16 0, i16 256
   br label %return
 
-return:                                           ; preds = %_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread, %if.then7, %do.end26
-  %retval.sroa.0.0.in = phi i16 [ 1, %if.then7 ], [ 1, %do.end26 ], [ 0, %_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread ]
-  %retval.sroa.5.0.in = phi i16 [ 256, %if.then7 ], [ %10, %do.end26 ], [ 0, %_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread ]
+return:                                           ; preds = %_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread, %_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit, %do.end26
+  %retval.sroa.0.0.in = phi i16 [ 1, %_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit ], [ 1, %do.end26 ], [ 0, %_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread ]
+  %retval.sroa.5.0.in = phi i16 [ 256, %_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit ], [ %10, %do.end26 ], [ 0, %_ZN4node6crypto16KeyPairGenTraitsINS0_19NidKeyPairGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread ]
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.5.0.in, %retval.sroa.0.0.in
   ret i16 %retval.sroa.0.0.insert.insert
 }
@@ -5831,20 +5831,17 @@ if.then:                                          ; preds = %entry
   %params_.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   %call4 = tail call i16 @_ZN4node6crypto18SecretKeyGenTraits9EncodeKeyEPNS_11EnvironmentEPNS0_18SecretKeyGenConfigEPN2v85LocalINS6_5ValueEEE(ptr noundef %1, ptr noundef nonnull %params_.i, ptr noundef %result)
   %retval.sroa.5.0.extract.shift = lshr i16 %call4, 8
-  %tobool.i = trunc i16 %call4 to i1
-  br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
+  %3 = and i16 %retval.sroa.5.0.extract.shift, %call4
+  %or.cond.not = icmp eq i16 %3, 0
+  br i1 %or.cond.not, label %return, label %if.then7
 
-_ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %if.then
-  %tobool.i102 = trunc nuw i16 %retval.sroa.5.0.extract.shift to i1
-  br i1 %tobool.i102, label %if.then7, label %return
-
-if.then7:                                         ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit
+if.then7:                                         ; preds = %if.then
   %isolate_.i = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %3 = load ptr, ptr %isolate_.i, align 8
-  %4 = ptrtoint ptr %3 to i64
-  %add1.i = add i64 %4, 608
-  %5 = inttoptr i64 %add1.i to ptr
-  store ptr %5, ptr %err, align 8
+  %4 = load ptr, ptr %isolate_.i, align 8
+  %5 = ptrtoint ptr %4 to i64
+  %add1.i = add i64 %5, 608
+  %6 = inttoptr i64 %add1.i to ptr
+  store ptr %6, ptr %err, align 8
   br label %return
 
 if.end15:                                         ; preds = %entry
@@ -5866,11 +5863,11 @@ do.body24:                                        ; preds = %do.body
 
 do.end26:                                         ; preds = %do.body
   %isolate_.i16 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %6 = load ptr, ptr %isolate_.i16, align 8
-  %7 = ptrtoint ptr %6 to i64
-  %add1.i67 = add i64 %7, 608
-  %8 = inttoptr i64 %add1.i67 to ptr
-  store ptr %8, ptr %result, align 8
+  %7 = load ptr, ptr %isolate_.i16, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %add1.i67 = add i64 %8, 608
+  %9 = inttoptr i64 %add1.i67 to ptr
+  store ptr %9, ptr %result, align 8
   %call43 = tail call ptr @_ZNK4node6crypto16CryptoErrorStore11ToExceptionEPNS_11EnvironmentEN2v85LocalINS4_6StringEEE(ptr noundef nonnull align 8 dereferenceable(32) %errors_.i, ptr noundef nonnull %1, ptr null) #17
   store ptr %call43, ptr %err, align 8
   %cmp.i.i = icmp ne ptr %call43, null
@@ -5878,9 +5875,9 @@ do.end26:                                         ; preds = %do.body
   %retval.sroa.0.0.insert.insert.i = select i1 %cmp.i.i, i16 257, i16 1
   br label %return
 
-return:                                           ; preds = %if.then, %_ZNKR2v85MaybeIbE8FromJustEv.exit, %if.then7, %do.end26
-  %retval.sroa.0.0.in = phi i16 [ %call4, %if.then7 ], [ %call4, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ %call4, %if.then ], [ %retval.sroa.0.0.insert.insert.i, %do.end26 ]
-  %retval.sroa.5.0.in = phi i16 [ 1, %if.then7 ], [ 0, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ %retval.sroa.5.0.extract.shift, %if.then ], [ %retval.sroa.2.0.insert.ext.i, %do.end26 ]
+return:                                           ; preds = %if.then, %if.then7, %do.end26
+  %retval.sroa.0.0.in = phi i16 [ %call4, %if.then7 ], [ %call4, %if.then ], [ %retval.sroa.0.0.insert.insert.i, %do.end26 ]
+  %retval.sroa.5.0.in = phi i16 [ 1, %if.then7 ], [ %retval.sroa.5.0.extract.shift, %if.then ], [ %retval.sroa.2.0.insert.ext.i, %do.end26 ]
   %retval.sroa.5.0.insert.shift = shl nuw nsw i16 %retval.sroa.5.0.in, 8
   %retval.sroa.0.0.insert.ext = and i16 %retval.sroa.0.0.in, 255
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.5.0.insert.shift, %retval.sroa.0.0.insert.ext

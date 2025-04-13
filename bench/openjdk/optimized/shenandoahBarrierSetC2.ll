@@ -1738,7 +1738,7 @@ define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC216load_at_resolvedER8C2Ac
   %6 = and i8 %5, -2
   %or.cond.i.i = icmp eq i8 %6, 12
   %7 = tail call noundef ptr @_ZNK12BarrierSetC216load_at_resolvedER8C2AccessPK4Type(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef %2) #15
-  br i1 %or.cond.i.i, label %8, label %93
+  br i1 %or.cond.i.i, label %8, label %94
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1806,16 +1806,16 @@ _ZN4NodenwEm.exit:                                ; preds = %29, %31
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %40
-  %.sink65 = phi ptr [ %44, %40 ], [ %49, %45 ]
-  %50 = load ptr, ptr %.sink65, align 8
+  %.sink69 = phi ptr [ %44, %40 ], [ %49, %45 ]
+  %50 = load ptr, ptr %.sink69, align 8
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(2400) %.sink65, ptr noundef %.0.i.i.i) #15
+  %52 = tail call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(2400) %.sink69, ptr noundef %.0.i.i.i) #15
   br label %53
 
 53:                                               ; preds = %.sink.split, %8
-  %.054 = phi ptr [ %7, %8 ], [ %52, %.sink.split ]
+  %.059 = phi ptr [ %7, %8 ], [ %52, %.sink.split ]
   %54 = tail call noundef zeroext i1 @_ZN20ShenandoahBarrierSet23need_keep_alive_barrierEm9BasicType(i64 noundef %10, i8 noundef zeroext %11) #15
-  br i1 %54, label %55, label %93
+  br i1 %54, label %55, label %94
 
 55:                                               ; preds = %53
   %56 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1847,35 +1847,35 @@ _ZN4NodenwEm.exit:                                ; preds = %29, %31
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %79 = load ptr, ptr %78, align 8
   %80 = and i64 %10, 98304
-  %.not58 = icmp eq i64 %80, 0
+  %.not64 = icmp eq i64 %80, 0
   %81 = and i64 %10, 4096
-  %82 = icmp ne i64 %81, 0
-  br i1 %.not58, label %93, label %83
+  %82 = icmp eq i64 %81, 0
+  br i1 %.not64, label %94, label %83
 
 83:                                               ; preds = %76
   %84 = and i64 %10, 131072
-  %.not = icmp eq i64 %84, 0
-  br i1 %.not, label %88, label %85
+  %.not63 = icmp eq i64 %84, 0
+  br i1 %.not63, label %89, label %85
 
 85:                                               ; preds = %83
-  %86 = icmp eq ptr %77, %63
-  %87 = icmp eq ptr %79, %63
-  %or.cond = or i1 %86, %87
-  %brmerge = or i1 %82, %or.cond
-  br i1 %brmerge, label %93, label %89
+  %86 = icmp ne ptr %77, %63
+  %87 = icmp ne ptr %79, %63
+  %88 = and i1 %86, %87
+  %or.cond66 = and i1 %82, %88
+  br i1 %or.cond66, label %90, label %94
 
-88:                                               ; preds = %83
-  br i1 %82, label %93, label %89
+89:                                               ; preds = %83
+  br i1 %82, label %90, label %94
 
-89:                                               ; preds = %85, %88
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %91 = load ptr, ptr %90, align 8
-  tail call void @_ZNK22ShenandoahBarrierSetC222satb_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType(ptr nonnull align 8 poison, ptr noundef %91, i1 noundef zeroext false, ptr poison, ptr noundef null, i32 noundef -1, ptr poison, ptr noundef null, ptr noundef %.054, i8 noundef zeroext 12)
-  %92 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %91, i32 noundef 216, ptr noundef null) #15
-  br label %93
+90:                                               ; preds = %85, %89
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %92 = load ptr, ptr %91, align 8
+  tail call void @_ZNK22ShenandoahBarrierSetC222satb_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType(ptr nonnull align 8 poison, ptr noundef %92, i1 noundef zeroext false, ptr poison, ptr noundef null, i32 noundef -1, ptr poison, ptr noundef null, ptr noundef %.059, i8 noundef zeroext 12)
+  %93 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %92, i32 noundef 216, ptr noundef null) #15
+  br label %94
 
-93:                                               ; preds = %3, %53, %89, %76, %88, %85
-  %.0 = phi ptr [ %.054, %85 ], [ %.054, %88 ], [ %.054, %76 ], [ %.054, %89 ], [ %.054, %53 ], [ %7, %3 ]
+94:                                               ; preds = %3, %53, %90, %76, %85, %89
+  %.0 = phi ptr [ %.059, %89 ], [ %.059, %85 ], [ %.059, %76 ], [ %.059, %90 ], [ %.059, %53 ], [ %7, %3 ]
   ret ptr %.0
 }
 
@@ -3425,133 +3425,131 @@ define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC223atomic_xchg_at_resolved
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, -2
   %or.cond.i.i = icmp eq i8 %10, 12
-  br i1 %or.cond.i.i, label %11, label %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit
+  %11 = load i8, ptr @ShenandoahIUBarrier, align 1
+  %12 = trunc i8 %11 to i1
+  %or.cond = select i1 %or.cond.i.i, i1 %12, i1 false
+  br i1 %or.cond, label %13, label %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit
 
-11:                                               ; preds = %4
-  %12 = load i8, ptr @ShenandoahIUBarrier, align 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit
+13:                                               ; preds = %4
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1808
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 728
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %28 = ptrtoint ptr %25 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %.not.i.i.i.i = icmp ult i64 %30, 56
+  br i1 %.not.i.i.i.i, label %33, label %31
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1808
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 728
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %.not.i.i.i.i = icmp ult i64 %31, 56
-  br i1 %.not.i.i.i.i, label %34, label %32
-
-32:                                               ; preds = %14
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  store ptr %33, ptr %27, align 8
+31:                                               ; preds = %13
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  store ptr %32, ptr %26, align 8
   br label %_ZN4NodenwEm.exit.i
 
-34:                                               ; preds = %14
-  %35 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, i64 noundef 56, i32 noundef 0) #15
+33:                                               ; preds = %13
+  %34 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 56, i32 noundef 0) #15
   br label %_ZN4NodenwEm.exit.i
 
-_ZN4NodenwEm.exit.i:                              ; preds = %34, %32
-  %.0.i.i.i.i = phi ptr [ %28, %32 ], [ %35, %34 ]
-  %36 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %36, label %38, label %37
+_ZN4NodenwEm.exit.i:                              ; preds = %33, %31
+  %.0.i.i.i.i = phi ptr [ %27, %31 ], [ %34, %33 ]
+  %35 = icmp eq ptr %.0.i.i.i.i, null
+  br i1 %35, label %37, label %36
 
-37:                                               ; preds = %_ZN4NodenwEm.exit.i
+36:                                               ; preds = %_ZN4NodenwEm.exit.i
   tail call void @_ZN23ShenandoahIUBarrierNodeC1EP4Node(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i, ptr noundef %2) #15
-  br label %38
+  br label %37
 
-38:                                               ; preds = %37, %_ZN4NodenwEm.exit.i
-  %39 = load ptr, ptr %16, align 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(2400) %16, ptr noundef %.0.i.i.i.i) #15
+37:                                               ; preds = %36, %_ZN4NodenwEm.exit.i
+  %38 = load ptr, ptr %15, align 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(2400) %15, ptr noundef %.0.i.i.i.i) #15
   br label %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit
 
-_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit: ; preds = %38, %11, %4
-  %.015 = phi ptr [ %2, %4 ], [ %41, %38 ], [ %2, %11 ]
-  %42 = tail call noundef ptr @_ZNK12BarrierSetC223atomic_xchg_at_resolvedER19C2AtomicParseAccessP4NodePK4Type(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef %.015, ptr noundef %3) #15
-  %43 = load i8, ptr %8, align 8
-  %44 = and i8 %43, -2
-  %or.cond.i.i17 = icmp eq i8 %44, 12
-  br i1 %or.cond.i.i17, label %45, label %80
+_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit: ; preds = %37, %4
+  %.015 = phi ptr [ %2, %4 ], [ %40, %37 ]
+  %41 = tail call noundef ptr @_ZNK12BarrierSetC223atomic_xchg_at_resolvedER19C2AtomicParseAccessP4NodePK4Type(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef %.015, ptr noundef %3) #15
+  %42 = load i8, ptr %8, align 8
+  %43 = and i8 %42, -2
+  %or.cond.i.i17 = icmp eq i8 %43, 12
+  br i1 %or.cond.i.i17, label %44, label %79
 
-45:                                               ; preds = %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1808
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 128
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 728
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %59 = load ptr, ptr %58, align 8
-  %60 = ptrtoint ptr %57 to i64
-  %61 = ptrtoint ptr %59 to i64
-  %62 = sub i64 %60, %61
-  %.not.i.i.i = icmp ult i64 %62, 64
-  br i1 %.not.i.i.i, label %65, label %63
+44:                                               ; preds = %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1808
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 128
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 728
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %58 = load ptr, ptr %57, align 8
+  %59 = ptrtoint ptr %56 to i64
+  %60 = ptrtoint ptr %58 to i64
+  %61 = sub i64 %59, %60
+  %.not.i.i.i = icmp ult i64 %61, 64
+  br i1 %.not.i.i.i, label %64, label %62
 
-63:                                               ; preds = %45
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 64
-  store ptr %64, ptr %58, align 8
+62:                                               ; preds = %44
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 64
+  store ptr %63, ptr %57, align 8
   br label %_ZN4NodenwEm.exit
 
-65:                                               ; preds = %45
-  %66 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %55, i64 noundef 64, i32 noundef 0) #15
+64:                                               ; preds = %44
+  %65 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %54, i64 noundef 64, i32 noundef 0) #15
   br label %_ZN4NodenwEm.exit
 
-_ZN4NodenwEm.exit:                                ; preds = %63, %65
-  %.0.i.i.i = phi ptr [ %59, %63 ], [ %66, %65 ]
-  %67 = icmp eq ptr %.0.i.i.i, null
-  br i1 %67, label %71, label %68
+_ZN4NodenwEm.exit:                                ; preds = %62, %64
+  %.0.i.i.i = phi ptr [ %58, %62 ], [ %65, %64 ]
+  %66 = icmp eq ptr %.0.i.i.i, null
+  br i1 %66, label %70, label %67
 
-68:                                               ; preds = %_ZN4NodenwEm.exit
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %70 = load i64, ptr %69, align 8
-  tail call void @_ZN34ShenandoahLoadReferenceBarrierNodeC1EP4NodeS1_m(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, ptr noundef null, ptr noundef %42, i64 noundef %70) #15
-  br label %71
+67:                                               ; preds = %_ZN4NodenwEm.exit
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %69 = load i64, ptr %68, align 8
+  tail call void @_ZN34ShenandoahLoadReferenceBarrierNodeC1EP4NodeS1_m(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, ptr noundef null, ptr noundef %41, i64 noundef %69) #15
+  br label %70
 
-71:                                               ; preds = %68, %_ZN4NodenwEm.exit
-  %72 = load ptr, ptr %47, align 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = tail call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(2400) %47, ptr noundef %.0.i.i.i) #15
+70:                                               ; preds = %67, %_ZN4NodenwEm.exit
+  %71 = load ptr, ptr %46, align 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call noundef ptr %72(ptr noundef nonnull align 8 dereferenceable(2400) %46, ptr noundef %.0.i.i.i) #15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %75 = load i8, ptr @ShenandoahSATBBarrier, align 1
-  %76 = trunc i8 %75 to i1
-  br i1 %76, label %77, label %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit
+  %74 = load i8, ptr @ShenandoahSATBBarrier, align 1
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit
 
-77:                                               ; preds = %71
+76:                                               ; preds = %70
   call void @_ZN8IdealKitC1EP8GraphKitbb(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %7, i1 noundef zeroext false, i1 noundef zeroext false) #15
   call void @_ZN8GraphKit8sync_kitER8IdealKit(ptr noundef nonnull align 8 dereferenceable(84) %7, ptr noundef nonnull align 8 dereferenceable(64) %5) #15
-  call void @_ZNK22ShenandoahBarrierSetC222satb_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType(ptr nonnull readnone align 8 poison, ptr noundef nonnull %7, i1 noundef zeroext false, ptr poison, ptr noundef null, i32 noundef -1, ptr poison, ptr noundef null, ptr noundef %74, i8 noundef zeroext 12)
+  call void @_ZNK22ShenandoahBarrierSetC222satb_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType(ptr nonnull readnone align 8 poison, ptr noundef nonnull %7, i1 noundef zeroext false, ptr poison, ptr noundef null, i32 noundef -1, ptr poison, ptr noundef null, ptr noundef %73, i8 noundef zeroext 12)
   call void @_ZN8IdealKit8sync_kitEP8GraphKit(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %7) #15
   call void @_ZN8GraphKit10final_syncER8IdealKit(ptr noundef nonnull align 8 dereferenceable(84) %7, ptr noundef nonnull align 8 dereferenceable(64) %5) #15
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %79 = load ptr, ptr %78, align 8
-  call void @_ZN8IdealKit5clearEP4Node(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %79) #15
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %78 = load ptr, ptr %77, align 8
+  call void @_ZN8IdealKit5clearEP4Node(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %78) #15
   br label %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit
 
-_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit: ; preds = %71, %77
+_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit: ; preds = %70, %76
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  br label %80
+  br label %79
 
-80:                                               ; preds = %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit, %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit
-  %.0 = phi ptr [ %74, %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit ], [ %42, %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit ]
+79:                                               ; preds = %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit, %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit
+  %.0 = phi ptr [ %73, %_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType.exit ], [ %41, %_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node.exit ]
   ret ptr %.0
 }
 
@@ -3708,8 +3706,8 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC231array_copy_requi
 8:                                                ; preds = %6
   %9 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %10 = trunc i8 %9 to i1
-  %brmerge.demorgan = and i1 %1, %10
-  br i1 %brmerge.demorgan, label %11, label %14
+  %or.cond = and i1 %1, %10
+  br i1 %or.cond, label %11, label %14
 
 11:                                               ; preds = %8
   %12 = icmp ne i32 %5, 1

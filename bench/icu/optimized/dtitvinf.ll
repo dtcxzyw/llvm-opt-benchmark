@@ -1087,19 +1087,17 @@ define void @_ZN6icu_7716DateIntervalInfo28setIntervalPatternInternallyERKNS_13U
 
 8:                                                ; preds = %5
   %9 = icmp ult i32 %2, 15
-  br i1 %9, label %switch.hole_check, label %10
+  %switch.maskindex = trunc i32 %2 to i16
+  %switch.shifted = lshr i16 32423, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %9, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %10
 
-10:                                               ; preds = %switch.hole_check, %8
+10:                                               ; preds = %8
   store i32 1, ptr %4, align 4, !tbaa !13
   br label %_ZN6icu_7716DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode.exit
 
-switch.hole_check:                                ; preds = %8
-  %switch.maskindex = trunc nuw i32 %2 to i16
-  %switch.shifted = lshr i16 32423, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %10
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %8
   %11 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN6icu_7716DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1662,19 +1660,17 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7716DateInterva
 
 15:                                               ; preds = %8
   %16 = icmp ult i32 %2, 15
-  br i1 %16, label %switch.hole_check, label %17
+  %switch.maskindex = trunc i32 %2 to i16
+  %switch.shifted = lshr i16 32423, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond23 = select i1 %16, i1 %switch.lobit, i1 false
+  br i1 %or.cond23, label %switch.lookup, label %17
 
-17:                                               ; preds = %switch.hole_check, %15
+17:                                               ; preds = %15
   store i32 1, ptr %4, align 4, !tbaa !13
   br label %.critedge
 
-switch.hole_check:                                ; preds = %15
-  %switch.maskindex = trunc nuw i32 %2 to i16
-  %switch.shifted = lshr i16 32423, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %17
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %15
   %18 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN6icu_7716DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 0, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1700,19 +1696,17 @@ define noundef range(i32 0, 10) i32 @_ZN6icu_7716DateIntervalInfo28calendarField
 
 5:                                                ; preds = %2
   %6 = icmp ult i32 %0, 15
-  br i1 %6, label %switch.hole_check, label %7
+  %switch.maskindex = trunc i32 %0 to i16
+  %switch.shifted = lshr i16 32423, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-7:                                                ; preds = %switch.hole_check, %5
+7:                                                ; preds = %5
   store i32 1, ptr %1, align 4, !tbaa !13
   br label %9
 
-switch.hole_check:                                ; preds = %5
-  %switch.maskindex = trunc nuw i32 %0 to i16
-  %switch.shifted = lshr i16 32423, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %8 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._ZN6icu_7716DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -2994,19 +2988,17 @@ define linkonce_odr hidden void @_ZN6icu_7716DateIntervalInfo16DateIntervalSink2
 
 12:                                               ; preds = %5
   %13 = icmp ult i32 %2, 15
-  br i1 %13, label %switch.hole_check, label %14
+  %switch.maskindex = trunc i32 %2 to i16
+  %switch.shifted = lshr i16 32423, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %14
 
-14:                                               ; preds = %switch.hole_check, %12
+14:                                               ; preds = %12
   store i32 1, ptr %4, align 4, !tbaa !13
   br label %_ZN6icu_7716DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode.exit
 
-switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc nuw i32 %2 to i16
-  %switch.shifted = lshr i16 32423, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %14
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %12
   %15 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN6icu_7716DateIntervalInfo16DateIntervalSink26setIntervalPatternIfAbsentEPKc19UCalendarDateFieldsRKNS_13ResourceValueER10UErrorCode, i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8

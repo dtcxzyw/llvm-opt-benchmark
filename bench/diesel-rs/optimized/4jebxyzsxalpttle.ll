@@ -173,18 +173,18 @@ define void @_ZN4core4iter8adapters11try_process17h3ce9858814b74222E(ptr sret({ 
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 %9, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h7f5f6a596a35a80aE"(ptr nonnull sret({ { i64, ptr }, i64 }) align 8 %7, ptr nonnull align 1 %4, ptr nonnull align 8 %6)
-          to label %15 unwind label %12
+          to label %15 unwind label %13
 
-10:                                               ; preds = %.thread, %12
-  %.1 = phi i1 [ %13, %12 ], [ false, %.thread ]
-  %.pn = phi { ptr, i32 } [ %14, %12 ], [ %18, %.thread ]
+10:                                               ; preds = %.thread, %13
+  %.1 = phi i1 [ %.0, %13 ], [ true, %.thread ]
+  %.pn = phi { ptr, i32 } [ %14, %13 ], [ %18, %.thread ]
   %11 = load ptr, ptr %8, align 8, !noundef !3
-  %.not = icmp eq ptr %11, null
-  %brmerge = or i1 %.1, %.not
-  br i1 %brmerge, label %.thread11, label %25
+  %12 = icmp ne ptr %11, null
+  %or.cond = and i1 %.1, %12
+  br i1 %or.cond, label %25, label %.thread12
 
-12:                                               ; preds = %20, %3
-  %13 = phi i1 [ true, %20 ], [ false, %3 ]
+13:                                               ; preds = %20, %3
+  %.0 = phi i1 [ false, %20 ], [ true, %3 ]
   %14 = landingpad { ptr, i32 }
           cleanup
   br label %10
@@ -197,7 +197,7 @@ define void @_ZN4core4iter8adapters11try_process17h3ce9858814b74222E(ptr sret({ 
 17:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   invoke void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17hf65c3c2f91bed6caE"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %5)
-          to label %.thread9 unwind label %.thread
+          to label %.thread10 unwind label %.thread
 
 .thread:                                          ; preds = %17
   %18 = landingpad { ptr, i32 }
@@ -208,18 +208,18 @@ define void @_ZN4core4iter8adapters11try_process17h3ce9858814b74222E(ptr sret({ 
   invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hbc8e5b5e3d2f8583E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull %16, ptr nonnull align 8 @anon.feb08e86e5e7cabdb9d24c318d4c72f4.1)
           to label %20 unwind label %21
 
-.thread9:                                         ; preds = %17, %20
+.thread10:                                        ; preds = %17, %20
   ret void
 
 20:                                               ; preds = %19
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$std..ffi..os_str..OsString$GT$$GT$17he9477c8f787a53d5E"(ptr nonnull align 8 %7)
-          to label %.thread9 unwind label %12
+          to label %.thread10 unwind label %13
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$std..ffi..os_str..OsString$GT$$GT$17he9477c8f787a53d5E"(ptr nonnull align 8 %7) #6
-          to label %.thread11 unwind label %23
+          to label %.thread12 unwind label %23
 
 23:                                               ; preds = %25, %21
   %24 = landingpad { ptr, i32 }
@@ -227,13 +227,13 @@ define void @_ZN4core4iter8adapters11try_process17h3ce9858814b74222E(ptr sret({ 
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #7
   unreachable
 
-.thread11:                                        ; preds = %21, %10, %25
-  %.pn16 = phi { ptr, i32 } [ %.pn, %10 ], [ %.pn, %25 ], [ %22, %21 ]
+.thread12:                                        ; preds = %21, %25, %10
+  %.pn16 = phi { ptr, i32 } [ %.pn, %25 ], [ %.pn, %10 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn16
 
 25:                                               ; preds = %10
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$17h1080e0c32ef8ac3eE"(ptr nonnull align 8 %8) #6
-          to label %.thread11 unwind label %23
+          to label %.thread12 unwind label %23
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

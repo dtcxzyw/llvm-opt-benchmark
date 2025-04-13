@@ -244,35 +244,30 @@ declare noundef i32 @_Z46InitialTenuringThresholdConstraintFuncParalleljb(i32 no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_Z34MaxTenuringThresholdConstraintFuncjb(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call noundef i32 @_Z42MaxTenuringThresholdConstraintFuncParalleljb(i32 noundef %0, i1 noundef zeroext %1) #4
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %13
+  %.not9 = icmp eq i32 %3, 0
+  br i1 %.not9, label %4, label %14
 
 4:                                                ; preds = %2
   %5 = icmp eq i32 %0, 0
-  br i1 %5, label %6, label %13
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %4
   %7 = load i8, ptr @NeverTenure, align 1
   %8 = trunc i8 %7 to i1
-  %.pre = load i8, ptr @AlwaysTenure, align 1
-  %.pre8 = trunc i8 %.pre to i1
-  br i1 %8, label %._crit_edge, label %10
+  %.not = xor i1 %8, true
+  %9 = load i8, ptr @AlwaysTenure, align 1
+  %10 = trunc i8 %9 to i1
+  %or.cond = select i1 %.not, i1 %10, i1 false
+  br i1 %or.cond, label %14, label %11
 
-._crit_edge:                                      ; preds = %6
-  %9 = select i1 %.pre8, ptr @.str.12, ptr @.str.13
-  br label %11
+11:                                               ; preds = %6
+  %12 = select i1 %8, ptr @.str.12, ptr @.str.13
+  %13 = select i1 %10, ptr @.str.12, ptr @.str.13
+  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.11, ptr noundef nonnull %12, ptr noundef nonnull %13) #4
+  br label %14
 
-10:                                               ; preds = %6
-  br i1 %.pre8, label %13, label %11
-
-11:                                               ; preds = %._crit_edge, %10
-  %.pre-phi = phi ptr [ %9, %._crit_edge ], [ @.str.13, %10 ]
-  %12 = phi ptr [ @.str.12, %._crit_edge ], [ @.str.13, %10 ]
-  tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.11, ptr noundef nonnull %12, ptr noundef nonnull %.pre-phi) #4
-  br label %13
-
-13:                                               ; preds = %4, %10, %2, %11
-  %.0 = phi i32 [ 6, %11 ], [ %3, %2 ], [ 0, %10 ], [ 0, %4 ]
+14:                                               ; preds = %4, %6, %2, %11
+  %.0 = phi i32 [ 6, %11 ], [ %3, %2 ], [ 0, %6 ], [ 0, %4 ]
   ret i32 %.0
 }
 

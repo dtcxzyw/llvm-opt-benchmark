@@ -518,144 +518,144 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %18
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %45 = load i8, ptr %44, align 4, !tbaa !66, !range !75, !noundef !76
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %51, label %47
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %48 = load i8, ptr %47, align 8, !range !75
+  %49 = trunc nuw i8 %48 to i1
+  %or.cond.i = select i1 %46, i1 true, i1 %49
+  br i1 %or.cond.i, label %50, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
-47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %49 = load i8, ptr %48, align 8, !tbaa !67, !range !75, !noundef !76
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
+50:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
+  br i1 %46, label %51, label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i
 
-51:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
+51:                                               ; preds = %50
   store i8 0, ptr %44, align 4, !tbaa !66
   br label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i
 
-_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i: ; preds = %51, %47
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store i8 0, ptr %52, align 8, !tbaa !67
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = load i8, ptr %53, align 8, !tbaa !10, !range !75, !noundef !76
-  %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %56, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
+_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i: ; preds = %51, %50
+  store i8 0, ptr %47, align 8, !tbaa !67
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %53 = load i8, ptr %52, align 8, !tbaa !10, !range !75, !noundef !76
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %55, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
-56:                                               ; preds = %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i
-  %57 = load ptr, ptr %0, align 8, !tbaa !77
-  %58 = load ptr, ptr %57, align 8, !tbaa !78
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %60 = load ptr, ptr %59, align 8
-  %61 = tail call noundef nonnull align 8 dereferenceable(48) ptr %60(ptr noundef nonnull align 8 dereferenceable(48) %57) #24
+55:                                               ; preds = %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i
+  %56 = load ptr, ptr %0, align 8, !tbaa !77
+  %57 = load ptr, ptr %56, align 8, !tbaa !78
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef nonnull align 8 dereferenceable(48) ptr %59(ptr noundef nonnull align 8 dereferenceable(48) %56) #24
   br label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
-_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit: ; preds = %47, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i, %56
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = load ptr, ptr %5, align 8, !tbaa !73
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %65 = load i64, ptr %64, align 8, !tbaa !63
-  tail call void @_ZN4llvm9symbolize12MarkupParser9parseLineENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %62, ptr %63, i64 %65) #24
+_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i, %55
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %62 = load ptr, ptr %5, align 8, !tbaa !73
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %64 = load i64, ptr %63, align 8, !tbaa !63
+  tail call void @_ZN4llvm9symbolize12MarkupParser9parseLineENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(240) %61, ptr %62, i64 %64) #24
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #24
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %66, ptr %3, align 8, !tbaa !80
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %67, align 8, !tbaa !81
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 1, ptr %68, align 4, !tbaa !82
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %71 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  br label %72
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %65, ptr %3, align 8, !tbaa !80
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %66, align 8, !tbaa !81
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 1, ptr %67, align 4, !tbaa !82
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  br label %71
 
-72:                                               ; preds = %_ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit, %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
+71:                                               ; preds = %_ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit, %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #24
-  call void @_ZN4llvm9symbolize12MarkupParser8nextNodeEv(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.52") align 8 %4, ptr noundef nonnull align 8 dereferenceable(240) %62) #24
-  %73 = load i8, ptr %69, align 8, !tbaa !83, !range !75, !noundef !76
-  %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %75, label %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread
+  call void @_ZN4llvm9symbolize12MarkupParser8nextNodeEv(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.52") align 8 %4, ptr noundef nonnull align 8 dereferenceable(240) %61) #24
+  %72 = load i8, ptr %68, align 8, !tbaa !83, !range !75, !noundef !76
+  %73 = trunc nuw i8 %72 to i1
+  br i1 %73, label %74, label %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread
 
-75:                                               ; preds = %72
-  %76 = call noundef zeroext i1 @_ZN4llvm9symbolize12MarkupFilter7tryMMapERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %4, ptr noundef nonnull readonly align 8 dereferenceable(112) %3)
-  br i1 %76, label %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread, label %77
+74:                                               ; preds = %71
+  %75 = call noundef zeroext i1 @_ZN4llvm9symbolize12MarkupFilter7tryMMapERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %4, ptr noundef nonnull readonly align 8 dereferenceable(112) %3)
+  br i1 %75, label %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread, label %76
 
-77:                                               ; preds = %75
-  %78 = call noundef zeroext i1 @_ZN4llvm9symbolize12MarkupFilter8tryResetERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %4, ptr noundef nonnull readonly align 8 dereferenceable(112) %3)
-  br i1 %78, label %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread, label %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit
+76:                                               ; preds = %74
+  %77 = call noundef zeroext i1 @_ZN4llvm9symbolize12MarkupFilter8tryResetERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %4, ptr noundef nonnull readonly align 8 dereferenceable(112) %3)
+  br i1 %77, label %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread, label %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit
 
-_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit: ; preds = %77
-  %79 = call noundef zeroext i1 @_ZN4llvm9symbolize12MarkupFilter9tryModuleERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %4, ptr noundef nonnull readonly align 8 dereferenceable(112) %3)
-  br i1 %79, label %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread, label %80
+_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit: ; preds = %76
+  %78 = call noundef zeroext i1 @_ZN4llvm9symbolize12MarkupFilter9tryModuleERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %4, ptr noundef nonnull readonly align 8 dereferenceable(112) %3)
+  br i1 %78, label %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread, label %79
 
-80:                                               ; preds = %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit
+79:                                               ; preds = %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(96) %4)
   br label %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread
 
-_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread: ; preds = %77, %75, %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit, %72, %80
-  %.0 = phi i32 [ 0, %80 ], [ 3, %72 ], [ 1, %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit ], [ 1, %75 ], [ 1, %77 ]
-  %81 = load i8, ptr %69, align 8, !tbaa !83, !range !75, !noundef !76
-  %82 = trunc nuw i8 %81 to i1
-  br i1 %82, label %83, label %_ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit
+_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread: ; preds = %76, %74, %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit, %71, %79
+  %.0 = phi i32 [ 0, %79 ], [ 3, %71 ], [ 1, %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit ], [ 1, %74 ], [ 1, %76 ]
+  %80 = load i8, ptr %68, align 8, !tbaa !83, !range !75, !noundef !76
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %82, label %_ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit
 
-83:                                               ; preds = %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread
-  store i8 0, ptr %69, align 8, !tbaa !83
-  %84 = load ptr, ptr %70, align 8, !tbaa !80
-  %85 = icmp eq ptr %84, %71
-  br i1 %85, label %_ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit, label %86
+82:                                               ; preds = %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread
+  store i8 0, ptr %68, align 8, !tbaa !83
+  %83 = load ptr, ptr %69, align 8, !tbaa !80
+  %84 = icmp eq ptr %83, %70
+  br i1 %84, label %_ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit, label %85
 
-86:                                               ; preds = %83
-  call void @free(ptr noundef %84) #24
+85:                                               ; preds = %82
+  call void @free(ptr noundef %83) #24
   br label %_ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit
 
-_ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit: ; preds = %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread, %83, %86
+_ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit: ; preds = %_ZN4llvm9symbolize12MarkupFilter20tryContextualElementERKNS0_10MarkupNodeERKNS_11SmallVectorIS2_Lj1EEE.exit.thread, %82, %85
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #24
   switch i32 %.0, label %.loopexit [
-    i32 0, label %72
-    i32 3, label %87
+    i32 0, label %71
+    i32 3, label %86
   ], !llvm.loop !85
 
-87:                                               ; preds = %_ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit
+86:                                               ; preds = %_ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit
   call void @_ZN4llvm9symbolize12MarkupFilter20endAnyModuleInfoLineEv(ptr noundef nonnull align 8 dereferenceable(464) %0)
-  %88 = load ptr, ptr %3, align 8, !tbaa !80
-  %89 = load i32, ptr %67, align 8, !tbaa !81
-  %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %88, i64 %90
-  %.not13 = icmp eq i32 %89, 0
+  %87 = load ptr, ptr %3, align 8, !tbaa !80
+  %88 = load i32, ptr %66, align 8, !tbaa !81
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %87, i64 %89
+  %.not13 = icmp eq i32 %88, 0
   br i1 %.not13, label %.loopexit.thread, label %.lr.ph
 
-.loopexit.thread:                                 ; preds = %87
-  %92 = load ptr, ptr %3, align 8, !tbaa !80
+.loopexit.thread:                                 ; preds = %86
+  %91 = load ptr, ptr %3, align 8, !tbaa !80
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.i
 
-.lr.ph:                                           ; preds = %87, %.lr.ph
-  %.0914 = phi ptr [ %93, %.lr.ph ], [ %88, %87 ]
+.lr.ph:                                           ; preds = %86, %.lr.ph
+  %.0914 = phi ptr [ %92, %.lr.ph ], [ %87, %86 ]
   call void @_ZN4llvm9symbolize12MarkupFilter10filterNodeERKNS0_10MarkupNodeE(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 8 dereferenceable(96) %.0914)
-  %93 = getelementptr inbounds nuw i8, ptr %.0914, i64 96
-  %.not = icmp eq ptr %93, %91
+  %92 = getelementptr inbounds nuw i8, ptr %.0914, i64 96
+  %.not = icmp eq ptr %92, %90
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %_ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit, %.lr.ph
-  %.pr = load i32, ptr %67, align 8, !tbaa !81
-  %94 = load ptr, ptr %3, align 8, !tbaa !80
+  %.pr = load i32, ptr %66, align 8, !tbaa !81
+  %93 = load ptr, ptr %3, align 8, !tbaa !80
   %.not4.i.i = icmp eq i32 %.pr, 0
   br i1 %.not4.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.loopexit
-  %95 = zext i32 %.pr to i64
-  %96 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %94, i64 %95
+  %94 = zext i32 %.pr to i64
+  %95 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %93, i64 %94
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i, %.lr.ph.i.preheader.i
-  %.05.i.i = phi ptr [ %97, %_ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i ], [ %96, %.lr.ph.i.preheader.i ]
-  %97 = getelementptr inbounds i8, ptr %.05.i.i, i64 -96
-  %98 = getelementptr inbounds i8, ptr %.05.i.i, i64 -64
-  %99 = load ptr, ptr %98, align 8, !tbaa !80
-  %100 = getelementptr inbounds i8, ptr %.05.i.i, i64 -48
-  %101 = icmp eq ptr %99, %100
-  br i1 %101, label %_ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i, label %102
+  %.05.i.i = phi ptr [ %96, %_ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i ], [ %95, %.lr.ph.i.preheader.i ]
+  %96 = getelementptr inbounds i8, ptr %.05.i.i, i64 -96
+  %97 = getelementptr inbounds i8, ptr %.05.i.i, i64 -64
+  %98 = load ptr, ptr %97, align 8, !tbaa !80
+  %99 = getelementptr inbounds i8, ptr %.05.i.i, i64 -48
+  %100 = icmp eq ptr %98, %99
+  br i1 %100, label %_ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i, label %101
 
-102:                                              ; preds = %.lr.ph.i.i
-  call void @free(ptr noundef %99) #24
+101:                                              ; preds = %.lr.ph.i.i
+  call void @free(ptr noundef %98) #24
   br label %_ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i
 
-_ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i:      ; preds = %102, %.lr.ph.i.i
-  %.not.i.i = icmp eq ptr %94, %97
+_ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i:      ; preds = %101, %.lr.ph.i.i
+  %.not.i.i = icmp eq ptr %93, %96
   br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !86
 
 _ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i: ; preds = %_ZN4llvm9symbolize10MarkupNodeD2Ev.exit.i.i
@@ -663,15 +663,15 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_range
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.i: ; preds = %.loopexit.thread, %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i, %.loopexit
-  %103 = phi ptr [ %.pre.i10, %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i ], [ %94, %.loopexit ], [ %92, %.loopexit.thread ]
-  %104 = icmp eq ptr %103, %66
-  br i1 %104, label %_ZN4llvm11SmallVectorINS_9symbolize10MarkupNodeELj1EED2Ev.exit, label %105
+  %102 = phi ptr [ %.pre.i10, %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i ], [ %93, %.loopexit ], [ %91, %.loopexit.thread ]
+  %103 = icmp eq ptr %102, %65
+  br i1 %103, label %_ZN4llvm11SmallVectorINS_9symbolize10MarkupNodeELj1EED2Ev.exit, label %104
 
-105:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.i
-  call void @free(ptr noundef %103) #24
+104:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.i
+  call void @free(ptr noundef %102) #24
   br label %_ZN4llvm11SmallVectorINS_9symbolize10MarkupNodeELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_9symbolize10MarkupNodeELj1EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.i, %105
+_ZN4llvm11SmallVectorINS_9symbolize10MarkupNodeELj1EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE13destroy_rangeEPS2_S4_.exit.i, %104
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #24
   ret void
 }
@@ -681,35 +681,35 @@ define dso_local void @_ZN4llvm9symbolize12MarkupFilter10resetColorEv(ptr nounde
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %3 = load i8, ptr %2, align 4, !tbaa !66, !range !75, !noundef !76
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %9, label %5
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %6 = load i8, ptr %5, align 8, !range !75
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %4, i1 true, i1 %7
+  br i1 %or.cond, label %8, label %19
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %7 = load i8, ptr %6, align 8, !tbaa !67, !range !75, !noundef !76
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit, label %20
+8:                                                ; preds = %1
+  br i1 %4, label %9, label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit
 
-9:                                                ; preds = %1
+9:                                                ; preds = %8
   store i8 0, ptr %2, align 4, !tbaa !66
   br label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit
 
-_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit: ; preds = %5, %9
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store i8 0, ptr %10, align 8, !tbaa !67
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i8, ptr %11, align 8, !tbaa !10, !range !75, !noundef !76
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %20
+_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit: ; preds = %8, %9
+  store i8 0, ptr %5, align 8, !tbaa !67
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load i8, ptr %10, align 8, !tbaa !10, !range !75, !noundef !76
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %13, label %19
 
-14:                                               ; preds = %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit
-  %15 = load ptr, ptr %0, align 8, !tbaa !77
-  %16 = load ptr, ptr %15, align 8, !tbaa !78
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef nonnull align 8 dereferenceable(48) ptr %18(ptr noundef nonnull align 8 dereferenceable(48) %15) #24
-  br label %20
+13:                                               ; preds = %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit
+  %14 = load ptr, ptr %0, align 8, !tbaa !77
+  %15 = load ptr, ptr %14, align 8, !tbaa !78
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call noundef nonnull align 8 dereferenceable(48) ptr %17(ptr noundef nonnull align 8 dereferenceable(48) %14) #24
+  br label %19
 
-20:                                               ; preds = %5, %14, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit
+19:                                               ; preds = %1, %13, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit
   ret void
 }
 
@@ -1406,49 +1406,49 @@ _ZNSt14_Optional_baseIN4llvm9symbolize10MarkupNodeELb0ELb0EED2Ev.exit: ; preds =
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %17 = load i8, ptr %16, align 4, !tbaa !66, !range !75, !noundef !76
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %23, label %19
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %20 = load i8, ptr %19, align 8, !range !75
+  %21 = trunc nuw i8 %20 to i1
+  %or.cond.i = select i1 %18, i1 true, i1 %21
+  br i1 %or.cond.i, label %22, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
-19:                                               ; preds = %._crit_edge
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %21 = load i8, ptr %20, align 8, !tbaa !67, !range !75, !noundef !76
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
+22:                                               ; preds = %._crit_edge
+  br i1 %18, label %23, label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i
 
-23:                                               ; preds = %._crit_edge
+23:                                               ; preds = %22
   store i8 0, ptr %16, align 4, !tbaa !66
   br label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i
 
-_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i: ; preds = %23, %19
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store i8 0, ptr %24, align 8, !tbaa !67
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load i8, ptr %25, align 8, !tbaa !10, !range !75, !noundef !76
-  %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %28, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
+_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i: ; preds = %23, %22
+  store i8 0, ptr %19, align 8, !tbaa !67
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i8, ptr %24, align 8, !tbaa !10, !range !75, !noundef !76
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %27, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
-28:                                               ; preds = %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i
-  %29 = load ptr, ptr %0, align 8, !tbaa !77
-  %30 = load ptr, ptr %29, align 8, !tbaa !78
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = call noundef nonnull align 8 dereferenceable(48) ptr %32(ptr noundef nonnull align 8 dereferenceable(48) %29) #24
+27:                                               ; preds = %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i
+  %28 = load ptr, ptr %0, align 8, !tbaa !77
+  %29 = load ptr, ptr %28, align 8, !tbaa !78
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noundef nonnull align 8 dereferenceable(48) ptr %31(ptr noundef nonnull align 8 dereferenceable(48) %28) #24
   br label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
-_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit: ; preds = %19, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i, %28
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapImSt10unique_ptrINS_9symbolize12MarkupFilter6ModuleESt14default_deleteIS5_EENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEEmS8_SA_SD_E5clearEv(ptr noundef nonnull align 1 dereferenceable(1) %34)
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %37 = load ptr, ptr %36, align 8, !tbaa !69
-  call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm9symbolize12MarkupFilter4MMapEESt10_Select1stIS6_ESt4lessImESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef %37)
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store ptr null, ptr %36, align 8, !tbaa !69
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store ptr %38, ptr %39, align 8, !tbaa !70
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store ptr %38, ptr %40, align 8, !tbaa !71
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store i64 0, ptr %41, align 8, !tbaa !72
+_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit: ; preds = %._crit_edge, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i, %27
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapImSt10unique_ptrINS_9symbolize12MarkupFilter6ModuleESt14default_deleteIS5_EENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS8_EEEEmS8_SA_SD_E5clearEv(ptr noundef nonnull align 1 dereferenceable(1) %33)
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %36 = load ptr, ptr %35, align 8, !tbaa !69
+  call void @_ZNSt8_Rb_treeImSt4pairIKmN4llvm9symbolize12MarkupFilter4MMapEESt10_Select1stIS6_ESt4lessImESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef %36)
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  store ptr null, ptr %35, align 8, !tbaa !69
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  store ptr %37, ptr %38, align 8, !tbaa !70
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  store ptr %37, ptr %39, align 8, !tbaa !71
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  store i64 0, ptr %40, align 8, !tbaa !72
   ret void
 }
 
@@ -4425,115 +4425,115 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %5 = load i8, ptr %4, align 4, !tbaa !66, !range !75, !noundef !76
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %11, label %7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %8 = load i8, ptr %7, align 8, !range !75
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond.i = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond.i, label %10, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
-7:                                                ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %9 = load i8, ptr %8, align 8, !tbaa !67, !range !75, !noundef !76
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
+10:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+  br i1 %6, label %11, label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i
 
-11:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+11:                                               ; preds = %10
   store i8 0, ptr %4, align 4, !tbaa !66
   br label %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i
 
-_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i: ; preds = %11, %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store i8 0, ptr %12, align 8, !tbaa !67
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i8, ptr %13, align 8, !tbaa !10, !range !75, !noundef !76
-  %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %16, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
+_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i: ; preds = %11, %10
+  store i8 0, ptr %7, align 8, !tbaa !67
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load i8, ptr %12, align 8, !tbaa !10, !range !75, !noundef !76
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %14, label %15, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
-16:                                               ; preds = %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i
-  %17 = load ptr, ptr %0, align 8, !tbaa !77
-  %18 = load ptr, ptr %17, align 8, !tbaa !78
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef nonnull align 8 dereferenceable(48) ptr %20(ptr noundef nonnull align 8 dereferenceable(48) %17) #24
+15:                                               ; preds = %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i
+  %16 = load ptr, ptr %0, align 8, !tbaa !77
+  %17 = load ptr, ptr %16, align 8, !tbaa !78
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef nonnull align 8 dereferenceable(48) ptr %19(ptr noundef nonnull align 8 dereferenceable(48) %16) #24
   br label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit12:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   %bcmp.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.26, i64 4)
-  %22 = icmp eq i32 %bcmp.i11, 0
-  br i1 %22, label %_ZN4llvmeqENS_9StringRefES0_.exit12.thread, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
+  %21 = icmp eq i32 %bcmp.i11, 0
+  br i1 %21, label %_ZN4llvmeqENS_9StringRefES0_.exit12.thread, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit12.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit12
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store i8 1, ptr %23, align 8, !tbaa !67
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i8, ptr %24, align 8, !tbaa !10, !range !75, !noundef !76
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %27, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  store i8 1, ptr %22, align 8, !tbaa !67
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load i8, ptr %23, align 8, !tbaa !10, !range !75, !noundef !76
+  %25 = trunc nuw i8 %24 to i1
+  br i1 %25, label %26, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
-27:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit12.thread
-  %28 = load ptr, ptr %0, align 8, !tbaa !77
-  %29 = load ptr, ptr %28, align 8, !tbaa !78
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef nonnull align 8 dereferenceable(48) ptr %31(ptr noundef nonnull align 8 dereferenceable(48) %28, i32 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false) #24
+26:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit12.thread
+  %27 = load ptr, ptr %0, align 8, !tbaa !77
+  %28 = load ptr, ptr %27, align 8, !tbaa !78
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call noundef nonnull align 8 dereferenceable(48) ptr %30(ptr noundef nonnull align 8 dereferenceable(48) %27, i32 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false) #24
   br label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %2
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.27, i64 5)
-  %33 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %33, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17
+  %32 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %32, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i17:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
   %bcmp.i.i.i18 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.28, i64 5)
-  %34 = icmp eq i32 %bcmp.i.i.i18, 0
-  br i1 %34, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i25
+  %33 = icmp eq i32 %bcmp.i.i.i18, 0
+  br i1 %33, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i25
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i25:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17
   %bcmp.i.i.i26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.29, i64 5)
-  %35 = icmp eq i32 %bcmp.i.i.i26, 0
-  br i1 %35, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i33
+  %34 = icmp eq i32 %bcmp.i.i.i26, 0
+  br i1 %34, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i33
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i33:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i25
   %bcmp.i.i.i34 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.30, i64 5)
-  %36 = icmp eq i32 %bcmp.i.i.i34, 0
-  br i1 %36, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i41
+  %35 = icmp eq i32 %bcmp.i.i.i34, 0
+  br i1 %35, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i41
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i41:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i33
   %bcmp.i.i.i42 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.31, i64 5)
-  %37 = icmp eq i32 %bcmp.i.i.i42, 0
-  br i1 %37, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i49
+  %36 = icmp eq i32 %bcmp.i.i.i42, 0
+  br i1 %36, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i49
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i49:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i41
   %bcmp.i.i.i50 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.32, i64 5)
-  %38 = icmp eq i32 %bcmp.i.i.i50, 0
-  br i1 %38, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i57
+  %37 = icmp eq i32 %bcmp.i.i.i50, 0
+  br i1 %37, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i57
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i57:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i49
   %bcmp.i.i.i58 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.33, i64 5)
-  %39 = icmp eq i32 %bcmp.i.i.i58, 0
-  br i1 %39, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i65
+  %38 = icmp eq i32 %bcmp.i.i.i58, 0
+  br i1 %38, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i65
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i65:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i57
   %bcmp.i.i.i66 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.03.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.34, i64 5)
-  %40 = icmp eq i32 %bcmp.i.i.i66, 0
-  br i1 %40, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
+  %39 = icmp eq i32 %bcmp.i.i.i66, 0
+  br i1 %39, label %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
 _ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i25, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i33, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i41, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i49, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i57, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i65
   %.sroa.20.7 = phi i64 [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i17 ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i25 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i33 ], [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i41 ], [ 4294967301, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i49 ], [ 4294967302, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i57 ], [ 4294967303, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i65 ]
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i64 %.sroa.20.7, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load i8, ptr %42, align 8, !tbaa !10, !range !75, !noundef !76
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %45, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store i64 %.sroa.20.7, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = load i8, ptr %41, align 8, !tbaa !10, !range !75, !noundef !76
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
-45:                                               ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68
-  %46 = trunc i64 %.sroa.20.7 to i32
-  %47 = load ptr, ptr %0, align 8, !tbaa !77
-  %48 = load ptr, ptr %47, align 8, !tbaa !78
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef nonnull align 8 dereferenceable(48) ptr %50(ptr noundef nonnull align 8 dereferenceable(48) %47, i32 noundef %46, i1 noundef zeroext false, i1 noundef zeroext false) #24
+44:                                               ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68
+  %45 = trunc i64 %.sroa.20.7 to i32
+  %46 = load ptr, ptr %0, align 8, !tbaa !77
+  %47 = load ptr, ptr %46, align 8, !tbaa !78
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call noundef nonnull align 8 dereferenceable(48) ptr %49(ptr noundef nonnull align 8 dereferenceable(48) %46, i32 noundef %45, i1 noundef zeroext false, i1 noundef zeroext false) #24
   br label %_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit
 
-_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit12, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i65, %45, %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, %16, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i, %7, %_ZN4llvmeqENS_9StringRefES0_.exit12.thread, %27
-  %.0 = phi i1 [ true, %27 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit12.thread ], [ true, %7 ], [ true, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i ], [ true, %16 ], [ true, %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68 ], [ true, %45 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i65 ], [ false, %2 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit12 ]
+_ZN4llvm9symbolize12MarkupFilter10resetColorEv.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit12, %2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i65, %44, %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68, %15, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit12.thread, %26
+  %.0 = phi i1 [ true, %26 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit12.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ true, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEE5resetEv.exit.i ], [ true, %15 ], [ true, %_ZN4llvm12StringSwitchISt8optionalINS_11raw_ostream6ColorsEES4_E4CaseENS_13StringLiteralES4_.exit68 ], [ true, %44 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i65 ], [ false, %2 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit12 ]
   ret i1 %.0
 }
 

@@ -1554,7 +1554,7 @@ define noundef zeroext i1 @_ZN24LibRaw_LjpegDecompressor16decode_ljpeg_422ERSt6v
   %10 = load i32, ptr %9, align 4
   %.not67 = icmp eq i32 %10, %3
   %or.cond = select i1 %.not, i1 %.not67, i1 false
-  br i1 %or.cond, label %11, label %281
+  br i1 %or.cond, label %11, label %277
 
 11:                                               ; preds = %4
   %12 = srem i32 %2, 6
@@ -1562,7 +1562,7 @@ define noundef zeroext i1 @_ZN24LibRaw_LjpegDecompressor16decode_ljpeg_422ERSt6v
   %14 = and i32 %13, 1
   %15 = or i32 %14, %12
   %or.cond73 = icmp eq i32 %15, 0
-  br i1 %or.cond73, label %16, label %281
+  br i1 %or.cond73, label %16, label %277
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1575,7 +1575,7 @@ define noundef zeroext i1 @_ZN24LibRaw_LjpegDecompressor16decode_ljpeg_422ERSt6v
   %24 = mul nsw i32 %3, %2
   %25 = sext i32 %24 to i64
   %26 = icmp ult i64 %23, %25
-  br i1 %26, label %281, label %27
+  br i1 %26, label %277, label %27
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1597,19 +1597,19 @@ define noundef zeroext i1 @_ZN24LibRaw_LjpegDecompressor16decode_ljpeg_422ERSt6v
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 2176
   %45 = load i8, ptr %44, align 8, !tbaa !102, !range !55, !noundef !56
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %281
+  br i1 %46, label %47, label %277
 
 47:                                               ; preds = %27
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 2176
   %49 = load i8, ptr %48, align 8, !tbaa !102, !range !55, !noundef !56
   %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %281
+  br i1 %50, label %51, label %277
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 2176
   %53 = load i8, ptr %52, align 8, !tbaa !102, !range !55, !noundef !56
   %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %55, label %281
+  br i1 %54, label %55, label %277
 
 55:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
@@ -1658,10 +1658,10 @@ define noundef zeroext i1 @_ZN24LibRaw_LjpegDecompressor16decode_ljpeg_422ERSt6v
   store i16 %83, ptr %89, align 2, !tbaa !111
   %90 = getelementptr inbounds nuw i8, ptr %19, i64 10
   store i16 %85, ptr %90, align 2, !tbaa !111
-  %.not94 = icmp eq i32 %3, 0
-  br i1 %.not94, label %._crit_edge93, label %.lr.ph92
+  %.not97 = icmp eq i32 %3, 0
+  br i1 %.not97, label %._crit_edge96, label %.lr.ph95
 
-.lr.ph92:                                         ; preds = %55
+.lr.ph95:                                         ; preds = %55
   %91 = getelementptr inbounds nuw i8, ptr %35, i64 2117
   %92 = getelementptr inbounds nuw i8, ptr %35, i64 2152
   %93 = getelementptr inbounds nuw i8, ptr %35, i64 2116
@@ -1673,33 +1673,33 @@ define noundef zeroext i1 @_ZN24LibRaw_LjpegDecompressor16decode_ljpeg_422ERSt6v
   %99 = getelementptr inbounds nuw i8, ptr %43, i64 2116
   br label %100
 
-._crit_edge93:                                    ; preds = %._crit_edge, %55
+._crit_edge96:                                    ; preds = %._crit_edge, %55
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
-  br label %281
+  br label %277
 
-100:                                              ; preds = %.lr.ph92, %._crit_edge
-  %.06390 = phi i32 [ 0, %.lr.ph92 ], [ %108, %._crit_edge ]
-  %101 = icmp eq i32 %.06390, 0
+100:                                              ; preds = %.lr.ph95, %._crit_edge
+  %.06393 = phi i32 [ 0, %.lr.ph95 ], [ %108, %._crit_edge ]
+  %101 = icmp eq i32 %.06393, 0
   %102 = select i1 %101, i32 6, i32 0
   %103 = icmp ult i32 %102, %2
   br i1 %103, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %100
-  %104 = mul i32 %.06390, %2
+  %104 = mul i32 %.06393, %2
   %105 = add i32 %104, -3
-  %106 = add i32 %.06390, -1
+  %106 = add i32 %.06393, -1
   %107 = mul i32 %106, %2
   br label %109
 
-._crit_edge:                                      ; preds = %_ZN9HuffTable6decodeER7BitPump.exit88, %100
-  %108 = add nuw i32 %.06390, 1
+._crit_edge:                                      ; preds = %_ZN9HuffTable6decodeER7BitPump.exit91, %100
+  %108 = add nuw i32 %.06393, 1
   %exitcond.not = icmp eq i32 %108, %3
-  br i1 %exitcond.not, label %._crit_edge93, label %100, !llvm.loop !113
+  br i1 %exitcond.not, label %._crit_edge96, label %100, !llvm.loop !113
 
-109:                                              ; preds = %.lr.ph, %_ZN9HuffTable6decodeER7BitPump.exit88
-  %.06489 = phi i32 [ %102, %.lr.ph ], [ %279, %_ZN9HuffTable6decodeER7BitPump.exit88 ]
-  %110 = icmp eq i32 %.06489, 0
-  %111 = add i32 %105, %.06489
+109:                                              ; preds = %.lr.ph, %_ZN9HuffTable6decodeER7BitPump.exit91
+  %.06492 = phi i32 [ %102, %.lr.ph ], [ %275, %_ZN9HuffTable6decodeER7BitPump.exit91 ]
+  %110 = icmp eq i32 %.06492, 0
+  %111 = add i32 %105, %.06492
   %112 = select i1 %110, i32 %107, i32 %111
   %113 = zext i32 %112 to i64
   %114 = getelementptr inbounds nuw i16, ptr %19, i64 %113
@@ -1734,243 +1734,235 @@ define noundef zeroext i1 @_ZN24LibRaw_LjpegDecompressor16decode_ljpeg_422ERSt6v
   %138 = lshr i32 %137, 16
   %139 = and i32 %138, 255
   %sext.i = shl i32 %137, 16
-  %140 = ashr exact i32 %sext.i, 16
-  %141 = icmp eq i32 %sext.i, -2147483648
-  br i1 %141, label %142, label %152
+  %140 = icmp eq i32 %sext.i, -2147483648
+  %141 = load i8, ptr %93, align 4, !range !55
+  %142 = trunc nuw i8 %141 to i1
+  %or.cond.i = select i1 %140, i1 %142, i1 false
+  br i1 %or.cond.i, label %143, label %150
 
-142:                                              ; preds = %136
-  %143 = load i8, ptr %93, align 4, !tbaa !77, !range !55, !noundef !56
-  %144 = trunc nuw i8 %143 to i1
-  br i1 %144, label %145, label %152
+143:                                              ; preds = %136
+  %144 = icmp samesign ugt i32 %139, 16
+  br i1 %144, label %145, label %_ZN9HuffTable6decodeER7BitPump.exit
 
-145:                                              ; preds = %142
-  %146 = icmp samesign ugt i32 %139, 16
-  br i1 %146, label %147, label %_ZN9HuffTable6decodeER7BitPump.exit
-
-147:                                              ; preds = %145
-  %148 = add nsw i32 %139, -16
-  %149 = load ptr, ptr %5, align 8, !tbaa !92
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %148)
+145:                                              ; preds = %143
+  %146 = add nsw i32 %139, -16
+  %147 = load ptr, ptr %5, align 8, !tbaa !92
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %149 = load ptr, ptr %148, align 8
+  call void %149(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %146)
   br label %_ZN9HuffTable6decodeER7BitPump.exit
 
-152:                                              ; preds = %142, %136
-  %153 = load ptr, ptr %5, align 8, !tbaa !92
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %155 = load ptr, ptr %154, align 8
-  call void %155(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %139)
+150:                                              ; preds = %136
+  %151 = ashr exact i32 %sext.i, 16
+  %152 = load ptr, ptr %5, align 8, !tbaa !92
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %154 = load ptr, ptr %153, align 8
+  call void %154(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %139)
   br label %_ZN9HuffTable6decodeER7BitPump.exit
 
 .thread.i:                                        ; preds = %127, %109
-  %156 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %155 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %_ZN9HuffTable6decodeER7BitPump.exit
 
-_ZN9HuffTable6decodeER7BitPump.exit:              ; preds = %145, %147, %152, %.thread.i
-  %.0.i = phi i32 [ %156, %.thread.i ], [ -32768, %145 ], [ -32768, %147 ], [ %140, %152 ]
-  %157 = add nsw i32 %.0.i, %116
-  %158 = load i8, ptr %91, align 1, !tbaa !88, !range !55, !noundef !56
-  %159 = trunc nuw i8 %158 to i1
-  br i1 %159, label %.thread.i77, label %160
+_ZN9HuffTable6decodeER7BitPump.exit:              ; preds = %143, %145, %150, %.thread.i
+  %.0.i = phi i32 [ %155, %.thread.i ], [ -32768, %143 ], [ -32768, %145 ], [ %151, %150 ]
+  %156 = add nsw i32 %.0.i, %116
+  %157 = load i8, ptr %91, align 1, !tbaa !88, !range !55, !noundef !56
+  %158 = trunc nuw i8 %157 to i1
+  br i1 %158, label %.thread.i78, label %159
 
-160:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit
-  %161 = load ptr, ptr %5, align 8, !tbaa !92
-  %162 = load ptr, ptr %161, align 8
-  %163 = call noundef i32 %162(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
-  %164 = zext i32 %163 to i64
-  %165 = load ptr, ptr %92, align 8, !tbaa !43
-  %166 = getelementptr inbounds nuw i64, ptr %165, i64 %164
-  %167 = load i64, ptr %166, align 8, !tbaa !94
-  %168 = and i64 %167, 4294967296
-  %.not.i74 = icmp eq i64 %168, 0
-  br i1 %.not.i74, label %.thread.i77, label %169
+159:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit
+  %160 = load ptr, ptr %5, align 8, !tbaa !92
+  %161 = load ptr, ptr %160, align 8
+  %162 = call noundef i32 %161(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
+  %163 = zext i32 %162 to i64
+  %164 = load ptr, ptr %92, align 8, !tbaa !43
+  %165 = getelementptr inbounds nuw i64, ptr %164, i64 %163
+  %166 = load i64, ptr %165, align 8, !tbaa !94
+  %167 = and i64 %166, 4294967296
+  %.not.i74 = icmp eq i64 %167, 0
+  br i1 %.not.i74, label %.thread.i78, label %168
 
-169:                                              ; preds = %160
-  %170 = trunc i64 %167 to i32
-  %171 = lshr i32 %170, 16
-  %172 = and i32 %171, 255
-  %sext.i75 = shl i32 %170, 16
-  %173 = ashr exact i32 %sext.i75, 16
-  %174 = icmp eq i32 %sext.i75, -2147483648
-  br i1 %174, label %175, label %185
+168:                                              ; preds = %159
+  %169 = trunc i64 %166 to i32
+  %170 = lshr i32 %169, 16
+  %171 = and i32 %170, 255
+  %sext.i75 = shl i32 %169, 16
+  %172 = icmp eq i32 %sext.i75, -2147483648
+  %173 = load i8, ptr %93, align 4, !range !55
+  %174 = trunc nuw i8 %173 to i1
+  %or.cond.i76 = select i1 %172, i1 %174, i1 false
+  br i1 %or.cond.i76, label %175, label %182
 
-175:                                              ; preds = %169
-  %176 = load i8, ptr %93, align 4, !tbaa !77, !range !55, !noundef !56
-  %177 = trunc nuw i8 %176 to i1
-  br i1 %177, label %178, label %185
+175:                                              ; preds = %168
+  %176 = icmp samesign ugt i32 %171, 16
+  br i1 %176, label %177, label %_ZN9HuffTable6decodeER7BitPump.exit79
 
-178:                                              ; preds = %175
-  %179 = icmp samesign ugt i32 %172, 16
-  br i1 %179, label %180, label %_ZN9HuffTable6decodeER7BitPump.exit78
+177:                                              ; preds = %175
+  %178 = add nsw i32 %171, -16
+  %179 = load ptr, ptr %5, align 8, !tbaa !92
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %181 = load ptr, ptr %180, align 8
+  call void %181(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %178)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit79
 
-180:                                              ; preds = %178
-  %181 = add nsw i32 %172, -16
-  %182 = load ptr, ptr %5, align 8, !tbaa !92
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  %184 = load ptr, ptr %183, align 8
-  call void %184(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %181)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit78
+182:                                              ; preds = %168
+  %183 = ashr exact i32 %sext.i75, 16
+  %184 = load ptr, ptr %5, align 8, !tbaa !92
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %186 = load ptr, ptr %185, align 8
+  call void %186(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %171)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit79
 
-185:                                              ; preds = %175, %169
-  %186 = load ptr, ptr %5, align 8, !tbaa !92
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %188 = load ptr, ptr %187, align 8
-  call void %188(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %172)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit78
+.thread.i78:                                      ; preds = %159, %_ZN9HuffTable6decodeER7BitPump.exit
+  %187 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit79
 
-.thread.i77:                                      ; preds = %160, %_ZN9HuffTable6decodeER7BitPump.exit
-  %189 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit78
+_ZN9HuffTable6decodeER7BitPump.exit79:            ; preds = %175, %177, %182, %.thread.i78
+  %.0.i77 = phi i32 [ %187, %.thread.i78 ], [ -32768, %175 ], [ -32768, %177 ], [ %183, %182 ]
+  %188 = add nsw i32 %.0.i77, %156
+  %189 = load i8, ptr %94, align 1, !tbaa !88, !range !55, !noundef !56
+  %190 = trunc nuw i8 %189 to i1
+  br i1 %190, label %.thread.i84, label %191
 
-_ZN9HuffTable6decodeER7BitPump.exit78:            ; preds = %178, %180, %185, %.thread.i77
-  %.0.i76 = phi i32 [ %189, %.thread.i77 ], [ -32768, %178 ], [ -32768, %180 ], [ %173, %185 ]
-  %190 = add nsw i32 %.0.i76, %157
-  %191 = load i8, ptr %94, align 1, !tbaa !88, !range !55, !noundef !56
-  %192 = trunc nuw i8 %191 to i1
-  br i1 %192, label %.thread.i82, label %193
+191:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit79
+  %192 = load ptr, ptr %5, align 8, !tbaa !92
+  %193 = load ptr, ptr %192, align 8
+  %194 = call noundef i32 %193(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
+  %195 = zext i32 %194 to i64
+  %196 = load ptr, ptr %95, align 8, !tbaa !43
+  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %195
+  %198 = load i64, ptr %197, align 8, !tbaa !94
+  %199 = and i64 %198, 4294967296
+  %.not.i80 = icmp eq i64 %199, 0
+  br i1 %.not.i80, label %.thread.i84, label %200
 
-193:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit78
-  %194 = load ptr, ptr %5, align 8, !tbaa !92
-  %195 = load ptr, ptr %194, align 8
-  %196 = call noundef i32 %195(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
-  %197 = zext i32 %196 to i64
-  %198 = load ptr, ptr %95, align 8, !tbaa !43
-  %199 = getelementptr inbounds nuw i64, ptr %198, i64 %197
-  %200 = load i64, ptr %199, align 8, !tbaa !94
-  %201 = and i64 %200, 4294967296
-  %.not.i79 = icmp eq i64 %201, 0
-  br i1 %.not.i79, label %.thread.i82, label %202
+200:                                              ; preds = %191
+  %201 = trunc i64 %198 to i32
+  %202 = lshr i32 %201, 16
+  %203 = and i32 %202, 255
+  %sext.i81 = shl i32 %201, 16
+  %204 = icmp eq i32 %sext.i81, -2147483648
+  %205 = load i8, ptr %96, align 4, !range !55
+  %206 = trunc nuw i8 %205 to i1
+  %or.cond.i82 = select i1 %204, i1 %206, i1 false
+  br i1 %or.cond.i82, label %207, label %214
 
-202:                                              ; preds = %193
-  %203 = trunc i64 %200 to i32
-  %204 = lshr i32 %203, 16
-  %205 = and i32 %204, 255
-  %sext.i80 = shl i32 %203, 16
-  %206 = ashr exact i32 %sext.i80, 16
-  %207 = icmp eq i32 %sext.i80, -2147483648
-  br i1 %207, label %208, label %218
+207:                                              ; preds = %200
+  %208 = icmp samesign ugt i32 %203, 16
+  br i1 %208, label %209, label %_ZN9HuffTable6decodeER7BitPump.exit85
 
-208:                                              ; preds = %202
-  %209 = load i8, ptr %96, align 4, !tbaa !77, !range !55, !noundef !56
-  %210 = trunc nuw i8 %209 to i1
-  br i1 %210, label %211, label %218
+209:                                              ; preds = %207
+  %210 = add nsw i32 %203, -16
+  %211 = load ptr, ptr %5, align 8, !tbaa !92
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %213 = load ptr, ptr %212, align 8
+  call void %213(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %210)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit85
 
-211:                                              ; preds = %208
-  %212 = icmp samesign ugt i32 %205, 16
-  br i1 %212, label %213, label %_ZN9HuffTable6decodeER7BitPump.exit83
+214:                                              ; preds = %200
+  %215 = ashr exact i32 %sext.i81, 16
+  %216 = load ptr, ptr %5, align 8, !tbaa !92
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %218 = load ptr, ptr %217, align 8
+  call void %218(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %203)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit85
 
-213:                                              ; preds = %211
-  %214 = add nsw i32 %205, -16
-  %215 = load ptr, ptr %5, align 8, !tbaa !92
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %217 = load ptr, ptr %216, align 8
-  call void %217(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %214)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit83
+.thread.i84:                                      ; preds = %191, %_ZN9HuffTable6decodeER7BitPump.exit79
+  %219 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %39, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit85
 
-218:                                              ; preds = %208, %202
-  %219 = load ptr, ptr %5, align 8, !tbaa !92
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %221 = load ptr, ptr %220, align 8
-  call void %221(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %205)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit83
+_ZN9HuffTable6decodeER7BitPump.exit85:            ; preds = %207, %209, %214, %.thread.i84
+  %.0.i83 = phi i32 [ %219, %.thread.i84 ], [ -32768, %207 ], [ -32768, %209 ], [ %215, %214 ]
+  %220 = load i8, ptr %97, align 1, !tbaa !88, !range !55, !noundef !56
+  %221 = trunc nuw i8 %220 to i1
+  br i1 %221, label %.thread.i90, label %222
 
-.thread.i82:                                      ; preds = %193, %_ZN9HuffTable6decodeER7BitPump.exit78
-  %222 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %39, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit83
+222:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit85
+  %223 = load ptr, ptr %5, align 8, !tbaa !92
+  %224 = load ptr, ptr %223, align 8
+  %225 = call noundef i32 %224(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
+  %226 = zext i32 %225 to i64
+  %227 = load ptr, ptr %98, align 8, !tbaa !43
+  %228 = getelementptr inbounds nuw i64, ptr %227, i64 %226
+  %229 = load i64, ptr %228, align 8, !tbaa !94
+  %230 = and i64 %229, 4294967296
+  %.not.i86 = icmp eq i64 %230, 0
+  br i1 %.not.i86, label %.thread.i90, label %231
 
-_ZN9HuffTable6decodeER7BitPump.exit83:            ; preds = %211, %213, %218, %.thread.i82
-  %.0.i81 = phi i32 [ %222, %.thread.i82 ], [ -32768, %211 ], [ -32768, %213 ], [ %206, %218 ]
-  %223 = load i8, ptr %97, align 1, !tbaa !88, !range !55, !noundef !56
-  %224 = trunc nuw i8 %223 to i1
-  br i1 %224, label %.thread.i87, label %225
+231:                                              ; preds = %222
+  %232 = trunc i64 %229 to i32
+  %233 = lshr i32 %232, 16
+  %234 = and i32 %233, 255
+  %sext.i87 = shl i32 %232, 16
+  %235 = icmp eq i32 %sext.i87, -2147483648
+  %236 = load i8, ptr %99, align 4, !range !55
+  %237 = trunc nuw i8 %236 to i1
+  %or.cond.i88 = select i1 %235, i1 %237, i1 false
+  br i1 %or.cond.i88, label %238, label %245
 
-225:                                              ; preds = %_ZN9HuffTable6decodeER7BitPump.exit83
-  %226 = load ptr, ptr %5, align 8, !tbaa !92
-  %227 = load ptr, ptr %226, align 8
-  %228 = call noundef i32 %227(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 13)
-  %229 = zext i32 %228 to i64
-  %230 = load ptr, ptr %98, align 8, !tbaa !43
-  %231 = getelementptr inbounds nuw i64, ptr %230, i64 %229
-  %232 = load i64, ptr %231, align 8, !tbaa !94
-  %233 = and i64 %232, 4294967296
-  %.not.i84 = icmp eq i64 %233, 0
-  br i1 %.not.i84, label %.thread.i87, label %234
+238:                                              ; preds = %231
+  %239 = icmp samesign ugt i32 %234, 16
+  br i1 %239, label %240, label %_ZN9HuffTable6decodeER7BitPump.exit91
 
-234:                                              ; preds = %225
-  %235 = trunc i64 %232 to i32
-  %236 = lshr i32 %235, 16
-  %237 = and i32 %236, 255
-  %sext.i85 = shl i32 %235, 16
-  %238 = ashr exact i32 %sext.i85, 16
-  %239 = icmp eq i32 %sext.i85, -2147483648
-  br i1 %239, label %240, label %250
+240:                                              ; preds = %238
+  %241 = add nsw i32 %234, -16
+  %242 = load ptr, ptr %5, align 8, !tbaa !92
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
+  %244 = load ptr, ptr %243, align 8
+  call void %244(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %241)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit91
 
-240:                                              ; preds = %234
-  %241 = load i8, ptr %99, align 4, !tbaa !77, !range !55, !noundef !56
-  %242 = trunc nuw i8 %241 to i1
-  br i1 %242, label %243, label %250
-
-243:                                              ; preds = %240
-  %244 = icmp samesign ugt i32 %237, 16
-  br i1 %244, label %245, label %_ZN9HuffTable6decodeER7BitPump.exit88
-
-245:                                              ; preds = %243
-  %246 = add nsw i32 %237, -16
+245:                                              ; preds = %231
+  %246 = ashr exact i32 %sext.i87, 16
   %247 = load ptr, ptr %5, align 8, !tbaa !92
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load ptr, ptr %248, align 8
-  call void %249(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %246)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit88
+  call void %249(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %234)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit91
 
-250:                                              ; preds = %240, %234
-  %251 = load ptr, ptr %5, align 8, !tbaa !92
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
-  %253 = load ptr, ptr %252, align 8
-  call void %253(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %237)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit88
+.thread.i90:                                      ; preds = %222, %_ZN9HuffTable6decodeER7BitPump.exit85
+  %250 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %43, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br label %_ZN9HuffTable6decodeER7BitPump.exit91
 
-.thread.i87:                                      ; preds = %225, %_ZN9HuffTable6decodeER7BitPump.exit83
-  %254 = call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %43, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %_ZN9HuffTable6decodeER7BitPump.exit88
+_ZN9HuffTable6decodeER7BitPump.exit91:            ; preds = %238, %240, %245, %.thread.i90
+  %.0.i89 = phi i32 [ %250, %.thread.i90 ], [ -32768, %238 ], [ -32768, %240 ], [ %246, %245 ]
+  %251 = add i32 %.06492, %104
+  %252 = add i32 %251, 3
+  %253 = trunc i32 %156 to i16
+  %254 = zext i32 %251 to i64
+  %255 = getelementptr inbounds nuw i16, ptr %19, i64 %254
+  store i16 %253, ptr %255, align 2, !tbaa !111
+  %256 = trunc i32 %.0.i83 to i16
+  %257 = add i16 %120, %256
+  %258 = add i32 %251, 1
+  %259 = zext i32 %258 to i64
+  %260 = getelementptr inbounds nuw i16, ptr %19, i64 %259
+  store i16 %257, ptr %260, align 2, !tbaa !111
+  %261 = trunc i32 %.0.i89 to i16
+  %262 = add i16 %124, %261
+  %263 = add i32 %251, 2
+  %264 = zext i32 %263 to i64
+  %265 = getelementptr inbounds nuw i16, ptr %19, i64 %264
+  store i16 %262, ptr %265, align 2, !tbaa !111
+  %266 = trunc i32 %188 to i16
+  %267 = zext i32 %252 to i64
+  %268 = getelementptr inbounds nuw i16, ptr %19, i64 %267
+  store i16 %266, ptr %268, align 2, !tbaa !111
+  %269 = add i32 %251, 4
+  %270 = zext i32 %269 to i64
+  %271 = getelementptr inbounds nuw i16, ptr %19, i64 %270
+  store i16 %257, ptr %271, align 2, !tbaa !111
+  %272 = add i32 %251, 5
+  %273 = zext i32 %272 to i64
+  %274 = getelementptr inbounds nuw i16, ptr %19, i64 %273
+  store i16 %262, ptr %274, align 2, !tbaa !111
+  %275 = add i32 %.06492, 6
+  %276 = icmp ult i32 %275, %2
+  br i1 %276, label %109, label %._crit_edge, !llvm.loop !114
 
-_ZN9HuffTable6decodeER7BitPump.exit88:            ; preds = %243, %245, %250, %.thread.i87
-  %.0.i86 = phi i32 [ %254, %.thread.i87 ], [ -32768, %243 ], [ -32768, %245 ], [ %238, %250 ]
-  %255 = add i32 %.06489, %104
-  %256 = add i32 %255, 3
-  %257 = trunc i32 %157 to i16
-  %258 = zext i32 %255 to i64
-  %259 = getelementptr inbounds nuw i16, ptr %19, i64 %258
-  store i16 %257, ptr %259, align 2, !tbaa !111
-  %260 = trunc i32 %.0.i81 to i16
-  %261 = add i16 %120, %260
-  %262 = add i32 %255, 1
-  %263 = zext i32 %262 to i64
-  %264 = getelementptr inbounds nuw i16, ptr %19, i64 %263
-  store i16 %261, ptr %264, align 2, !tbaa !111
-  %265 = trunc i32 %.0.i86 to i16
-  %266 = add i16 %124, %265
-  %267 = add i32 %255, 2
-  %268 = zext i32 %267 to i64
-  %269 = getelementptr inbounds nuw i16, ptr %19, i64 %268
-  store i16 %266, ptr %269, align 2, !tbaa !111
-  %270 = trunc i32 %190 to i16
-  %271 = zext i32 %256 to i64
-  %272 = getelementptr inbounds nuw i16, ptr %19, i64 %271
-  store i16 %270, ptr %272, align 2, !tbaa !111
-  %273 = add i32 %255, 4
-  %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds nuw i16, ptr %19, i64 %274
-  store i16 %261, ptr %275, align 2, !tbaa !111
-  %276 = add i32 %255, 5
-  %277 = zext i32 %276 to i64
-  %278 = getelementptr inbounds nuw i16, ptr %19, i64 %277
-  store i16 %266, ptr %278, align 2, !tbaa !111
-  %279 = add i32 %.06489, 6
-  %280 = icmp ult i32 %279, %2
-  br i1 %280, label %109, label %._crit_edge, !llvm.loop !114
-
-281:                                              ; preds = %._crit_edge93, %51, %47, %27, %16, %11, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %16 ], [ true, %._crit_edge93 ], [ false, %51 ], [ false, %47 ], [ false, %27 ]
+277:                                              ; preds = %._crit_edge96, %51, %47, %27, %16, %11, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %16 ], [ true, %._crit_edge96 ], [ false, %51 ], [ false, %47 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -1999,41 +1991,39 @@ define linkonce_odr noundef i32 @_ZN9HuffTable6decodeER7BitPump(ptr noundef nonn
   %18 = lshr i32 %17, 16
   %19 = and i32 %18, 255
   %sext = shl i32 %17, 16
-  %20 = ashr exact i32 %sext, 16
-  %21 = icmp eq i32 %sext, -2147483648
-  br i1 %21, label %22, label %33
+  %20 = icmp eq i32 %sext, -2147483648
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2116
+  %22 = load i8, ptr %21, align 4, !range !55
+  %23 = trunc nuw i8 %22 to i1
+  %or.cond = select i1 %20, i1 %23, i1 false
+  br i1 %or.cond, label %24, label %31
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2116
-  %24 = load i8, ptr %23, align 4, !tbaa !77, !range !55, !noundef !56
-  %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %26, label %33
+24:                                               ; preds = %16
+  %25 = icmp samesign ugt i32 %19, 16
+  br i1 %25, label %26, label %37
 
-26:                                               ; preds = %22
-  %27 = icmp samesign ugt i32 %19, 16
-  br i1 %27, label %28, label %38
+26:                                               ; preds = %24
+  %27 = add nsw i32 %19, -16
+  %28 = load ptr, ptr %1, align 8, !tbaa !92
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %27)
+  br label %37
 
-28:                                               ; preds = %26
-  %29 = add nsw i32 %19, -16
-  %30 = load ptr, ptr %1, align 8, !tbaa !92
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %29)
-  br label %38
-
-33:                                               ; preds = %22, %16
-  %34 = load ptr, ptr %1, align 8, !tbaa !92
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %19)
-  br label %38
+31:                                               ; preds = %16
+  %32 = ashr exact i32 %sext, 16
+  %33 = load ptr, ptr %1, align 8, !tbaa !92
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %19)
+  br label %37
 
 .thread:                                          ; preds = %2, %6
-  %37 = tail call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %38
+  %36 = tail call noundef i32 @_ZN9HuffTable12decode_slow1ER7BitPump(ptr noundef nonnull align 8 dereferenceable(2177) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  br label %37
 
-38:                                               ; preds = %33, %28, %26, %.thread
-  %.0 = phi i32 [ %37, %.thread ], [ -32768, %26 ], [ -32768, %28 ], [ %20, %33 ]
+37:                                               ; preds = %31, %26, %24, %.thread
+  %.0 = phi i32 [ %36, %.thread ], [ -32768, %24 ], [ -32768, %26 ], [ %32, %31 ]
   ret i32 %.0
 }
 
@@ -2153,66 +2143,68 @@ define linkonce_odr noundef i32 @_ZN11BitPumpJpeg4peekEj(ptr noundef nonnull ali
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !115
   %5 = icmp ugt i32 %1, %4
-  br i1 %5, label %6, label %.critedge
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %7 = load i8, ptr %6, align 4, !range !55
+  br i1 %5, label %8, label %.critedge
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %8 = load i8, ptr %7, align 4, !tbaa !116, !range !55, !noundef !56
-  %9 = trunc nuw i8 %8 to i1
+8:                                                ; preds = %2
+  %9 = trunc nuw i8 %7 to i1
   br i1 %9, label %.critedge, label %10
 
-10:                                               ; preds = %6
+10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !110
   %13 = icmp ugt i32 %12, 3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp ult i32 %15, %12
-  %or.cond = select i1 %13, i1 %16, i1 false
-  br i1 %or.cond, label %17, label %._crit_edge
+  br i1 %13, label %14, label %.lr.ph
 
-17:                                               ; preds = %10
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !108
-  %20 = zext i32 %15 to i64
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !15
-  %23 = zext i8 %22 to i64
-  %.not = icmp eq i8 %22, -1
-  br i1 %.not, label %._crit_edge, label %24
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %16 = load i32, ptr %15, align 4, !tbaa !116
+  %17 = icmp ult i32 %16, %12
+  br i1 %17, label %18, label %.lr.ph
 
-24:                                               ; preds = %17
-  %25 = add nuw i32 %15, 1
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !15
-  %29 = zext i8 %28 to i64
-  %.not18 = icmp eq i8 %28, -1
-  br i1 %.not18, label %._crit_edge, label %30
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !108
+  %21 = zext i32 %16 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  %23 = load i8, ptr %22, align 1, !tbaa !15
+  %24 = zext i8 %23 to i64
+  %.not = icmp eq i8 %23, -1
+  br i1 %.not, label %.lr.ph, label %25
 
-30:                                               ; preds = %24
-  %31 = add i32 %15, 2
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %19, i64 %32
-  %34 = load i8, ptr %33, align 1, !tbaa !15
-  %35 = zext i8 %34 to i64
-  %.not19 = icmp eq i8 %34, -1
-  br i1 %.not19, label %._crit_edge, label %36
+25:                                               ; preds = %18
+  %26 = add nuw i32 %16, 1
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !15
+  %30 = zext i8 %29 to i64
+  %.not18 = icmp eq i8 %29, -1
+  br i1 %.not18, label %.lr.ph, label %31
 
-36:                                               ; preds = %30
-  %37 = add i32 %15, 3
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i8, ptr %19, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !15
-  %.not20 = icmp eq i8 %40, -1
-  br i1 %.not20, label %._crit_edge, label %41
+31:                                               ; preds = %25
+  %32 = add i32 %16, 2
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !15
+  %36 = zext i8 %35 to i64
+  %.not19 = icmp eq i8 %35, -1
+  br i1 %.not19, label %.lr.ph, label %37
 
-41:                                               ; preds = %36
-  %42 = zext i8 %40 to i64
-  %43 = shl nuw nsw i64 %23, 24
-  %44 = shl nuw nsw i64 %29, 16
+37:                                               ; preds = %31
+  %38 = add i32 %16, 3
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 %39
+  %41 = load i8, ptr %40, align 1, !tbaa !15
+  %.not20 = icmp eq i8 %41, -1
+  br i1 %.not20, label %.lr.ph, label %.critedge.thread
+
+.critedge.thread:                                 ; preds = %37
+  %42 = zext i8 %41 to i64
+  %43 = shl nuw nsw i64 %24, 24
+  %44 = shl nuw nsw i64 %30, 16
   %45 = or disjoint i64 %44, %43
-  %46 = shl nuw nsw i64 %35, 8
+  %46 = shl nuw nsw i64 %36, 8
   %47 = or disjoint i64 %45, %46
   %48 = or disjoint i64 %47, %42
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2220,106 +2212,107 @@ define linkonce_odr noundef i32 @_ZN11BitPumpJpeg4peekEj(ptr noundef nonnull ali
   %51 = shl i64 %50, 32
   %52 = or disjoint i64 %48, %51
   store i64 %52, ptr %49, align 8, !tbaa !117
-  %53 = add i32 %15, 4
-  store i32 %53, ptr %14, align 4, !tbaa !118
+  %53 = add i32 %16, 4
+  store i32 %53, ptr %15, align 4, !tbaa !116
   %54 = add i32 %4, 32
   store i32 %54, ptr %3, align 8, !tbaa !115
-  br label %.critedge
+  br label %.critedge._crit_edge
 
-._crit_edge:                                      ; preds = %10, %36, %30, %24, %17
+.lr.ph:                                           ; preds = %10, %14, %18, %25, %31, %37
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.promoted26 = load i64, ptr %58, align 8
+  %.promoted29 = load i32, ptr %55, align 4, !tbaa !116
+  %.promoted30 = load i64, ptr %58, align 8, !tbaa !117
   br label %59
 
-59:                                               ; preds = %._crit_edge, %81
-  %60 = phi i64 [ %.promoted26, %._crit_edge ], [ %85, %81 ]
-  %61 = phi i32 [ %15, %._crit_edge ], [ %86, %81 ]
-  %.024 = phi i32 [ 0, %._crit_edge ], [ %88, %81 ]
-  %62 = phi i1 [ false, %._crit_edge ], [ %83, %81 ]
-  %63 = phi i32 [ %4, %._crit_edge ], [ %87, %81 ]
-  br i1 %62, label %.critedge, label %64
+59:                                               ; preds = %.lr.ph, %79
+  %60 = phi i64 [ %.promoted30, %.lr.ph ], [ %83, %79 ]
+  %61 = phi i32 [ %.promoted29, %.lr.ph ], [ %84, %79 ]
+  %.028 = phi i32 [ 0, %.lr.ph ], [ %86, %79 ]
+  %62 = phi i32 [ %4, %.lr.ph ], [ %85, %79 ]
+  %.not21 = icmp ult i32 %61, %12
+  br i1 %.not21, label %64, label %63
+
+63:                                               ; preds = %59
+  store i8 1, ptr %6, align 4, !tbaa !118
+  br label %79
 
 64:                                               ; preds = %59
-  %.not21 = icmp ult i32 %61, %12
-  br i1 %.not21, label %66, label %65
+  %65 = zext i32 %61 to i64
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 %65
+  %67 = load i8, ptr %66, align 1, !tbaa !15
+  %.not22 = icmp eq i8 %67, -1
+  br i1 %.not22, label %68, label %75
 
-65:                                               ; preds = %64
-  store i8 1, ptr %7, align 4, !tbaa !116
-  br label %81
+68:                                               ; preds = %64
+  %69 = add nuw i32 %61, 1
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %57, i64 %70
+  %72 = load i8, ptr %71, align 1, !tbaa !15
+  %73 = icmp eq i8 %72, 0
+  br i1 %73, label %75, label %74
 
-66:                                               ; preds = %64
-  %67 = zext i32 %61 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %57, i64 %67
-  %69 = load i8, ptr %68, align 1, !tbaa !15
-  %.not22 = icmp eq i8 %69, -1
-  br i1 %.not22, label %70, label %77
+74:                                               ; preds = %68
+  store i8 1, ptr %6, align 4, !tbaa !118
+  br label %75
 
-70:                                               ; preds = %66
-  %71 = add nuw i32 %61, 1
-  %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw i8, ptr %57, i64 %72
-  %74 = load i8, ptr %73, align 1, !tbaa !15
-  %75 = icmp eq i8 %74, 0
-  br i1 %75, label %77, label %76
+75:                                               ; preds = %68, %64, %74
+  %76 = phi i32 [ %61, %74 ], [ %61, %64 ], [ %69, %68 ]
+  %77 = phi i8 [ 1, %74 ], [ 0, %64 ], [ 0, %68 ]
+  %.1 = phi i8 [ 0, %74 ], [ %67, %64 ], [ -1, %68 ]
+  %78 = zext i8 %.1 to i64
+  br label %79
 
-76:                                               ; preds = %70
-  store i8 1, ptr %7, align 4, !tbaa !116
-  br label %77
+79:                                               ; preds = %75, %63
+  %80 = phi i32 [ %61, %63 ], [ %76, %75 ]
+  %81 = phi i8 [ 1, %63 ], [ %77, %75 ]
+  %.010 = phi i64 [ 0, %63 ], [ %78, %75 ]
+  %82 = shl i64 %60, 8
+  %83 = or disjoint i64 %82, %.010
+  store i64 %83, ptr %58, align 8, !tbaa !117
+  %84 = add i32 %80, 1
+  store i32 %84, ptr %55, align 4, !tbaa !116
+  %85 = add i32 %62, 8
+  store i32 %85, ptr %3, align 8, !tbaa !115
+  %86 = add nuw nsw i32 %.028, 1
+  %87 = icmp samesign ugt i32 %.028, 2
+  %88 = trunc nuw i8 %81 to i1
+  %or.cond = select i1 %87, i1 true, i1 %88
+  br i1 %or.cond, label %.critedge, label %59, !llvm.loop !119
 
-77:                                               ; preds = %70, %66, %76
-  %78 = phi i32 [ %61, %76 ], [ %61, %66 ], [ %71, %70 ]
-  %79 = phi i1 [ true, %76 ], [ false, %66 ], [ false, %70 ]
-  %.1 = phi i8 [ 0, %76 ], [ %69, %66 ], [ -1, %70 ]
-  %80 = zext i8 %.1 to i64
-  br label %81
+.critedge:                                        ; preds = %79, %2, %8
+  %89 = phi i8 [ 1, %8 ], [ %7, %2 ], [ %81, %79 ]
+  %90 = phi i32 [ %4, %8 ], [ %4, %2 ], [ %85, %79 ]
+  %91 = icmp ugt i32 %1, %90
+  %92 = trunc nuw i8 %89 to i1
+  %or.cond26 = select i1 %91, i1 %92, i1 false
+  br i1 %or.cond26, label %94, label %.critedge._crit_edge
 
-81:                                               ; preds = %77, %65
-  %82 = phi i32 [ %61, %65 ], [ %78, %77 ]
-  %83 = phi i1 [ true, %65 ], [ %79, %77 ]
-  %.010 = phi i64 [ 0, %65 ], [ %80, %77 ]
-  %84 = shl i64 %60, 8
-  %85 = or disjoint i64 %84, %.010
-  store i64 %85, ptr %58, align 8, !tbaa !117
-  %86 = add i32 %82, 1
-  store i32 %86, ptr %55, align 4, !tbaa !118
-  %87 = add i32 %63, 8
-  store i32 %87, ptr %3, align 8, !tbaa !115
-  %88 = add nuw nsw i32 %.024, 1
-  %exitcond.not = icmp eq i32 %88, 4
-  br i1 %exitcond.not, label %.critedge, label %59, !llvm.loop !119
+.critedge._crit_edge:                             ; preds = %.critedge.thread, %.critedge
+  %93 = phi i32 [ %54, %.critedge.thread ], [ %90, %.critedge ]
+  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre33 = load i64, ptr %.phi.trans.insert32, align 8, !tbaa !117
+  br label %99
 
-.critedge:                                        ; preds = %59, %81, %41, %6, %2
-  %89 = phi i32 [ %54, %41 ], [ %4, %6 ], [ %4, %2 ], [ %63, %59 ], [ %87, %81 ]
-  %90 = icmp ugt i32 %1, %89
-  br i1 %90, label %91, label %100
+94:                                               ; preds = %.critedge
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %96 = load i64, ptr %95, align 8, !tbaa !117
+  %97 = shl i64 %96, 32
+  store i64 %97, ptr %95, align 8, !tbaa !117
+  %98 = add i32 %90, 32
+  store i32 %98, ptr %3, align 8, !tbaa !115
+  br label %99
 
-91:                                               ; preds = %.critedge
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %93 = load i8, ptr %92, align 4, !tbaa !116, !range !55, !noundef !56
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %95, label %100
-
-95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %97 = load i64, ptr %96, align 8, !tbaa !117
-  %98 = shl i64 %97, 32
-  store i64 %98, ptr %96, align 8, !tbaa !117
-  %99 = add i32 %89, 32
-  store i32 %99, ptr %3, align 8, !tbaa !115
-  br label %100
-
-100:                                              ; preds = %95, %91, %.critedge
-  %101 = phi i32 [ %99, %95 ], [ %89, %91 ], [ %89, %.critedge ]
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %103 = load i64, ptr %102, align 8, !tbaa !117
-  %104 = sub i32 %101, %1
-  %105 = zext nneg i32 %104 to i64
-  %106 = lshr i64 %103, %105
-  %107 = trunc i64 %106 to i32
-  ret i32 %107
+99:                                               ; preds = %.critedge._crit_edge, %94
+  %100 = phi i32 [ %93, %.critedge._crit_edge ], [ %98, %94 ]
+  %101 = phi i64 [ %.pre33, %.critedge._crit_edge ], [ %97, %94 ]
+  %102 = sub i32 %100, %1
+  %103 = zext nneg i32 %102 to i64
+  %104 = lshr i64 %101, %103
+  %105 = trunc i64 %104 to i32
+  ret i32 %105
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3110,9 +3103,9 @@ attributes #21 = { noreturn nounwind }
 !113 = distinct !{!113, !17}
 !114 = distinct !{!114, !17}
 !115 = !{!109, !12, i64 32}
-!116 = !{!109, !26, i64 36}
+!116 = !{!109, !12, i64 20}
 !117 = !{!109, !95, i64 24}
-!118 = !{!109, !12, i64 20}
+!118 = !{!109, !26, i64 36}
 !119 = distinct !{!119, !17}
 !120 = distinct !{!120, !17}
 !121 = !{!122}

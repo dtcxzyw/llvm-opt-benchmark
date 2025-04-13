@@ -25,20 +25,20 @@ define void @lv_draw_sw_border(ptr noundef %0, ptr noundef readonly captures(non
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %15 = load i8, ptr %14, align 4, !tbaa !3
   %16 = icmp ult i8 %15, 3
-  br i1 %16, label %291, label %17
+  br i1 %16, label %295, label %17
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load i32, ptr %18, align 8, !tbaa !14
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %291, label %21
+  br i1 %20, label %295, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 61
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 31
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %291, label %26
+  br i1 %25, label %295, label %26
 
 26:                                               ; preds = %21
   %27 = tail call i32 @lv_area_get_width(ptr noundef %2) #5
@@ -180,7 +180,7 @@ define void @lv_draw_sw_border(ptr noundef %0, ptr noundef readonly captures(non
 draw_border_simple.exit:                          ; preds = %98, %102
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #5
-  br label %290
+  br label %294
 
 103:                                              ; preds = %26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
@@ -248,340 +248,336 @@ draw_border_simple.exit:                          ; preds = %98, %102
   %136 = call i32 @lv_area_get_width(ptr noundef nonnull %10) #5
   %137 = load i32, ptr %34, align 4, !tbaa !18
   %138 = load i32, ptr %36, align 4, !tbaa !18
-  %.not.i54 = icmp sgt i32 %137, %138
-  %139 = load i32, ptr %40, align 4, !tbaa !20
-  %140 = load i32, ptr %42, align 4, !tbaa !20
-  %141 = icmp sge i32 %139, %140
-  %142 = load i32, ptr %2, align 4, !tbaa !16
-  %143 = load i32, ptr %13, align 4, !tbaa !16
-  %.not169.i = icmp sgt i32 %142, %143
-  %144 = load i32, ptr %37, align 4, !tbaa !19
-  %145 = load i32, ptr %39, align 4, !tbaa !19
-  %.not170.i = icmp slt i32 %144, %145
-  %brmerge.i = select i1 %.not169.i, i1 true, i1 %.not170.i
-  %brmerge176.i = or i1 %.not.i54, %brmerge.i
-  %146 = icmp sgt i32 %136, 49
-  %.not195.i = xor i1 %141, true
-  %not..i = select i1 %brmerge176.i, i1 true, i1 %.not195.i
-  %or.cond177.i = select i1 %not..i, i1 true, i1 %146
-  %147 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 1, ptr %147, align 8, !tbaa !28
-  %.0153.not.i = xor i1 %or.cond177.i, true
-  %brmerge178.i = or i1 %.not.i54, %.0153.not.i
-  br i1 %brmerge178.i, label %155, label %148
+  %139 = icmp sle i32 %137, %138
+  %140 = load i32, ptr %40, align 4, !tbaa !20
+  %141 = load i32, ptr %42, align 4, !tbaa !20
+  %142 = icmp sge i32 %140, %141
+  %143 = load i32, ptr %2, align 4, !tbaa !16
+  %144 = load i32, ptr %13, align 4, !tbaa !16
+  %145 = icmp sle i32 %143, %144
+  %146 = load i32, ptr %37, align 4, !tbaa !19
+  %147 = load i32, ptr %39, align 4, !tbaa !19
+  %148 = icmp sge i32 %146, %147
+  %or.cond.i = select i1 %145, i1 %148, i1 false
+  %or.cond3.i = and i1 %139, %or.cond.i
+  %or.cond5.i = select i1 %or.cond3.i, i1 %142, i1 false
+  %149 = icmp slt i32 %136, 50
+  %or.cond7.i = select i1 %or.cond5.i, i1 %149, i1 false
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 1, ptr %150, align 8, !tbaa !28
+  %or.cond9.i = xor i1 %139, %or.cond7.i
+  br i1 %or.cond9.i, label %151, label %158
 
-148:                                              ; preds = %114
-  %149 = load i32, ptr %10, align 4, !tbaa !16
-  store i32 %149, ptr %9, align 4, !tbaa !16
-  %150 = load i32, ptr %125, align 4, !tbaa !19
-  %151 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %150, ptr %151, align 4, !tbaa !19
-  %152 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %137, ptr %152, align 4, !tbaa !18
-  %153 = add nsw i32 %138, -1
-  %154 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %153, ptr %154, align 4, !tbaa !20
+151:                                              ; preds = %114
+  %152 = load i32, ptr %10, align 4, !tbaa !16
+  store i32 %152, ptr %9, align 4, !tbaa !16
+  %153 = load i32, ptr %125, align 4, !tbaa !19
+  %154 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %153, ptr %154, align 4, !tbaa !19
+  %155 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %137, ptr %155, align 4, !tbaa !18
+  %156 = add nsw i32 %138, -1
+  %157 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 %156, ptr %157, align 4, !tbaa !20
   call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
-  br label %155
+  br label %158
 
-155:                                              ; preds = %148, %114
-  %brmerge181.not.i = and i1 %141, %or.cond177.i
-  br i1 %brmerge181.not.i, label %156, label %165
+158:                                              ; preds = %151, %114
+  %or.cond11.i = xor i1 %142, %or.cond7.i
+  br i1 %or.cond11.i, label %159, label %168
 
-156:                                              ; preds = %155
-  %157 = load i32, ptr %10, align 4, !tbaa !16
-  store i32 %157, ptr %9, align 4, !tbaa !16
-  %158 = load i32, ptr %125, align 4, !tbaa !19
-  %159 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %158, ptr %159, align 4, !tbaa !19
-  %160 = load i32, ptr %42, align 4, !tbaa !20
-  %161 = add nsw i32 %160, 1
-  %162 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %161, ptr %162, align 4, !tbaa !18
-  %163 = load i32, ptr %40, align 4, !tbaa !20
-  %164 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %163, ptr %164, align 4, !tbaa !20
+159:                                              ; preds = %158
+  %160 = load i32, ptr %10, align 4, !tbaa !16
+  store i32 %160, ptr %9, align 4, !tbaa !16
+  %161 = load i32, ptr %125, align 4, !tbaa !19
+  %162 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %161, ptr %162, align 4, !tbaa !19
+  %163 = load i32, ptr %42, align 4, !tbaa !20
+  %164 = add nsw i32 %163, 1
+  %165 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %164, ptr %165, align 4, !tbaa !18
+  %166 = load i32, ptr %40, align 4, !tbaa !20
+  %167 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 %166, ptr %167, align 4, !tbaa !20
   call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
-  br label %165
+  br label %168
 
-165:                                              ; preds = %156, %155
-  %166 = load i32, ptr %13, align 4, !tbaa !16
-  %167 = load i32, ptr %39, align 4, !tbaa !19
-  %.not171.i = icmp slt i32 %166, %167
-  %brmerge182.i = or i1 %.not169.i, %.not171.i
-  %brmerge183.i = select i1 %brmerge182.i, i1 true, i1 %.not170.i
-  br i1 %brmerge183.i, label %170, label %168
+168:                                              ; preds = %159, %158
+  %169 = load i32, ptr %13, align 4, !tbaa !16
+  %170 = load i32, ptr %39, align 4, !tbaa !19
+  %171 = icmp sge i32 %169, %170
+  %or.cond13.i = and i1 %145, %171
+  %or.cond15.i = select i1 %or.cond13.i, i1 %148, i1 false
+  br i1 %or.cond15.i, label %172, label %174
 
-168:                                              ; preds = %165
-  %169 = load i32, ptr %2, align 4, !tbaa !16
+172:                                              ; preds = %168
+  %173 = load i32, ptr %2, align 4, !tbaa !16
   br label %.sink.split.i
 
-170:                                              ; preds = %165
-  br i1 %.not169.i, label %179, label %171
+174:                                              ; preds = %168
+  br i1 %145, label %175, label %183
 
-171:                                              ; preds = %170
-  %172 = load i32, ptr %2, align 4, !tbaa !16
-  store i32 %172, ptr %9, align 4, !tbaa !16
-  %173 = add nsw i32 %166, -1
-  %174 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %173, ptr %174, align 4, !tbaa !19
-  %175 = load i32, ptr %130, align 4, !tbaa !18
-  %176 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %175, ptr %176, align 4, !tbaa !18
-  %177 = load i32, ptr %135, align 4, !tbaa !20
-  %178 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %177, ptr %178, align 4, !tbaa !20
+175:                                              ; preds = %174
+  %176 = load i32, ptr %2, align 4, !tbaa !16
+  store i32 %176, ptr %9, align 4, !tbaa !16
+  %177 = add nsw i32 %169, -1
+  %178 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %177, ptr %178, align 4, !tbaa !19
+  %179 = load i32, ptr %130, align 4, !tbaa !18
+  %180 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %179, ptr %180, align 4, !tbaa !18
+  %181 = load i32, ptr %135, align 4, !tbaa !20
+  %182 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 %181, ptr %182, align 4, !tbaa !20
   call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
-  br label %179
+  br label %183
 
-179:                                              ; preds = %171, %170
-  br i1 %.not170.i, label %189, label %180
+183:                                              ; preds = %175, %174
+  br i1 %148, label %184, label %193
 
-180:                                              ; preds = %179
-  %181 = load i32, ptr %39, align 4, !tbaa !19
-  %182 = add nsw i32 %181, 1
+184:                                              ; preds = %183
+  %185 = load i32, ptr %39, align 4, !tbaa !19
+  %186 = add nsw i32 %185, 1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %180, %168
-  %.sink.i = phi i32 [ %182, %180 ], [ %169, %168 ]
+.sink.split.i:                                    ; preds = %184, %172
+  %.sink.i = phi i32 [ %186, %184 ], [ %173, %172 ]
   store i32 %.sink.i, ptr %9, align 4, !tbaa !16
-  %183 = load i32, ptr %37, align 4, !tbaa !19
-  %184 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %183, ptr %184, align 4, !tbaa !19
-  %185 = load i32, ptr %130, align 4, !tbaa !18
-  %186 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %185, ptr %186, align 4, !tbaa !18
-  %187 = load i32, ptr %135, align 4, !tbaa !20
-  %188 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %187, ptr %188, align 4, !tbaa !20
+  %187 = load i32, ptr %37, align 4, !tbaa !19
+  %188 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %187, ptr %188, align 4, !tbaa !19
+  %189 = load i32, ptr %130, align 4, !tbaa !18
+  %190 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %189, ptr %190, align 4, !tbaa !18
+  %191 = load i32, ptr %135, align 4, !tbaa !20
+  %192 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 %191, ptr %192, align 4, !tbaa !20
   call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
-  br label %189
+  br label %193
 
-189:                                              ; preds = %.sink.split.i, %179
-  %190 = load i32, ptr %4, align 4, !tbaa !16
-  store i32 %190, ptr %9, align 4, !tbaa !16
-  %191 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %192 = load i32, ptr %191, align 4, !tbaa !19
-  br i1 %or.cond177.i, label %222, label %193
+193:                                              ; preds = %.sink.split.i, %183
+  %194 = load i32, ptr %4, align 4, !tbaa !16
+  store i32 %194, ptr %9, align 4, !tbaa !16
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %196 = load i32, ptr %195, align 4, !tbaa !19
+  br i1 %or.cond7.i, label %197, label %226
 
-193:                                              ; preds = %189
-  %194 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %192, ptr %194, align 4, !tbaa !19
-  %195 = load i32, ptr %36, align 4, !tbaa !18
-  %196 = load i32, ptr %34, align 4, !tbaa !18
-  %197 = sub nsw i32 %195, %196
-  %.184.i = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 1073741824) %spec.select, i32 %197)
-  %198 = icmp sgt i32 %.184.i, 0
-  br i1 %198, label %.lr.ph.i, label %.loopexit.i
+197:                                              ; preds = %193
+  %198 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %196, ptr %198, align 4, !tbaa !19
+  %199 = load i32, ptr %36, align 4, !tbaa !18
+  %200 = load i32, ptr %34, align 4, !tbaa !18
+  %201 = sub nsw i32 %199, %200
+  %.194.i = call i32 @llvm.smax.i32(i32 range(i32 -2147483648, 1073741824) %spec.select, i32 %201)
+  %202 = icmp sgt i32 %.194.i, 0
+  br i1 %202, label %.lr.ph212.i, label %.loopexit.i
 
-.lr.ph.i:                                         ; preds = %193
-  %199 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %200 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %201 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %202 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  br label %203
+.lr.ph212.i:                                      ; preds = %197
+  %203 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %204 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %205 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %206 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  br label %207
 
-203:                                              ; preds = %220, %.lr.ph.i
-  %.0200.i = phi i32 [ 0, %.lr.ph.i ], [ %221, %220 ]
-  %204 = load i32, ptr %34, align 4, !tbaa !18
-  %205 = add nsw i32 %204, %.0200.i
-  %206 = load i32, ptr %40, align 4, !tbaa !20
-  %207 = sub nsw i32 %206, %.0200.i
-  %208 = load i32, ptr %199, align 4, !tbaa !18
-  %209 = icmp slt i32 %205, %208
-  %210 = load i32, ptr %200, align 4
-  %211 = icmp sgt i32 %207, %210
-  %or.cond187.i = select i1 %209, i1 %211, i1 false
-  br i1 %or.cond187.i, label %220, label %212
+207:                                              ; preds = %224, %.lr.ph212.i
+  %.0211.i = phi i32 [ 0, %.lr.ph212.i ], [ %225, %224 ]
+  %208 = load i32, ptr %34, align 4, !tbaa !18
+  %209 = add nsw i32 %208, %.0211.i
+  %210 = load i32, ptr %40, align 4, !tbaa !20
+  %211 = sub nsw i32 %210, %.0211.i
+  %212 = load i32, ptr %203, align 4, !tbaa !18
+  %213 = icmp slt i32 %209, %212
+  %214 = load i32, ptr %204, align 4
+  %215 = icmp sgt i32 %211, %214
+  %or.cond197.i = select i1 %213, i1 %215, i1 false
+  br i1 %or.cond197.i, label %224, label %216
 
-212:                                              ; preds = %203
+216:                                              ; preds = %207
   call void @lv_memset(ptr noundef %109, i8 noundef zeroext -1, i64 noundef %108) #5
-  %213 = load i32, ptr %9, align 4, !tbaa !16
-  %214 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %213, i32 noundef %205, i32 noundef %107) #5
-  store i32 %214, ptr %147, align 8, !tbaa !28
-  %215 = load i32, ptr %199, align 4, !tbaa !18
-  %.not172.i = icmp slt i32 %205, %215
-  br i1 %.not172.i, label %217, label %216
+  %217 = load i32, ptr %9, align 4, !tbaa !16
+  %218 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %217, i32 noundef %209, i32 noundef %107) #5
+  store i32 %218, ptr %150, align 8, !tbaa !28
+  %219 = load i32, ptr %203, align 4, !tbaa !18
+  %.not.i54 = icmp slt i32 %209, %219
+  br i1 %.not.i54, label %221, label %220
 
-216:                                              ; preds = %212
-  store i32 %205, ptr %201, align 4, !tbaa !18
-  store i32 %205, ptr %202, align 4, !tbaa !20
+220:                                              ; preds = %216
+  store i32 %209, ptr %205, align 4, !tbaa !18
+  store i32 %209, ptr %206, align 4, !tbaa !20
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %5) #5
-  br label %217
+  br label %221
 
-217:                                              ; preds = %216, %212
-  %218 = load i32, ptr %200, align 4, !tbaa !20
-  %.not173.i = icmp sgt i32 %207, %218
-  br i1 %.not173.i, label %220, label %219
+221:                                              ; preds = %220, %216
+  %222 = load i32, ptr %204, align 4, !tbaa !20
+  %.not191.i = icmp sgt i32 %211, %222
+  br i1 %.not191.i, label %224, label %223
 
-219:                                              ; preds = %217
-  store i32 %207, ptr %201, align 4, !tbaa !18
-  store i32 %207, ptr %202, align 4, !tbaa !20
+223:                                              ; preds = %221
+  store i32 %211, ptr %205, align 4, !tbaa !18
+  store i32 %211, ptr %206, align 4, !tbaa !20
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %5) #5
-  br label %220
+  br label %224
 
-220:                                              ; preds = %219, %217, %203
-  %221 = add nuw nsw i32 %.0200.i, 1
-  %exitcond.not.i = icmp eq i32 %221, %.184.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %203, !llvm.loop !29
+224:                                              ; preds = %223, %221, %207
+  %225 = add nuw nsw i32 %.0211.i, 1
+  %exitcond.not.i = icmp eq i32 %225, %.194.i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %207, !llvm.loop !29
 
-222:                                              ; preds = %189
-  %223 = load i32, ptr %10, align 4, !tbaa !16
-  %224 = add nsw i32 %223, -1
-  %225 = call i32 @llvm.smin.i32(i32 %192, i32 %224)
-  %226 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %225, ptr %226, align 4, !tbaa !19
-  %227 = call i32 @lv_area_get_width(ptr noundef nonnull %9) #5
-  %228 = icmp sgt i32 %227, 0
-  br i1 %228, label %229, label %.loopexit197.i
+226:                                              ; preds = %193
+  %227 = load i32, ptr %10, align 4, !tbaa !16
+  %228 = add nsw i32 %227, -1
+  %229 = call i32 @llvm.smin.i32(i32 %196, i32 %228)
+  %230 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %229, ptr %230, align 4, !tbaa !19
+  %231 = call i32 @lv_area_get_width(ptr noundef nonnull %9) #5
+  %232 = icmp sgt i32 %231, 0
+  br i1 %232, label %233, label %.loopexit200.i
 
-229:                                              ; preds = %222
-  %.not169.not.i = xor i1 %.not169.i, true
-  %brmerge188.not.i = and i1 %.not.i54, %.not169.i
-  br i1 %brmerge188.not.i, label %.loopexit198.i, label %230
+233:                                              ; preds = %226
+  %or.cond17.i = or i1 %139, %145
+  br i1 %or.cond17.i, label %234, label %.loopexit201.i
 
-230:                                              ; preds = %229
-  %231 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %232 = load i32, ptr %231, align 4, !tbaa !18
-  %233 = load i32, ptr %130, align 4, !tbaa !18
-  %234 = icmp slt i32 %232, %233
-  br i1 %234, label %.lr.ph202.i, label %.loopexit198.i
+234:                                              ; preds = %233
+  %235 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %236 = load i32, ptr %235, align 4, !tbaa !18
+  %237 = load i32, ptr %130, align 4, !tbaa !18
+  %238 = icmp slt i32 %236, %237
+  br i1 %238, label %.lr.ph.i, label %.loopexit201.i
 
-.lr.ph202.i:                                      ; preds = %230
-  %235 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %236 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %237 = zext nneg i32 %227 to i64
-  br label %238
+.lr.ph.i:                                         ; preds = %234
+  %239 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %240 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %241 = zext nneg i32 %231 to i64
+  br label %242
 
-238:                                              ; preds = %238, %.lr.ph202.i
-  %.1201.i = phi i32 [ %232, %.lr.ph202.i ], [ %241, %238 ]
-  store i32 %.1201.i, ptr %235, align 4, !tbaa !18
-  store i32 %.1201.i, ptr %236, align 4, !tbaa !20
-  call void @lv_memset(ptr noundef %109, i8 noundef zeroext -1, i64 noundef %237) #5
-  %239 = load i32, ptr %9, align 4, !tbaa !16
-  %240 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %239, i32 noundef %.1201.i, i32 noundef %227) #5
-  store i32 %240, ptr %147, align 8, !tbaa !28
+242:                                              ; preds = %242, %.lr.ph.i
+  %.1202.i = phi i32 [ %236, %.lr.ph.i ], [ %245, %242 ]
+  store i32 %.1202.i, ptr %239, align 4, !tbaa !18
+  store i32 %.1202.i, ptr %240, align 4, !tbaa !20
+  call void @lv_memset(ptr noundef %109, i8 noundef zeroext -1, i64 noundef %241) #5
+  %243 = load i32, ptr %9, align 4, !tbaa !16
+  %244 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %243, i32 noundef %.1202.i, i32 noundef %231) #5
+  store i32 %244, ptr %150, align 8, !tbaa !28
   call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
-  %241 = add nsw i32 %.1201.i, 1
-  %242 = load i32, ptr %130, align 4, !tbaa !18
-  %243 = icmp slt i32 %241, %242
-  br i1 %243, label %238, label %.loopexit198.i, !llvm.loop !31
+  %245 = add nsw i32 %.1202.i, 1
+  %246 = load i32, ptr %130, align 4, !tbaa !18
+  %247 = icmp slt i32 %245, %246
+  br i1 %247, label %242, label %.loopexit201.i, !llvm.loop !31
 
-.loopexit198.i:                                   ; preds = %238, %230, %229
-  %brmerge190.i = select i1 %.not169.not.i, i1 true, i1 %141
-  br i1 %brmerge190.i, label %244, label %.loopexit197.i
+.loopexit201.i:                                   ; preds = %242, %234, %233
+  %or.cond19.i = select i1 %145, i1 true, i1 %142
+  br i1 %or.cond19.i, label %248, label %.loopexit200.i
 
-244:                                              ; preds = %.loopexit198.i
-  %245 = load i32, ptr %135, align 4, !tbaa !20
-  %246 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %247 = load i32, ptr %246, align 4, !tbaa !20
-  %.not174.not203.i = icmp slt i32 %245, %247
-  br i1 %.not174.not203.i, label %.lr.ph205.i, label %.loopexit197.i
+248:                                              ; preds = %.loopexit201.i
+  %249 = load i32, ptr %135, align 4, !tbaa !20
+  %250 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %251 = load i32, ptr %250, align 4, !tbaa !20
+  %.not192.not203.i = icmp slt i32 %249, %251
+  br i1 %.not192.not203.i, label %.lr.ph205.i, label %.loopexit200.i
 
-.lr.ph205.i:                                      ; preds = %244
-  %248 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %249 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %250 = zext nneg i32 %227 to i64
-  br label %251
+.lr.ph205.i:                                      ; preds = %248
+  %252 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %253 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %254 = zext nneg i32 %231 to i64
+  br label %255
 
-251:                                              ; preds = %251, %.lr.ph205.i
-  %.2.in204.i = phi i32 [ %245, %.lr.ph205.i ], [ %.2.i, %251 ]
+255:                                              ; preds = %255, %.lr.ph205.i
+  %.2.in204.i = phi i32 [ %249, %.lr.ph205.i ], [ %.2.i, %255 ]
   %.2.i = add nsw i32 %.2.in204.i, 1
-  store i32 %.2.i, ptr %248, align 4, !tbaa !18
-  store i32 %.2.i, ptr %249, align 4, !tbaa !20
-  call void @lv_memset(ptr noundef %109, i8 noundef zeroext -1, i64 noundef %250) #5
-  %252 = load i32, ptr %9, align 4, !tbaa !16
-  %253 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %252, i32 noundef %.2.i, i32 noundef %227) #5
-  store i32 %253, ptr %147, align 8, !tbaa !28
+  store i32 %.2.i, ptr %252, align 4, !tbaa !18
+  store i32 %.2.i, ptr %253, align 4, !tbaa !20
+  call void @lv_memset(ptr noundef %109, i8 noundef zeroext -1, i64 noundef %254) #5
+  %256 = load i32, ptr %9, align 4, !tbaa !16
+  %257 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %256, i32 noundef %.2.i, i32 noundef %231) #5
+  store i32 %257, ptr %150, align 8, !tbaa !28
   call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
-  %254 = load i32, ptr %246, align 4, !tbaa !20
-  %.not174.not.i = icmp slt i32 %.2.i, %254
-  br i1 %.not174.not.i, label %251, label %.loopexit197.i, !llvm.loop !32
+  %258 = load i32, ptr %250, align 4, !tbaa !20
+  %.not192.not.i = icmp slt i32 %.2.i, %258
+  br i1 %.not192.not.i, label %255, label %.loopexit200.i, !llvm.loop !32
 
-.loopexit197.i:                                   ; preds = %251, %244, %.loopexit198.i, %222
-  %255 = load i32, ptr %4, align 4, !tbaa !16
-  %256 = load i32, ptr %125, align 4, !tbaa !19
-  %257 = add nsw i32 %256, 1
-  %258 = call i32 @llvm.smax.i32(i32 %255, i32 %257)
-  store i32 %258, ptr %9, align 4, !tbaa !16
-  %259 = load i32, ptr %191, align 4, !tbaa !19
-  store i32 %259, ptr %226, align 4, !tbaa !19
-  %260 = call i32 @lv_area_get_width(ptr noundef nonnull %9) #5
-  %261 = icmp sgt i32 %260, 0
-  br i1 %261, label %262, label %.loopexit.i
+.loopexit200.i:                                   ; preds = %255, %248, %.loopexit201.i, %226
+  %259 = load i32, ptr %4, align 4, !tbaa !16
+  %260 = load i32, ptr %125, align 4, !tbaa !19
+  %261 = add nsw i32 %260, 1
+  %262 = call i32 @llvm.smax.i32(i32 %259, i32 %261)
+  store i32 %262, ptr %9, align 4, !tbaa !16
+  %263 = load i32, ptr %195, align 4, !tbaa !19
+  store i32 %263, ptr %230, align 4, !tbaa !19
+  %264 = call i32 @lv_area_get_width(ptr noundef nonnull %9) #5
+  %265 = icmp sgt i32 %264, 0
+  br i1 %265, label %266, label %.loopexit.i
 
-262:                                              ; preds = %.loopexit197.i
-  %.not170.not.i = xor i1 %.not170.i, true
-  %brmerge192.not.i = and i1 %.not.i54, %.not170.i
-  br i1 %brmerge192.not.i, label %.loopexit196.i, label %263
+266:                                              ; preds = %.loopexit200.i
+  %or.cond21.i = or i1 %139, %148
+  br i1 %or.cond21.i, label %267, label %.loopexit199.i
 
-263:                                              ; preds = %262
-  %264 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %265 = load i32, ptr %264, align 4, !tbaa !18
-  %266 = load i32, ptr %130, align 4, !tbaa !18
-  %267 = icmp slt i32 %265, %266
-  br i1 %267, label %.lr.ph207.i, label %.loopexit196.i
+267:                                              ; preds = %266
+  %268 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %269 = load i32, ptr %268, align 4, !tbaa !18
+  %270 = load i32, ptr %130, align 4, !tbaa !18
+  %271 = icmp slt i32 %269, %270
+  br i1 %271, label %.lr.ph207.i, label %.loopexit199.i
 
-.lr.ph207.i:                                      ; preds = %263
-  %268 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %269 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %270 = zext nneg i32 %260 to i64
-  br label %271
+.lr.ph207.i:                                      ; preds = %267
+  %272 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %273 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %274 = zext nneg i32 %264 to i64
+  br label %275
 
-271:                                              ; preds = %271, %.lr.ph207.i
-  %.3206.i = phi i32 [ %265, %.lr.ph207.i ], [ %274, %271 ]
-  store i32 %.3206.i, ptr %268, align 4, !tbaa !18
-  store i32 %.3206.i, ptr %269, align 4, !tbaa !20
-  call void @lv_memset(ptr noundef %109, i8 noundef zeroext -1, i64 noundef %270) #5
-  %272 = load i32, ptr %9, align 4, !tbaa !16
-  %273 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %272, i32 noundef %.3206.i, i32 noundef %260) #5
-  store i32 %273, ptr %147, align 8, !tbaa !28
+275:                                              ; preds = %275, %.lr.ph207.i
+  %.3206.i = phi i32 [ %269, %.lr.ph207.i ], [ %278, %275 ]
+  store i32 %.3206.i, ptr %272, align 4, !tbaa !18
+  store i32 %.3206.i, ptr %273, align 4, !tbaa !20
+  call void @lv_memset(ptr noundef %109, i8 noundef zeroext -1, i64 noundef %274) #5
+  %276 = load i32, ptr %9, align 4, !tbaa !16
+  %277 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %276, i32 noundef %.3206.i, i32 noundef %264) #5
+  store i32 %277, ptr %150, align 8, !tbaa !28
   call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
-  %274 = add nsw i32 %.3206.i, 1
-  %275 = load i32, ptr %130, align 4, !tbaa !18
-  %276 = icmp slt i32 %274, %275
-  br i1 %276, label %271, label %.loopexit196.i, !llvm.loop !33
+  %278 = add nsw i32 %.3206.i, 1
+  %279 = load i32, ptr %130, align 4, !tbaa !18
+  %280 = icmp slt i32 %278, %279
+  br i1 %280, label %275, label %.loopexit199.i, !llvm.loop !33
 
-.loopexit196.i:                                   ; preds = %271, %263, %262
-  %brmerge194.i = select i1 %.not170.not.i, i1 true, i1 %141
-  br i1 %brmerge194.i, label %277, label %.loopexit.i
+.loopexit199.i:                                   ; preds = %275, %267, %266
+  %or.cond23.i = select i1 %148, i1 true, i1 %142
+  br i1 %or.cond23.i, label %281, label %.loopexit.i
 
-277:                                              ; preds = %.loopexit196.i
-  %278 = load i32, ptr %135, align 4, !tbaa !20
-  %279 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %280 = load i32, ptr %279, align 4, !tbaa !20
-  %.not175.not208.i = icmp slt i32 %278, %280
-  br i1 %.not175.not208.i, label %.lr.ph210.i, label %.loopexit.i
+281:                                              ; preds = %.loopexit199.i
+  %282 = load i32, ptr %135, align 4, !tbaa !20
+  %283 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %284 = load i32, ptr %283, align 4, !tbaa !20
+  %.not193.not208.i = icmp slt i32 %282, %284
+  br i1 %.not193.not208.i, label %.lr.ph210.i, label %.loopexit.i
 
-.lr.ph210.i:                                      ; preds = %277
-  %281 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %282 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %283 = zext nneg i32 %260 to i64
-  br label %284
+.lr.ph210.i:                                      ; preds = %281
+  %285 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %286 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %287 = zext nneg i32 %264 to i64
+  br label %288
 
-284:                                              ; preds = %284, %.lr.ph210.i
-  %.4.in209.i = phi i32 [ %278, %.lr.ph210.i ], [ %.4.i, %284 ]
+288:                                              ; preds = %288, %.lr.ph210.i
+  %.4.in209.i = phi i32 [ %282, %.lr.ph210.i ], [ %.4.i, %288 ]
   %.4.i = add nsw i32 %.4.in209.i, 1
-  store i32 %.4.i, ptr %281, align 4, !tbaa !18
-  store i32 %.4.i, ptr %282, align 4, !tbaa !20
-  call void @lv_memset(ptr noundef %109, i8 noundef zeroext -1, i64 noundef %283) #5
-  %285 = load i32, ptr %9, align 4, !tbaa !16
-  %286 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %285, i32 noundef %.4.i, i32 noundef %260) #5
-  store i32 %286, ptr %147, align 8, !tbaa !28
+  store i32 %.4.i, ptr %285, align 4, !tbaa !18
+  store i32 %.4.i, ptr %286, align 4, !tbaa !20
+  call void @lv_memset(ptr noundef %109, i8 noundef zeroext -1, i64 noundef %287) #5
+  %289 = load i32, ptr %9, align 4, !tbaa !16
+  %290 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %289, i32 noundef %.4.i, i32 noundef %264) #5
+  store i32 %290, ptr %150, align 8, !tbaa !28
   call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
-  %287 = load i32, ptr %279, align 4, !tbaa !20
-  %.not175.not.i = icmp slt i32 %.4.i, %287
-  br i1 %.not175.not.i, label %284, label %.loopexit.i, !llvm.loop !34
+  %291 = load i32, ptr %283, align 4, !tbaa !20
+  %.not193.not.i = icmp slt i32 %.4.i, %291
+  br i1 %.not193.not.i, label %288, label %.loopexit.i, !llvm.loop !34
 
-.loopexit.i:                                      ; preds = %220, %284, %277, %.loopexit196.i, %.loopexit197.i, %193
+.loopexit.i:                                      ; preds = %288, %224, %281, %.loopexit199.i, %.loopexit200.i, %197
   call void @lv_draw_sw_mask_free_param(ptr noundef nonnull %7) #5
-  br i1 %111, label %288, label %289
+  br i1 %111, label %292, label %293
 
-288:                                              ; preds = %.loopexit.i
+292:                                              ; preds = %.loopexit.i
   call void @lv_draw_sw_mask_free_param(ptr noundef nonnull %8) #5
-  br label %289
+  br label %293
 
-289:                                              ; preds = %288, %.loopexit.i
+293:                                              ; preds = %292, %.loopexit.i
   call void @lv_free(ptr noundef %109) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #5
@@ -591,15 +587,15 @@ draw_border_simple.exit:                          ; preds = %98, %102
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5
   br label %draw_border_complex.exit
 
-draw_border_complex.exit:                         ; preds = %103, %289
+draw_border_complex.exit:                         ; preds = %103, %293
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
-  br label %290
+  br label %294
 
-290:                                              ; preds = %draw_border_complex.exit, %draw_border_simple.exit
+294:                                              ; preds = %draw_border_complex.exit, %draw_border_simple.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #5
-  br label %291
+  br label %295
 
-291:                                              ; preds = %21, %17, %3, %290
+295:                                              ; preds = %21, %17, %3, %294
   ret void
 }
 

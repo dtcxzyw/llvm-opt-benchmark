@@ -3307,10 +3307,10 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit40: ; preds = %_ZN4cvc58internal12
 
 .noexc41:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit40
   %172 = load i8, ptr %6, align 8, !tbaa !162, !range !170, !noundef !171
-  %.mux.i.not.i.i.i = icmp eq i8 %172, 0
-  br i1 %.mux.i.not.i.i.i, label %173, label %179
+  %173 = trunc nuw i8 %172 to i1
+  br i1 %173, label %179, label %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i
 
-173:                                              ; preds = %.noexc41
+_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i: ; preds = %.noexc41
   %174 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %175 = load ptr, ptr %174, align 8, !tbaa !172, !noalias !173
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
@@ -3318,8 +3318,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit40: ; preds = %_ZN4cvc58internal12
   %178 = trunc i64 %177 to i32
   br label %179
 
-179:                                              ; preds = %173, %.noexc41
-  %.0.i.i.i = phi i32 [ %178, %173 ], [ 0, %.noexc41 ]
+179:                                              ; preds = %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i, %.noexc41
+  %.0.i.i.i = phi i32 [ %178, %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i ], [ 0, %.noexc41 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #21
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %.0.i.i.i, ptr %180, align 8, !tbaa !179

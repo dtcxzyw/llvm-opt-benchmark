@@ -379,127 +379,125 @@ define internal i32 @dissect_spnego_krb5(ptr noundef %0, ptr noundef %1, ptr nou
   %16 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %17 = load i8, ptr %6, align 1
   %18 = icmp eq i8 %17, 1
-  br i1 %18, label %19, label %42
+  %19 = load i8, ptr %7, align 1, !range !6
+  %20 = trunc nuw i8 %19 to i1
+  %or.cond = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond, label %21, label %41
 
-19:                                               ; preds = %4
-  %20 = load i8, ptr %7, align 1, !range !6, !noundef !7
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %42
-
-22:                                               ; preds = %19
-  %23 = call i32 @dissect_ber_identifier(ptr noundef %1, ptr noundef %15, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9)
-  %24 = call i32 @dissect_ber_length(ptr noundef %1, ptr noundef %15, ptr noundef %0, i32 noundef %23, ptr noundef nonnull %10, ptr noundef nonnull %8)
-  %25 = load i32, ptr %9, align 4
-  switch i32 %25, label %36 [
-    i32 0, label %26
-    i32 14, label %34
-    i32 15, label %34
+21:                                               ; preds = %4
+  %22 = call i32 @dissect_ber_identifier(ptr noundef %1, ptr noundef %15, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  %23 = call i32 @dissect_ber_length(ptr noundef %1, ptr noundef %15, ptr noundef %0, i32 noundef %22, ptr noundef nonnull %10, ptr noundef nonnull %8)
+  %24 = load i32, ptr %9, align 4
+  switch i32 %24, label %35 [
+    i32 0, label %25
+    i32 14, label %33
+    i32 15, label %33
   ]
 
-26:                                               ; preds = %22
-  %27 = load i32, ptr @hf_spnego_krb5_oid, align 4
-  %28 = call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef %15, ptr noundef %0, i32 noundef %24, i32 noundef %27, ptr noundef nonnull %5)
-  %29 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %28)
-  %30 = load i32, ptr @hf_spnego_krb5_tok_id, align 4
-  %31 = zext i16 %29 to i32
-  %32 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %30, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef %31)
-  %33 = add i32 %28, 2
-  br label %47
+25:                                               ; preds = %21
+  %26 = load i32, ptr @hf_spnego_krb5_oid, align 4
+  %27 = call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef %15, ptr noundef %0, i32 noundef %23, i32 noundef %26, ptr noundef nonnull %5)
+  %28 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %27)
+  %29 = load i32, ptr @hf_spnego_krb5_tok_id, align 4
+  %30 = zext i16 %28 to i32
+  %31 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %29, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef %30)
+  %32 = add i32 %27, 2
+  br label %46
 
-34:                                               ; preds = %22, %22
-  %35 = call i32 @dissect_kerberos_main(ptr noundef %0, ptr noundef %1, ptr noundef %15, i1 noundef zeroext false, ptr noundef null)
-  br label %85
-
-36:                                               ; preds = %22
-  %37 = load i8, ptr %6, align 1
-  %38 = sext i8 %37 to i32
-  %39 = load i8, ptr %7, align 1, !range !6, !noundef !7
-  %40 = zext nneg i8 %39 to i32
-  %41 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %15, ptr noundef %1, ptr noundef nonnull @ei_spnego_unknown_header, ptr noundef %0, i32 noundef %24, i32 noundef 0, ptr noundef nonnull @.str.152, i32 noundef %38, i32 noundef %40, i32 noundef %25)
+33:                                               ; preds = %21, %21
+  %34 = call i32 @dissect_kerberos_main(ptr noundef %0, ptr noundef %1, ptr noundef %15, i1 noundef zeroext false, ptr noundef null)
   br label %84
 
-42:                                               ; preds = %19, %4
-  %43 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0)
-  %44 = load i32, ptr @hf_spnego_krb5_tok_id, align 4
-  %45 = zext i16 %43 to i32
-  %46 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %44, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %45)
-  br label %47
+35:                                               ; preds = %21
+  %36 = load i8, ptr %6, align 1
+  %37 = sext i8 %36 to i32
+  %38 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %39 = zext nneg i8 %38 to i32
+  %40 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %15, ptr noundef %1, ptr noundef nonnull @ei_spnego_unknown_header, ptr noundef %0, i32 noundef %23, i32 noundef 0, ptr noundef nonnull @.str.152, i32 noundef %37, i32 noundef %39, i32 noundef %24)
+  br label %83
 
-47:                                               ; preds = %42, %26
-  %.1 = phi i32 [ %33, %26 ], [ 2, %42 ]
-  %.086 = phi i16 [ %29, %26 ], [ %43, %42 ]
-  switch i16 %.086, label %84 [
-    i16 4, label %48
-    i16 260, label %50
-    i16 1, label %52
-    i16 2, label %52
-    i16 3, label %52
-    i16 257, label %56
-    i16 258, label %58
-    i16 261, label %78
-    i16 1028, label %60
-    i16 1029, label %76
+41:                                               ; preds = %4
+  %42 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0)
+  %43 = load i32, ptr @hf_spnego_krb5_tok_id, align 4
+  %44 = zext i16 %42 to i32
+  %45 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %44)
+  br label %46
+
+46:                                               ; preds = %41, %25
+  %.1 = phi i32 [ %32, %25 ], [ 2, %41 ]
+  %.087 = phi i16 [ %28, %25 ], [ %42, %41 ]
+  switch i16 %.087, label %83 [
+    i16 4, label %47
+    i16 260, label %49
+    i16 1, label %51
+    i16 2, label %51
+    i16 3, label %51
+    i16 257, label %55
+    i16 258, label %57
+    i16 261, label %77
+    i16 1028, label %59
+    i16 1029, label %75
   ]
 
-48:                                               ; preds = %47
-  %49 = call i32 @dissect_kerberos_TGT_REQ(i1 noundef zeroext false, ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %11, ptr noundef %15, i32 noundef -1)
+47:                                               ; preds = %46
+  %48 = call i32 @dissect_kerberos_TGT_REQ(i1 noundef zeroext false, ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %11, ptr noundef %15, i32 noundef -1)
+  br label %83
+
+49:                                               ; preds = %46
+  %50 = call i32 @dissect_kerberos_TGT_REP(i1 noundef zeroext false, ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %11, ptr noundef %15, i32 noundef -1)
+  br label %83
+
+51:                                               ; preds = %46, %46, %46
+  %52 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1)
+  %53 = call i32 @dissect_kerberos_main(ptr noundef %52, ptr noundef %1, ptr noundef %15, i1 noundef zeroext false, ptr noundef null)
+  %54 = add i32 %53, %.1
+  br label %83
+
+55:                                               ; preds = %46
+  %56 = call fastcc i32 @dissect_spnego_krb5_getmic_base(ptr noundef %0, i32 noundef %.1, ptr noundef %15)
+  br label %83
+
+57:                                               ; preds = %46
+  %58 = call fastcc i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0, i32 noundef %.1, ptr noundef %1, ptr noundef %15, i16 noundef zeroext 258, ptr noundef %3)
+  br label %83
+
+59:                                               ; preds = %46
+  %60 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1)
+  %61 = load i32, ptr @hf_spnego_krb5_cfx_flags, align 4
+  %62 = load i32, ptr @ett_spnego_krb5_cfx_flags, align 4
+  %63 = call ptr @proto_tree_add_bitmask(ptr noundef %15, ptr noundef %0, i32 noundef %.1, i32 noundef %61, i32 noundef %62, ptr noundef nonnull @dissect_spnego_krb5_cfx_flags.flags, i32 noundef 0)
+  %64 = add i32 %.1, 1
+  %65 = load i32, ptr @hf_spnego_krb5_filler, align 4
+  %66 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef 5, i32 noundef 0)
+  %67 = add i32 %.1, 6
+  %68 = load i32, ptr @hf_spnego_krb5_cfx_seq, align 4
+  %69 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 8, i32 noundef 0)
+  %70 = add i32 %.1, 14
+  %71 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %70)
+  %72 = load i32, ptr @hf_spnego_krb5_sgn_cksum, align 4
+  %73 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %72, ptr noundef %0, i32 noundef %70, i32 noundef %71, i32 noundef 0)
+  %74 = add i32 %71, %70
+  br label %83
+
+75:                                               ; preds = %46
+  %76 = call fastcc i32 @dissect_spnego_krb5_cfx_wrap_base(ptr noundef %0, i32 noundef %.1, ptr noundef %1, ptr noundef %15, ptr noundef %3)
+  br label %83
+
+77:                                               ; preds = %46
+  %78 = load i32, ptr @ett_spnego_IAKERB_HEADER, align 4
+  %79 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef %15, ptr noundef %0, i32 noundef %.1, ptr noundef nonnull @IAKERB_HEADER_sequence, i32 noundef -1, i32 noundef %78)
+  %80 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %79)
+  %81 = call i32 @dissect_kerberos_main(ptr noundef %80, ptr noundef %1, ptr noundef %15, i1 noundef zeroext false, ptr noundef null)
+  %82 = add i32 %81, %79
+  br label %83
+
+83:                                               ; preds = %47, %49, %51, %55, %57, %59, %75, %77, %46, %35
+  %.088 = phi i32 [ %23, %35 ], [ %.1, %46 ], [ %76, %75 ], [ %74, %59 ], [ %82, %77 ], [ %58, %57 ], [ %56, %55 ], [ %54, %51 ], [ %50, %49 ], [ %48, %47 ]
+  call void @proto_item_set_len(ptr noundef %13, i32 noundef %.088)
   br label %84
 
-50:                                               ; preds = %47
-  %51 = call i32 @dissect_kerberos_TGT_REP(i1 noundef zeroext false, ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %11, ptr noundef %15, i32 noundef -1)
-  br label %84
-
-52:                                               ; preds = %47, %47, %47
-  %53 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1)
-  %54 = call i32 @dissect_kerberos_main(ptr noundef %53, ptr noundef %1, ptr noundef %15, i1 noundef zeroext false, ptr noundef null)
-  %55 = add i32 %54, %.1
-  br label %84
-
-56:                                               ; preds = %47
-  %57 = call fastcc i32 @dissect_spnego_krb5_getmic_base(ptr noundef %0, i32 noundef %.1, ptr noundef %15)
-  br label %84
-
-58:                                               ; preds = %47
-  %59 = call fastcc i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0, i32 noundef %.1, ptr noundef %1, ptr noundef %15, i16 noundef zeroext 258, ptr noundef %3)
-  br label %84
-
-60:                                               ; preds = %47
-  %61 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1)
-  %62 = load i32, ptr @hf_spnego_krb5_cfx_flags, align 4
-  %63 = load i32, ptr @ett_spnego_krb5_cfx_flags, align 4
-  %64 = call ptr @proto_tree_add_bitmask(ptr noundef %15, ptr noundef %0, i32 noundef %.1, i32 noundef %62, i32 noundef %63, ptr noundef nonnull @dissect_spnego_krb5_cfx_flags.flags, i32 noundef 0)
-  %65 = add i32 %.1, 1
-  %66 = load i32, ptr @hf_spnego_krb5_filler, align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %66, ptr noundef %0, i32 noundef %65, i32 noundef 5, i32 noundef 0)
-  %68 = add i32 %.1, 6
-  %69 = load i32, ptr @hf_spnego_krb5_cfx_seq, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %69, ptr noundef %0, i32 noundef %68, i32 noundef 8, i32 noundef 0)
-  %71 = add i32 %.1, 14
-  %72 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %71)
-  %73 = load i32, ptr @hf_spnego_krb5_sgn_cksum, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %73, ptr noundef %0, i32 noundef %71, i32 noundef %72, i32 noundef 0)
-  %75 = add i32 %72, %71
-  br label %84
-
-76:                                               ; preds = %47
-  %77 = call fastcc i32 @dissect_spnego_krb5_cfx_wrap_base(ptr noundef %0, i32 noundef %.1, ptr noundef %1, ptr noundef %15, ptr noundef %3)
-  br label %84
-
-78:                                               ; preds = %47
-  %79 = load i32, ptr @ett_spnego_IAKERB_HEADER, align 4
-  %80 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef %15, ptr noundef %0, i32 noundef %.1, ptr noundef nonnull @IAKERB_HEADER_sequence, i32 noundef -1, i32 noundef %79)
-  %81 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %80)
-  %82 = call i32 @dissect_kerberos_main(ptr noundef %81, ptr noundef %1, ptr noundef %15, i1 noundef zeroext false, ptr noundef null)
-  %83 = add i32 %82, %80
-  br label %84
-
-84:                                               ; preds = %48, %50, %52, %56, %58, %60, %76, %78, %47, %36
-  %.087 = phi i32 [ %24, %36 ], [ %.1, %47 ], [ %77, %76 ], [ %75, %60 ], [ %83, %78 ], [ %59, %58 ], [ %57, %56 ], [ %55, %52 ], [ %51, %50 ], [ %49, %48 ]
-  call void @proto_item_set_len(ptr noundef %13, i32 noundef %.087)
-  br label %85
-
-85:                                               ; preds = %84, %34
-  %86 = call i32 @tvb_captured_length(ptr noundef %0)
+84:                                               ; preds = %83, %33
+  %85 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
@@ -507,7 +505,7 @@ define internal i32 @dissect_spnego_krb5(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  ret i32 %86
+  ret i32 %85
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

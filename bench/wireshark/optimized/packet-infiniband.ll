@@ -4174,15 +4174,13 @@ parse_PAYLOAD_do_rc_send_reassembling.exit:       ; preds = %update_sport.exit, 
   %.0..0..0..0. = load volatile ptr, ptr %13, align 8
   %.val132 = load i8, ptr %96, align 8
   %113 = icmp ult i8 %.val132, 24
-  br i1 %113, label %switch.hole_check, label %parse_PAYLOAD_reassemble_tvb.exit
-
-switch.hole_check:                                ; preds = %112
   %switch.maskindex = zext nneg i8 %.val132 to i32
   %switch.shifted = lshr i32 12582975, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %parse_PAYLOAD_reassemble_tvb.exit
+  %or.cond135 = select i1 %113, i1 %switch.lobit, i1 false
+  br i1 %or.cond135, label %switch.lookup, label %parse_PAYLOAD_reassemble_tvb.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %112
   %switch.cast = zext nneg i8 %.val132 to i24
   %switch.downshift = lshr i24 3, %switch.cast
   %switch.masked = trunc i24 %switch.downshift to i1
@@ -4239,8 +4237,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %145 = call ptr @process_reassembled_data(ptr noundef %.0..0..0..0., i32 noundef 0, ptr noundef %1, ptr noundef nonnull @.str.1574, ptr noundef nonnull %.147.i, ptr noundef nonnull @infiniband_rc_send_frag_items, ptr noundef null, ptr noundef %7)
   br label %parse_PAYLOAD_reassemble_tvb.exit
 
-parse_PAYLOAD_reassemble_tvb.exit:                ; preds = %switch.hole_check, %112, %138, %144
-  %.029.i = phi ptr [ %145, %144 ], [ %.0..0..0..0., %112 ], [ null, %138 ], [ %.0..0..0..0., %switch.hole_check ]
+parse_PAYLOAD_reassemble_tvb.exit:                ; preds = %112, %138, %144
+  %.029.i = phi ptr [ %145, %144 ], [ %.0..0..0..0., %112 ], [ null, %138 ]
   store volatile ptr %.029.i, ptr %13, align 8
   %.0..0..0..0.23 = load volatile ptr, ptr %13, align 8
   %146 = icmp eq ptr %.0..0..0..0.23, null

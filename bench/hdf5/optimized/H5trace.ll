@@ -8463,7 +8463,7 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %127, label %10
+  br i1 %.not, label %129, label %10
 
 10:                                               ; preds = %3
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35, !noundef !36
@@ -8480,9 +8480,9 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   br i1 %17, label %18, label %28
 
 18:                                               ; preds = %15
-  %.not34 = icmp eq ptr %0, null
+  %.not37 = icmp eq ptr %0, null
   %19 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  br i1 %.not34, label %24, label %20
+  br i1 %.not37, label %24, label %20
 
 20:                                               ; preds = %18
   %21 = icmp sgt i32 %19, 1
@@ -8491,7 +8491,7 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
 22:                                               ; preds = %20
   %23 = add nsw i32 %19, -1
   store i32 %23, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  br label %127
+  br label %129
 
 24:                                               ; preds = %18
   %25 = icmp sgt i32 %19, 0
@@ -8500,18 +8500,17 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
 26:                                               ; preds = %24
   %27 = add nuw nsw i32 %19, 1
   store i32 %27, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  br label %127
+  br label %129
 
 28:                                               ; preds = %20, %24, %15
   %.b = load i1, ptr @H5_trace.is_first_invocation, align 1
-  %.pre46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35
-  br i1 %.b, label %34, label %29
+  %not..b = xor i1 %.b, true
+  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !range !35
+  %30 = trunc nuw i8 %29 to i1
+  %or.cond = select i1 %not..b, i1 %30, i1 false
+  br i1 %or.cond, label %31, label %34
 
-29:                                               ; preds = %28
-  %30 = trunc nuw i8 %.pre46 to i1
-  br i1 %30, label %31, label %.thread
-
-31:                                               ; preds = %29
+31:                                               ; preds = %28
   store i1 true, ptr @H5_trace.is_first_invocation, align 1
   %32 = call i32 @H5_timer_init(ptr noundef nonnull @H5_trace.running_timer) #10
   %33 = call i32 @H5_timer_start(ptr noundef nonnull @H5_trace.running_timer) #10
@@ -8519,130 +8518,128 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   br label %34
 
 34:                                               ; preds = %31, %28
-  %35 = phi i8 [ %.pre, %31 ], [ %.pre46, %28 ]
+  %35 = phi i8 [ %.pre, %31 ], [ %29, %28 ]
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %.thread
+  br i1 %36, label %37, label %39
 
 37:                                               ; preds = %34
   %38 = call i32 @H5_timer_start(ptr noundef nonnull %5) #10
-  br label %.thread
+  br label %39
 
-.thread:                                          ; preds = %29, %37, %34
-  %39 = call ptr @H5RS_create(ptr noundef null) #10
-  %.not35 = icmp eq ptr %0, null
-  %40 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  br i1 %.not35, label %71, label %41
+39:                                               ; preds = %37, %34
+  %40 = call ptr @H5RS_create(ptr noundef null) #10
+  %41 = icmp ne ptr %0, null
+  %42 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  br i1 %41, label %43, label %73
 
-41:                                               ; preds = %.thread
-  %42 = add nsw i32 %40, -1
-  store i32 %42, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  %43 = load i32, ptr @H5_trace.last_call_depth, align 4, !tbaa !16
-  %.not36 = icmp sgt i32 %40, %43
-  br i1 %.not36, label %69, label %44
+43:                                               ; preds = %39
+  %44 = add nsw i32 %42, -1
+  store i32 %44, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  %45 = load i32, ptr @H5_trace.last_call_depth, align 4, !tbaa !16
+  %.not38 = icmp sgt i32 %42, %45
+  br i1 %.not38, label %71, label %46
 
-44:                                               ; preds = %41
-  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35, !noundef !36
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %59
+46:                                               ; preds = %43
+  %47 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35, !noundef !36
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %61
 
-47:                                               ; preds = %44
+49:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %8) #10
-  %48 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %6) #10
-  %49 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef nonnull %7) #10
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %51 = load double, ptr %50, align 8, !tbaa !83
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %50 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %6) #10
+  %51 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef nonnull %7) #10
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %53 = load double, ptr %52, align 8, !tbaa !83
-  %54 = fsub double %51, %53
-  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 320, ptr noundef nonnull @.str.527, double noundef %54) #10
-  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #11
-  %57 = trunc i64 %56 to i32
-  %58 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %39, ptr noundef nonnull @.str.528, i32 noundef %57, ptr noundef nonnull @.str.2) #10
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %55 = load double, ptr %54, align 8, !tbaa !83
+  %56 = fsub double %53, %55
+  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 320, ptr noundef nonnull @.str.527, double noundef %56) #10
+  %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #11
+  %59 = trunc i64 %58 to i32
+  %60 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %40, ptr noundef nonnull @.str.528, i32 noundef %59, ptr noundef nonnull @.str.2) #10
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %8) #10
-  %.pre47 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  br label %59
+  %.pre48 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  br label %61
 
-59:                                               ; preds = %47, %44
-  %60 = phi i32 [ %.pre47, %47 ], [ %42, %44 ]
-  %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph, label %._crit_edge
+61:                                               ; preds = %49, %46
+  %62 = phi i32 [ %.pre48, %49 ], [ %44, %46 ]
+  %63 = icmp sgt i32 %62, 0
+  br i1 %63, label %.lr.ph43, label %._crit_edge44
 
-.lr.ph:                                           ; preds = %59, %.lr.ph
-  %.02938 = phi i64 [ %63, %.lr.ph ], [ 0, %59 ]
-  %62 = call i32 @H5RS_aputc(ptr noundef %39, i32 noundef 43) #10
-  %63 = add nuw nsw i64 %.02938, 1
-  %64 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  %65 = sext i32 %64 to i64
-  %66 = icmp slt i64 %63, %65
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !85
+.lr.ph43:                                         ; preds = %61, %.lr.ph43
+  %.03241 = phi i64 [ %65, %.lr.ph43 ], [ 0, %61 ]
+  %64 = call i32 @H5RS_aputc(ptr noundef %40, i32 noundef 43) #10
+  %65 = add nuw nsw i64 %.03241, 1
+  %66 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  %67 = sext i32 %66 to i64
+  %68 = icmp slt i64 %65, %67
+  br i1 %68, label %.lr.ph43, label %._crit_edge44, !llvm.loop !85
 
-._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.lcssa37 = phi i32 [ %60, %59 ], [ %64, %.lr.ph ]
-  %67 = shl nsw i32 %.lcssa37, 1
-  %68 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %39, ptr noundef nonnull @.str.529, i32 noundef %67, ptr noundef nonnull @.str.2, ptr noundef %1) #10
-  br label %98
+._crit_edge44:                                    ; preds = %.lr.ph43, %61
+  %.lcssa = phi i32 [ %62, %61 ], [ %66, %.lr.ph43 ]
+  %69 = shl nsw i32 %.lcssa, 1
+  %70 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %40, ptr noundef nonnull @.str.529, i32 noundef %69, ptr noundef nonnull @.str.2, ptr noundef %1) #10
+  br label %100
 
-69:                                               ; preds = %41
-  %70 = call i32 @H5RS_acat(ptr noundef %39, ptr noundef nonnull @.str.530) #10
-  br label %98
+71:                                               ; preds = %43
+  %72 = call i32 @H5RS_acat(ptr noundef %40, ptr noundef nonnull @.str.530) #10
+  br label %100
 
-71:                                               ; preds = %.thread
-  %72 = load i32, ptr @H5_trace.last_call_depth, align 4, !tbaa !16
-  %73 = icmp sgt i32 %40, %72
-  br i1 %73, label %74, label %76
+73:                                               ; preds = %39
+  %74 = load i32, ptr @H5_trace.last_call_depth, align 4, !tbaa !16
+  %75 = icmp sgt i32 %42, %74
+  br i1 %75, label %76, label %78
 
-74:                                               ; preds = %71
-  %75 = call i32 @H5RS_acat(ptr noundef %39, ptr noundef nonnull @.str.531) #10
-  br label %76
+76:                                               ; preds = %73
+  %77 = call i32 @H5RS_acat(ptr noundef %40, ptr noundef nonnull @.str.531) #10
+  br label %78
 
-76:                                               ; preds = %74, %71
-  %77 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35, !noundef !36
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %79, label %88
+78:                                               ; preds = %76, %73
+  %79 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35, !noundef !36
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %81, label %90
 
-79:                                               ; preds = %76
-  %80 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %6) #10
-  %81 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef nonnull %7) #10
-  %82 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %83 = load double, ptr %82, align 8, !tbaa !83
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 16
+81:                                               ; preds = %78
+  %82 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %6) #10
+  %83 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef nonnull %7) #10
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %85 = load double, ptr %84, align 8, !tbaa !83
-  %86 = fsub double %83, %85
-  %87 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %39, ptr noundef nonnull @.str.532, double noundef %86) #10
-  br label %88
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %87 = load double, ptr %86, align 8, !tbaa !83
+  %88 = fsub double %85, %87
+  %89 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %40, ptr noundef nonnull @.str.532, double noundef %88) #10
+  br label %90
 
-88:                                               ; preds = %79, %76
-  %89 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %.lr.ph41, label %._crit_edge42
+90:                                               ; preds = %81, %78
+  %91 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %.lr.ph, label %._crit_edge
 
-.lr.ph41:                                         ; preds = %88, %.lr.ph41
-  %.139 = phi i64 [ %92, %.lr.ph41 ], [ 0, %88 ]
-  %91 = call i32 @H5RS_aputc(ptr noundef %39, i32 noundef 43) #10
-  %92 = add nuw nsw i64 %.139, 1
-  %93 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  %94 = sext i32 %93 to i64
-  %95 = icmp slt i64 %92, %94
-  br i1 %95, label %.lr.ph41, label %._crit_edge42, !llvm.loop !86
+.lr.ph:                                           ; preds = %90, %.lr.ph
+  %.140 = phi i64 [ %94, %.lr.ph ], [ 0, %90 ]
+  %93 = call i32 @H5RS_aputc(ptr noundef %40, i32 noundef 43) #10
+  %94 = add nuw nsw i64 %.140, 1
+  %95 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  %96 = sext i32 %95 to i64
+  %97 = icmp slt i64 %94, %96
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !86
 
-._crit_edge42:                                    ; preds = %.lr.ph41, %88
-  %.lcssa = phi i32 [ %89, %88 ], [ %93, %.lr.ph41 ]
-  %96 = shl nsw i32 %.lcssa, 1
-  %97 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %39, ptr noundef nonnull @.str.533, i32 noundef %96, ptr noundef nonnull @.str.2, ptr noundef %1) #10
-  br label %98
+._crit_edge:                                      ; preds = %.lr.ph, %90
+  %.lcssa39 = phi i32 [ %91, %90 ], [ %95, %.lr.ph ]
+  %98 = shl nsw i32 %.lcssa39, 1
+  %99 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %40, ptr noundef nonnull @.str.533, i32 noundef %98, ptr noundef nonnull @.str.2, ptr noundef %1) #10
+  br label %100
 
-98:                                               ; preds = %._crit_edge, %69, %._crit_edge42
+100:                                              ; preds = %._crit_edge44, %71, %._crit_edge
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %99 = call i32 @H5_trace_args(ptr noundef %39, ptr noundef %2, ptr noundef nonnull %4)
+  %101 = call i32 @H5_trace_args(ptr noundef %40, ptr noundef %2, ptr noundef nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
-  br i1 %.not35, label %.critedge, label %100
+  %102 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !range !35
+  %103 = trunc nuw i8 %102 to i1
+  %or.cond3 = select i1 %41, i1 %103, i1 false
+  br i1 %or.cond3, label %.thread, label %114
 
-100:                                              ; preds = %98
-  %101 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35, !noundef !36
-  %102 = trunc nuw i8 %101 to i1
-  br i1 %102, label %103, label %116
-
-103:                                              ; preds = %100
+.thread:                                          ; preds = %100
   %104 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %6) #10
   %105 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef nonnull %7) #10
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -8652,34 +8649,37 @@ define double @H5_trace(ptr noundef readonly captures(address_is_null) %0, ptr n
   %110 = fsub double %107, %109
   %111 = load double, ptr %0, align 8, !tbaa !30
   %112 = fsub double %107, %111
-  %113 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %39, ptr noundef nonnull @.str.534, double noundef %110, double noundef %112) #10
-  br label %116
+  %113 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %40, ptr noundef nonnull @.str.534, double noundef %110, double noundef %112) #10
+  br label %118
 
-.critedge:                                        ; preds = %98
-  %114 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  %115 = add nsw i32 %114, 1
-  store i32 %115, ptr @H5_trace.current_depth, align 4, !tbaa !16
-  store i32 %114, ptr @H5_trace.last_call_depth, align 4, !tbaa !16
-  br label %116
+114:                                              ; preds = %100
+  br i1 %41, label %118, label %115
 
-116:                                              ; preds = %103, %100, %.critedge
-  %.str.536.sink = phi ptr [ @.str.536, %.critedge ], [ @.str.535, %100 ], [ @.str.535, %103 ]
-  %117 = call i32 @H5RS_acat(ptr noundef %39, ptr noundef nonnull %.str.536.sink) #10
-  %118 = call ptr @H5RS_get_str(ptr noundef %39) #10
-  %119 = call i32 @fputs(ptr noundef %118, ptr noundef nonnull %9)
-  %120 = call i32 @fflush(ptr noundef nonnull %9)
-  %121 = call i32 @H5RS_decr(ptr noundef %39) #10
-  %122 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35, !noundef !36
-  %123 = trunc nuw i8 %122 to i1
-  br i1 %123, label %124, label %127
+115:                                              ; preds = %114
+  %116 = load i32, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  %117 = add nsw i32 %116, 1
+  store i32 %117, ptr @H5_trace.current_depth, align 4, !tbaa !16
+  store i32 %116, ptr @H5_trace.last_call_depth, align 4, !tbaa !16
+  br label %118
 
-124:                                              ; preds = %116
-  %125 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %126 = load double, ptr %125, align 8, !tbaa !83
-  br label %127
+118:                                              ; preds = %114, %.thread, %115
+  %.str.536.sink = phi ptr [ @.str.536, %115 ], [ @.str.535, %.thread ], [ @.str.535, %114 ]
+  %119 = call i32 @H5RS_acat(ptr noundef %40, ptr noundef nonnull %.str.536.sink) #10
+  %120 = call ptr @H5RS_get_str(ptr noundef %40) #10
+  %121 = call i32 @fputs(ptr noundef %120, ptr noundef nonnull %9)
+  %122 = call i32 @fflush(ptr noundef nonnull %9)
+  %123 = call i32 @H5RS_decr(ptr noundef %40) #10
+  %124 = load i8, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 9), align 1, !tbaa !81, !range !35, !noundef !36
+  %125 = trunc nuw i8 %124 to i1
+  br i1 %125, label %126, label %129
 
-127:                                              ; preds = %116, %3, %124, %26, %22
-  %.0 = phi double [ 0.000000e+00, %22 ], [ %126, %124 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %116 ]
+126:                                              ; preds = %118
+  %127 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %128 = load double, ptr %127, align 8, !tbaa !83
+  br label %129
+
+129:                                              ; preds = %118, %3, %126, %26, %22
+  %.0 = phi double [ 0.000000e+00, %22 ], [ %128, %126 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %118 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #10

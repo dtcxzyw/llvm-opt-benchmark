@@ -150,8 +150,8 @@ define dso_local void @set_user_limits(ptr noundef readonly captures(none) %0, i
   %57 = getelementptr inbounds nuw i8, ptr %.051, i64 16
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 1
-  %brmerge.i = or i1 %35, %59
-  br i1 %brmerge.i, label %60, label %_set_limit.exit
+  %or.cond.i = or i1 %35, %59
+  br i1 %or.cond.i, label %60, label %_set_limit.exit
 
 60:                                               ; preds = %55
   %61 = load i32, ptr %.051, align 8
@@ -202,29 +202,29 @@ rlim_to_string.exit.i:                            ; preds = %80, %79
 
 84:                                               ; preds = %rlim_to_string.exit.i
   store i32 6712937, ptr %5, align 16
-  br label %rlim_to_string.exit10.i
+  br label %rlim_to_string.exit11.i
 
 85:                                               ; preds = %rlim_to_string.exit.i
   %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %82) #7
-  br label %rlim_to_string.exit10.i
+  br label %rlim_to_string.exit11.i
 
-rlim_to_string.exit10.i:                          ; preds = %85, %84
+rlim_to_string.exit11.i:                          ; preds = %85, %84
   %87 = icmp eq i64 %44, -1
   br i1 %87, label %88, label %89
 
-88:                                               ; preds = %rlim_to_string.exit10.i
+88:                                               ; preds = %rlim_to_string.exit11.i
   store i32 6712937, ptr %6, align 16
-  br label %rlim_to_string.exit11.i
+  br label %rlim_to_string.exit12.i
 
-89:                                               ; preds = %rlim_to_string.exit10.i
+89:                                               ; preds = %rlim_to_string.exit11.i
   %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %44) #7
-  br label %rlim_to_string.exit11.i
+  br label %rlim_to_string.exit12.i
 
-rlim_to_string.exit11.i:                          ; preds = %89, %88
+rlim_to_string.exit12.i:                          ; preds = %89, %88
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.20, ptr noundef %30, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   br label %91
 
-91:                                               ; preds = %rlim_to_string.exit11.i, %75
+91:                                               ; preds = %rlim_to_string.exit12.i, %75
   store i64 %44, ptr %7, align 8
   br i1 %35, label %.thread.i, label %92
 
@@ -244,30 +244,30 @@ rlim_to_string.exit11.i:                          ; preds = %89, %88
 
 100:                                              ; preds = %98
   store i32 6712937, ptr %6, align 16
-  br label %rlim_to_string.exit12.i
+  br label %rlim_to_string.exit13.i
 
 101:                                              ; preds = %98
   %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %44) #7
-  br label %rlim_to_string.exit12.i
+  br label %rlim_to_string.exit13.i
 
-rlim_to_string.exit12.i:                          ; preds = %101, %100
+rlim_to_string.exit13.i:                          ; preds = %101, %100
   %103 = load i64, ptr %24, align 8
   %104 = icmp eq i64 %103, -1
   br i1 %104, label %105, label %106
 
-105:                                              ; preds = %rlim_to_string.exit12.i
+105:                                              ; preds = %rlim_to_string.exit13.i
   store i32 6712937, ptr %4, align 16
-  br label %rlim_to_string.exit13.i
+  br label %rlim_to_string.exit14.i
 
-106:                                              ; preds = %rlim_to_string.exit12.i
+106:                                              ; preds = %rlim_to_string.exit13.i
   %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %103) #7
-  br label %rlim_to_string.exit13.i
+  br label %rlim_to_string.exit14.i
 
-rlim_to_string.exit13.i:                          ; preds = %106, %105
+rlim_to_string.exit14.i:                          ; preds = %106, %105
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__._set_limit, ptr noundef %30, ptr noundef nonnull %6, ptr noundef nonnull %4) #7
   br label %108
 
-108:                                              ; preds = %rlim_to_string.exit13.i, %95
+108:                                              ; preds = %rlim_to_string.exit14.i, %95
   %109 = load i64, ptr %24, align 8
   store i64 %109, ptr %7, align 8
   br label %110
@@ -282,19 +282,19 @@ rlim_to_string.exit13.i:                          ; preds = %106, %105
   %114 = load i32, ptr %.051, align 8
   %115 = call i32 @setrlimit(i32 noundef %114, ptr noundef nonnull %7) #7
   %116 = icmp slt i32 %115, 0
-  br i1 %116, label %.thread33.i, label %132
+  br i1 %116, label %.thread34.i, label %132
 
-.thread33.i:                                      ; preds = %.thread.i
+.thread34.i:                                      ; preds = %.thread.i
   %117 = load i64, ptr %7, align 8
   %118 = icmp eq i64 %117, -1
-  br i1 %118, label %120, label %rlim_to_string.exit14.i
+  br i1 %118, label %120, label %rlim_to_string.exit15.i
 
-rlim_to_string.exit14.i:                          ; preds = %.thread33.i
+rlim_to_string.exit15.i:                          ; preds = %.thread34.i
   %119 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %117) #7
   br label %120
 
-120:                                              ; preds = %rlim_to_string.exit14.i, %.thread33.i
-  %121 = phi ptr [ %5, %rlim_to_string.exit14.i ], [ @.str.23, %.thread33.i ]
+120:                                              ; preds = %rlim_to_string.exit15.i, %.thread34.i
+  %121 = phi ptr [ %5, %rlim_to_string.exit15.i ], [ @.str.23, %.thread34.i ]
   %122 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef %30, ptr noundef nonnull %121) #7
   br label %_set_limit.exit
 
@@ -306,14 +306,14 @@ rlim_to_string.exit14.i:                          ; preds = %.thread33.i
 126:                                              ; preds = %123
   %127 = load i64, ptr %7, align 8
   %128 = icmp eq i64 %127, -1
-  br i1 %128, label %130, label %rlim_to_string.exit15.i
+  br i1 %128, label %130, label %rlim_to_string.exit16.i
 
-rlim_to_string.exit15.i:                          ; preds = %126
+rlim_to_string.exit16.i:                          ; preds = %126
   %129 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 24, ptr noundef nonnull @.str.28, i64 noundef %127) #7
   br label %130
 
-130:                                              ; preds = %rlim_to_string.exit15.i, %126
-  %131 = phi ptr [ %5, %rlim_to_string.exit15.i ], [ @.str.23, %126 ]
+130:                                              ; preds = %rlim_to_string.exit16.i, %126
+  %131 = phi ptr [ %5, %rlim_to_string.exit16.i ], [ @.str.23, %126 ]
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.22, ptr noundef %30, ptr noundef nonnull %131) #7
   br label %_set_limit.exit
 
@@ -328,7 +328,7 @@ rlim_to_string.exit15.i:                          ; preds = %126
   br label %_set_limit.exit
 
 _set_limit.exit:                                  ; preds = %50, %53, %55, %64, %71, %72, %120, %123, %130, %132, %135
-  %.sink.i = phi ptr [ %8, %53 ], [ %8, %50 ], [ %9, %55 ], [ %9, %120 ], [ %9, %130 ], [ %9, %123 ], [ %9, %132 ], [ %9, %135 ], [ %9, %71 ], [ %9, %72 ], [ %9, %64 ]
+  %.sink.i = phi ptr [ %8, %53 ], [ %8, %50 ], [ %9, %120 ], [ %9, %130 ], [ %9, %123 ], [ %9, %132 ], [ %9, %135 ], [ %9, %71 ], [ %9, %72 ], [ %9, %55 ], [ %9, %64 ]
   call void @slurm_xfree(ptr noundef nonnull %.sink.i) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7

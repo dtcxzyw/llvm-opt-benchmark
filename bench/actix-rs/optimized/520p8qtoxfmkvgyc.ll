@@ -137,10 +137,10 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 5:                                                ; preds = %2
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.39.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.39.0.copyload = load i16, ptr %.sroa.39.0..sroa_idx, align 8
-  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.410.0.copyload = load i64, ptr %.sroa.410.0..sroa_idx, align 8
+  %.sroa.316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.316.0.copyload = load i16, ptr %.sroa.316.0..sroa_idx, align 8
+  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.417.0.copyload = load i64, ptr %.sroa.417.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
@@ -165,8 +165,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 .outer.i.us.i.i.i:                                ; preds = %5, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i"
   %.sroa.3.0.us.i.i.i = phi ptr [ %.sroa.3.1.us.i.i.i, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i" ], [ %.sroa.2.0.copyload, %5 ]
   %.lcssa2226.i.us.i.i.i = phi ptr [ %.lcssa2225.i.us.i.i.i, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i" ], [ %4, %5 ]
-  %20 = phi i16 [ %32, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i" ], [ %.sroa.39.0.copyload, %5 ]
-  %.0.ph.i.us.i.i.i = phi i64 [ %37, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i" ], [ %.sroa.410.0.copyload, %5 ]
+  %20 = phi i16 [ %32, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i" ], [ %.sroa.316.0.copyload, %5 ]
+  %.0.ph.i.us.i.i.i = phi i64 [ %37, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i" ], [ %.sroa.417.0.copyload, %5 ]
   %.not.i17.i.us.i.i.i = icmp eq i16 %20, 0
   br i1 %.not.i17.i.us.i.i.i, label %.lr.ph.i.us.i.i.i, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i"
 
@@ -208,8 +208,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 .outer.i.i.i.i:                                   ; preds = %5, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hf4d051a1b7a39293E.exit.i.i.i.i"
   %.sroa.3.0.i.i.i = phi ptr [ %.sroa.3.1.i.i.i, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hf4d051a1b7a39293E.exit.i.i.i.i" ], [ %.sroa.2.0.copyload, %5 ]
   %.lcssa2226.i.i.i.i = phi ptr [ %.lcssa2225.i.i.i.i, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hf4d051a1b7a39293E.exit.i.i.i.i" ], [ %4, %5 ]
-  %38 = phi i16 [ %45, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hf4d051a1b7a39293E.exit.i.i.i.i" ], [ %.sroa.39.0.copyload, %5 ]
-  %.0.ph.i.i.i.i = phi i64 [ %114, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hf4d051a1b7a39293E.exit.i.i.i.i" ], [ %.sroa.410.0.copyload, %5 ]
+  %38 = phi i16 [ %45, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hf4d051a1b7a39293E.exit.i.i.i.i" ], [ %.sroa.316.0.copyload, %5 ]
+  %.0.ph.i.i.i.i = phi i64 [ %114, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hf4d051a1b7a39293E.exit.i.i.i.i" ], [ %.sroa.417.0.copyload, %5 ]
   %.not.i17.i.i.i.i = icmp eq i16 %38, 0
   br i1 %.not.i17.i.i.i.i, label %.lr.ph.i.i.i.i, label %41
 
@@ -371,23 +371,23 @@ _ZN4core4hash11BuildHasher8hash_one17h839b4014e967008fE.exit.i.i.i.i: ; preds = 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0564c5f2e17faefdE.exit": ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.us.i.i.i, %2
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %122 = load ptr, ptr %121, align 8, !noundef !4
-  %.not1 = icmp eq ptr %122, null
-  br i1 %.not1, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1fd790278d460f8fE.exit", label %123
+  %.not8 = icmp eq ptr %122, null
+  br i1 %.not8, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1fd790278d460f8fE.exit", label %123
 
 123:                                              ; preds = %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0564c5f2e17faefdE.exit"
-  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.sroa.212.0.copyload = load ptr, ptr %.sroa.212.0..sroa_idx, align 8
-  %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.sroa.314.0.copyload = load i16, ptr %.sroa.314.0..sroa_idx, align 8
-  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.sroa.416.0.copyload = load i64, ptr %.sroa.416.0..sroa_idx, align 8
+  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.sroa.219.0.copyload = load ptr, ptr %.sroa.219.0..sroa_idx, align 8
+  %.sroa.321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.sroa.321.0.copyload = load i16, ptr %.sroa.321.0..sroa_idx, align 8
+  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %.sroa.423.0.copyload = load i64, ptr %.sroa.423.0..sroa_idx, align 8
   br label %.outer.i.i.i
 
 .outer.i.i.i:                                     ; preds = %127, %123
-  %.lcssa2329.i.i.i = phi ptr [ %.lcssa2328.i.i.i, %127 ], [ %.sroa.212.0.copyload, %123 ]
+  %.lcssa2329.i.i.i = phi ptr [ %.lcssa2328.i.i.i, %127 ], [ %.sroa.219.0.copyload, %123 ]
   %.lcssa2226.i.i.i = phi ptr [ %.lcssa2225.i.i.i, %127 ], [ %122, %123 ]
-  %124 = phi i16 [ %131, %127 ], [ %.sroa.314.0.copyload, %123 ]
-  %.0.ph.i.i.i = phi i64 [ %136, %127 ], [ %.sroa.416.0.copyload, %123 ]
+  %124 = phi i16 [ %131, %127 ], [ %.sroa.321.0.copyload, %123 ]
+  %.0.ph.i.i.i = phi i64 [ %136, %127 ], [ %.sroa.423.0.copyload, %123 ]
   %.not.i17.i.i.i = icmp eq i16 %124, 0
   br i1 %.not.i17.i.i.i, label %.lr.ph.i.i.i, label %127
 
@@ -440,10 +440,10 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 5:                                                ; preds = %2
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.39.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.39.0.copyload = load i16, ptr %.sroa.39.0..sroa_idx, align 8
-  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.410.0.copyload = load i64, ptr %.sroa.410.0..sroa_idx, align 8
+  %.sroa.316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.316.0.copyload = load i16, ptr %.sroa.316.0..sroa_idx, align 8
+  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.417.0.copyload = load i64, ptr %.sroa.417.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
@@ -468,8 +468,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 .outer.i.us.i.i.i:                                ; preds = %5, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i"
   %.sroa.3.0.us.i.i.i = phi ptr [ %.sroa.3.1.us.i.i.i, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i" ], [ %.sroa.2.0.copyload, %5 ]
   %.lcssa2226.i.us.i.i.i = phi ptr [ %.lcssa2225.i.us.i.i.i, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i" ], [ %4, %5 ]
-  %20 = phi i16 [ %32, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i" ], [ %.sroa.39.0.copyload, %5 ]
-  %.0.ph.i.us.i.i.i = phi i64 [ %37, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i" ], [ %.sroa.410.0.copyload, %5 ]
+  %20 = phi i16 [ %32, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i" ], [ %.sroa.316.0.copyload, %5 ]
+  %.0.ph.i.us.i.i.i = phi i64 [ %37, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i" ], [ %.sroa.417.0.copyload, %5 ]
   %.not.i17.i.us.i.i.i = icmp eq i16 %20, 0
   br i1 %.not.i17.i.us.i.i.i, label %.lr.ph.i.us.i.i.i, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hfc111902c9980504E.llvm.222537792231950641.exit.us.i.i.i"
 
@@ -511,8 +511,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 .outer.i.i.i.i:                                   ; preds = %5, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h6f3db2ba72576299E.exit.i.i.i.i"
   %.sroa.3.0.i.i.i = phi ptr [ %.sroa.3.1.i.i.i, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h6f3db2ba72576299E.exit.i.i.i.i" ], [ %.sroa.2.0.copyload, %5 ]
   %.lcssa2226.i.i.i.i = phi ptr [ %.lcssa2225.i.i.i.i, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h6f3db2ba72576299E.exit.i.i.i.i" ], [ %4, %5 ]
-  %38 = phi i16 [ %45, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h6f3db2ba72576299E.exit.i.i.i.i" ], [ %.sroa.39.0.copyload, %5 ]
-  %.0.ph.i.i.i.i = phi i64 [ %114, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h6f3db2ba72576299E.exit.i.i.i.i" ], [ %.sroa.410.0.copyload, %5 ]
+  %38 = phi i16 [ %45, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h6f3db2ba72576299E.exit.i.i.i.i" ], [ %.sroa.316.0.copyload, %5 ]
+  %.0.ph.i.i.i.i = phi i64 [ %114, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h6f3db2ba72576299E.exit.i.i.i.i" ], [ %.sroa.417.0.copyload, %5 ]
   %.not.i17.i.i.i.i = icmp eq i16 %38, 0
   br i1 %.not.i17.i.i.i.i, label %.lr.ph.i.i.i.i, label %41
 
@@ -674,23 +674,23 @@ _ZN4core4hash11BuildHasher8hash_one17h839b4014e967008fE.exit.i.i.i.i: ; preds = 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h17230dcc3311c776E.exit": ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.us.i.i.i, %2
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %122 = load ptr, ptr %121, align 8, !noundef !4
-  %.not1 = icmp eq ptr %122, null
-  br i1 %.not1, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6fa16318afd390c3E.exit", label %123
+  %.not8 = icmp eq ptr %122, null
+  br i1 %.not8, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6fa16318afd390c3E.exit", label %123
 
 123:                                              ; preds = %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h17230dcc3311c776E.exit"
-  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.sroa.212.0.copyload = load ptr, ptr %.sroa.212.0..sroa_idx, align 8
-  %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.sroa.314.0.copyload = load i16, ptr %.sroa.314.0..sroa_idx, align 8
-  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.sroa.416.0.copyload = load i64, ptr %.sroa.416.0..sroa_idx, align 8
+  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.sroa.219.0.copyload = load ptr, ptr %.sroa.219.0..sroa_idx, align 8
+  %.sroa.321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.sroa.321.0.copyload = load i16, ptr %.sroa.321.0..sroa_idx, align 8
+  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %.sroa.423.0.copyload = load i64, ptr %.sroa.423.0..sroa_idx, align 8
   br label %.outer.i.i.i
 
 .outer.i.i.i:                                     ; preds = %127, %123
-  %.lcssa2329.i.i.i = phi ptr [ %.lcssa2328.i.i.i, %127 ], [ %.sroa.212.0.copyload, %123 ]
+  %.lcssa2329.i.i.i = phi ptr [ %.lcssa2328.i.i.i, %127 ], [ %.sroa.219.0.copyload, %123 ]
   %.lcssa2226.i.i.i = phi ptr [ %.lcssa2225.i.i.i, %127 ], [ %122, %123 ]
-  %124 = phi i16 [ %131, %127 ], [ %.sroa.314.0.copyload, %123 ]
-  %.0.ph.i.i.i = phi i64 [ %136, %127 ], [ %.sroa.416.0.copyload, %123 ]
+  %124 = phi i16 [ %131, %127 ], [ %.sroa.321.0.copyload, %123 ]
+  %.0.ph.i.i.i = phi i64 [ %136, %127 ], [ %.sroa.423.0.copyload, %123 ]
   %.not.i17.i.i.i = icmp eq i16 %124, 0
   br i1 %.not.i17.i.i.i, label %.lr.ph.i.i.i, label %127
 

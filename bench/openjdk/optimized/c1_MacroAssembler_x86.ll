@@ -566,13 +566,13 @@ define hidden void @_ZN17C1_MacroAssembler17initialize_objectE8RegisterS0_S0_iS0
   %17 = trunc i8 %16 to i1
   %18 = load i8, ptr @ZeroTLAB, align 1
   %19 = trunc i8 %18 to i1
-  %brmerge.demorgan = and i1 %7, %19
-  %or.cond = select i1 %17, i1 %brmerge.demorgan, i1 false
-  br i1 %or.cond, label %.loopexit, label %20
+  %or.cond = select i1 %17, i1 %19, i1 false
+  %or.cond3 = and i1 %7, %or.cond
+  br i1 %or.cond3, label %.loopexit, label %20
 
 20:                                               ; preds = %8
-  %.not71 = icmp eq i32 %3, -1
-  br i1 %.not71, label %25, label %21
+  %.not72 = icmp eq i32 %3, -1
+  br i1 %.not72, label %25, label %21
 
 21:                                               ; preds = %20
   tail call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %3) #5
@@ -632,8 +632,8 @@ define hidden void @_ZN17C1_MacroAssembler17initialize_objectE8RegisterS0_S0_iS0
   %43 = zext nneg i32 %42 to i64
   tail call void @_ZN14MacroAssembler6movptrE8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i64 noundef %43) #5
   %44 = and i32 %4, 4
-  %.not67 = icmp eq i32 %44, 0
-  br i1 %.not67, label %55, label %45
+  %.not70 = icmp eq i32 %44, 0
+  br i1 %.not70, label %55, label %45
 
 45:                                               ; preds = %40
   %46 = add nsw i32 %4, -8
@@ -688,7 +688,7 @@ define hidden void @_ZN17C1_MacroAssembler17initialize_objectE8RegisterS0_S0_iS0
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %12, i1 noundef zeroext true) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %37, %27, %8, %21, %55
+.loopexit:                                        ; preds = %37, %27, %21, %55, %8
   %67 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1808

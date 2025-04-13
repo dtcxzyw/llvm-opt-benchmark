@@ -10516,9 +10516,13 @@ RSTRING_END.exit:                                 ; preds = %str_ensure_availabl
 100:                                              ; preds = %.lr.ph
   %101 = call i64 @llvm.fshl.i64(i64 %95, i64 %95, i64 62)
   %102 = icmp ult i64 %101, 10
-  br i1 %102, label %switch.hole_check, label %103
+  %switch.maskindex = trunc i64 %101 to i16
+  %switch.shifted = lshr i16 547, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %102, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %103
 
-103:                                              ; preds = %switch.hole_check, %100
+103:                                              ; preds = %100
   %104 = and i64 %95, 1
   %.not.i = icmp eq i64 %104, 0
   br i1 %.not.i, label %106, label %rb_type.exit.thread92
@@ -10534,13 +10538,7 @@ rb_type.exit.thread92:                            ; preds = %103
   %spec.select = select i1 %108, i32 20, i32 4
   br label %rb_type.exit.thread
 
-switch.hole_check:                                ; preds = %100
-  %switch.maskindex = trunc nuw i64 %101 to i16
-  %switch.shifted = lshr i16 547, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %103
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %100
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_str_append_as_bytes, i64 0, i64 %101
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit.thread

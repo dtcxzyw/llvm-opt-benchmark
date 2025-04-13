@@ -36,8 +36,8 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
   %9 = shl nuw nsw i32 %8, 24
   %sext = add nuw i32 %9, 16777216
   %10 = icmp sgt i32 %sext, 33554431
-  %brmerge.not = and i1 %2, %10
-  br i1 %brmerge.not, label %11, label %13
+  %or.cond = and i1 %2, %10
+  br i1 %or.cond, label %11, label %13
 
 11:                                               ; preds = %7
   %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, i32 noundef %1) #2
@@ -50,8 +50,8 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
 15:                                               ; preds = %13
   %16 = lshr i32 %0, 8
   %17 = and i32 %16, 255
-  %.not44 = icmp eq i32 %17, 0
-  br i1 %.not44, label %21, label %18
+  %.not46 = icmp eq i32 %17, 0
+  br i1 %.not46, label %21, label %18
 
 18:                                               ; preds = %15
   %19 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, i32 noundef %1, i32 noundef %17, i32 noundef 0) #2
@@ -65,14 +65,14 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
 21:                                               ; preds = %.sink.split, %13, %15
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 712
   %23 = load i32, ptr %22, align 8
-  %.not45 = icmp eq i32 %23, 0
-  br i1 %.not45, label %.thread, label %24
+  %.not47 = icmp eq i32 %23, 0
+  br i1 %.not47, label %.thread, label %24
 
 24:                                               ; preds = %21
   %25 = add i32 %23, -1
   store i32 %25, ptr %22, align 8
-  %.not46 = icmp eq i32 %25, 0
-  br i1 %.not46, label %.thread, label %26
+  %.not48 = icmp eq i32 %25, 0
+  br i1 %.not48, label %.thread, label %26
 
 26:                                               ; preds = %24
   %27 = tail call i32 @get_log_level() #2
@@ -94,8 +94,8 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
   store i8 0, ptr %31, align 4
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %36 = load i32, ptr %35, align 8
-  %.not47 = icmp eq i32 %36, 0
-  %spec.select = select i1 %.not47, i32 %1, i32 %36
+  %.not49 = icmp eq i32 %36, 0
+  %spec.select = select i1 %.not49, i32 %1, i32 %36
   %37 = tail call i32 @job_requeue(i32 noundef 0, i32 noundef %spec.select, ptr noundef null, i1 noundef zeroext false, i32 noundef 0) #2
   switch i32 %37, label %38 [
     i32 2024, label %60
@@ -115,19 +115,19 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
 43:                                               ; preds = %41, %38
   %44 = tail call i32 @srun_user_message(ptr noundef nonnull %4, ptr noundef nonnull @.str.5) #2
   %45 = load i32, ptr %35, align 8
-  %.not48 = icmp eq i32 %45, 0
-  br i1 %.not48, label %54, label %46
+  %.not50 = icmp eq i32 %45, 0
+  br i1 %.not50, label %54, label %46
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 384
   %48 = load ptr, ptr %47, align 8
-  %.not49 = icmp eq ptr %48, null
-  br i1 %.not49, label %49, label %.thread54
+  %.not51 = icmp eq ptr %48, null
+  br i1 %.not51, label %49, label %.thread54
 
 49:                                               ; preds = %46
   %50 = tail call ptr @find_job_record(i32 noundef %45) #2
-  %.not50 = icmp eq ptr %50, null
-  br i1 %.not50, label %52, label %.thread54
+  %.not52 = icmp eq ptr %50, null
+  br i1 %.not52, label %52, label %.thread54
 
 .thread54:                                        ; preds = %46, %49
   %.057 = phi ptr [ %50, %49 ], [ %4, %46 ]

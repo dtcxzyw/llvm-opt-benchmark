@@ -184,8 +184,8 @@ define hidden i32 @Curl_resolver_wait_resolv(ptr noundef %0, ptr noundef writeon
   %6 = tail call i32 @Curl_thread_join(ptr noundef %5) #9
   %7 = icmp ne i32 %6, 0
   %8 = icmp ne ptr %1, null
-  %or.cond.i = and i1 %8, %7
-  br i1 %or.cond.i, label %.thread.i, label %17
+  %or.cond5.i = and i1 %8, %7
+  br i1 %or.cond5.i, label %.thread.i, label %17
 
 .thread.i:                                        ; preds = %2
   %.val.i.i = load ptr, ptr %4, align 8, !tbaa !34
@@ -224,27 +224,27 @@ define hidden i32 @Curl_resolver_wait_resolv(ptr noundef %0, ptr noundef writeon
   %25 = phi ptr [ %23, %21 ], [ %.pre.i, %._crit_edge.i ]
   %.022.i = phi i32 [ %.023.i, %21 ], [ 0, %._crit_edge.i ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 3456
-  %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %27, label %29
+  %27 = icmp eq ptr %25, null
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %24
-  %28 = tail call i32 @Curl_resolver_error(ptr noundef nonnull %0) #9
-  br label %29
+28:                                               ; preds = %24
+  %29 = tail call i32 @Curl_resolver_error(ptr noundef nonnull %0) #9
+  br label %30
 
-29:                                               ; preds = %27, %24
-  %.1.i = phi i32 [ %.022.i, %24 ], [ %28, %27 ]
+30:                                               ; preds = %28, %24
+  %.1.i = phi i32 [ %29, %28 ], [ %.022.i, %24 ]
   tail call fastcc void @destroy_async_data(ptr noundef nonnull %3)
-  %30 = load ptr, ptr %26, align 8, !tbaa !98
-  %.not17.i = icmp eq ptr %30, null
-  br i1 %.not17.i, label %31, label %thread_wait_resolv.exit
+  %31 = load ptr, ptr %26, align 8, !tbaa !98
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %thread_wait_resolv.exit
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !100
-  tail call void @Curl_conncontrol(ptr noundef %33, i32 noundef 1) #9
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %35 = load ptr, ptr %34, align 8, !tbaa !100
+  tail call void @Curl_conncontrol(ptr noundef %35, i32 noundef 1) #9
   br label %thread_wait_resolv.exit
 
-thread_wait_resolv.exit:                          ; preds = %29, %31
+thread_wait_resolv.exit:                          ; preds = %30, %33
   ret i32 %.1.i
 }
 

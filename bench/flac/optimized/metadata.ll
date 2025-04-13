@@ -443,27 +443,25 @@ define void @_ZN4FLAC8Metadata9PrototypeD2Ev(ptr noundef nonnull align 8 capture
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %9, label %4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load i8, ptr %4, align 8, !range !17
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %6
+  br i1 %or.cond.i, label %8, label %7
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 8, !tbaa !14, !range !17, !noundef !18
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %9, label %8
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   invoke void @FLAC__metadata_object_delete(ptr noundef nonnull %3)
-          to label %9 unwind label %10
+          to label %8 unwind label %9
 
-9:                                                ; preds = %4, %1, %8
+8:                                                ; preds = %1, %7
   store ptr null, ptr %2, align 8, !tbaa !9
   ret void
 
-10:                                               ; preds = %8
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #25
+  %11 = extractvalue { ptr, i32 } %10, 0
+  tail call void @__clang_call_terminate(ptr %11) #25
   unreachable
 }
 
@@ -491,19 +489,17 @@ define void @_ZN4FLAC8Metadata9Prototype5clearEv(ptr noundef nonnull align 8 cap
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %9, label %4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load i8, ptr %4, align 8, !range !17
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %6
+  br i1 %or.cond, label %8, label %7
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 8, !tbaa !14, !range !17, !noundef !18
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %9, label %8
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   tail call void @FLAC__metadata_object_delete(ptr noundef nonnull %3)
-  br label %9
+  br label %8
 
-9:                                                ; preds = %8, %4, %1
+8:                                                ; preds = %7, %1
   store ptr null, ptr %2, align 8, !tbaa !9
   ret void
 }
@@ -576,7 +572,7 @@ define noundef zeroext i1 @_ZNK4FLAC8Metadata9Prototype11get_is_lastEv(ptr nound
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !19
+  %5 = load i32, ptr %4, align 4, !tbaa !18
   %6 = icmp ne i32 %5, 0
   ret i1 %6
 }
@@ -594,7 +590,7 @@ define noundef i32 @_ZNK4FLAC8Metadata9Prototype10get_lengthEv(ptr noundef nonnu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !20
+  %5 = load i32, ptr %4, align 8, !tbaa !19
   ret i32 %5
 }
 
@@ -604,7 +600,7 @@ define void @_ZN4FLAC8Metadata9Prototype11set_is_lastEb(ptr noundef nonnull read
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %3, ptr %6, align 4, !tbaa !19
+  store i32 %3, ptr %6, align 4, !tbaa !18
   ret void
 }
 
@@ -633,7 +629,7 @@ define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_min_blocksizeEv(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   ret i32 %5
 }
 
@@ -642,7 +638,7 @@ define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_max_blocksizeEv(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %5 = load i32, ptr %4, align 4, !tbaa !21
+  %5 = load i32, ptr %4, align 4, !tbaa !20
   ret i32 %5
 }
 
@@ -651,7 +647,7 @@ define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_min_framesizeEv(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   ret i32 %5
 }
 
@@ -660,7 +656,7 @@ define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo17get_max_framesizeEv(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !21
+  %5 = load i32, ptr %4, align 4, !tbaa !20
   ret i32 %5
 }
 
@@ -669,7 +665,7 @@ define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo15get_sample_rateEv(ptr nounde
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   ret i32 %5
 }
 
@@ -678,7 +674,7 @@ define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo12get_channelsEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %5 = load i32, ptr %4, align 4, !tbaa !21
+  %5 = load i32, ptr %4, align 4, !tbaa !20
   ret i32 %5
 }
 
@@ -687,7 +683,7 @@ define noundef i32 @_ZNK4FLAC8Metadata10StreamInfo19get_bits_per_sampleEv(ptr no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   ret i32 %5
 }
 
@@ -696,7 +692,7 @@ define noundef i64 @_ZNK4FLAC8Metadata10StreamInfo17get_total_samplesEv(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %5 = load i64, ptr %4, align 8, !tbaa !21
+  %5 = load i64, ptr %4, align 8, !tbaa !20
   ret i64 %5
 }
 
@@ -713,7 +709,7 @@ define void @_ZN4FLAC8Metadata10StreamInfo17set_min_blocksizeEj(ptr noundef nonn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %1, ptr %5, align 8, !tbaa !21
+  store i32 %1, ptr %5, align 8, !tbaa !20
   ret void
 }
 
@@ -722,7 +718,7 @@ define void @_ZN4FLAC8Metadata10StreamInfo17set_max_blocksizeEj(ptr noundef nonn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %1, ptr %5, align 4, !tbaa !21
+  store i32 %1, ptr %5, align 4, !tbaa !20
   ret void
 }
 
@@ -731,7 +727,7 @@ define void @_ZN4FLAC8Metadata10StreamInfo17set_min_framesizeEj(ptr noundef nonn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %1, ptr %5, align 8, !tbaa !21
+  store i32 %1, ptr %5, align 8, !tbaa !20
   ret void
 }
 
@@ -740,7 +736,7 @@ define void @_ZN4FLAC8Metadata10StreamInfo17set_max_framesizeEj(ptr noundef nonn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 %1, ptr %5, align 4, !tbaa !21
+  store i32 %1, ptr %5, align 4, !tbaa !20
   ret void
 }
 
@@ -749,7 +745,7 @@ define void @_ZN4FLAC8Metadata10StreamInfo15set_sample_rateEj(ptr noundef nonnul
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 %1, ptr %5, align 8, !tbaa !21
+  store i32 %1, ptr %5, align 8, !tbaa !20
   ret void
 }
 
@@ -758,7 +754,7 @@ define void @_ZN4FLAC8Metadata10StreamInfo12set_channelsEj(ptr noundef nonnull r
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 %1, ptr %5, align 4, !tbaa !21
+  store i32 %1, ptr %5, align 4, !tbaa !20
   ret void
 }
 
@@ -767,7 +763,7 @@ define void @_ZN4FLAC8Metadata10StreamInfo19set_bits_per_sampleEj(ptr noundef no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 %1, ptr %5, align 8, !tbaa !21
+  store i32 %1, ptr %5, align 8, !tbaa !20
   ret void
 }
 
@@ -776,7 +772,7 @@ define void @_ZN4FLAC8Metadata10StreamInfo17set_total_samplesEm(ptr noundef nonn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 %1, ptr %5, align 8, !tbaa !21
+  store i64 %1, ptr %5, align 8, !tbaa !20
   ret void
 }
 
@@ -809,7 +805,7 @@ define void @_ZN4FLAC8Metadata7PaddingC2Ej(ptr noundef nonnull writeonly align 8
   store i8 0, ptr %5, align 8, !tbaa !14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata7PaddingE, i64 16), ptr %0, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %1, ptr %6, align 8, !tbaa !20
+  store i32 %1, ptr %6, align 8, !tbaa !19
   ret void
 }
 
@@ -818,7 +814,7 @@ define void @_ZN4FLAC8Metadata7Padding10set_lengthEj(ptr noundef nonnull readonl
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %1, ptr %5, align 8, !tbaa !20
+  store i32 %1, ptr %5, align 8, !tbaa !19
   ret void
 }
 
@@ -860,7 +856,7 @@ define noundef ptr @_ZNK4FLAC8Metadata11Application8get_dataEv(ptr noundef nonnu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   ret ptr %5
 }
 
@@ -918,7 +914,7 @@ define noundef i32 @_ZNK4FLAC8Metadata9SeekTable14get_num_pointsEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   ret i32 %5
 }
 
@@ -927,10 +923,10 @@ define void @_ZNK4FLAC8Metadata9SeekTable9get_pointEj(ptr dead_on_unwind noalias
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %7, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !21
   ret void
 }
 
@@ -1066,10 +1062,10 @@ define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2Ev(ptr noundef nonnull writ
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %3, align 8
-  store i8 1, ptr %2, align 8, !tbaa !26
+  store i8 1, ptr %2, align 8, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %4, align 8, !tbaa !30
-  store i32 0, ptr %5, align 8, !tbaa !31
+  store ptr null, ptr %4, align 8, !tbaa !29
+  store i32 0, ptr %5, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   ret void
 }
@@ -1080,14 +1076,14 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry4zeroEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(60) initializes((8, 9), (16, 20), (24, 44), (48, 60)) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %2, align 8, !tbaa !26
+  store i8 1, ptr %2, align 8, !tbaa !25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %3, align 8, !tbaa !32
+  store i32 0, ptr %3, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %5, align 8, !tbaa !30
+  store ptr null, ptr %5, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %6, align 8, !tbaa !31
+  store i32 0, ptr %6, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   ret void
 }
@@ -1100,10 +1096,10 @@ define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcj(ptr noundef nonnull a
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %5, align 8
-  store i8 1, ptr %4, align 8, !tbaa !26
+  store i8 1, ptr %4, align 8, !tbaa !25
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %6, align 8, !tbaa !30
-  store i32 0, ptr %7, align 8, !tbaa !31
+  store ptr null, ptr %6, align 8, !tbaa !29
+  store i32 0, ptr %7, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1, i32 noundef %2)
   ret void
@@ -1117,43 +1113,43 @@ define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr noundef n
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %6, align 8, !tbaa !26
+  store i8 0, ptr %6, align 8, !tbaa !25
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.thread
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %9 = load ptr, ptr %8, align 8, !tbaa !32
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @free(ptr noundef nonnull %9) #23
-  store i32 0, ptr %11, align 8, !tbaa !32
+  store i32 0, ptr %11, align 8, !tbaa !31
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %10, %7
   %12 = zext i32 %2 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #26
-  store ptr %14, ptr %8, align 8, !tbaa !33
+  store ptr %14, ptr %8, align 8, !tbaa !32
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
 
 16:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %17, align 8, !tbaa !26
+  store i8 0, ptr %17, align 8, !tbaa !25
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.thread
 
 _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %18, align 8, !tbaa !32
+  store i32 %2, ptr %18, align 8, !tbaa !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %1, i64 noundef range(i64 0, 4294967296) %12, i1 noundef false) #23
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 %12
-  store i8 0, ptr %19, align 1, !tbaa !21
+  store i8 0, ptr %19, align 1, !tbaa !20
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !26, !range !17
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !25, !range !17
   %20 = trunc nuw i8 %.pre.i to i1
   br i1 %20, label %21, label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.thread
 
@@ -1173,10 +1169,10 @@ define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKc(ptr noundef nonnull al
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %4, align 8
-  store i8 1, ptr %3, align 8, !tbaa !26
+  store i8 1, ptr %3, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %5, align 8, !tbaa !30
-  store i32 0, ptr %6, align 8, !tbaa !31
+  store ptr null, ptr %5, align 8, !tbaa !29
+  store i32 0, ptr %6, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
   %9 = trunc i64 %8 to i32
@@ -1200,10 +1196,10 @@ define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_j(ptr noundef nonnul
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %6, align 8
-  store i8 1, ptr %5, align 8, !tbaa !26
+  store i8 1, ptr %5, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %7, align 8, !tbaa !30
-  store i32 0, ptr %8, align 8, !tbaa !31
+  store ptr null, ptr %7, align 8, !tbaa !29
+  store i32 0, ptr %8, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   ret void
@@ -1217,41 +1213,41 @@ define void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j(ptr nounde
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %7, align 8, !tbaa !26
+  store i8 0, ptr %7, align 8, !tbaa !25
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !34
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, label %11
 
 11:                                               ; preds = %8
   tail call void @free(ptr noundef nonnull %10) #23
-  store ptr null, ptr %9, align 8, !tbaa !34
+  store ptr null, ptr %9, align 8, !tbaa !33
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %12, align 8, !tbaa !35
+  store i32 0, ptr %12, align 8, !tbaa !34
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i: ; preds = %11, %8
   %13 = tail call noalias ptr @strdup(ptr noundef %1) #23
-  store ptr %13, ptr %9, align 8, !tbaa !34
+  store ptr %13, ptr %9, align 8, !tbaa !33
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit
 
 15:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %16, align 8, !tbaa !26
+  store i8 0, ptr %16, align 8, !tbaa !25
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
 
 _ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #27
   %18 = trunc i64 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %18, ptr %19, align 8, !tbaa !35
+  store i32 %18, ptr %19, align 8, !tbaa !34
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !26, !range !17
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !25, !range !17
   %20 = trunc nuw i8 %.pre.i to i1
   br i1 %20, label %21, label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
 
@@ -1261,41 +1257,41 @@ _ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit: ; preds = %_ZN4
   br i1 %.not.i3, label %23, label %24
 
 23:                                               ; preds = %21
-  store i8 0, ptr %.phi.trans.insert.i, align 8, !tbaa !26
+  store i8 0, ptr %.phi.trans.insert.i, align 8, !tbaa !25
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  %26 = load ptr, ptr %25, align 8, !tbaa !29
   %.not.i.i4 = icmp eq ptr %26, null
   br i1 %.not.i.i4, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i, label %27
 
 27:                                               ; preds = %24
   tail call void @free(ptr noundef nonnull %26) #23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %28, align 8, !tbaa !31
+  store i32 0, ptr %28, align 8, !tbaa !30
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i: ; preds = %27, %24
   %29 = zext i32 %3 to i64
   %30 = add nuw nsw i64 %29, 1
   %31 = tail call noalias noundef ptr @malloc(i64 noundef %30) #26
-  store ptr %31, ptr %25, align 8, !tbaa !30
+  store ptr %31, ptr %25, align 8, !tbaa !29
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit
 
 33:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i
-  store i8 0, ptr %.phi.trans.insert.i, align 8, !tbaa !26
+  store i8 0, ptr %.phi.trans.insert.i, align 8, !tbaa !25
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
 
 _ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %3, ptr %34, align 8, !tbaa !31
+  store i32 %3, ptr %34, align 8, !tbaa !30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %31, ptr noundef nonnull align 1 %2, i64 noundef range(i64 0, 4294967296) %29, i1 noundef false) #23
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 %29
-  store i8 0, ptr %35, align 1, !tbaa !21
+  store i8 0, ptr %35, align 1, !tbaa !20
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
-  %.pre.i6 = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !26, !range !17
+  %.pre.i6 = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !25, !range !17
   %36 = trunc nuw i8 %.pre.i6 to i1
   br i1 %36, label %37, label %_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nameEPKc.exit.thread
 
@@ -1315,10 +1311,10 @@ define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2EPKcS4_(ptr noundef nonnull
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %5, align 8
-  store i8 1, ptr %4, align 8, !tbaa !26
+  store i8 1, ptr %4, align 8, !tbaa !25
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %6, align 8, !tbaa !30
-  store i32 0, ptr %7, align 8, !tbaa !31
+  store ptr null, ptr %6, align 8, !tbaa !29
+  store i32 0, ptr %7, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   %10 = trunc i64 %9 to i32
@@ -1342,15 +1338,15 @@ define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2ERKS2_(ptr noundef nonnull 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %4, align 8
-  store i8 1, ptr %3, align 8, !tbaa !26
+  store i8 1, ptr %3, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %5, align 8, !tbaa !30
-  store i32 0, ptr %6, align 8, !tbaa !31
+  store ptr null, ptr %5, align 8, !tbaa !29
+  store i32 0, ptr %6, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
-  %11 = load i32, ptr %8, align 8, !tbaa !32
+  %10 = load ptr, ptr %9, align 8, !tbaa !32
+  %11 = load i32, ptr %8, align 8, !tbaa !31
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %10, i32 noundef %11)
   ret void
 }
@@ -1358,50 +1354,50 @@ define void @_ZN4FLAC8Metadata13VorbisComment5EntryC2ERKS2_(ptr noundef nonnull 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef nonnull align 8 dereferenceable(60) ptr @_ZN4FLAC8Metadata13VorbisComment5EntryaSERKS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(60) initializes((8, 9)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !33
+  %4 = load ptr, ptr %3, align 8, !tbaa !32
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @free(ptr noundef nonnull %4) #23
-  store ptr null, ptr %3, align 8, !tbaa !33
-  store i32 0, ptr %6, align 8, !tbaa !32
+  store ptr null, ptr %3, align 8, !tbaa !32
+  store i32 0, ptr %6, align 8, !tbaa !31
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %5, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !34
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
   %.not.i1.i = icmp eq ptr %8, null
   br i1 %.not.i1.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, label %9
 
 9:                                                ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   tail call void @free(ptr noundef nonnull %8) #23
-  store ptr null, ptr %7, align 8, !tbaa !34
+  store ptr null, ptr %7, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %10, align 8, !tbaa !35
+  store i32 0, ptr %10, align 8, !tbaa !34
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i: ; preds = %9, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %12 = load ptr, ptr %11, align 8, !tbaa !29
   %.not.i2.i = icmp eq ptr %12, null
   br i1 %.not.i2.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit, label %13
 
 13:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
   tail call void @free(ptr noundef nonnull %12) #23
-  store ptr null, ptr %11, align 8, !tbaa !30
+  store ptr null, ptr %11, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %14, align 8, !tbaa !31
+  store i32 0, ptr %14, align 8, !tbaa !30
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %15, align 8, !tbaa !26
+  store i8 1, ptr %15, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !33
-  %19 = load i32, ptr %16, align 8, !tbaa !32
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = load i32, ptr %16, align 8, !tbaa !31
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %18, i32 noundef %19)
   ret ptr %0
 }
@@ -1409,46 +1405,46 @@ _ZN4FLAC8Metadata13VorbisComment5Entry5clearEv.exit: ; preds = %_ZN4FLAC8Metadat
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !32
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @free(ptr noundef nonnull %3) #23
-  store ptr null, ptr %2, align 8, !tbaa !33
-  store i32 0, ptr %5, align 8, !tbaa !32
+  store ptr null, ptr %2, align 8, !tbaa !32
+  store i32 0, ptr %5, align 8, !tbaa !31
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %7 = load ptr, ptr %6, align 8, !tbaa !33
   %.not.i1 = icmp eq ptr %7, null
   br i1 %.not.i1, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, label %8
 
 8:                                                ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
   tail call void @free(ptr noundef nonnull %7) #23
-  store ptr null, ptr %6, align 8, !tbaa !34
+  store ptr null, ptr %6, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %9, align 8, !tbaa !35
+  store i32 0, ptr %9, align 8, !tbaa !34
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !29
   %.not.i2 = icmp eq ptr %11, null
   br i1 %.not.i2, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, label %12
 
 12:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
   tail call void @free(ptr noundef nonnull %11) #23
-  store ptr null, ptr %10, align 8, !tbaa !30
+  store ptr null, ptr %10, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %13, align 8, !tbaa !31
+  store i32 0, ptr %13, align 8, !tbaa !30
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %14, align 8, !tbaa !26
+  store i8 1, ptr %14, align 8, !tbaa !25
   ret void
 }
 
@@ -1456,46 +1452,46 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
 define void @_ZN4FLAC8Metadata13VorbisComment5EntryD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((0, 9)) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !32
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @free(ptr noundef nonnull %3) #23
-  store ptr null, ptr %2, align 8, !tbaa !33
-  store i32 0, ptr %5, align 8, !tbaa !32
+  store ptr null, ptr %2, align 8, !tbaa !32
+  store i32 0, ptr %5, align 8, !tbaa !31
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %7 = load ptr, ptr %6, align 8, !tbaa !33
   %.not.i1.i = icmp eq ptr %7, null
   br i1 %.not.i1.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i, label %8
 
 8:                                                ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   tail call void @free(ptr noundef nonnull %7) #23
-  store ptr null, ptr %6, align 8, !tbaa !34
+  store ptr null, ptr %6, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %9, align 8, !tbaa !35
+  store i32 0, ptr %9, align 8, !tbaa !34
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i: ; preds = %8, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !29
   %.not.i2.i = icmp eq ptr %11, null
   br i1 %.not.i2.i, label %14, label %12
 
 12:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
   tail call void @free(ptr noundef nonnull %11) #23
-  store ptr null, ptr %10, align 8, !tbaa !30
+  store ptr null, ptr %10, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %13, align 8, !tbaa !31
+  store i32 0, ptr %13, align 8, !tbaa !30
   br label %14
 
 14:                                               ; preds = %12, %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %15, align 8, !tbaa !26
+  store i8 1, ptr %15, align 8, !tbaa !25
   ret void
 }
 
@@ -1509,7 +1505,7 @@ define void @_ZN4FLAC8Metadata13VorbisComment5EntryD0Ev(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK4FLAC8Metadata13VorbisComment5Entry8is_validEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 8, !tbaa !26, !range !17, !noundef !18
+  %3 = load i8, ptr %2, align 8, !tbaa !25, !range !17, !noundef !35
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -1517,28 +1513,28 @@ define noundef zeroext i1 @_ZNK4FLAC8Metadata13VorbisComment5Entry8is_validEv(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment5Entry16get_field_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !32
+  %3 = load i32, ptr %2, align 8, !tbaa !31
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment5Entry21get_field_name_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 8, !tbaa !35
+  %3 = load i32, ptr %2, align 8, !tbaa !34
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment5Entry22get_field_value_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load i32, ptr %2, align 8, !tbaa !31
+  %3 = load i32, ptr %2, align 8, !tbaa !30
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define { i32, ptr } @_ZNK4FLAC8Metadata13VorbisComment5Entry9get_entryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.copyload = load i32, ptr %2, align 8, !tbaa !25
+  %.sroa.0.0.copyload = load i32, ptr %2, align 8, !tbaa !24
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !36
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.0.copyload, 0
@@ -1549,21 +1545,21 @@ define { i32, ptr } @_ZNK4FLAC8Metadata13VorbisComment5Entry9get_entryEv(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment5Entry9get_fieldEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !32
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment5Entry14get_field_nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment5Entry15get_field_valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !29
   ret ptr %3
 }
 
@@ -1575,43 +1571,43 @@ define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %6, align 8, !tbaa !26
+  store i8 0, ptr %6, align 8, !tbaa !25
   br label %22
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %9 = load ptr, ptr %8, align 8, !tbaa !32
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @free(ptr noundef nonnull %9) #23
-  store i32 0, ptr %11, align 8, !tbaa !32
+  store i32 0, ptr %11, align 8, !tbaa !31
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %7, %10
   %12 = zext i32 %2 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #26
-  store ptr %14, ptr %8, align 8, !tbaa !33
+  store ptr %14, ptr %8, align 8, !tbaa !32
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %17, align 8, !tbaa !26
+  store i8 0, ptr %17, align 8, !tbaa !25
   br label %22
 
 18:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %2, ptr %19, align 8, !tbaa !32
+  store i32 %2, ptr %19, align 8, !tbaa !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %1, i64 noundef range(i64 0, 4294967296) %12, i1 noundef false) #23
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %12
-  store i8 0, ptr %20, align 1, !tbaa !21
+  store i8 0, ptr %20, align 1, !tbaa !20
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !26, !range !17
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !25, !range !17
   %21 = trunc nuw i8 %.pre to i1
   br label %22
 
@@ -1625,15 +1621,15 @@ declare i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef, i32 noundef)
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !32
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @free(ptr noundef nonnull %3) #23
-  store ptr null, ptr %2, align 8, !tbaa !33
-  store i32 0, ptr %5, align 8, !tbaa !32
+  store ptr null, ptr %2, align 8, !tbaa !32
+  store i32 0, ptr %5, align 8, !tbaa !31
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -1643,35 +1639,35 @@ define void @_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv(ptr noundef n
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9), (40, 44)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, label %4
 
 4:                                                ; preds = %1
   tail call void @free(ptr noundef nonnull %3) #23
-  store ptr null, ptr %2, align 8, !tbaa !34
+  store ptr null, ptr %2, align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %5, align 8, !tbaa !35
+  store i32 0, ptr %5, align 8, !tbaa !34
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
   %.not.i8 = icmp eq ptr %7, null
   br i1 %.not.i8, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, label %8
 
 8:                                                ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
   tail call void @free(ptr noundef nonnull %7) #23
-  store ptr null, ptr %6, align 8, !tbaa !30
+  store ptr null, ptr %6, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %9, align 8, !tbaa !31
+  store i32 0, ptr %9, align 8, !tbaa !30
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !33
-  %13 = load i32, ptr %10, align 8, !tbaa !32
+  %12 = load ptr, ptr %11, align 8, !tbaa !32
+  %13 = load i32, ptr %10, align 8, !tbaa !31
   %14 = zext i32 %13 to i64
   %15 = tail call noundef ptr @memchr(ptr noundef %12, i32 noundef 61, i64 noundef %14) #27
   %16 = icmp eq ptr %15, null
@@ -1682,26 +1678,26 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %21, ptr %22, align 8, !tbaa !35
+  store i32 %21, ptr %22, align 8, !tbaa !34
   %23 = and i64 %20, 4294967295
   %24 = add nuw nsw i64 %23, 1
   %25 = tail call noalias noundef ptr @malloc(i64 noundef %24) #26
-  store ptr %25, ptr %2, align 8, !tbaa !34
+  store ptr %25, ptr %2, align 8, !tbaa !33
   %26 = icmp eq ptr %25, null
   br i1 %26, label %46, label %27
 
 27:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %25, ptr noundef nonnull align 1 %12, i64 noundef range(i64 0, 4294967296) %23, i1 noundef false) #23
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 %23
-  store i8 0, ptr %28, align 1, !tbaa !21
+  store i8 0, ptr %28, align 1, !tbaa !20
   %29 = icmp eq i32 %13, %21
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %31, align 8, !tbaa !31
+  store i32 0, ptr %31, align 8, !tbaa !30
   %32 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #26
-  store ptr %32, ptr %6, align 8, !tbaa !30
+  store ptr %32, ptr %6, align 8, !tbaa !29
   %33 = icmp eq ptr %32, null
   br i1 %33, label %46, label %45
 
@@ -1709,11 +1705,11 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
   %35 = xor i32 %21, -1
   %36 = add i32 %13, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %36, ptr %37, align 8, !tbaa !31
+  store i32 %36, ptr %37, align 8, !tbaa !30
   %38 = zext i32 %36 to i64
   %39 = add nuw nsw i64 %38, 1
   %40 = tail call noalias noundef ptr @malloc(i64 noundef %39) #26
-  store ptr %40, ptr %6, align 8, !tbaa !30
+  store ptr %40, ptr %6, align 8, !tbaa !29
   %41 = icmp eq ptr %40, null
   br i1 %41, label %46, label %42
 
@@ -1721,7 +1717,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
   %43 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %40, ptr noundef nonnull align 1 %43, i64 noundef range(i64 0, 4294967296) %38, i1 noundef false) #23
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 %38
-  store i8 0, ptr %44, align 1, !tbaa !21
+  store i8 0, ptr %44, align 1, !tbaa !20
   br label %45
 
 45:                                               ; preds = %30, %42
@@ -1730,7 +1726,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
 46:                                               ; preds = %34, %30, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, %45
   %.sink = phi i8 [ 1, %45 ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit ], [ 0, %30 ], [ 0, %34 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %47, align 8, !tbaa !26
+  store i8 %.sink, ptr %47, align 8, !tbaa !25
   ret void
 }
 
@@ -1744,43 +1740,43 @@ define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKc(
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %7, align 8, !tbaa !26
+  store i8 0, ptr %7, align 8, !tbaa !25
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !33
+  %10 = load ptr, ptr %9, align 8, !tbaa !32
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @free(ptr noundef nonnull %10) #23
-  store i32 0, ptr %12, align 8, !tbaa !32
+  store i32 0, ptr %12, align 8, !tbaa !31
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i: ; preds = %11, %8
   %13 = and i64 %3, 4294967295
   %14 = add nuw nsw i64 %13, 1
   %15 = tail call noalias noundef ptr @malloc(i64 noundef %14) #26
-  store ptr %15, ptr %9, align 8, !tbaa !33
+  store ptr %15, ptr %9, align 8, !tbaa !32
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %18, align 8, !tbaa !26
+  store i8 0, ptr %18, align 8, !tbaa !25
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
 
 19:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %4, ptr %20, align 8, !tbaa !32
+  store i32 %4, ptr %20, align 8, !tbaa !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %15, ptr noundef nonnull align 1 %1, i64 noundef range(i64 0, 4294967296) %13, i1 noundef false) #23
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 %13
-  store i8 0, ptr %21, align 1, !tbaa !21
+  store i8 0, ptr %21, align 1, !tbaa !20
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !26, !range !17
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !25, !range !17
   %22 = trunc nuw i8 %.pre.i to i1
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit
 
@@ -1800,41 +1796,41 @@ define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry14set_field_nam
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %5, align 8, !tbaa !26
+  store i8 0, ptr %5, align 8, !tbaa !25
   br label %20
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !34
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit, label %9
 
 9:                                                ; preds = %6
   tail call void @free(ptr noundef nonnull %8) #23
-  store ptr null, ptr %7, align 8, !tbaa !34
+  store ptr null, ptr %7, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %10, align 8, !tbaa !35
+  store i32 0, ptr %10, align 8, !tbaa !34
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit: ; preds = %6, %9
   %11 = tail call noalias ptr @strdup(ptr noundef %1) #23
-  store ptr %11, ptr %7, align 8, !tbaa !34
+  store ptr %11, ptr %7, align 8, !tbaa !33
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %14, align 8, !tbaa !26
+  store i8 0, ptr %14, align 8, !tbaa !25
   br label %20
 
 15:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv.exit
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #27
   %17 = trunc i64 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %17, ptr %18, align 8, !tbaa !35
+  store i32 %17, ptr %18, align 8, !tbaa !34
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !26, !range !17
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !25, !range !17
   %19 = trunc nuw i8 %.pre to i1
   br label %20
 
@@ -1848,15 +1844,15 @@ declare i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr noundef) local_u
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry16clear_field_nameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
   tail call void @free(ptr noundef nonnull %3) #23
-  store ptr null, ptr %2, align 8, !tbaa !34
+  store ptr null, ptr %2, align 8, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %5, align 8, !tbaa !35
+  store i32 0, ptr %5, align 8, !tbaa !34
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -1869,42 +1865,42 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((8, 9)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !32
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @free(ptr noundef nonnull %3) #23
-  store i32 0, ptr %5, align 8, !tbaa !32
+  store i32 0, ptr %5, align 8, !tbaa !31
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i32, ptr %6, align 8, !tbaa !35
+  %7 = load i32, ptr %6, align 8, !tbaa !34
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load i32, ptr %9, align 8, !tbaa !31
+  %10 = load i32, ptr %9, align 8, !tbaa !30
   %11 = zext i32 %10 to i64
   %12 = add nuw nsw i64 %8, 2
   %13 = add nuw nsw i64 %12, %11
   %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #26
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %14, ptr %2, align 8, !tbaa !33
+  store ptr %14, ptr %2, align 8, !tbaa !32
   %16 = icmp eq ptr %14, null
   br i1 %16, label %34, label %17
 
 17:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !34
+  %19 = load ptr, ptr %18, align 8, !tbaa !33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %19, i64 noundef range(i64 0, 4294967296) %8, i1 noundef false) #23
-  %20 = load i32, ptr %15, align 8, !tbaa !32
+  %20 = load i32, ptr %15, align 8, !tbaa !31
   %21 = add i32 %20, %7
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 %22
   store i8 61, ptr %23, align 1
   %24 = add i32 %21, 1
-  store i32 %24, ptr %15, align 8, !tbaa !32
+  store i32 %24, ptr %15, align 8, !tbaa !31
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %30, label %25
 
@@ -1912,22 +1908,22 @@ _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %1, %4
   %26 = zext i32 %24 to i64
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load ptr, ptr %28, align 8, !tbaa !30
+  %29 = load ptr, ptr %28, align 8, !tbaa !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %27, ptr noundef nonnull align 1 %29, i64 noundef range(i64 0, 4294967296) %11, i1 noundef false) #23
   br label %30
 
 30:                                               ; preds = %25, %17
   %31 = add i32 %24, %10
-  store i32 %31, ptr %15, align 8, !tbaa !32
+  store i32 %31, ptr %15, align 8, !tbaa !31
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 %32
-  store i8 0, ptr %33, align 1, !tbaa !21
+  store i8 0, ptr %33, align 1, !tbaa !20
   br label %34
 
 34:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit, %30
   %.sink = phi i8 [ 1, %30 ], [ 0, %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %35, align 8, !tbaa !26
+  store i8 %.sink, ptr %35, align 8, !tbaa !25
   ret void
 }
 
@@ -1939,43 +1935,43 @@ define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_val
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %6, align 8, !tbaa !26
+  store i8 0, ptr %6, align 8, !tbaa !25
   br label %22
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %9 = load ptr, ptr %8, align 8, !tbaa !29
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, label %10
 
 10:                                               ; preds = %7
   tail call void @free(ptr noundef nonnull %9) #23
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %11, align 8, !tbaa !31
+  store i32 0, ptr %11, align 8, !tbaa !30
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
 
 _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %7, %10
   %12 = zext i32 %2 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #26
-  store ptr %14, ptr %8, align 8, !tbaa !30
+  store ptr %14, ptr %8, align 8, !tbaa !29
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %17, align 8, !tbaa !26
+  store i8 0, ptr %17, align 8, !tbaa !25
   br label %22
 
 18:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %2, ptr %19, align 8, !tbaa !31
+  store i32 %2, ptr %19, align 8, !tbaa !30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %1, i64 noundef range(i64 0, 4294967296) %12, i1 noundef false) #23
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %12
-  store i8 0, ptr %20, align 1, !tbaa !21
+  store i8 0, ptr %20, align 1, !tbaa !20
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !26, !range !17
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !25, !range !17
   %21 = trunc nuw i8 %.pre to i1
   br label %22
 
@@ -1989,15 +1985,15 @@ declare i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr noundef, i32 no
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define void @_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !29
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
   tail call void @free(ptr noundef nonnull %3) #23
-  store ptr null, ptr %2, align 8, !tbaa !30
+  store ptr null, ptr %2, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %5, align 8, !tbaa !31
+  store i32 0, ptr %5, align 8, !tbaa !30
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -2014,43 +2010,43 @@ define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_val
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %7, align 8, !tbaa !26
+  store i8 0, ptr %7, align 8, !tbaa !25
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  %10 = load ptr, ptr %9, align 8, !tbaa !29
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i, label %11
 
 11:                                               ; preds = %8
   tail call void @free(ptr noundef nonnull %10) #23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %12, align 8, !tbaa !31
+  store i32 0, ptr %12, align 8, !tbaa !30
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i
 
 _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i: ; preds = %11, %8
   %13 = and i64 %3, 4294967295
   %14 = add nuw nsw i64 %13, 1
   %15 = tail call noalias noundef ptr @malloc(i64 noundef %14) #26
-  store ptr %15, ptr %9, align 8, !tbaa !30
+  store ptr %15, ptr %9, align 8, !tbaa !29
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %18, align 8, !tbaa !26
+  store i8 0, ptr %18, align 8, !tbaa !25
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit
 
 19:                                               ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %4, ptr %20, align 8, !tbaa !31
+  store i32 %4, ptr %20, align 8, !tbaa !30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %15, ptr noundef nonnull align 1 %1, i64 noundef range(i64 0, 4294967296) %13, i1 noundef false) #23
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 %13
-  store i8 0, ptr %21, align 1, !tbaa !21
+  store i8 0, ptr %21, align 1, !tbaa !20
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry13compose_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %0)
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !26, !range !17
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !25, !range !17
   %22 = trunc nuw i8 %.pre.i to i1
   br label %_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj.exit
 
@@ -2088,7 +2084,7 @@ define noundef i32 @_ZNK4FLAC8Metadata13VorbisComment16get_num_commentsEv(ptr no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   ret i32 %5
 }
 
@@ -2097,7 +2093,7 @@ define noundef ptr @_ZNK4FLAC8Metadata13VorbisComment17get_vendor_stringEv(ptr n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   ret ptr %5
 }
 
@@ -2106,7 +2102,7 @@ define void @_ZNK4FLAC8Metadata13VorbisComment11get_commentEj(ptr dead_on_unwind
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2145,7 +2141,7 @@ define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment11set_commentEjRKNS1_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i = load i32, ptr %6, align 8, !tbaa !25
+  %.sroa.0.0.copyload.i = load i32, ptr %6, align 8, !tbaa !24
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !36
   %7 = tail call i32 @FLAC__metadata_object_vorbiscomment_set_comment(ptr noundef %5, i32 noundef %1, i32 %.sroa.0.0.copyload.i, ptr %.sroa.21.0.copyload.i, i32 noundef 1)
@@ -2160,7 +2156,7 @@ define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment14insert_commentEjRKN
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.0.0.copyload.i = load i32, ptr %6, align 8, !tbaa !25
+  %.sroa.0.0.copyload.i = load i32, ptr %6, align 8, !tbaa !24
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !36
   %7 = tail call i32 @FLAC__metadata_object_vorbiscomment_insert_comment(ptr noundef %5, i32 noundef %1, i32 %.sroa.0.0.copyload.i, ptr %.sroa.21.0.copyload.i, i32 noundef 1)
@@ -2175,7 +2171,7 @@ define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment14append_commentERKNS
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload.i = load i32, ptr %5, align 8, !tbaa !25
+  %.sroa.0.0.copyload.i = load i32, ptr %5, align 8, !tbaa !24
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !36
   %6 = tail call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %4, i32 %.sroa.0.0.copyload.i, ptr %.sroa.21.0.copyload.i, i32 noundef 1)
@@ -2190,7 +2186,7 @@ define noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment15replace_commentERKN
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload.i = load i32, ptr %6, align 8, !tbaa !25
+  %.sroa.0.0.copyload.i = load i32, ptr %6, align 8, !tbaa !24
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !36
   %7 = zext i1 %2 to i32
@@ -2342,9 +2338,9 @@ define { i64, i8 } @_ZNK4FLAC8Metadata8CueSheet5Track9get_indexEj(ptr noundef no
   %6 = load ptr, ptr %5, align 8, !tbaa !41
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %6, i64 %7
-  %.sroa.0.0.copyload = load i64, ptr %8, align 8, !tbaa !23
+  %.sroa.0.0.copyload = load i64, ptr %8, align 8, !tbaa !22
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !21
+  %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0.copyload, 1
   ret { i64, i8 } %.fca.1.insert
@@ -2358,7 +2354,7 @@ define void @_ZN4FLAC8Metadata8CueSheet5Track8set_isrcEPKc(ptr noundef nonnull r
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %5, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 noundef 12, i1 noundef false) #23
   %6 = load ptr, ptr %3, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 21
-  store i8 0, ptr %7, align 1, !tbaa !21
+  store i8 0, ptr %7, align 1, !tbaa !20
   ret void
 }
 
@@ -2419,7 +2415,7 @@ define noundef i64 @_ZNK4FLAC8Metadata8CueSheet11get_lead_inEv(ptr noundef nonnu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  %5 = load i64, ptr %4, align 8, !tbaa !21
+  %5 = load i64, ptr %4, align 8, !tbaa !20
   ret i64 %5
 }
 
@@ -2428,7 +2424,7 @@ define noundef zeroext i1 @_ZNK4FLAC8Metadata8CueSheet9get_is_cdEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   %6 = icmp ne i32 %5, 0
   ret i1 %6
 }
@@ -2438,7 +2434,7 @@ define noundef i32 @_ZNK4FLAC8Metadata8CueSheet14get_num_tracksEv(ptr noundef no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 164
-  %5 = load i32, ptr %4, align 4, !tbaa !21
+  %5 = load i32, ptr %4, align 4, !tbaa !20
   ret i32 %5
 }
 
@@ -2447,7 +2443,7 @@ define void @_ZNK4FLAC8Metadata8CueSheet9get_trackEj(ptr dead_on_unwind noalias 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = zext i32 %2 to i64
   %9 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %7, i64 %8
   tail call void @_ZN4FLAC8Metadata8CueSheet5TrackC1EPK35FLAC__StreamMetadata_CueSheet_Track(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %9)
@@ -2462,7 +2458,7 @@ define void @_ZN4FLAC8Metadata8CueSheet24set_media_catalog_numberEPKc(ptr nounde
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %5, ptr noundef nonnull align 1 dereferenceable(128) %1, i64 noundef 128, i1 noundef false) #23
   %6 = load ptr, ptr %3, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  store i8 0, ptr %7, align 8, !tbaa !21
+  store i8 0, ptr %7, align 8, !tbaa !20
   ret void
 }
 
@@ -2471,7 +2467,7 @@ define void @_ZN4FLAC8Metadata8CueSheet11set_lead_inEm(ptr noundef nonnull reado
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  store i64 %1, ptr %5, align 8, !tbaa !21
+  store i64 %1, ptr %5, align 8, !tbaa !20
   ret void
 }
 
@@ -2481,7 +2477,7 @@ define void @_ZN4FLAC8Metadata8CueSheet9set_is_cdEb(ptr noundef nonnull readonly
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 160
-  store i32 %3, ptr %6, align 8, !tbaa !21
+  store i32 %3, ptr %6, align 8, !tbaa !20
   ret void
 }
 
@@ -2490,7 +2486,7 @@ define void @_ZN4FLAC8Metadata8CueSheet9set_indexEjjRK35FLAC__StreamMetadata_Cue
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = zext i32 %1 to i64
   %10 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %8, i64 %9, i32 5
   %11 = load ptr, ptr %10, align 8, !tbaa !41
@@ -2515,9 +2511,9 @@ declare i32 @FLAC__metadata_object_cuesheet_track_resize_indices(ptr noundef, i3
 define noundef zeroext i1 @_ZN4FLAC8Metadata8CueSheet12insert_indexEjjRK35FLAC__StreamMetadata_CueSheet_Index(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !9
-  %.sroa.0.0.copyload = load i64, ptr %3, align 8, !tbaa !23
+  %.sroa.0.0.copyload = load i64, ptr %3, align 8, !tbaa !22
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !21
+  %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
   %7 = tail call i32 @FLAC__metadata_object_cuesheet_track_insert_index(ptr noundef %6, i32 noundef %1, i32 noundef %2, i64 %.sroa.0.0.copyload, i8 %.sroa.2.0.copyload)
   %8 = icmp ne i32 %7, 0
   ret i1 %8
@@ -2651,7 +2647,7 @@ define noundef i32 @_ZNK4FLAC8Metadata7Picture8get_typeEv(ptr noundef nonnull re
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   ret i32 %5
 }
 
@@ -2660,7 +2656,7 @@ define noundef ptr @_ZNK4FLAC8Metadata7Picture13get_mime_typeEv(ptr noundef nonn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   ret ptr %5
 }
 
@@ -2669,7 +2665,7 @@ define noundef ptr @_ZNK4FLAC8Metadata7Picture15get_descriptionEv(ptr noundef no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   ret ptr %5
 }
 
@@ -2678,7 +2674,7 @@ define noundef i32 @_ZNK4FLAC8Metadata7Picture9get_widthEv(ptr noundef nonnull r
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   ret i32 %5
 }
 
@@ -2687,7 +2683,7 @@ define noundef i32 @_ZNK4FLAC8Metadata7Picture10get_heightEv(ptr noundef nonnull
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %5 = load i32, ptr %4, align 4, !tbaa !21
+  %5 = load i32, ptr %4, align 4, !tbaa !20
   ret i32 %5
 }
 
@@ -2696,7 +2692,7 @@ define noundef i32 @_ZNK4FLAC8Metadata7Picture9get_depthEv(ptr noundef nonnull r
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   ret i32 %5
 }
 
@@ -2705,7 +2701,7 @@ define noundef i32 @_ZNK4FLAC8Metadata7Picture10get_colorsEv(ptr noundef nonnull
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %5 = load i32, ptr %4, align 4, !tbaa !21
+  %5 = load i32, ptr %4, align 4, !tbaa !20
   ret i32 %5
 }
 
@@ -2714,7 +2710,7 @@ define noundef i32 @_ZNK4FLAC8Metadata7Picture15get_data_lengthEv(ptr noundef no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %5 = load i32, ptr %4, align 8, !tbaa !21
+  %5 = load i32, ptr %4, align 8, !tbaa !20
   ret i32 %5
 }
 
@@ -2723,7 +2719,7 @@ define noundef ptr @_ZNK4FLAC8Metadata7Picture8get_dataEv(ptr noundef nonnull re
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   ret ptr %5
 }
 
@@ -2732,7 +2728,7 @@ define void @_ZN4FLAC8Metadata7Picture8set_typeE33FLAC__StreamMetadata_Picture_T
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %1, ptr %5, align 8, !tbaa !21
+  store i32 %1, ptr %5, align 8, !tbaa !20
   ret void
 }
 
@@ -2763,7 +2759,7 @@ define void @_ZNK4FLAC8Metadata7Picture9set_widthEj(ptr noundef nonnull readonly
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 %1, ptr %5, align 8, !tbaa !21
+  store i32 %1, ptr %5, align 8, !tbaa !20
   ret void
 }
 
@@ -2772,7 +2768,7 @@ define void @_ZNK4FLAC8Metadata7Picture10set_heightEj(ptr noundef nonnull readon
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 %1, ptr %5, align 4, !tbaa !21
+  store i32 %1, ptr %5, align 4, !tbaa !20
   ret void
 }
 
@@ -2781,7 +2777,7 @@ define void @_ZNK4FLAC8Metadata7Picture9set_depthEj(ptr noundef nonnull readonly
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i32 %1, ptr %5, align 8, !tbaa !21
+  store i32 %1, ptr %5, align 8, !tbaa !20
   ret void
 }
 
@@ -2790,7 +2786,7 @@ define void @_ZNK4FLAC8Metadata7Picture10set_colorsEj(ptr noundef nonnull readon
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  store i32 %1, ptr %5, align 4, !tbaa !21
+  store i32 %1, ptr %5, align 4, !tbaa !20
   ret void
 }
 
@@ -2839,7 +2835,7 @@ define noundef ptr @_ZNK4FLAC8Metadata7Unknown8get_dataEv(ptr noundef nonnull re
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   ret ptr %5
 }
 
@@ -3787,32 +3783,32 @@ attributes #27 = { nounwind willreturn memory(read) }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"vtable pointer", !7, i64 0}
 !17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = !{!4, !8, i64 4}
-!20 = !{!4, !8, i64 8}
-!21 = !{!6, !6, i64 0}
-!22 = !{i64 0, i64 8, !23, i64 8, i64 8, !23, i64 16, i64 4, !25}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"long", !6, i64 0}
-!25 = !{!8, !8, i64 0}
-!26 = !{!27, !13, i64 8}
-!27 = !{!"_ZTSN4FLAC8Metadata13VorbisComment5EntryE", !13, i64 8, !28, i64 16, !29, i64 32, !8, i64 40, !29, i64 48, !8, i64 56}
-!28 = !{!"_ZTS40FLAC__StreamMetadata_VorbisComment_Entry", !8, i64 0, !29, i64 8}
-!29 = !{!"p1 omnipotent char", !12, i64 0}
-!30 = !{!27, !29, i64 48}
-!31 = !{!27, !8, i64 56}
-!32 = !{!27, !8, i64 16}
-!33 = !{!27, !29, i64 24}
-!34 = !{!27, !29, i64 32}
-!35 = !{!27, !8, i64 40}
-!36 = !{!29, !29, i64 0}
-!37 = !{!28, !29, i64 8}
-!38 = !{!28, !8, i64 0}
+!18 = !{!4, !8, i64 4}
+!19 = !{!4, !8, i64 8}
+!20 = !{!6, !6, i64 0}
+!21 = !{i64 0, i64 8, !22, i64 8, i64 8, !22, i64 16, i64 4, !24}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !6, i64 0}
+!24 = !{!8, !8, i64 0}
+!25 = !{!26, !13, i64 8}
+!26 = !{!"_ZTSN4FLAC8Metadata13VorbisComment5EntryE", !13, i64 8, !27, i64 16, !28, i64 32, !8, i64 40, !28, i64 48, !8, i64 56}
+!27 = !{!"_ZTS40FLAC__StreamMetadata_VorbisComment_Entry", !8, i64 0, !28, i64 8}
+!28 = !{!"p1 omnipotent char", !12, i64 0}
+!29 = !{!26, !28, i64 48}
+!30 = !{!26, !8, i64 56}
+!31 = !{!26, !8, i64 16}
+!32 = !{!26, !28, i64 24}
+!33 = !{!26, !28, i64 32}
+!34 = !{!26, !8, i64 40}
+!35 = !{}
+!36 = !{!28, !28, i64 0}
+!37 = !{!27, !28, i64 8}
+!38 = !{!27, !8, i64 0}
 !39 = !{!40, !12, i64 8}
 !40 = !{!"_ZTSN4FLAC8Metadata8CueSheet5TrackE", !12, i64 8}
 !41 = !{!42, !12, i64 24}
-!42 = !{!"_ZTS35FLAC__StreamMetadata_CueSheet_Track", !24, i64 0, !6, i64 8, !6, i64 9, !8, i64 22, !8, i64 22, !6, i64 23, !12, i64 24}
-!43 = !{i64 0, i64 8, !23, i64 8, i64 1, !21}
+!42 = !{!"_ZTS35FLAC__StreamMetadata_CueSheet_Track", !23, i64 0, !6, i64 8, !6, i64 9, !8, i64 22, !8, i64 22, !6, i64 23, !12, i64 24}
+!43 = !{i64 0, i64 8, !22, i64 8, i64 1, !20}
 !44 = !{!45, !45, i64 0}
 !45 = !{!"p1 _ZTSN4FLAC8Metadata13VorbisCommentE", !12, i64 0}
 !46 = !{!11, !11, i64 0}

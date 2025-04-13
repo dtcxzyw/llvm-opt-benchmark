@@ -3124,8 +3124,8 @@ _ZNSt6vectorIN3g2o18G2OBatchStatisticsESaIS1_EE5clearEv.exit: ; preds = %18, %23
   br i1 %26, label %27, label %_ZNSt6vectorIN3g2o18G2OBatchStatisticsESaIS1_EE6resizeEm.exit
 
 27:                                               ; preds = %_ZNSt6vectorIN3g2o18G2OBatchStatisticsESaIS1_EE5clearEv.exit
-  %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %.critedge, label %28
+  %.not75 = icmp eq i32 %1, 0
+  br i1 %.not75, label %.critedge, label %28
 
 28:                                               ; preds = %27
   %29 = sext i32 %1 to i64
@@ -3149,10 +3149,10 @@ _ZNSt6vectorIN3g2o18G2OBatchStatisticsESaIS1_EE6resizeEm.exit: ; preds = %28, %_
 
 38:                                               ; preds = %.lr.ph, %253
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %253 ]
-  %.03270 = phi i32 [ 0, %.lr.ph ], [ %254, %253 ]
-  %.03469 = phi double [ 0.000000e+00, %.lr.ph ], [ %.135, %253 ]
-  %.036.in68 = phi i1 [ true, %.lr.ph ], [ %79, %253 ]
-  %.03866 = phi i32 [ 1, %.lr.ph ], [ %78, %253 ]
+  %.03371 = phi i32 [ 0, %.lr.ph ], [ %254, %253 ]
+  %.03570 = phi double [ 0.000000e+00, %.lr.ph ], [ %.136, %253 ]
+  %.037.in69 = phi i1 [ true, %.lr.ph ], [ %79, %253 ]
+  %.03967 = phi i32 [ 1, %.lr.ph ], [ %78, %253 ]
   %39 = load ptr, ptr %31, align 8, !tbaa !6
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %_ZN3g2o15SparseOptimizer9terminateEv.exit, label %40
@@ -3160,19 +3160,19 @@ _ZNSt6vectorIN3g2o18G2OBatchStatisticsESaIS1_EE6resizeEm.exit: ; preds = %28, %_
 40:                                               ; preds = %38
   %41 = load i8, ptr %39, align 1, !tbaa !208, !range !138, !noundef !139
   %42 = trunc nuw i8 %41 to i1
+  %43 = xor i1 %42, true
   br label %_ZN3g2o15SparseOptimizer9terminateEv.exit
 
 _ZN3g2o15SparseOptimizer9terminateEv.exit:        ; preds = %38, %40
-  %43 = phi i1 [ %42, %40 ], [ false, %38 ]
-  %.036.in.not = xor i1 %.036.in68, true
-  %brmerge = or i1 %43, %.036.in.not
-  br i1 %brmerge, label %.critedge.loopexit, label %46
+  %.not = phi i1 [ %43, %40 ], [ true, %38 ]
+  %or.cond = and i1 %.037.in69, %.not
+  br i1 %or.cond, label %46, label %.critedge.loopexit
 
 .critedge.loopexit:                               ; preds = %_ZN3g2o15SparseOptimizer9terminateEv.exit, %253
-  %.038.lcssa.ph = phi i32 [ %78, %253 ], [ %.03866, %_ZN3g2o15SparseOptimizer9terminateEv.exit ]
-  %.032.lcssa.ph = phi i32 [ %1, %253 ], [ %.03270, %_ZN3g2o15SparseOptimizer9terminateEv.exit ]
-  %44 = icmp eq i32 %.038.lcssa.ph, -1
-  %45 = select i1 %44, i32 0, i32 %.032.lcssa.ph
+  %.039.lcssa.ph = phi i32 [ %78, %253 ], [ %.03967, %_ZN3g2o15SparseOptimizer9terminateEv.exit ]
+  %.033.lcssa.ph = phi i32 [ %1, %253 ], [ %.03371, %_ZN3g2o15SparseOptimizer9terminateEv.exit ]
+  %44 = icmp eq i32 %.039.lcssa.ph, -1
+  %45 = select i1 %44, i32 0, i32 %.033.lcssa.ph
   br label %.critedge
 
 46:                                               ; preds = %_ZN3g2o15SparseOptimizer9terminateEv.exit
@@ -3226,8 +3226,8 @@ _ZN3g2o15SparseOptimizer9terminateEv.exit:        ; preds = %38, %40
   %83 = load ptr, ptr %36, align 8, !tbaa !73
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 136
   %85 = load i64, ptr %84, align 8, !tbaa !84
-  %.not.i40 = icmp eq i64 %85, 0
-  br i1 %.not.i40, label %.loopexit.i, label %86
+  %.not.i41 = icmp eq i64 %85, 0
+  br i1 %.not.i41, label %.loopexit.i, label %86
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 120
@@ -3284,22 +3284,22 @@ _ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit: ; preds = %.lr.ph14.i, %.l
   %119 = phi ptr [ %98, %.loopexit.i ], [ %112, %.lr.ph14.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #26
   %.not1112.i = icmp eq ptr %119, %118
-  br i1 %.not1112.i, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit, label %.lr.ph.i41
+  br i1 %.not1112.i, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit, label %.lr.ph.i42
 
-.lr.ph.i41:                                       ; preds = %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit, %132
+.lr.ph.i42:                                       ; preds = %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit, %132
   %.014.i = phi double [ %.1.i, %132 ], [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit ]
   %.sroa.08.013.i = phi ptr [ %133, %132 ], [ %119, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit ]
   %120 = load ptr, ptr %.sroa.08.013.i, align 8, !tbaa !90
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 64
   %122 = load ptr, ptr %121, align 8, !tbaa !95
-  %.not.i42 = icmp eq ptr %122, null
+  %.not.i43 = icmp eq ptr %122, null
   %123 = load ptr, ptr %120, align 8, !tbaa !3
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 112
   %125 = load ptr, ptr %124, align 8
   %126 = call noundef double %125(ptr noundef nonnull align 8 dereferenceable(176) %120)
-  br i1 %.not.i42, label %132, label %127
+  br i1 %.not.i43, label %132, label %127
 
-127:                                              ; preds = %.lr.ph.i41
+127:                                              ; preds = %.lr.ph.i42
   %128 = load ptr, ptr %122, align 8, !tbaa !3
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = load ptr, ptr %129, align 8
@@ -3307,13 +3307,13 @@ _ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit: ; preds = %.lr.ph14.i, %.l
   %131 = load double, ptr %5, align 8, !tbaa !122
   br label %132
 
-132:                                              ; preds = %127, %.lr.ph.i41
-  %.pn.i = phi double [ %131, %127 ], [ %126, %.lr.ph.i41 ]
+132:                                              ; preds = %127, %.lr.ph.i42
+  %.pn.i = phi double [ %131, %127 ], [ %126, %.lr.ph.i42 ]
   %.1.i = fadd double %.014.i, %.pn.i
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i, i64 8
   %134 = load ptr, ptr %33, align 8, !tbaa !93
   %.not11.i = icmp eq ptr %133, %134
-  br i1 %.not11.i, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit, label %.lr.ph.i41, !llvm.loop !124
+  br i1 %.not11.i, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit, label %.lr.ph.i42, !llvm.loop !124
 
 _ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit: ; preds = %132, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit
   %.0.lcssa.i = phi double [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit ], [ %.1.i, %132 ]
@@ -3336,36 +3336,36 @@ _ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit: ; preds = %132, %_ZN3g2o15Sp
 144:                                              ; preds = %141
   %145 = call noundef double @_ZN3g2o18get_monotonic_timeEv()
   %146 = fsub double %145, %73
-  %147 = fadd double %.03469, %146
-  br i1 %81, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit53, label %148
+  %147 = fadd double %.03570, %146
+  br i1 %81, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54, label %148
 
 148:                                              ; preds = %144
   %149 = load ptr, ptr %36, align 8, !tbaa !73
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 136
   %151 = load i64, ptr %150, align 8, !tbaa !84
-  %.not.i43 = icmp eq i64 %151, 0
-  br i1 %.not.i43, label %.loopexit.i48, label %152
+  %.not.i44 = icmp eq i64 %151, 0
+  br i1 %.not.i44, label %.loopexit.i49, label %152
 
 152:                                              ; preds = %148
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 120
   %154 = load ptr, ptr %153, align 8, !tbaa !85
   %155 = getelementptr inbounds nuw i8, ptr %149, i64 104
-  %.not1011.i44 = icmp eq ptr %154, %155
-  br i1 %.not1011.i44, label %.loopexit.i48, label %.lr.ph.i45
+  %.not1011.i45 = icmp eq ptr %154, %155
+  br i1 %.not1011.i45, label %.loopexit.i49, label %.lr.ph.i46
 
-.lr.ph.i45:                                       ; preds = %152, %.lr.ph.i45
-  %.sroa.07.012.i46 = phi ptr [ %162, %.lr.ph.i45 ], [ %154, %152 ]
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i46, i64 32
+.lr.ph.i46:                                       ; preds = %152, %.lr.ph.i46
+  %.sroa.07.012.i47 = phi ptr [ %162, %.lr.ph.i46 ], [ %154, %152 ]
+  %156 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i47, i64 32
   %157 = load ptr, ptr %156, align 8, !tbaa !86
   %158 = load ptr, ptr %157, align 8, !tbaa !3
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load ptr, ptr %159, align 8
   %161 = call noundef ptr %160(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull align 8 dereferenceable(409) %0, ptr noundef null)
-  %162 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.012.i46) #27
-  %.not10.i47 = icmp eq ptr %162, %155
-  br i1 %.not10.i47, label %.loopexit.i48, label %.lr.ph.i45, !llvm.loop !88
+  %162 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.012.i47) #27
+  %.not10.i48 = icmp eq ptr %162, %155
+  br i1 %.not10.i48, label %.loopexit.i49, label %.lr.ph.i46, !llvm.loop !88
 
-.loopexit.i48:                                    ; preds = %.lr.ph.i45, %152, %148
+.loopexit.i49:                                    ; preds = %.lr.ph.i46, %152, %148
   %163 = load ptr, ptr %33, align 8, !tbaa !89
   %164 = load ptr, ptr %32, align 8, !tbaa !79
   %165 = ptrtoint ptr %163 to i64
@@ -3374,29 +3374,29 @@ _ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit: ; preds = %132, %_ZN3g2o15Sp
   %168 = lshr exact i64 %167, 3
   %169 = trunc i64 %168 to i32
   %170 = icmp sgt i32 %169, 0
-  br i1 %170, label %.lr.ph14.i49, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit53
+  br i1 %170, label %.lr.ph14.i50, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54
 
-.lr.ph14.i49:                                     ; preds = %.loopexit.i48, %.lr.ph14.i49
-  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i51, %.lr.ph14.i49 ], [ 0, %.loopexit.i48 ]
-  %171 = phi ptr [ %178, %.lr.ph14.i49 ], [ %164, %.loopexit.i48 ]
-  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv.i50
+.lr.ph14.i50:                                     ; preds = %.loopexit.i49, %.lr.ph14.i50
+  %indvars.iv.i51 = phi i64 [ %indvars.iv.next.i52, %.lr.ph14.i50 ], [ 0, %.loopexit.i49 ]
+  %171 = phi ptr [ %178, %.lr.ph14.i50 ], [ %164, %.loopexit.i49 ]
+  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv.i51
   %173 = load ptr, ptr %172, align 8, !tbaa !90
   %174 = load ptr, ptr %173, align 8, !tbaa !3
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 40
   %176 = load ptr, ptr %175, align 8
   call void %176(ptr noundef nonnull align 8 dereferenceable(176) %173)
-  %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
+  %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
   %177 = load ptr, ptr %33, align 8, !tbaa !89
   %178 = load ptr, ptr %32, align 8, !tbaa !79
   %179 = ptrtoint ptr %177 to i64
   %180 = ptrtoint ptr %178 to i64
   %181 = sub i64 %179, %180
-  %sext.i52 = shl i64 %181, 29
-  %182 = ashr i64 %sext.i52, 32
-  %183 = icmp slt i64 %indvars.iv.next.i51, %182
-  br i1 %183, label %.lr.ph14.i49, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit53, !llvm.loop !92
+  %sext.i53 = shl i64 %181, 29
+  %182 = ashr i64 %sext.i53, 32
+  %183 = icmp slt i64 %indvars.iv.next.i52, %182
+  br i1 %183, label %.lr.ph14.i50, label %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54, !llvm.loop !92
 
-_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit53: ; preds = %.lr.ph14.i49, %.loopexit.i48, %144
+_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54: ; preds = %.lr.ph14.i50, %.loopexit.i49, %144
   %184 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8, i64 noundef 11)
   %185 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef %50)
   %186 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %185, ptr noundef nonnull @.str.9, i64 noundef 8)
@@ -3412,23 +3412,23 @@ _ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit53: ; preds = %.lr.ph14.i49,
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
   %195 = load ptr, ptr %32, align 8, !tbaa !93
   %196 = load ptr, ptr %33, align 8, !tbaa !93
-  %.not1112.i54 = icmp eq ptr %195, %196
-  br i1 %.not1112.i54, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit63, label %.lr.ph.i55
+  %.not1112.i55 = icmp eq ptr %195, %196
+  br i1 %.not1112.i55, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64, label %.lr.ph.i56
 
-.lr.ph.i55:                                       ; preds = %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit53, %209
-  %.014.i56 = phi double [ %.1.i60, %209 ], [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit53 ]
-  %.sroa.08.013.i57 = phi ptr [ %210, %209 ], [ %195, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit53 ]
-  %197 = load ptr, ptr %.sroa.08.013.i57, align 8, !tbaa !90
+.lr.ph.i56:                                       ; preds = %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54, %209
+  %.014.i57 = phi double [ %.1.i61, %209 ], [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54 ]
+  %.sroa.08.013.i58 = phi ptr [ %210, %209 ], [ %195, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54 ]
+  %197 = load ptr, ptr %.sroa.08.013.i58, align 8, !tbaa !90
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 64
   %199 = load ptr, ptr %198, align 8, !tbaa !95
-  %.not.i58 = icmp eq ptr %199, null
+  %.not.i59 = icmp eq ptr %199, null
   %200 = load ptr, ptr %197, align 8, !tbaa !3
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 112
   %202 = load ptr, ptr %201, align 8
   %203 = call noundef double %202(ptr noundef nonnull align 8 dereferenceable(176) %197)
-  br i1 %.not.i58, label %209, label %204
+  br i1 %.not.i59, label %209, label %204
 
-204:                                              ; preds = %.lr.ph.i55
+204:                                              ; preds = %.lr.ph.i56
   %205 = load ptr, ptr %199, align 8, !tbaa !3
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %207 = load ptr, ptr %206, align 8
@@ -3436,18 +3436,18 @@ _ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit53: ; preds = %.lr.ph14.i49,
   %208 = load double, ptr %4, align 8, !tbaa !122
   br label %209
 
-209:                                              ; preds = %204, %.lr.ph.i55
-  %.pn.i59 = phi double [ %208, %204 ], [ %203, %.lr.ph.i55 ]
-  %.1.i60 = fadd double %.014.i56, %.pn.i59
-  %210 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i57, i64 8
+209:                                              ; preds = %204, %.lr.ph.i56
+  %.pn.i60 = phi double [ %208, %204 ], [ %203, %.lr.ph.i56 ]
+  %.1.i61 = fadd double %.014.i57, %.pn.i60
+  %210 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i58, i64 8
   %211 = load ptr, ptr %33, align 8, !tbaa !93
-  %.not11.i61 = icmp eq ptr %210, %211
-  br i1 %.not11.i61, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit63, label %.lr.ph.i55, !llvm.loop !124
+  %.not11.i62 = icmp eq ptr %210, %211
+  br i1 %.not11.i62, label %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64, label %.lr.ph.i56, !llvm.loop !124
 
-_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit63: ; preds = %209, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit53
-  %.0.lcssa.i62 = phi double [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit53 ], [ %.1.i60, %209 ]
+_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64: ; preds = %209, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54
+  %.0.lcssa.i63 = phi double [ 0.000000e+00, %_ZN3g2o15SparseOptimizer19computeActiveErrorsEv.exit54 ], [ %.1.i61, %209 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
-  %212 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %185, double noundef %.0.lcssa.i62)
+  %212 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %185, double noundef %.0.lcssa.i63)
   %213 = load ptr, ptr %212, align 8, !tbaa !3
   %214 = getelementptr i8, ptr %213, i64 -24
   %215 = load i64, ptr %214, align 8
@@ -3481,11 +3481,11 @@ _ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit63: ; preds = %209, %_ZN3g2o15
   %.not.i.i.i = icmp eq ptr %239, null
   br i1 %.not.i.i.i, label %240, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
-240:                                              ; preds = %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit63
+240:                                              ; preds = %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64
   call void @_ZSt16__throw_bad_castv() #29
   unreachable
 
-_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit63
+_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev.exit64
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 56
   %242 = load i8, ptr %241, align 8, !tbaa !195
   %.not.i1.i.i = icmp eq i8 %242, 0
@@ -3511,8 +3511,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %243,
   br label %253
 
 253:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %141
-  %.135 = phi double [ %147, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ], [ %.03469, %141 ]
-  %254 = add nuw nsw i32 %.03270, 1
+  %.136 = phi double [ %147, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ], [ %.03570, %141 ]
+  %254 = add nuw nsw i32 %.03371, 1
   %255 = load ptr, ptr %0, align 8, !tbaa !3
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 112
   %257 = load ptr, ptr %256, align 8

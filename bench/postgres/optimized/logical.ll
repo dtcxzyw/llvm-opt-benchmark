@@ -734,189 +734,189 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
 
 24:                                               ; preds = %15
   %25 = load i32, ptr @MyDatabaseId, align 4
-  %.not = icmp eq i32 %18, %25
-  %brmerge = or i1 %2, %.not
-  br i1 %brmerge, label %30, label %26
+  %26 = icmp eq i32 %18, %25
+  %or.cond = or i1 %2, %26
+  br i1 %or.cond, label %31, label %27
 
-26:                                               ; preds = %24
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 325) #10
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %16) #10
+27:                                               ; preds = %24
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %28)
+  %29 = tail call i32 @errcode(i32 noundef 325) #10
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %16) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 530, ptr noundef nonnull @__func__.CreateDecodingContext) #10
   unreachable
 
-30:                                               ; preds = %24
-  %31 = tail call zeroext i1 @RecoveryInProgress() #10
-  br i1 %31, label %32, label %43
+31:                                               ; preds = %24
+  %32 = tail call zeroext i1 @RecoveryInProgress() #10
+  br i1 %32, label %33, label %44
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %10, i64 201
-  %34 = load i8, ptr %33, align 1
-  %.not51 = icmp eq i8 %34, 0
-  br i1 %.not51, label %43, label %35
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 201
+  %35 = load i8, ptr %34, align 1
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %44, label %36
 
-35:                                               ; preds = %32
-  %36 = tail call zeroext i1 @IsSyncingReplicationSlots() #10
-  br i1 %36, label %43, label %37
+36:                                               ; preds = %33
+  %37 = tail call zeroext i1 @IsSyncingReplicationSlots() #10
+  br i1 %37, label %44, label %38
 
-37:                                               ; preds = %35
-  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 @errcode(i32 noundef 325) #10
-  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %16) #10
-  %41 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10) #10
-  %42 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.11) #10
+38:                                               ; preds = %36
+  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %39)
+  %40 = tail call i32 @errcode(i32 noundef 325) #10
+  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %16) #10
+  %42 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10) #10
+  %43 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.11) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 543, ptr noundef nonnull @__func__.CreateDecodingContext) #10
   unreachable
 
-43:                                               ; preds = %35, %32, %30
-  %44 = icmp eq i64 %0, 0
-  %45 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  %46 = load i64, ptr %45, align 8
-  br i1 %44, label %62, label %47
+44:                                               ; preds = %36, %33, %31
+  %45 = icmp eq i64 %0, 0
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 120
+  %47 = load i64, ptr %46, align 8
+  br i1 %45, label %63, label %48
 
-47:                                               ; preds = %43
-  %48 = icmp ult i64 %0, %46
-  br i1 %48, label %49, label %62
+48:                                               ; preds = %44
+  %49 = icmp ult i64 %0, %47
+  br i1 %49, label %50, label %63
 
-49:                                               ; preds = %47
-  %50 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
-  br i1 %50, label %51, label %60
+50:                                               ; preds = %48
+  %51 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
+  br i1 %51, label %52, label %61
 
-51:                                               ; preds = %49
-  %52 = lshr i64 %0, 32
-  %53 = trunc nuw i64 %52 to i32
-  %54 = trunc i64 %0 to i32
-  %55 = load i64, ptr %45, align 8
-  %56 = lshr i64 %55, 32
-  %57 = trunc nuw i64 %56 to i32
-  %58 = trunc i64 %55 to i32
-  %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %53, i32 noundef %54, i32 noundef %57, i32 noundef %58) #10
+52:                                               ; preds = %50
+  %53 = lshr i64 %0, 32
+  %54 = trunc nuw i64 %53 to i32
+  %55 = trunc i64 %0 to i32
+  %56 = load i64, ptr %46, align 8
+  %57 = lshr i64 %56, 32
+  %58 = trunc nuw i64 %57 to i32
+  %59 = trunc i64 %56 to i32
+  %60 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %54, i32 noundef %55, i32 noundef %58, i32 noundef %59) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 570, ptr noundef nonnull @__func__.CreateDecodingContext) #10
-  br label %60
+  br label %61
 
-60:                                               ; preds = %51, %49
-  %61 = load i64, ptr %45, align 8
-  br label %62
+61:                                               ; preds = %52, %50
+  %62 = load i64, ptr %46, align 8
+  br label %63
 
-62:                                               ; preds = %43, %47, %60
-  %.0 = phi i64 [ %61, %60 ], [ %0, %47 ], [ %46, %43 ]
-  %63 = tail call fastcc ptr @StartupDecodingContext(ptr noundef %1, i64 noundef %.0, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext %2, i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %64, ptr @CurrentMemoryContext, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %67 = load ptr, ptr %66, align 8
-  %.not52 = icmp eq ptr %67, null
-  br i1 %.not52, label %78, label %68
+63:                                               ; preds = %44, %48, %61
+  %.0 = phi i64 [ %62, %61 ], [ %0, %48 ], [ %47, %44 ]
+  %64 = tail call fastcc ptr @StartupDecodingContext(ptr noundef %1, i64 noundef %.0, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext %2, i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %65 = load ptr, ptr %64, align 8
+  %66 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %65, ptr @CurrentMemoryContext, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 48
+  %68 = load ptr, ptr %67, align 8
+  %.not52 = icmp eq ptr %68, null
+  br i1 %.not52, label %79, label %69
 
-68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw i8, ptr %63, i64 216
+69:                                               ; preds = %63
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 216
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #10
-  store ptr %63, ptr %8, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str.68, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr @output_plugin_error_callback, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %8, ptr %73, align 8
-  %74 = load ptr, ptr @error_context_stack, align 8
-  store ptr %74, ptr %9, align 8
+  store ptr %64, ptr %8, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @.str.68, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 0, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr @output_plugin_error_callback, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %8, ptr %74, align 8
+  %75 = load ptr, ptr @error_context_stack, align 8
+  store ptr %75, ptr %9, align 8
   store ptr %9, ptr @error_context_stack, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %63, i64 283
-  store i8 0, ptr %75, align 1
-  %76 = getelementptr inbounds nuw i8, ptr %63, i64 300
-  store i8 0, ptr %76, align 4
-  call void %67(ptr noundef nonnull %63, ptr noundef nonnull %69, i1 noundef zeroext false) #10
-  %77 = load ptr, ptr %9, align 8
-  store ptr %77, ptr @error_context_stack, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %64, i64 283
+  store i8 0, ptr %76, align 1
+  %77 = getelementptr inbounds nuw i8, ptr %64, i64 300
+  store i8 0, ptr %77, align 4
+  call void %68(ptr noundef nonnull %64, ptr noundef nonnull %70, i1 noundef zeroext false) #10
+  %78 = load ptr, ptr %9, align 8
+  store ptr %78, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
-  br label %78
+  br label %79
 
-78:                                               ; preds = %68, %62
-  store ptr %65, ptr @CurrentMemoryContext, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %10, i64 136
-  %80 = load i8, ptr %79, align 8, !range !8, !noundef !9
-  %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %86, label %82
+79:                                               ; preds = %69, %63
+  store ptr %66, ptr @CurrentMemoryContext, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  %81 = load i8, ptr %80, align 8, !range !8, !noundef !9
+  %82 = trunc nuw i8 %81 to i1
+  br i1 %82, label %87, label %83
 
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %63, i64 282
-  %84 = load i8, ptr %83, align 2, !range !8, !noundef !9
-  %85 = zext nneg i8 %84 to i32
-  br label %86
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds nuw i8, ptr %64, i64 282
+  %85 = load i8, ptr %84, align 2, !range !8, !noundef !9
+  %86 = zext nneg i8 %85 to i32
+  br label %87
 
-86:                                               ; preds = %82, %78
-  %87 = phi i32 [ 1, %78 ], [ %85, %82 ]
-  %88 = getelementptr inbounds nuw i8, ptr %63, i64 281
-  %89 = load i8, ptr %88, align 1, !range !8, !noundef !9
-  %90 = zext nneg i8 %89 to i32
-  %91 = and i32 %87, %90
-  %.not53 = icmp eq i32 %91, 0
-  %92 = trunc nuw nsw i32 %91 to i8
-  store i8 %92, ptr %88, align 1
-  br i1 %.not53, label %104, label %93
+87:                                               ; preds = %83, %79
+  %88 = phi i32 [ 1, %79 ], [ %86, %83 ]
+  %89 = getelementptr inbounds nuw i8, ptr %64, i64 281
+  %90 = load i8, ptr %89, align 1, !range !8, !noundef !9
+  %91 = zext nneg i8 %90 to i32
+  %92 = and i32 %88, %91
+  %.not53 = icmp eq i32 %92, 0
+  %93 = trunc nuw nsw i32 %92 to i8
+  store i8 %93, ptr %89, align 1
+  br i1 %.not53, label %105, label %94
 
-93:                                               ; preds = %86
-  %94 = load i8, ptr %79, align 8, !range !8, !noundef !9
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %104, label %96
+94:                                               ; preds = %87
+  %95 = load i8, ptr %80, align 8, !range !8, !noundef !9
+  %96 = trunc nuw i8 %95 to i1
+  br i1 %96, label %105, label %97
 
-96:                                               ; preds = %93
-  %97 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %10, i8 1, ptr nonnull elementtype(i8) %10) #10, !srcloc !4
-  %.not54 = icmp eq i8 %97, 0
-  br i1 %.not54, label %100, label %98
+97:                                               ; preds = %94
+  %98 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %10, i8 1, ptr nonnull elementtype(i8) %10) #10, !srcloc !4
+  %.not54 = icmp eq i8 %98, 0
+  br i1 %.not54, label %101, label %99
 
-98:                                               ; preds = %96
-  %99 = call i32 @s_lock(ptr noundef nonnull %10, ptr noundef nonnull @.str.1, i32 noundef 597, ptr noundef nonnull @__func__.CreateDecodingContext) #10
-  br label %100
+99:                                               ; preds = %97
+  %100 = call i32 @s_lock(ptr noundef nonnull %10, ptr noundef nonnull @.str.1, i32 noundef 597, ptr noundef nonnull @__func__.CreateDecodingContext) #10
+  br label %101
 
-100:                                              ; preds = %96, %98
-  store i8 1, ptr %79, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  store i64 %.0, ptr %101, align 8
+101:                                              ; preds = %97, %99
+  store i8 1, ptr %80, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %10, i64 128
+  store i64 %.0, ptr %102, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   store i8 0, ptr %10, align 8
   call void @ReplicationSlotMarkDirty() #10
   call void @ReplicationSlotSave() #10
-  %102 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %103 = load ptr, ptr %102, align 8
-  call void @SnapBuildSetTwoPhaseAt(ptr noundef %103, i64 noundef %.0) #10
-  br label %104
+  %103 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  %104 = load ptr, ptr %103, align 8
+  call void @SnapBuildSetTwoPhaseAt(ptr noundef %104, i64 noundef %.0) #10
+  br label %105
 
-104:                                              ; preds = %100, %93, %86
-  %105 = getelementptr inbounds nuw i8, ptr %63, i64 220
-  %106 = load i8, ptr %105, align 4, !range !8, !noundef !9
-  %107 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 232
-  store i8 %106, ptr %109, align 8
-  %110 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
-  br i1 %110, label %111, label %124
+105:                                              ; preds = %101, %94, %87
+  %106 = getelementptr inbounds nuw i8, ptr %64, i64 220
+  %107 = load i8, ptr %106, align 4, !range !8, !noundef !9
+  %108 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 232
+  store i8 %107, ptr %110, align 8
+  %111 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
+  br i1 %111, label %112, label %125
 
-111:                                              ; preds = %104
-  %112 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %16) #10
-  %113 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  %114 = load i64, ptr %113, align 8
-  %115 = lshr i64 %114, 32
-  %116 = trunc nuw i64 %115 to i32
-  %117 = trunc i64 %114 to i32
-  %118 = getelementptr inbounds nuw i8, ptr %10, i64 104
-  %119 = load i64, ptr %118, align 8
-  %120 = lshr i64 %119, 32
-  %121 = trunc nuw i64 %120 to i32
-  %122 = trunc i64 %119 to i32
-  %123 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.14, i32 noundef %116, i32 noundef %117, i32 noundef %121, i32 noundef %122) #10
+112:                                              ; preds = %105
+  %113 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %16) #10
+  %114 = getelementptr inbounds nuw i8, ptr %10, i64 120
+  %115 = load i64, ptr %114, align 8
+  %116 = lshr i64 %115, 32
+  %117 = trunc nuw i64 %116 to i32
+  %118 = trunc i64 %115 to i32
+  %119 = getelementptr inbounds nuw i8, ptr %10, i64 104
+  %120 = load i64, ptr %119, align 8
+  %121 = lshr i64 %120, 32
+  %122 = trunc nuw i64 %121 to i32
+  %123 = trunc i64 %120 to i32
+  %124 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.14, i32 noundef %117, i32 noundef %118, i32 noundef %122, i32 noundef %123) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 613, ptr noundef nonnull @__func__.CreateDecodingContext) #10
-  br label %124
+  br label %125
 
-124:                                              ; preds = %111, %104
-  ret ptr %63
+125:                                              ; preds = %112, %105
+  ret ptr %64
 }
 
 declare zeroext i1 @IsSyncingReplicationSlots() local_unnamed_addr #1
@@ -1367,13 +1367,13 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %7 = load i64, ptr %6, align 8
-  %.not13 = icmp eq i64 %7, 0
-  br i1 %.not13, label %55, label %8
+  %.not14 = icmp eq i64 %7, 0
+  br i1 %.not14, label %55, label %8
 
 8:                                                ; preds = %5, %1
   %9 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #10, !srcloc !4
-  %.not15 = icmp eq i8 %9, 0
-  br i1 %.not15, label %13, label %10
+  %.not16 = icmp eq i8 %9, 0
+  br i1 %.not16, label %13, label %10
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @MyReplicationSlot, align 8
@@ -1387,20 +1387,20 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 240
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, -1
-  %or.cond.not = icmp ult i64 %18, %0
-  br i1 %or.cond.not, label %19, label %26
+  %or.cond24.not = icmp ult i64 %18, %0
+  br i1 %or.cond24.not, label %19, label %26
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 236
   %21 = load i32, ptr %20, align 4
-  %.not18 = icmp eq i32 %21, 0
-  br i1 %.not18, label %26, label %22
+  %.not19 = icmp eq i32 %21, 0
+  br i1 %.not19, label %26, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 100
   %24 = load i32, ptr %23, align 4
-  %.not19 = icmp eq i32 %24, %21
-  br i1 %.not19, label %26, label %25
+  %.not20 = icmp eq i32 %24, %21
+  br i1 %.not20, label %26, label %25
 
 25:                                               ; preds = %22
   store i32 %21, ptr %23, align 4
@@ -1409,12 +1409,12 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
   br label %26
 
 26:                                               ; preds = %19, %22, %25, %13
-  %.09 = phi i1 [ true, %25 ], [ false, %22 ], [ false, %19 ], [ false, %13 ]
+  %.010 = phi i1 [ true, %25 ], [ false, %22 ], [ false, %19 ], [ false, %13 ]
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 248
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, -1
-  %or.cond23.not = icmp ult i64 %29, %0
-  br i1 %or.cond23.not, label %30, label %34
+  %or.cond25.not = icmp ult i64 %29, %0
+  br i1 %or.cond25.not, label %30, label %34
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 256
@@ -1428,8 +1428,8 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   %35 = load ptr, ptr @MyReplicationSlot, align 8
   store i8 0, ptr %35, align 8
-  %brmerge = or i1 %.09, %or.cond23.not
-  br i1 %brmerge, label %36, label %42
+  %or.cond = or i1 %.010, %or.cond25.not
+  br i1 %or.cond, label %36, label %42
 
 36:                                               ; preds = %34
   tail call void @ReplicationSlotMarkDirty() #10
@@ -1438,20 +1438,20 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %36
-  %39 = zext i1 %.09 to i32
-  %40 = zext i1 %or.cond23.not to i32
+  %39 = zext i1 %.010 to i32
+  %40 = zext i1 %or.cond25.not to i32
   %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef %39, i32 noundef %40) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1874, ptr noundef nonnull @__func__.LogicalConfirmReceivedLocation) #10
   br label %42
 
-42:                                               ; preds = %34, %36, %38
-  br i1 %.09, label %43, label %64
+42:                                               ; preds = %36, %38, %34
+  br i1 %.010, label %43, label %64
 
 43:                                               ; preds = %42
   %44 = load ptr, ptr @MyReplicationSlot, align 8
   %45 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %44, i8 1, ptr elementtype(i8) %44) #10, !srcloc !4
-  %.not22 = icmp eq i8 %45, 0
-  br i1 %.not22, label %49, label %46
+  %.not23 = icmp eq i8 %45, 0
+  br i1 %.not23, label %49, label %46
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr @MyReplicationSlot, align 8
@@ -1473,8 +1473,8 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
 
 55:                                               ; preds = %5
   %56 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #10, !srcloc !4
-  %.not14 = icmp eq i8 %56, 0
-  br i1 %.not14, label %60, label %57
+  %.not15 = icmp eq i8 %56, 0
+  br i1 %.not15, label %60, label %57
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr @MyReplicationSlot, align 8

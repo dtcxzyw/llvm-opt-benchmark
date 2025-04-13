@@ -668,8 +668,8 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %52 = load ptr, ptr %51, align 8
-  %.not187 = icmp eq ptr %52, null
-  br i1 %.not187, label %55, label %53
+  %.not188 = icmp eq ptr %52, null
+  br i1 %.not188, label %55, label %53
 
 53:                                               ; preds = %50
   %54 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.19, ptr noundef nonnull %0) #9
@@ -684,8 +684,8 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
   %61 = tail call i32 @job_res_rm_job(ptr noundef %59, ptr noundef %60, ptr noundef null, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null) #9
   %62 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %63 = load ptr, ptr %62, align 8
-  %.not188 = icmp eq ptr %63, null
-  br i1 %.not188, label %65, label %64
+  %.not189 = icmp eq ptr %63, null
+  br i1 %.not189, label %65, label %64
 
 64:                                               ; preds = %55
   tail call void @slurm_bit_clear_all(ptr noundef nonnull %63) #9
@@ -704,8 +704,8 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
   %73 = load ptr, ptr %72, align 8
   tail call void @slurm_bit_or(ptr noundef %71, ptr noundef %73) #9
   tail call void @slurm_bit_and(ptr noundef %67, ptr noundef %71) #9
-  %.not189 = icmp eq ptr %71, null
-  br i1 %.not189, label %75, label %74
+  %.not190 = icmp eq ptr %71, null
+  br i1 %.not190, label %75, label %74
 
 74:                                               ; preds = %65
   call void @slurm_bit_free(ptr noundef nonnull %3) #9
@@ -760,12 +760,12 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
   %110 = load ptr, ptr %40, align 8
   %111 = call i64 @slurm_bit_fls(ptr noundef %110) #9
   %112 = icmp sgt i64 %109, %111
-  %.sink201.in = select i1 %112, ptr %23, ptr %40
-  %.sink201 = load ptr, ptr %.sink201.in, align 8
-  %113 = call i64 @slurm_bit_fls(ptr noundef %.sink201) #9
+  %.sink202.in = select i1 %112, ptr %23, ptr %40
+  %.sink202 = load ptr, ptr %.sink202.in, align 8
+  %113 = call i64 @slurm_bit_fls(ptr noundef %.sink202) #9
   %114 = trunc i64 %113 to i32
-  %.not190195 = icmp sgt i32 %107, %114
-  br i1 %.not190195, label %._crit_edge, label %.lr.ph
+  %.not191196 = icmp sgt i32 %107, %114
+  br i1 %.not191196, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %75
   %115 = getelementptr inbounds nuw i8, ptr %77, i64 40
@@ -784,49 +784,49 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
 
 126:                                              ; preds = %.lr.ph, %232
   %indvars.iv = phi i64 [ %124, %.lr.ph ], [ %indvars.iv.next, %232 ]
-  %.0177198 = phi i32 [ -1, %.lr.ph ], [ %.1, %232 ]
-  %.0178197 = phi i32 [ -1, %.lr.ph ], [ %.1179, %232 ]
-  %.0180196 = phi i32 [ -1, %.lr.ph ], [ %.1181, %232 ]
+  %.0178199 = phi i32 [ -1, %.lr.ph ], [ %.1, %232 ]
+  %.0179198 = phi i32 [ -1, %.lr.ph ], [ %.1180, %232 ]
+  %.0181197 = phi i32 [ -1, %.lr.ph ], [ %.1182, %232 ]
   %127 = load ptr, ptr %23, align 8
   %128 = call i32 @slurm_bit_test(ptr noundef %127, i64 noundef %indvars.iv) #9
-  %.not191 = icmp eq i32 %128, 0
-  br i1 %.not191, label %134, label %129
+  %.not192 = icmp eq i32 %128, 0
+  br i1 %.not192, label %134, label %129
 
 129:                                              ; preds = %126
   %130 = load ptr, ptr %72, align 8
   %131 = call i32 @slurm_bit_test(ptr noundef %130, i64 noundef %indvars.iv) #9
   %132 = icmp ne i32 %131, 0
-  %133 = add nsw i32 %.0180196, 1
+  %133 = add nsw i32 %.0181197, 1
   br label %134
 
 134:                                              ; preds = %129, %126
-  %.1181 = phi i32 [ %133, %129 ], [ %.0180196, %126 ]
-  %.0175 = phi i1 [ %132, %129 ], [ false, %126 ]
+  %.1182 = phi i32 [ %133, %129 ], [ %.0181197, %126 ]
+  %.0176 = phi i1 [ %132, %129 ], [ false, %126 ]
   %135 = load ptr, ptr %40, align 8
   %136 = call i32 @slurm_bit_test(ptr noundef %135, i64 noundef %indvars.iv) #9
-  %.not192 = icmp eq i32 %136, 0
-  br i1 %.not192, label %142, label %137
+  %.not193 = icmp eq i32 %136, 0
+  br i1 %.not193, label %142, label %137
 
 137:                                              ; preds = %134
   %138 = load ptr, ptr %69, align 8
   %139 = call i32 @slurm_bit_test(ptr noundef %138, i64 noundef %indvars.iv) #9
   %140 = icmp ne i32 %139, 0
-  %141 = add nsw i32 %.0178197, 1
+  %141 = add nsw i32 %.0179198, 1
   br label %142
 
 142:                                              ; preds = %137, %134
-  %.1179 = phi i32 [ %141, %137 ], [ %.0178197, %134 ]
-  %.0176 = phi i1 [ %140, %137 ], [ false, %134 ]
-  %brmerge = select i1 %.0175, i1 true, i1 %.0176
-  br i1 %brmerge, label %143, label %232
+  %.1180 = phi i32 [ %141, %137 ], [ %.0179198, %134 ]
+  %.0177 = phi i1 [ %140, %137 ], [ false, %134 ]
+  %or.cond = select i1 %.0176, i1 true, i1 %.0177
+  br i1 %or.cond, label %143, label %232
 
 143:                                              ; preds = %142
-  %144 = add nsw i32 %.0177198, 1
-  br i1 %.0175, label %145, label %163
+  %144 = add nsw i32 %.0178199, 1
+  br i1 %.0176, label %145, label %163
 
 145:                                              ; preds = %143
   %146 = load ptr, ptr %16, align 8
-  %147 = sext i32 %.1181 to i64
+  %147 = sext i32 %.1182 to i64
   %148 = getelementptr inbounds i16, ptr %146, i64 %147
   %149 = load i16, ptr %148, align 2
   %150 = load ptr, ptr %115, align 8
@@ -843,16 +843,16 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
   %159 = getelementptr inbounds i64, ptr %158, i64 %151
   store i64 %157, ptr %159, align 8
   %160 = trunc i32 %144 to i16
-  %161 = trunc i32 %.1181 to i16
+  %161 = trunc i32 %.1182 to i16
   %162 = call i32 @job_resources_bits_copy(ptr noundef %77, i16 noundef zeroext %160, ptr noundef nonnull %13, i16 noundef zeroext %161) #9
   br label %163
 
 163:                                              ; preds = %145, %143
-  br i1 %.0176, label %164, label %215
+  br i1 %.0177, label %164, label %215
 
 164:                                              ; preds = %163
   %165 = load ptr, ptr %33, align 8
-  %166 = sext i32 %.1179 to i64
+  %166 = sext i32 %.1180 to i64
   %167 = getelementptr inbounds i16, ptr %165, i64 %166
   %168 = load i16, ptr %167, align 2
   %169 = load ptr, ptr %115, align 8
@@ -886,17 +886,17 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
   %194 = add i64 %193, %190
   store i64 %194, ptr %192, align 8
   %195 = trunc i32 %144 to i16
-  %196 = trunc i32 %.1179 to i16
+  %196 = trunc i32 %.1180 to i16
   %197 = call i32 @job_resources_bits_copy(ptr noundef %77, i16 noundef zeroext %195, ptr noundef nonnull %30, i16 noundef zeroext %196) #9
-  br i1 %.0175, label %198, label %215
+  br i1 %.0176, label %198, label %215
 
 198:                                              ; preds = %164
-  %199 = call i32 @count_job_resources_node(ptr noundef nonnull %13, i32 noundef %.1181) #9
-  %200 = call i32 @count_job_resources_node(ptr noundef nonnull %30, i32 noundef %.1179) #9
+  %199 = call i32 @count_job_resources_node(ptr noundef nonnull %13, i32 noundef %.1182) #9
+  %200 = call i32 @count_job_resources_node(ptr noundef nonnull %30, i32 noundef %.1180) #9
   %201 = call i32 @count_job_resources_node(ptr noundef nonnull %77, i32 noundef %144) #9
   %202 = add nsw i32 %200, %199
-  %.not193 = icmp eq i32 %202, %201
-  br i1 %.not193, label %215, label %203
+  %.not194 = icmp eq i32 %202, %201
+  br i1 %.not194, label %215, label %203
 
 203:                                              ; preds = %198
   %204 = load ptr, ptr %115, align 8
@@ -919,8 +919,8 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 480
   %218 = load i8, ptr %217, align 8
   %219 = and i8 %218, 1
-  %.not194 = icmp eq i8 %219, 0
-  br i1 %.not194, label %225, label %220
+  %.not195 = icmp eq i8 %219, 0
+  br i1 %.not195, label %225, label %220
 
 220:                                              ; preds = %215
   %221 = load ptr, ptr @node_record_table_ptr, align 8
@@ -936,16 +936,16 @@ define dso_local range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %225, %220
-  %.sink205.in = phi ptr [ %224, %220 ], [ %228, %225 ]
-  %.sink205 = load i16, ptr %.sink205.in, align 2
-  %229 = zext i16 %.sink205 to i32
+  %.sink206.in = phi ptr [ %224, %220 ], [ %228, %225 ]
+  %.sink206 = load i16, ptr %.sink206.in, align 2
+  %229 = zext i16 %.sink206 to i32
   %230 = load i32, ptr %100, align 8
   %231 = add i32 %230, %229
   store i32 %231, ptr %100, align 8
   br label %232
 
 232:                                              ; preds = %.sink.split, %142
-  %.1 = phi i32 [ %.0177198, %142 ], [ %144, %.sink.split ]
+  %.1 = phi i32 [ %.0178199, %142 ], [ %144, %.sink.split ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %125, %lftr.wideiv

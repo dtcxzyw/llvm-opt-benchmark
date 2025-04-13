@@ -647,16 +647,16 @@ entry:
   store i64 %count, ptr %count.addr, align 8
   %env_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %env_.i, align 8
-  %cmp31.not = icmp eq i64 %count, 0
-  br i1 %cmp31.not, label %for.end, label %for.body
+  %cmp32.not = icmp eq i64 %count, 0
+  br i1 %cmp32.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %total_bytes.033 = phi i64 [ %add, %for.body ], [ 0, %entry ]
-  %i.032 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %len = getelementptr inbounds %struct.uv_buf_t, ptr %bufs, i64 %i.032, i32 1
+  %total_bytes.034 = phi i64 [ %add, %for.body ], [ 0, %entry ]
+  %i.033 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
+  %len = getelementptr inbounds %struct.uv_buf_t, ptr %bufs, i64 %i.033, i32 1
   %1 = load i64, ptr %len, align 8
-  %add = add i64 %1, %total_bytes.033
-  %inc = add nuw i64 %i.032, 1
+  %add = add i64 %1, %total_bytes.034
+  %inc = add nuw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
@@ -667,8 +667,8 @@ for.end:                                          ; preds = %for.body, %entry
   %add4 = add i64 %2, %total_bytes.0.lcssa
   store i64 %add4, ptr %bytes_written_, align 8
   %cmp5 = icmp ne ptr %send_handle, null
-  %brmerge = or i1 %cmp5, %skip_try_write
-  br i1 %brmerge, label %if.end11, label %if.then
+  %or.cond = or i1 %cmp5, %skip_try_write
+  br i1 %or.cond, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %for.end
   %vtable = load ptr, ptr %this, align 8
@@ -678,8 +678,8 @@ if.then:                                          ; preds = %for.end
   %cmp7 = icmp ne i32 %call6, 0
   %4 = load i64, ptr %count.addr, align 8
   %cmp8 = icmp eq i64 %4, 0
-  %or.cond = select i1 %cmp7, i1 true, i1 %cmp8
-  br i1 %or.cond, label %if.then9, label %if.end11
+  %or.cond1 = select i1 %cmp7, i1 true, i1 %cmp8
+  br i1 %or.cond1, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.then
   store i8 0, ptr %agg.result, align 8
@@ -693,7 +693,7 @@ if.then9:                                         ; preds = %if.then
   store ptr null, ptr %wrap_obj, align 8
   br label %return
 
-if.end11:                                         ; preds = %for.end, %if.then
+if.end11:                                         ; preds = %if.then, %for.end
   %isolate_.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %5) #21
@@ -743,8 +743,8 @@ if.end45:                                         ; preds = %if.end40, %if.end11
   %vfn57 = getelementptr inbounds nuw i8, ptr %vtable56, i64 16
   %12 = load ptr, ptr %vfn57, align 8
   %call58 = call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(16) %call55) #21
-  %cmp.i21 = icmp eq ptr %call58, null
-  br i1 %cmp.i21, label %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC2EPS1_.exit, label %_ZNK4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE12pointer_dataEv.exit.i
+  %cmp.i22 = icmp eq ptr %call58, null
+  br i1 %cmp.i22, label %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC2EPS1_.exit, label %_ZNK4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE12pointer_dataEv.exit.i
 
 _ZNK4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE12pointer_dataEv.exit.i: ; preds = %if.end45
   %call3.i.i = call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call58) #21
@@ -785,14 +785,14 @@ if.end67:                                         ; preds = %if.then66, %_ZN4nod
   br i1 %cmp71.not, label %cleanup.thread, label %if.then72
 
 if.then72:                                        ; preds = %if.end67
-  %principal_realm_.i.i22 = getelementptr inbounds nuw i8, ptr %0, i64 2728
-  %17 = load ptr, ptr %principal_realm_.i.i22, align 8
-  %vtable.i23 = load ptr, ptr %17, align 8
-  %vfn.i24 = getelementptr inbounds nuw i8, ptr %vtable.i23, i64 64
-  %18 = load ptr, ptr %vfn.i24, align 8
-  %call2.i25 = call ptr %18(ptr noundef nonnull align 8 dereferenceable(872) %17) #21
-  %isolate_data_.i.i26 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %19 = load ptr, ptr %isolate_data_.i.i26, align 8
+  %principal_realm_.i.i23 = getelementptr inbounds nuw i8, ptr %0, i64 2728
+  %17 = load ptr, ptr %principal_realm_.i.i23, align 8
+  %vtable.i24 = load ptr, ptr %17, align 8
+  %vfn.i25 = getelementptr inbounds nuw i8, ptr %vtable.i24, i64 64
+  %18 = load ptr, ptr %vfn.i25, align 8
+  %call2.i26 = call ptr %18(ptr noundef nonnull align 8 dereferenceable(872) %17) #21
+  %isolate_data_.i.i27 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %19 = load ptr, ptr %isolate_data_.i.i27, align 8
   %error_string_.i.i = getelementptr inbounds nuw i8, ptr %19, i64 856
   %20 = load ptr, ptr %error_string_.i.i, align 8
   %21 = load ptr, ptr %isolate_.i, align 8
@@ -805,7 +805,7 @@ if.then.i.i:                                      ; preds = %if.then72
   br label %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit
 
 _ZN4node13OneByteStringEPN2v87IsolateEPKci.exit:  ; preds = %if.then72, %if.then.i.i
-  %call108 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %req_wrap_obj.sroa.0.0, ptr %call2.i25, ptr %20, ptr %call.i) #21
+  %call108 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %req_wrap_obj.sroa.0.0, ptr %call2.i26, ptr %20, ptr %call.i) #21
   %tobool.i = trunc i16 %call108 to i1
   br i1 %tobool.i, label %if.end116, label %cleanup
 
@@ -835,7 +835,7 @@ cleanup:                                          ; preds = %_ZN4node13OneByteSt
   store i32 -16, ptr %err112, align 4
   %wrap113 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %wrap113, i8 0, i64 24, i1 false)
-  br i1 %cmp.i21, label %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EED2Ev.exit, label %if.then.i
+  br i1 %cmp.i22, label %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %call58) #21

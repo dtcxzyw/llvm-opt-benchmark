@@ -530,45 +530,45 @@ _ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i:    ; preds = %_ZNK8rawspeed10Byte
 .preheader:                                       ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i
   %20 = sub nsw i32 %.sroa.2.0.copyload.i, %18
   %21 = icmp ugt i32 %20, 1
-  br i1 %21, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14.lr.ph, label %.loopexit.i13
+  br i1 %21, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16.lr.ph, label %.loopexit.i15
 
-_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14.lr.ph: ; preds = %.preheader
+_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16.lr.ph: ; preds = %.preheader
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %.sroa.8.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.10.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sroa.8.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.10.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.8.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.10.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.8.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.10.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14
+  br label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16
 
 25:                                               ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20AbstractLJpegDecoder9decodeSOIEv) #16
   unreachable
 
-_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14: ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14.lr.ph, %.critedge
-  %.sroa.413.0.copyload.i12103 = phi i32 [ %18, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14.lr.ph ], [ %.sroa.413.0.copyload.i12, %.critedge ]
-  %26 = phi i32 [ %.sroa.2.0.copyload.i, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14.lr.ph ], [ %.sroa.2.0.copyload.i10, %.critedge ]
-  %.sroa.012.0.copyload.i8101 = phi ptr [ %.sroa.012.0.copyload.i, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14.lr.ph ], [ %.sroa.012.0.copyload.i8, %.critedge ]
-  %.sroa.1068.0100 = phi i8 [ 0, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14.lr.ph ], [ %.sroa.1068.1, %.critedge ]
-  %.sroa.7.099 = phi i8 [ 0, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14.lr.ph ], [ %.sroa.7.1, %.critedge ]
-  %.sroa.5.098 = phi i1 [ false, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14.lr.ph ], [ %.sroa.5.1, %.critedge ]
-  %.sroa.066.097 = phi i1 [ false, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14.lr.ph ], [ %.sroa.066.1, %.critedge ]
-  %27 = icmp ne ptr %.sroa.012.0.copyload.i8101, null
+_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16: ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16.lr.ph, %.critedge
+  %.sroa.413.0.copyload.i14105 = phi i32 [ %18, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16.lr.ph ], [ %.sroa.413.0.copyload.i14, %.critedge ]
+  %26 = phi i32 [ %.sroa.2.0.copyload.i, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16.lr.ph ], [ %.sroa.2.0.copyload.i12, %.critedge ]
+  %.sroa.012.0.copyload.i10103 = phi ptr [ %.sroa.012.0.copyload.i, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16.lr.ph ], [ %.sroa.012.0.copyload.i10, %.critedge ]
+  %.sroa.1070.0102 = phi i8 [ 0, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16.lr.ph ], [ %.sroa.1070.1, %.critedge ]
+  %.sroa.7.0101 = phi i8 [ 0, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16.lr.ph ], [ %.sroa.7.1, %.critedge ]
+  %.sroa.5.0100 = phi i1 [ false, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16.lr.ph ], [ %.sroa.5.1, %.critedge ]
+  %.sroa.068.099 = phi i1 [ false, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16.lr.ph ], [ %.sroa.068.1, %.critedge ]
+  %27 = icmp ne ptr %.sroa.012.0.copyload.i10103, null
   tail call void @llvm.assume(i1 %27)
-  %28 = zext nneg i32 %.sroa.413.0.copyload.i12103 to i64
+  %28 = zext nneg i32 %.sroa.413.0.copyload.i14105 to i64
   %29 = zext nneg i32 %26 to i64
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.i8101, i64 %28
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.i10103, i64 %28
   %.0.copyload.i.i.i.i.i.i.us.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1, !noalias !77
   br label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i.i
 
-_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i.i: ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14
-  %.0.copyload.i.i.i.i.i.i.us.i.i = phi i8 [ %.0.copyload.i.i.i.i.i.i.us.pre.i.i, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14 ], [ %.0.copyload.i.i.i.i.i10.i.us.i.i, %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i ]
-  %indvars.iv.i.i = phi i64 [ %28, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14 ], [ %indvars.iv.next.i.i, %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i ]
+_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i.i: ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16
+  %.0.copyload.i.i.i.i.i.i.us.i.i = phi i8 [ %.0.copyload.i.i.i.i.i.i.us.pre.i.i, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16 ], [ %.0.copyload.i.i.i.i.i10.i.us.i.i, %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i ]
+  %indvars.iv.i.i = phi i64 [ %28, %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16 ], [ %indvars.iv.next.i.i, %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.i8101, i64 %indvars.iv.next.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.i10103, i64 %indvars.iv.next.i.i
   %.0.copyload.i.i.i.i.i10.i.us.i.i = load i8, ptr %30, align 1, !noalias !77
   %31 = icmp eq i8 %.0.copyload.i.i.i.i.i.i.us.i.i, -1
   %32 = add i8 %.0.copyload.i.i.i.i.i10.i.us.i.i, -1
@@ -582,49 +582,49 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i: ; preds = %_ZNK8rawspeed10Byte
   tail call void @llvm.assume(i1 %34)
   %35 = sub nsw i32 %26, %indvars.i.i
   %36 = icmp ugt i32 %35, 1
-  br i1 %36, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i.i, label %.loopexit.i13, !llvm.loop !80
+  br i1 %36, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i.i, label %.loopexit.i15, !llvm.loop !80
 
 .split12.us.loopexit.i.i:                         ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.us.i.i
   %37 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %37, ptr %.sroa.413.0..sroa_idx.i, align 8
-  %.not.i.not.i.i.i.i.i.i16 = icmp ugt i32 %26, %37
-  br i1 %.not.i.not.i.i.i.i.i.i16, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i17, label %38
+  %.not.i.not.i.i.i.i.i.i18 = icmp ugt i32 %26, %37
+  br i1 %.not.i.not.i.i.i.i.i.i18, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i19, label %38
 
 38:                                               ; preds = %.split12.us.loopexit.i.i
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.35, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16
   unreachable
 
-_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i17:  ; preds = %.split12.us.loopexit.i.i
+_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i19:  ; preds = %.split12.us.loopexit.i.i
   %39 = add nuw nsw i32 %37, 1
-  %.not.i.not.i.i.i.i9.i.i18 = icmp samesign ult i32 %39, %26
-  br i1 %.not.i.not.i.i.i.i9.i.i18, label %_ZN8rawspeed20AbstractLJpegDecoder13getNextMarkerEb.exit21, label %40
+  %.not.i.not.i.i.i.i9.i.i20 = icmp samesign ult i32 %39, %26
+  br i1 %.not.i.not.i.i.i.i9.i.i20, label %_ZN8rawspeed20AbstractLJpegDecoder13getNextMarkerEb.exit23, label %40
 
-40:                                               ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i17
+40:                                               ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i19
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.35, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #16
   unreachable
 
-.loopexit.i13:                                    ; preds = %.critedge, %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i, %.preheader
+.loopexit.i15:                                    ; preds = %.critedge, %_ZN8rawspeed10ByteStream9skipBytesEj.exit.us.i.i, %.preheader
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.34, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20AbstractLJpegDecoder13getNextMarkerEb) #16
   unreachable
 
-_ZN8rawspeed20AbstractLJpegDecoder13getNextMarkerEb.exit21: ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i17
+_ZN8rawspeed20AbstractLJpegDecoder13getNextMarkerEb.exit23: ; preds = %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.i19
   %41 = and i64 %indvars.iv.i.i, 4294967295
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.i8101, i64 %41
-  %.0.copyload.i.i.i.i.i.i.i19 = load i8, ptr %42, align 1
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.i10103, i64 %41
+  %.0.copyload.i.i.i.i.i.i.i21 = load i8, ptr %42, align 1
   %43 = zext nneg i32 %39 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.i8101, i64 %43
-  %.0.copyload.i.i.i.i.i10.i.i20 = load i8, ptr %44, align 1
-  %45 = icmp eq i8 %.0.copyload.i.i.i.i.i.i.i19, -1
-  %46 = add i8 %.0.copyload.i.i.i.i.i10.i.i20, -1
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.i10103, i64 %43
+  %.0.copyload.i.i.i.i.i10.i.i22 = load i8, ptr %44, align 1
+  %45 = icmp eq i8 %.0.copyload.i.i.i.i.i.i.i21, -1
+  %46 = add i8 %.0.copyload.i.i.i.i.i10.i.i22, -1
   %47 = icmp ult i8 %46, -2
   tail call void @llvm.assume(i1 %45)
   tail call void @llvm.assume(i1 %47)
   %48 = add nuw nsw i32 %37, 2
   store i32 %48, ptr %.sroa.413.0..sroa_idx.i, align 8, !tbaa !76
-  %.not5 = icmp eq i8 %.0.copyload.i.i.i.i.i10.i.i20, -39
+  %.not5 = icmp eq i8 %.0.copyload.i.i.i.i.i10.i.i22, -39
   br i1 %.not5, label %.critedge7, label %49
 
-49:                                               ; preds = %_ZN8rawspeed20AbstractLJpegDecoder13getNextMarkerEb.exit21
+49:                                               ; preds = %_ZN8rawspeed20AbstractLJpegDecoder13getNextMarkerEb.exit23
   %50 = zext i32 %48 to i64
   %51 = add nuw nsw i64 %50, 2
   %.not.i.i.i.i.i = icmp samesign ugt i64 %51, %29
@@ -640,7 +640,7 @@ _ZNK8rawspeed10ByteStream7peekU16Ev.exit:         ; preds = %49
   %55 = add nuw nsw i32 %37, 4
   %56 = icmp samesign ule i32 %55, %26
   tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.i8101, i64 %50
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.copyload.i10103, i64 %50
   %.0.copyload.i.i.i.i.i = load i16, ptr %57, align 1
   %58 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i)
   %spec.select.i.i.i.i.i = select i1 %54, i16 %.0.copyload.i.i.i.i.i, i16 %58
@@ -667,7 +667,7 @@ _ZN8rawspeed10ByteStream9getStreamEj.exit:        ; preds = %_ZNK8rawspeed10Byte
   unreachable
 
 _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZN8rawspeed10ByteStream9getStreamEj.exit
-  switch i8 %.0.copyload.i.i.i.i.i10.i.i20, label %.critedge [
+  switch i8 %.0.copyload.i.i.i.i.i10.i.i22, label %.critedge [
     i8 -60, label %66
     i8 -61, label %70
     i8 -38, label %77
@@ -676,7 +676,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZN8rawspeed10ByteS
   ]
 
 66:                                               ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit
-  %67 = trunc nuw i8 %.sroa.1068.0100 to i1
+  %67 = trunc nuw i8 %.sroa.1070.0102 to i1
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %66
@@ -694,7 +694,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZN8rawspeed10ByteS
   br label %.critedge
 
 70:                                               ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit
-  %71 = trunc nuw i8 %.sroa.1068.0100 to i1
+  %71 = trunc nuw i8 %.sroa.1070.0102 to i1
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %70
@@ -702,7 +702,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZN8rawspeed10ByteS
   unreachable
 
 73:                                               ; preds = %70
-  %74 = trunc nuw i8 %.sroa.7.099 to i1
+  %74 = trunc nuw i8 %.sroa.7.0101 to i1
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %73
@@ -711,16 +711,16 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZN8rawspeed10ByteS
 
 76:                                               ; preds = %73
   store ptr %57, ptr %3, align 8
-  %.sroa.8.sroa.9.0.insert.ext53 = zext i16 %53 to i64
-  %.sroa.8.sroa.9.0.insert.shift54 = shl nuw nsw i64 %.sroa.8.sroa.9.0.insert.ext53, 32
-  %.sroa.8.sroa.0.0.insert.insert46 = or disjoint i64 %.sroa.8.sroa.9.0.insert.shift54, %59
-  store i64 %.sroa.8.sroa.0.0.insert.insert46, ptr %.sroa.8.0..sroa_idx26, align 8
-  store i32 2, ptr %.sroa.10.0..sroa_idx32, align 8
+  %.sroa.8.sroa.9.0.insert.ext55 = zext i16 %53 to i64
+  %.sroa.8.sroa.9.0.insert.shift56 = shl nuw nsw i64 %.sroa.8.sroa.9.0.insert.ext55, 32
+  %.sroa.8.sroa.0.0.insert.insert48 = or disjoint i64 %.sroa.8.sroa.9.0.insert.shift56, %59
+  store i64 %.sroa.8.sroa.0.0.insert.insert48, ptr %.sroa.8.0..sroa_idx28, align 8
+  store i32 2, ptr %.sroa.10.0..sroa_idx34, align 8
   tail call void @_ZN8rawspeed20AbstractLJpegDecoder8parseSOFENS_10ByteStreamEPNS_7SOFInfoE(ptr noundef nonnull align 8 dereferenceable(236) %0, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %3, ptr noundef nonnull %24)
   br label %.critedge
 
 77:                                               ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit
-  %78 = trunc nuw i8 %.sroa.1068.0100 to i1
+  %78 = trunc nuw i8 %.sroa.1070.0102 to i1
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %77
@@ -728,14 +728,14 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZN8rawspeed10ByteS
   unreachable
 
 80:                                               ; preds = %77
-  br i1 %.sroa.5.098, label %82, label %81
+  br i1 %.sroa.5.0100, label %82, label %81
 
 81:                                               ; preds = %80
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20AbstractLJpegDecoder9decodeSOIEv) #16
   unreachable
 
 82:                                               ; preds = %80
-  %83 = trunc nuw i8 %.sroa.7.099 to i1
+  %83 = trunc nuw i8 %.sroa.7.0101 to i1
   br i1 %83, label %85, label %84
 
 84:                                               ; preds = %82
@@ -744,11 +744,11 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZN8rawspeed10ByteS
 
 85:                                               ; preds = %82
   store ptr %57, ptr %4, align 8
-  %.sroa.8.sroa.9.0.insert.ext57 = zext i16 %53 to i64
-  %.sroa.8.sroa.9.0.insert.shift58 = shl nuw nsw i64 %.sroa.8.sroa.9.0.insert.ext57, 32
-  %.sroa.8.sroa.0.0.insert.insert49 = or disjoint i64 %.sroa.8.sroa.9.0.insert.shift58, %59
-  store i64 %.sroa.8.sroa.0.0.insert.insert49, ptr %.sroa.8.0..sroa_idx28, align 8
-  store i32 2, ptr %.sroa.10.0..sroa_idx34, align 8
+  %.sroa.8.sroa.9.0.insert.ext59 = zext i16 %53 to i64
+  %.sroa.8.sroa.9.0.insert.shift60 = shl nuw nsw i64 %.sroa.8.sroa.9.0.insert.ext59, 32
+  %.sroa.8.sroa.0.0.insert.insert51 = or disjoint i64 %.sroa.8.sroa.9.0.insert.shift60, %59
+  store i64 %.sroa.8.sroa.0.0.insert.insert51, ptr %.sroa.8.0..sroa_idx30, align 8
+  store i32 2, ptr %.sroa.10.0..sroa_idx36, align 8
   tail call void @_ZN8rawspeed20AbstractLJpegDecoder8parseSOSENS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(236) %0, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %4)
   %86 = load ptr, ptr %0, align 8, !tbaa !6
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
@@ -761,7 +761,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZN8rawspeed10ByteS
   unreachable
 
 91:                                               ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit
-  br i1 %.sroa.066.097, label %92, label %93
+  br i1 %.sroa.068.099, label %92, label %93
 
 92:                                               ; preds = %91
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20AbstractLJpegDecoder9decodeSOIEv) #16
@@ -777,35 +777,35 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZN8rawspeed10ByteS
 
 _ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit: ; preds = %93
   %95 = getelementptr inbounds nuw i8, ptr %57, i64 2
-  %.0.copyload.i.i.i.i.i.i.i22 = load i16, ptr %95, align 1
-  %96 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i.i22)
-  %spec.select.i.i.i.i.i.i.i = select i1 %54, i16 %.0.copyload.i.i.i.i.i.i.i22, i16 %96
+  %.0.copyload.i.i.i.i.i.i.i24 = load i16, ptr %95, align 1
+  %96 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i.i24)
+  %spec.select.i.i.i.i.i.i.i = select i1 %54, i16 %.0.copyload.i.i.i.i.i.i.i24, i16 %96
   store i16 %spec.select.i.i.i.i.i.i.i, ptr %23, align 4, !tbaa !42
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit, %85, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit, %76, %69
-  %.sroa.066.1 = phi i1 [ %.sroa.066.097, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ true, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ], [ %.sroa.066.097, %85 ], [ %.sroa.066.097, %76 ], [ %.sroa.066.097, %69 ]
-  %.sroa.5.1 = phi i1 [ %.sroa.5.098, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %.sroa.5.098, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ], [ true, %85 ], [ %.sroa.5.098, %76 ], [ true, %69 ]
-  %.sroa.7.1 = phi i8 [ %.sroa.7.099, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %.sroa.7.099, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ], [ 1, %85 ], [ 1, %76 ], [ %.sroa.7.099, %69 ]
-  %.sroa.1068.1 = phi i8 [ %.sroa.1068.0100, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %.sroa.1068.0100, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ], [ 1, %85 ], [ 0, %76 ], [ 0, %69 ]
-  %.sroa.012.0.copyload.i8 = load ptr, ptr %5, align 8
-  %.sroa.2.0.copyload.i10 = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.413.0.copyload.i12 = load i32, ptr %.sroa.413.0..sroa_idx.i, align 8
-  %97 = icmp sgt i32 %.sroa.2.0.copyload.i10, -1
+  %.sroa.068.1 = phi i1 [ %.sroa.068.099, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ true, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ], [ %.sroa.068.099, %85 ], [ %.sroa.068.099, %76 ], [ %.sroa.068.099, %69 ]
+  %.sroa.5.1 = phi i1 [ %.sroa.5.0100, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %.sroa.5.0100, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ], [ true, %85 ], [ %.sroa.5.0100, %76 ], [ true, %69 ]
+  %.sroa.7.1 = phi i8 [ %.sroa.7.0101, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %.sroa.7.0101, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ], [ 1, %85 ], [ 1, %76 ], [ %.sroa.7.0101, %69 ]
+  %.sroa.1070.1 = phi i8 [ %.sroa.1070.0102, %_ZN8rawspeed10ByteStream9skipBytesEj.exit ], [ %.sroa.1070.0102, %_ZN8rawspeed20AbstractLJpegDecoder8parseDRIENS_10ByteStreamE.exit ], [ 1, %85 ], [ 0, %76 ], [ 0, %69 ]
+  %.sroa.012.0.copyload.i10 = load ptr, ptr %5, align 8
+  %.sroa.2.0.copyload.i12 = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %.sroa.413.0.copyload.i14 = load i32, ptr %.sroa.413.0..sroa_idx.i, align 8
+  %97 = icmp sgt i32 %.sroa.2.0.copyload.i12, -1
   tail call void @llvm.assume(i1 %97)
-  %98 = icmp samesign uge i32 %.sroa.2.0.copyload.i10, %.sroa.413.0.copyload.i12
+  %98 = icmp samesign uge i32 %.sroa.2.0.copyload.i12, %.sroa.413.0.copyload.i14
   tail call void @llvm.assume(i1 %98)
-  %99 = icmp sgt i32 %.sroa.413.0.copyload.i12, -1
+  %99 = icmp sgt i32 %.sroa.413.0.copyload.i14, -1
   tail call void @llvm.assume(i1 %99)
-  %100 = sub nsw i32 %.sroa.2.0.copyload.i10, %.sroa.413.0.copyload.i12
+  %100 = sub nsw i32 %.sroa.2.0.copyload.i12, %.sroa.413.0.copyload.i14
   %101 = icmp ugt i32 %100, 1
-  br i1 %101, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i14, label %.loopexit.i13
+  br i1 %101, label %_ZNK8rawspeed10ByteStream8peekByteEj.exit.i.lr.ph.i.i16, label %.loopexit.i15
 
-.critedge7:                                       ; preds = %_ZN8rawspeed20AbstractLJpegDecoder13getNextMarkerEb.exit21
-  %102 = trunc nuw i8 %.sroa.1068.0100 to i1
-  br i1 %102, label %.loopexit, label %103
+.critedge7:                                       ; preds = %_ZN8rawspeed20AbstractLJpegDecoder13getNextMarkerEb.exit23
+  %.old9 = trunc nuw i8 %.sroa.1070.0102 to i1
+  br i1 %.old9, label %.loopexit, label %102
 
-103:                                              ; preds = %.critedge7
+102:                                              ; preds = %.critedge7
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20AbstractLJpegDecoder9decodeSOIEv) #16
   unreachable
 

@@ -442,20 +442,18 @@ if.end3:                                          ; preds = %_ZL16libc_may_be_mu
   %3 = load ptr, ptr %handle_, align 8
   %call5 = tail call i32 @dlclose(ptr noundef %3) #22
   %cmp6 = icmp eq i32 %call5, 0
-  br i1 %cmp6, label %if.then7, label %if.end11
-
-if.then7:                                         ; preds = %if.end3
   %has_entry_in_global_handle_map_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %4 = load i8, ptr %has_entry_in_global_handle_map_, align 8
   %tobool = trunc i8 %4 to i1
-  br i1 %tobool, label %if.then8, label %if.end11
+  %or.cond = select i1 %cmp6, i1 %tobool, i1 false
+  br i1 %or.cond, label %if.then8, label %if.end11
 
-if.then8:                                         ; preds = %if.then7
+if.then8:                                         ; preds = %if.end3
   %5 = load ptr, ptr %handle_, align 8
   tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %5)
   br label %if.end11
 
-if.end11:                                         ; preds = %if.then7, %if.then8, %if.end3
+if.end11:                                         ; preds = %if.then8, %if.end3
   store ptr null, ptr %handle_, align 8
   br label %return
 
@@ -3140,20 +3138,18 @@ if.end3.i.i.i.i:                                  ; preds = %_ZL16libc_may_be_mu
   %9 = load ptr, ptr %handle_.i.i.i.i, align 8
   %call5.i41.i.i.i = call i32 @dlclose(ptr noundef %9) #22
   %cmp6.i.i.i.i = icmp eq i32 %call5.i41.i.i.i, 0
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %if.end11.i.i.i.i
-
-if.then7.i.i.i.i:                                 ; preds = %if.end3.i.i.i.i
   %has_entry_in_global_handle_map_.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load i8, ptr %has_entry_in_global_handle_map_.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %10 to i1
-  br i1 %tobool.i.i.i.i, label %if.then8.i.i.i.i, label %if.end11.i.i.i.i
+  %or.cond.i.i.i.i = select i1 %cmp6.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
+  br i1 %or.cond.i.i.i.i, label %if.then8.i.i.i.i, label %if.end11.i.i.i.i
 
-if.then8.i.i.i.i:                                 ; preds = %if.then7.i.i.i.i
+if.then8.i.i.i.i:                                 ; preds = %if.end3.i.i.i.i
   %11 = load ptr, ptr %handle_.i.i.i.i, align 8
   call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %11)
   br label %if.end11.i.i.i.i
 
-if.end11.i.i.i.i:                                 ; preds = %if.then8.i.i.i.i, %if.then7.i.i.i.i, %if.end3.i.i.i.i
+if.end11.i.i.i.i:                                 ; preds = %if.then8.i.i.i.i, %if.end3.i.i.i.i
   store ptr null, ptr %handle_.i.i.i.i, align 8
   br label %_ZN4node7binding4DLib5CloseEv.exit.i.i.i
 
@@ -3214,24 +3210,22 @@ if.end3.i54.i.i.i:                                ; preds = %_ZL16libc_may_be_mu
   %24 = load ptr, ptr %handle_.i.i.i.i, align 8
   %call5.i55.i.i.i = tail call i32 @dlclose(ptr noundef %24) #22
   %cmp6.i56.i.i.i = icmp eq i32 %call5.i55.i.i.i, 0
-  br i1 %cmp6.i56.i.i.i, label %if.then7.i58.i.i.i, label %if.end11.i57.i.i.i
+  %has_entry_in_global_handle_map_.i57.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %25 = load i8, ptr %has_entry_in_global_handle_map_.i57.i.i.i, align 8
+  %tobool.i58.i.i.i = trunc i8 %25 to i1
+  %or.cond.i59.i.i.i = select i1 %cmp6.i56.i.i.i, i1 %tobool.i58.i.i.i, i1 false
+  br i1 %or.cond.i59.i.i.i, label %if.then8.i61.i.i.i, label %if.end11.i60.i.i.i
 
-if.then7.i58.i.i.i:                               ; preds = %if.end3.i54.i.i.i
-  %has_entry_in_global_handle_map_.i59.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %25 = load i8, ptr %has_entry_in_global_handle_map_.i59.i.i.i, align 8
-  %tobool.i60.i.i.i = trunc i8 %25 to i1
-  br i1 %tobool.i60.i.i.i, label %if.then8.i61.i.i.i, label %if.end11.i57.i.i.i
-
-if.then8.i61.i.i.i:                               ; preds = %if.then7.i58.i.i.i
+if.then8.i61.i.i.i:                               ; preds = %if.end3.i54.i.i.i
   %26 = load ptr, ptr %handle_.i.i.i.i, align 8
   tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %26)
-  br label %if.end11.i57.i.i.i
+  br label %if.end11.i60.i.i.i
 
-if.end11.i57.i.i.i:                               ; preds = %if.then8.i61.i.i.i, %if.then7.i58.i.i.i, %if.end3.i54.i.i.i
+if.end11.i60.i.i.i:                               ; preds = %if.then8.i61.i.i.i, %if.end3.i54.i.i.i
   store ptr null, ptr %handle_.i.i.i.i, align 8
   br label %_ZN4node7binding4DLib5CloseEv.exit62.i.i.i
 
-_ZN4node7binding4DLib5CloseEv.exit62.i.i.i:       ; preds = %if.end11.i57.i.i.i, %_ZL16libc_may_be_muslv.exit.i52.i.i.i
+_ZN4node7binding4DLib5CloseEv.exit62.i.i.i:       ; preds = %if.end11.i60.i.i.i, %_ZL16libc_may_be_muslv.exit.i52.i.i.i
   %27 = load ptr, ptr %__functor.val, align 8
   %28 = load ptr, ptr %27, align 8
   %isolate_.i.i63.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 88
@@ -3338,19 +3332,17 @@ if.end3.i.i.i:                                    ; preds = %_ZL16libc_may_be_mu
   %50 = load ptr, ptr %handle_.i.i.i.i, align 8
   %call5.i5.i.i = tail call i32 @dlclose(ptr noundef %50) #22
   %cmp6.i.i.i = icmp eq i32 %call5.i5.i.i, 0
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.end11.i.i.i
-
-if.then7.i.i.i:                                   ; preds = %if.end3.i.i.i
   %51 = load i8, ptr %has_entry_in_global_handle_map_.i73.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %51 to i1
-  br i1 %tobool.i.i.i, label %if.then8.i6.i.i, label %if.end11.i.i.i
+  %or.cond.i.i.i = select i1 %cmp6.i.i.i, i1 %tobool.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %if.then8.i6.i.i, label %if.end11.i.i.i
 
-if.then8.i6.i.i:                                  ; preds = %if.then7.i.i.i
+if.then8.i6.i.i:                                  ; preds = %if.end3.i.i.i
   %52 = load ptr, ptr %handle_.i.i.i.i, align 8
   tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %52)
   br label %if.end11.i.i.i
 
-if.end11.i.i.i:                                   ; preds = %if.then8.i6.i.i, %if.then7.i.i.i, %if.end3.i.i.i
+if.end11.i.i.i:                                   ; preds = %if.then8.i6.i.i, %if.end3.i.i.i
   store ptr null, ptr %handle_.i.i.i.i, align 8
   br label %_ZN4node7binding4DLib5CloseEv.exit.i.i
 
@@ -3424,24 +3416,22 @@ if.end3.i88.i.i.i:                                ; preds = %_ZL16libc_may_be_mu
   %71 = load ptr, ptr %handle_.i.i.i.i, align 8
   %call5.i89.i.i.i = tail call i32 @dlclose(ptr noundef %71) #22
   %cmp6.i90.i.i.i = icmp eq i32 %call5.i89.i.i.i, 0
-  br i1 %cmp6.i90.i.i.i, label %if.then7.i92.i.i.i, label %if.end11.i91.i.i.i
+  %has_entry_in_global_handle_map_.i91.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %72 = load i8, ptr %has_entry_in_global_handle_map_.i91.i.i.i, align 8
+  %tobool.i92.i.i.i = trunc i8 %72 to i1
+  %or.cond.i93.i.i.i = select i1 %cmp6.i90.i.i.i, i1 %tobool.i92.i.i.i, i1 false
+  br i1 %or.cond.i93.i.i.i, label %if.then8.i95.i.i.i, label %if.end11.i94.i.i.i
 
-if.then7.i92.i.i.i:                               ; preds = %if.end3.i88.i.i.i
-  %has_entry_in_global_handle_map_.i93.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %72 = load i8, ptr %has_entry_in_global_handle_map_.i93.i.i.i, align 8
-  %tobool.i94.i.i.i = trunc i8 %72 to i1
-  br i1 %tobool.i94.i.i.i, label %if.then8.i95.i.i.i, label %if.end11.i91.i.i.i
-
-if.then8.i95.i.i.i:                               ; preds = %if.then7.i92.i.i.i
+if.then8.i95.i.i.i:                               ; preds = %if.end3.i88.i.i.i
   %73 = load ptr, ptr %handle_.i.i.i.i, align 8
   tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %73)
-  br label %if.end11.i91.i.i.i
+  br label %if.end11.i94.i.i.i
 
-if.end11.i91.i.i.i:                               ; preds = %if.then8.i95.i.i.i, %if.then7.i92.i.i.i, %if.end3.i88.i.i.i
+if.end11.i94.i.i.i:                               ; preds = %if.then8.i95.i.i.i, %if.end3.i88.i.i.i
   store ptr null, ptr %handle_.i.i.i.i, align 8
   br label %_ZN4node7binding4DLib5CloseEv.exit96.i.i.i
 
-_ZN4node7binding4DLib5CloseEv.exit96.i.i.i:       ; preds = %if.end11.i91.i.i.i, %_ZL16libc_may_be_muslv.exit.i86.i.i.i, %if.end91.i.i.i
+_ZN4node7binding4DLib5CloseEv.exit96.i.i.i:       ; preds = %if.end11.i94.i.i.i, %_ZL16libc_may_be_muslv.exit.i86.i.i.i, %if.end91.i.i.i
   %74 = load ptr, ptr %__functor.val, align 8
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %__functor.val, i64 32
@@ -3535,24 +3525,22 @@ if.end3.i110.i.i.i:                               ; preds = %_ZL16libc_may_be_mu
   %98 = load ptr, ptr %handle_.i.i.i.i, align 8
   %call5.i111.i.i.i = tail call i32 @dlclose(ptr noundef %98) #22
   %cmp6.i112.i.i.i = icmp eq i32 %call5.i111.i.i.i, 0
-  br i1 %cmp6.i112.i.i.i, label %if.then7.i114.i.i.i, label %if.end11.i113.i.i.i
+  %has_entry_in_global_handle_map_.i113.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %99 = load i8, ptr %has_entry_in_global_handle_map_.i113.i.i.i, align 8
+  %tobool.i114.i.i.i = trunc i8 %99 to i1
+  %or.cond.i115.i.i.i = select i1 %cmp6.i112.i.i.i, i1 %tobool.i114.i.i.i, i1 false
+  br i1 %or.cond.i115.i.i.i, label %if.then8.i117.i.i.i, label %if.end11.i116.i.i.i
 
-if.then7.i114.i.i.i:                              ; preds = %if.end3.i110.i.i.i
-  %has_entry_in_global_handle_map_.i115.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %99 = load i8, ptr %has_entry_in_global_handle_map_.i115.i.i.i, align 8
-  %tobool.i116.i.i.i = trunc i8 %99 to i1
-  br i1 %tobool.i116.i.i.i, label %if.then8.i117.i.i.i, label %if.end11.i113.i.i.i
-
-if.then8.i117.i.i.i:                              ; preds = %if.then7.i114.i.i.i
+if.then8.i117.i.i.i:                              ; preds = %if.end3.i110.i.i.i
   %100 = load ptr, ptr %handle_.i.i.i.i, align 8
   tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %100)
-  br label %if.end11.i113.i.i.i
+  br label %if.end11.i116.i.i.i
 
-if.end11.i113.i.i.i:                              ; preds = %if.then8.i117.i.i.i, %if.then7.i114.i.i.i, %if.end3.i110.i.i.i
+if.end11.i116.i.i.i:                              ; preds = %if.then8.i117.i.i.i, %if.end3.i110.i.i.i
   store ptr null, ptr %handle_.i.i.i.i, align 8
   br label %_ZN4node7binding4DLib5CloseEv.exit118.i.i.i
 
-_ZN4node7binding4DLib5CloseEv.exit118.i.i.i:      ; preds = %if.end11.i113.i.i.i, %_ZL16libc_may_be_muslv.exit.i108.i.i.i, %if.else142.i.i.i
+_ZN4node7binding4DLib5CloseEv.exit118.i.i.i:      ; preds = %if.end11.i116.i.i.i, %_ZL16libc_may_be_muslv.exit.i108.i.i.i, %if.else142.i.i.i
   %101 = load ptr, ptr %__functor.val, align 8
   %102 = load ptr, ptr %101, align 8
   %isolate_.i.i119.i.i.i = getelementptr inbounds nuw i8, ptr %102, i64 88

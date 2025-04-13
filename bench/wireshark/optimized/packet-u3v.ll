@@ -873,19 +873,19 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread239, label %5
+  br i1 %.not, label %.thread241, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8
-  %.not215 = icmp eq ptr %7, null
-  br i1 %.not215, label %.thread239, label %8
+  %.not217 = icmp eq ptr %7, null
+  br i1 %.not217, label %.thread241, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load ptr, ptr %9, align 8
-  %.not216 = icmp eq ptr %10, null
-  br i1 %.not216, label %11, label %18
+  %.not218 = icmp eq ptr %10, null
+  br i1 %.not218, label %11, label %18
 
 11:                                               ; preds = %8
   %12 = tail call ptr @wmem_file_scope()
@@ -901,18 +901,18 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %20 = load i32, ptr %19, align 8
-  %.not217 = icmp eq i32 %20, 1
-  br i1 %.not217, label %21, label %.thread239
+  %.not219 = icmp eq i32 %20, 1
+  br i1 %.not219, label %21, label %.thread241
 
 21:                                               ; preds = %18, %11
-  %.0203 = phi ptr [ %10, %18 ], [ %13, %11 ]
+  %.0205 = phi ptr [ %10, %18 ], [ %13, %11 ]
   %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
   %23 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %24 = icmp ugt i32 %23, 3
   %25 = add i32 %22, -1129722709
   %switch.and = and i32 %25, -33554433
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  %.0204 = select i1 %24, i1 %switch.selectcmp, i1 false
+  %.0206 = select i1 %24, i1 %switch.selectcmp, i1 false
   %26 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %27 = icmp ugt i32 %26, 3
   br i1 %27, label %28, label %29
@@ -927,14 +927,14 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %31 = load i8, ptr %30, align 4
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds nuw i8, ptr %.0203, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.0205, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, %32
-  %brmerge = select i1 %35, i1 true, i1 %.0204
-  br i1 %brmerge, label %.thread, label %.thread236
+  %brmerge = select i1 %35, i1 true, i1 %.0206
+  br i1 %brmerge, label %.thread, label %.thread238
 
 .thread:                                          ; preds = %29, %28, %28
-  %.0205228 = phi i1 [ %35, %29 ], [ true, %28 ], [ true, %28 ]
+  %.0207230 = phi i1 [ %35, %29 ], [ true, %28 ], [ true, %28 ]
   %36 = load ptr, ptr %6, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i16, ptr %37, align 4
@@ -955,12 +955,12 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %47
 
 47:                                               ; preds = %.thread, %40, %44
-  br i1 %.0204, label %48, label %155
+  br i1 %.0206, label %48, label %155
 
-.thread236:                                       ; preds = %29
-  br i1 %.0204, label %48, label %.thread239
+.thread238:                                       ; preds = %29
+  br i1 %.0206, label %48, label %.thread241
 
-48:                                               ; preds = %.thread236, %47
+48:                                               ; preds = %.thread238, %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
   tail call void @col_set_str(ptr noundef %50, i32 noundef 35, ptr noundef nonnull @.str.1)
@@ -973,8 +973,8 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %56 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
   %57 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6)
   %58 = zext i16 %57 to i32
-  %.not235 = icmp eq i32 %56, 1129722709
-  switch i32 %56, label %.thread239 [
+  %.not237 = icmp eq i32 %56, 1129722709
+  switch i32 %56, label %.thread241 [
     i32 1163277141, label %59
     i32 1129722709, label %59
   ]
@@ -1004,7 +1004,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %93
 
 77:                                               ; preds = %59
-  br i1 %.not235, label %78, label %.thread239
+  br i1 %.not237, label %78, label %.thread241
 
 78:                                               ; preds = %77
   %79 = tail call ptr @val_to_str(i32 noundef %58, ptr noundef nonnull @command_names, ptr noundef nonnull @.str.623)
@@ -1026,16 +1026,16 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %93
 
 93:                                               ; preds = %78, %62
-  %.0208 = phi ptr [ %67, %62 ], [ %83, %78 ]
-  %.0207 = phi i1 [ true, %62 ], [ %92, %78 ]
+  %.0210 = phi ptr [ %67, %62 ], [ %83, %78 ]
+  %.0209 = phi i1 [ true, %62 ], [ %92, %78 ]
   %94 = load i32, ptr @hf_u3v_command_id, align 4
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef %.0208, i32 noundef %94, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %.0210, i32 noundef %94, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
   %96 = load i32, ptr @hf_u3v_length, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %.0208, i32 noundef %96, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648)
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %.0210, i32 noundef %96, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648)
   %98 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 8)
   %99 = zext i16 %98 to i32
   %100 = load i32, ptr @hf_u3v_request_id, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %.0208, i32 noundef %100, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
+  %101 = tail call ptr @proto_tree_add_item(ptr noundef %.0210, i32 noundef %100, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
   %102 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 10)
   %103 = zext i16 %102 to i32
   %104 = load i32, ptr @ett_u3v, align 4
@@ -1045,8 +1045,8 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 57
   %109 = load i16, ptr %108, align 1
   %110 = and i16 %109, 8
-  %.not219 = icmp eq i16 %110, 0
-  br i1 %.not219, label %111, label %130
+  %.not221 = icmp eq i16 %110, 0
+  br i1 %.not221, label %111, label %130
 
 111:                                              ; preds = %93
   br i1 %61, label %112, label %123
@@ -1065,17 +1065,17 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %120 = tail call ptr @wmem_file_scope()
   %121 = load i32, ptr @proto_u3v, align 4
   tail call void @p_add_proto_data(ptr noundef %120, ptr noundef %1, i32 noundef %121, i32 noundef %103, ptr noundef %114)
-  %122 = getelementptr inbounds nuw i8, ptr %.0203, i64 56
+  %122 = getelementptr inbounds nuw i8, ptr %.0205, i64 56
   store ptr %114, ptr %122, align 8
   br label %134
 
 123:                                              ; preds = %111
-  %124 = getelementptr inbounds nuw i8, ptr %.0203, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %.0205, i64 56
   %125 = load ptr, ptr %124, align 8
-  %.not220 = icmp eq ptr %125, null
-  br i1 %.not220, label %.thread229, label %.thread232
+  %.not222 = icmp eq ptr %125, null
+  br i1 %.not222, label %.thread231, label %.thread234
 
-.thread232:                                       ; preds = %123
+.thread234:                                       ; preds = %123
   %126 = load i32, ptr %107, align 8
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i32 %126, ptr %127, align 4
@@ -1092,10 +1092,10 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 134:                                              ; preds = %112, %130
   %.0 = phi ptr [ %133, %130 ], [ %114, %112 ]
-  %.not221 = icmp eq ptr %.0, null
-  br i1 %.not221, label %.thread229, label %140
+  %.not223 = icmp eq ptr %.0, null
+  br i1 %.not223, label %.thread231, label %140
 
-.thread229:                                       ; preds = %123, %134
+.thread231:                                       ; preds = %123, %134
   %135 = tail call ptr @wmem_packet_scope()
   %136 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %135, i64 noundef 48) #6
   store i32 0, ptr %136, align 8
@@ -1106,8 +1106,8 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(16) %139, i64 16, i1 false)
   br label %140
 
-140:                                              ; preds = %.thread232, %.thread229, %134
-  %.1 = phi ptr [ %.0, %134 ], [ %136, %.thread229 ], [ %125, %.thread232 ]
+140:                                              ; preds = %.thread234, %.thread231, %134
+  %.1 = phi ptr [ %.0, %134 ], [ %136, %.thread231 ], [ %125, %.thread234 ]
   switch i16 %57, label %150 [
     i16 2048, label %141
     i16 2050, label %142
@@ -1118,11 +1118,11 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 141:                                              ; preds = %140
-  tail call fastcc void @dissect_u3v_read_mem_cmd(ptr noundef %105, ptr noundef %0, ptr noundef %1, i32 noundef %99, ptr noundef %.0203, ptr noundef %.1)
+  tail call fastcc void @dissect_u3v_read_mem_cmd(ptr noundef %105, ptr noundef %0, ptr noundef %1, i32 noundef %99, ptr noundef %.0205, ptr noundef %.1)
   br label %153
 
 142:                                              ; preds = %140
-  tail call fastcc void @dissect_u3v_write_mem_cmd(ptr noundef %105, ptr noundef %0, ptr noundef %1, i32 noundef %99, ptr noundef %.0203, ptr noundef %.1)
+  tail call fastcc void @dissect_u3v_write_mem_cmd(ptr noundef %105, ptr noundef %0, ptr noundef %1, i32 noundef %99, ptr noundef %.0205, ptr noundef %.1)
   br label %153
 
 143:                                              ; preds = %140
@@ -1130,20 +1130,20 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %153
 
 144:                                              ; preds = %140
-  br i1 %.0207, label %145, label %153
+  br i1 %.0209, label %145, label %153
 
 145:                                              ; preds = %144
   %.1.val = load i32, ptr %.1, align 8
   %146 = getelementptr i8, ptr %.1, i64 32
-  %.1.val222 = load i64, ptr %146, align 8
-  tail call fastcc void @dissect_u3v_read_mem_ack(ptr noundef %105, ptr noundef %0, ptr noundef %1, i32 noundef %99, ptr noundef %.0203, i32 %.1.val, i64 %.1.val222)
+  %.1.val224 = load i64, ptr %146, align 8
+  tail call fastcc void @dissect_u3v_read_mem_ack(ptr noundef %105, ptr noundef %0, ptr noundef %1, i32 noundef %99, ptr noundef %.0205, i32 %.1.val, i64 %.1.val224)
   br label %153
 
 147:                                              ; preds = %140
-  %.1.val223 = load i32, ptr %.1, align 8
+  %.1.val225 = load i32, ptr %.1, align 8
   %148 = getelementptr i8, ptr %.1, i64 32
-  %.1.val224 = load i64, ptr %148, align 8
-  tail call fastcc void @dissect_u3v_write_mem_ack(ptr noundef %105, ptr noundef %0, ptr noundef %1, i32 noundef %99, ptr noundef %.0203, i32 %.1.val223, i64 %.1.val224)
+  %.1.val226 = load i64, ptr %148, align 8
+  tail call fastcc void @dissect_u3v_write_mem_ack(ptr noundef %105, ptr noundef %0, ptr noundef %1, i32 noundef %99, ptr noundef %.0205, i32 %.1.val225, i64 %.1.val226)
   br label %153
 
 149:                                              ; preds = %140
@@ -1158,10 +1158,10 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 153:                                              ; preds = %144, %145, %150, %149, %147, %143, %142, %141
   %154 = add nuw nsw i32 %99, 12
-  br label %.thread239
+  br label %.thread241
 
 155:                                              ; preds = %47
-  br i1 %.0205228, label %156, label %.thread239
+  br i1 %.0207230, label %156, label %.thread241
 
 156:                                              ; preds = %155
   %157 = load ptr, ptr %6, align 8
@@ -1206,11 +1206,11 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 178:                                              ; preds = %175, %176, %177, %156
   %179 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %.thread239
+  br label %.thread241
 
-.thread239:                                       ; preds = %.thread236, %155, %77, %48, %18, %4, %5, %178, %153
-  %.0206 = phi i32 [ %154, %153 ], [ %179, %178 ], [ 0, %5 ], [ 0, %4 ], [ 0, %18 ], [ 0, %48 ], [ 0, %77 ], [ 0, %155 ], [ 0, %.thread236 ]
-  ret i32 %.0206
+.thread241:                                       ; preds = %.thread238, %155, %77, %48, %18, %4, %5, %178, %153
+  %.0208 = phi i32 [ %154, %153 ], [ %179, %178 ], [ 0, %5 ], [ 0, %4 ], [ 0, %18 ], [ 0, %48 ], [ 0, %77 ], [ 0, %155 ], [ 0, %.thread238 ]
+  ret i32 %.0208
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -2275,22 +2275,20 @@ define internal fastcc void @dissect_u3v_register(i64 noundef %0, ptr noundef %1
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, -1
-  %or.cond.not = icmp ult i64 %89, %0
-  br i1 %or.cond.not, label %90, label %96
+  %or.cond204.not = icmp ult i64 %89, %0
+  br i1 %or.cond204.not, label %90, label %96
 
 90:                                               ; preds = %86
   %91 = sub nuw i64 %0, %88
   %92 = tail call i64 @llvm.fshl.i64(i64 %91, i64 %91, i64 62)
   %93 = icmp ult i64 %92, 17
-  br i1 %93, label %switch.hole_check, label %96
-
-switch.hole_check:                                ; preds = %90
-  %switch.maskindex = trunc nuw i64 %92 to i32
+  %switch.maskindex = trunc i64 %92 to i32
   %switch.shifted = lshr i32 93675, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %96
+  %or.cond = select i1 %93, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %96
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %90
   %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table.dissect_u3v_register, i64 0, i64 %92
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.gep1 = getelementptr inbounds nuw [17 x i32], ptr @switch.table.dissect_u3v_register.7, i64 0, i64 %92
@@ -2299,62 +2297,60 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %95 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %94, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load2, i32 noundef -2147483648)
   br label %96
 
-96:                                               ; preds = %switch.hole_check, %90, %switch.lookup, %86
+96:                                               ; preds = %90, %switch.lookup, %86
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %98 = load i64, ptr %97, align 8
   %99 = add i64 %98, -1
-  %or.cond199.not = icmp ult i64 %99, %0
-  br i1 %or.cond199.not, label %100, label %106
+  %or.cond205.not = icmp ult i64 %99, %0
+  br i1 %or.cond205.not, label %100, label %106
 
 100:                                              ; preds = %96
   %101 = sub nuw i64 %0, %98
   %102 = tail call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 62)
   %103 = icmp ult i64 %102, 12
-  br i1 %103, label %switch.hole_check4, label %106
+  %switch.maskindex5 = trunc i64 %102 to i16
+  %switch.shifted6 = lshr i16 4087, %switch.maskindex5
+  %switch.lobit7 = trunc i16 %switch.shifted6 to i1
+  %or.cond12 = select i1 %103, i1 %switch.lobit7, i1 false
+  br i1 %or.cond12, label %switch.lookup4, label %106
 
-switch.hole_check4:                               ; preds = %100
-  %switch.maskindex6 = trunc nuw i64 %102 to i16
-  %switch.shifted7 = lshr i16 4087, %switch.maskindex6
-  %switch.lobit8 = trunc i16 %switch.shifted7 to i1
-  br i1 %switch.lobit8, label %switch.lookup5, label %106
-
-switch.lookup5:                                   ; preds = %switch.hole_check4
-  %switch.gep9 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.dissect_u3v_register.8, i64 0, i64 %102
-  %switch.load10 = load ptr, ptr %switch.gep9, align 8
-  %switch.gep11 = getelementptr inbounds nuw [12 x i32], ptr @switch.table.dissect_u3v_register.9, i64 0, i64 %102
-  %switch.load12 = load i32, ptr %switch.gep11, align 4
-  %104 = load i32, ptr %switch.load10, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %104, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load12, i32 noundef -2147483648)
+switch.lookup4:                                   ; preds = %100
+  %switch.gep8 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.dissect_u3v_register.8, i64 0, i64 %102
+  %switch.load9 = load ptr, ptr %switch.gep8, align 8
+  %switch.gep10 = getelementptr inbounds nuw [12 x i32], ptr @switch.table.dissect_u3v_register.9, i64 0, i64 %102
+  %switch.load11 = load i32, ptr %switch.gep10, align 4
+  %104 = load i32, ptr %switch.load9, align 4
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %104, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load11, i32 noundef -2147483648)
   br label %106
 
-106:                                              ; preds = %switch.hole_check4, %100, %switch.lookup5, %96
+106:                                              ; preds = %100, %switch.lookup4, %96
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, -1
-  %or.cond200.not = icmp ult i64 %109, %0
-  br i1 %or.cond200.not, label %110, label %116
+  %or.cond206.not = icmp ult i64 %109, %0
+  br i1 %or.cond206.not, label %110, label %116
 
 110:                                              ; preds = %106
   %111 = sub nuw i64 %0, %108
   switch i64 %111, label %116 [
-    i64 0, label %.sink.split206
+    i64 0, label %.sink.split210
     i64 4, label %112
     i64 8, label %113
   ]
 
 112:                                              ; preds = %110
-  br label %.sink.split206
+  br label %.sink.split210
 
 113:                                              ; preds = %110
-  br label %.sink.split206
+  br label %.sink.split210
 
-.sink.split206:                                   ; preds = %110, %113, %112
+.sink.split210:                                   ; preds = %110, %113, %112
   %hf_u3v_bootstrap_EI_Control.sink = phi ptr [ @hf_u3v_bootstrap_Maximum_Event_Transfer_Length, %112 ], [ @hf_u3v_bootstrap_Event_Test_Control, %113 ], [ @hf_u3v_bootstrap_EI_Control, %110 ]
   %114 = load i32, ptr %hf_u3v_bootstrap_EI_Control.sink, align 4
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %114, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   br label %116
 
-116:                                              ; preds = %.sink.split206, %110, %106
+116:                                              ; preds = %.sink.split210, %110, %106
   ret void
 }
 

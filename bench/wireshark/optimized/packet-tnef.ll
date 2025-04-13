@@ -874,25 +874,25 @@ define internal fastcc i32 @dissect_counted_values(ptr noundef %0, i32 noundef %
 
 .lr.ph.preheader:                                 ; preds = %.thread, %15
   %17 = phi i32 [ %14, %.thread ], [ %16, %15 ]
-  %.03238 = phi ptr [ %13, %.thread ], [ %4, %15 ]
+  %.03339 = phi ptr [ %13, %.thread ], [ %4, %15 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.035 = phi i32 [ %24, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.03134 = phi i32 [ %23, %.lr.ph ], [ %17, %.lr.ph.preheader ]
-  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.03134)
+  %.036 = phi i32 [ %24, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.03235 = phi i32 [ %23, %.lr.ph ], [ %17, %.lr.ph.preheader ]
+  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.03235)
   %19 = load i32, ptr @hf_tnef_value_length, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %.03238, i32 noundef %19, ptr noundef %0, i32 noundef %.03134, i32 noundef 4, i32 noundef -2147483648)
-  %21 = add i32 %.03134, 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %.03238, i32 noundef %2, ptr noundef %0, i32 noundef %21, i32 noundef %18, i32 noundef %5)
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %.03339, i32 noundef %19, ptr noundef %0, i32 noundef %.03235, i32 noundef 4, i32 noundef -2147483648)
+  %21 = add i32 %.03235, 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %.03339, i32 noundef %2, ptr noundef %0, i32 noundef %21, i32 noundef %18, i32 noundef %5)
   %23 = add i32 %18, %21
-  %24 = add nuw i32 %.035, 1
+  %24 = add nuw i32 %.036, 1
   %exitcond.not = icmp eq i32 %24, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
-  %.031.lcssa = phi i32 [ %16, %15 ], [ %23, %.lr.ph ]
-  ret i32 %.031.lcssa
+  %.032.lcssa = phi i32 [ %16, %15 ], [ %23, %.lr.ph ]
+  ret i32 %.032.lcssa
 }
 
 ; Function Attrs: null_pointer_is_valid

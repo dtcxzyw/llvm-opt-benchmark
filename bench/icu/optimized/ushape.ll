@@ -1196,15 +1196,13 @@ _ZL7getLinkDs.exit229.thread:                     ; preds = %_ZL7getLinkDs.exit2
   %137 = load i16, ptr %136, align 2, !tbaa !9
   %switch.tableidx = add i16 %137, -1570
   %138 = icmp ult i16 %switch.tableidx, 6
-  br i1 %138, label %switch.hole_check, label %_ZL7getLinkDs.exit236
-
-switch.hole_check:                                ; preds = %134
-  %switch.maskindex = trunc nuw i16 %switch.tableidx to i8
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 43, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZL7getLinkDs.exit236
+  %or.cond2 = select i1 %138, i1 %switch.lobit, i1 false
+  br i1 %or.cond2, label %switch.lookup, label %_ZL7getLinkDs.exit236
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %134
   %139 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables, i64 0, i64 %139
   %switch.load = load i16, ptr %switch.gep, align 2
@@ -1219,11 +1217,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %145 = load i16, ptr %144, align 2, !tbaa !9
   br label %_ZL7getLinkDs.exit236
 
-_ZL7getLinkDs.exit236:                            ; preds = %switch.hole_check, %134, %switch.lookup, %._crit_edge
-  %.2177 = phi i32 [ %.0175282, %._crit_edge ], [ 1, %switch.lookup ], [ 1, %134 ], [ 1, %switch.hole_check ]
-  %.2163 = phi i16 [ %.0161288, %._crit_edge ], [ %.0165286, %switch.lookup ], [ %.0165286, %134 ], [ %.0165286, %switch.hole_check ]
-  %.2159 = phi i16 [ %.0157289, %._crit_edge ], [ %145, %switch.lookup ], [ 0, %134 ], [ 0, %switch.hole_check ]
-  %.3 = phi i32 [ %.1150293, %._crit_edge ], [ %.0151291, %switch.lookup ], [ %.1150293, %134 ], [ %.1150293, %switch.hole_check ]
+_ZL7getLinkDs.exit236:                            ; preds = %134, %switch.lookup, %._crit_edge
+  %.2177 = phi i32 [ %.0175282, %._crit_edge ], [ 1, %switch.lookup ], [ 1, %134 ]
+  %.2163 = phi i16 [ %.0161288, %._crit_edge ], [ %.0165286, %switch.lookup ], [ %.0165286, %134 ]
+  %.2159 = phi i16 [ %.0157289, %._crit_edge ], [ %145, %switch.lookup ], [ 0, %134 ]
+  %.3 = phi i32 [ %.1150293, %._crit_edge ], [ %.0151291, %switch.lookup ], [ %.1150293, %134 ]
   %146 = icmp sgt i32 %.3, 0
   br i1 %146, label %147, label %158
 

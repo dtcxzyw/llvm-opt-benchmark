@@ -1182,11 +1182,11 @@ define hidden noundef ptr @_ZN10SerialHeap17mem_allocate_workEmb(ptr noundef non
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %18
 
-18:                                               ; preds = %127, %3
-  %.039 = phi i32 [ 0, %3 ], [ %.140, %127 ]
-  %.038 = phi i32 [ 1, %3 ], [ %128, %127 ]
-  %.036 = phi i32 [ undef, %3 ], [ %.137, %127 ]
-  %.0 = phi ptr [ undef, %3 ], [ %.2, %127 ]
+18:                                               ; preds = %128, %3
+  %.039 = phi i32 [ 0, %3 ], [ %.140, %128 ]
+  %.038 = phi i32 [ 1, %3 ], [ %129, %128 ]
+  %.036 = phi i32 [ undef, %3 ], [ %.137, %128 ]
+  %.0 = phi ptr [ undef, %3 ], [ %.2, %128 ]
   %19 = load ptr, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 432
   %21 = load i64, ptr %20, align 8
@@ -1202,7 +1202,7 @@ define hidden noundef ptr @_ZN10SerialHeap17mem_allocate_workEmb(ptr noundef non
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(744) %19, i64 noundef %1, i1 noundef zeroext %2) #16
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %30, label %129
+  br i1 %.not, label %30, label %130
 
 30:                                               ; preds = %25, %18
   %31 = load ptr, ptr @Heap_lock, align 8
@@ -1249,185 +1249,185 @@ _ZNK10SerialHeap38should_try_older_generation_allocationEm.exit: ; preds = %35, 
   %52 = icmp uge i64 %51, %1
   %spec.select.i.i = select i1 %2, i1 true, i1 %52
   %53 = select i1 %6, i1 %spec.select.i.i, i1 false
-  br i1 %53, label %54, label %59
+  br i1 %53, label %54, label %60
 
 54:                                               ; preds = %_ZNK10SerialHeap38should_try_older_generation_allocationEm.exit
   %55 = load ptr, ptr %48, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(744) %48, i64 noundef %1, i1 noundef zeroext %2) #16
-  %.not.i = icmp ne ptr %58, null
-  %brmerge.i = or i1 %47, %.not.i
-  br i1 %brmerge.i, label %_ZN10SerialHeap18attempt_allocationEmbb.exit, label %59
+  %59 = icmp ne ptr %58, null
+  %or.cond.i = or i1 %47, %59
+  br i1 %or.cond.i, label %_ZN10SerialHeap18attempt_allocationEmbb.exit, label %60
 
-59:                                               ; preds = %54, %_ZNK10SerialHeap38should_try_older_generation_allocationEm.exit
-  br i1 %.0.i.not.i, label %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread, label %60
+60:                                               ; preds = %54, %_ZNK10SerialHeap38should_try_older_generation_allocationEm.exit
+  br i1 %.0.i.not.i, label %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread, label %61
 
-60:                                               ; preds = %59
-  %61 = load ptr, ptr %9, align 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %64 = load ptr, ptr %63, align 8
-  %65 = call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(248) %61, i64 noundef %1, i1 noundef zeroext false) #16
+61:                                               ; preds = %60
+  %62 = load ptr, ptr %9, align 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %65 = load ptr, ptr %64, align 8
+  %66 = call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(248) %62, i64 noundef %1, i1 noundef zeroext false) #16
   br label %_ZN10SerialHeap18attempt_allocationEmbb.exit
 
-_ZN10SerialHeap18attempt_allocationEmbb.exit:     ; preds = %54, %60
-  %.013.i = phi ptr [ %58, %54 ], [ %65, %60 ]
-  %.not46 = icmp eq ptr %.013.i, null
+_ZN10SerialHeap18attempt_allocationEmbb.exit:     ; preds = %54, %61
+  %.014.i = phi ptr [ %58, %54 ], [ %66, %61 ]
+  %.not46 = icmp eq ptr %.014.i, null
   br i1 %.not46, label %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
 
-_ZN10SerialHeap18attempt_allocationEmbb.exit.thread: ; preds = %59, %_ZN10SerialHeap18attempt_allocationEmbb.exit
-  %66 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+_ZN10SerialHeap18attempt_allocationEmbb.exit.thread: ; preds = %60, %_ZN10SerialHeap18attempt_allocationEmbb.exit
+  %67 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
 _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread
-  %68 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
-  %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %70, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+  %69 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %71, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-70:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit
-  br i1 %2, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57, label %71
+71:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit
+  br i1 %2, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57, label %72
 
-71:                                               ; preds = %70
-  %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 112
-  %74 = load ptr, ptr %73, align 8
-  %75 = call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(192) %0) #16
-  br i1 %75, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread, label %76
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %0, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 112
+  %75 = load ptr, ptr %74, align 8
+  %76 = call noundef zeroext i1 %75(ptr noundef nonnull align 8 dereferenceable(192) %0) #16
+  br i1 %76, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread, label %77
 
-76:                                               ; preds = %71
-  br i1 %8, label %.thread.i, label %77
+77:                                               ; preds = %72
+  br i1 %8, label %.thread.i, label %78
 
-77:                                               ; preds = %76
-  %78 = load ptr, ptr %9, align 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  %81 = load ptr, ptr %80, align 8
-  %82 = call noundef ptr %81(ptr noundef nonnull align 8 dereferenceable(248) %78, i64 noundef %1, i1 noundef zeroext false) #16
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %.thread.i, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %9, align 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
+  %82 = load ptr, ptr %81, align 8
+  %83 = call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(248) %79, i64 noundef %1, i1 noundef zeroext false) #16
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %.thread.i, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
 
-.thread.i:                                        ; preds = %77, %76
-  %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 432
-  %86 = load i64, ptr %85, align 8
-  %87 = add i64 %86, -1
-  %88 = icmp uge i64 %87, %1
-  %89 = select i1 %6, i1 %88, i1 false
-  br i1 %89, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread
+.thread.i:                                        ; preds = %78, %77
+  %85 = load ptr, ptr %5, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 432
+  %87 = load i64, ptr %86, align 8
+  %88 = add i64 %87, -1
+  %89 = icmp uge i64 %88, %1
+  %90 = select i1 %6, i1 %89, i1 false
+  br i1 %90, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread
 
 _ZN10SerialHeap24expand_heap_and_allocateEmb.exit: ; preds = %.thread.i
-  %90 = load ptr, ptr %84, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
-  %92 = load ptr, ptr %91, align 8
-  %93 = call noundef ptr %92(ptr noundef nonnull align 8 dereferenceable(744) %84, i64 noundef %1, i1 noundef zeroext false) #16
-  %.not47 = icmp eq ptr %93, null
+  %91 = load ptr, ptr %85, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 48
+  %93 = load ptr, ptr %92, align 8
+  %94 = call noundef ptr %93(ptr noundef nonnull align 8 dereferenceable(744) %85, i64 noundef %1, i1 noundef zeroext false) #16
+  %.not47 = icmp eq ptr %94, null
   br i1 %.not47, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
 
-_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread: ; preds = %.thread.i, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit, %71
-  %94 = zext i32 %.039 to i64
-  %95 = load i64, ptr @GCLockerRetryAllocationCount, align 8
-  %96 = icmp ult i64 %95, %94
-  br i1 %96, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57, label %97
+_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread: ; preds = %.thread.i, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit, %72
+  %95 = zext i32 %.039 to i64
+  %96 = load i64, ptr @GCLockerRetryAllocationCount, align 8
+  %97 = icmp ult i64 %96, %95
+  br i1 %97, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57, label %98
 
-97:                                               ; preds = %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread
-  %98 = load ptr, ptr %11, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1308
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %104, label %_ZN13MutexUnlockerD2Ev.exit
+98:                                               ; preds = %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread
+  %99 = load ptr, ptr %11, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1308
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp sgt i32 %101, 0
+  br i1 %102, label %105, label %_ZN13MutexUnlockerD2Ev.exit
 
-_ZN13MutexUnlockerD2Ev.exit:                      ; preds = %97
-  %102 = load ptr, ptr @Heap_lock, align 8
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %102) #16
+_ZN13MutexUnlockerD2Ev.exit:                      ; preds = %98
+  %103 = load ptr, ptr @Heap_lock, align 8
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %103) #16
   call void @_ZN8GCLocker17stall_until_clearEv() #16
-  %103 = add i32 %.039, 1
-  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %102) #16
+  %104 = add i32 %.039, 1
+  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %103) #16
   br label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
 
-104:                                              ; preds = %97
-  %105 = load i8, ptr @CheckJNICalls, align 1
-  %106 = trunc i8 %105 to i1
-  br i1 %106, label %107, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
+105:                                              ; preds = %98
+  %106 = load i8, ptr @CheckJNICalls, align 1
+  %107 = trunc i8 %106 to i1
+  br i1 %107, label %108, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %108, align 1
+108:                                              ; preds = %105
+  %109 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %109, align 1
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.14, i32 noundef 370, ptr noundef nonnull @.str.15) #17
   unreachable
 
 _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread, %_ZN8GCLocker22is_active_and_needs_gcEv.exit
-  %109 = load i32, ptr %10, align 8
+  %110 = load i32, ptr %10, align 8
   br label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
 
-_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57: ; preds = %77, %104, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit, %70, %_ZN10SerialHeap18attempt_allocationEmbb.exit, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread, %_ZN13MutexUnlockerD2Ev.exit
-  %.140 = phi i32 [ %103, %_ZN13MutexUnlockerD2Ev.exit ], [ %.039, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.039, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %.039, %70 ], [ %.039, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ %.039, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ %.039, %104 ], [ %.039, %77 ]
-  %.137 = phi i32 [ %.036, %_ZN13MutexUnlockerD2Ev.exit ], [ %109, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.036, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %.036, %70 ], [ %.036, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ %.036, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ %.036, %104 ], [ %.036, %77 ]
-  %.034 = phi i32 [ 4, %_ZN13MutexUnlockerD2Ev.exit ], [ 0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ 1, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ 1, %70 ], [ 1, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ 1, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ 1, %104 ], [ 1, %77 ]
-  %.2 = phi ptr [ %.0, %_ZN13MutexUnlockerD2Ev.exit ], [ %.0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.013.i, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ null, %70 ], [ %93, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ null, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ null, %104 ], [ %82, %77 ]
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %110
+_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57: ; preds = %78, %105, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit, %71, %_ZN10SerialHeap18attempt_allocationEmbb.exit, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread, %_ZN13MutexUnlockerD2Ev.exit
+  %.140 = phi i32 [ %104, %_ZN13MutexUnlockerD2Ev.exit ], [ %.039, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.039, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %.039, %71 ], [ %.039, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ %.039, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ %.039, %105 ], [ %.039, %78 ]
+  %.137 = phi i32 [ %.036, %_ZN13MutexUnlockerD2Ev.exit ], [ %110, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.036, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %.036, %71 ], [ %.036, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ %.036, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ %.036, %105 ], [ %.036, %78 ]
+  %.034 = phi i32 [ 4, %_ZN13MutexUnlockerD2Ev.exit ], [ 0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ 1, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ 1, %71 ], [ 1, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ 1, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ 1, %105 ], [ 1, %78 ]
+  %.2 = phi ptr [ %.0, %_ZN13MutexUnlockerD2Ev.exit ], [ %.0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.014.i, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ null, %71 ], [ %94, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ null, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ null, %105 ], [ %83, %78 ]
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %111
 
-110:                                              ; preds = %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
+111:                                              ; preds = %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %31) #16
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57, %110
-  switch i32 %.034, label %130 [
-    i32 0, label %111
-    i32 1, label %129
-    i32 4, label %127
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57, %111
+  switch i32 %.034, label %131 [
+    i32 0, label %112
+    i32 1, label %130
+    i32 4, label %128
   ]
 
-111:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
+112:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
   call void @_ZN23VM_CollectForAllocationC2EmjN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(57) %4, i64 noundef %1, i32 noundef %.137, i32 noundef 13) #16
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV29VM_SerialCollectForAllocation, i64 16), ptr %4, align 8
   store i8 %12, ptr %13, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #16
-  %112 = load i8, ptr %14, align 1
-  %113 = trunc i8 %112 to i1
-  br i1 %113, label %123, label %114
+  %113 = load i8, ptr %14, align 1
+  %114 = trunc i8 %113 to i1
+  br i1 %114, label %124, label %115
 
-114:                                              ; preds = %111
-  %115 = load i64, ptr @QueuedAllocationWarningCount, align 8
-  %.not48 = icmp eq i64 %115, 0
-  br i1 %.not48, label %.thread, label %116
+115:                                              ; preds = %112
+  %116 = load i64, ptr @QueuedAllocationWarningCount, align 8
+  %.not48 = icmp eq i64 %116, 0
+  br i1 %.not48, label %.thread, label %117
 
-116:                                              ; preds = %114
-  %117 = zext i32 %.038 to i64
-  %118 = urem i64 %117, %115
-  %119 = icmp eq i64 %118, 0
-  br i1 %119, label %120, label %.thread
+117:                                              ; preds = %115
+  %118 = zext i32 %.038 to i64
+  %119 = urem i64 %118, %116
+  %120 = icmp eq i64 %119, 0
+  br i1 %120, label %121, label %.thread
 
-120:                                              ; preds = %116
-  %121 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not65 = icmp eq ptr %121, null
-  br i1 %.not65, label %.thread, label %122
+121:                                              ; preds = %117
+  %122 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not65 = icmp eq ptr %122, null
+  br i1 %.not65, label %.thread, label %123
 
-122:                                              ; preds = %120
+123:                                              ; preds = %121
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.16, i32 noundef %.038, i64 noundef %1, ptr noundef nonnull %15)
   br label %.thread
 
-.thread:                                          ; preds = %122, %120, %116, %114
+.thread:                                          ; preds = %123, %121, %117, %115
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %4) #16
-  br label %127
+  br label %128
 
-123:                                              ; preds = %111
-  %124 = load ptr, ptr %16, align 8
-  %125 = load i8, ptr %17, align 8
-  %126 = trunc i8 %125 to i1
+124:                                              ; preds = %112
+  %125 = load ptr, ptr %16, align 8
+  %126 = load i8, ptr %17, align 8
+  %127 = trunc i8 %126 to i1
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %4) #16
-  br i1 %126, label %127, label %129
+  br i1 %127, label %128, label %130
 
-127:                                              ; preds = %.thread, %123, %_ZN11MutexLockerD2Ev.exit
-  %128 = add i32 %.038, 1
+128:                                              ; preds = %.thread, %124, %_ZN11MutexLockerD2Ev.exit
+  %129 = add i32 %.038, 1
   br label %18, !llvm.loop !15
 
-129:                                              ; preds = %123, %25, %_ZN11MutexLockerD2Ev.exit
-  %.1 = phi ptr [ %.2, %_ZN11MutexLockerD2Ev.exit ], [ %124, %123 ], [ %29, %25 ]
+130:                                              ; preds = %124, %25, %_ZN11MutexLockerD2Ev.exit
+  %.1 = phi ptr [ %.2, %_ZN11MutexLockerD2Ev.exit ], [ %125, %124 ], [ %29, %25 ]
   ret ptr %.1
 
-130:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
+131:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
   unreachable
 }
 
@@ -1451,35 +1451,35 @@ define hidden noundef ptr @_ZN10SerialHeap18attempt_allocationEmbb(ptr noundef n
   %spec.select.i = select i1 %2, i1 true, i1 %10
   %11 = icmp ult i64 %1, 2305843009213693952
   %12 = select i1 %11, i1 %spec.select.i, i1 false
-  br i1 %12, label %13, label %18
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(744) %6, i64 noundef %1, i1 noundef zeroext %2) #16
-  %.not = icmp ne ptr %17, null
-  %brmerge = or i1 %3, %.not
-  br i1 %brmerge, label %28, label %18
+  %18 = icmp ne ptr %17, null
+  %or.cond = or i1 %3, %18
+  br i1 %or.cond, label %29, label %19
 
-18:                                               ; preds = %13, %4
-  %19 = add i64 %1, -2305843009213693952
-  %20 = icmp ult i64 %19, -2305843009213693951
-  %.0.i.not = or i1 %2, %20
-  br i1 %.0.i.not, label %28, label %21
+19:                                               ; preds = %13, %4
+  %20 = add i64 %1, -2305843009213693952
+  %21 = icmp ult i64 %20, -2305843009213693951
+  %.0.i.not = or i1 %2, %21
+  br i1 %.0.i.not, label %29, label %22
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %23 = load ptr, ptr %22, align 8
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(248) %23, i64 noundef %1, i1 noundef zeroext false) #16
-  br label %28
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(248) %24, i64 noundef %1, i1 noundef zeroext false) #16
+  br label %29
 
-28:                                               ; preds = %18, %21, %13
-  %.013 = phi ptr [ %17, %13 ], [ %27, %21 ], [ null, %18 ]
-  ret ptr %.013
+29:                                               ; preds = %19, %22, %13
+  %.014 = phi ptr [ %17, %13 ], [ %28, %22 ], [ null, %19 ]
+  ret ptr %.014
 }
 
 declare void @_ZN8GCLocker17stall_until_clearEv() local_unnamed_addr #1
@@ -1738,15 +1738,13 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
   store i32 %125, ptr %123, align 8
   %126 = zext i32 %125 to i64
   %127 = load i64, ptr @VerifyGCStartAt, align 8
-  %.not = icmp ugt i64 %127, %126
-  br i1 %.not, label %135, label %128
-
-128:                                              ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
+  %128 = icmp ule i64 %127, %126
   %129 = load i8, ptr @VerifyBeforeGC, align 1
   %130 = trunc i8 %129 to i1
-  br i1 %130, label %131, label %135
+  %or.cond = select i1 %128, i1 %130, i1 false
+  br i1 %or.cond, label %131, label %135
 
-131:                                              ; preds = %128
+131:                                              ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
   %132 = load ptr, ptr %0, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 280
   %134 = load ptr, ptr %133, align 8
@@ -1754,7 +1752,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
   call void @_ZN8Universe6verifyE12VerifyOptionPKc(i32 noundef 0, ptr noundef nonnull @.str.21) #16
   br label %135
 
-135:                                              ; preds = %131, %128, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
+135:                                              ; preds = %131, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
   %136 = load ptr, ptr %0, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 464
   %138 = load ptr, ptr %137, align 8
@@ -1784,81 +1782,79 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
   br label %154
 
 154:                                              ; preds = %152, %135
-  br i1 %.not, label %159, label %155
+  %155 = load i8, ptr @VerifyAfterGC, align 1
+  %156 = trunc i8 %155 to i1
+  %or.cond3 = select i1 %128, i1 %156, i1 false
+  br i1 %or.cond3, label %157, label %158
 
-155:                                              ; preds = %154
-  %156 = load i8, ptr @VerifyAfterGC, align 1
-  %157 = trunc i8 %156 to i1
-  br i1 %157, label %158, label %159
-
-158:                                              ; preds = %155
+157:                                              ; preds = %154
   call void @_ZN8Universe6verifyE12VerifyOptionPKc(i32 noundef 0, ptr noundef nonnull @.str.22) #16
-  br label %159
+  br label %158
 
-159:                                              ; preds = %158, %155, %154
-  %160 = load ptr, ptr %11, align 8
-  call void @_ZN16DefNewGeneration16compute_new_sizeEv(ptr noundef nonnull align 8 dereferenceable(744) %160) #16
+158:                                              ; preds = %157, %154
+  %159 = load ptr, ptr %11, align 8
+  call void @_ZN16DefNewGeneration16compute_new_sizeEv(ptr noundef nonnull align 8 dereferenceable(744) %159) #16
   call void @_ZNK10SerialHeap17print_heap_changeERK14PreGenGCValues(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(136) %10)
   call void @_ZN13MemoryService18track_memory_usageEv() #16
-  %161 = load ptr, ptr %0, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 472
-  %163 = load ptr, ptr %162, align 8
-  call void %163(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext false) #16
+  %160 = load ptr, ptr %0, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 472
+  %162 = load ptr, ptr %161, align 8
+  call void %162(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext false) #16
   call void @_ZN13CollectedHeap19print_heap_after_gcEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #16
   call void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   call void @_ZN19TraceCollectorStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #16
-  %164 = load ptr, ptr %48, align 8
-  %.not.i.i.i.i = icmp ne ptr %164, null
-  %165 = load ptr, ptr %50, align 8
-  %.not1.i.i.i.i = icmp ne ptr %165, null
+  %163 = load ptr, ptr %48, align 8
+  %.not.i.i.i.i = icmp ne ptr %163, null
+  %164 = load ptr, ptr %50, align 8
+  %.not1.i.i.i.i = icmp ne ptr %164, null
   %or.cond.i.not16.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %.not1.i.i.i.i
-  %166 = load ptr, ptr %51, align 8
-  %167 = icmp ne ptr %166, null
-  %or.cond.i.i.i = select i1 %or.cond.i.not16.i.i.i, i1 true, i1 %167
-  br i1 %or.cond.i.i.i, label %168, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
+  %165 = load ptr, ptr %51, align 8
+  %166 = icmp ne ptr %165, null
+  %or.cond.i.i.i = select i1 %or.cond.i.not16.i.i.i, i1 true, i1 %166
+  br i1 %or.cond.i.i.i, label %167, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
-168:                                              ; preds = %159
-  %169 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #16
-  %170 = extractvalue { i64, i64 } %169, 0
-  %171 = extractvalue { i64, i64 } %169, 1
-  %.pre.i.i.i7 = load ptr, ptr %48, align 8
-  %.not.i5.i.i.i = icmp eq ptr %.pre.i.i.i7, null
-  br i1 %.not.i5.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i, label %172
+167:                                              ; preds = %158
+  %168 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #16
+  %169 = extractvalue { i64, i64 } %168, 0
+  %170 = extractvalue { i64, i64 } %168, 1
+  %.pre.i.i.i10 = load ptr, ptr %48, align 8
+  %.not.i5.i.i.i = icmp eq ptr %.pre.i.i.i10, null
+  br i1 %.not.i5.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i, label %171
 
-172:                                              ; preds = %168
-  %173 = load ptr, ptr %.pre.i.i.i7, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = load ptr, ptr %174, align 8
-  call void %175(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i.i.i7, i64 %170, i64 %171) #16
+171:                                              ; preds = %167
+  %172 = load ptr, ptr %.pre.i.i.i10, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %174 = load ptr, ptr %173, align 8
+  call void %174(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i.i.i10, i64 %169, i64 %170) #16
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
-_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %172, %168, %159
-  %.sroa.5.021.i.i.i = phi i64 [ %171, %168 ], [ %171, %172 ], [ 0, %159 ]
-  %.sroa.0.020.i.i.i = phi i64 [ %170, %168 ], [ %170, %172 ], [ 0, %159 ]
-  %176 = load ptr, ptr %50, align 8
-  %.not.i6.i.i.i = icmp eq ptr %176, null
-  br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %177
+_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %171, %167, %158
+  %.sroa.5.021.i.i.i = phi i64 [ %170, %167 ], [ %170, %171 ], [ 0, %158 ]
+  %.sroa.0.020.i.i.i = phi i64 [ %169, %167 ], [ %169, %171 ], [ 0, %158 ]
+  %175 = load ptr, ptr %50, align 8
+  %.not.i6.i.i.i = icmp eq ptr %175, null
+  br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %176
 
-177:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
-  %178 = load ptr, ptr %176, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %180 = load ptr, ptr %179, align 8
-  call void %180(ptr noundef nonnull align 8 dereferenceable(8) %176, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #16
+176:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
+  %177 = load ptr, ptr %175, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %179 = load ptr, ptr %178, align 8
+  call void %179(ptr noundef nonnull align 8 dereferenceable(8) %175, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #16
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
 
-_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i: ; preds = %177, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
-  %181 = load ptr, ptr %51, align 8
-  %.not.i8.i.i.i6 = icmp eq ptr %181, null
-  br i1 %.not.i8.i.i.i6, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %182
+_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i: ; preds = %176, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
+  %180 = load ptr, ptr %51, align 8
+  %.not.i8.i.i.i9 = icmp eq ptr %180, null
+  br i1 %.not.i8.i.i.i9, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %181
 
-182:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
-  %183 = load ptr, ptr %181, align 8
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = load ptr, ptr %184, align 8
-  call void %185(ptr noundef nonnull align 8 dereferenceable(8) %181, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #16
+181:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
+  %182 = load ptr, ptr %180, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %184 = load ptr, ptr %183, align 8
+  call void %184(ptr noundef nonnull align 8 dereferenceable(8) %180, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #16
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
 
-_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, %182
+_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, %181
   call void @_ZN14GCTraceCPUTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #16
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #16
   call void @_ZN15VM_GC_Operation13notify_gc_endEv() #16
@@ -2168,8 +2164,8 @@ _ZN10SerialHeap20collect_at_safepointEb.exit:     ; preds = %45, %47
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = tail call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(744) %48, i64 noundef %1, i1 noundef zeroext %2) #16
-  %.not.i.not = icmp eq ptr %58, null
-  br i1 %.not.i.not, label %59, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit
+  %.not63 = icmp eq ptr %58, null
+  br i1 %.not63, label %59, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit
 
 59:                                               ; preds = %54, %_ZN10SerialHeap20collect_at_safepointEb.exit
   %60 = add i64 %1, -2305843009213693952
@@ -2234,13 +2230,13 @@ _ZN10SerialHeap24expand_heap_and_allocateEmb.exit38.thread: ; preds = %.thread.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = load ptr, ptr %94, align 8
   %96 = tail call noundef ptr %95(ptr noundef nonnull align 8 dereferenceable(744) %86, i64 noundef %1, i1 noundef zeroext %2) #16
-  %.not.i42.not = icmp eq ptr %96, null
-  br i1 %.not.i42.not, label %97, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit
+  %.not64 = icmp eq ptr %96, null
+  br i1 %.not64, label %97, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit
 
 97:                                               ; preds = %92, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit38.thread
-  br i1 %.0.i.not.i33, label %.thread.i46, label %_ZN10SerialHeap18attempt_allocationEmbb.exit43
+  br i1 %.0.i.not.i33, label %.thread.i45, label %_ZN10SerialHeap18attempt_allocationEmbb.exit42
 
-_ZN10SerialHeap18attempt_allocationEmbb.exit43:   ; preds = %97
+_ZN10SerialHeap18attempt_allocationEmbb.exit42:   ; preds = %97
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %99, align 8
@@ -2250,35 +2246,35 @@ _ZN10SerialHeap18attempt_allocationEmbb.exit43:   ; preds = %97
   %.not29 = icmp eq ptr %103, null
   br i1 %.not29, label %104, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit
 
-104:                                              ; preds = %_ZN10SerialHeap18attempt_allocationEmbb.exit43
+104:                                              ; preds = %_ZN10SerialHeap18attempt_allocationEmbb.exit42
   %105 = load ptr, ptr %98, align 8
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 48
   %108 = load ptr, ptr %107, align 8
   %109 = tail call noundef ptr %108(ptr noundef nonnull align 8 dereferenceable(248) %105, i64 noundef %1, i1 noundef zeroext false) #16
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %.thread.i46, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit
+  br i1 %110, label %.thread.i45, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit
 
-.thread.i46:                                      ; preds = %97, %104
+.thread.i45:                                      ; preds = %97, %104
   %111 = load ptr, ptr %33, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 432
   %113 = load i64, ptr %112, align 8
   %114 = add i64 %113, -1
   %115 = icmp uge i64 %114, %1
-  %spec.select.i.i47 = select i1 %2, i1 true, i1 %115
-  %116 = select i1 %39, i1 %spec.select.i.i47, i1 false
+  %spec.select.i.i46 = select i1 %2, i1 true, i1 %115
+  %116 = select i1 %39, i1 %spec.select.i.i46, i1 false
   br i1 %116, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.sink.split, label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit
 
-_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.sink.split: ; preds = %.thread.i46, %.thread.i
-  %.sink67 = phi ptr [ %26, %.thread.i ], [ %111, %.thread.i46 ]
-  %117 = load ptr, ptr %.sink67, align 8
+_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.sink.split: ; preds = %.thread.i45, %.thread.i
+  %.sink68 = phi ptr [ %26, %.thread.i ], [ %111, %.thread.i45 ]
+  %117 = load ptr, ptr %.sink68, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 48
   %119 = load ptr, ptr %118, align 8
-  %120 = tail call noundef ptr %119(ptr noundef nonnull align 8 dereferenceable(744) %.sink67, i64 noundef %1, i1 noundef zeroext %2) #16
+  %120 = tail call noundef ptr %119(ptr noundef nonnull align 8 dereferenceable(744) %.sink68, i64 noundef %1, i1 noundef zeroext %2) #16
   br label %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit
 
-_ZN10SerialHeap24expand_heap_and_allocateEmb.exit: ; preds = %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.sink.split, %.thread.i46, %104, %92, %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread, %54, %.thread.i, %17, %_ZN10SerialHeap18attempt_allocationEmbb.exit43, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit38, %_ZN10SerialHeap18attempt_allocationEmbb.exit, %9
-  %.0 = phi ptr [ null, %9 ], [ %67, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %84, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit38 ], [ %103, %_ZN10SerialHeap18attempt_allocationEmbb.exit43 ], [ null, %.thread.i ], [ %23, %17 ], [ %58, %54 ], [ %73, %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread ], [ %96, %92 ], [ null, %.thread.i46 ], [ %109, %104 ], [ %120, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.sink.split ]
+_ZN10SerialHeap24expand_heap_and_allocateEmb.exit: ; preds = %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.sink.split, %.thread.i45, %104, %92, %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread, %54, %.thread.i, %17, %_ZN10SerialHeap18attempt_allocationEmbb.exit42, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit38, %_ZN10SerialHeap18attempt_allocationEmbb.exit, %9
+  %.0 = phi ptr [ null, %9 ], [ %67, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %84, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit38 ], [ %103, %_ZN10SerialHeap18attempt_allocationEmbb.exit42 ], [ null, %.thread.i ], [ %23, %17 ], [ %58, %54 ], [ %73, %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread ], [ %96, %92 ], [ null, %.thread.i45 ], [ %109, %104 ], [ %120, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -2488,15 +2484,13 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
   store i32 %117, ptr %115, align 4
   %118 = zext i32 %114 to i64
   %119 = load i64, ptr @VerifyGCStartAt, align 8
-  %.not = icmp ugt i64 %119, %118
-  br i1 %.not, label %127, label %120
-
-120:                                              ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
+  %120 = icmp ule i64 %119, %118
   %121 = load i8, ptr @VerifyBeforeGC, align 1
   %122 = trunc i8 %121 to i1
-  br i1 %122, label %123, label %127
+  %or.cond = select i1 %120, i1 %122, i1 false
+  br i1 %or.cond, label %123, label %127
 
-123:                                              ; preds = %120
+123:                                              ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
   %124 = load ptr, ptr %0, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 280
   %126 = load ptr, ptr %125, align 8
@@ -2504,7 +2498,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
   call void @_ZN8Universe6verifyE12VerifyOptionPKc(i32 noundef 0, ptr noundef nonnull @.str.21) #16
   br label %127
 
-127:                                              ; preds = %123, %120, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
+127:                                              ; preds = %123, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
   %128 = load ptr, ptr %0, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 464
   %130 = load ptr, ptr %129, align 8
@@ -2546,12 +2540,12 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
   %148 = load ptr, ptr %147, align 8
   call void %148(ptr noundef nonnull align 8 dereferenceable(112) %131, ptr noundef nonnull align 8 dereferenceable(16) %14) #16
   %149 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  %.sroa.0.0.copyload.i12 = load i64, ptr %149, align 8
-  %.sroa.2.0..sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  %.sroa.2.0.copyload.i14 = load i64, ptr %.sroa.2.0..sroa_idx.i13, align 8
-  store i64 %.sroa.0.0.copyload.i12, ptr %15, align 8
+  %.sroa.0.0.copyload.i15 = load i64, ptr %149, align 8
+  %.sroa.2.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %131, i64 32
+  %.sroa.2.0.copyload.i17 = load i64, ptr %.sroa.2.0..sroa_idx.i16, align 8
+  store i64 %.sroa.0.0.copyload.i15, ptr %15, align 8
   %150 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %.sroa.2.0.copyload.i14, ptr %150, align 8
+  store i64 %.sroa.2.0.copyload.i17, ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %131, i64 40
   call void @_ZN8GCTracer13report_gc_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEP14TimePartitions(ptr noundef nonnull align 8 dereferenceable(80) %138, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %151) #16
   call void @_ZN9CodeCache26on_gc_marking_cycle_finishEv() #16
@@ -2573,73 +2567,71 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0EL
   %157 = load ptr, ptr %156, align 8
   call void %157(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext true) #16
   call void @_ZN13CollectedHeap19print_heap_after_gcEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #16
-  br i1 %.not, label %162, label %158
+  %158 = load i8, ptr @VerifyAfterGC, align 1
+  %159 = trunc i8 %158 to i1
+  %or.cond3 = select i1 %120, i1 %159, i1 false
+  br i1 %or.cond3, label %160, label %161
 
-158:                                              ; preds = %127
-  %159 = load i8, ptr @VerifyAfterGC, align 1
-  %160 = trunc i8 %159 to i1
-  br i1 %160, label %161, label %162
-
-161:                                              ; preds = %158
+160:                                              ; preds = %127
   call void @_ZN8Universe6verifyE12VerifyOptionPKc(i32 noundef 0, ptr noundef nonnull @.str.22) #16
-  br label %162
+  br label %161
 
-162:                                              ; preds = %161, %158, %127
+161:                                              ; preds = %160, %127
   call void @_ZN21ClassUnloadingContextD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %11) #16
   call void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   call void @_ZN19TraceCollectorStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #16
-  %163 = load ptr, ptr %35, align 8
-  %.not.i.i.i.i = icmp ne ptr %163, null
-  %164 = load ptr, ptr %37, align 8
-  %.not1.i.i.i.i = icmp ne ptr %164, null
+  %162 = load ptr, ptr %35, align 8
+  %.not.i.i.i.i = icmp ne ptr %162, null
+  %163 = load ptr, ptr %37, align 8
+  %.not1.i.i.i.i = icmp ne ptr %163, null
   %or.cond.i.not16.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %.not1.i.i.i.i
-  %165 = load ptr, ptr %38, align 8
-  %166 = icmp ne ptr %165, null
-  %or.cond.i.i.i = select i1 %or.cond.i.not16.i.i.i, i1 true, i1 %166
-  br i1 %or.cond.i.i.i, label %167, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
+  %164 = load ptr, ptr %38, align 8
+  %165 = icmp ne ptr %164, null
+  %or.cond.i.i.i = select i1 %or.cond.i.not16.i.i.i, i1 true, i1 %165
+  br i1 %or.cond.i.i.i, label %166, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
-167:                                              ; preds = %162
-  %168 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #16
-  %169 = extractvalue { i64, i64 } %168, 0
-  %170 = extractvalue { i64, i64 } %168, 1
-  %.pre.i.i.i18 = load ptr, ptr %35, align 8
-  %.not.i5.i.i.i = icmp eq ptr %.pre.i.i.i18, null
-  br i1 %.not.i5.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i, label %171
+166:                                              ; preds = %161
+  %167 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #16
+  %168 = extractvalue { i64, i64 } %167, 0
+  %169 = extractvalue { i64, i64 } %167, 1
+  %.pre.i.i.i21 = load ptr, ptr %35, align 8
+  %.not.i5.i.i.i = icmp eq ptr %.pre.i.i.i21, null
+  br i1 %.not.i5.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i, label %170
 
-171:                                              ; preds = %167
-  %172 = load ptr, ptr %.pre.i.i.i18, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  %174 = load ptr, ptr %173, align 8
-  call void %174(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i.i.i18, i64 %169, i64 %170) #16
+170:                                              ; preds = %166
+  %171 = load ptr, ptr %.pre.i.i.i21, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %173 = load ptr, ptr %172, align 8
+  call void %173(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i.i.i21, i64 %168, i64 %169) #16
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
-_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %171, %167, %162
-  %.sroa.5.021.i.i.i = phi i64 [ %170, %167 ], [ %170, %171 ], [ 0, %162 ]
-  %.sroa.0.020.i.i.i = phi i64 [ %169, %167 ], [ %169, %171 ], [ 0, %162 ]
-  %175 = load ptr, ptr %37, align 8
-  %.not.i6.i.i.i = icmp eq ptr %175, null
-  br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %176
+_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %170, %166, %161
+  %.sroa.5.021.i.i.i = phi i64 [ %169, %166 ], [ %169, %170 ], [ 0, %161 ]
+  %.sroa.0.020.i.i.i = phi i64 [ %168, %166 ], [ %168, %170 ], [ 0, %161 ]
+  %174 = load ptr, ptr %37, align 8
+  %.not.i6.i.i.i = icmp eq ptr %174, null
+  br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %175
 
-176:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
-  %177 = load ptr, ptr %175, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %179 = load ptr, ptr %178, align 8
-  call void %179(ptr noundef nonnull align 8 dereferenceable(8) %175, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #16
+175:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
+  %176 = load ptr, ptr %174, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  %178 = load ptr, ptr %177, align 8
+  call void %178(ptr noundef nonnull align 8 dereferenceable(8) %174, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #16
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
 
-_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i: ; preds = %176, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
-  %180 = load ptr, ptr %38, align 8
-  %.not.i8.i.i.i17 = icmp eq ptr %180, null
-  br i1 %.not.i8.i.i.i17, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %181
+_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i: ; preds = %175, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
+  %179 = load ptr, ptr %38, align 8
+  %.not.i8.i.i.i20 = icmp eq ptr %179, null
+  br i1 %.not.i8.i.i.i20, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %180
 
-181:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
-  %182 = load ptr, ptr %180, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  %184 = load ptr, ptr %183, align 8
-  call void %184(ptr noundef nonnull align 8 dereferenceable(8) %180, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #16
+180:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
+  %181 = load ptr, ptr %179, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
+  %183 = load ptr, ptr %182, align 8
+  call void %183(ptr noundef nonnull align 8 dereferenceable(8) %179, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #16
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
 
-_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, %181
+_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, %180
   call void @_ZN14GCTraceCPUTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #16
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #16
   call void @_ZN15VM_GC_Operation13notify_gc_endEv() #16

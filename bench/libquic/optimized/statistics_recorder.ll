@@ -177,22 +177,22 @@ define void @_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKSt17_Rb_tree_it
 20:                                               ; preds = %17
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
   %21 = load i8, ptr %6, align 8, !range !21
-  %.fr10.i = freeze i8 %21
-  %22 = trunc i8 %.fr10.i to i1
+  %.fr13.i = freeze i8 %21
+  %22 = trunc i8 %.fr13.i to i1
   %23 = load ptr, ptr %0, align 8, !tbaa !22
   br i1 %22, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %20
   %24 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %23) #22
   store ptr %24, ptr %0, align 8, !tbaa !22
-  br label %.split9.i
+  br label %.split12.i
 
 .split.i:                                         ; preds = %20, %28
   %25 = phi ptr [ %26, %28 ], [ %23, %20 ]
   %26 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %25) #22
   store ptr %26, ptr %0, align 8, !tbaa !22
   %27 = icmp eq ptr %26, %10
-  br i1 %27, label %.split9.i, label %28
+  br i1 %27, label %.split12.i, label %28
 
 28:                                               ; preds = %.split.i
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 48
@@ -201,20 +201,20 @@ define void @_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKSt17_Rb_tree_it
   %32 = load atomic volatile i32, ptr %31 monotonic, align 4
   %33 = and i32 %32, 64
   %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %.split9.i, label %.split.i, !llvm.loop !23
+  br i1 %.not.i, label %.split12.i, label %.split.i, !llvm.loop !23
 
-.split9.i:                                        ; preds = %28, %.split.i, %.split.us.i
+.split12.i:                                       ; preds = %28, %.split.i, %.split.us.i
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %18)
           to label %_ZN4base18StatisticsRecorder17HistogramIteratorppEv.exit unwind label %34
 
-34:                                               ; preds = %.split9.i
+34:                                               ; preds = %.split12.i
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
   tail call void @__clang_call_terminate(ptr %36) #23
   unreachable
 
-_ZN4base18StatisticsRecorder17HistogramIteratorppEv.exit: ; preds = %8, %3, %.split9.i, %17, %11
+_ZN4base18StatisticsRecorder17HistogramIteratorppEv.exit: ; preds = %8, %3, %.split12.i, %17, %11
   ret void
 }
 
@@ -236,28 +236,28 @@ define noundef nonnull align 8 dereferenceable(9) ptr @_ZN4base18StatisticsRecor
   %6 = load ptr, ptr @_ZN4base18StatisticsRecorder5lock_E, align 8
   %7 = icmp eq ptr %6, null
   %or.cond = select i1 %5, i1 true, i1 %7
-  br i1 %or.cond, label %_ZN4base8AutoLockD2Ev.exit4, label %8
+  br i1 %or.cond, label %_ZN4base8AutoLockD2Ev.exit7, label %8
 
 8:                                                ; preds = %1
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i8, ptr %9, align 8, !range !21
-  %.fr10 = freeze i8 %10
-  %11 = trunc i8 %.fr10 to i1
+  %.fr13 = freeze i8 %10
+  %11 = trunc i8 %.fr13 to i1
   %12 = load ptr, ptr %0, align 8, !tbaa !22
   br i1 %11, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %8
   %13 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %12) #22
   store ptr %13, ptr %0, align 8, !tbaa !22
-  br label %.split9
+  br label %.split12
 
 .split:                                           ; preds = %8, %17
   %14 = phi ptr [ %15, %17 ], [ %12, %8 ]
   %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %14) #22
   store ptr %15, ptr %0, align 8, !tbaa !22
   %16 = icmp eq ptr %15, %3
-  br i1 %16, label %.split9, label %17
+  br i1 %16, label %.split12, label %17
 
 17:                                               ; preds = %.split
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
@@ -266,20 +266,20 @@ define noundef nonnull align 8 dereferenceable(9) ptr @_ZN4base18StatisticsRecor
   %21 = load atomic volatile i32, ptr %20 monotonic, align 4
   %22 = and i32 %21, 64
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %.split9, label %.split, !llvm.loop !23
+  br i1 %.not, label %.split12, label %.split, !llvm.loop !23
 
-.split9:                                          ; preds = %.split, %17, %.split.us
+.split12:                                         ; preds = %.split, %17, %.split.us
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
-          to label %_ZN4base8AutoLockD2Ev.exit4 unwind label %23
+          to label %_ZN4base8AutoLockD2Ev.exit7 unwind label %23
 
-23:                                               ; preds = %.split9
+23:                                               ; preds = %.split12
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   tail call void @__clang_call_terminate(ptr %25) #23
   unreachable
 
-_ZN4base8AutoLockD2Ev.exit4:                      ; preds = %.split9, %1
+_ZN4base8AutoLockD2Ev.exit7:                      ; preds = %.split12, %1
   ret ptr %0
 }
 

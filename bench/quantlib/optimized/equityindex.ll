@@ -3232,10 +3232,10 @@ _ZNK8QuantLib8Settings9DateProxycvNS_4DateEEv.exit: ; preds = %_ZN8QuantLib9Sing
   %28 = load i64, ptr %fixingDate, align 8, !tbaa !35
   %cmp.i = icmp sgt i64 %28, %retval.sroa.0.0.i
   %cmp.i39 = icmp eq i64 %28, %retval.sroa.0.0.i
-  %brmerge.not = and i1 %forecastTodaysFixing, %cmp.i39
-  %or.cond = or i1 %cmp.i, %brmerge.not
+  %or.cond = and i1 %forecastTodaysFixing, %cmp.i39
+  %or.cond127 = or i1 %cmp.i, %or.cond
   %vtable36 = load ptr, ptr %this, align 8, !tbaa !28
-  br i1 %or.cond, label %if.then35, label %if.end39
+  br i1 %or.cond127, label %if.then35, label %if.end39
 
 if.then35:                                        ; preds = %_ZNK8QuantLib8Settings9DateProxycvNS_4DateEEv.exit
   %vfn37 = getelementptr inbounds nuw i8, ptr %vtable36, i64 80

@@ -1352,19 +1352,19 @@ _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit: ; p
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfVec3dES3_ddPdS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, double noundef %3, double noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #6 align 2 {
-  %.sroa.0146.0.copyload = load double, ptr %2, align 8
+  %.sroa.0147.0.copyload = load double, ptr %2, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.12.0.copyload = load double, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.23.0.copyload = load double, ptr %.sroa.23.0..sroa_idx, align 8
   %8 = fmul double %.sroa.12.0.copyload, %.sroa.12.0.copyload
-  %9 = tail call double @llvm.fmuladd.f64(double %.sroa.0146.0.copyload, double %.sroa.0146.0.copyload, double %8)
+  %9 = tail call double @llvm.fmuladd.f64(double %.sroa.0147.0.copyload, double %.sroa.0147.0.copyload, double %8)
   %10 = tail call noundef double @llvm.fmuladd.f64(double %.sroa.23.0.copyload, double %.sroa.23.0.copyload, double %9)
   %sqrt.i.i.i = tail call noundef double @llvm.sqrt.f64(double %10)
   %11 = fcmp ogt double %sqrt.i.i.i, 1.000000e-10
   %12 = select i1 %11, double %sqrt.i.i.i, double 1.000000e-10
   %13 = fdiv double 1.000000e+00, %12
-  %14 = fmul double %.sroa.0146.0.copyload, %13
+  %14 = fmul double %.sroa.0147.0.copyload, %13
   %15 = fmul double %.sroa.12.0.copyload, %13
   %16 = fmul double %.sroa.23.0.copyload, %13
   %17 = fmul double %4, %14
@@ -1378,14 +1378,14 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9Intersec
   %20 = fadd double %.sroa.0.0.copyload.i, %17
   %21 = fadd double %.sroa.4.0.copyload.i, %18
   %22 = fadd double %.sroa.6.0.copyload.i, %19
-  %.sroa.0.0.copyload.i25 = load double, ptr %0, align 8, !noalias !62
-  %.sroa.4.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.4.0.copyload.i27 = load double, ptr %.sroa.4.0..sroa_idx.i26, align 8, !noalias !62
-  %.sroa.6.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.6.0.copyload.i29 = load double, ptr %.sroa.6.0..sroa_idx.i28, align 8, !noalias !62
-  %23 = fsub double %.sroa.0.0.copyload.i25, %20
-  %24 = fsub double %.sroa.4.0.copyload.i27, %21
-  %25 = fsub double %.sroa.6.0.copyload.i29, %22
+  %.sroa.0.0.copyload.i26 = load double, ptr %0, align 8, !noalias !62
+  %.sroa.4.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.4.0.copyload.i28 = load double, ptr %.sroa.4.0..sroa_idx.i27, align 8, !noalias !62
+  %.sroa.6.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.6.0.copyload.i30 = load double, ptr %.sroa.6.0..sroa_idx.i29, align 8, !noalias !62
+  %23 = fsub double %.sroa.0.0.copyload.i26, %20
+  %24 = fsub double %.sroa.4.0.copyload.i28, %21
+  %25 = fsub double %.sroa.6.0.copyload.i30, %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load double, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1532,12 +1532,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit: ; p
   %117 = fmul double %116, %.sroa.0.0.copyload.i.i.i
   %118 = fmul double %116, %.sroa.4.0.copyload.i.i.i
   %119 = fmul double %116, %.sroa.6.0.copyload.i.i.i
-  %.sroa.0.0.copyload.i.i60 = load double, ptr %0, align 8, !noalias !72
-  %.sroa.4.0.copyload.i.i62 = load double, ptr %.sroa.4.0..sroa_idx.i26, align 8, !noalias !72
-  %.sroa.6.0.copyload.i.i64 = load double, ptr %.sroa.6.0..sroa_idx.i28, align 8, !noalias !72
-  %120 = fadd double %117, %.sroa.0.0.copyload.i.i60
-  %121 = fadd double %118, %.sroa.4.0.copyload.i.i62
-  %122 = fadd double %119, %.sroa.6.0.copyload.i.i64
+  %.sroa.0.0.copyload.i.i61 = load double, ptr %0, align 8, !noalias !72
+  %.sroa.4.0.copyload.i.i63 = load double, ptr %.sroa.4.0..sroa_idx.i27, align 8, !noalias !72
+  %.sroa.6.0.copyload.i.i65 = load double, ptr %.sroa.6.0..sroa_idx.i29, align 8, !noalias !72
+  %120 = fadd double %117, %.sroa.0.0.copyload.i.i61
+  %121 = fadd double %118, %.sroa.4.0.copyload.i.i63
+  %122 = fadd double %119, %.sroa.6.0.copyload.i.i65
   %123 = fsub double %120, %20
   %124 = fsub double %121, %21
   %125 = fsub double %122, %22
@@ -1549,9 +1549,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit: ; p
   %131 = fmul double %.sroa.0.0.copyload.i.i.i, %130
   %132 = fmul double %.sroa.4.0.copyload.i.i.i, %130
   %133 = fmul double %.sroa.6.0.copyload.i.i.i, %130
-  %134 = fadd double %.sroa.0.0.copyload.i.i60, %131
-  %135 = fadd double %.sroa.4.0.copyload.i.i62, %132
-  %136 = fadd double %.sroa.6.0.copyload.i.i64, %133
+  %134 = fadd double %.sroa.0.0.copyload.i.i61, %131
+  %135 = fadd double %.sroa.4.0.copyload.i.i63, %132
+  %136 = fadd double %.sroa.6.0.copyload.i.i65, %133
   %137 = fsub double %134, %20
   %138 = fsub double %135, %21
   %139 = fsub double %136, %22
@@ -1559,8 +1559,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit: ; p
   %141 = tail call double @llvm.fmuladd.f64(double %14, double %137, double %140)
   %142 = tail call noundef double @llvm.fmuladd.f64(double %16, double %139, double %141)
   %143 = fcmp ole double %142, 0.000000e+00
-  %brmerge = or i1 %129, %143
-  br i1 %brmerge, label %144, label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit.thread
+  %or.cond = or i1 %129, %143
+  br i1 %or.cond, label %144, label %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit.thread
 
 144:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay15_SolveQuadraticEdddPdS1_.exit
   br i1 %129, label %146, label %145

@@ -278,8 +278,8 @@ define hidden void @"_ZN115_$LT$heed..iterator..prefix..RoPrefix$LT$KC$C$DC$C$C$
 
 26:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
-  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 51
-  store i8 2, ptr %.sroa.424.0..sroa_idx, align 1
+  %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 51
+  store i8 2, ptr %.sroa.425.0..sroa_idx, align 1
   br label %41
 
 27:                                               ; preds = %22
@@ -428,12 +428,12 @@ _ZN4core3ops8function6FnOnce9call_once17h57f4e0648eb585fcE.llvm.2337583790011467
   %64 = icmp ne ptr %.sroa.8.0, null
   tail call void @llvm.assume(i1 %64)
   store i64 5, ptr %0, align 8
-  %.sroa.0.sroa.8.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.6.0, ptr %.sroa.0.sroa.8.0..sroa_idx15, align 8
-  %.sroa.0.sroa.10.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.8.0, ptr %.sroa.0.sroa.10.0..sroa_idx17, align 8
-  %.sroa.8.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  store i8 2, ptr %.sroa.8.0..sroa_idx1, align 1
+  %.sroa.0.sroa.8.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.6.0, ptr %.sroa.0.sroa.8.0..sroa_idx16, align 8
+  %.sroa.0.sroa.10.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.8.0, ptr %.sroa.0.sroa.10.0..sroa_idx18, align 8
+  %.sroa.8.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 51
+  store i8 2, ptr %.sroa.8.0..sroa_idx2, align 1
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hfd229c4f33f0d44eE.exit"
 
 65:                                               ; preds = %59

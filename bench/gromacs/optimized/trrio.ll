@@ -199,8 +199,8 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
 23:                                               ; preds = %20, %17
   %24 = phi i8 [ 0, %17 ], [ %22, %20 ]
   store i8 %24, ptr %3, align 1, !tbaa !16
-  %.b86 = load i1, ptr @_ZZL19do_trr_frame_headerP8t_fileiobP16gmx_trr_header_tPbE6bFirst, align 1
-  br i1 %.b86, label %36, label %25
+  %.b87 = load i1, ptr @_ZZL19do_trr_frame_headerP8t_fileiobP16gmx_trr_header_tPbE6bFirst, align 1
+  br i1 %.b87, label %36, label %25
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -234,106 +234,106 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   %41 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %40, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 131)
   %42 = zext i1 %41 to i8
   store i8 %42, ptr %3, align 1, !tbaa !16
-  br i1 %41, label %43, label %.critedge88
+  br i1 %41, label %43, label %.critedge89
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %44, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 132)
   %46 = zext i1 %45 to i8
   store i8 %46, ptr %3, align 1, !tbaa !16
-  br i1 %45, label %47, label %.critedge90
+  br i1 %45, label %47, label %.critedge91
 
 .critedge:                                        ; preds = %36
   store i8 0, ptr %3, align 1, !tbaa !16
-  br label %.critedge88
+  br label %.critedge89
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %49 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %48, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 133)
   %50 = zext i1 %49 to i8
   store i8 %50, ptr %3, align 1, !tbaa !16
-  br i1 %49, label %51, label %.critedge92
+  br i1 %49, label %51, label %.critedge93
 
-.critedge88:                                      ; preds = %.critedge, %39
+.critedge89:                                      ; preds = %.critedge, %39
   store i8 0, ptr %3, align 1, !tbaa !16
-  br label %.critedge90
+  br label %.critedge91
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %53 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %52, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 134)
   %54 = zext i1 %53 to i8
   store i8 %54, ptr %3, align 1, !tbaa !16
-  br i1 %53, label %55, label %.critedge94
+  br i1 %53, label %55, label %.critedge95
 
-.critedge90:                                      ; preds = %.critedge88, %43
+.critedge91:                                      ; preds = %.critedge89, %43
   store i8 0, ptr %3, align 1, !tbaa !16
-  br label %.critedge92
+  br label %.critedge93
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %57 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %56, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 135)
   %58 = zext i1 %57 to i8
   store i8 %58, ptr %3, align 1, !tbaa !16
-  br i1 %57, label %59, label %.critedge96
+  br i1 %57, label %59, label %.critedge97
 
-.critedge92:                                      ; preds = %.critedge90, %47
+.critedge93:                                      ; preds = %.critedge91, %47
   store i8 0, ptr %3, align 1, !tbaa !16
-  br label %.critedge94
+  br label %.critedge95
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %61 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %60, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 136)
   %62 = zext i1 %61 to i8
   store i8 %62, ptr %3, align 1, !tbaa !16
-  br i1 %61, label %63, label %.critedge98
+  br i1 %61, label %63, label %.critedge99
 
-.critedge94:                                      ; preds = %.critedge92, %51
+.critedge95:                                      ; preds = %.critedge93, %51
   store i8 0, ptr %3, align 1, !tbaa !16
-  br label %.critedge96
+  br label %.critedge97
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %65 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %64, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 137)
   %66 = zext i1 %65 to i8
   store i8 %66, ptr %3, align 1, !tbaa !16
-  br i1 %65, label %67, label %.critedge100
+  br i1 %65, label %67, label %.critedge101
 
-.critedge96:                                      ; preds = %.critedge94, %55
+.critedge97:                                      ; preds = %.critedge95, %55
   store i8 0, ptr %3, align 1, !tbaa !16
-  br label %.critedge98
+  br label %.critedge99
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %69 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %68, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 139)
   %70 = zext i1 %69 to i8
   store i8 %70, ptr %3, align 1, !tbaa !16
-  br i1 %69, label %71, label %.critedge102
+  br i1 %69, label %71, label %.critedge103
 
-.critedge98:                                      ; preds = %.critedge96, %59
+.critedge99:                                      ; preds = %.critedge97, %59
   store i8 0, ptr %3, align 1, !tbaa !16
-  br label %.critedge100
+  br label %.critedge101
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %73 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %72, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 141)
   %74 = zext i1 %73 to i8
   store i8 %74, ptr %3, align 1, !tbaa !16
-  br i1 %73, label %75, label %.critedge104
+  br i1 %73, label %75, label %.critedge105
 
-.critedge100:                                     ; preds = %.critedge98, %63
+.critedge101:                                     ; preds = %.critedge99, %63
   store i8 0, ptr %3, align 1, !tbaa !16
-  br label %.critedge102
+  br label %.critedge103
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %77 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %76, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 143)
   %78 = zext i1 %77 to i8
   store i8 %78, ptr %3, align 1, !tbaa !16
-  br i1 %77, label %79, label %.critedge106
+  br i1 %77, label %79, label %.critedge107
 
-.critedge102:                                     ; preds = %.critedge100, %67
+.critedge103:                                     ; preds = %.critedge101, %67
   store i8 0, ptr %3, align 1, !tbaa !16
-  br label %.critedge104
+  br label %.critedge105
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 44
@@ -342,11 +342,11 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   store i8 %82, ptr %3, align 1, !tbaa !16
   br i1 %81, label %83, label %119
 
-.critedge104:                                     ; preds = %.critedge102, %71
+.critedge105:                                     ; preds = %.critedge103, %71
   store i8 0, ptr %3, align 1, !tbaa !16
-  br label %.critedge106
+  br label %.critedge107
 
-.critedge106:                                     ; preds = %.critedge104, %75
+.critedge107:                                     ; preds = %.critedge105, %75
   store i8 0, ptr %3, align 1, !tbaa !16
   br label %119
 
@@ -356,13 +356,12 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   %86 = zext i1 %85 to i8
   store i8 %86, ptr %2, align 8, !tbaa !22
   call void @_Z20gmx_fio_setprecisionP8t_fileiob(ptr noundef %0, i1 noundef zeroext %85)
-  br i1 %1, label %87, label %93
-
-87:                                               ; preds = %83
   %.b = load i1, ptr @_ZZL19do_trr_frame_headerP8t_fileiobP16gmx_trr_header_tPbE6bFirst, align 1
-  br i1 %.b, label %93, label %88
+  %not. = xor i1 %1, true
+  %87 = select i1 %not., i1 true, i1 %.b
+  br i1 %87, label %93, label %88
 
-88:                                               ; preds = %87
+88:                                               ; preds = %83
   %89 = load ptr, ptr @stderr, align 8, !tbaa !20
   %90 = load i8, ptr %2, align 8, !tbaa !22, !range !18, !noundef !19
   %91 = trunc nuw i8 %90 to i1
@@ -371,7 +370,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   store i1 true, ptr @_ZZL19do_trr_frame_headerP8t_fileiobP16gmx_trr_header_tPbE6bFirst, align 1
   br label %93
 
-93:                                               ; preds = %88, %87, %83
+93:                                               ; preds = %88, %83
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %95 = load i64, ptr %94, align 8, !tbaa !25
@@ -386,7 +385,7 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   %sext = shl i64 %95, 32
   %99 = ashr exact i64 %sext, 32
   store i64 %99, ptr %94, align 8, !tbaa !25
-  br label %.critedge108
+  br label %.critedge109
 
 100:                                              ; preds = %93
   %101 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 163)
@@ -395,14 +394,14 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   %103 = load i32, ptr %8, align 4, !tbaa !14
   %104 = sext i32 %103 to i64
   store i64 %104, ptr %94, align 8, !tbaa !25
-  br i1 %101, label %105, label %.critedge108
+  br i1 %101, label %105, label %.critedge109
 
 105:                                              ; preds = %100
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %107 = call noundef zeroext i1 @_Z15gmx_fio_doe_intP8t_fileioPiPKcS3_i(ptr noundef %0, ptr noundef nonnull %106, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 165)
   %108 = zext i1 %107 to i8
   store i8 %108, ptr %3, align 1, !tbaa !16
-  br i1 %107, label %109, label %.critedge110
+  br i1 %107, label %109, label %.critedge111
 
 109:                                              ; preds = %105
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 60
@@ -411,28 +410,28 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   store i8 %112, ptr %3, align 1, !tbaa !16
   br i1 %111, label %113, label %116
 
-.critedge108:                                     ; preds = %.thread, %100
+.critedge109:                                     ; preds = %.thread, %100
   store i8 0, ptr %3, align 1, !tbaa !16
-  br label %.critedge110
+  br label %.critedge111
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %115 = call noundef zeroext i1 @_Z16gmx_fio_doe_realP8t_fileioPfPKcS3_i(ptr noundef %0, ptr noundef nonnull %114, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 167)
   br label %116
 
-.critedge110:                                     ; preds = %.critedge108, %105
+.critedge111:                                     ; preds = %.critedge109, %105
   store i8 0, ptr %3, align 1, !tbaa !16
   br label %116
 
-116:                                              ; preds = %.critedge110, %113, %109
-  %117 = phi i1 [ false, %109 ], [ %115, %113 ], [ false, %.critedge110 ]
+116:                                              ; preds = %.critedge111, %113, %109
+  %117 = phi i1 [ false, %109 ], [ %115, %113 ], [ false, %.critedge111 ]
   %118 = zext i1 %117 to i8
   store i8 %118, ptr %3, align 1, !tbaa !16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
   br label %119
 
-119:                                              ; preds = %116, %.critedge106, %79, %4
-  %.0 = phi i1 [ false, %4 ], [ %117, %116 ], [ false, %.critedge106 ], [ false, %79 ]
+119:                                              ; preds = %116, %.critedge107, %79, %4
+  %.0 = phi i1 [ false, %4 ], [ %117, %116 ], [ false, %.critedge107 ], [ false, %79 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   ret i1 %.0

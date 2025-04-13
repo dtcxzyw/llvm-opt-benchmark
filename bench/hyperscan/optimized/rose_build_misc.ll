@@ -6810,65 +6810,63 @@ define hidden noundef range(i32 0, 2) i32 @_ZN3ue211roseQualityERKNS_13RoseResou
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 1, !range !225, !noundef !226
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %14
+  br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %8 = load i8, ptr %7, align 1, !range !225, !noundef !226
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %.loopexit, label %10
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %11 = load i8, ptr %10, align 1, !range !225
+  %12 = trunc nuw i8 %11 to i1
+  %or.cond = select i1 %9, i1 true, i1 %12
+  br i1 %or.cond, label %.loopexit, label %13
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %12 = load i8, ptr %11, align 1, !range !225, !noundef !226
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %.loopexit, label %14
-
-14:                                               ; preds = %10, %2
+13:                                               ; preds = %6, %2
   %spec.select = zext nneg i8 %4 to i32
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 164
-  %16 = load i32, ptr %15, align 4
-  %.not = icmp ne i32 %16, 0
-  %17 = zext i1 %.not to i32
-  %.125 = add nuw nsw i32 %17, %spec.select
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %19 = load i8, ptr %18, align 1, !range !225, !noundef !226
-  %20 = zext nneg i8 %19 to i32
-  %.2 = add nuw nsw i32 %.125, %20
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %22 = load i32, ptr %21, align 4
-  %.not26 = icmp ne i32 %22, 0
-  %23 = zext i1 %.not26 to i32
-  %.3 = add nuw nsw i32 %.2, %23
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 396
-  %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %27 = load i32, ptr %26, align 8
-  %.not27 = icmp ne i32 %25, %27
-  %28 = zext i1 %.not27 to i32
-  %.4 = add nuw nsw i32 %.3, %28
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %30 = load i32, ptr %29, align 8
-  %.not30 = icmp eq i32 %30, 0
-  br i1 %.not30, label %.critedge, label %.lr.ph
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 164
+  %15 = load i32, ptr %14, align 4
+  %.not = icmp ne i32 %15, 0
+  %16 = zext i1 %.not to i32
+  %.125 = add nuw nsw i32 %16, %spec.select
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %18 = load i8, ptr %17, align 1, !range !225, !noundef !226
+  %19 = zext nneg i8 %18 to i32
+  %.2 = add nuw nsw i32 %.125, %19
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %21 = load i32, ptr %20, align 4
+  %.not26 = icmp ne i32 %21, 0
+  %22 = zext i1 %.not26 to i32
+  %.3 = add nuw nsw i32 %.2, %22
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 396
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 400
+  %26 = load i32, ptr %25, align 8
+  %.not27 = icmp ne i32 %24, %26
+  %27 = zext i1 %.not27 to i32
+  %.4 = add nuw nsw i32 %.3, %27
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %29 = load i32, ptr %28, align 8
+  %.not32 = icmp eq i32 %29, 0
+  br i1 %.not32, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %14
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %32 = load i32, ptr %31, align 8
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 19
-  %36 = load i8, ptr %35, align 1
-  %.not28 = icmp eq i8 %36, 0
+.lr.ph:                                           ; preds = %13
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %31 = load i32, ptr %30, align 8
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 19
+  %35 = load i8, ptr %34, align 1
+  %.not28 = icmp eq i8 %35, 0
   br i1 %.not28, label %.critedge, label %.loopexit
 
-.critedge:                                        ; preds = %.lr.ph, %14
-  %37 = icmp samesign ult i32 %.4, 2
-  %. = zext i1 %37 to i32
+.critedge:                                        ; preds = %.lr.ph, %13
+  %36 = icmp samesign ult i32 %.4, 2
+  %. = zext i1 %36 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.critedge, %10, %6
-  %.022 = phi i32 [ 0, %6 ], [ 0, %10 ], [ %., %.critedge ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.critedge, %6
+  %.022 = phi i32 [ 0, %6 ], [ %., %.critedge ], [ 0, %.lr.ph ]
   ret i32 %.022
 }
 

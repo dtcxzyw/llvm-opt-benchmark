@@ -367,53 +367,35 @@ sw.bb3:                                           ; preds = %entry
   br i1 %tobool4, label %return, label %land.rhs5
 
 land.rhs5:                                        ; preds = %sw.bb3
-  %4 = load i64, ptr %param, align 8
-  %cmp.i = icmp eq i64 %4, 0
   %allow_all_in_6 = getelementptr inbounds nuw i8, ptr %this, i64 26
-  %5 = load i8, ptr %allow_all_in_6, align 2
-  br i1 %cmp.i, label %land.lhs.true, label %lor.lhs.false
+  %4 = load i8, ptr %allow_all_in_6, align 2
+  %tobool7 = trunc i8 %4 to i1
+  br i1 %tobool7, label %return, label %lor.rhs
 
-land.lhs.true:                                    ; preds = %land.rhs5
-  %tobool7 = trunc i8 %5 to i1
-  br i1 %tobool7, label %return, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.rhs5, %land.lhs.true
-  %tobool9 = trunc i8 %5 to i1
-  br i1 %tobool9, label %return, label %lor.rhs
-
-lor.rhs:                                          ; preds = %lor.lhs.false
+lor.rhs:                                          ; preds = %land.rhs5
   %granted_in_fs_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i = tail call noundef zeroext i1 @_ZNK4node10permission12FSPermission9RadixTree6LookupERKSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull readonly align 8 dereferenceable(8) %granted_in_fs_, ptr noundef nonnull readonly align 8 dereferenceable(16) %param, i1 noundef zeroext true)
   br label %return
 
 sw.bb12:                                          ; preds = %entry
   %deny_all_out_ = getelementptr inbounds nuw i8, ptr %this, i64 25
-  %6 = load i8, ptr %deny_all_out_, align 1
-  %tobool13 = trunc i8 %6 to i1
+  %5 = load i8, ptr %deny_all_out_, align 1
+  %tobool13 = trunc i8 %5 to i1
   br i1 %tobool13, label %return, label %land.rhs14
 
 land.rhs14:                                       ; preds = %sw.bb12
-  %7 = load i64, ptr %param, align 8
-  %cmp.i4 = icmp eq i64 %7, 0
   %allow_all_out_17 = getelementptr inbounds nuw i8, ptr %this, i64 27
-  %8 = load i8, ptr %allow_all_out_17, align 1
-  br i1 %cmp.i4, label %land.lhs.true16, label %lor.lhs.false19
+  %6 = load i8, ptr %allow_all_out_17, align 1
+  %tobool18 = trunc i8 %6 to i1
+  br i1 %tobool18, label %return, label %lor.rhs22
 
-land.lhs.true16:                                  ; preds = %land.rhs14
-  %tobool18 = trunc i8 %8 to i1
-  br i1 %tobool18, label %return, label %lor.lhs.false19
-
-lor.lhs.false19:                                  ; preds = %land.rhs14, %land.lhs.true16
-  %tobool21 = trunc i8 %8 to i1
-  br i1 %tobool21, label %return, label %lor.rhs22
-
-lor.rhs22:                                        ; preds = %lor.lhs.false19
+lor.rhs22:                                        ; preds = %land.rhs14
   %granted_out_fs_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %call.i5 = tail call noundef zeroext i1 @_ZNK4node10permission12FSPermission9RadixTree6LookupERKSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull readonly align 8 dereferenceable(8) %granted_out_fs_, ptr noundef nonnull readonly align 8 dereferenceable(16) %param, i1 noundef zeroext true)
+  %call.i8 = tail call noundef zeroext i1 @_ZNK4node10permission12FSPermission9RadixTree6LookupERKSt17basic_string_viewIcSt11char_traitsIcEEb(ptr noundef nonnull readonly align 8 dereferenceable(8) %granted_out_fs_, ptr noundef nonnull readonly align 8 dereferenceable(16) %param, i1 noundef zeroext true)
   br label %return
 
-return:                                           ; preds = %entry, %sw.bb12, %lor.rhs22, %lor.lhs.false19, %land.lhs.true16, %sw.bb3, %lor.rhs, %lor.lhs.false, %land.lhs.true, %sw.bb
-  %retval.0 = phi i1 [ %2, %sw.bb ], [ false, %sw.bb3 ], [ true, %lor.lhs.false ], [ true, %land.lhs.true ], [ %call.i, %lor.rhs ], [ false, %sw.bb12 ], [ true, %lor.lhs.false19 ], [ true, %land.lhs.true16 ], [ %call.i5, %lor.rhs22 ], [ false, %entry ]
+return:                                           ; preds = %entry, %sw.bb12, %lor.rhs22, %land.rhs14, %sw.bb3, %lor.rhs, %land.rhs5, %sw.bb
+  %retval.0 = phi i1 [ %2, %sw.bb ], [ false, %sw.bb3 ], [ %call.i, %lor.rhs ], [ true, %land.rhs5 ], [ false, %sw.bb12 ], [ %call.i8, %lor.rhs22 ], [ true, %land.rhs14 ], [ false, %entry ]
   ret i1 %retval.0
 }
 

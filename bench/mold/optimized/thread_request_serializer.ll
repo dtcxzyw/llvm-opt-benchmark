@@ -409,113 +409,29 @@ define void @_ZN3tbb6detail2r131thread_request_serializer_proxy28enable_mandator
 _ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit: ; preds = %2, %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load atomic i32, ptr %10 monotonic, align 8
-  %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %.critedge
-
-13:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !31, !range !41, !noundef !42
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %.critedge, label %17
-
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load i32, ptr %18, align 8, !tbaa !10
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %.critedge
-
-21:                                               ; preds = %17
-  store i8 1, ptr %14, align 4, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %3, align 8, !tbaa !27
-  call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %22)
-  %23 = load i32, ptr %18, align 8, !tbaa !10
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %25 = load atomic i32, ptr %24 monotonic, align 4
-  %..i.i.i = call noundef i32 @llvm.smin.i32(i32 %25, i32 1)
-  %..i1.i.i = call noundef i32 @llvm.smin.i32(i32 %25, i32 %23)
-  %26 = sub nsw i32 %..i.i.i, %..i1.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !30
-  invoke void @_ZN3tbb6detail2r117thread_dispatcher25adjust_job_count_estimateEi(ptr noundef nonnull align 8 dereferenceable(152) %28, i32 noundef %26)
-          to label %29 unwind label %36
-
-29:                                               ; preds = %21
-  store i32 1, ptr %18, align 8, !tbaa !10
-  %30 = load ptr, ptr %3, align 8, !tbaa !27
-  %.not.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i, label %_ZN3tbb6detail2r125thread_request_serializer22set_active_num_workersEi.exit, label %31
-
-31:                                               ; preds = %29
-  %32 = atomicrmw xchg ptr %30, i8 0 seq_cst, align 1
-  invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %30)
-          to label %_ZN3tbb6detail2r125thread_request_serializer22set_active_num_workersEi.exit unwind label %33
-
-33:                                               ; preds = %31
-  %34 = landingpad { ptr, i32 }
-          catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #14
-  unreachable
-
-36:                                               ; preds = %21
-  %37 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  resume { ptr, i32 } %37
-
-_ZN3tbb6detail2r125thread_request_serializer22set_active_num_workersEi.exit: ; preds = %29, %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  br label %.critedge
-
-.critedge:                                        ; preds = %13, %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit, %_ZN3tbb6detail2r125thread_request_serializer22set_active_num_workersEi.exit, %17
-  ret void
-}
-
-; Function Attrs: mustprogress sspstrong uwtable
-define void @_ZN3tbb6detail2r131thread_request_serializer_proxy29disable_mandatory_concurrencyERNS0_2d114rw_scoped_lockINS3_8rw_mutexEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(9) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.tbb::detail::d1::unique_scoped_lock", align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i8, ptr %4, align 8, !tbaa !37, !range !41, !noundef !42
-  %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit, label %7
-
-7:                                                ; preds = %2
-  store i8 1, ptr %4, align 8, !tbaa !37
-  %8 = load ptr, ptr %1, align 8, !tbaa !40
-  %9 = tail call noundef zeroext i1 @_ZN3tbb6detail2d18rw_mutex7upgradeEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit
-
-_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit: ; preds = %2, %7
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load atomic i32, ptr %10 monotonic, align 8
   %12 = icmp slt i32 %11, 1
-  br i1 %12, label %13, label %.critedge
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %14 = load i8, ptr %13, align 4, !range !41
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond = select i1 %12, i1 true, i1 %15
+  br i1 %or.cond, label %.critedge, label %16
 
-13:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !31, !range !41, !noundef !42
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %.critedge
+16:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = load i32, ptr %17, align 8, !tbaa !10
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %.critedge
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load i32, ptr %18, align 8, !tbaa !10
-  %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %.critedge, label %20
-
-20:                                               ; preds = %17
-  store i8 0, ptr %14, align 4, !tbaa !31
+20:                                               ; preds = %16
+  store i8 1, ptr %13, align 4, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %3, align 8, !tbaa !27
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %21)
-  %22 = load i32, ptr %18, align 8, !tbaa !10
+  %22 = load i32, ptr %17, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %24 = load atomic i32, ptr %23 monotonic, align 4
-  %..i.i.i = call noundef i32 @llvm.smin.i32(i32 %24, i32 0)
+  %..i.i.i = call noundef i32 @llvm.smin.i32(i32 %24, i32 1)
   %..i1.i.i = call noundef i32 @llvm.smin.i32(i32 %24, i32 %22)
   %25 = sub nsw i32 %..i.i.i, %..i1.i.i
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -524,7 +440,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit: ; p
           to label %28 unwind label %35
 
 28:                                               ; preds = %20
-  store i32 0, ptr %18, align 8, !tbaa !10
+  store i32 1, ptr %17, align 8, !tbaa !10
   %29 = load ptr, ptr %3, align 8, !tbaa !27
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %_ZN3tbb6detail2r125thread_request_serializer22set_active_num_workersEi.exit, label %30
@@ -552,7 +468,87 @@ _ZN3tbb6detail2r125thread_request_serializer22set_active_num_workersEi.exit: ; p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   br label %.critedge
 
-.critedge:                                        ; preds = %13, %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit, %_ZN3tbb6detail2r125thread_request_serializer22set_active_num_workersEi.exit, %17
+.critedge:                                        ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit, %_ZN3tbb6detail2r125thread_request_serializer22set_active_num_workersEi.exit, %16
+  ret void
+}
+
+; Function Attrs: mustprogress sspstrong uwtable
+define void @_ZN3tbb6detail2r131thread_request_serializer_proxy29disable_mandatory_concurrencyERNS0_2d114rw_scoped_lockINS3_8rw_mutexEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(9) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.tbb::detail::d1::unique_scoped_lock", align 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load i8, ptr %4, align 8, !tbaa !37, !range !41, !noundef !42
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit, label %7
+
+7:                                                ; preds = %2
+  store i8 1, ptr %4, align 8, !tbaa !37
+  %8 = load ptr, ptr %1, align 8, !tbaa !40
+  %9 = tail call noundef zeroext i1 @_ZN3tbb6detail2d18rw_mutex7upgradeEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  br label %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit
+
+_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit: ; preds = %2, %7
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load atomic i32, ptr %10 monotonic, align 8
+  %12 = icmp slt i32 %11, 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %14 = load i8, ptr %13, align 4, !range !41
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond = select i1 %12, i1 %15, i1 false
+  br i1 %or.cond, label %16, label %.critedge
+
+16:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = load i32, ptr %17, align 8, !tbaa !10
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %.critedge, label %19
+
+19:                                               ; preds = %16
+  store i8 0, ptr %13, align 4, !tbaa !31
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr null, ptr %3, align 8, !tbaa !27
+  call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %20)
+  %21 = load i32, ptr %17, align 8, !tbaa !10
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %23 = load atomic i32, ptr %22 monotonic, align 4
+  %..i.i.i = call noundef i32 @llvm.smin.i32(i32 %23, i32 0)
+  %..i1.i.i = call noundef i32 @llvm.smin.i32(i32 %23, i32 %21)
+  %24 = sub nsw i32 %..i.i.i, %..i1.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
+  invoke void @_ZN3tbb6detail2r117thread_dispatcher25adjust_job_count_estimateEi(ptr noundef nonnull align 8 dereferenceable(152) %26, i32 noundef %24)
+          to label %27 unwind label %34
+
+27:                                               ; preds = %19
+  store i32 0, ptr %17, align 8, !tbaa !10
+  %28 = load ptr, ptr %3, align 8, !tbaa !27
+  %.not.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i, label %_ZN3tbb6detail2r125thread_request_serializer22set_active_num_workersEi.exit, label %29
+
+29:                                               ; preds = %27
+  %30 = atomicrmw xchg ptr %28, i8 0 seq_cst, align 1
+  invoke void @_ZN3tbb6detail2r121notify_by_address_oneEPv(ptr noundef nonnull align 1 dereferenceable(1) %28)
+          to label %_ZN3tbb6detail2r125thread_request_serializer22set_active_num_workersEi.exit unwind label %31
+
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
+          catch ptr null
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #14
+  unreachable
+
+34:                                               ; preds = %19
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  resume { ptr, i32 } %35
+
+_ZN3tbb6detail2r125thread_request_serializer22set_active_num_workersEi.exit: ; preds = %27, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  br label %.critedge
+
+.critedge:                                        ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_8rw_mutexEE17upgrade_to_writerEv.exit, %_ZN3tbb6detail2r125thread_request_serializer22set_active_num_workersEi.exit, %16
   ret void
 }
 

@@ -4925,9 +4925,9 @@ define internal fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef %1, ptr
   %16 = load i16, ptr %15, align 1
   %17 = and i16 %16, 8
   %18 = icmp ne i16 %17, 0
-  %brmerge = or i1 %10, %18
+  %or.cond3 = or i1 %10, %18
   %19 = tail call ptr @wmem_file_scope()
-  br i1 %brmerge, label %60, label %20
+  br i1 %or.cond3, label %60, label %20
 
 20:                                               ; preds = %11
   %21 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 4) #8
@@ -4943,9 +4943,9 @@ define internal fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef %1, ptr
   %28 = zext i16 %7 to i32
   %29 = sub i32 %27, %28
   store i32 %29, ptr %26, align 4
-  %.not138 = icmp eq i32 %27, %28
+  %.not139 = icmp eq i32 %27, %28
   %30 = load i8, ptr %21, align 4
-  br i1 %.not138, label %33, label %31
+  br i1 %.not139, label %33, label %31
 
 31:                                               ; preds = %25
   %32 = or i8 %30, 2
@@ -5008,12 +5008,12 @@ define internal fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef %1, ptr
   br label %66
 
 66:                                               ; preds = %60, %54
-  %.0129 = phi ptr [ %65, %60 ], [ %21, %54 ]
+  %.0131 = phi ptr [ %65, %60 ], [ %21, %54 ]
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load ptr, ptr %67, align 8
   tail call void @col_append_str(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.456)
-  %.not139 = icmp eq ptr %.0129, null
-  br i1 %.not139, label %69, label %74
+  %.not140 = icmp eq ptr %.0131, null
+  br i1 %.not140, label %69, label %74
 
 69:                                               ; preds = %66
   %70 = load i32, ptr @hf_btl2cap_payload, align 4
@@ -5023,8 +5023,8 @@ define internal fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef %1, ptr
   br label %166
 
 74:                                               ; preds = %66
-  %.not140 = icmp eq i16 %5, 0
-  br i1 %.not140, label %proto_item_set_generated.exit, label %75
+  %.not141 = icmp eq i16 %5, 0
+  br i1 %.not141, label %proto_item_set_generated.exit, label %75
 
 75:                                               ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -5055,8 +5055,8 @@ define internal fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef %1, ptr
   %92 = trunc i16 %87 to i8
   %93 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i8 %92, ptr %93, align 2
-  %.not141 = icmp eq i16 %87, 0
-  br i1 %.not141, label %106, label %94
+  %.not142 = icmp eq i16 %87, 0
+  br i1 %.not142, label %106, label %94
 
 94:                                               ; preds = %86
   %95 = load ptr, ptr %76, align 8
@@ -5089,8 +5089,8 @@ define internal fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef %1, ptr
   %113 = load i32, ptr @hf_btl2cap_psm_dynamic, align 4
   %114 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %113, ptr noundef %0, i32 noundef 4, i32 noundef 0, i32 noundef %107)
   %115 = load i16, ptr %12, align 2
-  %.not142 = icmp eq i16 %115, 0
-  br i1 %.not142, label %119, label %116
+  %.not143 = icmp eq i16 %115, 0
+  br i1 %.not143, label %119, label %116
 
 116:                                              ; preds = %112
   %117 = zext i16 %115 to i32
@@ -5099,12 +5099,12 @@ define internal fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef %1, ptr
   br label %119
 
 119:                                              ; preds = %112, %116, %109
-  %.0128 = phi ptr [ %111, %109 ], [ %114, %116 ], [ %114, %112 ]
-  %.not.i = icmp eq ptr %.0128, null
+  %.0130 = phi ptr [ %111, %109 ], [ %114, %116 ], [ %114, %112 ]
+  %.not.i = icmp eq ptr %.0130, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %120
 
 120:                                              ; preds = %119
-  %121 = getelementptr inbounds nuw i8, ptr %.0128, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %.0130, i64 40
   %122 = load ptr, ptr %121, align 8
   %.not5.i = icmp eq ptr %122, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %123
@@ -5117,10 +5117,10 @@ define internal fastcc i32 @dissect_le_frame(ptr noundef %0, ptr noundef %1, ptr
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %123, %120, %119, %74
-  %127 = load i8, ptr %.0129, align 4
+  %127 = load i8, ptr %.0131, align 4
   %128 = and i8 %127, 1
-  %.not143 = icmp eq i8 %128, 0
-  br i1 %.not143, label %133, label %129
+  %.not144 = icmp eq i8 %128, 0
+  br i1 %.not144, label %133, label %129
 
 129:                                              ; preds = %proto_item_set_generated.exit
   %130 = load i32, ptr @hf_btl2cap_le_sdu_length, align 4
@@ -5129,35 +5129,35 @@ proto_item_set_generated.exit:                    ; preds = %123, %120, %119, %7
   br label %133
 
 133:                                              ; preds = %129, %proto_item_set_generated.exit
-  %.0127 = phi i32 [ 6, %129 ], [ 4, %proto_item_set_generated.exit ]
-  %.0126 = phi i16 [ %132, %129 ], [ %7, %proto_item_set_generated.exit ]
+  %.0129 = phi i32 [ 6, %129 ], [ 4, %proto_item_set_generated.exit ]
+  %.0128 = phi i16 [ %132, %129 ], [ %7, %proto_item_set_generated.exit ]
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i8 1, ptr %134, align 8
   %135 = zext i16 %4 to i32
-  %136 = zext i16 %.0126 to i32
-  %137 = load i8, ptr %.0129, align 4
+  %136 = zext i16 %.0128 to i32
+  %137 = load i8, ptr %.0131, align 4
   %138 = and i8 %137, 2
   %139 = icmp ne i8 %138, 0
-  %140 = call ptr @fragment_add_seq_next(ptr noundef nonnull @btl2cap_le_sdu_reassembly_table, ptr noundef %0, i32 noundef %.0127, ptr noundef %1, i32 noundef %135, ptr noundef null, i32 noundef %136, i1 noundef zeroext %139)
-  %141 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.0127, ptr noundef %1, ptr noundef nonnull @.str.457, ptr noundef %140, ptr noundef nonnull @btl2cap_le_sdu_frag_items, ptr noundef null, ptr noundef %3)
-  %.not144 = icmp eq ptr %141, null
-  br i1 %.not144, label %161, label %142
+  %140 = call ptr @fragment_add_seq_next(ptr noundef nonnull @btl2cap_le_sdu_reassembly_table, ptr noundef %0, i32 noundef %.0129, ptr noundef %1, i32 noundef %135, ptr noundef null, i32 noundef %136, i1 noundef zeroext %139)
+  %141 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.0129, ptr noundef %1, ptr noundef nonnull @.str.457, ptr noundef %140, ptr noundef nonnull @btl2cap_le_sdu_frag_items, ptr noundef null, ptr noundef %3)
+  %.not145 = icmp eq ptr %141, null
+  br i1 %.not145, label %161, label %142
 
 142:                                              ; preds = %133
   %143 = load ptr, ptr @l2cap_cid_dissector_table, align 8
   %144 = call i32 @dissector_try_uint_with_data(ptr noundef %143, i32 noundef %135, ptr noundef nonnull %141, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %9)
-  %.not145 = icmp eq i32 %144, 0
-  br i1 %.not140, label %156, label %145
+  %.not146 = icmp eq i32 %144, 0
+  br i1 %.not141, label %156, label %145
 
 145:                                              ; preds = %142
-  br i1 %.not145, label %146, label %159
+  br i1 %.not146, label %146, label %159
 
 146:                                              ; preds = %145
   %147 = load ptr, ptr @l2cap_psm_dissector_table, align 8
   %148 = zext i16 %5 to i32
   %149 = call i32 @dissector_try_uint_with_data(ptr noundef %147, i32 noundef %148, ptr noundef nonnull %141, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %9)
-  %.not147 = icmp eq i32 %149, 0
-  br i1 %.not147, label %150, label %159
+  %.not148 = icmp eq i32 %149, 0
+  br i1 %.not148, label %150, label %159
 
 150:                                              ; preds = %146
   %151 = load ptr, ptr @bluetooth_uuid_table, align 8
@@ -5165,15 +5165,15 @@ proto_item_set_generated.exit:                    ; preds = %123, %120, %119, %7
   %153 = load ptr, ptr %152, align 8
   %154 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %153, ptr noundef nonnull %12)
   %155 = call i32 @dissector_try_string_with_data(ptr noundef %151, ptr noundef %154, ptr noundef nonnull %141, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %9)
-  %.not148 = icmp eq i32 %155, 0
-  br i1 %.not148, label %.sink.split, label %159
+  %.not149 = icmp eq i32 %155, 0
+  br i1 %.not149, label %.sink.split, label %159
 
 156:                                              ; preds = %142
-  br i1 %.not145, label %.sink.split, label %159
+  br i1 %.not146, label %.sink.split, label %159
 
 .sink.split:                                      ; preds = %156, %150
   %157 = load i32, ptr @hf_btl2cap_payload, align 4
-  %158 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %157, ptr noundef %0, i32 noundef %.0127, i32 noundef %136, i32 noundef 0)
+  %158 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %157, ptr noundef %0, i32 noundef %.0129, i32 noundef %136, i32 noundef 0)
   br label %159
 
 159:                                              ; preds = %.sink.split, %156, %145, %150, %146
@@ -5184,7 +5184,7 @@ proto_item_set_generated.exit:                    ; preds = %123, %120, %119, %7
   %162 = load ptr, ptr %67, align 8
   call void @col_set_str(ptr noundef %162, i32 noundef 25, ptr noundef nonnull @.str.458)
   %163 = load i32, ptr @hf_btl2cap_payload, align 4
-  %164 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %163, ptr noundef %0, i32 noundef %.0127, i32 noundef %136, i32 noundef 0)
+  %164 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %163, ptr noundef %0, i32 noundef %.0129, i32 noundef %136, i32 noundef 0)
   %165 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %166
 

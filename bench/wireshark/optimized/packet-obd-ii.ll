@@ -534,8 +534,8 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %7
   %10 = and i32 %.sroa.5.0.copyload, 536870911
-  %.not56 = icmp sgt i32 %.sroa.5.0.copyload, -1
-  br i1 %.not56, label %18, label %11
+  %.not58 = icmp sgt i32 %.sroa.5.0.copyload, -1
+  br i1 %.not58, label %18, label %11
 
 11:                                               ; preds = %9
   %12 = icmp eq i32 %10, 417018865
@@ -553,23 +553,23 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
   br label %22
 
 22:                                               ; preds = %18, %11
-  %.051.in = phi i1 [ %12, %11 ], [ %19, %18 ]
+  %.053.in = phi i1 [ %12, %11 ], [ %19, %18 ]
   %.0.in = phi i1 [ %17, %11 ], [ %21, %18 ]
   %23 = and i32 %.sroa.5.0.copyload, 1610612736
-  %.not57 = icmp eq i32 %23, 0
-  %brmerge = select i1 %.051.in, i1 true, i1 %.0.in
-  %or.cond59 = select i1 %.not57, i1 %brmerge, i1 false
-  br i1 %or.cond59, label %24, label %64
+  %.not59 = icmp eq i32 %23, 0
+  %or.cond4 = select i1 %.053.in, i1 true, i1 %.0.in
+  %or.cond61 = select i1 %.not59, i1 %or.cond4, i1 false
+  br i1 %or.cond61, label %24, label %64
 
 24:                                               ; preds = %22
   %25 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %26 = trunc i32 %25 to i8
   %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  br i1 %.051.in, label %28, label %35
+  br i1 %.053.in, label %28, label %35
 
 28:                                               ; preds = %24
-  %.not58 = icmp eq i32 %.sroa.8.0.copyload, 8
-  br i1 %.not58, label %31, label %29
+  %.not60 = icmp eq i32 %.sroa.8.0.copyload, 8
+  br i1 %.not60, label %31, label %29
 
 29:                                               ; preds = %28
   %30 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_obdii_padding)
@@ -578,10 +578,10 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
 31:                                               ; preds = %29, %28
   %32 = and i32 %25, 255
   %33 = add nsw i32 %32, -4
-  %or.cond5 = icmp ult i32 %33, -3
+  %or.cond7 = icmp ult i32 %33, -3
   %34 = icmp ugt i8 %27, 10
-  %or.cond60 = select i1 %or.cond5, i1 true, i1 %34
-  br i1 %or.cond60, label %64, label %35
+  %or.cond62 = select i1 %or.cond7, i1 true, i1 %34
+  br i1 %or.cond62, label %64, label %35
 
 35:                                               ; preds = %31, %24
   br i1 %.0.in, label %36, label %43
@@ -590,17 +590,17 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
   %37 = icmp ne i8 %27, 68
   %38 = and i32 %25, 254
   %39 = icmp eq i32 %38, 0
-  %or.cond8 = select i1 %37, i1 %39, i1 false
+  %or.cond10 = select i1 %37, i1 %39, i1 false
   %40 = icmp ult i8 %27, 64
-  %or.cond61 = or i1 %40, %or.cond8
-  br i1 %or.cond61, label %64, label %41
+  %or.cond63 = or i1 %40, %or.cond10
+  br i1 %or.cond63, label %64, label %41
 
 41:                                               ; preds = %36
   %42 = add i8 %27, -64
   br label %43
 
 43:                                               ; preds = %41, %35
-  %.052 = phi i8 [ %42, %41 ], [ %27, %35 ]
+  %.054 = phi i8 [ %42, %41 ], [ %27, %35 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void @col_set_str(ptr noundef %45, i32 noundef 35, ptr noundef nonnull @.str.146)
@@ -611,7 +611,7 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
   %49 = load i32, ptr @ett_obdii, align 4
   %50 = tail call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49)
   %51 = load i32, ptr @hf_obdii_mode, align 4
-  %52 = zext i8 %.052 to i32
+  %52 = zext i8 %.054 to i32
   %53 = tail call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %52)
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 noundef 0, i64 noundef 24, i1 noundef false) #6
@@ -621,8 +621,8 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %26, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 13
-  store i8 %.052, ptr %57, align 1
-  br i1 %.051.in, label %58, label %60
+  store i8 %.054, ptr %57, align 1
+  br i1 %.053.in, label %58, label %60
 
 58:                                               ; preds = %43
   %59 = call fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %50)
@@ -640,9 +640,9 @@ define internal i32 @dissect_obdii_iso15765(ptr noundef %0, ptr noundef %1, ptr 
   unreachable
 
 64:                                               ; preds = %36, %31, %22, %7, %61, %58
-  %.053 = phi i32 [ %59, %58 ], [ %62, %61 ], [ 0, %7 ], [ 0, %22 ], [ 0, %31 ], [ 0, %36 ]
+  %.055 = phi i32 [ %59, %58 ], [ %62, %61 ], [ 0, %7 ], [ 0, %22 ], [ 0, %31 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
-  ret i32 %.053
+  ret i32 %.055
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

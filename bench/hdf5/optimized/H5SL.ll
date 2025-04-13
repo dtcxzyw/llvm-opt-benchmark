@@ -71,7 +71,7 @@ declare ptr @H5FL_fac_init(i64 noundef) local_unnamed_addr #2
 define range(i32 0, 3) i32 @H5SL_term_package() local_unnamed_addr #0 {
   %1 = load i8, ptr @H5SL_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %2 = trunc nuw i8 %1 to i1
-  br i1 %2, label %3, label %.thread19, !prof !17
+  br i1 %2, label %3, label %.thread18, !prof !17
 
 3:                                                ; preds = %0
   %4 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -79,41 +79,41 @@ define range(i32 0, 3) i32 @H5SL_term_package() local_unnamed_addr #0 {
   br i1 %.not, label %12, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.0713 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
+  %.0812 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
   %5 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0713
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0812
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = tail call i32 @H5FL_fac_term(ptr noundef %7) #9
-  %9 = add nuw i64 %.0713, 1
+  %9 = add nuw i64 %.0812, 1
   %10 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
   %11 = icmp ult i64 %9, %10
-  br i1 %11, label %.lr.ph, label %.thread15, !llvm.loop !18
+  br i1 %11, label %.lr.ph, label %.thread14, !llvm.loop !18
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %.not9 = icmp eq ptr %13, null
-  br i1 %.not9, label %17, label %.thread
+  %.not10 = icmp eq ptr %13, null
+  br i1 %.not10, label %17, label %.thread
 
-.thread15:                                        ; preds = %.lr.ph
+.thread14:                                        ; preds = %.lr.ph
   store i64 0, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
   %14 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %.not917 = icmp eq ptr %14, null
-  br i1 %.not917, label %.thread19, label %.thread
+  %.not1016 = icmp eq ptr %14, null
+  br i1 %.not1016, label %.thread18, label %.thread
 
-.thread:                                          ; preds = %.thread15, %12
-  %15 = phi ptr [ %14, %.thread15 ], [ %13, %12 ]
-  %.118 = phi i32 [ 2, %.thread15 ], [ 1, %12 ]
+.thread:                                          ; preds = %.thread14, %12
+  %15 = phi ptr [ %14, %.thread14 ], [ %13, %12 ]
+  %.117 = phi i32 [ 2, %.thread14 ], [ 1, %12 ]
   %16 = tail call ptr @H5MM_xfree(ptr noundef nonnull %15) #9
   store ptr %16, ptr @H5SL_fac_g, align 8, !tbaa !10
   store i64 0, ptr @H5SL_fac_nalloc_g, align 8, !tbaa !13
-  br label %.thread19
+  br label %.thread18
 
 17:                                               ; preds = %12
   store i8 0, ptr @H5SL_init_g, align 1, !tbaa !3
-  br label %.thread19
+  br label %.thread18
 
-.thread19:                                        ; preds = %.thread15, %.thread, %0, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %0 ], [ %.118, %.thread ], [ 1, %.thread15 ]
+.thread18:                                        ; preds = %.thread14, %.thread, %17, %0
+  %.0 = phi i32 [ 0, %17 ], [ 0, %0 ], [ %.117, %.thread ], [ 1, %.thread14 ]
   ret i32 %.0
 }
 

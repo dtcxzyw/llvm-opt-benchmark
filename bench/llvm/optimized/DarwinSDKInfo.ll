@@ -1111,19 +1111,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 88
   %107 = load i8, ptr %106, align 8, !tbaa !41, !range !53, !noundef !54
   %108 = trunc nuw i8 %107 to i1
-  br i1 %108, label %109, label %.thread.i
-
-109:                                              ; preds = %100
-  %110 = getelementptr inbounds nuw i8, ptr %105, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %105, ptr noundef nonnull align 8 dereferenceable(96) %16, i64 64, i1 false)
-  %111 = load ptr, ptr %110, align 8, !tbaa !10
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 64
+  br i1 %108, label %110, label %122
+
+110:                                              ; preds = %100
+  %111 = load ptr, ptr %109, align 8, !tbaa !10
   %112 = getelementptr inbounds nuw i8, ptr %105, i64 80
   %113 = load i32, ptr %112, align 8, !tbaa !15
   %114 = zext i32 %113 to i64
   %115 = shl nuw nsw i64 %114, 5
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %111, i64 noundef %115, i64 noundef 4) #14
   %116 = load ptr, ptr %62, align 8, !tbaa !44
-  store ptr %116, ptr %110, align 8, !tbaa !44
+  store ptr %116, ptr %109, align 8, !tbaa !44
   store ptr null, ptr %62, align 8, !tbaa !44
   %117 = getelementptr inbounds nuw i8, ptr %105, i64 72
   %118 = load i32, ptr %63, align 8, !tbaa !45
@@ -1137,11 +1137,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i32 %121, ptr %112, align 8, !tbaa !45
   br label %130
 
-.thread.i:                                        ; preds = %100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %105, ptr noundef nonnull align 8 dereferenceable(96) %16, i64 64, i1 false)
-  %122 = getelementptr inbounds nuw i8, ptr %105, i64 64
+122:                                              ; preds = %100
   %123 = load ptr, ptr %62, align 8, !tbaa !44
-  store ptr %123, ptr %122, align 8, !tbaa !44
+  store ptr %123, ptr %109, align 8, !tbaa !44
   store ptr null, ptr %62, align 8, !tbaa !44
   %124 = getelementptr inbounds nuw i8, ptr %105, i64 72
   %125 = load i32, ptr %63, align 8, !tbaa !45
@@ -1157,7 +1155,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i8 1, ptr %106, align 8, !tbaa !41
   br label %130
 
-130:                                              ; preds = %.thread.i, %109
+130:                                              ; preds = %122, %110
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #14
   br label %_ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb0EED2Ev.exit
@@ -1212,20 +1210,20 @@ _ZN4llvm6TripleD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 88
   %149 = load i8, ptr %148, align 8, !tbaa !41, !range !53, !noundef !54
   %150 = trunc nuw i8 %149 to i1
-  %151 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  br i1 %150, label %152, label %.thread.i63
-
-152:                                              ; preds = %146
-  %153 = getelementptr inbounds nuw i8, ptr %147, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %147, ptr noundef nonnull align 8 dereferenceable(96) %18, i64 64, i1 false)
-  %154 = load ptr, ptr %153, align 8, !tbaa !10
+  %151 = getelementptr inbounds nuw i8, ptr %147, i64 64
+  %152 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  br i1 %150, label %153, label %168
+
+153:                                              ; preds = %146
+  %154 = load ptr, ptr %151, align 8, !tbaa !10
   %155 = getelementptr inbounds nuw i8, ptr %147, i64 80
   %156 = load i32, ptr %155, align 8, !tbaa !15
   %157 = zext i32 %156 to i64
   %158 = shl nuw nsw i64 %157, 5
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %154, i64 noundef %158, i64 noundef 4) #14
-  %159 = load ptr, ptr %151, align 8, !tbaa !44
-  store ptr %159, ptr %153, align 8, !tbaa !44
+  %159 = load ptr, ptr %152, align 8, !tbaa !44
+  store ptr %159, ptr %151, align 8, !tbaa !44
   %160 = getelementptr inbounds nuw i8, ptr %147, i64 72
   %161 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %162 = load i32, ptr %161, align 8, !tbaa !45
@@ -1239,11 +1237,9 @@ _ZN4llvm6TripleD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   store i32 %167, ptr %155, align 8, !tbaa !45
   br label %_ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb0EED2Ev.exit49.thread
 
-.thread.i63:                                      ; preds = %146
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %147, ptr noundef nonnull align 8 dereferenceable(96) %18, i64 64, i1 false)
-  %168 = getelementptr inbounds nuw i8, ptr %147, i64 64
-  %169 = load ptr, ptr %151, align 8, !tbaa !44
-  store ptr %169, ptr %168, align 8, !tbaa !44
+168:                                              ; preds = %146
+  %169 = load ptr, ptr %152, align 8, !tbaa !44
+  store ptr %169, ptr %151, align 8, !tbaa !44
   %170 = getelementptr inbounds nuw i8, ptr %147, i64 72
   %171 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %172 = load i32, ptr %171, align 8, !tbaa !45
@@ -1259,7 +1255,7 @@ _ZN4llvm6TripleD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   store i8 1, ptr %148, align 8, !tbaa !41
   br label %_ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb0EED2Ev.exit49.thread
 
-_ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb0EED2Ev.exit49.thread: ; preds = %152, %.thread.i63
+_ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb0EED2Ev.exit49.thread: ; preds = %153, %168
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #14
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %18) #14
@@ -1291,20 +1287,20 @@ _ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 88
   %188 = load i8, ptr %187, align 8, !tbaa !41, !range !53, !noundef !54
   %189 = trunc nuw i8 %188 to i1
-  %190 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  br i1 %189, label %191, label %.thread.i65
-
-191:                                              ; preds = %185
-  %192 = getelementptr inbounds nuw i8, ptr %186, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %186, ptr noundef nonnull align 8 dereferenceable(96) %20, i64 64, i1 false)
-  %193 = load ptr, ptr %192, align 8, !tbaa !10
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 64
+  %191 = getelementptr inbounds nuw i8, ptr %20, i64 64
+  br i1 %189, label %192, label %207
+
+192:                                              ; preds = %185
+  %193 = load ptr, ptr %190, align 8, !tbaa !10
   %194 = getelementptr inbounds nuw i8, ptr %186, i64 80
   %195 = load i32, ptr %194, align 8, !tbaa !15
   %196 = zext i32 %195 to i64
   %197 = shl nuw nsw i64 %196, 5
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %193, i64 noundef %197, i64 noundef 4) #14
-  %198 = load ptr, ptr %190, align 8, !tbaa !44
-  store ptr %198, ptr %192, align 8, !tbaa !44
+  %198 = load ptr, ptr %191, align 8, !tbaa !44
+  store ptr %198, ptr %190, align 8, !tbaa !44
   %199 = getelementptr inbounds nuw i8, ptr %186, i64 72
   %200 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %201 = load i32, ptr %200, align 8, !tbaa !45
@@ -1318,11 +1314,9 @@ _ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb
   store i32 %206, ptr %194, align 8, !tbaa !45
   br label %_ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb0EED2Ev.exit50.thread
 
-.thread.i65:                                      ; preds = %185
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %186, ptr noundef nonnull align 8 dereferenceable(96) %20, i64 64, i1 false)
-  %207 = getelementptr inbounds nuw i8, ptr %186, i64 64
-  %208 = load ptr, ptr %190, align 8, !tbaa !44
-  store ptr %208, ptr %207, align 8, !tbaa !44
+207:                                              ; preds = %185
+  %208 = load ptr, ptr %191, align 8, !tbaa !44
+  store ptr %208, ptr %190, align 8, !tbaa !44
   %209 = getelementptr inbounds nuw i8, ptr %186, i64 72
   %210 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %211 = load i32, ptr %210, align 8, !tbaa !45
@@ -1338,7 +1332,7 @@ _ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb
   store i8 1, ptr %187, align 8, !tbaa !41
   br label %_ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb0EED2Ev.exit50.thread
 
-_ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb0EED2Ev.exit50.thread: ; preds = %191, %.thread.i65
+_ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb0EED2Ev.exit50.thread: ; preds = %192, %207
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #14
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %20) #14

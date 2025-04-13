@@ -2096,31 +2096,31 @@ define weak_odr hidden void @_ZN3sls13arith_clausalI13checked_int64ILb1EEE6searc
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 120
   %61 = load ptr, ptr %60, align 8
   %62 = tail call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(8) %58)
-  %63 = sub i32 %55, %62
-  %64 = load i32, ptr %19, align 4, !tbaa !113
-  %65 = mul i32 %64, %55
-  %66 = mul i32 %62, 20
-  %67 = icmp ugt i32 %65, %66
-  %68 = load i8, ptr %20, align 4, !tbaa !127, !range !78, !noundef !79
-  %69 = trunc nuw i8 %68 to i1
-  %70 = icmp ult i32 %63, %55
-  %or.cond21 = and i1 %70, %69
-  br i1 %or.cond21, label %71, label %77
+  %63 = load i32, ptr %19, align 4, !tbaa !113
+  %64 = mul i32 %63, %55
+  %65 = mul i32 %62, 20
+  %66 = icmp ugt i32 %64, %65
+  %67 = load i8, ptr %20, align 4, !tbaa !127, !range !78, !noundef !79
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %69, label %77
 
-71:                                               ; preds = %43
-  %72 = load i32, ptr %18, align 8, !tbaa !112
-  %73 = mul i32 %72, %55
-  %74 = mul i32 %63, 5
-  %75 = icmp ugt i32 %73, %74
+69:                                               ; preds = %43
+  %70 = sub i32 %55, %62
+  %71 = load i32, ptr %18, align 8, !tbaa !112
+  %72 = mul i32 %71, %55
+  %73 = mul i32 %70, 5
+  %74 = icmp ugt i32 %72, %73
+  %75 = icmp ult i32 %70, %55
+  %or.cond = select i1 %75, i1 %74, i1 false
   %76 = icmp eq i32 %55, %62
-  %or.cond = or i1 %76, %75
-  br i1 %or.cond, label %78, label %90
+  %or.cond3 = or i1 %76, %or.cond
+  br i1 %or.cond3, label %78, label %90
 
 77:                                               ; preds = %43
-  %.old1 = icmp eq i32 %55, %62
-  br i1 %.old1, label %78, label %90
+  %.old2 = icmp eq i32 %55, %62
+  br i1 %.old2, label %78, label %90
 
-78:                                               ; preds = %77, %71
+78:                                               ; preds = %69, %77
   %79 = load ptr, ptr %0, align 8, !tbaa !82
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !83
@@ -2132,24 +2132,24 @@ define weak_odr hidden void @_ZN3sls13arith_clausalI13checked_int64ILb1EEE6searc
   store i32 %86, ptr %22, align 4, !tbaa !110
   %87 = load i8, ptr %20, align 4, !tbaa !127, !range !78, !noundef !79
   %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %89, label %.thread27
+  br i1 %88, label %89, label %.thread30
 
 89:                                               ; preds = %78
   store i32 0, ptr %19, align 4, !tbaa !113
-  br label %.thread27
+  br label %.thread30
 
-.thread27:                                        ; preds = %89, %78
+.thread30:                                        ; preds = %89, %78
   store i8 0, ptr %20, align 4, !tbaa !127
   br label %136
 
-90:                                               ; preds = %71, %77
-  %91 = icmp eq i32 %55, %62
-  %or.cond4.not = or i1 %91, %69
-  %not.or.cond4.not = xor i1 %or.cond4.not, true
-  %brmerge = select i1 %not.or.cond4.not, i1 %67, i1 false
+90:                                               ; preds = %69, %77
+  %.not = xor i1 %68, true
+  %91 = icmp ne i32 %55, %62
+  %or.cond6 = and i1 %91, %.not
+  %or.cond9 = select i1 %or.cond6, i1 %66, i1 false
   %92 = icmp eq i32 %62, 0
-  %or.cond22 = or i1 %92, %brmerge
-  br i1 %or.cond22, label %93, label %105
+  %or.cond25 = or i1 %92, %or.cond9
+  br i1 %or.cond25, label %93, label %105
 
 93:                                               ; preds = %90
   %94 = load ptr, ptr %0, align 8, !tbaa !82
@@ -2174,7 +2174,7 @@ define weak_odr hidden void @_ZN3sls13arith_clausalI13checked_int64ILb1EEE6searc
   br label %107
 
 105:                                              ; preds = %90
-  %106 = trunc nuw i8 %68 to i1
+  %106 = trunc nuw i8 %67 to i1
   br i1 %106, label %107, label %136
 
 107:                                              ; preds = %.thread, %105
@@ -2216,7 +2216,7 @@ _ZN3sls13arith_clausalI13checked_int64ILb1EEE26update_outer_best_solutionEv.exit
   store i32 %135, ptr %18, align 8, !tbaa !112
   br label %159
 
-136:                                              ; preds = %.thread27, %105
+136:                                              ; preds = %.thread30, %105
   %137 = tail call noundef i32 @_ZN3sls13arith_clausalI13checked_int64ILb1EEE19move_arith_variableEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
   %138 = load ptr, ptr %0, align 8, !tbaa !82
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
@@ -2227,8 +2227,8 @@ _ZN3sls13arith_clausalI13checked_int64ILb1EEE26update_outer_best_solutionEv.exit
   %144 = tail call noundef nonnull align 8 dereferenceable(24) ptr %143(ptr noundef nonnull align 8 dereferenceable(8) %140)
   %145 = load i32, ptr %144, align 8, !tbaa !108
   %146 = load i32, ptr %22, align 4, !tbaa !110
-  %.not.i23 = icmp ult i32 %145, %146
-  br i1 %.not.i23, label %147, label %_ZN3sls13arith_clausalI13checked_int64ILb1EEE26update_inner_best_solutionEv.exit
+  %.not.i26 = icmp ult i32 %145, %146
+  br i1 %.not.i26, label %147, label %_ZN3sls13arith_clausalI13checked_int64ILb1EEE26update_inner_best_solutionEv.exit
 
 147:                                              ; preds = %136
   %148 = load ptr, ptr %0, align 8, !tbaa !82
@@ -2245,7 +2245,7 @@ _ZN3sls13arith_clausalI13checked_int64ILb1EEE26update_outer_best_solutionEv.exit
 _ZN3sls13arith_clausalI13checked_int64ILb1EEE26update_inner_best_solutionEv.exit: ; preds = %136, %147
   %156 = load i32, ptr %19, align 4
   %157 = add i32 %156, 1
-  %158 = select i1 %.not.i23, i32 0, i32 %157
+  %158 = select i1 %.not.i26, i32 0, i32 %157
   store i32 %158, ptr %19, align 4, !tbaa !113
   br label %159
 
@@ -2324,8 +2324,8 @@ _ZN3sls13arith_clausalI13checked_int64ILb1EEE20update_best_solutionEv.exit: ; pr
   %212 = load i32, ptr %211, align 4, !tbaa !147
   %213 = getelementptr inbounds nuw i8, ptr %210, i64 92
   %214 = load i32, ptr %213, align 4, !tbaa !168
-  %.not19 = icmp ult i32 %212, %214
-  br i1 %.not19, label %219, label %215
+  %.not24 = icmp ult i32 %212, %214
+  br i1 %.not24, label %219, label %215
 
 215:                                              ; preds = %.critedge
   %216 = getelementptr inbounds nuw i8, ptr %210, i64 96
@@ -5499,31 +5499,31 @@ define weak_odr hidden void @_ZN3sls13arith_clausalI8rationalE6searchEv(ptr noun
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 120
   %61 = load ptr, ptr %60, align 8
   %62 = tail call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(8) %58)
-  %63 = sub i32 %55, %62
-  %64 = load i32, ptr %19, align 4, !tbaa !218
-  %65 = mul i32 %64, %55
-  %66 = mul i32 %62, 20
-  %67 = icmp ugt i32 %65, %66
-  %68 = load i8, ptr %20, align 4, !tbaa !226, !range !78, !noundef !79
-  %69 = trunc nuw i8 %68 to i1
-  %70 = icmp ult i32 %63, %55
-  %or.cond21 = and i1 %70, %69
-  br i1 %or.cond21, label %71, label %77
+  %63 = load i32, ptr %19, align 4, !tbaa !218
+  %64 = mul i32 %63, %55
+  %65 = mul i32 %62, 20
+  %66 = icmp ugt i32 %64, %65
+  %67 = load i8, ptr %20, align 4, !tbaa !226, !range !78, !noundef !79
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %69, label %77
 
-71:                                               ; preds = %43
-  %72 = load i32, ptr %18, align 8, !tbaa !217
-  %73 = mul i32 %72, %55
-  %74 = mul i32 %63, 5
-  %75 = icmp ugt i32 %73, %74
+69:                                               ; preds = %43
+  %70 = sub i32 %55, %62
+  %71 = load i32, ptr %18, align 8, !tbaa !217
+  %72 = mul i32 %71, %55
+  %73 = mul i32 %70, 5
+  %74 = icmp ugt i32 %72, %73
+  %75 = icmp ult i32 %70, %55
+  %or.cond = select i1 %75, i1 %74, i1 false
   %76 = icmp eq i32 %55, %62
-  %or.cond = or i1 %76, %75
-  br i1 %or.cond, label %78, label %90
+  %or.cond3 = or i1 %76, %or.cond
+  br i1 %or.cond3, label %78, label %90
 
 77:                                               ; preds = %43
-  %.old1 = icmp eq i32 %55, %62
-  br i1 %.old1, label %78, label %90
+  %.old2 = icmp eq i32 %55, %62
+  br i1 %.old2, label %78, label %90
 
-78:                                               ; preds = %77, %71
+78:                                               ; preds = %69, %77
   %79 = load ptr, ptr %0, align 8, !tbaa !213
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !83
@@ -5535,24 +5535,24 @@ define weak_odr hidden void @_ZN3sls13arith_clausalI8rationalE6searchEv(ptr noun
   store i32 %86, ptr %22, align 4, !tbaa !215
   %87 = load i8, ptr %20, align 4, !tbaa !226, !range !78, !noundef !79
   %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %89, label %.thread27
+  br i1 %88, label %89, label %.thread30
 
 89:                                               ; preds = %78
   store i32 0, ptr %19, align 4, !tbaa !218
-  br label %.thread27
+  br label %.thread30
 
-.thread27:                                        ; preds = %89, %78
+.thread30:                                        ; preds = %89, %78
   store i8 0, ptr %20, align 4, !tbaa !226
   br label %136
 
-90:                                               ; preds = %71, %77
-  %91 = icmp eq i32 %55, %62
-  %or.cond4.not = or i1 %91, %69
-  %not.or.cond4.not = xor i1 %or.cond4.not, true
-  %brmerge = select i1 %not.or.cond4.not, i1 %67, i1 false
+90:                                               ; preds = %69, %77
+  %.not = xor i1 %68, true
+  %91 = icmp ne i32 %55, %62
+  %or.cond6 = and i1 %91, %.not
+  %or.cond9 = select i1 %or.cond6, i1 %66, i1 false
   %92 = icmp eq i32 %62, 0
-  %or.cond22 = or i1 %92, %brmerge
-  br i1 %or.cond22, label %93, label %105
+  %or.cond25 = or i1 %92, %or.cond9
+  br i1 %or.cond25, label %93, label %105
 
 93:                                               ; preds = %90
   %94 = load ptr, ptr %0, align 8, !tbaa !213
@@ -5577,7 +5577,7 @@ define weak_odr hidden void @_ZN3sls13arith_clausalI8rationalE6searchEv(ptr noun
   br label %107
 
 105:                                              ; preds = %90
-  %106 = trunc nuw i8 %68 to i1
+  %106 = trunc nuw i8 %67 to i1
   br i1 %106, label %107, label %136
 
 107:                                              ; preds = %.thread, %105
@@ -5619,7 +5619,7 @@ _ZN3sls13arith_clausalI8rationalE26update_outer_best_solutionEv.exit: ; preds = 
   store i32 %135, ptr %18, align 8, !tbaa !217
   br label %159
 
-136:                                              ; preds = %.thread27, %105
+136:                                              ; preds = %.thread30, %105
   %137 = tail call noundef i32 @_ZN3sls13arith_clausalI8rationalE19move_arith_variableEv(ptr noundef nonnull align 8 dereferenceable(176) %0)
   %138 = load ptr, ptr %0, align 8, !tbaa !213
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
@@ -5630,8 +5630,8 @@ _ZN3sls13arith_clausalI8rationalE26update_outer_best_solutionEv.exit: ; preds = 
   %144 = tail call noundef nonnull align 8 dereferenceable(24) ptr %143(ptr noundef nonnull align 8 dereferenceable(8) %140)
   %145 = load i32, ptr %144, align 8, !tbaa !108
   %146 = load i32, ptr %22, align 4, !tbaa !215
-  %.not.i23 = icmp ult i32 %145, %146
-  br i1 %.not.i23, label %147, label %_ZN3sls13arith_clausalI8rationalE26update_inner_best_solutionEv.exit
+  %.not.i26 = icmp ult i32 %145, %146
+  br i1 %.not.i26, label %147, label %_ZN3sls13arith_clausalI8rationalE26update_inner_best_solutionEv.exit
 
 147:                                              ; preds = %136
   %148 = load ptr, ptr %0, align 8, !tbaa !213
@@ -5648,7 +5648,7 @@ _ZN3sls13arith_clausalI8rationalE26update_outer_best_solutionEv.exit: ; preds = 
 _ZN3sls13arith_clausalI8rationalE26update_inner_best_solutionEv.exit: ; preds = %136, %147
   %156 = load i32, ptr %19, align 4
   %157 = add i32 %156, 1
-  %158 = select i1 %.not.i23, i32 0, i32 %157
+  %158 = select i1 %.not.i26, i32 0, i32 %157
   store i32 %158, ptr %19, align 4, !tbaa !218
   br label %159
 
@@ -5727,8 +5727,8 @@ _ZN3sls13arith_clausalI8rationalE20update_best_solutionEv.exit: ; preds = %179
   %212 = load i32, ptr %211, align 4, !tbaa !244
   %213 = getelementptr inbounds nuw i8, ptr %210, i64 92
   %214 = load i32, ptr %213, align 4, !tbaa !259
-  %.not19 = icmp ult i32 %212, %214
-  br i1 %.not19, label %219, label %215
+  %.not24 = icmp ult i32 %212, %214
+  br i1 %.not24, label %219, label %215
 
 215:                                              ; preds = %.critedge
   %216 = getelementptr inbounds nuw i8, ptr %210, i64 96

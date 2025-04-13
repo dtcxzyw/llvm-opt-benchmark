@@ -1000,8 +1000,8 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit:               ; preds = %221, %_ZN9__gnu_cxx
   %236 = load ptr, ptr %7, align 8, !tbaa !118
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   store ptr %237, ptr %7, align 8, !tbaa !118
-  %.val4.i.i = load ptr, ptr %.sroa.641.0..sroa_idx, align 8, !tbaa !119
-  %238 = icmp eq ptr %237, %.val4.i.i
+  %.val6.i.i = load ptr, ptr %.sroa.641.0..sroa_idx, align 8, !tbaa !119
+  %238 = icmp eq ptr %237, %.val6.i.i
   br i1 %238, label %._crit_edge, label %"_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEZNS_6passesL5visitERSA_INS_6HandleISF_EESaISK_EERSt13unordered_setIPSF_St4hashISP_ESt8equal_toISP_ESaISP_EERKSK_E3$_0EEE8iteratorneERKS12_.exit"
 
 239:                                              ; preds = %"_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEZNS_6passesL5visitERSA_INS_6HandleISF_EESaISK_EERSt13unordered_setIPSF_St4hashISP_ESt8equal_toISP_ESaISP_EERKSK_E3$_0EEE8iteratordeEv.exit"

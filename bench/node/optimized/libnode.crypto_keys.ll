@@ -4766,20 +4766,27 @@ if.end68:                                         ; preds = %if.then.i.i50, %if.
   br i1 %cmp.i52.not, label %if.end71, label %return
 
 if.end71:                                         ; preds = %if.then67, %if.end68
-  %19 = and i64 %call65, 4294967295
-  %or.cond = icmp eq i64 %19, 75497576
-  br i1 %or.cond, label %if.then76, label %if.end81
+  %and.i = and i64 %call65, 2147483648
+  %cmp.not.i53 = icmp eq i64 %and.i, 0
+  %19 = trunc i64 %call65 to i32
+  %.mask = and i32 %19, -8388608
+  %cmp7374 = icmp eq i32 %.mask, 75497472
+  %cmp73 = and i1 %cmp.not.i53, %cmp7374
+  br i1 %cmp73, label %land.lhs.true, label %if.end81
 
-if.then76:                                        ; preds = %if.end71
+land.lhs.true:                                    ; preds = %if.end71
+  %retval.0.i57 = and i32 %19, 8388607
+  %cmp75 = icmp eq i32 %retval.0.i57, 104
   %20 = load i8, ptr %passphrase_, align 8
   %tobool.i58 = trunc i8 %20 to i1
-  br i1 %tobool.i58, label %return, label %if.end81
+  %or.cond = select i1 %cmp75, i1 %tobool.i58, i1 false
+  br i1 %or.cond, label %return, label %if.end81
 
-if.end81:                                         ; preds = %if.then76, %if.end71
+if.end81:                                         ; preds = %land.lhs.true, %if.end71
   br label %return
 
-return:                                           ; preds = %if.then23, %if.then, %if.then76, %if.end68, %if.end81
-  %retval.1 = phi i32 [ 3, %if.end81 ], [ 0, %if.end68 ], [ 2, %if.then76 ], [ 3, %if.then ], [ 3, %if.then23 ]
+return:                                           ; preds = %if.then23, %if.then, %land.lhs.true, %if.end68, %if.end81
+  %retval.1 = phi i32 [ 3, %if.end81 ], [ 0, %if.end68 ], [ 2, %land.lhs.true ], [ 3, %if.then ], [ 3, %if.then23 ]
   ret i32 %retval.1
 }
 

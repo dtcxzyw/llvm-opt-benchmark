@@ -270,14 +270,14 @@ _ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i161: ; 
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %99 = load i32, ptr %98, align 8
   %100 = and i32 %99, 2147483647
-  %101 = icmp ugt i32 %97, %100
+  %101 = icmp ule i32 %97, %100
   %102 = load atomic i32, ptr %94 monotonic, align 4
-  %103 = icmp ugt i32 %102, 1
-  %brmerge.i.i = select i1 %103, i1 true, i1 %101
-  br i1 %brmerge.i.i, label %104, label %106
+  %103 = icmp ult i32 %102, 2
+  %or.cond.not.i.i = select i1 %103, i1 %101, i1 false
+  br i1 %or.cond.not.i.i, label %106, label %104
 
 104:                                              ; preds = %.lr.ph413
-  %105 = select i1 %101, i32 8, i32 0
+  %105 = select i1 %101, i32 0, i32 8
   %spec.select.i.i = call i32 @llvm.umax.i32(i32 %97, i32 %100)
   invoke void @_ZN7QVectorI7QPointFE7reallocEi6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %spec.select.i.i, i32 %105)
           to label %.noexc171 unwind label %.thread
@@ -285,11 +285,11 @@ _ZNSt16allocator_traitsISaIN3vcg6Point2IfEEEE8allocateERS3_m.exit.i.i.i.i161: ; 
 .noexc171:                                        ; preds = %104
   %.pre.i.i = load ptr, ptr %10, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 4
-  %.pre4.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
+  %.pre6.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %106
 
 106:                                              ; preds = %.noexc171, %.lr.ph413
-  %107 = phi i32 [ %96, %.lr.ph413 ], [ %.pre4.i.i, %.noexc171 ]
+  %107 = phi i32 [ %96, %.lr.ph413 ], [ %.pre6.i.i, %.noexc171 ]
   %108 = phi ptr [ %94, %.lr.ph413 ], [ %.pre.i.i, %.noexc171 ]
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load i64, ptr %109, align 8
@@ -2934,17 +2934,17 @@ define linkonce_odr void @_ZN7QVectorI7QPointFE7reallocEi6QFlagsIN10QArrayData16
   br i1 %6, label %.preheader, label %32
 
 .preheader:                                       ; preds = %14
-  %.not3339 = icmp eq i32 %24, 0
-  br i1 %.not3339, label %.loopexit, label %.lr.ph
+  %.not3439 = icmp eq i32 %24, 0
+  br i1 %.not3439, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.041 = phi ptr [ %30, %.lr.ph ], [ %29, %.preheader ]
-  %.03040 = phi ptr [ %31, %.lr.ph ], [ %22, %.preheader ]
+  %.03140 = phi ptr [ %31, %.lr.ph ], [ %22, %.preheader ]
   %30 = getelementptr inbounds nuw i8, ptr %.041, i64 16
-  %31 = getelementptr inbounds nuw i8, ptr %.03040, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.041, ptr noundef nonnull align 8 dereferenceable(16) %.03040, i64 16, i1 false)
-  %.not33 = icmp eq ptr %31, %26
-  br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !65
+  %31 = getelementptr inbounds nuw i8, ptr %.03140, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.041, ptr noundef nonnull align 8 dereferenceable(16) %.03140, i64 16, i1 false)
+  %.not34 = icmp eq ptr %31, %26
+  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
 32:                                               ; preds = %14
   %.idx = shl nsw i64 %25, 4

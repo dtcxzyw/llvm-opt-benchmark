@@ -1963,8 +1963,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm9symbolize22SymbolizableObjectFile29shouldOverrideWithSymbolTableENS_10DINameKindEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
   %4 = icmp eq i32 %1, 2
-  %brmerge.not = and i1 %4, %2
-  br i1 %brmerge.not, label %5, label %11
+  %or.cond = and i1 %4, %2
+  br i1 %or.cond, label %5, label %11
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1974,7 +1974,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9symbolize22SymbolizableObjectFile
   %10 = icmp eq i32 %9, 0
   br label %11
 
-11:                                               ; preds = %3, %5
+11:                                               ; preds = %5, %3
   %12 = phi i1 [ false, %3 ], [ %10, %5 ]
   ret i1 %12
 }
@@ -2002,8 +2002,8 @@ define dso_local void @_ZNK4llvm9symbolize22SymbolizableObjectFile13symbolizeCod
   tail call void %20(ptr dead_on_unwind writable sret(%"struct.llvm::DILineInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %17, i64 %2, i64 %.sroa.4.0, i64 %4, i8 %5) #22
   %.sroa.211.0.extract.shift.mask = and i64 %4, -4294967296
   %21 = icmp eq i64 %.sroa.211.0.extract.shift.mask, 8589934592
-  %brmerge.not.i = and i1 %21, %6
-  br i1 %brmerge.not.i, label %_ZNK4llvm9symbolize22SymbolizableObjectFile29shouldOverrideWithSymbolTableENS_10DINameKindEb.exit, label %_ZNK4llvm9symbolize22SymbolizableObjectFile29shouldOverrideWithSymbolTableENS_10DINameKindEb.exit.thread
+  %or.cond.i = and i1 %21, %6
+  br i1 %or.cond.i, label %_ZNK4llvm9symbolize22SymbolizableObjectFile29shouldOverrideWithSymbolTableENS_10DINameKindEb.exit, label %_ZNK4llvm9symbolize22SymbolizableObjectFile29shouldOverrideWithSymbolTableENS_10DINameKindEb.exit.thread
 
 _ZNK4llvm9symbolize22SymbolizableObjectFile29shouldOverrideWithSymbolTableENS_10DINameKindEb.exit: ; preds = %15
   %22 = load ptr, ptr %16, align 8, !tbaa !3
@@ -2327,8 +2327,8 @@ _ZN4llvm10DILineInfoD2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112bas
 72:                                               ; preds = %_ZN4llvm10DILineInfoD2Ev.exit, %16
   %.sroa.215.0.extract.shift.mask = and i64 %4, -4294967296
   %73 = icmp eq i64 %.sroa.215.0.extract.shift.mask, 8589934592
-  %brmerge.not.i = and i1 %73, %6
-  br i1 %brmerge.not.i, label %_ZNK4llvm9symbolize22SymbolizableObjectFile29shouldOverrideWithSymbolTableENS_10DINameKindEb.exit, label %_ZNK4llvm9symbolize22SymbolizableObjectFile29shouldOverrideWithSymbolTableENS_10DINameKindEb.exit.thread
+  %or.cond.i = and i1 %73, %6
+  br i1 %or.cond.i, label %_ZNK4llvm9symbolize22SymbolizableObjectFile29shouldOverrideWithSymbolTableENS_10DINameKindEb.exit, label %_ZNK4llvm9symbolize22SymbolizableObjectFile29shouldOverrideWithSymbolTableENS_10DINameKindEb.exit.thread
 
 _ZNK4llvm9symbolize22SymbolizableObjectFile29shouldOverrideWithSymbolTableENS_10DINameKindEb.exit: ; preds = %72
   %74 = load ptr, ptr %17, align 8, !tbaa !3

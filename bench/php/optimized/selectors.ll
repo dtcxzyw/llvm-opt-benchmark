@@ -661,15 +661,13 @@ lxb_selectors_next_node.exit.thread81:            ; preds = %19, %13, %lxb_selec
   %33 = getelementptr i8, ptr %32, i64 4
   %.val77 = load i32, ptr %33, align 4, !tbaa !60
   %34 = icmp ult i32 %.val77, 5
-  br i1 %34, label %switch.hole_check, label %.loopexit
-
-switch.hole_check:                                ; preds = %29
-  %switch.maskindex = trunc nuw i32 %.val77 to i8
+  %switch.maskindex = trunc i32 %.val77 to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.loopexit
+  %or.cond = select i1 %34, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %.loopexit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %29
   %35 = zext nneg i32 %.val77 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.lxb_selectors_state_pseudo_class_function, i64 0, i64 %35
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -710,7 +708,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.not16.i = icmp eq ptr %50, %.012.i83
   br i1 %.not16.i, label %.loopexit, label %.lr.ph.i
 
-.loopexit:                                        ; preds = %.preheader.i, %48, %switch.hole_check, %29, %switch.lookup
+.loopexit:                                        ; preds = %.preheader.i, %48, %29, %switch.lookup
   store ptr %.val76, ptr %3, align 8, !tbaa !32
   store ptr @lxb_selectors_state_find, ptr %0, align 8, !tbaa !42
   %51 = tail call fastcc ptr @lxb_selectors_state_find_check(ptr noundef nonnull %0, ptr noundef null, ptr noundef %26, ptr noundef %.val76.val)

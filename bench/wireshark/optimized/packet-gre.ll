@@ -299,7 +299,7 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 15:                                               ; preds = %4
   %16 = and i16 %8, 7
-  %.not166 = icmp ne i16 %16, 0
+  %.not168 = icmp ne i16 %16, 0
   br label %21
 
 17:                                               ; preds = %4, %4
@@ -308,12 +308,12 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 18:                                               ; preds = %4
   %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
   %20 = and i8 %19, -16
-  %.not = icmp eq i8 %20, 64
+  %.not = icmp ne i8 %20, 64
   br label %21
 
 21:                                               ; preds = %18, %15, %17, %4
-  %.0164 = phi i1 [ true, %4 ], [ true, %17 ], [ true, %15 ], [ %.not, %18 ]
-  %.0163 = phi i1 [ false, %4 ], [ true, %17 ], [ %.not166, %15 ], [ false, %18 ]
+  %.0166 = phi i1 [ false, %4 ], [ false, %17 ], [ false, %15 ], [ %.not, %18 ]
+  %.0165 = phi i1 [ false, %4 ], [ true, %17 ], [ %.not168, %15 ], [ false, %18 ]
   %22 = load i32, ptr @proto_gre, align 4
   %23 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @gre_typevals, ptr noundef nonnull @.str.156)
   %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.155, ptr noundef %23)
@@ -335,7 +335,7 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %41 = load i32, ptr @hf_gre_flags_recursion_control, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
-  br i1 %.0163, label %43, label %46
+  br i1 %.0165, label %43, label %46
 
 43:                                               ; preds = %21
   %44 = load i32, ptr @hf_gre_flags_ack, align 4
@@ -350,23 +350,23 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %51 = load i32, ptr @hf_gre_proto, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %51, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
-  %.not168 = icmp ult i16 %8, 16384
-  br i1 %.not168, label %74, label %53
+  %.not170 = icmp ult i16 %8, 16384
+  br i1 %.not170, label %74, label %53
 
 53:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #5
   %54 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %55 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not169 = icmp sgt i16 %8, -1
-  br i1 %.not169, label %67, label %56
+  %.not171 = icmp sgt i16 %8, -1
+  br i1 %.not171, label %67, label %56
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %58 = load i8, ptr %57, align 8, !range !6, !noundef !7
   %59 = trunc nuw i8 %58 to i1
-  %.not170 = icmp ult i32 %54, %55
-  %or.cond180 = select i1 %59, i1 true, i1 %.not170
-  br i1 %or.cond180, label %67, label %60
+  %.not172 = icmp ult i32 %54, %55
+  %or.cond182 = select i1 %59, i1 true, i1 %.not172
+  br i1 %or.cond182, label %67, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -394,67 +394,67 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 74:                                               ; preds = %46, %71
   %75 = phi i16 [ %.pre, %71 ], [ %8, %46 ]
-  %.0162 = phi i32 [ 8, %71 ], [ 4, %46 ]
+  %.0164 = phi i32 [ 8, %71 ], [ 4, %46 ]
   %76 = and i16 %75, 8192
-  %.not171 = icmp eq i16 %76, 0
-  br i1 %.not171, label %91, label %77
+  %.not173 = icmp eq i16 %76, 0
+  br i1 %.not173, label %91, label %77
 
 77:                                               ; preds = %74
   %78 = icmp ne i16 %9, -30591
-  %or.cond = select i1 %.0163, i1 %78, i1 false
+  %or.cond = select i1 %.0165, i1 %78, i1 false
   br i1 %or.cond, label %79, label %86
 
 79:                                               ; preds = %77
   %80 = load i32, ptr @hf_gre_key_payload_length, align 4
-  %81 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %80, ptr noundef %0, i32 noundef %.0162, i32 noundef 2, i32 noundef 0)
-  %82 = or disjoint i32 %.0162, 2
+  %81 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %80, ptr noundef %0, i32 noundef %.0164, i32 noundef 2, i32 noundef 0)
+  %82 = or disjoint i32 %.0164, 2
   %83 = load i32, ptr @hf_gre_key_call_id, align 4
   %84 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %83, ptr noundef %0, i32 noundef %82, i32 noundef 2, i32 noundef 0)
-  %85 = add nuw nsw i32 %.0162, 4
+  %85 = add nuw nsw i32 %.0164, 4
   br label %91
 
 86:                                               ; preds = %77
   %87 = load i32, ptr @hf_gre_key, align 4
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %89 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %26, i32 noundef %87, ptr noundef %0, i32 noundef %.0162, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %88)
-  %90 = add nuw nsw i32 %.0162, 4
+  %89 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %26, i32 noundef %87, ptr noundef %0, i32 noundef %.0164, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %88)
+  %90 = add nuw nsw i32 %.0164, 4
   br label %91
 
 91:                                               ; preds = %79, %86, %74
-  %.1 = phi i32 [ %85, %79 ], [ %90, %86 ], [ %.0162, %74 ]
+  %.1 = phi i32 [ %85, %79 ], [ %90, %86 ], [ %.0164, %74 ]
   %92 = load i16, ptr %6, align 4
   %93 = and i16 %92, 4096
-  %.not172 = icmp eq i16 %93, 0
-  br i1 %.not172, label %98, label %94
+  %.not174 = icmp eq i16 %93, 0
+  br i1 %.not174, label %98, label %94
 
 94:                                               ; preds = %91
   %95 = load i32, ptr @hf_gre_sequence_number, align 4
   %96 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %95, ptr noundef %0, i32 noundef %.1, i32 noundef 4, i32 noundef 0)
   %97 = add nuw nsw i32 %.1, 4
-  %.pre186.pre = load i16, ptr %6, align 4
+  %.pre187.pre = load i16, ptr %6, align 4
   br label %98
 
 98:                                               ; preds = %94, %91
-  %.pre186 = phi i16 [ %.pre186.pre, %94 ], [ %92, %91 ]
+  %.pre187 = phi i16 [ %.pre187.pre, %94 ], [ %92, %91 ]
   %.2 = phi i32 [ %97, %94 ], [ %.1, %91 ]
-  %99 = and i16 %.pre186, 128
-  %.not173 = icmp ne i16 %99, 0
-  %or.cond189.not = select i1 %.0163, i1 %.not173, i1 false
-  br i1 %or.cond189.not, label %100, label %104
+  %99 = and i16 %.pre187, 128
+  %.not175 = icmp ne i16 %99, 0
+  %or.cond190.not = select i1 %.0165, i1 %.not175, i1 false
+  br i1 %or.cond190.not, label %100, label %104
 
 100:                                              ; preds = %98
   %101 = load i32, ptr @hf_gre_ack_number, align 4
   %102 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %101, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef 0)
   %103 = add nuw nsw i32 %.2, 4
-  %.pre185 = load i16, ptr %6, align 4
+  %.pre186 = load i16, ptr %6, align 4
   br label %104
 
 104:                                              ; preds = %100, %98
-  %105 = phi i16 [ %.pre185, %100 ], [ %.pre186, %98 ]
+  %105 = phi i16 [ %.pre186, %100 ], [ %.pre187, %98 ]
   %.3 = phi i32 [ %103, %100 ], [ %.2, %98 ]
   %106 = and i16 %105, 16384
-  %.not174 = icmp eq i16 %106, 0
-  br i1 %.not174, label %.loopexit, label %.preheader
+  %.not176 = icmp eq i16 %106, 0
+  br i1 %.not176, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %104, %126
   %.5 = phi i32 [ %129, %126 ], [ %.3, %104 ]
@@ -489,9 +489,9 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .loopexit:                                        ; preds = %.preheader, %104
   %.4 = phi i32 [ %.3, %104 ], [ %121, %.preheader ]
-  %130 = icmp ne i16 %9, -30658
-  %brmerge = or i1 %130, %.0164
-  br i1 %brmerge, label %151, label %.thread
+  %130 = icmp eq i16 %9, -30658
+  %or.cond7 = and i1 %130, %.0166
+  br i1 %or.cond7, label %.thread, label %151
 
 .thread:                                          ; preds = %.loopexit
   %131 = load i32, ptr @hf_gre_wccp_redirect_header, align 4
@@ -615,8 +615,8 @@ dissect_gre_3gpp2_attribs.exit:                   ; preds = %206
   call void @proto_item_set_len(ptr noundef %24, i32 noundef %.7)
   %210 = load i16, ptr %6, align 4
   %211 = and i16 %210, 4096
-  %.not175 = icmp eq i16 %211, 0
-  br i1 %.not175, label %212, label %215
+  %.not177 = icmp eq i16 %211, 0
+  br i1 %.not177, label %212, label %215
 
 212:                                              ; preds = %209
   %213 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.7)
@@ -631,14 +631,14 @@ dissect_gre_3gpp2_attribs.exit:                   ; preds = %206
   store i8 %219, ptr %217, align 4
   %220 = load ptr, ptr @gre_dissector_table, align 8
   %221 = call i32 @dissector_try_uint_with_data(ptr noundef %220, i32 noundef %13, ptr noundef %216, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %6)
-  %.not176 = icmp eq i32 %221, 0
-  br i1 %.not176, label %222, label %227
+  %.not178 = icmp eq i32 %221, 0
+  br i1 %.not178, label %222, label %227
 
 222:                                              ; preds = %215
   %223 = load ptr, ptr @gre_subdissector_table, align 8
   %224 = call i32 @dissector_try_payload_with_data(ptr noundef %223, ptr noundef %216, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %6)
-  %.not177 = icmp eq i32 %224, 0
-  br i1 %.not177, label %225, label %227
+  %.not179 = icmp eq i32 %224, 0
+  br i1 %.not179, label %225, label %227
 
 225:                                              ; preds = %222
   %226 = call i32 @call_data_dissector(ptr noundef %216, ptr noundef %1, ptr noundef %26)

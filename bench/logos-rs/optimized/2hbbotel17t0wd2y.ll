@@ -144,8 +144,8 @@ define hidden void @_ZN13logos_codegen6parser11type_params10TypeParams3set17h9d8
 
 40:                                               ; preds = %38
   store ptr %1, ptr %7, align 8
-  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hfff70eb83b071b40E", ptr %.sroa.212.0..sroa_idx, align 8
+  %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hfff70eb83b071b40E", ptr %.sroa.213.0..sroa_idx, align 8
   store ptr @anon.b2b2682a0d1c253d6b36ddc01c224dc6.2, ptr %8, align 8
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 2, ptr %41, align 8
@@ -164,8 +164,8 @@ define hidden void @_ZN13logos_codegen6parser11type_params10TypeParams3set17h9d8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3.0..sroa_idx, i64 216, i1 false)
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %46, ptr noundef nonnull align 8 dereferenceable(224) %19, i64 224, i1 false)
-  %.not23 = icmp eq i64 %.sroa.0.0.copyload, 17
-  br i1 %.not23, label %.thread36, label %56
+  %.not24 = icmp eq i64 %.sroa.0.0.copyload, 17
+  br i1 %.not24, label %.thread36, label %56
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -179,17 +179,17 @@ define hidden void @_ZN13logos_codegen6parser11type_params10TypeParams3set17h9d8
   br label %54
 
 54:                                               ; preds = %47, %51
-  %.sroa.019.0 = phi i32 [ %53, %51 ], [ 0, %47 ]
-  %55 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hc24dc1b9f17beb8cE(ptr align 8 %3, ptr nonnull align 8 %9, i32 %.sroa.019.0)
+  %.sroa.020.0 = phi i32 [ %53, %51 ], [ 0, %47 ]
+  %55 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hc24dc1b9f17beb8cE(ptr align 8 %3, ptr nonnull align 8 %9, i32 %.sroa.020.0)
           to label %80 unwind label %81
 
 56:                                               ; preds = %45
   store i64 %.sroa.0.0.copyload, ptr %13, align 8
-  %.sroa.3.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3.0..sroa_idx44, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3, i64 216, i1 false)
+  %.sroa.3.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3.0..sroa_idx43, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.3, i64 216, i1 false)
   store ptr %1, ptr %10, align 8
-  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hfff70eb83b071b40E", ptr %.sroa.216.0..sroa_idx, align 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hfff70eb83b071b40E", ptr %.sroa.217.0..sroa_idx, align 8
   store ptr @anon.b2b2682a0d1c253d6b36ddc01c224dc6.5, ptr %11, align 8
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 2, ptr %57, align 8
@@ -220,8 +220,8 @@ define hidden void @_ZN13logos_codegen6parser11type_params10TypeParams3set17h9d8
   br label %70
 
 70:                                               ; preds = %63, %67
-  %.sroa.017.0 = phi i32 [ %69, %67 ], [ 0, %63 ]
-  %71 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hc24dc1b9f17beb8cE(ptr align 8 %3, ptr nonnull align 8 %12, i32 %.sroa.017.0)
+  %.sroa.018.0 = phi i32 [ %69, %67 ], [ 0, %63 ]
+  %71 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hc24dc1b9f17beb8cE(ptr align 8 %3, ptr nonnull align 8 %12, i32 %.sroa.018.0)
           to label %72 unwind label %61
 
 72:                                               ; preds = %70

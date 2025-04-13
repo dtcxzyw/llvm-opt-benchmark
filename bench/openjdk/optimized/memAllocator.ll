@@ -170,7 +170,7 @@ define hidden void @_ZN12MemAllocator10Allocation31notify_allocation_jvmti_sampl
 _ZN11JvmtiExport31vm_object_alloc_event_collectorEP7oopDesc.exit: ; preds = %1, %7
   %10 = load i8, ptr @_ZN11JvmtiExport33_should_post_sampled_object_allocE, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %76
+  br i1 %11, label %12, label %74
 
 12:                                               ; preds = %_ZN11JvmtiExport31vm_object_alloc_event_collectorEP7oopDesc.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -179,119 +179,116 @@ _ZN11JvmtiExport31vm_object_alloc_event_collectorEP7oopDesc.exit: ; preds = %1, 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = icmp ne i64 %17, 0
-  %or.cond.not = select i1 %15, i1 true, i1 %18
-  br i1 %or.cond.not, label %23, label %19
+  %or.cond.not14 = select i1 %15, i1 true, i1 %18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = load i8, ptr %19, align 8
+  %21 = trunc i8 %20 to i1
+  %or.cond9 = select i1 %or.cond.not14, i1 true, i1 %21
+  br i1 %or.cond9, label %22, label %74
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load i8, ptr %20, align 8
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %23, label %76
+22:                                               ; preds = %12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %4, align 8
+  call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %24) #10
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit, label %28
 
-23:                                               ; preds = %19, %12
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %4, align 8
-  call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %25) #10
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit, label %29
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 808
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %34 = load ptr, ptr %33, align 8
+  %35 = ptrtoint ptr %32 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = sub i64 %35, %36
+  %.not.i.i.i.i.i = icmp ult i64 %37, 8
+  br i1 %.not.i.i.i.i.i, label %40, label %38
 
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 808
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %36 = ptrtoint ptr %33 to i64
-  %37 = ptrtoint ptr %35 to i64
-  %38 = sub i64 %36, %37
-  %.not.i.i.i.i.i = icmp ult i64 %38, 8
-  br i1 %.not.i.i.i.i.i, label %41, label %39
-
-39:                                               ; preds = %29
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %40, ptr %34, align 8
+38:                                               ; preds = %28
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store ptr %39, ptr %33, align 8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
-41:                                               ; preds = %29
-  %42 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %31, i64 noundef 8, i32 noundef 0) #10
+40:                                               ; preds = %28
+  %41 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %30, i64 noundef 8, i32 noundef 0) #10
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
-_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %41, %39
-  %.0.i.i.i.i.i = phi ptr [ %35, %39 ], [ %42, %41 ]
-  store ptr %27, ptr %.0.i.i.i.i.i, align 8
+_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %40, %38
+  %.0.i.i.i.i.i = phi ptr [ %34, %38 ], [ %41, %40 ]
+  store ptr %26, ptr %.0.i.i.i.i.i, align 8
   br label %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit
 
-_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit: ; preds = %23, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
-  %storemerge.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i ], [ null, %23 ]
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr %storemerge.i.i, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr %26, ptr %44, align 8
-  store ptr null, ptr %26, align 8
+_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit: ; preds = %22, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
+  %storemerge.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i ], [ null, %22 ]
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store ptr %storemerge.i.i, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store ptr %25, ptr %43, align 8
+  store ptr null, ptr %25, align 8
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #10
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %3, align 8
   call void @_ZN37JvmtiSampledObjectAllocEventCollector5startEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #10
-  %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = load i64, ptr %46, align 8
-  %48 = shl i64 %47, 3
-  %49 = load ptr, ptr %24, align 8
-  %50 = load i8, ptr %13, align 1
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %55, label %52
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %46 = load i64, ptr %45, align 8
+  %47 = shl i64 %46, 3
+  %48 = load ptr, ptr %23, align 8
+  %49 = load i8, ptr %13, align 1
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %54, label %51
 
-52:                                               ; preds = %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 496
-  %54 = load i64, ptr %53, align 8
-  br label %55
+51:                                               ; preds = %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 496
+  %53 = load i64, ptr %52, align 8
+  br label %54
 
-55:                                               ; preds = %52, %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit
-  %.0 = phi i64 [ 0, %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit ], [ %54, %52 ]
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 560
-  %57 = load ptr, ptr %43, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit, label %59
+54:                                               ; preds = %51, %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit
+  %.0 = phi i64 [ 0, %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit ], [ %53, %51 ]
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 560
+  %56 = load ptr, ptr %42, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit, label %58
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %57, align 8
+58:                                               ; preds = %54
+  %59 = load ptr, ptr %56, align 8
   br label %_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit
 
-_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit: ; preds = %55, %59
-  %61 = phi ptr [ %60, %59 ], [ null, %55 ]
-  call void @_ZN17ThreadHeapSampler18check_for_samplingEP7oopDescmm(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef %61, i64 noundef %48, i64 noundef %.0) #10
+_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit: ; preds = %54, %58
+  %60 = phi ptr [ %59, %58 ], [ null, %54 ]
+  call void @_ZN17ThreadHeapSampler18check_for_samplingEP7oopDescmm(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef %60, i64 noundef %47, i64 noundef %.0) #10
   call void @_ZN37JvmtiSampledObjectAllocEventCollectorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #10
-  %62 = load ptr, ptr %43, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %_ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit, label %64
+  %61 = load ptr, ptr %42, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %_ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit, label %63
 
-64:                                               ; preds = %_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit
-  %65 = load ptr, ptr %62, align 8
+63:                                               ; preds = %_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit
+  %64 = load ptr, ptr %61, align 8
   br label %_ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit
 
-_ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit: ; preds = %_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit, %64
-  %66 = phi ptr [ %65, %64 ], [ null, %_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit ]
-  %67 = load ptr, ptr %44, align 8
-  store ptr %66, ptr %67, align 8
+_ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit: ; preds = %_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit, %63
+  %65 = phi ptr [ %64, %63 ], [ null, %_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit ]
+  %66 = load ptr, ptr %43, align 8
+  store ptr %65, ptr %66, align 8
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #10
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %69 = load i8, ptr %68, align 8
-  %70 = trunc i8 %69 to i1
-  %71 = load i64, ptr %16, align 8
-  %.not = icmp ne i64 %71, 0
-  %or.cond9.not = select i1 %70, i1 true, i1 %.not
-  br i1 %or.cond9.not, label %72, label %76
+  %67 = load i8, ptr %19, align 8
+  %68 = trunc i8 %67 to i1
+  %69 = load i64, ptr %16, align 8
+  %.not = icmp ne i64 %69, 0
+  %or.cond12.not = select i1 %68, i1 true, i1 %.not
+  br i1 %or.cond12.not, label %70, label %74
 
-72:                                               ; preds = %_ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit
-  %73 = load ptr, ptr %24, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 432
-  %75 = icmp ne i64 %.0, 0
-  call void @_ZN22ThreadLocalAllocBuffer14set_sample_endEb(ptr noundef nonnull align 8 dereferenceable(116) %74, i1 noundef zeroext %75) #10
-  br label %76
+70:                                               ; preds = %_ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit
+  %71 = load ptr, ptr %23, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 432
+  %73 = icmp ne i64 %.0, 0
+  call void @_ZN22ThreadLocalAllocBuffer14set_sample_endEb(ptr noundef nonnull align 8 dereferenceable(116) %72, i1 noundef zeroext %73) #10
+  br label %74
 
-76:                                               ; preds = %_ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit, %19, %_ZN11JvmtiExport31vm_object_alloc_event_collectorEP7oopDesc.exit, %72
+74:                                               ; preds = %_ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit, %12, %_ZN11JvmtiExport31vm_object_alloc_event_collectorEP7oopDesc.exit, %70
   ret void
 }
 

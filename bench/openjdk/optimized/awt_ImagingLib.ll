@@ -2192,21 +2192,19 @@ define internal fastcc i32 @storeImageArray(ptr noundef %0, ptr noundef readonly
   %26 = load i32, ptr %25, align 8
   %switch.tableidx = add i32 %26, -1
   %27 = icmp ult i32 %switch.tableidx, 7
-  br i1 %27, label %switch.hole_check, label %28
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 119, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond148 = select i1 %27, i1 %switch.lobit, i1 false
+  br i1 %or.cond148, label %switch.lookup, label %28
 
-28:                                               ; preds = %switch.hole_check, %24
+28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 3
   br i1 %31, label %35, label %storeICMarray.exit
 
-switch.hole_check:                                ; preds = %24
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 119, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %28
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %24
   %32 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table.storeImageArray, i64 0, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8

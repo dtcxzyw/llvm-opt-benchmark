@@ -4564,14 +4564,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %198, %_ZNSt6vectorI
   %301 = load float, ptr %300, align 4, !tbaa !25
   %302 = getelementptr inbounds float, ptr %292, i64 %297
   %303 = load float, ptr %302, align 4, !tbaa !25
-  %304 = fcmp ule float %295, 0.000000e+00
-  %305 = fcmp ule float %301, 0.000000e+00
-  %306 = fcmp ule float %303, 0.000000e+00
-  %307 = fcmp ule float %299, 0.000000e+00
-  %or.cond54.not59.i = select i1 %304, i1 true, i1 %307
-  %brmerge.i = select i1 %or.cond54.not59.i, i1 true, i1 %305
-  %brmerge56.i = select i1 %brmerge.i, i1 true, i1 %306
-  br i1 %brmerge56.i, label %_ZN2cv6dynafuL13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread, label %_ZN2cv6dynafuL13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit
+  %304 = fcmp ogt float %295, 0.000000e+00
+  %305 = fcmp ogt float %299, 0.000000e+00
+  %306 = fcmp ogt float %301, 0.000000e+00
+  %307 = fcmp ogt float %303, 0.000000e+00
+  %or.cond4.i = select i1 %304, i1 %305, i1 false
+  %or.cond6.i = select i1 %or.cond4.i, i1 %306, i1 false
+  %or.cond8.i = select i1 %or.cond6.i, i1 %307, i1 false
+  br i1 %or.cond8.i, label %_ZN2cv6dynafuL13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit, label %_ZN2cv6dynafuL13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread
 
 _ZN2cv6dynafuL13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit: ; preds = %276
   %308 = sitofp i32 %278 to float

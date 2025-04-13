@@ -1099,15 +1099,15 @@ define zeroext i1 @_ZN14anki_proto_gen29determine_if_message_is_empty17h7f0f623c
           to label %.thread unwind label %42
 
 29:                                               ; preds = %18
-  %.fca.0.extract5 = extractvalue { ptr, i32 } %26, 0
-  %.not.not = icmp eq ptr %.fca.0.extract5, null
-  br i1 %.not.not, label %41, label %30
+  %.fca.0.extract8 = extractvalue { ptr, i32 } %26, 0
+  %.not = icmp eq ptr %.fca.0.extract8, null
+  br i1 %.not, label %41, label %30
 
 30:                                               ; preds = %29
-  %.fca.1.extract6 = extractvalue { ptr, i32 } %26, 1
-  store ptr %.fca.0.extract5, ptr %7, align 8
+  %.fca.1.extract9 = extractvalue { ptr, i32 } %26, 1
+  store ptr %.fca.0.extract8, ptr %7, align 8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %.fca.1.extract6, ptr %31, align 8
+  store i32 %.fca.1.extract9, ptr %31, align 8
   invoke void @"_ZN13prost_reflect10descriptor3api62_$LT$impl$u20$prost_reflect..descriptor..MessageDescriptor$GT$6fields17hf9fe008fc2a5c571E"(ptr nonnull sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }, ptr }) align 8 %6, ptr nonnull align 8 %7)
           to label %34 unwind label %32
 
@@ -1148,8 +1148,8 @@ define zeroext i1 @_ZN14anki_proto_gen29determine_if_message_is_empty17h7f0f623c
   unreachable
 
 .thread:                                          ; preds = %38, %27
-  %.pn16.pn = phi { ptr, i32 } [ %28, %27 ], [ %.pn, %38 ]
-  resume { ptr, i32 } %.pn16.pn
+  %.pn19.pn = phi { ptr, i32 } [ %28, %27 ], [ %.pn, %38 ]
+  resume { ptr, i32 } %.pn19.pn
 }
 
 ; Function Attrs: nonlazybind uwtable

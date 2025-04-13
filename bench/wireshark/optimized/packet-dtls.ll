@@ -2130,9 +2130,9 @@ define internal i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.not48 = icmp ult i32 %30, %.pre
   %or.cond = select i1 %.not47, i1 true, i1 %.not48
-  br i1 %or.cond, label %._crit_edge58, label %468
+  br i1 %or.cond, label %._crit_edge59, label %469
 
-._crit_edge58:                                    ; preds = %27
+._crit_edge59:                                    ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 57
@@ -2162,7 +2162,7 @@ define internal i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.not5155 = icmp eq i32 %50, 0
   br i1 %.not5155, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %._crit_edge58
+.lr.ph:                                           ; preds = %._crit_edge59
   %51 = icmp ne i32 %38, 0
   %52 = getelementptr inbounds nuw i8, ptr %.1, i64 859
   %53 = getelementptr inbounds nuw i8, ptr %.1, i64 858
@@ -2175,7 +2175,7 @@ define internal i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %59 = getelementptr inbounds nuw i8, ptr %spec.select, i64 576
   %60 = getelementptr inbounds nuw i8, ptr %spec.select, i64 656
   %61 = getelementptr inbounds nuw i8, ptr %.1, i64 828
-  %.not180.i.i = icmp eq i32 %38, 0
+  %.not183.i.i = icmp eq i32 %38, 0
   %62 = getelementptr inbounds nuw i8, ptr %spec.select, i64 864
   %63 = zext i1 %51 to i64
   %64 = getelementptr [2 x i64], ptr %62, i64 0, i64 %63
@@ -2227,7 +2227,7 @@ dtls_cid_length.exit.i:                           ; preds = %83, %81, %75, %73
   %87 = zext i8 %86 to i32
   %.mask.i = and i32 %87, 224
   %88 = icmp eq i32 %.mask.i, 32
-  br i1 %88, label %89, label %303
+  br i1 %88, label %89, label %304
 
 89:                                               ; preds = %dtls_cid_length.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
@@ -2239,12 +2239,12 @@ dtls_cid_length.exit.i:                           ; preds = %83, %81, %75, %73
   %94 = and i32 %91, 8
   %.not.i.i = icmp eq i32 %94, 0
   %95 = and i32 %91, 4
-  %.not159.i.i = icmp eq i32 %95, 0
+  %.not161.i.i = icmp eq i32 %95, 0
   %96 = add i32 %.04256, 1
   br i1 %93, label %97, label %116
 
 97:                                               ; preds = %89
-  br i1 %.not180.i.i, label %106, label %98
+  br i1 %.not183.i.i, label %106, label %98
 
 98:                                               ; preds = %97
   %99 = load i8, ptr %54, align 1, !range !11, !noundef !12
@@ -2281,25 +2281,25 @@ dtls_cid_length.exit.i.i:                         ; preds = %111, %109, %103, %1
   br label %116
 
 116:                                              ; preds = %dtls_cid_length.exit.i.i, %89
-  %.0151.i.i = phi i32 [ %115, %dtls_cid_length.exit.i.i ], [ %96, %89 ]
-  %.0148.i.i = phi i32 [ %114, %dtls_cid_length.exit.i.i ], [ 0, %89 ]
+  %.0153.i.i = phi i32 [ %115, %dtls_cid_length.exit.i.i ], [ %96, %89 ]
+  %.0150.i.i = phi i32 [ %114, %dtls_cid_length.exit.i.i ], [ 0, %89 ]
   br i1 %.not.i.i, label %119, label %117
 
 117:                                              ; preds = %116
-  %118 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0151.i.i)
+  %118 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0153.i.i)
   br label %122
 
 119:                                              ; preds = %116
-  %120 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0151.i.i)
+  %120 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0153.i.i)
   %121 = zext i8 %120 to i16
   br label %122
 
 122:                                              ; preds = %119, %117
-  %.0149.i.i = phi i8 [ 2, %117 ], [ 1, %119 ]
-  %.0147.i.i = phi i16 [ %118, %117 ], [ %121, %119 ]
-  %123 = zext nneg i8 %.0149.i.i to i32
-  %124 = add i32 %.0151.i.i, %123
-  br i1 %.not159.i.i, label %129, label %125
+  %.0151.i.i = phi i8 [ 2, %117 ], [ 1, %119 ]
+  %.0149.i.i = phi i16 [ %118, %117 ], [ %121, %119 ]
+  %123 = zext nneg i8 %.0151.i.i to i32
+  %124 = add i32 %.0153.i.i, %123
+  br i1 %.not161.i.i, label %129, label %125
 
 125:                                              ; preds = %122
   %126 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %124)
@@ -2312,40 +2312,40 @@ dtls_cid_length.exit.i.i:                         ; preds = %111, %109, %103, %1
   br label %131
 
 131:                                              ; preds = %129, %125
-  %.1152.i.i = phi i32 [ %128, %125 ], [ %124, %129 ]
-  %.0150.i.i = phi i32 [ %127, %125 ], [ %130, %129 ]
+  %.1154.i.i = phi i32 [ %128, %125 ], [ %124, %129 ]
+  %.0152.i.i = phi i32 [ %127, %125 ], [ %130, %129 ]
   %132 = load ptr, ptr %43, align 8
   %133 = load i16, ptr %57, align 8
   %134 = zext i16 %133 to i32
   %135 = call ptr @val_to_str_const(i32 noundef %134, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
   call void @col_set_str(ptr noundef %132, i32 noundef 35, ptr noundef %135)
   %136 = load i32, ptr @hf_dtls_record, align 4
-  %137 = sub i32 %.1152.i.i, %.04256
-  %138 = add i32 %137, %.0150.i.i
+  %137 = sub i32 %.1154.i.i, %.04256
+  %138 = add i32 %137, %.0152.i.i
   %139 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %136, ptr noundef %0, i32 noundef %.04256, i32 noundef %138, i32 noundef 0)
   %140 = load i32, ptr @ett_dtls_record, align 4
   %141 = call ptr @proto_item_add_subtree(ptr noundef %139, i32 noundef %140)
   %142 = load i32, ptr @hf_dtls_uni_hdr, align 4
   %143 = load i32, ptr @ett_dtls_uni_hdr, align 4
   %144 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %141, ptr noundef %0, i32 noundef %.04256, i32 noundef %142, i32 noundef %143, ptr noundef nonnull @dissect_dtls13_record.uni_hdr_flags, i32 noundef 0, i32 noundef 2)
-  %145 = icmp ne i32 %.0148.i.i, 0
+  %145 = icmp ne i32 %.0150.i.i, 0
   %or.cond.i.i = select i1 %93, i1 %145, i1 false
   br i1 %or.cond.i.i, label %146, label %150
 
 146:                                              ; preds = %131
   %147 = load i32, ptr @hf_dtls_record_connection_id, align 4
-  %148 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %147, ptr noundef %0, i32 noundef %96, i32 noundef %.0148.i.i, i32 noundef 0)
-  %149 = add i32 %.0148.i.i, %96
+  %148 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %147, ptr noundef %0, i32 noundef %96, i32 noundef %.0150.i.i, i32 noundef 0)
+  %149 = add i32 %.0150.i.i, %96
   br label %150
 
 150:                                              ; preds = %146, %131
   %.0.i272.i = phi i32 [ %149, %146 ], [ %96, %131 ]
   %151 = load i32, ptr @hf_dtls_record_sequence_suffix, align 4
-  %152 = zext i16 %.0147.i.i to i32
+  %152 = zext i16 %.0149.i.i to i32
   %153 = call ptr @proto_tree_add_uint(ptr noundef %141, i32 noundef %151, ptr noundef %0, i32 noundef %.0.i272.i, i32 noundef %123, i32 noundef %152)
   %154 = add i32 %.0.i272.i, %123
   %155 = load i32, ptr @hf_dtls_record_length, align 4
-  br i1 %.not159.i.i, label %159, label %156
+  br i1 %.not161.i.i, label %159, label %156
 
 156:                                              ; preds = %150
   %157 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %155, ptr noundef %0, i32 noundef %154, i32 noundef 2, i32 noundef 0)
@@ -2353,7 +2353,7 @@ dtls_cid_length.exit.i.i:                         ; preds = %111, %109, %103, %1
   br label %proto_item_set_generated.exit.i.i
 
 159:                                              ; preds = %150
-  %160 = call ptr @proto_tree_add_uint(ptr noundef %141, i32 noundef %155, ptr noundef %0, i32 noundef %154, i32 noundef 0, i32 noundef %.0150.i.i)
+  %160 = call ptr @proto_tree_add_uint(ptr noundef %141, i32 noundef %155, ptr noundef %0, i32 noundef %154, i32 noundef 0, i32 noundef %.0152.i.i)
   %.not.i.i.i = icmp eq ptr %160, null
   br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %161
 
@@ -2377,7 +2377,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %164, %161, %159, %1
 168:                                              ; preds = %proto_item_set_generated.exit.i.i
   %169 = and i8 %90, 3
   %170 = zext nneg i8 %169 to i64
-  %171 = icmp ult i32 %.0150.i.i, 16
+  %171 = icmp ult i32 %.0152.i.i, 16
   br i1 %171, label %172, label %173
 
 172:                                              ; preds = %168
@@ -2407,12 +2407,12 @@ proto_item_set_generated.exit.i.i:                ; preds = %164, %161, %159, %1
   %183 = or disjoint i64 %182, %170
   %184 = icmp ugt i64 %183, %174
   %185 = add i64 %183, -4
-  %spec.select60 = select i1 %184, i64 %185, i64 %183
+  %spec.select61 = select i1 %184, i64 %185, i64 %183
   br label %select.unfold.i.i.i
 
 select.unfold.i.i.i:                              ; preds = %181, %180, %178, %173
   %186 = phi i64 [ %170, %180 ], [ %174, %178 ], [ %174, %173 ], [ %174, %181 ]
-  %.032.i.i.i = phi i64 [ %170, %180 ], [ %170, %178 ], [ %174, %173 ], [ %spec.select60, %181 ]
+  %.032.i.i.i = phi i64 [ %170, %180 ], [ %170, %178 ], [ %174, %173 ], [ %spec.select61, %181 ]
   switch i64 %.032.i.i.i, label %.split.i.i.i [
     i64 0, label %187
     i64 1, label %188
@@ -2451,15 +2451,15 @@ select.unfold.i.i.i:                              ; preds = %181, %180, %178, %1
   br i1 %200, label %.split.i.i.i, label %dtls13_setup_keys.exit.i.i
 
 .split.i.i.i:                                     ; preds = %197, %select.unfold.i.i.i
-  %.0.i172.i.i = load ptr, ptr %.0.in.i.i.i, align 8
-  %.not.i173.i.i = icmp eq ptr %.0.i172.i.i, null
-  br i1 %.not.i173.i.i, label %.critedge49.i.i.i, label %201
+  %.0.i174.i.i = load ptr, ptr %.0.in.i.i.i, align 8
+  %.not.i175.i.i = icmp eq ptr %.0.i174.i.i, null
+  br i1 %.not.i175.i.i, label %.critedge49.i.i.i, label %201
 
 201:                                              ; preds = %.split.i.i.i
-  %202 = getelementptr inbounds nuw i8, ptr %.0.i172.i.i, i64 120
+  %202 = getelementptr inbounds nuw i8, ptr %.0.i174.i.i, i64 120
   %203 = load i64, ptr %202, align 8
   %204 = icmp eq i64 %203, %.032.i.i.i
-  br i1 %204, label %dtls13_setup_keys.exit.thread.i.i, label %205
+  br i1 %204, label %dtls13_setup_keys.exit.thread180.i.i, label %205
 
 205:                                              ; preds = %201
   %206 = icmp ugt i64 %203, %.032.i.i.i
@@ -2467,19 +2467,19 @@ select.unfold.i.i.i:                              ; preds = %181, %180, %178, %1
 
 207:                                              ; preds = %205
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.945, ptr noundef nonnull @__func__.dtls13_load_keys_from_epoch, i64 noundef range(i64 1, 0) %.032.i.i.i)
-  br label %dtls13_setup_keys.exit.thread.i.i
+  br label %dtls13_setup_keys.exit.thread180.i.i
 
 .critedge.i.i.i:                                  ; preds = %205
   %.not45.i.i.i = icmp eq i64 %203, 0
   %208 = add i64 %203, 1
   %.not46.i.i.i = icmp eq i64 %.032.i.i.i, %208
   %or.cond.i.i.i = or i1 %.not45.i.i.i, %.not46.i.i.i
-  br i1 %or.cond.i.i.i, label %.critedge49.i.i.i, label %dtls13_setup_keys.exit.thread.i.i
+  br i1 %or.cond.i.i.i, label %.critedge49.i.i.i, label %dtls13_setup_keys.exit.thread180.i.i
 
 .critedge49.i.i.i:                                ; preds = %.critedge.i.i.i, %.split.i.i.i
   %209 = call ptr @tls_get_master_key_map(i1 noundef zeroext true)
   %210 = icmp eq ptr %209, null
-  br i1 %210, label %224, label %211
+  br i1 %210, label %225, label %211
 
 211:                                              ; preds = %.critedge49.i.i.i
   switch i64 %.032.i.i.i, label %215 [
@@ -2505,547 +2505,547 @@ select.unfold.i.i.i:                              ; preds = %181, %180, %178, %1
   br label %216
 
 216:                                              ; preds = %215, %214, %213, %212
-  br i1 %51, label %217, label %220
+  br i1 %51, label %217, label %221
 
 217:                                              ; preds = %216
   %218 = load ptr, ptr %59, align 8
   %.not47.i.i.i = icmp eq ptr %218, null
-  br i1 %.not47.i.i.i, label %220, label %dtls13_setup_keys.exit.thread178.i.i
+  br i1 %.not47.i.i.i, label %221, label %219
 
-dtls13_setup_keys.exit.thread178.i.i:             ; preds = %217
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 120
-  store i64 %.032.i.i.i, ptr %219, align 8
-  br label %dtls13_setup_keys.exit.thread.i.i
+219:                                              ; preds = %217
+  %220 = getelementptr inbounds nuw i8, ptr %218, i64 120
+  store i64 %.032.i.i.i, ptr %220, align 8
+  br label %dtls13_setup_keys.exit.thread180.i.i
 
-220:                                              ; preds = %217, %216
-  %221 = load ptr, ptr %58, align 8
-  %.not48.i.i.i = icmp eq ptr %221, null
-  br i1 %.not48.i.i.i, label %dtls13_setup_keys.exit.thread.i.i, label %222
+221:                                              ; preds = %217, %216
+  %222 = load ptr, ptr %58, align 8
+  %.not48.i.i.i = icmp eq ptr %222, null
+  br i1 %.not48.i.i.i, label %dtls13_setup_keys.exit.thread180.i.i, label %223
 
-222:                                              ; preds = %220
-  %223 = getelementptr inbounds nuw i8, ptr %221, i64 120
-  store i64 %.032.i.i.i, ptr %223, align 8
-  br label %dtls13_setup_keys.exit.thread.i.i
+223:                                              ; preds = %221
+  %224 = getelementptr inbounds nuw i8, ptr %222, i64 120
+  store i64 %.032.i.i.i, ptr %224, align 8
+  br label %dtls13_setup_keys.exit.thread180.i.i
 
-224:                                              ; preds = %.critedge49.i.i.i
+225:                                              ; preds = %.critedge49.i.i.i
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.946)
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.943)
   br label %dtls13_decrypt_early_data.exit.i.i
 
 dtls13_setup_keys.exit.i.i:                       ; preds = %197, %195
-  br i1 %51, label %dtls13_setup_keys.exit.thread.i.i, label %225
+  br i1 %.not183.i.i, label %226, label %dtls13_setup_keys.exit.thread180.i.i
 
-225:                                              ; preds = %dtls13_setup_keys.exit.i.i
-  %226 = load i32, ptr %66, align 8
-  %227 = and i32 %226, 4096
-  %.not.i167.i.i = icmp eq i32 %227, 0
-  %228 = select i1 %.not.i167.i.i, ptr @.str.948, ptr @.str.949
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.947, ptr noundef nonnull %228)
-  %229 = call ptr @tls_get_master_key_map(i1 noundef zeroext true)
-  %230 = call ptr @tls13_load_secret(ptr noundef nonnull %.1, ptr noundef %229, i1 noundef zeroext false, i32 noundef 0)
-  %.not34.i.i.i = icmp eq ptr %230, null
-  br i1 %.not34.i.i.i, label %232, label %.preheader.i.i.i
+226:                                              ; preds = %dtls13_setup_keys.exit.i.i
+  %227 = load i32, ptr %66, align 8
+  %228 = and i32 %227, 4096
+  %.not.i169.i.i = icmp eq i32 %228, 0
+  %229 = select i1 %.not.i169.i.i, ptr @.str.948, ptr @.str.949
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.947, ptr noundef nonnull %229)
+  %230 = call ptr @tls_get_master_key_map(i1 noundef zeroext true)
+  %231 = call ptr @tls13_load_secret(ptr noundef nonnull %.1, ptr noundef %230, i1 noundef zeroext false, i32 noundef 0)
+  %.not34.i.i.i = icmp eq ptr %231, null
+  br i1 %.not34.i.i.i, label %233, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %225
-  %231 = and i32 %.0150.i.i, 65535
-  br label %233
+.preheader.i.i.i:                                 ; preds = %226
+  %232 = and i32 %.0152.i.i, 65535
+  br label %234
 
-232:                                              ; preds = %225
+233:                                              ; preds = %226
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.950)
   br label %dtls13_decrypt_early_data.exit.i.i
 
-233:                                              ; preds = %243, %.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %243 ]
-  %234 = getelementptr [5 x i16], ptr @dtls13_decrypt_early_data.tls13_ciphers, i64 0, i64 %indvars.iv.i.i.i
-  %235 = load i16, ptr %234, align 2
-  %236 = zext i16 %235 to i32
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.951, i32 noundef %236)
-  store i32 %236, ptr %67, align 8
-  %237 = call ptr @ssl_find_cipher(i32 noundef %236)
-  store ptr %237, ptr %68, align 8
-  %238 = call zeroext i1 @tls13_generate_keys(ptr noundef nonnull %.1, ptr noundef nonnull %230, i1 noundef zeroext false)
-  br i1 %238, label %239, label %243
+234:                                              ; preds = %244, %.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %244 ]
+  %235 = getelementptr [5 x i16], ptr @dtls13_decrypt_early_data.tls13_ciphers, i64 0, i64 %indvars.iv.i.i.i
+  %236 = load i16, ptr %235, align 2
+  %237 = zext i16 %236 to i32
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.951, i32 noundef %237)
+  store i32 %237, ptr %67, align 8
+  %238 = call ptr @ssl_find_cipher(i32 noundef %237)
+  store ptr %238, ptr %68, align 8
+  %239 = call zeroext i1 @tls13_generate_keys(ptr noundef nonnull %.1, ptr noundef nonnull %231, i1 noundef zeroext false)
+  br i1 %239, label %240, label %244
 
-239:                                              ; preds = %233
-  %240 = call fastcc zeroext i1 @dtls13_decrypt_unified_record(ptr noundef %0, ptr noundef %1, i32 noundef %.04256, i32 noundef %137, i8 noundef zeroext %90, i1 noundef zeroext false, ptr noundef nonnull %.1, i32 noundef %231, i8 noundef zeroext %9, i16 noundef zeroext %.0147.i.i, i8 noundef zeroext range(i8 1, 3) %.0149.i.i)
-  br i1 %240, label %.thread38.i.i.i, label %243
+240:                                              ; preds = %234
+  %241 = call fastcc zeroext i1 @dtls13_decrypt_unified_record(ptr noundef %0, ptr noundef %1, i32 noundef %.04256, i32 noundef %137, i8 noundef zeroext %90, i1 noundef zeroext false, ptr noundef nonnull %.1, i32 noundef %232, i8 noundef zeroext %9, i16 noundef zeroext %.0149.i.i, i8 noundef zeroext range(i8 1, 3) %.0151.i.i)
+  br i1 %241, label %.thread38.i.i.i, label %244
 
-.thread38.i.i.i:                                  ; preds = %239
-  %241 = load ptr, ptr %58, align 8
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 120
-  store i64 1, ptr %242, align 8
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.952, i32 noundef %236)
+.thread38.i.i.i:                                  ; preds = %240
+  %242 = load ptr, ptr %58, align 8
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 120
+  store i64 1, ptr %243, align 8
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.952, i32 noundef %237)
   br label %dtls13_decrypt_early_data.exit.i.i
 
-243:                                              ; preds = %239, %233
+244:                                              ; preds = %240, %234
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 5
-  br i1 %exitcond.not.i.i.i, label %244, label %233, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %245, label %234, !llvm.loop !13
 
-244:                                              ; preds = %243
+245:                                              ; preds = %244
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.953)
   br label %dtls13_decrypt_early_data.exit.i.i
 
-dtls13_setup_keys.exit.thread.i.i:                ; preds = %dtls13_setup_keys.exit.i.i, %222, %220, %dtls13_setup_keys.exit.thread178.i.i, %.critedge.i.i.i, %207, %201
-  %245 = call fastcc zeroext i1 @dtls13_decrypt_unified_record(ptr noundef %0, ptr noundef %1, i32 noundef %.04256, i32 noundef %137, i8 noundef zeroext %90, i1 noundef zeroext %51, ptr noundef %.1, i32 noundef %.0150.i.i, i8 noundef zeroext %9, i16 noundef zeroext %.0147.i.i, i8 noundef zeroext %.0149.i.i)
+dtls13_setup_keys.exit.thread180.i.i:             ; preds = %dtls13_setup_keys.exit.i.i, %223, %221, %219, %.critedge.i.i.i, %207, %201
+  %246 = call fastcc zeroext i1 @dtls13_decrypt_unified_record(ptr noundef %0, ptr noundef %1, i32 noundef %.04256, i32 noundef %137, i8 noundef zeroext %90, i1 noundef zeroext %51, ptr noundef %.1, i32 noundef %.0152.i.i, i8 noundef zeroext %9, i16 noundef zeroext %.0149.i.i, i8 noundef zeroext %.0151.i.i)
   br label %dtls13_decrypt_early_data.exit.i.i
 
-dtls13_decrypt_early_data.exit.i.i:               ; preds = %dtls13_setup_keys.exit.thread.i.i, %244, %.thread38.i.i.i, %232, %224, %194, %190, %187, %172, %proto_item_set_generated.exit.i.i
-  %246 = load i32, ptr @proto_dtls, align 4
-  %247 = call i32 @tvb_raw_offset(ptr noundef %0)
-  %248 = add i32 %247, %.1.i.i
-  %249 = call ptr @ssl_get_record_info(ptr noundef %0, i32 noundef %246, ptr noundef %1, i32 noundef %248, i8 noundef zeroext %9, ptr noundef nonnull %5)
-  %.not161.i.i = icmp eq ptr %249, null
-  br i1 %.not161.i.i, label %295, label %250
+dtls13_decrypt_early_data.exit.i.i:               ; preds = %dtls13_setup_keys.exit.thread180.i.i, %245, %.thread38.i.i.i, %233, %225, %194, %190, %187, %172, %proto_item_set_generated.exit.i.i
+  %247 = load i32, ptr @proto_dtls, align 4
+  %248 = call i32 @tvb_raw_offset(ptr noundef %0)
+  %249 = add i32 %248, %.1.i.i
+  %250 = call ptr @ssl_get_record_info(ptr noundef %0, i32 noundef %247, ptr noundef %1, i32 noundef %249, i8 noundef zeroext %9, ptr noundef nonnull %5)
+  %.not163.i.i = icmp eq ptr %250, null
+  br i1 %.not163.i.i, label %296, label %251
 
-250:                                              ; preds = %dtls13_decrypt_early_data.exit.i.i
-  br i1 %.not.i, label %._crit_edge.i.i, label %251
+251:                                              ; preds = %dtls13_decrypt_early_data.exit.i.i
+  br i1 %.not.i, label %._crit_edge.i.i, label %252
 
-._crit_edge.i.i:                                  ; preds = %250
+._crit_edge.i.i:                                  ; preds = %251
   %.pre.i.i = load ptr, ptr %5, align 8
-  br label %267
-
-251:                                              ; preds = %250
-  br i1 %.not180.i.i, label %260, label %252
+  br label %268
 
 252:                                              ; preds = %251
-  %253 = load ptr, ptr %59, align 8
-  %.not163.i.i = icmp eq ptr %253, null
-  br i1 %.not163.i.i, label %260, label %254
+  br i1 %.not183.i.i, label %261, label %253
 
-254:                                              ; preds = %252
-  %255 = getelementptr inbounds nuw i8, ptr %253, i64 128
-  %256 = load i64, ptr %255, align 8
-  %257 = trunc i64 %256 to i16
-  %258 = load ptr, ptr %5, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 36
-  store i16 %257, ptr %259, align 4
-  br label %267
+253:                                              ; preds = %252
+  %254 = load ptr, ptr %59, align 8
+  %.not165.i.i = icmp eq ptr %254, null
+  br i1 %.not165.i.i, label %261, label %255
 
-260:                                              ; preds = %252, %251
-  %261 = load ptr, ptr %58, align 8
-  %.not164.i.i = icmp eq ptr %261, null
-  %.pre183.i.i = load ptr, ptr %5, align 8
-  br i1 %.not164.i.i, label %267, label %262
+255:                                              ; preds = %253
+  %256 = getelementptr inbounds nuw i8, ptr %254, i64 128
+  %257 = load i64, ptr %256, align 8
+  %258 = trunc i64 %257 to i16
+  %259 = load ptr, ptr %5, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 36
+  store i16 %258, ptr %260, align 4
+  br label %268
 
-262:                                              ; preds = %260
-  %263 = getelementptr inbounds nuw i8, ptr %261, i64 128
-  %264 = load i64, ptr %263, align 8
-  %265 = trunc i64 %264 to i16
-  %266 = getelementptr inbounds nuw i8, ptr %.pre183.i.i, i64 36
-  store i16 %265, ptr %266, align 4
-  br label %267
+261:                                              ; preds = %253, %252
+  %262 = load ptr, ptr %58, align 8
+  %.not166.i.i = icmp eq ptr %262, null
+  %.pre186.i.i = load ptr, ptr %5, align 8
+  br i1 %.not166.i.i, label %268, label %263
 
-267:                                              ; preds = %262, %260, %254, %._crit_edge.i.i
-  %268 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %258, %254 ], [ %.pre183.i.i, %262 ], [ %.pre183.i.i, %260 ]
-  %269 = load i32, ptr @hf_dtls_record_sequence_suffix_dec, align 4
-  %270 = add i32 %.0148.i.i, %96
-  %271 = getelementptr inbounds nuw i8, ptr %268, i64 36
-  %272 = load i16, ptr %271, align 4
-  %273 = zext i16 %272 to i32
-  %274 = call ptr @proto_tree_add_uint(ptr noundef %141, i32 noundef %269, ptr noundef %0, i32 noundef %270, i32 noundef %123, i32 noundef %273)
-  %.not.i169.i.i = icmp eq ptr %274, null
-  br i1 %.not.i169.i.i, label %proto_item_set_generated.exit171.i.i, label %275
+263:                                              ; preds = %261
+  %264 = getelementptr inbounds nuw i8, ptr %262, i64 128
+  %265 = load i64, ptr %264, align 8
+  %266 = trunc i64 %265 to i16
+  %267 = getelementptr inbounds nuw i8, ptr %.pre186.i.i, i64 36
+  store i16 %266, ptr %267, align 4
+  br label %268
 
-275:                                              ; preds = %267
-  %276 = getelementptr inbounds nuw i8, ptr %274, i64 40
-  %277 = load ptr, ptr %276, align 8
-  %.not5.i170.i.i = icmp eq ptr %277, null
-  br i1 %.not5.i170.i.i, label %proto_item_set_generated.exit171.i.i, label %278
+268:                                              ; preds = %263, %261, %255, %._crit_edge.i.i
+  %269 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %259, %255 ], [ %.pre186.i.i, %263 ], [ %.pre186.i.i, %261 ]
+  %270 = load i32, ptr @hf_dtls_record_sequence_suffix_dec, align 4
+  %271 = add i32 %.0150.i.i, %96
+  %272 = getelementptr inbounds nuw i8, ptr %269, i64 36
+  %273 = load i16, ptr %272, align 4
+  %274 = zext i16 %273 to i32
+  %275 = call ptr @proto_tree_add_uint(ptr noundef %141, i32 noundef %270, ptr noundef %0, i32 noundef %271, i32 noundef %123, i32 noundef %274)
+  %.not.i171.i.i = icmp eq ptr %275, null
+  br i1 %.not.i171.i.i, label %proto_item_set_generated.exit173.i.i, label %276
 
-278:                                              ; preds = %275
-  %279 = getelementptr inbounds nuw i8, ptr %277, i64 28
-  %280 = load i32, ptr %279, align 4
-  %281 = or i32 %280, 2
-  store i32 %281, ptr %279, align 4
-  br label %proto_item_set_generated.exit171.i.i
+276:                                              ; preds = %268
+  %277 = getelementptr inbounds nuw i8, ptr %275, i64 40
+  %278 = load ptr, ptr %277, align 8
+  %.not5.i172.i.i = icmp eq ptr %278, null
+  br i1 %.not5.i172.i.i, label %proto_item_set_generated.exit173.i.i, label %279
 
-proto_item_set_generated.exit171.i.i:             ; preds = %278, %275, %267
-  call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %249, ptr noundef nonnull @.str.933)
-  %282 = load ptr, ptr %5, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %282, i64 16
-  %284 = load i32, ptr %283, align 8
-  switch i32 %284, label %dissect_dtls13_record.exit.i [
-    i32 22, label %285
-    i32 21, label %291
-    i32 26, label %292
-    i32 23, label %294
+279:                                              ; preds = %276
+  %280 = getelementptr inbounds nuw i8, ptr %278, i64 28
+  %281 = load i32, ptr %280, align 4
+  %282 = or i32 %281, 2
+  store i32 %282, ptr %280, align 4
+  br label %proto_item_set_generated.exit173.i.i
+
+proto_item_set_generated.exit173.i.i:             ; preds = %279, %276, %268
+  call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %250, ptr noundef nonnull @.str.933)
+  %283 = load ptr, ptr %5, align 8
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 16
+  %285 = load i32, ptr %284, align 8
+  switch i32 %285, label %dissect_dtls13_record.exit.i [
+    i32 22, label %286
+    i32 21, label %292
+    i32 26, label %293
+    i32 23, label %295
   ]
 
-285:                                              ; preds = %proto_item_set_generated.exit171.i.i
-  %286 = call i32 @tvb_reported_length(ptr noundef nonnull %249)
-  %287 = load ptr, ptr %5, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 16
-  %289 = load i32, ptr %288, align 8
-  %290 = trunc i32 %289 to i8
-  call fastcc void @dissect_dtls_handshake(ptr noundef nonnull %249, ptr noundef %1, ptr noundef %141, i32 noundef 0, i32 noundef %286, i1 noundef zeroext false, ptr noundef nonnull %28, i32 noundef %38, ptr noundef %spec.select, i8 noundef zeroext %290)
+286:                                              ; preds = %proto_item_set_generated.exit173.i.i
+  %287 = call i32 @tvb_reported_length(ptr noundef nonnull %250)
+  %288 = load ptr, ptr %5, align 8
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
+  %290 = load i32, ptr %289, align 8
+  %291 = trunc i32 %290 to i8
+  call fastcc void @dissect_dtls_handshake(ptr noundef nonnull %250, ptr noundef %1, ptr noundef %141, i32 noundef 0, i32 noundef %287, i1 noundef zeroext false, ptr noundef nonnull %28, i32 noundef %38, ptr noundef %spec.select, i8 noundef zeroext %291)
   br label %dissect_dtls13_record.exit.i
 
-291:                                              ; preds = %proto_item_set_generated.exit171.i.i
-  call fastcc void @dissect_dtls_alert(ptr noundef nonnull %249, ptr noundef %1, ptr noundef %141, i32 noundef 0, ptr noundef nonnull %28)
+292:                                              ; preds = %proto_item_set_generated.exit173.i.i
+  call fastcc void @dissect_dtls_alert(ptr noundef nonnull %250, ptr noundef %1, ptr noundef %141, i32 noundef 0, ptr noundef nonnull %28)
   br label %dissect_dtls13_record.exit.i
 
-292:                                              ; preds = %proto_item_set_generated.exit171.i.i
-  %293 = call i32 @tvb_reported_length(ptr noundef nonnull %249)
-  call fastcc void @dissect_dtls_ack(ptr noundef nonnull %249, ptr noundef %1, ptr noundef %141, i32 noundef 0, i32 noundef %293)
+293:                                              ; preds = %proto_item_set_generated.exit173.i.i
+  %294 = call i32 @tvb_reported_length(ptr noundef nonnull %250)
+  call fastcc void @dissect_dtls_ack(ptr noundef nonnull %250, ptr noundef %1, ptr noundef %141, i32 noundef 0, i32 noundef %294)
   br label %dissect_dtls13_record.exit.i
 
-294:                                              ; preds = %proto_item_set_generated.exit171.i.i
-  call fastcc void @dissect_dtls_appdata(ptr noundef %0, ptr noundef %1, i32 noundef %.1.i.i, i32 noundef %.0150.i.i, ptr noundef nonnull %28, ptr noundef %141, i1 noundef zeroext %51, ptr noundef nonnull %249, ptr noundef %282)
+295:                                              ; preds = %proto_item_set_generated.exit173.i.i
+  call fastcc void @dissect_dtls_appdata(ptr noundef %0, ptr noundef %1, i32 noundef %.1.i.i, i32 noundef %.0152.i.i, ptr noundef nonnull %28, ptr noundef %141, i1 noundef zeroext %51, ptr noundef nonnull %250, ptr noundef %283)
   br label %dissect_dtls13_record.exit.i
 
-295:                                              ; preds = %dtls13_decrypt_early_data.exit.i.i
-  %296 = load ptr, ptr %43, align 8
-  call void @col_append_sep_str(ptr noundef %296, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.937)
-  %297 = load i32, ptr @hf_dtls_record_encrypted_content, align 4
-  %298 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %297, ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %.0150.i.i, i32 noundef 0)
-  %299 = load i16, ptr %57, align 8
-  %300 = zext i16 %299 to i32
-  %301 = call ptr @val_to_str_const(i32 noundef %300, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %141, ptr noundef nonnull @.str.938, ptr noundef %301)
+296:                                              ; preds = %dtls13_decrypt_early_data.exit.i.i
+  %297 = load ptr, ptr %43, align 8
+  call void @col_append_sep_str(ptr noundef %297, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.937)
+  %298 = load i32, ptr @hf_dtls_record_encrypted_content, align 4
+  %299 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %298, ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %.0152.i.i, i32 noundef 0)
+  %300 = load i16, ptr %57, align 8
+  %301 = zext i16 %300 to i32
+  %302 = call ptr @val_to_str_const(i32 noundef %301, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %141, ptr noundef nonnull @.str.938, ptr noundef %302)
   br label %dissect_dtls13_record.exit.i
 
-dissect_dtls13_record.exit.i:                     ; preds = %295, %294, %292, %291, %285, %proto_item_set_generated.exit171.i.i
-  %302 = add i32 %.1.i.i, %.0150.i.i
+dissect_dtls13_record.exit.i:                     ; preds = %296, %295, %293, %292, %286, %proto_item_set_generated.exit173.i.i
+  %303 = add i32 %.1.i.i, %.0152.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   br label %dissect_dtls_record.exit
 
-303:                                              ; preds = %dtls_cid_length.exit.i
-  %304 = add i32 %.04256, 1
-  %305 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %304)
-  store i16 %305, ptr %6, align 2
-  %306 = add i32 %.04256, 3
-  %307 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %306)
-  %308 = add i32 %.04256, 5
-  %309 = call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef %308)
-  %310 = icmp eq i8 %86, 25
-  %311 = zext i8 %.0.i.i to i32
-  %312 = icmp ne i8 %.0.i.i, 0
-  %or.cond.i = select i1 %310, i1 %312, i1 false
-  br i1 %or.cond.i, label %313, label %323
+304:                                              ; preds = %dtls_cid_length.exit.i
+  %305 = add i32 %.04256, 1
+  %306 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %305)
+  store i16 %306, ptr %6, align 2
+  %307 = add i32 %.04256, 3
+  %308 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %307)
+  %309 = add i32 %.04256, 5
+  %310 = call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef %309)
+  %311 = icmp eq i8 %86, 25
+  %312 = zext i8 %.0.i.i to i32
+  %313 = icmp ne i8 %.0.i.i, 0
+  %or.cond.i = select i1 %311, i1 %313, i1 false
+  br i1 %or.cond.i, label %314, label %324
 
-313:                                              ; preds = %303
-  %314 = load ptr, ptr %56, align 8
-  %315 = add i32 %.04256, 11
-  %316 = zext i8 %.0.i.i to i64
-  %317 = call ptr @tvb_memdup(ptr noundef %314, ptr noundef %0, i32 noundef %315, i64 noundef %316)
-  %318 = add i32 %315, %311
-  %319 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %318)
-  %320 = zext i16 %319 to i32
-  %321 = add nuw nsw i32 %311, 13
-  %322 = add nuw nsw i32 %321, %320
-  br label %328
+314:                                              ; preds = %304
+  %315 = load ptr, ptr %56, align 8
+  %316 = add i32 %.04256, 11
+  %317 = zext i8 %.0.i.i to i64
+  %318 = call ptr @tvb_memdup(ptr noundef %315, ptr noundef %0, i32 noundef %316, i64 noundef %317)
+  %319 = add i32 %316, %312
+  %320 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %319)
+  %321 = zext i16 %320 to i32
+  %322 = add nuw nsw i32 %312, 13
+  %323 = add nuw nsw i32 %322, %321
+  br label %329
 
-323:                                              ; preds = %303
-  %324 = add i32 %.04256, 11
-  %325 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %324)
-  %326 = zext i16 %325 to i32
-  %327 = add nuw nsw i32 %326, 13
-  br label %328
+324:                                              ; preds = %304
+  %325 = add i32 %.04256, 11
+  %326 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %325)
+  %327 = zext i16 %326 to i32
+  %328 = add nuw nsw i32 %327, 13
+  br label %329
 
-328:                                              ; preds = %323, %313
-  %.0257.i = phi i32 [ %320, %313 ], [ %326, %323 ]
-  %.0256.i = phi ptr [ %317, %313 ], [ null, %323 ]
-  %.0255.i = phi i32 [ %322, %313 ], [ %327, %323 ]
-  %329 = call zeroext i1 @ssl_is_valid_content_type(i8 noundef zeroext %86)
-  br i1 %329, label %340, label %330
+329:                                              ; preds = %324, %314
+  %.0257.i = phi i32 [ %321, %314 ], [ %327, %324 ]
+  %.0256.i = phi ptr [ %318, %314 ], [ null, %324 ]
+  %.0255.i = phi i32 [ %323, %314 ], [ %328, %324 ]
+  %330 = call zeroext i1 @ssl_is_valid_content_type(i8 noundef zeroext %86)
+  br i1 %330, label %341, label %331
 
-330:                                              ; preds = %328
-  %331 = load ptr, ptr %43, align 8
-  call void @col_append_sep_str(ptr noundef %331, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.930)
-  %332 = load i32, ptr @hf_dtls_record, align 4
-  %333 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %332, ptr noundef %0, i32 noundef %.04256, i32 noundef %.0255.i, i32 noundef 0)
-  %334 = load i32, ptr @ett_dtls_record, align 4
-  %335 = call ptr @proto_item_add_subtree(ptr noundef %333, i32 noundef %334)
-  %336 = load i16, ptr %57, align 8
-  %337 = zext i16 %336 to i32
-  %338 = call ptr @val_to_str_const(i32 noundef %337, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %335, ptr noundef nonnull @.str.931, ptr noundef %338, i32 noundef %87)
-  %339 = add i32 %.0255.i, %.04256
+331:                                              ; preds = %329
+  %332 = load ptr, ptr %43, align 8
+  call void @col_append_sep_str(ptr noundef %332, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.930)
+  %333 = load i32, ptr @hf_dtls_record, align 4
+  %334 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %333, ptr noundef %0, i32 noundef %.04256, i32 noundef %.0255.i, i32 noundef 0)
+  %335 = load i32, ptr @ett_dtls_record, align 4
+  %336 = call ptr @proto_item_add_subtree(ptr noundef %334, i32 noundef %335)
+  %337 = load i16, ptr %57, align 8
+  %338 = zext i16 %337 to i32
+  %339 = call ptr @val_to_str_const(i32 noundef %338, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %336, ptr noundef nonnull @.str.931, ptr noundef %339, i32 noundef %87)
+  %340 = add i32 %.0255.i, %.04256
   br label %dissect_dtls_record.exit
 
-340:                                              ; preds = %328
-  br i1 %.not.i, label %348, label %341
-
-341:                                              ; preds = %340
-  br i1 %51, label %342, label %344
+341:                                              ; preds = %329
+  br i1 %.not.i, label %349, label %342
 
 342:                                              ; preds = %341
-  %343 = load ptr, ptr %59, align 8
-  %.not269.i = icmp eq ptr %343, null
-  br i1 %.not269.i, label %348, label %.sink.split.i
+  br i1 %51, label %343, label %345
 
-344:                                              ; preds = %341
-  %345 = load ptr, ptr %58, align 8
-  %.not268.i = icmp eq ptr %345, null
-  br i1 %.not268.i, label %348, label %.sink.split.i
+343:                                              ; preds = %342
+  %344 = load ptr, ptr %59, align 8
+  %.not269.i = icmp eq ptr %344, null
+  br i1 %.not269.i, label %349, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %344, %342
-  %.sink61 = phi ptr [ %343, %342 ], [ %345, %344 ]
-  %.sink278.in.i = phi ptr [ %59, %342 ], [ %58, %344 ]
-  %346 = getelementptr inbounds nuw i8, ptr %.sink61, i64 128
-  store i64 %309, ptr %346, align 8
+345:                                              ; preds = %342
+  %346 = load ptr, ptr %58, align 8
+  %.not268.i = icmp eq ptr %346, null
+  br i1 %.not268.i, label %349, label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %345, %343
+  %.sink62 = phi ptr [ %344, %343 ], [ %346, %345 ]
+  %.sink278.in.i = phi ptr [ %59, %343 ], [ %58, %345 ]
+  %347 = getelementptr inbounds nuw i8, ptr %.sink62, i64 128
+  store i64 %310, ptr %347, align 8
   %.sink278.i = load ptr, ptr %.sink278.in.i, align 8
-  %347 = getelementptr inbounds nuw i8, ptr %.sink278.i, i64 152
-  store i16 %307, ptr %347, align 8
-  br label %348
+  %348 = getelementptr inbounds nuw i8, ptr %.sink278.i, i64 152
+  store i16 %308, ptr %348, align 8
+  br label %349
 
-348:                                              ; preds = %.sink.split.i, %344, %342, %340
-  %349 = load i32, ptr @hf_dtls_record, align 4
-  %350 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %349, ptr noundef %0, i32 noundef %.04256, i32 noundef %.0255.i, i32 noundef 0)
-  %351 = load i32, ptr @ett_dtls_record, align 4
-  %352 = call ptr @proto_item_add_subtree(ptr noundef %350, i32 noundef %351)
+349:                                              ; preds = %.sink.split.i, %345, %343, %341
+  %350 = load i32, ptr @hf_dtls_record, align 4
+  %351 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %350, ptr noundef %0, i32 noundef %.04256, i32 noundef %.0255.i, i32 noundef 0)
+  %352 = load i32, ptr @ett_dtls_record, align 4
+  %353 = call ptr @proto_item_add_subtree(ptr noundef %351, i32 noundef %352)
   %hf_dtls_record_special_type.val.i = load i32, ptr @hf_dtls_record_special_type, align 4
   %hf_dtls_record_content_type.val.i = load i32, ptr @hf_dtls_record_content_type, align 4
-  %353 = select i1 %310, i32 %hf_dtls_record_special_type.val.i, i32 %hf_dtls_record_content_type.val.i
-  %354 = call ptr @proto_tree_add_item(ptr noundef %352, i32 noundef %353, ptr noundef %0, i32 noundef %.04256, i32 noundef 1, i32 noundef 0)
-  %355 = load i32, ptr @hf_dtls_record_version, align 4
-  %356 = call ptr @proto_tree_add_item(ptr noundef %352, i32 noundef %355, ptr noundef %0, i32 noundef %304, i32 noundef 2, i32 noundef 0)
-  %357 = load i32, ptr @hf_dtls_record_epoch, align 4
-  %358 = zext i16 %307 to i32
-  %359 = call ptr @proto_tree_add_uint(ptr noundef %352, i32 noundef %357, ptr noundef %0, i32 noundef %306, i32 noundef 2, i32 noundef %358)
-  %360 = load i32, ptr @hf_dtls_record_sequence_number, align 4
-  %361 = call ptr @proto_tree_add_uint64(ptr noundef %352, i32 noundef %360, ptr noundef %0, i32 noundef %308, i32 noundef 6, i64 noundef %309)
-  %362 = add i32 %.04256, 11
-  br i1 %310, label %363, label %367
+  %354 = select i1 %311, i32 %hf_dtls_record_special_type.val.i, i32 %hf_dtls_record_content_type.val.i
+  %355 = call ptr @proto_tree_add_item(ptr noundef %353, i32 noundef %354, ptr noundef %0, i32 noundef %.04256, i32 noundef 1, i32 noundef 0)
+  %356 = load i32, ptr @hf_dtls_record_version, align 4
+  %357 = call ptr @proto_tree_add_item(ptr noundef %353, i32 noundef %356, ptr noundef %0, i32 noundef %305, i32 noundef 2, i32 noundef 0)
+  %358 = load i32, ptr @hf_dtls_record_epoch, align 4
+  %359 = zext i16 %308 to i32
+  %360 = call ptr @proto_tree_add_uint(ptr noundef %353, i32 noundef %358, ptr noundef %0, i32 noundef %307, i32 noundef 2, i32 noundef %359)
+  %361 = load i32, ptr @hf_dtls_record_sequence_number, align 4
+  %362 = call ptr @proto_tree_add_uint64(ptr noundef %353, i32 noundef %361, ptr noundef %0, i32 noundef %309, i32 noundef 6, i64 noundef %310)
+  %363 = add i32 %.04256, 11
+  br i1 %311, label %364, label %368
 
-363:                                              ; preds = %348
-  %364 = load i32, ptr @hf_dtls_record_connection_id, align 4
-  %365 = call ptr @proto_tree_add_item(ptr noundef %352, i32 noundef %364, ptr noundef %0, i32 noundef %362, i32 noundef %311, i32 noundef 0)
-  %366 = add i32 %362, %311
-  br label %367
+364:                                              ; preds = %349
+  %365 = load i32, ptr @hf_dtls_record_connection_id, align 4
+  %366 = call ptr @proto_tree_add_item(ptr noundef %353, i32 noundef %365, ptr noundef %0, i32 noundef %363, i32 noundef %312, i32 noundef 0)
+  %367 = add i32 %363, %312
+  br label %368
 
-367:                                              ; preds = %363, %348
-  %.0254.i = phi i32 [ %366, %363 ], [ %362, %348 ]
-  %368 = load i32, ptr @hf_dtls_record_length, align 4
-  %369 = call ptr @proto_tree_add_uint(ptr noundef %352, i32 noundef %368, ptr noundef %0, i32 noundef %.0254.i, i32 noundef 2, i32 noundef %.0257.i)
-  %370 = add i32 %.0254.i, 2
-  %371 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %370)
-  %372 = load i16, ptr %57, align 8
-  %373 = icmp eq i16 %372, 0
-  br i1 %373, label %374, label %396
+368:                                              ; preds = %364, %349
+  %.0254.i = phi i32 [ %367, %364 ], [ %363, %349 ]
+  %369 = load i32, ptr @hf_dtls_record_length, align 4
+  %370 = call ptr @proto_tree_add_uint(ptr noundef %353, i32 noundef %369, ptr noundef %0, i32 noundef %.0254.i, i32 noundef 2, i32 noundef %.0257.i)
+  %371 = add i32 %.0254.i, 2
+  %372 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %371)
+  %373 = load i16, ptr %57, align 8
+  %374 = icmp eq i16 %373, 0
+  br i1 %374, label %375, label %397
 
-374:                                              ; preds = %367
-  %375 = icmp eq i16 %305, -259
-  %376 = icmp eq i8 %86, 22
-  %or.cond5.i = and i1 %376, %375
-  br i1 %or.cond5.i, label %377, label %394
+375:                                              ; preds = %368
+  %376 = icmp eq i16 %306, -259
+  %377 = icmp eq i8 %86, 22
+  %or.cond5.i = and i1 %377, %376
+  br i1 %or.cond5.i, label %378, label %395
 
-377:                                              ; preds = %374
-  %378 = icmp eq i8 %371, 2
-  %379 = icmp samesign ugt i32 %.0257.i, 12
-  %or.cond7.i = select i1 %378, i1 %379, i1 false
-  br i1 %or.cond7.i, label %380, label %394
+378:                                              ; preds = %375
+  %379 = icmp eq i8 %372, 2
+  %380 = icmp samesign ugt i32 %.0257.i, 12
+  %or.cond7.i = select i1 %379, i1 %380, i1 false
+  br i1 %or.cond7.i, label %381, label %395
 
-380:                                              ; preds = %377
-  %381 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %370, i32 noundef 12)
-  br i1 %381, label %382, label %394
+381:                                              ; preds = %378
+  %382 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %371, i32 noundef 12)
+  br i1 %382, label %383, label %395
 
-382:                                              ; preds = %380
-  %383 = add i32 %.0254.i, 8
-  %384 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %383)
-  %385 = add i32 %.0254.i, 11
-  %386 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %385)
-  %387 = icmp eq i32 %384, 0
-  br i1 %387, label %388, label %394
+383:                                              ; preds = %381
+  %384 = add i32 %.0254.i, 8
+  %385 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %384)
+  %386 = add i32 %.0254.i, 11
+  %387 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %386)
+  %388 = icmp eq i32 %385, 0
+  br i1 %388, label %389, label %395
 
-388:                                              ; preds = %382
-  %389 = add i32 %.0254.i, 14
-  %390 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %389, i32 noundef %386)
-  br i1 %390, label %391, label %394
+389:                                              ; preds = %383
+  %390 = add i32 %.0254.i, 14
+  %391 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %390, i32 noundef %387)
+  br i1 %391, label %392, label %395
 
-391:                                              ; preds = %388
-  %392 = add i32 %386, %389
-  %393 = call zeroext i1 @tls_scan_server_hello(ptr noundef %0, i32 noundef %389, i32 noundef %392, ptr noundef nonnull %6, ptr noundef null)
+392:                                              ; preds = %389
+  %393 = add i32 %387, %390
+  %394 = call zeroext i1 @tls_scan_server_hello(ptr noundef %0, i32 noundef %390, i32 noundef %393, ptr noundef nonnull %6, ptr noundef null)
   %.pre.i = load i16, ptr %6, align 2
-  br label %394
+  br label %395
 
-394:                                              ; preds = %391, %388, %382, %380, %377, %374
-  %395 = phi i16 [ -259, %382 ], [ -259, %388 ], [ %.pre.i, %391 ], [ -259, %377 ], [ -259, %380 ], [ %305, %374 ]
-  call void @ssl_try_set_version(ptr noundef nonnull %28, ptr noundef %spec.select, i8 noundef zeroext %86, i8 noundef zeroext %371, i1 noundef zeroext true, i16 noundef zeroext %395)
+395:                                              ; preds = %392, %389, %383, %381, %378, %375
+  %396 = phi i16 [ -259, %383 ], [ -259, %389 ], [ %.pre.i, %392 ], [ -259, %378 ], [ -259, %381 ], [ %306, %375 ]
+  call void @ssl_try_set_version(ptr noundef nonnull %28, ptr noundef %spec.select, i8 noundef zeroext %86, i8 noundef zeroext %372, i1 noundef zeroext true, i16 noundef zeroext %396)
   %.pre276.i = load i16, ptr %57, align 8
-  br label %396
+  br label %397
 
-396:                                              ; preds = %394, %367
-  %397 = phi i16 [ %.pre276.i, %394 ], [ %372, %367 ]
-  %398 = load ptr, ptr %43, align 8
-  %399 = zext i16 %397 to i32
-  %400 = call ptr @val_to_str_const(i32 noundef %399, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
-  call void @col_set_str(ptr noundef %398, i32 noundef 35, ptr noundef %400)
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.932, i32 noundef %87, i32 noundef %358, i64 noundef %309)
-  br i1 %.not.i, label %407, label %401
+397:                                              ; preds = %395, %368
+  %398 = phi i16 [ %.pre276.i, %395 ], [ %373, %368 ]
+  %399 = load ptr, ptr %43, align 8
+  %400 = zext i16 %398 to i32
+  %401 = call ptr @val_to_str_const(i32 noundef %400, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
+  call void @col_set_str(ptr noundef %399, i32 noundef 35, ptr noundef %401)
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.932, i32 noundef %87, i32 noundef %359, i64 noundef %310)
+  br i1 %.not.i, label %408, label %402
 
-401:                                              ; preds = %396
-  %402 = load i16, ptr %60, align 8
-  %.not270.i = icmp eq i16 %402, -260
-  br i1 %.not270.i, label %407, label %403
+402:                                              ; preds = %397
+  %403 = load i16, ptr %60, align 8
+  %.not270.i = icmp eq i16 %403, -260
+  br i1 %.not270.i, label %408, label %404
 
-403:                                              ; preds = %401
-  %404 = load i16, ptr %6, align 2
-  %405 = trunc nuw i32 %.0257.i to i16
-  %406 = call fastcc zeroext i1 @decrypt_dtls_record(ptr noundef %0, ptr noundef %1, i32 noundef %370, ptr noundef %.1, i8 noundef zeroext %86, i16 noundef zeroext %404, i16 noundef zeroext %405, i8 noundef zeroext %9, ptr noundef %.0256.i, i8 noundef zeroext %.0.i.i)
-  br label %407
+404:                                              ; preds = %402
+  %405 = load i16, ptr %6, align 2
+  %406 = trunc nuw i32 %.0257.i to i16
+  %407 = call fastcc zeroext i1 @decrypt_dtls_record(ptr noundef %0, ptr noundef %1, i32 noundef %371, ptr noundef %.1, i8 noundef zeroext %86, i16 noundef zeroext %405, i16 noundef zeroext %406, i8 noundef zeroext %9, ptr noundef %.0256.i, i8 noundef zeroext %.0.i.i)
+  br label %408
 
-407:                                              ; preds = %403, %401, %396
-  %408 = load i32, ptr @proto_dtls, align 4
-  %409 = call i32 @tvb_raw_offset(ptr noundef %0)
-  %410 = add i32 %409, %370
-  %411 = call ptr @ssl_get_record_info(ptr noundef %0, i32 noundef %408, ptr noundef %1, i32 noundef %410, i8 noundef zeroext %9, ptr noundef nonnull %7)
-  %.not271.i = icmp eq ptr %411, null
-  br i1 %.not271.i, label %proto_item_set_generated.exit.i, label %412
+408:                                              ; preds = %404, %402, %397
+  %409 = load i32, ptr @proto_dtls, align 4
+  %410 = call i32 @tvb_raw_offset(ptr noundef %0)
+  %411 = add i32 %410, %371
+  %412 = call ptr @ssl_get_record_info(ptr noundef %0, i32 noundef %409, ptr noundef %1, i32 noundef %411, i8 noundef zeroext %9, ptr noundef nonnull %7)
+  %.not271.i = icmp eq ptr %412, null
+  br i1 %.not271.i, label %proto_item_set_generated.exit.i, label %413
 
-412:                                              ; preds = %407
-  call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %411, ptr noundef nonnull @.str.933)
-  br i1 %310, label %413, label %proto_item_set_generated.exit.i
+413:                                              ; preds = %408
+  call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %412, ptr noundef nonnull @.str.933)
+  br i1 %311, label %414, label %proto_item_set_generated.exit.i
 
-413:                                              ; preds = %412
-  %414 = load ptr, ptr %7, align 8
-  %415 = getelementptr inbounds nuw i8, ptr %414, i64 16
-  %416 = load i32, ptr %415, align 8
-  %417 = trunc i32 %416 to i8
-  %418 = load i32, ptr @hf_dtls_record_content_type, align 4
-  %419 = call ptr @proto_tree_add_uint(ptr noundef %352, i32 noundef %418, ptr noundef %0, i32 noundef %.04256, i32 noundef 1, i32 noundef %416)
-  %.not.i273.i = icmp eq ptr %419, null
-  br i1 %.not.i273.i, label %proto_item_set_generated.exit.i, label %420
+414:                                              ; preds = %413
+  %415 = load ptr, ptr %7, align 8
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 16
+  %417 = load i32, ptr %416, align 8
+  %418 = trunc i32 %417 to i8
+  %419 = load i32, ptr @hf_dtls_record_content_type, align 4
+  %420 = call ptr @proto_tree_add_uint(ptr noundef %353, i32 noundef %419, ptr noundef %0, i32 noundef %.04256, i32 noundef 1, i32 noundef %417)
+  %.not.i273.i = icmp eq ptr %420, null
+  br i1 %.not.i273.i, label %proto_item_set_generated.exit.i, label %421
 
-420:                                              ; preds = %413
-  %421 = getelementptr inbounds nuw i8, ptr %419, i64 40
-  %422 = load ptr, ptr %421, align 8
-  %.not5.i.i = icmp eq ptr %422, null
-  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %423
+421:                                              ; preds = %414
+  %422 = getelementptr inbounds nuw i8, ptr %420, i64 40
+  %423 = load ptr, ptr %422, align 8
+  %.not5.i.i = icmp eq ptr %423, null
+  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %424
 
-423:                                              ; preds = %420
-  %424 = getelementptr inbounds nuw i8, ptr %422, i64 28
-  %425 = load i32, ptr %424, align 4
-  %426 = or i32 %425, 2
-  store i32 %426, ptr %424, align 4
+424:                                              ; preds = %421
+  %425 = getelementptr inbounds nuw i8, ptr %423, i64 28
+  %426 = load i32, ptr %425, align 4
+  %427 = or i32 %426, 2
+  store i32 %427, ptr %425, align 4
   br label %proto_item_set_generated.exit.i
 
-proto_item_set_generated.exit.i:                  ; preds = %423, %420, %413, %412, %407
-  %.0259.i = phi i8 [ %86, %412 ], [ %86, %407 ], [ %417, %413 ], [ %417, %420 ], [ %417, %423 ]
-  %427 = zext i8 %.0259.i to i32
-  %428 = load i16, ptr %57, align 8
-  call void @ssl_check_record_length(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %1, i32 noundef %427, i32 noundef %.0257.i, ptr noundef %369, i16 noundef zeroext %428, ptr noundef %411)
-  switch i8 %.0259.i, label %463 [
-    i8 25, label %429
-    i8 20, label %438
-    i8 21, label %444
-    i8 22, label %447
-    i8 23, label %451
-    i8 24, label %453
-    i8 26, label %459
+proto_item_set_generated.exit.i:                  ; preds = %424, %421, %414, %413, %408
+  %.0259.i = phi i8 [ %86, %413 ], [ %86, %408 ], [ %418, %414 ], [ %418, %421 ], [ %418, %424 ]
+  %428 = zext i8 %.0259.i to i32
+  %429 = load i16, ptr %57, align 8
+  call void @ssl_check_record_length(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %1, i32 noundef %428, i32 noundef %.0257.i, ptr noundef %370, i16 noundef zeroext %429, ptr noundef %412)
+  switch i8 %.0259.i, label %464 [
+    i8 25, label %430
+    i8 20, label %439
+    i8 21, label %445
+    i8 22, label %448
+    i8 23, label %452
+    i8 24, label %454
+    i8 26, label %460
   ]
 
-429:                                              ; preds = %proto_item_set_generated.exit.i
-  %430 = load i16, ptr %57, align 8
-  %431 = zext i16 %430 to i32
-  %432 = call ptr @val_to_str_const(i32 noundef %431, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %352, ptr noundef nonnull @.str.934, ptr noundef %432)
-  br i1 %.not271.i, label %433, label %457
+430:                                              ; preds = %proto_item_set_generated.exit.i
+  %431 = load i16, ptr %57, align 8
+  %432 = zext i16 %431 to i32
+  %433 = call ptr @val_to_str_const(i32 noundef %432, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %353, ptr noundef nonnull @.str.934, ptr noundef %433)
+  br i1 %.not271.i, label %434, label %458
 
-433:                                              ; preds = %429
-  %434 = load ptr, ptr %43, align 8
-  call void @col_append_sep_str(ptr noundef %434, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.23)
-  %435 = load i32, ptr @hf_dtls_record_encrypted_content, align 4
-  %436 = call ptr @proto_tree_add_item(ptr noundef %352, i32 noundef %435, ptr noundef %0, i32 noundef %370, i32 noundef %.0257.i, i32 noundef 0)
-  %437 = add i32 %370, %.0257.i
+434:                                              ; preds = %430
+  %435 = load ptr, ptr %43, align 8
+  call void @col_append_sep_str(ptr noundef %435, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.23)
+  %436 = load i32, ptr @hf_dtls_record_encrypted_content, align 4
+  %437 = call ptr @proto_tree_add_item(ptr noundef %353, i32 noundef %436, ptr noundef %0, i32 noundef %371, i32 noundef %.0257.i, i32 noundef 0)
+  %438 = add i32 %371, %.0257.i
   br label %dissect_dtls_record.exit
 
-438:                                              ; preds = %proto_item_set_generated.exit.i
-  %439 = load ptr, ptr %43, align 8
-  call void @col_append_sep_str(ptr noundef %439, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.935)
-  call void @ssl_dissect_change_cipher_spec(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %0, ptr noundef %1, ptr noundef %352, i32 noundef %370, ptr noundef nonnull %28, i1 noundef zeroext %51, ptr noundef %spec.select)
-  br i1 %.not.i, label %442, label %440
+439:                                              ; preds = %proto_item_set_generated.exit.i
+  %440 = load ptr, ptr %43, align 8
+  call void @col_append_sep_str(ptr noundef %440, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.935)
+  call void @ssl_dissect_change_cipher_spec(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %0, ptr noundef %1, ptr noundef %353, i32 noundef %371, ptr noundef nonnull %28, i1 noundef zeroext %51, ptr noundef %spec.select)
+  br i1 %.not.i, label %443, label %441
 
-440:                                              ; preds = %438
-  %441 = call ptr @tls_get_master_key_map(i1 noundef zeroext true)
-  call void @ssl_finalize_decryption(ptr noundef nonnull %.1, ptr noundef %441)
+441:                                              ; preds = %439
+  %442 = call ptr @tls_get_master_key_map(i1 noundef zeroext true)
+  call void @ssl_finalize_decryption(ptr noundef nonnull %.1, ptr noundef %442)
   call void @ssl_change_cipher(ptr noundef nonnull %.1, i1 noundef zeroext %51)
-  br label %442
+  br label %443
 
-442:                                              ; preds = %440, %438
-  br i1 %51, label %443, label %463
+443:                                              ; preds = %441, %439
+  br i1 %51, label %444, label %464
 
-443:                                              ; preds = %442
+444:                                              ; preds = %443
   store i8 0, ptr %61, align 4
-  br label %463
+  br label %464
 
-444:                                              ; preds = %proto_item_set_generated.exit.i
-  br i1 %.not271.i, label %446, label %445
+445:                                              ; preds = %proto_item_set_generated.exit.i
+  br i1 %.not271.i, label %447, label %446
 
-445:                                              ; preds = %444
-  call fastcc void @dissect_dtls_alert(ptr noundef nonnull %411, ptr noundef %1, ptr noundef %352, i32 noundef 0, ptr noundef nonnull %28)
-  br label %463
+446:                                              ; preds = %445
+  call fastcc void @dissect_dtls_alert(ptr noundef nonnull %412, ptr noundef %1, ptr noundef %353, i32 noundef 0, ptr noundef nonnull %28)
+  br label %464
 
-446:                                              ; preds = %444
-  call fastcc void @dissect_dtls_alert(ptr noundef %0, ptr noundef %1, ptr noundef %352, i32 noundef %370, ptr noundef nonnull %28)
-  br label %463
+447:                                              ; preds = %445
+  call fastcc void @dissect_dtls_alert(ptr noundef %0, ptr noundef %1, ptr noundef %353, i32 noundef %371, ptr noundef nonnull %28)
+  br label %464
 
-447:                                              ; preds = %proto_item_set_generated.exit.i
-  br i1 %.not271.i, label %450, label %448
+448:                                              ; preds = %proto_item_set_generated.exit.i
+  br i1 %.not271.i, label %451, label %449
 
-448:                                              ; preds = %447
-  %449 = call i32 @tvb_reported_length(ptr noundef nonnull %411)
-  call fastcc void @dissect_dtls_handshake(ptr noundef nonnull %411, ptr noundef %1, ptr noundef %352, i32 noundef 0, i32 noundef %449, i1 noundef zeroext false, ptr noundef nonnull %28, i32 noundef %38, ptr noundef %spec.select, i8 noundef zeroext 22)
-  br label %463
+449:                                              ; preds = %448
+  %450 = call i32 @tvb_reported_length(ptr noundef nonnull %412)
+  call fastcc void @dissect_dtls_handshake(ptr noundef nonnull %412, ptr noundef %1, ptr noundef %353, i32 noundef 0, i32 noundef %450, i1 noundef zeroext false, ptr noundef nonnull %28, i32 noundef %38, ptr noundef %spec.select, i8 noundef zeroext 22)
+  br label %464
 
-450:                                              ; preds = %447
-  call fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef %1, ptr noundef %352, i32 noundef %370, i32 noundef %.0257.i, i1 noundef zeroext true, ptr noundef nonnull %28, i32 noundef %38, ptr noundef %spec.select, i8 noundef zeroext 22)
-  br label %463
+451:                                              ; preds = %448
+  call fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef %1, ptr noundef %353, i32 noundef %371, i32 noundef %.0257.i, i1 noundef zeroext true, ptr noundef nonnull %28, i32 noundef %38, ptr noundef %spec.select, i8 noundef zeroext 22)
+  br label %464
 
-451:                                              ; preds = %proto_item_set_generated.exit.i
-  %452 = load ptr, ptr %7, align 8
-  call fastcc void @dissect_dtls_appdata(ptr noundef %0, ptr noundef %1, i32 noundef %370, i32 noundef %.0257.i, ptr noundef nonnull %28, ptr noundef %352, i1 noundef zeroext %51, ptr noundef %411, ptr noundef %452)
-  br label %463
+452:                                              ; preds = %proto_item_set_generated.exit.i
+  %453 = load ptr, ptr %7, align 8
+  call fastcc void @dissect_dtls_appdata(ptr noundef %0, ptr noundef %1, i32 noundef %371, i32 noundef %.0257.i, ptr noundef nonnull %28, ptr noundef %353, i1 noundef zeroext %51, ptr noundef %412, ptr noundef %453)
+  br label %464
 
-453:                                              ; preds = %proto_item_set_generated.exit.i
-  br i1 %.not271.i, label %456, label %454
+454:                                              ; preds = %proto_item_set_generated.exit.i
+  br i1 %.not271.i, label %457, label %455
 
-454:                                              ; preds = %453
-  %455 = call i32 @tvb_reported_length(ptr noundef nonnull %411)
-  call fastcc void @dissect_dtls_heartbeat(ptr noundef nonnull %411, ptr noundef %1, ptr noundef %352, i32 noundef 0, ptr noundef nonnull %28, i32 noundef %455, i1 noundef zeroext true)
-  br label %463
+455:                                              ; preds = %454
+  %456 = call i32 @tvb_reported_length(ptr noundef nonnull %412)
+  call fastcc void @dissect_dtls_heartbeat(ptr noundef nonnull %412, ptr noundef %1, ptr noundef %353, i32 noundef 0, ptr noundef nonnull %28, i32 noundef %456, i1 noundef zeroext true)
+  br label %464
 
-456:                                              ; preds = %453
-  call fastcc void @dissect_dtls_heartbeat(ptr noundef %0, ptr noundef %1, ptr noundef %352, i32 noundef %370, ptr noundef nonnull %28, i32 noundef %.0257.i, i1 noundef zeroext false)
-  br label %463
+457:                                              ; preds = %454
+  call fastcc void @dissect_dtls_heartbeat(ptr noundef %0, ptr noundef %1, ptr noundef %353, i32 noundef %371, ptr noundef nonnull %28, i32 noundef %.0257.i, i1 noundef zeroext false)
+  br label %464
 
-457:                                              ; preds = %429
-  %458 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %354, ptr noundef nonnull @ei_dtls_cid_invalid_content_type, ptr noundef nonnull @.str.936, i32 noundef 25)
-  br label %463
+458:                                              ; preds = %430
+  %459 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %355, ptr noundef nonnull @ei_dtls_cid_invalid_content_type, ptr noundef nonnull @.str.936, i32 noundef 25)
+  br label %464
 
-459:                                              ; preds = %proto_item_set_generated.exit.i
-  br i1 %.not271.i, label %462, label %460
+460:                                              ; preds = %proto_item_set_generated.exit.i
+  br i1 %.not271.i, label %463, label %461
 
-460:                                              ; preds = %459
-  %461 = call i32 @tvb_reported_length(ptr noundef nonnull %411)
-  call fastcc void @dissect_dtls_ack(ptr noundef nonnull %411, ptr noundef %1, ptr noundef %352, i32 noundef 0, i32 noundef %461)
-  br label %463
+461:                                              ; preds = %460
+  %462 = call i32 @tvb_reported_length(ptr noundef nonnull %412)
+  call fastcc void @dissect_dtls_ack(ptr noundef nonnull %412, ptr noundef %1, ptr noundef %353, i32 noundef 0, i32 noundef %462)
+  br label %464
 
-462:                                              ; preds = %459
-  call fastcc void @dissect_dtls_ack(ptr noundef %0, ptr noundef %1, ptr noundef %352, i32 noundef %370, i32 noundef %.0257.i)
-  br label %463
+463:                                              ; preds = %460
+  call fastcc void @dissect_dtls_ack(ptr noundef %0, ptr noundef %1, ptr noundef %353, i32 noundef %371, i32 noundef %.0257.i)
+  br label %464
 
-463:                                              ; preds = %462, %460, %457, %456, %454, %451, %450, %448, %446, %445, %443, %442, %proto_item_set_generated.exit.i
-  %464 = add i32 %370, %.0257.i
+464:                                              ; preds = %463, %461, %458, %457, %455, %452, %451, %449, %447, %446, %444, %443, %proto_item_set_generated.exit.i
+  %465 = add i32 %371, %.0257.i
   br label %dissect_dtls_record.exit
 
-dissect_dtls_record.exit:                         ; preds = %dissect_dtls13_record.exit.i, %330, %433, %463
-  %.0.i = phi i32 [ %302, %dissect_dtls13_record.exit.i ], [ %437, %433 ], [ %464, %463 ], [ %339, %330 ]
+dissect_dtls_record.exit:                         ; preds = %dissect_dtls13_record.exit.i, %331, %434, %464
+  %.0.i = phi i32 [ %303, %dissect_dtls13_record.exit.i ], [ %438, %434 ], [ %465, %464 ], [ %340, %331 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
-  %465 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i)
-  %.not51 = icmp eq i32 %465, 0
+  %466 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i)
+  %.not51 = icmp eq i32 %466, 0
   br i1 %.not51, label %._crit_edge, label %69, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %dissect_dtls_record.exit, %._crit_edge58
-  %466 = load i32, ptr @dtls_tap, align 4
-  call void @tap_queue_packet(i32 noundef %466, ptr noundef %1, ptr noundef null)
-  %467 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %468
+._crit_edge:                                      ; preds = %dissect_dtls_record.exit, %._crit_edge59
+  %467 = load i32, ptr @dtls_tap, align 4
+  call void @tap_queue_packet(i32 noundef %467, ptr noundef %1, ptr noundef null)
+  %468 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %469
 
-468:                                              ; preds = %27, %._crit_edge
-  %.0 = phi i32 [ %467, %._crit_edge ], [ 0, %27 ]
+469:                                              ; preds = %27, %._crit_edge
+  %.0 = phi i32 [ %468, %._crit_edge ], [ 0, %27 ]
   ret i32 %.0
 }
 
@@ -3600,8 +3600,8 @@ define internal fastcc noundef zeroext i1 @decrypt_dtls_record(ptr noundef %0, p
   %40 = load i16, ptr %39, align 8
   %41 = icmp eq i16 %40, -260
   %42 = icmp eq i8 %4, 25
-  %brmerge.i = or i1 %42, %41
-  br i1 %brmerge.i, label %.preheader.preheader.i, label %58
+  %or.cond.i = or i1 %42, %41
+  br i1 %or.cond.i, label %.preheader.preheader.i, label %58
 
 .preheader.preheader.i:                           ; preds = %38
   %43 = zext i32 %36 to i64
@@ -3636,10 +3636,10 @@ define internal fastcc noundef zeroext i1 @decrypt_dtls_record(ptr noundef %0, p
   br i1 %57, label %dtls_save_decrypted_record.exit, label %58
 
 58:                                               ; preds = %50, %38
-  %.017.i = phi i8 [ %56, %50 ], [ %4, %38 ]
+  %.018.i = phi i8 [ %56, %50 ], [ %4, %38 ]
   %.0.i = phi i32 [ %53, %50 ], [ %36, %38 ]
   %59 = load i32, ptr @proto_dtls, align 4
-  %60 = zext i8 %.017.i to i32
+  %60 = zext i8 %.018.i to i32
   tail call void @ssl_add_record_info(i32 noundef %59, ptr noundef %1, ptr noundef %35, i32 noundef %.0.i, i32 noundef %34, ptr noundef null, i32 noundef %60, i8 noundef zeroext %7)
   br label %dtls_save_decrypted_record.exit
 
@@ -3739,10 +3739,10 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
 .lr.ph:                                           ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %.not288 = icmp eq ptr %2, null
+  %.not289 = icmp eq ptr %2, null
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = zext i8 %9 to i32
-  %.not294 = icmp eq ptr %8, null
+  %.not295 = icmp eq ptr %8, null
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 656
   %21 = icmp ne i32 %7, 0
   %.0.in.v.i = select i1 %21, i64 576, i64 584
@@ -3760,23 +3760,23 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 560
   br label %33
 
-33:                                               ; preds = %.lr.ph, %198
-  %.0263308 = phi i32 [ %3, %.lr.ph ], [ %199, %198 ]
-  %.0270307 = phi i1 [ true, %.lr.ph ], [ false, %198 ]
-  %.0271306 = phi ptr [ null, %.lr.ph ], [ %.1272, %198 ]
+33:                                               ; preds = %.lr.ph, %199
+  %.0265309 = phi i32 [ %3, %.lr.ph ], [ %200, %199 ]
+  %.0272308 = phi i1 [ true, %.lr.ph ], [ false, %199 ]
+  %.0273307 = phi ptr [ null, %.lr.ph ], [ %.1274, %199 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #10
   store i8 0, ptr %13, align 1
   %34 = load i32, ptr @hf_dtls_handshake_protocol, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %.0263308, i32 noundef -1, i32 noundef 0)
+  %35 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %.0265309, i32 noundef -1, i32 noundef 0)
   %36 = load i32, ptr @ett_dtls_handshake, align 4
   %37 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36)
-  %38 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0263308)
-  %39 = add i32 %.0263308, 9
+  %38 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0265309)
+  %39 = add i32 %.0265309, 9
   %40 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %39)
-  %41 = add i32 %40, %.0263308
-  %.not284 = icmp ugt i32 %41, %14
-  %or.cond299 = select i1 %5, i1 %.not284, i1 false
-  br i1 %or.cond299, label %51, label %42
+  %41 = add i32 %40, %.0265309
+  %.not286 = icmp ugt i32 %41, %14
+  %or.cond300 = select i1 %5, i1 %.not286, i1 false
+  br i1 %or.cond300, label %51, label %42
 
 42:                                               ; preds = %33
   %43 = zext i8 %38 to i32
@@ -3784,7 +3784,7 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
   br i1 %44, label %45, label %.sink.split
 
 45:                                               ; preds = %42
-  %46 = add i32 %.0263308, 12
+  %46 = add i32 %.0265309, 12
   %47 = call zeroext i1 @tls_scan_server_hello(ptr noundef %0, i32 noundef %46, i32 noundef %40, ptr noundef nonnull %12, ptr noundef nonnull %13)
   br label %.sink.split
 
@@ -3796,370 +3796,370 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
   br label %51
 
 51:                                               ; preds = %.sink.split, %33
-  %.1272 = phi ptr [ %.0271306, %33 ], [ %50, %.sink.split ]
-  %.not285 = icmp ne ptr %.1272, null
-  %brmerge = or i1 %.0270307, %.not285
-  br i1 %brmerge, label %52, label %dtls13_maybe_increase_max_epoch.exit
+  %.1274 = phi ptr [ %.0273307, %33 ], [ %50, %.sink.split ]
+  %52 = icmp ne ptr %.1274, null
+  %or.cond = or i1 %.0272308, %52
+  br i1 %or.cond, label %53, label %dtls13_maybe_increase_max_epoch.exit
 
-52:                                               ; preds = %51
-  %53 = load ptr, ptr %16, align 8
-  br i1 %.not285, label %54, label %77
+53:                                               ; preds = %51
+  %54 = load ptr, ptr %16, align 8
+  br i1 %52, label %55, label %78
 
-54:                                               ; preds = %52
-  call void @col_append_sep_str(ptr noundef %53, i32 noundef 25, ptr noundef null, ptr noundef nonnull %.1272)
-  %55 = load i32, ptr @hf_dtls_handshake_type, align 4
-  %56 = zext i8 %38 to i32
-  %57 = call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %55, ptr noundef %0, i32 noundef %.0263308, i32 noundef 1, i32 noundef %56)
-  %58 = add nuw i32 %.0263308, 1
-  %59 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %58)
-  %60 = load i32, ptr @hf_dtls_handshake_length, align 4
-  %61 = call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %60, ptr noundef %0, i32 noundef %58, i32 noundef 3, i32 noundef %59)
-  %62 = add i32 %.0263308, 4
-  %63 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %62)
-  %64 = load i32, ptr @hf_dtls_handshake_message_seq, align 4
-  %65 = zext i16 %63 to i32
-  %66 = call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %64, ptr noundef %0, i32 noundef %62, i32 noundef 2, i32 noundef %65)
-  %67 = add i32 %.0263308, 6
-  %68 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %67)
-  %69 = load i32, ptr @hf_dtls_handshake_fragment_offset, align 4
-  %70 = call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %69, ptr noundef %0, i32 noundef %67, i32 noundef 3, i32 noundef %68)
-  %71 = load i32, ptr @hf_dtls_handshake_fragment_length, align 4
-  %72 = call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %71, ptr noundef %0, i32 noundef %39, i32 noundef 3, i32 noundef %40)
-  %73 = add i32 %.0263308, 12
-  %74 = add i32 %40, 12
-  call void @proto_item_set_len(ptr noundef %35, i32 noundef %74)
-  %75 = add i32 %68, %40
-  %76 = icmp ugt i32 %75, %59
-  br i1 %76, label %78, label %84
+55:                                               ; preds = %53
+  call void @col_append_sep_str(ptr noundef %54, i32 noundef 25, ptr noundef null, ptr noundef nonnull %.1274)
+  %56 = load i32, ptr @hf_dtls_handshake_type, align 4
+  %57 = zext i8 %38 to i32
+  %58 = call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %56, ptr noundef %0, i32 noundef %.0265309, i32 noundef 1, i32 noundef %57)
+  %59 = add nuw i32 %.0265309, 1
+  %60 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %59)
+  %61 = load i32, ptr @hf_dtls_handshake_length, align 4
+  %62 = call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %61, ptr noundef %0, i32 noundef %59, i32 noundef 3, i32 noundef %60)
+  %63 = add i32 %.0265309, 4
+  %64 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %63)
+  %65 = load i32, ptr @hf_dtls_handshake_message_seq, align 4
+  %66 = zext i16 %64 to i32
+  %67 = call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %65, ptr noundef %0, i32 noundef %63, i32 noundef 2, i32 noundef %66)
+  %68 = add i32 %.0265309, 6
+  %69 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %68)
+  %70 = load i32, ptr @hf_dtls_handshake_fragment_offset, align 4
+  %71 = call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %70, ptr noundef %0, i32 noundef %68, i32 noundef 3, i32 noundef %69)
+  %72 = load i32, ptr @hf_dtls_handshake_fragment_length, align 4
+  %73 = call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %72, ptr noundef %0, i32 noundef %39, i32 noundef 3, i32 noundef %40)
+  %74 = add i32 %.0265309, 12
+  %75 = add i32 %40, 12
+  call void @proto_item_set_len(ptr noundef %35, i32 noundef %75)
+  %76 = add i32 %69, %40
+  %77 = icmp ugt i32 %76, %60
+  br i1 %77, label %79, label %85
 
-77:                                               ; preds = %52
-  call void @col_append_sep_str(ptr noundef %53, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.976)
+78:                                               ; preds = %53
+  call void @col_append_sep_str(ptr noundef %54, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.976)
   br label %dtls13_maybe_increase_max_epoch.exit
 
-78:                                               ; preds = %54
-  %79 = icmp eq i32 %68, 0
-  br i1 %79, label %80, label %82
+79:                                               ; preds = %55
+  %80 = icmp eq i32 %69, 0
+  br i1 %80, label %81, label %83
 
-80:                                               ; preds = %78
-  %81 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %72, ptr noundef nonnull @ei_dtls_handshake_fragment_length_too_long)
-  br label %107
+81:                                               ; preds = %79
+  %82 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_dtls_handshake_fragment_length_too_long)
+  br label %108
 
-82:                                               ; preds = %78
-  %83 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %72, ptr noundef nonnull @ei_dtls_handshake_fragment_past_end_msg)
-  br label %107
+83:                                               ; preds = %79
+  %84 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_dtls_handshake_fragment_past_end_msg)
+  br label %108
 
-84:                                               ; preds = %54
-  %85 = icmp ne i32 %68, 0
-  %86 = icmp eq i32 %40, 0
-  %or.cond = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond, label %87, label %89
+85:                                               ; preds = %55
+  %86 = icmp ne i32 %69, 0
+  %87 = icmp eq i32 %40, 0
+  %or.cond3 = select i1 %86, i1 %87, i1 false
+  br i1 %or.cond3, label %88, label %90
 
-87:                                               ; preds = %84
-  %88 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %72, ptr noundef nonnull @ei_dtls_handshake_fragment_length_zero)
-  br label %198
+88:                                               ; preds = %85
+  %89 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_dtls_handshake_fragment_length_zero)
+  br label %199
 
-89:                                               ; preds = %84
-  %90 = icmp ult i32 %40, %59
-  br i1 %90, label %91, label %107
+90:                                               ; preds = %85
+  %91 = icmp ult i32 %40, %60
+  br i1 %91, label %92, label %108
 
-91:                                               ; preds = %89
-  %92 = call zeroext i1 @ssl_is_valid_handshake_type(i8 noundef zeroext %38, i1 noundef zeroext true)
-  br i1 %92, label %93, label %107
+92:                                               ; preds = %90
+  %93 = call zeroext i1 @ssl_is_valid_handshake_type(i8 noundef zeroext %38, i1 noundef zeroext true)
+  br i1 %93, label %94, label %108
 
-93:                                               ; preds = %91
+94:                                               ; preds = %92
   store i8 1, ptr %17, align 8
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %73, i32 noundef %40)
-  %94 = call ptr @fragment_add(ptr noundef nonnull @dtls_reassembly_table, ptr noundef %0, i32 noundef %73, ptr noundef %1, i32 noundef %65, ptr noundef null, i32 noundef %68, i32 noundef %40, i1 noundef zeroext true)
-  %95 = call i32 @fragment_get_tot_len(ptr noundef nonnull @dtls_reassembly_table, ptr noundef %1, i32 noundef %65, ptr noundef null)
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %98
+  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %74, i32 noundef %40)
+  %95 = call ptr @fragment_add(ptr noundef nonnull @dtls_reassembly_table, ptr noundef %0, i32 noundef %74, ptr noundef %1, i32 noundef %66, ptr noundef null, i32 noundef %69, i32 noundef %40, i1 noundef zeroext true)
+  %96 = call i32 @fragment_get_tot_len(ptr noundef nonnull @dtls_reassembly_table, ptr noundef %1, i32 noundef %66, ptr noundef null)
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %99
 
-97:                                               ; preds = %93
-  call void @fragment_set_tot_len(ptr noundef nonnull @dtls_reassembly_table, ptr noundef %1, i32 noundef %65, ptr noundef null, i32 noundef %59)
-  br label %101
+98:                                               ; preds = %94
+  call void @fragment_set_tot_len(ptr noundef nonnull @dtls_reassembly_table, ptr noundef %1, i32 noundef %66, ptr noundef null, i32 noundef %60)
+  br label %102
 
-98:                                               ; preds = %93
-  %.not286 = icmp eq i32 %95, %59
-  br i1 %.not286, label %101, label %99
+99:                                               ; preds = %94
+  %.not287 = icmp eq i32 %96, %60
+  br i1 %.not287, label %102, label %100
 
-99:                                               ; preds = %98
-  %100 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %61, ptr noundef nonnull @ei_dtls_msg_len_diff_fragment)
-  br label %101
+100:                                              ; preds = %99
+  %101 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %62, ptr noundef nonnull @ei_dtls_msg_len_diff_fragment)
+  br label %102
 
-101:                                              ; preds = %98, %99, %97
-  %.not287 = icmp ne ptr %94, null
-  %102 = icmp eq i32 %75, %95
-  %or.cond300 = and i1 %.not287, %102
-  br i1 %or.cond300, label %103, label %105
+102:                                              ; preds = %99, %100, %98
+  %.not288 = icmp ne ptr %95, null
+  %103 = icmp eq i32 %76, %96
+  %or.cond301 = and i1 %.not288, %103
+  br i1 %or.cond301, label %104, label %106
 
-103:                                              ; preds = %101
-  %104 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %73, ptr noundef %1, ptr noundef nonnull @.str.977, ptr noundef nonnull %94, ptr noundef nonnull @dtls_frag_items, ptr noundef null, ptr noundef %2)
-  br label %105
+104:                                              ; preds = %102
+  %105 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %74, ptr noundef %1, ptr noundef nonnull @.str.977, ptr noundef nonnull %95, ptr noundef nonnull @dtls_frag_items, ptr noundef null, ptr noundef %2)
+  br label %106
 
-105:                                              ; preds = %101, %103
-  %.1268 = phi ptr [ %104, %103 ], [ null, %101 ]
-  %.1266 = phi ptr [ @.str.978, %103 ], [ @.str.979, %101 ]
-  %106 = load ptr, ptr %16, align 8
-  call void @col_append_str(ptr noundef %106, i32 noundef 25, ptr noundef nonnull %.1266)
-  br label %107
+106:                                              ; preds = %102, %104
+  %.1270 = phi ptr [ %105, %104 ], [ null, %102 ]
+  %.1268 = phi ptr [ @.str.978, %104 ], [ @.str.979, %102 ]
+  %107 = load ptr, ptr %16, align 8
+  call void @col_append_str(ptr noundef %107, i32 noundef 25, ptr noundef nonnull %.1268)
+  br label %108
 
-107:                                              ; preds = %91, %105, %89, %80, %82
-  %.0267 = phi ptr [ null, %80 ], [ null, %82 ], [ %.1268, %105 ], [ null, %91 ], [ null, %89 ]
-  %.0265 = phi ptr [ null, %80 ], [ null, %82 ], [ %.1266, %105 ], [ null, %91 ], [ null, %89 ]
-  %.not = phi i1 [ true, %80 ], [ false, %82 ], [ false, %105 ], [ false, %91 ], [ true, %89 ]
-  br i1 %.not288, label %116, label %108
+108:                                              ; preds = %92, %106, %90, %81, %83
+  %.0269 = phi ptr [ null, %81 ], [ null, %83 ], [ %.1270, %106 ], [ null, %92 ], [ null, %90 ]
+  %.0267 = phi ptr [ null, %81 ], [ null, %83 ], [ %.1268, %106 ], [ null, %92 ], [ null, %90 ]
+  %.not = phi i1 [ true, %81 ], [ false, %83 ], [ false, %106 ], [ false, %92 ], [ true, %90 ]
+  br i1 %.not289, label %117, label %109
 
-108:                                              ; preds = %107
-  %109 = load i16, ptr %18, align 8
-  %110 = zext i16 %109 to i32
-  %111 = call ptr @val_to_str_const(i32 noundef %110, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
-  %112 = call ptr @val_to_str_const(i32 noundef %19, ptr noundef nonnull @ssl_31_content_type, ptr noundef nonnull @.str.981)
-  %.not290 = icmp eq ptr %.0265, null
-  %113 = select i1 %.not290, ptr @.str.922, ptr %.0265
-  %.1272..str.982 = select i1 %.0270307, ptr %.1272, ptr @.str.982
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.980, ptr noundef %111, ptr noundef %112, ptr noundef nonnull %.1272..str.982, ptr noundef nonnull %113)
-  %.not291 = icmp eq ptr %37, null
-  br i1 %.not291, label %116, label %114
+109:                                              ; preds = %108
+  %110 = load i16, ptr %18, align 8
+  %111 = zext i16 %110 to i32
+  %112 = call ptr @val_to_str_const(i32 noundef %111, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
+  %113 = call ptr @val_to_str_const(i32 noundef %19, ptr noundef nonnull @ssl_31_content_type, ptr noundef nonnull @.str.981)
+  %.not291 = icmp eq ptr %.0267, null
+  %114 = select i1 %.not291, ptr @.str.922, ptr %.0267
+  %.1274..str.982 = select i1 %.0272308, ptr %.1274, ptr @.str.982
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.980, ptr noundef %112, ptr noundef %113, ptr noundef nonnull %.1274..str.982, ptr noundef nonnull %114)
+  %.not292 = icmp eq ptr %37, null
+  br i1 %.not292, label %117, label %115
 
-114:                                              ; preds = %108
-  %.not292 = icmp eq ptr %.0265, null
-  %115 = select i1 %.not292, ptr @.str.922, ptr %.0265
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %37, ptr noundef nonnull @.str.983, ptr noundef nonnull %.1272, ptr noundef nonnull %115)
-  br label %116
+115:                                              ; preds = %109
+  %.not293 = icmp eq ptr %.0267, null
+  %116 = select i1 %.not293, ptr @.str.922, ptr %.0267
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %37, ptr noundef nonnull @.str.983, ptr noundef nonnull %.1274, ptr noundef nonnull %116)
+  br label %117
 
-116:                                              ; preds = %108, %114, %107
-  %117 = icmp ne ptr %.0267, null
-  %or.cond3 = select i1 %.not, i1 true, i1 %117
-  br i1 %or.cond3, label %118, label %198
+117:                                              ; preds = %109, %115, %108
+  %118 = icmp ne ptr %.0269, null
+  %or.cond5 = select i1 %.not, i1 true, i1 %118
+  br i1 %or.cond5, label %119, label %199
 
-118:                                              ; preds = %116
-  br i1 %117, label %121, label %119
+119:                                              ; preds = %117
+  br i1 %118, label %122, label %120
 
-119:                                              ; preds = %118
-  %120 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %73, i32 noundef %40)
-  br label %121
+120:                                              ; preds = %119
+  %121 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %74, i32 noundef %40)
+  br label %122
 
-121:                                              ; preds = %118, %119
-  %.0269 = phi ptr [ %120, %119 ], [ %.0267, %118 ]
-  %122 = add i8 %38, -1
-  %or.cond6 = icmp ult i8 %122, 2
-  br i1 %or.cond6, label %.thread, label %124
+122:                                              ; preds = %119, %120
+  %.0271 = phi ptr [ %121, %120 ], [ %.0269, %119 ]
+  %123 = add i8 %38, -1
+  %or.cond8 = icmp ult i8 %123, 2
+  br i1 %or.cond8, label %.thread, label %125
 
-.thread:                                          ; preds = %121
-  %123 = icmp eq i8 %38, 1
-  call void @ssl_reset_session(ptr noundef %6, ptr noundef %8, i1 noundef zeroext %123)
-  br label %125
+.thread:                                          ; preds = %122
+  %124 = icmp eq i8 %38, 1
+  call void @ssl_reset_session(ptr noundef %6, ptr noundef %8, i1 noundef zeroext %124)
+  br label %126
 
-124:                                              ; preds = %121
+125:                                              ; preds = %122
   %cond = icmp eq i8 %38, 15
-  br i1 %cond, label %171, label %125
+  br i1 %cond, label %172, label %126
 
-125:                                              ; preds = %.thread, %124
-  %126 = icmp eq i32 %68, 0
-  br i1 %126, label %127, label %128
+126:                                              ; preds = %.thread, %125
+  %127 = icmp eq i32 %69, 0
+  br i1 %127, label %128, label %129
 
-127:                                              ; preds = %125
-  call void @ssl_calculate_handshake_hash(ptr noundef %8, ptr noundef %0, i32 noundef %.0263308, i32 noundef %74)
-  br label %129
+128:                                              ; preds = %126
+  call void @ssl_calculate_handshake_hash(ptr noundef %8, ptr noundef %0, i32 noundef %.0265309, i32 noundef %75)
+  br label %130
 
-128:                                              ; preds = %125
-  call void @ssl_calculate_handshake_hash(ptr noundef %8, ptr noundef %0, i32 noundef %.0263308, i32 noundef 6)
+129:                                              ; preds = %126
+  call void @ssl_calculate_handshake_hash(ptr noundef %8, ptr noundef %0, i32 noundef %.0265309, i32 noundef 6)
   call void @ssl_calculate_handshake_hash(ptr noundef %8, ptr noundef null, i32 noundef 0, i32 noundef 3)
-  call void @ssl_calculate_handshake_hash(ptr noundef %8, ptr noundef %0, i32 noundef %58, i32 noundef 3)
-  call void @ssl_calculate_handshake_hash(ptr noundef %8, ptr noundef %.0269, i32 noundef 0, i32 noundef %59)
-  br label %129
+  call void @ssl_calculate_handshake_hash(ptr noundef %8, ptr noundef %0, i32 noundef %59, i32 noundef 3)
+  call void @ssl_calculate_handshake_hash(ptr noundef %8, ptr noundef %.0271, i32 noundef 0, i32 noundef %60)
+  br label %130
 
-129:                                              ; preds = %127, %128
-  switch i8 %38, label %198 [
-    i8 8, label %196
-    i8 1, label %130
-    i8 2, label %141
-    i8 3, label %146
-    i8 4, label %162
-    i8 6, label %166
-    i8 11, label %167
-    i8 12, label %168
-    i8 13, label %169
-    i8 14, label %170
-    i8 15, label %171
-    i8 16, label %173
-    i8 20, label %180
-    i8 22, label %181
-    i8 21, label %183
-    i8 23, label %183
-    i8 24, label %183
+130:                                              ; preds = %128, %129
+  switch i8 %38, label %199 [
+    i8 8, label %197
+    i8 1, label %131
+    i8 2, label %142
+    i8 3, label %147
+    i8 4, label %163
+    i8 6, label %167
+    i8 11, label %168
+    i8 12, label %169
+    i8 13, label %170
+    i8 14, label %171
+    i8 15, label %172
+    i8 16, label %174
+    i8 20, label %181
+    i8 22, label %182
+    i8 21, label %184
+    i8 23, label %184
+    i8 24, label %184
   ]
 
-130:                                              ; preds = %129
-  br i1 %.not294, label %.critedge, label %131
-
 131:                                              ; preds = %130
-  %132 = load i32, ptr %29, align 8
-  %133 = load i32, ptr %30, align 8
-  call void @ssl_set_server(ptr noundef %6, ptr noundef nonnull %28, i32 noundef %132, i32 noundef %133)
-  %134 = call i32 @ssl_dissect_hnd_cli_hello(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %59, ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull @dtls_hfs, ptr noundef null)
-  %135 = call ptr @tls_get_master_key_map(i1 noundef zeroext false)
-  call void @tls_save_crandom(ptr noundef nonnull %8, ptr noundef %135)
-  %136 = load i8, ptr %31, align 8, !range !11, !noundef !12
-  %137 = trunc nuw i8 %136 to i1
-  br i1 %137, label %138, label %198
+  br i1 %.not295, label %.critedge, label %132
 
-138:                                              ; preds = %131
+132:                                              ; preds = %131
+  %133 = load i32, ptr %29, align 8
+  %134 = load i32, ptr %30, align 8
+  call void @ssl_set_server(ptr noundef %6, ptr noundef nonnull %28, i32 noundef %133, i32 noundef %134)
+  %135 = call i32 @ssl_dissect_hnd_cli_hello(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull @dtls_hfs, ptr noundef null)
+  %136 = call ptr @tls_get_master_key_map(i1 noundef zeroext false)
+  call void @tls_save_crandom(ptr noundef nonnull %8, ptr noundef %136)
+  %137 = load i8, ptr %31, align 8, !range !11, !noundef !12
+  %138 = trunc nuw i8 %137 to i1
+  br i1 %138, label %139, label %199
+
+139:                                              ; preds = %132
   store i16 -260, ptr %18, align 8
-  %139 = load i32, ptr %32, align 8
-  %140 = or i32 %139, 16
-  store i32 %140, ptr %32, align 8
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.984, ptr noundef nonnull @__func__.dissect_dtls_handshake, i32 noundef 65276, i32 noundef %140)
-  br label %198
+  %140 = load i32, ptr %32, align 8
+  %141 = or i32 %140, 16
+  store i32 %141, ptr %32, align 8
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.984, ptr noundef nonnull @__func__.dissect_dtls_handshake, i32 noundef 65276, i32 noundef %141)
+  br label %199
 
-141:                                              ; preds = %129
-  %142 = call zeroext i1 @tls_scan_server_hello(ptr noundef %.0269, i32 noundef 0, i32 noundef %40, ptr noundef nonnull %12, ptr noundef nonnull %13)
-  %143 = load i16, ptr %12, align 2
-  call void @ssl_try_set_version(ptr noundef %6, ptr noundef %8, i8 noundef zeroext 22, i8 noundef zeroext 2, i1 noundef zeroext true, i16 noundef zeroext %143)
-  %144 = load i8, ptr %13, align 1, !range !11, !noundef !12
-  %145 = trunc nuw i8 %144 to i1
-  call void @ssl_dissect_hnd_srv_hello(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %59, ptr noundef %6, ptr noundef %8, i1 noundef zeroext true, i1 noundef zeroext %145)
-  br label %198
+142:                                              ; preds = %130
+  %143 = call zeroext i1 @tls_scan_server_hello(ptr noundef %.0271, i32 noundef 0, i32 noundef %40, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %144 = load i16, ptr %12, align 2
+  call void @ssl_try_set_version(ptr noundef %6, ptr noundef %8, i8 noundef zeroext 22, i8 noundef zeroext 2, i1 noundef zeroext true, i16 noundef zeroext %144)
+  %145 = load i8, ptr %13, align 1, !range !11, !noundef !12
+  %146 = trunc nuw i8 %145 to i1
+  call void @ssl_dissect_hnd_srv_hello(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %6, ptr noundef %8, i1 noundef zeroext true, i1 noundef zeroext %146)
+  br label %199
 
-146:                                              ; preds = %129
-  br i1 %.not294, label %152, label %147
+147:                                              ; preds = %130
+  br i1 %.not295, label %153, label %148
 
-147:                                              ; preds = %146
-  %148 = load i32, ptr %26, align 8
-  %.not297 = icmp eq i32 %148, 0
-  br i1 %.not297, label %152, label %149
+148:                                              ; preds = %147
+  %149 = load i32, ptr %26, align 8
+  %.not298 = icmp eq i32 %149, 0
+  br i1 %.not298, label %153, label %150
 
-149:                                              ; preds = %147
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.985, ptr noundef nonnull @__func__.dissect_dtls_handshake, i32 noundef %148)
-  %150 = call ptr @wmem_file_scope()
-  %151 = load ptr, ptr %27, align 8
-  call void @wmem_free(ptr noundef %150, ptr noundef %151)
+150:                                              ; preds = %148
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.985, ptr noundef nonnull @__func__.dissect_dtls_handshake, i32 noundef %149)
+  %151 = call ptr @wmem_file_scope()
+  %152 = load ptr, ptr %27, align 8
+  call void @wmem_free(ptr noundef %151, ptr noundef %152)
   store ptr null, ptr %27, align 8
   store i32 0, ptr %26, align 8
-  br label %152
+  br label %153
 
-152:                                              ; preds = %149, %147, %146
+153:                                              ; preds = %150, %148, %147
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #10
-  %153 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dissect_dtls_hf, i64 544), align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %153, ptr noundef %.0269, i32 noundef 0, i32 noundef 2, i32 noundef 0)
-  %155 = load i32, ptr @dtls_hfs, align 4
-  %156 = call zeroext i1 @ssl_add_vector(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %1, ptr noundef %37, i32 noundef 2, i32 noundef %59, ptr noundef nonnull %11, i32 noundef %155, i32 noundef 0, i32 noundef 32)
-  br i1 %156, label %157, label %dissect_dtls_hnd_hello_verify_request.exit
+  %154 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dissect_dtls_hf, i64 544), align 4
+  %155 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %154, ptr noundef %.0271, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  %156 = load i32, ptr @dtls_hfs, align 4
+  %157 = call zeroext i1 @ssl_add_vector(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 2, i32 noundef %60, ptr noundef nonnull %11, i32 noundef %156, i32 noundef 0, i32 noundef 32)
+  br i1 %157, label %158, label %dissect_dtls_hnd_hello_verify_request.exit
 
-157:                                              ; preds = %152
-  %158 = load i32, ptr %11, align 4
-  %.not.i = icmp eq i32 %158, 0
-  br i1 %.not.i, label %dissect_dtls_hnd_hello_verify_request.exit, label %159
+158:                                              ; preds = %153
+  %159 = load i32, ptr %11, align 4
+  %.not.i = icmp eq i32 %159, 0
+  br i1 %.not.i, label %dissect_dtls_hnd_hello_verify_request.exit, label %160
 
-159:                                              ; preds = %157
-  %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dtls_hfs, i64 4), align 4
-  %161 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %160, ptr noundef %.0269, i32 noundef 3, i32 noundef %158, i32 noundef 0)
+160:                                              ; preds = %158
+  %161 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dtls_hfs, i64 4), align 4
+  %162 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %161, ptr noundef %.0271, i32 noundef 3, i32 noundef %159, i32 noundef 0)
   br label %dissect_dtls_hnd_hello_verify_request.exit
 
-dissect_dtls_hnd_hello_verify_request.exit:       ; preds = %152, %157, %159
+dissect_dtls_hnd_hello_verify_request.exit:       ; preds = %153, %158, %160
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
-  br label %198
+  br label %199
 
-162:                                              ; preds = %129
-  %163 = call ptr @tls_get_master_key_map(i1 noundef zeroext false)
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %165 = load ptr, ptr %164, align 8
-  call void @ssl_dissect_hnd_new_ses_ticket(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %59, ptr noundef %6, ptr noundef %8, i1 noundef zeroext true, ptr noundef %165)
-  br label %198
+163:                                              ; preds = %130
+  %164 = call ptr @tls_get_master_key_map(i1 noundef zeroext false)
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %166 = load ptr, ptr %165, align 8
+  call void @ssl_dissect_hnd_new_ses_ticket(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %6, ptr noundef %8, i1 noundef zeroext true, ptr noundef %166)
+  br label %199
 
-166:                                              ; preds = %129
-  call void @ssl_dissect_hnd_hello_retry_request(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %59, ptr noundef %6, ptr noundef %8, i1 noundef zeroext true)
-  br label %198
+167:                                              ; preds = %130
+  call void @ssl_dissect_hnd_hello_retry_request(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %6, ptr noundef %8, i1 noundef zeroext true)
+  br label %199
 
-167:                                              ; preds = %129
-  call void @ssl_dissect_hnd_cert(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %37, i32 noundef 0, i32 noundef %59, ptr noundef %1, ptr noundef %6, ptr noundef %8, i1 noundef zeroext %21, i1 noundef zeroext true)
-  br label %198
+168:                                              ; preds = %130
+  call void @ssl_dissect_hnd_cert(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %1, ptr noundef %6, ptr noundef %8, i1 noundef zeroext %21, i1 noundef zeroext true)
+  br label %199
 
-168:                                              ; preds = %129
-  call void @ssl_dissect_hnd_srv_keyex(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %59, ptr noundef %6)
-  br label %198
+169:                                              ; preds = %130
+  call void @ssl_dissect_hnd_srv_keyex(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %6)
+  br label %199
 
-169:                                              ; preds = %129
-  call void @ssl_dissect_hnd_cert_req(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %59, ptr noundef %6, i1 noundef zeroext true)
-  br label %198
+170:                                              ; preds = %130
+  call void @ssl_dissect_hnd_cert_req(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %6, i1 noundef zeroext true)
+  br label %199
 
-170:                                              ; preds = %129
+171:                                              ; preds = %130
   store i8 0, ptr %25, align 4
-  br label %198
+  br label %199
 
-171:                                              ; preds = %124, %129
-  %172 = load i16, ptr %18, align 8
-  call void @ssl_dissect_hnd_cli_cert_verify(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %59, i16 noundef zeroext %172)
-  br label %198
+172:                                              ; preds = %125, %130
+  %173 = load i16, ptr %18, align 8
+  call void @ssl_dissect_hnd_cli_cert_verify(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %60, i16 noundef zeroext %173)
+  br label %199
 
-173:                                              ; preds = %129
-  call void @ssl_dissect_hnd_cli_keyex(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %37, i32 noundef 0, i32 noundef %59, ptr noundef %6)
-  br i1 %.not294, label %198, label %174
+174:                                              ; preds = %130
+  call void @ssl_dissect_hnd_cli_keyex(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %6)
+  br i1 %.not295, label %199, label %175
 
-174:                                              ; preds = %173
-  %175 = load ptr, ptr @dtls_options, align 8
-  %176 = load ptr, ptr @dtls_key_hash, align 8
-  %177 = call ptr @tls_get_master_key_map(i1 noundef zeroext true)
-  %178 = call zeroext i1 @ssl_generate_pre_master_secret(ptr noundef nonnull %8, i32 noundef %59, ptr noundef %.0269, i32 noundef 0, ptr noundef %175, ptr noundef %1, ptr noundef %176, ptr noundef %177)
-  br i1 %178, label %198, label %179
+175:                                              ; preds = %174
+  %176 = load ptr, ptr @dtls_options, align 8
+  %177 = load ptr, ptr @dtls_key_hash, align 8
+  %178 = call ptr @tls_get_master_key_map(i1 noundef zeroext true)
+  %179 = call zeroext i1 @ssl_generate_pre_master_secret(ptr noundef nonnull %8, i32 noundef %60, ptr noundef %.0271, i32 noundef 0, ptr noundef %176, ptr noundef %1, ptr noundef %177, ptr noundef %178)
+  br i1 %179, label %199, label %180
 
-179:                                              ; preds = %174
+180:                                              ; preds = %175
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.986)
-  br label %198
+  br label %199
 
-180:                                              ; preds = %129
-  call void @ssl_dissect_hnd_finished(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %37, i32 noundef 0, i32 noundef %59, ptr noundef %6, ptr noundef null)
-  br label %198
+181:                                              ; preds = %130
+  call void @ssl_dissect_hnd_finished(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %6, ptr noundef null)
+  br label %199
 
-181:                                              ; preds = %129
-  %182 = call i32 @tls_dissect_hnd_certificate_status(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %59)
-  br label %198
+182:                                              ; preds = %130
+  %183 = call i32 @tls_dissect_hnd_certificate_status(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %60)
+  br label %199
 
-183:                                              ; preds = %129, %129, %129
-  call void @tls13_dissect_hnd_key_update(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %37, i32 noundef 0)
-  br i1 %.not294, label %198, label %184
+184:                                              ; preds = %130, %130, %130
+  call void @tls13_dissect_hnd_key_update(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %37, i32 noundef 0)
+  br i1 %.not295, label %199, label %185
 
-184:                                              ; preds = %183
-  %185 = load i16, ptr %20, align 8
-  %186 = icmp eq i16 %185, -260
-  br i1 %186, label %187, label %198
+185:                                              ; preds = %184
+  %186 = load i16, ptr %20, align 8
+  %187 = icmp eq i16 %186, -260
+  br i1 %187, label %188, label %199
 
-187:                                              ; preds = %184
-  %.0.i301 = load ptr, ptr %.0.in.i, align 8
-  %188 = icmp eq ptr %.0.i301, null
-  br i1 %188, label %198, label %189
+188:                                              ; preds = %185
+  %.0.i302 = load ptr, ptr %.0.in.i, align 8
+  %189 = icmp eq ptr %.0.i302, null
+  br i1 %189, label %199, label %190
 
-189:                                              ; preds = %187
-  %190 = getelementptr inbounds nuw i8, ptr %.0.i301, i64 120
-  %191 = load i64, ptr %190, align 8
-  %192 = load i64, ptr %24, align 8
-  %193 = icmp eq i64 %191, %192
-  br i1 %193, label %194, label %198
+190:                                              ; preds = %188
+  %191 = getelementptr inbounds nuw i8, ptr %.0.i302, i64 120
+  %192 = load i64, ptr %191, align 8
+  %193 = load i64, ptr %24, align 8
+  %194 = icmp eq i64 %192, %193
+  br i1 %194, label %195, label %199
 
-194:                                              ; preds = %189
-  %195 = add i64 %191, 1
-  store i64 %195, ptr %24, align 8
-  br label %198
+195:                                              ; preds = %190
+  %196 = add i64 %192, 1
+  store i64 %196, ptr %24, align 8
+  br label %199
 
-196:                                              ; preds = %129
-  call void @ssl_dissect_hnd_encrypted_extensions(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %59, ptr noundef %6, ptr noundef %8, i1 noundef zeroext true)
-  br label %198
+197:                                              ; preds = %130
+  call void @ssl_dissect_hnd_encrypted_extensions(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %6, ptr noundef %8, i1 noundef zeroext true)
+  br label %199
 
-.critedge:                                        ; preds = %130
-  %197 = call i32 @ssl_dissect_hnd_cli_hello(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0269, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %59, ptr noundef %6, ptr noundef null, ptr noundef nonnull @dtls_hfs, ptr noundef null)
-  br label %198
+.critedge:                                        ; preds = %131
+  %198 = call i32 @ssl_dissect_hnd_cli_hello(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %6, ptr noundef null, ptr noundef nonnull @dtls_hfs, ptr noundef null)
+  br label %199
 
-dtls13_maybe_increase_max_epoch.exit:             ; preds = %51, %77
+dtls13_maybe_increase_max_epoch.exit:             ; preds = %51, %78
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #10
   br label %.loopexit
 
-198:                                              ; preds = %87, %116, %.critedge, %183, %184, %174, %179, %173, %138, %131, %196, %181, %180, %171, %170, %169, %168, %167, %166, %162, %dissect_dtls_hnd_hello_verify_request.exit, %141, %129, %187, %189, %194
+199:                                              ; preds = %88, %117, %.critedge, %184, %185, %175, %180, %174, %139, %132, %197, %182, %181, %172, %171, %170, %169, %168, %167, %163, %dissect_dtls_hnd_hello_verify_request.exit, %142, %130, %188, %190, %195
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #10
-  %199 = add i32 %40, %73
-  %200 = icmp ult i32 %199, %14
-  br i1 %200, label %33, label %.loopexit, !llvm.loop !18
+  %200 = add i32 %40, %74
+  %201 = icmp ult i32 %200, %14
+  br i1 %201, label %33, label %.loopexit, !llvm.loop !18
 
-.loopexit:                                        ; preds = %198, %10, %dtls13_maybe_increase_max_epoch.exit
+.loopexit:                                        ; preds = %199, %10, %dtls13_maybe_increase_max_epoch.exit
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #10
   ret void
 }
@@ -4363,11 +4363,11 @@ define internal fastcc void @dissect_dtls_heartbeat(ptr noundef %0, ptr noundef 
   %21 = sub i16 %20, %17
   %.not = icmp eq ptr %15, null
   %22 = add i32 %5, -19
-  %.not64 = icmp ult i32 %22, %18
-  %or.cond = select i1 %.not, i1 true, i1 %.not64
+  %.not65 = icmp ult i32 %22, %18
+  %or.cond67 = select i1 %.not, i1 true, i1 %.not65
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
-  br i1 %or.cond, label %26, label %25
+  br i1 %or.cond67, label %26, label %25
 
 25:                                               ; preds = %7
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %24, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.992, ptr noundef nonnull %15)
@@ -4378,58 +4378,58 @@ define internal fastcc void @dissect_dtls_heartbeat(ptr noundef %0, ptr noundef 
   br label %27
 
 27:                                               ; preds = %26, %25
-  %.not65 = icmp eq ptr %2, null
-  br i1 %.not65, label %53, label %28
+  %.not66 = icmp eq ptr %2, null
+  br i1 %.not66, label %54, label %28
 
 28:                                               ; preds = %27
   %.not.not = xor i1 %.not, true
-  %.not66.not = xor i1 %.not64, true
-  %brmerge = or i1 %6, %.not66.not
-  %or.cond67 = select i1 %.not.not, i1 %brmerge, i1 false
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %30 = load i16, ptr %29, align 8
-  %31 = zext i16 %30 to i32
-  %32 = tail call ptr @val_to_str_const(i32 noundef %31, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
-  br i1 %or.cond67, label %33, label %52
+  %29 = icmp uge i32 %22, %18
+  %or.cond = or i1 %6, %29
+  %or.cond68 = select i1 %.not.not, i1 %or.cond, i1 false
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %31 = load i16, ptr %30, align 8
+  %32 = zext i16 %31 to i32
+  %33 = tail call ptr @val_to_str_const(i32 noundef %32, ptr noundef nonnull @ssl_version_short_names, ptr noundef nonnull @.str.858)
+  br i1 %or.cond68, label %34, label %53
 
-33:                                               ; preds = %28
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.994, ptr noundef %32, ptr noundef nonnull %15)
-  %34 = load i32, ptr @hf_dtls_heartbeat_message_type, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %34, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
-  %36 = load i32, ptr @hf_dtls_heartbeat_message_payload_length, align 4
-  %37 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %36, ptr noundef %0, i32 noundef %16, i32 noundef 2, i32 noundef %18)
-  %38 = add i32 %3, 3
-  br i1 %.not64, label %39, label %42
+34:                                               ; preds = %28
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.994, ptr noundef %33, ptr noundef nonnull %15)
+  %35 = load i32, ptr @hf_dtls_heartbeat_message_type, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %35, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
+  %37 = load i32, ptr @hf_dtls_heartbeat_message_payload_length, align 4
+  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %37, ptr noundef %0, i32 noundef %16, i32 noundef 2, i32 noundef %18)
+  %39 = add i32 %3, 3
+  br i1 %.not65, label %40, label %43
 
-39:                                               ; preds = %33
-  %40 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_dtls_heartbeat_payload_length, ptr noundef nonnull @.str.995, i32 noundef %18)
-  %41 = trunc nuw i32 %22 to i16
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.996, i32 noundef %22)
-  br label %42
+40:                                               ; preds = %34
+  %41 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %38, ptr noundef nonnull @ei_dtls_heartbeat_payload_length, ptr noundef nonnull @.str.995, i32 noundef %18)
+  %42 = trunc nuw i32 %22 to i16
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.996, i32 noundef %22)
+  br label %43
 
-42:                                               ; preds = %39, %33
-  %.pre-phi = phi i32 [ %22, %39 ], [ %18, %33 ]
-  %.059 = phi i16 [ %41, %39 ], [ %17, %33 ]
-  %.0 = phi i16 [ 16, %39 ], [ %21, %33 ]
+43:                                               ; preds = %40, %34
+  %.pre-phi = phi i32 [ %22, %40 ], [ %18, %34 ]
+  %.060 = phi i16 [ %42, %40 ], [ %17, %34 ]
+  %.0 = phi i16 [ 16, %40 ], [ %21, %34 ]
   %.0.fr = freeze i16 %.0
-  %43 = load i32, ptr @hf_dtls_heartbeat_message_payload, align 4
-  %44 = icmp eq i16 %.059, 1
-  %45 = select i1 %44, ptr @.str.922, ptr @.str.998
-  %46 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %43, ptr noundef %0, i32 noundef %38, i32 noundef %.pre-phi, ptr noundef null, ptr noundef nonnull @.str.997, i32 noundef %.pre-phi, ptr noundef nonnull %45)
-  %47 = add i32 %38, %.pre-phi
-  %48 = load i32, ptr @hf_dtls_heartbeat_message_padding, align 4
-  %49 = zext i16 %.0.fr to i32
-  %50 = icmp eq i16 %.0.fr, 1
-  %spec.select = select i1 %50, ptr @.str.922, ptr @.str.998
-  %51 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.999, i32 noundef %49, ptr noundef nonnull %spec.select)
-  br label %53
+  %44 = load i32, ptr @hf_dtls_heartbeat_message_payload, align 4
+  %45 = icmp eq i16 %.060, 1
+  %46 = select i1 %45, ptr @.str.922, ptr @.str.998
+  %47 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %44, ptr noundef %0, i32 noundef %39, i32 noundef %.pre-phi, ptr noundef null, ptr noundef nonnull @.str.997, i32 noundef %.pre-phi, ptr noundef nonnull %46)
+  %48 = add i32 %39, %.pre-phi
+  %49 = load i32, ptr @hf_dtls_heartbeat_message_padding, align 4
+  %50 = zext i16 %.0.fr to i32
+  %51 = icmp eq i16 %.0.fr, 1
+  %spec.select = select i1 %51, ptr @.str.922, ptr @.str.998
+  %52 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %12, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.999, i32 noundef %50, ptr noundef nonnull %spec.select)
+  br label %54
 
-52:                                               ; preds = %28
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.1000, ptr noundef %32)
+53:                                               ; preds = %28
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.1000, ptr noundef %33)
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %12, ptr noundef nonnull @.str.1001)
-  br label %53
+  br label %54
 
-53:                                               ; preds = %42, %52, %27
+54:                                               ; preds = %43, %53, %27
   ret void
 }
 

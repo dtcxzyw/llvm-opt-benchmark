@@ -7050,22 +7050,22 @@ _ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit:
   tail call void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %11)
   %12 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef nonnull %1)
   store ptr %12, ptr %3, align 8, !tbaa !93
-  %.not.i.i70 = icmp eq ptr %12, null
-  br i1 %.not.i.i70, label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit71.thread, label %13
+  %.not.i.i72 = icmp eq ptr %12, null
+  br i1 %.not.i.i72, label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit73.thread, label %13
 
 13:                                               ; preds = %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit
   %14 = load i32, ptr %12, align 8, !tbaa !86
   %15 = icmp eq i32 %14, 2
-  br i1 %15, label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit71, label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit71.thread
+  br i1 %15, label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit73, label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit73.thread
 
-_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit71: ; preds = %13
+_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit73: ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = load i64, ptr %17, align 8, !tbaa !59
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit, label %20
 
-20:                                               ; preds = %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit71
+20:                                               ; preds = %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit73
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %22 = load ptr, ptr %21, align 8, !tbaa !115
   %23 = icmp eq ptr %12, %22
@@ -7106,19 +7106,19 @@ _ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit71: ; preds = %13
   %44 = load i64, ptr %43, align 8, !tbaa !31
   br label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit
 
-_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit: ; preds = %37, %39, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit71, %20, %42
-  %.0.i = phi i64 [ %44, %42 ], [ 0, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit71 ], [ 0, %20 ], [ 0, %39 ], [ 0, %37 ]
+_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit: ; preds = %37, %39, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit73, %20, %42
+  %.0.i = phi i64 [ %44, %42 ], [ 0, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit73 ], [ 0, %20 ], [ 0, %39 ], [ 0, %37 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %47 = load i64, ptr %46, align 8, !tbaa !59
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit77, label %49
+  br i1 %48, label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit79, label %49
 
 49:                                               ; preds = %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %51 = load ptr, ptr %50, align 8, !tbaa !115
   %52 = icmp eq ptr %12, %51
-  br i1 %52, label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit77, label %53
+  br i1 %52, label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit79, label %53
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -7132,42 +7132,41 @@ _ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPoi
   br label %62
 
 62:                                               ; preds = %68, %53
-  %.pn.i.i.i72 = phi i64 [ %60, %53 ], [ %70, %68 ]
-  %.02028.i.i.i73 = phi i64 [ 0, %53 ], [ %69, %68 ]
-  %.02129.i.i.i74 = and i64 %.pn.i.i.i72, %56
-  %63 = getelementptr inbounds nuw %"struct.std::pair", ptr %61, i64 %.02129.i.i.i74
+  %.pn.i.i.i74 = phi i64 [ %60, %53 ], [ %70, %68 ]
+  %.02028.i.i.i75 = phi i64 [ 0, %53 ], [ %69, %68 ]
+  %.02129.i.i.i76 = and i64 %.pn.i.i.i74, %56
+  %63 = getelementptr inbounds nuw %"struct.std::pair", ptr %61, i64 %.02129.i.i.i76
   %64 = load ptr, ptr %63, align 8, !tbaa !115
   %65 = icmp eq ptr %64, %12
   br i1 %65, label %71, label %66
 
 66:                                               ; preds = %62
   %67 = icmp eq ptr %64, %51
-  br i1 %67, label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit77, label %68
+  br i1 %67, label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit79, label %68
 
 68:                                               ; preds = %66
-  %69 = add i64 %.02028.i.i.i73, 1
-  %70 = add i64 %69, %.02129.i.i.i74
-  %.not.i.i.i75 = icmp ugt i64 %69, %56
-  br i1 %.not.i.i.i75, label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit77, label %62, !llvm.loop !200
+  %69 = add i64 %.02028.i.i.i75, 1
+  %70 = add i64 %69, %.02129.i.i.i76
+  %.not.i.i.i77 = icmp ugt i64 %69, %56
+  br i1 %.not.i.i.i77, label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit79, label %62, !llvm.loop !200
 
 71:                                               ; preds = %62
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !31
-  br label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit77
+  br label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit79
 
-_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit77: ; preds = %66, %68, %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit, %49, %71
-  %.0.i76 = phi i64 [ %73, %71 ], [ 0, %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit ], [ 0, %49 ], [ 0, %68 ], [ 0, %66 ]
-  %.not44 = icmp eq i64 %.0.i, 0
-  %74 = or i64 %.0.i76, %.0.i
+_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit79: ; preds = %66, %68, %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit, %49, %71
+  %.0.i78 = phi i64 [ %73, %71 ], [ 0, %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit ], [ 0, %49 ], [ 0, %68 ], [ 0, %66 ]
+  %74 = or i64 %.0.i78, %.0.i
   %or.cond.not = icmp eq i64 %74, 0
-  br i1 %or.cond.not, label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit71.thread, label %75
+  br i1 %or.cond.not, label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit73.thread, label %75
 
-75:                                               ; preds = %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit77
+75:                                               ; preds = %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit79
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %77 = load ptr, ptr %76, align 8, !tbaa !123
   %78 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %77)
-  %.not.i.i78 = icmp eq ptr %78, null
-  br i1 %.not.i.i78, label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit, label %79
+  %.not.i.i80 = icmp eq ptr %78, null
+  br i1 %.not.i.i80, label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit, label %79
 
 79:                                               ; preds = %75
   %80 = load i32, ptr %78, align 8, !tbaa !86
@@ -7175,12 +7174,12 @@ _ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPoi
   br label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit
 
 _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %75, %79
-  %.not45 = phi i1 [ %81, %79 ], [ true, %75 ]
+  %.not48 = phi i1 [ %81, %79 ], [ true, %75 ]
   %82 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %83 = load ptr, ptr %82, align 8, !tbaa !126
   %84 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %83)
-  %.not.i.i79 = icmp eq ptr %84, null
-  br i1 %.not.i.i79, label %.lr.ph.preheader.i.i.i, label %85
+  %.not.i.i81 = icmp eq ptr %84, null
+  br i1 %.not.i.i81, label %.lr.ph.preheader.i.i.i, label %85
 
 85:                                               ; preds = %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit
   %86 = load i32, ptr %84, align 8, !tbaa !86
@@ -7188,7 +7187,7 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %75, %79
   br label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %85, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit
-  %.not46 = phi i1 [ %87, %85 ], [ true, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit ]
+  %.not49 = phi i1 [ %87, %85 ], [ true, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit ]
   %88 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %88, i8 0, i64 128, i1 false), !tbaa !93
   %89 = ptrtoint ptr %12 to i64
@@ -7226,37 +7225,37 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %75, %79
   br i1 %104, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit: ; preds = %.lr.ph.i, %._crit_edge.i
-  %brmerge = or i1 %.not45, %.not46
-  br i1 %brmerge, label %153, label %105
+  %or.cond3 = or i1 %.not48, %.not49
+  br i1 %or.cond3, label %153, label %105
 
 105:                                              ; preds = %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %107 = load i8, ptr %106, align 8, !tbaa !225, !range !20, !noundef !21
   %108 = trunc nuw i8 %107 to i1
-  %109 = add i64 %.0.i76, %.0.i
+  %109 = add i64 %.0.i78, %.0.i
   %110 = icmp ne i64 %109, 1
-  %or.cond.not142 = and i1 %110, %108
-  br i1 %or.cond.not142, label %118, label %111
+  %or.cond.not144 = and i1 %110, %108
+  br i1 %or.cond.not144, label %118, label %111
 
 111:                                              ; preds = %105
   %112 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef nonnull %12)
-          to label %113 unwind label %.thread138
+          to label %113 unwind label %.thread140
 
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %115 = load ptr, ptr %114, align 8, !tbaa !226
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 120
   %117 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_9Unifiable5BoundIPKNS_4TypeEEEJRKS5_EEEPT_PS3_DpOT0_(ptr noundef %112, ptr noundef nonnull align 8 dereferenceable(8) %116)
-          to label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit99 unwind label %.thread138
+          to label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit101 unwind label %.thread140
 
 118:                                              ; preds = %105
   %119 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef nonnull %12)
-          to label %120 unwind label %.thread138
+          to label %120 unwind label %.thread140
 
 120:                                              ; preds = %118
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %122 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_11GenericTypeEJRNS_7NotNullINS_5ScopeEEEEEEPT_PNS_4TypeEDpOT0_(ptr noundef %119, ptr noundef nonnull align 8 dereferenceable(8) %121)
-          to label %123 unwind label %.thread138
+          to label %123 unwind label %.thread140
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -7272,7 +7271,7 @@ _ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insert
   store ptr %130, ptr %126, align 8, !tbaa !93
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %131, ptr %125, align 8, !tbaa !88
-  br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit99
+  br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit101
 
 132:                                              ; preds = %123
   %133 = load ptr, ptr %124, align 8, !tbaa !95
@@ -7284,9 +7283,9 @@ _ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insert
 
 138:                                              ; preds = %132
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.59) #22
-          to label %.noexc84 unwind label %.thread138
+          to label %.noexc86 unwind label %.thread140
 
-.noexc84:                                         ; preds = %138
+.noexc86:                                         ; preds = %138
   unreachable
 
 _ZNKSt6vectorIPKN4Luau4TypeESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %132
@@ -7296,24 +7295,24 @@ _ZNKSt6vectorIPKN4Luau4TypeESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %132
   %141 = icmp ult i64 %140, %139
   %142 = tail call i64 @llvm.umin.i64(i64 %140, i64 1152921504606846975)
   %143 = select i1 %141, i64 1152921504606846975, i64 %142
-  %.not.i.i.i83 = icmp ne i64 %143, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i83)
+  %.not.i.i.i85 = icmp ne i64 %143, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i85)
   %144 = shl nuw nsw i64 %143, 3
   %145 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %144) #23
-          to label %.noexc85 unwind label %.thread138
+          to label %.noexc87 unwind label %.thread140
 
-.noexc85:                                         ; preds = %_ZNKSt6vectorIPKN4Luau4TypeESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+.noexc87:                                         ; preds = %_ZNKSt6vectorIPKN4Luau4TypeESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %146 = getelementptr inbounds i8, ptr %145, i64 %136
   %147 = load ptr, ptr %3, align 8, !tbaa !93
   store ptr %147, ptr %146, align 8, !tbaa !93
   %148 = icmp sgt i64 %136, 0
   br i1 %148, label %149, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
-149:                                              ; preds = %.noexc85
+149:                                              ; preds = %.noexc87
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %145, ptr align 8 %133, i64 %136, i1 false)
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
-_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; preds = %149, %.noexc85
+_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; preds = %149, %.noexc87
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %.not.i17.i.i = icmp eq ptr %133, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %151
@@ -7327,317 +7326,318 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__
   store ptr %150, ptr %125, align 8, !tbaa !88
   %152 = getelementptr inbounds nuw ptr, ptr %145, i64 %143
   store ptr %152, ptr %127, align 8, !tbaa !89
-  br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit99
+  br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit101
 
 153:                                              ; preds = %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE6insertERKS3_.exit
-  %brmerge63 = or i1 %.not44, %.not46
-  br i1 %brmerge63, label %214, label %154
+  %154 = icmp eq i64 %.0.i, 0
+  %or.cond5 = or i1 %154, %.not49
+  br i1 %or.cond5, label %215, label %155
 
-154:                                              ; preds = %153
+155:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  %155 = load ptr, ptr %76, align 8, !tbaa !123
-  %156 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %155)
-          to label %157 unwind label %170
+  %156 = load ptr, ptr %76, align 8, !tbaa !123
+  %157 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %156)
+          to label %158 unwind label %171
 
-157:                                              ; preds = %154
-  store ptr %156, ptr %4, align 8, !tbaa !93
-  %158 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %156)
-          to label %.noexc87 unwind label %172
+158:                                              ; preds = %155
+  store ptr %157, ptr %4, align 8, !tbaa !93
+  %159 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %157)
+          to label %.noexc89 unwind label %173
 
-.noexc87:                                         ; preds = %157
-  %.not.i.i86 = icmp eq ptr %158, null
-  br i1 %.not.i.i86, label %.noexc87._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread_crit_edge, label %159
+.noexc89:                                         ; preds = %158
+  %.not.i.i88 = icmp eq ptr %159, null
+  br i1 %.not.i.i88, label %.noexc89._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread_crit_edge, label %160
 
-.noexc87._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread_crit_edge: ; preds = %.noexc87
+.noexc89._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread_crit_edge: ; preds = %.noexc89
   %.pre = load ptr, ptr %3, align 8, !tbaa !93
   br label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread
 
-159:                                              ; preds = %.noexc87
-  %160 = load i32, ptr %158, align 8, !tbaa !86
-  %161 = icmp eq i32 %160, 2
-  %.pre149 = load ptr, ptr %3, align 8, !tbaa !93
-  br i1 %161, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread
+160:                                              ; preds = %.noexc89
+  %161 = load i32, ptr %159, align 8, !tbaa !86
+  %162 = icmp eq i32 %161, 2
+  %.pre151 = load ptr, ptr %3, align 8, !tbaa !93
+  br i1 %162, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread
 
-_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit: ; preds = %159
-  %162 = getelementptr inbounds nuw i8, ptr %158, i64 48
-  %163 = load ptr, ptr %162, align 8, !tbaa !126
-  %164 = icmp eq ptr %163, %.pre149
-  br i1 %164, label %165, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread
+_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit: ; preds = %160
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 48
+  %164 = load ptr, ptr %163, align 8, !tbaa !126
+  %165 = icmp eq ptr %164, %.pre151
+  br i1 %165, label %166, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread
 
-165:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %167 = load ptr, ptr %166, align 8, !tbaa !226
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 120
-  %169 = load ptr, ptr %168, align 8, !tbaa !227
-  store ptr %169, ptr %162, align 8, !tbaa !126
-  br label %186
+166:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %168 = load ptr, ptr %167, align 8, !tbaa !226
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 120
+  %170 = load ptr, ptr %169, align 8, !tbaa !227
+  store ptr %170, ptr %163, align 8, !tbaa !126
+  br label %187
 
-170:                                              ; preds = %210, %207, %205, %200, %198, %190, %188, %154
-  %171 = landingpad { ptr, i32 }
+171:                                              ; preds = %211, %208, %206, %201, %199, %191, %189, %155
+  %172 = landingpad { ptr, i32 }
           cleanup
-  br label %213
+  br label %214
 
-172:                                              ; preds = %157
-  %173 = landingpad { ptr, i32 }
+173:                                              ; preds = %158
+  %174 = landingpad { ptr, i32 }
           cleanup
-  br label %213
+  br label %214
 
-_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread: ; preds = %.noexc87._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread_crit_edge, %159, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit
-  %174 = phi ptr [ %.pre, %.noexc87._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread_crit_edge ], [ %.pre149, %159 ], [ %.pre149, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit ]
+_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread: ; preds = %.noexc89._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread_crit_edge, %160, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit
+  %175 = phi ptr [ %.pre, %.noexc89._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread_crit_edge ], [ %.pre151, %160 ], [ %.pre151, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %176 = load ptr, ptr %175, align 8, !tbaa !226
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 120
-  %178 = load ptr, ptr %177, align 8, !tbaa !227
-  invoke void @_ZN4Luau19MutatingGeneralizer7replaceERNS_12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS4_EEES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(226) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %156, ptr noundef %174, ptr noundef %178)
-          to label %179 unwind label %182
+  %177 = load ptr, ptr %176, align 8, !tbaa !226
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 120
+  %179 = load ptr, ptr %178, align 8, !tbaa !227
+  invoke void @_ZN4Luau19MutatingGeneralizer7replaceERNS_12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS4_EEES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(226) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %157, ptr noundef %175, ptr noundef %179)
+          to label %180 unwind label %183
 
-179:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread
-  %180 = load ptr, ptr %5, align 8, !tbaa !102
-  %.not.i.i88 = icmp eq ptr %180, null
-  br i1 %.not.i.i88, label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, label %181
+180:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread
+  %181 = load ptr, ptr %5, align 8, !tbaa !102
+  %.not.i.i90 = icmp eq ptr %181, null
+  br i1 %.not.i.i90, label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, label %182
 
-181:                                              ; preds = %179
-  call void @_ZdlPv(ptr noundef nonnull %180) #21
+182:                                              ; preds = %180
+  call void @_ZdlPv(ptr noundef nonnull %181) #21
   br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
-_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %179, %181
+_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %180, %182
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
-  %.pre150 = load ptr, ptr %3, align 8, !tbaa !93
-  br label %186
+  %.pre152 = load ptr, ptr %3, align 8, !tbaa !93
+  br label %187
 
-182:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread
-  %183 = landingpad { ptr, i32 }
+183:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit.thread
+  %184 = landingpad { ptr, i32 }
           cleanup
-  %184 = load ptr, ptr %5, align 8, !tbaa !102
-  %.not.i.i89 = icmp eq ptr %184, null
-  br i1 %.not.i.i89, label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit90, label %185
+  %185 = load ptr, ptr %5, align 8, !tbaa !102
+  %.not.i.i91 = icmp eq ptr %185, null
+  br i1 %.not.i.i91, label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit92, label %186
 
-185:                                              ; preds = %182
-  call void @_ZdlPv(ptr noundef nonnull %184) #21
-  br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit90
+186:                                              ; preds = %183
+  call void @_ZdlPv(ptr noundef nonnull %185) #21
+  br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit92
 
-_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit90: ; preds = %185, %182
+_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit92: ; preds = %186, %183
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
-  br label %213
+  br label %214
 
-186:                                              ; preds = %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, %165
-  %187 = phi ptr [ %.pre150, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit ], [ %.pre149, %165 ]
-  %.not50 = icmp eq ptr %156, %187
-  br i1 %.not50, label %192, label %188
+187:                                              ; preds = %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, %166
+  %188 = phi ptr [ %.pre152, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit ], [ %.pre151, %166 ]
+  %.not53 = icmp eq ptr %157, %188
+  br i1 %.not53, label %193, label %189
 
-188:                                              ; preds = %186
-  %189 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %187)
-          to label %190 unwind label %170
+189:                                              ; preds = %187
+  %190 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %188)
+          to label %191 unwind label %171
 
-190:                                              ; preds = %188
-  %191 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_9Unifiable5BoundIPKNS_4TypeEEEJRS5_EEEPT_PS3_DpOT0_(ptr noundef %189, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %212 unwind label %170
+191:                                              ; preds = %189
+  %192 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_9Unifiable5BoundIPKNS_4TypeEEEJRS5_EEEPT_PS3_DpOT0_(ptr noundef %190, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %213 unwind label %171
 
-192:                                              ; preds = %186
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %194 = load i8, ptr %193, align 8, !tbaa !225, !range !20, !noundef !21
-  %195 = trunc nuw i8 %194 to i1
-  %196 = add i64 %.0.i76, %.0.i
-  %197 = icmp ne i64 %196, 1
-  %or.cond66.not = and i1 %197, %195
-  br i1 %or.cond66.not, label %205, label %198
+193:                                              ; preds = %187
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %195 = load i8, ptr %194, align 8, !tbaa !225, !range !20, !noundef !21
+  %196 = trunc nuw i8 %195 to i1
+  %197 = add i64 %.0.i78, %.0.i
+  %198 = icmp ne i64 %197, 1
+  %or.cond68.not = and i1 %198, %196
+  br i1 %or.cond68.not, label %206, label %199
 
-198:                                              ; preds = %192
-  %199 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %187)
-          to label %200 unwind label %170
+199:                                              ; preds = %193
+  %200 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %188)
+          to label %201 unwind label %171
 
-200:                                              ; preds = %198
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %202 = load ptr, ptr %201, align 8, !tbaa !226
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 120
-  %204 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_9Unifiable5BoundIPKNS_4TypeEEEJRKS5_EEEPT_PS3_DpOT0_(ptr noundef %199, ptr noundef nonnull align 8 dereferenceable(8) %203)
-          to label %212 unwind label %170
+201:                                              ; preds = %199
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %203 = load ptr, ptr %202, align 8, !tbaa !226
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 120
+  %205 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_9Unifiable5BoundIPKNS_4TypeEEEJRKS5_EEEPT_PS3_DpOT0_(ptr noundef %200, ptr noundef nonnull align 8 dereferenceable(8) %204)
+          to label %213 unwind label %171
 
-205:                                              ; preds = %192
-  %206 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %187)
-          to label %207 unwind label %170
+206:                                              ; preds = %193
+  %207 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %188)
+          to label %208 unwind label %171
 
-207:                                              ; preds = %205
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %209 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_11GenericTypeEJRNS_7NotNullINS_5ScopeEEEEEEPT_PNS_4TypeEDpOT0_(ptr noundef %206, ptr noundef nonnull align 8 dereferenceable(8) %208)
-          to label %210 unwind label %170
+208:                                              ; preds = %206
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %210 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_11GenericTypeEJRNS_7NotNullINS_5ScopeEEEEEEPT_PNS_4TypeEDpOT0_(ptr noundef %207, ptr noundef nonnull align 8 dereferenceable(8) %209)
+          to label %211 unwind label %171
 
-210:                                              ; preds = %207
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  invoke void @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %211, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %212 unwind label %170
+211:                                              ; preds = %208
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  invoke void @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %212, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %213 unwind label %171
 
-212:                                              ; preds = %200, %210, %190
+213:                                              ; preds = %201, %211, %191
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit99
+  br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit101
 
-213:                                              ; preds = %172, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit90, %170
-  %.pn51 = phi { ptr, i32 } [ %171, %170 ], [ %183, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit90 ], [ %173, %172 ]
+214:                                              ; preds = %173, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit92, %171
+  %.pn54 = phi { ptr, i32 } [ %172, %171 ], [ %184, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit92 ], [ %174, %173 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
   br label %.thread
 
-214:                                              ; preds = %153
+215:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
-  %215 = load ptr, ptr %82, align 8, !tbaa !126
-  %216 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %215)
-          to label %217 unwind label %230
+  %216 = load ptr, ptr %82, align 8, !tbaa !126
+  %217 = invoke noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %216)
+          to label %218 unwind label %231
 
-217:                                              ; preds = %214
-  store ptr %216, ptr %6, align 8, !tbaa !93
-  %218 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %216)
-          to label %.noexc92 unwind label %232
+218:                                              ; preds = %215
+  store ptr %217, ptr %6, align 8, !tbaa !93
+  %219 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %217)
+          to label %.noexc94 unwind label %233
 
-.noexc92:                                         ; preds = %217
-  %.not.i.i91 = icmp eq ptr %218, null
-  br i1 %.not.i.i91, label %.noexc92._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93.thread_crit_edge, label %219
+.noexc94:                                         ; preds = %218
+  %.not.i.i93 = icmp eq ptr %219, null
+  br i1 %.not.i.i93, label %.noexc94._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95.thread_crit_edge, label %220
 
-.noexc92._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93.thread_crit_edge: ; preds = %.noexc92
-  %.pre151 = load ptr, ptr %3, align 8, !tbaa !93
-  br label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93.thread
-
-219:                                              ; preds = %.noexc92
-  %220 = load i32, ptr %218, align 8, !tbaa !86
-  %221 = icmp eq i32 %220, 2
-  %.pre152 = load ptr, ptr %3, align 8, !tbaa !93
-  br i1 %221, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93.thread
-
-_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93: ; preds = %219
-  %222 = getelementptr inbounds nuw i8, ptr %218, i64 40
-  %223 = load ptr, ptr %222, align 8, !tbaa !123
-  %224 = icmp eq ptr %223, %.pre152
-  br i1 %224, label %225, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93.thread
-
-225:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %227 = load ptr, ptr %226, align 8, !tbaa !226
-  %228 = getelementptr inbounds nuw i8, ptr %227, i64 128
-  %229 = load ptr, ptr %228, align 8, !tbaa !235
-  store ptr %229, ptr %222, align 8, !tbaa !123
-  br label %246
-
-230:                                              ; preds = %270, %267, %265, %260, %258, %250, %248, %214
-  %231 = landingpad { ptr, i32 }
-          cleanup
-  br label %273
-
-232:                                              ; preds = %217
-  %233 = landingpad { ptr, i32 }
-          cleanup
-  br label %273
-
-_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93.thread: ; preds = %.noexc92._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93.thread_crit_edge, %219, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93
-  %234 = phi ptr [ %.pre151, %.noexc92._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93.thread_crit_edge ], [ %.pre152, %219 ], [ %.pre152, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #21
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %236 = load ptr, ptr %235, align 8, !tbaa !226
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 128
-  %238 = load ptr, ptr %237, align 8, !tbaa !235
-  invoke void @_ZN4Luau19MutatingGeneralizer7replaceERNS_12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS4_EEES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(226) %0, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %216, ptr noundef %234, ptr noundef %238)
-          to label %239 unwind label %242
-
-239:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93.thread
-  %240 = load ptr, ptr %7, align 8, !tbaa !102
-  %.not.i.i94 = icmp eq ptr %240, null
-  br i1 %.not.i.i94, label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit95, label %241
-
-241:                                              ; preds = %239
-  call void @_ZdlPv(ptr noundef nonnull %240) #21
-  br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit95
-
-_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit95: ; preds = %239, %241
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #21
+.noexc94._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95.thread_crit_edge: ; preds = %.noexc94
   %.pre153 = load ptr, ptr %3, align 8, !tbaa !93
-  br label %246
+  br label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95.thread
 
-242:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit93.thread
-  %243 = landingpad { ptr, i32 }
+220:                                              ; preds = %.noexc94
+  %221 = load i32, ptr %219, align 8, !tbaa !86
+  %222 = icmp eq i32 %221, 2
+  %.pre154 = load ptr, ptr %3, align 8, !tbaa !93
+  br i1 %222, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95.thread
+
+_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95: ; preds = %220
+  %223 = getelementptr inbounds nuw i8, ptr %219, i64 40
+  %224 = load ptr, ptr %223, align 8, !tbaa !123
+  %225 = icmp eq ptr %224, %.pre154
+  br i1 %225, label %226, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95.thread
+
+226:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %228 = load ptr, ptr %227, align 8, !tbaa !226
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 128
+  %230 = load ptr, ptr %229, align 8, !tbaa !235
+  store ptr %230, ptr %223, align 8, !tbaa !123
+  br label %247
+
+231:                                              ; preds = %271, %268, %266, %261, %259, %251, %249, %215
+  %232 = landingpad { ptr, i32 }
           cleanup
-  %244 = load ptr, ptr %7, align 8, !tbaa !102
-  %.not.i.i96 = icmp eq ptr %244, null
-  br i1 %.not.i.i96, label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit97, label %245
+  br label %274
 
-245:                                              ; preds = %242
-  call void @_ZdlPv(ptr noundef nonnull %244) #21
+233:                                              ; preds = %218
+  %234 = landingpad { ptr, i32 }
+          cleanup
+  br label %274
+
+_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95.thread: ; preds = %.noexc94._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95.thread_crit_edge, %220, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95
+  %235 = phi ptr [ %.pre153, %.noexc94._ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95.thread_crit_edge ], [ %.pre154, %220 ], [ %.pre154, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95 ]
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #21
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
+  %237 = load ptr, ptr %236, align 8, !tbaa !226
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 128
+  %239 = load ptr, ptr %238, align 8, !tbaa !235
+  invoke void @_ZN4Luau19MutatingGeneralizer7replaceERNS_12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS4_EEES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(226) %0, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %217, ptr noundef %235, ptr noundef %239)
+          to label %240 unwind label %243
+
+240:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95.thread
+  %241 = load ptr, ptr %7, align 8, !tbaa !102
+  %.not.i.i96 = icmp eq ptr %241, null
+  br i1 %.not.i.i96, label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit97, label %242
+
+242:                                              ; preds = %240
+  call void @_ZdlPv(ptr noundef nonnull %241) #21
   br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit97
 
-_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit97: ; preds = %245, %242
+_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit97: ; preds = %240, %242
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #21
-  br label %273
+  %.pre155 = load ptr, ptr %3, align 8, !tbaa !93
+  br label %247
 
-246:                                              ; preds = %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit95, %225
-  %247 = phi ptr [ %.pre153, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit95 ], [ %.pre152, %225 ]
-  %.not57 = icmp eq ptr %216, %247
-  br i1 %.not57, label %252, label %248
+243:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit95.thread
+  %244 = landingpad { ptr, i32 }
+          cleanup
+  %245 = load ptr, ptr %7, align 8, !tbaa !102
+  %.not.i.i98 = icmp eq ptr %245, null
+  br i1 %.not.i.i98, label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit99, label %246
 
-248:                                              ; preds = %246
-  %249 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %247)
-          to label %250 unwind label %230
-
-250:                                              ; preds = %248
-  %251 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_9Unifiable5BoundIPKNS_4TypeEEEJRS5_EEEPT_PS3_DpOT0_(ptr noundef %249, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %272 unwind label %230
-
-252:                                              ; preds = %246
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %254 = load i8, ptr %253, align 8, !tbaa !225, !range !20, !noundef !21
-  %255 = trunc nuw i8 %254 to i1
-  %256 = add i64 %.0.i76, %.0.i
-  %257 = icmp ne i64 %256, 1
-  %or.cond69.not = and i1 %257, %255
-  br i1 %or.cond69.not, label %265, label %258
-
-258:                                              ; preds = %252
-  %259 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %247)
-          to label %260 unwind label %230
-
-260:                                              ; preds = %258
-  %261 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %262 = load ptr, ptr %261, align 8, !tbaa !226
-  %263 = getelementptr inbounds nuw i8, ptr %262, i64 120
-  %264 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_9Unifiable5BoundIPKNS_4TypeEEEJRKS5_EEEPT_PS3_DpOT0_(ptr noundef %259, ptr noundef nonnull align 8 dereferenceable(8) %263)
-          to label %272 unwind label %230
-
-265:                                              ; preds = %252
-  %266 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %247)
-          to label %267 unwind label %230
-
-267:                                              ; preds = %265
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %269 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_11GenericTypeEJRNS_7NotNullINS_5ScopeEEEEEEPT_PNS_4TypeEDpOT0_(ptr noundef %266, ptr noundef nonnull align 8 dereferenceable(8) %268)
-          to label %270 unwind label %230
-
-270:                                              ; preds = %267
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  invoke void @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %271, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %272 unwind label %230
-
-272:                                              ; preds = %260, %270, %250
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
+246:                                              ; preds = %243
+  call void @_ZdlPv(ptr noundef nonnull %245) #21
   br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit99
 
-273:                                              ; preds = %232, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit97, %230
-  %.pn58 = phi { ptr, i32 } [ %231, %230 ], [ %243, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit97 ], [ %233, %232 ]
+_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit99: ; preds = %246, %243
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #21
+  br label %274
+
+247:                                              ; preds = %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit97, %226
+  %248 = phi ptr [ %.pre155, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit97 ], [ %.pre154, %226 ]
+  %.not60 = icmp eq ptr %217, %248
+  br i1 %.not60, label %253, label %249
+
+249:                                              ; preds = %247
+  %250 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %248)
+          to label %251 unwind label %231
+
+251:                                              ; preds = %249
+  %252 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_9Unifiable5BoundIPKNS_4TypeEEEJRS5_EEEPT_PS3_DpOT0_(ptr noundef %250, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %273 unwind label %231
+
+253:                                              ; preds = %247
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %255 = load i8, ptr %254, align 8, !tbaa !225, !range !20, !noundef !21
+  %256 = trunc nuw i8 %255 to i1
+  %257 = add i64 %.0.i78, %.0.i
+  %258 = icmp ne i64 %257, 1
+  %or.cond71.not = and i1 %258, %256
+  br i1 %or.cond71.not, label %266, label %259
+
+259:                                              ; preds = %253
+  %260 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %248)
+          to label %261 unwind label %231
+
+261:                                              ; preds = %259
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %263 = load ptr, ptr %262, align 8, !tbaa !226
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 120
+  %265 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_9Unifiable5BoundIPKNS_4TypeEEEJRKS5_EEEPT_PS3_DpOT0_(ptr noundef %260, ptr noundef nonnull align 8 dereferenceable(8) %264)
+          to label %273 unwind label %231
+
+266:                                              ; preds = %253
+  %267 = invoke noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %248)
+          to label %268 unwind label %231
+
+268:                                              ; preds = %266
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %270 = invoke noundef ptr @_ZN4Luau11emplaceTypeINS_11GenericTypeEJRNS_7NotNullINS_5ScopeEEEEEEPT_PNS_4TypeEDpOT0_(ptr noundef %267, ptr noundef nonnull align 8 dereferenceable(8) %269)
+          to label %271 unwind label %231
+
+271:                                              ; preds = %268
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  invoke void @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %272, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %273 unwind label %231
+
+273:                                              ; preds = %261, %271, %251
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
+  br label %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit101
+
+274:                                              ; preds = %233, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit99, %231
+  %.pn61 = phi { ptr, i32 } [ %232, %231 ], [ %244, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit99 ], [ %234, %233 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
   br label %.thread
 
-_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit99: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %129, %212, %272, %113
+_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit101: ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %129, %213, %273, %113
   call void @_ZdlPv(ptr noundef nonnull %88) #21
-  br label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit71.thread
+  br label %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit73.thread
 
-.thread138:                                       ; preds = %113, %111, %138, %_ZNKSt6vectorIPKN4Luau4TypeESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %120, %118
+.thread140:                                       ; preds = %113, %111, %138, %_ZNKSt6vectorIPKN4Luau4TypeESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %120, %118
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
-.thread:                                          ; preds = %213, %273, %.thread138
-  %.pn58.pn135 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread138 ], [ %.pn51, %213 ], [ %.pn58, %273 ]
+.thread:                                          ; preds = %214, %274, %.thread140
+  %.pn61.pn137 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread140 ], [ %.pn54, %214 ], [ %.pn61, %274 ]
   call void @_ZdlPv(ptr noundef nonnull %88) #21
-  resume { ptr, i32 } %.pn58.pn135
+  resume { ptr, i32 } %.pn61.pn137
 
-_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit71.thread: ; preds = %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit, %13, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit99, %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit77
+_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit73.thread: ; preds = %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit, %13, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit101, %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit79
   ret i1 false
 }
 

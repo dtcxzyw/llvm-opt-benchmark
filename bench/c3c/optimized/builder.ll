@@ -91,11 +91,11 @@ define dso_local void @update_build_target_with_opt_level(ptr noundef captures(n
   unreachable
 
 12:                                               ; preds = %2, %10, %9, %8, %7, %6, %5, %4
-  %.023 = phi i32 [ 2, %10 ], [ 2, %9 ], [ 3, %8 ], [ 3, %7 ], [ 2, %6 ], [ %spec.store.select, %5 ], [ 2, %4 ], [ %spec.store.select, %2 ]
-  %.022 = phi i32 [ 2, %10 ], [ 1, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ %spec.store.select, %2 ]
-  %.021 = phi i32 [ 0, %10 ], [ 2, %9 ], [ 2, %8 ], [ 2, %7 ], [ 2, %6 ], [ 2, %5 ], [ 2, %4 ], [ 2, %2 ]
-  %.020 = phi i32 [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ 0, %5 ], [ 1, %4 ], [ 1, %2 ]
-  %.019.not = phi i1 [ false, %10 ], [ true, %9 ], [ false, %8 ], [ false, %7 ], [ false, %6 ], [ true, %5 ], [ true, %4 ], [ true, %2 ]
+  %.024 = phi i32 [ 2, %10 ], [ 2, %9 ], [ 3, %8 ], [ 3, %7 ], [ 2, %6 ], [ %spec.store.select, %5 ], [ 2, %4 ], [ %spec.store.select, %2 ]
+  %.023 = phi i32 [ 2, %10 ], [ 1, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ %spec.store.select, %2 ]
+  %.022 = phi i32 [ 0, %10 ], [ 2, %9 ], [ 2, %8 ], [ 2, %7 ], [ 2, %6 ], [ 2, %5 ], [ 2, %4 ], [ 2, %2 ]
+  %.021 = phi i32 [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ 0, %5 ], [ 1, %4 ], [ 1, %2 ]
+  %.020 = phi i1 [ true, %10 ], [ false, %9 ], [ true, %8 ], [ true, %7 ], [ true, %6 ], [ false, %5 ], [ false, %4 ], [ false, %2 ]
   %.0 = phi i32 [ 0, %10 ], [ 0, %9 ], [ 2, %8 ], [ 1, %7 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ %spec.store.select, %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load i32, ptr %13, align 8
@@ -103,7 +103,7 @@ define dso_local void @update_build_target_with_opt_level(ptr noundef captures(n
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  store i32 %.022, ptr %13, align 8
+  store i32 %.023, ptr %13, align 8
   br label %17
 
 17:                                               ; preds = %16, %12
@@ -113,7 +113,7 @@ define dso_local void @update_build_target_with_opt_level(ptr noundef captures(n
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %17
-  store i32 %.023, ptr %18, align 8
+  store i32 %.024, ptr %18, align 8
   br label %22
 
 22:                                               ; preds = %21, %17
@@ -123,7 +123,7 @@ define dso_local void @update_build_target_with_opt_level(ptr noundef captures(n
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %22
-  store i32 %.020, ptr %23, align 8
+  store i32 %.021, ptr %23, align 8
   br label %27
 
 27:                                               ; preds = %26, %22
@@ -133,7 +133,7 @@ define dso_local void @update_build_target_with_opt_level(ptr noundef captures(n
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %27
-  store i32 %.021, ptr %28, align 8
+  store i32 %.022, ptr %28, align 8
   br label %32
 
 32:                                               ; preds = %31, %27
@@ -149,15 +149,15 @@ define dso_local void @update_build_target_with_opt_level(ptr noundef captures(n
 37:                                               ; preds = %36, %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %39 = load i32, ptr %38, align 4
-  %40 = icmp ne i32 %39, -1
-  %brmerge = or i1 %.019.not, %40
-  br i1 %brmerge, label %42, label %41
+  %40 = icmp eq i32 %39, -1
+  %or.cond = and i1 %.020, %40
+  br i1 %or.cond, label %41, label %42
 
 41:                                               ; preds = %37
   store i32 1, ptr %38, align 4
   br label %42
 
-42:                                               ; preds = %37, %41
+42:                                               ; preds = %41, %37
   ret void
 }
 
@@ -1522,11 +1522,11 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
   unreachable
 
 647:                                              ; preds = %.thread571, %645, %644, %643, %642, %641, %640, %639, %637
-  %.023.i = phi i32 [ 2, %645 ], [ 2, %644 ], [ 3, %643 ], [ 3, %642 ], [ 2, %641 ], [ %638, %640 ], [ 2, %639 ], [ %638, %637 ], [ 0, %.thread571 ]
-  %.022.i = phi i32 [ 2, %645 ], [ 1, %644 ], [ 0, %643 ], [ 0, %642 ], [ 0, %641 ], [ 0, %640 ], [ 0, %639 ], [ %638, %637 ], [ 0, %.thread571 ]
-  %.021.i = phi i32 [ 0, %645 ], [ 2, %644 ], [ 2, %643 ], [ 2, %642 ], [ 2, %641 ], [ 2, %640 ], [ 2, %639 ], [ 2, %637 ], [ 2, %.thread571 ]
-  %.020.i = phi i32 [ 0, %645 ], [ 0, %644 ], [ 0, %643 ], [ 0, %642 ], [ 0, %641 ], [ 0, %640 ], [ 1, %639 ], [ 1, %637 ], [ 1, %.thread571 ]
-  %.019.not.i = phi i1 [ false, %645 ], [ true, %644 ], [ false, %643 ], [ false, %642 ], [ false, %641 ], [ true, %640 ], [ true, %639 ], [ true, %637 ], [ true, %.thread571 ]
+  %.024.i = phi i32 [ 2, %645 ], [ 2, %644 ], [ 3, %643 ], [ 3, %642 ], [ 2, %641 ], [ %638, %640 ], [ 2, %639 ], [ %638, %637 ], [ 0, %.thread571 ]
+  %.023.i = phi i32 [ 2, %645 ], [ 1, %644 ], [ 0, %643 ], [ 0, %642 ], [ 0, %641 ], [ 0, %640 ], [ 0, %639 ], [ %638, %637 ], [ 0, %.thread571 ]
+  %.022.i = phi i32 [ 0, %645 ], [ 2, %644 ], [ 2, %643 ], [ 2, %642 ], [ 2, %641 ], [ 2, %640 ], [ 2, %639 ], [ 2, %637 ], [ 2, %.thread571 ]
+  %.021.i = phi i32 [ 0, %645 ], [ 0, %644 ], [ 0, %643 ], [ 0, %642 ], [ 0, %641 ], [ 0, %640 ], [ 1, %639 ], [ 1, %637 ], [ 1, %.thread571 ]
+  %.020.i = phi i1 [ true, %645 ], [ false, %644 ], [ true, %643 ], [ true, %642 ], [ true, %641 ], [ false, %640 ], [ false, %639 ], [ false, %637 ], [ false, %.thread571 ]
   %.0.i490 = phi i32 [ 0, %645 ], [ 0, %644 ], [ 2, %643 ], [ 1, %642 ], [ 0, %641 ], [ 0, %640 ], [ 0, %639 ], [ %638, %637 ], [ 0, %.thread571 ]
   %648 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %649 = load i32, ptr %648, align 8
@@ -1534,7 +1534,7 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
   br i1 %650, label %651, label %652
 
 651:                                              ; preds = %647
-  store i32 %.022.i, ptr %648, align 8
+  store i32 %.023.i, ptr %648, align 8
   br label %652
 
 652:                                              ; preds = %651, %647
@@ -1544,7 +1544,7 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
   br i1 %655, label %656, label %657
 
 656:                                              ; preds = %652
-  store i32 %.023.i, ptr %653, align 8
+  store i32 %.024.i, ptr %653, align 8
   br label %657
 
 657:                                              ; preds = %656, %652
@@ -1554,7 +1554,7 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
   br i1 %660, label %661, label %662
 
 661:                                              ; preds = %657
-  store i32 %.020.i, ptr %658, align 8
+  store i32 %.021.i, ptr %658, align 8
   br label %662
 
 662:                                              ; preds = %661, %657
@@ -1564,7 +1564,7 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
   br i1 %665, label %666, label %667
 
 666:                                              ; preds = %662
-  store i32 %.021.i, ptr %663, align 8
+  store i32 %.022.i, ptr %663, align 8
   br label %667
 
 667:                                              ; preds = %666, %662
@@ -1580,9 +1580,9 @@ command_accepts_files.exit:                       ; preds = %446, %446, %446, %4
 672:                                              ; preds = %671, %667
   %673 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %674 = load i32, ptr %673, align 4
-  %675 = icmp ne i32 %674, -1
-  %brmerge.i = or i1 %.019.not.i, %675
-  br i1 %brmerge.i, label %update_build_target_with_opt_level.exit, label %676
+  %675 = icmp eq i32 %674, -1
+  %or.cond.i = and i1 %.020.i, %675
+  br i1 %or.cond.i, label %676, label %update_build_target_with_opt_level.exit
 
 676:                                              ; preds = %672
   store i32 1, ptr %673, align 4

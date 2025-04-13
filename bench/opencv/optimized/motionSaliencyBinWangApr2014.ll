@@ -1009,9 +1009,9 @@ define noundef zeroext i1 @_ZN2cv8saliency28MotionSaliencyBinWangApr201423fullRe
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
   %18 = load i32, ptr %7, align 8, !tbaa !78
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph92, label %._crit_edge93
+  br i1 %19, label %.lr.ph93, label %._crit_edge94
 
-.lr.ph92:                                         ; preds = %17
+.lr.ph93:                                         ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1028,9 +1028,9 @@ define noundef zeroext i1 @_ZN2cv8saliency28MotionSaliencyBinWangApr201423fullRe
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %34 = load i32, ptr %9, align 4, !tbaa !79
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph92.split, label %._crit_edge93
+  br i1 %35, label %.lr.ph93.split, label %._crit_edge94
 
-._crit_edge93:                                    ; preds = %._crit_edge, %.lr.ph92, %17
+._crit_edge94:                                    ; preds = %._crit_edge, %.lr.ph93, %17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #24
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #24
   ret i1 true
@@ -1047,46 +1047,46 @@ define noundef zeroext i1 @_ZN2cv8saliency28MotionSaliencyBinWangApr201423fullRe
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
   br label %155
 
-.lr.ph92.split:                                   ; preds = %.lr.ph92, %._crit_edge
-  %40 = phi i32 [ %58, %._crit_edge ], [ %18, %.lr.ph92 ]
-  %41 = phi i32 [ %59, %._crit_edge ], [ %34, %.lr.ph92 ]
-  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %._crit_edge ], [ 0, %.lr.ph92 ]
+.lr.ph93.split:                                   ; preds = %.lr.ph93, %._crit_edge
+  %40 = phi i32 [ %58, %._crit_edge ], [ %18, %.lr.ph93 ]
+  %41 = phi i32 [ %59, %._crit_edge ], [ %34, %.lr.ph93 ]
+  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %._crit_edge ], [ 0, %.lr.ph93 ]
   %42 = load ptr, ptr %20, align 8, !tbaa !80
   %43 = load ptr, ptr %21, align 8, !tbaa !81
   %44 = load i64, ptr %43, align 8, !tbaa !82
-  %45 = mul i64 %44, %indvars.iv97
+  %45 = mul i64 %44, %indvars.iv98
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %45
   %47 = load ptr, ptr %22, align 8, !tbaa !80
   %48 = load ptr, ptr %23, align 8, !tbaa !81
   %49 = load i64, ptr %48, align 8, !tbaa !82
-  %50 = mul i64 %49, %indvars.iv97
+  %50 = mul i64 %49, %indvars.iv98
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 %50
   %52 = load ptr, ptr %24, align 8, !tbaa !80
   %53 = load ptr, ptr %25, align 8, !tbaa !81
   %54 = load i64, ptr %53, align 8, !tbaa !82
-  %55 = mul i64 %54, %indvars.iv97
+  %55 = mul i64 %54, %indvars.iv98
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 %55
   %57 = icmp sgt i32 %41, 0
-  br i1 %57, label %.lr.ph89, label %._crit_edge
+  br i1 %57, label %.lr.ph90, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
-  %.pre101 = load i32, ptr %7, align 8, !tbaa !78
+  %.pre102 = load i32, ptr %7, align 8, !tbaa !78
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph92.split
-  %58 = phi i32 [ %.pre101, %._crit_edge.loopexit ], [ %40, %.lr.ph92.split ]
-  %59 = phi i32 [ %152, %._crit_edge.loopexit ], [ %41, %.lr.ph92.split ]
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph93.split
+  %58 = phi i32 [ %.pre102, %._crit_edge.loopexit ], [ %40, %.lr.ph93.split ]
+  %59 = phi i32 [ %152, %._crit_edge.loopexit ], [ %41, %.lr.ph93.split ]
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %60 = sext i32 %58 to i64
-  %61 = icmp slt i64 %indvars.iv.next98, %60
-  br i1 %61, label %.lr.ph92.split, label %._crit_edge93, !llvm.loop !83
+  %61 = icmp slt i64 %indvars.iv.next99, %60
+  br i1 %61, label %.lr.ph93.split, label %._crit_edge94, !llvm.loop !83
 
-.lr.ph89:                                         ; preds = %.lr.ph92.split, %.loopexit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.lr.ph92.split ]
+.lr.ph90:                                         ; preds = %.lr.ph93.split, %.loopexit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.lr.ph93.split ]
   %62 = load ptr, ptr %26, align 8, !tbaa !80
   %63 = load ptr, ptr %27, align 8, !tbaa !81
   %64 = load i64, ptr %63, align 8, !tbaa !82
-  %65 = mul i64 %64, %indvars.iv97
+  %65 = mul i64 %64, %indvars.iv98
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %indvars.iv
   %68 = load i8, ptr %67, align 1, !tbaa !59
@@ -1095,15 +1095,15 @@ define noundef zeroext i1 @_ZN2cv8saliency28MotionSaliencyBinWangApr201423fullRe
   %71 = icmp sgt i32 %70, %69
   br i1 %71, label %72, label %.loopexit.sink.split
 
-72:                                               ; preds = %.lr.ph89
+72:                                               ; preds = %.lr.ph90
   %73 = getelementptr inbounds nuw i8, ptr %46, i64 %indvars.iv
   %74 = load i8, ptr %73, align 1, !tbaa !59
   %75 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv
   %76 = load float, ptr %75, align 4, !tbaa !85
   %77 = load ptr, ptr %30, align 8, !tbaa !52
   %78 = load ptr, ptr %29, align 8, !tbaa !51
-  %.not7681.not = icmp eq ptr %77, %78
-  br i1 %.not7681.not, label %.loopexit.sink.split, label %.lr.ph.preheader
+  %.not7882.not = icmp eq ptr %77, %78
+  br i1 %.not7882.not, label %.loopexit.sink.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %72
   %79 = ptrtoint ptr %77 to i64
@@ -1114,45 +1114,45 @@ define noundef zeroext i1 @_ZN2cv8saliency28MotionSaliencyBinWangApr201423fullRe
   br label %.lr.ph
 
 83:                                               ; preds = %.lr.ph
-  %84 = add nuw i64 %.06482, 1
+  %84 = add nuw i64 %.06683, 1
   %exitcond.not = icmp eq i64 %84, %umax
   br i1 %exitcond.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !86
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %83
-  %.06482 = phi i64 [ %84, %83 ], [ 0, %.lr.ph.preheader ]
-  %85 = getelementptr inbounds nuw %"struct.cv::Ptr", ptr %78, i64 %.06482
+  %.06683 = phi i64 [ %84, %83 ], [ 0, %.lr.ph.preheader ]
+  %85 = getelementptr inbounds nuw %"struct.cv::Ptr", ptr %78, i64 %.06683
   %86 = load ptr, ptr %85, align 8, !tbaa !75
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8, !tbaa !80
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 72
   %90 = load ptr, ptr %89, align 8, !tbaa !81
   %91 = load i64, ptr %90, align 8, !tbaa !82
-  %92 = mul i64 %91, %indvars.iv97
+  %92 = mul i64 %91, %indvars.iv98
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 %92
   %94 = getelementptr inbounds nuw %"class.cv::Vec.3", ptr %93, i64 %indvars.iv, i32 0, i32 0, i64 1
   %95 = load float, ptr %94, align 4, !tbaa !85
   %96 = fptosi float %95 to i32
   %.not = icmp eq i32 %96, 0
-  br i1 %.not, label %83, label %.lr.ph87
+  br i1 %.not, label %83, label %.lr.ph88
 
-.lr.ph87:                                         ; preds = %.lr.ph
+.lr.ph88:                                         ; preds = %.lr.ph
   %97 = uitofp i8 %74 to float
   %98 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv
   br label %99
 
-99:                                               ; preds = %.lr.ph87, %142
-  %100 = phi ptr [ %78, %.lr.ph87 ], [ %143, %142 ]
-  %101 = phi ptr [ %77, %.lr.ph87 ], [ %144, %142 ]
-  %.086 = phi i1 [ false, %.lr.ph87 ], [ %.1, %142 ]
-  %.06383 = phi i64 [ 0, %.lr.ph87 ], [ %145, %142 ]
-  %102 = getelementptr inbounds nuw %"struct.cv::Ptr", ptr %100, i64 %.06383
+99:                                               ; preds = %.lr.ph88, %142
+  %100 = phi ptr [ %78, %.lr.ph88 ], [ %143, %142 ]
+  %101 = phi ptr [ %77, %.lr.ph88 ], [ %144, %142 ]
+  %.087 = phi i1 [ false, %.lr.ph88 ], [ %.1, %142 ]
+  %.06584 = phi i64 [ 0, %.lr.ph88 ], [ %145, %142 ]
+  %102 = getelementptr inbounds nuw %"struct.cv::Ptr", ptr %100, i64 %.06584
   %103 = load ptr, ptr %102, align 8, !tbaa !75
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load ptr, ptr %104, align 8, !tbaa !80
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 72
   %107 = load ptr, ptr %106, align 8, !tbaa !81
   %108 = load i64, ptr %107, align 8, !tbaa !82
-  %109 = mul i64 %108, %indvars.iv97
+  %109 = mul i64 %108, %indvars.iv98
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 %109
   %111 = getelementptr inbounds nuw %"class.cv::Vec.3", ptr %110, i64 %indvars.iv
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
@@ -1165,8 +1165,8 @@ define noundef zeroext i1 @_ZN2cv8saliency28MotionSaliencyBinWangApr201423fullRe
   %117 = fsub float %97, %116
   %118 = call noundef float @llvm.fabs.f32(float %117)
   %119 = fcmp uge float %118, %76
-  %brmerge = select i1 %119, i1 true, i1 %.086
-  br i1 %brmerge, label %140, label %120
+  %or.cond = select i1 %119, i1 true, i1 %.087
+  br i1 %or.cond, label %140, label %120
 
 120:                                              ; preds = %115
   store i8 0, ptr %98, align 1, !tbaa !59
@@ -1174,19 +1174,19 @@ define noundef zeroext i1 @_ZN2cv8saliency28MotionSaliencyBinWangApr201423fullRe
   %122 = load i32, ptr %31, align 4, !tbaa !32
   %123 = sitofp i32 %122 to float
   %124 = fcmp olt float %121, %123
-  %125 = icmp eq i64 %.06383, 0
-  %or.cond = and i1 %125, %124
-  br i1 %or.cond, label %132, label %126
+  %125 = icmp eq i64 %.06584, 0
+  %or.cond3 = and i1 %125, %124
+  br i1 %or.cond3, label %132, label %126
 
 126:                                              ; preds = %120
   %127 = load i32, ptr %32, align 8, !tbaa !33
   %128 = sitofp i32 %127 to float
   %129 = fcmp olt float %121, %128
-  %130 = icmp eq i64 %.06383, 1
-  %or.cond3 = and i1 %130, %129
-  %131 = icmp ugt i64 %.06383, 1
-  %or.cond5 = or i1 %131, %or.cond3
-  br i1 %or.cond5, label %132, label %134
+  %130 = icmp eq i64 %.06584, 1
+  %or.cond5 = and i1 %130, %129
+  %131 = icmp ugt i64 %.06584, 1
+  %or.cond7 = or i1 %131, %or.cond5
+  br i1 %or.cond7, label %132, label %134
 
 132:                                              ; preds = %126, %120
   %133 = fadd float %121, 1.000000e+00
@@ -1201,7 +1201,7 @@ define noundef zeroext i1 @_ZN2cv8saliency28MotionSaliencyBinWangApr201423fullRe
   %139 = call float @llvm.fmuladd.f32(float %136, float %137, float %138)
   store float %139, ptr %111, align 4, !tbaa !85
   %.pre = load ptr, ptr %30, align 8, !tbaa !52
-  %.pre100 = load ptr, ptr %29, align 8, !tbaa !51
+  %.pre101 = load ptr, ptr %29, align 8, !tbaa !51
   br label %142
 
 140:                                              ; preds = %115
@@ -1210,10 +1210,10 @@ define noundef zeroext i1 @_ZN2cv8saliency28MotionSaliencyBinWangApr201423fullRe
   br label %142
 
 142:                                              ; preds = %134, %140, %99
-  %143 = phi ptr [ %100, %140 ], [ %.pre100, %134 ], [ %100, %99 ]
+  %143 = phi ptr [ %100, %140 ], [ %.pre101, %134 ], [ %100, %99 ]
   %144 = phi ptr [ %101, %140 ], [ %.pre, %134 ], [ %101, %99 ]
-  %.1 = phi i1 [ %.086, %140 ], [ true, %134 ], [ %.086, %99 ]
-  %145 = add nuw i64 %.06383, 1
+  %.1 = phi i1 [ %.087, %140 ], [ true, %134 ], [ %.087, %99 ]
+  %145 = add nuw i64 %.06584, 1
   %146 = ptrtoint ptr %144 to i64
   %147 = ptrtoint ptr %143 to i64
   %148 = sub i64 %146, %147
@@ -1221,8 +1221,8 @@ define noundef zeroext i1 @_ZN2cv8saliency28MotionSaliencyBinWangApr201423fullRe
   %150 = icmp ult i64 %145, %149
   br i1 %150, label %99, label %.loopexit, !llvm.loop !87
 
-.loopexit.sink.split:                             ; preds = %83, %.lr.ph89, %72
-  %.sink = phi i8 [ 1, %72 ], [ 0, %.lr.ph89 ], [ 1, %83 ]
+.loopexit.sink.split:                             ; preds = %83, %.lr.ph90, %72
+  %.sink = phi i8 [ 1, %72 ], [ 0, %.lr.ph90 ], [ 1, %83 ]
   %151 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv
   store i8 %.sink, ptr %151, align 1, !tbaa !59
   br label %.loopexit
@@ -1232,7 +1232,7 @@ define noundef zeroext i1 @_ZN2cv8saliency28MotionSaliencyBinWangApr201423fullRe
   %152 = load i32, ptr %9, align 4, !tbaa !79
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next, %153
-  br i1 %154, label %.lr.ph89, label %._crit_edge.loopexit, !llvm.loop !88
+  br i1 %154, label %.lr.ph90, label %._crit_edge.loopexit, !llvm.loop !88
 
 155:                                              ; preds = %38, %36
   %.pn.pn = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]

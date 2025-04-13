@@ -1623,8 +1623,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 27:                                               ; preds = %3
   %28 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.23) #21
-  %.not66 = icmp eq ptr %28, null
-  br i1 %.not66, label %42, label %29
+  %.not67 = icmp eq ptr %28, null
+  br i1 %.not67, label %42, label %29
 
 29:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19
@@ -1664,7 +1664,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i77, %32
-  %.pn72 = phi { ptr, i32 } [ %33, %32 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i77 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76 ]
+  %.pn73 = phi { ptr, i32 } [ %33, %32 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i77 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
   br label %151
@@ -1673,14 +1673,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
   %44 = trunc i64 %43 to i32
   %45 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #21
-  %.not67 = icmp eq ptr %45, null
+  %.not68 = icmp eq ptr %45, null
   %46 = load ptr, ptr %8, align 8, !tbaa !16
   %47 = load ptr, ptr %46, align 8, !tbaa !14
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 80
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(8) %46)
-  %brmerge.not = and i1 %2, %.not67
-  br i1 %brmerge.not, label %51, label %76
+  %or.cond = and i1 %2, %.not68
+  br i1 %or.cond, label %51, label %76
 
 51:                                               ; preds = %42
   %52 = load ptr, ptr %8, align 8, !tbaa !16
@@ -1715,27 +1715,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   store i8 32, ptr %50, align 1, !tbaa !41
   br label %.thread
 
-76:                                               ; preds = %51, %42
+76:                                               ; preds = %42, %51
   %77 = load ptr, ptr %8, align 8, !tbaa !16
   %78 = load ptr, ptr %77, align 8, !tbaa !14
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 112
   %80 = load ptr, ptr %79, align 8
   %81 = tail call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(8) %77)
-  br i1 %.not67, label %.thread, label %92
+  br i1 %.not68, label %.thread, label %92
 
 .thread:                                          ; preds = %74, %63, %76
-  %.05380 = phi ptr [ %81, %76 ], [ %50, %63 ], [ %75, %74 ]
+  %.05480 = phi ptr [ %81, %76 ], [ %50, %63 ], [ %75, %74 ]
   %82 = load ptr, ptr %8, align 8, !tbaa !16
   %83 = add nsw i32 %44, 10
   %84 = load ptr, ptr %82, align 8, !tbaa !14
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 72
   %86 = load ptr, ptr %85, align 8
-  %87 = tail call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef %.05380, i32 noundef %83)
+  %87 = tail call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef %.05480, i32 noundef %83)
   %88 = sext i32 %83 to i64
   %89 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %87, i64 noundef %88, ptr noundef nonnull @.str.25, ptr noundef nonnull %1) #19
   %90 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #21
-  %sext68 = shl i64 %90, 32
-  %91 = ashr exact i64 %sext68, 32
+  %sext69 = shl i64 %90, 32
+  %91 = ashr exact i64 %sext69, 32
   br label %93
 
 92:                                               ; preds = %76
@@ -1743,10 +1743,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   br label %93
 
 93:                                               ; preds = %92, %.thread
-  %.060 = phi i64 [ 4, %92 ], [ %91, %.thread ]
-  %.154 = phi ptr [ %81, %92 ], [ %87, %.thread ]
+  %.061 = phi i64 [ 4, %92 ], [ %91, %.thread ]
+  %.155 = phi ptr [ %81, %92 ], [ %87, %.thread ]
   %94 = load ptr, ptr %8, align 8, !tbaa !16
-  %95 = getelementptr inbounds i8, ptr %.154, i64 %.060
+  %95 = getelementptr inbounds i8, ptr %.155, i64 %.061
   %96 = load ptr, ptr %94, align 8, !tbaa !14
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 104
   %98 = load ptr, ptr %97, align 8
@@ -1756,50 +1756,50 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 112
   %102 = load ptr, ptr %101, align 8
   %103 = tail call noundef ptr %102(ptr noundef nonnull align 8 dereferenceable(8) %99)
-  br i1 %.not67, label %150, label %.preheader
+  br i1 %.not68, label %150, label %.preheader
 
 .preheader:                                       ; preds = %93, %129
-  %.25583 = phi ptr [ %138, %129 ], [ %103, %93 ]
-  %.05682 = phi ptr [ %.157, %129 ], [ %45, %93 ]
-  %.05881 = phi ptr [ %.159, %129 ], [ %1, %93 ]
-  %.not70 = icmp eq ptr %.05682, null
-  br i1 %.not70, label %119, label %104
+  %.25683 = phi ptr [ %138, %129 ], [ %103, %93 ]
+  %.05782 = phi ptr [ %.158, %129 ], [ %45, %93 ]
+  %.05981 = phi ptr [ %.160, %129 ], [ %1, %93 ]
+  %.not71 = icmp eq ptr %.05782, null
+  br i1 %.not71, label %119, label %104
 
 104:                                              ; preds = %.preheader
   %105 = load ptr, ptr %8, align 8, !tbaa !16
-  %106 = ptrtoint ptr %.05682 to i64
-  %107 = ptrtoint ptr %.05881 to i64
+  %106 = ptrtoint ptr %.05782 to i64
+  %107 = ptrtoint ptr %.05981 to i64
   %108 = sub i64 %106, %107
   %109 = trunc i64 %108 to i32
   %110 = add nsw i32 %109, 1
   %111 = load ptr, ptr %105, align 8, !tbaa !14
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 72
   %113 = load ptr, ptr %112, align 8
-  %114 = tail call noundef ptr %113(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef %.25583, i32 noundef %110)
+  %114 = tail call noundef ptr %113(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr noundef %.25683, i32 noundef %110)
   %115 = add nsw i64 %108, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr nonnull align 1 %.05881, i64 %115, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr nonnull align 1 %.05981, i64 %115, i1 false)
   %116 = getelementptr inbounds i8, ptr %114, i64 %108
-  %117 = getelementptr inbounds nuw i8, ptr %.05682, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %.05782, i64 1
   %118 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %117, i32 noundef 10) #21
   br label %129
 
 119:                                              ; preds = %.preheader
-  %120 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.05881) #21
+  %120 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.05981) #21
   %121 = trunc i64 %120 to i32
   %122 = load ptr, ptr %8, align 8, !tbaa !16
   %123 = load ptr, ptr %122, align 8, !tbaa !14
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 72
   %125 = load ptr, ptr %124, align 8
-  %126 = tail call noundef ptr %125(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef %.25583, i32 noundef %121)
-  %sext71 = shl i64 %120, 32
-  %127 = ashr exact i64 %sext71, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %126, ptr nonnull align 1 %.05881, i64 %127, i1 false)
+  %126 = tail call noundef ptr %125(ptr noundef nonnull align 8 dereferenceable(8) %122, ptr noundef %.25683, i32 noundef %121)
+  %sext72 = shl i64 %120, 32
+  %127 = ashr exact i64 %sext72, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %126, ptr nonnull align 1 %.05981, i64 %127, i1 false)
   %128 = getelementptr inbounds i8, ptr %126, i64 %127
   br label %129
 
 129:                                              ; preds = %119, %104
-  %.159 = phi ptr [ %117, %104 ], [ null, %119 ]
-  %.157 = phi ptr [ %118, %104 ], [ null, %119 ]
+  %.160 = phi ptr [ %117, %104 ], [ null, %119 ]
+  %.158 = phi ptr [ %118, %104 ], [ null, %119 ]
   %.3 = phi ptr [ %116, %104 ], [ %128, %119 ]
   %130 = load ptr, ptr %8, align 8, !tbaa !16
   %131 = load ptr, ptr %130, align 8, !tbaa !14
@@ -1811,8 +1811,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 112
   %137 = load ptr, ptr %136, align 8
   %138 = tail call noundef ptr %137(ptr noundef nonnull align 8 dereferenceable(8) %134)
-  %.not69 = icmp eq ptr %.159, null
-  br i1 %.not69, label %139, label %.preheader, !llvm.loop !61
+  %.not70 = icmp eq ptr %.160, null
+  br i1 %.not70, label %139, label %.preheader, !llvm.loop !61
 
 139:                                              ; preds = %129
   store i32 4074797, ptr %138, align 1
@@ -1833,8 +1833,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %_ZN
   ret void
 
 151:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn72.pn = phi { ptr, i32 } [ %.pn72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  resume { ptr, i32 } %.pn72.pn
+  %.pn73.pn = phi { ptr, i32 } [ %.pn73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  resume { ptr, i32 } %.pn73.pn
 }
 
 ; Function Attrs: mustprogress uwtable

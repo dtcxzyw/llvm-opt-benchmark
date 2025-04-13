@@ -13984,14 +13984,12 @@ define internal noundef zeroext i1 @"_ZN4entt8internal15process_handlerIjNS_15pr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i8, ptr %4, align 8, !tbaa !184
   %6 = icmp ult i8 %5, 6
-  br i1 %6, label %switch.hole_check, label %"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjE4tickEjPv.exit"
-
-switch.hole_check:                                ; preds = %3
   %switch.shifted = lshr i8 57, %5
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjE4tickEjPv.exit"
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjE4tickEjPv.exit"
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %3
   %7 = shl nuw nsw i8 %5, 3
   %switch.shiftamt = zext nneg i8 %7 to i48
   %switch.downshift = lshr i48 7726746828801, %switch.shiftamt
@@ -13999,8 +13997,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i8 %switch.masked, ptr %4, align 8, !tbaa !184
   br label %"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjE4tickEjPv.exit"
 
-"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjE4tickEjPv.exit": ; preds = %switch.hole_check, %3, %switch.lookup
-  %.val = phi i8 [ %5, %3 ], [ %switch.masked, %switch.lookup ], [ %5, %switch.hole_check ]
+"_ZN4entt7processINS_15process_adaptorIZN30Scheduler_CustomAllocator_Test8TestBodyEvE3$_0jEEjE4tickEjPv.exit": ; preds = %3, %switch.lookup
+  %.val = phi i8 [ %5, %3 ], [ %switch.masked, %switch.lookup ]
   %8 = icmp eq i8 %.val, 7
   br i1 %8, label %9, label %_ZNSt12__shared_ptrIN4entt8internal21basic_process_handlerIjEELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
 

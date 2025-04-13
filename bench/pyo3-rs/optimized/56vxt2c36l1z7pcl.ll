@@ -34,11 +34,11 @@ define void @_ZN17pyo3_build_config22pyo3_build_script_impl26resolve_interpreter
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %1
-  %.sroa.358.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.358.0..sroa_idx, i64 112, i1 false)
+  %.sroa.361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.361.0..sroa_idx, i64 112, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false)
-  %.not80 = icmp eq i64 %15, -9223372036854775808
-  br i1 %.not80, label %21, label %20
+  %.not83 = icmp eq i64 %15, -9223372036854775808
+  br i1 %.not83, label %21, label %20
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -48,12 +48,12 @@ define void @_ZN17pyo3_build_config22pyo3_build_script_impl26resolve_interpreter
 
 20:                                               ; preds = %17
   store i64 %15, ptr %13, align 8
-  %.sroa.2.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2.0..sroa_idx106, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, i64 40, i1 false)
+  %.sroa.2.0..sroa_idx104 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2.0..sroa_idx104, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2, i64 40, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.3, i64 112, i1 false)
   invoke void @_ZN17pyo3_build_config33resolve_cross_compile_config_path17h5d29680b480ba899E(ptr nonnull sret([24 x i8]) align 8 %11)
-          to label %24 unwind label %.thread91
+          to label %24 unwind label %.thread92
 
 21:                                               ; preds = %17
   store ptr @anon.867dcd851b1ad7a006d0264287728ee4.5, ptr %7, align 8
@@ -64,7 +64,7 @@ define void @_ZN17pyo3_build_config22pyo3_build_script_impl26resolve_interpreter
   call void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02580bdb8d5f2eE(ptr sret([160 x i8]) align 8 %0, ptr nonnull align 8 %7)
   br label %71
 
-.thread91:                                        ; preds = %27, %48, %20
+.thread92:                                        ; preds = %27, %48, %20
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -76,7 +76,7 @@ define void @_ZN17pyo3_build_config22pyo3_build_script_impl26resolve_interpreter
 
 27:                                               ; preds = %24
   invoke void @_ZN4core6option13expect_failed17h7f842a57ad883afaE(ptr nonnull align 1 @anon.867dcd851b1ad7a006d0264287728ee4.0, i64 63, ptr nonnull align 8 @anon.867dcd851b1ad7a006d0264287728ee4.2) #5
-          to label %30 unwind label %.thread91
+          to label %30 unwind label %.thread92
 
 28:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
@@ -117,16 +117,16 @@ define void @_ZN17pyo3_build_config22pyo3_build_script_impl26resolve_interpreter
           to label %49 unwind label %32
 
 45:                                               ; preds = %42
-  %.sroa.014.0.copyload = load i64, ptr %6, align 8
-  %.sroa.316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.316.0.copyload = load ptr, ptr %.sroa.316.0..sroa_idx, align 8
-  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.519.0.copyload = load i64, ptr %.sroa.519.0..sroa_idx, align 8
-  store i64 %.sroa.014.0.copyload, ptr %5, align 8
-  %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.sroa.316.0.copyload, ptr %.sroa.227.0..sroa_idx, align 8
-  %.sroa.328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.sroa.519.0.copyload, ptr %.sroa.328.0..sroa_idx, align 8
+  %.sroa.017.0.copyload = load i64, ptr %6, align 8
+  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.319.0.copyload = load ptr, ptr %.sroa.319.0..sroa_idx, align 8
+  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.522.0.copyload = load i64, ptr %.sroa.522.0..sroa_idx, align 8
+  store i64 %.sroa.017.0.copyload, ptr %5, align 8
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %.sroa.319.0.copyload, ptr %.sroa.230.0..sroa_idx, align 8
+  %.sroa.331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %.sroa.522.0.copyload, ptr %.sroa.331.0..sroa_idx, align 8
   invoke void @"_ZN101_$LT$pyo3_build_config..errors..Error$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h2eb1619e5ed8e45eE"(ptr nonnull sret([40 x i8]) align 8 %4, ptr nonnull align 8 %5)
           to label %46 unwind label %32
 
@@ -141,7 +141,7 @@ define void @_ZN17pyo3_build_config22pyo3_build_script_impl26resolve_interpreter
 
 48:                                               ; preds = %.sink.split, %68
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hac05c6ec097db537E"(ptr nonnull align 8 %12)
-          to label %78 unwind label %.thread91
+          to label %78 unwind label %.thread92
 
 49:                                               ; preds = %43
   %50 = icmp eq ptr %44, null
@@ -210,16 +210,16 @@ define void @_ZN17pyo3_build_config22pyo3_build_script_impl26resolve_interpreter
   unreachable
 
 74:                                               ; preds = %59
-  %.sroa.040.0.copyload = load i64, ptr %2, align 8
-  %.sroa.342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.342.0.copyload = load i32, ptr %.sroa.342.0..sroa_idx, align 8
-  %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.sroa.043.0.copyload = load i64, ptr %2, align 8
+  %.sroa.345.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.345.0.copyload = load i32, ptr %.sroa.345.0..sroa_idx, align 8
+  %.sroa.548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.040.0.copyload, ptr %75, align 8
-  %.sroa.276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.342.0.copyload, ptr %.sroa.276.0..sroa_idx, align 8
-  %.sroa.377.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.377.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.545.0..sroa_idx, i64 28, i1 false)
+  store i64 %.sroa.043.0.copyload, ptr %75, align 8
+  %.sroa.279.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sroa.345.0.copyload, ptr %.sroa.279.0..sroa_idx, align 8
+  %.sroa.380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.380.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.548.0..sroa_idx, i64 28, i1 false)
   br label %.sink.split
 
 76:                                               ; preds = %52
@@ -231,13 +231,13 @@ define void @_ZN17pyo3_build_config22pyo3_build_script_impl26resolve_interpreter
   call void @"_ZN4core3ptr64drop_in_place$LT$pyo3_build_config..impl_..InterpreterConfig$GT$17h215dc20fd396c7f1E"(ptr nonnull align 8 %13)
   br label %71
 
-.thread:                                          ; preds = %31, %.thread91
-  %.pn8490 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread91 ], [ %.pn, %31 ]
+.thread:                                          ; preds = %31, %.thread92
+  %.pn8691 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread92 ], [ %.pn, %31 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$pyo3_build_config..impl_..InterpreterConfig$GT$17h215dc20fd396c7f1E"(ptr nonnull align 8 %13) #6
-          to label %.thread95 unwind label %72
+          to label %.thread96 unwind label %72
 
-.thread95:                                        ; preds = %.thread
-  resume { ptr, i32 } %.pn8490
+.thread96:                                        ; preds = %.thread
+  resume { ptr, i32 } %.pn8691
 }
 
 ; Function Attrs: nonlazybind uwtable

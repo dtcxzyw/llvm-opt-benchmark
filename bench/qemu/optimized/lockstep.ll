@@ -412,19 +412,19 @@ define internal void @vcpu_tb_exec(i32 %0, ptr noundef %1) #0 {
   %27 = tail call ptr @g_string_new(ptr noundef nonnull @.str.19) #11
   %28 = load ptr, ptr @divergence_log, align 8
   %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %.critedge34.thread.i, label %29
+  br i1 %.not.i, label %.critedge36.thread.i, label %29
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %28, align 8
-  %.02810.i = load ptr, ptr @log, align 8
-  %.not3011.i = icmp eq ptr %.02810.i, null
-  br i1 %.not3011.i, label %.critedge34.thread.i, label %.lr.ph.i.preheader
+  %.03010.i = load ptr, ptr @log, align 8
+  %.not3211.i = icmp eq ptr %.03010.i, null
+  br i1 %.not3211.i, label %.critedge36.thread.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %29
-  %31 = getelementptr inbounds nuw i8, ptr %.02810.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.03010.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.critedge34.thread.i, label %.lr.ph.preheader
+  br i1 %33, label %.critedge36.thread.i, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.preheader
   %.pre = load ptr, ptr %30, align 8
@@ -432,10 +432,10 @@ define internal void @vcpu_tb_exec(i32 %0, ptr noundef %1) #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph.i
   %34 = phi ptr [ %39, %.lr.ph.i ], [ %32, %.lr.ph.preheader ]
-  %.02812.i26 = phi ptr [ %34, %.lr.ph.i ], [ %.02810.i, %.lr.ph.preheader ]
+  %.03012.i26 = phi ptr [ %34, %.lr.ph.i ], [ %.03010.i, %.lr.ph.preheader ]
   %35 = phi i32 [ %37, %.lr.ph.i ], [ 0, %.lr.ph.preheader ]
-  %36 = icmp eq ptr %.02812.i26, %.pre
-  br i1 %36, label %.critedge34.i, label %.lr.ph.i
+  %36 = icmp eq ptr %.03012.i26, %.pre
+  br i1 %36, label %.critedge36.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %37 = add i32 %35, 1
@@ -443,21 +443,21 @@ define internal void @vcpu_tb_exec(i32 %0, ptr noundef %1) #0 {
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.critedge34.i, label %.lr.ph
+  br i1 %40, label %.critedge36.i, label %.lr.ph
 
-.critedge34.i:                                    ; preds = %.lr.ph.i, %.lr.ph
+.critedge36.i:                                    ; preds = %.lr.ph.i, %.lr.ph
   %.lcssa.ph = phi i32 [ %37, %.lr.ph.i ], [ %35, %.lr.ph ]
   %41 = icmp eq i32 %.lcssa.ph, 1
-  br i1 %41, label %42, label %.critedge34.thread.i
+  br i1 %41, label %42, label %.critedge36.thread.i
 
-42:                                               ; preds = %.critedge34.i
+42:                                               ; preds = %.critedge36.i
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 1
-  br label %.critedge34.thread.i
+  br label %.critedge36.thread.i
 
-.critedge34.thread.i:                             ; preds = %.lr.ph.i.preheader, %42, %.critedge34.i, %29, %22
-  %.0.i = phi i1 [ false, %22 ], [ false, %.critedge34.i ], [ %45, %42 ], [ false, %29 ], [ false, %.lr.ph.i.preheader ]
+.critedge36.thread.i:                             ; preds = %.lr.ph.i.preheader, %42, %.critedge36.i, %29, %22
+  %.0.i = phi i1 [ false, %22 ], [ false, %.critedge36.i ], [ %45, %42 ], [ false, %29 ], [ false, %.lr.ph.i.preheader ]
   %46 = call noundef dereferenceable_or_null(16) ptr @g_memdup2(ptr noundef nonnull %3, i64 noundef 16) #16
   %47 = call ptr @g_slist_prepend(ptr noundef %28, ptr noundef %46) #11
   store ptr %47, ptr @divergence_log, align 8
@@ -466,10 +466,10 @@ define internal void @vcpu_tb_exec(i32 %0, ptr noundef %1) #0 {
   %50 = load i32, ptr %25, align 8
   %51 = icmp eq i32 %50, 1
   %or.cond.i = select i1 %49, i1 true, i1 %51
-  %brmerge.i = or i1 %.0.i, %or.cond.i
-  br i1 %brmerge.i, label %52, label %56
+  %or.cond4.i = or i1 %.0.i, %or.cond.i
+  br i1 %or.cond4.i, label %52, label %56
 
-52:                                               ; preds = %.critedge34.thread.i
+52:                                               ; preds = %.critedge36.thread.i
   %53 = call i32 @g_slist_length(ptr noundef %47) #11
   %54 = load i32, ptr %25, align 8
   call void (ptr, ptr, ...) @g_string_printf(ptr noundef %27, ptr noundef nonnull @.str.20, i64 noundef %6, i64 noundef %7, i64 noundef %21, i64 noundef %.val25, i32 noundef %53, i32 noundef %54) #11
@@ -477,27 +477,27 @@ define internal void @vcpu_tb_exec(i32 %0, ptr noundef %1) #0 {
   call void @qemu_plugin_outs(ptr noundef %55) #11
   br label %56
 
-56:                                               ; preds = %52, %.critedge34.thread.i
+56:                                               ; preds = %52, %.critedge36.thread.i
   br i1 %.0.i, label %57, label %73
 
 57:                                               ; preds = %56
   call void (ptr, ptr, ...) @g_string_printf(ptr noundef %27, ptr noundef nonnull @.str.21) #11
-  %.02615.i = load ptr, ptr @log, align 8
-  %.not3216.i = icmp eq ptr %.02615.i, null
-  br i1 %.not3216.i, label %.thread.i, label %.lr.ph19.i
+  %.02815.i = load ptr, ptr @log, align 8
+  %.not3416.i = icmp eq ptr %.02815.i, null
+  br i1 %.not3416.i, label %.thread.i, label %.lr.ph19.i
 
 .lr.ph19.i:                                       ; preds = %57, %62
-  %.02618.i = phi ptr [ %.026.i, %62 ], [ %.02615.i, %57 ]
-  %.02717.i = phi i32 [ %70, %62 ], [ 0, %57 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.02618.i, i64 8
+  %.02818.i = phi ptr [ %.028.i, %62 ], [ %.02815.i, %57 ]
+  %.02917.i = phi i32 [ %70, %62 ], [ 0, %57 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.02818.i, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = icmp ne ptr %59, null
-  %61 = icmp samesign ult i32 %.02717.i, 5
-  %or.cond4.i = select i1 %60, i1 %61, i1 false
-  br i1 %or.cond4.i, label %62, label %.thread.i
+  %61 = icmp samesign ult i32 %.02917.i, 5
+  %or.cond6.i = select i1 %60, i1 %61, i1 false
+  br i1 %or.cond6.i, label %62, label %.thread.i
 
 62:                                               ; preds = %.lr.ph19.i
-  %63 = load ptr, ptr %.02618.i, align 8
+  %63 = load ptr, ptr %.02818.i, align 8
   %64 = load ptr, ptr %63, align 8
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -505,10 +505,10 @@ define internal void @vcpu_tb_exec(i32 %0, ptr noundef %1) #0 {
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %69 = load i64, ptr %68, align 8
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %27, ptr noundef nonnull @.str.22, i64 noundef %65, i64 noundef %67, i64 noundef %69) #11
-  %70 = add nuw nsw i32 %.02717.i, 1
-  %.026.i = load ptr, ptr %58, align 8
-  %.not32.i = icmp eq ptr %.026.i, null
-  br i1 %.not32.i, label %.thread.i, label %.lr.ph19.i, !llvm.loop !8
+  %70 = add nuw nsw i32 %.02917.i, 1
+  %.028.i = load ptr, ptr %58, align 8
+  %.not34.i = icmp eq ptr %.028.i, null
+  br i1 %.not34.i, label %.thread.i, label %.lr.ph19.i, !llvm.loop !8
 
 .thread.i:                                        ; preds = %62, %.lr.ph19.i, %57
   %71 = load ptr, ptr %27, align 8

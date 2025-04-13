@@ -279,15 +279,15 @@ define dso_local void @tool_help(ptr noundef %0) local_unnamed_addr #7 {
 8:                                                ; preds = %4, %8
   %9 = phi i64 [ 4, %4 ], [ %17, %8 ]
   %10 = phi ptr [ @.str.36, %4 ], [ %16, %8 ]
-  %.01719.i69 = phi i64 [ 0, %4 ], [ %., %8 ]
-  %indvars.iv.i68 = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %8 ]
+  %.01719.i68 = phi i64 [ 0, %4 ], [ %., %8 ]
+  %indvars.iv.i67 = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %8 ]
   %11 = add i64 %9, 2
-  %12 = add i64 %11, %.01719.i69
+  %12 = add i64 %11, %.01719.i68
   %13 = icmp ult i64 %12, %7
   %.str.34..str.35 = select i1 %13, ptr @.str.34, ptr @.str.35
   %. = select i1 %13, i64 %12, i64 %11
   %14 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull %.str.34..str.35, ptr noundef nonnull %10) #16
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i68, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i67, 1
   %15 = getelementptr inbounds nuw [25 x %struct.category_descriptors], ptr @categories, i64 0, i64 %indvars.iv.next.i
   %16 = load ptr, ptr %15, align 8, !tbaa !23
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
@@ -315,18 +315,18 @@ get_categories_list.exit:                         ; preds = %8
 27:                                               ; preds = %24
   %28 = tail call i32 @curl_strequal(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #16
   %.not35 = icmp eq i32 %28, 0
-  br i1 %.not35, label %34, label %.preheader61
+  br i1 %.not35, label %34, label %.preheader60
 
-.preheader61:                                     ; preds = %27, %.preheader61
-  %indvars.iv.i44 = phi i64 [ %indvars.iv.next.i45, %.preheader61 ], [ 0, %27 ]
-  %29 = getelementptr inbounds nuw [25 x %struct.category_descriptors], ptr @categories, i64 0, i64 %indvars.iv.i44
+.preheader60:                                     ; preds = %27, %.preheader60
+  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i44, %.preheader60 ], [ 0, %27 ]
+  %29 = getelementptr inbounds nuw [25 x %struct.category_descriptors], ptr @categories, i64 0, i64 %indvars.iv.i43
   %30 = load ptr, ptr %29, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !26
   %33 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.86, ptr noundef %30, ptr noundef %32) #16
-  %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i45, 25
-  br i1 %exitcond.not.i, label %get_categories.exit, label %.preheader61, !llvm.loop !27
+  %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i44, 25
+  br i1 %exitcond.not.i, label %get_categories.exit, label %.preheader60, !llvm.loop !27
 
 34:                                               ; preds = %27
   %35 = load i8, ptr %0, align 1, !tbaa !17
@@ -339,134 +339,134 @@ get_categories_list.exit:                         ; preds = %8
   %40 = icmp eq i8 %39, 45
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %42 = load i8, ptr %41, align 1
-  br i1 %40, label %sub_0, label %55
+  br i1 %40, label %sub_0, label %56
 
 sub_0:                                            ; preds = %37
-  %.not70 = icmp eq i8 %42, 110
-  br i1 %.not70, label %sub_1, label %.thread82
+  %.not69 = icmp eq i8 %42, 110
+  br i1 %.not69, label %sub_1, label %.thread80
 
 sub_1:                                            ; preds = %sub_0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %44 = load i8, ptr %43, align 1
-  %.not71 = icmp eq i8 %44, 111
-  br i1 %.not71, label %.tail, label %.thread82
+  %.not70 = icmp eq i8 %44, 111
+  br i1 %.not70, label %.tail, label %.thread80
 
-.thread82:                                        ; preds = %sub_1, %sub_0
+.thread80:                                        ; preds = %sub_1, %sub_0
   %45 = tail call ptr @findlongopt(ptr noundef nonnull %41) #16
-  br label %58
+  br label %59
 
 .tail:                                            ; preds = %sub_1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %47 = load i8, ptr %46, align 1
   %.fr = freeze i8 %47
-  %48 = icmp ne i8 %.fr, 45
+  %48 = icmp eq i8 %.fr, 45
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %spec.select = select i1 %48, ptr %41, ptr %49
+  %spec.select = select i1 %48, ptr %49, ptr %41
   %50 = tail call ptr @findlongopt(ptr noundef nonnull %spec.select) #16
-  %.not39 = icmp eq ptr %50, null
-  %brmerge = or i1 %48, %.not39
-  br i1 %brmerge, label %58, label %51
+  %51 = icmp ne ptr %50, null
+  %or.cond = and i1 %48, %51
+  br i1 %or.cond, label %52, label %59
 
-51:                                               ; preds = %.tail
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load i8, ptr %52, align 8, !tbaa !28
-  %54 = and i8 %53, 3
-  %.not40 = icmp eq i8 %54, 1
-  br i1 %.not40, label %.thread55, label %.thread
+52:                                               ; preds = %.tail
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %54 = load i8, ptr %53, align 8, !tbaa !28
+  %55 = and i8 %54, 3
+  %.not39 = icmp eq i8 %55, 1
+  br i1 %.not39, label %.thread54, label %.thread
 
-55:                                               ; preds = %37
+56:                                               ; preds = %37
   %.not37 = icmp eq i8 %42, 0
-  br i1 %.not37, label %56, label %.thread
+  br i1 %.not37, label %57, label %.thread
 
-56:                                               ; preds = %55
-  %57 = tail call ptr @findshortopt(i8 noundef signext %39) #16
-  br label %58
+57:                                               ; preds = %56
+  %58 = tail call ptr @findshortopt(i8 noundef signext %39) #16
+  br label %59
 
-58:                                               ; preds = %.thread82, %.tail, %56
-  %.1 = phi ptr [ %57, %56 ], [ %50, %.tail ], [ %45, %.thread82 ]
-  %.not41 = icmp eq ptr %.1, null
-  br i1 %.not41, label %.thread, label %.thread55
+59:                                               ; preds = %.thread80, %.tail, %57
+  %.1 = phi ptr [ %58, %57 ], [ %50, %.tail ], [ %45, %.thread80 ]
+  %.not40 = icmp eq ptr %.1, null
+  br i1 %.not40, label %.thread, label %.thread54
 
-.thread:                                          ; preds = %51, %55, %58
-  %59 = load ptr, ptr @tool_stderr, align 8, !tbaa !18
-  %60 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %59, ptr noundef nonnull @.str.6) #16
+.thread:                                          ; preds = %52, %56, %59
+  %60 = load ptr, ptr @tool_stderr, align 8, !tbaa !18
+  %61 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %60, ptr noundef nonnull @.str.6) #16
   br label %get_categories.exit
 
-.thread55:                                        ; preds = %51, %58
-  %.158 = phi ptr [ %.1, %58 ], [ %50, %51 ]
+.thread54:                                        ; preds = %52, %59
+  %.157 = phi ptr [ %.1, %59 ], [ %50, %52 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #16
-  %61 = getelementptr inbounds nuw i8, ptr %.158, i64 9
-  %62 = load i8, ptr %61, align 1, !tbaa !31
-  %.not42 = icmp eq i8 %62, 32
-  br i1 %.not42, label %66, label %63
+  %62 = getelementptr inbounds nuw i8, ptr %.157, i64 9
+  %63 = load i8, ptr %62, align 1, !tbaa !31
+  %.not41 = icmp eq i8 %63, 32
+  br i1 %.not41, label %67, label %64
 
-63:                                               ; preds = %.thread55
-  %64 = sext i8 %62 to i32
-  %65 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %2, i64 noundef 80, ptr noundef nonnull @.str.7, i32 noundef %64) #16
-  br label %74
+64:                                               ; preds = %.thread54
+  %65 = sext i8 %63 to i32
+  %66 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %2, i64 noundef 80, ptr noundef nonnull @.str.7, i32 noundef %65) #16
+  br label %75
 
-66:                                               ; preds = %.thread55
-  %67 = getelementptr inbounds nuw i8, ptr %.158, i64 8
-  %68 = load i8, ptr %67, align 8, !tbaa !28
-  %.not43 = icmp sgt i8 %68, -1
-  br i1 %.not43, label %72, label %69
+67:                                               ; preds = %.thread54
+  %68 = getelementptr inbounds nuw i8, ptr %.157, i64 8
+  %69 = load i8, ptr %68, align 8, !tbaa !28
+  %.not42 = icmp sgt i8 %69, -1
+  br i1 %.not42, label %73, label %70
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr %.158, align 8, !tbaa !32
-  %71 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %2, i64 noundef 80, ptr noundef nonnull @.str.8, ptr noundef %70) #16
-  br label %74
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %.157, align 8, !tbaa !32
+  %72 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %2, i64 noundef 80, ptr noundef nonnull @.str.8, ptr noundef %71) #16
+  br label %75
 
-72:                                               ; preds = %66
-  %73 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %2, i64 noundef 80, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #16
-  br label %74
+73:                                               ; preds = %67
+  %74 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %2, i64 noundef 80, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #16
+  br label %75
 
-74:                                               ; preds = %69, %72, %63
-  %75 = getelementptr inbounds nuw i8, ptr %.158, i64 10
-  %76 = load i16, ptr %75, align 2, !tbaa !33
-  %77 = icmp eq i16 %76, 275
-  %.str.11..str.12 = select i1 %77, ptr @.str.11, ptr @.str.12
+75:                                               ; preds = %70, %73, %64
+  %76 = getelementptr inbounds nuw i8, ptr %.157, i64 10
+  %77 = load i16, ptr %76, align 2, !tbaa !33
+  %78 = icmp eq i16 %77, 275
+  %.str.11..str.12 = select i1 %78, ptr @.str.11, ptr @.str.12
   call void @showhelp(ptr noundef nonnull @.str.10, ptr noundef nonnull %2, ptr noundef nonnull %.str.11..str.12) #16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #16
   br label %get_categories.exit
 
-78:                                               ; preds = %.preheader
-  %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
-  %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, 25
-  br i1 %exitcond.not.i48, label %get_category_content.exit, label %.preheader, !llvm.loop !34
+79:                                               ; preds = %.preheader
+  %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
+  %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 25
+  br i1 %exitcond.not.i47, label %get_category_content.exit, label %.preheader, !llvm.loop !34
 
-.preheader:                                       ; preds = %34, %78
-  %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i47, %78 ], [ 0, %34 ]
-  %79 = getelementptr inbounds nuw [25 x %struct.category_descriptors], ptr @categories, i64 0, i64 %indvars.iv.i46
-  %80 = load ptr, ptr %79, align 8, !tbaa !23
-  %81 = tail call i32 @curl_strequal(ptr noundef %80, ptr noundef nonnull %0) #16
-  %.not.i = icmp eq i32 %81, 0
-  br i1 %.not.i, label %78, label %get_category_content.exit.thread
+.preheader:                                       ; preds = %34, %79
+  %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i46, %79 ], [ 0, %34 ]
+  %80 = getelementptr inbounds nuw [25 x %struct.category_descriptors], ptr @categories, i64 0, i64 %indvars.iv.i45
+  %81 = load ptr, ptr %80, align 8, !tbaa !23
+  %82 = tail call i32 @curl_strequal(ptr noundef %81, ptr noundef nonnull %0) #16
+  %.not.i = icmp eq i32 %82, 0
+  br i1 %.not.i, label %79, label %get_category_content.exit.thread
 
 get_category_content.exit.thread:                 ; preds = %.preheader
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !26
-  %84 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.87, ptr noundef %80, ptr noundef %83) #16
-  %85 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %86 = load i32, ptr %85, align 8, !tbaa !35
-  tail call fastcc void @print_category(i32 noundef %86, i32 noundef %3)
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !26
+  %85 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.87, ptr noundef %81, ptr noundef %84) #16
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %87 = load i32, ptr %86, align 8, !tbaa !35
+  tail call fastcc void @print_category(i32 noundef %87, i32 noundef %3)
   br label %get_categories.exit
 
-get_category_content.exit:                        ; preds = %78
-  %87 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.13)
-  br label %88
+get_category_content.exit:                        ; preds = %79
+  %88 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.13)
+  br label %89
 
-88:                                               ; preds = %88, %get_category_content.exit
-  %indvars.iv.i49 = phi i64 [ 0, %get_category_content.exit ], [ %indvars.iv.next.i50, %88 ]
-  %89 = getelementptr inbounds nuw [25 x %struct.category_descriptors], ptr @categories, i64 0, i64 %indvars.iv.i49
-  %90 = load ptr, ptr %89, align 8, !tbaa !23
-  %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !26
-  %93 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.86, ptr noundef %90, ptr noundef %92) #16
-  %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
-  %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 25
-  br i1 %exitcond.not.i51, label %get_categories.exit, label %88, !llvm.loop !27
+89:                                               ; preds = %89, %get_category_content.exit
+  %indvars.iv.i48 = phi i64 [ 0, %get_category_content.exit ], [ %indvars.iv.next.i49, %89 ]
+  %90 = getelementptr inbounds nuw [25 x %struct.category_descriptors], ptr @categories, i64 0, i64 %indvars.iv.i48
+  %91 = load ptr, ptr %90, align 8, !tbaa !23
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !26
+  %94 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.86, ptr noundef %91, ptr noundef %93) #16
+  %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
+  %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, 25
+  br i1 %exitcond.not.i50, label %get_categories.exit, label %89, !llvm.loop !27
 
-get_categories.exit:                              ; preds = %.preheader61, %88, %get_category_content.exit.thread, %.thread, %74, %26, %get_categories_list.exit
+get_categories.exit:                              ; preds = %.preheader60, %89, %get_category_content.exit.thread, %.thread, %75, %26, %get_categories_list.exit
   call void @free(ptr noundef %0) #16
   ret void
 }

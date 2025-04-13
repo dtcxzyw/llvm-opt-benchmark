@@ -1320,15 +1320,15 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseScan
 
 48:                                               ; preds = %.lr.ph, %select.unfold
   %.01727 = phi i32 [ 0, %.lr.ph ], [ %.53452, %select.unfold ]
-  %.01826 = phi ptr [ %1, %.lr.ph ], [ %196, %select.unfold ]
+  %.01826 = phi ptr [ %1, %.lr.ph ], [ %195, %select.unfold ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11) #8
   call void @llvm.experimental.noalias.scope.decl(metadata !554)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8, !noalias !554
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %53
-  %storemerge97.i = phi ptr [ %54, %53 ], [ %.01826, %48 ]
-  %49 = load i8, ptr %storemerge97.i, align 1, !tbaa !25
+  %storemerge99.i = phi ptr [ %54, %53 ], [ %.01826, %48 ]
+  %49 = load i8, ptr %storemerge99.i, align 1, !tbaa !25
   switch i8 %49, label %53 [
     i8 0, label %.thread.i
     i8 37, label %59
@@ -1338,11 +1338,11 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseScan
   %50 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge97.i) #8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i) #8
   br label %.thread.sink.split
 
 53:                                               ; preds = %.lr.ph.i
-  %54 = getelementptr inbounds nuw i8, ptr %storemerge97.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %storemerge99.i, i64 1
   store ptr %54, ptr %6, align 8, !tbaa !27, !noalias !554
   %.not.i = icmp eq ptr %54, %2
   br i1 %.not.i, label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread32, label %.lr.ph.i, !llvm.loop !559
@@ -1370,19 +1370,19 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   br label %select.unfold
 
 59:                                               ; preds = %.lr.ph.i
-  %60 = getelementptr inbounds nuw i8, ptr %storemerge97.i, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %storemerge99.i, i64 1
   store ptr %60, ptr %6, align 8, !tbaa !27, !noalias !554
   %61 = icmp eq ptr %60, %2
   br i1 %61, label %62, label %69
 
 62:                                               ; preds = %59
-  %63 = ptrtoint ptr %storemerge97.i to i64
+  %63 = ptrtoint ptr %storemerge99.i to i64
   %64 = sub i64 %28, %63
   %65 = trunc i64 %64 to i32
   %66 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge97.i, i32 noundef %65) #8
+  call void %68(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i, i32 noundef %65) #8
   br label %.thread.sink.split
 
 69:                                               ; preds = %59
@@ -1402,7 +1402,7 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   store i32 0, ptr %23, align 4, !tbaa !551, !noalias !554
   store ptr @.str.13, ptr %24, align 8, !tbaa !568, !noalias !554
   store i8 0, ptr %25, align 8, !tbaa !552, !noalias !554
-  %70 = call noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseArgPositionERNS0_19FormatStringHandlerERNS0_15FormatSpecifierEPKcRS6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull %storemerge97.i, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2) #8
+  %70 = call noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseArgPositionERNS0_19FormatStringHandlerERNS0_15FormatSpecifierEPKcRS6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull %storemerge99.i, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2) #8
   br i1 %70, label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread36, label %71
 
 71:                                               ; preds = %69
@@ -1437,13 +1437,13 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   br i1 %84, label %85, label %92
 
 85:                                               ; preds = %82
-  %86 = ptrtoint ptr %storemerge97.i to i64
+  %86 = ptrtoint ptr %storemerge99.i to i64
   %87 = sub i64 %28, %86
   %88 = trunc i64 %87 to i32
   %89 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 48
   %91 = load ptr, ptr %90, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge97.i, i32 noundef %88) #8
+  call void %91(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i, i32 noundef %88) #8
   br label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread40
 
 92:                                               ; preds = %82, %80
@@ -1454,13 +1454,13 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   br i1 %or.cond.i, label %96, label %103
 
 96:                                               ; preds = %92
-  %97 = ptrtoint ptr %storemerge97.i to i64
+  %97 = ptrtoint ptr %storemerge99.i to i64
   %98 = sub i64 %28, %97
   %99 = trunc i64 %98 to i32
   %100 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %102 = load ptr, ptr %101, align 8
-  call void %102(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge97.i, i32 noundef %99) #8
+  call void %102(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i, i32 noundef %99) #8
   br label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread40
 
 103:                                              ; preds = %92
@@ -1670,49 +1670,47 @@ thread-pre-split.i:                               ; preds = %150
 155:                                              ; preds = %152
   %156 = load i8, ptr %25, align 8, !tbaa !552, !range !549, !noalias !554, !noundef !550
   %157 = trunc nuw i8 %156 to i1
-  br i1 %157, label %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i, label %158
+  %158 = load i8, ptr %22, align 8, !range !549, !noalias !554
+  %159 = trunc nuw i8 %158 to i1
+  %or.cond95.i = select i1 %157, i1 true, i1 %159
+  br i1 %or.cond95.i, label %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i, label %160
 
-158:                                              ; preds = %155
-  %159 = load i8, ptr %22, align 8, !tbaa !546, !range !549, !noalias !554, !noundef !550
-  %160 = trunc nuw i8 %159 to i1
-  br i1 %160, label %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i, label %161
-
-161:                                              ; preds = %158
-  %162 = add i32 %.01727, 1
+160:                                              ; preds = %155
+  %161 = add i32 %.01727, 1
   store i32 %.01727, ptr %23, align 4, !tbaa !551, !noalias !554
   br label %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i
 
-_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i: ; preds = %161, %158, %155, %152, %152, %152
-  %.1 = phi i32 [ %.01727, %155 ], [ %.01727, %158 ], [ %162, %161 ], [ %.01727, %152 ], [ %.01727, %152 ], [ %.01727, %152 ]
-  br i1 %154, label %163, label %187
+_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i: ; preds = %160, %155, %152, %152, %152
+  %.1 = phi i32 [ %.01727, %155 ], [ %161, %160 ], [ %.01727, %152 ], [ %.01727, %152 ], [ %.01727, %152 ]
+  br i1 %154, label %162, label %186
 
-163:                                              ; preds = %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i
+162:                                              ; preds = %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8, !noalias !554
-  %164 = load ptr, ptr %6, align 8, !tbaa !27, !noalias !554
-  %165 = ptrtoint ptr %164 to i64
-  %166 = ptrtoint ptr %.01826 to i64
-  %167 = sub i64 %165, %166
-  %168 = trunc i64 %167 to i32
-  store i32 %168, ptr %10, align 4, !tbaa !537, !noalias !554
-  %169 = call noundef zeroext i1 @_ZN5clang21analyze_format_string25ParseUTF8InvalidSpecifierEPKcS2_Rj(ptr noundef %.01826, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %10) #8
-  %.pre100.i = load i32, ptr %10, align 4, !tbaa !537, !noalias !554
-  br i1 %169, label %170, label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit
+  %163 = load ptr, ptr %6, align 8, !tbaa !27, !noalias !554
+  %164 = ptrtoint ptr %163 to i64
+  %165 = ptrtoint ptr %.01826 to i64
+  %166 = sub i64 %164, %165
+  %167 = trunc i64 %166 to i32
+  store i32 %167, ptr %10, align 4, !tbaa !537, !noalias !554
+  %168 = call noundef zeroext i1 @_ZN5clang21analyze_format_string25ParseUTF8InvalidSpecifierEPKcS2_Rj(ptr noundef %.01826, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %10) #8
+  %.pre102.i = load i32, ptr %10, align 4, !tbaa !537, !noalias !554
+  br i1 %168, label %169, label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit
 
-170:                                              ; preds = %163
-  %171 = zext i32 %.pre100.i to i64
-  %172 = getelementptr inbounds nuw i8, ptr %.01826, i64 %171
-  store ptr %172, ptr %46, align 8, !tbaa !572, !noalias !554
+169:                                              ; preds = %162
+  %170 = zext i32 %.pre102.i to i64
+  %171 = getelementptr inbounds nuw i8, ptr %.01826, i64 %170
+  store ptr %171, ptr %46, align 8, !tbaa !572, !noalias !554
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull align 8 dereferenceable(28) %9, i64 28, i1 false), !tbaa.struct !573, !noalias !554
   br label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit
 
 _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread36.sink.split: ; preds = %77, %71
-  %173 = ptrtoint ptr %storemerge97.i to i64
-  %174 = sub i64 %28, %173
-  %175 = trunc i64 %174 to i32
-  %176 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 48
-  %178 = load ptr, ptr %177, align 8
-  call void %178(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge97.i, i32 noundef %175) #8
+  %172 = ptrtoint ptr %storemerge99.i to i64
+  %173 = sub i64 %28, %172
+  %174 = trunc i64 %173 to i32
+  %175 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 48
+  %177 = load ptr, ptr %176, align 8
+  call void %177(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i, i32 noundef %174) #8
   br label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread36
 
 _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread36: ; preds = %69, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread36.sink.split
@@ -1724,17 +1722,17 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #8, !noalias !554
   br label %.thread.sink.split
 
-_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit: ; preds = %163, %170
-  %179 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 104
-  %181 = load ptr, ptr %180, align 8
-  %182 = call noundef zeroext i1 %181(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef %.01826, i32 noundef %.pre100.i) #8
+_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit: ; preds = %162, %169
+  %178 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 104
+  %180 = load ptr, ptr %179, align 8
+  %181 = call noundef zeroext i1 %180(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef %.01826, i32 noundef %.pre102.i) #8
   store ptr null, ptr %11, align 8, !tbaa !561
   store i32 0, ptr %29, align 8, !tbaa !22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %30, i8 0, i64 20, i1 false)
-  %183 = load i8, ptr %31, align 4
-  %184 = and i8 %183, -2
-  store i8 %184, ptr %31, align 4
+  %182 = load i8, ptr %31, align 4
+  %183 = and i8 %182, -2
+  store i8 %183, ptr %31, align 4
   store i8 0, ptr %32, align 1, !tbaa !562
   store i8 0, ptr %33, align 8, !tbaa !563
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %34, i8 0, i64 20, i1 false)
@@ -1742,50 +1740,50 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   store i32 0, ptr %36, align 8, !tbaa !565
   store i32 3, ptr %37, align 4, !tbaa !566
   store i32 0, ptr %38, align 8, !tbaa !567
-  %185 = load i8, ptr %39, align 4
-  %186 = and i8 %185, -2
-  store i8 %186, ptr %39, align 4
+  %184 = load i8, ptr %39, align 4
+  %185 = and i8 %184, -2
+  store i8 %185, ptr %39, align 4
   store i8 0, ptr %40, align 1, !tbaa !562
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8, !noalias !554
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8, !noalias !554
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8, !noalias !554
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #8, !noalias !554
-  %.pre101.i = load ptr, ptr %6, align 8, !tbaa !27, !noalias !554
+  %.pre103.i = load ptr, ptr %6, align 8, !tbaa !27, !noalias !554
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8, !noalias !554
-  br i1 %182, label %select.unfold, label %.thread
+  br i1 %181, label %select.unfold, label %.thread
 
-187:                                              ; preds = %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i
+186:                                              ; preds = %_ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(137) %11, ptr noundef nonnull align 8 dereferenceable(128) %7, i64 128, i1 false)
-  store ptr %storemerge97.i, ptr %42, align 8, !tbaa !575, !alias.scope !554
+  store ptr %storemerge99.i, ptr %42, align 8, !tbaa !575, !alias.scope !554
   store i8 0, ptr %43, align 8, !tbaa !578, !alias.scope !554
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8, !noalias !554
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8, !noalias !554
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #8, !noalias !554
-  %.pre101.i48 = load ptr, ptr %6, align 8, !tbaa !27, !noalias !554
+  %.pre103.i48 = load ptr, ptr %6, align 8, !tbaa !27, !noalias !554
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8, !noalias !554
-  %188 = ptrtoint ptr %.pre101.i48 to i64
-  %189 = ptrtoint ptr %storemerge97.i to i64
-  %190 = sub i64 %188, %189
-  %191 = trunc i64 %190 to i32
-  %192 = load ptr, ptr %0, align 8, !tbaa !557
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 112
-  %194 = load ptr, ptr %193, align 8
-  %195 = call noundef zeroext i1 %194(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull %storemerge97.i, i32 noundef %191) #8
-  br i1 %195, label %select.unfold, label %.thread
+  %187 = ptrtoint ptr %.pre103.i48 to i64
+  %188 = ptrtoint ptr %storemerge99.i to i64
+  %189 = sub i64 %187, %188
+  %190 = trunc i64 %189 to i32
+  %191 = load ptr, ptr %0, align 8, !tbaa !557
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 112
+  %193 = load ptr, ptr %192, align 8
+  %194 = call noundef zeroext i1 %193(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull %storemerge99.i, i32 noundef %190) #8
+  br i1 %194, label %select.unfold, label %.thread
 
 .thread.sink.split:                               ; preds = %.thread.i, %62, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread36, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread40, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8, !noalias !554
   br label %.thread
 
-.thread:                                          ; preds = %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit, %187, %.thread.sink.split
+.thread:                                          ; preds = %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit, %186, %.thread.sink.split
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11) #8
   br label %.loopexit
 
-select.unfold:                                    ; preds = %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread32, %187
-  %.53452 = phi i32 [ %.1, %187 ], [ %.1, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit ], [ %.01727, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread32 ]
-  %196 = phi ptr [ %.pre101.i48, %187 ], [ %.pre101.i, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit ], [ %54, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread32 ]
+select.unfold:                                    ; preds = %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread32, %186
+  %.53452 = phi i32 [ %.1, %186 ], [ %.1, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit ], [ %.01727, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread32 ]
+  %195 = phi ptr [ %.pre103.i48, %186 ], [ %.pre103.i, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit ], [ %54, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread32 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11) #8
-  %.not.not = icmp eq ptr %196, %2
+  %.not.not = icmp eq ptr %195, %2
   br i1 %.not.not, label %.loopexit, label %48
 
 .loopexit:                                        ; preds = %select.unfold, %5, %.thread

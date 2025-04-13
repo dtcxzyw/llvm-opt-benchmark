@@ -3723,176 +3723,169 @@ _ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit: ; preds = %_ZNK15ClassLo
   %.not = phi i1 [ false, %_ZNK15ClassLoaderData12class_loaderEv.exit.thread ], [ true, %10 ]
   %.0.i.i = phi ptr [ %9, %_ZNK15ClassLoaderData12class_loaderEv.exit.thread ], [ %11, %10 ]
   %12 = icmp eq ptr %0, %.0.i.i
-  br i1 %12, label %19, label %13
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %14 = load i8, ptr %13, align 1
+  %15 = trunc i8 %14 to i1
+  %or.cond = select i1 %12, i1 true, i1 %15
+  br i1 %or.cond, label %18, label %16
 
-13:                                               ; preds = %_ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %15 = load i8, ptr %14, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %19, label %17
-
-17:                                               ; preds = %13
-  %18 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %18, align 1
+16:                                               ; preds = %_ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit
+  %17 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %17, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.8, i32 noundef 1077, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #19
   unreachable
 
-19:                                               ; preds = %13, %_ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit
-  %20 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  %21 = icmp eq ptr %0, %20
-  %or.cond = select i1 %.not, i1 true, i1 %21
-  br i1 %or.cond, label %28, label %22
+18:                                               ; preds = %_ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit
+  %19 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+  %20 = icmp eq ptr %0, %19
+  %or.cond21 = select i1 %.not, i1 true, i1 %20
+  %or.cond24 = select i1 %or.cond21, i1 true, i1 %15
+  br i1 %or.cond24, label %23, label %21
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %24 = load i8, ptr %23, align 1
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %28, label %26
-
-26:                                               ; preds = %22
-  %27 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %27, align 1
+21:                                               ; preds = %18
+  %22 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %22, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.8, i32 noundef 1078, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19) #19
   unreachable
 
-28:                                               ; preds = %19, %22
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = load volatile ptr, ptr %29, align 8
-  %.not1419 = icmp eq ptr %30, null
-  br i1 %.not1419, label %._crit_edge, label %.lr.ph
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = load volatile ptr, ptr %24, align 8
+  %.not1425 = icmp eq ptr %25, null
+  br i1 %.not1425, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %28, %36
-  %.020 = phi ptr [ %42, %36 ], [ %30, %28 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.020, i64 152
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, %0
-  br i1 %33, label %36, label %34
+.lr.ph:                                           ; preds = %23, %31
+  %.026 = phi ptr [ %37, %31 ], [ %25, %23 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.026, i64 152
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, %0
+  br i1 %28, label %31, label %29
 
-34:                                               ; preds = %.lr.ph
-  %35 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %35, align 1
+29:                                               ; preds = %.lr.ph
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.8, i32 noundef 1088, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.17) #19
   unreachable
 
-36:                                               ; preds = %.lr.ph
-  %37 = load ptr, ptr @tty, align 8
-  %38 = load ptr, ptr %.020, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 312
-  %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(196) %.020, ptr noundef %37) #17
-  %41 = getelementptr inbounds nuw i8, ptr %.020, i64 144
-  %42 = load ptr, ptr %41, align 8
-  %.not14 = icmp eq ptr %42, null
+31:                                               ; preds = %.lr.ph
+  %32 = load ptr, ptr @tty, align 8
+  %33 = load ptr, ptr %.026, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 312
+  %35 = load ptr, ptr %34, align 8
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(196) %.026, ptr noundef %32) #17
+  %36 = getelementptr inbounds nuw i8, ptr %.026, i64 144
+  %37 = load ptr, ptr %36, align 8
+  %.not14 = icmp eq ptr %37, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %36, %28
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %44 = load volatile ptr, ptr %43, align 8
-  %.not15 = icmp eq ptr %44, null
-  br i1 %.not15, label %47, label %45
+._crit_edge:                                      ; preds = %31, %23
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %39 = load volatile ptr, ptr %38, align 8
+  %.not15 = icmp eq ptr %39, null
+  br i1 %.not15, label %42, label %40
 
-45:                                               ; preds = %._crit_edge
-  %46 = load volatile ptr, ptr %43, align 8
-  tail call void @_ZN16ModuleEntryTable6verifyEv(ptr noundef nonnull align 8 dereferenceable(880) %46) #17
-  br label %47
+40:                                               ; preds = %._crit_edge
+  %41 = load volatile ptr, ptr %38, align 8
+  tail call void @_ZN16ModuleEntryTable6verifyEv(ptr noundef nonnull align 8 dereferenceable(880) %41) #17
+  br label %42
 
-47:                                               ; preds = %45, %._crit_edge
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %49 = load ptr, ptr %48, align 8
-  %.not16 = icmp eq ptr %49, null
-  br i1 %.not16, label %.loopexit, label %50
+42:                                               ; preds = %40, %._crit_edge
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %44 = load ptr, ptr %43, align 8
+  %.not16 = icmp eq ptr %44, null
+  br i1 %.not16, label %.loopexit, label %45
 
-50:                                               ; preds = %47
-  %51 = load i32, ptr %49, align 4
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph24.preheader, label %.loopexit
+45:                                               ; preds = %42
+  %46 = load i32, ptr %44, align 4
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %.lr.ph30.preheader, label %.loopexit
 
-.lr.ph24.preheader:                               ; preds = %50
-  %53 = zext nneg i32 %51 to i64
-  br label %.lr.ph24
+.lr.ph30.preheader:                               ; preds = %45
+  %48 = zext nneg i32 %46 to i64
+  br label %.lr.ph30
 
-.lr.ph24:                                         ; preds = %.lr.ph24.preheader, %68
-  %indvars.iv = phi i64 [ %53, %.lr.ph24.preheader ], [ %indvars.iv.next, %68 ]
+.lr.ph30:                                         ; preds = %.lr.ph30.preheader, %63
+  %indvars.iv = phi i64 [ %48, %.lr.ph30.preheader ], [ %indvars.iv.next, %63 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %54 = load ptr, ptr %48, align 8
+  %49 = load ptr, ptr %43, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv.next
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.next
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(8) %58) #17
-  br i1 %62, label %63, label %68
+  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(8) %53) #17
+  br i1 %57, label %58, label %63
 
-63:                                               ; preds = %.lr.ph24
-  %64 = load ptr, ptr @tty, align 8
-  %65 = load ptr, ptr %58, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 312
-  %67 = load ptr, ptr %66, align 8
-  tail call void %67(ptr noundef nonnull align 8 dereferenceable(196) %58, ptr noundef %64) #17
-  br label %68
+58:                                               ; preds = %.lr.ph30
+  %59 = load ptr, ptr @tty, align 8
+  %60 = load ptr, ptr %53, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 312
+  %62 = load ptr, ptr %61, align 8
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(196) %53, ptr noundef %59) #17
+  br label %63
 
-68:                                               ; preds = %.lr.ph24, %63
-  %69 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %69, label %.lr.ph24, label %.loopexit, !llvm.loop !43
+63:                                               ; preds = %.lr.ph30, %58
+  %64 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %64, label %.lr.ph30, label %.loopexit, !llvm.loop !43
 
-.loopexit:                                        ; preds = %68, %50, %47
+.loopexit:                                        ; preds = %63, %45, %42
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16VerifyHandleOops, i64 16), ptr %2, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr null, ptr %71, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV16VerifyOopClosure, i64 16), ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %73 = load volatile ptr, ptr %72, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr null, ptr %66, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV16VerifyOopClosure, i64 16), ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %68 = load volatile ptr, ptr %67, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
-  %.not.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i, label %_ZN15ClassLoaderData7oops_doEP10OopClosureib.exit, label %74
+  %.not.i.i = icmp eq ptr %68, null
+  br i1 %.not.i.i, label %_ZN15ClassLoaderData7oops_doEP10OopClosureib.exit, label %69
 
-74:                                               ; preds = %.loopexit
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 256
-  %76 = load volatile i32, ptr %75, align 4
+69:                                               ; preds = %.loopexit
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 256
+  %71 = load volatile i32, ptr %70, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
-  %.not.i.i.i = icmp eq i32 %76, 0
+  %.not.i.i.i = icmp eq i32 %71, 0
   br i1 %.not.i.i.i, label %_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit.i.i, label %.lr.ph.preheader.i.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %74
-  %wide.trip.count.i.i.i = zext i32 %76 to i64
+.lr.ph.preheader.i.i.i:                           ; preds = %69
+  %wide.trip.count.i.i.i = zext i32 %71 to i64
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %77 = getelementptr inbounds nuw [32 x ptr], ptr %73, i64 0, i64 %indvars.iv.i.i.i
-  %78 = load ptr, ptr %2, align 8
-  %79 = load ptr, ptr %78, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %77) #17
+  %72 = getelementptr inbounds nuw [32 x ptr], ptr %68, i64 0, i64 %indvars.iv.i.i.i
+  %73 = load ptr, ptr %2, align 8
+  %74 = load ptr, ptr %73, align 8
+  call void %74(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %72) #17
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !14
 
-_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit.i.i: ; preds = %.lr.ph.i.i.i, %74
-  %.0.in21.i.i = getelementptr inbounds nuw i8, ptr %73, i64 264
+_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit.i.i: ; preds = %.lr.ph.i.i.i, %69
+  %.0.in21.i.i = getelementptr inbounds nuw i8, ptr %68, i64 264
   %.022.i.i = load ptr, ptr %.0.in21.i.i, align 8
   %.not1223.i.i = icmp eq ptr %.022.i.i, null
   br i1 %.not1223.i.i, label %_ZN15ClassLoaderData7oops_doEP10OopClosureib.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit.i.i, %_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit20.i.i
   %.024.i.i = phi ptr [ %.0.i.i17, %_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit20.i.i ], [ %.022.i.i, %_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit.i.i ]
-  %80 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 256
-  %81 = load volatile i32, ptr %80, align 8
-  %.not.i13.i.i = icmp eq i32 %81, 0
+  %75 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 256
+  %76 = load volatile i32, ptr %75, align 8
+  %.not.i13.i.i = icmp eq i32 %76, 0
   br i1 %.not.i13.i.i, label %_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit20.i.i, label %.lr.ph.preheader.i14.i.i
 
 .lr.ph.preheader.i14.i.i:                         ; preds = %.lr.ph.i.i
-  %wide.trip.count.i15.i.i = zext i32 %81 to i64
+  %wide.trip.count.i15.i.i = zext i32 %76 to i64
   br label %.lr.ph.i16.i.i
 
 .lr.ph.i16.i.i:                                   ; preds = %.lr.ph.i16.i.i, %.lr.ph.preheader.i14.i.i
   %indvars.iv.i17.i.i = phi i64 [ 0, %.lr.ph.preheader.i14.i.i ], [ %indvars.iv.next.i18.i.i, %.lr.ph.i16.i.i ]
-  %82 = getelementptr inbounds nuw [32 x ptr], ptr %.024.i.i, i64 0, i64 %indvars.iv.i17.i.i
-  %83 = load ptr, ptr %2, align 8
-  %84 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %82) #17
+  %77 = getelementptr inbounds nuw [32 x ptr], ptr %.024.i.i, i64 0, i64 %indvars.iv.i17.i.i
+  %78 = load ptr, ptr %2, align 8
+  %79 = load ptr, ptr %78, align 8
+  call void %79(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %77) #17
   %indvars.iv.next.i18.i.i = add nuw nsw i64 %indvars.iv.i17.i.i, 1
   %exitcond.not.i19.i.i = icmp eq i64 %indvars.iv.next.i18.i.i, %wide.trip.count.i15.i.i
   br i1 %exitcond.not.i19.i.i, label %_ZN15ClassLoaderData17ChunkedHandleList13oops_do_chunkEP10OopClosurePNS0_5ChunkEj.exit20.i.i, label %.lr.ph.i16.i.i, !llvm.loop !14
@@ -5969,22 +5962,20 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i: ; preds = %_ZN
   br label %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
 
 _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i, %40
-  %.not.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %42
-
-42:                                               ; preds = %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
+  %42 = icmp ne ptr %39, null
   %43 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
+  %or.cond.i.i.i = select i1 %42, i1 %44, i1 false
+  br i1 %or.cond.i.i.i, label %45, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
-45:                                               ; preds = %42
+45:                                               ; preds = %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 769
   %48 = load volatile i8, ptr %47, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   %49 = and i8 %48, 2
-  %.not3.i.i.i = icmp eq i8 %49, 0
-  br i1 %.not3.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
+  %.not.i.i.i = icmp eq i8 %49, 0
+  br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %6, align 8
@@ -6029,8 +6020,8 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   tail call void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueueP7oopDesc(ptr noundef nonnull align 8 dereferenceable(393) %83, ptr noundef nonnull align 8 dereferenceable(17) %82, ptr noundef nonnull %39) #17
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
-_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %42, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ null, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %42 ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
+  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -6522,22 +6513,20 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i: ; preds = %_ZN
   br label %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
 
 _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i, %40
-  %.not.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %42
-
-42:                                               ; preds = %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
+  %42 = icmp ne ptr %39, null
   %43 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
+  %or.cond.i.i.i = select i1 %42, i1 %44, i1 false
+  br i1 %or.cond.i.i.i, label %45, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
-45:                                               ; preds = %42
+45:                                               ; preds = %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 769
   %48 = load volatile i8, ptr %47, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   %49 = and i8 %48, 2
-  %.not3.i.i.i = icmp eq i8 %49, 0
-  br i1 %.not3.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
+  %.not.i.i.i = icmp eq i8 %49, 0
+  br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %6, align 8
@@ -6582,8 +6571,8 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   tail call void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueueP7oopDesc(ptr noundef nonnull align 8 dereferenceable(393) %83, ptr noundef nonnull align 8 dereferenceable(17) %82, ptr noundef nonnull %39) #17
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
-_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %42, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ null, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %42 ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
+  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 

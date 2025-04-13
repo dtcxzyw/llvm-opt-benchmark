@@ -303,8 +303,8 @@ define hidden noundef zeroext i1 @mi_manage_os_memory(ptr noundef %0, i64 nounde
   %16 = mul nuw nsw i64 %15, %14
   %17 = add nuw nsw i64 %16, 64
   %18 = tail call ptr @_mi_os_alloc(i64 noundef %17, ptr noundef nonnull @_mi_stats_main) #6
-  %.not50 = icmp eq ptr %18, null
-  br i1 %.not50, label %mi_arena_add.exit, label %19
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %mi_arena_add.exit, label %19
 
 19:                                               ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -394,8 +394,8 @@ define hidden range(i32 0, 13) i32 @mi_reserve_os_memory(i64 noundef %0, i1 noun
   %21 = mul nuw nsw i64 %20, %19
   %22 = add nuw nsw i64 %21, 64
   %23 = call ptr @_mi_os_alloc(i64 noundef %22, ptr noundef nonnull @_mi_stats_main) #6
-  %.not50.i = icmp eq ptr %23, null
-  br i1 %.not50.i, label %mi_manage_os_memory.exit, label %24
+  %.not.i = icmp eq ptr %23, null
+  br i1 %.not.i, label %mi_manage_os_memory.exit, label %24
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -601,8 +601,8 @@ _mi_os_numa_node_count.exit:                      ; preds = %9, %12
   %29 = shl nuw nsw i64 %28, 4
   %30 = add nuw nsw i64 %29, 64
   %31 = call ptr @_mi_os_alloc(i64 noundef %30, ptr noundef nonnull @_mi_stats_main) #6
-  %.not50.i = icmp eq ptr %31, null
-  br i1 %.not50.i, label %.mi_manage_os_memory.exit_crit_edge, label %32
+  %.not.i19 = icmp eq ptr %31, null
+  br i1 %.not.i19, label %.mi_manage_os_memory.exit_crit_edge, label %32
 
 .mi_manage_os_memory.exit_crit_edge:              ; preds = %25
   %.pre = load i64, ptr %4, align 8, !tbaa !3

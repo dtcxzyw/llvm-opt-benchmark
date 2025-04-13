@@ -922,8 +922,8 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h96bc56
 32:                                               ; preds = %62, %58, %34
   %.pn.i = phi { ptr, i32 } [ %35, %34 ], [ %63, %62 ], [ %59, %58 ]
   %33 = load i64, ptr %13, align 8, !range !17, !noundef !3
-  %.not52.i = icmp eq i64 %33, -9223372036854775808
-  br i1 %.not52.i, label %.thread7, label %69
+  %.not71.i = icmp eq i64 %33, -9223372036854775808
+  br i1 %.not71.i, label %.thread7, label %69
 
 34:                                               ; preds = %68, %54, %41, %30
   %35 = landingpad { ptr, i32 }
@@ -937,8 +937,8 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h96bc56
 
 39:                                               ; preds = %36
   %40 = load i64, ptr %13, align 8, !range !17, !noundef !3
-  %.not50.i = icmp eq i64 %40, -9223372036854775808
-  br i1 %.not50.i, label %70, label %45
+  %.not53.i = icmp eq i64 %40, -9223372036854775808
+  br i1 %.not53.i, label %70, label %45
 
 41:                                               ; preds = %36
   %42 = extractvalue { ptr, ptr } %31, 1
@@ -1068,7 +1068,7 @@ _ZN22cranelift_codegen_meta6srcgen9Formatter6indent17h4628b67f1bc073b1E.exit.i: 
   ret void
 
 .thread7:                                         ; preds = %69, %51, %47, %32, %71
-  %.pn6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %71 ], [ %.pn.i, %32 ], [ %.pn.i, %69 ], [ %lpad.thr_comm.split-lp.i, %51 ], [ %48, %47 ]
+  %.pn6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %71 ], [ %.pn.i, %69 ], [ %.pn.i, %32 ], [ %lpad.thr_comm.split-lp.i, %51 ], [ %48, %47 ]
   resume { ptr, i32 } %.pn6
 
 71:                                               ; preds = %2

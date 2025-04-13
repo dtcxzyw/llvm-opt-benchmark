@@ -27323,17 +27323,17 @@ define linkonce_odr void @_ZN7QVectorI5PatchE6appendERKS0_(ptr noundef nonnull a
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2147483647
-  %11 = icmp ugt i32 %7, %10
+  %11 = icmp ule i32 %7, %10
   %12 = load atomic i32, ptr %4 monotonic, align 4
-  %13 = icmp ugt i32 %12, 1
-  %brmerge = select i1 %13, i1 true, i1 %11
-  br i1 %brmerge, label %14, label %74
+  %13 = icmp ult i32 %12, 2
+  %or.cond.not = select i1 %13, i1 %11, i1 false
+  br i1 %or.cond.not, label %74, label %14
 
 14:                                               ; preds = %2
   call void @_ZN5PatchC2ERKS_(ptr noundef nonnull align 8 dereferenceable(161) %3, ptr noundef nonnull align 8 dereferenceable(161) %1)
-  %15 = select i1 %11, i32 8, i32 0
+  %15 = select i1 %11, i32 0, i32 8
   %16 = load ptr, ptr %0, align 8
-  br i1 %11, label %17, label %21
+  br i1 %11, label %21, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 4

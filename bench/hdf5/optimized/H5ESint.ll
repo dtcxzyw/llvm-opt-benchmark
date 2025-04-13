@@ -144,7 +144,7 @@ define range(i32 0, 2) i32 @H5ES_term_package() local_unnamed_addr #0 {
   store i8 0, ptr @H5ES_init_g, align 1, !tbaa !3
   br label %7
 
-7:                                                ; preds = %0, %6, %3
+7:                                                ; preds = %6, %3, %0
   %.0 = phi i32 [ 0, %6 ], [ 1, %3 ], [ 0, %0 ]
   ret i32 %.0
 }

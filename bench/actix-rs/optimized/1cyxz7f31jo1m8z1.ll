@@ -8273,11 +8273,11 @@ define noundef zeroext i1 @"_ZN111_$LT$actix_web..middleware..compress..Compress
   %8 = tail call { ptr, i64 } @_ZN4http6header5value11HeaderValue6to_str17h5eb48323f4d80c17E(ptr noundef nonnull align 8 %0)
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread76, label %12
+  br i1 %10, label %.thread74, label %12
 
-11:                                               ; preds = %1, %.thread76
-  %.023 = phi i1 [ %.181, %.thread76 ], [ true, %1 ]
-  ret i1 %.023
+11:                                               ; preds = %1, %.thread74
+  %.026 = phi i1 [ %.177, %.thread74 ], [ true, %1 ]
+  ret i1 %.026
 
 12:                                               ; preds = %7
   %13 = extractvalue { ptr, i64 } %8, 1
@@ -8289,14 +8289,14 @@ define noundef zeroext i1 @"_ZN111_$LT$actix_web..middleware..compress..Compress
 
 .thread52:                                        ; preds = %12
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
-  br label %.thread76
+  br label %.thread74
 
 16:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false), !noalias !1247
   %.pr.pr = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
   %.not = icmp eq i64 %.pr.pr, 2
-  br i1 %.not, label %.thread76, label %17
+  br i1 %.not, label %.thread74, label %17
 
 17:                                               ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1248)
@@ -8341,26 +8341,26 @@ define noundef zeroext i1 @"_ZN111_$LT$actix_web..middleware..compress..Compress
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %34 = load i64, ptr %5, align 8, !range !1061, !noundef !4
-  %.not25 = icmp eq i64 %34, 2
-  br i1 %.not25, label %43, label %44
+  %.not79 = icmp eq i64 %34, 2
+  br i1 %.not79, label %43, label %44
 
 _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %27
   %.not.i = icmp eq i64 %24, 5
-  br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit", label %.thread67
+  br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit", label %.thread65
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit": ; preds = %_ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(5) %.sroa.0.0.i.i, ptr noundef nonnull dereferenceable(5) @anon.5e77c1c506aa0ed12307cc52e552df81.136, i64 5), !alias.scope !1262
   %35 = icmp eq i32 %bcmp.i, 0
-  br i1 %35, label %40, label %.thread67
+  br i1 %35, label %40, label %.thread65
 
-.thread67:                                        ; preds = %_ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit"
+.thread65:                                        ; preds = %_ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit"
   br i1 %.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i38", label %36
 
-36:                                               ; preds = %.thread67
-  %.not82 = icmp eq i64 %24, %.sroa.3.0.i.i
-  br i1 %.not82, label %_ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit42, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i37.invoke"
+36:                                               ; preds = %.thread65
+  %.not78 = icmp eq i64 %24, %.sroa.3.0.i.i
+  br i1 %.not78, label %_ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit42, label %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.thread.i37.invoke"
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i38": ; preds = %.thread67
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i38": ; preds = %.thread65
   %37 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %24
   %38 = load i8, ptr %37, align 1, !alias.scope !1266, !noalias !1271, !noundef !4
   %39 = icmp sgt i8 %38, -65
@@ -8378,7 +8378,7 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit:     ; preds = %"_ZN4core3str21_$LT
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 88, i1 false)
   call void @"_ZN4core3ptr31drop_in_place$LT$mime..Mime$GT$17hdda841d0bd38a0adE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %4)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
-  br label %.thread76
+  br label %.thread74
 
 _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit42:   ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i38", %36
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit46", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit46.thread"
@@ -8393,9 +8393,9 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit42:   ; preds = %"_ZN4core3str21_$LT
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 88, i1 false)
   call void @"_ZN4core3ptr31drop_in_place$LT$mime..Mime$GT$17hdda841d0bd38a0adE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %3)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
-  br label %.thread76
+  br label %.thread74
 
-43:                                               ; preds = %33, %44
+43:                                               ; preds = %44, %33
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
 44:                                               ; preds = %33
@@ -8408,14 +8408,14 @@ _ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit42:   ; preds = %"_ZN4core3str21_$LT
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #25
   unreachable
 
-.thread76:                                        ; preds = %7, %16, %.thread52, %42, %40, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit46.thread"
-  %.181 = phi i1 [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit46.thread" ], [ false, %40 ], [ false, %42 ], [ true, %.thread52 ], [ true, %16 ], [ true, %7 ]
+.thread74:                                        ; preds = %7, %16, %.thread52, %42, %40, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit46.thread"
+  %.177 = phi i1 [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit46.thread" ], [ false, %40 ], [ false, %42 ], [ true, %.thread52 ], [ true, %16 ], [ true, %7 ]
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
   br label %11
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit46.thread": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb277773516156c9aE.exit46", %_ZN4mime4Mime5type_17h04ec0a316a56c45bE.exit42, %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$3get17he5a2ef1652ac882fE.exit.i"
   call void @"_ZN4core3ptr31drop_in_place$LT$mime..Mime$GT$17hdda841d0bd38a0adE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %5)
-  br label %.thread76
+  br label %.thread74
 }
 
 ; Function Attrs: nonlazybind uwtable

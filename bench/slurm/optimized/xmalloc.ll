@@ -33,7 +33,7 @@ define dso_local ptr @slurm_xcalloc(i64 noundef %0, i64 noundef %1, i1 noundef z
   %8 = icmp ne i64 %1, 0
   %9 = icmp ne i64 %0, 0
   %or.cond = and i1 %9, %8
-  br i1 %or.cond, label %10, label %30
+  br i1 %or.cond, label %10, label %31
 
 10:                                               ; preds = %7
   %.not = icmp eq i64 %0, 1
@@ -46,7 +46,7 @@ define dso_local ptr @slurm_xcalloc(i64 noundef %0, i64 noundef %1, i1 noundef z
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  br i1 %3, label %30, label %16
+  br i1 %3, label %31, label %16
 
 16:                                               ; preds = %15
   tail call void @log_oom(ptr noundef %4, i32 noundef %5, ptr noundef %6) #11
@@ -68,28 +68,28 @@ define dso_local ptr @slurm_xcalloc(i64 noundef %0, i64 noundef %1, i1 noundef z
 
 24:                                               ; preds = %22, %20
   %.0 = phi ptr [ %21, %20 ], [ %23, %22 ]
-  %.not29 = icmp eq ptr %.0, null
-  %brmerge.not = and i1 %3, %.not29
-  br i1 %brmerge.not, label %30, label %25
+  %25 = icmp eq ptr %.0, null
+  %or.cond3 = and i1 %3, %25
+  br i1 %or.cond3, label %31, label %26
 
-25:                                               ; preds = %24
-  br i1 %.not29, label %26, label %27
+26:                                               ; preds = %24
+  br i1 %25, label %27, label %28
 
-26:                                               ; preds = %25
+27:                                               ; preds = %26
   tail call void @log_oom(ptr noundef %4, i32 noundef %5, ptr noundef %6) #11
   tail call void @abort() #12
   unreachable
 
-27:                                               ; preds = %25
+28:                                               ; preds = %26
   store i64 66, ptr %.0, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i64 %18, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  br label %30
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store i64 %18, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  br label %31
 
-30:                                               ; preds = %24, %15, %7, %27
-  %.026 = phi ptr [ %29, %27 ], [ null, %7 ], [ null, %15 ], [ null, %24 ]
-  ret ptr %.026
+31:                                               ; preds = %24, %15, %7, %28
+  %.028 = phi ptr [ %30, %28 ], [ null, %7 ], [ null, %15 ], [ null, %24 ]
+  ret ptr %.028
 }
 
 declare void @log_oom(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3

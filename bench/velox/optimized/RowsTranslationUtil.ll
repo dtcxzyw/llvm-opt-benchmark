@@ -89,26 +89,26 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %
   store ptr %call6.i.i, ptr %agg.result, align 8, !alias.scope !10
   %5 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !10
   %6 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !10
-  %cmp.not.i9.i.i = icmp ugt i64 %1, %6
-  br i1 %cmp.not.i9.i.i, label %if.then.i12.i.i, label %if.end.i.i.i
+  %cmp.not.i.i.i = icmp ugt i64 %1, %6
+  br i1 %cmp.not.i.i.i, label %if.then.i11.i.i, label %if.end.i.i.i
 
-if.then.i12.i.i:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
+if.then.i11.i.i:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
   tail call void @llvm.trap()
   unreachable
 
 if.end.i.i.i:                                     ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
-  %cmp2.not.i.not.i.i = icmp eq i32 %numElements, 0
-  br i1 %cmp2.not.i.not.i.i, label %_ZN8facebook5velox15allocateIndicesEiPNS0_6memory10MemoryPoolE.exit, label %if.then6.i.i.i
+  %cmp2.not.i.i.not.i = icmp eq i32 %numElements, 0
+  br i1 %cmp2.not.i.i.not.i, label %_ZN8facebook5velox15allocateIndicesEiPNS0_6memory10MemoryPoolE.exit, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %call6.i.i, align 8, !noalias !10
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !10
-  %call.i.i13.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(64) %call6.i.i)
+  %call.i.i12.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(64) %call6.i.i)
           to label %call.i.i.noexc.i.i unwind label %lpad.i.i, !noalias !10
 
 call.i.i.noexc.i.i:                               ; preds = %if.then6.i.i.i
-  br i1 %call.i.i13.i.i, label %if.then.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i
+  br i1 %call.i.i12.i.i, label %if.then.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i.noexc.i.i
   tail call void @llvm.trap()
@@ -173,8 +173,8 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
 
 land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
   %17 = load ptr, ptr %topLevelRows, align 8
-  %cmp.not.i.i.i = icmp sgt i32 %15, 0
-  br i1 %cmp.not.i.i.i, label %if.end.i.i.i.i, label %land.end.i.i
+  %cmp.not.i.i.i4 = icmp sgt i32 %15, 0
+  br i1 %cmp.not.i.i.i4, label %if.end.i.i.i.i, label %land.end.i.i
 
 if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
   %18 = and i32 %15, 2147483584
@@ -263,13 +263,13 @@ for.body.lr.ph.i.i:                               ; preds = %if.end.i4.i
   %33 = sext i32 %32 to i64
   %wide.trip.count.i.i = zext nneg i32 %31 to i64
   %34 = trunc nsw i64 %indvars.iv.i to i32
-  %invariant.gep35 = getelementptr i32, ptr %12, i64 %33
+  %invariant.gep36 = getelementptr i32, ptr %12, i64 %33
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i5.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i6.i, %for.body.i.i ]
-  %gep36 = getelementptr i32, ptr %invariant.gep35, i64 %indvars.iv.i5.i
-  store i32 %34, ptr %gep36, align 4
+  %gep37 = getelementptr i32, ptr %invariant.gep36, i64 %indvars.iv.i5.i
+  store i32 %34, ptr %gep37, align 4
   %indvars.iv.next.i6.i = add nuw nsw i64 %indvars.iv.i5.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i6.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.loopexit.i", label %for.body.i.i, !llvm.loop !13
@@ -356,13 +356,13 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.end.i.i.i.i.i.i
   %46 = load i32, ptr %arrayidx3.i.i.i.i.i.i, align 4
   %47 = sext i32 %46 to i64
   %wide.trip.count.i.i.i.i.i.i = zext nneg i32 %45 to i64
-  %invariant.gep33 = getelementptr i32, ptr %12, i64 %47
+  %invariant.gep34 = getelementptr i32, ptr %12, i64 %47
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %gep34 = getelementptr i32, ptr %invariant.gep33, i64 %indvars.iv.i.i.i.i.i.i
-  store i32 %add.i26.i.i.i.i, ptr %gep34, align 4
+  %gep35 = getelementptr i32, ptr %invariant.gep34, i64 %indvars.iv.i.i.i.i.i.i
+  store i32 %add.i26.i.i.i.i, ptr %gep35, align 4
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i.i, label %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i.i.i.i.i", label %for.body.i.i.i.i.i.i, !llvm.loop !13
@@ -496,13 +496,13 @@ for.body.lr.ph.i.i89.i.i.i.i.us:                  ; preds = %for.body.i.i.i.i.i.
   %56 = load i32, ptr %arrayidx3.i.i90.i.i.i.i.us, align 4
   %57 = sext i32 %56 to i64
   %wide.trip.count.i.i91.i.i.i.i.us = zext nneg i32 %55 to i64
-  %invariant.gep27.us = getelementptr i32, ptr %12, i64 %57
+  %invariant.gep28.us = getelementptr i32, ptr %12, i64 %57
   br label %for.body.i.i92.i.i.i.i.us
 
 for.body.i.i92.i.i.i.i.us:                        ; preds = %for.body.i.i92.i.i.i.i.us, %for.body.lr.ph.i.i89.i.i.i.i.us
   %indvars.iv.i.i93.i.i.i.i.us = phi i64 [ 0, %for.body.lr.ph.i.i89.i.i.i.i.us ], [ %indvars.iv.next.i.i95.i.i.i.i.us, %for.body.i.i92.i.i.i.i.us ]
-  %gep28.us = getelementptr i32, ptr %invariant.gep27.us, i64 %indvars.iv.i.i93.i.i.i.i.us
-  store i32 %conv7.i.i.i.i.i.us, ptr %gep28.us, align 4
+  %gep29.us = getelementptr i32, ptr %invariant.gep28.us, i64 %indvars.iv.i.i93.i.i.i.i.us
+  store i32 %conv7.i.i.i.i.i.us, ptr %gep29.us, align 4
   %indvars.iv.next.i.i95.i.i.i.i.us = add nuw nsw i64 %indvars.iv.i.i93.i.i.i.i.us, 1
   %exitcond.not.i.i96.i.i.i.i.us = icmp eq i64 %indvars.iv.next.i.i95.i.i.i.i.us, %wide.trip.count.i.i91.i.i.i.i.us
   br i1 %exitcond.not.i.i96.i.i.i.i.us, label %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i88.i.i.i.i.us", label %for.body.i.i92.i.i.i.i.us, !llvm.loop !13
@@ -537,13 +537,13 @@ for.body.lr.ph.i.i89.i.i.i.i:                     ; preds = %if.end.i.i85.i.i.i.
   %60 = load i32, ptr %arrayidx3.i.i90.i.i.i.i, align 4
   %61 = sext i32 %60 to i64
   %wide.trip.count.i.i91.i.i.i.i = zext nneg i32 %59 to i64
-  %invariant.gep27 = getelementptr i32, ptr %12, i64 %61
+  %invariant.gep28 = getelementptr i32, ptr %12, i64 %61
   br label %for.body.i.i92.i.i.i.i
 
 for.body.i.i92.i.i.i.i:                           ; preds = %for.body.i.i92.i.i.i.i, %for.body.lr.ph.i.i89.i.i.i.i
   %indvars.iv.i.i93.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i89.i.i.i.i ], [ %indvars.iv.next.i.i95.i.i.i.i, %for.body.i.i92.i.i.i.i ]
-  %gep28 = getelementptr i32, ptr %invariant.gep27, i64 %indvars.iv.i.i93.i.i.i.i
-  store i32 %conv7.i.i.i.i.i, ptr %gep28, align 4
+  %gep29 = getelementptr i32, ptr %invariant.gep28, i64 %indvars.iv.i.i93.i.i.i.i
+  store i32 %conv7.i.i.i.i.i, ptr %gep29, align 4
   %indvars.iv.next.i.i95.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i93.i.i.i.i, 1
   %exitcond.not.i.i96.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i95.i.i.i.i, %wide.trip.count.i.i91.i.i.i.i
   br i1 %exitcond.not.i.i96.i.i.i.i, label %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i88.i.i.i.i", label %for.body.i.i92.i.i.i.i, !llvm.loop !13
@@ -582,13 +582,13 @@ for.body.lr.ph.i23.i.i.i.i.i:                     ; preds = %if.end.i20.i.i.i.i.
   %65 = load i32, ptr %arrayidx3.i24.i.i.i.i.i, align 4
   %66 = sext i32 %65 to i64
   %wide.trip.count.i25.i.i.i.i.i = zext nneg i32 %64 to i64
-  %invariant.gep29 = getelementptr i32, ptr %12, i64 %66
+  %invariant.gep30 = getelementptr i32, ptr %12, i64 %66
   br label %for.body.i26.i.i.i.i.i
 
 for.body.i26.i.i.i.i.i:                           ; preds = %for.body.i26.i.i.i.i.i, %for.body.lr.ph.i23.i.i.i.i.i
   %indvars.iv.i27.i.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i23.i.i.i.i.i ], [ %indvars.iv.next.i29.i.i.i.i.i, %for.body.i26.i.i.i.i.i ]
-  %gep30 = getelementptr i32, ptr %invariant.gep29, i64 %indvars.iv.i27.i.i.i.i.i
-  store i32 %add10.i.i.i.i.i, ptr %gep30, align 4
+  %gep31 = getelementptr i32, ptr %invariant.gep30, i64 %indvars.iv.i27.i.i.i.i.i
+  store i32 %add10.i.i.i.i.i, ptr %gep31, align 4
   %indvars.iv.next.i29.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i27.i.i.i.i.i, 1
   %exitcond.not.i30.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i29.i.i.i.i.i, %wide.trip.count.i25.i.i.i.i.i
   br i1 %exitcond.not.i30.i.i.i.i.i, label %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit31.i.i.i.i.i", label %for.body.i26.i.i.i.i.i, !llvm.loop !13
@@ -654,13 +654,13 @@ for.body.lr.ph.i.i132.i.i.i.i:                    ; preds = %if.end.i.i125.i.i.i
   %71 = load i32, ptr %arrayidx3.i.i133.i.i.i.i, align 4
   %72 = sext i32 %71 to i64
   %wide.trip.count.i.i134.i.i.i.i = zext nneg i32 %70 to i64
-  %invariant.gep31 = getelementptr i32, ptr %12, i64 %72
+  %invariant.gep32 = getelementptr i32, ptr %12, i64 %72
   br label %for.body.i.i135.i.i.i.i
 
 for.body.i.i135.i.i.i.i:                          ; preds = %for.body.i.i135.i.i.i.i, %for.body.lr.ph.i.i132.i.i.i.i
   %indvars.iv.i.i136.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i132.i.i.i.i ], [ %indvars.iv.next.i.i138.i.i.i.i, %for.body.i.i135.i.i.i.i ]
-  %gep32 = getelementptr i32, ptr %invariant.gep31, i64 %indvars.iv.i.i136.i.i.i.i
-  store i32 %add.i115.i.i.i.i, ptr %gep32, align 4
+  %gep33 = getelementptr i32, ptr %invariant.gep32, i64 %indvars.iv.i.i136.i.i.i.i
+  store i32 %add.i115.i.i.i.i, ptr %gep33, align 4
   %indvars.iv.next.i.i138.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i136.i.i.i.i, 1
   %exitcond.not.i.i139.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i138.i.i.i.i, %wide.trip.count.i.i134.i.i.i.i
   br i1 %exitcond.not.i.i139.i.i.i.i, label %"_ZZN8facebook5velox9functions24getElementToTopLevelRowsEiRKNS0_17SelectivityVectorEPKiS6_PKmPNS0_6memory10MemoryPoolEENK3$_0clEi.exit.i128.i.i.i.i", label %for.body.i.i135.i.i.i.i, !llvm.loop !13

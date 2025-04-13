@@ -196,10 +196,10 @@ define hidden noundef i64 @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
-  %.sroa.4.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx27, align 8, !noalias !23
-  %.sroa.5.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %5, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx29, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, i64 7, i1 false)
+  %.sroa.4.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i8 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx37, align 8, !noalias !23
+  %.sroa.5.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %5, i64 17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx39, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, i64 7, i1 false)
   %19 = call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h7a9b941820e16e4cE.llvm.1815467632243914109(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, i64 noundef %.0, ptr noalias noundef nonnull align 1 %3), !noalias !24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !16
   br label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h40e52a675b65f44bE.exit"
@@ -208,8 +208,8 @@ define hidden noundef i64 @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   %.0.i = phi i64 [ %19, %17 ], [ %.0, %16 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !noundef !4
-  %.not9 = icmp eq ptr %21, null
-  br i1 %.not9, label %30, label %22
+  %.not19 = icmp eq ptr %21, null
+  br i1 %.not19, label %30, label %22
 
 22:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h40e52a675b65f44bE.exit"
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -219,34 +219,34 @@ define hidden noundef i64 @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %24, ptr %25, align 8
   %26 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17hbcbfb891ad6146c9E.llvm.1815467632243914109(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  %.fca.0.extract.i10.i.i.i11 = extractvalue { i32, i32 } %26, 0
-  %switch.i11.i.i.i12 = icmp eq i32 %.fca.0.extract.i10.i.i.i11, 0
-  %.fca.1.extract.i12.i.i.i13 = extractvalue { i32, i32 } %26, 1
-  %.not913.i.i.i14 = icmp eq i32 %.fca.1.extract.i12.i.i.i13, 1114112
-  %.not14.i.i.i15 = select i1 %switch.i11.i.i.i12, i1 true, i1 %.not913.i.i.i14
-  br i1 %.not14.i.i.i15, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0f89fe07fae280b5E.exit26", label %.lr.ph.i.i.i16
+  %.fca.0.extract.i10.i.i.i21 = extractvalue { i32, i32 } %26, 0
+  %switch.i11.i.i.i22 = icmp eq i32 %.fca.0.extract.i10.i.i.i21, 0
+  %.fca.1.extract.i12.i.i.i23 = extractvalue { i32, i32 } %26, 1
+  %.not913.i.i.i24 = icmp eq i32 %.fca.1.extract.i12.i.i.i23, 1114112
+  %.not14.i.i.i25 = select i1 %switch.i11.i.i.i22, i1 true, i1 %.not913.i.i.i24
+  br i1 %.not14.i.i.i25, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0f89fe07fae280b5E.exit36", label %.lr.ph.i.i.i26
 
-.lr.ph.i.i.i16:                                   ; preds = %22, %.lr.ph.i.i.i16
-  %.fca.1.extract.i16.i.i.i17 = phi i32 [ %.fca.1.extract.i.i.i.i22, %.lr.ph.i.i.i16 ], [ %.fca.1.extract.i12.i.i.i13, %22 ]
-  %.015.i.i.i18 = phi i64 [ %28, %.lr.ph.i.i.i16 ], [ %.0.i, %22 ]
-  %27 = icmp ult i32 %.fca.1.extract.i16.i.i.i17, 65536
-  %..i.i.i.i.i.i19 = select i1 %27, i64 1, i64 2
-  %28 = add i64 %..i.i.i.i.i.i19, %.015.i.i.i18
+.lr.ph.i.i.i26:                                   ; preds = %22, %.lr.ph.i.i.i26
+  %.fca.1.extract.i16.i.i.i27 = phi i32 [ %.fca.1.extract.i.i.i.i32, %.lr.ph.i.i.i26 ], [ %.fca.1.extract.i12.i.i.i23, %22 ]
+  %.015.i.i.i28 = phi i64 [ %28, %.lr.ph.i.i.i26 ], [ %.0.i, %22 ]
+  %27 = icmp ult i32 %.fca.1.extract.i16.i.i.i27, 65536
+  %..i.i.i.i.i.i29 = select i1 %27, i64 1, i64 2
+  %28 = add i64 %..i.i.i.i.i.i29, %.015.i.i.i28
   %29 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17hbcbfb891ad6146c9E.llvm.1815467632243914109(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  %.fca.0.extract.i.i.i.i20 = extractvalue { i32, i32 } %29, 0
-  %switch.i.i.i.i21 = icmp eq i32 %.fca.0.extract.i.i.i.i20, 0
-  %.fca.1.extract.i.i.i.i22 = extractvalue { i32, i32 } %29, 1
-  %.not9.i.i.i23 = icmp eq i32 %.fca.1.extract.i.i.i.i22, 1114112
-  %.not.i.i.i24 = select i1 %switch.i.i.i.i21, i1 true, i1 %.not9.i.i.i23
-  br i1 %.not.i.i.i24, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0f89fe07fae280b5E.exit26", label %.lr.ph.i.i.i16
+  %.fca.0.extract.i.i.i.i30 = extractvalue { i32, i32 } %29, 0
+  %switch.i.i.i.i31 = icmp eq i32 %.fca.0.extract.i.i.i.i30, 0
+  %.fca.1.extract.i.i.i.i32 = extractvalue { i32, i32 } %29, 1
+  %.not9.i.i.i33 = icmp eq i32 %.fca.1.extract.i.i.i.i32, 1114112
+  %.not.i.i.i34 = select i1 %switch.i.i.i.i31, i1 true, i1 %.not9.i.i.i33
+  br i1 %.not.i.i.i34, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0f89fe07fae280b5E.exit36", label %.lr.ph.i.i.i26
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0f89fe07fae280b5E.exit26": ; preds = %.lr.ph.i.i.i16, %22
-  %.0.lcssa.i.i.i25 = phi i64 [ %.0.i, %22 ], [ %28, %.lr.ph.i.i.i16 ]
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0f89fe07fae280b5E.exit36": ; preds = %.lr.ph.i.i.i26, %22
+  %.0.lcssa.i.i.i35 = phi i64 [ %.0.i, %22 ], [ %28, %.lr.ph.i.i.i26 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %30
 
-30:                                               ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0f89fe07fae280b5E.exit26", %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h40e52a675b65f44bE.exit"
-  %.1 = phi i64 [ %.0.i, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h40e52a675b65f44bE.exit" ], [ %.0.lcssa.i.i.i25, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0f89fe07fae280b5E.exit26" ]
+30:                                               ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0f89fe07fae280b5E.exit36", %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h40e52a675b65f44bE.exit"
+  %.1 = phi i64 [ %.0.i, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h40e52a675b65f44bE.exit" ], [ %.0.lcssa.i.i.i35, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0f89fe07fae280b5E.exit36" ]
   ret i64 %.1
 }
 

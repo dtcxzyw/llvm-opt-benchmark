@@ -6040,7 +6040,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState14ParseCharC
   store i32 1, ptr %3, align 8, !tbaa !58
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  br label %.loopexit112
+  br label %.loopexit113
 
 16:                                               ; preds = %11
   %17 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #33
@@ -6078,8 +6078,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState14ParseCharC
   store i64 %34, ptr %8, align 8, !tbaa !97
   %35 = load i32, ptr %0, align 8, !tbaa !7
   %36 = and i32 %35, 2052
-  %or.cond = icmp eq i32 %36, 4
-  br i1 %or.cond, label %43, label %37
+  %or.cond106 = icmp eq i32 %36, 4
+  br i1 %or.cond106, label %43, label %37
 
 37:                                               ; preds = %32
   %38 = tail call noundef zeroext i1 @_ZN10duckdb_re216CharClassBuilder8AddRangeEii(ptr noundef nonnull align 8 dereferenceable(64) %21, i32 noundef 10, i32 noundef 10)
@@ -6114,23 +6114,23 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState14ParseCharC
 
 50:                                               ; preds = %.lr.ph, %.backedge
   %51 = phi i64 [ %46, %.lr.ph ], [ %164, %.backedge ]
-  %.066137 = phi i1 [ true, %.lr.ph ], [ false, %.backedge ]
+  %.067138 = phi i1 [ true, %.lr.ph ], [ false, %.backedge ]
   %52 = load ptr, ptr %1, align 8, !tbaa !93
   %53 = load i8, ptr %52, align 1, !tbaa !27
   %54 = icmp ne i8 %53, 93
-  %55 = or i1 %.066137, %54
+  %55 = or i1 %.067138, %54
   br i1 %55, label %56, label %.critedge
 
 56:                                               ; preds = %50
   %57 = icmp ne i8 %53, 45
-  %brmerge = or i1 %.066137, %57
-  br i1 %brmerge, label %86, label %58
+  %or.cond = or i1 %.067138, %57
+  br i1 %or.cond, label %86, label %58
 
 58:                                               ; preds = %56
   %59 = load i32, ptr %0, align 8, !tbaa !7
   %60 = and i32 %59, 512
-  %.not75 = icmp eq i32 %60, 0
-  br i1 %.not75, label %61, label %.thread173
+  %.not76 = icmp eq i32 %60, 0
+  br i1 %.not76, label %61, label %.thread173
 
 61:                                               ; preds = %58
   %62 = icmp eq i64 %51, 1
@@ -6139,8 +6139,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState14ParseCharC
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %65 = load i8, ptr %64, align 1, !tbaa !27
-  %.not76 = icmp eq i8 %65, 93
-  br i1 %.not76, label %.thread173, label %66
+  %.not77 = icmp eq i8 %65, 93
+  br i1 %.not77, label %.thread173, label %66
 
 66:                                               ; preds = %63, %61
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 1
@@ -6196,13 +6196,13 @@ _ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit
 _ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread: ; preds = %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit, %78, %.thread28.i, %81
   call void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #32
-  br label %.loopexit112
+  br label %.loopexit113
 
 86:                                               ; preds = %56
   %87 = icmp ugt i64 %51, 2
   %88 = icmp eq i8 %53, 91
-  %or.cond106 = and i1 %87, %88
-  br i1 %or.cond106, label %89, label %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit.thread
+  %or.cond107 = and i1 %87, %88
+  br i1 %or.cond107, label %89, label %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit.thread
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %52, i64 1
@@ -6248,7 +6248,7 @@ _ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit
   %106 = getelementptr i8, ptr %.02946.i, i64 2
   %107 = ptrtoint ptr %106 to i64
   %108 = sub i64 %107, %96
-  br i1 %.not4.i.i.i, label %.lr.ph.preheader.i.i.i, label %.loopexit108
+  br i1 %.not4.i.i.i, label %.lr.ph.preheader.i.i.i, label %.loopexit109
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.critedge.i
   %109 = icmp eq ptr %106, %52
@@ -6269,7 +6269,7 @@ _ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i.i: ; preds = %.lr.ph.i.us.i.i
 _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.us.i.i: ; preds = %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i.i
   %indvars.iv.next.i.us.i.i = add nuw nsw i64 %indvars.iv.i.us.i.i, 1
   %exitcond.not.i.us.i.i = icmp eq i64 %indvars.iv.next.i.us.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.us.i.i, label %.loopexit108, label %.lr.ph.i.us.i.i, !llvm.loop !184
+  br i1 %exitcond.not.i.us.i.i, label %.loopexit109, label %.lr.ph.i.us.i.i, !llvm.loop !184
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.preheader.i.i.i, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
@@ -6299,7 +6299,7 @@ _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i: ; preds = %120
 _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i: ; preds = %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit108, label %.lr.ph.i.i.i, !llvm.loop !184
+  br i1 %exitcond.not.i.i.i, label %.loopexit109, label %.lr.ph.i.i.i, !llvm.loop !184
 
 _ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit: ; preds = %120, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i, %.lr.ph.i.us.i.i, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i.i
   %spec.select.i.i.ph.i = phi ptr [ %110, %_ZN10duckdb_re211StringPieceC2EPKc.exit.i.us.i.i ], [ %110, %.lr.ph.i.us.i.i ], [ %114, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.i.i.i ], [ %114, %120 ]
@@ -6312,14 +6312,14 @@ _ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16Cha
   call fastcc void @_ZN10duckdb_re2L9AddUGroupEPNS_16CharClassBuilderEPKNS_6UGroupEiNS_6Regexp10ParseFlagsE(ptr noundef %95, ptr noundef nonnull %spec.select.i.i.ph.i, i32 noundef %126, i32 noundef %94)
   br label %.backedge
 
-.loopexit108:                                     ; preds = %.critedge.i, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.us.i.i
+.loopexit109:                                     ; preds = %.critedge.i, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.us.i.i
   store i32 4, ptr %3, align 8, !tbaa !58
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %52, ptr %127, align 8, !tbaa !17
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %108, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !18
   call void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
-  br label %.loopexit112
+  br label %.loopexit113
 
 _ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit.thread: ; preds = %.critedge2.i, %98, %93, %89, %86
   %128 = icmp eq i8 %53, 92
@@ -6345,7 +6345,7 @@ _ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16Cha
 
 136:                                              ; preds = %132
   call void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
-  br label %.loopexit112
+  br label %.loopexit113
 
 .thread173:                                       ; preds = %58, %63, %129, %132, %_ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16CharClassBuilderEPNS_12RegexpStatusE.exit.thread
   %137 = load i32, ptr %0, align 8, !tbaa !7
@@ -6362,8 +6362,8 @@ _ZN10duckdb_re2L11ParseCCNameEPNS_11StringPieceENS_6Regexp10ParseFlagsEPNS_16Cha
   %143 = load ptr, ptr %1, align 8, !tbaa !93
   %144 = load i8, ptr %143, align 1, !tbaa !27
   %.not8.i = icmp ne i8 %144, 92
-  %brmerge138 = select i1 %.not8.i, i1 true, i1 %.not4.i.i.i82
-  br i1 %brmerge138, label %.loopexit, label %.lr.ph.i.i.i85
+  %brmerge = select i1 %.not8.i, i1 true, i1 %.not4.i.i.i82
+  br i1 %brmerge, label %.loopexit, label %.lr.ph.i.i.i85
 
 .lr.ph.i.i.i85:                                   ; preds = %142, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i89
   %indvars.iv.i.i.i86 = phi i64 [ %indvars.iv.next.i.i.i90, %_ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i89 ], [ 0, %142 ]
@@ -6407,7 +6407,7 @@ _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i89: ; preds = %_ZN10d
   store i32 0, ptr %7, align 4, !tbaa !47
   store i32 0, ptr %49, align 4, !tbaa !168
   %157 = call noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState12ParseCCRangeEPNS_11StringPieceEPNS_9RuneRangeERKS2_PNS_12RegexpStatusE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %3)
-  br i1 %157, label %158, label %.loopexit112.loopexit
+  br i1 %157, label %158, label %.loopexit113.loopexit
 
 158:                                              ; preds = %.loopexit
   %159 = load ptr, ptr %23, align 8, !tbaa !27
@@ -6429,7 +6429,7 @@ _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i89: ; preds = %_ZN10d
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !16
   call void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
-  br label %.loopexit112
+  br label %.loopexit113
 
 .critedge:                                        ; preds = %50
   %167 = getelementptr inbounds nuw i8, ptr %52, i64 1
@@ -6445,7 +6445,7 @@ _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i89: ; preds = %_ZN10d
 
 171:                                              ; preds = %169, %.critedge
   store ptr %17, ptr %2, align 8, !tbaa !63
-  br label %.loopexit112
+  br label %.loopexit113
 
 172:                                              ; preds = %41, %39
   %.sink = phi ptr [ %21, %41 ], [ %17, %39 ]
@@ -6454,13 +6454,13 @@ _ZN10duckdb_re2eqERKNS_11StringPieceES2_.exit.thread2.i.i.i89: ; preds = %_ZN10d
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
   resume { ptr, i32 } %.pn
 
-.loopexit112.loopexit:                            ; preds = %.loopexit
+.loopexit113.loopexit:                            ; preds = %.loopexit
   call void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
-  br label %.loopexit112
+  br label %.loopexit113
 
-.loopexit112:                                     ; preds = %.loopexit112.loopexit, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread, %.loopexit108, %136, %._crit_edge, %171, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %._crit_edge ], [ true, %171 ], [ false, %136 ], [ false, %.loopexit108 ], [ false, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread ], [ false, %.loopexit112.loopexit ]
+.loopexit113:                                     ; preds = %.loopexit113.loopexit, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread, %.loopexit109, %136, %._crit_edge, %171, %14
+  %.0 = phi i1 [ false, %14 ], [ false, %._crit_edge ], [ true, %171 ], [ false, %136 ], [ false, %.loopexit109 ], [ false, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit.thread ], [ false, %.loopexit113.loopexit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
   ret i1 %.0
 }
@@ -6477,8 +6477,8 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState14ParsePerlF
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !16
   %7 = load i32, ptr %0, align 8, !tbaa !7
   %8 = and i32 %7, 512
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %19, label %9
+  %.not43 = icmp eq i32 %8, 0
+  br i1 %.not43, label %19, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6489,14 +6489,14 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re26Regexp10ParseState14ParsePerlF
 13:                                               ; preds = %9
   %14 = load ptr, ptr %3, align 8, !tbaa !93
   %15 = load i8, ptr %14, align 1, !tbaa !27
-  %.not42 = icmp eq i8 %15, 40
-  br i1 %.not42, label %16, label %19
+  %.not44 = icmp eq i8 %15, 40
+  br i1 %.not44, label %16, label %19
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !27
-  %.not43 = icmp eq i8 %18, 63
-  br i1 %.not43, label %41, label %19
+  %.not45 = icmp eq i8 %18, 63
+  br i1 %.not45, label %41, label %19
 
 19:                                               ; preds = %16, %13, %9, %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6649,9 +6649,9 @@ common.resume:                                    ; preds = %140, %39
   br i1 %91, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %89, %144
-  %.03670134 = phi i8 [ %.137, %144 ], [ 0, %89 ]
-  %.03471133 = phi i1 [ %.135, %144 ], [ false, %89 ]
-  %.03272132 = phi i32 [ %.133, %144 ], [ %7, %89 ]
+  %.03771135 = phi i8 [ %.138, %144 ], [ 0, %89 ]
+  %.03572134 = phi i1 [ %.136, %144 ], [ false, %89 ]
+  %.03373133 = phi i32 [ %.134, %144 ], [ %7, %89 ]
   %92 = phi i64 [ %108, %144 ], [ %43, %89 ]
   %93 = phi ptr [ %107, %144 ], [ %42, %89 ]
   %94 = load ptr, ptr %90, align 8, !tbaa !19
@@ -6675,13 +6675,13 @@ common.resume:                                    ; preds = %140, %39
 
 .thread28.i:                                      ; preds = %101, %.lr.ph, %97
   %.not18.i = icmp eq ptr %94, null
-  br i1 %.not18.i, label %.thread48, label %104
+  br i1 %.not18.i, label %.thread50, label %104
 
 104:                                              ; preds = %.thread28.i
   store i32 13, ptr %94, align 8, !tbaa !58
   %105 = getelementptr inbounds nuw i8, ptr %94, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
-  br label %.thread48
+  br label %.thread50
 
 _ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit: ; preds = %101
   %106 = sext i32 %98 to i64
@@ -6690,7 +6690,7 @@ _ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit
   %108 = sub i64 %92, %106
   store i64 %108, ptr %10, align 8, !tbaa !97
   %109 = icmp slt i32 %98, 0
-  br i1 %109, label %.thread48, label %110
+  br i1 %109, label %.thread50, label %110
 
 110:                                              ; preds = %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit
   switch i32 %99, label %.thread [
@@ -6704,55 +6704,55 @@ _ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit
   ]
 
 111:                                              ; preds = %110
-  %112 = trunc nuw i8 %.03670134 to i1
+  %112 = trunc nuw i8 %.03771135 to i1
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %111
-  %114 = and i32 %.03272132, 16382
+  %114 = and i32 %.03373133, 16382
   br label %144
 
 115:                                              ; preds = %111
-  %116 = or i32 %.03272132, 1
+  %116 = or i32 %.03373133, 1
   br label %144
 
 117:                                              ; preds = %110
-  %118 = trunc nuw i8 %.03670134 to i1
+  %118 = trunc nuw i8 %.03771135 to i1
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
-  %120 = or i32 %.03272132, 16
+  %120 = or i32 %.03373133, 16
   br label %144
 
 121:                                              ; preds = %117
-  %122 = and i32 %.03272132, 16367
+  %122 = and i32 %.03373133, 16367
   br label %144
 
 123:                                              ; preds = %110
-  %124 = trunc nuw i8 %.03670134 to i1
+  %124 = trunc nuw i8 %.03771135 to i1
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %123
-  %126 = and i32 %.03272132, 16375
+  %126 = and i32 %.03373133, 16375
   br label %144
 
 127:                                              ; preds = %123
-  %128 = or i32 %.03272132, 8
+  %128 = or i32 %.03373133, 8
   br label %144
 
 129:                                              ; preds = %110
-  %130 = trunc nuw i8 %.03670134 to i1
+  %130 = trunc nuw i8 %.03771135 to i1
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %129
-  %132 = and i32 %.03272132, 16319
+  %132 = and i32 %.03373133, 16319
   br label %144
 
 133:                                              ; preds = %129
-  %134 = or i32 %.03272132, 64
+  %134 = or i32 %.03373133, 64
   br label %144
 
 135:                                              ; preds = %110
-  %136 = trunc nuw i8 %.03670134 to i1
+  %136 = trunc nuw i8 %.03771135 to i1
   br i1 %136, label %.thread, label %144
 
 137:                                              ; preds = %110
@@ -6774,22 +6774,22 @@ _ZN10duckdb_re26Regexp10ParseState20DoLeftParenNoCaptureEv.exit: ; preds = %137
   br label %.loopexit
 
 144:                                              ; preds = %135, %131, %133, %125, %127, %119, %121, %113, %115
-  %.137 = phi i8 [ 1, %131 ], [ 0, %133 ], [ 1, %125 ], [ 0, %127 ], [ 1, %119 ], [ 0, %121 ], [ 1, %113 ], [ 0, %115 ], [ 1, %135 ]
-  %.135 = phi i1 [ true, %131 ], [ true, %133 ], [ true, %125 ], [ true, %127 ], [ true, %119 ], [ true, %121 ], [ true, %113 ], [ true, %115 ], [ false, %135 ]
-  %.133 = phi i32 [ %132, %131 ], [ %134, %133 ], [ %126, %125 ], [ %128, %127 ], [ %120, %119 ], [ %122, %121 ], [ %114, %113 ], [ %116, %115 ], [ %.03272132, %135 ]
+  %.138 = phi i8 [ 1, %131 ], [ 0, %133 ], [ 1, %125 ], [ 0, %127 ], [ 1, %119 ], [ 0, %121 ], [ 1, %113 ], [ 0, %115 ], [ 1, %135 ]
+  %.136 = phi i1 [ true, %131 ], [ true, %133 ], [ true, %125 ], [ true, %127 ], [ true, %119 ], [ true, %121 ], [ true, %113 ], [ true, %115 ], [ false, %135 ]
+  %.134 = phi i32 [ %132, %131 ], [ %134, %133 ], [ %126, %125 ], [ %128, %127 ], [ %120, %119 ], [ %122, %121 ], [ %114, %113 ], [ %116, %115 ], [ %.03373133, %135 ]
   %145 = icmp eq i64 %108, 0
   br i1 %145, label %.thread, label %.lr.ph, !llvm.loop !207
 
 .loopexit:                                        ; preds = %110, %_ZN10duckdb_re26Regexp10ParseState20DoLeftParenNoCaptureEv.exit
-  %146 = trunc nuw i8 %.03670134 to i1
-  %.not50 = xor i1 %146, true
-  %brmerge = or i1 %.03471133, %.not50
-  br i1 %brmerge, label %147, label %.thread
+  %146 = trunc nuw i8 %.03771135 to i1
+  %.not = xor i1 %146, true
+  %or.cond = or i1 %.03572134, %.not
+  br i1 %or.cond, label %147, label %.thread
 
 147:                                              ; preds = %.loopexit
-  store i32 %.03272132, ptr %0, align 8, !tbaa !7
+  store i32 %.03373133, ptr %0, align 8, !tbaa !7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !16
-  br label %.thread48
+  br label %.thread50
 
 .thread:                                          ; preds = %144, %110, %135, %89, %.loopexit
   %148 = phi ptr [ %107, %.loopexit ], [ %42, %89 ], [ %107, %135 ], [ %107, %110 ], [ %107, %144 ]
@@ -6803,17 +6803,17 @@ _ZN10duckdb_re26Regexp10ParseState20DoLeftParenNoCaptureEv.exit: ; preds = %137
   store ptr %150, ptr %154, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 16
   store i64 %153, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !18
-  br label %.thread48
+  br label %.thread50
 
-.thread48:                                        ; preds = %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit, %.thread28.i, %104, %.thread, %147
+.thread50:                                        ; preds = %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit, %.thread28.i, %104, %.thread, %147
   %.4 = phi i1 [ false, %.thread ], [ true, %147 ], [ false, %104 ], [ false, %.thread28.i ], [ false, %_ZN10duckdb_re2L17StringPieceToRuneEPiPNS_11StringPieceEPNS_12RegexpStatusE.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #32
   br label %155
 
-155:                                              ; preds = %59, %88, %55, %.thread48, %_ZN10LogMessageD2Ev.exit
-  %.038 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ %.4, %.thread48 ], [ false, %59 ], [ %.2, %88 ], [ false, %55 ]
+155:                                              ; preds = %59, %88, %55, %.thread50, %_ZN10LogMessageD2Ev.exit
+  %.039 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ %.4, %.thread50 ], [ false, %59 ], [ %.2, %88 ], [ false, %55 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
-  ret i1 %.038
+  ret i1 %.039
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -48,51 +48,49 @@ define internal noundef i32 @ras_slurm_close() #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @prte_mca_ras_slurm_component_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #1 {
   %3 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #4
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %8
+  %4 = icmp ne ptr %3, null
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 228), align 4, !range !3
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond, label %7, label %16
 
-5:                                                ; preds = %2
-  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 228), align 4, !tbaa !3, !range !12, !noundef !13
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %17
+7:                                                ; preds = %2
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base_framework, i64 76), align 4, !tbaa !4
+  %or.cond3 = icmp ult i32 %8, 64
+  br i1 %or.cond3, label %9, label %16
 
-8:                                                ; preds = %5, %2
-  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base_framework, i64 76), align 4, !tbaa !14
-  %or.cond = icmp ult i32 %9, 64
-  br i1 %or.cond, label %10, label %17
+9:                                                ; preds = %7
+  %10 = zext nneg i32 %8 to i64
+  %11 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %10, i32 2
+  %12 = load i32, ptr %11, align 4, !tbaa !19
+  %13 = icmp sgt i32 %12, 1
+  br i1 %13, label %14, label %16
 
-10:                                               ; preds = %8
-  %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %11, i32 2
-  %13 = load i32, ptr %12, align 4, !tbaa !24
-  %14 = icmp sgt i32 %13, 1
-  br i1 %14, label %15, label %17
+14:                                               ; preds = %9
+  %15 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #4
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %8, ptr noundef nonnull @.str.11, ptr noundef %15) #4
+  br label %16
 
-15:                                               ; preds = %10
-  %16 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #4
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %9, ptr noundef nonnull @.str.11, ptr noundef %16) #4
-  br label %17
-
-17:                                               ; preds = %8, %10, %15, %5
-  %storemerge6 = phi i32 [ 0, %5 ], [ 50, %15 ], [ 50, %10 ], [ 50, %8 ]
-  %storemerge = phi ptr [ null, %5 ], [ @prte_ras_slurm_module, %15 ], [ @prte_ras_slurm_module, %10 ], [ @prte_ras_slurm_module, %8 ]
-  %.0 = phi i32 [ -1, %5 ], [ 0, %15 ], [ 0, %10 ], [ 0, %8 ]
-  store i32 %storemerge6, ptr %1, align 4, !tbaa !26
-  store ptr %storemerge, ptr %0, align 8, !tbaa !27
+16:                                               ; preds = %7, %9, %14, %2
+  %storemerge8 = phi i32 [ 0, %2 ], [ 50, %14 ], [ 50, %9 ], [ 50, %7 ]
+  %storemerge = phi ptr [ null, %2 ], [ @prte_ras_slurm_module, %14 ], [ @prte_ras_slurm_module, %9 ], [ @prte_ras_slurm_module, %7 ]
+  %.0 = phi i32 [ -1, %2 ], [ 0, %14 ], [ 0, %9 ], [ 0, %7 ]
+  store i32 %storemerge8, ptr %1, align 4, !tbaa !22
+  store ptr %storemerge, ptr %0, align 8, !tbaa !23
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ras_slurm_register() #1 {
-  store i32 30, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 224), align 8, !tbaa !29
+  store i32 30, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 224), align 8, !tbaa !25
   %1 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 224)) #4
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 228), align 4, !tbaa !3
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 228), align 4, !tbaa !28
   %2 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 228)) #4
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 232), align 8, !tbaa !30
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 232), align 8, !tbaa !29
   %3 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 232)) #4
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 240), align 8, !tbaa !31
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 240), align 8, !tbaa !30
   %4 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 240)) #4
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 241), align 1, !tbaa !32
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 241), align 1, !tbaa !31
   %5 = tail call i32 @pmix_mca_base_component_var_register(ptr noundef nonnull @prte_mca_ras_slurm_component, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_mca_ras_slurm_component, i64 241)) #4
   ret i32 0
 }
@@ -117,33 +115,32 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !10, i64 228}
-!4 = !{!"", !5, i64 0, !6, i64 224, !10, i64 228, !11, i64 232, !10, i64 240, !10, i64 241}
-!5 = !{!"pmix_mca_base_component_2_1_0_t", !6, i64 0, !6, i64 4, !6, i64 8, !7, i64 12, !6, i64 28, !6, i64 32, !6, i64 36, !7, i64 40, !6, i64 72, !6, i64 76, !6, i64 80, !7, i64 84, !6, i64 148, !6, i64 152, !6, i64 156, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !7, i64 192}
-!6 = !{!"int", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!"any pointer", !7, i64 0}
-!10 = !{!"_Bool", !7, i64 0}
-!11 = !{!"p1 omnipotent char", !9, i64 0}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = !{!15, !6, i64 76}
-!15 = !{!"pmix_mca_base_framework_t", !11, i64 0, !11, i64 8, !11, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !6, i64 48, !6, i64 52, !16, i64 56, !11, i64 64, !6, i64 72, !6, i64 76, !17, i64 80, !17, i64 352}
-!16 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !9, i64 0}
-!17 = !{!"pmix_list_t", !18, i64 0, !21, i64 120, !23, i64 264}
-!18 = !{!"pmix_object_t", !7, i64 0, !19, i64 40, !6, i64 48, !20, i64 56}
-!19 = !{!"p1 _ZTS12pmix_class_t", !9, i64 0}
-!20 = !{!"pmix_tma", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56}
-!21 = !{!"pmix_list_item_t", !18, i64 0, !22, i64 120, !22, i64 128, !6, i64 136}
-!22 = !{!"p1 _ZTS16pmix_list_item_t", !9, i64 0}
-!23 = !{!"long", !7, i64 0}
-!24 = !{!25, !6, i64 4}
-!25 = !{!"", !10, i64 0, !10, i64 1, !6, i64 4, !10, i64 8, !6, i64 12, !11, i64 16, !11, i64 24, !6, i64 32, !11, i64 40, !6, i64 48, !10, i64 52, !10, i64 53, !10, i64 54, !10, i64 55, !11, i64 56, !6, i64 64, !6, i64 68}
-!26 = !{!6, !6, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS28pmix_mca_base_module_2_0_0_t", !9, i64 0}
-!29 = !{!4, !6, i64 224}
-!30 = !{!4, !11, i64 232}
-!31 = !{!4, !10, i64 240}
-!32 = !{!4, !10, i64 241}
+!3 = !{i8 0, i8 2}
+!4 = !{!5, !10, i64 76}
+!5 = !{!"pmix_mca_base_framework_t", !6, i64 0, !6, i64 8, !6, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !10, i64 48, !10, i64 52, !11, i64 56, !6, i64 64, !10, i64 72, !10, i64 76, !12, i64 80, !12, i64 352}
+!6 = !{!"p1 omnipotent char", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"int", !8, i64 0}
+!11 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !7, i64 0}
+!12 = !{!"pmix_list_t", !13, i64 0, !16, i64 120, !18, i64 264}
+!13 = !{!"pmix_object_t", !8, i64 0, !14, i64 40, !10, i64 48, !15, i64 56}
+!14 = !{!"p1 _ZTS12pmix_class_t", !7, i64 0}
+!15 = !{!"pmix_tma", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56}
+!16 = !{!"pmix_list_item_t", !13, i64 0, !17, i64 120, !17, i64 128, !10, i64 136}
+!17 = !{!"p1 _ZTS16pmix_list_item_t", !7, i64 0}
+!18 = !{!"long", !8, i64 0}
+!19 = !{!20, !10, i64 4}
+!20 = !{!"", !21, i64 0, !21, i64 1, !10, i64 4, !21, i64 8, !10, i64 12, !6, i64 16, !6, i64 24, !10, i64 32, !6, i64 40, !10, i64 48, !21, i64 52, !21, i64 53, !21, i64 54, !21, i64 55, !6, i64 56, !10, i64 64, !10, i64 68}
+!21 = !{!"_Bool", !8, i64 0}
+!22 = !{!10, !10, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS28pmix_mca_base_module_2_0_0_t", !7, i64 0}
+!25 = !{!26, !10, i64 224}
+!26 = !{!"", !27, i64 0, !10, i64 224, !21, i64 228, !6, i64 232, !21, i64 240, !21, i64 241}
+!27 = !{!"pmix_mca_base_component_2_1_0_t", !10, i64 0, !10, i64 4, !10, i64 8, !8, i64 12, !10, i64 28, !10, i64 32, !10, i64 36, !8, i64 40, !10, i64 72, !10, i64 76, !10, i64 80, !8, i64 84, !10, i64 148, !10, i64 152, !10, i64 156, !7, i64 160, !7, i64 168, !7, i64 176, !7, i64 184, !8, i64 192}
+!28 = !{!26, !21, i64 228}
+!29 = !{!26, !6, i64 232}
+!30 = !{!26, !21, i64 240}
+!31 = !{!26, !21, i64 241}

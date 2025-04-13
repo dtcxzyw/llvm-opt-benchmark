@@ -7986,24 +7986,24 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.thread170, %3
-  %.lcssa314 = phi ptr [ %2, %3 ], [ %186, %.thread170 ]
-  %.lcssa264 = phi i1 [ %8, %3 ], [ %190, %.thread170 ]
-  br i1 %.lcssa264, label %13, label %.thread180
+._crit_edge:                                      ; preds = %.thread171, %3
+  %.lcssa316 = phi ptr [ %2, %3 ], [ %187, %.thread171 ]
+  %.lcssa266 = phi i1 [ %8, %3 ], [ %191, %.thread171 ]
+  br i1 %.lcssa266, label %13, label %.thread181
 
 13:                                               ; preds = %._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %.sroa.0.0.copyload = load ptr, ptr %14, align 8, !tbaa !24
-  br label %.thread180
+  br label %.thread181
 
-.lr.ph:                                           ; preds = %3, %.thread170
-  %15 = phi i32 [ %193, %.thread170 ], [ %11, %3 ]
-  %16 = phi ptr [ %192, %.thread170 ], [ %10, %3 ]
-  %17 = phi i64 [ %191, %.thread170 ], [ %9, %3 ]
-  %18 = phi i1 [ %190, %.thread170 ], [ %8, %3 ]
-  %19 = phi i64 [ %188, %.thread170 ], [ %6, %3 ]
-  %20 = phi ptr [ %187, %.thread170 ], [ %1, %3 ]
-  %21 = phi ptr [ %186, %.thread170 ], [ %2, %3 ]
+.lr.ph:                                           ; preds = %3, %.thread171
+  %15 = phi i32 [ %194, %.thread171 ], [ %11, %3 ]
+  %16 = phi ptr [ %193, %.thread171 ], [ %10, %3 ]
+  %17 = phi i64 [ %192, %.thread171 ], [ %9, %3 ]
+  %18 = phi i1 [ %191, %.thread171 ], [ %8, %3 ]
+  %19 = phi i64 [ %189, %.thread171 ], [ %6, %3 ]
+  %20 = phi ptr [ %188, %.thread171 ], [ %1, %3 ]
+  %21 = phi ptr [ %187, %.thread171 ], [ %2, %3 ]
   %22 = ptrtoint ptr %21 to i64
   %.in = and i64 %22, 1
   %23 = icmp ne i64 %.in, 0
@@ -8014,12 +8014,12 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %.lr.ph
-  br i1 %23, label %29, label %.thread180
+  br i1 %23, label %29, label %.thread181
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %.sroa.0.0.copyload40 = load ptr, ptr %30, align 8, !tbaa !24
-  br label %.thread180
+  %.sroa.0.0.copyload48 = load ptr, ptr %30, align 8, !tbaa !24
+  br label %.thread181
 
 31:                                               ; preds = %.lr.ph
   %32 = icmp eq i64 %17, %24
@@ -8027,19 +8027,19 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
 
 33:                                               ; preds = %31
   %34 = xor i1 %18, %23
-  br i1 %34, label %35, label %.thread180
+  br i1 %34, label %35, label %.thread181
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %.sroa.0.0.copyload43 = load ptr, ptr %36, align 8, !tbaa !24
-  br label %.thread180
+  %.sroa.0.0.copyload51 = load ptr, ptr %36, align 8, !tbaa !24
+  br label %.thread181
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   %41 = ptrtoint ptr %39 to i64
-  br i1 %40, label %153, label %42
+  br i1 %40, label %.thread162, label %42
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -8049,47 +8049,47 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %47 = icmp eq i64 %46, 1
   %48 = xor i64 %44, %22
   %49 = icmp eq i64 %48, 1
-  %or.cond = select i1 %47, i1 true, i1 %49
-  br i1 %or.cond, label %50, label %53
+  %or.cond192 = select i1 %47, i1 true, i1 %49
+  br i1 %or.cond192, label %50, label %53
 
 50:                                               ; preds = %42
-  br i1 %18, label %.thread180, label %51
+  br i1 %18, label %.thread181, label %51
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %.sroa.0.0.copyload45 = load ptr, ptr %52, align 8, !tbaa !24
-  br label %.thread180
+  %.sroa.0.0.copyload53 = load ptr, ptr %52, align 8, !tbaa !24
+  br label %.thread181
 
 53:                                               ; preds = %42
   %54 = icmp eq ptr %21, %39
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %53
-  br i1 %18, label %56, label %.thread180
+  br i1 %18, label %56, label %.thread181
 
 56:                                               ; preds = %55
   %57 = xor i64 %44, 1
   %58 = inttoptr i64 %57 to ptr
-  br label %.thread170
+  br label %.thread171
 
 59:                                               ; preds = %53
   %60 = icmp eq ptr %21, %45
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %59
-  br i1 %18, label %62, label %.thread180
+  br i1 %18, label %62, label %.thread181
 
 62:                                               ; preds = %61
   %63 = xor i64 %41, 1
   %64 = inttoptr i64 %63 to ptr
-  br label %.thread170
+  br label %.thread171
 
 65:                                               ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   %69 = ptrtoint ptr %67 to i64
-  br i1 %68, label %.thread417, label %70
+  br i1 %68, label %.thread162.thread417, label %70
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -8097,245 +8097,235 @@ define linkonce_odr hidden ptr @_ZN11aig_manager3imp7mk_nodeE7aig_litS1_(ptr nou
   %73 = inttoptr i64 %72 to ptr
   %74 = or i64 %19, %22
   %75 = and i64 %74, 1
-  %brmerge.not = icmp eq i64 %75, 0
-  br i1 %brmerge.not, label %76, label %94
+  %or.cond.not = icmp eq i64 %75, 0
+  br i1 %or.cond.not, label %76, label %94
 
 76:                                               ; preds = %70
   %77 = xor i64 %69, %41
   %78 = icmp eq i64 %77, 1
   %79 = xor i64 %72, %41
   %80 = icmp eq i64 %79, 1
-  %or.cond192 = select i1 %78, i1 true, i1 %80
+  %or.cond194 = select i1 %78, i1 true, i1 %80
   %81 = xor i64 %44, %69
   %82 = icmp eq i64 %81, 1
-  %or.cond194 = select i1 %or.cond192, i1 true, i1 %82
+  %or.cond196 = select i1 %or.cond194, i1 true, i1 %82
   %83 = xor i64 %72, %44
   %84 = icmp eq i64 %83, 1
-  %or.cond196 = select i1 %or.cond194, i1 true, i1 %84
-  br i1 %or.cond196, label %85, label %87
+  %or.cond198 = select i1 %or.cond196, i1 true, i1 %84
+  br i1 %or.cond198, label %85, label %87
 
 85:                                               ; preds = %76
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %.sroa.0.0.copyload48 = load ptr, ptr %86, align 8, !tbaa !24
-  br label %.thread180
+  %.sroa.0.0.copyload56 = load ptr, ptr %86, align 8, !tbaa !24
+  br label %.thread181
 
 87:                                               ; preds = %76
   %88 = icmp eq ptr %39, %67
   %89 = icmp eq i64 %44, %69
-  %or.cond197 = select i1 %88, i1 true, i1 %89
-  br i1 %or.cond197, label %.thread170, label %90
+  %or.cond199 = select i1 %88, i1 true, i1 %89
+  br i1 %or.cond199, label %.thread171, label %90
 
 90:                                               ; preds = %87
   %91 = icmp eq i64 %44, %72
-  br i1 %91, label %.thread170, label %92
+  br i1 %91, label %.thread171, label %92
 
 92:                                               ; preds = %90
   %93 = icmp eq i64 %72, %41
-  br i1 %93, label %.thread170, label %.thread
-
-.thread:                                          ; preds = %92
-  %.not154 = xor i1 %18, true
-  br label %.thread157
+  br i1 %93, label %.thread171, label %.thread162.thread
 
 94:                                               ; preds = %70
   %.not = xor i1 %18, true
-  %brmerge59 = or i1 %23, %.not
-  br i1 %brmerge59, label %116, label %95
+  %or.cond5 = or i1 %23, %.not
+  br i1 %or.cond5, label %116, label %95
 
 95:                                               ; preds = %94
   %96 = xor i64 %69, %41
   %97 = icmp eq i64 %96, 1
   %98 = xor i64 %72, %41
   %99 = icmp eq i64 %98, 1
-  %or.cond199 = select i1 %97, i1 true, i1 %99
+  %or.cond201 = select i1 %97, i1 true, i1 %99
   %100 = xor i64 %44, %69
   %101 = icmp eq i64 %100, 1
-  %or.cond201 = select i1 %or.cond199, i1 true, i1 %101
+  %or.cond203 = select i1 %or.cond201, i1 true, i1 %101
   %102 = xor i64 %72, %44
   %103 = icmp eq i64 %102, 1
-  %or.cond203 = select i1 %or.cond201, i1 true, i1 %103
-  br i1 %or.cond203, label %.thread180, label %104
+  %or.cond205 = select i1 %or.cond203, i1 true, i1 %103
+  br i1 %or.cond205, label %.thread181, label %104
 
 104:                                              ; preds = %95
   %105 = icmp eq i64 %44, %69
   %106 = icmp eq i64 %44, %72
-  %or.cond204 = select i1 %105, i1 true, i1 %106
-  br i1 %or.cond204, label %107, label %110
+  %or.cond206 = select i1 %105, i1 true, i1 %106
+  br i1 %or.cond206, label %107, label %110
 
 107:                                              ; preds = %104
   %108 = xor i64 %41, 1
   %109 = inttoptr i64 %108 to ptr
-  br label %.thread170
+  br label %.thread171
 
 110:                                              ; preds = %104
   %111 = icmp eq ptr %39, %67
   %112 = icmp eq i64 %72, %41
-  %or.cond205 = select i1 %111, i1 true, i1 %112
-  br i1 %or.cond205, label %113, label %.thread157
+  %or.cond207 = select i1 %111, i1 true, i1 %112
+  br i1 %or.cond207, label %113, label %.thread162.thread
 
 113:                                              ; preds = %110
   %114 = xor i64 %44, 1
   %115 = inttoptr i64 %114 to ptr
-  br label %.thread170
-
-.thread157:                                       ; preds = %110, %.thread
-  %.not156.ph = phi i1 [ %.not154, %.thread ], [ false, %110 ]
-  %.not60159 = xor i1 %23, true
-  br label %138
+  br label %.thread171
 
 116:                                              ; preds = %94
-  %.not60 = xor i1 %23, true
-  %brmerge61 = or i1 %18, %.not60
-  br i1 %brmerge61, label %138, label %117
+  %or.cond8 = and i1 %23, %.not
+  br i1 %or.cond8, label %117, label %138
 
 117:                                              ; preds = %116
   %118 = xor i64 %69, %41
   %119 = icmp eq i64 %118, 1
   %120 = xor i64 %72, %41
   %121 = icmp eq i64 %120, 1
-  %or.cond207 = select i1 %119, i1 true, i1 %121
+  %or.cond209 = select i1 %119, i1 true, i1 %121
   %122 = xor i64 %44, %69
   %123 = icmp eq i64 %122, 1
-  %or.cond209 = select i1 %or.cond207, i1 true, i1 %123
+  %or.cond211 = select i1 %or.cond209, i1 true, i1 %123
   %124 = xor i64 %72, %44
   %125 = icmp eq i64 %124, 1
-  %or.cond211 = select i1 %or.cond209, i1 true, i1 %125
-  br i1 %or.cond211, label %.thread180, label %126
+  %or.cond213 = select i1 %or.cond211, i1 true, i1 %125
+  br i1 %or.cond213, label %.thread181, label %126
 
 126:                                              ; preds = %117
   %127 = icmp eq ptr %67, %39
   %128 = icmp eq i64 %44, %69
-  %or.cond212 = select i1 %127, i1 true, i1 %128
-  br i1 %or.cond212, label %129, label %132
+  %or.cond214 = select i1 %127, i1 true, i1 %128
+  br i1 %or.cond214, label %129, label %132
 
 129:                                              ; preds = %126
   %130 = xor i64 %72, 1
   %131 = inttoptr i64 %130 to ptr
-  br label %.thread170
+  br label %.thread171
 
 132:                                              ; preds = %126
   %133 = icmp eq i64 %72, %41
   %134 = icmp eq i64 %72, %44
-  %or.cond213 = select i1 %133, i1 true, i1 %134
-  br i1 %or.cond213, label %135, label %138
+  %or.cond215 = select i1 %133, i1 true, i1 %134
+  br i1 %or.cond215, label %135, label %138
 
 135:                                              ; preds = %132
   %136 = xor i64 %69, 1
   %137 = inttoptr i64 %136 to ptr
-  br label %.thread170
+  br label %.thread171
 
-138:                                              ; preds = %132, %.thread157, %116
-  %.not60162 = phi i1 [ %.not60159, %.thread157 ], [ %.not60, %116 ], [ false, %132 ]
-  %.not156161 = phi i1 [ %.not156.ph, %.thread157 ], [ %.not, %116 ], [ %.not, %132 ]
-  %brmerge64 = or i1 %.not60162, %.not156161
-  br i1 %brmerge64, label %.thread416, label %139
+138:                                              ; preds = %132, %116
+  %139 = and i64 %19, 1
+  %140 = and i64 %139, %22
+  %or.cond10.not = icmp eq i64 %140, 0
+  br i1 %or.cond10.not, label %.thread162.thread, label %141
 
-139:                                              ; preds = %138
-  %140 = icmp eq ptr %39, %67
-  %141 = xor i64 %72, %44
-  %142 = icmp eq i64 %141, 1
-  %or.cond215 = select i1 %140, i1 %142, i1 false
-  br i1 %or.cond215, label %143, label %146
+141:                                              ; preds = %138
+  %142 = icmp eq ptr %39, %67
+  %143 = xor i64 %72, %44
+  %144 = icmp eq i64 %143, 1
+  %or.cond217 = select i1 %142, i1 %144, i1 false
+  br i1 %or.cond217, label %145, label %148
 
-143:                                              ; preds = %139
-  %144 = xor i64 %41, 1
-  %145 = inttoptr i64 %144 to ptr
-  br label %.thread180
+145:                                              ; preds = %141
+  %146 = xor i64 %41, 1
+  %147 = inttoptr i64 %146 to ptr
+  br label %.thread181
 
-146:                                              ; preds = %139
-  %147 = xor i64 %69, %41
-  %148 = icmp eq i64 %147, 1
-  %149 = icmp eq i64 %44, %72
-  %or.cond216 = select i1 %148, i1 %149, i1 false
-  br i1 %or.cond216, label %150, label %.thread416
+148:                                              ; preds = %141
+  %149 = xor i64 %69, %41
+  %150 = icmp eq i64 %149, 1
+  %151 = icmp eq i64 %44, %72
+  %or.cond218 = select i1 %150, i1 %151, i1 false
+  br i1 %or.cond218, label %152, label %.thread162.thread
 
-150:                                              ; preds = %146
-  %151 = xor i64 %44, 1
-  %152 = inttoptr i64 %151 to ptr
-  br label %.thread180
+152:                                              ; preds = %148
+  %153 = xor i64 %44, 1
+  %154 = inttoptr i64 %153 to ptr
+  br label %.thread181
 
-153:                                              ; preds = %37
+.thread162:                                       ; preds = %37
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %154 = ptrtoint ptr %.pre to i64
-  %155 = icmp eq ptr %.pre, null
-  br i1 %155, label %.thread417, label %.thread416
+  %155 = ptrtoint ptr %.pre to i64
+  %156 = icmp eq ptr %.pre, null
+  br i1 %156, label %.thread162.thread417, label %.thread162.thread
 
-.thread416:                                       ; preds = %138, %146, %153
-  %156 = phi i64 [ %154, %153 ], [ %69, %146 ], [ %69, %138 ]
-  %157 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %158 = load i64, ptr %157, align 8, !tbaa !24
-  %159 = inttoptr i64 %158 to ptr
-  %160 = ptrtoint ptr %20 to i64
-  %161 = xor i64 %156, %160
-  %162 = icmp eq i64 %161, 1
-  %163 = xor i64 %158, %160
-  %164 = icmp eq i64 %163, 1
-  %or.cond218 = select i1 %162, i1 true, i1 %164
-  br i1 %or.cond218, label %165, label %168
+.thread162.thread:                                ; preds = %148, %138, %92, %110, %.thread162
+  %157 = phi i64 [ %155, %.thread162 ], [ %69, %110 ], [ %69, %92 ], [ %69, %138 ], [ %69, %148 ]
+  %158 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %159 = load i64, ptr %158, align 8, !tbaa !24
+  %160 = inttoptr i64 %159 to ptr
+  %161 = ptrtoint ptr %20 to i64
+  %162 = xor i64 %157, %161
+  %163 = icmp eq i64 %162, 1
+  %164 = xor i64 %159, %161
+  %165 = icmp eq i64 %164, 1
+  %or.cond220 = select i1 %163, i1 true, i1 %165
+  br i1 %or.cond220, label %166, label %169
 
-165:                                              ; preds = %.thread416
-  br i1 %23, label %.thread180, label %166
+166:                                              ; preds = %.thread162.thread
+  br i1 %23, label %.thread181, label %167
 
-166:                                              ; preds = %165
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %.sroa.0.0.copyload54 = load ptr, ptr %167, align 8, !tbaa !24
-  br label %.thread180
+167:                                              ; preds = %166
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %.sroa.0.0.copyload62 = load ptr, ptr %168, align 8, !tbaa !24
+  br label %.thread181
 
-168:                                              ; preds = %.thread416
-  %169 = inttoptr i64 %156 to ptr
-  %170 = icmp eq ptr %20, %169
-  br i1 %170, label %171, label %175
+169:                                              ; preds = %.thread162.thread
+  %170 = inttoptr i64 %157 to ptr
+  %171 = icmp eq ptr %20, %170
+  br i1 %171, label %172, label %176
 
-171:                                              ; preds = %168
-  br i1 %23, label %172, label %.thread180
+172:                                              ; preds = %169
+  br i1 %23, label %173, label %.thread181
 
-172:                                              ; preds = %171
-  %173 = xor i64 %158, 1
-  %174 = inttoptr i64 %173 to ptr
-  br label %.thread170
+173:                                              ; preds = %172
+  %174 = xor i64 %159, 1
+  %175 = inttoptr i64 %174 to ptr
+  br label %.thread171
 
-175:                                              ; preds = %168
-  %176 = icmp eq ptr %20, %159
-  br i1 %176, label %177, label %.thread417
+176:                                              ; preds = %169
+  %177 = icmp eq ptr %20, %160
+  br i1 %177, label %178, label %.thread162.thread417
 
-177:                                              ; preds = %175
-  br i1 %23, label %178, label %.thread180
+178:                                              ; preds = %176
+  br i1 %23, label %179, label %.thread181
 
-178:                                              ; preds = %177
-  %179 = xor i64 %156, 1
-  %180 = inttoptr i64 %179 to ptr
-  br label %.thread170
+179:                                              ; preds = %178
+  %180 = xor i64 %157, 1
+  %181 = inttoptr i64 %180 to ptr
+  br label %.thread171
 
-.thread417:                                       ; preds = %65, %175, %153
+.thread162.thread417:                             ; preds = %65, %176, %.thread162
   store ptr %20, ptr %4, align 8
   store ptr %21, ptr %5, align 8
-  %181 = icmp ugt i32 %15, %26
-  br i1 %181, label %182, label %184
+  %182 = icmp ugt i32 %15, %26
+  br i1 %182, label %183, label %185
 
-182:                                              ; preds = %.thread417
-  %183 = call ptr @_ZN11aig_manager3imp12mk_node_coreERK7aig_litS3_(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br label %.thread180
+183:                                              ; preds = %.thread162.thread417
+  %184 = call ptr @_ZN11aig_manager3imp12mk_node_coreERK7aig_litS3_(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br label %.thread181
 
-184:                                              ; preds = %.thread417
-  %185 = call ptr @_ZN11aig_manager3imp12mk_node_coreERK7aig_litS3_(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %.thread180
+185:                                              ; preds = %.thread162.thread417
+  %186 = call ptr @_ZN11aig_manager3imp12mk_node_coreERK7aig_litS3_(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br label %.thread181
 
-.thread170:                                       ; preds = %92, %90, %87, %178, %172, %113, %107, %135, %129, %62, %56
-  %186 = phi ptr [ %180, %178 ], [ %174, %172 ], [ %21, %113 ], [ %21, %107 ], [ %137, %135 ], [ %131, %129 ], [ %21, %62 ], [ %21, %56 ], [ %73, %87 ], [ %21, %90 ], [ %67, %92 ]
-  %187 = phi ptr [ %20, %178 ], [ %20, %172 ], [ %115, %113 ], [ %109, %107 ], [ %20, %135 ], [ %20, %129 ], [ %64, %62 ], [ %58, %56 ], [ %20, %87 ], [ %39, %90 ], [ %20, %92 ]
-  %188 = ptrtoint ptr %187 to i64
-  %189 = and i64 %188, 1
-  %190 = icmp ne i64 %189, 0
-  %191 = and i64 %188, -2
-  %192 = inttoptr i64 %191 to ptr
-  %193 = load i32, ptr %192, align 8, !tbaa !157
-  %194 = icmp eq i32 %193, 0
-  br i1 %194, label %._crit_edge, label %.lr.ph
+.thread171:                                       ; preds = %92, %90, %87, %179, %173, %113, %107, %135, %129, %62, %56
+  %187 = phi ptr [ %181, %179 ], [ %175, %173 ], [ %21, %113 ], [ %21, %107 ], [ %137, %135 ], [ %131, %129 ], [ %21, %62 ], [ %21, %56 ], [ %73, %87 ], [ %21, %90 ], [ %67, %92 ]
+  %188 = phi ptr [ %20, %179 ], [ %20, %173 ], [ %115, %113 ], [ %109, %107 ], [ %20, %135 ], [ %20, %129 ], [ %64, %62 ], [ %58, %56 ], [ %20, %87 ], [ %39, %90 ], [ %20, %92 ]
+  %189 = ptrtoint ptr %188 to i64
+  %190 = and i64 %189, 1
+  %191 = icmp ne i64 %190, 0
+  %192 = and i64 %189, -2
+  %193 = inttoptr i64 %192 to ptr
+  %194 = load i32, ptr %193, align 8, !tbaa !157
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %._crit_edge, label %.lr.ph
 
-.thread180:                                       ; preds = %95, %117, %55, %61, %177, %171, %166, %165, %143, %150, %85, %51, %50, %33, %28, %._crit_edge, %184, %182, %35, %29, %13
-  %.sroa.0.1185 = phi ptr [ %20, %33 ], [ %20, %28 ], [ %.lcssa314, %._crit_edge ], [ %185, %184 ], [ %183, %182 ], [ %.sroa.0.0.copyload43, %35 ], [ %.sroa.0.0.copyload40, %29 ], [ %.sroa.0.0.copyload, %13 ], [ %.sroa.0.0.copyload54, %166 ], [ %20, %165 ], [ %145, %143 ], [ %152, %150 ], [ %.sroa.0.0.copyload48, %85 ], [ %.sroa.0.0.copyload45, %51 ], [ %21, %50 ], [ %21, %171 ], [ %21, %177 ], [ %20, %61 ], [ %20, %55 ], [ %20, %117 ], [ %21, %95 ]
-  ret ptr %.sroa.0.1185
+.thread181:                                       ; preds = %95, %117, %55, %61, %178, %172, %167, %166, %145, %152, %85, %51, %50, %33, %28, %._crit_edge, %185, %183, %35, %29, %13
+  %.sroa.0.1186 = phi ptr [ %20, %33 ], [ %20, %28 ], [ %.lcssa316, %._crit_edge ], [ %186, %185 ], [ %184, %183 ], [ %.sroa.0.0.copyload51, %35 ], [ %.sroa.0.0.copyload48, %29 ], [ %.sroa.0.0.copyload, %13 ], [ %.sroa.0.0.copyload62, %167 ], [ %20, %166 ], [ %147, %145 ], [ %154, %152 ], [ %.sroa.0.0.copyload56, %85 ], [ %.sroa.0.0.copyload53, %51 ], [ %21, %50 ], [ %21, %172 ], [ %21, %178 ], [ %20, %61 ], [ %20, %55 ], [ %20, %117 ], [ %21, %95 ]
+  ret ptr %.sroa.0.1186
 }
 
 ; Function Attrs: mustprogress uwtable

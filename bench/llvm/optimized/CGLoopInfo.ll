@@ -2456,14 +2456,14 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %6, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %4, align 8, !tbaa !48
   store ptr %15, ptr %14, align 8, !tbaa !48
-  %.not.i.i.i.i63 = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i63, label %_ZN4llvm8DebugLocC2ERKS0_.exit64, label %16
+  %.not.i.i.i.i68 = icmp eq ptr %15, null
+  br i1 %.not.i.i.i.i68, label %_ZN4llvm8DebugLocC2ERKS0_.exit69, label %16
 
 16:                                               ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit
   %17 = tail call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(8) %15, i64 1) #10
-  br label %_ZN4llvm8DebugLocC2ERKS0_.exit64
+  br label %_ZN4llvm8DebugLocC2ERKS0_.exit69
 
-_ZN4llvm8DebugLocC2ERKS0_.exit64:                 ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit, %16
+_ZN4llvm8DebugLocC2ERKS0_.exit69:                 ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %5, ptr %18, align 8, !tbaa !59
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -2472,98 +2472,95 @@ _ZN4llvm8DebugLocC2ERKS0_.exit64:                 ; preds = %_ZN4llvm8DebugLocC2
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %26
 
-22:                                               ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit64
+22:                                               ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit69
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %1) #10
   %24 = tail call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr null, i64 0, i32 noundef 1, i1 noundef zeroext true) #10
   store ptr %24, ptr %9, align 8, !tbaa !51
   %.pre = load i8, ptr %2, align 4, !tbaa !50, !range !31
-  %.pre88 = trunc nuw i8 %.pre to i1
-  %25 = xor i1 %.pre88, true
+  %25 = trunc nuw i8 %.pre to i1
   br label %26
 
-26:                                               ; preds = %22, %_ZN4llvm8DebugLocC2ERKS0_.exit64
-  %.pre-phi = phi i1 [ %25, %22 ], [ true, %_ZN4llvm8DebugLocC2ERKS0_.exit64 ]
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp eq i32 %28, 0
-  %or.cond = select i1 %.pre-phi, i1 %29, i1 false
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp eq i32 %31, 0
-  %or.cond31 = select i1 %or.cond, i1 %32, i1 false
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %34, 0
-  %or.cond34 = select i1 %or.cond31, i1 %35, i1 false
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, 0
-  %or.cond37 = select i1 %or.cond34, i1 %38, i1 false
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp eq i32 %40, 0
-  %or.cond40 = select i1 %or.cond37, i1 %41, i1 false
-  br i1 %or.cond40, label %42, label %75
-
-42:                                               ; preds = %26
+26:                                               ; preds = %22, %_ZN4llvm8DebugLocC2ERKS0_.exit69
+  %27 = phi i1 [ %25, %22 ], [ false, %_ZN4llvm8DebugLocC2ERKS0_.exit69 ]
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp ne i32 %29, 0
+  %or.cond.not = select i1 %27, i1 true, i1 %30
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp ne i32 %32, 0
+  %or.cond31.not88 = select i1 %or.cond.not, i1 true, i1 %33
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp ne i32 %35, 0
+  %or.cond34.not86 = select i1 %or.cond31.not88, i1 true, i1 %36
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %38 = load i32, ptr %37, align 4
+  %39 = icmp ne i32 %38, 0
+  %or.cond37.not84 = select i1 %or.cond34.not86, i1 true, i1 %39
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp ne i32 %41, 0
+  %or.cond40.not82 = select i1 %or.cond37.not84, i1 true, i1 %42
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %44 = load i8, ptr %43, align 4, !tbaa !30, !range !31, !noundef !32
+  %44 = load i8, ptr %43, align 4, !range !31
   %45 = trunc nuw i8 %44 to i1
+  %or.cond43 = select i1 %or.cond40.not82, i1 true, i1 %45
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %47 = load i32, ptr %46, align 4
   %48 = icmp ne i32 %47, 0
-  %or.cond44.not = select i1 %45, i1 true, i1 %48
+  %or.cond46.not = select i1 %or.cond43, i1 true, i1 %48
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %50 = load i32, ptr %49, align 4
   %51 = icmp ne i32 %50, 0
-  %or.cond47.not86 = select i1 %or.cond44.not, i1 true, i1 %51
+  %or.cond49.not97 = select i1 %or.cond46.not, i1 true, i1 %51
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = icmp ne i32 %53, 0
-  %or.cond50.not84 = select i1 %or.cond47.not86, i1 true, i1 %54
+  %or.cond52.not95 = select i1 %or.cond49.not97, i1 true, i1 %54
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %56 = load i32, ptr %55, align 4
   %57 = icmp ne i32 %56, 0
-  %or.cond53.not82 = select i1 %or.cond50.not84, i1 true, i1 %57
+  %or.cond55.not93 = select i1 %or.cond52.not95, i1 true, i1 %57
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = icmp ne i32 %59, 0
-  %or.cond56.not80 = select i1 %or.cond53.not82, i1 true, i1 %60
+  %or.cond58.not91 = select i1 %or.cond55.not93, i1 true, i1 %60
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %62 = load i32, ptr %61, align 4
   %63 = icmp ne i32 %62, 0
-  %or.cond59.not = select i1 %or.cond56.not80, i1 true, i1 %63
+  %or.cond61.not = select i1 %or.cond58.not91, i1 true, i1 %63
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %65 = load i32, ptr %64, align 4
   %66 = icmp ne i32 %65, 0
-  %or.cond62 = select i1 %or.cond59.not, i1 true, i1 %66
+  %or.cond64 = select i1 %or.cond61.not, i1 true, i1 %66
   %67 = load ptr, ptr %3, align 8
   %68 = icmp ne ptr %67, null
-  %or.cond75 = select i1 %or.cond62, i1 true, i1 %68
-  %69 = load ptr, ptr %4, align 8
-  %70 = icmp ne ptr %69, null
-  %or.cond77 = select i1 %or.cond75, i1 true, i1 %70
-  br i1 %or.cond77, label %75, label %71
+  %or.cond80 = select i1 %or.cond64, i1 true, i1 %68
+  br i1 %or.cond80, label %75, label %69
 
-71:                                               ; preds = %42
+69:                                               ; preds = %26
+  %70 = load ptr, ptr %4, align 8, !tbaa !48
+  %71 = icmp ne ptr %70, null
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %73 = load i8, ptr %72, align 4, !tbaa !49, !range !31, !noundef !32
+  %73 = load i8, ptr %72, align 4, !range !31
   %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %75, label %_ZNSt10unique_ptrIN4llvm7MDTupleENS0_17TempMDNodeDeleterEED2Ev.exit
+  %or.cond67 = select i1 %71, i1 true, i1 %74
+  br i1 %or.cond67, label %75, label %_ZNSt10unique_ptrIN4llvm7MDTupleENS0_17TempMDNodeDeleterEED2Ev.exit
 
-75:                                               ; preds = %71, %42, %26
+75:                                               ; preds = %69, %26
   %76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %1) #10
   %77 = tail call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr null, i64 0, i32 noundef 2, i1 noundef zeroext true) #10, !noalias !60
   %78 = load ptr, ptr %0, align 8, !tbaa !65
   store ptr %77, ptr %0, align 8, !tbaa !65
-  %.not.i.i.i.i65 = icmp eq ptr %78, null
-  br i1 %.not.i.i.i.i65, label %_ZNSt10unique_ptrIN4llvm7MDTupleENS0_17TempMDNodeDeleterEED2Ev.exit, label %79
+  %.not.i.i.i.i70 = icmp eq ptr %78, null
+  br i1 %.not.i.i.i.i70, label %_ZNSt10unique_ptrIN4llvm7MDTupleENS0_17TempMDNodeDeleterEED2Ev.exit, label %79
 
 79:                                               ; preds = %75
   tail call void @_ZN4llvm6MDNode15deleteTemporaryEPS0_(ptr noundef nonnull %78) #10
   br label %_ZNSt10unique_ptrIN4llvm7MDTupleENS0_17TempMDNodeDeleterEED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm7MDTupleENS0_17TempMDNodeDeleterEED2Ev.exit: ; preds = %75, %79, %71
+_ZNSt10unique_ptrIN4llvm7MDTupleENS0_17TempMDNodeDeleterEED2Ev.exit: ; preds = %75, %79, %69
   ret void
 }
 

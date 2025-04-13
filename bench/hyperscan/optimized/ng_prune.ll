@@ -1664,7 +1664,11 @@ _ZNK3ue26Report9hasBoundsEv.exit:                 ; preds = %14
   %.val = load i32, ptr %9, align 8
   %switch.tableidx = add i32 %.val, -2
   %22 = icmp ult i32 %switch.tableidx, 15
-  br i1 %22, label %switch.hole_check, label %.critedge
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 29183, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %22, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, label %.critedge
 
 23:                                               ; preds = %.lr.ph
   %24 = landingpad { ptr, i32 }
@@ -1673,19 +1677,13 @@ _ZNK3ue26Report9hasBoundsEv.exit:                 ; preds = %14
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #22
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit63
 
-.critedge:                                        ; preds = %switch.hole_check, %21
+.critedge:                                        ; preds = %21
   %25 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.089.0116) #27
   %.not = icmp eq ptr %25, %6
   br i1 %.not, label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, label %.lr.ph
 
-switch.hole_check:                                ; preds = %21
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 29183, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, label %.critedge
-
-_ZN3ue2L16isExternalReportERKNS_6ReportE.exit:    ; preds = %.critedge, %_ZNK3ue26Report9hasBoundsEv.exit, %10, %14, %switch.hole_check, %2
-  %.not.lcssa = phi i1 [ true, %2 ], [ false, %switch.hole_check ], [ false, %14 ], [ false, %10 ], [ false, %_ZNK3ue26Report9hasBoundsEv.exit ], [ true, %.critedge ]
+_ZN3ue2L16isExternalReportERKNS_6ReportE.exit:    ; preds = %.critedge, %_ZNK3ue26Report9hasBoundsEv.exit, %10, %14, %21, %2
+  %.not.lcssa = phi i1 [ true, %2 ], [ false, %21 ], [ false, %14 ], [ false, %10 ], [ false, %_ZNK3ue26Report9hasBoundsEv.exit ], [ true, %.critedge ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load ptr, ptr %26, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %27)

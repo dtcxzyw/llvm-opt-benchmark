@@ -3320,7 +3320,7 @@ define internal range(i32 0, 3) i32 @set_thread_mle_key(ptr noundef readonly cap
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i8, ptr %8, align 8
   %10 = tail call fastcc ptr @set_thread_seq_ctr_from_key_index(i8 noundef zeroext %9)
-  br label %39
+  br label %38
 
 11:                                               ; preds = %4
   %12 = tail call ptr @g_byte_array_new()
@@ -3350,41 +3350,40 @@ define internal range(i32 0, 3) i32 @set_thread_mle_key(ptr noundef readonly cap
   store i8 %30, ptr %32, align 1
   %33 = load i8, ptr @thread_auto_acq_seq_ctr, align 1, !range !25, !noundef !26
   %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %35, label %39
+  %.not = xor i1 %34, true
+  %.b27 = load i1, ptr @thread_seq_ctr_acqd, align 1
+  %or.cond = select i1 %.not, i1 true, i1 %.b27
+  br i1 %or.cond, label %38, label %35
 
 35:                                               ; preds = %11
-  %.b26 = load i1, ptr @thread_seq_ctr_acqd, align 1
-  br i1 %.b26, label %39, label %36
-
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %13, align 8
-  %38 = load i32, ptr %37, align 1
-  store i32 %38, ptr @thread_seq_ctr_bytes, align 4
+  %36 = load ptr, ptr %13, align 8
+  %37 = load i32, ptr %36, align 1
+  store i32 %37, ptr @thread_seq_ctr_bytes, align 4
   store i1 true, ptr @thread_seq_ctr_acqd, align 1
-  br label %39
+  br label %38
 
-39:                                               ; preds = %36, %35, %11, %7
-  %.0 = phi ptr [ %10, %7 ], [ %13, %35 ], [ %13, %36 ], [ %13, %11 ]
-  %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.thread, label %40
+38:                                               ; preds = %35, %11, %7
+  %.0 = phi ptr [ %10, %7 ], [ %13, %11 ], [ %13, %35 ]
+  %.not28 = icmp eq ptr %.0, null
+  br i1 %.not28, label %.thread, label %39
 
-40:                                               ; preds = %39
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %42 = load i16, ptr %41, align 2
-  tail call fastcc void @create_thread_temp_keys(ptr noundef %.0, i16 noundef zeroext %42, ptr noundef %3, ptr noundef null, ptr noundef %1)
-  %43 = load ptr, ptr %.0, align 8
-  %44 = getelementptr i8, ptr %43, i64 3
-  %45 = load i8, ptr %44, align 1
-  %46 = xor i8 %45, -128
-  store i8 %46, ptr %44, align 1
-  %47 = load i16, ptr %41, align 2
-  tail call fastcc void @create_thread_temp_keys(ptr noundef %.0, i16 noundef zeroext %47, ptr noundef %3, ptr noundef null, ptr noundef %2)
-  %48 = tail call ptr @g_byte_array_free(ptr noundef nonnull %.0, i32 noundef 1)
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 30
+  %41 = load i16, ptr %40, align 2
+  tail call fastcc void @create_thread_temp_keys(ptr noundef %.0, i16 noundef zeroext %41, ptr noundef %3, ptr noundef null, ptr noundef %1)
+  %42 = load ptr, ptr %.0, align 8
+  %43 = getelementptr i8, ptr %42, i64 3
+  %44 = load i8, ptr %43, align 1
+  %45 = xor i8 %44, -128
+  store i8 %45, ptr %43, align 1
+  %46 = load i16, ptr %40, align 2
+  tail call fastcc void @create_thread_temp_keys(ptr noundef %.0, i16 noundef zeroext %46, ptr noundef %3, ptr noundef null, ptr noundef %2)
+  %47 = tail call ptr @g_byte_array_free(ptr noundef nonnull %.0, i32 noundef 1)
   br label %.thread
 
-.thread:                                          ; preds = %4, %39, %40
-  %.024 = phi i32 [ 2, %40 ], [ 0, %39 ], [ 0, %4 ]
-  ret i32 %.024
+.thread:                                          ; preds = %4, %38, %39
+  %.025 = phi i32 [ 2, %39 ], [ 0, %38 ], [ 0, %4 ]
+  ret i32 %.025
 }
 
 ; Function Attrs: null_pointer_is_valid

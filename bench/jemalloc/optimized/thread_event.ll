@@ -80,7 +80,7 @@ define hidden void @je_te_event_trigger(ptr noundef %0, ptr noundef readonly cap
   %20 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8
   %21 = icmp ne i64 %20, 0
   %or.cond = select i1 %19, i1 %21, i1 false
-  br i1 %or.cond, label %22, label %34
+  br i1 %or.cond, label %22, label %33
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -104,280 +104,279 @@ define hidden void @je_te_event_trigger(ptr noundef %0, ptr noundef readonly cap
   br label %.thread
 
 .thread:                                          ; preds = %26, %31, %29
-  %.0147 = phi i64 [ %27, %26 ], [ %32, %31 ], [ %30, %29 ]
-  %33 = phi i1 [ true, %26 ], [ false, %31 ], [ true, %29 ]
-  store i64 %.0147, ptr %23, align 8, !tbaa !7
-  br label %35
+  %.0159 = phi i64 [ %27, %26 ], [ %32, %31 ], [ %30, %29 ]
+  %.1158 = phi i1 [ false, %26 ], [ true, %31 ], [ false, %29 ]
+  store i64 %.0159, ptr %23, align 8, !tbaa !7
+  br label %34
 
-34:                                               ; preds = %16
-  br i1 %19, label %35, label %63
+33:                                               ; preds = %16
+  br i1 %19, label %34, label %60
 
-35:                                               ; preds = %.thread, %34
-  %.0200 = phi i64 [ %.0147, %.thread ], [ -1, %34 ]
-  %.0145199 = phi i1 [ %33, %.thread ], [ true, %34 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %37 = load i64, ptr %36, align 8, !tbaa !7
-  %38 = icmp ugt i64 %37, %9
-  br i1 %38, label %39, label %41
+34:                                               ; preds = %.thread, %33
+  %.0204 = phi i64 [ %.0159, %.thread ], [ -1, %33 ]
+  %.0157203 = phi i1 [ %.1158, %.thread ], [ false, %33 ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %36 = load i64, ptr %35, align 8, !tbaa !7
+  %37 = icmp ugt i64 %36, %9
+  br i1 %37, label %38, label %40
 
-39:                                               ; preds = %35
-  %40 = sub nuw i64 %37, %9
-  br label %46
+38:                                               ; preds = %34
+  %39 = sub nuw i64 %36, %9
+  br label %45
 
-41:                                               ; preds = %35
-  br i1 %17, label %44, label %42
+40:                                               ; preds = %34
+  br i1 %17, label %43, label %41
 
-42:                                               ; preds = %41
-  %43 = tail call i64 @je_prof_threshold_postponed_event_wait(ptr noundef nonnull %0) #5
-  br label %46
+41:                                               ; preds = %40
+  %42 = tail call i64 @je_prof_threshold_postponed_event_wait(ptr noundef nonnull %0) #5
+  br label %45
 
-44:                                               ; preds = %41
-  %45 = tail call i64 @je_prof_threshold_new_event_wait(ptr noundef nonnull %0) #5
-  br label %46
+43:                                               ; preds = %40
+  %44 = tail call i64 @je_prof_threshold_new_event_wait(ptr noundef nonnull %0) #5
+  br label %45
 
-46:                                               ; preds = %39, %44, %42
-  %.0150 = phi i64 [ %40, %39 ], [ %45, %44 ], [ %43, %42 ]
-  %47 = phi i1 [ true, %39 ], [ false, %44 ], [ true, %42 ]
-  store i64 %.0150, ptr %36, align 8, !tbaa !7
-  %spec.select181 = tail call i64 @llvm.umin.i64(i64 %.0150, i64 %.0200)
-  %48 = load i64, ptr @je_opt_stats_interval, align 8
-  %49 = icmp sgt i64 %48, -1
-  br i1 %49, label %50, label %77
+45:                                               ; preds = %38, %43, %41
+  %.0162 = phi i64 [ %39, %38 ], [ %44, %43 ], [ %42, %41 ]
+  %.1161 = phi i1 [ false, %38 ], [ true, %43 ], [ false, %41 ]
+  store i64 %.0162, ptr %35, align 8, !tbaa !7
+  %spec.select193 = tail call i64 @llvm.umin.i64(i64 %.0162, i64 %.0204)
+  %46 = load i64, ptr @je_opt_stats_interval, align 8
+  %47 = icmp sgt i64 %46, -1
+  br i1 %47, label %48, label %73
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %52 = load i64, ptr %51, align 8, !tbaa !7
-  %53 = icmp ugt i64 %52, %9
-  br i1 %53, label %54, label %56
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %50 = load i64, ptr %49, align 8, !tbaa !7
+  %51 = icmp ugt i64 %50, %9
+  br i1 %51, label %52, label %54
 
-54:                                               ; preds = %50
-  %55 = sub nuw i64 %52, %9
-  br label %61
+52:                                               ; preds = %48
+  %53 = sub nuw i64 %50, %9
+  br label %59
 
-56:                                               ; preds = %50
-  br i1 %17, label %59, label %57
+54:                                               ; preds = %48
+  br i1 %17, label %57, label %55
 
-57:                                               ; preds = %56
-  %58 = tail call i64 @je_stats_interval_postponed_event_wait(ptr noundef nonnull %0) #5
-  br label %61
+55:                                               ; preds = %54
+  %56 = tail call i64 @je_stats_interval_postponed_event_wait(ptr noundef nonnull %0) #5
+  br label %59
 
-59:                                               ; preds = %56
-  %60 = tail call i64 @je_stats_interval_new_event_wait(ptr noundef nonnull %0) #5
-  br label %61
+57:                                               ; preds = %54
+  %58 = tail call i64 @je_stats_interval_new_event_wait(ptr noundef nonnull %0) #5
+  br label %59
 
-61:                                               ; preds = %57, %59, %54
-  %.0162 = phi i64 [ %55, %54 ], [ %60, %59 ], [ %58, %57 ]
-  %62 = phi i1 [ true, %54 ], [ false, %59 ], [ true, %57 ]
-  store i64 %.0162, ptr %51, align 8, !tbaa !7
-  %spec.select182 = tail call i64 @llvm.umin.i64(i64 %.0162, i64 %spec.select181)
-  br label %77
+59:                                               ; preds = %55, %57, %52
+  %.0174 = phi i64 [ %53, %52 ], [ %58, %57 ], [ %56, %55 ]
+  %.1164 = phi i1 [ false, %52 ], [ true, %57 ], [ false, %55 ]
+  store i64 %.0174, ptr %49, align 8, !tbaa !7
+  %spec.select194 = tail call i64 @llvm.umin.i64(i64 %.0174, i64 %spec.select193)
+  br label %73
 
-63:                                               ; preds = %34
+60:                                               ; preds = %33
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %90, label %64
+  br i1 %.not, label %85, label %61
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %66 = load i64, ptr %65, align 8, !tbaa !7
-  %67 = icmp ugt i64 %66, %9
-  br i1 %67, label %68, label %70
+61:                                               ; preds = %60
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %63 = load i64, ptr %62, align 8, !tbaa !7
+  %64 = icmp ugt i64 %63, %9
+  br i1 %64, label %65, label %67
 
-68:                                               ; preds = %64
-  %69 = sub nuw i64 %66, %9
-  br label %75
+65:                                               ; preds = %61
+  %66 = sub nuw i64 %63, %9
+  br label %72
 
-70:                                               ; preds = %64
-  br i1 %17, label %73, label %71
+67:                                               ; preds = %61
+  br i1 %17, label %70, label %68
 
-71:                                               ; preds = %70
-  %72 = tail call i64 @je_tcache_gc_dalloc_postponed_event_wait(ptr noundef nonnull %0) #5
-  br label %75
+68:                                               ; preds = %67
+  %69 = tail call i64 @je_tcache_gc_dalloc_postponed_event_wait(ptr noundef nonnull %0) #5
+  br label %72
 
-73:                                               ; preds = %70
-  %74 = tail call i64 @je_tcache_gc_dalloc_new_event_wait(ptr noundef nonnull %0) #5
-  br label %75
+70:                                               ; preds = %67
+  %71 = tail call i64 @je_tcache_gc_dalloc_new_event_wait(ptr noundef nonnull %0) #5
+  br label %72
 
-75:                                               ; preds = %71, %73, %68
-  %76 = phi i1 [ true, %68 ], [ false, %73 ], [ true, %71 ]
-  %.0159 = phi i64 [ %69, %68 ], [ %74, %73 ], [ %72, %71 ]
-  store i64 %.0159, ptr %65, align 8, !tbaa !7
-  br label %90
+72:                                               ; preds = %68, %70, %65
+  %.1173 = phi i1 [ false, %65 ], [ true, %70 ], [ false, %68 ]
+  %.0171 = phi i64 [ %66, %65 ], [ %71, %70 ], [ %69, %68 ]
+  store i64 %.0171, ptr %62, align 8, !tbaa !7
+  br label %85
 
-77:                                               ; preds = %46, %61
-  %.0151.ph = phi i1 [ true, %46 ], [ %62, %61 ]
-  %.4.ph = phi i64 [ %spec.select181, %46 ], [ %spec.select182, %61 ]
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %79 = load i64, ptr %78, align 8, !tbaa !7
-  %80 = icmp ugt i64 %79, %9
-  br i1 %80, label %81, label %83
+73:                                               ; preds = %45, %59
+  %.0163.ph = phi i1 [ false, %45 ], [ %.1164, %59 ]
+  %.4.ph = phi i64 [ %spec.select193, %45 ], [ %spec.select194, %59 ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %75 = load i64, ptr %74, align 8, !tbaa !7
+  %76 = icmp ugt i64 %75, %9
+  br i1 %76, label %77, label %79
 
-81:                                               ; preds = %77
-  %82 = sub nuw i64 %79, %9
-  br label %88
+77:                                               ; preds = %73
+  %78 = sub nuw i64 %75, %9
+  br label %84
 
-83:                                               ; preds = %77
-  br i1 %17, label %86, label %84
+79:                                               ; preds = %73
+  br i1 %17, label %82, label %80
 
-84:                                               ; preds = %83
-  %85 = tail call i64 @je_peak_alloc_postponed_event_wait(ptr noundef nonnull %0) #5
-  br label %88
+80:                                               ; preds = %79
+  %81 = tail call i64 @je_peak_alloc_postponed_event_wait(ptr noundef nonnull %0) #5
+  br label %84
 
-86:                                               ; preds = %83
-  %87 = tail call i64 @je_peak_alloc_new_event_wait(ptr noundef nonnull %0) #5
-  br label %88
+82:                                               ; preds = %79
+  %83 = tail call i64 @je_peak_alloc_new_event_wait(ptr noundef nonnull %0) #5
+  br label %84
 
-88:                                               ; preds = %84, %86, %81
-  %89 = phi i1 [ true, %81 ], [ false, %86 ], [ true, %84 ]
-  %.0156 = phi i64 [ %82, %81 ], [ %87, %86 ], [ %85, %84 ]
-  store i64 %.0156, ptr %78, align 8, !tbaa !7
-  %spec.select184 = tail call i64 @llvm.umin.i64(i64 %.0156, i64 %.4.ph)
-  br label %103
+84:                                               ; preds = %80, %82, %77
+  %.1170 = phi i1 [ false, %77 ], [ true, %82 ], [ false, %80 ]
+  %.0168 = phi i64 [ %78, %77 ], [ %83, %82 ], [ %81, %80 ]
+  store i64 %.0168, ptr %74, align 8, !tbaa !7
+  %spec.select196 = tail call i64 @llvm.umin.i64(i64 %.0168, i64 %.4.ph)
+  br label %97
 
-90:                                               ; preds = %63, %75
-  %.8238 = phi i64 [ -1, %63 ], [ %.0159, %75 ]
-  %.0160227229 = phi i1 [ true, %63 ], [ %76, %75 ]
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %92 = load i64, ptr %91, align 8, !tbaa !7
-  %93 = icmp ugt i64 %92, %9
-  br i1 %93, label %94, label %96
+85:                                               ; preds = %60, %72
+  %.8242 = phi i64 [ -1, %60 ], [ %.0171, %72 ]
+  %.0172231233 = phi i1 [ false, %60 ], [ %.1173, %72 ]
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %87 = load i64, ptr %86, align 8, !tbaa !7
+  %88 = icmp ugt i64 %87, %9
+  br i1 %88, label %89, label %91
 
-94:                                               ; preds = %90
-  %95 = sub nuw i64 %92, %9
-  br label %101
+89:                                               ; preds = %85
+  %90 = sub nuw i64 %87, %9
+  br label %96
 
-96:                                               ; preds = %90
-  br i1 %17, label %99, label %97
+91:                                               ; preds = %85
+  br i1 %17, label %94, label %92
 
-97:                                               ; preds = %96
-  %98 = tail call i64 @je_peak_dalloc_postponed_event_wait(ptr noundef nonnull %0) #5
-  br label %101
+92:                                               ; preds = %91
+  %93 = tail call i64 @je_peak_dalloc_postponed_event_wait(ptr noundef nonnull %0) #5
+  br label %96
 
-99:                                               ; preds = %96
-  %100 = tail call i64 @je_peak_dalloc_new_event_wait(ptr noundef nonnull %0) #5
-  br label %101
+94:                                               ; preds = %91
+  %95 = tail call i64 @je_peak_dalloc_new_event_wait(ptr noundef nonnull %0) #5
+  br label %96
 
-101:                                              ; preds = %97, %99, %94
-  %102 = phi i1 [ true, %94 ], [ false, %99 ], [ true, %97 ]
-  %.0153 = phi i64 [ %95, %94 ], [ %100, %99 ], [ %98, %97 ]
-  store i64 %.0153, ptr %91, align 8, !tbaa !7
-  %spec.select185 = tail call i64 @llvm.umin.i64(i64 %.0153, i64 %.8238)
-  br label %103
+96:                                               ; preds = %92, %94, %89
+  %.0166 = phi i1 [ false, %89 ], [ true, %94 ], [ false, %92 ]
+  %.0165 = phi i64 [ %90, %89 ], [ %95, %94 ], [ %93, %92 ]
+  store i64 %.0165, ptr %86, align 8, !tbaa !7
+  %spec.select197 = tail call i64 @llvm.umin.i64(i64 %.0165, i64 %.8242)
+  br label %97
 
-103:                                              ; preds = %88, %101
-  %.0157236 = phi i1 [ true, %101 ], [ %89, %88 ]
-  %.not241 = phi i1 [ false, %101 ], [ true, %88 ]
-  %.0151216224234 = phi i1 [ true, %101 ], [ %.0151.ph, %88 ]
-  %.0145198206215225232 = phi i1 [ true, %101 ], [ %.0145199, %88 ]
-  %.0148207214226230 = phi i1 [ true, %101 ], [ %47, %88 ]
-  %.0160227228 = phi i1 [ %.0160227229, %101 ], [ true, %88 ]
-  %.1155 = phi i1 [ %102, %101 ], [ true, %88 ]
-  %.11 = phi i64 [ %spec.select185, %101 ], [ %spec.select184, %88 ]
-  %.val194 = load ptr, ptr %6, align 8, !tbaa !14
-  %104 = getelementptr i8, ptr %1, i64 24
-  %.val195 = load ptr, ptr %104, align 8, !tbaa !18
-  %.val194.val = load i64, ptr %.val194, align 8, !tbaa !7
-  %105 = tail call i64 @llvm.umin.i64(i64 %.11, i64 4194304)
-  %106 = add i64 %.val194.val, %105
-  store i64 %106, ptr %.val195, align 8, !tbaa !7
-  %107 = load i8, ptr %10, align 8, !tbaa !4
-  %.not.i.i = icmp eq i8 %107, 0
-  br i1 %.not.i.i, label %111, label %108
+97:                                               ; preds = %84, %96
+  %.0169240 = phi i1 [ false, %96 ], [ %.1170, %84 ]
+  %98 = phi i1 [ true, %96 ], [ false, %84 ]
+  %.0163220228238 = phi i1 [ false, %96 ], [ %.0163.ph, %84 ]
+  %.0157202210219229236 = phi i1 [ false, %96 ], [ %.0157203, %84 ]
+  %.0160211218230234 = phi i1 [ false, %96 ], [ %.1161, %84 ]
+  %.0172231232 = phi i1 [ %.0172231233, %96 ], [ false, %84 ]
+  %.1167 = phi i1 [ %.0166, %96 ], [ false, %84 ]
+  %.11 = phi i64 [ %spec.select197, %96 ], [ %spec.select196, %84 ]
+  %.val198 = load ptr, ptr %6, align 8, !tbaa !14
+  %99 = getelementptr i8, ptr %1, i64 24
+  %.val199 = load ptr, ptr %99, align 8, !tbaa !18
+  %.val198.val = load i64, ptr %.val198, align 8, !tbaa !7
+  %100 = tail call i64 @llvm.umin.i64(i64 %.11, i64 4194304)
+  %101 = add i64 %.val198.val, %100
+  store i64 %101, ptr %.val199, align 8, !tbaa !7
+  %102 = load i8, ptr %10, align 8, !tbaa !4
+  %.not.i.i = icmp eq i8 %102, 0
+  br i1 %.not.i.i, label %106, label %103
 
-108:                                              ; preds = %103
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  store i64 0, ptr %109, align 8, !tbaa !7
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  store i64 0, ptr %110, align 8, !tbaa !7
+103:                                              ; preds = %97
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  store i64 0, ptr %104, align 8, !tbaa !7
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  store i64 0, ptr %105, align 8, !tbaa !7
   br label %te_adjust_thresholds_helper.exit
 
-111:                                              ; preds = %103
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %.val.val.i.i = load i64, ptr %112, align 8, !tbaa !7
-  %114 = icmp ult i64 %.val.val.i.i, -4095
-  %115 = select i1 %114, i64 %.val.val.i.i, i64 0
-  store i64 %115, ptr %113, align 8, !tbaa !7
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %.val8.val.i.i = load i64, ptr %116, align 8, !tbaa !7
-  %118 = icmp ult i64 %.val8.val.i.i, -4095
-  %119 = select i1 %118, i64 %.val8.val.i.i, i64 0
-  store i64 %119, ptr %117, align 8, !tbaa !7
+106:                                              ; preds = %97
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %.val.val.i.i = load i64, ptr %107, align 8, !tbaa !7
+  %109 = icmp ult i64 %.val.val.i.i, -4095
+  %110 = select i1 %109, i64 %.val.val.i.i, i64 0
+  store i64 %110, ptr %108, align 8, !tbaa !7
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %.val8.val.i.i = load i64, ptr %111, align 8, !tbaa !7
+  %113 = icmp ult i64 %.val8.val.i.i, -4095
+  %114 = select i1 %113, i64 %.val8.val.i.i, i64 0
+  store i64 %114, ptr %112, align 8, !tbaa !7
   fence seq_cst
-  %120 = load i8, ptr %10, align 8, !tbaa !4
-  %.not6.i.i = icmp eq i8 %120, 0
-  br i1 %.not6.i.i, label %te_adjust_thresholds_helper.exit, label %121
+  %115 = load i8, ptr %10, align 8, !tbaa !4
+  %.not6.i.i = icmp eq i8 %115, 0
+  br i1 %.not6.i.i, label %te_adjust_thresholds_helper.exit, label %116
 
-121:                                              ; preds = %111
-  store i64 0, ptr %113, align 8, !tbaa !7
-  store i64 0, ptr %117, align 8, !tbaa !7
+116:                                              ; preds = %106
+  store i64 0, ptr %108, align 8, !tbaa !7
+  store i64 0, ptr %112, align 8, !tbaa !7
   br label %te_adjust_thresholds_helper.exit
 
-te_adjust_thresholds_helper.exit:                 ; preds = %108, %111, %121
-  %122 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8
-  %123 = icmp eq i64 %122, 0
-  %not. = xor i1 %19, true
-  %or.cond7 = select i1 %not., i1 true, i1 %123
-  %brmerge = or i1 %.0145198206215225232, %or.cond7
-  br i1 %brmerge, label %125, label %124
+te_adjust_thresholds_helper.exit:                 ; preds = %103, %106, %116
+  %117 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8
+  %118 = icmp ne i64 %117, 0
+  %or.cond7 = select i1 %19, i1 %118, i1 false
+  %or.cond9 = and i1 %.0157202210219229236, %or.cond7
+  br i1 %or.cond9, label %119, label %120
 
-124:                                              ; preds = %te_adjust_thresholds_helper.exit
+119:                                              ; preds = %te_adjust_thresholds_helper.exit
   tail call void @je_tcache_gc_event_handler(ptr noundef nonnull %0, i64 noundef -1) #5
-  br label %125
+  br label %120
 
-125:                                              ; preds = %te_adjust_thresholds_helper.exit, %124
-  %brmerge187 = or i1 %.0148207214226230, %not.
-  br i1 %brmerge187, label %127, label %126
+120:                                              ; preds = %119, %te_adjust_thresholds_helper.exit
+  %or.cond11 = and i1 %.0160211218230234, %19
+  br i1 %or.cond11, label %121, label %122
 
-126:                                              ; preds = %125
+121:                                              ; preds = %120
   tail call void @je_prof_threshold_event_handler(ptr noundef nonnull %0, i64 noundef -1) #5
-  br label %127
+  br label %122
 
-127:                                              ; preds = %125, %126
-  %128 = load i64, ptr @je_opt_stats_interval, align 8
-  %129 = icmp slt i64 %128, 0
-  %or.cond9 = select i1 %not., i1 true, i1 %129
-  %brmerge188 = or i1 %.0151216224234, %or.cond9
-  br i1 %brmerge188, label %136, label %130
+122:                                              ; preds = %121, %120
+  %123 = load i64, ptr @je_opt_stats_interval, align 8
+  %124 = icmp sgt i64 %123, -1
+  %or.cond13 = select i1 %19, i1 %124, i1 false
+  %or.cond15 = and i1 %.0163220228238, %or.cond13
+  br i1 %or.cond15, label %125, label %131
 
-130:                                              ; preds = %127
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %132 = load i64, ptr %131, align 8, !tbaa !7
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %134 = load i64, ptr %133, align 8, !tbaa !7
-  store i64 %132, ptr %133, align 8, !tbaa !7
-  %135 = sub i64 %132, %134
-  tail call void @je_stats_interval_event_handler(ptr noundef nonnull %0, i64 noundef %135) #5
-  br label %136
+125:                                              ; preds = %122
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %127 = load i64, ptr %126, align 8, !tbaa !7
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %129 = load i64, ptr %128, align 8, !tbaa !7
+  store i64 %127, ptr %128, align 8, !tbaa !7
+  %130 = sub i64 %127, %129
+  tail call void @je_stats_interval_event_handler(ptr noundef nonnull %0, i64 noundef %130) #5
+  br label %131
 
-136:                                              ; preds = %127, %130
-  %137 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8
-  %138 = icmp eq i64 %137, 0
-  %or.cond11.not243 = select i1 %.not241, i1 true, i1 %138
-  %brmerge189 = or i1 %.0160227228, %or.cond11.not243
-  br i1 %brmerge189, label %140, label %139
+131:                                              ; preds = %125, %122
+  %132 = load i64, ptr @je_opt_tcache_gc_incr_bytes, align 8
+  %133 = icmp ne i64 %132, 0
+  %or.cond17 = select i1 %98, i1 %133, i1 false
+  %or.cond19 = and i1 %.0172231232, %or.cond17
+  br i1 %or.cond19, label %134, label %135
 
-139:                                              ; preds = %136
+134:                                              ; preds = %131
   tail call void @je_tcache_gc_dalloc_event_handler(ptr noundef nonnull %0, i64 noundef -1) #5
-  br label %140
+  br label %135
 
-140:                                              ; preds = %136, %139
-  %brmerge191 = or i1 %.0157236, %not.
-  br i1 %brmerge191, label %142, label %141
+135:                                              ; preds = %134, %131
+  %or.cond21 = and i1 %.0169240, %19
+  br i1 %or.cond21, label %136, label %137
 
-141:                                              ; preds = %140
+136:                                              ; preds = %135
   tail call void @je_peak_alloc_event_handler(ptr noundef nonnull %0, i64 noundef -1) #5
-  br label %142
+  br label %137
 
-142:                                              ; preds = %140, %141
-  %brmerge193 = or i1 %.not241, %.1155
-  br i1 %brmerge193, label %144, label %143
+137:                                              ; preds = %136, %135
+  %or.cond23 = and i1 %98, %.1167
+  br i1 %or.cond23, label %138, label %139
 
-143:                                              ; preds = %142
+138:                                              ; preds = %137
   tail call void @je_peak_dalloc_event_handler(ptr noundef nonnull %0, i64 noundef -1) #5
-  br label %144
+  br label %139
 
-144:                                              ; preds = %142, %143
+139:                                              ; preds = %138, %137
   ret void
 }
 

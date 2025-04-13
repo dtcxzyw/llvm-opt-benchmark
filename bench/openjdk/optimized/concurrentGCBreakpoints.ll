@@ -80,21 +80,19 @@ define hidden noundef ptr @_ZN23ConcurrentGCBreakpoints7monitorEv() local_unname
 define hidden noundef zeroext i1 @_ZN23ConcurrentGCBreakpoints13is_controlledEv() local_unnamed_addr #1 align 2 {
   %1 = load i8, ptr @_ZN23ConcurrentGCBreakpoints10_want_idleE, align 1
   %2 = trunc i8 %1 to i1
-  br i1 %2, label %9, label %3
+  %3 = load i8, ptr @_ZN23ConcurrentGCBreakpoints11_is_stoppedE, align 1
+  %4 = trunc i8 %3 to i1
+  %or.cond = select i1 %2, i1 true, i1 %4
+  br i1 %or.cond, label %8, label %5
 
-3:                                                ; preds = %0
-  %4 = load i8, ptr @_ZN23ConcurrentGCBreakpoints11_is_stoppedE, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %9, label %6
+5:                                                ; preds = %0
+  %6 = load ptr, ptr @_ZN23ConcurrentGCBreakpoints7_run_toE, align 8
+  %7 = icmp ne ptr %6, null
+  br label %8
 
-6:                                                ; preds = %3
-  %7 = load ptr, ptr @_ZN23ConcurrentGCBreakpoints7_run_toE, align 8
-  %8 = icmp ne ptr %7, null
-  br label %9
-
-9:                                                ; preds = %6, %3, %0
-  %10 = phi i1 [ true, %3 ], [ true, %0 ], [ %8, %6 ]
-  ret i1 %10
+8:                                                ; preds = %5, %0
+  %9 = phi i1 [ true, %0 ], [ %7, %5 ]
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

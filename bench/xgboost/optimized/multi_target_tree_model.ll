@@ -1268,10 +1268,9 @@ define void @_ZN7xgboost15MultiTargetTree9LoadModelERKNS_4JsonE(ptr noundef nonn
   %17 = load ptr, ptr %16, align 8, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !41
-  %20 = icmp ne i64 %19, 13
-  %.not = xor i1 %11, true
-  %brmerge = or i1 %20, %.not
-  br i1 %brmerge, label %29, label %21
+  %20 = icmp eq i64 %19, 13
+  %or.cond = and i1 %11, %20
+  br i1 %or.cond, label %21, label %29
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1285,8 +1284,9 @@ define void @_ZN7xgboost15MultiTargetTree9LoadModelERKNS_4JsonE(ptr noundef nonn
   br label %48
 
 29:                                               ; preds = %2
-  %brmerge14.not = and i1 %11, %20
-  br i1 %brmerge14.not, label %30, label %38
+  %.not = xor i1 %11, true
+  %or.cond3 = or i1 %20, %.not
+  br i1 %or.cond3, label %38, label %30
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1300,7 +1300,7 @@ define void @_ZN7xgboost15MultiTargetTree9LoadModelERKNS_4JsonE(ptr noundef nonn
   br label %48
 
 38:                                               ; preds = %29
-  %brmerge16 = or i1 %11, %20
+  %or.cond6 = and i1 %20, %.not
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1308,7 +1308,7 @@ define void @_ZN7xgboost15MultiTargetTree9LoadModelERKNS_4JsonE(ptr noundef nonn
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br i1 %brmerge16, label %47, label %46
+  br i1 %or.cond6, label %46, label %47
 
 46:                                               ; preds = %38
   tail call void @_ZN7xgboost13LoadModelImplILb0ELb1EEEvRKNS_4JsonEPNS_16HostDeviceVectorIfEEPNS4_IiEES8_S8_S6_PNS4_IjEEPNS4_IhEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %43, ptr noundef nonnull %44, ptr noundef nonnull %45)

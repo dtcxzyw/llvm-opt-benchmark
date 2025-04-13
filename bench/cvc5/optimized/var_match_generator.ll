@@ -281,18 +281,18 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit18: ; preds = %79, %74, %81
 
 .noexc19:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit18
   %91 = load i8, ptr %6, align 8, !tbaa !130, !range !138, !noundef !139
-  %.mux.i.not.i.i.i = icmp eq i8 %91, 0
-  br i1 %.mux.i.not.i.i.i, label %92, label %97
+  %92 = trunc nuw i8 %91 to i1
+  br i1 %92, label %97, label %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i
 
-92:                                               ; preds = %.noexc19
+_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i: ; preds = %.noexc19
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !140, !noalias !141
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i64, ptr %95, align 8, !tbaa !129, !noalias !144
   br label %97
 
-97:                                               ; preds = %92, %.noexc19
-  %.0.i.i.i = phi i64 [ %96, %92 ], [ 0, %.noexc19 ]
+97:                                               ; preds = %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i, %.noexc19
+  %.0.i.i.i = phi i64 [ %96, %_ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_iteratorISt4pairIKPNS1_9NodeValueENS4_5IdMapEELb0ELb1EEEN9__gnu_cxx17__normal_iteratorIPKS9_ImmESt6vectorISI_SaISI_EEEEEeqERKSP_.exit.i.i.i ], [ 0, %.noexc19 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 136

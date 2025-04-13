@@ -3257,15 +3257,13 @@ define dso_local i32 @get_fn_expr_argtype(ptr noundef readonly captures(address_
   %7 = load i32, ptr %5, align 4
   %switch.tableidx = add i32 %7, -11
   %8 = icmp ult i32 %switch.tableidx, 10
-  br i1 %8, label %switch.hole_check, label %get_call_expr_argtype.exit
-
-switch.hole_check:                                ; preds = %6
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 977, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %get_call_expr_argtype.exit
+  %or.cond = select i1 %8, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %get_call_expr_argtype.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -3299,8 +3297,8 @@ list_length.exit.i:                               ; preds = %switch.lookup
   %24 = tail call i32 @get_base_element_type(i32 noundef %19) #13
   br label %get_call_expr_argtype.exit
 
-get_call_expr_argtype.exit:                       ; preds = %switch.hole_check, %6, %23, %14, %list_length.exit.i, %switch.lookup, %2, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 0, %6 ], [ 0, %list_length.exit.i ], [ 0, %switch.lookup ], [ %24, %23 ], [ %19, %14 ], [ 0, %switch.hole_check ]
+get_call_expr_argtype.exit:                       ; preds = %6, %23, %14, %list_length.exit.i, %switch.lookup, %2, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 0, %6 ], [ 0, %list_length.exit.i ], [ 0, %switch.lookup ], [ %24, %23 ], [ %19, %14 ]
   ret i32 %.0
 }
 
@@ -3313,15 +3311,13 @@ define dso_local i32 @get_call_expr_argtype(ptr noundef readonly captures(addres
   %5 = load i32, ptr %0, align 4
   %switch.tableidx = add i32 %5, -11
   %6 = icmp ult i32 %switch.tableidx, 10
-  br i1 %6, label %switch.hole_check, label %list_length.exit.thread
-
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 977, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %list_length.exit.thread
+  %or.cond30 = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond30, label %switch.lookup, label %list_length.exit.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -3355,8 +3351,8 @@ list_length.exit:                                 ; preds = %switch.lookup
   %22 = tail call i32 @get_base_element_type(i32 noundef %17) #13
   br label %list_length.exit.thread
 
-list_length.exit.thread:                          ; preds = %switch.hole_check, %4, %12, %21, %switch.lookup, %list_length.exit, %2
-  %.024 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %list_length.exit ], [ 0, %switch.lookup ], [ %22, %21 ], [ %17, %12 ], [ 0, %switch.hole_check ]
+list_length.exit.thread:                          ; preds = %4, %12, %21, %switch.lookup, %list_length.exit, %2
+  %.024 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %list_length.exit ], [ 0, %switch.lookup ], [ %22, %21 ], [ %17, %12 ]
   ret i32 %.024
 }
 
@@ -3377,15 +3373,13 @@ define dso_local noundef zeroext i1 @get_fn_expr_arg_stable(ptr noundef readonly
   %7 = load i32, ptr %5, align 4
   %switch.tableidx = add i32 %7, -11
   %8 = icmp ult i32 %switch.tableidx, 10
-  br i1 %8, label %switch.hole_check, label %get_call_expr_arg_stable.exit
-
-switch.hole_check:                                ; preds = %6
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 977, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %get_call_expr_arg_stable.exit
+  %or.cond = select i1 %8, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %get_call_expr_arg_stable.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -3423,8 +3417,8 @@ list_length.exit.i:                               ; preds = %switch.lookup
 24:                                               ; preds = %20, %14
   br label %get_call_expr_arg_stable.exit
 
-get_call_expr_arg_stable.exit:                    ; preds = %switch.hole_check, %6, %24, %20, %14, %list_length.exit.i, %switch.lookup, %2, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %2 ], [ false, %24 ], [ false, %6 ], [ false, %list_length.exit.i ], [ false, %switch.lookup ], [ true, %14 ], [ true, %20 ], [ false, %switch.hole_check ]
+get_call_expr_arg_stable.exit:                    ; preds = %6, %24, %20, %14, %list_length.exit.i, %switch.lookup, %2, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %2 ], [ false, %24 ], [ false, %6 ], [ false, %list_length.exit.i ], [ false, %switch.lookup ], [ true, %14 ], [ true, %20 ]
   ret i1 %.0
 }
 
@@ -3437,15 +3431,13 @@ define dso_local noundef zeroext i1 @get_call_expr_arg_stable(ptr noundef readon
   %5 = load i32, ptr %0, align 4
   %switch.tableidx = add i32 %5, -11
   %6 = icmp ult i32 %switch.tableidx, 10
-  br i1 %6, label %switch.hole_check, label %list_length.exit.thread
-
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 977, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %list_length.exit.thread
+  %or.cond27 = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond27, label %switch.lookup, label %list_length.exit.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -3483,8 +3475,8 @@ list_length.exit:                                 ; preds = %switch.lookup
 22:                                               ; preds = %12, %18
   br label %list_length.exit.thread
 
-list_length.exit.thread:                          ; preds = %switch.hole_check, %4, %18, %12, %switch.lookup, %list_length.exit, %2, %22
-  %.0 = phi i1 [ false, %22 ], [ false, %2 ], [ false, %4 ], [ false, %list_length.exit ], [ false, %switch.lookup ], [ true, %12 ], [ true, %18 ], [ false, %switch.hole_check ]
+list_length.exit.thread:                          ; preds = %4, %18, %12, %switch.lookup, %list_length.exit, %2, %22
+  %.0 = phi i1 [ false, %22 ], [ false, %2 ], [ false, %4 ], [ false, %list_length.exit ], [ false, %switch.lookup ], [ true, %12 ], [ true, %18 ]
   ret i1 %.0
 }
 

@@ -422,57 +422,54 @@ define linkonce_odr hidden void @_ZN31ClassLoaderHierarchyVMOperation4doitEv(ptr
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %28 = load i8, ptr %27, align 2
   %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %38
+  %.not = xor i1 %29, true
+  %30 = load i8, ptr %18, align 1
+  %31 = trunc i8 %30 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %31
+  %32 = load i8, ptr %16, align 8
+  %33 = trunc i8 %32 to i1
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %33
+  br i1 %or.cond3, label %36, label %34
 
-30:                                               ; preds = %1
-  %31 = load i8, ptr %18, align 1
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %38, label %33
+34:                                               ; preds = %1
+  %35 = load ptr, ptr %24, align 8
+  call void @_ZN14LoaderTreeNode13fold_childrenEv(ptr noundef nonnull align 8 dereferenceable(64) %35)
+  br label %36
 
-33:                                               ; preds = %30
-  %34 = load i8, ptr %16, align 8
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %38, label %36
-
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %24, align 8
-  call void @_ZN14LoaderTreeNode13fold_childrenEv(ptr noundef nonnull align 8 dereferenceable(64) %37)
-  br label %38
-
-38:                                               ; preds = %30, %33, %36, %1
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %24, align 8
-  %42 = load i8, ptr %22, align 8
+36:                                               ; preds = %34, %1
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %24, align 8
+  %40 = load i8, ptr %22, align 8
+  %41 = trunc i8 %40 to i1
+  %42 = load i8, ptr %23, align 1
   %43 = trunc i8 %42 to i1
-  %44 = load i8, ptr %23, align 1
-  %45 = trunc i8 %44 to i1
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %2)
-  %46 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i32 0, ptr %46, align 4
-  call void @_ZNK14LoaderTreeNode22print_with_child_nodesEP12outputStreamR13BranchTrackerbb(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef %40, ptr noundef nonnull align 4 dereferenceable(68) %2, i1 noundef zeroext %43, i1 noundef zeroext %45)
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store i32 0, ptr %44, align 4
+  call void @_ZNK14LoaderTreeNode22print_with_child_nodesEP12outputStreamR13BranchTrackerbb(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef %38, ptr noundef nonnull align 4 dereferenceable(68) %2, i1 noundef zeroext %41, i1 noundef zeroext %43)
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %2)
-  %47 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i, label %49, label %48
+  %45 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i.i, label %47, label %46
 
-48:                                               ; preds = %38
+46:                                               ; preds = %36
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #8
-  br label %49
+  br label %47
 
-49:                                               ; preds = %48, %38
-  %50 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %50, %11
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %51
+47:                                               ; preds = %46, %36
+  %48 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %48, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %49
 
-51:                                               ; preds = %49
+49:                                               ; preds = %47
   store ptr %9, ptr %8, align 8
   store ptr %11, ptr %10, align 8
   store ptr %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %49, %51
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %47, %49
   ret void
 }
 

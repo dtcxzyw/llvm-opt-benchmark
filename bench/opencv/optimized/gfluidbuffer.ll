@@ -588,9 +588,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 33:                                               ; preds = %_ZN2cv7Scalar_IdEC2ERKS1_.exit
   %34 = and i32 %17, 7
   %35 = icmp samesign ult i32 %34, 6
-  br i1 %35, label %switch.hole_check, label %36
+  %switch.maskindex = trunc nuw nsw i32 %34 to i8
+  %switch.shifted = lshr i8 45, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %35, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %36
 
-36:                                               ; preds = %switch.hole_check, %33
+36:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -624,13 +628,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #30
   br label %common.resume.i
 
-switch.hole_check:                                ; preds = %33
-  %switch.maskindex = trunc nuw nsw i32 %34 to i8
-  %switch.shifted = lshr i8 45, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %36
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %33
   %46 = zext nneg i32 %34 to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN2cv4gapi5fluid14BorderHandlerTILi0EE21fillCompileTimeBorderERNS1_23BufferStorageWithBorderE, i64 0, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -995,9 +993,13 @@ _ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit:        ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %21 = and i32 %2, 7
   %22 = icmp samesign ult i32 %21, 6
-  br i1 %22, label %switch.hole_check, label %23
+  %switch.maskindex = trunc nuw nsw i32 %21 to i8
+  %switch.shifted = lshr i8 45, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %22, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %23
 
-23:                                               ; preds = %switch.hole_check, %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit
+23:                                               ; preds = %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #30
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %5)
@@ -1043,13 +1045,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i4: ; preds = %_Z
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %common.resume, label %41
 
-switch.hole_check:                                ; preds = %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit
-  %switch.maskindex = trunc nuw nsw i32 %21 to i8
-  %switch.shifted = lshr i8 45, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %23
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit
   %38 = zext nneg i32 %21 to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN2cv4gapi5fluid14BorderHandlerTILi1EEC2Eii, i64 0, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -1130,9 +1126,13 @@ _ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit:        ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %21 = and i32 %2, 7
   %22 = icmp samesign ult i32 %21, 6
-  br i1 %22, label %switch.hole_check, label %23
+  %switch.maskindex = trunc nuw nsw i32 %21 to i8
+  %switch.shifted = lshr i8 45, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %22, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %23
 
-23:                                               ; preds = %switch.hole_check, %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit
+23:                                               ; preds = %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #30
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.25, ptr noundef nonnull align 1 dereferenceable(1) %5)
@@ -1178,13 +1178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i: ; preds = %_
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %common.resume, label %41
 
-switch.hole_check:                                ; preds = %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit
-  %switch.maskindex = trunc nuw nsw i32 %21 to i8
-  %switch.shifted = lshr i8 45, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %23
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit
   %38 = zext nneg i32 %21 to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN2cv4gapi5fluid14BorderHandlerTILi4EEC2Eii, i64 0, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8

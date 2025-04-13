@@ -489,8 +489,8 @@ if.then8.i:                                       ; preds = %if.end5.i
   %cmp10.not.i = icmp ne i8 %32, 96
   %33 = add i8 %14, -65
   %34 = icmp ult i8 %33, 26
-  %or.cond.i = or i1 %34, %cmp10.not.i
-  br i1 %or.cond.i, label %if.then12.i, label %_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_117DecodeDataBuilder8AddFirstEcc.exit42.i
+  %or.cond80.i = or i1 %34, %cmp10.not.i
+  br i1 %or.cond80.i, label %if.then12.i, label %_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_117DecodeDataBuilder8AddFirstEcc.exit42.i
 
 if.then12.i:                                      ; preds = %if.then8.i
   %inc.i.i = add nsw i32 %22, 1
@@ -521,14 +521,12 @@ if.end15.i:                                       ; preds = %if.end5.i
   %arrayidx.i.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12lts_2023080214ascii_internal8kToUpperE, i64 0, i64 %idxprom.i.i
   %40 = load i8, ptr %arrayidx.i.i, align 1
   %cmp19.i = icmp eq i8 %14, %40
-  br i1 %cmp19.i, label %land.lhs.true.i, label %if.end22.i
-
-land.lhs.true.i:                                  ; preds = %if.end15.i
   %41 = load i8, ptr %is_all_upper_.i.i, align 1
   %tobool.i = trunc i8 %41 to i1
-  br i1 %tobool.i, label %if.then20.i, label %if.end22.i
+  %or.cond.i = select i1 %cmp19.i, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then20.i, label %if.end22.i
 
-if.then20.i:                                      ; preds = %land.lhs.true.i
+if.then20.i:                                      ; preds = %if.end15.i
   store i8 96, ptr %op_.i.i, align 2
   %inc.i44.i = add nsw i32 %22, 1
   store i32 %inc.i44.i, ptr %segment_len_.i.i, align 4
@@ -536,7 +534,7 @@ if.then20.i:                                      ; preds = %land.lhs.true.i
   %43 = icmp ult i8 %42, 26
   br label %if.then100
 
-if.end22.i:                                       ; preds = %land.lhs.true.i, %if.end15.i
+if.end22.i:                                       ; preds = %if.end15.i
   %44 = load i8, ptr %op_.i.i, align 2
   %45 = trunc i32 %22 to i8
   %conv2.i51.i = or i8 %44, %45

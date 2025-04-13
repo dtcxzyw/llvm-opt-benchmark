@@ -1119,18 +1119,18 @@ define dso_local i32 @get_new_info_node(ptr noundef captures(none) %0, i32 nound
   %8 = load ptr, ptr @g_node_info_ptr, align 8
   %9 = icmp ne ptr %8, null
   %10 = icmp eq i32 %1, 0
-  %.not44 = or i1 %10, %7
-  %or.cond.not41 = and i1 %9, %.not44
+  %.not45 = or i1 %10, %7
+  %or.cond.not42 = and i1 %9, %.not45
   %11 = load i16, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 506), align 2
   %12 = zext i16 %11 to i64
   %13 = icmp slt i64 %6, %12
-  %or.cond35 = select i1 %or.cond.not41, i1 %13, i1 false
-  br i1 %or.cond35, label %14, label %16
+  %or.cond36 = select i1 %or.cond.not42, i1 %13, i1 false
+  br i1 %or.cond36, label %14, label %16
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %15, %8
-  %spec.select36 = select i1 %.not, i32 1900, i32 0
+  %spec.select37 = select i1 %.not, i32 1900, i32 0
   store ptr %8, ptr %0, align 8
   br label %48
 
@@ -1138,14 +1138,14 @@ define dso_local i32 @get_new_info_node(ptr noundef captures(none) %0, i32 nound
   store i64 %4, ptr @get_new_info_node.last, align 8
   %17 = load i32, ptr @cluster_flags, align 4
   %18 = and i32 %17, 2048
-  %.not27 = icmp eq i32 %18, 0
-  %spec.select37 = select i1 %.not27, i16 9, i16 73
+  %.not29 = icmp eq i32 %18, 0
+  %spec.select38 = select i1 %.not29, i16 9, i16 73
   br i1 %9, label %19, label %35
 
 19:                                               ; preds = %16
   %20 = load i16, ptr @get_new_info_node.last_flags, align 2
-  %.not29 = icmp eq i16 %spec.select37, %20
-  br i1 %.not29, label %22, label %21
+  %.not31 = icmp eq i16 %spec.select38, %20
+  br i1 %.not31, label %22, label %21
 
 21:                                               ; preds = %19
   store i64 0, ptr %8, align 8
@@ -1155,7 +1155,7 @@ define dso_local i32 @get_new_info_node(ptr noundef captures(none) %0, i32 nound
 22:                                               ; preds = %21, %19
   %23 = phi ptr [ %.pre, %21 ], [ %8, %19 ]
   %24 = load i64, ptr %23, align 8
-  %25 = call i32 @slurm_load_node(i64 noundef %24, ptr noundef nonnull %3, i16 noundef zeroext %spec.select37) #11
+  %25 = call i32 @slurm_load_node(i64 noundef %24, ptr noundef nonnull %3, i16 noundef zeroext %spec.select38) #11
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %29
 
@@ -1177,7 +1177,7 @@ define dso_local i32 @get_new_info_node(ptr noundef captures(none) %0, i32 nound
 
 35:                                               ; preds = %16
   store ptr null, ptr %3, align 8
-  %36 = call i32 @slurm_load_node(i64 noundef 0, ptr noundef nonnull %3, i16 noundef zeroext %spec.select37) #11
+  %36 = call i32 @slurm_load_node(i64 noundef 0, ptr noundef nonnull %3, i16 noundef zeroext %spec.select38) #11
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %35, %29, %27
@@ -1188,35 +1188,33 @@ thread-pre-split:                                 ; preds = %35, %29, %27
 37:                                               ; preds = %thread-pre-split, %33
   %38 = phi ptr [ %.pr, %thread-pre-split ], [ %34, %33 ]
   %.1 = phi i32 [ %.1.ph, %thread-pre-split ], [ 1900, %33 ]
-  store i16 %spec.select37, ptr @get_new_info_node.last_flags, align 2
+  store i16 %spec.select38, ptr @get_new_info_node.last_flags, align 2
   store ptr %38, ptr @g_node_info_ptr, align 8
-  %.not30 = icmp eq ptr %38, null
-  br i1 %.not30, label %41, label %39
+  %.not32 = icmp eq ptr %38, null
+  br i1 %.not32, label %41, label %39
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %0, align 8
-  %.not31 = icmp eq ptr %40, %38
-  %spec.select38 = select i1 %.not31, i32 %.1, i32 0
+  %.not33 = icmp eq ptr %40, %38
+  %spec.select39 = select i1 %.not33, i32 %.1, i32 0
   br label %41
 
 41:                                               ; preds = %39, %37
-  %.2 = phi i32 [ %.1, %37 ], [ %spec.select38, %39 ]
+  %.2 = phi i32 [ %.1, %37 ], [ %spec.select39, %39 ]
   store ptr %38, ptr %0, align 8
   %42 = load ptr, ptr @g_topo_info_msg_ptr, align 8
-  %.not32 = icmp eq ptr %42, null
-  br i1 %.not32, label %43, label %48
-
-43:                                               ; preds = %41
-  %44 = load i8, ptr getelementptr inbounds nuw (i8, ptr @default_sview_config, i64 76), align 4, !range !11, !noundef !12
+  %43 = icmp eq ptr %42, null
+  %44 = load i8, ptr getelementptr inbounds nuw (i8, ptr @default_sview_config, i64 76), align 4, !range !11
   %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %48
+  %or.cond3 = select i1 %43, i1 %45, i1 false
+  br i1 %or.cond3, label %46, label %48
 
-46:                                               ; preds = %43
+46:                                               ; preds = %41
   %47 = call i32 @get_topo_conf() #11
   br label %48
 
-48:                                               ; preds = %41, %43, %46, %14
-  %.0 = phi i32 [ %spec.select36, %14 ], [ %.2, %46 ], [ %.2, %43 ], [ %.2, %41 ]
+48:                                               ; preds = %41, %46, %14
+  %.0 = phi i32 [ %spec.select37, %14 ], [ %.2, %46 ], [ %.2, %41 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   ret i32 %.0
 }
@@ -1995,8 +1993,8 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   store ptr null, ptr %4, align 8
-  %.b55 = load i1, ptr @get_info_node.set_opts, align 1
-  br i1 %.b55, label %9, label %8
+  %.b57 = load i1, ptr @get_info_node.set_opts, align 1
+  br i1 %.b57, label %9, label %8
 
 8:                                                ; preds = %2
   tail call void @set_page_opts(i32 noundef 4, ptr noundef nonnull @display_data_node, i32 noundef 44, ptr noundef nonnull @.str.90) #11
@@ -2041,20 +2039,18 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr @get_info_node.display_widget, align 8
-  %.not56 = icmp eq ptr %24, null
-  br i1 %.not56, label %29, label %25
-
-25:                                               ; preds = %23
-  %26 = load i8, ptr @toggled, align 1, !range !11, !noundef !12
+  %25 = icmp ne ptr %24, null
+  %26 = load i8, ptr @toggled, align 1, !range !11
   %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %28, label %29
+  %or.cond3 = select i1 %25, i1 %27, i1 false
+  br i1 %or.cond3, label %28, label %29
 
-28:                                               ; preds = %25
+28:                                               ; preds = %23
   tail call void @gtk_widget_destroy(ptr noundef nonnull %24) #11
   store ptr null, ptr @get_info_node.display_widget, align 8
   br label %29
 
-29:                                               ; preds = %28, %25, %23
+29:                                               ; preds = %28, %23
   %30 = load i8, ptr @force_refresh, align 1, !range !11, !noundef !12
   %31 = zext nneg i8 %30 to i32
   %32 = tail call i32 @get_new_info_node(ptr noundef nonnull @get_info_node.node_info_ptr, i32 noundef %31)
@@ -2071,8 +2067,8 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
 36:                                               ; preds = %33
   store i32 0, ptr @get_info_node.view, align 4
   %37 = load ptr, ptr @get_info_node.display_widget, align 8
-  %.not65 = icmp eq ptr %37, null
-  br i1 %.not65, label %39, label %38
+  %.not66 = icmp eq ptr %37, null
+  br i1 %.not66, label %39, label %38
 
 38:                                               ; preds = %36
   tail call void @gtk_widget_destroy(ptr noundef nonnull %37) #11
@@ -2093,19 +2089,19 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
 46:                                               ; preds = %29, %29
   %47 = load ptr, ptr @get_info_node.node_info_ptr, align 8
   %48 = tail call ptr @create_node_info_list(ptr noundef %47, i1 noundef zeroext false)
-  %.not57 = icmp eq ptr %48, null
-  br i1 %.not57, label %112, label %49
+  %.not58 = icmp eq ptr %48, null
+  br i1 %.not58, label %112, label %49
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr @get_info_node.display_widget, align 8
-  %.not58 = icmp eq ptr %50, null
-  br i1 %.not58, label %.thread73, label %51
+  %.not59 = icmp eq ptr %50, null
+  br i1 %.not59, label %.thread74, label %51
 
 51:                                               ; preds = %49
   %52 = tail call i64 @gtk_tree_view_get_type() #12
   %53 = load ptr, ptr %50, align 8
-  %.not59 = icmp eq ptr %53, null
-  br i1 %.not59, label %57, label %54
+  %.not60 = icmp eq ptr %53, null
+  br i1 %.not60, label %57, label %54
 
 54:                                               ; preds = %51
   %55 = load i64, ptr %53, align 8
@@ -2115,14 +2111,14 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
 57:                                               ; preds = %54, %51
   %58 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %50, i64 noundef %52) #13
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.thread73, label %.critedge
+  br i1 %59, label %.thread74, label %.critedge
 
 .critedge:                                        ; preds = %54, %57
   %60 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %50, i64 noundef %52) #11
   %61 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %60) #11
   %62 = tail call i32 @gtk_tree_selection_count_selected_rows(ptr noundef %61) #11
-  %.not61 = icmp eq i32 %62, 0
-  br i1 %.not61, label %.thread73, label %63
+  %.not62 = icmp eq i32 %62, 0
+  br i1 %.not62, label %.thread74, label %63
 
 63:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
@@ -2133,9 +2129,9 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   %.pre = load ptr, ptr %4, align 8
   %66 = icmp eq ptr %.pre, null
-  br i1 %66, label %.thread73, label %81
+  br i1 %66, label %.thread74, label %81
 
-.thread73:                                        ; preds = %49, %57, %.critedge, %63
+.thread74:                                        ; preds = %49, %57, %.critedge, %63
   %67 = load ptr, ptr @get_info_node.node_info_ptr, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 8
@@ -2149,11 +2145,11 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   store ptr %73, ptr %7, align 8
   %74 = call ptr @list_iterator_create(ptr noundef nonnull %48) #11
   %75 = call ptr @list_next(ptr noundef %74) #11
-  %.not6369 = icmp eq ptr %75, null
-  br i1 %.not6369, label %._crit_edge, label %.lr.ph
+  %.not6470 = icmp eq ptr %75, null
+  br i1 %.not6470, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread73, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.thread73 ]
+.lr.ph:                                           ; preds = %.thread74, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.thread74 ]
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 %indvars.iv
   store i8 1, ptr %76, align 1
   %77 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv
@@ -2161,10 +2157,10 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   store i32 %78, ptr %77, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = call ptr @list_next(ptr noundef %74) #11
-  %.not63 = icmp eq ptr %79, null
-  br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  %.not64 = icmp eq ptr %79, null
+  br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph, %.thread73
+._crit_edge:                                      ; preds = %.lr.ph, %.thread74
   call void @list_iterator_destroy(ptr noundef %74) #11
   %80 = load ptr, ptr @grid_button_list, align 8
   call void @change_grid_color_array(ptr noundef %80, i32 noundef %69, ptr noundef %72, ptr noundef %73, i1 noundef zeroext true, i32 noundef 0) #11
@@ -2189,8 +2185,8 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   %89 = icmp eq i32 %88, 0
   %90 = load ptr, ptr @get_info_node.display_widget, align 8
   %91 = icmp ne ptr %90, null
-  %or.cond5 = select i1 %89, i1 %91, i1 false
-  br i1 %or.cond5, label %.thread, label %92
+  %or.cond7 = select i1 %89, i1 %91, i1 false
+  br i1 %or.cond7, label %.thread, label %92
 
 .thread:                                          ; preds = %87
   call void @gtk_widget_destroy(ptr noundef nonnull %90) #11
@@ -2198,8 +2194,8 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   br label %93
 
 92:                                               ; preds = %87
-  %.not64 = icmp eq ptr %90, null
-  br i1 %.not64, label %93, label %107
+  %.not65 = icmp eq ptr %90, null
+  br i1 %.not65, label %93, label %107
 
 93:                                               ; preds = %.thread, %92
   %94 = load ptr, ptr @local_display_data, align 8
@@ -2220,11 +2216,11 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
   %106 = icmp ugt i32 %105, 1000
   %. = select i1 %106, i32 -1, i32 21
   call void @create_treestore(ptr noundef %95, ptr noundef nonnull @display_data_node, i32 noundef 44, i32 noundef %., i32 noundef 9) #11
-  %.pre72 = load ptr, ptr @get_info_node.display_widget, align 8
+  %.pre73 = load ptr, ptr @get_info_node.display_widget, align 8
   br label %107
 
 107:                                              ; preds = %93, %92
-  %108 = phi ptr [ %.pre72, %93 ], [ %90, %92 ]
+  %108 = phi ptr [ %.pre73, %93 ], [ %90, %92 ]
   store i32 1, ptr @get_info_node.view, align 4
   %109 = tail call i64 @gtk_tree_view_get_type() #12
   %110 = call ptr @g_type_check_instance_cast(ptr noundef %108, i64 noundef %109) #11
@@ -2238,14 +2234,14 @@ define dso_local void @get_info_node(ptr noundef %0, ptr noundef %1) local_unnam
 
 112:                                              ; preds = %46, %111, %19, %15
   %113 = load ptr, ptr @main_window, align 8
-  %.not66 = icmp eq ptr %113, null
-  br i1 %.not66, label %118, label %114
+  %.not67 = icmp eq ptr %113, null
+  br i1 %.not67, label %118, label %114
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 80
   %116 = load ptr, ptr %115, align 8
-  %.not67 = icmp eq ptr %116, null
-  br i1 %.not67, label %118, label %117
+  %.not68 = icmp eq ptr %116, null
+  br i1 %.not68, label %118, label %117
 
 117:                                              ; preds = %114
   call void @gdk_window_set_cursor(ptr noundef nonnull %116, ptr noundef null) #11
@@ -3032,8 +3028,8 @@ define dso_local void @cluster_change_node() local_unnamed_addr #0 {
   br i1 %22, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %18, %9, %0
-  %.b55.i = load i1, ptr @get_info_node.set_opts, align 1
-  br i1 %.b55.i, label %24, label %23
+  %.b57.i = load i1, ptr @get_info_node.set_opts, align 1
+  br i1 %.b57.i, label %24, label %23
 
 23:                                               ; preds = %._crit_edge
   tail call void @set_page_opts(i32 noundef 4, ptr noundef nonnull @display_data_node, i32 noundef 44, ptr noundef nonnull @.str.90) #11
@@ -3052,14 +3048,14 @@ define dso_local void @cluster_change_node() local_unnamed_addr #0 {
 27:                                               ; preds = %26, %24
   store ptr null, ptr @get_info_node.display_widget, align 8
   %28 = load ptr, ptr @main_window, align 8
-  %.not66.i = icmp eq ptr %28, null
-  br i1 %.not66.i, label %get_info_node.exit, label %29
+  %.not67.i = icmp eq ptr %28, null
+  br i1 %.not67.i, label %get_info_node.exit, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %31 = load ptr, ptr %30, align 8
-  %.not67.i = icmp eq ptr %31, null
-  br i1 %.not67.i, label %get_info_node.exit, label %32
+  %.not68.i = icmp eq ptr %31, null
+  br i1 %.not68.i, label %get_info_node.exit, label %32
 
 32:                                               ; preds = %29
   tail call void @gdk_window_set_cursor(ptr noundef nonnull %31, ptr noundef null) #11

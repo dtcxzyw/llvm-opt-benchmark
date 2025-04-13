@@ -468,18 +468,18 @@ entry:
   %valueType.i = getelementptr inbounds nuw i8, ptr %lhs, i64 2
   %retval.sroa.0.0.copyload.i = load i32, ptr %valueType.i, align 2
   %leftTy.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.copyload.i to i16
-  %valueType.i269 = getelementptr inbounds nuw i8, ptr %rhs, i64 2
-  %retval.sroa.0.0.copyload.i270 = load i32, ptr %valueType.i269, align 2
+  %valueType.i270 = getelementptr inbounds nuw i8, ptr %rhs, i64 2
+  %retval.sroa.0.0.copyload.i271 = load i32, ptr %valueType.i270, align 2
   %0 = load i8, ptr %lhs, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %0, 114
   %1 = load i8, ptr %rhs, align 8
-  %cmp.i.i.i.i.i.i.i271 = icmp eq i8 %1, 114
-  %cmp.i.i.i.i.i.i.i273 = icmp eq i8 %0, 113
-  %cmp.i.i.i.i.i.i.i275 = icmp eq i8 %1, 113
-  %cmp.i.i.i.i.i.i.i277 = icmp eq i8 %0, 112
-  %cmp.i.i.i.i.i.i.i279 = icmp eq i8 %1, 112
-  %cmp.i.i.i.i.i.i.i281 = icmp eq i8 %0, 116
-  %cmp.i.i.i.i.i.i.i283 = icmp eq i8 %1, 116
+  %cmp.i.i.i.i.i.i.i272 = icmp eq i8 %1, 114
+  %cmp.i.i.i.i.i.i.i274 = icmp eq i8 %0, 113
+  %cmp.i.i.i.i.i.i.i276 = icmp eq i8 %1, 113
+  %cmp.i.i.i.i.i.i.i278 = icmp eq i8 %0, 112
+  %cmp.i.i.i.i.i.i.i280 = icmp eq i8 %1, 112
+  %cmp.i.i.i.i.i.i.i282 = icmp eq i8 %0, 116
+  %cmp.i.i.i.i.i.i.i284 = icmp eq i8 %1, 116
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i, label %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit
 
 if.then.i:                                        ; preds = %entry
@@ -490,24 +490,24 @@ if.then.i:                                        ; preds = %entry
 
 _ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit:  ; preds = %entry, %if.then.i
   %retval.0.i = phi i1 [ %3, %if.then.i ], [ false, %entry ]
-  br i1 %cmp.i.i.i.i.i.i.i271, label %if.then.i287, label %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit289
+  br i1 %cmp.i.i.i.i.i.i.i272, label %if.then.i288, label %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit290
 
-if.then.i287:                                     ; preds = %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit
-  %value.i.i288 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %4 = load double, ptr %value.i.i288, align 8
+if.then.i288:                                     ; preds = %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit
+  %value.i.i289 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %4 = load double, ptr %value.i.i289, align 8
   %5 = fcmp uno double %4, 0.000000e+00
-  br label %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit289
+  br label %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit290
 
-_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit289: ; preds = %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit, %if.then.i287
-  %retval.0.i286 = phi i1 [ %5, %if.then.i287 ], [ false, %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit ]
+_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit290: ; preds = %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit, %if.then.i288
+  %retval.0.i287 = phi i1 [ %5, %if.then.i288 ], [ false, %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit ]
   %6 = and i8 %0, -2
   %7 = icmp eq i8 %6, 112
   %8 = and i8 %1, -2
   %9 = icmp eq i8 %8, 112
-  %brmerge = or i1 %retval.0.i, %retval.0.i286
-  br i1 %brmerge, label %if.then, label %if.end56
+  %or.cond = or i1 %retval.0.i, %retval.0.i287
+  br i1 %or.cond, label %if.then, label %if.end56
 
-if.then:                                          ; preds = %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit289
+if.then:                                          ; preds = %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit290
   switch i32 %kind, label %return [
     i32 1, label %sw.bb
     i32 3, label %sw.bb
@@ -539,15 +539,15 @@ sw.bb25:                                          ; preds = %if.then, %if.then
   br label %return
 
 sw.bb28:                                          ; preds = %if.then
-  br i1 %cmp.i.i.i.i.i.i.i281, label %if.then30, label %if.end
+  br i1 %cmp.i.i.i.i.i.i.i282, label %if.then30, label %if.end
 
 if.then30:                                        ; preds = %sw.bb28
   %value.i = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %retval.sroa.0.0.copyload.i290 = load ptr, ptr %value.i, align 8
-  %retval.sroa.0.0.copyload.i291 = load ptr, ptr %retval.sroa.0.0.copyload.i290, align 8
-  %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i290, i64 8
+  %retval.sroa.0.0.copyload.i291 = load ptr, ptr %value.i, align 8
+  %retval.sroa.0.0.copyload.i292 = load ptr, ptr %retval.sroa.0.0.copyload.i291, align 8
+  %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i291, i64 8
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result, ptr %retval.sroa.0.0.copyload.i291, i64 %retval.sroa.2.0.copyload.i, ptr nonnull @.str.5, i64 3)
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result, ptr %retval.sroa.0.0.copyload.i292, i64 %retval.sroa.2.0.copyload.i, ptr nonnull @.str.5, i64 3)
   %10 = load ptr, ptr %result, align 8
   %Size.i.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   %11 = load i32, ptr %Size.i.i, align 8
@@ -563,26 +563,26 @@ if.then.i.i.i:                                    ; preds = %if.then30
   br label %return
 
 if.end:                                           ; preds = %sw.bb28
-  br i1 %cmp.i.i.i.i.i.i.i283, label %if.then39, label %if.end51
+  br i1 %cmp.i.i.i.i.i.i.i284, label %if.then39, label %if.end51
 
 if.then39:                                        ; preds = %if.end
-  %value.i294 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %retval.sroa.0.0.copyload.i295 = load ptr, ptr %value.i294, align 8
-  %retval.sroa.0.0.copyload.i296 = load ptr, ptr %retval.sroa.0.0.copyload.i295, align 8
-  %retval.sroa.2.0.call.sroa_idx.i297 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i295, i64 8
-  %retval.sroa.2.0.copyload.i298 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i297, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result40, ptr nonnull @.str.5, i64 3, ptr %retval.sroa.0.0.copyload.i296, i64 %retval.sroa.2.0.copyload.i298)
+  %value.i295 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %retval.sroa.0.0.copyload.i296 = load ptr, ptr %value.i295, align 8
+  %retval.sroa.0.0.copyload.i297 = load ptr, ptr %retval.sroa.0.0.copyload.i296, align 8
+  %retval.sroa.2.0.call.sroa_idx.i298 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i296, i64 8
+  %retval.sroa.2.0.copyload.i299 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i298, align 8
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result40, ptr nonnull @.str.5, i64 3, ptr %retval.sroa.0.0.copyload.i297, i64 %retval.sroa.2.0.copyload.i299)
   %13 = load ptr, ptr %result40, align 8
-  %Size.i.i301 = getelementptr inbounds nuw i8, ptr %result40, i64 8
-  %14 = load i32, ptr %Size.i.i301, align 8
-  %conv.i.i302 = zext i32 %14 to i64
-  %call50 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %13, i64 %conv.i.i302) #6
+  %Size.i.i302 = getelementptr inbounds nuw i8, ptr %result40, i64 8
+  %14 = load i32, ptr %Size.i.i302, align 8
+  %conv.i.i303 = zext i32 %14 to i64
+  %call50 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %13, i64 %conv.i.i303) #6
   %15 = load ptr, ptr %result40, align 8
-  %add.ptr.i.i.i.i.i305 = getelementptr inbounds nuw i8, ptr %result40, i64 16
-  %cmp.i.i.i.i306 = icmp eq ptr %15, %add.ptr.i.i.i.i.i305
-  br i1 %cmp.i.i.i.i306, label %return, label %if.then.i.i.i307
+  %add.ptr.i.i.i.i.i306 = getelementptr inbounds nuw i8, ptr %result40, i64 16
+  %cmp.i.i.i.i307 = icmp eq ptr %15, %add.ptr.i.i.i.i.i306
+  br i1 %cmp.i.i.i.i307, label %return, label %if.then.i.i.i308
 
-if.then.i.i.i307:                                 ; preds = %if.then39
+if.then.i.i.i308:                                 ; preds = %if.then39
   call void @free(ptr noundef %15) #6
   br label %return
 
@@ -594,13 +594,13 @@ sw.bb53:                                          ; preds = %if.then, %if.then, 
   %call54 = tail call noundef ptr @_ZN6hermes9IRBuilder13getLiteralNaNEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #6
   br label %return
 
-if.end56:                                         ; preds = %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit289, %if.then, %if.then, %if.then, %if.then, %if.then, %if.then
-  %or.cond.i = and i1 %cmp.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i271
+if.end56:                                         ; preds = %if.then, %if.then, %if.then, %if.then, %if.then, %if.then, %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit290
+  %or.cond.i = and i1 %cmp.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i272
   br i1 %or.cond.i, label %if.end.i, label %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit
 
 if.end.i:                                         ; preds = %if.end56
-  %value.i.i309 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %16 = load double, ptr %value.i.i309, align 8
+  %value.i.i310 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %16 = load double, ptr %value.i.i310, align 8
   %value.i9.i = getelementptr inbounds nuw i8, ptr %rhs, i64 48
   %17 = load double, ptr %value.i9.i, align 8
   %cmp.i = fcmp olt double %16, %17
@@ -649,8 +649,8 @@ if.then60:                                        ; preds = %sw.bb59
   br label %return
 
 if.end62:                                         ; preds = %sw.bb59
-  %brmerge240 = or i1 %7, %9
-  br i1 %brmerge240, label %if.then66, label %if.end70
+  %or.cond1 = or i1 %7, %9
+  br i1 %or.cond1, label %if.then66, label %if.end70
 
 if.then66:                                        ; preds = %if.end62
   %19 = and i1 %7, %9
@@ -684,16 +684,16 @@ default.unreachable:                              ; preds = %if.then270, %if.the
   unreachable
 
 if.end82:                                         ; preds = %if.end70
-  %or.cond = and i1 %cmp.i.i.i.i.i.i.i281, %cmp.i.i.i.i.i.i.i283
-  br i1 %or.cond, label %if.then85, label %return
+  %or.cond2 = and i1 %cmp.i.i.i.i.i.i.i282, %cmp.i.i.i.i.i.i.i284
+  br i1 %or.cond2, label %if.then85, label %return
 
 if.then85:                                        ; preds = %if.end82
-  %value.i310 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %retval.sroa.0.0.copyload.i311 = load ptr, ptr %value.i310, align 8
-  %value.i312 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %retval.sroa.0.0.copyload.i313 = load ptr, ptr %value.i312, align 8
-  %cmp.i314 = icmp eq ptr %retval.sroa.0.0.copyload.i311, %retval.sroa.0.0.copyload.i313
-  %call94 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i314) #6
+  %value.i311 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %retval.sroa.0.0.copyload.i312 = load ptr, ptr %value.i311, align 8
+  %value.i313 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %retval.sroa.0.0.copyload.i314 = load ptr, ptr %value.i313, align 8
+  %cmp.i315 = icmp eq ptr %retval.sroa.0.0.copyload.i312, %retval.sroa.0.0.copyload.i314
+  %call94 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i315) #6
   br label %return
 
 sw.bb96:                                          ; preds = %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit
@@ -705,8 +705,8 @@ if.then98:                                        ; preds = %sw.bb96
   br label %return
 
 if.end100:                                        ; preds = %sw.bb96
-  %brmerge241 = or i1 %7, %9
-  br i1 %brmerge241, label %if.then104, label %if.end110
+  %or.cond3 = or i1 %7, %9
+  br i1 %or.cond3, label %if.then104, label %if.end110
 
 if.then104:                                       ; preds = %if.end100
   %20 = and i1 %7, %9
@@ -738,15 +738,15 @@ sw.bb118:                                         ; preds = %if.then112
   br label %return
 
 if.end122:                                        ; preds = %if.end110
-  %or.cond1 = and i1 %cmp.i.i.i.i.i.i.i281, %cmp.i.i.i.i.i.i.i283
-  br i1 %or.cond1, label %if.then126, label %return
+  %or.cond4 = and i1 %cmp.i.i.i.i.i.i.i282, %cmp.i.i.i.i.i.i.i284
+  br i1 %or.cond4, label %if.then126, label %return
 
 if.then126:                                       ; preds = %if.end122
-  %value.i316 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %retval.sroa.0.0.copyload.i317 = load ptr, ptr %value.i316, align 8
-  %value.i318 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %retval.sroa.0.0.copyload.i319 = load ptr, ptr %value.i318, align 8
-  %cmp.i.i = icmp ne ptr %retval.sroa.0.0.copyload.i317, %retval.sroa.0.0.copyload.i319
+  %value.i317 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %retval.sroa.0.0.copyload.i318 = load ptr, ptr %value.i317, align 8
+  %value.i319 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %retval.sroa.0.0.copyload.i320 = load ptr, ptr %value.i319, align 8
+  %cmp.i.i = icmp ne ptr %retval.sroa.0.0.copyload.i318, %retval.sroa.0.0.copyload.i320
   %call135 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i.i) #6
   br label %return
 
@@ -766,7 +766,7 @@ if.end141:                                        ; preds = %sw.bb137
   br i1 %22, label %lor.lhs.false.i, label %if.end147
 
 lor.lhs.false.i:                                  ; preds = %if.end141
-  %B.sroa.0.0.extract.trunc.i = trunc i32 %retval.sroa.0.0.copyload.i270 to i16
+  %B.sroa.0.0.extract.trunc.i = trunc i32 %retval.sroa.0.0.copyload.i271 to i16
   %tobool.not.i1.i = icmp ne i16 %B.sroa.0.0.extract.trunc.i, 0
   %23 = and i16 %B.sroa.0.0.extract.trunc.i, -127
   %tobool3.not.i2.i = icmp eq i16 %23, 0
@@ -775,9 +775,9 @@ lor.lhs.false.i:                                  ; preds = %if.end141
 
 _ZN12_GLOBAL__N_123disjointComparisonTypesEN6hermes4TypeES1_.exit: ; preds = %lor.lhs.false.i
   %retval.sroa.0.0.insert.ext.i.i = and i32 %retval.sroa.0.0.copyload.i, 65535
-  %25 = and i32 %retval.sroa.0.0.insert.ext.i.i, %retval.sroa.0.0.copyload.i270
-  %cmp.i.i322 = icmp eq i32 %25, 0
-  br i1 %cmp.i.i322, label %if.then145, label %if.end147
+  %25 = and i32 %retval.sroa.0.0.insert.ext.i.i, %retval.sroa.0.0.copyload.i271
+  %cmp.i.i323 = icmp eq i32 %25, 0
+  br i1 %cmp.i.i323, label %if.then145, label %if.end147
 
 if.then145:                                       ; preds = %_ZN12_GLOBAL__N_123disjointComparisonTypesEN6hermes4TypeES1_.exit
   %call146 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext false) #6
@@ -807,16 +807,16 @@ sw.bb155:                                         ; preds = %if.then149
   br label %return
 
 if.end159:                                        ; preds = %if.end147
-  %or.cond2 = and i1 %cmp.i.i.i.i.i.i.i281, %cmp.i.i.i.i.i.i.i283
-  br i1 %or.cond2, label %if.then163, label %return
+  %or.cond5 = and i1 %cmp.i.i.i.i.i.i.i282, %cmp.i.i.i.i.i.i.i284
+  br i1 %or.cond5, label %if.then163, label %return
 
 if.then163:                                       ; preds = %if.end159
-  %value.i324 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %retval.sroa.0.0.copyload.i325 = load ptr, ptr %value.i324, align 8
-  %value.i326 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %retval.sroa.0.0.copyload.i327 = load ptr, ptr %value.i326, align 8
-  %cmp.i328 = icmp eq ptr %retval.sroa.0.0.copyload.i325, %retval.sroa.0.0.copyload.i327
-  %call172 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i328) #6
+  %value.i325 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %retval.sroa.0.0.copyload.i326 = load ptr, ptr %value.i325, align 8
+  %value.i327 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %retval.sroa.0.0.copyload.i328 = load ptr, ptr %value.i327, align 8
+  %cmp.i329 = icmp eq ptr %retval.sroa.0.0.copyload.i326, %retval.sroa.0.0.copyload.i328
+  %call172 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i329) #6
   br label %return
 
 sw.bb174:                                         ; preds = %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit
@@ -851,23 +851,23 @@ sw.bb186:                                         ; preds = %if.then180
   br label %return
 
 if.end190:                                        ; preds = %if.end178
-  %or.cond3 = and i1 %cmp.i.i.i.i.i.i.i281, %cmp.i.i.i.i.i.i.i283
-  br i1 %or.cond3, label %if.then194, label %return
+  %or.cond6 = and i1 %cmp.i.i.i.i.i.i.i282, %cmp.i.i.i.i.i.i.i284
+  br i1 %or.cond6, label %if.then194, label %return
 
 if.then194:                                       ; preds = %if.end190
-  %value.i330 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %retval.sroa.0.0.copyload.i331 = load ptr, ptr %value.i330, align 8
-  %value.i332 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %retval.sroa.0.0.copyload.i333 = load ptr, ptr %value.i332, align 8
-  %cmp.i.i334 = icmp ne ptr %retval.sroa.0.0.copyload.i331, %retval.sroa.0.0.copyload.i333
-  %call203 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i.i334) #6
+  %value.i331 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %retval.sroa.0.0.copyload.i332 = load ptr, ptr %value.i331, align 8
+  %value.i333 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %retval.sroa.0.0.copyload.i334 = load ptr, ptr %value.i333, align 8
+  %cmp.i.i335 = icmp ne ptr %retval.sroa.0.0.copyload.i332, %retval.sroa.0.0.copyload.i334
+  %call203 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext %cmp.i.i335) #6
   br label %return
 
 sw.bb205:                                         ; preds = %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit
-  %cmp.i335 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 2
+  %cmp.i336 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 2
   %cmp208 = icmp eq ptr %lhs, %rhs
-  %or.cond242 = and i1 %cmp208, %cmp.i335
-  br i1 %or.cond242, label %if.then209, label %if.end211
+  %or.cond243 = and i1 %cmp208, %cmp.i336
+  br i1 %or.cond243, label %if.then209, label %if.end211
 
 if.then209:                                       ; preds = %sw.bb205
   %call210 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext false) #6
@@ -897,10 +897,10 @@ sw.bb219:                                         ; preds = %if.then213
   br label %return
 
 sw.bb224:                                         ; preds = %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit
-  %cmp.i337 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 2
+  %cmp.i338 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 2
   %cmp227 = icmp eq ptr %lhs, %rhs
-  %or.cond243 = and i1 %cmp227, %cmp.i337
-  br i1 %or.cond243, label %if.then228, label %if.end230
+  %or.cond244 = and i1 %cmp227, %cmp.i338
+  br i1 %or.cond244, label %if.then228, label %if.end230
 
 if.then228:                                       ; preds = %sw.bb224
   %call229 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext true) #6
@@ -930,10 +930,10 @@ sw.bb238:                                         ; preds = %if.then232
   br label %return
 
 sw.bb243:                                         ; preds = %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit
-  %cmp.i339 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 2
+  %cmp.i340 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 2
   %cmp246 = icmp eq ptr %lhs, %rhs
-  %or.cond244 = and i1 %cmp246, %cmp.i339
-  br i1 %or.cond244, label %if.then247, label %if.end249
+  %or.cond245 = and i1 %cmp246, %cmp.i340
+  br i1 %or.cond245, label %if.then247, label %if.end249
 
 if.then247:                                       ; preds = %sw.bb243
   %call248 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext false) #6
@@ -963,10 +963,10 @@ sw.bb257:                                         ; preds = %if.then251
   br label %return
 
 sw.bb262:                                         ; preds = %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit
-  %cmp.i341 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 2
+  %cmp.i342 = icmp ne i16 %leftTy.sroa.0.0.extract.trunc, 2
   %cmp265 = icmp eq ptr %lhs, %rhs
-  %or.cond245 = and i1 %cmp265, %cmp.i341
-  br i1 %or.cond245, label %if.then266, label %if.end268
+  %or.cond246 = and i1 %cmp265, %cmp.i342
+  br i1 %or.cond246, label %if.then266, label %if.end268
 
 if.then266:                                       ; preds = %sw.bb262
   %call267 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext true) #6
@@ -996,75 +996,75 @@ sw.bb276:                                         ; preds = %if.then270
   br label %return
 
 sw.bb281:                                         ; preds = %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit
-  switch i8 %0, label %if.end6.i345 [
+  switch i8 %0, label %if.end6.i346 [
     i8 114, label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
     i8 117, label %if.then3.i
   ]
 
 if.then3.i:                                       ; preds = %sw.bb281
-  %value.i.i343 = getelementptr inbounds nuw i8, ptr %lhs, i64 40
-  %26 = load i8, ptr %value.i.i343, align 8
+  %value.i.i344 = getelementptr inbounds nuw i8, ptr %lhs, i64 40
+  %26 = load i8, ptr %value.i.i344, align 8
   %tobool.i.i = trunc i8 %26 to i1
   %conv.i = uitofp i1 %tobool.i.i to double
   %call5.i = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv.i) #6
   br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
 
-if.end6.i345:                                     ; preds = %sw.bb281
+if.end6.i346:                                     ; preds = %sw.bb281
   switch i16 %leftTy.sroa.0.0.extract.trunc, label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit [
     i16 2, label %if.then9.i
     i16 4, label %if.then15.i
   ]
 
-if.then9.i:                                       ; preds = %if.end6.i345
+if.then9.i:                                       ; preds = %if.end6.i346
   %call10.i = tail call noundef ptr @_ZN6hermes9IRBuilder13getLiteralNaNEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #6
   br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
 
-if.then15.i:                                      ; preds = %if.end6.i345
+if.then15.i:                                      ; preds = %if.end6.i346
   %call16.i = tail call noundef ptr @_ZN6hermes9IRBuilder22getLiteralPositiveZeroEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #6
   br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
 
-_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %sw.bb281, %if.then3.i, %if.end6.i345, %if.then9.i, %if.then15.i
-  %retval.0.i344 = phi ptr [ %call5.i, %if.then3.i ], [ %call10.i, %if.then9.i ], [ %call16.i, %if.then15.i ], [ %lhs, %sw.bb281 ], [ null, %if.end6.i345 ]
+_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit: ; preds = %sw.bb281, %if.then3.i, %if.end6.i346, %if.then9.i, %if.then15.i
+  %retval.0.i345 = phi ptr [ %call5.i, %if.then3.i ], [ %call10.i, %if.then9.i ], [ %call16.i, %if.then15.i ], [ %lhs, %sw.bb281 ], [ null, %if.end6.i346 ]
   %27 = load i8, ptr %rhs, align 8
-  switch i8 %27, label %if.end6.i352 [
-    i8 114, label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit360
-    i8 117, label %if.then3.i346
+  switch i8 %27, label %if.end6.i353 [
+    i8 114, label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361
+    i8 117, label %if.then3.i347
   ]
 
-if.then3.i346:                                    ; preds = %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
-  %value.i.i347 = getelementptr inbounds nuw i8, ptr %rhs, i64 40
-  %28 = load i8, ptr %value.i.i347, align 8
-  %tobool.i.i348 = trunc i8 %28 to i1
-  %conv.i349 = uitofp i1 %tobool.i.i348 to double
-  %call5.i350 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv.i349) #6
-  br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit360
+if.then3.i347:                                    ; preds = %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
+  %value.i.i348 = getelementptr inbounds nuw i8, ptr %rhs, i64 40
+  %28 = load i8, ptr %value.i.i348, align 8
+  %tobool.i.i349 = trunc i8 %28 to i1
+  %conv.i350 = uitofp i1 %tobool.i.i349 to double
+  %call5.i351 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv.i350) #6
+  br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361
 
-if.end6.i352:                                     ; preds = %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
-  %retval.sroa.0.0.copyload.i.i354 = load i32, ptr %valueType.i269, align 2
-  %ref.tmp.sroa.0.0.extract.trunc.i355 = trunc i32 %retval.sroa.0.0.copyload.i.i354 to i16
-  switch i16 %ref.tmp.sroa.0.0.extract.trunc.i355, label %return [
-    i16 2, label %if.then9.i358
-    i16 4, label %if.then15.i356
+if.end6.i353:                                     ; preds = %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit
+  %retval.sroa.0.0.copyload.i.i355 = load i32, ptr %valueType.i270, align 2
+  %ref.tmp.sroa.0.0.extract.trunc.i356 = trunc i32 %retval.sroa.0.0.copyload.i.i355 to i16
+  switch i16 %ref.tmp.sroa.0.0.extract.trunc.i356, label %return [
+    i16 2, label %if.then9.i359
+    i16 4, label %if.then15.i357
   ]
 
-if.then9.i358:                                    ; preds = %if.end6.i352
-  %call10.i359 = tail call noundef ptr @_ZN6hermes9IRBuilder13getLiteralNaNEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #6
-  br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit360
+if.then9.i359:                                    ; preds = %if.end6.i353
+  %call10.i360 = tail call noundef ptr @_ZN6hermes9IRBuilder13getLiteralNaNEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #6
+  br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361
 
-if.then15.i356:                                   ; preds = %if.end6.i352
-  %call16.i357 = tail call noundef ptr @_ZN6hermes9IRBuilder22getLiteralPositiveZeroEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #6
-  br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit360
+if.then15.i357:                                   ; preds = %if.end6.i353
+  %call16.i358 = tail call noundef ptr @_ZN6hermes9IRBuilder22getLiteralPositiveZeroEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #6
+  br label %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361
 
-_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit360: ; preds = %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit, %if.then3.i346, %if.then9.i358, %if.then15.i356
-  %retval.0.i351 = phi ptr [ %call5.i350, %if.then3.i346 ], [ %call10.i359, %if.then9.i358 ], [ %call16.i357, %if.then15.i356 ], [ %rhs, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit ]
-  %tobool284 = icmp ne ptr %retval.0.i344, null
-  %tobool286 = icmp ne ptr %retval.0.i351, null
-  %or.cond4 = and i1 %tobool284, %tobool286
-  br i1 %or.cond4, label %if.end288, label %return
+_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361: ; preds = %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit, %if.then3.i347, %if.then9.i359, %if.then15.i357
+  %retval.0.i352 = phi ptr [ %call5.i351, %if.then3.i347 ], [ %call10.i360, %if.then9.i359 ], [ %call16.i358, %if.then15.i357 ], [ %rhs, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit ]
+  %tobool284 = icmp ne ptr %retval.0.i345, null
+  %tobool286 = icmp ne ptr %retval.0.i352, null
+  %or.cond7 = and i1 %tobool284, %tobool286
+  br i1 %or.cond7, label %if.end288, label %return
 
-if.end288:                                        ; preds = %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit360
-  %value.i361 = getelementptr inbounds nuw i8, ptr %retval.0.i351, i64 48
-  %29 = load double, ptr %value.i361, align 8
+if.end288:                                        ; preds = %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361
+  %value.i362 = getelementptr inbounds nuw i8, ptr %retval.0.i352, i64 48
+  %29 = load double, ptr %value.i362, align 8
   %conv4.i.i.i = fptoui double %29 to i64
   %shl.i.i.i = shl i64 %conv4.i.i.i, 1
   %shr.i.i.i = ashr exact i64 %shl.i.i.i, 1
@@ -1083,40 +1083,40 @@ if.end11.i.i.i:                                   ; preds = %if.end288
 _ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit: ; preds = %if.then8.i.i.i, %if.end11.i.i.i
   %retval.0.i.i.i = phi i32 [ %call.i.i.i, %if.end11.i.i.i ], [ %conv9.i.i.i, %if.then8.i.i.i ]
   %and = and i32 %retval.0.i.i.i, 31
-  %value.i383 = getelementptr inbounds nuw i8, ptr %retval.0.i344, i64 48
-  %30 = load double, ptr %value.i383, align 8
-  %conv4.i.i.i385 = fptoui double %30 to i64
-  %shl.i.i.i386 = shl i64 %conv4.i.i.i385, 1
-  %shr.i.i.i387 = ashr exact i64 %shl.i.i.i386, 1
-  %conv5.i.i.i388 = sitofp i64 %shr.i.i.i387 to double
-  %cmp6.i.i.i389 = fcmp oeq double %30, %conv5.i.i.i388
-  switch i32 %kind, label %if.else.i.i.i384 [
-    i32 9, label %if.else.i.i.i364
+  %value.i384 = getelementptr inbounds nuw i8, ptr %retval.0.i345, i64 48
+  %30 = load double, ptr %value.i384, align 8
+  %conv4.i.i.i386 = fptoui double %30 to i64
+  %shl.i.i.i387 = shl i64 %conv4.i.i.i386, 1
+  %shr.i.i.i388 = ashr exact i64 %shl.i.i.i387, 1
+  %conv5.i.i.i389 = sitofp i64 %shr.i.i.i388 to double
+  %cmp6.i.i.i390 = fcmp oeq double %30, %conv5.i.i.i389
+  switch i32 %kind, label %if.else.i.i.i385 [
+    i32 9, label %if.else.i.i.i365
     i32 10, label %if.else.i.i
   ]
 
-if.else.i.i.i364:                                 ; preds = %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit
-  br i1 %cmp6.i.i.i389, label %if.then8.i.i.i373, label %if.end11.i.i.i370
+if.else.i.i.i365:                                 ; preds = %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit
+  br i1 %cmp6.i.i.i390, label %if.then8.i.i.i374, label %if.end11.i.i.i371
 
-if.then8.i.i.i373:                                ; preds = %if.else.i.i.i364
-  %conv9.i.i.i374 = trunc i64 %conv4.i.i.i385 to i32
-  br label %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit380
+if.then8.i.i.i374:                                ; preds = %if.else.i.i.i365
+  %conv9.i.i.i375 = trunc i64 %conv4.i.i.i386 to i32
+  br label %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit381
 
-if.end11.i.i.i370:                                ; preds = %if.else.i.i.i364
-  %call.i.i.i371 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %30) #6
-  br label %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit380
+if.end11.i.i.i371:                                ; preds = %if.else.i.i.i365
+  %call.i.i.i372 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %30) #6
+  br label %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit381
 
-_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit380: ; preds = %if.then8.i.i.i373, %if.end11.i.i.i370
-  %retval.0.i.i.i372 = phi i32 [ %call.i.i.i371, %if.end11.i.i.i370 ], [ %conv9.i.i.i374, %if.then8.i.i.i373 ]
-  %shl = shl i32 %retval.0.i.i.i372, %and
+_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit381: ; preds = %if.then8.i.i.i374, %if.end11.i.i.i371
+  %retval.0.i.i.i373 = phi i32 [ %call.i.i.i372, %if.end11.i.i.i371 ], [ %conv9.i.i.i375, %if.then8.i.i.i374 ]
+  %shl = shl i32 %retval.0.i.i.i373, %and
   %conv = sext i32 %shl to i64
   br label %if.end303
 
 if.else.i.i:                                      ; preds = %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit
-  br i1 %cmp6.i.i.i389, label %if.then8.i.i, label %if.end11.i.i
+  br i1 %cmp6.i.i.i390, label %if.then8.i.i, label %if.end11.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
-  %conv9.i.i = trunc i64 %conv4.i.i.i385 to i32
+  %conv9.i.i = trunc i64 %conv4.i.i.i386 to i32
   br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit
 
 if.end11.i.i:                                     ; preds = %if.else.i.i
@@ -1129,25 +1129,25 @@ _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit: ; preds = %if.then8.i.i, %if
   %conv297 = sext i32 %shr to i64
   br label %if.end303
 
-if.else.i.i.i384:                                 ; preds = %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit
-  br i1 %cmp6.i.i.i389, label %if.then8.i.i.i393, label %if.end11.i.i.i390
+if.else.i.i.i385:                                 ; preds = %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit
+  br i1 %cmp6.i.i.i390, label %if.then8.i.i.i394, label %if.end11.i.i.i391
 
-if.then8.i.i.i393:                                ; preds = %if.else.i.i.i384
-  %conv9.i.i.i394 = trunc i64 %conv4.i.i.i385 to i32
-  br label %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit400
+if.then8.i.i.i394:                                ; preds = %if.else.i.i.i385
+  %conv9.i.i.i395 = trunc i64 %conv4.i.i.i386 to i32
+  br label %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit401
 
-if.end11.i.i.i390:                                ; preds = %if.else.i.i.i384
-  %call.i.i.i391 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %30) #6
-  br label %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit400
+if.end11.i.i.i391:                                ; preds = %if.else.i.i.i385
+  %call.i.i.i392 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %30) #6
+  br label %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit401
 
-_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit400: ; preds = %if.then8.i.i.i393, %if.end11.i.i.i390
-  %retval.0.i.i.i392 = phi i32 [ %call.i.i.i391, %if.end11.i.i.i390 ], [ %conv9.i.i.i394, %if.then8.i.i.i393 ]
-  %shr300 = lshr i32 %retval.0.i.i.i392, %and
+_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit401: ; preds = %if.then8.i.i.i394, %if.end11.i.i.i391
+  %retval.0.i.i.i393 = phi i32 [ %call.i.i.i392, %if.end11.i.i.i391 ], [ %conv9.i.i.i395, %if.then8.i.i.i394 ]
+  %shr300 = lshr i32 %retval.0.i.i.i393, %and
   %conv301 = zext i32 %shr300 to i64
   br label %if.end303
 
-if.end303:                                        ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit, %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit400, %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit380
-  %result290.0 = phi i64 [ %conv, %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit380 ], [ %conv297, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit ], [ %conv301, %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit400 ]
+if.end303:                                        ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit, %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit401, %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit381
+  %result290.0 = phi i64 [ %conv, %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit381 ], [ %conv297, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit ], [ %conv301, %_ZNK6hermes13LiteralNumber16truncateToUInt32Ev.exit401 ]
   %conv304 = sitofp i64 %result290.0 to double
   %call305 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv304) #6
   br label %return
@@ -1156,156 +1156,156 @@ sw.bb306:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then310, label %if.end314
 
 if.then310:                                       ; preds = %sw.bb306
-  %value.i401 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %31 = load double, ptr %value.i401, align 8
-  %value.i402 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %32 = load double, ptr %value.i402, align 8
+  %value.i402 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %31 = load double, ptr %value.i402, align 8
+  %value.i403 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %32 = load double, ptr %value.i403, align 8
   %add = fadd double %31, %32
   %call313 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %add) #6
   br label %return
 
 if.end314:                                        ; preds = %sw.bb306
-  %or.cond6 = and i1 %cmp.i.i.i.i.i.i.i281, %cmp.i.i.i.i.i.i.i283
-  br i1 %or.cond6, label %if.then318, label %if.end335
+  %or.cond9 = and i1 %cmp.i.i.i.i.i.i.i282, %cmp.i.i.i.i.i.i.i284
+  br i1 %or.cond9, label %if.then318, label %if.end335
 
 if.then318:                                       ; preds = %if.end314
-  %value.i403 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %retval.sroa.0.0.copyload.i404 = load ptr, ptr %value.i403, align 8
-  %retval.sroa.0.0.copyload.i405 = load ptr, ptr %retval.sroa.0.0.copyload.i404, align 8
-  %retval.sroa.2.0.call.sroa_idx.i406 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i404, i64 8
-  %retval.sroa.2.0.copyload.i407 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i406, align 8
-  %value.i410 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %retval.sroa.0.0.copyload.i411 = load ptr, ptr %value.i410, align 8
-  %retval.sroa.0.0.copyload.i412 = load ptr, ptr %retval.sroa.0.0.copyload.i411, align 8
-  %retval.sroa.2.0.call.sroa_idx.i413 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i411, i64 8
-  %retval.sroa.2.0.copyload.i414 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i413, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result319, ptr %retval.sroa.0.0.copyload.i405, i64 %retval.sroa.2.0.copyload.i407, ptr %retval.sroa.0.0.copyload.i412, i64 %retval.sroa.2.0.copyload.i414)
+  %value.i404 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %retval.sroa.0.0.copyload.i405 = load ptr, ptr %value.i404, align 8
+  %retval.sroa.0.0.copyload.i406 = load ptr, ptr %retval.sroa.0.0.copyload.i405, align 8
+  %retval.sroa.2.0.call.sroa_idx.i407 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i405, i64 8
+  %retval.sroa.2.0.copyload.i408 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i407, align 8
+  %value.i411 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %retval.sroa.0.0.copyload.i412 = load ptr, ptr %value.i411, align 8
+  %retval.sroa.0.0.copyload.i413 = load ptr, ptr %retval.sroa.0.0.copyload.i412, align 8
+  %retval.sroa.2.0.call.sroa_idx.i414 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i412, i64 8
+  %retval.sroa.2.0.copyload.i415 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i414, align 8
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result319, ptr %retval.sroa.0.0.copyload.i406, i64 %retval.sroa.2.0.copyload.i408, ptr %retval.sroa.0.0.copyload.i413, i64 %retval.sroa.2.0.copyload.i415)
   %33 = load ptr, ptr %result319, align 8
-  %Size.i.i417 = getelementptr inbounds nuw i8, ptr %result319, i64 8
-  %34 = load i32, ptr %Size.i.i417, align 8
-  %conv.i.i418 = zext i32 %34 to i64
-  %call334 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %33, i64 %conv.i.i418) #6
+  %Size.i.i418 = getelementptr inbounds nuw i8, ptr %result319, i64 8
+  %34 = load i32, ptr %Size.i.i418, align 8
+  %conv.i.i419 = zext i32 %34 to i64
+  %call334 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %33, i64 %conv.i.i419) #6
   %35 = load ptr, ptr %result319, align 8
-  %add.ptr.i.i.i.i.i421 = getelementptr inbounds nuw i8, ptr %result319, i64 16
-  %cmp.i.i.i.i422 = icmp eq ptr %35, %add.ptr.i.i.i.i.i421
-  br i1 %cmp.i.i.i.i422, label %return, label %if.then.i.i.i423
+  %add.ptr.i.i.i.i.i422 = getelementptr inbounds nuw i8, ptr %result319, i64 16
+  %cmp.i.i.i.i423 = icmp eq ptr %35, %add.ptr.i.i.i.i.i422
+  br i1 %cmp.i.i.i.i423, label %return, label %if.then.i.i.i424
 
-if.then.i.i.i423:                                 ; preds = %if.then318
+if.then.i.i.i424:                                 ; preds = %if.then318
   call void @free(ptr noundef %35) #6
   br label %return
 
 if.end335:                                        ; preds = %if.end314
-  %or.cond7 = and i1 %cmp.i.i.i.i.i.i.i273, %cmp.i.i.i.i.i.i.i275
-  br i1 %or.cond7, label %if.then339, label %if.end341
+  %or.cond10 = and i1 %cmp.i.i.i.i.i.i.i274, %cmp.i.i.i.i.i.i.i276
+  br i1 %or.cond10, label %if.then339, label %if.end341
 
 if.then339:                                       ; preds = %if.end335
   %call340 = tail call noundef ptr @_ZN6hermes9IRBuilder22getLiteralPositiveZeroEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #6
   br label %return
 
 if.end341:                                        ; preds = %if.end335
-  %or.cond8 = and i1 %cmp.i.i.i.i.i.i.i277, %cmp.i.i.i.i.i.i.i279
-  br i1 %or.cond8, label %if.then345, label %if.end347
+  %or.cond11 = and i1 %cmp.i.i.i.i.i.i.i278, %cmp.i.i.i.i.i.i.i280
+  br i1 %or.cond11, label %if.then345, label %if.end347
 
 if.then345:                                       ; preds = %if.end341
   %call346 = tail call noundef ptr @_ZN6hermes9IRBuilder13getLiteralNaNEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #6
   br label %return
 
 if.end347:                                        ; preds = %if.end341
-  br i1 %cmp.i.i.i.i.i.i.i273, label %if.then349, label %if.end368
+  br i1 %cmp.i.i.i.i.i.i.i274, label %if.then349, label %if.end368
 
 if.then349:                                       ; preds = %if.end347
-  br i1 %cmp.i.i.i.i.i.i.i271, label %return, label %if.else352
+  br i1 %cmp.i.i.i.i.i.i.i272, label %return, label %if.else352
 
 if.else352:                                       ; preds = %if.then349
-  br i1 %cmp.i.i.i.i.i.i.i283, label %if.then354, label %if.end368
+  br i1 %cmp.i.i.i.i.i.i.i284, label %if.then354, label %if.end368
 
 if.then354:                                       ; preds = %if.else352
-  %value.i425 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %retval.sroa.0.0.copyload.i426 = load ptr, ptr %value.i425, align 8
-  %retval.sroa.0.0.copyload.i427 = load ptr, ptr %retval.sroa.0.0.copyload.i426, align 8
-  %retval.sroa.2.0.call.sroa_idx.i428 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i426, i64 8
-  %retval.sroa.2.0.copyload.i429 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i428, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result355, ptr nonnull @.str.6, i64 4, ptr %retval.sroa.0.0.copyload.i427, i64 %retval.sroa.2.0.copyload.i429)
+  %value.i426 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %retval.sroa.0.0.copyload.i427 = load ptr, ptr %value.i426, align 8
+  %retval.sroa.0.0.copyload.i428 = load ptr, ptr %retval.sroa.0.0.copyload.i427, align 8
+  %retval.sroa.2.0.call.sroa_idx.i429 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i427, i64 8
+  %retval.sroa.2.0.copyload.i430 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i429, align 8
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result355, ptr nonnull @.str.6, i64 4, ptr %retval.sroa.0.0.copyload.i428, i64 %retval.sroa.2.0.copyload.i430)
   %36 = load ptr, ptr %result355, align 8
-  %Size.i.i432 = getelementptr inbounds nuw i8, ptr %result355, i64 8
-  %37 = load i32, ptr %Size.i.i432, align 8
-  %conv.i.i433 = zext i32 %37 to i64
-  %call365 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %36, i64 %conv.i.i433) #6
+  %Size.i.i433 = getelementptr inbounds nuw i8, ptr %result355, i64 8
+  %37 = load i32, ptr %Size.i.i433, align 8
+  %conv.i.i434 = zext i32 %37 to i64
+  %call365 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %36, i64 %conv.i.i434) #6
   %38 = load ptr, ptr %result355, align 8
-  %add.ptr.i.i.i.i.i436 = getelementptr inbounds nuw i8, ptr %result355, i64 16
-  %cmp.i.i.i.i437 = icmp eq ptr %38, %add.ptr.i.i.i.i.i436
-  br i1 %cmp.i.i.i.i437, label %return, label %if.then.i.i.i438
+  %add.ptr.i.i.i.i.i437 = getelementptr inbounds nuw i8, ptr %result355, i64 16
+  %cmp.i.i.i.i438 = icmp eq ptr %38, %add.ptr.i.i.i.i.i437
+  br i1 %cmp.i.i.i.i438, label %return, label %if.then.i.i.i439
 
-if.then.i.i.i438:                                 ; preds = %if.then354
+if.then.i.i.i439:                                 ; preds = %if.then354
   call void @free(ptr noundef %38) #6
   br label %return
 
 if.end368:                                        ; preds = %if.else352, %if.end347
-  br i1 %cmp.i.i.i.i.i.i.i275, label %if.then370, label %if.end389
+  br i1 %cmp.i.i.i.i.i.i.i276, label %if.then370, label %if.end389
 
 if.then370:                                       ; preds = %if.end368
   br i1 %cmp.i.i.i.i.i.i.i, label %return, label %if.else373
 
 if.else373:                                       ; preds = %if.then370
-  br i1 %cmp.i.i.i.i.i.i.i281, label %if.then375, label %if.end389
+  br i1 %cmp.i.i.i.i.i.i.i282, label %if.then375, label %if.end389
 
 if.then375:                                       ; preds = %if.else373
-  %value.i440 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %retval.sroa.0.0.copyload.i441 = load ptr, ptr %value.i440, align 8
-  %retval.sroa.0.0.copyload.i442 = load ptr, ptr %retval.sroa.0.0.copyload.i441, align 8
-  %retval.sroa.2.0.call.sroa_idx.i443 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i441, i64 8
-  %retval.sroa.2.0.copyload.i444 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i443, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result376, ptr %retval.sroa.0.0.copyload.i442, i64 %retval.sroa.2.0.copyload.i444, ptr nonnull @.str.6, i64 4)
+  %value.i441 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %retval.sroa.0.0.copyload.i442 = load ptr, ptr %value.i441, align 8
+  %retval.sroa.0.0.copyload.i443 = load ptr, ptr %retval.sroa.0.0.copyload.i442, align 8
+  %retval.sroa.2.0.call.sroa_idx.i444 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i442, i64 8
+  %retval.sroa.2.0.copyload.i445 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i444, align 8
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result376, ptr %retval.sroa.0.0.copyload.i443, i64 %retval.sroa.2.0.copyload.i445, ptr nonnull @.str.6, i64 4)
   %39 = load ptr, ptr %result376, align 8
-  %Size.i.i447 = getelementptr inbounds nuw i8, ptr %result376, i64 8
-  %40 = load i32, ptr %Size.i.i447, align 8
-  %conv.i.i448 = zext i32 %40 to i64
-  %call386 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %39, i64 %conv.i.i448) #6
+  %Size.i.i448 = getelementptr inbounds nuw i8, ptr %result376, i64 8
+  %40 = load i32, ptr %Size.i.i448, align 8
+  %conv.i.i449 = zext i32 %40 to i64
+  %call386 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %39, i64 %conv.i.i449) #6
   %41 = load ptr, ptr %result376, align 8
-  %add.ptr.i.i.i.i.i451 = getelementptr inbounds nuw i8, ptr %result376, i64 16
-  %cmp.i.i.i.i452 = icmp eq ptr %41, %add.ptr.i.i.i.i.i451
-  br i1 %cmp.i.i.i.i452, label %return, label %if.then.i.i.i453
+  %add.ptr.i.i.i.i.i452 = getelementptr inbounds nuw i8, ptr %result376, i64 16
+  %cmp.i.i.i.i453 = icmp eq ptr %41, %add.ptr.i.i.i.i.i452
+  br i1 %cmp.i.i.i.i453, label %return, label %if.then.i.i.i454
 
-if.then.i.i.i453:                                 ; preds = %if.then375
+if.then.i.i.i454:                                 ; preds = %if.then375
   call void @free(ptr noundef %41) #6
   br label %return
 
 if.end389:                                        ; preds = %if.else373, %if.end368
-  br i1 %cmp.i.i.i.i.i.i.i277, label %if.then391, label %if.end411
+  br i1 %cmp.i.i.i.i.i.i.i278, label %if.then391, label %if.end411
 
 if.then391:                                       ; preds = %if.end389
-  br i1 %cmp.i.i.i.i.i.i.i271, label %if.then393, label %if.else395
+  br i1 %cmp.i.i.i.i.i.i.i272, label %if.then393, label %if.else395
 
 if.then393:                                       ; preds = %if.then391
   %call394 = tail call noundef ptr @_ZN6hermes9IRBuilder13getLiteralNaNEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #6
   br label %return
 
 if.else395:                                       ; preds = %if.then391
-  br i1 %cmp.i.i.i.i.i.i.i283, label %if.then397, label %if.end411
+  br i1 %cmp.i.i.i.i.i.i.i284, label %if.then397, label %if.end411
 
 if.then397:                                       ; preds = %if.else395
-  %value.i455 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %retval.sroa.0.0.copyload.i456 = load ptr, ptr %value.i455, align 8
-  %retval.sroa.0.0.copyload.i457 = load ptr, ptr %retval.sroa.0.0.copyload.i456, align 8
-  %retval.sroa.2.0.call.sroa_idx.i458 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i456, i64 8
-  %retval.sroa.2.0.copyload.i459 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i458, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result398, ptr nonnull @.str.1, i64 9, ptr %retval.sroa.0.0.copyload.i457, i64 %retval.sroa.2.0.copyload.i459)
+  %value.i456 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %retval.sroa.0.0.copyload.i457 = load ptr, ptr %value.i456, align 8
+  %retval.sroa.0.0.copyload.i458 = load ptr, ptr %retval.sroa.0.0.copyload.i457, align 8
+  %retval.sroa.2.0.call.sroa_idx.i459 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i457, i64 8
+  %retval.sroa.2.0.copyload.i460 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i459, align 8
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result398, ptr nonnull @.str.1, i64 9, ptr %retval.sroa.0.0.copyload.i458, i64 %retval.sroa.2.0.copyload.i460)
   %42 = load ptr, ptr %result398, align 8
-  %Size.i.i462 = getelementptr inbounds nuw i8, ptr %result398, i64 8
-  %43 = load i32, ptr %Size.i.i462, align 8
-  %conv.i.i463 = zext i32 %43 to i64
-  %call408 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %42, i64 %conv.i.i463) #6
+  %Size.i.i463 = getelementptr inbounds nuw i8, ptr %result398, i64 8
+  %43 = load i32, ptr %Size.i.i463, align 8
+  %conv.i.i464 = zext i32 %43 to i64
+  %call408 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %42, i64 %conv.i.i464) #6
   %44 = load ptr, ptr %result398, align 8
-  %add.ptr.i.i.i.i.i466 = getelementptr inbounds nuw i8, ptr %result398, i64 16
-  %cmp.i.i.i.i467 = icmp eq ptr %44, %add.ptr.i.i.i.i.i466
-  br i1 %cmp.i.i.i.i467, label %return, label %if.then.i.i.i468
+  %add.ptr.i.i.i.i.i467 = getelementptr inbounds nuw i8, ptr %result398, i64 16
+  %cmp.i.i.i.i468 = icmp eq ptr %44, %add.ptr.i.i.i.i.i467
+  br i1 %cmp.i.i.i.i468, label %return, label %if.then.i.i.i469
 
-if.then.i.i.i468:                                 ; preds = %if.then397
+if.then.i.i.i469:                                 ; preds = %if.then397
   call void @free(ptr noundef %44) #6
   br label %return
 
 if.end411:                                        ; preds = %if.else395, %if.end389
-  br i1 %cmp.i.i.i.i.i.i.i279, label %if.then413, label %return
+  br i1 %cmp.i.i.i.i.i.i.i280, label %if.then413, label %return
 
 if.then413:                                       ; preds = %if.end411
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then415, label %if.else417
@@ -1315,26 +1315,26 @@ if.then415:                                       ; preds = %if.then413
   br label %return
 
 if.else417:                                       ; preds = %if.then413
-  br i1 %cmp.i.i.i.i.i.i.i281, label %if.then419, label %return
+  br i1 %cmp.i.i.i.i.i.i.i282, label %if.then419, label %return
 
 if.then419:                                       ; preds = %if.else417
-  %value.i470 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %retval.sroa.0.0.copyload.i471 = load ptr, ptr %value.i470, align 8
-  %retval.sroa.0.0.copyload.i472 = load ptr, ptr %retval.sroa.0.0.copyload.i471, align 8
-  %retval.sroa.2.0.call.sroa_idx.i473 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i471, i64 8
-  %retval.sroa.2.0.copyload.i474 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i473, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result420, ptr %retval.sroa.0.0.copyload.i472, i64 %retval.sroa.2.0.copyload.i474, ptr nonnull @.str.1, i64 9)
+  %value.i471 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %retval.sroa.0.0.copyload.i472 = load ptr, ptr %value.i471, align 8
+  %retval.sroa.0.0.copyload.i473 = load ptr, ptr %retval.sroa.0.0.copyload.i472, align 8
+  %retval.sroa.2.0.call.sroa_idx.i474 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i472, i64 8
+  %retval.sroa.2.0.copyload.i475 = load i64, ptr %retval.sroa.2.0.call.sroa_idx.i474, align 8
+  call fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias align 8 %result420, ptr %retval.sroa.0.0.copyload.i473, i64 %retval.sroa.2.0.copyload.i475, ptr nonnull @.str.1, i64 9)
   %45 = load ptr, ptr %result420, align 8
-  %Size.i.i477 = getelementptr inbounds nuw i8, ptr %result420, i64 8
-  %46 = load i32, ptr %Size.i.i477, align 8
-  %conv.i.i478 = zext i32 %46 to i64
-  %call430 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %45, i64 %conv.i.i478) #6
+  %Size.i.i478 = getelementptr inbounds nuw i8, ptr %result420, i64 8
+  %46 = load i32, ptr %Size.i.i478, align 8
+  %conv.i.i479 = zext i32 %46 to i64
+  %call430 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr %45, i64 %conv.i.i479) #6
   %47 = load ptr, ptr %result420, align 8
-  %add.ptr.i.i.i.i.i481 = getelementptr inbounds nuw i8, ptr %result420, i64 16
-  %cmp.i.i.i.i482 = icmp eq ptr %47, %add.ptr.i.i.i.i.i481
-  br i1 %cmp.i.i.i.i482, label %return, label %if.then.i.i.i483
+  %add.ptr.i.i.i.i.i482 = getelementptr inbounds nuw i8, ptr %result420, i64 16
+  %cmp.i.i.i.i483 = icmp eq ptr %47, %add.ptr.i.i.i.i.i482
+  br i1 %cmp.i.i.i.i483, label %return, label %if.then.i.i.i484
 
-if.then.i.i.i483:                                 ; preds = %if.then419
+if.then.i.i.i484:                                 ; preds = %if.then419
   call void @free(ptr noundef %47) #6
   br label %return
 
@@ -1342,10 +1342,10 @@ sw.bb434:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then438, label %return
 
 if.then438:                                       ; preds = %sw.bb434
-  %value.i485 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %48 = load double, ptr %value.i485, align 8
-  %value.i486 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %49 = load double, ptr %value.i486, align 8
+  %value.i486 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %48 = load double, ptr %value.i486, align 8
+  %value.i487 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %49 = load double, ptr %value.i487, align 8
   %sub = fsub double %48, %49
   %call441 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %sub) #6
   br label %return
@@ -1354,37 +1354,37 @@ sw.bb443:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then447, label %if.end451
 
 if.then447:                                       ; preds = %sw.bb443
-  %value.i487 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %50 = load double, ptr %value.i487, align 8
-  %value.i488 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %51 = load double, ptr %value.i488, align 8
+  %value.i488 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %50 = load double, ptr %value.i488, align 8
+  %value.i489 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %51 = load double, ptr %value.i489, align 8
   %mul = fmul double %50, %51
   %call450 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %mul) #6
   br label %return
 
 if.end451:                                        ; preds = %sw.bb443
-  %or.cond11 = and i1 %cmp.i.i.i.i.i.i.i273, %cmp.i.i.i.i.i.i.i271
+  %or.cond14 = and i1 %cmp.i.i.i.i.i.i.i274, %cmp.i.i.i.i.i.i.i272
   %52 = add i8 %0, -113
   %53 = icmp ult i8 %52, 2
-  %54 = and i1 %cmp.i.i.i.i.i.i.i275, %53
-  %or.cond247 = or i1 %or.cond11, %54
-  br i1 %or.cond247, label %if.then463, label %return
+  %54 = and i1 %cmp.i.i.i.i.i.i.i276, %53
+  %or.cond248 = or i1 %or.cond14, %54
+  br i1 %or.cond248, label %if.then463, label %return
 
 if.then463:                                       ; preds = %if.end451
   br i1 %cmp.i.i.i.i.i.i.i, label %land.lhs.true465, label %lor.lhs.false468
 
 land.lhs.true465:                                 ; preds = %if.then463
-  %value.i489 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %55 = load i64, ptr %value.i489, align 8
+  %value.i490 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %55 = load i64, ptr %value.i490, align 8
   %56 = icmp slt i64 %55, 0
   br i1 %56, label %if.then473, label %lor.lhs.false468
 
 lor.lhs.false468:                                 ; preds = %land.lhs.true465, %if.then463
-  br i1 %cmp.i.i.i.i.i.i.i271, label %land.lhs.true470, label %if.end475
+  br i1 %cmp.i.i.i.i.i.i.i272, label %land.lhs.true470, label %if.end475
 
 land.lhs.true470:                                 ; preds = %lor.lhs.false468
-  %value.i490 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %57 = load i64, ptr %value.i490, align 8
+  %value.i491 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %57 = load i64, ptr %value.i491, align 8
   %58 = icmp slt i64 %57, 0
   br i1 %58, label %if.then473, label %if.end475
 
@@ -1400,10 +1400,10 @@ sw.bb478:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then482, label %return
 
 if.then482:                                       ; preds = %sw.bb478
-  %value.i491 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %59 = load double, ptr %value.i491, align 8
-  %value.i492 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %60 = load double, ptr %value.i492, align 8
+  %value.i492 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %59 = load double, ptr %value.i492, align 8
+  %value.i493 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %60 = load double, ptr %value.i493, align 8
   %div = fdiv double %59, %60
   %call485 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %div) #6
   br label %return
@@ -1412,10 +1412,10 @@ sw.bb487:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then491, label %return
 
 if.then491:                                       ; preds = %sw.bb487
-  %value.i493 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %61 = load double, ptr %value.i493, align 8
-  %value.i494 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %62 = load double, ptr %value.i494, align 8
+  %value.i494 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %61 = load double, ptr %value.i494, align 8
+  %value.i495 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %62 = load double, ptr %value.i495, align 8
   %call494 = tail call double @fmod(double noundef %61, double noundef %62) #6
   %call495 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %call494) #6
   br label %return
@@ -1424,77 +1424,77 @@ sw.bb497:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then501, label %return
 
 if.then501:                                       ; preds = %sw.bb497
-  %value.i495 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %63 = load double, ptr %value.i495, align 8
-  %value.i496 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %64 = load double, ptr %value.i496, align 8
+  %value.i496 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %63 = load double, ptr %value.i496, align 8
+  %value.i497 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %64 = load double, ptr %value.i497, align 8
   %65 = fcmp uno double %64, 0.000000e+00
   br i1 %65, label %_ZN6hermes5expOpEdd.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then501
-  %cmp.i497 = fcmp oeq double %64, 0.000000e+00
-  br i1 %cmp.i497, label %_ZN6hermes5expOpEdd.exit, label %if.else2.i
+  %cmp.i498 = fcmp oeq double %64, 0.000000e+00
+  br i1 %cmp.i498, label %_ZN6hermes5expOpEdd.exit, label %if.else2.i
 
 if.else2.i:                                       ; preds = %if.else.i
   %66 = tail call noundef double @llvm.fabs.f64(double %63)
   %cmp4.i = fcmp oeq double %66, 1.000000e+00
   %67 = tail call double @llvm.fabs.f64(double %64)
   %68 = fcmp oeq double %67, 0x7FF0000000000000
-  %or.cond.i498 = and i1 %cmp4.i, %68
-  br i1 %or.cond.i498, label %_ZN6hermes5expOpEdd.exit, label %if.end8.i
+  %or.cond.i499 = and i1 %cmp4.i, %68
+  br i1 %or.cond.i499, label %_ZN6hermes5expOpEdd.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.else2.i
   %call9.i = tail call double @pow(double noundef %63, double noundef %64) #6
   br label %_ZN6hermes5expOpEdd.exit
 
 _ZN6hermes5expOpEdd.exit:                         ; preds = %if.then501, %if.else.i, %if.else2.i, %if.end8.i
-  %retval.0.i499 = phi double [ %call9.i, %if.end8.i ], [ 0x7FF8000000000000, %if.then501 ], [ 1.000000e+00, %if.else.i ], [ 0x7FF8000000000000, %if.else2.i ]
-  %call505 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %retval.0.i499) #6
+  %retval.0.i500 = phi double [ %call9.i, %if.end8.i ], [ 0x7FF8000000000000, %if.then501 ], [ 1.000000e+00, %if.else.i ], [ 0x7FF8000000000000, %if.else2.i ]
+  %call505 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %retval.0.i500) #6
   br label %return
 
 sw.bb507:                                         ; preds = %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit
   br i1 %or.cond.i, label %if.then511, label %return
 
 if.then511:                                       ; preds = %sw.bb507
-  %value.i500 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %69 = load double, ptr %value.i500, align 8
-  %conv4.i.i502 = fptoui double %69 to i64
-  %shl.i.i503 = shl i64 %conv4.i.i502, 1
-  %shr.i.i504 = ashr exact i64 %shl.i.i503, 1
-  %conv5.i.i505 = sitofp i64 %shr.i.i504 to double
-  %cmp6.i.i506 = fcmp oeq double %69, %conv5.i.i505
-  br i1 %cmp6.i.i506, label %if.then8.i.i510, label %if.end11.i.i507
+  %value.i501 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %69 = load double, ptr %value.i501, align 8
+  %conv4.i.i503 = fptoui double %69 to i64
+  %shl.i.i504 = shl i64 %conv4.i.i503, 1
+  %shr.i.i505 = ashr exact i64 %shl.i.i504, 1
+  %conv5.i.i506 = sitofp i64 %shr.i.i505 to double
+  %cmp6.i.i507 = fcmp oeq double %69, %conv5.i.i506
+  br i1 %cmp6.i.i507, label %if.then8.i.i511, label %if.end11.i.i508
 
-if.then8.i.i510:                                  ; preds = %if.then511
-  %conv9.i.i511 = trunc i64 %conv4.i.i502 to i32
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit517
+if.then8.i.i511:                                  ; preds = %if.then511
+  %conv9.i.i512 = trunc i64 %conv4.i.i503 to i32
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit518
 
-if.end11.i.i507:                                  ; preds = %if.then511
-  %call.i.i508 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %69) #6
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit517
+if.end11.i.i508:                                  ; preds = %if.then511
+  %call.i.i509 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %69) #6
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit518
 
-_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit517: ; preds = %if.then8.i.i510, %if.end11.i.i507
-  %retval.0.i.i509 = phi i32 [ %call.i.i508, %if.end11.i.i507 ], [ %conv9.i.i511, %if.then8.i.i510 ]
-  %value.i518 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %70 = load double, ptr %value.i518, align 8
-  %conv4.i.i520 = fptoui double %70 to i64
-  %shl.i.i521 = shl i64 %conv4.i.i520, 1
-  %shr.i.i522 = ashr exact i64 %shl.i.i521, 1
-  %conv5.i.i523 = sitofp i64 %shr.i.i522 to double
-  %cmp6.i.i524 = fcmp oeq double %70, %conv5.i.i523
-  br i1 %cmp6.i.i524, label %if.then8.i.i528, label %if.end11.i.i525
+_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit518: ; preds = %if.then8.i.i511, %if.end11.i.i508
+  %retval.0.i.i510 = phi i32 [ %call.i.i509, %if.end11.i.i508 ], [ %conv9.i.i512, %if.then8.i.i511 ]
+  %value.i519 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %70 = load double, ptr %value.i519, align 8
+  %conv4.i.i521 = fptoui double %70 to i64
+  %shl.i.i522 = shl i64 %conv4.i.i521, 1
+  %shr.i.i523 = ashr exact i64 %shl.i.i522, 1
+  %conv5.i.i524 = sitofp i64 %shr.i.i523 to double
+  %cmp6.i.i525 = fcmp oeq double %70, %conv5.i.i524
+  br i1 %cmp6.i.i525, label %if.then8.i.i529, label %if.end11.i.i526
 
-if.then8.i.i528:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit517
-  %conv9.i.i529 = trunc i64 %conv4.i.i520 to i32
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit535
+if.then8.i.i529:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit518
+  %conv9.i.i530 = trunc i64 %conv4.i.i521 to i32
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536
 
-if.end11.i.i525:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit517
-  %call.i.i526 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %70) #6
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit535
+if.end11.i.i526:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit518
+  %call.i.i527 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %70) #6
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536
 
-_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit535: ; preds = %if.then8.i.i528, %if.end11.i.i525
-  %retval.0.i.i527 = phi i32 [ %call.i.i526, %if.end11.i.i525 ], [ %conv9.i.i529, %if.then8.i.i528 ]
-  %or = or i32 %retval.0.i.i527, %retval.0.i.i509
+_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536: ; preds = %if.then8.i.i529, %if.end11.i.i526
+  %retval.0.i.i528 = phi i32 [ %call.i.i527, %if.end11.i.i526 ], [ %conv9.i.i530, %if.then8.i.i529 ]
+  %or = or i32 %retval.0.i.i528, %retval.0.i.i510
   %conv514 = sitofp i32 %or to double
   %call515 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv514) #6
   br label %return
@@ -1503,45 +1503,45 @@ sw.bb517:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then521, label %return
 
 if.then521:                                       ; preds = %sw.bb517
-  %value.i536 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %71 = load double, ptr %value.i536, align 8
-  %conv4.i.i538 = fptoui double %71 to i64
-  %shl.i.i539 = shl i64 %conv4.i.i538, 1
-  %shr.i.i540 = ashr exact i64 %shl.i.i539, 1
-  %conv5.i.i541 = sitofp i64 %shr.i.i540 to double
-  %cmp6.i.i542 = fcmp oeq double %71, %conv5.i.i541
-  br i1 %cmp6.i.i542, label %if.then8.i.i546, label %if.end11.i.i543
+  %value.i537 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %71 = load double, ptr %value.i537, align 8
+  %conv4.i.i539 = fptoui double %71 to i64
+  %shl.i.i540 = shl i64 %conv4.i.i539, 1
+  %shr.i.i541 = ashr exact i64 %shl.i.i540, 1
+  %conv5.i.i542 = sitofp i64 %shr.i.i541 to double
+  %cmp6.i.i543 = fcmp oeq double %71, %conv5.i.i542
+  br i1 %cmp6.i.i543, label %if.then8.i.i547, label %if.end11.i.i544
 
-if.then8.i.i546:                                  ; preds = %if.then521
-  %conv9.i.i547 = trunc i64 %conv4.i.i538 to i32
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit553
+if.then8.i.i547:                                  ; preds = %if.then521
+  %conv9.i.i548 = trunc i64 %conv4.i.i539 to i32
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit554
 
-if.end11.i.i543:                                  ; preds = %if.then521
-  %call.i.i544 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %71) #6
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit553
+if.end11.i.i544:                                  ; preds = %if.then521
+  %call.i.i545 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %71) #6
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit554
 
-_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit553: ; preds = %if.then8.i.i546, %if.end11.i.i543
-  %retval.0.i.i545 = phi i32 [ %call.i.i544, %if.end11.i.i543 ], [ %conv9.i.i547, %if.then8.i.i546 ]
-  %value.i554 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %72 = load double, ptr %value.i554, align 8
-  %conv4.i.i556 = fptoui double %72 to i64
-  %shl.i.i557 = shl i64 %conv4.i.i556, 1
-  %shr.i.i558 = ashr exact i64 %shl.i.i557, 1
-  %conv5.i.i559 = sitofp i64 %shr.i.i558 to double
-  %cmp6.i.i560 = fcmp oeq double %72, %conv5.i.i559
-  br i1 %cmp6.i.i560, label %if.then8.i.i564, label %if.end11.i.i561
+_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit554: ; preds = %if.then8.i.i547, %if.end11.i.i544
+  %retval.0.i.i546 = phi i32 [ %call.i.i545, %if.end11.i.i544 ], [ %conv9.i.i548, %if.then8.i.i547 ]
+  %value.i555 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %72 = load double, ptr %value.i555, align 8
+  %conv4.i.i557 = fptoui double %72 to i64
+  %shl.i.i558 = shl i64 %conv4.i.i557, 1
+  %shr.i.i559 = ashr exact i64 %shl.i.i558, 1
+  %conv5.i.i560 = sitofp i64 %shr.i.i559 to double
+  %cmp6.i.i561 = fcmp oeq double %72, %conv5.i.i560
+  br i1 %cmp6.i.i561, label %if.then8.i.i565, label %if.end11.i.i562
 
-if.then8.i.i564:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit553
-  %conv9.i.i565 = trunc i64 %conv4.i.i556 to i32
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit571
+if.then8.i.i565:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit554
+  %conv9.i.i566 = trunc i64 %conv4.i.i557 to i32
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572
 
-if.end11.i.i561:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit553
-  %call.i.i562 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %72) #6
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit571
+if.end11.i.i562:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit554
+  %call.i.i563 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %72) #6
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572
 
-_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit571: ; preds = %if.then8.i.i564, %if.end11.i.i561
-  %retval.0.i.i563 = phi i32 [ %call.i.i562, %if.end11.i.i561 ], [ %conv9.i.i565, %if.then8.i.i564 ]
-  %xor = xor i32 %retval.0.i.i563, %retval.0.i.i545
+_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572: ; preds = %if.then8.i.i565, %if.end11.i.i562
+  %retval.0.i.i564 = phi i32 [ %call.i.i563, %if.end11.i.i562 ], [ %conv9.i.i566, %if.then8.i.i565 ]
+  %xor = xor i32 %retval.0.i.i564, %retval.0.i.i546
   %conv524 = sitofp i32 %xor to double
   %call525 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv524) #6
   br label %return
@@ -1550,51 +1550,51 @@ sw.bb527:                                         ; preds = %_ZN12_GLOBAL__N_115
   br i1 %or.cond.i, label %if.then531, label %return
 
 if.then531:                                       ; preds = %sw.bb527
-  %value.i572 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
-  %73 = load double, ptr %value.i572, align 8
-  %conv4.i.i574 = fptoui double %73 to i64
-  %shl.i.i575 = shl i64 %conv4.i.i574, 1
-  %shr.i.i576 = ashr exact i64 %shl.i.i575, 1
-  %conv5.i.i577 = sitofp i64 %shr.i.i576 to double
-  %cmp6.i.i578 = fcmp oeq double %73, %conv5.i.i577
-  br i1 %cmp6.i.i578, label %if.then8.i.i582, label %if.end11.i.i579
+  %value.i573 = getelementptr inbounds nuw i8, ptr %lhs, i64 48
+  %73 = load double, ptr %value.i573, align 8
+  %conv4.i.i575 = fptoui double %73 to i64
+  %shl.i.i576 = shl i64 %conv4.i.i575, 1
+  %shr.i.i577 = ashr exact i64 %shl.i.i576, 1
+  %conv5.i.i578 = sitofp i64 %shr.i.i577 to double
+  %cmp6.i.i579 = fcmp oeq double %73, %conv5.i.i578
+  br i1 %cmp6.i.i579, label %if.then8.i.i583, label %if.end11.i.i580
 
-if.then8.i.i582:                                  ; preds = %if.then531
-  %conv9.i.i583 = trunc i64 %conv4.i.i574 to i32
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit589
+if.then8.i.i583:                                  ; preds = %if.then531
+  %conv9.i.i584 = trunc i64 %conv4.i.i575 to i32
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit590
 
-if.end11.i.i579:                                  ; preds = %if.then531
-  %call.i.i580 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %73) #6
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit589
+if.end11.i.i580:                                  ; preds = %if.then531
+  %call.i.i581 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %73) #6
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit590
 
-_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit589: ; preds = %if.then8.i.i582, %if.end11.i.i579
-  %retval.0.i.i581 = phi i32 [ %call.i.i580, %if.end11.i.i579 ], [ %conv9.i.i583, %if.then8.i.i582 ]
-  %value.i590 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
-  %74 = load double, ptr %value.i590, align 8
-  %conv4.i.i592 = fptoui double %74 to i64
-  %shl.i.i593 = shl i64 %conv4.i.i592, 1
-  %shr.i.i594 = ashr exact i64 %shl.i.i593, 1
-  %conv5.i.i595 = sitofp i64 %shr.i.i594 to double
-  %cmp6.i.i596 = fcmp oeq double %74, %conv5.i.i595
-  br i1 %cmp6.i.i596, label %if.then8.i.i600, label %if.end11.i.i597
+_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit590: ; preds = %if.then8.i.i583, %if.end11.i.i580
+  %retval.0.i.i582 = phi i32 [ %call.i.i581, %if.end11.i.i580 ], [ %conv9.i.i584, %if.then8.i.i583 ]
+  %value.i591 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
+  %74 = load double, ptr %value.i591, align 8
+  %conv4.i.i593 = fptoui double %74 to i64
+  %shl.i.i594 = shl i64 %conv4.i.i593, 1
+  %shr.i.i595 = ashr exact i64 %shl.i.i594, 1
+  %conv5.i.i596 = sitofp i64 %shr.i.i595 to double
+  %cmp6.i.i597 = fcmp oeq double %74, %conv5.i.i596
+  br i1 %cmp6.i.i597, label %if.then8.i.i601, label %if.end11.i.i598
 
-if.then8.i.i600:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit589
-  %conv9.i.i601 = trunc i64 %conv4.i.i592 to i32
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit607
+if.then8.i.i601:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit590
+  %conv9.i.i602 = trunc i64 %conv4.i.i593 to i32
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608
 
-if.end11.i.i597:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit589
-  %call.i.i598 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %74) #6
-  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit607
+if.end11.i.i598:                                  ; preds = %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit590
+  %call.i.i599 = tail call noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef %74) #6
+  br label %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608
 
-_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit607: ; preds = %if.then8.i.i600, %if.end11.i.i597
-  %retval.0.i.i599 = phi i32 [ %call.i.i598, %if.end11.i.i597 ], [ %conv9.i.i601, %if.then8.i.i600 ]
-  %and534 = and i32 %retval.0.i.i599, %retval.0.i.i581
+_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608: ; preds = %if.then8.i.i601, %if.end11.i.i598
+  %retval.0.i.i600 = phi i32 [ %call.i.i599, %if.end11.i.i598 ], [ %conv9.i.i602, %if.then8.i.i601 ]
+  %and534 = and i32 %retval.0.i.i600, %retval.0.i.i582
   %conv535 = sitofp i32 %and534 to double
   %call536 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv535) #6
   br label %return
 
-return:                                           ; preds = %if.then180, %if.then149, %if.then112, %if.then72, %if.then270, %if.then251, %if.then232, %if.then213, %if.end6.i352, %if.then.i.i.i483, %if.then419, %if.then.i.i.i468, %if.then397, %if.then.i.i.i453, %if.then375, %if.then.i.i.i438, %if.then354, %if.then.i.i.i423, %if.then318, %if.then.i.i.i307, %if.then39, %if.then.i.i.i, %if.then30, %if.end82, %if.end122, %if.end159, %if.end190, %if.end211, %if.end230, %if.end249, %if.end268, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit360, %if.else417, %if.end411, %sw.bb434, %sw.bb478, %sw.bb487, %sw.bb497, %sw.bb507, %sw.bb517, %sw.bb527, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit, %if.end451, %if.then370, %if.then349, %if.then, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit607, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit571, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit535, %_ZN6hermes5expOpEdd.exit, %if.then491, %if.then482, %if.end475, %if.then473, %if.then447, %if.then438, %if.then415, %if.then393, %if.then345, %if.then339, %if.then310, %if.end303, %sw.bb276, %sw.bb274, %sw.bb272, %if.then266, %sw.bb257, %sw.bb255, %sw.bb253, %if.then247, %sw.bb238, %sw.bb236, %sw.bb234, %if.then228, %sw.bb219, %sw.bb217, %sw.bb215, %if.then209, %if.then194, %sw.bb186, %sw.bb184, %sw.bb182, %if.then176, %if.then163, %sw.bb155, %sw.bb153, %sw.bb151, %if.then145, %if.then139, %if.then126, %sw.bb118, %sw.bb116, %sw.bb114, %if.then104, %if.then98, %if.then85, %sw.bb78, %sw.bb76, %sw.bb74, %if.then66, %if.then60, %sw.bb53, %if.end51, %sw.bb25, %sw.bb
-  %retval.0 = phi ptr [ %call54, %sw.bb53 ], [ %call52, %if.end51 ], [ %call536, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit607 ], [ %call525, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit571 ], [ %call515, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit535 ], [ %call505, %_ZN6hermes5expOpEdd.exit ], [ %call495, %if.then491 ], [ %call485, %if.then482 ], [ %call450, %if.then447 ], [ %call474, %if.then473 ], [ %call476, %if.end475 ], [ %call441, %if.then438 ], [ %call313, %if.then310 ], [ %call340, %if.then339 ], [ %call346, %if.then345 ], [ %call394, %if.then393 ], [ %call416, %if.then415 ], [ %call305, %if.end303 ], [ %call277, %sw.bb276 ], [ %call275, %sw.bb274 ], [ %call273, %sw.bb272 ], [ %call267, %if.then266 ], [ %call258, %sw.bb257 ], [ %call256, %sw.bb255 ], [ %call254, %sw.bb253 ], [ %call248, %if.then247 ], [ %call239, %sw.bb238 ], [ %call237, %sw.bb236 ], [ %call235, %sw.bb234 ], [ %call229, %if.then228 ], [ %call220, %sw.bb219 ], [ %call218, %sw.bb217 ], [ %call216, %sw.bb215 ], [ %call210, %if.then209 ], [ %call177, %if.then176 ], [ %call203, %if.then194 ], [ %call187, %sw.bb186 ], [ %call185, %sw.bb184 ], [ %call183, %sw.bb182 ], [ %call140, %if.then139 ], [ %call146, %if.then145 ], [ %call172, %if.then163 ], [ %call156, %sw.bb155 ], [ %call154, %sw.bb153 ], [ %call152, %sw.bb151 ], [ %call99, %if.then98 ], [ %call109, %if.then104 ], [ %call135, %if.then126 ], [ %call119, %sw.bb118 ], [ %call117, %sw.bb116 ], [ %call115, %sw.bb114 ], [ %call61, %if.then60 ], [ %call69, %if.then66 ], [ %call94, %if.then85 ], [ %call79, %sw.bb78 ], [ %call77, %sw.bb76 ], [ %call75, %sw.bb74 ], [ %call26, %sw.bb25 ], [ %call24, %sw.bb ], [ null, %if.then ], [ %rhs, %if.then349 ], [ %lhs, %if.then370 ], [ null, %if.end451 ], [ null, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit ], [ null, %sw.bb527 ], [ null, %sw.bb517 ], [ null, %sw.bb507 ], [ null, %sw.bb497 ], [ null, %sw.bb487 ], [ null, %sw.bb478 ], [ null, %sw.bb434 ], [ null, %if.end411 ], [ null, %if.else417 ], [ null, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit360 ], [ null, %if.end268 ], [ null, %if.then270 ], [ null, %if.end249 ], [ null, %if.then251 ], [ null, %if.end230 ], [ null, %if.then232 ], [ null, %if.end211 ], [ null, %if.then213 ], [ null, %if.end190 ], [ null, %if.end159 ], [ null, %if.end122 ], [ null, %if.end82 ], [ %call37, %if.then30 ], [ %call37, %if.then.i.i.i ], [ %call50, %if.then39 ], [ %call50, %if.then.i.i.i307 ], [ %call334, %if.then318 ], [ %call334, %if.then.i.i.i423 ], [ %call365, %if.then354 ], [ %call365, %if.then.i.i.i438 ], [ %call386, %if.then375 ], [ %call386, %if.then.i.i.i453 ], [ %call408, %if.then397 ], [ %call408, %if.then.i.i.i468 ], [ %call430, %if.then419 ], [ %call430, %if.then.i.i.i483 ], [ null, %if.end6.i352 ], [ null, %if.then72 ], [ null, %if.then112 ], [ null, %if.then149 ], [ null, %if.then180 ]
+return:                                           ; preds = %if.then180, %if.then149, %if.then112, %if.then72, %if.then270, %if.then251, %if.then232, %if.then213, %if.end6.i353, %if.then.i.i.i484, %if.then419, %if.then.i.i.i469, %if.then397, %if.then.i.i.i454, %if.then375, %if.then.i.i.i439, %if.then354, %if.then.i.i.i424, %if.then318, %if.then.i.i.i308, %if.then39, %if.then.i.i.i, %if.then30, %if.end82, %if.end122, %if.end159, %if.end190, %if.end211, %if.end230, %if.end249, %if.end268, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361, %if.else417, %if.end411, %sw.bb434, %sw.bb478, %sw.bb487, %sw.bb497, %sw.bb507, %sw.bb517, %sw.bb527, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit, %if.end451, %if.then370, %if.then349, %if.then, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536, %_ZN6hermes5expOpEdd.exit, %if.then491, %if.then482, %if.end475, %if.then473, %if.then447, %if.then438, %if.then415, %if.then393, %if.then345, %if.then339, %if.then310, %if.end303, %sw.bb276, %sw.bb274, %sw.bb272, %if.then266, %sw.bb257, %sw.bb255, %sw.bb253, %if.then247, %sw.bb238, %sw.bb236, %sw.bb234, %if.then228, %sw.bb219, %sw.bb217, %sw.bb215, %if.then209, %if.then194, %sw.bb186, %sw.bb184, %sw.bb182, %if.then176, %if.then163, %sw.bb155, %sw.bb153, %sw.bb151, %if.then145, %if.then139, %if.then126, %sw.bb118, %sw.bb116, %sw.bb114, %if.then104, %if.then98, %if.then85, %sw.bb78, %sw.bb76, %sw.bb74, %if.then66, %if.then60, %sw.bb53, %if.end51, %sw.bb25, %sw.bb
+  %retval.0 = phi ptr [ %call54, %sw.bb53 ], [ %call52, %if.end51 ], [ %call536, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608 ], [ %call525, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572 ], [ %call515, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536 ], [ %call505, %_ZN6hermes5expOpEdd.exit ], [ %call495, %if.then491 ], [ %call485, %if.then482 ], [ %call450, %if.then447 ], [ %call474, %if.then473 ], [ %call476, %if.end475 ], [ %call441, %if.then438 ], [ %call313, %if.then310 ], [ %call340, %if.then339 ], [ %call346, %if.then345 ], [ %call394, %if.then393 ], [ %call416, %if.then415 ], [ %call305, %if.end303 ], [ %call277, %sw.bb276 ], [ %call275, %sw.bb274 ], [ %call273, %sw.bb272 ], [ %call267, %if.then266 ], [ %call258, %sw.bb257 ], [ %call256, %sw.bb255 ], [ %call254, %sw.bb253 ], [ %call248, %if.then247 ], [ %call239, %sw.bb238 ], [ %call237, %sw.bb236 ], [ %call235, %sw.bb234 ], [ %call229, %if.then228 ], [ %call220, %sw.bb219 ], [ %call218, %sw.bb217 ], [ %call216, %sw.bb215 ], [ %call210, %if.then209 ], [ %call177, %if.then176 ], [ %call203, %if.then194 ], [ %call187, %sw.bb186 ], [ %call185, %sw.bb184 ], [ %call183, %sw.bb182 ], [ %call140, %if.then139 ], [ %call146, %if.then145 ], [ %call172, %if.then163 ], [ %call156, %sw.bb155 ], [ %call154, %sw.bb153 ], [ %call152, %sw.bb151 ], [ %call99, %if.then98 ], [ %call109, %if.then104 ], [ %call135, %if.then126 ], [ %call119, %sw.bb118 ], [ %call117, %sw.bb116 ], [ %call115, %sw.bb114 ], [ %call61, %if.then60 ], [ %call69, %if.then66 ], [ %call94, %if.then85 ], [ %call79, %sw.bb78 ], [ %call77, %sw.bb76 ], [ %call75, %sw.bb74 ], [ %call26, %sw.bb25 ], [ %call24, %sw.bb ], [ null, %if.then ], [ %rhs, %if.then349 ], [ %lhs, %if.then370 ], [ null, %if.end451 ], [ null, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit ], [ null, %sw.bb527 ], [ null, %sw.bb517 ], [ null, %sw.bb507 ], [ null, %sw.bb497 ], [ null, %sw.bb487 ], [ null, %sw.bb478 ], [ null, %sw.bb434 ], [ null, %if.end411 ], [ null, %if.else417 ], [ null, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361 ], [ null, %if.end268 ], [ null, %if.then270 ], [ null, %if.end249 ], [ null, %if.then251 ], [ null, %if.end230 ], [ null, %if.then232 ], [ null, %if.end211 ], [ null, %if.then213 ], [ null, %if.end190 ], [ null, %if.end159 ], [ null, %if.end122 ], [ null, %if.end82 ], [ %call37, %if.then30 ], [ %call37, %if.then.i.i.i ], [ %call50, %if.then39 ], [ %call50, %if.then.i.i.i308 ], [ %call334, %if.then318 ], [ %call334, %if.then.i.i.i424 ], [ %call365, %if.then354 ], [ %call365, %if.then.i.i.i439 ], [ %call386, %if.then375 ], [ %call386, %if.then.i.i.i454 ], [ %call408, %if.then397 ], [ %call408, %if.then.i.i.i469 ], [ %call430, %if.then419 ], [ %call430, %if.then.i.i.i484 ], [ null, %if.end6.i353 ], [ null, %if.then72 ], [ null, %if.then112 ], [ null, %if.then149 ], [ null, %if.then180 ]
   ret ptr %retval.0
 }
 

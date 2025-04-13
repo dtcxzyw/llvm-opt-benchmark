@@ -84,48 +84,40 @@ define void @_ZN3gmx17CheckpointHandler33decideIfCheckpointingThisStepImplEbbb(p
   %5 = load ptr, ptr %0, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = load i8, ptr %6, align 1, !tbaa !23
-  %8 = icmp slt i8 %7, 1
-  br i1 %8, label %14, label %9
+  %8 = icmp sgt i8 %7, 0
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 19
+  %10 = load i8, ptr %9, align 1, !range !25
+  %11 = trunc nuw i8 %10 to i1
+  %or.cond = select i1 %1, i1 true, i1 %11
+  %or.cond10 = select i1 %8, i1 %or.cond, i1 false
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  %13 = load i8, ptr %12, align 2, !range !25
+  %14 = trunc nuw i8 %13 to i1
+  %or.cond7 = select i1 %3, i1 %14, i1 false
+  %or.cond13 = select i1 %or.cond10, i1 true, i1 %or.cond7
+  br i1 %or.cond13, label %15, label %.critedge
 
-9:                                                ; preds = %4
-  br i1 %1, label %19, label %10
+15:                                               ; preds = %4
+  %16 = xor i1 %2, true
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = zext i1 %16 to i8
+  store i8 %18, ptr %17, align 8, !tbaa !9
+  br i1 %2, label %24, label %19
 
-10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %12 = load i8, ptr %11, align 1, !tbaa !18, !range !25, !noundef !26
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %19, label %14
-
-14:                                               ; preds = %10, %4
-  br i1 %3, label %15, label %.critedge
-
-15:                                               ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %17 = load i8, ptr %16, align 2, !tbaa !17, !range !25, !noundef !26
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %.critedge
-
-19:                                               ; preds = %15, %10, %9
-  %20 = xor i1 %2, true
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = zext i1 %20 to i8
-  store i8 %22, ptr %21, align 8, !tbaa !9
-  br i1 %2, label %28, label %23
-
-23:                                               ; preds = %19
+19:                                               ; preds = %15
   store i8 0, ptr %6, align 1, !tbaa !23
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !14
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %24, align 4, !tbaa !14
-  br label %28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %21 = load i32, ptr %20, align 4, !tbaa !14
+  %22 = add nsw i32 %21, 1
+  store i32 %22, ptr %20, align 4, !tbaa !14
+  br label %24
 
-.critedge:                                        ; preds = %14, %15
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %27, align 8, !tbaa !9
-  br label %28
+.critedge:                                        ; preds = %4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %23, align 8, !tbaa !9
+  br label %24
 
-28:                                               ; preds = %.critedge, %23, %19
+24:                                               ; preds = %.critedge, %19, %15
   ret void
 }
 
@@ -162,4 +154,3 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !23 = !{!21, !7, i64 1}
 !24 = !{!21, !7, i64 0}
 !25 = !{i8 0, i8 2}
-!26 = !{}

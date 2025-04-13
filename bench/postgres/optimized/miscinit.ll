@@ -757,8 +757,8 @@ define dso_local void @InitializeSessionUserId(ptr noundef %0, i32 noundef %1, i
 7:                                                ; preds = %6
   %8 = ptrtoint ptr %0 to i64
   %9 = tail call ptr @SearchSysCache1(i32 noundef 10, i64 noundef %8) #22
-  %.not26 = icmp eq ptr %9, null
-  br i1 %.not26, label %10, label %21
+  %.not28 = icmp eq ptr %9, null
+  br i1 %.not28, label %10, label %21
 
 10:                                               ; preds = %7
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
@@ -771,8 +771,8 @@ define dso_local void @InitializeSessionUserId(ptr noundef %0, i32 noundef %1, i
 14:                                               ; preds = %6
   %15 = zext i32 %1 to i64
   %16 = tail call ptr @SearchSysCache1(i32 noundef 11, i64 noundef %15) #22
-  %.not25 = icmp eq ptr %16, null
-  br i1 %.not25, label %17, label %21
+  %.not27 = icmp eq ptr %16, null
+  br i1 %.not27, label %17, label %21
 
 17:                                               ; preds = %14
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
@@ -827,9 +827,9 @@ define dso_local void @InitializeSessionUserId(ptr noundef %0, i32 noundef %1, i
   %48 = icmp slt i32 %47, 0
   %49 = load i32, ptr @MyBackendType, align 4
   %50 = icmp ne i32 %49, 1
-  %or.cond.not29 = select i1 %48, i1 true, i1 %50
-  %brmerge = select i1 %or.cond.not29, i1 true, i1 %31
-  br i1 %brmerge, label %59, label %51
+  %or.cond.not31 = select i1 %48, i1 true, i1 %50
+  %or.cond3 = select i1 %or.cond.not31, i1 true, i1 %31
+  br i1 %or.cond3, label %59, label %51
 
 51:                                               ; preds = %45
   %52 = tail call i32 @CountUserBackends(i32 noundef %27) #22
@@ -1130,8 +1130,8 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   %9 = tail call i32 @getpid() #22
   %10 = tail call i32 @getppid() #22
   %11 = tail call ptr @getenv(ptr noundef nonnull @.str.65) #22
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %15, label %12
+  %.not88 = icmp eq ptr %11, null
+  br i1 %.not88, label %15, label %12
 
 12:                                               ; preds = %5
   %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %11, ptr noundef null, i32 noundef 10) #22
@@ -1139,7 +1139,7 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   br label %15
 
 15:                                               ; preds = %5, %12
-  %.073 = phi i32 [ %14, %12 ], [ 0, %5 ]
+  %.076 = phi i32 [ %14, %12 ], [ 0, %5 ]
   %16 = load i32, ptr @pg_file_create_mode, align 4
   %17 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 194, i32 noundef %16) #22
   %18 = icmp sgt i32 %17, -1
@@ -1150,19 +1150,19 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   br label %20
 
 20:                                               ; preds = %.lr.ph, %111
-  %.0120 = phi i32 [ 0, %.lr.ph ], [ %112, %111 ]
+  %.0123 = phi i32 [ 0, %.lr.ph ], [ %112, %111 ]
   %21 = load i32, ptr %19, align 4
-  %.not85 = icmp eq i32 %21, 17
-  br i1 %.not85, label %25, label %22
+  %.not89 = icmp eq i32 %21, 17
+  br i1 %.not89, label %25, label %22
 
 22:                                               ; preds = %20
   %23 = icmp ne i32 %21, 13
-  %24 = icmp sgt i32 %.0120, 100
+  %24 = icmp sgt i32 %.0123, 100
   %or.cond = select i1 %23, i1 true, i1 %24
   br i1 %or.cond, label %26, label %30
 
 25:                                               ; preds = %20
-  %.old1 = icmp sgt i32 %.0120, 100
+  %.old1 = icmp sgt i32 %.0123, 100
   br i1 %.old1, label %26, label %30
 
 26:                                               ; preds = %25, %22
@@ -1242,12 +1242,12 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   unreachable
 
 69:                                               ; preds = %59
-  %.not86 = icmp eq i32 %64, %9
-  %.not87 = icmp eq i32 %64, %10
-  %or.cond96 = select i1 %.not86, i1 true, i1 %.not87
-  %.not88 = icmp eq i32 %64, %.073
-  %or.cond97 = select i1 %or.cond96, i1 true, i1 %.not88
-  br i1 %or.cond97, label %81, label %70
+  %.not90 = icmp eq i32 %64, %9
+  %.not91 = icmp eq i32 %64, %10
+  %or.cond100 = select i1 %.not90, i1 true, i1 %.not91
+  %.not92 = icmp eq i32 %64, %.076
+  %or.cond101 = select i1 %or.cond100, i1 true, i1 %.not92
+  br i1 %or.cond101, label %81, label %70
 
 70:                                               ; preds = %69
   %71 = call i32 @kill(i32 noundef %64, i32 noundef 0) #22
@@ -1283,15 +1283,15 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   br label %83
 
 83:                                               ; preds = %82, %86
-  %.074119 = phi i32 [ 1, %82 ], [ %88, %86 ]
-  %.075118 = phi ptr [ %6, %82 ], [ %87, %86 ]
-  %84 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.075118, i32 noundef 10) #25
+  %.077122 = phi i32 [ 1, %82 ], [ %88, %86 ]
+  %.078121 = phi ptr [ %6, %82 ], [ %87, %86 ]
+  %84 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.078121, i32 noundef 10) #25
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.thread, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 1
-  %88 = add nuw nsw i32 %.074119, 1
+  %88 = add nuw nsw i32 %.077122, 1
   %exitcond.not = icmp eq i32 %88, 7
   br i1 %exitcond.not, label %89, label %83, !llvm.loop !6
 
@@ -1337,45 +1337,45 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   unreachable
 
 111:                                              ; preds = %103, %34
-  %112 = add i32 %.0120, 1
+  %112 = add i32 %.0123, 1
   %113 = load i32, ptr @pg_file_create_mode, align 4
   %114 = call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 194, i32 noundef %113) #22
   %115 = icmp sgt i32 %114, -1
   br i1 %115, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %111, %15
-  %.lcssa109 = phi i32 [ %17, %15 ], [ %114, %111 ]
+  %.lcssa112 = phi i32 [ %17, %15 ], [ %114, %111 ]
   %116 = sub i32 0, %9
   %117 = select i1 %1, i32 %9, i32 %116
   %118 = load ptr, ptr @DataDir, align 8
   %119 = load i64, ptr @MyStartTime, align 8
   %120 = load i32, ptr @PostPortNumber, align 4
   %121 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 2304, ptr noundef nonnull @.str.82, i32 noundef %117, ptr noundef %118, i64 noundef %119, i32 noundef %120, ptr noundef %2) #22
-  %.not98 = xor i1 %3, true
-  %brmerge = or i1 %1, %.not98
-  br i1 %brmerge, label %124, label %122
+  %.not = xor i1 %3, true
+  %or.cond4 = or i1 %1, %.not
+  br i1 %or.cond4, label %124, label %122
 
 122:                                              ; preds = %._crit_edge
   %123 = call i64 @strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.83, i64 noundef 2304) #22
   br label %124
 
-124:                                              ; preds = %._crit_edge, %122
+124:                                              ; preds = %122, %._crit_edge
   %125 = tail call ptr @__errno_location() #24
   store i32 0, ptr %125, align 4
   %126 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772188, ptr %126, align 4
   %127 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #25
-  %128 = call i64 @write(i32 noundef %.lcssa109, ptr noundef nonnull %6, i64 noundef %127) #22
+  %128 = call i64 @write(i32 noundef %.lcssa112, ptr noundef nonnull %6, i64 noundef %127) #22
   %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #25
-  %.not92 = icmp eq i64 %128, %129
-  br i1 %.not92, label %138, label %130
+  %.not96 = icmp eq i64 %128, %129
+  br i1 %.not96, label %138, label %130
 
 130:                                              ; preds = %124
   %131 = load i32, ptr %125, align 4
-  %132 = call i32 @close(i32 noundef %.lcssa109) #22
+  %132 = call i32 @close(i32 noundef %.lcssa112) #22
   %133 = call i32 @unlink(ptr noundef %0) #22
-  %.not95 = icmp eq i32 %131, 0
-  %134 = select i1 %.not95, i32 28, i32 %131
+  %.not99 = icmp eq i32 %131, 0
+  %134 = select i1 %.not99, i32 28, i32 %131
   store i32 %134, ptr %125, align 4
   %135 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
   call void @llvm.assume(i1 %135)
@@ -1389,13 +1389,13 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   store volatile i32 0, ptr %139, align 4
   %140 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772187, ptr %140, align 4
-  %141 = call i32 @pg_fsync(i32 noundef %.lcssa109) #22
-  %.not93 = icmp eq i32 %141, 0
-  br i1 %.not93, label %149, label %142
+  %141 = call i32 @pg_fsync(i32 noundef %.lcssa112) #22
+  %.not97 = icmp eq i32 %141, 0
+  br i1 %.not97, label %149, label %142
 
 142:                                              ; preds = %138
   %143 = load i32, ptr %125, align 4
-  %144 = call i32 @close(i32 noundef %.lcssa109) #22
+  %144 = call i32 @close(i32 noundef %.lcssa112) #22
   %145 = call i32 @unlink(ptr noundef %0) #22
   store i32 %143, ptr %125, align 4
   %146 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
@@ -1408,9 +1408,9 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
 149:                                              ; preds = %138
   %150 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %150, align 4
-  %151 = call i32 @close(i32 noundef %.lcssa109) #22
-  %.not94 = icmp eq i32 %151, 0
-  br i1 %.not94, label %158, label %152
+  %151 = call i32 @close(i32 noundef %.lcssa112) #22
+  %.not98 = icmp eq i32 %151, 0
+  br i1 %.not98, label %158, label %152
 
 152:                                              ; preds = %149
   %153 = load i32, ptr %125, align 4

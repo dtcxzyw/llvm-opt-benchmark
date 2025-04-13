@@ -30059,15 +30059,13 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   %16 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %17 = load ptr, ptr %6, align 8
-  %.not = icmp eq ptr %17, null
-  br i1 %.not, label %143, label %18
-
-18:                                               ; preds = %5
-  %19 = load i8, ptr @ngap_dissect_container, align 1, !range !6, !noundef !7
+  %18 = icmp ne ptr %17, null
+  %19 = load i8, ptr @ngap_dissect_container, align 1, !range !6
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %21, label %143
+  %or.cond = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond, label %21, label %143
 
-21:                                               ; preds = %18
+21:                                               ; preds = %5
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr @ett_ngap_CoverageEnhancementLevel, align 4
@@ -30079,10 +30077,10 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   %28 = call fastcc zeroext i1 @ngap_is_nbiot_ue(ptr noundef %27)
   %29 = load i32, ptr @ngap_dissect_lte_container_as, align 4
   %30 = icmp eq i32 %29, 0
-  %or.cond = select i1 %28, i1 %30, i1 false
+  %or.cond3 = select i1 %28, i1 %30, i1 false
   %31 = icmp eq i32 %29, 2
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %31
-  br i1 %or.cond3, label %32, label %87
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %31
+  br i1 %or.cond5, label %32, label %87
 
 32:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -30093,32 +30091,32 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_ngap_CoverageEnhancementLevel.catch_spec, i64 noundef 1)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %34 = call i32 @_setjmp(ptr noundef nonnull %33) #16
-  %.not61 = icmp eq i32 %34, 0
+  %.not62 = icmp eq i32 %34, 0
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink = select i1 %.not61, ptr null, ptr %35
+  %.sink = select i1 %.not62, ptr null, ptr %35
   store volatile ptr %.sink, ptr %8, align 8
-  %.0..0..0..0.21 = load volatile i32, ptr %9, align 4
-  %36 = and i32 %.0..0..0..0.21, 1
-  %.not62 = icmp eq i32 %36, 0
-  br i1 %.not62, label %39, label %37
+  %.0..0..0..0.23 = load volatile i32, ptr %9, align 4
+  %36 = and i32 %.0..0..0..0.23, 1
+  %.not63 = icmp eq i32 %36, 0
+  br i1 %.not63, label %39, label %37
 
 37:                                               ; preds = %32
-  %.0..0..0..0.22 = load volatile i32, ptr %9, align 4
-  %38 = or i32 %.0..0..0..0.22, 2
+  %.0..0..0..0.24 = load volatile i32, ptr %9, align 4
+  %38 = or i32 %.0..0..0..0.24, 2
   store volatile i32 %38, ptr %9, align 4
   br label %39
 
 39:                                               ; preds = %37, %32
-  %.0..0..0..0.23 = load volatile i32, ptr %9, align 4
-  %40 = and i32 %.0..0..0..0.23, -2
+  %.0..0..0..0.25 = load volatile i32, ptr %9, align 4
+  %40 = and i32 %.0..0..0..0.25, -2
   store volatile i32 %40, ptr %9, align 4
-  %.0..0..0..0.24 = load volatile i32, ptr %9, align 4
-  %41 = icmp eq i32 %.0..0..0..0.24, 0
+  %.0..0..0..0.26 = load volatile i32, ptr %9, align 4
+  %41 = icmp eq i32 %.0..0..0..0.26, 0
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %39
-  %.0..0..0..0.28 = load volatile ptr, ptr %8, align 8
-  %43 = icmp eq ptr %.0..0..0..0.28, null
+  %.0..0..0..0.30 = load volatile ptr, ptr %8, align 8
+  %43 = icmp eq ptr %.0..0..0..0.30, null
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42
@@ -30128,79 +30126,79 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   br label %48
 
 48:                                               ; preds = %44, %42, %39
-  %.0..0..0..0.25 = load volatile i32, ptr %9, align 4
-  %49 = icmp eq i32 %.0..0..0..0.25, 0
+  %.0..0..0..0.27 = load volatile i32, ptr %9, align 4
+  %49 = icmp eq i32 %.0..0..0..0.27, 0
   br i1 %49, label %50, label %79
 
 50:                                               ; preds = %48
-  %.0..0..0..0.29 = load volatile ptr, ptr %8, align 8
-  %.not63 = icmp eq ptr %.0..0..0..0.29, null
-  br i1 %.not63, label %79, label %51
+  %.0..0..0..0.31 = load volatile ptr, ptr %8, align 8
+  %.not64 = icmp eq ptr %.0..0..0..0.31, null
+  br i1 %.not64, label %79, label %51
 
 51:                                               ; preds = %50
-  %.0..0..0..0.30 = load volatile ptr, ptr %8, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.30, i64 8
+  %.0..0..0..0.32 = load volatile ptr, ptr %8, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.32, i64 8
   %53 = load volatile i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 1
   br i1 %54, label %71, label %55
 
 55:                                               ; preds = %51
-  %.0..0..0..0.31 = load volatile ptr, ptr %8, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.31, i64 8
+  %.0..0..0..0.33 = load volatile ptr, ptr %8, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.33, i64 8
   %57 = load volatile i64, ptr %56, align 8
   %58 = icmp eq i64 %57, 4
   br i1 %58, label %71, label %59
 
 59:                                               ; preds = %55
-  %.0..0..0..0.32 = load volatile ptr, ptr %8, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.32, i64 8
+  %.0..0..0..0.34 = load volatile ptr, ptr %8, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.34, i64 8
   %61 = load volatile i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 3
   br i1 %62, label %71, label %63
 
 63:                                               ; preds = %59
-  %.0..0..0..0.33 = load volatile ptr, ptr %8, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.33, i64 8
+  %.0..0..0..0.35 = load volatile ptr, ptr %8, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.35, i64 8
   %65 = load volatile i64, ptr %64, align 8
   %66 = icmp eq i64 %65, 2
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %63
-  %.0..0..0..0.34 = load volatile ptr, ptr %8, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.34, i64 8
+  %.0..0..0..0.36 = load volatile ptr, ptr %8, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.36, i64 8
   %69 = load volatile i64, ptr %68, align 8
   %70 = icmp eq i64 %69, 7
   br i1 %70, label %71, label %79
 
 71:                                               ; preds = %67, %63, %59, %55, %51
-  %.0..0..0..0.26 = load volatile i32, ptr %9, align 4
-  %72 = or i32 %.0..0..0..0.26, 1
+  %.0..0..0..0.28 = load volatile i32, ptr %9, align 4
+  %72 = or i32 %.0..0..0..0.28, 1
   store volatile i32 %72, ptr %9, align 4
   %73 = load ptr, ptr %6, align 8
   %74 = load ptr, ptr %26, align 8
-  %.0..0..0..0.35 = load volatile ptr, ptr %8, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.35, i64 8
+  %.0..0..0..0.37 = load volatile ptr, ptr %8, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.37, i64 8
   %76 = load volatile i64, ptr %75, align 8
-  %.0..0..0..0.36 = load volatile ptr, ptr %8, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.36, i64 16
+  %.0..0..0..0.38 = load volatile ptr, ptr %8, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.38, i64 16
   %78 = load volatile ptr, ptr %77, align 8
   call void @show_exception(ptr noundef %73, ptr noundef %74, ptr noundef %25, i64 noundef %76, ptr noundef %78)
   br label %79
 
 79:                                               ; preds = %71, %67, %50, %48
-  %.0..0..0..0.27 = load volatile i32, ptr %9, align 4
-  %80 = and i32 %.0..0..0..0.27, 1
-  %.not64 = icmp eq i32 %80, 0
-  br i1 %.not64, label %81, label %83
+  %.0..0..0..0.29 = load volatile i32, ptr %9, align 4
+  %80 = and i32 %.0..0..0..0.29, 1
+  %.not65 = icmp eq i32 %80, 0
+  br i1 %.not65, label %81, label %83
 
 81:                                               ; preds = %79
-  %.0..0..0..0.37 = load volatile ptr, ptr %8, align 8
-  %.not65 = icmp eq ptr %.0..0..0..0.37, null
-  br i1 %.not65, label %83, label %82
+  %.0..0..0..0.39 = load volatile ptr, ptr %8, align 8
+  %.not66 = icmp eq ptr %.0..0..0..0.39, null
+  br i1 %.not66, label %83, label %82
 
 82:                                               ; preds = %81
-  %.0..0..0..0.38 = load volatile ptr, ptr %8, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.38) #17
+  %.0..0..0..0.40 = load volatile ptr, ptr %8, align 8
+  call void @except_rethrow(ptr noundef %.0..0..0..0.40) #17
   unreachable
 
 83:                                               ; preds = %81, %79
@@ -30223,32 +30221,32 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   call void @except_setup_try(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @dissect_ngap_CoverageEnhancementLevel.catch_spec.3585, i64 noundef 1)
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %89 = call i32 @_setjmp(ptr noundef nonnull %88) #16
-  %.not56 = icmp eq i32 %89, 0
+  %.not = icmp eq i32 %89, 0
   %90 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sink66 = select i1 %.not56, ptr null, ptr %90
-  store volatile ptr %.sink66, ptr %12, align 8
+  %.sink67 = select i1 %.not, ptr null, ptr %90
+  store volatile ptr %.sink67, ptr %12, align 8
   %.0..0..0..0. = load volatile i32, ptr %13, align 4
   %91 = and i32 %.0..0..0..0., 1
-  %.not57 = icmp eq i32 %91, 0
-  br i1 %.not57, label %94, label %92
+  %.not58 = icmp eq i32 %91, 0
+  br i1 %.not58, label %94, label %92
 
 92:                                               ; preds = %87
-  %.0..0..0..0.4 = load volatile i32, ptr %13, align 4
-  %93 = or i32 %.0..0..0..0.4, 2
+  %.0..0..0..0.6 = load volatile i32, ptr %13, align 4
+  %93 = or i32 %.0..0..0..0.6, 2
   store volatile i32 %93, ptr %13, align 4
   br label %94
 
 94:                                               ; preds = %92, %87
-  %.0..0..0..0.5 = load volatile i32, ptr %13, align 4
-  %95 = and i32 %.0..0..0..0.5, -2
+  %.0..0..0..0.7 = load volatile i32, ptr %13, align 4
+  %95 = and i32 %.0..0..0..0.7, -2
   store volatile i32 %95, ptr %13, align 4
-  %.0..0..0..0.6 = load volatile i32, ptr %13, align 4
-  %96 = icmp eq i32 %.0..0..0..0.6, 0
+  %.0..0..0..0.8 = load volatile i32, ptr %13, align 4
+  %96 = icmp eq i32 %.0..0..0..0.8, 0
   br i1 %96, label %97, label %103
 
 97:                                               ; preds = %94
-  %.0..0..0..0.10 = load volatile ptr, ptr %12, align 8
-  %98 = icmp eq ptr %.0..0..0..0.10, null
+  %.0..0..0..0.12 = load volatile ptr, ptr %12, align 8
+  %98 = icmp eq ptr %.0..0..0..0.12, null
   br i1 %98, label %99, label %103
 
 99:                                               ; preds = %97
@@ -30258,79 +30256,79 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   br label %103
 
 103:                                              ; preds = %99, %97, %94
-  %.0..0..0..0.7 = load volatile i32, ptr %13, align 4
-  %104 = icmp eq i32 %.0..0..0..0.7, 0
+  %.0..0..0..0.9 = load volatile i32, ptr %13, align 4
+  %104 = icmp eq i32 %.0..0..0..0.9, 0
   br i1 %104, label %105, label %134
 
 105:                                              ; preds = %103
-  %.0..0..0..0.11 = load volatile ptr, ptr %12, align 8
-  %.not58 = icmp eq ptr %.0..0..0..0.11, null
-  br i1 %.not58, label %134, label %106
+  %.0..0..0..0.13 = load volatile ptr, ptr %12, align 8
+  %.not59 = icmp eq ptr %.0..0..0..0.13, null
+  br i1 %.not59, label %134, label %106
 
 106:                                              ; preds = %105
-  %.0..0..0..0.12 = load volatile ptr, ptr %12, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
+  %.0..0..0..0.14 = load volatile ptr, ptr %12, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %108 = load volatile i64, ptr %107, align 8
   %109 = icmp eq i64 %108, 1
   br i1 %109, label %126, label %110
 
 110:                                              ; preds = %106
-  %.0..0..0..0.13 = load volatile ptr, ptr %12, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
+  %.0..0..0..0.15 = load volatile ptr, ptr %12, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %112 = load volatile i64, ptr %111, align 8
   %113 = icmp eq i64 %112, 4
   br i1 %113, label %126, label %114
 
 114:                                              ; preds = %110
-  %.0..0..0..0.14 = load volatile ptr, ptr %12, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
+  %.0..0..0..0.16 = load volatile ptr, ptr %12, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 8
   %116 = load volatile i64, ptr %115, align 8
   %117 = icmp eq i64 %116, 3
   br i1 %117, label %126, label %118
 
 118:                                              ; preds = %114
-  %.0..0..0..0.15 = load volatile ptr, ptr %12, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
+  %.0..0..0..0.17 = load volatile ptr, ptr %12, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.17, i64 8
   %120 = load volatile i64, ptr %119, align 8
   %121 = icmp eq i64 %120, 2
   br i1 %121, label %126, label %122
 
 122:                                              ; preds = %118
-  %.0..0..0..0.16 = load volatile ptr, ptr %12, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 8
+  %.0..0..0..0.18 = load volatile ptr, ptr %12, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.18, i64 8
   %124 = load volatile i64, ptr %123, align 8
   %125 = icmp eq i64 %124, 7
   br i1 %125, label %126, label %134
 
 126:                                              ; preds = %122, %118, %114, %110, %106
-  %.0..0..0..0.8 = load volatile i32, ptr %13, align 4
-  %127 = or i32 %.0..0..0..0.8, 1
+  %.0..0..0..0.10 = load volatile i32, ptr %13, align 4
+  %127 = or i32 %.0..0..0..0.10, 1
   store volatile i32 %127, ptr %13, align 4
   %128 = load ptr, ptr %6, align 8
   %129 = load ptr, ptr %26, align 8
-  %.0..0..0..0.17 = load volatile ptr, ptr %12, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.17, i64 8
+  %.0..0..0..0.19 = load volatile ptr, ptr %12, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.19, i64 8
   %131 = load volatile i64, ptr %130, align 8
-  %.0..0..0..0.18 = load volatile ptr, ptr %12, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.18, i64 16
+  %.0..0..0..0.20 = load volatile ptr, ptr %12, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.20, i64 16
   %133 = load volatile ptr, ptr %132, align 8
   call void @show_exception(ptr noundef %128, ptr noundef %129, ptr noundef %25, i64 noundef %131, ptr noundef %133)
   br label %134
 
 134:                                              ; preds = %126, %122, %105, %103
-  %.0..0..0..0.9 = load volatile i32, ptr %13, align 4
-  %135 = and i32 %.0..0..0..0.9, 1
-  %.not59 = icmp eq i32 %135, 0
-  br i1 %.not59, label %136, label %138
+  %.0..0..0..0.11 = load volatile i32, ptr %13, align 4
+  %135 = and i32 %.0..0..0..0.11, 1
+  %.not60 = icmp eq i32 %135, 0
+  br i1 %.not60, label %136, label %138
 
 136:                                              ; preds = %134
-  %.0..0..0..0.19 = load volatile ptr, ptr %12, align 8
-  %.not60 = icmp eq ptr %.0..0..0..0.19, null
-  br i1 %.not60, label %138, label %137
+  %.0..0..0..0.21 = load volatile ptr, ptr %12, align 8
+  %.not61 = icmp eq ptr %.0..0..0..0.21, null
+  br i1 %.not61, label %138, label %137
 
 137:                                              ; preds = %136
-  %.0..0..0..0.20 = load volatile ptr, ptr %12, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.20) #17
+  %.0..0..0..0.22 = load volatile ptr, ptr %12, align 8
+  call void @except_rethrow(ptr noundef %.0..0..0..0.22) #17
   unreachable
 
 138:                                              ; preds = %136, %134
@@ -30345,12 +30343,12 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   br label %142
 
 142:                                              ; preds = %138, %83
-  %.0..0..0..0.39 = load volatile i32, ptr %7, align 4
+  %.0..0..0..0.41 = load volatile i32, ptr %7, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %143
 
-143:                                              ; preds = %142, %18, %5
-  %.0 = phi i32 [ %.0..0..0..0.39, %142 ], [ %16, %18 ], [ %16, %5 ]
+143:                                              ; preds = %142, %5
+  %.0 = phi i32 [ %.0..0..0..0.41, %142 ], [ %16, %5 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   ret i32 %.0
 }
@@ -33728,39 +33726,37 @@ define internal fastcc noundef zeroext i1 @find_n2_info_content(ptr noundef %0, 
 
 8:                                                ; preds = %5
   %9 = tail call ptr @json_get_object(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.4906)
-  %.not28 = icmp eq ptr %9, null
-  br i1 %.not28, label %29, label %10
+  %.not29 = icmp eq ptr %9, null
+  br i1 %.not29, label %29, label %10
 
 10:                                               ; preds = %8
   %11 = tail call ptr @json_get_string(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.4897)
-  %.not29 = icmp eq ptr %11, null
-  br i1 %.not29, label %29, label %12
+  %.not30 = icmp eq ptr %11, null
+  br i1 %.not30, label %29, label %12
 
 12:                                               ; preds = %10
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef %3) #15
-  %.not30 = icmp eq i32 %13, 0
-  br i1 %.not30, label %14, label %29
+  %.not31 = icmp eq i32 %13, 0
+  br i1 %.not31, label %14, label %29
 
 14:                                               ; preds = %12
   %15 = tail call ptr @json_get_string(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.4907)
-  %.not31 = icmp eq ptr %15, null
-  br i1 %.not31, label %26, label %16
+  %.not32 = icmp eq ptr %15, null
+  br i1 %.not32, label %26, label %16
 
 16:                                               ; preds = %14
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.45) #15
-  %.not32 = icmp eq i32 %17, 0
-  br i1 %.not32, label %18, label %23
-
-18:                                               ; preds = %16
-  %19 = load i8, ptr @ngap_disable_nrppa_encapsulation, align 1, !range !6, !noundef !7
+  %18 = icmp eq i32 %17, 0
+  %19 = load i8, ptr @ngap_disable_nrppa_encapsulation, align 1, !range !6
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %21, label %23
+  %or.cond = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond, label %21, label %23
 
-21:                                               ; preds = %18
+21:                                               ; preds = %16
   %22 = load ptr, ptr @nrppa_handle, align 8
   br label %.sink.split
 
-23:                                               ; preds = %18, %16
+23:                                               ; preds = %16
   %24 = load ptr, ptr @ngap_n2_ie_type_dissector_table, align 8
   %25 = tail call ptr @dissector_get_string_handle(ptr noundef %24, ptr noundef nonnull %15)
   br label %.sink.split

@@ -111,7 +111,7 @@ define noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__29PcpC
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %44, align 8
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef 1, ptr noundef nonnull @.str.1)
-  br label %403
+  br label %401
 
 45:                                               ; preds = %2
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -123,24 +123,24 @@ define noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__29PcpC
   %52 = load ptr, ptr %1, align 8
   %53 = icmp eq ptr %51, %52
   %54 = select i1 %50, i1 %53, i1 false
-  br i1 %54, label %403, label %55
+  br i1 %54, label %401, label %55
 
 55:                                               ; preds = %45
   %56 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %57 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %58 = icmp slt i32 %56, %57
-  br i1 %58, label %403, label %59
+  br i1 %58, label %401, label %59
 
 59:                                               ; preds = %55
   %60 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %61 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %62 = icmp sgt i32 %60, %61
-  br i1 %62, label %403, label %63
+  br i1 %62, label %401, label %63
 
 63:                                               ; preds = %59
   %64 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef10GetArcTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %65 = icmp eq i32 %64, 6
-  br i1 %65, label %66, label %361
+  br i1 %65, label %66, label %359
 
 66:                                               ; preds = %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %0, i64 16, i1 false)
@@ -193,19 +193,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.ex
   %96 = extractvalue { ptr, i64 } %94, 1
   %97 = icmp ne i64 %93, %96
   %98 = icmp ne ptr %92, %95
-  %.not3.i3.i112 = select i1 %97, i1 true, i1 %98
-  br i1 %.not3.i3.i112, label %.lr.ph.i113, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit116
+  %.not3.i3.i121 = select i1 %97, i1 true, i1 %98
+  br i1 %.not3.i3.i121, label %.lr.ph.i122, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit125
 
-.lr.ph.i113:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit
-  %.sroa.2.0..sroa_idx.i114 = getelementptr inbounds nuw i8, ptr %7, i64 8
+.lr.ph.i122:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit
+  %.sroa.2.0..sroa_idx.i123 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %99
 
-99:                                               ; preds = %99, %.lr.ph.i113
+99:                                               ; preds = %99, %.lr.ph.i122
   %100 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
   %101 = extractvalue { ptr, i64 } %100, 0
   %102 = extractvalue { ptr, i64 } %100, 1
   store ptr %101, ptr %7, align 8, !alias.scope !9
-  store i64 %102, ptr %.sroa.2.0..sroa_idx.i114, align 8, !alias.scope !9
+  store i64 %102, ptr %.sroa.2.0..sroa_idx.i123, align 8, !alias.scope !9
   %103 = load i64, ptr %90, align 8, !alias.scope !9
   %104 = add i64 %103, 1
   store i64 %104, ptr %90, align 8, !alias.scope !9
@@ -217,10 +217,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.ex
   %110 = extractvalue { ptr, i64 } %108, 1
   %111 = icmp ne i64 %107, %110
   %112 = icmp ne ptr %106, %109
-  %.not3.i.i115 = select i1 %111, i1 true, i1 %112
-  br i1 %.not3.i.i115, label %99, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit116, !llvm.loop !7
+  %.not3.i.i124 = select i1 %111, i1 true, i1 %112
+  br i1 %.not3.i.i124, label %99, label %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit125, !llvm.loop !7
 
-_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit116: ; preds = %99, %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit
+_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit125: ; preds = %99, %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -230,15 +230,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.ex
   %115 = load i64, ptr %113, align 8
   %.not1.i12.i = icmp eq i64 %115, -1
   %116 = select i1 %.not.i11.i, i1 true, i1 %.not1.i12.i
-  br i1 %116, label %._crit_edge.i, label %.lr.ph.i117
+  br i1 %116, label %._crit_edge.i, label %.lr.ph.i126
 
-.lr.ph.i117:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit116
+.lr.ph.i126:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit125
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %118
 
-118:                                              ; preds = %126, %.lr.ph.i117
-  %119 = phi i64 [ %115, %.lr.ph.i117 ], [ %129, %126 ]
-  %120 = phi ptr [ %114, %.lr.ph.i117 ], [ %128, %126 ]
+118:                                              ; preds = %126, %.lr.ph.i126
+  %119 = phi i64 [ %115, %.lr.ph.i126 ], [ %129, %126 ]
+  %120 = phi ptr [ %114, %.lr.ph.i126 ], [ %128, %126 ]
   %121 = load i64, ptr %117, align 8
   %122 = icmp eq i64 %119, %121
   %123 = load ptr, ptr %7, align 8
@@ -257,7 +257,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.ex
   %130 = select i1 %.not.i.i, i1 true, i1 %.not1.i.i
   br i1 %130, label %._crit_edge.i, label %118, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %126, %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit116
+._crit_edge.i:                                    ; preds = %126, %_ZN32pxrInternal_v0_24__pxrReserved__L18_GetOriginRootNodeERKNS_10PcpNodeRefE.exit125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %7, i64 16, i1 false)
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %132 = load ptr, ptr %4, align 8
@@ -303,13 +303,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_OriginsAreNestedArcsERKNS_10PcpNodeRefE
   %149 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %150 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %151 = icmp sgt i32 %149, %150
-  br i1 %151, label %403, label %152
+  br i1 %151, label %401, label %152
 
 152:                                              ; preds = %.loopexit
   %153 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %154 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %155 = icmp slt i32 %153, %154
-  br i1 %155, label %403, label %156
+  br i1 %155, label %401, label %156
 
 156:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L21_OriginsAreNestedArcsERKNS_10PcpNodeRefES2_.exit.thread, %152
   %157 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -345,11 +345,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_OriginsAreNestedArcsERKNS_10PcpNodeRefE
   %183 = load ptr, ptr %8, align 8
   %184 = icmp eq ptr %183, %178
   %185 = select i1 %182, i1 %184, i1 false
-  br i1 %185, label %186, label %245
+  br i1 %185, label %186, label %244
 
 186:                                              ; preds = %156
-  %brmerge = or i1 %172, %180
-  br i1 %brmerge, label %237, label %187
+  %or.cond = or i1 %172, %180
+  br i1 %or.cond, label %236, label %187
 
 187:                                              ; preds = %186
   %188 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -391,386 +391,384 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_OriginsAreNestedArcsERKNS_10PcpNodeRefE
 212:                                              ; preds = %197, %.critedge
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7GetSiteEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackSite") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %0)
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7GetSiteEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackSite") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %213 unwind label %221
+          to label %213 unwind label %220
 
 213:                                              ; preds = %212
   %214 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %215 unwind label %223
+          to label %215 unwind label %222
 
 215:                                              ; preds = %213
-  %216 = xor i1 %214, true
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #16
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7GetSiteEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackSite") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %1)
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7GetSiteEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackSite") align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %217 unwind label %225
+          to label %216 unwind label %224
 
-217:                                              ; preds = %215
-  %218 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14)
-          to label %219 unwind label %227
+216:                                              ; preds = %215
+  %217 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14)
+          to label %218 unwind label %226
 
-219:                                              ; preds = %217
-  %220 = xor i1 %218, true
+218:                                              ; preds = %216
+  %219 = xor i1 %217, true
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
-  %brmerge104 = or i1 %214, %220
-  br i1 %brmerge104, label %229, label %403
+  %or.cond3 = or i1 %214, %219
+  br i1 %or.cond3, label %228, label %401
 
-221:                                              ; preds = %212
-  %222 = landingpad { ptr, i32 }
+220:                                              ; preds = %212
+  %221 = landingpad { ptr, i32 }
           cleanup
-  br label %404
+  br label %402
 
-223:                                              ; preds = %213
-  %224 = landingpad { ptr, i32 }
+222:                                              ; preds = %213
+  %223 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
-  br label %404
+  br label %402
 
-225:                                              ; preds = %215
-  %226 = landingpad { ptr, i32 }
+224:                                              ; preds = %215
+  %225 = landingpad { ptr, i32 }
           cleanup
-  br label %404
+  br label %402
 
-227:                                              ; preds = %217
-  %228 = landingpad { ptr, i32 }
+226:                                              ; preds = %216
+  %227 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #16
-  br label %404
+  br label %402
 
-229:                                              ; preds = %219
-  %brmerge106 = or i1 %218, %216
-  br i1 %brmerge106, label %230, label %403
+228:                                              ; preds = %218
+  %or.cond6 = and i1 %214, %219
+  br i1 %or.cond6, label %401, label %229
 
-230:                                              ; preds = %229
+229:                                              ; preds = %228
   store ptr @.str, ptr %15, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %231, align 8
-  %232 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 164, ptr %232, align 8
-  %233 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %233, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store i8 0, ptr %234, align 8
-  %235 = call noundef ptr (ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_VerifyStringFormatEPKcz(ptr noundef nonnull @.str.4)
-  %236 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %15, ptr noundef nonnull @.str.3, ptr noundef %235)
-  br label %403
+  %230 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %230, align 8
+  %231 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i64 164, ptr %231, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %232, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store i8 0, ptr %233, align 8
+  %234 = call noundef ptr (ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_VerifyStringFormatEPKcz(ptr noundef nonnull @.str.4)
+  %235 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %15, ptr noundef nonnull @.str.3, ptr noundef %234)
+  br label %401
 
-237:                                              ; preds = %186
-  %238 = and i1 %172, %180
-  br i1 %238, label %395, label %239
+236:                                              ; preds = %186
+  %237 = and i1 %172, %180
+  br i1 %237, label %393, label %238
 
-239:                                              ; preds = %237
+238:                                              ; preds = %236
   store ptr @.str, ptr %16, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %240, align 8
-  %241 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 168, ptr %241, align 8
-  %242 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %242, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i8 0, ptr %243, align 8
-  %244 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %16, ptr noundef nonnull @.str.5, ptr noundef null)
-  br label %395
+  %239 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %239, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i64 168, ptr %240, align 8
+  %241 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %241, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store i8 0, ptr %242, align 8
+  %243 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %16, ptr noundef nonnull @.str.5, ptr noundef null)
+  br label %393
 
-245:                                              ; preds = %156
-  %246 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %247 = load i64, ptr %246, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %249 = load i64, ptr %248, align 8
-  %250 = icmp ne i64 %247, %249
-  %251 = load ptr, ptr %6, align 8
-  %252 = load ptr, ptr %7, align 8
-  %253 = icmp ne ptr %251, %252
-  %.not3.i119 = select i1 %250, i1 true, i1 %253
-  br i1 %.not3.i119, label %254, label %267
+244:                                              ; preds = %156
+  %245 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %246 = load i64, ptr %245, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %248 = load i64, ptr %247, align 8
+  %249 = icmp ne i64 %246, %248
+  %250 = load ptr, ptr %6, align 8
+  %251 = load ptr, ptr %7, align 8
+  %252 = icmp ne ptr %250, %251
+  %.not3.i128 = select i1 %249, i1 true, i1 %252
+  br i1 %.not3.i128, label %253, label %266
 
-254:                                              ; preds = %245
-  %255 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %256 = extractvalue { ptr, i64 } %255, 0
-  store ptr %256, ptr %17, align 8
-  %257 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %258 = extractvalue { ptr, i64 } %255, 1
-  store i64 %258, ptr %257, align 8
-  %259 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L17_OriginIsStrongerERKNS_10PcpNodeRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %.not97 = icmp eq i32 %259, 0
-  br i1 %.not97, label %260, label %403
+253:                                              ; preds = %244
+  %254 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %255 = extractvalue { ptr, i64 } %254, 0
+  store ptr %255, ptr %17, align 8
+  %256 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %257 = extractvalue { ptr, i64 } %254, 1
+  store i64 %257, ptr %256, align 8
+  %258 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L17_OriginIsStrongerERKNS_10PcpNodeRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %.not115 = icmp eq i32 %258, 0
+  br i1 %.not115, label %259, label %401
 
-260:                                              ; preds = %254
+259:                                              ; preds = %253
   store ptr @.str, ptr %18, align 8
-  %261 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %261, align 8
-  %262 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 177, ptr %262, align 8
-  %263 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %263, align 8
-  %264 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store i8 0, ptr %264, align 8
-  %265 = call noundef ptr (ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_VerifyStringFormatEPKcz(ptr noundef nonnull @.str.7)
-  %266 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %18, ptr noundef nonnull @.str.6, ptr noundef %265)
-  br label %403
+  %260 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %260, align 8
+  %261 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i64 177, ptr %261, align 8
+  %262 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %262, align 8
+  %263 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store i8 0, ptr %263, align 8
+  %264 = call noundef ptr (ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_VerifyStringFormatEPKcz(ptr noundef nonnull @.str.7)
+  %265 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %18, ptr noundef nonnull @.str.6, ptr noundef %264)
+  br label %401
 
-267:                                              ; preds = %245
-  %268 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %269 = extractvalue { ptr, i64 } %268, 0
-  %270 = extractvalue { ptr, i64 } %268, 1
-  %271 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %272 = extractvalue { ptr, i64 } %271, 0
-  %273 = extractvalue { ptr, i64 } %271, 1
-  %274 = icmp eq i64 %270, %273
-  %275 = icmp eq ptr %269, %272
-  %276 = select i1 %274, i1 %275, i1 false
-  br i1 %276, label %277, label %.critedge2
+266:                                              ; preds = %244
+  %267 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %268 = extractvalue { ptr, i64 } %267, 0
+  %269 = extractvalue { ptr, i64 } %267, 1
+  %270 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %271 = extractvalue { ptr, i64 } %270, 0
+  %272 = extractvalue { ptr, i64 } %270, 1
+  %273 = icmp eq i64 %269, %272
+  %274 = icmp eq ptr %268, %271
+  %275 = select i1 %273, i1 %274, i1 false
+  br i1 %275, label %276, label %.critedge8
 
-277:                                              ; preds = %267
-  %278 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %279 = extractvalue { ptr, i64 } %278, 0
-  %280 = extractvalue { ptr, i64 } %278, 1
-  %281 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %282 = extractvalue { ptr, i64 } %281, 0
-  %283 = extractvalue { ptr, i64 } %281, 1
-  %284 = icmp eq i64 %280, %283
-  %285 = icmp eq ptr %279, %282
-  %286 = select i1 %284, i1 %285, i1 false
-  br i1 %286, label %292, label %.critedge2
+276:                                              ; preds = %266
+  %277 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %278 = extractvalue { ptr, i64 } %277, 0
+  %279 = extractvalue { ptr, i64 } %277, 1
+  %280 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %281 = extractvalue { ptr, i64 } %280, 0
+  %282 = extractvalue { ptr, i64 } %280, 1
+  %283 = icmp eq i64 %279, %282
+  %284 = icmp eq ptr %278, %281
+  %285 = select i1 %283, i1 %284, i1 false
+  br i1 %285, label %291, label %.critedge8
 
-.critedge2:                                       ; preds = %267, %277
+.critedge8:                                       ; preds = %266, %276
   store ptr @.str, ptr %19, align 8
-  %287 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %287, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i64 187, ptr %288, align 8
-  %289 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %289, align 8
-  %290 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i8 0, ptr %290, align 8
-  %291 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %19, ptr noundef nonnull @.str.2, ptr noundef null)
-  br label %292
+  %286 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %286, align 8
+  %287 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i64 187, ptr %287, align 8
+  %288 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %288, align 8
+  %289 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store i8 0, ptr %289, align 8
+  %290 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %19, ptr noundef nonnull @.str.2, ptr noundef null)
+  br label %291
 
-292:                                              ; preds = %277, %.critedge2
-  br i1 %172, label %295, label %293
+291:                                              ; preds = %276, %.critedge8
+  br i1 %172, label %294, label %292
 
-293:                                              ; preds = %292
-  %294 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L35_GetNamespaceDepthForClassHierarchyERKNS_10PcpNodeRefE(ptr noundef nonnull align 8 dereferenceable(16) %8)
-  br label %295
+292:                                              ; preds = %291
+  %293 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L35_GetNamespaceDepthForClassHierarchyERKNS_10PcpNodeRefE(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  br label %294
 
-295:                                              ; preds = %292, %293
-  %296 = phi i32 [ %294, %293 ], [ 0, %292 ]
-  br i1 %180, label %299, label %297
+294:                                              ; preds = %291, %292
+  %295 = phi i32 [ %293, %292 ], [ 0, %291 ]
+  br i1 %180, label %298, label %296
 
-297:                                              ; preds = %295
-  %298 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L35_GetNamespaceDepthForClassHierarchyERKNS_10PcpNodeRefE(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  br label %299
+296:                                              ; preds = %294
+  %297 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L35_GetNamespaceDepthForClassHierarchyERKNS_10PcpNodeRefE(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  br label %298
 
-299:                                              ; preds = %295, %297
-  %300 = phi i32 [ %298, %297 ], [ 0, %295 ]
-  %301 = icmp slt i32 %296, %300
-  br i1 %301, label %403, label %302
+298:                                              ; preds = %294, %296
+  %299 = phi i32 [ %297, %296 ], [ 0, %294 ]
+  %300 = icmp slt i32 %295, %299
+  br i1 %300, label %401, label %301
 
-302:                                              ; preds = %299
-  %303 = icmp slt i32 %300, %296
-  br i1 %303, label %403, label %304
+301:                                              ; preds = %298
+  %302 = icmp slt i32 %299, %295
+  br i1 %302, label %401, label %303
 
-304:                                              ; preds = %302
-  %305 = load i64, ptr %67, align 8
-  %306 = load i64, ptr %90, align 8
-  %307 = icmp ugt i64 %305, %306
-  br i1 %307, label %403, label %308
+303:                                              ; preds = %301
+  %304 = load i64, ptr %67, align 8
+  %305 = load i64, ptr %90, align 8
+  %306 = icmp ugt i64 %304, %305
+  br i1 %306, label %401, label %307
 
-308:                                              ; preds = %304
-  %309 = icmp ugt i64 %306, %305
-  br i1 %309, label %403, label %310
+307:                                              ; preds = %303
+  %308 = icmp ugt i64 %305, %304
+  br i1 %308, label %401, label %309
 
-310:                                              ; preds = %308
-  %311 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetLayerStackEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %312 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %313 = extractvalue { ptr, i64 } %312, 0
-  store ptr %313, ptr %20, align 8
-  %314 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %315 = extractvalue { ptr, i64 } %312, 1
-  store i64 %315, ptr %314, align 8
-  %316 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetLayerStackEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
-  %317 = load ptr, ptr %311, align 8
-  %318 = load ptr, ptr %316, align 8
-  %319 = icmp eq ptr %317, %318
-  br i1 %319, label %320, label %.critedge4
+309:                                              ; preds = %307
+  %310 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetLayerStackEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %311 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %312 = extractvalue { ptr, i64 } %311, 0
+  store ptr %312, ptr %20, align 8
+  %313 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %314 = extractvalue { ptr, i64 } %311, 1
+  store i64 %314, ptr %313, align 8
+  %315 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetLayerStackEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
+  %316 = load ptr, ptr %310, align 8
+  %317 = load ptr, ptr %315, align 8
+  %318 = icmp eq ptr %316, %317
+  br i1 %318, label %319, label %.critedge13
 
-320:                                              ; preds = %310
-  %321 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetLayerStackEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %322 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %323 = extractvalue { ptr, i64 } %322, 0
-  store ptr %323, ptr %21, align 8
-  %324 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %325 = extractvalue { ptr, i64 } %322, 1
-  store i64 %325, ptr %324, align 8
-  %326 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetLayerStackEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
-  %327 = load ptr, ptr %321, align 8
-  %328 = load ptr, ptr %326, align 8
-  %329 = icmp ne ptr %327, %328
-  %330 = or i1 %180, %329
-  %or.cond = or i1 %172, %330
-  br i1 %or.cond, label %.critedge4, label %331
+319:                                              ; preds = %309
+  %320 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetLayerStackEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %321 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %322 = extractvalue { ptr, i64 } %321, 0
+  store ptr %322, ptr %21, align 8
+  %323 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %324 = extractvalue { ptr, i64 } %321, 1
+  store i64 %324, ptr %323, align 8
+  %325 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetLayerStackEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
+  %326 = load ptr, ptr %320, align 8
+  %327 = load ptr, ptr %325, align 8
+  %328 = icmp ne ptr %326, %327
+  %329 = or i1 %180, %328
+  %or.cond22.not = or i1 %172, %329
+  br i1 %or.cond22.not, label %.critedge13, label %330
 
-331:                                              ; preds = %320
+330:                                              ; preds = %319
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7GetSiteEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackSite") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7GetSiteEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackSite") align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %332 unwind label %340
+          to label %331 unwind label %338
 
-332:                                              ; preds = %331
-  %333 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %23)
-          to label %334 unwind label %342
+331:                                              ; preds = %330
+  %332 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %23)
+          to label %333 unwind label %340
 
-334:                                              ; preds = %332
-  %335 = xor i1 %333, true
+333:                                              ; preds = %331
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #16
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7GetSiteEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackSite") align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %1)
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7GetSiteEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackSite") align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %334 unwind label %342
+
+334:                                              ; preds = %333
+  %335 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25)
           to label %336 unwind label %344
 
 336:                                              ; preds = %334
-  %337 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %25)
-          to label %338 unwind label %346
-
-338:                                              ; preds = %336
-  %339 = xor i1 %337, true
+  %337 = xor i1 %335, true
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #16
-  %brmerge109 = or i1 %333, %339
-  br i1 %brmerge109, label %348, label %403
+  %or.cond16 = or i1 %332, %337
+  br i1 %or.cond16, label %346, label %401
+
+338:                                              ; preds = %330
+  %339 = landingpad { ptr, i32 }
+          cleanup
+  br label %402
 
 340:                                              ; preds = %331
   %341 = landingpad { ptr, i32 }
           cleanup
-  br label %404
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #16
+  br label %402
 
-342:                                              ; preds = %332
+342:                                              ; preds = %333
   %343 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #16
-  br label %404
+  br label %402
 
 344:                                              ; preds = %334
   %345 = landingpad { ptr, i32 }
           cleanup
-  br label %404
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
+  br label %402
 
 346:                                              ; preds = %336
-  %347 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
-  br label %404
+  %or.cond19 = and i1 %332, %337
+  br i1 %or.cond19, label %401, label %.critedge13
 
-348:                                              ; preds = %338
-  %brmerge111 = or i1 %337, %335
-  br i1 %brmerge111, label %.critedge4, label %403
+.critedge13:                                      ; preds = %319, %309, %346
+  %347 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %348 = extractvalue { ptr, i64 } %347, 0
+  store ptr %348, ptr %26, align 8
+  %349 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %350 = extractvalue { ptr, i64 } %347, 1
+  store i64 %350, ptr %349, align 8
+  %351 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L17_OriginIsStrongerERKNS_10PcpNodeRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %.not114 = icmp eq i32 %351, 0
+  br i1 %.not114, label %352, label %401
 
-.critedge4:                                       ; preds = %348, %320, %310
-  %349 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %350 = extractvalue { ptr, i64 } %349, 0
-  store ptr %350, ptr %26, align 8
-  %351 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %352 = extractvalue { ptr, i64 } %349, 1
-  store i64 %352, ptr %351, align 8
-  %353 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L17_OriginIsStrongerERKNS_10PcpNodeRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  %.not = icmp eq i32 %353, 0
-  br i1 %.not, label %354, label %403
-
-354:                                              ; preds = %.critedge4
+352:                                              ; preds = %.critedge13
   store ptr @.str, ptr %27, align 8
-  %355 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %355, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 268, ptr %356, align 8
-  %357 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %357, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store i8 0, ptr %358, align 8
-  %359 = call noundef ptr (ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_VerifyStringFormatEPKcz(ptr noundef nonnull @.str.8)
-  %360 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %27, ptr noundef nonnull @.str.6, ptr noundef %359)
-  br label %403
+  %353 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %353, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store i64 268, ptr %354, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %355, align 8
+  %356 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store i8 0, ptr %356, align 8
+  %357 = call noundef ptr (ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_VerifyStringFormatEPKcz(ptr noundef nonnull @.str.8)
+  %358 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %27, ptr noundef nonnull @.str.6, ptr noundef %357)
+  br label %401
 
-361:                                              ; preds = %63
-  %362 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %363 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %364 = icmp sgt i32 %362, %363
-  br i1 %364, label %403, label %365
+359:                                              ; preds = %63
+  %360 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %361 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %362 = icmp sgt i32 %360, %361
+  br i1 %362, label %401, label %363
 
-365:                                              ; preds = %361
-  %366 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %367 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %368 = icmp slt i32 %366, %367
-  br i1 %368, label %403, label %369
+363:                                              ; preds = %359
+  %364 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %365 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef17GetNamespaceDepthEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %366 = icmp slt i32 %364, %365
+  br i1 %366, label %401, label %367
 
-369:                                              ; preds = %365
-  %370 = tail call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %371 = extractvalue { ptr, i64 } %370, 0
-  store ptr %371, ptr %28, align 8
-  %372 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %373 = extractvalue { ptr, i64 } %370, 1
-  store i64 %373, ptr %372, align 8
-  %374 = tail call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %375 = extractvalue { ptr, i64 } %374, 0
-  store ptr %375, ptr %29, align 8
-  %376 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %377 = extractvalue { ptr, i64 } %374, 1
-  store i64 %377, ptr %376, align 8
-  %378 = icmp ne i64 %373, %377
-  %379 = icmp ne ptr %371, %375
-  %.not3.i122 = select i1 %378, i1 true, i1 %379
-  br i1 %.not3.i122, label %380, label %395
+367:                                              ; preds = %363
+  %368 = tail call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %369 = extractvalue { ptr, i64 } %368, 0
+  store ptr %369, ptr %28, align 8
+  %370 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %371 = extractvalue { ptr, i64 } %368, 1
+  store i64 %371, ptr %370, align 8
+  %372 = tail call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetOriginNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %373 = extractvalue { ptr, i64 } %372, 0
+  store ptr %373, ptr %29, align 8
+  %374 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %375 = extractvalue { ptr, i64 } %372, 1
+  store i64 %375, ptr %374, align 8
+  %376 = icmp ne i64 %371, %375
+  %377 = icmp ne ptr %369, %373
+  %.not3.i131 = select i1 %376, i1 true, i1 %377
+  br i1 %.not3.i131, label %378, label %393
 
-380:                                              ; preds = %369
-  %381 = tail call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %382 = extractvalue { ptr, i64 } %381, 0
-  store ptr %382, ptr %30, align 8
-  %383 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %384 = extractvalue { ptr, i64 } %381, 1
-  store i64 %384, ptr %383, align 8
-  %385 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L17_OriginIsStrongerERKNS_10PcpNodeRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29)
-  %386 = icmp slt i32 %385, 0
-  br i1 %386, label %403, label %387
+378:                                              ; preds = %367
+  %379 = tail call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef11GetRootNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %380 = extractvalue { ptr, i64 } %379, 0
+  store ptr %380, ptr %30, align 8
+  %381 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %382 = extractvalue { ptr, i64 } %379, 1
+  store i64 %382, ptr %381, align 8
+  %383 = call fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L17_OriginIsStrongerERKNS_10PcpNodeRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29)
+  %384 = icmp slt i32 %383, 0
+  br i1 %384, label %401, label %385
 
-387:                                              ; preds = %380
-  %.not93 = icmp eq i32 %385, 0
-  br i1 %.not93, label %388, label %403
+385:                                              ; preds = %378
+  %.not109 = icmp eq i32 %383, 0
+  br i1 %.not109, label %386, label %401
 
-388:                                              ; preds = %387
+386:                                              ; preds = %385
   store ptr @.str, ptr %31, align 8
-  %389 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %389, align 8
-  %390 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i64 294, ptr %390, align 8
-  %391 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %391, align 8
-  %392 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store i8 0, ptr %392, align 8
-  %393 = tail call noundef ptr (ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_VerifyStringFormatEPKcz(ptr noundef nonnull @.str.8)
-  %394 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %31, ptr noundef nonnull @.str.3, ptr noundef %393)
-  br label %395
+  %387 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %387, align 8
+  %388 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store i64 294, ptr %388, align 8
+  %389 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__29PcpCompareSiblingNodeStrengthERKNS_10PcpNodeRefES2_, ptr %389, align 8
+  %390 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  store i8 0, ptr %390, align 8
+  %391 = tail call noundef ptr (ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_VerifyStringFormatEPKcz(ptr noundef nonnull @.str.8)
+  %392 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %31, ptr noundef nonnull @.str.3, ptr noundef %391)
+  br label %393
 
-395:                                              ; preds = %369, %388, %237, %239
-  %396 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef21GetSiblingNumAtOriginEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %397 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef21GetSiblingNumAtOriginEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %398 = icmp slt i32 %396, %397
-  br i1 %398, label %403, label %399
+393:                                              ; preds = %367, %386, %236, %238
+  %394 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef21GetSiblingNumAtOriginEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %395 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef21GetSiblingNumAtOriginEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %396 = icmp slt i32 %394, %395
+  br i1 %396, label %401, label %397
 
-399:                                              ; preds = %395
-  %400 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef21GetSiblingNumAtOriginEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %401 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef21GetSiblingNumAtOriginEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %402 = icmp sgt i32 %400, %401
-  %. = zext i1 %402 to i32
-  br label %403
+397:                                              ; preds = %393
+  %398 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef21GetSiblingNumAtOriginEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %399 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef21GetSiblingNumAtOriginEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %400 = icmp sgt i32 %398, %399
+  %. = zext i1 %400 to i32
+  br label %401
 
-403:                                              ; preds = %399, %395, %387, %380, %365, %361, %354, %.critedge4, %348, %338, %308, %304, %302, %299, %260, %254, %229, %219, %152, %.loopexit, %59, %55, %45, %230, %40
-  %.0 = phi i32 [ 0, %40 ], [ 0, %230 ], [ 0, %45 ], [ -1, %55 ], [ 1, %59 ], [ -1, %.loopexit ], [ 1, %152 ], [ -1, %219 ], [ 1, %229 ], [ %259, %254 ], [ 0, %260 ], [ -1, %299 ], [ 1, %302 ], [ -1, %304 ], [ 1, %308 ], [ -1, %338 ], [ 1, %348 ], [ %353, %.critedge4 ], [ 0, %354 ], [ -1, %361 ], [ 1, %365 ], [ -1, %380 ], [ 1, %387 ], [ -1, %395 ], [ %., %399 ]
+401:                                              ; preds = %397, %393, %385, %378, %363, %359, %352, %.critedge13, %346, %336, %307, %303, %301, %298, %259, %253, %228, %218, %152, %.loopexit, %59, %55, %45, %229, %40
+  %.0 = phi i32 [ 0, %40 ], [ 0, %229 ], [ 0, %45 ], [ -1, %55 ], [ 1, %59 ], [ -1, %.loopexit ], [ 1, %152 ], [ -1, %218 ], [ 1, %228 ], [ %258, %253 ], [ 0, %259 ], [ -1, %298 ], [ 1, %301 ], [ -1, %303 ], [ 1, %307 ], [ -1, %336 ], [ 1, %346 ], [ %351, %.critedge13 ], [ 0, %352 ], [ -1, %359 ], [ 1, %363 ], [ -1, %378 ], [ 1, %385 ], [ -1, %393 ], [ %., %397 ]
   ret i32 %.0
 
-404:                                              ; preds = %344, %346, %340, %342, %225, %227, %221, %223
-  %.sink = phi ptr [ %11, %223 ], [ %11, %221 ], [ %13, %227 ], [ %13, %225 ], [ %22, %342 ], [ %22, %340 ], [ %24, %346 ], [ %24, %344 ]
-  %.pn100.pn = phi { ptr, i32 } [ %224, %223 ], [ %222, %221 ], [ %228, %227 ], [ %226, %225 ], [ %343, %342 ], [ %341, %340 ], [ %347, %346 ], [ %345, %344 ]
+402:                                              ; preds = %342, %344, %338, %340, %224, %226, %220, %222
+  %.sink = phi ptr [ %11, %222 ], [ %11, %220 ], [ %13, %226 ], [ %13, %224 ], [ %22, %340 ], [ %22, %338 ], [ %24, %344 ], [ %24, %342 ]
+  %.pn118.pn = phi { ptr, i32 } [ %223, %222 ], [ %221, %220 ], [ %227, %226 ], [ %225, %224 ], [ %341, %340 ], [ %339, %338 ], [ %345, %344 ], [ %343, %342 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSiteD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #16
-  resume { ptr, i32 } %.pn100.pn
+  resume { ptr, i32 } %.pn118.pn
 }
 
 declare { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1

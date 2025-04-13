@@ -1536,27 +1536,25 @@ entry:
   %doubleGoaway_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load i8, ptr %doubleGoaway_, align 16
   %tobool = trunc i8 %0 to i1
-  %sentGoaway_6 = getelementptr inbounds nuw i8, ptr %this, i64 193
-  %1 = load i8, ptr %sentGoaway_6, align 1
-  %tobool7 = trunc i8 %1 to i1
-  br i1 %tobool, label %land.lhs.true5, label %land.lhs.true
+  %sentGoaway_ = getelementptr inbounds nuw i8, ptr %this, i64 193
+  %1 = load i8, ptr %sentGoaway_, align 1
+  %tobool2 = trunc i8 %1 to i1
+  %or.cond = select i1 %tobool, i1 true, i1 %tobool2
+  br i1 %or.cond, label %lor.rhs, label %lor.end
 
-land.lhs.true:                                    ; preds = %entry
-  %not.tobool2 = xor i1 %tobool7, true
-  br label %lor.end
+lor.rhs:                                          ; preds = %entry
+  %or.cond1 = select i1 %tobool, i1 %tobool2, i1 false
+  br i1 %or.cond1, label %land.rhs, label %lor.end
 
-land.lhs.true5:                                   ; preds = %entry
-  br i1 %tobool7, label %land.rhs, label %lor.end
-
-land.rhs:                                         ; preds = %land.lhs.true5
+land.rhs:                                         ; preds = %lor.rhs
   %sentFinalGoaway_ = getelementptr inbounds nuw i8, ptr %this, i64 194
   %2 = load i8, ptr %sentFinalGoaway_, align 2
   %tobool8 = trunc i8 %2 to i1
   %lnot = xor i1 %tobool8, true
   br label %lor.end
 
-lor.end:                                          ; preds = %land.lhs.true, %land.lhs.true5, %land.rhs
-  %3 = phi i1 [ false, %land.lhs.true5 ], [ %lnot, %land.rhs ], [ %not.tobool2, %land.lhs.true ]
+lor.end:                                          ; preds = %entry, %lor.rhs, %land.rhs
+  %3 = phi i1 [ false, %lor.rhs ], [ %lnot, %land.rhs ], [ true, %entry ]
   ret i1 %3
 }
 
@@ -1566,27 +1564,25 @@ entry:
   %doubleGoaway_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load i8, ptr %doubleGoaway_.i, align 16
   %tobool.i = trunc i8 %0 to i1
-  %sentGoaway_6.i = getelementptr inbounds nuw i8, ptr %this, i64 161
-  %1 = load i8, ptr %sentGoaway_6.i, align 1
-  %tobool7.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %land.lhs.true5.i, label %land.lhs.true.i
+  %sentGoaway_.i = getelementptr inbounds nuw i8, ptr %this, i64 161
+  %1 = load i8, ptr %sentGoaway_.i, align 1
+  %tobool2.i = trunc i8 %1 to i1
+  %or.cond.i = select i1 %tobool.i, i1 true, i1 %tobool2.i
+  br i1 %or.cond.i, label %lor.rhs.i, label %_ZNK8proxygen2hq14HQControlCodec16isWaitingToDrainEv.exit
 
-land.lhs.true.i:                                  ; preds = %entry
-  %not.tobool2.i = xor i1 %tobool7.i, true
-  br label %_ZNK8proxygen2hq14HQControlCodec16isWaitingToDrainEv.exit
+lor.rhs.i:                                        ; preds = %entry
+  %or.cond1.i = select i1 %tobool.i, i1 %tobool2.i, i1 false
+  br i1 %or.cond1.i, label %land.rhs.i, label %_ZNK8proxygen2hq14HQControlCodec16isWaitingToDrainEv.exit
 
-land.lhs.true5.i:                                 ; preds = %entry
-  br i1 %tobool7.i, label %land.rhs.i, label %_ZNK8proxygen2hq14HQControlCodec16isWaitingToDrainEv.exit
-
-land.rhs.i:                                       ; preds = %land.lhs.true5.i
+land.rhs.i:                                       ; preds = %lor.rhs.i
   %sentFinalGoaway_.i = getelementptr inbounds nuw i8, ptr %this, i64 162
   %2 = load i8, ptr %sentFinalGoaway_.i, align 2
   %tobool8.i = trunc i8 %2 to i1
   %lnot.i = xor i1 %tobool8.i, true
   br label %_ZNK8proxygen2hq14HQControlCodec16isWaitingToDrainEv.exit
 
-_ZNK8proxygen2hq14HQControlCodec16isWaitingToDrainEv.exit: ; preds = %land.lhs.true.i, %land.lhs.true5.i, %land.rhs.i
-  %3 = phi i1 [ false, %land.lhs.true5.i ], [ %lnot.i, %land.rhs.i ], [ %not.tobool2.i, %land.lhs.true.i ]
+_ZNK8proxygen2hq14HQControlCodec16isWaitingToDrainEv.exit: ; preds = %entry, %lor.rhs.i, %land.rhs.i
+  %3 = phi i1 [ false, %lor.rhs.i ], [ %lnot.i, %land.rhs.i ], [ true, %entry ]
   ret i1 %3
 }
 

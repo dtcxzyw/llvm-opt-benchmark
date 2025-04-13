@@ -5080,8 +5080,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__37UsdUtils_WritableLocalizatio
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %brmerge.i = or i1 %11, %14
-  br i1 %brmerge.i, label %15, label %17
+  %or.cond.i = or i1 %11, %14
+  br i1 %or.cond.i, label %15, label %17
 
 15:                                               ; preds = %5
   %16 = xor i1 %11, %14
@@ -5254,8 +5254,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit: ; preds 
   %.not.i.i = icmp eq ptr %85, null
   %87 = and i64 %86, 3
   %88 = icmp eq i64 %87, 3
-  %or.cond.i.i = or i1 %.not.i.i, %88
-  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, label %89
+  %or.cond.i.i20 = or i1 %.not.i.i, %88
+  br i1 %or.cond.i.i20, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, label %89
 
 89:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit
   %90 = and i64 %86, -8
@@ -5296,8 +5296,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__37UsdUtils_WritableLocalizatio
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  %brmerge.i = or i1 %10, %13
-  br i1 %brmerge.i, label %14, label %16
+  %or.cond.i = or i1 %10, %13
+  br i1 %or.cond.i, label %14, label %16
 
 14:                                               ; preds = %5
   %15 = xor i1 %10, %13

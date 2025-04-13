@@ -6107,7 +6107,7 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   store float 0.000000e+00, ptr %11, align 4, !tbaa !29
   %57 = sitofp i32 %50 to float
   %58 = fdiv float %57, 1.800000e+01
-  br label %194
+  br label %193
 
 59:                                               ; preds = %12
   %60 = icmp sgt i32 %54, 0
@@ -6131,10 +6131,10 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   br label %69
 
 69:                                               ; preds = %68, %62
-  %.0191 = phi i32 [ %66, %68 ], [ %64, %62 ]
+  %.0197 = phi i32 [ %66, %68 ], [ %64, %62 ]
   %70 = add i32 %38, %42
   %71 = sub i32 %33, %70
-  %72 = icmp sgt i32 %71, %.0191
+  %72 = icmp sgt i32 %71, %.0197
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %69
@@ -6143,9 +6143,9 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   br label %74
 
 74:                                               ; preds = %73, %69
-  %.1192 = phi i32 [ %71, %73 ], [ %.0191, %69 ]
+  %.1198 = phi i32 [ %71, %73 ], [ %.0197, %69 ]
   %75 = sub i32 %42, %63
-  %76 = icmp sgt i32 %75, %.1192
+  %76 = icmp sgt i32 %75, %.1198
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %74
@@ -6154,13 +6154,13 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   br label %78
 
 78:                                               ; preds = %77, %74
-  %.2193 = phi i32 [ %75, %77 ], [ %.1192, %74 ]
+  %.2199 = phi i32 [ %75, %77 ], [ %.1198, %74 ]
   %79 = add i32 %23, %50
   %80 = add i32 %79, %27
-  %81 = add i32 %80, %.2193
+  %81 = add i32 %80, %.2199
   %82 = sitofp i32 %81 to float
   %83 = fdiv float %82, 1.800000e+01
-  br label %194
+  br label %193
 
 84:                                               ; preds = %59
   %85 = mul nsw i32 %26, 6
@@ -6183,150 +6183,150 @@ define linkonce_odr hidden noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEi
   %100 = fcmp ogt float %99, 1.000000e+00
   %.not = xor i1 %100, true
   %101 = fcmp olt float %99, -1.000000e+00
-  %or.cond212 = and i1 %101, %.not
+  %or.cond218 = and i1 %101, %.not
   %102 = fcmp ogt float %98, 1.000000e+00
   %103 = fcmp olt float %98, -1.000000e+00
-  %brmerge = or i1 %100, %101
-  %104 = or i1 %102, %103
-  %brmerge214 = select i1 %brmerge, i1 true, i1 %104
-  br i1 %brmerge214, label %105, label %177
+  %or.cond3 = or i1 %100, %101
+  %or.cond5 = or i1 %102, %or.cond3
+  %or.cond7 = or i1 %103, %or.cond5
+  br i1 %or.cond7, label %104, label %176
 
-105:                                              ; preds = %84
-  br i1 %100, label %106, label %116
+104:                                              ; preds = %84
+  br i1 %100, label %105, label %115
 
-106:                                              ; preds = %105
-  %107 = add nsw i32 %38, %42
-  %108 = sitofp i32 %107 to float
-  %109 = fneg float %108
-  %110 = sitofp i32 %85 to float
-  %111 = fdiv float %109, %110
-  %112 = fcmp ogt float %111, 1.000000e+00
-  br i1 %112, label %127, label %113
+105:                                              ; preds = %104
+  %106 = add nsw i32 %38, %42
+  %107 = sitofp i32 %106 to float
+  %108 = fneg float %107
+  %109 = sitofp i32 %85 to float
+  %110 = fdiv float %108, %109
+  %111 = fcmp ogt float %110, 1.000000e+00
+  br i1 %111, label %126, label %112
 
-113:                                              ; preds = %106
-  %114 = fcmp olt float %111, -1.000000e+00
-  br i1 %114, label %115, label %127
+112:                                              ; preds = %105
+  %113 = fcmp olt float %110, -1.000000e+00
+  br i1 %113, label %114, label %126
 
-115:                                              ; preds = %113
-  br label %127
+114:                                              ; preds = %112
+  br label %126
 
-116:                                              ; preds = %105
-  br i1 %or.cond212, label %117, label %127
+115:                                              ; preds = %104
+  br i1 %or.cond218, label %116, label %126
 
-117:                                              ; preds = %116
-  %118 = sub nsw i32 %38, %42
-  %119 = sitofp i32 %118 to float
-  %120 = fneg float %119
-  %121 = sitofp i32 %85 to float
-  %122 = fdiv float %120, %121
-  %123 = fcmp ogt float %122, 1.000000e+00
-  br i1 %123, label %127, label %124
+116:                                              ; preds = %115
+  %117 = sub nsw i32 %38, %42
+  %118 = sitofp i32 %117 to float
+  %119 = fneg float %118
+  %120 = sitofp i32 %85 to float
+  %121 = fdiv float %119, %120
+  %122 = fcmp ogt float %121, 1.000000e+00
+  br i1 %122, label %126, label %123
 
-124:                                              ; preds = %117
-  %125 = fcmp olt float %122, -1.000000e+00
-  br i1 %125, label %126, label %127
+123:                                              ; preds = %116
+  %124 = fcmp olt float %121, -1.000000e+00
+  br i1 %124, label %125, label %126
 
-126:                                              ; preds = %124
-  br label %127
+125:                                              ; preds = %123
+  br label %126
 
-127:                                              ; preds = %117, %106, %116, %124, %126, %115, %113
-  %.0186 = phi float [ 1.000000e+00, %115 ], [ 1.000000e+00, %113 ], [ -1.000000e+00, %126 ], [ -1.000000e+00, %124 ], [ 0.000000e+00, %116 ], [ 1.000000e+00, %106 ], [ -1.000000e+00, %117 ]
-  %.0184 = phi float [ -1.000000e+00, %115 ], [ %111, %113 ], [ -1.000000e+00, %126 ], [ %122, %124 ], [ 0.000000e+00, %116 ], [ 1.000000e+00, %106 ], [ 1.000000e+00, %117 ]
-  br i1 %102, label %128, label %138
+126:                                              ; preds = %116, %105, %115, %123, %125, %114, %112
+  %.0192 = phi float [ 1.000000e+00, %114 ], [ 1.000000e+00, %112 ], [ -1.000000e+00, %125 ], [ -1.000000e+00, %123 ], [ 0.000000e+00, %115 ], [ 1.000000e+00, %105 ], [ -1.000000e+00, %116 ]
+  %.0190 = phi float [ -1.000000e+00, %114 ], [ %110, %112 ], [ -1.000000e+00, %125 ], [ %121, %123 ], [ 0.000000e+00, %115 ], [ 1.000000e+00, %105 ], [ 1.000000e+00, %116 ]
+  br i1 %102, label %127, label %137
 
-128:                                              ; preds = %127
-  %129 = add nsw i32 %33, %42
-  %130 = sitofp i32 %129 to float
-  %131 = fneg float %130
-  %132 = sitofp i32 %93 to float
-  %133 = fdiv float %131, %132
-  %134 = fcmp ogt float %133, 1.000000e+00
-  br i1 %134, label %149, label %135
+127:                                              ; preds = %126
+  %128 = add nsw i32 %33, %42
+  %129 = sitofp i32 %128 to float
+  %130 = fneg float %129
+  %131 = sitofp i32 %93 to float
+  %132 = fdiv float %130, %131
+  %133 = fcmp ogt float %132, 1.000000e+00
+  br i1 %133, label %148, label %134
 
-135:                                              ; preds = %128
-  %136 = fcmp olt float %133, -1.000000e+00
-  br i1 %136, label %137, label %149
+134:                                              ; preds = %127
+  %135 = fcmp olt float %132, -1.000000e+00
+  br i1 %135, label %136, label %148
 
-137:                                              ; preds = %135
-  br label %149
+136:                                              ; preds = %134
+  br label %148
 
-138:                                              ; preds = %127
-  br i1 %103, label %139, label %149
+137:                                              ; preds = %126
+  br i1 %103, label %138, label %148
 
-139:                                              ; preds = %138
-  %140 = sub nsw i32 %33, %42
-  %141 = sitofp i32 %140 to float
-  %142 = fneg float %141
-  %143 = sitofp i32 %93 to float
-  %144 = fdiv float %142, %143
-  %145 = fcmp ogt float %144, 1.000000e+00
-  br i1 %145, label %149, label %146
+138:                                              ; preds = %137
+  %139 = sub nsw i32 %33, %42
+  %140 = sitofp i32 %139 to float
+  %141 = fneg float %140
+  %142 = sitofp i32 %93 to float
+  %143 = fdiv float %141, %142
+  %144 = fcmp ogt float %143, 1.000000e+00
+  br i1 %144, label %148, label %145
 
-146:                                              ; preds = %139
-  %147 = fcmp olt float %144, -1.000000e+00
-  br i1 %147, label %148, label %149
+145:                                              ; preds = %138
+  %146 = fcmp olt float %143, -1.000000e+00
+  br i1 %146, label %147, label %148
 
-148:                                              ; preds = %146
-  br label %149
+147:                                              ; preds = %145
+  br label %148
 
-149:                                              ; preds = %139, %128, %138, %146, %148, %137, %135
-  %.0185 = phi float [ -1.000000e+00, %137 ], [ %133, %135 ], [ -1.000000e+00, %148 ], [ %144, %146 ], [ 0.000000e+00, %138 ], [ 1.000000e+00, %128 ], [ 1.000000e+00, %139 ]
-  %.0183 = phi float [ 1.000000e+00, %137 ], [ 1.000000e+00, %135 ], [ -1.000000e+00, %148 ], [ -1.000000e+00, %146 ], [ 0.000000e+00, %138 ], [ 1.000000e+00, %128 ], [ -1.000000e+00, %139 ]
-  %150 = sitofp i32 %23 to float
-  %151 = fmul float %.0186, %150
-  %152 = sitofp i32 %27 to float
-  %153 = fmul float %.0184, %152
-  %154 = fmul float %.0184, %153
-  %155 = tail call float @llvm.fmuladd.f32(float %151, float %.0186, float %154)
-  %156 = sitofp i32 %33 to float
-  %157 = tail call float @llvm.fmuladd.f32(float %156, float %.0186, float %155)
-  %158 = sitofp i32 %38 to float
-  %159 = tail call float @llvm.fmuladd.f32(float %158, float %.0184, float %157)
-  %160 = sitofp i32 %42 to float
-  %161 = fmul float %.0186, %160
-  %162 = tail call float @llvm.fmuladd.f32(float %161, float %.0184, float %159)
-  %163 = sitofp i32 %50 to float
-  %164 = fadd float %162, %163
-  %165 = fdiv float %164, 1.800000e+01
-  %166 = fmul float %.0185, %150
-  %167 = fmul float %.0183, %152
-  %168 = fmul float %.0183, %167
-  %169 = tail call float @llvm.fmuladd.f32(float %166, float %.0185, float %168)
-  %170 = tail call float @llvm.fmuladd.f32(float %156, float %.0185, float %169)
-  %171 = tail call float @llvm.fmuladd.f32(float %158, float %.0183, float %170)
-  %172 = fmul float %.0185, %160
-  %173 = tail call float @llvm.fmuladd.f32(float %172, float %.0183, float %171)
-  %174 = fadd float %173, %163
-  %175 = fdiv float %174, 1.800000e+01
-  %176 = fcmp ogt float %165, %175
-  %.0186..0185 = select i1 %176, float %.0186, float %.0185
-  %.0184..0183 = select i1 %176, float %.0184, float %.0183
-  %. = select i1 %176, float %165, float %175
-  store float %.0186..0185, ptr %10, align 4, !tbaa !29
-  store float %.0184..0183, ptr %11, align 4, !tbaa !29
-  br label %194
+148:                                              ; preds = %138, %127, %137, %145, %147, %136, %134
+  %.0191 = phi float [ -1.000000e+00, %136 ], [ %132, %134 ], [ -1.000000e+00, %147 ], [ %143, %145 ], [ 0.000000e+00, %137 ], [ 1.000000e+00, %127 ], [ 1.000000e+00, %138 ]
+  %.0189 = phi float [ 1.000000e+00, %136 ], [ 1.000000e+00, %134 ], [ -1.000000e+00, %147 ], [ -1.000000e+00, %145 ], [ 0.000000e+00, %137 ], [ 1.000000e+00, %127 ], [ -1.000000e+00, %138 ]
+  %149 = sitofp i32 %23 to float
+  %150 = fmul float %.0192, %149
+  %151 = sitofp i32 %27 to float
+  %152 = fmul float %.0190, %151
+  %153 = fmul float %.0190, %152
+  %154 = tail call float @llvm.fmuladd.f32(float %150, float %.0192, float %153)
+  %155 = sitofp i32 %33 to float
+  %156 = tail call float @llvm.fmuladd.f32(float %155, float %.0192, float %154)
+  %157 = sitofp i32 %38 to float
+  %158 = tail call float @llvm.fmuladd.f32(float %157, float %.0190, float %156)
+  %159 = sitofp i32 %42 to float
+  %160 = fmul float %.0192, %159
+  %161 = tail call float @llvm.fmuladd.f32(float %160, float %.0190, float %158)
+  %162 = sitofp i32 %50 to float
+  %163 = fadd float %161, %162
+  %164 = fdiv float %163, 1.800000e+01
+  %165 = fmul float %.0191, %149
+  %166 = fmul float %.0189, %151
+  %167 = fmul float %.0189, %166
+  %168 = tail call float @llvm.fmuladd.f32(float %165, float %.0191, float %167)
+  %169 = tail call float @llvm.fmuladd.f32(float %155, float %.0191, float %168)
+  %170 = tail call float @llvm.fmuladd.f32(float %157, float %.0189, float %169)
+  %171 = fmul float %.0191, %159
+  %172 = tail call float @llvm.fmuladd.f32(float %171, float %.0189, float %170)
+  %173 = fadd float %172, %162
+  %174 = fdiv float %173, 1.800000e+01
+  %175 = fcmp ogt float %164, %174
+  %.0192..0191 = select i1 %175, float %.0192, float %.0191
+  %.0190..0189 = select i1 %175, float %.0190, float %.0189
+  %. = select i1 %175, float %164, float %174
+  store float %.0192..0191, ptr %10, align 4, !tbaa !29
+  store float %.0190..0189, ptr %11, align 4, !tbaa !29
+  br label %193
 
-177:                                              ; preds = %84
-  %178 = sitofp i32 %23 to float
-  %179 = fmul float %99, %178
-  %180 = sitofp i32 %27 to float
+176:                                              ; preds = %84
+  %177 = sitofp i32 %23 to float
+  %178 = fmul float %99, %177
+  %179 = sitofp i32 %27 to float
+  %180 = fmul float %98, %179
   %181 = fmul float %98, %180
-  %182 = fmul float %98, %181
-  %183 = tail call float @llvm.fmuladd.f32(float %179, float %99, float %182)
-  %184 = sitofp i32 %33 to float
-  %185 = tail call float @llvm.fmuladd.f32(float %184, float %99, float %183)
-  %186 = sitofp i32 %38 to float
-  %187 = tail call float @llvm.fmuladd.f32(float %186, float %98, float %185)
-  %188 = sitofp i32 %42 to float
-  %189 = fmul float %99, %188
-  %190 = tail call float @llvm.fmuladd.f32(float %189, float %98, float %187)
-  %191 = sitofp i32 %50 to float
-  %192 = fadd float %190, %191
-  %193 = fdiv float %192, 1.800000e+01
-  br label %194
+  %182 = tail call float @llvm.fmuladd.f32(float %178, float %99, float %181)
+  %183 = sitofp i32 %33 to float
+  %184 = tail call float @llvm.fmuladd.f32(float %183, float %99, float %182)
+  %185 = sitofp i32 %38 to float
+  %186 = tail call float @llvm.fmuladd.f32(float %185, float %98, float %184)
+  %187 = sitofp i32 %42 to float
+  %188 = fmul float %99, %187
+  %189 = tail call float @llvm.fmuladd.f32(float %188, float %98, float %186)
+  %190 = sitofp i32 %50 to float
+  %191 = fadd float %189, %190
+  %192 = fdiv float %191, 1.800000e+01
+  br label %193
 
-194:                                              ; preds = %149, %177, %78, %56
-  %.0 = phi float [ %58, %56 ], [ %83, %78 ], [ %., %149 ], [ %193, %177 ]
+193:                                              ; preds = %148, %176, %78, %56
+  %.0 = phi float [ %58, %56 ], [ %83, %78 ], [ %., %148 ], [ %192, %176 ]
   ret float %.0
 }
 

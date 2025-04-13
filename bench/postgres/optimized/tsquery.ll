@@ -1476,11 +1476,11 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = sext i32 %32 to i64
-  %.not202266 = icmp slt i64 %30, %33
-  br i1 %.not202266, label %._crit_edge269, label %.lr.ph268
+  %.not203265 = icmp slt i64 %30, %33
+  br i1 %.not203265, label %._crit_edge268, label %.lr.ph267
 
-.lr.ph268:                                        ; preds = %8, %.lr.ph268
-  %34 = phi i32 [ %57, %.lr.ph268 ], [ %32, %8 ]
+.lr.ph267:                                        ; preds = %8, %.lr.ph267
+  %34 = phi i32 [ %57, %.lr.ph267 ], [ %32, %8 ]
   %35 = load ptr, ptr %16, align 8
   %36 = load ptr, ptr %17, align 8
   %37 = ptrtoint ptr %35 to i64
@@ -1491,8 +1491,8 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %41 = sext i32 %40 to i64
   %42 = tail call ptr @repalloc(ptr noundef %36, i64 noundef %41) #12
   store ptr %42, ptr %17, align 8
-  %sext209 = shl i64 %39, 32
-  %43 = ashr exact i64 %sext209, 32
+  %sext210 = shl i64 %39, 32
+  %43 = ashr exact i64 %sext210, 32
   %44 = getelementptr inbounds i8, ptr %42, i64 %43
   store ptr %44, ptr %16, align 8
   %45 = ptrtoint ptr %44 to i64
@@ -1509,19 +1509,19 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %56 = add i64 %55, %53
   %57 = load i32, ptr %31, align 8
   %58 = sext i32 %57 to i64
-  %.not202 = icmp slt i64 %56, %58
-  br i1 %.not202, label %._crit_edge269, label %.lr.ph268, !llvm.loop !14
+  %.not203 = icmp slt i64 %56, %58
+  br i1 %.not203, label %._crit_edge268, label %.lr.ph267, !llvm.loop !14
 
-._crit_edge269:                                   ; preds = %.lr.ph268, %8
+._crit_edge268:                                   ; preds = %.lr.ph267, %8
   %59 = load ptr, ptr %16, align 8
   store i8 39, ptr %59, align 1
   br label %60
 
-60:                                               ; preds = %66, %._crit_edge269
-  %.sink300 = phi i64 [ %71, %66 ], [ 1, %._crit_edge269 ]
-  %.0 = phi ptr [ %72, %66 ], [ %15, %._crit_edge269 ]
+60:                                               ; preds = %66, %._crit_edge268
+  %.sink299 = phi i64 [ %71, %66 ], [ 1, %._crit_edge268 ]
+  %.0 = phi ptr [ %72, %66 ], [ %15, %._crit_edge268 ]
   %61 = load ptr, ptr %16, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 %.sink300
+  %62 = getelementptr inbounds i8, ptr %61, i64 %.sink299
   store ptr %62, ptr %16, align 8
   %63 = load i8, ptr %.0, align 1
   switch i8 %63, label %66 [
@@ -1554,8 +1554,8 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   store ptr %75, ptr %16, align 8
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %77 = load i8, ptr %76, align 1
-  %.not204 = icmp eq i8 %77, 0
-  br i1 %.not204, label %78, label %82
+  %.not205 = icmp eq i8 %77, 0
+  br i1 %.not205, label %78, label %82
 
 78:                                               ; preds = %73
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -1584,53 +1584,53 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %92 = phi ptr [ %90, %88 ], [ %84, %82 ]
   %93 = load i8, ptr %76, align 1
   %94 = and i8 %93, 8
-  %.not205 = icmp eq i8 %94, 0
-  br i1 %.not205, label %98, label %95
+  %.not206 = icmp eq i8 %94, 0
+  br i1 %.not206, label %98, label %95
 
 95:                                               ; preds = %91
   store i8 65, ptr %92, align 1
   %96 = load ptr, ptr %16, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
   store ptr %97, ptr %16, align 8
-  %.pre279 = load i8, ptr %76, align 1
+  %.pre278 = load i8, ptr %76, align 1
   br label %98
 
 98:                                               ; preds = %95, %91
   %99 = phi ptr [ %97, %95 ], [ %92, %91 ]
-  %100 = phi i8 [ %.pre279, %95 ], [ %93, %91 ]
+  %100 = phi i8 [ %.pre278, %95 ], [ %93, %91 ]
   %101 = and i8 %100, 4
-  %.not206 = icmp eq i8 %101, 0
-  br i1 %.not206, label %105, label %102
+  %.not207 = icmp eq i8 %101, 0
+  br i1 %.not207, label %105, label %102
 
 102:                                              ; preds = %98
   store i8 66, ptr %99, align 1
   %103 = load ptr, ptr %16, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 1
   store ptr %104, ptr %16, align 8
-  %.pre280 = load i8, ptr %76, align 1
+  %.pre279 = load i8, ptr %76, align 1
   br label %105
 
 105:                                              ; preds = %102, %98
   %106 = phi ptr [ %104, %102 ], [ %99, %98 ]
-  %107 = phi i8 [ %.pre280, %102 ], [ %100, %98 ]
+  %107 = phi i8 [ %.pre279, %102 ], [ %100, %98 ]
   %108 = and i8 %107, 2
-  %.not207 = icmp eq i8 %108, 0
-  br i1 %.not207, label %112, label %109
+  %.not208 = icmp eq i8 %108, 0
+  br i1 %.not208, label %112, label %109
 
 109:                                              ; preds = %105
   store i8 67, ptr %106, align 1
   %110 = load ptr, ptr %16, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 1
   store ptr %111, ptr %16, align 8
-  %.pre281 = load i8, ptr %76, align 1
+  %.pre280 = load i8, ptr %76, align 1
   br label %112
 
 112:                                              ; preds = %109, %105
   %113 = phi ptr [ %111, %109 ], [ %106, %105 ]
-  %114 = phi i8 [ %.pre281, %109 ], [ %107, %105 ]
+  %114 = phi i8 [ %.pre280, %109 ], [ %107, %105 ]
   %115 = and i8 %114, 1
-  %.not208 = icmp eq i8 %115, 0
-  br i1 %.not208, label %119, label %116
+  %.not209 = icmp eq i8 %115, 0
+  br i1 %.not209, label %119, label %116
 
 116:                                              ; preds = %112
   store i8 68, ptr %113, align 1
@@ -1657,13 +1657,13 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
 128:                                              ; preds = %123
   %129 = icmp sgt i32 %1, 4
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %129, label %.preheader214, label %._crit_edge277
+  br i1 %129, label %.preheader213, label %._crit_edge276
 
-._crit_edge277:                                   ; preds = %128
-  %.pre278 = load ptr, ptr %130, align 8
+._crit_edge276:                                   ; preds = %128
+  %.pre277 = load ptr, ptr %130, align 8
   br label %155
 
-.preheader214:                                    ; preds = %128
+.preheader213:                                    ; preds = %128
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %133 = load ptr, ptr %130, align 8
@@ -1674,18 +1674,18 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %138 = add i64 %137, 3
   %139 = load i32, ptr %132, align 8
   %140 = sext i32 %139 to i64
-  %.not192248 = icmp slt i64 %138, %140
-  br i1 %.not192248, label %._crit_edge250, label %.lr.ph249.preheader
+  %.not193247 = icmp slt i64 %138, %140
+  br i1 %.not193247, label %._crit_edge249, label %.lr.ph248.preheader
 
-.lr.ph249.preheader:                              ; preds = %.preheader214
+.lr.ph248.preheader:                              ; preds = %.preheader213
   %141 = shl i64 %137, 32
   %142 = ashr exact i64 %141, 32
   %143 = add nsw i64 %142, 3
-  br label %.lr.ph249
+  br label %.lr.ph248
 
-.lr.ph249:                                        ; preds = %.lr.ph249.preheader, %.lr.ph249
-  %144 = phi i32 [ %150, %.lr.ph249 ], [ %139, %.lr.ph249.preheader ]
-  %145 = phi ptr [ %148, %.lr.ph249 ], [ %134, %.lr.ph249.preheader ]
+.lr.ph248:                                        ; preds = %.lr.ph248.preheader, %.lr.ph248
+  %144 = phi i32 [ %150, %.lr.ph248 ], [ %139, %.lr.ph248.preheader ]
+  %145 = phi ptr [ %148, %.lr.ph248 ], [ %134, %.lr.ph248.preheader ]
   %146 = shl i32 %144, 1
   store i32 %146, ptr %132, align 8
   %147 = sext i32 %146 to i64
@@ -1695,24 +1695,24 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   store ptr %149, ptr %130, align 8
   %150 = load i32, ptr %132, align 8
   %151 = sext i32 %150 to i64
-  %.not192 = icmp slt i64 %143, %151
-  br i1 %.not192, label %._crit_edge250.loopexit, label %.lr.ph249, !llvm.loop !16
+  %.not193 = icmp slt i64 %143, %151
+  br i1 %.not193, label %._crit_edge249.loopexit, label %.lr.ph248, !llvm.loop !16
 
-._crit_edge250.loopexit:                          ; preds = %.lr.ph249
+._crit_edge249.loopexit:                          ; preds = %.lr.ph248
   %152 = getelementptr inbounds i8, ptr %148, i64 %142
-  br label %._crit_edge250
+  br label %._crit_edge249
 
-._crit_edge250:                                   ; preds = %._crit_edge250.loopexit, %.preheader214
-  %.lcssa222 = phi ptr [ %133, %.preheader214 ], [ %152, %._crit_edge250.loopexit ]
-  %153 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa222, ptr noundef nonnull @.str.22) #12
+._crit_edge249:                                   ; preds = %._crit_edge249.loopexit, %.preheader213
+  %.lcssa221 = phi ptr [ %133, %.preheader213 ], [ %152, %._crit_edge249.loopexit ]
+  %153 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa221, ptr noundef nonnull @.str.22) #12
   %154 = load ptr, ptr %130, align 8
-  %strlen193 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %154)
-  %strchr194 = getelementptr inbounds i8, ptr %154, i64 %strlen193
-  store ptr %strchr194, ptr %130, align 8
+  %strlen194 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %154)
+  %strchr195 = getelementptr inbounds i8, ptr %154, i64 %strlen194
+  store ptr %strchr195, ptr %130, align 8
   br label %155
 
-155:                                              ; preds = %._crit_edge277, %._crit_edge250
-  %156 = phi ptr [ %.pre278, %._crit_edge277 ], [ %strchr194, %._crit_edge250 ]
+155:                                              ; preds = %._crit_edge276, %._crit_edge249
+  %156 = phi ptr [ %.pre277, %._crit_edge276 ], [ %strchr195, %._crit_edge249 ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1723,18 +1723,18 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %164 = add i64 %163, 2
   %165 = load i32, ptr %159, align 8
   %166 = sext i32 %165 to i64
-  %.not195253 = icmp slt i64 %164, %166
-  br i1 %.not195253, label %._crit_edge256, label %.lr.ph255.preheader
+  %.not196252 = icmp slt i64 %164, %166
+  br i1 %.not196252, label %._crit_edge255, label %.lr.ph254.preheader
 
-.lr.ph255.preheader:                              ; preds = %155
+.lr.ph254.preheader:                              ; preds = %155
   %167 = shl i64 %163, 32
   %168 = ashr exact i64 %167, 32
   %169 = add nsw i64 %168, 2
-  br label %.lr.ph255
+  br label %.lr.ph254
 
-.lr.ph255:                                        ; preds = %.lr.ph255.preheader, %.lr.ph255
-  %170 = phi i32 [ %176, %.lr.ph255 ], [ %165, %.lr.ph255.preheader ]
-  %171 = phi ptr [ %174, %.lr.ph255 ], [ %160, %.lr.ph255.preheader ]
+.lr.ph254:                                        ; preds = %.lr.ph254.preheader, %.lr.ph254
+  %170 = phi i32 [ %176, %.lr.ph254 ], [ %165, %.lr.ph254.preheader ]
+  %171 = phi ptr [ %174, %.lr.ph254 ], [ %160, %.lr.ph254.preheader ]
   %172 = shl i32 %170, 1
   store i32 %172, ptr %159, align 8
   %173 = sext i32 %172 to i64
@@ -1744,16 +1744,16 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   store ptr %175, ptr %157, align 8
   %176 = load i32, ptr %159, align 8
   %177 = sext i32 %176 to i64
-  %.not195 = icmp slt i64 %169, %177
-  br i1 %.not195, label %._crit_edge256.loopexit, label %.lr.ph255, !llvm.loop !17
+  %.not196 = icmp slt i64 %169, %177
+  br i1 %.not196, label %._crit_edge255.loopexit, label %.lr.ph254, !llvm.loop !17
 
-._crit_edge256.loopexit:                          ; preds = %.lr.ph255
+._crit_edge255.loopexit:                          ; preds = %.lr.ph254
   %178 = getelementptr inbounds i8, ptr %174, i64 %168
-  br label %._crit_edge256
+  br label %._crit_edge255
 
-._crit_edge256:                                   ; preds = %._crit_edge256.loopexit, %155
-  %.lcssa220 = phi ptr [ %156, %155 ], [ %178, %._crit_edge256.loopexit ]
-  store i8 33, ptr %.lcssa220, align 1
+._crit_edge255:                                   ; preds = %._crit_edge255.loopexit, %155
+  %.lcssa219 = phi ptr [ %156, %155 ], [ %178, %._crit_edge255.loopexit ]
+  store i8 33, ptr %.lcssa219, align 1
   %179 = load ptr, ptr %157, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 1
   store ptr %180, ptr %157, align 8
@@ -1764,7 +1764,7 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   tail call fastcc void @infix(ptr noundef %0, i32 noundef 4, i1 noundef zeroext false)
   br i1 %129, label %.preheader, label %322
 
-.preheader:                                       ; preds = %._crit_edge256
+.preheader:                                       ; preds = %._crit_edge255
   %183 = load ptr, ptr %157, align 8
   %184 = load ptr, ptr %158, align 8
   %185 = ptrtoint ptr %183 to i64
@@ -1773,18 +1773,18 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %188 = add i64 %187, 3
   %189 = load i32, ptr %159, align 8
   %190 = sext i32 %189 to i64
-  %.not196261 = icmp slt i64 %188, %190
-  br i1 %.not196261, label %._crit_edge263, label %.lr.ph262.preheader
+  %.not197260 = icmp slt i64 %188, %190
+  br i1 %.not197260, label %._crit_edge262, label %.lr.ph261.preheader
 
-.lr.ph262.preheader:                              ; preds = %.preheader
+.lr.ph261.preheader:                              ; preds = %.preheader
   %191 = shl i64 %187, 32
   %192 = ashr exact i64 %191, 32
   %193 = add nsw i64 %192, 3
-  br label %.lr.ph262
+  br label %.lr.ph261
 
-.lr.ph262:                                        ; preds = %.lr.ph262.preheader, %.lr.ph262
-  %194 = phi i32 [ %200, %.lr.ph262 ], [ %189, %.lr.ph262.preheader ]
-  %195 = phi ptr [ %198, %.lr.ph262 ], [ %184, %.lr.ph262.preheader ]
+.lr.ph261:                                        ; preds = %.lr.ph261.preheader, %.lr.ph261
+  %194 = phi i32 [ %200, %.lr.ph261 ], [ %189, %.lr.ph261.preheader ]
+  %195 = phi ptr [ %198, %.lr.ph261 ], [ %184, %.lr.ph261.preheader ]
   %196 = shl i32 %194, 1
   store i32 %196, ptr %159, align 8
   %197 = sext i32 %196 to i64
@@ -1794,20 +1794,20 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   store ptr %199, ptr %157, align 8
   %200 = load i32, ptr %159, align 8
   %201 = sext i32 %200 to i64
-  %.not196 = icmp slt i64 %193, %201
-  br i1 %.not196, label %._crit_edge263.loopexit, label %.lr.ph262, !llvm.loop !18
+  %.not197 = icmp slt i64 %193, %201
+  br i1 %.not197, label %._crit_edge262.loopexit, label %.lr.ph261, !llvm.loop !18
 
-._crit_edge263.loopexit:                          ; preds = %.lr.ph262
+._crit_edge262.loopexit:                          ; preds = %.lr.ph261
   %202 = getelementptr inbounds i8, ptr %198, i64 %192
-  br label %._crit_edge263
+  br label %._crit_edge262
 
-._crit_edge263:                                   ; preds = %._crit_edge263.loopexit, %.preheader
-  %.lcssa217 = phi ptr [ %183, %.preheader ], [ %202, %._crit_edge263.loopexit ]
-  %203 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa217, ptr noundef nonnull @.str.23) #12
+._crit_edge262:                                   ; preds = %._crit_edge262.loopexit, %.preheader
+  %.lcssa216 = phi ptr [ %183, %.preheader ], [ %202, %._crit_edge262.loopexit ]
+  %203 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa216, ptr noundef nonnull @.str.23) #12
   %204 = load ptr, ptr %157, align 8
-  %strlen197 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %204)
-  %strchr198 = getelementptr inbounds i8, ptr %204, i64 %strlen197
-  store ptr %strchr198, ptr %157, align 8
+  %strlen198 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %204)
+  %strchr199 = getelementptr inbounds i8, ptr %204, i64 %strlen198
+  store ptr %strchr199, ptr %157, align 8
   br label %322
 
 205:                                              ; preds = %123
@@ -1822,11 +1822,11 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   store ptr %212, ptr %0, align 8
   %213 = icmp slt i32 %209, %1
   %214 = icmp eq i8 %125, 4
-  %brmerge.not = and i1 %2, %214
-  %or.cond = or i1 %brmerge.not, %213
-  br i1 %or.cond, label %.preheader216, label %240
+  %or.cond = and i1 %2, %214
+  %or.cond211 = or i1 %or.cond, %213
+  br i1 %or.cond211, label %.preheader215, label %240
 
-.preheader216:                                    ; preds = %205
+.preheader215:                                    ; preds = %205
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1838,10 +1838,10 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %223 = add i64 %222, 3
   %224 = load i32, ptr %217, align 8
   %225 = sext i32 %224 to i64
-  %.not232 = icmp slt i64 %223, %225
-  br i1 %.not232, label %._crit_edge, label %.lr.ph.preheader
+  %.not231 = icmp slt i64 %223, %225
+  br i1 %.not231, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader216
+.lr.ph.preheader:                                 ; preds = %.preheader215
   %226 = shl i64 %222, 32
   %227 = ashr exact i64 %226, 32
   %228 = add nsw i64 %227, 3
@@ -1866,9 +1866,9 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %237 = getelementptr inbounds i8, ptr %233, i64 %227
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader216
-  %.lcssa230 = phi ptr [ %218, %.preheader216 ], [ %237, %._crit_edge.loopexit ]
-  %238 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa230, ptr noundef nonnull @.str.22) #12
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader215
+  %.lcssa229 = phi ptr [ %218, %.preheader215 ], [ %237, %._crit_edge.loopexit ]
+  %238 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa229, ptr noundef nonnull @.str.22) #12
   %239 = load ptr, ptr %215, align 8
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %239)
   %strchr = getelementptr inbounds i8, ptr %239, i64 %strlen
@@ -1911,18 +1911,18 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %264 = sub i64 %263, %261
   %265 = load i32, ptr %252, align 8
   %266 = sext i32 %265 to i64
-  %.not183235 = icmp slt i64 %264, %266
-  br i1 %.not183235, label %._crit_edge238, label %.lr.ph237.preheader
+  %.not184234 = icmp slt i64 %264, %266
+  br i1 %.not184234, label %._crit_edge237, label %.lr.ph236.preheader
 
-.lr.ph237.preheader:                              ; preds = %240
+.lr.ph236.preheader:                              ; preds = %240
   %267 = shl i64 %257, 32
   %268 = ashr exact i64 %267, 32
   %invariant.op = add nsw i64 %268, 16
-  br label %.lr.ph237
+  br label %.lr.ph236
 
-.lr.ph237:                                        ; preds = %.lr.ph237.preheader, %.lr.ph237
-  %269 = phi i32 [ %280, %.lr.ph237 ], [ %265, %.lr.ph237.preheader ]
-  %270 = phi ptr [ %273, %.lr.ph237 ], [ %254, %.lr.ph237.preheader ]
+.lr.ph236:                                        ; preds = %.lr.ph236.preheader, %.lr.ph236
+  %269 = phi i32 [ %280, %.lr.ph236 ], [ %265, %.lr.ph236.preheader ]
+  %270 = phi ptr [ %273, %.lr.ph236 ], [ %254, %.lr.ph236.preheader ]
   %271 = shl i32 %269, 1
   store i32 %271, ptr %252, align 8
   %272 = sext i32 %271 to i64
@@ -1938,44 +1938,44 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %279 = sub i64 %.reass, %278
   %280 = load i32, ptr %252, align 8
   %281 = sext i32 %280 to i64
-  %.not183 = icmp slt i64 %279, %281
-  br i1 %.not183, label %._crit_edge238.loopexit, label %.lr.ph237, !llvm.loop !20
+  %.not184 = icmp slt i64 %279, %281
+  br i1 %.not184, label %._crit_edge237.loopexit, label %.lr.ph236, !llvm.loop !20
 
-._crit_edge238.loopexit:                          ; preds = %.lr.ph237
+._crit_edge237.loopexit:                          ; preds = %.lr.ph236
   %282 = getelementptr inbounds i8, ptr %273, i64 %268
-  br label %._crit_edge238
+  br label %._crit_edge237
 
-._crit_edge238:                                   ; preds = %._crit_edge238.loopexit, %240
-  %.lcssa228 = phi ptr [ %253, %240 ], [ %282, %._crit_edge238.loopexit ]
-  %.lcssa226 = phi ptr [ %259, %240 ], [ %276, %._crit_edge238.loopexit ]
+._crit_edge237:                                   ; preds = %._crit_edge237.loopexit, %240
+  %.lcssa227 = phi ptr [ %253, %240 ], [ %282, %._crit_edge237.loopexit ]
+  %.lcssa225 = phi ptr [ %259, %240 ], [ %276, %._crit_edge237.loopexit ]
   switch i8 %125, label %293 [
     i8 3, label %283
     i8 2, label %285
     i8 4, label %287
   ]
 
-283:                                              ; preds = %._crit_edge238
-  %284 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa228, ptr noundef nonnull @.str.24, ptr noundef %.lcssa226) #12
+283:                                              ; preds = %._crit_edge237
+  %284 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa227, ptr noundef nonnull @.str.24, ptr noundef %.lcssa225) #12
   br label %296
 
-285:                                              ; preds = %._crit_edge238
-  %286 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa228, ptr noundef nonnull @.str.25, ptr noundef %.lcssa226) #12
+285:                                              ; preds = %._crit_edge237
+  %286 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa227, ptr noundef nonnull @.str.25, ptr noundef %.lcssa225) #12
   br label %296
 
-287:                                              ; preds = %._crit_edge238
-  %.not184 = icmp eq i16 %211, 1
-  br i1 %.not184, label %291, label %288
+287:                                              ; preds = %._crit_edge237
+  %.not185 = icmp eq i16 %211, 1
+  br i1 %.not185, label %291, label %288
 
 288:                                              ; preds = %287
   %289 = sext i16 %211 to i32
-  %290 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa228, ptr noundef nonnull @.str.26, i32 noundef %289, ptr noundef %.lcssa226) #12
+  %290 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa227, ptr noundef nonnull @.str.26, i32 noundef %289, ptr noundef %.lcssa225) #12
   br label %296
 
 291:                                              ; preds = %287
-  %292 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa228, ptr noundef nonnull @.str.27, ptr noundef %.lcssa226) #12
+  %292 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa227, ptr noundef nonnull @.str.27, ptr noundef %.lcssa225) #12
   br label %296
 
-293:                                              ; preds = %._crit_edge238
+293:                                              ; preds = %._crit_edge237
   %294 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %294)
   %295 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %126) #12
@@ -1984,14 +1984,14 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
 
 296:                                              ; preds = %288, %291, %285, %283
   %297 = load ptr, ptr %250, align 8
-  %strlen185 = call i64 @strlen(ptr nonnull dereferenceable(1) %297)
-  %strchr186 = getelementptr inbounds i8, ptr %297, i64 %strlen185
-  store ptr %strchr186, ptr %250, align 8
+  %strlen186 = call i64 @strlen(ptr nonnull dereferenceable(1) %297)
+  %strchr187 = getelementptr inbounds i8, ptr %297, i64 %strlen186
+  store ptr %strchr187, ptr %250, align 8
   %298 = load ptr, ptr %247, align 8
   call void @pfree(ptr noundef %298) #12
-  br i1 %or.cond, label %.preheader215, label %321
+  br i1 %or.cond211, label %.preheader214, label %321
 
-.preheader215:                                    ; preds = %296
+.preheader214:                                    ; preds = %296
   %299 = load ptr, ptr %250, align 8
   %300 = load ptr, ptr %251, align 8
   %301 = ptrtoint ptr %299 to i64
@@ -2000,18 +2000,18 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   %304 = add i64 %303, 3
   %305 = load i32, ptr %252, align 8
   %306 = sext i32 %305 to i64
-  %.not187244 = icmp slt i64 %304, %306
-  br i1 %.not187244, label %._crit_edge246, label %.lr.ph245.preheader
+  %.not188243 = icmp slt i64 %304, %306
+  br i1 %.not188243, label %._crit_edge245, label %.lr.ph244.preheader
 
-.lr.ph245.preheader:                              ; preds = %.preheader215
+.lr.ph244.preheader:                              ; preds = %.preheader214
   %307 = shl i64 %303, 32
   %308 = ashr exact i64 %307, 32
   %309 = add nsw i64 %308, 3
-  br label %.lr.ph245
+  br label %.lr.ph244
 
-.lr.ph245:                                        ; preds = %.lr.ph245.preheader, %.lr.ph245
-  %310 = phi i32 [ %316, %.lr.ph245 ], [ %305, %.lr.ph245.preheader ]
-  %311 = phi ptr [ %314, %.lr.ph245 ], [ %300, %.lr.ph245.preheader ]
+.lr.ph244:                                        ; preds = %.lr.ph244.preheader, %.lr.ph244
+  %310 = phi i32 [ %316, %.lr.ph244 ], [ %305, %.lr.ph244.preheader ]
+  %311 = phi ptr [ %314, %.lr.ph244 ], [ %300, %.lr.ph244.preheader ]
   %312 = shl i32 %310, 1
   store i32 %312, ptr %252, align 8
   %313 = sext i32 %312 to i64
@@ -2021,27 +2021,27 @@ define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 no
   store ptr %315, ptr %250, align 8
   %316 = load i32, ptr %252, align 8
   %317 = sext i32 %316 to i64
-  %.not187 = icmp slt i64 %309, %317
-  br i1 %.not187, label %._crit_edge246.loopexit, label %.lr.ph245, !llvm.loop !21
+  %.not188 = icmp slt i64 %309, %317
+  br i1 %.not188, label %._crit_edge245.loopexit, label %.lr.ph244, !llvm.loop !21
 
-._crit_edge246.loopexit:                          ; preds = %.lr.ph245
+._crit_edge245.loopexit:                          ; preds = %.lr.ph244
   %318 = getelementptr inbounds i8, ptr %314, i64 %308
-  br label %._crit_edge246
+  br label %._crit_edge245
 
-._crit_edge246:                                   ; preds = %._crit_edge246.loopexit, %.preheader215
-  %.lcssa224 = phi ptr [ %299, %.preheader215 ], [ %318, %._crit_edge246.loopexit ]
-  %319 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa224, ptr noundef nonnull @.str.23) #12
+._crit_edge245:                                   ; preds = %._crit_edge245.loopexit, %.preheader214
+  %.lcssa223 = phi ptr [ %299, %.preheader214 ], [ %318, %._crit_edge245.loopexit ]
+  %319 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.lcssa223, ptr noundef nonnull @.str.23) #12
   %320 = load ptr, ptr %250, align 8
-  %strlen188 = call i64 @strlen(ptr nonnull dereferenceable(1) %320)
-  %strchr189 = getelementptr inbounds i8, ptr %320, i64 %strlen188
-  store ptr %strchr189, ptr %250, align 8
+  %strlen189 = call i64 @strlen(ptr nonnull dereferenceable(1) %320)
+  %strchr190 = getelementptr inbounds i8, ptr %320, i64 %strlen189
+  store ptr %strchr190, ptr %250, align 8
   br label %321
 
-321:                                              ; preds = %._crit_edge246, %296
+321:                                              ; preds = %._crit_edge245, %296
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
   br label %322
 
-322:                                              ; preds = %._crit_edge256, %._crit_edge263, %321, %119
+322:                                              ; preds = %._crit_edge255, %._crit_edge262, %321, %119
   ret void
 }
 

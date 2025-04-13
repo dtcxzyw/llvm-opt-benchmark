@@ -691,8 +691,8 @@ define hidden noundef ptr @_ZN11EpsilonHeap17allocate_new_tlabEmmPm(ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #8
-  %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %24, label %18
+  %.not38 = icmp eq i64 %16, 0
+  br i1 %.not38, label %24, label %18
 
 18:                                               ; preds = %14
   %19 = sub nsw i64 %17, %16
@@ -706,26 +706,26 @@ define hidden noundef ptr @_ZN11EpsilonHeap17allocate_new_tlabEmmPm(ptr noundef 
   br label %24
 
 24:                                               ; preds = %14, %18, %23, %9
-  %.134 = phi i64 [ 0, %23 ], [ %11, %18 ], [ %11, %14 ], [ %11, %9 ]
+  %.135 = phi i64 [ 0, %23 ], [ %11, %18 ], [ %11, %14 ], [ %11, %9 ]
   %.1 = phi i64 [ %17, %23 ], [ %17, %18 ], [ %17, %14 ], [ 0, %9 ]
-  %.not42 = icmp ugt i64 %2, %.134
-  br i1 %.not42, label %25, label %30
+  %.not43 = icmp ugt i64 %2, %.135
+  br i1 %.not43, label %25, label %30
 
 25:                                               ; preds = %24
-  %26 = uitofp i64 %.134 to double
+  %26 = uitofp i64 %.135 to double
   %27 = load double, ptr @EpsilonTLABElasticity, align 8
   %28 = fmul double %27, %26
   %29 = fptoui double %28 to i64
   br label %30
 
 30:                                               ; preds = %24, %25, %4
-  %.033 = phi i64 [ %.134, %24 ], [ %.134, %25 ], [ %2, %4 ]
-  %.032 = phi i64 [ %.1, %24 ], [ %.1, %25 ], [ 0, %4 ]
-  %.031 = phi i64 [ %2, %24 ], [ %29, %25 ], [ %2, %4 ]
+  %.034 = phi i64 [ %.135, %24 ], [ %.135, %25 ], [ %2, %4 ]
+  %.033 = phi i64 [ %.1, %24 ], [ %.1, %25 ], [ 0, %4 ]
+  %.032 = phi i64 [ %2, %24 ], [ %29, %25 ], [ %2, %4 ]
   %.0.shrunk.not = phi i1 [ false, %24 ], [ true, %25 ], [ false, %4 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %32 = load i64, ptr %31, align 8
-  %33 = tail call noundef i64 @llvm.umax.i64(i64 %.031, i64 %1)
+  %33 = tail call noundef i64 @llvm.umax.i64(i64 %.032, i64 %1)
   %34 = tail call noundef i64 @llvm.umin.i64(i64 %33, i64 %32)
   %35 = load i32, ptr @MinObjAlignment, align 4
   %36 = add nsw i32 %35, -1
@@ -735,8 +735,8 @@ define hidden noundef ptr @_ZN11EpsilonHeap17allocate_new_tlabEmmPm(ptr noundef 
   %40 = sext i32 %39 to i64
   %41 = and i64 %38, %40
   %42 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not43 = icmp eq ptr %42, null
-  br i1 %.not43, label %_ZN12ResourceMarkD2Ev.exit, label %43
+  %.not44 = icmp eq ptr %42, null
+  br i1 %.not44, label %_ZN12ResourceMarkD2Ev.exit, label %43
 
 43:                                               ; preds = %30
   %44 = load ptr, ptr %5, align 8
@@ -751,8 +751,8 @@ define hidden noundef ptr @_ZN11EpsilonHeap17allocate_new_tlabEmmPm(ptr noundef 
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %54 = load i64, ptr %53, align 8
   %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not44 = icmp eq ptr %55, null
-  br i1 %.not44, label %72, label %56
+  %.not45 = icmp eq ptr %55, null
+  br i1 %.not45, label %72, label %56
 
 56:                                               ; preds = %43
   %57 = load ptr, ptr %6, align 8
@@ -766,7 +766,7 @@ define hidden noundef ptr @_ZN11EpsilonHeap17allocate_new_tlabEmmPm(ptr noundef 
   %65 = load i64, ptr %31, align 8
   %66 = lshr i64 %65, 7
   %67 = and i64 %66, 18014398509481983
-  %68 = lshr i64 %.033, 7
+  %68 = lshr i64 %.034, 7
   %69 = and i64 %68, 18014398509481983
   %70 = lshr i64 %41, 7
   %71 = and i64 %70, 18014398509481983
@@ -796,8 +796,8 @@ define hidden noundef ptr @_ZN11EpsilonHeap17allocate_new_tlabEmmPm(ptr noundef 
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %77, %75, %30
   %78 = tail call noundef ptr @_ZN11EpsilonHeap13allocate_workEmb(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %41, i1 noundef zeroext true)
-  %.not37 = icmp eq ptr %78, null
-  br i1 %.not37, label %87, label %79
+  %.not39 = icmp eq ptr %78, null
+  br i1 %.not39, label %87, label %79
 
 79:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
   store i64 %41, ptr %3, align 8
@@ -807,14 +807,14 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %77, %75, %30
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i64 %.032, ptr %83, align 8
+  store i64 %.033, ptr %83, align 8
   br label %84
 
 84:                                               ; preds = %82, %79
   %85 = load i8, ptr @EpsilonElasticTLAB, align 1
   %86 = trunc i8 %85 to i1
-  %brmerge.not = and i1 %.0.shrunk.not, %86
-  br i1 %brmerge.not, label %.sink.split, label %91
+  %or.cond.not = and i1 %.0.shrunk.not, %86
+  br i1 %or.cond.not, label %.sink.split, label %91
 
 87:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
   %88 = load i8, ptr @EpsilonElasticTLAB, align 1
@@ -827,7 +827,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %77, %75, %30
   store i64 %.sink, ptr %90, align 8
   br label %91
 
-91:                                               ; preds = %.sink.split, %84, %87
+91:                                               ; preds = %.sink.split, %87, %84
   ret ptr %78
 }
 

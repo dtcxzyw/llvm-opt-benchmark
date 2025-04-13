@@ -820,40 +820,38 @@ declare void @TimestampDifference(i64 noundef, i64 noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_report_query_id(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyBEEntry, align 8
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %19, label %4
-
-4:                                                ; preds = %2
-  %5 = load i8, ptr @pgstat_track_activities, align 1, !range !4, !noundef !5
+  %4 = icmp ne ptr %3, null
+  %5 = load i8, ptr @pgstat_track_activities, align 1, !range !4
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %19
+  %or.cond = select i1 %4, i1 %6, i1 false
+  br i1 %or.cond, label %7, label %20
 
-7:                                                ; preds = %4
+7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 424
   %9 = load volatile i64, ptr %8, align 8
-  %.not6 = icmp eq i64 %9, 0
-  %brmerge = or i1 %1, %.not6
-  br i1 %brmerge, label %10, label %19
+  %10 = icmp eq i64 %9, 0
+  %or.cond3 = or i1 %1, %10
+  br i1 %or.cond3, label %11, label %20
 
-10:                                               ; preds = %7
-  %11 = load volatile i32, ptr @CritSectionCount, align 4
-  %12 = add i32 %11, 1
-  store volatile i32 %12, ptr @CritSectionCount, align 4
-  %13 = load volatile i32, ptr %3, align 8
-  %14 = add i32 %13, 1
-  store volatile i32 %14, ptr %3, align 8
+11:                                               ; preds = %7
+  %12 = load volatile i32, ptr @CritSectionCount, align 4
+  %13 = add i32 %12, 1
+  store volatile i32 %13, ptr @CritSectionCount, align 4
+  %14 = load volatile i32, ptr %3, align 8
+  %15 = add i32 %14, 1
+  store volatile i32 %15, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !20
   store volatile i64 %0, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
-  %15 = load volatile i32, ptr %3, align 8
-  %16 = add i32 %15, 1
-  store volatile i32 %16, ptr %3, align 8
-  %17 = load volatile i32, ptr @CritSectionCount, align 4
-  %18 = add i32 %17, -1
-  store volatile i32 %18, ptr @CritSectionCount, align 4
-  br label %19
+  %16 = load volatile i32, ptr %3, align 8
+  %17 = add i32 %16, 1
+  store volatile i32 %17, ptr %3, align 8
+  %18 = load volatile i32, ptr @CritSectionCount, align 4
+  %19 = add i32 %18, -1
+  store volatile i32 %19, ptr @CritSectionCount, align 4
+  br label %20
 
-19:                                               ; preds = %7, %2, %4, %10
+20:                                               ; preds = %7, %2, %11
   ret void
 }
 

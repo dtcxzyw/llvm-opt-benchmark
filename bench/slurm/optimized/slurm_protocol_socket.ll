@@ -974,18 +974,18 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_open_stream(ptr noundef %
   %19 = tail call zeroext i16 @slurm_get_port(ptr noundef nonnull %0) #11
   %20 = zext i16 %19 to i32
   %21 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, i32 noundef %18, i32 noundef %20) #11
-  br label %151
+  br label %150
 
-._crit_edge:                                      ; preds = %137, %.preheader
+._crit_edge:                                      ; preds = %136, %.preheader
   %22 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12) #11
-  br label %151
+  br label %150
 
-23:                                               ; preds = %.lr.ph, %137
-  %24 = phi i32 [ %12, %.lr.ph ], [ %141, %137 ]
-  %.03874 = phi i32 [ 0, %.lr.ph ], [ %.1, %137 ]
-  %.03973 = phi i32 [ 0, %.lr.ph ], [ %.140, %137 ]
+23:                                               ; preds = %.lr.ph, %136
+  %24 = phi i32 [ %12, %.lr.ph ], [ %140, %136 ]
+  %.04075 = phi i32 [ 0, %.lr.ph ], [ %.1, %136 ]
+  %.04174 = phi i32 [ 0, %.lr.ph ], [ %.142, %136 ]
   %25 = call i32 @net_set_nodelay(i32 noundef %24, i1 noundef zeroext true, ptr noundef null) #11
-  switch i32 %.03874, label %30 [
+  switch i32 %.04075, label %30 [
     i32 0, label %50
     i32 1, label %26
   ]
@@ -1184,8 +1184,8 @@ _slurm_connect.exit.thread:                       ; preds = %107, %110, %106
 _slurm_connect.exit:                              ; preds = %64, %.thread39.i, %105
   %.0.i = phi i32 [ %.3.i, %105 ], [ %66, %64 ], [ %76, %.thread39.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  %.not45 = icmp eq i32 %.0.i, 0
-  br i1 %.not45, label %.loopexit, label %112
+  %.not46 = icmp eq i32 %.0.i, 0
+  br i1 %.not46, label %.loopexit, label %112
 
 112:                                              ; preds = %_slurm_connect.exit
   %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 456), align 8
@@ -1195,22 +1195,22 @@ _slurm_connect.exit:                              ; preds = %64, %.thread39.i, %
   br i1 %or.cond, label %116, label %131
 
 116:                                              ; preds = %112
-  %.not = icmp ult i32 %.03973, %113
-  br i1 %.not, label %123, label %117
+  %.not48 = icmp ult i32 %.04174, %113
+  br i1 %.not48, label %123, label %117
 
 117:                                              ; preds = %116
   %118 = call i32 @get_log_level() #11
   %119 = icmp sgt i32 %118, 5
-  br i1 %119, label %120, label %.loopexit59
+  br i1 %119, label %120, label %.loopexit60
 
 120:                                              ; preds = %117
   %121 = call ptr @strerror(i32 noundef 113) #11
   %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 456), align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.18, ptr noundef nonnull %0, ptr noundef %121, i32 noundef %122) #11
-  br label %.loopexit59
+  br label %.loopexit60
 
 123:                                              ; preds = %116
-  %124 = add nuw nsw i32 %.03973, 1
+  %124 = add nuw nsw i32 %.04174, 1
   %125 = call i32 @get_log_level() #11
   %126 = icmp sgt i32 %125, 5
   br i1 %126, label %127, label %129
@@ -1222,55 +1222,55 @@ _slurm_connect.exit:                              ; preds = %64, %.thread39.i, %
 
 129:                                              ; preds = %127, %123
   %130 = call i32 @slurm_nanosleep(i64 noundef 0, i32 noundef 500000000) #11
-  br label %137
+  br label %136
 
 131:                                              ; preds = %.thread, %112
-  %.0.i5457 = phi i32 [ 110, %.thread ], [ %.0.i, %112 ]
-  %132 = and i32 %.0.i5457, -2
+  %.0.i5558 = phi i32 [ 110, %.thread ], [ %.0.i, %112 ]
+  %132 = and i32 %.0.i5558, -2
   %or.cond3 = icmp eq i32 %132, 110
-  %133 = icmp slt i32 %.03874, 3
-  %134 = and i1 %1, %or.cond3
-  %or.cond47 = select i1 %134, i1 %133, i1 false
-  br i1 %or.cond47, label %135, label %.loopexit59
+  %or.cond5 = and i1 %1, %or.cond3
+  %133 = icmp slt i32 %.04075, 3
+  %or.cond7.not = select i1 %or.cond5, i1 %133, i1 false
+  br i1 %or.cond7.not, label %134, label %.loopexit60
 
-135:                                              ; preds = %131
-  %136 = add nsw i32 %.03874, 1
-  br label %137
+134:                                              ; preds = %131
+  %135 = add nsw i32 %.04075, 1
+  br label %136
 
-137:                                              ; preds = %135, %129
-  %.140 = phi i32 [ %124, %129 ], [ %.03973, %135 ]
-  %.1 = phi i32 [ %.03874, %129 ], [ %136, %135 ]
-  %138 = call i32 @close(i32 noundef %24) #11
-  %139 = load i16, ptr %0, align 8
-  %140 = zext i16 %139 to i32
-  %141 = call i32 @socket(i32 noundef %140, i32 noundef 524289, i32 noundef 6) #11
-  %142 = icmp slt i32 %141, 0
-  br i1 %142, label %._crit_edge, label %23, !llvm.loop !15
+136:                                              ; preds = %134, %129
+  %.142 = phi i32 [ %124, %129 ], [ %.04174, %134 ]
+  %.1 = phi i32 [ %.04075, %129 ], [ %135, %134 ]
+  %137 = call i32 @close(i32 noundef %24) #11
+  %138 = load i16, ptr %0, align 8
+  %139 = zext i16 %138 to i32
+  %140 = call i32 @socket(i32 noundef %139, i32 noundef 524289, i32 noundef 6) #11
+  %141 = icmp slt i32 %140, 0
+  br i1 %141, label %._crit_edge, label %23, !llvm.loop !15
 
 .loopexit:                                        ; preds = %_slurm_connect.exit, %_slurm_connect.exit.thread
-  %143 = tail call ptr @__errno_location() #12
-  store i32 0, ptr %143, align 4
-  br label %151
+  %142 = tail call ptr @__errno_location() #12
+  store i32 0, ptr %142, align 4
+  br label %150
 
-.loopexit59:                                      ; preds = %131, %117, %120
-  %.0.i5458 = phi i32 [ 113, %117 ], [ 113, %120 ], [ %.0.i5457, %131 ]
-  %144 = call i32 @get_log_level() #11
-  %145 = icmp sgt i32 %144, 5
-  br i1 %145, label %146, label %148
+.loopexit60:                                      ; preds = %131, %117, %120
+  %.0.i5559 = phi i32 [ 113, %117 ], [ 113, %120 ], [ %.0.i5558, %131 ]
+  %143 = call i32 @get_log_level() #11
+  %144 = icmp sgt i32 %143, 5
+  br i1 %144, label %145, label %147
 
-146:                                              ; preds = %.loopexit59
-  %147 = call ptr @strerror(i32 noundef %.0.i5458) #11
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, ptr noundef %147) #11
-  br label %148
+145:                                              ; preds = %.loopexit60
+  %146 = call ptr @strerror(i32 noundef %.0.i5559) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, ptr noundef %146) #11
+  br label %147
 
-148:                                              ; preds = %146, %.loopexit59
-  %149 = call i32 @close(i32 noundef %24) #11
-  %150 = tail call ptr @__errno_location() #12
-  store i32 %.0.i5458, ptr %150, align 4
-  br label %151
+147:                                              ; preds = %145, %.loopexit60
+  %148 = call i32 @close(i32 noundef %24) #11
+  %149 = tail call ptr @__errno_location() #12
+  store i32 %.0.i5559, ptr %149, align 4
+  br label %150
 
-151:                                              ; preds = %148, %.loopexit, %._crit_edge, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %._crit_edge ], [ -1, %148 ], [ %24, %.loopexit ]
+150:                                              ; preds = %147, %.loopexit, %._crit_edge, %16
+  %.0 = phi i32 [ -1, %16 ], [ -1, %._crit_edge ], [ -1, %147 ], [ %24, %.loopexit ]
   ret i32 %.0
 }
 

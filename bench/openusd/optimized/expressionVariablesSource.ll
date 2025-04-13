@@ -384,8 +384,8 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__28PcpExpression
   %6 = icmp ne ptr %5, null
   %7 = load ptr, ptr %1, align 8
   %8 = icmp ne ptr %7, null
-  %brmerge.demorgan = and i1 %6, %8
-  br i1 %brmerge.demorgan, label %9, label %11
+  %or.cond = and i1 %6, %8
+  br i1 %or.cond, label %9, label %11
 
 9:                                                ; preds = %4
   %10 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifiereqERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %7)
@@ -411,8 +411,8 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__28PcpExpression
   %6 = icmp ne ptr %5, null
   %7 = load ptr, ptr %1, align 8
   %8 = icmp ne ptr %7, null
-  %brmerge.demorgan.i = and i1 %6, %8
-  br i1 %brmerge.demorgan.i, label %9, label %12
+  %or.cond.i = and i1 %6, %8
+  br i1 %or.cond.i, label %9, label %12
 
 9:                                                ; preds = %4
   %10 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifiereqERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %7)
@@ -431,23 +431,23 @@ _ZNK32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSourceeqERKS0_.exi
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSourceltERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %.not8 = icmp eq ptr %3, null
-  %4 = load ptr, ptr %1, align 8
-  %5 = icmp ne ptr %4, null
-  %.not7 = xor i1 %5, true
-  %brmerge = or i1 %.not8, %.not7
-  br i1 %brmerge, label %8, label %6
+  %4 = icmp ne ptr %3, null
+  %5 = load ptr, ptr %1, align 8
+  %6 = icmp ne ptr %5, null
+  %or.cond = and i1 %4, %6
+  br i1 %or.cond, label %7, label %9
 
-6:                                                ; preds = %2
-  %7 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierltERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %4)
-  br label %10
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierltERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %5)
+  br label %12
 
-8:                                                ; preds = %2
-  %9 = and i1 %.not8, %5
-  br label %10
+9:                                                ; preds = %2
+  %10 = xor i1 %4, true
+  %11 = and i1 %6, %10
+  br label %12
 
-10:                                               ; preds = %8, %6
-  %.0 = phi i1 [ %7, %6 ], [ %9, %8 ]
+12:                                               ; preds = %9, %7
+  %.0 = phi i1 [ %8, %7 ], [ %11, %9 ]
   ret i1 %.0
 }
 

@@ -115,7 +115,7 @@ define hidden noundef ptr @_ZN5VLoop26check_preconditions_helperEv(ptr noundef n
   %4 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %2)
   %5 = icmp samesign ult i32 %4, 2
   %or.cond = select i1 %3, i1 %5, i1 false
-  br i1 %or.cond, label %6, label %145
+  br i1 %or.cond, label %6, label %144
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -123,7 +123,7 @@ define hidden noundef ptr @_ZN5VLoop26check_preconditions_helperEv(ptr noundef n
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 @_ZNK8LoopNode21is_valid_counted_loopE9BasicType(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 noundef zeroext 10) #13
-  br i1 %11, label %12, label %145
+  br i1 %11, label %12, label %144
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %7, align 8
@@ -218,13 +218,13 @@ _ZNK19BaseCountedLoopNode3phiEv.exit:             ; preds = %12, %22, %30, %_ZNK
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 60
   %75 = load i32, ptr %74, align 4
   %76 = and i32 %75, 1024
-  %.not12 = icmp eq i32 %76, 0
-  br i1 %.not12, label %77, label %145
+  %.not15 = icmp eq i32 %76, 0
+  br i1 %.not15, label %77, label %144
 
 77:                                               ; preds = %_ZNK19BaseCountedLoopNode3phiEv.exit
   %78 = and i32 %75, 512
-  %.not13 = icmp eq i32 %78, 0
-  br i1 %.not13, label %_ZNK15CountedLoopNode8loopexitEv.exit, label %145
+  %.not16 = icmp eq i32 %78, 0
+  br i1 %.not16, label %_ZNK15CountedLoopNode8loopexitEv.exit, label %144
 
 _ZNK15CountedLoopNode8loopexitEv.exit:            ; preds = %77
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -256,70 +256,68 @@ _ZNK15CountedLoopNode8loopexitEv.exit:            ; preds = %77
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %101, %102
-  br i1 %.not, label %107, label %103
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %104 = load i8, ptr %103, align 8
+  %105 = trunc i8 %104 to i1
+  %or.cond14 = select i1 %.not, i1 true, i1 %105
+  br i1 %or.cond14, label %106, label %144
 
-103:                                              ; preds = %_ZNK15CountedLoopNode8loopexitEv.exit
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %105 = load i8, ptr %104, align 8
-  %106 = trunc i8 %105 to i1
-  br i1 %106, label %107, label %145
+106:                                              ; preds = %_ZNK15CountedLoopNode8loopexitEv.exit
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  %112 = load i32, ptr %111, align 8
+  %.not8 = icmp eq i32 %112, 1
+  br i1 %.not8, label %113, label %144
 
-107:                                              ; preds = %103, %_ZNK15CountedLoopNode8loopexitEv.exit
-  %108 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  %113 = load i32, ptr %112, align 8
-  %.not8 = icmp eq i32 %113, 1
-  br i1 %.not8, label %114, label %145
+113:                                              ; preds = %106
+  %114 = getelementptr inbounds nuw i8, ptr %102, i64 60
+  %115 = load i32, ptr %114, align 4
+  %116 = and i32 %115, 3
+  %117 = icmp eq i32 %116, 2
+  br i1 %117, label %118, label %144
 
-114:                                              ; preds = %107
-  %115 = getelementptr inbounds nuw i8, ptr %102, i64 60
-  %116 = load i32, ptr %115, align 4
-  %117 = and i32 %116, 3
-  %118 = icmp eq i32 %117, 2
-  br i1 %118, label %119, label %145
+118:                                              ; preds = %113
+  %119 = tail call noundef ptr @_ZN15CountedLoopNode17find_pre_loop_endEv(ptr noundef nonnull align 8 dereferenceable(92) %102) #13
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %144, label %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i
 
-119:                                              ; preds = %114
-  %120 = tail call noundef ptr @_ZN15CountedLoopNode17find_pre_loop_endEv(ptr noundef nonnull align 8 dereferenceable(92) %102) #13
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %145, label %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i
-
-_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i:   ; preds = %119
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  %127 = load i32, ptr %126, align 8
-  %128 = icmp ugt i32 %127, 1
-  tail call void @llvm.assume(i1 %128)
-  %129 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %132 = load ptr, ptr %131, align 8, !nonnull !6, !noundef !6
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  %134 = load i32, ptr %133, align 8
-  %135 = icmp eq i32 %134, 3
-  tail call void @llvm.assume(i1 %135)
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i:   ; preds = %118
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
+  %126 = load i32, ptr %125, align 8
+  %127 = icmp ugt i32 %126, 1
+  tail call void @llvm.assume(i1 %127)
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %131 = load ptr, ptr %130, align 8, !nonnull !6, !noundef !6
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  %133 = load i32, ptr %132, align 8
+  %134 = icmp eq i32 %133, 3
+  tail call void @llvm.assume(i1 %134)
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %139, align 8
-  %141 = load ptr, ptr %140, align 8
-  %142 = tail call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(52) %139) #13
-  %.not9 = icmp eq i32 %142, 255
-  br i1 %.not9, label %143, label %145
+  %141 = tail call noundef i32 %140(ptr noundef nonnull align 8 dereferenceable(52) %138) #13
+  %.not9 = icmp eq i32 %141, 255
+  br i1 %.not9, label %142, label %144
 
-143:                                              ; preds = %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %120, ptr %144, align 8
-  br label %145
+142:                                              ; preds = %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %119, ptr %143, align 8
+  br label %144
 
-145:                                              ; preds = %114, %143, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i, %119, %107, %103, %77, %_ZNK19BaseCountedLoopNode3phiEv.exit, %6, %1
-  %.sroa.0.0 = phi ptr [ @.str, %1 ], [ @.str.4, %6 ], [ @.str.5, %_ZNK19BaseCountedLoopNode3phiEv.exit ], [ @.str.6, %77 ], [ @.str.7, %103 ], [ @.str.8, %107 ], [ @.str.9, %119 ], [ @.str.9, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i ], [ null, %143 ], [ null, %114 ]
+144:                                              ; preds = %_ZNK15CountedLoopNode8loopexitEv.exit, %113, %142, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i, %118, %106, %77, %_ZNK19BaseCountedLoopNode3phiEv.exit, %6, %1
+  %.sroa.0.0 = phi ptr [ @.str, %1 ], [ @.str.4, %6 ], [ @.str.5, %_ZNK19BaseCountedLoopNode3phiEv.exit ], [ @.str.6, %77 ], [ @.str.8, %106 ], [ @.str.9, %118 ], [ @.str.9, %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i ], [ null, %142 ], [ null, %113 ], [ @.str.7, %_ZNK15CountedLoopNode8loopexitEv.exit ]
   ret ptr %.sroa.0.0
 }
 

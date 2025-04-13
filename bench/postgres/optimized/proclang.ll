@@ -304,19 +304,19 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 define dso_local i32 @get_language_oid(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
   %4 = tail call i32 @GetSysCacheOid(i32 noundef 35, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
-  %.not = icmp ne i32 %4, 0
-  %brmerge = or i1 %1, %.not
-  br i1 %brmerge, label %9, label %5
+  %5 = icmp ne i32 %4, 0
+  %or.cond = or i1 %1, %5
+  br i1 %or.cond, label %10, label %6
 
-5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 67137668) #6
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %0) #6
+6:                                                ; preds = %2
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  tail call void @llvm.assume(i1 %7)
+  %8 = tail call i32 @errcode(i32 noundef 67137668) #6
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %0) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 235, ptr noundef nonnull @__func__.get_language_oid) #6
   unreachable
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   ret i32 %4
 }
 

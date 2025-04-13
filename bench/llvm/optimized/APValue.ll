@@ -6986,13 +6986,13 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   %32 = and i8 %31, 3
   %33 = icmp samesign ule i8 %28, %32
   %34 = icmp ne i8 %28, %32
-  %brmerge.i.i.i.i102 = or i1 %30, %34
-  %or.cond.i.i.i.i103 = and i1 %33, %brmerge.i.i.i.i102
+  %or.cond.i.i.i.i102 = or i1 %30, %34
+  %or.cond9.i.i.i.i103 = and i1 %33, %or.cond.i.i.i.i102
   %35 = shl nuw nsw i8 %28, 3
   %36 = and i8 %26, -57
   %37 = or disjoint i8 %36, %35
   %38 = or disjoint i8 %37, %29
-  %storemerge.i.i104 = select i1 %or.cond.i.i.i.i103, i8 %38, i8 %26
+  %storemerge.i.i104 = select i1 %or.cond9.i.i.i.i103, i8 %38, i8 %26
   store i8 %storemerge.i.i104, ptr %4, align 1
   %39 = and i8 %storemerge.i.i104, 7
   %40 = icmp eq i8 %39, 2
@@ -7054,13 +7054,13 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   %67 = and i8 %66, 3
   %68 = icmp samesign ule i8 %63, %67
   %69 = icmp ne i8 %63, %67
-  %brmerge.i.i.i.i112 = or i1 %65, %69
-  %or.cond.i.i.i.i113 = and i1 %68, %brmerge.i.i.i.i112
+  %or.cond.i.i.i.i112 = or i1 %65, %69
+  %or.cond9.i.i.i.i113 = and i1 %68, %or.cond.i.i.i.i112
   %70 = shl nuw nsw i8 %63, 3
   %71 = and i8 %61, -57
   %72 = or disjoint i8 %71, %70
   %73 = or disjoint i8 %72, %64
-  %storemerge.i.i114 = select i1 %or.cond.i.i.i.i113, i8 %73, i8 %61
+  %storemerge.i.i114 = select i1 %or.cond9.i.i.i.i113, i8 %73, i8 %61
   store i8 %storemerge.i.i114, ptr %4, align 1
   %74 = and i8 %storemerge.i.i114, 7
   %75 = icmp eq i8 %74, 2
@@ -7113,13 +7113,13 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   %100 = and i8 %99, 3
   %101 = icmp samesign ule i8 %96, %100
   %102 = icmp ne i8 %96, %100
-  %brmerge.i.i.i.i122 = or i1 %98, %102
-  %or.cond.i.i.i.i123 = and i1 %101, %brmerge.i.i.i.i122
+  %or.cond.i.i.i.i122 = or i1 %98, %102
+  %or.cond9.i.i.i.i123 = and i1 %101, %or.cond.i.i.i.i122
   %103 = shl nuw nsw i8 %96, 3
   %104 = and i8 %94, -57
   %105 = or disjoint i8 %104, %103
   %106 = or disjoint i8 %105, %97
-  %storemerge.i.i124 = select i1 %or.cond.i.i.i.i123, i8 %106, i8 %94
+  %storemerge.i.i124 = select i1 %or.cond9.i.i.i.i123, i8 %106, i8 %94
   br label %.thread190
 
 107:                                              ; preds = %3
@@ -7172,13 +7172,13 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   %132 = and i8 %131, 3
   %133 = icmp samesign ule i8 %128, %132
   %134 = icmp ne i8 %128, %132
-  %brmerge.i.i.i.i132 = or i1 %130, %134
-  %or.cond.i.i.i.i133 = and i1 %133, %brmerge.i.i.i.i132
+  %or.cond.i.i.i.i132 = or i1 %130, %134
+  %or.cond9.i.i.i.i133 = and i1 %133, %or.cond.i.i.i.i132
   %135 = shl nuw nsw i8 %128, 3
   %136 = and i8 %126, -57
   %137 = or disjoint i8 %136, %135
   %138 = or disjoint i8 %137, %129
-  %storemerge.i.i134 = select i1 %or.cond.i.i.i.i133, i8 %138, i8 %126
+  %storemerge.i.i134 = select i1 %or.cond9.i.i.i.i133, i8 %138, i8 %126
   store i8 %storemerge.i.i134, ptr %4, align 1
   %139 = and i8 %storemerge.i.i134, 7
   %140 = icmp eq i8 %139, 2
@@ -7239,13 +7239,13 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   %166 = and i8 %165, 3
   %167 = icmp samesign ule i8 %162, %166
   %168 = icmp ne i8 %162, %166
-  %brmerge.i.i.i.i142 = or i1 %164, %168
-  %or.cond.i.i.i.i143 = and i1 %167, %brmerge.i.i.i.i142
+  %or.cond.i.i.i.i142 = or i1 %164, %168
+  %or.cond9.i.i.i.i143 = and i1 %167, %or.cond.i.i.i.i142
   %169 = shl nuw nsw i8 %162, 3
   %170 = and i8 %160, -57
   %171 = or disjoint i8 %170, %169
   %172 = or disjoint i8 %171, %163
-  %storemerge.i.i144 = select i1 %or.cond.i.i.i.i143, i8 %172, i8 %160
+  %storemerge.i.i144 = select i1 %or.cond9.i.i.i.i143, i8 %172, i8 %160
   br label %.thread190
 
 173:                                              ; preds = %3
@@ -7301,13 +7301,13 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   %197 = and i8 %196, 3
   %198 = icmp samesign ule i8 %193, %197
   %199 = icmp ne i8 %193, %197
-  %brmerge.i.i.i.i = or i1 %195, %199
-  %or.cond.i.i.i.i = and i1 %198, %brmerge.i.i.i.i
+  %or.cond.i.i.i.i = or i1 %195, %199
+  %or.cond9.i.i.i.i = and i1 %198, %or.cond.i.i.i.i
   %200 = shl nuw nsw i8 %193, 3
   %201 = and i8 %191, -57
   %202 = or disjoint i8 %201, %200
   %203 = or disjoint i8 %202, %194
-  %storemerge.i.i = select i1 %or.cond.i.i.i.i, i8 %203, i8 %191
+  %storemerge.i.i = select i1 %or.cond9.i.i.i.i, i8 %203, i8 %191
   br label %.thread190
 
 204:                                              ; preds = %175
@@ -7346,13 +7346,13 @@ define dso_local i8 @_ZN5clang15LinkageComputer13getLVForValueERKNS_7APValueENS_
   %222 = and i8 %221, 3
   %223 = icmp samesign ule i8 %218, %222
   %224 = icmp ne i8 %218, %222
-  %brmerge.i.i.i.i222 = or i1 %220, %224
-  %or.cond.i.i.i.i223 = and i1 %223, %brmerge.i.i.i.i222
+  %or.cond.i.i.i.i222 = or i1 %220, %224
+  %or.cond9.i.i.i.i223 = and i1 %223, %or.cond.i.i.i.i222
   %225 = shl nuw nsw i8 %218, 3
   %226 = and i8 %216, -57
   %227 = or disjoint i8 %226, %225
   %228 = or disjoint i8 %227, %219
-  %storemerge.i.i224 = select i1 %or.cond.i.i.i.i223, i8 %228, i8 %216
+  %storemerge.i.i224 = select i1 %or.cond9.i.i.i.i223, i8 %228, i8 %216
   br label %.thread190
 
 229:                                              ; preds = %175
@@ -7439,13 +7439,13 @@ _ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit: ; preds = %240, %
   %272 = and i8 %271, 3
   %273 = icmp samesign ule i8 %268, %272
   %274 = icmp ne i8 %268, %272
-  %brmerge.i.i.i.i92 = or i1 %270, %274
-  %or.cond.i.i.i.i93 = and i1 %273, %brmerge.i.i.i.i92
+  %or.cond.i.i.i.i92 = or i1 %270, %274
+  %or.cond9.i.i.i.i93 = and i1 %273, %or.cond.i.i.i.i92
   %275 = shl nuw nsw i8 %268, 3
   %276 = and i8 %266, -57
   %277 = or disjoint i8 %276, %275
   %278 = or disjoint i8 %277, %269
-  %storemerge.i.i94 = select i1 %or.cond.i.i.i.i93, i8 %278, i8 %266
+  %storemerge.i.i94 = select i1 %or.cond9.i.i.i.i93, i8 %278, i8 %266
   br label %.thread190
 
 .thread186:                                       ; preds = %3
@@ -7498,13 +7498,13 @@ _ZN5clang11LinkageInfo5mergeES0_.exit:            ; preds = %.thread.i.i.i.i, %1
   %20 = and i8 %19, 3
   %21 = icmp samesign ule i8 %16, %20
   %22 = icmp ne i8 %16, %20
-  %brmerge.i.i.i = or i1 %18, %22
-  %or.cond.i.i.i = and i1 %21, %brmerge.i.i.i
+  %or.cond.i.i.i = or i1 %18, %22
+  %or.cond9.i.i.i = and i1 %21, %or.cond.i.i.i
   %23 = shl nuw nsw i8 %16, 3
   %24 = and i8 %14, -57
   %25 = or disjoint i8 %24, %23
   %26 = or disjoint i8 %25, %17
-  %storemerge.i = select i1 %or.cond.i.i.i, i8 %26, i8 %14
+  %storemerge.i = select i1 %or.cond9.i.i.i, i8 %26, i8 %14
   store i8 %storemerge.i, ptr %3, align 1
   ret void
 }

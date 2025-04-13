@@ -1979,213 +1979,205 @@ define hidden noundef ptr @_ZN20G1ParScanThreadState18allocate_copy_slowEP16G1He
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 1
-  br i1 %11, label %12, label %16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %13 = load i8, ptr %12, align 8
+  %14 = trunc i8 %13 to i1
+  %or.cond = select i1 %11, i1 %14, i1 false
+  br i1 %or.cond, label %_ZNK20G1ParScanThreadState22report_promotion_eventE16G1HeapRegionAttrP7oopDescmjPP12HeapWordImplj.exit, label %15
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %14 = load i8, ptr %13, align 8
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %_ZNK20G1ParScanThreadState22report_promotion_eventE16G1HeapRegionAttrP7oopDescmjPP12HeapWordImplj.exit, label %16
-
-16:                                               ; preds = %12, %6
+15:                                               ; preds = %6
   store i8 0, ptr %8, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %18 = load ptr, ptr %17, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %17 = load ptr, ptr %16, align 8
   %.sroa.02.0.copyload = load i24, ptr %1, align 1
-  %19 = call noundef ptr @_ZN15G1PLABAllocator27allocate_direct_or_new_plabE16G1HeapRegionAttrmPbj(ptr noundef nonnull align 8 dereferenceable(136) %18, i24 %.sroa.02.0.copyload, i64 noundef %3, ptr noundef nonnull %8, i32 noundef %5) #13
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %.thread27
+  %18 = call noundef ptr @_ZN15G1PLABAllocator27allocate_direct_or_new_plabE16G1HeapRegionAttrmPbj(ptr noundef nonnull align 8 dereferenceable(136) %17, i24 %.sroa.02.0.copyload, i64 noundef %3, ptr noundef nonnull %8, i32 noundef %5) #13
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %.thread29
 
-21:                                               ; preds = %16
-  %22 = load i8, ptr %8, align 1
-  %23 = trunc i8 %22 to i1
+20:                                               ; preds = %15
+  %21 = load i8, ptr %8, align 1
+  %22 = trunc i8 %21 to i1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %24 = load i8, ptr %9, align 1
-  %25 = icmp eq i8 %24, 0
-  br i1 %25, label %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i.i.i, label %46
+  %23 = load i8, ptr %9, align 1
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i.i.i, label %.thread33
 
-_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i.i.i: ; preds = %21
+_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i.i.i: ; preds = %20
   store i8 0, ptr %7, align 1
-  %26 = load ptr, ptr %17, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %28 = load ptr, ptr %27, align 8
-  %.0.i.i.i.i.i = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 56
-  %32 = load ptr, ptr %31, align 8
-  %33 = ptrtoint ptr %32 to i64
-  %34 = ptrtoint ptr %30 to i64
-  %35 = sub i64 %33, %34
-  %36 = lshr i64 %35, 3
-  %.not.i.i.i.i = icmp ult i64 %36, %3
+  %25 = load ptr, ptr %16, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
+  %27 = load ptr, ptr %26, align 8
+  %.0.i.i.i.i.i = load ptr, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 56
+  %31 = load ptr, ptr %30, align 8
+  %32 = ptrtoint ptr %31 to i64
+  %33 = ptrtoint ptr %29 to i64
+  %34 = sub i64 %32, %33
+  %35 = lshr i64 %34, 3
+  %.not.i.i.i.i = icmp ult i64 %35, %3
   br i1 %.not.i.i.i.i, label %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.thread.i.i, label %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.i.i
 
 _ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.i.i: ; preds = %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i.i.i
-  %37 = getelementptr inbounds ptr, ptr %30, i64 %3
-  store ptr %37, ptr %29, align 8
-  %.not.i.i = icmp eq ptr %30, null
+  %36 = getelementptr inbounds ptr, ptr %29, i64 %3
+  store ptr %36, ptr %28, align 8
+  %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.thread.i.i, label %_ZN15G1PLABAllocator8allocateE16G1HeapRegionAttrmPbj.exit.i
 
 _ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.thread.i.i: ; preds = %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.i.i, %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i.i.i
-  %38 = call noundef ptr @_ZN15G1PLABAllocator27allocate_direct_or_new_plabE16G1HeapRegionAttrmPbj(ptr noundef nonnull align 8 dereferenceable(136) %26, i24 256, i64 noundef %3, ptr noundef nonnull %7, i32 noundef %5) #13
+  %37 = call noundef ptr @_ZN15G1PLABAllocator27allocate_direct_or_new_plabE16G1HeapRegionAttrmPbj(ptr noundef nonnull align 8 dereferenceable(136) %25, i24 256, i64 noundef %3, ptr noundef nonnull %7, i32 noundef %5) #13
   br label %_ZN15G1PLABAllocator8allocateE16G1HeapRegionAttrmPbj.exit.i
 
 _ZN15G1PLABAllocator8allocateE16G1HeapRegionAttrmPbj.exit.i: ; preds = %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.thread.i.i, %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.i.i
-  %.0.i.i = phi ptr [ %38, %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.thread.i.i ], [ %30, %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.i.i ]
-  br i1 %23, label %39, label %41
+  %.0.i.i = phi ptr [ %37, %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.thread.i.i ], [ %29, %_ZN15G1PLABAllocator13plab_allocateE16G1HeapRegionAttrmj.exit.i.i ]
+  br i1 %22, label %38, label %40
 
-39:                                               ; preds = %_ZN15G1PLABAllocator8allocateE16G1HeapRegionAttrmPbj.exit.i
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i32 0, ptr %40, align 8
-  br label %41
+38:                                               ; preds = %_ZN15G1PLABAllocator8allocateE16G1HeapRegionAttrmPbj.exit.i
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store i32 0, ptr %39, align 8
+  br label %40
 
-41:                                               ; preds = %39, %_ZN15G1PLABAllocator8allocateE16G1HeapRegionAttrmPbj.exit.i
+40:                                               ; preds = %38, %_ZN15G1PLABAllocator8allocateE16G1HeapRegionAttrmPbj.exit.i
   %.not.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i, label %42, label %49
+  br i1 %.not.i, label %41, label %43
 
-42:                                               ; preds = %41
-  %43 = load i8, ptr %7, align 1
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %45 = and i8 %43, 1
-  store i8 %45, ptr %44, align 8
-  br label %.thread31
+41:                                               ; preds = %40
+  %42 = load i8, ptr %7, align 1
+  br label %.thread33
 
-46:                                               ; preds = %21
-  %47 = and i8 %22, 1
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store i8 %47, ptr %48, align 8
-  br label %.thread31
-
-.thread31:                                        ; preds = %46, %42
+.thread33:                                        ; preds = %20, %41
+  %storemerge.in = phi i8 [ %42, %41 ], [ %21, %20 ]
+  %storemerge = and i8 %storemerge.in, 1
+  store i8 %storemerge, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   br label %_ZNK20G1ParScanThreadState22report_promotion_eventE16G1HeapRegionAttrP7oopDescmjPP12HeapWordImplj.exit
 
-49:                                               ; preds = %41
+43:                                               ; preds = %40
   store i8 1, ptr %9, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  br label %.thread27
+  br label %.thread29
 
-.thread27:                                        ; preds = %16, %49
-  %.030 = phi ptr [ %.0.i.i, %49 ], [ %19, %16 ]
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %51 = load ptr, ptr %50, align 8
-  %.not.i21 = icmp eq ptr %51, null
-  br i1 %.not.i21, label %_ZN20G1ParScanThreadState17update_numa_statsEj.exit, label %52
+.thread29:                                        ; preds = %15, %43
+  %.032 = phi ptr [ %.0.i.i, %43 ], [ %18, %15 ]
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %45 = load ptr, ptr %44, align 8
+  %.not.i23 = icmp eq ptr %45, null
+  br i1 %.not.i23, label %_ZN20G1ParScanThreadState17update_numa_statsEj.exit, label %46
 
-52:                                               ; preds = %.thread27
-  %53 = zext i32 %5 to i64
-  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %53
-  %55 = load i64, ptr %54, align 8
-  %56 = add i64 %55, 1
-  store i64 %56, ptr %54, align 8
+46:                                               ; preds = %.thread29
+  %47 = zext i32 %5 to i64
+  %48 = getelementptr inbounds nuw i64, ptr %45, i64 %47
+  %49 = load i64, ptr %48, align 8
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %48, align 8
   br label %_ZN20G1ParScanThreadState17update_numa_statsEj.exit
 
-_ZN20G1ParScanThreadState17update_numa_statsEj.exit: ; preds = %.thread27, %52
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1056
-  %60 = load ptr, ptr %59, align 8
-  %61 = call noundef zeroext i1 @_ZNK13YoungGCTracer30should_report_promotion_eventsEv(ptr noundef nonnull align 8 dereferenceable(84) %60) #13
-  br i1 %61, label %62, label %_ZNK20G1ParScanThreadState22report_promotion_eventE16G1HeapRegionAttrP7oopDescmjPP12HeapWordImplj.exit
+_ZN20G1ParScanThreadState17update_numa_statsEj.exit: ; preds = %.thread29, %46
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1056
+  %54 = load ptr, ptr %53, align 8
+  %55 = call noundef zeroext i1 @_ZNK13YoungGCTracer30should_report_promotion_eventsEv(ptr noundef nonnull align 8 dereferenceable(84) %54) #13
+  br i1 %55, label %56, label %_ZNK20G1ParScanThreadState22report_promotion_eventE16G1HeapRegionAttrP7oopDescmjPP12HeapWordImplj.exit
 
-62:                                               ; preds = %_ZN20G1ParScanThreadState17update_numa_statsEj.exit
+56:                                               ; preds = %_ZN20G1ParScanThreadState17update_numa_statsEj.exit
   %.sroa.0.0.copyload = load i24, ptr %1, align 1
   %.sroa.1.0.extract.shift.i = lshr i24 %.sroa.0.0.copyload, 8
   %.sroa.1.0.extract.trunc.i = trunc i24 %.sroa.1.0.extract.shift.i to i8
-  %63 = load ptr, ptr %17, align 8
-  %64 = icmp eq i8 %.sroa.1.0.extract.trunc.i, 0
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  br i1 %64, label %66, label %70
+  %57 = load ptr, ptr %16, align 8
+  %58 = icmp eq i8 %.sroa.1.0.extract.trunc.i, 0
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  br i1 %58, label %60, label %64
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr %65, align 8
-  %68 = zext i32 %5 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %59, align 8
+  %62 = zext i32 %5 to i64
+  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %62
   br label %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i
 
-70:                                               ; preds = %62
-  %71 = sext i8 %.sroa.1.0.extract.trunc.i to i64
-  %72 = getelementptr inbounds [2 x %"struct.G1PLABAllocator::PLABData"], ptr %65, i64 0, i64 %71
-  %73 = load ptr, ptr %72, align 8
+64:                                               ; preds = %56
+  %65 = sext i8 %.sroa.1.0.extract.trunc.i to i64
+  %66 = getelementptr inbounds [2 x %"struct.G1PLABAllocator::PLABData"], ptr %59, i64 0, i64 %65
+  %67 = load ptr, ptr %66, align 8
   br label %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i
 
-_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i: ; preds = %70, %66
-  %.0.in.i.i.i = phi ptr [ %69, %66 ], [ %73, %70 ]
+_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i: ; preds = %64, %60
+  %.0.in.i.i.i = phi ptr [ %63, %60 ], [ %67, %64 ]
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
-  %75 = load ptr, ptr %74, align 8
-  %.not.i.i22 = icmp ule ptr %75, %.030
-  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp ult ptr %.030, %77
-  %79 = select i1 %.not.i.i22, i1 %78, i1 false
-  %80 = load ptr, ptr %57, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1056
-  %82 = load ptr, ptr %81, align 8
-  %83 = load i8, ptr @UseCompressedClassPointers, align 1
-  %84 = trunc i8 %83 to i1
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br i1 %79, label %86, label %104
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
+  %69 = load ptr, ptr %68, align 8
+  %.not.i.i24 = icmp ule ptr %69, %.032
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp ult ptr %.032, %71
+  %73 = select i1 %.not.i.i24, i1 %72, i1 false
+  %74 = load ptr, ptr %51, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1056
+  %76 = load ptr, ptr %75, align 8
+  %77 = load i8, ptr @UseCompressedClassPointers, align 1
+  %78 = trunc i8 %77 to i1
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br i1 %73, label %80, label %98
 
-86:                                               ; preds = %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i
-  br i1 %84, label %87, label %97
+80:                                               ; preds = %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i
+  br i1 %78, label %81, label %91
 
-87:                                               ; preds = %86
-  %88 = load i32, ptr %85, align 8
-  %89 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %90 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %91 = ptrtoint ptr %89 to i64
-  %92 = zext i32 %88 to i64
-  %93 = zext nneg i32 %90 to i64
-  %94 = shl i64 %92, %93
-  %95 = add i64 %94, %91
-  %96 = inttoptr i64 %95 to ptr
+81:                                               ; preds = %80
+  %82 = load i32, ptr %79, align 8
+  %83 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %84 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %85 = ptrtoint ptr %83 to i64
+  %86 = zext i32 %82 to i64
+  %87 = zext nneg i32 %84 to i64
+  %88 = shl i64 %86, %87
+  %89 = add i64 %88, %85
+  %90 = inttoptr i64 %89 to ptr
   br label %_ZNK7oopDesc5klassEv.exit.i
 
-97:                                               ; preds = %86
-  %98 = load ptr, ptr %85, align 8
+91:                                               ; preds = %80
+  %92 = load ptr, ptr %79, align 8
   br label %_ZNK7oopDesc5klassEv.exit.i
 
-_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %97, %87
-  %.0.i.i23 = phi ptr [ %96, %87 ], [ %98, %97 ]
-  %99 = shl i64 %3, 3
-  %100 = icmp eq i8 %.sroa.1.0.extract.trunc.i, 1
-  %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  %102 = load i64, ptr %101, align 8
-  %103 = shl i64 %102, 3
-  call void @_ZNK13YoungGCTracer34report_promotion_in_new_plab_eventEP5Klassmjbm(ptr noundef nonnull align 8 dereferenceable(84) %82, ptr noundef %.0.i.i23, i64 noundef %99, i32 noundef %4, i1 noundef zeroext %100, i64 noundef %103) #13
+_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %91, %81
+  %.0.i.i25 = phi ptr [ %90, %81 ], [ %92, %91 ]
+  %93 = shl i64 %3, 3
+  %94 = icmp eq i8 %.sroa.1.0.extract.trunc.i, 1
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
+  %96 = load i64, ptr %95, align 8
+  %97 = shl i64 %96, 3
+  call void @_ZNK13YoungGCTracer34report_promotion_in_new_plab_eventEP5Klassmjbm(ptr noundef nonnull align 8 dereferenceable(84) %76, ptr noundef %.0.i.i25, i64 noundef %93, i32 noundef %4, i1 noundef zeroext %94, i64 noundef %97) #13
   br label %_ZNK20G1ParScanThreadState22report_promotion_eventE16G1HeapRegionAttrP7oopDescmjPP12HeapWordImplj.exit
 
-104:                                              ; preds = %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i
-  br i1 %84, label %105, label %115
+98:                                               ; preds = %_ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit.i
+  br i1 %78, label %99, label %109
 
-105:                                              ; preds = %104
-  %106 = load i32, ptr %85, align 8
-  %107 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %108 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %109 = ptrtoint ptr %107 to i64
-  %110 = zext i32 %106 to i64
-  %111 = zext nneg i32 %108 to i64
-  %112 = shl i64 %110, %111
-  %113 = add i64 %112, %109
-  %114 = inttoptr i64 %113 to ptr
+99:                                               ; preds = %98
+  %100 = load i32, ptr %79, align 8
+  %101 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %102 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %103 = ptrtoint ptr %101 to i64
+  %104 = zext i32 %100 to i64
+  %105 = zext nneg i32 %102 to i64
+  %106 = shl i64 %104, %105
+  %107 = add i64 %106, %103
+  %108 = inttoptr i64 %107 to ptr
   br label %_ZNK7oopDesc5klassEv.exit12.i
 
-115:                                              ; preds = %104
-  %116 = load ptr, ptr %85, align 8
+109:                                              ; preds = %98
+  %110 = load ptr, ptr %79, align 8
   br label %_ZNK7oopDesc5klassEv.exit12.i
 
-_ZNK7oopDesc5klassEv.exit12.i:                    ; preds = %115, %105
-  %.0.i11.i = phi ptr [ %114, %105 ], [ %116, %115 ]
-  %117 = shl i64 %3, 3
-  %118 = icmp eq i8 %.sroa.1.0.extract.trunc.i, 1
-  call void @_ZNK13YoungGCTracer35report_promotion_outside_plab_eventEP5Klassmjb(ptr noundef nonnull align 8 dereferenceable(84) %82, ptr noundef %.0.i11.i, i64 noundef %117, i32 noundef %4, i1 noundef zeroext %118) #13
+_ZNK7oopDesc5klassEv.exit12.i:                    ; preds = %109, %99
+  %.0.i11.i = phi ptr [ %108, %99 ], [ %110, %109 ]
+  %111 = shl i64 %3, 3
+  %112 = icmp eq i8 %.sroa.1.0.extract.trunc.i, 1
+  call void @_ZNK13YoungGCTracer35report_promotion_outside_plab_eventEP5Klassmjb(ptr noundef nonnull align 8 dereferenceable(84) %76, ptr noundef %.0.i11.i, i64 noundef %111, i32 noundef %4, i1 noundef zeroext %112) #13
   br label %_ZNK20G1ParScanThreadState22report_promotion_eventE16G1HeapRegionAttrP7oopDescmjPP12HeapWordImplj.exit
 
-_ZNK20G1ParScanThreadState22report_promotion_eventE16G1HeapRegionAttrP7oopDescmjPP12HeapWordImplj.exit: ; preds = %12, %_ZNK7oopDesc5klassEv.exit12.i, %_ZNK7oopDesc5klassEv.exit.i, %.thread31, %_ZN20G1ParScanThreadState17update_numa_statsEj.exit
-  %.026 = phi ptr [ %.030, %_ZN20G1ParScanThreadState17update_numa_statsEj.exit ], [ null, %.thread31 ], [ %.030, %_ZNK7oopDesc5klassEv.exit.i ], [ %.030, %_ZNK7oopDesc5klassEv.exit12.i ], [ null, %12 ]
-  ret ptr %.026
+_ZNK20G1ParScanThreadState22report_promotion_eventE16G1HeapRegionAttrP7oopDescmjPP12HeapWordImplj.exit: ; preds = %6, %_ZNK7oopDesc5klassEv.exit12.i, %_ZNK7oopDesc5klassEv.exit.i, %.thread33, %_ZN20G1ParScanThreadState17update_numa_statsEj.exit
+  %.028 = phi ptr [ %.032, %_ZN20G1ParScanThreadState17update_numa_statsEj.exit ], [ null, %.thread33 ], [ %.032, %_ZNK7oopDesc5klassEv.exit.i ], [ %.032, %_ZNK7oopDesc5klassEv.exit12.i ], [ null, %6 ]
+  ret ptr %.028
 }
 
 declare noundef ptr @_ZN15G1PLABAllocator27allocate_direct_or_new_plabE16G1HeapRegionAttrmPbj(ptr noundef nonnull align 8 dereferenceable(136), i24, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

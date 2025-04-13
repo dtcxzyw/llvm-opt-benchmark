@@ -2480,9 +2480,9 @@ _ZNK8QuantLib8Settings9DateProxycvNS_4DateEEv.exit: ; preds = %_ZN8QuantLib9Sing
   %28 = load i64, ptr %fixingDate, align 8, !tbaa !35
   %cmp.i = icmp sgt i64 %28, %retval.sroa.0.0.i
   %cmp.i44 = icmp eq i64 %28, %retval.sroa.0.0.i
-  %brmerge.not = and i1 %forecastTodaysFixing, %cmp.i44
-  %or.cond = or i1 %cmp.i, %brmerge.not
-  br i1 %or.cond, label %cleanup124.sink.split, label %if.end39
+  %or.cond = and i1 %forecastTodaysFixing, %cmp.i44
+  %or.cond138 = or i1 %cmp.i, %or.cond
+  br i1 %or.cond138, label %cleanup124.sink.split, label %if.end39
 
 if.end39:                                         ; preds = %_ZNK8QuantLib8Settings9DateProxycvNS_4DateEEv.exit
   %cmp.i45 = icmp slt i64 %28, %retval.sroa.0.0.i

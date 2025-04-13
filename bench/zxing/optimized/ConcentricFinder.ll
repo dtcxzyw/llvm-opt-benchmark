@@ -376,7 +376,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i: ; preds = %15
 _ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit: ; preds = %.lr.ph.i, %15, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i, %.critedge.i
   %.sroa.058.1 = phi double [ %40, %.critedge.i ], [ %.sroa.058.079, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i ], [ %.sroa.058.079, %15 ], [ %.sroa.058.079, %.lr.ph.i ]
   %.sroa.559.1 = phi double [ %41, %.critedge.i ], [ %.sroa.559.080, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i ], [ %.sroa.559.080, %15 ], [ %.sroa.559.080, %.lr.ph.i ]
-  %.sink.i.not = phi i1 [ false, %.critedge.i ], [ true, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i ], [ true, %15 ], [ true, %.lr.ph.i ]
+  %.sink.i = phi i1 [ true, %.critedge.i ], [ false, %_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE4isInEv.exit.i ], [ false, %15 ], [ false, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %42 = sub i64 0, %13
   %.sroa.0.0.insert.ext.i = and i64 %42, 4294967295
@@ -446,7 +446,7 @@ _ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48: ; p
   %.sroa.7.0.lcssa.i26 = phi double [ 0.000000e+00, %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit ], [ %67, %50 ]
   %.sroa.038.0.lcssa.i27 = phi double [ 0.000000e+00, %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit ], [ %66, %50 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br i1 %.sink.i.not, label %.loopexit, label %.critedge
+  br i1 %.sink.i, label %.critedge, label %.loopexit
 
 .critedge:                                        ; preds = %_ZN5ZXing17AverageEdgePixelsENS_15BitMatrixCursorINS_6PointTIiEEEEii.exit48
   %69 = fdiv double %.sroa.7.0.lcssa.i26, %10
@@ -606,8 +606,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing15BitMatrixCursorINS_6PointTIiE
   %.sroa.0.0.insert.ext.i3.i.i = zext i32 %9 to i64
   %.sroa.0.0.insert.insert.i4.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i2.i.i, %.sroa.0.0.insert.ext.i3.i.i
   %11 = tail call i32 @_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE6edgeAtES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.0.0.insert.insert.i4.i.i) #15
-  %.not49 = icmp eq i32 %11, -1
-  br i1 %.not49, label %12, label %18
+  %.not = icmp eq i32 %11, -1
+  br i1 %.not, label %12, label %18
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %5, align 4, !tbaa !20
@@ -625,47 +625,47 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing15BitMatrixCursorINS_6PointTIiE
 18:                                               ; preds = %3
   %.sroa.0.0.copyload.i.i = load i64, ptr %4, align 8
   %19 = tail call i32 @_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE6edgeAtES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.0.0.copyload.i.i) #15
-  %.not50 = icmp eq i32 %19, -1
-  %.pre55 = load i32, ptr %5, align 4, !tbaa !32
-  br i1 %.not50, label %32, label %20
+  %.not47 = icmp eq i32 %19, -1
+  %.pre53 = load i32, ptr %5, align 4, !tbaa !32
+  br i1 %.not47, label %32, label %20
 
 20:                                               ; preds = %18
   %21 = icmp eq i32 %1, -1
   %22 = select i1 %21, i32 1, i32 -1
   %23 = load i32, ptr %4, align 8, !tbaa !19
-  %24 = sub i32 0, %.pre55
-  %.neg51 = select i1 %21, i32 %24, i32 %.pre55
+  %24 = sub i32 0, %.pre53
+  %.neg48 = select i1 %21, i32 %24, i32 %.pre53
   %25 = mul nsw i32 %23, %22
   %.sroa.2.0.insert.ext.i1.i.i16 = zext i32 %25 to i64
   %.sroa.2.0.insert.shift.i2.i.i17 = shl nuw i64 %.sroa.2.0.insert.ext.i1.i.i16, 32
-  %.sroa.0.0.insert.ext.i3.i.i18 = zext i32 %.neg51 to i64
+  %.sroa.0.0.insert.ext.i3.i.i18 = zext i32 %.neg48 to i64
   %.sroa.0.0.insert.insert.i4.i.i19 = or disjoint i64 %.sroa.2.0.insert.shift.i2.i.i17, %.sroa.0.0.insert.ext.i3.i.i18
   store i64 %.sroa.0.0.insert.insert.i4.i.i19, ptr %4, align 8
   %26 = tail call i32 @_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE6edgeAtES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.0.0.insert.insert.i4.i.i19) #15
-  %.not52 = icmp eq i32 %26, -1
-  %.pre56 = load i32, ptr %5, align 4, !tbaa !32
-  br i1 %.not52, label %32, label %27
+  %.not49 = icmp eq i32 %26, -1
+  %.pre54 = load i32, ptr %5, align 4, !tbaa !32
+  br i1 %.not49, label %32, label %27
 
 27:                                               ; preds = %20
   %28 = load i32, ptr %4, align 8, !tbaa !19
-  %29 = sub i32 0, %.pre56
-  %.neg53 = select i1 %21, i32 %29, i32 %.pre56
+  %29 = sub i32 0, %.pre54
+  %.neg50 = select i1 %21, i32 %29, i32 %.pre54
   %30 = mul nsw i32 %28, %22
   %.sroa.2.0.insert.ext.i1.i.i21 = zext i32 %30 to i64
   %.sroa.2.0.insert.shift.i2.i.i22 = shl nuw i64 %.sroa.2.0.insert.ext.i1.i.i21, 32
-  %.sroa.0.0.insert.ext.i3.i.i23 = zext i32 %.neg53 to i64
+  %.sroa.0.0.insert.ext.i3.i.i23 = zext i32 %.neg50 to i64
   %.sroa.0.0.insert.insert.i4.i.i24 = or disjoint i64 %.sroa.2.0.insert.shift.i2.i.i22, %.sroa.0.0.insert.ext.i3.i.i23
   store i64 %.sroa.0.0.insert.insert.i4.i.i24, ptr %4, align 8
   %31 = tail call i32 @_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE6edgeAtES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.0.0.insert.insert.i4.i.i24) #15
-  %.not54 = icmp eq i32 %31, -1
-  br i1 %.not54, label %._crit_edge, label %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit41
+  %.not51 = icmp eq i32 %31, -1
+  br i1 %.not51, label %._crit_edge, label %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit41
 
 ._crit_edge:                                      ; preds = %27
   %.pre = load i32, ptr %5, align 4, !tbaa !32
   br label %32
 
 32:                                               ; preds = %._crit_edge, %18, %20, %12
-  %33 = phi i32 [ %.pre, %._crit_edge ], [ %.pre55, %18 ], [ %.pre56, %20 ], [ %17, %12 ]
+  %33 = phi i32 [ %.pre, %._crit_edge ], [ %.pre53, %18 ], [ %.pre54, %20 ], [ %17, %12 ]
   %34 = load i32, ptr %4, align 8, !tbaa !31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !31
@@ -694,8 +694,8 @@ _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit: ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !18
   %47 = icmp sgt i32 %46, %.sroa.3.0.extract.trunc.i.i.i
-  %brmerge.demorgan = and i1 %2, %47
-  br i1 %brmerge.demorgan, label %48, label %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit41
+  %or.cond = and i1 %2, %47
+  br i1 %or.cond, label %48, label %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit41
 
 48:                                               ; preds = %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit
   %49 = mul i32 %1, %33
@@ -706,8 +706,8 @@ _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit: ; preds = %42
   %.sroa.0.0.insert.ext.i3.i.i28 = zext i32 %50 to i64
   %.sroa.0.0.insert.insert.i4.i.i29 = or disjoint i64 %.sroa.2.0.insert.shift.i2.i.i27, %.sroa.0.0.insert.ext.i3.i.i28
   %52 = tail call i32 @_ZNK5ZXing15BitMatrixCursorINS_6PointTIiEEE6edgeAtES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.0.0.insert.insert.i4.i.i29) #15
-  %.not = icmp eq i32 %52, -1
-  br i1 %.not, label %53, label %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit41
+  %.not52 = icmp eq i32 %52, -1
+  br i1 %.not52, label %53, label %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit41
 
 53:                                               ; preds = %48
   %54 = load i32, ptr %5, align 4, !tbaa !20
@@ -748,8 +748,8 @@ _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit: ; preds = %42
   br label %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit41
 
 _ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit41: ; preds = %32, %42, %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit, %67, %64, %53, %48, %27
-  %.010 = phi i1 [ false, %27 ], [ true, %48 ], [ false, %64 ], [ false, %53 ], [ %70, %67 ], [ %47, %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit ], [ false, %42 ], [ false, %32 ]
-  ret i1 %.010
+  %.011 = phi i1 [ false, %27 ], [ true, %48 ], [ false, %64 ], [ false, %53 ], [ %70, %67 ], [ %47, %_ZN5ZXing15BitMatrixCursorINS_6PointTIiEEE4stepEi.exit ], [ false, %42 ], [ false, %32 ]
+  ret i1 %.011
 }
 
 ; Function Attrs: mustprogress uwtable

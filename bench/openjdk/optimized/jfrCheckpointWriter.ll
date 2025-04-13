@@ -335,107 +335,109 @@ declare noundef ptr @_ZN20JfrCheckpointManager12lease_globalEP6Threadbm(ptr noun
 define hidden void @_ZN19JfrCheckpointWriterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(73) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %_ZN19JfrCheckpointWriter7releaseEv.exit, label %4
-
-4:                                                ; preds = %1
+  %4 = icmp ne ptr %3, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %16, label %8
+  %or.cond = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond, label %17, label %8
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %0, align 8
-  %12 = icmp eq ptr %10, %11
-  br i1 %12, label %_ZN19JfrCheckpointWriter7releaseEv.exit, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i
+8:                                                ; preds = %1
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %_ZN19JfrCheckpointWriter7releaseEv.exit, label %9
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i: ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+9:                                                ; preds = %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = load ptr, ptr %0, align 8
+  %13 = icmp eq ptr %11, %12
+  br i1 %13, label %_ZN19JfrCheckpointWriter7releaseEv.exit, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i
+
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i: ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  store volatile ptr %10, ptr %15, align 8
+  store volatile ptr %11, ptr %16, align 8
   br label %_ZN19JfrCheckpointWriter7releaseEv.exit.sink.split
 
-16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp eq i32 %18, 0
-  %20 = load ptr, ptr %0, align 8
-  br i1 %19, label %21, label %30
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %19 = load i32, ptr %18, align 8
+  %20 = icmp eq i32 %19, 0
+  %21 = load ptr, ptr %0, align 8
+  br i1 %20, label %22, label %31
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %25, align 8
-  %26 = icmp eq i64 %23, 0
-  br i1 %26, label %_ZN19JfrCheckpointWriter7releaseEv.exit, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i3
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %21, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %25, ptr %26, align 8
+  %27 = icmp eq i64 %24, 0
+  br i1 %27, label %_ZN19JfrCheckpointWriter7releaseEv.exit, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i5
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i3: ; preds = %21
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i5: ; preds = %22
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  store volatile ptr %24, ptr %29, align 8
+  store volatile ptr %25, ptr %30, align 8
   br label %_ZN19JfrCheckpointWriter7releaseEv.exit.sink.split
 
-30:                                               ; preds = %16
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = ptrtoint ptr %32 to i64
-  %34 = ptrtoint ptr %20 to i64
-  %35 = sub i64 %33, %34
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %39 = load i32, ptr %38, align 4
-  tail call fastcc void @_ZL23write_checkpoint_headerPhlljj(ptr noundef %20, i64 noundef %35, i64 noundef %37, i32 noundef %39, i32 noundef %18)
-  %40 = load ptr, ptr %2, align 8
-  %.not.i5 = icmp eq ptr %40, null
-  br i1 %.not.i5, label %_ZN19JfrCheckpointWriter7releaseEv.exit, label %41
+31:                                               ; preds = %17
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %35 = ptrtoint ptr %21 to i64
+  %36 = sub i64 %34, %35
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %40 = load i32, ptr %39, align 4
+  tail call fastcc void @_ZL23write_checkpoint_headerPhlljj(ptr noundef %21, i64 noundef %36, i64 noundef %38, i32 noundef %40, i32 noundef %19)
+  %41 = load ptr, ptr %2, align 8
+  %.not.i7 = icmp eq ptr %41, null
+  br i1 %.not.i7, label %_ZN19JfrCheckpointWriter7releaseEv.exit, label %42
 
-41:                                               ; preds = %30
-  %42 = load ptr, ptr %31, align 8
-  %43 = load ptr, ptr %0, align 8
-  %44 = icmp eq ptr %42, %43
-  br i1 %44, label %_ZN19JfrCheckpointWriter7releaseEv.exit, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i6
+42:                                               ; preds = %31
+  %43 = load ptr, ptr %32, align 8
+  %44 = load ptr, ptr %0, align 8
+  %45 = icmp eq ptr %43, %44
+  br i1 %45, label %_ZN19JfrCheckpointWriter7releaseEv.exit, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i8
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i6: ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i8: ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  store volatile ptr %42, ptr %47, align 8
+  store volatile ptr %43, ptr %48, align 8
   br label %_ZN19JfrCheckpointWriter7releaseEv.exit.sink.split
 
-_ZN19JfrCheckpointWriter7releaseEv.exit.sink.split: ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i3, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i6
-  %.sink = phi ptr [ %42, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i6 ], [ %24, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i3 ], [ %10, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i ]
+_ZN19JfrCheckpointWriter7releaseEv.exit.sink.split: ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i5, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i8
+  %.sink = phi ptr [ %43, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i8 ], [ %25, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i5 ], [ %11, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE6commitEv.exit.i ]
   store ptr %.sink, ptr %0, align 8
   br label %_ZN19JfrCheckpointWriter7releaseEv.exit
 
-_ZN19JfrCheckpointWriter7releaseEv.exit:          ; preds = %_ZN19JfrCheckpointWriter7releaseEv.exit.sink.split, %1, %41, %30, %21, %8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEED2Ev.exit, label %50
+_ZN19JfrCheckpointWriter7releaseEv.exit:          ; preds = %_ZN19JfrCheckpointWriter7releaseEv.exit.sink.split, %42, %31, %22, %9, %8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %50 = load ptr, ptr %49, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %50, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEED2Ev.exit, label %51
 
-50:                                               ; preds = %_ZN19JfrCheckpointWriter7releaseEv.exit
-  %51 = tail call noundef zeroext i1 @_ZNK9JfrBuffer5leaseEv(ptr noundef nonnull align 8 dereferenceable(48) %49) #9
-  br i1 %51, label %52, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEED2Ev.exit
+51:                                               ; preds = %_ZN19JfrCheckpointWriter7releaseEv.exit
+  %52 = tail call noundef zeroext i1 @_ZNK9JfrBuffer5leaseEv(ptr noundef nonnull align 8 dereferenceable(48) %50) #9
+  br i1 %52, label %53, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEED2Ev.exit
 
-52:                                               ; preds = %50
-  %53 = load ptr, ptr %48, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %53, i64 noundef 0, i64 noundef 0, ptr noundef %55) #9
-  store ptr %56, ptr %48, align 8
+53:                                               ; preds = %51
+  %54 = load ptr, ptr %49, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %54, i64 noundef 0, i64 noundef 0, ptr noundef %56) #9
+  store ptr %57, ptr %49, align 8
   br label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEED2Ev.exit
 
-_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEED2Ev.exit: ; preds = %_ZN19JfrCheckpointWriter7releaseEv.exit, %50, %52
+_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEED2Ev.exit: ; preds = %_ZN19JfrCheckpointWriter7releaseEv.exit, %51, %53
   ret void
 }
 

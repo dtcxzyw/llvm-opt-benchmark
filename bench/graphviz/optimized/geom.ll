@@ -17,8 +17,8 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load double, ptr %8, align 8
   %10 = fcmp ugt double %0, %9
-  %or.cond = select i1 %7, i1 true, i1 %10
-  br i1 %or.cond, label %.thread116, label %11
+  %or.cond77 = select i1 %7, i1 true, i1 %10
+  br i1 %or.cond77, label %.thread114, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -30,16 +30,16 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %18 = select i1 %14, i1 %17, i1 false
   %19 = fcmp ugt double %6, %2
   %20 = fcmp ugt double %2, %9
-  %or.cond78 = select i1 %19, i1 true, i1 %20
-  br i1 %or.cond78, label %._crit_edge, label %30
+  %or.cond80 = select i1 %19, i1 true, i1 %20
+  br i1 %or.cond80, label %._crit_edge, label %30
 
-.thread116:                                       ; preds = %5
+.thread114:                                       ; preds = %5
   %21 = fcmp ugt double %6, %2
   %22 = fcmp ugt double %2, %9
-  %or.cond78117 = select i1 %21, i1 true, i1 %22
-  br i1 %or.cond78117, label %.thread, label %.thread116._crit_edge
+  %or.cond80115 = select i1 %21, i1 true, i1 %22
+  br i1 %or.cond80115, label %.thread, label %.thread114._crit_edge
 
-.thread116._crit_edge:                            ; preds = %.thread116
+.thread114._crit_edge:                            ; preds = %.thread114
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load double, ptr %23, align 8, !tbaa !9
   %25 = fcmp ole double %24, %3
@@ -60,10 +60,10 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   br i1 %34, label %94, label %35
 
 35:                                               ; preds = %30
-  %brmerge.demorgan = and i1 %18, %33
-  br i1 %brmerge.demorgan, label %94, label %.thread
+  %or.cond = and i1 %18, %33
+  br i1 %or.cond, label %94, label %.thread
 
-.thread:                                          ; preds = %.thread116, %.thread116._crit_edge, %._crit_edge, %35
+.thread:                                          ; preds = %.thread114, %.thread114._crit_edge, %._crit_edge, %35
   %36 = fcmp oeq double %0, %2
   br i1 %36, label %37, label %42
 
@@ -72,8 +72,8 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %39 = load double, ptr %38, align 8, !tbaa !9
   %40 = fcmp oge double %1, %39
   %41 = fcmp ult double %3, %39
-  %.not80 = xor i1 %40, %41
-  %or.cond82 = or i1 %7, %.not80
+  %.not = xor i1 %40, %41
+  %or.cond82 = or i1 %7, %.not
   %or.cond85 = select i1 %or.cond82, i1 true, i1 %10
   br i1 %or.cond85, label %.critedge, label %94
 
@@ -159,8 +159,8 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
 .critedge:                                        ; preds = %86, %44, %37
   br label %94
 
-94:                                               ; preds = %.thread116._crit_edge, %._crit_edge, %53, %69, %76, %86, %44, %37, %35, %30, %.critedge
-  %.0 = phi i32 [ -1, %.critedge ], [ 0, %30 ], [ 1, %35 ], [ 0, %37 ], [ 0, %44 ], [ 0, %86 ], [ 0, %76 ], [ 0, %69 ], [ 0, %53 ], [ 0, %._crit_edge ], [ 0, %.thread116._crit_edge ]
+94:                                               ; preds = %.thread114._crit_edge, %._crit_edge, %53, %69, %76, %86, %44, %37, %35, %30, %.critedge
+  %.0 = phi i32 [ -1, %.critedge ], [ 0, %30 ], [ 1, %35 ], [ 0, %37 ], [ 0, %44 ], [ 0, %86 ], [ 0, %76 ], [ 0, %69 ], [ 0, %53 ], [ 0, %._crit_edge ], [ 0, %.thread114._crit_edge ]
   ret i32 %.0
 }
 

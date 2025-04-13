@@ -1149,8 +1149,8 @@ define hidden void @_ZN6syntax10validation5block19validate_block_expr17h602add75
           to label %_ZN6syntax3ast9generated5nodes9BlockExpr9stmt_list17h22da10b5aac4f260E.exit unwind label %13
 
 _ZN6syntax3ast9generated5nodes9BlockExpr9stmt_list17h22da10b5aac4f260E.exit: ; preds = %47
-  %.not7 = icmp eq ptr %48, null
-  br i1 %.not7, label %67, label %55
+  %.not9 = icmp eq ptr %48, null
+  br i1 %.not9, label %67, label %55
 
 49:                                               ; preds = %"_ZN5rowan3api19SyntaxNode$LT$L$GT$8children17h50d6bf10adb5d36aE.exit", %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.3712155024907033177.exit.i, %60
   %50 = landingpad { ptr, i32 }

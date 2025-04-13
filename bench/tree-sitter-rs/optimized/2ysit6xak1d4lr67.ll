@@ -1912,15 +1912,14 @@ define void @_ZN11tree_sitter6Parser10set_logger17h8321483bacc9785eE(ptr noalias
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = trunc nuw i8 %.0 to i1
-  %9 = xor i1 %8, true
   br label %.body
 
 .body:                                            ; preds = %6, %33
-  %.0.lpad-body = phi i1 [ %9, %6 ], [ false, %33 ]
+  %.0.lpad-body = phi i1 [ %8, %6 ], [ true, %33 ]
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %33 ]
-  %.not13 = icmp eq ptr %1, null
-  %brmerge = select i1 %.not13, i1 true, i1 %.0.lpad-body
-  br i1 %brmerge, label %common.resume, label %73
+  %9 = icmp ne ptr %1, null
+  %or.cond3 = select i1 %9, i1 %.0.lpad-body, i1 false
+  br i1 %or.cond3, label %73, label %common.resume
 
 10:                                               ; preds = %3
   %.fca.0.extract = extractvalue { i64, i64 } %5, 0
@@ -2022,16 +2021,15 @@ define void @_ZN11tree_sitter6Parser10set_logger17h8321483bacc9785eE(ptr noalias
           to label %50 unwind label %6
 
 50:                                               ; preds = %49
-  br i1 %.not, label %"_ZN4core3ptr160drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$tree_sitter..LogType$C$$RF$str$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h927155138830784aE.exit", label %51
-
-51:                                               ; preds = %50
+  %51 = icmp ne ptr %1, null
   %52 = trunc nuw i8 %.1 to i1
-  br i1 %52, label %53, label %"_ZN4core3ptr160drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$tree_sitter..LogType$C$$RF$str$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h927155138830784aE.exit"
+  %or.cond = select i1 %51, i1 %52, i1 false
+  br i1 %or.cond, label %53, label %"_ZN4core3ptr160drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$tree_sitter..LogType$C$$RF$str$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h927155138830784aE.exit"
 
-"_ZN4core3ptr160drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$tree_sitter..LogType$C$$RF$str$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h927155138830784aE.exit": ; preds = %72, %65, %51, %50
+"_ZN4core3ptr160drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$tree_sitter..LogType$C$$RF$str$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h927155138830784aE.exit": ; preds = %72, %65, %50
   ret void
 
-53:                                               ; preds = %51
+53:                                               ; preds = %50
   %54 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %54)
   %55 = load ptr, ptr %2, align 8, !invariant.load !4, !nonnull !4

@@ -21268,9 +21268,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN
   %8 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !816
   %10 = icmp eq ptr %7, %9
-  %brmerge = or i1 %1, %2
-  %or.cond = or i1 %brmerge, %10
-  br i1 %or.cond, label %.critedge, label %11
+  %or.cond = or i1 %1, %10
+  %or.cond3 = or i1 %2, %or.cond
+  br i1 %or.cond3, label %.critedge, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %9, i64 -8
@@ -21383,8 +21383,8 @@ _ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE17_M_realloc_insertIJRjS6_
 60:                                               ; preds = %.critedge
   %61 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !712
-  %.not.i13 = icmp eq ptr %9, %62
-  br i1 %.not.i13, label %70, label %63
+  %.not.i15 = icmp eq ptr %9, %62
+  br i1 %.not.i15, label %70, label %63
 
 63:                                               ; preds = %60
   store i32 %.sroa.0.0.extract.trunc, ptr %9, align 8, !tbaa !837
@@ -21407,21 +21407,21 @@ _ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE17_M_realloc_insertIJRjS6_
   %72 = ptrtoint ptr %7 to i64
   %73 = sub i64 %71, %72
   %74 = icmp eq i64 %73, 9223372036854775800
-  br i1 %74, label %75, label %_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i15
+  br i1 %74, label %75, label %_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i17
 
 75:                                               ; preds = %70
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #28
   unreachable
 
-_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i15: ; preds = %70
+_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i17: ; preds = %70
   %76 = sdiv exact i64 %73, 24
-  %.sroa.speculated.i.i16 = tail call i64 @llvm.umax.i64(i64 %76, i64 1)
-  %77 = add nsw i64 %.sroa.speculated.i.i16, %76
+  %.sroa.speculated.i.i18 = tail call i64 @llvm.umax.i64(i64 %76, i64 1)
+  %77 = add nsw i64 %.sroa.speculated.i.i18, %76
   %78 = icmp ult i64 %77, %76
   %79 = tail call i64 @llvm.umin.i64(i64 %77, i64 384307168202282325)
   %80 = select i1 %78, i64 384307168202282325, i64 %79
-  %.not.i.i17 = icmp ne i64 %80, 0
-  tail call void @llvm.assume(i1 %.not.i.i17)
+  %.not.i.i19 = icmp ne i64 %80, 0
+  tail call void @llvm.assume(i1 %.not.i.i19)
   %81 = mul nuw nsw i64 %80, 24
   %82 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %81) #29
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 %73
@@ -21436,20 +21436,20 @@ _ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.
   store i8 %4, ptr %87, align 1, !tbaa !820
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 18
   store i8 0, ptr %88, align 2, !tbaa !817
-  br i1 %10, label %_ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24.i, label %.lr.ph.i.i.i.i19
+  br i1 %10, label %_ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24.i, label %.lr.ph.i.i.i.i21
 
-.lr.ph.i.i.i.i19:                                 ; preds = %_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i15, %.lr.ph.i.i.i.i19
-  %.012.i.i.i.i20 = phi ptr [ %90, %.lr.ph.i.i.i.i19 ], [ %82, %_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i15 ]
-  %.0911.i.i.i.i21 = phi ptr [ %89, %.lr.ph.i.i.i.i19 ], [ %7, %_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i15 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i21, i64 24, i1 false), !tbaa.struct !997, !alias.scope !1003
-  %89 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i21, i64 24
-  %90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i20, i64 24
-  %.not.i.i.i.i22 = icmp eq ptr %89, %9
-  br i1 %.not.i.i.i.i22, label %_ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24.i, label %.lr.ph.i.i.i.i19, !llvm.loop !1002
+.lr.ph.i.i.i.i21:                                 ; preds = %_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i17, %.lr.ph.i.i.i.i21
+  %.012.i.i.i.i22 = phi ptr [ %90, %.lr.ph.i.i.i.i21 ], [ %82, %_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i17 ]
+  %.0911.i.i.i.i23 = phi ptr [ %89, %.lr.ph.i.i.i.i21 ], [ %7, %_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i17 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i23, i64 24, i1 false), !tbaa.struct !997, !alias.scope !1003
+  %89 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i23, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i22, i64 24
+  %.not.i.i.i.i24 = icmp eq ptr %89, %9
+  br i1 %.not.i.i.i.i24, label %_ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24.i, label %.lr.ph.i.i.i.i21, !llvm.loop !1002
 
-_ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24.i: ; preds = %.lr.ph.i.i.i.i19, %_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i15
-  %.0.lcssa.i.i.i.i24 = phi ptr [ %82, %_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i15 ], [ %90, %.lr.ph.i.i.i.i19 ]
-  %91 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i24, i64 24
+_ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24.i: ; preds = %.lr.ph.i.i.i.i21, %_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i17
+  %.0.lcssa.i.i.i.i26 = phi ptr [ %82, %_ZNKSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i17 ], [ %90, %.lr.ph.i.i.i.i21 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i26, i64 24
   %.not.i25.i = icmp eq ptr %7, null
   br i1 %.not.i25.i, label %_ZNSt6vectorIN4llvm8coverage15CoverageSegmentESaIS2_EE17_M_realloc_insertIJRjS6_RbEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %92
 

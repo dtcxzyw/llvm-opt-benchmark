@@ -869,18 +869,18 @@ define internal range(i32 0, 2) i32 @test_tx_script(i32 noundef %0) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %11
 
-11:                                               ; preds = %89, %.preheader.i
-  %.041.i = phi ptr [ %90, %89 ], [ %6, %.preheader.i ]
+11:                                               ; preds = %88, %.preheader.i
+  %.041.i = phi ptr [ %89, %88 ], [ %6, %.preheader.i ]
   %12 = load i8, ptr %.041.i, align 8, !tbaa !67
-  switch i8 %12, label %88 [
+  switch i8 %12, label %87 [
     i8 0, label %.thread.i
     i8 2, label %13
     i8 3, label %26
     i8 4, label %35
     i8 1, label %42
-    i8 5, label %65
-    i8 6, label %78
-    i8 7, label %83
+    i8 5, label %64
+    i8 6, label %77
+    i8 7, label %82
   ]
 
 13:                                               ; preds = %11
@@ -897,7 +897,7 @@ define internal range(i32 0, 2) i32 @test_tx_script(i32 noundef %0) #0 {
   %24 = zext i1 %23 to i32
   %25 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 3628, ptr noundef nonnull @.str.135, i32 noundef %24) #10
   %.not56.i = icmp eq i32 %25, 0
-  br i1 %.not56.i, label %.thread.i, label %89
+  br i1 %.not56.i, label %.thread.i, label %88
 
 26:                                               ; preds = %11
   %27 = getelementptr inbounds nuw i8, ptr %.041.i, i64 40
@@ -909,7 +909,7 @@ define internal range(i32 0, 2) i32 @test_tx_script(i32 noundef %0) #0 {
   %33 = zext i1 %32 to i32
   %34 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 3635, ptr noundef nonnull @.str.136, i32 noundef %33) #10
   %.not55.i = icmp eq i32 %34, 0
-  br i1 %.not55.i, label %.thread.i, label %89
+  br i1 %.not55.i, label %.thread.i, label %88
 
 35:                                               ; preds = %11
   %36 = getelementptr inbounds nuw i8, ptr %.041.i, i64 32
@@ -919,7 +919,7 @@ define internal range(i32 0, 2) i32 @test_tx_script(i32 noundef %0) #0 {
   %40 = zext i1 %39 to i32
   %41 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 3639, ptr noundef nonnull @.str.137, i32 noundef %40) #10
   %.not54.i = icmp eq i32 %41, 0
-  br i1 %.not54.i, label %.thread.i, label %89
+  br i1 %.not54.i, label %.thread.i, label %88
 
 42:                                               ; preds = %11
   %43 = getelementptr inbounds nuw i8, ptr %.041.i, i64 24
@@ -929,14 +929,12 @@ define internal range(i32 0, 2) i32 @test_tx_script(i32 noundef %0) #0 {
   %trunc.i.i = trunc i32 %46 to i8
   %switch.tableidx = add i8 %trunc.i.i, -1
   %47 = icmp ult i8 %switch.tableidx, 5
-  br i1 %47, label %switch.hole_check, label %ossl_quic_pkt_type_to_enc_level.exit.i
-
-switch.hole_check:                                ; preds = %42
   %switch.shifted = lshr i8 23, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %ossl_quic_pkt_type_to_enc_level.exit.i
+  %or.cond = select i1 %47, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %ossl_quic_pkt_type_to_enc_level.exit.i
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %42
   %48 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.test_tx_script, i64 0, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -956,80 +954,79 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %54 = add i64 %52, 1
   br label %ossl_quic_pkt_type_to_enc_level.exit.i
 
-ossl_quic_pkt_type_to_enc_level.exit.i:           ; preds = %switch.hole_check, %42, %.ossl_quic_pkt_type_to_enc_level.exit_crit_edge.i
-  %55 = phi ptr [ %.pre.i, %.ossl_quic_pkt_type_to_enc_level.exit_crit_edge.i ], [ %44, %42 ], [ %44, %switch.hole_check ]
-  %56 = phi i1 [ true, %.ossl_quic_pkt_type_to_enc_level.exit_crit_edge.i ], [ false, %42 ], [ false, %switch.hole_check ]
-  %.0.i60.i = phi i32 [ %switch.load, %.ossl_quic_pkt_type_to_enc_level.exit_crit_edge.i ], [ 4, %42 ], [ 4, %switch.hole_check ]
-  %.040.i = phi i64 [ %54, %.ossl_quic_pkt_type_to_enc_level.exit_crit_edge.i ], [ 1, %42 ], [ 1, %switch.hole_check ]
-  %57 = call i32 @ossl_qtx_write_pkt(ptr noundef %8, ptr noundef %55) #10
-  %58 = icmp ne i32 %57, 0
-  %59 = zext i1 %58 to i32
-  %60 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 3659, ptr noundef nonnull @.str.141, i32 noundef %59) #10
-  %.not52.i = icmp eq i32 %60, 0
-  br i1 %.not52.i, label %.thread.i, label %61
+ossl_quic_pkt_type_to_enc_level.exit.i:           ; preds = %42, %.ossl_quic_pkt_type_to_enc_level.exit_crit_edge.i
+  %55 = phi ptr [ %.pre.i, %.ossl_quic_pkt_type_to_enc_level.exit_crit_edge.i ], [ %44, %42 ]
+  %.0.i60.i = phi i32 [ %switch.load, %.ossl_quic_pkt_type_to_enc_level.exit_crit_edge.i ], [ 4, %42 ]
+  %.040.i = phi i64 [ %54, %.ossl_quic_pkt_type_to_enc_level.exit_crit_edge.i ], [ 1, %42 ]
+  %56 = call i32 @ossl_qtx_write_pkt(ptr noundef %8, ptr noundef %55) #10
+  %57 = icmp ne i32 %56, 0
+  %58 = zext i1 %57 to i32
+  %59 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 3659, ptr noundef nonnull @.str.141, i32 noundef %58) #10
+  %.not52.i = icmp eq i32 %59, 0
+  br i1 %.not52.i, label %.thread.i, label %60
 
-61:                                               ; preds = %ossl_quic_pkt_type_to_enc_level.exit.i
-  br i1 %56, label %62, label %89
+60:                                               ; preds = %ossl_quic_pkt_type_to_enc_level.exit.i
+  br i1 %or.cond, label %61, label %88
 
-62:                                               ; preds = %61
-  %63 = call i64 @ossl_qtx_get_cur_epoch_pkt_count(ptr noundef %8, i32 noundef %.0.i60.i) #10
-  %64 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.3, i32 noundef 3664, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143, i64 noundef %.040.i, i64 noundef %63) #10
-  %.not53.i = icmp eq i32 %64, 0
-  br i1 %.not53.i, label %.thread.i, label %89
+61:                                               ; preds = %60
+  %62 = call i64 @ossl_qtx_get_cur_epoch_pkt_count(ptr noundef %8, i32 noundef %.0.i60.i) #10
+  %63 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.3, i32 noundef 3664, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143, i64 noundef %.040.i, i64 noundef %62) #10
+  %.not53.i = icmp eq i32 %63, 0
+  br i1 %.not53.i, label %.thread.i, label %88
 
-65:                                               ; preds = %11
-  %66 = call i32 @ossl_qtx_pop_net(ptr noundef %8, ptr noundef nonnull %2) #10
-  %67 = icmp ne i32 %66, 0
-  %68 = zext i1 %67 to i32
-  %69 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 3670, ptr noundef nonnull @.str.144, i32 noundef %68) #10
-  %.not48.i = icmp eq i32 %69, 0
-  br i1 %.not48.i, label %.thread.i, label %70
+64:                                               ; preds = %11
+  %65 = call i32 @ossl_qtx_pop_net(ptr noundef %8, ptr noundef nonnull %2) #10
+  %66 = icmp ne i32 %65, 0
+  %67 = zext i1 %66 to i32
+  %68 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 3670, ptr noundef nonnull @.str.144, i32 noundef %67) #10
+  %.not48.i = icmp eq i32 %68, 0
+  br i1 %.not48.i, label %.thread.i, label %69
 
-70:                                               ; preds = %65
-  %71 = load ptr, ptr %2, align 8, !tbaa !79
-  %72 = load i64, ptr %10, align 8, !tbaa !81
-  %73 = getelementptr inbounds nuw i8, ptr %.041.i, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !72
-  %75 = getelementptr inbounds nuw i8, ptr %.041.i, i64 16
-  %76 = load i64, ptr %75, align 8, !tbaa !73
-  %77 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 3673, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.13, ptr noundef %71, i64 noundef %72, ptr noundef %74, i64 noundef %76) #10
-  %.not49.i = icmp eq i32 %77, 0
-  br i1 %.not49.i, label %.thread.i, label %89
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %2, align 8, !tbaa !79
+  %71 = load i64, ptr %10, align 8, !tbaa !81
+  %72 = getelementptr inbounds nuw i8, ptr %.041.i, i64 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !72
+  %74 = getelementptr inbounds nuw i8, ptr %.041.i, i64 16
+  %75 = load i64, ptr %74, align 8, !tbaa !73
+  %76 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 3673, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.13, ptr noundef %70, i64 noundef %71, ptr noundef %73, i64 noundef %75) #10
+  %.not49.i = icmp eq i32 %76, 0
+  br i1 %.not49.i, label %.thread.i, label %88
 
-78:                                               ; preds = %11
-  %79 = call i32 @ossl_qtx_pop_net(ptr noundef %8, ptr noundef nonnull %2) #10
-  %80 = icmp ne i32 %79, 0
-  %81 = zext i1 %80 to i32
-  %82 = call i32 @test_false(ptr noundef nonnull @.str.3, i32 noundef 3678, ptr noundef nonnull @.str.144, i32 noundef %81) #10
-  %.not47.i = icmp eq i32 %82, 0
-  br i1 %.not47.i, label %.thread.i, label %89
+77:                                               ; preds = %11
+  %78 = call i32 @ossl_qtx_pop_net(ptr noundef %8, ptr noundef nonnull %2) #10
+  %79 = icmp ne i32 %78, 0
+  %80 = zext i1 %79 to i32
+  %81 = call i32 @test_false(ptr noundef nonnull @.str.3, i32 noundef 3678, ptr noundef nonnull @.str.144, i32 noundef %80) #10
+  %.not47.i = icmp eq i32 %81, 0
+  br i1 %.not47.i, label %.thread.i, label %88
 
-83:                                               ; preds = %11
-  %84 = call i32 @ossl_qtx_trigger_key_update(ptr noundef %8) #10
-  %85 = icmp ne i32 %84, 0
-  %86 = zext i1 %85 to i32
-  %87 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 3682, ptr noundef nonnull @.str.146, i32 noundef %86) #10
-  %.not46.i = icmp eq i32 %87, 0
-  br i1 %.not46.i, label %.thread.i, label %89
+82:                                               ; preds = %11
+  %83 = call i32 @ossl_qtx_trigger_key_update(ptr noundef %8) #10
+  %84 = icmp ne i32 %83, 0
+  %85 = zext i1 %84 to i32
+  %86 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 3682, ptr noundef nonnull @.str.146, i32 noundef %85) #10
+  %.not46.i = icmp eq i32 %86, 0
+  br i1 %.not46.i, label %.thread.i, label %88
 
-88:                                               ; preds = %11
+87:                                               ; preds = %11
   call void @OPENSSL_die(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.3, i32 noundef 3686) #11
   unreachable
 
-89:                                               ; preds = %83, %78, %70, %62, %61, %35, %26, %13
-  %90 = getelementptr inbounds nuw i8, ptr %.041.i, i64 48
+88:                                               ; preds = %82, %77, %69, %61, %60, %35, %26, %13
+  %89 = getelementptr inbounds nuw i8, ptr %.041.i, i64 48
   br label %11, !llvm.loop !82
 
-.thread.i:                                        ; preds = %83, %78, %70, %65, %62, %ossl_quic_pkt_type_to_enc_level.exit.i, %51, %switch.lookup, %35, %26, %13, %11, %1
-  %.039.i = phi i32 [ 0, %1 ], [ 0, %83 ], [ 0, %78 ], [ 0, %70 ], [ 0, %65 ], [ 0, %35 ], [ 0, %26 ], [ 0, %13 ], [ 1, %11 ], [ 0, %switch.lookup ], [ 0, %51 ], [ 0, %ossl_quic_pkt_type_to_enc_level.exit.i ], [ 0, %62 ]
+.thread.i:                                        ; preds = %82, %77, %69, %64, %61, %ossl_quic_pkt_type_to_enc_level.exit.i, %51, %switch.lookup, %35, %26, %13, %11, %1
+  %.039.i = phi i32 [ 0, %1 ], [ 0, %82 ], [ 0, %77 ], [ 0, %69 ], [ 0, %64 ], [ 0, %35 ], [ 0, %26 ], [ 0, %13 ], [ 1, %11 ], [ 0, %switch.lookup ], [ 0, %51 ], [ 0, %ossl_quic_pkt_type_to_enc_level.exit.i ], [ 0, %61 ]
   %.not57.i = icmp eq ptr %8, null
-  br i1 %.not57.i, label %tx_run_script.exit, label %91
+  br i1 %.not57.i, label %tx_run_script.exit, label %90
 
-91:                                               ; preds = %.thread.i
+90:                                               ; preds = %.thread.i
   call void @ossl_qtx_free(ptr noundef nonnull %8) #10
   br label %tx_run_script.exit
 
-tx_run_script.exit:                               ; preds = %.thread.i, %91
+tx_run_script.exit:                               ; preds = %.thread.i, %90
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #10
   ret i32 %.039.i

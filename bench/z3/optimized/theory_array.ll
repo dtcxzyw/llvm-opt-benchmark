@@ -3256,8 +3256,8 @@ define hidden noundef i32 @_ZN3smt12theory_array14final_check_ehEv(ptr noundef n
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %12 = load i32, ptr %11, align 4, !tbaa !631
   %13 = urem i32 %4, %12
-  %.not5 = icmp eq i32 %13, 0
-  br i1 %.not5, label %19, label %14
+  %.not6 = icmp eq i32 %13, 0
+  br i1 %.not6, label %19, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %0, align 8, !tbaa !3
@@ -3301,8 +3301,8 @@ define hidden noundef i32 @_ZN3smt12theory_array14final_check_ehEv(ptr noundef n
   %40 = load i32, ptr %39, align 8, !tbaa !632
   %41 = add i32 %40, %38
   store i32 %41, ptr %39, align 8, !tbaa !632
-  %.not.i9 = icmp ne i32 %38, 0
-  %..i10 = zext i1 %.not.i9 to i32
+  %.not.i8 = icmp ne i32 %38, 0
+  %..i9 = zext i1 %.not.i8 to i32
   br label %52
 
 42:                                               ; preds = %29
@@ -3311,8 +3311,8 @@ define hidden noundef i32 @_ZN3smt12theory_array14final_check_ehEv(ptr noundef n
   %45 = load i32, ptr %44, align 8, !tbaa !632
   %46 = add i32 %45, %43
   store i32 %46, ptr %44, align 8, !tbaa !632
-  %.not.i11.not = icmp eq i32 %43, 0
-  br i1 %.not.i11.not, label %47, label %52
+  %.not.i10.not = icmp eq i32 %43, 0
+  br i1 %.not.i10.not, label %47, label %52
 
 47:                                               ; preds = %42
   %48 = load ptr, ptr %0, align 8, !tbaa !3
@@ -3322,7 +3322,7 @@ define hidden noundef i32 @_ZN3smt12theory_array14final_check_ehEv(ptr noundef n
   br label %52
 
 52:                                               ; preds = %42, %19, %37, %31, %47, %14, %24
-  %.0 = phi i32 [ 1, %14 ], [ %28, %24 ], [ %..i10, %37 ], [ %35, %31 ], [ %51, %47 ], [ 1, %19 ], [ 1, %42 ]
+  %.0 = phi i32 [ 1, %14 ], [ %28, %24 ], [ %..i9, %37 ], [ %35, %31 ], [ %51, %47 ], [ 1, %19 ], [ 1, %42 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %54 = load i8, ptr %53, align 1, !tbaa !633, !range !568, !noundef !569
   %55 = trunc nuw i8 %54 to i1
@@ -3343,28 +3343,28 @@ define hidden noundef i32 @_ZN3smt12theory_array14final_check_ehEv(ptr noundef n
 
 _ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit: ; preds = %56, %62
   %.0.i.i = phi i32 [ %64, %62 ], [ 0, %56 ]
-  %65 = icmp uge i32 %58, %.0.i.i
+  %65 = icmp ult i32 %58, %.0.i.i
   br label %66
 
 66:                                               ; preds = %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit, %52
-  %.not8 = phi i1 [ false, %52 ], [ %65, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit ]
-  %67 = icmp ne i32 %.0, 0
-  %brmerge = or i1 %67, %.not8
-  br i1 %brmerge, label %76, label %68
+  %67 = phi i1 [ true, %52 ], [ %65, %_ZNK3smt17theory_array_base22has_propagate_up_trailEv.exit ]
+  %68 = icmp eq i32 %.0, 0
+  %or.cond = and i1 %68, %67
+  br i1 %or.cond, label %69, label %77
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !612
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 112
-  %72 = load ptr, ptr %71, align 8, !tbaa !12
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 420
-  %74 = load i8, ptr %73, align 4, !tbaa !635, !range !568, !noundef !569
-  %75 = trunc nuw i8 %74 to i1
-  %spec.select = select i1 %75, i32 0, i32 2
-  br label %76
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %71 = load ptr, ptr %70, align 8, !tbaa !612
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 112
+  %73 = load ptr, ptr %72, align 8, !tbaa !12
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 420
+  %75 = load i8, ptr %74, align 4, !tbaa !635, !range !568, !noundef !569
+  %76 = trunc nuw i8 %75 to i1
+  %spec.select = select i1 %76, i32 0, i32 2
+  br label %77
 
-76:                                               ; preds = %68, %66
-  %.1 = phi i32 [ %.0, %66 ], [ %spec.select, %68 ]
+77:                                               ; preds = %69, %66
+  %.1 = phi i32 [ %.0, %66 ], [ %spec.select, %69 ]
   ret i32 %.1
 }
 

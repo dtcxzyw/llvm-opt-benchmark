@@ -1911,22 +1911,22 @@ declare noundef i32 @_ZNK6icu_7722FormattedStringBuilder15codePointBeforeEi(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_776number4impl30CurrencySpacingEnabledModifier20applyCurrencySpacingERNS_22FormattedStringBuilderEiiiiRKNS_20DecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(2579) %5, ptr noundef nonnull align 4 dereferenceable(4) %6) local_unnamed_addr #4 align 2 {
-  %8 = icmp slt i32 %2, 1
-  %9 = icmp slt i32 %4, 1
+  %8 = icmp sgt i32 %2, 0
+  %9 = icmp sgt i32 %4, 0
   %10 = add i32 %2, %1
   %11 = sub i32 %3, %10
-  %12 = icmp slt i32 %11, 1
-  %brmerge = or i1 %8, %12
-  br i1 %brmerge, label %15, label %13
+  %12 = icmp sgt i32 %11, 0
+  %or.cond = and i1 %8, %12
+  br i1 %or.cond, label %13, label %15
 
 13:                                               ; preds = %7
   %14 = tail call noundef i32 @_ZN6icu_776number4impl30CurrencySpacingEnabledModifier25applyCurrencySpacingAffixERNS_22FormattedStringBuilderEiNS2_6EAffixERKNS_20DecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %10, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(2579) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   br label %15
 
-15:                                               ; preds = %7, %13
+15:                                               ; preds = %13, %7
   %.0 = phi i32 [ %14, %13 ], [ 0, %7 ]
-  %brmerge25 = or i1 %9, %12
-  br i1 %brmerge25, label %20, label %16
+  %or.cond3 = and i1 %9, %12
+  br i1 %or.cond3, label %16, label %20
 
 16:                                               ; preds = %15
   %17 = add nsw i32 %.0, %3
@@ -1934,7 +1934,7 @@ define noundef i32 @_ZN6icu_776number4impl30CurrencySpacingEnabledModifier20appl
   %19 = add nsw i32 %18, %.0
   br label %20
 
-20:                                               ; preds = %15, %16
+20:                                               ; preds = %16, %15
   %.1 = phi i32 [ %19, %16 ], [ %.0, %15 ]
   ret i32 %.1
 }

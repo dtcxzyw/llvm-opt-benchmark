@@ -76,7 +76,7 @@ define void @lv_draw_sw_box_shadow(ptr noundef %0, ptr noundef readonly captures
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %55 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %54) #6
-  br i1 %55, label %56, label %650
+  br i1 %55, label %56, label %644
 
 56:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #6
@@ -713,571 +713,557 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   br i1 %369, label %370, label %.loopexit445
 
 370:                                              ; preds = %360
-  br i1 %.not399, label %373, label %371
+  br i1 %.not399, label %372, label %.thread
 
-371:                                              ; preds = %370
-  %372 = call zeroext i1 @lv_area_is_out(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
-  br i1 %372, label %.thread, label %373
+.thread:                                          ; preds = %370
+  %371 = call zeroext i1 @lv_area_is_out(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
+  br label %372
 
-373:                                              ; preds = %370, %371
-  %374 = trunc i8 %.fr to i1
-  br i1 %374, label %.thread, label %375
-
-.thread:                                          ; preds = %371, %373
-  br label %375
-
-375:                                              ; preds = %373, %.thread
-  %376 = phi ptr [ null, %.thread ], [ %170, %373 ]
-  store ptr %376, ptr %172, align 8, !tbaa !42
-  %377 = load i32, ptr %13, align 4, !tbaa !3
-  store i32 %377, ptr %12, align 4, !tbaa !3
-  %378 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %379 = load i32, ptr %378, align 4, !tbaa !17
-  store i32 %379, ptr %186, align 4, !tbaa !17
-  %380 = load i32, ptr %363, align 4, !tbaa !20
-  %381 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %382 = load i32, ptr %381, align 4, !tbaa !18
-  %.not407462 = icmp slt i32 %380, %382
+372:                                              ; preds = %370, %.thread
+  %373 = phi ptr [ null, %.thread ], [ %170, %370 ]
+  store ptr %373, ptr %172, align 8, !tbaa !42
+  %374 = load i32, ptr %13, align 4, !tbaa !3
+  store i32 %374, ptr %12, align 4, !tbaa !3
+  %375 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %376 = load i32, ptr %375, align 4, !tbaa !17
+  store i32 %376, ptr %186, align 4, !tbaa !17
+  %377 = load i32, ptr %363, align 4, !tbaa !20
+  %378 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %379 = load i32, ptr %378, align 4, !tbaa !18
+  %.not407462 = icmp slt i32 %377, %379
   br i1 %.not407462, label %.loopexit445, label %.lr.ph466
 
-.lr.ph466:                                        ; preds = %375
-  %383 = trunc i8 %.fr to i1
-  %384 = zext nneg i32 %361 to i64
-  %385 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %386 = sext i32 %88 to i64
-  br label %387
+.lr.ph466:                                        ; preds = %372
+  %380 = zext nneg i32 %361 to i64
+  %381 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %382 = sext i32 %88 to i64
+  br label %383
 
-387:                                              ; preds = %.lr.ph466, %406
-  %.3464 = phi ptr [ %368, %.lr.ph466 ], [ %407, %406 ]
-  %.3369463 = phi i32 [ %380, %.lr.ph466 ], [ %408, %406 ]
+383:                                              ; preds = %.lr.ph466, %400
+  %.3464 = phi ptr [ %368, %.lr.ph466 ], [ %401, %400 ]
+  %.3369463 = phi i32 [ %377, %.lr.ph466 ], [ %402, %400 ]
   store i32 %.3369463, ptr %190, align 4, !tbaa !18
   store i32 %.3369463, ptr %193, align 4, !tbaa !20
-  br i1 %.not399, label %390, label %388
+  br i1 %.not399, label %386, label %.critedge
 
-388:                                              ; preds = %387
-  %389 = call zeroext i1 @lv_area_is_out(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
-  br label %.critedge
+.critedge:                                        ; preds = %383
+  %384 = call zeroext i1 @lv_area_is_out(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
+  %385 = load i8, ptr %.3464, align 1, !tbaa !28
+  br i1 %53, label %398, label %391
 
-390:                                              ; preds = %387
-  br i1 %383, label %.critedge, label %391
+386:                                              ; preds = %383
+  %387 = load i8, ptr %.3464, align 1, !tbaa !28
+  call void @lv_memset(ptr noundef %170, i8 noundef zeroext %387, i64 noundef %380) #6
+  %388 = load i32, ptr %13, align 4, !tbaa !3
+  %389 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %388, i32 noundef %.3369463, i32 noundef %361) #6
+  %390 = icmp eq i32 %389, 1
+  %spec.select419 = select i1 %390, i32 2, i32 %389
+  store i32 %spec.select419, ptr %381, align 8, !tbaa !45
+  br label %400
 
-391:                                              ; preds = %390
-  %392 = load i8, ptr %.3464, align 1, !tbaa !28
-  call void @lv_memset(ptr noundef %170, i8 noundef zeroext %392, i64 noundef %384) #6
-  %393 = load i32, ptr %13, align 4, !tbaa !3
-  %394 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %393, i32 noundef %.3369463, i32 noundef %361) #6
-  %395 = icmp eq i32 %394, 1
-  %spec.select419 = select i1 %395, i32 2, i32 %394
-  store i32 %spec.select419, ptr %385, align 8, !tbaa !45
-  br label %406
+391:                                              ; preds = %.critedge
+  %392 = zext i8 %385 to i16
+  %393 = load i8, ptr %51, align 8, !tbaa !22
+  %394 = zext i8 %393 to i16
+  %395 = mul nuw i16 %394, %392
+  %396 = lshr i16 %395, 8
+  %397 = trunc nuw i16 %396 to i8
+  br label %398
 
-.critedge:                                        ; preds = %388, %390
-  %396 = load i8, ptr %.3464, align 1, !tbaa !28
-  br i1 %53, label %404, label %397
+398:                                              ; preds = %.critedge, %391
+  %399 = phi i8 [ %397, %391 ], [ %385, %.critedge ]
+  store i8 %399, ptr %176, align 8, !tbaa !44
+  br label %400
 
-397:                                              ; preds = %.critedge
-  %398 = zext i8 %396 to i16
-  %399 = load i8, ptr %51, align 8, !tbaa !22
-  %400 = zext i8 %399 to i16
-  %401 = mul nuw i16 %400, %398
-  %402 = lshr i16 %401, 8
-  %403 = trunc nuw i16 %402 to i8
-  br label %404
-
-404:                                              ; preds = %.critedge, %397
-  %405 = phi i8 [ %403, %397 ], [ %396, %.critedge ]
-  store i8 %405, ptr %176, align 8, !tbaa !44
-  br label %406
-
-406:                                              ; preds = %404, %391
+400:                                              ; preds = %398, %386
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %14) #6
-  %407 = getelementptr inbounds i8, ptr %.3464, i64 %386
-  %408 = add nsw i32 %.3369463, -1
-  %409 = load i32, ptr %381, align 4, !tbaa !18
-  %.not407.not = icmp sgt i32 %.3369463, %409
-  br i1 %.not407.not, label %387, label %.loopexit445, !llvm.loop !49
+  %401 = getelementptr inbounds i8, ptr %.3464, i64 %382
+  %402 = add nsw i32 %.3369463, -1
+  %403 = load i32, ptr %378, align 4, !tbaa !18
+  %.not407.not = icmp sgt i32 %.3369463, %403
+  br i1 %.not407.not, label %383, label %.loopexit445, !llvm.loop !49
 
-.loopexit445:                                     ; preds = %406, %375, %360, %358, %.loopexit446
-  %410 = load i8, ptr %51, align 8, !tbaa !22
-  store i8 %410, ptr %176, align 8, !tbaa !44
-  %411 = load i32, ptr %46, align 4, !tbaa !17
-  %412 = sub nsw i32 %411, %88
-  %413 = add nsw i32 %412, 1
-  store i32 %411, ptr %186, align 4, !tbaa !17
-  %414 = load i32, ptr %48, align 4, !tbaa !18
-  %415 = add nsw i32 %414, %88
-  %416 = load i32, ptr %50, align 4, !tbaa !20
-  %417 = sub nsw i32 %416, %88
-  %418 = call i32 @llvm.smin.i32(i32 %415, i32 %247)
-  store i32 %418, ptr %190, align 4, !tbaa !18
-  %419 = call i32 @llvm.smax.i32(i32 %417, i32 %184)
-  store i32 %419, ptr %193, align 4, !tbaa !20
-  %420 = call i32 @llvm.smax.i32(i32 %413, i32 %180)
-  store i32 %420, ptr %12, align 4, !tbaa !3
-  %421 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %54) #6
-  br i1 %421, label %422, label %.loopexit444
+.loopexit445:                                     ; preds = %400, %372, %360, %358, %.loopexit446
+  %404 = load i8, ptr %51, align 8, !tbaa !22
+  store i8 %404, ptr %176, align 8, !tbaa !44
+  %405 = load i32, ptr %46, align 4, !tbaa !17
+  %406 = sub nsw i32 %405, %88
+  %407 = add nsw i32 %406, 1
+  store i32 %405, ptr %186, align 4, !tbaa !17
+  %408 = load i32, ptr %48, align 4, !tbaa !18
+  %409 = add nsw i32 %408, %88
+  %410 = load i32, ptr %50, align 4, !tbaa !20
+  %411 = sub nsw i32 %410, %88
+  %412 = call i32 @llvm.smin.i32(i32 %409, i32 %247)
+  store i32 %412, ptr %190, align 4, !tbaa !18
+  %413 = call i32 @llvm.smax.i32(i32 %411, i32 %184)
+  store i32 %413, ptr %193, align 4, !tbaa !20
+  %414 = call i32 @llvm.smax.i32(i32 %407, i32 %180)
+  store i32 %414, ptr %12, align 4, !tbaa !3
+  %415 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %54) #6
+  br i1 %415, label %416, label %.loopexit444
 
-422:                                              ; preds = %.loopexit445
-  %423 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
-  br i1 %423, label %.loopexit444, label %424
+416:                                              ; preds = %.loopexit445
+  %417 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
+  br i1 %417, label %.loopexit444, label %418
 
-424:                                              ; preds = %422
-  %425 = call i32 @lv_area_get_width(ptr noundef nonnull %13) #6
-  %426 = mul nsw i32 %191, %88
+418:                                              ; preds = %416
+  %419 = call i32 @lv_area_get_width(ptr noundef nonnull %13) #6
+  %420 = mul nsw i32 %191, %88
+  %421 = sext i32 %420 to i64
+  %422 = getelementptr inbounds i8, ptr %92, i64 %421
+  %423 = load i32, ptr %13, align 4, !tbaa !3
+  %424 = load i32, ptr %46, align 4, !tbaa !17
+  %425 = xor i32 %424, -1
+  %.neg409 = add i32 %423, %88
+  %426 = add i32 %.neg409, %425
   %427 = sext i32 %426 to i64
-  %428 = getelementptr inbounds i8, ptr %92, i64 %427
-  %429 = load i32, ptr %13, align 4, !tbaa !3
-  %430 = load i32, ptr %46, align 4, !tbaa !17
-  %431 = xor i32 %430, -1
-  %.neg409 = add i32 %429, %88
-  %432 = add i32 %.neg409, %431
-  %433 = sext i32 %432 to i64
-  %434 = getelementptr inbounds i8, ptr %428, i64 %433
-  br i1 %.not399, label %437, label %435
+  %428 = getelementptr inbounds i8, ptr %422, i64 %427
+  br i1 %.not399, label %431, label %429
 
-435:                                              ; preds = %424
-  %436 = call zeroext i1 @lv_area_is_out(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
-  br i1 %436, label %.thread427, label %437
+429:                                              ; preds = %418
+  %430 = call zeroext i1 @lv_area_is_out(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
+  br i1 %430, label %.thread427, label %431
 
-437:                                              ; preds = %424, %435
-  %438 = trunc i8 %.fr to i1
-  %spec.select438 = select i1 %438, ptr %434, ptr %170
+431:                                              ; preds = %418, %429
+  %432 = trunc i8 %.fr to i1
+  %spec.select438 = select i1 %432, ptr %428, ptr %170
   br label %.thread427
 
-.thread427:                                       ; preds = %437, %435
-  %.5378430 = phi i1 [ true, %435 ], [ %438, %437 ]
-  %439 = phi ptr [ %434, %435 ], [ %spec.select438, %437 ]
-  store ptr %439, ptr %172, align 8, !tbaa !42
-  %440 = icmp sgt i32 %425, 0
-  br i1 %440, label %441, label %.loopexit444
+.thread427:                                       ; preds = %431, %429
+  %.5378430 = phi i1 [ true, %429 ], [ %432, %431 ]
+  %433 = phi ptr [ %428, %429 ], [ %spec.select438, %431 ]
+  store ptr %433, ptr %172, align 8, !tbaa !42
+  %434 = icmp sgt i32 %419, 0
+  br i1 %434, label %435, label %.loopexit444
 
-441:                                              ; preds = %.thread427
-  %442 = load i32, ptr %13, align 4, !tbaa !3
-  store i32 %442, ptr %12, align 4, !tbaa !3
-  %443 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %444 = load i32, ptr %443, align 4, !tbaa !17
-  store i32 %444, ptr %186, align 4, !tbaa !17
-  %445 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i32 2, ptr %445, align 8, !tbaa !45
-  %446 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %447 = load i32, ptr %446, align 4, !tbaa !18
-  %448 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %449 = load i32, ptr %448, align 4, !tbaa !20
-  %.not410467 = icmp sgt i32 %447, %449
+435:                                              ; preds = %.thread427
+  %436 = load i32, ptr %13, align 4, !tbaa !3
+  store i32 %436, ptr %12, align 4, !tbaa !3
+  %437 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %438 = load i32, ptr %437, align 4, !tbaa !17
+  store i32 %438, ptr %186, align 4, !tbaa !17
+  %439 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store i32 2, ptr %439, align 8, !tbaa !45
+  %440 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %441 = load i32, ptr %440, align 4, !tbaa !18
+  %442 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %443 = load i32, ptr %442, align 4, !tbaa !20
+  %.not410467 = icmp sgt i32 %441, %443
   br i1 %.not410467, label %.loopexit444, label %.lr.ph469
 
-.lr.ph469:                                        ; preds = %441
-  %450 = zext nneg i32 %425 to i64
-  br label %451
+.lr.ph469:                                        ; preds = %435
+  %444 = zext nneg i32 %419 to i64
+  br label %445
 
-451:                                              ; preds = %.lr.ph469, %457
-  %.4370468 = phi i32 [ %447, %.lr.ph469 ], [ %458, %457 ]
+445:                                              ; preds = %.lr.ph469, %451
+  %.4370468 = phi i32 [ %441, %.lr.ph469 ], [ %452, %451 ]
   store i32 %.4370468, ptr %190, align 4, !tbaa !18
   store i32 %.4370468, ptr %193, align 4, !tbaa !20
-  br i1 %.5378430, label %457, label %452
+  br i1 %.5378430, label %451, label %446
 
-452:                                              ; preds = %451
-  %453 = call ptr @lv_memcpy(ptr noundef %170, ptr noundef nonnull %434, i64 noundef %450) #6
-  %454 = load i32, ptr %13, align 4, !tbaa !3
-  %455 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %454, i32 noundef %.4370468, i32 noundef %425) #6
-  %456 = icmp eq i32 %455, 1
-  %spec.store.select420 = select i1 %456, i32 2, i32 %455
-  store i32 %spec.store.select420, ptr %445, align 8
-  br label %457
+446:                                              ; preds = %445
+  %447 = call ptr @lv_memcpy(ptr noundef %170, ptr noundef nonnull %428, i64 noundef %444) #6
+  %448 = load i32, ptr %13, align 4, !tbaa !3
+  %449 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %448, i32 noundef %.4370468, i32 noundef %419) #6
+  %450 = icmp eq i32 %449, 1
+  %spec.store.select420 = select i1 %450, i32 2, i32 %449
+  store i32 %spec.store.select420, ptr %439, align 8
+  br label %451
 
-457:                                              ; preds = %452, %451
+451:                                              ; preds = %446, %445
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %14) #6
-  %458 = add nsw i32 %.4370468, 1
-  %459 = load i32, ptr %448, align 4, !tbaa !20
-  %.not410.not = icmp slt i32 %.4370468, %459
-  br i1 %.not410.not, label %451, label %.loopexit444, !llvm.loop !50
+  %452 = add nsw i32 %.4370468, 1
+  %453 = load i32, ptr %442, align 4, !tbaa !20
+  %.not410.not = icmp slt i32 %.4370468, %453
+  br i1 %.not410.not, label %445, label %.loopexit444, !llvm.loop !50
 
-.loopexit444:                                     ; preds = %457, %441, %.thread427, %422, %.loopexit445
-  %460 = icmp sgt i32 %88, 0
-  br i1 %460, label %.lr.ph477, label %._crit_edge478
+.loopexit444:                                     ; preds = %451, %435, %.thread427, %416, %.loopexit445
+  %454 = icmp sgt i32 %88, 0
+  br i1 %454, label %.lr.ph477, label %._crit_edge478
 
 .lr.ph477:                                        ; preds = %.loopexit444
-  %461 = zext nneg i32 %88 to i64
+  %455 = zext nneg i32 %88 to i64
   %.not493 = icmp eq i32 %88, 1
   br i1 %.not493, label %._crit_edge478, label %.lr.ph473.us.preheader
 
 .lr.ph473.us.preheader:                           ; preds = %.lr.ph477
-  %462 = lshr i32 %88, 1
+  %456 = lshr i32 %88, 1
   br label %.lr.ph473.us
 
 .lr.ph473.us:                                     ; preds = %.lr.ph473.us.preheader, %._crit_edge.us
-  %.4475.us = phi ptr [ %463, %._crit_edge.us ], [ %92, %.lr.ph473.us.preheader ]
-  %.5371474.us = phi i32 [ %469, %._crit_edge.us ], [ 0, %.lr.ph473.us.preheader ]
-  %463 = getelementptr inbounds nuw i8, ptr %.4475.us, i64 %461
-  br label %464
+  %.4475.us = phi ptr [ %457, %._crit_edge.us ], [ %92, %.lr.ph473.us.preheader ]
+  %.5371474.us = phi i32 [ %463, %._crit_edge.us ], [ 0, %.lr.ph473.us.preheader ]
+  %457 = getelementptr inbounds nuw i8, ptr %.4475.us, i64 %455
+  br label %458
 
-464:                                              ; preds = %.lr.ph473.us, %464
-  %.pn472.us = phi ptr [ %463, %.lr.ph473.us ], [ %.0362.us, %464 ]
-  %.0363471.us = phi ptr [ %.4475.us, %.lr.ph473.us ], [ %467, %464 ]
-  %.0364470.us = phi i32 [ 0, %.lr.ph473.us ], [ %468, %464 ]
+458:                                              ; preds = %.lr.ph473.us, %458
+  %.pn472.us = phi ptr [ %457, %.lr.ph473.us ], [ %.0362.us, %458 ]
+  %.0363471.us = phi ptr [ %.4475.us, %.lr.ph473.us ], [ %461, %458 ]
+  %.0364470.us = phi i32 [ 0, %.lr.ph473.us ], [ %462, %458 ]
   %.0362.us = getelementptr inbounds i8, ptr %.pn472.us, i64 -1
-  %465 = load i8, ptr %.0363471.us, align 1, !tbaa !28
-  %466 = load i8, ptr %.0362.us, align 1, !tbaa !28
-  store i8 %466, ptr %.0363471.us, align 1, !tbaa !28
-  store i8 %465, ptr %.0362.us, align 1, !tbaa !28
-  %467 = getelementptr inbounds nuw i8, ptr %.0363471.us, i64 1
-  %468 = add nuw nsw i32 %.0364470.us, 1
-  %exitcond.not = icmp eq i32 %468, %462
-  br i1 %exitcond.not, label %._crit_edge.us, label %464, !llvm.loop !51
+  %459 = load i8, ptr %.0363471.us, align 1, !tbaa !28
+  %460 = load i8, ptr %.0362.us, align 1, !tbaa !28
+  store i8 %460, ptr %.0363471.us, align 1, !tbaa !28
+  store i8 %459, ptr %.0362.us, align 1, !tbaa !28
+  %461 = getelementptr inbounds nuw i8, ptr %.0363471.us, i64 1
+  %462 = add nuw nsw i32 %.0364470.us, 1
+  %exitcond.not = icmp eq i32 %462, %456
+  br i1 %exitcond.not, label %._crit_edge.us, label %458, !llvm.loop !51
 
-._crit_edge.us:                                   ; preds = %464
-  %469 = add nuw nsw i32 %.5371474.us, 1
-  %exitcond497.not = icmp eq i32 %469, %88
+._crit_edge.us:                                   ; preds = %458
+  %463 = add nuw nsw i32 %.5371474.us, 1
+  %exitcond497.not = icmp eq i32 %463, %88
   br i1 %exitcond497.not, label %._crit_edge478, label %.lr.ph473.us, !llvm.loop !52
 
 ._crit_edge478:                                   ; preds = %._crit_edge.us, %.lr.ph477, %.loopexit444
-  %470 = load i32, ptr %7, align 4, !tbaa !3
-  store i32 %470, ptr %12, align 4, !tbaa !3
-  %471 = add i32 %191, %470
-  %472 = load i32, ptr %48, align 4, !tbaa !18
-  %473 = add nsw i32 %472, %88
-  %474 = load i32, ptr %50, align 4, !tbaa !20
-  %475 = sub nsw i32 %474, %88
-  %476 = call i32 @llvm.smin.i32(i32 %473, i32 %247)
-  store i32 %476, ptr %190, align 4, !tbaa !18
-  %477 = call i32 @llvm.smax.i32(i32 %475, i32 %184)
-  store i32 %477, ptr %193, align 4, !tbaa !20
-  %478 = add nsw i32 %180, -1
-  %479 = call i32 @llvm.smin.i32(i32 %471, i32 %478)
-  store i32 %479, ptr %186, align 4, !tbaa !17
-  %480 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %54) #6
-  br i1 %480, label %481, label %.loopexit443
+  %464 = load i32, ptr %7, align 4, !tbaa !3
+  store i32 %464, ptr %12, align 4, !tbaa !3
+  %465 = add i32 %191, %464
+  %466 = load i32, ptr %48, align 4, !tbaa !18
+  %467 = add nsw i32 %466, %88
+  %468 = load i32, ptr %50, align 4, !tbaa !20
+  %469 = sub nsw i32 %468, %88
+  %470 = call i32 @llvm.smin.i32(i32 %467, i32 %247)
+  store i32 %470, ptr %190, align 4, !tbaa !18
+  %471 = call i32 @llvm.smax.i32(i32 %469, i32 %184)
+  store i32 %471, ptr %193, align 4, !tbaa !20
+  %472 = add nsw i32 %180, -1
+  %473 = call i32 @llvm.smin.i32(i32 %465, i32 %472)
+  store i32 %473, ptr %186, align 4, !tbaa !17
+  %474 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %54) #6
+  br i1 %474, label %475, label %.loopexit443
 
-481:                                              ; preds = %._crit_edge478
-  %482 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
-  br i1 %482, label %.loopexit443, label %483
+475:                                              ; preds = %._crit_edge478
+  %476 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
+  br i1 %476, label %.loopexit443, label %477
 
-483:                                              ; preds = %481
-  %484 = call i32 @lv_area_get_width(ptr noundef nonnull %13) #6
-  %485 = mul nsw i32 %191, %88
-  %486 = sext i32 %485 to i64
-  %487 = getelementptr inbounds i8, ptr %92, i64 %486
-  %488 = load i32, ptr %13, align 4, !tbaa !3
-  %489 = load i32, ptr %12, align 4, !tbaa !3
-  %490 = sub nsw i32 %488, %489
-  %491 = sext i32 %490 to i64
-  %492 = getelementptr inbounds i8, ptr %487, i64 %491
-  br i1 %.not399, label %495, label %493
+477:                                              ; preds = %475
+  %478 = call i32 @lv_area_get_width(ptr noundef nonnull %13) #6
+  %479 = mul nsw i32 %191, %88
+  %480 = sext i32 %479 to i64
+  %481 = getelementptr inbounds i8, ptr %92, i64 %480
+  %482 = load i32, ptr %13, align 4, !tbaa !3
+  %483 = load i32, ptr %12, align 4, !tbaa !3
+  %484 = sub nsw i32 %482, %483
+  %485 = sext i32 %484 to i64
+  %486 = getelementptr inbounds i8, ptr %481, i64 %485
+  br i1 %.not399, label %489, label %487
 
-493:                                              ; preds = %483
-  %494 = call zeroext i1 @lv_area_is_out(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
-  br i1 %494, label %.thread433, label %495
+487:                                              ; preds = %477
+  %488 = call zeroext i1 @lv_area_is_out(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
+  br i1 %488, label %.thread433, label %489
 
-495:                                              ; preds = %483, %493
-  %496 = trunc i8 %.fr to i1
-  %spec.select439 = select i1 %496, ptr %492, ptr %170
+489:                                              ; preds = %477, %487
+  %490 = trunc i8 %.fr to i1
+  %spec.select439 = select i1 %490, ptr %486, ptr %170
   br label %.thread433
 
-.thread433:                                       ; preds = %495, %493
-  %.6379436 = phi i1 [ true, %493 ], [ %496, %495 ]
-  %497 = phi ptr [ %492, %493 ], [ %spec.select439, %495 ]
-  store ptr %497, ptr %172, align 8, !tbaa !42
-  %498 = icmp sgt i32 %484, 0
-  br i1 %498, label %499, label %.loopexit443
+.thread433:                                       ; preds = %489, %487
+  %.6379436 = phi i1 [ true, %487 ], [ %490, %489 ]
+  %491 = phi ptr [ %486, %487 ], [ %spec.select439, %489 ]
+  store ptr %491, ptr %172, align 8, !tbaa !42
+  %492 = icmp sgt i32 %478, 0
+  br i1 %492, label %493, label %.loopexit443
 
-499:                                              ; preds = %.thread433
-  %500 = load i32, ptr %13, align 4, !tbaa !3
-  store i32 %500, ptr %12, align 4, !tbaa !3
-  %501 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %502 = load i32, ptr %501, align 4, !tbaa !17
-  store i32 %502, ptr %186, align 4, !tbaa !17
-  %503 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i32 2, ptr %503, align 8, !tbaa !45
-  %504 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %505 = load i32, ptr %504, align 4, !tbaa !18
-  %506 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %507 = load i32, ptr %506, align 4, !tbaa !20
-  %.not411479 = icmp sgt i32 %505, %507
+493:                                              ; preds = %.thread433
+  %494 = load i32, ptr %13, align 4, !tbaa !3
+  store i32 %494, ptr %12, align 4, !tbaa !3
+  %495 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %496 = load i32, ptr %495, align 4, !tbaa !17
+  store i32 %496, ptr %186, align 4, !tbaa !17
+  %497 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store i32 2, ptr %497, align 8, !tbaa !45
+  %498 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %499 = load i32, ptr %498, align 4, !tbaa !18
+  %500 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %501 = load i32, ptr %500, align 4, !tbaa !20
+  %.not411479 = icmp sgt i32 %499, %501
   br i1 %.not411479, label %.loopexit443, label %.lr.ph481
 
-.lr.ph481:                                        ; preds = %499
-  %508 = zext nneg i32 %484 to i64
-  br label %509
+.lr.ph481:                                        ; preds = %493
+  %502 = zext nneg i32 %478 to i64
+  br label %503
 
-509:                                              ; preds = %.lr.ph481, %515
-  %.6372480 = phi i32 [ %505, %.lr.ph481 ], [ %516, %515 ]
+503:                                              ; preds = %.lr.ph481, %509
+  %.6372480 = phi i32 [ %499, %.lr.ph481 ], [ %510, %509 ]
   store i32 %.6372480, ptr %190, align 4, !tbaa !18
   store i32 %.6372480, ptr %193, align 4, !tbaa !20
-  br i1 %.6379436, label %515, label %510
+  br i1 %.6379436, label %509, label %504
 
-510:                                              ; preds = %509
-  %511 = call ptr @lv_memcpy(ptr noundef %170, ptr noundef nonnull %492, i64 noundef %508) #6
-  %512 = load i32, ptr %13, align 4, !tbaa !3
-  %513 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %512, i32 noundef %.6372480, i32 noundef %484) #6
-  %514 = icmp eq i32 %513, 1
-  %spec.store.select421 = select i1 %514, i32 2, i32 %513
-  store i32 %spec.store.select421, ptr %503, align 8
-  br label %515
+504:                                              ; preds = %503
+  %505 = call ptr @lv_memcpy(ptr noundef %170, ptr noundef nonnull %486, i64 noundef %502) #6
+  %506 = load i32, ptr %13, align 4, !tbaa !3
+  %507 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %506, i32 noundef %.6372480, i32 noundef %478) #6
+  %508 = icmp eq i32 %507, 1
+  %spec.store.select421 = select i1 %508, i32 2, i32 %507
+  store i32 %spec.store.select421, ptr %497, align 8
+  br label %509
 
-515:                                              ; preds = %510, %509
+509:                                              ; preds = %504, %503
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %14) #6
-  %516 = add nsw i32 %.6372480, 1
-  %517 = load i32, ptr %506, align 4, !tbaa !20
-  %.not411.not = icmp slt i32 %.6372480, %517
-  br i1 %.not411.not, label %509, label %.loopexit443, !llvm.loop !53
+  %510 = add nsw i32 %.6372480, 1
+  %511 = load i32, ptr %500, align 4, !tbaa !20
+  %.not411.not = icmp slt i32 %.6372480, %511
+  br i1 %.not411.not, label %503, label %.loopexit443, !llvm.loop !53
 
-.loopexit443:                                     ; preds = %515, %499, %.thread433, %481, %._crit_edge478
-  %518 = load i32, ptr %7, align 4, !tbaa !3
-  store i32 %518, ptr %12, align 4, !tbaa !3
-  %519 = add i32 %191, %518
-  %520 = load i32, ptr %48, align 4, !tbaa !18
-  store i32 %520, ptr %190, align 4, !tbaa !18
-  %521 = add i32 %191, %520
-  %522 = call i32 @llvm.smin.i32(i32 %519, i32 %478)
-  store i32 %522, ptr %186, align 4, !tbaa !17
-  %523 = call i32 @llvm.smin.i32(i32 %521, i32 %184)
-  store i32 %523, ptr %193, align 4, !tbaa !20
-  %524 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %54) #6
-  br i1 %524, label %525, label %.loopexit442
+.loopexit443:                                     ; preds = %509, %493, %.thread433, %475, %._crit_edge478
+  %512 = load i32, ptr %7, align 4, !tbaa !3
+  store i32 %512, ptr %12, align 4, !tbaa !3
+  %513 = add i32 %191, %512
+  %514 = load i32, ptr %48, align 4, !tbaa !18
+  store i32 %514, ptr %190, align 4, !tbaa !18
+  %515 = add i32 %191, %514
+  %516 = call i32 @llvm.smin.i32(i32 %513, i32 %472)
+  store i32 %516, ptr %186, align 4, !tbaa !17
+  %517 = call i32 @llvm.smin.i32(i32 %515, i32 %184)
+  store i32 %517, ptr %193, align 4, !tbaa !20
+  %518 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %54) #6
+  br i1 %518, label %519, label %.loopexit442
 
-525:                                              ; preds = %.loopexit443
-  %526 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
-  br i1 %526, label %.loopexit442, label %527
+519:                                              ; preds = %.loopexit443
+  %520 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
+  br i1 %520, label %.loopexit442, label %521
 
-527:                                              ; preds = %525
-  %528 = call i32 @lv_area_get_width(ptr noundef nonnull %13) #6
-  %529 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %530 = load i32, ptr %529, align 4, !tbaa !18
-  %531 = load i32, ptr %190, align 4, !tbaa !18
+521:                                              ; preds = %519
+  %522 = call i32 @lv_area_get_width(ptr noundef nonnull %13) #6
+  %523 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %524 = load i32, ptr %523, align 4, !tbaa !18
+  %525 = load i32, ptr %190, align 4, !tbaa !18
+  %526 = sub nsw i32 %524, %525
+  %527 = mul nsw i32 %526, %88
+  %528 = sext i32 %527 to i64
+  %529 = getelementptr inbounds i8, ptr %92, i64 %528
+  %530 = load i32, ptr %13, align 4, !tbaa !3
+  %531 = load i32, ptr %12, align 4, !tbaa !3
   %532 = sub nsw i32 %530, %531
-  %533 = mul nsw i32 %532, %88
-  %534 = sext i32 %533 to i64
-  %535 = getelementptr inbounds i8, ptr %92, i64 %534
-  %536 = load i32, ptr %13, align 4, !tbaa !3
-  %537 = load i32, ptr %12, align 4, !tbaa !3
-  %538 = sub nsw i32 %536, %537
-  %539 = sext i32 %538 to i64
-  %540 = getelementptr inbounds i8, ptr %535, i64 %539
-  br i1 %.not399, label %543, label %541
+  %533 = sext i32 %532 to i64
+  %534 = getelementptr inbounds i8, ptr %529, i64 %533
+  br i1 %.not399, label %537, label %535
 
-541:                                              ; preds = %527
-  %542 = call zeroext i1 @lv_area_is_out(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
-  br i1 %542, label %545, label %543
+535:                                              ; preds = %521
+  %536 = call zeroext i1 @lv_area_is_out(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
+  br i1 %536, label %539, label %537
 
-543:                                              ; preds = %541, %527
-  %544 = trunc i8 %.fr to i1
-  br label %545
+537:                                              ; preds = %535, %521
+  %538 = trunc i8 %.fr to i1
+  br label %539
 
-545:                                              ; preds = %541, %543
-  %.7380 = phi i1 [ %544, %543 ], [ true, %541 ]
+539:                                              ; preds = %535, %537
+  %.7380 = phi i1 [ %538, %537 ], [ true, %535 ]
   store ptr %170, ptr %172, align 8, !tbaa !42
-  %546 = icmp sgt i32 %528, 0
-  br i1 %546, label %547, label %.loopexit442
+  %540 = icmp sgt i32 %522, 0
+  br i1 %540, label %541, label %.loopexit442
 
-547:                                              ; preds = %545
-  %548 = load i32, ptr %13, align 4, !tbaa !3
-  store i32 %548, ptr %12, align 4, !tbaa !3
-  %549 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %550 = load i32, ptr %549, align 4, !tbaa !17
-  store i32 %550, ptr %186, align 4, !tbaa !17
-  %551 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i32 2, ptr %551, align 8, !tbaa !45
-  %552 = load i32, ptr %529, align 4, !tbaa !18
-  %553 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %554 = load i32, ptr %553, align 4, !tbaa !20
-  %.not412482 = icmp sgt i32 %552, %554
+541:                                              ; preds = %539
+  %542 = load i32, ptr %13, align 4, !tbaa !3
+  store i32 %542, ptr %12, align 4, !tbaa !3
+  %543 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %544 = load i32, ptr %543, align 4, !tbaa !17
+  store i32 %544, ptr %186, align 4, !tbaa !17
+  %545 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store i32 2, ptr %545, align 8, !tbaa !45
+  %546 = load i32, ptr %523, align 4, !tbaa !18
+  %547 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %548 = load i32, ptr %547, align 4, !tbaa !20
+  %.not412482 = icmp sgt i32 %546, %548
   br i1 %.not412482, label %.loopexit442, label %.lr.ph485
 
-.lr.ph485:                                        ; preds = %547
-  %555 = sext i32 %88 to i64
-  br label %556
+.lr.ph485:                                        ; preds = %541
+  %549 = sext i32 %88 to i64
+  br label %550
 
-556:                                              ; preds = %.lr.ph485, %563
-  %.5484 = phi ptr [ %540, %.lr.ph485 ], [ %564, %563 ]
-  %.7483 = phi i32 [ %552, %.lr.ph485 ], [ %565, %563 ]
+550:                                              ; preds = %.lr.ph485, %557
+  %.5484 = phi ptr [ %534, %.lr.ph485 ], [ %558, %557 ]
+  %.7483 = phi i32 [ %546, %.lr.ph485 ], [ %559, %557 ]
   store i32 %.7483, ptr %190, align 4, !tbaa !18
   store i32 %.7483, ptr %193, align 4, !tbaa !20
-  br i1 %.7380, label %562, label %557
+  br i1 %.7380, label %556, label %551
 
-557:                                              ; preds = %556
-  %558 = call ptr @lv_memcpy(ptr noundef %170, ptr noundef %.5484, i64 noundef %555) #6
-  %559 = load i32, ptr %13, align 4, !tbaa !3
-  %560 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %559, i32 noundef %.7483, i32 noundef %528) #6
-  %561 = icmp eq i32 %560, 1
-  %spec.store.select422 = select i1 %561, i32 2, i32 %560
-  store i32 %spec.store.select422, ptr %551, align 8
-  br label %563
+551:                                              ; preds = %550
+  %552 = call ptr @lv_memcpy(ptr noundef %170, ptr noundef %.5484, i64 noundef %549) #6
+  %553 = load i32, ptr %13, align 4, !tbaa !3
+  %554 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %553, i32 noundef %.7483, i32 noundef %522) #6
+  %555 = icmp eq i32 %554, 1
+  %spec.store.select422 = select i1 %555, i32 2, i32 %554
+  store i32 %spec.store.select422, ptr %545, align 8
+  br label %557
 
-562:                                              ; preds = %556
+556:                                              ; preds = %550
   store ptr %.5484, ptr %172, align 8, !tbaa !42
-  br label %563
+  br label %557
 
-563:                                              ; preds = %557, %562
+557:                                              ; preds = %551, %556
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %14) #6
-  %564 = getelementptr inbounds i8, ptr %.5484, i64 %555
-  %565 = add nsw i32 %.7483, 1
-  %566 = load i32, ptr %553, align 4, !tbaa !20
-  %.not412.not = icmp slt i32 %.7483, %566
-  br i1 %.not412.not, label %556, label %.loopexit442, !llvm.loop !54
+  %558 = getelementptr inbounds i8, ptr %.5484, i64 %549
+  %559 = add nsw i32 %.7483, 1
+  %560 = load i32, ptr %547, align 4, !tbaa !20
+  %.not412.not = icmp slt i32 %.7483, %560
+  br i1 %.not412.not, label %550, label %.loopexit442, !llvm.loop !54
 
-.loopexit442:                                     ; preds = %563, %547, %545, %525, %.loopexit443
-  %567 = load i32, ptr %7, align 4, !tbaa !3
-  store i32 %567, ptr %12, align 4, !tbaa !3
-  %568 = add i32 %191, %567
-  %569 = load i32, ptr %50, align 4, !tbaa !20
-  %570 = sub nsw i32 %569, %88
-  %571 = add nsw i32 %570, 1
-  store i32 %569, ptr %193, align 4, !tbaa !20
-  %572 = call i32 @llvm.smax.i32(i32 %571, i32 %247)
-  store i32 %572, ptr %190, align 4, !tbaa !18
-  %573 = call i32 @llvm.smin.i32(i32 %568, i32 %478)
-  store i32 %573, ptr %186, align 4, !tbaa !17
-  %574 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %54) #6
-  br i1 %574, label %575, label %.loopexit441
+.loopexit442:                                     ; preds = %557, %541, %539, %519, %.loopexit443
+  %561 = load i32, ptr %7, align 4, !tbaa !3
+  store i32 %561, ptr %12, align 4, !tbaa !3
+  %562 = add i32 %191, %561
+  %563 = load i32, ptr %50, align 4, !tbaa !20
+  %564 = sub nsw i32 %563, %88
+  %565 = add nsw i32 %564, 1
+  store i32 %563, ptr %193, align 4, !tbaa !20
+  %566 = call i32 @llvm.smax.i32(i32 %565, i32 %247)
+  store i32 %566, ptr %190, align 4, !tbaa !18
+  %567 = call i32 @llvm.smin.i32(i32 %562, i32 %472)
+  store i32 %567, ptr %186, align 4, !tbaa !17
+  %568 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %54) #6
+  br i1 %568, label %569, label %.loopexit441
 
-575:                                              ; preds = %.loopexit442
-  %576 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
-  br i1 %576, label %.loopexit441, label %577
+569:                                              ; preds = %.loopexit442
+  %570 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
+  br i1 %570, label %.loopexit441, label %571
 
-577:                                              ; preds = %575
-  %578 = call i32 @lv_area_get_width(ptr noundef nonnull %13) #6
-  %579 = load i32, ptr %193, align 4, !tbaa !20
-  %580 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %581 = load i32, ptr %580, align 4, !tbaa !20
-  %582 = sub nsw i32 %579, %581
-  %583 = mul nsw i32 %582, %88
-  %584 = sext i32 %583 to i64
-  %585 = getelementptr inbounds i8, ptr %92, i64 %584
-  %586 = load i32, ptr %13, align 4, !tbaa !3
-  %587 = load i32, ptr %12, align 4, !tbaa !3
-  %588 = sub nsw i32 %586, %587
-  %589 = sext i32 %588 to i64
-  %590 = getelementptr inbounds i8, ptr %585, i64 %589
-  br i1 %.not399, label %593, label %591
+571:                                              ; preds = %569
+  %572 = call i32 @lv_area_get_width(ptr noundef nonnull %13) #6
+  %573 = load i32, ptr %193, align 4, !tbaa !20
+  %574 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %575 = load i32, ptr %574, align 4, !tbaa !20
+  %576 = sub nsw i32 %573, %575
+  %577 = mul nsw i32 %576, %88
+  %578 = sext i32 %577 to i64
+  %579 = getelementptr inbounds i8, ptr %92, i64 %578
+  %580 = load i32, ptr %13, align 4, !tbaa !3
+  %581 = load i32, ptr %12, align 4, !tbaa !3
+  %582 = sub nsw i32 %580, %581
+  %583 = sext i32 %582 to i64
+  %584 = getelementptr inbounds i8, ptr %579, i64 %583
+  br i1 %.not399, label %587, label %585
 
-591:                                              ; preds = %577
-  %592 = call zeroext i1 @lv_area_is_out(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
-  br i1 %592, label %595, label %593
+585:                                              ; preds = %571
+  %586 = call zeroext i1 @lv_area_is_out(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
+  br i1 %586, label %589, label %587
 
-593:                                              ; preds = %591, %577
-  %594 = trunc i8 %.fr to i1
-  br label %595
+587:                                              ; preds = %585, %571
+  %588 = trunc i8 %.fr to i1
+  br label %589
 
-595:                                              ; preds = %591, %593
-  %.8381 = phi i1 [ %594, %593 ], [ true, %591 ]
+589:                                              ; preds = %585, %587
+  %.8381 = phi i1 [ %588, %587 ], [ true, %585 ]
   store ptr %170, ptr %172, align 8, !tbaa !42
-  %596 = icmp sgt i32 %578, 0
-  br i1 %596, label %597, label %.loopexit441
+  %590 = icmp sgt i32 %572, 0
+  br i1 %590, label %591, label %.loopexit441
 
-597:                                              ; preds = %595
-  %598 = load i32, ptr %13, align 4, !tbaa !3
-  store i32 %598, ptr %12, align 4, !tbaa !3
-  %599 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %600 = load i32, ptr %599, align 4, !tbaa !17
-  store i32 %600, ptr %186, align 4, !tbaa !17
-  %601 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i32 2, ptr %601, align 8, !tbaa !45
-  %602 = load i32, ptr %580, align 4, !tbaa !20
-  %603 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %604 = load i32, ptr %603, align 4, !tbaa !18
-  %.not413486 = icmp slt i32 %602, %604
+591:                                              ; preds = %589
+  %592 = load i32, ptr %13, align 4, !tbaa !3
+  store i32 %592, ptr %12, align 4, !tbaa !3
+  %593 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %594 = load i32, ptr %593, align 4, !tbaa !17
+  store i32 %594, ptr %186, align 4, !tbaa !17
+  %595 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store i32 2, ptr %595, align 8, !tbaa !45
+  %596 = load i32, ptr %574, align 4, !tbaa !20
+  %597 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %598 = load i32, ptr %597, align 4, !tbaa !18
+  %.not413486 = icmp slt i32 %596, %598
   br i1 %.not413486, label %.loopexit441, label %.lr.ph489
 
-.lr.ph489:                                        ; preds = %597
-  %605 = sext i32 %88 to i64
-  br label %606
+.lr.ph489:                                        ; preds = %591
+  %599 = sext i32 %88 to i64
+  br label %600
 
-606:                                              ; preds = %.lr.ph489, %613
-  %.6488 = phi ptr [ %590, %.lr.ph489 ], [ %614, %613 ]
-  %.8487 = phi i32 [ %602, %.lr.ph489 ], [ %615, %613 ]
+600:                                              ; preds = %.lr.ph489, %607
+  %.6488 = phi ptr [ %584, %.lr.ph489 ], [ %608, %607 ]
+  %.8487 = phi i32 [ %596, %.lr.ph489 ], [ %609, %607 ]
   store i32 %.8487, ptr %190, align 4, !tbaa !18
   store i32 %.8487, ptr %193, align 4, !tbaa !20
-  br i1 %.8381, label %612, label %607
+  br i1 %.8381, label %606, label %601
 
-607:                                              ; preds = %606
-  %608 = call ptr @lv_memcpy(ptr noundef %170, ptr noundef %.6488, i64 noundef %605) #6
-  %609 = load i32, ptr %13, align 4, !tbaa !3
-  %610 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %609, i32 noundef %.8487, i32 noundef %578) #6
-  %611 = icmp eq i32 %610, 1
-  %spec.store.select423 = select i1 %611, i32 2, i32 %610
-  store i32 %spec.store.select423, ptr %601, align 8
-  br label %613
+601:                                              ; preds = %600
+  %602 = call ptr @lv_memcpy(ptr noundef %170, ptr noundef %.6488, i64 noundef %599) #6
+  %603 = load i32, ptr %13, align 4, !tbaa !3
+  %604 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %603, i32 noundef %.8487, i32 noundef %572) #6
+  %605 = icmp eq i32 %604, 1
+  %spec.store.select423 = select i1 %605, i32 2, i32 %604
+  store i32 %spec.store.select423, ptr %595, align 8
+  br label %607
 
-612:                                              ; preds = %606
+606:                                              ; preds = %600
   store ptr %.6488, ptr %172, align 8, !tbaa !42
-  br label %613
+  br label %607
 
-613:                                              ; preds = %607, %612
+607:                                              ; preds = %601, %606
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %14) #6
-  %614 = getelementptr inbounds i8, ptr %.6488, i64 %605
-  %615 = add nsw i32 %.8487, -1
-  %616 = load i32, ptr %603, align 4, !tbaa !18
-  %.not413.not = icmp sgt i32 %.8487, %616
-  br i1 %.not413.not, label %606, label %.loopexit441, !llvm.loop !55
+  %608 = getelementptr inbounds i8, ptr %.6488, i64 %599
+  %609 = add nsw i32 %.8487, -1
+  %610 = load i32, ptr %597, align 4, !tbaa !18
+  %.not413.not = icmp sgt i32 %.8487, %610
+  br i1 %.not413.not, label %600, label %.loopexit441, !llvm.loop !55
 
-.loopexit441:                                     ; preds = %613, %597, %595, %575, %.loopexit442
-  %617 = load i32, ptr %7, align 4, !tbaa !3
-  %618 = add nsw i32 %617, %88
-  store i32 %618, ptr %12, align 4, !tbaa !3
-  %619 = load i32, ptr %46, align 4, !tbaa !17
-  %620 = sub nsw i32 %619, %88
-  store i32 %620, ptr %186, align 4, !tbaa !17
-  %621 = load i32, ptr %48, align 4, !tbaa !18
-  %622 = add nsw i32 %621, %88
-  %623 = load i32, ptr %50, align 4, !tbaa !20
-  %624 = sub nsw i32 %623, %88
-  %625 = call i32 @llvm.smin.i32(i32 %622, i32 %247)
-  store i32 %625, ptr %190, align 4, !tbaa !18
-  %626 = call i32 @llvm.smax.i32(i32 %624, i32 %184)
-  store i32 %626, ptr %193, align 4, !tbaa !20
+.loopexit441:                                     ; preds = %607, %591, %589, %569, %.loopexit442
+  %611 = load i32, ptr %7, align 4, !tbaa !3
+  %612 = add nsw i32 %611, %88
+  store i32 %612, ptr %12, align 4, !tbaa !3
+  %613 = load i32, ptr %46, align 4, !tbaa !17
+  %614 = sub nsw i32 %613, %88
+  store i32 %614, ptr %186, align 4, !tbaa !17
+  %615 = load i32, ptr %48, align 4, !tbaa !18
+  %616 = add nsw i32 %615, %88
+  %617 = load i32, ptr %50, align 4, !tbaa !20
+  %618 = sub nsw i32 %617, %88
+  %619 = call i32 @llvm.smin.i32(i32 %616, i32 %247)
+  store i32 %619, ptr %190, align 4, !tbaa !18
+  %620 = call i32 @llvm.smax.i32(i32 %618, i32 %184)
+  store i32 %620, ptr %193, align 4, !tbaa !20
   store ptr %170, ptr %172, align 8, !tbaa !42
-  %627 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %54) #6
-  br i1 %627, label %628, label %.loopexit
+  %621 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %54) #6
+  br i1 %621, label %622, label %.loopexit
 
-628:                                              ; preds = %.loopexit441
-  %629 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
-  br i1 %629, label %.loopexit, label %630
+622:                                              ; preds = %.loopexit441
+  %623 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %13, ptr noundef nonnull %9, i32 noundef %spec.select) #6
+  br i1 %623, label %.loopexit, label %624
 
-630:                                              ; preds = %628
-  %631 = call i32 @lv_area_get_width(ptr noundef nonnull %13) #6
-  %632 = icmp sgt i32 %631, 0
-  br i1 %632, label %633, label %.loopexit
+624:                                              ; preds = %622
+  %625 = call i32 @lv_area_get_width(ptr noundef nonnull %13) #6
+  %626 = icmp sgt i32 %625, 0
+  br i1 %626, label %627, label %.loopexit
 
-633:                                              ; preds = %630
-  %634 = load i32, ptr %13, align 4, !tbaa !3
-  store i32 %634, ptr %12, align 4, !tbaa !3
-  %635 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %636 = load i32, ptr %635, align 4, !tbaa !17
-  store i32 %636, ptr %186, align 4, !tbaa !17
-  %637 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %638 = load i32, ptr %637, align 4, !tbaa !18
-  %639 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %640 = load i32, ptr %639, align 4, !tbaa !20
-  %.not414490 = icmp sgt i32 %638, %640
+627:                                              ; preds = %624
+  %628 = load i32, ptr %13, align 4, !tbaa !3
+  store i32 %628, ptr %12, align 4, !tbaa !3
+  %629 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %630 = load i32, ptr %629, align 4, !tbaa !17
+  store i32 %630, ptr %186, align 4, !tbaa !17
+  %631 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %632 = load i32, ptr %631, align 4, !tbaa !18
+  %633 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %634 = load i32, ptr %633, align 4, !tbaa !20
+  %.not414490 = icmp sgt i32 %632, %634
   br i1 %.not414490, label %.loopexit, label %.lr.ph492
 
-.lr.ph492:                                        ; preds = %633
-  %641 = zext nneg i32 %631 to i64
-  %642 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  br label %643
+.lr.ph492:                                        ; preds = %627
+  %635 = zext nneg i32 %625 to i64
+  %636 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  br label %637
 
-643:                                              ; preds = %.lr.ph492, %643
-  %.9491 = phi i32 [ %638, %.lr.ph492 ], [ %646, %643 ]
+637:                                              ; preds = %.lr.ph492, %637
+  %.9491 = phi i32 [ %632, %.lr.ph492 ], [ %640, %637 ]
   store i32 %.9491, ptr %190, align 4, !tbaa !18
   store i32 %.9491, ptr %193, align 4, !tbaa !20
-  call void @lv_memset(ptr noundef %170, i8 noundef zeroext -1, i64 noundef %641) #6
-  %644 = load i32, ptr %13, align 4, !tbaa !3
-  %645 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %644, i32 noundef %.9491, i32 noundef %631) #6
-  store i32 %645, ptr %642, align 8, !tbaa !45
+  call void @lv_memset(ptr noundef %170, i8 noundef zeroext -1, i64 noundef %635) #6
+  %638 = load i32, ptr %13, align 4, !tbaa !3
+  %639 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %638, i32 noundef %.9491, i32 noundef %625) #6
+  store i32 %639, ptr %636, align 8, !tbaa !45
   call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %14) #6
-  %646 = add nsw i32 %.9491, 1
-  %647 = load i32, ptr %639, align 4, !tbaa !20
-  %.not414.not = icmp slt i32 %.9491, %647
-  br i1 %.not414.not, label %643, label %.loopexit, !llvm.loop !56
+  %640 = add nsw i32 %.9491, 1
+  %641 = load i32, ptr %633, align 4, !tbaa !20
+  %.not414.not = icmp slt i32 %.9491, %641
+  br i1 %.not414.not, label %637, label %.loopexit, !llvm.loop !56
 
-.loopexit:                                        ; preds = %643, %633, %630, %628, %.loopexit441
-  br i1 %.not399, label %648, label %649
+.loopexit:                                        ; preds = %637, %627, %624, %622, %.loopexit441
+  br i1 %.not399, label %642, label %643
 
-648:                                              ; preds = %.loopexit
+642:                                              ; preds = %.loopexit
   call void @lv_draw_sw_mask_free_param(ptr noundef nonnull %10) #6
-  br label %649
+  br label %643
 
-649:                                              ; preds = %648, %.loopexit
+643:                                              ; preds = %642, %.loopexit
   call void @lv_free(ptr noundef nonnull %92) #6
   call void @lv_free(ptr noundef %170) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #6
@@ -1286,9 +1272,9 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #6
-  br label %650
+  br label %644
 
-650:                                              ; preds = %3, %649
+644:                                              ; preds = %3, %643
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6

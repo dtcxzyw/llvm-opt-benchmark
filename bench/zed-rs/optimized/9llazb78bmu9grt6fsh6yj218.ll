@@ -173,10 +173,10 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %13 = mul i64 %.pre.i.i, 24
   %scevgep = getelementptr i8, ptr %12, i64 %13
   %14 = mul i64 %.promoted.i.i, 24
-  %scevgep30 = getelementptr i8, ptr %3, i64 %14
+  %scevgep33 = getelementptr i8, ptr %3, i64 %14
   %15 = sub i64 %9, %.promoted.i.i
   %16 = mul i64 %15, 24
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep30, i64 %16, i1 false), !noalias !32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep33, i64 %16, i1 false), !noalias !32
   %17 = add i64 %9, %.pre.i.i
   %18 = sub i64 %17, %.promoted.i.i
   store i64 %18, ptr %11, align 8, !alias.scope !22, !noalias !27
@@ -185,9 +185,9 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68b1fb87c336d76cE.exit": ; preds = %.lr.ph.i.i, %5, %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %20 = load i64, ptr %19, align 8, !range !33, !noundef !5
-  %.val20 = load ptr, ptr %1, align 8
+  %.val23 = load ptr, ptr %1, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val21 = load i64, ptr %21, align 8
+  %.val24 = load i64, ptr %21, align 8
   switch i64 %20, label %._crit_edge.i [
     i64 -9223372036854775807, label %"_ZN4core3ptr72drop_in_place$LT$core..option..IntoIter$LT$alloc..string..String$GT$$GT$17h51977ee75a39679dE.exit"
     i64 -9223372036854775808, label %24
@@ -197,22 +197,22 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
-  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.6.0.copyload, i64 %.val21
+  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.6.0.copyload, i64 %.val24
   store i64 %20, ptr %22, align 8, !noalias !34
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
-  %23 = add i64 %.val21, 1
+  %23 = add i64 %.val24, 1
   br label %24
 
 24:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68b1fb87c336d76cE.exit", %._crit_edge.i
-  %.val5.i = phi i64 [ %23, %._crit_edge.i ], [ %.val21, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68b1fb87c336d76cE.exit" ]
-  %25 = icmp ne ptr %.val20, null
+  %.val5.i = phi i64 [ %23, %._crit_edge.i ], [ %.val24, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68b1fb87c336d76cE.exit" ]
+  %25 = icmp ne ptr %.val23, null
   tail call void @llvm.assume(i1 %25)
   br label %"_ZN4core3ptr72drop_in_place$LT$core..option..IntoIter$LT$alloc..string..String$GT$$GT$17h51977ee75a39679dE.exit"
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..IntoIter$LT$alloc..string..String$GT$$GT$17h51977ee75a39679dE.exit": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68b1fb87c336d76cE.exit", %24
-  %.val21.sink = phi i64 [ %.val5.i, %24 ], [ %.val21, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68b1fb87c336d76cE.exit" ]
-  store i64 %.val21.sink, ptr %.val20, align 8
+  %.val24.sink = phi i64 [ %.val5.i, %24 ], [ %.val24, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h68b1fb87c336d76cE.exit" ]
+  store i64 %.val24.sink, ptr %.val23, align 8
   ret void
 }
 

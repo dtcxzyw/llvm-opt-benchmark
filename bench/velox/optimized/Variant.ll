@@ -4322,19 +4322,17 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chunkMask_.i.i.i.i.i, i8 0, i64 24, i1 false)
   %0 = load i8, ptr %this, align 8
   %1 = icmp ult i8 %0, 36
-  br i1 %1, label %switch.hole_check, label %sw.default.i.i
-
-sw.default.i.i:                                   ; preds = %switch.hole_check, %entry
-  tail call void @llvm.trap()
-  unreachable
-
-switch.hole_check:                                ; preds = %entry
   %switch.maskindex = zext nneg i8 %0 to i64
   %switch.shifted = lshr i64 50465867775, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %sw.default.i.i
+  %or.cond = select i1 %1, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %sw.default.i.i
 
-switch.lookup:                                    ; preds = %switch.hole_check
+sw.default.i.i:                                   ; preds = %entry
+  tail call void @llvm.trap()
+  unreachable
+
+switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw [36 x ptr], ptr @switch.table._ZNK8facebook5velox7variant9serializeEv, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8

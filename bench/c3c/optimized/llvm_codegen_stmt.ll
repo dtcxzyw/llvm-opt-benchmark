@@ -2580,18 +2580,16 @@ define dso_local void @llvm_emit_break(ptr noundef %0, ptr noundef readonly capt
   %16 = load i8, ptr %15, align 4
   %switch.tableidx = add i8 %16, -20
   %17 = icmp ult i8 %switch.tableidx, 8
-  br i1 %17, label %switch.hole_check, label %18
+  %switch.shifted = lshr i8 -115, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %17, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %18
 
-18:                                               ; preds = %switch.hole_check, %._crit_edge
+18:                                               ; preds = %._crit_edge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.llvm_emit_break, ptr noundef nonnull @.str.11, i32 noundef 920) #10
   unreachable
 
-switch.hole_check:                                ; preds = %._crit_edge
-  %switch.shifted = lshr i8 -115, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %18
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %._crit_edge
   %19 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table.llvm_emit_break, i64 0, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8

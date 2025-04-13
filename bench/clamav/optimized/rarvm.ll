@@ -77,10 +77,10 @@ define void @_ZN5RarVM7ExecuteEP18VM_PreparedProgram(ptr noundef nonnull align 8
 
 14:                                               ; preds = %7
   %15 = icmp samesign ult i32 %11, 131073
-  %brmerge.not = and i1 %8, %15
+  %or.cond = and i1 %8, %15
   %16 = load ptr, ptr %0, align 8
   %17 = zext nneg i32 %11 to i64
-  %.idx = select i1 %brmerge.not, i64 %17, i64 0
+  %.idx = select i1 %or.cond, i64 %17, i64 0
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   br label %21
 

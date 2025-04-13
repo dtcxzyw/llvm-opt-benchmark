@@ -63,83 +63,77 @@ define dso_local void @BufferManagerShmemInit() local_unnamed_addr #0 {
   store ptr %25, ptr @CkptBufferIds, align 8
   %26 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %63, label %28
-
-28:                                               ; preds = %0
-  %29 = load i8, ptr %1, align 1, !range !4, !noundef !5
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %63, label %31
-
-31:                                               ; preds = %28
-  %32 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %28 = load i8, ptr %1, align 1, !range !4
+  %29 = trunc nuw i8 %28 to i1
+  %or.cond = select i1 %27, i1 true, i1 %29
+  %30 = load i8, ptr %3, align 1, !range !4
+  %31 = trunc nuw i8 %30 to i1
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %31
+  %32 = load i8, ptr %4, align 1, !range !4
   %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %63, label %34
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %33
+  br i1 %or.cond5, label %59, label %.preheader
 
-34:                                               ; preds = %31
-  %35 = load i8, ptr %4, align 1, !range !4, !noundef !5
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %63, label %.preheader
-
-.preheader:                                       ; preds = %34
-  %37 = load i32, ptr @NBuffers, align 4
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %0
+  %34 = load i32, ptr @NBuffers, align 4
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %39 = load ptr, ptr @BufferDescriptors, align 8
-  %40 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %39, i64 %indvars.iv
-  store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  %36 = load ptr, ptr @BufferDescriptors, align 8
+  %37 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %36, i64 %indvars.iv
+  store i32 0, ptr %37, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  store i32 0, ptr %38, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i32 0, ptr %39, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  store i32 -1, ptr %40, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i32 -1, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  store volatile i32 0, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 28
   store i32 -1, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i32 -1, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store volatile i32 0, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %40, i64 28
-  store i32 -1, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 20
-  %48 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %48, ptr %47, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %45, ptr %44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %50 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %50, ptr %49, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %40, i64 36
-  call void @LWLockInitialize(ptr noundef nonnull %51, i32 noundef 61) #3
-  %.val = load i32, ptr %47, align 4
-  %52 = load ptr, ptr @BufferIOCVArray, align 8
-  %53 = sext i32 %.val to i64
-  %54 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %52, i64 %53
-  call void @ConditionVariableInit(ptr noundef %54) #3
-  %55 = load i32, ptr @NBuffers, align 4
-  %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %47 = trunc nuw nsw i64 %indvars.iv.next to i32
+  store i32 %47, ptr %46, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 36
+  call void @LWLockInitialize(ptr noundef nonnull %48, i32 noundef 61) #3
+  %.val = load i32, ptr %44, align 4
+  %49 = load ptr, ptr @BufferIOCVArray, align 8
+  %50 = sext i32 %.val to i64
+  %51 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %49, i64 %50
+  call void @ConditionVariableInit(ptr noundef %51) #3
+  %52 = load i32, ptr @NBuffers, align 4
+  %53 = sext i32 %52 to i64
+  %54 = icmp slt i64 %indvars.iv.next, %53
+  br i1 %54, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre.pre = load i8, ptr %2, align 1, !range !4
-  %.pre17 = trunc nuw i8 %.pre.pre to i1
-  %58 = xor i1 %.pre17, true
+  %.pre22 = trunc nuw i8 %.pre.pre to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.pre16.pre-phi = phi i1 [ %58, %._crit_edge.loopexit ], [ true, %.preheader ]
-  %.lcssa = phi i32 [ %55, %._crit_edge.loopexit ], [ %37, %.preheader ]
-  %59 = add i32 %.lcssa, -1
-  %60 = load ptr, ptr @BufferDescriptors, align 8
-  %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %60, i64 %61, i32 0, i32 4
-  store i32 -1, ptr %62, align 4
-  br label %63
+  %.pre21.pre-phi = phi i1 [ %.pre22, %._crit_edge.loopexit ], [ false, %.preheader ]
+  %.lcssa = phi i32 [ %52, %._crit_edge.loopexit ], [ %34, %.preheader ]
+  %55 = add i32 %.lcssa, -1
+  %56 = load ptr, ptr @BufferDescriptors, align 8
+  %57 = zext i32 %55 to i64
+  %58 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %56, i64 %57, i32 0, i32 4
+  store i32 -1, ptr %58, align 4
+  br label %59
 
-63:                                               ; preds = %0, %28, %31, %34, %._crit_edge
-  %.pre-phi = phi i1 [ false, %0 ], [ true, %28 ], [ true, %31 ], [ true, %34 ], [ %.pre16.pre-phi, %._crit_edge ]
-  call void @StrategyInitialize(i1 noundef zeroext %.pre-phi) #3
+59:                                               ; preds = %0, %._crit_edge
+  %.pre-phi = phi i1 [ %27, %0 ], [ %.pre21.pre-phi, %._crit_edge ]
+  %60 = xor i1 %.pre-phi, true
+  call void @StrategyInitialize(i1 noundef zeroext %60) #3
   call void @WritebackContextInit(ptr noundef nonnull @BackendWritebackContext, ptr noundef nonnull @backend_flush_after) #3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #3

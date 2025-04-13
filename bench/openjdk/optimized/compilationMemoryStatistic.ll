@@ -727,8 +727,8 @@ define hidden void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i
   %36 = load volatile ptr, ptr %26, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  %.not34 = icmp eq ptr %38, null
-  br i1 %.not34, label %59, label %39
+  %.not36 = icmp eq ptr %38, null
+  br i1 %.not36, label %59, label %39
 
 39:                                               ; preds = %28
   %40 = tail call noundef ptr @_ZNK6Method10klass_nameEv(ptr noundef nonnull align 8 dereferenceable(88) %38) #14
@@ -756,27 +756,27 @@ define hidden void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i
   br label %59
 
 59:                                               ; preds = %28, %39, %25
-  %.031 = phi i8 [ %31, %39 ], [ %31, %28 ], [ 0, %25 ]
-  %.030.shrunk = phi i1 [ %35, %39 ], [ %35, %28 ], [ false, %25 ]
+  %.033 = phi i8 [ %31, %39 ], [ %31, %28 ], [ 0, %25 ]
+  %.032.shrunk = phi i1 [ %35, %39 ], [ %35, %28 ], [ false, %25 ]
   %.0.shrunk = phi i1 [ %34, %39 ], [ %34, %28 ], [ false, %25 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
-  %brmerge = or i1 %.030.shrunk, %.0.shrunk
-  br i1 %brmerge, label %60, label %79
+  %or.cond = or i1 %.032.shrunk, %.0.shrunk
+  br i1 %or.cond, label %60, label %79
 
 60:                                               ; preds = %59
   call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %6, ptr noundef nonnull %5, i64 noundef 1024) #14
-  %61 = icmp ne i8 %.031, 0
+  %61 = icmp ne i8 %.033, 0
   %62 = load i8, ptr %3, align 16
   %63 = icmp ne i8 %62, 0
-  %or.cond = select i1 %61, i1 %63, i1 false
-  br i1 %or.cond, label %64, label %71
+  %or.cond5 = select i1 %61, i1 %63, i1 false
+  br i1 %or.cond5, label %64, label %71
 
 64:                                               ; preds = %60
-  %65 = icmp ult i8 %.031, 4
+  %65 = icmp ult i8 %.033, 4
   br i1 %65, label %66, label %_Z17compilertype2name12CompilerType.exit
 
 66:                                               ; preds = %64
-  %67 = zext nneg i8 %.031 to i64
+  %67 = zext nneg i8 %.033 to i64
   %68 = getelementptr inbounds nuw [4 x ptr], ptr @compilertype2name_tab, i64 0, i64 %67
   %69 = load ptr, ptr %68, align 8
   br label %_Z17compilertype2name12CompilerType.exit
@@ -811,7 +811,7 @@ _Z17compilertype2name12CompilerType.exit:         ; preds = %64, %66
   br label %84
 
 84:                                               ; preds = %80, %79
-  br i1 %.030.shrunk, label %85, label %86
+  br i1 %.032.shrunk, label %85, label %86
 
 85:                                               ; preds = %84
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870907, ptr noundef nonnull @.str.13, i32 noundef 559, ptr noundef nonnull @.str.14, ptr noundef nonnull %5) #16
@@ -827,7 +827,7 @@ _Z17compilertype2name12CompilerType.exit:         ; preds = %64, %66
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 128
   %92 = load ptr, ptr %91, align 8
-  %93 = icmp ne i8 %.031, 1
+  %93 = icmp ne i8 %.033, 1
   %.not8.i = icmp eq ptr %92, null
   %or.cond.i = or i1 %93, %.not8.i
   br i1 %or.cond.i, label %94, label %.thread.i
@@ -837,7 +837,7 @@ _Z17compilertype2name12CompilerType.exit:         ; preds = %64, %66
   br label %.sink.split.i
 
 94:                                               ; preds = %90
-  %95 = icmp ne i8 %.031, 2
+  %95 = icmp ne i8 %.033, 2
   %or.cond10.i = or i1 %95, %.not8.i
   br i1 %or.cond10.i, label %_ZL28inform_compilation_about_oom12CompilerType.exit, label %.sink.split.i
 

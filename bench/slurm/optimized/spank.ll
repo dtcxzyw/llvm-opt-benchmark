@@ -233,7 +233,7 @@ define internal fastcc i32 @_do_call_stack(ptr noundef %0, i32 noundef range(i32
   %5 = alloca [1 x %struct.spank_handle], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #19
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %51, label %6
+  br i1 %.not, label %52, label %6
 
 6:                                                ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 40, i1 false)
@@ -282,66 +282,66 @@ switch.lookup:                                    ; preds = %14, %9, %6
   %switch.lobit = trunc i16 %switch.shifted to i1
   %27 = zext nneg i32 %1 to i64
   %switch.gep53 = getelementptr inbounds nuw [13 x i64], ptr @switch.table._do_call_stack.7, i64 0, i64 %27
-  br label %switch.hole_check
+  br label %28
 
-switch.hole_check:                                ; preds = %.lr.ph, %49
-  %28 = phi ptr [ %25, %.lr.ph ], [ %50, %49 ]
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = call ptr @xbasename(ptr noundef %30) #19
-  store ptr %28, ptr %26, align 8
+28:                                               ; preds = %.lr.ph, %50
+  %29 = phi ptr [ %25, %.lr.ph ], [ %51, %50 ]
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = call ptr @xbasename(ptr noundef %31) #19
+  store ptr %29, ptr %26, align 8
   br i1 %switch.lobit, label %switch.lookup52, label %spank_plugin_get_fn.exit.thread
 
-spank_plugin_get_fn.exit.thread:                  ; preds = %switch.hole_check
-  %32 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.72, i32 noundef range(i32 0, 13) %1) #19
-  br label %49
+spank_plugin_get_fn.exit.thread:                  ; preds = %28
+  %33 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.72, i32 noundef range(i32 0, 13) %1) #19
+  br label %50
 
-switch.lookup52:                                  ; preds = %switch.hole_check
+switch.lookup52:                                  ; preds = %28
   %switch.load54 = load i64, ptr %switch.gep53, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 %switch.load54
-  %.0.i36 = load ptr, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %switch.load54
+  %.0.i36 = load ptr, ptr %34, align 8
   %.not34 = icmp eq ptr %.0.i36, null
-  br i1 %.not34, label %49, label %34, !llvm.loop !8
+  br i1 %.not34, label %50, label %35, !llvm.loop !8
 
-34:                                               ; preds = %switch.lookup52
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 28
-  %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %38 = load ptr, ptr %37, align 8
-  %39 = call i32 %.0.i36(ptr noundef nonnull %5, i32 noundef %36, ptr noundef %38) #19
-  %40 = call i32 @get_log_level() #19
-  %41 = icmp sgt i32 %40, 5
-  br i1 %41, label %42, label %43
+35:                                               ; preds = %switch.lookup52
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 28
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %39 = load ptr, ptr %38, align 8
+  %40 = call i32 %.0.i36(ptr noundef nonnull %5, i32 noundef %37, ptr noundef %39) #19
+  %41 = call i32 @get_log_level() #19
+  %42 = icmp sgt i32 %41, 5
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %34
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.57, ptr noundef %31, ptr noundef nonnull %switch.load, i32 noundef %39) #19
-  br label %43
+43:                                               ; preds = %35
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.57, ptr noundef %32, ptr noundef nonnull %switch.load, i32 noundef %40) #19
+  br label %44
 
-43:                                               ; preds = %42, %34
-  %.not35 = icmp eq i32 %39, 0
-  br i1 %.not35, label %49, label %44
+44:                                               ; preds = %43, %35
+  %.not35 = icmp eq i32 %40, 0
+  br i1 %.not35, label %50, label %45
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %46 = load i8, ptr %45, align 8, !range !11, !noundef !12
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %.thread, label %49
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %47 = load i8, ptr %46, align 8, !range !11, !noundef !12
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %.thread, label %50
 
-.thread:                                          ; preds = %44
-  %48 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef %31, ptr noundef nonnull %switch.load, i32 noundef %39) #19
+.thread:                                          ; preds = %45
+  %49 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef %32, ptr noundef nonnull %switch.load, i32 noundef %40) #19
   br label %.loopexit
 
-49:                                               ; preds = %spank_plugin_get_fn.exit.thread, %43, %44, %switch.lookup52
-  %50 = call ptr @list_next(ptr noundef %24) #19
-  %.not33 = icmp eq ptr %50, null
-  br i1 %.not33, label %.loopexit, label %switch.hole_check
+50:                                               ; preds = %spank_plugin_get_fn.exit.thread, %44, %45, %switch.lookup52
+  %51 = call ptr @list_next(ptr noundef %24) #19
+  %.not33 = icmp eq ptr %51, null
+  br i1 %.not33, label %.loopexit, label %28
 
-.loopexit:                                        ; preds = %49, %switch.lookup, %.thread
-  %.1 = phi i32 [ %39, %.thread ], [ 0, %switch.lookup ], [ 0, %49 ]
+.loopexit:                                        ; preds = %50, %switch.lookup, %.thread
+  %.1 = phi i32 [ %40, %.thread ], [ 0, %switch.lookup ], [ 0, %50 ]
   call void @list_iterator_destroy(ptr noundef %24) #19
-  br label %51
+  br label %52
 
-51:                                               ; preds = %4, %.loopexit
+52:                                               ; preds = %4, %.loopexit
   %.0 = phi i32 [ %.1, %.loopexit ], [ 3001, %4 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #19
   ret i32 %.0

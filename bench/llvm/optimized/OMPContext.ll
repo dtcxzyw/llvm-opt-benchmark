@@ -212,15 +212,13 @@ define dso_local void @_ZN4llvm3omp10OMPContextC2EbNS_6TripleE(ptr noundef nonnu
   %13 = load i32, ptr %12, align 8, !tbaa !22
   %switch.tableidx = add i32 %13, -1
   %14 = icmp ult i32 %switch.tableidx, 42
-  br i1 %14, label %switch.hole_check, label %17
-
-switch.hole_check:                                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %switch.maskindex = zext nneg i32 %switch.tableidx to i64
   %switch.shifted = lshr i64 3506890579999, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %17
+  %or.cond = select i1 %14, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %17
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %15 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [42 x i64], ptr @switch.table._ZN4llvm3omp10OMPContextC2EbNS_6TripleE, i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -228,7 +226,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i64 %16, ptr %.ptr175, align 8, !tbaa !20
   br label %17
 
-17:                                               ; preds = %switch.hole_check, %.lr.ph.i.i.i.i.i.i.i.i.i, %switch.lookup
+17:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %switch.lookup
   %18 = tail call noundef i32 @_ZN4llvm6Triple22getArchTypeForLLVMNameENS_9StringRefE(ptr nonnull @.str, i64 3) #18
   %19 = icmp eq i32 %13, %18
   br i1 %19, label %20, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread136

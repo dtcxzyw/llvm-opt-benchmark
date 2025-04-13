@@ -29778,16 +29778,14 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 define hidden void @"_ZN70_$LT$csv..writer..Writer$LT$W$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6251608cad38104eE.llvm.9135219245553044050"(ptr noalias noundef align 8 dereferenceable(376) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8, !noundef !4
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h6fcd4bf4e6c4dc4fE.llvm.9135219245553044050.exit", label %4
-
-4:                                                ; preds = %1
+  %4 = icmp eq ptr %3, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %6 = load i8, ptr %5, align 1, !range !32, !noundef !4
+  %6 = load i8, ptr %5, align 1, !range !32
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h6fcd4bf4e6c4dc4fE.llvm.9135219245553044050.exit", label %8
+  %or.cond = select i1 %4, i1 true, i1 %7
+  br i1 %or.cond, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h6fcd4bf4e6c4dc4fE.llvm.9135219245553044050.exit", label %8
 
-8:                                                ; preds = %4
+8:                                                ; preds = %1
   %9 = tail call noundef ptr @"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097"(ptr noalias noundef nonnull align 8 dereferenceable(376) %0)
   %10 = icmp eq ptr %9, null
   %11 = load ptr, ptr %2, align 8, !alias.scope !12672
@@ -29854,7 +29852,7 @@ define hidden void @"_ZN70_$LT$csv..writer..Writer$LT$W$GT$$u20$as$u20$core..ops
   tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef 24, i64 noundef 8) #21, !noalias !12678
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h6fcd4bf4e6c4dc4fE.llvm.9135219245553044050.exit"
 
-"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h6fcd4bf4e6c4dc4fE.llvm.9135219245553044050.exit": ; preds = %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hfecd70bead81a977E.llvm.9135219245553044050.exit.i.i.i.i.i", %"_ZN3csv6writer15Writer$LT$W$GT$5flush17ha65a1e5787c83b2dE.exit", %1, %4
+"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h6fcd4bf4e6c4dc4fE.llvm.9135219245553044050.exit": ; preds = %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hfecd70bead81a977E.llvm.9135219245553044050.exit.i.i.i.i.i", %"_ZN3csv6writer15Writer$LT$W$GT$5flush17ha65a1e5787c83b2dE.exit", %1
   ret void
 }
 

@@ -4919,23 +4919,22 @@ define dso_local void @_ZN5clang15BackendConsumer25OptimizationRemarkHandlerERKN
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %4 = load i8, ptr %3, align 8, !tbaa !842, !range !104, !noundef !105
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %.critedge
-
-6:                                                ; preds = %2
+  %.not41 = xor i1 %5, true
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %7 = trunc nuw i8 %.sroa.2.0.copyload.i to i1
-  br i1 %7, label %.critedge, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread
+  %6 = trunc nuw i8 %.sroa.2.0.copyload.i to i1
+  %or.cond = select i1 %.not41, i1 true, i1 %6
+  br i1 %or.cond, label %.critedge, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread
 
-.critedge:                                        ; preds = %2, %6
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !648
-  switch i32 %9, label %.critedge..critedge20_crit_edge [
-    i32 19, label %10
-    i32 13, label %10
-    i32 20, label %21
-    i32 14, label %21
-    i32 15, label %32
+.critedge:                                        ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i32, ptr %7, align 8, !tbaa !648
+  switch i32 %8, label %.critedge..critedge20_crit_edge [
+    i32 19, label %9
+    i32 13, label %9
+    i32 20, label %20
+    i32 14, label %20
+    i32 15, label %31
   ]
 
 .critedge..critedge20_crit_edge:                  ; preds = %.critedge
@@ -4943,114 +4942,114 @@ define dso_local void @_ZN5clang15BackendConsumer25OptimizationRemarkHandlerERKN
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !831
   br label %.critedge20
 
-10:                                               ; preds = %.critedge, %.critedge
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !99
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !831
-  %.not.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i, label %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit, label %15
+9:                                                ; preds = %.critedge, %.critedge
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = load ptr, ptr %10, align 8, !tbaa !99
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %13 = load ptr, ptr %12, align 8, !tbaa !831
+  %.not.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i, label %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit, label %14
 
-15:                                               ; preds = %10
-  %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #25
+14:                                               ; preds = %9
+  %15 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #25
   br label %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit
 
-_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit: ; preds = %10, %15
-  %17 = phi i64 [ %16, %15 ], [ 0, %10 ]
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1424
-  %19 = load ptr, ptr %18, align 8, !tbaa !843
-  %.not.i = icmp eq ptr %19, null
+_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit: ; preds = %9, %14
+  %16 = phi i64 [ %15, %14 ], [ 0, %9 ]
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1424
+  %18 = load ptr, ptr %17, align 8, !tbaa !843
+  %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit
 
 _ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit: ; preds = %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit
-  %20 = tail call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %19, ptr %14, i64 %17, ptr noundef null, ptr noundef null) #25
-  br i1 %20, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread
+  %19 = tail call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %18, ptr %13, i64 %16, ptr noundef null, ptr noundef null) #25
+  br i1 %19, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread
 
-21:                                               ; preds = %.critedge, %.critedge
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !99
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %25 = load ptr, ptr %24, align 8, !tbaa !831
-  %.not.i.i24 = icmp eq ptr %25, null
-  br i1 %.not.i.i24, label %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit27, label %26
+20:                                               ; preds = %.critedge, %.critedge
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = load ptr, ptr %21, align 8, !tbaa !99
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %24 = load ptr, ptr %23, align 8, !tbaa !831
+  %.not.i.i24 = icmp eq ptr %24, null
+  br i1 %.not.i.i24, label %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit27, label %25
 
-26:                                               ; preds = %21
-  %27 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #25
+25:                                               ; preds = %20
+  %26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #25
   br label %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit27
 
-_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit27: ; preds = %21, %26
-  %28 = phi i64 [ %27, %26 ], [ 0, %21 ]
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1480
-  %30 = load ptr, ptr %29, align 8, !tbaa !843
-  %.not.i28 = icmp eq ptr %30, null
+_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit27: ; preds = %20, %25
+  %27 = phi i64 [ %26, %25 ], [ 0, %20 ]
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 1480
+  %29 = load ptr, ptr %28, align 8, !tbaa !843
+  %.not.i28 = icmp eq ptr %29, null
   br i1 %.not.i28, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit29
 
 _ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit29: ; preds = %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit27
-  %31 = tail call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr %25, i64 %28, ptr noundef null, ptr noundef null) #25
-  br i1 %31, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread
+  %30 = tail call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr %24, i64 %27, ptr noundef null, ptr noundef null) #25
+  br i1 %30, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread
 
-32:                                               ; preds = %.critedge
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !831
-  %.not.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i, label %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit.i, label %35
+31:                                               ; preds = %.critedge
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %33 = load ptr, ptr %32, align 8, !tbaa !831
+  %.not.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i, label %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit.i, label %34
 
-35:                                               ; preds = %32
-  %36 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #25
+34:                                               ; preds = %31
+  %35 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #25
   br label %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit.i
 
-_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit.i: ; preds = %35, %32
-  %37 = phi i64 [ %36, %35 ], [ 0, %32 ]
-  %38 = load ptr, ptr @_ZN4llvm26OptimizationRemarkAnalysis11AlwaysPrintE, align 8, !tbaa !86
-  %.not.i.i30 = icmp eq ptr %38, null
-  br i1 %.not.i.i30, label %_ZN4llvm9StringRefC2EPKc.exit.i, label %39
+_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit.i: ; preds = %34, %31
+  %36 = phi i64 [ %35, %34 ], [ 0, %31 ]
+  %37 = load ptr, ptr @_ZN4llvm26OptimizationRemarkAnalysis11AlwaysPrintE, align 8, !tbaa !86
+  %.not.i.i30 = icmp eq ptr %37, null
+  br i1 %.not.i.i30, label %_ZN4llvm9StringRefC2EPKc.exit.i, label %38
 
-39:                                               ; preds = %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit.i
-  %40 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #25
+38:                                               ; preds = %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit.i
+  %39 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #25
   br label %_ZN4llvm9StringRefC2EPKc.exit.i
 
-_ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %39, %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit.i
-  %41 = phi i64 [ %40, %39 ], [ 0, %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit.i ]
-  %.not.i1.i = icmp eq i64 %37, %41
-  br i1 %.not.i1.i, label %42, label %.critedge20
+_ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %38, %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit.i
+  %40 = phi i64 [ %39, %38 ], [ 0, %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit.i ]
+  %.not.i1.i = icmp eq i64 %36, %40
+  br i1 %.not.i1.i, label %41, label %.critedge20
 
-42:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i
-  %43 = icmp eq i64 %37, 0
-  br i1 %43, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split, label %_ZNK4llvm26OptimizationRemarkAnalysis17shouldAlwaysPrintEv.exit
+41:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i
+  %42 = icmp eq i64 %36, 0
+  br i1 %42, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split, label %_ZNK4llvm26OptimizationRemarkAnalysis17shouldAlwaysPrintEv.exit
 
-_ZNK4llvm26OptimizationRemarkAnalysis17shouldAlwaysPrintEv.exit: ; preds = %42
-  %bcmp.i.i = tail call i32 @bcmp(ptr %34, ptr %38, i64 %37)
-  %44 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %44, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split, label %.critedge20
+_ZNK4llvm26OptimizationRemarkAnalysis17shouldAlwaysPrintEv.exit: ; preds = %41
+  %bcmp.i.i = tail call i32 @bcmp(ptr %33, ptr %37, i64 %36)
+  %43 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %43, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split, label %.critedge20
 
 .critedge20:                                      ; preds = %.critedge..critedge20_crit_edge, %_ZN4llvm9StringRefC2EPKc.exit.i, %_ZNK4llvm26OptimizationRemarkAnalysis17shouldAlwaysPrintEv.exit
-  %45 = phi ptr [ %.pre, %.critedge..critedge20_crit_edge ], [ %34, %_ZN4llvm9StringRefC2EPKc.exit.i ], [ %34, %_ZNK4llvm26OptimizationRemarkAnalysis17shouldAlwaysPrintEv.exit ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !99
-  %.not.i.i31 = icmp eq ptr %45, null
-  br i1 %.not.i.i31, label %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit35, label %48
+  %44 = phi ptr [ %.pre, %.critedge..critedge20_crit_edge ], [ %33, %_ZN4llvm9StringRefC2EPKc.exit.i ], [ %33, %_ZNK4llvm26OptimizationRemarkAnalysis17shouldAlwaysPrintEv.exit ]
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %46 = load ptr, ptr %45, align 8, !tbaa !99
+  %.not.i.i31 = icmp eq ptr %44, null
+  br i1 %.not.i.i31, label %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit35, label %47
 
-48:                                               ; preds = %.critedge20
-  %49 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #25
+47:                                               ; preds = %.critedge20
+  %48 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #25
   br label %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit35
 
-_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit35: ; preds = %.critedge20, %48
-  %50 = phi i64 [ %49, %48 ], [ 0, %.critedge20 ]
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 1536
-  %52 = load ptr, ptr %51, align 8, !tbaa !843
-  %.not.i36 = icmp eq ptr %52, null
+_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit35: ; preds = %.critedge20, %47
+  %49 = phi i64 [ %48, %47 ], [ 0, %.critedge20 ]
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 1536
+  %51 = load ptr, ptr %50, align 8, !tbaa !843
+  %.not.i36 = icmp eq ptr %51, null
   br i1 %.not.i36, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit37
 
 _ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit37: ; preds = %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit35
-  %53 = tail call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %52, ptr %45, i64 %50, ptr noundef null, ptr noundef null) #25
-  br i1 %53, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread
+  %52 = tail call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %51, ptr %44, i64 %49, ptr noundef null, ptr noundef null) #25
+  br i1 %52, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split, label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread
 
-_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split: ; preds = %_ZNK4llvm26OptimizationRemarkAnalysis17shouldAlwaysPrintEv.exit, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit37, %42, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit29, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit
-  %.sink = phi i32 [ 796, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit ], [ 800, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit29 ], [ 797, %42 ], [ 797, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit37 ], [ 797, %_ZNK4llvm26OptimizationRemarkAnalysis17shouldAlwaysPrintEv.exit ]
+_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split: ; preds = %_ZNK4llvm26OptimizationRemarkAnalysis17shouldAlwaysPrintEv.exit, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit37, %41, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit29, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit
+  %.sink = phi i32 [ 796, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit ], [ 800, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit29 ], [ 797, %41 ], [ 797, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit37 ], [ 797, %_ZNK4llvm26OptimizationRemarkAnalysis17shouldAlwaysPrintEv.exit ]
   tail call void @_ZN5clang15BackendConsumer23EmitOptimizationMessageERKN4llvm30DiagnosticInfoOptimizationBaseEj(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 8 dereferenceable(424) %1, i32 noundef %.sink)
   br label %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread
 
-_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread: ; preds = %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split, %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit35, %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit27, %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit37, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit29, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit, %6
+_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread: ; preds = %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit.thread.sink.split, %2, %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit35, %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit27, %_ZNK4llvm30DiagnosticInfoOptimizationBase11getPassNameEv.exit, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit37, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit29, %_ZNK5clang14CodeGenOptions9OptRemark14patternMatchesEN4llvm9StringRefE.exit
   ret void
 }
 

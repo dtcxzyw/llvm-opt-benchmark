@@ -276,8 +276,8 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
   %66 = load i32, ptr %12, align 4
   %67 = load i32, ptr %13, align 4
   %68 = icmp eq i32 %66, %67
-  %or.cond.i = and i1 %14, %68
-  br i1 %or.cond.i, label %69, label %dissect_resp_message.exit
+  %or.cond.i34 = and i1 %14, %68
+  br i1 %or.cond.i34, label %69, label %dissect_resp_message.exit
 
 69:                                               ; preds = %57
   %70 = load ptr, ptr %15, align 8
@@ -323,15 +323,13 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
 
 97:                                               ; preds = %91
   %98 = load i16, ptr %9, align 8
-  %.not.i34 = icmp eq i16 %98, 0
-  br i1 %.not.i34, label %110, label %99
-
-99:                                               ; preds = %97
-  %100 = load i8, ptr @resp_desegment, align 1, !range !6, !noundef !7
+  %99 = icmp ne i16 %98, 0
+  %100 = load i8, ptr @resp_desegment, align 1, !range !6
   %101 = trunc nuw i8 %100 to i1
-  br i1 %101, label %102, label %110
+  %or.cond.i = select i1 %99, i1 %101, i1 false
+  br i1 %or.cond.i, label %102, label %110
 
-102:                                              ; preds = %99
+102:                                              ; preds = %97
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.02747, ptr %103, align 4
   %104 = sub i32 %95, %94
@@ -345,7 +343,7 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
   %109 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %107, ptr noundef %0, i32 noundef %.02747, i32 noundef %108, i32 noundef 0)
   br label %116
 
-110:                                              ; preds = %99, %97
+110:                                              ; preds = %97
   %111 = load ptr, ptr %15, align 8
   tail call void @col_append_str(ptr noundef %111, i32 noundef 25, ptr noundef nonnull @.str.40)
   %112 = load i32, ptr @hf_resp_bulk_string, align 4
@@ -357,25 +355,25 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
 116:                                              ; preds = %110, %106
   %117 = phi ptr [ %114, %110 ], [ %109, %106 ]
   %118 = phi i32 [ %113, %110 ], [ %108, %106 ]
-  %.07585.i = phi i32 [ %94, %110 ], [ %77, %106 ]
+  %.07685.i = phi i32 [ %94, %110 ], [ %77, %106 ]
   %119 = load i32, ptr @ett_resp_bulk_string, align 4
   %120 = tail call ptr @proto_item_add_subtree(ptr noundef %117, i32 noundef %119)
   %121 = load i32, ptr @hf_resp_bulk_string_length, align 4
   %122 = tail call ptr @proto_tree_add_int(ptr noundef %120, i32 noundef %121, ptr noundef %0, i32 noundef %.02747, i32 noundef %92, i32 noundef %77)
-  %123 = icmp sgt i32 %.07585.i, 0
+  %123 = icmp sgt i32 %.07685.i, 0
   br i1 %123, label %124, label %127
 
 124:                                              ; preds = %116
   %125 = load i32, ptr @hf_resp_bulk_string_value, align 4
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %125, ptr noundef %0, i32 noundef %93, i32 noundef %.07585.i, i32 noundef 0)
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %125, ptr noundef %0, i32 noundef %93, i32 noundef %.07685.i, i32 noundef 0)
   br label %127
 
 127:                                              ; preds = %124, %116
   %128 = load ptr, ptr %10, align 8
-  %129 = tail call ptr @tvb_get_string_enc(ptr noundef %128, ptr noundef %0, i32 noundef %93, i32 noundef %.07585.i, i32 noundef 0)
+  %129 = tail call ptr @tvb_get_string_enc(ptr noundef %128, ptr noundef %0, i32 noundef %93, i32 noundef %.07685.i, i32 noundef 0)
   %130 = tail call i32 @g_str_is_ascii(ptr noundef %129)
-  %.not82.i = icmp eq i32 %130, 0
-  br i1 %.not82.i, label %149, label %131
+  %.not.i = icmp eq i32 %130, 0
+  br i1 %.not.i, label %149, label %131
 
 131:                                              ; preds = %127
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %117, ptr noundef nonnull @.str.41, ptr noundef %129)
@@ -477,22 +475,20 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
 
 178:                                              ; preds = %174
   %179 = load i16, ptr %9, align 8
-  %.not.i = icmp eq i16 %179, 0
-  br i1 %.not.i, label %186, label %180
-
-180:                                              ; preds = %178
-  %181 = load i8, ptr @resp_desegment, align 1, !range !6, !noundef !7
+  %180 = icmp ne i16 %179, 0
+  %181 = load i8, ptr @resp_desegment, align 1, !range !6
   %182 = trunc nuw i8 %181 to i1
-  br i1 %182, label %183, label %186
+  %or.cond3.i = select i1 %180, i1 %182, i1 false
+  br i1 %or.cond3.i, label %183, label %186
 
-183:                                              ; preds = %180
+183:                                              ; preds = %178
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.02747, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %185, align 8
   br label %dissect_resp_message.exit.thread
 
-186:                                              ; preds = %180, %178
+186:                                              ; preds = %178
   %187 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %160, ptr noundef nonnull @ei_resp_partial)
   br label %188
 
@@ -500,8 +496,8 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
   %189 = load i32, ptr %12, align 4
   %190 = load i32, ptr %13, align 4
   %191 = icmp eq i32 %189, %190
-  %or.cond3.i = and i1 %14, %191
-  br i1 %or.cond3.i, label %192, label %194
+  %or.cond5.i = and i1 %14, %191
+  br i1 %or.cond5.i, label %192, label %194
 
 192:                                              ; preds = %188
   %193 = load ptr, ptr %15, align 8
@@ -557,7 +553,7 @@ dissect_resp_message.exit:                        ; preds = %201, %172, %169, %1
   %212 = add i32 %.049, 1
   %213 = add i32 %.0.i39, %.02747
   %214 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %213)
-  br i1 %214, label %19, label %.loopexit, !llvm.loop !8
+  br i1 %214, label %19, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %19, %dissect_resp_message.exit, %211, %6, %dissect_resp_message.exit.thread, %30
   %.026 = phi i32 [ -1, %30 ], [ -1, %dissect_resp_message.exit.thread ], [ %3, %6 ], [ %.02747, %19 ], [ -1, %dissect_resp_message.exit ], [ %213, %211 ]
@@ -630,6 +626,5 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

@@ -429,15 +429,13 @@ while.end:                                        ; preds = %if.end15, %if.end
   %ended_ = getelementptr inbounds nuw i8, ptr %this, i64 129
   %24 = load i8, ptr %ended_, align 1
   %tobool16 = trunc i8 %24 to i1
-  br i1 %tobool16, label %land.lhs.true, label %if.end23
-
-land.lhs.true:                                    ; preds = %while.end
   %reading_17 = getelementptr inbounds nuw i8, ptr %this, i64 130
   %25 = load i8, ptr %reading_17, align 2
   %tobool18 = trunc i8 %25 to i1
-  br i1 %tobool18, label %if.then19, label %if.end23
+  %or.cond = select i1 %tobool16, i1 %tobool18, i1 false
+  br i1 %or.cond, label %if.then19, label %if.end23
 
-if.then19:                                        ; preds = %land.lhs.true
+if.then19:                                        ; preds = %while.end
   %call22 = call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #18
   %26 = extractvalue { ptr, i64 } %call22, 0
   store ptr %26, ptr %ref.tmp21, align 8
@@ -452,7 +450,7 @@ if.then19:                                        ; preds = %land.lhs.true
   call void %30(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef -4095, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21) #18
   br label %if.end23
 
-if.end23:                                         ; preds = %entry, %if.then19, %land.lhs.true, %while.end
+if.end23:                                         ; preds = %entry, %if.then19, %while.end
   ret void
 }
 

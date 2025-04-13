@@ -128,19 +128,17 @@ lv_obj_event_base.exit.thread.i:                  ; preds = %29, %lv_obj_event_b
   %55 = load i32, ptr %8, align 8, !tbaa !11
   %switch.tableidx = add i32 %55, -22
   %56 = icmp ult i32 %switch.tableidx, 31
-  br i1 %56, label %switch.hole_check, label %event_is_bubbled.exit
+  %switch.shifted = lshr i32 1484300273, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %56, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %event_send_core.exit, label %event_is_bubbled.exit
 
-event_is_bubbled.exit:                            ; preds = %switch.hole_check, %54, %49
+event_is_bubbled.exit:                            ; preds = %54, %49
   store ptr %45, ptr %4, align 8, !tbaa !3
   br label %tailrecurse.i
 
-switch.hole_check:                                ; preds = %54
-  %switch.shifted = lshr i32 1484300273, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %event_send_core.exit, label %event_is_bubbled.exit
-
-event_send_core.exit:                             ; preds = %switch.hole_check, %51, %46, %13, %16, %18, %24, %lv_obj_event_base.exit.i, %lv_obj_event_base.exit.thread.i, %38, %40, %43
-  %.0.i = phi i32 [ 1, %13 ], [ 0, %16 ], [ 1, %24 ], [ %23, %18 ], [ 1, %lv_obj_event_base.exit.thread.i ], [ 0, %lv_obj_event_base.exit.i ], [ 1, %40 ], [ %39, %38 ], [ 1, %43 ], [ 1, %46 ], [ 1, %51 ], [ 1, %switch.hole_check ]
+event_send_core.exit:                             ; preds = %54, %51, %46, %13, %16, %18, %24, %lv_obj_event_base.exit.i, %lv_obj_event_base.exit.thread.i, %38, %40, %43
+  %.0.i = phi i32 [ 1, %13 ], [ 0, %16 ], [ 1, %24 ], [ %23, %18 ], [ 1, %lv_obj_event_base.exit.thread.i ], [ 0, %lv_obj_event_base.exit.i ], [ 1, %40 ], [ %39, %38 ], [ 1, %43 ], [ 1, %46 ], [ 1, %51 ], [ 1, %54 ]
   call void @lv_event_pop(ptr noundef nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #4
   br label %57

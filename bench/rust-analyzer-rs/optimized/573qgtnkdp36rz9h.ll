@@ -1178,10 +1178,10 @@ _ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit: ; preds = %2
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit": ; preds = %2, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h25449d48e2516cfeE.exit.i", %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i"
-  %.sroa.33.0.i = phi i32 [ undef, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %15, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ undef, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h25449d48e2516cfeE.exit.i" ], [ undef, %2 ]
-  %.sroa.02.0.i = phi i32 [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %spec.select2.i, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ 0, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h25449d48e2516cfeE.exit.i" ], [ 0, %2 ]
-  %21 = insertvalue { i32, i32 } poison, i32 %.sroa.02.0.i, 0
-  %22 = insertvalue { i32, i32 } %21, i32 %.sroa.33.0.i, 1
+  %.sroa.3.0.i = phi i32 [ undef, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %15, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ undef, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h25449d48e2516cfeE.exit.i" ], [ undef, %2 ]
+  %.sroa.04.0.i = phi i32 [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %spec.select2.i, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ 0, %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h25449d48e2516cfeE.exit.i" ], [ 0, %2 ]
+  %21 = insertvalue { i32, i32 } poison, i32 %.sroa.04.0.i, 0
+  %22 = insertvalue { i32, i32 } %21, i32 %.sroa.3.0.i, 1
   ret { i32, i32 } %22
 }
 

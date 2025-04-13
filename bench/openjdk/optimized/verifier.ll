@@ -419,27 +419,33 @@ $_ZTV17LogStreamImplBase = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN8Verifier17should_verify_forEP7oopDescb(ptr noundef readnone captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ne ptr %0, null
-  %brmerge.not = and i1 %3, %1
+  %or.cond = and i1 %3, %1
   %BytecodeVerificationRemote.val = load i8, ptr @BytecodeVerificationRemote, align 1
   %BytecodeVerificationLocal.val = load i8, ptr @BytecodeVerificationLocal, align 1
-  %.in = select i1 %brmerge.not, i8 %BytecodeVerificationRemote.val, i8 %BytecodeVerificationLocal.val
+  %.in = select i1 %or.cond, i8 %BytecodeVerificationRemote.val, i8 %BytecodeVerificationLocal.val
   %4 = trunc i8 %.in to i1
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN8Verifier16relax_access_forEP7oopDesc(ptr noundef %0) local_unnamed_addr #1 align 2 {
-.thread:
-  %1 = tail call noundef zeroext i1 @_ZN21java_lang_ClassLoader17is_trusted_loaderEP7oopDesc(ptr noundef %0) #20
-  %2 = load i8, ptr @BytecodeVerificationLocal, align 1
-  %3 = trunc i8 %2 to i1
-  %4 = load i8, ptr @BytecodeVerificationRemote, align 1
-  %5 = trunc i8 %4 to i1
-  %not.3 = xor i1 %5, true
-  %not. = xor i1 %3, true
-  %spec.select = and i1 %1, %not.
-  %spec.select4 = or i1 %spec.select, %not.3
-  ret i1 %spec.select4
+  %2 = tail call noundef zeroext i1 @_ZN21java_lang_ClassLoader17is_trusted_loaderEP7oopDesc(ptr noundef %0) #20
+  %3 = load i8, ptr @BytecodeVerificationLocal, align 1
+  %4 = trunc i8 %3 to i1
+  %5 = load i8, ptr @BytecodeVerificationRemote, align 1
+  %6 = trunc i8 %5 to i1
+  %or.cond = select i1 %4, i1 %6, i1 false
+  br i1 %or.cond, label %9, label %7
+
+7:                                                ; preds = %1
+  %.not5 = xor i1 %6, true
+  %or.cond3.not = select i1 %4, i1 true, i1 %.not5
+  %8 = or i1 %2, %or.cond3.not
+  br label %9
+
+9:                                                ; preds = %1, %7
+  %10 = phi i1 [ %8, %7 ], [ false, %1 ]
+  ret i1 %10
 }
 
 declare noundef zeroext i1 @_ZN21java_lang_ClassLoader17is_trusted_loaderEP7oopDesc(ptr noundef) local_unnamed_addr #2
@@ -759,10 +765,10 @@ _ZNK5Klass13is_subtype_ofEPS_.exit.i:             ; preds = %49, %48, %41, %_ZN7
 
 _ZNK5Klass12class_loaderEv.exit.i:                ; preds = %58, %_ZNK5Klass13is_subtype_ofEPS_.exit.i
   %62 = phi i1 [ %61, %58 ], [ false, %_ZNK5Klass13is_subtype_ofEPS_.exit.i ]
-  %brmerge.not.i.i = and i1 %1, %62
+  %or.cond.i.i = and i1 %1, %62
   %BytecodeVerificationRemote.val.i.i = load i8, ptr @BytecodeVerificationRemote, align 1
   %BytecodeVerificationLocal.val.i.i = load i8, ptr @BytecodeVerificationLocal, align 1
-  %.in.i.i = select i1 %brmerge.not.i.i, i8 %BytecodeVerificationRemote.val.i.i, i8 %BytecodeVerificationLocal.val.i.i
+  %.in.i.i = select i1 %or.cond.i.i, i8 %BytecodeVerificationRemote.val.i.i, i8 %BytecodeVerificationLocal.val.i.i
   %63 = trunc i8 %.in.i.i to i1
   br i1 %63, label %64, label %_ZN8Verifier28is_eligible_for_verificationEP13InstanceKlassb.exit.thread
 
@@ -1167,10 +1173,10 @@ _ZNK5Klass13is_subtype_ofEPS_.exit:               ; preds = %14, %13, %6, %2
 
 _ZNK5Klass12class_loaderEv.exit:                  ; preds = %_ZNK5Klass13is_subtype_ofEPS_.exit, %23
   %27 = phi i1 [ %26, %23 ], [ false, %_ZNK5Klass13is_subtype_ofEPS_.exit ]
-  %brmerge.not.i = and i1 %1, %27
+  %or.cond.i = and i1 %1, %27
   %BytecodeVerificationRemote.val.i = load i8, ptr @BytecodeVerificationRemote, align 1
   %BytecodeVerificationLocal.val.i = load i8, ptr @BytecodeVerificationLocal, align 1
-  %.in.i = select i1 %brmerge.not.i, i8 %BytecodeVerificationRemote.val.i, i8 %BytecodeVerificationLocal.val.i
+  %.in.i = select i1 %or.cond.i, i8 %BytecodeVerificationRemote.val.i, i8 %BytecodeVerificationLocal.val.i
   %28 = trunc i8 %.in.i to i1
   br i1 %28, label %29, label %46
 
@@ -10241,8 +10247,8 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   %.0.i = phi i1 [ %47, %46 ], [ %42, %41 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ true, %14 ], [ true, %35 ], [ %40, %38 ], [ false, %43 ]
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %49 = load ptr, ptr %48, align 8
-  %.not16 = icmp eq ptr %49, null
-  br i1 %.not16, label %50, label %89
+  %.not = icmp eq ptr %49, null
+  br i1 %.not, label %50, label %89
 
 50:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
   %51 = load ptr, ptr %15, align 8
@@ -10312,12 +10318,12 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   br i1 %82, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread, label %89
 
 _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread: ; preds = %73, %70, %50, %61, %64, %67, %76, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15
-  %.0.i1321 = phi i1 [ %81, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15 ], [ %75, %73 ], [ true, %70 ], [ true, %50 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %77, %76 ]
-  %brmerge.demorgan = and i1 %.0.i, %.0.i1321
-  br i1 %brmerge.demorgan, label %83, label %._crit_edge
+  %.0.i1320 = phi i1 [ %81, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15 ], [ %75, %73 ], [ true, %70 ], [ true, %50 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %77, %76 ]
+  %or.cond = and i1 %.0.i, %.0.i1320
+  br i1 %or.cond, label %83, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %78, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread
-  %.sroa.03.0.copyload.pre = load ptr, ptr %5, align 8
+  %.sroa.04.0.copyload.pre = load ptr, ptr %5, align 8
   br label %86
 
 83:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread
@@ -10327,10 +10333,10 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   br label %89
 
 86:                                               ; preds = %._crit_edge, %4
-  %.sroa.03.0.copyload = phi ptr [ %.sroa.03.0.copyload.pre, %._crit_edge ], [ %1, %4 ]
-  %87 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.sroa.03.0.copyload, ptr noundef %3) #20
-  %.sroa.01.0.copyload = load ptr, ptr %6, align 8
-  %88 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.sroa.01.0.copyload, ptr noundef %3) #20
+  %.sroa.04.0.copyload = phi ptr [ %.sroa.04.0.copyload.pre, %._crit_edge ], [ %1, %4 ]
+  %87 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.sroa.04.0.copyload, ptr noundef %3) #20
+  %.sroa.02.0.copyload = load ptr, ptr %6, align 8
+  %88 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.sroa.02.0.copyload, ptr noundef %3) #20
   br label %89
 
 89:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, %86, %83
@@ -10784,8 +10790,8 @@ define hidden void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 5, ptr %17, align 8
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 0, ptr %.sroa.415.0..sroa_idx, align 4
+  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 36
+  store i32 0, ptr %.sroa.416.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -10862,8 +10868,8 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = icmp ne ptr %48, null
-  %brmerge = or i1 %.0.i, %49
-  br i1 %brmerge, label %54, label %50
+  %or.cond = or i1 %.0.i, %49
+  br i1 %or.cond, label %54, label %50
 
 50:                                               ; preds = %46
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %4) #20
@@ -10872,12 +10878,12 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 5, ptr %52, align 8
-  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i32 0, ptr %.sroa.417.0..sroa_idx, align 4
-  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr null, ptr %.sroa.518.0..sroa_idx, align 8
-  %.sroa.619.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store ptr %.sroa.0.0.copyload, ptr %.sroa.619.0..sroa_idx, align 8
+  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 36
+  store i32 0, ptr %.sroa.418.0..sroa_idx, align 4
+  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store ptr null, ptr %.sroa.519.0..sroa_idx, align 8
+  %.sroa.620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
+  store ptr %.sroa.0.0.copyload, ptr %.sroa.620.0..sroa_idx, align 8
   store i32 %3, ptr %11, align 8, !alias.scope !275
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 1, ptr %53, align 4, !alias.scope !275

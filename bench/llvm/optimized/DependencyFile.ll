@@ -864,41 +864,40 @@ define dso_local noundef zeroext i1 @_ZN5clang23DependencyFileGenerator13sawDepe
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 114
   %10 = load i8, ptr %9, align 2, !tbaa !725, !range !743, !noundef !744
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %25, label %12
+  br i1 %11, label %24, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %13, align 1, !tbaa !726
-  br label %25
+  br label %24
 
 14:                                               ; preds = %7
-  br i1 %5, label %15, label %19
+  %.not = xor i1 %5, true
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %16 = load i8, ptr %15, align 4, !range !743
+  %17 = trunc nuw i8 %16 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %17
+  br i1 %or.cond, label %18, label %24
 
-15:                                               ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %17 = load i8, ptr %16, align 4, !tbaa !727, !range !743, !noundef !744
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %25
-
-19:                                               ; preds = %15, %14
+18:                                               ; preds = %14
   %.not.i.i = icmp eq i64 %2, 10
   br i1 %.not.i.i, label %_ZL17isSpecialFilenameN4llvm9StringRefE.exit, label %_ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread
 
-_ZL17isSpecialFilenameN4llvm9StringRefE.exit:     ; preds = %19
+_ZL17isSpecialFilenameN4llvm9StringRefE.exit:     ; preds = %18
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %1, ptr noundef nonnull dereferenceable(10) @.str.4, i64 10)
-  %20 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %20, label %25, label %_ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread
+  %19 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %19, label %24, label %_ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread
 
-_ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread: ; preds = %19, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %22 = load i8, ptr %21, align 8, !tbaa !715, !range !743, !noundef !744
-  %23 = trunc nuw i8 %22 to i1
-  %24 = xor i1 %4, true
-  %spec.select = or i1 %24, %23
-  br label %25
+_ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread: ; preds = %18, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %21 = load i8, ptr %20, align 8, !tbaa !715, !range !743, !noundef !744
+  %22 = trunc nuw i8 %21 to i1
+  %23 = xor i1 %4, true
+  %spec.select = or i1 %23, %22
+  br label %24
 
-25:                                               ; preds = %_ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit, %15, %8, %12
-  %.0 = phi i1 [ false, %12 ], [ true, %8 ], [ false, %15 ], [ false, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit ], [ %spec.select, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread ]
+24:                                               ; preds = %_ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit, %14, %8, %12
+  %.0 = phi i1 [ false, %12 ], [ true, %8 ], [ false, %14 ], [ false, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit ], [ %spec.select, %_ZL17isSpecialFilenameN4llvm9StringRefE.exit.thread ]
   ret i1 %.0
 }
 
@@ -2920,8 +2919,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123DepCollectorASTListener14
   %8 = alloca %"class.llvm::Error", align 8
   %9 = alloca %class.anon, align 1
   %10 = alloca %"class.llvm::Expected", align 8
-  %brmerge = or i1 %4, %5
-  br i1 %brmerge, label %45, label %11
+  %or.cond = or i1 %4, %5
+  br i1 %or.cond, label %45, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3004,14 +3003,14 @@ _ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %.preheader
   br label %39
 
 39:                                               ; preds = %_ZNK5clang12FileEntryRef7getNameEv.exit, %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit
-  %.sroa.06.0 = phi ptr [ %37, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ %1, %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit ]
-  %.sroa.47.0 = phi i64 [ %38, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ %2, %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit ]
+  %.sroa.07.0 = phi ptr [ %37, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ %1, %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit ]
+  %.sroa.48.0 = phi i64 [ %38, %_ZNK5clang12FileEntryRef7getNameEv.exit ], [ %2, %_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !815
   %42 = load ptr, ptr %41, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(56) %41, ptr %.sroa.06.0, i64 %.sroa.47.0, i1 noundef zeroext true, i1 noundef zeroext %3, i1 noundef zeroext false, i1 noundef zeroext false) #18
+  call void %44(ptr noundef nonnull align 8 dereferenceable(56) %41, ptr %.sroa.07.0, i64 %.sroa.48.0, i1 noundef zeroext true, i1 noundef zeroext %3, i1 noundef zeroext false, i1 noundef zeroext false) #18
   br label %45
 
 45:                                               ; preds = %6, %39

@@ -2757,45 +2757,45 @@ ptr_obj_get.exit:                                 ; preds = %.lr.ph106, %.prehea
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #14 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %.not39 = icmp ne ptr %3, null
+  %.not40 = icmp ne ptr %3, null
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %8
 
-8:                                                ; preds = %128, %5
-  %.074 = phi ptr [ %1, %5 ], [ %.175, %128 ]
-  %.067 = phi ptr [ null, %5 ], [ %.168105, %128 ]
-  %.065 = phi i1 [ false, %5 ], [ %.166106, %128 ]
-  %.033 = phi ptr [ %0, %5 ], [ %.1108, %128 ]
-  %.ptr = getelementptr inbounds nuw i8, ptr %.074, i64 1
+8:                                                ; preds = %129, %5
+  %.075 = phi ptr [ %1, %5 ], [ %.176, %129 ]
+  %.068 = phi ptr [ null, %5 ], [ %.169106, %129 ]
+  %.066 = phi i1 [ false, %5 ], [ %.167107, %129 ]
+  %.034 = phi ptr [ %0, %5 ], [ %.1109, %129 ]
+  %.ptr = getelementptr inbounds nuw i8, ptr %.075, i64 1
   %9 = icmp ult ptr %.ptr, %6
   br i1 %9, label %.lr.ph, label %.critedge.i
 
 .lr.ph:                                           ; preds = %8, %11
-  %.039.i139 = phi ptr [ %12, %11 ], [ %.ptr, %8 ]
-  %10 = load i8, ptr %.039.i139, align 1, !tbaa !75
+  %.039.i140 = phi ptr [ %12, %11 ], [ %.ptr, %8 ]
+  %10 = load i8, ptr %.039.i140, align 1, !tbaa !75
   switch i8 %10, label %11 [
     i8 47, label %.critedge.i
     i8 126, label %.critedge.i
   ]
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.039.i139, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.039.i140, i64 1
   %13 = icmp ult ptr %12, %6
   br i1 %13, label %.lr.ph, label %.critedge.i, !llvm.loop !100
 
 .critedge.i:                                      ; preds = %11, %.lr.ph, %.lr.ph, %8
-  %.039.i.lcssa = phi ptr [ %.ptr, %8 ], [ %.039.i139, %.lr.ph ], [ %.039.i139, %.lr.ph ], [ %12, %11 ]
+  %.039.i.lcssa = phi ptr [ %.ptr, %8 ], [ %.039.i140, %.lr.ph ], [ %.039.i140, %.lr.ph ], [ %12, %11 ]
   %14 = icmp eq ptr %.039.i.lcssa, %6
   br i1 %14, label %.critedge53.i, label %15
 
 15:                                               ; preds = %.critedge.i
   %16 = load i8, ptr %.039.i.lcssa, align 1, !tbaa !75
   %.not = icmp eq i8 %16, 126
-  br i1 %.not, label %.preheader128, label %.critedge53.i, !prof !4
+  br i1 %.not, label %.preheader129, label %.critedge53.i, !prof !4
 
-.preheader128:                                    ; preds = %15
+.preheader129:                                    ; preds = %15
   %17 = icmp ult ptr %.039.i.lcssa, %6
-  br i1 %17, label %.lr.ph146.preheader, label %.critedge2.i
+  br i1 %17, label %.lr.ph147.preheader, label %.critedge2.i
 
 .critedge53.i:                                    ; preds = %15, %.critedge.i
   %18 = ptrtoint ptr %.039.i.lcssa to i64
@@ -2803,20 +2803,20 @@ define dso_local ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef %0, ptr noundef %1,
   %20 = sub i64 %18, %19
   br label %ptr_next_token.exit
 
-.lr.ph146thread-pre-split:                        ; preds = %31
+.lr.ph147thread-pre-split:                        ; preds = %31
   %.pr = load i8, ptr %22, align 1, !tbaa !75
   %.not49.i = icmp eq i8 %.pr, 47
-  br i1 %.not49.i, label %.critedge2.i, label %.lr.ph146.preheader
+  br i1 %.not49.i, label %.critedge2.i, label %.lr.ph147.preheader
 
-.lr.ph146.preheader:                              ; preds = %.preheader128, %.lr.ph146thread-pre-split
-  %.140.i144219 = phi ptr [ %22, %.lr.ph146thread-pre-split ], [ %.039.i.lcssa, %.preheader128 ]
-  %.0.i145218 = phi i64 [ %.1.i, %.lr.ph146thread-pre-split ], [ 0, %.preheader128 ]
-  %21 = phi i8 [ %.pr, %.lr.ph146thread-pre-split ], [ 126, %.preheader128 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.140.i144219, i64 1
+.lr.ph147.preheader:                              ; preds = %.preheader129, %.lr.ph147thread-pre-split
+  %.140.i145220 = phi ptr [ %22, %.lr.ph147thread-pre-split ], [ %.039.i.lcssa, %.preheader129 ]
+  %.0.i146219 = phi i64 [ %.1.i, %.lr.ph147thread-pre-split ], [ 0, %.preheader129 ]
+  %21 = phi i8 [ %.pr, %.lr.ph147thread-pre-split ], [ 126, %.preheader129 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.140.i145220, i64 1
   %23 = icmp eq i8 %21, 126
   br i1 %23, label %24, label %31
 
-24:                                               ; preds = %.lr.ph146.preheader
+24:                                               ; preds = %.lr.ph147.preheader
   %25 = icmp eq ptr %22, %6
   br i1 %25, label %38, label %26
 
@@ -2827,17 +2827,17 @@ define dso_local ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef %0, ptr noundef %1,
   br i1 %switch.i, label %29, label %38
 
 29:                                               ; preds = %26
-  %30 = add i64 %.0.i145218, 1
+  %30 = add i64 %.0.i146219, 1
   br label %31
 
-31:                                               ; preds = %29, %.lr.ph146.preheader
-  %.1.i = phi i64 [ %30, %29 ], [ %.0.i145218, %.lr.ph146.preheader ]
+31:                                               ; preds = %29, %.lr.ph147.preheader
+  %.1.i = phi i64 [ %30, %29 ], [ %.0.i146219, %.lr.ph147.preheader ]
   %32 = icmp ult ptr %22, %6
-  br i1 %32, label %.lr.ph146thread-pre-split, label %.critedge2.i, !llvm.loop !101
+  br i1 %32, label %.lr.ph147thread-pre-split, label %.critedge2.i, !llvm.loop !101
 
-.critedge2.i:                                     ; preds = %31, %.lr.ph146thread-pre-split, %.preheader128
-  %.140.i.lcssa = phi ptr [ %.039.i.lcssa, %.preheader128 ], [ %22, %.lr.ph146thread-pre-split ], [ %22, %31 ]
-  %.0.i.lcssa = phi i64 [ 0, %.preheader128 ], [ %.1.i, %.lr.ph146thread-pre-split ], [ %.1.i, %31 ]
+.critedge2.i:                                     ; preds = %31, %.lr.ph147thread-pre-split, %.preheader129
+  %.140.i.lcssa = phi ptr [ %.039.i.lcssa, %.preheader129 ], [ %22, %.lr.ph147thread-pre-split ], [ %22, %31 ]
+  %.0.i.lcssa = phi i64 [ 0, %.preheader129 ], [ %.1.i, %.lr.ph147thread-pre-split ], [ %.1.i, %31 ]
   %33 = ptrtoint ptr %.140.i.lcssa to i64
   %34 = ptrtoint ptr %.ptr to i64
   %35 = add i64 %.0.i.lcssa, %34
@@ -2850,10 +2850,10 @@ define dso_local ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef %0, ptr noundef %1,
   br i1 %.not43, label %.loopexit, label %.loopexit.sink.split
 
 ptr_next_token.exit:                              ; preds = %.critedge2.i, %.critedge53.i
-  %.175 = phi ptr [ %.039.i.lcssa, %.critedge53.i ], [ %.140.i.lcssa, %.critedge2.i ]
-  %.173 = phi i64 [ %20, %.critedge53.i ], [ %36, %.critedge2.i ]
-  %.171 = phi i1 [ true, %.critedge53.i ], [ %37, %.critedge2.i ]
-  %39 = load i64, ptr %.033, align 8, !tbaa !73
+  %.176 = phi ptr [ %.039.i.lcssa, %.critedge53.i ], [ %.140.i.lcssa, %.critedge2.i ]
+  %.174 = phi i64 [ %20, %.critedge53.i ], [ %36, %.critedge2.i ]
+  %.172 = phi i1 [ true, %.critedge53.i ], [ %37, %.critedge2.i ]
+  %39 = load i64, ptr %.034, align 8, !tbaa !73
   %40 = trunc i64 %39 to i8
   %41 = and i8 %40, 7
   %42 = icmp eq i8 %41, 7
@@ -2861,82 +2861,82 @@ ptr_next_token.exit:                              ; preds = %.critedge2.i, %.cri
 
 43:                                               ; preds = %ptr_next_token.exit
   %44 = icmp ult i64 %39, 256
-  br i1 %44, label %ptr_mut_obj_get.exit.thread, label %.lr.ph174, !prof !4
+  br i1 %44, label %ptr_mut_obj_get.exit.thread, label %.lr.ph175, !prof !4
 
-.lr.ph174:                                        ; preds = %43
+.lr.ph175:                                        ; preds = %43
   %45 = lshr i64 %39, 8
-  %46 = getelementptr inbounds nuw i8, ptr %.033, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !75
-  %.not23.i161 = icmp eq i64 %.173, 0
+  %.not23.i162 = icmp eq i64 %.174, 0
   br label %48
 
-48:                                               ; preds = %.lr.ph174, %ptr_token_eq.exit.thread
-  %.0.i45173 = phi i64 [ %45, %.lr.ph174 ], [ %78, %ptr_token_eq.exit.thread ]
-  %.017.i172 = phi ptr [ %47, %.lr.ph174 ], [ %52, %ptr_token_eq.exit.thread ]
-  %49 = getelementptr inbounds nuw i8, ptr %.017.i172, i64 16
+48:                                               ; preds = %.lr.ph175, %ptr_token_eq.exit.thread
+  %.0.i46174 = phi i64 [ %45, %.lr.ph175 ], [ %78, %ptr_token_eq.exit.thread ]
+  %.017.i173 = phi ptr [ %47, %.lr.ph175 ], [ %52, %ptr_token_eq.exit.thread ]
+  %49 = getelementptr inbounds nuw i8, ptr %.017.i173, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !79
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !79
   %53 = load i64, ptr %52, align 8, !tbaa !73
   %54 = lshr i64 %53, 8
-  %.not.i48 = icmp eq i64 %54, %.173
-  br i1 %.not.i48, label %55, label %ptr_token_eq.exit.thread
+  %.not.i49 = icmp eq i64 %54, %.174
+  br i1 %.not.i49, label %55, label %ptr_token_eq.exit.thread
 
 55:                                               ; preds = %48
-  br i1 %.171, label %ptr_token_eq.exit, label %56, !prof !23
+  br i1 %.172, label %ptr_token_eq.exit, label %56, !prof !23
 
 56:                                               ; preds = %55
-  br i1 %.not23.i161, label %ptr_token_eq.exit.thread89, label %.lr.ph165.preheader
+  br i1 %.not23.i162, label %ptr_token_eq.exit.thread90, label %.lr.ph166.preheader
 
-.lr.ph165.preheader:                              ; preds = %56
+.lr.ph166.preheader:                              ; preds = %56
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !75
-  br label %.lr.ph165
+  br label %.lr.ph166
 
-.lr.ph165:                                        ; preds = %.lr.ph165.preheader, %70
-  %.in = phi i64 [ %59, %70 ], [ %.173, %.lr.ph165.preheader ]
-  %.0.i51163 = phi ptr [ %72, %70 ], [ %58, %.lr.ph165.preheader ]
-  %.017.i50162 = phi ptr [ %71, %70 ], [ %.ptr, %.lr.ph165.preheader ]
+.lr.ph166:                                        ; preds = %.lr.ph166.preheader, %70
+  %.in = phi i64 [ %59, %70 ], [ %.174, %.lr.ph166.preheader ]
+  %.0.i52164 = phi ptr [ %72, %70 ], [ %58, %.lr.ph166.preheader ]
+  %.017.i51163 = phi ptr [ %71, %70 ], [ %.ptr, %.lr.ph166.preheader ]
   %59 = add i64 %.in, -1
-  %60 = load i8, ptr %.017.i50162, align 1, !tbaa !75
+  %60 = load i8, ptr %.017.i51163, align 1, !tbaa !75
   %61 = icmp eq i8 %60, 126
-  %62 = load i8, ptr %.0.i51163, align 1, !tbaa !75
+  %62 = load i8, ptr %.0.i52164, align 1, !tbaa !75
   br i1 %61, label %63, label %69
 
-63:                                               ; preds = %.lr.ph165
+63:                                               ; preds = %.lr.ph166
   %64 = sext i8 %62 to i32
-  %65 = getelementptr inbounds nuw i8, ptr %.017.i50162, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.017.i51163, i64 1
   %66 = load i8, ptr %65, align 1, !tbaa !75
   %67 = icmp eq i8 %66, 48
   %68 = select i1 %67, i32 126, i32 47
   %.not25.i = icmp eq i32 %68, %64
   br i1 %.not25.i, label %70, label %ptr_token_eq.exit.thread
 
-69:                                               ; preds = %.lr.ph165
+69:                                               ; preds = %.lr.ph166
   %.not24.i = icmp eq i8 %62, %60
   br i1 %.not24.i, label %70, label %ptr_token_eq.exit.thread
 
 70:                                               ; preds = %69, %63
-  %.118.i = phi ptr [ %65, %63 ], [ %.017.i50162, %69 ]
+  %.118.i = phi ptr [ %65, %63 ], [ %.017.i51163, %69 ]
   %71 = getelementptr inbounds nuw i8, ptr %.118.i, i64 1
-  %72 = getelementptr inbounds nuw i8, ptr %.0.i51163, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i52164, i64 1
   %.not23.i = icmp eq i64 %59, 0
-  br i1 %.not23.i, label %ptr_token_eq.exit.thread89, label %.lr.ph165, !llvm.loop !102
+  br i1 %.not23.i, label %ptr_token_eq.exit.thread90, label %.lr.ph166, !llvm.loop !102
 
 ptr_token_eq.exit:                                ; preds = %55
   %73 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !75
-  %bcmp.i = tail call i32 @bcmp(ptr %74, ptr nonnull %.ptr, i64 %.173)
+  %bcmp.i = tail call i32 @bcmp(ptr %74, ptr nonnull %.ptr, i64 %.174)
   %75 = icmp eq i32 %bcmp.i, 0
-  br i1 %75, label %ptr_token_eq.exit.thread89, label %ptr_token_eq.exit.thread
+  br i1 %75, label %ptr_token_eq.exit.thread90, label %ptr_token_eq.exit.thread
 
-ptr_token_eq.exit.thread89:                       ; preds = %ptr_token_eq.exit, %56, %70
+ptr_token_eq.exit.thread90:                       ; preds = %ptr_token_eq.exit, %56, %70
   %76 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !79
   br label %ptr_mut_obj_get.exit
 
 ptr_token_eq.exit.thread:                         ; preds = %63, %69, %48, %ptr_token_eq.exit
-  %78 = add nsw i64 %.0.i45173, -1
+  %78 = add nsw i64 %.0.i46174, -1
   %.not.i = icmp eq i64 %78, 0
   br i1 %.not.i, label %ptr_mut_obj_get.exit, label %48, !llvm.loop !113
 
@@ -2945,14 +2945,14 @@ ptr_token_eq.exit.thread:                         ; preds = %63, %69, %48, %ptr_
   br i1 %80, label %81, label %ptr_mut_obj_get.exit
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw i8, ptr %.033, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !75
   %84 = lshr i64 %39, 8
   %85 = icmp ult i64 %39, 256
   br i1 %85, label %86, label %91, !prof !4
 
 86:                                               ; preds = %81
-  %87 = icmp eq i64 %.173, 1
+  %87 = icmp eq i64 %.174, 1
   br i1 %87, label %88, label %ptr_mut_obj_get.exit
 
 88:                                               ; preds = %86
@@ -2966,139 +2966,137 @@ ptr_token_eq.exit.thread:                         ; preds = %63, %69, %48, %ptr_
   br label %ptr_mut_obj_get.exit
 
 91:                                               ; preds = %81
-  %92 = getelementptr i8, ptr %.074, i64 %.173
-  %.ptr175 = getelementptr i8, ptr %92, i64 1
-  %93 = add i64 %.173, -20
+  %92 = getelementptr i8, ptr %.075, i64 %.174
+  %.ptr176 = getelementptr i8, ptr %92, i64 1
+  %93 = add i64 %.174, -20
   %94 = icmp ult i64 %93, -19
   br i1 %94, label %ptr_token_to_idx.exit.thread, label %95, !prof !4
 
 95:                                               ; preds = %91
   %96 = load i8, ptr %.ptr, align 1, !tbaa !75
-  switch i8 %96, label %.lr.ph154 [
+  switch i8 %96, label %.lr.ph155 [
     i8 48, label %97
     i8 45, label %99
   ]
 
 97:                                               ; preds = %95
-  %98 = icmp samesign ugt i64 %.173, 1
+  %98 = icmp samesign ugt i64 %.174, 1
   br i1 %98, label %ptr_token_to_idx.exit.thread, label %._crit_edge, !prof !4
 
 99:                                               ; preds = %95
-  %100 = icmp samesign ugt i64 %.173, 1
+  %100 = icmp samesign ugt i64 %.174, 1
   br i1 %100, label %ptr_token_to_idx.exit.thread, label %ptr_mut_obj_get.exit, !prof !4
 
-.lr.ph154:                                        ; preds = %95, %105
-  %.021.i153 = phi i64 [ %107, %105 ], [ 0, %95 ]
-  %.022.i152 = phi ptr [ %108, %105 ], [ %.ptr, %95 ]
-  %101 = load i8, ptr %.022.i152, align 1, !tbaa !75
+.lr.ph155:                                        ; preds = %95, %105
+  %.021.i154 = phi i64 [ %107, %105 ], [ 0, %95 ]
+  %.022.i153 = phi ptr [ %108, %105 ], [ %.ptr, %95 ]
+  %101 = load i8, ptr %.022.i153, align 1, !tbaa !75
   %102 = zext i8 %101 to i64
   %103 = add nsw i64 %102, -48
   %104 = icmp ult i64 %103, 10
   br i1 %104, label %105, label %ptr_token_to_idx.exit.thread, !prof !114
 
-105:                                              ; preds = %.lr.ph154
-  %106 = mul i64 %.021.i153, 10
+105:                                              ; preds = %.lr.ph155
+  %106 = mul i64 %.021.i154, 10
   %107 = add i64 %103, %106
-  %108 = getelementptr inbounds nuw i8, ptr %.022.i152, i64 1
-  %109 = icmp ult ptr %108, %.ptr175
-  br i1 %109, label %.lr.ph154, label %.critedge.i53, !llvm.loop !104
+  %108 = getelementptr inbounds nuw i8, ptr %.022.i153, i64 1
+  %109 = icmp ult ptr %108, %.ptr176
+  br i1 %109, label %.lr.ph155, label %.critedge.i54, !llvm.loop !104
 
-.critedge.i53:                                    ; preds = %105
+.critedge.i54:                                    ; preds = %105
   %110 = icmp eq i64 %107, 0
   br i1 %110, label %ptr_token_to_idx.exit.thread, label %ptr_token_to_idx.exit, !prof !105
 
-ptr_token_to_idx.exit.thread:                     ; preds = %.lr.ph154, %91, %97, %99, %.critedge.i53
+ptr_token_to_idx.exit.thread:                     ; preds = %.lr.ph155, %91, %97, %99, %.critedge.i54
   br label %ptr_mut_obj_get.exit
 
-ptr_token_to_idx.exit:                            ; preds = %.critedge.i53
+ptr_token_to_idx.exit:                            ; preds = %.critedge.i54
   %111 = icmp eq i64 %107, %84
   %112 = icmp eq i64 %107, -1
   %113 = or i1 %111, %112
-  %.not.i47 = icmp ult i64 %107, %84
-  br i1 %.not.i47, label %.lr.ph159, label %ptr_mut_obj_get.exit, !prof !115
+  %.not.i48 = icmp ult i64 %107, %84
+  br i1 %.not.i48, label %.lr.ph160, label %ptr_mut_obj_get.exit, !prof !115
 
-.lr.ph159:                                        ; preds = %ptr_token_to_idx.exit, %.lr.ph159
-  %.023.i158 = phi ptr [ %116, %.lr.ph159 ], [ %83, %ptr_token_to_idx.exit ]
-  %.278157 = phi i64 [ %114, %.lr.ph159 ], [ %107, %ptr_token_to_idx.exit ]
-  %114 = add i64 %.278157, -1
-  %115 = getelementptr inbounds nuw i8, ptr %.023.i158, i64 16
+.lr.ph160:                                        ; preds = %ptr_token_to_idx.exit, %.lr.ph160
+  %.023.i159 = phi ptr [ %116, %.lr.ph160 ], [ %83, %ptr_token_to_idx.exit ]
+  %.279158 = phi i64 [ %114, %.lr.ph160 ], [ %107, %ptr_token_to_idx.exit ]
+  %114 = add i64 %.279158, -1
+  %115 = getelementptr inbounds nuw i8, ptr %.023.i159, i64 16
   %116 = load ptr, ptr %115, align 8, !tbaa !79
   %.not28.i = icmp eq i64 %114, 0
-  br i1 %.not28.i, label %._crit_edge, label %.lr.ph159, !llvm.loop !116
+  br i1 %.not28.i, label %._crit_edge, label %.lr.ph160, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %.lr.ph159, %97
-  %117 = phi i1 [ false, %97 ], [ %113, %.lr.ph159 ]
-  %.023.i.lcssa = phi ptr [ %83, %97 ], [ %116, %.lr.ph159 ]
+._crit_edge:                                      ; preds = %.lr.ph160, %97
+  %117 = phi i1 [ false, %97 ], [ %113, %.lr.ph160 ]
+  %.023.i.lcssa = phi ptr [ %83, %97 ], [ %116, %.lr.ph160 ]
   %118 = getelementptr inbounds nuw i8, ptr %.023.i.lcssa, i64 16
   %119 = load ptr, ptr %118, align 8, !tbaa !79
   br label %ptr_mut_obj_get.exit
 
-ptr_mut_obj_get.exit:                             ; preds = %ptr_token_eq.exit.thread, %99, %._crit_edge, %ptr_token_to_idx.exit, %90, %88, %86, %ptr_token_to_idx.exit.thread, %ptr_token_eq.exit.thread89, %79
-  %.168 = phi ptr [ %.067, %79 ], [ %.017.i172, %ptr_token_eq.exit.thread89 ], [ null, %88 ], [ null, %90 ], [ null, %86 ], [ %.023.i.lcssa, %._crit_edge ], [ null, %ptr_token_to_idx.exit ], [ null, %ptr_token_to_idx.exit.thread ], [ null, %99 ], [ null, %ptr_token_eq.exit.thread ]
-  %.166 = phi i1 [ %.065, %79 ], [ %.065, %ptr_token_eq.exit.thread89 ], [ false, %88 ], [ true, %90 ], [ false, %86 ], [ %117, %._crit_edge ], [ %113, %ptr_token_to_idx.exit ], [ false, %ptr_token_to_idx.exit.thread ], [ true, %99 ], [ %.065, %ptr_token_eq.exit.thread ]
-  %.1 = phi ptr [ null, %79 ], [ %77, %ptr_token_eq.exit.thread89 ], [ null, %88 ], [ null, %90 ], [ null, %86 ], [ %119, %._crit_edge ], [ null, %ptr_token_to_idx.exit ], [ null, %ptr_token_to_idx.exit.thread ], [ null, %99 ], [ null, %ptr_token_eq.exit.thread ]
-  %120 = icmp eq ptr %.175, %6
-  %or.cond = and i1 %.not39, %120
-  br i1 %or.cond, label %122, label %126
+ptr_mut_obj_get.exit:                             ; preds = %ptr_token_eq.exit.thread, %99, %._crit_edge, %ptr_token_to_idx.exit, %90, %88, %86, %ptr_token_to_idx.exit.thread, %ptr_token_eq.exit.thread90, %79
+  %.169 = phi ptr [ %.068, %79 ], [ %.017.i173, %ptr_token_eq.exit.thread90 ], [ null, %88 ], [ null, %90 ], [ null, %86 ], [ %.023.i.lcssa, %._crit_edge ], [ null, %ptr_token_to_idx.exit ], [ null, %ptr_token_to_idx.exit.thread ], [ null, %99 ], [ null, %ptr_token_eq.exit.thread ]
+  %.167 = phi i1 [ %.066, %79 ], [ %.066, %ptr_token_eq.exit.thread90 ], [ false, %88 ], [ true, %90 ], [ false, %86 ], [ %117, %._crit_edge ], [ %113, %ptr_token_to_idx.exit ], [ false, %ptr_token_to_idx.exit.thread ], [ true, %99 ], [ %.066, %ptr_token_eq.exit.thread ]
+  %.1 = phi ptr [ null, %79 ], [ %77, %ptr_token_eq.exit.thread90 ], [ null, %88 ], [ null, %90 ], [ null, %86 ], [ %119, %._crit_edge ], [ null, %ptr_token_to_idx.exit ], [ null, %ptr_token_to_idx.exit.thread ], [ null, %99 ], [ null, %ptr_token_eq.exit.thread ]
+  %120 = icmp eq ptr %.176, %6
+  %or.cond45 = and i1 %.not40, %120
+  br i1 %or.cond45, label %122, label %127
 
 ptr_mut_obj_get.exit.thread:                      ; preds = %43
-  %121 = icmp eq ptr %.175, %6
-  %or.cond101 = and i1 %.not39, %121
-  br i1 %or.cond101, label %.thread, label %.thread118
+  %121 = icmp eq ptr %.176, %6
+  %or.cond45102 = and i1 %.not40, %121
+  br i1 %or.cond45102, label %.thread, label %.thread119
 
 122:                                              ; preds = %ptr_mut_obj_get.exit
   br i1 %42, label %.thread, label %123
 
 123:                                              ; preds = %122
   %124 = icmp eq i8 %41, 6
-  br i1 %124, label %125, label %126
+  br i1 %124, label %125, label %127
 
 125:                                              ; preds = %123
-  %.not40 = icmp ne ptr %.1, null
-  %brmerge = select i1 %.not40, i1 true, i1 %.166
-  %not..not40 = xor i1 %.not40, true
-  %.166.mux = select i1 %not..not40, i1 true, i1 %.166
-  br i1 %brmerge, label %.thread, label %.thread118
+  %126 = icmp ne ptr %.1, null
+  %or.cond = select i1 %126, i1 true, i1 %.167
+  br i1 %or.cond, label %.thread, label %.thread119
 
-.thread:                                          ; preds = %125, %ptr_mut_obj_get.exit.thread, %122
-  %.168104116 = phi ptr [ %.168, %125 ], [ %.168, %122 ], [ null, %ptr_mut_obj_get.exit.thread ]
-  %.166107115 = phi i1 [ %.166.mux, %125 ], [ %.166, %122 ], [ %.065, %ptr_mut_obj_get.exit.thread ]
-  %.1109114 = phi ptr [ %.1, %125 ], [ %.1, %122 ], [ null, %ptr_mut_obj_get.exit.thread ]
-  store ptr %.033, ptr %3, align 8, !tbaa !117
-  store ptr %.168104116, ptr %7, align 8, !tbaa !119
-  br label %126
+.thread:                                          ; preds = %ptr_mut_obj_get.exit.thread, %125, %122
+  %.169105117 = phi ptr [ %.169, %125 ], [ %.169, %122 ], [ null, %ptr_mut_obj_get.exit.thread ]
+  %.167108116 = phi i1 [ %.167, %125 ], [ %.167, %122 ], [ %.066, %ptr_mut_obj_get.exit.thread ]
+  %.1110115 = phi ptr [ %.1, %125 ], [ %.1, %122 ], [ null, %ptr_mut_obj_get.exit.thread ]
+  store ptr %.034, ptr %3, align 8, !tbaa !117
+  store ptr %.169105117, ptr %7, align 8, !tbaa !119
+  br label %127
 
-126:                                              ; preds = %123, %.thread, %ptr_mut_obj_get.exit
-  %127 = phi i1 [ true, %123 ], [ true, %.thread ], [ %120, %ptr_mut_obj_get.exit ]
-  %.1108 = phi ptr [ %.1, %123 ], [ %.1109114, %.thread ], [ %.1, %ptr_mut_obj_get.exit ]
-  %.166106 = phi i1 [ %.166, %123 ], [ %.166107115, %.thread ], [ %.166, %ptr_mut_obj_get.exit ]
-  %.168105 = phi ptr [ %.168, %123 ], [ %.168104116, %.thread ], [ %.168, %ptr_mut_obj_get.exit ]
-  %.not41 = icmp eq ptr %.1108, null
-  br i1 %.not41, label %.thread118, label %128
+127:                                              ; preds = %123, %.thread, %ptr_mut_obj_get.exit
+  %128 = phi i1 [ true, %123 ], [ true, %.thread ], [ %120, %ptr_mut_obj_get.exit ]
+  %.1109 = phi ptr [ %.1, %123 ], [ %.1110115, %.thread ], [ %.1, %ptr_mut_obj_get.exit ]
+  %.167107 = phi i1 [ %.167, %123 ], [ %.167108116, %.thread ], [ %.167, %ptr_mut_obj_get.exit ]
+  %.169106 = phi ptr [ %.169, %123 ], [ %.169105117, %.thread ], [ %.169, %ptr_mut_obj_get.exit ]
+  %.not41 = icmp eq ptr %.1109, null
+  br i1 %.not41, label %.thread119, label %129
 
-.thread118:                                       ; preds = %125, %ptr_mut_obj_get.exit.thread, %126
+.thread119:                                       ; preds = %125, %ptr_mut_obj_get.exit.thread, %127
   %.not42 = icmp eq ptr %4, null
   br i1 %.not42, label %.loopexit, label %.loopexit.sink.split
 
-128:                                              ; preds = %126
-  br i1 %127, label %.loopexit, label %8
+129:                                              ; preds = %127
+  br i1 %128, label %.loopexit, label %8
 
-.loopexit.sink.split:                             ; preds = %.thread118, %38
-  %.sink = phi i32 [ 2, %38 ], [ 3, %.thread118 ]
-  %.str.1.sink = phi ptr [ @.str, %38 ], [ @.str.1, %.thread118 ]
-  %.ptr.sink = phi ptr [ %.140.i144219, %38 ], [ %.ptr, %.thread118 ]
+.loopexit.sink.split:                             ; preds = %.thread119, %38
+  %.sink = phi i32 [ 2, %38 ], [ 3, %.thread119 ]
+  %.str.1.sink = phi ptr [ @.str, %38 ], [ @.str.1, %.thread119 ]
+  %.ptr.lcssa203.sink = phi ptr [ %.140.i145220, %38 ], [ %.ptr, %.thread119 ]
   store i32 %.sink, ptr %4, align 8, !tbaa !108
-  %129 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.str.1.sink, ptr %129, align 8, !tbaa !111
-  %130 = ptrtoint ptr %.ptr.sink to i64
-  %131 = ptrtoint ptr %1 to i64
-  %132 = sub i64 %130, %131
-  %133 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %132, ptr %133, align 8, !tbaa !112
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %.str.1.sink, ptr %130, align 8, !tbaa !111
+  %131 = ptrtoint ptr %.ptr.lcssa203.sink to i64
+  %132 = ptrtoint ptr %1 to i64
+  %133 = sub i64 %131, %132
+  %134 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %133, ptr %134, align 8, !tbaa !112
   br label %.loopexit
 
-.loopexit:                                        ; preds = %128, %.loopexit.sink.split, %.thread118, %38
-  %.0 = phi ptr [ null, %38 ], [ null, %.thread118 ], [ null, %.loopexit.sink.split ], [ %.1108, %128 ]
+.loopexit:                                        ; preds = %129, %.loopexit.sink.split, %.thread119, %38
+  %.0 = phi ptr [ null, %38 ], [ null, %.thread119 ], [ null, %.loopexit.sink.split ], [ %.1109, %129 ]
   ret ptr %.0
 }
 
@@ -3108,56 +3106,56 @@ define dso_local noundef zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef %0, 
   br label %11
 
 11:                                               ; preds = %ptr_mut_obj_get.exit, %9
-  %.0437 = phi ptr [ %1, %9 ], [ %.5442, %ptr_mut_obj_get.exit ]
-  %.0418 = phi i8 [ 0, %9 ], [ %.1419, %ptr_mut_obj_get.exit ]
-  %.0192 = phi ptr [ %0, %9 ], [ %.1193, %ptr_mut_obj_get.exit ]
-  %.ptr = getelementptr inbounds nuw i8, ptr %.0437, i64 1
+  %.0438 = phi ptr [ %1, %9 ], [ %.5443, %ptr_mut_obj_get.exit ]
+  %.0419 = phi i8 [ 0, %9 ], [ %.1420, %ptr_mut_obj_get.exit ]
+  %.0197 = phi ptr [ %0, %9 ], [ %.1198, %ptr_mut_obj_get.exit ]
+  %.ptr = getelementptr inbounds nuw i8, ptr %.0438, i64 1
   %12 = icmp ult ptr %.ptr, %10
-  br i1 %12, label %.lr.ph, label %.critedge.i266
+  br i1 %12, label %.lr.ph, label %.critedge.i267
 
 .lr.ph:                                           ; preds = %11, %14
-  %.039.i265733 = phi ptr [ %15, %14 ], [ %.ptr, %11 ]
-  %13 = load i8, ptr %.039.i265733, align 1, !tbaa !75
+  %.039.i266733 = phi ptr [ %15, %14 ], [ %.ptr, %11 ]
+  %13 = load i8, ptr %.039.i266733, align 1, !tbaa !75
   switch i8 %13, label %14 [
-    i8 47, label %.critedge.i266
-    i8 126, label %.critedge.i266
+    i8 47, label %.critedge.i267
+    i8 126, label %.critedge.i267
   ]
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.039.i265733, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.039.i266733, i64 1
   %16 = icmp ult ptr %15, %10
-  br i1 %16, label %.lr.ph, label %.critedge.i266, !llvm.loop !100
+  br i1 %16, label %.lr.ph, label %.critedge.i267, !llvm.loop !100
 
-.critedge.i266:                                   ; preds = %14, %.lr.ph, %.lr.ph, %11
-  %.039.i265.lcssa = phi ptr [ %.ptr, %11 ], [ %.039.i265733, %.lr.ph ], [ %.039.i265733, %.lr.ph ], [ %15, %14 ]
-  %17 = icmp eq ptr %.039.i265.lcssa, %10
-  br i1 %17, label %.critedge53.i275, label %18
+.critedge.i267:                                   ; preds = %14, %.lr.ph, %.lr.ph, %11
+  %.039.i266.lcssa = phi ptr [ %.ptr, %11 ], [ %.039.i266733, %.lr.ph ], [ %.039.i266733, %.lr.ph ], [ %15, %14 ]
+  %17 = icmp eq ptr %.039.i266.lcssa, %10
+  br i1 %17, label %.critedge53.i276, label %18
 
-18:                                               ; preds = %.critedge.i266
-  %19 = load i8, ptr %.039.i265.lcssa, align 1, !tbaa !75
+18:                                               ; preds = %.critedge.i267
+  %19 = load i8, ptr %.039.i266.lcssa, align 1, !tbaa !75
   %.not = icmp eq i8 %19, 126
-  br i1 %.not, label %.preheader629, label %.critedge53.i275, !prof !4
+  br i1 %.not, label %.preheader629, label %.critedge53.i276, !prof !4
 
 .preheader629:                                    ; preds = %18
-  %20 = icmp ult ptr %.039.i265.lcssa, %10
-  br i1 %20, label %.lr.ph740.preheader, label %.critedge2.i269
+  %20 = icmp ult ptr %.039.i266.lcssa, %10
+  br i1 %20, label %.lr.ph740.preheader, label %.critedge2.i270
 
-.critedge53.i275:                                 ; preds = %18, %.critedge.i266
-  %21 = ptrtoint ptr %.039.i265.lcssa to i64
+.critedge53.i276:                                 ; preds = %18, %.critedge.i267
+  %21 = ptrtoint ptr %.039.i266.lcssa to i64
   %22 = ptrtoint ptr %.ptr to i64
   %23 = sub i64 %21, %22
-  br label %ptr_next_token.exit276
+  br label %ptr_next_token.exit277
 
 .lr.ph740thread-pre-split:                        ; preds = %34
   %.pr940 = load i8, ptr %25, align 1, !tbaa !75
-  %.not49.i271 = icmp eq i8 %.pr940, 47
-  br i1 %.not49.i271, label %.critedge2.i269, label %.lr.ph740.preheader
+  %.not49.i272 = icmp eq i8 %.pr940, 47
+  br i1 %.not49.i272, label %.critedge2.i270, label %.lr.ph740.preheader
 
 .lr.ph740.preheader:                              ; preds = %.preheader629, %.lr.ph740thread-pre-split
-  %.140.i2677381134 = phi ptr [ %25, %.lr.ph740thread-pre-split ], [ %.039.i265.lcssa, %.preheader629 ]
-  %.0.i2687391133 = phi i64 [ %.1.i272, %.lr.ph740thread-pre-split ], [ 0, %.preheader629 ]
+  %.140.i2687381134 = phi ptr [ %25, %.lr.ph740thread-pre-split ], [ %.039.i266.lcssa, %.preheader629 ]
+  %.0.i2697391133 = phi i64 [ %.1.i273, %.lr.ph740thread-pre-split ], [ 0, %.preheader629 ]
   %24 = phi i8 [ %.pr940, %.lr.ph740thread-pre-split ], [ 126, %.preheader629 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.140.i2677381134, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.140.i2687381134, i64 1
   %26 = icmp eq i8 %24, 126
   br i1 %26, label %27, label %34
 
@@ -3168,47 +3166,47 @@ define dso_local noundef zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef %0, 
 29:                                               ; preds = %27
   %30 = load i8, ptr %25, align 1, !tbaa !75
   %31 = and i8 %30, -2
-  %switch.i274 = icmp eq i8 %31, 48
-  br i1 %switch.i274, label %32, label %40
+  %switch.i275 = icmp eq i8 %31, 48
+  br i1 %switch.i275, label %32, label %40
 
 32:                                               ; preds = %29
-  %33 = add i64 %.0.i2687391133, 1
+  %33 = add i64 %.0.i2697391133, 1
   br label %34
 
 34:                                               ; preds = %32, %.lr.ph740.preheader
-  %.1.i272 = phi i64 [ %33, %32 ], [ %.0.i2687391133, %.lr.ph740.preheader ]
+  %.1.i273 = phi i64 [ %33, %32 ], [ %.0.i2697391133, %.lr.ph740.preheader ]
   %35 = icmp ult ptr %25, %10
-  br i1 %35, label %.lr.ph740thread-pre-split, label %.critedge2.i269, !llvm.loop !101
+  br i1 %35, label %.lr.ph740thread-pre-split, label %.critedge2.i270, !llvm.loop !101
 
-.critedge2.i269:                                  ; preds = %34, %.lr.ph740thread-pre-split, %.preheader629
-  %.140.i267.lcssa = phi ptr [ %.039.i265.lcssa, %.preheader629 ], [ %25, %.lr.ph740thread-pre-split ], [ %25, %34 ]
-  %.0.i268.lcssa = phi i64 [ 0, %.preheader629 ], [ %.1.i272, %.lr.ph740thread-pre-split ], [ %.1.i272, %34 ]
-  %36 = ptrtoint ptr %.140.i267.lcssa to i64
+.critedge2.i270:                                  ; preds = %34, %.lr.ph740thread-pre-split, %.preheader629
+  %.140.i268.lcssa = phi ptr [ %.039.i266.lcssa, %.preheader629 ], [ %25, %.lr.ph740thread-pre-split ], [ %25, %34 ]
+  %.0.i269.lcssa = phi i64 [ 0, %.preheader629 ], [ %.1.i273, %.lr.ph740thread-pre-split ], [ %.1.i273, %34 ]
+  %36 = ptrtoint ptr %.140.i268.lcssa to i64
   %37 = ptrtoint ptr %.ptr to i64
-  %38 = add i64 %.0.i268.lcssa, %37
+  %38 = add i64 %.0.i269.lcssa, %37
   %39 = sub i64 %36, %38
-  br label %ptr_next_token.exit276
+  br label %ptr_next_token.exit277
 
 40:                                               ; preds = %29, %27
-  %.not246 = icmp eq ptr %8, null
-  br i1 %.not246, label %yyjson_mut_obj_add.exit302, label %41
+  %.not249 = icmp eq ptr %8, null
+  br i1 %.not249, label %yyjson_mut_obj_add.exit303, label %41
 
 41:                                               ; preds = %40
   store i32 2, ptr %8, align 8, !tbaa !108
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str, ptr %42, align 8, !tbaa !111
-  %43 = ptrtoint ptr %.140.i2677381134 to i64
+  %43 = ptrtoint ptr %.140.i2687381134 to i64
   %44 = ptrtoint ptr %1 to i64
   %45 = sub i64 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %45, ptr %46, align 8, !tbaa !112
-  br label %yyjson_mut_obj_add.exit302
+  br label %yyjson_mut_obj_add.exit303
 
-ptr_next_token.exit276:                           ; preds = %.critedge2.i269, %.critedge53.i275
-  %.5442 = phi ptr [ %.039.i265.lcssa, %.critedge53.i275 ], [ %.140.i267.lcssa, %.critedge2.i269 ]
-  %.6436 = phi i64 [ %23, %.critedge53.i275 ], [ %39, %.critedge2.i269 ]
-  %.6 = phi i64 [ 0, %.critedge53.i275 ], [ %.0.i268.lcssa, %.critedge2.i269 ]
-  %47 = load i64, ptr %.0192, align 8, !tbaa !73
+ptr_next_token.exit277:                           ; preds = %.critedge2.i270, %.critedge53.i276
+  %.5443 = phi ptr [ %.039.i266.lcssa, %.critedge53.i276 ], [ %.140.i268.lcssa, %.critedge2.i270 ]
+  %.6437 = phi i64 [ %23, %.critedge53.i276 ], [ %39, %.critedge2.i270 ]
+  %.6 = phi i64 [ 0, %.critedge53.i276 ], [ %.0.i269.lcssa, %.critedge2.i270 ]
+  %47 = load i64, ptr %.0197, align 8, !tbaa !73
   %48 = trunc i64 %47 to i8
   %49 = and i8 %48, 7
   switch i8 %49, label %121 [
@@ -3216,20 +3214,20 @@ ptr_next_token.exit276:                           ; preds = %.critedge2.i269, %.
     i8 6, label %84
   ]
 
-50:                                               ; preds = %ptr_next_token.exit276
+50:                                               ; preds = %ptr_next_token.exit277
   %51 = icmp ult i64 %47, 256
   br i1 %51, label %ptr_mut_obj_get.exit.thread, label %.lr.ph767, !prof !95
 
 .lr.ph767:                                        ; preds = %50
   %52 = lshr i64 %47, 8
-  %53 = getelementptr inbounds nuw i8, ptr %.0192, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.0197, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !75
   %.not22.i = icmp eq i64 %.6, 0
-  %.not23.i755 = icmp eq i64 %.6436, 0
+  %.not23.i755 = icmp eq i64 %.6437, 0
   br label %55
 
 55:                                               ; preds = %.lr.ph767, %ptr_token_eq.exit.thread
-  %.0.i277766 = phi i64 [ %52, %.lr.ph767 ], [ %83, %ptr_token_eq.exit.thread ]
+  %.0.i278766 = phi i64 [ %52, %.lr.ph767 ], [ %83, %ptr_token_eq.exit.thread ]
   %.017.i765 = phi ptr [ %54, %.lr.ph767 ], [ %59, %ptr_token_eq.exit.thread ]
   %56 = getelementptr inbounds nuw i8, ptr %.017.i765, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !79
@@ -3237,8 +3235,8 @@ ptr_next_token.exit276:                           ; preds = %.critedge2.i269, %.
   %59 = load ptr, ptr %58, align 8, !tbaa !79
   %60 = load i64, ptr %59, align 8, !tbaa !73
   %61 = lshr i64 %60, 8
-  %.not.i331 = icmp eq i64 %61, %.6436
-  br i1 %.not.i331, label %62, label %ptr_token_eq.exit.thread
+  %.not.i332 = icmp eq i64 %61, %.6437
+  br i1 %.not.i332, label %62, label %ptr_token_eq.exit.thread
 
 62:                                               ; preds = %55
   br i1 %.not22.i, label %ptr_token_eq.exit, label %63, !prof !23
@@ -3252,18 +3250,18 @@ ptr_next_token.exit276:                           ; preds = %.critedge2.i269, %.
   br label %.lr.ph758
 
 .lr.ph758:                                        ; preds = %.lr.ph758.preheader, %77
-  %.in = phi i64 [ %66, %77 ], [ %.6436, %.lr.ph758.preheader ]
-  %.0.i334757 = phi ptr [ %79, %77 ], [ %65, %.lr.ph758.preheader ]
-  %.017.i333756 = phi ptr [ %78, %77 ], [ %.ptr, %.lr.ph758.preheader ]
+  %.in = phi i64 [ %66, %77 ], [ %.6437, %.lr.ph758.preheader ]
+  %.0.i335757 = phi ptr [ %79, %77 ], [ %65, %.lr.ph758.preheader ]
+  %.017.i334756 = phi ptr [ %78, %77 ], [ %.ptr, %.lr.ph758.preheader ]
   %66 = add i64 %.in, -1
-  %67 = load i8, ptr %.017.i333756, align 1, !tbaa !75
+  %67 = load i8, ptr %.017.i334756, align 1, !tbaa !75
   %68 = icmp eq i8 %67, 126
-  %69 = load i8, ptr %.0.i334757, align 1, !tbaa !75
+  %69 = load i8, ptr %.0.i335757, align 1, !tbaa !75
   br i1 %68, label %70, label %76
 
 70:                                               ; preds = %.lr.ph758
   %71 = sext i8 %69 to i32
-  %72 = getelementptr inbounds nuw i8, ptr %.017.i333756, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.017.i334756, i64 1
   %73 = load i8, ptr %72, align 1, !tbaa !75
   %74 = icmp eq i8 %73, 48
   %75 = select i1 %74, i32 126, i32 47
@@ -3275,33 +3273,33 @@ ptr_next_token.exit276:                           ; preds = %.critedge2.i269, %.
   br i1 %.not24.i, label %77, label %ptr_token_eq.exit.thread
 
 77:                                               ; preds = %76, %70
-  %.118.i = phi ptr [ %72, %70 ], [ %.017.i333756, %76 ]
+  %.118.i = phi ptr [ %72, %70 ], [ %.017.i334756, %76 ]
   %78 = getelementptr inbounds nuw i8, ptr %.118.i, i64 1
-  %79 = getelementptr inbounds nuw i8, ptr %.0.i334757, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.0.i335757, i64 1
   %.not23.i = icmp eq i64 %66, 0
   br i1 %.not23.i, label %ptr_mut_obj_get.exit, label %.lr.ph758, !llvm.loop !102
 
 ptr_token_eq.exit:                                ; preds = %62
   %80 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !75
-  %bcmp.i335 = tail call i32 @bcmp(ptr %81, ptr nonnull %.ptr, i64 %.6436)
-  %82 = icmp eq i32 %bcmp.i335, 0
+  %bcmp.i336 = tail call i32 @bcmp(ptr %81, ptr nonnull %.ptr, i64 %.6437)
+  %82 = icmp eq i32 %bcmp.i336, 0
   br i1 %82, label %ptr_mut_obj_get.exit, label %ptr_token_eq.exit.thread
 
 ptr_token_eq.exit.thread:                         ; preds = %70, %76, %55, %ptr_token_eq.exit
-  %83 = add nsw i64 %.0.i277766, -1
+  %83 = add nsw i64 %.0.i278766, -1
   %.not.i = icmp eq i64 %83, 0
   br i1 %.not.i, label %ptr_mut_obj_get.exit.thread, label %55, !llvm.loop !113
 
-84:                                               ; preds = %ptr_next_token.exit276
-  %85 = getelementptr inbounds nuw i8, ptr %.0192, i64 8
+84:                                               ; preds = %ptr_next_token.exit277
+  %85 = getelementptr inbounds nuw i8, ptr %.0197, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !75
   %87 = lshr i64 %47, 8
   %88 = icmp ult i64 %47, 256
   br i1 %88, label %89, label %94, !prof !4
 
 89:                                               ; preds = %84
-  %90 = icmp eq i64 %.6436, 1
+  %90 = icmp eq i64 %.6437, 1
   br i1 %90, label %91, label %ptr_mut_obj_get.exit.thread
 
 91:                                               ; preds = %89
@@ -3313,9 +3311,9 @@ ptr_token_eq.exit.thread:                         ; preds = %70, %76, %55, %ptr_
   br label %ptr_mut_obj_get.exit.thread
 
 94:                                               ; preds = %84
-  %95 = getelementptr i8, ptr %.0437, i64 %.6436
+  %95 = getelementptr i8, ptr %.0438, i64 %.6437
   %.ptr848 = getelementptr i8, ptr %95, i64 1
-  %96 = add i64 %.6436, -20
+  %96 = add i64 %.6437, -20
   %97 = icmp ult i64 %96, -19
   br i1 %97, label %ptr_mut_obj_get.exit.thread, label %98, !prof !4
 
@@ -3327,17 +3325,17 @@ ptr_token_eq.exit.thread:                         ; preds = %70, %76, %55, %ptr_
   ]
 
 100:                                              ; preds = %98
-  %101 = icmp samesign ugt i64 %.6436, 1
+  %101 = icmp samesign ugt i64 %.6437, 1
   br i1 %101, label %ptr_mut_obj_get.exit.thread, label %ptr_mut_obj_get.exit, !prof !4
 
 102:                                              ; preds = %98
-  %103 = icmp samesign ugt i64 %.6436, 1
+  %103 = icmp samesign ugt i64 %.6437, 1
   br i1 %103, label %ptr_token_to_idx.exit.thread, label %ptr_mut_obj_get.exit.thread, !prof !4
 
 .lr.ph748:                                        ; preds = %98, %108
   %.021.i747 = phi i64 [ %110, %108 ], [ 0, %98 ]
-  %.022.i337746 = phi ptr [ %111, %108 ], [ %.ptr, %98 ]
-  %104 = load i8, ptr %.022.i337746, align 1, !tbaa !75
+  %.022.i338746 = phi ptr [ %111, %108 ], [ %.ptr, %98 ]
+  %104 = load i8, ptr %.022.i338746, align 1, !tbaa !75
   %105 = zext i8 %104 to i64
   %106 = add nsw i64 %105, -48
   %107 = icmp ult i64 %106, 10
@@ -3346,37 +3344,37 @@ ptr_token_eq.exit.thread:                         ; preds = %70, %76, %55, %ptr_
 108:                                              ; preds = %.lr.ph748
   %109 = mul i64 %.021.i747, 10
   %110 = add i64 %106, %109
-  %111 = getelementptr inbounds nuw i8, ptr %.022.i337746, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.022.i338746, i64 1
   %112 = icmp ult ptr %111, %.ptr848
-  br i1 %112, label %.lr.ph748, label %.critedge.i338, !llvm.loop !104
+  br i1 %112, label %.lr.ph748, label %.critedge.i339, !llvm.loop !104
 
-.critedge.i338:                                   ; preds = %108
+.critedge.i339:                                   ; preds = %108
   %113 = icmp eq i64 %110, 0
   br i1 %113, label %ptr_mut_obj_get.exit.thread, label %ptr_token_to_idx.exit, !prof !105
 
 ptr_token_to_idx.exit.thread:                     ; preds = %102
   br label %ptr_mut_obj_get.exit.thread
 
-ptr_token_to_idx.exit:                            ; preds = %.critedge.i338
+ptr_token_to_idx.exit:                            ; preds = %.critedge.i339
   %114 = icmp eq i64 %110, %87
   %115 = icmp eq i64 %110, -1
   %116 = or i1 %114, %115
   %117 = zext i1 %116 to i8
-  %.not.i279 = icmp ult i64 %110, %87
-  br i1 %.not.i279, label %.lr.ph753, label %ptr_mut_obj_get.exit.thread, !prof !115
+  %.not.i280 = icmp ult i64 %110, %87
+  br i1 %.not.i280, label %.lr.ph753, label %ptr_mut_obj_get.exit.thread, !prof !115
 
 .lr.ph753:                                        ; preds = %ptr_token_to_idx.exit, %.lr.ph753
   %.023.i752 = phi ptr [ %120, %.lr.ph753 ], [ %86, %ptr_token_to_idx.exit ]
-  %.2445751 = phi i64 [ %118, %.lr.ph753 ], [ %110, %ptr_token_to_idx.exit ]
-  %118 = add i64 %.2445751, -1
+  %.2446751 = phi i64 [ %118, %.lr.ph753 ], [ %110, %ptr_token_to_idx.exit ]
+  %118 = add i64 %.2446751, -1
   %119 = getelementptr inbounds nuw i8, ptr %.023.i752, i64 16
   %120 = load ptr, ptr %119, align 8, !tbaa !79
   %.not28.i = icmp eq i64 %118, 0
   br i1 %.not28.i, label %ptr_mut_obj_get.exit, label %.lr.ph753, !llvm.loop !116
 
-121:                                              ; preds = %ptr_next_token.exit276
-  %.not215 = icmp eq ptr %8, null
-  br i1 %.not215, label %yyjson_mut_obj_add.exit302, label %122
+121:                                              ; preds = %ptr_next_token.exit277
+  %.not220 = icmp eq ptr %8, null
+  br i1 %.not220, label %yyjson_mut_obj_add.exit303, label %122
 
 122:                                              ; preds = %121
   store i32 3, ptr %8, align 8, !tbaa !108
@@ -3387,40 +3385,40 @@ ptr_token_to_idx.exit:                            ; preds = %.critedge.i338
   %126 = sub i64 %124, %125
   %127 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %126, ptr %127, align 8, !tbaa !112
-  br label %yyjson_mut_obj_add.exit302
+  br label %yyjson_mut_obj_add.exit303
 
-ptr_mut_obj_get.exit.thread:                      ; preds = %50, %ptr_token_to_idx.exit, %.critedge.i338, %100, %94, %.lr.ph748, %ptr_token_eq.exit.thread, %91, %89, %ptr_token_to_idx.exit.thread, %102
-  %.6436918 = phi i64 [ %.6436, %89 ], [ 1, %102 ], [ 1, %91 ], [ %.6436, %ptr_token_to_idx.exit.thread ], [ %.6436, %ptr_token_eq.exit.thread ], [ %.6436, %.lr.ph748 ], [ %.6436, %94 ], [ %.6436, %100 ], [ %.6436, %.critedge.i338 ], [ %.6436, %ptr_token_to_idx.exit ], [ %.6436, %50 ]
-  %128 = phi i8 [ 6, %89 ], [ 6, %102 ], [ 6, %91 ], [ 6, %ptr_token_to_idx.exit.thread ], [ 7, %ptr_token_eq.exit.thread ], [ 6, %.lr.ph748 ], [ 7, %50 ], [ %49, %ptr_token_to_idx.exit ], [ %49, %.critedge.i338 ], [ 6, %100 ], [ 6, %94 ]
-  %.1419.ph = phi i8 [ 0, %89 ], [ 1, %102 ], [ %93, %91 ], [ 0, %ptr_token_to_idx.exit.thread ], [ %.0418, %ptr_token_eq.exit.thread ], [ 0, %.lr.ph748 ], [ %.0418, %50 ], [ %117, %ptr_token_to_idx.exit ], [ 0, %.critedge.i338 ], [ 0, %100 ], [ 0, %94 ]
-  %129 = icmp eq ptr %.5442, %10
+ptr_mut_obj_get.exit.thread:                      ; preds = %50, %ptr_token_to_idx.exit, %.critedge.i339, %100, %94, %.lr.ph748, %ptr_token_eq.exit.thread, %91, %89, %ptr_token_to_idx.exit.thread, %102
+  %.6437918 = phi i64 [ %.6437, %89 ], [ 1, %102 ], [ 1, %91 ], [ %.6437, %ptr_token_to_idx.exit.thread ], [ %.6437, %ptr_token_eq.exit.thread ], [ %.6437, %.lr.ph748 ], [ %.6437, %94 ], [ %.6437, %100 ], [ %.6437, %.critedge.i339 ], [ %.6437, %ptr_token_to_idx.exit ], [ %.6437, %50 ]
+  %128 = phi i8 [ 6, %89 ], [ 6, %102 ], [ 6, %91 ], [ 6, %ptr_token_to_idx.exit.thread ], [ 7, %ptr_token_eq.exit.thread ], [ 6, %.lr.ph748 ], [ 7, %50 ], [ %49, %ptr_token_to_idx.exit ], [ %49, %.critedge.i339 ], [ 6, %100 ], [ 6, %94 ]
+  %.1420.ph = phi i8 [ 0, %89 ], [ 1, %102 ], [ %93, %91 ], [ 0, %ptr_token_to_idx.exit.thread ], [ %.0419, %ptr_token_eq.exit.thread ], [ 0, %.lr.ph748 ], [ %.0419, %50 ], [ %117, %ptr_token_to_idx.exit ], [ 0, %.critedge.i339 ], [ 0, %100 ], [ 0, %94 ]
+  %129 = icmp eq ptr %.5443, %10
   br i1 %129, label %.loopexit, label %132, !prof !23
 
 ptr_mut_obj_get.exit:                             ; preds = %.lr.ph753, %ptr_token_eq.exit, %63, %77, %100
-  %.0421 = phi ptr [ %86, %100 ], [ %.017.i765, %77 ], [ %.017.i765, %63 ], [ %.017.i765, %ptr_token_eq.exit ], [ %120, %.lr.ph753 ]
-  %.1419 = phi i8 [ 0, %100 ], [ %.0418, %77 ], [ %.0418, %63 ], [ %.0418, %ptr_token_eq.exit ], [ %117, %.lr.ph753 ]
+  %.0422 = phi ptr [ %86, %100 ], [ %.017.i765, %77 ], [ %.017.i765, %63 ], [ %.017.i765, %ptr_token_eq.exit ], [ %120, %.lr.ph753 ]
+  %.1420 = phi i8 [ 0, %100 ], [ %.0419, %77 ], [ %.0419, %63 ], [ %.0419, %ptr_token_eq.exit ], [ %117, %.lr.ph753 ]
   %.pn = phi ptr [ %86, %100 ], [ %59, %77 ], [ %59, %63 ], [ %59, %ptr_token_eq.exit ], [ %120, %.lr.ph753 ]
-  %.1193.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
-  %.1193 = load ptr, ptr %.1193.in, align 8, !tbaa !79
-  %.not216 = icmp eq ptr %.1193, null
-  %130 = icmp eq ptr %.5442, %10
-  %or.cond = or i1 %130, %.not216
-  br i1 %or.cond, label %131, label %11
+  %.1198.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
+  %.1198 = load ptr, ptr %.1198.in, align 8, !tbaa !79
+  %.not221 = icmp eq ptr %.1198, null
+  %130 = icmp eq ptr %.5443, %10
+  %or.cond251 = or i1 %130, %.not221
+  br i1 %or.cond251, label %131, label %11
 
 131:                                              ; preds = %ptr_mut_obj_get.exit
   br i1 %130, label %.loopexit, label %132, !prof !23
 
 132:                                              ; preds = %ptr_mut_obj_get.exit.thread, %131
-  %.6436917 = phi i64 [ %.6436918, %ptr_mut_obj_get.exit.thread ], [ %.6436, %131 ]
+  %.6437917 = phi i64 [ %.6437918, %ptr_mut_obj_get.exit.thread ], [ %.6437, %131 ]
   %133 = phi i8 [ %128, %ptr_mut_obj_get.exit.thread ], [ %49, %131 ]
-  %.0421472478 = phi ptr [ null, %ptr_mut_obj_get.exit.thread ], [ %.0421, %131 ]
-  %.1419473476 = phi i8 [ %.1419.ph, %ptr_mut_obj_get.exit.thread ], [ %.1419, %131 ]
-  %.1193474475 = phi ptr [ null, %ptr_mut_obj_get.exit.thread ], [ %.1193, %131 ]
+  %.0422473479 = phi ptr [ null, %ptr_mut_obj_get.exit.thread ], [ %.0422, %131 ]
+  %.1420474477 = phi i8 [ %.1420.ph, %ptr_mut_obj_get.exit.thread ], [ %.1420, %131 ]
+  %.1198475476 = phi ptr [ null, %ptr_mut_obj_get.exit.thread ], [ %.1198, %131 ]
   br i1 %5, label %141, label %134
 
 134:                                              ; preds = %132
-  %.not218 = icmp eq ptr %8, null
-  br i1 %.not218, label %yyjson_mut_obj_add.exit302, label %135
+  %.not223 = icmp eq ptr %8, null
+  br i1 %.not223, label %yyjson_mut_obj_add.exit303, label %135
 
 135:                                              ; preds = %134
   store i32 3, ptr %8, align 8, !tbaa !108
@@ -3431,20 +3429,20 @@ ptr_mut_obj_get.exit:                             ; preds = %.lr.ph753, %ptr_tok
   %139 = sub i64 %137, %138
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %139, ptr %140, align 8, !tbaa !112
-  br label %yyjson_mut_obj_add.exit302
+  br label %yyjson_mut_obj_add.exit303
 
 141:                                              ; preds = %132
   %142 = icmp eq i8 %133, 6
-  br i1 %142, label %143, label %ptr_next_token.exit264
+  br i1 %142, label %143, label %ptr_next_token.exit265
 
 143:                                              ; preds = %141
-  %144 = trunc nuw i8 %.1419473476 to i1
-  %brmerge.demorgan = and i1 %6, %144
-  br i1 %brmerge.demorgan, label %152, label %145
+  %144 = trunc nuw i8 %.1420474477 to i1
+  %or.cond = and i1 %6, %144
+  br i1 %or.cond, label %152, label %145
 
 145:                                              ; preds = %143
-  %.not219 = icmp eq ptr %8, null
-  br i1 %.not219, label %yyjson_mut_obj_add.exit302, label %146
+  %.not224 = icmp eq ptr %8, null
+  br i1 %.not224, label %yyjson_mut_obj_add.exit303, label %146
 
 146:                                              ; preds = %145
   store i32 3, ptr %8, align 8, !tbaa !108
@@ -3455,11 +3453,11 @@ ptr_mut_obj_get.exit:                             ; preds = %.lr.ph753, %ptr_tok
   %150 = sub i64 %148, %149
   %151 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %150, ptr %151, align 8, !tbaa !112
-  br label %yyjson_mut_obj_add.exit302
+  br label %yyjson_mut_obj_add.exit303
 
 152:                                              ; preds = %143
-  %.not.i280 = icmp eq ptr %4, null
-  br i1 %.not.i280, label %.thread, label %153, !prof !4
+  %.not.i281 = icmp eq ptr %4, null
+  br i1 %.not.i281, label %.thread, label %153, !prof !4
 
 153:                                              ; preds = %152
   %154 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -3486,8 +3484,8 @@ unsafe_yyjson_mut_val.exit.i:                     ; preds = %.unsafe_yyjson_mut_
   br i1 %.not9.i.not, label %.thread, label %167, !prof !78
 
 .thread:                                          ; preds = %159, %unsafe_yyjson_mut_val.exit.i, %152
-  %.not221 = icmp eq ptr %8, null
-  br i1 %.not221, label %yyjson_mut_obj_add.exit302, label %164
+  %.not226 = icmp eq ptr %8, null
+  br i1 %.not226, label %yyjson_mut_obj_add.exit303, label %164
 
 164:                                              ; preds = %.thread
   store i32 6, ptr %8, align 8, !tbaa !108
@@ -3495,57 +3493,57 @@ unsafe_yyjson_mut_val.exit.i:                     ; preds = %.unsafe_yyjson_mut_
   store ptr @.str.2, ptr %165, align 8, !tbaa !111
   %166 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %166, align 8, !tbaa !112
-  br label %yyjson_mut_obj_add.exit302
+  br label %yyjson_mut_obj_add.exit303
 
 167:                                              ; preds = %unsafe_yyjson_mut_val.exit.i
   store i64 7, ptr %162, align 8, !tbaa !76
-  %168 = getelementptr inbounds nuw i8, ptr %.5442, i64 1
+  %168 = getelementptr inbounds nuw i8, ptr %.5443, i64 1
   %169 = icmp ult ptr %168, %10
-  br i1 %169, label %.lr.ph783, label %.critedge.i254
+  br i1 %169, label %.lr.ph783, label %.critedge.i255
 
 .lr.ph783:                                        ; preds = %167, %171
-  %.039.i253782 = phi ptr [ %172, %171 ], [ %168, %167 ]
-  %170 = load i8, ptr %.039.i253782, align 1, !tbaa !75
+  %.039.i254782 = phi ptr [ %172, %171 ], [ %168, %167 ]
+  %170 = load i8, ptr %.039.i254782, align 1, !tbaa !75
   switch i8 %170, label %171 [
-    i8 47, label %.critedge.i254
-    i8 126, label %.critedge.i254
+    i8 47, label %.critedge.i255
+    i8 126, label %.critedge.i255
   ]
 
 171:                                              ; preds = %.lr.ph783
-  %172 = getelementptr inbounds nuw i8, ptr %.039.i253782, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %.039.i254782, i64 1
   %173 = icmp ult ptr %172, %10
-  br i1 %173, label %.lr.ph783, label %.critedge.i254, !llvm.loop !100
+  br i1 %173, label %.lr.ph783, label %.critedge.i255, !llvm.loop !100
 
-.critedge.i254:                                   ; preds = %171, %.lr.ph783, %.lr.ph783, %167
-  %.039.i253.lcssa = phi ptr [ %168, %167 ], [ %.039.i253782, %.lr.ph783 ], [ %.039.i253782, %.lr.ph783 ], [ %172, %171 ]
-  %174 = icmp eq ptr %.039.i253.lcssa, %10
-  br i1 %174, label %.critedge53.i263, label %175
+.critedge.i255:                                   ; preds = %171, %.lr.ph783, %.lr.ph783, %167
+  %.039.i254.lcssa = phi ptr [ %168, %167 ], [ %.039.i254782, %.lr.ph783 ], [ %.039.i254782, %.lr.ph783 ], [ %172, %171 ]
+  %174 = icmp eq ptr %.039.i254.lcssa, %10
+  br i1 %174, label %.critedge53.i264, label %175
 
-175:                                              ; preds = %.critedge.i254
-  %176 = load i8, ptr %.039.i253.lcssa, align 1, !tbaa !75
+175:                                              ; preds = %.critedge.i255
+  %176 = load i8, ptr %.039.i254.lcssa, align 1, !tbaa !75
   %.not608 = icmp eq i8 %176, 126
-  br i1 %.not608, label %.preheader623, label %.critedge53.i263, !prof !4
+  br i1 %.not608, label %.preheader623, label %.critedge53.i264, !prof !4
 
 .preheader623:                                    ; preds = %175
-  %177 = icmp ult ptr %.039.i253.lcssa, %10
-  br i1 %177, label %.lr.ph791.preheader, label %.critedge2.i257
+  %177 = icmp ult ptr %.039.i254.lcssa, %10
+  br i1 %177, label %.lr.ph791.preheader, label %.critedge2.i258
 
-.critedge53.i263:                                 ; preds = %175, %.critedge.i254
-  %178 = ptrtoint ptr %.039.i253.lcssa to i64
+.critedge53.i264:                                 ; preds = %175, %.critedge.i255
+  %178 = ptrtoint ptr %.039.i254.lcssa to i64
   %179 = ptrtoint ptr %168 to i64
   %180 = sub i64 %178, %179
-  br label %ptr_next_token.exit264
+  br label %ptr_next_token.exit265
 
 .lr.ph791thread-pre-split:                        ; preds = %191
   %.pr947 = load i8, ptr %182, align 1, !tbaa !75
-  %.not49.i259 = icmp eq i8 %.pr947, 47
-  br i1 %.not49.i259, label %.critedge2.i257, label %.lr.ph791.preheader
+  %.not49.i260 = icmp eq i8 %.pr947, 47
+  br i1 %.not49.i260, label %.critedge2.i258, label %.lr.ph791.preheader
 
 .lr.ph791.preheader:                              ; preds = %.preheader623, %.lr.ph791thread-pre-split
-  %.140.i2557891136 = phi ptr [ %182, %.lr.ph791thread-pre-split ], [ %.039.i253.lcssa, %.preheader623 ]
-  %.0.i2567901135 = phi i64 [ %.1.i260, %.lr.ph791thread-pre-split ], [ 0, %.preheader623 ]
+  %.140.i2567891136 = phi ptr [ %182, %.lr.ph791thread-pre-split ], [ %.039.i254.lcssa, %.preheader623 ]
+  %.0.i2577901135 = phi i64 [ %.1.i261, %.lr.ph791thread-pre-split ], [ 0, %.preheader623 ]
   %181 = phi i8 [ %.pr947, %.lr.ph791thread-pre-split ], [ 126, %.preheader623 ]
-  %182 = getelementptr inbounds nuw i8, ptr %.140.i2557891136, i64 1
+  %182 = getelementptr inbounds nuw i8, ptr %.140.i2567891136, i64 1
   %183 = icmp eq i8 %181, 126
   br i1 %183, label %184, label %191
 
@@ -3556,30 +3554,30 @@ unsafe_yyjson_mut_val.exit.i:                     ; preds = %.unsafe_yyjson_mut_
 186:                                              ; preds = %184
   %187 = load i8, ptr %182, align 1, !tbaa !75
   %188 = and i8 %187, -2
-  %switch.i262 = icmp eq i8 %188, 48
-  br i1 %switch.i262, label %189, label %197
+  %switch.i263 = icmp eq i8 %188, 48
+  br i1 %switch.i263, label %189, label %197
 
 189:                                              ; preds = %186
-  %190 = add i64 %.0.i2567901135, 1
+  %190 = add i64 %.0.i2577901135, 1
   br label %191
 
 191:                                              ; preds = %189, %.lr.ph791.preheader
-  %.1.i260 = phi i64 [ %190, %189 ], [ %.0.i2567901135, %.lr.ph791.preheader ]
+  %.1.i261 = phi i64 [ %190, %189 ], [ %.0.i2577901135, %.lr.ph791.preheader ]
   %192 = icmp ult ptr %182, %10
-  br i1 %192, label %.lr.ph791thread-pre-split, label %.critedge2.i257, !llvm.loop !101
+  br i1 %192, label %.lr.ph791thread-pre-split, label %.critedge2.i258, !llvm.loop !101
 
-.critedge2.i257:                                  ; preds = %191, %.lr.ph791thread-pre-split, %.preheader623
-  %.140.i255.lcssa = phi ptr [ %.039.i253.lcssa, %.preheader623 ], [ %182, %.lr.ph791thread-pre-split ], [ %182, %191 ]
-  %.0.i256.lcssa = phi i64 [ 0, %.preheader623 ], [ %.1.i260, %.lr.ph791thread-pre-split ], [ %.1.i260, %191 ]
-  %193 = ptrtoint ptr %.140.i255.lcssa to i64
+.critedge2.i258:                                  ; preds = %191, %.lr.ph791thread-pre-split, %.preheader623
+  %.140.i256.lcssa = phi ptr [ %.039.i254.lcssa, %.preheader623 ], [ %182, %.lr.ph791thread-pre-split ], [ %182, %191 ]
+  %.0.i257.lcssa = phi i64 [ 0, %.preheader623 ], [ %.1.i261, %.lr.ph791thread-pre-split ], [ %.1.i261, %191 ]
+  %193 = ptrtoint ptr %.140.i256.lcssa to i64
   %194 = ptrtoint ptr %168 to i64
-  %195 = add i64 %.0.i256.lcssa, %194
+  %195 = add i64 %.0.i257.lcssa, %194
   %196 = sub i64 %193, %195
-  br label %ptr_next_token.exit264
+  br label %ptr_next_token.exit265
 
 197:                                              ; preds = %186, %184
-  %.not245 = icmp eq ptr %8, null
-  br i1 %.not245, label %yyjson_mut_obj_add.exit302, label %198
+  %.not248 = icmp eq ptr %8, null
+  br i1 %.not248, label %yyjson_mut_obj_add.exit303, label %198
 
 198:                                              ; preds = %197
   store i32 3, ptr %8, align 8, !tbaa !108
@@ -3589,23 +3587,23 @@ unsafe_yyjson_mut_val.exit.i:                     ; preds = %.unsafe_yyjson_mut_
   %201 = sub i64 0, %200
   %202 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %201, ptr %202, align 8, !tbaa !112
-  br label %yyjson_mut_obj_add.exit302
+  br label %yyjson_mut_obj_add.exit303
 
-ptr_next_token.exit264:                           ; preds = %.critedge2.i257, %.critedge53.i263, %141
-  %203 = phi i64 [ %47, %141 ], [ 7, %.critedge53.i263 ], [ 7, %.critedge2.i257 ]
-  %.1438 = phi ptr [ %.5442, %141 ], [ %.039.i253.lcssa, %.critedge53.i263 ], [ %.140.i255.lcssa, %.critedge2.i257 ]
-  %.2432 = phi i64 [ %.6436917, %141 ], [ %180, %.critedge53.i263 ], [ %196, %.critedge2.i257 ]
-  %.2427 = phi i64 [ %.6, %141 ], [ 0, %.critedge53.i263 ], [ %.0.i256.lcssa, %.critedge2.i257 ]
-  %.3195 = phi ptr [ %.1193474475, %141 ], [ null, %.critedge53.i263 ], [ null, %.critedge2.i257 ]
-  %.1190 = phi ptr [ %.ptr, %141 ], [ %168, %.critedge53.i263 ], [ %168, %.critedge2.i257 ]
-  %.1186 = phi ptr [ %.0192, %141 ], [ %162, %.critedge53.i263 ], [ %162, %.critedge2.i257 ]
-  %.1182 = phi ptr [ null, %141 ], [ %.0192, %.critedge53.i263 ], [ %.0192, %.critedge2.i257 ]
-  %.1176 = phi ptr [ null, %141 ], [ %162, %.critedge53.i263 ], [ %162, %.critedge2.i257 ]
-  %.1 = phi i8 [ %133, %141 ], [ 7, %.critedge53.i263 ], [ 7, %.critedge2.i257 ]
-  %.not223816 = icmp eq ptr %.1438, %10
-  br i1 %.not223816, label %.loopexit, label %.lr.ph825
+ptr_next_token.exit265:                           ; preds = %.critedge2.i258, %.critedge53.i264, %141
+  %203 = phi i64 [ %47, %141 ], [ 7, %.critedge53.i264 ], [ 7, %.critedge2.i258 ]
+  %.1439 = phi ptr [ %.5443, %141 ], [ %.039.i254.lcssa, %.critedge53.i264 ], [ %.140.i256.lcssa, %.critedge2.i258 ]
+  %.2433 = phi i64 [ %.6437917, %141 ], [ %180, %.critedge53.i264 ], [ %196, %.critedge2.i258 ]
+  %.2428 = phi i64 [ %.6, %141 ], [ 0, %.critedge53.i264 ], [ %.0.i257.lcssa, %.critedge2.i258 ]
+  %.3200 = phi ptr [ %.1198475476, %141 ], [ null, %.critedge53.i264 ], [ null, %.critedge2.i258 ]
+  %.1195 = phi ptr [ %.ptr, %141 ], [ %168, %.critedge53.i264 ], [ %168, %.critedge2.i258 ]
+  %.1191 = phi ptr [ %.0197, %141 ], [ %162, %.critedge53.i264 ], [ %162, %.critedge2.i258 ]
+  %.1187 = phi ptr [ null, %141 ], [ %.0197, %.critedge53.i264 ], [ %.0197, %.critedge2.i258 ]
+  %.1181 = phi ptr [ null, %141 ], [ %162, %.critedge53.i264 ], [ %162, %.critedge2.i258 ]
+  %.1 = phi i8 [ %133, %141 ], [ 7, %.critedge53.i264 ], [ 7, %.critedge2.i258 ]
+  %.not228816 = icmp eq ptr %.1439, %10
+  br i1 %.not228816, label %.loopexit, label %.lr.ph825
 
-.lr.ph825:                                        ; preds = %ptr_next_token.exit264
+.lr.ph825:                                        ; preds = %ptr_next_token.exit265
   %204 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %205 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %206 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3615,16 +3613,16 @@ ptr_next_token.exit264:                           ; preds = %.critedge2.i257, %.
   br label %209
 
 209:                                              ; preds = %.lr.ph825, %ptr_next_token.exit
-  %.2824 = phi ptr [ %.1176, %.lr.ph825 ], [ %.3, %ptr_next_token.exit ]
-  %.2179823 = phi ptr [ null, %.lr.ph825 ], [ %.3180, %ptr_next_token.exit ]
-  %.2183822 = phi ptr [ %.1182, %.lr.ph825 ], [ %.3184, %ptr_next_token.exit ]
-  %.2187821 = phi ptr [ %.1186, %.lr.ph825 ], [ %276, %ptr_next_token.exit ]
-  %.2191820 = phi ptr [ %.1190, %.lr.ph825 ], [ %304, %ptr_next_token.exit ]
-  %.3428819 = phi i64 [ %.2427, %.lr.ph825 ], [ %.4429, %ptr_next_token.exit ]
-  %.3433818 = phi i64 [ %.2432, %.lr.ph825 ], [ %.4434, %ptr_next_token.exit ]
-  %.2439817 = phi ptr [ %.1438, %.lr.ph825 ], [ %.3440, %ptr_next_token.exit ]
-  %.not.i290 = icmp eq i64 %.3428819, 0
-  br i1 %.not.i290, label %210, label %231, !prof !23
+  %.2824 = phi ptr [ %.1181, %.lr.ph825 ], [ %.3, %ptr_next_token.exit ]
+  %.2184823 = phi ptr [ null, %.lr.ph825 ], [ %.3185, %ptr_next_token.exit ]
+  %.2188822 = phi ptr [ %.1187, %.lr.ph825 ], [ %.3189, %ptr_next_token.exit ]
+  %.2192821 = phi ptr [ %.1191, %.lr.ph825 ], [ %276, %ptr_next_token.exit ]
+  %.2196820 = phi ptr [ %.1195, %.lr.ph825 ], [ %304, %ptr_next_token.exit ]
+  %.3429819 = phi i64 [ %.2428, %.lr.ph825 ], [ %.4430, %ptr_next_token.exit ]
+  %.3434818 = phi i64 [ %.2433, %.lr.ph825 ], [ %.4435, %ptr_next_token.exit ]
+  %.2440817 = phi ptr [ %.1439, %.lr.ph825 ], [ %.3441, %ptr_next_token.exit ]
+  %.not.i291 = icmp eq i64 %.3429819, 0
+  br i1 %.not.i291, label %210, label %231, !prof !23
 
 210:                                              ; preds = %209
   br i1 %.not609, label %ptr_new_key.exit.thread, label %211, !prof !4
@@ -3633,80 +3631,80 @@ ptr_next_token.exit264:                           ; preds = %.critedge2.i257, %.
   %212 = load ptr, ptr %208, align 8, !tbaa !60
   %213 = load ptr, ptr %207, align 8, !tbaa !59
   %214 = icmp eq ptr %212, %213
-  br i1 %214, label %215, label %unsafe_yyjson_mut_val.exit.i346, !prof !4
+  br i1 %214, label %215, label %unsafe_yyjson_mut_val.exit.i347, !prof !4
 
 215:                                              ; preds = %211
   %216 = tail call zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef nonnull %207, ptr noundef nonnull %206, i64 noundef 1)
-  br i1 %216, label %.unsafe_yyjson_mut_val.exit.i346_crit_edge, label %ptr_new_key.exit.thread, !prof !23
+  br i1 %216, label %.unsafe_yyjson_mut_val.exit.i347_crit_edge, label %ptr_new_key.exit.thread, !prof !23
 
-.unsafe_yyjson_mut_val.exit.i346_crit_edge:       ; preds = %215
+.unsafe_yyjson_mut_val.exit.i347_crit_edge:       ; preds = %215
   %.pre934 = load ptr, ptr %207, align 8, !tbaa !59
-  br label %unsafe_yyjson_mut_val.exit.i346
+  br label %unsafe_yyjson_mut_val.exit.i347
 
-unsafe_yyjson_mut_val.exit.i346:                  ; preds = %.unsafe_yyjson_mut_val.exit.i346_crit_edge, %211
-  %217 = phi ptr [ %.pre934, %.unsafe_yyjson_mut_val.exit.i346_crit_edge ], [ %213, %211 ]
+unsafe_yyjson_mut_val.exit.i347:                  ; preds = %.unsafe_yyjson_mut_val.exit.i347_crit_edge, %211
+  %217 = phi ptr [ %.pre934, %.unsafe_yyjson_mut_val.exit.i347_crit_edge ], [ %213, %211 ]
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
   store ptr %218, ptr %207, align 8, !tbaa !59
-  %.not.i348.not = icmp eq ptr %217, null
-  br i1 %.not.i348.not, label %ptr_new_key.exit.thread, label %219, !prof !78
+  %.not.i349.not = icmp eq ptr %217, null
+  br i1 %.not.i349.not, label %ptr_new_key.exit.thread, label %219, !prof !78
 
-219:                                              ; preds = %unsafe_yyjson_mut_val.exit.i346
+219:                                              ; preds = %unsafe_yyjson_mut_val.exit.i347
   %220 = load ptr, ptr %205, align 8, !tbaa !49
   %221 = load ptr, ptr %204, align 8, !tbaa !48
   %222 = ptrtoint ptr %220 to i64
   %223 = ptrtoint ptr %221 to i64
   %224 = sub i64 %222, %223
-  %.not.i21.i351 = icmp ugt i64 %224, %.3433818
-  br i1 %.not.i21.i351, label %unsafe_yyjson_mut_str_alc.exit.i352, label %225, !prof !23
+  %.not.i21.i352 = icmp ugt i64 %224, %.3434818
+  br i1 %.not.i21.i352, label %unsafe_yyjson_mut_str_alc.exit.i353, label %225, !prof !23
 
 225:                                              ; preds = %219
-  %226 = add i64 %.3433818, 1
+  %226 = add i64 %.3434818, 1
   %227 = tail call zeroext i1 @unsafe_yyjson_str_pool_grow(ptr noundef nonnull %204, ptr noundef nonnull %206, i64 noundef %226)
-  br i1 %227, label %unsafe_yyjson_mut_str_alc.exit.i352thread-pre-split, label %ptr_new_key.exit.thread, !prof !23
+  br i1 %227, label %unsafe_yyjson_mut_str_alc.exit.i353thread-pre-split, label %ptr_new_key.exit.thread, !prof !23
 
-unsafe_yyjson_mut_str_alc.exit.i352thread-pre-split: ; preds = %225
+unsafe_yyjson_mut_str_alc.exit.i353thread-pre-split: ; preds = %225
   %.pr = load ptr, ptr %204, align 8, !tbaa !48
-  br label %unsafe_yyjson_mut_str_alc.exit.i352
+  br label %unsafe_yyjson_mut_str_alc.exit.i353
 
-unsafe_yyjson_mut_str_alc.exit.i352:              ; preds = %unsafe_yyjson_mut_str_alc.exit.i352thread-pre-split, %219
-  %228 = phi ptr [ %.pr, %unsafe_yyjson_mut_str_alc.exit.i352thread-pre-split ], [ %221, %219 ]
-  %229 = getelementptr inbounds nuw i8, ptr %228, i64 %.3433818
+unsafe_yyjson_mut_str_alc.exit.i353:              ; preds = %unsafe_yyjson_mut_str_alc.exit.i353thread-pre-split, %219
+  %228 = phi ptr [ %.pr, %unsafe_yyjson_mut_str_alc.exit.i353thread-pre-split ], [ %221, %219 ]
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 %.3434818
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 1
   store ptr %230, ptr %204, align 8, !tbaa !48
-  %.not.i.i354 = icmp eq ptr %228, null
-  br i1 %.not.i.i354, label %ptr_new_key.exit.thread, label %ptr_new_key.exit, !prof !78
+  %.not.i.i355 = icmp eq ptr %228, null
+  br i1 %.not.i.i355, label %ptr_new_key.exit.thread, label %ptr_new_key.exit, !prof !78
 
 231:                                              ; preds = %209
-  %232 = getelementptr inbounds nuw i8, ptr %.2191820, i64 %.3433818
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 %.3428819
-  %234 = add i64 %.3428819, %.3433818
+  %232 = getelementptr inbounds nuw i8, ptr %.2196820, i64 %.3434818
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 %.3429819
+  %234 = add i64 %.3429819, %.3434818
   %235 = load ptr, ptr %205, align 8, !tbaa !49
   %236 = load ptr, ptr %204, align 8, !tbaa !48
   %237 = ptrtoint ptr %235 to i64
   %238 = ptrtoint ptr %236 to i64
   %239 = sub i64 %237, %238
-  %.not.i328 = icmp ugt i64 %239, %234
-  br i1 %.not.i328, label %unsafe_yyjson_mut_str_alc.exit330, label %240, !prof !23
+  %.not.i329 = icmp ugt i64 %239, %234
+  br i1 %.not.i329, label %unsafe_yyjson_mut_str_alc.exit331, label %240, !prof !23
 
 240:                                              ; preds = %231
   %241 = add i64 %234, 1
   %242 = tail call zeroext i1 @unsafe_yyjson_str_pool_grow(ptr noundef nonnull %204, ptr noundef nonnull %206, i64 noundef %241)
-  br i1 %242, label %unsafe_yyjson_mut_str_alc.exit330thread-pre-split, label %ptr_new_key.exit.thread, !prof !23
+  br i1 %242, label %unsafe_yyjson_mut_str_alc.exit331thread-pre-split, label %ptr_new_key.exit.thread, !prof !23
 
-unsafe_yyjson_mut_str_alc.exit330thread-pre-split: ; preds = %240
-  %.pr513 = load ptr, ptr %204, align 8, !tbaa !48
-  br label %unsafe_yyjson_mut_str_alc.exit330
+unsafe_yyjson_mut_str_alc.exit331thread-pre-split: ; preds = %240
+  %.pr514 = load ptr, ptr %204, align 8, !tbaa !48
+  br label %unsafe_yyjson_mut_str_alc.exit331
 
-unsafe_yyjson_mut_str_alc.exit330:                ; preds = %unsafe_yyjson_mut_str_alc.exit330thread-pre-split, %231
-  %243 = phi ptr [ %.pr513, %unsafe_yyjson_mut_str_alc.exit330thread-pre-split ], [ %236, %231 ]
+unsafe_yyjson_mut_str_alc.exit331:                ; preds = %unsafe_yyjson_mut_str_alc.exit331thread-pre-split, %231
+  %243 = phi ptr [ %.pr514, %unsafe_yyjson_mut_str_alc.exit331thread-pre-split ], [ %236, %231 ]
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 %234
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 1
   store ptr %245, ptr %204, align 8, !tbaa !48
   %.not29.i = icmp eq ptr %243, null
   br i1 %.not29.i, label %ptr_new_key.exit.thread, label %.preheader622, !prof !120
 
-.preheader622:                                    ; preds = %unsafe_yyjson_mut_str_alc.exit330
-  %246 = icmp ult ptr %.2191820, %233
+.preheader622:                                    ; preds = %unsafe_yyjson_mut_str_alc.exit331
+  %246 = icmp ult ptr %.2196820, %233
   br i1 %246, label %.lr.ph799, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader622
@@ -3715,7 +3713,7 @@ unsafe_yyjson_mut_str_alc.exit330:                ; preds = %unsafe_yyjson_mut_s
 
 .lr.ph799:                                        ; preds = %.preheader622, %253
   %.026.i798 = phi ptr [ %255, %253 ], [ %243, %.preheader622 ]
-  %.027.i797 = phi ptr [ %254, %253 ], [ %.2191820, %.preheader622 ]
+  %.027.i797 = phi ptr [ %254, %253 ], [ %.2196820, %.preheader622 ]
   %247 = load i8, ptr %.027.i797, align 1, !tbaa !75
   %.not30.i = icmp eq i8 %247, 126
   br i1 %.not30.i, label %248, label %253
@@ -3744,31 +3742,31 @@ unsafe_yyjson_mut_str_alc.exit330:                ; preds = %unsafe_yyjson_mut_s
   %258 = load ptr, ptr %208, align 8, !tbaa !60
   %259 = load ptr, ptr %207, align 8, !tbaa !59
   %260 = icmp eq ptr %258, %259
-  br i1 %260, label %261, label %unsafe_yyjson_mut_val.exit.i366, !prof !4
+  br i1 %260, label %261, label %unsafe_yyjson_mut_val.exit.i367, !prof !4
 
 261:                                              ; preds = %257
   %262 = tail call zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef nonnull %207, ptr noundef nonnull %206, i64 noundef 1)
-  br i1 %262, label %.unsafe_yyjson_mut_val.exit.i366_crit_edge, label %ptr_new_key.exit.thread, !prof !23
+  br i1 %262, label %.unsafe_yyjson_mut_val.exit.i367_crit_edge, label %ptr_new_key.exit.thread, !prof !23
 
-.unsafe_yyjson_mut_val.exit.i366_crit_edge:       ; preds = %261
+.unsafe_yyjson_mut_val.exit.i367_crit_edge:       ; preds = %261
   %.pre933 = load ptr, ptr %207, align 8, !tbaa !59
-  br label %unsafe_yyjson_mut_val.exit.i366
+  br label %unsafe_yyjson_mut_val.exit.i367
 
-unsafe_yyjson_mut_val.exit.i366:                  ; preds = %.unsafe_yyjson_mut_val.exit.i366_crit_edge, %257
-  %263 = phi ptr [ %.pre933, %.unsafe_yyjson_mut_val.exit.i366_crit_edge ], [ %259, %257 ]
+unsafe_yyjson_mut_val.exit.i367:                  ; preds = %.unsafe_yyjson_mut_val.exit.i367_crit_edge, %257
+  %263 = phi ptr [ %.pre933, %.unsafe_yyjson_mut_val.exit.i367_crit_edge ], [ %259, %257 ]
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
   store ptr %264, ptr %207, align 8, !tbaa !59
-  %.not.i368.not = icmp eq ptr %263, null
-  br i1 %.not.i368.not, label %ptr_new_key.exit.thread, label %ptr_new_key.exit.thread525, !prof !123
+  %.not.i369.not = icmp eq ptr %263, null
+  br i1 %.not.i369.not, label %ptr_new_key.exit.thread, label %ptr_new_key.exit.thread526, !prof !123
 
-ptr_new_key.exit:                                 ; preds = %unsafe_yyjson_mut_str_alc.exit.i352
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %228, ptr nonnull align 1 %.2191820, i64 %.3433818, i1 false)
+ptr_new_key.exit:                                 ; preds = %unsafe_yyjson_mut_str_alc.exit.i353
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %228, ptr nonnull align 1 %.2196820, i64 %.3434818, i1 false)
   store i8 0, ptr %229, align 1, !tbaa !75
-  br label %ptr_new_key.exit.thread525
+  br label %ptr_new_key.exit.thread526
 
-ptr_new_key.exit.thread:                          ; preds = %225, %unsafe_yyjson_mut_str_alc.exit.i352, %261, %unsafe_yyjson_mut_val.exit.i366, %240, %215, %._crit_edge, %210, %unsafe_yyjson_mut_val.exit.i346, %unsafe_yyjson_mut_str_alc.exit330
-  %.not239 = icmp eq ptr %8, null
-  br i1 %.not239, label %yyjson_mut_obj_add.exit302, label %265
+ptr_new_key.exit.thread:                          ; preds = %225, %unsafe_yyjson_mut_str_alc.exit.i353, %261, %unsafe_yyjson_mut_val.exit.i367, %240, %215, %._crit_edge, %210, %unsafe_yyjson_mut_val.exit.i347, %unsafe_yyjson_mut_str_alc.exit331
+  %.not242 = icmp eq ptr %8, null
+  br i1 %.not242, label %yyjson_mut_obj_add.exit303, label %265
 
 265:                                              ; preds = %ptr_new_key.exit.thread
   store i32 6, ptr %8, align 8, !tbaa !108
@@ -3776,12 +3774,12 @@ ptr_new_key.exit.thread:                          ; preds = %225, %unsafe_yyjson
   store ptr @.str.2, ptr %266, align 8, !tbaa !111
   %267 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %267, align 8, !tbaa !112
-  br label %yyjson_mut_obj_add.exit302
+  br label %yyjson_mut_obj_add.exit303
 
-ptr_new_key.exit.thread525:                       ; preds = %unsafe_yyjson_mut_val.exit.i366, %ptr_new_key.exit
-  %.sink1042 = phi ptr [ %217, %ptr_new_key.exit ], [ %263, %unsafe_yyjson_mut_val.exit.i366 ]
-  %.sink1038 = phi ptr [ %228, %ptr_new_key.exit ], [ %243, %unsafe_yyjson_mut_val.exit.i366 ]
-  %268 = shl i64 %.3433818, 8
+ptr_new_key.exit.thread526:                       ; preds = %unsafe_yyjson_mut_val.exit.i367, %ptr_new_key.exit
+  %.sink1042 = phi ptr [ %217, %ptr_new_key.exit ], [ %263, %unsafe_yyjson_mut_val.exit.i367 ]
+  %.sink1038 = phi ptr [ %228, %ptr_new_key.exit ], [ %243, %unsafe_yyjson_mut_val.exit.i367 ]
+  %268 = shl i64 %.3434818, 8
   %269 = or disjoint i64 %268, 5
   store i64 %269, ptr %.sink1042, align 8, !tbaa !73
   %270 = getelementptr inbounds nuw i8, ptr %.sink1042, i64 8
@@ -3789,47 +3787,47 @@ ptr_new_key.exit.thread525:                       ; preds = %unsafe_yyjson_mut_v
   %271 = load ptr, ptr %208, align 8, !tbaa !60
   %272 = load ptr, ptr %207, align 8, !tbaa !59
   %273 = icmp eq ptr %271, %272
-  br i1 %273, label %274, label %unsafe_yyjson_mut_val.exit.i284, !prof !4
+  br i1 %273, label %274, label %unsafe_yyjson_mut_val.exit.i285, !prof !4
 
-274:                                              ; preds = %ptr_new_key.exit.thread525
+274:                                              ; preds = %ptr_new_key.exit.thread526
   %275 = tail call zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef nonnull %207, ptr noundef nonnull %206, i64 noundef 1)
-  br i1 %275, label %.unsafe_yyjson_mut_val.exit.i284_crit_edge, label %unsafe_yyjson_mut_val.exit.i284.thread, !prof !23
+  br i1 %275, label %.unsafe_yyjson_mut_val.exit.i285_crit_edge, label %unsafe_yyjson_mut_val.exit.i285.thread, !prof !23
 
-.unsafe_yyjson_mut_val.exit.i284_crit_edge:       ; preds = %274
+.unsafe_yyjson_mut_val.exit.i285_crit_edge:       ; preds = %274
   %.pre935 = load ptr, ptr %207, align 8, !tbaa !59
-  br label %unsafe_yyjson_mut_val.exit.i284
+  br label %unsafe_yyjson_mut_val.exit.i285
 
-unsafe_yyjson_mut_val.exit.i284:                  ; preds = %.unsafe_yyjson_mut_val.exit.i284_crit_edge, %ptr_new_key.exit.thread525
-  %276 = phi ptr [ %.pre935, %.unsafe_yyjson_mut_val.exit.i284_crit_edge ], [ %272, %ptr_new_key.exit.thread525 ]
+unsafe_yyjson_mut_val.exit.i285:                  ; preds = %.unsafe_yyjson_mut_val.exit.i285_crit_edge, %ptr_new_key.exit.thread526
+  %276 = phi ptr [ %.pre935, %.unsafe_yyjson_mut_val.exit.i285_crit_edge ], [ %272, %ptr_new_key.exit.thread526 ]
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 24
   store ptr %277, ptr %207, align 8, !tbaa !59
-  %.not9.i286.not = icmp eq ptr %276, null
-  br i1 %.not9.i286.not, label %unsafe_yyjson_mut_val.exit.i284.thread, label %281, !prof !78
+  %.not9.i287.not = icmp eq ptr %276, null
+  br i1 %.not9.i287.not, label %unsafe_yyjson_mut_val.exit.i285.thread, label %281, !prof !78
 
-unsafe_yyjson_mut_val.exit.i284.thread:           ; preds = %274, %unsafe_yyjson_mut_val.exit.i284
-  %.not241 = icmp eq ptr %8, null
-  br i1 %.not241, label %yyjson_mut_obj_add.exit302, label %278
+unsafe_yyjson_mut_val.exit.i285.thread:           ; preds = %274, %unsafe_yyjson_mut_val.exit.i285
+  %.not244 = icmp eq ptr %8, null
+  br i1 %.not244, label %yyjson_mut_obj_add.exit303, label %278
 
-278:                                              ; preds = %unsafe_yyjson_mut_val.exit.i284.thread
+278:                                              ; preds = %unsafe_yyjson_mut_val.exit.i285.thread
   store i32 6, ptr %8, align 8, !tbaa !108
   %279 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str.2, ptr %279, align 8, !tbaa !111
   %280 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %280, align 8, !tbaa !112
-  br label %yyjson_mut_obj_add.exit302
+  br label %yyjson_mut_obj_add.exit303
 
-281:                                              ; preds = %unsafe_yyjson_mut_val.exit.i284
+281:                                              ; preds = %unsafe_yyjson_mut_val.exit.i285
   store i64 7, ptr %276, align 8, !tbaa !76
-  %.not242 = icmp eq ptr %.2183822, null
-  br i1 %.not242, label %yyjson_mut_obj_add.exit, label %yyjson_mut_is_obj.exit317
+  %.not245 = icmp eq ptr %.2188822, null
+  br i1 %.not245, label %yyjson_mut_obj_add.exit, label %yyjson_mut_is_obj.exit318
 
-yyjson_mut_is_obj.exit317:                        ; preds = %281
-  %282 = load i64, ptr %.2187821, align 8, !tbaa !73
+yyjson_mut_is_obj.exit318:                        ; preds = %281
+  %282 = load i64, ptr %.2192821, align 8, !tbaa !73
   %283 = and i64 %282, 7
   %284 = icmp eq i64 %283, 7
   br i1 %284, label %285, label %yyjson_mut_obj_add.exit, !prof !23
 
-285:                                              ; preds = %yyjson_mut_is_obj.exit317
+285:                                              ; preds = %yyjson_mut_is_obj.exit318
   %286 = load i64, ptr %.sink1042, align 8, !tbaa !73
   %287 = and i64 %286, 7
   %288 = icmp eq i64 %287, 5
@@ -3837,38 +3835,38 @@ yyjson_mut_is_obj.exit317:                        ; preds = %281
 
 289:                                              ; preds = %285
   %290 = and i64 %282, -256
-  %.not.i304 = icmp ult i64 %282, 256
-  br i1 %.not.i304, label %unsafe_yyjson_mut_obj_add.exit305, label %291, !prof !4
+  %.not.i305 = icmp ult i64 %282, 256
+  br i1 %.not.i305, label %unsafe_yyjson_mut_obj_add.exit306, label %291, !prof !4
 
 291:                                              ; preds = %289
-  %292 = getelementptr inbounds nuw i8, ptr %.2187821, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %.2192821, i64 8
   %293 = load ptr, ptr %292, align 8, !tbaa !75
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 16
   %295 = load ptr, ptr %294, align 8, !tbaa !79
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 16
   %297 = load ptr, ptr %296, align 8, !tbaa !79
   store ptr %.sink1042, ptr %296, align 8, !tbaa !79
-  br label %unsafe_yyjson_mut_obj_add.exit305
+  br label %unsafe_yyjson_mut_obj_add.exit306
 
-unsafe_yyjson_mut_obj_add.exit305:                ; preds = %289, %291
+unsafe_yyjson_mut_obj_add.exit306:                ; preds = %289, %291
   %.sink = phi ptr [ %297, %291 ], [ %.sink1042, %289 ]
   %298 = getelementptr inbounds nuw i8, ptr %276, i64 16
   store ptr %.sink, ptr %298, align 8, !tbaa !79
   %299 = getelementptr inbounds nuw i8, ptr %.sink1042, i64 16
   store ptr %276, ptr %299, align 8, !tbaa !79
-  %300 = getelementptr inbounds nuw i8, ptr %.2187821, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %.2192821, i64 8
   store ptr %.sink1042, ptr %300, align 8, !tbaa !75
   %301 = and i64 %282, 255
   %302 = add i64 %290, 256
   %303 = or disjoint i64 %302, %301
-  store i64 %303, ptr %.2187821, align 8, !tbaa !73
+  store i64 %303, ptr %.2192821, align 8, !tbaa !73
   br label %yyjson_mut_obj_add.exit
 
-yyjson_mut_obj_add.exit:                          ; preds = %yyjson_mut_is_obj.exit317, %unsafe_yyjson_mut_obj_add.exit305, %285, %281
-  %.3184 = phi ptr [ %.2187821, %281 ], [ %.2183822, %285 ], [ %.2183822, %unsafe_yyjson_mut_obj_add.exit305 ], [ %.2183822, %yyjson_mut_is_obj.exit317 ]
-  %.3180 = phi ptr [ %.sink1042, %281 ], [ %.2179823, %285 ], [ %.2179823, %unsafe_yyjson_mut_obj_add.exit305 ], [ %.2179823, %yyjson_mut_is_obj.exit317 ]
-  %.3 = phi ptr [ %276, %281 ], [ %.2824, %285 ], [ %.2824, %unsafe_yyjson_mut_obj_add.exit305 ], [ %.2824, %yyjson_mut_is_obj.exit317 ]
-  %304 = getelementptr inbounds nuw i8, ptr %.2439817, i64 1
+yyjson_mut_obj_add.exit:                          ; preds = %yyjson_mut_is_obj.exit318, %unsafe_yyjson_mut_obj_add.exit306, %285, %281
+  %.3189 = phi ptr [ %.2192821, %281 ], [ %.2188822, %285 ], [ %.2188822, %unsafe_yyjson_mut_obj_add.exit306 ], [ %.2188822, %yyjson_mut_is_obj.exit318 ]
+  %.3185 = phi ptr [ %.sink1042, %281 ], [ %.2184823, %285 ], [ %.2184823, %unsafe_yyjson_mut_obj_add.exit306 ], [ %.2184823, %yyjson_mut_is_obj.exit318 ]
+  %.3 = phi ptr [ %276, %281 ], [ %.2824, %285 ], [ %.2824, %unsafe_yyjson_mut_obj_add.exit306 ], [ %.2824, %yyjson_mut_is_obj.exit318 ]
+  %304 = getelementptr inbounds nuw i8, ptr %.2440817, i64 1
   %305 = icmp ult ptr %304, %10
   br i1 %305, label %.lr.ph802, label %.critedge.i
 
@@ -3947,15 +3945,15 @@ yyjson_mut_obj_add.exit:                          ; preds = %yyjson_mut_is_obj.e
   br label %ptr_next_token.exit
 
 ptr_next_token.exit:                              ; preds = %.critedge53.i, %.critedge2.i
-  %.3440 = phi ptr [ %.039.i.lcssa, %.critedge53.i ], [ %.140.i.lcssa, %.critedge2.i ]
-  %.4434 = phi i64 [ %316, %.critedge53.i ], [ %332, %.critedge2.i ]
-  %.4429 = phi i64 [ 0, %.critedge53.i ], [ %.0.i.lcssa, %.critedge2.i ]
-  %.not223 = icmp eq ptr %.3440, %10
-  br i1 %.not223, label %.loopexit.loopexit, label %209, !llvm.loop !124
+  %.3441 = phi ptr [ %.039.i.lcssa, %.critedge53.i ], [ %.140.i.lcssa, %.critedge2.i ]
+  %.4435 = phi i64 [ %316, %.critedge53.i ], [ %332, %.critedge2.i ]
+  %.4430 = phi i64 [ 0, %.critedge53.i ], [ %.0.i.lcssa, %.critedge2.i ]
+  %.not228 = icmp eq ptr %.3441, %10
+  br i1 %.not228, label %.loopexit.loopexit, label %209, !llvm.loop !124
 
 333:                                              ; preds = %322, %320
-  %.not244 = icmp eq ptr %8, null
-  br i1 %.not244, label %yyjson_mut_obj_add.exit302, label %334
+  %.not247 = icmp eq ptr %8, null
+  br i1 %.not247, label %yyjson_mut_obj_add.exit303, label %334
 
 334:                                              ; preds = %333
   store i32 2, ptr %8, align 8, !tbaa !108
@@ -3966,685 +3964,683 @@ ptr_next_token.exit:                              ; preds = %.critedge53.i, %.cr
   %338 = sub i64 %336, %337
   %339 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %338, ptr %339, align 8, !tbaa !112
-  br label %yyjson_mut_obj_add.exit302
+  br label %yyjson_mut_obj_add.exit303
 
 .loopexit.loopexit:                               ; preds = %ptr_next_token.exit
   %.pre936 = load i64, ptr %276, align 8, !tbaa !73
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %ptr_next_token.exit264, %ptr_mut_obj_get.exit.thread, %131
-  %340 = phi i64 [ %47, %131 ], [ %47, %ptr_mut_obj_get.exit.thread ], [ %203, %ptr_next_token.exit264 ], [ %.pre936, %.loopexit.loopexit ]
-  %.0421472479 = phi ptr [ %.0421, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ %.0421472478, %ptr_next_token.exit264 ], [ %.0421472478, %.loopexit.loopexit ]
-  %.1419473477 = phi i8 [ %.1419, %131 ], [ %.1419.ph, %ptr_mut_obj_get.exit.thread ], [ %.1419473476, %ptr_next_token.exit264 ], [ %.1419473476, %.loopexit.loopexit ]
-  %.1431 = phi i64 [ %.6436, %131 ], [ %.6436918, %ptr_mut_obj_get.exit.thread ], [ %.2432, %ptr_next_token.exit264 ], [ %.4434, %.loopexit.loopexit ]
-  %.1426 = phi i64 [ %.6, %131 ], [ %.6, %ptr_mut_obj_get.exit.thread ], [ %.2427, %ptr_next_token.exit264 ], [ %.4429, %.loopexit.loopexit ]
-  %.2194 = phi ptr [ %.1193, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ %.3195, %ptr_next_token.exit264 ], [ null, %.loopexit.loopexit ]
-  %.0189 = phi ptr [ %.ptr, %131 ], [ %.ptr, %ptr_mut_obj_get.exit.thread ], [ %.1190, %ptr_next_token.exit264 ], [ %304, %.loopexit.loopexit ]
-  %.0185 = phi ptr [ %.0192, %131 ], [ %.0192, %ptr_mut_obj_get.exit.thread ], [ %.1186, %ptr_next_token.exit264 ], [ %276, %.loopexit.loopexit ]
-  %.0181 = phi ptr [ null, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ %.1182, %ptr_next_token.exit264 ], [ %.3184, %.loopexit.loopexit ]
-  %.0177 = phi ptr [ null, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ null, %ptr_next_token.exit264 ], [ %.3180, %.loopexit.loopexit ]
-  %.0175 = phi ptr [ null, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ %.1176, %ptr_next_token.exit264 ], [ %.3, %.loopexit.loopexit ]
-  %.0 = phi i8 [ %49, %131 ], [ %128, %ptr_mut_obj_get.exit.thread ], [ %.1, %ptr_next_token.exit264 ], [ %.1, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %ptr_next_token.exit265, %ptr_mut_obj_get.exit.thread, %131
+  %340 = phi i64 [ %47, %131 ], [ %47, %ptr_mut_obj_get.exit.thread ], [ %203, %ptr_next_token.exit265 ], [ %.pre936, %.loopexit.loopexit ]
+  %.0422473480 = phi ptr [ %.0422, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ %.0422473479, %ptr_next_token.exit265 ], [ %.0422473479, %.loopexit.loopexit ]
+  %.1420474478 = phi i8 [ %.1420, %131 ], [ %.1420.ph, %ptr_mut_obj_get.exit.thread ], [ %.1420474477, %ptr_next_token.exit265 ], [ %.1420474477, %.loopexit.loopexit ]
+  %.1432 = phi i64 [ %.6437, %131 ], [ %.6437918, %ptr_mut_obj_get.exit.thread ], [ %.2433, %ptr_next_token.exit265 ], [ %.4435, %.loopexit.loopexit ]
+  %.1427 = phi i64 [ %.6, %131 ], [ %.6, %ptr_mut_obj_get.exit.thread ], [ %.2428, %ptr_next_token.exit265 ], [ %.4430, %.loopexit.loopexit ]
+  %.2199 = phi ptr [ %.1198, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ %.3200, %ptr_next_token.exit265 ], [ null, %.loopexit.loopexit ]
+  %.0194 = phi ptr [ %.ptr, %131 ], [ %.ptr, %ptr_mut_obj_get.exit.thread ], [ %.1195, %ptr_next_token.exit265 ], [ %304, %.loopexit.loopexit ]
+  %.0190 = phi ptr [ %.0197, %131 ], [ %.0197, %ptr_mut_obj_get.exit.thread ], [ %.1191, %ptr_next_token.exit265 ], [ %276, %.loopexit.loopexit ]
+  %.0186 = phi ptr [ null, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ %.1187, %ptr_next_token.exit265 ], [ %.3189, %.loopexit.loopexit ]
+  %.0182 = phi ptr [ null, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ null, %ptr_next_token.exit265 ], [ %.3185, %.loopexit.loopexit ]
+  %.0180 = phi ptr [ null, %131 ], [ null, %ptr_mut_obj_get.exit.thread ], [ %.1181, %ptr_next_token.exit265 ], [ %.3, %.loopexit.loopexit ]
+  %.0 = phi i8 [ %49, %131 ], [ %128, %ptr_mut_obj_get.exit.thread ], [ %.1, %ptr_next_token.exit265 ], [ %.1, %.loopexit.loopexit ]
   %341 = lshr i64 %340, 8
   %342 = icmp eq i8 %.0, 7
-  %.not231 = icmp eq ptr %7, null
-  br i1 %342, label %343, label %519
+  %.not235 = icmp eq ptr %7, null
+  br i1 %342, label %343, label %521
 
 343:                                              ; preds = %.loopexit
-  br i1 %.not231, label %344, label %.thread589
+  br i1 %.not235, label %344, label %.thread590
 
 344:                                              ; preds = %343
-  %.not232 = icmp eq ptr %.2194, null
-  %brmerge250 = or i1 %6, %.not232
-  br i1 %brmerge250, label %345, label %442
+  %345 = icmp eq ptr %.2199, null
+  %or.cond3 = or i1 %6, %345
+  br i1 %or.cond3, label %347, label %444
 
-.thread589:                                       ; preds = %343
-  store ptr %.0185, ptr %7, align 8, !tbaa !117
-  %.not232590 = icmp eq ptr %.2194, null
-  %brmerge250591 = or i1 %6, %.not232590
-  br i1 %brmerge250591, label %345, label %447
+.thread590:                                       ; preds = %343
+  store ptr %.0190, ptr %7, align 8, !tbaa !117
+  %346 = icmp eq ptr %.2199, null
+  %or.cond3591 = or i1 %6, %346
+  br i1 %or.cond3591, label %347, label %449
 
-345:                                              ; preds = %.thread589, %344
-  %.not.i292 = icmp eq i64 %.1426, 0
-  br i1 %.not.i292, label %346, label %373, !prof !23
+347:                                              ; preds = %.thread590, %344
+  %.not.i293 = icmp eq i64 %.1427, 0
+  br i1 %.not.i293, label %348, label %375, !prof !23
 
-346:                                              ; preds = %345
+348:                                              ; preds = %347
   %.not615 = icmp eq ptr %4, null
-  br i1 %.not615, label %ptr_new_key.exit300.thread, label %347, !prof !4
+  br i1 %.not615, label %ptr_new_key.exit301.thread, label %349, !prof !4
 
-347:                                              ; preds = %346
-  %348 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %349 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %350 = load ptr, ptr %349, align 8, !tbaa !60
-  %351 = load ptr, ptr %348, align 8, !tbaa !59
-  %352 = icmp eq ptr %350, %351
-  br i1 %352, label %353, label %unsafe_yyjson_mut_val.exit.i339, !prof !4
+349:                                              ; preds = %348
+  %350 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %351 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %352 = load ptr, ptr %351, align 8, !tbaa !60
+  %353 = load ptr, ptr %350, align 8, !tbaa !59
+  %354 = icmp eq ptr %352, %353
+  br i1 %354, label %355, label %unsafe_yyjson_mut_val.exit.i340, !prof !4
 
-353:                                              ; preds = %347
-  %354 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %355 = tail call zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef nonnull %348, ptr noundef nonnull %354, i64 noundef 1)
-  br i1 %355, label %.unsafe_yyjson_mut_val.exit.i339_crit_edge, label %ptr_new_key.exit300.thread, !prof !23
+355:                                              ; preds = %349
+  %356 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %357 = tail call zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef nonnull %350, ptr noundef nonnull %356, i64 noundef 1)
+  br i1 %357, label %.unsafe_yyjson_mut_val.exit.i340_crit_edge, label %ptr_new_key.exit301.thread, !prof !23
 
-.unsafe_yyjson_mut_val.exit.i339_crit_edge:       ; preds = %353
-  %.pre939 = load ptr, ptr %348, align 8, !tbaa !59
-  br label %unsafe_yyjson_mut_val.exit.i339
+.unsafe_yyjson_mut_val.exit.i340_crit_edge:       ; preds = %355
+  %.pre939 = load ptr, ptr %350, align 8, !tbaa !59
+  br label %unsafe_yyjson_mut_val.exit.i340
 
-unsafe_yyjson_mut_val.exit.i339:                  ; preds = %.unsafe_yyjson_mut_val.exit.i339_crit_edge, %347
-  %356 = phi ptr [ %.pre939, %.unsafe_yyjson_mut_val.exit.i339_crit_edge ], [ %351, %347 ]
-  %357 = getelementptr inbounds nuw i8, ptr %356, i64 24
-  store ptr %357, ptr %348, align 8, !tbaa !59
-  %.not.i341.not = icmp eq ptr %356, null
-  br i1 %.not.i341.not, label %ptr_new_key.exit300.thread, label %358, !prof !78
+unsafe_yyjson_mut_val.exit.i340:                  ; preds = %.unsafe_yyjson_mut_val.exit.i340_crit_edge, %349
+  %358 = phi ptr [ %.pre939, %.unsafe_yyjson_mut_val.exit.i340_crit_edge ], [ %353, %349 ]
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 24
+  store ptr %359, ptr %350, align 8, !tbaa !59
+  %.not.i342.not = icmp eq ptr %358, null
+  br i1 %.not.i342.not, label %ptr_new_key.exit301.thread, label %360, !prof !78
 
-358:                                              ; preds = %unsafe_yyjson_mut_val.exit.i339
-  %359 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %360 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %361 = load ptr, ptr %360, align 8, !tbaa !49
-  %362 = load ptr, ptr %359, align 8, !tbaa !48
-  %363 = ptrtoint ptr %361 to i64
-  %364 = ptrtoint ptr %362 to i64
-  %365 = sub i64 %363, %364
-  %.not.i21.i = icmp ugt i64 %365, %.1431
-  br i1 %.not.i21.i, label %unsafe_yyjson_mut_str_alc.exit.i, label %366, !prof !23
+360:                                              ; preds = %unsafe_yyjson_mut_val.exit.i340
+  %361 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %362 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %363 = load ptr, ptr %362, align 8, !tbaa !49
+  %364 = load ptr, ptr %361, align 8, !tbaa !48
+  %365 = ptrtoint ptr %363 to i64
+  %366 = ptrtoint ptr %364 to i64
+  %367 = sub i64 %365, %366
+  %.not.i21.i = icmp ugt i64 %367, %.1432
+  br i1 %.not.i21.i, label %unsafe_yyjson_mut_str_alc.exit.i, label %368, !prof !23
 
-366:                                              ; preds = %358
-  %367 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %368 = add i64 %.1431, 1
-  %369 = tail call zeroext i1 @unsafe_yyjson_str_pool_grow(ptr noundef nonnull %359, ptr noundef nonnull %367, i64 noundef %368)
-  br i1 %369, label %unsafe_yyjson_mut_str_alc.exit.ithread-pre-split, label %ptr_new_key.exit300.thread, !prof !23
+368:                                              ; preds = %360
+  %369 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %370 = add i64 %.1432, 1
+  %371 = tail call zeroext i1 @unsafe_yyjson_str_pool_grow(ptr noundef nonnull %361, ptr noundef nonnull %369, i64 noundef %370)
+  br i1 %371, label %unsafe_yyjson_mut_str_alc.exit.ithread-pre-split, label %ptr_new_key.exit301.thread, !prof !23
 
-unsafe_yyjson_mut_str_alc.exit.ithread-pre-split: ; preds = %366
-  %.pr556 = load ptr, ptr %359, align 8, !tbaa !48
+unsafe_yyjson_mut_str_alc.exit.ithread-pre-split: ; preds = %368
+  %.pr557 = load ptr, ptr %361, align 8, !tbaa !48
   br label %unsafe_yyjson_mut_str_alc.exit.i
 
-unsafe_yyjson_mut_str_alc.exit.i:                 ; preds = %unsafe_yyjson_mut_str_alc.exit.ithread-pre-split, %358
-  %370 = phi ptr [ %.pr556, %unsafe_yyjson_mut_str_alc.exit.ithread-pre-split ], [ %362, %358 ]
-  %371 = getelementptr inbounds nuw i8, ptr %370, i64 %.1431
-  %372 = getelementptr inbounds nuw i8, ptr %371, i64 1
-  store ptr %372, ptr %359, align 8, !tbaa !48
-  %.not.i.i343 = icmp eq ptr %370, null
-  br i1 %.not.i.i343, label %ptr_new_key.exit300.thread, label %ptr_new_key.exit300, !prof !78
+unsafe_yyjson_mut_str_alc.exit.i:                 ; preds = %unsafe_yyjson_mut_str_alc.exit.ithread-pre-split, %360
+  %372 = phi ptr [ %.pr557, %unsafe_yyjson_mut_str_alc.exit.ithread-pre-split ], [ %364, %360 ]
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 %.1432
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 1
+  store ptr %374, ptr %361, align 8, !tbaa !48
+  %.not.i.i344 = icmp eq ptr %372, null
+  br i1 %.not.i.i344, label %ptr_new_key.exit301.thread, label %ptr_new_key.exit301, !prof !78
 
-373:                                              ; preds = %345
-  %374 = getelementptr inbounds nuw i8, ptr %.0189, i64 %.1431
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 %.1426
-  %376 = add i64 %.1426, %.1431
-  %377 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %378 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %379 = load ptr, ptr %378, align 8, !tbaa !49
-  %380 = load ptr, ptr %377, align 8, !tbaa !48
-  %381 = ptrtoint ptr %379 to i64
-  %382 = ptrtoint ptr %380 to i64
-  %383 = sub i64 %381, %382
-  %.not.i326 = icmp ugt i64 %383, %376
-  br i1 %.not.i326, label %unsafe_yyjson_mut_str_alc.exit, label %384, !prof !23
+375:                                              ; preds = %347
+  %376 = getelementptr inbounds nuw i8, ptr %.0194, i64 %.1432
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 %.1427
+  %378 = add i64 %.1427, %.1432
+  %379 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %380 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %381 = load ptr, ptr %380, align 8, !tbaa !49
+  %382 = load ptr, ptr %379, align 8, !tbaa !48
+  %383 = ptrtoint ptr %381 to i64
+  %384 = ptrtoint ptr %382 to i64
+  %385 = sub i64 %383, %384
+  %.not.i327 = icmp ugt i64 %385, %378
+  br i1 %.not.i327, label %unsafe_yyjson_mut_str_alc.exit, label %386, !prof !23
 
-384:                                              ; preds = %373
-  %385 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %386 = add i64 %376, 1
-  %387 = tail call zeroext i1 @unsafe_yyjson_str_pool_grow(ptr noundef nonnull %377, ptr noundef nonnull %385, i64 noundef %386)
-  br i1 %387, label %unsafe_yyjson_mut_str_alc.exitthread-pre-split, label %ptr_new_key.exit300.thread, !prof !23
+386:                                              ; preds = %375
+  %387 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %388 = add i64 %378, 1
+  %389 = tail call zeroext i1 @unsafe_yyjson_str_pool_grow(ptr noundef nonnull %379, ptr noundef nonnull %387, i64 noundef %388)
+  br i1 %389, label %unsafe_yyjson_mut_str_alc.exitthread-pre-split, label %ptr_new_key.exit301.thread, !prof !23
 
-unsafe_yyjson_mut_str_alc.exitthread-pre-split:   ; preds = %384
-  %.pr569 = load ptr, ptr %377, align 8, !tbaa !48
+unsafe_yyjson_mut_str_alc.exitthread-pre-split:   ; preds = %386
+  %.pr570 = load ptr, ptr %379, align 8, !tbaa !48
   br label %unsafe_yyjson_mut_str_alc.exit
 
-unsafe_yyjson_mut_str_alc.exit:                   ; preds = %unsafe_yyjson_mut_str_alc.exitthread-pre-split, %373
-  %388 = phi ptr [ %.pr569, %unsafe_yyjson_mut_str_alc.exitthread-pre-split ], [ %380, %373 ]
-  %389 = getelementptr inbounds nuw i8, ptr %388, i64 %376
-  %390 = getelementptr inbounds nuw i8, ptr %389, i64 1
-  store ptr %390, ptr %377, align 8, !tbaa !48
-  %.not29.i293 = icmp eq ptr %388, null
-  br i1 %.not29.i293, label %ptr_new_key.exit300.thread, label %.preheader, !prof !78
+unsafe_yyjson_mut_str_alc.exit:                   ; preds = %unsafe_yyjson_mut_str_alc.exitthread-pre-split, %375
+  %390 = phi ptr [ %.pr570, %unsafe_yyjson_mut_str_alc.exitthread-pre-split ], [ %382, %375 ]
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 %378
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 1
+  store ptr %392, ptr %379, align 8, !tbaa !48
+  %.not29.i294 = icmp eq ptr %390, null
+  br i1 %.not29.i294, label %ptr_new_key.exit301.thread, label %.preheader, !prof !78
 
 .preheader:                                       ; preds = %unsafe_yyjson_mut_str_alc.exit
-  %391 = icmp ult ptr %.0189, %375
-  br i1 %391, label %.lr.ph844, label %._crit_edge845.thread
+  %393 = icmp ult ptr %.0194, %377
+  br i1 %393, label %.lr.ph844, label %._crit_edge845.thread
 
 ._crit_edge845.thread:                            ; preds = %.preheader
-  store i8 0, ptr %388, align 1, !tbaa !75
-  br label %402
+  store i8 0, ptr %390, align 1, !tbaa !75
+  br label %404
 
-.lr.ph844:                                        ; preds = %.preheader, %398
-  %.026.i295843 = phi ptr [ %400, %398 ], [ %388, %.preheader ]
-  %.027.i294842 = phi ptr [ %399, %398 ], [ %.0189, %.preheader ]
-  %392 = load i8, ptr %.027.i294842, align 1, !tbaa !75
-  %.not30.i297 = icmp eq i8 %392, 126
-  br i1 %.not30.i297, label %393, label %398
+.lr.ph844:                                        ; preds = %.preheader, %400
+  %.026.i296843 = phi ptr [ %402, %400 ], [ %390, %.preheader ]
+  %.027.i295842 = phi ptr [ %401, %400 ], [ %.0194, %.preheader ]
+  %394 = load i8, ptr %.027.i295842, align 1, !tbaa !75
+  %.not30.i298 = icmp eq i8 %394, 126
+  br i1 %.not30.i298, label %395, label %400
 
-393:                                              ; preds = %.lr.ph844
-  %394 = getelementptr inbounds nuw i8, ptr %.027.i294842, i64 1
-  %395 = load i8, ptr %394, align 1, !tbaa !75
-  %396 = icmp eq i8 %395, 48
-  %397 = select i1 %396, i8 126, i8 47
-  br label %398
+395:                                              ; preds = %.lr.ph844
+  %396 = getelementptr inbounds nuw i8, ptr %.027.i295842, i64 1
+  %397 = load i8, ptr %396, align 1, !tbaa !75
+  %398 = icmp eq i8 %397, 48
+  %399 = select i1 %398, i8 126, i8 47
+  br label %400
 
-398:                                              ; preds = %393, %.lr.ph844
-  %storemerge.i298 = phi i8 [ %397, %393 ], [ %392, %.lr.ph844 ]
-  %.128.i299 = phi ptr [ %394, %393 ], [ %.027.i294842, %.lr.ph844 ]
-  store i8 %storemerge.i298, ptr %.026.i295843, align 1, !tbaa !75
-  %399 = getelementptr inbounds nuw i8, ptr %.128.i299, i64 1
-  %400 = getelementptr inbounds nuw i8, ptr %.026.i295843, i64 1
-  %401 = icmp ult ptr %399, %375
-  br i1 %401, label %.lr.ph844, label %._crit_edge845, !llvm.loop !121
+400:                                              ; preds = %395, %.lr.ph844
+  %storemerge.i299 = phi i8 [ %399, %395 ], [ %394, %.lr.ph844 ]
+  %.128.i300 = phi ptr [ %396, %395 ], [ %.027.i295842, %.lr.ph844 ]
+  store i8 %storemerge.i299, ptr %.026.i296843, align 1, !tbaa !75
+  %401 = getelementptr inbounds nuw i8, ptr %.128.i300, i64 1
+  %402 = getelementptr inbounds nuw i8, ptr %.026.i296843, i64 1
+  %403 = icmp ult ptr %401, %377
+  br i1 %403, label %.lr.ph844, label %._crit_edge845, !llvm.loop !121
 
-._crit_edge845:                                   ; preds = %398
-  store i8 0, ptr %400, align 1, !tbaa !75
+._crit_edge845:                                   ; preds = %400
+  store i8 0, ptr %402, align 1, !tbaa !75
   %.not614 = icmp eq ptr %4, null
-  br i1 %.not614, label %ptr_new_key.exit300.thread, label %402, !prof !125
+  br i1 %.not614, label %ptr_new_key.exit301.thread, label %404, !prof !125
 
-402:                                              ; preds = %._crit_edge845.thread, %._crit_edge845
-  %403 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %404 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %405 = load ptr, ptr %404, align 8, !tbaa !60
-  %406 = load ptr, ptr %403, align 8, !tbaa !59
-  %407 = icmp eq ptr %405, %406
-  br i1 %407, label %408, label %unsafe_yyjson_mut_val.exit.i361, !prof !4
+404:                                              ; preds = %._crit_edge845.thread, %._crit_edge845
+  %405 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %406 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %407 = load ptr, ptr %406, align 8, !tbaa !60
+  %408 = load ptr, ptr %405, align 8, !tbaa !59
+  %409 = icmp eq ptr %407, %408
+  br i1 %409, label %410, label %unsafe_yyjson_mut_val.exit.i362, !prof !4
 
-408:                                              ; preds = %402
-  %409 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %410 = tail call zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef nonnull %403, ptr noundef nonnull %409, i64 noundef 1)
-  br i1 %410, label %.unsafe_yyjson_mut_val.exit.i361_crit_edge, label %ptr_new_key.exit300.thread, !prof !23
+410:                                              ; preds = %404
+  %411 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %412 = tail call zeroext i1 @unsafe_yyjson_val_pool_grow(ptr noundef nonnull %405, ptr noundef nonnull %411, i64 noundef 1)
+  br i1 %412, label %.unsafe_yyjson_mut_val.exit.i362_crit_edge, label %ptr_new_key.exit301.thread, !prof !23
 
-.unsafe_yyjson_mut_val.exit.i361_crit_edge:       ; preds = %408
-  %.pre938 = load ptr, ptr %403, align 8, !tbaa !59
-  br label %unsafe_yyjson_mut_val.exit.i361
+.unsafe_yyjson_mut_val.exit.i362_crit_edge:       ; preds = %410
+  %.pre938 = load ptr, ptr %405, align 8, !tbaa !59
+  br label %unsafe_yyjson_mut_val.exit.i362
 
-unsafe_yyjson_mut_val.exit.i361:                  ; preds = %.unsafe_yyjson_mut_val.exit.i361_crit_edge, %402
-  %411 = phi ptr [ %.pre938, %.unsafe_yyjson_mut_val.exit.i361_crit_edge ], [ %406, %402 ]
-  %412 = getelementptr inbounds nuw i8, ptr %411, i64 24
-  store ptr %412, ptr %403, align 8, !tbaa !59
-  %.not.i363.not = icmp eq ptr %411, null
-  br i1 %.not.i363.not, label %ptr_new_key.exit300.thread, label %ptr_new_key.exit300.thread581, !prof !78
+unsafe_yyjson_mut_val.exit.i362:                  ; preds = %.unsafe_yyjson_mut_val.exit.i362_crit_edge, %404
+  %413 = phi ptr [ %.pre938, %.unsafe_yyjson_mut_val.exit.i362_crit_edge ], [ %408, %404 ]
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 24
+  store ptr %414, ptr %405, align 8, !tbaa !59
+  %.not.i364.not = icmp eq ptr %413, null
+  br i1 %.not.i364.not, label %ptr_new_key.exit301.thread, label %ptr_new_key.exit301.thread582, !prof !78
 
-ptr_new_key.exit300:                              ; preds = %unsafe_yyjson_mut_str_alc.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %370, ptr nonnull align 1 %.0189, i64 %.1431, i1 false)
-  store i8 0, ptr %371, align 1, !tbaa !75
-  br label %ptr_new_key.exit300.thread581
+ptr_new_key.exit301:                              ; preds = %unsafe_yyjson_mut_str_alc.exit.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %372, ptr nonnull align 1 %.0194, i64 %.1432, i1 false)
+  store i8 0, ptr %373, align 1, !tbaa !75
+  br label %ptr_new_key.exit301.thread582
 
-ptr_new_key.exit300.thread:                       ; preds = %366, %unsafe_yyjson_mut_str_alc.exit.i, %408, %unsafe_yyjson_mut_val.exit.i361, %384, %353, %._crit_edge845, %346, %unsafe_yyjson_mut_val.exit.i339, %unsafe_yyjson_mut_str_alc.exit
-  %.not237 = icmp eq ptr %8, null
-  br i1 %.not237, label %yyjson_mut_obj_add.exit302, label %413
+ptr_new_key.exit301.thread:                       ; preds = %368, %unsafe_yyjson_mut_str_alc.exit.i, %410, %unsafe_yyjson_mut_val.exit.i362, %386, %355, %._crit_edge845, %348, %unsafe_yyjson_mut_val.exit.i340, %unsafe_yyjson_mut_str_alc.exit
+  %.not240 = icmp eq ptr %8, null
+  br i1 %.not240, label %yyjson_mut_obj_add.exit303, label %415
 
-413:                                              ; preds = %ptr_new_key.exit300.thread
+415:                                              ; preds = %ptr_new_key.exit301.thread
   store i32 6, ptr %8, align 8, !tbaa !108
-  %414 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str.2, ptr %414, align 8, !tbaa !111
-  %415 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %415, align 8, !tbaa !112
-  br label %yyjson_mut_obj_add.exit302
+  %416 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @.str.2, ptr %416, align 8, !tbaa !111
+  %417 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 0, ptr %417, align 8, !tbaa !112
+  br label %yyjson_mut_obj_add.exit303
 
-ptr_new_key.exit300.thread581:                    ; preds = %unsafe_yyjson_mut_val.exit.i361, %ptr_new_key.exit300
-  %.sink1048 = phi ptr [ %356, %ptr_new_key.exit300 ], [ %411, %unsafe_yyjson_mut_val.exit.i361 ]
-  %.sink1044 = phi ptr [ %370, %ptr_new_key.exit300 ], [ %388, %unsafe_yyjson_mut_val.exit.i361 ]
-  %416 = shl i64 %.1431, 8
-  %417 = or disjoint i64 %416, 5
-  store i64 %417, ptr %.sink1048, align 8, !tbaa !73
-  %418 = getelementptr inbounds nuw i8, ptr %.sink1048, i64 8
-  store ptr %.sink1044, ptr %418, align 8, !tbaa !75
-  br i1 %.not231, label %426, label %419
+ptr_new_key.exit301.thread582:                    ; preds = %unsafe_yyjson_mut_val.exit.i362, %ptr_new_key.exit301
+  %.sink1048 = phi ptr [ %358, %ptr_new_key.exit301 ], [ %413, %unsafe_yyjson_mut_val.exit.i362 ]
+  %.sink1044 = phi ptr [ %372, %ptr_new_key.exit301 ], [ %390, %unsafe_yyjson_mut_val.exit.i362 ]
+  %418 = shl i64 %.1432, 8
+  %419 = or disjoint i64 %418, 5
+  store i64 %419, ptr %.sink1048, align 8, !tbaa !73
+  %420 = getelementptr inbounds nuw i8, ptr %.sink1048, i64 8
+  store ptr %.sink1044, ptr %420, align 8, !tbaa !75
+  br i1 %.not235, label %428, label %421
 
-419:                                              ; preds = %ptr_new_key.exit300.thread581
-  %.not234 = icmp ult i64 %340, 256
-  br i1 %.not234, label %423, label %420
+421:                                              ; preds = %ptr_new_key.exit301.thread582
+  %.not237 = icmp ult i64 %340, 256
+  br i1 %.not237, label %425, label %422
 
-420:                                              ; preds = %419
-  %421 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
-  %422 = load ptr, ptr %421, align 8, !tbaa !75
-  br label %423
+422:                                              ; preds = %421
+  %423 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %424 = load ptr, ptr %423, align 8, !tbaa !75
+  br label %425
 
-423:                                              ; preds = %419, %420
-  %424 = phi ptr [ %422, %420 ], [ %.sink1048, %419 ]
-  %425 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %424, ptr %425, align 8, !tbaa !119
-  br label %426
+425:                                              ; preds = %421, %422
+  %426 = phi ptr [ %424, %422 ], [ %.sink1048, %421 ]
+  %427 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %426, ptr %427, align 8, !tbaa !119
+  br label %428
 
-426:                                              ; preds = %423, %ptr_new_key.exit300.thread581
-  %.not.i306 = icmp ult i64 %340, 256
-  br i1 %.not.i306, label %unsafe_yyjson_mut_obj_add.exit307, label %427, !prof !4
+428:                                              ; preds = %425, %ptr_new_key.exit301.thread582
+  %.not.i307 = icmp ult i64 %340, 256
+  br i1 %.not.i307, label %unsafe_yyjson_mut_obj_add.exit308, label %429, !prof !4
 
-427:                                              ; preds = %426
-  %428 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
-  %429 = load ptr, ptr %428, align 8, !tbaa !75
-  %430 = getelementptr inbounds nuw i8, ptr %429, i64 16
-  %431 = load ptr, ptr %430, align 8, !tbaa !79
+429:                                              ; preds = %428
+  %430 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %431 = load ptr, ptr %430, align 8, !tbaa !75
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 16
   %433 = load ptr, ptr %432, align 8, !tbaa !79
-  store ptr %.sink1048, ptr %432, align 8, !tbaa !79
-  br label %unsafe_yyjson_mut_obj_add.exit307
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 16
+  %435 = load ptr, ptr %434, align 8, !tbaa !79
+  store ptr %.sink1048, ptr %434, align 8, !tbaa !79
+  br label %unsafe_yyjson_mut_obj_add.exit308
 
-unsafe_yyjson_mut_obj_add.exit307:                ; preds = %426, %427
-  %.sink928 = phi ptr [ %433, %427 ], [ %.sink1048, %426 ]
-  %434 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sink928, ptr %434, align 8, !tbaa !79
-  %435 = getelementptr inbounds nuw i8, ptr %.sink1048, i64 16
-  store ptr %3, ptr %435, align 8, !tbaa !79
-  %436 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
-  store ptr %.sink1048, ptr %436, align 8, !tbaa !75
-  %437 = load i64, ptr %.0185, align 8, !tbaa !73
-  %438 = and i64 %437, 255
-  %439 = and i64 %340, -256
-  %440 = add i64 %439, 256
-  %441 = or disjoint i64 %438, %440
-  store i64 %441, ptr %.0185, align 8, !tbaa !73
-  br label %.critedge252
+unsafe_yyjson_mut_obj_add.exit308:                ; preds = %428, %429
+  %.sink928 = phi ptr [ %435, %429 ], [ %.sink1048, %428 ]
+  %436 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.sink928, ptr %436, align 8, !tbaa !79
+  %437 = getelementptr inbounds nuw i8, ptr %.sink1048, i64 16
+  store ptr %3, ptr %437, align 8, !tbaa !79
+  %438 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  store ptr %.sink1048, ptr %438, align 8, !tbaa !75
+  %439 = load i64, ptr %.0190, align 8, !tbaa !73
+  %440 = and i64 %439, 255
+  %441 = and i64 %340, -256
+  %442 = add i64 %441, 256
+  %443 = or disjoint i64 %440, %442
+  store i64 %443, ptr %.0190, align 8, !tbaa !73
+  br label %.critedge253
 
-442:                                              ; preds = %344
-  %443 = getelementptr inbounds nuw i8, ptr %.0421472479, i64 16
-  %444 = load ptr, ptr %443, align 8, !tbaa !79
-  %445 = getelementptr inbounds nuw i8, ptr %444, i64 16
+444:                                              ; preds = %344
+  %445 = getelementptr inbounds nuw i8, ptr %.0422473480, i64 16
   %446 = load ptr, ptr %445, align 8, !tbaa !79
-  br label %yyjson_mut_is_obj.exit313
+  %447 = getelementptr inbounds nuw i8, ptr %446, i64 16
+  %448 = load ptr, ptr %447, align 8, !tbaa !79
+  br label %yyjson_mut_is_obj.exit314
 
-447:                                              ; preds = %.thread589
-  %448 = getelementptr inbounds nuw i8, ptr %.0421472479, i64 16
-  %449 = load ptr, ptr %448, align 8, !tbaa !79
-  %450 = getelementptr inbounds nuw i8, ptr %449, i64 16
+449:                                              ; preds = %.thread590
+  %450 = getelementptr inbounds nuw i8, ptr %.0422473480, i64 16
   %451 = load ptr, ptr %450, align 8, !tbaa !79
-  %452 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.0421472479, ptr %452, align 8, !tbaa !119
-  %453 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.2194, ptr %453, align 8, !tbaa !126
-  br label %yyjson_mut_is_obj.exit313
+  %452 = getelementptr inbounds nuw i8, ptr %451, i64 16
+  %453 = load ptr, ptr %452, align 8, !tbaa !79
+  %454 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.0422473480, ptr %454, align 8, !tbaa !119
+  %455 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %.2199, ptr %455, align 8, !tbaa !126
+  br label %yyjson_mut_is_obj.exit314
 
-yyjson_mut_is_obj.exit313:                        ; preds = %442, %447
-  %454 = phi ptr [ %446, %442 ], [ %451, %447 ]
-  %455 = and i64 %340, 7
-  %456 = icmp ne i64 %455, 7
-  %.not.i321 = icmp eq ptr %454, null
-  %or.cond607 = select i1 %456, i1 true, i1 %.not.i321
-  br i1 %or.cond607, label %.critedge252, label %457, !prof !95
+yyjson_mut_is_obj.exit314:                        ; preds = %444, %449
+  %456 = phi ptr [ %448, %444 ], [ %453, %449 ]
+  %457 = and i64 %340, 7
+  %458 = icmp ne i64 %457, 7
+  %.not.i322 = icmp eq ptr %456, null
+  %or.cond607 = select i1 %458, i1 true, i1 %.not.i322
+  br i1 %or.cond607, label %.critedge253, label %459, !prof !95
 
-457:                                              ; preds = %yyjson_mut_is_obj.exit313
-  %458 = load i64, ptr %454, align 8, !tbaa !73
-  %459 = and i64 %458, 7
-  %.not612 = icmp eq i64 %459, 5
-  br i1 %.not612, label %yyjson_mut_is_obj.exit, label %.critedge252, !prof !115
+459:                                              ; preds = %yyjson_mut_is_obj.exit314
+  %460 = load i64, ptr %456, align 8, !tbaa !73
+  %461 = and i64 %460, 7
+  %.not612 = icmp eq i64 %461, 5
+  br i1 %.not612, label %yyjson_mut_is_obj.exit, label %.critedge253, !prof !115
 
-yyjson_mut_is_obj.exit:                           ; preds = %457
-  %460 = lshr i64 %458, 8
+yyjson_mut_is_obj.exit:                           ; preds = %459
+  %462 = lshr i64 %460, 8
   %.not.i.i = icmp ult i64 %340, 256
   br i1 %.not.i.i, label %yyjson_mut_obj_iter_next.exit.thread, label %yyjson_mut_obj_iter_next.exit.lr.ph
 
 yyjson_mut_obj_iter_next.exit.lr.ph:              ; preds = %yyjson_mut_is_obj.exit
-  %461 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
-  %462 = load ptr, ptr %461, align 8, !tbaa !75
-  %463 = getelementptr inbounds nuw i8, ptr %454, i64 8
-  %464 = icmp eq ptr %3, null
-  %465 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %466 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
+  %463 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %464 = load ptr, ptr %463, align 8, !tbaa !75
+  %465 = getelementptr inbounds nuw i8, ptr %456, i64 8
+  %466 = icmp eq ptr %3, null
+  %467 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %468 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
   br label %yyjson_mut_obj_iter_next.exit
 
 yyjson_mut_obj_iter_next.exit:                    ; preds = %yyjson_mut_obj_iter_next.exit.lr.ph, %yyjson_mut_obj_iter_remove.exit
-  %467 = phi i64 [ %340, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %498, %yyjson_mut_obj_iter_remove.exit ]
-  %.022.i837 = phi i8 [ 0, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.1.i308, %yyjson_mut_obj_iter_remove.exit ]
-  %.sroa.18.1836 = phi ptr [ %462, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.sroa.18.2, %yyjson_mut_obj_iter_remove.exit ]
+  %469 = phi i64 [ %340, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %500, %yyjson_mut_obj_iter_remove.exit ]
+  %.022.i837 = phi i8 [ 0, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.1.i309, %yyjson_mut_obj_iter_remove.exit ]
+  %.sroa.18.1836 = phi ptr [ %464, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.sroa.18.2, %yyjson_mut_obj_iter_remove.exit ]
   %.sroa.11.1835 = phi i64 [ %341, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.sroa.11.2, %yyjson_mut_obj_iter_remove.exit ]
   %.sroa.0.1834 = phi i64 [ 0, %yyjson_mut_obj_iter_next.exit.lr.ph ], [ %.sroa.0.2, %yyjson_mut_obj_iter_remove.exit ]
-  %468 = getelementptr inbounds nuw i8, ptr %.sroa.18.1836, i64 16
-  %469 = load ptr, ptr %468, align 8, !tbaa !79
-  %470 = getelementptr inbounds nuw i8, ptr %469, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %.sroa.18.1836, i64 16
   %471 = load ptr, ptr %470, align 8, !tbaa !79
-  %472 = add nuw i64 %.sroa.0.1834, 1
-  %.not26.i = icmp eq ptr %471, null
-  br i1 %.not26.i, label %yyjson_mut_obj_iter_next.exit.thread.loopexit, label %473
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 16
+  %473 = load ptr, ptr %472, align 8, !tbaa !79
+  %474 = add nuw i64 %.sroa.0.1834, 1
+  %.not26.i = icmp eq ptr %473, null
+  br i1 %.not26.i, label %yyjson_mut_obj_iter_next.exit.thread.loopexit, label %475
 
-473:                                              ; preds = %yyjson_mut_obj_iter_next.exit
-  %474 = load i64, ptr %471, align 8, !tbaa !73
-  %475 = lshr i64 %474, 8
-  %476 = icmp eq i64 %475, %460
-  br i1 %476, label %unsafe_yyjson_equals_strn.exit, label %yyjson_mut_obj_iter_remove.exit
+475:                                              ; preds = %yyjson_mut_obj_iter_next.exit
+  %476 = load i64, ptr %473, align 8, !tbaa !73
+  %477 = lshr i64 %476, 8
+  %478 = icmp eq i64 %477, %462
+  br i1 %478, label %unsafe_yyjson_equals_strn.exit, label %yyjson_mut_obj_iter_remove.exit
 
-unsafe_yyjson_equals_strn.exit:                   ; preds = %473
-  %477 = load ptr, ptr %463, align 8, !tbaa !75
-  %478 = getelementptr inbounds nuw i8, ptr %471, i64 8
-  %479 = load ptr, ptr %478, align 8, !tbaa !75
-  %bcmp.i = tail call i32 @bcmp(ptr %479, ptr %477, i64 %460)
-  %480 = icmp eq i32 %bcmp.i, 0
-  br i1 %480, label %481, label %yyjson_mut_obj_iter_remove.exit
+unsafe_yyjson_equals_strn.exit:                   ; preds = %475
+  %479 = load ptr, ptr %465, align 8, !tbaa !75
+  %480 = getelementptr inbounds nuw i8, ptr %473, i64 8
+  %481 = load ptr, ptr %480, align 8, !tbaa !75
+  %bcmp.i = tail call i32 @bcmp(ptr %481, ptr %479, i64 %462)
+  %482 = icmp eq i32 %bcmp.i, 0
+  br i1 %482, label %483, label %yyjson_mut_obj_iter_remove.exit
 
-481:                                              ; preds = %unsafe_yyjson_equals_strn.exit
-  %482 = trunc nuw i8 %.022.i837 to i1
-  %or.cond.not.i = or i1 %464, %482
-  %483 = getelementptr inbounds nuw i8, ptr %471, i64 16
-  %484 = load ptr, ptr %483, align 8, !tbaa !79
-  %485 = getelementptr inbounds nuw i8, ptr %484, i64 16
+483:                                              ; preds = %unsafe_yyjson_equals_strn.exit
+  %484 = trunc nuw i8 %.022.i837 to i1
+  %or.cond.not.i = or i1 %466, %484
+  %485 = getelementptr inbounds nuw i8, ptr %473, i64 16
   %486 = load ptr, ptr %485, align 8, !tbaa !79
-  br i1 %or.cond.not.i, label %488, label %487
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 16
+  %488 = load ptr, ptr %487, align 8, !tbaa !79
+  br i1 %or.cond.not.i, label %490, label %489
 
-487:                                              ; preds = %481
-  store ptr %486, ptr %465, align 8, !tbaa !79
-  store ptr %3, ptr %483, align 8, !tbaa !79
+489:                                              ; preds = %483
+  store ptr %488, ptr %467, align 8, !tbaa !79
+  store ptr %3, ptr %485, align 8, !tbaa !79
   br label %yyjson_mut_obj_iter_remove.exit
 
-488:                                              ; preds = %481
-  %489 = icmp eq i64 %472, %.sroa.11.1835
-  br i1 %489, label %490, label %491, !prof !4
+490:                                              ; preds = %483
+  %491 = icmp eq i64 %474, %.sroa.11.1835
+  br i1 %491, label %492, label %493, !prof !4
 
-490:                                              ; preds = %488
-  store ptr %.sroa.18.1836, ptr %466, align 8, !tbaa !75
-  %.pre937 = load ptr, ptr %468, align 8, !tbaa !79
-  br label %491
+492:                                              ; preds = %490
+  store ptr %.sroa.18.1836, ptr %468, align 8, !tbaa !75
+  %.pre937 = load ptr, ptr %470, align 8, !tbaa !79
+  br label %493
 
-491:                                              ; preds = %490, %488
-  %492 = phi ptr [ %.pre937, %490 ], [ %469, %488 ]
-  %493 = add i64 %.sroa.11.1835, -1
-  %494 = and i64 %467, 255
-  %495 = shl i64 %493, 8
-  %496 = or disjoint i64 %494, %495
-  store i64 %496, ptr %.0185, align 8, !tbaa !73
-  %497 = getelementptr inbounds nuw i8, ptr %492, i64 16
-  store ptr %486, ptr %497, align 8, !tbaa !79
+493:                                              ; preds = %492, %490
+  %494 = phi ptr [ %.pre937, %492 ], [ %471, %490 ]
+  %495 = add i64 %.sroa.11.1835, -1
+  %496 = and i64 %469, 255
+  %497 = shl i64 %495, 8
+  %498 = or disjoint i64 %496, %497
+  store i64 %498, ptr %.0190, align 8, !tbaa !73
+  %499 = getelementptr inbounds nuw i8, ptr %494, i64 16
+  store ptr %488, ptr %499, align 8, !tbaa !79
   br label %yyjson_mut_obj_iter_remove.exit
 
-yyjson_mut_obj_iter_remove.exit:                  ; preds = %473, %491, %487, %unsafe_yyjson_equals_strn.exit
-  %498 = phi i64 [ %467, %487 ], [ %467, %unsafe_yyjson_equals_strn.exit ], [ %496, %491 ], [ %467, %473 ]
-  %.sroa.0.2 = phi i64 [ %472, %487 ], [ %472, %unsafe_yyjson_equals_strn.exit ], [ %.sroa.0.1834, %491 ], [ %472, %473 ]
-  %.sroa.11.2 = phi i64 [ %.sroa.11.1835, %487 ], [ %.sroa.11.1835, %unsafe_yyjson_equals_strn.exit ], [ %493, %491 ], [ %.sroa.11.1835, %473 ]
-  %.sroa.18.2 = phi ptr [ %471, %487 ], [ %471, %unsafe_yyjson_equals_strn.exit ], [ %.sroa.18.1836, %491 ], [ %471, %473 ]
-  %.1.i308 = phi i8 [ 1, %487 ], [ %.022.i837, %unsafe_yyjson_equals_strn.exit ], [ %.022.i837, %491 ], [ %.022.i837, %473 ]
-  %499 = icmp ult i64 %.sroa.0.2, %.sroa.11.2
-  br i1 %499, label %yyjson_mut_obj_iter_next.exit, label %yyjson_mut_obj_iter_next.exit.thread.loopexit, !llvm.loop !127
+yyjson_mut_obj_iter_remove.exit:                  ; preds = %475, %493, %489, %unsafe_yyjson_equals_strn.exit
+  %500 = phi i64 [ %469, %489 ], [ %469, %unsafe_yyjson_equals_strn.exit ], [ %498, %493 ], [ %469, %475 ]
+  %.sroa.0.2 = phi i64 [ %474, %489 ], [ %474, %unsafe_yyjson_equals_strn.exit ], [ %.sroa.0.1834, %493 ], [ %474, %475 ]
+  %.sroa.11.2 = phi i64 [ %.sroa.11.1835, %489 ], [ %.sroa.11.1835, %unsafe_yyjson_equals_strn.exit ], [ %495, %493 ], [ %.sroa.11.1835, %475 ]
+  %.sroa.18.2 = phi ptr [ %473, %489 ], [ %473, %unsafe_yyjson_equals_strn.exit ], [ %.sroa.18.1836, %493 ], [ %473, %475 ]
+  %.1.i309 = phi i8 [ 1, %489 ], [ %.022.i837, %unsafe_yyjson_equals_strn.exit ], [ %.022.i837, %493 ], [ %.022.i837, %475 ]
+  %501 = icmp ult i64 %.sroa.0.2, %.sroa.11.2
+  br i1 %501, label %yyjson_mut_obj_iter_next.exit, label %yyjson_mut_obj_iter_next.exit.thread.loopexit, !llvm.loop !127
 
 yyjson_mut_obj_iter_next.exit.thread.loopexit:    ; preds = %yyjson_mut_obj_iter_remove.exit, %yyjson_mut_obj_iter_next.exit
-  %500 = phi i64 [ %467, %yyjson_mut_obj_iter_next.exit ], [ %498, %yyjson_mut_obj_iter_remove.exit ]
+  %502 = phi i64 [ %469, %yyjson_mut_obj_iter_next.exit ], [ %500, %yyjson_mut_obj_iter_remove.exit ]
   %.sroa.11.1.lcssa.ph = phi i64 [ %.sroa.11.1835, %yyjson_mut_obj_iter_next.exit ], [ %.sroa.11.2, %yyjson_mut_obj_iter_remove.exit ]
-  %.022.i.lcssa.ph = phi i8 [ %.022.i837, %yyjson_mut_obj_iter_next.exit ], [ %.1.i308, %yyjson_mut_obj_iter_remove.exit ]
-  %501 = trunc nuw i8 %.022.i.lcssa.ph to i1
+  %.022.i.lcssa.ph = phi i8 [ %.022.i837, %yyjson_mut_obj_iter_next.exit ], [ %.1.i309, %yyjson_mut_obj_iter_remove.exit ]
+  %503 = trunc nuw i8 %.022.i.lcssa.ph to i1
   br label %yyjson_mut_obj_iter_next.exit.thread
 
 yyjson_mut_obj_iter_next.exit.thread:             ; preds = %yyjson_mut_is_obj.exit, %yyjson_mut_obj_iter_next.exit.thread.loopexit
-  %502 = phi i64 [ %500, %yyjson_mut_obj_iter_next.exit.thread.loopexit ], [ %340, %yyjson_mut_is_obj.exit ]
+  %504 = phi i64 [ %502, %yyjson_mut_obj_iter_next.exit.thread.loopexit ], [ %340, %yyjson_mut_is_obj.exit ]
   %.sroa.11.1.lcssa = phi i64 [ %.sroa.11.1.lcssa.ph, %yyjson_mut_obj_iter_next.exit.thread.loopexit ], [ 0, %yyjson_mut_is_obj.exit ]
-  %.022.i.lcssa = phi i1 [ %501, %yyjson_mut_obj_iter_next.exit.thread.loopexit ], [ false, %yyjson_mut_is_obj.exit ]
-  %503 = icmp eq ptr %3, null
-  %or.cond4.not.i = or i1 %503, %.022.i.lcssa
-  br i1 %or.cond4.not.i, label %.critedge252, label %504
+  %.022.i.lcssa = phi i1 [ %503, %yyjson_mut_obj_iter_next.exit.thread.loopexit ], [ false, %yyjson_mut_is_obj.exit ]
+  %505 = icmp eq ptr %3, null
+  %or.cond4.not.i = or i1 %505, %.022.i.lcssa
+  br i1 %or.cond4.not.i, label %.critedge253, label %506
 
-504:                                              ; preds = %yyjson_mut_obj_iter_next.exit.thread
+506:                                              ; preds = %yyjson_mut_obj_iter_next.exit.thread
   %.not.i29.i = icmp eq i64 %.sroa.11.1.lcssa, 0
-  br i1 %.not.i29.i, label %unsafe_yyjson_mut_obj_add.exit.i, label %505, !prof !4
+  br i1 %.not.i29.i, label %unsafe_yyjson_mut_obj_add.exit.i, label %507, !prof !4
 
-505:                                              ; preds = %504
-  %506 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
-  %507 = load ptr, ptr %506, align 8, !tbaa !75
-  %508 = getelementptr inbounds nuw i8, ptr %507, i64 16
-  %509 = load ptr, ptr %508, align 8, !tbaa !79
+507:                                              ; preds = %506
+  %508 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %509 = load ptr, ptr %508, align 8, !tbaa !75
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 16
   %511 = load ptr, ptr %510, align 8, !tbaa !79
-  store ptr %454, ptr %510, align 8, !tbaa !79
+  %512 = getelementptr inbounds nuw i8, ptr %511, i64 16
+  %513 = load ptr, ptr %512, align 8, !tbaa !79
+  store ptr %456, ptr %512, align 8, !tbaa !79
   br label %unsafe_yyjson_mut_obj_add.exit.i
 
-unsafe_yyjson_mut_obj_add.exit.i:                 ; preds = %504, %505
-  %.sink929 = phi ptr [ %511, %505 ], [ %454, %504 ]
-  %512 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sink929, ptr %512, align 8, !tbaa !79
-  %513 = getelementptr inbounds nuw i8, ptr %454, i64 16
-  store ptr %3, ptr %513, align 8, !tbaa !79
-  %514 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
-  store ptr %454, ptr %514, align 8, !tbaa !75
-  %515 = and i64 %502, 255
-  %516 = shl i64 %.sroa.11.1.lcssa, 8
-  %517 = add i64 %516, 256
-  %518 = or disjoint i64 %515, %517
-  store i64 %518, ptr %.0185, align 8, !tbaa !73
-  br label %.critedge252
+unsafe_yyjson_mut_obj_add.exit.i:                 ; preds = %506, %507
+  %.sink929 = phi ptr [ %513, %507 ], [ %456, %506 ]
+  %514 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.sink929, ptr %514, align 8, !tbaa !79
+  %515 = getelementptr inbounds nuw i8, ptr %456, i64 16
+  store ptr %3, ptr %515, align 8, !tbaa !79
+  %516 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  store ptr %456, ptr %516, align 8, !tbaa !75
+  %517 = and i64 %504, 255
+  %518 = shl i64 %.sroa.11.1.lcssa, 8
+  %519 = add i64 %518, 256
+  %520 = or disjoint i64 %517, %519
+  store i64 %520, ptr %.0190, align 8, !tbaa !73
+  br label %.critedge253
 
-519:                                              ; preds = %.loopexit
-  br i1 %.not231, label %524, label %520
+521:                                              ; preds = %.loopexit
+  br i1 %.not235, label %526, label %522
 
-520:                                              ; preds = %519
-  %.not225 = icmp eq ptr %.2194, null
-  br i1 %.not225, label %521, label %523
+522:                                              ; preds = %521
+  %523 = icmp ne ptr %.2199, null
+  %524 = trunc nuw i8 %.1420474478 to i1
+  %or.cond5 = select i1 %523, i1 true, i1 %524
+  br i1 %or.cond5, label %525, label %.thread600
 
-521:                                              ; preds = %520
-  %522 = trunc nuw i8 %.1419473477 to i1
-  br i1 %522, label %523, label %.thread600
+525:                                              ; preds = %522
+  store ptr %.0190, ptr %7, align 8, !tbaa !117
+  br label %526
 
-523:                                              ; preds = %521, %520
-  store ptr %.0185, ptr %7, align 8, !tbaa !117
-  br label %524
+526:                                              ; preds = %525, %521
+  %.not232 = icmp eq ptr %.2199, null
+  br i1 %6, label %527, label %572
 
-524:                                              ; preds = %523, %519
-  %.not228 = icmp eq ptr %.2194, null
-  br i1 %6, label %525, label %570
-
-.thread600:                                       ; preds = %521
+.thread600:                                       ; preds = %522
   br i1 %6, label %.thread603, label %.thread604
 
-525:                                              ; preds = %524
-  br i1 %.not228, label %536, label %526
+527:                                              ; preds = %526
+  br i1 %.not232, label %538, label %528
 
-526:                                              ; preds = %525
-  %527 = getelementptr inbounds nuw i8, ptr %.0421472479, i64 16
-  store ptr %3, ptr %527, align 8, !tbaa !79
-  %528 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.2194, ptr %528, align 8, !tbaa !79
-  br i1 %.not231, label %531, label %529
+528:                                              ; preds = %527
+  %529 = getelementptr inbounds nuw i8, ptr %.0422473480, i64 16
+  store ptr %3, ptr %529, align 8, !tbaa !79
+  %530 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.2199, ptr %530, align 8, !tbaa !79
+  br i1 %.not235, label %533, label %531
 
-529:                                              ; preds = %526
-  %530 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.0421472479, ptr %530, align 8, !tbaa !119
-  br label %531
+531:                                              ; preds = %528
+  %532 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.0422473480, ptr %532, align 8, !tbaa !119
+  br label %533
 
-531:                                              ; preds = %529, %526
-  %532 = and i64 %340, 255
-  %533 = and i64 %340, -256
-  %534 = add i64 %533, 256
-  %535 = or disjoint i64 %534, %532
-  store i64 %535, ptr %.0185, align 8, !tbaa !73
-  br label %.critedge252
+533:                                              ; preds = %531, %528
+  %534 = and i64 %340, 255
+  %535 = and i64 %340, -256
+  %536 = add i64 %535, 256
+  %537 = or disjoint i64 %536, %534
+  store i64 %537, ptr %.0190, align 8, !tbaa !73
+  br label %.critedge253
 
-536:                                              ; preds = %525
-  %537 = trunc nuw i8 %.1419473477 to i1
-  br i1 %537, label %538, label %.thread603
+538:                                              ; preds = %527
+  %539 = trunc nuw i8 %.1420474478 to i1
+  br i1 %539, label %540, label %.thread603
 
-538:                                              ; preds = %536
-  br i1 %.not231, label %yyjson_mut_is_arr.exit320, label %539
+540:                                              ; preds = %538
+  br i1 %.not235, label %yyjson_mut_is_arr.exit321, label %541
 
-539:                                              ; preds = %538
-  %.not230 = icmp ult i64 %340, 256
-  br i1 %.not230, label %543, label %540
+541:                                              ; preds = %540
+  %.not234 = icmp ult i64 %340, 256
+  br i1 %.not234, label %545, label %542
 
-540:                                              ; preds = %539
-  %541 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
-  %542 = load ptr, ptr %541, align 8, !tbaa !75
-  br label %543
+542:                                              ; preds = %541
+  %543 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %544 = load ptr, ptr %543, align 8, !tbaa !75
+  br label %545
 
-543:                                              ; preds = %539, %540
-  %544 = phi ptr [ %542, %540 ], [ %3, %539 ]
-  %545 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %544, ptr %545, align 8, !tbaa !119
-  br label %yyjson_mut_is_arr.exit320
+545:                                              ; preds = %541, %542
+  %546 = phi ptr [ %544, %542 ], [ %3, %541 ]
+  %547 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %546, ptr %547, align 8, !tbaa !119
+  br label %yyjson_mut_is_arr.exit321
 
-yyjson_mut_is_arr.exit320:                        ; preds = %543, %538
-  %546 = and i64 %340, 7
-  %547 = icmp eq i64 %546, 6
-  %548 = icmp ne ptr %3, null
-  %549 = and i1 %548, %547
-  br i1 %549, label %550, label %.critedge252, !prof !23
+yyjson_mut_is_arr.exit321:                        ; preds = %545, %540
+  %548 = and i64 %340, 7
+  %549 = icmp eq i64 %548, 6
+  %550 = icmp ne ptr %3, null
+  %551 = and i1 %550, %549
+  br i1 %551, label %552, label %.critedge253, !prof !23
 
-550:                                              ; preds = %yyjson_mut_is_arr.exit320
-  %551 = and i64 %340, 254
-  %552 = and i64 %340, -256
-  %553 = add i64 %552, 256
-  %554 = or disjoint i64 %553, %551
-  store i64 %554, ptr %.0185, align 8, !tbaa !73
-  %555 = icmp ult i64 %340, 256
-  br i1 %555, label %561, label %556
+552:                                              ; preds = %yyjson_mut_is_arr.exit321
+  %553 = and i64 %340, 254
+  %554 = and i64 %340, -256
+  %555 = add i64 %554, 256
+  %556 = or disjoint i64 %555, %553
+  store i64 %556, ptr %.0190, align 8, !tbaa !73
+  %557 = icmp ult i64 %340, 256
+  br i1 %557, label %563, label %558
 
-556:                                              ; preds = %550
-  %557 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
-  %558 = load ptr, ptr %557, align 8, !tbaa !75
-  %559 = getelementptr inbounds nuw i8, ptr %558, i64 16
-  %560 = load ptr, ptr %559, align 8, !tbaa !79
-  store ptr %3, ptr %559, align 8, !tbaa !79
-  br label %561
+558:                                              ; preds = %552
+  %559 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %560 = load ptr, ptr %559, align 8, !tbaa !75
+  %561 = getelementptr inbounds nuw i8, ptr %560, i64 16
+  %562 = load ptr, ptr %561, align 8, !tbaa !79
+  store ptr %3, ptr %561, align 8, !tbaa !79
+  br label %563
 
-561:                                              ; preds = %550, %556
-  %.sink930 = phi ptr [ %560, %556 ], [ %3, %550 ]
-  %562 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sink930, ptr %562, align 8, !tbaa !79
-  %563 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
-  store ptr %3, ptr %563, align 8, !tbaa !75
-  br label %.critedge252
+563:                                              ; preds = %552, %558
+  %.sink930 = phi ptr [ %562, %558 ], [ %3, %552 ]
+  %564 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.sink930, ptr %564, align 8, !tbaa !79
+  %565 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  store ptr %3, ptr %565, align 8, !tbaa !75
+  br label %.critedge253
 
-.thread603:                                       ; preds = %.thread600, %536
-  %.not229 = icmp eq ptr %8, null
-  br i1 %.not229, label %yyjson_mut_obj_add.exit302, label %564
+.thread603:                                       ; preds = %.thread600, %538
+  %.not233 = icmp eq ptr %8, null
+  br i1 %.not233, label %yyjson_mut_obj_add.exit303, label %566
 
-564:                                              ; preds = %.thread603
+566:                                              ; preds = %.thread603
   store i32 3, ptr %8, align 8, !tbaa !108
-  %565 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str.1, ptr %565, align 8, !tbaa !111
-  %566 = ptrtoint ptr %.0189 to i64
-  %567 = ptrtoint ptr %1 to i64
-  %568 = sub i64 %566, %567
-  %569 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %568, ptr %569, align 8, !tbaa !112
-  br label %yyjson_mut_obj_add.exit302
+  %567 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @.str.1, ptr %567, align 8, !tbaa !111
+  %568 = ptrtoint ptr %.0194 to i64
+  %569 = ptrtoint ptr %1 to i64
+  %570 = sub i64 %568, %569
+  %571 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %570, ptr %571, align 8, !tbaa !112
+  br label %yyjson_mut_obj_add.exit303
 
-570:                                              ; preds = %524
-  br i1 %.not228, label %.thread604, label %577
+572:                                              ; preds = %526
+  br i1 %.not232, label %.thread604, label %579
 
-.thread604:                                       ; preds = %.thread600, %570
-  %.not227 = icmp eq ptr %8, null
-  br i1 %.not227, label %yyjson_mut_obj_add.exit302, label %571
+.thread604:                                       ; preds = %.thread600, %572
+  %.not231 = icmp eq ptr %8, null
+  br i1 %.not231, label %yyjson_mut_obj_add.exit303, label %573
 
-571:                                              ; preds = %.thread604
+573:                                              ; preds = %.thread604
   store i32 3, ptr %8, align 8, !tbaa !108
-  %572 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @.str.1, ptr %572, align 8, !tbaa !111
-  %573 = ptrtoint ptr %.0189 to i64
-  %574 = ptrtoint ptr %1 to i64
-  %575 = sub i64 %573, %574
-  %576 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %575, ptr %576, align 8, !tbaa !112
-  br label %yyjson_mut_obj_add.exit302
+  %574 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @.str.1, ptr %574, align 8, !tbaa !111
+  %575 = ptrtoint ptr %.0194 to i64
+  %576 = ptrtoint ptr %1 to i64
+  %577 = sub i64 %575, %576
+  %578 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %577, ptr %578, align 8, !tbaa !112
+  br label %yyjson_mut_obj_add.exit303
 
-577:                                              ; preds = %570
-  %578 = icmp ugt i64 %340, 511
-  br i1 %578, label %579, label %588
+579:                                              ; preds = %572
+  %580 = icmp ugt i64 %340, 511
+  br i1 %580, label %581, label %590
 
-579:                                              ; preds = %577
-  %580 = getelementptr inbounds nuw i8, ptr %.2194, i64 16
-  %581 = load ptr, ptr %580, align 8, !tbaa !79
-  %582 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %581, ptr %582, align 8, !tbaa !79
-  %583 = getelementptr inbounds nuw i8, ptr %.0421472479, i64 16
-  store ptr %3, ptr %583, align 8, !tbaa !79
-  %584 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
-  %585 = load ptr, ptr %584, align 8, !tbaa !75
-  %586 = icmp eq ptr %585, %.2194
-  br i1 %586, label %587, label %591
+581:                                              ; preds = %579
+  %582 = getelementptr inbounds nuw i8, ptr %.2199, i64 16
+  %583 = load ptr, ptr %582, align 8, !tbaa !79
+  %584 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %583, ptr %584, align 8, !tbaa !79
+  %585 = getelementptr inbounds nuw i8, ptr %.0422473480, i64 16
+  store ptr %3, ptr %585, align 8, !tbaa !79
+  %586 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  %587 = load ptr, ptr %586, align 8, !tbaa !75
+  %588 = icmp eq ptr %587, %.2199
+  br i1 %588, label %589, label %593
 
-587:                                              ; preds = %579
-  store ptr %3, ptr %584, align 8, !tbaa !75
-  br label %591
+589:                                              ; preds = %581
+  store ptr %3, ptr %586, align 8, !tbaa !75
+  br label %593
 
-588:                                              ; preds = %577
-  %589 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %3, ptr %589, align 8, !tbaa !79
-  %590 = getelementptr inbounds nuw i8, ptr %.0185, i64 8
-  store ptr %3, ptr %590, align 8, !tbaa !75
-  br label %591
+590:                                              ; preds = %579
+  %591 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %3, ptr %591, align 8, !tbaa !79
+  %592 = getelementptr inbounds nuw i8, ptr %.0190, i64 8
+  store ptr %3, ptr %592, align 8, !tbaa !75
+  br label %593
 
-591:                                              ; preds = %579, %587, %588
-  %.1422 = phi ptr [ %.0421472479, %587 ], [ %.0421472479, %579 ], [ %3, %588 ]
-  br i1 %.not231, label %.critedge252, label %592
+593:                                              ; preds = %581, %589, %590
+  %.1423 = phi ptr [ %.0422473480, %589 ], [ %.0422473480, %581 ], [ %3, %590 ]
+  br i1 %.not235, label %.critedge253, label %594
 
-592:                                              ; preds = %591
-  %593 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.1422, ptr %593, align 8, !tbaa !119
-  %594 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.2194, ptr %594, align 8, !tbaa !126
-  br label %.critedge252
+594:                                              ; preds = %593
+  %595 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.1423, ptr %595, align 8, !tbaa !119
+  %596 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %.2199, ptr %596, align 8, !tbaa !126
+  br label %.critedge253
 
-.critedge252:                                     ; preds = %yyjson_mut_is_obj.exit313, %561, %yyjson_mut_is_arr.exit320, %unsafe_yyjson_mut_obj_add.exit.i, %yyjson_mut_obj_iter_next.exit.thread, %457, %591, %531, %592, %unsafe_yyjson_mut_obj_add.exit307
-  %.not235 = icmp eq ptr %.0181, null
-  br i1 %.not235, label %yyjson_mut_obj_add.exit302, label %595, !prof !23
+.critedge253:                                     ; preds = %yyjson_mut_is_obj.exit314, %563, %yyjson_mut_is_arr.exit321, %unsafe_yyjson_mut_obj_add.exit.i, %yyjson_mut_obj_iter_next.exit.thread, %459, %593, %533, %594, %unsafe_yyjson_mut_obj_add.exit308
+  %.not238 = icmp eq ptr %.0186, null
+  br i1 %.not238, label %yyjson_mut_obj_add.exit303, label %597, !prof !23
 
-595:                                              ; preds = %.critedge252
-  %.not236 = icmp eq ptr %.0177, null
-  %596 = load i64, ptr %.0181, align 8, !tbaa !73
-  %597 = and i64 %596, 7
-  br i1 %.not236, label %yyjson_mut_is_arr.exit, label %yyjson_mut_is_obj.exit315
+597:                                              ; preds = %.critedge253
+  %.not239 = icmp eq ptr %.0182, null
+  %598 = load i64, ptr %.0186, align 8, !tbaa !73
+  %599 = and i64 %598, 7
+  br i1 %.not239, label %yyjson_mut_is_arr.exit, label %yyjson_mut_is_obj.exit316
 
-yyjson_mut_is_obj.exit315:                        ; preds = %595
-  %598 = icmp eq i64 %597, 7
-  br i1 %598, label %599, label %yyjson_mut_obj_add.exit302, !prof !23
+yyjson_mut_is_obj.exit316:                        ; preds = %597
+  %600 = icmp eq i64 %599, 7
+  br i1 %600, label %601, label %yyjson_mut_obj_add.exit303, !prof !23
 
-599:                                              ; preds = %yyjson_mut_is_obj.exit315
-  %600 = load i64, ptr %.0177, align 8, !tbaa !73
-  %601 = and i64 %600, 7
-  %602 = icmp eq i64 %601, 5
-  %603 = icmp ne ptr %.0175, null
-  %spec.select.i301 = select i1 %602, i1 %603, i1 false, !prof !23
-  br i1 %spec.select.i301, label %604, label %yyjson_mut_obj_add.exit302, !prof !115
+601:                                              ; preds = %yyjson_mut_is_obj.exit316
+  %602 = load i64, ptr %.0182, align 8, !tbaa !73
+  %603 = and i64 %602, 7
+  %604 = icmp eq i64 %603, 5
+  %605 = icmp ne ptr %.0180, null
+  %spec.select.i302 = select i1 %604, i1 %605, i1 false, !prof !23
+  br i1 %spec.select.i302, label %606, label %yyjson_mut_obj_add.exit303, !prof !115
 
-604:                                              ; preds = %599
-  %605 = and i64 %596, -256
-  %.not.i303 = icmp ult i64 %596, 256
-  br i1 %.not.i303, label %unsafe_yyjson_mut_obj_add.exit, label %606, !prof !4
+606:                                              ; preds = %601
+  %607 = and i64 %598, -256
+  %.not.i304 = icmp ult i64 %598, 256
+  br i1 %.not.i304, label %unsafe_yyjson_mut_obj_add.exit, label %608, !prof !4
 
-606:                                              ; preds = %604
-  %607 = getelementptr inbounds nuw i8, ptr %.0181, i64 8
-  %608 = load ptr, ptr %607, align 8, !tbaa !75
-  %609 = getelementptr inbounds nuw i8, ptr %608, i64 16
-  %610 = load ptr, ptr %609, align 8, !tbaa !79
+608:                                              ; preds = %606
+  %609 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
+  %610 = load ptr, ptr %609, align 8, !tbaa !75
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 16
   %612 = load ptr, ptr %611, align 8, !tbaa !79
-  store ptr %.0177, ptr %611, align 8, !tbaa !79
+  %613 = getelementptr inbounds nuw i8, ptr %612, i64 16
+  %614 = load ptr, ptr %613, align 8, !tbaa !79
+  store ptr %.0182, ptr %613, align 8, !tbaa !79
   br label %unsafe_yyjson_mut_obj_add.exit
 
-unsafe_yyjson_mut_obj_add.exit:                   ; preds = %604, %606
-  %.sink931 = phi ptr [ %612, %606 ], [ %.0177, %604 ]
-  %613 = getelementptr inbounds nuw i8, ptr %.0175, i64 16
-  store ptr %.sink931, ptr %613, align 8, !tbaa !79
-  %614 = getelementptr inbounds nuw i8, ptr %.0177, i64 16
-  store ptr %.0175, ptr %614, align 8, !tbaa !79
-  %615 = getelementptr inbounds nuw i8, ptr %.0181, i64 8
-  store ptr %.0177, ptr %615, align 8, !tbaa !75
-  %616 = and i64 %596, 255
-  %617 = add i64 %605, 256
-  %618 = or disjoint i64 %617, %616
-  store i64 %618, ptr %.0181, align 8, !tbaa !73
-  br label %yyjson_mut_obj_add.exit302
+unsafe_yyjson_mut_obj_add.exit:                   ; preds = %606, %608
+  %.sink931 = phi ptr [ %614, %608 ], [ %.0182, %606 ]
+  %615 = getelementptr inbounds nuw i8, ptr %.0180, i64 16
+  store ptr %.sink931, ptr %615, align 8, !tbaa !79
+  %616 = getelementptr inbounds nuw i8, ptr %.0182, i64 16
+  store ptr %.0180, ptr %616, align 8, !tbaa !79
+  %617 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
+  store ptr %.0182, ptr %617, align 8, !tbaa !75
+  %618 = and i64 %598, 255
+  %619 = add i64 %607, 256
+  %620 = or disjoint i64 %619, %618
+  store i64 %620, ptr %.0186, align 8, !tbaa !73
+  br label %yyjson_mut_obj_add.exit303
 
-yyjson_mut_is_arr.exit:                           ; preds = %595
-  %619 = icmp eq i64 %597, 6
-  %620 = icmp ne ptr %.0175, null
-  %621 = and i1 %620, %619
-  br i1 %621, label %622, label %yyjson_mut_obj_add.exit302, !prof !23
+yyjson_mut_is_arr.exit:                           ; preds = %597
+  %621 = icmp eq i64 %599, 6
+  %622 = icmp ne ptr %.0180, null
+  %623 = and i1 %622, %621
+  br i1 %623, label %624, label %yyjson_mut_obj_add.exit303, !prof !23
 
-622:                                              ; preds = %yyjson_mut_is_arr.exit
-  %623 = and i64 %596, 254
-  %624 = and i64 %596, -256
-  %625 = add i64 %624, 256
-  %626 = or disjoint i64 %625, %623
-  store i64 %626, ptr %.0181, align 8, !tbaa !73
-  %627 = icmp ult i64 %596, 256
-  br i1 %627, label %633, label %628
+624:                                              ; preds = %yyjson_mut_is_arr.exit
+  %625 = and i64 %598, 254
+  %626 = and i64 %598, -256
+  %627 = add i64 %626, 256
+  %628 = or disjoint i64 %627, %625
+  store i64 %628, ptr %.0186, align 8, !tbaa !73
+  %629 = icmp ult i64 %598, 256
+  br i1 %629, label %635, label %630
 
-628:                                              ; preds = %622
-  %629 = getelementptr inbounds nuw i8, ptr %.0181, i64 8
-  %630 = load ptr, ptr %629, align 8, !tbaa !75
-  %631 = getelementptr inbounds nuw i8, ptr %630, i64 16
-  %632 = load ptr, ptr %631, align 8, !tbaa !79
-  store ptr %.0175, ptr %631, align 8, !tbaa !79
-  br label %633
+630:                                              ; preds = %624
+  %631 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
+  %632 = load ptr, ptr %631, align 8, !tbaa !75
+  %633 = getelementptr inbounds nuw i8, ptr %632, i64 16
+  %634 = load ptr, ptr %633, align 8, !tbaa !79
+  store ptr %.0180, ptr %633, align 8, !tbaa !79
+  br label %635
 
-633:                                              ; preds = %622, %628
-  %.sink932 = phi ptr [ %632, %628 ], [ %.0175, %622 ]
-  %634 = getelementptr inbounds nuw i8, ptr %.0175, i64 16
-  store ptr %.sink932, ptr %634, align 8, !tbaa !79
-  %635 = getelementptr inbounds nuw i8, ptr %.0181, i64 8
-  store ptr %.0175, ptr %635, align 8, !tbaa !75
-  br label %yyjson_mut_obj_add.exit302
+635:                                              ; preds = %624, %630
+  %.sink932 = phi ptr [ %634, %630 ], [ %.0180, %624 ]
+  %636 = getelementptr inbounds nuw i8, ptr %.0180, i64 16
+  store ptr %.sink932, ptr %636, align 8, !tbaa !79
+  %637 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
+  store ptr %.0180, ptr %637, align 8, !tbaa !75
+  br label %yyjson_mut_obj_add.exit303
 
-yyjson_mut_obj_add.exit302:                       ; preds = %yyjson_mut_is_obj.exit315, %633, %yyjson_mut_is_arr.exit, %unsafe_yyjson_mut_obj_add.exit, %599, %.critedge252, %.thread604, %571, %.thread603, %564, %ptr_new_key.exit300.thread, %413, %333, %334, %unsafe_yyjson_mut_val.exit.i284.thread, %278, %ptr_new_key.exit.thread, %265, %197, %198, %.thread, %164, %145, %146, %134, %135, %121, %122, %40, %41
-  %.0188 = phi i1 [ false, %41 ], [ false, %40 ], [ false, %122 ], [ false, %121 ], [ false, %135 ], [ false, %134 ], [ false, %146 ], [ false, %145 ], [ false, %164 ], [ false, %.thread ], [ false, %198 ], [ false, %197 ], [ false, %265 ], [ false, %ptr_new_key.exit.thread ], [ false, %278 ], [ false, %unsafe_yyjson_mut_val.exit.i284.thread ], [ false, %334 ], [ false, %333 ], [ false, %413 ], [ false, %ptr_new_key.exit300.thread ], [ false, %564 ], [ false, %.thread603 ], [ false, %571 ], [ false, %.thread604 ], [ true, %.critedge252 ], [ true, %599 ], [ true, %unsafe_yyjson_mut_obj_add.exit ], [ true, %yyjson_mut_is_arr.exit ], [ true, %633 ], [ true, %yyjson_mut_is_obj.exit315 ]
-  ret i1 %.0188
+yyjson_mut_obj_add.exit303:                       ; preds = %yyjson_mut_is_obj.exit316, %635, %yyjson_mut_is_arr.exit, %unsafe_yyjson_mut_obj_add.exit, %601, %.critedge253, %.thread604, %573, %.thread603, %566, %ptr_new_key.exit301.thread, %415, %333, %334, %unsafe_yyjson_mut_val.exit.i285.thread, %278, %ptr_new_key.exit.thread, %265, %197, %198, %.thread, %164, %145, %146, %134, %135, %121, %122, %40, %41
+  %.0193 = phi i1 [ false, %41 ], [ false, %40 ], [ false, %122 ], [ false, %121 ], [ false, %135 ], [ false, %134 ], [ false, %146 ], [ false, %145 ], [ false, %164 ], [ false, %.thread ], [ false, %198 ], [ false, %197 ], [ false, %265 ], [ false, %ptr_new_key.exit.thread ], [ false, %278 ], [ false, %unsafe_yyjson_mut_val.exit.i285.thread ], [ false, %334 ], [ false, %333 ], [ false, %415 ], [ false, %ptr_new_key.exit301.thread ], [ false, %566 ], [ false, %.thread603 ], [ false, %573 ], [ false, %.thread604 ], [ true, %.critedge253 ], [ true, %601 ], [ true, %unsafe_yyjson_mut_obj_add.exit ], [ true, %yyjson_mut_is_arr.exit ], [ true, %635 ], [ true, %yyjson_mut_is_obj.exit316 ]
+  ret i1 %.0193
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable

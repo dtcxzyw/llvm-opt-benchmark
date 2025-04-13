@@ -61,20 +61,18 @@ define hidden noundef ptr @_ZN16JNI_FastGetField28generate_fast_get_int_field0E9
   %16 = alloca %class.ExternalAddress, align 8
   %switch.tableidx = add i8 %0, -4
   %17 = icmp ult i8 %switch.tableidx, 8
-  br i1 %17, label %switch.hole_check, label %18
+  %switch.shifted = lshr i8 -13, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %17, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %18
 
-18:                                               ; preds = %switch.hole_check, %1
+18:                                               ; preds = %1
   %19 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %19, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.9, i32 noundef 60) #8
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.shifted = lshr i8 -13, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %18
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %20 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN16JNI_FastGetField28generate_fast_get_int_field0E9BasicType, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8

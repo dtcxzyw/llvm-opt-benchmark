@@ -776,14 +776,12 @@ cleanup.done53:                                   ; preds = %land.end
   %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %txn, i64 448
   %9 = load i8, ptr %hasValue.i.i.i, align 8, !noalias !4
   %tobool.i.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i.i, label %return, label %cond.false.i
-
-cond.false.i:                                     ; preds = %cleanup.done53
-  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8proxygen9HTTPCodec8NoStreamE, i64 8), align 8, !noalias !4
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8proxygen9HTTPCodec8NoStreamE, i64 8), align 8
   %tobool.i.i.i3.i = trunc i8 %10 to i1
-  br i1 %tobool.i.i.i3.i, label %return, label %cond.false61
+  %or.cond = select i1 %tobool.i.i.i, i1 true, i1 %tobool.i.i.i3.i
+  br i1 %or.cond, label %return, label %cond.false61
 
-cond.false61:                                     ; preds = %cond.false.i
+cond.false61:                                     ; preds = %cleanup.done53
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp63, ptr noundef nonnull @.str, i32 noundef 37)
   %call67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp63)
           to label %invoke.cont66 unwind label %lpad65
@@ -866,7 +864,7 @@ terminate.lpad.i:                                 ; preds = %if.then6.i
   call void @__clang_call_terminate(ptr %20) #25
   unreachable
 
-return:                                           ; preds = %cond.false.i, %cleanup.done53, %if.then6.i, %if.then.i
+return:                                           ; preds = %cleanup.done53, %if.then6.i, %if.then.i
   ret void
 
 lpad104:                                          ; preds = %cleanup.done98
@@ -2603,24 +2601,22 @@ declare void @_ZN8proxygen11HTTPSession12onReplaySafeEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext %delayed) unnamed_addr #3 comdat align 2 {
 entry:
-  br i1 %delayed, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
+  %delayed.not = xor i1 %delayed, true
   %destroyPending_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %destroyPending_, align 4
   %tobool2 = trunc i8 %0 to i1
-  br i1 %tobool2, label %if.end, label %delete.end
+  %or.cond = select i1 %delayed.not, i1 true, i1 %tobool2
+  br i1 %or.cond, label %if.end, label %delete.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %destroyPending_3 = getelementptr inbounds nuw i8, ptr %this, i64 12
-  store i8 0, ptr %destroyPending_3, align 4
+if.end:                                           ; preds = %entry
+  store i8 0, ptr %destroyPending_, align 4
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this) #23
   br label %delete.end
 
-delete.end:                                       ; preds = %land.lhs.true, %if.end
+delete.end:                                       ; preds = %entry, %if.end
   ret void
 }
 

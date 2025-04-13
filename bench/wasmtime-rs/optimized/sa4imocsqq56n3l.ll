@@ -20667,18 +20667,16 @@ define noundef range(i16 6, 256) i16 @_ZN17cranelift_codegen2ir5types4Type6as_in
   %.0.i = select i1 %2, i16 %0, i16 %4
   %switch.tableidx = add nsw i16 %.0.i, -118
   %5 = icmp ult i16 %switch.tableidx, 10
-  br i1 %5, label %switch.hole_check, label %6
+  %switch.shifted = lshr i16 895, %switch.tableidx
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %6
 
-6:                                                ; preds = %switch.hole_check, %1
+6:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.a0b7298307f3a1649f818ae4a5b23c61.270, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a0b7298307f3a1649f818ae4a5b23c61.284) #38
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.shifted = lshr i16 895, %switch.tableidx
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %6
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %7 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i16], ptr @switch.table._ZN17cranelift_codegen2ir5types4Type6as_int17hc5779713b144069cE, i64 0, i64 %7
   %switch.load = load i16, ptr %switch.gep, align 2
@@ -20695,15 +20693,13 @@ define { i16, i16 } @_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d2
   %.0.i = select i1 %2, i16 %0, i16 %4
   %switch.tableidx = add nsw i16 %.0.i, -119
   %5 = icmp ult i16 %switch.tableidx, 6
-  br i1 %5, label %switch.hole_check, label %9
-
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i16 %switch.tableidx to i8
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 47, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %9
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %9
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %6 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN17cranelift_codegen2ir5types4Type11split_lanes17he32986c1bcf6ce56E, i64 0, i64 %6
   %switch.load = load i16, ptr %switch.gep, align 2
@@ -20711,9 +20707,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %8 = or disjoint i16 %switch.load, %7
   br label %9
 
-9:                                                ; preds = %switch.hole_check, %1, %switch.lookup
-  %.sroa.3.0 = phi i16 [ %8, %switch.lookup ], [ undef, %1 ], [ undef, %switch.hole_check ]
-  %.sroa.0.0 = phi i16 [ 1, %switch.lookup ], [ 0, %1 ], [ 0, %switch.hole_check ]
+9:                                                ; preds = %1, %switch.lookup
+  %.sroa.3.0 = phi i16 [ %8, %switch.lookup ], [ undef, %1 ]
+  %.sroa.0.0 = phi i16 [ 1, %switch.lookup ], [ 0, %1 ]
   %10 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %11 = insertvalue { i16, i16 } %10, i16 %.sroa.3.0, 1
   ret { i16, i16 } %11
@@ -20727,15 +20723,13 @@ define { i16, i16 } @_ZN17cranelift_codegen2ir5types4Type12double_width17h96db91
   %.0.i = select i1 %2, i16 %0, i16 %4
   %switch.tableidx = add nsw i16 %.0.i, -118
   %5 = icmp ult i16 %switch.tableidx, 6
-  br i1 %5, label %switch.hole_check, label %9
-
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i16 %switch.tableidx to i8
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 47, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %9
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %9
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %6 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN17cranelift_codegen2ir5types4Type11merge_lanes17h56d6c0c6b4fbbffdE, i64 0, i64 %6
   %switch.load = load i16, ptr %switch.gep, align 2
@@ -20743,9 +20737,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %8 = or disjoint i16 %switch.load, %7
   br label %9
 
-9:                                                ; preds = %switch.hole_check, %1, %switch.lookup
-  %.sroa.3.0 = phi i16 [ %8, %switch.lookup ], [ undef, %1 ], [ undef, %switch.hole_check ]
-  %.sroa.0.0 = phi i16 [ 1, %switch.lookup ], [ 0, %1 ], [ 0, %switch.hole_check ]
+9:                                                ; preds = %1, %switch.lookup
+  %.sroa.3.0 = phi i16 [ %8, %switch.lookup ], [ undef, %1 ]
+  %.sroa.0.0 = phi i16 [ 1, %switch.lookup ], [ 0, %1 ]
   %10 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %11 = insertvalue { i16, i16 } %10, i16 %.sroa.3.0, 1
   ret { i16, i16 } %11
@@ -21105,15 +21099,13 @@ define { i16, i16 } @_ZN17cranelift_codegen2ir5types4Type11split_lanes17he32986c
   %.0.i.i = select i1 %2, i16 %0, i16 %4
   %switch.tableidx = add nsw i16 %.0.i.i, -119
   %5 = icmp ult i16 %switch.tableidx, 6
-  br i1 %5, label %switch.hole_check, label %_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d202349bb3E.exit.thread
-
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i16 %switch.tableidx to i8
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 47, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d202349bb3E.exit.thread
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d202349bb3E.exit.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %6 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN17cranelift_codegen2ir5types4Type11split_lanes17he32986c1bcf6ce56E, i64 0, i64 %6
   %switch.load = load i16, ptr %switch.gep, align 2
@@ -21142,9 +21134,9 @@ _ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit.i: ; pre
   %spec.select5.i = zext i1 %11 to i16
   br label %_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d202349bb3E.exit.thread
 
-_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d202349bb3E.exit.thread: ; preds = %switch.hole_check, %1, %_ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit.i, %switch.lookup
-  %.sroa.3.0 = phi i16 [ undef, %1 ], [ %spec.select.i, %_ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit.i ], [ undef, %switch.lookup ], [ undef, %switch.hole_check ]
-  %.sroa.0.0 = phi i16 [ 0, %1 ], [ %spec.select5.i, %_ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit.i ], [ 0, %switch.lookup ], [ 0, %switch.hole_check ]
+_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d202349bb3E.exit.thread: ; preds = %1, %_ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit.i, %switch.lookup
+  %.sroa.3.0 = phi i16 [ undef, %1 ], [ %spec.select.i, %_ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit.i ], [ undef, %switch.lookup ]
+  %.sroa.0.0 = phi i16 [ 0, %1 ], [ %spec.select5.i, %_ZN17cranelift_codegen2ir5types4Type9lane_bits17h4ac41a99a03d1c96E.exit.i ], [ 0, %switch.lookup ]
   %12 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %13 = insertvalue { i16, i16 } %12, i16 %.sroa.3.0, 1
   ret { i16, i16 } %13
@@ -21158,26 +21150,24 @@ define { i16, i16 } @_ZN17cranelift_codegen2ir5types4Type11merge_lanes17h56d6c0c
   %.0.i.i = select i1 %2, i16 %0, i16 %4
   %switch.tableidx = add nsw i16 %.0.i.i, -118
   %5 = icmp ult i16 %switch.tableidx, 6
-  br i1 %5, label %switch.hole_check, label %_ZN17cranelift_codegen2ir5types4Type12double_width17h96db918d91f6ae91E.exit.thread
-
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i16 %switch.tableidx to i8
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 47, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %switch.lobit.not = xor i1 %switch.lobit, true
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  %or.cond.not = xor i1 %or.cond, true
   %6 = and i16 %0, 128
   %.0.i4.not = icmp eq i16 %6, 0
-  %or.cond = or i1 %switch.lobit.not, %.0.i4.not
-  br i1 %or.cond, label %_ZN17cranelift_codegen2ir5types4Type12double_width17h96db918d91f6ae91E.exit.thread, label %9
+  %or.cond8 = or i1 %or.cond.not, %.0.i4.not
+  br i1 %or.cond8, label %_ZN17cranelift_codegen2ir5types4Type12double_width17h96db918d91f6ae91E.exit.thread, label %9
 
-_ZN17cranelift_codegen2ir5types4Type12double_width17h96db918d91f6ae91E.exit.thread: ; preds = %switch.hole_check, %1, %9
-  %.sroa.4.0 = phi i16 [ %13, %9 ], [ undef, %1 ], [ undef, %switch.hole_check ]
-  %.sroa.0.0 = phi i16 [ 1, %9 ], [ 0, %1 ], [ 0, %switch.hole_check ]
+_ZN17cranelift_codegen2ir5types4Type12double_width17h96db918d91f6ae91E.exit.thread: ; preds = %1, %9
+  %.sroa.4.0 = phi i16 [ %13, %9 ], [ undef, %1 ]
+  %.sroa.0.0 = phi i16 [ 1, %9 ], [ 0, %1 ]
   %7 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %8 = insertvalue { i16, i16 } %7, i16 %.sroa.4.0, 1
   ret { i16, i16 } %8
 
-9:                                                ; preds = %switch.hole_check
+9:                                                ; preds = %1
   %10 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i16], ptr @switch.table._ZN17cranelift_codegen2ir5types4Type11merge_lanes17h56d6c0c6b4fbbffdE, i64 0, i64 %10
   %switch.load = load i16, ptr %switch.gep, align 2

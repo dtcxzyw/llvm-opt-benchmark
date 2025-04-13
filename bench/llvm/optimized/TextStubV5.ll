@@ -4363,11 +4363,11 @@ _ZNSt17_Function_handlerIFSt8optionalIN4llvm9StringRefEEPKNS1_4json6ObjectES2_EM
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19, !noalias !466
   store i32 0, ptr %4, align 4, !tbaa !469, !noalias !466
   %62 = call i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(4) %4, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #19, !noalias !466
-  %63 = load i32, ptr %4, align 4, !noalias !466
-  %64 = and i16 %62, 257
-  %.not35 = icmp eq i16 %64, 1
+  %63 = and i16 %62, 257
+  %or.cond.not.i.i.not = icmp eq i16 %63, 1
+  %64 = load i32, ptr %4, align 4, !noalias !466
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19, !noalias !466
-  br i1 %.not35, label %_ZNRSt8optionalIN4llvm5MachO13PackedVersionEE5valueEv.exit.i, label %65
+  br i1 %or.cond.not.i.i.not, label %_ZNRSt8optionalIN4llvm5MachO13PackedVersionEE5valueEv.exit.i, label %65
 
 65:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #19, !noalias !466
@@ -4480,7 +4480,7 @@ _ZNRSt8optionalIN4llvm5MachO13PackedVersionEE5valueEv.exit.i: ; preds = %61
   %95 = load i8, ptr %94, align 8, !alias.scope !466
   %96 = and i8 %95, -2
   store i8 %96, ptr %94, align 8, !alias.scope !466
-  store i32 %63, ptr %0, align 8, !tbaa !129, !alias.scope !466
+  store i32 %64, ptr %0, align 8, !tbaa !129, !alias.scope !466
   br label %97
 
 97:                                               ; preds = %_ZNRSt8optionalIN4llvm5MachO13PackedVersionEE5valueEv.exit.i, %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit.i, %57

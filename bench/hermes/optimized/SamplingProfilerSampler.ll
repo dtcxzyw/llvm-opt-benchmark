@@ -627,14 +627,11 @@ if.end:                                           ; preds = %for.inc.i, %while.b
   %div.i.i.i.i.i.i.i = sdiv i64 %add.i.i.i, 1000000000
   %mul.i.i.i.neg.i.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i.i, -1000000000
   %sub.i.i.i.i.i.i = add i64 %mul.i.i.i.neg.i.i.i.i.i.i, %add.i.i.i
-  br label %while.cond.i.i
+  %__p.val.val.i.i.old = load i8, ptr %enabled_, align 8
+  %tobool.i.i.i.old = trunc i8 %__p.val.val.i.i.old to i1
+  br i1 %tobool.i.i.i.old, label %while.body.i.i, label %"_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN6hermes2vm17sampling_profiler7Sampler9timerLoopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit"
 
-while.cond.i.i:                                   ; preds = %while.body.i.i, %if.end
-  %__p.val.val.i.i = load i8, ptr %enabled_, align 8
-  %tobool.i.i.i = trunc i8 %__p.val.val.i.i to i1
-  br i1 %tobool.i.i.i, label %while.body.i.i, label %"_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN6hermes2vm17sampling_profiler7Sampler9timerLoopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit"
-
-while.body.i.i:                                   ; preds = %while.cond.i.i
+while.body.i.i:                                   ; preds = %if.end, %while.body.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ts.i.i.i.i)
   store i64 %div.i.i.i.i.i.i.i, ptr %__ts.i.i.i.i, align 8
   store i64 %sub.i.i.i.i.i.i, ptr %tv_nsec.i.i.i.i, align 8
@@ -642,14 +639,13 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %call14.i.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #15
   %cmp.i.i.i.i.not.i.i = icmp slt i64 %call14.i.i.i.i, %add.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ts.i.i.i.i)
-  br i1 %cmp.i.i.i.i.not.i.i, label %while.cond.i.i, label %"while.body.i.i._ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN6hermes2vm17sampling_profiler7Sampler9timerLoopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit_crit_edge", !llvm.loop !7
+  %__p.val.val.i.i = load i8, ptr %enabled_, align 8
+  %tobool.i.i.i = trunc i8 %__p.val.val.i.i to i1
+  %or.cond = select i1 %cmp.i.i.i.i.not.i.i, i1 %tobool.i.i.i, i1 false
+  br i1 %or.cond, label %while.body.i.i, label %"_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN6hermes2vm17sampling_profiler7Sampler9timerLoopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit", !llvm.loop !7
 
-"while.body.i.i._ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN6hermes2vm17sampling_profiler7Sampler9timerLoopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit_crit_edge": ; preds = %while.body.i.i
-  %.pre = load i8, ptr %enabled_, align 8
-  br label %"_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN6hermes2vm17sampling_profiler7Sampler9timerLoopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit", !llvm.loop !7
-
-"_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN6hermes2vm17sampling_profiler7Sampler9timerLoopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit": ; preds = %while.cond.i.i, %"while.body.i.i._ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN6hermes2vm17sampling_profiler7Sampler9timerLoopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit_crit_edge"
-  %5 = phi i8 [ %.pre, %"while.body.i.i._ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN6hermes2vm17sampling_profiler7Sampler9timerLoopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit_crit_edge" ], [ %__p.val.val.i.i, %while.cond.i.i ]
+"_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN6hermes2vm17sampling_profiler7Sampler9timerLoopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit": ; preds = %while.body.i.i, %if.end
+  %5 = phi i8 [ %__p.val.val.i.i.old, %if.end ], [ %__p.val.val.i.i, %while.body.i.i ]
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %while.body, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, !llvm.loop !8
 

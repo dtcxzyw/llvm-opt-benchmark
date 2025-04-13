@@ -7086,19 +7086,10 @@ define hidden noundef i32 @_ZNK11MachUEPNode4sizeEP13PhaseRegAlloc(ptr noundef n
 define hidden noundef zeroext i1 @_ZN7Matcher34supports_vector_calling_conventionEv() local_unnamed_addr #9 align 2 {
   %1 = load i8, ptr @EnableVectorSupport, align 1
   %2 = trunc i8 %1 to i1
-  br i1 %2, label %3, label %6
-
-3:                                                ; preds = %0
-  %4 = load i8, ptr @UseVectorStubs, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %7, label %6
-
-6:                                                ; preds = %3, %0
-  br label %7
-
-7:                                                ; preds = %3, %6
-  %.0 = phi i1 [ false, %6 ], [ true, %3 ]
-  ret i1 %.0
+  %3 = load i8, ptr @UseVectorStubs, align 1
+  %4 = trunc i8 %3 to i1
+  %or.cond = select i1 %2, i1 %4, i1 false
+  ret i1 %or.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -7470,10 +7461,10 @@ define hidden noundef zeroext i1 @_ZN7Matcher20match_rule_supportedEi(i32 nounde
   %3 = getelementptr inbounds [500 x i8], ptr @_ZN7Matcher13_hasMatchRuleE, i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %132
+  br i1 %5, label %6, label %131
 
 6:                                                ; preds = %1
-  switch i32 %0, label %131 [
+  switch i32 %0, label %130 [
     i32 390, label %7
     i32 430, label %7
     i32 276, label %10
@@ -7514,8 +7505,8 @@ define hidden noundef zeroext i1 @_ZN7Matcher20match_rule_supportedEi(i32 nounde
     i32 280, label %45
     i32 453, label %48
     i32 454, label %51
-    i32 490, label %128
-    i32 489, label %128
+    i32 490, label %127
+    i32 489, label %127
     i32 337, label %54
     i32 338, label %57
     i32 254, label %60
@@ -7546,44 +7537,44 @@ define hidden noundef zeroext i1 @_ZN7Matcher20match_rule_supportedEi(i32 nounde
     i32 383, label %80
     i32 384, label %80
     i32 346, label %83
-    i32 435, label %89
-    i32 436, label %89
-    i32 439, label %95
-    i32 440, label %95
-    i32 438, label %95
-    i32 441, label %95
-    i32 140, label %125
-    i32 139, label %125
-    i32 312, label %98
-    i32 313, label %98
-    i32 65, label %104
-    i32 66, label %107
-    i32 315, label %110
-    i32 314, label %113
-    i32 424, label %116
-    i32 319, label %119
-    i32 318, label %122
+    i32 435, label %88
+    i32 436, label %88
+    i32 439, label %94
+    i32 440, label %94
+    i32 438, label %94
+    i32 441, label %94
+    i32 140, label %124
+    i32 139, label %124
+    i32 312, label %97
+    i32 313, label %97
+    i32 65, label %103
+    i32 66, label %106
+    i32 315, label %109
+    i32 314, label %112
+    i32 424, label %115
+    i32 319, label %118
+    i32 318, label %121
   ]
 
 7:                                                ; preds = %6, %6
   %8 = load i32, ptr @UseAVX, align 4
   %9 = icmp slt i32 %8, 3
-  br i1 %9, label %132, label %131
+  br i1 %9, label %131, label %130
 
 10:                                               ; preds = %6, %6
   %11 = load i8, ptr @UsePopCountInstruction, align 1
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %131, label %132
+  br i1 %12, label %130, label %131
 
 13:                                               ; preds = %6
   %14 = load i32, ptr @UseAVX, align 4
   %15 = icmp slt i32 %14, 2
-  br i1 %15, label %132, label %131
+  br i1 %15, label %131, label %130
 
 16:                                               ; preds = %6, %6, %6
   %17 = load i32, ptr @UseAVX, align 4
   %18 = icmp slt i32 %17, 2
-  br i1 %18, label %132, label %131
+  br i1 %18, label %131, label %130
 
 19:                                               ; preds = %6
   %20 = load i32, ptr @UseSSE, align 4
@@ -7591,204 +7582,202 @@ define hidden noundef zeroext i1 @_ZN7Matcher20match_rule_supportedEi(i32 nounde
   %22 = load i32, ptr @UseAVX, align 4
   %23 = icmp slt i32 %22, 1
   %or.cond = select i1 %21, i1 %23, i1 false
-  br i1 %or.cond, label %132, label %131
+  br i1 %or.cond, label %131, label %130
 
 24:                                               ; preds = %6
   %25 = load i32, ptr @UseSSE, align 4
   %26 = icmp slt i32 %25, 4
-  br i1 %26, label %132, label %131
+  br i1 %26, label %131, label %130
 
 27:                                               ; preds = %6
   %28 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %29 = and i64 %28, 268435456
-  %.not15 = icmp eq i64 %29, 0
-  br i1 %.not15, label %132, label %131
+  %.not17 = icmp eq i64 %29, 0
+  br i1 %.not17, label %131, label %130
 
 30:                                               ; preds = %6
   %31 = load i32, ptr @UseSSE, align 4
   %32 = icmp slt i32 %31, 2
-  br i1 %32, label %132, label %131
+  br i1 %32, label %131, label %130
 
 33:                                               ; preds = %6, %6, %6, %6, %6, %6, %6
   %34 = load i32, ptr @UseSSE, align 4
   %35 = icmp slt i32 %34, 3
-  br i1 %35, label %132, label %131
+  br i1 %35, label %131, label %130
 
 36:                                               ; preds = %6, %6, %6
   %37 = load i32, ptr @UseSSE, align 4
   %38 = icmp slt i32 %37, 4
-  br i1 %38, label %132, label %131
+  br i1 %38, label %131, label %130
 
 39:                                               ; preds = %6, %6
   %40 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %41 = and i64 %40, 268435456
-  %.not14 = icmp eq i64 %41, 0
-  br i1 %.not14, label %132, label %131
+  %.not16 = icmp eq i64 %41, 0
+  br i1 %.not16, label %131, label %130
 
 42:                                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
   %43 = load i32, ptr @UseAVX, align 4
   %44 = icmp slt i32 %43, 1
-  br i1 %44, label %132, label %131
+  br i1 %44, label %131, label %130
 
 45:                                               ; preds = %6
   %46 = load i32, ptr @UseAVX, align 4
   %47 = icmp slt i32 %46, 2
-  br i1 %47, label %132, label %131
+  br i1 %47, label %131, label %130
 
 48:                                               ; preds = %6
   %49 = load i32, ptr @UseAVX, align 4
   %50 = icmp slt i32 %49, 2
-  br i1 %50, label %132, label %131
+  br i1 %50, label %131, label %130
 
 51:                                               ; preds = %6
   %52 = load i32, ptr @UseAVX, align 4
   %53 = icmp slt i32 %52, 3
-  br i1 %53, label %132, label %131
+  br i1 %53, label %131, label %130
 
 54:                                               ; preds = %6
   %55 = load i8, ptr @UseSSE42Intrinsics, align 1
   %56 = trunc i8 %55 to i1
-  br i1 %56, label %131, label %132
+  br i1 %56, label %130, label %131
 
 57:                                               ; preds = %6
   %58 = load i8, ptr @UseSSE42Intrinsics, align 1
   %59 = trunc i8 %58 to i1
-  br i1 %59, label %131, label %132
+  br i1 %59, label %130, label %131
 
 60:                                               ; preds = %6
   %61 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %62 = and i64 %61, 128
-  %.not13 = icmp eq i64 %62, 0
-  br i1 %.not13, label %132, label %131
+  %.not15 = icmp eq i64 %62, 0
+  br i1 %.not15, label %131, label %130
 
 63:                                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6
   %64 = load i32, ptr @UseSSE, align 4
   %65 = icmp slt i32 %64, 4
-  br i1 %65, label %132, label %131
+  br i1 %65, label %131, label %130
 
 66:                                               ; preds = %6, %6, %6, %6
   %67 = load i32, ptr @UseAVX, align 4
   %68 = icmp slt i32 %67, 1
-  br i1 %68, label %132, label %131
+  br i1 %68, label %131, label %130
 
 69:                                               ; preds = %6, %6, %6
   %70 = load i32, ptr @_ZN19Abstract_VM_Version27_data_cache_line_flush_sizeE, align 4
-  %.not12 = icmp eq i32 %70, 0
-  br i1 %.not12, label %132, label %131
+  %.not14 = icmp eq i32 %70, 0
+  br i1 %.not14, label %131, label %130
 
 71:                                               ; preds = %6, %6, %6, %6
   %72 = load i32, ptr @UseSSE, align 4
   %73 = icmp slt i32 %72, 4
-  br i1 %73, label %132, label %131
+  br i1 %73, label %131, label %130
 
 74:                                               ; preds = %6
   %75 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %76 = and i64 %75, 262144
-  %.not11 = icmp eq i64 %76, 0
-  br i1 %.not11, label %132, label %131
+  %.not13 = icmp eq i64 %76, 0
+  br i1 %.not13, label %131, label %130
 
 77:                                               ; preds = %6, %6
   %78 = load i32, ptr @UseAVX, align 4
   %79 = icmp slt i32 %78, 2
-  br i1 %79, label %132, label %131
+  br i1 %79, label %131, label %130
 
 80:                                               ; preds = %6, %6, %6, %6
   %81 = load i8, ptr @UseFMA, align 1
   %82 = trunc i8 %81 to i1
-  br i1 %82, label %131, label %132
+  br i1 %82, label %130, label %131
 
 83:                                               ; preds = %6
   %84 = load i32, ptr @UseAVX, align 4
-  %85 = icmp slt i32 %84, 3
-  br i1 %85, label %132, label %86
+  %85 = icmp sgt i32 %84, 2
+  %86 = load i8, ptr @UseVectorMacroLogic, align 1
+  %87 = trunc i8 %86 to i1
+  %or.cond3 = select i1 %85, i1 %87, i1 false
+  br i1 %or.cond3, label %130, label %131
 
-86:                                               ; preds = %83
-  %87 = load i8, ptr @UseVectorMacroLogic, align 1
-  %88 = trunc i8 %87 to i1
-  br i1 %88, label %131, label %132
+88:                                               ; preds = %6, %6
+  %89 = load i32, ptr @UseAVX, align 4
+  %90 = icmp slt i32 %89, 3
+  br i1 %90, label %131, label %91
 
-89:                                               ; preds = %6, %6
-  %90 = load i32, ptr @UseAVX, align 4
-  %91 = icmp slt i32 %90, 3
-  br i1 %91, label %132, label %92
+91:                                               ; preds = %88
+  %92 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %93 = and i64 %92, 16777216
+  %.not12 = icmp eq i64 %93, 0
+  br i1 %.not12, label %131, label %130
 
-92:                                               ; preds = %89
-  %93 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %94 = and i64 %93, 16777216
-  %.not10 = icmp eq i64 %94, 0
-  br i1 %.not10, label %132, label %131
+94:                                               ; preds = %6, %6, %6, %6
+  %95 = load i32, ptr @UseAVX, align 4
+  %96 = icmp slt i32 %95, 1
+  br i1 %96, label %131, label %130
 
-95:                                               ; preds = %6, %6, %6, %6
-  %96 = load i32, ptr @UseAVX, align 4
-  %97 = icmp slt i32 %96, 1
-  br i1 %97, label %132, label %131
+97:                                               ; preds = %6, %6
+  %98 = load i32, ptr @UseAVX, align 4
+  %99 = icmp slt i32 %98, 3
+  br i1 %99, label %131, label %100
 
-98:                                               ; preds = %6, %6
-  %99 = load i32, ptr @UseAVX, align 4
-  %100 = icmp slt i32 %99, 3
-  br i1 %100, label %132, label %101
+100:                                              ; preds = %97
+  %101 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %102 = and i64 %101, 8589934592
+  %.not10 = icmp eq i64 %102, 0
+  br i1 %.not10, label %131, label %130
 
-101:                                              ; preds = %98
-  %102 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %103 = and i64 %102, 8589934592
-  %.not8 = icmp eq i64 %103, 0
-  br i1 %.not8, label %132, label %131
+103:                                              ; preds = %6
+  %104 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %105 = and i64 %104, 16777216
+  %.not9 = icmp eq i64 %105, 0
+  br i1 %.not9, label %131, label %130
 
-104:                                              ; preds = %6
-  %105 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %106 = and i64 %105, 16777216
-  %.not7 = icmp eq i64 %106, 0
-  br i1 %.not7, label %132, label %131
+106:                                              ; preds = %6
+  %107 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %108 = and i64 %107, 16777216
+  %.not = icmp eq i64 %108, 0
+  br i1 %.not, label %131, label %130
 
-107:                                              ; preds = %6
-  %108 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %109 = and i64 %108, 16777216
-  %.not = icmp eq i64 %109, 0
-  br i1 %.not, label %132, label %131
+109:                                              ; preds = %6
+  %110 = load i32, ptr @UseSSE, align 4
+  %111 = icmp slt i32 %110, 1
+  br i1 %111, label %131, label %130
 
-110:                                              ; preds = %6
-  %111 = load i32, ptr @UseSSE, align 4
-  %112 = icmp slt i32 %111, 1
-  br i1 %112, label %132, label %131
+112:                                              ; preds = %6
+  %113 = load i32, ptr @UseSSE, align 4
+  %114 = icmp slt i32 %113, 2
+  br i1 %114, label %131, label %130
 
-113:                                              ; preds = %6
-  %114 = load i32, ptr @UseSSE, align 4
-  %115 = icmp slt i32 %114, 2
-  br i1 %115, label %132, label %131
+115:                                              ; preds = %6
+  %116 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %117 = and i64 %116, 8606711808
+  %or.cond6 = icmp eq i64 %117, 8606711808
+  br i1 %or.cond6, label %130, label %131
 
-116:                                              ; preds = %6
-  %117 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %118 = and i64 %117, 8606711808
-  %or.cond4 = icmp eq i64 %118, 8606711808
-  br i1 %or.cond4, label %131, label %132
+118:                                              ; preds = %6
+  %119 = load i32, ptr @UseSSE, align 4
+  %120 = icmp slt i32 %119, 1
+  br i1 %120, label %131, label %130
 
-119:                                              ; preds = %6
-  %120 = load i32, ptr @UseSSE, align 4
-  %121 = icmp slt i32 %120, 1
-  br i1 %121, label %132, label %131
+121:                                              ; preds = %6
+  %122 = load i32, ptr @UseSSE, align 4
+  %123 = icmp slt i32 %122, 2
+  br i1 %123, label %131, label %130
 
-122:                                              ; preds = %6
-  %123 = load i32, ptr @UseSSE, align 4
-  %124 = icmp slt i32 %123, 2
-  br i1 %124, label %132, label %131
+124:                                              ; preds = %6, %6
+  %125 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %126 = and i64 %125, 9007207844675584
+  %.not11 = icmp eq i64 %126, 0
+  br i1 %.not11, label %131, label %130
 
-125:                                              ; preds = %6, %6
-  %126 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %127 = and i64 %126, 9007207844675584
-  %.not9 = icmp eq i64 %127, 0
-  br i1 %.not9, label %132, label %131
+127:                                              ; preds = %6, %6
+  %128 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %129 = and i64 %128, 9007199388958720
+  %or.cond8.not = icmp eq i64 %129, 0
+  br i1 %or.cond8.not, label %131, label %130
 
-128:                                              ; preds = %6, %6
-  %129 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %130 = and i64 %129, 9007199388958720
-  %or.cond6.not = icmp eq i64 %130, 0
-  br i1 %or.cond6.not, label %132, label %131
+130:                                              ; preds = %115, %127, %124, %121, %118, %112, %109, %106, %103, %100, %94, %91, %83, %80, %77, %74, %71, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %19, %16, %13, %10, %7, %6
+  br label %131
 
-131:                                              ; preds = %116, %128, %125, %122, %119, %113, %110, %107, %104, %101, %95, %92, %86, %80, %77, %74, %71, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %19, %16, %13, %10, %7, %6
-  br label %132
-
-132:                                              ; preds = %128, %125, %122, %119, %116, %113, %110, %107, %104, %101, %98, %95, %89, %92, %83, %86, %80, %77, %74, %71, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %19, %16, %13, %10, %7, %1, %131
-  %.0 = phi i1 [ true, %131 ], [ false, %1 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %19 ], [ false, %24 ], [ false, %27 ], [ false, %30 ], [ false, %33 ], [ false, %36 ], [ false, %39 ], [ false, %42 ], [ false, %45 ], [ false, %48 ], [ false, %51 ], [ false, %54 ], [ false, %57 ], [ false, %60 ], [ false, %63 ], [ false, %66 ], [ false, %69 ], [ false, %71 ], [ false, %74 ], [ false, %77 ], [ false, %80 ], [ false, %86 ], [ false, %83 ], [ false, %92 ], [ false, %89 ], [ false, %95 ], [ false, %98 ], [ false, %101 ], [ false, %104 ], [ false, %107 ], [ false, %110 ], [ false, %113 ], [ false, %116 ], [ false, %119 ], [ false, %122 ], [ false, %125 ], [ false, %128 ]
+131:                                              ; preds = %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %88, %91, %83, %80, %77, %74, %71, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %19, %16, %13, %10, %7, %1, %130
+  %.0 = phi i1 [ true, %130 ], [ false, %1 ], [ false, %7 ], [ false, %10 ], [ false, %13 ], [ false, %16 ], [ false, %19 ], [ false, %24 ], [ false, %27 ], [ false, %30 ], [ false, %33 ], [ false, %36 ], [ false, %39 ], [ false, %42 ], [ false, %45 ], [ false, %48 ], [ false, %51 ], [ false, %54 ], [ false, %57 ], [ false, %60 ], [ false, %63 ], [ false, %66 ], [ false, %69 ], [ false, %71 ], [ false, %74 ], [ false, %77 ], [ false, %80 ], [ false, %83 ], [ false, %91 ], [ false, %88 ], [ false, %94 ], [ false, %97 ], [ false, %100 ], [ false, %103 ], [ false, %106 ], [ false, %109 ], [ false, %112 ], [ false, %115 ], [ false, %118 ], [ false, %121 ], [ false, %124 ], [ false, %127 ]
   ret i1 %.0
 }
 
@@ -8676,15 +8665,16 @@ define hidden noundef ptr @_ZN7Matcher36pd_specialize_generic_vector_operandEP8M
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
-  %7 = icmp ne i32 %6, 115
+  %7 = icmp eq i32 %6, 115
   %8 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %9 = and i64 %8, 13287555072
-  %10 = icmp ne i64 %9, 13287555072
-  %brmerge.not51 = and i1 %2, %10
-  %11 = icmp eq i32 %1, 13
-  %12 = and i1 %11, %brmerge.not51
-  %or.cond19 = and i1 %12, %7
-  br i1 %or.cond19, label %13, label %35
+  %10 = icmp eq i64 %9, 13287555072
+  %.not23 = xor i1 %2, true
+  %or.cond.not = or i1 %10, %.not23
+  %11 = icmp ne i32 %1, 13
+  %12 = or i1 %11, %or.cond.not
+  %or.cond5.not = or i1 %7, %12
+  br i1 %or.cond5.not, label %35, label %13
 
 13:                                               ; preds = %3
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -8724,7 +8714,7 @@ _ZN8MachOpernwEm.exit:                            ; preds = %29, %31
   br label %260
 
 35:                                               ; preds = %3
-  br i1 %7, label %147, label %36
+  br i1 %7, label %36, label %147
 
 36:                                               ; preds = %35
   switch i32 %1, label %258 [
@@ -8751,25 +8741,25 @@ _ZN8MachOpernwEm.exit:                            ; preds = %29, %31
   %50 = ptrtoint ptr %47 to i64
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
-  %.not.i.i.i20 = icmp ult i64 %52, 8
-  br i1 %.not.i.i.i20, label %55, label %53
+  %.not.i.i.i24 = icmp ult i64 %52, 8
+  br i1 %.not.i.i.i24, label %55, label %53
 
 53:                                               ; preds = %37
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %54, ptr %48, align 8
-  br label %_ZN8MachOpernwEm.exit22
+  br label %_ZN8MachOpernwEm.exit26
 
 55:                                               ; preds = %37
   %56 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %45, i64 noundef 8, i32 noundef 0) #23
-  br label %_ZN8MachOpernwEm.exit22
+  br label %_ZN8MachOpernwEm.exit26
 
-_ZN8MachOpernwEm.exit22:                          ; preds = %53, %55
-  %.0.i.i.i21 = phi ptr [ %49, %53 ], [ %56, %55 ]
-  %57 = icmp eq ptr %.0.i.i.i21, null
+_ZN8MachOpernwEm.exit26:                          ; preds = %53, %55
+  %.0.i.i.i25 = phi ptr [ %49, %53 ], [ %56, %55 ]
+  %57 = icmp eq ptr %.0.i.i.i25, null
   br i1 %57, label %260, label %58
 
-58:                                               ; preds = %_ZN8MachOpernwEm.exit22
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecSOper, i64 16), ptr %.0.i.i.i21, align 8
+58:                                               ; preds = %_ZN8MachOpernwEm.exit26
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecSOper, i64 16), ptr %.0.i.i.i25, align 8
   br label %260
 
 59:                                               ; preds = %36
@@ -8788,25 +8778,25 @@ _ZN8MachOpernwEm.exit22:                          ; preds = %53, %55
   %72 = ptrtoint ptr %69 to i64
   %73 = ptrtoint ptr %71 to i64
   %74 = sub i64 %72, %73
-  %.not.i.i.i23 = icmp ult i64 %74, 8
-  br i1 %.not.i.i.i23, label %77, label %75
+  %.not.i.i.i27 = icmp ult i64 %74, 8
+  br i1 %.not.i.i.i27, label %77, label %75
 
 75:                                               ; preds = %59
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %76, ptr %70, align 8
-  br label %_ZN8MachOpernwEm.exit25
+  br label %_ZN8MachOpernwEm.exit29
 
 77:                                               ; preds = %59
   %78 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %67, i64 noundef 8, i32 noundef 0) #23
-  br label %_ZN8MachOpernwEm.exit25
+  br label %_ZN8MachOpernwEm.exit29
 
-_ZN8MachOpernwEm.exit25:                          ; preds = %75, %77
-  %.0.i.i.i24 = phi ptr [ %71, %75 ], [ %78, %77 ]
-  %79 = icmp eq ptr %.0.i.i.i24, null
+_ZN8MachOpernwEm.exit29:                          ; preds = %75, %77
+  %.0.i.i.i28 = phi ptr [ %71, %75 ], [ %78, %77 ]
+  %79 = icmp eq ptr %.0.i.i.i28, null
   br i1 %79, label %260, label %80
 
-80:                                               ; preds = %_ZN8MachOpernwEm.exit25
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecDOper, i64 16), ptr %.0.i.i.i24, align 8
+80:                                               ; preds = %_ZN8MachOpernwEm.exit29
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecDOper, i64 16), ptr %.0.i.i.i28, align 8
   br label %260
 
 81:                                               ; preds = %36
@@ -8825,25 +8815,25 @@ _ZN8MachOpernwEm.exit25:                          ; preds = %75, %77
   %94 = ptrtoint ptr %91 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
-  %.not.i.i.i26 = icmp ult i64 %96, 8
-  br i1 %.not.i.i.i26, label %99, label %97
+  %.not.i.i.i30 = icmp ult i64 %96, 8
+  br i1 %.not.i.i.i30, label %99, label %97
 
 97:                                               ; preds = %81
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr %98, ptr %92, align 8
-  br label %_ZN8MachOpernwEm.exit28
+  br label %_ZN8MachOpernwEm.exit32
 
 99:                                               ; preds = %81
   %100 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %89, i64 noundef 8, i32 noundef 0) #23
-  br label %_ZN8MachOpernwEm.exit28
+  br label %_ZN8MachOpernwEm.exit32
 
-_ZN8MachOpernwEm.exit28:                          ; preds = %97, %99
-  %.0.i.i.i27 = phi ptr [ %93, %97 ], [ %100, %99 ]
-  %101 = icmp eq ptr %.0.i.i.i27, null
+_ZN8MachOpernwEm.exit32:                          ; preds = %97, %99
+  %.0.i.i.i31 = phi ptr [ %93, %97 ], [ %100, %99 ]
+  %101 = icmp eq ptr %.0.i.i.i31, null
   br i1 %101, label %260, label %102
 
-102:                                              ; preds = %_ZN8MachOpernwEm.exit28
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecXOper, i64 16), ptr %.0.i.i.i27, align 8
+102:                                              ; preds = %_ZN8MachOpernwEm.exit32
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecXOper, i64 16), ptr %.0.i.i.i31, align 8
   br label %260
 
 103:                                              ; preds = %36
@@ -8862,25 +8852,25 @@ _ZN8MachOpernwEm.exit28:                          ; preds = %97, %99
   %116 = ptrtoint ptr %113 to i64
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
-  %.not.i.i.i29 = icmp ult i64 %118, 8
-  br i1 %.not.i.i.i29, label %121, label %119
+  %.not.i.i.i33 = icmp ult i64 %118, 8
+  br i1 %.not.i.i.i33, label %121, label %119
 
 119:                                              ; preds = %103
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr %120, ptr %114, align 8
-  br label %_ZN8MachOpernwEm.exit31
+  br label %_ZN8MachOpernwEm.exit35
 
 121:                                              ; preds = %103
   %122 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %111, i64 noundef 8, i32 noundef 0) #23
-  br label %_ZN8MachOpernwEm.exit31
+  br label %_ZN8MachOpernwEm.exit35
 
-_ZN8MachOpernwEm.exit31:                          ; preds = %119, %121
-  %.0.i.i.i30 = phi ptr [ %115, %119 ], [ %122, %121 ]
-  %123 = icmp eq ptr %.0.i.i.i30, null
+_ZN8MachOpernwEm.exit35:                          ; preds = %119, %121
+  %.0.i.i.i34 = phi ptr [ %115, %119 ], [ %122, %121 ]
+  %123 = icmp eq ptr %.0.i.i.i34, null
   br i1 %123, label %260, label %124
 
-124:                                              ; preds = %_ZN8MachOpernwEm.exit31
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecYOper, i64 16), ptr %.0.i.i.i30, align 8
+124:                                              ; preds = %_ZN8MachOpernwEm.exit35
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecYOper, i64 16), ptr %.0.i.i.i34, align 8
   br label %260
 
 125:                                              ; preds = %36
@@ -8899,25 +8889,25 @@ _ZN8MachOpernwEm.exit31:                          ; preds = %119, %121
   %138 = ptrtoint ptr %135 to i64
   %139 = ptrtoint ptr %137 to i64
   %140 = sub i64 %138, %139
-  %.not.i.i.i32 = icmp ult i64 %140, 8
-  br i1 %.not.i.i.i32, label %143, label %141
+  %.not.i.i.i36 = icmp ult i64 %140, 8
+  br i1 %.not.i.i.i36, label %143, label %141
 
 141:                                              ; preds = %125
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store ptr %142, ptr %136, align 8
-  br label %_ZN8MachOpernwEm.exit34
+  br label %_ZN8MachOpernwEm.exit38
 
 143:                                              ; preds = %125
   %144 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %133, i64 noundef 8, i32 noundef 0) #23
-  br label %_ZN8MachOpernwEm.exit34
+  br label %_ZN8MachOpernwEm.exit38
 
-_ZN8MachOpernwEm.exit34:                          ; preds = %141, %143
-  %.0.i.i.i33 = phi ptr [ %137, %141 ], [ %144, %143 ]
-  %145 = icmp eq ptr %.0.i.i.i33, null
+_ZN8MachOpernwEm.exit38:                          ; preds = %141, %143
+  %.0.i.i.i37 = phi ptr [ %137, %141 ], [ %144, %143 ]
+  %145 = icmp eq ptr %.0.i.i.i37, null
   br i1 %145, label %260, label %146
 
-146:                                              ; preds = %_ZN8MachOpernwEm.exit34
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecZOper, i64 16), ptr %.0.i.i.i33, align 8
+146:                                              ; preds = %_ZN8MachOpernwEm.exit38
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV11legVecZOper, i64 16), ptr %.0.i.i.i37, align 8
   br label %260
 
 147:                                              ; preds = %35
@@ -8945,25 +8935,25 @@ _ZN8MachOpernwEm.exit34:                          ; preds = %141, %143
   %161 = ptrtoint ptr %158 to i64
   %162 = ptrtoint ptr %160 to i64
   %163 = sub i64 %161, %162
-  %.not.i.i.i35 = icmp ult i64 %163, 8
-  br i1 %.not.i.i.i35, label %166, label %164
+  %.not.i.i.i39 = icmp ult i64 %163, 8
+  br i1 %.not.i.i.i39, label %166, label %164
 
 164:                                              ; preds = %148
   %165 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store ptr %165, ptr %159, align 8
-  br label %_ZN8MachOpernwEm.exit37
+  br label %_ZN8MachOpernwEm.exit41
 
 166:                                              ; preds = %148
   %167 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %156, i64 noundef 8, i32 noundef 0) #23
-  br label %_ZN8MachOpernwEm.exit37
+  br label %_ZN8MachOpernwEm.exit41
 
-_ZN8MachOpernwEm.exit37:                          ; preds = %164, %166
-  %.0.i.i.i36 = phi ptr [ %160, %164 ], [ %167, %166 ]
-  %168 = icmp eq ptr %.0.i.i.i36, null
+_ZN8MachOpernwEm.exit41:                          ; preds = %164, %166
+  %.0.i.i.i40 = phi ptr [ %160, %164 ], [ %167, %166 ]
+  %168 = icmp eq ptr %.0.i.i.i40, null
   br i1 %168, label %260, label %169
 
-169:                                              ; preds = %_ZN8MachOpernwEm.exit37
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecSOper, i64 16), ptr %.0.i.i.i36, align 8
+169:                                              ; preds = %_ZN8MachOpernwEm.exit41
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecSOper, i64 16), ptr %.0.i.i.i40, align 8
   br label %260
 
 170:                                              ; preds = %147
@@ -8982,25 +8972,25 @@ _ZN8MachOpernwEm.exit37:                          ; preds = %164, %166
   %183 = ptrtoint ptr %180 to i64
   %184 = ptrtoint ptr %182 to i64
   %185 = sub i64 %183, %184
-  %.not.i.i.i38 = icmp ult i64 %185, 8
-  br i1 %.not.i.i.i38, label %188, label %186
+  %.not.i.i.i42 = icmp ult i64 %185, 8
+  br i1 %.not.i.i.i42, label %188, label %186
 
 186:                                              ; preds = %170
   %187 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store ptr %187, ptr %181, align 8
-  br label %_ZN8MachOpernwEm.exit40
+  br label %_ZN8MachOpernwEm.exit44
 
 188:                                              ; preds = %170
   %189 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %178, i64 noundef 8, i32 noundef 0) #23
-  br label %_ZN8MachOpernwEm.exit40
+  br label %_ZN8MachOpernwEm.exit44
 
-_ZN8MachOpernwEm.exit40:                          ; preds = %186, %188
-  %.0.i.i.i39 = phi ptr [ %182, %186 ], [ %189, %188 ]
-  %190 = icmp eq ptr %.0.i.i.i39, null
+_ZN8MachOpernwEm.exit44:                          ; preds = %186, %188
+  %.0.i.i.i43 = phi ptr [ %182, %186 ], [ %189, %188 ]
+  %190 = icmp eq ptr %.0.i.i.i43, null
   br i1 %190, label %260, label %191
 
-191:                                              ; preds = %_ZN8MachOpernwEm.exit40
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecDOper, i64 16), ptr %.0.i.i.i39, align 8
+191:                                              ; preds = %_ZN8MachOpernwEm.exit44
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecDOper, i64 16), ptr %.0.i.i.i43, align 8
   br label %260
 
 192:                                              ; preds = %147
@@ -9019,25 +9009,25 @@ _ZN8MachOpernwEm.exit40:                          ; preds = %186, %188
   %205 = ptrtoint ptr %202 to i64
   %206 = ptrtoint ptr %204 to i64
   %207 = sub i64 %205, %206
-  %.not.i.i.i41 = icmp ult i64 %207, 8
-  br i1 %.not.i.i.i41, label %210, label %208
+  %.not.i.i.i45 = icmp ult i64 %207, 8
+  br i1 %.not.i.i.i45, label %210, label %208
 
 208:                                              ; preds = %192
   %209 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store ptr %209, ptr %203, align 8
-  br label %_ZN8MachOpernwEm.exit43
+  br label %_ZN8MachOpernwEm.exit47
 
 210:                                              ; preds = %192
   %211 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %200, i64 noundef 8, i32 noundef 0) #23
-  br label %_ZN8MachOpernwEm.exit43
+  br label %_ZN8MachOpernwEm.exit47
 
-_ZN8MachOpernwEm.exit43:                          ; preds = %208, %210
-  %.0.i.i.i42 = phi ptr [ %204, %208 ], [ %211, %210 ]
-  %212 = icmp eq ptr %.0.i.i.i42, null
+_ZN8MachOpernwEm.exit47:                          ; preds = %208, %210
+  %.0.i.i.i46 = phi ptr [ %204, %208 ], [ %211, %210 ]
+  %212 = icmp eq ptr %.0.i.i.i46, null
   br i1 %212, label %260, label %213
 
-213:                                              ; preds = %_ZN8MachOpernwEm.exit43
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecXOper, i64 16), ptr %.0.i.i.i42, align 8
+213:                                              ; preds = %_ZN8MachOpernwEm.exit47
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecXOper, i64 16), ptr %.0.i.i.i46, align 8
   br label %260
 
 214:                                              ; preds = %147
@@ -9056,25 +9046,25 @@ _ZN8MachOpernwEm.exit43:                          ; preds = %208, %210
   %227 = ptrtoint ptr %224 to i64
   %228 = ptrtoint ptr %226 to i64
   %229 = sub i64 %227, %228
-  %.not.i.i.i44 = icmp ult i64 %229, 8
-  br i1 %.not.i.i.i44, label %232, label %230
+  %.not.i.i.i48 = icmp ult i64 %229, 8
+  br i1 %.not.i.i.i48, label %232, label %230
 
 230:                                              ; preds = %214
   %231 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store ptr %231, ptr %225, align 8
-  br label %_ZN8MachOpernwEm.exit46
+  br label %_ZN8MachOpernwEm.exit50
 
 232:                                              ; preds = %214
   %233 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %222, i64 noundef 8, i32 noundef 0) #23
-  br label %_ZN8MachOpernwEm.exit46
+  br label %_ZN8MachOpernwEm.exit50
 
-_ZN8MachOpernwEm.exit46:                          ; preds = %230, %232
-  %.0.i.i.i45 = phi ptr [ %226, %230 ], [ %233, %232 ]
-  %234 = icmp eq ptr %.0.i.i.i45, null
+_ZN8MachOpernwEm.exit50:                          ; preds = %230, %232
+  %.0.i.i.i49 = phi ptr [ %226, %230 ], [ %233, %232 ]
+  %234 = icmp eq ptr %.0.i.i.i49, null
   br i1 %234, label %260, label %235
 
-235:                                              ; preds = %_ZN8MachOpernwEm.exit46
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecYOper, i64 16), ptr %.0.i.i.i45, align 8
+235:                                              ; preds = %_ZN8MachOpernwEm.exit50
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecYOper, i64 16), ptr %.0.i.i.i49, align 8
   br label %260
 
 236:                                              ; preds = %147
@@ -9093,25 +9083,25 @@ _ZN8MachOpernwEm.exit46:                          ; preds = %230, %232
   %249 = ptrtoint ptr %246 to i64
   %250 = ptrtoint ptr %248 to i64
   %251 = sub i64 %249, %250
-  %.not.i.i.i47 = icmp ult i64 %251, 8
-  br i1 %.not.i.i.i47, label %254, label %252
+  %.not.i.i.i51 = icmp ult i64 %251, 8
+  br i1 %.not.i.i.i51, label %254, label %252
 
 252:                                              ; preds = %236
   %253 = getelementptr inbounds nuw i8, ptr %248, i64 8
   store ptr %253, ptr %247, align 8
-  br label %_ZN8MachOpernwEm.exit49
+  br label %_ZN8MachOpernwEm.exit53
 
 254:                                              ; preds = %236
   %255 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %244, i64 noundef 8, i32 noundef 0) #23
-  br label %_ZN8MachOpernwEm.exit49
+  br label %_ZN8MachOpernwEm.exit53
 
-_ZN8MachOpernwEm.exit49:                          ; preds = %252, %254
-  %.0.i.i.i48 = phi ptr [ %248, %252 ], [ %255, %254 ]
-  %256 = icmp eq ptr %.0.i.i.i48, null
+_ZN8MachOpernwEm.exit53:                          ; preds = %252, %254
+  %.0.i.i.i52 = phi ptr [ %248, %252 ], [ %255, %254 ]
+  %256 = icmp eq ptr %.0.i.i.i52, null
   br i1 %256, label %260, label %257
 
-257:                                              ; preds = %_ZN8MachOpernwEm.exit49
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecZOper, i64 16), ptr %.0.i.i.i48, align 8
+257:                                              ; preds = %_ZN8MachOpernwEm.exit53
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTV8vecZOper, i64 16), ptr %.0.i.i.i52, align 8
   br label %260
 
 258:                                              ; preds = %36, %147
@@ -9120,8 +9110,8 @@ _ZN8MachOpernwEm.exit49:                          ; preds = %252, %254
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2196) #24
   unreachable
 
-260:                                              ; preds = %_ZN8MachOpernwEm.exit49, %257, %_ZN8MachOpernwEm.exit46, %235, %_ZN8MachOpernwEm.exit43, %213, %_ZN8MachOpernwEm.exit40, %191, %_ZN8MachOpernwEm.exit37, %169, %_ZN8MachOpernwEm.exit34, %146, %_ZN8MachOpernwEm.exit31, %124, %_ZN8MachOpernwEm.exit28, %102, %_ZN8MachOpernwEm.exit25, %80, %_ZN8MachOpernwEm.exit22, %58, %_ZN8MachOpernwEm.exit, %34
-  %.0 = phi ptr [ %.0.i.i.i, %34 ], [ null, %_ZN8MachOpernwEm.exit ], [ %.0.i.i.i21, %58 ], [ null, %_ZN8MachOpernwEm.exit22 ], [ %.0.i.i.i24, %80 ], [ null, %_ZN8MachOpernwEm.exit25 ], [ %.0.i.i.i27, %102 ], [ null, %_ZN8MachOpernwEm.exit28 ], [ %.0.i.i.i30, %124 ], [ null, %_ZN8MachOpernwEm.exit31 ], [ %.0.i.i.i33, %146 ], [ null, %_ZN8MachOpernwEm.exit34 ], [ %.0.i.i.i36, %169 ], [ null, %_ZN8MachOpernwEm.exit37 ], [ %.0.i.i.i39, %191 ], [ null, %_ZN8MachOpernwEm.exit40 ], [ %.0.i.i.i42, %213 ], [ null, %_ZN8MachOpernwEm.exit43 ], [ %.0.i.i.i45, %235 ], [ null, %_ZN8MachOpernwEm.exit46 ], [ %.0.i.i.i48, %257 ], [ null, %_ZN8MachOpernwEm.exit49 ]
+260:                                              ; preds = %_ZN8MachOpernwEm.exit53, %257, %_ZN8MachOpernwEm.exit50, %235, %_ZN8MachOpernwEm.exit47, %213, %_ZN8MachOpernwEm.exit44, %191, %_ZN8MachOpernwEm.exit41, %169, %_ZN8MachOpernwEm.exit38, %146, %_ZN8MachOpernwEm.exit35, %124, %_ZN8MachOpernwEm.exit32, %102, %_ZN8MachOpernwEm.exit29, %80, %_ZN8MachOpernwEm.exit26, %58, %_ZN8MachOpernwEm.exit, %34
+  %.0 = phi ptr [ %.0.i.i.i, %34 ], [ null, %_ZN8MachOpernwEm.exit ], [ %.0.i.i.i25, %58 ], [ null, %_ZN8MachOpernwEm.exit26 ], [ %.0.i.i.i28, %80 ], [ null, %_ZN8MachOpernwEm.exit29 ], [ %.0.i.i.i31, %102 ], [ null, %_ZN8MachOpernwEm.exit32 ], [ %.0.i.i.i34, %124 ], [ null, %_ZN8MachOpernwEm.exit35 ], [ %.0.i.i.i37, %146 ], [ null, %_ZN8MachOpernwEm.exit38 ], [ %.0.i.i.i40, %169 ], [ null, %_ZN8MachOpernwEm.exit41 ], [ %.0.i.i.i43, %191 ], [ null, %_ZN8MachOpernwEm.exit44 ], [ %.0.i.i.i46, %213 ], [ null, %_ZN8MachOpernwEm.exit47 ], [ %.0.i.i.i49, %235 ], [ null, %_ZN8MachOpernwEm.exit50 ], [ %.0.i.i.i52, %257 ], [ null, %_ZN8MachOpernwEm.exit53 ]
   ret ptr %.0
 }
 
@@ -92901,21 +92891,19 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %26
   %35 = tail call noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %31) #23
   %36 = and i64 %35, 4294967288
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %switch.hole_check, label %38
+  %switch.maskindex = trunc i64 %35 to i8
+  %switch.shifted = lshr i8 -69, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %37, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %38
 
-38:                                               ; preds = %switch.hole_check, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
+38:                                               ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %39 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %39, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2535) #24
   unreachable
 
-switch.hole_check:                                ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
-  %switch.maskindex = trunc i64 %35 to i8
-  %switch.shifted = lshr i8 -69, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %38
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %40 = and i64 %35, 7
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.9, i64 0, i64 %40
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -92996,21 +92984,19 @@ define hidden void @_ZNK13evcmpFD64Node4emitEP17C2_MacroAssemblerP13PhaseRegAllo
   %34 = tail call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %30) #23
   %35 = and i64 %34, 4294967288
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %switch.hole_check, label %37
+  %switch.maskindex = trunc i64 %34 to i8
+  %switch.shifted = lshr i8 -69, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %36, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %37
 
-37:                                               ; preds = %switch.hole_check, %3
+37:                                               ; preds = %3
   %38 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %38, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2535) #24
   unreachable
 
-switch.hole_check:                                ; preds = %3
-  %switch.maskindex = trunc i64 %34 to i8
-  %switch.shifted = lshr i8 -69, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %37
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %3
   %39 = and i64 %34, 7
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.9, i64 0, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -93167,21 +93153,19 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %26
   %35 = tail call noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %31) #23
   %36 = and i64 %35, 4294967288
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %switch.hole_check, label %38
+  %switch.maskindex = trunc i64 %35 to i8
+  %switch.shifted = lshr i8 -69, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %37, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %38
 
-38:                                               ; preds = %switch.hole_check, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
+38:                                               ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %39 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %39, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2535) #24
   unreachable
 
-switch.hole_check:                                ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
-  %switch.maskindex = trunc i64 %35 to i8
-  %switch.shifted = lshr i8 -69, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %38
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %40 = and i64 %35, 7
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.9, i64 0, i64 %40
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -93275,20 +93259,18 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %24
   %33 = tail call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %29) #23
   %34 = trunc i64 %33 to i32
   %35 = icmp ult i32 %34, 24
-  br i1 %35, label %switch.hole_check, label %36
+  %switch.shifted = lshr i32 11141307, %34
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %35, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %36
 
-36:                                               ; preds = %switch.hole_check, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
+36:                                               ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %37 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %37, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2522) #24
   unreachable
 
-switch.hole_check:                                ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
-  %switch.shifted = lshr i32 11141307, %34
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %36
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %38 = and i64 %33, 31
   %switch.gep = getelementptr inbounds nuw [24 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7, i64 0, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -93389,20 +93371,18 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %36
   %44 = tail call noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(8) %40) #23
   %45 = trunc i64 %44 to i32
   %46 = icmp ult i32 %45, 24
-  br i1 %46, label %switch.hole_check, label %47
+  %switch.shifted = lshr i32 11141307, %45
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %46, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %47
 
-47:                                               ; preds = %switch.hole_check, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
+47:                                               ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %48 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %48, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2522) #24
   unreachable
 
-switch.hole_check:                                ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
-  %switch.shifted = lshr i32 11141307, %45
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %47
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %49 = and i64 %44, 31
   %switch.gep = getelementptr inbounds nuw [24 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7, i64 0, i64 %49
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -93529,20 +93509,18 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %52
   %61 = call noundef i64 %60(ptr noundef nonnull align 8 dereferenceable(8) %57) #23
   %62 = trunc i64 %61 to i32
   %63 = icmp ult i32 %62, 24
-  br i1 %63, label %switch.hole_check, label %64
+  %switch.shifted = lshr i32 11141307, %62
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %63, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %64
 
-64:                                               ; preds = %switch.hole_check, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
+64:                                               ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %65 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %65, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2522) #24
   unreachable
 
-switch.hole_check:                                ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
-  %switch.shifted = lshr i32 11141307, %62
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %64
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %66 = and i64 %61, 31
   %switch.gep = getelementptr inbounds nuw [24 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7, i64 0, i64 %66
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -93781,20 +93759,18 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %38
   %46 = tail call noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %42) #23
   %47 = trunc i64 %46 to i32
   %48 = icmp ult i32 %47, 24
-  br i1 %48, label %switch.hole_check, label %49
+  %switch.shifted = lshr i32 11141307, %47
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %48, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %49
 
-49:                                               ; preds = %switch.hole_check, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
+49:                                               ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %50 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %50, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2522) #24
   unreachable
 
-switch.hole_check:                                ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
-  %switch.shifted = lshr i32 11141307, %47
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %49
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %51 = and i64 %46, 31
   %switch.gep = getelementptr inbounds nuw [24 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7, i64 0, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -93974,20 +93950,18 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %26
   %35 = tail call noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %31) #23
   %36 = trunc i64 %35 to i32
   %37 = icmp ult i32 %36, 24
-  br i1 %37, label %switch.hole_check, label %38
+  %switch.shifted = lshr i32 11141307, %36
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %37, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %38
 
-38:                                               ; preds = %switch.hole_check, %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
+38:                                               ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %39 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %39, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2522) #24
   unreachable
 
-switch.hole_check:                                ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
-  %switch.shifted = lshr i32 11141307, %36
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %38
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
   %40 = and i64 %35, 31
   %switch.gep = getelementptr inbounds nuw [24 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7, i64 0, i64 %40
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -111803,30 +111777,28 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %34
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(8) %41) #23
-  %46 = and i64 %45, 16
-  %.not148 = icmp eq i64 %46, 0
-  %47 = load ptr, ptr %19, align 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef i64 %50(ptr noundef nonnull align 8 dereferenceable(8) %47) #23
-  %52 = trunc i64 %51 to i32
-  %53 = icmp ult i32 %52, 24
-  br i1 %53, label %switch.hole_check, label %54
+  %46 = load ptr, ptr %19, align 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(8) %46) #23
+  %51 = trunc i64 %50 to i32
+  %52 = icmp ult i32 %51, 24
+  %switch.shifted = lshr i32 11141307, %51
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %52, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %53
 
-54:                                               ; preds = %switch.hole_check, %40
-  %55 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %55, align 1
+53:                                               ; preds = %40
+  %54 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %54, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2522) #24
   unreachable
 
-switch.hole_check:                                ; preds = %40
-  %switch.shifted = lshr i32 11141307, %52
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %54
-
-switch.lookup:                                    ; preds = %switch.hole_check
-  %56 = and i64 %51, 31
+switch.lookup:                                    ; preds = %40
+  %55 = and i64 %45, 16
+  %.not148 = icmp eq i64 %55, 0
+  %56 = and i64 %50, 31
   %switch.gep = getelementptr inbounds nuw [24 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7, i64 0, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
   %57 = load ptr, ptr %4, align 8
@@ -111867,32 +111839,30 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %82 = load ptr, ptr %81, align 8
   %83 = tail call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(8) %79) #23
-  %84 = and i64 %83, 16
-  %.not147 = icmp eq i64 %84, 0
-  %85 = load ptr, ptr %19, align 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %88 = load ptr, ptr %87, align 8
-  %89 = tail call noundef i64 %88(ptr noundef nonnull align 8 dereferenceable(8) %85) #23
-  %90 = trunc i64 %89 to i32
-  %91 = icmp ult i32 %90, 24
-  br i1 %91, label %switch.hole_check150, label %92
+  %84 = load ptr, ptr %19, align 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
+  %87 = load ptr, ptr %86, align 8
+  %88 = tail call noundef i64 %87(ptr noundef nonnull align 8 dereferenceable(8) %84) #23
+  %89 = trunc i64 %88 to i32
+  %90 = icmp ult i32 %89, 24
+  %switch.shifted151 = lshr i32 11141307, %89
+  %switch.lobit152 = trunc i32 %switch.shifted151 to i1
+  %or.cond155 = select i1 %90, i1 %switch.lobit152, i1 false
+  br i1 %or.cond155, label %switch.lookup150, label %91
 
-92:                                               ; preds = %switch.hole_check150, %78
-  %93 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %93, align 1
+91:                                               ; preds = %78
+  %92 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %92, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2522) #24
   unreachable
 
-switch.hole_check150:                             ; preds = %78
-  %switch.shifted152 = lshr i32 11141307, %90
-  %switch.lobit153 = trunc i32 %switch.shifted152 to i1
-  br i1 %switch.lobit153, label %switch.lookup151, label %92
-
-switch.lookup151:                                 ; preds = %switch.hole_check150
-  %94 = and i64 %89, 31
-  %switch.gep154 = getelementptr inbounds nuw [24 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7, i64 0, i64 %94
-  %switch.load155 = load i32, ptr %switch.gep154, align 4
+switch.lookup150:                                 ; preds = %78
+  %93 = and i64 %83, 16
+  %.not147 = icmp eq i64 %93, 0
+  %94 = and i64 %88, 31
+  %switch.gep153 = getelementptr inbounds nuw [24 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7, i64 0, i64 %94
+  %switch.load154 = load i32, ptr %switch.gep153, align 4
   %95 = load ptr, ptr %4, align 8
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
@@ -111922,7 +111892,7 @@ switch.lookup151:                                 ; preds = %switch.hole_check15
   %115 = tail call noundef i32 %114(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %11) #23
   %or.cond.i.i105 = icmp ult i32 %115, 32
   %spec.select.i.i106 = select i1 %or.cond.i.i105, i32 %115, i32 -1
-  tail call void @_ZN9Assembler7evpcmpwE9KRegisterS0_11XMMRegisterS1_ibi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i100, i32 %spec.select.i.i102, i32 %spec.select.i.i104, i32 %spec.select.i.i106, i32 noundef %switch.load155, i1 noundef zeroext %.not147, i32 noundef %.0.i.i.i) #23
+  tail call void @_ZN9Assembler7evpcmpwE9KRegisterS0_11XMMRegisterS1_ibi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i100, i32 %spec.select.i.i102, i32 %spec.select.i.i104, i32 %spec.select.i.i106, i32 noundef %switch.load154, i1 noundef zeroext %.not147, i32 noundef %.0.i.i.i) #23
   br label %256
 
 116:                                              ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
@@ -111931,32 +111901,30 @@ switch.lookup151:                                 ; preds = %switch.hole_check15
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 48
   %120 = load ptr, ptr %119, align 8
   %121 = tail call noundef i64 %120(ptr noundef nonnull align 8 dereferenceable(8) %117) #23
-  %122 = and i64 %121, 16
-  %.not146 = icmp eq i64 %122, 0
-  %123 = load ptr, ptr %19, align 8
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 48
-  %126 = load ptr, ptr %125, align 8
-  %127 = tail call noundef i64 %126(ptr noundef nonnull align 8 dereferenceable(8) %123) #23
-  %128 = trunc i64 %127 to i32
-  %129 = icmp ult i32 %128, 24
-  br i1 %129, label %switch.hole_check157, label %130
+  %122 = load ptr, ptr %19, align 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 48
+  %125 = load ptr, ptr %124, align 8
+  %126 = tail call noundef i64 %125(ptr noundef nonnull align 8 dereferenceable(8) %122) #23
+  %127 = trunc i64 %126 to i32
+  %128 = icmp ult i32 %127, 24
+  %switch.shifted158 = lshr i32 11141307, %127
+  %switch.lobit159 = trunc i32 %switch.shifted158 to i1
+  %or.cond162 = select i1 %128, i1 %switch.lobit159, i1 false
+  br i1 %or.cond162, label %switch.lookup157, label %129
 
-130:                                              ; preds = %switch.hole_check157, %116
-  %131 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %131, align 1
+129:                                              ; preds = %116
+  %130 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %130, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2522) #24
   unreachable
 
-switch.hole_check157:                             ; preds = %116
-  %switch.shifted159 = lshr i32 11141307, %128
-  %switch.lobit160 = trunc i32 %switch.shifted159 to i1
-  br i1 %switch.lobit160, label %switch.lookup158, label %130
-
-switch.lookup158:                                 ; preds = %switch.hole_check157
-  %132 = and i64 %127, 31
-  %switch.gep161 = getelementptr inbounds nuw [24 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7, i64 0, i64 %132
-  %switch.load162 = load i32, ptr %switch.gep161, align 4
+switch.lookup157:                                 ; preds = %116
+  %131 = and i64 %121, 16
+  %.not146 = icmp eq i64 %131, 0
+  %132 = and i64 %126, 31
+  %switch.gep160 = getelementptr inbounds nuw [24 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7, i64 0, i64 %132
+  %switch.load161 = load i32, ptr %switch.gep160, align 4
   %133 = load ptr, ptr %4, align 8
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
@@ -111986,7 +111954,7 @@ switch.lookup158:                                 ; preds = %switch.hole_check15
   %153 = tail call noundef i32 %152(ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %11) #23
   %or.cond.i.i115 = icmp ult i32 %153, 32
   %spec.select.i.i116 = select i1 %or.cond.i.i115, i32 %153, i32 -1
-  tail call void @_ZN9Assembler7evpcmpdE9KRegisterS0_11XMMRegisterS1_ibi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i110, i32 %spec.select.i.i112, i32 %spec.select.i.i114, i32 %spec.select.i.i116, i32 noundef %switch.load162, i1 noundef zeroext %.not146, i32 noundef %.0.i.i.i) #23
+  tail call void @_ZN9Assembler7evpcmpdE9KRegisterS0_11XMMRegisterS1_ibi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i110, i32 %spec.select.i.i112, i32 %spec.select.i.i114, i32 %spec.select.i.i116, i32 noundef %switch.load161, i1 noundef zeroext %.not146, i32 noundef %.0.i.i.i) #23
   br label %256
 
 154:                                              ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
@@ -111995,32 +111963,30 @@ switch.lookup158:                                 ; preds = %switch.hole_check15
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 48
   %158 = load ptr, ptr %157, align 8
   %159 = tail call noundef i64 %158(ptr noundef nonnull align 8 dereferenceable(8) %155) #23
-  %160 = and i64 %159, 16
-  %.not = icmp eq i64 %160, 0
-  %161 = load ptr, ptr %19, align 8
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 48
-  %164 = load ptr, ptr %163, align 8
-  %165 = tail call noundef i64 %164(ptr noundef nonnull align 8 dereferenceable(8) %161) #23
-  %166 = trunc i64 %165 to i32
-  %167 = icmp ult i32 %166, 24
-  br i1 %167, label %switch.hole_check164, label %168
+  %160 = load ptr, ptr %19, align 8
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 48
+  %163 = load ptr, ptr %162, align 8
+  %164 = tail call noundef i64 %163(ptr noundef nonnull align 8 dereferenceable(8) %160) #23
+  %165 = trunc i64 %164 to i32
+  %166 = icmp ult i32 %165, 24
+  %switch.shifted165 = lshr i32 11141307, %165
+  %switch.lobit166 = trunc i32 %switch.shifted165 to i1
+  %or.cond169 = select i1 %166, i1 %switch.lobit166, i1 false
+  br i1 %or.cond169, label %switch.lookup164, label %167
 
-168:                                              ; preds = %switch.hole_check164, %154
-  %169 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %169, align 1
+167:                                              ; preds = %154
+  %168 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %168, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2522) #24
   unreachable
 
-switch.hole_check164:                             ; preds = %154
-  %switch.shifted166 = lshr i32 11141307, %166
-  %switch.lobit167 = trunc i32 %switch.shifted166 to i1
-  br i1 %switch.lobit167, label %switch.lookup165, label %168
-
-switch.lookup165:                                 ; preds = %switch.hole_check164
-  %170 = and i64 %165, 31
-  %switch.gep168 = getelementptr inbounds nuw [24 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7, i64 0, i64 %170
-  %switch.load169 = load i32, ptr %switch.gep168, align 4
+switch.lookup164:                                 ; preds = %154
+  %169 = and i64 %159, 16
+  %.not = icmp eq i64 %169, 0
+  %170 = and i64 %164, 31
+  %switch.gep167 = getelementptr inbounds nuw [24 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.7, i64 0, i64 %170
+  %switch.load168 = load i32, ptr %switch.gep167, align 4
   %171 = load ptr, ptr %4, align 8
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
@@ -112050,7 +112016,7 @@ switch.lookup165:                                 ; preds = %switch.hole_check16
   %191 = tail call noundef i32 %190(ptr noundef nonnull align 8 dereferenceable(8) %187, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %11) #23
   %or.cond.i.i125 = icmp ult i32 %191, 32
   %spec.select.i.i126 = select i1 %or.cond.i.i125, i32 %191, i32 -1
-  tail call void @_ZN9Assembler7evpcmpqE9KRegisterS0_11XMMRegisterS1_ibi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i120, i32 %spec.select.i.i122, i32 %spec.select.i.i124, i32 %spec.select.i.i126, i32 noundef %switch.load169, i1 noundef zeroext %.not, i32 noundef %.0.i.i.i) #23
+  tail call void @_ZN9Assembler7evpcmpqE9KRegisterS0_11XMMRegisterS1_ibi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i120, i32 %spec.select.i.i122, i32 %spec.select.i.i124, i32 %spec.select.i.i126, i32 noundef %switch.load168, i1 noundef zeroext %.not, i32 noundef %.0.i.i.i) #23
   br label %256
 
 192:                                              ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
@@ -112061,24 +112027,22 @@ switch.lookup165:                                 ; preds = %switch.hole_check16
   %197 = tail call noundef i64 %196(ptr noundef nonnull align 8 dereferenceable(8) %193) #23
   %198 = and i64 %197, 4294967288
   %199 = icmp eq i64 %198, 0
-  br i1 %199, label %switch.hole_check171, label %200
+  %switch.maskindex = trunc i64 %197 to i8
+  %switch.shifted172 = lshr i8 -69, %switch.maskindex
+  %switch.lobit173 = trunc i8 %switch.shifted172 to i1
+  %or.cond176 = select i1 %199, i1 %switch.lobit173, i1 false
+  br i1 %or.cond176, label %switch.lookup171, label %200
 
-200:                                              ; preds = %switch.hole_check171, %192
+200:                                              ; preds = %192
   %201 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %201, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2535) #24
   unreachable
 
-switch.hole_check171:                             ; preds = %192
-  %switch.maskindex = trunc i64 %197 to i8
-  %switch.shifted173 = lshr i8 -69, %switch.maskindex
-  %switch.lobit174 = trunc i8 %switch.shifted173 to i1
-  br i1 %switch.lobit174, label %switch.lookup172, label %200
-
-switch.lookup172:                                 ; preds = %switch.hole_check171
+switch.lookup171:                                 ; preds = %192
   %202 = and i64 %197, 7
-  %switch.gep175 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.9, i64 0, i64 %202
-  %switch.load176 = load i32, ptr %switch.gep175, align 4
+  %switch.gep174 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.9, i64 0, i64 %202
+  %switch.load175 = load i32, ptr %switch.gep174, align 4
   %203 = load ptr, ptr %4, align 8
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 32
@@ -112108,7 +112072,7 @@ switch.lookup172:                                 ; preds = %switch.hole_check17
   %223 = tail call noundef i32 %222(ptr noundef nonnull align 8 dereferenceable(8) %219, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %11) #23
   %or.cond.i.i134 = icmp ult i32 %223, 32
   %spec.select.i.i135 = select i1 %or.cond.i.i134, i32 %223, i32 -1
-  tail call void @_ZN9Assembler7evcmppsE9KRegisterS0_11XMMRegisterS1_NS_21ComparisonPredicateFPEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i129, i32 %spec.select.i.i131, i32 %spec.select.i.i133, i32 %spec.select.i.i135, i32 noundef %switch.load176, i32 noundef %.0.i.i.i) #23
+  tail call void @_ZN9Assembler7evcmppsE9KRegisterS0_11XMMRegisterS1_NS_21ComparisonPredicateFPEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i129, i32 %spec.select.i.i131, i32 %spec.select.i.i133, i32 %spec.select.i.i135, i32 noundef %switch.load175, i32 noundef %.0.i.i.i) #23
   br label %256
 
 224:                                              ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit
@@ -112119,24 +112083,22 @@ switch.lookup172:                                 ; preds = %switch.hole_check17
   %229 = tail call noundef i64 %228(ptr noundef nonnull align 8 dereferenceable(8) %225) #23
   %230 = and i64 %229, 4294967288
   %231 = icmp eq i64 %230, 0
-  br i1 %231, label %switch.hole_check178, label %232
+  %switch.maskindex179 = trunc i64 %229 to i8
+  %switch.shifted180 = lshr i8 -69, %switch.maskindex179
+  %switch.lobit181 = trunc i8 %switch.shifted180 to i1
+  %or.cond184 = select i1 %231, i1 %switch.lobit181, i1 false
+  br i1 %or.cond184, label %switch.lookup178, label %232
 
-232:                                              ; preds = %switch.hole_check178, %224
+232:                                              ; preds = %224
   %233 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %233, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.22, i32 noundef 2535) #24
   unreachable
 
-switch.hole_check178:                             ; preds = %224
-  %switch.maskindex180 = trunc i64 %229 to i8
-  %switch.shifted181 = lshr i8 -69, %switch.maskindex180
-  %switch.lobit182 = trunc i8 %switch.shifted181 to i1
-  br i1 %switch.lobit182, label %switch.lookup179, label %232
-
-switch.lookup179:                                 ; preds = %switch.hole_check178
+switch.lookup178:                                 ; preds = %224
   %234 = and i64 %229, 7
-  %switch.gep183 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.9, i64 0, i64 %234
-  %switch.load184 = load i32, ptr %switch.gep183, align 4
+  %switch.gep182 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZNK16evcmp_maskedNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc.9, i64 0, i64 %234
+  %switch.load183 = load i32, ptr %switch.gep182, align 4
   %235 = load ptr, ptr %4, align 8
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 32
@@ -112166,10 +112128,10 @@ switch.lookup179:                                 ; preds = %switch.hole_check17
   %255 = tail call noundef i32 %254(ptr noundef nonnull align 8 dereferenceable(8) %251, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %11) #23
   %or.cond.i.i144 = icmp ult i32 %255, 32
   %spec.select.i.i145 = select i1 %or.cond.i.i144, i32 %255, i32 -1
-  tail call void @_ZN9Assembler7evcmppdE9KRegisterS0_11XMMRegisterS1_NS_21ComparisonPredicateFPEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i139, i32 %spec.select.i.i141, i32 %spec.select.i.i143, i32 %spec.select.i.i145, i32 noundef %switch.load184, i32 noundef %.0.i.i.i) #23
+  tail call void @_ZN9Assembler7evcmppdE9KRegisterS0_11XMMRegisterS1_NS_21ComparisonPredicateFPEi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i139, i32 %spec.select.i.i141, i32 %spec.select.i.i143, i32 %spec.select.i.i145, i32 noundef %switch.load183, i32 noundef %.0.i.i.i) #23
   br label %256
 
-256:                                              ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %switch.lookup179, %switch.lookup172, %switch.lookup165, %switch.lookup158, %switch.lookup151, %switch.lookup
+256:                                              ; preds = %_ZL22vector_length_encodingPK8MachNodeP8MachOper.exit, %switch.lookup178, %switch.lookup171, %switch.lookup164, %switch.lookup157, %switch.lookup150, %switch.lookup
   ret void
 }
 

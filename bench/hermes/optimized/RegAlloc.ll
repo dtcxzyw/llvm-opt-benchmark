@@ -1054,38 +1054,38 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
   %16 = load i32, ptr %Size.i.i40, align 8
   %conv.i.i = zext i32 %16 to i64
   %add.ptr.i.i41 = getelementptr inbounds nuw ptr, ptr %15, i64 %conv.i.i
-  %cmp.not20.i = icmp eq i32 %16, 0
-  br i1 %cmp.not20.i, label %for.inc58, label %for.body.i
+  %cmp.not19.i = icmp eq i32 %16, 0
+  br i1 %cmp.not19.i, label %for.inc58, label %for.body.i
 
 for.body.i:                                       ; preds = %for.body21, %for.body.i
-  %localPhiUse.024.i = phi i1 [ %or1427.i, %for.body.i ], [ false, %for.body21 ]
-  %__begin1.023.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %15, %for.body21 ]
-  %externalUse.022.i = phi i1 [ %or2211.i, %for.body.i ], [ false, %for.body21 ]
-  %terminatorUse.021.i = phi i1 [ %or10.i, %for.body.i ], [ false, %for.body21 ]
-  %17 = load ptr, ptr %__begin1.023.i, align 8
+  %localPhiUse.023.i = phi i1 [ %or1426.i, %for.body.i ], [ false, %for.body21 ]
+  %__begin1.022.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %15, %for.body21 ]
+  %externalUse.021.i = phi i1 [ %or2211.i, %for.body.i ], [ false, %for.body21 ]
+  %terminatorUse.020.i = phi i1 [ %or10.i, %for.body.i ], [ false, %for.body21 ]
+  %17 = load ptr, ptr %__begin1.022.i, align 8
   %add.ptr.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %18 = load i8, ptr %add.ptr.i.i.i.i.i.i42, align 8
   %19 = add i8 %18, -75
   %20 = icmp ult i8 %19, 15
-  %or10.i = or i1 %terminatorUse.021.i, %20
+  %or10.i = or i1 %terminatorUse.020.i, %20
   %cmp.i.i.i.i.i.i.i.i43 = icmp eq i8 %18, 33
-  %Parent.i14.i = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %21 = load ptr, ptr %Parent.i14.i, align 8
+  %Parent.i13.i = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %21 = load ptr, ptr %Parent.i13.i, align 8
   %cmp9.i = icmp eq ptr %21, %14
   %or.cond.i = select i1 %cmp.i.i.i.i.i.i.i.i43, i1 %cmp9.i, i1 false
   %cmp10.i = icmp ne ptr %13, %17
   %narrow.i = and i1 %cmp10.i, %or.cond.i
-  %or1427.i = or i1 %localPhiUse.024.i, %narrow.i
-  %cmp1828.i = icmp ne ptr %21, %14
+  %or1426.i = or i1 %localPhiUse.023.i, %narrow.i
+  %cmp1827.i = icmp ne ptr %21, %14
   %not.or.cond.i = xor i1 %or.cond.i, true
-  %cmp18.i = select i1 %not.or.cond.i, i1 %cmp1828.i, i1 false
-  %or2211.i = or i1 %externalUse.022.i, %cmp18.i
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.023.i, i64 8
+  %cmp18.i = select i1 %not.or.cond.i, i1 %cmp1827.i, i1 false
+  %or2211.i = or i1 %externalUse.021.i, %cmp18.i
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.022.i, i64 8
   %cmp.not.i44 = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i41
   br i1 %cmp.not.i44, label %_ZL12phiReadWritePN6hermes7PhiInstE.exit, label %for.body.i
 
 _ZL12phiReadWritePN6hermes7PhiInstE.exit:         ; preds = %for.body.i
-  %22 = select i1 %or10.i, i1 true, i1 %or1427.i
+  %22 = select i1 %or10.i, i1 true, i1 %or1426.i
   %23 = select i1 %22, i1 true, i1 %or2211.i
   br i1 %23, label %if.end25, label %for.inc58
 
@@ -8963,10 +8963,10 @@ for.body.i188:                                    ; preds = %for.body.i5.i, %for
   br i1 %cmp.not.i193, label %_ZNK6hermes8Interval5startEv.exit, label %for.body.i188
 
 _ZNK6hermes8Interval5startEv.exit:                ; preds = %for.body.i188
-  %cmp100 = icmp uge i64 %.sroa.speculated.i191, %conv99
-  %tobool.not = icmp eq i64 %.sroa.speculated.i.i, %.sroa.speculated.i8.i
-  %or.cond = or i1 %tobool.not, %cmp100
-  br i1 %or.cond, label %if.end103, label %while.end
+  %tobool = icmp ne i64 %.sroa.speculated.i.i, %.sroa.speculated.i8.i
+  %cmp100 = icmp ult i64 %.sroa.speculated.i191, %conv99
+  %or.cond = and i1 %tobool, %cmp100
+  br i1 %or.cond, label %while.end, label %if.end103
 
 if.end103:                                        ; preds = %do.end89, %_ZNK6hermes8Interval5startEv.exit
   %cmp.i.i196.not = icmp eq i32 %liveIntervalsQueue.val754, 1
@@ -10127,14 +10127,14 @@ for.body25:                                       ; preds = %for.body25.lr.ph, %
   %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %21, i64 %conv.i.i
   %22 = load i64, ptr %arrayidx.i.i.i, align 8
   %and.i.i = and i64 %22, %shl.i.i
-  %cmp.i.i.not = icmp eq i64 %and.i.i, 0
+  %cmp.i.i = icmp ne i64 %and.i.i, 0
   %23 = load ptr, ptr %liveIn_, align 8
   %arrayidx.i.i.i47 = getelementptr inbounds nuw i64, ptr %23, i64 %conv.i.i
   %24 = load i64, ptr %arrayidx.i.i.i47, align 8
   %and.i.i48 = and i64 %24, %shl.i.i
-  %cmp.i.i49.not = icmp eq i64 %and.i.i48, 0
-  %brmerge = or i1 %cmp.i.i.not, %cmp.i.i49.not
-  br i1 %brmerge, label %for.inc37, label %if.then
+  %cmp.i.i49 = icmp ne i64 %and.i.i48, 0
+  %or.cond = and i1 %cmp.i.i, %cmp.i.i49
+  br i1 %or.cond, label %if.then, label %for.inc37
 
 if.then:                                          ; preds = %for.body25
   %25 = load ptr, ptr %instructionInterval_31, align 8

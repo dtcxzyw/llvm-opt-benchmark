@@ -87,78 +87,78 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @H5I_term_package() local_unnamed_addr #0 {
   %1 = load i8, ptr @H5I_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %2 = trunc nuw i8 %1 to i1
-  br i1 %2, label %.preheader22, label %24, !prof !9
+  br i1 %2, label %.preheader21, label %24, !prof !9
 
-.preheader22:                                     ; preds = %0
+.preheader21:                                     ; preds = %0
   %3 = load i32, ptr @H5I_next_type_g, align 4, !tbaa !10
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph.preheader, label %._crit_edge28.thread
+  br i1 %4, label %.lr.ph.preheader, label %._crit_edge27.thread
 
-.lr.ph.preheader:                                 ; preds = %.preheader22
+.lr.ph.preheader:                                 ; preds = %.preheader21
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
-  %.11523 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %11 ]
+  %.11622 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %11 ]
   %5 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !12
-  %.not18 = icmp eq ptr %6, null
-  br i1 %.not18, label %11, label %7
+  %.not19 = icmp eq ptr %6, null
+  br i1 %.not19, label %11, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %.not19 = icmp ne ptr %9, null
-  %10 = zext i1 %.not19 to i32
-  %spec.select = add nsw i32 %.11523, %10
+  %.not20 = icmp ne ptr %9, null
+  %10 = zext i1 %.not20 to i32
+  %spec.select = add nsw i32 %.11622, %10
   br label %11
 
 11:                                               ; preds = %7, %.lr.ph
-  %.2 = phi i32 [ %.11523, %.lr.ph ], [ %spec.select, %7 ]
+  %.2 = phi i32 [ %.11622, %.lr.ph ], [ %spec.select, %7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %11
   %12 = icmp eq i32 %.2, 0
-  br i1 %12, label %.lr.ph27, label %24
+  br i1 %12, label %.lr.ph26, label %24
 
-.lr.ph27:                                         ; preds = %._crit_edge, %19
+.lr.ph26:                                         ; preds = %._crit_edge, %19
   %13 = phi i32 [ %20, %19 ], [ %3, %._crit_edge ]
-  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %19 ], [ 0, %._crit_edge ]
-  %.425 = phi i32 [ %.5, %19 ], [ 0, %._crit_edge ]
-  %14 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %indvars.iv31
+  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %19 ], [ 0, %._crit_edge ]
+  %.424 = phi i32 [ %.5, %19 ], [ 0, %._crit_edge ]
+  %14 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %indvars.iv30
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %19, label %16
 
-16:                                               ; preds = %.lr.ph27
+16:                                               ; preds = %.lr.ph26
   %17 = tail call ptr @H5MM_xfree(ptr noundef nonnull %15) #8
   store ptr null, ptr %14, align 8, !tbaa !12
-  %18 = add nsw i32 %.425, 1
+  %18 = add nsw i32 %.424, 1
   %.pre = load i32, ptr @H5I_next_type_g, align 4, !tbaa !10
   br label %19
 
-19:                                               ; preds = %.lr.ph27, %16
-  %20 = phi i32 [ %.pre, %16 ], [ %13, %.lr.ph27 ]
-  %.5 = phi i32 [ %18, %16 ], [ %.425, %.lr.ph27 ]
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+19:                                               ; preds = %.lr.ph26, %16
+  %20 = phi i32 [ %.pre, %16 ], [ %13, %.lr.ph26 ]
+  %.5 = phi i32 [ %18, %16 ], [ %.424, %.lr.ph26 ]
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %indvars.iv.next32, %21
-  br i1 %22, label %.lr.ph27, label %._crit_edge28, !llvm.loop !22
+  %22 = icmp slt i64 %indvars.iv.next31, %21
+  br i1 %22, label %.lr.ph26, label %._crit_edge27, !llvm.loop !22
 
-._crit_edge28:                                    ; preds = %19
+._crit_edge27:                                    ; preds = %19
   %23 = icmp eq i32 %.5, 0
-  br i1 %23, label %._crit_edge28.thread, label %24
+  br i1 %23, label %._crit_edge27.thread, label %24
 
-._crit_edge28.thread:                             ; preds = %.preheader22, %._crit_edge28
+._crit_edge27.thread:                             ; preds = %.preheader21, %._crit_edge27
   store i8 0, ptr @H5I_init_g, align 1, !tbaa !3
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge28.thread, %._crit_edge28, %0
-  %.014 = phi i32 [ 0, %0 ], [ 0, %._crit_edge28.thread ], [ %.5, %._crit_edge28 ], [ %.2, %._crit_edge ]
-  ret i32 %.014
+24:                                               ; preds = %._crit_edge, %._crit_edge27.thread, %._crit_edge27, %0
+  %.015 = phi i32 [ 0, %0 ], [ 0, %._crit_edge27.thread ], [ %.5, %._crit_edge27 ], [ %.2, %._crit_edge ]
+  ret i32 %.015
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

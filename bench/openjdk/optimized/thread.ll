@@ -891,9 +891,9 @@ define hidden void @_ZNK6Thread8print_onEP12outputStreamb(ptr noundef nonnull al
   %26 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(888) %0) #12
   %27 = load i8, ptr @PrintExtendedThreadInfo, align 1
   %28 = trunc i8 %27 to i1
-  %brmerge = or i1 %2, %28
-  %or.cond = select i1 %26, i1 %brmerge, i1 false
-  br i1 %or.cond, label %29, label %55
+  %or.cond = or i1 %2, %28
+  %or.cond14 = select i1 %26, i1 %or.cond, i1 false
+  br i1 %or.cond14, label %29, label %55
 
 29:                                               ; preds = %12
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -941,14 +941,14 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %_ZN6Thread22cooked_
 50:                                               ; preds = %46
   %51 = icmp samesign ugt i64 %.0.i, 102399
   %52 = lshr i64 %.0.i, 10
-  %spec.select.i13 = select i1 %51, i64 %52, i64 %.0.i
+  %spec.select.i15 = select i1 %51, i64 %52, i64 %.0.i
   %.str.27..str.28.i = select i1 %51, ptr @.str.27, ptr @.str.28
   br label %_Z25proper_unit_for_byte_sizem.exit
 
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_size_in_proper_unitImET_S0_.exit, %50
-  %.0.i1418 = phi i64 [ %49, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i13, %50 ], [ %48, %.thread ]
-  %.0.i15 = phi ptr [ @.str.25, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.27..str.28.i, %50 ], [ @.str.26, %.thread ]
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, i64 noundef %.0.i1418, ptr noundef nonnull %.0.i15) #12
+  %.0.i1620 = phi i64 [ %49, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i15, %50 ], [ %48, %.thread ]
+  %.0.i17 = phi ptr [ @.str.25, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.27..str.28.i, %50 ], [ @.str.26, %.thread ]
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, i64 noundef %.0.i1620, ptr noundef nonnull %.0.i17) #12
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %54 = load i64, ptr %53, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, i64 noundef %54) #12

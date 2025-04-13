@@ -4121,22 +4121,22 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %18, %16, %3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %.not.i.i.i51 = icmp eq ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, null
+  %.not.i.i.i53 = icmp eq ptr @_ZTHN9grpc_core20PerCpuShardingHelper6state_E, null
   %38 = tail call align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre = load i64, ptr %23, align 8, !tbaa !3
-  %.pre170 = load i64, ptr %25, align 8, !tbaa !17
+  %.pre171 = load i64, ptr %25, align 8, !tbaa !17
   br label %43
 
 43:                                               ; preds = %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit
-  %44 = phi i64 [ %280, %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit ], [ %.pre170, %_ZN4absl12lts_202407226StatusD2Ev.exit ]
+  %44 = phi i64 [ %280, %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit ], [ %.pre171, %_ZN4absl12lts_202407226StatusD2Ev.exit ]
   %.promoted = phi i64 [ %279, %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit ], [ %.pre, %_ZN4absl12lts_202407226StatusD2Ev.exit ]
   %45 = load i64, ptr %24, align 8, !tbaa !16
-  %.not.i28 = icmp eq i64 %.promoted, %44
-  br i1 %.not.i28, label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord12PopulateIovsEPmS2_S2_P5iovec.exit, label %.lr.ph.i
+  %.not.i30 = icmp eq i64 %.promoted, %44
+  br i1 %.not.i30, label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord12PopulateIovsEPmS2_S2_P5iovec.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43
   %46 = load ptr, ptr %32, align 8, !tbaa !18
@@ -4175,7 +4175,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %18, %16, %3
   br i1 %69, label %47, label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord12PopulateIovsEPmS2_S2_P5iovec.exit, !llvm.loop !26
 
 _ZN17grpc_event_engine12experimental21TcpZerocopySendRecord12PopulateIovsEPmS2_S2_P5iovec.exit: ; preds = %47, %43
-  %.163 = phi i64 [ 0, %43 ], [ %64, %47 ]
+  %.164 = phi i64 [ 0, %43 ], [ %64, %47 ]
   %.0.lcssa.i = phi i64 [ 0, %43 ], [ %66, %47 ]
   store ptr null, ptr %11, align 8, !tbaa !97
   store i32 0, ptr %26, align 8, !tbaa !100
@@ -4228,7 +4228,7 @@ _ZN17grpc_event_engine12experimental18TcpZerocopySendCtx8NoteSendEPNS0_21TcpZero
   store i32 0, ptr %10, align 4, !tbaa !122
   %87 = load ptr, ptr %33, align 16, !tbaa !285
   %.not = icmp eq ptr %87, null
-  br i1 %.not, label %.critedge24, label %88
+  br i1 %.not, label %.critedge26, label %88
 
 88:                                               ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx8NoteSendEPNS0_21TcpZerocopySendRecordE.exit
   %89 = load i8, ptr %34, align 1, !tbaa !287, !range !88, !noundef !130
@@ -4241,22 +4241,22 @@ _ZN17grpc_event_engine12experimental18TcpZerocopySendCtx8NoteSendEPNS0_21TcpZero
   br label %94
 
 91:                                               ; preds = %88
-  %92 = call noundef zeroext i1 @_ZN17grpc_event_engine12experimental17PosixEndpointImpl19WriteWithTimestampsEP6msghdrmPlPii(ptr noundef nonnull align 16 dereferenceable(904) %0, ptr noundef nonnull %11, i64 noundef %.163, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 67108864)
-  br i1 %92, label %._crit_edge173, label %93
+  %92 = call noundef zeroext i1 @_ZN17grpc_event_engine12experimental17PosixEndpointImpl19WriteWithTimestampsEP6msghdrmPlPii(ptr noundef nonnull align 16 dereferenceable(904) %0, ptr noundef nonnull %11, i64 noundef %.164, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 67108864)
+  br i1 %92, label %._crit_edge174, label %93
 
-._crit_edge173:                                   ; preds = %91
-  %.pre174 = load i32, ptr %10, align 4, !tbaa !122
+._crit_edge174:                                   ; preds = %91
+  %.pre175 = load i32, ptr %10, align 4, !tbaa !122
   br label %148
 
 93:                                               ; preds = %91
-  %.pre171 = load ptr, ptr %33, align 16, !tbaa !285
+  %.pre172 = load ptr, ptr %33, align 16, !tbaa !285
   store i8 0, ptr %34, align 1, !tbaa !287
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %.not.i29 = icmp eq ptr %.pre171, null
-  br i1 %.not.i29, label %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit, label %94
+  %.not.i31 = icmp eq ptr %.pre172, null
+  br i1 %.not.i31, label %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit, label %94
 
 94:                                               ; preds = %.thread, %93
-  %95 = phi ptr [ %87, %.thread ], [ %.pre171, %93 ]
+  %95 = phi ptr [ %87, %.thread ], [ %.pre172, %93 ]
   call void @_ZN4absl12lts_2024072213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %8, i64 26, ptr nonnull @.str.13)
   invoke void @_ZN17grpc_event_engine12experimental16TracedBufferList8ShutdownEPvN4absl12lts_202407226StatusE(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull %95, ptr noundef nonnull %8)
           to label %96 unwind label %104
@@ -4264,8 +4264,8 @@ _ZN17grpc_event_engine12experimental18TcpZerocopySendCtx8NoteSendEPNS0_21TcpZero
 96:                                               ; preds = %94
   %97 = load i64, ptr %8, align 8, !tbaa !82
   %98 = and i64 %97, 1
-  %.not.i.i.i30 = icmp eq i64 %98, 0
-  br i1 %.not.i.i.i30, label %99, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i
+  %.not.i.i.i32 = icmp eq i64 %98, 0
+  br i1 %.not.i.i.i32, label %99, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i
 
 99:                                               ; preds = %96
   %100 = inttoptr i64 %97 to ptr
@@ -4291,12 +4291,12 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %99, %96
 
 _ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit: ; preds = %93, %_ZN4absl12lts_202407226StatusD2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %.promoted137.pre = load i32, ptr %10, align 4
-  br label %.critedge24
+  %.promoted138.pre = load i32, ptr %10, align 4
+  br label %.critedge26
 
-.critedge24:                                      ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx8NoteSendEPNS0_21TcpZerocopySendRecordE.exit, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit
-  %.promoted137 = phi i32 [ 0, %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx8NoteSendEPNS0_21TcpZerocopySendRecordE.exit ], [ %.promoted137.pre, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit ]
-  %106 = trunc i64 %.163 to i32
+.critedge26:                                      ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx8NoteSendEPNS0_21TcpZerocopySendRecordE.exit, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit
+  %.promoted138 = phi i32 [ 0, %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx8NoteSendEPNS0_21TcpZerocopySendRecordE.exit ], [ %.promoted138.pre, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit ]
+  %106 = trunc i64 %.164 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   %107 = call noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 504
@@ -4314,9 +4314,9 @@ _ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBuffer
   %120 = load i32, ptr %37, align 4, !tbaa !121
   br label %121
 
-121:                                              ; preds = %143, %.critedge24
-  %122 = phi i32 [ 4, %143 ], [ %.promoted137, %.critedge24 ]
-  br i1 %.not.i.i.i51, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i.i
+121:                                              ; preds = %143, %.critedge26
+  %122 = phi i32 [ 4, %143 ], [ %.promoted138, %.critedge26 ]
+  br i1 %.not.i.i.i53, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i.i
 
 _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i.i: ; preds = %121
   %123 = load i16, ptr %39, align 2, !tbaa !106
@@ -4380,8 +4380,8 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit: ;
   store i64 %141, ptr %9, align 8, !tbaa !15
   br label %148
 
-148:                                              ; preds = %._crit_edge173, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit
-  %149 = phi i32 [ %.pre174, %._crit_edge173 ], [ %147, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit ]
+148:                                              ; preds = %._crit_edge174, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit
+  %149 = phi i32 [ %.pre175, %._crit_edge174 ], [ %147, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit ]
   %150 = load ptr, ptr %30, align 8, !tbaa !182
   %151 = icmp eq i32 %149, 105
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 24
@@ -4411,15 +4411,15 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_17TcpSendEiPK6msghdrPii.exit: ;
 163:                                              ; preds = %148
   %164 = getelementptr inbounds nuw i8, ptr %150, i64 82
   %165 = load i8, ptr %164, align 2, !tbaa !280
-  %.not.i31 = icmp eq i8 %165, 0
-  br i1 %.not.i31, label %167, label %166
+  %.not.i33 = icmp eq i8 %165, 0
+  br i1 %.not.i33, label %167, label %166
 
 166:                                              ; preds = %163
   store i8 0, ptr %164, align 2, !tbaa !280
   br label %167
 
 167:                                              ; preds = %166, %163, %162, %161
-  %.064.shrunk = phi i1 [ %157, %161 ], [ %157, %162 ], [ false, %163 ], [ false, %166 ]
+  %.065.shrunk = phi i1 [ %157, %161 ], [ %157, %162 ], [ false, %163 ], [ false, %166 ]
   %.0.i = phi i1 [ true, %161 ], [ %157, %162 ], [ false, %163 ], [ false, %166 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %152)
           to label %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemStateAfterSendEbRb.exit unwind label %168
@@ -4435,7 +4435,7 @@ _ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemSt
   br i1 %.0.i, label %171, label %.critedge
 
 171:                                              ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemStateAfterSendEbRb.exit
-  br i1 %.064.shrunk, label %177, label %172
+  br i1 %.065.shrunk, label %177, label %172
 
 172:                                              ; preds = %171
   %173 = load ptr, ptr %40, align 8, !tbaa !79
@@ -4447,24 +4447,24 @@ _ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemSt
 
 177:                                              ; preds = %171
   %178 = call noundef zeroext i1 @_ZN4absl12lts_2024072212log_internal17LogEveryNSecState9ShouldLogEd(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN17grpc_event_engine12experimental17PosixEndpointImpl15DoFlushZerocopyEPNS0_21TcpZerocopySendRecordERN4absl12lts_202407226StatusEE42absl_log_internal_stateful_condition_state, double noundef 1.000000e+00)
-  br i1 %178, label %.critedge26, label %.critedge
+  br i1 %178, label %.critedge28, label %.critedge
 
-.critedge26:                                      ; preds = %177
+.critedge28:                                      ; preds = %177
   %179 = load atomic i32, ptr @_ZZN17grpc_event_engine12experimental17PosixEndpointImpl15DoFlushZerocopyEPNS0_21TcpZerocopySendRecordERN4absl12lts_202407226StatusEE42absl_log_internal_stateful_condition_state monotonic, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #41
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull @.str.1, i32 noundef 990) #42
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 191, ptr nonnull @.str.14)
           to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi192EEERS2_RAT__Kc.exit unwind label %205
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi192EEERS2_RAT__Kc.exit: ; preds = %.critedge26
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi192EEERS2_RAT__Kc.exit: ; preds = %.critedge28
   %180 = load atomic i8, ptr @_ZGVZN17grpc_event_engine12experimental12_GLOBAL__N_119GetRLimitMemLockMaxEvE14kRlimitMemLock acquire, align 8
   %181 = icmp eq i8 %180, 0
   br i1 %181, label %182, label %187, !prof !288
 
 182:                                              ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi192EEERS2_RAT__Kc.exit
   %183 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17grpc_event_engine12experimental12_GLOBAL__N_119GetRLimitMemLockMaxEvE14kRlimitMemLock) #41
-  %.not.i32 = icmp eq i32 %183, 0
-  br i1 %.not.i32, label %187, label %184
+  %.not.i34 = icmp eq i32 %183, 0
+  br i1 %.not.i34, label %187, label %184
 
 184:                                              ; preds = %182
   %185 = call fastcc noundef i64 @"_ZZN17grpc_event_engine12experimental12_GLOBAL__N_119GetRLimitMemLockMaxEvENK3$_0clEv"()
@@ -4492,8 +4492,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
 
 193:                                              ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit
   %194 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17grpc_event_engine12experimental12_GLOBAL__N_120GetUlimitHardMemLockEvE18kUlimitHardMemLock) #41
-  %.not.i33 = icmp eq i32 %194, 0
-  br i1 %.not.i33, label %201, label %195
+  %.not.i35 = icmp eq i32 %194, 0
+  br i1 %.not.i35, label %201, label %195
 
 195:                                              ; preds = %193
   %196 = invoke fastcc noundef i64 @"_ZZN17grpc_event_engine12experimental12_GLOBAL__N_120GetUlimitHardMemLockEvENK3$_0clEv"()
@@ -4528,7 +4528,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi71EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #41
   br label %.critedge
 
-205:                                              ; preds = %204, %201, %190, %187, %.critedge26
+205:                                              ; preds = %204, %201, %190, %187, %.critedge28
   %206 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4539,7 +4539,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi71EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #41
   br label %282
 
-.critedge:                                        ; preds = %177, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi71EEERS2_RAT__Kc.exit, %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemStateAfterSendEbRb.exit, %172
+.critedge:                                        ; preds = %177, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi71EEERS2_RAT__Kc.exit, %172, %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemStateAfterSendEbRb.exit
   %207 = load i64, ptr %9, align 8, !tbaa !15
   %208 = icmp slt i64 %207, 0
   br i1 %208, label %209, label %264
@@ -4583,29 +4583,29 @@ _ZN17grpc_event_engine12experimental18TcpZerocopySendCtx8UndoSendEv.exit: ; pred
 .noexc:                                           ; preds = %221
   %226 = sext i32 %225 to i64
   invoke void @_ZN9grpc_core12StatusSetIntEPN4absl12lts_202407226StatusENS_17StatusIntPropertyEl(ptr noundef nonnull %14, i32 noundef 4, i64 noundef %226)
-          to label %.noexc35 unwind label %262
+          to label %.noexc37 unwind label %262
 
-.noexc35:                                         ; preds = %.noexc
+.noexc37:                                         ; preds = %.noexc
   invoke void @_ZN9grpc_core12StatusSetIntEPN4absl12lts_202407226StatusENS_17StatusIntPropertyEl(ptr noundef nonnull %14, i32 noundef 2, i64 noundef 14)
           to label %227 unwind label %262
 
-227:                                              ; preds = %.noexc35
+227:                                              ; preds = %.noexc37
   %228 = load i64, ptr %14, align 8, !tbaa !82, !noalias !289
   store i64 55, ptr %14, align 8, !tbaa !82, !noalias !289
   %229 = load i64, ptr %2, align 8, !tbaa !82
-  %.not.i37 = icmp eq i64 %228, %229
-  br i1 %.not.i37, label %_ZN4absl12lts_202407226StatusaSEOS1_.exit39, label %230
+  %.not.i39 = icmp eq i64 %228, %229
+  br i1 %.not.i39, label %_ZN4absl12lts_202407226StatusaSEOS1_.exit41, label %230
 
 230:                                              ; preds = %227
   store i64 %228, ptr %2, align 8, !tbaa !82
   %231 = and i64 %229, 1
-  %.not.i.i38 = icmp eq i64 %231, 0
-  br i1 %.not.i.i38, label %232, label %_ZN4absl12lts_202407226StatusD2Ev.exit41
+  %.not.i.i40 = icmp eq i64 %231, 0
+  br i1 %.not.i.i40, label %232, label %_ZN4absl12lts_202407226StatusD2Ev.exit43
 
 232:                                              ; preds = %230
   %233 = inttoptr i64 %229 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %233)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit41 unwind label %234
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit43 unwind label %234
 
 234:                                              ; preds = %232
   %235 = landingpad { ptr, i32 }
@@ -4614,15 +4614,15 @@ _ZN17grpc_event_engine12experimental18TcpZerocopySendCtx8UndoSendEv.exit: ; pred
   call void @__clang_call_terminate(ptr %236) #43
   unreachable
 
-_ZN4absl12lts_202407226StatusaSEOS1_.exit39:      ; preds = %227
+_ZN4absl12lts_202407226StatusaSEOS1_.exit41:      ; preds = %227
   %237 = and i64 %228, 1
-  %.not.i.i40 = icmp eq i64 %237, 0
-  br i1 %.not.i.i40, label %238, label %_ZN4absl12lts_202407226StatusD2Ev.exit41
+  %.not.i.i42 = icmp eq i64 %237, 0
+  br i1 %.not.i.i42, label %238, label %_ZN4absl12lts_202407226StatusD2Ev.exit43
 
-238:                                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit39
+238:                                              ; preds = %_ZN4absl12lts_202407226StatusaSEOS1_.exit41
   %239 = inttoptr i64 %228 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %239)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit41 unwind label %240
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit43 unwind label %240
 
 240:                                              ; preds = %238
   %241 = landingpad { ptr, i32 }
@@ -4631,16 +4631,16 @@ _ZN4absl12lts_202407226StatusaSEOS1_.exit39:      ; preds = %227
   call void @__clang_call_terminate(ptr %242) #43
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit41:         ; preds = %230, %232, %_ZN4absl12lts_202407226StatusaSEOS1_.exit39, %238
+_ZN4absl12lts_202407226StatusD2Ev.exit43:         ; preds = %230, %232, %_ZN4absl12lts_202407226StatusaSEOS1_.exit41, %238
   %243 = load i64, ptr %14, align 8, !tbaa !82
   %244 = and i64 %243, 1
-  %.not.i.i42 = icmp eq i64 %244, 0
-  br i1 %.not.i.i42, label %245, label %_ZN4absl12lts_202407226StatusD2Ev.exit43
+  %.not.i.i44 = icmp eq i64 %244, 0
+  br i1 %.not.i.i44, label %245, label %_ZN4absl12lts_202407226StatusD2Ev.exit45
 
-245:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit41
+245:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit43
   %246 = inttoptr i64 %243 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %246)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit43 unwind label %247
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit45 unwind label %247
 
 247:                                              ; preds = %245
   %248 = landingpad { ptr, i32 }
@@ -4649,13 +4649,13 @@ _ZN4absl12lts_202407226StatusD2Ev.exit41:         ; preds = %230, %232, %_ZN4abs
   call void @__clang_call_terminate(ptr %249) #43
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit43:         ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit41, %245
+_ZN4absl12lts_202407226StatusD2Ev.exit45:         ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit43, %245
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %250 = load ptr, ptr %33, align 16, !tbaa !285
-  %.not.i44 = icmp eq ptr %250, null
-  br i1 %.not.i44, label %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit47, label %251
+  %.not.i46 = icmp eq ptr %250, null
+  br i1 %.not.i46, label %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit49, label %251
 
-251:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit43
+251:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit45
   call void @_ZN4absl12lts_2024072213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %5, i64 26, ptr nonnull @.str.13)
   invoke void @_ZN17grpc_event_engine12experimental16TracedBufferList8ShutdownEPvN4absl12lts_202407226StatusE(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull %250, ptr noundef nonnull %5)
           to label %252 unwind label %260
@@ -4663,13 +4663,13 @@ _ZN4absl12lts_202407226StatusD2Ev.exit43:         ; preds = %_ZN4absl12lts_20240
 252:                                              ; preds = %251
   %253 = load i64, ptr %5, align 8, !tbaa !82
   %254 = and i64 %253, 1
-  %.not.i.i.i45 = icmp eq i64 %254, 0
-  br i1 %.not.i.i.i45, label %255, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i46
+  %.not.i.i.i47 = icmp eq i64 %254, 0
+  br i1 %.not.i.i.i47, label %255, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i48
 
 255:                                              ; preds = %252
   %256 = inttoptr i64 %253 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %256)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit.i46 unwind label %257
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit.i48 unwind label %257
 
 257:                                              ; preds = %255
   %258 = landingpad { ptr, i32 }
@@ -4678,9 +4678,9 @@ _ZN4absl12lts_202407226StatusD2Ev.exit43:         ; preds = %_ZN4absl12lts_20240
   call void @__clang_call_terminate(ptr %259) #43
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit.i46:       ; preds = %255, %252
+_ZN4absl12lts_202407226StatusD2Ev.exit.i48:       ; preds = %255, %252
   store ptr null, ptr %33, align 16, !tbaa !285
-  br label %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit47
+  br label %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit49
 
 260:                                              ; preds = %251
   %261 = landingpad { ptr, i32 }
@@ -4688,11 +4688,11 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i46:       ; preds = %255, %252
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #41
   br label %common.resume
 
-_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit47: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit43, %_ZN4absl12lts_202407226StatusD2Ev.exit.i46
+_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit49: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit45, %_ZN4absl12lts_202407226StatusD2Ev.exit.i48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.loopexit
 
-262:                                              ; preds = %.noexc35, %.noexc, %221
+262:                                              ; preds = %.noexc37, %.noexc, %221
   %263 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #41
@@ -4703,11 +4703,11 @@ _ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBuffer
   %266 = trunc i64 %207 to i32
   %267 = add i32 %265, %266
   store i32 %267, ptr %41, align 16, !tbaa !283
-  %268 = sub i64 %.163, %207
+  %268 = sub i64 %.164, %207
   %.not19.i = icmp eq i64 %268, 0
-  br i1 %.not19.i, label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit, label %.lr.ph.i48
+  br i1 %.not19.i, label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit, label %.lr.ph.i50
 
-.lr.ph.i48:                                       ; preds = %264, %277
+.lr.ph.i50:                                       ; preds = %264, %277
   %.01220.i = phi i64 [ %278, %277 ], [ %268, %264 ]
   %269 = load i64, ptr %23, align 8, !tbaa !3
   %270 = add i64 %269, -1
@@ -4715,24 +4715,24 @@ _ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBuffer
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #41
   call void @_ZN17grpc_event_engine12experimental11SliceBuffer8RefSliceEm(ptr dead_on_unwind nonnull writable sret(%"class.grpc_event_engine::experimental::Slice") align 8 %4, ptr noundef nonnull align 8 dereferenceable(256) %1, i64 noundef %270)
   %271 = load ptr, ptr %4, align 8, !tbaa !28
-  %.not.i.i.i49 = icmp eq ptr %271, null
+  %.not.i.i.i51 = icmp eq ptr %271, null
   %272 = load i64, ptr %42, align 8
   %273 = and i64 %272, 255
-  %274 = select i1 %.not.i.i.i49, i64 %273, i64 %272
+  %274 = select i1 %.not.i.i.i51, i64 %273, i64 %272
   call void @_ZN17grpc_event_engine12experimental5SliceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #41
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #41
   %275 = icmp ugt i64 %274, %.01220.i
   br i1 %275, label %.thread.i, label %277
 
-.thread.i:                                        ; preds = %.lr.ph.i48
+.thread.i:                                        ; preds = %.lr.ph.i50
   %276 = sub nuw i64 %274, %.01220.i
   store i64 %276, ptr %24, align 8, !tbaa !16
   br label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit
 
-277:                                              ; preds = %.lr.ph.i48
+277:                                              ; preds = %.lr.ph.i50
   %278 = sub nuw i64 %.01220.i, %274
-  %.not.i50 = icmp eq i64 %278, 0
-  br i1 %.not.i50, label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit, label %.lr.ph.i48
+  %.not.i52 = icmp eq i64 %278, 0
+  br i1 %.not.i52, label %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit, label %.lr.ph.i50
 
 _ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit: ; preds = %277, %264, %.thread.i
   %279 = load i64, ptr %23, align 8, !tbaa !3
@@ -4740,13 +4740,13 @@ _ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForByte
   %281 = icmp eq i64 %279, %280
   br i1 %281, label %.loopexit, label %43, !llvm.loop !292
 
-.loopexit:                                        ; preds = %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit47, %220
-  %.018 = phi i1 [ false, %220 ], [ true, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit47 ], [ true, %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit ]
+.loopexit:                                        ; preds = %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit49, %220
+  %.020 = phi i1 [ false, %220 ], [ true, %_ZN17grpc_event_engine12experimental17PosixEndpointImpl27TcpShutdownTracedBufferListEv.exit49 ], [ true, %_ZN17grpc_event_engine12experimental21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm.exit ]
   call void @llvm.lifetime.end.p0(i64 4160, ptr nonnull %12) #41
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #41
-  ret i1 %.018
+  ret i1 %.020
 
 282:                                              ; preds = %262, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %263, %262 ]
@@ -9539,8 +9539,8 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp ugt i64 %9, 1
-  %or.cond = select i1 %7, i1 %.not.i, i1 false
-  br i1 %or.cond, label %10, label %.thread
+  %or.cond57 = select i1 %7, i1 %.not.i, i1 false
+  br i1 %or.cond57, label %10, label %.thread
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9559,7 +9559,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %21 = phi i8 [ %20, %10 ], [ -128, %2 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #41
   %22 = zext i1 %7 to i8
-  %23 = zext i1 %or.cond to i8
+  %23 = zext i1 %or.cond57 to i8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %5, ptr %24, align 8, !tbaa !410
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -9579,9 +9579,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   store ptr %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !129
   store i64 %1, ptr %0, align 8, !tbaa !274
   %31 = call noundef zeroext i1 @_ZN4absl12lts_2024072218container_internal19HashSetResizeHelper15InitializeSlotsISaIcELm16ELb1ELb1ELm8EEEbRNS1_12CommonFieldsET_NS1_6ctrl_tEmm(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4, i8 noundef signext %21, i64 noundef 4, i64 noundef 16)
-  %.not31 = xor i1 %7, true
-  %brmerge = select i1 %.not31, i1 true, i1 %.not.i
-  br i1 %brmerge, label %32, label %140
+  %.not = xor i1 %7, true
+  %or.cond = select i1 %.not, i1 true, i1 %.not.i
+  br i1 %or.cond, label %32, label %140
 
 32:                                               ; preds = %.thread
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !129
@@ -9609,7 +9609,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !419
   %52 = icmp slt i8 %51, -1
-  br i1 %52, label %.thread54, label %.preheader.i.i
+  br i1 %52, label %.thread55, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %34
   %53 = load <16 x i8>, ptr %50, align 1, !tbaa !129
@@ -9625,7 +9625,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %57 = zext nneg i16 %56 to i64
   %58 = add i64 %.sroa.5.0.lcssa.i.i, %57
   %59 = and i64 %58, %44
-  br label %.thread54
+  br label %.thread55
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.sroa.12.028.i.i = phi i64 [ %60, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
@@ -9640,7 +9640,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %.not.i.i = icmp eq i16 %66, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %.thread.i.i, !llvm.loop !421
 
-.thread54:                                        ; preds = %.thread.i.i, %34
+.thread55:                                        ; preds = %.thread.i.i, %34
   %.sroa.011.0.i.i = phi i64 [ %49, %34 ], [ %59, %.thread.i.i ]
   %67 = trunc i128 %41 to i8
   %68 = and i8 %67, 127
@@ -9659,20 +9659,20 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 76:                                               ; preds = %33
   %.sroa.0.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !129
   %77 = load i64, ptr %24, align 8, !tbaa !410
-  %.not60 = icmp eq i64 %77, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph
+  %.not3162 = icmp eq i64 %77, 0
+  br i1 %.not3162, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %76, %126
   %78 = phi i64 [ %127, %126 ], [ %77, %76 ]
-  %.062 = phi i64 [ %128, %126 ], [ 0, %76 ]
+  %.064 = phi i64 [ %128, %126 ], [ 0, %76 ]
   %79 = load ptr, ptr %3, align 8, !tbaa !129
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %.062
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %.064
   %81 = load i8, ptr %80, align 1, !tbaa !419
   %82 = icmp sgt i8 %81, -1
   br i1 %82, label %83, label %126
 
 83:                                               ; preds = %.lr.ph
-  %84 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i, i64 %.062
+  %84 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i, i64 %.064
   %85 = load i32, ptr %84, align 4, !tbaa !122
   %86 = zext i32 %85 to i64
   %87 = add i64 %86, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
@@ -9691,59 +9691,59 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !419
   %102 = icmp slt i8 %101, -1
-  br i1 %102, label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIjS7_EEE_clESO_.exit44, label %.preheader.i.i32
+  br i1 %102, label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIjS7_EEE_clESO_.exit45, label %.preheader.i.i33
 
-.preheader.i.i32:                                 ; preds = %83
+.preheader.i.i33:                                 ; preds = %83
   %103 = load <16 x i8>, ptr %100, align 1, !tbaa !129
   %104 = icmp slt <16 x i8> %103, splat (i8 -1)
   %105 = bitcast <16 x i1> %104 to i16
-  %.not26.i.i33 = icmp eq i16 %105, 0
-  br i1 %.not26.i.i33, label %.lr.ph.i.i40, label %.thread.i.i34
+  %.not26.i.i34 = icmp eq i16 %105, 0
+  br i1 %.not26.i.i34, label %.lr.ph.i.i41, label %.thread.i.i35
 
-.thread.i.i34:                                    ; preds = %.lr.ph.i.i40, %.preheader.i.i32
-  %.sroa.5.0.lcssa.i.i35 = phi i64 [ %99, %.preheader.i.i32 ], [ %112, %.lr.ph.i.i40 ]
-  %.lcssa.i.i37 = phi i16 [ %105, %.preheader.i.i32 ], [ %116, %.lr.ph.i.i40 ]
-  %106 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i37, i1 true)
+.thread.i.i35:                                    ; preds = %.lr.ph.i.i41, %.preheader.i.i33
+  %.sroa.5.0.lcssa.i.i36 = phi i64 [ %99, %.preheader.i.i33 ], [ %112, %.lr.ph.i.i41 ]
+  %.lcssa.i.i38 = phi i16 [ %105, %.preheader.i.i33 ], [ %116, %.lr.ph.i.i41 ]
+  %106 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i38, i1 true)
   %107 = zext nneg i16 %106 to i64
-  %108 = add i64 %.sroa.5.0.lcssa.i.i35, %107
+  %108 = add i64 %.sroa.5.0.lcssa.i.i36, %107
   %109 = and i64 %108, %94
-  br label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIjS7_EEE_clESO_.exit44
+  br label %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIjS7_EEE_clESO_.exit45
 
-.lr.ph.i.i40:                                     ; preds = %.preheader.i.i32, %.lr.ph.i.i40
-  %.sroa.12.028.i.i41 = phi i64 [ %110, %.lr.ph.i.i40 ], [ 0, %.preheader.i.i32 ]
-  %.sroa.5.027.i.i42 = phi i64 [ %112, %.lr.ph.i.i40 ], [ %99, %.preheader.i.i32 ]
-  %110 = add i64 %.sroa.12.028.i.i41, 16
-  %111 = add i64 %110, %.sroa.5.027.i.i42
+.lr.ph.i.i41:                                     ; preds = %.preheader.i.i33, %.lr.ph.i.i41
+  %.sroa.12.028.i.i42 = phi i64 [ %110, %.lr.ph.i.i41 ], [ 0, %.preheader.i.i33 ]
+  %.sroa.5.027.i.i43 = phi i64 [ %112, %.lr.ph.i.i41 ], [ %99, %.preheader.i.i33 ]
+  %110 = add i64 %.sroa.12.028.i.i42, 16
+  %111 = add i64 %110, %.sroa.5.027.i.i43
   %112 = and i64 %111, %94
   %113 = getelementptr inbounds nuw i8, ptr %93, i64 %112
   %114 = load <16 x i8>, ptr %113, align 1, !tbaa !129
   %115 = icmp slt <16 x i8> %114, splat (i8 -1)
   %116 = bitcast <16 x i1> %115 to i16
-  %.not.i.i43 = icmp eq i16 %116, 0
-  br i1 %.not.i.i43, label %.lr.ph.i.i40, label %.thread.i.i34, !llvm.loop !421
+  %.not.i.i44 = icmp eq i16 %116, 0
+  br i1 %.not.i.i44, label %.lr.ph.i.i41, label %.thread.i.i35, !llvm.loop !421
 
-_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIjS7_EEE_clESO_.exit44: ; preds = %83, %.thread.i.i34
-  %.sroa.011.0.i.i38 = phi i64 [ %99, %83 ], [ %109, %.thread.i.i34 ]
+_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIjS7_EEE_clESO_.exit45: ; preds = %83, %.thread.i.i35
+  %.sroa.011.0.i.i39 = phi i64 [ %99, %83 ], [ %109, %.thread.i.i35 ]
   %117 = trunc i128 %91 to i8
   %118 = and i8 %117, 127
-  %119 = getelementptr inbounds nuw i8, ptr %93, i64 %.sroa.011.0.i.i38
+  %119 = getelementptr inbounds nuw i8, ptr %93, i64 %.sroa.011.0.i.i39
   store i8 %118, ptr %119, align 1, !tbaa !419
-  %120 = add i64 %.sroa.011.0.i.i38, -15
+  %120 = add i64 %.sroa.011.0.i.i39, -15
   %121 = and i64 %120, %94
   %122 = and i64 %94, 15
   %123 = getelementptr i8, ptr %93, i64 %121
   %124 = getelementptr i8, ptr %123, i64 %122
   store i8 %118, ptr %124, align 1, !tbaa !419
-  %125 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i38
+  %125 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %125, ptr noundef nonnull align 1 dereferenceable(16) %84, i64 16, i1 false)
   %.pre = load i64, ptr %24, align 8, !tbaa !410
   br label %126
 
-126:                                              ; preds = %.lr.ph, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIjS7_EEE_clESO_.exit44
-  %127 = phi i64 [ %.pre, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIjS7_EEE_clESO_.exit44 ], [ %78, %.lr.ph ]
-  %128 = add i64 %.062, 1
-  %.not = icmp eq i64 %128, %127
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !425
+126:                                              ; preds = %.lr.ph, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIjS7_EEE_clESO_.exit45
+  %127 = phi i64 [ %.pre, %_ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjPN17grpc_event_engine12experimental21TcpZerocopySendRecordEEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS7_EEE11resize_implERNS1_12CommonFieldsEmNS1_20HashtablezInfoHandleEENKUlPNS1_13map_slot_typeIjS7_EEE_clESO_.exit45 ], [ %78, %.lr.ph ]
+  %128 = add i64 %.064, 1
+  %.not31 = icmp eq i64 %128, %127
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !425
 
 ._crit_edge:                                      ; preds = %126, %76
   %129 = phi i64 [ 0, %76 ], [ %127, %126 ]
@@ -9761,7 +9761,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolic
   call void @_ZdlPvm(ptr noundef nonnull %137, i64 noundef %139) #45
   br label %140
 
-140:                                              ; preds = %._crit_edge, %32, %.thread54, %.thread
+140:                                              ; preds = %._crit_edge, %32, %.thread55, %.thread
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #41
   ret void
 }
@@ -9804,8 +9804,8 @@ _ZN4absl12lts_2024072218container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit: ; p
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %31 = load i8, ptr %30, align 1, !tbaa !414, !range !88, !noundef !130
   %32 = trunc nuw i8 %31 to i1
-  %brmerge.demorgan = and i1 %29, %32
-  br i1 %brmerge.demorgan, label %33, label %38
+  %or.cond = and i1 %29, %32
+  br i1 %or.cond, label %33, label %38
 
 33:                                               ; preds = %_ZN4absl12lts_2024072218container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit
   tail call void @_ZN4absl12lts_2024072218container_internal19HashSetResizeHelper24InitControlBytesAfterSooEPNS1_6ctrl_tES3_m(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull %15, i8 noundef signext %3, i64 noundef %7)

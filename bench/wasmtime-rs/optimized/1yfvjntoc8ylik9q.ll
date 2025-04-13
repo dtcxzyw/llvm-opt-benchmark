@@ -16,64 +16,64 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   invoke void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7a638e89d2ceb7ceE"(ptr nonnull align 8 %5, ptr align 8 %1)
-          to label %9 unwind label %14
+          to label %9 unwind label %12
 
 9:                                                ; preds = %8, %2
   %10 = load i64, ptr %0, align 8, !range !4, !noundef !3
-  %.not6 = icmp eq i64 %10, -9223372036854775807
-  br i1 %.not6, label %20, label %11
+  %.not13 = icmp eq i64 %10, -9223372036854775807
+  br i1 %.not13, label %16, label %11
 
 11:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @_ZN4core4iter6traits8iterator8Iterator4fold17hea471c1face4dd27E(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br label %.thread17
+  br label %.thread20
 
-12:                                               ; preds = %21, %14
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %15, %14 ]
-  %13 = load i64, ptr %0, align 8, !range !4, !noundef !3
-  %.not8 = icmp eq i64 %13, -9223372036854775807
-  br i1 %.not8, label %23, label %25
-
-14:                                               ; preds = %8
-  %15 = landingpad { ptr, i32 }
+12:                                               ; preds = %8
+  %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr560drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$GT$$C$cranelift_isle..codegen..Codegen..generate_trait_sig..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$alloc..string..String$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h20e606a9afb62e18E"(ptr align 8 %1) #5
-          to label %12 unwind label %16
+          to label %23 unwind label %14
 
-16:                                               ; preds = %25, %14
-  %17 = landingpad { ptr, i32 }
+14:                                               ; preds = %25, %12
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #6
   unreachable
 
-18:                                               ; preds = %20
-  %19 = load i64, ptr %0, align 8, !range !4, !noundef !3
-  %.not9 = icmp eq i64 %19, -9223372036854775807
-  br i1 %.not9, label %.thread17, label %24
-
-20:                                               ; preds = %9
+16:                                               ; preds = %9
   invoke void @"_ZN4core3ptr560drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$cranelift_isle..sema..TypeId$GT$$GT$$C$cranelift_isle..codegen..Codegen..generate_trait_sig..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$alloc..string..String$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h20e606a9afb62e18E"(ptr align 8 %1)
-          to label %18 unwind label %21
+          to label %19 unwind label %17
 
-21:                                               ; preds = %20
-  %22 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           cleanup
-  br label %12
+  br label %23
 
-23:                                               ; preds = %12, %25
+19:                                               ; preds = %16
+  %20 = load i64, ptr %0, align 8, !range !4, !noundef !3
+  %.not28 = icmp eq i64 %20, -9223372036854775807
+  br i1 %.not28, label %.thread20, label %22
+
+21:                                               ; preds = %25, %23
   resume { ptr, i32 } %.pn
 
-.thread17:                                        ; preds = %11, %24, %18
+.thread20:                                        ; preds = %11, %22, %19
   ret void
 
-24:                                               ; preds = %18
+22:                                               ; preds = %19
   call void @"_ZN4core3ptr72drop_in_place$LT$core..option..IntoIter$LT$alloc..string..String$GT$$GT$17h06b00faa91fcb96cE"(ptr nonnull align 8 %0)
-  br label %.thread17
+  br label %.thread20
 
-25:                                               ; preds = %12
+23:                                               ; preds = %12, %17
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %13, %12 ]
+  %24 = load i64, ptr %0, align 8, !range !4, !noundef !3
+  %.not27 = icmp eq i64 %24, -9223372036854775807
+  br i1 %.not27, label %21, label %25
+
+25:                                               ; preds = %23
   invoke void @"_ZN4core3ptr72drop_in_place$LT$core..option..IntoIter$LT$alloc..string..String$GT$$GT$17h06b00faa91fcb96cE"(ptr nonnull align 8 %0) #5
-          to label %23 unwind label %16
+          to label %21 unwind label %14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -188,19 +188,19 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %51 = icmp eq i64 %41, %50
   %52 = icmp ult i64 %36, %7
   %53 = select i1 %51, i1 true, i1 %52
-  %or.cond120 = select i1 %48, i1 %53, i1 false
+  %or.cond121 = select i1 %48, i1 %53, i1 false
   %54 = icmp ult i64 %34, %4
-  %or.cond119 = select i1 %51, i1 %54, i1 false
-  %or.cond121 = select i1 %or.cond120, i1 true, i1 %or.cond119
-  br i1 %or.cond121, label %.thread, label %.critedge
+  %or.cond120 = select i1 %51, i1 %54, i1 false
+  %or.cond122 = select i1 %or.cond121, i1 true, i1 %or.cond120
+  br i1 %or.cond122, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %43, %11
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %56 = load i8, ptr %55, align 8, !tbaa !31, !range !37, !noundef !38
   %57 = trunc nuw i8 %56 to i1
   %58 = icmp eq i64 %36, %13
-  %or.cond.not = select i1 %57, i1 true, i1 %58
-  br i1 %or.cond.not, label %66, label %59
+  %or.cond4.not = select i1 %57, i1 true, i1 %58
+  br i1 %or.cond4.not, label %66, label %59
 
 59:                                               ; preds = %.critedge
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -250,13 +250,13 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
 86:                                               ; preds = %91, %84
   %87 = phi i64 [ %92, %91 ], [ %.promoted, %84 ]
   %88 = and i64 %87, 3
-  %.not110 = icmp eq i64 %88, 0
-  br i1 %.not110, label %96, label %89
+  %.not112 = icmp eq i64 %88, 0
+  br i1 %.not112, label %96, label %89
 
 89:                                               ; preds = %86
   %90 = load i64, ptr %3, align 8, !tbaa !17
-  %.not113 = icmp ult i64 %90, %4
-  br i1 %.not113, label %91, label %.thread
+  %.not115 = icmp ult i64 %90, %4
+  br i1 %.not115, label %91, label %.thread
 
 91:                                               ; preds = %89
   %92 = add i64 %87, 1
@@ -265,8 +265,8 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   store i64 %93, ptr %3, align 8, !tbaa !17
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 %90
   %95 = load i8, ptr %94, align 1, !tbaa !39
-  %.not114 = icmp eq i8 %95, 0
-  br i1 %.not114, label %86, label %.thread, !llvm.loop !40
+  %.not116 = icmp eq i8 %95, 0
+  br i1 %.not116, label %86, label %.thread, !llvm.loop !40
 
 96:                                               ; preds = %86
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -316,15 +316,15 @@ define internal i32 @block_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load i32, ptr %127, align 8, !tbaa !24
   %129 = tail call zeroext i8 @lzma_check_is_supported(i32 noundef %128) #10
-  %.not111 = icmp eq i8 %129, 0
-  br i1 %.not111, label %133, label %130
+  %.not113 = icmp eq i8 %129, 0
+  br i1 %.not113, label %133, label %130
 
 130:                                              ; preds = %125
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 40
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %bcmp = tail call i32 @bcmp(ptr nonnull %131, ptr nonnull %132, i64 %115)
-  %.not112 = icmp eq i32 %bcmp, 0
-  br i1 %.not112, label %133, label %.thread
+  %.not114 = icmp eq i32 %bcmp, 0
+  br i1 %.not114, label %133, label %.thread
 
 133:                                              ; preds = %130, %125, %121
   br label %.thread

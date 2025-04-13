@@ -913,220 +913,222 @@ define dso_local noundef zeroext i1 @_bt_parallel_seize(ptr noundef readonly cap
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 22
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
   br label %.split
 
 .split.us.preheader:                              ; preds = %4
   store i8 0, ptr %13, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 21
-  store i8 0, ptr %26, align 1
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 22
-  store i8 0, ptr %27, align 2
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %36 = getelementptr inbounds nuw i8, ptr %30, i64 28
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 21
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 22
-  %40 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 21
+  store i8 0, ptr %27, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 22
+  store i8 0, ptr %28, align 2
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 21
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 22
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 16
   br label %.split.us
 
-.split.us:                                        ; preds = %.split.us.preheader, %69
-  %41 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %31, i8 1, ptr nonnull elementtype(i8) %31) #8, !srcloc !10
-  %.not.us = icmp eq i8 %41, 0
-  br i1 %.not.us, label %44, label %42
+.split.us:                                        ; preds = %.split.us.preheader, %.fold.split.us
+  %43 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %32, i8 1, ptr nonnull elementtype(i8) %32) #8, !srcloc !10
+  %.not62.us = icmp eq i8 %43, 0
+  br i1 %.not62.us, label %46, label %44
 
-42:                                               ; preds = %.split.us
-  %43 = tail call i32 @s_lock(ptr noundef nonnull %31, ptr noundef nonnull @.str, i32 noundef 655, ptr noundef nonnull @__func__._bt_parallel_seize) #8
-  br label %44
+44:                                               ; preds = %.split.us
+  %45 = tail call i32 @s_lock(ptr noundef nonnull %32, ptr noundef nonnull @.str, i32 noundef 655, ptr noundef nonnull @__func__._bt_parallel_seize) #8
+  br label %46
 
-44:                                               ; preds = %42, %.split.us
-  %45 = load i32, ptr %32, align 4
-  switch i32 %45, label %_bt_parallel_done.exit.critedge [
-    i32 4, label %.loopexit75.loopexit
-    i32 3, label %66
-    i32 1, label %46
-    i32 2, label %69
+46:                                               ; preds = %44, %.split.us
+  %47 = load i32, ptr %33, align 4
+  switch i32 %47, label %..thread.us_crit_edge [
+    i32 4, label %.thread72
+    i32 3, label %68
+    i32 1, label %48
+    i32 2, label %.fold.split.us
   ]
 
-46:                                               ; preds = %44
-  store i32 2, ptr %32, align 4
-  %47 = load i32, ptr %33, align 8
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph.us, label %.loopexit.us
+..thread.us_crit_edge:                            ; preds = %46
+  %.pre70 = load i32, ptr %31, align 4
+  br label %.thread.us
 
-.lr.ph.us:                                        ; preds = %46, %.lr.ph.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 0, %46 ]
-  %49 = load ptr, ptr %34, align 8
-  %50 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %49, i64 %indvars.iv
+48:                                               ; preds = %46
+  store i32 2, ptr %33, align 4
+  %49 = load i32, ptr %34, align 8
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %.lr.ph.us, label %.loopexit.us
+
+.lr.ph.us:                                        ; preds = %48, %.lr.ph.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 0, %48 ]
   %51 = load ptr, ptr %35, align 8
-  %52 = load i32, ptr %50, align 8
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds nuw [0 x i32], ptr %36, i64 0, i64 %indvars.iv
-  %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 %55, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = sext i32 %55 to i64
-  %60 = getelementptr inbounds i64, ptr %58, i64 %59
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds %struct.ScanKeyData, ptr %51, i64 %53, i32 6
-  store i64 %61, ptr %62, align 8
+  %52 = getelementptr inbounds nuw %struct.BTArrayKeyInfo, ptr %51, i64 %indvars.iv
+  %53 = load ptr, ptr %36, align 8
+  %54 = load i32, ptr %52, align 8
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %indvars.iv
+  %57 = load i32, ptr %56, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  store i32 %57, ptr %58, align 4
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %60 = load ptr, ptr %59, align 8
+  %61 = sext i32 %57 to i64
+  %62 = getelementptr inbounds i64, ptr %60, i64 %61
+  %63 = load i64, ptr %62, align 8
+  %64 = getelementptr inbounds %struct.ScanKeyData, ptr %53, i64 %55, i32 6
+  store i64 %63, ptr %64, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %63 = load i32, ptr %33, align 8
-  %64 = sext i32 %63 to i64
-  %65 = icmp slt i64 %indvars.iv.next, %64
-  br i1 %65, label %.lr.ph.us, label %.loopexit.us, !llvm.loop !12
+  %65 = load i32, ptr %34, align 8
+  %66 = sext i32 %65 to i64
+  %67 = icmp slt i64 %indvars.iv.next, %66
+  br i1 %67, label %.lr.ph.us, label %.loopexit.us, !llvm.loop !12
 
-66:                                               ; preds = %44
-  %67 = load i32, ptr %30, align 4
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.critedge, label %_bt_parallel_done.exit.critedge
+68:                                               ; preds = %46
+  %69 = load i32, ptr %31, align 4
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %.thread72, label %.thread.us
 
-69:                                               ; preds = %44
+.thread.us:                                       ; preds = %..thread.us_crit_edge, %68
+  %71 = phi i32 [ %.pre70, %..thread.us_crit_edge ], [ %69, %68 ]
+  store i32 2, ptr %33, align 4
+  store i32 %71, ptr %1, align 4
+  %72 = load i32, ptr %41, align 4
+  store i32 %72, ptr %2, align 4
+  br label %.thread72
+
+.thread72:                                        ; preds = %46, %68, %.thread.us
+  %.159.us.ph = phi i1 [ true, %68 ], [ false, %.thread.us ], [ false, %46 ]
+  %.257.us.ph = phi i1 [ false, %68 ], [ true, %.thread.us ], [ false, %46 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
-  store i8 0, ptr %31, align 4
-  tail call void @ConditionVariableSleep(ptr noundef nonnull %40, i32 noundef 134217735) #8
+  store i8 0, ptr %32, align 4
+  %73 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
+  br i1 %.159.us.ph, label %88, label %_bt_parallel_done.exit
+
+.fold.split.us:                                   ; preds = %46
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
+  store i8 0, ptr %32, align 4
+  tail call void @ConditionVariableSleep(ptr noundef nonnull %42, i32 noundef 134217735) #8
   br label %.split.us
 
-.loopexit.us:                                     ; preds = %.lr.ph.us, %46
-  store i8 1, ptr %37, align 4
-  store i8 0, ptr %38, align 1
-  store i8 0, ptr %39, align 2
+.loopexit.us:                                     ; preds = %.lr.ph.us, %48
+  store i8 1, ptr %38, align 4
+  store i8 0, ptr %39, align 1
+  store i8 0, ptr %40, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
-  store i8 0, ptr %31, align 4
-  %70 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
+  store i8 0, ptr %32, align 4
+  %74 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
   br label %_bt_parallel_done.exit
 
-.split:                                           ; preds = %.split.preheader, %80
-  %71 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %20, i8 1, ptr nonnull elementtype(i8) %20) #8, !srcloc !10
-  %.not = icmp eq i8 %71, 0
-  br i1 %.not, label %74, label %72
+.split:                                           ; preds = %.split.preheader, %86
+  %75 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %20, i8 1, ptr nonnull elementtype(i8) %20) #8, !srcloc !10
+  %.not62 = icmp eq i8 %75, 0
+  br i1 %.not62, label %78, label %76
 
-72:                                               ; preds = %.split
-  %73 = tail call i32 @s_lock(ptr noundef nonnull %20, ptr noundef nonnull @.str, i32 noundef 655, ptr noundef nonnull @__func__._bt_parallel_seize) #8
-  br label %74
+76:                                               ; preds = %.split
+  %77 = tail call i32 @s_lock(ptr noundef nonnull %20, ptr noundef nonnull @.str, i32 noundef 655, ptr noundef nonnull @__func__._bt_parallel_seize) #8
+  br label %78
 
-74:                                               ; preds = %.split, %72
-  %75 = load i32, ptr %21, align 4
-  switch i32 %75, label %_bt_parallel_done.exit.critedge [
-    i32 4, label %.loopexit75
-    i32 3, label %76
-    i32 1, label %.thread94
-    i32 2, label %80
+78:                                               ; preds = %.split, %76
+  %79 = load i32, ptr %21, align 4
+  switch i32 %79, label %..thread_crit_edge [
+    i32 4, label %.split66.us.loopexit68
+    i32 3, label %80
+    i32 1, label %83
+    i32 2, label %86
   ]
 
-76:                                               ; preds = %74
-  %77 = load i32, ptr %19, align 4
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %.critedge107, label %_bt_parallel_done.exit.critedge
+..thread_crit_edge:                               ; preds = %78
+  %.pre = load i32, ptr %19, align 4
+  br label %.thread
 
-.thread94:                                        ; preds = %74
+80:                                               ; preds = %78
+  %81 = load i32, ptr %19, align 4
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %.split66.us.loopexit68, label %.thread
+
+83:                                               ; preds = %78
   store i8 1, ptr %22, align 4
   store i8 0, ptr %23, align 1
   store i8 0, ptr %24, align 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
-  store i8 0, ptr %20, align 4
-  %79 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
-  br label %_bt_parallel_done.exit
+  br label %.split66.us.loopexit68
 
-80:                                               ; preds = %74
+.thread:                                          ; preds = %..thread_crit_edge, %80
+  %84 = phi i32 [ %.pre, %..thread_crit_edge ], [ %81, %80 ]
+  store i32 2, ptr %21, align 4
+  store i32 %84, ptr %1, align 4
+  %85 = load i32, ptr %25, align 4
+  store i32 %85, ptr %2, align 4
+  br label %.split66.us.loopexit68
+
+86:                                               ; preds = %78
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   store i8 0, ptr %20, align 4
-  tail call void @ConditionVariableSleep(ptr noundef nonnull %25, i32 noundef 134217735) #8
+  tail call void @ConditionVariableSleep(ptr noundef nonnull %26, i32 noundef 134217735) #8
   br label %.split
 
-.loopexit75.loopexit:                             ; preds = %44
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
-  store i8 0, ptr %31, align 4
-  %81 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
-  br label %_bt_parallel_done.exit
-
-.loopexit75:                                      ; preds = %74
+.split66.us.loopexit68:                           ; preds = %78, %83, %80, %.thread
+  %.159.ph = phi i1 [ true, %80 ], [ false, %.thread ], [ false, %83 ], [ false, %78 ]
+  %.257.ph = phi i1 [ false, %80 ], [ true, %.thread ], [ false, %83 ], [ false, %78 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   store i8 0, ptr %20, align 4
-  %82 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
-  br label %_bt_parallel_done.exit
+  %87 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
+  br i1 %.159.ph, label %88, label %_bt_parallel_done.exit
 
-.critedge:                                        ; preds = %66
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
-  store i8 0, ptr %31, align 4
-  br label %83
+88:                                               ; preds = %.thread72, %.split66.us.loopexit68
+  %.us-phi6787 = phi i1 [ %.257.ph, %.split66.us.loopexit68 ], [ %.257.us.ph, %.thread72 ]
+  %89 = load ptr, ptr %7, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %_bt_parallel_done.exit, label %91
 
-.critedge107:                                     ; preds = %76
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
-  store i8 0, ptr %20, align 4
-  br label %83
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %5, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 20
+  %94 = load i8, ptr %93, align 4, !range !4, !noundef !5
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %_bt_parallel_done.exit, label %96
 
-83:                                               ; preds = %.critedge107, %.critedge
-  %84 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
-  %85 = load ptr, ptr %7, align 8
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %_bt_parallel_done.exit, label %87
+96:                                               ; preds = %91
+  %97 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %98 = load i64, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %89, i64 %98
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 12
+  %101 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %100, i8 1, ptr nonnull elementtype(i8) %100) #8, !srcloc !10
+  %.not.i = icmp eq i8 %101, 0
+  br i1 %.not.i, label %104, label %102
 
-87:                                               ; preds = %83
-  %88 = load ptr, ptr %5, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 20
-  %90 = load i8, ptr %89, align 4, !range !4, !noundef !5
-  %91 = trunc nuw i8 %90 to i1
-  br i1 %91, label %_bt_parallel_done.exit, label %92
+102:                                              ; preds = %96
+  %103 = tail call i32 @s_lock(ptr noundef nonnull %100, ptr noundef nonnull @.str, i32 noundef 804, ptr noundef nonnull @__func__._bt_parallel_done) #8
+  br label %104
 
-92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %85, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  %97 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %96, i8 1, ptr nonnull elementtype(i8) %96) #8, !srcloc !10
-  %.not.i = icmp eq i8 %97, 0
-  br i1 %.not.i, label %100, label %98
+104:                                              ; preds = %102, %96
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %106 = load i32, ptr %105, align 4
+  %.not13.not.i = icmp eq i32 %106, 4
+  br i1 %.not13.not.i, label %.critedge.i, label %107
 
-98:                                               ; preds = %92
-  %99 = tail call i32 @s_lock(ptr noundef nonnull %96, ptr noundef nonnull @.str, i32 noundef 804, ptr noundef nonnull @__func__._bt_parallel_done) #8
-  br label %100
-
-100:                                              ; preds = %98, %92
-  %101 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %102 = load i32, ptr %101, align 4
-  %.not13.not.i = icmp eq i32 %102, 4
-  br i1 %.not13.not.i, label %.critedge.i, label %103
-
-103:                                              ; preds = %100
-  store i32 4, ptr %101, align 4
+107:                                              ; preds = %104
+  store i32 4, ptr %105, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
-  store i8 0, ptr %96, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  tail call void @ConditionVariableBroadcast(ptr noundef nonnull %104) #8
+  store i8 0, ptr %100, align 4
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  tail call void @ConditionVariableBroadcast(ptr noundef nonnull %108) #8
   br label %_bt_parallel_done.exit
 
-.critedge.i:                                      ; preds = %100
+.critedge.i:                                      ; preds = %104
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
-  store i8 0, ptr %96, align 4
+  store i8 0, ptr %100, align 4
   br label %_bt_parallel_done.exit
 
-_bt_parallel_done.exit.critedge:                  ; preds = %74, %44, %76, %66
-  %.ph = phi ptr [ %21, %76 ], [ %32, %66 ], [ %32, %44 ], [ %21, %74 ]
-  %.ph105 = phi ptr [ %20, %76 ], [ %31, %66 ], [ %31, %44 ], [ %20, %74 ]
-  %.ph106 = phi ptr [ %19, %76 ], [ %30, %66 ], [ %30, %44 ], [ %19, %74 ]
-  store i32 2, ptr %.ph, align 4
-  %105 = load i32, ptr %.ph106, align 4
-  store i32 %105, ptr %1, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %.ph106, i64 4
-  %107 = load i32, ptr %106, align 4
-  store i32 %107, ptr %2, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
-  store i8 0, ptr %.ph105, align 4
-  %108 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
-  br label %_bt_parallel_done.exit
-
-_bt_parallel_done.exit:                           ; preds = %.loopexit75, %.loopexit75.loopexit, %_bt_parallel_done.exit.critedge, %.loopexit.us, %.thread94, %83, %87, %103, %.critedge.i, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %.critedge.i ], [ false, %103 ], [ false, %87 ], [ false, %83 ], [ false, %.loopexit75 ], [ true, %.loopexit.us ], [ false, %.loopexit75.loopexit ], [ false, %.thread94 ], [ true, %_bt_parallel_done.exit.critedge ]
+_bt_parallel_done.exit:                           ; preds = %.loopexit.us, %.thread72, %.split66.us.loopexit68, %.critedge.i, %107, %91, %88, %14
+  %.0 = phi i1 [ false, %14 ], [ true, %.loopexit.us ], [ %.us-phi6787, %88 ], [ %.us-phi6787, %91 ], [ %.us-phi6787, %107 ], [ %.us-phi6787, %.critedge.i ], [ %.257.ph, %.split66.us.loopexit68 ], [ %.257.us.ph, %.thread72 ]
   ret i1 %.0
 }
 

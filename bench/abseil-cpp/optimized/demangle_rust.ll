@@ -69,9 +69,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit: ; 
   %.not.i.i = icmp eq i8 %11, 95
   br i1 %.not.i.i, label %18, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-.lr.ph:                                           ; preds = %.critedge51.preheader.i, %.lr.ph361.i.backedge
-  %12 = phi i32 [ %176, %.lr.ph361.i.backedge ], [ %1000, %.critedge51.preheader.i ]
-  %.in = phi i32 [ %13, %.lr.ph361.i.backedge ], [ %.111.ph.i, %.critedge51.preheader.i ]
+.lr.ph:                                           ; preds = %.critedge51.preheader.i, %.lr.ph362.i.backedge
+  %12 = phi i32 [ %175, %.lr.ph362.i.backedge ], [ %996, %.critedge51.preheader.i ]
+  %.in = phi i32 [ %13, %.lr.ph362.i.backedge ], [ %.111.ph.i, %.critedge51.preheader.i ]
   %13 = add i32 %.in, 1
   %14 = add nsw i32 %12, -1
   store i32 %14, ptr %22, align 8, !tbaa !14
@@ -80,43 +80,43 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit: ; 
   %17 = load i8, ptr %16, align 1, !tbaa !13
   switch i8 %17, label %.critedge51.backedge.i [
     i8 0, label %28
-    i8 1, label %.loopexit237.loopexit.i
+    i8 1, label %.loopexit238.loopexit.i
     i8 4, label %70
     i8 5, label %74
     i8 6, label %101
     i8 7, label %105
     i8 8, label %121
-    i8 9, label %173
-    i8 10, label %197
-    i8 11, label %213
-    i8 2, label %245
-    i8 3, label %274
-    i8 12, label %331
-    i8 13, label %347
-    i8 14, label %375
-    i8 15, label %527
-    i8 16, label %560
-    i8 17, label %594
+    i8 9, label %172
+    i8 10, label %196
+    i8 11, label %212
+    i8 2, label %244
+    i8 3, label %273
+    i8 12, label %330
+    i8 13, label %346
+    i8 14, label %374
+    i8 15, label %524
+    i8 16, label %557
+    i8 17, label %591
     i8 18, label %.lr.ph._crit_edge
     i8 19, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit152.i
-    i8 20, label %689
-    i8 21, label %.loopexit238.i
-    i8 22, label %.loopexit238.i
-    i8 23, label %742
-    i8 24, label %775
-    i8 25, label %801
-    i8 26, label %903
-    i8 27, label %934
-    i8 28, label %.loopexit239.i
-    i8 29, label %.loopexit235.i
+    i8 20, label %686
+    i8 21, label %.loopexit239.i
+    i8 22, label %.loopexit239.i
+    i8 23, label %739
+    i8 24, label %772
+    i8 25, label %798
+    i8 26, label %900
+    i8 27, label %931
+    i8 28, label %.loopexit240.i
+    i8 29, label %.loopexit236.i
     i8 30, label %.loopexit.i
   ], !llvm.loop !15
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.pre325 = load ptr, ptr %6, align 8, !tbaa !4
-  %.pre326 = load i32, ptr %10, align 8, !tbaa !17
-  %.pre332 = sext i32 %.pre326 to i64
-  br label %625, !llvm.loop !15
+  %.pre326 = load ptr, ptr %6, align 8, !tbaa !4
+  %.pre327 = load i32, ptr %10, align 8, !tbaa !17
+  %.pre333 = sext i32 %.pre327 to i64
+  br label %622, !llvm.loop !15
 
 18:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -145,7 +145,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit: ; 
   %33 = and i8 %32, -33
   %34 = add i8 %33, -65
   %35 = icmp ult i8 %34, 26
-  br i1 %35, label %36, label %.loopexit237.i
+  br i1 %35, label %36, label %.loopexit238.i
 
 36:                                               ; preds = %28
   %37 = load i32, ptr %23, align 4, !tbaa !18
@@ -159,31 +159,31 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit: ; 
   store i8 1, ptr %29, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i: ; preds = %.lr.ph390.i, %976, %899, %738, %270, %241, %210, %169, %118, %40
-  %.010.be.i = phi i32 [ %.010.i, %976 ], [ %.515.i, %738 ], [ %13, %210 ], [ %13, %118 ], [ %13, %40 ], [ %.010.i, %899 ], [ %.010.i, %241 ], [ %.010.i, %270 ], [ %.010.i, %169 ], [ %.212.ph.i, %.lr.ph390.i ]
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i: ; preds = %.lr.ph391.i, %972, %896, %735, %269, %240, %209, %168, %118, %40
+  %.010.be.i = phi i32 [ %.010.i, %972 ], [ %.515.i, %735 ], [ %13, %209 ], [ %13, %118 ], [ %13, %40 ], [ %.010.i, %896 ], [ %.010.i, %240 ], [ %.010.i, %269 ], [ %.010.i, %168 ], [ %.212.ph.i, %.lr.ph391.i ]
   %.pre = load ptr, ptr %6, align 8, !tbaa !4
-  %.pre321 = load i32, ptr %10, align 8, !tbaa !17
+  %.pre322 = load i32, ptr %10, align 8, !tbaa !17
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
 
-.loopexit237.loopexit.i:                          ; preds = %.lr.ph
-  %.pre514.i = load ptr, ptr %6, align 8, !tbaa !4
-  %.pre515.i = load i32, ptr %10, align 8, !tbaa !17
-  %.pre516.i = sext i32 %.pre515.i to i64
-  br label %.loopexit237.i
+.loopexit238.loopexit.i:                          ; preds = %.lr.ph
+  %.pre515.i = load ptr, ptr %6, align 8, !tbaa !4
+  %.pre516.i = load i32, ptr %10, align 8, !tbaa !17
+  %.pre517.i = sext i32 %.pre516.i to i64
+  br label %.loopexit238.i
 
-.loopexit237.i:                                   ; preds = %28, %.loopexit237.loopexit.i
-  %.pre-phi517.i = phi i64 [ %.pre516.i, %.loopexit237.loopexit.i ], [ %30, %28 ]
-  %41 = phi i32 [ %.pre515.i, %.loopexit237.loopexit.i ], [ %.val.i, %28 ]
-  %42 = phi ptr [ %.pre514.i, %.loopexit237.loopexit.i ], [ %.val52.i, %28 ]
+.loopexit238.i:                                   ; preds = %28, %.loopexit238.loopexit.i
+  %.pre-phi518.i = phi i64 [ %.pre517.i, %.loopexit238.loopexit.i ], [ %30, %28 ]
+  %41 = phi i32 [ %.pre516.i, %.loopexit238.loopexit.i ], [ %.val.i, %28 ]
+  %42 = phi ptr [ %.pre515.i, %.loopexit238.loopexit.i ], [ %.val52.i, %28 ]
   %43 = add nsw i32 %41, 1
   store i32 %43, ptr %10, align 8, !tbaa !17
-  %44 = getelementptr inbounds i8, ptr %42, i64 %.pre-phi517.i
+  %44 = getelementptr inbounds i8, ptr %42, i64 %.pre-phi518.i
   %45 = load i8, ptr %44, align 1, !tbaa !13
   %46 = icmp ult i8 %45, 47
   br i1 %46, label %switch.lookup, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i, %21
-  %47 = phi i32 [ 2, %21 ], [ %.pre321, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i ]
+  %47 = phi i32 [ 2, %21 ], [ %.pre322, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i ]
   %48 = phi ptr [ %0, %21 ], [ %.pre, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i ]
   %.010.i = phi i32 [ 0, %21 ], [ %.010.be.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i ]
   %49 = add nsw i32 %47, 1
@@ -195,10 +195,10 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i: ; 
     i8 67, label %53
     i8 77, label %55
     i8 88, label %86
-    i8 89, label %178
-    i8 78, label %225
-    i8 73, label %896
-    i8 66, label %968
+    i8 89, label %177
+    i8 78, label %224
+    i8 73, label %893
+    i8 66, label %964
   ]
 
 53:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
@@ -239,7 +239,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i: ; 
   %73 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %15
   store i32 %12, ptr %22, align 8, !tbaa !14
   store i8 5, ptr %73, align 1, !tbaa !13
-  br label %.critedge232.preheader.i
+  br label %.critedge233.preheader.i
 
 74:                                               ; preds = %.lr.ph
   %75 = load i32, ptr %23, align 4, !tbaa !18
@@ -296,7 +296,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i: ; 
   %104 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %15
   store i32 %12, ptr %22, align 8, !tbaa !14
   store i8 7, ptr %104, align 1, !tbaa !13
-  br label %.critedge232.preheader.i
+  br label %.critedge233.preheader.i
 
 105:                                              ; preds = %.lr.ph
   %106 = load i32, ptr %23, align 4, !tbaa !18
@@ -309,8 +309,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i: ; 
   %111 = ptrtoint ptr %109 to i64
   %112 = ptrtoint ptr %110 to i64
   %113 = sub i64 %111, %112
-  %.not.i59 = icmp ult i64 %113, 5
-  br i1 %.not.i59, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %114
+  %.not.i60 = icmp ult i64 %113, 5
+  br i1 %.not.i60, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %114
 
 114:                                              ; preds = %108
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %110, ptr noundef nonnull align 1 dereferenceable(5) @.str.2, i64 5, i1 false)
@@ -351,11 +351,11 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i: ; 
   br label %.critedge51.backedge.i
 
 133:                                              ; preds = %98, %67
-  %.sink632.i = phi i32 [ %68, %67 ], [ %99, %98 ]
+  %.sink633.i = phi i32 [ %68, %67 ], [ %99, %98 ]
   %.sink.i = phi i8 [ 4, %67 ], [ 6, %98 ]
-  %134 = add nsw i32 %.sink632.i, 1
+  %134 = add nsw i32 %.sink633.i, 1
   store i32 %134, ptr %22, align 8, !tbaa !14
-  %135 = sext i32 %.sink632.i to i64
+  %135 = sext i32 %.sink633.i to i64
   %136 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %135
   store i8 %.sink.i, ptr %136, align 1, !tbaa !13
   %137 = load i32, ptr %23, align 4, !tbaa !18
@@ -367,7 +367,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i: ; 
   %142 = getelementptr inbounds i8, ptr %139, i64 %141
   %143 = load i8, ptr %142, align 1, !tbaa !13
   %.not.i.i.i = icmp eq i8 %143, 115
-  br i1 %.not.i.i.i, label %144, label %166
+  br i1 %.not.i.i.i, label %144, label %165
 
 144:                                              ; preds = %133
   %145 = add nsw i32 %140, 1
@@ -384,8 +384,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
   %151 = icmp ult i8 %150, 26
   %152 = add i8 %148, -48
   %153 = icmp ult i8 %152, 10
-  %or.cond25.i.i.i = or i1 %153, %151
-  br i1 %or.cond25.i.i.i, label %.critedge.i.i.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+  %or.cond28.i.i.i = or i1 %153, %151
+  br i1 %or.cond28.i.i.i, label %.critedge.i.i.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
 .thread.i.i:                                      ; preds = %144
   %154 = add nsw i32 %140, 2
@@ -408,1403 +408,1403 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i.i: ; preds = %.critedge.i.i.i
   %163 = icmp eq i8 %157, 95
-  br i1 %163, label %164, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+  br i1 %163, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-164:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i.i
-  %165 = add nsw i32 %155, 1
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i.i
+  %164 = add nsw i32 %155, 1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %164, %.thread.i.i
-  %.sink633.i = phi i32 [ %165, %164 ], [ %154, %.thread.i.i ]
-  store i32 %.sink633.i, ptr %10, align 8, !tbaa !17
-  br label %166
+.sink.split.i:                                    ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i.i, %.thread.i.i
+  %.sink634.i = phi i32 [ %164, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i.i ], [ %154, %.thread.i.i ]
+  store i32 %.sink634.i, ptr %10, align 8, !tbaa !17
+  br label %165
 
-166:                                              ; preds = %.sink.split.i, %133
-  %167 = load i32, ptr %22, align 8, !tbaa !14
-  %168 = icmp eq i32 %167, 256
-  br i1 %168, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %169
+165:                                              ; preds = %.sink.split.i, %133
+  %166 = load i32, ptr %22, align 8, !tbaa !14
+  %167 = icmp eq i32 %166, 256
+  br i1 %167, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %168
 
-169:                                              ; preds = %166
-  %170 = add nsw i32 %167, 1
-  store i32 %170, ptr %22, align 8, !tbaa !14
-  %171 = sext i32 %167 to i64
-  %172 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %171
-  store i8 9, ptr %172, align 1, !tbaa !13
+168:                                              ; preds = %165
+  %169 = add nsw i32 %166, 1
+  store i32 %169, ptr %22, align 8, !tbaa !14
+  %170 = sext i32 %166 to i64
+  %171 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %170
+  store i8 9, ptr %171, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
-173:                                              ; preds = %.lr.ph
-  %174 = load i32, ptr %23, align 4, !tbaa !18
-  %175 = add nsw i32 %174, -1
-  store i32 %175, ptr %23, align 4, !tbaa !18
+172:                                              ; preds = %.lr.ph
+  %173 = load i32, ptr %23, align 4, !tbaa !18
+  %174 = add nsw i32 %173, -1
+  store i32 %174, ptr %23, align 4, !tbaa !18
   br label %.critedge51.backedge.i
 
-.critedge51.backedge.i:                           ; preds = %.loopexit.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit.i, %935, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit185.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit181.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit165.i, %742, %689, %634, %610, %600, %576, %566, %543, %533, %384, %375, %356, %347, %222, %213, %173, %130, %121, %83, %74, %.lr.ph
+.critedge51.backedge.i:                           ; preds = %.loopexit.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit.i, %932, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit185.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit181.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit165.i, %739, %686, %631, %607, %597, %573, %563, %540, %530, %383, %374, %355, %346, %221, %212, %172, %130, %121, %83, %74, %.lr.ph
   %exitcond.not.old.old.old.i = icmp eq i32 %13, 131071
-  br i1 %exitcond.not.old.old.old.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.lr.ph361.i.backedge
+  br i1 %exitcond.not.old.old.old.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.lr.ph362.i.backedge
 
-.lr.ph361.i.backedge:                             ; preds = %.critedge51.backedge.i, %256, %285, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit
-  %176 = load i32, ptr %22, align 8, !tbaa !14
-  %177 = icmp sgt i32 %176, 0
-  br i1 %177, label %.lr.ph, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, !llvm.loop !20
+.lr.ph362.i.backedge:                             ; preds = %.critedge51.backedge.i, %255, %284, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit
+  %175 = load i32, ptr %22, align 8, !tbaa !14
+  %176 = icmp sgt i32 %175, 0
+  br i1 %176, label %.lr.ph, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, !llvm.loop !20
 
-178:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
-  %179 = load i32, ptr %23, align 4, !tbaa !18
-  %180 = icmp sgt i32 %179, 0
-  br i1 %180, label %190, label %181
+177:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
+  %178 = load i32, ptr %23, align 4, !tbaa !18
+  %179 = icmp sgt i32 %178, 0
+  br i1 %179, label %189, label %180
 
-181:                                              ; preds = %178
-  %182 = load ptr, ptr %8, align 8, !tbaa !12
-  %183 = load ptr, ptr %7, align 8, !tbaa !11
+180:                                              ; preds = %177
+  %181 = load ptr, ptr %8, align 8, !tbaa !12
+  %182 = load ptr, ptr %7, align 8, !tbaa !11
+  %183 = ptrtoint ptr %181 to i64
   %184 = ptrtoint ptr %182 to i64
-  %185 = ptrtoint ptr %183 to i64
-  %186 = sub i64 %184, %185
-  %.not.i76.i = icmp ult i64 %186, 2
-  br i1 %.not.i76.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %187
+  %185 = sub i64 %183, %184
+  %.not.i76.i = icmp ult i64 %185, 2
+  br i1 %.not.i76.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %186
 
-187:                                              ; preds = %181
-  store i16 60, ptr %183, align 1
-  %188 = load ptr, ptr %7, align 8, !tbaa !11
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 1
-  store ptr %189, ptr %7, align 8, !tbaa !11
-  br label %190
+186:                                              ; preds = %180
+  store i16 60, ptr %182, align 1
+  %187 = load ptr, ptr %7, align 8, !tbaa !11
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 1
+  store ptr %188, ptr %7, align 8, !tbaa !11
+  br label %189
 
-190:                                              ; preds = %187, %178
-  %191 = load i32, ptr %22, align 8, !tbaa !14
-  %192 = icmp eq i32 %191, 256
-  br i1 %192, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %193
+189:                                              ; preds = %186, %177
+  %190 = load i32, ptr %22, align 8, !tbaa !14
+  %191 = icmp eq i32 %190, 256
+  br i1 %191, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %192
 
-193:                                              ; preds = %190
-  %194 = add nsw i32 %191, 1
-  store i32 %194, ptr %22, align 8, !tbaa !14
-  %195 = sext i32 %191 to i64
-  %196 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %195
-  store i8 10, ptr %196, align 1, !tbaa !13
-  br label %.critedge232.preheader.i
+192:                                              ; preds = %189
+  %193 = add nsw i32 %190, 1
+  store i32 %193, ptr %22, align 8, !tbaa !14
+  %194 = sext i32 %190 to i64
+  %195 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %194
+  store i8 10, ptr %195, align 1, !tbaa !13
+  br label %.critedge233.preheader.i
 
-197:                                              ; preds = %.lr.ph
-  %198 = load i32, ptr %23, align 4, !tbaa !18
-  %199 = icmp sgt i32 %198, 0
-  br i1 %199, label %208, label %200
+196:                                              ; preds = %.lr.ph
+  %197 = load i32, ptr %23, align 4, !tbaa !18
+  %198 = icmp sgt i32 %197, 0
+  br i1 %198, label %207, label %199
 
-200:                                              ; preds = %197
-  %201 = load ptr, ptr %8, align 8, !tbaa !12
-  %202 = load ptr, ptr %7, align 8, !tbaa !11
+199:                                              ; preds = %196
+  %200 = load ptr, ptr %8, align 8, !tbaa !12
+  %201 = load ptr, ptr %7, align 8, !tbaa !11
+  %202 = ptrtoint ptr %200 to i64
   %203 = ptrtoint ptr %201 to i64
-  %204 = ptrtoint ptr %202 to i64
-  %205 = sub i64 %203, %204
-  %.not.i56 = icmp ult i64 %205, 5
-  br i1 %.not.i56, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %206
+  %204 = sub i64 %202, %203
+  %.not.i57 = icmp ult i64 %204, 5
+  br i1 %.not.i57, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %205
 
-206:                                              ; preds = %200
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %202, ptr noundef nonnull align 1 dereferenceable(5) @.str.2, i64 5, i1 false)
-  %207 = getelementptr inbounds nuw i8, ptr %202, i64 4
-  store ptr %207, ptr %7, align 8, !tbaa !11
-  br label %208
+205:                                              ; preds = %199
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %201, ptr noundef nonnull align 1 dereferenceable(5) @.str.2, i64 5, i1 false)
+  %206 = getelementptr inbounds nuw i8, ptr %201, i64 4
+  store ptr %206, ptr %7, align 8, !tbaa !11
+  br label %207
 
-208:                                              ; preds = %197, %206
-  %209 = icmp eq i32 %14, 256
-  br i1 %209, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %210
+207:                                              ; preds = %196, %205
+  %208 = icmp eq i32 %14, 256
+  br i1 %208, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %209
 
-210:                                              ; preds = %208
+209:                                              ; preds = %207
   store i32 %12, ptr %22, align 8, !tbaa !14
-  %211 = zext nneg i32 %14 to i64
-  %212 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %211
-  store i8 11, ptr %212, align 1, !tbaa !13
+  %210 = zext nneg i32 %14 to i64
+  %211 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %210
+  store i8 11, ptr %211, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
-213:                                              ; preds = %.lr.ph
-  %214 = load i32, ptr %23, align 4, !tbaa !18
-  %215 = icmp sgt i32 %214, 0
-  br i1 %215, label %.critedge51.backedge.i, label %216
+212:                                              ; preds = %.lr.ph
+  %213 = load i32, ptr %23, align 4, !tbaa !18
+  %214 = icmp sgt i32 %213, 0
+  br i1 %214, label %.critedge51.backedge.i, label %215
 
-216:                                              ; preds = %213
-  %217 = load ptr, ptr %8, align 8, !tbaa !12
-  %218 = load ptr, ptr %7, align 8, !tbaa !11
+215:                                              ; preds = %212
+  %216 = load ptr, ptr %8, align 8, !tbaa !12
+  %217 = load ptr, ptr %7, align 8, !tbaa !11
+  %218 = ptrtoint ptr %216 to i64
   %219 = ptrtoint ptr %217 to i64
-  %220 = ptrtoint ptr %218 to i64
-  %221 = sub i64 %219, %220
-  %.not.i79.i = icmp ult i64 %221, 2
-  br i1 %.not.i79.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %222
+  %220 = sub i64 %218, %219
+  %.not.i79.i = icmp ult i64 %220, 2
+  br i1 %.not.i79.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %221
 
-222:                                              ; preds = %216
-  store i16 62, ptr %218, align 1
-  %223 = load ptr, ptr %7, align 8, !tbaa !11
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 1
-  store ptr %224, ptr %7, align 8, !tbaa !11
+221:                                              ; preds = %215
+  store i16 62, ptr %217, align 1
+  %222 = load ptr, ptr %7, align 8, !tbaa !11
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 1
+  store ptr %223, ptr %7, align 8, !tbaa !11
   br label %.critedge51.backedge.i
 
-225:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
-  %226 = sext i32 %49 to i64
-  %227 = getelementptr inbounds i8, ptr %48, i64 %226
-  %228 = load i8, ptr %227, align 1, !tbaa !13
-  %229 = add i8 %228, -65
-  %230 = icmp ult i8 %229, 26
-  %231 = add nsw i32 %47, 2
-  store i32 %231, ptr %10, align 8, !tbaa !17
-  br i1 %230, label %232, label %263
+224:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
+  %225 = sext i32 %49 to i64
+  %226 = getelementptr inbounds i8, ptr %48, i64 %225
+  %227 = load i8, ptr %226, align 1, !tbaa !13
+  %228 = add i8 %227, -65
+  %229 = icmp ult i8 %228, 26
+  %230 = add nsw i32 %47, 2
+  store i32 %230, ptr %10, align 8, !tbaa !17
+  br i1 %229, label %231, label %262
 
-232:                                              ; preds = %225
-  %233 = load i32, ptr %24, align 4, !tbaa !21
-  %.not.i3 = icmp eq i32 %233, 64
-  br i1 %.not.i3, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %234
+231:                                              ; preds = %224
+  %232 = load i32, ptr %24, align 4, !tbaa !21
+  %.not.i3 = icmp eq i32 %232, 64
+  br i1 %.not.i3, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %233
 
-234:                                              ; preds = %232
-  %235 = load i8, ptr %227, align 1, !tbaa !13
-  %236 = add nsw i32 %233, 1
-  store i32 %236, ptr %24, align 4, !tbaa !21
-  %237 = sext i32 %233 to i64
-  %238 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 %237
-  store i8 %235, ptr %238, align 1, !tbaa !13
-  %239 = load i32, ptr %22, align 8, !tbaa !14
-  %240 = icmp eq i32 %239, 256
-  br i1 %240, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %241
+233:                                              ; preds = %231
+  %234 = load i8, ptr %226, align 1, !tbaa !13
+  %235 = add nsw i32 %232, 1
+  store i32 %235, ptr %24, align 4, !tbaa !21
+  %236 = sext i32 %232 to i64
+  %237 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 %236
+  store i8 %234, ptr %237, align 1, !tbaa !13
+  %238 = load i32, ptr %22, align 8, !tbaa !14
+  %239 = icmp eq i32 %238, 256
+  br i1 %239, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %240
 
-241:                                              ; preds = %234
-  %242 = add nsw i32 %239, 1
-  store i32 %242, ptr %22, align 8, !tbaa !14
-  %243 = sext i32 %239 to i64
-  %244 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %243
-  store i8 2, ptr %244, align 1, !tbaa !13
+240:                                              ; preds = %233
+  %241 = add nsw i32 %238, 1
+  store i32 %241, ptr %22, align 8, !tbaa !14
+  %242 = sext i32 %238 to i64
+  %243 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %242
+  store i8 2, ptr %243, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
-245:                                              ; preds = %.lr.ph
-  %246 = load i32, ptr %23, align 4, !tbaa !18
-  %247 = icmp sgt i32 %246, 0
-  br i1 %247, label %256, label %248
+244:                                              ; preds = %.lr.ph
+  %245 = load i32, ptr %23, align 4, !tbaa !18
+  %246 = icmp sgt i32 %245, 0
+  br i1 %246, label %255, label %247
 
-248:                                              ; preds = %245
-  %249 = load ptr, ptr %8, align 8, !tbaa !12
-  %250 = load ptr, ptr %7, align 8, !tbaa !11
+247:                                              ; preds = %244
+  %248 = load ptr, ptr %8, align 8, !tbaa !12
+  %249 = load ptr, ptr %7, align 8, !tbaa !11
+  %250 = ptrtoint ptr %248 to i64
   %251 = ptrtoint ptr %249 to i64
-  %252 = ptrtoint ptr %250 to i64
-  %253 = sub i64 %251, %252
-  %.not.i82.i = icmp ult i64 %253, 3
-  br i1 %.not.i82.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %254
+  %252 = sub i64 %250, %251
+  %.not.i82.i = icmp ult i64 %252, 3
+  br i1 %.not.i82.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %253
 
-254:                                              ; preds = %248
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %250, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
-  %255 = getelementptr inbounds nuw i8, ptr %250, i64 2
-  store ptr %255, ptr %7, align 8, !tbaa !11
-  br label %256
+253:                                              ; preds = %247
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %249, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
+  %254 = getelementptr inbounds nuw i8, ptr %249, i64 2
+  store ptr %254, ptr %7, align 8, !tbaa !11
+  br label %255
 
-256:                                              ; preds = %254, %245
-  %257 = load i32, ptr %24, align 4, !tbaa !21
-  %258 = add nsw i32 %257, -1
-  store i32 %258, ptr %24, align 4, !tbaa !21
-  %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 %259
-  %261 = load i8, ptr %260, align 1, !tbaa !13
-  %262 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser15ParseIdentifierEc(ptr noundef nonnull align 8 dereferenceable(432) %4, i8 noundef signext %261)
+255:                                              ; preds = %253, %244
+  %256 = load i32, ptr %24, align 4, !tbaa !21
+  %257 = add nsw i32 %256, -1
+  store i32 %257, ptr %24, align 4, !tbaa !21
+  %258 = sext i32 %257 to i64
+  %259 = getelementptr inbounds [64 x i8], ptr %25, i64 0, i64 %258
+  %260 = load i8, ptr %259, align 1, !tbaa !13
+  %261 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser15ParseIdentifierEc(ptr noundef nonnull align 8 dereferenceable(432) %4, i8 noundef signext %260)
   %exitcond.not.i = icmp ne i32 %13, 131071
-  %or.cond.not.i = select i1 %262, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond.not.i, label %.lr.ph361.i.backedge, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+  %or.cond.not.i = select i1 %261, i1 %exitcond.not.i, i1 false
+  br i1 %or.cond.not.i, label %.lr.ph362.i.backedge, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-263:                                              ; preds = %225
-  %264 = load i8, ptr %227, align 1, !tbaa !13
-  %265 = add i8 %264, -97
-  %266 = icmp ult i8 %265, 26
-  br i1 %266, label %267, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+262:                                              ; preds = %224
+  %263 = load i8, ptr %226, align 1, !tbaa !13
+  %264 = add i8 %263, -97
+  %265 = icmp ult i8 %264, 26
+  br i1 %265, label %266, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-267:                                              ; preds = %263
-  %268 = load i32, ptr %22, align 8, !tbaa !14
-  %269 = icmp eq i32 %268, 256
-  br i1 %269, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %270
+266:                                              ; preds = %262
+  %267 = load i32, ptr %22, align 8, !tbaa !14
+  %268 = icmp eq i32 %267, 256
+  br i1 %268, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %269
 
-270:                                              ; preds = %267
-  %271 = add nsw i32 %268, 1
-  store i32 %271, ptr %22, align 8, !tbaa !14
-  %272 = sext i32 %268 to i64
-  %273 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %272
-  store i8 3, ptr %273, align 1, !tbaa !13
+269:                                              ; preds = %266
+  %270 = add nsw i32 %267, 1
+  store i32 %270, ptr %22, align 8, !tbaa !14
+  %271 = sext i32 %267 to i64
+  %272 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %271
+  store i8 3, ptr %272, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
-274:                                              ; preds = %.lr.ph
-  %275 = load i32, ptr %23, align 4, !tbaa !18
-  %276 = icmp sgt i32 %275, 0
-  br i1 %276, label %285, label %277
+273:                                              ; preds = %.lr.ph
+  %274 = load i32, ptr %23, align 4, !tbaa !18
+  %275 = icmp sgt i32 %274, 0
+  br i1 %275, label %284, label %276
 
-277:                                              ; preds = %274
-  %278 = load ptr, ptr %8, align 8, !tbaa !12
-  %279 = load ptr, ptr %7, align 8, !tbaa !11
+276:                                              ; preds = %273
+  %277 = load ptr, ptr %8, align 8, !tbaa !12
+  %278 = load ptr, ptr %7, align 8, !tbaa !11
+  %279 = ptrtoint ptr %277 to i64
   %280 = ptrtoint ptr %278 to i64
-  %281 = ptrtoint ptr %279 to i64
-  %282 = sub i64 %280, %281
-  %.not.i85.i = icmp ult i64 %282, 3
-  br i1 %.not.i85.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %283
+  %281 = sub i64 %279, %280
+  %.not.i85.i = icmp ult i64 %281, 3
+  br i1 %.not.i85.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %282
 
-283:                                              ; preds = %277
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %279, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
-  %284 = getelementptr inbounds nuw i8, ptr %279, i64 2
-  store ptr %284, ptr %7, align 8, !tbaa !11
-  br label %285
+282:                                              ; preds = %276
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %278, ptr noundef nonnull align 1 dereferenceable(3) @.str.3, i64 3, i1 false)
+  %283 = getelementptr inbounds nuw i8, ptr %278, i64 2
+  store ptr %283, ptr %7, align 8, !tbaa !11
+  br label %284
 
-285:                                              ; preds = %283, %274
-  %286 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser15ParseIdentifierEc(ptr noundef nonnull align 8 dereferenceable(432) %4, i8 noundef signext 0)
+284:                                              ; preds = %282, %273
+  %285 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser15ParseIdentifierEc(ptr noundef nonnull align 8 dereferenceable(432) %4, i8 noundef signext 0)
   %exitcond.not.old.i = icmp ne i32 %13, 131071
-  %or.cond636.not.i = select i1 %286, i1 %exitcond.not.old.i, i1 false
-  br i1 %or.cond636.not.i, label %.lr.ph361.i.backedge, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+  %or.cond637.not.i = select i1 %285, i1 %exitcond.not.old.i, i1 false
+  br i1 %or.cond637.not.i, label %.lr.ph362.i.backedge, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-.critedge232._crit_edge.i:                        ; preds = %.critedge232.backedge.i, %.critedge232.preheader.i
-  %.lcssa385.i = phi i64 [ %929, %.critedge232.preheader.i ], [ %326, %.critedge232.backedge.i ]
-  %.val56.lcssa.i = phi ptr [ %.val56387.i, %.critedge232.preheader.i ], [ %.val56.i, %.critedge232.backedge.i ]
-  %.val55.lcssa.i = phi i32 [ %.val55386.i, %.critedge232.preheader.i ], [ %.val55.i, %.critedge232.backedge.i ]
-  %287 = getelementptr inbounds i8, ptr %.val56.lcssa.i, i64 %.lcssa385.i
-  %288 = add nsw i32 %.val55.lcssa.i, 1
-  store i32 %288, ptr %10, align 8, !tbaa !17
-  %289 = load i8, ptr %287, align 1, !tbaa !13
-  %switch.tableidx = add i8 %289, -97
-  %290 = icmp ult i8 %switch.tableidx, 26
-  br i1 %290, label %switch.hole_check, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+.critedge233._crit_edge.i:                        ; preds = %.critedge233.backedge.i, %.critedge233.preheader.i
+  %.lcssa386.i = phi i64 [ %926, %.critedge233.preheader.i ], [ %325, %.critedge233.backedge.i ]
+  %.val56.lcssa.i = phi ptr [ %.val56388.i, %.critedge233.preheader.i ], [ %.val56.i, %.critedge233.backedge.i ]
+  %.val55.lcssa.i = phi i32 [ %.val55387.i, %.critedge233.preheader.i ], [ %.val55.i, %.critedge233.backedge.i ]
+  %286 = getelementptr inbounds i8, ptr %.val56.lcssa.i, i64 %.lcssa386.i
+  %287 = add nsw i32 %.val55.lcssa.i, 1
+  store i32 %287, ptr %10, align 8, !tbaa !17
+  %288 = load i8, ptr %286, align 1, !tbaa !13
+  %switch.tableidx = add i8 %288, -97
+  %289 = icmp ult i8 %switch.tableidx, 26
+  br i1 %289, label %switch.hole_check, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-switch.hole_check:                                ; preds = %.critedge232._crit_edge.i
+switch.hole_check:                                ; preds = %.critedge233._crit_edge.i
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
   %switch.shifted = lshr i32 62716863, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup557, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+  br i1 %switch.lobit, label %switch.lookup558, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-switch.lookup557:                                 ; preds = %switch.hole_check
-  %291 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [26 x ptr], ptr @switch.table._ZN4absl18debugging_internal26DemangleRustSymbolEncodingEPKcPcm, i64 0, i64 %291
+switch.lookup558:                                 ; preds = %switch.hole_check
+  %290 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [26 x ptr], ptr @switch.table._ZN4absl18debugging_internal26DemangleRustSymbolEncodingEPKcPcm, i64 0, i64 %290
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %292 = load i32, ptr %23, align 4, !tbaa !18
-  %293 = icmp sgt i32 %292, 0
-  br i1 %293, label %.critedge51.preheader.i, label %294
+  %291 = load i32, ptr %23, align 4, !tbaa !18
+  %292 = icmp sgt i32 %291, 0
+  br i1 %292, label %.critedge51.preheader.i, label %293
 
-294:                                              ; preds = %switch.lookup557
-  %295 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %switch.load) #8
-  %296 = add i64 %295, 1
-  %297 = load ptr, ptr %8, align 8, !tbaa !12
-  %298 = load ptr, ptr %7, align 8, !tbaa !11
+293:                                              ; preds = %switch.lookup558
+  %294 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %switch.load) #8
+  %295 = add i64 %294, 1
+  %296 = load ptr, ptr %8, align 8, !tbaa !12
+  %297 = load ptr, ptr %7, align 8, !tbaa !11
+  %298 = ptrtoint ptr %296 to i64
   %299 = ptrtoint ptr %297 to i64
-  %300 = ptrtoint ptr %298 to i64
-  %301 = sub i64 %299, %300
-  %.not.i89.i = icmp ult i64 %301, %296
-  br i1 %.not.i89.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %302
+  %300 = sub i64 %298, %299
+  %.not.i89.i = icmp ult i64 %300, %295
+  br i1 %.not.i89.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %301
 
-302:                                              ; preds = %294
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %298, ptr nonnull readonly align 1 %switch.load, i64 %296, i1 false)
-  %303 = getelementptr inbounds nuw i8, ptr %298, i64 %295
-  store ptr %303, ptr %7, align 8, !tbaa !11
+301:                                              ; preds = %293
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %297, ptr nonnull readonly align 1 %switch.load, i64 %295, i1 false)
+  %302 = getelementptr inbounds nuw i8, ptr %297, i64 %294
+  store ptr %302, ptr %7, align 8, !tbaa !11
   br label %.critedge51.preheader.i
 
-.lr.ph390.i:                                      ; preds = %.critedge232.preheader.i, %.critedge232.backedge.i
-  %304 = phi ptr [ %.val56.i, %.critedge232.backedge.i ], [ %.val56387.i, %.critedge232.preheader.i ]
-  %305 = phi i8 [ %328, %.critedge232.backedge.i ], [ %931, %.critedge232.preheader.i ]
-  %306 = phi i32 [ %.val55.i, %.critedge232.backedge.i ], [ %.val55386.i, %.critedge232.preheader.i ]
-  switch i8 %305, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i [
-    i8 65, label %307
-    i8 83, label %359
-    i8 84, label %493
-    i8 82, label %387
-    i8 81, label %429
-    i8 80, label %468
-    i8 79, label %481
-    i8 70, label %638
-    i8 68, label %692
-    i8 66, label %985
+.lr.ph391.i:                                      ; preds = %.critedge233.preheader.i, %.critedge233.backedge.i
+  %303 = phi ptr [ %.val56.i, %.critedge233.backedge.i ], [ %.val56388.i, %.critedge233.preheader.i ]
+  %304 = phi i8 [ %327, %.critedge233.backedge.i ], [ %928, %.critedge233.preheader.i ]
+  %305 = phi i32 [ %.val55.i, %.critedge233.backedge.i ], [ %.val55387.i, %.critedge233.preheader.i ]
+  switch i8 %304, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i [
+    i8 65, label %306
+    i8 83, label %358
+    i8 84, label %490
+    i8 82, label %386
+    i8 81, label %427
+    i8 80, label %465
+    i8 79, label %478
+    i8 70, label %635
+    i8 68, label %689
+    i8 66, label %981
   ]
 
-307:                                              ; preds = %.lr.ph390.i
-  %308 = add nsw i32 %306, 1
-  store i32 %308, ptr %10, align 8, !tbaa !17
-  %309 = load i32, ptr %23, align 4, !tbaa !18
-  %310 = icmp sgt i32 %309, 0
-  br i1 %310, label %320, label %311
+306:                                              ; preds = %.lr.ph391.i
+  %307 = add nsw i32 %305, 1
+  store i32 %307, ptr %10, align 8, !tbaa !17
+  %308 = load i32, ptr %23, align 4, !tbaa !18
+  %309 = icmp sgt i32 %308, 0
+  br i1 %309, label %319, label %310
 
-311:                                              ; preds = %307
-  %312 = load ptr, ptr %8, align 8, !tbaa !12
-  %313 = load ptr, ptr %7, align 8, !tbaa !11
+310:                                              ; preds = %306
+  %311 = load ptr, ptr %8, align 8, !tbaa !12
+  %312 = load ptr, ptr %7, align 8, !tbaa !11
+  %313 = ptrtoint ptr %311 to i64
   %314 = ptrtoint ptr %312 to i64
-  %315 = ptrtoint ptr %313 to i64
-  %316 = sub i64 %314, %315
-  %.not.i94.i = icmp ult i64 %316, 2
-  br i1 %.not.i94.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %317
+  %315 = sub i64 %313, %314
+  %.not.i94.i = icmp ult i64 %315, 2
+  br i1 %.not.i94.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %316
 
-317:                                              ; preds = %311
-  store i16 91, ptr %313, align 1
-  %318 = load ptr, ptr %7, align 8, !tbaa !11
-  %319 = getelementptr inbounds nuw i8, ptr %318, i64 1
-  store ptr %319, ptr %7, align 8, !tbaa !11
-  br label %320
+316:                                              ; preds = %310
+  store i16 91, ptr %312, align 1
+  %317 = load ptr, ptr %7, align 8, !tbaa !11
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 1
+  store ptr %318, ptr %7, align 8, !tbaa !11
+  br label %319
 
-320:                                              ; preds = %317, %307
-  %321 = load i32, ptr %22, align 8, !tbaa !14
-  %322 = icmp eq i32 %321, 256
-  br i1 %322, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.critedge232.backedge.sink.split.i
+319:                                              ; preds = %316, %306
+  %320 = load i32, ptr %22, align 8, !tbaa !14
+  %321 = icmp eq i32 %320, 256
+  br i1 %321, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.critedge233.backedge.sink.split.i
 
-.critedge232.backedge.sink.split.i:               ; preds = %991, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i, %372, %320
-  %.sink644.i = phi i32 [ %373, %372 ], [ %525, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ %992, %991 ], [ %321, %320 ]
-  %.sink639.i = phi i8 [ 14, %372 ], [ 15, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ 29, %991 ], [ 12, %320 ]
-  %323 = add nsw i32 %.sink644.i, 1
-  store i32 %323, ptr %22, align 8, !tbaa !14
-  %324 = sext i32 %.sink644.i to i64
-  %325 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %324
-  store i8 %.sink639.i, ptr %325, align 1, !tbaa !13
-  br label %.critedge232.backedge.i
+.critedge233.backedge.sink.split.i:               ; preds = %987, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i, %371, %319
+  %.sink645.i = phi i32 [ %372, %371 ], [ %522, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ %988, %987 ], [ %320, %319 ]
+  %.sink640.i = phi i8 [ 14, %371 ], [ 15, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ 29, %987 ], [ 12, %319 ]
+  %322 = add nsw i32 %.sink645.i, 1
+  store i32 %322, ptr %22, align 8, !tbaa !14
+  %323 = sext i32 %.sink645.i to i64
+  %324 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %323
+  store i8 %.sink640.i, ptr %324, align 1, !tbaa !13
+  br label %.critedge233.backedge.i
 
-.critedge232.backedge.i:                          ; preds = %491, %481, %478, %468, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i, %441, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i50, %400, %.critedge232.backedge.sink.split.i
+.critedge233.backedge.i:                          ; preds = %488, %478, %475, %465, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i, %439, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i51, %399, %.critedge233.backedge.sink.split.i
   %.val55.i = load i32, ptr %10, align 8, !tbaa !17
   %.val56.i = load ptr, ptr %6, align 8, !tbaa !4
-  %326 = sext i32 %.val55.i to i64
-  %327 = getelementptr inbounds i8, ptr %.val56.i, i64 %326
-  %328 = load i8, ptr %327, align 1, !tbaa !13
-  %329 = add i8 %328, -97
-  %330 = icmp ult i8 %329, 26
-  br i1 %330, label %.critedge232._crit_edge.i, label %.lr.ph390.i
+  %325 = sext i32 %.val55.i to i64
+  %326 = getelementptr inbounds i8, ptr %.val56.i, i64 %325
+  %327 = load i8, ptr %326, align 1, !tbaa !13
+  %328 = add i8 %327, -97
+  %329 = icmp ult i8 %328, 26
+  br i1 %329, label %.critedge233._crit_edge.i, label %.lr.ph391.i
 
-331:                                              ; preds = %.lr.ph
-  %332 = load i32, ptr %23, align 4, !tbaa !18
-  %333 = icmp sgt i32 %332, 0
-  br i1 %333, label %342, label %334
+330:                                              ; preds = %.lr.ph
+  %331 = load i32, ptr %23, align 4, !tbaa !18
+  %332 = icmp sgt i32 %331, 0
+  br i1 %332, label %341, label %333
 
-334:                                              ; preds = %331
-  %335 = load ptr, ptr %8, align 8, !tbaa !12
-  %336 = load ptr, ptr %7, align 8, !tbaa !11
+333:                                              ; preds = %330
+  %334 = load ptr, ptr %8, align 8, !tbaa !12
+  %335 = load ptr, ptr %7, align 8, !tbaa !11
+  %336 = ptrtoint ptr %334 to i64
   %337 = ptrtoint ptr %335 to i64
-  %338 = ptrtoint ptr %336 to i64
-  %339 = sub i64 %337, %338
-  %.not.i97.i = icmp ult i64 %339, 3
-  br i1 %.not.i97.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %340
+  %338 = sub i64 %336, %337
+  %.not.i97.i = icmp ult i64 %338, 3
+  br i1 %.not.i97.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %339
 
-340:                                              ; preds = %334
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %336, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
-  %341 = getelementptr inbounds nuw i8, ptr %336, i64 2
-  store ptr %341, ptr %7, align 8, !tbaa !11
-  br label %342
+339:                                              ; preds = %333
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %335, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
+  %340 = getelementptr inbounds nuw i8, ptr %335, i64 2
+  store ptr %340, ptr %7, align 8, !tbaa !11
+  br label %341
 
-342:                                              ; preds = %340, %331
-  %343 = icmp eq i32 %14, 256
-  br i1 %343, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %344
+341:                                              ; preds = %339, %330
+  %342 = icmp eq i32 %14, 256
+  br i1 %342, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %343
 
-344:                                              ; preds = %342
+343:                                              ; preds = %341
   store i32 %12, ptr %22, align 8, !tbaa !14
-  %345 = zext nneg i32 %14 to i64
-  %346 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %345
-  store i8 13, ptr %346, align 1, !tbaa !13
-  %.pre509.i = load ptr, ptr %6, align 8, !tbaa !4
-  %.pre510.i = load i32, ptr %10, align 8, !tbaa !17
+  %344 = zext nneg i32 %14 to i64
+  %345 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %344
+  store i8 13, ptr %345, align 1, !tbaa !13
+  %.pre510.i = load ptr, ptr %6, align 8, !tbaa !4
+  %.pre511.i = load i32, ptr %10, align 8, !tbaa !17
   br label %.preheader.i
 
-347:                                              ; preds = %.lr.ph
-  %348 = load i32, ptr %23, align 4, !tbaa !18
-  %349 = icmp sgt i32 %348, 0
-  br i1 %349, label %.critedge51.backedge.i, label %350
+346:                                              ; preds = %.lr.ph
+  %347 = load i32, ptr %23, align 4, !tbaa !18
+  %348 = icmp sgt i32 %347, 0
+  br i1 %348, label %.critedge51.backedge.i, label %349
 
-350:                                              ; preds = %347
-  %351 = load ptr, ptr %8, align 8, !tbaa !12
-  %352 = load ptr, ptr %7, align 8, !tbaa !11
+349:                                              ; preds = %346
+  %350 = load ptr, ptr %8, align 8, !tbaa !12
+  %351 = load ptr, ptr %7, align 8, !tbaa !11
+  %352 = ptrtoint ptr %350 to i64
   %353 = ptrtoint ptr %351 to i64
-  %354 = ptrtoint ptr %352 to i64
-  %355 = sub i64 %353, %354
-  %.not.i100.i = icmp ult i64 %355, 2
-  br i1 %.not.i100.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %356
+  %354 = sub i64 %352, %353
+  %.not.i100.i = icmp ult i64 %354, 2
+  br i1 %.not.i100.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %355
 
-356:                                              ; preds = %350
-  store i16 93, ptr %352, align 1
-  %357 = load ptr, ptr %7, align 8, !tbaa !11
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 1
-  store ptr %358, ptr %7, align 8, !tbaa !11
+355:                                              ; preds = %349
+  store i16 93, ptr %351, align 1
+  %356 = load ptr, ptr %7, align 8, !tbaa !11
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 1
+  store ptr %357, ptr %7, align 8, !tbaa !11
   br label %.critedge51.backedge.i
 
-359:                                              ; preds = %.lr.ph390.i
-  %360 = add nsw i32 %306, 1
-  store i32 %360, ptr %10, align 8, !tbaa !17
-  %361 = load i32, ptr %23, align 4, !tbaa !18
-  %362 = icmp sgt i32 %361, 0
-  br i1 %362, label %372, label %363
+358:                                              ; preds = %.lr.ph391.i
+  %359 = add nsw i32 %305, 1
+  store i32 %359, ptr %10, align 8, !tbaa !17
+  %360 = load i32, ptr %23, align 4, !tbaa !18
+  %361 = icmp sgt i32 %360, 0
+  br i1 %361, label %371, label %362
 
-363:                                              ; preds = %359
-  %364 = load ptr, ptr %8, align 8, !tbaa !12
-  %365 = load ptr, ptr %7, align 8, !tbaa !11
+362:                                              ; preds = %358
+  %363 = load ptr, ptr %8, align 8, !tbaa !12
+  %364 = load ptr, ptr %7, align 8, !tbaa !11
+  %365 = ptrtoint ptr %363 to i64
   %366 = ptrtoint ptr %364 to i64
-  %367 = ptrtoint ptr %365 to i64
-  %368 = sub i64 %366, %367
-  %.not.i105.i = icmp ult i64 %368, 2
-  br i1 %.not.i105.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %369
+  %367 = sub i64 %365, %366
+  %.not.i105.i = icmp ult i64 %367, 2
+  br i1 %.not.i105.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %368
 
-369:                                              ; preds = %363
-  store i16 91, ptr %365, align 1
-  %370 = load ptr, ptr %7, align 8, !tbaa !11
-  %371 = getelementptr inbounds nuw i8, ptr %370, i64 1
-  store ptr %371, ptr %7, align 8, !tbaa !11
-  br label %372
+368:                                              ; preds = %362
+  store i16 91, ptr %364, align 1
+  %369 = load ptr, ptr %7, align 8, !tbaa !11
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 1
+  store ptr %370, ptr %7, align 8, !tbaa !11
+  br label %371
 
-372:                                              ; preds = %369, %359
-  %373 = load i32, ptr %22, align 8, !tbaa !14
-  %374 = icmp eq i32 %373, 256
-  br i1 %374, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.critedge232.backedge.sink.split.i
+371:                                              ; preds = %368, %358
+  %372 = load i32, ptr %22, align 8, !tbaa !14
+  %373 = icmp eq i32 %372, 256
+  br i1 %373, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.critedge233.backedge.sink.split.i
 
-375:                                              ; preds = %.lr.ph
-  %376 = load i32, ptr %23, align 4, !tbaa !18
-  %377 = icmp sgt i32 %376, 0
-  br i1 %377, label %.critedge51.backedge.i, label %378
+374:                                              ; preds = %.lr.ph
+  %375 = load i32, ptr %23, align 4, !tbaa !18
+  %376 = icmp sgt i32 %375, 0
+  br i1 %376, label %.critedge51.backedge.i, label %377
 
-378:                                              ; preds = %375
-  %379 = load ptr, ptr %8, align 8, !tbaa !12
-  %380 = load ptr, ptr %7, align 8, !tbaa !11
+377:                                              ; preds = %374
+  %378 = load ptr, ptr %8, align 8, !tbaa !12
+  %379 = load ptr, ptr %7, align 8, !tbaa !11
+  %380 = ptrtoint ptr %378 to i64
   %381 = ptrtoint ptr %379 to i64
-  %382 = ptrtoint ptr %380 to i64
-  %383 = sub i64 %381, %382
-  %.not.i108.i = icmp ult i64 %383, 2
-  br i1 %.not.i108.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %384
+  %382 = sub i64 %380, %381
+  %.not.i108.i = icmp ult i64 %382, 2
+  br i1 %.not.i108.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %383
 
-384:                                              ; preds = %378
-  store i16 93, ptr %380, align 1
-  %385 = load ptr, ptr %7, align 8, !tbaa !11
-  %386 = getelementptr inbounds nuw i8, ptr %385, i64 1
-  store ptr %386, ptr %7, align 8, !tbaa !11
+383:                                              ; preds = %377
+  store i16 93, ptr %379, align 1
+  %384 = load ptr, ptr %7, align 8, !tbaa !11
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 1
+  store ptr %385, ptr %7, align 8, !tbaa !11
   br label %.critedge51.backedge.i
 
-387:                                              ; preds = %.lr.ph390.i
-  %388 = add nsw i32 %306, 1
-  store i32 %388, ptr %10, align 8, !tbaa !17
-  %389 = load i32, ptr %23, align 4, !tbaa !18
-  %390 = icmp sgt i32 %389, 0
-  br i1 %390, label %400, label %391
+386:                                              ; preds = %.lr.ph391.i
+  %387 = add nsw i32 %305, 1
+  store i32 %387, ptr %10, align 8, !tbaa !17
+  %388 = load i32, ptr %23, align 4, !tbaa !18
+  %389 = icmp sgt i32 %388, 0
+  br i1 %389, label %399, label %390
 
-391:                                              ; preds = %387
-  %392 = load ptr, ptr %8, align 8, !tbaa !12
-  %393 = load ptr, ptr %7, align 8, !tbaa !11
+390:                                              ; preds = %386
+  %391 = load ptr, ptr %8, align 8, !tbaa !12
+  %392 = load ptr, ptr %7, align 8, !tbaa !11
+  %393 = ptrtoint ptr %391 to i64
   %394 = ptrtoint ptr %392 to i64
-  %395 = ptrtoint ptr %393 to i64
-  %396 = sub i64 %394, %395
-  %.not.i53 = icmp ult i64 %396, 2
-  br i1 %.not.i53, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %397
+  %395 = sub i64 %393, %394
+  %.not.i54 = icmp ult i64 %395, 2
+  br i1 %.not.i54, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %396
 
-397:                                              ; preds = %391
-  store i16 38, ptr %393, align 1
-  %398 = load ptr, ptr %7, align 8, !tbaa !11
-  %399 = getelementptr inbounds nuw i8, ptr %398, i64 1
-  store ptr %399, ptr %7, align 8, !tbaa !11
-  %.pre327 = load ptr, ptr %6, align 8, !tbaa !4
-  %.pre328 = load i32, ptr %10, align 8, !tbaa !17
-  br label %400
+396:                                              ; preds = %390
+  store i16 38, ptr %392, align 1
+  %397 = load ptr, ptr %7, align 8, !tbaa !11
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 1
+  store ptr %398, ptr %7, align 8, !tbaa !11
+  %.pre328 = load ptr, ptr %6, align 8, !tbaa !4
+  %.pre329 = load i32, ptr %10, align 8, !tbaa !17
+  br label %399
 
-400:                                              ; preds = %387, %397
-  %401 = phi i32 [ %388, %387 ], [ %.pre328, %397 ]
-  %402 = phi ptr [ %304, %387 ], [ %.pre327, %397 ]
-  %403 = sext i32 %401 to i64
-  %404 = getelementptr inbounds i8, ptr %402, i64 %403
-  %405 = load i8, ptr %404, align 1, !tbaa !13
-  %.not.i.i40 = icmp eq i8 %405, 76
-  br i1 %.not.i.i40, label %406, label %.critedge232.backedge.i
+399:                                              ; preds = %386, %396
+  %400 = phi i32 [ %387, %386 ], [ %.pre329, %396 ]
+  %401 = phi ptr [ %303, %386 ], [ %.pre328, %396 ]
+  %402 = sext i32 %400 to i64
+  %403 = getelementptr inbounds i8, ptr %401, i64 %402
+  %404 = load i8, ptr %403, align 1, !tbaa !13
+  %.not.i.i40 = icmp eq i8 %404, 76
+  br i1 %.not.i.i40, label %405, label %.critedge233.backedge.i
 
-406:                                              ; preds = %400
-  %407 = add nsw i32 %401, 1
-  store i32 %407, ptr %10, align 8, !tbaa !17
-  %408 = sext i32 %407 to i64
-  %409 = getelementptr inbounds i8, ptr %402, i64 %408
-  %410 = load i8, ptr %409, align 1, !tbaa !13
-  %.not.i.i.i42 = icmp eq i8 %410, 95
-  br i1 %.not.i.i.i42, label %416, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43
+405:                                              ; preds = %399
+  %406 = add nsw i32 %400, 1
+  store i32 %406, ptr %10, align 8, !tbaa !17
+  %407 = sext i32 %406 to i64
+  %408 = getelementptr inbounds i8, ptr %401, i64 %407
+  %409 = load i8, ptr %408, align 1, !tbaa !13
+  %.not.i.i.i42 = icmp eq i8 %409, 95
+  br i1 %.not.i.i.i42, label %415, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43: ; preds = %406
-  %411 = and i8 %410, -33
-  %412 = add i8 %411, -65
-  %413 = icmp ult i8 %412, 26
-  %414 = add i8 %410, -48
-  %415 = icmp ult i8 %414, 10
-  %or.cond25.i.i44 = or i1 %415, %413
-  br i1 %or.cond25.i.i44, label %.critedge.i.i45, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43: ; preds = %405
+  %410 = and i8 %409, -33
+  %411 = add i8 %410, -65
+  %412 = icmp ult i8 %411, 26
+  %413 = add i8 %409, -48
+  %414 = icmp ult i8 %413, 10
+  %or.cond28.i.i44 = or i1 %414, %412
+  br i1 %or.cond28.i.i44, label %.critedge.i.i45, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-416:                                              ; preds = %406
-  %417 = add nsw i32 %401, 2
-  br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i50
+415:                                              ; preds = %405
+  %416 = add nsw i32 %400, 2
+  br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i51
 
 .critedge.i.i45:                                  ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43, %.critedge.i.i45
-  %indvars.iv.i.i46 = phi i64 [ %indvars.iv.next.i.i47, %.critedge.i.i45 ], [ %408, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43 ]
+  %indvars.iv.i.i46 = phi i64 [ %indvars.iv.next.i.i47, %.critedge.i.i45 ], [ %407, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43 ]
   %indvars.iv.next.i.i47 = add nsw i64 %indvars.iv.i.i46, 1
-  %418 = trunc nsw i64 %indvars.iv.next.i.i47 to i32
-  store i32 %418, ptr %10, align 8, !tbaa !17
-  %419 = getelementptr inbounds i8, ptr %402, i64 %indvars.iv.next.i.i47
-  %420 = load i8, ptr %419, align 1, !tbaa !13
-  %421 = and i8 %420, -33
-  %422 = add i8 %421, -65
-  %423 = icmp ult i8 %422, 26
-  %424 = add i8 %420, -48
-  %425 = icmp ult i8 %424, 10
-  %or.cond.i.i48 = or i1 %425, %423
+  %417 = trunc nsw i64 %indvars.iv.next.i.i47 to i32
+  store i32 %417, ptr %10, align 8, !tbaa !17
+  %418 = getelementptr inbounds i8, ptr %401, i64 %indvars.iv.next.i.i47
+  %419 = load i8, ptr %418, align 1, !tbaa !13
+  %420 = and i8 %419, -33
+  %421 = add i8 %420, -65
+  %422 = icmp ult i8 %421, 26
+  %423 = add i8 %419, -48
+  %424 = icmp ult i8 %423, 10
+  %or.cond.i.i48 = or i1 %424, %422
   br i1 %or.cond.i.i48, label %.critedge.i.i45, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49, !llvm.loop !19
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49: ; preds = %.critedge.i.i45
-  %426 = icmp eq i8 %420, 95
-  br i1 %426, label %427, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+  %425 = icmp eq i8 %419, 95
+  br i1 %425, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i50, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-427:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49
-  %428 = add nsw i32 %418, 1
-  br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i50
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i50: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49
+  %426 = add nsw i32 %417, 1
+  br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i51
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i50: ; preds = %427, %416
-  %.sink.i51 = phi i32 [ %428, %427 ], [ %417, %416 ]
-  store i32 %.sink.i51, ptr %10, align 8, !tbaa !17
-  br label %.critedge232.backedge.i
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i51: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i50, %415
+  %.sink.i52 = phi i32 [ %426, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i50 ], [ %416, %415 ]
+  store i32 %.sink.i52, ptr %10, align 8, !tbaa !17
+  br label %.critedge233.backedge.i
 
-429:                                              ; preds = %.lr.ph390.i
-  %430 = add nsw i32 %306, 1
-  store i32 %430, ptr %10, align 8, !tbaa !17
-  %431 = load i32, ptr %23, align 4, !tbaa !18
-  %432 = icmp sgt i32 %431, 0
-  br i1 %432, label %441, label %433
+427:                                              ; preds = %.lr.ph391.i
+  %428 = add nsw i32 %305, 1
+  store i32 %428, ptr %10, align 8, !tbaa !17
+  %429 = load i32, ptr %23, align 4, !tbaa !18
+  %430 = icmp sgt i32 %429, 0
+  br i1 %430, label %439, label %431
 
-433:                                              ; preds = %429
-  %434 = load ptr, ptr %8, align 8, !tbaa !12
-  %435 = load ptr, ptr %7, align 8, !tbaa !11
-  %436 = ptrtoint ptr %434 to i64
-  %437 = ptrtoint ptr %435 to i64
-  %438 = sub i64 %436, %437
-  %.not.i37 = icmp ult i64 %438, 6
-  br i1 %.not.i37, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %439
+431:                                              ; preds = %427
+  %432 = load ptr, ptr %8, align 8, !tbaa !12
+  %433 = load ptr, ptr %7, align 8, !tbaa !11
+  %434 = ptrtoint ptr %432 to i64
+  %435 = ptrtoint ptr %433 to i64
+  %436 = sub i64 %434, %435
+  %.not.i37 = icmp ult i64 %436, 6
+  br i1 %.not.i37, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %437
 
-439:                                              ; preds = %433
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %435, ptr noundef nonnull align 1 dereferenceable(6) @.str.8, i64 6, i1 false)
-  %440 = getelementptr inbounds nuw i8, ptr %435, i64 5
-  store ptr %440, ptr %7, align 8, !tbaa !11
-  br label %441
+437:                                              ; preds = %431
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %433, ptr noundef nonnull align 1 dereferenceable(6) @.str.8, i64 6, i1 false)
+  %438 = getelementptr inbounds nuw i8, ptr %433, i64 5
+  store ptr %438, ptr %7, align 8, !tbaa !11
+  br label %439
 
-441:                                              ; preds = %429, %439
-  %442 = sext i32 %430 to i64
-  %443 = getelementptr inbounds i8, ptr %304, i64 %442
-  %444 = load i8, ptr %443, align 1, !tbaa !13
-  %.not.i.i33 = icmp eq i8 %444, 76
-  br i1 %.not.i.i33, label %445, label %.critedge232.backedge.i
+439:                                              ; preds = %427, %437
+  %440 = sext i32 %428 to i64
+  %441 = getelementptr inbounds i8, ptr %303, i64 %440
+  %442 = load i8, ptr %441, align 1, !tbaa !13
+  %.not.i.i33 = icmp eq i8 %442, 76
+  br i1 %.not.i.i33, label %443, label %.critedge233.backedge.i
 
-445:                                              ; preds = %441
-  %446 = add nsw i32 %306, 2
-  store i32 %446, ptr %10, align 8, !tbaa !17
-  %447 = sext i32 %446 to i64
-  %448 = getelementptr inbounds i8, ptr %304, i64 %447
-  %449 = load i8, ptr %448, align 1, !tbaa !13
-  %.not.i.i.i35 = icmp eq i8 %449, 95
-  br i1 %.not.i.i.i35, label %455, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i
+443:                                              ; preds = %439
+  %444 = add nsw i32 %305, 2
+  store i32 %444, ptr %10, align 8, !tbaa !17
+  %445 = sext i32 %444 to i64
+  %446 = getelementptr inbounds i8, ptr %303, i64 %445
+  %447 = load i8, ptr %446, align 1, !tbaa !13
+  %.not.i.i.i35 = icmp eq i8 %447, 95
+  br i1 %.not.i.i.i35, label %453, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i: ; preds = %445
-  %450 = and i8 %449, -33
-  %451 = add i8 %450, -65
-  %452 = icmp ult i8 %451, 26
-  %453 = add i8 %449, -48
-  %454 = icmp ult i8 %453, 10
-  %or.cond25.i.i = or i1 %454, %452
-  br i1 %or.cond25.i.i, label %.critedge.i.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i: ; preds = %443
+  %448 = and i8 %447, -33
+  %449 = add i8 %448, -65
+  %450 = icmp ult i8 %449, 26
+  %451 = add i8 %447, -48
+  %452 = icmp ult i8 %451, 10
+  %or.cond28.i.i = or i1 %452, %450
+  br i1 %or.cond28.i.i, label %.critedge.i.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-455:                                              ; preds = %445
-  %456 = add nsw i32 %306, 3
+453:                                              ; preds = %443
+  %454 = add nsw i32 %305, 3
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i
 
 .critedge.i.i:                                    ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i, %.critedge.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.i.i ], [ %447, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.i.i ], [ %445, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %457 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  store i32 %457, ptr %10, align 8, !tbaa !17
-  %458 = getelementptr inbounds i8, ptr %304, i64 %indvars.iv.next.i.i
-  %459 = load i8, ptr %458, align 1, !tbaa !13
-  %460 = and i8 %459, -33
-  %461 = add i8 %460, -65
-  %462 = icmp ult i8 %461, 26
-  %463 = add i8 %459, -48
-  %464 = icmp ult i8 %463, 10
-  %or.cond.i.i = or i1 %464, %462
+  %455 = trunc nsw i64 %indvars.iv.next.i.i to i32
+  store i32 %455, ptr %10, align 8, !tbaa !17
+  %456 = getelementptr inbounds i8, ptr %303, i64 %indvars.iv.next.i.i
+  %457 = load i8, ptr %456, align 1, !tbaa !13
+  %458 = and i8 %457, -33
+  %459 = add i8 %458, -65
+  %460 = icmp ult i8 %459, 26
+  %461 = add i8 %457, -48
+  %462 = icmp ult i8 %461, 10
+  %or.cond.i.i = or i1 %462, %460
   br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i, !llvm.loop !19
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i: ; preds = %.critedge.i.i
-  %465 = icmp eq i8 %459, 95
-  br i1 %465, label %466, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+  %463 = icmp eq i8 %457, 95
+  br i1 %463, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-466:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i
-  %467 = add nsw i32 %457, 1
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i
+  %464 = add nsw i32 %455, 1
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i: ; preds = %466, %455
-  %.sink.i36 = phi i32 [ %467, %466 ], [ %456, %455 ]
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i, %453
+  %.sink.i36 = phi i32 [ %464, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i ], [ %454, %453 ]
   store i32 %.sink.i36, ptr %10, align 8, !tbaa !17
-  br label %.critedge232.backedge.i
+  br label %.critedge233.backedge.i
 
-468:                                              ; preds = %.lr.ph390.i
-  %469 = add nsw i32 %306, 1
-  store i32 %469, ptr %10, align 8, !tbaa !17
-  %470 = load i32, ptr %23, align 4, !tbaa !18
-  %471 = icmp sgt i32 %470, 0
-  br i1 %471, label %.critedge232.backedge.i, label %472
+465:                                              ; preds = %.lr.ph391.i
+  %466 = add nsw i32 %305, 1
+  store i32 %466, ptr %10, align 8, !tbaa !17
+  %467 = load i32, ptr %23, align 4, !tbaa !18
+  %468 = icmp sgt i32 %467, 0
+  br i1 %468, label %.critedge233.backedge.i, label %469
 
-472:                                              ; preds = %468
-  %473 = load ptr, ptr %8, align 8, !tbaa !12
-  %474 = load ptr, ptr %7, align 8, !tbaa !11
-  %475 = ptrtoint ptr %473 to i64
-  %476 = ptrtoint ptr %474 to i64
-  %477 = sub i64 %475, %476
-  %.not.i30 = icmp ult i64 %477, 8
-  br i1 %.not.i30, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %478
+469:                                              ; preds = %465
+  %470 = load ptr, ptr %8, align 8, !tbaa !12
+  %471 = load ptr, ptr %7, align 8, !tbaa !11
+  %472 = ptrtoint ptr %470 to i64
+  %473 = ptrtoint ptr %471 to i64
+  %474 = sub i64 %472, %473
+  %.not.i30 = icmp ult i64 %474, 8
+  br i1 %.not.i30, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %475
 
-478:                                              ; preds = %472
-  store i64 9135238377595690, ptr %474, align 1
-  %479 = load ptr, ptr %7, align 8, !tbaa !11
-  %480 = getelementptr inbounds nuw i8, ptr %479, i64 7
-  store ptr %480, ptr %7, align 8, !tbaa !11
-  br label %.critedge232.backedge.i
+475:                                              ; preds = %469
+  store i64 9135238377595690, ptr %471, align 1
+  %476 = load ptr, ptr %7, align 8, !tbaa !11
+  %477 = getelementptr inbounds nuw i8, ptr %476, i64 7
+  store ptr %477, ptr %7, align 8, !tbaa !11
+  br label %.critedge233.backedge.i
 
-481:                                              ; preds = %.lr.ph390.i
-  %482 = add nsw i32 %306, 1
-  store i32 %482, ptr %10, align 8, !tbaa !17
-  %483 = load i32, ptr %23, align 4, !tbaa !18
-  %484 = icmp sgt i32 %483, 0
-  br i1 %484, label %.critedge232.backedge.i, label %485
+478:                                              ; preds = %.lr.ph391.i
+  %479 = add nsw i32 %305, 1
+  store i32 %479, ptr %10, align 8, !tbaa !17
+  %480 = load i32, ptr %23, align 4, !tbaa !18
+  %481 = icmp sgt i32 %480, 0
+  br i1 %481, label %.critedge233.backedge.i, label %482
 
-485:                                              ; preds = %481
-  %486 = load ptr, ptr %8, align 8, !tbaa !12
-  %487 = load ptr, ptr %7, align 8, !tbaa !11
-  %488 = ptrtoint ptr %486 to i64
-  %489 = ptrtoint ptr %487 to i64
-  %490 = sub i64 %488, %489
-  %.not.i27 = icmp ult i64 %490, 6
-  br i1 %.not.i27, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %491
+482:                                              ; preds = %478
+  %483 = load ptr, ptr %8, align 8, !tbaa !12
+  %484 = load ptr, ptr %7, align 8, !tbaa !11
+  %485 = ptrtoint ptr %483 to i64
+  %486 = ptrtoint ptr %484 to i64
+  %487 = sub i64 %485, %486
+  %.not.i27 = icmp ult i64 %487, 6
+  br i1 %.not.i27, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %488
 
-491:                                              ; preds = %485
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %487, ptr noundef nonnull align 1 dereferenceable(6) @.str.10, i64 6, i1 false)
-  %492 = getelementptr inbounds nuw i8, ptr %487, i64 5
-  store ptr %492, ptr %7, align 8, !tbaa !11
-  br label %.critedge232.backedge.i
+488:                                              ; preds = %482
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %484, ptr noundef nonnull align 1 dereferenceable(6) @.str.10, i64 6, i1 false)
+  %489 = getelementptr inbounds nuw i8, ptr %484, i64 5
+  store ptr %489, ptr %7, align 8, !tbaa !11
+  br label %.critedge233.backedge.i
 
-493:                                              ; preds = %.lr.ph390.i
-  %494 = add nsw i32 %306, 1
-  store i32 %494, ptr %10, align 8, !tbaa !17
-  %495 = load i32, ptr %23, align 4, !tbaa !18
-  %496 = icmp sgt i32 %495, 0
-  br i1 %496, label %506, label %497
+490:                                              ; preds = %.lr.ph391.i
+  %491 = add nsw i32 %305, 1
+  store i32 %491, ptr %10, align 8, !tbaa !17
+  %492 = load i32, ptr %23, align 4, !tbaa !18
+  %493 = icmp sgt i32 %492, 0
+  br i1 %493, label %503, label %494
 
-497:                                              ; preds = %493
-  %498 = load ptr, ptr %8, align 8, !tbaa !12
-  %499 = load ptr, ptr %7, align 8, !tbaa !11
-  %500 = ptrtoint ptr %498 to i64
-  %501 = ptrtoint ptr %499 to i64
-  %502 = sub i64 %500, %501
-  %.not.i24 = icmp ult i64 %502, 2
-  br i1 %.not.i24, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %503
+494:                                              ; preds = %490
+  %495 = load ptr, ptr %8, align 8, !tbaa !12
+  %496 = load ptr, ptr %7, align 8, !tbaa !11
+  %497 = ptrtoint ptr %495 to i64
+  %498 = ptrtoint ptr %496 to i64
+  %499 = sub i64 %497, %498
+  %.not.i24 = icmp ult i64 %499, 2
+  br i1 %.not.i24, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %500
 
-503:                                              ; preds = %497
-  store i16 40, ptr %499, align 1
-  %504 = load ptr, ptr %7, align 8, !tbaa !11
-  %505 = getelementptr inbounds nuw i8, ptr %504, i64 1
-  store ptr %505, ptr %7, align 8, !tbaa !11
-  %.pre329 = load ptr, ptr %6, align 8, !tbaa !4
-  %.pre330 = load i32, ptr %10, align 8, !tbaa !17
-  br label %506
+500:                                              ; preds = %494
+  store i16 40, ptr %496, align 1
+  %501 = load ptr, ptr %7, align 8, !tbaa !11
+  %502 = getelementptr inbounds nuw i8, ptr %501, i64 1
+  store ptr %502, ptr %7, align 8, !tbaa !11
+  %.pre330 = load ptr, ptr %6, align 8, !tbaa !4
+  %.pre331 = load i32, ptr %10, align 8, !tbaa !17
+  br label %503
 
-506:                                              ; preds = %493, %503
-  %507 = phi i32 [ %494, %493 ], [ %.pre330, %503 ]
-  %508 = phi ptr [ %304, %493 ], [ %.pre329, %503 ]
-  %509 = sext i32 %507 to i64
-  %510 = getelementptr inbounds i8, ptr %508, i64 %509
-  %511 = load i8, ptr %510, align 1, !tbaa !13
-  %.not.i127.i = icmp eq i8 %511, 69
-  br i1 %.not.i127.i, label %512, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i
+503:                                              ; preds = %490, %500
+  %504 = phi i32 [ %491, %490 ], [ %.pre331, %500 ]
+  %505 = phi ptr [ %303, %490 ], [ %.pre330, %500 ]
+  %506 = sext i32 %504 to i64
+  %507 = getelementptr inbounds i8, ptr %505, i64 %506
+  %508 = load i8, ptr %507, align 1, !tbaa !13
+  %.not.i127.i = icmp eq i8 %508, 69
+  br i1 %.not.i127.i, label %509, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i
 
-512:                                              ; preds = %506
-  %513 = add nsw i32 %507, 1
-  store i32 %513, ptr %10, align 8, !tbaa !17
-  %514 = load i32, ptr %23, align 4, !tbaa !18
-  %515 = icmp sgt i32 %514, 0
-  br i1 %515, label %.critedge51.preheader.i, label %516
+509:                                              ; preds = %503
+  %510 = add nsw i32 %504, 1
+  store i32 %510, ptr %10, align 8, !tbaa !17
+  %511 = load i32, ptr %23, align 4, !tbaa !18
+  %512 = icmp sgt i32 %511, 0
+  br i1 %512, label %.critedge51.preheader.i, label %513
 
-516:                                              ; preds = %512
-  %517 = load ptr, ptr %8, align 8, !tbaa !12
-  %518 = load ptr, ptr %7, align 8, !tbaa !11
-  %519 = ptrtoint ptr %517 to i64
-  %520 = ptrtoint ptr %518 to i64
-  %521 = sub i64 %519, %520
-  %.not.i21 = icmp ult i64 %521, 2
-  br i1 %.not.i21, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %522
+513:                                              ; preds = %509
+  %514 = load ptr, ptr %8, align 8, !tbaa !12
+  %515 = load ptr, ptr %7, align 8, !tbaa !11
+  %516 = ptrtoint ptr %514 to i64
+  %517 = ptrtoint ptr %515 to i64
+  %518 = sub i64 %516, %517
+  %.not.i21 = icmp ult i64 %518, 2
+  br i1 %.not.i21, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %519
 
-522:                                              ; preds = %516
-  store i16 41, ptr %518, align 1
-  %523 = load ptr, ptr %7, align 8, !tbaa !11
-  %524 = getelementptr inbounds nuw i8, ptr %523, i64 1
-  store ptr %524, ptr %7, align 8, !tbaa !11
+519:                                              ; preds = %513
+  store i16 41, ptr %515, align 1
+  %520 = load ptr, ptr %7, align 8, !tbaa !11
+  %521 = getelementptr inbounds nuw i8, ptr %520, i64 1
+  store ptr %521, ptr %7, align 8, !tbaa !11
   br label %.critedge51.preheader.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i: ; preds = %506
-  %525 = load i32, ptr %22, align 8, !tbaa !14
-  %526 = icmp eq i32 %525, 256
-  br i1 %526, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.critedge232.backedge.sink.split.i
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i: ; preds = %503
+  %522 = load i32, ptr %22, align 8, !tbaa !14
+  %523 = icmp eq i32 %522, 256
+  br i1 %523, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.critedge233.backedge.sink.split.i
 
-527:                                              ; preds = %.lr.ph
-  %528 = load ptr, ptr %6, align 8, !tbaa !4
-  %529 = load i32, ptr %10, align 8, !tbaa !17
-  %530 = sext i32 %529 to i64
-  %531 = getelementptr inbounds i8, ptr %528, i64 %530
-  %532 = load i8, ptr %531, align 1, !tbaa !13
-  %.not.i129.i = icmp eq i8 %532, 69
-  br i1 %.not.i129.i, label %533, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit130.i
+524:                                              ; preds = %.lr.ph
+  %525 = load ptr, ptr %6, align 8, !tbaa !4
+  %526 = load i32, ptr %10, align 8, !tbaa !17
+  %527 = sext i32 %526 to i64
+  %528 = getelementptr inbounds i8, ptr %525, i64 %527
+  %529 = load i8, ptr %528, align 1, !tbaa !13
+  %.not.i129.i = icmp eq i8 %529, 69
+  br i1 %.not.i129.i, label %530, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit130.i
 
-533:                                              ; preds = %527
-  %534 = add nsw i32 %529, 1
-  store i32 %534, ptr %10, align 8, !tbaa !17
-  %535 = load i32, ptr %23, align 4, !tbaa !18
-  %536 = icmp sgt i32 %535, 0
-  br i1 %536, label %.critedge51.backedge.i, label %537
+530:                                              ; preds = %524
+  %531 = add nsw i32 %526, 1
+  store i32 %531, ptr %10, align 8, !tbaa !17
+  %532 = load i32, ptr %23, align 4, !tbaa !18
+  %533 = icmp sgt i32 %532, 0
+  br i1 %533, label %.critedge51.backedge.i, label %534
 
-537:                                              ; preds = %533
-  %538 = load ptr, ptr %8, align 8, !tbaa !12
-  %539 = load ptr, ptr %7, align 8, !tbaa !11
-  %540 = ptrtoint ptr %538 to i64
-  %541 = ptrtoint ptr %539 to i64
-  %542 = sub i64 %540, %541
-  %.not.i131.i = icmp ult i64 %542, 3
-  br i1 %.not.i131.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %543
+534:                                              ; preds = %530
+  %535 = load ptr, ptr %8, align 8, !tbaa !12
+  %536 = load ptr, ptr %7, align 8, !tbaa !11
+  %537 = ptrtoint ptr %535 to i64
+  %538 = ptrtoint ptr %536 to i64
+  %539 = sub i64 %537, %538
+  %.not.i131.i = icmp ult i64 %539, 3
+  br i1 %.not.i131.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %540
 
-543:                                              ; preds = %537
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %539, ptr noundef nonnull align 1 dereferenceable(3) @.str.13, i64 3, i1 false)
-  %544 = getelementptr inbounds nuw i8, ptr %539, i64 2
-  store ptr %544, ptr %7, align 8, !tbaa !11
+540:                                              ; preds = %534
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %536, ptr noundef nonnull align 1 dereferenceable(3) @.str.13, i64 3, i1 false)
+  %541 = getelementptr inbounds nuw i8, ptr %536, i64 2
+  store ptr %541, ptr %7, align 8, !tbaa !11
   br label %.critedge51.backedge.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit130.i: ; preds = %527
-  %545 = load i32, ptr %23, align 4, !tbaa !18
-  %546 = icmp sgt i32 %545, 0
-  br i1 %546, label %555, label %547
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit130.i: ; preds = %524
+  %542 = load i32, ptr %23, align 4, !tbaa !18
+  %543 = icmp sgt i32 %542, 0
+  br i1 %543, label %552, label %544
 
-547:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit130.i
-  %548 = load ptr, ptr %8, align 8, !tbaa !12
-  %549 = load ptr, ptr %7, align 8, !tbaa !11
-  %550 = ptrtoint ptr %548 to i64
-  %551 = ptrtoint ptr %549 to i64
-  %552 = sub i64 %550, %551
-  %.not.i18 = icmp ult i64 %552, 3
-  br i1 %.not.i18, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %553
+544:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit130.i
+  %545 = load ptr, ptr %8, align 8, !tbaa !12
+  %546 = load ptr, ptr %7, align 8, !tbaa !11
+  %547 = ptrtoint ptr %545 to i64
+  %548 = ptrtoint ptr %546 to i64
+  %549 = sub i64 %547, %548
+  %.not.i18 = icmp ult i64 %549, 3
+  br i1 %.not.i18, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %550
 
-553:                                              ; preds = %547
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %549, ptr noundef nonnull align 1 dereferenceable(3) @.str.14, i64 3, i1 false)
-  %554 = getelementptr inbounds nuw i8, ptr %549, i64 2
-  store ptr %554, ptr %7, align 8, !tbaa !11
-  br label %555
+550:                                              ; preds = %544
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %546, ptr noundef nonnull align 1 dereferenceable(3) @.str.14, i64 3, i1 false)
+  %551 = getelementptr inbounds nuw i8, ptr %546, i64 2
+  store ptr %551, ptr %7, align 8, !tbaa !11
+  br label %552
 
-555:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit130.i, %553
-  %556 = icmp eq i32 %14, 256
-  br i1 %556, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %557
+552:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit130.i, %550
+  %553 = icmp eq i32 %14, 256
+  br i1 %553, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %554
 
-557:                                              ; preds = %555
+554:                                              ; preds = %552
   store i32 %12, ptr %22, align 8, !tbaa !14
-  %558 = zext nneg i32 %14 to i64
-  %559 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %558
-  store i8 16, ptr %559, align 1, !tbaa !13
-  br label %.critedge232.preheader.i
+  %555 = zext nneg i32 %14 to i64
+  %556 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %555
+  store i8 16, ptr %556, align 1, !tbaa !13
+  br label %.critedge233.preheader.i
 
-560:                                              ; preds = %.lr.ph
-  %561 = load ptr, ptr %6, align 8, !tbaa !4
-  %562 = load i32, ptr %10, align 8, !tbaa !17
-  %563 = sext i32 %562 to i64
-  %564 = getelementptr inbounds i8, ptr %561, i64 %563
-  %565 = load i8, ptr %564, align 1, !tbaa !13
-  %.not.i134.i = icmp eq i8 %565, 69
-  br i1 %.not.i134.i, label %566, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit135.i
+557:                                              ; preds = %.lr.ph
+  %558 = load ptr, ptr %6, align 8, !tbaa !4
+  %559 = load i32, ptr %10, align 8, !tbaa !17
+  %560 = sext i32 %559 to i64
+  %561 = getelementptr inbounds i8, ptr %558, i64 %560
+  %562 = load i8, ptr %561, align 1, !tbaa !13
+  %.not.i134.i = icmp eq i8 %562, 69
+  br i1 %.not.i134.i, label %563, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit135.i
 
-566:                                              ; preds = %560
-  %567 = add nsw i32 %562, 1
-  store i32 %567, ptr %10, align 8, !tbaa !17
-  %568 = load i32, ptr %23, align 4, !tbaa !18
-  %569 = icmp sgt i32 %568, 0
-  br i1 %569, label %.critedge51.backedge.i, label %570
+563:                                              ; preds = %557
+  %564 = add nsw i32 %559, 1
+  store i32 %564, ptr %10, align 8, !tbaa !17
+  %565 = load i32, ptr %23, align 4, !tbaa !18
+  %566 = icmp sgt i32 %565, 0
+  br i1 %566, label %.critedge51.backedge.i, label %567
 
-570:                                              ; preds = %566
-  %571 = load ptr, ptr %8, align 8, !tbaa !12
-  %572 = load ptr, ptr %7, align 8, !tbaa !11
-  %573 = ptrtoint ptr %571 to i64
-  %574 = ptrtoint ptr %572 to i64
-  %575 = sub i64 %573, %574
-  %.not.i136.i = icmp ult i64 %575, 2
-  br i1 %.not.i136.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %576
+567:                                              ; preds = %563
+  %568 = load ptr, ptr %8, align 8, !tbaa !12
+  %569 = load ptr, ptr %7, align 8, !tbaa !11
+  %570 = ptrtoint ptr %568 to i64
+  %571 = ptrtoint ptr %569 to i64
+  %572 = sub i64 %570, %571
+  %.not.i136.i = icmp ult i64 %572, 2
+  br i1 %.not.i136.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %573
 
-576:                                              ; preds = %570
-  store i16 41, ptr %572, align 1
-  %577 = load ptr, ptr %7, align 8, !tbaa !11
-  %578 = getelementptr inbounds nuw i8, ptr %577, i64 1
-  store ptr %578, ptr %7, align 8, !tbaa !11
+573:                                              ; preds = %567
+  store i16 41, ptr %569, align 1
+  %574 = load ptr, ptr %7, align 8, !tbaa !11
+  %575 = getelementptr inbounds nuw i8, ptr %574, i64 1
+  store ptr %575, ptr %7, align 8, !tbaa !11
   br label %.critedge51.backedge.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit135.i: ; preds = %560
-  %579 = load i32, ptr %23, align 4, !tbaa !18
-  %580 = icmp sgt i32 %579, 0
-  br i1 %580, label %589, label %581
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit135.i: ; preds = %557
+  %576 = load i32, ptr %23, align 4, !tbaa !18
+  %577 = icmp sgt i32 %576, 0
+  br i1 %577, label %586, label %578
 
-581:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit135.i
-  %582 = load ptr, ptr %8, align 8, !tbaa !12
-  %583 = load ptr, ptr %7, align 8, !tbaa !11
-  %584 = ptrtoint ptr %582 to i64
-  %585 = ptrtoint ptr %583 to i64
-  %586 = sub i64 %584, %585
-  %.not.i15 = icmp ult i64 %586, 3
-  br i1 %.not.i15, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %587
+578:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit135.i
+  %579 = load ptr, ptr %8, align 8, !tbaa !12
+  %580 = load ptr, ptr %7, align 8, !tbaa !11
+  %581 = ptrtoint ptr %579 to i64
+  %582 = ptrtoint ptr %580 to i64
+  %583 = sub i64 %581, %582
+  %.not.i15 = icmp ult i64 %583, 3
+  br i1 %.not.i15, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %584
 
-587:                                              ; preds = %581
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %583, ptr noundef nonnull align 1 dereferenceable(3) @.str.14, i64 3, i1 false)
-  %588 = getelementptr inbounds nuw i8, ptr %583, i64 2
-  store ptr %588, ptr %7, align 8, !tbaa !11
-  br label %589
+584:                                              ; preds = %578
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %580, ptr noundef nonnull align 1 dereferenceable(3) @.str.14, i64 3, i1 false)
+  %585 = getelementptr inbounds nuw i8, ptr %580, i64 2
+  store ptr %585, ptr %7, align 8, !tbaa !11
+  br label %586
 
-589:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit135.i, %587
-  %590 = icmp eq i32 %14, 256
-  br i1 %590, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %591
+586:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit135.i, %584
+  %587 = icmp eq i32 %14, 256
+  br i1 %587, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %588
 
-591:                                              ; preds = %589
+588:                                              ; preds = %586
   store i32 %12, ptr %22, align 8, !tbaa !14
-  %592 = zext nneg i32 %14 to i64
-  %593 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %592
-  store i8 17, ptr %593, align 1, !tbaa !13
-  br label %.critedge232.preheader.i
+  %589 = zext nneg i32 %14 to i64
+  %590 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %589
+  store i8 17, ptr %590, align 1, !tbaa !13
+  br label %.critedge233.preheader.i
 
-594:                                              ; preds = %.lr.ph
-  %595 = load ptr, ptr %6, align 8, !tbaa !4
-  %596 = load i32, ptr %10, align 8, !tbaa !17
-  %597 = sext i32 %596 to i64
-  %598 = getelementptr inbounds i8, ptr %595, i64 %597
-  %599 = load i8, ptr %598, align 1, !tbaa !13
-  %.not.i139.i = icmp eq i8 %599, 69
-  br i1 %.not.i139.i, label %600, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit140.i
+591:                                              ; preds = %.lr.ph
+  %592 = load ptr, ptr %6, align 8, !tbaa !4
+  %593 = load i32, ptr %10, align 8, !tbaa !17
+  %594 = sext i32 %593 to i64
+  %595 = getelementptr inbounds i8, ptr %592, i64 %594
+  %596 = load i8, ptr %595, align 1, !tbaa !13
+  %.not.i139.i = icmp eq i8 %596, 69
+  br i1 %.not.i139.i, label %597, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit140.i
 
-600:                                              ; preds = %594
-  %601 = add nsw i32 %596, 1
-  store i32 %601, ptr %10, align 8, !tbaa !17
-  %602 = load i32, ptr %23, align 4, !tbaa !18
-  %603 = icmp sgt i32 %602, 0
-  br i1 %603, label %.critedge51.backedge.i, label %604
+597:                                              ; preds = %591
+  %598 = add nsw i32 %593, 1
+  store i32 %598, ptr %10, align 8, !tbaa !17
+  %599 = load i32, ptr %23, align 4, !tbaa !18
+  %600 = icmp sgt i32 %599, 0
+  br i1 %600, label %.critedge51.backedge.i, label %601
 
-604:                                              ; preds = %600
-  %605 = load ptr, ptr %8, align 8, !tbaa !12
-  %606 = load ptr, ptr %7, align 8, !tbaa !11
-  %607 = ptrtoint ptr %605 to i64
-  %608 = ptrtoint ptr %606 to i64
-  %609 = sub i64 %607, %608
-  %.not.i141.i = icmp ult i64 %609, 2
-  br i1 %.not.i141.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %610
+601:                                              ; preds = %597
+  %602 = load ptr, ptr %8, align 8, !tbaa !12
+  %603 = load ptr, ptr %7, align 8, !tbaa !11
+  %604 = ptrtoint ptr %602 to i64
+  %605 = ptrtoint ptr %603 to i64
+  %606 = sub i64 %604, %605
+  %.not.i141.i = icmp ult i64 %606, 2
+  br i1 %.not.i141.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %607
 
-610:                                              ; preds = %604
-  store i16 41, ptr %606, align 1
-  %611 = load ptr, ptr %7, align 8, !tbaa !11
-  %612 = getelementptr inbounds nuw i8, ptr %611, i64 1
-  store ptr %612, ptr %7, align 8, !tbaa !11
+607:                                              ; preds = %601
+  store i16 41, ptr %603, align 1
+  %608 = load ptr, ptr %7, align 8, !tbaa !11
+  %609 = getelementptr inbounds nuw i8, ptr %608, i64 1
+  store ptr %609, ptr %7, align 8, !tbaa !11
   br label %.critedge51.backedge.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit140.i: ; preds = %594
-  %613 = load i32, ptr %23, align 4, !tbaa !18
-  %614 = icmp sgt i32 %613, 0
-  br i1 %614, label %623, label %615
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit140.i: ; preds = %591
+  %610 = load i32, ptr %23, align 4, !tbaa !18
+  %611 = icmp sgt i32 %610, 0
+  br i1 %611, label %620, label %612
 
-615:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit140.i
-  %616 = load ptr, ptr %8, align 8, !tbaa !12
-  %617 = load ptr, ptr %7, align 8, !tbaa !11
-  %618 = ptrtoint ptr %616 to i64
-  %619 = ptrtoint ptr %617 to i64
-  %620 = sub i64 %618, %619
-  %.not.i144.i = icmp ult i64 %620, 7
-  br i1 %.not.i144.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %621
+612:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit140.i
+  %613 = load ptr, ptr %8, align 8, !tbaa !12
+  %614 = load ptr, ptr %7, align 8, !tbaa !11
+  %615 = ptrtoint ptr %613 to i64
+  %616 = ptrtoint ptr %614 to i64
+  %617 = sub i64 %615, %616
+  %.not.i144.i = icmp ult i64 %617, 7
+  br i1 %.not.i144.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %618
 
-621:                                              ; preds = %615
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %617, ptr noundef nonnull align 1 dereferenceable(7) @.str.15, i64 7, i1 false)
-  %622 = getelementptr inbounds nuw i8, ptr %617, i64 6
-  store ptr %622, ptr %7, align 8, !tbaa !11
-  br label %623
+618:                                              ; preds = %612
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %614, ptr noundef nonnull align 1 dereferenceable(7) @.str.15, i64 7, i1 false)
+  %619 = getelementptr inbounds nuw i8, ptr %614, i64 6
+  store ptr %619, ptr %7, align 8, !tbaa !11
+  br label %620
 
-623:                                              ; preds = %621, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit140.i
-  %624 = add nsw i32 %613, 1
-  store i32 %624, ptr %23, align 4, !tbaa !18
-  br label %625
+620:                                              ; preds = %618, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit140.i
+  %621 = add nsw i32 %610, 1
+  store i32 %621, ptr %23, align 4, !tbaa !18
+  br label %622
 
-625:                                              ; preds = %.lr.ph._crit_edge, %623
-  %.pre-phi333 = phi i64 [ %.pre332, %.lr.ph._crit_edge ], [ %597, %623 ]
-  %626 = phi i32 [ %.pre326, %.lr.ph._crit_edge ], [ %596, %623 ]
-  %627 = phi ptr [ %.pre325, %.lr.ph._crit_edge ], [ %595, %623 ]
-  %628 = getelementptr inbounds i8, ptr %627, i64 %.pre-phi333
-  %629 = load i8, ptr %628, align 1, !tbaa !13
-  %.not.i147.i = icmp eq i8 %629, 69
-  br i1 %.not.i147.i, label %634, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i
+622:                                              ; preds = %.lr.ph._crit_edge, %620
+  %.pre-phi334 = phi i64 [ %.pre333, %.lr.ph._crit_edge ], [ %594, %620 ]
+  %623 = phi i32 [ %.pre327, %.lr.ph._crit_edge ], [ %593, %620 ]
+  %624 = phi ptr [ %.pre326, %.lr.ph._crit_edge ], [ %592, %620 ]
+  %625 = getelementptr inbounds i8, ptr %624, i64 %.pre-phi334
+  %626 = load i8, ptr %625, align 1, !tbaa !13
+  %.not.i147.i = icmp eq i8 %626, 69
+  br i1 %.not.i147.i, label %631, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i: ; preds = %625
-  %630 = icmp eq i32 %14, 256
-  br i1 %630, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %631
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i: ; preds = %622
+  %627 = icmp eq i32 %14, 256
+  br i1 %627, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %628
 
-631:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i
+628:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i
   store i32 %12, ptr %22, align 8, !tbaa !14
-  %632 = zext nneg i32 %14 to i64
-  %633 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %632
-  store i8 18, ptr %633, align 1, !tbaa !13
-  br label %.critedge232.preheader.i
+  %629 = zext nneg i32 %14 to i64
+  %630 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %629
+  store i8 18, ptr %630, align 1, !tbaa !13
+  br label %.critedge233.preheader.i
 
-634:                                              ; preds = %625
-  %635 = add nsw i32 %626, 1
-  store i32 %635, ptr %10, align 8, !tbaa !17
-  %636 = load i32, ptr %23, align 4, !tbaa !18
-  %637 = add nsw i32 %636, -1
-  store i32 %637, ptr %23, align 4, !tbaa !18
+631:                                              ; preds = %622
+  %632 = add nsw i32 %623, 1
+  store i32 %632, ptr %10, align 8, !tbaa !17
+  %633 = load i32, ptr %23, align 4, !tbaa !18
+  %634 = add nsw i32 %633, -1
+  store i32 %634, ptr %23, align 4, !tbaa !18
   br label %.critedge51.backedge.i
 
-638:                                              ; preds = %.lr.ph390.i
-  %639 = add nsw i32 %306, 1
-  store i32 %639, ptr %10, align 8, !tbaa !17
-  %640 = load i32, ptr %23, align 4, !tbaa !18
-  %641 = icmp sgt i32 %640, 0
-  br i1 %641, label %650, label %642
+635:                                              ; preds = %.lr.ph391.i
+  %636 = add nsw i32 %305, 1
+  store i32 %636, ptr %10, align 8, !tbaa !17
+  %637 = load i32, ptr %23, align 4, !tbaa !18
+  %638 = icmp sgt i32 %637, 0
+  br i1 %638, label %647, label %639
 
-642:                                              ; preds = %638
-  %643 = load ptr, ptr %8, align 8, !tbaa !12
-  %644 = load ptr, ptr %7, align 8, !tbaa !11
-  %645 = ptrtoint ptr %643 to i64
-  %646 = ptrtoint ptr %644 to i64
-  %647 = sub i64 %645, %646
-  %.not.i12 = icmp ult i64 %647, 6
-  br i1 %.not.i12, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %648
+639:                                              ; preds = %635
+  %640 = load ptr, ptr %8, align 8, !tbaa !12
+  %641 = load ptr, ptr %7, align 8, !tbaa !11
+  %642 = ptrtoint ptr %640 to i64
+  %643 = ptrtoint ptr %641 to i64
+  %644 = sub i64 %642, %643
+  %.not.i12 = icmp ult i64 %644, 6
+  br i1 %.not.i12, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %645
 
-648:                                              ; preds = %642
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %644, ptr noundef nonnull align 1 dereferenceable(6) @.str.16, i64 6, i1 false)
-  %649 = getelementptr inbounds nuw i8, ptr %644, i64 5
-  store ptr %649, ptr %7, align 8, !tbaa !11
-  br label %650
+645:                                              ; preds = %639
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %641, ptr noundef nonnull align 1 dereferenceable(6) @.str.16, i64 6, i1 false)
+  %646 = getelementptr inbounds nuw i8, ptr %641, i64 5
+  store ptr %646, ptr %7, align 8, !tbaa !11
+  br label %647
 
-650:                                              ; preds = %638, %648
-  %651 = add nsw i32 %640, 1
-  store i32 %651, ptr %23, align 4, !tbaa !18
-  %652 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser19ParseOptionalBinderEv(ptr noundef nonnull align 8 dereferenceable(432) %4)
-  br i1 %652, label %653, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+647:                                              ; preds = %635, %645
+  %648 = add nsw i32 %637, 1
+  store i32 %648, ptr %23, align 4, !tbaa !18
+  %649 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser19ParseOptionalBinderEv(ptr noundef nonnull align 8 dereferenceable(432) %4)
+  br i1 %649, label %650, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-653:                                              ; preds = %650
-  %654 = load ptr, ptr %6, align 8, !tbaa !4
-  %655 = load i32, ptr %10, align 8, !tbaa !17
-  %656 = sext i32 %655 to i64
-  %657 = getelementptr inbounds i8, ptr %654, i64 %656
-  %658 = load i8, ptr %657, align 1, !tbaa !13
-  %.not.i149.i = icmp eq i8 %658, 85
-  br i1 %.not.i149.i, label %659, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit150.i
+650:                                              ; preds = %647
+  %651 = load ptr, ptr %6, align 8, !tbaa !4
+  %652 = load i32, ptr %10, align 8, !tbaa !17
+  %653 = sext i32 %652 to i64
+  %654 = getelementptr inbounds i8, ptr %651, i64 %653
+  %655 = load i8, ptr %654, align 1, !tbaa !13
+  %.not.i149.i = icmp eq i8 %655, 85
+  br i1 %.not.i149.i, label %656, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit150.i
 
-659:                                              ; preds = %653
-  %660 = add nsw i32 %655, 1
-  store i32 %660, ptr %10, align 8, !tbaa !17
-  %.pre511.i = sext i32 %660 to i64
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %654, i64 %.pre511.i
-  %.pre513.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !13
+656:                                              ; preds = %650
+  %657 = add nsw i32 %652, 1
+  store i32 %657, ptr %10, align 8, !tbaa !17
+  %.pre512.i = sext i32 %657 to i64
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %651, i64 %.pre512.i
+  %.pre514.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit150.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit150.i: ; preds = %659, %653
-  %661 = phi i8 [ %658, %653 ], [ %.pre513.i, %659 ]
-  %662 = phi i32 [ %655, %653 ], [ %660, %659 ]
-  %.not.i151.i = icmp eq i8 %661, 75
-  br i1 %.not.i151.i, label %663, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit152.i
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit150.i: ; preds = %656, %650
+  %658 = phi i8 [ %655, %650 ], [ %.pre514.i, %656 ]
+  %659 = phi i32 [ %652, %650 ], [ %657, %656 ]
+  %.not.i151.i = icmp eq i8 %658, 75
+  br i1 %.not.i151.i, label %660, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit152.i
 
-663:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit150.i
-  %664 = add nsw i32 %662, 1
-  store i32 %664, ptr %10, align 8, !tbaa !17
-  %665 = sext i32 %664 to i64
-  %666 = getelementptr inbounds i8, ptr %654, i64 %665
-  %667 = load i8, ptr %666, align 1, !tbaa !13
-  %.not.i153.i = icmp eq i8 %667, 67
+660:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit150.i
+  %661 = add nsw i32 %659, 1
+  store i32 %661, ptr %10, align 8, !tbaa !17
+  %662 = sext i32 %661 to i64
+  %663 = getelementptr inbounds i8, ptr %651, i64 %662
+  %664 = load i8, ptr %663, align 1, !tbaa !13
+  %.not.i153.i = icmp eq i8 %664, 67
   br i1 %.not.i153.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.thread.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.thread.i: ; preds = %663
-  %668 = add nsw i32 %662, 2
-  store i32 %668, ptr %10, align 8, !tbaa !17
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.thread.i: ; preds = %660
+  %665 = add nsw i32 %659, 2
+  store i32 %665, ptr %10, align 8, !tbaa !17
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit152.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i: ; preds = %663
-  %669 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser30ParseUndisambiguatedIdentifierEci(ptr noundef nonnull align 8 dereferenceable(432) %4, i8 noundef signext 0, i32 noundef 0)
-  br i1 %669, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit152.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i: ; preds = %660
+  %666 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser30ParseUndisambiguatedIdentifierEci(ptr noundef nonnull align 8 dereferenceable(432) %4, i8 noundef signext 0, i32 noundef 0)
+  br i1 %666, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit152.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit152.i: ; preds = %.lr.ph, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.thread.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit150.i
   %.313.i = phi i32 [ %.212.ph.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i ], [ %.212.ph.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit150.i ], [ %.212.ph.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.thread.i ], [ %13, %.lr.ph ]
-  %670 = load ptr, ptr %6, align 8, !tbaa !4
-  %671 = load i32, ptr %10, align 8, !tbaa !17
-  %672 = sext i32 %671 to i64
-  %673 = getelementptr inbounds i8, ptr %670, i64 %672
-  %674 = load i8, ptr %673, align 1, !tbaa !13
-  %.not.i155.i = icmp eq i8 %674, 69
-  br i1 %.not.i155.i, label %681, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i
+  %667 = load ptr, ptr %6, align 8, !tbaa !4
+  %668 = load i32, ptr %10, align 8, !tbaa !17
+  %669 = sext i32 %668 to i64
+  %670 = getelementptr inbounds i8, ptr %667, i64 %669
+  %671 = load i8, ptr %670, align 1, !tbaa !13
+  %.not.i155.i = icmp eq i8 %671, 69
+  br i1 %.not.i155.i, label %678, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit152.i
-  %675 = load i32, ptr %22, align 8, !tbaa !14
-  %676 = icmp eq i32 %675, 256
-  br i1 %676, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %677
+  %672 = load i32, ptr %22, align 8, !tbaa !14
+  %673 = icmp eq i32 %672, 256
+  br i1 %673, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %674
 
-677:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i
-  %678 = add nsw i32 %675, 1
-  store i32 %678, ptr %22, align 8, !tbaa !14
-  %679 = sext i32 %675 to i64
-  %680 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %679
-  store i8 19, ptr %680, align 1, !tbaa !13
-  br label %.critedge232.preheader.i
+674:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i
+  %675 = add nsw i32 %672, 1
+  store i32 %675, ptr %22, align 8, !tbaa !14
+  %676 = sext i32 %672 to i64
+  %677 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %676
+  store i8 19, ptr %677, align 1, !tbaa !13
+  br label %.critedge233.preheader.i
 
-681:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit152.i
-  %682 = add nsw i32 %671, 1
-  store i32 %682, ptr %10, align 8, !tbaa !17
-  %683 = load i32, ptr %22, align 8, !tbaa !14
-  %684 = icmp eq i32 %683, 256
-  br i1 %684, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %685
+678:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit152.i
+  %679 = add nsw i32 %668, 1
+  store i32 %679, ptr %10, align 8, !tbaa !17
+  %680 = load i32, ptr %22, align 8, !tbaa !14
+  %681 = icmp eq i32 %680, 256
+  br i1 %681, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %682
 
-685:                                              ; preds = %681
-  %686 = add nsw i32 %683, 1
-  store i32 %686, ptr %22, align 8, !tbaa !14
-  %687 = sext i32 %683 to i64
-  %688 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %687
-  store i8 20, ptr %688, align 1, !tbaa !13
-  br label %.critedge232.preheader.i
+682:                                              ; preds = %678
+  %683 = add nsw i32 %680, 1
+  store i32 %683, ptr %22, align 8, !tbaa !14
+  %684 = sext i32 %680 to i64
+  %685 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %684
+  store i8 20, ptr %685, align 1, !tbaa !13
+  br label %.critedge233.preheader.i
 
-689:                                              ; preds = %.lr.ph
-  %690 = load i32, ptr %23, align 4, !tbaa !18
-  %691 = add nsw i32 %690, -1
-  store i32 %691, ptr %23, align 4, !tbaa !18
+686:                                              ; preds = %.lr.ph
+  %687 = load i32, ptr %23, align 4, !tbaa !18
+  %688 = add nsw i32 %687, -1
+  store i32 %688, ptr %23, align 4, !tbaa !18
   br label %.critedge51.backedge.i
 
-692:                                              ; preds = %.lr.ph390.i
-  %693 = add nsw i32 %306, 1
-  store i32 %693, ptr %10, align 8, !tbaa !17
-  %694 = load i32, ptr %23, align 4, !tbaa !18
-  %695 = icmp sgt i32 %694, 0
-  br i1 %695, label %704, label %696
+689:                                              ; preds = %.lr.ph391.i
+  %690 = add nsw i32 %305, 1
+  store i32 %690, ptr %10, align 8, !tbaa !17
+  %691 = load i32, ptr %23, align 4, !tbaa !18
+  %692 = icmp sgt i32 %691, 0
+  br i1 %692, label %701, label %693
 
-696:                                              ; preds = %692
-  %697 = load ptr, ptr %8, align 8, !tbaa !12
-  %698 = load ptr, ptr %7, align 8, !tbaa !11
-  %699 = ptrtoint ptr %697 to i64
-  %700 = ptrtoint ptr %698 to i64
-  %701 = sub i64 %699, %700
-  %.not.i9 = icmp ult i64 %701, 5
-  br i1 %.not.i9, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %702
+693:                                              ; preds = %689
+  %694 = load ptr, ptr %8, align 8, !tbaa !12
+  %695 = load ptr, ptr %7, align 8, !tbaa !11
+  %696 = ptrtoint ptr %694 to i64
+  %697 = ptrtoint ptr %695 to i64
+  %698 = sub i64 %696, %697
+  %.not.i9 = icmp ult i64 %698, 5
+  br i1 %.not.i9, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %699
 
-702:                                              ; preds = %696
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %698, ptr noundef nonnull align 1 dereferenceable(5) @.str.17, i64 5, i1 false)
-  %703 = getelementptr inbounds nuw i8, ptr %698, i64 4
-  store ptr %703, ptr %7, align 8, !tbaa !11
-  br label %704
+699:                                              ; preds = %693
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %695, ptr noundef nonnull align 1 dereferenceable(5) @.str.17, i64 5, i1 false)
+  %700 = getelementptr inbounds nuw i8, ptr %695, i64 4
+  store ptr %700, ptr %7, align 8, !tbaa !11
+  br label %701
 
-704:                                              ; preds = %692, %702
-  %705 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser19ParseOptionalBinderEv(ptr noundef nonnull align 8 dereferenceable(432) %4)
-  br i1 %705, label %706, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+701:                                              ; preds = %689, %699
+  %702 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser19ParseOptionalBinderEv(ptr noundef nonnull align 8 dereferenceable(432) %4)
+  br i1 %702, label %703, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-706:                                              ; preds = %704
-  %707 = load ptr, ptr %6, align 8, !tbaa !4
-  %708 = load i32, ptr %10, align 8, !tbaa !17
-  %709 = sext i32 %708 to i64
-  %710 = getelementptr inbounds i8, ptr %707, i64 %709
-  %711 = load i8, ptr %710, align 1, !tbaa !13
-  %.not.i157.i = icmp eq i8 %711, 69
+703:                                              ; preds = %701
+  %704 = load ptr, ptr %6, align 8, !tbaa !4
+  %705 = load i32, ptr %10, align 8, !tbaa !17
+  %706 = sext i32 %705 to i64
+  %707 = getelementptr inbounds i8, ptr %704, i64 %706
+  %708 = load i8, ptr %707, align 1, !tbaa !13
+  %.not.i157.i = icmp eq i8 %708, 69
   br i1 %.not.i157.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i: ; preds = %706
-  %712 = load i32, ptr %22, align 8, !tbaa !14
-  %713 = icmp eq i32 %712, 256
-  br i1 %713, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %732
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i: ; preds = %703
+  %709 = load i32, ptr %22, align 8, !tbaa !14
+  %710 = icmp eq i32 %709, 256
+  br i1 %710, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %729
 
-.loopexit238.i:                                   ; preds = %.lr.ph, %.lr.ph
-  %714 = load ptr, ptr %6, align 8, !tbaa !4
-  %715 = load i32, ptr %10, align 8, !tbaa !17
-  %716 = sext i32 %715 to i64
-  %717 = getelementptr inbounds i8, ptr %714, i64 %716
-  %718 = load i8, ptr %717, align 1, !tbaa !13
-  %.not.i159.i = icmp eq i8 %718, 69
+.loopexit239.i:                                   ; preds = %.lr.ph, %.lr.ph
+  %711 = load ptr, ptr %6, align 8, !tbaa !4
+  %712 = load i32, ptr %10, align 8, !tbaa !17
+  %713 = sext i32 %712 to i64
+  %714 = getelementptr inbounds i8, ptr %711, i64 %713
+  %715 = load i8, ptr %714, align 1, !tbaa !13
+  %.not.i159.i = icmp eq i8 %715, 69
   br i1 %.not.i159.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit160.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit160.i: ; preds = %.loopexit238.i
-  %719 = load i32, ptr %23, align 4, !tbaa !18
-  %720 = icmp sgt i32 %719, 0
-  br i1 %720, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8, label %721
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit160.i: ; preds = %.loopexit239.i
+  %716 = load i32, ptr %23, align 4, !tbaa !18
+  %717 = icmp sgt i32 %716, 0
+  br i1 %717, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8, label %718
 
-721:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit160.i
-  %722 = load ptr, ptr %8, align 8, !tbaa !12
-  %723 = load ptr, ptr %7, align 8, !tbaa !11
-  %724 = ptrtoint ptr %722 to i64
-  %725 = ptrtoint ptr %723 to i64
-  %726 = sub i64 %724, %725
-  %.not.i6 = icmp ult i64 %726, 4
-  br i1 %.not.i6, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %727
+718:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit160.i
+  %719 = load ptr, ptr %8, align 8, !tbaa !12
+  %720 = load ptr, ptr %7, align 8, !tbaa !11
+  %721 = ptrtoint ptr %719 to i64
+  %722 = ptrtoint ptr %720 to i64
+  %723 = sub i64 %721, %722
+  %.not.i6 = icmp ult i64 %723, 4
+  br i1 %.not.i6, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %724
 
-727:                                              ; preds = %721
-  store i32 2108192, ptr %723, align 1
-  %728 = load ptr, ptr %7, align 8, !tbaa !11
-  %729 = getelementptr inbounds nuw i8, ptr %728, i64 3
-  store ptr %729, ptr %7, align 8, !tbaa !11
-  %.pre324 = load i32, ptr %22, align 8
+724:                                              ; preds = %718
+  store i32 2108192, ptr %720, align 1
+  %725 = load ptr, ptr %7, align 8, !tbaa !11
+  %726 = getelementptr inbounds nuw i8, ptr %725, i64 3
+  store ptr %726, ptr %7, align 8, !tbaa !11
+  %.pre325 = load i32, ptr %22, align 8
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit160.i, %727
-  %730 = phi i32 [ %14, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit160.i ], [ %.pre324, %727 ]
-  %.not = icmp eq i32 %730, 256
-  br i1 %.not, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %732
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit160.i, %724
+  %727 = phi i32 [ %14, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit160.i ], [ %.pre325, %724 ]
+  %.not = icmp eq i32 %727, 256
+  br i1 %.not, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %729
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i: ; preds = %.loopexit238.i, %706
-  %storemerge.in.i = phi i32 [ %708, %706 ], [ %715, %.loopexit238.i ]
-  %.414.i = phi i32 [ %.212.ph.i, %706 ], [ %13, %.loopexit238.i ]
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i: ; preds = %.loopexit239.i, %703
+  %storemerge.in.i = phi i32 [ %705, %703 ], [ %712, %.loopexit239.i ]
+  %.414.i = phi i32 [ %.212.ph.i, %703 ], [ %13, %.loopexit239.i ]
   %storemerge.i = add nsw i32 %storemerge.in.i, 1
   store i32 %storemerge.i, ptr %10, align 8, !tbaa !17
-  %731 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseRequiredLifetimeEv(ptr noundef nonnull align 8 dereferenceable(432) %4)
-  br i1 %731, label %.critedge51.preheader.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+  %728 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseRequiredLifetimeEv(ptr noundef nonnull align 8 dereferenceable(432) %4)
+  br i1 %728, label %.critedge51.preheader.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-732:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i
-  %.sink650.i = phi i32 [ %712, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i ], [ %730, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8 ]
-  %.sink645.i = phi i8 [ 21, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i ], [ 22, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8 ]
+729:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i
+  %.sink651.i = phi i32 [ %709, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i ], [ %727, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8 ]
+  %.sink646.i = phi i8 [ 21, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i ], [ 22, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8 ]
   %.515.i = phi i32 [ %.212.ph.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i ], [ %13, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8 ]
-  %733 = add nsw i32 %.sink650.i, 1
-  store i32 %733, ptr %22, align 8, !tbaa !14
-  %734 = sext i32 %.sink650.i to i64
-  %735 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %734
-  store i8 %.sink645.i, ptr %735, align 1, !tbaa !13
-  %736 = load i32, ptr %22, align 8, !tbaa !14
-  %737 = icmp eq i32 %736, 256
-  br i1 %737, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %738
+  %730 = add nsw i32 %.sink651.i, 1
+  store i32 %730, ptr %22, align 8, !tbaa !14
+  %731 = sext i32 %.sink651.i to i64
+  %732 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %731
+  store i8 %.sink646.i, ptr %732, align 1, !tbaa !13
+  %733 = load i32, ptr %22, align 8, !tbaa !14
+  %734 = icmp eq i32 %733, 256
+  br i1 %734, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %735
 
-738:                                              ; preds = %732
-  %739 = add nsw i32 %736, 1
-  store i32 %739, ptr %22, align 8, !tbaa !14
-  %740 = sext i32 %736 to i64
-  %741 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %740
-  store i8 23, ptr %741, align 1, !tbaa !13
+735:                                              ; preds = %729
+  %736 = add nsw i32 %733, 1
+  store i32 %736, ptr %22, align 8, !tbaa !14
+  %737 = sext i32 %733 to i64
+  %738 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %737
+  store i8 23, ptr %738, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
-742:                                              ; preds = %.lr.ph
+739:                                              ; preds = %.lr.ph
   %.val57.i = load i32, ptr %10, align 8, !tbaa !17
   %.val58.i = load ptr, ptr %6, align 8, !tbaa !4
-  %743 = sext i32 %.val57.i to i64
-  %744 = getelementptr inbounds i8, ptr %.val58.i, i64 %743
-  %745 = load i8, ptr %744, align 1, !tbaa !13
-  %746 = icmp eq i8 %745, 112
-  br i1 %746, label %747, label %.critedge51.backedge.i
+  %740 = sext i32 %.val57.i to i64
+  %741 = getelementptr inbounds i8, ptr %.val58.i, i64 %740
+  %742 = load i8, ptr %741, align 1, !tbaa !13
+  %743 = icmp eq i8 %742, 112
+  br i1 %743, label %744, label %.critedge51.backedge.i
 
-747:                                              ; preds = %742
-  %748 = load i32, ptr %23, align 4, !tbaa !18
-  %749 = icmp sgt i32 %748, 0
-  br i1 %749, label %758, label %750
+744:                                              ; preds = %739
+  %745 = load i32, ptr %23, align 4, !tbaa !18
+  %746 = icmp sgt i32 %745, 0
+  br i1 %746, label %755, label %747
 
-750:                                              ; preds = %747
-  %751 = load ptr, ptr %8, align 8, !tbaa !12
-  %752 = load ptr, ptr %7, align 8, !tbaa !11
-  %753 = ptrtoint ptr %751 to i64
-  %754 = ptrtoint ptr %752 to i64
-  %755 = sub i64 %753, %754
-  %.not.i161.i = icmp ult i64 %755, 3
-  br i1 %.not.i161.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %756
+747:                                              ; preds = %744
+  %748 = load ptr, ptr %8, align 8, !tbaa !12
+  %749 = load ptr, ptr %7, align 8, !tbaa !11
+  %750 = ptrtoint ptr %748 to i64
+  %751 = ptrtoint ptr %749 to i64
+  %752 = sub i64 %750, %751
+  %.not.i161.i = icmp ult i64 %752, 3
+  br i1 %.not.i161.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %753
 
-756:                                              ; preds = %750
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %752, ptr noundef nonnull align 1 dereferenceable(3) @.str.19, i64 3, i1 false)
-  %757 = getelementptr inbounds nuw i8, ptr %752, i64 2
-  store ptr %757, ptr %7, align 8, !tbaa !11
-  br label %758
+753:                                              ; preds = %747
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %749, ptr noundef nonnull align 1 dereferenceable(3) @.str.19, i64 3, i1 false)
+  %754 = getelementptr inbounds nuw i8, ptr %749, i64 2
+  store ptr %754, ptr %7, align 8, !tbaa !11
+  br label %755
 
-758:                                              ; preds = %756, %747
-  %759 = add nsw i32 %748, 1
-  store i32 %759, ptr %23, align 4, !tbaa !18
-  br label %760
+755:                                              ; preds = %753, %744
+  %756 = add nsw i32 %745, 1
+  store i32 %756, ptr %23, align 4, !tbaa !18
+  br label %757
 
-760:                                              ; preds = %775, %758
-  %.pre-phi = phi i64 [ %.pre331, %775 ], [ %743, %758 ]
-  %761 = phi i32 [ %.pre323, %775 ], [ %.val57.i, %758 ]
-  %762 = phi ptr [ %.pre322, %775 ], [ %.val58.i, %758 ]
-  %763 = getelementptr inbounds i8, ptr %762, i64 %.pre-phi
-  %764 = load i8, ptr %763, align 1, !tbaa !13
-  %.not.i164.i = icmp eq i8 %764, 112
-  br i1 %.not.i164.i, label %765, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit165.i
+757:                                              ; preds = %772, %755
+  %.pre-phi = phi i64 [ %.pre332, %772 ], [ %740, %755 ]
+  %758 = phi i32 [ %.pre324, %772 ], [ %.val57.i, %755 ]
+  %759 = phi ptr [ %.pre323, %772 ], [ %.val58.i, %755 ]
+  %760 = getelementptr inbounds i8, ptr %759, i64 %.pre-phi
+  %761 = load i8, ptr %760, align 1, !tbaa !13
+  %.not.i164.i = icmp eq i8 %761, 112
+  br i1 %.not.i164.i, label %762, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit165.i
 
-765:                                              ; preds = %760
-  %766 = add nsw i32 %761, 1
-  store i32 %766, ptr %10, align 8, !tbaa !17
-  %767 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser30ParseUndisambiguatedIdentifierEci(ptr noundef nonnull align 8 dereferenceable(432) %4, i8 noundef signext 0, i32 noundef 0)
-  br i1 %767, label %768, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+762:                                              ; preds = %757
+  %763 = add nsw i32 %758, 1
+  store i32 %763, ptr %10, align 8, !tbaa !17
+  %764 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser30ParseUndisambiguatedIdentifierEci(ptr noundef nonnull align 8 dereferenceable(432) %4, i8 noundef signext 0, i32 noundef 0)
+  br i1 %764, label %765, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+
+765:                                              ; preds = %762
+  %766 = load i32, ptr %22, align 8, !tbaa !14
+  %767 = icmp eq i32 %766, 256
+  br i1 %767, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %768
 
 768:                                              ; preds = %765
-  %769 = load i32, ptr %22, align 8, !tbaa !14
-  %770 = icmp eq i32 %769, 256
-  br i1 %770, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %771
+  %769 = add nsw i32 %766, 1
+  store i32 %769, ptr %22, align 8, !tbaa !14
+  %770 = sext i32 %766 to i64
+  %771 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %770
+  store i8 24, ptr %771, align 1, !tbaa !13
+  br label %.critedge233.preheader.i
 
-771:                                              ; preds = %768
-  %772 = add nsw i32 %769, 1
-  store i32 %772, ptr %22, align 8, !tbaa !14
-  %773 = sext i32 %769 to i64
-  %774 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %773
-  store i8 24, ptr %774, align 1, !tbaa !13
-  br label %.critedge232.preheader.i
+772:                                              ; preds = %.lr.ph
+  %.pre323 = load ptr, ptr %6, align 8, !tbaa !4
+  %.pre324 = load i32, ptr %10, align 8, !tbaa !17
+  %.pre332 = sext i32 %.pre324 to i64
+  br label %757, !llvm.loop !22
 
-775:                                              ; preds = %.lr.ph
-  %.pre322 = load ptr, ptr %6, align 8, !tbaa !4
-  %.pre323 = load i32, ptr %10, align 8, !tbaa !17
-  %.pre331 = sext i32 %.pre323 to i64
-  br label %760, !llvm.loop !22
-
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit165.i: ; preds = %760
-  %776 = load i32, ptr %23, align 4, !tbaa !18
-  %777 = add nsw i32 %776, -1
-  store i32 %777, ptr %23, align 4, !tbaa !18
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit165.i: ; preds = %757
+  %773 = load i32, ptr %23, align 4, !tbaa !18
+  %774 = add nsw i32 %773, -1
+  store i32 %774, ptr %23, align 4, !tbaa !18
   br label %.critedge51.backedge.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit167.i: ; preds = %1011, %.preheader.i
-  %778 = phi i8 [ %967, %.preheader.i ], [ %1019, %1011 ]
-  %779 = phi i32 [ %963, %.preheader.i ], [ %1016, %1011 ]
-  %.not.i168.i = icmp eq i8 %778, 112
-  br i1 %.not.i168.i, label %780, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit167.i: ; preds = %1007, %.preheader.i
+  %775 = phi i8 [ %963, %.preheader.i ], [ %1015, %1007 ]
+  %776 = phi i32 [ %959, %.preheader.i ], [ %1012, %1007 ]
+  %.not.i168.i = icmp eq i8 %775, 112
+  br i1 %.not.i168.i, label %777, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i
 
-780:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit167.i
-  %781 = add nsw i32 %779, 1
-  store i32 %781, ptr %10, align 8, !tbaa !17
-  %782 = load i32, ptr %23, align 4, !tbaa !18
-  %783 = icmp sgt i32 %782, 0
-  br i1 %783, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit, label %784
+777:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit167.i
+  %778 = add nsw i32 %776, 1
+  store i32 %778, ptr %10, align 8, !tbaa !17
+  %779 = load i32, ptr %23, align 4, !tbaa !18
+  %780 = icmp sgt i32 %779, 0
+  br i1 %780, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit, label %781
 
-784:                                              ; preds = %780
-  %785 = load ptr, ptr %8, align 8, !tbaa !12
-  %786 = load ptr, ptr %7, align 8, !tbaa !11
-  %787 = ptrtoint ptr %785 to i64
-  %788 = ptrtoint ptr %786 to i64
-  %789 = sub i64 %787, %788
-  %.not.i4 = icmp ult i64 %789, 2
-  br i1 %.not.i4, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %790
+781:                                              ; preds = %777
+  %782 = load ptr, ptr %8, align 8, !tbaa !12
+  %783 = load ptr, ptr %7, align 8, !tbaa !11
+  %784 = ptrtoint ptr %782 to i64
+  %785 = ptrtoint ptr %783 to i64
+  %786 = sub i64 %784, %785
+  %.not.i4 = icmp ult i64 %786, 2
+  br i1 %.not.i4, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %787
 
-790:                                              ; preds = %784
-  store i16 95, ptr %786, align 1
-  %791 = load ptr, ptr %7, align 8, !tbaa !11
-  %792 = getelementptr inbounds nuw i8, ptr %791, i64 1
-  store ptr %792, ptr %7, align 8, !tbaa !11
+787:                                              ; preds = %781
+  store i16 95, ptr %783, align 1
+  %788 = load ptr, ptr %7, align 8, !tbaa !11
+  %789 = getelementptr inbounds nuw i8, ptr %788, i64 1
+  store ptr %789, ptr %7, align 8, !tbaa !11
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit: ; preds = %780, %790
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit: ; preds = %777, %787
   %exitcond.not.old.old.i.not = icmp eq i32 %13, 131071
-  br i1 %exitcond.not.old.old.i.not, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.lr.ph361.i.backedge
+  br i1 %exitcond.not.old.old.i.not, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.lr.ph362.i.backedge
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit167.i
-  %793 = load i32, ptr %23, align 4, !tbaa !18
-  %794 = add nsw i32 %793, 1
-  store i32 %794, ptr %23, align 4, !tbaa !18
-  %795 = load i32, ptr %22, align 8, !tbaa !14
-  %796 = icmp eq i32 %795, 256
-  br i1 %796, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %797
+  %790 = load i32, ptr %23, align 4, !tbaa !18
+  %791 = add nsw i32 %790, 1
+  store i32 %791, ptr %23, align 4, !tbaa !18
+  %792 = load i32, ptr %22, align 8, !tbaa !14
+  %793 = icmp eq i32 %792, 256
+  br i1 %793, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %794
 
-797:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i
-  %798 = add nsw i32 %795, 1
-  store i32 %798, ptr %22, align 8, !tbaa !14
-  %799 = sext i32 %795 to i64
-  %800 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %799
-  store i8 25, ptr %800, align 1, !tbaa !13
-  br label %.critedge232.preheader.i
+794:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i
+  %795 = add nsw i32 %792, 1
+  store i32 %795, ptr %22, align 8, !tbaa !14
+  %796 = sext i32 %792 to i64
+  %797 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %796
+  store i8 25, ptr %797, align 1, !tbaa !13
+  br label %.critedge233.preheader.i
 
-801:                                              ; preds = %.lr.ph
-  %802 = load i32, ptr %23, align 4, !tbaa !18
-  %803 = add nsw i32 %802, -1
-  store i32 %803, ptr %23, align 4, !tbaa !18
-  %804 = load ptr, ptr %6, align 8, !tbaa !4
-  %805 = load i32, ptr %10, align 8, !tbaa !17
-  %806 = sext i32 %805 to i64
-  %807 = getelementptr inbounds i8, ptr %804, i64 %806
-  %808 = load i8, ptr %807, align 1, !tbaa !13
-  %.not.i170.i = icmp eq i8 %808, 110
-  br i1 %.not.i170.i, label %809, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i
+798:                                              ; preds = %.lr.ph
+  %799 = load i32, ptr %23, align 4, !tbaa !18
+  %800 = add nsw i32 %799, -1
+  store i32 %800, ptr %23, align 4, !tbaa !18
+  %801 = load ptr, ptr %6, align 8, !tbaa !4
+  %802 = load i32, ptr %10, align 8, !tbaa !17
+  %803 = sext i32 %802 to i64
+  %804 = getelementptr inbounds i8, ptr %801, i64 %803
+  %805 = load i8, ptr %804, align 1, !tbaa !13
+  %.not.i170.i = icmp eq i8 %805, 110
+  br i1 %.not.i170.i, label %806, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i
 
-809:                                              ; preds = %801
-  %810 = add nsw i32 %805, 1
-  store i32 %810, ptr %10, align 8, !tbaa !17
-  %811 = icmp sgt i32 %802, 1
-  br i1 %811, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.thread.i, label %812
+806:                                              ; preds = %798
+  %807 = add nsw i32 %802, 1
+  store i32 %807, ptr %10, align 8, !tbaa !17
+  %808 = icmp sgt i32 %799, 1
+  br i1 %808, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.thread.i, label %809
 
-812:                                              ; preds = %809
-  %813 = load ptr, ptr %8, align 8, !tbaa !12
-  %814 = load ptr, ptr %7, align 8, !tbaa !11
-  %815 = ptrtoint ptr %813 to i64
-  %816 = ptrtoint ptr %814 to i64
-  %817 = sub i64 %815, %816
-  %818 = icmp slt i64 %817, 2
-  br i1 %818, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %819
+809:                                              ; preds = %806
+  %810 = load ptr, ptr %8, align 8, !tbaa !12
+  %811 = load ptr, ptr %7, align 8, !tbaa !11
+  %812 = ptrtoint ptr %810 to i64
+  %813 = ptrtoint ptr %811 to i64
+  %814 = sub i64 %812, %813
+  %815 = icmp slt i64 %814, 2
+  br i1 %815, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %816
 
-819:                                              ; preds = %812
-  %820 = getelementptr inbounds nuw i8, ptr %814, i64 1
-  store ptr %820, ptr %7, align 8, !tbaa !11
-  store i8 45, ptr %814, align 1, !tbaa !13
-  %821 = load ptr, ptr %7, align 8, !tbaa !11
-  store i8 0, ptr %821, align 1, !tbaa !13
-  %.pre500.i = load i32, ptr %23, align 4, !tbaa !18
+816:                                              ; preds = %809
+  %817 = getelementptr inbounds nuw i8, ptr %811, i64 1
+  store ptr %817, ptr %7, align 8, !tbaa !11
+  store i8 45, ptr %811, align 1, !tbaa !13
+  %818 = load ptr, ptr %7, align 8, !tbaa !11
+  store i8 0, ptr %818, align 1, !tbaa !13
+  %.pre501.i = load i32, ptr %23, align 4, !tbaa !18
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i: ; preds = %819, %801
-  %822 = phi i32 [ %.pre500.i, %819 ], [ %803, %801 ]
-  %823 = icmp sgt i32 %822, 0
-  br i1 %823, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.thread.i, label %824
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i: ; preds = %816, %798
+  %819 = phi i32 [ %.pre501.i, %816 ], [ %800, %798 ]
+  %820 = icmp sgt i32 %819, 0
+  br i1 %820, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.thread.i, label %821
 
-824:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i
-  %825 = load ptr, ptr %8, align 8, !tbaa !12
-  %826 = load ptr, ptr %7, align 8, !tbaa !11
-  %827 = ptrtoint ptr %825 to i64
-  %828 = ptrtoint ptr %826 to i64
-  %829 = sub i64 %827, %828
-  %.not.i173.i = icmp ult i64 %829, 3
-  br i1 %.not.i173.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %830
+821:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i
+  %822 = load ptr, ptr %8, align 8, !tbaa !12
+  %823 = load ptr, ptr %7, align 8, !tbaa !11
+  %824 = ptrtoint ptr %822 to i64
+  %825 = ptrtoint ptr %823 to i64
+  %826 = sub i64 %824, %825
+  %.not.i173.i = icmp ult i64 %826, 3
+  br i1 %.not.i173.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %827
 
-830:                                              ; preds = %824
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %826, ptr noundef nonnull align 1 dereferenceable(3) @.str.21, i64 3, i1 false)
-  %831 = getelementptr inbounds nuw i8, ptr %826, i64 2
-  store ptr %831, ptr %7, align 8, !tbaa !11
+827:                                              ; preds = %821
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %823, ptr noundef nonnull align 1 dereferenceable(3) @.str.21, i64 3, i1 false)
+  %828 = getelementptr inbounds nuw i8, ptr %823, i64 2
+  store ptr %828, ptr %7, align 8, !tbaa !11
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.thread.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.thread.i: ; preds = %830, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i, %809
-  %832 = phi i32 [ %822, %830 ], [ %822, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i ], [ %803, %809 ]
-  %833 = load ptr, ptr %6, align 8, !tbaa !4
-  %834 = load i32, ptr %10, align 8, !tbaa !17
-  %835 = sext i32 %834 to i64
-  %836 = getelementptr inbounds i8, ptr %833, i64 %835
-  %837 = load i8, ptr %836, align 1, !tbaa !13
-  %.not.i176.i = icmp eq i8 %837, 48
-  br i1 %.not.i176.i, label %852, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177.preheader.i
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.thread.i: ; preds = %827, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i, %806
+  %829 = phi i32 [ %819, %827 ], [ %819, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.i ], [ %800, %806 ]
+  %830 = load ptr, ptr %6, align 8, !tbaa !4
+  %831 = load i32, ptr %10, align 8, !tbaa !17
+  %832 = sext i32 %831 to i64
+  %833 = getelementptr inbounds i8, ptr %830, i64 %832
+  %834 = load i8, ptr %833, align 1, !tbaa !13
+  %.not.i176.i = icmp eq i8 %834, 48
+  br i1 %.not.i176.i, label %849, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177.preheader.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177.preheader.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.thread.i
-  %838 = add i8 %837, -48
-  %839 = icmp ult i8 %838, 10
-  %840 = add i8 %837, -97
-  %841 = icmp ult i8 %840, 6
-  %842 = or i1 %839, %841
-  br i1 %842, label %.lr.ph.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i
+  %835 = add i8 %834, -48
+  %836 = icmp ult i8 %835, 10
+  %837 = add i8 %834, -97
+  %838 = icmp ult i8 %837, 6
+  %839 = or i1 %836, %838
+  br i1 %839, label %.lr.ph.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177.preheader.i
-  %843 = icmp sgt i32 %832, 0
-  br i1 %843, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i, label %.lr.ph.split.i
+  %840 = icmp sgt i32 %829, 0
+  br i1 %840, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i, label %.lr.ph.split.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i: ; preds = %.lr.ph.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i ], [ %835, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i ], [ %832, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %844 = trunc nsw i64 %indvars.iv.next.i to i32
-  store i32 %844, ptr %10, align 8, !tbaa !17
-  %845 = getelementptr inbounds i8, ptr %833, i64 %indvars.iv.next.i
-  %846 = load i8, ptr %845, align 1, !tbaa !13
-  %847 = add i8 %846, -48
-  %848 = icmp ult i8 %847, 10
-  %849 = add i8 %846, -97
-  %850 = icmp ult i8 %849, 6
-  %851 = or i1 %848, %850
-  br i1 %851, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i, !llvm.loop !23
+  %841 = trunc nsw i64 %indvars.iv.next.i to i32
+  store i32 %841, ptr %10, align 8, !tbaa !17
+  %842 = getelementptr inbounds i8, ptr %830, i64 %indvars.iv.next.i
+  %843 = load i8, ptr %842, align 1, !tbaa !13
+  %844 = add i8 %843, -48
+  %845 = icmp ult i8 %844, 10
+  %846 = add i8 %843, -97
+  %847 = icmp ult i8 %846, 6
+  %848 = or i1 %845, %847
+  br i1 %848, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i, !llvm.loop !23
 
-852:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.thread.i
-  %853 = add nsw i32 %834, 1
-  store i32 %853, ptr %10, align 8, !tbaa !17
-  %854 = icmp sgt i32 %832, 0
-  br i1 %854, label %865, label %855
+849:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit171.thread.i
+  %850 = add nsw i32 %831, 1
+  store i32 %850, ptr %10, align 8, !tbaa !17
+  %851 = icmp sgt i32 %829, 0
+  br i1 %851, label %862, label %852
 
-855:                                              ; preds = %852
-  %856 = load ptr, ptr %8, align 8, !tbaa !12
-  %857 = load ptr, ptr %7, align 8, !tbaa !11
-  %858 = ptrtoint ptr %856 to i64
-  %859 = ptrtoint ptr %857 to i64
-  %860 = sub i64 %858, %859
-  %861 = icmp slt i64 %860, 2
-  br i1 %861, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %862
+852:                                              ; preds = %849
+  %853 = load ptr, ptr %8, align 8, !tbaa !12
+  %854 = load ptr, ptr %7, align 8, !tbaa !11
+  %855 = ptrtoint ptr %853 to i64
+  %856 = ptrtoint ptr %854 to i64
+  %857 = sub i64 %855, %856
+  %858 = icmp slt i64 %857, 2
+  br i1 %858, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %859
 
-862:                                              ; preds = %855
-  %863 = getelementptr inbounds nuw i8, ptr %857, i64 1
-  store ptr %863, ptr %7, align 8, !tbaa !11
-  store i8 48, ptr %857, align 1, !tbaa !13
-  %864 = load ptr, ptr %7, align 8, !tbaa !11
-  store i8 0, ptr %864, align 1, !tbaa !13
-  %.pre504.i = load ptr, ptr %6, align 8, !tbaa !4
-  %.pre505.i = load i32, ptr %10, align 8, !tbaa !17
-  br label %865
+859:                                              ; preds = %852
+  %860 = getelementptr inbounds nuw i8, ptr %854, i64 1
+  store ptr %860, ptr %7, align 8, !tbaa !11
+  store i8 48, ptr %854, align 1, !tbaa !13
+  %861 = load ptr, ptr %7, align 8, !tbaa !11
+  store i8 0, ptr %861, align 1, !tbaa !13
+  %.pre505.i = load ptr, ptr %6, align 8, !tbaa !4
+  %.pre506.i = load i32, ptr %10, align 8, !tbaa !17
+  br label %862
 
-865:                                              ; preds = %862, %852
-  %866 = phi i32 [ %.pre505.i, %862 ], [ %853, %852 ]
-  %867 = phi ptr [ %.pre504.i, %862 ], [ %833, %852 ]
-  %868 = sext i32 %866 to i64
-  %869 = getelementptr inbounds i8, ptr %867, i64 %868
-  %870 = load i8, ptr %869, align 1, !tbaa !13
-  %.not.i180.i = icmp eq i8 %870, 95
+862:                                              ; preds = %859, %849
+  %863 = phi i32 [ %.pre506.i, %859 ], [ %850, %849 ]
+  %864 = phi ptr [ %.pre505.i, %859 ], [ %830, %849 ]
+  %865 = sext i32 %863 to i64
+  %866 = getelementptr inbounds i8, ptr %864, i64 %865
+  %867 = load i8, ptr %866, align 1, !tbaa !13
+  %.not.i180.i = icmp eq i8 %867, 95
   br i1 %.not.i180.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit181.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit181.i: ; preds = %865
-  %871 = add nsw i32 %866, 1
-  store i32 %871, ptr %10, align 8, !tbaa !17
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit181.i: ; preds = %862
+  %868 = add nsw i32 %863, 1
+  store i32 %868, ptr %10, align 8, !tbaa !17
   br label %.critedge51.backedge.i
 
 .lr.ph.splitthread-pre-split.i:                   ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.i
@@ -1812,328 +1812,328 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit181.i: ; 
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.splitthread-pre-split.i
-  %872 = phi i32 [ %.pr.i, %.lr.ph.splitthread-pre-split.i ], [ %832, %.lr.ph.i ]
-  %.val60502.i = phi ptr [ %.val60.i, %.lr.ph.splitthread-pre-split.i ], [ %833, %.lr.ph.i ]
-  %873 = phi ptr [ %888, %.lr.ph.splitthread-pre-split.i ], [ %836, %.lr.ph.i ]
-  %.val59353.i = phi i32 [ %.val59.i, %.lr.ph.splitthread-pre-split.i ], [ %834, %.lr.ph.i ]
-  %874 = add nsw i32 %.val59353.i, 1
-  store i32 %874, ptr %10, align 8, !tbaa !17
-  %875 = load i8, ptr %873, align 1, !tbaa !13
-  %876 = icmp sgt i32 %872, 0
-  br i1 %876, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.i, label %877
+  %869 = phi i32 [ %.pr.i, %.lr.ph.splitthread-pre-split.i ], [ %829, %.lr.ph.i ]
+  %.val60503.i = phi ptr [ %.val60.i, %.lr.ph.splitthread-pre-split.i ], [ %830, %.lr.ph.i ]
+  %870 = phi ptr [ %885, %.lr.ph.splitthread-pre-split.i ], [ %833, %.lr.ph.i ]
+  %.val59354.i = phi i32 [ %.val59.i, %.lr.ph.splitthread-pre-split.i ], [ %831, %.lr.ph.i ]
+  %871 = add nsw i32 %.val59354.i, 1
+  store i32 %871, ptr %10, align 8, !tbaa !17
+  %872 = load i8, ptr %870, align 1, !tbaa !13
+  %873 = icmp sgt i32 %869, 0
+  br i1 %873, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.i, label %874
 
-877:                                              ; preds = %.lr.ph.split.i
-  %878 = load ptr, ptr %8, align 8, !tbaa !12
-  %879 = load ptr, ptr %7, align 8, !tbaa !11
-  %880 = ptrtoint ptr %878 to i64
-  %881 = ptrtoint ptr %879 to i64
-  %882 = sub i64 %880, %881
-  %883 = icmp slt i64 %882, 2
-  br i1 %883, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %884
+874:                                              ; preds = %.lr.ph.split.i
+  %875 = load ptr, ptr %8, align 8, !tbaa !12
+  %876 = load ptr, ptr %7, align 8, !tbaa !11
+  %877 = ptrtoint ptr %875 to i64
+  %878 = ptrtoint ptr %876 to i64
+  %879 = sub i64 %877, %878
+  %880 = icmp slt i64 %879, 2
+  br i1 %880, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %881
 
-884:                                              ; preds = %877
-  %885 = getelementptr inbounds nuw i8, ptr %879, i64 1
-  store ptr %885, ptr %7, align 8, !tbaa !11
-  store i8 %875, ptr %879, align 1, !tbaa !13
-  %886 = load ptr, ptr %7, align 8, !tbaa !11
-  store i8 0, ptr %886, align 1, !tbaa !13
+881:                                              ; preds = %874
+  %882 = getelementptr inbounds nuw i8, ptr %876, i64 1
+  store ptr %882, ptr %7, align 8, !tbaa !11
+  store i8 %872, ptr %876, align 1, !tbaa !13
+  %883 = load ptr, ptr %7, align 8, !tbaa !11
+  store i8 0, ptr %883, align 1, !tbaa !13
   %.val59.pre.i = load i32, ptr %10, align 8, !tbaa !17
   %.val60.pre.i = load ptr, ptr %6, align 8, !tbaa !4
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.i: ; preds = %884, %.lr.ph.split.i
-  %.val60.i = phi ptr [ %.val60502.i, %.lr.ph.split.i ], [ %.val60.pre.i, %884 ]
-  %.val59.i = phi i32 [ %874, %.lr.ph.split.i ], [ %.val59.pre.i, %884 ]
-  %887 = sext i32 %.val59.i to i64
-  %888 = getelementptr inbounds i8, ptr %.val60.i, i64 %887
-  %889 = load i8, ptr %888, align 1, !tbaa !13
-  %890 = add i8 %889, -48
-  %891 = icmp ult i8 %890, 10
-  %892 = add i8 %889, -97
-  %893 = icmp ult i8 %892, 6
-  %894 = or i1 %891, %893
-  br i1 %894, label %.lr.ph.splitthread-pre-split.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i, !llvm.loop !24
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.i: ; preds = %881, %.lr.ph.split.i
+  %.val60.i = phi ptr [ %.val60503.i, %.lr.ph.split.i ], [ %.val60.pre.i, %881 ]
+  %.val59.i = phi i32 [ %871, %.lr.ph.split.i ], [ %.val59.pre.i, %881 ]
+  %884 = sext i32 %.val59.i to i64
+  %885 = getelementptr inbounds i8, ptr %.val60.i, i64 %884
+  %886 = load i8, ptr %885, align 1, !tbaa !13
+  %887 = add i8 %886, -48
+  %888 = icmp ult i8 %887, 10
+  %889 = add i8 %886, -97
+  %890 = icmp ult i8 %889, 6
+  %891 = or i1 %888, %890
+  br i1 %891, label %.lr.ph.splitthread-pre-split.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i, !llvm.loop !24
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177.preheader.i
-  %.val59.lcssa.i = phi i32 [ %834, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177.preheader.i ], [ %844, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i ], [ %.val59.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.i ]
-  %.lcssa246.i = phi i8 [ %837, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177.preheader.i ], [ %846, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i ], [ %889, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.i ]
-  %.not.i184.i = icmp eq i8 %.lcssa246.i, 95
+  %.val59.lcssa.i = phi i32 [ %831, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177.preheader.i ], [ %841, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i ], [ %.val59.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.i ]
+  %.lcssa247.i = phi i8 [ %834, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177.preheader.i ], [ %843, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.us.i ], [ %886, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser8EmitCharEc.exit183.i ]
+  %.not.i184.i = icmp eq i8 %.lcssa247.i, 95
   br i1 %.not.i184.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit185.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit185.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i
-  %895 = add nsw i32 %.val59.lcssa.i, 1
-  store i32 %895, ptr %10, align 8, !tbaa !17
+  %892 = add nsw i32 %.val59.lcssa.i, 1
+  store i32 %892, ptr %10, align 8, !tbaa !17
   br label %.critedge51.backedge.i
 
-896:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
-  %897 = load i32, ptr %22, align 8, !tbaa !14
-  %898 = icmp eq i32 %897, 256
-  br i1 %898, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %899
+893:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
+  %894 = load i32, ptr %22, align 8, !tbaa !14
+  %895 = icmp eq i32 %894, 256
+  br i1 %895, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %896
 
-899:                                              ; preds = %896
-  %900 = add nsw i32 %897, 1
-  store i32 %900, ptr %22, align 8, !tbaa !14
-  %901 = sext i32 %897 to i64
-  %902 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %901
-  store i8 26, ptr %902, align 1, !tbaa !13
+896:                                              ; preds = %893
+  %897 = add nsw i32 %894, 1
+  store i32 %897, ptr %22, align 8, !tbaa !14
+  %898 = sext i32 %894 to i64
+  %899 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %898
+  store i8 26, ptr %899, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
-903:                                              ; preds = %.lr.ph
-  %904 = load i32, ptr %23, align 4, !tbaa !18
-  %905 = icmp sgt i32 %904, 0
-  br i1 %905, label %914, label %906
+900:                                              ; preds = %.lr.ph
+  %901 = load i32, ptr %23, align 4, !tbaa !18
+  %902 = icmp sgt i32 %901, 0
+  br i1 %902, label %911, label %903
 
-906:                                              ; preds = %903
-  %907 = load ptr, ptr %8, align 8, !tbaa !12
-  %908 = load ptr, ptr %7, align 8, !tbaa !11
-  %909 = ptrtoint ptr %907 to i64
-  %910 = ptrtoint ptr %908 to i64
-  %911 = sub i64 %909, %910
-  %.not.i186.i = icmp ult i64 %911, 5
-  br i1 %.not.i186.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %912
+903:                                              ; preds = %900
+  %904 = load ptr, ptr %8, align 8, !tbaa !12
+  %905 = load ptr, ptr %7, align 8, !tbaa !11
+  %906 = ptrtoint ptr %904 to i64
+  %907 = ptrtoint ptr %905 to i64
+  %908 = sub i64 %906, %907
+  %.not.i186.i = icmp ult i64 %908, 5
+  br i1 %.not.i186.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %909
 
-912:                                              ; preds = %906
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %908, ptr noundef nonnull align 1 dereferenceable(5) @.str.22, i64 5, i1 false)
-  %913 = getelementptr inbounds nuw i8, ptr %908, i64 4
-  store ptr %913, ptr %7, align 8, !tbaa !11
-  br label %914
+909:                                              ; preds = %903
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %905, ptr noundef nonnull align 1 dereferenceable(5) @.str.22, i64 5, i1 false)
+  %910 = getelementptr inbounds nuw i8, ptr %905, i64 4
+  store ptr %910, ptr %7, align 8, !tbaa !11
+  br label %911
 
-914:                                              ; preds = %912, %903
-  %915 = add nsw i32 %904, 1
-  store i32 %915, ptr %23, align 4, !tbaa !18
-  br label %916
+911:                                              ; preds = %909, %900
+  %912 = add nsw i32 %901, 1
+  store i32 %912, ptr %23, align 4, !tbaa !18
+  br label %913
 
-916:                                              ; preds = %934, %914
-  %917 = load ptr, ptr %6, align 8, !tbaa !4
-  %918 = load i32, ptr %10, align 8, !tbaa !17
-  %919 = sext i32 %918 to i64
-  %920 = getelementptr inbounds i8, ptr %917, i64 %919
-  %921 = load i8, ptr %920, align 1, !tbaa !13
-  %.not.i189.i = icmp eq i8 %921, 69
-  br i1 %.not.i189.i, label %935, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i
+913:                                              ; preds = %931, %911
+  %914 = load ptr, ptr %6, align 8, !tbaa !4
+  %915 = load i32, ptr %10, align 8, !tbaa !17
+  %916 = sext i32 %915 to i64
+  %917 = getelementptr inbounds i8, ptr %914, i64 %916
+  %918 = load i8, ptr %917, align 1, !tbaa !13
+  %.not.i189.i = icmp eq i8 %918, 69
+  br i1 %.not.i189.i, label %932, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i: ; preds = %916
-  %922 = icmp eq i32 %14, 256
-  br i1 %922, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %923
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i: ; preds = %913
+  %919 = icmp eq i32 %14, 256
+  br i1 %919, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %920
 
-923:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i
+920:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i
   store i32 %12, ptr %22, align 8, !tbaa !14
-  %924 = zext nneg i32 %14 to i64
-  %925 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %924
-  store i8 27, ptr %925, align 1, !tbaa !13
+  %921 = zext nneg i32 %14 to i64
+  %922 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %921
+  store i8 27, ptr %922, align 1, !tbaa !13
   %.val61.i = load i32, ptr %10, align 8, !tbaa !17
   %.val62.i = load ptr, ptr %6, align 8, !tbaa !4
-  %926 = sext i32 %.val61.i to i64
-  %927 = getelementptr inbounds i8, ptr %.val62.i, i64 %926
-  %928 = load i8, ptr %927, align 1, !tbaa !13
-  switch i8 %928, label %.critedge232.preheader.i [
-    i8 76, label %939
-    i8 75, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit203.i
+  %923 = sext i32 %.val61.i to i64
+  %924 = getelementptr inbounds i8, ptr %.val62.i, i64 %923
+  %925 = load i8, ptr %924, align 1, !tbaa !13
+  switch i8 %925, label %.critedge233.preheader.i [
+    i8 76, label %936
+    i8 75, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i
   ]
 
-.critedge232.preheader.i:                         ; preds = %923, %797, %771, %685, %677, %631, %591, %557, %193, %103, %72
-  %.212.ph.i = phi i32 [ %.010.i, %193 ], [ %13, %72 ], [ %13, %103 ], [ %13, %557 ], [ %13, %591 ], [ %13, %631 ], [ %13, %771 ], [ %.313.i, %685 ], [ %.313.i, %677 ], [ %13, %797 ], [ %13, %923 ]
-  %.val55386.i = load i32, ptr %10, align 8, !tbaa !17
-  %.val56387.i = load ptr, ptr %6, align 8, !tbaa !4
-  %929 = sext i32 %.val55386.i to i64
-  %930 = getelementptr inbounds i8, ptr %.val56387.i, i64 %929
-  %931 = load i8, ptr %930, align 1, !tbaa !13
-  %932 = add i8 %931, -97
-  %933 = icmp ult i8 %932, 26
-  br i1 %933, label %.critedge232._crit_edge.i, label %.lr.ph390.i
+.critedge233.preheader.i:                         ; preds = %920, %794, %768, %682, %674, %628, %588, %554, %192, %103, %72
+  %.212.ph.i = phi i32 [ %.010.i, %192 ], [ %13, %72 ], [ %13, %103 ], [ %13, %554 ], [ %13, %588 ], [ %13, %628 ], [ %13, %768 ], [ %.313.i, %682 ], [ %.313.i, %674 ], [ %13, %794 ], [ %13, %920 ]
+  %.val55387.i = load i32, ptr %10, align 8, !tbaa !17
+  %.val56388.i = load ptr, ptr %6, align 8, !tbaa !4
+  %926 = sext i32 %.val55387.i to i64
+  %927 = getelementptr inbounds i8, ptr %.val56388.i, i64 %926
+  %928 = load i8, ptr %927, align 1, !tbaa !13
+  %929 = add i8 %928, -97
+  %930 = icmp ult i8 %929, 26
+  br i1 %930, label %.critedge233._crit_edge.i, label %.lr.ph391.i
 
-934:                                              ; preds = %.lr.ph
-  br label %916, !llvm.loop !26
+931:                                              ; preds = %.lr.ph
+  br label %913, !llvm.loop !26
 
-935:                                              ; preds = %916
-  %936 = add nsw i32 %918, 1
-  store i32 %936, ptr %10, align 8, !tbaa !17
-  %937 = load i32, ptr %23, align 4, !tbaa !18
-  %938 = add nsw i32 %937, -1
-  store i32 %938, ptr %23, align 4, !tbaa !18
+932:                                              ; preds = %913
+  %933 = add nsw i32 %915, 1
+  store i32 %933, ptr %10, align 8, !tbaa !17
+  %934 = load i32, ptr %23, align 4, !tbaa !18
+  %935 = add nsw i32 %934, -1
+  store i32 %935, ptr %23, align 4, !tbaa !18
   br label %.critedge51.backedge.i
 
-939:                                              ; preds = %923
-  %940 = add nsw i32 %.val61.i, 1
-  store i32 %940, ptr %10, align 8, !tbaa !17
-  %941 = sext i32 %940 to i64
-  %942 = getelementptr inbounds i8, ptr %.val62.i, i64 %941
-  %943 = load i8, ptr %942, align 1, !tbaa !13
-  %.not.i.i.i193.i = icmp eq i8 %943, 95
-  br i1 %.not.i.i.i193.i, label %949, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i
+936:                                              ; preds = %920
+  %937 = add nsw i32 %.val61.i, 1
+  store i32 %937, ptr %10, align 8, !tbaa !17
+  %938 = sext i32 %937 to i64
+  %939 = getelementptr inbounds i8, ptr %.val62.i, i64 %938
+  %940 = load i8, ptr %939, align 1, !tbaa !13
+  %.not.i.i.i193.i = icmp eq i8 %940, 95
+  br i1 %.not.i.i.i193.i, label %946, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i: ; preds = %939
-  %944 = and i8 %943, -33
-  %945 = add i8 %944, -65
-  %946 = icmp ult i8 %945, 26
-  %947 = add i8 %943, -48
-  %948 = icmp ult i8 %947, 10
-  %or.cond25.i.i195.i = or i1 %948, %946
-  br i1 %or.cond25.i.i195.i, label %.critedge.i.i196.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i: ; preds = %936
+  %941 = and i8 %940, -33
+  %942 = add i8 %941, -65
+  %943 = icmp ult i8 %942, 26
+  %944 = add i8 %940, -48
+  %945 = icmp ult i8 %944, 10
+  %or.cond28.i.i195.i = or i1 %945, %943
+  br i1 %or.cond28.i.i195.i, label %.critedge.i.i196.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-949:                                              ; preds = %939
-  %950 = add nsw i32 %.val61.i, 2
+946:                                              ; preds = %936
+  %947 = add nsw i32 %.val61.i, 2
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit.i
 
 .critedge.i.i196.i:                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i, %.critedge.i.i196.i
-  %indvars.iv.i.i197.i = phi i64 [ %indvars.iv.next.i.i198.i, %.critedge.i.i196.i ], [ %941, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i ]
+  %indvars.iv.i.i197.i = phi i64 [ %indvars.iv.next.i.i198.i, %.critedge.i.i196.i ], [ %938, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i ]
   %indvars.iv.next.i.i198.i = add nsw i64 %indvars.iv.i.i197.i, 1
-  %951 = trunc nsw i64 %indvars.iv.next.i.i198.i to i32
-  store i32 %951, ptr %10, align 8, !tbaa !17
-  %952 = getelementptr inbounds i8, ptr %.val62.i, i64 %indvars.iv.next.i.i198.i
-  %953 = load i8, ptr %952, align 1, !tbaa !13
-  %954 = and i8 %953, -33
-  %955 = add i8 %954, -65
-  %956 = icmp ult i8 %955, 26
-  %957 = add i8 %953, -48
-  %958 = icmp ult i8 %957, 10
-  %or.cond.i.i199.i = or i1 %958, %956
+  %948 = trunc nsw i64 %indvars.iv.next.i.i198.i to i32
+  store i32 %948, ptr %10, align 8, !tbaa !17
+  %949 = getelementptr inbounds i8, ptr %.val62.i, i64 %indvars.iv.next.i.i198.i
+  %950 = load i8, ptr %949, align 1, !tbaa !13
+  %951 = and i8 %950, -33
+  %952 = add i8 %951, -65
+  %953 = icmp ult i8 %952, 26
+  %954 = add i8 %950, -48
+  %955 = icmp ult i8 %954, 10
+  %or.cond.i.i199.i = or i1 %955, %953
   br i1 %or.cond.i.i199.i, label %.critedge.i.i196.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i, !llvm.loop !19
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i: ; preds = %.critedge.i.i196.i
-  %959 = icmp eq i8 %953, 95
-  br i1 %959, label %960, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+  %956 = icmp eq i8 %950, 95
+  br i1 %956, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i201.i, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-960:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i
-  %961 = add nsw i32 %951, 1
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i201.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i
+  %957 = add nsw i32 %948, 1
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit.i: ; preds = %960, %949
-  %.sink.i201.i = phi i32 [ %961, %960 ], [ %950, %949 ]
-  store i32 %.sink.i201.i, ptr %10, align 8, !tbaa !17
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i201.i, %946
+  %.sink.i202.i = phi i32 [ %957, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i201.i ], [ %947, %946 ]
+  store i32 %.sink.i202.i, ptr %10, align 8, !tbaa !17
   br label %.critedge51.backedge.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit203.i: ; preds = %923
-  %962 = add nsw i32 %.val61.i, 1
-  store i32 %962, ptr %10, align 8, !tbaa !17
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i: ; preds = %920
+  %958 = add nsw i32 %.val61.i, 1
+  store i32 %958, ptr %10, align 8, !tbaa !17
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit203.i, %344
-  %963 = phi i32 [ %.pre510.i, %344 ], [ %962, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit203.i ]
-  %964 = phi ptr [ %.pre509.i, %344 ], [ %.val62.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit203.i ]
-  %965 = sext i32 %963 to i64
-  %966 = getelementptr inbounds i8, ptr %964, i64 %965
-  %967 = load i8, ptr %966, align 1, !tbaa !13
-  %.not.i166356.i = icmp eq i8 %967, 66
-  br i1 %.not.i166356.i, label %.lr.ph357.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit167.i
+.preheader.i:                                     ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i, %343
+  %959 = phi i32 [ %.pre511.i, %343 ], [ %958, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i ]
+  %960 = phi ptr [ %.pre510.i, %343 ], [ %.val62.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit204.i ]
+  %961 = sext i32 %959 to i64
+  %962 = getelementptr inbounds i8, ptr %960, i64 %961
+  %963 = load i8, ptr %962, align 1, !tbaa !13
+  %.not.i166357.i = icmp eq i8 %963, 66
+  br i1 %.not.i166357.i, label %.lr.ph358.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit167.i
 
-968:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
-  %969 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12BeginBackrefEv(ptr noundef nonnull align 8 dereferenceable(432) %4)
-  br i1 %969, label %970, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+964:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i
+  %965 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12BeginBackrefEv(ptr noundef nonnull align 8 dereferenceable(432) %4)
+  br i1 %965, label %966, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-970:                                              ; preds = %968
-  %971 = load i32, ptr %23, align 4, !tbaa !18
-  %972 = icmp eq i32 %971, 0
-  br i1 %972, label %973, label %.loopexit239.i
+966:                                              ; preds = %964
+  %967 = load i32, ptr %23, align 4, !tbaa !18
+  %968 = icmp eq i32 %967, 0
+  br i1 %968, label %969, label %.loopexit240.i
 
-973:                                              ; preds = %970
-  %974 = load i32, ptr %22, align 8, !tbaa !14
-  %975 = icmp eq i32 %974, 256
-  br i1 %975, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %976
+969:                                              ; preds = %966
+  %970 = load i32, ptr %22, align 8, !tbaa !14
+  %971 = icmp eq i32 %970, 256
+  br i1 %971, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %972
 
-976:                                              ; preds = %973
-  %977 = add nsw i32 %974, 1
-  store i32 %977, ptr %22, align 8, !tbaa !14
-  %978 = sext i32 %974 to i64
-  %979 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %978
-  store i8 28, ptr %979, align 1, !tbaa !13
+972:                                              ; preds = %969
+  %973 = add nsw i32 %970, 1
+  store i32 %973, ptr %22, align 8, !tbaa !14
+  %974 = sext i32 %970 to i64
+  %975 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %974
+  store i8 28, ptr %975, align 1, !tbaa !13
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.backedge.i
 
-.loopexit239.i:                                   ; preds = %.lr.ph, %970
-  %.616.i = phi i32 [ %.010.i, %970 ], [ %13, %.lr.ph ]
-  %980 = load i32, ptr %27, align 8, !tbaa !27
-  %981 = add nsw i32 %980, -1
-  store i32 %981, ptr %27, align 8, !tbaa !27
-  %982 = sext i32 %981 to i64
-  %983 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %982
-  %984 = load i32, ptr %983, align 4, !tbaa !28
-  store i32 %984, ptr %10, align 8, !tbaa !17
+.loopexit240.i:                                   ; preds = %.lr.ph, %966
+  %.616.i = phi i32 [ %.010.i, %966 ], [ %13, %.lr.ph ]
+  %976 = load i32, ptr %27, align 8, !tbaa !27
+  %977 = add nsw i32 %976, -1
+  store i32 %977, ptr %27, align 8, !tbaa !27
+  %978 = sext i32 %977 to i64
+  %979 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %978
+  %980 = load i32, ptr %979, align 4, !tbaa !28
+  store i32 %980, ptr %10, align 8, !tbaa !17
   br label %.critedge51.preheader.i
 
-985:                                              ; preds = %.lr.ph390.i
-  %986 = add nsw i32 %306, 1
-  store i32 %986, ptr %10, align 8, !tbaa !17
-  %987 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12BeginBackrefEv(ptr noundef nonnull align 8 dereferenceable(432) %4)
-  br i1 %987, label %988, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+981:                                              ; preds = %.lr.ph391.i
+  %982 = add nsw i32 %305, 1
+  store i32 %982, ptr %10, align 8, !tbaa !17
+  %983 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12BeginBackrefEv(ptr noundef nonnull align 8 dereferenceable(432) %4)
+  br i1 %983, label %984, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-988:                                              ; preds = %985
-  %989 = load i32, ptr %23, align 4, !tbaa !18
-  %990 = icmp eq i32 %989, 0
-  br i1 %990, label %991, label %.loopexit235.i
+984:                                              ; preds = %981
+  %985 = load i32, ptr %23, align 4, !tbaa !18
+  %986 = icmp eq i32 %985, 0
+  br i1 %986, label %987, label %.loopexit236.i
 
-991:                                              ; preds = %988
-  %992 = load i32, ptr %22, align 8, !tbaa !14
-  %993 = icmp eq i32 %992, 256
-  br i1 %993, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.critedge232.backedge.sink.split.i
+987:                                              ; preds = %984
+  %988 = load i32, ptr %22, align 8, !tbaa !14
+  %989 = icmp eq i32 %988, 256
+  br i1 %989, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %.critedge233.backedge.sink.split.i
 
-.loopexit235.i:                                   ; preds = %.lr.ph, %988
-  %.717.i = phi i32 [ %.212.ph.i, %988 ], [ %13, %.lr.ph ]
-  %994 = load i32, ptr %27, align 8, !tbaa !27
-  %995 = add nsw i32 %994, -1
-  store i32 %995, ptr %27, align 8, !tbaa !27
-  %996 = sext i32 %995 to i64
-  %997 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %996
-  %998 = load i32, ptr %997, align 4, !tbaa !28
-  store i32 %998, ptr %10, align 8, !tbaa !17
+.loopexit236.i:                                   ; preds = %.lr.ph, %984
+  %.717.i = phi i32 [ %.212.ph.i, %984 ], [ %13, %.lr.ph ]
+  %990 = load i32, ptr %27, align 8, !tbaa !27
+  %991 = add nsw i32 %990, -1
+  store i32 %991, ptr %27, align 8, !tbaa !27
+  %992 = sext i32 %991 to i64
+  %993 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %992
+  %994 = load i32, ptr %993, align 4, !tbaa !28
+  store i32 %994, ptr %10, align 8, !tbaa !17
   br label %.critedge51.preheader.i
 
-.critedge51.preheader.i:                          ; preds = %522, %512, %switch.lookup557, %302, %.loopexit235.i, %.loopexit239.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i, %53
-  %.111.ph.i = phi i32 [ %.010.i, %53 ], [ %.414.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i ], [ %.717.i, %.loopexit235.i ], [ %.616.i, %.loopexit239.i ], [ %.212.ph.i, %302 ], [ %.212.ph.i, %switch.lookup557 ], [ %.212.ph.i, %512 ], [ %.212.ph.i, %522 ]
-  %999 = icmp slt i32 %.111.ph.i, 131071
-  %1000 = load i32, ptr %22, align 8
-  %1001 = icmp sgt i32 %1000, 0
-  %or.cond = select i1 %999, i1 %1001, i1 false
+.critedge51.preheader.i:                          ; preds = %519, %509, %switch.lookup558, %301, %.loopexit236.i, %.loopexit240.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i, %53
+  %.111.ph.i = phi i32 [ %.010.i, %53 ], [ %.414.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i ], [ %.717.i, %.loopexit236.i ], [ %.616.i, %.loopexit240.i ], [ %.212.ph.i, %301 ], [ %.212.ph.i, %switch.lookup558 ], [ %.212.ph.i, %509 ], [ %.212.ph.i, %519 ]
+  %995 = icmp slt i32 %.111.ph.i, 131071
+  %996 = load i32, ptr %22, align 8
+  %997 = icmp sgt i32 %996, 0
+  %or.cond = select i1 %995, i1 %997, i1 false
   br i1 %or.cond, label %.lr.ph, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-.lr.ph357.i:                                      ; preds = %.preheader.i, %1011
-  %1002 = phi i32 [ %1016, %1011 ], [ %963, %.preheader.i ]
-  %1003 = add nsw i32 %1002, 1
-  store i32 %1003, ptr %10, align 8, !tbaa !17
-  %1004 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12BeginBackrefEv(ptr noundef nonnull align 8 dereferenceable(432) %4)
-  br i1 %1004, label %1005, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
+.lr.ph358.i:                                      ; preds = %.preheader.i, %1007
+  %998 = phi i32 [ %1012, %1007 ], [ %959, %.preheader.i ]
+  %999 = add nsw i32 %998, 1
+  store i32 %999, ptr %10, align 8, !tbaa !17
+  %1000 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12BeginBackrefEv(ptr noundef nonnull align 8 dereferenceable(432) %4)
+  br i1 %1000, label %1001, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-1005:                                             ; preds = %.lr.ph357.i
-  %1006 = load i32, ptr %23, align 4, !tbaa !18
-  %1007 = icmp eq i32 %1006, 0
-  br i1 %1007, label %1008, label %.loopexit.i
+1001:                                             ; preds = %.lr.ph358.i
+  %1002 = load i32, ptr %23, align 4, !tbaa !18
+  %1003 = icmp eq i32 %1002, 0
+  br i1 %1003, label %1004, label %.loopexit.i
 
-1008:                                             ; preds = %1005
-  %1009 = load i32, ptr %22, align 8, !tbaa !14
-  %1010 = icmp eq i32 %1009, 256
-  br i1 %1010, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %1011
+1004:                                             ; preds = %1001
+  %1005 = load i32, ptr %22, align 8, !tbaa !14
+  %1006 = icmp eq i32 %1005, 256
+  br i1 %1006, label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit, label %1007
 
-1011:                                             ; preds = %1008
-  %1012 = add nsw i32 %1009, 1
-  store i32 %1012, ptr %22, align 8, !tbaa !14
-  %1013 = sext i32 %1009 to i64
-  %1014 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %1013
-  store i8 30, ptr %1014, align 1, !tbaa !13
-  %1015 = load ptr, ptr %6, align 8, !tbaa !4
-  %1016 = load i32, ptr %10, align 8, !tbaa !17
-  %1017 = sext i32 %1016 to i64
-  %1018 = getelementptr inbounds i8, ptr %1015, i64 %1017
-  %1019 = load i8, ptr %1018, align 1, !tbaa !13
-  %.not.i166.i = icmp eq i8 %1019, 66
-  br i1 %.not.i166.i, label %.lr.ph357.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit167.i
+1007:                                             ; preds = %1004
+  %1008 = add nsw i32 %1005, 1
+  store i32 %1008, ptr %22, align 8, !tbaa !14
+  %1009 = sext i32 %1005 to i64
+  %1010 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %1009
+  store i8 30, ptr %1010, align 1, !tbaa !13
+  %1011 = load ptr, ptr %6, align 8, !tbaa !4
+  %1012 = load i32, ptr %10, align 8, !tbaa !17
+  %1013 = sext i32 %1012 to i64
+  %1014 = getelementptr inbounds i8, ptr %1011, i64 %1013
+  %1015 = load i8, ptr %1014, align 1, !tbaa !13
+  %.not.i166.i = icmp eq i8 %1015, 66
+  br i1 %.not.i166.i, label %.lr.ph358.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit167.i
 
-.loopexit.i:                                      ; preds = %1005, %.lr.ph
-  %1020 = load i32, ptr %27, align 8, !tbaa !27
-  %1021 = add nsw i32 %1020, -1
-  store i32 %1021, ptr %27, align 8, !tbaa !27
-  %1022 = sext i32 %1021 to i64
-  %1023 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %1022
-  %1024 = load i32, ptr %1023, align 4, !tbaa !28
-  store i32 %1024, ptr %10, align 8, !tbaa !17
+.loopexit.i:                                      ; preds = %1001, %.lr.ph
+  %1016 = load i32, ptr %27, align 8, !tbaa !27
+  %1017 = add nsw i32 %1016, -1
+  store i32 %1017, ptr %27, align 8, !tbaa !27
+  %1018 = sext i32 %1017 to i64
+  %1019 = getelementptr inbounds [16 x i32], ptr %26, i64 0, i64 %1018
+  %1020 = load i32, ptr %1019, align 4, !tbaa !28
+  store i32 %1020, ptr %10, align 8, !tbaa !17
   br label %.critedge51.backedge.i
 
-switch.lookup:                                    ; preds = %.loopexit237.i
+switch.lookup:                                    ; preds = %.loopexit238.i
   %switch.cast = zext nneg i8 %45 to i47
   %switch.downshift = lshr i47 -70300024700927, %switch.cast
   %switch.masked = trunc i47 %switch.downshift to i1
   br label %_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit
 
-_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit: ; preds = %721, %516, %696, %642, %581, %547, %200, %108, %36, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i, %53, %58, %67, %70, %89, %98, %101, %116, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i.i, %166, %181, %190, %208, %232, %234, %263, %267, %294, %555, %589, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i, %650, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i, %681, %704, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i, %732, %765, %768, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i, %896, %968, %973, %.critedge51.preheader.i, %.critedge232._crit_edge.i, %switch.hole_check, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i, %906, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i, %865, %855, %824, %812, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit, %750, %615, %604, %570, %537, %378, %350, %342, %334, %285, %277, %256, %248, %216, %.critedge51.backedge.i, %124, %77, %.lr.ph361.i.backedge, %784, %497, %485, %472, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i, %433, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43, %391, %311, %320, %363, %372, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i, %985, %991, %877, %.lr.ph357.i, %1008, %.loopexit237.i, %switch.lookup, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit, %18
-  %.0.i = phi i1 [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit ], [ false, %18 ], [ %switch.masked, %switch.lookup ], [ false, %.loopexit237.i ], [ false, %1008 ], [ false, %.lr.ph357.i ], [ false, %877 ], [ false, %991 ], [ false, %985 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ false, %372 ], [ false, %363 ], [ false, %320 ], [ false, %311 ], [ false, %391 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49 ], [ false, %433 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i ], [ false, %472 ], [ false, %485 ], [ false, %497 ], [ false, %784 ], [ false, %.lr.ph361.i.backedge ], [ false, %77 ], [ false, %124 ], [ false, %.critedge51.backedge.i ], [ false, %216 ], [ false, %248 ], [ false, %256 ], [ false, %277 ], [ false, %285 ], [ false, %334 ], [ false, %342 ], [ false, %350 ], [ false, %378 ], [ false, %537 ], [ false, %570 ], [ false, %604 ], [ false, %615 ], [ false, %750 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit ], [ false, %812 ], [ false, %824 ], [ false, %855 ], [ false, %865 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i ], [ false, %906 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i ], [ false, %switch.hole_check ], [ false, %.critedge232._crit_edge.i ], [ false, %.critedge51.preheader.i ], [ false, %973 ], [ false, %968 ], [ false, %896 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i ], [ false, %768 ], [ false, %765 ], [ false, %732 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i ], [ false, %704 ], [ false, %681 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i ], [ false, %650 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i ], [ false, %589 ], [ false, %555 ], [ false, %294 ], [ false, %267 ], [ false, %263 ], [ false, %234 ], [ false, %232 ], [ false, %208 ], [ false, %190 ], [ false, %181 ], [ false, %166 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i.i ], [ false, %116 ], [ false, %101 ], [ false, %98 ], [ false, %89 ], [ false, %70 ], [ false, %67 ], [ false, %58 ], [ false, %53 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i ], [ false, %36 ], [ false, %108 ], [ false, %200 ], [ false, %547 ], [ false, %581 ], [ false, %642 ], [ false, %696 ], [ false, %516 ], [ false, %721 ]
+_ZNO4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser5ParseEv.exit: ; preds = %718, %513, %693, %639, %578, %544, %199, %108, %36, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i, %53, %58, %67, %70, %89, %98, %101, %116, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i.i, %165, %180, %189, %207, %231, %233, %262, %266, %293, %552, %586, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i, %647, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i, %678, %701, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i, %729, %762, %765, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i, %893, %964, %969, %.critedge51.preheader.i, %.critedge233._crit_edge.i, %switch.hole_check, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i, %903, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i, %862, %852, %821, %809, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit, %747, %612, %601, %567, %534, %377, %349, %341, %333, %284, %276, %255, %247, %215, %.critedge51.backedge.i, %124, %77, %.lr.ph362.i.backedge, %781, %494, %482, %469, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i, %431, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43, %390, %310, %319, %362, %371, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i, %981, %987, %874, %.lr.ph358.i, %1004, %.loopexit238.i, %switch.lookup, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit, %18
+  %.0.i = phi i1 [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParserC2EPKcPcS5_.exit ], [ false, %18 ], [ %switch.masked, %switch.lookup ], [ false, %.loopexit238.i ], [ false, %1004 ], [ false, %.lr.ph358.i ], [ false, %874 ], [ false, %987 ], [ false, %981 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit128.i ], [ false, %371 ], [ false, %362 ], [ false, %319 ], [ false, %310 ], [ false, %390 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i43 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i49 ], [ false, %431 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i ], [ false, %469 ], [ false, %482 ], [ false, %494 ], [ false, %781 ], [ false, %.lr.ph362.i.backedge ], [ false, %77 ], [ false, %124 ], [ false, %.critedge51.backedge.i ], [ false, %215 ], [ false, %247 ], [ false, %255 ], [ false, %276 ], [ false, %284 ], [ false, %333 ], [ false, %341 ], [ false, %349 ], [ false, %377 ], [ false, %534 ], [ false, %567 ], [ false, %601 ], [ false, %612 ], [ false, %747 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit ], [ false, %809 ], [ false, %821 ], [ false, %852 ], [ false, %862 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit177._crit_edge.i ], [ false, %903 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit190.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i194.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i200.i ], [ false, %switch.hole_check ], [ false, %.critedge233._crit_edge.i ], [ false, %.critedge51.preheader.i ], [ false, %969 ], [ false, %964 ], [ false, %893 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit169.i ], [ false, %765 ], [ false, %762 ], [ false, %729 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.thread.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser4EmitEPKc.exit8 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit158.i ], [ false, %701 ], [ false, %678 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit156.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit154.i ], [ false, %647 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit148.i ], [ false, %586 ], [ false, %552 ], [ false, %293 ], [ false, %266 ], [ false, %262 ], [ false, %233 ], [ false, %231 ], [ false, %207 ], [ false, %189 ], [ false, %180 ], [ false, %165 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i.i ], [ false, %116 ], [ false, %101 ], [ false, %98 ], [ false, %89 ], [ false, %70 ], [ false, %67 ], [ false, %58 ], [ false, %53 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit126.i ], [ false, %36 ], [ false, %108 ], [ false, %199 ], [ false, %544 ], [ false, %578 ], [ false, %639 ], [ false, %693 ], [ false, %513 ], [ false, %718 ]
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %4) #7
   ret i1 %.0.i
 }
@@ -2154,7 +2154,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !13
   %.not.i.i = icmp eq i8 %9, 115
-  br i1 %.not.i.i, label %10, label %55
+  br i1 %.not.i.i, label %10, label %54
 
 10:                                               ; preds = %2
   %11 = add nsw i32 %6, 1
@@ -2171,24 +2171,24 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
   %17 = icmp ult i8 %16, 26
   %18 = add i8 %14, -48
   %19 = icmp ult i8 %18, 10
-  %or.cond25.i.i = or i1 %19, %17
-  br i1 %or.cond25.i.i, label %.critedge.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit
+  %or.cond28.i.i = or i1 %19, %17
+  br i1 %or.cond28.i.i, label %.critedge.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit
 
 .thread.i:                                        ; preds = %10
   %20 = add nsw i32 %6, 2
   store i32 %20, ptr %5, align 8, !tbaa !17
-  br label %55
+  br label %54
 
 .critedge.i.i:                                    ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i ], [ %12, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
   %21 = phi ptr [ %43, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i ], [ %13, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
-  %.01527.i.i = phi i1 [ %.116.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
-  %.01726.i.i = phi i32 [ %.118.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
+  %.01530.i.i = phi i1 [ %.116.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
+  %.01729.i.i = phi i32 [ %.118.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %22 = trunc nsw i64 %indvars.iv.next.i.i to i32
   store i32 %22, ptr %5, align 8, !tbaa !17
   %23 = load i8, ptr %21, align 1, !tbaa !13
-  %.not.i5.i = icmp slt i32 %.01726.i.i, 34636833
+  %.not.i5.i = icmp slt i32 %.01729.i.i, 34636833
   br i1 %.not.i5.i, label %24, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i
 
 24:                                               ; preds = %.critedge.i.i
@@ -2218,14 +2218,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
 
 39:                                               ; preds = %36, %33, %27
   %.0.i.i = phi i32 [ %29, %27 ], [ %35, %33 ], [ %38, %36 ]
-  %40 = mul nsw i32 %.01726.i.i, 62
+  %40 = mul nsw i32 %.01729.i.i, 62
   %41 = add nsw i32 %.0.i.i, %40
   %42 = freeze i32 %41
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i: ; preds = %39, %.critedge.i.i
-  %.118.i.i = phi i32 [ %42, %39 ], [ %.01726.i.i, %.critedge.i.i ]
-  %.116.i.i = phi i1 [ %.01527.i.i, %39 ], [ true, %.critedge.i.i ]
+  %.118.i.i = phi i32 [ %42, %39 ], [ %.01729.i.i, %.critedge.i.i ]
+  %.116.i.i = phi i1 [ %.01530.i.i, %39 ], [ true, %.critedge.i.i ]
   %43 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next.i.i
   %44 = load i8, ptr %43, align 1, !tbaa !13
   %45 = and i8 %44, -33
@@ -2238,26 +2238,26 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i: ; p
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i.i
   %50 = icmp eq i8 %44, 95
-  br i1 %50, label %51, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit
+  br i1 %50, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit
 
-51:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i
-  %52 = add nsw i32 %22, 1
-  store i32 %52, ptr %5, align 8, !tbaa !17
-  br i1 %.116.i.i, label %55, label %53
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i
+  %51 = add nsw i32 %22, 1
+  store i32 %51, ptr %5, align 8, !tbaa !17
+  br i1 %.116.i.i, label %54, label %52
 
-53:                                               ; preds = %51
-  %54 = add nsw i32 %.118.i.i, 2
+52:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i
+  %53 = add nsw i32 %.118.i.i, 2
   %.inv.inv.i = icmp slt i32 %.118.i.i, -1
-  %spec.select.i = select i1 %.inv.inv.i, i32 -1, i32 %54
-  br label %55
+  %spec.select.i = select i1 %.inv.inv.i, i32 -1, i32 %53
+  br label %54
 
-55:                                               ; preds = %53, %51, %.thread.i, %2
-  %.02.ph = phi i32 [ %spec.select.i, %53 ], [ -1, %51 ], [ 1, %.thread.i ], [ 0, %2 ]
-  %56 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser30ParseUndisambiguatedIdentifierEci(ptr noundef nonnull align 8 dereferenceable(432) %0, i8 noundef signext %1, i32 noundef %.02.ph)
+54:                                               ; preds = %52, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i, %.thread.i, %2
+  %.02.ph = phi i32 [ %spec.select.i, %52 ], [ -1, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i ], [ 1, %.thread.i ], [ 0, %2 ]
+  %55 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser30ParseUndisambiguatedIdentifierEci(ptr noundef nonnull align 8 dereferenceable(432) %0, i8 noundef signext %1, i32 noundef %.02.ph)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i, %55
-  %.0 = phi i1 [ %56, %55 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i ]
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser18ParseDisambiguatorERi.exit: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i, %54
+  %.0 = phi i1 [ %55, %54 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i ]
   ret i1 %.0
 }
 
@@ -2288,8 +2288,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
   %16 = icmp ult i8 %15, 26
   %17 = add i8 %13, -48
   %18 = icmp ult i8 %17, 10
-  %or.cond25.i = or i1 %18, %16
-  br i1 %or.cond25.i, label %.critedge.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit
+  %or.cond28.i = or i1 %18, %16
+  br i1 %or.cond28.i, label %.critedge.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit
 
 19:                                               ; preds = %9
   %20 = add nsw i32 %5, 2
@@ -2312,14 +2312,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i: ; preds = %.critedge.i
   %29 = icmp eq i8 %23, 95
-  br i1 %29, label %30, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit
+  br i1 %29, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit
 
-30:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i
-  %31 = add nsw i32 %21, 1
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i
+  %30 = add nsw i32 %21, 1
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split: ; preds = %19, %30
-  %.sink = phi i32 [ %31, %30 ], [ %20, %19 ]
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split: ; preds = %19, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i
+  %.sink = phi i32 [ %30, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i ], [ %20, %19 ]
   store i32 %.sink, ptr %4, align 8, !tbaa !17
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit
 
@@ -2818,8 +2818,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
   %14 = icmp ult i8 %13, 26
   %15 = add i8 %11, -48
   %16 = icmp ult i8 %15, 10
-  %or.cond25.i.i = or i1 %16, %14
-  br i1 %or.cond25.i.i, label %.critedge.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit
+  %or.cond28.i.i = or i1 %16, %14
+  br i1 %or.cond28.i.i, label %.critedge.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit
 
 17:                                               ; preds = %7
   %18 = add nsw i32 %.val, 2
@@ -2842,14 +2842,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i: ; preds = %.critedge.i.i
   %27 = icmp eq i8 %21, 95
-  br i1 %27, label %28, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit
+  br i1 %27, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit
 
-28:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i
-  %29 = add nsw i32 %19, 1
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i.i
+  %28 = add nsw i32 %19, 1
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i: ; preds = %28, %17
-  %.sink.i = phi i32 [ %29, %28 ], [ %18, %17 ]
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.sink.split.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i, %17
+  %.sink.i = phi i32 [ %28, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i.i ], [ %18, %17 ]
   store i32 %.sink.i, ptr %2, align 8, !tbaa !17
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser21ParseOptionalLifetimeEv.exit
 
@@ -2876,8 +2876,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
   %11 = icmp ult i8 %10, 26
   %12 = add i8 %8, -48
   %13 = icmp ult i8 %12, 10
-  %or.cond25.i = or i1 %13, %11
-  br i1 %or.cond25.i, label %.critedge.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit
+  %or.cond28.i = or i1 %13, %11
+  br i1 %or.cond28.i, label %.critedge.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit
 
 14:                                               ; preds = %1
   %15 = add nsw i32 %3, 1
@@ -2887,13 +2887,13 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
 .critedge.i:                                      ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i ], [ %6, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i ]
   %16 = phi ptr [ %37, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i ], [ %7, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i ]
-  %.01527.i = phi i1 [ %.116.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i ]
-  %.01726.i = phi i32 [ %.118.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i ]
+  %.01530.i = phi i1 [ %.116.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i ]
+  %.01729.i = phi i32 [ %.118.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %17 = trunc nsw i64 %indvars.iv.next.i to i32
   store i32 %17, ptr %2, align 8, !tbaa !17
   %18 = load i8, ptr %16, align 1, !tbaa !13
-  %.not.i = icmp slt i32 %.01726.i, 34636833
+  %.not.i = icmp slt i32 %.01729.i, 34636833
   br i1 %.not.i, label %19, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i
 
 19:                                               ; preds = %.critedge.i
@@ -2923,13 +2923,13 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheade
 
 34:                                               ; preds = %31, %28, %22
   %.0.i = phi i32 [ %24, %22 ], [ %30, %28 ], [ %33, %31 ]
-  %35 = mul nsw i32 %.01726.i, 62
+  %35 = mul nsw i32 %.01729.i, 62
   %36 = add nsw i32 %.0.i, %35
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i: ; preds = %34, %.critedge.i
-  %.118.i = phi i32 [ %36, %34 ], [ %.01726.i, %.critedge.i ]
-  %.116.i = phi i1 [ %.01527.i, %34 ], [ true, %.critedge.i ]
+  %.118.i = phi i32 [ %36, %34 ], [ %.01729.i, %.critedge.i ]
+  %.116.i = phi i1 [ %.01530.i, %34 ], [ true, %.critedge.i ]
   %37 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next.i
   %38 = load i8, ptr %37, align 1, !tbaa !13
   %39 = and i8 %38, -33
@@ -2942,42 +2942,42 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i: ; pre
 
 _ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.i
   %44 = icmp eq i8 %38, 95
-  br i1 %44, label %45, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit
+  br i1 %44, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit
 
-45:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i
-  %46 = add nsw i32 %.118.i, 1
-  %47 = add nsw i32 %17, 1
-  store i32 %47, ptr %2, align 8, !tbaa !17
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i
+  %45 = add nsw i32 %.118.i, 1
+  %46 = add nsw i32 %17, 1
+  store i32 %46, ptr %2, align 8, !tbaa !17
   br i1 %.116.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberERi.exit
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberERi.exit: ; preds = %45, %14
-  %48 = phi i32 [ %15, %14 ], [ %47, %45 ]
-  %.06 = phi i32 [ 0, %14 ], [ %46, %45 ]
-  %49 = icmp sgt i32 %.06, -1
-  %50 = add nsw i32 %3, -3
-  %.not = icmp slt i32 %.06, %50
-  %or.cond = select i1 %49, i1 %.not, i1 false
-  br i1 %or.cond, label %51, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberERi.exit: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i, %14
+  %47 = phi i32 [ %15, %14 ], [ %46, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i ]
+  %.06 = phi i32 [ 0, %14 ], [ %45, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i ]
+  %48 = icmp sgt i32 %.06, -1
+  %49 = add nsw i32 %3, -3
+  %.not = icmp slt i32 %.06, %49
+  %or.cond = select i1 %48, i1 %.not, i1 false
+  br i1 %or.cond, label %50, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit
 
-51:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberERi.exit
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %53 = load i32, ptr %52, align 8, !tbaa !27
-  %.not12 = icmp eq i32 %53, 16
-  br i1 %.not12, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit, label %54
+50:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberERi.exit
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %52 = load i32, ptr %51, align 8, !tbaa !27
+  %.not12 = icmp eq i32 %52, 16
+  br i1 %.not12, label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit, label %53
 
-54:                                               ; preds = %51
-  %55 = add nuw nsw i32 %.06, 2
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %57 = add nsw i32 %53, 1
-  store i32 %57, ptr %52, align 8, !tbaa !27
-  %58 = sext i32 %53 to i64
-  %59 = getelementptr inbounds [16 x i32], ptr %56, i64 0, i64 %58
-  store i32 %48, ptr %59, align 4, !tbaa !28
-  store i32 %55, ptr %2, align 8, !tbaa !17
+53:                                               ; preds = %50
+  %54 = add nuw nsw i32 %.06, 2
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %56 = add nsw i32 %52, 1
+  store i32 %56, ptr %51, align 8, !tbaa !27
+  %57 = sext i32 %52 to i64
+  %58 = getelementptr inbounds [16 x i32], ptr %55, i64 0, i64 %57
+  store i32 %47, ptr %58, align 4, !tbaa !28
+  store i32 %54, ptr %2, align 8, !tbaa !17
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit
 
-_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit: ; preds = %45, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i, %51, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberERi.exit, %54
-  %.0 = phi i1 [ true, %54 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberERi.exit ], [ false, %51 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i ], [ false, %45 ]
+_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser12PushPositionEi.exit: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i, %50, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberERi.exit, %53
+  %.0 = phi i1 [ true, %53 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser17ParseBase62NumberERi.exit ], [ false, %50 ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit._crit_edge.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit.preheader.i ], [ false, %_ZN4absl18debugging_internal12_GLOBAL__N_116RustSymbolParser3EatEc.exit24.i ]
   ret i1 %.0
 }
 

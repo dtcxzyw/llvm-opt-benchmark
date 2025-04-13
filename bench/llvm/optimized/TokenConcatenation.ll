@@ -79,15 +79,15 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
 38:                                               ; preds = %34
   %.not.i = icmp ne i8 %28, 82
   %39 = icmp eq i32 %24, 2
-  %brmerge.not.i = and i1 %39, %27
-  %or.cond18.i = select i1 %.not.i, i1 %brmerge.not.i, i1 false
-  br i1 %or.cond18.i, label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit, label %.thread.i
+  %or.cond.i = and i1 %39, %27
+  %or.cond17.i = select i1 %.not.i, i1 %or.cond.i, i1 false
+  br i1 %or.cond17.i, label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit, label %.thread.i
 
 40:                                               ; preds = %34
   %41 = icmp eq i8 %28, 117
   %42 = icmp eq i8 %36, 56
-  %or.cond.i = and i1 %41, %42
-  br i1 %or.cond.i, label %43, label %.thread.i
+  %or.cond16.i = and i1 %41, %42
+  br i1 %or.cond16.i, label %43, label %.thread.i
 
 43:                                               ; preds = %40
   switch i32 %24, label %.thread.i [
@@ -146,15 +146,15 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
 68:                                               ; preds = %64
   %.not.i20 = icmp ne i8 %58, 82
   %69 = icmp eq i32 %53, 2
-  %brmerge.not.i21 = and i1 %69, %57
-  %or.cond18.i22 = select i1 %.not.i20, i1 %brmerge.not.i21, i1 false
-  br i1 %or.cond18.i22, label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit23, label %.thread.i17
+  %or.cond.i21 = and i1 %69, %57
+  %or.cond17.i22 = select i1 %.not.i20, i1 %or.cond.i21, i1 false
+  br i1 %or.cond17.i22, label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit23, label %.thread.i17
 
 70:                                               ; preds = %64
   %71 = icmp eq i8 %58, 117
   %72 = icmp eq i8 %66, 56
-  %or.cond.i19 = and i1 %71, %72
-  br i1 %or.cond.i19, label %73, label %.thread.i17
+  %or.cond16.i19 = and i1 %71, %72
+  br i1 %or.cond16.i19, label %73, label %.thread.i17
 
 73:                                               ; preds = %70
   switch i32 %53, label %.thread.i17 [
@@ -215,15 +215,15 @@ _ZL14IsStringPrefixN4llvm9StringRefEb.exit23:     ; preds = %62, %68, %73, %74, 
 97:                                               ; preds = %93
   %.not.i27 = icmp ne i8 %87, 82
   %98 = icmp eq i64 %83, 2
-  %brmerge.not.i28 = and i1 %98, %86
-  %or.cond18.i29 = select i1 %.not.i27, i1 %brmerge.not.i28, i1 false
-  br i1 %or.cond18.i29, label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit30, label %.thread.i24
+  %or.cond.i28 = and i1 %98, %86
+  %or.cond17.i29 = select i1 %.not.i27, i1 %or.cond.i28, i1 false
+  br i1 %or.cond17.i29, label %_ZL14IsStringPrefixN4llvm9StringRefEb.exit30, label %.thread.i24
 
 99:                                               ; preds = %93
   %100 = icmp eq i8 %87, 117
   %101 = icmp eq i8 %95, 56
-  %or.cond.i26 = and i1 %100, %101
-  br i1 %or.cond.i26, label %102, label %.thread.i24
+  %or.cond16.i26 = and i1 %100, %101
+  br i1 %or.cond16.i26, label %102, label %.thread.i24
 
 102:                                              ; preds = %99
   switch i64 %83, label %.thread.i24 [

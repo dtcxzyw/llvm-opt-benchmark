@@ -357,42 +357,40 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA647freeRegENS1_11Registe
 define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6414freeLastUseRegERNS0_6IrInstEj(ptr noundef nonnull align 8 captures(none) dereferenceable(325) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(43) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 4, !tbaa !42
-  %6 = icmp eq i32 %5, %2
-  br i1 %6, label %7, label %26
+  %6 = icmp ne i32 %5, %2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %8 = load i8, ptr %7, align 4, !range !35
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond, label %25, label %10
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %9 = load i8, ptr %8, align 4, !tbaa !52, !range !35, !noundef !36
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %26, label %11
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 39
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %25, label %14
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 39
-  %13 = load i8, ptr %12, align 1
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %26, label %15
-
-15:                                               ; preds = %11
-  %16 = and i8 %13, 7
-  %.off.i.i = add nsw i8 %16, -1
+14:                                               ; preds = %10
+  %15 = and i8 %12, 7
+  %.off.i.i = add nsw i8 %15, -1
   %switch.i.i = icmp ult i8 %.off.i.i, 2
   %.0.v.i.i = select i1 %switch.i.i, i64 16, i64 156
   %.0.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i
-  %17 = lshr i8 %13, 3
-  %18 = zext nneg i8 %17 to i32
-  %19 = shl nuw i32 1, %18
-  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !21
-  %22 = or i32 %21, %19
-  store i32 %22, ptr %20, align 4, !tbaa !21
-  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
-  %24 = zext nneg i8 %17 to i64
-  %25 = getelementptr inbounds nuw [32 x i32], ptr %23, i64 0, i64 %24
-  store i32 -1, ptr %25, align 4, !tbaa !37
-  store i8 0, ptr %12, align 1, !tbaa !38
-  br label %26
+  %16 = lshr i8 %12, 3
+  %17 = zext nneg i8 %16 to i32
+  %18 = shl nuw i32 1, %17
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  %20 = load i32, ptr %19, align 4, !tbaa !21
+  %21 = or i32 %20, %18
+  store i32 %21, ptr %19, align 4, !tbaa !21
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
+  %23 = zext nneg i8 %16 to i64
+  %24 = getelementptr inbounds nuw [32 x i32], ptr %22, i64 0, i64 %23
+  store i32 -1, ptr %24, align 4, !tbaa !37
+  store i8 0, ptr %11, align 1, !tbaa !38
+  br label %25
 
-26:                                               ; preds = %11, %15, %7, %3
+25:                                               ; preds = %10, %14, %3
   ret void
 }
 
@@ -413,348 +411,334 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %13 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i32, ptr %14, align 4, !tbaa !42
-  %16 = icmp eq i32 %15, %2
-  br i1 %16, label %17, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit"
+  %16 = icmp ne i32 %15, %2
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %18 = load i8, ptr %17, align 4, !range !35
+  %19 = trunc nuw i8 %18 to i1
+  %or.cond.i.i = select i1 %16, i1 true, i1 %19
+  br i1 %or.cond.i.i, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit", label %20
 
-17:                                               ; preds = %7
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %19 = load i8, ptr %18, align 4, !tbaa !52, !range !35, !noundef !36
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit", label %21
+20:                                               ; preds = %7
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 39
+  %22 = load i8, ptr %21, align 1
+  %23 = icmp eq i8 %22, 0
+  br i1 %23, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit", label %24
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 39
-  %23 = load i8, ptr %22, align 1
-  %24 = icmp eq i8 %23, 0
-  br i1 %24, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit", label %25
-
-25:                                               ; preds = %21
-  %26 = and i8 %23, 7
-  %.off.i.i.i.i = add nsw i8 %26, -1
+24:                                               ; preds = %20
+  %25 = and i8 %22, 7
+  %.off.i.i.i.i = add nsw i8 %25, -1
   %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, 2
   %.0.v.i.i.i.i = select i1 %switch.i.i.i.i, i64 16, i64 156
   %.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i
-  %27 = lshr i8 %23, 3
-  %28 = zext nneg i8 %27 to i32
-  %29 = shl nuw i32 1, %28
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !21
-  %32 = or i32 %31, %29
-  store i32 %32, ptr %30, align 4, !tbaa !21
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
-  %34 = zext nneg i8 %27 to i64
-  %35 = getelementptr inbounds nuw [32 x i32], ptr %33, i64 0, i64 %34
-  store i32 -1, ptr %35, align 4, !tbaa !37
-  store i8 0, ptr %22, align 1, !tbaa !38
+  %26 = lshr i8 %22, 3
+  %27 = zext nneg i8 %26 to i32
+  %28 = shl nuw i32 1, %27
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 4
+  %30 = load i32, ptr %29, align 4, !tbaa !21
+  %31 = or i32 %30, %28
+  store i32 %31, ptr %29, align 4, !tbaa !21
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
+  %33 = zext nneg i8 %26 to i64
+  %34 = getelementptr inbounds nuw [32 x i32], ptr %32, i64 0, i64 %33
+  store i32 -1, ptr %34, align 4, !tbaa !37
+  store i8 0, ptr %21, align 1, !tbaa !38
   br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit"
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit": ; preds = %3, %7, %17, %21, %25
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.05.0.copyload = load i32, ptr %36, align 4, !tbaa !38
-  %37 = and i32 %.sroa.05.0.copyload, 15
-  %38 = icmp eq i32 %37, 4
-  br i1 %38, label %39, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit31"
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit": ; preds = %3, %7, %20, %24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.05.0.copyload = load i32, ptr %35, align 4, !tbaa !38
+  %36 = and i32 %.sroa.05.0.copyload, 15
+  %37 = icmp eq i32 %36, 4
+  br i1 %37, label %38, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32"
 
-39:                                               ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit"
-  %40 = load ptr, ptr %0, align 8, !tbaa !53
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = lshr i32 %.sroa.05.0.copyload, 4
-  %43 = zext nneg i32 %42 to i64
-  %44 = load ptr, ptr %41, align 8, !tbaa !39
-  %45 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %44, i64 %43
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %47 = load i32, ptr %46, align 4, !tbaa !42
-  %48 = icmp eq i32 %47, %2
-  br i1 %48, label %49, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit31"
+38:                                               ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit"
+  %39 = load ptr, ptr %0, align 8, !tbaa !53
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %41 = lshr i32 %.sroa.05.0.copyload, 4
+  %42 = zext nneg i32 %41 to i64
+  %43 = load ptr, ptr %40, align 8, !tbaa !39
+  %44 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %43, i64 %42
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %46 = load i32, ptr %45, align 4, !tbaa !42
+  %47 = icmp ne i32 %46, %2
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %49 = load i8, ptr %48, align 4, !range !35
+  %50 = trunc nuw i8 %49 to i1
+  %or.cond.i.i27 = select i1 %47, i1 true, i1 %50
+  br i1 %or.cond.i.i27, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32", label %51
 
-49:                                               ; preds = %39
-  %50 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %51 = load i8, ptr %50, align 4, !tbaa !52, !range !35, !noundef !36
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit31", label %53
+51:                                               ; preds = %38
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 39
+  %53 = load i8, ptr %52, align 1
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32", label %55
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %45, i64 39
-  %55 = load i8, ptr %54, align 1
-  %56 = icmp eq i8 %55, 0
-  br i1 %56, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit31", label %57
+55:                                               ; preds = %51
+  %56 = and i8 %53, 7
+  %.off.i.i.i.i28 = add nsw i8 %56, -1
+  %switch.i.i.i.i29 = icmp ult i8 %.off.i.i.i.i28, 2
+  %.0.v.i.i.i.i30 = select i1 %switch.i.i.i.i29, i64 16, i64 156
+  %.0.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i30
+  %57 = lshr i8 %53, 3
+  %58 = zext nneg i8 %57 to i32
+  %59 = shl nuw i32 1, %58
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i31, i64 4
+  %61 = load i32, ptr %60, align 4, !tbaa !21
+  %62 = or i32 %61, %59
+  store i32 %62, ptr %60, align 4, !tbaa !21
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i31, i64 12
+  %64 = zext nneg i8 %57 to i64
+  %65 = getelementptr inbounds nuw [32 x i32], ptr %63, i64 0, i64 %64
+  store i32 -1, ptr %65, align 4, !tbaa !37
+  store i8 0, ptr %52, align 1, !tbaa !38
+  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32"
 
-57:                                               ; preds = %53
-  %58 = and i8 %55, 7
-  %.off.i.i.i.i27 = add nsw i8 %58, -1
-  %switch.i.i.i.i28 = icmp ult i8 %.off.i.i.i.i27, 2
-  %.0.v.i.i.i.i29 = select i1 %switch.i.i.i.i28, i64 16, i64 156
-  %.0.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i29
-  %59 = lshr i8 %55, 3
-  %60 = zext nneg i8 %59 to i32
-  %61 = shl nuw i32 1, %60
-  %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i30, i64 4
-  %63 = load i32, ptr %62, align 4, !tbaa !21
-  %64 = or i32 %63, %61
-  store i32 %64, ptr %62, align 4, !tbaa !21
-  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i30, i64 12
-  %66 = zext nneg i8 %59 to i64
-  %67 = getelementptr inbounds nuw [32 x i32], ptr %65, i64 0, i64 %66
-  store i32 -1, ptr %67, align 4, !tbaa !37
-  store i8 0, ptr %54, align 1, !tbaa !38
-  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit31"
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit", %38, %51, %55
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.sroa.04.0.copyload = load i32, ptr %66, align 4, !tbaa !38
+  %67 = and i32 %.sroa.04.0.copyload, 15
+  %68 = icmp eq i32 %67, 4
+  br i1 %68, label %69, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit38"
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit31": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit", %39, %49, %53, %57
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.sroa.04.0.copyload = load i32, ptr %68, align 4, !tbaa !38
-  %69 = and i32 %.sroa.04.0.copyload, 15
-  %70 = icmp eq i32 %69, 4
-  br i1 %70, label %71, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit36"
+69:                                               ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32"
+  %70 = load ptr, ptr %0, align 8, !tbaa !53
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %72 = lshr i32 %.sroa.04.0.copyload, 4
+  %73 = zext nneg i32 %72 to i64
+  %74 = load ptr, ptr %71, align 8, !tbaa !39
+  %75 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %74, i64 %73
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  %77 = load i32, ptr %76, align 4, !tbaa !42
+  %78 = icmp ne i32 %77, %2
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  %80 = load i8, ptr %79, align 4, !range !35
+  %81 = trunc nuw i8 %80 to i1
+  %or.cond.i.i33 = select i1 %78, i1 true, i1 %81
+  br i1 %or.cond.i.i33, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit38", label %82
 
-71:                                               ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit31"
-  %72 = load ptr, ptr %0, align 8, !tbaa !53
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %74 = lshr i32 %.sroa.04.0.copyload, 4
-  %75 = zext nneg i32 %74 to i64
-  %76 = load ptr, ptr %73, align 8, !tbaa !39
-  %77 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %76, i64 %75
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %79 = load i32, ptr %78, align 4, !tbaa !42
-  %80 = icmp eq i32 %79, %2
-  br i1 %80, label %81, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit36"
+82:                                               ; preds = %69
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 39
+  %84 = load i8, ptr %83, align 1
+  %85 = icmp eq i8 %84, 0
+  br i1 %85, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit38", label %86
 
-81:                                               ; preds = %71
-  %82 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  %83 = load i8, ptr %82, align 4, !tbaa !52, !range !35, !noundef !36
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit36", label %85
+86:                                               ; preds = %82
+  %87 = and i8 %84, 7
+  %.off.i.i.i.i34 = add nsw i8 %87, -1
+  %switch.i.i.i.i35 = icmp ult i8 %.off.i.i.i.i34, 2
+  %.0.v.i.i.i.i36 = select i1 %switch.i.i.i.i35, i64 16, i64 156
+  %.0.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i36
+  %88 = lshr i8 %84, 3
+  %89 = zext nneg i8 %88 to i32
+  %90 = shl nuw i32 1, %89
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i37, i64 4
+  %92 = load i32, ptr %91, align 4, !tbaa !21
+  %93 = or i32 %92, %90
+  store i32 %93, ptr %91, align 4, !tbaa !21
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i37, i64 12
+  %95 = zext nneg i8 %88 to i64
+  %96 = getelementptr inbounds nuw [32 x i32], ptr %94, i64 0, i64 %95
+  store i32 -1, ptr %96, align 4, !tbaa !37
+  store i8 0, ptr %83, align 1, !tbaa !38
+  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit38"
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %77, i64 39
-  %87 = load i8, ptr %86, align 1
-  %88 = icmp eq i8 %87, 0
-  br i1 %88, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit36", label %89
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit38": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32", %69, %82, %86
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.03.0.copyload = load i32, ptr %97, align 4, !tbaa !38
+  %98 = and i32 %.sroa.03.0.copyload, 15
+  %99 = icmp eq i32 %98, 4
+  br i1 %99, label %100, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit44"
 
-89:                                               ; preds = %85
-  %90 = and i8 %87, 7
-  %.off.i.i.i.i32 = add nsw i8 %90, -1
-  %switch.i.i.i.i33 = icmp ult i8 %.off.i.i.i.i32, 2
-  %.0.v.i.i.i.i34 = select i1 %switch.i.i.i.i33, i64 16, i64 156
-  %.0.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i34
-  %91 = lshr i8 %87, 3
-  %92 = zext nneg i8 %91 to i32
-  %93 = shl nuw i32 1, %92
-  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i35, i64 4
-  %95 = load i32, ptr %94, align 4, !tbaa !21
-  %96 = or i32 %95, %93
-  store i32 %96, ptr %94, align 4, !tbaa !21
-  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i35, i64 12
-  %98 = zext nneg i8 %91 to i64
-  %99 = getelementptr inbounds nuw [32 x i32], ptr %97, i64 0, i64 %98
-  store i32 -1, ptr %99, align 4, !tbaa !37
-  store i8 0, ptr %86, align 1, !tbaa !38
-  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit36"
+100:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit38"
+  %101 = load ptr, ptr %0, align 8, !tbaa !53
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  %103 = lshr i32 %.sroa.03.0.copyload, 4
+  %104 = zext nneg i32 %103 to i64
+  %105 = load ptr, ptr %102, align 8, !tbaa !39
+  %106 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %105, i64 %104
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
+  %108 = load i32, ptr %107, align 4, !tbaa !42
+  %109 = icmp ne i32 %108, %2
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 40
+  %111 = load i8, ptr %110, align 4, !range !35
+  %112 = trunc nuw i8 %111 to i1
+  %or.cond.i.i39 = select i1 %109, i1 true, i1 %112
+  br i1 %or.cond.i.i39, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit44", label %113
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit36": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit31", %71, %81, %85, %89
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.03.0.copyload = load i32, ptr %100, align 4, !tbaa !38
-  %101 = and i32 %.sroa.03.0.copyload, 15
-  %102 = icmp eq i32 %101, 4
-  br i1 %102, label %103, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit41"
-
-103:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit36"
-  %104 = load ptr, ptr %0, align 8, !tbaa !53
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %106 = lshr i32 %.sroa.03.0.copyload, 4
-  %107 = zext nneg i32 %106 to i64
-  %108 = load ptr, ptr %105, align 8, !tbaa !39
-  %109 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %108, i64 %107
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
-  %111 = load i32, ptr %110, align 4, !tbaa !42
-  %112 = icmp eq i32 %111, %2
-  br i1 %112, label %113, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit41"
-
-113:                                              ; preds = %103
-  %114 = getelementptr inbounds nuw i8, ptr %109, i64 40
-  %115 = load i8, ptr %114, align 4, !tbaa !52, !range !35, !noundef !36
-  %116 = trunc nuw i8 %115 to i1
-  br i1 %116, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit41", label %117
+113:                                              ; preds = %100
+  %114 = getelementptr inbounds nuw i8, ptr %106, i64 39
+  %115 = load i8, ptr %114, align 1
+  %116 = icmp eq i8 %115, 0
+  br i1 %116, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit44", label %117
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds nuw i8, ptr %109, i64 39
-  %119 = load i8, ptr %118, align 1
-  %120 = icmp eq i8 %119, 0
-  br i1 %120, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit41", label %121
+  %118 = and i8 %115, 7
+  %.off.i.i.i.i40 = add nsw i8 %118, -1
+  %switch.i.i.i.i41 = icmp ult i8 %.off.i.i.i.i40, 2
+  %.0.v.i.i.i.i42 = select i1 %switch.i.i.i.i41, i64 16, i64 156
+  %.0.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i42
+  %119 = lshr i8 %115, 3
+  %120 = zext nneg i8 %119 to i32
+  %121 = shl nuw i32 1, %120
+  %122 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i43, i64 4
+  %123 = load i32, ptr %122, align 4, !tbaa !21
+  %124 = or i32 %123, %121
+  store i32 %124, ptr %122, align 4, !tbaa !21
+  %125 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i43, i64 12
+  %126 = zext nneg i8 %119 to i64
+  %127 = getelementptr inbounds nuw [32 x i32], ptr %125, i64 0, i64 %126
+  store i32 -1, ptr %127, align 4, !tbaa !37
+  store i8 0, ptr %114, align 1, !tbaa !38
+  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit44"
 
-121:                                              ; preds = %117
-  %122 = and i8 %119, 7
-  %.off.i.i.i.i37 = add nsw i8 %122, -1
-  %switch.i.i.i.i38 = icmp ult i8 %.off.i.i.i.i37, 2
-  %.0.v.i.i.i.i39 = select i1 %switch.i.i.i.i38, i64 16, i64 156
-  %.0.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i39
-  %123 = lshr i8 %119, 3
-  %124 = zext nneg i8 %123 to i32
-  %125 = shl nuw i32 1, %124
-  %126 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i40, i64 4
-  %127 = load i32, ptr %126, align 4, !tbaa !21
-  %128 = or i32 %127, %125
-  store i32 %128, ptr %126, align 4, !tbaa !21
-  %129 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i40, i64 12
-  %130 = zext nneg i8 %123 to i64
-  %131 = getelementptr inbounds nuw [32 x i32], ptr %129, i64 0, i64 %130
-  store i32 -1, ptr %131, align 4, !tbaa !37
-  store i8 0, ptr %118, align 1, !tbaa !38
-  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit41"
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit44": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit38", %100, %113, %117
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.02.0.copyload = load i32, ptr %128, align 4, !tbaa !38
+  %129 = and i32 %.sroa.02.0.copyload, 15
+  %130 = icmp eq i32 %129, 4
+  br i1 %130, label %131, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit50"
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit41": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit36", %103, %113, %117, %121
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sroa.02.0.copyload = load i32, ptr %132, align 4, !tbaa !38
-  %133 = and i32 %.sroa.02.0.copyload, 15
-  %134 = icmp eq i32 %133, 4
-  br i1 %134, label %135, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit46"
+131:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit44"
+  %132 = load ptr, ptr %0, align 8, !tbaa !53
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
+  %134 = lshr i32 %.sroa.02.0.copyload, 4
+  %135 = zext nneg i32 %134 to i64
+  %136 = load ptr, ptr %133, align 8, !tbaa !39
+  %137 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %136, i64 %135
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
+  %139 = load i32, ptr %138, align 4, !tbaa !42
+  %140 = icmp ne i32 %139, %2
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 40
+  %142 = load i8, ptr %141, align 4, !range !35
+  %143 = trunc nuw i8 %142 to i1
+  %or.cond.i.i45 = select i1 %140, i1 true, i1 %143
+  br i1 %or.cond.i.i45, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit50", label %144
 
-135:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit41"
-  %136 = load ptr, ptr %0, align 8, !tbaa !53
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %138 = lshr i32 %.sroa.02.0.copyload, 4
-  %139 = zext nneg i32 %138 to i64
-  %140 = load ptr, ptr %137, align 8, !tbaa !39
-  %141 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %140, i64 %139
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
-  %143 = load i32, ptr %142, align 4, !tbaa !42
-  %144 = icmp eq i32 %143, %2
-  br i1 %144, label %145, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit46"
+144:                                              ; preds = %131
+  %145 = getelementptr inbounds nuw i8, ptr %137, i64 39
+  %146 = load i8, ptr %145, align 1
+  %147 = icmp eq i8 %146, 0
+  br i1 %147, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit50", label %148
 
-145:                                              ; preds = %135
-  %146 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %147 = load i8, ptr %146, align 4, !tbaa !52, !range !35, !noundef !36
-  %148 = trunc nuw i8 %147 to i1
-  br i1 %148, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit46", label %149
+148:                                              ; preds = %144
+  %149 = and i8 %146, 7
+  %.off.i.i.i.i46 = add nsw i8 %149, -1
+  %switch.i.i.i.i47 = icmp ult i8 %.off.i.i.i.i46, 2
+  %.0.v.i.i.i.i48 = select i1 %switch.i.i.i.i47, i64 16, i64 156
+  %.0.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i48
+  %150 = lshr i8 %146, 3
+  %151 = zext nneg i8 %150 to i32
+  %152 = shl nuw i32 1, %151
+  %153 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i49, i64 4
+  %154 = load i32, ptr %153, align 4, !tbaa !21
+  %155 = or i32 %154, %152
+  store i32 %155, ptr %153, align 4, !tbaa !21
+  %156 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i49, i64 12
+  %157 = zext nneg i8 %150 to i64
+  %158 = getelementptr inbounds nuw [32 x i32], ptr %156, i64 0, i64 %157
+  store i32 -1, ptr %158, align 4, !tbaa !37
+  store i8 0, ptr %145, align 1, !tbaa !38
+  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit50"
 
-149:                                              ; preds = %145
-  %150 = getelementptr inbounds nuw i8, ptr %141, i64 39
-  %151 = load i8, ptr %150, align 1
-  %152 = icmp eq i8 %151, 0
-  br i1 %152, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit46", label %153
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit50": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit44", %131, %144, %148
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.01.0.copyload = load i32, ptr %159, align 4, !tbaa !38
+  %160 = and i32 %.sroa.01.0.copyload, 15
+  %161 = icmp eq i32 %160, 4
+  br i1 %161, label %162, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit56"
 
-153:                                              ; preds = %149
-  %154 = and i8 %151, 7
-  %.off.i.i.i.i42 = add nsw i8 %154, -1
-  %switch.i.i.i.i43 = icmp ult i8 %.off.i.i.i.i42, 2
-  %.0.v.i.i.i.i44 = select i1 %switch.i.i.i.i43, i64 16, i64 156
-  %.0.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i44
-  %155 = lshr i8 %151, 3
-  %156 = zext nneg i8 %155 to i32
-  %157 = shl nuw i32 1, %156
-  %158 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i45, i64 4
-  %159 = load i32, ptr %158, align 4, !tbaa !21
-  %160 = or i32 %159, %157
-  store i32 %160, ptr %158, align 4, !tbaa !21
-  %161 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i45, i64 12
-  %162 = zext nneg i8 %155 to i64
-  %163 = getelementptr inbounds nuw [32 x i32], ptr %161, i64 0, i64 %162
-  store i32 -1, ptr %163, align 4, !tbaa !37
-  store i8 0, ptr %150, align 1, !tbaa !38
-  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit46"
+162:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit50"
+  %163 = load ptr, ptr %0, align 8, !tbaa !53
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
+  %165 = lshr i32 %.sroa.01.0.copyload, 4
+  %166 = zext nneg i32 %165 to i64
+  %167 = load ptr, ptr %164, align 8, !tbaa !39
+  %168 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %167, i64 %166
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 32
+  %170 = load i32, ptr %169, align 4, !tbaa !42
+  %171 = icmp ne i32 %170, %2
+  %172 = getelementptr inbounds nuw i8, ptr %168, i64 40
+  %173 = load i8, ptr %172, align 4, !range !35
+  %174 = trunc nuw i8 %173 to i1
+  %or.cond.i.i51 = select i1 %171, i1 true, i1 %174
+  br i1 %or.cond.i.i51, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit56", label %175
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit46": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit41", %135, %145, %149, %153
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.01.0.copyload = load i32, ptr %164, align 4, !tbaa !38
-  %165 = and i32 %.sroa.01.0.copyload, 15
-  %166 = icmp eq i32 %165, 4
-  br i1 %166, label %167, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit51"
+175:                                              ; preds = %162
+  %176 = getelementptr inbounds nuw i8, ptr %168, i64 39
+  %177 = load i8, ptr %176, align 1
+  %178 = icmp eq i8 %177, 0
+  br i1 %178, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit56", label %179
 
-167:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit46"
-  %168 = load ptr, ptr %0, align 8, !tbaa !53
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  %170 = lshr i32 %.sroa.01.0.copyload, 4
-  %171 = zext nneg i32 %170 to i64
-  %172 = load ptr, ptr %169, align 8, !tbaa !39
-  %173 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %172, i64 %171
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
-  %175 = load i32, ptr %174, align 4, !tbaa !42
-  %176 = icmp eq i32 %175, %2
-  br i1 %176, label %177, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit51"
-
-177:                                              ; preds = %167
-  %178 = getelementptr inbounds nuw i8, ptr %173, i64 40
-  %179 = load i8, ptr %178, align 4, !tbaa !52, !range !35, !noundef !36
-  %180 = trunc nuw i8 %179 to i1
-  br i1 %180, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit51", label %181
-
-181:                                              ; preds = %177
-  %182 = getelementptr inbounds nuw i8, ptr %173, i64 39
-  %183 = load i8, ptr %182, align 1
-  %184 = icmp eq i8 %183, 0
-  br i1 %184, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit51", label %185
-
-185:                                              ; preds = %181
-  %186 = and i8 %183, 7
-  %.off.i.i.i.i47 = add nsw i8 %186, -1
-  %switch.i.i.i.i48 = icmp ult i8 %.off.i.i.i.i47, 2
-  %.0.v.i.i.i.i49 = select i1 %switch.i.i.i.i48, i64 16, i64 156
-  %.0.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i49
-  %187 = lshr i8 %183, 3
-  %188 = zext nneg i8 %187 to i32
-  %189 = shl nuw i32 1, %188
-  %190 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i50, i64 4
-  %191 = load i32, ptr %190, align 4, !tbaa !21
-  %192 = or i32 %191, %189
-  store i32 %192, ptr %190, align 4, !tbaa !21
-  %193 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i50, i64 12
-  %194 = zext nneg i8 %187 to i64
-  %195 = getelementptr inbounds nuw [32 x i32], ptr %193, i64 0, i64 %194
-  store i32 -1, ptr %195, align 4, !tbaa !37
-  store i8 0, ptr %182, align 1, !tbaa !38
-  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit51"
-
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit51": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit46", %167, %177, %181, %185
-  %196 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.sroa.0.0.copyload = load i32, ptr %196, align 4, !tbaa !38
-  %197 = and i32 %.sroa.0.0.copyload, 15
-  %198 = icmp eq i32 %197, 4
-  br i1 %198, label %199, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit56"
-
-199:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit51"
-  %200 = load ptr, ptr %0, align 8, !tbaa !53
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 24
-  %202 = lshr i32 %.sroa.0.0.copyload, 4
-  %203 = zext nneg i32 %202 to i64
-  %204 = load ptr, ptr %201, align 8, !tbaa !39
-  %205 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %204, i64 %203
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 32
-  %207 = load i32, ptr %206, align 4, !tbaa !42
-  %208 = icmp eq i32 %207, %2
-  br i1 %208, label %209, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit56"
-
-209:                                              ; preds = %199
-  %210 = getelementptr inbounds nuw i8, ptr %205, i64 40
-  %211 = load i8, ptr %210, align 4, !tbaa !52, !range !35, !noundef !36
-  %212 = trunc nuw i8 %211 to i1
-  br i1 %212, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit56", label %213
-
-213:                                              ; preds = %209
-  %214 = getelementptr inbounds nuw i8, ptr %205, i64 39
-  %215 = load i8, ptr %214, align 1
-  %216 = icmp eq i8 %215, 0
-  br i1 %216, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit56", label %217
-
-217:                                              ; preds = %213
-  %218 = and i8 %215, 7
-  %.off.i.i.i.i52 = add nsw i8 %218, -1
+179:                                              ; preds = %175
+  %180 = and i8 %177, 7
+  %.off.i.i.i.i52 = add nsw i8 %180, -1
   %switch.i.i.i.i53 = icmp ult i8 %.off.i.i.i.i52, 2
   %.0.v.i.i.i.i54 = select i1 %switch.i.i.i.i53, i64 16, i64 156
   %.0.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i54
-  %219 = lshr i8 %215, 3
-  %220 = zext nneg i8 %219 to i32
-  %221 = shl nuw i32 1, %220
-  %222 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i55, i64 4
-  %223 = load i32, ptr %222, align 4, !tbaa !21
-  %224 = or i32 %223, %221
-  store i32 %224, ptr %222, align 4, !tbaa !21
-  %225 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i55, i64 12
-  %226 = zext nneg i8 %219 to i64
-  %227 = getelementptr inbounds nuw [32 x i32], ptr %225, i64 0, i64 %226
-  store i32 -1, ptr %227, align 4, !tbaa !37
-  store i8 0, ptr %214, align 1, !tbaa !38
+  %181 = lshr i8 %177, 3
+  %182 = zext nneg i8 %181 to i32
+  %183 = shl nuw i32 1, %182
+  %184 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i55, i64 4
+  %185 = load i32, ptr %184, align 4, !tbaa !21
+  %186 = or i32 %185, %183
+  store i32 %186, ptr %184, align 4, !tbaa !21
+  %187 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i55, i64 12
+  %188 = zext nneg i8 %181 to i64
+  %189 = getelementptr inbounds nuw [32 x i32], ptr %187, i64 0, i64 %188
+  store i32 -1, ptr %189, align 4, !tbaa !37
+  store i8 0, ptr %176, align 1, !tbaa !38
   br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit56"
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit56": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit51", %199, %209, %213, %217
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit56": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit50", %162, %175, %179
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %.sroa.0.0.copyload = load i32, ptr %190, align 4, !tbaa !38
+  %191 = and i32 %.sroa.0.0.copyload, 15
+  %192 = icmp eq i32 %191, 4
+  br i1 %192, label %193, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit62"
+
+193:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit56"
+  %194 = load ptr, ptr %0, align 8, !tbaa !53
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
+  %196 = lshr i32 %.sroa.0.0.copyload, 4
+  %197 = zext nneg i32 %196 to i64
+  %198 = load ptr, ptr %195, align 8, !tbaa !39
+  %199 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %198, i64 %197
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 32
+  %201 = load i32, ptr %200, align 4, !tbaa !42
+  %202 = icmp ne i32 %201, %2
+  %203 = getelementptr inbounds nuw i8, ptr %199, i64 40
+  %204 = load i8, ptr %203, align 4, !range !35
+  %205 = trunc nuw i8 %204 to i1
+  %or.cond.i.i57 = select i1 %202, i1 true, i1 %205
+  br i1 %or.cond.i.i57, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit62", label %206
+
+206:                                              ; preds = %193
+  %207 = getelementptr inbounds nuw i8, ptr %199, i64 39
+  %208 = load i8, ptr %207, align 1
+  %209 = icmp eq i8 %208, 0
+  br i1 %209, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit62", label %210
+
+210:                                              ; preds = %206
+  %211 = and i8 %208, 7
+  %.off.i.i.i.i58 = add nsw i8 %211, -1
+  %switch.i.i.i.i59 = icmp ult i8 %.off.i.i.i.i58, 2
+  %.0.v.i.i.i.i60 = select i1 %switch.i.i.i.i59, i64 16, i64 156
+  %.0.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.v.i.i.i.i60
+  %212 = lshr i8 %208, 3
+  %213 = zext nneg i8 %212 to i32
+  %214 = shl nuw i32 1, %213
+  %215 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i61, i64 4
+  %216 = load i32, ptr %215, align 4, !tbaa !21
+  %217 = or i32 %216, %214
+  store i32 %217, ptr %215, align 4, !tbaa !21
+  %218 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i61, i64 12
+  %219 = zext nneg i8 %212 to i64
+  %220 = getelementptr inbounds nuw [32 x i32], ptr %218, i64 0, i64 %219
+  store i32 -1, ptr %220, align 4, !tbaa !37
+  store i8 0, ptr %207, align 1, !tbaa !38
+  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit62"
+
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit62": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit56", %193, %206, %210
   ret void
 }
 

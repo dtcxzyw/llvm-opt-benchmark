@@ -71,774 +71,753 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   %15 = alloca %"struct.gmx::EnumerationArray.89", align 4
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !107
-  %.not337 = icmp eq i32 %17, 10
-  %18 = add i32 %17, -12
-  %spec.select = icmp ult i32 %18, -2
-  %19 = and i32 %10, 128
-  %.not338 = icmp eq i32 %19, 0
-  %20 = and i32 %10, 64
-  %.not339 = icmp eq i32 %20, 0
-  %21 = and i32 %10, 256
-  %22 = icmp eq i32 %21, 0
-  %23 = and i32 %10, 512
-  %.not258 = icmp eq i32 %23, 0
-  br i1 %.not337, label %26, label %24
-
-24:                                               ; preds = %13
-  %25 = icmp ne i32 %17, 11
-  %.not343 = or i1 %22, %25
-  br label %26
-
-26:                                               ; preds = %24, %13
-  %.not269 = phi i1 [ false, %13 ], [ %.not343, %24 ]
+  %18 = icmp ne i32 %17, 10
+  %19 = add i32 %17, -12
+  %spec.select = icmp ult i32 %19, -2
+  %20 = and i32 %10, 128
+  %21 = icmp ne i32 %20, 0
+  %22 = and i32 %10, 64
+  %.not344 = icmp eq i32 %22, 0
+  %23 = and i32 %10, 256
+  %24 = icmp eq i32 %23, 0
+  %25 = and i32 %10, 512
+  %.not275 = icmp eq i32 %25, 0
+  %26 = icmp ne i32 %17, 11
+  %.not347 = or i1 %24, %26
+  %.not14 = and i1 %18, %.not347
   %27 = and i32 %10, 1024
-  %.not259 = icmp ne i32 %27, 0
-  %28 = load ptr, ptr %0, align 8, !tbaa !4
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !105
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !106
-  tail call void @_Z9reset_binP5t_bin(ptr noundef %28)
+  %28 = icmp ne i32 %27, 0
+  %29 = load ptr, ptr %0, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !105
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !106
+  tail call void @_Z9reset_binP5t_bin(ptr noundef %29)
   call void @llvm.lifetime.start.p0(i64 380, ptr nonnull %14) #3
-  br i1 %22, label %.split.i, label %.split.us.i
+  br i1 %24, label %.split.i, label %.split.us.i
 
-.split.us.i:                                      ; preds = %26, %41
-  %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %26 ]
-  %.02126.us.i = phi i32 [ %.223.us.i, %41 ], [ 0, %26 ]
-  %33 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %33, label %35 [
-    i32 80, label %34
-    i32 83, label %34
-    i32 89, label %34
+.split.us.i:                                      ; preds = %13, %42
+  %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %13 ]
+  %.02126.us.i = phi i32 [ %.223.us.i, %42 ], [ 0, %13 ]
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %34, label %36 [
+    i32 80, label %35
+    i32 83, label %35
+    i32 89, label %35
     i32 86, label %.sink.split.i
     i32 85, label %.sink.split.i
-    i32 81, label %41
-    i32 82, label %41
+    i32 81, label %42
+    i32 82, label %42
   ]
 
-34:                                               ; preds = %.split.us.i, %.split.us.i, %.split.us.i
-  br i1 %.not338, label %41, label %.sink.split.i
+35:                                               ; preds = %.split.us.i, %.split.us.i, %.split.us.i
+  br i1 %21, label %.sink.split.i, label %42
 
-35:                                               ; preds = %.split.us.i
-  br i1 %.not339, label %41, label %.sink.split.i
+36:                                               ; preds = %.split.us.i
+  br i1 %.not344, label %42, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %35, %34, %.split.us.i, %.split.us.i
-  %36 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %37 = load float, ptr %36, align 4, !tbaa !108
-  %38 = add nsw i32 %.02126.us.i, 1
-  %39 = sext i32 %.02126.us.i to i64
-  %40 = getelementptr inbounds float, ptr %14, i64 %39
-  store float %37, ptr %40, align 4, !tbaa !108
-  br label %41
+.sink.split.i:                                    ; preds = %36, %35, %.split.us.i, %.split.us.i
+  %37 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %38 = load float, ptr %37, align 4, !tbaa !108
+  %39 = add nsw i32 %.02126.us.i, 1
+  %40 = sext i32 %.02126.us.i to i64
+  %41 = getelementptr inbounds float, ptr %14, i64 %40
+  store float %38, ptr %41, align 4, !tbaa !108
+  br label %42
 
-41:                                               ; preds = %.sink.split.i, %35, %34, %.split.us.i, %.split.us.i
-  %.223.us.i = phi i32 [ %.02126.us.i, %35 ], [ %.02126.us.i, %.split.us.i ], [ %.02126.us.i, %.split.us.i ], [ %.02126.us.i, %34 ], [ %38, %.sink.split.i ]
+42:                                               ; preds = %.sink.split.i, %36, %35, %.split.us.i, %.split.us.i
+  %.223.us.i = phi i32 [ %.02126.us.i, %36 ], [ %.02126.us.i, %.split.us.i ], [ %.02126.us.i, %.split.us.i ], [ %.02126.us.i, %35 ], [ %39, %.sink.split.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next, 95
   br i1 %exitcond86.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.us.i, !llvm.loop !109
 
-.split.i:                                         ; preds = %26
-  br i1 %.not338, label %.split.split.i, label %.split.split.us.i
+.split.i:                                         ; preds = %13
+  br i1 %21, label %.split.split.us.i, label %.split.split.i
 
 .split.split.us.i:                                ; preds = %.split.i
-  br i1 %.not339, label %.split.split.us.split.split.us.i, label %.split.split.us.split.us.i
+  br i1 %.not344, label %.split.split.us.split.split.us.i, label %.split.split.us.split.us.i
 
-.split.split.us.split.us.i:                       ; preds = %.split.split.us.i, %48
-  %indvars.iv365 = phi i64 [ %indvars.iv.next366, %48 ], [ 0, %.split.split.us.i ]
-  %.02126.us31.us.i = phi i32 [ %.223.us35.us.i, %48 ], [ 0, %.split.split.us.i ]
-  %42 = trunc nuw nsw i64 %indvars.iv365 to i32
-  switch i32 %42, label %.sink.split95.i [
-    i32 82, label %48
-    i32 81, label %48
-    i32 85, label %48
-    i32 86, label %48
+.split.split.us.split.us.i:                       ; preds = %.split.split.us.i, %49
+  %indvars.iv370 = phi i64 [ %indvars.iv.next371, %49 ], [ 0, %.split.split.us.i ]
+  %.02126.us31.us.i = phi i32 [ %.223.us35.us.i, %49 ], [ 0, %.split.split.us.i ]
+  %43 = trunc nuw nsw i64 %indvars.iv370 to i32
+  switch i32 %43, label %.sink.split95.i [
+    i32 82, label %49
+    i32 81, label %49
+    i32 85, label %49
+    i32 86, label %49
   ]
 
 .sink.split95.i:                                  ; preds = %.split.split.us.split.us.i
-  %43 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv365
-  %44 = load float, ptr %43, align 4, !tbaa !108
-  %45 = add nsw i32 %.02126.us31.us.i, 1
-  %46 = sext i32 %.02126.us31.us.i to i64
-  %47 = getelementptr inbounds float, ptr %14, i64 %46
-  store float %44, ptr %47, align 4, !tbaa !108
-  br label %48
+  %44 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv370
+  %45 = load float, ptr %44, align 4, !tbaa !108
+  %46 = add nsw i32 %.02126.us31.us.i, 1
+  %47 = sext i32 %.02126.us31.us.i to i64
+  %48 = getelementptr inbounds float, ptr %14, i64 %47
+  store float %45, ptr %48, align 4, !tbaa !108
+  br label %49
 
-48:                                               ; preds = %.sink.split95.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i
-  %.223.us35.us.i = phi i32 [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %45, %.sink.split95.i ]
-  %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
-  %exitcond85.not.i = icmp eq i64 %indvars.iv.next366, 95
+49:                                               ; preds = %.sink.split95.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i
+  %.223.us35.us.i = phi i32 [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %46, %.sink.split95.i ]
+  %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
+  %exitcond85.not.i = icmp eq i64 %indvars.iv.next371, 95
   br i1 %exitcond85.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.us.split.us.i, !llvm.loop !109
 
-.split.split.us.split.split.us.i:                 ; preds = %.split.split.us.i, %56
-  %indvars.iv81.i = phi i64 [ %indvars.iv.next82.i, %56 ], [ 0, %.split.split.us.i ]
-  %.02126.us31.us57.i = phi i32 [ %.223.us35.us59.i, %56 ], [ 0, %.split.split.us.i ]
-  %49 = trunc nuw nsw i64 %indvars.iv81.i to i32
-  switch i32 %49, label %56 [
-    i32 80, label %50
-    i32 83, label %50
-    i32 89, label %50
+.split.split.us.split.split.us.i:                 ; preds = %.split.split.us.i, %57
+  %indvars.iv81.i = phi i64 [ %indvars.iv.next82.i, %57 ], [ 0, %.split.split.us.i ]
+  %.02126.us31.us57.i = phi i32 [ %.223.us35.us59.i, %57 ], [ 0, %.split.split.us.i ]
+  %50 = trunc nuw nsw i64 %indvars.iv81.i to i32
+  switch i32 %50, label %57 [
+    i32 80, label %51
+    i32 83, label %51
+    i32 89, label %51
   ]
 
-50:                                               ; preds = %.split.split.us.split.split.us.i, %.split.split.us.split.split.us.i, %.split.split.us.split.split.us.i
-  %51 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv81.i
-  %52 = load float, ptr %51, align 4, !tbaa !108
-  %53 = add nsw i32 %.02126.us31.us57.i, 1
-  %54 = sext i32 %.02126.us31.us57.i to i64
-  %55 = getelementptr inbounds float, ptr %14, i64 %54
-  store float %52, ptr %55, align 4, !tbaa !108
-  br label %56
+51:                                               ; preds = %.split.split.us.split.split.us.i, %.split.split.us.split.split.us.i, %.split.split.us.split.split.us.i
+  %52 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv81.i
+  %53 = load float, ptr %52, align 4, !tbaa !108
+  %54 = add nsw i32 %.02126.us31.us57.i, 1
+  %55 = sext i32 %.02126.us31.us57.i to i64
+  %56 = getelementptr inbounds float, ptr %14, i64 %55
+  store float %53, ptr %56, align 4, !tbaa !108
+  br label %57
 
-56:                                               ; preds = %50, %.split.split.us.split.split.us.i
-  %.223.us35.us59.i = phi i32 [ %53, %50 ], [ %.02126.us31.us57.i, %.split.split.us.split.split.us.i ]
+57:                                               ; preds = %51, %.split.split.us.split.split.us.i
+  %.223.us35.us59.i = phi i32 [ %54, %51 ], [ %.02126.us31.us57.i, %.split.split.us.split.split.us.i ]
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 95
   br i1 %exitcond84.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.us.split.split.us.i, !llvm.loop !109
 
 .split.split.i:                                   ; preds = %.split.i
-  br i1 %.not339, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.split.us.split.us.i
+  br i1 %.not344, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.split.us.split.us.i
 
-.split.split.split.us.split.us.i:                 ; preds = %.split.split.i, %64
-  %indvars.iv73.i = phi i64 [ %indvars.iv.next74.i, %64 ], [ 0, %.split.split.i ]
-  %.02126.us40.us.i = phi i32 [ %.223.us44.us.i, %64 ], [ 0, %.split.split.i ]
-  %57 = trunc nuw nsw i64 %indvars.iv73.i to i32
-  switch i32 %57, label %58 [
-    i32 80, label %64
-    i32 83, label %64
-    i32 89, label %64
-    i32 86, label %64
-    i32 85, label %64
-    i32 81, label %64
-    i32 82, label %64
+.split.split.split.us.split.us.i:                 ; preds = %.split.split.i, %65
+  %indvars.iv73.i = phi i64 [ %indvars.iv.next74.i, %65 ], [ 0, %.split.split.i ]
+  %.02126.us40.us.i = phi i32 [ %.223.us44.us.i, %65 ], [ 0, %.split.split.i ]
+  %58 = trunc nuw nsw i64 %indvars.iv73.i to i32
+  switch i32 %58, label %59 [
+    i32 80, label %65
+    i32 83, label %65
+    i32 89, label %65
+    i32 86, label %65
+    i32 85, label %65
+    i32 81, label %65
+    i32 82, label %65
   ]
 
-58:                                               ; preds = %.split.split.split.us.split.us.i
-  %59 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv73.i
-  %60 = load float, ptr %59, align 4, !tbaa !108
-  %61 = add nsw i32 %.02126.us40.us.i, 1
-  %62 = sext i32 %.02126.us40.us.i to i64
-  %63 = getelementptr inbounds float, ptr %14, i64 %62
-  store float %60, ptr %63, align 4, !tbaa !108
-  br label %64
+59:                                               ; preds = %.split.split.split.us.split.us.i
+  %60 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv73.i
+  %61 = load float, ptr %60, align 4, !tbaa !108
+  %62 = add nsw i32 %.02126.us40.us.i, 1
+  %63 = sext i32 %.02126.us40.us.i to i64
+  %64 = getelementptr inbounds float, ptr %14, i64 %63
+  store float %61, ptr %64, align 4, !tbaa !108
+  br label %65
 
-64:                                               ; preds = %58, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i
-  %.223.us44.us.i = phi i32 [ %61, %58 ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ]
+65:                                               ; preds = %59, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i
+  %.223.us44.us.i = phi i32 [ %62, %59 ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ]
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %exitcond76.not.i = icmp eq i64 %indvars.iv.next74.i, 95
   br i1 %exitcond76.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.split.us.split.us.i, !llvm.loop !109
 
-_ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, %.split.split.i
-  %.us-phi.i = phi i32 [ 0, %.split.split.i ], [ %.223.us44.us.i, %64 ], [ %.223.us35.us59.i, %56 ], [ %.223.us35.us.i, %48 ], [ %.223.us.i, %41 ]
-  br i1 %.not258, label %67, label %65
+_ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, %.split.split.i
+  %.us-phi.i = phi i32 [ 0, %.split.split.i ], [ %.223.us35.us59.i, %57 ], [ %.223.us35.us.i, %49 ], [ %.223.us44.us.i, %65 ], [ %.223.us.i, %42 ]
+  br i1 %.not275, label %68, label %66
 
-65:                                               ; preds = %_ZL16filter_enerdtermPKfbPfbbb.exit
-  %66 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef 9, ptr noundef %4)
-  br label %67
+66:                                               ; preds = %_ZL16filter_enerdtermPKfbPfbbb.exit
+  %67 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 9, ptr noundef %4)
+  br label %68
 
-67:                                               ; preds = %65, %_ZL16filter_enerdtermPKfbPfbbb.exit
-  %.0232 = phi i32 [ %66, %65 ], [ 0, %_ZL16filter_enerdtermPKfbPfbbb.exit ]
-  br i1 %.not338, label %68, label %70
-
-68:                                               ; preds = %67
+68:                                               ; preds = %66, %_ZL16filter_enerdtermPKfbPfbbb.exit
+  %.0247 = phi i32 [ %67, %66 ], [ 0, %_ZL16filter_enerdtermPKfbPfbbb.exit ]
+  %or.cond.not = or i1 %21, %spec.select
   %69 = icmp ne ptr %6, null
-  %or.cond = and i1 %69, %spec.select
-  br i1 %or.cond, label %71, label %123
+  %or.cond18 = and i1 %69, %or.cond.not
+  br i1 %or.cond18, label %.preheader354, label %121
 
-70:                                               ; preds = %67
-  %.old1.not = icmp eq ptr %6, null
-  br i1 %.old1.not, label %123, label %71
+.preheader354:                                    ; preds = %68
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 744
+  %71 = load i32, ptr %70, align 8, !tbaa !10
+  %72 = icmp sgt i32 %71, 0
+  br i1 %72, label %.lr.ph, label %._crit_edge
 
-71:                                               ; preds = %68, %70
-  %72 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  %73 = load i32, ptr %72, align 8, !tbaa !10
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %.preheader354
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %or.cond4 = or i1 %28, %.not14
+  br label %76
 
-.lr.ph:                                           ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %brmerge = or i1 %.not259, %.not269
-  br label %78
+._crit_edge:                                      ; preds = %92, %.preheader354
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 152
+  %75 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 1, ptr noundef nonnull %74)
+  br i1 %9, label %96, label %99
 
-._crit_edge:                                      ; preds = %94, %71
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  %77 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef 1, ptr noundef nonnull %76)
-  br i1 %9, label %98, label %101
+76:                                               ; preds = %.lr.ph, %92
+  %indvars.iv373 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next374, %92 ]
+  br i1 %9, label %77, label %82
 
-78:                                               ; preds = %.lr.ph, %94
-  %indvars.iv368 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next369, %94 ]
-  br i1 %9, label %79, label %84
+77:                                               ; preds = %76
+  %78 = load ptr, ptr %73, align 8, !tbaa !111
+  %79 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %78, i64 %indvars.iv373, i32 3
+  %80 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 9, ptr noundef nonnull %79)
+  %81 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv373
+  store i32 %80, ptr %81, align 4, !tbaa !114
+  br label %82
 
-79:                                               ; preds = %78
-  %80 = load ptr, ptr %75, align 8, !tbaa !111
-  %81 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %80, i64 %indvars.iv368, i32 3
-  %82 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef 9, ptr noundef nonnull %81)
-  %83 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv368
-  store i32 %82, ptr %83, align 4, !tbaa !114
-  br label %84
+82:                                               ; preds = %77, %76
+  br i1 %or.cond4, label %86, label %83
 
-84:                                               ; preds = %79, %78
-  br i1 %brmerge, label %88, label %85
-
-85:                                               ; preds = %84
-  %86 = load ptr, ptr %75, align 8, !tbaa !111
-  %87 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %86, i64 %indvars.iv368, i32 4
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %73, align 8, !tbaa !111
+  %85 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %84, i64 %indvars.iv373, i32 4
   br label %.sink.split
 
-88:                                               ; preds = %84
-  br i1 %.not259, label %94, label %89
+86:                                               ; preds = %82
+  br i1 %28, label %92, label %87
 
-89:                                               ; preds = %88
-  %90 = load ptr, ptr %75, align 8, !tbaa !111
-  %91 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %90, i64 %indvars.iv368, i32 2
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %73, align 8, !tbaa !111
+  %89 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %88, i64 %indvars.iv373, i32 2
   br label %.sink.split
 
-.sink.split:                                      ; preds = %89, %85
-  %.sink392 = phi ptr [ %87, %85 ], [ %91, %89 ]
-  %92 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef 9, ptr noundef nonnull %.sink392)
-  %93 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv368
-  store i32 %92, ptr %93, align 4, !tbaa !114
-  br label %94
+.sink.split:                                      ; preds = %87, %83
+  %.sink397 = phi ptr [ %85, %83 ], [ %89, %87 ]
+  %90 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 9, ptr noundef nonnull %.sink397)
+  %91 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv373
+  store i32 %90, ptr %91, align 4, !tbaa !114
+  br label %92
 
-94:                                               ; preds = %.sink.split, %88
-  %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
-  %95 = load i32, ptr %72, align 8, !tbaa !10
-  %96 = sext i32 %95 to i64
-  %97 = icmp slt i64 %indvars.iv.next369, %96
-  br i1 %97, label %78, label %._crit_edge, !llvm.loop !115
+92:                                               ; preds = %.sink.split, %86
+  %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
+  %93 = load i32, ptr %70, align 8, !tbaa !10
+  %94 = sext i32 %93 to i64
+  %95 = icmp slt i64 %indvars.iv.next374, %94
+  br i1 %95, label %76, label %._crit_edge, !llvm.loop !115
 
-98:                                               ; preds = %._crit_edge
-  %99 = getelementptr inbounds nuw i8, ptr %6, i64 156
-  %100 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef 1, ptr noundef nonnull %99)
-  br label %101
+96:                                               ; preds = %._crit_edge
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 156
+  %98 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 1, ptr noundef nonnull %97)
+  br label %99
 
-101:                                              ; preds = %98, %._crit_edge
-  %.1 = phi i32 [ %100, %98 ], [ 0, %._crit_edge ]
-  %102 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %103 = load float, ptr %102, align 8, !tbaa !116
-  %104 = fcmp une float %103, 0.000000e+00
-  br i1 %104, label %105, label %108
+99:                                               ; preds = %96, %._crit_edge
+  %.1 = phi i32 [ %98, %96 ], [ 0, %._crit_edge ]
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 192
+  %101 = load float, ptr %100, align 8, !tbaa !116
+  %102 = fcmp une float %101, 0.000000e+00
+  br i1 %102, label %103, label %106
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %6, i64 196
-  %107 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef 1, ptr noundef nonnull %106)
-  br label %108
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 196
+  %105 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 1, ptr noundef nonnull %104)
+  br label %106
 
-108:                                              ; preds = %105, %101
-  %.1243 = phi i32 [ %107, %105 ], [ 0, %101 ]
-  %109 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %110 = load ptr, ptr %109, align 8, !tbaa !138
-  %.not340 = icmp eq ptr %110, null
-  br i1 %.not340, label %123, label %111
+106:                                              ; preds = %103, %99
+  %.1258 = phi i32 [ %105, %103 ], [ 0, %99 ]
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %108 = load ptr, ptr %107, align 8, !tbaa !138
+  %.not348 = icmp eq ptr %108, null
+  br i1 %.not348, label %121, label %109
 
-111:                                              ; preds = %108
-  br i1 %9, label %112, label %115
+109:                                              ; preds = %106
+  br i1 %9, label %110, label %113
 
-112:                                              ; preds = %111
-  %113 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  %114 = tail call noundef i32 @_Z8add_bindP5t_biniPKd(ptr noundef %28, i32 noundef 4, ptr noundef nonnull %113)
-  br label %115
+110:                                              ; preds = %109
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  %112 = tail call noundef i32 @_Z8add_bindP5t_biniPKd(ptr noundef %29, i32 noundef 4, ptr noundef nonnull %111)
+  br label %113
 
-115:                                              ; preds = %112, %111
-  %.1245 = phi i32 [ %114, %112 ], [ 0, %111 ]
-  %brmerge265 = or i1 %.not259, %.not269
-  br i1 %brmerge265, label %119, label %116
+113:                                              ; preds = %110, %109
+  %.1260 = phi i32 [ %112, %110 ], [ 0, %109 ]
+  %or.cond7 = or i1 %28, %.not14
+  br i1 %or.cond7, label %117, label %114
 
-116:                                              ; preds = %115
-  %117 = load ptr, ptr %109, align 8, !tbaa !138
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 64
-  br label %.sink.split393
+114:                                              ; preds = %113
+  %115 = load ptr, ptr %107, align 8, !tbaa !138
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 64
+  br label %.sink.split398
 
-119:                                              ; preds = %115
-  br i1 %.not259, label %123, label %120
+117:                                              ; preds = %113
+  br i1 %28, label %121, label %118
 
-120:                                              ; preds = %119
-  %121 = load ptr, ptr %109, align 8, !tbaa !138
-  br label %.sink.split393
+118:                                              ; preds = %117
+  %119 = load ptr, ptr %107, align 8, !tbaa !138
+  br label %.sink.split398
 
-.sink.split393:                                   ; preds = %120, %116
-  %.sink = phi ptr [ %118, %116 ], [ %121, %120 ]
-  %122 = tail call noundef i32 @_Z8add_bindP5t_biniPKd(ptr noundef %28, i32 noundef 4, ptr noundef %.sink)
-  br label %123
+.sink.split398:                                   ; preds = %118, %114
+  %.sink = phi ptr [ %116, %114 ], [ %119, %118 ]
+  %120 = tail call noundef i32 @_Z8add_bindP5t_biniPKd(ptr noundef %29, i32 noundef 4, ptr noundef %.sink)
+  br label %121
 
-123:                                              ; preds = %.sink.split393, %119, %70, %108, %68
-  %.0246 = phi i32 [ 0, %108 ], [ 0, %70 ], [ 0, %68 ], [ 0, %119 ], [ %122, %.sink.split393 ]
-  %.0244 = phi i32 [ 0, %108 ], [ 0, %70 ], [ 0, %68 ], [ %.1245, %119 ], [ %.1245, %.sink.split393 ]
-  %.0242 = phi i32 [ %.1243, %108 ], [ 0, %70 ], [ 0, %68 ], [ %.1243, %119 ], [ %.1243, %.sink.split393 ]
-  %.0234 = phi i32 [ %.1, %108 ], [ 0, %70 ], [ 0, %68 ], [ %.1, %119 ], [ %.1, %.sink.split393 ]
-  %.0233 = phi i32 [ %77, %108 ], [ 0, %70 ], [ 0, %68 ], [ %77, %119 ], [ %77, %.sink.split393 ]
-  br i1 %22, label %126, label %124
+121:                                              ; preds = %.sink.split398, %117, %106, %68
+  %.0261 = phi i32 [ 0, %106 ], [ 0, %68 ], [ 0, %117 ], [ %120, %.sink.split398 ]
+  %.0259 = phi i32 [ 0, %106 ], [ 0, %68 ], [ %.1260, %117 ], [ %.1260, %.sink.split398 ]
+  %.0257 = phi i32 [ %.1258, %106 ], [ 0, %68 ], [ %.1258, %117 ], [ %.1258, %.sink.split398 ]
+  %.0249 = phi i32 [ %.1, %106 ], [ 0, %68 ], [ %.1, %117 ], [ %.1, %.sink.split398 ]
+  %.0248 = phi i32 [ %75, %106 ], [ 0, %68 ], [ %75, %117 ], [ %75, %.sink.split398 ]
+  br i1 %24, label %124, label %122
 
-124:                                              ; preds = %123
-  %125 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef 9, ptr noundef %3)
-  br label %126
+122:                                              ; preds = %121
+  %123 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 9, ptr noundef %3)
+  br label %124
 
-126:                                              ; preds = %124, %123
-  %.0231 = phi i32 [ %125, %124 ], [ 0, %123 ]
+124:                                              ; preds = %122, %121
+  %.0246 = phi i32 [ %123, %122 ], [ 0, %121 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #3
-  br i1 %.not339, label %159, label %127
+  br i1 %.not344, label %157, label %125
 
-127:                                              ; preds = %126
-  %128 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %.us-phi.i, ptr noundef nonnull %14)
-  %129 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %130 = getelementptr inbounds nuw i8, ptr %2, i64 392
-  br label %134
+125:                                              ; preds = %124
+  %126 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %.us-phi.i, ptr noundef nonnull %14)
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 392
+  br label %132
 
-131:                                              ; preds = %134
-  %132 = getelementptr inbounds nuw i8, ptr %5, i64 420
-  %133 = load i32, ptr %132, align 4, !tbaa !139
-  %.not = icmp eq i32 %133, 0
-  br i1 %.not, label %159, label %140
+129:                                              ; preds = %132
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 420
+  %131 = load i32, ptr %130, align 4, !tbaa !139
+  %.not = icmp eq i32 %131, 0
+  br i1 %.not, label %157, label %138
 
-134:                                              ; preds = %127, %134
-  %indvars.iv371 = phi i64 [ 0, %127 ], [ %indvars.iv.next372, %134 ]
-  %135 = load i32, ptr %129, align 8, !tbaa !140
-  %136 = getelementptr inbounds nuw [5 x %"class.std::vector.55"], ptr %130, i64 0, i64 %indvars.iv371
-  %137 = load ptr, ptr %136, align 8, !tbaa !158
-  %138 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %135, ptr noundef %137)
-  %139 = getelementptr inbounds nuw [5 x i32], ptr %15, i64 0, i64 %indvars.iv371
-  store i32 %138, ptr %139, align 4, !tbaa !114
-  %indvars.iv.next372 = add nuw nsw i64 %indvars.iv371, 1
-  %.not344 = icmp eq i64 %indvars.iv.next372, 5
-  br i1 %.not344, label %131, label %134
+132:                                              ; preds = %125, %132
+  %indvars.iv376 = phi i64 [ 0, %125 ], [ %indvars.iv.next377, %132 ]
+  %133 = load i32, ptr %127, align 8, !tbaa !140
+  %134 = getelementptr inbounds nuw [5 x %"class.std::vector.55"], ptr %128, i64 0, i64 %indvars.iv376
+  %135 = load ptr, ptr %134, align 8, !tbaa !158
+  %136 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %133, ptr noundef %135)
+  %137 = getelementptr inbounds nuw [5 x i32], ptr %15, i64 0, i64 %indvars.iv376
+  store i32 %136, ptr %137, align 4, !tbaa !114
+  %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
+  %.not349 = icmp eq i64 %indvars.iv.next377, 5
+  br i1 %.not349, label %129, label %132
 
-140:                                              ; preds = %131
-  %141 = getelementptr inbounds nuw i8, ptr %2, i64 512
-  %142 = getelementptr inbounds nuw i8, ptr %2, i64 568
-  %143 = call noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr noundef %28, ptr nonnull %141, ptr nonnull %142)
-  %144 = getelementptr inbounds nuw i8, ptr %2, i64 624
-  %145 = call noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr noundef %28, ptr nonnull %142, ptr nonnull %144)
-  %146 = load i32, ptr %144, align 8, !tbaa !159
-  %147 = icmp sgt i32 %146, 0
-  br i1 %147, label %148, label %159
+138:                                              ; preds = %129
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 512
+  %140 = getelementptr inbounds nuw i8, ptr %2, i64 568
+  %141 = call noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr noundef %29, ptr nonnull %139, ptr nonnull %140)
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 624
+  %143 = call noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr noundef %29, ptr nonnull %140, ptr nonnull %142)
+  %144 = load i32, ptr %142, align 8, !tbaa !159
+  %145 = icmp sgt i32 %144, 0
+  br i1 %145, label %146, label %157
 
-148:                                              ; preds = %140
-  %149 = getelementptr inbounds nuw i8, ptr %2, i64 640
-  %150 = load ptr, ptr %149, align 8, !tbaa !160
-  %151 = getelementptr inbounds nuw i8, ptr %2, i64 648
-  %152 = load ptr, ptr %151, align 8, !tbaa !161
-  %153 = ptrtoint ptr %152 to i64
-  %154 = ptrtoint ptr %150 to i64
-  %155 = sub i64 %153, %154
-  %156 = lshr exact i64 %155, 3
-  %157 = trunc i64 %156 to i32
-  %158 = call noundef i32 @_Z8add_bindP5t_biniPKd(ptr noundef %28, i32 noundef %157, ptr noundef %150)
-  br label %159
+146:                                              ; preds = %138
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 640
+  %148 = load ptr, ptr %147, align 8, !tbaa !160
+  %149 = getelementptr inbounds nuw i8, ptr %2, i64 648
+  %150 = load ptr, ptr %149, align 8, !tbaa !161
+  %151 = ptrtoint ptr %150 to i64
+  %152 = ptrtoint ptr %148 to i64
+  %153 = sub i64 %151, %152
+  %154 = lshr exact i64 %153, 3
+  %155 = trunc i64 %154 to i32
+  %156 = call noundef i32 @_Z8add_bindP5t_biniPKd(ptr noundef %29, i32 noundef %155, ptr noundef %148)
+  br label %157
 
-159:                                              ; preds = %131, %148, %140, %126
-  %.0239 = phi i32 [ %158, %148 ], [ 0, %140 ], [ 0, %131 ], [ 0, %126 ]
-  %.0238 = phi i32 [ %145, %148 ], [ %145, %140 ], [ 0, %131 ], [ 0, %126 ]
-  %.0235 = phi i32 [ %143, %148 ], [ %143, %140 ], [ 0, %131 ], [ 0, %126 ]
-  %.0 = phi i32 [ %128, %148 ], [ %128, %140 ], [ %128, %131 ], [ 0, %126 ]
-  %.not260 = icmp eq ptr %7, null
-  br i1 %.not260, label %189, label %160
+157:                                              ; preds = %129, %146, %138, %124
+  %.0254 = phi i32 [ %156, %146 ], [ 0, %138 ], [ 0, %129 ], [ 0, %124 ]
+  %.0253 = phi i32 [ %143, %146 ], [ %143, %138 ], [ 0, %129 ], [ 0, %124 ]
+  %.0250 = phi i32 [ %141, %146 ], [ %141, %138 ], [ 0, %129 ], [ 0, %124 ]
+  %.0 = phi i32 [ %126, %146 ], [ %126, %138 ], [ %126, %129 ], [ 0, %124 ]
+  %.not277 = icmp eq ptr %7, null
+  br i1 %.not277, label %187, label %158
 
-160:                                              ; preds = %159
-  %161 = load i32, ptr %7, align 8, !tbaa !162
-  %162 = mul nsw i32 %161, 3
-  %163 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %164 = load ptr, ptr %163, align 8, !tbaa !174
-  %165 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %162, ptr noundef nonnull %164)
-  %166 = load i32, ptr %7, align 8, !tbaa !162
-  %167 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %168 = load ptr, ptr %167, align 8, !tbaa !158
-  %169 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %166, ptr noundef %168)
-  %170 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %171 = load i32, ptr %170, align 4, !tbaa !175
-  %172 = icmp eq i32 %171, 1
-  br i1 %172, label %173, label %189
+158:                                              ; preds = %157
+  %159 = load i32, ptr %7, align 8, !tbaa !162
+  %160 = mul nsw i32 %159, 3
+  %161 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %162 = load ptr, ptr %161, align 8, !tbaa !174
+  %163 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %160, ptr noundef nonnull %162)
+  %164 = load i32, ptr %7, align 8, !tbaa !162
+  %165 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %166 = load ptr, ptr %165, align 8, !tbaa !158
+  %167 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %164, ptr noundef %166)
+  %168 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %169 = load i32, ptr %168, align 4, !tbaa !175
+  %170 = icmp eq i32 %169, 1
+  br i1 %170, label %171, label %187
 
-173:                                              ; preds = %160
-  %174 = load i32, ptr %7, align 8, !tbaa !162
-  %175 = mul nsw i32 %174, 3
-  %176 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %177 = load ptr, ptr %176, align 8, !tbaa !174
-  %178 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %175, ptr noundef nonnull %177)
-  %179 = load i32, ptr %7, align 8, !tbaa !162
-  %180 = mul nsw i32 %179, 3
-  %181 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %182 = load ptr, ptr %181, align 8, !tbaa !174
-  %183 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %180, ptr noundef nonnull %182)
-  %184 = load i32, ptr %7, align 8, !tbaa !162
-  %185 = mul nsw i32 %184, 9
-  %186 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  %187 = load ptr, ptr %186, align 8, !tbaa !176
-  %188 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %28, i32 noundef %185, ptr noundef %187)
-  br label %189
+171:                                              ; preds = %158
+  %172 = load i32, ptr %7, align 8, !tbaa !162
+  %173 = mul nsw i32 %172, 3
+  %174 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  %175 = load ptr, ptr %174, align 8, !tbaa !174
+  %176 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %173, ptr noundef nonnull %175)
+  %177 = load i32, ptr %7, align 8, !tbaa !162
+  %178 = mul nsw i32 %177, 3
+  %179 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %180 = load ptr, ptr %179, align 8, !tbaa !174
+  %181 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %178, ptr noundef nonnull %180)
+  %182 = load i32, ptr %7, align 8, !tbaa !162
+  %183 = mul nsw i32 %182, 9
+  %184 = getelementptr inbounds nuw i8, ptr %7, i64 192
+  %185 = load ptr, ptr %184, align 8, !tbaa !176
+  %186 = call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef %183, ptr noundef %185)
+  br label %187
 
-189:                                              ; preds = %160, %173, %159
-  %.0252 = phi i32 [ %183, %173 ], [ -1, %160 ], [ -1, %159 ]
-  %.0251 = phi i32 [ %188, %173 ], [ -1, %160 ], [ -1, %159 ]
-  %.0250 = phi i32 [ %178, %173 ], [ -1, %160 ], [ -1, %159 ]
-  %.0241 = phi i32 [ %169, %173 ], [ %169, %160 ], [ 0, %159 ]
-  %.0240 = phi i32 [ %165, %173 ], [ %165, %160 ], [ 0, %159 ]
+187:                                              ; preds = %158, %171, %157
+  %.0267 = phi i32 [ %181, %171 ], [ -1, %158 ], [ -1, %157 ]
+  %.0266 = phi i32 [ %186, %171 ], [ -1, %158 ], [ -1, %157 ]
+  %.0265 = phi i32 [ %176, %171 ], [ -1, %158 ], [ -1, %157 ]
+  %.0256 = phi i32 [ %167, %171 ], [ %167, %158 ], [ 0, %157 ]
+  %.0255 = phi i32 [ %163, %171 ], [ %163, %158 ], [ 0, %157 ]
   %.sroa.01.0.copyload.i = load ptr, ptr %8, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.0.0.copyload.i274 = load ptr, ptr %190, align 8
-  %191 = icmp eq ptr %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i274
-  br i1 %191, label %198, label %192
+  %188 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.0.0.copyload.i281 = load ptr, ptr %188, align 8
+  %189 = icmp eq ptr %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i281
+  br i1 %189, label %196, label %190
 
-192:                                              ; preds = %189
-  %193 = ptrtoint ptr %.sroa.0.0.copyload.i274 to i64
-  %194 = ptrtoint ptr %.sroa.01.0.copyload.i to i64
-  %195 = sub i64 %193, %194
-  %196 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i, i64 %195
-  %197 = call noundef i32 @_Z8add_binrP5t_binN3gmx8ArrayRefIKfEE(ptr noundef %28, ptr %.sroa.01.0.copyload.i, ptr nonnull %196)
-  br label %198
+190:                                              ; preds = %187
+  %191 = ptrtoint ptr %.sroa.0.0.copyload.i281 to i64
+  %192 = ptrtoint ptr %.sroa.01.0.copyload.i to i64
+  %193 = sub i64 %191, %192
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i, i64 %193
+  %195 = call noundef i32 @_Z8add_binrP5t_binN3gmx8ArrayRefIKfEE(ptr noundef %29, ptr %.sroa.01.0.copyload.i, ptr nonnull %194)
+  br label %196
 
-198:                                              ; preds = %192, %189
-  %.0249 = phi i32 [ -1, %189 ], [ %197, %192 ]
-  %199 = call { ptr, ptr } @_ZN3gmx18ObservablesReducer19communicationBufferEb(ptr noundef nonnull align 8 dereferenceable(8) %12, i1 noundef zeroext true)
-  %200 = extractvalue { ptr, ptr } %199, 0
-  %201 = extractvalue { ptr, ptr } %199, 1
-  %202 = icmp eq ptr %200, %201
-  br i1 %202, label %210, label %203
+196:                                              ; preds = %190, %187
+  %.0264 = phi i32 [ -1, %187 ], [ %195, %190 ]
+  %197 = call { ptr, ptr } @_ZN3gmx18ObservablesReducer19communicationBufferEb(ptr noundef nonnull align 8 dereferenceable(8) %12, i1 noundef zeroext true)
+  %198 = extractvalue { ptr, ptr } %197, 0
+  %199 = extractvalue { ptr, ptr } %197, 1
+  %200 = icmp eq ptr %198, %199
+  br i1 %200, label %208, label %201
 
-203:                                              ; preds = %198
-  %204 = ptrtoint ptr %201 to i64
-  %205 = ptrtoint ptr %200 to i64
-  %206 = sub i64 %204, %205
-  %207 = lshr exact i64 %206, 3
-  %208 = trunc i64 %207 to i32
-  %209 = call noundef i32 @_Z8add_bindP5t_biniPKd(ptr noundef %28, i32 noundef %208, ptr noundef %200)
+201:                                              ; preds = %196
+  %202 = ptrtoint ptr %199 to i64
+  %203 = ptrtoint ptr %198 to i64
+  %204 = sub i64 %202, %203
+  %205 = lshr exact i64 %204, 3
+  %206 = trunc i64 %205 to i32
+  %207 = call noundef i32 @_Z8add_bindP5t_biniPKd(ptr noundef %29, i32 noundef %206, ptr noundef %198)
+  br label %208
+
+208:                                              ; preds = %201, %196
+  %.0252 = phi i32 [ 0, %196 ], [ %207, %201 ]
+  call void @_Z7sum_binP5t_binPK9t_commrec(ptr noundef %29, ptr noundef %1)
+  br i1 %.not275, label %210, label %209
+
+209:                                              ; preds = %208
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0247, i32 noundef 9, ptr noundef %4)
   br label %210
 
-210:                                              ; preds = %203, %198
-  %.0237 = phi i32 [ 0, %198 ], [ %209, %203 ]
-  call void @_Z7sum_binP5t_binPK9t_commrec(ptr noundef %28, ptr noundef %1)
-  br i1 %.not258, label %212, label %211
+210:                                              ; preds = %209, %208
+  br i1 %or.cond18, label %.preheader, label %259
 
-211:                                              ; preds = %210
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0232, i32 noundef 9, ptr noundef %4)
-  br label %212
+.preheader:                                       ; preds = %210
+  %211 = getelementptr inbounds nuw i8, ptr %5, i64 744
+  %212 = load i32, ptr %211, align 8, !tbaa !10
+  %213 = icmp sgt i32 %212, 0
+  br i1 %213, label %.lr.ph361, label %._crit_edge362
 
-212:                                              ; preds = %211, %210
-  br i1 %.not338, label %213, label %215
+.lr.ph361:                                        ; preds = %.preheader
+  %214 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %or.cond13 = or i1 %28, %.not14
+  br label %216
 
-213:                                              ; preds = %212
-  %214 = icmp ne ptr %6, null
-  %or.cond5 = and i1 %214, %spec.select
-  br i1 %or.cond5, label %216, label %265
+._crit_edge362:                                   ; preds = %234, %.preheader
+  %215 = getelementptr inbounds nuw i8, ptr %6, i64 152
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0248, i32 noundef 1, ptr noundef nonnull %215)
+  br i1 %9, label %238, label %240
 
-215:                                              ; preds = %212
-  %.old4.not = icmp eq ptr %6, null
-  br i1 %.old4.not, label %265, label %216
+216:                                              ; preds = %.lr.ph361, %234
+  %indvars.iv379 = phi i64 [ 0, %.lr.ph361 ], [ %indvars.iv.next380, %234 ]
+  br i1 %9, label %217, label %222
 
-216:                                              ; preds = %213, %215
-  %217 = getelementptr inbounds nuw i8, ptr %5, i64 744
-  %218 = load i32, ptr %217, align 8, !tbaa !10
-  %219 = icmp sgt i32 %218, 0
-  br i1 %219, label %.lr.ph356, label %._crit_edge357
-
-.lr.ph356:                                        ; preds = %216
-  %220 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %brmerge268 = or i1 %.not259, %.not269
+217:                                              ; preds = %216
+  %218 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv379
+  %219 = load i32, ptr %218, align 4, !tbaa !114
+  %220 = load ptr, ptr %214, align 8, !tbaa !111
+  %221 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %220, i64 %indvars.iv379, i32 3
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %219, i32 noundef 9, ptr noundef nonnull %221)
   br label %222
 
-._crit_edge357:                                   ; preds = %240, %216
-  %221 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0233, i32 noundef 1, ptr noundef nonnull %221)
-  br i1 %9, label %244, label %246
-
-222:                                              ; preds = %.lr.ph356, %240
-  %indvars.iv374 = phi i64 [ 0, %.lr.ph356 ], [ %indvars.iv.next375, %240 ]
-  br i1 %9, label %223, label %228
+222:                                              ; preds = %217, %216
+  br i1 %or.cond13, label %228, label %223
 
 223:                                              ; preds = %222
-  %224 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv374
+  %224 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv379
   %225 = load i32, ptr %224, align 4, !tbaa !114
-  %226 = load ptr, ptr %220, align 8, !tbaa !111
-  %227 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %226, i64 %indvars.iv374, i32 3
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %225, i32 noundef 9, ptr noundef nonnull %227)
-  br label %228
+  %226 = load ptr, ptr %214, align 8, !tbaa !111
+  %227 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %226, i64 %indvars.iv379, i32 4
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %225, i32 noundef 9, ptr noundef nonnull %227)
+  br label %234
 
-228:                                              ; preds = %223, %222
-  br i1 %brmerge268, label %234, label %229
+228:                                              ; preds = %222
+  br i1 %28, label %234, label %229
 
 229:                                              ; preds = %228
-  %230 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv374
+  %230 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv379
   %231 = load i32, ptr %230, align 4, !tbaa !114
-  %232 = load ptr, ptr %220, align 8, !tbaa !111
-  %233 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %232, i64 %indvars.iv374, i32 4
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %231, i32 noundef 9, ptr noundef nonnull %233)
+  %232 = load ptr, ptr %214, align 8, !tbaa !111
+  %233 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %232, i64 %indvars.iv379, i32 2
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %231, i32 noundef 9, ptr noundef nonnull %233)
+  br label %234
+
+234:                                              ; preds = %223, %229, %228
+  %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
+  %235 = load i32, ptr %211, align 8, !tbaa !10
+  %236 = sext i32 %235 to i64
+  %237 = icmp slt i64 %indvars.iv.next380, %236
+  br i1 %237, label %216, label %._crit_edge362, !llvm.loop !177
+
+238:                                              ; preds = %._crit_edge362
+  %239 = getelementptr inbounds nuw i8, ptr %6, i64 156
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0249, i32 noundef 1, ptr noundef nonnull %239)
   br label %240
 
-234:                                              ; preds = %228
-  br i1 %.not259, label %240, label %235
+240:                                              ; preds = %238, %._crit_edge362
+  %241 = getelementptr inbounds nuw i8, ptr %6, i64 192
+  %242 = load float, ptr %241, align 8, !tbaa !116
+  %243 = fcmp une float %242, 0.000000e+00
+  br i1 %243, label %244, label %246
 
-235:                                              ; preds = %234
-  %236 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv374
-  %237 = load i32, ptr %236, align 4, !tbaa !114
-  %238 = load ptr, ptr %220, align 8, !tbaa !111
-  %239 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %238, i64 %indvars.iv374, i32 2
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %237, i32 noundef 9, ptr noundef nonnull %239)
-  br label %240
-
-240:                                              ; preds = %229, %235, %234
-  %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
-  %241 = load i32, ptr %217, align 8, !tbaa !10
-  %242 = sext i32 %241 to i64
-  %243 = icmp slt i64 %indvars.iv.next375, %242
-  br i1 %243, label %222, label %._crit_edge357, !llvm.loop !177
-
-244:                                              ; preds = %._crit_edge357
-  %245 = getelementptr inbounds nuw i8, ptr %6, i64 156
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0234, i32 noundef 1, ptr noundef nonnull %245)
+244:                                              ; preds = %240
+  %245 = getelementptr inbounds nuw i8, ptr %6, i64 196
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0257, i32 noundef 1, ptr noundef nonnull %245)
   br label %246
 
-246:                                              ; preds = %244, %._crit_edge357
-  %247 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %248 = load float, ptr %247, align 8, !tbaa !116
-  %249 = fcmp une float %248, 0.000000e+00
-  br i1 %249, label %250, label %252
+246:                                              ; preds = %244, %240
+  %247 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %248 = load ptr, ptr %247, align 8, !tbaa !138
+  %.not350 = icmp eq ptr %248, null
+  br i1 %.not350, label %259, label %249
 
-250:                                              ; preds = %246
-  %251 = getelementptr inbounds nuw i8, ptr %6, i64 196
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0242, i32 noundef 1, ptr noundef nonnull %251)
+249:                                              ; preds = %246
+  br i1 %9, label %250, label %252
+
+250:                                              ; preds = %249
+  %251 = getelementptr inbounds nuw i8, ptr %248, i64 32
+  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %29, i32 noundef %.0259, i32 noundef 4, ptr noundef nonnull %251)
   br label %252
 
-252:                                              ; preds = %250, %246
-  %253 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %254 = load ptr, ptr %253, align 8, !tbaa !138
-  %.not345 = icmp eq ptr %254, null
-  br i1 %.not345, label %265, label %255
+252:                                              ; preds = %250, %249
+  %or.cond16 = or i1 %28, %.not14
+  br i1 %or.cond16, label %256, label %253
 
-255:                                              ; preds = %252
-  br i1 %9, label %256, label %258
+253:                                              ; preds = %252
+  %254 = load ptr, ptr %247, align 8, !tbaa !138
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 64
+  br label %.sink.split399
 
-256:                                              ; preds = %255
-  %257 = getelementptr inbounds nuw i8, ptr %254, i64 32
-  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0244, i32 noundef 4, ptr noundef nonnull %257)
-  br label %258
+256:                                              ; preds = %252
+  br i1 %28, label %259, label %257
 
-258:                                              ; preds = %256, %255
-  %brmerge271 = or i1 %.not259, %.not269
-  br i1 %brmerge271, label %262, label %259
+257:                                              ; preds = %256
+  %258 = load ptr, ptr %247, align 8, !tbaa !138
+  br label %.sink.split399
 
-259:                                              ; preds = %258
-  %260 = load ptr, ptr %253, align 8, !tbaa !138
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 64
-  br label %.sink.split394
+.sink.split399:                                   ; preds = %257, %253
+  %.sink400 = phi ptr [ %255, %253 ], [ %258, %257 ]
+  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %29, i32 noundef %.0261, i32 noundef 4, ptr noundef %.sink400)
+  br label %259
 
-262:                                              ; preds = %258
-  br i1 %.not259, label %265, label %263
+259:                                              ; preds = %.sink.split399, %256, %246, %210
+  br i1 %24, label %261, label %260
 
-263:                                              ; preds = %262
-  %264 = load ptr, ptr %253, align 8, !tbaa !138
-  br label %.sink.split394
+260:                                              ; preds = %259
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0246, i32 noundef 9, ptr noundef %3)
+  br label %261
 
-.sink.split394:                                   ; preds = %263, %259
-  %.sink395 = phi ptr [ %261, %259 ], [ %264, %263 ]
-  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0246, i32 noundef 4, ptr noundef %.sink395)
-  br label %265
+261:                                              ; preds = %260, %259
+  br i1 %.not344, label %_ZL16filter_enerdtermPKfbPfbbb.exit310, label %262
 
-265:                                              ; preds = %.sink.split394, %262, %215, %252, %213
-  br i1 %22, label %267, label %266
+262:                                              ; preds = %261
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0, i32 noundef %.us-phi.i, ptr noundef nonnull %14)
+  %263 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %264 = getelementptr inbounds nuw i8, ptr %2, i64 392
+  br label %268
 
-266:                                              ; preds = %265
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0231, i32 noundef 9, ptr noundef %3)
-  br label %267
+265:                                              ; preds = %268
+  %266 = getelementptr inbounds nuw i8, ptr %5, i64 420
+  %267 = load i32, ptr %266, align 4, !tbaa !139
+  %.not278 = icmp eq i32 %267, 0
+  br i1 %.not278, label %290, label %274
 
-267:                                              ; preds = %266, %265
-  br i1 %.not339, label %_ZL16filter_enerdtermPKfbPfbbb.exit303, label %268
+268:                                              ; preds = %262, %268
+  %indvars.iv382 = phi i64 [ 0, %262 ], [ %indvars.iv.next383, %268 ]
+  %269 = getelementptr inbounds nuw [5 x i32], ptr %15, i64 0, i64 %indvars.iv382
+  %270 = load i32, ptr %269, align 4, !tbaa !114
+  %271 = load i32, ptr %263, align 8, !tbaa !140
+  %272 = getelementptr inbounds nuw [5 x %"class.std::vector.55"], ptr %264, i64 0, i64 %indvars.iv382
+  %273 = load ptr, ptr %272, align 8, !tbaa !158
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %270, i32 noundef %271, ptr noundef %273)
+  %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
+  %.not351 = icmp eq i64 %indvars.iv.next383, 5
+  br i1 %.not351, label %265, label %268
 
-268:                                              ; preds = %267
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0, i32 noundef %.us-phi.i, ptr noundef nonnull %14)
-  %269 = getelementptr inbounds nuw i8, ptr %2, i64 384
-  %270 = getelementptr inbounds nuw i8, ptr %2, i64 392
-  br label %274
+274:                                              ; preds = %265
+  %275 = getelementptr inbounds nuw i8, ptr %2, i64 512
+  %276 = getelementptr inbounds nuw i8, ptr %2, i64 568
+  call void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef %29, i32 noundef %.0250, ptr nonnull %275, ptr nonnull %276)
+  %277 = getelementptr inbounds nuw i8, ptr %2, i64 624
+  call void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef %29, i32 noundef %.0253, ptr nonnull %276, ptr nonnull %277)
+  %278 = load i32, ptr %277, align 8, !tbaa !159
+  %279 = icmp sgt i32 %278, 0
+  br i1 %279, label %280, label %290
 
-271:                                              ; preds = %274
-  %272 = getelementptr inbounds nuw i8, ptr %5, i64 420
-  %273 = load i32, ptr %272, align 4, !tbaa !139
-  %.not261 = icmp eq i32 %273, 0
-  br i1 %.not261, label %296, label %280
+280:                                              ; preds = %274
+  %281 = getelementptr inbounds nuw i8, ptr %2, i64 640
+  %282 = load ptr, ptr %281, align 8, !tbaa !160
+  %283 = getelementptr inbounds nuw i8, ptr %2, i64 648
+  %284 = load ptr, ptr %283, align 8, !tbaa !161
+  %285 = ptrtoint ptr %284 to i64
+  %286 = ptrtoint ptr %282 to i64
+  %287 = sub i64 %285, %286
+  %288 = lshr exact i64 %287, 3
+  %289 = trunc i64 %288 to i32
+  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %29, i32 noundef %.0254, i32 noundef %289, ptr noundef %282)
+  br label %290
 
-274:                                              ; preds = %268, %274
-  %indvars.iv377 = phi i64 [ 0, %268 ], [ %indvars.iv.next378, %274 ]
-  %275 = getelementptr inbounds nuw [5 x i32], ptr %15, i64 0, i64 %indvars.iv377
-  %276 = load i32, ptr %275, align 4, !tbaa !114
-  %277 = load i32, ptr %269, align 8, !tbaa !140
-  %278 = getelementptr inbounds nuw [5 x %"class.std::vector.55"], ptr %270, i64 0, i64 %indvars.iv377
-  %279 = load ptr, ptr %278, align 8, !tbaa !158
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %276, i32 noundef %277, ptr noundef %279)
-  %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
-  %.not346 = icmp eq i64 %indvars.iv.next378, 5
-  br i1 %.not346, label %271, label %274
+290:                                              ; preds = %274, %280, %265
+  br i1 %24, label %.split.i289, label %.split.us.i302
 
-280:                                              ; preds = %271
-  %281 = getelementptr inbounds nuw i8, ptr %2, i64 512
-  %282 = getelementptr inbounds nuw i8, ptr %2, i64 568
-  call void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef %28, i32 noundef %.0235, ptr nonnull %281, ptr nonnull %282)
-  %283 = getelementptr inbounds nuw i8, ptr %2, i64 624
-  call void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef %28, i32 noundef %.0238, ptr nonnull %282, ptr nonnull %283)
-  %284 = load i32, ptr %283, align 8, !tbaa !159
-  %285 = icmp sgt i32 %284, 0
-  br i1 %285, label %286, label %296
-
-286:                                              ; preds = %280
-  %287 = getelementptr inbounds nuw i8, ptr %2, i64 640
-  %288 = load ptr, ptr %287, align 8, !tbaa !160
-  %289 = getelementptr inbounds nuw i8, ptr %2, i64 648
-  %290 = load ptr, ptr %289, align 8, !tbaa !161
-  %291 = ptrtoint ptr %290 to i64
-  %292 = ptrtoint ptr %288 to i64
-  %293 = sub i64 %291, %292
-  %294 = lshr exact i64 %293, 3
-  %295 = trunc i64 %294 to i32
-  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0239, i32 noundef %295, ptr noundef %288)
-  br label %296
-
-296:                                              ; preds = %280, %286, %271
-  br i1 %22, label %.split.i282, label %.split.us.i295
-
-.split.us.i295:                                   ; preds = %296, %304
-  %indvars.iv380 = phi i64 [ %indvars.iv.next381, %304 ], [ 0, %296 ]
-  %.027.us.i296 = phi i32 [ %.2.us.i300, %304 ], [ 0, %296 ]
-  %297 = trunc nuw nsw i64 %indvars.iv380 to i32
-  switch i32 %297, label %.sink.split.i302 [
-    i32 80, label %298
-    i32 83, label %298
-    i32 89, label %298
-    i32 82, label %304
-    i32 81, label %304
+.split.us.i302:                                   ; preds = %290, %298
+  %indvars.iv385 = phi i64 [ %indvars.iv.next386, %298 ], [ 0, %290 ]
+  %.027.us.i303 = phi i32 [ %.2.us.i307, %298 ], [ 0, %290 ]
+  %291 = trunc nuw nsw i64 %indvars.iv385 to i32
+  switch i32 %291, label %.sink.split.i309 [
+    i32 80, label %292
+    i32 83, label %292
+    i32 89, label %292
+    i32 82, label %298
+    i32 81, label %298
   ]
 
-298:                                              ; preds = %.split.us.i295, %.split.us.i295, %.split.us.i295
-  br i1 %.not338, label %304, label %.sink.split.i302
+292:                                              ; preds = %.split.us.i302, %.split.us.i302, %.split.us.i302
+  br i1 %21, label %.sink.split.i309, label %298
 
-.sink.split.i302:                                 ; preds = %.split.us.i295, %298
-  %299 = add nsw i32 %.027.us.i296, 1
-  %300 = sext i32 %.027.us.i296 to i64
-  %301 = getelementptr inbounds float, ptr %14, i64 %300
-  %302 = load float, ptr %301, align 4, !tbaa !108
-  %303 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv380
-  store float %302, ptr %303, align 4, !tbaa !108
-  br label %304
+.sink.split.i309:                                 ; preds = %.split.us.i302, %292
+  %293 = add nsw i32 %.027.us.i303, 1
+  %294 = sext i32 %.027.us.i303 to i64
+  %295 = getelementptr inbounds float, ptr %14, i64 %294
+  %296 = load float, ptr %295, align 4, !tbaa !108
+  %297 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv385
+  store float %296, ptr %297, align 4, !tbaa !108
+  br label %298
 
-304:                                              ; preds = %.split.us.i295, %.split.us.i295, %.sink.split.i302, %298
-  %.2.us.i300 = phi i32 [ %.027.us.i296, %.split.us.i295 ], [ %.027.us.i296, %.split.us.i295 ], [ %.027.us.i296, %298 ], [ %299, %.sink.split.i302 ]
-  %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
-  %exitcond86.not.i301 = icmp eq i64 %indvars.iv.next381, 95
-  br i1 %exitcond86.not.i301, label %_ZL16filter_enerdtermPKfbPfbbb.exit303, label %.split.us.i295, !llvm.loop !109
+298:                                              ; preds = %.split.us.i302, %.split.us.i302, %.sink.split.i309, %292
+  %.2.us.i307 = phi i32 [ %.027.us.i303, %.split.us.i302 ], [ %.027.us.i303, %.split.us.i302 ], [ %.027.us.i303, %292 ], [ %293, %.sink.split.i309 ]
+  %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
+  %exitcond86.not.i308 = icmp eq i64 %indvars.iv.next386, 95
+  br i1 %exitcond86.not.i308, label %_ZL16filter_enerdtermPKfbPfbbb.exit310, label %.split.us.i302, !llvm.loop !109
 
-.split.i282:                                      ; preds = %296
-  br i1 %.not338, label %.split.split.split.us.split.i, label %.split.split.us.split.us.i287
+.split.i289:                                      ; preds = %290
+  br i1 %21, label %.split.split.us.split.us.i294, label %.split.split.split.us.split.i
 
-.split.split.us.split.us.i287:                    ; preds = %.split.i282, %311
-  %indvars.iv383 = phi i64 [ %indvars.iv.next384, %311 ], [ 0, %.split.i282 ]
-  %.027.us30.us.i288 = phi i32 [ %.2.us36.us.i292, %311 ], [ 0, %.split.i282 ]
-  %305 = trunc nuw nsw i64 %indvars.iv383 to i32
-  switch i32 %305, label %.sink.split95.i294 [
-    i32 82, label %311
-    i32 81, label %311
-    i32 85, label %311
-    i32 86, label %311
+.split.split.us.split.us.i294:                    ; preds = %.split.i289, %305
+  %indvars.iv388 = phi i64 [ %indvars.iv.next389, %305 ], [ 0, %.split.i289 ]
+  %.027.us30.us.i295 = phi i32 [ %.2.us36.us.i299, %305 ], [ 0, %.split.i289 ]
+  %299 = trunc nuw nsw i64 %indvars.iv388 to i32
+  switch i32 %299, label %.sink.split95.i301 [
+    i32 82, label %305
+    i32 81, label %305
+    i32 85, label %305
+    i32 86, label %305
   ]
 
-.sink.split95.i294:                               ; preds = %.split.split.us.split.us.i287
-  %306 = add nsw i32 %.027.us30.us.i288, 1
-  %307 = sext i32 %.027.us30.us.i288 to i64
-  %308 = getelementptr inbounds float, ptr %14, i64 %307
-  %309 = load float, ptr %308, align 4, !tbaa !108
-  %310 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv383
-  store float %309, ptr %310, align 4, !tbaa !108
-  br label %311
+.sink.split95.i301:                               ; preds = %.split.split.us.split.us.i294
+  %300 = add nsw i32 %.027.us30.us.i295, 1
+  %301 = sext i32 %.027.us30.us.i295 to i64
+  %302 = getelementptr inbounds float, ptr %14, i64 %301
+  %303 = load float, ptr %302, align 4, !tbaa !108
+  %304 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv388
+  store float %303, ptr %304, align 4, !tbaa !108
+  br label %305
 
-311:                                              ; preds = %.sink.split95.i294, %.split.split.us.split.us.i287, %.split.split.us.split.us.i287, %.split.split.us.split.us.i287, %.split.split.us.split.us.i287
-  %.2.us36.us.i292 = phi i32 [ %.027.us30.us.i288, %.split.split.us.split.us.i287 ], [ %.027.us30.us.i288, %.split.split.us.split.us.i287 ], [ %.027.us30.us.i288, %.split.split.us.split.us.i287 ], [ %.027.us30.us.i288, %.split.split.us.split.us.i287 ], [ %306, %.sink.split95.i294 ]
-  %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
-  %exitcond85.not.i293 = icmp eq i64 %indvars.iv.next384, 95
-  br i1 %exitcond85.not.i293, label %_ZL16filter_enerdtermPKfbPfbbb.exit303, label %.split.split.us.split.us.i287, !llvm.loop !109
+305:                                              ; preds = %.sink.split95.i301, %.split.split.us.split.us.i294, %.split.split.us.split.us.i294, %.split.split.us.split.us.i294, %.split.split.us.split.us.i294
+  %.2.us36.us.i299 = phi i32 [ %.027.us30.us.i295, %.split.split.us.split.us.i294 ], [ %.027.us30.us.i295, %.split.split.us.split.us.i294 ], [ %.027.us30.us.i295, %.split.split.us.split.us.i294 ], [ %.027.us30.us.i295, %.split.split.us.split.us.i294 ], [ %300, %.sink.split95.i301 ]
+  %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
+  %exitcond85.not.i300 = icmp eq i64 %indvars.iv.next389, 95
+  br i1 %exitcond85.not.i300, label %_ZL16filter_enerdtermPKfbPfbbb.exit310, label %.split.split.us.split.us.i294, !llvm.loop !109
 
-.split.split.split.us.split.i:                    ; preds = %.split.i282, %318
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %318 ], [ 0, %.split.i282 ]
-  %.027.us39.i = phi i32 [ %.2.us45.i, %318 ], [ 0, %.split.i282 ]
+.split.split.split.us.split.i:                    ; preds = %.split.i289, %312
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %312 ], [ 0, %.split.i289 ]
+  %.027.us39.i = phi i32 [ %.2.us45.i, %312 ], [ 0, %.split.i289 ]
   %indvars72.i = trunc i64 %indvars.iv.i to i32
-  switch i32 %indvars72.i, label %312 [
-    i32 80, label %318
-    i32 83, label %318
-    i32 89, label %318
-    i32 86, label %318
-    i32 85, label %318
-    i32 81, label %318
-    i32 82, label %318
+  switch i32 %indvars72.i, label %306 [
+    i32 80, label %312
+    i32 83, label %312
+    i32 89, label %312
+    i32 86, label %312
+    i32 85, label %312
+    i32 81, label %312
+    i32 82, label %312
   ]
 
-312:                                              ; preds = %.split.split.split.us.split.i
-  %313 = add nsw i32 %.027.us39.i, 1
-  %314 = sext i32 %.027.us39.i to i64
-  %315 = getelementptr inbounds float, ptr %14, i64 %314
-  %316 = load float, ptr %315, align 4, !tbaa !108
-  %317 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
-  store float %316, ptr %317, align 4, !tbaa !108
-  br label %318
+306:                                              ; preds = %.split.split.split.us.split.i
+  %307 = add nsw i32 %.027.us39.i, 1
+  %308 = sext i32 %.027.us39.i to i64
+  %309 = getelementptr inbounds float, ptr %14, i64 %308
+  %310 = load float, ptr %309, align 4, !tbaa !108
+  %311 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
+  store float %310, ptr %311, align 4, !tbaa !108
+  br label %312
 
-318:                                              ; preds = %312, %.split.split.split.us.split.i, %.split.split.split.us.split.i, %.split.split.split.us.split.i, %.split.split.split.us.split.i, %.split.split.split.us.split.i, %.split.split.split.us.split.i, %.split.split.split.us.split.i
-  %.2.us45.i = phi i32 [ %313, %312 ], [ %.027.us39.i, %.split.split.split.us.split.i ], [ %.027.us39.i, %.split.split.split.us.split.i ], [ %.027.us39.i, %.split.split.split.us.split.i ], [ %.027.us39.i, %.split.split.split.us.split.i ], [ %.027.us39.i, %.split.split.split.us.split.i ], [ %.027.us39.i, %.split.split.split.us.split.i ], [ %.027.us39.i, %.split.split.split.us.split.i ]
+312:                                              ; preds = %306, %.split.split.split.us.split.i, %.split.split.split.us.split.i, %.split.split.split.us.split.i, %.split.split.split.us.split.i, %.split.split.split.us.split.i, %.split.split.split.us.split.i, %.split.split.split.us.split.i
+  %.2.us45.i = phi i32 [ %307, %306 ], [ %.027.us39.i, %.split.split.split.us.split.i ], [ %.027.us39.i, %.split.split.split.us.split.i ], [ %.027.us39.i, %.split.split.split.us.split.i ], [ %.027.us39.i, %.split.split.split.us.split.i ], [ %.027.us39.i, %.split.split.split.us.split.i ], [ %.027.us39.i, %.split.split.split.us.split.i ], [ %.027.us39.i, %.split.split.split.us.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 95
-  br i1 %exitcond.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit303, label %.split.split.split.us.split.i, !llvm.loop !109
+  br i1 %exitcond.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit310, label %.split.split.split.us.split.i, !llvm.loop !109
 
-_ZL16filter_enerdtermPKfbPfbbb.exit303:           ; preds = %304, %311, %318, %267
-  br i1 %.not260, label %343, label %319
+_ZL16filter_enerdtermPKfbPfbbb.exit310:           ; preds = %298, %312, %305, %261
+  br i1 %.not277, label %337, label %313
 
-319:                                              ; preds = %_ZL16filter_enerdtermPKfbPfbbb.exit303
-  %320 = load i32, ptr %7, align 8, !tbaa !162
-  %321 = mul nsw i32 %320, 3
-  %322 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %323 = load ptr, ptr %322, align 8, !tbaa !174
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0240, i32 noundef %321, ptr noundef nonnull %323)
-  %324 = load i32, ptr %7, align 8, !tbaa !162
-  %325 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %326 = load ptr, ptr %325, align 8, !tbaa !158
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0241, i32 noundef %324, ptr noundef %326)
-  %327 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %328 = load i32, ptr %327, align 4, !tbaa !175
-  %329 = icmp eq i32 %328, 1
-  br i1 %329, label %330, label %343
+313:                                              ; preds = %_ZL16filter_enerdtermPKfbPfbbb.exit310
+  %314 = load i32, ptr %7, align 8, !tbaa !162
+  %315 = mul nsw i32 %314, 3
+  %316 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %317 = load ptr, ptr %316, align 8, !tbaa !174
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0255, i32 noundef %315, ptr noundef nonnull %317)
+  %318 = load i32, ptr %7, align 8, !tbaa !162
+  %319 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %320 = load ptr, ptr %319, align 8, !tbaa !158
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0256, i32 noundef %318, ptr noundef %320)
+  %321 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %322 = load i32, ptr %321, align 4, !tbaa !175
+  %323 = icmp eq i32 %322, 1
+  br i1 %323, label %324, label %337
 
-330:                                              ; preds = %319
-  %331 = load i32, ptr %7, align 8, !tbaa !162
-  %332 = mul nsw i32 %331, 3
-  %333 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %334 = load ptr, ptr %333, align 8, !tbaa !174
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0250, i32 noundef %332, ptr noundef nonnull %334)
-  %335 = load i32, ptr %7, align 8, !tbaa !162
-  %336 = mul nsw i32 %335, 3
-  %337 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %338 = load ptr, ptr %337, align 8, !tbaa !174
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0252, i32 noundef %336, ptr noundef nonnull %338)
-  %339 = load i32, ptr %7, align 8, !tbaa !162
-  %340 = mul nsw i32 %339, 9
-  %341 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  %342 = load ptr, ptr %341, align 8, !tbaa !176
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0251, i32 noundef %340, ptr noundef %342)
+324:                                              ; preds = %313
+  %325 = load i32, ptr %7, align 8, !tbaa !162
+  %326 = mul nsw i32 %325, 3
+  %327 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  %328 = load ptr, ptr %327, align 8, !tbaa !174
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0265, i32 noundef %326, ptr noundef nonnull %328)
+  %329 = load i32, ptr %7, align 8, !tbaa !162
+  %330 = mul nsw i32 %329, 3
+  %331 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %332 = load ptr, ptr %331, align 8, !tbaa !174
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0267, i32 noundef %330, ptr noundef nonnull %332)
+  %333 = load i32, ptr %7, align 8, !tbaa !162
+  %334 = mul nsw i32 %333, 9
+  %335 = getelementptr inbounds nuw i8, ptr %7, i64 192
+  %336 = load ptr, ptr %335, align 8, !tbaa !176
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %29, i32 noundef %.0266, i32 noundef %334, ptr noundef %336)
+  br label %337
+
+337:                                              ; preds = %313, %324, %_ZL16filter_enerdtermPKfbPfbbb.exit310
+  br i1 %189, label %343, label %338
+
+338:                                              ; preds = %337
+  %339 = ptrtoint ptr %.sroa.0.0.copyload.i281 to i64
+  %340 = ptrtoint ptr %.sroa.01.0.copyload.i to i64
+  %341 = sub i64 %339, %340
+  %342 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i, i64 %341
+  call void @_Z12extract_binrP5t_biniN3gmx8ArrayRefIfEE(ptr noundef %29, i32 noundef %.0264, ptr %.sroa.01.0.copyload.i, ptr nonnull %342)
   br label %343
 
-343:                                              ; preds = %319, %330, %_ZL16filter_enerdtermPKfbPfbbb.exit303
-  br i1 %191, label %349, label %344
+343:                                              ; preds = %338, %337
+  br i1 %200, label %350, label %344
 
 344:                                              ; preds = %343
-  %345 = ptrtoint ptr %.sroa.0.0.copyload.i274 to i64
-  %346 = ptrtoint ptr %.sroa.01.0.copyload.i to i64
+  %345 = ptrtoint ptr %199 to i64
+  %346 = ptrtoint ptr %198 to i64
   %347 = sub i64 %345, %346
-  %348 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i, i64 %347
-  call void @_Z12extract_binrP5t_biniN3gmx8ArrayRefIfEE(ptr noundef %28, i32 noundef %.0249, ptr %.sroa.01.0.copyload.i, ptr nonnull %348)
-  br label %349
-
-349:                                              ; preds = %344, %343
-  br i1 %202, label %356, label %350
-
-350:                                              ; preds = %349
-  %351 = ptrtoint ptr %201 to i64
-  %352 = ptrtoint ptr %200 to i64
-  %353 = sub i64 %351, %352
-  %354 = lshr exact i64 %353, 3
-  %355 = trunc i64 %354 to i32
-  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0237, i32 noundef %355, ptr noundef %200)
+  %348 = lshr exact i64 %347, 3
+  %349 = trunc i64 %348 to i32
+  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %29, i32 noundef %.0252, i32 noundef %349, ptr noundef %198)
   call void @_ZN3gmx18ObservablesReducer17reductionCompleteEl(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %11)
-  br label %356
+  br label %350
 
-356:                                              ; preds = %350, %349
+350:                                              ; preds = %344, %343
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #3
   call void @llvm.lifetime.end.p0(i64 380, ptr nonnull %14) #3
   ret void

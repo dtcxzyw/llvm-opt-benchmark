@@ -1094,24 +1094,23 @@ define dso_local noundef zeroext i1 @tuplestore_gettupleslot(ptr noundef %0, i1 
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #9
   %6 = call fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %5)
-  %.not = icmp ne ptr %6, null
-  br i1 %.not, label %7, label %16
+  %.not11 = icmp ne ptr %6, null
+  br i1 %.not11, label %7, label %16
 
 7:                                                ; preds = %4
-  %.pre = load i8, ptr %5, align 1, !range !4
-  br i1 %2, label %8, label %12
+  %.not = xor i1 %2, true
+  %8 = load i8, ptr %5, align 1, !range !4
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %9
+  br i1 %or.cond, label %12, label %10
 
-8:                                                ; preds = %7
-  %9 = trunc nuw i8 %.pre to i1
-  br i1 %9, label %12, label %10
-
-10:                                               ; preds = %8
+10:                                               ; preds = %7
   %11 = tail call ptr @heap_copy_minimal_tuple(ptr noundef nonnull %6) #9
   br label %12
 
-12:                                               ; preds = %10, %8, %7
-  %13 = phi i8 [ 1, %8 ], [ 1, %10 ], [ %.pre, %7 ]
-  %.0 = phi ptr [ %6, %8 ], [ %11, %10 ], [ %6, %7 ]
+12:                                               ; preds = %10, %7
+  %13 = phi i8 [ %8, %7 ], [ 1, %10 ]
+  %.0 = phi ptr [ %6, %7 ], [ %11, %10 ]
   %14 = trunc nuw i8 %13 to i1
   %15 = tail call ptr @ExecStoreMinimalTuple(ptr noundef %.0, ptr noundef %3, i1 noundef zeroext %14) #9
   br label %21
@@ -1126,7 +1125,7 @@ define dso_local noundef zeroext i1 @tuplestore_gettupleslot(ptr noundef %0, i1 
 
 21:                                               ; preds = %16, %12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #9
-  ret i1 %.not
+  ret i1 %.not11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1195,8 +1194,8 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   %40 = load i32, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %42 = load i32, ptr %41, align 8
-  %.not66 = icmp sgt i32 %40, %42
-  br i1 %.not66, label %43, label %135
+  %.not67 = icmp sgt i32 %40, %42
+  br i1 %.not67, label %43, label %135
 
 43:                                               ; preds = %38
   %44 = add nsw i32 %40, -1
@@ -1207,8 +1206,8 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   %46 = phi i32 [ %44, %43 ], [ %36, %34 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %48 = load i32, ptr %47, align 8
-  %.not67 = icmp sgt i32 %46, %48
-  br i1 %.not67, label %49, label %135
+  %.not68 = icmp sgt i32 %46, %48
+  br i1 %.not68, label %49, label %135
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1223,8 +1222,8 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %58 = load i8, ptr %57, align 4, !range !4, !noundef !5
   %59 = trunc nuw i8 %58 to i1
-  %brmerge.demorgan = and i1 %1, %59
-  br i1 %brmerge.demorgan, label %135, label %60
+  %or.cond = and i1 %1, %59
+  br i1 %or.cond, label %135, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1270,9 +1269,9 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   %83 = icmp eq i64 %82, 0
   %84 = load i32, ptr %6, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  %.not6574 = icmp eq i32 %84, 0
-  %.not65 = select i1 %83, i1 true, i1 %.not6574
-  br i1 %.not65, label %89, label %85
+  %.not6673 = icmp eq i32 %84, 0
+  %.not66 = select i1 %83, i1 true, i1 %.not6673
+  br i1 %.not66, label %89, label %85
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1287,8 +1286,8 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
 
 91:                                               ; preds = %79
   %92 = tail call i32 @BufFileSeek(ptr noundef %.val, i32 noundef 0, i64 noundef -4, i32 noundef 1) #9
-  %.not61 = icmp eq i32 %92, 0
-  br i1 %.not61, label %95, label %93
+  %.not62 = icmp eq i32 %92, 0
+  br i1 %.not62, label %95, label %93
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1296,12 +1295,12 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   br label %135
 
 95:                                               ; preds = %91
-  %.val70 = load ptr, ptr %80, align 8
+  %.val69 = load ptr, ptr %80, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  %96 = call i64 @BufFileReadMaybeEOF(ptr noundef %.val70, ptr noundef nonnull %5, i64 noundef 4, i1 noundef zeroext false) #9
+  %96 = call i64 @BufFileReadMaybeEOF(ptr noundef %.val69, ptr noundef nonnull %5, i64 noundef 4, i1 noundef zeroext false) #9
   %97 = icmp eq i64 %96, 0
   %98 = load i32, ptr %5, align 4
-  %.0.i72 = select i1 %97, i32 0, i32 %98
+  %.0.i71 = select i1 %97, i32 0, i32 %98
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   %99 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %100 = load i8, ptr %99, align 4, !range !4, !noundef !5
@@ -1314,18 +1313,18 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
 
 103:                                              ; preds = %95
   %104 = load ptr, ptr %80, align 8
-  %105 = zext i32 %.0.i72 to i64
+  %105 = zext i32 %.0.i71 to i64
   %106 = sub nuw nsw i64 -8, %105
   %107 = call i32 @BufFileSeek(ptr noundef %104, i32 noundef 0, i64 noundef %106, i32 noundef 1) #9
-  %.not62 = icmp eq i32 %107, 0
-  %.val71 = load ptr, ptr %80, align 8
-  br i1 %.not62, label %115, label %108
+  %.not63 = icmp eq i32 %107, 0
+  %.val70 = load ptr, ptr %80, align 8
+  br i1 %.not63, label %115, label %108
 
 108:                                              ; preds = %103
   %109 = sub nuw nsw i64 -4, %105
-  %110 = call i32 @BufFileSeek(ptr noundef %.val71, i32 noundef 0, i64 noundef %109, i32 noundef 1) #9
-  %.not63 = icmp eq i32 %110, 0
-  br i1 %.not63, label %135, label %111
+  %110 = call i32 @BufFileSeek(ptr noundef %.val70, i32 noundef 0, i64 noundef %109, i32 noundef 1) #9
+  %.not64 = icmp eq i32 %110, 0
+  br i1 %.not64, label %135, label %111
 
 111:                                              ; preds = %108
   %112 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -1337,21 +1336,21 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
 
 115:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  %116 = call i64 @BufFileReadMaybeEOF(ptr noundef %.val71, ptr noundef nonnull %4, i64 noundef 4, i1 noundef zeroext false) #9
+  %116 = call i64 @BufFileReadMaybeEOF(ptr noundef %.val70, ptr noundef nonnull %4, i64 noundef 4, i1 noundef zeroext false) #9
   %117 = icmp eq i64 %116, 0
   %118 = load i32, ptr %4, align 4
-  %.0.i73 = select i1 %117, i32 0, i32 %118
+  %.0.i72 = select i1 %117, i32 0, i32 %118
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   br label %119
 
 119:                                              ; preds = %115, %102
-  %.0 = phi i32 [ %.0.i72, %102 ], [ %.0.i73, %115 ]
+  %.0 = phi i32 [ %.0.i71, %102 ], [ %.0.i72, %115 ]
   %120 = load ptr, ptr %80, align 8
   %121 = zext i32 %.0 to i64
   %122 = sub nsw i64 0, %121
   %123 = call i32 @BufFileSeek(ptr noundef %120, i32 noundef 0, i64 noundef %122, i32 noundef 1) #9
-  %.not64 = icmp eq i32 %123, 0
-  br i1 %.not64, label %128, label %124
+  %.not65 = icmp eq i32 %123, 0
+  br i1 %.not65, label %128, label %124
 
 124:                                              ; preds = %119
   %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -1375,8 +1374,8 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   unreachable
 
 135:                                              ; preds = %108, %56, %45, %38, %18, %128, %93, %89, %85, %49, %32, %25
-  %.056 = phi ptr [ %88, %85 ], [ null, %89 ], [ null, %93 ], [ %131, %128 ], [ %31, %25 ], [ null, %32 ], [ %55, %49 ], [ null, %18 ], [ null, %38 ], [ null, %45 ], [ null, %56 ], [ null, %108 ]
-  ret ptr %.056
+  %.057 = phi ptr [ %88, %85 ], [ null, %89 ], [ null, %93 ], [ %131, %128 ], [ %31, %25 ], [ null, %32 ], [ %55, %49 ], [ null, %18 ], [ null, %38 ], [ null, %45 ], [ null, %56 ], [ null, %108 ]
+  ret ptr %.057
 }
 
 declare ptr @heap_copy_minimal_tuple(ptr noundef) local_unnamed_addr #3
@@ -1384,23 +1383,21 @@ declare ptr @heap_copy_minimal_tuple(ptr noundef) local_unnamed_addr #3
 declare ptr @ExecStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @tuplestore_advance(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @tuplestore_advance(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
   %4 = call fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %3)
   %.not = icmp ne ptr %4, null
-  br i1 %.not, label %5, label %9
+  %5 = load i8, ptr %3, align 1, !range !4
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond = select i1 %.not, i1 %6, i1 false
+  br i1 %or.cond, label %7, label %8
 
-5:                                                ; preds = %2
-  %6 = load i8, ptr %3, align 1, !range !4, !noundef !5
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %5
+7:                                                ; preds = %2
   tail call void @pfree(ptr noundef nonnull %4) #9
-  br label %9
+  br label %8
 
-9:                                                ; preds = %2, %5, %8
+8:                                                ; preds = %2, %7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
   ret i1 %.not
 }

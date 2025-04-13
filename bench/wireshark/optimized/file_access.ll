@@ -734,8 +734,8 @@ sub_0:
   store i32 0, ptr %2, align 4
   store ptr null, ptr %3, align 8
   %7 = load i8, ptr %0, align 1
-  %.not104 = icmp eq i8 %7, 45
-  br i1 %.not104, label %.tail, label %.tail.thread
+  %.not100 = icmp eq i8 %7, 45
+  br i1 %.not100, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -796,8 +796,8 @@ sub_0:
   br label %256
 
 33:                                               ; preds = %30
-  %brmerge.not = and i1 %4, %23
-  br i1 %brmerge.not, label %34, label %.thread
+  %or.cond = and i1 %4, %23
+  br i1 %or.cond, label %34, label %.thread
 
 34:                                               ; preds = %33
   store i32 -16, ptr %2, align 4
@@ -824,8 +824,8 @@ sub_0:
 42:                                               ; preds = %37
   %43 = tail call ptr @file_fdopen(i32 noundef %38)
   store ptr %43, ptr %36, align 8
-  %.not82 = icmp eq ptr %43, null
-  br i1 %.not82, label %44, label %51
+  %.not83 = icmp eq ptr %43, null
+  br i1 %.not83, label %44, label %51
 
 44:                                               ; preds = %42
   %45 = load i32, ptr %35, align 4
@@ -853,8 +853,8 @@ sub_0:
   %53 = tail call ptr @file_open(ptr noundef %0)
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %53, ptr %54, align 8
-  %.not83 = icmp eq ptr %53, null
-  br i1 %.not83, label %55, label %60
+  %.not84 = icmp eq ptr %53, null
+  br i1 %.not84, label %55, label %60
 
 55:                                               ; preds = %52
   %56 = load i32, ptr %35, align 4
@@ -888,8 +888,8 @@ sub_0:
   store ptr %69, ptr %70, align 8
   %71 = tail call ptr @wtap_block_create(i32 noundef 0)
   store ptr %71, ptr %6, align 8
-  %.not84 = icmp eq ptr %71, null
-  br i1 %.not84, label %75, label %72
+  %.not85 = icmp eq ptr %71, null
+  br i1 %.not85, label %75, label %72
 
 72:                                               ; preds = %60
   %73 = load ptr, ptr %70, align 8
@@ -910,8 +910,8 @@ sub_0:
   %83 = call ptr @g_array_append_vals(ptr noundef %79, ptr noundef nonnull %82, i32 noundef 1)
   %84 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %85 = load ptr, ptr %84, align 8
-  %.not85 = icmp eq ptr %85, null
-  br i1 %.not85, label %92, label %86
+  %.not86 = icmp eq ptr %85, null
+  br i1 %.not86, label %92, label %86
 
 86:                                               ; preds = %75
   %87 = call ptr @g_ptr_array_new()
@@ -1220,7 +1220,7 @@ get_file_extension.exit.thread.i:                 ; preds = %get_file_extension.
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %235 = load i32, ptr %234, align 8
   %236 = icmp ult i32 %232, %235
-  br i1 %236, label %.lr.ph88.i, label %try_open.exit.thread92
+  br i1 %236, label %.lr.ph88.i, label %try_open.exit.thread89
 
 .lr.ph88.i:                                       ; preds = %get_file_extension.exit.thread.i
   %237 = zext i32 %232 to i64
@@ -1255,15 +1255,15 @@ try_one_open.exit69.i:                            ; preds = %238
 try_open.exit:                                    ; preds = %try_one_open.exit69.i, %102, %._crit_edge.i, %.split.us.i
   %.045.i = phi i32 [ %122, %._crit_edge.i ], [ %.us-phi.i, %.split.us.i ], [ %110, %102 ], [ %248, %try_one_open.exit69.i ]
   switch i32 %.045.i, label %256 [
-    i32 0, label %try_open.exit.thread92
+    i32 0, label %try_open.exit.thread89
     i32 -1, label %try_open.exit.thread
   ]
 
-try_open.exit.thread92:                           ; preds = %get_file_extension.exit.thread.i, %try_open.exit
+try_open.exit.thread89:                           ; preds = %get_file_extension.exit.thread.i, %try_open.exit
   store i32 -3, ptr %2, align 4
   br label %try_open.exit.thread
 
-try_open.exit.thread:                             ; preds = %.lr.ph.i, %238, %97, %try_open.exit.thread92, %try_open.exit
+try_open.exit.thread:                             ; preds = %.lr.ph.i, %238, %97, %try_open.exit.thread89, %try_open.exit
   call void @wtap_close(ptr noundef %36)
   br label %256
 
@@ -2946,7 +2946,7 @@ define noundef ptr @wtap_dump_open(ptr noundef %0, i32 noundef %1, i32 noundef %
   store ptr null, ptr %5, align 8
   %7 = tail call fastcc ptr @wtap_dump_init_dumper(i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %62, label %9
+  br i1 %8, label %65, label %9
 
 9:                                                ; preds = %6
   %10 = tail call ptr @__errno_location() #25
@@ -2984,13 +2984,13 @@ wtap_dump_file_open.exit:                         ; preds = %12, %14, %16
   store ptr %.0.i, ptr %7, align 8
   %22 = load i32, ptr %11, align 4
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %23, label %32
+  br i1 %.not.i, label %23, label %33
 
 23:                                               ; preds = %21
   %24 = tail call i32 @fileno(ptr noundef nonnull %.0.i) #24
   %25 = tail call i64 @lseek(i32 noundef %24, i64 noundef 1, i32 noundef 1) #24
   %26 = icmp eq i64 %25, -1
-  br i1 %26, label %32, label %.thread.i
+  br i1 %26, label %33, label %.thread.i
 
 .thread.i:                                        ; preds = %23
   %27 = tail call i64 @lseek(i32 noundef %24, i64 noundef 0, i32 noundef 0) #24
@@ -2998,72 +2998,75 @@ wtap_dump_file_open.exit:                         ; preds = %12, %14, %16
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
-  br label %40
+  %32 = getelementptr %struct.file_type_subtype_info, ptr %28, i64 %31
+  br label %42
 
-32:                                               ; preds = %23, %21
-  %33 = load ptr, ptr @file_type_subtype_table, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %35 = load i32, ptr %34, align 8
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr %struct.file_type_subtype_info, ptr %33, i64 %36, i32 4
-  %38 = load i8, ptr %37, align 8, !range !34, !noundef !35
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %wtap_dump_open_finish.exit.thread, label %40
+33:                                               ; preds = %23, %21
+  %34 = load ptr, ptr @file_type_subtype_table, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %36 = load i32, ptr %35, align 8
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr %struct.file_type_subtype_info, ptr %34, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load i8, ptr %39, align 8, !range !34, !noundef !35
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %wtap_dump_open_finish.exit.thread, label %42
 
-wtap_dump_open_finish.exit.thread:                ; preds = %32
+wtap_dump_open_finish.exit.thread:                ; preds = %33
   store i32 -5, ptr %4, align 4
-  br label %52
+  br label %55
 
-40:                                               ; preds = %32, %.thread.i
-  %41 = phi i64 [ %31, %.thread.i ], [ %36, %32 ]
-  %42 = phi ptr [ %28, %.thread.i ], [ %33, %32 ]
-  %43 = getelementptr %struct.file_type_subtype_info, ptr %42, i64 %41, i32 9
-  %44 = load ptr, ptr %43, align 8
-  %.not16.i = icmp eq ptr %44, null
-  br i1 %.not16.i, label %wtap_dump_open_finish.exit, label %45
-
-45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+42:                                               ; preds = %33, %.thread.i
+  %43 = phi ptr [ %32, %.thread.i ], [ %38, %33 ]
+  %44 = phi i64 [ %31, %.thread.i ], [ %37, %33 ]
+  %45 = phi ptr [ %28, %.thread.i ], [ %34, %33 ]
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %47, ptr %48, align 8
+  %.not17.i = icmp eq ptr %47, null
+  br i1 %.not17.i, label %wtap_dump_open_finish.exit, label %48
+
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store ptr %50, ptr %51, align 8
   br label %wtap_dump_open_finish.exit
 
-wtap_dump_open_finish.exit:                       ; preds = %40, %45
-  %49 = getelementptr %struct.file_type_subtype_info, ptr %42, i64 %41, i32 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call zeroext i1 %50(ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
-  br i1 %51, label %62, label %52
+wtap_dump_open_finish.exit:                       ; preds = %42, %48
+  %52 = getelementptr %struct.file_type_subtype_info, ptr %45, i64 %44, i32 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call zeroext i1 %53(ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
+  br i1 %54, label %65, label %55
 
-52:                                               ; preds = %wtap_dump_open_finish.exit.thread, %wtap_dump_open_finish.exit
-  %53 = load i32, ptr %11, align 4
-  %54 = load ptr, ptr %7, align 8
-  switch i32 %53, label %59 [
-    i32 1, label %55
-    i32 3, label %57
+55:                                               ; preds = %wtap_dump_open_finish.exit.thread, %wtap_dump_open_finish.exit
+  %56 = load i32, ptr %11, align 4
+  %57 = load ptr, ptr %7, align 8
+  switch i32 %56, label %62 [
+    i32 1, label %58
+    i32 3, label %60
   ]
 
-55:                                               ; preds = %52
-  %56 = tail call i32 @gzwfile_close(ptr noundef %54)
+58:                                               ; preds = %55
+  %59 = tail call i32 @gzwfile_close(ptr noundef %57)
   br label %wtap_dump_file_close.exit
 
-57:                                               ; preds = %52
-  %58 = tail call i32 @lz4wfile_close(ptr noundef %54)
+60:                                               ; preds = %55
+  %61 = tail call i32 @lz4wfile_close(ptr noundef %57)
   br label %wtap_dump_file_close.exit
 
-59:                                               ; preds = %52
-  %60 = tail call i32 @fclose(ptr noundef %54)
+62:                                               ; preds = %55
+  %63 = tail call i32 @fclose(ptr noundef %57)
   br label %wtap_dump_file_close.exit
 
-wtap_dump_file_close.exit:                        ; preds = %55, %57, %59
-  %61 = tail call i32 @unlink(ptr noundef %0) #24
+wtap_dump_file_close.exit:                        ; preds = %58, %60, %62
+  %64 = tail call i32 @unlink(ptr noundef %0) #24
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %wtap_dump_file_close.exit
   tail call void @g_free(ptr noundef nonnull %7)
-  br label %62
+  br label %65
 
-62:                                               ; preds = %.sink.split, %wtap_dump_open_finish.exit, %6
+65:                                               ; preds = %.sink.split, %wtap_dump_open_finish.exit, %6
   %.0 = phi ptr [ null, %6 ], [ %7, %wtap_dump_open_finish.exit ], [ null, %.sink.split ]
   ret ptr %.0
 }
@@ -3291,7 +3294,7 @@ define noundef ptr @wtap_dump_open_tempfile(ptr noundef %0, ptr noundef initiali
   store ptr null, ptr %7, align 8
   %10 = tail call fastcc ptr @wtap_dump_init_dumper(i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %84, label %12
+  br i1 %11, label %87, label %12
 
 12:                                               ; preds = %8
   %13 = icmp slt i32 %3, 0
@@ -3364,13 +3367,13 @@ wtap_dump_file_fdopen.exit:                       ; preds = %32, %34, %36
   store ptr %.0.i35, ptr %10, align 8
   %43 = load i32, ptr %31, align 4
   %.not.i36 = icmp eq i32 %43, 0
-  br i1 %.not.i36, label %44, label %53
+  br i1 %.not.i36, label %44, label %54
 
 44:                                               ; preds = %42
   %45 = call i32 @fileno(ptr noundef nonnull %.0.i35) #24
   %46 = call i64 @lseek(i32 noundef %45, i64 noundef 1, i32 noundef 1) #24
   %47 = icmp eq i64 %46, -1
-  br i1 %47, label %53, label %.thread.i
+  br i1 %47, label %54, label %.thread.i
 
 .thread.i:                                        ; preds = %44
   %48 = call i64 @lseek(i32 noundef %45, i64 noundef 0, i32 noundef 0) #24
@@ -3378,73 +3381,76 @@ wtap_dump_file_fdopen.exit:                       ; preds = %32, %34, %36
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = sext i32 %51 to i64
-  br label %61
+  %53 = getelementptr %struct.file_type_subtype_info, ptr %49, i64 %52
+  br label %63
 
-53:                                               ; preds = %44, %42
-  %54 = load ptr, ptr @file_type_subtype_table, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %56 = load i32, ptr %55, align 8
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr %struct.file_type_subtype_info, ptr %54, i64 %57, i32 4
-  %59 = load i8, ptr %58, align 8, !range !34, !noundef !35
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %wtap_dump_open_finish.exit.thread, label %61
+54:                                               ; preds = %44, %42
+  %55 = load ptr, ptr @file_type_subtype_table, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %57 = load i32, ptr %56, align 8
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr %struct.file_type_subtype_info, ptr %55, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %61 = load i8, ptr %60, align 8, !range !34, !noundef !35
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %wtap_dump_open_finish.exit.thread, label %63
 
-wtap_dump_open_finish.exit.thread:                ; preds = %53
+wtap_dump_open_finish.exit.thread:                ; preds = %54
   store i32 -5, ptr %6, align 4
-  br label %73
+  br label %76
 
-61:                                               ; preds = %53, %.thread.i
-  %62 = phi i64 [ %52, %.thread.i ], [ %57, %53 ]
-  %63 = phi ptr [ %49, %.thread.i ], [ %54, %53 ]
-  %64 = getelementptr %struct.file_type_subtype_info, ptr %63, i64 %62, i32 9
-  %65 = load ptr, ptr %64, align 8
-  %.not16.i = icmp eq ptr %65, null
-  br i1 %.not16.i, label %wtap_dump_open_finish.exit, label %66
-
-66:                                               ; preds = %61
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
+63:                                               ; preds = %54, %.thread.i
+  %64 = phi ptr [ %53, %.thread.i ], [ %59, %54 ]
+  %65 = phi i64 [ %52, %.thread.i ], [ %58, %54 ]
+  %66 = phi ptr [ %49, %.thread.i ], [ %55, %54 ]
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr %68, ptr %69, align 8
+  %.not17.i = icmp eq ptr %68, null
+  br i1 %.not17.i, label %wtap_dump_open_finish.exit, label %69
+
+69:                                               ; preds = %63
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store ptr %71, ptr %72, align 8
   br label %wtap_dump_open_finish.exit
 
-wtap_dump_open_finish.exit:                       ; preds = %61, %66
-  %70 = getelementptr %struct.file_type_subtype_info, ptr %63, i64 %62, i32 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = call zeroext i1 %71(ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7)
-  br i1 %72, label %84, label %73
+wtap_dump_open_finish.exit:                       ; preds = %63, %69
+  %73 = getelementptr %struct.file_type_subtype_info, ptr %66, i64 %65, i32 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = call zeroext i1 %74(ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7)
+  br i1 %75, label %87, label %76
 
-73:                                               ; preds = %wtap_dump_open_finish.exit.thread, %wtap_dump_open_finish.exit
-  %74 = load i32, ptr %31, align 4
-  %75 = load ptr, ptr %10, align 8
-  switch i32 %74, label %80 [
-    i32 1, label %76
-    i32 3, label %78
+76:                                               ; preds = %wtap_dump_open_finish.exit.thread, %wtap_dump_open_finish.exit
+  %77 = load i32, ptr %31, align 4
+  %78 = load ptr, ptr %10, align 8
+  switch i32 %77, label %83 [
+    i32 1, label %79
+    i32 3, label %81
   ]
 
-76:                                               ; preds = %73
-  %77 = call i32 @gzwfile_close(ptr noundef %75)
+79:                                               ; preds = %76
+  %80 = call i32 @gzwfile_close(ptr noundef %78)
   br label %wtap_dump_file_close.exit
 
-78:                                               ; preds = %73
-  %79 = call i32 @lz4wfile_close(ptr noundef %75)
+81:                                               ; preds = %76
+  %82 = call i32 @lz4wfile_close(ptr noundef %78)
   br label %wtap_dump_file_close.exit
 
-80:                                               ; preds = %73
-  %81 = call i32 @fclose(ptr noundef %75)
+83:                                               ; preds = %76
+  %84 = call i32 @fclose(ptr noundef %78)
   br label %wtap_dump_file_close.exit
 
-wtap_dump_file_close.exit:                        ; preds = %76, %78, %80
-  %82 = load ptr, ptr %1, align 8
-  %83 = call i32 @unlink(ptr noundef %82) #24
+wtap_dump_file_close.exit:                        ; preds = %79, %81, %83
+  %85 = load ptr, ptr %1, align 8
+  %86 = call i32 @unlink(ptr noundef %85) #24
   br label %.sink.split
 
 .sink.split:                                      ; preds = %28, %39, %wtap_dump_file_close.exit
   call void @g_free(ptr noundef nonnull %10)
-  br label %84
+  br label %87
 
-84:                                               ; preds = %.sink.split, %wtap_dump_open_finish.exit, %8
+87:                                               ; preds = %.sink.split, %wtap_dump_open_finish.exit, %8
   %.0 = phi ptr [ null, %8 ], [ %10, %wtap_dump_open_finish.exit ], [ null, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #24
   ret ptr %.0
@@ -3462,7 +3468,7 @@ define noundef ptr @wtap_dump_fdopen(i32 noundef %0, i32 noundef %1, i32 noundef
   store ptr null, ptr %5, align 8
   %7 = tail call fastcc ptr @wtap_dump_init_dumper(i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %61, label %9
+  br i1 %8, label %64, label %9
 
 9:                                                ; preds = %6
   %10 = tail call ptr @__errno_location() #25
@@ -3500,13 +3506,13 @@ wtap_dump_file_fdopen.exit:                       ; preds = %12, %14, %16
   store ptr %.0.i, ptr %7, align 8
   %22 = load i32, ptr %11, align 4
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %23, label %32
+  br i1 %.not.i, label %23, label %33
 
 23:                                               ; preds = %21
   %24 = tail call i32 @fileno(ptr noundef nonnull %.0.i) #24
   %25 = tail call i64 @lseek(i32 noundef %24, i64 noundef 1, i32 noundef 1) #24
   %26 = icmp eq i64 %25, -1
-  br i1 %26, label %32, label %.thread.i
+  br i1 %26, label %33, label %.thread.i
 
 .thread.i:                                        ; preds = %23
   %27 = tail call i64 @lseek(i32 noundef %24, i64 noundef 0, i32 noundef 0) #24
@@ -3514,68 +3520,71 @@ wtap_dump_file_fdopen.exit:                       ; preds = %12, %14, %16
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
-  br label %40
+  %32 = getelementptr %struct.file_type_subtype_info, ptr %28, i64 %31
+  br label %42
 
-32:                                               ; preds = %23, %21
-  %33 = load ptr, ptr @file_type_subtype_table, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %35 = load i32, ptr %34, align 8
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr %struct.file_type_subtype_info, ptr %33, i64 %36, i32 4
-  %38 = load i8, ptr %37, align 8, !range !34, !noundef !35
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %wtap_dump_open_finish.exit.thread, label %40
+33:                                               ; preds = %23, %21
+  %34 = load ptr, ptr @file_type_subtype_table, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %36 = load i32, ptr %35, align 8
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr %struct.file_type_subtype_info, ptr %34, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load i8, ptr %39, align 8, !range !34, !noundef !35
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %wtap_dump_open_finish.exit.thread, label %42
 
-wtap_dump_open_finish.exit.thread:                ; preds = %32
+wtap_dump_open_finish.exit.thread:                ; preds = %33
   store i32 -5, ptr %4, align 4
-  br label %52
+  br label %55
 
-40:                                               ; preds = %32, %.thread.i
-  %41 = phi i64 [ %31, %.thread.i ], [ %36, %32 ]
-  %42 = phi ptr [ %28, %.thread.i ], [ %33, %32 ]
-  %43 = getelementptr %struct.file_type_subtype_info, ptr %42, i64 %41, i32 9
-  %44 = load ptr, ptr %43, align 8
-  %.not16.i = icmp eq ptr %44, null
-  br i1 %.not16.i, label %wtap_dump_open_finish.exit, label %45
-
-45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+42:                                               ; preds = %33, %.thread.i
+  %43 = phi ptr [ %32, %.thread.i ], [ %38, %33 ]
+  %44 = phi i64 [ %31, %.thread.i ], [ %37, %33 ]
+  %45 = phi ptr [ %28, %.thread.i ], [ %34, %33 ]
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %47, ptr %48, align 8
+  %.not17.i = icmp eq ptr %47, null
+  br i1 %.not17.i, label %wtap_dump_open_finish.exit, label %48
+
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store ptr %50, ptr %51, align 8
   br label %wtap_dump_open_finish.exit
 
-wtap_dump_open_finish.exit:                       ; preds = %40, %45
-  %49 = getelementptr %struct.file_type_subtype_info, ptr %42, i64 %41, i32 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call zeroext i1 %50(ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
-  br i1 %51, label %61, label %52
+wtap_dump_open_finish.exit:                       ; preds = %42, %48
+  %52 = getelementptr %struct.file_type_subtype_info, ptr %45, i64 %44, i32 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call zeroext i1 %53(ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
+  br i1 %54, label %64, label %55
 
-52:                                               ; preds = %wtap_dump_open_finish.exit.thread, %wtap_dump_open_finish.exit
-  %53 = load i32, ptr %11, align 4
-  %54 = load ptr, ptr %7, align 8
-  switch i32 %53, label %59 [
-    i32 1, label %55
-    i32 3, label %57
+55:                                               ; preds = %wtap_dump_open_finish.exit.thread, %wtap_dump_open_finish.exit
+  %56 = load i32, ptr %11, align 4
+  %57 = load ptr, ptr %7, align 8
+  switch i32 %56, label %62 [
+    i32 1, label %58
+    i32 3, label %60
   ]
 
-55:                                               ; preds = %52
-  %56 = tail call i32 @gzwfile_close(ptr noundef %54)
+58:                                               ; preds = %55
+  %59 = tail call i32 @gzwfile_close(ptr noundef %57)
   br label %.sink.split
 
-57:                                               ; preds = %52
-  %58 = tail call i32 @lz4wfile_close(ptr noundef %54)
+60:                                               ; preds = %55
+  %61 = tail call i32 @lz4wfile_close(ptr noundef %57)
   br label %.sink.split
 
-59:                                               ; preds = %52
-  %60 = tail call i32 @fclose(ptr noundef %54)
+62:                                               ; preds = %55
+  %63 = tail call i32 @fclose(ptr noundef %57)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %59, %57, %55, %19
+.sink.split:                                      ; preds = %62, %60, %58, %19
   tail call void @g_free(ptr noundef nonnull %7)
-  br label %61
+  br label %64
 
-61:                                               ; preds = %.sink.split, %wtap_dump_open_finish.exit, %6
+64:                                               ; preds = %.sink.split, %wtap_dump_open_finish.exit, %6
   %.0 = phi ptr [ null, %6 ], [ %7, %wtap_dump_open_finish.exit ], [ null, %.sink.split ]
   ret ptr %.0
 }

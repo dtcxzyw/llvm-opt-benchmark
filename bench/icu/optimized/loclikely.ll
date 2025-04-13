@@ -1610,8 +1610,8 @@ define void @_Z39ulocimp_getRegionForSupplementalData_77PKcbR10UErrorCode(ptr de
 32:                                               ; preds = %28
   %33 = load i32, ptr %19, align 8, !tbaa !22
   %34 = icmp eq i32 %33, 0
-  %brmerge.not = and i1 %2, %34
-  br i1 %brmerge.not, label %35, label %63
+  %or.cond = and i1 %2, %34
+  br i1 %or.cond, label %35, label %63
 
 35:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #18
@@ -1625,9 +1625,9 @@ define void @_Z39ulocimp_getRegionForSupplementalData_77PKcbR10UErrorCode(ptr de
   %38 = load i32, ptr %3, align 4, !tbaa !13
   %39 = icmp slt i32 %38, 1
   %40 = load i32, ptr %19, align 8
-  %.not39 = icmp eq i32 %40, 0
-  %or.cond = select i1 %39, i1 %.not39, i1 false
-  br i1 %or.cond, label %41, label %63
+  %.not37 = icmp eq i32 %40, 0
+  %or.cond38 = select i1 %39, i1 %.not37, i1 false
+  br i1 %or.cond38, label %41, label %63
 
 41:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
@@ -1697,7 +1697,7 @@ define void @_Z39ulocimp_getRegionForSupplementalData_77PKcbR10UErrorCode(ptr de
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #18
   resume { ptr, i32 } %.pn.pn
 
-63:                                               ; preds = %15, %18, %36, %60, %28, %32, %12
+63:                                               ; preds = %15, %18, %36, %60, %32, %28, %12
   ret void
 }
 

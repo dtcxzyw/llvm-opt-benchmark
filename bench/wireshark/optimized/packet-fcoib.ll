@@ -240,7 +240,7 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = add i32 %6, -8
   %9 = add i32 %6, -4
   %10 = icmp slt i32 %7, 1
-  br i1 %10, label %89, label %11
+  br i1 %10, label %87, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -349,61 +349,52 @@ define internal i32 @dissect_fcoib(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 71:                                               ; preds = %68, %66
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i8 0, ptr %72, align 4
   %trunc = trunc nuw i32 %.096 to i8
   %switch.tableidx = add i8 %trunc, -40
   %73 = icmp ult i8 %switch.tableidx, 7
-  br i1 %73, label %switch.hole_check, label %75
-
-switch.hole_check:                                ; preds = %71
   %switch.shifted = lshr i8 99, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %75
-
-switch.lookup:                                    ; preds = %switch.hole_check
+  %or.cond112 = select i1 %73, i1 %switch.lobit, i1 false
   %74 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %74 to i56
   %switch.downshift = lshr i56 282574488338690, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
-  store i8 %switch.masked, ptr %72, align 4
-  br label %75
-
-75:                                               ; preds = %switch.hole_check, %71, %switch.lookup
-  %76 = phi i8 [ 0, %71 ], [ %switch.masked, %switch.lookup ], [ 0, %switch.hole_check ]
+  %storemerge = select i1 %or.cond112, i8 %switch.masked, i8 0
+  store i8 %storemerge, ptr %72, align 4
   %.not109 = icmp eq i32 %.097, 65
-  br i1 %.not109, label %81, label %77
+  br i1 %.not109, label %79, label %75
+
+75:                                               ; preds = %71
+  %76 = or disjoint i8 %storemerge, -128
+  store i8 %76, ptr %72, align 4
+  %.not110 = icmp eq i32 %.097, 66
+  br i1 %.not110, label %79, label %77
 
 77:                                               ; preds = %75
-  %78 = or disjoint i8 %76, -128
+  %78 = or disjoint i8 %storemerge, -64
   store i8 %78, ptr %72, align 4
-  %.not110 = icmp eq i32 %.097, 66
-  br i1 %.not110, label %81, label %79
+  br label %79
 
-79:                                               ; preds = %77
-  %80 = or disjoint i8 %76, -64
-  store i8 %80, ptr %72, align 4
-  br label %81
-
-81:                                               ; preds = %77, %79, %75
+79:                                               ; preds = %75, %77, %71
   store i32 0, ptr %5, align 4
-  %82 = load ptr, ptr @fc_handle, align 8
-  %.not111 = icmp eq ptr %82, null
-  br i1 %.not111, label %85, label %83
+  %80 = load ptr, ptr @fc_handle, align 8
+  %.not111 = icmp eq ptr %80, null
+  br i1 %.not111, label %83, label %81
 
-83:                                               ; preds = %81
-  %84 = call i32 @call_dissector_with_data(ptr noundef nonnull %82, ptr noundef %14, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
+81:                                               ; preds = %79
+  %82 = call i32 @call_dissector_with_data(ptr noundef nonnull %80, ptr noundef %14, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
+  br label %85
+
+83:                                               ; preds = %79
+  %84 = tail call i32 @call_data_dissector(ptr noundef %14, ptr noundef %1, ptr noundef %2)
+  br label %85
+
+85:                                               ; preds = %83, %81
+  %86 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %87
 
-85:                                               ; preds = %81
-  %86 = tail call i32 @call_data_dissector(ptr noundef %14, ptr noundef %1, ptr noundef %2)
-  br label %87
-
-87:                                               ; preds = %85, %83
-  %88 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %89
-
-89:                                               ; preds = %4, %87
-  %.094 = phi i32 [ %88, %87 ], [ 0, %4 ]
+87:                                               ; preds = %4, %85
+  %.094 = phi i32 [ %86, %85 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   ret i32 %.094
 }

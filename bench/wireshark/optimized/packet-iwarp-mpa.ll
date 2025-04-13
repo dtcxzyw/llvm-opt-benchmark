@@ -214,8 +214,8 @@ is_mpa_fpdu.exit:                                 ; preds = %23
   %30 = load i32, ptr %29, align 4
   %31 = icmp ne i32 %25, %30
   %cond.fr = freeze i1 %31
-  %brmerge = or i1 %.0, %cond.fr
-  br i1 %brmerge, label %.thread, label %33
+  %or.cond = or i1 %.0, %cond.fr
+  br i1 %or.cond, label %.thread, label %33
 
 is_mpa_fpdu.exit.thread:                          ; preds = %23, %20, %get_mpa_state.exit.i, %16, %13
   br i1 %.0, label %.thread, label %33

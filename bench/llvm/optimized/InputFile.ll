@@ -5024,22 +5024,22 @@ _ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit:  ; preds = %2, %_ZN4llvm8Expect
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !411
-  %.not.i8 = icmp eq ptr %37, null
-  br i1 %.not.i8, label %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit14.thread, label %38
+  %.not.i9 = icmp eq ptr %37, null
+  br i1 %.not.i9, label %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit15.thread, label %38
 
-_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit14.thread: ; preds = %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit
+_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit15.thread: ; preds = %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %67
 
 38:                                               ; preds = %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %.0.copyload.i.i.i.i.i.i.i.i.i9 = load i64, ptr %39, align 8
-  %40 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i9, 6
+  %.0.copyload.i.i.i.i.i.i.i.i.i10 = load i64, ptr %39, align 8
+  %40 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i10, 6
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %_ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit.i13, label %53
+  br i1 %41, label %_ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit.i14, label %53
 
-_ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit.i13: ; preds = %38
-  %42 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i9, -8
+_ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit.i14: ; preds = %38
+  %42 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i10, -8
   %43 = inttoptr i64 %42 to ptr
   call void @_ZN4llvm3pdb7PDBFile15getPDBDbiStreamEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.30") align 8 %3, ptr noundef nonnull align 8 dereferenceable(280) %43) #21
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5052,11 +5052,11 @@ _ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit.i13: ; preds = %38
   %50 = call noundef i32 @_ZNK4llvm3pdb13DbiModuleList14getModuleCountEv(ptr noundef nonnull align 8 dereferenceable(352) %49) #21
   %51 = load i32, ptr %1, align 8, !tbaa !404
   %52 = icmp eq i32 %51, %50
-  br label %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit14
+  br label %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit15
 
 53:                                               ; preds = %38
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i9, -8
+  %55 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i10, -8
   %56 = inttoptr i64 %55 to ptr
   %57 = load ptr, ptr %56, align 8, !tbaa !8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 360
@@ -5067,24 +5067,24 @@ _ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit.i13: ; preds = %38
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !136
   %65 = icmp eq ptr %64, %62
-  %lhsv.i.i.i.i10 = load i64, ptr %54, align 8
-  %.not.i.i.i.i11 = icmp eq i64 %lhsv.i.i.i.i10, %61
-  %66 = select i1 %65, i1 %.not.i.i.i.i11, i1 false
-  br label %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit14
+  %lhsv.i.i.i.i11 = load i64, ptr %54, align 8
+  %.not.i.i.i.i12 = icmp eq i64 %lhsv.i.i.i.i11, %61
+  %66 = select i1 %65, i1 %.not.i.i.i.i12, i1 false
+  br label %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit15
 
-_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit14: ; preds = %_ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit.i13, %53
-  %.0.i12 = phi i1 [ %52, %_ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit.i13 ], [ %66, %53 ]
+_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit15: ; preds = %_ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit.i14, %53
+  %.0.i13 = phi i1 [ %52, %_ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit.i14 ], [ %66, %53 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %brmerge = or i1 %.0.i, %.0.i12
-  br i1 %brmerge, label %67, label %70
+  %or.cond = or i1 %.0.i, %.0.i13
+  br i1 %or.cond, label %67, label %70
 
-67:                                               ; preds = %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit14.thread, %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit14
-  %.0.i1217 = phi i1 [ true, %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit14.thread ], [ %.0.i12, %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit14 ]
-  %68 = xor i1 %.0.i, %.0.i1217
+67:                                               ; preds = %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit15.thread, %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit15
+  %.0.i1318 = phi i1 [ true, %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit15.thread ], [ %.0.i13, %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit15 ]
+  %68 = xor i1 %.0.i, %.0.i1318
   %69 = xor i1 %68, true
   br label %77
 
-70:                                               ; preds = %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit14
+70:                                               ; preds = %_ZNK4llvm3pdb19SymbolGroupIterator5isEndEv.exit15
   %71 = load ptr, ptr %5, align 8, !tbaa !411
   %72 = load ptr, ptr %36, align 8, !tbaa !411
   %.not = icmp eq ptr %71, %72

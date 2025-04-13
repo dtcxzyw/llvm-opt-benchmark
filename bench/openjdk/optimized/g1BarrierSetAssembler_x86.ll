@@ -151,25 +151,25 @@ define hidden void @_ZN21G1BarrierSetAssembler7load_atEP14MacroAssemblerm9BasicT
 _Z17is_reference_type9BasicTypeb.exit:
   %8 = alloca %class.Address, align 8
   %9 = and i8 %3, -2
-  %or.cond.i = icmp ne i8 %9, 12
+  %or.cond.i = icmp eq i8 %9, 12
+  %10 = and i64 %2, 98304
+  %11 = icmp ne i64 %10, 0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %12) #4
   call void @_ZN19BarrierSetAssembler7load_atEP14MacroAssemblerm9BasicType8Register7AddressS3_S3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, i32 %4, ptr noundef nonnull %8, i32 %6, i32 %7) #4
-  %15 = and i64 %2, 98304
-  %.not = icmp eq i64 %15, 0
-  %or.cond = or i1 %.not, %or.cond.i
-  br i1 %or.cond, label %17, label %16
+  %or.cond = and i1 %11, %or.cond.i
+  br i1 %or.cond, label %17, label %18
 
-16:                                               ; preds = %_Z17is_reference_type9BasicTypeb.exit
+17:                                               ; preds = %_Z17is_reference_type9BasicTypeb.exit
   call void @_ZN21G1BarrierSetAssembler20g1_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb(ptr nonnull align 8 poison, ptr noundef %1, i32 -1, i32 %4, i32 15, i32 %6, i1 zeroext poison, i1 noundef zeroext true)
-  br label %17
+  br label %18
 
-17:                                               ; preds = %16, %_Z17is_reference_type9BasicTypeb.exit
+18:                                               ; preds = %17, %_Z17is_reference_type9BasicTypeb.exit
   ret void
 }
 
@@ -619,8 +619,8 @@ define hidden void @_ZN21G1BarrierSetAssembler12oop_store_atEP14MacroAssemblerm9
   %18 = and i1 %15, %17
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %19, align 4
-  %.not75 = icmp eq i32 %.sroa.0.0.copyload.i, -1
-  br i1 %.not75, label %20, label %.critedge
+  %.not76 = icmp eq i32 %.sroa.0.0.copyload.i, -1
+  br i1 %.not76, label %20, label %.critedge
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -629,12 +629,12 @@ define hidden void @_ZN21G1BarrierSetAssembler12oop_store_atEP14MacroAssemblerm9
   br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %20
-  %.sroa.0.0.copyload.i66 = load i32, ptr %4, align 8
-  %.not76 = icmp eq i32 %.sroa.0.0.copyload.i66, %6
-  br i1 %.not76, label %35, label %25
+  %.sroa.0.0.copyload.i67 = load i32, ptr %4, align 8
+  %.not77 = icmp eq i32 %.sroa.0.0.copyload.i67, %6
+  br i1 %.not77, label %35, label %25
 
 25:                                               ; preds = %24
-  tail call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %6, i32 %.sroa.0.0.copyload.i66) #4
+  tail call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %6, i32 %.sroa.0.0.copyload.i67) #4
   br label %35
 
 .critedge:                                        ; preds = %9, %20
@@ -664,8 +664,8 @@ define hidden void @_ZN21G1BarrierSetAssembler12oop_store_atEP14MacroAssemblerm9
   br label %37
 
 37:                                               ; preds = %36, %35
-  %.not77 = icmp eq i32 %5, -1
-  br i1 %.not77, label %38, label %47
+  %.not78 = icmp eq i32 %5, -1
+  br i1 %.not78, label %38, label %47
 
 38:                                               ; preds = %37
   store i32 %6, ptr %12, align 8
@@ -686,47 +686,45 @@ define hidden void @_ZN21G1BarrierSetAssembler12oop_store_atEP14MacroAssemblerm9
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 0, ptr %46, align 8
   call void @_ZN19BarrierSetAssembler8store_atEP14MacroAssemblerm9BasicType7Address8RegisterS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull %12, i32 -1, i32 -1, i32 -1, i32 -1) #4
-  br label %62
+  br label %61
 
 47:                                               ; preds = %37
-  br i1 %18, label %48, label %52
+  %48 = load i8, ptr @UseCompressedOops, align 1
+  %49 = trunc i8 %48 to i1
+  %or.cond = select i1 %15, i1 %49, i1 false
+  br i1 %or.cond, label %50, label %51
 
-48:                                               ; preds = %47
-  %49 = load i8, ptr @UseCompressedOops, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %52
-
-51:                                               ; preds = %48
+50:                                               ; preds = %47
   call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %7, i32 %5) #4
-  br label %52
+  br label %51
 
-52:                                               ; preds = %48, %51, %47
-  %.sroa.012.0 = phi i32 [ %7, %51 ], [ %5, %48 ], [ %5, %47 ]
+51:                                               ; preds = %50, %47
+  %.sroa.013.0 = phi i32 [ %7, %50 ], [ %5, %47 ]
   store i32 %6, ptr %13, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 -1, ptr %53, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 -1, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i32 -1, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  store i8 0, ptr %57, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr null, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i32 0, ptr %60, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 -1, ptr %52, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 -1, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store i32 -1, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i32 0, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  store i8 0, ptr %56, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store ptr null, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store i32 0, ptr %59, align 8
   call void @_ZN19BarrierSetAssembler8store_atEP14MacroAssemblerm9BasicType7Address8RegisterS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull %13, i32 %5, i32 -1, i32 -1, i32 -1) #4
-  br i1 %18, label %61, label %62
+  br i1 %18, label %60, label %61
 
-61:                                               ; preds = %52
-  call void @_ZN21G1BarrierSetAssembler21g1_write_barrier_postEP14MacroAssembler8RegisterS2_S2_S2_S2_(ptr nonnull align 8 poison, ptr noundef %1, i32 %6, i32 %.sroa.012.0, i32 15, i32 %8, i32 %7)
-  br label %62
+60:                                               ; preds = %51
+  call void @_ZN21G1BarrierSetAssembler21g1_write_barrier_postEP14MacroAssembler8RegisterS2_S2_S2_S2_(ptr nonnull align 8 poison, ptr noundef %1, i32 %6, i32 %.sroa.013.0, i32 15, i32 %8, i32 %7)
+  br label %61
 
-62:                                               ; preds = %52, %61, %38
+61:                                               ; preds = %51, %60, %38
   ret void
 }
 

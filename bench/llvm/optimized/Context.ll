@@ -332,15 +332,15 @@ define dso_local noundef ptr @_ZN5clang6interp7Context19getOrCreateFunctionEPKNS
   %25 = icmp ne i32 %24, 3
   %26 = or i8 %13, %22
   %27 = icmp eq i8 %26, 0
-  %spec.select23 = select i1 %27, i1 %25, i1 false
+  %spec.select25 = select i1 %27, i1 %25, i1 false
   br label %28
 
 28:                                               ; preds = %19, %2
-  %.not22 = phi i1 [ true, %2 ], [ %20, %19 ]
-  %29 = phi i1 [ false, %2 ], [ %spec.select23, %19 ]
-  %brmerge = or i1 %.not, %29
-  %or.cond = and i1 %brmerge, %.not22
-  br i1 %or.cond, label %30, label %84
+  %.not23 = phi i1 [ true, %2 ], [ %20, %19 ]
+  %29 = phi i1 [ false, %2 ], [ %spec.select25, %19 ]
+  %or.cond = or i1 %.not, %29
+  %or.cond24 = and i1 %or.cond, %.not23
+  br i1 %or.cond24, label %30, label %84
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 744, ptr nonnull %3) #15
@@ -441,8 +441,8 @@ _ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEED2Ev.exit: ; preds = %30, %73
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %79, i64 noundef %83, i64 noundef 8) #15
   call void @_ZN5clang6interp15ByteCodeEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(744) %3) #15
   call void @llvm.lifetime.end.p0(i64 744, ptr nonnull %3) #15
-  %.not21 = icmp eq ptr %65, null
-  %spec.select = select i1 %.not21, ptr %10, ptr %65
+  %.not22 = icmp eq ptr %65, null
+  %spec.select = select i1 %.not22, ptr %10, ptr %65
   br label %84
 
 84:                                               ; preds = %_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEED2Ev.exit, %28

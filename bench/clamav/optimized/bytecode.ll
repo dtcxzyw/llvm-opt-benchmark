@@ -6442,36 +6442,36 @@ define i32 @cli_bytecode_run(ptr noundef %0, ptr noundef readonly captures(none)
   %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !104
-  %.not140 = icmp eq ptr %11, null
-  br i1 %.not140, label %192, label %12
+  %.not144 = icmp eq ptr %11, null
+  br i1 %.not144, label %192, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !103
-  %.not141 = icmp eq ptr %14, null
-  br i1 %.not141, label %192, label %15
+  %.not145 = icmp eq ptr %14, null
+  br i1 %.not145, label %192, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !71
-  %.not142 = icmp eq i32 %17, 0
-  br i1 %.not142, label %24, label %18
+  %.not146 = icmp eq i32 %17, 0
+  br i1 %.not146, label %24, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !36
-  %.not143 = icmp eq ptr %20, null
-  br i1 %.not143, label %192, label %21
+  %.not147 = icmp eq ptr %20, null
+  br i1 %.not147, label %192, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !37
-  %.not144 = icmp eq ptr %23, null
-  br i1 %.not144, label %192, label %24
+  %.not148 = icmp eq ptr %23, null
+  br i1 %.not148, label %192, label %24
 
 24:                                               ; preds = %21, %15
-  %.not145 = icmp eq ptr %9, null
-  br i1 %.not145, label %31, label %25
+  %.not149 = icmp eq ptr %9, null
+  br i1 %.not149, label %31, label %25
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -6482,7 +6482,7 @@ define i32 @cli_bytecode_run(ptr noundef %0, ptr noundef readonly captures(none)
   br label %31
 
 31:                                               ; preds = %25, %24
-  %.0129 = phi i1 [ false, %24 ], [ %30, %25 ]
+  %.0133 = phi i1 [ false, %24 ], [ %30, %25 ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %33 = load i32, ptr %32, align 8, !tbaa !143
   switch i32 %33, label %36 [
@@ -6499,7 +6499,7 @@ define i32 @cli_bytecode_run(ptr noundef %0, ptr noundef readonly captures(none)
   br label %192
 
 36:                                               ; preds = %31
-  br i1 %.not145, label %40, label %37
+  br i1 %.not149, label %40, label %37
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 144
@@ -6561,7 +6561,7 @@ define i32 @cli_bytecode_run(ptr noundef %0, ptr noundef readonly captures(none)
   br label %context_safe.exit
 
 context_safe.exit:                                ; preds = %58, %61
-  br i1 %.0129, label %62, label %75
+  br i1 %.0133, label %62, label %75
 
 62:                                               ; preds = %context_safe.exit
   %63 = tail call ptr @cli_events_new(i32 noundef 16) #25
@@ -6592,20 +6592,20 @@ context_safe.exit:                                ; preds = %58, %61
   br label %192
 
 75:                                               ; preds = %71, %context_safe.exit
-  %.0130 = phi ptr [ %64, %71 ], [ null, %context_safe.exit ]
-  %.0128 = phi ptr [ %63, %71 ], [ null, %context_safe.exit ]
+  %.0134 = phi ptr [ %64, %71 ], [ null, %context_safe.exit ]
+  %.0132 = phi ptr [ %63, %71 ], [ null, %context_safe.exit ]
   %76 = load ptr, ptr @g_sigevents, align 8, !tbaa !122
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %78 = load i32, ptr %77, align 8, !tbaa !182
   tail call void @cli_event_time_start(ptr noundef %76, i32 noundef %78) #25
   %79 = load i32, ptr %32, align 8, !tbaa !143
   %80 = icmp eq i32 %79, 3
-  %brmerge = or i1 %.0129, %80
-  br i1 %brmerge, label %81, label %122
+  %or.cond3 = or i1 %.0133, %80
+  br i1 %or.cond3, label %81, label %122
 
 81:                                               ; preds = %75
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 1312
-  store ptr %.0130, ptr %82, align 8, !tbaa !192
+  store ptr %.0134, ptr %82, align 8, !tbaa !192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %83, align 4, !tbaa !168
@@ -6649,35 +6649,35 @@ context_safe.exit:                                ; preds = %58, %61
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.36, i32 noundef %109) #25
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 1320
   store i32 0, ptr %110, align 8, !tbaa !199
-  tail call void @cli_event_time_start(ptr noundef %.0130, i32 noundef 11) #25
+  tail call void @cli_event_time_start(ptr noundef %.0134, i32 noundef 11) #25
   %111 = load ptr, ptr %10, align 8, !tbaa !104
   %112 = call i32 @cli_vm_execute(ptr noundef %111, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %4) #25
-  call void @cli_event_time_stop(ptr noundef %.0130, i32 noundef 11) #25
+  call void @cli_event_time_stop(ptr noundef %.0134, i32 noundef 11) #25
   %113 = zext i32 %112 to i64
-  call void @cli_event_int(ptr noundef %.0130, i32 noundef 1, i64 noundef %113) #25
+  call void @cli_event_int(ptr noundef %.0134, i32 noundef 1, i64 noundef %113) #25
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %115 = load ptr, ptr %114, align 8, !tbaa !200
-  call void @cli_event_string(ptr noundef %.0130, i32 noundef 0, ptr noundef %115) #25
+  call void @cli_event_string(ptr noundef %.0134, i32 noundef 0, ptr noundef %115) #25
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %117 = load i32, ptr %116, align 4, !tbaa !34
   %118 = icmp ne i32 %117, 0
   %119 = icmp ne i32 %112, 1
-  %or.cond3 = select i1 %118, i1 %119, i1 false
-  br i1 %or.cond3, label %120, label %122
+  %or.cond5 = select i1 %118, i1 %119, i1 false
+  br i1 %or.cond5, label %120, label %122
 
 120:                                              ; preds = %81
   %121 = call i32 @cli_bcapi_extract_new(ptr noundef nonnull %2, i32 noundef -1) #25
   br label %122
 
-122:                                              ; preds = %75, %81, %120
-  %.0125 = phi i32 [ %112, %120 ], [ %112, %81 ], [ 0, %75 ]
+122:                                              ; preds = %81, %120, %75
+  %.0129 = phi i32 [ %112, %120 ], [ %112, %81 ], [ 0, %75 ]
   %123 = load i32, ptr %32, align 8, !tbaa !143
   %124 = icmp eq i32 %123, 2
-  %brmerge149 = or i1 %.0129, %124
-  br i1 %brmerge149, label %125, label %149
+  %or.cond7 = or i1 %.0133, %124
+  br i1 %or.cond7, label %125, label %149
 
 125:                                              ; preds = %122
-  br i1 %.0129, label %126, label %128
+  br i1 %.0133, label %126, label %128
 
 126:                                              ; preds = %125
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -6686,13 +6686,13 @@ context_safe.exit:                                ; preds = %58, %61
 
 128:                                              ; preds = %126, %125
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 1312
-  store ptr %.0128, ptr %129, align 8, !tbaa !192
+  store ptr %.0132, ptr %129, align 8, !tbaa !192
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %131 = load i32, ptr %130, align 8, !tbaa !198
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.37, i32 noundef %131) #25
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 1320
   store i32 1, ptr %132, align 8, !tbaa !199
-  call void @cli_event_time_start(ptr noundef %.0128, i32 noundef 11) #25
+  call void @cli_event_time_start(ptr noundef %.0132, i32 noundef 11) #25
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %134 = load ptr, ptr %133, align 8, !tbaa !102
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -6700,32 +6700,32 @@ context_safe.exit:                                ; preds = %58, %61
   %137 = zext i16 %136 to i64
   %138 = getelementptr inbounds nuw %struct.cli_bc_func, ptr %134, i64 %137
   %139 = call i32 @cli_vm_execute_jit(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %138) #25
-  call void @cli_event_time_stop(ptr noundef %.0128, i32 noundef 11) #25
+  call void @cli_event_time_stop(ptr noundef %.0132, i32 noundef 11) #25
   %140 = zext i32 %139 to i64
-  call void @cli_event_int(ptr noundef %.0128, i32 noundef 1, i64 noundef %140) #25
+  call void @cli_event_int(ptr noundef %.0132, i32 noundef 1, i64 noundef %140) #25
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %142 = load ptr, ptr %141, align 8, !tbaa !200
-  call void @cli_event_string(ptr noundef %.0128, i32 noundef 0, ptr noundef %142) #25
+  call void @cli_event_string(ptr noundef %.0132, i32 noundef 0, ptr noundef %142) #25
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %144 = load i32, ptr %143, align 4, !tbaa !34
   %145 = icmp ne i32 %144, 0
   %146 = icmp ne i32 %139, 1
-  %or.cond5 = select i1 %145, i1 %146, i1 false
-  br i1 %or.cond5, label %147, label %149
+  %or.cond9 = select i1 %145, i1 %146, i1 false
+  br i1 %or.cond9, label %147, label %149
 
 147:                                              ; preds = %128
   %148 = call i32 @cli_bcapi_extract_new(ptr noundef nonnull %2, i32 noundef -1) #25
   br label %149
 
-149:                                              ; preds = %122, %128, %147
-  %.1126 = phi i32 [ %139, %147 ], [ %139, %128 ], [ %.0125, %122 ]
+149:                                              ; preds = %128, %147, %122
+  %.1130 = phi i32 [ %139, %147 ], [ %139, %128 ], [ %.0129, %122 ]
   %150 = load ptr, ptr @g_sigevents, align 8, !tbaa !122
   %151 = load i32, ptr %77, align 8, !tbaa !182
   call void @cli_event_time_stop(ptr noundef %150, i32 noundef %151) #25
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %153 = load ptr, ptr %152, align 8, !tbaa !200
-  %.not146 = icmp eq ptr %153, null
-  br i1 %.not146, label %158, label %154
+  %.not150 = icmp eq ptr %153, null
+  br i1 %.not150, label %158, label %154
 
 154:                                              ; preds = %149
   %155 = load ptr, ptr @g_sigevents, align 8, !tbaa !122
@@ -6735,15 +6735,15 @@ context_safe.exit:                                ; preds = %58, %61
   br label %158
 
 158:                                              ; preds = %154, %149
-  br i1 %.0129, label %159, label %.critedge
+  br i1 %.0133, label %159, label %.critedge
 
 159:                                              ; preds = %158
-  %160 = call i32 @cli_event_errors(ptr noundef %.0130) #25
-  %161 = call i32 @cli_event_errors(ptr noundef %.0128) #25
+  %160 = call i32 @cli_event_errors(ptr noundef %.0134) #25
+  %161 = call i32 @cli_event_errors(ptr noundef %.0132) #25
   %162 = icmp eq i32 %160, 0
   %163 = icmp eq i32 %161, 0
-  %or.cond7.not = select i1 %162, i1 %163, i1 false
-  br i1 %or.cond7.not, label %167, label %164
+  %or.cond11.not = select i1 %162, i1 %163, i1 false
+  br i1 %or.cond11.not, label %167, label %164
 
 164:                                              ; preds = %159
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -6754,13 +6754,13 @@ context_safe.exit:                                ; preds = %58, %61
 167:                                              ; preds = %159, %164
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 1324
   %169 = load i32, ptr %168, align 4, !tbaa !201
-  %.not147 = icmp eq i32 %169, 0
-  br i1 %.not147, label %170, label %175
+  %.not151 = icmp eq i32 %169, 0
+  br i1 %.not151, label %170, label %175
 
 170:                                              ; preds = %167
-  %171 = call i32 @cli_event_diff_all(ptr noundef %.0130, ptr noundef %.0128, ptr noundef null) #25
-  %.not148 = icmp eq i32 %171, 0
-  br i1 %.not148, label %175, label %172
+  %171 = call i32 @cli_event_diff_all(ptr noundef %.0134, ptr noundef %.0132, ptr noundef null) #25
+  %.not152 = icmp eq i32 %171, 0
+  br i1 %.not152, label %175, label %172
 
 172:                                              ; preds = %170
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -6769,34 +6769,34 @@ context_safe.exit:                                ; preds = %58, %61
   br label %175
 
 175:                                              ; preds = %172, %170, %167
-  %.1 = phi i1 [ %or.cond7.not, %167 ], [ false, %172 ], [ %or.cond7.not, %170 ]
+  %.1 = phi i1 [ %or.cond11.not, %167 ], [ false, %172 ], [ %or.cond11.not, %170 ]
   br label %176
 
 176:                                              ; preds = %175, %176
-  %.0153 = phi i32 [ 13, %175 ], [ %181, %176 ]
-  %.0121152 = phi i32 [ 0, %175 ], [ %180, %176 ]
-  %.0122151 = phi i32 [ 0, %175 ], [ %178, %176 ]
+  %.0156 = phi i32 [ 13, %175 ], [ %181, %176 ]
+  %.0125155 = phi i32 [ 0, %175 ], [ %180, %176 ]
+  %.0126154 = phi i32 [ 0, %175 ], [ %178, %176 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #25
   store i32 0, ptr %7, align 4, !tbaa !114
-  call void @cli_event_get(ptr noundef %.0130, i32 noundef %.0153, ptr noundef nonnull %6, ptr noundef nonnull %7) #25
+  call void @cli_event_get(ptr noundef %.0134, i32 noundef %.0156, ptr noundef nonnull %6, ptr noundef nonnull %7) #25
   %177 = load i32, ptr %7, align 4, !tbaa !114
-  %178 = add i32 %177, %.0122151
+  %178 = add i32 %177, %.0126154
   store i32 0, ptr %7, align 4, !tbaa !114
-  call void @cli_event_get(ptr noundef %.0128, i32 noundef %.0153, ptr noundef nonnull %6, ptr noundef nonnull %7) #25
+  call void @cli_event_get(ptr noundef %.0132, i32 noundef %.0156, ptr noundef nonnull %6, ptr noundef nonnull %7) #25
   %179 = load i32, ptr %7, align 4, !tbaa !114
-  %180 = add i32 %179, %.0121152
+  %180 = add i32 %179, %.0125155
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  %181 = add nuw nsw i32 %.0153, 1
+  %181 = add nuw nsw i32 %.0156, 1
   %exitcond.not = icmp eq i32 %181, 15
   br i1 %exitcond.not, label %182, label %176
 
 182:                                              ; preds = %176
   %183 = icmp ne i32 %178, 0
   %184 = icmp ne i32 %180, 0
-  %or.cond9 = select i1 %183, i1 true, i1 %184
-  br i1 %or.cond9, label %.thread, label %187
+  %or.cond13 = select i1 %183, i1 true, i1 %184
+  br i1 %or.cond13, label %.thread, label %187
 
 .thread:                                          ; preds = %182
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -6808,14 +6808,14 @@ context_safe.exit:                                ; preds = %58, %61
   br i1 %.1, label %.critedge, label %188
 
 188:                                              ; preds = %.thread, %187
-  call void @cli_events_free(ptr noundef %.0128) #25
-  call void @cli_events_free(ptr noundef %.0130) #25
+  call void @cli_events_free(ptr noundef %.0132) #25
+  call void @cli_events_free(ptr noundef %.0134) #25
   br label %192
 
 .critedge:                                        ; preds = %187, %158
-  call void @cli_events_free(ptr noundef %.0128) #25
-  call void @cli_events_free(ptr noundef %.0130) #25
-  br i1 %.not145, label %192, label %189
+  call void @cli_events_free(ptr noundef %.0132) #25
+  call void @cli_events_free(ptr noundef %.0134) #25
+  br i1 %.not149, label %192, label %189
 
 189:                                              ; preds = %.critedge
   %190 = getelementptr inbounds nuw i8, ptr %9, i64 144
@@ -6824,10 +6824,10 @@ context_safe.exit:                                ; preds = %58, %61
   br label %192
 
 192:                                              ; preds = %188, %.critedge, %189, %18, %21, %3, %12, %74, %67, %35, %34
-  %.0123 = phi i32 [ 3, %34 ], [ 0, %35 ], [ 29, %74 ], [ 29, %188 ], [ 20, %67 ], [ 2, %12 ], [ 2, %3 ], [ 2, %21 ], [ 2, %18 ], [ %.1126, %189 ], [ %.1126, %.critedge ]
+  %.0127 = phi i32 [ 3, %34 ], [ 0, %35 ], [ 29, %74 ], [ 29, %188 ], [ 20, %67 ], [ 2, %12 ], [ 2, %3 ], [ 2, %21 ], [ 2, %18 ], [ %.1130, %189 ], [ %.1130, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #25
-  ret i32 %.0123
+  ret i32 %.0127
 }
 
 declare void @cli_event_time_start(ptr noundef, i32 noundef) local_unnamed_addr #3

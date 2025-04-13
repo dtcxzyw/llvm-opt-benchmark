@@ -3732,30 +3732,30 @@ define hidden noundef ptr @_ZNK8CmpUNode3subEPK4TypeS2_(ptr noundef nonnull read
   %13 = icmp slt i32 %12, 0
   %14 = xor i32 %11, %9
   %15 = icmp slt i32 %14, 0
-  %or.cond54 = select i1 %13, i1 true, i1 %15
-  br i1 %or.cond54, label %16, label %26
+  %or.cond = select i1 %13, i1 true, i1 %15
+  br i1 %or.cond, label %16, label %26
 
 16:                                               ; preds = %3
   %17 = or i32 %7, %5
-  %or.cond = icmp eq i32 %17, 0
-  br i1 %or.cond, label %65, label %18
+  %or.cond3 = icmp eq i32 %17, 0
+  br i1 %or.cond3, label %65, label %18
 
 18:                                               ; preds = %16
   %19 = and i32 %7, %5
-  %or.cond3 = icmp eq i32 %19, -1
-  br i1 %or.cond3, label %65, label %20
+  %or.cond5 = icmp eq i32 %19, -1
+  br i1 %or.cond5, label %65, label %20
 
 20:                                               ; preds = %18
   %21 = icmp eq i32 %9, 0
   %22 = icmp eq i32 %11, 0
-  %or.cond5 = select i1 %21, i1 %22, i1 false
-  br i1 %or.cond5, label %65, label %23
+  %or.cond7 = select i1 %21, i1 %22, i1 false
+  br i1 %or.cond7, label %65, label %23
 
 23:                                               ; preds = %20
   %24 = icmp eq i32 %9, -1
   %25 = icmp eq i32 %11, -1
-  %or.cond7 = select i1 %24, i1 %25, i1 false
-  br i1 %or.cond7, label %65, label %41
+  %or.cond9 = select i1 %24, i1 %25, i1 false
+  br i1 %or.cond9, label %65, label %41
 
 26:                                               ; preds = %3
   %27 = icmp ult i32 %7, %9
@@ -3776,14 +3776,14 @@ define hidden noundef ptr @_ZNK8CmpUNode3subEPK4TypeS2_(ptr noundef nonnull read
   br i1 %.not, label %34, label %65
 
 34:                                               ; preds = %33
-  %.not52 = icmp ugt i32 %7, %9
-  br i1 %.not52, label %41, label %35
+  %.not54 = icmp ugt i32 %7, %9
+  br i1 %.not54, label %41, label %35
 
 35:                                               ; preds = %34
   %36 = icmp sgt i32 %5, -1
   %37 = icmp sgt i32 %9, -1
-  %or.cond9 = select i1 %36, i1 %37, i1 false
-  br i1 %or.cond9, label %38, label %40
+  %or.cond11 = select i1 %36, i1 %37, i1 false
+  br i1 %or.cond11, label %38, label %40
 
 38:                                               ; preds = %35
   %39 = tail call noundef zeroext i1 @_ZNK8CmpUNode20is_index_range_checkEv(ptr noundef nonnull align 8 dereferenceable(52) %0)
@@ -3795,8 +3795,8 @@ define hidden noundef ptr @_ZNK8CmpUNode3subEPK4TypeS2_(ptr noundef nonnull read
 41:                                               ; preds = %34, %23
   %42 = icmp sgt i32 %5, -1
   %43 = icmp sgt i32 %9, -1
-  %or.cond11 = select i1 %42, i1 %43, i1 false
-  br i1 %or.cond11, label %44, label %_ZNK8CmpUNode20is_index_range_checkEv.exit.thread
+  %or.cond13 = select i1 %42, i1 %43, i1 false
+  br i1 %or.cond13, label %44, label %_ZNK8CmpUNode20is_index_range_checkEv.exit.thread
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4532,30 +4532,30 @@ define hidden noundef ptr @_ZNK9CmpULNode3subEPK4TypeS2_(ptr noundef nonnull rea
   %13 = icmp slt i64 %12, 0
   %14 = xor i64 %11, %9
   %15 = icmp slt i64 %14, 0
-  %or.cond45 = select i1 %13, i1 true, i1 %15
-  br i1 %or.cond45, label %16, label %26
+  %or.cond = select i1 %13, i1 true, i1 %15
+  br i1 %or.cond, label %16, label %26
 
 16:                                               ; preds = %3
   %17 = or i64 %7, %5
-  %or.cond = icmp eq i64 %17, 0
-  br i1 %or.cond, label %36, label %18
+  %or.cond3 = icmp eq i64 %17, 0
+  br i1 %or.cond3, label %36, label %18
 
 18:                                               ; preds = %16
   %19 = and i64 %7, %5
-  %or.cond3 = icmp eq i64 %19, -1
-  br i1 %or.cond3, label %36, label %20
+  %or.cond5 = icmp eq i64 %19, -1
+  br i1 %or.cond5, label %36, label %20
 
 20:                                               ; preds = %18
   %21 = icmp eq i64 %9, 0
   %22 = icmp eq i64 %11, 0
-  %or.cond5 = select i1 %21, i1 %22, i1 false
-  br i1 %or.cond5, label %36, label %23
+  %or.cond7 = select i1 %21, i1 %22, i1 false
+  br i1 %or.cond7, label %36, label %23
 
 23:                                               ; preds = %20
   %24 = icmp eq i64 %9, -1
   %25 = icmp eq i64 %11, -1
-  %or.cond7 = select i1 %24, i1 %25, i1 false
-  br i1 %or.cond7, label %36, label %35
+  %or.cond9 = select i1 %24, i1 %25, i1 false
+  br i1 %or.cond9, label %36, label %35
 
 26:                                               ; preds = %3
   %27 = icmp ult i64 %7, %9
@@ -4576,8 +4576,8 @@ define hidden noundef ptr @_ZNK9CmpULNode3subEPK4TypeS2_(ptr noundef nonnull rea
   br i1 %.not, label %34, label %36
 
 34:                                               ; preds = %33
-  %.not43 = icmp ugt i64 %7, %9
-  br i1 %.not43, label %35, label %36
+  %.not45 = icmp ugt i64 %7, %9
+  br i1 %.not45, label %35, label %36
 
 35:                                               ; preds = %34, %23
   br label %36

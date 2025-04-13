@@ -2637,16 +2637,16 @@ trace_vfio_msix_vector_do_use.exit.i:             ; preds = %31, %25, %19, %17, 
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 3757
   %67 = load i8, ptr %66, align 1, !range !6, !noundef !7
   %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %kvm_irqchip_commit_route_changes.exitthread-pre-split.i, label %vfio_add_kvm_msi_virq.exit62.i
+  br i1 %68, label %kvm_irqchip_commit_route_changes.exitthread-pre-split.i, label %vfio_add_kvm_msi_virq.exit61.i
 
-vfio_add_kvm_msi_virq.exit62.i:                   ; preds = %64
+vfio_add_kvm_msi_virq.exit61.i:                   ; preds = %64
   %69 = tail call i32 @kvm_irqchip_add_msi_route(ptr noundef nonnull @vfio_route_change, i32 noundef %1, ptr noundef nonnull %8) #26
   store i32 %69, ptr %47, align 8
   %.pr.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
   %.not.i.i = icmp eq i32 %.pr.i, 0
   br i1 %.not.i.i, label %kvm_irqchip_commit_route_changes.exit.i, label %70
 
-70:                                               ; preds = %vfio_add_kvm_msi_virq.exit62.i
+70:                                               ; preds = %vfio_add_kvm_msi_virq.exit61.i
   %71 = load ptr, ptr @vfio_route_change, align 8
   tail call void @kvm_irqchip_commit_routes(ptr noundef %71) #26
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @vfio_route_change, i64 8), align 8
@@ -2656,16 +2656,16 @@ kvm_irqchip_commit_route_changes.exitthread-pre-split.i: ; preds = %70, %64
   %.pr2.i = load i32, ptr %47, align 8
   br label %kvm_irqchip_commit_route_changes.exit.i
 
-kvm_irqchip_commit_route_changes.exit.i:          ; preds = %kvm_irqchip_commit_route_changes.exitthread-pre-split.i, %vfio_add_kvm_msi_virq.exit62.i
-  %72 = phi i32 [ %.pr2.i, %kvm_irqchip_commit_route_changes.exitthread-pre-split.i ], [ %69, %vfio_add_kvm_msi_virq.exit62.i ]
+kvm_irqchip_commit_route_changes.exit.i:          ; preds = %kvm_irqchip_commit_route_changes.exitthread-pre-split.i, %vfio_add_kvm_msi_virq.exit61.i
+  %72 = phi i32 [ %.pr2.i, %kvm_irqchip_commit_route_changes.exitthread-pre-split.i ], [ %69, %vfio_add_kvm_msi_virq.exit61.i ]
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %vfio_add_kvm_msi_virq.exit.i, label %74
 
 74:                                               ; preds = %kvm_irqchip_commit_route_changes.exit.i
   %75 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %76 = tail call i32 @event_notifier_init(ptr noundef nonnull %75, i32 noundef 0) #26
-  %.not.i63.i = icmp eq i32 %76, 0
-  br i1 %.not.i63.i, label %77, label %83
+  %.not.i62.i = icmp eq i32 %76, 0
+  br i1 %.not.i62.i, label %77, label %83
 
 77:                                               ; preds = %74
   %78 = load ptr, ptr @kvm_state, align 8
@@ -2704,14 +2704,14 @@ vfio_add_kvm_msi_virq.exit.i:                     ; preds = %83, %77, %kvm_irqch
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load i8, ptr %94, align 8, !range !6, !noundef !7
   %96 = trunc nuw i8 %95 to i1
-  %brmerge.not.i = select i1 %96, i1 %12, i1 false
-  br i1 %brmerge.not.i, label %97, label %100
+  %or.cond.i = select i1 %96, i1 %12, i1 false
+  br i1 %or.cond.i, label %97, label %100
 
 97:                                               ; preds = %91
   tail call void @vfio_disable_irqindex(ptr noundef nonnull %13, i32 noundef 2) #26
   %98 = tail call fastcc i32 @vfio_enable_vectors(ptr noundef nonnull %8, i1 noundef zeroext true)
-  %.not59.i = icmp eq i32 %98, 0
-  br i1 %.not59.i, label %109, label %99
+  %.not60.i = icmp eq i32 %98, 0
+  br i1 %.not60.i, label %109, label %99
 
 99:                                               ; preds = %97
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.44, i32 noundef %98) #26
@@ -2766,8 +2766,8 @@ vfio_add_kvm_msi_virq.exit.i:                     ; preds = %83, %77, %kvm_irqch
   %.018.i.i = phi i64 [ %133, %131 ], [ 0, %.lr.ph.i.preheader.i ]
   %.01317.i.i = phi ptr [ %132, %131 ], [ %125, %.lr.ph.i.preheader.i ]
   %126 = load i64, ptr %.01317.i.i, align 8
-  %.not.i64.i = icmp eq i64 %126, 0
-  br i1 %.not.i64.i, label %131, label %127
+  %.not.i63.i = icmp eq i64 %126, 0
+  br i1 %.not.i63.i, label %131, label %127
 
 127:                                              ; preds = %.lr.ph.i.i
   %128 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %126, i1 true)
@@ -2791,8 +2791,8 @@ find_first_bit.exit.thread.i:                     ; preds = %131, %find_first_bi
   call void @memory_region_set_enabled(ptr noundef nonnull %136, i1 noundef zeroext false) #26
   %137 = load ptr, ptr %14, align 8
   %138 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i65.i = icmp eq i32 %138, 0
-  br i1 %.not.i.i65.i, label %vfio_msix_vector_do_use.exit, label %139, !prof !5
+  %.not.i.i64.i = icmp eq i32 %138, 0
+  br i1 %.not.i.i64.i, label %vfio_msix_vector_do_use.exit, label %139, !prof !5
 
 139:                                              ; preds = %find_first_bit.exit.thread.i
   %140 = load i16, ptr @_TRACE_VFIO_MSIX_PBA_DISABLE_DSTATE, align 2
@@ -2802,8 +2802,8 @@ find_first_bit.exit.thread.i:                     ; preds = %131, %find_first_bi
 141:                                              ; preds = %139
   %142 = load i32, ptr @qemu_loglevel, align 4
   %143 = and i32 %142, 32768
-  %.not3.i.i66.i = icmp eq i32 %143, 0
-  br i1 %.not3.i.i66.i, label %vfio_msix_vector_do_use.exit, label %144
+  %.not3.i.i65.i = icmp eq i32 %143, 0
+  br i1 %.not3.i.i65.i, label %vfio_msix_vector_do_use.exit, label %144
 
 144:                                              ; preds = %141
   %145 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7

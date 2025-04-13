@@ -198,10 +198,10 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i.thread: ; preds = %_ZN6vectorIN3sat
   store i32 0, ptr %9, align 4, !tbaa !9
   br label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit.thread
 
-.lr.ph:                                           ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %21
-  %.022 = phi i8 [ %.1, %21 ], [ 0, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
-  %.01421 = phi ptr [ %.115, %21 ], [ %3, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
-  %.01619 = phi ptr [ %22, %21 ], [ %3, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+.lr.ph:                                           ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %20
+  %.022 = phi i8 [ %.1, %20 ], [ 0, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+  %.01421 = phi ptr [ %.115, %20 ], [ %3, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+  %.01619 = phi ptr [ %21, %20 ], [ %3, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
   %10 = getelementptr inbounds nuw i8, ptr %.01619, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !11
   %12 = and i32 %11, 3
@@ -211,50 +211,48 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i.thread: ; preds = %_ZN6vectorIN3sat
 14:                                               ; preds = %.lr.ph
   %15 = load i64, ptr %.01619, align 8, !tbaa !14
   %16 = trunc i64 %15 to i32
-  %17 = icmp eq i32 %1, %16
-  br i1 %17, label %18, label %.critedge
+  %17 = icmp ne i32 %1, %16
+  %18 = trunc nuw i8 %.022 to i1
+  %or.cond = select i1 %17, i1 true, i1 %18
+  br i1 %or.cond, label %.critedge, label %20
 
-18:                                               ; preds = %14
-  %19 = trunc nuw i8 %.022 to i1
-  br i1 %19, label %.critedge, label %21
-
-.critedge:                                        ; preds = %14, %.lr.ph, %18
+.critedge:                                        ; preds = %14, %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.01421, ptr noundef nonnull align 8 dereferenceable(12) %.01619, i64 12, i1 false), !tbaa.struct !15
-  %20 = getelementptr inbounds nuw i8, ptr %.01421, i64 16
-  br label %21
+  %19 = getelementptr inbounds nuw i8, ptr %.01421, i64 16
+  br label %20
 
-21:                                               ; preds = %18, %.critedge
-  %.115 = phi ptr [ %20, %.critedge ], [ %.01421, %18 ]
-  %.1 = phi i8 [ %.022, %.critedge ], [ 1, %18 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.01619, i64 16
-  %.not = icmp eq ptr %22, %8
+20:                                               ; preds = %14, %.critedge
+  %.115 = phi ptr [ %19, %.critedge ], [ %.01421, %14 ]
+  %.1 = phi i8 [ %.022, %.critedge ], [ 1, %14 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.01619, i64 16
+  %.not = icmp eq ptr %21, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %21
+._crit_edge:                                      ; preds = %20
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
-  %23 = trunc nuw i8 %.1 to i1
+  %22 = trunc nuw i8 %.1 to i1
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i
 
 _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %._crit_edge
-  %24 = ptrtoint ptr %.115 to i64
-  %25 = ptrtoint ptr %.pre to i64
-  %26 = sub i64 %24, %25
-  %27 = lshr exact i64 %26, 4
-  %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %.pre, i64 -4
-  store i32 %28, ptr %29, align 4, !tbaa !9
-  br i1 %23, label %30, label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit.thread
+  %23 = ptrtoint ptr %.115 to i64
+  %24 = ptrtoint ptr %.pre to i64
+  %25 = sub i64 %23, %24
+  %26 = lshr exact i64 %25, 4
+  %27 = trunc i64 %26 to i32
+  %28 = getelementptr inbounds i8, ptr %.pre, i64 -4
+  store i32 %27, ptr %28, align 4, !tbaa !9
+  br i1 %22, label %29, label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit.thread
 
 _ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit: ; preds = %._crit_edge
-  br i1 %23, label %30, label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit.thread
+  br i1 %22, label %29, label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit.thread
 
 _ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit.thread: ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i.thread, %2, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @.str.1)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
-  br label %30
+  br label %29
 
-30:                                               ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit.thread, %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit
+29:                                               ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit.thread, %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit
   ret void
 }
 

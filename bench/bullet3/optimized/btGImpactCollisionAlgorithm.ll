@@ -755,22 +755,25 @@ _ZN20btAlignedObjectArrayI8GIM_PAIRE8allocateEi.exit.i.i.i: ; preds = %78, %77
   br i1 %exitcond.not.i.i.i.i, label %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i.i, label %85, !llvm.loop !65
 
 _ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i.i: ; preds = %_ZN20btAlignedObjectArrayI8GIM_PAIRE8allocateEi.exit.i.i.i
-  %.not.i5.i.i.i = icmp eq ptr %84, null
-  br i1 %.not.i5.i.i.i, label %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i, label %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i.i
-
-_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i.i: ; preds = %85, %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i.i
-  %92 = load i8, ptr %33, align 8, !tbaa !66, !range !67, !noundef !68
+  %.not.i5.i.i.i = icmp ne ptr %84, null
+  %92 = load i8, ptr %33, align 8, !range !66
   %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %94, label %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i
+  %or.cond.i.i = select i1 %.not.i5.i.i.i, i1 %93, i1 false
+  br i1 %or.cond.i.i, label %94, label %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i
 
-94:                                               ; preds = %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i.i
+_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i.i: ; preds = %85
+  %.old5.i.i = load i8, ptr %33, align 8, !tbaa !67, !range !66, !noundef !68
+  %.old6.i.i = trunc nuw i8 %.old5.i.i to i1
+  br i1 %.old6.i.i, label %94, label %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i
+
+94:                                               ; preds = %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i.i, %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i.i
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %84)
   %.pre2.pre.pre.i.i = load i32, ptr %30, align 4, !tbaa !56
   br label %_ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i
 
 _ZN20btAlignedObjectArrayI8GIM_PAIRE10deallocateEv.exit.i.i.i: ; preds = %94, %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i.i, %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i.i
   %.pre2.i.i = phi i32 [ %82, %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i.i ], [ %.pre2.pre.pre.i.i, %94 ], [ %82, %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i.i ]
-  store i8 1, ptr %33, align 8, !tbaa !66
+  store i8 1, ptr %33, align 8, !tbaa !67
   store ptr %.0.i.i.i.i, ptr %32, align 8, !tbaa !61
   store i32 %75, ptr %31, align 8, !tbaa !60
   br label %_ZN9btPairSet9push_pairEii.exit
@@ -1075,7 +1078,7 @@ _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %_ZN20btAlignedObjec
   br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i: ; preds = %184, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
-  %188 = load i8, ptr %140, align 8, !tbaa !85, !range !67, !noundef !68
+  %188 = load i8, ptr %140, align 8, !tbaa !85, !range !66, !noundef !68
   %189 = trunc nuw i8 %188 to i1
   br i1 %189, label %190, label %191
 
@@ -1775,7 +1778,7 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm18gimpact_vs_gimpactEPK24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %69, ptr noundef nonnull align 4 dereferenceable(16) %70, i64 16, i1 false), !tbaa.struct !106
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #18
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i8 1, ptr %71, align 8, !tbaa !66
+  store i8 1, ptr %71, align 8, !tbaa !67
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %72, align 8, !tbaa !61
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1810,20 +1813,23 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm18gimpact_vs_gimpactEPK24
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i, label %79, !llvm.loop !65
 
 _ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i: ; preds = %.noexc.i
-  %.not.i5.i.i = icmp eq ptr %78, null
-  br i1 %.not.i5.i.i, label %_ZN9btPairSetC2Ev.exit, label %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i
-
-_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i: ; preds = %79, %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i
-  %86 = load i8, ptr %71, align 8, !tbaa !66, !range !67, !noundef !68
+  %.not.i5.i.i = icmp ne ptr %78, null
+  %86 = load i8, ptr %71, align 8, !range !66
   %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %88, label %_ZN9btPairSetC2Ev.exit
+  %or.cond = select i1 %.not.i5.i.i, i1 %87, i1 false
+  br i1 %or.cond, label %88, label %_ZN9btPairSetC2Ev.exit
 
-88:                                               ; preds = %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i
+_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i: ; preds = %79
+  %.old = load i8, ptr %71, align 8, !tbaa !67, !range !66, !noundef !68
+  %.old126 = trunc nuw i8 %.old to i1
+  br i1 %.old126, label %88, label %_ZN9btPairSetC2Ev.exit
+
+88:                                               ; preds = %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i, %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %78)
           to label %_ZN9btPairSetC2Ev.exit unwind label %89
 
-common.resume:                                    ; preds = %476, %89
-  %common.resume.op = phi { ptr, i32 } [ %90, %89 ], [ %.pn74, %476 ]
+common.resume:                                    ; preds = %475, %89
+  %common.resume.op = phi { ptr, i32 } [ %90, %89 ], [ %.pn74, %475 ]
   resume { ptr, i32 } %common.resume.op
 
 89:                                               ; preds = %88, %54
@@ -1833,7 +1839,7 @@ common.resume:                                    ; preds = %476, %89
   br label %common.resume
 
 _ZN9btPairSetC2Ev.exit:                           ; preds = %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.thread.i.i, %88, %_ZNK20btAlignedObjectArrayI8GIM_PAIRE4copyEiiPS0_.exit.i.i
-  store i8 1, ptr %71, align 8, !tbaa !66
+  store i8 1, ptr %71, align 8, !tbaa !67
   store ptr %75, ptr %72, align 8, !tbaa !61
   store i32 32, ptr %74, align 8, !tbaa !60
   invoke void @_ZN27btGImpactCollisionAlgorithm29gimpact_vs_gimpact_find_pairsERK11btTransformS2_PK23btGImpactShapeInterfaceS5_R9btPairSet(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(64) %6, ptr noundef nonnull align 4 dereferenceable(64) %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(25) %8)
@@ -1847,7 +1853,7 @@ _ZN9btPairSetC2Ev.exit:                           ; preds = %_ZNK20btAlignedObje
 94:                                               ; preds = %119, %115, %103, %96, %_ZN9btPairSetC2Ev.exit
   %95 = landingpad { ptr, i32 }
           cleanup
-  br label %476
+  br label %475
 
 96:                                               ; preds = %91
   %97 = load ptr, ptr %3, align 8, !tbaa !4
@@ -1880,7 +1886,7 @@ _ZN9btPairSetC2Ev.exit:                           ; preds = %_ZNK20btAlignedObje
 113:                                              ; preds = %110
   %114 = landingpad { ptr, i32 }
           cleanup
-  br label %476
+  br label %475
 
 115:                                              ; preds = %108, %101
   %116 = load ptr, ptr %3, align 8, !tbaa !4
@@ -2314,27 +2320,27 @@ _ZN18GIM_ShapeRetriever13getChildShapeEi.exit:    ; preds = %266
 363:                                              ; preds = %187
   %364 = landingpad { ptr, i32 }
           cleanup
-  br label %475
+  br label %474
 
 365:                                              ; preds = %194
   %366 = landingpad { ptr, i32 }
           cleanup
-  br label %475
+  br label %474
 
 367:                                              ; preds = %461, %._crit_edge
   %368 = landingpad { ptr, i32 }
           cleanup
-  br label %475
+  br label %474
 
 369:                                              ; preds = %266
   %370 = landingpad { ptr, i32 }
           cleanup
-  br label %475
+  br label %474
 
 371:                                              ; preds = %_ZN18GIM_ShapeRetriever13getChildShapeEi.exit
   %372 = landingpad { ptr, i32 }
           cleanup
-  br label %475
+  br label %474
 
 373:                                              ; preds = %290
   %374 = landingpad { ptr, i32 }
@@ -2489,7 +2495,7 @@ _ZN18GIM_ShapeRetriever13getChildShapeEi.exit:    ; preds = %266
   %.pn = phi { ptr, i32 } [ %456, %455 ], [ %446, %445 ], [ %374, %373 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #18
-  br label %475
+  br label %474
 
 ._crit_edge:                                      ; preds = %454, %199
   %458 = load ptr, ptr %3, align 8, !tbaa !4
@@ -2516,26 +2522,24 @@ _ZN18GIM_ShapeRetriever13getChildShapeEi.exit:    ; preds = %266
 
 466:                                              ; preds = %110, %91, %465
   %467 = load ptr, ptr %72, align 8, !tbaa !61
-  %.not.i.i.i = icmp eq ptr %467, null
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev.exit, label %468
+  %.not.i.i.i = icmp ne ptr %467, null
+  %468 = load i8, ptr %71, align 8, !range !66
+  %469 = trunc nuw i8 %468 to i1
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 %469, i1 false
+  br i1 %or.cond.i.i, label %470, label %_ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev.exit
 
-468:                                              ; preds = %466
-  %469 = load i8, ptr %71, align 8, !tbaa !66, !range !67, !noundef !68
-  %470 = trunc nuw i8 %469 to i1
-  br i1 %470, label %471, label %_ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev.exit
-
-471:                                              ; preds = %468
+470:                                              ; preds = %466
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %467)
-          to label %_ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev.exit unwind label %472
+          to label %_ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev.exit unwind label %471
 
-472:                                              ; preds = %471
-  %473 = landingpad { ptr, i32 }
+471:                                              ; preds = %470
+  %472 = landingpad { ptr, i32 }
           catch ptr null
-  %474 = extractvalue { ptr, i32 } %473, 0
-  call void @__clang_call_terminate(ptr %474) #19
+  %473 = extractvalue { ptr, i32 } %472, 0
+  call void @__clang_call_terminate(ptr %473) #19
   unreachable
 
-_ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev.exit:    ; preds = %466, %468, %471
+_ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev.exit:    ; preds = %466, %470
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #18
@@ -2544,14 +2548,14 @@ _ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev.exit:    ; preds = %466, %468, %471
 .loopexit:                                        ; preds = %47, %28, %41, %22, %_ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev.exit
   ret void
 
-475:                                              ; preds = %365, %369, %457, %371, %367, %363
+474:                                              ; preds = %365, %369, %457, %371, %367, %363
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %.pn, %457 ], [ %372, %371 ]
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %159) #18
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %157) #18
   br label %.body81
 
-.body81:                                          ; preds = %361, %186, %475
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %475 ], [ %362, %361 ], [ %.pn.i79, %186 ]
+.body81:                                          ; preds = %361, %186, %474
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %474 ], [ %362, %361 ], [ %.pn.i79, %186 ]
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %10) #18
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %126) #18
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %124) #18
@@ -2560,9 +2564,9 @@ _ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev.exit:    ; preds = %466, %468, %471
 .body:                                            ; preds = %359, %153, %.body81
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %.body81 ], [ %360, %359 ], [ %.pn.i, %153 ]
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %9) #18
-  br label %476
+  br label %475
 
-476:                                              ; preds = %.body, %113, %94
+475:                                              ; preds = %.body, %113, %94
   %.pn74 = phi { ptr, i32 } [ %114, %113 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %95, %94 ]
   call void @_ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %8) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #18
@@ -2575,34 +2579,31 @@ _ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev.exit:    ; preds = %466, %468, %471
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI8GIM_PAIRED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !61
-  %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %9, label %4
+  %.not.i.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = load i8, ptr %4, align 8, !range !66
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i = select i1 %.not.i.i, i1 %6, i1 false
+  br i1 %or.cond.i, label %7, label %8
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !66, !range !67, !noundef !68
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
-          to label %9 unwind label %13
+          to label %8 unwind label %11
 
-9:                                                ; preds = %4, %1, %8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %11, align 8, !tbaa !66
+8:                                                ; preds = %1, %7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 1, ptr %4, align 8, !tbaa !67
   store ptr null, ptr %2, align 8, !tbaa !61
-  store i32 0, ptr %10, align 4, !tbaa !56
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %12, align 8, !tbaa !60
+  store i32 0, ptr %9, align 4, !tbaa !56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %10, align 8, !tbaa !60
   ret void
 
-13:                                               ; preds = %8
-  %14 = landingpad { ptr, i32 }
+11:                                               ; preds = %7
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #19
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #19
   unreachable
 }
 
@@ -2728,7 +2729,7 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm16gimpact_vs_shapeEPK24bt
 71:                                               ; preds = %73, %47
   %72 = landingpad { ptr, i32 }
           cleanup
-  br label %200
+  br label %199
 
 73:                                               ; preds = %68
   %74 = load ptr, ptr %3, align 8, !tbaa !4
@@ -2867,12 +2868,12 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm16gimpact_vs_shapeEPK24bt
 137:                                              ; preds = %108
   %138 = landingpad { ptr, i32 }
           cleanup
-  br label %199
+  br label %198
 
 139:                                              ; preds = %._crit_edge
   %140 = landingpad { ptr, i32 }
           cleanup
-  br label %199
+  br label %198
 
 141:                                              ; preds = %130
   store i32 %133, ptr %117, align 8, !tbaa !23
@@ -2903,13 +2904,13 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm16gimpact_vs_shapeEPK24bt
 153:                                              ; preds = %142
   %154 = landingpad { ptr, i32 }
           cleanup
-  br label %199
+  br label %198
 
 155:                                              ; preds = %148
   %156 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #18
-  br label %199
+  br label %198
 
 157:                                              ; preds = %152, %147
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #18
@@ -2940,7 +2941,7 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm16gimpact_vs_shapeEPK24bt
   %170 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #18
-  br label %199
+  br label %198
 
 171:                                              ; preds = %157
   %172 = getelementptr inbounds nuw i8, ptr %162, i64 24
@@ -2992,26 +2993,24 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm16gimpact_vs_shapeEPK24bt
 
 190:                                              ; preds = %68, %189
   %191 = load ptr, ptr %65, align 8, !tbaa !82
-  %.not.i.i.i = icmp eq ptr %191, null
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit, label %192
+  %.not.i.i.i = icmp ne ptr %191, null
+  %192 = load i8, ptr %64, align 8, !range !66
+  %193 = trunc nuw i8 %192 to i1
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 %193, i1 false
+  br i1 %or.cond.i.i, label %194, label %_ZN20btAlignedObjectArrayIiED2Ev.exit
 
-192:                                              ; preds = %190
-  %193 = load i8, ptr %64, align 8, !tbaa !85, !range !67, !noundef !68
-  %194 = trunc nuw i8 %193 to i1
-  br i1 %194, label %195, label %_ZN20btAlignedObjectArrayIiED2Ev.exit
-
-195:                                              ; preds = %192
+194:                                              ; preds = %190
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %191)
-          to label %_ZN20btAlignedObjectArrayIiED2Ev.exit unwind label %196
+          to label %_ZN20btAlignedObjectArrayIiED2Ev.exit unwind label %195
 
-196:                                              ; preds = %195
-  %197 = landingpad { ptr, i32 }
+195:                                              ; preds = %194
+  %196 = landingpad { ptr, i32 }
           catch ptr null
-  %198 = extractvalue { ptr, i32 } %197, 0
-  call void @__clang_call_terminate(ptr %198) #19
+  %197 = extractvalue { ptr, i32 } %196, 0
+  call void @__clang_call_terminate(ptr %197) #19
   unreachable
 
-_ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %190, %192, %195
+_ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %190, %194
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
@@ -3020,18 +3019,18 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %190, %192, %195
 .loopexit:                                        ; preds = %24, %18, %_ZN20btAlignedObjectArrayIiED2Ev.exit, %46, %42, %40
   ret void
 
-199:                                              ; preds = %155, %169, %139, %153, %137
+198:                                              ; preds = %155, %169, %139, %153, %137
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %138, %137 ], [ %140, %139 ], [ %154, %153 ], [ %170, %169 ], [ %156, %155 ]
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %80) #18
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %78) #18
   br label %.body
 
-.body:                                            ; preds = %135, %107, %199
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %199 ], [ %136, %135 ], [ %.pn.i, %107 ]
+.body:                                            ; preds = %135, %107, %198
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %198 ], [ %136, %135 ], [ %.pn.i, %107 ]
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %10) #18
-  br label %200
+  br label %199
 
-200:                                              ; preds = %.body, %71
+199:                                              ; preds = %.body, %71
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %.body ], [ %72, %71 ]
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %9) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #18
@@ -3857,34 +3856,31 @@ define dso_local void @_ZN27btGImpactCollisionAlgorithm18gimpact_vs_concaveEPK24
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !82
-  %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %9, label %4
+  %.not.i.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = load i8, ptr %4, align 8, !range !66
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i = select i1 %.not.i.i, i1 %6, i1 false
+  br i1 %or.cond.i, label %7, label %8
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !85, !range !67, !noundef !68
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
-          to label %9 unwind label %13
+          to label %8 unwind label %11
 
-9:                                                ; preds = %4, %1, %8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %11, align 8, !tbaa !85
+8:                                                ; preds = %1, %7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 1, ptr %4, align 8, !tbaa !85
   store ptr null, ptr %2, align 8, !tbaa !82
-  store i32 0, ptr %10, align 4, !tbaa !77
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %12, align 8, !tbaa !81
+  store i32 0, ptr %9, align 4, !tbaa !77
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %10, align 8, !tbaa !81
   ret void
 
-13:                                               ; preds = %8
-  %14 = landingpad { ptr, i32 }
+11:                                               ; preds = %7
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #19
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #19
   unreachable
 }
 
@@ -4117,16 +4113,20 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, label %24, !llvm.loop !210
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
-  %.not.i5.i.i = icmp eq ptr %23, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
-
-_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %24, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
+  %.not.i5.i.i = icmp ne ptr %23, null
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = load i8, ptr %28, align 8, !tbaa !211, !range !67, !noundef !68
+  %29 = load i8, ptr %28, align 8, !range !66
   %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %31, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %or.cond.i = select i1 %.not.i5.i.i, i1 %30, i1 false
+  br i1 %or.cond.i, label %31, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
-31:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
+_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %24
+  %.old.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !211, !range !66, !noundef !68
+  %.old6.i = trunc nuw i8 %.old5.i to i1
+  br i1 %.old6.i, label %31, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+
+31:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %23)
   %.pre2.pre.pre.i = load i32, ptr %6, align 4, !tbaa !203
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
@@ -5055,7 +5055,7 @@ define linkonce_odr dso_local void @_ZN25btGImpactTriangleCallback15processTrian
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store float %13, ptr %14, align 8, !tbaa !212
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load i8, ptr %15, align 8, !tbaa !180, !range !67, !noundef !68
+  %16 = load i8, ptr %15, align 8, !tbaa !180, !range !66, !noundef !68
   %17 = trunc nuw i8 %16 to i1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !173
@@ -5271,8 +5271,8 @@ attributes #20 = { builtin nounwind }
 !63 = !{!"_ZTS8GIM_PAIR", !18, i64 0, !18, i64 4}
 !64 = !{!63, !18, i64 4}
 !65 = distinct !{!65, !54}
-!66 = !{!57, !50, i64 24}
-!67 = !{i8 0, i8 2}
+!66 = !{i8 0, i8 2}
+!67 = !{!57, !50, i64 24}
 !68 = !{}
 !69 = distinct !{!69, !54}
 !70 = !{!71}

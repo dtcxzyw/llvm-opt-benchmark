@@ -284,19 +284,17 @@ declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 define range(i8 39, 46) i8 @_ZN6icu_776number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE(i32 noundef %0) local_unnamed_addr #8 align 2 {
   %switch.tableidx = add i32 %0, 15
   %2 = icmp ugt i32 %0, -16
-  br i1 %2, label %switch.hole_check, label %3
-
-3:                                                ; preds = %switch.hole_check, %1
-  tail call void @abort() #10
-  unreachable
-
-switch.hole_check:                                ; preds = %1
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 32737, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
+  %or.cond = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %3
 
-switch.lookup:                                    ; preds = %switch.hole_check
+3:                                                ; preds = %1
+  tail call void @abort() #10
+  unreachable
+
+switch.lookup:                                    ; preds = %1
   %4 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [15 x i8], ptr @switch.table._ZN6icu_776number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %4
   %switch.load = load i8, ptr %switch.gep, align 1
@@ -402,19 +400,17 @@ _ZN6icu_776number4impl10AffixUtils7hasNextERKNS1_8AffixTagERKNS_13UnicodeStringE
   call void %62(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %.sroa.8.12.extract.trunc37)
   %switch.tableidx = add nsw i32 %.sroa.8.12.extract.trunc37, 15
   %63 = icmp ugt i64 %49, -64424509441
-  br i1 %63, label %switch.hole_check, label %64
-
-64:                                               ; preds = %switch.hole_check, %59
-  call void @abort() #10
-  unreachable
-
-switch.hole_check:                                ; preds = %59
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 32737, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %64
+  %or.cond = select i1 %63, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %64
 
-switch.lookup:                                    ; preds = %switch.hole_check
+64:                                               ; preds = %59
+  call void @abort() #10
+  unreachable
+
+switch.lookup:                                    ; preds = %59
   %65 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [15 x i8], ptr @switch.table._ZN6icu_776number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %65
   %switch.load = load i8, ptr %switch.gep, align 1

@@ -4626,8 +4626,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7V
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  %brmerge = or i1 %5, %8
-  br i1 %brmerge, label %9, label %12
+  %or.cond = or i1 %5, %8
+  br i1 %or.cond, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = xor i1 %5, %8

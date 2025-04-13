@@ -14127,18 +14127,16 @@ define noundef zeroext i1 @"_ZN187_$LT$wasmtime_environ..address_map.._..$LT$imp
 define { ptr, i64 } @_ZN16wasmtime_environ7builtin20BuiltinFunctionIndex4name17hf083180f880dc54dE(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4, !noundef !4
   %3 = icmp ult i32 %2, 31
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.shifted = lshr i32 2114060287, %2
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %4
 
-4:                                                ; preds = %switch.hole_check, %1
+4:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.73.llvm.560786137135708080, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d3bc062b7e92c7bfce2bb5fe22f60bc0.199) #23
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.shifted = lshr i32 2114060287, %2
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [31 x i64], ptr @switch.table._ZN16wasmtime_environ7builtin20BuiltinFunctionIndex4name17hf083180f880dc54dE, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8

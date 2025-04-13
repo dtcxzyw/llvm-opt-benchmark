@@ -169,7 +169,7 @@ define hidden void @_ZN22PathToGcRootsOperation4doitEv(ptr noundef nonnull reado
   %32 = trunc i8 %31 to i1
   %33 = call noundef i32 @_ZN22ObjectSampleCheckpoint15save_mark_wordsEPK13ObjectSamplerR18ObjectSampleMarkerb(ptr noundef %29, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %32) #8
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %83, label %35
+  br i1 %34, label %82, label %35
 
 35:                                               ; preds = %22
   %36 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -186,146 +186,144 @@ define hidden void @_ZN22PathToGcRootsOperation4doitEv(ptr noundef nonnull reado
   call void @_ZN13GranularTimer5startEll(i64 noundef %43, i64 noundef 1000000) #8
   call void @_ZN14RootSetClosureI10BFSClosureE7processEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #8
   %44 = call noundef zeroext i1 @_ZNK9EdgeQueue7is_fullEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
-  br i1 %44, label %49, label %45
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  %46 = load i8, ptr %45, align 1
+  %47 = trunc i8 %46 to i1
+  %or.cond = select i1 %44, i1 true, i1 %47
+  br i1 %or.cond, label %48, label %50
 
-45:                                               ; preds = %35
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %47 = load i8, ptr %46, align 1
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %51
+48:                                               ; preds = %35
+  %49 = load ptr, ptr %40, align 8
+  call void @_ZN10DFSClosure24find_leaks_from_root_setEP9EdgeStoreP12ObjectBitSetIL8MEMFLAGS16EE(ptr noundef %49, ptr noundef nonnull %2) #8
+  br label %51
 
-49:                                               ; preds = %45, %35
-  %50 = load ptr, ptr %40, align 8
-  call void @_ZN10DFSClosure24find_leaks_from_root_setEP9EdgeStoreP12ObjectBitSetIL8MEMFLAGS16EE(ptr noundef %50, ptr noundef nonnull %2) #8
-  br label %52
-
-51:                                               ; preds = %45
+50:                                               ; preds = %35
   call void @_ZN10BFSClosure7processEv(ptr noundef nonnull align 8 dereferenceable(81) %5) #8
-  br label %52
+  br label %51
 
-52:                                               ; preds = %51, %49
+51:                                               ; preds = %50, %48
   call void @_ZN13GranularTimer4stopEv() #8
-  %53 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not6.i = icmp eq ptr %53, null
-  br i1 %.not6.i, label %57, label %54
+  %52 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not6.i = icmp eq ptr %52, null
+  br i1 %.not6.i, label %56, label %53
 
-54:                                               ; preds = %52
-  %55 = call noundef i64 @_ZNK9EdgeQueue13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
-  %56 = lshr i64 %55, 10
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %56)
-  br label %57
+53:                                               ; preds = %51
+  %54 = call noundef i64 @_ZNK9EdgeQueue13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
+  %55 = lshr i64 %54, 10
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %55)
+  br label %56
 
-57:                                               ; preds = %54, %52
-  %58 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not7.i = icmp eq ptr %58, null
-  br i1 %.not7.i, label %61, label %59
+56:                                               ; preds = %53, %51
+  %57 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not7.i = icmp eq ptr %57, null
+  br i1 %.not7.i, label %60, label %58
 
-59:                                               ; preds = %57
-  %60 = call noundef i64 @_ZNK9EdgeQueue3topEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, i64 noundef %60)
-  br label %61
+58:                                               ; preds = %56
+  %59 = call noundef i64 @_ZNK9EdgeQueue3topEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, i64 noundef %59)
+  br label %60
 
-61:                                               ; preds = %59, %57
-  %62 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not8.i = icmp eq ptr %62, null
-  br i1 %.not8.i, label %66, label %63
+60:                                               ; preds = %58, %56
+  %61 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not8.i = icmp eq ptr %61, null
+  br i1 %.not8.i, label %65, label %62
 
-63:                                               ; preds = %61
-  %64 = call noundef i64 @_ZNK9EdgeQueue8live_setEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
-  %65 = lshr i64 %64, 10
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.12, i64 noundef %65)
-  br label %66
+62:                                               ; preds = %60
+  %63 = call noundef i64 @_ZNK9EdgeQueue8live_setEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
+  %64 = lshr i64 %63, 10
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.12, i64 noundef %64)
+  br label %65
 
-66:                                               ; preds = %63, %61
-  %67 = call noundef i64 @_ZNK9EdgeQueue13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
-  %.not.i = icmp eq i64 %67, 0
-  br i1 %.not.i, label %_ZL22log_edge_queue_summaryRK9EdgeQueue.exit, label %68
+65:                                               ; preds = %62, %60
+  %66 = call noundef i64 @_ZNK9EdgeQueue13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
+  %.not.i = icmp eq i64 %66, 0
+  br i1 %.not.i, label %_ZL22log_edge_queue_summaryRK9EdgeQueue.exit, label %67
 
-68:                                               ; preds = %66
-  %69 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not9.i = icmp eq ptr %69, null
-  br i1 %.not9.i, label %_ZL22log_edge_queue_summaryRK9EdgeQueue.exit, label %70
+67:                                               ; preds = %65
+  %68 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not9.i = icmp eq ptr %68, null
+  br i1 %.not9.i, label %_ZL22log_edge_queue_summaryRK9EdgeQueue.exit, label %69
 
-70:                                               ; preds = %68
-  %71 = call noundef i64 @_ZNK9EdgeQueue8live_setEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
-  %72 = uitofp i64 %71 to double
-  %73 = call noundef i64 @_ZNK9EdgeQueue13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
-  %74 = uitofp i64 %73 to double
-  %75 = fdiv double %72, %74
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.13, double noundef %75)
+69:                                               ; preds = %67
+  %70 = call noundef i64 @_ZNK9EdgeQueue8live_setEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
+  %71 = uitofp i64 %70 to double
+  %72 = call noundef i64 @_ZNK9EdgeQueue13reserved_sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
+  %73 = uitofp i64 %72 to double
+  %74 = fdiv double %71, %73
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.13, double noundef %74)
   br label %_ZL22log_edge_queue_summaryRK9EdgeQueue.exit
 
-_ZL22log_edge_queue_summaryRK9EdgeQueue.exit:     ; preds = %66, %68, %70
-  %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN13GranularTimer10start_timeEv() #8
-  %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN13GranularTimer8end_timeEv() #8
-  call void @_ZN12EventEmitterC1ERK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceES5_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %77) #8
-  %78 = load ptr, ptr %28, align 8
-  %79 = load ptr, ptr %40, align 8
-  %80 = load i8, ptr %30, align 8
-  %81 = trunc i8 %80 to i1
-  %82 = call noundef i64 @_ZN12EventEmitter12write_eventsEP13ObjectSamplerP9EdgeStoreb(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %78, ptr noundef %79, i1 noundef zeroext %81) #8
+_ZL22log_edge_queue_summaryRK9EdgeQueue.exit:     ; preds = %65, %67, %69
+  %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN13GranularTimer10start_timeEv() #8
+  %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN13GranularTimer8end_timeEv() #8
+  call void @_ZN12EventEmitterC1ERK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceES5_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull align 8 dereferenceable(8) %76) #8
+  %77 = load ptr, ptr %28, align 8
+  %78 = load ptr, ptr %40, align 8
+  %79 = load i8, ptr %30, align 8
+  %80 = trunc i8 %79 to i1
+  %81 = call noundef i64 @_ZN12EventEmitter12write_eventsEP13ObjectSamplerP9EdgeStoreb(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %77, ptr noundef %78, i1 noundef zeroext %80) #8
   call void @_ZN12EventEmitterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
-  br label %83
+  br label %82
 
-83:                                               ; preds = %22, %_ZL22log_edge_queue_summaryRK9EdgeQueue.exit
-  %84 = load ptr, ptr %4, align 8
-  %85 = load i32, ptr %84, align 4
-  %.not2.i = icmp eq i32 %85, 0
+82:                                               ; preds = %22, %_ZL22log_edge_queue_summaryRK9EdgeQueue.exit
+  %83 = load ptr, ptr %4, align 8
+  %84 = load i32, ptr %83, align 4
+  %.not2.i = icmp eq i32 %84, 0
   br i1 %.not2.i, label %_ZN18ObjectSampleMarkerD2Ev.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %83, %.lr.ph.i
-  %86 = phi i32 [ %94, %.lr.ph.i ], [ %85, %83 ]
-  %87 = phi ptr [ %93, %.lr.ph.i ], [ %84, %83 ]
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = add nsw i32 %86, -1
-  store i32 %90, ptr %87, align 8
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds %"class.ObjectSampleMarker::ObjectSampleMarkWord", ptr %89, i64 %91
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %92, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %92, i64 8
+.lr.ph.i:                                         ; preds = %82, %.lr.ph.i
+  %85 = phi i32 [ %93, %.lr.ph.i ], [ %84, %82 ]
+  %86 = phi ptr [ %92, %.lr.ph.i ], [ %83, %82 ]
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = add nsw i32 %85, -1
+  store i32 %89, ptr %86, align 8
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds %"class.ObjectSampleMarker::ObjectSampleMarkWord", ptr %88, i64 %90
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %91, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %91, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store volatile i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.0.0.copyload.i.i, align 8
-  %93 = load ptr, ptr %4, align 8
-  %94 = load i32, ptr %93, align 4
-  %.not.i2 = icmp eq i32 %94, 0
-  br i1 %.not.i2, label %_ZN18ObjectSampleMarkerD2Ev.exit, label %.lr.ph.i, !llvm.loop !6
+  %92 = load ptr, ptr %4, align 8
+  %93 = load i32, ptr %92, align 4
+  %.not.i4 = icmp eq i32 %93, 0
+  br i1 %.not.i4, label %_ZN18ObjectSampleMarkerD2Ev.exit, label %.lr.ph.i, !llvm.loop !6
 
-_ZN18ObjectSampleMarkerD2Ev.exit:                 ; preds = %.lr.ph.i, %83, %21, %19
+_ZN18ObjectSampleMarkerD2Ev.exit:                 ; preds = %.lr.ph.i, %82, %21, %19
   call void @_ZN9EdgeQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #8
-  %95 = load ptr, ptr %12, align 8
-  %.not5.i = icmp eq ptr %95, null
-  br i1 %.not5.i, label %._crit_edge.i, label %.lr.ph.i3
+  %94 = load ptr, ptr %12, align 8
+  %.not5.i = icmp eq ptr %94, null
+  br i1 %.not5.i, label %._crit_edge.i, label %.lr.ph.i5
 
-.lr.ph.i3:                                        ; preds = %_ZN18ObjectSampleMarkerD2Ev.exit, %.lr.ph.i3
-  %.06.i = phi ptr [ %97, %.lr.ph.i3 ], [ %95, %_ZN18ObjectSampleMarkerD2Ev.exit ]
-  %96 = getelementptr inbounds nuw i8, ptr %.06.i, i64 24
-  %97 = load ptr, ptr %96, align 8
+.lr.ph.i5:                                        ; preds = %_ZN18ObjectSampleMarkerD2Ev.exit, %.lr.ph.i5
+  %.06.i = phi ptr [ %96, %.lr.ph.i5 ], [ %94, %_ZN18ObjectSampleMarkerD2Ev.exit ]
+  %95 = getelementptr inbounds nuw i8, ptr %.06.i, i64 24
+  %96 = load ptr, ptr %95, align 8
   call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.06.i) #8
   call void @_Z8FreeHeapPv(ptr noundef nonnull %.06.i) #8
-  %.not.i4 = icmp eq ptr %97, null
-  br i1 %.not.i4, label %._crit_edge.i, label %.lr.ph.i3, !llvm.loop !8
+  %.not.i6 = icmp eq ptr %96, null
+  br i1 %.not.i6, label %._crit_edge.i, label %.lr.ph.i5, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i3, %_ZN18ObjectSampleMarkerD2Ev.exit
-  %98 = load ptr, ptr %9, align 8
-  %99 = load i32, ptr %2, align 8
-  %100 = zext i32 %99 to i64
-  %.not15.i.i.i = icmp eq i32 %99, 0
+._crit_edge.i:                                    ; preds = %.lr.ph.i5, %_ZN18ObjectSampleMarkerD2Ev.exit
+  %97 = load ptr, ptr %9, align 8
+  %98 = load i32, ptr %2, align 8
+  %99 = zext i32 %98 to i64
+  %.not15.i.i.i = icmp eq i32 %98, 0
   br i1 %.not15.i.i.i, label %_ZN12ObjectBitSetIL8MEMFLAGS16EED2Ev.exit, label %.lr.ph13.i.i.i
 
 .lr.ph13.i.i.i:                                   ; preds = %._crit_edge.i, %._crit_edge.i.i.i
-  %101 = phi ptr [ %105, %._crit_edge.i.i.i ], [ %98, %._crit_edge.i ]
-  %.011.i.i.i = phi ptr [ %106, %._crit_edge.i.i.i ], [ %98, %._crit_edge.i ]
-  %102 = load ptr, ptr %.011.i.i.i, align 8
-  %.not9.i.i.i = icmp eq ptr %102, null
+  %100 = phi ptr [ %104, %._crit_edge.i.i.i ], [ %97, %._crit_edge.i ]
+  %.011.i.i.i = phi ptr [ %105, %._crit_edge.i.i.i ], [ %97, %._crit_edge.i ]
+  %101 = load ptr, ptr %.011.i.i.i, align 8
+  %.not9.i.i.i = icmp eq ptr %101, null
   br i1 %.not9.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph13.i.i.i, %.lr.ph.i.i.i
-  %.0810.i.i.i = phi ptr [ %104, %.lr.ph.i.i.i ], [ %102, %.lr.ph13.i.i.i ]
-  %103 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i, i64 24
-  %104 = load ptr, ptr %103, align 8
+  %.0810.i.i.i = phi ptr [ %103, %.lr.ph.i.i.i ], [ %101, %.lr.ph13.i.i.i ]
+  %102 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i, i64 24
+  %103 = load ptr, ptr %102, align 8
   call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0810.i.i.i) #8
-  %.not.i.i.i = icmp eq ptr %104, null
+  %.not.i.i.i = icmp eq ptr %103, null
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
@@ -333,14 +331,14 @@ _ZN18ObjectSampleMarkerD2Ev.exit:                 ; preds = %.lr.ph.i, %83, %21,
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %.lr.ph13.i.i.i
-  %105 = phi ptr [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %101, %.lr.ph13.i.i.i ]
-  %106 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
-  %107 = getelementptr inbounds nuw ptr, ptr %105, i64 %100
-  %108 = icmp ult ptr %106, %107
-  br i1 %108, label %.lr.ph13.i.i.i, label %_ZN12ObjectBitSetIL8MEMFLAGS16EED2Ev.exit, !llvm.loop !10
+  %104 = phi ptr [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %100, %.lr.ph13.i.i.i ]
+  %105 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
+  %106 = getelementptr inbounds nuw ptr, ptr %104, i64 %99
+  %107 = icmp ult ptr %105, %106
+  br i1 %107, label %.lr.ph13.i.i.i, label %_ZN12ObjectBitSetIL8MEMFLAGS16EED2Ev.exit, !llvm.loop !10
 
 _ZN12ObjectBitSetIL8MEMFLAGS16EED2Ev.exit:        ; preds = %._crit_edge.i.i.i, %._crit_edge.i
-  %.lcssa.i.i.i = phi ptr [ %98, %._crit_edge.i ], [ %105, %._crit_edge.i.i.i ]
+  %.lcssa.i.i.i = phi ptr [ %97, %._crit_edge.i ], [ %104, %._crit_edge.i.i.i ]
   call void @_Z8FreeHeapPv(ptr noundef %.lcssa.i.i.i) #8
   ret void
 }

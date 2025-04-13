@@ -6716,15 +6716,15 @@ define hidden void @_ZN4core4iter8adapters11try_process17h085d31d8fb0a583eE(ptr 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1525
   %10 = load i8, ptr %5, align 8, !range !152, !noundef !9
   %.not.not = icmp eq i8 %10, 44
-  br i1 %.not.not, label %.thread, label %13
+  br i1 %.not.not, label %.thread14, label %13
 
-.thread:                                          ; preds = %9
+.thread14:                                        ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i8 44, ptr %0, align 8, !alias.scope !1537, !noalias !1540
   br label %12
 
-12:                                               ; preds = %13, %.thread
+12:                                               ; preds = %13, %.thread14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
   ret void
@@ -6740,7 +6740,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h085d31d8fb0a583eE(ptr 
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #40
   unreachable
 
-"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$just..error..Error$GT$$GT$17h5c694f1547dadd0aE.llvm.17757648456425634998.exit": ; preds = %6, %16
+"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$just..error..Error$GT$$GT$17h5c694f1547dadd0aE.llvm.17757648456425634998.exit": ; preds = %16, %6
   resume { ptr, i32 } %7
 
 16:                                               ; preds = %6

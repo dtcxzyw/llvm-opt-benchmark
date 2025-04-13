@@ -10721,17 +10721,17 @@ define hidden i32 @_ZN2bv6solver7mk_trueEv(ptr noundef nonnull align 8 dereferen
 
 46:                                               ; preds = %20
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 3832
-  %48 = load i8, ptr %47, align 8, !tbaa !260, !range !108, !noundef !109
+  %48 = load i8, ptr %47, align 8, !range !108
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %_ZN3sat6solver11assign_unitENS_7literalE.exit, label %50
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 3296
   %52 = lshr i32 %35, 1
-  %53 = load ptr, ptr %51, align 8, !tbaa !388
+  %53 = load ptr, ptr %51, align 8, !tbaa !260
   %54 = zext nneg i32 %52 to i64
   %55 = getelementptr inbounds nuw %"class.sat::justification", ptr %53, i64 %54
-  %56 = load i32, ptr %55, align 8, !tbaa !389
+  %56 = load i32, ptr %55, align 8, !tbaa !263
   %.not.i.i.i = icmp eq i32 %56, 0
   br i1 %.not.i.i.i, label %_ZN3sat6solver11assign_unitENS_7literalE.exit, label %57
 
@@ -10920,7 +10920,7 @@ _ZN2bv6solver23register_true_false_bitEij.exit:   ; preds = %24, %30
   %52 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %51, i64 noundef 16)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2bv6solver17add_var_pos_trailE, i64 16), ptr %52, align 8, !tbaa !42
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %44, ptr %53, align 8, !tbaa !390
+  store ptr %44, ptr %53, align 8, !tbaa !265
   %54 = load ptr, ptr %50, align 8, !tbaa !44
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.noexc13, label %56
@@ -11567,7 +11567,7 @@ _ZNK10arith_util6mk_addEjPKP4expr.exit.thread:    ; preds = %54
   br label %_ZN11ast_manager7inc_refEP3ast.exit.i.i44
 
 62:                                               ; preds = %54, %._crit_edge
-  %63 = load ptr, ptr %36, align 8, !tbaa !392
+  %63 = load ptr, ptr %36, align 8, !tbaa !267
   %64 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %63, i32 noundef 5, i32 noundef 6, i32 noundef %32, ptr noundef %52)
           to label %_ZNK10arith_util6mk_addEjPKP4expr.exit unwind label %229
 
@@ -11596,7 +11596,7 @@ _ZNK10arith_util6mk_addEjPKP4expr.exit.thread:    ; preds = %54
           to label %76 unwind label %103
 
 76:                                               ; preds = %71
-  %77 = load ptr, ptr %51, align 8, !tbaa !395
+  %77 = load ptr, ptr %51, align 8, !tbaa !270
   %.not.i.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i.i, label %78, label %_ZNK10arith_util10mk_numeralERK8rationalb.exit.i
 
@@ -11605,7 +11605,7 @@ _ZNK10arith_util6mk_addEjPKP4expr.exit.thread:    ; preds = %54
           to label %.noexc39 unwind label %103
 
 .noexc39:                                         ; preds = %78
-  %.pre.i.i.i = load ptr, ptr %51, align 8, !tbaa !395
+  %.pre.i.i.i = load ptr, ptr %51, align 8, !tbaa !270
   br label %_ZNK10arith_util10mk_numeralERK8rationalb.exit.i
 
 _ZNK10arith_util10mk_numeralERK8rationalb.exit.i: ; preds = %.noexc39, %76
@@ -11739,7 +11739,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit45: ; preds = %_ZN11ast_manager7i
 .noexc48:                                         ; preds = %128
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV16push_back_vectorI10ptr_vectorIN3euf5enodeEEE, i64 16), ptr %139, align 8, !tbaa !42
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  store ptr %116, ptr %140, align 8, !tbaa !396
+  store ptr %116, ptr %140, align 8, !tbaa !271
   %141 = load ptr, ptr %137, align 8, !tbaa !44
   %142 = icmp eq ptr %141, null
   br i1 %142, label %149, label %143
@@ -12149,7 +12149,7 @@ define linkonce_odr hidden noundef ptr @_ZN10arith_util6mk_intEi(ptr noundef non
   %11 = and i8 %10, -2
   store i8 %11, ptr %7, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !395
+  %13 = load ptr, ptr %12, align 8, !tbaa !270
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %14, label %_ZNK10arith_util6pluginEv.exit.i
 
@@ -12158,7 +12158,7 @@ define linkonce_odr hidden noundef ptr @_ZN10arith_util6mk_intEi(ptr noundef non
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %14
-  %.pre.i.i = load ptr, ptr %12, align 8, !tbaa !395
+  %.pre.i.i = load ptr, ptr %12, align 8, !tbaa !270
   br label %_ZNK10arith_util6pluginEv.exit.i
 
 _ZNK10arith_util6pluginEv.exit.i:                 ; preds = %.noexc, %2
@@ -12331,24 +12331,24 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %41
   %69 = load i8, ptr %63, align 4
   %70 = and i8 %69, -2
   store i8 %70, ptr %63, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !398)
-  call void @llvm.experimental.noalias.scope.decl(metadata !401)
-  store i32 0, ptr %5, align 8, !tbaa !135, !alias.scope !404
+  call void @llvm.experimental.noalias.scope.decl(metadata !273)
+  call void @llvm.experimental.noalias.scope.decl(metadata !276)
+  store i32 0, ptr %5, align 8, !tbaa !135, !alias.scope !279
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %72 = load i8, ptr %71, align 4, !alias.scope !404
+  %72 = load i8, ptr %71, align 4, !alias.scope !279
   %73 = and i8 %72, -4
-  store i8 %73, ptr %71, align 4, !alias.scope !404
+  store i8 %73, ptr %71, align 4, !alias.scope !279
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %74, align 8, !tbaa !138, !alias.scope !404
+  store ptr null, ptr %74, align 8, !tbaa !138, !alias.scope !279
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 1, ptr %75, align 8, !tbaa !135, !alias.scope !404
+  store i32 1, ptr %75, align 8, !tbaa !135, !alias.scope !279
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %77 = load i8, ptr %76, align 4, !alias.scope !404
+  %77 = load i8, ptr %76, align 4, !alias.scope !279
   %78 = and i8 %77, -4
-  store i8 %78, ptr %76, align 4, !alias.scope !404
+  store i8 %78, ptr %76, align 4, !alias.scope !279
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr null, ptr %79, align 8, !tbaa !138, !alias.scope !404
-  %80 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !206, !noalias !404
+  store ptr null, ptr %79, align 8, !tbaa !138, !alias.scope !279
+  %80 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !206, !noalias !279
   invoke void @_ZN11mpq_managerILb1EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %80, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %57, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_Z5powerRK8rationalj.exit unwind label %.body
 
@@ -12379,7 +12379,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %88 = load ptr, ptr %87, align 8, !tbaa !395
+  %88 = load ptr, ptr %87, align 8, !tbaa !270
   %.not.i.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i.i, label %89, label %_ZNK10arith_util10mk_numeralERK8rationalb.exit.i
 
@@ -12388,7 +12388,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
           to label %.noexc44 unwind label %168
 
 .noexc44:                                         ; preds = %89
-  %.pre.i.i.i = load ptr, ptr %87, align 8, !tbaa !395
+  %.pre.i.i.i = load ptr, ptr %87, align 8, !tbaa !270
   br label %_ZNK10arith_util10mk_numeralERK8rationalb.exit.i
 
 _ZNK10arith_util10mk_numeralERK8rationalb.exit.i: ; preds = %.noexc44, %_ZN8rationalD2Ev.exit
@@ -12397,7 +12397,7 @@ _ZNK10arith_util10mk_numeralERK8rationalb.exit.i: ; preds = %.noexc44, %_ZN8rati
           to label %_ZN10arith_util6mk_intERK8rational.exit unwind label %168
 
 _ZN10arith_util6mk_intERK8rational.exit:          ; preds = %_ZNK10arith_util10mk_numeralERK8rationalb.exit.i
-  %92 = load ptr, ptr %86, align 8, !tbaa !392
+  %92 = load ptr, ptr %86, align 8, !tbaa !267
   %93 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %92, i32 noundef 5, i32 noundef 16, ptr noundef %.095, ptr noundef %91)
           to label %_ZN10arith_util6mk_modEP4exprS1_.exit unwind label %168
 
@@ -12676,7 +12676,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %196, %200
   br i1 %201, label %_ZN10arith_util7mk_idivEP4exprS1_.exit, label %202
 
 202:                                              ; preds = %_ZN8rationalC2ERKS_.exit
-  %203 = load ptr, ptr %87, align 8, !tbaa !395
+  %203 = load ptr, ptr %87, align 8, !tbaa !270
   %.not.i.i.i61 = icmp eq ptr %203, null
   br i1 %.not.i.i.i61, label %204, label %_ZNK10arith_util10mk_numeralERK8rationalb.exit.i62
 
@@ -12685,7 +12685,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %196, %200
           to label %.noexc64 unwind label %280
 
 .noexc64:                                         ; preds = %204
-  %.pre.i.i.i63 = load ptr, ptr %87, align 8, !tbaa !395
+  %.pre.i.i.i63 = load ptr, ptr %87, align 8, !tbaa !270
   br label %_ZNK10arith_util10mk_numeralERK8rationalb.exit.i62
 
 _ZNK10arith_util10mk_numeralERK8rationalb.exit.i62: ; preds = %.noexc64, %202
@@ -12694,7 +12694,7 @@ _ZNK10arith_util10mk_numeralERK8rationalb.exit.i62: ; preds = %.noexc64, %202
           to label %_ZN10arith_util6mk_intERK8rational.exit66 unwind label %280
 
 _ZN10arith_util6mk_intERK8rational.exit66:        ; preds = %_ZNK10arith_util10mk_numeralERK8rationalb.exit.i62
-  %207 = load ptr, ptr %86, align 8, !tbaa !392
+  %207 = load ptr, ptr %86, align 8, !tbaa !267
   %208 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %207, i32 noundef 5, i32 noundef 11, ptr noundef %.095, ptr noundef %206)
           to label %_ZN10arith_util7mk_idivEP4exprS1_.exit unwind label %280
 
@@ -12733,7 +12733,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i69:          ; preds = %_ZN10arith_util7mk_
           to label %223 unwind label %280
 
 223:                                              ; preds = %221
-  %224 = load ptr, ptr %86, align 8, !tbaa !392
+  %224 = load ptr, ptr %86, align 8, !tbaa !267
   %225 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %224, i32 noundef 5, i32 noundef 16, ptr noundef %209, ptr noundef %222)
           to label %_ZN10arith_util6mk_modEP4exprS1_.exit74 unwind label %280
 
@@ -12864,7 +12864,7 @@ _ZN8rationalD2Ev.exit89:                          ; preds = %.noexc.i88
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %174, !llvm.loop !405
+  br i1 %exitcond.not, label %._crit_edge, label %174, !llvm.loop !280
 
 278:                                              ; preds = %200, %190, %174
   %279 = landingpad { ptr, i32 }
@@ -13182,7 +13182,7 @@ declare void @_ZN8rational12power_of_twoEj(ptr dead_on_unwind writable sret(%cla
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2bv6solver15eq_internalizedEPN3euf5enodeE(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %4 = load i32, ptr %3, align 4, !tbaa !406
+  %4 = load i32, ptr %3, align 4, !tbaa !281
   %5 = shl i32 %4, 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %7 = load ptr, ptr %6, align 8, !tbaa !113
@@ -13320,10 +13320,10 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %_ZNK3euf5enode10get
 
 85:                                               ; preds = %77
   %86 = getelementptr inbounds nuw i8, ptr %67, i64 2356
-  %87 = load i32, ptr %86, align 4, !tbaa !407
+  %87 = load i32, ptr %86, align 4, !tbaa !282
   %88 = mul i32 %87, 214013
   %89 = add i32 %88, 2531011
-  store i32 %89, ptr %86, align 4, !tbaa !407
+  store i32 %89, ptr %86, align 4, !tbaa !282
   %90 = and i32 %89, 65536
   %91 = icmp eq i32 %90, 0
   %92 = trunc nuw i64 %indvars.iv to i32
@@ -13344,7 +13344,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %_ZNK3euf5enode10get
 99:                                               ; preds = %81, %96, %93, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !408
+  br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !284
 
 .loopexit:                                        ; preds = %99, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, %_ZNK3euf5enode10get_th_varEi.exit69, %46
   ret void
@@ -13364,7 +13364,7 @@ define hidden void @_ZN2bv6solver15eq_internalizedEjjjiiN3sat7literalEPN3euf5eno
   %14 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %13, i64 noundef 16)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2bv6solver19add_eq_occurs_trailE, i64 16), ptr %14, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %9, ptr %15, align 8, !tbaa !409
+  store ptr %9, ptr %15, align 8, !tbaa !285
   %16 = load ptr, ptr %12, align 8, !tbaa !44
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.noexc20, label %18
@@ -13397,19 +13397,19 @@ define hidden void @_ZN2bv6solver15eq_internalizedEjjjiiN3sat7literalEPN3euf5eno
   %32 = load ptr, ptr %31, align 8, !tbaa !13
   %33 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN3euf13th_euf_solver10get_regionEv(ptr noundef nonnull align 8 dereferenceable(108) %0)
   %34 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %33, i64 noundef 48)
-  store i32 %1, ptr %34, align 8, !tbaa !411
+  store i32 %1, ptr %34, align 8, !tbaa !287
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 %2, ptr %35, align 4, !tbaa !412
+  store i32 %2, ptr %35, align 4, !tbaa !288
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 %3, ptr %36, align 8, !tbaa !413
+  store i32 %3, ptr %36, align 8, !tbaa !289
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  store i32 %4, ptr %37, align 4, !tbaa !414
+  store i32 %4, ptr %37, align 4, !tbaa !290
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i32 %5, ptr %38, align 8, !tbaa !415
+  store i32 %5, ptr %38, align 8, !tbaa !291
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i32 %6, ptr %39, align 4, !tbaa !47
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr %7, ptr %40, align 8, !tbaa !416
+  store ptr %7, ptr %40, align 8, !tbaa !292
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr %32, ptr %41, align 8, !tbaa !12
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -13452,9 +13452,9 @@ define hidden void @_ZN2bv6solver15assert_ackermanEii(ptr noundef nonnull align 
   %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %spec.select57 = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %16 = load i32, ptr %15, align 4, !tbaa !417
+  %16 = load i32, ptr %15, align 4, !tbaa !293
   %17 = add i32 %16, 1
-  store i32 %17, ptr %15, align 4, !tbaa !417
+  store i32 %17, ptr %15, align 4, !tbaa !293
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load ptr, ptr %18, align 8, !tbaa !112
   %20 = zext i32 %spec.select57 to i64
@@ -13720,7 +13720,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit42:       ; preds = %_ZN7obj_refI4expr11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25
   %136 = add nuw i32 %.01958, 1
   %exitcond.not = icmp eq i32 %136, %.0.i
-  br i1 %exitcond.not, label %._crit_edge, label %75, !llvm.loop !452
+  br i1 %exitcond.not, label %._crit_edge, label %75, !llvm.loop !332
 
 137:                                              ; preds = %98, %96
   %138 = landingpad { ptr, i32 }
@@ -13755,11 +13755,11 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit42:       ; preds = %_ZN7obj_refI4expr11
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i:   ; preds = %146, %141
   %.0.i.i = phi i32 [ %148, %146 ], [ 0, %141 ]
-  store i32 2, ptr %4, align 8, !tbaa !453
+  store i32 2, ptr %4, align 8, !tbaa !333
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %149, align 4, !tbaa !457
+  store i32 0, ptr %149, align 4, !tbaa !337
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %70, ptr %150, align 8, !tbaa !458
+  store ptr %70, ptr %150, align 8, !tbaa !338
   %151 = invoke noundef ptr @_ZN3sat6solver9mk_clauseEjPNS_7literalENS_6statusE(ptr noundef nonnull align 8 dereferenceable(4264) %143, i32 noundef %.0.i.i, ptr noundef %144, ptr noundef nonnull %4)
           to label %152 unwind label %172
 
@@ -13850,7 +13850,7 @@ define linkonce_odr hidden void @_ZN2bv6solverD2Ev(ptr noundef nonnull align 8 d
   %.idx = phi i64 [ 640, %1 ], [ %.add, %_ZN6vectorIiLb0EjED2Ev.exit ]
   %.add = add nsw i64 %.idx, -8
   %.ptr1 = getelementptr inbounds i8, ptr %0, i64 %.add
-  %6 = load ptr, ptr %.ptr1, align 8, !tbaa !459
+  %6 = load ptr, ptr %.ptr1, align 8, !tbaa !339
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %_ZN6vectorIiLb0EjED2Ev.exit, label %7
 
@@ -13872,7 +13872,7 @@ _ZN6vectorIiLb0EjED2Ev.exit:                      ; preds = %5, %7
 
 13:                                               ; preds = %_ZN6vectorIiLb0EjED2Ev.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %15 = load ptr, ptr %14, align 8, !tbaa !460
+  %15 = load ptr, ptr %14, align 8, !tbaa !340
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN7obj_mapI4exprN2bv6solver16internalize_modeEED2Ev.exit, label %17
 
@@ -13888,9 +13888,9 @@ _ZN6vectorIiLb0EjED2Ev.exit:                      ; preds = %5, %7
   unreachable
 
 _ZN7obj_mapI4exprN2bv6solver16internalize_modeEED2Ev.exit: ; preds = %13, %17
-  store ptr null, ptr %14, align 8, !tbaa !460
+  store ptr null, ptr %14, align 8, !tbaa !340
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %22 = load ptr, ptr %21, align 8, !tbaa !461
+  %22 = load ptr, ptr %21, align 8, !tbaa !341
   %23 = icmp eq ptr %22, null
   br i1 %23, label %_ZN7obj_mapI3appPN2bv8lazy_mulEED2Ev.exit, label %24
 
@@ -13906,7 +13906,7 @@ _ZN7obj_mapI4exprN2bv6solver16internalize_modeEED2Ev.exit: ; preds = %13, %17
   unreachable
 
 _ZN7obj_mapI3appPN2bv8lazy_mulEED2Ev.exit:        ; preds = %_ZN7obj_mapI4exprN2bv6solver16internalize_modeEED2Ev.exit, %24
-  store ptr null, ptr %21, align 8, !tbaa !461
+  store ptr null, ptr %21, align 8, !tbaa !341
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %29 = load ptr, ptr %28, align 8, !tbaa !112
   %.not.i.i3 = icmp eq ptr %29, null
@@ -13944,7 +13944,7 @@ _ZN6vectorIPN3euf5enodeELb0EjED2Ev.exit:          ; preds = %_ZN7obj_mapI3appPN2
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %_ZN6vectorIPN3euf5enodeELb0EjED2Ev.exit, %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %43 = load ptr, ptr %42, align 8, !tbaa !462
+  %43 = load ptr, ptr %42, align 8, !tbaa !342
   %.not.i.i5 = icmp eq ptr %43, null
   br i1 %.not.i.i5, label %_ZN6vectorIN2bv6solver16propagation_itemELb0EjED2Ev.exit, label %44
 
@@ -13980,7 +13980,7 @@ _ZN6vectorIN2bv6solver16propagation_itemELb0EjED2Ev.exit: ; preds = %_ZN6vectorI
 
 _ZN6vectorIN3sat7literalELb0EjED2Ev.exit:         ; preds = %_ZN6vectorIN2bv6solver16propagation_itemELb0EjED2Ev.exit, %51
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %57 = load ptr, ptr %56, align 8, !tbaa !463
+  %57 = load ptr, ptr %56, align 8, !tbaa !343
   %.not.i.i7 = icmp eq ptr %57, null
   br i1 %.not.i.i7, label %_ZN6vectorI8rationalLb1EjED2Ev.exit, label %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i.i.i
 
@@ -14013,10 +14013,10 @@ _ZSt8_DestroyI8rationalEvPT_.exit.i.i.i.i.i.i:    ; preds = %.noexc.i.i.i.i.i.i.
   %65 = getelementptr inbounds nuw i8, ptr %.047.i.i.i.i.i.i, i64 32
   %66 = add i32 %.08.i.i.i.i.i.i, -1
   %.not.i.i.i.i.i.i = icmp eq i32 %66, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN6vectorI8rationalLb1EjE16destroy_elementsEv.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !464
+  br i1 %.not.i.i.i.i.i.i, label %_ZN6vectorI8rationalLb1EjE16destroy_elementsEv.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !344
 
 _ZN6vectorI8rationalLb1EjE16destroy_elementsEv.exit.loopexit.i.i: ; preds = %_ZSt8_DestroyI8rationalEvPT_.exit.i.i.i.i.i.i
-  %.pre.i.i = load ptr, ptr %56, align 8, !tbaa !463
+  %.pre.i.i = load ptr, ptr %56, align 8, !tbaa !343
   br label %_ZN6vectorI8rationalLb1EjE16destroy_elementsEv.exit.i.i
 
 _ZN6vectorI8rationalLb1EjE16destroy_elementsEv.exit.i.i: ; preds = %_ZN6vectorI8rationalLb1EjE16destroy_elementsEv.exit.loopexit.i.i, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i.i.i
@@ -14034,13 +14034,13 @@ _ZN6vectorI8rationalLb1EjE16destroy_elementsEv.exit.i.i: ; preds = %_ZN6vectorI8
 
 _ZN6vectorI8rationalLb1EjED2Ev.exit:              ; preds = %_ZN6vectorIN3sat7literalELb0EjED2Ev.exit, %_ZN6vectorI8rationalLb1EjE16destroy_elementsEv.exit.i.i
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %73 = load ptr, ptr %72, align 8, !tbaa !465
+  %73 = load ptr, ptr %72, align 8, !tbaa !345
   %74 = icmp eq ptr %73, null
   br i1 %74, label %_ZN9table2mapI17default_map_entryISt4pairI8rationaljEiE9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EED2Ev.exit, label %75
 
 75:                                               ; preds = %_ZN6vectorI8rationalLb1EjED2Ev.exit
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %77 = load i32, ptr %76, align 8, !tbaa !466
+  %77 = load i32, ptr %76, align 8, !tbaa !346
   %.not6.i.i.i.i.i.i.i = icmp eq i32 %77, 0
   br i1 %.not6.i.i.i.i.i.i.i, label %_ZSt9destroy_nIP17default_map_entryISt4pairI8rationaljEiEjET_S6_T0_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -14068,7 +14068,7 @@ _ZSt8_DestroyI17default_map_entryISt4pairI8rationaljEiEEvPT_.exit.i.i.i.i.i.i.i:
   %84 = getelementptr inbounds nuw i8, ptr %.047.i.i.i.i.i.i.i, i64 56
   %85 = add i32 %.08.i.i.i.i.i.i.i, -1
   %.not.i.i.i.i.i.i.i = icmp eq i32 %85, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt9destroy_nIP17default_map_entryISt4pairI8rationaljEiEjET_S6_T0_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !467
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt9destroy_nIP17default_map_entryISt4pairI8rationaljEiEjET_S6_T0_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !347
 
 _ZSt9destroy_nIP17default_map_entryISt4pairI8rationaljEiEjET_S6_T0_.exit.i.i.i.i: ; preds = %_ZSt8_DestroyI17default_map_entryISt4pairI8rationaljEiEEvPT_.exit.i.i.i.i.i.i.i, %75
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %73)
@@ -14082,7 +14082,7 @@ _ZSt9destroy_nIP17default_map_entryISt4pairI8rationaljEiEjET_S6_T0_.exit.i.i.i.i
   unreachable
 
 _ZN9table2mapI17default_map_entryISt4pairI8rationaljEiE9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EED2Ev.exit: ; preds = %_ZN6vectorI8rationalLb1EjED2Ev.exit, %_ZSt9destroy_nIP17default_map_entryISt4pairI8rationaljEiEjET_S6_T0_.exit.i.i.i.i
-  store ptr null, ptr %72, align 8, !tbaa !465
+  store ptr null, ptr %72, align 8, !tbaa !345
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %90 = load ptr, ptr %89, align 8, !tbaa !231
   %.not.i.i8 = icmp eq ptr %90, null
@@ -14135,7 +14135,7 @@ _ZSt8_DestroyI7svectorIN2bv6solver12zero_one_bitEjEEvPT_.exit.i.i.i.i.i.i: ; pre
   %106 = getelementptr inbounds nuw i8, ptr %.047.i.i.i.i.i.i13, i64 8
   %107 = add i32 %.08.i.i.i.i.i.i12, -1
   %.not.i.i.i.i.i.i14 = icmp eq i32 %107, 0
-  br i1 %.not.i.i.i.i.i.i14, label %_ZN6vectorI7svectorIN2bv6solver12zero_one_bitEjELb1EjE16destroy_elementsEv.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i11, !llvm.loop !468
+  br i1 %.not.i.i.i.i.i.i14, label %_ZN6vectorI7svectorIN2bv6solver12zero_one_bitEjELb1EjE16destroy_elementsEv.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i11, !llvm.loop !348
 
 _ZN6vectorI7svectorIN2bv6solver12zero_one_bitEjELb1EjE16destroy_elementsEv.exit.loopexit.i.i: ; preds = %_ZSt8_DestroyI7svectorIN2bv6solver12zero_one_bitEjEEvPT_.exit.i.i.i.i.i.i
   %.pre.i.i15 = load ptr, ptr %96, align 8, !tbaa !61
@@ -14207,7 +14207,7 @@ _ZSt8_DestroyI7svectorIN3sat7literalEjEEvPT_.exit.i.i.i.i.i.i: ; preds = %125, %
   %130 = getelementptr inbounds nuw i8, ptr %.047.i.i.i.i.i.i22, i64 8
   %131 = add i32 %.08.i.i.i.i.i.i21, -1
   %.not.i.i.i.i.i.i24 = icmp eq i32 %131, 0
-  br i1 %.not.i.i.i.i.i.i24, label %_ZN6vectorI7svectorIN3sat7literalEjELb1EjE16destroy_elementsEv.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i20, !llvm.loop !469
+  br i1 %.not.i.i.i.i.i.i24, label %_ZN6vectorI7svectorIN3sat7literalEjELb1EjE16destroy_elementsEv.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i20, !llvm.loop !349
 
 _ZN6vectorI7svectorIN3sat7literalEjELb1EjE16destroy_elementsEv.exit.loopexit.i.i: ; preds = %_ZSt8_DestroyI7svectorIN3sat7literalEjEEvPT_.exit.i.i.i.i.i.i
   %.pre.i.i25 = load ptr, ptr %120, align 8, !tbaa !53
@@ -14684,7 +14684,7 @@ define linkonce_odr hidden void @_ZN2bv6solver19del_eq_occurs_trailD0Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2bv6solver19del_eq_occurs_trail4undoEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !470
+  %3 = load ptr, ptr %2, align 8, !tbaa !350
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %.not = icmp eq ptr %5, null
@@ -14708,7 +14708,7 @@ define linkonce_odr hidden void @_ZN2bv6solver19del_eq_occurs_trail4undoEv(ptr n
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !472
+  %15 = load ptr, ptr %14, align 8, !tbaa !352
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %3, ptr %16, align 8, !tbaa !13
   br label %17
@@ -14921,7 +14921,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 12:                                               ; preds = %10
   %13 = add nuw i64 %8, 1
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !473
+  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !353
 
 .noexc11:                                         ; preds = %12
   tail call void @_ZSt17__throw_bad_allocv() #27
@@ -15016,9 +15016,9 @@ define linkonce_odr hidden void @_ZN2bv6solver13mk_atom_trailD0Ev(ptr noundef no
 define linkonce_odr hidden void @_ZN2bv6solver13mk_atom_trail4undoEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNK6vectorIPN2bv6solver4atomELb0EjE3getEjRKS3_.exit.i:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2 = load ptr, ptr %1, align 8, !tbaa !474
+  %2 = load ptr, ptr %1, align 8, !tbaa !354
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !476
+  %4 = load i32, ptr %3, align 8, !tbaa !356
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 480
   %6 = load ptr, ptr %5, align 8, !tbaa !231, !nonnull !109, !noundef !109
   %7 = getelementptr inbounds i8, ptr %6, i64 -4
@@ -15029,7 +15029,7 @@ _ZNK6vectorIPN2bv6solver4atomELb0EjE3getEjRKS3_.exit.i:
   %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
   %.then.val.i = load ptr, ptr %10, align 8, !tbaa !235
   %11 = getelementptr inbounds nuw i8, ptr %.then.val.i, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !477
+  %12 = load ptr, ptr %11, align 8, !tbaa !357
   %.not.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i, label %_ZN2bv6solver4atomD2Ev.exit, label %13
 
@@ -15041,8 +15041,8 @@ _ZNK6vectorIPN2bv6solver4atomELb0EjE3getEjRKS3_.exit.i:
           to label %._ZN2bv6solver4atomD2Ev.exit_crit_edge unwind label %16
 
 ._ZN2bv6solver4atomD2Ev.exit_crit_edge:           ; preds = %13
-  %.pre = load ptr, ptr %1, align 8, !tbaa !474
-  %.pre2 = load i32, ptr %3, align 8, !tbaa !476
+  %.pre = load ptr, ptr %1, align 8, !tbaa !354
+  %.pre2 = load i32, ptr %3, align 8, !tbaa !356
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 480
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !231
   %.pre4 = zext i32 %.pre2 to i64
@@ -15072,7 +15072,7 @@ define linkonce_odr hidden void @_ZN2bv6solver17add_var_pos_trailD0Ev(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2bv6solver17add_var_pos_trail4undoEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !390
+  %3 = load ptr, ptr %2, align 8, !tbaa !265
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !230
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -15146,7 +15146,7 @@ define linkonce_odr hidden void @_ZN2bv6solver19add_eq_occurs_trailD0Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2bv6solver19add_eq_occurs_trail4undoEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !409
+  %3 = load ptr, ptr %2, align 8, !tbaa !285
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -15412,7 +15412,7 @@ define linkonce_odr hidden void @_ZN3euf15th_internalizer15eq_internalizedEPNS_5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8top_sortIN3euf5enodeEE6insertEPS1_P13obj_hashtableIS1_E(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = load ptr, ptr %4, align 8, !tbaa !478
+  %5 = load ptr, ptr %4, align 8, !tbaa !358
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZNK8top_sortIN3euf5enodeEE12contains_depEPS1_.exit.thread, label %_ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE3getEjRKS4_.exit.i
 
@@ -15427,7 +15427,7 @@ _ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE3getEjRKS4_.exit.i: ; preds = %3
 _ZNK8top_sortIN3euf5enodeEE12contains_depEPS1_.exit: ; preds = %_ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE3getEjRKS4_.exit.i
   %11 = zext i32 %8 to i64
   %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %11
-  %.then.val.i = load ptr, ptr %12, align 8, !tbaa !481
+  %.then.val.i = load ptr, ptr %12, align 8, !tbaa !361
   %.not = icmp eq ptr %.then.val.i, null
   br i1 %.not, label %_ZNK8top_sortIN3euf5enodeEE12contains_depEPS1_.exit.thread, label %_ZNK8top_sortIN3euf5enodeEE7get_depEPS1_.exit
 
@@ -15439,7 +15439,7 @@ _ZNK8top_sortIN3euf5enodeEE7get_depEPS1_.exit:    ; preds = %_ZNK8top_sortIN3euf
   br i1 %16, label %_Z7deallocI13obj_hashtableIN3euf5enodeEEEvPT_.exit, label %17
 
 17:                                               ; preds = %_ZNK8top_sortIN3euf5enodeEE7get_depEPS1_.exit
-  %18 = load ptr, ptr %15, align 8, !tbaa !483
+  %18 = load ptr, ptr %15, align 8, !tbaa !363
   %19 = icmp eq ptr %18, null
   br i1 %19, label %_ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EED2Ev.exit.i, label %20
 
@@ -15455,7 +15455,7 @@ _ZNK8top_sortIN3euf5enodeEE7get_depEPS1_.exit:    ; preds = %_ZNK8top_sortIN3euf
   unreachable
 
 _ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EED2Ev.exit.i: ; preds = %20, %17
-  store ptr null, ptr %15, align 8, !tbaa !483
+  store ptr null, ptr %15, align 8, !tbaa !363
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %15)
   br label %_Z7deallocI13obj_hashtableIN3euf5enodeEEEvPT_.exit
 
@@ -15494,7 +15494,7 @@ _ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit: ; preds = %27, %33
 _Z7deallocI13obj_hashtableIN3euf5enodeEEEvPT_.exit: ; preds = %_ZN14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EED2Ev.exit.i, %_ZNK8top_sortIN3euf5enodeEE7get_depEPS1_.exit, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit
   %40 = load ptr, ptr %1, align 8, !tbaa !80
   %41 = load i32, ptr %40, align 4, !tbaa !212
-  %42 = load ptr, ptr %4, align 8, !tbaa !478
+  %42 = load ptr, ptr %4, align 8, !tbaa !358
   %43 = icmp eq ptr %42, null
   br i1 %43, label %_ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4sizeEv.exit.i.i, label %_ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4sizeEv.exit.i
 
@@ -15538,8 +15538,8 @@ _ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE8capacityEv.exit.i.i: ; preds = 
 
 _ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE8capacityEv.exit.i.i, %thread-pre-split.i.i
   tail call void @_ZN6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pr.pre.i.i = load ptr, ptr %4, align 8, !tbaa !478
-  br label %thread-pre-split.i.i, !llvm.loop !486
+  %.pr.pre.i.i = load ptr, ptr %4, align 8, !tbaa !358
+  br label %thread-pre-split.i.i, !llvm.loop !366
 
 54:                                               ; preds = %_ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE8capacityEv.exit.i.i
   %55 = getelementptr inbounds i8, ptr %49, i64 -4
@@ -15556,7 +15556,7 @@ _ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE8capacityEv.exit.thread.i.i: ; p
   %61 = shl nuw nsw i64 %57, 3
   %62 = sub nsw i64 %60, %61
   %63 = add nsw i64 %62, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %58, i8 0, i64 %63, i1 false), !tbaa !481
+  tail call void @llvm.memset.p0.i64(ptr align 8 %58, i8 0, i64 %63, i1 false), !tbaa !361
   br label %_ZN6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4setxEjRKS4_S7_.exit
 
 _ZN6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4setxEjRKS4_S7_.exit: ; preds = %.lr.ph.preheader.i.i, %_ZNK6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4sizeEv.exit.i, %48, %54
@@ -15566,7 +15566,7 @@ _ZN6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE4setxEjRKS4_S7_.exit: ; preds = %
   %67 = inttoptr i64 %66 to ptr
   %68 = zext i32 %41 to i64
   %69 = getelementptr inbounds nuw ptr, ptr %64, i64 %68
-  store ptr %67, ptr %69, align 8, !tbaa !481
+  store ptr %67, ptr %69, align 8, !tbaa !361
   ret void
 }
 
@@ -15704,7 +15704,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 define linkonce_odr hidden void @_ZN6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  %4 = load ptr, ptr %0, align 8, !tbaa !478
+  %4 = load ptr, ptr %0, align 8, !tbaa !358
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
 
@@ -15714,7 +15714,7 @@ define linkonce_odr hidden void @_ZN6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %8, align 4, !tbaa !47
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %9, ptr %0, align 8, !tbaa !478
+  store ptr %9, ptr %0, align 8, !tbaa !358
   br label %53
 
 10:                                               ; preds = %1
@@ -15819,7 +15819,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %50 = zext i32 %17 to i64
   %51 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %11, i64 noundef %50)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr %52, ptr %0, align 8, !tbaa !478
+  store ptr %52, ptr %0, align 8, !tbaa !358
   store i32 %15, ptr %51, align 4, !tbaa !47
   br label %53
 
@@ -16494,7 +16494,7 @@ _ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit: ; preds = %49
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   %64 = icmp eq ptr %62, %59
-  br i1 %64, label %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !487
+  br i1 %64, label %_ZNK6vectorI7svectorIN3sat7literalEjELb1EjE4sizeEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !367
 
 _ZSt20uninitialized_move_nIP7svectorIN3sat7literalEjEjS4_ESt4pairIT_T1_ES6_T0_S7_.exit: ; preds = %49
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -16531,7 +16531,7 @@ _ZSt8_DestroyI7svectorIN3sat7literalEjEEvPT_.exit.i.i.i.i.i: ; preds = %70, %.lr
   %75 = getelementptr inbounds nuw i8, ptr %.047.i.i.i.i.i, i64 8
   %76 = add i32 %.08.i.i.i.i.i, -1
   %.not.i.i.i.i.i = icmp eq i32 %76, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN6vectorI7svectorIN3sat7literalEjELb1EjE16destroy_elementsEv.exit.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !469
+  br i1 %.not.i.i.i.i.i, label %_ZN6vectorI7svectorIN3sat7literalEjELb1EjE16destroy_elementsEv.exit.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !349
 
 _ZN6vectorI7svectorIN3sat7literalEjELb1EjE16destroy_elementsEv.exit.loopexit.i: ; preds = %_ZSt8_DestroyI7svectorIN3sat7literalEjEEvPT_.exit.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !53
@@ -16698,7 +16698,7 @@ _ZNK6vectorI7svectorIN2bv6solver12zero_one_bitEjELb1EjE4sizeEv.exit: ; preds = %
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i.i.i.i.i.i, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   %64 = icmp eq ptr %62, %59
-  br i1 %64, label %_ZNK6vectorI7svectorIN2bv6solver12zero_one_bitEjELb1EjE4sizeEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !488
+  br i1 %64, label %_ZNK6vectorI7svectorIN2bv6solver12zero_one_bitEjELb1EjE4sizeEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !368
 
 _ZSt20uninitialized_move_nIP7svectorIN2bv6solver12zero_one_bitEjEjS5_ESt4pairIT_T1_ES7_T0_S8_.exit: ; preds = %49
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -16735,7 +16735,7 @@ _ZSt8_DestroyI7svectorIN2bv6solver12zero_one_bitEjEEvPT_.exit.i.i.i.i.i: ; preds
   %75 = getelementptr inbounds nuw i8, ptr %.047.i.i.i.i.i, i64 8
   %76 = add i32 %.08.i.i.i.i.i, -1
   %.not.i.i.i.i.i = icmp eq i32 %76, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN6vectorI7svectorIN2bv6solver12zero_one_bitEjELb1EjE16destroy_elementsEv.exit.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !468
+  br i1 %.not.i.i.i.i.i, label %_ZN6vectorI7svectorIN2bv6solver12zero_one_bitEjELb1EjE16destroy_elementsEv.exit.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !348
 
 _ZN6vectorI7svectorIN2bv6solver12zero_one_bitEjELb1EjE16destroy_elementsEv.exit.loopexit.i: ; preds = %_ZSt8_DestroyI7svectorIN2bv6solver12zero_one_bitEjEEvPT_.exit.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !61
@@ -16889,7 +16889,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_0E9_M_invokeERKSt9_Any_dataOjOS3_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !489
+  %.val = load ptr, ptr %0, align 8, !tbaa !369
   %.val4 = load i32, ptr %1, align 4, !tbaa !47
   %.val5 = load ptr, ptr %2, align 8, !tbaa !213
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 272
@@ -16906,7 +16906,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_0", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_0", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -16926,7 +16926,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE6mk_notEjPKP4exprR10ref_vec
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_1E9_M_invokeERKSt9_Any_dataOjOS3_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !493
+  %.val = load ptr, ptr %0, align 8, !tbaa !373
   %.val4 = load i32, ptr %1, align 4, !tbaa !47
   %.val5 = load ptr, ptr %2, align 8, !tbaa !213
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 272
@@ -16943,7 +16943,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_1", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_1", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -16963,7 +16963,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE6mk_negEjPKP4exprR10ref_vec
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_2E9_M_invokeERKSt9_Any_dataOjOS3_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !495
+  %.val = load ptr, ptr %0, align 8, !tbaa !375
   %.val4 = load i32, ptr %1, align 4, !tbaa !47
   %.val5 = load ptr, ptr %2, align 8, !tbaa !213
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 272
@@ -16980,7 +16980,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_2", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_2", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE3$_2E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17000,7 +17000,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE9mk_redandEjPKP4exprR10ref_
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_3E9_M_invokeERKSt9_Any_dataOjOS3_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !497
+  %.val = load ptr, ptr %0, align 8, !tbaa !377
   %.val4 = load i32, ptr %1, align 4, !tbaa !47
   %.val5 = load ptr, ptr %2, align 8, !tbaa !213
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 272
@@ -17017,7 +17017,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_3", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_3", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE3$_3E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17037,7 +17037,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE8mk_redorEjPKP4exprR10ref_v
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_4E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !499
+  %.val = load ptr, ptr %0, align 8, !tbaa !379
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17055,7 +17055,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_4", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_4", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE3$_4E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17075,7 +17075,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE7mk_sdivEjPKP4exprS5_R10ref
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_5E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !501
+  %.val = load ptr, ptr %0, align 8, !tbaa !381
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17093,7 +17093,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_5", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_5", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE3$_5E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17113,7 +17113,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE7mk_udivEjPKP4exprS5_R10ref
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_6E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !503
+  %.val = load ptr, ptr %0, align 8, !tbaa !383
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17131,7 +17131,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_6", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_6", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE3$_6E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17151,7 +17151,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE7mk_uremEjPKP4exprS5_R10ref
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_7E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !505
+  %.val = load ptr, ptr %0, align 8, !tbaa !385
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17169,7 +17169,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_7", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_7", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE3$_7E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17189,7 +17189,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE7mk_sremEjPKP4exprS5_R10ref
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_8E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !507
+  %.val = load ptr, ptr %0, align 8, !tbaa !387
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17207,7 +17207,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_8", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_8", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE3$_8E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17227,7 +17227,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE7mk_smodEjPKP4exprS5_R10ref
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE3$_9E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !509
+  %.val = load ptr, ptr %0, align 8, !tbaa !389
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17245,7 +17245,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_9", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE3$_9", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE3$_9E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17265,7 +17265,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE6mk_shlEjPKP4exprS5_R10ref_
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_10E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !511
+  %.val = load ptr, ptr %0, align 8, !tbaa !391
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17283,7 +17283,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_10", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_10", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_10E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17303,7 +17303,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE7mk_lshrEjPKP4exprS5_R10ref
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_11E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !513
+  %.val = load ptr, ptr %0, align 8, !tbaa !393
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17321,7 +17321,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_11", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_11", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_11E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17341,7 +17341,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE7mk_ashrEjPKP4exprS5_R10ref
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_12E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !515
+  %.val = load ptr, ptr %0, align 8, !tbaa !395
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17359,7 +17359,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_12", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_12", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_12E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17379,7 +17379,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE18mk_ext_rotate_leftEjPKP4e
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_13E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !517
+  %.val = load ptr, ptr %0, align 8, !tbaa !397
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17397,7 +17397,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_13", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_13", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_13E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17417,7 +17417,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE19mk_ext_rotate_rightEjPKP4
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_14E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !519
+  %.val = load ptr, ptr %0, align 8, !tbaa !399
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17435,7 +17435,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_14", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_14", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_14E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17455,7 +17455,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE8mk_adderEjPKP4exprS5_R10re
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_15E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !521
+  %.val = load ptr, ptr %0, align 8, !tbaa !401
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17473,7 +17473,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_15", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_15", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_15E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17493,7 +17493,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE13mk_multiplierEjPKP4exprS5
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_16E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !523
+  %.val = load ptr, ptr %0, align 8, !tbaa !403
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17511,7 +17511,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_16", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_16", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_16E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17531,7 +17531,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE6mk_andEjPKP4exprS5_R10ref_
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_17E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !525
+  %.val = load ptr, ptr %0, align 8, !tbaa !405
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17549,7 +17549,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_17", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_17", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_17E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17569,7 +17569,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE5mk_orEjPKP4exprS5_R10ref_v
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_18E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !527
+  %.val = load ptr, ptr %0, align 8, !tbaa !407
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17587,7 +17587,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_18", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_18", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_18E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17607,7 +17607,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE6mk_xorEjPKP4exprS5_R10ref_
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_19E9_M_invokeERKSt9_Any_dataOjOS3_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !529
+  %.val = load ptr, ptr %0, align 8, !tbaa !409
   %.val4 = load i32, ptr %1, align 4, !tbaa !47
   %.val5 = load ptr, ptr %2, align 8, !tbaa !213
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 272
@@ -17624,7 +17624,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_19", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_19", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_19E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17642,7 +17642,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_20E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !531
+  %.val = load ptr, ptr %0, align 8, !tbaa !411
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17660,7 +17660,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_20", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_20", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_20E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17680,7 +17680,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE7mk_nandEjPKP4exprS5_R10ref
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_21E9_M_invokeERKSt9_Any_dataOjOS3_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !533
+  %.val = load ptr, ptr %0, align 8, !tbaa !413
   %.val4 = load i32, ptr %1, align 4, !tbaa !47
   %.val5 = load ptr, ptr %2, align 8, !tbaa !213
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 272
@@ -17697,7 +17697,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_21", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_21", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_21E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17715,7 +17715,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_22E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !535
+  %.val = load ptr, ptr %0, align 8, !tbaa !415
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17733,7 +17733,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_22", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_22", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_22E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17753,7 +17753,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE6mk_norEjPKP4exprS5_R10ref_
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_23E9_M_invokeERKSt9_Any_dataOjOS3_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !537
+  %.val = load ptr, ptr %0, align 8, !tbaa !417
   %.val4 = load i32, ptr %1, align 4, !tbaa !47
   %.val5 = load ptr, ptr %2, align 8, !tbaa !213
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 272
@@ -17770,7 +17770,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_23", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_23", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_23E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17788,7 +17788,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprR10ref_
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_24E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !539
+  %.val = load ptr, ptr %0, align 8, !tbaa !419
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17806,7 +17806,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_24", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_24", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_24E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17826,7 +17826,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE7mk_xnorEjPKP4exprS5_R10ref
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_25E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !541
+  %.val = load ptr, ptr %0, align 8, !tbaa !421
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -17844,7 +17844,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_25", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_25", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_25E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17864,7 +17864,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE7mk_compEjPKP4exprS5_R10ref
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_26E9_M_invokeERKSt9_Any_dataOjOS3_SI_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !543
+  %.val = load ptr, ptr %0, align 8, !tbaa !423
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load i32, ptr %3, align 4, !tbaa !47
@@ -17882,7 +17882,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_26", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_26", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_26E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17902,7 +17902,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE14mk_sign_extendEjPKP4exprj
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_27E9_M_invokeERKSt9_Any_dataOjOS3_SI_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !545
+  %.val = load ptr, ptr %0, align 8, !tbaa !425
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load i32, ptr %3, align 4, !tbaa !47
@@ -17920,7 +17920,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_27", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_27", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_27E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17940,7 +17940,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE14mk_zero_extendEjPKP4exprj
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_28E9_M_invokeERKSt9_Any_dataOjOS3_SI_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !547
+  %.val = load ptr, ptr %0, align 8, !tbaa !427
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load i32, ptr %3, align 4, !tbaa !47
@@ -17958,7 +17958,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_28", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_28", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_28E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -17978,7 +17978,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE14mk_rotate_leftEjPKP4exprj
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_29E9_M_invokeERKSt9_Any_dataOjOS3_SI_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !549
+  %.val = load ptr, ptr %0, align 8, !tbaa !429
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load i32, ptr %3, align 4, !tbaa !47
@@ -17996,7 +17996,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprjR10ref
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_29", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_29", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_29E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18016,7 +18016,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE15mk_rotate_rightEjPKP4expr
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_30E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !551
+  %.val = load ptr, ptr %0, align 8, !tbaa !431
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -18034,7 +18034,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R7ob
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_30", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_30", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_30E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18054,7 +18054,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE19mk_umul_no_overflowEjPKP4
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_31E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !553
+  %.val = load ptr, ptr %0, align 8, !tbaa !433
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -18072,7 +18072,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R7ob
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_31", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_31", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_31E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18092,7 +18092,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE19mk_smul_no_overflowEjPKP4
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEZN2bv6solver19internalize_circuitEP3appE4$_32E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !555
+  %.val = load ptr, ptr %0, align 8, !tbaa !435
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -18110,7 +18110,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R7ob
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_32", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_32", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_32E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18134,7 +18134,7 @@ declare void @_ZN15bit_blaster_tplI15bit_blaster_cfgE6mk_sleEjPKP4exprS5_R7obj_r
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_33E9_M_invokeERKSt9_Any_dataOS1_SC_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !557
+  %.val = load ptr, ptr %0, align 8, !tbaa !437
   %.val3 = load ptr, ptr %1, align 8, !tbaa !104
   %.val4 = load ptr, ptr %2, align 8, !tbaa !104
   %4 = getelementptr i8, ptr %.val, i64 128
@@ -18154,7 +18154,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2b
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_33", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_33", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_33E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18172,7 +18172,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2b
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_34E9_M_invokeERKSt9_Any_dataOS1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !559
+  %.val = load ptr, ptr %0, align 8, !tbaa !439
   %.val2 = load ptr, ptr %1, align 8, !tbaa !104
   %3 = getelementptr i8, ptr %.val, i64 128
   %.val.val = load i32, ptr %3, align 4, !tbaa !110
@@ -18191,7 +18191,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6s
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_34", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_34", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_34E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18211,7 +18211,7 @@ declare noundef ptr @_ZN11ast_manager6mk_appEiiP4expr(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_35E9_M_invokeERKSt9_Any_dataOS1_SC_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !561
+  %.val = load ptr, ptr %0, align 8, !tbaa !441
   %.val3 = load ptr, ptr %1, align 8, !tbaa !104
   %.val4 = load ptr, ptr %2, align 8, !tbaa !104
   %4 = getelementptr i8, ptr %.val, i64 128
@@ -18231,7 +18231,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2b
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_35", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_35", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_35E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18249,7 +18249,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2b
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_36E9_M_invokeERKSt9_Any_dataOS1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !563
+  %.val = load ptr, ptr %0, align 8, !tbaa !443
   %.val2 = load ptr, ptr %1, align 8, !tbaa !104
   %3 = getelementptr i8, ptr %.val, i64 128
   %.val.val = load i32, ptr %3, align 4, !tbaa !110
@@ -18268,7 +18268,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6s
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_36", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_36", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_36E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18286,7 +18286,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6s
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_37E9_M_invokeERKSt9_Any_dataOS1_SC_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !565
+  %.val = load ptr, ptr %0, align 8, !tbaa !445
   %.val3 = load ptr, ptr %1, align 8, !tbaa !104
   %.val4 = load ptr, ptr %2, align 8, !tbaa !104
   %4 = getelementptr i8, ptr %.val, i64 128
@@ -18306,7 +18306,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2b
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_37", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_37", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_37E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18324,7 +18324,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2b
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_38E9_M_invokeERKSt9_Any_dataOS1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !567
+  %.val = load ptr, ptr %0, align 8, !tbaa !447
   %.val2 = load ptr, ptr %1, align 8, !tbaa !104
   %3 = getelementptr i8, ptr %.val, i64 128
   %.val.val = load i32, ptr %3, align 4, !tbaa !110
@@ -18343,7 +18343,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6s
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_38", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_38", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_38E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18361,7 +18361,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6s
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_39E9_M_invokeERKSt9_Any_dataOS1_SC_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !569
+  %.val = load ptr, ptr %0, align 8, !tbaa !449
   %.val3 = load ptr, ptr %1, align 8, !tbaa !104
   %.val4 = load ptr, ptr %2, align 8, !tbaa !104
   %4 = getelementptr i8, ptr %.val, i64 128
@@ -18381,7 +18381,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2b
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_39", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_39", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_39E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18399,7 +18399,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2b
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_40E9_M_invokeERKSt9_Any_dataOS1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !571
+  %.val = load ptr, ptr %0, align 8, !tbaa !451
   %.val2 = load ptr, ptr %1, align 8, !tbaa !104
   %3 = getelementptr i8, ptr %.val, i64 128
   %.val.val = load i32, ptr %3, align 4, !tbaa !110
@@ -18418,7 +18418,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6s
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_40", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_40", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_40E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18436,7 +18436,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6s
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2bv6solver19internalize_circuitEP3appE4$_41E9_M_invokeERKSt9_Any_dataOS1_SC_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !573
+  %.val = load ptr, ptr %0, align 8, !tbaa !453
   %.val3 = load ptr, ptr %1, align 8, !tbaa !104
   %.val4 = load ptr, ptr %2, align 8, !tbaa !104
   %4 = getelementptr i8, ptr %.val, i64 128
@@ -18456,7 +18456,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2b
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_41", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_41", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_41E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18474,7 +18474,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN2b
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6solver19internalize_circuitEP3appE4$_42E9_M_invokeERKSt9_Any_dataOS1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !575
+  %.val = load ptr, ptr %0, align 8, !tbaa !455
   %.val2 = load ptr, ptr %1, align 8, !tbaa !104
   %3 = getelementptr i8, ptr %.val, i64 128
   %.val.val = load i32, ptr %3, align 4, !tbaa !110
@@ -18493,7 +18493,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprS1_EZN2bv6s
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_42", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver19internalize_circuitEP3appE4$_42", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver19internalize_circuitEP3appE4$_42E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -18649,7 +18649,7 @@ define linkonce_odr hidden void @_ZN11value_trailIN3sat7literalEED0Ev(ptr nounde
 define linkonce_odr hidden void @_ZN11value_trailIN3sat7literalEE4undoEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !577
+  %4 = load ptr, ptr %3, align 8, !tbaa !457
   %5 = load i32, ptr %2, align 8, !tbaa !47
   store i32 %5, ptr %4, align 4, !tbaa !47
   ret void
@@ -18664,7 +18664,7 @@ define linkonce_odr hidden void @_ZN16push_back_vectorI10ptr_vectorIN3euf5enodeE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16push_back_vectorI10ptr_vectorIN3euf5enodeEEE4undoEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !579
+  %3 = load ptr, ptr %2, align 8, !tbaa !459
   %4 = load ptr, ptr %3, align 8, !tbaa !112
   %5 = getelementptr inbounds i8, ptr %4, i64 -4
   %6 = load i32, ptr %5, align 4, !tbaa !47
@@ -18675,7 +18675,7 @@ define linkonce_odr hidden void @_ZN16push_back_vectorI10ptr_vectorIN3euf5enodeE
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEZN2bv6solver18internalize_udiv_iEP3appE3$_0E9_M_invokeERKSt9_Any_dataOjOS3_SJ_S7_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #3 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !581
+  %.val = load ptr, ptr %0, align 8, !tbaa !461
   %.val5 = load i32, ptr %1, align 4, !tbaa !47
   %.val6 = load ptr, ptr %2, align 8, !tbaa !213
   %.val7 = load ptr, ptr %3, align 8, !tbaa !213
@@ -18693,7 +18693,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvjPKP4exprS3_R10r
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2bv6solver18internalize_udiv_iEP3appE3$_0", ptr %0, align 8, !tbaa !491
+  store ptr @"_ZTIZN2bv6solver18internalize_udiv_iEP3appE3$_0", ptr %0, align 8, !tbaa !371
   br label %"_ZNSt14_Function_base13_Base_managerIZN2bv6solver18internalize_udiv_iEP3appE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -19025,326 +19025,206 @@ attributes #29 = { builtin allocsize(0) }
 !257 = !{!258, !10, i64 0}
 !258 = !{!"_ZTS6vectorI5lboolLb0EjE", !10, i64 0}
 !259 = !{!83, !83, i64 0}
-!260 = !{!261, !23, i64 3832}
-!261 = !{!"_ZTSN3sat6solverE", !262, i64 0, !23, i64 16, !264, i64 24, !275, i64 440, !276, i64 528, !278, i64 536, !280, i64 544, !281, i64 552, !6, i64 1216, !23, i64 2352, !302, i64 2356, !303, i64 2360, !300, i64 2384, !304, i64 2392, !23, i64 2432, !313, i64 2440, !336, i64 2728, !339, i64 2832, !343, i64 2960, !23, i64 3128, !350, i64 3136, !23, i64 3184, !23, i64 3185, !351, i64 3192, !8, i64 3216, !321, i64 3224, !321, i64 3232, !5, i64 3240, !39, i64 3248, !39, i64 3256, !39, i64 3264, !39, i64 3272, !352, i64 3280, !300, i64 3288, !354, i64 3296, !307, i64 3304, !307, i64 3312, !307, i64 3320, !307, i64 3328, !307, i64 3336, !39, i64 3344, !39, i64 3352, !5, i64 3360, !332, i64 3368, !39, i64 3376, !5, i64 3384, !148, i64 3392, !148, i64 3400, !148, i64 3408, !148, i64 3416, !148, i64 3424, !5, i64 3432, !266, i64 3440, !307, i64 3448, !307, i64 3456, !307, i64 3464, !23, i64 3472, !328, i64 3480, !357, i64 3488, !5, i64 3492, !5, i64 3496, !5, i64 3500, !5, i64 3504, !5, i64 3508, !358, i64 3512, !5, i64 3532, !5, i64 3536, !358, i64 3540, !358, i64 3560, !359, i64 3584, !5, i64 3608, !5, i64 3612, !5, i64 3616, !362, i64 3624, !362, i64 3656, !362, i64 3688, !362, i64 3720, !362, i64 3752, !332, i64 3784, !333, i64 3792, !241, i64 3800, !23, i64 3832, !23, i64 3833, !363, i64 3840, !364, i64 3856, !367, i64 3864, !368, i64 3880, !251, i64 3904, !371, i64 3912, !372, i64 3920, !332, i64 3928, !344, i64 3936, !344, i64 3952, !332, i64 3968, !5, i64 3976, !5, i64 3980, !5, i64 3984, !5, i64 3988, !23, i64 3992, !373, i64 4000, !374, i64 4008, !375, i64 4016, !5, i64 4032, !5, i64 4036, !5, i64 4040, !5, i64 4044, !23, i64 4048, !5, i64 4052, !5, i64 4056, !5, i64 4060, !5, i64 4064, !5, i64 4068, !5, i64 4072, !5, i64 4076, !266, i64 4080, !5, i64 4088, !266, i64 4096, !23, i64 4104, !23, i64 4105, !332, i64 4112, !23, i64 4120, !148, i64 4128, !5, i64 4136, !5, i64 4140, !5, i64 4144, !332, i64 4152, !332, i64 4160, !328, i64 4168, !39, i64 4176, !382, i64 4184, !332, i64 4192, !332, i64 4200, !298, i64 4208, !332, i64 4216, !347, i64 4224, !383, i64 4232, !332, i64 4256}
-!262 = !{!"_ZTSN3sat11solver_coreE", !263, i64 8}
-!263 = !{!"p1 _ZTS8reslimit", !10, i64 0}
-!264 = !{!"_ZTSN3sat6configE", !88, i64 0, !265, i64 8, !5, i64 12, !5, i64 16, !23, i64 20, !5, i64 24, !5, i64 28, !266, i64 32, !5, i64 40, !23, i64 44, !267, i64 48, !23, i64 52, !5, i64 56, !266, i64 64, !266, i64 72, !5, i64 80, !5, i64 84, !266, i64 88, !266, i64 96, !5, i64 104, !24, i64 112, !266, i64 120, !5, i64 128, !5, i64 132, !23, i64 136, !5, i64 140, !5, i64 144, !23, i64 148, !5, i64 152, !23, i64 156, !5, i64 160, !23, i64 164, !268, i64 168, !23, i64 172, !23, i64 173, !5, i64 176, !23, i64 180, !23, i64 181, !23, i64 182, !23, i64 183, !23, i64 184, !23, i64 185, !23, i64 186, !23, i64 187, !5, i64 188, !23, i64 192, !23, i64 193, !23, i64 194, !269, i64 196, !266, i64 200, !5, i64 208, !266, i64 216, !266, i64 224, !266, i64 232, !266, i64 240, !270, i64 248, !23, i64 252, !23, i64 253, !266, i64 256, !23, i64 264, !23, i64 265, !5, i64 268, !266, i64 272, !5, i64 280, !5, i64 284, !5, i64 288, !271, i64 292, !5, i64 296, !5, i64 300, !5, i64 304, !5, i64 308, !23, i64 312, !23, i64 313, !23, i64 314, !5, i64 316, !5, i64 320, !23, i64 324, !23, i64 325, !23, i64 326, !23, i64 327, !23, i64 328, !23, i64 329, !23, i64 330, !24, i64 336, !23, i64 344, !23, i64 345, !23, i64 346, !23, i64 347, !23, i64 348, !23, i64 349, !272, i64 352, !273, i64 356, !274, i64 360, !23, i64 364, !266, i64 368, !266, i64 376, !266, i64 384, !266, i64 392, !266, i64 400, !23, i64 408}
-!265 = !{!"_ZTSN3sat15phase_selectionE", !6, i64 0}
-!266 = !{!"double", !6, i64 0}
-!267 = !{!"_ZTSN3sat16restart_strategyE", !6, i64 0}
-!268 = !{!"_ZTSN3sat17local_search_modeE", !6, i64 0}
-!269 = !{!"_ZTSN3sat8cutoff_tE", !6, i64 0}
-!270 = !{!"_ZTSN3sat8reward_tE", !6, i64 0}
-!271 = !{!"_ZTSN3sat11gc_strategyE", !6, i64 0}
-!272 = !{!"_ZTSN3sat10pb_resolveE", !6, i64 0}
-!273 = !{!"_ZTSN3sat15pb_lemma_formatE", !6, i64 0}
-!274 = !{!"_ZTSN3sat19branching_heuristicE", !6, i64 0}
-!275 = !{!"_ZTSN3sat5statsE", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80}
-!276 = !{!"_ZTS10scoped_ptrIN3sat9extensionEE", !277, i64 0}
-!277 = !{!"p1 _ZTSN3sat9extensionE", !10, i64 0}
-!278 = !{!"_ZTS10scoped_ptrIN3sat14cut_simplifierEE", !279, i64 0}
-!279 = !{!"p1 _ZTSN3sat14cut_simplifierE", !10, i64 0}
-!280 = !{!"p1 _ZTSN3sat8parallelE", !10, i64 0}
-!281 = !{!"_ZTSN3sat4dratE", !282, i64 0, !283, i64 8, !26, i64 16, !286, i64 24, !291, i64 592, !291, i64 600, !292, i64 608, !295, i64 616, !298, i64 624, !300, i64 632, !23, i64 640, !23, i64 641, !23, i64 642, !23, i64 643, !23, i64 644, !301, i64 648}
-!282 = !{!"p1 _ZTSN3sat9clause_ehE", !10, i64 0}
-!283 = !{!"_ZTS7svectorIN3sat4drat14watched_clauseEjE", !284, i64 0}
-!284 = !{!"_ZTS6vectorIN3sat4drat14watched_clauseELb0EjE", !285, i64 0}
-!285 = !{!"p1 _ZTSN3sat4drat14watched_clauseE", !10, i64 0}
-!286 = !{!"_ZTSN3sat16clause_allocatorE", !287, i64 0, !189, i64 552}
-!287 = !{!"_ZTS13sat_allocator", !25, i64 0, !147, i64 8, !288, i64 16, !10, i64 24, !6, i64 32}
-!288 = !{!"_ZTS10ptr_vectorIN13sat_allocator5chunkEE", !289, i64 0}
-!289 = !{!"_ZTS6vectorIPN13sat_allocator5chunkELb0EjE", !290, i64 0}
-!290 = !{!"p2 _ZTSN13sat_allocator5chunkE", !33, i64 0}
-!291 = !{!"p1 _ZTSSo", !10, i64 0}
-!292 = !{!"_ZTS7svectorISt4pairIRN3sat6clauseENS1_6statusEEjE", !293, i64 0}
-!293 = !{!"_ZTS6vectorISt4pairIRN3sat6clauseENS1_6statusEELb0EjE", !294, i64 0}
-!294 = !{!"p1 _ZTSSt4pairIRN3sat6clauseENS0_6statusEE", !10, i64 0}
-!295 = !{!"_ZTS7svectorISt4pairIN3sat7literalEPNS1_6clauseEEjE", !296, i64 0}
-!296 = !{!"_ZTS6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE", !297, i64 0}
-!297 = !{!"p1 _ZTSSt4pairIN3sat7literalEPNS0_6clauseEE", !10, i64 0}
-!298 = !{!"_ZTS6vectorI7svectorIjjELb1EjE", !299, i64 0}
-!299 = !{!"p1 _ZTS7svectorIjjE", !10, i64 0}
-!300 = !{!"_ZTS7svectorI5lbooljE", !258, i64 0}
-!301 = !{!"_ZTSN3sat4drat5statsE", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
-!302 = !{!"_ZTS10random_gen", !5, i64 0}
-!303 = !{!"_ZTSN3sat7cleanerE", !26, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
-!304 = !{!"_ZTSN3sat15model_converterE", !305, i64 0, !5, i64 8, !307, i64 16, !26, i64 24, !310, i64 32}
-!305 = !{!"_ZTS6vectorIN3sat15model_converter5entryELb1EjE", !306, i64 0}
-!306 = !{!"p1 _ZTSN3sat15model_converter5entryE", !10, i64 0}
-!307 = !{!"_ZTS7svectorIbjE", !308, i64 0}
-!308 = !{!"_ZTS6vectorIbLb0EjE", !309, i64 0}
-!309 = !{!"p1 bool", !10, i64 0}
-!310 = !{!"_ZTS7svectorISt4pairIjN3sat7literalEEjE", !311, i64 0}
-!311 = !{!"_ZTS6vectorISt4pairIjN3sat7literalEELb0EjE", !312, i64 0}
-!312 = !{!"p1 _ZTSSt4pairIjN3sat7literalEE", !10, i64 0}
-!313 = !{!"_ZTSN3sat10simplifierE", !26, i64 0, !5, i64 8, !314, i64 16, !317, i64 24, !320, i64 32, !324, i64 48, !5, i64 56, !327, i64 64, !23, i64 80, !330, i64 88, !328, i64 96, !5, i64 104, !5, i64 108, !23, i64 112, !23, i64 113, !23, i64 114, !23, i64 115, !5, i64 116, !23, i64 120, !23, i64 121, !5, i64 124, !23, i64 128, !5, i64 132, !23, i64 136, !23, i64 137, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !5, i64 156, !5, i64 160, !5, i64 164, !5, i64 168, !5, i64 172, !5, i64 176, !23, i64 180, !5, i64 184, !23, i64 188, !23, i64 189, !5, i64 192, !5, i64 196, !5, i64 200, !5, i64 204, !5, i64 208, !5, i64 212, !5, i64 216, !5, i64 220, !5, i64 224, !5, i64 228, !5, i64 232, !23, i64 236, !5, i64 240, !321, i64 248, !332, i64 256, !333, i64 264, !333, i64 272, !332, i64 280}
-!314 = !{!"_ZTSN3sat8use_listE", !315, i64 0}
-!315 = !{!"_ZTS6vectorIN3sat15clause_use_listELb1EjE", !316, i64 0}
-!316 = !{!"p1 _ZTSN3sat15clause_use_listE", !10, i64 0}
-!317 = !{!"_ZTSN3sat12ext_use_listE", !318, i64 0}
-!318 = !{!"_ZTS6vectorI7svectorImjELb1EjE", !319, i64 0}
-!319 = !{!"p1 _ZTS7svectorImjE", !10, i64 0}
-!320 = !{!"_ZTSN3sat10clause_setE", !39, i64 0, !321, i64 8}
-!321 = !{!"_ZTS10ptr_vectorIN3sat6clauseEE", !322, i64 0}
-!322 = !{!"_ZTS6vectorIPN3sat6clauseELb0EjE", !323, i64 0}
-!323 = !{!"p2 _ZTSN3sat6clauseE", !33, i64 0}
-!324 = !{!"_ZTS7svectorIN3sat10bin_clauseEjE", !325, i64 0}
-!325 = !{!"_ZTS6vectorIN3sat10bin_clauseELb0EjE", !326, i64 0}
-!326 = !{!"p1 _ZTSN3sat10bin_clauseE", !10, i64 0}
-!327 = !{!"_ZTS16tracked_uint_set", !328, i64 0, !39, i64 8}
-!328 = !{!"_ZTS7svectorIcjE", !329, i64 0}
-!329 = !{!"_ZTS6vectorIcLb0EjE", !25, i64 0}
-!330 = !{!"_ZTSN3sat10tmp_clauseE", !331, i64 0}
-!331 = !{!"p1 _ZTSN3sat6clauseE", !10, i64 0}
-!332 = !{!"_ZTS7svectorIN3sat7literalEjE", !51, i64 0}
-!333 = !{!"_ZTS7svectorIN3sat14clause_wrapperEjE", !334, i64 0}
-!334 = !{!"_ZTS6vectorIN3sat14clause_wrapperELb0EjE", !335, i64 0}
-!335 = !{!"p1 _ZTSN3sat14clause_wrapperE", !10, i64 0}
-!336 = !{!"_ZTSN3sat3sccE", !26, i64 0, !23, i64 8, !23, i64 9, !5, i64 12, !5, i64 16, !337, i64 24}
-!337 = !{!"_ZTSN3sat3bigE", !338, i64 0, !5, i64 8, !54, i64 16, !307, i64 24, !161, i64 32, !161, i64 40, !332, i64 48, !332, i64 56, !23, i64 64, !23, i64 65, !54, i64 72}
-!338 = !{!"p1 _ZTS10random_gen", !10, i64 0}
-!339 = !{!"_ZTSN3sat12asymm_branchE", !26, i64 0, !251, i64 8, !147, i64 16, !302, i64 24, !5, i64 28, !5, i64 32, !23, i64 36, !5, i64 40, !5, i64 44, !23, i64 48, !23, i64 49, !147, i64 56, !5, i64 64, !5, i64 68, !5, i64 72, !332, i64 80, !332, i64 88, !340, i64 96, !340, i64 104, !332, i64 112, !332, i64 120}
-!340 = !{!"_ZTS7svectorISt4pairIN3sat7literalEjEjE", !341, i64 0}
-!341 = !{!"_ZTS6vectorISt4pairIN3sat7literalEjELb0EjE", !342, i64 0}
-!342 = !{!"p1 _ZTSSt4pairIN3sat7literalEjE", !10, i64 0}
-!343 = !{!"_ZTSN3sat7probingE", !26, i64 0, !5, i64 8, !344, i64 16, !332, i64 32, !5, i64 40, !23, i64 44, !5, i64 48, !23, i64 52, !23, i64 53, !88, i64 56, !5, i64 64, !345, i64 72, !347, i64 80, !337, i64 88}
-!344 = !{!"_ZTSN3sat11literal_setE", !327, i64 0}
-!345 = !{!"_ZTS6vectorIN3sat7probing11cache_entryELb1EjE", !346, i64 0}
-!346 = !{!"p1 _ZTSN3sat7probing11cache_entryE", !10, i64 0}
-!347 = !{!"_ZTS7svectorISt4pairIN3sat7literalES2_EjE", !348, i64 0}
-!348 = !{!"_ZTS6vectorISt4pairIN3sat7literalES2_ELb0EjE", !349, i64 0}
-!349 = !{!"p1 _ZTSSt4pairIN3sat7literalES1_E", !10, i64 0}
-!350 = !{!"_ZTSN3sat3musE", !26, i64 0, !332, i64 8, !332, i64 16, !23, i64 24, !300, i64 32, !5, i64 40}
-!351 = !{!"_ZTSN3sat13justificationE", !5, i64 0, !147, i64 8, !5, i64 16}
-!352 = !{!"_ZTS6vectorIS_IN3sat7watchedELb1EjELb1EjE", !353, i64 0}
-!353 = !{!"p1 _ZTS6vectorIN3sat7watchedELb1EjE", !10, i64 0}
-!354 = !{!"_ZTS7svectorIN3sat13justificationEjE", !355, i64 0}
-!355 = !{!"_ZTS6vectorIN3sat13justificationELb0EjE", !356, i64 0}
-!356 = !{!"p1 _ZTSN3sat13justificationE", !10, i64 0}
-!357 = !{!"_ZTSN3sat6solver12search_stateE", !6, i64 0}
-!358 = !{!"_ZTSN3sat7backoffE", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16}
-!359 = !{!"_ZTS9var_queueI7svectorIjjEE", !360, i64 0}
-!360 = !{!"_ZTS4heapIN9var_queueI7svectorIjjEE2ltEE", !361, i64 0, !161, i64 8, !161, i64 16}
-!361 = !{!"_ZTSN9var_queueI7svectorIjjEE2ltE", !299, i64 0}
-!362 = !{!"_ZTS3ema", !266, i64 0, !266, i64 8, !266, i64 16, !5, i64 24, !5, i64 28}
-!363 = !{!"_ZTS12visit_helper", !39, i64 0, !5, i64 8, !5, i64 12}
-!364 = !{!"_ZTS7svectorIN3sat6solver5scopeEjE", !365, i64 0}
-!365 = !{!"_ZTS6vectorIN3sat6solver5scopeELb0EjE", !366, i64 0}
-!366 = !{!"p1 _ZTSN3sat6solver5scopeE", !10, i64 0}
-!367 = !{!"_ZTS18scoped_limit_trail", !39, i64 0, !5, i64 8, !5, i64 12}
-!368 = !{!"_ZTS9stopwatch", !369, i64 0, !370, i64 8, !23, i64 16}
-!369 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEE", !370, i64 0}
-!370 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !147, i64 0}
-!371 = !{!"_ZTSN3sat14no_drat_paramsE", !251, i64 0}
-!372 = !{!"_ZTS10scoped_ptrIN3sat6solverEE", !26, i64 0}
-!373 = !{!"p1 _ZTSN3sat9lookaheadE", !10, i64 0}
-!374 = !{!"p1 _ZTSN3sat14i_local_searchE", !10, i64 0}
-!375 = !{!"_ZTS10statistics", !376, i64 0, !379, i64 8}
-!376 = !{!"_ZTS7svectorISt4pairIPKcjEjE", !377, i64 0}
-!377 = !{!"_ZTS6vectorISt4pairIPKcjELb0EjE", !378, i64 0}
-!378 = !{!"p1 _ZTSSt4pairIPKcjE", !10, i64 0}
-!379 = !{!"_ZTS7svectorISt4pairIPKcdEjE", !380, i64 0}
-!380 = !{!"_ZTS6vectorISt4pairIPKcdELb0EjE", !381, i64 0}
-!381 = !{!"p1 _ZTSSt4pairIPKcdE", !10, i64 0}
-!382 = !{!"_ZTS14approx_set_tplIj3u2ujE", !5, i64 0}
-!383 = !{!"_ZTS5u_mapI9hashtableIj6u_hash4u_eqEE", !384, i64 0}
-!384 = !{!"_ZTS3mapIj9hashtableIj6u_hash4u_eqES1_S2_E", !385, i64 0}
-!385 = !{!"_ZTS9table2mapI17default_map_entryIj9hashtableIj6u_hash4u_eqEES2_S3_E", !386, i64 0}
-!386 = !{!"_ZTS14core_hashtableI17default_map_entryIj9hashtableIj6u_hash4u_eqEEN9table2mapIS5_S2_S3_E15entry_hash_procENS7_13entry_eq_procEE", !387, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
-!387 = !{!"p1 _ZTS17default_map_entryIj9hashtableIj6u_hash4u_eqEE", !10, i64 0}
-!388 = !{!355, !356, i64 0}
-!389 = !{!351, !5, i64 0}
-!390 = !{!391, !236, i64 8}
-!391 = !{!"_ZTSN2bv6solver17add_var_pos_trailE", !71, i64 0, !236, i64 8}
-!392 = !{!393, !37, i64 0}
-!393 = !{!"_ZTS10arith_util", !37, i64 0, !394, i64 8}
-!394 = !{!"p1 _ZTS17arith_decl_plugin", !10, i64 0}
-!395 = !{!393, !394, i64 8}
-!396 = !{!397, !397, i64 0}
-!397 = !{!"p1 _ZTS10ptr_vectorIN3euf5enodeEE", !10, i64 0}
-!398 = !{!399}
-!399 = distinct !{!399, !400, !"_Z5powerRK8rationalj: argument 0"}
-!400 = distinct !{!400, !"_Z5powerRK8rationalj"}
-!401 = !{!402}
-!402 = distinct !{!402, !403, !"_ZNK8rational4exptEi: argument 0"}
-!403 = distinct !{!403, !"_ZNK8rational4exptEi"}
-!404 = !{!402, !399}
-!405 = distinct !{!405, !75}
-!406 = !{!81, !5, i64 28}
-!407 = !{!302, !5, i64 0}
-!408 = distinct !{!408, !75}
-!409 = !{!410, !236, i64 8}
-!410 = !{!"_ZTSN2bv6solver19add_eq_occurs_trailE", !71, i64 0, !236, i64 8}
-!411 = !{!4, !5, i64 0}
-!412 = !{!4, !5, i64 4}
-!413 = !{!4, !5, i64 8}
-!414 = !{!4, !5, i64 12}
-!415 = !{!4, !5, i64 16}
-!416 = !{!4, !9, i64 24}
-!417 = !{!418, !5, i64 196}
-!418 = !{!"_ZTSN2bv6solverE", !20, i64 0, !332, i64 112, !5, i64 120, !5, i64 124, !123, i64 128, !393, i64 152, !419, i64 168, !420, i64 200, !425, i64 272, !67, i64 400, !54, i64 456, !39, i64 464, !62, i64 472, !433, i64 480, !434, i64 488, !441, i64 520, !332, i64 528, !443, i64 536, !39, i64 544, !5, i64 552, !8, i64 556, !30, i64 560, !446, i64 568, !449, i64 592, !23, i64 616, !6, i64 624}
-!419 = !{!"_ZTSN2bv6solver5statsE", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28}
-!420 = !{!"_ZTSN2bv8ackermanE", !68, i64 0, !421, i64 8, !424, i64 32, !424, i64 40, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !307, i64 64}
-!421 = !{!"_ZTS9hashtableIPN2bv8ackerman2vvENS1_7vv_hashENS1_5vv_eqEE", !422, i64 0}
-!422 = !{!"_ZTS14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE", !423, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
-!423 = !{!"p1 _ZTS18default_hash_entryIPN2bv8ackerman2vvEE", !10, i64 0}
-!424 = !{!"p1 _ZTSN2bv8ackerman2vvE", !10, i64 0}
-!425 = !{!"_ZTS11bit_blaster", !426, i64 0, !123, i64 32, !431, i64 56}
-!426 = !{!"_ZTS15bit_blaster_tplI15bit_blaster_cfgE", !427, i64 0, !88, i64 24}
-!427 = !{!"_ZTS15bit_blaster_cfg", !428, i64 0, !429, i64 8, !430, i64 16}
-!428 = !{!"p1 _ZTS7bv_util", !10, i64 0}
-!429 = !{!"p1 _ZTS18bit_blaster_params", !10, i64 0}
-!430 = !{!"p1 _ZTS13bool_rewriter", !10, i64 0}
-!431 = !{!"_ZTS13bool_rewriter", !37, i64 0, !23, i64 8, !23, i64 9, !23, i64 10, !23, i64 11, !23, i64 12, !23, i64 13, !5, i64 16, !23, i64 20, !5, i64 24, !5, i64 28, !23, i64 32, !432, i64 40, !432, i64 48, !39, i64 56, !39, i64 64}
-!432 = !{!"_ZTS10ptr_vectorI4exprE", !140, i64 0}
-!433 = !{!"_ZTS10ptr_vectorIN2bv6solver4atomEE", !232, i64 0}
-!434 = !{!"_ZTS3mapISt4pairI8rationaljEi9pair_hashI8obj_hashIS1_E13unsigned_hashE10default_eqIS2_EE", !435, i64 0}
-!435 = !{!"_ZTS9table2mapI17default_map_entryISt4pairI8rationaljEiE9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE", !436, i64 0}
-!436 = !{!"_ZTS14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE15entry_hash_procENSD_13entry_eq_procEE", !437, i64 0, !440, i64 8, !5, i64 16, !5, i64 20, !5, i64 24}
-!437 = !{!"_ZTSN9table2mapI17default_map_entryISt4pairI8rationaljEiE9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE15entry_hash_procE", !438, i64 0}
-!438 = !{!"_ZTS9pair_hashI8obj_hashI8rationalE13unsigned_hashE", !439, i64 0}
-!439 = !{!"_ZTS13unsigned_hash"}
-!440 = !{!"p1 _ZTS17default_map_entryISt4pairI8rationaljEiE", !10, i64 0}
-!441 = !{!"_ZTS6vectorI8rationalLb1EjE", !442, i64 0}
-!442 = !{!"p1 _ZTS8rational", !10, i64 0}
-!443 = !{!"_ZTS7svectorIN2bv6solver16propagation_itemEjE", !444, i64 0}
-!444 = !{!"_ZTS6vectorIN2bv6solver16propagation_itemELb0EjE", !445, i64 0}
-!445 = !{!"p1 _ZTSN2bv6solver16propagation_itemE", !10, i64 0}
-!446 = !{!"_ZTS7obj_mapI3appPN2bv8lazy_mulEE", !447, i64 0}
-!447 = !{!"_ZTS14core_hashtableIN7obj_mapI3appPN2bv8lazy_mulEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE", !448, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
-!448 = !{!"p1 _ZTSN7obj_mapI3appPN2bv8lazy_mulEE13obj_map_entryE", !10, i64 0}
-!449 = !{!"_ZTS7obj_mapI4exprN2bv6solver16internalize_modeEE", !450, i64 0}
-!450 = !{!"_ZTS14core_hashtableIN7obj_mapI4exprN2bv6solver16internalize_modeEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE", !451, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
-!451 = !{!"p1 _ZTSN7obj_mapI4exprN2bv6solver16internalize_modeEE13obj_map_entryE", !10, i64 0}
-!452 = distinct !{!452, !75}
-!453 = !{!454, !455, i64 0}
-!454 = !{!"_ZTSN3sat6statusE", !455, i64 0, !5, i64 4, !456, i64 8}
-!455 = !{!"_ZTSN3sat6status2stE", !6, i64 0}
-!456 = !{!"p1 _ZTSN3sat10proof_hintE", !10, i64 0}
-!457 = !{!454, !5, i64 4}
-!458 = !{!454, !456, i64 8}
-!459 = !{!162, !41, i64 0}
-!460 = !{!450, !451, i64 0}
-!461 = !{!447, !448, i64 0}
-!462 = !{!444, !445, i64 0}
-!463 = !{!441, !442, i64 0}
-!464 = distinct !{!464, !75}
-!465 = !{!436, !440, i64 8}
-!466 = !{!436, !5, i64 16}
-!467 = distinct !{!467, !75}
-!468 = distinct !{!468, !75}
-!469 = distinct !{!469, !75}
-!470 = !{!471, !11, i64 16}
-!471 = !{!"_ZTSN2bv6solver19del_eq_occurs_trailE", !71, i64 0, !236, i64 8, !11, i64 16}
-!472 = !{!471, !236, i64 8}
-!473 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!474 = !{!475, !68, i64 8}
-!475 = !{!"_ZTSN2bv6solver13mk_atom_trailE", !71, i64 0, !68, i64 8, !5, i64 16}
-!476 = !{!475, !5, i64 16}
-!477 = !{!17, !18, i64 0}
-!478 = !{!479, !480, i64 0}
-!479 = !{!"_ZTS6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE", !480, i64 0}
-!480 = !{!"p2 _ZTS13obj_hashtableIN3euf5enodeEE", !33, i64 0}
-!481 = !{!482, !482, i64 0}
-!482 = !{!"p1 _ZTS13obj_hashtableIN3euf5enodeEE", !10, i64 0}
-!483 = !{!484, !485, i64 0}
-!484 = !{!"_ZTS14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE", !485, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
-!485 = !{!"p1 _ZTS14obj_hash_entryIN3euf5enodeEE", !10, i64 0}
-!486 = distinct !{!486, !75}
-!487 = distinct !{!487, !75}
-!488 = distinct !{!488, !75}
-!489 = !{!490, !68, i64 0}
-!490 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_0", !68, i64 0}
-!491 = !{!492, !492, i64 0}
-!492 = !{!"p1 _ZTSSt9type_info", !10, i64 0}
-!493 = !{!494, !68, i64 0}
-!494 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_1", !68, i64 0}
-!495 = !{!496, !68, i64 0}
-!496 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_2", !68, i64 0}
-!497 = !{!498, !68, i64 0}
-!498 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_3", !68, i64 0}
-!499 = !{!500, !68, i64 0}
-!500 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_4", !68, i64 0}
-!501 = !{!502, !68, i64 0}
-!502 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_5", !68, i64 0}
-!503 = !{!504, !68, i64 0}
-!504 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_6", !68, i64 0}
-!505 = !{!506, !68, i64 0}
-!506 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_7", !68, i64 0}
-!507 = !{!508, !68, i64 0}
-!508 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_8", !68, i64 0}
-!509 = !{!510, !68, i64 0}
-!510 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_9", !68, i64 0}
-!511 = !{!512, !68, i64 0}
-!512 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_10", !68, i64 0}
-!513 = !{!514, !68, i64 0}
-!514 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_11", !68, i64 0}
-!515 = !{!516, !68, i64 0}
-!516 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_12", !68, i64 0}
-!517 = !{!518, !68, i64 0}
-!518 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_13", !68, i64 0}
-!519 = !{!520, !68, i64 0}
-!520 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_14", !68, i64 0}
-!521 = !{!522, !68, i64 0}
-!522 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_15", !68, i64 0}
-!523 = !{!524, !68, i64 0}
-!524 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_16", !68, i64 0}
-!525 = !{!526, !68, i64 0}
-!526 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_17", !68, i64 0}
-!527 = !{!528, !68, i64 0}
-!528 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_18", !68, i64 0}
-!529 = !{!530, !68, i64 0}
-!530 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_19", !68, i64 0}
-!531 = !{!532, !68, i64 0}
-!532 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_20", !68, i64 0}
-!533 = !{!534, !68, i64 0}
-!534 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_21", !68, i64 0}
-!535 = !{!536, !68, i64 0}
-!536 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_22", !68, i64 0}
-!537 = !{!538, !68, i64 0}
-!538 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_23", !68, i64 0}
-!539 = !{!540, !68, i64 0}
-!540 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_24", !68, i64 0}
-!541 = !{!542, !68, i64 0}
-!542 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_25", !68, i64 0}
-!543 = !{!544, !68, i64 0}
-!544 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_26", !68, i64 0}
-!545 = !{!546, !68, i64 0}
-!546 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_27", !68, i64 0}
-!547 = !{!548, !68, i64 0}
-!548 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_28", !68, i64 0}
-!549 = !{!550, !68, i64 0}
-!550 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_29", !68, i64 0}
-!551 = !{!552, !68, i64 0}
-!552 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_30", !68, i64 0}
-!553 = !{!554, !68, i64 0}
-!554 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_31", !68, i64 0}
-!555 = !{!556, !68, i64 0}
-!556 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_32", !68, i64 0}
-!557 = !{!558, !68, i64 0}
-!558 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_33", !68, i64 0}
-!559 = !{!560, !68, i64 0}
-!560 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_34", !68, i64 0}
-!561 = !{!562, !68, i64 0}
-!562 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_35", !68, i64 0}
-!563 = !{!564, !68, i64 0}
-!564 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_36", !68, i64 0}
-!565 = !{!566, !68, i64 0}
-!566 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_37", !68, i64 0}
-!567 = !{!568, !68, i64 0}
-!568 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_38", !68, i64 0}
-!569 = !{!570, !68, i64 0}
-!570 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_39", !68, i64 0}
-!571 = !{!572, !68, i64 0}
-!572 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_40", !68, i64 0}
-!573 = !{!574, !68, i64 0}
-!574 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_41", !68, i64 0}
-!575 = !{!576, !68, i64 0}
-!576 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_42", !68, i64 0}
-!577 = !{!578, !52, i64 8}
-!578 = !{!"_ZTS11value_trailIN3sat7literalEE", !71, i64 0, !52, i64 8, !8, i64 16}
-!579 = !{!580, !397, i64 8}
-!580 = !{!"_ZTS16push_back_vectorI10ptr_vectorIN3euf5enodeEEE", !71, i64 0, !397, i64 8}
-!581 = !{!582, !68, i64 0}
-!582 = !{!"_ZTSZN2bv6solver18internalize_udiv_iEP3appE3$_0", !68, i64 0}
+!260 = !{!261, !262, i64 0}
+!261 = !{!"_ZTS6vectorIN3sat13justificationELb0EjE", !262, i64 0}
+!262 = !{!"p1 _ZTSN3sat13justificationE", !10, i64 0}
+!263 = !{!264, !5, i64 0}
+!264 = !{!"_ZTSN3sat13justificationE", !5, i64 0, !147, i64 8, !5, i64 16}
+!265 = !{!266, !236, i64 8}
+!266 = !{!"_ZTSN2bv6solver17add_var_pos_trailE", !71, i64 0, !236, i64 8}
+!267 = !{!268, !37, i64 0}
+!268 = !{!"_ZTS10arith_util", !37, i64 0, !269, i64 8}
+!269 = !{!"p1 _ZTS17arith_decl_plugin", !10, i64 0}
+!270 = !{!268, !269, i64 8}
+!271 = !{!272, !272, i64 0}
+!272 = !{!"p1 _ZTS10ptr_vectorIN3euf5enodeEE", !10, i64 0}
+!273 = !{!274}
+!274 = distinct !{!274, !275, !"_Z5powerRK8rationalj: argument 0"}
+!275 = distinct !{!275, !"_Z5powerRK8rationalj"}
+!276 = !{!277}
+!277 = distinct !{!277, !278, !"_ZNK8rational4exptEi: argument 0"}
+!278 = distinct !{!278, !"_ZNK8rational4exptEi"}
+!279 = !{!277, !274}
+!280 = distinct !{!280, !75}
+!281 = !{!81, !5, i64 28}
+!282 = !{!283, !5, i64 0}
+!283 = !{!"_ZTS10random_gen", !5, i64 0}
+!284 = distinct !{!284, !75}
+!285 = !{!286, !236, i64 8}
+!286 = !{!"_ZTSN2bv6solver19add_eq_occurs_trailE", !71, i64 0, !236, i64 8}
+!287 = !{!4, !5, i64 0}
+!288 = !{!4, !5, i64 4}
+!289 = !{!4, !5, i64 8}
+!290 = !{!4, !5, i64 12}
+!291 = !{!4, !5, i64 16}
+!292 = !{!4, !9, i64 24}
+!293 = !{!294, !5, i64 196}
+!294 = !{!"_ZTSN2bv6solverE", !20, i64 0, !295, i64 112, !5, i64 120, !5, i64 124, !123, i64 128, !268, i64 152, !296, i64 168, !297, i64 200, !305, i64 272, !67, i64 400, !54, i64 456, !39, i64 464, !62, i64 472, !313, i64 480, !314, i64 488, !321, i64 520, !295, i64 528, !323, i64 536, !39, i64 544, !5, i64 552, !8, i64 556, !30, i64 560, !326, i64 568, !329, i64 592, !23, i64 616, !6, i64 624}
+!295 = !{!"_ZTS7svectorIN3sat7literalEjE", !51, i64 0}
+!296 = !{!"_ZTSN2bv6solver5statsE", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28}
+!297 = !{!"_ZTSN2bv8ackermanE", !68, i64 0, !298, i64 8, !301, i64 32, !301, i64 40, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !302, i64 64}
+!298 = !{!"_ZTS9hashtableIPN2bv8ackerman2vvENS1_7vv_hashENS1_5vv_eqEE", !299, i64 0}
+!299 = !{!"_ZTS14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE", !300, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
+!300 = !{!"p1 _ZTS18default_hash_entryIPN2bv8ackerman2vvEE", !10, i64 0}
+!301 = !{!"p1 _ZTSN2bv8ackerman2vvE", !10, i64 0}
+!302 = !{!"_ZTS7svectorIbjE", !303, i64 0}
+!303 = !{!"_ZTS6vectorIbLb0EjE", !304, i64 0}
+!304 = !{!"p1 bool", !10, i64 0}
+!305 = !{!"_ZTS11bit_blaster", !306, i64 0, !123, i64 32, !311, i64 56}
+!306 = !{!"_ZTS15bit_blaster_tplI15bit_blaster_cfgE", !307, i64 0, !88, i64 24}
+!307 = !{!"_ZTS15bit_blaster_cfg", !308, i64 0, !309, i64 8, !310, i64 16}
+!308 = !{!"p1 _ZTS7bv_util", !10, i64 0}
+!309 = !{!"p1 _ZTS18bit_blaster_params", !10, i64 0}
+!310 = !{!"p1 _ZTS13bool_rewriter", !10, i64 0}
+!311 = !{!"_ZTS13bool_rewriter", !37, i64 0, !23, i64 8, !23, i64 9, !23, i64 10, !23, i64 11, !23, i64 12, !23, i64 13, !5, i64 16, !23, i64 20, !5, i64 24, !5, i64 28, !23, i64 32, !312, i64 40, !312, i64 48, !39, i64 56, !39, i64 64}
+!312 = !{!"_ZTS10ptr_vectorI4exprE", !140, i64 0}
+!313 = !{!"_ZTS10ptr_vectorIN2bv6solver4atomEE", !232, i64 0}
+!314 = !{!"_ZTS3mapISt4pairI8rationaljEi9pair_hashI8obj_hashIS1_E13unsigned_hashE10default_eqIS2_EE", !315, i64 0}
+!315 = !{!"_ZTS9table2mapI17default_map_entryISt4pairI8rationaljEiE9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE", !316, i64 0}
+!316 = !{!"_ZTS14core_hashtableI17default_map_entryISt4pairI8rationaljEiEN9table2mapIS4_9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE15entry_hash_procENSD_13entry_eq_procEE", !317, i64 0, !320, i64 8, !5, i64 16, !5, i64 20, !5, i64 24}
+!317 = !{!"_ZTSN9table2mapI17default_map_entryISt4pairI8rationaljEiE9pair_hashI8obj_hashIS2_E13unsigned_hashE10default_eqIS3_EE15entry_hash_procE", !318, i64 0}
+!318 = !{!"_ZTS9pair_hashI8obj_hashI8rationalE13unsigned_hashE", !319, i64 0}
+!319 = !{!"_ZTS13unsigned_hash"}
+!320 = !{!"p1 _ZTS17default_map_entryISt4pairI8rationaljEiE", !10, i64 0}
+!321 = !{!"_ZTS6vectorI8rationalLb1EjE", !322, i64 0}
+!322 = !{!"p1 _ZTS8rational", !10, i64 0}
+!323 = !{!"_ZTS7svectorIN2bv6solver16propagation_itemEjE", !324, i64 0}
+!324 = !{!"_ZTS6vectorIN2bv6solver16propagation_itemELb0EjE", !325, i64 0}
+!325 = !{!"p1 _ZTSN2bv6solver16propagation_itemE", !10, i64 0}
+!326 = !{!"_ZTS7obj_mapI3appPN2bv8lazy_mulEE", !327, i64 0}
+!327 = !{!"_ZTS14core_hashtableIN7obj_mapI3appPN2bv8lazy_mulEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE", !328, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
+!328 = !{!"p1 _ZTSN7obj_mapI3appPN2bv8lazy_mulEE13obj_map_entryE", !10, i64 0}
+!329 = !{!"_ZTS7obj_mapI4exprN2bv6solver16internalize_modeEE", !330, i64 0}
+!330 = !{!"_ZTS14core_hashtableIN7obj_mapI4exprN2bv6solver16internalize_modeEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE", !331, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
+!331 = !{!"p1 _ZTSN7obj_mapI4exprN2bv6solver16internalize_modeEE13obj_map_entryE", !10, i64 0}
+!332 = distinct !{!332, !75}
+!333 = !{!334, !335, i64 0}
+!334 = !{!"_ZTSN3sat6statusE", !335, i64 0, !5, i64 4, !336, i64 8}
+!335 = !{!"_ZTSN3sat6status2stE", !6, i64 0}
+!336 = !{!"p1 _ZTSN3sat10proof_hintE", !10, i64 0}
+!337 = !{!334, !5, i64 4}
+!338 = !{!334, !336, i64 8}
+!339 = !{!162, !41, i64 0}
+!340 = !{!330, !331, i64 0}
+!341 = !{!327, !328, i64 0}
+!342 = !{!324, !325, i64 0}
+!343 = !{!321, !322, i64 0}
+!344 = distinct !{!344, !75}
+!345 = !{!316, !320, i64 8}
+!346 = !{!316, !5, i64 16}
+!347 = distinct !{!347, !75}
+!348 = distinct !{!348, !75}
+!349 = distinct !{!349, !75}
+!350 = !{!351, !11, i64 16}
+!351 = !{!"_ZTSN2bv6solver19del_eq_occurs_trailE", !71, i64 0, !236, i64 8, !11, i64 16}
+!352 = !{!351, !236, i64 8}
+!353 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!354 = !{!355, !68, i64 8}
+!355 = !{!"_ZTSN2bv6solver13mk_atom_trailE", !71, i64 0, !68, i64 8, !5, i64 16}
+!356 = !{!355, !5, i64 16}
+!357 = !{!17, !18, i64 0}
+!358 = !{!359, !360, i64 0}
+!359 = !{!"_ZTS6vectorIP13obj_hashtableIN3euf5enodeEELb0EjE", !360, i64 0}
+!360 = !{!"p2 _ZTS13obj_hashtableIN3euf5enodeEE", !33, i64 0}
+!361 = !{!362, !362, i64 0}
+!362 = !{!"p1 _ZTS13obj_hashtableIN3euf5enodeEE", !10, i64 0}
+!363 = !{!364, !365, i64 0}
+!364 = !{!"_ZTS14core_hashtableI14obj_hash_entryIN3euf5enodeEE12obj_ptr_hashIS2_E6ptr_eqIS2_EE", !365, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
+!365 = !{!"p1 _ZTS14obj_hash_entryIN3euf5enodeEE", !10, i64 0}
+!366 = distinct !{!366, !75}
+!367 = distinct !{!367, !75}
+!368 = distinct !{!368, !75}
+!369 = !{!370, !68, i64 0}
+!370 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_0", !68, i64 0}
+!371 = !{!372, !372, i64 0}
+!372 = !{!"p1 _ZTSSt9type_info", !10, i64 0}
+!373 = !{!374, !68, i64 0}
+!374 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_1", !68, i64 0}
+!375 = !{!376, !68, i64 0}
+!376 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_2", !68, i64 0}
+!377 = !{!378, !68, i64 0}
+!378 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_3", !68, i64 0}
+!379 = !{!380, !68, i64 0}
+!380 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_4", !68, i64 0}
+!381 = !{!382, !68, i64 0}
+!382 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_5", !68, i64 0}
+!383 = !{!384, !68, i64 0}
+!384 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_6", !68, i64 0}
+!385 = !{!386, !68, i64 0}
+!386 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_7", !68, i64 0}
+!387 = !{!388, !68, i64 0}
+!388 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_8", !68, i64 0}
+!389 = !{!390, !68, i64 0}
+!390 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE3$_9", !68, i64 0}
+!391 = !{!392, !68, i64 0}
+!392 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_10", !68, i64 0}
+!393 = !{!394, !68, i64 0}
+!394 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_11", !68, i64 0}
+!395 = !{!396, !68, i64 0}
+!396 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_12", !68, i64 0}
+!397 = !{!398, !68, i64 0}
+!398 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_13", !68, i64 0}
+!399 = !{!400, !68, i64 0}
+!400 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_14", !68, i64 0}
+!401 = !{!402, !68, i64 0}
+!402 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_15", !68, i64 0}
+!403 = !{!404, !68, i64 0}
+!404 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_16", !68, i64 0}
+!405 = !{!406, !68, i64 0}
+!406 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_17", !68, i64 0}
+!407 = !{!408, !68, i64 0}
+!408 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_18", !68, i64 0}
+!409 = !{!410, !68, i64 0}
+!410 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_19", !68, i64 0}
+!411 = !{!412, !68, i64 0}
+!412 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_20", !68, i64 0}
+!413 = !{!414, !68, i64 0}
+!414 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_21", !68, i64 0}
+!415 = !{!416, !68, i64 0}
+!416 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_22", !68, i64 0}
+!417 = !{!418, !68, i64 0}
+!418 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_23", !68, i64 0}
+!419 = !{!420, !68, i64 0}
+!420 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_24", !68, i64 0}
+!421 = !{!422, !68, i64 0}
+!422 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_25", !68, i64 0}
+!423 = !{!424, !68, i64 0}
+!424 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_26", !68, i64 0}
+!425 = !{!426, !68, i64 0}
+!426 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_27", !68, i64 0}
+!427 = !{!428, !68, i64 0}
+!428 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_28", !68, i64 0}
+!429 = !{!430, !68, i64 0}
+!430 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_29", !68, i64 0}
+!431 = !{!432, !68, i64 0}
+!432 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_30", !68, i64 0}
+!433 = !{!434, !68, i64 0}
+!434 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_31", !68, i64 0}
+!435 = !{!436, !68, i64 0}
+!436 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_32", !68, i64 0}
+!437 = !{!438, !68, i64 0}
+!438 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_33", !68, i64 0}
+!439 = !{!440, !68, i64 0}
+!440 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_34", !68, i64 0}
+!441 = !{!442, !68, i64 0}
+!442 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_35", !68, i64 0}
+!443 = !{!444, !68, i64 0}
+!444 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_36", !68, i64 0}
+!445 = !{!446, !68, i64 0}
+!446 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_37", !68, i64 0}
+!447 = !{!448, !68, i64 0}
+!448 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_38", !68, i64 0}
+!449 = !{!450, !68, i64 0}
+!450 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_39", !68, i64 0}
+!451 = !{!452, !68, i64 0}
+!452 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_40", !68, i64 0}
+!453 = !{!454, !68, i64 0}
+!454 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_41", !68, i64 0}
+!455 = !{!456, !68, i64 0}
+!456 = !{!"_ZTSZN2bv6solver19internalize_circuitEP3appE4$_42", !68, i64 0}
+!457 = !{!458, !52, i64 8}
+!458 = !{!"_ZTS11value_trailIN3sat7literalEE", !71, i64 0, !52, i64 8, !8, i64 16}
+!459 = !{!460, !272, i64 8}
+!460 = !{!"_ZTS16push_back_vectorI10ptr_vectorIN3euf5enodeEEE", !71, i64 0, !272, i64 8}
+!461 = !{!462, !68, i64 0}
+!462 = !{!"_ZTSZN2bv6solver18internalize_udiv_iEP3appE3$_0", !68, i64 0}

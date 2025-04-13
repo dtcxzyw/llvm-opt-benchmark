@@ -85,19 +85,17 @@ define void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnull
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load i64, ptr %20, align 8, !tbaa !176
   store i64 %19, ptr %20, align 8, !tbaa !176
-  %.not.i3.i = icmp eq i64 %21, 0
-  br i1 %.not.i3.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i, label %22
-
-22:                                               ; preds = %12
+  %22 = icmp ne i64 %21, 0
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load i8, ptr %23, align 8, !tbaa !20, !range !177, !noundef !178
+  %24 = load i8, ptr %23, align 8, !range !177
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %26, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i
+  %or.cond.i.i = select i1 %22, i1 %25, i1 false
+  br i1 %or.cond.i.i, label %26, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i
 
-26:                                               ; preds = %22
+26:                                               ; preds = %12
   %27 = load ptr, ptr %0, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 3192
-  %29 = load ptr, ptr %28, align 8, !tbaa !179
+  %29 = load ptr, ptr %28, align 8, !tbaa !178
   %30 = load ptr, ptr %29, align 8, !tbaa !174
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 152
   %32 = load ptr, ptr %31, align 8
@@ -110,8 +108,8 @@ define void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnull
 35:                                               ; preds = %26
   %36 = sub nsw i64 %19, %21
   %37 = shl nsw i64 %.sroa.2.0.copyload.i.i.i, 1
-  %.not15.i.i = icmp slt i64 %36, %37
-  br i1 %.not15.i.i, label %38, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i
+  %.not.i3.i = icmp slt i64 %36, %37
+  br i1 %.not.i3.i, label %38, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i
 
 38:                                               ; preds = %35
   %39 = load i64, ptr %9, align 8, !tbaa !19
@@ -122,7 +120,7 @@ define void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnull
   store i64 %43, ptr %9, align 8, !tbaa !19
   br label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i
 
-_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i: ; preds = %38, %35, %26, %22, %12
+_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i: ; preds = %38, %35, %26, %12
   %44 = load i64, ptr %9, align 8, !tbaa !19
   %45 = sub i64 %44, %8
   %46 = load i64, ptr %6, align 8, !tbaa !18
@@ -165,19 +163,17 @@ define void @_ZN3net18QuicFlowController21MaybeSendWindowUpdateEv(ptr noundef no
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load i64, ptr %18, align 8, !tbaa !176
   store i64 %17, ptr %18, align 8, !tbaa !176
-  %.not.i3 = icmp eq i64 %19, 0
-  br i1 %.not.i3, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit, label %20
-
-20:                                               ; preds = %10
+  %20 = icmp ne i64 %19, 0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %22 = load i8, ptr %21, align 8, !tbaa !20, !range !177, !noundef !178
+  %22 = load i8, ptr %21, align 8, !range !177
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %24, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit
+  %or.cond.i = select i1 %20, i1 %23, i1 false
+  br i1 %or.cond.i, label %24, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit
 
-24:                                               ; preds = %20
+24:                                               ; preds = %10
   %25 = load ptr, ptr %0, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 3192
-  %27 = load ptr, ptr %26, align 8, !tbaa !179
+  %27 = load ptr, ptr %26, align 8, !tbaa !178
   %28 = load ptr, ptr %27, align 8, !tbaa !174
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 152
   %30 = load ptr, ptr %29, align 8
@@ -190,8 +186,8 @@ define void @_ZN3net18QuicFlowController21MaybeSendWindowUpdateEv(ptr noundef no
 33:                                               ; preds = %24
   %34 = sub nsw i64 %17, %19
   %35 = shl nsw i64 %.sroa.2.0.copyload.i.i, 1
-  %.not15.i = icmp slt i64 %34, %35
-  br i1 %.not15.i, label %36, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit
+  %.not.i3 = icmp slt i64 %34, %35
+  br i1 %.not.i3, label %36, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit
 
 36:                                               ; preds = %33
   %37 = load i64, ptr %7, align 8, !tbaa !19
@@ -202,7 +198,7 @@ define void @_ZN3net18QuicFlowController21MaybeSendWindowUpdateEv(ptr noundef no
   store i64 %41, ptr %7, align 8, !tbaa !19
   br label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit
 
-_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit: ; preds = %10, %20, %24, %33, %36
+_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit: ; preds = %10, %24, %33, %36
   %42 = load i64, ptr %7, align 8, !tbaa !19
   %43 = sub i64 %42, %6
   %44 = load i64, ptr %2, align 8, !tbaa !18
@@ -224,12 +220,12 @@ _ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit: ; preds = %10, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i64, ptr %3, align 8, !tbaa !180
+  %4 = load i64, ptr %3, align 8, !tbaa !179
   %.not = icmp ugt i64 %1, %4
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %2
-  store i64 %1, ptr %3, align 8, !tbaa !180
+  store i64 %1, ptr %3, align 8, !tbaa !179
   br label %6
 
 6:                                                ; preds = %2, %5
@@ -315,9 +311,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZNSo
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
   %37 = sub i64 0, %1
   call void (ptr, ptr, ...) @_ZN4base12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.7, i64 noundef %37)
-  %38 = load ptr, ptr %6, align 8, !tbaa !181
+  %38 = load ptr, ptr %6, align 8, !tbaa !180
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %39, ptr %5, align 8, !tbaa !182
+  store ptr %39, ptr %5, align 8, !tbaa !181
   %40 = icmp eq ptr %38, null
   br i1 %40, label %41, label %42
 
@@ -340,9 +336,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZNSo
           to label %.noexc24 unwind label %72
 
 .noexc24:                                         ; preds = %.noexc.i
-  store ptr %45, ptr %5, align 8, !tbaa !181
+  store ptr %45, ptr %5, align 8, !tbaa !180
   %46 = load i64, ptr %3, align 8, !tbaa !176
-  store i64 %46, ptr %39, align 8, !tbaa !183
+  store i64 %46, ptr %39, align 8, !tbaa !182
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc24, %42
@@ -353,8 +349,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZNSo
   ]
 
 48:                                               ; preds = %._crit_edge.i.i
-  %49 = load i8, ptr %38, align 1, !tbaa !183
-  store i8 %49, ptr %47, align 1, !tbaa !183
+  %49 = load i8, ptr %38, align 1, !tbaa !182
+  store i8 %49, ptr %47, align 1, !tbaa !182
   br label %51
 
 50:                                               ; preds = %._crit_edge.i.i
@@ -364,10 +360,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZNSo
 51:                                               ; preds = %50, %48, %._crit_edge.i.i
   %52 = load i64, ptr %3, align 8, !tbaa !176
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %52, ptr %53, align 8, !tbaa !184
-  %54 = load ptr, ptr %5, align 8, !tbaa !181
+  store i64 %52, ptr %53, align 8, !tbaa !183
+  %54 = load ptr, ptr %5, align 8, !tbaa !180
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %52
-  store i8 0, ptr %55, align 1, !tbaa !183
+  store i8 0, ptr %55, align 1, !tbaa !182
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   %56 = load ptr, ptr %36, align 8, !tbaa !174
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 256
@@ -376,12 +372,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZNSo
           to label %59 unwind label %74
 
 59:                                               ; preds = %51
-  %60 = load ptr, ptr %5, align 8, !tbaa !181
+  %60 = load ptr, ptr %5, align 8, !tbaa !180
   %61 = icmp eq ptr %60, %39
   br i1 %61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %59
-  %62 = load i64, ptr %53, align 8, !tbaa !184
+  %62 = load i64, ptr %53, align 8, !tbaa !183
   %63 = icmp ult i64 %62, 16
   call void @llvm.assume(i1 %63)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -391,14 +387,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  %64 = load ptr, ptr %6, align 8, !tbaa !181
+  %64 = load ptr, ptr %6, align 8, !tbaa !180
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %66 = icmp eq ptr %64, %65
   br i1 %66, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !184
+  %68 = load i64, ptr %67, align 8, !tbaa !183
   %69 = icmp ult i64 %68, 16
   call void @llvm.assume(i1 %69)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
@@ -427,12 +423,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
 74:                                               ; preds = %51
   %75 = landingpad { ptr, i32 }
           cleanup
-  %76 = load ptr, ptr %5, align 8, !tbaa !181
+  %76 = load ptr, ptr %5, align 8, !tbaa !180
   %77 = icmp eq ptr %76, %39
   br i1 %77, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i29: ; preds = %74
-  %78 = load i64, ptr %53, align 8, !tbaa !184
+  %78 = load i64, ptr %53, align 8, !tbaa !183
   %79 = icmp ult i64 %78, 16
   call void @llvm.assume(i1 %79)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30
@@ -443,14 +439,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i29, %72
   %.pn = phi { ptr, i32 } [ %73, %72 ], [ %75, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i29 ], [ %75, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28 ]
-  %80 = load ptr, ptr %6, align 8, !tbaa !181
+  %80 = load ptr, ptr %6, align 8, !tbaa !180
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %82 = icmp eq ptr %80, %81
   br i1 %82, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i32: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %84 = load i64, ptr %83, align 8, !tbaa !184
+  %84 = load i64, ptr %83, align 8, !tbaa !183
   %85 = icmp ult i64 %84, 16
   call void @llvm.assume(i1 %85)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33
@@ -496,7 +492,7 @@ declare void @_ZN4base12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind writable sre
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN3net18QuicFlowController20FlowControlViolationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i64, ptr %2, align 8, !tbaa !180
+  %3 = load i64, ptr %2, align 8, !tbaa !179
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp ugt i64 %3, %5
@@ -515,19 +511,17 @@ define void @_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv(ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i64, ptr %9, align 8, !tbaa !176
   store i64 %8, ptr %9, align 8, !tbaa !176
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %34, label %11
-
-11:                                               ; preds = %1
+  %11 = icmp ne i64 %10, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %13 = load i8, ptr %12, align 8, !tbaa !20, !range !177, !noundef !178
+  %13 = load i8, ptr %12, align 8, !range !177
   %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %15, label %34
+  %or.cond = select i1 %11, i1 %14, i1 false
+  br i1 %or.cond, label %15, label %34
 
-15:                                               ; preds = %11
+15:                                               ; preds = %1
   %16 = load ptr, ptr %0, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 3192
-  %18 = load ptr, ptr %17, align 8, !tbaa !179
+  %18 = load ptr, ptr %17, align 8, !tbaa !178
   %19 = load ptr, ptr %18, align 8, !tbaa !174
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 152
   %21 = load ptr, ptr %20, align 8
@@ -540,8 +534,8 @@ define void @_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv(ptr nound
 24:                                               ; preds = %15
   %25 = sub nsw i64 %8, %10
   %26 = shl nsw i64 %.sroa.2.0.copyload.i, 1
-  %.not15 = icmp slt i64 %25, %26
-  br i1 %.not15, label %27, label %34
+  %.not = icmp slt i64 %25, %26
+  br i1 %.not, label %27, label %34
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -553,7 +547,7 @@ define void @_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv(ptr nound
   store i64 %33, ptr %28, align 8, !tbaa !19
   br label %34
 
-34:                                               ; preds = %15, %24, %27, %11, %1
+34:                                               ; preds = %15, %24, %27, %1
   ret void
 }
 
@@ -579,7 +573,7 @@ define void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr noundef nonnull
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = load i64, ptr %7, align 8, !tbaa !185
+  %8 = load i64, ptr %7, align 8, !tbaa !184
   %9 = icmp ult i64 %8, %5
   br i1 %9, label %10, label %18
 
@@ -592,7 +586,7 @@ define void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr noundef nonnull
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(3372) %11, i32 noundef %13)
   %17 = load i64, ptr %4, align 8, !tbaa !17
-  store i64 %17, ptr %7, align 8, !tbaa !185
+  store i64 %17, ptr %7, align 8, !tbaa !184
   br label %18
 
 18:                                               ; preds = %10, %6, %1
@@ -919,11 +913,10 @@ attributes #16 = { builtin nounwind }
 !175 = !{!"vtable pointer", !8, i64 0}
 !176 = !{!11, !11, i64 0}
 !177 = !{i8 0, i8 2}
-!178 = !{}
-!179 = !{!172, !172, i64 0}
-!180 = !{!4, !11, i64 40}
-!181 = !{!32, !34, i64 0}
-!182 = !{!33, !34, i64 0}
-!183 = !{!7, !7, i64 0}
-!184 = !{!32, !11, i64 8}
-!185 = !{!4, !11, i64 80}
+!178 = !{!172, !172, i64 0}
+!179 = !{!4, !11, i64 40}
+!180 = !{!32, !34, i64 0}
+!181 = !{!33, !34, i64 0}
+!182 = !{!7, !7, i64 0}
+!183 = !{!32, !11, i64 8}
+!184 = !{!4, !11, i64 80}

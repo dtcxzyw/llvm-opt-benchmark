@@ -44,92 +44,84 @@ define internal fastcc void @pg_log_v(i32 noundef %0, ptr noundef %1, ptr nounde
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %4) #11
   %5 = call i32 @pg_vsnprintf(ptr noundef nonnull %4, i64 noundef 8192, ptr noundef %1, ptr noundef nonnull %2) #11
   %or.cond = icmp ugt i32 %0, 1
-  br i1 %or.cond, label %11, label %6
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !4
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %7
+  %8 = load ptr, ptr @log_opts, align 8
+  %9 = icmp ne ptr %8, null
+  %or.cond5 = select i1 %or.cond3, i1 %9, i1 false
+  br i1 %or.cond5, label %10, label %14
 
-6:                                                ; preds = %3
-  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !4, !noundef !5
-  %8 = trunc nuw i8 %7 to i1
-  %9 = load ptr, ptr @log_opts, align 8
-  %10 = icmp ne ptr %9, null
-  %or.cond3 = select i1 %8, i1 %10, i1 false
-  br i1 %or.cond3, label %12, label %17
-
-11:                                               ; preds = %3
-  %.old = load ptr, ptr @log_opts, align 8
-  %.old2.not = icmp eq ptr %.old, null
-  br i1 %.old2.not, label %17, label %12
-
-12:                                               ; preds = %6, %11
-  %13 = phi ptr [ %9, %6 ], [ %.old, %11 ]
+10:                                               ; preds = %3
   %switch.selectcmp = icmp eq i32 %0, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.6, ptr @.str.8
-  %switch.selectcmp12 = icmp eq i32 %0, 1
-  %switch.select13 = select i1 %switch.selectcmp12, ptr @.str.7, ptr %switch.select
-  %14 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %13, ptr noundef nonnull %switch.select13, ptr noundef nonnull %4) #11
-  %15 = load ptr, ptr @log_opts, align 8
-  %16 = call i32 @fflush(ptr noundef %15)
-  br label %17
+  %switch.selectcmp15 = icmp eq i32 %0, 1
+  %switch.select16 = select i1 %switch.selectcmp15, ptr @.str.7, ptr %switch.select
+  %11 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %8, ptr noundef nonnull %switch.select16, ptr noundef nonnull %4) #11
+  %12 = load ptr, ptr @log_opts, align 8
+  %13 = call i32 @fflush(ptr noundef %12)
+  br label %14
 
-17:                                               ; preds = %12, %11, %6
-  switch i32 %0, label %46 [
-    i32 0, label %18
-    i32 1, label %23
-    i32 2, label %39
-    i32 3, label %41
-    i32 4, label %41
-    i32 5, label %43
+14:                                               ; preds = %3, %10
+  switch i32 %0, label %43 [
+    i32 0, label %15
+    i32 1, label %20
+    i32 2, label %36
+    i32 3, label %38
+    i32 4, label %38
+    i32 5, label %40
   ]
 
-18:                                               ; preds = %17
-  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !4, !noundef !5
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %21, label %46
+15:                                               ; preds = %14
+  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !4, !noundef !5
+  %17 = trunc nuw i8 %16 to i1
+  br i1 %17, label %18, label %43
 
-21:                                               ; preds = %18
-  %22 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #11
-  br label %46
+18:                                               ; preds = %15
+  %19 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #11
+  br label %43
 
-23:                                               ; preds = %17
-  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 48), align 8, !range !4, !noundef !5
-  %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %26, label %34
+20:                                               ; preds = %14
+  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 48), align 8, !range !4, !noundef !5
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %31
 
-26:                                               ; preds = %23
-  %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
-  %28 = icmp ult i64 %27, 61
-  %29 = select i1 %28, ptr @.str.2, ptr @.str.10
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %27
-  %31 = getelementptr inbounds i8, ptr %30, i64 -57
-  %32 = select i1 %28, ptr %4, ptr %31
-  %33 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.9, ptr noundef nonnull %29, i32 noundef 60, i32 noundef 60, ptr noundef nonnull %32) #11
-  br label %46
+23:                                               ; preds = %20
+  %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
+  %25 = icmp ult i64 %24, 61
+  %26 = select i1 %25, ptr @.str.2, ptr @.str.10
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %24
+  %28 = getelementptr inbounds i8, ptr %27, i64 -57
+  %29 = select i1 %25, ptr %4, ptr %28
+  %30 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.9, ptr noundef nonnull %26, i32 noundef 60, i32 noundef 60, ptr noundef nonnull %29) #11
+  br label %43
 
-34:                                               ; preds = %23
-  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !4, !noundef !5
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %46
+31:                                               ; preds = %20
+  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !4, !noundef !5
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %43
 
-37:                                               ; preds = %34
-  %38 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #11
-  br label %46
+34:                                               ; preds = %31
+  %35 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #11
+  br label %43
 
-39:                                               ; preds = %17
-  %40 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #11
-  br label %46
+36:                                               ; preds = %14
+  %37 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #11
+  br label %43
 
-41:                                               ; preds = %17, %17
-  %42 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #11
-  br label %46
+38:                                               ; preds = %14, %14
+  %39 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #11
+  br label %43
 
-43:                                               ; preds = %17
-  %44 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #11
-  %45 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.4) #11
+40:                                               ; preds = %14
+  %41 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #11
+  %42 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.4) #11
   call void @exit(i32 noundef 1) #13
   unreachable
 
-46:                                               ; preds = %26, %37, %34, %18, %21, %41, %39, %17
-  %47 = load ptr, ptr @stdout, align 8
-  %48 = call i32 @fflush(ptr noundef %47)
+43:                                               ; preds = %23, %34, %31, %15, %18, %38, %36, %14
+  %44 = load ptr, ptr @stdout, align 8
+  %45 = call i32 @fflush(ptr noundef %44)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4) #11
   ret void
 }
@@ -261,9 +253,9 @@ define dso_local void @prep_status_progress(ptr noundef %0, ...) local_unnamed_a
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !4
   %8 = trunc nuw i8 %7 to i1
-  %9 = select i1 %6, i1 true, i1 %8
-  %.sink = select i1 %9, i32 3, i32 2
-  call void (i32, ptr, ...) @pg_log(i32 noundef %.sink, ptr noundef nonnull @.str.1, i32 noundef 62, ptr noundef nonnull %3)
+  %or.cond = select i1 %6, i1 true, i1 %8
+  %. = select i1 %or.cond, i32 3, i32 2
+  call void (i32, ptr, ...) @pg_log(i32 noundef %., ptr noundef nonnull @.str.1, i32 noundef 62, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #11
   ret void

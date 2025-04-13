@@ -430,12 +430,12 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %.0.i = phi i32 [ 0, %219 ], [ 0, %._crit_edge.i ], [ 1, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #9
-  br label %622
+  br label %621
 
 220:                                              ; preds = %15
   %221 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 25), align 1, !range !8, !noundef !9
   %222 = trunc nuw i8 %221 to i1
-  br i1 %222, label %223, label %583
+  br i1 %222, label %223, label %582
 
 223:                                              ; preds = %220
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
@@ -462,13 +462,13 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
 232:                                              ; preds = %229, %226
   %233 = load ptr, ptr %5, align 8
   %234 = load i32, ptr %233, align 8
-  %.not125.i = icmp eq i32 %234, 0
-  br i1 %.not125.i, label %._crit_edge.i6, label %.lr.ph.i5
+  %.not126.i = icmp eq i32 %234, 0
+  br i1 %.not126.i, label %._crit_edge.i6, label %.lr.ph.i5
 
 .lr.ph.i5:                                        ; preds = %232, %.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.i ], [ 0, %232 ]
-  %235 = phi ptr [ %579, %.thread.i ], [ %233, %232 ]
-  %.064123.i = phi i32 [ %.1.i, %.thread.i ], [ 0, %232 ]
+  %235 = phi ptr [ %578, %.thread.i ], [ %233, %232 ]
+  %.065124.i = phi i32 [ %.1.i, %.thread.i ], [ 0, %232 ]
   %236 = load i8, ptr @params, align 8, !range !8, !noundef !9
   %237 = trunc nuw i8 %236 to i1
   br i1 %237, label %238, label %243
@@ -478,8 +478,8 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr inbounds nuw %struct.trigger_info, ptr %240, i64 %indvars.iv.i, i32 5
   %242 = load i32, ptr %241, align 4
-  %.not70.i = icmp eq i32 %242, 1048576
-  br i1 %.not70.i, label %243, label %.thread.i
+  %.not71.i = icmp eq i32 %242, 1048576
+  br i1 %.not71.i, label %243, label %.thread.i
 
 243:                                              ; preds = %238, %.lr.ph.i5
   %244 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 19), align 1, !range !8, !noundef !9
@@ -491,13 +491,13 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds nuw %struct.trigger_info, ptr %248, i64 %indvars.iv.i, i32 5
   %250 = load i32, ptr %249, align 4
-  %.not71.i = icmp eq i32 %250, 16
-  br i1 %.not71.i, label %251, label %.thread.i
+  %.not72.i = icmp eq i32 %250, 16
+  br i1 %.not72.i, label %251, label %.thread.i
 
 251:                                              ; preds = %246, %243
   %252 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
-  %.not72.i = icmp eq i32 %252, 0
-  br i1 %.not72.i, label %264, label %253
+  %.not73.i = icmp eq i32 %252, 0
+  br i1 %.not73.i, label %264, label %253
 
 253:                                              ; preds = %251
   %254 = getelementptr inbounds nuw i8, ptr %235, i64 8
@@ -505,16 +505,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %256 = getelementptr inbounds nuw %struct.trigger_info, ptr %255, i64 %indvars.iv.i
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load i16, ptr %257, align 8
-  %.not73.i = icmp eq i16 %258, 1
-  br i1 %.not73.i, label %259, label %.thread.i
+  %.not74.i = icmp eq i16 %258, 1
+  br i1 %.not74.i, label %259, label %.thread.i
 
 259:                                              ; preds = %253
   %260 = getelementptr inbounds nuw i8, ptr %256, i64 16
   %261 = load ptr, ptr %260, align 8
   %262 = call i64 @strtol(ptr noundef nonnull captures(none) %261, ptr noundef null, i32 noundef 10) #9
   %263 = zext i32 %252 to i64
-  %.not74.i = icmp eq i64 %262, %263
-  br i1 %.not74.i, label %264, label %.thread.i
+  %.not75.i = icmp eq i64 %262, %263
+  br i1 %.not75.i, label %264, label %.thread.i
 
 264:                                              ; preds = %259, %251
   %265 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 39), align 1, !range !8, !noundef !9
@@ -535,8 +535,8 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
 273:                                              ; preds = %267, %267
   %274 = getelementptr inbounds nuw %struct.trigger_info, ptr %270, i64 %indvars.iv.i, i32 5
   %275 = load i32, ptr %274, align 4
-  %.not77.i = icmp eq i32 %275, 2
-  br i1 %.not77.i, label %276, label %.thread.i
+  %.not78.i = icmp eq i32 %275, 2
+  br i1 %.not78.i, label %276, label %.thread.i
 
 276:                                              ; preds = %273, %264
   %277 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !8, !noundef !9
@@ -550,14 +550,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %283 = getelementptr inbounds nuw %struct.trigger_info, ptr %282, i64 %indvars.iv.i
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %285 = load i16, ptr %284, align 8
-  %.not78.i = icmp eq i16 %285, 2
-  br i1 %.not78.i, label %286, label %.thread.i
+  %.not79.i = icmp eq i16 %285, 2
+  br i1 %.not79.i, label %286, label %.thread.i
 
 286:                                              ; preds = %279
   %287 = getelementptr inbounds nuw i8, ptr %283, i64 28
   %288 = load i32, ptr %287, align 4
-  %.not79.i = icmp eq i32 %288, 256
-  br i1 %.not79.i, label %289, label %.thread.i
+  %.not80.i = icmp eq i32 %288, 256
+  br i1 %.not80.i, label %289, label %.thread.i
 
 289:                                              ; preds = %286, %276
   %290 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 57), align 1, !range !8, !noundef !9
@@ -571,19 +571,19 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %296 = getelementptr inbounds nuw %struct.trigger_info, ptr %295, i64 %indvars.iv.i
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %298 = load i16, ptr %297, align 8
-  %.not80.i = icmp eq i16 %298, 2
-  br i1 %.not80.i, label %299, label %.thread.i
+  %.not81.i = icmp eq i16 %298, 2
+  br i1 %.not81.i, label %299, label %.thread.i
 
 299:                                              ; preds = %292
   %300 = getelementptr inbounds nuw i8, ptr %296, i64 28
   %301 = load i32, ptr %300, align 4
-  %.not81.i = icmp eq i32 %301, 4
-  br i1 %.not81.i, label %302, label %.thread.i
+  %.not82.i = icmp eq i32 %301, 4
+  br i1 %.not82.i, label %302, label %.thread.i
 
 302:                                              ; preds = %299, %289
   %303 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 48), align 8
-  %.not82.i = icmp eq ptr %303, null
-  br i1 %.not82.i, label %310, label %304
+  %.not83.i = icmp eq ptr %303, null
+  br i1 %.not83.i, label %310, label %304
 
 304:                                              ; preds = %302
   %305 = load ptr, ptr %5, align 8
@@ -591,8 +591,8 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %307 = load ptr, ptr %306, align 8
   %308 = getelementptr inbounds nuw %struct.trigger_info, ptr %307, i64 %indvars.iv.i, i32 2
   %309 = load i16, ptr %308, align 8
-  %.not83.i = icmp eq i16 %309, 2
-  br i1 %.not83.i, label %310, label %.thread.i
+  %.not84.i = icmp eq i16 %309, 2
+  br i1 %.not84.i, label %310, label %.thread.i
 
 310:                                              ; preds = %304, %302
   %311 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8, !range !8, !noundef !9
@@ -606,14 +606,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %317 = getelementptr inbounds nuw %struct.trigger_info, ptr %316, i64 %indvars.iv.i
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %319 = load i16, ptr %318, align 8
-  %.not84.i = icmp eq i16 %319, 2
-  br i1 %.not84.i, label %320, label %.thread.i
+  %.not85.i = icmp eq i16 %319, 2
+  br i1 %.not85.i, label %320, label %.thread.i
 
 320:                                              ; preds = %313
   %321 = getelementptr inbounds nuw i8, ptr %317, i64 28
   %322 = load i32, ptr %321, align 4
-  %.not85.i = icmp eq i32 %322, 128
-  br i1 %.not85.i, label %323, label %.thread.i
+  %.not86.i = icmp eq i32 %322, 128
+  br i1 %.not86.i, label %323, label %.thread.i
 
 323:                                              ; preds = %320, %310
   %324 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 59), align 1, !range !8, !noundef !9
@@ -634,8 +634,8 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
 332:                                              ; preds = %326, %326
   %333 = getelementptr inbounds nuw %struct.trigger_info, ptr %329, i64 %indvars.iv.i, i32 5
   %334 = load i32, ptr %333, align 4
-  %.not88.i = icmp eq i32 %334, 1
-  br i1 %.not88.i, label %335, label %.thread.i
+  %.not89.i = icmp eq i32 %334, 1
+  br i1 %.not89.i, label %335, label %.thread.i
 
 335:                                              ; preds = %332, %323
   %336 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 41), align 1, !range !8, !noundef !9
@@ -649,14 +649,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %342 = getelementptr inbounds nuw %struct.trigger_info, ptr %341, i64 %indvars.iv.i
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 8
   %344 = load i16, ptr %343, align 8
-  %.not89.i = icmp eq i16 %344, 2
-  br i1 %.not89.i, label %345, label %.thread.i
+  %.not90.i = icmp eq i16 %344, 2
+  br i1 %.not90.i, label %345, label %.thread.i
 
 345:                                              ; preds = %338
   %346 = getelementptr inbounds nuw i8, ptr %342, i64 28
   %347 = load i32, ptr %346, align 4
-  %.not90.i = icmp eq i32 %347, 2097152
-  br i1 %.not90.i, label %348, label %.thread.i
+  %.not91.i = icmp eq i32 %347, 2097152
+  br i1 %.not91.i, label %348, label %.thread.i
 
 348:                                              ; preds = %345, %335
   %349 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 58), align 2, !range !8, !noundef !9
@@ -670,14 +670,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %355 = getelementptr inbounds nuw %struct.trigger_info, ptr %354, i64 %indvars.iv.i
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
   %357 = load i16, ptr %356, align 8
-  %.not91.i = icmp eq i16 %357, 2
-  br i1 %.not91.i, label %358, label %.thread.i
+  %.not92.i = icmp eq i16 %357, 2
+  br i1 %.not92.i, label %358, label %.thread.i
 
 358:                                              ; preds = %351
   %359 = getelementptr inbounds nuw i8, ptr %355, i64 28
   %360 = load i32, ptr %359, align 4
-  %.not92.i = icmp eq i32 %360, 4194304
-  br i1 %.not92.i, label %361, label %.thread.i
+  %.not93.i = icmp eq i32 %360, 4194304
+  br i1 %.not93.i, label %361, label %.thread.i
 
 361:                                              ; preds = %358, %348
   %362 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 74), align 2, !range !8, !noundef !9
@@ -691,19 +691,19 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %368 = getelementptr inbounds nuw %struct.trigger_info, ptr %367, i64 %indvars.iv.i
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
   %370 = load i16, ptr %369, align 8
-  %.not93.i = icmp eq i16 %370, 1
-  br i1 %.not93.i, label %371, label %.thread.i
+  %.not94.i = icmp eq i16 %370, 1
+  br i1 %.not94.i, label %371, label %.thread.i
 
 371:                                              ; preds = %364
   %372 = getelementptr inbounds nuw i8, ptr %368, i64 28
   %373 = load i32, ptr %372, align 4
-  %.not94.i = icmp eq i32 %373, 8
-  br i1 %.not94.i, label %374, label %.thread.i
+  %.not95.i = icmp eq i32 %373, 8
+  br i1 %.not95.i, label %374, label %.thread.i
 
 374:                                              ; preds = %371, %361
   %375 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 76), align 4
-  %.not95.i = icmp eq i32 %375, 0
-  br i1 %.not95.i, label %382, label %376
+  %.not96.i = icmp eq i32 %375, 0
+  br i1 %.not96.i, label %382, label %376
 
 376:                                              ; preds = %374
   %377 = load ptr, ptr %5, align 8
@@ -711,13 +711,13 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %379 = load ptr, ptr %378, align 8
   %380 = getelementptr inbounds nuw %struct.trigger_info, ptr %379, i64 %indvars.iv.i, i32 1
   %381 = load i32, ptr %380, align 4
-  %.not96.i = icmp eq i32 %375, %381
-  br i1 %.not96.i, label %382, label %.thread.i
+  %.not97.i = icmp eq i32 %375, %381
+  br i1 %.not97.i, label %382, label %.thread.i
 
 382:                                              ; preds = %376, %374
   %383 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
-  %.not97.i = icmp eq i32 %383, -2
-  br i1 %.not97.i, label %390, label %384
+  %.not98.i = icmp eq i32 %383, -2
+  br i1 %.not98.i, label %390, label %384
 
 384:                                              ; preds = %382
   %385 = load ptr, ptr %5, align 8
@@ -725,8 +725,8 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %387 = load ptr, ptr %386, align 8
   %388 = getelementptr inbounds nuw %struct.trigger_info, ptr %387, i64 %indvars.iv.i, i32 7
   %389 = load i32, ptr %388, align 4
-  %.not98.i = icmp eq i32 %383, %389
-  br i1 %.not98.i, label %390, label %.thread.i
+  %.not99.i = icmp eq i32 %383, %389
+  br i1 %.not99.i, label %390, label %.thread.i
 
 390:                                              ; preds = %384, %382
   %391 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 27), align 1, !range !8, !noundef !9
@@ -740,14 +740,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %397 = getelementptr inbounds nuw %struct.trigger_info, ptr %396, i64 %indvars.iv.i
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
   %399 = load i16, ptr %398, align 8
-  %.not99.i = icmp eq i16 %399, 3
-  br i1 %.not99.i, label %400, label %.thread.i
+  %.not100.i = icmp eq i16 %399, 3
+  br i1 %.not100.i, label %400, label %.thread.i
 
 400:                                              ; preds = %393
   %401 = getelementptr inbounds nuw i8, ptr %397, i64 28
   %402 = load i32, ptr %401, align 4
-  %.not100.i = icmp eq i32 %402, 512
-  br i1 %.not100.i, label %403, label %.thread.i
+  %.not101.i = icmp eq i32 %402, 512
+  br i1 %.not101.i, label %403, label %.thread.i
 
 403:                                              ; preds = %400, %390
   %404 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 28), align 4, !range !8, !noundef !9
@@ -761,14 +761,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %410 = getelementptr inbounds nuw %struct.trigger_info, ptr %409, i64 %indvars.iv.i
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 8
   %412 = load i16, ptr %411, align 8
-  %.not101.i = icmp eq i16 %412, 3
-  br i1 %.not101.i, label %413, label %.thread.i
+  %.not102.i = icmp eq i16 %412, 3
+  br i1 %.not102.i, label %413, label %.thread.i
 
 413:                                              ; preds = %406
   %414 = getelementptr inbounds nuw i8, ptr %410, i64 28
   %415 = load i32, ptr %414, align 4
-  %.not102.i = icmp eq i32 %415, 1024
-  br i1 %.not102.i, label %416, label %.thread.i
+  %.not103.i = icmp eq i32 %415, 1024
+  br i1 %.not103.i, label %416, label %.thread.i
 
 416:                                              ; preds = %413, %403
   %417 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 29), align 1, !range !8, !noundef !9
@@ -782,14 +782,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %423 = getelementptr inbounds nuw %struct.trigger_info, ptr %422, i64 %indvars.iv.i
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 8
   %425 = load i16, ptr %424, align 8
-  %.not103.i = icmp eq i16 %425, 3
-  br i1 %.not103.i, label %426, label %.thread.i
+  %.not104.i = icmp eq i16 %425, 3
+  br i1 %.not104.i, label %426, label %.thread.i
 
 426:                                              ; preds = %419
   %427 = getelementptr inbounds nuw i8, ptr %423, i64 28
   %428 = load i32, ptr %427, align 4
-  %.not104.i = icmp eq i32 %428, 2048
-  br i1 %.not104.i, label %429, label %.thread.i
+  %.not105.i = icmp eq i32 %428, 2048
+  br i1 %.not105.i, label %429, label %.thread.i
 
 429:                                              ; preds = %426, %416
   %430 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 30), align 2, !range !8, !noundef !9
@@ -803,14 +803,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %436 = getelementptr inbounds nuw %struct.trigger_info, ptr %435, i64 %indvars.iv.i
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %438 = load i16, ptr %437, align 8
-  %.not105.i = icmp eq i16 %438, 3
-  br i1 %.not105.i, label %439, label %.thread.i
+  %.not106.i = icmp eq i16 %438, 3
+  br i1 %.not106.i, label %439, label %.thread.i
 
 439:                                              ; preds = %432
   %440 = getelementptr inbounds nuw i8, ptr %436, i64 28
   %441 = load i32, ptr %440, align 4
-  %.not106.i = icmp eq i32 %441, 4096
-  br i1 %.not106.i, label %442, label %.thread.i
+  %.not107.i = icmp eq i32 %441, 4096
+  br i1 %.not107.i, label %442, label %.thread.i
 
 442:                                              ; preds = %439, %429
   %443 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 31), align 1, !range !8, !noundef !9
@@ -824,14 +824,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %449 = getelementptr inbounds nuw %struct.trigger_info, ptr %448, i64 %indvars.iv.i
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 8
   %451 = load i16, ptr %450, align 8
-  %.not107.i = icmp eq i16 %451, 3
-  br i1 %.not107.i, label %452, label %.thread.i
+  %.not108.i = icmp eq i16 %451, 3
+  br i1 %.not108.i, label %452, label %.thread.i
 
 452:                                              ; preds = %445
   %453 = getelementptr inbounds nuw i8, ptr %449, i64 28
   %454 = load i32, ptr %453, align 4
-  %.not108.i = icmp eq i32 %454, 8192
-  br i1 %.not108.i, label %455, label %.thread.i
+  %.not109.i = icmp eq i32 %454, 8192
+  br i1 %.not109.i, label %455, label %.thread.i
 
 455:                                              ; preds = %452, %442
   %456 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8, !range !8, !noundef !9
@@ -845,14 +845,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %462 = getelementptr inbounds nuw %struct.trigger_info, ptr %461, i64 %indvars.iv.i
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %464 = load i16, ptr %463, align 8
-  %.not109.i = icmp eq i16 %464, 3
-  br i1 %.not109.i, label %465, label %.thread.i
+  %.not110.i = icmp eq i16 %464, 3
+  br i1 %.not110.i, label %465, label %.thread.i
 
 465:                                              ; preds = %458
   %466 = getelementptr inbounds nuw i8, ptr %462, i64 28
   %467 = load i32, ptr %466, align 4
-  %.not110.i = icmp eq i32 %467, 16384
-  br i1 %.not110.i, label %468, label %.thread.i
+  %.not111.i = icmp eq i32 %467, 16384
+  br i1 %.not111.i, label %468, label %.thread.i
 
 468:                                              ; preds = %465, %455
   %469 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 33), align 1, !range !8, !noundef !9
@@ -866,14 +866,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %475 = getelementptr inbounds nuw %struct.trigger_info, ptr %474, i64 %indvars.iv.i
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
   %477 = load i16, ptr %476, align 8
-  %.not111.i = icmp eq i16 %477, 3
-  br i1 %.not111.i, label %478, label %.thread.i
+  %.not112.i = icmp eq i16 %477, 3
+  br i1 %.not112.i, label %478, label %.thread.i
 
 478:                                              ; preds = %471
   %479 = getelementptr inbounds nuw i8, ptr %475, i64 28
   %480 = load i32, ptr %479, align 4
-  %.not112.i = icmp eq i32 %480, 32768
-  br i1 %.not112.i, label %481, label %.thread.i
+  %.not113.i = icmp eq i32 %480, 32768
+  br i1 %.not113.i, label %481, label %.thread.i
 
 481:                                              ; preds = %478, %468
   %482 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 34), align 2, !range !8, !noundef !9
@@ -887,14 +887,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %488 = getelementptr inbounds nuw %struct.trigger_info, ptr %487, i64 %indvars.iv.i
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 8
   %490 = load i16, ptr %489, align 8
-  %.not113.i = icmp eq i16 %490, 4
-  br i1 %.not113.i, label %491, label %.thread.i
+  %.not114.i = icmp eq i16 %490, 4
+  br i1 %.not114.i, label %491, label %.thread.i
 
 491:                                              ; preds = %484
   %492 = getelementptr inbounds nuw i8, ptr %488, i64 28
   %493 = load i32, ptr %492, align 4
-  %.not114.i = icmp eq i32 %493, 65536
-  br i1 %.not114.i, label %494, label %.thread.i
+  %.not115.i = icmp eq i32 %493, 65536
+  br i1 %.not115.i, label %494, label %.thread.i
 
 494:                                              ; preds = %491, %481
   %495 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 35), align 1, !range !8, !noundef !9
@@ -908,14 +908,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %501 = getelementptr inbounds nuw %struct.trigger_info, ptr %500, i64 %indvars.iv.i
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %503 = load i16, ptr %502, align 8
-  %.not115.i = icmp eq i16 %503, 4
-  br i1 %.not115.i, label %504, label %.thread.i
+  %.not116.i = icmp eq i16 %503, 4
+  br i1 %.not116.i, label %504, label %.thread.i
 
 504:                                              ; preds = %497
   %505 = getelementptr inbounds nuw i8, ptr %501, i64 28
   %506 = load i32, ptr %505, align 4
-  %.not116.i = icmp eq i32 %506, 131072
-  br i1 %.not116.i, label %507, label %.thread.i
+  %.not117.i = icmp eq i32 %506, 131072
+  br i1 %.not117.i, label %507, label %.thread.i
 
 507:                                              ; preds = %504, %494
   %508 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 36), align 4, !range !8, !noundef !9
@@ -929,14 +929,14 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %514 = getelementptr inbounds nuw %struct.trigger_info, ptr %513, i64 %indvars.iv.i
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 8
   %516 = load i16, ptr %515, align 8
-  %.not117.i = icmp eq i16 %516, 5
-  br i1 %.not117.i, label %517, label %.thread.i
+  %.not118.i = icmp eq i16 %516, 5
+  br i1 %.not118.i, label %517, label %.thread.i
 
 517:                                              ; preds = %510
   %518 = getelementptr inbounds nuw i8, ptr %514, i64 28
   %519 = load i32, ptr %518, align 4
-  %.not118.i = icmp eq i32 %519, 262144
-  br i1 %.not118.i, label %520, label %.thread.i
+  %.not119.i = icmp eq i32 %519, 262144
+  br i1 %.not119.i, label %520, label %.thread.i
 
 520:                                              ; preds = %517, %507
   %521 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 37), align 1, !range !8, !noundef !9
@@ -950,85 +950,83 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   %527 = getelementptr inbounds nuw %struct.trigger_info, ptr %526, i64 %indvars.iv.i
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 8
   %529 = load i16, ptr %528, align 8
-  %.not119.i = icmp eq i16 %529, 5
-  br i1 %.not119.i, label %530, label %.thread.i
+  %.not120.i = icmp eq i16 %529, 5
+  br i1 %.not120.i, label %530, label %.thread.i
 
 530:                                              ; preds = %523
   %531 = getelementptr inbounds nuw i8, ptr %527, i64 28
   %532 = load i32, ptr %531, align 4
-  %.not120.i = icmp eq i32 %532, 524288
-  br i1 %.not120.i, label %533, label %.thread.i
+  %.not121.i = icmp eq i32 %532, 524288
+  br i1 %.not121.i, label %533, label %.thread.i
 
 533:                                              ; preds = %530, %520
-  %534 = icmp eq i32 %.064123.i, 0
-  br i1 %534, label %535, label %539
+  %534 = icmp ne i32 %.065124.i, 0
+  %535 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 38), align 2, !range !8
+  %536 = trunc nuw i8 %535 to i1
+  %or.cond.i = select i1 %534, i1 true, i1 %536
+  br i1 %or.cond.i, label %538, label %537
 
-535:                                              ; preds = %533
-  %536 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 38), align 2, !range !8, !noundef !9
-  %537 = trunc nuw i8 %536 to i1
-  br i1 %537, label %539, label %538
-
-538:                                              ; preds = %535
+537:                                              ; preds = %533
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %539
+  br label %538
 
-539:                                              ; preds = %538, %535, %533
-  %540 = add nsw i32 %.064123.i, 1
-  %541 = load ptr, ptr %5, align 8
-  %542 = getelementptr inbounds nuw i8, ptr %541, i64 8
-  %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds nuw %struct.trigger_info, ptr %543, i64 %indvars.iv.i, i32 7
-  %545 = load i32, ptr %544, align 4
-  %546 = call ptr @uid_to_string(i32 noundef %545) #9
-  store ptr %546, ptr %6, align 8
-  %547 = load ptr, ptr %5, align 8
-  %548 = getelementptr inbounds nuw i8, ptr %547, i64 8
-  %549 = load ptr, ptr %548, align 8
-  %550 = getelementptr inbounds nuw %struct.trigger_info, ptr %549, i64 %indvars.iv.i
-  %551 = getelementptr inbounds nuw i8, ptr %550, i64 4
-  %552 = load i32, ptr %551, align 4
-  %553 = getelementptr inbounds nuw i8, ptr %550, i64 8
-  %554 = load i16, ptr %553, align 8
-  %555 = call ptr @trigger_res_type(i16 noundef zeroext %554) #9
-  %556 = load ptr, ptr %5, align 8
-  %557 = getelementptr inbounds nuw i8, ptr %556, i64 8
-  %558 = load ptr, ptr %557, align 8
-  %559 = getelementptr inbounds nuw %struct.trigger_info, ptr %558, i64 %indvars.iv.i
-  %560 = getelementptr inbounds nuw i8, ptr %559, i64 16
-  %561 = load ptr, ptr %560, align 8
-  %562 = getelementptr inbounds nuw i8, ptr %559, i64 28
-  %563 = load i32, ptr %562, align 4
-  %564 = call ptr @trigger_type(i32 noundef %563) #9
-  %565 = load ptr, ptr %5, align 8
-  %566 = getelementptr inbounds nuw i8, ptr %565, i64 8
-  %567 = load ptr, ptr %566, align 8
-  %568 = getelementptr inbounds nuw %struct.trigger_info, ptr %567, i64 %indvars.iv.i, i32 6
-  %569 = load i16, ptr %568, align 8
-  %570 = zext i16 %569 to i32
-  %571 = add nsw i32 %570, -32768
-  %572 = load ptr, ptr %6, align 8
-  %573 = getelementptr inbounds nuw %struct.trigger_info, ptr %567, i64 %indvars.iv.i
-  %574 = load i16, ptr %573, align 8
-  %575 = and i16 %574, 1
-  %.not.i.i = icmp eq i16 %575, 0
+538:                                              ; preds = %537, %533
+  %539 = add nsw i32 %.065124.i, 1
+  %540 = load ptr, ptr %5, align 8
+  %541 = getelementptr inbounds nuw i8, ptr %540, i64 8
+  %542 = load ptr, ptr %541, align 8
+  %543 = getelementptr inbounds nuw %struct.trigger_info, ptr %542, i64 %indvars.iv.i, i32 7
+  %544 = load i32, ptr %543, align 4
+  %545 = call ptr @uid_to_string(i32 noundef %544) #9
+  store ptr %545, ptr %6, align 8
+  %546 = load ptr, ptr %5, align 8
+  %547 = getelementptr inbounds nuw i8, ptr %546, i64 8
+  %548 = load ptr, ptr %547, align 8
+  %549 = getelementptr inbounds nuw %struct.trigger_info, ptr %548, i64 %indvars.iv.i
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 4
+  %551 = load i32, ptr %550, align 4
+  %552 = getelementptr inbounds nuw i8, ptr %549, i64 8
+  %553 = load i16, ptr %552, align 8
+  %554 = call ptr @trigger_res_type(i16 noundef zeroext %553) #9
+  %555 = load ptr, ptr %5, align 8
+  %556 = getelementptr inbounds nuw i8, ptr %555, i64 8
+  %557 = load ptr, ptr %556, align 8
+  %558 = getelementptr inbounds nuw %struct.trigger_info, ptr %557, i64 %indvars.iv.i
+  %559 = getelementptr inbounds nuw i8, ptr %558, i64 16
+  %560 = load ptr, ptr %559, align 8
+  %561 = getelementptr inbounds nuw i8, ptr %558, i64 28
+  %562 = load i32, ptr %561, align 4
+  %563 = call ptr @trigger_type(i32 noundef %562) #9
+  %564 = load ptr, ptr %5, align 8
+  %565 = getelementptr inbounds nuw i8, ptr %564, i64 8
+  %566 = load ptr, ptr %565, align 8
+  %567 = getelementptr inbounds nuw %struct.trigger_info, ptr %566, i64 %indvars.iv.i, i32 6
+  %568 = load i16, ptr %567, align 8
+  %569 = zext i16 %568 to i32
+  %570 = add nsw i32 %569, -32768
+  %571 = load ptr, ptr %6, align 8
+  %572 = getelementptr inbounds nuw %struct.trigger_info, ptr %566, i64 %indvars.iv.i
+  %573 = load i16, ptr %572, align 8
+  %574 = and i16 %573, 1
+  %.not.i.i = icmp eq i16 %574, 0
   %.str.15..str.14.i.i = select i1 %.not.i.i, ptr @.str.15, ptr @.str.14
-  %576 = getelementptr inbounds nuw %struct.trigger_info, ptr %567, i64 %indvars.iv.i, i32 8
-  %577 = load ptr, ptr %576, align 8
-  %578 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %552, ptr noundef %555, ptr noundef %561, ptr noundef %564, i32 noundef %571, ptr noundef %572, ptr noundef nonnull %.str.15..str.14.i.i, ptr noundef %577)
+  %575 = getelementptr inbounds nuw %struct.trigger_info, ptr %566, i64 %indvars.iv.i, i32 8
+  %576 = load ptr, ptr %575, align 8
+  %577 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %551, ptr noundef %554, ptr noundef %560, ptr noundef %563, i32 noundef %570, ptr noundef %571, ptr noundef nonnull %.str.15..str.14.i.i, ptr noundef %576)
   call void @slurm_xfree(ptr noundef nonnull %6) #9
   br label %.thread.i
 
-.thread.i:                                        ; preds = %539, %530, %523, %517, %510, %504, %497, %491, %484, %478, %471, %465, %458, %452, %445, %439, %432, %426, %419, %413, %406, %400, %393, %384, %376, %371, %364, %358, %351, %345, %338, %332, %326, %320, %313, %304, %299, %292, %286, %279, %273, %267, %259, %253, %246, %238
-  %.1.i = phi i32 [ %.064123.i, %238 ], [ %.064123.i, %246 ], [ %.064123.i, %273 ], [ %.064123.i, %279 ], [ %.064123.i, %286 ], [ %.064123.i, %292 ], [ %.064123.i, %299 ], [ %.064123.i, %304 ], [ %.064123.i, %313 ], [ %.064123.i, %320 ], [ %.064123.i, %332 ], [ %.064123.i, %338 ], [ %.064123.i, %345 ], [ %.064123.i, %351 ], [ %.064123.i, %358 ], [ %.064123.i, %364 ], [ %.064123.i, %371 ], [ %.064123.i, %376 ], [ %.064123.i, %384 ], [ %.064123.i, %393 ], [ %.064123.i, %400 ], [ %.064123.i, %406 ], [ %.064123.i, %413 ], [ %.064123.i, %419 ], [ %.064123.i, %426 ], [ %.064123.i, %432 ], [ %.064123.i, %439 ], [ %.064123.i, %445 ], [ %.064123.i, %452 ], [ %.064123.i, %458 ], [ %.064123.i, %465 ], [ %.064123.i, %471 ], [ %.064123.i, %478 ], [ %.064123.i, %484 ], [ %.064123.i, %491 ], [ %.064123.i, %497 ], [ %.064123.i, %504 ], [ %.064123.i, %510 ], [ %.064123.i, %517 ], [ %.064123.i, %523 ], [ %.064123.i, %530 ], [ %540, %539 ], [ %.064123.i, %267 ], [ %.064123.i, %326 ], [ %.064123.i, %253 ], [ %.064123.i, %259 ]
+.thread.i:                                        ; preds = %538, %530, %523, %517, %510, %504, %497, %491, %484, %478, %471, %465, %458, %452, %445, %439, %432, %426, %419, %413, %406, %400, %393, %384, %376, %371, %364, %358, %351, %345, %338, %332, %326, %320, %313, %304, %299, %292, %286, %279, %273, %267, %259, %253, %246, %238
+  %.1.i = phi i32 [ %.065124.i, %238 ], [ %.065124.i, %246 ], [ %.065124.i, %273 ], [ %.065124.i, %279 ], [ %.065124.i, %286 ], [ %.065124.i, %292 ], [ %.065124.i, %299 ], [ %.065124.i, %304 ], [ %.065124.i, %313 ], [ %.065124.i, %320 ], [ %.065124.i, %332 ], [ %.065124.i, %338 ], [ %.065124.i, %345 ], [ %.065124.i, %351 ], [ %.065124.i, %358 ], [ %.065124.i, %364 ], [ %.065124.i, %371 ], [ %.065124.i, %376 ], [ %.065124.i, %384 ], [ %.065124.i, %393 ], [ %.065124.i, %400 ], [ %.065124.i, %406 ], [ %.065124.i, %413 ], [ %.065124.i, %419 ], [ %.065124.i, %426 ], [ %.065124.i, %432 ], [ %.065124.i, %439 ], [ %.065124.i, %445 ], [ %.065124.i, %452 ], [ %.065124.i, %458 ], [ %.065124.i, %465 ], [ %.065124.i, %471 ], [ %.065124.i, %478 ], [ %.065124.i, %484 ], [ %.065124.i, %491 ], [ %.065124.i, %497 ], [ %.065124.i, %504 ], [ %.065124.i, %510 ], [ %.065124.i, %517 ], [ %.065124.i, %523 ], [ %.065124.i, %530 ], [ %539, %538 ], [ %.065124.i, %267 ], [ %.065124.i, %326 ], [ %.065124.i, %253 ], [ %.065124.i, %259 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %579 = load ptr, ptr %5, align 8
-  %580 = load i32, ptr %579, align 8
-  %581 = zext i32 %580 to i64
-  %582 = icmp samesign ult i64 %indvars.iv.next.i, %581
-  br i1 %582, label %.lr.ph.i5, label %._crit_edge.i6, !llvm.loop !13
+  %578 = load ptr, ptr %5, align 8
+  %579 = load i32, ptr %578, align 8
+  %580 = zext i32 %579 to i64
+  %581 = icmp samesign ult i64 %indvars.iv.next.i, %580
+  br i1 %581, label %.lr.ph.i5, label %._crit_edge.i6, !llvm.loop !13
 
 ._crit_edge.i6:                                   ; preds = %.thread.i, %232
-  %.lcssa.i = phi ptr [ %233, %232 ], [ %579, %.thread.i ]
+  %.lcssa.i = phi ptr [ %233, %232 ], [ %578, %.thread.i ]
   call void @slurm_free_trigger_msg(ptr noundef nonnull %.lcssa.i) #9
   br label %_get_trigger.exit
 
@@ -1036,100 +1034,100 @@ _get_trigger.exit:                                ; preds = %225, %._crit_edge.i
   %.0.i4 = phi i32 [ 1, %225 ], [ 0, %._crit_edge.i6 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %622
+  br label %621
 
-583:                                              ; preds = %220
-  %584 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 26), align 2, !range !8, !noundef !9
-  %585 = trunc nuw i8 %584 to i1
-  br i1 %585, label %586, label %620
+582:                                              ; preds = %220
+  %583 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 26), align 2, !range !8, !noundef !9
+  %584 = trunc nuw i8 %583 to i1
+  br i1 %584, label %585, label %619
 
-586:                                              ; preds = %583
+585:                                              ; preds = %582
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #9
   call void @slurm_init_trigger_msg(ptr noundef nonnull %3) #9
-  %587 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 76), align 4
-  %588 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %587, ptr %588, align 4
-  %589 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
-  %590 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 %589, ptr %590, align 4
-  %591 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
-  %.not.i7 = icmp eq i32 %591, 0
-  br i1 %.not.i7, label %596, label %592
+  %586 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 76), align 4
+  %587 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %586, ptr %587, align 4
+  %588 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
+  %589 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  store i32 %588, ptr %589, align 4
+  %590 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
+  %.not.i7 = icmp eq i32 %590, 0
+  br i1 %.not.i7, label %595, label %591
 
-592:                                              ; preds = %586
-  %593 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i16 1, ptr %593, align 8
-  %594 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.2, i32 noundef %591) #9
-  %595 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %4, ptr %595, align 8
-  br label %596
+591:                                              ; preds = %585
+  %592 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i16 1, ptr %592, align 8
+  %593 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.2, i32 noundef %590) #9
+  %594 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %4, ptr %594, align 8
+  br label %595
 
-596:                                              ; preds = %592, %586
-  %597 = call i32 @slurm_clear_trigger(ptr noundef nonnull %3) #9
-  %.not1.i = icmp eq i32 %597, 0
-  br i1 %.not1.i, label %602, label %598
+595:                                              ; preds = %591, %585
+  %596 = call i32 @slurm_clear_trigger(ptr noundef nonnull %3) #9
+  %.not1.i = icmp eq i32 %596, 0
+  br i1 %.not1.i, label %601, label %597
 
-598:                                              ; preds = %596
-  %599 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 72), align 8, !range !8, !noundef !9
-  %600 = trunc nuw i8 %599 to i1
-  br i1 %600, label %_clear_trigger.exit, label %601
+597:                                              ; preds = %595
+  %598 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 72), align 8, !range !8, !noundef !9
+  %599 = trunc nuw i8 %598 to i1
+  br i1 %599, label %_clear_trigger.exit, label %600
 
-601:                                              ; preds = %598
+600:                                              ; preds = %597
   call void @slurm_perror(ptr noundef nonnull @.str.3) #9
   br label %_clear_trigger.exit
 
-602:                                              ; preds = %596
-  %603 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
-  %.not2.i9 = icmp eq i32 %603, 0
-  br i1 %.not2.i9, label %610, label %604
+601:                                              ; preds = %595
+  %602 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 20), align 4
+  %.not2.i9 = icmp eq i32 %602, 0
+  br i1 %.not2.i9, label %609, label %603
 
-604:                                              ; preds = %602
-  %605 = call i32 @get_log_level() #9
-  %606 = icmp sgt i32 %605, 3
-  br i1 %606, label %607, label %_clear_trigger.exit
+603:                                              ; preds = %601
+  %604 = call i32 @get_log_level() #9
+  %605 = icmp sgt i32 %604, 3
+  br i1 %605, label %606, label %_clear_trigger.exit
 
-607:                                              ; preds = %604
-  %608 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %609 = load ptr, ptr %608, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef %609) #9
+606:                                              ; preds = %603
+  %607 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %608 = load ptr, ptr %607, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef %608) #9
   br label %_clear_trigger.exit
 
-610:                                              ; preds = %602
-  %611 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
-  %.not3.i10 = icmp eq i32 %611, -2
-  %612 = call i32 @get_log_level() #9
-  %613 = icmp sgt i32 %612, 3
-  br i1 %.not3.i10, label %617, label %614
+609:                                              ; preds = %601
+  %610 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 80), align 8
+  %.not3.i10 = icmp eq i32 %610, -2
+  %611 = call i32 @get_log_level() #9
+  %612 = icmp sgt i32 %611, 3
+  br i1 %.not3.i10, label %616, label %613
 
-614:                                              ; preds = %610
-  br i1 %613, label %615, label %_clear_trigger.exit
+613:                                              ; preds = %609
+  br i1 %612, label %614, label %_clear_trigger.exit
 
-615:                                              ; preds = %614
-  %616 = load i32, ptr %590, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef %616) #9
+614:                                              ; preds = %613
+  %615 = load i32, ptr %589, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef %615) #9
   br label %_clear_trigger.exit
 
-617:                                              ; preds = %610
-  br i1 %613, label %618, label %_clear_trigger.exit
+616:                                              ; preds = %609
+  br i1 %612, label %617, label %_clear_trigger.exit
 
-618:                                              ; preds = %617
-  %619 = load i32, ptr %588, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.6, i32 noundef %619) #9
+617:                                              ; preds = %616
+  %618 = load i32, ptr %587, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.6, i32 noundef %618) #9
   br label %_clear_trigger.exit
 
-_clear_trigger.exit:                              ; preds = %598, %601, %604, %607, %614, %615, %617, %618
-  %.0.i8 = phi i32 [ 1, %601 ], [ 0, %598 ], [ 0, %615 ], [ 0, %614 ], [ 0, %618 ], [ 0, %617 ], [ 0, %604 ], [ 0, %607 ]
+_clear_trigger.exit:                              ; preds = %597, %600, %603, %606, %613, %614, %616, %617
+  %.0.i8 = phi i32 [ 1, %600 ], [ 0, %597 ], [ 0, %614 ], [ 0, %613 ], [ 0, %617 ], [ 0, %616 ], [ 0, %603 ], [ 0, %606 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #9
-  br label %622
+  br label %621
 
-620:                                              ; preds = %583
-  %621 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #9
-  br label %622
+619:                                              ; preds = %582
+  %620 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #9
+  br label %621
 
-622:                                              ; preds = %_get_trigger.exit, %620, %_clear_trigger.exit, %_set_trigger.exit
-  %.0 = phi i32 [ %.0.i, %_set_trigger.exit ], [ %.0.i4, %_get_trigger.exit ], [ %.0.i8, %_clear_trigger.exit ], [ 1, %620 ]
+621:                                              ; preds = %_get_trigger.exit, %619, %_clear_trigger.exit, %_set_trigger.exit
+  %.0 = phi i32 [ %.0.i, %_set_trigger.exit ], [ %.0.i4, %_get_trigger.exit ], [ %.0.i8, %_clear_trigger.exit ], [ 1, %619 ]
   call void @exit(i32 noundef %.0) #11
   unreachable
 }

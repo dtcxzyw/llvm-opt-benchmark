@@ -2187,7 +2187,7 @@ ahci_map_clb_address.exit.thread:                 ; preds = %map_page.exit.i
   br label %ahci_unmap_clb_address.exit
 
 54:                                               ; preds = %29
-  %55 = and i32 %7, -32770
+  %55 = and i32 %7, -32769
   store i32 %55, ptr %6, align 4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 2440
   %57 = load ptr, ptr %56, align 8
@@ -2213,8 +2213,8 @@ ahci_unmap_clb_address.exit:                      ; preds = %1, %54, %53, %47, %
   %67 = getelementptr i8, ptr %0, i64 2380
   %68 = load i64, ptr %67, align 4
   %69 = load ptr, ptr %66, align 8
-  %.not.i.i25 = icmp eq ptr %69, null
-  br i1 %.not.i.i25, label %71, label %70
+  %.not.i.i31 = icmp eq ptr %69, null
+  br i1 %.not.i.i31, label %71, label %70
 
 70:                                               ; preds = %61
   call void @address_space_unmap(ptr noundef %65, ptr noundef nonnull %69, i64 noundef 256, i1 noundef zeroext true, i64 noundef 256) #14
@@ -2228,25 +2228,25 @@ ahci_unmap_clb_address.exit:                      ; preds = %1, %54, %53, %47, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   store ptr %72, ptr %66, align 8
   %74 = icmp ugt i64 %73, 255
-  %.not19.i.i26 = icmp eq ptr %72, null
-  %or.cond.i.i27 = select i1 %74, i1 true, i1 %.not19.i.i26
-  br i1 %or.cond.i.i27, label %map_page.exit.i29, label %map_page.exit.thread.i28
+  %.not19.i.i32 = icmp eq ptr %72, null
+  %or.cond.i.i33 = select i1 %74, i1 true, i1 %.not19.i.i32
+  br i1 %or.cond.i.i33, label %map_page.exit.i35, label %map_page.exit.thread.i34
 
-map_page.exit.thread.i28:                         ; preds = %71
+map_page.exit.thread.i34:                         ; preds = %71
   call void @address_space_unmap(ptr noundef %65, ptr noundef nonnull %72, i64 noundef %73, i1 noundef zeroext true, i64 noundef %73) #14
   store ptr null, ptr %66, align 8
   br label %77
 
-map_page.exit.i29:                                ; preds = %71
-  br i1 %.not19.i.i26, label %77, label %ahci_map_fis_address.exit.thread
+map_page.exit.i35:                                ; preds = %71
+  br i1 %.not19.i.i32, label %77, label %ahci_map_fis_address.exit.thread
 
-ahci_map_fis_address.exit.thread:                 ; preds = %map_page.exit.i29
+ahci_map_fis_address.exit.thread:                 ; preds = %map_page.exit.i35
   %75 = load i32, ptr %6, align 4
   %76 = or i32 %75, 16384
   store i32 %76, ptr %6, align 4
   br label %ahci_unmap_fis_address.exit
 
-77:                                               ; preds = %map_page.exit.i29, %map_page.exit.thread.i28
+77:                                               ; preds = %map_page.exit.i35, %map_page.exit.thread.i34
   %78 = load i32, ptr %6, align 4
   %79 = and i32 %78, -16401
   store i32 %79, ptr %6, align 4
@@ -2265,19 +2265,19 @@ ahci_map_fis_address.exit.thread:                 ; preds = %map_page.exit.i29
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 2360
   %88 = load i32, ptr %87, align 8
   %89 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i.i30 = icmp eq i32 %89, 0
-  br i1 %.not.i.i.i30, label %ahci_unmap_fis_address.exit, label %90, !prof !7
+  %.not.i.i.i36 = icmp eq i32 %89, 0
+  br i1 %.not.i.i.i36, label %ahci_unmap_fis_address.exit, label %90, !prof !7
 
 90:                                               ; preds = %84
   %91 = load i16, ptr @_TRACE_AHCI_UNMAP_FIS_ADDRESS_NULL_DSTATE, align 2
-  %.not3.i.i.i31 = icmp eq i16 %91, 0
-  br i1 %.not3.i.i.i31, label %ahci_unmap_fis_address.exit, label %92
+  %.not3.i.i.i37 = icmp eq i16 %91, 0
+  br i1 %.not3.i.i.i37, label %ahci_unmap_fis_address.exit, label %92
 
 92:                                               ; preds = %90
   %93 = load i32, ptr @qemu_loglevel, align 4
   %94 = and i32 %93, 32768
-  %.not4.i.i.i32 = icmp eq i32 %94, 0
-  br i1 %.not4.i.i.i32, label %ahci_unmap_fis_address.exit, label %95
+  %.not4.i.i.i38 = icmp eq i32 %94, 0
+  br i1 %.not4.i.i.i38, label %ahci_unmap_fis_address.exit, label %95
 
 95:                                               ; preds = %92
   %96 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10

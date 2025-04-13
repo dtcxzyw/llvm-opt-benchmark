@@ -190,8 +190,8 @@ define internal fastcc void @_calc_tree_fs(ptr noundef %0, i16 noundef zeroext %
 
 .preheader:                                       ; preds = %5
   %8 = load ptr, ptr %0, align 8
-  %.not4254 = icmp eq ptr %8, null
-  br i1 %.not4254, label %._crit_edge, label %.lr.ph
+  %.not4352 = icmp eq ptr %8, null
+  br i1 %.not4352, label %._crit_edge, label %.lr.ph
 
 9:                                                ; preds = %5
   %10 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._calc_tree_fs) #6
@@ -199,7 +199,7 @@ define internal fastcc void @_calc_tree_fs(ptr noundef %0, i16 noundef zeroext %
 
 .lr.ph:                                           ; preds = %.preheader, %_calc_assoc_fs.exit
   %11 = phi ptr [ %50, %_calc_assoc_fs.exit ], [ %8, %.preheader ]
-  %.055 = phi i64 [ %48, %_calc_assoc_fs.exit ], [ 0, %.preheader ]
+  %.053 = phi i64 [ %48, %_calc_assoc_fs.exit ], [ 0, %.preheader ]
   %12 = getelementptr i8, ptr %11, i64 296
   %.val.i = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.val.i, i64 88
@@ -268,56 +268,56 @@ _ft_set_assoc_usage_efctv.exit.i:                 ; preds = %21, %15, %.lr.ph
   br label %_calc_assoc_fs.exit
 
 _calc_assoc_fs.exit:                              ; preds = %39, %40, %43, %45
-  %48 = add i64 %.055, 1
+  %48 = add i64 %.053, 1
   %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %48
   %50 = load ptr, ptr %49, align 8
-  %.not42 = icmp eq ptr %50, null
-  br i1 %.not42, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  %.not43 = icmp eq ptr %50, null
+  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_calc_assoc_fs.exit, %.preheader
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %48, %_calc_assoc_fs.exit ]
   tail call void @qsort(ptr noundef nonnull %0, i64 noundef %.0.lcssa, i64 noundef 8, ptr noundef nonnull @_cmp_level_fs) #6
   %51 = load ptr, ptr %0, align 8
-  %.not4356 = icmp eq ptr %51, null
-  br i1 %.not4356, label %.loopexit, label %.lr.ph60
+  %.not4454 = icmp eq ptr %51, null
+  br i1 %.not4454, label %.loopexit, label %.lr.ph58
 
-.lr.ph60:                                         ; preds = %._crit_edge
+.lr.ph58:                                         ; preds = %._crit_edge
   %52 = zext i16 %1 to i32
   %53 = shl nuw nsw i32 %52, 2
   %54 = add nuw nsw i32 %53, 4
   %55 = add i16 %1, 1
   br label %56
 
-56:                                               ; preds = %.lr.ph60, %176
-  %57 = phi ptr [ %51, %.lr.ph60 ], [ %183, %176 ]
-  %58 = phi ptr [ %0, %.lr.ph60 ], [ %182, %176 ]
-  %.158 = phi i64 [ 0, %.lr.ph60 ], [ %181, %176 ]
-  %.03857 = phi x86_fp80 [ 0xK401EFFFFFFFE00000000, %.lr.ph60 ], [ %180, %176 ]
-  %59 = icmp eq i64 %.158, 0
-  %brmerge.not = and i1 %4, %59
-  br i1 %brmerge.not, label %66, label %60
+56:                                               ; preds = %.lr.ph58, %176
+  %57 = phi ptr [ %51, %.lr.ph58 ], [ %183, %176 ]
+  %58 = phi ptr [ %0, %.lr.ph58 ], [ %182, %176 ]
+  %.156 = phi i64 [ 0, %.lr.ph58 ], [ %181, %176 ]
+  %.03955 = phi x86_fp80 [ 0xK401EFFFFFFFE00000000, %.lr.ph58 ], [ %180, %176 ]
+  %59 = icmp eq i64 %.156, 0
+  %or.cond = and i1 %4, %59
+  br i1 %or.cond, label %66, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 296
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 176
   %64 = load x86_fp80, ptr %63, align 16
-  %65 = fcmp oeq x86_fp80 %.03857, %64
+  %65 = fcmp oeq x86_fp80 %.03955, %64
   br label %66
 
 66:                                               ; preds = %56, %60
-  %.037 = phi i1 [ %65, %60 ], [ true, %56 ]
+  %.038 = phi i1 [ %65, %60 ], [ true, %56 ]
   %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %68 = and i64 %67, 2048
-  %.not44 = icmp eq i64 %68, 0
-  br i1 %.not44, label %_ft_debug.exit, label %69
+  %.not45 = icmp eq i64 %68, 0
+  br i1 %.not45, label %_ft_debug.exit, label %69
 
 69:                                               ; preds = %66
-  %70 = zext i1 %.037 to i32
+  %70 = zext i1 %.038 to i32
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 304
   %72 = load ptr, ptr %71, align 8
-  %.not.i48 = icmp eq ptr %72, null
-  br i1 %.not.i48, label %73, label %76
+  %.not.i47 = icmp eq ptr %72, null
+  br i1 %.not.i47, label %73, label %76
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -358,13 +358,13 @@ _calc_assoc_fs.exit:                              ; preds = %39, %40, %43, %45
 _ft_debug.exit:                                   ; preds = %88, %87, %84, %83, %66
   %95 = getelementptr inbounds nuw i8, ptr %57, i64 304
   %96 = load ptr, ptr %95, align 8
-  %.not45 = icmp eq ptr %96, null
-  br i1 %.not45, label %111, label %97
+  %.not46 = icmp eq ptr %96, null
+  br i1 %.not46, label %111, label %97
 
 97:                                               ; preds = %_ft_debug.exit
-  br i1 %.037, label %._crit_edge61, label %98
+  br i1 %.038, label %._crit_edge59, label %98
 
-._crit_edge61:                                    ; preds = %97
+._crit_edge59:                                    ; preds = %97
   %.pre = load i32, ptr %2, align 4
   br label %100
 
@@ -373,8 +373,8 @@ _ft_debug.exit:                                   ; preds = %88, %87, %84, %83, 
   store i32 %99, ptr %2, align 4
   br label %100
 
-100:                                              ; preds = %._crit_edge61, %98
-  %101 = phi i32 [ %.pre, %._crit_edge61 ], [ %99, %98 ]
+100:                                              ; preds = %._crit_edge59, %98
+  %101 = phi i32 [ %.pre, %._crit_edge59 ], [ %99, %98 ]
   %102 = uitofp i32 %101 to double
   %103 = load i32, ptr @g_user_assoc_count, align 4
   %104 = uitofp i32 %103 to double
@@ -392,7 +392,7 @@ _ft_debug.exit:                                   ; preds = %88, %87, %84, %83, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   %112 = load ptr, ptr %58, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 296
-  %114 = add i64 %.158, 1
+  %114 = add i64 %.156, 1
   %115 = getelementptr inbounds nuw ptr, ptr %0, i64 %114
   %116 = load ptr, ptr %115, align 8
   %.not12.i = icmp eq ptr %116, null
@@ -423,21 +423,21 @@ _ft_debug.exit:                                   ; preds = %88, %87, %84, %83, 
   %132 = add i64 %118, 1
   %133 = getelementptr inbounds nuw ptr, ptr %0, i64 %132
   %134 = load ptr, ptr %133, align 8
-  %.not.i49 = icmp eq ptr %134, null
-  br i1 %.not.i49, label %_count_tied_accounts.exit, label %.lr.ph.i, !llvm.loop !12
+  %.not.i48 = icmp eq ptr %134, null
+  br i1 %.not.i48, label %_count_tied_accounts.exit, label %.lr.ph.i, !llvm.loop !12
 
 _count_tied_accounts.exit:                        ; preds = %.lr.ph.i, %121, %130, %111
   %.0.lcssa.i = phi i64 [ 0, %111 ], [ %131, %130 ], [ %.013.i, %.lr.ph.i ], [ %.013.i, %121 ]
-  %135 = add i64 %.0.lcssa.i, %.158
+  %135 = add i64 %.0.lcssa.i, %.156
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   store i64 0, ptr %6, align 8
   %136 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 287, ptr noundef nonnull @__func__._merge_accounts) #6
   store ptr null, ptr %136, align 8
-  %.not21.i = icmp ugt i64 %.158, %135
-  br i1 %.not21.i, label %_merge_accounts.exit, label %.lr.ph.i50
+  %.not21.i = icmp ugt i64 %.156, %135
+  br i1 %.not21.i, label %_merge_accounts.exit, label %.lr.ph.i49
 
-.lr.ph.i50:                                       ; preds = %_count_tied_accounts.exit, %174
-  %.023.i = phi i64 [ %175, %174 ], [ %.158, %_count_tied_accounts.exit ]
+.lr.ph.i49:                                       ; preds = %_count_tied_accounts.exit, %174
+  %.023.i = phi i64 [ %175, %174 ], [ %.156, %_count_tied_accounts.exit ]
   %.01622.i = phi ptr [ %.1.i, %174 ], [ %136, %_count_tied_accounts.exit ]
   %137 = getelementptr inbounds nuw ptr, ptr %0, i64 %.023.i
   %138 = load ptr, ptr %137, align 8
@@ -448,15 +448,15 @@ _count_tied_accounts.exit:                        ; preds = %.lr.ph.i, %121, %13
   %143 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %144 = and i64 %143, 2048
   %.not18.i = icmp ne i64 %144, 0
-  %145 = icmp ugt i64 %.023.i, %.158
+  %145 = icmp ugt i64 %.023.i, %.156
   %or.cond.i = and i1 %145, %.not18.i
   br i1 %or.cond.i, label %146, label %_ft_debug.exit.i
 
-146:                                              ; preds = %.lr.ph.i50
+146:                                              ; preds = %.lr.ph.i49
   %147 = getelementptr inbounds nuw i8, ptr %138, i64 304
   %148 = load ptr, ptr %147, align 8
-  %.not.i.i52 = icmp eq ptr %148, null
-  br i1 %.not.i.i52, label %149, label %152
+  %.not.i.i51 = icmp eq ptr %148, null
+  br i1 %.not.i.i51, label %149, label %152
 
 149:                                              ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %138, i64 8
@@ -493,7 +493,7 @@ _count_tied_accounts.exit:                        ; preds = %.lr.ph.i, %121, %13
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._ft_debug, i32 noundef %54, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %153, ptr noundef %166, x86_fp80 noundef %169) #6
   br label %_ft_debug.exit.i
 
-_ft_debug.exit.i:                                 ; preds = %164, %163, %160, %159, %.lr.ph.i50
+_ft_debug.exit.i:                                 ; preds = %164, %163, %160, %159, %.lr.ph.i49
   %.not19.i = icmp eq ptr %142, null
   br i1 %.not19.i, label %174, label %170
 
@@ -509,20 +509,20 @@ _ft_debug.exit.i:                                 ; preds = %164, %163, %160, %1
 174:                                              ; preds = %172, %170, %_ft_debug.exit.i
   %.1.i = phi ptr [ %173, %172 ], [ %.01622.i, %170 ], [ %.01622.i, %_ft_debug.exit.i ]
   %175 = add i64 %.023.i, 1
-  %.not.i51 = icmp ugt i64 %175, %135
-  br i1 %.not.i51, label %_merge_accounts.exit, label %.lr.ph.i50, !llvm.loop !13
+  %.not.i50 = icmp ugt i64 %175, %135
+  br i1 %.not.i50, label %_merge_accounts.exit, label %.lr.ph.i49, !llvm.loop !13
 
 _merge_accounts.exit:                             ; preds = %174, %_count_tied_accounts.exit
   %.016.lcssa.i = phi ptr [ %136, %_count_tied_accounts.exit ], [ %.1.i, %174 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
   store ptr %.016.lcssa.i, ptr %7, align 8
-  call fastcc void @_calc_tree_fs(ptr noundef %.016.lcssa.i, i16 noundef zeroext %55, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %.037)
+  call fastcc void @_calc_tree_fs(ptr noundef %.016.lcssa.i, i16 noundef zeroext %55, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %.038)
   call void @slurm_xfree(ptr noundef nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
   br label %176
 
 176:                                              ; preds = %_merge_accounts.exit, %100
-  %.2 = phi i64 [ %.158, %100 ], [ %135, %_merge_accounts.exit ]
+  %.2 = phi i64 [ %.156, %100 ], [ %135, %_merge_accounts.exit ]
   %177 = getelementptr inbounds nuw i8, ptr %57, i64 296
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 176
@@ -530,8 +530,8 @@ _merge_accounts.exit:                             ; preds = %174, %_count_tied_a
   %181 = add i64 %.2, 1
   %182 = getelementptr inbounds nuw ptr, ptr %0, i64 %181
   %183 = load ptr, ptr %182, align 8
-  %.not43 = icmp eq ptr %183, null
-  br i1 %.not43, label %.loopexit, label %56, !llvm.loop !14
+  %.not44 = icmp eq ptr %183, null
+  br i1 %.not44, label %.loopexit, label %56, !llvm.loop !14
 
 .loopexit:                                        ; preds = %176, %._crit_edge, %9
   ret void

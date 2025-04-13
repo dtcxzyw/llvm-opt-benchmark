@@ -101,33 +101,33 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
 
 20:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
   %21 = invoke noundef nonnull align 8 dereferenceable(481) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_15TfDiagnosticMgrEE11GetInstanceEv()
-          to label %.noexc7 unwind label %51
-
-.noexc7:                                          ; preds = %20
-  %22 = invoke noundef nonnull align 8 dereferenceable(481) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_15TfDiagnosticMgrEE11GetInstanceEv()
           to label %.noexc8 unwind label %51
 
-.noexc8:                                          ; preds = %.noexc7
-  %23 = load i64, ptr %2, align 8
-  %24 = invoke ptr @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr18_GetErrorMarkBeginEmPm(ptr noundef nonnull align 8 dereferenceable(481) %22, i64 noundef %23, ptr noundef null)
+.noexc8:                                          ; preds = %20
+  %22 = invoke noundef nonnull align 8 dereferenceable(481) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_15TfDiagnosticMgrEE11GetInstanceEv()
           to label %.noexc9 unwind label %51
 
 .noexc9:                                          ; preds = %.noexc8
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 160
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
-  %26 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %25, ptr noundef nonnull align 1 dereferenceable(1) %1)
+  %23 = load i64, ptr %2, align 8
+  %24 = invoke ptr @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr18_GetErrorMarkBeginEmPm(ptr noundef nonnull align 8 dereferenceable(481) %22, i64 noundef %23, ptr noundef null)
           to label %.noexc10 unwind label %51
 
 .noexc10:                                         ; preds = %.noexc9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
-  %.not15 = icmp eq ptr %24, %26
-  br i1 %.not15, label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit, label %27
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 160
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  %26 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EE12table_lookupERb(ptr noundef nonnull align 8 dereferenceable(104) %25, ptr noundef nonnull align 1 dereferenceable(1) %1)
+          to label %.noexc11 unwind label %51
 
-27:                                               ; preds = %.noexc10
+.noexc11:                                         ; preds = %.noexc10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  %.not16 = icmp eq ptr %24, %26
+  br i1 %.not16, label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit, label %27
+
+27:                                               ; preds = %.noexc11
   %28 = invoke ptr @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr10EraseRangeESt14_List_iteratorINS_7TfErrorEES3_(ptr noundef nonnull align 8 dereferenceable(481) %21, ptr %24, ptr nonnull %26)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit unwind label %51
 
-_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit: ; preds = %.noexc10, %27
+_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit: ; preds = %.noexc11, %27
   %29 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdBufferSource7IsValidEv(ptr noundef nonnull align 8 dereferenceable(12) %4)
           to label %30 unwind label %51
 
@@ -146,24 +146,24 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit: ; preds = %.no
 
 37:                                               ; preds = %35
   %38 = invoke noundef nonnull align 8 dereferenceable(481) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_15TfDiagnosticMgrEE11GetInstanceEv()
-          to label %.noexc12 unwind label %51
+          to label %.noexc13 unwind label %51
 
-.noexc12:                                         ; preds = %37
+.noexc13:                                         ; preds = %37
   %39 = load i64, ptr %2, align 8
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 152
   %41 = load atomic i64, ptr %40 seq_cst, align 8
   %.not.i = icmp ult i64 %39, %41
   br i1 %.not.i, label %42, label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit
 
-42:                                               ; preds = %.noexc12
+42:                                               ; preds = %.noexc13
   %43 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark12_IsCleanImplERNS_15TfDiagnosticMgrE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(481) %38)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit unwind label %51
 
-_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit: ; preds = %.noexc12, %42
-  %44 = phi i1 [ true, %.noexc12 ], [ %43, %42 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit: ; preds = %.noexc13, %42
+  %44 = phi i1 [ true, %.noexc13 ], [ %43, %42 ]
   %.not = xor i1 %44, true
-  %brmerge = or i1 %29, %.not
-  br i1 %brmerge, label %53, label %45
+  %or.cond = or i1 %29, %.not
+  br i1 %or.cond, label %53, label %45
 
 45:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit
   %46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.4)
@@ -178,7 +178,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit: ; preds = %.
           cleanup
   br label %.body
 
-51:                                               ; preds = %42, %37, %27, %.noexc9, %.noexc8, %.noexc7, %20, %55, %53, %47, %45, %35, %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit
+51:                                               ; preds = %42, %37, %27, %.noexc10, %.noexc9, %.noexc8, %20, %55, %53, %47, %45, %35, %32, %30, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit
   %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #16
@@ -197,10 +197,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark7IsCleanEv.exit: ; preds = %.
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #16
   %58 = load ptr, ptr %5, align 8
   %59 = ptrtoint ptr %58 to i64
-  %.not.i.i14 = icmp eq ptr %58, null
+  %.not.i.i15 = icmp eq ptr %58, null
   %60 = and i64 %59, 3
   %61 = icmp eq i64 %60, 3
-  %or.cond.i.i = or i1 %.not.i.i14, %61
+  %or.cond.i.i = or i1 %.not.i.i15, %61
   br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, label %62
 
 62:                                               ; preds = %57

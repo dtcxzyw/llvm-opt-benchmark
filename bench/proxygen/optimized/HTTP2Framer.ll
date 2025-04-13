@@ -3706,11 +3706,11 @@ entry:
   %conv = trunc i32 %0 to i8
   %1 = or i1 %hasAssocStream, %hasExAttributes
   %cond = select i1 %1, i8 4, i8 0
-  %hasPriority.not = xor i1 %hasPriority, true
-  %brmerge = or i1 %hasAssocStream, %hasPriority.not
+  %tobool6.not = xor i1 %hasPriority, true
+  %or.cond = or i1 %hasAssocStream, %tobool6.not
   %2 = load i32, ptr @_ZN8proxygen5http218kFramePrioritySizeE, align 4
   %3 = trunc i32 %2 to i8
-  %conv10 = select i1 %brmerge, i8 0, i8 %3
+  %conv10 = select i1 %or.cond, i8 0, i8 %3
   %add14 = zext i1 %hasPadding to i8
   %add = or disjoint i8 %cond, %add14
   %headerSize.0 = add i8 %add, %conv

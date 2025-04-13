@@ -97,7 +97,7 @@ define hidden void @_ZNK15NativeCallStack11print_frameEP12outputStreamPh(ptr non
   %8 = ptrtoint ptr %2 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, i64 noundef %8) #7
   %9 = call noundef zeroext i1 @_ZN2os28dll_address_to_function_nameEPhPciPib(ptr noundef %2, ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %5, i1 noundef zeroext true) #7
-  br i1 %9, label %10, label %.critedge
+  br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %5, align 4
@@ -119,26 +119,26 @@ define hidden void @_ZNK15NativeCallStack11print_frameEP12outputStreamPh(ptr non
   br label %21
 
 21:                                               ; preds = %14, %13
-  %.020 = phi ptr [ %20, %14 ], [ %4, %13 ]
+  %.021 = phi ptr [ %20, %14 ], [ %4, %13 ]
   %22 = load i32, ptr %6, align 4
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.6, ptr noundef nonnull %.020, i32 noundef %22) #7
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.6, ptr noundef nonnull %.021, i32 noundef %22) #7
   br label %23
 
 23:                                               ; preds = %10, %21
-  br i1 %7, label %33, label %.critedge
+  br i1 %7, label %33, label %.thread
 
-.critedge:                                        ; preds = %3, %23
+.thread:                                          ; preds = %3, %23
   %24 = call noundef zeroext i1 @_ZN2os27dll_address_to_library_nameEPhPciPi(ptr noundef %2, ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %5) #7
   br i1 %24, label %25, label %33
 
-25:                                               ; preds = %.critedge
+25:                                               ; preds = %.thread
   %26 = call noundef ptr @_ZN2os14file_separatorEv() #7
   %27 = load i8, ptr %26, align 1
   %28 = sext i8 %27 to i32
   %29 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %28) #8
-  %.not23 = icmp eq ptr %29, null
+  %.not24 = icmp eq ptr %29, null
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  %.0 = select i1 %.not23, ptr %4, ptr %30
+  %.0 = select i1 %.not24, ptr %4, ptr %30
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %.0) #7
   br i1 %9, label %33, label %31
 
@@ -147,7 +147,7 @@ define hidden void @_ZNK15NativeCallStack11print_frameEP12outputStreamPh(ptr non
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef %32) #7
   br label %33
 
-33:                                               ; preds = %23, %25, %31, %.critedge
+33:                                               ; preds = %25, %31, %23, %.thread
   ret void
 }
 

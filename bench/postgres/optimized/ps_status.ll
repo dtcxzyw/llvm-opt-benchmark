@@ -272,13 +272,13 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
   %23 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef %.06) #15
   br label %24
 
-24:                                               ; preds = %20, %22
+24:                                               ; preds = %22, %20
   %25 = load ptr, ptr @ps_buffer, align 8
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #13
   store i64 %26, ptr @ps_buffer_fixed_size, align 8
   store i64 %26, ptr @ps_buffer_cur_len, align 8
   %27 = load i8, ptr @update_process_title, align 1, !range !9, !noundef !10
-  %28 = load i8, ptr @IsUnderPostmaster, align 1, !range !9, !noundef !10
+  %28 = load i8, ptr @IsUnderPostmaster, align 1, !range !9
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %set_ps_display.exit
 
@@ -363,113 +363,111 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 define dso_local void @set_ps_display_suffix(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i8, ptr @update_process_title, align 1, !range !9, !noundef !10
   %3 = trunc nuw i8 %2 to i1
-  br i1 %3, label %4, label %update_ps_display_precheck.exit.thread
+  %4 = load i8, ptr @IsUnderPostmaster, align 1, !range !9
+  %5 = trunc nuw i8 %4 to i1
+  %or.cond.i = select i1 %3, i1 %5, i1 false
+  %6 = load ptr, ptr @ps_buffer, align 8
+  %.not.i = icmp ne ptr %6, null
+  %or.cond = select i1 %or.cond.i, i1 %.not.i, i1 false
+  br i1 %or.cond, label %7, label %update_ps_display_precheck.exit.thread
 
-4:                                                ; preds = %1
-  %5 = load i8, ptr @IsUnderPostmaster, align 1, !range !9, !noundef !10
-  %6 = trunc nuw i8 %5 to i1
-  %7 = load ptr, ptr @ps_buffer, align 8
-  %.not.i = icmp ne ptr %7, null
-  %or.cond = select i1 %6, i1 %.not.i, i1 false
-  br i1 %or.cond, label %8, label %update_ps_display_precheck.exit.thread
+7:                                                ; preds = %1
+  %8 = load i64, ptr @ps_buffer_nosuffix_len, align 8
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %10, label %9
 
-8:                                                ; preds = %4
-  %9 = load i64, ptr @ps_buffer_nosuffix_len, align 8
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %11, label %10
+9:                                                ; preds = %7
+  store i64 %8, ptr @ps_buffer_cur_len, align 8
+  br label %12
 
-10:                                               ; preds = %8
-  store i64 %9, ptr @ps_buffer_cur_len, align 8
-  br label %13
+10:                                               ; preds = %7
+  %11 = load i64, ptr @ps_buffer_cur_len, align 8
+  store i64 %11, ptr @ps_buffer_nosuffix_len, align 8
+  br label %12
 
-11:                                               ; preds = %8
-  %12 = load i64, ptr @ps_buffer_cur_len, align 8
-  store i64 %12, ptr @ps_buffer_nosuffix_len, align 8
-  br label %13
+12:                                               ; preds = %10, %9
+  %13 = phi i64 [ %11, %10 ], [ %8, %9 ]
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
+  %15 = add i64 %13, 1
+  %16 = add i64 %15, %14
+  %17 = load i64, ptr @ps_buffer_size, align 8
+  %.not7 = icmp ult i64 %16, %17
+  br i1 %.not7, label %27, label %18
 
-13:                                               ; preds = %11, %10
-  %14 = phi i64 [ %12, %11 ], [ %9, %10 ]
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
-  %16 = add i64 %14, 1
-  %17 = add i64 %16, %15
-  %18 = load i64, ptr @ps_buffer_size, align 8
-  %.not7 = icmp ult i64 %17, %18
-  br i1 %.not7, label %28, label %19
+18:                                               ; preds = %12
+  %19 = add i64 %17, -1
+  %20 = icmp ult i64 %13, %19
+  br i1 %20, label %21, label %31
 
-19:                                               ; preds = %13
-  %20 = add i64 %18, -1
-  %21 = icmp ult i64 %14, %20
-  br i1 %21, label %22, label %32
-
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  store i8 32, ptr %23, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 %16
-  %reass.sub10 = sub i64 %18, %14
-  %25 = add i64 %reass.sub10, -2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %0, i64 %25, i1 false)
-  %26 = getelementptr i8, ptr %7, i64 %18
-  %27 = getelementptr i8, ptr %26, i64 -1
-  store i8 0, ptr %27, align 1
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 %13
+  store i8 32, ptr %22, align 1
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %15
+  %reass.sub10 = sub i64 %17, %13
+  %24 = add i64 %reass.sub10, -2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %0, i64 %24, i1 false)
+  %25 = getelementptr i8, ptr %6, i64 %17
+  %26 = getelementptr i8, ptr %25, i64 -1
+  store i8 0, ptr %26, align 1
   br label %.sink.split
 
-28:                                               ; preds = %13
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 %14
-  store i8 32, ptr %29, align 1
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 %16
-  %31 = add i64 %15, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %0, i64 %31, i1 false)
+27:                                               ; preds = %12
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 %13
+  store i8 32, ptr %28, align 1
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 %15
+  %30 = add i64 %14, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull align 1 %0, i64 %30, i1 false)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %28, %22
-  %.sink = phi i64 [ %20, %22 ], [ %17, %28 ]
+.sink.split:                                      ; preds = %27, %21
+  %.sink = phi i64 [ %19, %21 ], [ %16, %27 ]
   store i64 %.sink, ptr @ps_buffer_cur_len, align 8
-  br label %32
+  br label %31
 
-32:                                               ; preds = %.sink.split, %19
-  %33 = phi i64 [ %14, %19 ], [ %.sink, %.sink.split ]
-  %34 = load i64, ptr @last_status_len, align 8
-  %35 = icmp ugt i64 %34, %33
-  br i1 %35, label %36, label %flush_ps_display.exit
+31:                                               ; preds = %.sink.split, %18
+  %32 = phi i64 [ %13, %18 ], [ %.sink, %.sink.split ]
+  %33 = load i64, ptr @last_status_len, align 8
+  %34 = icmp ugt i64 %33, %32
+  br i1 %34, label %35, label %flush_ps_display.exit
 
-36:                                               ; preds = %32
-  %37 = ptrtoint ptr %7 to i64
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 %33
-  %39 = sub nuw i64 %34, %33
-  %40 = ptrtoint ptr %38 to i64
-  %41 = and i64 %40, 7
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %flush_ps_display.exit.sink.split
+35:                                               ; preds = %31
+  %36 = ptrtoint ptr %6 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 %32
+  %38 = sub nuw i64 %33, %32
+  %39 = ptrtoint ptr %37 to i64
+  %40 = and i64 %39, 7
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %42, label %flush_ps_display.exit.sink.split
 
-43:                                               ; preds = %36
-  %44 = and i64 %39, 7
-  %45 = icmp eq i64 %44, 0
-  %46 = icmp ult i64 %39, 1025
-  %or.cond3.i = and i1 %46, %45
+42:                                               ; preds = %35
+  %43 = and i64 %38, 7
+  %44 = icmp eq i64 %43, 0
+  %45 = icmp ult i64 %38, 1025
+  %or.cond3.i = and i1 %45, %44
   br i1 %or.cond3.i, label %.lr.ph.preheader.i, label %flush_ps_display.exit.sink.split
 
-.lr.ph.preheader.i:                               ; preds = %43
-  %47 = add i64 %33, 8
-  %48 = add i64 %47, %37
-  %49 = add i64 %34, %37
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %48, i64 %49)
-  %50 = xor i64 %33, -1
-  %51 = sub i64 %50, %37
-  %52 = add i64 %51, %umax.i
-  %53 = and i64 %52, -8
-  %54 = add i64 %53, 8
+.lr.ph.preheader.i:                               ; preds = %42
+  %46 = add i64 %32, 8
+  %47 = add i64 %46, %36
+  %48 = add i64 %33, %36
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %47, i64 %48)
+  %49 = xor i64 %32, -1
+  %50 = sub i64 %49, %36
+  %51 = add i64 %50, %umax.i
+  %52 = and i64 %51, -8
+  %53 = add i64 %52, 8
   br label %flush_ps_display.exit.sink.split
 
-flush_ps_display.exit.sink.split:                 ; preds = %36, %43, %.lr.ph.preheader.i
-  %.sink11 = phi i64 [ %54, %.lr.ph.preheader.i ], [ %39, %43 ], [ %39, %36 ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %38, i8 0, i64 %.sink11, i1 false)
+flush_ps_display.exit.sink.split:                 ; preds = %35, %42, %.lr.ph.preheader.i
+  %.sink11 = phi i64 [ %53, %.lr.ph.preheader.i ], [ %38, %42 ], [ %38, %35 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %37, i8 0, i64 %.sink11, i1 false)
   br label %flush_ps_display.exit
 
-flush_ps_display.exit:                            ; preds = %flush_ps_display.exit.sink.split, %32
-  store i64 %33, ptr @last_status_len, align 8
+flush_ps_display.exit:                            ; preds = %flush_ps_display.exit.sink.split, %31
+  store i64 %32, ptr @last_status_len, align 8
   br label %update_ps_display_precheck.exit.thread
 
-update_ps_display_precheck.exit.thread:           ; preds = %4, %1, %flush_ps_display.exit
+update_ps_display_precheck.exit.thread:           ; preds = %1, %flush_ps_display.exit
   ret void
 }
 
@@ -480,67 +478,65 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local void @set_ps_display_remove_suffix() local_unnamed_addr #8 {
   %1 = load i8, ptr @update_process_title, align 1, !range !9, !noundef !10
   %2 = trunc nuw i8 %1 to i1
-  br i1 %2, label %3, label %update_ps_display_precheck.exit.thread
+  %3 = load i8, ptr @IsUnderPostmaster, align 1, !range !9
+  %4 = trunc nuw i8 %3 to i1
+  %or.cond.i = select i1 %2, i1 %4, i1 false
+  br i1 %or.cond.i, label %update_ps_display_precheck.exit, label %update_ps_display_precheck.exit.thread
 
-3:                                                ; preds = %0
-  %4 = load i8, ptr @IsUnderPostmaster, align 1, !range !9, !noundef !10
-  %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %update_ps_display_precheck.exit, label %update_ps_display_precheck.exit.thread
+update_ps_display_precheck.exit:                  ; preds = %0
+  %5 = load ptr, ptr @ps_buffer, align 8
+  %.not.i = icmp ne ptr %5, null
+  %6 = load i64, ptr @ps_buffer_nosuffix_len, align 8
+  %7 = icmp ne i64 %6, 0
+  %or.cond.not = select i1 %.not.i, i1 %7, i1 false
+  br i1 %or.cond.not, label %8, label %update_ps_display_precheck.exit.thread
 
-update_ps_display_precheck.exit:                  ; preds = %3
-  %6 = load ptr, ptr @ps_buffer, align 8
-  %.not.i = icmp ne ptr %6, null
-  %7 = load i64, ptr @ps_buffer_nosuffix_len, align 8
-  %8 = icmp ne i64 %7, 0
-  %or.cond.not = select i1 %.not.i, i1 %8, i1 false
-  br i1 %or.cond.not, label %9, label %update_ps_display_precheck.exit.thread
-
-9:                                                ; preds = %update_ps_display_precheck.exit
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %7
-  store i8 0, ptr %10, align 1
-  store i64 %7, ptr @ps_buffer_cur_len, align 8
+8:                                                ; preds = %update_ps_display_precheck.exit
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %6
+  store i8 0, ptr %9, align 1
+  store i64 %6, ptr @ps_buffer_cur_len, align 8
   store i64 0, ptr @ps_buffer_nosuffix_len, align 8
-  %11 = load i64, ptr @last_status_len, align 8
-  %12 = icmp ugt i64 %11, %7
-  br i1 %12, label %13, label %flush_ps_display.exit
+  %10 = load i64, ptr @last_status_len, align 8
+  %11 = icmp ugt i64 %10, %6
+  br i1 %11, label %12, label %flush_ps_display.exit
 
-13:                                               ; preds = %9
-  %14 = ptrtoint ptr %6 to i64
-  %15 = sub nuw i64 %11, %7
-  %16 = ptrtoint ptr %10 to i64
-  %17 = and i64 %16, 7
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %19, label %flush_ps_display.exit.sink.split
+12:                                               ; preds = %8
+  %13 = ptrtoint ptr %5 to i64
+  %14 = sub nuw i64 %10, %6
+  %15 = ptrtoint ptr %9 to i64
+  %16 = and i64 %15, 7
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %18, label %flush_ps_display.exit.sink.split
 
-19:                                               ; preds = %13
-  %20 = and i64 %15, 7
-  %21 = icmp eq i64 %20, 0
-  %22 = icmp ult i64 %15, 1025
-  %or.cond3.i = and i1 %22, %21
+18:                                               ; preds = %12
+  %19 = and i64 %14, 7
+  %20 = icmp eq i64 %19, 0
+  %21 = icmp ult i64 %14, 1025
+  %or.cond3.i = and i1 %21, %20
   br i1 %or.cond3.i, label %.lr.ph.preheader.i, label %flush_ps_display.exit.sink.split
 
-.lr.ph.preheader.i:                               ; preds = %19
-  %23 = add i64 %7, 8
-  %24 = add i64 %23, %14
-  %25 = add i64 %11, %14
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %24, i64 %25)
-  %26 = xor i64 %7, -1
-  %27 = sub i64 %26, %14
-  %28 = add i64 %27, %umax.i
-  %29 = and i64 %28, -8
-  %30 = add i64 %29, 8
+.lr.ph.preheader.i:                               ; preds = %18
+  %22 = add i64 %6, 8
+  %23 = add i64 %22, %13
+  %24 = add i64 %10, %13
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %23, i64 %24)
+  %25 = xor i64 %6, -1
+  %26 = sub i64 %25, %13
+  %27 = add i64 %26, %umax.i
+  %28 = and i64 %27, -8
+  %29 = add i64 %28, 8
   br label %flush_ps_display.exit.sink.split
 
-flush_ps_display.exit.sink.split:                 ; preds = %13, %19, %.lr.ph.preheader.i
-  %.sink = phi i64 [ %30, %.lr.ph.preheader.i ], [ %15, %19 ], [ %15, %13 ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %.sink, i1 false)
+flush_ps_display.exit.sink.split:                 ; preds = %12, %18, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %29, %.lr.ph.preheader.i ], [ %14, %18 ], [ %14, %12 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %9, i8 0, i64 %.sink, i1 false)
   br label %flush_ps_display.exit
 
-flush_ps_display.exit:                            ; preds = %flush_ps_display.exit.sink.split, %9
-  store i64 %7, ptr @last_status_len, align 8
+flush_ps_display.exit:                            ; preds = %flush_ps_display.exit.sink.split, %8
+  store i64 %6, ptr @last_status_len, align 8
   br label %update_ps_display_precheck.exit.thread
 
-update_ps_display_precheck.exit.thread:           ; preds = %3, %0, %update_ps_display_precheck.exit, %flush_ps_display.exit
+update_ps_display_precheck.exit.thread:           ; preds = %0, %update_ps_display_precheck.exit, %flush_ps_display.exit
   ret void
 }
 
@@ -548,85 +544,83 @@ update_ps_display_precheck.exit.thread:           ; preds = %3, %0, %update_ps_d
 define dso_local void @set_ps_display_with_len(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = load i8, ptr @update_process_title, align 1, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %update_ps_display_precheck.exit.thread
+  %5 = load i8, ptr @IsUnderPostmaster, align 1, !range !9
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i = select i1 %4, i1 %6, i1 false
+  %7 = load ptr, ptr @ps_buffer, align 8
+  %.not.i = icmp ne ptr %7, null
+  %or.cond = select i1 %or.cond.i, i1 %.not.i, i1 false
+  br i1 %or.cond, label %8, label %update_ps_display_precheck.exit.thread
 
-5:                                                ; preds = %2
-  %6 = load i8, ptr @IsUnderPostmaster, align 1, !range !9, !noundef !10
-  %7 = trunc nuw i8 %6 to i1
-  %8 = load ptr, ptr @ps_buffer, align 8
-  %.not.i = icmp ne ptr %8, null
-  %or.cond = select i1 %7, i1 %.not.i, i1 false
-  br i1 %or.cond, label %9, label %update_ps_display_precheck.exit.thread
-
-9:                                                ; preds = %5
+8:                                                ; preds = %2
   store i64 0, ptr @ps_buffer_nosuffix_len, align 8
-  %10 = load i64, ptr @ps_buffer_fixed_size, align 8
-  %11 = add i64 %10, %1
-  %12 = load i64, ptr @ps_buffer_size, align 8
-  %.not = icmp ult i64 %11, %12
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %10
-  br i1 %.not, label %20, label %14
+  %9 = load i64, ptr @ps_buffer_fixed_size, align 8
+  %10 = add i64 %9, %1
+  %11 = load i64, ptr @ps_buffer_size, align 8
+  %.not = icmp ult i64 %10, %11
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 %9
+  br i1 %.not, label %19, label %13
 
-14:                                               ; preds = %9
-  %15 = xor i64 %10, -1
-  %16 = add i64 %12, %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %0, i64 %16, i1 false)
-  %17 = getelementptr i8, ptr %8, i64 %12
-  %18 = getelementptr i8, ptr %17, i64 -1
-  store i8 0, ptr %18, align 1
-  %19 = add i64 %12, -1
-  br label %22
+13:                                               ; preds = %8
+  %14 = xor i64 %9, -1
+  %15 = add i64 %11, %14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %0, i64 %15, i1 false)
+  %16 = getelementptr i8, ptr %7, i64 %11
+  %17 = getelementptr i8, ptr %16, i64 -1
+  store i8 0, ptr %17, align 1
+  %18 = add i64 %11, -1
+  br label %21
 
-20:                                               ; preds = %9
-  %21 = add i64 %1, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 1 %0, i64 %21, i1 false)
-  br label %22
+19:                                               ; preds = %8
+  %20 = add i64 %1, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %0, i64 %20, i1 false)
+  br label %21
 
-22:                                               ; preds = %20, %14
-  %storemerge = phi i64 [ %11, %20 ], [ %19, %14 ]
+21:                                               ; preds = %19, %13
+  %storemerge = phi i64 [ %10, %19 ], [ %18, %13 ]
   store i64 %storemerge, ptr @ps_buffer_cur_len, align 8
-  %23 = load i64, ptr @last_status_len, align 8
-  %24 = icmp ugt i64 %23, %storemerge
-  br i1 %24, label %25, label %flush_ps_display.exit
+  %22 = load i64, ptr @last_status_len, align 8
+  %23 = icmp ugt i64 %22, %storemerge
+  br i1 %23, label %24, label %flush_ps_display.exit
 
-25:                                               ; preds = %22
-  %26 = ptrtoint ptr %8 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 %storemerge
-  %28 = sub nuw i64 %23, %storemerge
-  %29 = ptrtoint ptr %27 to i64
-  %30 = and i64 %29, 7
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %flush_ps_display.exit.sink.split
+24:                                               ; preds = %21
+  %25 = ptrtoint ptr %7 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 %storemerge
+  %27 = sub nuw i64 %22, %storemerge
+  %28 = ptrtoint ptr %26 to i64
+  %29 = and i64 %28, 7
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %flush_ps_display.exit.sink.split
 
-32:                                               ; preds = %25
-  %33 = and i64 %28, 7
-  %34 = icmp eq i64 %33, 0
-  %35 = icmp ult i64 %28, 1025
-  %or.cond3.i = and i1 %35, %34
+31:                                               ; preds = %24
+  %32 = and i64 %27, 7
+  %33 = icmp eq i64 %32, 0
+  %34 = icmp ult i64 %27, 1025
+  %or.cond3.i = and i1 %34, %33
   br i1 %or.cond3.i, label %.lr.ph.preheader.i, label %flush_ps_display.exit.sink.split
 
-.lr.ph.preheader.i:                               ; preds = %32
-  %36 = add i64 %storemerge, 8
-  %37 = add i64 %36, %26
-  %38 = add i64 %23, %26
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %37, i64 %38)
-  %39 = xor i64 %storemerge, -1
-  %40 = sub i64 %39, %26
-  %41 = add i64 %40, %umax.i
-  %42 = and i64 %41, -8
-  %43 = add i64 %42, 8
+.lr.ph.preheader.i:                               ; preds = %31
+  %35 = add i64 %storemerge, 8
+  %36 = add i64 %35, %25
+  %37 = add i64 %22, %25
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %36, i64 %37)
+  %38 = xor i64 %storemerge, -1
+  %39 = sub i64 %38, %25
+  %40 = add i64 %39, %umax.i
+  %41 = and i64 %40, -8
+  %42 = add i64 %41, 8
   br label %flush_ps_display.exit.sink.split
 
-flush_ps_display.exit.sink.split:                 ; preds = %25, %32, %.lr.ph.preheader.i
-  %.sink = phi i64 [ %43, %.lr.ph.preheader.i ], [ %28, %32 ], [ %28, %25 ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %27, i8 0, i64 %.sink, i1 false)
+flush_ps_display.exit.sink.split:                 ; preds = %24, %31, %.lr.ph.preheader.i
+  %.sink = phi i64 [ %42, %.lr.ph.preheader.i ], [ %27, %31 ], [ %27, %24 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %26, i8 0, i64 %.sink, i1 false)
   br label %flush_ps_display.exit
 
-flush_ps_display.exit:                            ; preds = %flush_ps_display.exit.sink.split, %22
+flush_ps_display.exit:                            ; preds = %flush_ps_display.exit.sink.split, %21
   store i64 %storemerge, ptr @last_status_len, align 8
   br label %update_ps_display_precheck.exit.thread
 
-update_ps_display_precheck.exit.thread:           ; preds = %5, %2, %flush_ps_display.exit
+update_ps_display_precheck.exit.thread:           ; preds = %2, %flush_ps_display.exit
   ret void
 }
 

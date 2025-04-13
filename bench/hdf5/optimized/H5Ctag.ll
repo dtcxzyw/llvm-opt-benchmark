@@ -1157,10 +1157,10 @@ define range(i32 -1, 1) i32 @H5C_evict_tagged_entries(ptr noundef %0, i64 nounde
 10:                                               ; preds = %3
   %11 = xor i1 %8, true
   %12 = select i1 %6, i1 true, i1 %11
-  br i1 %12, label %13, label %64, !prof !80
+  br i1 %12, label %13, label %63, !prof !80
 
 13:                                               ; preds = %.thread, %10
-  %.pre22 = phi i8 [ 1, %.thread ], [ %5, %10 ]
+  %.pre24 = phi i8 [ 1, %.thread ], [ %5, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !81
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
@@ -1172,8 +1172,8 @@ define range(i32 -1, 1) i32 @H5C_evict_tagged_entries(ptr noundef %0, i64 nounde
   br i1 %2, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %13, %36
-  %21 = phi i8 [ %.pre23, %36 ], [ %7, %13 ]
-  %22 = phi i8 [ %.pre21, %36 ], [ %.pre22, %13 ]
+  %21 = phi i8 [ %.pre25, %36 ], [ %7, %13 ]
+  %22 = phi i8 [ %.pre23, %36 ], [ %.pre24, %13 ]
   store i8 0, ptr %18, align 1, !tbaa !107
   store i8 0, ptr %19, align 8, !tbaa !108
   store i8 0, ptr %20, align 2, !tbaa !109
@@ -1181,33 +1181,33 @@ define range(i32 -1, 1) i32 @H5C_evict_tagged_entries(ptr noundef %0, i64 nounde
   %24 = trunc nuw i8 %21 to i1
   %25 = xor i1 %24, true
   %26 = select i1 %23, i1 true, i1 %25
-  br i1 %26, label %27, label %.split14.us, !prof !9
+  br i1 %26, label %27, label %.split16.us, !prof !9
 
 27:                                               ; preds = %.split.us
   %28 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr noundef readonly %17, i64 noundef %1, ptr noundef nonnull @H5C__evict_tagged_entries_cb, ptr noundef nonnull %4)
   %29 = icmp slt i32 %28, 0
-  br i1 %29, label %.split12.us, label %30
+  br i1 %29, label %.split14.us, label %30
 
 30:                                               ; preds = %27
   %31 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr noundef readonly %17, i64 noundef 5, ptr noundef nonnull @H5C__evict_tagged_entries_cb, ptr noundef nonnull %4)
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %.split12.us, label %33
+  br i1 %32, label %.split14.us, label %33
 
 33:                                               ; preds = %30
   %34 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr noundef readonly %17, i64 noundef 6, ptr noundef nonnull @H5C__evict_tagged_entries_cb, ptr noundef nonnull %4)
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %.split12.us, label %36
+  br i1 %35, label %.split14.us, label %36
 
 36:                                               ; preds = %33
-  %.pre23 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre21 = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7
-  %.pre26 = load i8, ptr %19, align 8, !tbaa !108, !range !7
-  %37 = trunc nuw i8 %.pre26 to i1
-  br i1 %37, label %.split.us, label %.split14.us, !llvm.loop !110
+  %.pre25 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre23 = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7
+  %.pre28 = load i8, ptr %19, align 8, !tbaa !108, !range !7
+  %37 = trunc nuw i8 %.pre28 to i1
+  br i1 %37, label %.split.us, label %.split16.us, !llvm.loop !110
 
 .split:                                           ; preds = %13, %53
-  %38 = phi i8 [ %.pre18, %53 ], [ %7, %13 ]
-  %39 = phi i8 [ %.pre, %53 ], [ %.pre22, %13 ]
+  %38 = phi i8 [ %.pre20, %53 ], [ %7, %13 ]
+  %39 = phi i8 [ %.pre, %53 ], [ %.pre24, %13 ]
   store i8 0, ptr %18, align 1, !tbaa !107
   store i8 0, ptr %19, align 8, !tbaa !108
   store i8 0, ptr %20, align 2, !tbaa !109
@@ -1215,14 +1215,14 @@ define range(i32 -1, 1) i32 @H5C_evict_tagged_entries(ptr noundef %0, i64 nounde
   %41 = trunc nuw i8 %38 to i1
   %42 = xor i1 %41, true
   %43 = select i1 %40, i1 true, i1 %42
-  br i1 %43, label %44, label %.split14.us, !prof !9
+  br i1 %43, label %44, label %.split16.us, !prof !9
 
 44:                                               ; preds = %.split
   %45 = call fastcc i32 @H5C__iter_tagged_entries_real(ptr noundef readonly %17, i64 noundef %1, ptr noundef nonnull @H5C__evict_tagged_entries_cb, ptr noundef nonnull %4)
   %46 = icmp slt i32 %45, 0
-  br i1 %46, label %.split12.us, label %53
+  br i1 %46, label %.split14.us, label %53
 
-.split12.us:                                      ; preds = %44, %27, %30, %33
+.split14.us:                                      ; preds = %44, %27, %30, %33
   %.us-phi = phi i32 [ 382, %27 ], [ 388, %30 ], [ 392, %33 ], [ 382, %44 ]
   %47 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %48 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !45
@@ -1230,33 +1230,32 @@ define range(i32 -1, 1) i32 @H5C_evict_tagged_entries(ptr noundef %0, i64 nounde
   %50 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
   %51 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !45
   %52 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_evict_tagged_entries, i32 noundef 483, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.3) #11
-  br label %64
+  br label %63
 
 53:                                               ; preds = %44
-  %.pre18 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre20 = load i8, ptr @H5_libterm_g, align 1, !range !7
   %.pre = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7
-  %.pre20 = load i8, ptr %19, align 8, !tbaa !108, !range !7
-  %54 = trunc nuw i8 %.pre20 to i1
-  br i1 %54, label %.split, label %.split14.us, !llvm.loop !110
+  %.pre22 = load i8, ptr %19, align 8, !tbaa !108, !range !7
+  %54 = trunc nuw i8 %.pre22 to i1
+  br i1 %54, label %.split, label %.split16.us, !llvm.loop !110
 
-.split14.us:                                      ; preds = %.split, %53, %.split.us, %36
+.split16.us:                                      ; preds = %.split, %53, %.split.us, %36
   %55 = load i8, ptr %20, align 2, !tbaa !109, !range !7, !noundef !8
   %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %64, label %57
+  %.not = xor i1 %56, true
+  %57 = load i8, ptr %18, align 1, !range !7
+  %58 = trunc nuw i8 %57 to i1
+  %or.cond = select i1 %.not, i1 %58, i1 false
+  br i1 %or.cond, label %59, label %63
 
-57:                                               ; preds = %.split14.us
-  %58 = load i8, ptr %18, align 1, !tbaa !107, !range !7, !noundef !8
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %64
+59:                                               ; preds = %.split16.us
+  %60 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
+  %61 = load i64, ptr @H5E_CANTFLUSH_g, align 8, !tbaa !45
+  %62 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_evict_tagged_entries, i32 noundef 514, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.4) #11
+  br label %63
 
-60:                                               ; preds = %57
-  %61 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !45
-  %62 = load i64, ptr @H5E_CANTFLUSH_g, align 8, !tbaa !45
-  %63 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C_evict_tagged_entries, i32 noundef 514, i64 noundef %61, i64 noundef %62, ptr noundef nonnull @.str.4) #11
-  br label %64
-
-64:                                               ; preds = %.split12.us, %60, %57, %.split14.us, %10
-  %.0 = phi i32 [ -1, %.split12.us ], [ 0, %.split14.us ], [ -1, %60 ], [ 0, %57 ], [ 0, %10 ]
+63:                                               ; preds = %.split14.us, %59, %.split16.us, %10
+  %.0 = phi i32 [ -1, %.split14.us ], [ -1, %59 ], [ 0, %.split16.us ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret i32 %.0
 }

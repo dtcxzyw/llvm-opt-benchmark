@@ -9131,24 +9131,22 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb17BaseDeltaIterator12PrepareV
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 43
   %3 = load i8, ptr %2, align 1, !tbaa !93, !range !91, !noundef !92
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %14
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  %6 = load i8, ptr %5, align 1, !range !91
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond, label %8, label %13
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %7 = load i8, ptr %6, align 1, !tbaa !76, !range !91, !noundef !92
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %14
-
-9:                                                ; preds = %5
+8:                                                ; preds = %1
   tail call void @_ZN7rocksdb17BaseDeltaIterator26SetValueAndColumnsFromBaseEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
-  %10 = load ptr, ptr %0, align 8, !tbaa !18
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(200) %0)
-  br label %14
+  %9 = load ptr, ptr %0, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(200) %0)
+  br label %13
 
-14:                                               ; preds = %5, %1, %9
-  %.0 = phi i1 [ %13, %9 ], [ true, %1 ], [ true, %5 ]
+13:                                               ; preds = %1, %8
+  %.0 = phi i1 [ %12, %8 ], [ true, %1 ]
   ret i1 %.0
 }
 

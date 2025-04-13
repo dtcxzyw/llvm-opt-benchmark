@@ -623,39 +623,39 @@ define void @_ZN6LibRaw21removeExcessiveSpacesEPc(ptr noundef captures(none) %0)
 
 .lr.ph.preheader:                                 ; preds = %.critedge
   %12 = and i64 %indvars.iv.next, 4294967295
-  %wide.trip.count32 = and i64 %2, 4294967295
+  %wide.trip.count33 = and i64 %2, 4294967295
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %indvars.iv30 = phi i64 [ %12, %.lr.ph.preheader ], [ %indvars.iv.next31, %18 ]
-  %.028 = phi i1 [ false, %.lr.ph.preheader ], [ %.not, %18 ]
-  %.02326 = phi i32 [ 0, %.lr.ph.preheader ], [ %.124, %18 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv30
+  %indvars.iv31 = phi i64 [ %12, %.lr.ph.preheader ], [ %indvars.iv.next32, %18 ]
+  %.029 = phi i1 [ false, %.lr.ph.preheader ], [ %.not, %18 ]
+  %.02427 = phi i32 [ 0, %.lr.ph.preheader ], [ %.125, %18 ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv31
   %14 = load i8, ptr %13, align 1, !tbaa !73
   %.not = icmp eq i8 %14, 32
-  %brmerge.not = and i1 %.not, %.028
+  %brmerge.not = and i1 %.not, %.029
   br i1 %brmerge.not, label %18, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph
-  %15 = add nsw i32 %.02326, 1
-  %16 = sext i32 %.02326 to i64
+  %15 = add nsw i32 %.02427, 1
+  %16 = sext i32 %.02427 to i64
   %17 = getelementptr inbounds i8, ptr %0, i64 %16
   store i8 %14, ptr %17, align 1, !tbaa !73
   br label %18
 
 18:                                               ; preds = %.lr.ph, %.sink.split
-  %.124 = phi i32 [ %15, %.sink.split ], [ %.02326, %.lr.ph ]
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %exitcond33.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count32
-  br i1 %exitcond33.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !90
+  %.125 = phi i32 [ %15, %.sink.split ], [ %.02427, %.lr.ph ]
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %exitcond34.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count33
+  br i1 %exitcond34.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge.loopexit:                             ; preds = %18
-  %19 = sext i32 %.124 to i64
+  %19 = sext i32 %.125 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5, %._crit_edge.loopexit, %.critedge
-  %.023.lcssa = phi i64 [ 0, %.critedge ], [ %19, %._crit_edge.loopexit ], [ 0, %5 ]
-  %20 = getelementptr i8, ptr %0, i64 %.023.lcssa
+  %.024.lcssa = phi i64 [ 0, %.critedge ], [ %19, %._crit_edge.loopexit ], [ 0, %5 ]
+  %20 = getelementptr i8, ptr %0, i64 %.024.lcssa
   %21 = getelementptr i8, ptr %20, i64 -1
   %22 = load i8, ptr %21, align 1, !tbaa !73
   %23 = icmp eq i8 %22, 32

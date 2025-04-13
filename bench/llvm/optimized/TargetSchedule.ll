@@ -1137,8 +1137,8 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel19computeInstrLatencyEP
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ne ptr %18, null
   %20 = select i1 %16, i1 %19, i1 false
-  %brmerge = or i1 %2, %20
-  br i1 %brmerge, label %29, label %21
+  %or.cond = or i1 %2, %20
+  br i1 %or.cond, label %29, label %21
 
 21:                                               ; preds = %14, %10, %3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1206,8 +1206,8 @@ _ZNK4llvm16TargetSchedModel17resolveSchedClassEPKNS_12MachineInstrE.exit: ; pred
   br label %62
 
 62:                                               ; preds = %53, %.thread, %21
-  %.09 = phi i32 [ %28, %21 ], [ %58, %53 ], [ %61, %.thread ]
-  ret i32 %.09
+  %.010 = phi i32 [ %28, %21 ], [ %58, %53 ], [ %61, %.thread ]
+  ret i32 %.010
 }
 
 declare noundef i32 @_ZNK4llvm15TargetInstrInfo17defaultDefLatencyERKNS_12MCSchedModelERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #6

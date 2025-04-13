@@ -125,8 +125,8 @@ define hidden { i8, i8 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7ne
 
 16:                                               ; preds = %2, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33fe672103cff923E.exit"
   %.sroa.6.0 = phi i8 [ %.fca.1.extract.i, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33fe672103cff923E.exit" ], [ %6, %2 ]
-  %.sroa.0.012 = phi i8 [ %15, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33fe672103cff923E.exit" ], [ %4, %2 ]
-  %17 = trunc nuw i8 %.sroa.0.012 to i1
+  %.sroa.0.013 = phi i8 [ %15, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33fe672103cff923E.exit" ], [ %4, %2 ]
+  %17 = trunc nuw i8 %.sroa.0.013 to i1
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
@@ -152,7 +152,7 @@ define hidden { i8, i8 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7ne
   unreachable
 
 26:                                               ; preds = %20
-  store i8 %.sroa.0.012, ptr %3, align 8
+  store i8 %.sroa.0.013, ptr %3, align 8
   store i8 %.sroa.6.0, ptr %5, align 1
   br label %22
 }
@@ -187,8 +187,8 @@ define hidden { i8, i8 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7ne
 
 16:                                               ; preds = %2, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea90df5b20bdb0dE.exit"
   %.sroa.6.0 = phi i8 [ %.fca.1.extract.i, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea90df5b20bdb0dE.exit" ], [ %6, %2 ]
-  %.sroa.0.012 = phi i8 [ %15, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea90df5b20bdb0dE.exit" ], [ %4, %2 ]
-  %17 = trunc nuw i8 %.sroa.0.012 to i1
+  %.sroa.0.013 = phi i8 [ %15, %"_ZN127_$LT$ring..polyfill..array_flat_map..ArrayFlatMap$LT$I$C$Item$C$F$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea90df5b20bdb0dE.exit" ], [ %4, %2 ]
+  %17 = trunc nuw i8 %.sroa.0.013 to i1
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
@@ -214,7 +214,7 @@ define hidden { i8, i8 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7ne
   unreachable
 
 26:                                               ; preds = %20
-  store i8 %.sroa.0.012, ptr %3, align 8
+  store i8 %.sroa.0.013, ptr %3, align 8
   store i8 %.sroa.6.0, ptr %5, align 1
   br label %22
 }

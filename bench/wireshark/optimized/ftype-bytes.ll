@@ -782,19 +782,19 @@ define internal noundef zeroext i1 @vines_from_literal(ptr noundef captures(none
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
-  %.not16 = icmp eq ptr %3, null
-  br i1 %.not16, label %21, label %.sink.split
+  %.not17 = icmp eq ptr %3, null
+  br i1 %.not17, label %21, label %.sink.split
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %7, align 8
   %17 = tail call i64 @g_bytes_get_size(ptr noundef %16)
   %18 = icmp ugt i64 %17, 5
-  %brmerge = or i1 %2, %18
-  br i1 %brmerge, label %21, label %19
+  %or.cond = or i1 %2, %18
+  br i1 %or.cond, label %21, label %19
 
 19:                                               ; preds = %15
-  %.not15 = icmp eq ptr %3, null
-  br i1 %.not15, label %21, label %.sink.split
+  %.not16 = icmp eq ptr %3, null
+  br i1 %.not16, label %21, label %.sink.split
 
 bytes_from_literal.exit:                          ; preds = %4
   %.not = icmp eq ptr %3, null
@@ -836,19 +836,19 @@ define internal noundef zeroext i1 @ether_from_literal(ptr noundef captures(none
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
-  %.not16 = icmp eq ptr %3, null
-  br i1 %.not16, label %21, label %.sink.split
+  %.not17 = icmp eq ptr %3, null
+  br i1 %.not17, label %21, label %.sink.split
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %7, align 8
   %17 = tail call i64 @g_bytes_get_size(ptr noundef %16)
   %18 = icmp ugt i64 %17, 5
-  %brmerge = or i1 %2, %18
-  br i1 %brmerge, label %21, label %19
+  %or.cond = or i1 %2, %18
+  br i1 %or.cond, label %21, label %19
 
 19:                                               ; preds = %15
-  %.not15 = icmp eq ptr %3, null
-  br i1 %.not15, label %21, label %.sink.split
+  %.not16 = icmp eq ptr %3, null
+  br i1 %.not16, label %21, label %.sink.split
 
 bytes_from_literal.exit:                          ; preds = %4
   %.not = icmp eq ptr %3, null
@@ -1090,19 +1090,19 @@ define internal noundef zeroext i1 @eui64_from_literal(ptr noundef captures(none
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
-  %.not16 = icmp eq ptr %3, null
-  br i1 %.not16, label %21, label %.sink.split
+  %.not17 = icmp eq ptr %3, null
+  br i1 %.not17, label %21, label %.sink.split
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %7, align 8
   %17 = tail call i64 @g_bytes_get_size(ptr noundef %16)
   %18 = icmp ugt i64 %17, 7
-  %brmerge = or i1 %2, %18
-  br i1 %brmerge, label %21, label %19
+  %or.cond = or i1 %2, %18
+  br i1 %or.cond, label %21, label %19
 
 19:                                               ; preds = %15
-  %.not15 = icmp eq ptr %3, null
-  br i1 %.not15, label %21, label %.sink.split
+  %.not16 = icmp eq ptr %3, null
+  br i1 %.not16, label %21, label %.sink.split
 
 bytes_from_literal.exit:                          ; preds = %4
   %.not = icmp eq ptr %3, null

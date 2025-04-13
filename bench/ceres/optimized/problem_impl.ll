@@ -15005,40 +15005,40 @@ _ZN4absl12lts_2024011618container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit: ; p
   %25 = icmp ult i64 %6, 17
   %26 = icmp ult i64 %24, %6
   %27 = and i1 %25, %26
-  %.not = icmp ne i64 %24, 0
-  %brmerge.not = and i1 %.not, %27
-  br i1 %brmerge.not, label %28, label %41
+  %28 = icmp ne i64 %24, 0
+  %or.cond = and i1 %28, %27
+  br i1 %or.cond, label %29, label %42
 
-28:                                               ; preds = %_ZN4absl12lts_2024011618container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit
+29:                                               ; preds = %_ZN4absl12lts_2024011618container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit
   tail call void @_ZN4absl12lts_2024011618container_internal19HashSetResizeHelper35GrowSizeIntoSingleGroupTransferableERNS1_12CommonFieldsEPvm(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, i64 noundef 8)
-  %29 = load i64, ptr %23, align 8, !tbaa !536
-  %30 = load ptr, ptr %0, align 8, !tbaa !534
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load i8, ptr %31, align 8, !tbaa !537, !range !70, !noundef !71
-  %33 = trunc nuw i8 %32 to i1
-  %.neg.i = select i1 %33, i64 -9, i64 -8
-  %34 = select i1 %33, i64 9, i64 8
-  %35 = getelementptr inbounds i8, ptr %30, i64 %.neg.i
-  %36 = add i64 %29, 23
-  %37 = add i64 %36, %34
-  %38 = and i64 %37, -8
-  %39 = shl i64 %29, 3
-  %40 = add i64 %38, %39
-  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %40) #41
+  %30 = load i64, ptr %23, align 8, !tbaa !536
+  %31 = load ptr, ptr %0, align 8, !tbaa !534
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = load i8, ptr %32, align 8, !tbaa !537, !range !70, !noundef !71
+  %34 = trunc nuw i8 %33 to i1
+  %.neg.i = select i1 %34, i64 -9, i64 -8
+  %35 = select i1 %34, i64 9, i64 8
+  %36 = getelementptr inbounds i8, ptr %31, i64 %.neg.i
+  %37 = add i64 %30, 23
+  %38 = add i64 %37, %35
+  %39 = and i64 %38, -8
+  %40 = shl i64 %30, 3
+  %41 = add i64 %39, %40
+  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %41) #41
   %.pre = load i64, ptr %18, align 8, !tbaa !201
-  br label %44
+  br label %45
 
-41:                                               ; preds = %_ZN4absl12lts_2024011618container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit
-  %42 = add i64 %6, 16
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %15, i8 -128, i64 %42, i1 false)
-  %43 = getelementptr inbounds nuw i8, ptr %15, i64 %6
-  store i8 -1, ptr %43, align 1, !tbaa !321
-  br label %44
+42:                                               ; preds = %_ZN4absl12lts_2024011618container_internal8AllocateILm8ESaIcEEEPvPT0_m.exit
+  %43 = add i64 %6, 16
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %15, i8 -128, i64 %43, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 %6
+  store i8 -1, ptr %44, align 1, !tbaa !321
+  br label %45
 
-44:                                               ; preds = %28, %41
-  %45 = phi i64 [ %.pre, %28 ], [ %19, %41 ]
-  %46 = and i64 %45, -2
-  store i64 %46, ptr %18, align 8, !tbaa !201
+45:                                               ; preds = %29, %42
+  %46 = phi i64 [ %.pre, %29 ], [ %19, %42 ]
+  %47 = and i64 %46, -2
+  store i64 %47, ptr %18, align 8, !tbaa !201
   ret i1 %27
 }
 

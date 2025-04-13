@@ -307,8 +307,8 @@ define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0
   %7 = load i64, ptr %6, align 16, !tbaa !7
   %8 = lshr i64 %7, 2
   %9 = icmp ugt i64 %1, %8
-  %brmerge = or i1 %2, %9
-  br i1 %brmerge, label %.preheader.i, label %10
+  %or.cond = or i1 %2, %9
+  br i1 %or.cond, label %.preheader.i, label %10
 
 10:                                               ; preds = %4
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15ConcurrentArena9tls_cpuidE)
@@ -375,15 +375,15 @@ _ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9Spi
   store ptr %43, ptr %40, align 16, !tbaa !72
   %44 = sub nuw i64 %38, %36
   store i64 %44, ptr %37, align 16, !tbaa !52
-  br label %.thread99
+  br label %.thread101
 
 45:                                               ; preds = %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %47 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %46, i64 noundef %36, i1 noundef zeroext false)
-          to label %.thread99 unwind label %.thread104
+          to label %.thread101 unwind label %.thread106
 
-.thread99:                                        ; preds = %45, %39
-  %.0.i.i63 = phi ptr [ %43, %39 ], [ %47, %45 ]
+.thread101:                                       ; preds = %45, %39
+  %.0.i.i65 = phi ptr [ %43, %39 ], [ %47, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 2352
   %50 = load i64, ptr %49, align 16, !tbaa !52
@@ -397,13 +397,13 @@ _ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9Spi
   %56 = load i64, ptr %55, align 8, !tbaa !54
   store atomic i64 %56, ptr %54 monotonic, align 8
   store atomic i8 0, ptr %5 release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit78
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit80
 
-.thread104:                                       ; preds = %45
+.thread106:                                       ; preds = %45
   %57 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %5 release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit80
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit82
 
 .thread:                                          ; preds = %19, %10, %14, %22
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -428,9 +428,9 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit:            ; preds = %.thread
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
   %71 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
   %72 = icmp slt i32 %71, 0
-  br i1 %72, label %.noexc66, label %87, !prof !55
+  br i1 %72, label %.noexc68, label %87, !prof !55
 
-.noexc66:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
+.noexc68:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
   %73 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
   %74 = load i32, ptr %59, align 16, !tbaa !49
   %75 = load i32, ptr %73, align 4, !tbaa !56
@@ -456,9 +456,9 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocks
   %90 = sext i32 %89 to i64
   br label %91
 
-91:                                               ; preds = %87, %.noexc66
-  %92 = phi i32 [ %88, %87 ], [ %74, %.noexc66 ]
-  %storemerge.i.i = phi i64 [ %90, %87 ], [ %86, %.noexc66 ]
+91:                                               ; preds = %87, %.noexc68
+  %92 = phi i32 [ %88, %87 ], [ %74, %.noexc68 ]
+  %storemerge.i.i = phi i64 [ %90, %87 ], [ %86, %.noexc68 ]
   %93 = load ptr, ptr %58, align 8, !tbaa !51
   %94 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %93, i64 %storemerge.i.i
   %95 = zext nneg i32 %92 to i64
@@ -493,42 +493,42 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i:   ; preds = %_ZN7rocksdb9SpinMut
   br label %99, !llvm.loop !71
 
 _ZN7rocksdb9SpinMutex4lockEv.exit:                ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
-  %.041 = phi ptr [ %65, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %94, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
-  %109 = getelementptr inbounds nuw i8, ptr %.041, i64 40
-  %110 = getelementptr inbounds nuw i8, ptr %.041, i64 56
+  %.042 = phi ptr [ %65, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %94, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
+  %109 = getelementptr inbounds nuw i8, ptr %.042, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %.042, i64 56
   %111 = load atomic i64, ptr %110 monotonic, align 8
   %112 = icmp ult i64 %111, %1
   br i1 %112, label %.preheader, label %182
 
 .preheader:                                       ; preds = %_ZN7rocksdb9SpinMutex4lockEv.exit, %120
-  %.0.i.i67 = phi i64 [ %121, %120 ], [ 0, %_ZN7rocksdb9SpinMutex4lockEv.exit ]
+  %.0.i.i69 = phi i64 [ %121, %120 ], [ 0, %_ZN7rocksdb9SpinMutex4lockEv.exit ]
   %113 = load atomic i8, ptr %5 monotonic, align 16
   %114 = trunc i8 %113 to i1
-  br i1 %114, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i69, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i68
+  br i1 %114, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i71, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i70
 
-_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i68:      ; preds = %.preheader
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i70:      ; preds = %.preheader
   %115 = cmpxchg weak ptr %5, i8 0, i8 1 acquire monotonic, align 1
   %116 = extractvalue { i8, i1 } %115, 1
-  br i1 %116, label %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i69
+  br i1 %116, label %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i71
 
-_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i69: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i68, %.preheader
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i71: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i70, %.preheader
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
-  %117 = icmp ugt i64 %.0.i.i67, 100
+  %117 = icmp ugt i64 %.0.i.i69, 100
   br i1 %117, label %118, label %120
 
-118:                                              ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i69
+118:                                              ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i71
   %119 = tail call noundef i32 @sched_yield() #12
   br label %120
 
-120:                                              ; preds = %118, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i69
-  %121 = add i64 %.0.i.i67, 1
+120:                                              ; preds = %118, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i71
+  %121 = add i64 %.0.i.i69, 1
   br label %.preheader, !llvm.loop !71
 
-_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i68
+_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i70
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %123 = load atomic i64, ptr %122 monotonic, align 8
-  %.not51 = icmp ult i64 %123, %1
-  br i1 %.not51, label %155, label %124
+  %.not52 = icmp ult i64 %123, %1
+  br i1 %.not52, label %155, label %124
 
 124:                                              ; preds = %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 2216
@@ -550,8 +550,8 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
   %139 = load i64, ptr %138, align 8, !tbaa !62
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 2352
   %141 = load i64, ptr %140, align 16, !tbaa !52
-  %.not.i.i70 = icmp ugt i64 %139, %141
-  br i1 %.not.i.i70, label %148, label %142
+  %.not.i.i72 = icmp ugt i64 %139, %141
+  br i1 %.not.i.i72, label %148, label %142
 
 142:                                              ; preds = %136
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 2336
@@ -581,17 +581,17 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
 155:                                              ; preds = %124, %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit
   %156 = load i64, ptr %6, align 16, !tbaa !7
   %157 = lshr i64 %156, 1
-  %.not52 = icmp uge i64 %123, %157
+  %.not53 = icmp uge i64 %123, %157
   %158 = shl i64 %156, 1
   %159 = icmp ult i64 %123, %158
-  %or.cond = and i1 %.not52, %159
-  %160 = select i1 %or.cond, i64 %123, i64 %156
+  %or.cond60 = and i1 %.not53, %159
+  %160 = select i1 %or.cond60, i64 %123, i64 %156
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %162 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %161, i64 noundef %160, i64 noundef 0, ptr noundef null)
-          to label %.thread95 unwind label %151
+          to label %.thread97 unwind label %151
 
-.thread95:                                        ; preds = %155
-  %163 = getelementptr inbounds nuw i8, ptr %.041, i64 48
+.thread97:                                        ; preds = %155
+  %163 = getelementptr inbounds nuw i8, ptr %.042, i64 48
   store ptr %162, ptr %163, align 8, !tbaa !74
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 2352
   %165 = load i64, ptr %164, align 16, !tbaa !52
@@ -608,7 +608,7 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
   br label %182
 
 172:                                              ; preds = %148, %142
-  %.0.i.i71 = phi ptr [ %146, %142 ], [ %150, %148 ]
+  %.0.i.i73 = phi ptr [ %146, %142 ], [ %150, %148 ]
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 2352
   %174 = load i64, ptr %173, align 16, !tbaa !52
   store atomic i64 %174, ptr %122 monotonic, align 8
@@ -627,15 +627,15 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
   %.pn = phi { ptr, i32 } [ %154, %153 ], [ %152, %151 ]
   store atomic i8 0, ptr %5 release, align 16
   store atomic i8 0, ptr %109 release, align 1
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit80
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit82
 
-182:                                              ; preds = %.thread95, %_ZN7rocksdb9SpinMutex4lockEv.exit
-  %.039 = phi i64 [ %111, %_ZN7rocksdb9SpinMutex4lockEv.exit ], [ %160, %.thread95 ]
-  %183 = sub i64 %.039, %1
+182:                                              ; preds = %.thread97, %_ZN7rocksdb9SpinMutex4lockEv.exit
+  %.040 = phi i64 [ %111, %_ZN7rocksdb9SpinMutex4lockEv.exit ], [ %160, %.thread97 ]
+  %183 = sub i64 %.040, %1
   store atomic i64 %183, ptr %110 monotonic, align 8
   %184 = and i64 %1, 7
   %185 = icmp eq i64 %184, 0
-  %186 = getelementptr inbounds nuw i8, ptr %.041, i64 48
+  %186 = getelementptr inbounds nuw i8, ptr %.042, i64 48
   %187 = load ptr, ptr %186, align 8, !tbaa !74
   br i1 %185, label %188, label %190
 
@@ -645,23 +645,23 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
   br label %194
 
 190:                                              ; preds = %182
-  %191 = getelementptr inbounds nuw i8, ptr %187, i64 %.039
+  %191 = getelementptr inbounds nuw i8, ptr %187, i64 %.040
   %192 = sub nsw i64 0, %1
   %193 = getelementptr inbounds i8, ptr %191, i64 %192
   br label %194
 
 194:                                              ; preds = %172, %188, %190
-  %.2 = phi ptr [ %.0.i.i71, %172 ], [ %187, %188 ], [ %193, %190 ]
+  %.2 = phi ptr [ %.0.i.i73, %172 ], [ %187, %188 ], [ %193, %190 ]
   store atomic i8 0, ptr %109 release, align 1
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit78
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit80
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit78: ; preds = %194, %.thread99
-  %.035102 = phi ptr [ %.2, %194 ], [ %.0.i.i63, %.thread99 ]
-  ret ptr %.035102
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit80: ; preds = %194, %.thread101
+  %.036104 = phi ptr [ %.2, %194 ], [ %.0.i.i65, %.thread101 ]
+  ret ptr %.036104
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit80: ; preds = %181, %.thread104
-  %.pn56107 = phi { ptr, i32 } [ %.pn, %181 ], [ %57, %.thread104 ]
-  resume { ptr, i32 } %.pn56107
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit82: ; preds = %181, %.thread106
+  %.pn57109 = phi { ptr, i32 } [ %.pn, %181 ], [ %57, %.thread106 ]
+  resume { ptr, i32 } %.pn57109
 }
 
 declare noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288), i64 noundef, i64 noundef, ptr noundef) unnamed_addr #2
@@ -678,8 +678,8 @@ define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0
   %7 = load i64, ptr %6, align 16, !tbaa !7
   %8 = lshr i64 %7, 2
   %9 = icmp ugt i64 %1, %8
-  %brmerge = or i1 %2, %9
-  br i1 %brmerge, label %.preheader.i, label %10
+  %or.cond = or i1 %2, %9
+  br i1 %or.cond, label %.preheader.i, label %10
 
 10:                                               ; preds = %4
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15ConcurrentArena9tls_cpuidE)
@@ -739,9 +739,9 @@ _ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9Spi
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !68
   %42 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %35, i64 noundef %37, i64 noundef %39, ptr noundef %41)
-          to label %.thread95 unwind label %.thread100
+          to label %.thread97 unwind label %.thread102
 
-.thread95:                                        ; preds = %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit
+.thread97:                                        ; preds = %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2352
   %45 = load i64, ptr %44, align 16, !tbaa !52
@@ -755,13 +755,13 @@ _ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9Spi
   %51 = load i64, ptr %50, align 8, !tbaa !54
   store atomic i64 %51, ptr %49 monotonic, align 8
   store atomic i8 0, ptr %5 release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit74
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit76
 
-.thread100:                                       ; preds = %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit
+.thread102:                                       ; preds = %_ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit
   %52 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %5 release, align 16
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit76
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit78
 
 .thread:                                          ; preds = %19, %10, %14, %22
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -786,9 +786,9 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit:            ; preds = %.thread
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
   %66 = tail call noundef i32 @_ZN7rocksdb4port14PhysicalCoreIDEv()
   %67 = icmp slt i32 %66, 0
-  br i1 %67, label %.noexc65, label %82, !prof !55
+  br i1 %67, label %.noexc67, label %82, !prof !55
 
-.noexc65:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
+.noexc67:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread
   %68 = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
   %69 = load i32, ptr %54, align 16, !tbaa !49
   %70 = load i32, ptr %68, align 4, !tbaa !56
@@ -814,9 +814,9 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocks
   %85 = sext i32 %84 to i64
   br label %86
 
-86:                                               ; preds = %82, %.noexc65
-  %87 = phi i32 [ %83, %82 ], [ %69, %.noexc65 ]
-  %storemerge.i.i = phi i64 [ %85, %82 ], [ %81, %.noexc65 ]
+86:                                               ; preds = %82, %.noexc67
+  %87 = phi i32 [ %83, %82 ], [ %69, %.noexc67 ]
+  %storemerge.i.i = phi i64 [ %85, %82 ], [ %81, %.noexc67 ]
   %88 = load ptr, ptr %53, align 8, !tbaa !51
   %89 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %88, i64 %storemerge.i.i
   %90 = zext nneg i32 %87 to i64
@@ -851,42 +851,42 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i:   ; preds = %_ZN7rocksdb9SpinMut
   br label %94, !llvm.loop !71
 
 _ZN7rocksdb9SpinMutex4lockEv.exit:                ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
-  %.041 = phi ptr [ %60, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %89, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
-  %104 = getelementptr inbounds nuw i8, ptr %.041, i64 40
-  %105 = getelementptr inbounds nuw i8, ptr %.041, i64 56
+  %.042 = phi ptr [ %60, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %89, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
+  %104 = getelementptr inbounds nuw i8, ptr %.042, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %.042, i64 56
   %106 = load atomic i64, ptr %105 monotonic, align 8
   %107 = icmp ult i64 %106, %1
   br i1 %107, label %.preheader, label %172
 
 .preheader:                                       ; preds = %_ZN7rocksdb9SpinMutex4lockEv.exit, %115
-  %.0.i.i66 = phi i64 [ %116, %115 ], [ 0, %_ZN7rocksdb9SpinMutex4lockEv.exit ]
+  %.0.i.i68 = phi i64 [ %116, %115 ], [ 0, %_ZN7rocksdb9SpinMutex4lockEv.exit ]
   %108 = load atomic i8, ptr %5 monotonic, align 16
   %109 = trunc i8 %108 to i1
-  br i1 %109, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i68, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i67
+  br i1 %109, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i70, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i69
 
-_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i67:      ; preds = %.preheader
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i69:      ; preds = %.preheader
   %110 = cmpxchg weak ptr %5, i8 0, i8 1 acquire monotonic, align 1
   %111 = extractvalue { i8, i1 } %110, 1
-  br i1 %111, label %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i68
+  br i1 %111, label %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i70
 
-_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i68: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i67, %.preheader
+_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i70: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i69, %.preheader
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !70
-  %112 = icmp ugt i64 %.0.i.i66, 100
+  %112 = icmp ugt i64 %.0.i.i68, 100
   br i1 %112, label %113, label %115
 
-113:                                              ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i68
+113:                                              ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i70
   %114 = tail call noundef i32 @sched_yield() #12
   br label %115
 
-115:                                              ; preds = %113, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i68
-  %116 = add i64 %.0.i.i66, 1
+115:                                              ; preds = %113, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.thread.i.i70
+  %116 = add i64 %.0.i.i68, 1
   br label %.preheader, !llvm.loop !71
 
-_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i67
+_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i69
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %118 = load atomic i64, ptr %117 monotonic, align 8
-  %.not51 = icmp ult i64 %118, %1
-  br i1 %.not51, label %143, label %119
+  %.not52 = icmp ult i64 %118, %1
+  br i1 %.not52, label %143, label %119
 
 119:                                              ; preds = %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 2216
@@ -922,17 +922,17 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
 143:                                              ; preds = %119, %_ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit
   %144 = load i64, ptr %6, align 16, !tbaa !7
   %145 = lshr i64 %144, 1
-  %.not52 = icmp uge i64 %118, %145
+  %.not53 = icmp uge i64 %118, %145
   %146 = shl i64 %144, 1
   %147 = icmp ult i64 %118, %146
-  %or.cond = and i1 %.not52, %147
-  %148 = select i1 %or.cond, i64 %118, i64 %144
+  %or.cond60 = and i1 %.not53, %147
+  %148 = select i1 %or.cond60, i64 %118, i64 %144
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %150 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %149, i64 noundef %148, i64 noundef 0, ptr noundef null)
-          to label %.thread91 unwind label %169
+          to label %.thread93 unwind label %169
 
-.thread91:                                        ; preds = %143
-  %151 = getelementptr inbounds nuw i8, ptr %.041, i64 48
+.thread93:                                        ; preds = %143
+  %151 = getelementptr inbounds nuw i8, ptr %.042, i64 48
   store ptr %150, ptr %151, align 8, !tbaa !74
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 2352
   %153 = load i64, ptr %152, align 16, !tbaa !52
@@ -972,15 +972,15 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
   %.pn = phi { ptr, i32 } [ %142, %141 ], [ %170, %169 ]
   store atomic i8 0, ptr %5 release, align 16
   store atomic i8 0, ptr %104 release, align 1
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit76
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit78
 
-172:                                              ; preds = %.thread91, %_ZN7rocksdb9SpinMutex4lockEv.exit
-  %.039 = phi i64 [ %106, %_ZN7rocksdb9SpinMutex4lockEv.exit ], [ %148, %.thread91 ]
-  %173 = sub i64 %.039, %1
+172:                                              ; preds = %.thread93, %_ZN7rocksdb9SpinMutex4lockEv.exit
+  %.040 = phi i64 [ %106, %_ZN7rocksdb9SpinMutex4lockEv.exit ], [ %148, %.thread93 ]
+  %173 = sub i64 %.040, %1
   store atomic i64 %173, ptr %105 monotonic, align 8
   %174 = and i64 %1, 7
   %175 = icmp eq i64 %174, 0
-  %176 = getelementptr inbounds nuw i8, ptr %.041, i64 48
+  %176 = getelementptr inbounds nuw i8, ptr %.042, i64 48
   %177 = load ptr, ptr %176, align 8, !tbaa !74
   br i1 %175, label %178, label %180
 
@@ -990,7 +990,7 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
   br label %184
 
 180:                                              ; preds = %172
-  %181 = getelementptr inbounds nuw i8, ptr %177, i64 %.039
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 %.040
   %182 = sub nsw i64 0, %1
   %183 = getelementptr inbounds i8, ptr %181, i64 %182
   br label %184
@@ -998,15 +998,15 @@ _ZNSt10lock_guardIN7rocksdb9SpinMutexEEC2ERS1_.exit: ; preds = %_ZN7rocksdb9Spin
 184:                                              ; preds = %160, %178, %180
   %.2 = phi ptr [ %140, %160 ], [ %177, %178 ], [ %183, %180 ]
   store atomic i8 0, ptr %104 release, align 1
-  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit74
+  br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit76
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit74: ; preds = %184, %.thread95
-  %.03598 = phi ptr [ %.2, %184 ], [ %42, %.thread95 ]
-  ret ptr %.03598
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit76: ; preds = %184, %.thread97
+  %.036100 = phi ptr [ %.2, %184 ], [ %42, %.thread97 ]
+  ret ptr %.036100
 
-_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit76: ; preds = %171, %.thread100
-  %.pn56103 = phi { ptr, i32 } [ %.pn, %171 ], [ %52, %.thread100 ]
-  resume { ptr, i32 } %.pn56103
+_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit78: ; preds = %171, %.thread102
+  %.pn57105 = phi { ptr, i32 } [ %.pn, %171 ], [ %52, %.thread102 ]
+  resume { ptr, i32 } %.pn57105
 }
 
 ; Function Attrs: uwtable

@@ -432,7 +432,7 @@ define dso_local range(i32 0, 2) i32 @slurm_verify_cpu_bind(ptr noundef %0, ptr 
   store ptr %storemerge, ptr %5, align 8
   %12 = load i8, ptr %storemerge, align 1
   switch i8 %12, label %_isvalue.exit.thread [
-    i8 0, label %.lr.ph
+    i8 0, label %.lr.ph.preheader
     i8 44, label %13
   ]
 
@@ -445,8 +445,8 @@ define dso_local range(i32 0, 2) i32 @slurm_verify_cpu_bind(ptr noundef %0, ptr 
   %19 = getelementptr inbounds i16, ptr %16, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 2048
-  %.not.i68 = icmp eq i16 %21, 0
-  br i1 %.not.i68, label %.preheader.i, label %_isvalue.exit.thread
+  %.not.i70 = icmp eq i16 %21, 0
+  br i1 %.not.i70, label %.preheader.i, label %_isvalue.exit.thread
 
 .preheader.i:                                     ; preds = %13, %.preheader.i
   %.0.i = phi ptr [ %27, %.preheader.i ], [ %14, %13 ]
@@ -475,390 +475,388 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   br label %11, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %11
-  %.not.i.not = icmp ne i32 %9, 0
+.lr.ph.preheader:                                 ; preds = %11
+  %.not.i.not = icmp eq i32 %9, 0
   %31 = load ptr, ptr %4, align 8
   store ptr %31, ptr %5, align 8
-  br label %32
+  br label %.lr.ph
 
-32:                                               ; preds = %.lr.ph, %234
-  %.04971 = phi i1 [ true, %.lr.ph ], [ %.1, %234 ]
-  %33 = call ptr @strsep(ptr noundef nonnull %5, ptr noundef nonnull @.str.25) #15
-  store ptr %33, ptr %6, align 8
-  %.not57 = icmp eq ptr %33, null
-  br i1 %.not57, label %.critedge.thread, label %34
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %233
+  %.05073 = phi i1 [ %.1, %233 ], [ true, %.lr.ph.preheader ]
+  %32 = call ptr @strsep(ptr noundef nonnull %5, ptr noundef nonnull @.str.25) #15
+  store ptr %32, ptr %6, align 8
+  %.not59 = icmp eq ptr %32, null
+  br i1 %.not59, label %.critedge.thread, label %33
 
-34:                                               ; preds = %32
-  %35 = call i32 @xstrcasecmp(ptr noundef nonnull %33, ptr noundef nonnull @.str.26) #15
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %40
+33:                                               ; preds = %.lr.ph
+  %34 = call i32 @xstrcasecmp(ptr noundef nonnull %32, ptr noundef nonnull @.str.26) #15
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %39
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1416), align 8
-  %39 = call i32 @xstrcmp(ptr noundef %38, ptr noundef nonnull @.str.76) #15
-  %.not.i.not.i = icmp eq i32 %39, 0
+36:                                               ; preds = %33
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1416), align 8
+  %38 = call i32 @xstrcmp(ptr noundef %37, ptr noundef nonnull @.str.76) #15
+  %.not.i.not.i = icmp eq i32 %38, 0
   %str.str.1.i = select i1 %.not.i.not.i, ptr @str, ptr @str.1
   %puts1.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.str.1.i)
   br label %.critedge.thread
 
-40:                                               ; preds = %34
-  %.049.not = xor i1 %.04971, true
-  %brmerge = select i1 %.not.i.not, i1 true, i1 %.049.not
-  %.049.mux = select i1 %.not.i.not, i1 %.04971, i1 false
-  br i1 %brmerge, label %45, label %41
+39:                                               ; preds = %33
+  %or.cond = select i1 %.not.i.not, i1 %.05073, i1 false
+  br i1 %or.cond, label %40, label %44
 
-41:                                               ; preds = %40
-  %42 = call i32 @get_log_level() #15
-  %43 = icmp sgt i32 %42, 2
-  br i1 %43, label %44, label %45
+40:                                               ; preds = %39
+  %41 = call i32 @get_log_level() #15
+  %42 = icmp sgt i32 %41, 2
+  br i1 %42, label %43, label %44
 
-44:                                               ; preds = %41
+43:                                               ; preds = %40
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.27) #15
-  br label %45
+  br label %44
 
-45:                                               ; preds = %40, %41, %44
-  %.1 = phi i1 [ %.049.mux, %40 ], [ false, %44 ], [ false, %41 ]
-  %46 = load ptr, ptr %6, align 8
-  %47 = call i32 @xstrcasecmp(ptr noundef %46, ptr noundef nonnull @.str.28) #15
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %53, label %49
+44:                                               ; preds = %40, %43, %39
+  %.1 = phi i1 [ %.05073, %39 ], [ false, %43 ], [ false, %40 ]
+  %45 = load ptr, ptr %6, align 8
+  %46 = call i32 @xstrcasecmp(ptr noundef %45, ptr noundef nonnull @.str.28) #15
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %52, label %48
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %6, align 8
-  %51 = call i32 @xstrcasecmp(ptr noundef %50, ptr noundef nonnull @.str.29) #15
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %56
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %6, align 8
+  %50 = call i32 @xstrcasecmp(ptr noundef %49, ptr noundef nonnull @.str.29) #15
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %55
 
-53:                                               ; preds = %49, %45
-  %54 = load i32, ptr %2, align 4
-  %55 = and i32 %54, -2
-  store i32 %55, ptr %2, align 4
-  br label %234
+52:                                               ; preds = %48, %44
+  %53 = load i32, ptr %2, align 4
+  %54 = and i32 %53, -2
+  store i32 %54, ptr %2, align 4
+  br label %233
 
-56:                                               ; preds = %49
-  %57 = load ptr, ptr %6, align 8
-  %58 = call i32 @xstrcasecmp(ptr noundef %57, ptr noundef nonnull @.str.30) #15
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %64, label %60
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %6, align 8
+  %57 = call i32 @xstrcasecmp(ptr noundef %56, ptr noundef nonnull @.str.30) #15
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %63, label %59
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr %6, align 8
-  %62 = call i32 @xstrcasecmp(ptr noundef %61, ptr noundef nonnull @.str.31) #15
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %64, label %67
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %6, align 8
+  %61 = call i32 @xstrcasecmp(ptr noundef %60, ptr noundef nonnull @.str.31) #15
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %66
 
-64:                                               ; preds = %60, %56
-  %65 = load i32, ptr %2, align 4
-  %66 = or i32 %65, 1
-  store i32 %66, ptr %2, align 4
-  br label %234
+63:                                               ; preds = %59, %55
+  %64 = load i32, ptr %2, align 4
+  %65 = or i32 %64, 1
+  store i32 %65, ptr %2, align 4
+  br label %233
 
-67:                                               ; preds = %60
-  %68 = load ptr, ptr %6, align 8
-  %69 = call i32 @xstrcasecmp(ptr noundef %68, ptr noundef nonnull @.str.32) #15
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %74
+66:                                               ; preds = %59
+  %67 = load ptr, ptr %6, align 8
+  %68 = call i32 @xstrcasecmp(ptr noundef %67, ptr noundef nonnull @.str.32) #15
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %73
 
-71:                                               ; preds = %67
-  %72 = load i32, ptr %2, align 4
-  %73 = or i32 %72, 8192
-  store i32 %73, ptr %2, align 4
-  br label %234
+70:                                               ; preds = %66
+  %71 = load i32, ptr %2, align 4
+  %72 = or i32 %71, 8192
+  store i32 %72, ptr %2, align 4
+  br label %233
 
-74:                                               ; preds = %67
-  %75 = load ptr, ptr %6, align 8
-  %76 = call i32 @xstrcasecmp(ptr noundef %75, ptr noundef nonnull @.str.33) #15
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %82, label %78
+73:                                               ; preds = %66
+  %74 = load ptr, ptr %6, align 8
+  %75 = call i32 @xstrcasecmp(ptr noundef %74, ptr noundef nonnull @.str.33) #15
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %81, label %77
 
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %6, align 8
-  %80 = call i32 @xstrcasecmp(ptr noundef %79, ptr noundef nonnull @.str.34) #15
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %86
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %6, align 8
+  %79 = call i32 @xstrcasecmp(ptr noundef %78, ptr noundef nonnull @.str.34) #15
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %85
 
-82:                                               ; preds = %78, %74
-  %83 = load i32, ptr %2, align 4
-  %84 = and i32 %83, -4001
-  %85 = or disjoint i32 %84, 32
-  store i32 %85, ptr %2, align 4
+81:                                               ; preds = %77, %73
+  %82 = load i32, ptr %2, align 4
+  %83 = and i32 %82, -4001
+  %84 = or disjoint i32 %83, 32
+  store i32 %84, ptr %2, align 4
   call void @slurm_xfree(ptr noundef %1) #15
-  br label %234
+  br label %233
 
-86:                                               ; preds = %78
-  %87 = load ptr, ptr %6, align 8
-  %88 = call i32 @xstrcasecmp(ptr noundef %87, ptr noundef nonnull @.str.35) #15
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %95
+85:                                               ; preds = %77
+  %86 = load ptr, ptr %6, align 8
+  %87 = call i32 @xstrcasecmp(ptr noundef %86, ptr noundef nonnull @.str.35) #15
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %94
 
-90:                                               ; preds = %86
-  %91 = call i32 @get_log_level() #15
-  %92 = icmp sgt i32 %91, 2
-  br i1 %92, label %93, label %94
+89:                                               ; preds = %85
+  %90 = call i32 @get_log_level() #15
+  %91 = icmp sgt i32 %90, 2
+  br i1 %91, label %92, label %93
 
-93:                                               ; preds = %90
+92:                                               ; preds = %89
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.36) #15
-  br label %94
+  br label %93
 
-94:                                               ; preds = %93, %90
+93:                                               ; preds = %92, %89
   call void @slurm_xfree(ptr noundef %1) #15
-  br label %234
+  br label %233
 
-95:                                               ; preds = %86
-  %96 = load ptr, ptr %6, align 8
-  %97 = call i32 @xstrncasecmp(ptr noundef %96, ptr noundef nonnull @.str.37, i64 noundef 7) #15
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %103, label %99
+94:                                               ; preds = %85
+  %95 = load ptr, ptr %6, align 8
+  %96 = call i32 @xstrncasecmp(ptr noundef %95, ptr noundef nonnull @.str.37, i64 noundef 7) #15
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %102, label %98
 
-99:                                               ; preds = %95
-  %100 = load ptr, ptr %6, align 8
-  %101 = call i32 @xstrncasecmp(ptr noundef %100, ptr noundef nonnull @.str.38, i64 noundef 6) #15
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %115
+98:                                               ; preds = %94
+  %99 = load ptr, ptr %6, align 8
+  %100 = call i32 @xstrncasecmp(ptr noundef %99, ptr noundef nonnull @.str.38, i64 noundef 6) #15
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %114
 
-103:                                              ; preds = %99, %95
+102:                                              ; preds = %98, %94
+  %103 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #15
   %104 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #15
-  %105 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #15
-  %106 = load i32, ptr %2, align 4
-  %107 = and i32 %106, -4001
-  %108 = or disjoint i32 %107, 128
-  store i32 %108, ptr %2, align 4
+  %105 = load i32, ptr %2, align 4
+  %106 = and i32 %105, -4001
+  %107 = or disjoint i32 %106, 128
+  store i32 %107, ptr %2, align 4
   call void @slurm_xfree(ptr noundef %1) #15
-  %.not65 = icmp eq ptr %105, null
-  br i1 %.not65, label %113, label %109
+  %.not67 = icmp eq ptr %104, null
+  br i1 %.not67, label %112, label %108
 
-109:                                              ; preds = %103
-  %110 = load i8, ptr %105, align 1
-  %.not66 = icmp eq i8 %110, 0
-  br i1 %.not66, label %113, label %111
+108:                                              ; preds = %102
+  %109 = load i8, ptr %104, align 1
+  %.not68 = icmp eq i8 %109, 0
+  br i1 %.not68, label %112, label %110
 
-111:                                              ; preds = %109
-  %112 = call fastcc ptr @_expand_mult(ptr noundef %105, ptr noundef nonnull @.str.37, ptr noundef %7)
-  store ptr %112, ptr %1, align 8
-  br label %234
+110:                                              ; preds = %108
+  %111 = call fastcc ptr @_expand_mult(ptr noundef %104, ptr noundef nonnull @.str.37, ptr noundef %7)
+  store ptr %111, ptr %1, align 8
+  br label %233
 
-113:                                              ; preds = %109, %103
-  %114 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40) #15
+112:                                              ; preds = %108, %102
+  %113 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40) #15
   br label %._crit_edge
 
-115:                                              ; preds = %99
-  %116 = load ptr, ptr %6, align 8
-  %117 = call i32 @xstrncasecmp(ptr noundef %116, ptr noundef nonnull @.str.41, i64 noundef 8) #15
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %123, label %119
+114:                                              ; preds = %98
+  %115 = load ptr, ptr %6, align 8
+  %116 = call i32 @xstrncasecmp(ptr noundef %115, ptr noundef nonnull @.str.41, i64 noundef 8) #15
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %122, label %118
 
-119:                                              ; preds = %115
-  %120 = load ptr, ptr %6, align 8
-  %121 = call i32 @xstrncasecmp(ptr noundef %120, ptr noundef nonnull @.str.42, i64 noundef 7) #15
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %135
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %6, align 8
+  %120 = call i32 @xstrncasecmp(ptr noundef %119, ptr noundef nonnull @.str.42, i64 noundef 7) #15
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %122, label %134
 
-123:                                              ; preds = %119, %115
+122:                                              ; preds = %118, %114
+  %123 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #15
   %124 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #15
-  %125 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #15
-  %126 = load i32, ptr %2, align 4
-  %127 = and i32 %126, -4001
-  %128 = or disjoint i32 %127, 256
-  store i32 %128, ptr %2, align 4
+  %125 = load i32, ptr %2, align 4
+  %126 = and i32 %125, -4001
+  %127 = or disjoint i32 %126, 256
+  store i32 %127, ptr %2, align 4
   call void @slurm_xfree(ptr noundef %1) #15
-  %.not63 = icmp eq ptr %125, null
-  br i1 %.not63, label %133, label %129
+  %.not65 = icmp eq ptr %124, null
+  br i1 %.not65, label %132, label %128
 
-129:                                              ; preds = %123
-  %130 = load i8, ptr %125, align 1
-  %.not64 = icmp eq i8 %130, 0
-  br i1 %.not64, label %133, label %131
+128:                                              ; preds = %122
+  %129 = load i8, ptr %124, align 1
+  %.not66 = icmp eq i8 %129, 0
+  br i1 %.not66, label %132, label %130
 
-131:                                              ; preds = %129
-  %132 = call fastcc ptr @_expand_mult(ptr noundef %125, ptr noundef nonnull @.str.41, ptr noundef %7)
-  store ptr %132, ptr %1, align 8
-  br label %234
+130:                                              ; preds = %128
+  %131 = call fastcc ptr @_expand_mult(ptr noundef %124, ptr noundef nonnull @.str.41, ptr noundef %7)
+  store ptr %131, ptr %1, align 8
+  br label %233
 
-133:                                              ; preds = %129, %123
-  %134 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.43) #15
+132:                                              ; preds = %128, %122
+  %133 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.43) #15
   br label %._crit_edge
 
-135:                                              ; preds = %119
-  %136 = load ptr, ptr %6, align 8
-  %137 = call i32 @xstrcasecmp(ptr noundef %136, ptr noundef nonnull @.str.44) #15
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %143
+134:                                              ; preds = %118
+  %135 = load ptr, ptr %6, align 8
+  %136 = call i32 @xstrcasecmp(ptr noundef %135, ptr noundef nonnull @.str.44) #15
+  %137 = icmp eq i32 %136, 0
+  br i1 %137, label %138, label %142
 
-139:                                              ; preds = %135
-  %140 = load i32, ptr %2, align 4
-  %141 = and i32 %140, -4001
-  %142 = or disjoint i32 %141, 512
-  store i32 %142, ptr %2, align 4
+138:                                              ; preds = %134
+  %139 = load i32, ptr %2, align 4
+  %140 = and i32 %139, -4001
+  %141 = or disjoint i32 %140, 512
+  store i32 %141, ptr %2, align 4
   call void @slurm_xfree(ptr noundef %1) #15
-  br label %234
+  br label %233
 
-143:                                              ; preds = %135
-  %144 = load ptr, ptr %6, align 8
-  %145 = call i32 @xstrncasecmp(ptr noundef %144, ptr noundef nonnull @.str.45, i64 noundef 8) #15
-  %146 = icmp eq i32 %145, 0
-  br i1 %146, label %151, label %147
+142:                                              ; preds = %134
+  %143 = load ptr, ptr %6, align 8
+  %144 = call i32 @xstrncasecmp(ptr noundef %143, ptr noundef nonnull @.str.45, i64 noundef 8) #15
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %150, label %146
 
-147:                                              ; preds = %143
-  %148 = load ptr, ptr %6, align 8
-  %149 = call i32 @xstrncasecmp(ptr noundef %148, ptr noundef nonnull @.str.46, i64 noundef 7) #15
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %151, label %163
+146:                                              ; preds = %142
+  %147 = load ptr, ptr %6, align 8
+  %148 = call i32 @xstrncasecmp(ptr noundef %147, ptr noundef nonnull @.str.46, i64 noundef 7) #15
+  %149 = icmp eq i32 %148, 0
+  br i1 %149, label %150, label %162
 
-151:                                              ; preds = %147, %143
+150:                                              ; preds = %146, %142
+  %151 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #15
   %152 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #15
-  %153 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #15
-  %154 = load i32, ptr %2, align 4
-  %155 = and i32 %154, -4001
-  %156 = or disjoint i32 %155, 1024
-  store i32 %156, ptr %2, align 4
+  %153 = load i32, ptr %2, align 4
+  %154 = and i32 %153, -4001
+  %155 = or disjoint i32 %154, 1024
+  store i32 %155, ptr %2, align 4
   call void @slurm_xfree(ptr noundef %1) #15
-  %.not61 = icmp eq ptr %153, null
-  br i1 %.not61, label %161, label %157
+  %.not63 = icmp eq ptr %152, null
+  br i1 %.not63, label %160, label %156
 
-157:                                              ; preds = %151
-  %158 = load i8, ptr %153, align 1
-  %.not62 = icmp eq i8 %158, 0
-  br i1 %.not62, label %161, label %159
+156:                                              ; preds = %150
+  %157 = load i8, ptr %152, align 1
+  %.not64 = icmp eq i8 %157, 0
+  br i1 %.not64, label %160, label %158
 
-159:                                              ; preds = %157
-  %160 = call fastcc ptr @_expand_mult(ptr noundef %153, ptr noundef nonnull @.str.45, ptr noundef %7)
-  store ptr %160, ptr %1, align 8
-  br label %234
+158:                                              ; preds = %156
+  %159 = call fastcc ptr @_expand_mult(ptr noundef %152, ptr noundef nonnull @.str.45, ptr noundef %7)
+  store ptr %159, ptr %1, align 8
+  br label %233
 
-161:                                              ; preds = %157, %151
-  %162 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #15
+160:                                              ; preds = %156, %150
+  %161 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #15
   br label %._crit_edge
 
-163:                                              ; preds = %147
-  %164 = load ptr, ptr %6, align 8
-  %165 = call i32 @xstrncasecmp(ptr noundef %164, ptr noundef nonnull @.str.48, i64 noundef 9) #15
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %171, label %167
+162:                                              ; preds = %146
+  %163 = load ptr, ptr %6, align 8
+  %164 = call i32 @xstrncasecmp(ptr noundef %163, ptr noundef nonnull @.str.48, i64 noundef 9) #15
+  %165 = icmp eq i32 %164, 0
+  br i1 %165, label %170, label %166
 
-167:                                              ; preds = %163
-  %168 = load ptr, ptr %6, align 8
-  %169 = call i32 @xstrncasecmp(ptr noundef %168, ptr noundef nonnull @.str.49, i64 noundef 8) #15
-  %170 = icmp eq i32 %169, 0
-  br i1 %170, label %171, label %183
+166:                                              ; preds = %162
+  %167 = load ptr, ptr %6, align 8
+  %168 = call i32 @xstrncasecmp(ptr noundef %167, ptr noundef nonnull @.str.49, i64 noundef 8) #15
+  %169 = icmp eq i32 %168, 0
+  br i1 %169, label %170, label %182
 
-171:                                              ; preds = %167, %163
+170:                                              ; preds = %166, %162
+  %171 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #15
   %172 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #15
-  %173 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.39) #15
-  %174 = load i32, ptr %2, align 4
-  %175 = and i32 %174, -4001
-  %176 = or disjoint i32 %175, 2048
-  store i32 %176, ptr %2, align 4
+  %173 = load i32, ptr %2, align 4
+  %174 = and i32 %173, -4001
+  %175 = or disjoint i32 %174, 2048
+  store i32 %175, ptr %2, align 4
   call void @slurm_xfree(ptr noundef %1) #15
-  %.not59 = icmp eq ptr %173, null
-  br i1 %.not59, label %181, label %177
+  %.not61 = icmp eq ptr %172, null
+  br i1 %.not61, label %180, label %176
 
-177:                                              ; preds = %171
-  %178 = load i8, ptr %173, align 1
-  %.not60 = icmp eq i8 %178, 0
-  br i1 %.not60, label %181, label %179
+176:                                              ; preds = %170
+  %177 = load i8, ptr %172, align 1
+  %.not62 = icmp eq i8 %177, 0
+  br i1 %.not62, label %180, label %178
 
-179:                                              ; preds = %177
-  %180 = call fastcc ptr @_expand_mult(ptr noundef %173, ptr noundef nonnull @.str.48, ptr noundef %7)
-  store ptr %180, ptr %1, align 8
-  br label %234
+178:                                              ; preds = %176
+  %179 = call fastcc ptr @_expand_mult(ptr noundef %172, ptr noundef nonnull @.str.48, ptr noundef %7)
+  store ptr %179, ptr %1, align 8
+  br label %233
 
-181:                                              ; preds = %177, %171
-  %182 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #15
+180:                                              ; preds = %176, %170
+  %181 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #15
   br label %._crit_edge
 
-183:                                              ; preds = %167
-  %184 = load ptr, ptr %6, align 8
-  %185 = call i32 @xstrcasecmp(ptr noundef %184, ptr noundef nonnull @.str.51) #15
-  %186 = icmp eq i32 %185, 0
-  br i1 %186, label %191, label %187
+182:                                              ; preds = %166
+  %183 = load ptr, ptr %6, align 8
+  %184 = call i32 @xstrcasecmp(ptr noundef %183, ptr noundef nonnull @.str.51) #15
+  %185 = icmp eq i32 %184, 0
+  br i1 %185, label %190, label %186
 
-187:                                              ; preds = %183
-  %188 = load ptr, ptr %6, align 8
-  %189 = call i32 @xstrcasecmp(ptr noundef %188, ptr noundef nonnull @.str.52) #15
-  %190 = icmp eq i32 %189, 0
-  br i1 %190, label %191, label %195
+186:                                              ; preds = %182
+  %187 = load ptr, ptr %6, align 8
+  %188 = call i32 @xstrcasecmp(ptr noundef %187, ptr noundef nonnull @.str.52) #15
+  %189 = icmp eq i32 %188, 0
+  br i1 %189, label %190, label %194
 
-191:                                              ; preds = %187, %183
-  %192 = load i32, ptr %2, align 4
-  %193 = and i32 %192, -31
-  %194 = or disjoint i32 %193, 8
-  store i32 %194, ptr %2, align 4
-  br label %234
+190:                                              ; preds = %186, %182
+  %191 = load i32, ptr %2, align 4
+  %192 = and i32 %191, -31
+  %193 = or disjoint i32 %192, 8
+  store i32 %193, ptr %2, align 4
+  br label %233
 
-195:                                              ; preds = %187
-  %196 = load ptr, ptr %6, align 8
-  %197 = call i32 @xstrcasecmp(ptr noundef %196, ptr noundef nonnull @.str.53) #15
-  %198 = icmp eq i32 %197, 0
-  br i1 %198, label %203, label %199
+194:                                              ; preds = %186
+  %195 = load ptr, ptr %6, align 8
+  %196 = call i32 @xstrcasecmp(ptr noundef %195, ptr noundef nonnull @.str.53) #15
+  %197 = icmp eq i32 %196, 0
+  br i1 %197, label %202, label %198
 
-199:                                              ; preds = %195
-  %200 = load ptr, ptr %6, align 8
-  %201 = call i32 @xstrcasecmp(ptr noundef %200, ptr noundef nonnull @.str.54) #15
-  %202 = icmp eq i32 %201, 0
-  br i1 %202, label %203, label %207
+198:                                              ; preds = %194
+  %199 = load ptr, ptr %6, align 8
+  %200 = call i32 @xstrcasecmp(ptr noundef %199, ptr noundef nonnull @.str.54) #15
+  %201 = icmp eq i32 %200, 0
+  br i1 %201, label %202, label %206
 
-203:                                              ; preds = %199, %195
-  %204 = load i32, ptr %2, align 4
-  %205 = and i32 %204, -31
-  %206 = or disjoint i32 %205, 4
-  store i32 %206, ptr %2, align 4
-  br label %234
+202:                                              ; preds = %198, %194
+  %203 = load i32, ptr %2, align 4
+  %204 = and i32 %203, -31
+  %205 = or disjoint i32 %204, 4
+  store i32 %205, ptr %2, align 4
+  br label %233
 
-207:                                              ; preds = %199
-  %208 = load ptr, ptr %6, align 8
-  %209 = call i32 @xstrcasecmp(ptr noundef %208, ptr noundef nonnull @.str.55) #15
-  %210 = icmp eq i32 %209, 0
-  br i1 %210, label %215, label %211
+206:                                              ; preds = %198
+  %207 = load ptr, ptr %6, align 8
+  %208 = call i32 @xstrcasecmp(ptr noundef %207, ptr noundef nonnull @.str.55) #15
+  %209 = icmp eq i32 %208, 0
+  br i1 %209, label %214, label %210
 
-211:                                              ; preds = %207
-  %212 = load ptr, ptr %6, align 8
-  %213 = call i32 @xstrcasecmp(ptr noundef %212, ptr noundef nonnull @.str.56) #15
-  %214 = icmp eq i32 %213, 0
-  br i1 %214, label %215, label %219
+210:                                              ; preds = %206
+  %211 = load ptr, ptr %6, align 8
+  %212 = call i32 @xstrcasecmp(ptr noundef %211, ptr noundef nonnull @.str.56) #15
+  %213 = icmp eq i32 %212, 0
+  br i1 %213, label %214, label %218
 
-215:                                              ; preds = %211, %207
-  %216 = load i32, ptr %2, align 4
-  %217 = and i32 %216, -31
-  %218 = or disjoint i32 %217, 2
-  store i32 %218, ptr %2, align 4
-  br label %234
+214:                                              ; preds = %210, %206
+  %215 = load i32, ptr %2, align 4
+  %216 = and i32 %215, -31
+  %217 = or disjoint i32 %216, 2
+  store i32 %217, ptr %2, align 4
+  br label %233
 
-219:                                              ; preds = %211
-  %220 = load ptr, ptr %6, align 8
-  %221 = call i32 @xstrcasecmp(ptr noundef %220, ptr noundef nonnull @.str.57) #15
-  %222 = icmp eq i32 %221, 0
-  br i1 %222, label %227, label %223
+218:                                              ; preds = %210
+  %219 = load ptr, ptr %6, align 8
+  %220 = call i32 @xstrcasecmp(ptr noundef %219, ptr noundef nonnull @.str.57) #15
+  %221 = icmp eq i32 %220, 0
+  br i1 %221, label %226, label %222
 
-223:                                              ; preds = %219
-  %224 = load ptr, ptr %6, align 8
-  %225 = call i32 @xstrcasecmp(ptr noundef %224, ptr noundef nonnull @.str.58) #15
-  %226 = icmp eq i32 %225, 0
-  br i1 %226, label %227, label %231
+222:                                              ; preds = %218
+  %223 = load ptr, ptr %6, align 8
+  %224 = call i32 @xstrcasecmp(ptr noundef %223, ptr noundef nonnull @.str.58) #15
+  %225 = icmp eq i32 %224, 0
+  br i1 %225, label %226, label %230
 
-227:                                              ; preds = %223, %219
-  %228 = load i32, ptr %2, align 4
-  %229 = and i32 %228, -31
-  %230 = or disjoint i32 %229, 16
-  store i32 %230, ptr %2, align 4
-  br label %234
+226:                                              ; preds = %222, %218
+  %227 = load i32, ptr %2, align 4
+  %228 = and i32 %227, -31
+  %229 = or disjoint i32 %228, 16
+  store i32 %229, ptr %2, align 4
+  br label %233
 
-231:                                              ; preds = %223
-  %232 = load ptr, ptr %6, align 8
-  %233 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, ptr noundef %232) #15
+230:                                              ; preds = %222
+  %231 = load ptr, ptr %6, align 8
+  %232 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.59, ptr noundef %231) #15
   br label %._crit_edge
 
-234:                                              ; preds = %179, %159, %131, %111, %64, %82, %139, %203, %227, %215, %191, %94, %71, %53
+233:                                              ; preds = %178, %158, %130, %110, %63, %81, %138, %202, %226, %214, %190, %93, %70, %52
   %.pr = load i32, ptr %7, align 4
-  %235 = icmp eq i32 %.pr, 0
-  br i1 %235, label %32, label %._crit_edge, !llvm.loop !12
+  %234 = icmp eq i32 %.pr, 0
+  br i1 %234, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %234, %231, %113, %133, %161, %181
+._crit_edge:                                      ; preds = %233, %230, %112, %132, %160, %180
   call void @slurm_xfree(ptr noundef nonnull %4) #15
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.60) #18
   unreachable
 
-.critedge.thread:                                 ; preds = %32, %37
-  %.0 = phi i32 [ 1, %37 ], [ 0, %32 ]
+.critedge.thread:                                 ; preds = %.lr.ph, %36
+  %.0 = phi i32 [ 1, %36 ], [ 0, %.lr.ph ]
   call void @slurm_xfree(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15

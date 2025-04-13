@@ -14335,15 +14335,13 @@ define range(i32 -173, 1) i32 @PemToDer(ptr noundef %0, i64 noundef %1, i32 noun
   store i32 0, ptr %8, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #23
   %12 = icmp ult i32 %2, 45
-  br i1 %12, label %switch.hole_check, label %wc_PemGetHeaderFooter.exit.thread
-
-switch.hole_check:                                ; preds = %7
   %switch.maskindex = zext nneg i32 %2 to i64
   %switch.shifted = lshr i64 21990346060011, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %wc_PemGetHeaderFooter.exit.thread
+  %or.cond147 = select i1 %12, i1 %switch.lobit, i1 false
+  br i1 %or.cond147, label %switch.lookup, label %wc_PemGetHeaderFooter.exit.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %7
   %13 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [45 x ptr], ptr @switch.table.PemToDer, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -14552,8 +14550,8 @@ SkipEndOfLineChars.exit105:                       ; preds = %.lr.ph.i101, %.crit
   store i32 %92, ptr %6, align 4, !tbaa !22
   br label %wc_PemGetHeaderFooter.exit.thread
 
-wc_PemGetHeaderFooter.exit.thread:                ; preds = %.lr.ph.split.split, %21, %switch.hole_check, %7, %.lr.ph, %83, %91, %86, %77, %73, %68, %48, %49
-  %.0 = phi i32 [ -132, %49 ], [ -132, %48 ], [ -132, %68 ], [ %75, %73 ], [ -132, %77 ], [ 0, %86 ], [ 0, %91 ], [ 0, %83 ], [ -173, %7 ], [ -162, %.lr.ph ], [ -173, %switch.hole_check ], [ -162, %21 ], [ -162, %.lr.ph.split.split ]
+wc_PemGetHeaderFooter.exit.thread:                ; preds = %.lr.ph.split.split, %21, %7, %.lr.ph, %83, %91, %86, %77, %73, %68, %48, %49
+  %.0 = phi i32 [ -132, %49 ], [ -132, %48 ], [ -132, %68 ], [ %75, %73 ], [ -132, %77 ], [ 0, %86 ], [ 0, %91 ], [ 0, %83 ], [ -173, %7 ], [ -162, %.lr.ph ], [ -162, %21 ], [ -162, %.lr.ph.split.split ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #23
   ret i32 %.0

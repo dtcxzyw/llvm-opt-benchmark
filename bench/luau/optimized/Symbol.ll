@@ -1319,7 +1319,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnul
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8, !tbaa !8
   %6 = icmp eq ptr %3, %5
-  br label %26
+  br label %25
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1331,34 +1331,32 @@ define dso_local noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnul
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %.not12 = icmp eq ptr %12, null
-  br i1 %.not12, label %26, label %_ZNK4Luau7AstNameeqEPKc.exit
+  br i1 %.not12, label %25, label %_ZNK4Luau7AstNameeqEPKc.exit
 
 _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %10
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %12) #8
   %14 = icmp eq i32 %13, 0
-  br label %26
+  br label %25
 
 15:                                               ; preds = %7
   %16 = load i8, ptr @_ZN5FFlag12LuauSolverV2E, align 8, !tbaa !15, !range !19, !noundef !20
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %21, label %18
+  %18 = load i8, ptr @_ZN5FFlag18LuauSymbolEqualityE, align 8, !range !19
+  %19 = trunc nuw i8 %18 to i1
+  %or.cond = select i1 %17, i1 true, i1 %19
+  br i1 %or.cond, label %20, label %25
 
-18:                                               ; preds = %15
-  %19 = load i8, ptr @_ZN5FFlag18LuauSymbolEqualityE, align 8, !tbaa !15, !range !19, !noundef !20
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %21, label %26
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %1, align 8, !tbaa !8
+  %.not10 = icmp eq ptr %21, null
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %.not11 = icmp eq ptr %23, null
+  %24 = select i1 %.not10, i1 %.not11, i1 false
+  br label %25
 
-21:                                               ; preds = %18, %15
-  %22 = load ptr, ptr %1, align 8, !tbaa !8
-  %.not10 = icmp eq ptr %22, null
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.not11 = icmp eq ptr %24, null
-  %25 = select i1 %.not10, i1 %.not11, i1 false
-  br label %26
-
-26:                                               ; preds = %18, %10, %_ZNK4Luau7AstNameeqEPKc.exit, %21, %4
-  %.0 = phi i1 [ %6, %4 ], [ %25, %21 ], [ false, %10 ], [ %14, %_ZNK4Luau7AstNameeqEPKc.exit ], [ false, %18 ]
+25:                                               ; preds = %15, %10, %_ZNK4Luau7AstNameeqEPKc.exit, %20, %4
+  %.0 = phi i1 [ %6, %4 ], [ %24, %20 ], [ false, %10 ], [ %14, %_ZNK4Luau7AstNameeqEPKc.exit ], [ false, %15 ]
   ret i1 %.0
 }
 

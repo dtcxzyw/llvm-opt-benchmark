@@ -880,77 +880,76 @@ define internal fastcc range(i32 -1, 1) i32 @_update_task_mask(i32 noundef %0, i
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %15 = load i32, ptr %14, align 8
-  %.not = icmp slt i32 %1, %15
-  br i1 %.not, label %.lr.ph, label %16
+  %.not30 = icmp slt i32 %1, %15
+  br i1 %.not30, label %.lr.ph, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %18 = load i8, ptr %17, align 4, !range !22, !noundef !23
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %20, label %23
+  %.not = xor i1 %19, true
+  %.b31 = load i1, ptr @_update_task_mask.i_set_ntasks, align 1
+  %or.cond = select i1 %.not, i1 true, i1 %.b31
+  br i1 %or.cond, label %22, label %20
 
 20:                                               ; preds = %16
-  %.b29 = load i1, ptr @_update_task_mask.i_set_ntasks, align 1
-  br i1 %.b29, label %23, label %21
-
-21:                                               ; preds = %20
-  %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, i32 noundef %1) #9
+  %21 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, i32 noundef %1) #9
   br label %.loopexit
 
-23:                                               ; preds = %20, %16
-  %24 = add nsw i32 %1, 1
-  store i32 %24, ptr %14, align 8
+22:                                               ; preds = %16
+  %23 = add nsw i32 %1, 1
+  store i32 %23, ptr %14, align 8
   store i8 1, ptr %17, align 4
   store i1 true, ptr @_update_task_mask.i_set_ntasks, align 1
-  %25 = sext i32 %24 to i64
-  %26 = tail call ptr @slurm_bit_realloc(ptr noundef nonnull %3, i64 noundef %25) #9
+  %24 = sext i32 %23 to i64
+  %25 = tail call ptr @slurm_bit_realloc(ptr noundef nonnull %3, i64 noundef %24) #9
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %13, %23
-  %27 = zext nneg i32 %0 to i64
+.lr.ph:                                           ; preds = %13, %22
+  %26 = zext nneg i32 %0 to i64
   br i1 %4, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %32
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %32 ], [ %27, %.lr.ph ]
-  %28 = load ptr, ptr %3, align 8
-  %29 = tail call i32 @slurm_bit_test(ptr noundef %28, i64 noundef %indvars.iv39) #9
-  %.not31.us = icmp eq i32 %29, 0
-  br i1 %.not31.us, label %30, label %32
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %31
+  %indvars.iv41 = phi i64 [ %indvars.iv.next42, %31 ], [ %26, %.lr.ph ]
+  %27 = load ptr, ptr %3, align 8
+  %28 = tail call i32 @slurm_bit_test(ptr noundef %27, i64 noundef %indvars.iv41) #9
+  %.not33.us = icmp eq i32 %28, 0
+  br i1 %.not33.us, label %29, label %31
 
-30:                                               ; preds = %.lr.ph.split.us
-  %31 = load ptr, ptr %3, align 8
-  tail call void @bit_set(ptr noundef %31, i64 noundef %indvars.iv39) #9
-  br label %32
+29:                                               ; preds = %.lr.ph.split.us
+  %30 = load ptr, ptr %3, align 8
+  tail call void @bit_set(ptr noundef %30, i64 noundef %indvars.iv41) #9
+  br label %31
 
-32:                                               ; preds = %.lr.ph.split.us, %30
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %33 = trunc nuw i64 %indvars.iv39 to i32
-  %.not30.us.not = icmp sgt i32 %1, %33
-  br i1 %.not30.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !26
+31:                                               ; preds = %.lr.ph.split.us, %29
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
+  %32 = trunc nuw i64 %indvars.iv41 to i32
+  %.not32.us.not = icmp sgt i32 %1, %32
+  br i1 %.not32.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !26
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %39
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ %27, %.lr.ph ]
-  %34 = load ptr, ptr %3, align 8
-  %35 = tail call i32 @slurm_bit_test(ptr noundef %34, i64 noundef %indvars.iv) #9
-  %.not31 = icmp eq i32 %35, 0
-  br i1 %.not31, label %39, label %36
+.lr.ph.split:                                     ; preds = %.lr.ph, %38
+  %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ %26, %.lr.ph ]
+  %33 = load ptr, ptr %3, align 8
+  %34 = tail call i32 @slurm_bit_test(ptr noundef %33, i64 noundef %indvars.iv) #9
+  %.not33 = icmp eq i32 %34, 0
+  br i1 %.not33, label %38, label %35
 
-36:                                               ; preds = %.lr.ph.split
-  %37 = trunc nuw i64 %indvars.iv to i32
-  %38 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, i32 noundef %37) #9
+35:                                               ; preds = %.lr.ph.split
+  %36 = trunc nuw i64 %indvars.iv to i32
+  %37 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, i32 noundef %36) #9
   br label %.loopexit
 
-39:                                               ; preds = %.lr.ph.split
-  %40 = load ptr, ptr %3, align 8
-  tail call void @bit_set(ptr noundef %40, i64 noundef %indvars.iv) #9
+38:                                               ; preds = %.lr.ph.split
+  %39 = load ptr, ptr %3, align 8
+  tail call void @bit_set(ptr noundef %39, i64 noundef %indvars.iv) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = trunc nuw i64 %indvars.iv to i32
-  %.not30.not = icmp sgt i32 %1, %41
-  br i1 %.not30.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !26
+  %40 = trunc nuw i64 %indvars.iv to i32
+  %.not32.not = icmp sgt i32 %1, %40
+  br i1 %.not32.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !26
 
-.loopexit:                                        ; preds = %39, %32, %36, %21, %11, %7
-  %.025 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %36 ], [ -1, %21 ], [ 0, %32 ], [ 0, %39 ]
-  ret i32 %.025
+.loopexit:                                        ; preds = %38, %31, %35, %20, %11, %7
+  %.026 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %35 ], [ -1, %20 ], [ 0, %31 ], [ 0, %38 ]
+  ret i32 %.026
 }
 
 declare ptr @slurm_bit_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3

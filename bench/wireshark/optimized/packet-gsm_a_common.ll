@@ -2168,18 +2168,16 @@ define zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 
   %62 = phi ptr [ @.str.32, %53 ], [ %spec.select1, %58 ]
   %63 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %44, i32 noundef %56, ptr noundef nonnull %10, ptr noundef nonnull @.str.65, ptr noundef nonnull %41, ptr noundef %62)
   %64 = icmp ult i32 %4, 20
-  br i1 %64, label %switch.hole_check, label %65
+  %switch.shifted = lshr i32 1048447, %4
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %64, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %65
 
-65:                                               ; preds = %switch.hole_check, %61
+65:                                               ; preds = %61
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 1417) #9
   unreachable
 
-switch.hole_check:                                ; preds = %61
-  %switch.shifted = lshr i32 1048447, %4
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %65
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %61
   %66 = zext nneg i32 %4 to i64
   %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.elem_t, i64 0, i64 %66
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2422,18 +2420,16 @@ define hidden zeroext i16 @elem_telv(ptr noundef %0, ptr noundef %1, ptr noundef
   %69 = phi ptr [ @.str.32, %60 ], [ %spec.select1, %65 ]
   %70 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %51, i32 noundef %63, ptr noundef nonnull %10, ptr noundef nonnull @.str.65, ptr noundef nonnull %47, ptr noundef %69)
   %71 = icmp ult i32 %4, 20
-  br i1 %71, label %switch.hole_check, label %72
+  %switch.shifted = lshr i32 1048447, %4
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %71, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %72
 
-72:                                               ; preds = %switch.hole_check, %68
+72:                                               ; preds = %68
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 1417) #9
   unreachable
 
-switch.hole_check:                                ; preds = %68
-  %switch.shifted = lshr i32 1048447, %4
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %72
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %68
   %73 = zext nneg i32 %4 to i64
   %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.elem_t, i64 0, i64 %73
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2649,18 +2645,16 @@ define hidden zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr nounde
   %61 = phi ptr [ @.str.32, %52 ], [ %spec.select1, %57 ]
   %62 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %43, i32 noundef %55, ptr noundef nonnull %10, ptr noundef nonnull @.str.65, ptr noundef nonnull %40, ptr noundef %61)
   %63 = icmp ult i32 %4, 20
-  br i1 %63, label %switch.hole_check, label %64
+  %switch.shifted = lshr i32 1048447, %4
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %63, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %64
 
-64:                                               ; preds = %switch.hole_check, %60
+64:                                               ; preds = %60
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 1417) #9
   unreachable
 
-switch.hole_check:                                ; preds = %60
-  %switch.shifted = lshr i32 1048447, %4
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %64
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %60
   %65 = zext nneg i32 %4 to i64
   %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.elem_t, i64 0, i64 %65
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2865,18 +2859,16 @@ define zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 n
   %56 = phi ptr [ @.str.32, %47 ], [ %spec.select1, %52 ]
   %57 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef -1, i32 noundef %50, ptr noundef nonnull %9, ptr noundef nonnull @.str.65, ptr noundef nonnull %37, ptr noundef %56)
   %58 = icmp ult i32 %4, 20
-  br i1 %58, label %switch.hole_check, label %59
+  %switch.shifted = lshr i32 1048447, %4
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %58, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %59
 
-59:                                               ; preds = %switch.hole_check, %55
+59:                                               ; preds = %55
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 1417) #9
   unreachable
 
-switch.hole_check:                                ; preds = %55
-  %switch.shifted = lshr i32 1048447, %4
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %59
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %55
   %60 = zext nneg i32 %4 to i64
   %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.elem_t, i64 0, i64 %60
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -3248,18 +3240,16 @@ define zeroext range(i16 0, 2) i16 @elem_t(ptr noundef %0, ptr noundef %1, ptr n
 
 35:                                               ; preds = %31
   %36 = icmp ult i32 %4, 20
-  br i1 %36, label %switch.hole_check, label %37
+  %switch.shifted = lshr i32 1048447, %4
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %36, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %37
 
-37:                                               ; preds = %switch.hole_check, %35
+37:                                               ; preds = %35
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 1417) #9
   unreachable
 
-switch.hole_check:                                ; preds = %35
-  %switch.shifted = lshr i32 1048447, %4
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %37
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %35
   %38 = zext nneg i32 %4 to i64
   %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.elem_t, i64 0, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -4515,15 +4505,13 @@ define noundef zeroext i16 @de_ms_cm_3(ptr noundef %0, ptr noundef %1, ptr nound
   %65 = load i64, ptr %8, align 8
   %switch.tableidx = add i64 %65, -1
   %66 = icmp ult i64 %switch.tableidx, 6
-  br i1 %66, label %switch.hole_check, label %73
-
-switch.hole_check:                                ; preds = %7
-  %switch.maskindex = trunc nuw i64 %switch.tableidx to i8
+  %switch.maskindex = trunc i64 %switch.tableidx to i8
   %switch.shifted = lshr i8 59, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %73
+  %or.cond = select i1 %66, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %73
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %7
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.de_ms_cm_3, i64 0, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %67 = load i32, ptr %switch.load, align 4
@@ -4534,8 +4522,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %72 = add i32 %32, 16
   br label %73
 
-73:                                               ; preds = %switch.hole_check, %7, %switch.lookup
-  %.01327 = phi i32 [ %64, %7 ], [ %72, %switch.lookup ], [ %64, %switch.hole_check ]
+73:                                               ; preds = %7, %switch.lookup
+  %.01327 = phi i32 [ %64, %7 ], [ %72, %switch.lookup ]
   %74 = add i32 %4, %3
   %75 = shl i32 %74, 3
   %76 = sub i32 %75, %.01327

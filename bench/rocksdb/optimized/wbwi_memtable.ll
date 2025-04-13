@@ -4049,7 +4049,7 @@ define linkonce_odr void @_ZN7rocksdb20WBWIMemTableIterator4NextEv(ptr noundef n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 314
   %4 = load i8, ptr %3, align 2, !tbaa !145, !range !190, !noundef !191
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %46
+  br i1 %5, label %6, label %44
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4058,77 +4058,75 @@ define linkonce_odr void @_ZN7rocksdb20WBWIMemTableIterator4NextEv(ptr noundef n
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  br i1 %12, label %13, label %44
+  %.not = xor i1 %12, true
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 313
+  %14 = load i8, ptr %13, align 1, !range !190
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %15
+  br i1 %or.cond, label %43, label %16
 
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 313
-  %15 = load i8, ptr %14, align 1, !tbaa !144, !range !190, !noundef !191
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %44, label %17
-
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
+16:                                               ; preds = %6
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #25
-  %19 = load ptr, ptr %7, align 8, !tbaa !105
-  %20 = load ptr, ptr %19, align 8, !tbaa !31
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  %22 = load ptr, ptr %21, align 8
-  call void %22(ptr dead_on_unwind nonnull writable sret(%"struct.rocksdb::WriteEntry") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %24 = load i64, ptr %23, align 8, !tbaa !308
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !141
-  %27 = add i64 %26, 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %29 = load i64, ptr %28, align 8, !tbaa !136
-  %30 = icmp ugt i64 %27, %29
-  br i1 %30, label %31, label %_ZN7rocksdb20WBWIMemTableIterator21UpdateSingleDeleteKeyEv.exit
+  %18 = load ptr, ptr %7, align 8, !tbaa !105
+  %19 = load ptr, ptr %18, align 8, !tbaa !31
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
+  %21 = load ptr, ptr %20, align 8
+  call void %21(ptr dead_on_unwind nonnull writable sret(%"struct.rocksdb::WriteEntry") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %23 = load i64, ptr %22, align 8, !tbaa !308
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %25 = load i64, ptr %24, align 8, !tbaa !141
+  %26 = add i64 %25, 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %28 = load i64, ptr %27, align 8, !tbaa !136
+  %29 = icmp ugt i64 %26, %28
+  br i1 %29, label %30, label %_ZN7rocksdb20WBWIMemTableIterator21UpdateSingleDeleteKeyEv.exit
 
-31:                                               ; preds = %17
-  call void @_ZN7rocksdb7IterKey13EnlargeBufferEm(ptr noundef nonnull align 8 dereferenceable(208) %18, i64 noundef %27)
+30:                                               ; preds = %16
+  call void @_ZN7rocksdb7IterKey13EnlargeBufferEm(ptr noundef nonnull align 8 dereferenceable(208) %17, i64 noundef %26)
   br label %_ZN7rocksdb20WBWIMemTableIterator21UpdateSingleDeleteKeyEv.exit
 
-_ZN7rocksdb20WBWIMemTableIterator21UpdateSingleDeleteKeyEv.exit: ; preds = %17, %31
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %33 = load ptr, ptr %18, align 8, !tbaa !133
-  %34 = load ptr, ptr %32, align 8, !tbaa !140
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %34, i64 %26, i1 false)
-  %35 = load ptr, ptr %18, align 8, !tbaa !133
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %26
-  %37 = shl i64 %24, 8
-  %38 = or disjoint i64 %37, 7
-  store i64 %38, ptr %36, align 1
-  %39 = load ptr, ptr %18, align 8, !tbaa !133
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %39, ptr %40, align 8, !tbaa !134
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %27, ptr %41, align 8, !tbaa !135
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 143
-  store i8 0, ptr %42, align 1, !tbaa !137
+_ZN7rocksdb20WBWIMemTableIterator21UpdateSingleDeleteKeyEv.exit: ; preds = %16, %30
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %32 = load ptr, ptr %17, align 8, !tbaa !133
+  %33 = load ptr, ptr %31, align 8, !tbaa !140
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %33, i64 %25, i1 false)
+  %34 = load ptr, ptr %17, align 8, !tbaa !133
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %25
+  %36 = shl i64 %23, 8
+  %37 = or disjoint i64 %36, 7
+  store i64 %37, ptr %35, align 1
+  %38 = load ptr, ptr %17, align 8, !tbaa !133
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %38, ptr %39, align 8, !tbaa !134
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %26, ptr %40, align 8, !tbaa !135
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 143
+  store i8 0, ptr %41, align 1, !tbaa !137
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #25
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store ptr %39, ptr %43, align 8, !tbaa !195
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store ptr %38, ptr %42, align 8, !tbaa !195
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i64 %27, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !108
-  store i8 1, ptr %14, align 1, !tbaa !144
-  br label %52
+  store i64 %26, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !108
+  store i8 1, ptr %13, align 1, !tbaa !144
+  br label %50
 
-44:                                               ; preds = %13, %6
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 313
-  store i8 0, ptr %45, align 1, !tbaa !144
-  br label %46
+43:                                               ; preds = %6
+  store i8 0, ptr %13, align 1, !tbaa !144
+  br label %44
 
-46:                                               ; preds = %44, %1
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = load ptr, ptr %47, align 8, !tbaa !105
-  %49 = load ptr, ptr %48, align 8, !tbaa !31
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
-  %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef nonnull align 8 dereferenceable(8) %48)
+44:                                               ; preds = %43, %1
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %46 = load ptr, ptr %45, align 8, !tbaa !105
+  %47 = load ptr, ptr %46, align 8, !tbaa !31
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(8) %46)
   tail call void @_ZN7rocksdb20WBWIMemTableIterator9UpdateKeyEv(ptr noundef nonnull align 8 dereferenceable(320) %0)
-  br label %52
+  br label %50
 
-52:                                               ; preds = %46, %_ZN7rocksdb20WBWIMemTableIterator21UpdateSingleDeleteKeyEv.exit
+50:                                               ; preds = %44, %_ZN7rocksdb20WBWIMemTableIterator21UpdateSingleDeleteKeyEv.exit
   ret void
 }
 

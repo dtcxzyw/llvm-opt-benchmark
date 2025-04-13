@@ -3126,7 +3126,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments16process_argumentEPKch13JVMFlagO
   %7 = alloca [255 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   %8 = tail call noundef zeroext i1 @_ZN9Arguments14parse_argumentEPKc13JVMFlagOrigin(ptr noundef %0, i32 noundef %2)
-  br i1 %8, label %94, label %9
+  br i1 %8, label %93, label %9
 
 9:                                                ; preds = %3
   %10 = load i8, ptr %0, align 1
@@ -3150,12 +3150,12 @@ define hidden noundef zeroext i1 @_ZN9Arguments16process_argumentEPKch13JVMFlagO
   br label %22
 
 22:                                               ; preds = %18, %16
-  %.038 = phi i64 [ %17, %16 ], [ %21, %18 ]
-  %23 = icmp ult i64 %.038, 256
+  %.044 = phi i64 [ %17, %16 ], [ %21, %18 ]
+  %23 = icmp ult i64 %.044, 256
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %22
-  %25 = add nuw nsw i64 %.038, 1
+  %25 = add nuw nsw i64 %.044, 1
   %26 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef %25, ptr noundef nonnull @.str.75, ptr noundef nonnull %13) #31
   %27 = call noundef zeroext i1 @_ZN9Arguments16is_obsolete_flagEPKcP11JDK_Version(ptr noundef nonnull %5, ptr noundef nonnull %4)
   br i1 %27, label %28, label %29
@@ -3163,117 +3163,117 @@ define hidden noundef zeroext i1 @_ZN9Arguments16process_argumentEPKch13JVMFlagO
 28:                                               ; preds = %24
   call void @_ZNK11JDK_Version9to_stringEPcm(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull %6, i64 noundef 256) #31
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.76, ptr noundef nonnull %5, ptr noundef nonnull %6) #31
-  br label %94
+  br label %93
 
 29:                                               ; preds = %24, %22
-  %30 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %13, i64 noundef %.038, i1 noundef zeroext true, i1 noundef zeroext true) #31
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %68, label %31
+  %30 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %13, i64 noundef %.044, i1 noundef zeroext true, i1 noundef zeroext true) #31
+  %.not49 = icmp eq ptr %30, null
+  br i1 %.not49, label %67, label %31
 
 31:                                               ; preds = %29
   %32 = call noundef i32 @_ZNK7JVMFlag18get_locked_messageEPci(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull %7, i32 noundef 255) #31
   %char0 = load i8, ptr %7, align 16
-  %.not45 = icmp eq i8 %char0, 0
-  br i1 %.not45, label %42, label %33
+  %.not52 = icmp eq i8 %char0, 0
+  br i1 %.not52, label %43, label %33
 
 33:                                               ; preds = %31
-  %.not46 = icmp ne i8 %1, 0
   %34 = icmp eq i32 %32, 3
-  %or.cond = and i1 %.not46, %34
-  br i1 %or.cond, label %94, label %35
+  %35 = icmp ne i8 %1, 0
+  %or.cond = and i1 %35, %34
+  br i1 %or.cond, label %93, label %36
 
-35:                                               ; preds = %33
-  %36 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %37 = trunc i8 %36 to i1
-  %38 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %39 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %40 = select i1 %37, ptr %38, ptr %39
-  %41 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %40, ptr noundef nonnull @.str.75, ptr noundef nonnull %7) #31
-  br label %42
+36:                                               ; preds = %33
+  %37 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %38 = trunc i8 %37 to i1
+  %39 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %40 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %41 = select i1 %38, ptr %39, ptr %40
+  %42 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %41, ptr noundef nonnull @.str.75, ptr noundef nonnull %7) #31
+  br label %43
 
-42:                                               ; preds = %35, %31
-  %43 = getelementptr inbounds nuw i8, ptr %30, i64 20
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %54
+43:                                               ; preds = %36, %31
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 20
+  %45 = load i32, ptr %44, align 4
+  %.not = icmp eq i32 %45, 0
+  br i1 %.not, label %switch.early.test, label %53
 
-46:                                               ; preds = %42
-  switch i8 %10, label %47 [
+switch.early.test:                                ; preds = %43
+  switch i8 %10, label %46 [
     i8 45, label %.thread
     i8 43, label %.thread
   ]
 
-47:                                               ; preds = %46
-  %48 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %49 = trunc i8 %48 to i1
-  %50 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %51 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %52 = select i1 %49, ptr %50, ptr %51
-  %53 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %52, ptr noundef nonnull @.str.77, ptr noundef nonnull %13) #31
-  br label %91
+46:                                               ; preds = %switch.early.test
+  %47 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %48 = trunc i8 %47 to i1
+  %49 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %50 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %51 = select i1 %48, ptr %49, ptr %50
+  %52 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %51, ptr noundef nonnull @.str.77, ptr noundef nonnull %13) #31
+  br label %90
 
-54:                                               ; preds = %42
+53:                                               ; preds = %43
   switch i8 %10, label %.thread [
-    i8 45, label %55
-    i8 43, label %55
+    i8 45, label %54
+    i8 43, label %54
   ]
 
-55:                                               ; preds = %54, %54
-  %56 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %57 = trunc i8 %56 to i1
-  %58 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %59 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %60 = select i1 %57, ptr %58, ptr %59
-  %61 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %60, ptr noundef nonnull @.str.78, ptr noundef nonnull %13) #31
-  br label %91
+54:                                               ; preds = %53, %53
+  %55 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %56 = trunc i8 %55 to i1
+  %57 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %58 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %59 = select i1 %56, ptr %57, ptr %58
+  %60 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %59, ptr noundef nonnull @.str.78, ptr noundef nonnull %13) #31
+  br label %90
 
-.thread:                                          ; preds = %46, %46, %54
-  %62 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %63 = trunc i8 %62 to i1
-  %64 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %65 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %66 = select i1 %63, ptr %64, ptr %65
-  %67 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %66, ptr noundef nonnull @.str.79, ptr noundef nonnull %13) #31
-  br label %91
+.thread:                                          ; preds = %53, %switch.early.test, %switch.early.test
+  %61 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %62 = trunc i8 %61 to i1
+  %63 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %64 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %65 = select i1 %62, ptr %63, ptr %64
+  %66 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %65, ptr noundef nonnull @.str.79, ptr noundef nonnull %13) #31
+  br label %90
 
-68:                                               ; preds = %29
-  %.not43 = icmp eq i8 %1, 0
-  br i1 %.not43, label %69, label %94
+67:                                               ; preds = %29
+  %.not50 = icmp eq i8 %1, 0
+  br i1 %.not50, label %68, label %93
 
-69:                                               ; preds = %68
-  %70 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %71 = trunc i8 %70 to i1
-  %72 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %73 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %74 = select i1 %71, ptr %72, ptr %73
-  %75 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %74, ptr noundef nonnull @.str.80, ptr noundef nonnull %13) #31
-  %76 = call noundef ptr @_ZN7JVMFlag11fuzzy_matchEPKcmb(ptr noundef nonnull %13, i64 noundef %.038, i1 noundef zeroext true) #31
-  %.not44 = icmp eq ptr %76, null
-  br i1 %.not44, label %91, label %77
+68:                                               ; preds = %67
+  %69 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %70 = trunc i8 %69 to i1
+  %71 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %72 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %73 = select i1 %70, ptr %71, ptr %72
+  %74 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %73, ptr noundef nonnull @.str.80, ptr noundef nonnull %13) #31
+  %75 = call noundef ptr @_ZN7JVMFlag11fuzzy_matchEPKcmb(ptr noundef nonnull %13, i64 noundef %.044, i1 noundef zeroext true) #31
+  %.not51 = icmp eq ptr %75, null
+  br i1 %.not51, label %90, label %76
 
-77:                                               ; preds = %69
-  %78 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %79 = trunc i8 %78 to i1
-  %80 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %81 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %82 = select i1 %79, ptr %80, ptr %81
-  %83 = getelementptr inbounds nuw i8, ptr %76, i64 20
-  %84 = load i32, ptr %83, align 4
-  %85 = icmp eq i32 %84, 0
-  %86 = select i1 %85, ptr @.str.82, ptr @.str.31
-  %87 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = select i1 %85, ptr @.str.31, ptr @.str.83
-  %90 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %82, ptr noundef nonnull @.str.81, ptr noundef nonnull %86, ptr noundef %88, ptr noundef nonnull %89) #31
-  br label %91
+76:                                               ; preds = %68
+  %77 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %78 = trunc i8 %77 to i1
+  %79 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %80 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %81 = select i1 %78, ptr %79, ptr %80
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 20
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp eq i32 %83, 0
+  %85 = select i1 %84, ptr @.str.82, ptr @.str.31
+  %86 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = select i1 %84, ptr @.str.31, ptr @.str.83
+  %89 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %81, ptr noundef nonnull @.str.81, ptr noundef nonnull %85, ptr noundef %87, ptr noundef nonnull %88) #31
+  br label %90
 
-91:                                               ; preds = %69, %77, %47, %.thread, %55
-  %92 = load i8, ptr %0, align 1
-  %93 = icmp eq i8 %92, 35
-  br label %94
+90:                                               ; preds = %68, %76, %46, %.thread, %54
+  %91 = load i8, ptr %0, align 1
+  %92 = icmp eq i8 %91, 35
+  br label %93
 
-94:                                               ; preds = %68, %33, %3, %91, %28
-  %.0 = phi i1 [ true, %28 ], [ %93, %91 ], [ true, %3 ], [ true, %33 ], [ true, %68 ]
+93:                                               ; preds = %67, %33, %3, %90, %28
+  %.0 = phi i1 [ true, %28 ], [ %92, %90 ], [ true, %3 ], [ true, %33 ], [ true, %67 ]
   ret i1 %.0
 }
 
@@ -4161,94 +4161,92 @@ define hidden void @_ZN9Arguments13set_heap_sizeEv() local_unnamed_addr #0 align
   br label %31
 
 31:                                               ; preds = %25, %29, %18, %21
-  %.not42.not = phi i1 [ true, %18 ], [ true, %21 ], [ false, %25 ], [ false, %29 ]
+  %32 = phi i1 [ true, %18 ], [ true, %21 ], [ false, %25 ], [ false, %29 ]
   %.0 = phi i64 [ %19, %18 ], [ %22, %21 ], [ %28, %25 ], [ %30, %29 ]
-  %32 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1193) #31
-  br i1 %32, label %33, label %127
+  %33 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1193) #31
+  br i1 %33, label %34, label %127
 
-33:                                               ; preds = %31
-  %34 = uitofp i64 %.0 to double
-  %35 = load double, ptr @MinRAMPercentage, align 8
-  %36 = fmul double %35, %34
-  %37 = fdiv double %36, 1.000000e+02
-  %38 = fptoui double %37 to i64
-  %39 = load i64, ptr @MaxHeapSize, align 8
-  %40 = icmp ugt i64 %39, %38
-  br i1 %40, label %47, label %41
+34:                                               ; preds = %31
+  %35 = uitofp i64 %.0 to double
+  %36 = load double, ptr @MinRAMPercentage, align 8
+  %37 = fmul double %36, %35
+  %38 = fdiv double %37, 1.000000e+02
+  %39 = fptoui double %38 to i64
+  %40 = load i64, ptr @MaxHeapSize, align 8
+  %41 = icmp ugt i64 %40, %39
+  br i1 %41, label %48, label %42
 
-41:                                               ; preds = %33
-  %42 = load double, ptr @MaxRAMPercentage, align 8
-  %43 = fmul double %42, %34
-  %44 = fdiv double %43, 1.000000e+02
-  %45 = fptoui double %44 to i64
-  %46 = call noundef i64 @llvm.umax.i64(i64 %45, i64 %39)
-  br label %47
+42:                                               ; preds = %34
+  %43 = load double, ptr @MaxRAMPercentage, align 8
+  %44 = fmul double %43, %35
+  %45 = fdiv double %44, 1.000000e+02
+  %46 = fptoui double %45 to i64
+  %47 = call noundef i64 @llvm.umax.i64(i64 %46, i64 %40)
+  br label %48
 
-47:                                               ; preds = %33, %41
-  %.035 = phi i64 [ %46, %41 ], [ %38, %33 ]
-  %48 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1130) #31
-  %49 = load i64, ptr @ErgoHeapSizeLimit, align 8
-  %50 = icmp eq i64 %49, 0
-  %or.cond.not = select i1 %48, i1 true, i1 %50
-  %51 = call i64 @llvm.umin.i64(i64 %.035, i64 %49)
-  %.1 = select i1 %or.cond.not, i64 %.035, i64 %51
+48:                                               ; preds = %34, %42
+  %.039 = phi i64 [ %47, %42 ], [ %39, %34 ]
+  %49 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1130) #31
+  %50 = load i64, ptr @ErgoHeapSizeLimit, align 8
+  %51 = icmp eq i64 %50, 0
+  %or.cond.not = select i1 %49, i1 true, i1 %51
+  %52 = call i64 @llvm.umin.i64(i64 %.039, i64 %50)
+  %.1 = select i1 %or.cond.not, i64 %.039, i64 %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %52 = call noundef zeroext i1 @_ZN2os28has_allocatable_memory_limitEPm(ptr noundef nonnull %8) #31
-  br i1 %52, label %53, label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit
+  %53 = call noundef zeroext i1 @_ZN2os28has_allocatable_memory_limitEPm(ptr noundef nonnull %8) #31
+  br i1 %53, label %54, label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit
 
-53:                                               ; preds = %47
-  %54 = load i8, ptr @AggressiveHeap, align 1
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %63, label %56
+54:                                               ; preds = %48
+  %55 = load i8, ptr @AggressiveHeap, align 1
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %64, label %57
 
-56:                                               ; preds = %53
-  %57 = call noundef ptr @_ZN8GCConfig9argumentsEv() #31
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %61 = call noundef i64 %60(ptr noundef nonnull align 8 dereferenceable(8) %57) #31
-  %62 = shl i64 %61, 1
-  br label %63
+57:                                               ; preds = %54
+  %58 = call noundef ptr @_ZN8GCConfig9argumentsEv() #31
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %61 = load ptr, ptr %60, align 8
+  %62 = call noundef i64 %61(ptr noundef nonnull align 8 dereferenceable(8) %58) #31
+  %63 = shl i64 %62, 1
+  br label %64
 
-63:                                               ; preds = %56, %53
-  %64 = phi i64 [ %62, %56 ], [ 2, %53 ]
-  %65 = load i64, ptr %8, align 8
-  %66 = udiv i64 %65, %64
-  %67 = call noundef i64 @llvm.umin.i64(i64 %.1, i64 %66)
+64:                                               ; preds = %57, %54
+  %65 = phi i64 [ %63, %57 ], [ 2, %54 ]
+  %66 = load i64, ptr %8, align 8
+  %67 = udiv i64 %66, %65
+  %68 = call noundef i64 @llvm.umin.i64(i64 %.1, i64 %67)
   br label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit
 
-_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %47, %63
-  %.0.i = phi i64 [ %67, %63 ], [ %.1, %47 ]
+_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %48, %64
+  %.0.i = phi i64 [ %68, %64 ], [ %.1, %48 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %68 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1192) #31
-  br i1 %68, label %72, label %69
+  %69 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1192) #31
+  br i1 %69, label %73, label %70
 
-69:                                               ; preds = %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit
-  %70 = load i64, ptr @InitialHeapSize, align 8
-  %71 = call noundef i64 @llvm.umax.i64(i64 %.0.i, i64 %70)
-  br label %77
+70:                                               ; preds = %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit
+  %71 = load i64, ptr @InitialHeapSize, align 8
+  %72 = call noundef i64 @llvm.umax.i64(i64 %.0.i, i64 %71)
+  br label %78
 
-72:                                               ; preds = %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit
-  %73 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1191) #31
-  br i1 %73, label %77, label %74
+73:                                               ; preds = %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit
+  %74 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1191) #31
+  br i1 %74, label %78, label %75
 
-74:                                               ; preds = %72
-  %75 = load i64, ptr @MinHeapSize, align 8
-  %76 = call noundef i64 @llvm.umax.i64(i64 %.0.i, i64 %75)
-  br label %77
+75:                                               ; preds = %73
+  %76 = load i64, ptr @MinHeapSize, align 8
+  %77 = call noundef i64 @llvm.umax.i64(i64 %.0.i, i64 %76)
+  br label %78
 
-77:                                               ; preds = %72, %74, %69
-  %.2 = phi i64 [ %.0.i, %72 ], [ %76, %74 ], [ %71, %69 ]
-  %78 = load i8, ptr @UseCompressedOops, align 1
-  %79 = trunc i8 %78 to i1
-  br i1 %79, label %83, label %80
-
-80:                                               ; preds = %77
+78:                                               ; preds = %73, %75, %70
+  %.2 = phi i64 [ %.0.i, %73 ], [ %77, %75 ], [ %72, %70 ]
+  %79 = load i8, ptr @UseCompressedOops, align 1
+  %80 = trunc i8 %79 to i1
   %81 = load i8, ptr @UseCompressedClassPointers, align 1
   %82 = trunc i8 %81 to i1
-  br i1 %82, label %83, label %96
+  %or.cond3 = select i1 %80, i1 true, i1 %82
+  br i1 %or.cond3, label %83, label %96
 
-83:                                               ; preds = %80, %77
+83:                                               ; preds = %78
   %84 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1197) #31
   br i1 %84, label %96, label %85
 
@@ -4260,8 +4258,8 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %47, %63
 
 89:                                               ; preds = %85
   %90 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_27ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not47 = icmp eq ptr %90, null
-  br i1 %.not47, label %93, label %91
+  %.not = icmp eq ptr %90, null
+  br i1 %.not, label %93, label %91
 
 91:                                               ; preds = %89
   %92 = lshr i64 %87, 30
@@ -4277,7 +4275,7 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %47, %63
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %96
 
-96:                                               ; preds = %83, %93, %85, %80
+96:                                               ; preds = %83, %93, %85, %78
   %97 = load i8, ptr @UseCompressedOops, align 1
   %98 = trunc i8 %97 to i1
   br i1 %98, label %99, label %122
@@ -4302,13 +4300,13 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %47, %63
 
 114:                                              ; preds = %99
   %115 = call noundef zeroext i1 @_ZN7JVMFlag7is_ergoE12JVMFlagsEnum(i32 noundef 0) #31
-  %brmerge.not = and i1 %.not42.not, %115
-  br i1 %brmerge.not, label %116, label %122
+  %or.cond5 = and i1 %32, %115
+  br i1 %or.cond5, label %116, label %122
 
 116:                                              ; preds = %114
   %117 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %117, null
-  br i1 %.not, label %120, label %118
+  %.not50 = icmp eq ptr %117, null
+  br i1 %.not50, label %120, label %118
 
 118:                                              ; preds = %116
   %119 = load double, ptr @MaxRAMPercentage, align 8
@@ -4325,8 +4323,8 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %47, %63
 122:                                              ; preds = %114, %99, %120, %96
   %.3 = phi i64 [ %.2, %120 ], [ %.2, %99 ], [ %.2, %96 ], [ %spec.select, %114 ]
   %123 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not48 = icmp eq ptr %123, null
-  br i1 %.not48, label %125, label %124
+  %.not51 = icmp eq ptr %123, null
+  br i1 %.not51, label %125, label %124
 
 124:                                              ; preds = %122
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.99, i64 noundef %.3)
@@ -4344,8 +4342,8 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %47, %63
   %129 = icmp eq i64 %128, 0
   %130 = load i64, ptr @MinHeapSize, align 8
   %131 = icmp eq i64 %130, 0
-  %or.cond3 = select i1 %129, i1 true, i1 %131
-  br i1 %or.cond3, label %132, label %197
+  %or.cond7 = select i1 %129, i1 true, i1 %131
+  br i1 %or.cond7, label %132, label %197
 
 132:                                              ; preds = %127
   %133 = load i64, ptr @OldSize, align 8
@@ -4355,7 +4353,7 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %47, %63
   %137 = call noundef i64 @llvm.umin.i64(i64 %135, i64 %136)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %138 = call noundef zeroext i1 @_ZN2os28has_allocatable_memory_limitEPm(ptr noundef nonnull %4) #31
-  br i1 %138, label %139, label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit44
+  br i1 %138, label %139, label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit47
 
 139:                                              ; preds = %132
   %140 = load i8, ptr @AggressiveHeap, align 1
@@ -4376,16 +4374,16 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit: ; preds = %47, %63
   %151 = load i64, ptr %4, align 8
   %152 = udiv i64 %151, %150
   %153 = call noundef i64 @llvm.umin.i64(i64 %137, i64 %152)
-  br label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit44
+  br label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit47
 
-_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit44: ; preds = %132, %149
-  %.0.i43 = phi i64 [ %153, %149 ], [ %137, %132 ]
+_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit47: ; preds = %132, %149
+  %.0.i46 = phi i64 [ %153, %149 ], [ %137, %132 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %154 = load i64, ptr @InitialHeapSize, align 8
   %155 = icmp eq i64 %154, 0
   br i1 %155, label %156, label %187
 
-156:                                              ; preds = %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit44
+156:                                              ; preds = %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit47
   %157 = uitofp i64 %.0 to double
   %158 = load double, ptr @InitialRAMPercentage, align 8
   %159 = fmul double %158, %157
@@ -4393,7 +4391,7 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit44: ; preds = %132, %149
   %161 = fptoui double %160 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %162 = call noundef zeroext i1 @_ZN2os28has_allocatable_memory_limitEPm(ptr noundef nonnull %3) #31
-  br i1 %162, label %163, label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit46
+  br i1 %162, label %163, label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit49
 
 163:                                              ; preds = %156
   %164 = load i8, ptr @AggressiveHeap, align 1
@@ -4414,13 +4412,13 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit44: ; preds = %132, %149
   %175 = load i64, ptr %3, align 8
   %176 = udiv i64 %175, %174
   %177 = call noundef i64 @llvm.umin.i64(i64 %161, i64 %176)
-  br label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit46
+  br label %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit49
 
-_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit46: ; preds = %156, %173
-  %.0.i45 = phi i64 [ %177, %173 ], [ %161, %156 ]
+_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit49: ; preds = %156, %173
+  %.0.i48 = phi i64 [ %177, %173 ], [ %161, %156 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %178 = load i64, ptr @MinHeapSize, align 8
-  %179 = call noundef i64 @llvm.umax.i64(i64 %.0.i45, i64 %.0.i43)
+  %179 = call noundef i64 @llvm.umax.i64(i64 %.0.i48, i64 %.0.i46)
   %180 = call noundef i64 @llvm.umax.i64(i64 %179, i64 %178)
   %181 = load i64, ptr @MaxHeapSize, align 8
   %182 = call noundef i64 @llvm.umin.i64(i64 %180, i64 %181)
@@ -4429,29 +4427,29 @@ _ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit46: ; preds = %156, %173
   %183 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1192, i32 noundef 6, ptr noundef nonnull %2, i32 noundef 5) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %184 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not49 = icmp eq ptr %184, null
-  br i1 %.not49, label %187, label %185
+  %.not52 = icmp eq ptr %184, null
+  br i1 %.not52, label %187, label %185
 
-185:                                              ; preds = %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit46
+185:                                              ; preds = %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit49
   %186 = load i64, ptr @InitialHeapSize, align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.100, i64 noundef %186)
   br label %187
 
-187:                                              ; preds = %185, %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit46, %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit44
+187:                                              ; preds = %185, %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit49, %_ZN9Arguments32limit_heap_by_allocatable_memoryEm.exit47
   %188 = load i64, ptr @MinHeapSize, align 8
   %189 = icmp eq i64 %188, 0
   br i1 %189, label %190, label %197
 
 190:                                              ; preds = %187
   %191 = load i64, ptr @InitialHeapSize, align 8
-  %192 = call noundef i64 @llvm.umin.i64(i64 %.0.i43, i64 %191)
+  %192 = call noundef i64 @llvm.umin.i64(i64 %.0.i46, i64 %191)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 %192, ptr %1, align 8
   %193 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1191, i32 noundef 6, ptr noundef nonnull %1, i32 noundef 5) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %194 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not50 = icmp eq ptr %194, null
-  br i1 %.not50, label %197, label %195
+  %.not53 = icmp eq ptr %194, null
+  br i1 %.not53, label %197, label %195
 
 195:                                              ; preds = %190
   %196 = load i64, ptr @MinHeapSize, align 8
@@ -4785,46 +4783,47 @@ define hidden noundef zeroext i1 @_ZN9Arguments25check_vm_args_consistencyEv() l
 
 10:                                               ; preds = %3, %0
   %11 = tail call noundef zeroext i1 @_ZN14CompilerConfig22check_args_consistencyEb(i1 noundef zeroext %2) #31
-  br i1 %11, label %12, label %.critedge
+  %12 = load i8, ptr @EnableJVMCI, align 1
+  %13 = trunc i8 %12 to i1
+  %or.cond = select i1 %11, i1 %13, i1 false
+  br i1 %or.cond, label %14, label %20
 
-12:                                               ; preds = %10
-  %13 = load i8, ptr @EnableJVMCI, align 1
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %21
-
-15:                                               ; preds = %12
+14:                                               ; preds = %10
   tail call void @_ZN9Arguments23PropertyList_unique_addEPP14SystemPropertyPKcS4_NS_18PropertyAppendableENS_17PropertyWriteableENS_16PropertyInternalE(ptr noundef nonnull @_ZN9Arguments18_system_propertiesE, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.20, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %16 = tail call noundef zeroext i1 @_ZN11ClassLoader20is_module_observableEPKc(ptr noundef nonnull @.str.106) #31
-  br i1 %16, label %17, label %21
+  %15 = tail call noundef zeroext i1 @_ZN11ClassLoader20is_module_observableEPKc(ptr noundef nonnull @.str.106) #31
+  br i1 %15, label %16, label %20
 
-17:                                               ; preds = %15
-  %18 = load i32, ptr @addmods_count, align 4
-  %19 = add i32 %18, 1
-  store i32 %19, ptr @addmods_count, align 4
-  %20 = tail call noundef zeroext i1 @_ZN9Arguments31create_numbered_module_propertyEPKcS1_j(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.106, i32 noundef %18)
-  br i1 %20, label %21, label %30
+16:                                               ; preds = %14
+  %17 = load i32, ptr @addmods_count, align 4
+  %18 = add i32 %17, 1
+  store i32 %18, ptr @addmods_count, align 4
+  %19 = tail call noundef zeroext i1 @_ZN9Arguments31create_numbered_module_propertyEPKcS1_j(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.106, i32 noundef %17)
+  br i1 %19, label %20, label %31
 
-21:                                               ; preds = %12, %17, %15
+20:                                               ; preds = %14, %16, %10
+  br i1 %11, label %21, label %30
+
+21:                                               ; preds = %20
   %22 = load ptr, ptr @FlightRecorderOptions, align 8
   %23 = icmp ne ptr %22, null
   %24 = load ptr, ptr @StartFlightRecording, align 8
   %25 = icmp ne ptr %24, null
-  %or.cond = select i1 %23, i1 true, i1 %25
-  br i1 %or.cond, label %26, label %.critedge
+  %or.cond3 = select i1 %23, i1 true, i1 %25
+  br i1 %or.cond3, label %26, label %30
 
 26:                                               ; preds = %21
   %27 = load i32, ptr @addmods_count, align 4
   %28 = add i32 %27, 1
   store i32 %28, ptr @addmods_count, align 4
   %29 = tail call noundef zeroext i1 @_ZN9Arguments31create_numbered_module_propertyEPKcS1_j(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108, i32 noundef %27)
-  br i1 %29, label %.critedge, label %30
+  br i1 %29, label %30, label %31
 
-.critedge:                                        ; preds = %10, %26, %21
-  br label %30
+30:                                               ; preds = %26, %21, %20
+  br label %31
 
-30:                                               ; preds = %26, %17, %.critedge
-  %.05 = phi i1 [ %11, %.critedge ], [ false, %17 ], [ false, %26 ]
-  ret i1 %.05
+31:                                               ; preds = %26, %16, %30
+  %.07 = phi i1 [ %11, %30 ], [ false, %16 ], [ false, %26 ]
+  ret i1 %.07
 }
 
 declare noundef zeroext i1 @_ZN14CompilerConfig22check_args_consistencyEb(i1 noundef zeroext) local_unnamed_addr #1
@@ -8564,8 +8563,8 @@ define hidden noundef zeroext i1 @_ZN9Arguments32handle_deprecated_print_gc_flag
 
 10:                                               ; preds = %7
   %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not4 = icmp eq ptr %11, null
-  br i1 %.not4, label %13, label %12
+  %.not6 = icmp eq ptr %11, null
+  br i1 %.not6, label %13, label %12
 
 12:                                               ; preds = %10
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.274)
@@ -8597,22 +8596,21 @@ define hidden noundef zeroext i1 @_ZN9Arguments32handle_deprecated_print_gc_flag
 24:                                               ; preds = %13
   %25 = load i8, ptr @PrintGC, align 1
   %26 = trunc i8 %25 to i1
-  %.pre = load i8, ptr @PrintGCDetails, align 1
-  %27 = trunc i8 %.pre to i1
-  %28 = icmp eq i32 %14, 1
-  %or.cond = or i1 %28, %27
-  %or.cond6 = select i1 %26, i1 true, i1 %or.cond
-  br i1 %or.cond6, label %29, label %33
+  %27 = load i8, ptr @PrintGCDetails, align 1
+  %28 = trunc i8 %27 to i1
+  %or.cond = select i1 %26, i1 true, i1 %28
+  %29 = icmp eq i32 %14, 1
+  %or.cond3 = or i1 %29, %or.cond
+  br i1 %or.cond3, label %30, label %33
 
-29:                                               ; preds = %24
-  %30 = and i8 %.pre, 1
-  %31 = xor i8 %30, 1
-  %32 = zext nneg i8 %31 to i32
+30:                                               ; preds = %24
+  %31 = xor i1 %28, true
+  %32 = zext i1 %31 to i32
   tail call void (i32, i32, ...) @_ZN16LogConfiguration16configure_stdoutEN8LogLevel4typeEiz(i32 noundef 3, i32 noundef %32, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #31
   br label %33
 
-33:                                               ; preds = %24, %29, %16
-  %.0 = phi i1 [ %23, %16 ], [ true, %29 ], [ true, %24 ]
+33:                                               ; preds = %24, %30, %16
+  %.0 = phi i1 [ %23, %16 ], [ true, %30 ], [ true, %24 ]
   ret i1 %.0
 }
 
@@ -8732,20 +8730,20 @@ define hidden noundef i32 @_ZN9Arguments5parseEPK14JavaVMInitArgs(ptr noundef %0
 
 54:                                               ; preds = %1
   %55 = call noundef range(i32 -4, 1) i32 @_ZN9Arguments34parse_options_environment_variableEPKcP16ScopedVMInitArgs(ptr noundef nonnull @.str.256, ptr noundef nonnull %4)
-  %.not47 = icmp eq i32 %55, 0
-  br i1 %.not47, label %56, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
+  %.not49 = icmp eq i32 %55, 0
+  br i1 %.not49, label %56, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
 
 56:                                               ; preds = %54
   %57 = tail call noundef ptr @_ZN11ClassLoader17lookup_vm_optionsEv() #31
-  %.not48 = icmp eq ptr %57, null
-  br i1 %.not48, label %61, label %58
+  %.not50 = icmp eq ptr %57, null
+  br i1 %.not50, label %61, label %58
 
 58:                                               ; preds = %56
   %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #30
   %60 = call noundef i32 @_ZN9Arguments20parse_options_bufferEPKcPcmP16ScopedVMInitArgs(ptr noundef nonnull @.str.282, ptr noundef nonnull %57, i64 noundef %59, ptr noundef nonnull %2)
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %57) #31
-  %.not49 = icmp eq i32 %60, 0
-  br i1 %.not49, label %61, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
+  %.not51 = icmp eq i32 %60, 0
+  br i1 %.not51, label %61, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
 
 61:                                               ; preds = %58, %56
   %62 = call noundef i32 @_ZN9Arguments28match_special_option_and_actEPK14JavaVMInitArgsP16ScopedVMInitArgs(ptr noundef nonnull %3, ptr noundef nonnull %7)
@@ -8757,52 +8755,52 @@ define hidden noundef i32 @_ZN9Arguments5parseEPK14JavaVMInitArgs(ptr noundef %0
   %65 = trunc i8 %64 to i1
   %spec.select.i = select i1 %65, ptr %7, ptr %3
   %66 = call noundef i32 @_ZN9Arguments28match_special_option_and_actEPK14JavaVMInitArgsP16ScopedVMInitArgs(ptr noundef %0, ptr noundef nonnull %5)
-  %.not.i56 = icmp eq i32 %66, 0
-  br i1 %.not.i56, label %67, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
+  %.not.i58 = icmp eq i32 %66, 0
+  br i1 %.not.i58, label %67, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
 
 67:                                               ; preds = %63
   %68 = load i8, ptr %33, align 8
   %69 = trunc i8 %68 to i1
-  %spec.select.i57 = select i1 %69, ptr %5, ptr %0
+  %spec.select.i59 = select i1 %69, ptr %5, ptr %0
   %70 = call noundef i32 @_ZN9Arguments28match_special_option_and_actEPK14JavaVMInitArgsP16ScopedVMInitArgs(ptr noundef nonnull %4, ptr noundef nonnull %8)
-  %.not.i59 = icmp eq i32 %70, 0
-  br i1 %.not.i59, label %71, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
+  %.not.i61 = icmp eq i32 %70, 0
+  br i1 %.not.i61, label %71, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
 
 71:                                               ; preds = %67
   %72 = load i8, ptr %51, align 8
   %73 = trunc i8 %72 to i1
-  %spec.select.i60 = select i1 %73, ptr %8, ptr %4
+  %spec.select.i62 = select i1 %73, ptr %8, ptr %4
   %74 = call noundef i32 @_ZN9Arguments28match_special_option_and_actEPK14JavaVMInitArgsP16ScopedVMInitArgs(ptr noundef nonnull %2, ptr noundef nonnull %6)
-  %.not.i62 = icmp eq i32 %74, 0
-  br i1 %.not.i62, label %75, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
+  %.not.i64 = icmp eq i32 %74, 0
+  br i1 %.not.i64, label %75, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
 
 75:                                               ; preds = %71
   %76 = load i8, ptr %39, align 8
   %77 = trunc i8 %76 to i1
-  %spec.select.i63 = select i1 %77, ptr %6, ptr %2
+  %spec.select.i65 = select i1 %77, ptr %6, ptr %2
   %78 = load ptr, ptr @_ZN9Arguments15_jvm_flags_fileE, align 8
-  %.not54 = icmp eq ptr %78, null
+  %.not56 = icmp eq ptr %78, null
   %79 = load i8, ptr @IgnoreUnrecognizedVMOptions, align 1
   %80 = trunc i8 %79 to i1
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %75
-  %.sroa.gep150 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %spec.select.i57.sroa.sel151 = select i1 %69, ptr %31, ptr %.sroa.gep150
-  store i8 1, ptr %spec.select.i57.sroa.sel151, align 8
+  %.sroa.gep152 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %spec.select.i59.sroa.sel153 = select i1 %69, ptr %31, ptr %.sroa.gep152
+  store i8 1, ptr %spec.select.i59.sroa.sel153, align 8
   %spec.select.i.sroa.sel = select i1 %65, ptr %43, ptr %19
   store i8 1, ptr %spec.select.i.sroa.sel, align 8
-  %spec.select.i60.sroa.sel = select i1 %73, ptr %49, ptr %25
-  store i8 1, ptr %spec.select.i60.sroa.sel, align 8
+  %spec.select.i62.sroa.sel = select i1 %73, ptr %49, ptr %25
+  store i8 1, ptr %spec.select.i62.sroa.sel, align 8
   br label %82
 
 82:                                               ; preds = %81, %75
-  br i1 %.not54, label %86, label %83
+  br i1 %.not56, label %86, label %83
 
 83:                                               ; preds = %82
-  %.sroa.gep148 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %spec.select.i57.sroa.sel = select i1 %69, ptr %31, ptr %.sroa.gep148
-  %84 = load i8, ptr %spec.select.i57.sroa.sel, align 8
+  %.sroa.gep150 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %spec.select.i59.sroa.sel = select i1 %69, ptr %31, ptr %.sroa.gep150
+  %84 = load i8, ptr %spec.select.i59.sroa.sel, align 8
   %85 = call noundef zeroext i1 @_ZN9Arguments21process_settings_fileEPKcbh(ptr noundef nonnull %78, i1 noundef zeroext true, i8 noundef zeroext %84)
   br i1 %85, label %89, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
 
@@ -8812,24 +8810,24 @@ define hidden noundef i32 @_ZN9Arguments5parseEPK14JavaVMInitArgs(ptr noundef %0
   br label %89
 
 89:                                               ; preds = %86, %83
-  %.035 = phi i1 [ false, %83 ], [ %88, %86 ]
+  %.037 = phi i1 [ false, %83 ], [ %88, %86 ]
   %90 = load i8, ptr @PrintVMOptions, align 1
   %91 = trunc i8 %90 to i1
   br i1 %91, label %92, label %93
 
 92:                                               ; preds = %89
   call fastcc void @_ZL13print_optionsPK14JavaVMInitArgs(ptr noundef nonnull %spec.select.i)
-  call fastcc void @_ZL13print_optionsPK14JavaVMInitArgs(ptr noundef %spec.select.i57)
-  call fastcc void @_ZL13print_optionsPK14JavaVMInitArgs(ptr noundef nonnull %spec.select.i60)
+  call fastcc void @_ZL13print_optionsPK14JavaVMInitArgs(ptr noundef %spec.select.i59)
+  call fastcc void @_ZL13print_optionsPK14JavaVMInitArgs(ptr noundef nonnull %spec.select.i62)
   br label %93
 
 93:                                               ; preds = %92, %89
-  %94 = call noundef i32 @_ZN9Arguments18parse_vm_init_argsEPK14JavaVMInitArgsS2_S2_S2_(ptr noundef nonnull %spec.select.i63, ptr noundef nonnull %spec.select.i, ptr noundef nonnull %spec.select.i60, ptr noundef %spec.select.i57)
-  %.not55 = icmp eq i32 %94, 0
-  br i1 %.not55, label %95, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
+  %94 = call noundef i32 @_ZN9Arguments18parse_vm_init_argsEPK14JavaVMInitArgsS2_S2_S2_(ptr noundef nonnull %spec.select.i65, ptr noundef nonnull %spec.select.i, ptr noundef nonnull %spec.select.i62, ptr noundef %spec.select.i59)
+  %.not57 = icmp eq i32 %94, 0
+  br i1 %.not57, label %95, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
 
 95:                                               ; preds = %93
-  br i1 %.035, label %96, label %97
+  br i1 %.037, label %96, label %97
 
 96:                                               ; preds = %95
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.283, ptr noundef nonnull @.str.277, ptr noundef nonnull @.str.277) #31
@@ -8908,8 +8906,8 @@ define hidden noundef i32 @_ZN9Arguments5parseEPK14JavaVMInitArgs(ptr noundef %0
 133:                                              ; preds = %132, %128
   %134 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE36ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %135 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_74ELS1_13ELS1_92ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not142 = icmp eq ptr %135, null
-  br i1 %.not142, label %136, label %139
+  %.not144 = icmp eq ptr %135, null
+  br i1 %.not144, label %136, label %139
 
 136:                                              ; preds = %133
   %137 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_74ELS1_13ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
@@ -8930,314 +8928,312 @@ define hidden noundef i32 @_ZN9Arguments5parseEPK14JavaVMInitArgs(ptr noundef %0
 144:                                              ; preds = %143, %139
   %145 = load i8, ptr @HandshakeALot, align 1
   %146 = trunc i8 %145 to i1
-  br i1 %146, label %150, label %147
+  %147 = load i8, ptr @SafepointALot, align 1
+  %148 = trunc i8 %147 to i1
+  %or.cond5 = select i1 %146, i1 true, i1 %148
+  br i1 %or.cond5, label %149, label %152
 
-147:                                              ; preds = %144
-  %148 = load i8, ptr @SafepointALot, align 1
-  %149 = trunc i8 %148 to i1
-  br i1 %149, label %150, label %153
+149:                                              ; preds = %144
+  %150 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 755) #31
+  br i1 %150, label %151, label %152
 
-150:                                              ; preds = %147, %144
-  %151 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 755) #31
-  br i1 %151, label %152, label %153
-
-152:                                              ; preds = %150
+151:                                              ; preds = %149
   store i64 1000, ptr @GuaranteedSafepointInterval, align 8
-  br label %153
+  br label %152
 
-153:                                              ; preds = %152, %150, %147
-  %154 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not143 = icmp eq ptr %154, null
-  br i1 %.not143, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit, label %155
+152:                                              ; preds = %144, %151, %149
+  %153 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not145 = icmp eq ptr %153, null
+  br i1 %.not145, label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit, label %154
 
-155:                                              ; preds = %153
+154:                                              ; preds = %152
   call void @_ZN9LogStreamC2ILN8LogLevel4typeE3ELN6LogTag4typeE5ELS4_0ELS4_0ELS4_0ELS4_0ELS4_0EEEPK13LogTargetImplIXT_EXT0_EXT1_EXT2_EXT3_EXT4_EXT5_EE(ptr noundef nonnull align 8 dereferenceable(160) %10, ptr noundef null)
   call void @_ZN9Arguments8print_onEP12outputStream(ptr noundef nonnull %10)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %10) #31
   br label %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
 
-_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit: ; preds = %71, %67, %63, %61, %153, %155, %108, %93, %83, %58, %54, %1, %121
-  %.0 = phi i32 [ -1, %121 ], [ %53, %1 ], [ %55, %54 ], [ %60, %58 ], [ -6, %83 ], [ %94, %93 ], [ -6, %108 ], [ 0, %155 ], [ 0, %153 ], [ %62, %61 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ]
-  %156 = load ptr, ptr %52, align 8
-  %.not.i65 = icmp eq ptr %156, null
-  br i1 %.not.i65, label %158, label %157
+_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit: ; preds = %71, %67, %63, %61, %152, %154, %108, %93, %83, %58, %54, %1, %121
+  %.0 = phi i32 [ -1, %121 ], [ %53, %1 ], [ %55, %54 ], [ %60, %58 ], [ -6, %83 ], [ %94, %93 ], [ -6, %108 ], [ 0, %154 ], [ 0, %152 ], [ %62, %61 ], [ %66, %63 ], [ %70, %67 ], [ %74, %71 ]
+  %155 = load ptr, ptr %52, align 8
+  %.not.i67 = icmp eq ptr %155, null
+  br i1 %.not.i67, label %157, label %156
 
-157:                                              ; preds = %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
-  call void @_ZN2os4freeEPv(ptr noundef nonnull %156) #31
-  br label %158
+156:                                              ; preds = %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
+  call void @_ZN2os4freeEPv(ptr noundef nonnull %155) #31
+  br label %157
 
-158:                                              ; preds = %157, %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
-  %159 = load ptr, ptr %48, align 8
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %_ZN16ScopedVMInitArgsD2Ev.exit, label %.preheader.i
+157:                                              ; preds = %156, %_ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgsPPS0_.exit
+  %158 = load ptr, ptr %48, align 8
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %_ZN16ScopedVMInitArgsD2Ev.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %158
-  %161 = load i32, ptr %47, align 4
-  %162 = icmp sgt i32 %161, 0
-  br i1 %162, label %.lr.ph.i, label %._crit_edge.i
+.preheader.i:                                     ; preds = %157
+  %160 = load i32, ptr %47, align 4
+  %161 = icmp sgt i32 %160, 0
+  br i1 %161, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %163 = load ptr, ptr %48, align 8
-  %164 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %163, i64 %indvars.iv.i
-  %165 = load ptr, ptr %164, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %165) #31
+  %162 = load ptr, ptr %48, align 8
+  %163 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %162, i64 %indvars.iv.i
+  %164 = load ptr, ptr %163, align 8
+  call void @_ZN2os4freeEPv(ptr noundef %164) #31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %166 = load i32, ptr %47, align 4
-  %167 = sext i32 %166 to i64
-  %168 = icmp slt i64 %indvars.iv.next.i, %167
-  br i1 %168, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !39
+  %165 = load i32, ptr %47, align 4
+  %166 = sext i32 %165 to i64
+  %167 = icmp slt i64 %indvars.iv.next.i, %166
+  br i1 %167, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !39
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %48, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
-  %169 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %159, %.preheader.i ]
-  call void @_Z8FreeHeapPv(ptr noundef %169) #31
+  %168 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %158, %.preheader.i ]
+  call void @_Z8FreeHeapPv(ptr noundef %168) #31
   br label %_ZN16ScopedVMInitArgsD2Ev.exit
 
-_ZN16ScopedVMInitArgsD2Ev.exit:                   ; preds = %158, %._crit_edge.i
-  %170 = load ptr, ptr %46, align 8
-  %.not.i66 = icmp eq ptr %170, null
-  br i1 %.not.i66, label %172, label %171
+_ZN16ScopedVMInitArgsD2Ev.exit:                   ; preds = %157, %._crit_edge.i
+  %169 = load ptr, ptr %46, align 8
+  %.not.i68 = icmp eq ptr %169, null
+  br i1 %.not.i68, label %171, label %170
 
-171:                                              ; preds = %_ZN16ScopedVMInitArgsD2Ev.exit
-  call void @_ZN2os4freeEPv(ptr noundef nonnull %170) #31
-  br label %172
+170:                                              ; preds = %_ZN16ScopedVMInitArgsD2Ev.exit
+  call void @_ZN2os4freeEPv(ptr noundef nonnull %169) #31
+  br label %171
 
-172:                                              ; preds = %171, %_ZN16ScopedVMInitArgsD2Ev.exit
-  %173 = load ptr, ptr %42, align 8
-  %174 = icmp eq ptr %173, null
-  br i1 %174, label %_ZN16ScopedVMInitArgsD2Ev.exit74, label %.preheader.i67
+171:                                              ; preds = %170, %_ZN16ScopedVMInitArgsD2Ev.exit
+  %172 = load ptr, ptr %42, align 8
+  %173 = icmp eq ptr %172, null
+  br i1 %173, label %_ZN16ScopedVMInitArgsD2Ev.exit76, label %.preheader.i69
 
-.preheader.i67:                                   ; preds = %172
-  %175 = load i32, ptr %41, align 4
-  %176 = icmp sgt i32 %175, 0
-  br i1 %176, label %.lr.ph.i69, label %._crit_edge.i68
+.preheader.i69:                                   ; preds = %171
+  %174 = load i32, ptr %41, align 4
+  %175 = icmp sgt i32 %174, 0
+  br i1 %175, label %.lr.ph.i71, label %._crit_edge.i70
 
-.lr.ph.i69:                                       ; preds = %.preheader.i67, %.lr.ph.i69
-  %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %.lr.ph.i69 ], [ 0, %.preheader.i67 ]
-  %177 = load ptr, ptr %42, align 8
-  %178 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %177, i64 %indvars.iv.i70
-  %179 = load ptr, ptr %178, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %179) #31
-  %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
-  %180 = load i32, ptr %41, align 4
-  %181 = sext i32 %180 to i64
-  %182 = icmp slt i64 %indvars.iv.next.i71, %181
-  br i1 %182, label %.lr.ph.i69, label %._crit_edge.loopexit.i72, !llvm.loop !39
+.lr.ph.i71:                                       ; preds = %.preheader.i69, %.lr.ph.i71
+  %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %.lr.ph.i71 ], [ 0, %.preheader.i69 ]
+  %176 = load ptr, ptr %42, align 8
+  %177 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %176, i64 %indvars.iv.i72
+  %178 = load ptr, ptr %177, align 8
+  call void @_ZN2os4freeEPv(ptr noundef %178) #31
+  %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
+  %179 = load i32, ptr %41, align 4
+  %180 = sext i32 %179 to i64
+  %181 = icmp slt i64 %indvars.iv.next.i73, %180
+  br i1 %181, label %.lr.ph.i71, label %._crit_edge.loopexit.i74, !llvm.loop !39
 
-._crit_edge.loopexit.i72:                         ; preds = %.lr.ph.i69
-  %.pre.i73 = load ptr, ptr %42, align 8
-  br label %._crit_edge.i68
+._crit_edge.loopexit.i74:                         ; preds = %.lr.ph.i71
+  %.pre.i75 = load ptr, ptr %42, align 8
+  br label %._crit_edge.i70
 
-._crit_edge.i68:                                  ; preds = %._crit_edge.loopexit.i72, %.preheader.i67
-  %183 = phi ptr [ %.pre.i73, %._crit_edge.loopexit.i72 ], [ %173, %.preheader.i67 ]
-  call void @_Z8FreeHeapPv(ptr noundef %183) #31
-  br label %_ZN16ScopedVMInitArgsD2Ev.exit74
+._crit_edge.i70:                                  ; preds = %._crit_edge.loopexit.i74, %.preheader.i69
+  %182 = phi ptr [ %.pre.i75, %._crit_edge.loopexit.i74 ], [ %172, %.preheader.i69 ]
+  call void @_Z8FreeHeapPv(ptr noundef %182) #31
+  br label %_ZN16ScopedVMInitArgsD2Ev.exit76
 
-_ZN16ScopedVMInitArgsD2Ev.exit74:                 ; preds = %172, %._crit_edge.i68
-  %184 = load ptr, ptr %40, align 8
-  %.not.i75 = icmp eq ptr %184, null
-  br i1 %.not.i75, label %186, label %185
+_ZN16ScopedVMInitArgsD2Ev.exit76:                 ; preds = %171, %._crit_edge.i70
+  %183 = load ptr, ptr %40, align 8
+  %.not.i77 = icmp eq ptr %183, null
+  br i1 %.not.i77, label %185, label %184
 
-185:                                              ; preds = %_ZN16ScopedVMInitArgsD2Ev.exit74
-  call void @_ZN2os4freeEPv(ptr noundef nonnull %184) #31
-  br label %186
+184:                                              ; preds = %_ZN16ScopedVMInitArgsD2Ev.exit76
+  call void @_ZN2os4freeEPv(ptr noundef nonnull %183) #31
+  br label %185
 
-186:                                              ; preds = %185, %_ZN16ScopedVMInitArgsD2Ev.exit74
-  %187 = load ptr, ptr %36, align 8
-  %188 = icmp eq ptr %187, null
-  br i1 %188, label %_ZN16ScopedVMInitArgsD2Ev.exit83, label %.preheader.i76
+185:                                              ; preds = %184, %_ZN16ScopedVMInitArgsD2Ev.exit76
+  %186 = load ptr, ptr %36, align 8
+  %187 = icmp eq ptr %186, null
+  br i1 %187, label %_ZN16ScopedVMInitArgsD2Ev.exit85, label %.preheader.i78
 
-.preheader.i76:                                   ; preds = %186
-  %189 = load i32, ptr %35, align 4
-  %190 = icmp sgt i32 %189, 0
-  br i1 %190, label %.lr.ph.i78, label %._crit_edge.i77
+.preheader.i78:                                   ; preds = %185
+  %188 = load i32, ptr %35, align 4
+  %189 = icmp sgt i32 %188, 0
+  br i1 %189, label %.lr.ph.i80, label %._crit_edge.i79
 
-.lr.ph.i78:                                       ; preds = %.preheader.i76, %.lr.ph.i78
-  %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i80, %.lr.ph.i78 ], [ 0, %.preheader.i76 ]
-  %191 = load ptr, ptr %36, align 8
-  %192 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %191, i64 %indvars.iv.i79
-  %193 = load ptr, ptr %192, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %193) #31
-  %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
-  %194 = load i32, ptr %35, align 4
-  %195 = sext i32 %194 to i64
-  %196 = icmp slt i64 %indvars.iv.next.i80, %195
-  br i1 %196, label %.lr.ph.i78, label %._crit_edge.loopexit.i81, !llvm.loop !39
+.lr.ph.i80:                                       ; preds = %.preheader.i78, %.lr.ph.i80
+  %indvars.iv.i81 = phi i64 [ %indvars.iv.next.i82, %.lr.ph.i80 ], [ 0, %.preheader.i78 ]
+  %190 = load ptr, ptr %36, align 8
+  %191 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %190, i64 %indvars.iv.i81
+  %192 = load ptr, ptr %191, align 8
+  call void @_ZN2os4freeEPv(ptr noundef %192) #31
+  %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
+  %193 = load i32, ptr %35, align 4
+  %194 = sext i32 %193 to i64
+  %195 = icmp slt i64 %indvars.iv.next.i82, %194
+  br i1 %195, label %.lr.ph.i80, label %._crit_edge.loopexit.i83, !llvm.loop !39
 
-._crit_edge.loopexit.i81:                         ; preds = %.lr.ph.i78
-  %.pre.i82 = load ptr, ptr %36, align 8
-  br label %._crit_edge.i77
+._crit_edge.loopexit.i83:                         ; preds = %.lr.ph.i80
+  %.pre.i84 = load ptr, ptr %36, align 8
+  br label %._crit_edge.i79
 
-._crit_edge.i77:                                  ; preds = %._crit_edge.loopexit.i81, %.preheader.i76
-  %197 = phi ptr [ %.pre.i82, %._crit_edge.loopexit.i81 ], [ %187, %.preheader.i76 ]
-  call void @_Z8FreeHeapPv(ptr noundef %197) #31
-  br label %_ZN16ScopedVMInitArgsD2Ev.exit83
+._crit_edge.i79:                                  ; preds = %._crit_edge.loopexit.i83, %.preheader.i78
+  %196 = phi ptr [ %.pre.i84, %._crit_edge.loopexit.i83 ], [ %186, %.preheader.i78 ]
+  call void @_Z8FreeHeapPv(ptr noundef %196) #31
+  br label %_ZN16ScopedVMInitArgsD2Ev.exit85
 
-_ZN16ScopedVMInitArgsD2Ev.exit83:                 ; preds = %186, %._crit_edge.i77
-  %198 = load ptr, ptr %34, align 8
-  %.not.i84 = icmp eq ptr %198, null
-  br i1 %.not.i84, label %200, label %199
+_ZN16ScopedVMInitArgsD2Ev.exit85:                 ; preds = %185, %._crit_edge.i79
+  %197 = load ptr, ptr %34, align 8
+  %.not.i86 = icmp eq ptr %197, null
+  br i1 %.not.i86, label %199, label %198
 
-199:                                              ; preds = %_ZN16ScopedVMInitArgsD2Ev.exit83
-  call void @_ZN2os4freeEPv(ptr noundef nonnull %198) #31
-  br label %200
+198:                                              ; preds = %_ZN16ScopedVMInitArgsD2Ev.exit85
+  call void @_ZN2os4freeEPv(ptr noundef nonnull %197) #31
+  br label %199
 
-200:                                              ; preds = %199, %_ZN16ScopedVMInitArgsD2Ev.exit83
-  %201 = load ptr, ptr %30, align 8
-  %202 = icmp eq ptr %201, null
-  br i1 %202, label %_ZN16ScopedVMInitArgsD2Ev.exit92, label %.preheader.i85
+199:                                              ; preds = %198, %_ZN16ScopedVMInitArgsD2Ev.exit85
+  %200 = load ptr, ptr %30, align 8
+  %201 = icmp eq ptr %200, null
+  br i1 %201, label %_ZN16ScopedVMInitArgsD2Ev.exit94, label %.preheader.i87
 
-.preheader.i85:                                   ; preds = %200
-  %203 = load i32, ptr %29, align 4
-  %204 = icmp sgt i32 %203, 0
-  br i1 %204, label %.lr.ph.i87, label %._crit_edge.i86
+.preheader.i87:                                   ; preds = %199
+  %202 = load i32, ptr %29, align 4
+  %203 = icmp sgt i32 %202, 0
+  br i1 %203, label %.lr.ph.i89, label %._crit_edge.i88
 
-.lr.ph.i87:                                       ; preds = %.preheader.i85, %.lr.ph.i87
-  %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i89, %.lr.ph.i87 ], [ 0, %.preheader.i85 ]
-  %205 = load ptr, ptr %30, align 8
-  %206 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %205, i64 %indvars.iv.i88
-  %207 = load ptr, ptr %206, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %207) #31
-  %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
-  %208 = load i32, ptr %29, align 4
-  %209 = sext i32 %208 to i64
-  %210 = icmp slt i64 %indvars.iv.next.i89, %209
-  br i1 %210, label %.lr.ph.i87, label %._crit_edge.loopexit.i90, !llvm.loop !39
+.lr.ph.i89:                                       ; preds = %.preheader.i87, %.lr.ph.i89
+  %indvars.iv.i90 = phi i64 [ %indvars.iv.next.i91, %.lr.ph.i89 ], [ 0, %.preheader.i87 ]
+  %204 = load ptr, ptr %30, align 8
+  %205 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %204, i64 %indvars.iv.i90
+  %206 = load ptr, ptr %205, align 8
+  call void @_ZN2os4freeEPv(ptr noundef %206) #31
+  %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
+  %207 = load i32, ptr %29, align 4
+  %208 = sext i32 %207 to i64
+  %209 = icmp slt i64 %indvars.iv.next.i91, %208
+  br i1 %209, label %.lr.ph.i89, label %._crit_edge.loopexit.i92, !llvm.loop !39
 
-._crit_edge.loopexit.i90:                         ; preds = %.lr.ph.i87
-  %.pre.i91 = load ptr, ptr %30, align 8
-  br label %._crit_edge.i86
+._crit_edge.loopexit.i92:                         ; preds = %.lr.ph.i89
+  %.pre.i93 = load ptr, ptr %30, align 8
+  br label %._crit_edge.i88
 
-._crit_edge.i86:                                  ; preds = %._crit_edge.loopexit.i90, %.preheader.i85
-  %211 = phi ptr [ %.pre.i91, %._crit_edge.loopexit.i90 ], [ %201, %.preheader.i85 ]
-  call void @_Z8FreeHeapPv(ptr noundef %211) #31
-  br label %_ZN16ScopedVMInitArgsD2Ev.exit92
+._crit_edge.i88:                                  ; preds = %._crit_edge.loopexit.i92, %.preheader.i87
+  %210 = phi ptr [ %.pre.i93, %._crit_edge.loopexit.i92 ], [ %200, %.preheader.i87 ]
+  call void @_Z8FreeHeapPv(ptr noundef %210) #31
+  br label %_ZN16ScopedVMInitArgsD2Ev.exit94
 
-_ZN16ScopedVMInitArgsD2Ev.exit92:                 ; preds = %200, %._crit_edge.i86
-  %212 = load ptr, ptr %28, align 8
-  %.not.i93 = icmp eq ptr %212, null
-  br i1 %.not.i93, label %214, label %213
+_ZN16ScopedVMInitArgsD2Ev.exit94:                 ; preds = %199, %._crit_edge.i88
+  %211 = load ptr, ptr %28, align 8
+  %.not.i95 = icmp eq ptr %211, null
+  br i1 %.not.i95, label %213, label %212
 
-213:                                              ; preds = %_ZN16ScopedVMInitArgsD2Ev.exit92
-  call void @_ZN2os4freeEPv(ptr noundef nonnull %212) #31
-  br label %214
+212:                                              ; preds = %_ZN16ScopedVMInitArgsD2Ev.exit94
+  call void @_ZN2os4freeEPv(ptr noundef nonnull %211) #31
+  br label %213
 
-214:                                              ; preds = %213, %_ZN16ScopedVMInitArgsD2Ev.exit92
-  %215 = load ptr, ptr %24, align 8
-  %216 = icmp eq ptr %215, null
-  br i1 %216, label %_ZN16ScopedVMInitArgsD2Ev.exit101, label %.preheader.i94
+213:                                              ; preds = %212, %_ZN16ScopedVMInitArgsD2Ev.exit94
+  %214 = load ptr, ptr %24, align 8
+  %215 = icmp eq ptr %214, null
+  br i1 %215, label %_ZN16ScopedVMInitArgsD2Ev.exit103, label %.preheader.i96
 
-.preheader.i94:                                   ; preds = %214
-  %217 = load i32, ptr %23, align 4
-  %218 = icmp sgt i32 %217, 0
-  br i1 %218, label %.lr.ph.i96, label %._crit_edge.i95
+.preheader.i96:                                   ; preds = %213
+  %216 = load i32, ptr %23, align 4
+  %217 = icmp sgt i32 %216, 0
+  br i1 %217, label %.lr.ph.i98, label %._crit_edge.i97
 
-.lr.ph.i96:                                       ; preds = %.preheader.i94, %.lr.ph.i96
-  %indvars.iv.i97 = phi i64 [ %indvars.iv.next.i98, %.lr.ph.i96 ], [ 0, %.preheader.i94 ]
-  %219 = load ptr, ptr %24, align 8
-  %220 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %219, i64 %indvars.iv.i97
-  %221 = load ptr, ptr %220, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %221) #31
-  %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
-  %222 = load i32, ptr %23, align 4
-  %223 = sext i32 %222 to i64
-  %224 = icmp slt i64 %indvars.iv.next.i98, %223
-  br i1 %224, label %.lr.ph.i96, label %._crit_edge.loopexit.i99, !llvm.loop !39
+.lr.ph.i98:                                       ; preds = %.preheader.i96, %.lr.ph.i98
+  %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i100, %.lr.ph.i98 ], [ 0, %.preheader.i96 ]
+  %218 = load ptr, ptr %24, align 8
+  %219 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %218, i64 %indvars.iv.i99
+  %220 = load ptr, ptr %219, align 8
+  call void @_ZN2os4freeEPv(ptr noundef %220) #31
+  %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
+  %221 = load i32, ptr %23, align 4
+  %222 = sext i32 %221 to i64
+  %223 = icmp slt i64 %indvars.iv.next.i100, %222
+  br i1 %223, label %.lr.ph.i98, label %._crit_edge.loopexit.i101, !llvm.loop !39
 
-._crit_edge.loopexit.i99:                         ; preds = %.lr.ph.i96
-  %.pre.i100 = load ptr, ptr %24, align 8
-  br label %._crit_edge.i95
+._crit_edge.loopexit.i101:                        ; preds = %.lr.ph.i98
+  %.pre.i102 = load ptr, ptr %24, align 8
+  br label %._crit_edge.i97
 
-._crit_edge.i95:                                  ; preds = %._crit_edge.loopexit.i99, %.preheader.i94
-  %225 = phi ptr [ %.pre.i100, %._crit_edge.loopexit.i99 ], [ %215, %.preheader.i94 ]
-  call void @_Z8FreeHeapPv(ptr noundef %225) #31
-  br label %_ZN16ScopedVMInitArgsD2Ev.exit101
+._crit_edge.i97:                                  ; preds = %._crit_edge.loopexit.i101, %.preheader.i96
+  %224 = phi ptr [ %.pre.i102, %._crit_edge.loopexit.i101 ], [ %214, %.preheader.i96 ]
+  call void @_Z8FreeHeapPv(ptr noundef %224) #31
+  br label %_ZN16ScopedVMInitArgsD2Ev.exit103
 
-_ZN16ScopedVMInitArgsD2Ev.exit101:                ; preds = %214, %._crit_edge.i95
-  %226 = load ptr, ptr %22, align 8
-  %.not.i102 = icmp eq ptr %226, null
-  br i1 %.not.i102, label %228, label %227
+_ZN16ScopedVMInitArgsD2Ev.exit103:                ; preds = %213, %._crit_edge.i97
+  %225 = load ptr, ptr %22, align 8
+  %.not.i104 = icmp eq ptr %225, null
+  br i1 %.not.i104, label %227, label %226
 
-227:                                              ; preds = %_ZN16ScopedVMInitArgsD2Ev.exit101
-  call void @_ZN2os4freeEPv(ptr noundef nonnull %226) #31
-  br label %228
+226:                                              ; preds = %_ZN16ScopedVMInitArgsD2Ev.exit103
+  call void @_ZN2os4freeEPv(ptr noundef nonnull %225) #31
+  br label %227
 
-228:                                              ; preds = %227, %_ZN16ScopedVMInitArgsD2Ev.exit101
-  %229 = load ptr, ptr %18, align 8
-  %230 = icmp eq ptr %229, null
-  br i1 %230, label %_ZN16ScopedVMInitArgsD2Ev.exit110, label %.preheader.i103
+227:                                              ; preds = %226, %_ZN16ScopedVMInitArgsD2Ev.exit103
+  %228 = load ptr, ptr %18, align 8
+  %229 = icmp eq ptr %228, null
+  br i1 %229, label %_ZN16ScopedVMInitArgsD2Ev.exit112, label %.preheader.i105
 
-.preheader.i103:                                  ; preds = %228
-  %231 = load i32, ptr %17, align 4
-  %232 = icmp sgt i32 %231, 0
-  br i1 %232, label %.lr.ph.i105, label %._crit_edge.i104
+.preheader.i105:                                  ; preds = %227
+  %230 = load i32, ptr %17, align 4
+  %231 = icmp sgt i32 %230, 0
+  br i1 %231, label %.lr.ph.i107, label %._crit_edge.i106
 
-.lr.ph.i105:                                      ; preds = %.preheader.i103, %.lr.ph.i105
-  %indvars.iv.i106 = phi i64 [ %indvars.iv.next.i107, %.lr.ph.i105 ], [ 0, %.preheader.i103 ]
-  %233 = load ptr, ptr %18, align 8
-  %234 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %233, i64 %indvars.iv.i106
-  %235 = load ptr, ptr %234, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %235) #31
-  %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i106, 1
-  %236 = load i32, ptr %17, align 4
-  %237 = sext i32 %236 to i64
-  %238 = icmp slt i64 %indvars.iv.next.i107, %237
-  br i1 %238, label %.lr.ph.i105, label %._crit_edge.loopexit.i108, !llvm.loop !39
+.lr.ph.i107:                                      ; preds = %.preheader.i105, %.lr.ph.i107
+  %indvars.iv.i108 = phi i64 [ %indvars.iv.next.i109, %.lr.ph.i107 ], [ 0, %.preheader.i105 ]
+  %232 = load ptr, ptr %18, align 8
+  %233 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %232, i64 %indvars.iv.i108
+  %234 = load ptr, ptr %233, align 8
+  call void @_ZN2os4freeEPv(ptr noundef %234) #31
+  %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
+  %235 = load i32, ptr %17, align 4
+  %236 = sext i32 %235 to i64
+  %237 = icmp slt i64 %indvars.iv.next.i109, %236
+  br i1 %237, label %.lr.ph.i107, label %._crit_edge.loopexit.i110, !llvm.loop !39
 
-._crit_edge.loopexit.i108:                        ; preds = %.lr.ph.i105
-  %.pre.i109 = load ptr, ptr %18, align 8
-  br label %._crit_edge.i104
+._crit_edge.loopexit.i110:                        ; preds = %.lr.ph.i107
+  %.pre.i111 = load ptr, ptr %18, align 8
+  br label %._crit_edge.i106
 
-._crit_edge.i104:                                 ; preds = %._crit_edge.loopexit.i108, %.preheader.i103
-  %239 = phi ptr [ %.pre.i109, %._crit_edge.loopexit.i108 ], [ %229, %.preheader.i103 ]
-  call void @_Z8FreeHeapPv(ptr noundef %239) #31
-  br label %_ZN16ScopedVMInitArgsD2Ev.exit110
+._crit_edge.i106:                                 ; preds = %._crit_edge.loopexit.i110, %.preheader.i105
+  %238 = phi ptr [ %.pre.i111, %._crit_edge.loopexit.i110 ], [ %228, %.preheader.i105 ]
+  call void @_Z8FreeHeapPv(ptr noundef %238) #31
+  br label %_ZN16ScopedVMInitArgsD2Ev.exit112
 
-_ZN16ScopedVMInitArgsD2Ev.exit110:                ; preds = %228, %._crit_edge.i104
-  %240 = load ptr, ptr %16, align 8
-  %.not.i111 = icmp eq ptr %240, null
-  br i1 %.not.i111, label %242, label %241
+_ZN16ScopedVMInitArgsD2Ev.exit112:                ; preds = %227, %._crit_edge.i106
+  %239 = load ptr, ptr %16, align 8
+  %.not.i113 = icmp eq ptr %239, null
+  br i1 %.not.i113, label %241, label %240
 
-241:                                              ; preds = %_ZN16ScopedVMInitArgsD2Ev.exit110
-  call void @_ZN2os4freeEPv(ptr noundef nonnull %240) #31
-  br label %242
+240:                                              ; preds = %_ZN16ScopedVMInitArgsD2Ev.exit112
+  call void @_ZN2os4freeEPv(ptr noundef nonnull %239) #31
+  br label %241
 
-242:                                              ; preds = %241, %_ZN16ScopedVMInitArgsD2Ev.exit110
-  %243 = load ptr, ptr %12, align 8
-  %244 = icmp eq ptr %243, null
-  br i1 %244, label %_ZN16ScopedVMInitArgsD2Ev.exit119, label %.preheader.i112
+241:                                              ; preds = %240, %_ZN16ScopedVMInitArgsD2Ev.exit112
+  %242 = load ptr, ptr %12, align 8
+  %243 = icmp eq ptr %242, null
+  br i1 %243, label %_ZN16ScopedVMInitArgsD2Ev.exit121, label %.preheader.i114
 
-.preheader.i112:                                  ; preds = %242
-  %245 = load i32, ptr %11, align 4
-  %246 = icmp sgt i32 %245, 0
-  br i1 %246, label %.lr.ph.i114, label %._crit_edge.i113
+.preheader.i114:                                  ; preds = %241
+  %244 = load i32, ptr %11, align 4
+  %245 = icmp sgt i32 %244, 0
+  br i1 %245, label %.lr.ph.i116, label %._crit_edge.i115
 
-.lr.ph.i114:                                      ; preds = %.preheader.i112, %.lr.ph.i114
-  %indvars.iv.i115 = phi i64 [ %indvars.iv.next.i116, %.lr.ph.i114 ], [ 0, %.preheader.i112 ]
-  %247 = load ptr, ptr %12, align 8
-  %248 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %247, i64 %indvars.iv.i115
-  %249 = load ptr, ptr %248, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %249) #31
-  %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i115, 1
-  %250 = load i32, ptr %11, align 4
-  %251 = sext i32 %250 to i64
-  %252 = icmp slt i64 %indvars.iv.next.i116, %251
-  br i1 %252, label %.lr.ph.i114, label %._crit_edge.loopexit.i117, !llvm.loop !39
+.lr.ph.i116:                                      ; preds = %.preheader.i114, %.lr.ph.i116
+  %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i118, %.lr.ph.i116 ], [ 0, %.preheader.i114 ]
+  %246 = load ptr, ptr %12, align 8
+  %247 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %246, i64 %indvars.iv.i117
+  %248 = load ptr, ptr %247, align 8
+  call void @_ZN2os4freeEPv(ptr noundef %248) #31
+  %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i117, 1
+  %249 = load i32, ptr %11, align 4
+  %250 = sext i32 %249 to i64
+  %251 = icmp slt i64 %indvars.iv.next.i118, %250
+  br i1 %251, label %.lr.ph.i116, label %._crit_edge.loopexit.i119, !llvm.loop !39
 
-._crit_edge.loopexit.i117:                        ; preds = %.lr.ph.i114
-  %.pre.i118 = load ptr, ptr %12, align 8
-  br label %._crit_edge.i113
+._crit_edge.loopexit.i119:                        ; preds = %.lr.ph.i116
+  %.pre.i120 = load ptr, ptr %12, align 8
+  br label %._crit_edge.i115
 
-._crit_edge.i113:                                 ; preds = %._crit_edge.loopexit.i117, %.preheader.i112
-  %253 = phi ptr [ %.pre.i118, %._crit_edge.loopexit.i117 ], [ %243, %.preheader.i112 ]
-  call void @_Z8FreeHeapPv(ptr noundef %253) #31
-  br label %_ZN16ScopedVMInitArgsD2Ev.exit119
+._crit_edge.i115:                                 ; preds = %._crit_edge.loopexit.i119, %.preheader.i114
+  %252 = phi ptr [ %.pre.i120, %._crit_edge.loopexit.i119 ], [ %242, %.preheader.i114 ]
+  call void @_Z8FreeHeapPv(ptr noundef %252) #31
+  br label %_ZN16ScopedVMInitArgsD2Ev.exit121
 
-_ZN16ScopedVMInitArgsD2Ev.exit119:                ; preds = %242, %._crit_edge.i113
+_ZN16ScopedVMInitArgsD2Ev.exit121:                ; preds = %241, %._crit_edge.i115
   ret i32 %.0
 }
 
@@ -9252,38 +9248,39 @@ define internal fastcc void @_ZL13print_optionsPK14JavaVMInitArgs(ptr noundef re
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre12 = load i8, ptr @PrintVMOptions, align 1
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit
-  %7 = phi i32 [ %3, %.lr.ph ], [ %23, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit ]
+  %7 = phi i32 [ %3, %.lr.ph ], [ %22, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit ]
+  %8 = phi i8 [ %.pre12, %.lr.ph ], [ %23, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit ]
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %8, i64 %indvars.iv
-  %.val = load ptr, ptr %9, align 8
-  %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(5) @.str.247, i64 noundef 4) #30
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %9, i64 %indvars.iv
+  %.val = load ptr, ptr %10, align 8
+  %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(5) @.str.247, i64 noundef 4) #30
+  %12 = icmp eq i32 %11, 0
+  %13 = trunc i8 %8 to i1
+  %or.cond = select i1 %12, i1 %13, i1 false
+  br i1 %or.cond, label %14, label %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit
 
-12:                                               ; preds = %6
-  %13 = load i8, ptr @PrintVMOptions, align 1
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit
-
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %17 = load i8, ptr @DisplayVMOutputToStderr, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %20 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %21 = select i1 %18, ptr %19, ptr %20
-  %22 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %21, ptr noundef nonnull @.str.317, ptr noundef nonnull %16) #31
-  %.pre = load i32, ptr %2, align 4
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %16 = load i8, ptr @DisplayVMOutputToStderr, align 1
+  %17 = trunc i8 %16 to i1
+  %18 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %19 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %20 = select i1 %17, ptr %18, ptr %19
+  %21 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %20, ptr noundef nonnull @.str.317, ptr noundef nonnull %15) #31
+  %.pre = load i8, ptr @PrintVMOptions, align 1
+  %.pre13 = load i32, ptr %2, align 4
   br label %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit
 
-_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit:    ; preds = %15, %12, %6
-  %23 = phi i32 [ %.pre, %15 ], [ %7, %12 ], [ %7, %6 ]
+_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit:    ; preds = %14, %6
+  %22 = phi i32 [ %.pre13, %14 ], [ %7, %6 ]
+  %23 = phi i8 [ %.pre, %14 ], [ %8, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = sext i32 %23 to i64
+  %24 = sext i32 %22 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
   br i1 %25, label %6, label %._crit_edge, !llvm.loop !40
 
@@ -9319,7 +9316,7 @@ define hidden noundef range(i32 -6, 1) i32 @_ZN9Arguments10apply_ergoEv() local_
   tail call void @_ZN9CDSConfig10initializeEv() #31
   tail call void @_ZN9Metaspace15ergo_initializeEv() #31
   %6 = tail call noundef zeroext i1 @_ZN11StringDedup15ergo_initializeEv() #31
-  br i1 %6, label %7, label %81
+  br i1 %6, label %7, label %74
 
 7:                                                ; preds = %0
   tail call void @_ZN14CompilerConfig15ergo_initializeEv() #31
@@ -9366,140 +9363,131 @@ _ZN9Arguments18set_bytecode_flagsEv.exit:         ; preds = %7, %10
 
 22:                                               ; preds = %21, %19, %16
   %23 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_cmdlineE12JVMFlagsEnum(i32 noundef 784) #31
-  br i1 %23, label %24, label %28
+  %.not = xor i1 %23, true
+  %24 = load i8, ptr @UseCompressedClassPointers, align 1
+  %25 = trunc i8 %24 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %25
+  br i1 %or.cond, label %27, label %26
 
-24:                                               ; preds = %22
-  %25 = load i8, ptr @UseCompressedClassPointers, align 1
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %28, label %27
-
-27:                                               ; preds = %24
+26:                                               ; preds = %22
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.292) #31
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %24, %22
-  %29 = load i8, ptr @BytecodeVerificationLocal, align 1
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %38
+27:                                               ; preds = %26, %22
+  %28 = load i8, ptr @BytecodeVerificationLocal, align 1
+  %29 = trunc i8 %28 to i1
+  %.not2 = xor i1 %29, true
+  %30 = load i8, ptr @BytecodeVerificationRemote, align 1
+  %31 = trunc i8 %30 to i1
+  %or.cond4 = select i1 %.not2, i1 true, i1 %31
+  br i1 %or.cond4, label %36, label %32
 
-31:                                               ; preds = %28
-  %32 = load i8, ptr @BytecodeVerificationRemote, align 1
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %38, label %34
+32:                                               ; preds = %27
+  %33 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE170ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not27 = icmp eq ptr %33, null
+  br i1 %.not27, label %35, label %34
 
-34:                                               ; preds = %31
-  %35 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE170ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %35, null
-  br i1 %.not, label %37, label %36
-
-36:                                               ; preds = %34
+34:                                               ; preds = %32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE170ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.293)
-  br label %37
+  br label %35
 
-37:                                               ; preds = %34, %36
+35:                                               ; preds = %32, %34
   store i8 1, ptr @BytecodeVerificationRemote, align 1
-  br label %38
+  br label %36
 
-38:                                               ; preds = %37, %31, %28
-  %39 = load i8, ptr @PrintCommandLineFlags, align 1
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %43
+36:                                               ; preds = %35, %27
+  %37 = load i8, ptr @PrintCommandLineFlags, align 1
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %41
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr @tty, align 8
-  tail call void @_ZN7JVMFlag13printSetFlagsEP12outputStream(ptr noundef %42) #31
-  br label %43
+39:                                               ; preds = %36
+  %40 = load ptr, ptr @tty, align 8
+  tail call void @_ZN7JVMFlag13printSetFlagsEP12outputStream(ptr noundef %40) #31
+  br label %41
 
-43:                                               ; preds = %41, %38
-  %44 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 348) #31
-  br i1 %44, label %68, label %45
+41:                                               ; preds = %39, %36
+  %42 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 348) #31
+  %43 = load i8, ptr @EnableVectorSupport, align 1
+  %44 = trunc i8 %43 to i1
+  %or.cond6 = select i1 %42, i1 true, i1 %44
+  br i1 %or.cond6, label %62, label %45
 
-45:                                               ; preds = %43
-  %46 = load i8, ptr @EnableVectorSupport, align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %68, label %48
+45:                                               ; preds = %41
+  %46 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 349) #31
+  %.not7 = xor i1 %46, true
+  %47 = load i8, ptr @EnableVectorReboxing, align 1
+  %48 = trunc i8 %47 to i1
+  %or.cond9 = select i1 %.not7, i1 %48, i1 false
+  br i1 %or.cond9, label %49, label %50
 
-48:                                               ; preds = %45
-  %49 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 349) #31
-  br i1 %49, label %54, label %50
-
-50:                                               ; preds = %48
-  %51 = load i8, ptr @EnableVectorReboxing, align 1
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %54
-
-53:                                               ; preds = %50
+49:                                               ; preds = %45
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.294) #31
-  br label %54
+  br label %50
 
-54:                                               ; preds = %53, %50, %48
+50:                                               ; preds = %49, %45
   store i8 0, ptr @EnableVectorReboxing, align 1
-  %55 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 350) #31
-  br i1 %55, label %61, label %56
+  %51 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 350) #31
+  %.not10 = xor i1 %51, true
+  %52 = load i8, ptr @EnableVectorAggressiveReboxing, align 1
+  %53 = trunc i8 %52 to i1
+  %or.cond12 = select i1 %.not10, i1 %53, i1 false
+  br i1 %or.cond12, label %.sink.split, label %56
 
-56:                                               ; preds = %54
-  %57 = load i8, ptr @EnableVectorAggressiveReboxing, align 1
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %.sink.split, label %61
-
-.sink.split:                                      ; preds = %56
-  %59 = load i8, ptr @EnableVectorReboxing, align 1
-  %60 = trunc i8 %59 to i1
-  %.str.296..str.295 = select i1 %60, ptr @.str.296, ptr @.str.295
+.sink.split:                                      ; preds = %50
+  %54 = load i8, ptr @EnableVectorReboxing, align 1
+  %55 = trunc i8 %54 to i1
+  %.str.296..str.295 = select i1 %55, ptr @.str.296, ptr @.str.295
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull %.str.296..str.295) #31
+  br label %56
+
+56:                                               ; preds = %.sink.split, %50
+  store i8 0, ptr @EnableVectorAggressiveReboxing, align 1
+  %57 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 351) #31
+  %.not13 = xor i1 %57, true
+  %58 = load i8, ptr @UseVectorStubs, align 1
+  %59 = trunc i8 %58 to i1
+  %or.cond15 = select i1 %.not13, i1 %59, i1 false
+  br i1 %or.cond15, label %60, label %61
+
+60:                                               ; preds = %56
+  tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.297) #31
   br label %61
 
-61:                                               ; preds = %.sink.split, %56, %54
-  store i8 0, ptr @EnableVectorAggressiveReboxing, align 1
-  %62 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 351) #31
-  br i1 %62, label %67, label %63
-
-63:                                               ; preds = %61
-  %64 = load i8, ptr @UseVectorStubs, align 1
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %67
-
-66:                                               ; preds = %63
-  tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.297) #31
-  br label %67
-
-67:                                               ; preds = %66, %63, %61
+61:                                               ; preds = %60, %56
   store i8 0, ptr @UseVectorStubs, align 1
-  br label %68
+  br label %62
 
-68:                                               ; preds = %67, %45, %43
-  %69 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_16ELS1_72ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not8 = icmp eq ptr %69, null
-  br i1 %.not8, label %74, label %70
+62:                                               ; preds = %61, %41
+  %63 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_16ELS1_72ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not28 = icmp eq ptr %63, null
+  %64 = load i8, ptr @UsePerfData, align 1
+  %65 = trunc i8 %64 to i1
+  %or.cond18 = select i1 %.not28, i1 true, i1 %65
+  br i1 %or.cond18, label %67, label %66
 
-70:                                               ; preds = %68
-  %71 = load i8, ptr @UsePerfData, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %74, label %73
-
-73:                                               ; preds = %70
+66:                                               ; preds = %62
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.298) #31
   tail call void (i32, i32, ...) @_ZN16LogConfiguration16configure_stdoutEN8LogLevel4typeEiz(i32 noundef 0, i32 noundef 0, i32 noundef 112, i32 noundef 16, i32 noundef 72, i32 noundef 0, i32 noundef 0, i32 noundef 0) #31
+  br label %67
+
+67:                                               ; preds = %66, %62
+  %68 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_cmdlineE12JVMFlagsEnum(i32 noundef 635) #31
+  %69 = load i32, ptr @DiagnoseSyncOnValueBasedClasses, align 4
+  %70 = icmp eq i32 %69, 2
+  %or.cond20 = select i1 %68, i1 %70, i1 false
+  br i1 %or.cond20, label %71, label %74
+
+71:                                               ; preds = %67
+  %72 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE169ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not29 = icmp eq ptr %72, null
+  br i1 %.not29, label %73, label %74
+
+73:                                               ; preds = %71
+  tail call void (i32, i32, ...) @_ZN16LogConfiguration16configure_stdoutEN8LogLevel4typeEiz(i32 noundef 3, i32 noundef 1, i32 noundef 169, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #31
   br label %74
 
-74:                                               ; preds = %70, %73, %68
-  %75 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_cmdlineE12JVMFlagsEnum(i32 noundef 635) #31
-  %76 = load i32, ptr @DiagnoseSyncOnValueBasedClasses, align 4
-  %77 = icmp eq i32 %76, 2
-  %or.cond = select i1 %75, i1 %77, i1 false
-  br i1 %or.cond, label %78, label %81
-
-78:                                               ; preds = %74
-  %79 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE169ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not9 = icmp eq ptr %79, null
-  br i1 %.not9, label %80, label %81
-
-80:                                               ; preds = %78
-  tail call void (i32, i32, ...) @_ZN16LogConfiguration16configure_stdoutEN8LogLevel4typeEiz(i32 noundef 3, i32 noundef 1, i32 noundef 169, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #31
-  br label %81
-
-81:                                               ; preds = %74, %80, %78, %0
-  %.0 = phi i32 [ -6, %0 ], [ 0, %78 ], [ 0, %80 ], [ 0, %74 ]
+74:                                               ; preds = %67, %73, %71, %0
+  %.0 = phi i32 [ -6, %0 ], [ 0, %71 ], [ 0, %73 ], [ 0, %67 ]
   ret i32 %.0
 }
 
@@ -9528,22 +9516,20 @@ declare void @_ZN7JVMFlag13printSetFlagsEP12outputStream(ptr noundef) local_unna
 define hidden noundef i32 @_ZN9Arguments15adjust_after_osEv() local_unnamed_addr #0 align 2 {
   %1 = load i8, ptr @UseNUMA, align 1
   %2 = trunc i8 %1 to i1
-  br i1 %2, label %3, label %9
+  %3 = load i8, ptr @UseParallelGC, align 1
+  %4 = trunc i8 %3 to i1
+  %or.cond = select i1 %2, i1 %4, i1 false
+  br i1 %or.cond, label %5, label %8
 
-3:                                                ; preds = %0
-  %4 = load i8, ptr @UseParallelGC, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %9
+5:                                                ; preds = %0
+  %6 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 791) #31
+  br i1 %6, label %7, label %8
 
-6:                                                ; preds = %3
-  %7 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 791) #31
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %6
+7:                                                ; preds = %5
   store i64 67108864, ptr @MinHeapDeltaBytes, align 8
-  br label %9
+  br label %8
 
-9:                                                ; preds = %3, %8, %6, %0
+8:                                                ; preds = %7, %5, %0
   ret i32 0
 }
 

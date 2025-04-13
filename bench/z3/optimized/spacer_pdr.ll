@@ -1353,11 +1353,11 @@ _ZN6vectorIPN6spacer10model_nodeELb0EjE5eraseEPS2_.exit.i: ; preds = %.lr.ph.pre
 _ZN6vectorIPN6spacer10model_nodeELb0EjE5eraseERKS2_.exit: ; preds = %_ZN7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEE4findEPS0_.exit, %_ZSt4findIPPN6spacer10model_nodeES2_ET_S4_S4_RKT0_.exit.i, %_ZN6vectorIPN6spacer10model_nodeELb0EjE5eraseEPS2_.exit.i
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !51
-  %.not.i15 = icmp ne ptr %99, null
+  %.not.i16 = icmp ne ptr %99, null
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %101 = load ptr, ptr %100, align 8
   %102 = icmp ne ptr %101, null
-  %103 = select i1 %.not.i15, i1 %102, i1 false
+  %103 = select i1 %.not.i16, i1 %102, i1 false
   br i1 %103, label %104, label %114
 
 104:                                              ; preds = %_ZN6vectorIPN6spacer10model_nodeELb0EjE5eraseERKS2_.exit
@@ -1391,40 +1391,40 @@ _ZN6spacer10model_node6detachERPS0_.exit:         ; preds = %107, %.sink.split.i
 114:                                              ; preds = %_ZN6spacer10model_node6detachERPS0_.exit, %_ZN6vectorIPN6spacer10model_nodeELb0EjE5eraseERKS2_.exit
   %115 = phi ptr [ %.pre, %_ZN6spacer10model_node6detachERPS0_.exit ], [ %47, %_ZN6vectorIPN6spacer10model_nodeELb0EjE5eraseERKS2_.exit ]
   %116 = icmp eq ptr %115, null
-  br i1 %116, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20.thread, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit
+  br i1 %116, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21.thread, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit
 
 _ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit: ; preds = %114
   %117 = getelementptr inbounds i8, ptr %115, i64 -4
   %118 = load i32, ptr %117, align 4, !tbaa !43
   %119 = icmp ne i32 %118, 0
-  %brmerge.not = and i1 %2, %119
-  br i1 %brmerge.not, label %120, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20
+  %or.cond = and i1 %2, %119
+  br i1 %or.cond, label %120, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21
 
 120:                                              ; preds = %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit
   %121 = load ptr, ptr %115, align 8, !tbaa !44
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load ptr, ptr %122, align 8, !tbaa !42
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit16.thread, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit16
+  br i1 %124, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit17.thread, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit17
 
-_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit16: ; preds = %120
+_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit17: ; preds = %120
   %125 = getelementptr inbounds i8, ptr %123, i64 -4
   %126 = load i32, ptr %125, align 4, !tbaa !43
   %127 = icmp eq i32 %126, 0
-  br i1 %127, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit16.thread, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20.thread48
+  br i1 %127, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit17.thread, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21.thread48
 
-_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit16.thread: ; preds = %120, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit16
+_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit17.thread: ; preds = %120, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit17
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 48
   %129 = load i8, ptr %128, align 8, !tbaa !41, !range !45, !noundef !46
   %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %131, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20.thread48
+  br i1 %130, label %131, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21.thread48
 
-131:                                              ; preds = %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit16.thread
+131:                                              ; preds = %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit17.thread
   store i8 0, ptr %128, align 8, !tbaa !41
   %.0.in5.i = getelementptr inbounds nuw i8, ptr %121, i64 8
   %.06.i = load ptr, ptr %.0.in5.i, align 8, !tbaa !32
-  %.not7.i17 = icmp eq ptr %.06.i, null
-  br i1 %.not7.i17, label %_ZN6spacer10model_node8set_openEv.exit, label %.lr.ph.i
+  %.not7.i18 = icmp eq ptr %.06.i, null
+  br i1 %.not7.i18, label %_ZN6spacer10model_node8set_openEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %131, %135
   %.08.i = phi ptr [ %.0.i, %135 ], [ %.06.i, %131 ]
@@ -1437,14 +1437,14 @@ _ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit16.thread: ; preds = %120, 
   store i8 0, ptr %132, align 8, !tbaa !41
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !32
-  %.not.i18 = icmp eq ptr %.0.i, null
-  br i1 %.not.i18, label %_ZN6spacer10model_node8set_openEv.exit, label %.lr.ph.i, !llvm.loop !47
+  %.not.i19 = icmp eq ptr %.0.i, null
+  br i1 %.not.i19, label %_ZN6spacer10model_node8set_openEv.exit, label %.lr.ph.i, !llvm.loop !47
 
 _ZN6spacer10model_node8set_openEv.exit:           ; preds = %.lr.ph.i, %135, %131
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !84
-  %.not.i19 = icmp eq ptr %137, null
-  br i1 %.not.i19, label %138, label %140
+  %.not.i20 = icmp eq ptr %137, null
+  br i1 %.not.i20, label %138, label %140
 
 138:                                              ; preds = %_ZN6spacer10model_node8set_openEv.exit
   store ptr %121, ptr %136, align 8, !tbaa !84
@@ -1502,34 +1502,34 @@ _ZN6spacer10model_node12insert_afterEPS0_.exit6.i: ; preds = %155, %150
   %.sink.i.sink.i = phi ptr [ %.sink.i.i, %_ZN6spacer10model_node12insert_afterEPS0_.exit.i ], [ %.sink.i5.i, %_ZN6spacer10model_node12insert_afterEPS0_.exit6.i ], [ %121, %138 ]
   %160 = getelementptr inbounds nuw i8, ptr %.sink11.i.sink.i, i64 32
   store ptr %.sink.i.sink.i, ptr %160, align 8, !tbaa !52
-  br label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20
+  br label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21
 
-_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20: ; preds = %159, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit
+_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21: ; preds = %159, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit
   %161 = icmp eq i32 %118, 0
-  br i1 %161, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20.thread, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20.thread48
+  br i1 %161, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21.thread, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21.thread48
 
-_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20.thread: ; preds = %114, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20
+_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21.thread: ; preds = %114, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21
   %162 = load i32, ptr %5, align 8, !tbaa !39
   %163 = load ptr, ptr %7, align 8, !tbaa !57
   %164 = icmp eq ptr %163, null
-  br i1 %164, label %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.thread.i23, label %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.i21
+  br i1 %164, label %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.thread.i24, label %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.i22
 
-_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.i21: ; preds = %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20.thread
+_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.i22: ; preds = %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21.thread
   %165 = getelementptr inbounds i8, ptr %163, i64 -4
   %166 = load i32, ptr %165, align 4, !tbaa !43
-  %.not.i22 = icmp ult i32 %162, %166
-  br i1 %.not.i22, label %_ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit25, label %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.thread.i23
+  %.not.i23 = icmp ult i32 %162, %166
+  br i1 %.not.i23, label %_ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit26, label %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.thread.i24
 
-_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.thread.i23: ; preds = %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.i21, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20.thread
+_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.thread.i24: ; preds = %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.i22, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21.thread
   %167 = add i32 %162, 1
   tail call void @_ZN6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE6resizeEj(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %167)
-  %.pre.i24 = load ptr, ptr %7, align 8, !tbaa !57
+  %.pre.i25 = load ptr, ptr %7, align 8, !tbaa !57
   %.pre47 = load ptr, ptr %1, align 8, !tbaa !3
-  br label %_ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit25
+  br label %_ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit26
 
-_ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit25: ; preds = %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.i21, %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.thread.i23
-  %168 = phi ptr [ %.pre47, %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.thread.i23 ], [ %16, %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.i21 ]
-  %169 = phi ptr [ %.pre.i24, %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.thread.i23 ], [ %163, %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.i21 ]
+_ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit26: ; preds = %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.i22, %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.thread.i24
+  %168 = phi ptr [ %.pre47, %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.thread.i24 ], [ %16, %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.i22 ]
+  %169 = phi ptr [ %.pre.i25, %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.thread.i24 ], [ %163, %_ZNK6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE4sizeEv.exit.i22 ]
   %170 = zext i32 %162 to i64
   %171 = getelementptr inbounds nuw %class.obj_map, ptr %169, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 24
@@ -1541,7 +1541,7 @@ _ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit25: ; preds = %_ZNK6vector
   invoke void @_ZN14core_hashtableIN7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE6removeERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %171, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %175 unwind label %182
 
-175:                                              ; preds = %_ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit25
+175:                                              ; preds = %_ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit26
   %176 = load ptr, ptr %174, align 8, !tbaa !42
   %.not.i.i.i.i = icmp eq ptr %176, null
   br i1 %.not.i.i.i.i, label %_ZN7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEE6removeEPS0_.exit, label %177
@@ -1558,7 +1558,7 @@ _ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit25: ; preds = %_ZNK6vector
   call void @__clang_call_terminate(ptr %181) #23
   unreachable
 
-182:                                              ; preds = %_ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit25
+182:                                              ; preds = %_ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit26
   %183 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEE8key_dataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
@@ -1567,9 +1567,9 @@ _ZN6spacer12model_search5cacheERKNS_10model_nodeE.exit25: ; preds = %_ZNK6vector
 
 _ZN7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEE6removeEPS0_.exit: ; preds = %175, %177
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
-  br label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20.thread48
+  br label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21.thread48
 
-_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20.thread48: ; preds = %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit16.thread, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit16, %_ZN7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEE6removeEPS0_.exit, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit20
+_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21.thread48: ; preds = %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit17.thread, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit17, %_ZN7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEE6removeEPS0_.exit, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit21
   ret void
 }
 

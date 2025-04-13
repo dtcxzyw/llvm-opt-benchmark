@@ -169,8 +169,8 @@ define void @_ZN5boost10filesystem16filesystem_errorC2EPKcNS_6system10error_code
   %13 = atomicrmw add ptr %5, i32 1 acq_rel, align 4
   %14 = load ptr, ptr %4, align 8, !tbaa !6
   store ptr %5, ptr %4, align 8, !tbaa !6
-  %.not.i2.i = icmp eq ptr %14, null
-  br i1 %.not.i2.i, label %_ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEE5resetEPS3_.exit, label %15
+  %.not.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i, label %_ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEE5resetEPS3_.exit, label %15
 
 15:                                               ; preds = %6
   %16 = atomicrmw add ptr %14, i32 -1 acq_rel, align 4
@@ -874,8 +874,8 @@ define void @_ZN5boost10filesystem16filesystem_errorC2ERKNSt7__cxx1112basic_stri
   %13 = atomicrmw add ptr %5, i32 1 acq_rel, align 4
   %14 = load ptr, ptr %4, align 8, !tbaa !6
   store ptr %5, ptr %4, align 8, !tbaa !6
-  %.not.i2.i = icmp eq ptr %14, null
-  br i1 %.not.i2.i, label %_ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEE5resetEPS3_.exit, label %15
+  %.not.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i, label %_ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEE5resetEPS3_.exit, label %15
 
 15:                                               ; preds = %6
   %16 = atomicrmw add ptr %14, i32 -1 acq_rel, align 4
@@ -1399,8 +1399,8 @@ define void @_ZN5boost10filesystem16filesystem_errorC2EPKcRKNS0_4pathENS_6system
   %32 = atomicrmw add ptr %7, i32 1 acq_rel, align 4
   %33 = load ptr, ptr %6, align 8, !tbaa !6
   store ptr %7, ptr %6, align 8, !tbaa !6
-  %.not.i2.i = icmp eq ptr %33, null
-  br i1 %.not.i2.i, label %_ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEE5resetEPS3_.exit, label %34
+  %.not.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i, label %_ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEE5resetEPS3_.exit, label %34
 
 34:                                               ; preds = %21
   %35 = atomicrmw add ptr %33, i32 -1 acq_rel, align 4
@@ -1576,8 +1576,8 @@ define void @_ZN5boost10filesystem16filesystem_errorC2ERKNSt7__cxx1112basic_stri
   %32 = atomicrmw add ptr %7, i32 1 acq_rel, align 4
   %33 = load ptr, ptr %6, align 8, !tbaa !6
   store ptr %7, ptr %6, align 8, !tbaa !6
-  %.not.i2.i = icmp eq ptr %33, null
-  br i1 %.not.i2.i, label %_ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEE5resetEPS3_.exit, label %34
+  %.not.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i, label %_ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEE5resetEPS3_.exit, label %34
 
 34:                                               ; preds = %21
   %35 = atomicrmw add ptr %33, i32 -1 acq_rel, align 4
@@ -1695,8 +1695,8 @@ define void @_ZN5boost10filesystem16filesystem_errorC2EPKcRKNS0_4pathES6_NS_6sys
   %10 = atomicrmw add ptr %7, i32 1 acq_rel, align 4
   %11 = load ptr, ptr %6, align 8, !tbaa !6
   store ptr %7, ptr %6, align 8, !tbaa !6
-  %.not.i2.i = icmp eq ptr %11, null
-  br i1 %.not.i2.i, label %_ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEE5resetEPS3_.exit, label %12
+  %.not.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i, label %_ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEE5resetEPS3_.exit, label %12
 
 12:                                               ; preds = %9
   %13 = atomicrmw add ptr %11, i32 -1 acq_rel, align 4
@@ -1937,8 +1937,8 @@ define void @_ZN5boost10filesystem16filesystem_errorC2ERKNSt7__cxx1112basic_stri
   %10 = atomicrmw add ptr %7, i32 1 acq_rel, align 4
   %11 = load ptr, ptr %6, align 8, !tbaa !6
   store ptr %7, ptr %6, align 8, !tbaa !6
-  %.not.i2.i = icmp eq ptr %11, null
-  br i1 %.not.i2.i, label %_ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEE5resetEPS3_.exit, label %12
+  %.not.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i, label %_ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEE5resetEPS3_.exit, label %12
 
 12:                                               ; preds = %9
   %13 = atomicrmw add ptr %11, i32 -1 acq_rel, align 4

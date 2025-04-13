@@ -271,7 +271,7 @@ H5FL__blk_term.exit:                              ; preds = %H5FL__arr_term.exit
   store i8 0, ptr @H5FL_init_g, align 1, !tbaa !3
   br label %64
 
-64:                                               ; preds = %0, %63, %H5FL__blk_term.exit
+64:                                               ; preds = %63, %H5FL__blk_term.exit, %0
   %.0 = phi i32 [ 0, %63 ], [ %61, %H5FL__blk_term.exit ], [ 0, %0 ]
   ret i32 %.0
 }

@@ -536,15 +536,15 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr @pmix_progress_thread_cpus, align 8, !tbaa !67
-  %.not39 = icmp eq ptr %12, null
-  br i1 %.not39, label %60, label %13
+  %.not40 = icmp eq ptr %12, null
+  br i1 %.not40, label %60, label %13
 
 13:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false)
   %14 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %12, i32 noundef 44) #14
   %15 = load ptr, ptr %14, align 8, !tbaa !67
-  %.not4044 = icmp eq ptr %15, null
-  br i1 %.not4044, label %._crit_edge, label %.lr.ph46
+  %.not4144 = icmp eq ptr %15, null
+  br i1 %.not4144, label %._crit_edge, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %13, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %13 ]
@@ -580,12 +580,12 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   br i1 %35, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %30, %45
-  %.03243 = phi i32 [ %46, %45 ], [ %31, %30 ]
-  %36 = icmp ult i32 %.03243, 1024
+  %.03343 = phi i32 [ %46, %45 ], [ %31, %30 ]
+  %36 = icmp ult i32 %.03343, 1024
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %.lr.ph
-  %38 = zext nneg i32 %.03243 to i64
+  %38 = zext nneg i32 %.03343 to i64
   %39 = and i64 %38, 63
   %40 = shl nuw i64 1, %39
   %41 = lshr i64 %38, 6
@@ -596,7 +596,7 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   br label %45
 
 45:                                               ; preds = %.lr.ph, %37
-  %46 = add nsw i32 %.03243, 1
+  %46 = add nsw i32 %.03343, 1
   %exitcond.not = icmp eq i32 %46, %34
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
@@ -604,22 +604,20 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next
   %48 = load ptr, ptr %47, align 8, !tbaa !67
-  %.not40 = icmp eq ptr %48, null
-  br i1 %.not40, label %._crit_edge, label %.lr.ph46, !llvm.loop !70
+  %.not41 = icmp eq ptr %48, null
+  br i1 %.not41, label %._crit_edge, label %.lr.ph46, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.loopexit, %13
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %50 = load i64, ptr %49, align 8, !tbaa !71
   %51 = call i32 @pthread_setaffinity_np(i64 noundef %50, i64 noundef 128, ptr noundef nonnull %2) #14
-  %.not41 = icmp eq i32 %51, 0
-  br i1 %.not41, label %59, label %52
-
-52:                                               ; preds = %._crit_edge
-  %53 = load i8, ptr @pmix_bind_progress_thread_reqd, align 1, !tbaa !72, !range !61, !noundef !62
+  %52 = icmp ne i32 %51, 0
+  %53 = load i8, ptr @pmix_bind_progress_thread_reqd, align 1, !range !61
   %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %55, label %59
+  %or.cond = select i1 %52, i1 %54, i1 false
+  br i1 %or.cond, label %55, label %59
 
-55:                                               ; preds = %52
+55:                                               ; preds = %._crit_edge
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %57 = load ptr, ptr %56, align 8, !tbaa !36
   %58 = icmp eq ptr %57, null
@@ -627,8 +625,8 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %spec.select) #14
   br label %59
 
-59:                                               ; preds = %._crit_edge, %52, %55
-  %.1 = phi i32 [ -47, %55 ], [ 0, %52 ], [ 0, %._crit_edge ]
+59:                                               ; preds = %._crit_edge, %55
+  %.1 = phi i32 [ -47, %55 ], [ 0, %._crit_edge ]
   call void @PMIx_Argv_free(ptr noundef nonnull %14) #14
   br label %60
 
@@ -764,7 +762,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %48
   %63 = getelementptr inbounds nuw i8, ptr %.01827, i64 120
   %.018 = load ptr, ptr %63, align 8, !tbaa !35
   %.not = icmp eq ptr %.018, getelementptr inbounds nuw (i8, ptr @tracking, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !72
 
 .loopexit:                                        ; preds = %62, %10, %pmix_obj_update.exit, %61, %59, %15, %7, %1
   %.0 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %15 ], [ 0, %59 ], [ 0, %61 ], [ 0, %pmix_obj_update.exit ], [ -46, %10 ], [ -46, %62 ]
@@ -879,7 +877,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %37
   %52 = getelementptr inbounds nuw i8, ptr %.01524, i64 120
   %.015 = load ptr, ptr %52, align 8, !tbaa !35
   %.not = icmp eq ptr %.015, getelementptr inbounds nuw (i8, ptr @tracking, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !73
 
 .loopexit:                                        ; preds = %51, %10, %pmix_obj_update.exit, %50, %48, %15, %7, %1
   %.0 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %15 ], [ 0, %48 ], [ 0, %50 ], [ 0, %pmix_obj_update.exit ], [ -46, %10 ], [ -46, %51 ]
@@ -938,7 +936,7 @@ define range(i32 -46, 1) i32 @pmix_progress_thread_pause(ptr noundef readonly ca
   %26 = getelementptr inbounds nuw i8, ptr %.015, i64 120
   %.0 = load ptr, ptr %26, align 8, !tbaa !35
   %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @tracking, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
 
 .loopexit:                                        ; preds = %25, %10, %15, %19, %7, %1
   %.09 = phi i32 [ -46, %1 ], [ 0, %7 ], [ 0, %19 ], [ 0, %15 ], [ -46, %10 ], [ -46, %25 ]
@@ -992,7 +990,7 @@ define noundef i32 @pmix_progress_thread_resume(ptr noundef readonly captures(ad
   %22 = getelementptr inbounds nuw i8, ptr %.015, i64 120
   %.0 = load ptr, ptr %22, align 8, !tbaa !35
   %.not = icmp eq ptr %.0, getelementptr inbounds nuw (i8, ptr @tracking, i64 120)
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !76
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
 
 .loopexit:                                        ; preds = %21, %10, %15, %7, %1, %19
   %.09 = phi i32 [ %20, %19 ], [ -46, %1 ], [ 0, %7 ], [ -28, %15 ], [ -46, %10 ], [ -46, %21 ]
@@ -1092,7 +1090,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @progress_engine(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load ptr, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load volatile i8, ptr %4, align 8, !tbaa !63, !range !61, !noundef !62
   %6 = trunc nuw i8 %5 to i1
@@ -1107,7 +1105,7 @@ define internal noundef nonnull ptr @progress_engine(ptr noundef readonly captur
   %10 = tail call i32 @event_base_loop(ptr noundef %9, i32 noundef 1) #14
   %11 = load volatile i8, ptr %4, align 8, !tbaa !63, !range !61, !noundef !62
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %8, label %._crit_edge, !llvm.loop !78
+  br i1 %12, label %8, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %8, %1
   ret ptr inttoptr (i64 1 to ptr)
@@ -1227,10 +1225,9 @@ attributes #19 = { noreturn nounwind }
 !69 = distinct !{!69, !34}
 !70 = distinct !{!70, !34}
 !71 = !{!8, !25, i64 448}
-!72 = !{!17, !17, i64 0}
+!72 = distinct !{!72, !34}
 !73 = distinct !{!73, !34}
 !74 = distinct !{!74, !34}
 !75 = distinct !{!75, !34}
-!76 = distinct !{!76, !34}
-!77 = !{!26, !4, i64 128}
-!78 = distinct !{!78, !34}
+!76 = !{!26, !4, i64 128}
+!77 = distinct !{!77, !34}

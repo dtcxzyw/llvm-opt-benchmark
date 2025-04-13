@@ -8027,7 +8027,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #27
   %switch.tableidx = add i32 %169, -2
   %170 = icmp ult i32 %switch.tableidx, 8
-  br i1 %170, label %switch.hole_check, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit233
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -121, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %170, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit233
 
 171:                                              ; preds = %67
   %172 = landingpad { ptr, i32 }
@@ -8046,13 +8050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZN
           cleanup
   br label %1422
 
-switch.hole_check:                                ; preds = %166
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -121, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit233
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %166
   %177 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6Assimp15ColladaExporter14WriteMaterialsEv, i64 0, i64 %177
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -8063,7 +8061,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %180 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %152, i64 noundef 0, i64 noundef %179, ptr noundef nonnull %switch.load, i64 noundef %switch.load2581)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit233 unwind label %175
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit233: ; preds = %switch.hole_check, %166, %switch.lookup, %.thread
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit233: ; preds = %166, %switch.lookup, %.thread
   %181 = getelementptr inbounds nuw i8, ptr %69, i64 96
   %182 = invoke noundef zeroext i1 @_ZN6Assimp15ColladaExporter19ReadMaterialSurfaceERNS0_7SurfaceERK10aiMaterial13aiTextureTypePKcmm(ptr noundef nonnull align 8 dereferenceable(1248) %0, ptr noundef nonnull align 8 dereferenceable(64) %181, ptr noundef nonnull align 8 dereferenceable(16) %151, i32 noundef 3, ptr noundef nonnull @.str.146, i64 noundef 0, i64 noundef 0)
           to label %183 unwind label %175

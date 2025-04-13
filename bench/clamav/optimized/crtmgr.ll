@@ -790,30 +790,28 @@ define internal fastcc range(i32 0, 2) i32 @crtmgr_rsa_verify(ptr noundef nonnul
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = tail call i32 @BN_num_bits(ptr noundef %6) #10
-  %8 = add nsw i32 %7, 7
-  %9 = sdiv i32 %8, 8
-  %10 = tail call i32 @BN_num_bits(ptr noundef %1) #10
-  %11 = add nsw i32 %10, 7
-  %.neg = sdiv i32 %11, -8
+  %8 = tail call i32 @BN_num_bits(ptr noundef %1) #10
   %switch.tableidx = add i32 %2, -1
-  %12 = icmp ult i32 %switch.tableidx, 7
-  br i1 %12, label %switch.hole_check, label %13
+  %9 = icmp ult i32 %switch.tableidx, 7
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 115, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %9, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %10
 
-13:                                               ; preds = %switch.hole_check, %4
+10:                                               ; preds = %4
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.5, i32 noundef %2) #10
   br label %130
 
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 115, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %13
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
+  %11 = add nsw i32 %8, 7
+  %.neg = sdiv i32 %11, -8
+  %12 = add nsw i32 %7, 7
+  %13 = sdiv i32 %12, 8
   %14 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.crtmgr_rsa_verify, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
-  %sub = add nsw i32 %.neg, %9
+  %sub = add nsw i32 %.neg, %13
   %15 = tail call i32 @llvm.abs.i32(i32 %sub, i1 true)
   %16 = icmp samesign ugt i32 %15, 1
   br i1 %16, label %17, label %18
@@ -1130,8 +1128,8 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   tail call void @free(ptr noundef %.086) #10
   br label %130
 
-130:                                              ; preds = %crtmgr_get_recov_data.exit, %129, %128, %17, %13
-  %.0 = phi i32 [ 1, %17 ], [ 1, %129 ], [ 0, %128 ], [ 1, %13 ], [ 1, %crtmgr_get_recov_data.exit ]
+130:                                              ; preds = %crtmgr_get_recov_data.exit, %129, %128, %17, %10
+  %.0 = phi i32 [ 1, %17 ], [ 1, %129 ], [ 0, %128 ], [ 1, %10 ], [ 1, %crtmgr_get_recov_data.exit ]
   ret i32 %.0
 }
 

@@ -1148,9 +1148,13 @@ define i32 @rsock_connect(i64 noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   %27 = load i32, ptr %6, align 4, !tbaa !6
   %switch.tableidx = add i32 %27, -106
   %28 = icmp ult i32 %switch.tableidx, 9
-  br i1 %28, label %switch.hole_check, label %29
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 417, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %28, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %29
 
-29:                                               ; preds = %switch.hole_check, %26
+29:                                               ; preds = %26
   %30 = call i64 @rb_io_wait(i64 noundef %0, i64 noundef 11, i64 noundef %4) #10
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %32, label %34
@@ -1197,13 +1201,7 @@ rb_num2int_inline.exit.i:                         ; preds = %38, %36
     i32 106, label %wait_connectable.exit
   ]
 
-switch.hole_check:                                ; preds = %26
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 417, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %29
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %26
   %46 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.rsock_connect, i64 0, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4

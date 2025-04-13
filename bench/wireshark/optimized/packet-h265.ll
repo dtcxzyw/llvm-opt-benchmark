@@ -3358,9 +3358,9 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   %19 = load i32, ptr @hf_h265_general_profile_compatibility_flags, align 4
   %20 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %18, i32 noundef 4, i32 noundef 0)
   %21 = shl i32 %18, 3
-  br label %38
+  br label %65
 
-22:                                               ; preds = %38
+22:                                               ; preds = %65
   %23 = add i32 %21, 32
   %24 = load i32, ptr @hf_h265_general_progressive_source_flag, align 4
   %25 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %24, ptr noundef %1, i32 noundef %23, i32 noundef 1, i32 noundef 0)
@@ -3375,241 +3375,181 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   %34 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef %32, i32 noundef 1, i32 noundef 0)
   %35 = add i32 %21, 36
   %36 = load i32, ptr %5, align 4
-  %37 = icmp eq i32 %36, 4
-  br i1 %37, label %79, label %45
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %38 = load i8, ptr %37, align 4, !range !34
+  %39 = trunc nuw i8 %38 to i1
+  %40 = and i32 %36, -2
+  %41 = icmp eq i32 %40, 4
+  %or.cond4 = select i1 %41, i1 true, i1 %39
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 5
+  %43 = load i8, ptr %42, align 1, !range !34
+  %44 = trunc nuw i8 %43 to i1
+  %or.cond7 = select i1 %or.cond4, i1 true, i1 %44
+  %45 = icmp eq i32 %36, 6
+  %or.cond9 = select i1 %or.cond7, i1 true, i1 %45
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 6
+  %47 = load i8, ptr %46, align 2, !range !34
+  %48 = trunc nuw i8 %47 to i1
+  %or.cond12 = select i1 %or.cond9, i1 true, i1 %48
+  %49 = icmp eq i32 %36, 7
+  %or.cond14 = select i1 %or.cond12, i1 true, i1 %49
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 7
+  %51 = load i8, ptr %50, align 1, !range !34
+  %52 = trunc nuw i8 %51 to i1
+  %or.cond17 = select i1 %or.cond14, i1 true, i1 %52
+  %53 = icmp eq i32 %36, 8
+  %or.cond19 = select i1 %or.cond17, i1 true, i1 %53
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %55 = load i8, ptr %54, align 8, !range !34
+  %56 = trunc nuw i8 %55 to i1
+  %or.cond22 = select i1 %or.cond19, i1 true, i1 %56
+  %57 = icmp eq i32 %36, 9
+  %or.cond24 = select i1 %or.cond22, i1 true, i1 %57
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %59 = load i8, ptr %58, align 1, !range !34
+  %60 = trunc nuw i8 %59 to i1
+  %or.cond27 = select i1 %or.cond24, i1 true, i1 %60
+  %61 = icmp eq i32 %36, 10
+  %or.cond29 = select i1 %or.cond27, i1 true, i1 %61
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %63 = load i8, ptr %62, align 2, !range !34
+  %64 = trunc nuw i8 %63 to i1
+  %or.cond32 = select i1 %or.cond29, i1 true, i1 %64
+  br i1 %or.cond32, label %72, label %113
 
-38:                                               ; preds = %4, %38
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %38 ]
-  %39 = trunc nuw nsw i64 %indvars.iv to i32
-  %40 = add i32 %21, %39
-  %41 = call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %40, i32 noundef 1)
-  %42 = icmp ne i8 %41, 0
-  %43 = getelementptr [32 x i8], ptr %8, i64 0, i64 %indvars.iv
-  %44 = zext i1 %42 to i8
-  store i8 %44, ptr %43, align 1
+65:                                               ; preds = %4, %65
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %65 ]
+  %66 = trunc nuw nsw i64 %indvars.iv to i32
+  %67 = add i32 %21, %66
+  %68 = call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %67, i32 noundef 1)
+  %69 = icmp ne i8 %68, 0
+  %70 = getelementptr [32 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %71 = zext i1 %69 to i8
+  store i8 %71, ptr %70, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %22, label %38, !llvm.loop !34
+  br i1 %exitcond.not, label %22, label %65, !llvm.loop !35
 
-45:                                               ; preds = %22
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %47 = load i8, ptr %46, align 4, !range !35, !noundef !36
-  %48 = trunc nuw i8 %47 to i1
-  %49 = icmp eq i32 %36, 5
-  %or.cond = or i1 %49, %48
-  br i1 %or.cond, label %79, label %50
+72:                                               ; preds = %22
+  %73 = load i32, ptr @hf_h265_general_max_12bit_constraint_flag, align 4
+  %74 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %73, ptr noundef %1, i32 noundef %35, i32 noundef 1, i32 noundef 0)
+  %75 = add i32 %21, 37
+  %76 = load i32, ptr @hf_h265_general_max_10bit_constraint_flag, align 4
+  %77 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %76, ptr noundef %1, i32 noundef %75, i32 noundef 1, i32 noundef 0)
+  %78 = add i32 %21, 38
+  %79 = load i32, ptr @hf_h265_general_max_8bit_constraint_flag, align 4
+  %80 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %79, ptr noundef %1, i32 noundef %78, i32 noundef 1, i32 noundef 0)
+  %81 = add i32 %21, 39
+  %82 = load i32, ptr @hf_h265_general_max_422chroma_constraint_flag, align 4
+  %83 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %82, ptr noundef %1, i32 noundef %81, i32 noundef 1, i32 noundef 0)
+  %84 = add i32 %21, 40
+  %85 = load i32, ptr @hf_h265_general_max_420chroma_constraint_flag, align 4
+  %86 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %85, ptr noundef %1, i32 noundef %84, i32 noundef 1, i32 noundef 0)
+  %87 = add i32 %21, 41
+  %88 = load i32, ptr @hf_h265_general_max_monochrome_constraint_flag, align 4
+  %89 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %88, ptr noundef %1, i32 noundef %87, i32 noundef 1, i32 noundef 0)
+  %90 = add i32 %21, 42
+  %91 = load i32, ptr @hf_h265_general_intra_constraint_flag, align 4
+  %92 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %91, ptr noundef %1, i32 noundef %90, i32 noundef 1, i32 noundef 0)
+  %93 = add i32 %21, 43
+  %94 = load i32, ptr @hf_h265_general_one_picture_only_constraint_flag, align 4
+  %95 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %94, ptr noundef %1, i32 noundef %93, i32 noundef 1, i32 noundef 0)
+  %96 = add i32 %21, 44
+  %97 = load i32, ptr @hf_h265_general_lower_bit_rate_constraint_flag, align 4
+  %98 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %97, ptr noundef %1, i32 noundef %96, i32 noundef 1, i32 noundef 0)
+  %99 = add i32 %21, 45
+  %100 = load i32, ptr %5, align 4
+  %101 = icmp eq i32 %100, 5
+  %or.cond35 = select i1 %101, i1 true, i1 %44
+  %102 = icmp eq i32 %100, 9
+  %or.cond37 = or i1 %102, %or.cond35
+  %or.cond40 = select i1 %or.cond37, i1 true, i1 %60
+  %103 = icmp eq i32 %100, 10
+  %or.cond42 = or i1 %103, %or.cond40
+  %or.cond45 = select i1 %or.cond42, i1 true, i1 %64
+  br i1 %or.cond45, label %104, label %110
 
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  %52 = load i8, ptr %51, align 1, !range !35, !noundef !36
-  %53 = trunc nuw i8 %52 to i1
-  %54 = icmp eq i32 %36, 6
-  %or.cond3 = or i1 %54, %53
-  br i1 %or.cond3, label %79, label %55
+104:                                              ; preds = %72
+  %105 = load i32, ptr @hf_h265_general_max_14bit_constraint_flag, align 4
+  %106 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %105, ptr noundef %1, i32 noundef %99, i32 noundef 1, i32 noundef 0)
+  %107 = add i32 %21, 46
+  %108 = load i32, ptr @hf_h265_general_reserved_zero_33bits, align 4
+  %109 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %108, ptr noundef %1, i32 noundef %107, i32 noundef 33, i32 noundef 0)
+  br label %130
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 6
-  %57 = load i8, ptr %56, align 2, !range !35, !noundef !36
-  %58 = trunc nuw i8 %57 to i1
-  %59 = icmp eq i32 %36, 7
-  %or.cond5 = or i1 %59, %58
-  br i1 %or.cond5, label %79, label %60
+110:                                              ; preds = %72
+  %111 = load i32, ptr @hf_h265_general_reserved_zero_34bits, align 4
+  %112 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %111, ptr noundef %1, i32 noundef %99, i32 noundef 34, i32 noundef 0)
+  br label %130
 
-60:                                               ; preds = %55
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 7
-  %62 = load i8, ptr %61, align 1, !range !35, !noundef !36
-  %63 = trunc nuw i8 %62 to i1
-  %64 = icmp eq i32 %36, 8
-  %or.cond7 = or i1 %64, %63
-  br i1 %or.cond7, label %79, label %65
-
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %67 = load i8, ptr %66, align 8, !range !35, !noundef !36
-  %68 = trunc nuw i8 %67 to i1
-  %69 = icmp eq i32 %36, 9
-  %or.cond9 = or i1 %69, %68
-  br i1 %or.cond9, label %79, label %70
-
-70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %72 = load i8, ptr %71, align 1, !range !35, !noundef !36
-  %73 = trunc nuw i8 %72 to i1
-  %74 = icmp eq i32 %36, 10
-  %or.cond11 = or i1 %74, %73
-  br i1 %or.cond11, label %79, label %75
-
-75:                                               ; preds = %70
-  %76 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %77 = load i8, ptr %76, align 2, !range !35, !noundef !36
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %79, label %132
-
-79:                                               ; preds = %75, %70, %65, %60, %55, %50, %45, %22
-  %80 = load i32, ptr @hf_h265_general_max_12bit_constraint_flag, align 4
-  %81 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %80, ptr noundef %1, i32 noundef %35, i32 noundef 1, i32 noundef 0)
-  %82 = add i32 %21, 37
-  %83 = load i32, ptr @hf_h265_general_max_10bit_constraint_flag, align 4
-  %84 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %83, ptr noundef %1, i32 noundef %82, i32 noundef 1, i32 noundef 0)
-  %85 = add i32 %21, 38
-  %86 = load i32, ptr @hf_h265_general_max_8bit_constraint_flag, align 4
-  %87 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %86, ptr noundef %1, i32 noundef %85, i32 noundef 1, i32 noundef 0)
-  %88 = add i32 %21, 39
-  %89 = load i32, ptr @hf_h265_general_max_422chroma_constraint_flag, align 4
-  %90 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %89, ptr noundef %1, i32 noundef %88, i32 noundef 1, i32 noundef 0)
-  %91 = add i32 %21, 40
-  %92 = load i32, ptr @hf_h265_general_max_420chroma_constraint_flag, align 4
-  %93 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %92, ptr noundef %1, i32 noundef %91, i32 noundef 1, i32 noundef 0)
-  %94 = add i32 %21, 41
-  %95 = load i32, ptr @hf_h265_general_max_monochrome_constraint_flag, align 4
-  %96 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %95, ptr noundef %1, i32 noundef %94, i32 noundef 1, i32 noundef 0)
-  %97 = add i32 %21, 42
-  %98 = load i32, ptr @hf_h265_general_intra_constraint_flag, align 4
-  %99 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %98, ptr noundef %1, i32 noundef %97, i32 noundef 1, i32 noundef 0)
-  %100 = add i32 %21, 43
-  %101 = load i32, ptr @hf_h265_general_one_picture_only_constraint_flag, align 4
-  %102 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %101, ptr noundef %1, i32 noundef %100, i32 noundef 1, i32 noundef 0)
-  %103 = add i32 %21, 44
-  %104 = load i32, ptr @hf_h265_general_lower_bit_rate_constraint_flag, align 4
-  %105 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %104, ptr noundef %1, i32 noundef %103, i32 noundef 1, i32 noundef 0)
-  %106 = add i32 %21, 45
-  %107 = load i32, ptr %5, align 4
-  %108 = icmp eq i32 %107, 5
-  br i1 %108, label %123, label %109
-
-109:                                              ; preds = %79
-  %110 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  %111 = load i8, ptr %110, align 1, !range !35, !noundef !36
-  %112 = trunc nuw i8 %111 to i1
-  %113 = icmp eq i32 %107, 9
-  %or.cond13 = or i1 %113, %112
-  br i1 %or.cond13, label %123, label %114
-
-114:                                              ; preds = %109
-  %115 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %116 = load i8, ptr %115, align 1, !range !35, !noundef !36
+113:                                              ; preds = %22
+  %114 = icmp eq i32 %36, 2
+  %115 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %116 = load i8, ptr %115, align 2, !range !34
   %117 = trunc nuw i8 %116 to i1
-  %118 = icmp eq i32 %107, 10
-  %or.cond15 = or i1 %118, %117
-  br i1 %or.cond15, label %123, label %119
+  %or.cond48 = select i1 %114, i1 true, i1 %117
+  br i1 %or.cond48, label %118, label %127
 
-119:                                              ; preds = %114
-  %120 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %121 = load i8, ptr %120, align 2, !range !35, !noundef !36
-  %122 = trunc nuw i8 %121 to i1
-  br i1 %122, label %123, label %129
+118:                                              ; preds = %113
+  %119 = load i32, ptr @hf_h265_general_reserved_zero_7bits, align 4
+  %120 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %119, ptr noundef %1, i32 noundef %35, i32 noundef 7, i32 noundef 0)
+  %121 = add i32 %21, 43
+  %122 = load i32, ptr @hf_h265_general_one_picture_only_constraint_flag, align 4
+  %123 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %122, ptr noundef %1, i32 noundef %121, i32 noundef 1, i32 noundef 0)
+  %124 = add i32 %21, 44
+  %125 = load i32, ptr @hf_h265_general_reserved_zero_35bits, align 4
+  %126 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %125, ptr noundef %1, i32 noundef %124, i32 noundef 35, i32 noundef 0)
+  br label %130
 
-123:                                              ; preds = %119, %114, %109, %79
-  %124 = load i32, ptr @hf_h265_general_max_14bit_constraint_flag, align 4
-  %125 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %124, ptr noundef %1, i32 noundef %106, i32 noundef 1, i32 noundef 0)
-  %126 = add i32 %21, 46
-  %127 = load i32, ptr @hf_h265_general_reserved_zero_33bits, align 4
-  %128 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %127, ptr noundef %1, i32 noundef %126, i32 noundef 33, i32 noundef 0)
-  br label %150
+127:                                              ; preds = %113
+  %128 = load i32, ptr @hf_h265_general_reserved_zero_43bits, align 4
+  %129 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %128, ptr noundef %1, i32 noundef %35, i32 noundef 43, i32 noundef 0)
+  br label %130
 
-129:                                              ; preds = %119
-  %130 = load i32, ptr @hf_h265_general_reserved_zero_34bits, align 4
-  %131 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %130, ptr noundef %1, i32 noundef %106, i32 noundef 34, i32 noundef 0)
-  br label %150
-
-132:                                              ; preds = %75
-  %133 = icmp eq i32 %36, 2
-  br i1 %133, label %138, label %134
-
-134:                                              ; preds = %132
-  %135 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %136 = load i8, ptr %135, align 2, !range !35, !noundef !36
-  %137 = trunc nuw i8 %136 to i1
-  br i1 %137, label %138, label %147
-
-138:                                              ; preds = %134, %132
-  %139 = load i32, ptr @hf_h265_general_reserved_zero_7bits, align 4
-  %140 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %139, ptr noundef %1, i32 noundef %35, i32 noundef 7, i32 noundef 0)
-  %141 = add i32 %21, 43
-  %142 = load i32, ptr @hf_h265_general_one_picture_only_constraint_flag, align 4
-  %143 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %142, ptr noundef %1, i32 noundef %141, i32 noundef 1, i32 noundef 0)
-  %144 = add i32 %21, 44
-  %145 = load i32, ptr @hf_h265_general_reserved_zero_35bits, align 4
-  %146 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %145, ptr noundef %1, i32 noundef %144, i32 noundef 35, i32 noundef 0)
-  br label %150
-
-147:                                              ; preds = %134
-  %148 = load i32, ptr @hf_h265_general_reserved_zero_43bits, align 4
-  %149 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %148, ptr noundef %1, i32 noundef %35, i32 noundef 43, i32 noundef 0)
-  br label %150
-
-150:                                              ; preds = %138, %147, %123, %129
-  %.0307 = add i32 %21, 79
-  %151 = load i32, ptr %5, align 4
-  %switch.tableidx = add i32 %151, -1
-  %152 = icmp ult i32 %switch.tableidx, 9
-  br i1 %152, label %switch.hole_check, label %153
-
-153:                                              ; preds = %switch.hole_check, %150
-  %154 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %155 = load i8, ptr %154, align 1, !range !35, !noundef !36
-  %156 = trunc nuw i8 %155 to i1
-  br i1 %156, label %switch.lookup, label %157
-
-157:                                              ; preds = %153
-  %158 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %159 = load i8, ptr %158, align 2, !range !35, !noundef !36
-  %160 = trunc nuw i8 %159 to i1
-  br i1 %160, label %switch.lookup, label %161
-
-161:                                              ; preds = %157
-  %162 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %163 = load i8, ptr %162, align 1, !range !35, !noundef !36
-  %164 = trunc nuw i8 %163 to i1
-  br i1 %164, label %switch.lookup, label %165
-
-165:                                              ; preds = %161
-  %166 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %167 = load i8, ptr %166, align 4, !range !35, !noundef !36
-  %168 = trunc nuw i8 %167 to i1
-  br i1 %168, label %switch.lookup, label %169
-
-169:                                              ; preds = %165
-  %170 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  %171 = load i8, ptr %170, align 1, !range !35, !noundef !36
-  %172 = trunc nuw i8 %171 to i1
-  br i1 %172, label %switch.lookup, label %173
-
-173:                                              ; preds = %169
-  %174 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %175 = load i8, ptr %174, align 1, !range !35, !noundef !36
-  %176 = trunc nuw i8 %175 to i1
-  %spec.select = select i1 %176, ptr @hf_h265_general_inbld_flag, ptr @hf_h265_general_reserved_zero_bit
-  br label %switch.lookup
-
-switch.hole_check:                                ; preds = %150
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 287, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %153
-
-switch.lookup:                                    ; preds = %switch.hole_check, %173, %153, %157, %161, %165, %169
-  %hf_h265_general_reserved_zero_bit.sink = phi ptr [ @hf_h265_general_inbld_flag, %169 ], [ @hf_h265_general_inbld_flag, %165 ], [ @hf_h265_general_inbld_flag, %161 ], [ @hf_h265_general_inbld_flag, %157 ], [ @hf_h265_general_inbld_flag, %153 ], [ %spec.select, %173 ], [ @hf_h265_general_inbld_flag, %switch.hole_check ]
-  %177 = load i32, ptr %hf_h265_general_reserved_zero_bit.sink, align 4
-  %178 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %177, ptr noundef %1, i32 noundef %.0307, i32 noundef 1, i32 noundef 0)
-  %179 = add i32 %21, 80
-  %180 = load i32, ptr @hf_h265_general_level_idc, align 4
-  %181 = ashr exact i32 %179, 3
-  %182 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %180, ptr noundef %1, i32 noundef %181, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
-  %183 = load i8, ptr %7, align 1, !range !35, !noundef !36
-  %184 = trunc nuw i8 %183 to i1
-  %h265_level_high_tier_bitrate_values.h265_level_main_tier_bitrate_values = select i1 %184, ptr @h265_level_high_tier_bitrate_values, ptr @h265_level_main_tier_bitrate_values
-  %185 = load i32, ptr %6, align 4
-  %186 = uitofp i32 %185 to double
-  %187 = fdiv double %186, 3.000000e+01
-  %188 = udiv i32 %185, 3
-  %189 = call ptr @val_to_str_const(i32 noundef %188, ptr noundef nonnull %h265_level_high_tier_bitrate_values.h265_level_main_tier_bitrate_values, ptr noundef nonnull @.str.641)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %182, ptr noundef nonnull @.str.640, double noundef %187, ptr noundef %189)
-  %190 = add i32 %21, 88
+130:                                              ; preds = %118, %127, %104, %110
+  %.0358 = add i32 %21, 79
+  %131 = load i32, ptr %5, align 4
+  %132 = add i32 %131, -1
+  %or.cond50 = icmp ult i32 %132, 5
+  %133 = icmp eq i32 %131, 9
+  %or.cond52 = or i1 %133, %or.cond50
+  %134 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %135 = load i8, ptr %134, align 1, !range !34
+  %136 = trunc nuw i8 %135 to i1
+  %or.cond55 = select i1 %or.cond52, i1 true, i1 %136
+  %137 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %138 = load i8, ptr %137, align 2, !range !34
+  %139 = trunc nuw i8 %138 to i1
+  %or.cond58 = select i1 %or.cond55, i1 true, i1 %139
+  %140 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %141 = load i8, ptr %140, align 1, !range !34
+  %142 = trunc nuw i8 %141 to i1
+  %or.cond61 = select i1 %or.cond58, i1 true, i1 %142
+  %or.cond64 = select i1 %or.cond61, i1 true, i1 %39
+  %or.cond67 = select i1 %or.cond64, i1 true, i1 %44
+  %or.cond70 = select i1 %or.cond67, i1 true, i1 %60
+  %hf_h265_general_inbld_flag.val = load i32, ptr @hf_h265_general_inbld_flag, align 4
+  %hf_h265_general_reserved_zero_bit.val = load i32, ptr @hf_h265_general_reserved_zero_bit, align 4
+  %143 = select i1 %or.cond70, i32 %hf_h265_general_inbld_flag.val, i32 %hf_h265_general_reserved_zero_bit.val
+  %144 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %143, ptr noundef %1, i32 noundef %.0358, i32 noundef 1, i32 noundef 0)
+  %145 = add i32 %21, 80
+  %146 = load i32, ptr @hf_h265_general_level_idc, align 4
+  %147 = ashr exact i32 %145, 3
+  %148 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %146, ptr noundef %1, i32 noundef %147, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
+  %149 = load i8, ptr %7, align 1, !range !34, !noundef !36
+  %150 = trunc nuw i8 %149 to i1
+  %h265_level_main_tier_bitrate_values.sink = select i1 %150, ptr @h265_level_high_tier_bitrate_values, ptr @h265_level_main_tier_bitrate_values
+  %151 = load i32, ptr %6, align 4
+  %152 = uitofp i32 %151 to double
+  %153 = fdiv double %152, 3.000000e+01
+  %154 = udiv i32 %151, 3
+  %155 = call ptr @val_to_str_const(i32 noundef %154, ptr noundef nonnull %h265_level_main_tier_bitrate_values.sink, ptr noundef nonnull @.str.641)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %148, ptr noundef nonnull @.str.640, double noundef %153, ptr noundef %155)
+  %156 = add i32 %21, 88
   %.not17 = icmp eq i32 %3, 0
   br i1 %.not17, label %._crit_edge14, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %switch.lookup
+.lr.ph.preheader:                                 ; preds = %130
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph
 
@@ -3619,301 +3559,301 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv20 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next21, %.lr.ph ]
-  %.13 = phi i32 [ %190, %.lr.ph.preheader ], [ %200, %.lr.ph ]
-  %191 = call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %.13, i32 noundef 1)
-  %192 = icmp ne i8 %191, 0
-  %193 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv20
-  %194 = zext i1 %192 to i8
-  store i8 %194, ptr %193, align 1
-  %195 = load i32, ptr @hf_h265_sub_layer_profile_present_flag, align 4
-  %196 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %195, ptr noundef %1, i32 noundef %.13, i32 noundef 1, i32 noundef 0)
-  %197 = or disjoint i32 %.13, 1
-  %198 = load i32, ptr @hf_h265_sub_layer_level_present_flag, align 4
-  %199 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %198, ptr noundef %1, i32 noundef %197, i32 noundef 1, i32 noundef 0)
-  %200 = add i32 %.13, 2
+  %.13 = phi i32 [ %156, %.lr.ph.preheader ], [ %166, %.lr.ph ]
+  %157 = call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %.13, i32 noundef 1)
+  %158 = icmp ne i8 %157, 0
+  %159 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv20
+  %160 = zext i1 %158 to i8
+  store i8 %160, ptr %159, align 1
+  %161 = load i32, ptr @hf_h265_sub_layer_profile_present_flag, align 4
+  %162 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %161, ptr noundef %1, i32 noundef %.13, i32 noundef 1, i32 noundef 0)
+  %163 = or disjoint i32 %.13, 1
+  %164 = load i32, ptr @hf_h265_sub_layer_level_present_flag, align 4
+  %165 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %164, ptr noundef %1, i32 noundef %163, i32 noundef 1, i32 noundef 0)
+  %166 = add i32 %.13, 2
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count
   br i1 %exitcond23.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 .lr.ph7:                                          ; preds = %._crit_edge, %.lr.ph7
-  %.03046 = phi i32 [ %204, %.lr.ph7 ], [ %3, %._crit_edge ]
-  %.35 = phi i32 [ %203, %.lr.ph7 ], [ %200, %._crit_edge ]
-  %201 = load i32, ptr @hf_h265_reserved_zero_2bits, align 4
-  %202 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %201, ptr noundef %1, i32 noundef %.35, i32 noundef 2, i32 noundef 0)
-  %203 = add i32 %.35, 2
-  %204 = add nuw nsw i32 %.03046, 1
-  %exitcond24.not = icmp eq i32 %204, 8
+  %.03556 = phi i32 [ %170, %.lr.ph7 ], [ %3, %._crit_edge ]
+  %.35 = phi i32 [ %169, %.lr.ph7 ], [ %166, %._crit_edge ]
+  %167 = load i32, ptr @hf_h265_reserved_zero_2bits, align 4
+  %168 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %167, ptr noundef %1, i32 noundef %.35, i32 noundef 2, i32 noundef 0)
+  %169 = add i32 %.35, 2
+  %170 = add nuw nsw i32 %.03556, 1
+  %exitcond24.not = icmp eq i32 %170, 8
   br i1 %exitcond24.not, label %.lr.ph13.preheader, label %.lr.ph7, !llvm.loop !38
 
 .lr.ph13.preheader:                               ; preds = %.lr.ph7, %._crit_edge
-  %.2.ph = phi i32 [ %200, %._crit_edge ], [ %203, %.lr.ph7 ]
+  %.2.ph = phi i32 [ %166, %._crit_edge ], [ %169, %.lr.ph7 ]
   %wide.trip.count32 = zext nneg i32 %3 to i64
   br label %.lr.ph13
 
-.lr.ph13:                                         ; preds = %.lr.ph13.preheader, %377
-  %indvars.iv29 = phi i64 [ 0, %.lr.ph13.preheader ], [ %indvars.iv.next30, %377 ]
-  %.410 = phi i32 [ %.2.ph, %.lr.ph13.preheader ], [ %.7, %377 ]
-  %205 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv29
-  %206 = load i8, ptr %205, align 1, !range !35, !noundef !36
-  %207 = trunc nuw i8 %206 to i1
-  br i1 %207, label %208, label %368
+.lr.ph13:                                         ; preds = %.lr.ph13.preheader, %343
+  %indvars.iv29 = phi i64 [ 0, %.lr.ph13.preheader ], [ %indvars.iv.next30, %343 ]
+  %.410 = phi i32 [ %.2.ph, %.lr.ph13.preheader ], [ %.7, %343 ]
+  %171 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv29
+  %172 = load i8, ptr %171, align 1, !range !34, !noundef !36
+  %173 = trunc nuw i8 %172 to i1
+  br i1 %173, label %174, label %334
 
-208:                                              ; preds = %.lr.ph13
-  %209 = load i32, ptr @hf_h265_sub_layer_profile_space, align 4
-  %210 = ashr i32 %.410, 3
-  %211 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %209, ptr noundef %1, i32 noundef %210, i32 noundef 1, i32 noundef 0)
-  %212 = load i32, ptr @hf_h265_sub_layer_tier_flag, align 4
-  %213 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %212, ptr noundef %1, i32 noundef %210, i32 noundef 1, i32 noundef 0)
-  %214 = load i32, ptr @hf_h265_sub_layer_profile_idc, align 4
-  %215 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %214, ptr noundef %1, i32 noundef %210, i32 noundef 1, i32 noundef 0)
-  %216 = add nsw i32 %210, 3
-  %217 = call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %216, i32 noundef 5)
-  %218 = add i32 %.410, 8
-  br label %237
+174:                                              ; preds = %.lr.ph13
+  %175 = load i32, ptr @hf_h265_sub_layer_profile_space, align 4
+  %176 = ashr i32 %.410, 3
+  %177 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %175, ptr noundef %1, i32 noundef %176, i32 noundef 1, i32 noundef 0)
+  %178 = load i32, ptr @hf_h265_sub_layer_tier_flag, align 4
+  %179 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %178, ptr noundef %1, i32 noundef %176, i32 noundef 1, i32 noundef 0)
+  %180 = load i32, ptr @hf_h265_sub_layer_profile_idc, align 4
+  %181 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %180, ptr noundef %1, i32 noundef %176, i32 noundef 1, i32 noundef 0)
+  %182 = add nsw i32 %176, 3
+  %183 = call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %182, i32 noundef 5)
+  %184 = add i32 %.410, 8
+  br label %203
 
-219:                                              ; preds = %237
-  %220 = load i32, ptr @hf_h265_sub_layer_profile_compatibility_flag, align 4
-  %221 = ashr i32 %218, 3
-  %222 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %220, ptr noundef %1, i32 noundef %221, i32 noundef 4, i32 noundef 0)
-  %223 = add i32 %.410, 40
-  %224 = load i32, ptr @hf_h265_sub_layer_progressive_source_flag, align 4
-  %225 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %224, ptr noundef %1, i32 noundef %223, i32 noundef 1, i32 noundef 0)
-  %226 = add i32 %.410, 41
-  %227 = load i32, ptr @hf_h265_sub_layer_interlaced_source_flag, align 4
-  %228 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %227, ptr noundef %1, i32 noundef %226, i32 noundef 1, i32 noundef 0)
-  %229 = add i32 %.410, 42
-  %230 = load i32, ptr @hf_h265_sub_layer_non_packed_constraint_flag, align 4
-  %231 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %230, ptr noundef %1, i32 noundef %229, i32 noundef 1, i32 noundef 0)
-  %232 = add i32 %.410, 43
-  %233 = load i32, ptr @hf_h265_sub_layer_frame_only_constraint_flag, align 4
-  %234 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %233, ptr noundef %1, i32 noundef %232, i32 noundef 1, i32 noundef 0)
-  %235 = add i32 %.410, 44
-  %236 = icmp eq i8 %217, 4
-  br i1 %236, label %277, label %242
+185:                                              ; preds = %203
+  %186 = load i32, ptr @hf_h265_sub_layer_profile_compatibility_flag, align 4
+  %187 = ashr i32 %184, 3
+  %188 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %186, ptr noundef %1, i32 noundef %187, i32 noundef 4, i32 noundef 0)
+  %189 = add i32 %.410, 40
+  %190 = load i32, ptr @hf_h265_sub_layer_progressive_source_flag, align 4
+  %191 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %190, ptr noundef %1, i32 noundef %189, i32 noundef 1, i32 noundef 0)
+  %192 = add i32 %.410, 41
+  %193 = load i32, ptr @hf_h265_sub_layer_interlaced_source_flag, align 4
+  %194 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %193, ptr noundef %1, i32 noundef %192, i32 noundef 1, i32 noundef 0)
+  %195 = add i32 %.410, 42
+  %196 = load i32, ptr @hf_h265_sub_layer_non_packed_constraint_flag, align 4
+  %197 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %196, ptr noundef %1, i32 noundef %195, i32 noundef 1, i32 noundef 0)
+  %198 = add i32 %.410, 43
+  %199 = load i32, ptr @hf_h265_sub_layer_frame_only_constraint_flag, align 4
+  %200 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %199, ptr noundef %1, i32 noundef %198, i32 noundef 1, i32 noundef 0)
+  %201 = add i32 %.410, 44
+  %202 = icmp eq i8 %183, 4
+  br i1 %202, label %243, label %208
 
-237:                                              ; preds = %208, %237
-  %indvars.iv25 = phi i64 [ 0, %208 ], [ %indvars.iv.next26, %237 ]
-  %238 = call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %218, i32 noundef 1)
-  %239 = icmp ne i8 %238, 0
-  %240 = getelementptr [32 x [32 x i8]], ptr %11, i64 0, i64 %indvars.iv29, i64 %indvars.iv25
-  %241 = zext i1 %239 to i8
-  store i8 %241, ptr %240, align 1
+203:                                              ; preds = %174, %203
+  %indvars.iv25 = phi i64 [ 0, %174 ], [ %indvars.iv.next26, %203 ]
+  %204 = call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %184, i32 noundef 1)
+  %205 = icmp ne i8 %204, 0
+  %206 = getelementptr [32 x [32 x i8]], ptr %11, i64 0, i64 %indvars.iv29, i64 %indvars.iv25
+  %207 = zext i1 %205 to i8
+  store i8 %207, ptr %206, align 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 32
-  br i1 %exitcond28.not, label %219, label %237, !llvm.loop !39
+  br i1 %exitcond28.not, label %185, label %203, !llvm.loop !39
 
-242:                                              ; preds = %219
-  %243 = getelementptr [32 x [32 x i8]], ptr %11, i64 0, i64 %indvars.iv29
-  %244 = getelementptr i8, ptr %243, i64 4
-  %245 = load i8, ptr %244, align 4, !range !35, !noundef !36
-  %246 = trunc nuw i8 %245 to i1
-  %247 = icmp eq i8 %217, 5
-  %or.cond315 = or i1 %247, %246
-  br i1 %or.cond315, label %277, label %248
+208:                                              ; preds = %185
+  %209 = getelementptr [32 x [32 x i8]], ptr %11, i64 0, i64 %indvars.iv29
+  %210 = getelementptr i8, ptr %209, i64 4
+  %211 = load i8, ptr %210, align 4, !range !34, !noundef !36
+  %212 = trunc nuw i8 %211 to i1
+  %213 = icmp eq i8 %183, 5
+  %or.cond = or i1 %213, %212
+  br i1 %or.cond, label %243, label %214
 
-248:                                              ; preds = %242
-  %249 = getelementptr i8, ptr %243, i64 5
-  %250 = load i8, ptr %249, align 1, !range !35, !noundef !36
-  %251 = trunc nuw i8 %250 to i1
-  %252 = icmp eq i8 %217, 6
-  %or.cond316 = or i1 %252, %251
-  br i1 %or.cond316, label %277, label %253
+214:                                              ; preds = %208
+  %215 = getelementptr i8, ptr %209, i64 5
+  %216 = load i8, ptr %215, align 1, !range !34, !noundef !36
+  %217 = trunc nuw i8 %216 to i1
+  %218 = icmp eq i8 %183, 6
+  %or.cond364 = or i1 %218, %217
+  br i1 %or.cond364, label %243, label %219
 
-253:                                              ; preds = %248
-  %254 = getelementptr i8, ptr %243, i64 6
-  %255 = load i8, ptr %254, align 2, !range !35, !noundef !36
-  %256 = trunc nuw i8 %255 to i1
-  %257 = icmp eq i8 %217, 7
-  %or.cond317 = or i1 %257, %256
-  br i1 %or.cond317, label %277, label %258
+219:                                              ; preds = %214
+  %220 = getelementptr i8, ptr %209, i64 6
+  %221 = load i8, ptr %220, align 2, !range !34, !noundef !36
+  %222 = trunc nuw i8 %221 to i1
+  %223 = icmp eq i8 %183, 7
+  %or.cond365 = or i1 %223, %222
+  br i1 %or.cond365, label %243, label %224
 
-258:                                              ; preds = %253
-  %259 = getelementptr i8, ptr %243, i64 7
-  %260 = load i8, ptr %259, align 1, !range !35, !noundef !36
-  %261 = trunc nuw i8 %260 to i1
-  %262 = icmp eq i8 %217, 8
-  %or.cond318 = or i1 %262, %261
-  br i1 %or.cond318, label %277, label %263
+224:                                              ; preds = %219
+  %225 = getelementptr i8, ptr %209, i64 7
+  %226 = load i8, ptr %225, align 1, !range !34, !noundef !36
+  %227 = trunc nuw i8 %226 to i1
+  %228 = icmp eq i8 %183, 8
+  %or.cond366 = or i1 %228, %227
+  br i1 %or.cond366, label %243, label %229
 
-263:                                              ; preds = %258
-  %264 = getelementptr i8, ptr %243, i64 8
-  %265 = load i8, ptr %264, align 8, !range !35, !noundef !36
-  %266 = trunc nuw i8 %265 to i1
-  %267 = icmp eq i8 %217, 9
-  %or.cond319 = or i1 %267, %266
-  br i1 %or.cond319, label %277, label %268
+229:                                              ; preds = %224
+  %230 = getelementptr i8, ptr %209, i64 8
+  %231 = load i8, ptr %230, align 8, !range !34, !noundef !36
+  %232 = trunc nuw i8 %231 to i1
+  %233 = icmp eq i8 %183, 9
+  %or.cond367 = or i1 %233, %232
+  br i1 %or.cond367, label %243, label %234
 
-268:                                              ; preds = %263
-  %269 = getelementptr i8, ptr %243, i64 9
-  %270 = load i8, ptr %269, align 1, !range !35, !noundef !36
-  %271 = trunc nuw i8 %270 to i1
-  %272 = icmp eq i8 %217, 10
-  %or.cond320 = or i1 %272, %271
-  br i1 %or.cond320, label %277, label %273
+234:                                              ; preds = %229
+  %235 = getelementptr i8, ptr %209, i64 9
+  %236 = load i8, ptr %235, align 1, !range !34, !noundef !36
+  %237 = trunc nuw i8 %236 to i1
+  %238 = icmp eq i8 %183, 10
+  %or.cond368 = or i1 %238, %237
+  br i1 %or.cond368, label %243, label %239
 
-273:                                              ; preds = %268
-  %274 = getelementptr i8, ptr %243, i64 10
-  %275 = load i8, ptr %274, align 2, !range !35, !noundef !36
-  %276 = trunc nuw i8 %275 to i1
-  br i1 %276, label %277, label %320
+239:                                              ; preds = %234
+  %240 = getelementptr i8, ptr %209, i64 10
+  %241 = load i8, ptr %240, align 2, !range !34, !noundef !36
+  %242 = trunc nuw i8 %241 to i1
+  br i1 %242, label %243, label %286
 
-277:                                              ; preds = %273, %268, %263, %258, %253, %248, %242, %219
-  %278 = load i32, ptr @hf_h265_sub_layer_max_12bit_constraint_flag, align 4
-  %279 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %278, ptr noundef %1, i32 noundef %235, i32 noundef 1, i32 noundef 0)
-  %280 = add i32 %.410, 45
-  %281 = load i32, ptr @hf_h265_sub_layer_max_10bit_constraint_flag, align 4
-  %282 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %281, ptr noundef %1, i32 noundef %280, i32 noundef 1, i32 noundef 0)
-  %283 = add i32 %.410, 46
-  %284 = load i32, ptr @hf_h265_sub_layer_max_8bit_constraint_flag, align 4
-  %285 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %284, ptr noundef %1, i32 noundef %283, i32 noundef 1, i32 noundef 0)
-  %286 = add i32 %.410, 47
-  %287 = load i32, ptr @hf_h265_sub_layer_max_422chroma_constraint_flag, align 4
-  %288 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %287, ptr noundef %1, i32 noundef %286, i32 noundef 1, i32 noundef 0)
-  %289 = add i32 %.410, 48
-  %290 = load i32, ptr @hf_h265_sub_layer_max_420chroma_constraint_flag, align 4
-  %291 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %290, ptr noundef %1, i32 noundef %289, i32 noundef 1, i32 noundef 0)
-  %292 = add i32 %.410, 49
-  %293 = load i32, ptr @hf_h265_sub_layer_max_monochrome_constraint_flag, align 4
-  %294 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %293, ptr noundef %1, i32 noundef %292, i32 noundef 1, i32 noundef 0)
-  %295 = add i32 %.410, 50
-  %296 = load i32, ptr @hf_h265_sub_layer_intra_constraint_flag, align 4
+243:                                              ; preds = %239, %234, %229, %224, %219, %214, %208, %185
+  %244 = load i32, ptr @hf_h265_sub_layer_max_12bit_constraint_flag, align 4
+  %245 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %244, ptr noundef %1, i32 noundef %201, i32 noundef 1, i32 noundef 0)
+  %246 = add i32 %.410, 45
+  %247 = load i32, ptr @hf_h265_sub_layer_max_10bit_constraint_flag, align 4
+  %248 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %247, ptr noundef %1, i32 noundef %246, i32 noundef 1, i32 noundef 0)
+  %249 = add i32 %.410, 46
+  %250 = load i32, ptr @hf_h265_sub_layer_max_8bit_constraint_flag, align 4
+  %251 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %250, ptr noundef %1, i32 noundef %249, i32 noundef 1, i32 noundef 0)
+  %252 = add i32 %.410, 47
+  %253 = load i32, ptr @hf_h265_sub_layer_max_422chroma_constraint_flag, align 4
+  %254 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %253, ptr noundef %1, i32 noundef %252, i32 noundef 1, i32 noundef 0)
+  %255 = add i32 %.410, 48
+  %256 = load i32, ptr @hf_h265_sub_layer_max_420chroma_constraint_flag, align 4
+  %257 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %256, ptr noundef %1, i32 noundef %255, i32 noundef 1, i32 noundef 0)
+  %258 = add i32 %.410, 49
+  %259 = load i32, ptr @hf_h265_sub_layer_max_monochrome_constraint_flag, align 4
+  %260 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %259, ptr noundef %1, i32 noundef %258, i32 noundef 1, i32 noundef 0)
+  %261 = add i32 %.410, 50
+  %262 = load i32, ptr @hf_h265_sub_layer_intra_constraint_flag, align 4
+  %263 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %262, ptr noundef %1, i32 noundef %261, i32 noundef 1, i32 noundef 0)
+  %264 = add i32 %.410, 51
+  %265 = load i32, ptr @hf_h265_sub_layer_one_picture_only_constraint_flag, align 4
+  %266 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %265, ptr noundef %1, i32 noundef %264, i32 noundef 1, i32 noundef 0)
+  %267 = add i32 %.410, 52
+  %268 = load i32, ptr @hf_h265_sub_layer_lower_bit_rate_constraint_flag, align 4
+  %269 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %268, ptr noundef %1, i32 noundef %267, i32 noundef 1, i32 noundef 0)
+  %270 = add i32 %.410, 53
+  %271 = icmp eq i8 %183, 5
+  br i1 %271, label %276, label %272
+
+272:                                              ; preds = %243
+  %273 = getelementptr [32 x [32 x i8]], ptr %11, i64 0, i64 %indvars.iv29, i64 5
+  %274 = load i8, ptr %273, align 1, !range !34, !noundef !36
+  %275 = trunc nuw i8 %274 to i1
+  br i1 %275, label %276, label %282
+
+276:                                              ; preds = %272, %243
+  %277 = load i32, ptr @hf_h265_sub_layer_max_14bit_constraint_flag, align 4
+  %278 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %277, ptr noundef %1, i32 noundef %270, i32 noundef 1, i32 noundef 0)
+  %279 = load i32, ptr @hf_h265_sub_layer_reserved_zero_33bits, align 4
+  %280 = add i32 %.410, 54
+  %281 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %279, ptr noundef %1, i32 noundef %280, i32 noundef 33, i32 noundef 0)
+  br label %304
+
+282:                                              ; preds = %272
+  %283 = load i32, ptr @hf_h265_sub_layer_reserved_zero_34bits, align 4
+  %284 = add i32 %.410, 54
+  %285 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %283, ptr noundef %1, i32 noundef %284, i32 noundef 33, i32 noundef 0)
+  br label %304
+
+286:                                              ; preds = %239
+  %287 = icmp eq i8 %183, 2
+  br i1 %287, label %292, label %288
+
+288:                                              ; preds = %286
+  %289 = getelementptr i8, ptr %209, i64 2
+  %290 = load i8, ptr %289, align 2, !range !34, !noundef !36
+  %291 = trunc nuw i8 %290 to i1
+  br i1 %291, label %292, label %301
+
+292:                                              ; preds = %288, %286
+  %293 = load i32, ptr @hf_h265_sub_layer_reserved_zero_7bits, align 4
+  %294 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %293, ptr noundef %1, i32 noundef %201, i32 noundef 7, i32 noundef 0)
+  %295 = add i32 %.410, 51
+  %296 = load i32, ptr @hf_h265_sub_layer_one_picture_only_constraint_flag, align 4
   %297 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %296, ptr noundef %1, i32 noundef %295, i32 noundef 1, i32 noundef 0)
-  %298 = add i32 %.410, 51
-  %299 = load i32, ptr @hf_h265_sub_layer_one_picture_only_constraint_flag, align 4
-  %300 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %299, ptr noundef %1, i32 noundef %298, i32 noundef 1, i32 noundef 0)
-  %301 = add i32 %.410, 52
-  %302 = load i32, ptr @hf_h265_sub_layer_lower_bit_rate_constraint_flag, align 4
-  %303 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %302, ptr noundef %1, i32 noundef %301, i32 noundef 1, i32 noundef 0)
-  %304 = add i32 %.410, 53
-  %305 = icmp eq i8 %217, 5
-  br i1 %305, label %310, label %306
+  %298 = add i32 %.410, 52
+  %299 = load i32, ptr @hf_h265_sub_layer_reserved_zero_35bits, align 4
+  %300 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %299, ptr noundef %1, i32 noundef %298, i32 noundef 35, i32 noundef 0)
+  br label %304
 
-306:                                              ; preds = %277
-  %307 = getelementptr [32 x [32 x i8]], ptr %11, i64 0, i64 %indvars.iv29, i64 5
-  %308 = load i8, ptr %307, align 1, !range !35, !noundef !36
-  %309 = trunc nuw i8 %308 to i1
-  br i1 %309, label %310, label %316
+301:                                              ; preds = %288
+  %302 = load i32, ptr @hf_h265_sub_layer_reserved_zero_43bits, align 4
+  %303 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %302, ptr noundef %1, i32 noundef %201, i32 noundef 43, i32 noundef 0)
+  br label %304
 
-310:                                              ; preds = %306, %277
-  %311 = load i32, ptr @hf_h265_sub_layer_max_14bit_constraint_flag, align 4
-  %312 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %311, ptr noundef %1, i32 noundef %304, i32 noundef 1, i32 noundef 0)
-  %313 = load i32, ptr @hf_h265_sub_layer_reserved_zero_33bits, align 4
-  %314 = add i32 %.410, 54
-  %315 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %313, ptr noundef %1, i32 noundef %314, i32 noundef 33, i32 noundef 0)
-  br label %338
-
-316:                                              ; preds = %306
-  %317 = load i32, ptr @hf_h265_sub_layer_reserved_zero_34bits, align 4
-  %318 = add i32 %.410, 54
-  %319 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %317, ptr noundef %1, i32 noundef %318, i32 noundef 33, i32 noundef 0)
-  br label %338
-
-320:                                              ; preds = %273
-  %321 = icmp eq i8 %217, 2
-  br i1 %321, label %326, label %322
-
-322:                                              ; preds = %320
-  %323 = getelementptr i8, ptr %243, i64 2
-  %324 = load i8, ptr %323, align 2, !range !35, !noundef !36
-  %325 = trunc nuw i8 %324 to i1
-  br i1 %325, label %326, label %335
-
-326:                                              ; preds = %322, %320
-  %327 = load i32, ptr @hf_h265_sub_layer_reserved_zero_7bits, align 4
-  %328 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %327, ptr noundef %1, i32 noundef %235, i32 noundef 7, i32 noundef 0)
-  %329 = add i32 %.410, 51
-  %330 = load i32, ptr @hf_h265_sub_layer_one_picture_only_constraint_flag, align 4
-  %331 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %330, ptr noundef %1, i32 noundef %329, i32 noundef 1, i32 noundef 0)
-  %332 = add i32 %.410, 52
-  %333 = load i32, ptr @hf_h265_sub_layer_reserved_zero_35bits, align 4
-  %334 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %333, ptr noundef %1, i32 noundef %332, i32 noundef 35, i32 noundef 0)
-  br label %338
-
-335:                                              ; preds = %322
-  %336 = load i32, ptr @hf_h265_sub_layer_reserved_zero_43bits, align 4
-  %337 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %336, ptr noundef %1, i32 noundef %235, i32 noundef 43, i32 noundef 0)
-  br label %338
-
-338:                                              ; preds = %326, %335, %310, %316
+304:                                              ; preds = %292, %301, %276, %282
   %.6 = add i32 %.410, 87
-  %switch.tableidx3 = add i8 %217, -1
-  %339 = icmp ult i8 %switch.tableidx3, 9
-  br i1 %339, label %switch.hole_check4, label %340
+  %switch.tableidx = add i8 %183, -1
+  %305 = icmp ult i8 %switch.tableidx, 9
+  br i1 %305, label %switch.hole_check, label %306
 
-340:                                              ; preds = %switch.hole_check4, %338
-  %341 = getelementptr [32 x [32 x i8]], ptr %11, i64 0, i64 %indvars.iv29
-  %342 = getelementptr i8, ptr %341, i64 1
-  %343 = load i8, ptr %342, align 1, !range !35, !noundef !36
-  %344 = trunc nuw i8 %343 to i1
-  br i1 %344, label %.sink.split, label %345
+306:                                              ; preds = %switch.hole_check, %304
+  %307 = getelementptr [32 x [32 x i8]], ptr %11, i64 0, i64 %indvars.iv29
+  %308 = getelementptr i8, ptr %307, i64 1
+  %309 = load i8, ptr %308, align 1, !range !34, !noundef !36
+  %310 = trunc nuw i8 %309 to i1
+  br i1 %310, label %.sink.split, label %311
 
-345:                                              ; preds = %340
-  %346 = getelementptr i8, ptr %341, i64 2
-  %347 = load i8, ptr %346, align 2, !range !35, !noundef !36
-  %348 = trunc nuw i8 %347 to i1
-  br i1 %348, label %.sink.split, label %349
+311:                                              ; preds = %306
+  %312 = getelementptr i8, ptr %307, i64 2
+  %313 = load i8, ptr %312, align 2, !range !34, !noundef !36
+  %314 = trunc nuw i8 %313 to i1
+  br i1 %314, label %.sink.split, label %315
 
-349:                                              ; preds = %345
-  %350 = getelementptr i8, ptr %341, i64 3
-  %351 = load i8, ptr %350, align 1, !range !35, !noundef !36
-  %352 = trunc nuw i8 %351 to i1
-  br i1 %352, label %.sink.split, label %353
+315:                                              ; preds = %311
+  %316 = getelementptr i8, ptr %307, i64 3
+  %317 = load i8, ptr %316, align 1, !range !34, !noundef !36
+  %318 = trunc nuw i8 %317 to i1
+  br i1 %318, label %.sink.split, label %319
 
-353:                                              ; preds = %349
-  %354 = getelementptr i8, ptr %341, i64 4
-  %355 = load i8, ptr %354, align 4, !range !35, !noundef !36
-  %356 = trunc nuw i8 %355 to i1
-  br i1 %356, label %.sink.split, label %357
+319:                                              ; preds = %315
+  %320 = getelementptr i8, ptr %307, i64 4
+  %321 = load i8, ptr %320, align 4, !range !34, !noundef !36
+  %322 = trunc nuw i8 %321 to i1
+  br i1 %322, label %.sink.split, label %323
 
-357:                                              ; preds = %353
-  %358 = getelementptr i8, ptr %341, i64 5
-  %359 = load i8, ptr %358, align 1, !range !35, !noundef !36
-  %360 = trunc nuw i8 %359 to i1
-  br i1 %360, label %.sink.split, label %361
+323:                                              ; preds = %319
+  %324 = getelementptr i8, ptr %307, i64 5
+  %325 = load i8, ptr %324, align 1, !range !34, !noundef !36
+  %326 = trunc nuw i8 %325 to i1
+  br i1 %326, label %.sink.split, label %327
 
-361:                                              ; preds = %357
-  %362 = getelementptr i8, ptr %341, i64 9
-  %363 = load i8, ptr %362, align 1, !range !35, !noundef !36
-  %364 = trunc nuw i8 %363 to i1
-  %spec.select43 = select i1 %364, ptr @hf_h265_sub_layer_inbld_flag, ptr @hf_h265_sub_layer_reserved_zero_bit
+327:                                              ; preds = %323
+  %328 = getelementptr i8, ptr %307, i64 9
+  %329 = load i8, ptr %328, align 1, !range !34, !noundef !36
+  %330 = trunc nuw i8 %329 to i1
+  %spec.select = select i1 %330, ptr @hf_h265_sub_layer_inbld_flag, ptr @hf_h265_sub_layer_reserved_zero_bit
   br label %.sink.split
 
-switch.hole_check4:                               ; preds = %338
-  %switch.maskindex6 = zext nneg i8 %switch.tableidx3 to i16
-  %switch.shifted7 = lshr i16 287, %switch.maskindex6
-  %switch.lobit8 = trunc i16 %switch.shifted7 to i1
-  br i1 %switch.lobit8, label %.sink.split, label %340
+switch.hole_check:                                ; preds = %304
+  %switch.maskindex = zext nneg i8 %switch.tableidx to i16
+  %switch.shifted = lshr i16 287, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %.sink.split, label %306
 
-.sink.split:                                      ; preds = %switch.hole_check4, %361, %340, %345, %349, %353, %357
-  %hf_h265_sub_layer_inbld_flag.sink = phi ptr [ @hf_h265_sub_layer_inbld_flag, %357 ], [ @hf_h265_sub_layer_inbld_flag, %353 ], [ @hf_h265_sub_layer_inbld_flag, %349 ], [ @hf_h265_sub_layer_inbld_flag, %345 ], [ @hf_h265_sub_layer_inbld_flag, %340 ], [ %spec.select43, %361 ], [ @hf_h265_sub_layer_inbld_flag, %switch.hole_check4 ]
-  %365 = load i32, ptr %hf_h265_sub_layer_inbld_flag.sink, align 4
-  %366 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %365, ptr noundef %1, i32 noundef %.6, i32 noundef 1, i32 noundef 0)
-  %367 = add i32 %.410, 88
-  br label %368
+.sink.split:                                      ; preds = %switch.hole_check, %327, %306, %311, %315, %319, %323
+  %hf_h265_sub_layer_inbld_flag.sink = phi ptr [ @hf_h265_sub_layer_inbld_flag, %323 ], [ @hf_h265_sub_layer_inbld_flag, %319 ], [ @hf_h265_sub_layer_inbld_flag, %315 ], [ @hf_h265_sub_layer_inbld_flag, %311 ], [ @hf_h265_sub_layer_inbld_flag, %306 ], [ %spec.select, %327 ], [ @hf_h265_sub_layer_inbld_flag, %switch.hole_check ]
+  %331 = load i32, ptr %hf_h265_sub_layer_inbld_flag.sink, align 4
+  %332 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %331, ptr noundef %1, i32 noundef %.6, i32 noundef 1, i32 noundef 0)
+  %333 = add i32 %.410, 88
+  br label %334
 
-368:                                              ; preds = %.sink.split, %.lr.ph13
-  %.5 = phi i32 [ %.410, %.lr.ph13 ], [ %367, %.sink.split ]
-  %369 = getelementptr [32 x i8], ptr %10, i64 0, i64 %indvars.iv29
-  %370 = load i8, ptr %369, align 1, !range !35, !noundef !36
-  %371 = trunc nuw i8 %370 to i1
-  br i1 %371, label %372, label %377
+334:                                              ; preds = %.sink.split, %.lr.ph13
+  %.5 = phi i32 [ %.410, %.lr.ph13 ], [ %333, %.sink.split ]
+  %335 = getelementptr [32 x i8], ptr %10, i64 0, i64 %indvars.iv29
+  %336 = load i8, ptr %335, align 1, !range !34, !noundef !36
+  %337 = trunc nuw i8 %336 to i1
+  br i1 %337, label %338, label %343
 
-372:                                              ; preds = %368
-  %373 = load i32, ptr @hf_h265_sub_layer_level_idc, align 4
-  %374 = ashr i32 %.5, 3
-  %375 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %373, ptr noundef %1, i32 noundef %374, i32 noundef 1, i32 noundef 0)
-  %376 = add i32 %.5, 8
-  br label %377
+338:                                              ; preds = %334
+  %339 = load i32, ptr @hf_h265_sub_layer_level_idc, align 4
+  %340 = ashr i32 %.5, 3
+  %341 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %339, ptr noundef %1, i32 noundef %340, i32 noundef 1, i32 noundef 0)
+  %342 = add i32 %.5, 8
+  br label %343
 
-377:                                              ; preds = %368, %372
-  %.7 = phi i32 [ %376, %372 ], [ %.5, %368 ]
+343:                                              ; preds = %334, %338
+  %.7 = phi i32 [ %342, %338 ], [ %.5, %334 ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
   br i1 %exitcond33.not, label %._crit_edge14, label %.lr.ph13, !llvm.loop !40
 
-._crit_edge14:                                    ; preds = %377, %switch.lookup
-  %.4.lcssa = phi i32 [ %190, %switch.lookup ], [ %.7, %377 ]
-  %378 = ashr i32 %.4.lcssa, 3
+._crit_edge14:                                    ; preds = %343, %130
+  %.4.lcssa = phi i32 [ %156, %130 ], [ %.7, %343 ]
+  %344 = ashr i32 %.4.lcssa, 3
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #10
@@ -3921,7 +3861,7 @@ switch.hole_check4:                               ; preds = %338
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  ret i32 %378
+  ret i32 %344
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4437,8 +4377,8 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
   %20 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %16, i32 noundef 1, i32 noundef 0)
   %21 = add i32 %3, 2
   store i32 %21, ptr %7, align 4
-  %brmerge = select i1 %13, i1 true, i1 %18
-  br i1 %brmerge, label %22, label %64
+  %or.cond = select i1 %13, i1 true, i1 %18
+  br i1 %or.cond, label %22, label %64
 
 22:                                               ; preds = %11
   %23 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %21, i32 noundef 1)
@@ -4493,10 +4433,10 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
   store i32 %63, ptr %7, align 4
   br label %64
 
-64:                                               ; preds = %11, %53, %6
-  %.073.shrunk = phi i1 [ %13, %53 ], [ false, %6 ], [ false, %11 ]
-  %.072.shrunk = phi i1 [ %18, %53 ], [ false, %6 ], [ false, %11 ]
-  %.0 = phi i1 [ %24, %53 ], [ false, %6 ], [ false, %11 ]
+64:                                               ; preds = %53, %11, %6
+  %.074.shrunk = phi i1 [ %13, %53 ], [ false, %11 ], [ false, %6 ]
+  %.073.shrunk = phi i1 [ %18, %53 ], [ false, %11 ], [ false, %6 ]
+  %.0 = phi i1 [ %24, %53 ], [ false, %11 ], [ false, %6 ]
   %65 = add nuw nsw i32 %5, 1
   %wide.trip.count = zext nneg i32 %65 to i64
   br label %66
@@ -4505,16 +4445,16 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
   %indvars.iv = phi i64 [ 0, %64 ], [ %indvars.iv.next, %110 ]
   %67 = load i32, ptr %7, align 4
   %68 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %67, i32 noundef 1)
-  %.not75 = icmp eq i8 %68, 0
+  %.not76 = icmp eq i8 %68, 0
   %69 = load i32, ptr @hf_h265_fixed_pic_rate_general_flag, align 4
   %70 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %69, ptr noundef %1, i32 noundef %67, i32 noundef 1, i32 noundef 0)
   %71 = add i32 %67, 1
   store i32 %71, ptr %7, align 4
-  br i1 %.not75, label %73, label %._crit_edge
+  br i1 %.not76, label %73, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %66
   %.phi.trans.insert = getelementptr [32 x i8], ptr %8, i64 0, i64 %indvars.iv
-  %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !35
+  %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !34
   %72 = trunc nuw i8 %.pre to i1
   br i1 %72, label %90, label %81
 
@@ -4546,9 +4486,9 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
 90:                                               ; preds = %73, %._crit_edge
   %91 = load i32, ptr @hf_h265_elemental_duration_in_tc_minus1, align 4
   %92 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %91, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0)
-  %.phi.trans.insert78 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv
-  %.pre79 = load i8, ptr %.phi.trans.insert78, align 1, !range !35
-  %93 = trunc nuw i8 %.pre79 to i1
+  %.phi.trans.insert79 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %.pre80 = load i8, ptr %.phi.trans.insert79, align 1, !range !34
+  %93 = trunc nuw i8 %.pre80 to i1
   br i1 %93, label %98, label %94
 
 94:                                               ; preds = %81, %90
@@ -4559,7 +4499,7 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
   br label %98
 
 98:                                               ; preds = %81, %94, %90
-  br i1 %.073.shrunk, label %99, label %104
+  br i1 %.074.shrunk, label %99, label %104
 
 99:                                               ; preds = %98
   %100 = load i32, ptr %7, align 4
@@ -4570,7 +4510,7 @@ define internal fastcc i32 @dissect_h265_hrd_parameters(ptr noundef %0, ptr noun
   br label %104
 
 104:                                              ; preds = %99, %98
-  br i1 %.072.shrunk, label %105, label %110
+  br i1 %.073.shrunk, label %105, label %110
 
 105:                                              ; preds = %104
   %106 = load i32, ptr %7, align 4
@@ -4815,7 +4755,7 @@ define internal fastcc void @dissect_h265_slice_segment_layer_rbsp(ptr noundef %
   br label %.critedge.i
 
 29:                                               ; preds = %26
-  %30 = load i8, ptr @dependent_slice_segments_enabled_flag, align 1, !range !35, !noundef !36
+  %30 = load i8, ptr @dependent_slice_segments_enabled_flag, align 1, !range !34, !noundef !36
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %.critedge29.i
 
@@ -4929,8 +4869,8 @@ attributes #11 = { noreturn }
 !31 = distinct !{!31, !7}
 !32 = distinct !{!32, !7}
 !33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = !{i8 0, i8 2}
+!34 = !{i8 0, i8 2}
+!35 = distinct !{!35, !7}
 !36 = !{}
 !37 = distinct !{!37, !7}
 !38 = distinct !{!38, !7}

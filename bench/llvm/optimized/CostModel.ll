@@ -549,11 +549,11 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %34, %36, %37
 _ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %47, %49
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %.sroa.072.083 = load ptr, ptr %53, align 8, !tbaa !77
-  %.not84 = icmp eq ptr %.sroa.072.083, %54
-  br i1 %.not84, label %._crit_edge87, label %.lr.ph86
+  %.sroa.072.084 = load ptr, ptr %53, align 8, !tbaa !77
+  %.not85 = icmp eq ptr %.sroa.072.084, %54
+  br i1 %.not85, label %._crit_edge88, label %.lr.ph87
 
-.lr.ph86:                                         ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit44
+.lr.ph87:                                         ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit44
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -563,7 +563,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %47, %49
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %72
 
-._crit_edge87:                                    ; preds = %._crit_edge, %_ZN4llvm11raw_ostreamlsEPKc.exit44
+._crit_edge88:                                    ; preds = %._crit_edge, %_ZN4llvm11raw_ostreamlsEPKc.exit44
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr1.i, ptr %0, align 8, !tbaa !28, !alias.scope !80
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -588,29 +588,29 @@ _ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %47, %49
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !86, !alias.scope !80, !noalias !83
   ret void
 
-72:                                               ; preds = %.lr.ph86, %._crit_edge
-  %.sroa.072.085 = phi ptr [ %.sroa.072.083, %.lr.ph86 ], [ %.sroa.072.0, %._crit_edge ]
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.072.085, i64 32
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.072.085, i64 24
-  %.sroa.067.079 = load ptr, ptr %73, align 8, !tbaa !87
-  %.not7780 = icmp eq ptr %.sroa.067.079, %74
-  br i1 %.not7780, label %._crit_edge, label %.lr.ph
+72:                                               ; preds = %.lr.ph87, %._crit_edge
+  %.sroa.072.086 = phi ptr [ %.sroa.072.084, %.lr.ph87 ], [ %.sroa.072.0, %._crit_edge ]
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.072.086, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.072.086, i64 24
+  %.sroa.067.080 = load ptr, ptr %73, align 8, !tbaa !87
+  %.not7881 = icmp eq ptr %.sroa.067.080, %74
+  br i1 %.not7881, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit62, %72
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.072.085, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.072.086, i64 8
   %.sroa.072.0 = load ptr, ptr %75, align 8, !tbaa !77
   %.not = icmp eq ptr %.sroa.072.0, %54
-  br i1 %.not, label %._crit_edge87, label %72
+  br i1 %.not, label %._crit_edge88, label %72
 
 .lr.ph:                                           ; preds = %72, %_ZN4llvm11raw_ostreamlsEPKc.exit62
-  %.sroa.067.081 = phi ptr [ %.sroa.067.0, %_ZN4llvm11raw_ostreamlsEPKc.exit62 ], [ %.sroa.067.079, %72 ]
-  %76 = getelementptr inbounds i8, ptr %.sroa.067.081, i64 -24
+  %.sroa.067.082 = phi ptr [ %.sroa.067.0, %_ZN4llvm11raw_ostreamlsEPKc.exit62 ], [ %.sroa.067.080, %72 ]
+  %76 = getelementptr inbounds i8, ptr %.sroa.067.082, i64 -24
   %77 = load i8, ptr %76, align 8, !tbaa !90
   %78 = icmp eq i8 %77, 85
   br i1 %78, label %79, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread
 
 79:                                               ; preds = %.lr.ph
-  %80 = getelementptr inbounds i8, ptr %.sroa.067.081, i64 -56
+  %80 = getelementptr inbounds i8, ptr %.sroa.067.082, i64 -56
   %81 = load ptr, ptr %80, align 8, !tbaa !94
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread, label %82
@@ -623,7 +623,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %47, %49
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %86 = load ptr, ptr %85, align 8, !tbaa !99
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.067.081, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.067.082, i64 56
   %88 = load ptr, ptr %87, align 8, !tbaa !104
   %89 = icmp eq ptr %86, %88
   br i1 %89, label %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread
@@ -632,15 +632,13 @@ _ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %91 = load i32, ptr %90, align 8
   %92 = and i32 %91, 8192
-  %.not.i.i = icmp eq i32 %92, 0
-  br i1 %.not.i.i, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit
-
-_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i
-  %93 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22TypeBasedIntrinsicCost, i64 120), align 8, !tbaa !56, !range !54, !noundef !55
+  %.not.i.i = icmp ne i32 %92, 0
+  %93 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22TypeBasedIntrinsicCost, i64 120), align 8, !range !54
   %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %95, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread
+  %or.cond = select i1 %.not.i.i, i1 %94, i1 false
+  br i1 %or.cond, label %95, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread
 
-95:                                               ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit
+95:                                               ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #13
   %96 = getelementptr inbounds nuw i8, ptr %81, i64 36
   %97 = load i32, ptr %96, align 4, !tbaa !121
@@ -668,17 +666,17 @@ _ZN4llvm23IntrinsicCostAttributesD2Ev.exit:       ; preds = %_ZN4llvm11SmallVect
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #13
   br label %135
 
-_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %79, %82, %.lr.ph, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit
+_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %79, %82, %.lr.ph
   %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL8CostKind, i64 120), align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #13
-  %107 = getelementptr inbounds i8, ptr %.sroa.067.081, i64 -20
+  %107 = getelementptr inbounds i8, ptr %.sroa.067.082, i64 -20
   %108 = load i32, ptr %107, align 4
   %109 = and i32 %108, 1073741824
   %.not.i.i.i.i.i = icmp eq i32 %109, 0
   br i1 %.not.i.i.i.i.i, label %113, label %110
 
 110:                                              ; preds = %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread
-  %111 = getelementptr inbounds i8, ptr %.sroa.067.081, i64 -32
+  %111 = getelementptr inbounds i8, ptr %.sroa.067.082, i64 -32
   %112 = load ptr, ptr %111, align 8, !tbaa !122
   %.pre.i.i.i.i = and i32 %108, 134217727
   %.pre1.i.i.i.i = zext nneg i32 %.pre.i.i.i.i to i64
@@ -845,10 +843,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit59:               ; preds = %169, %171
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit62
 
 _ZN4llvm11raw_ostreamlsEPKc.exit62:               ; preds = %179, %181
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.067.081, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.067.082, i64 8
   %.sroa.067.0 = load ptr, ptr %184, align 8, !tbaa !87
-  %.not77 = icmp eq ptr %.sroa.067.0, %74
-  br i1 %.not77, label %._crit_edge, label %.lr.ph
+  %.not78 = icmp eq ptr %.sroa.067.0, %74
+  br i1 %.not78, label %._crit_edge, label %.lr.ph
 }
 
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4

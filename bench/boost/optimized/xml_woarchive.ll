@@ -3080,7 +3080,7 @@ _ZN5boost7archive9iterators13wchar_from_mbINS1_10xml_escapeIPKcEEEC2ERKS7_.exit:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %53, i8 0, i64 18, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
   invoke void @_ZN5boost7archive6detail18utf8_codecvt_facetC1Em(ptr noundef nonnull align 8 dereferenceable(24) %54, i64 noundef 0)
-          to label %.noexc unwind label %132
+          to label %.noexc unwind label %131
 
 .noexc:                                           ; preds = %_ZN5boost7archive9iterators13wchar_from_mbINS1_10xml_escapeIPKcEEEC2ERKS7_.exit
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -3174,7 +3174,7 @@ _ZNK5boost7archive9iterators13wchar_from_mbINS1_10xml_escapeIPKcEEE11dereference
 _ZN5boost9iteratorsneINS_7archive9iterators13wchar_from_mbINS3_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlS9_wSA_wlEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSB_12always_bool2ESD_SE_E4typeEE4typeERKNS0_15iterator_facadeISD_T0_T1_T2_T3_EERKNSM_ISE_T5_T6_T7_T8_EE.exit.i: ; preds = %107, %_ZNK5boost7archive9iterators13wchar_from_mbINS1_10xml_escapeIPKcEEE11dereferenceEv.exit.i.i.i.i
   %.0.i2.i.i.i.i = phi i32 [ %108, %107 ], [ 0, %_ZNK5boost7archive9iterators13wchar_from_mbINS1_10xml_escapeIPKcEEE11dereferenceEv.exit.i.i.i.i ]
   %.not.i = icmp eq i32 %.0.i.i.i.i.i, %.0.i2.i.i.i.i
-  br i1 %.not.i, label %131, label %109
+  br i1 %.not.i, label %130, label %109
 
 109:                                              ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators13wchar_from_mbINS3_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlS9_wSA_wlEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSB_12always_bool2ESD_SE_E4typeEE4typeERKNS0_15iterator_facadeISD_T0_T1_T2_T3_EERKNSM_ISE_T5_T6_T7_T8_EE.exit.i
   br i1 %101, label %_ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13wchar_from_mbINS4_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEdeEv.exit.i, label %110
@@ -3190,7 +3190,7 @@ _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13wchar_f
 
 112:                                              ; preds = %_ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13wchar_from_mbINS4_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEdeEv.exit.i
   %113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0, i32 noundef signext %.0.i.i.i.i)
-          to label %.noexc6 unwind label %134
+          to label %.noexc6 unwind label %133
 
 .noexc6:                                          ; preds = %112
   %114 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !42, !noalias !139
@@ -3215,40 +3215,38 @@ _ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit.i: ; preds = %.noexc6,
 124:                                              ; preds = %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit.i
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 4
   store ptr %125, ptr %43, align 8, !tbaa !142, !noalias !139
-  %126 = icmp eq ptr %125, %121
-  br i1 %126, label %127, label %_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13wchar_from_mbINS4_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEppEv.exit.i.backedge
+  %126 = icmp ne ptr %125, %121
+  %127 = load i8, ptr %30, align 8, !range !18, !noalias !139
+  %128 = trunc nuw i8 %127 to i1
+  %or.cond.i.i.i.i = select i1 %126, i1 true, i1 %128
+  br i1 %or.cond.i.i.i.i, label %_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13wchar_from_mbINS4_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEppEv.exit.i.backedge, label %129
 
-127:                                              ; preds = %124
-  %128 = load i8, ptr %30, align 8, !tbaa !151, !range !18, !noalias !139, !noundef !19
-  %129 = trunc nuw i8 %128 to i1
-  br i1 %129, label %_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13wchar_from_mbINS4_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEppEv.exit.i.backedge, label %130
-
-130:                                              ; preds = %127
+129:                                              ; preds = %124
   invoke void @_ZN5boost7archive9iterators13wchar_from_mbINS1_10xml_escapeIPKcEEE5drainEv(ptr noundef nonnull align 8 dereferenceable(272) %5)
-          to label %_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13wchar_from_mbINS4_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEppEv.exit.i.backedge unwind label %134
+          to label %_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13wchar_from_mbINS4_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEppEv.exit.i.backedge unwind label %133
 
-_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13wchar_from_mbINS4_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEppEv.exit.i.backedge: ; preds = %130, %127, %124, %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit.i
-  br label %_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13wchar_from_mbINS4_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEppEv.exit.i, !llvm.loop !152
+_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13wchar_from_mbINS4_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEppEv.exit.i.backedge: ; preds = %129, %124, %_ZN5boost7archive9iterators16ostream_iteratorIwEaSEw.exit.i
+  br label %_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators13wchar_from_mbINS4_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEppEv.exit.i, !llvm.loop !151
 
-131:                                              ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators13wchar_from_mbINS3_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlS9_wSA_wlEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSB_12always_bool2ESD_SE_E4typeEE4typeERKNS0_15iterator_facadeISD_T0_T1_T2_T3_EERKNSM_ISE_T5_T6_T7_T8_EE.exit.i
+130:                                              ; preds = %_ZN5boost9iteratorsneINS_7archive9iterators13wchar_from_mbINS3_10xml_escapeIPKcEEEEwNS0_25single_pass_traversal_tagEwlS9_wSA_wlEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSB_12always_bool2ESD_SE_E4typeEE4typeERKNS0_15iterator_facadeISD_T0_T1_T2_T3_EERKNSM_ISE_T5_T6_T7_T8_EE.exit.i
   store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !80, !alias.scope !139
   call void @_ZN5boost7archive6detail18utf8_codecvt_facetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #20
   call void @_ZN5boost7archive6detail18utf8_codecvt_facetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #20
   ret void
 
-132:                                              ; preds = %_ZN5boost7archive9iterators13wchar_from_mbINS1_10xml_escapeIPKcEEEC2ERKS7_.exit
-  %133 = landingpad { ptr, i32 }
+131:                                              ; preds = %_ZN5boost7archive9iterators13wchar_from_mbINS1_10xml_escapeIPKcEEEC2ERKS7_.exit
+  %132 = landingpad { ptr, i32 }
           cleanup
-  br label %136
+  br label %135
 
-134:                                              ; preds = %130, %112
-  %135 = landingpad { ptr, i32 }
+133:                                              ; preds = %129, %112
+  %134 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive6detail18utf8_codecvt_facetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #20
-  br label %136
+  br label %135
 
-136:                                              ; preds = %134, %132
-  %.pn = phi { ptr, i32 } [ %135, %134 ], [ %133, %132 ]
+135:                                              ; preds = %133, %131
+  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %132, %131 ]
   call void @_ZN5boost7archive6detail18utf8_codecvt_facetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #20
   resume { ptr, i32 } %.pn
 }
@@ -3265,7 +3263,7 @@ define linkonce_odr hidden void @_ZN5boost7archive9iterators13wchar_from_mbINS1_
   br label %9
 
 9:                                                ; preds = %_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators10xml_escapeIPKcEEcNS0_25single_pass_traversal_tagEclLb0ELb0EEppEv.exit, %1
-  %10 = load i8, ptr %4, align 8, !tbaa !153, !range !18, !noundef !19
+  %10 = load i8, ptr %4, align 8, !tbaa !152, !range !18, !noundef !19
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %._ZNK5boost7archive9iterators6escapeINS1_10xml_escapeIPKcEES5_E11dereferenceEv.exit_crit_edge.i.i, label %12
 
@@ -3311,8 +3309,8 @@ define linkonce_odr hidden void @_ZN5boost7archive9iterators13wchar_from_mbINS1_
 
 _ZN5boost7archive9iterators6escapeINS1_10xml_escapeIPKcEES5_E16dereference_implEv.exit.i.i.i: ; preds = %20, %19
   %.0.i.i.i.i.i = phi i8 [ %14, %19 ], [ %21, %20 ]
-  store i8 %.0.i.i.i.i.i, ptr %7, align 1, !tbaa !154
-  store i8 1, ptr %4, align 8, !tbaa !153
+  store i8 %.0.i.i.i.i.i, ptr %7, align 1, !tbaa !153
+  store i8 1, ptr %4, align 8, !tbaa !152
   br label %_ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators10xml_escapeIPKcEEcNS0_25single_pass_traversal_tagEclLb0ELb0EEdeEv.exit
 
 _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators10xml_escapeIPKcEEcNS0_25single_pass_traversal_tagEclLb0ELb0EEdeEv.exit: ; preds = %._ZNK5boost7archive9iterators6escapeINS1_10xml_escapeIPKcEES5_E11dereferenceEv.exit_crit_edge.i.i, %_ZN5boost7archive9iterators6escapeINS1_10xml_escapeIPKcEES5_E16dereference_implEv.exit.i.i.i
@@ -3322,7 +3320,7 @@ _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators10xml_esc
 
 24:                                               ; preds = %_ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators10xml_escapeIPKcEEcNS0_25single_pass_traversal_tagEclLb0ELb0EEdeEv.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 1, ptr %25, align 8, !tbaa !151
+  store i8 1, ptr %25, align 8, !tbaa !154
   %.pre = load ptr, ptr %8, align 8, !tbaa !155
   br label %select.unfold
 
@@ -3340,7 +3338,7 @@ _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators10xml_esc
 
 32:                                               ; preds = %28
   %33 = load i8, ptr %29, align 1, !tbaa !50
-  store i8 %33, ptr %7, align 1, !tbaa !154
+  store i8 %33, ptr %7, align 1, !tbaa !153
   br label %_ZN5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators10xml_escapeIPKcEEcNS0_25single_pass_traversal_tagEclLb0ELb0EEppEv.exit
 
 34:                                               ; preds = %28, %26
@@ -3866,10 +3864,10 @@ attributes #25 = { noreturn nounwind }
 !148 = !{!"_ZTS11__mbstate_t", !30, i64 0, !8, i64 4}
 !149 = !{!143, !10, i64 248}
 !150 = !{!96, !96, i64 0}
-!151 = !{!143, !17, i64 112}
-!152 = distinct !{!152, !49}
-!153 = !{!146, !17, i64 24}
-!154 = !{!146, !8, i64 25}
+!151 = distinct !{!151, !49}
+!152 = !{!146, !17, i64 24}
+!153 = !{!146, !8, i64 25}
+!154 = !{!143, !17, i64 112}
 !155 = !{!143, !10, i64 96}
 !156 = !{!146, !10, i64 8}
 !157 = !{!146, !10, i64 16}

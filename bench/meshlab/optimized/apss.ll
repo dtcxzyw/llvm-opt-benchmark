@@ -982,14 +982,14 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %14, %19, %_ZNK3vcg6
 48:                                               ; preds = %35
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %50 = load float, ptr %49, align 8
-  %51 = fcmp oeq float %50, 1.000000e+00
-  br i1 %51, label %.preheader, label %82
+  %51 = fcmp une float %50, 1.000000e+00
+  br i1 %51, label %82, label %.preheader
 
 .preheader:                                       ; preds = %48
   %52 = icmp sgt i32 %44, 0
-  br i1 %52, label %.lr.ph66, label %.loopexit
+  br i1 %52, label %.lr.ph, label %.loopexit
 
-.lr.ph66:                                         ; preds = %.preheader
+.lr.ph:                                           ; preds = %.preheader
   %53 = ashr exact i64 %42, 2
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1005,18 +1005,18 @@ _ZNK3vcg6Point3IfEneERKS1_.exit.thread:           ; preds = %14, %19, %_ZNK3vcg6
   %65 = and i64 %43, 2147483647
   br label %66
 
-66:                                               ; preds = %.lr.ph66, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit
-  %indvars.iv78 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next79, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit ]
-  %exitcond81.not = icmp eq i64 %indvars.iv78, %53
-  br i1 %exitcond81.not, label %67, label %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit
+66:                                               ; preds = %.lr.ph, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit ]
+  %exitcond.not = icmp eq i64 %indvars.iv, %53
+  br i1 %exitcond.not, label %67, label %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit
 
 67:                                               ; preds = %66
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %53, i64 noundef %53) #24
   unreachable
 
 _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %66
-  %exitcond82.not = icmp eq i64 %indvars.iv78, %61
-  br i1 %exitcond82.not, label %68, label %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit
+  %exitcond78.not = icmp eq i64 %indvars.iv, %61
+  br i1 %exitcond78.not, label %68, label %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit
 
 68:                                               ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %61, i64 noundef %61) #24
@@ -1024,18 +1024,18 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %66
 
 _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit
   %69 = load ptr, ptr %62, align 8
-  %70 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv78
+  %70 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds float, ptr %69, i64 %72
   %74 = load float, ptr %73, align 4
   %75 = fmul float %74, %64
   %76 = fmul float %75, %75
-  %77 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv78
+  %77 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
   %78 = load float, ptr %77, align 4
   %79 = fcmp ogt float %78, %76
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %80 = icmp samesign ult i64 %indvars.iv.next79, %65
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %80 = icmp samesign ult i64 %indvars.iv.next, %65
   %81 = select i1 %79, i1 %80, i1 false
   br i1 %81, label %66, label %.loopexit, !llvm.loop !26
 
@@ -1046,9 +1046,9 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   %86 = fadd double %85, -1.000000e+00
   %87 = fptrunc double %86 to float
   %88 = icmp sgt i32 %44, 0
-  br i1 %88, label %.lr.ph, label %.loopexit
+  br i1 %88, label %.lr.ph67, label %.loopexit
 
-.lr.ph:                                           ; preds = %82
+.lr.ph67:                                         ; preds = %82
   %89 = ashr exact i64 %42, 2
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1071,26 +1071,26 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   %108 = and i64 %43, 2147483647
   br label %109
 
-109:                                              ; preds = %.lr.ph, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44 ]
-  %exitcond.not = icmp eq i64 %indvars.iv, %89
-  br i1 %exitcond.not, label %110, label %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit42
+109:                                              ; preds = %.lr.ph67, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45
+  %indvars.iv79 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next80, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45 ]
+  %exitcond82.not = icmp eq i64 %indvars.iv79, %89
+  br i1 %exitcond82.not, label %110, label %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit43
 
 110:                                              ; preds = %109
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %89, i64 noundef %89) #24
   unreachable
 
-_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit42:     ; preds = %109
-  %exitcond77.not = icmp eq i64 %indvars.iv, %97
-  br i1 %exitcond77.not, label %111, label %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44
+_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit43:     ; preds = %109
+  %exitcond83.not = icmp eq i64 %indvars.iv79, %97
+  br i1 %exitcond83.not, label %111, label %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45
 
-111:                                              ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit42
+111:                                              ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit43
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, i64 noundef %97, i64 noundef %97) #24
   unreachable
 
-_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44: ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit42
+_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45: ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit43
   %112 = load ptr, ptr %99, align 8
-  %113 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv79
   %114 = load i32, ptr %113, align 4
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds %class.CVertexO, ptr %112, i64 %115
@@ -1117,19 +1117,19 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44: ; preds = %_ZNK7GaelMls
   %137 = load float, ptr %136, align 4
   %138 = fmul float %137, %107
   %139 = fmul float %138, %138
-  %140 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv79
   %141 = load float, ptr %140, align 4
   %142 = fmul float %134, %87
   %143 = call float @llvm.fmuladd.f32(float %142, float %134, float %141)
   %144 = fcmp ogt float %143, %139
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %145 = icmp samesign ult i64 %indvars.iv.next, %108
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %145 = icmp samesign ult i64 %indvars.iv.next80, %108
   %146 = select i1 %144, i1 %145, i1 false
   br i1 %146, label %109, label %.loopexit, !llvm.loop !27
 
-.loopexit:                                        ; preds = %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit, %82, %.preheader
-  %.136.shrunk = phi i1 [ true, %.preheader ], [ true, %82 ], [ %79, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit ], [ %144, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit44 ]
-  %147 = xor i1 %.136.shrunk, true
+.loopexit:                                        ; preds = %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45, %.preheader, %82
+  %.137.shrunk = phi i1 [ true, %82 ], [ true, %.preheader ], [ %144, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45 ], [ %79, %_ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit ]
+  %147 = xor i1 %.137.shrunk, true
   br label %148
 
 148:                                              ; preds = %35, %.loopexit

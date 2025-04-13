@@ -723,9 +723,13 @@ define hidden i32 @mbedtls_ssl_tls13_write_client_hello_exts(ptr noundef %0, ptr
   %87 = load i16, ptr %86, align 8, !tbaa !62
   %switch.tableidx = add i16 %87, -23
   %88 = icmp ult i16 %switch.tableidx, 8
-  br i1 %88, label %switch.hole_check, label %89
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -57, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %88, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %89
 
-89:                                               ; preds = %switch.hole_check, %84
+89:                                               ; preds = %84
   %90 = add i16 %87, -261
   %91 = icmp ult i16 %90, -5
   br i1 %91, label %92, label %ssl_tls13_get_default_group_id.exit.i
@@ -766,32 +770,24 @@ mbedtls_ssl_get_groups.exit.i.i:                  ; preds = %92
 106:                                              ; preds = %.lr.ph.i.i
   %switch.tableidx77 = add i16 %.pre.i.i, -23
   %107 = icmp ult i16 %switch.tableidx77, 8
-  br i1 %107, label %switch.hole_check78, label %108
+  %switch.maskindex80 = trunc i16 %switch.tableidx77 to i8
+  %switch.shifted81 = lshr i8 -57, %switch.maskindex80
+  %switch.lobit82 = trunc i8 %switch.shifted81 to i1
+  %or.cond85 = select i1 %107, i1 %switch.lobit82, i1 false
+  br i1 %or.cond85, label %switch.lookup79, label %108
 
-108:                                              ; preds = %switch.hole_check78, %106, %.lr.ph.i.i
+108:                                              ; preds = %106, %.lr.ph.i.i
   %109 = add i16 %.pre.i.i, -261
   %110 = icmp ult i16 %109, -5
   br i1 %110, label %100, label %ssl_tls13_get_default_group_id.exit.i
 
-switch.hole_check:                                ; preds = %84
-  %switch.maskindex = trunc nuw i16 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -57, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %89
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %84
   %111 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i16], ptr @switch.table.mbedtls_ssl_tls13_write_client_hello_exts.18, i64 0, i64 %111
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %ssl_tls13_get_default_group_id.exit.i
 
-switch.hole_check78:                              ; preds = %106
-  %switch.maskindex80 = trunc nuw i16 %switch.tableidx77 to i8
-  %switch.shifted81 = lshr i8 -57, %switch.maskindex80
-  %switch.lobit82 = trunc i8 %switch.shifted81 to i1
-  br i1 %switch.lobit82, label %switch.lookup79, label %108
-
-switch.lookup79:                                  ; preds = %switch.hole_check78
+switch.lookup79:                                  ; preds = %106
   %112 = zext nneg i16 %switch.tableidx77 to i64
   %switch.gep83 = getelementptr inbounds nuw [8 x i16], ptr @switch.table.mbedtls_ssl_tls13_write_client_hello_exts.18, i64 0, i64 %112
   %switch.load84 = load i16, ptr %switch.gep83, align 2

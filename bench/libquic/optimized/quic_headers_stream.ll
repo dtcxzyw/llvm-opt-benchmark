@@ -754,7 +754,7 @@ define { i64, i8 } @_ZN3net17QuicHeadersStream16WritevStreamDataEjNS_12QuicIOVec
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !349
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.lr.ph, label %.critedge47
+  br i1 %14, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -764,7 +764,7 @@ define { i64, i8 } @_ZN3net17QuicHeadersStream16WritevStreamDataEjNS_12QuicIOVec
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %.not42 = icmp eq ptr %5, null
+  %.not = icmp eq ptr %5, null
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -774,7 +774,7 @@ define { i64, i8 } @_ZN3net17QuicHeadersStream16WritevStreamDataEjNS_12QuicIOVec
 
 26:                                               ; preds = %.lr.ph, %82
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
-  %.069 = phi i64 [ %16, %.lr.ph ], [ %63, %82 ]
+  %.067 = phi i64 [ %16, %.lr.ph ], [ %63, %82 ]
   %27 = getelementptr inbounds nuw %struct.iovec, ptr %17, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = icmp eq i64 %indvars.iv, %25
@@ -783,44 +783,38 @@ define { i64, i8 } @_ZN3net17QuicHeadersStream16WritevStreamDataEjNS_12QuicIOVec
 
 30:                                               ; preds = %79, %26
   %31 = phi i64 [ %.pre, %26 ], [ %80, %79 ]
-  %.1 = phi i64 [ %.069, %26 ], [ %63, %79 ]
-  %.039 = phi i64 [ 0, %26 ], [ %35, %79 ]
-  %32 = sub i64 %31, %.039
-  %.sroa.speculated63 = call i64 @llvm.umin.i64(i64 %11, i64 %32)
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %.1, i64 %.sroa.speculated63)
+  %.1 = phi i64 [ %.067, %26 ], [ %63, %79 ]
+  %.040 = phi i64 [ 0, %26 ], [ %35, %79 ]
+  %32 = sub i64 %31, %.040
+  %.sroa.speculated61 = call i64 @llvm.umin.i64(i64 %11, i64 %32)
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %.1, i64 %.sroa.speculated61)
   %33 = load ptr, ptr %27, align 8, !tbaa !356
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.039
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.040
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #23
   call void @_ZN3net10SpdyDataIRC1EjN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef %1, ptr %34, i64 %.sroa.speculated)
-  %35 = add i64 %.sroa.speculated, %.039
-  br i1 %29, label %36, label %.critedge
-
-36:                                               ; preds = %30
-  %37 = load i64, ptr %28, align 8, !tbaa !354
-  %.not = icmp uge i64 %35, %37
-  %spec.select = and i1 %4, %.not
+  %35 = add i64 %.sroa.speculated, %.040
+  %36 = load i64, ptr %28, align 8, !tbaa !354
+  %37 = icmp uge i64 %35, %36
+  %or.cond = select i1 %29, i1 %37, i1 false
+  %spec.select = and i1 %4, %or.cond
   %38 = zext i1 %spec.select to i8
   store i8 %38, ptr %19, align 4, !tbaa !337
   br i1 %spec.select, label %39, label %40
 
-39:                                               ; preds = %36
+39:                                               ; preds = %30
   store i8 1, ptr %20, align 8, !tbaa !357
   br label %40
 
-.critedge:                                        ; preds = %30
-  store i8 0, ptr %19, align 4, !tbaa !337
-  br label %40
-
-40:                                               ; preds = %.critedge, %39, %36
+40:                                               ; preds = %39, %30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #23
   invoke void @_ZN3net10SpdyFramer14SerializeFrameERKNS_11SpdyFrameIRE(ptr dead_on_unwind nonnull writable sret(%"class.net::SpdySerializedFrame") align 8 %9, ptr noundef nonnull align 8 dereferenceable(259) %21, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %41 unwind label %53
 
 41:                                               ; preds = %40
-  br i1 %.not42, label %._crit_edge, label %42
+  br i1 %.not, label %._crit_edge, label %42
 
 ._crit_edge:                                      ; preds = %41
-  %.pre74 = load i64, ptr %22, align 8, !tbaa !341
+  %.pre72 = load i64, ptr %22, align 8, !tbaa !341
   br label %57
 
 42:                                               ; preds = %41
@@ -830,7 +824,7 @@ define { i64, i8 } @_ZN3net17QuicHeadersStream16WritevStreamDataEjNS_12QuicIOVec
 .thread:                                          ; preds = %42
   %44 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit53
+  br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit51
 
 _ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit: ; preds = %42
   %45 = load i64, ptr %22, align 8, !tbaa !341
@@ -851,19 +845,19 @@ _ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit: ; pre
 53:                                               ; preds = %40
   %54 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN3net19SpdySerializedFrameD2Ev.exit54
+  br label %_ZN3net19SpdySerializedFrameD2Ev.exit52
 
 55:                                               ; preds = %57
   %56 = landingpad { ptr, i32 }
           cleanup
-  %.not.i52 = icmp eq ptr %.sroa.055.0, null
-  br i1 %.not.i52, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit53, label %83
+  %.not.i50 = icmp eq ptr %.sroa.053.0, null
+  br i1 %.not.i50, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit51, label %83
 
 57:                                               ; preds = %._crit_edge, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit
-  %58 = phi i64 [ %.pre74, %._crit_edge ], [ %45, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit ]
-  %.sroa.055.0 = phi ptr [ null, %._crit_edge ], [ %43, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit ]
+  %58 = phi i64 [ %.pre72, %._crit_edge ], [ %45, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit ]
+  %.sroa.053.0 = phi ptr [ null, %._crit_edge ], [ %43, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit ]
   %59 = load ptr, ptr %9, align 8, !tbaa !339
-  invoke void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %0, ptr %59, i64 %58, i1 noundef zeroext false, ptr noundef %.sroa.055.0)
+  invoke void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %0, ptr %59, i64 %58, i1 noundef zeroext false, ptr noundef %.sroa.053.0)
           to label %60 unwind label %55
 
 60:                                               ; preds = %57
@@ -871,12 +865,12 @@ _ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit: ; pre
   %62 = add i64 %61, %.sroa.speculated
   store i64 %62, ptr %7, align 8, !tbaa !368
   %63 = sub i64 %.1, %.sroa.speculated
-  %.not45.not.not = icmp ugt i64 %.1, %.sroa.speculated63
-  %.not.i51 = icmp eq ptr %.sroa.055.0, null
-  br i1 %.not.i51, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit, label %64
+  %.not45.not.not = icmp ugt i64 %.1, %.sroa.speculated61
+  %.not.i49 = icmp eq ptr %.sroa.053.0, null
+  br i1 %.not.i49, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %.sroa.055.0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.053.0, i64 8
   %66 = load i32, ptr %65, align 4, !tbaa !362
   %67 = add nsw i32 %66, -1
   store i32 %67, ptr %65, align 4, !tbaa !362
@@ -884,10 +878,10 @@ _ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEEaSEPS2_.exit: ; pre
   br i1 %68, label %69, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit
 
 69:                                               ; preds = %64
-  %70 = load ptr, ptr %.sroa.055.0, align 8, !tbaa !3
+  %70 = load ptr, ptr %.sroa.053.0, align 8, !tbaa !3
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.055.0) #23
+  call void %72(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.053.0) #23
   br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit
 
 _ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit: ; preds = %60, %64, %69
@@ -908,7 +902,7 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %_ZN13scoped_refptrI
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #23
   call void @_ZN3net10SpdyDataIRD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #23
-  br i1 %.not45.not.not, label %79, label %.critedge47
+  br i1 %.not45.not.not, label %79, label %.critedge
 
 79:                                               ; preds = %_ZN3net19SpdySerializedFrameD2Ev.exit
   %80 = load i64, ptr %28, align 8, !tbaa !354
@@ -918,46 +912,46 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %_ZN13scoped_refptrI
 82:                                               ; preds = %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge47, label %26, !llvm.loop !371
+  br i1 %exitcond.not, label %.critedge, label %26, !llvm.loop !371
 
 83:                                               ; preds = %55
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.055.0, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.053.0, i64 8
   %85 = load i32, ptr %84, align 4, !tbaa !362
   %86 = add nsw i32 %85, -1
   store i32 %86, ptr %84, align 4, !tbaa !362
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit53
+  br i1 %87, label %88, label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit51
 
 88:                                               ; preds = %83
-  %89 = load ptr, ptr %.sroa.055.0, align 8, !tbaa !3
+  %89 = load ptr, ptr %.sroa.053.0, align 8, !tbaa !3
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %91 = load ptr, ptr %90, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.055.0) #23
-  br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit53
+  call void %91(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.053.0) #23
+  br label %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit51
 
-_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit53: ; preds = %.thread, %55, %83, %88
+_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit51: ; preds = %.thread, %55, %83, %88
   %92 = phi { ptr, i32 } [ %44, %.thread ], [ %56, %55 ], [ %56, %83 ], [ %56, %88 ]
   %93 = load i8, ptr %24, align 8, !tbaa !342, !range !343, !noundef !344
   %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %95, label %_ZN3net19SpdySerializedFrameD2Ev.exit54
+  br i1 %94, label %95, label %_ZN3net19SpdySerializedFrameD2Ev.exit52
 
-95:                                               ; preds = %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit53
+95:                                               ; preds = %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit51
   %96 = load ptr, ptr %9, align 8, !tbaa !339
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %_ZN3net19SpdySerializedFrameD2Ev.exit54, label %98
+  br i1 %97, label %_ZN3net19SpdySerializedFrameD2Ev.exit52, label %98
 
 98:                                               ; preds = %95
   call void @_ZdaPv(ptr noundef nonnull %96) #22
-  br label %_ZN3net19SpdySerializedFrameD2Ev.exit54
+  br label %_ZN3net19SpdySerializedFrameD2Ev.exit52
 
-_ZN3net19SpdySerializedFrameD2Ev.exit54:          ; preds = %98, %95, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit53, %53
-  %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %92, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit53 ], [ %92, %95 ], [ %92, %98 ]
+_ZN3net19SpdySerializedFrameD2Ev.exit52:          ; preds = %98, %95, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit51, %53
+  %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %92, %_ZN13scoped_refptrIN3net12_GLOBAL__N_119ForceHolAckListenerEED2Ev.exit51 ], [ %92, %95 ], [ %92, %98 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #23
   call void @_ZN3net10SpdyDataIRD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #23
   resume { ptr, i32 } %.pn.pn
 
-.critedge47:                                      ; preds = %82, %_ZN3net19SpdySerializedFrameD2Ev.exit, %6
+.critedge:                                        ; preds = %82, %_ZN3net19SpdySerializedFrameD2Ev.exit, %6
   %.fca.0.load = load i64, ptr %7, align 8
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %7, i64 8

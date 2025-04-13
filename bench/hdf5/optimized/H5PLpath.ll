@@ -602,11 +602,11 @@ define range(i32 -1, -2147483648) i32 @H5PL__path_table_iterate(i32 noundef %0, 
   %17 = icmp eq i32 %0, 3
   %18 = icmp eq i32 %0, 0
   %19 = icmp eq i32 %0, 1
-  %20 = icmp ne i32 %0, 2
+  %20 = icmp eq i32 %0, 2
   br label %21
 
-21:                                               ; preds = %.lr.ph, %118
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %118 ]
+21:                                               ; preds = %.lr.ph, %120
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
   %22 = load ptr, ptr @H5PL_paths_g, align 8, !tbaa !15
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !3
@@ -633,22 +633,22 @@ H5PL__path_table_iterate_process_path.exit.thread16: ; preds = %31
 
 .preheader.i:                                     ; preds = %31
   %34 = call ptr @readdir64(ptr noundef nonnull %32) #12
-  %.not5187.i = icmp eq ptr %34, null
-  br i1 %.not5187.i, label %.loopexit.thread.i, label %sub_0.i
+  %.not5384.i = icmp eq ptr %34, null
+  br i1 %.not5384.i, label %.loopexit.thread.i, label %sub_0.i
 
 sub_0.i:                                          ; preds = %.preheader.i, %.backedge.i
-  %35 = phi ptr [ %95, %.backedge.i ], [ %34, %.preheader.i ]
-  %.188.i = phi ptr [ %.1.be.i, %.backedge.i ], [ null, %.preheader.i ]
+  %35 = phi ptr [ %97, %.backedge.i ], [ %34, %.preheader.i ]
+  %.185.i = phi ptr [ %.1.be.i, %.backedge.i ], [ null, %.preheader.i ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 19
   %37 = load i8, ptr %36, align 1
-  %.not90.i = icmp eq i8 %37, 108
-  br i1 %.not90.i, label %sub_1.i, label %.backedge.i
+  %.not87.i = icmp eq i8 %37, 108
+  br i1 %.not87.i, label %sub_1.i, label %.backedge.i
 
 sub_1.i:                                          ; preds = %sub_0.i
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %39 = load i8, ptr %38, align 1
-  %.not91.i = icmp eq i8 %39, 105
-  br i1 %.not91.i, label %.tail.i, label %.backedge.i
+  %.not88.i = icmp eq i8 %39, 105
+  br i1 %.not88.i, label %.tail.i, label %.backedge.i
 
 .tail.i:                                          ; preds = %sub_1.i
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 21
@@ -658,13 +658,13 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 43:                                               ; preds = %.tail.i
   %44 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) @.str.22) #14
-  %.not53.i = icmp eq ptr %44, null
-  br i1 %.not53.i, label %45, label %47
+  %.not55.i = icmp eq ptr %44, null
+  br i1 %.not55.i, label %45, label %47
 
 45:                                               ; preds = %43
   %46 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) @.str.23) #14
-  %.not54.i = icmp eq ptr %46, null
-  br i1 %.not54.i, label %.backedge.i, label %47
+  %.not56.i = icmp eq ptr %46, null
+  br i1 %.not56.i, label %.backedge.i, label %47
 
 47:                                               ; preds = %45, %43
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #12
@@ -719,7 +719,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %.thread.i
 
 80:                                               ; preds = %73
-  br i1 %17, label %87, label %81
+  br i1 %17, label %88, label %81
 
 81:                                               ; preds = %80
   %82 = load i32, ptr %4, align 4
@@ -727,31 +727,30 @@ sub_1.i:                                          ; preds = %sub_0.i
   %or.cond.i = select i1 %18, i1 %83, i1 false
   %84 = icmp eq i32 %82, 1
   %or.cond3.i = select i1 %19, i1 %84, i1 false
-  %or.cond89.i = select i1 %or.cond.i, i1 true, i1 %or.cond3.i
-  br i1 %or.cond89.i, label %87, label %85
+  %or.cond86.i = select i1 %or.cond.i, i1 true, i1 %or.cond3.i
+  br i1 %or.cond86.i, label %88, label %85
 
 85:                                               ; preds = %81
-  %86 = icmp ne i32 %82, 2
-  %.not78.i = select i1 %20, i1 true, i1 %86
-  br label %87
+  %86 = icmp eq i32 %82, 2
+  %87 = select i1 %20, i1 %86, i1 false
+  br label %88
 
-87:                                               ; preds = %85, %81, %80
-  %.not57.i = phi i1 [ false, %80 ], [ %.not78.i, %85 ], [ false, %81 ]
-  %88 = load i8, ptr %6, align 1, !tbaa !8, !range !10, !noundef !11
-  %89 = trunc nuw i8 %88 to i1
-  %.not56.i = xor i1 %89, true
-  %brmerge.i = select i1 %.not56.i, i1 true, i1 %.not57.i
-  br i1 %brmerge.i, label %.thread61.i, label %90
+88:                                               ; preds = %85, %81, %80
+  %89 = phi i1 [ true, %80 ], [ %87, %85 ], [ true, %81 ]
+  %90 = load i8, ptr %6, align 1, !tbaa !8, !range !10, !noundef !11
+  %91 = trunc nuw i8 %90 to i1
+  %or.cond5.i = select i1 %91, i1 %89, i1 false
+  br i1 %or.cond5.i, label %92, label %.thread61.i
 
-90:                                               ; preds = %87
-  %91 = load i32, ptr %4, align 4, !tbaa !13
-  %92 = load ptr, ptr %5, align 8, !tbaa !25
-  %93 = call i32 %1(i32 noundef %91, ptr noundef %92, ptr noundef %2) #12
-  %.not55.i = icmp eq i32 %93, 0
-  br i1 %.not55.i, label %.thread61.i, label %.loopexit.i
+92:                                               ; preds = %88
+  %93 = load i32, ptr %4, align 4, !tbaa !13
+  %94 = load ptr, ptr %5, align 8, !tbaa !25
+  %95 = call i32 %1(i32 noundef %93, ptr noundef %94, ptr noundef %2) #12
+  %.not57.i = icmp eq i32 %95, 0
+  br i1 %.not57.i, label %.thread61.i, label %.loopexit.i
 
-.thread61.i:                                      ; preds = %90, %87
-  %94 = call ptr @H5MM_xfree(ptr noundef nonnull %52) #12
+.thread61.i:                                      ; preds = %92, %88
+  %96 = call ptr @H5MM_xfree(ptr noundef nonnull %52) #12
   br label %.backedge.sink.split.i
 
 .thread.i:                                        ; preds = %76, %62, %54
@@ -759,82 +758,82 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %.loopexit.thread.i
 
 .backedge.sink.split.i:                           ; preds = %.thread61.i, %69
-  %.1.be.ph.i = phi ptr [ %94, %.thread61.i ], [ %52, %69 ]
+  %.1.be.ph.i = phi ptr [ %96, %.thread61.i ], [ %52, %69 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #12
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.sink.split.i, %45, %.tail.i, %sub_1.i, %sub_0.i
-  %.1.be.i = phi ptr [ %.188.i, %.tail.i ], [ %.188.i, %45 ], [ %.188.i, %sub_0.i ], [ %.188.i, %sub_1.i ], [ %.1.be.ph.i, %.backedge.sink.split.i ]
-  %95 = call ptr @readdir64(ptr noundef nonnull %32) #12
-  %.not51.i = icmp eq ptr %95, null
-  br i1 %.not51.i, label %.loopexit.thread.i, label %sub_0.i, !llvm.loop !29
+  %.1.be.i = phi ptr [ %.185.i, %.tail.i ], [ %.185.i, %45 ], [ %.185.i, %sub_0.i ], [ %.185.i, %sub_1.i ], [ %.1.be.ph.i, %.backedge.sink.split.i ]
+  %97 = call ptr @readdir64(ptr noundef nonnull %32) #12
+  %.not53.i = icmp eq ptr %97, null
+  br i1 %.not53.i, label %.loopexit.thread.i, label %sub_0.i, !llvm.loop !29
 
-.loopexit.i:                                      ; preds = %90
+.loopexit.i:                                      ; preds = %92
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #12
-  %96 = icmp slt i32 %93, 0
-  br i1 %96, label %97, label %.loopexit.thread.i
+  %98 = icmp slt i32 %95, 0
+  br i1 %98, label %99, label %.loopexit.thread.i
 
-97:                                               ; preds = %.loopexit.i
-  %98 = load i64, ptr @H5E_PLUGIN_g, align 8, !tbaa !17
-  %99 = load i64, ptr @H5E_CALLBACK_g, align 8, !tbaa !17
-  %100 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__path_table_iterate_process_path, i32 noundef 679, i64 noundef %98, i64 noundef %99, ptr noundef nonnull @.str.28) #12
+99:                                               ; preds = %.loopexit.i
+  %100 = load i64, ptr @H5E_PLUGIN_g, align 8, !tbaa !17
+  %101 = load i64, ptr @H5E_CALLBACK_g, align 8, !tbaa !17
+  %102 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__path_table_iterate_process_path, i32 noundef 679, i64 noundef %100, i64 noundef %101, ptr noundef nonnull @.str.28) #12
   br label %.loopexit.thread.i
 
-.loopexit.thread.i:                               ; preds = %.backedge.i, %97, %.loopexit.i, %.thread.i, %.preheader.i
-  %.140.ph.i = phi i32 [ -1, %.thread.i ], [ %93, %.loopexit.i ], [ %93, %97 ], [ 0, %.preheader.i ], [ 0, %.backedge.i ]
-  %.038.ph.i = phi ptr [ %52, %.thread.i ], [ %52, %.loopexit.i ], [ %52, %97 ], [ null, %.preheader.i ], [ %.1.be.i, %.backedge.i ]
-  %101 = call i32 @closedir(ptr noundef nonnull %32)
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %H5PL__path_table_iterate_process_path.exit.thread13, label %H5PL__path_table_iterate_process_path.exit
+.loopexit.thread.i:                               ; preds = %.backedge.i, %99, %.loopexit.i, %.thread.i, %.preheader.i
+  %.142.ph.i = phi i32 [ -1, %.thread.i ], [ %95, %.loopexit.i ], [ %95, %99 ], [ 0, %.preheader.i ], [ 0, %.backedge.i ]
+  %.040.ph.i = phi ptr [ %52, %.thread.i ], [ %52, %.loopexit.i ], [ %52, %99 ], [ null, %.preheader.i ], [ %.1.be.i, %.backedge.i ]
+  %103 = call i32 @closedir(ptr noundef nonnull %32)
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %H5PL__path_table_iterate_process_path.exit.thread13, label %H5PL__path_table_iterate_process_path.exit
 
 H5PL__path_table_iterate_process_path.exit.thread13: ; preds = %.loopexit.thread.i
-  %103 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !17
-  %104 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !17
-  %105 = tail call ptr @__errno_location() #15
-  %106 = load i32, ptr %105, align 4, !tbaa !13
-  %107 = call ptr @strerror(i32 noundef %106) #12
-  %108 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__path_table_iterate_process_path, i32 noundef 685, i64 noundef %103, i64 noundef %104, ptr noundef nonnull @.str.29, ptr noundef %107) #12
-  %109 = call ptr @H5MM_xfree(ptr noundef %.038.ph.i) #12
+  %105 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !17
+  %106 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !17
+  %107 = tail call ptr @__errno_location() #15
+  %108 = load i32, ptr %107, align 4, !tbaa !13
+  %109 = call ptr @strerror(i32 noundef %108) #12
+  %110 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__path_table_iterate_process_path, i32 noundef 685, i64 noundef %105, i64 noundef %106, ptr noundef nonnull @.str.29, ptr noundef %109) #12
+  %111 = call ptr @H5MM_xfree(ptr noundef %.040.ph.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   br label %.loopexit19
 
 H5PL__path_table_iterate_process_path.exit:       ; preds = %.loopexit.thread.i
-  %110 = call ptr @H5MM_xfree(ptr noundef %.038.ph.i) #12
+  %112 = call ptr @H5MM_xfree(ptr noundef %.040.ph.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  %111 = icmp slt i32 %.140.ph.i, 0
-  br i1 %111, label %.loopexit19, label %118
+  %113 = icmp slt i32 %.142.ph.i, 0
+  br i1 %113, label %.loopexit19, label %120
 
 .loopexit19:                                      ; preds = %H5PL__path_table_iterate_process_path.exit, %H5PL__path_table_iterate_process_path.exit.thread13
-  %112 = load i64, ptr @H5E_PLUGIN_g, align 8, !tbaa !17
-  %113 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !17
-  %114 = load ptr, ptr @H5PL_paths_g, align 8, !tbaa !15
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv
-  %116 = load ptr, ptr %115, align 8, !tbaa !3
-  %117 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__path_table_iterate, i32 noundef 578, i64 noundef %112, i64 noundef %113, ptr noundef nonnull @.str.13, ptr noundef %116) #12
+  %114 = load i64, ptr @H5E_PLUGIN_g, align 8, !tbaa !17
+  %115 = load i64, ptr @H5E_BADITER_g, align 8, !tbaa !17
+  %116 = load ptr, ptr @H5PL_paths_g, align 8, !tbaa !15
+  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv
+  %118 = load ptr, ptr %117, align 8, !tbaa !3
+  %119 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__path_table_iterate, i32 noundef 578, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.13, ptr noundef %118) #12
   br label %.loopexit
 
 .sink.split:                                      ; preds = %21, %H5PL__path_table_iterate_process_path.exit.thread16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  br label %118
+  br label %120
 
-118:                                              ; preds = %.sink.split, %H5PL__path_table_iterate_process_path.exit
-  %.037.i12 = phi i32 [ %.140.ph.i, %H5PL__path_table_iterate_process_path.exit ], [ 0, %.sink.split ]
+120:                                              ; preds = %.sink.split, %H5PL__path_table_iterate_process_path.exit
+  %.039.i12 = phi i32 [ %.142.ph.i, %H5PL__path_table_iterate_process_path.exit ], [ 0, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %119 = load i32, ptr @H5PL_num_paths_g, align 4, !tbaa !13
-  %120 = zext i32 %119 to i64
-  %121 = icmp samesign ult i64 %indvars.iv.next, %120
-  %122 = icmp eq i32 %.037.i12, 0
-  %123 = and i1 %122, %121
-  br i1 %123, label %21, label %.loopexit, !llvm.loop !30
+  %121 = load i32, ptr @H5PL_num_paths_g, align 4, !tbaa !13
+  %122 = zext i32 %121 to i64
+  %123 = icmp samesign ult i64 %indvars.iv.next, %122
+  %124 = icmp eq i32 %.039.i12, 0
+  %125 = and i1 %124, %123
+  br i1 %125, label %21, label %.loopexit, !llvm.loop !30
 
-.loopexit:                                        ; preds = %118, %.loopexit19, %3
-  %.0 = phi i32 [ -1, %.loopexit19 ], [ 0, %3 ], [ %.037.i12, %118 ]
+.loopexit:                                        ; preds = %120, %.loopexit19, %3
+  %.0 = phi i32 [ -1, %.loopexit19 ], [ 0, %3 ], [ %.039.i12, %120 ]
   ret i32 %.0
 }
 

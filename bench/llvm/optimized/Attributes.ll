@@ -2981,7 +2981,11 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1617: ; preds = %_ZN4ll
 256:                                              ; preds = %253
   %switch.tableidx = add i32 %255, -3
   %257 = icmp ult i32 %switch.tableidx, 5
-  br i1 %257, label %switch.hole_check, label %.thread.i
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 23, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond25874 = select i1 %257, i1 %switch.lobit, i1 false
+  br i1 %or.cond25874, label %_ZNK5clang10TargetInfo13supportsIFuncEv.exit, label %.thread.i
 
 258:                                              ; preds = %253
   %.old3.i = icmp eq i32 %255, 7
@@ -2991,7 +2995,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1617: ; preds = %_ZN4ll
   %260 = icmp eq i32 %251, 3
   br i1 %260, label %262, label %_ZNK5clang10TargetInfo13supportsIFuncEv.exit
 
-.thread.i:                                        ; preds = %switch.hole_check, %256
+.thread.i:                                        ; preds = %256
   %261 = icmp eq i32 %251, 3
   br i1 %261, label %_ZNK4llvm6Triple6isMuslEv.exit.thread.i, label %_ZNK5clang10TargetInfo13supportsIFuncEv.exit
 
@@ -3020,14 +3024,8 @@ _ZNK4llvm6Triple6isMuslEv.exit.thread.i:          ; preds = %264, %264, %264, %2
   %269 = or disjoint i64 %268, 4294967296
   br label %_ZNK5clang10TargetInfo13supportsIFuncEv.exit
 
-switch.hole_check:                                ; preds = %256
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 23, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK5clang10TargetInfo13supportsIFuncEv.exit, label %.thread.i
-
-_ZNK5clang10TargetInfo13supportsIFuncEv.exit:     ; preds = %switch.hole_check, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1617, %258, %259, %.thread.i, %264, %_ZNK4llvm6Triple6isMuslEv.exit.thread.i
-  %.0.i = phi i64 [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1617 ], [ 4294967297, %258 ], [ 4294967296, %259 ], [ %269, %_ZNK4llvm6Triple6isMuslEv.exit.thread.i ], [ 4294967297, %264 ], [ 4294967296, %.thread.i ], [ 4294967297, %switch.hole_check ]
+_ZNK5clang10TargetInfo13supportsIFuncEv.exit:     ; preds = %256, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1617, %258, %259, %.thread.i, %264, %_ZNK4llvm6Triple6isMuslEv.exit.thread.i
+  %.0.i = phi i64 [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1617 ], [ 4294967297, %258 ], [ 4294967296, %259 ], [ %269, %_ZNK4llvm6Triple6isMuslEv.exit.thread.i ], [ 4294967297, %264 ], [ 4294967296, %.thread.i ], [ 4294967297, %256 ]
   %270 = and i64 %.sroa.758.143, 4294967296
   %.not16366 = icmp eq i64 %270, 0
   %or.cond13709 = select i1 %.not16366, i1 %.not.i.i.i11672079225452, i1 false
@@ -32885,7 +32883,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo13supportsI
 11:                                               ; preds = %5
   %switch.tableidx = add i32 %10, -3
   %12 = icmp ult i32 %switch.tableidx, 5
-  br i1 %12, label %switch.hole_check, label %.thread
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 23, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %12, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZNK4llvm6Triple6isMuslEv.exit, label %.thread
 
 13:                                               ; preds = %5
   %.old3 = icmp eq i32 %10, 7
@@ -32895,7 +32897,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo13supportsI
   %15 = icmp eq i32 %3, 3
   br i1 %15, label %17, label %_ZNK4llvm6Triple6isMuslEv.exit
 
-.thread:                                          ; preds = %switch.hole_check, %11
+.thread:                                          ; preds = %11
   %16 = icmp eq i32 %3, 3
   br i1 %16, label %_ZNK4llvm6Triple6isMuslEv.exit.thread, label %_ZNK4llvm6Triple6isMuslEv.exit
 
@@ -32922,14 +32924,8 @@ _ZNK4llvm6Triple6isMuslEv.exit.thread:            ; preds = %.thread, %19, %19, 
   %22 = icmp eq i32 %7, 3
   br label %_ZNK4llvm6Triple6isMuslEv.exit
 
-switch.hole_check:                                ; preds = %11
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 23, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK4llvm6Triple6isMuslEv.exit, label %.thread
-
-_ZNK4llvm6Triple6isMuslEv.exit:                   ; preds = %switch.hole_check, %.thread, %19, %14, %_ZNK4llvm6Triple6isMuslEv.exit.thread, %13, %1
-  %.0 = phi i1 [ true, %1 ], [ true, %13 ], [ false, %14 ], [ %22, %_ZNK4llvm6Triple6isMuslEv.exit.thread ], [ true, %19 ], [ false, %.thread ], [ true, %switch.hole_check ]
+_ZNK4llvm6Triple6isMuslEv.exit:                   ; preds = %11, %.thread, %19, %14, %_ZNK4llvm6Triple6isMuslEv.exit.thread, %13, %1
+  %.0 = phi i1 [ true, %1 ], [ true, %13 ], [ false, %14 ], [ %22, %_ZNK4llvm6Triple6isMuslEv.exit.thread ], [ true, %19 ], [ false, %.thread ], [ true, %11 ]
   ret i1 %.0
 }
 

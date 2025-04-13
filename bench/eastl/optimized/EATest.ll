@@ -1010,15 +1010,13 @@ entry:
   %mpParentSuite = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %mpParentSuite, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
   %mbForceReport = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load i8, ptr %mbForceReport, align 8
   %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then, label %if.end
+  %or.cond = select i1 %tobool.not, i1 true, i1 %tobool2
+  br i1 %or.cond, label %if.then, label %if.end
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
+if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
@@ -1042,7 +1040,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   call void %call(ptr noundef nonnull %buffer)
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %lor.lhs.false
+if.end:                                           ; preds = %entry, %if.then
   ret void
 }
 
@@ -2915,15 +2913,13 @@ entry:
   %mpParentSuite = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %mpParentSuite, align 8
   %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
   %mbForceReport = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load i8, ptr %mbForceReport, align 8
   %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.then, label %if.end38
+  %or.cond = select i1 %tobool.not, i1 true, i1 %tobool2
+  br i1 %or.cond, label %if.then, label %if.end38
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
+if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
@@ -2957,7 +2953,6 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %cmp.not26, label %for.cond28.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %mbForceReport26 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %sName, i64 23
   br label %for.body
 
@@ -3036,7 +3031,7 @@ if.else:                                          ; preds = %for.body
   %vfn24 = getelementptr inbounds nuw i8, ptr %vtable23, i64 56
   %20 = load ptr, ptr %vfn24, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(80) %9)
-  store i8 %frombool, ptr %mbForceReport26, align 8
+  store i8 %frombool, ptr %mbForceReport, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %if.then.i.i, %invoke.cont19, %if.else
@@ -3045,7 +3040,7 @@ for.inc:                                          ; preds = %_ZN5eastl9allocator
   %cmp.not = icmp eq ptr %incdec.ptr, %21
   br i1 %cmp.not, label %for.cond28.preheader, label %for.body, !llvm.loop !19
 
-if.end38:                                         ; preds = %for.cond28.preheader, %lor.lhs.false
+if.end38:                                         ; preds = %entry, %for.cond28.preheader
   ret void
 }
 

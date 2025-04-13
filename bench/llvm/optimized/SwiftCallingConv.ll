@@ -2268,61 +2268,47 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen9swiftcall16SwiftAggLoweri
   %17 = load i32, ptr %16, align 8
   %trunc.i.i.i = trunc i32 %17 to i8
   %18 = icmp ult i8 %trunc.i.i.i, 6
-  br i1 %18, label %switch.hole_check, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i
+  %switch.shifted = lshr i8 47, %trunc.i.i.i
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %18, i1 %switch.lobit, i1 false
+  %19 = and i32 %17, 253
+  %spec.select.i.i = icmp eq i32 %19, 4
+  %or.cond23 = or i1 %or.cond, %spec.select.i.i
+  br i1 %or.cond23, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit
 
-_ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %15
-  %.old = and i32 %17, 253
-  %spec.select.i.i.old = icmp eq i32 %.old, 4
-  br i1 %spec.select.i.i.old, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit
-
-_ZL20isMergeableEntryTypePN4llvm4TypeE.exit:      ; preds = %switch.hole_check, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i
-  %19 = and i32 %17, 255
-  %20 = add nsw i32 %19, -19
-  %spec.select.i5.i = icmp ult i32 %20, -2
+_ZL20isMergeableEntryTypePN4llvm4TypeE.exit:      ; preds = %15
+  %20 = and i32 %17, 255
+  %21 = add nsw i32 %20, -19
+  %spec.select.i5.i = icmp ult i32 %21, -2
   br i1 %spec.select.i5.i, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13
 
 _ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15: ; preds = %11, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !796
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13, label %24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !796
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13, label %25
 
-24:                                               ; preds = %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %26 = load i32, ptr %25, align 8
-  %trunc.i.i.i8 = trunc i32 %26 to i8
-  %27 = icmp ult i8 %trunc.i.i.i8, 6
-  br i1 %27, label %switch.hole_check18, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i10
-
-_ZNK4llvm4Type17isFloatingPointTyEv.exit.i10:     ; preds = %24
-  %.old22 = and i32 %26, 253
-  %spec.select.i.i11.old = icmp eq i32 %.old22, 4
-  br i1 %spec.select.i.i11.old, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13, label %28
-
-28:                                               ; preds = %switch.hole_check18, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i10
-  %29 = and i32 %26, 255
-  %30 = add nsw i32 %29, -19
-  %spec.select.i5.i12 = icmp ult i32 %30, -2
-  br label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13
-
-switch.hole_check:                                ; preds = %15
-  %switch.shifted = lshr i8 47, %trunc.i.i.i
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %31 = and i32 %17, 5
-  %spec.select.i.i = icmp eq i32 %31, 4
-  %or.cond = or i1 %spec.select.i.i, %switch.lobit
-  br i1 %or.cond, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit
-
-switch.hole_check18:                              ; preds = %24
+25:                                               ; preds = %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %27 = load i32, ptr %26, align 8
+  %trunc.i.i.i8 = trunc i32 %27 to i8
+  %28 = icmp ult i8 %trunc.i.i.i8, 6
   %switch.shifted20 = lshr i8 47, %trunc.i.i.i8
   %switch.lobit21 = trunc i8 %switch.shifted20 to i1
-  %32 = and i32 %26, 5
-  %spec.select.i.i11 = icmp eq i32 %32, 4
-  %or.cond23 = or i1 %spec.select.i.i11, %switch.lobit21
-  br i1 %or.cond23, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13, label %28
+  %or.cond22 = select i1 %28, i1 %switch.lobit21, i1 false
+  %29 = and i32 %27, 253
+  %spec.select.i.i11 = icmp eq i32 %29, 4
+  %or.cond24 = or i1 %or.cond22, %spec.select.i.i11
+  br i1 %or.cond24, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13, label %30
 
-_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13:    ; preds = %switch.hole_check18, %switch.hole_check, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %28, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i10, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit ], [ true, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15 ], [ false, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i10 ], [ %spec.select.i5.i12, %28 ], [ false, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ], [ false, %switch.hole_check ], [ false, %switch.hole_check18 ]
+30:                                               ; preds = %25
+  %31 = and i32 %27, 255
+  %32 = add nsw i32 %31, -19
+  %spec.select.i5.i12 = icmp ult i32 %32, -2
+  br label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13
+
+_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13:    ; preds = %25, %15, %30, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit ], [ true, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15 ], [ %spec.select.i5.i12, %30 ], [ false, %15 ], [ false, %25 ]
   ret i1 %.0
 }
 

@@ -13986,154 +13986,137 @@ define internal fastcc i32 @codegen_check_compare(ptr noundef %0, ptr noundef re
   %or.cond3.i = or i1 %11, %or.cond.i
   %12 = icmp eq ptr %8, @_Py_EllipsisObject
   %spec.select.i = or i1 %12, %or.cond3.i
-  %13 = zext i1 %spec.select.i to i8
   br label %check_is_arg.exit
 
 check_is_arg.exit:                                ; preds = %2, %6
-  %.0.i = phi i8 [ %13, %6 ], [ 1, %2 ]
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !16
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit, label %17
+  %.0.i = phi i1 [ %spec.select.i, %6 ], [ true, %2 ]
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !16
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %.loopexit, label %16
 
-17:                                               ; preds = %check_is_arg.exit
-  %18 = load i64, ptr %15, align 8, !tbaa !17
-  %19 = icmp sgt i64 %18, 0
-  br i1 %19, label %.lr.ph, label %.loopexit
+16:                                               ; preds = %check_is_arg.exit
+  %17 = load i64, ptr %14, align 8, !tbaa !17
+  %18 = icmp sgt i64 %17, 0
+  br i1 %18, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !16
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  br label %24
+.lr.ph:                                           ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  br label %25
 
-24:                                               ; preds = %.lr.ph, %71
-  %.03261 = phi i64 [ 0, %.lr.ph ], [ %72, %71 ]
-  %.03360 = phi i8 [ %.0.i, %.lr.ph ], [ %.134.ph, %71 ]
-  %.03559 = phi ptr [ %4, %.lr.ph ], [ %28, %71 ]
-  %25 = getelementptr [1 x i32], ptr %20, i64 0, i64 %.03261
-  %26 = load i32, ptr %25, align 4, !tbaa !4
-  %27 = getelementptr [1 x ptr], ptr %23, i64 0, i64 %.03261
-  %28 = load ptr, ptr %27, align 8, !tbaa !22
-  %29 = load i32, ptr %28, align 8, !tbaa !15
-  %.not.i38 = icmp eq i32 %29, 20
-  br i1 %.not.i38, label %check_is_arg.exit43, label %check_is_arg.exit43.thread
+23:                                               ; preds = %check_is_arg.exit45
+  %24 = add nuw nsw i64 %.03461, 1
+  %exitcond.not = icmp eq i64 %24, %17
+  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !204
 
-check_is_arg.exit43:                              ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !16
-  %32 = icmp eq ptr %31, @_Py_NoneStruct
-  %33 = icmp eq ptr %31, @_Py_FalseStruct
-  %or.cond.i40 = or i1 %32, %33
-  %34 = icmp eq ptr %31, @_Py_TrueStruct
-  %or.cond3.i41 = or i1 %34, %or.cond.i40
-  %35 = icmp eq ptr %31, @_Py_EllipsisObject
-  %spec.select.i42 = or i1 %35, %or.cond3.i41
-  %36 = zext i1 %spec.select.i42 to i8
-  %37 = add i32 %26, -7
-  %or.cond = icmp ult i32 %37, 2
-  br i1 %or.cond, label %40, label %71
+25:                                               ; preds = %.lr.ph, %23
+  %.03461 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
+  %.03560 = phi i1 [ %.0.i, %.lr.ph ], [ %.0.i41, %23 ]
+  %.03759 = phi ptr [ %4, %.lr.ph ], [ %29, %23 ]
+  %26 = getelementptr [1 x i32], ptr %19, i64 0, i64 %.03461
+  %27 = load i32, ptr %26, align 4, !tbaa !4
+  %28 = getelementptr [1 x ptr], ptr %22, i64 0, i64 %.03461
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
+  %30 = load i32, ptr %29, align 8, !tbaa !15
+  %.not.i40 = icmp eq i32 %30, 20
+  br i1 %.not.i40, label %31, label %check_is_arg.exit45
 
-check_is_arg.exit43.thread:                       ; preds = %24
-  %38 = icmp eq i32 %26, 7
-  %39 = add i32 %26, -7
-  %or.cond46 = icmp ult i32 %39, 2
-  br i1 %or.cond46, label %.thread, label %71
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  %34 = icmp eq ptr %33, @_Py_NoneStruct
+  %35 = icmp eq ptr %33, @_Py_FalseStruct
+  %or.cond.i42 = or i1 %34, %35
+  %36 = icmp eq ptr %33, @_Py_TrueStruct
+  %or.cond3.i43 = or i1 %36, %or.cond.i42
+  %37 = icmp eq ptr %33, @_Py_EllipsisObject
+  %spec.select.i44 = or i1 %37, %or.cond3.i43
+  br label %check_is_arg.exit45
 
-40:                                               ; preds = %check_is_arg.exit43
-  %41 = icmp eq i32 %26, 7
-  br i1 %spec.select.i42, label %.thread, label %._crit_edge
+check_is_arg.exit45:                              ; preds = %25, %31
+  %.0.i41 = phi i1 [ %spec.select.i44, %31 ], [ true, %25 ]
+  %38 = add i32 %27, -9
+  %or.cond = icmp ult i32 %38, -2
+  %or.cond3 = select i1 %.0.i41, i1 %.03560, i1 false
+  %or.cond54 = select i1 %or.cond, i1 true, i1 %or.cond3
+  br i1 %or.cond54, label %23, label %39
 
-._crit_edge:                                      ; preds = %40
-  %.pre = trunc nuw i8 %.03360 to i1
-  %42 = select i1 %.pre, ptr %28, ptr %.03559
-  br label %split
-
-.thread:                                          ; preds = %check_is_arg.exit43.thread, %40
-  %43 = phi i1 [ %41, %40 ], [ %38, %check_is_arg.exit43.thread ]
-  %44 = trunc nuw i8 %.03360 to i1
-  br i1 %44, label %71, label %split
-
-split:                                            ; preds = %.thread, %._crit_edge
-  %.pre-phi = phi ptr [ %42, %._crit_edge ], [ %.03559, %.thread ]
-  %45 = phi i1 [ %41, %._crit_edge ], [ %43, %.thread ]
-  %46 = select i1 %45, ptr @.str.243, ptr @.str.244
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %48 = load i32, ptr %47, align 8, !tbaa !10
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %50 = load i32, ptr %49, align 8, !tbaa !12
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %52 = load i32, ptr %51, align 4, !tbaa !13
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %54 = load i32, ptr %53, align 4, !tbaa !14
-  %55 = load i32, ptr %.pre-phi, align 8, !tbaa !15
-  switch i32 %55, label %66 [
-    i32 26, label %67
-    i32 25, label %56
-    i32 9, label %56
-    i32 7, label %57
-    i32 11, label %57
-    i32 8, label %58
-    i32 10, label %58
-    i32 12, label %59
-    i32 5, label %60
-    i32 19, label %61
-    i32 18, label %61
-    i32 20, label %62
+39:                                               ; preds = %check_is_arg.exit45
+  %40 = icmp eq i32 %27, 7
+  %41 = select i1 %40, ptr @.str.243, ptr @.str.244
+  %42 = select i1 %.03560, ptr %29, ptr %.03759
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %44 = load i32, ptr %43, align 8, !tbaa !10
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load i32, ptr %45, align 8, !tbaa !12
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %48 = load i32, ptr %47, align 4, !tbaa !13
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %50 = load i32, ptr %49, align 4, !tbaa !14
+  %51 = load i32, ptr %42, align 8, !tbaa !15
+  switch i32 %51, label %62 [
+    i32 26, label %63
+    i32 25, label %52
+    i32 9, label %52
+    i32 7, label %53
+    i32 11, label %53
+    i32 8, label %54
+    i32 10, label %54
+    i32 12, label %55
+    i32 5, label %56
+    i32 19, label %57
+    i32 18, label %57
+    i32 20, label %58
   ]
 
-56:                                               ; preds = %split, %split
-  br label %67
+52:                                               ; preds = %39, %39
+  br label %63
 
-57:                                               ; preds = %split, %split
-  br label %67
+53:                                               ; preds = %39, %39
+  br label %63
 
-58:                                               ; preds = %split, %split
-  br label %67
+54:                                               ; preds = %39, %39
+  br label %63
 
-59:                                               ; preds = %split
-  br label %67
+55:                                               ; preds = %39
+  br label %63
 
-60:                                               ; preds = %split
-  br label %67
+56:                                               ; preds = %39
+  br label %63
 
-61:                                               ; preds = %split, %split
-  br label %67
+57:                                               ; preds = %39, %39
+  br label %63
 
-62:                                               ; preds = %split
-  %63 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !16
-  %65 = getelementptr i8, ptr %64, i64 8
-  %.val.i = load ptr, ptr %65, align 8, !tbaa !56
-  br label %67
+58:                                               ; preds = %39
+  %59 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !16
+  %61 = getelementptr i8, ptr %60, i64 8
+  %.val.i = load ptr, ptr %61, align 8, !tbaa !56
+  br label %63
 
-66:                                               ; preds = %split
+62:                                               ; preds = %39
   unreachable
 
-67:                                               ; preds = %62, %61, %60, %59, %58, %57, %56, %split
-  %.0.i44 = phi ptr [ %.val.i, %62 ], [ @PyUnicode_Type, %61 ], [ @PyFunction_Type, %60 ], [ @PyGen_Type, %59 ], [ @PySet_Type, %58 ], [ @PyDict_Type, %57 ], [ @PyList_Type, %56 ], [ @PyTuple_Type, %split ]
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i44, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !59
-  %.sroa.2.0.insert.ext = zext i32 %50 to i64
+63:                                               ; preds = %58, %57, %56, %55, %54, %53, %52, %39
+  %.0.i46 = phi ptr [ %.val.i, %58 ], [ @PyUnicode_Type, %57 ], [ @PyFunction_Type, %56 ], [ @PyGen_Type, %55 ], [ @PySet_Type, %54 ], [ @PyDict_Type, %53 ], [ @PyList_Type, %52 ], [ @PyTuple_Type, %39 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i46, i64 24
+  %65 = load ptr, ptr %64, align 8, !tbaa !59
+  %.sroa.2.0.insert.ext = zext i32 %46 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %48 to i64
+  %.sroa.0.0.insert.ext = zext i32 %44 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
-  %.sroa.5.8.insert.ext = zext i32 %54 to i64
+  %.sroa.5.8.insert.ext = zext i32 %50 to i64
   %.sroa.5.8.insert.shift = shl nuw i64 %.sroa.5.8.insert.ext, 32
-  %.sroa.3.8.insert.ext = zext i32 %52 to i64
+  %.sroa.3.8.insert.ext = zext i32 %48 to i64
   %.sroa.3.8.insert.insert = or disjoint i64 %.sroa.5.8.insert.shift, %.sroa.3.8.insert.ext
-  %70 = tail call i32 (ptr, i64, i64, ptr, ...) @_PyCompile_Warn(ptr noundef %0, i64 %.sroa.0.0.insert.insert, i64 %.sroa.3.8.insert.insert, ptr noundef nonnull %46, ptr noundef %69) #10
+  %66 = tail call i32 (ptr, i64, i64, ptr, ...) @_PyCompile_Warn(ptr noundef %0, i64 %.sroa.0.0.insert.insert, i64 %.sroa.3.8.insert.insert, ptr noundef nonnull %41, ptr noundef %65) #10
   br label %.loopexit
 
-71:                                               ; preds = %.thread, %check_is_arg.exit43, %check_is_arg.exit43.thread
-  %.134.ph = phi i8 [ 1, %check_is_arg.exit43.thread ], [ %36, %check_is_arg.exit43 ], [ 1, %.thread ]
-  %72 = add nuw nsw i64 %.03261, 1
-  %exitcond.not = icmp eq i64 %72, %18
-  br i1 %exitcond.not, label %.loopexit, label %24, !llvm.loop !204
-
-.loopexit:                                        ; preds = %71, %check_is_arg.exit, %17, %67
-  %.2 = phi i32 [ %70, %67 ], [ 0, %17 ], [ 0, %check_is_arg.exit ], [ 0, %71 ]
+.loopexit:                                        ; preds = %23, %check_is_arg.exit, %16, %63
+  %.2 = phi i32 [ %66, %63 ], [ 0, %16 ], [ 0, %check_is_arg.exit ], [ 0, %23 ]
   ret i32 %.2
 }
 

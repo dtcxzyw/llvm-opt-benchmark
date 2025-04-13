@@ -4173,7 +4173,12 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !465
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %93, label %9
+  br i1 %.not, label %._crit_edge, label %9
+
+._crit_edge:                                      ; preds = %3
+  %.pre = zext nneg i32 %1 to i64
+  %.pre50 = sub nsw i64 0, %.pre
+  br label %93
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4223,7 +4228,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
 
 51:                                               ; preds = %9
   %52 = fcmp olt double %28, %49
-  br label %_ZL12CmpOptionalsISt8optionalIjEES0_IbET_S3_.exit
+  br label %109
 
 53:                                               ; preds = %9
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4265,14 +4270,15 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %88 = zext i16 %85 to i64
   %89 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %87, i64 %88
   %90 = tail call noundef i32 @_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE(ptr noundef nonnull align 8 dereferenceable(304) %75, ptr noundef nonnull align 2 dereferenceable(14) %89) #11
-  %.not49 = icmp eq i32 %70, %90
-  br i1 %.not49, label %93, label %91
+  %.not52 = icmp eq i32 %70, %90
+  br i1 %.not52, label %93, label %91
 
 91:                                               ; preds = %53
   %92 = icmp slt i32 %70, %90
-  br label %_ZL12CmpOptionalsISt8optionalIjEES0_IbET_S3_.exit
+  br label %109
 
-93:                                               ; preds = %53, %3
+93:                                               ; preds = %._crit_edge, %53
+  %.pre-phi51 = phi i64 [ %.pre50, %._crit_edge ], [ %21, %53 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %95 = load ptr, ptr %94, align 8, !tbaa !475
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4287,23 +4293,19 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %102 = sub nsw i64 0, %101
   %103 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %.val19.val.val, i64 %102, i32 3
   %104 = load i8, ptr %103, align 1, !tbaa !476
-  %.not.not.not.i = icmp eq i8 %104, 0
-  br i1 %.not.not.not.i, label %_ZL12CmpOptionalsISt8optionalIjEES0_IbET_S3_.exit, label %105
+  %.not.not.not.i = icmp ne i8 %104, 0
+  %105 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %.val19.val.val, i64 %.pre-phi51, i32 3
+  %106 = load i8, ptr %105, align 1, !tbaa !476
+  %.not.not.not.i34 = icmp ne i8 %106, 0
+  %.not.i = icmp ne i8 %104, %106
+  %107 = and i1 %.not.not.not.i34, %.not.i
+  %or.cond9.not.i = select i1 %.not.not.not.i, i1 %107, i1 false
+  %108 = icmp ult i8 %104, %106
+  %spec.select = select i1 %or.cond9.not.i, i1 %108, i1 %2
+  br label %109
 
-105:                                              ; preds = %93
-  %106 = zext nneg i32 %1 to i64
-  %107 = sub nsw i64 0, %106
-  %108 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %.val19.val.val, i64 %107, i32 3
-  %109 = load i8, ptr %108, align 1, !tbaa !476
-  %.not.not.not.i33 = icmp ne i8 %109, 0
-  %.not.i = icmp ne i8 %104, %109
-  %or.cond.i.not = and i1 %.not.not.not.i33, %.not.i
-  %110 = icmp ult i8 %104, %109
-  %111 = select i1 %or.cond.i.not, i1 %110, i1 %2
-  br label %_ZL12CmpOptionalsISt8optionalIjEES0_IbET_S3_.exit
-
-_ZL12CmpOptionalsISt8optionalIjEES0_IbET_S3_.exit: ; preds = %93, %105, %91, %51
-  %.0 = phi i1 [ %52, %51 ], [ %92, %91 ], [ %2, %93 ], [ %111, %105 ]
+109:                                              ; preds = %93, %91, %51
+  %.0 = phi i1 [ %52, %51 ], [ %92, %91 ], [ %spec.select, %93 ]
   ret i1 %.0
 }
 

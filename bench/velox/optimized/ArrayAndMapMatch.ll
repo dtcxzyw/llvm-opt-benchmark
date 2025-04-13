@@ -7522,26 +7522,26 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %
   store ptr %call6.i.i, ptr %agg.result, align 8, !alias.scope !75
   %11 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !75
   %12 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !75
-  %cmp.not.i9.i.i = icmp ugt i64 %7, %12
-  br i1 %cmp.not.i9.i.i, label %if.then.i12.i.i, label %if.end.i.i.i
+  %cmp.not.i.i.i = icmp ugt i64 %7, %12
+  br i1 %cmp.not.i.i.i, label %if.then.i11.i.i, label %if.end.i.i.i
 
-if.then.i12.i.i:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
+if.then.i11.i.i:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
   tail call void @llvm.trap()
   unreachable
 
 if.end.i.i.i:                                     ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
-  %cmp2.not.i.not.i.i = icmp eq i32 %size, 0
-  br i1 %cmp2.not.i.not.i.i, label %_ZN8facebook5velox15allocateIndicesEiPNS0_6memory10MemoryPoolE.exit, label %if.then6.i.i.i
+  %cmp2.not.i.i.not.i = icmp eq i32 %size, 0
+  br i1 %cmp2.not.i.i.not.i, label %_ZN8facebook5velox15allocateIndicesEiPNS0_6memory10MemoryPoolE.exit, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %call6.i.i, align 8, !noalias !75
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !75
-  %call.i.i13.i.i = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %call6.i.i)
+  %call.i.i12.i.i = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %call6.i.i)
           to label %call.i.i.noexc.i.i unwind label %lpad.i.i, !noalias !75
 
 call.i.i.noexc.i.i:                               ; preds = %if.then6.i.i.i
-  br i1 %call.i.i13.i.i, label %if.then.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i
+  br i1 %call.i.i12.i.i, label %if.then.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i.noexc.i.i
   tail call void @llvm.trap()
@@ -10386,15 +10386,13 @@ if.end.i.if.else.i_crit_edge:                     ; preds = %if.end.i
   br i1 %.pre7, label %invoke.cont14.i, label %if.end.i.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  br i1 %.pre7, label %if.then4.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %hasExtraNulls_.i.i = getelementptr inbounds nuw i8, ptr %67, i64 57
   %71 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %tobool3.i.i = trunc i8 %71 to i1
-  br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end6.i.i
+  %or.cond.i.i = select i1 %.pre7, i1 true, i1 %tobool3.i.i
+  br i1 %or.cond.i.i, label %if.then4.i.i, label %if.end6.i.i
 
-if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %div2.i.i.i61.i = lshr i64 %27, 6
   %arrayidx.i.i.i62.i = getelementptr inbounds nuw i64, ptr %68, i64 %div2.i.i.i61.i
   %72 = load i64, ptr %arrayidx.i.i.i62.i, align 8
@@ -10404,7 +10402,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %tobool.i.not.i.i66.i = icmp eq i64 %and2.i.i.i65.i, 0
   br i1 %tobool.i.not.i.i66.i, label %for.inc.i, label %if.else.i
 
-if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
+if.end6.i.i:                                      ; preds = %if.end.i.i
   %isConstantMapping_.i.i = getelementptr inbounds nuw i8, ptr %67, i64 59
   %73 = load i8, ptr %isConstantMapping_.i.i, align 1
   %tobool7.i.i = trunc i8 %73 to i1
@@ -12727,15 +12725,13 @@ if.end.i.if.else.i_crit_edge:                     ; preds = %if.end.i
   br i1 %.pre7, label %invoke.cont12.i, label %if.end.i.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  br i1 %.pre7, label %if.then4.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %hasExtraNulls_.i.i = getelementptr inbounds nuw i8, ptr %67, i64 57
   %71 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %tobool3.i.i = trunc i8 %71 to i1
-  br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end6.i.i
+  %or.cond.i.i = select i1 %.pre7, i1 true, i1 %tobool3.i.i
+  br i1 %or.cond.i.i, label %if.then4.i.i, label %if.end6.i.i
 
-if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %div2.i.i.i61.i = lshr i64 %27, 6
   %arrayidx.i.i.i62.i = getelementptr inbounds nuw i64, ptr %68, i64 %div2.i.i.i61.i
   %72 = load i64, ptr %arrayidx.i.i.i62.i, align 8
@@ -12745,7 +12741,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %tobool.i.not.i.i66.i = icmp eq i64 %and2.i.i.i65.i, 0
   br i1 %tobool.i.not.i.i66.i, label %for.inc.i, label %if.else.i
 
-if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
+if.end6.i.i:                                      ; preds = %if.end.i.i
   %isConstantMapping_.i.i = getelementptr inbounds nuw i8, ptr %67, i64 59
   %73 = load i8, ptr %isConstantMapping_.i.i, align 1
   %tobool7.i.i = trunc i8 %73 to i1
@@ -14964,15 +14960,13 @@ if.end.i.if.else.i_crit_edge:                     ; preds = %if.end.i
   br i1 %.pre7, label %invoke.cont12.i, label %if.end.i.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  br i1 %.pre7, label %if.then4.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %hasExtraNulls_.i.i = getelementptr inbounds nuw i8, ptr %67, i64 57
   %71 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %tobool3.i.i = trunc i8 %71 to i1
-  br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end6.i.i
+  %or.cond.i.i = select i1 %.pre7, i1 true, i1 %tobool3.i.i
+  br i1 %or.cond.i.i, label %if.then4.i.i, label %if.end6.i.i
 
-if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %div2.i.i.i61.i = lshr i64 %27, 6
   %arrayidx.i.i.i62.i = getelementptr inbounds nuw i64, ptr %68, i64 %div2.i.i.i61.i
   %72 = load i64, ptr %arrayidx.i.i.i62.i, align 8
@@ -14982,7 +14976,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %tobool.i.not.i.i66.i = icmp eq i64 %and2.i.i.i65.i, 0
   br i1 %tobool.i.not.i.i66.i, label %for.inc.i, label %if.else.i
 
-if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
+if.end6.i.i:                                      ; preds = %if.end.i.i
   %isConstantMapping_.i.i = getelementptr inbounds nuw i8, ptr %67, i64 59
   %73 = load i8, ptr %isConstantMapping_.i.i, align 1
   %tobool7.i.i = trunc i8 %73 to i1
@@ -17108,26 +17102,26 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i: ; preds = %
   store ptr %call6.i.i, ptr %agg.result, align 8, !alias.scope !180
   %11 = atomicrmw add ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4, !noalias !180
   %12 = load i64, ptr %capacity_.i.i.i.i, align 8, !noalias !180
-  %cmp.not.i9.i.i = icmp ugt i64 %7, %12
-  br i1 %cmp.not.i9.i.i, label %if.then.i12.i.i, label %if.end.i.i.i
+  %cmp.not.i.i.i = icmp ugt i64 %7, %12
+  br i1 %cmp.not.i.i.i, label %if.then.i11.i.i, label %if.end.i.i.i
 
-if.then.i12.i.i:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
+if.then.i11.i.i:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
   tail call void @llvm.trap()
   unreachable
 
 if.end.i.i.i:                                     ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i.i
-  %cmp2.not.i.not.i.i = icmp eq i32 %size, 0
-  br i1 %cmp2.not.i.not.i.i, label %_ZN8facebook5velox15allocateIndicesEiPNS0_6memory10MemoryPoolE.exit, label %if.then6.i.i.i
+  %cmp2.not.i.i.not.i = icmp eq i32 %size, 0
+  br i1 %cmp2.not.i.i.not.i, label %_ZN8facebook5velox15allocateIndicesEiPNS0_6memory10MemoryPoolE.exit, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %call6.i.i, align 8, !noalias !180
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !180
-  %call.i.i13.i.i = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %call6.i.i)
+  %call.i.i12.i.i = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(64) %call6.i.i)
           to label %call.i.i.noexc.i.i unwind label %lpad.i.i, !noalias !180
 
 call.i.i.noexc.i.i:                               ; preds = %if.then6.i.i.i
-  br i1 %call.i.i13.i.i, label %if.then.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i
+  br i1 %call.i.i12.i.i, label %if.then.i.i.i.i, label %for.body.i.i.i.preheader.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i.noexc.i.i
   tail call void @llvm.trap()
@@ -18876,15 +18870,13 @@ if.end.i.if.else.i_crit_edge:                     ; preds = %if.end.i
   br i1 %.pre7, label %invoke.cont12.i, label %if.end.i.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  br i1 %.pre7, label %if.then4.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %hasExtraNulls_.i.i = getelementptr inbounds nuw i8, ptr %67, i64 57
   %71 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %tobool3.i.i = trunc i8 %71 to i1
-  br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end6.i.i
+  %or.cond.i.i = select i1 %.pre7, i1 true, i1 %tobool3.i.i
+  br i1 %or.cond.i.i, label %if.then4.i.i, label %if.end6.i.i
 
-if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %div2.i.i.i61.i = lshr i64 %27, 6
   %arrayidx.i.i.i62.i = getelementptr inbounds nuw i64, ptr %68, i64 %div2.i.i.i61.i
   %72 = load i64, ptr %arrayidx.i.i.i62.i, align 8
@@ -18894,7 +18886,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %tobool.i.not.i.i66.i = icmp eq i64 %and2.i.i.i65.i, 0
   br i1 %tobool.i.not.i.i66.i, label %for.inc.i, label %if.else.i
 
-if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
+if.end6.i.i:                                      ; preds = %if.end.i.i
   %isConstantMapping_.i.i = getelementptr inbounds nuw i8, ptr %67, i64 59
   %73 = load i8, ptr %isConstantMapping_.i.i, align 1
   %tobool7.i.i = trunc i8 %73 to i1
@@ -21115,15 +21107,13 @@ if.end.i.if.else.i_crit_edge:                     ; preds = %if.end.i
   br i1 %.pre7, label %invoke.cont12.i, label %if.end.i.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  br i1 %.pre7, label %if.then4.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %hasExtraNulls_.i.i = getelementptr inbounds nuw i8, ptr %67, i64 57
   %71 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %tobool3.i.i = trunc i8 %71 to i1
-  br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end6.i.i
+  %or.cond.i.i = select i1 %.pre7, i1 true, i1 %tobool3.i.i
+  br i1 %or.cond.i.i, label %if.then4.i.i, label %if.end6.i.i
 
-if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %div2.i.i.i61.i = lshr i64 %27, 6
   %arrayidx.i.i.i62.i = getelementptr inbounds nuw i64, ptr %68, i64 %div2.i.i.i61.i
   %72 = load i64, ptr %arrayidx.i.i.i62.i, align 8
@@ -21133,7 +21123,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %tobool.i.not.i.i66.i = icmp eq i64 %and2.i.i.i65.i, 0
   br i1 %tobool.i.not.i.i66.i, label %for.inc.i, label %if.else.i
 
-if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
+if.end6.i.i:                                      ; preds = %if.end.i.i
   %isConstantMapping_.i.i = getelementptr inbounds nuw i8, ptr %67, i64 59
   %73 = load i8, ptr %isConstantMapping_.i.i, align 1
   %tobool7.i.i = trunc i8 %73 to i1
@@ -23352,15 +23342,13 @@ if.end.i.if.else.i_crit_edge:                     ; preds = %if.end.i
   br i1 %.pre7, label %invoke.cont12.i, label %if.end.i.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  br i1 %.pre7, label %if.then4.i.i, label %lor.lhs.false.i.i
-
-lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %hasExtraNulls_.i.i = getelementptr inbounds nuw i8, ptr %67, i64 57
   %71 = load i8, ptr %hasExtraNulls_.i.i, align 1
   %tobool3.i.i = trunc i8 %71 to i1
-  br i1 %tobool3.i.i, label %if.then4.i.i, label %if.end6.i.i
+  %or.cond.i.i = select i1 %.pre7, i1 true, i1 %tobool3.i.i
+  br i1 %or.cond.i.i, label %if.then4.i.i, label %if.end6.i.i
 
-if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.i.i
+if.then4.i.i:                                     ; preds = %if.end.i.i
   %div2.i.i.i61.i = lshr i64 %27, 6
   %arrayidx.i.i.i62.i = getelementptr inbounds nuw i64, ptr %68, i64 %div2.i.i.i61.i
   %72 = load i64, ptr %arrayidx.i.i.i62.i, align 8
@@ -23370,7 +23358,7 @@ if.then4.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   %tobool.i.not.i.i66.i = icmp eq i64 %and2.i.i.i65.i, 0
   br i1 %tobool.i.not.i.i66.i, label %for.inc.i, label %if.else.i
 
-if.end6.i.i:                                      ; preds = %lor.lhs.false.i.i
+if.end6.i.i:                                      ; preds = %if.end.i.i
   %isConstantMapping_.i.i = getelementptr inbounds nuw i8, ptr %67, i64 59
   %73 = load i8, ptr %isConstantMapping_.i.i, align 1
   %tobool7.i.i = trunc i8 %73 to i1

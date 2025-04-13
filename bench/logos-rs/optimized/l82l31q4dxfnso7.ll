@@ -2087,8 +2087,8 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %38, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit27"
-  %.not13 = icmp eq ptr %.sroa.0.0.i26, null
-  br i1 %.not13, label %.thread, label %54
+  %.not14 = icmp eq ptr %.sroa.0.0.i26, null
+  br i1 %.not14, label %.thread, label %54
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
@@ -2111,8 +2111,8 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
 
 53:                                               ; preds = %57, %42
   %.pr = load i64, ptr %18, align 8
-  %.not14 = icmp eq i64 %.pr, -9223372036854775808
-  br i1 %.not14, label %71, label %68
+  %.not15 = icmp eq i64 %.pr, -9223372036854775808
+  br i1 %.not15, label %71, label %68
 
 54:                                               ; preds = %41
   %55 = load i64, ptr %.sroa.0.0.i26, align 8
@@ -2146,22 +2146,22 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %18, i64 40, i1 false)
   %69 = load i32, ptr %19, align 4
   %70 = invoke fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert17hfe42c297bebf179bE"(ptr nonnull align 8 %0, i32 %69, ptr align 8 %15)
-          to label %78 unwind label %75
+          to label %78 unwind label %76
 
 71:                                               ; preds = %.thread, %53
   %72 = invoke { ptr, i32 } @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$8fork_off17he70a55269beed5e0E"(ptr nonnull align 8 %0, i32 %1)
-          to label %79 unwind label %75
+          to label %79 unwind label %76
 
-73:                                               ; preds = %85, %.thread40, %84, %75
-  %.sroa.010.2 = phi i1 [ %76, %75 ], [ false, %.thread40 ], [ false, %84 ], [ false, %85 ]
-  %.pn22 = phi { ptr, i32 } [ %77, %75 ], [ %.pn2043, %.thread40 ], [ %.pn, %84 ], [ %lpad.thr_comm.split-lp, %85 ]
+73:                                               ; preds = %85, %.thread40, %84, %76
+  %.sroa.011.2 = phi i1 [ %.not1538, %76 ], [ true, %.thread40 ], [ true, %84 ], [ true, %85 ]
+  %.pn23 = phi { ptr, i32 } [ %77, %76 ], [ %.pn2143, %.thread40 ], [ %.pn, %84 ], [ %lpad.thr_comm.split-lp, %85 ]
   %74 = load i64, ptr %18, align 8
-  %.not24 = icmp eq i64 %74, -9223372036854775808
-  %brmerge = or i1 %.sroa.010.2, %.not24
-  br i1 %brmerge, label %169, label %170
+  %75 = icmp ne i64 %74, -9223372036854775808
+  %or.cond = and i1 %.sroa.011.2, %75
+  br i1 %or.cond, label %170, label %169
 
-75:                                               ; preds = %71, %68
-  %76 = phi i1 [ false, %71 ], [ true, %68 ]
+76:                                               ; preds = %71, %68
+  %.not1538 = phi i1 [ true, %71 ], [ false, %68 ]
   %77 = landingpad { ptr, i32 }
           cleanup
   br label %73
@@ -2180,7 +2180,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
           to label %86 unwind label %.thread44
 
 84:                                               ; preds = %114
-  br i1 %.sroa.09.3, label %.thread40, label %73
+  br i1 %.sroa.010.3, label %.thread40, label %73
 
 .thread44:                                        ; preds = %95, %89, %86, %79
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -2230,8 +2230,8 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
 
 103:                                              ; preds = %.preheader, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit36"
   %104 = load i32, ptr %82, align 8
-  %.not15 = icmp eq i32 %104, 0
-  br i1 %.not15, label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit31.thread", label %105
+  %.not16 = icmp eq i32 %104, 0
+  br i1 %.not16, label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit31.thread", label %105
 
 105:                                              ; preds = %103
   store i32 %104, ptr %11, align 4
@@ -2252,7 +2252,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
           to label %167 unwind label %.loopexit.split-lp
 
 114:                                              ; preds = %.loopexit, %.loopexit.split-lp, %163, %164
-  %.sroa.09.3 = phi i1 [ true, %164 ], [ true, %163 ], [ true, %.loopexit ], [ %.sroa.09.2.ph, %.loopexit.split-lp ]
+  %.sroa.010.3 = phi i1 [ true, %164 ], [ true, %163 ], [ true, %.loopexit ], [ %.sroa.010.2.ph, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm51, %164 ], [ %lpad.thr_comm.split-lp52, %163 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..graph..NodeId$GT$$GT$17h3d4d8f99168ace9aE"(ptr nonnull align 8 %13) #13
           to label %84 unwind label %165
@@ -2263,7 +2263,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
   br label %114
 
 .loopexit.split-lp:                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit31.thread", %select.unfold57
-  %.sroa.09.2.ph = phi i1 [ true, %select.unfold57 ], [ false, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit31.thread" ]
+  %.sroa.010.2.ph = phi i1 [ true, %select.unfold57 ], [ false, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit31.thread" ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %114
@@ -2329,8 +2329,8 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
   %140 = phi i32 [ %151, %149 ], [ %137, %135 ]
   store ptr %139, ptr %10, align 8
   store i32 %140, ptr %102, align 8
-  %.not17 = icmp eq i32 %140, 0
-  br i1 %.not17, label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit36", label %152
+  %.not18 = icmp eq i32 %140, 0
+  br i1 %.not18, label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit36", label %152
 
 141:                                              ; preds = %133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -2412,12 +2412,12 @@ select.unfold57:                                  ; preds = %158, %.noexc35
   br label %78
 
 .thread40:                                        ; preds = %93, %.thread44, %84
-  %.pn2043 = phi { ptr, i32 } [ %.pn, %84 ], [ %lpad.thr_comm, %.thread44 ], [ %94, %93 ]
+  %.pn2143 = phi { ptr, i32 } [ %.pn, %84 ], [ %lpad.thr_comm, %.thread44 ], [ %94, %93 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..fork..Fork$GT$17h15fe55c144e34302E"(ptr nonnull align 8 %14) #13
           to label %73 unwind label %165
 
-169:                                              ; preds = %73, %170
-  resume { ptr, i32 } %.pn22
+169:                                              ; preds = %170, %73
+  resume { ptr, i32 } %.pn23
 
 170:                                              ; preds = %73
   invoke void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..rope..Rope$GT$17h2719d89ad459c7a4E"(ptr nonnull align 8 %18) #13

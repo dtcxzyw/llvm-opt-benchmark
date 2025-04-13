@@ -534,23 +534,23 @@ land.lhs.true.i:                                  ; preds = %while.cond.i.i
   %arrayidx.i.i.i14.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i13.i, i64 %conv.i12.i
   %10 = load i32, ptr %arrayidx.i.i.i14.i, align 4, !noalias !9
   %cmp.i.i.i.i = icmp slt i32 %0, %10
-  br i1 %cmp.i.i.i.i, label %if.end10.i, label %_ZN4absl12lts_2023080218container_internal11node_handleINS1_10map_paramsIiPKN6google8protobuf15OneofDescriptorESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEESF_SE_vED2Ev.exit
+  br i1 %cmp.i.i.i.i, label %if.end10.i, label %invoke.cont8
 
 if.end10.i:                                       ; preds = %while.body.i.i, %land.lhs.true.i
   %call13.i3 = call { ptr, i32 } @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIiPKN6google8protobuf15OneofDescriptorESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE16internal_emplaceIJRPNS1_13map_slot_typeIiS8_EEEEENS1_14btree_iteratorINS1_10btree_nodeISF_EERSD_PSD_EESR_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %iter.sroa.0.0.i.i, i32 %conv.i.i, ptr noundef nonnull align 8 dereferenceable(8) %slot)
   %11 = extractvalue { ptr, i32 } %call13.i3, 0
   %12 = extractvalue { ptr, i32 } %call13.i3, 1
-  br label %_ZN4absl12lts_2023080218container_internal11node_handleINS1_10map_paramsIiPKN6google8protobuf15OneofDescriptorESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEESF_SE_vED2Ev.exit
+  br label %invoke.cont8
 
-_ZN4absl12lts_2023080218container_internal11node_handleINS1_10map_paramsIiPKN6google8protobuf15OneofDescriptorESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEESF_SE_vED2Ev.exit: ; preds = %land.lhs.true.i, %if.end10.i
-  %.sink21 = phi ptr [ %11, %if.end10.i ], [ %iter.sroa.0.0.i3.i, %land.lhs.true.i ]
-  %.sink20 = phi i32 [ %12, %if.end10.i ], [ %iter.sroa.7.0.i.i, %land.lhs.true.i ]
-  %.sink = phi i8 [ 1, %if.end10.i ], [ 0, %land.lhs.true.i ]
-  store ptr %.sink21, ptr %agg.result, align 8, !alias.scope !9
+invoke.cont8:                                     ; preds = %if.end10.i, %land.lhs.true.i
+  %.sink29.i = phi ptr [ %11, %if.end10.i ], [ %iter.sroa.0.0.i3.i, %land.lhs.true.i ]
+  %.sink28.i = phi i32 [ %12, %if.end10.i ], [ %iter.sroa.7.0.i.i, %land.lhs.true.i ]
+  %.sink.i = phi i8 [ 1, %if.end10.i ], [ 0, %land.lhs.true.i ]
+  store ptr %.sink29.i, ptr %agg.result, align 8, !alias.scope !9
   %ref.tmp11.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i32 %.sink20, ptr %ref.tmp11.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !9
+  store i32 %.sink28.i, ptr %ref.tmp11.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !9
   %second.i15.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 %.sink, ptr %second.i15.i, align 8, !alias.scope !9
+  store i8 %.sink.i, ptr %second.i15.i, align 8, !alias.scope !9
   ret void
 }
 

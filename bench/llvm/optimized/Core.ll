@@ -1597,54 +1597,53 @@ define dso_local range(i32 0, 2) i32 @LLVMIsNewDbgInfoFormat(ptr noundef readonl
 define dso_local void @LLVMSetIsNewDbgInfoFormat(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 840
-  %4 = load i8, ptr %3, align 8, !tbaa !62, !range !151, !noundef !152
+  %4 = load i8, ptr %3, align 8, !range !151
   %5 = trunc nuw i8 %4 to i1
-  br i1 %.not, label %.critedge.i, label %6
+  %or.cond.i = select i1 %.not, i1 true, i1 %5
+  br i1 %or.cond.i, label %11, label %6
 
 6:                                                ; preds = %2
-  br i1 %5, label %_ZN4llvm6Module21setIsNewDbgInfoFormatEb.exit, label %7
-
-7:                                                ; preds = %6
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.04.07.i.i = load ptr, ptr %8, align 8, !tbaa !153
-  %.not8.i.i = icmp eq ptr %.sroa.04.07.i.i, %9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.04.07.i.i = load ptr, ptr %7, align 8, !tbaa !153
+  %.not8.i.i = icmp eq ptr %.sroa.04.07.i.i, %8
   br i1 %.not8.i.i, label %.sink.split.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
-  %.sroa.04.09.i.i = phi ptr [ %.sroa.04.0.i.i, %.lr.ph.i.i ], [ %.sroa.04.07.i.i, %7 ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.04.09.i.i, i64 -56
-  tail call void @_ZN4llvm8Function21convertToNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %10) #35
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i, i64 8
-  %.sroa.04.0.i.i = load ptr, ptr %11, align 8, !tbaa !153
-  %.not.i.i = icmp eq ptr %.sroa.04.0.i.i, %9
+.lr.ph.i.i:                                       ; preds = %6, %.lr.ph.i.i
+  %.sroa.04.09.i.i = phi ptr [ %.sroa.04.0.i.i, %.lr.ph.i.i ], [ %.sroa.04.07.i.i, %6 ]
+  %9 = getelementptr inbounds i8, ptr %.sroa.04.09.i.i, i64 -56
+  tail call void @_ZN4llvm8Function21convertToNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %9) #35
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i, i64 8
+  %.sroa.04.0.i.i = load ptr, ptr %10, align 8, !tbaa !153
+  %.not.i.i = icmp eq ptr %.sroa.04.0.i.i, %8
   br i1 %.not.i.i, label %.sink.split.i, label %.lr.ph.i.i
 
-.critedge.i:                                      ; preds = %2
-  br i1 %5, label %12, label %_ZN4llvm6Module21setIsNewDbgInfoFormatEb.exit
+11:                                               ; preds = %2
+  %or.cond7.i = select i1 %.not, i1 %5, i1 false
+  br i1 %or.cond7.i, label %12, label %_ZN4llvm6Module21setIsNewDbgInfoFormatEb.exit
 
-12:                                               ; preds = %.critedge.i
+12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.04.07.i2.i = load ptr, ptr %13, align 8, !tbaa !153
-  %.not8.i3.i = icmp eq ptr %.sroa.04.07.i2.i, %14
-  br i1 %.not8.i3.i, label %.sink.split.i, label %.lr.ph.i4.i
+  %.sroa.04.07.i8.i = load ptr, ptr %13, align 8, !tbaa !153
+  %.not8.i9.i = icmp eq ptr %.sroa.04.07.i8.i, %14
+  br i1 %.not8.i9.i, label %.sink.split.i, label %.lr.ph.i10.i
 
-.lr.ph.i4.i:                                      ; preds = %12, %.lr.ph.i4.i
-  %.sroa.04.09.i5.i = phi ptr [ %.sroa.04.0.i6.i, %.lr.ph.i4.i ], [ %.sroa.04.07.i2.i, %12 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.04.09.i5.i, i64 -56
+.lr.ph.i10.i:                                     ; preds = %12, %.lr.ph.i10.i
+  %.sroa.04.09.i11.i = phi ptr [ %.sroa.04.0.i12.i, %.lr.ph.i10.i ], [ %.sroa.04.07.i8.i, %12 ]
+  %15 = getelementptr inbounds i8, ptr %.sroa.04.09.i11.i, i64 -56
   tail call void @_ZN4llvm8Function23convertFromNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %15) #35
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i5.i, i64 8
-  %.sroa.04.0.i6.i = load ptr, ptr %16, align 8, !tbaa !153
-  %.not.i7.i = icmp eq ptr %.sroa.04.0.i6.i, %14
-  br i1 %.not.i7.i, label %.sink.split.i, label %.lr.ph.i4.i
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i11.i, i64 8
+  %.sroa.04.0.i12.i = load ptr, ptr %16, align 8, !tbaa !153
+  %.not.i13.i = icmp eq ptr %.sroa.04.0.i12.i, %14
+  br i1 %.not.i13.i, label %.sink.split.i, label %.lr.ph.i10.i
 
-.sink.split.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph.i4.i, %12, %7
-  %.sink.i = phi i8 [ 1, %7 ], [ 0, %12 ], [ 0, %.lr.ph.i4.i ], [ 1, %.lr.ph.i.i ]
+.sink.split.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph.i10.i, %12, %6
+  %.sink.i = phi i8 [ 1, %6 ], [ 0, %12 ], [ 0, %.lr.ph.i10.i ], [ 1, %.lr.ph.i.i ]
   store i8 %.sink.i, ptr %3, align 8, !tbaa !62
   br label %_ZN4llvm6Module21setIsNewDbgInfoFormatEb.exit
 
-_ZN4llvm6Module21setIsNewDbgInfoFormatEb.exit:    ; preds = %6, %.critedge.i, %.sink.split.i
+_ZN4llvm6Module21setIsNewDbgInfoFormatEb.exit:    ; preds = %11, %.sink.split.i
   ret void
 }
 
@@ -2287,9 +2286,12 @@ define dso_local range(i32 0, 2) i32 @LLVMTypeIsSized(ptr noundef %0) local_unna
 6:                                                ; preds = %1
   %trunc.i.i.i = trunc i32 %3 to i8
   %7 = icmp ult i8 %trunc.i.i.i, 6
-  br i1 %7, label %switch.hole_check, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i
+  %switch.shifted = lshr i8 47, %trunc.i.i.i
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %7, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i
 
-_ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %switch.hole_check, %6
+_ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %6
   %8 = and i32 %3, 253
   %spec.select.i.i = icmp eq i32 %8, 4
   %9 = and i32 %3, 251
@@ -2314,13 +2316,8 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %switch.hole_check, 
   %15 = zext i1 %14 to i32
   br label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
 
-switch.hole_check:                                ; preds = %6
-  %switch.shifted = lshr i8 47, %trunc.i.i.i
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i
-
-_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit: ; preds = %switch.hole_check, %1, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %12, %13
-  %.0.i = phi i32 [ %15, %13 ], [ 1, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ], [ 1, %1 ], [ 0, %12 ], [ 1, %switch.hole_check ]
+_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit: ; preds = %6, %1, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %12, %13
+  %.0.i = phi i32 [ %15, %13 ], [ 1, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ], [ 1, %1 ], [ 0, %12 ], [ 1, %6 ]
   ret i32 %.0.i
 }
 
@@ -21371,7 +21368,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14FPMathOperator7classofE
   br i1 %3, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %4
 
 4:                                                ; preds = %1
-  switch i8 %2, label %42 [
+  switch i8 %2, label %43 [
     i8 41, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
     i8 43, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
     i8 45, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
@@ -21408,95 +21405,86 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %16 = phi i32 [ %.pre.i.i, %12 ], [ %9, %5 ]
   %trunc.i.i.i.i = trunc i32 %16 to i8
   %17 = icmp ult i8 %trunc.i.i.i.i, 6
-  br i1 %17, label %switch.hole_check, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i
+  %switch.shifted = lshr i8 47, %trunc.i.i.i.i
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %17, i1 %switch.lobit, i1 false
+  %18 = and i32 %16, 253
+  %spec.select.i.i.i = icmp eq i32 %18, 4
+  %or.cond25 = or i1 %or.cond, %spec.select.i.i.i
+  br i1 %or.cond25, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %19
 
-_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i:        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %.old = and i32 %16, 253
-  %spec.select.i.i.i.old = icmp eq i32 %.old, 4
-  br i1 %spec.select.i.i.i.old, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %18
-
-18:                                               ; preds = %switch.hole_check, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i
+19:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
   %trunc.i = trunc i32 %9 to i8
   switch i8 %trunc.i, label %.loopexit.i.i [
-    i8 15, label %19
+    i8 15, label %20
     i8 16, label %.preheader.i.i
   ]
 
-19:                                               ; preds = %18
-  %20 = and i32 %9, 1024
-  %.not27.i.i = icmp eq i32 %20, 0
-  br i1 %.not27.i.i, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %21
+20:                                               ; preds = %19
+  %21 = and i32 %9, 1024
+  %.not27.i.i = icmp eq i32 %21, 0
+  br i1 %.not27.i.i, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %22
 
-21:                                               ; preds = %19
-  %22 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #35
-  br i1 %22, label %23, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+22:                                               ; preds = %20
+  %23 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #35
+  br i1 %23, label %24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !185
-  %26 = load ptr, ptr %25, align 8, !tbaa !186
-  %.phi.trans.insert.i2.i = getelementptr inbounds nuw i8, ptr %26, i64 8
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !185
+  %27 = load ptr, ptr %26, align 8, !tbaa !186
+  %.phi.trans.insert.i2.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.pre.i3.i = load i32, ptr %.phi.trans.insert.i2.i, align 8
   %.pre30.i.i = and i32 %.pre.i3.i, 255
   br label %.loopexit.i.i
 
-.preheader.i.i:                                   ; preds = %18, %.preheader.i.i
-  %.0.i.i = phi ptr [ %28, %.preheader.i.i ], [ %7, %18 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !433
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i32, ptr %29, align 8
-  %31 = and i32 %30, 255
-  %32 = icmp ne i32 %31, 16
-  %.not1829.i.i = icmp eq ptr %28, null
-  %.not18.i.i = or i1 %.not1829.i.i, %32
+.preheader.i.i:                                   ; preds = %19, %.preheader.i.i
+  %.0.i.i = phi ptr [ %29, %.preheader.i.i ], [ %7, %19 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !433
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i32, ptr %30, align 8
+  %32 = and i32 %31, 255
+  %33 = icmp ne i32 %32, 16
+  %.not1829.i.i = icmp eq ptr %29, null
+  %.not18.i.i = or i1 %.not1829.i.i, %33
   br i1 %.not18.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !434
 
-.loopexit.i.i:                                    ; preds = %.preheader.i.i, %23, %18
-  %.pre-phi.i.i = phi i32 [ %.pre30.i.i, %23 ], [ %10, %18 ], [ %31, %.preheader.i.i ]
-  %33 = phi i32 [ %.pre.i3.i, %23 ], [ %9, %18 ], [ %30, %.preheader.i.i ]
-  %.013.ph.i.i = phi ptr [ %26, %23 ], [ %7, %18 ], [ %28, %.preheader.i.i ]
-  %34 = add nsw i32 %.pre-phi.i.i, -17
-  %spec.select.i.i.i.i.i = icmp ult i32 %34, 2
-  br i1 %spec.select.i.i.i.i.i, label %35, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
+.loopexit.i.i:                                    ; preds = %.preheader.i.i, %24, %19
+  %.pre-phi.i.i = phi i32 [ %.pre30.i.i, %24 ], [ %10, %19 ], [ %32, %.preheader.i.i ]
+  %34 = phi i32 [ %.pre.i3.i, %24 ], [ %9, %19 ], [ %31, %.preheader.i.i ]
+  %.013.ph.i.i = phi ptr [ %27, %24 ], [ %7, %19 ], [ %29, %.preheader.i.i ]
+  %35 = add nsw i32 %.pre-phi.i.i, -17
+  %spec.select.i.i.i.i.i = icmp ult i32 %35, 2
+  br i1 %spec.select.i.i.i.i.i, label %36, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
 
-35:                                               ; preds = %.loopexit.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %.013.ph.i.i, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !185
-  %38 = load ptr, ptr %37, align 8, !tbaa !186
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
+36:                                               ; preds = %.loopexit.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %.013.ph.i.i, i64 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !185
+  %39 = load ptr, ptr %38, align 8, !tbaa !186
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
 
-_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i:       ; preds = %35, %.loopexit.i.i
-  %39 = phi i32 [ %.pre.i.i.i, %35 ], [ %33, %.loopexit.i.i ]
-  %trunc.i.i.i.i.i = trunc i32 %39 to i8
-  %40 = icmp ult i8 %trunc.i.i.i.i.i, 6
-  br i1 %40, label %switch.hole_check20, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
-
-_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %switch.hole_check20, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
-  %41 = and i32 %39, 253
-  %spec.select.i.i21.i.i = icmp eq i32 %41, 4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-
-42:                                               ; preds = %4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-
-switch.hole_check:                                ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %switch.shifted = lshr i8 47, %trunc.i.i.i.i
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %43 = and i32 %16, 5
-  %spec.select.i.i.i = icmp eq i32 %43, 4
-  %or.cond = or i1 %spec.select.i.i.i, %switch.lobit
-  br i1 %or.cond, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %18
-
-switch.hole_check20:                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
+_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i:       ; preds = %36, %.loopexit.i.i
+  %40 = phi i32 [ %.pre.i.i.i, %36 ], [ %34, %.loopexit.i.i ]
+  %trunc.i.i.i.i.i = trunc i32 %40 to i8
+  %41 = icmp ult i8 %trunc.i.i.i.i.i, 6
   %switch.shifted22 = lshr i8 47, %trunc.i.i.i.i.i
   %switch.lobit23 = trunc i8 %switch.shifted22 to i1
-  br i1 %switch.lobit23, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
+  %or.cond24 = select i1 %41, i1 %switch.lobit23, i1 false
+  br i1 %or.cond24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
 
-_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit: ; preds = %switch.hole_check20, %switch.hole_check, %1, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %21, %19, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i, %4, %4, %4, %4, %4, %4, %4, %4, %4, %42
-  %.1 = phi i1 [ false, %42 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i ], [ false, %19 ], [ false, %21 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ false, %1 ], [ true, %switch.hole_check ], [ true, %switch.hole_check20 ]
+_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
+  %42 = and i32 %40, 253
+  %spec.select.i.i21.i.i = icmp eq i32 %42, 4
+  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+
+43:                                               ; preds = %4
+  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+
+_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %1, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
+  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ false, %1 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
   ret i1 %.1
 }
 

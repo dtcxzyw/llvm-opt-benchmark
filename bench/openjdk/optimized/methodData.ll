@@ -1268,8 +1268,8 @@ define hidden void @_ZN20TypeStackSlotEntries15post_initializeEP6Symbolbb(ptr no
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load i64, ptr %16, align 8
-  %brmerge.demorgan = and i1 %2, %3
-  br i1 %brmerge.demorgan, label %18, label %35
+  %or.cond = and i1 %2, %3
+  br i1 %or.cond, label %18, label %35
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %0, align 8
@@ -1292,11 +1292,11 @@ define hidden void @_ZN20TypeStackSlotEntries15post_initializeEP6Symbolbb(ptr no
   store i64 0, ptr %34, align 8
   br label %35
 
-35:                                               ; preds = %4, %18
-  %.013 = phi i32 [ 1, %18 ], [ 0, %4 ]
+35:                                               ; preds = %18, %4
+  %.014 = phi i32 [ 1, %18 ], [ 0, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %37 = load i32, ptr %36, align 4
-  %38 = sub nsw i32 %37, %.013
+  %38 = sub nsw i32 %37, %.014
   store ptr %1, ptr %5, align 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 99, ptr %39, align 8
@@ -1327,14 +1327,14 @@ _ZN22ArgumentOffsetComputerC2EP6Symboli.exit:     ; preds = %35, %.lr.ph.prehead
   store i64 0, ptr %50, align 8
   call void @_ZN17SignatureIterator16do_parameters_onI22ArgumentOffsetComputerEEvPT_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %5)
   %51 = load i32, ptr %36, align 4
-  %52 = icmp slt i32 %.013, %51
+  %52 = icmp slt i32 %.014, %51
   br i1 %52, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN22ArgumentOffsetComputerC2EP6Symboli.exit
   %53 = zext i1 %2 to i32
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = zext nneg i32 %.013 to i64
-  %56 = zext nneg i32 %.013 to i64
+  %55 = zext nneg i32 %.014 to i64
+  %56 = zext nneg i32 %.014 to i64
   br label %57
 
 57:                                               ; preds = %.lr.ph, %57

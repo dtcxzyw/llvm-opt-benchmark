@@ -292,12 +292,12 @@ define hidden noundef i32 @_ZN14KlassInfoEntry7compareEPS_S0_(ptr nonnull readno
   %31 = icmp eq i8 %30, 91
   %32 = load i8, ptr %29, align 1
   %33 = icmp ne i8 %32, 91
-  %brmerge.not = select i1 %31, i1 %33, i1 false
-  br i1 %brmerge.not, label %37, label %34
+  %or.cond.not = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond.not, label %37, label %34
 
 34:                                               ; preds = %11
-  %brmerge17 = or i1 %31, %33
-  br i1 %brmerge17, label %35, label %37
+  %or.cond4 = or i1 %31, %33
+  br i1 %or.cond4, label %35, label %37
 
 35:                                               ; preds = %34
   %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %29) #16

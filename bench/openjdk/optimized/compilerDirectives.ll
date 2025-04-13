@@ -320,8 +320,8 @@ define hidden void @_ZN12DirectiveSet22init_control_intrinsicEv(ptr noundef nonn
   call void @_ZN20ControlIntrinsicIterC2EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %4, i1 noundef zeroext false)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %.not21 = icmp eq ptr %6, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not22 = icmp eq ptr %6, null
+  br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -329,7 +329,7 @@ define hidden void @_ZN12DirectiveSet22init_control_intrinsicEv(ptr noundef nonn
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %18
 
-._crit_edge:                                      ; preds = %38, %_ZN20ControlIntrinsicIterppEv.exit, %1
+._crit_edge:                                      ; preds = %_ZN20ControlIntrinsicIterppEv.exit, %1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   call void @_Z8FreeHeapPv(ptr noundef %11) #14
@@ -337,17 +337,17 @@ define hidden void @_ZN12DirectiveSet22init_control_intrinsicEv(ptr noundef nonn
   call void @_ZN20ControlIntrinsicIterC2EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef %12, i1 noundef zeroext true)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8
-  %.not523 = icmp eq ptr %14, null
-  br i1 %.not523, label %._crit_edge27, label %.lr.ph26
+  %.not524 = icmp eq ptr %14, null
+  br i1 %.not524, label %._crit_edge28, label %.lr.ph27
 
-.lr.ph26:                                         ; preds = %._crit_edge
+.lr.ph27:                                         ; preds = %._crit_edge
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  br label %53
+  br label %52
 
 18:                                               ; preds = %.lr.ph, %_ZN20ControlIntrinsicIterppEv.exit
-  %19 = phi ptr [ %6, %.lr.ph ], [ %50, %_ZN20ControlIntrinsicIterppEv.exit ]
+  %19 = phi ptr [ %6, %.lr.ph ], [ %49, %_ZN20ControlIntrinsicIterppEv.exit ]
   %20 = call noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef nonnull %19) #14
   %.not7 = icmp eq i32 %20, 0
   br i1 %.not7, label %38, label %21
@@ -376,101 +376,97 @@ define hidden void @_ZN12DirectiveSet22init_control_intrinsicEv(ptr noundef nonn
   %39 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %8) #14
   store ptr %39, ptr %5, align 8
   %.not.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i, label %._crit_edge, label %40
+  %40 = load i8, ptr %9, align 8
+  %41 = trunc i8 %40 to i1
+  %or.cond7.i.i = select i1 %.not.i.i, i1 true, i1 %41
+  br i1 %or.cond7.i.i, label %_ZN20ControlIntrinsicIterppEv.exit, label %42
 
-40:                                               ; preds = %38
-  %41 = load i8, ptr %9, align 8
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %_ZN20ControlIntrinsicIterppEv.exit, label %43
-
-43:                                               ; preds = %40
-  %44 = load i8, ptr %39, align 1
-  switch i8 %44, label %45 [
-    i8 45, label %46
-    i8 43, label %46
+42:                                               ; preds = %38
+  %43 = load i8, ptr %39, align 1
+  switch i8 %43, label %44 [
+    i8 45, label %45
+    i8 43, label %45
   ]
 
-45:                                               ; preds = %43
+44:                                               ; preds = %42
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull %39) #14
   %.pre = load ptr, ptr %5, align 8
   br label %_ZN20ControlIntrinsicIterppEv.exit
 
-46:                                               ; preds = %43, %43
-  %47 = icmp eq i8 %44, 43
-  %48 = zext i1 %47 to i8
-  store i8 %48, ptr %2, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  store ptr %49, ptr %5, align 8
+45:                                               ; preds = %42, %42
+  %46 = icmp eq i8 %43, 43
+  %47 = zext i1 %46 to i8
+  store i8 %47, ptr %2, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  store ptr %48, ptr %5, align 8
   br label %_ZN20ControlIntrinsicIterppEv.exit
 
-_ZN20ControlIntrinsicIterppEv.exit:               ; preds = %40, %45, %46
-  %50 = phi ptr [ %39, %40 ], [ %.pre, %45 ], [ %49, %46 ]
-  %.not = icmp eq ptr %50, null
+_ZN20ControlIntrinsicIterppEv.exit:               ; preds = %38, %44, %45
+  %49 = phi ptr [ %39, %38 ], [ %.pre, %44 ], [ %48, %45 ]
+  %.not = icmp eq ptr %49, null
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !9
 
-._crit_edge27:                                    ; preds = %69, %_ZN20ControlIntrinsicIterppEv.exit9, %._crit_edge
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %52 = load ptr, ptr %51, align 8
-  call void @_Z8FreeHeapPv(ptr noundef %52) #14
+._crit_edge28:                                    ; preds = %_ZN20ControlIntrinsicIterppEv.exit10, %._crit_edge
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %51 = load ptr, ptr %50, align 8
+  call void @_Z8FreeHeapPv(ptr noundef %51) #14
   ret void
 
-53:                                               ; preds = %.lr.ph26, %_ZN20ControlIntrinsicIterppEv.exit9
-  %54 = phi ptr [ %14, %.lr.ph26 ], [ %81, %_ZN20ControlIntrinsicIterppEv.exit9 ]
-  %55 = call noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef nonnull %54) #14
-  %.not6 = icmp eq i32 %55, 0
-  br i1 %.not6, label %69, label %56
+52:                                               ; preds = %.lr.ph27, %_ZN20ControlIntrinsicIterppEv.exit10
+  %53 = phi ptr [ %14, %.lr.ph27 ], [ %79, %_ZN20ControlIntrinsicIterppEv.exit10 ]
+  %54 = call noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef nonnull %53) #14
+  %.not6 = icmp eq i32 %54, 0
+  br i1 %.not6, label %68, label %55
 
-56:                                               ; preds = %53
-  %57 = sext i32 %55 to i64
-  %58 = lshr i64 %57, 4
-  %59 = getelementptr inbounds nuw [27 x i32], ptr %15, i64 0, i64 %58
-  %60 = shl i32 %55, 1
-  %61 = and i32 %60, 30
-  %62 = load i32, ptr %59, align 4, !noalias !11
-  %63 = ashr i32 %62, %61
-  %64 = and i32 %63, 3
-  %65 = shl nuw i32 %64, %61
-  %66 = xor i32 %65, %62
-  %67 = shl nuw i32 2, %61
-  %68 = or i32 %66, %67
-  store i32 %68, ptr %59, align 4
-  br label %69
+55:                                               ; preds = %52
+  %56 = sext i32 %54 to i64
+  %57 = lshr i64 %56, 4
+  %58 = getelementptr inbounds nuw [27 x i32], ptr %15, i64 0, i64 %57
+  %59 = shl i32 %54, 1
+  %60 = and i32 %59, 30
+  %61 = load i32, ptr %58, align 4, !noalias !11
+  %62 = ashr i32 %61, %60
+  %63 = and i32 %62, 3
+  %64 = shl nuw i32 %63, %60
+  %65 = xor i32 %64, %61
+  %66 = shl nuw i32 2, %60
+  %67 = or i32 %65, %66
+  store i32 %67, ptr %58, align 4
+  br label %68
 
-69:                                               ; preds = %53, %56
-  %70 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %16) #14
-  store ptr %70, ptr %13, align 8
-  %.not.i.i8 = icmp eq ptr %70, null
-  br i1 %.not.i.i8, label %._crit_edge27, label %71
+68:                                               ; preds = %52, %55
+  %69 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %16) #14
+  store ptr %69, ptr %13, align 8
+  %.not.i.i8 = icmp eq ptr %69, null
+  %70 = load i8, ptr %17, align 8
+  %71 = trunc i8 %70 to i1
+  %or.cond7.i.i9 = select i1 %.not.i.i8, i1 true, i1 %71
+  br i1 %or.cond7.i.i9, label %_ZN20ControlIntrinsicIterppEv.exit10, label %72
 
-71:                                               ; preds = %69
-  %72 = load i8, ptr %17, align 8
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %_ZN20ControlIntrinsicIterppEv.exit9, label %74
-
-74:                                               ; preds = %71
-  %75 = load i8, ptr %70, align 1
-  switch i8 %75, label %76 [
-    i8 45, label %77
-    i8 43, label %77
+72:                                               ; preds = %68
+  %73 = load i8, ptr %69, align 1
+  switch i8 %73, label %74 [
+    i8 45, label %75
+    i8 43, label %75
   ]
 
-76:                                               ; preds = %74
-  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull %70) #14
-  %.pre28 = load ptr, ptr %13, align 8
-  br label %_ZN20ControlIntrinsicIterppEv.exit9
+74:                                               ; preds = %72
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull %69) #14
+  %.pre29 = load ptr, ptr %13, align 8
+  br label %_ZN20ControlIntrinsicIterppEv.exit10
 
-77:                                               ; preds = %74, %74
-  %78 = icmp eq i8 %75, 43
-  %79 = zext i1 %78 to i8
-  store i8 %79, ptr %3, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %70, i64 1
-  store ptr %80, ptr %13, align 8
-  br label %_ZN20ControlIntrinsicIterppEv.exit9
+75:                                               ; preds = %72, %72
+  %76 = icmp eq i8 %73, 43
+  %77 = zext i1 %76 to i8
+  store i8 %77, ptr %3, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 1
+  store ptr %78, ptr %13, align 8
+  br label %_ZN20ControlIntrinsicIterppEv.exit10
 
-_ZN20ControlIntrinsicIterppEv.exit9:              ; preds = %71, %76, %77
-  %81 = phi ptr [ %70, %71 ], [ %.pre28, %76 ], [ %80, %77 ]
-  %.not5 = icmp eq ptr %81, null
-  br i1 %.not5, label %._crit_edge27, label %53, !llvm.loop !14
+_ZN20ControlIntrinsicIterppEv.exit10:             ; preds = %68, %74, %75
+  %79 = phi ptr [ %69, %68 ], [ %.pre29, %74 ], [ %78, %75 ]
+  %.not5 = icmp eq ptr %79, null
+  br i1 %.not5, label %._crit_edge28, label %52, !llvm.loop !14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -855,65 +851,64 @@ define hidden void @_ZN12DirectiveSet8finalizeEP12outputStream(ptr noundef nonnu
   unreachable
 
 14:                                               ; preds = %8, %2
-  %.06 = phi ptr [ @.str.9, %2 ], [ @.str.10, %8 ]
+  %.07 = phi ptr [ @.str.9, %2 ], [ @.str.10, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 207
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %22
+  %.not = xor i1 %17, true
+  %18 = load i8, ptr @LogCompilation, align 1
+  %19 = trunc i8 %18 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %19
+  br i1 %or.cond, label %21, label %20
 
-18:                                               ; preds = %14
-  %19 = load i8, ptr @LogCompilation, align 1
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %22, label %21
+20:                                               ; preds = %14
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %.07) #14
+  br label %21
 
-21:                                               ; preds = %18
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %.06) #14
-  br label %22
+21:                                               ; preds = %20, %14
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %23 = load i8, ptr %22, align 8
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %28
 
-22:                                               ; preds = %21, %18, %14
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %24 = load i8, ptr %23, align 8
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %26, label %29
+25:                                               ; preds = %21
+  %26 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 677) #14
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %22
-  %27 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 677) #14
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %26
-  tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull %.06) #14
+27:                                               ; preds = %25
+  tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull %.07) #14
   store i8 1, ptr @DebugNonSafepoints, align 1
-  br label %29
+  br label %28
 
-29:                                               ; preds = %28, %26, %22
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %31 = load i8, ptr %30, align 8
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %.loopexit, label %33
+28:                                               ; preds = %27, %25, %21
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %30 = load i8, ptr %29, align 8
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %.loopexit, label %32
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %0, align 8
-  %.not = icmp eq ptr %34, null
-  br i1 %.not, label %.preheader, label %.loopexit.sink.split
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %0, align 8
+  %.not8 = icmp eq ptr %33, null
+  br i1 %.not8, label %.preheader, label %.loopexit.sink.split
 
-35:                                               ; preds = %.preheader
+34:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 27
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !18
 
-.preheader:                                       ; preds = %33, %35
-  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %33 ]
-  %36 = getelementptr inbounds nuw [27 x i8], ptr %30, i64 0, i64 %indvars.iv
-  %37 = load i8, ptr %36, align 1
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %.loopexit.sink.split, label %35
+.preheader:                                       ; preds = %32, %34
+  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %32 ]
+  %35 = getelementptr inbounds nuw [27 x i8], ptr %29, i64 0, i64 %indvars.iv
+  %36 = load i8, ptr %35, align 1
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %.loopexit.sink.split, label %34
 
-.loopexit.sink.split:                             ; preds = %.preheader, %33
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 203
-  store i8 1, ptr %39, align 1
+.loopexit.sink.split:                             ; preds = %.preheader, %32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 203
+  store i8 1, ptr %38, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %.loopexit.sink.split, %29
+.loopexit:                                        ; preds = %34, %.loopexit.sink.split, %28
   ret void
 }
 
@@ -1157,33 +1152,31 @@ _ZN12DirectiveSet30canonicalize_control_intrinsicEPKc.exit: ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %18, ptr %19, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN20ControlIntrinsicIter10next_tokenEv.exit, label %20
+  %20 = load i8, ptr %5, align 8
+  %21 = trunc i8 %20 to i1
+  %or.cond7.i = select i1 %.not.i, i1 true, i1 %21
+  br i1 %or.cond7.i, label %_ZN20ControlIntrinsicIter10next_tokenEv.exit, label %22
 
-20:                                               ; preds = %_ZN12DirectiveSet30canonicalize_control_intrinsicEPKc.exit
-  %21 = load i8, ptr %5, align 8
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %_ZN20ControlIntrinsicIter10next_tokenEv.exit, label %23
-
-23:                                               ; preds = %20
-  %24 = load i8, ptr %18, align 1
-  switch i8 %24, label %25 [
-    i8 45, label %26
-    i8 43, label %26
+22:                                               ; preds = %_ZN12DirectiveSet30canonicalize_control_intrinsicEPKc.exit
+  %23 = load i8, ptr %18, align 1
+  switch i8 %23, label %24 [
+    i8 45, label %25
+    i8 43, label %25
   ]
 
-25:                                               ; preds = %23
+24:                                               ; preds = %22
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull %18) #14
   br label %_ZN20ControlIntrinsicIter10next_tokenEv.exit
 
-26:                                               ; preds = %23, %23
-  %27 = icmp eq i8 %24, 43
-  %28 = zext i1 %27 to i8
-  store i8 %28, ptr %0, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  store ptr %29, ptr %19, align 8
+25:                                               ; preds = %22, %22
+  %26 = icmp eq i8 %23, 43
+  %27 = zext i1 %26 to i8
+  store i8 %27, ptr %0, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  store ptr %28, ptr %19, align 8
   br label %_ZN20ControlIntrinsicIter10next_tokenEv.exit
 
-_ZN20ControlIntrinsicIter10next_tokenEv.exit:     ; preds = %_ZN12DirectiveSet30canonicalize_control_intrinsicEPKc.exit, %20, %25, %26
+_ZN20ControlIntrinsicIter10next_tokenEv.exit:     ; preds = %_ZN12DirectiveSet30canonicalize_control_intrinsicEPKc.exit, %24, %25
   ret void
 }
 
@@ -1195,34 +1188,32 @@ define hidden void @_ZN20ControlIntrinsicIter10next_tokenEv(ptr noundef nonnull 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %15, label %4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = load i8, ptr %4, align 8
+  %6 = trunc i8 %5 to i1
+  %or.cond7 = select i1 %.not, i1 true, i1 %6
+  br i1 %or.cond7, label %14, label %7
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i8, ptr %5, align 8
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %15, label %8
-
-8:                                                ; preds = %4
-  %9 = load i8, ptr %3, align 1
-  switch i8 %9, label %10 [
-    i8 45, label %11
-    i8 43, label %11
+7:                                                ; preds = %1
+  %8 = load i8, ptr %3, align 1
+  switch i8 %8, label %9 [
+    i8 45, label %10
+    i8 43, label %10
   ]
 
-10:                                               ; preds = %8
+9:                                                ; preds = %7
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull %3) #14
-  br label %15
+  br label %14
 
-11:                                               ; preds = %8, %8
-  %12 = icmp eq i8 %9, 43
-  %13 = zext i1 %12 to i8
-  store i8 %13, ptr %0, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store ptr %14, ptr %2, align 8
-  br label %15
+10:                                               ; preds = %7, %7
+  %11 = icmp eq i8 %8, 43
+  %12 = zext i1 %11 to i8
+  store i8 %12, ptr %0, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store ptr %13, ptr %2, align 8
+  br label %14
 
-15:                                               ; preds = %10, %11, %4, %1
+14:                                               ; preds = %9, %10, %1
   ret void
 }
 
@@ -1243,34 +1234,32 @@ define hidden noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntri
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %_ZN20ControlIntrinsicIter10next_tokenEv.exit, label %5
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = load i8, ptr %5, align 8
+  %7 = trunc i8 %6 to i1
+  %or.cond7.i = select i1 %.not.i, i1 true, i1 %7
+  br i1 %or.cond7.i, label %_ZN20ControlIntrinsicIter10next_tokenEv.exit, label %8
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i8, ptr %6, align 8
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %_ZN20ControlIntrinsicIter10next_tokenEv.exit, label %9
-
-9:                                                ; preds = %5
-  %10 = load i8, ptr %3, align 1
-  switch i8 %10, label %11 [
-    i8 45, label %12
-    i8 43, label %12
+8:                                                ; preds = %1
+  %9 = load i8, ptr %3, align 1
+  switch i8 %9, label %10 [
+    i8 45, label %11
+    i8 43, label %11
   ]
 
-11:                                               ; preds = %9
+10:                                               ; preds = %8
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull %3) #14
   br label %_ZN20ControlIntrinsicIter10next_tokenEv.exit
 
-12:                                               ; preds = %9, %9
-  %13 = icmp eq i8 %10, 43
-  %14 = zext i1 %13 to i8
-  store i8 %14, ptr %0, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store ptr %15, ptr %4, align 8
+11:                                               ; preds = %8, %8
+  %12 = icmp eq i8 %9, 43
+  %13 = zext i1 %12 to i8
+  store i8 %13, ptr %0, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store ptr %14, ptr %4, align 8
   br label %_ZN20ControlIntrinsicIter10next_tokenEv.exit
 
-_ZN20ControlIntrinsicIter10next_tokenEv.exit:     ; preds = %1, %5, %11, %12
+_ZN20ControlIntrinsicIter10next_tokenEv.exit:     ; preds = %1, %10, %11
   ret ptr %0
 }
 
@@ -1478,7 +1467,7 @@ define hidden noundef ptr @_ZN12DirectiveSet33compilecommand_compatibility_initE
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %44 = load i8, ptr %43, align 2
   %45 = trunc i8 %44 to i1
-  br i1 %45, label %52, label %_ZN15DirectiveSetPtr6clonedEv.exit73
+  br i1 %45, label %52, label %_ZN15DirectiveSetPtr6clonedEv.exit80
 
 .thread:                                          ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 178
@@ -1488,16 +1477,16 @@ define hidden noundef ptr @_ZN12DirectiveSet33compilecommand_compatibility_initE
 
 49:                                               ; preds = %.thread
   %50 = tail call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
-  br label %_ZN15DirectiveSetPtr6clonedEv.exit73
+  br label %_ZN15DirectiveSetPtr6clonedEv.exit80
 
-_ZN15DirectiveSetPtr6clonedEv.exit73:             ; preds = %40, %49
+_ZN15DirectiveSetPtr6clonedEv.exit80:             ; preds = %40, %49
   %.sroa.36.36 = phi ptr [ %50, %49 ], [ %41, %40 ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.36.36, i64 205
   store i8 1, ptr %51, align 1
   br label %52
 
-52:                                               ; preds = %.thread, %40, %_ZN15DirectiveSetPtr6clonedEv.exit73, %34
-  %.sroa.36.0 = phi ptr [ %41, %40 ], [ %.sroa.36.36, %_ZN15DirectiveSetPtr6clonedEv.exit73 ], [ null, %34 ], [ null, %.thread ]
+52:                                               ; preds = %.thread, %40, %_ZN15DirectiveSetPtr6clonedEv.exit80, %34
+  %.sroa.36.0 = phi ptr [ %41, %40 ], [ %.sroa.36.36, %_ZN15DirectiveSetPtr6clonedEv.exit80 ], [ null, %34 ], [ null, %.thread ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %54 = load i8, ptr %53, align 4
   %55 = trunc i8 %54 to i1
@@ -1515,1100 +1504,1093 @@ _ZN15DirectiveSetPtr6clonedEv.exit73:             ; preds = %40, %49
 
 64:                                               ; preds = %56
   %65 = zext i1 %57 to i8
-  br i1 %58, label %66, label %_ZN15DirectiveSetPtr6clonedEv.exit74
+  br i1 %58, label %66, label %_ZN15DirectiveSetPtr6clonedEv.exit81
 
 66:                                               ; preds = %64
   %67 = tail call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
-  br label %_ZN15DirectiveSetPtr6clonedEv.exit74
+  br label %_ZN15DirectiveSetPtr6clonedEv.exit81
 
-_ZN15DirectiveSetPtr6clonedEv.exit74:             ; preds = %64, %66
+_ZN15DirectiveSetPtr6clonedEv.exit81:             ; preds = %64, %66
   %.sroa.36.37 = phi ptr [ %67, %66 ], [ %.sroa.36.0, %64 ]
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.36.37, i64 207
   store i8 %65, ptr %68, align 1
   br label %69
 
-69:                                               ; preds = %56, %_ZN15DirectiveSetPtr6clonedEv.exit74, %52
-  %.sroa.36.2 = phi ptr [ %.sroa.36.0, %52 ], [ %.sroa.36.37, %_ZN15DirectiveSetPtr6clonedEv.exit74 ], [ %.sroa.36.0, %56 ]
+69:                                               ; preds = %56, %_ZN15DirectiveSetPtr6clonedEv.exit81, %52
+  %.sroa.36.2 = phi ptr [ %.sroa.36.0, %52 ], [ %.sroa.36.37, %_ZN15DirectiveSetPtr6clonedEv.exit81 ], [ %.sroa.36.0, %56 ]
   %70 = tail call noundef zeroext i1 @_ZN14CompilerOracle12should_printERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
-  br i1 %70, label %71, label %80
+  %.not73 = xor i1 %70, true
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 183
+  %72 = load i8, ptr %71, align 1
+  %73 = trunc i8 %72 to i1
+  %or.cond = select i1 %.not73, i1 true, i1 %73
+  br i1 %or.cond, label %79, label %74
 
-71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 183
-  %73 = load i8, ptr %72, align 1
-  %74 = trunc i8 %73 to i1
-  br i1 %74, label %80, label %75
+74:                                               ; preds = %69
+  %75 = icmp eq ptr %.sroa.36.2, null
+  br i1 %75, label %76, label %_ZN15DirectiveSetPtr6clonedEv.exit82
 
-75:                                               ; preds = %71
-  %76 = icmp eq ptr %.sroa.36.2, null
-  br i1 %76, label %77, label %_ZN15DirectiveSetPtr6clonedEv.exit75
-
-77:                                               ; preds = %75
-  %78 = tail call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
-  br label %_ZN15DirectiveSetPtr6clonedEv.exit75
-
-_ZN15DirectiveSetPtr6clonedEv.exit75:             ; preds = %75, %77
-  %.sroa.36.38 = phi ptr [ %78, %77 ], [ %.sroa.36.2, %75 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.36.38, i64 224
-  store i8 1, ptr %79, align 8
-  br label %80
-
-80:                                               ; preds = %71, %_ZN15DirectiveSetPtr6clonedEv.exit75, %69
-  %.sroa.36.3 = phi ptr [ %.sroa.36.2, %71 ], [ %.sroa.36.38, %_ZN15DirectiveSetPtr6clonedEv.exit75 ], [ %.sroa.36.2, %69 ]
-  %81 = tail call noundef zeroext i1 @_ZN14CompilerOracle14should_excludeERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
-  br i1 %81, label %82, label %91
-
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  %84 = load i8, ptr %83, align 1
-  %85 = trunc i8 %84 to i1
-  br i1 %85, label %91, label %86
-
-86:                                               ; preds = %82
-  %87 = icmp eq ptr %.sroa.36.3, null
-  br i1 %87, label %88, label %_ZN15DirectiveSetPtr6clonedEv.exit76
-
-88:                                               ; preds = %86
-  %89 = tail call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
-  br label %_ZN15DirectiveSetPtr6clonedEv.exit76
-
-_ZN15DirectiveSetPtr6clonedEv.exit76:             ; preds = %86, %88
-  %.sroa.36.39 = phi ptr [ %89, %88 ], [ %.sroa.36.3, %86 ]
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.36.39, i64 204
-  store i8 1, ptr %90, align 4
-  br label %91
-
-91:                                               ; preds = %82, %_ZN15DirectiveSetPtr6clonedEv.exit76, %80
-  %.sroa.36.4 = phi ptr [ %.sroa.36.3, %82 ], [ %.sroa.36.39, %_ZN15DirectiveSetPtr6clonedEv.exit76 ], [ %.sroa.36.3, %80 ]
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 178
-  %93 = load i8, ptr %92, align 2
-  %94 = trunc i8 %93 to i1
-  br i1 %94, label %109, label %95
-
-95:                                               ; preds = %91
-  %96 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 10, ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  br i1 %96, label %97, label %109
-
-97:                                               ; preds = %95
-  %98 = load i8, ptr %3, align 1
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 205
-  %100 = load i8, ptr %99, align 1
-  %101 = xor i8 %100, %98
-  %102 = and i8 %101, 1
-  %.not = icmp eq i8 %102, 0
-  br i1 %.not, label %109, label %103
-
-103:                                              ; preds = %97
-  %104 = icmp eq ptr %.sroa.36.4, null
-  br i1 %104, label %105, label %_ZN15DirectiveSetPtr6clonedEv.exit77
-
-105:                                              ; preds = %103
-  %106 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
-  br label %_ZN15DirectiveSetPtr6clonedEv.exit77
-
-_ZN15DirectiveSetPtr6clonedEv.exit77:             ; preds = %103, %105
-  %.sroa.36.40 = phi ptr [ %106, %105 ], [ %.sroa.36.4, %103 ]
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.36.40, i64 205
-  %108 = and i8 %98, 1
-  store i8 %108, ptr %107, align 1
-  br label %109
-
-109:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit77, %97, %95, %91
-  %.sroa.36.5 = phi ptr [ %.sroa.36.4, %91 ], [ %.sroa.36.4, %97 ], [ %.sroa.36.40, %_ZN15DirectiveSetPtr6clonedEv.exit77 ], [ %.sroa.36.4, %95 ]
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 179
-  %111 = load i8, ptr %110, align 1
-  %112 = trunc i8 %111 to i1
-  br i1 %112, label %127, label %113
-
-113:                                              ; preds = %109
-  %114 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 11, ptr noundef nonnull align 1 dereferenceable(1) %4) #14
-  br i1 %114, label %115, label %127
-
-115:                                              ; preds = %113
-  %116 = load i8, ptr %4, align 1
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 206
-  %118 = load i8, ptr %117, align 2
-  %119 = xor i8 %118, %116
-  %120 = and i8 %119, 1
-  %.not47 = icmp eq i8 %120, 0
-  br i1 %.not47, label %127, label %121
-
-121:                                              ; preds = %115
-  %122 = icmp eq ptr %.sroa.36.5, null
-  br i1 %122, label %123, label %_ZN15DirectiveSetPtr6clonedEv.exit78
-
-123:                                              ; preds = %121
-  %124 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
-  br label %_ZN15DirectiveSetPtr6clonedEv.exit78
-
-_ZN15DirectiveSetPtr6clonedEv.exit78:             ; preds = %121, %123
-  %.sroa.36.41 = phi ptr [ %124, %123 ], [ %.sroa.36.5, %121 ]
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.36.41, i64 206
-  %126 = and i8 %116, 1
-  store i8 %126, ptr %125, align 2
-  br label %127
-
-127:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit78, %115, %113, %109
-  %.sroa.36.6 = phi ptr [ %.sroa.36.5, %109 ], [ %.sroa.36.5, %115 ], [ %.sroa.36.41, %_ZN15DirectiveSetPtr6clonedEv.exit78 ], [ %.sroa.36.5, %113 ]
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 181
-  %129 = load i8, ptr %128, align 1
-  %130 = trunc i8 %129 to i1
-  br i1 %130, label %142, label %131
-
-131:                                              ; preds = %127
-  %132 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIlEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(8) %5) #14
-  br i1 %132, label %133, label %142
-
-133:                                              ; preds = %131
-  %134 = load i64, ptr %5, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %136 = load i64, ptr %135, align 8
-  %.not48 = icmp eq i64 %134, %136
-  br i1 %.not48, label %142, label %137
-
-137:                                              ; preds = %133
-  %138 = icmp eq ptr %.sroa.36.6, null
-  br i1 %138, label %139, label %_ZN15DirectiveSetPtr6clonedEv.exit79
-
-139:                                              ; preds = %137
-  %140 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
-  br label %_ZN15DirectiveSetPtr6clonedEv.exit79
-
-_ZN15DirectiveSetPtr6clonedEv.exit79:             ; preds = %137, %139
-  %.sroa.36.42 = phi ptr [ %140, %139 ], [ %.sroa.36.6, %137 ]
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.36.42, i64 208
-  store i64 %134, ptr %141, align 8
-  br label %142
-
-142:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit79, %133, %131, %127
-  %.sroa.36.7 = phi ptr [ %.sroa.36.6, %127 ], [ %.sroa.36.6, %133 ], [ %.sroa.36.42, %_ZN15DirectiveSetPtr6clonedEv.exit79 ], [ %.sroa.36.6, %131 ]
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 182
-  %144 = load i8, ptr %143, align 2
-  %145 = trunc i8 %144 to i1
-  br i1 %145, label %157, label %146
-
-146:                                              ; preds = %142
-  %147 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueImEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 13, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
-  br i1 %147, label %148, label %157
-
-148:                                              ; preds = %146
-  %149 = load i64, ptr %6, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %151 = load i64, ptr %150, align 8
-  %.not49 = icmp eq i64 %149, %151
-  br i1 %.not49, label %157, label %152
-
-152:                                              ; preds = %148
-  %153 = icmp eq ptr %.sroa.36.7, null
-  br i1 %153, label %154, label %_ZN15DirectiveSetPtr6clonedEv.exit80
-
-154:                                              ; preds = %152
-  %155 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
-  br label %_ZN15DirectiveSetPtr6clonedEv.exit80
-
-_ZN15DirectiveSetPtr6clonedEv.exit80:             ; preds = %152, %154
-  %.sroa.36.43 = phi ptr [ %155, %154 ], [ %.sroa.36.7, %152 ]
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.36.43, i64 216
-  store i64 %149, ptr %156, align 8
-  br label %157
-
-157:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit80, %148, %146, %142
-  %.sroa.36.8 = phi ptr [ %.sroa.36.7, %142 ], [ %.sroa.36.7, %148 ], [ %.sroa.36.43, %_ZN15DirectiveSetPtr6clonedEv.exit80 ], [ %.sroa.36.7, %146 ]
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 183
-  %159 = load i8, ptr %158, align 1
-  %160 = trunc i8 %159 to i1
-  br i1 %160, label %175, label %161
-
-161:                                              ; preds = %157
-  %162 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 14, ptr noundef nonnull align 1 dereferenceable(1) %7) #14
-  br i1 %162, label %163, label %175
-
-163:                                              ; preds = %161
-  %164 = load i8, ptr %7, align 1
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %166 = load i8, ptr %165, align 8
-  %167 = xor i8 %166, %164
-  %168 = and i8 %167, 1
-  %.not50 = icmp eq i8 %168, 0
-  br i1 %.not50, label %175, label %169
-
-169:                                              ; preds = %163
-  %170 = icmp eq ptr %.sroa.36.8, null
-  br i1 %170, label %171, label %_ZN15DirectiveSetPtr6clonedEv.exit81
-
-171:                                              ; preds = %169
-  %172 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
-  br label %_ZN15DirectiveSetPtr6clonedEv.exit81
-
-_ZN15DirectiveSetPtr6clonedEv.exit81:             ; preds = %169, %171
-  %.sroa.36.44 = phi ptr [ %172, %171 ], [ %.sroa.36.8, %169 ]
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.36.44, i64 224
-  %174 = and i8 %164, 1
-  store i8 %174, ptr %173, align 8
-  br label %175
-
-175:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit81, %163, %161, %157
-  %.sroa.36.9 = phi ptr [ %.sroa.36.8, %157 ], [ %.sroa.36.8, %163 ], [ %.sroa.36.44, %_ZN15DirectiveSetPtr6clonedEv.exit81 ], [ %.sroa.36.8, %161 ]
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %177 = load i8, ptr %176, align 8
-  %178 = trunc i8 %177 to i1
-  br i1 %178, label %193, label %179
-
-179:                                              ; preds = %175
-  %180 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 15, ptr noundef nonnull align 1 dereferenceable(1) %8) #14
-  br i1 %180, label %181, label %193
-
-181:                                              ; preds = %179
-  %182 = load i8, ptr %8, align 1
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 225
-  %184 = load i8, ptr %183, align 1
-  %185 = xor i8 %184, %182
-  %186 = and i8 %185, 1
-  %.not51 = icmp eq i8 %186, 0
-  br i1 %.not51, label %193, label %187
-
-187:                                              ; preds = %181
-  %188 = icmp eq ptr %.sroa.36.9, null
-  br i1 %188, label %189, label %_ZN15DirectiveSetPtr6clonedEv.exit82
-
-189:                                              ; preds = %187
-  %190 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+76:                                               ; preds = %74
+  %77 = tail call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit82
 
-_ZN15DirectiveSetPtr6clonedEv.exit82:             ; preds = %187, %189
-  %.sroa.36.45 = phi ptr [ %190, %189 ], [ %.sroa.36.9, %187 ]
-  %191 = getelementptr inbounds nuw i8, ptr %.sroa.36.45, i64 225
-  %192 = and i8 %182, 1
-  store i8 %192, ptr %191, align 1
-  br label %193
+_ZN15DirectiveSetPtr6clonedEv.exit82:             ; preds = %74, %76
+  %.sroa.36.38 = phi ptr [ %77, %76 ], [ %.sroa.36.2, %74 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.36.38, i64 224
+  store i8 1, ptr %78, align 8
+  br label %79
 
-193:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit82, %181, %179, %175
-  %.sroa.36.10 = phi ptr [ %.sroa.36.9, %175 ], [ %.sroa.36.9, %181 ], [ %.sroa.36.45, %_ZN15DirectiveSetPtr6clonedEv.exit82 ], [ %.sroa.36.9, %179 ]
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 185
-  %195 = load i8, ptr %194, align 1
-  %196 = trunc i8 %195 to i1
-  br i1 %196, label %211, label %197
+79:                                               ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit82, %69
+  %.sroa.36.3 = phi ptr [ %.sroa.36.2, %69 ], [ %.sroa.36.38, %_ZN15DirectiveSetPtr6clonedEv.exit82 ]
+  %80 = tail call noundef zeroext i1 @_ZN14CompilerOracle14should_excludeERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
+  %.not76 = xor i1 %80, true
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 177
+  %82 = load i8, ptr %81, align 1
+  %83 = trunc i8 %82 to i1
+  %or.cond79 = select i1 %.not76, i1 true, i1 %83
+  br i1 %or.cond79, label %89, label %84
 
-197:                                              ; preds = %193
-  %198 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 16, ptr noundef nonnull align 1 dereferenceable(1) %9) #14
-  br i1 %198, label %199, label %211
+84:                                               ; preds = %79
+  %85 = icmp eq ptr %.sroa.36.3, null
+  br i1 %85, label %86, label %_ZN15DirectiveSetPtr6clonedEv.exit83
 
-199:                                              ; preds = %197
-  %200 = load i8, ptr %9, align 1
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 226
-  %202 = load i8, ptr %201, align 2
-  %203 = xor i8 %202, %200
-  %204 = and i8 %203, 1
-  %.not52 = icmp eq i8 %204, 0
-  br i1 %.not52, label %211, label %205
-
-205:                                              ; preds = %199
-  %206 = icmp eq ptr %.sroa.36.10, null
-  br i1 %206, label %207, label %_ZN15DirectiveSetPtr6clonedEv.exit83
-
-207:                                              ; preds = %205
-  %208 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+86:                                               ; preds = %84
+  %87 = tail call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit83
 
-_ZN15DirectiveSetPtr6clonedEv.exit83:             ; preds = %205, %207
-  %.sroa.36.46 = phi ptr [ %208, %207 ], [ %.sroa.36.10, %205 ]
-  %209 = getelementptr inbounds nuw i8, ptr %.sroa.36.46, i64 226
-  %210 = and i8 %200, 1
-  store i8 %210, ptr %209, align 2
-  br label %211
+_ZN15DirectiveSetPtr6clonedEv.exit83:             ; preds = %84, %86
+  %.sroa.36.39 = phi ptr [ %87, %86 ], [ %.sroa.36.3, %84 ]
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.36.39, i64 204
+  store i8 1, ptr %88, align 4
+  br label %89
 
-211:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit83, %199, %197, %193
-  %.sroa.36.11 = phi ptr [ %.sroa.36.10, %193 ], [ %.sroa.36.10, %199 ], [ %.sroa.36.46, %_ZN15DirectiveSetPtr6clonedEv.exit83 ], [ %.sroa.36.10, %197 ]
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 186
-  %213 = load i8, ptr %212, align 2
-  %214 = trunc i8 %213 to i1
-  br i1 %214, label %229, label %215
+89:                                               ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit83, %79
+  %.sroa.36.4 = phi ptr [ %.sroa.36.3, %79 ], [ %.sroa.36.39, %_ZN15DirectiveSetPtr6clonedEv.exit83 ]
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 178
+  %91 = load i8, ptr %90, align 2
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %107, label %93
 
-215:                                              ; preds = %211
-  %216 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 18, ptr noundef nonnull align 1 dereferenceable(1) %10) #14
-  br i1 %216, label %217, label %229
+93:                                               ; preds = %89
+  %94 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 10, ptr noundef nonnull align 1 dereferenceable(1) %3) #14
+  br i1 %94, label %95, label %107
 
-217:                                              ; preds = %215
-  %218 = load i8, ptr %10, align 1
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 227
-  %220 = load i8, ptr %219, align 1
-  %221 = xor i8 %220, %218
-  %222 = and i8 %221, 1
-  %.not53 = icmp eq i8 %222, 0
-  br i1 %.not53, label %229, label %223
+95:                                               ; preds = %93
+  %96 = load i8, ptr %3, align 1
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 205
+  %98 = load i8, ptr %97, align 1
+  %99 = xor i8 %98, %96
+  %100 = and i8 %99, 1
+  %.not = icmp eq i8 %100, 0
+  br i1 %.not, label %107, label %101
 
-223:                                              ; preds = %217
-  %224 = icmp eq ptr %.sroa.36.11, null
-  br i1 %224, label %225, label %_ZN15DirectiveSetPtr6clonedEv.exit84
+101:                                              ; preds = %95
+  %102 = icmp eq ptr %.sroa.36.4, null
+  br i1 %102, label %103, label %_ZN15DirectiveSetPtr6clonedEv.exit84
 
-225:                                              ; preds = %223
-  %226 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+103:                                              ; preds = %101
+  %104 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit84
 
-_ZN15DirectiveSetPtr6clonedEv.exit84:             ; preds = %223, %225
-  %.sroa.36.47 = phi ptr [ %226, %225 ], [ %.sroa.36.11, %223 ]
-  %227 = getelementptr inbounds nuw i8, ptr %.sroa.36.47, i64 227
-  %228 = and i8 %218, 1
-  store i8 %228, ptr %227, align 1
-  br label %229
+_ZN15DirectiveSetPtr6clonedEv.exit84:             ; preds = %101, %103
+  %.sroa.36.40 = phi ptr [ %104, %103 ], [ %.sroa.36.4, %101 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.36.40, i64 205
+  %106 = and i8 %96, 1
+  store i8 %106, ptr %105, align 1
+  br label %107
 
-229:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit84, %217, %215, %211
-  %.sroa.36.12 = phi ptr [ %.sroa.36.11, %211 ], [ %.sroa.36.11, %217 ], [ %.sroa.36.47, %_ZN15DirectiveSetPtr6clonedEv.exit84 ], [ %.sroa.36.11, %215 ]
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 187
-  %231 = load i8, ptr %230, align 1
-  %232 = trunc i8 %231 to i1
-  br i1 %232, label %247, label %233
+107:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit84, %95, %93, %89
+  %.sroa.36.5 = phi ptr [ %.sroa.36.4, %89 ], [ %.sroa.36.4, %95 ], [ %.sroa.36.40, %_ZN15DirectiveSetPtr6clonedEv.exit84 ], [ %.sroa.36.4, %93 ]
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 179
+  %109 = load i8, ptr %108, align 1
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %125, label %111
 
-233:                                              ; preds = %229
-  %234 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 23, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
-  br i1 %234, label %235, label %247
+111:                                              ; preds = %107
+  %112 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 11, ptr noundef nonnull align 1 dereferenceable(1) %4) #14
+  br i1 %112, label %113, label %125
 
-235:                                              ; preds = %233
-  %236 = load i8, ptr %11, align 1
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %238 = load i8, ptr %237, align 4
-  %239 = xor i8 %238, %236
-  %240 = and i8 %239, 1
-  %.not54 = icmp eq i8 %240, 0
-  br i1 %.not54, label %247, label %241
+113:                                              ; preds = %111
+  %114 = load i8, ptr %4, align 1
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 206
+  %116 = load i8, ptr %115, align 2
+  %117 = xor i8 %116, %114
+  %118 = and i8 %117, 1
+  %.not47 = icmp eq i8 %118, 0
+  br i1 %.not47, label %125, label %119
 
-241:                                              ; preds = %235
-  %242 = icmp eq ptr %.sroa.36.12, null
-  br i1 %242, label %243, label %_ZN15DirectiveSetPtr6clonedEv.exit85
+119:                                              ; preds = %113
+  %120 = icmp eq ptr %.sroa.36.5, null
+  br i1 %120, label %121, label %_ZN15DirectiveSetPtr6clonedEv.exit85
 
-243:                                              ; preds = %241
-  %244 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+121:                                              ; preds = %119
+  %122 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit85
 
-_ZN15DirectiveSetPtr6clonedEv.exit85:             ; preds = %241, %243
-  %.sroa.36.48 = phi ptr [ %244, %243 ], [ %.sroa.36.12, %241 ]
-  %245 = getelementptr inbounds nuw i8, ptr %.sroa.36.48, i64 228
-  %246 = and i8 %236, 1
-  store i8 %246, ptr %245, align 4
-  br label %247
+_ZN15DirectiveSetPtr6clonedEv.exit85:             ; preds = %119, %121
+  %.sroa.36.41 = phi ptr [ %122, %121 ], [ %.sroa.36.5, %119 ]
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.36.41, i64 206
+  %124 = and i8 %114, 1
+  store i8 %124, ptr %123, align 2
+  br label %125
 
-247:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit85, %235, %233, %229
-  %.sroa.36.13 = phi ptr [ %.sroa.36.12, %229 ], [ %.sroa.36.12, %235 ], [ %.sroa.36.48, %_ZN15DirectiveSetPtr6clonedEv.exit85 ], [ %.sroa.36.12, %233 ]
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %249 = load i8, ptr %248, align 4
-  %250 = trunc i8 %249 to i1
-  br i1 %250, label %265, label %251
+125:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit85, %113, %111, %107
+  %.sroa.36.6 = phi ptr [ %.sroa.36.5, %107 ], [ %.sroa.36.5, %113 ], [ %.sroa.36.41, %_ZN15DirectiveSetPtr6clonedEv.exit85 ], [ %.sroa.36.5, %111 ]
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 181
+  %127 = load i8, ptr %126, align 1
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %140, label %129
 
-251:                                              ; preds = %247
-  %252 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 25, ptr noundef nonnull align 1 dereferenceable(1) %12) #14
-  br i1 %252, label %253, label %265
+129:                                              ; preds = %125
+  %130 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIlEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(8) %5) #14
+  br i1 %130, label %131, label %140
 
-253:                                              ; preds = %251
-  %254 = load i8, ptr %12, align 1
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 229
-  %256 = load i8, ptr %255, align 1
-  %257 = xor i8 %256, %254
-  %258 = and i8 %257, 1
-  %.not55 = icmp eq i8 %258, 0
-  br i1 %.not55, label %265, label %259
+131:                                              ; preds = %129
+  %132 = load i64, ptr %5, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %134 = load i64, ptr %133, align 8
+  %.not48 = icmp eq i64 %132, %134
+  br i1 %.not48, label %140, label %135
 
-259:                                              ; preds = %253
-  %260 = icmp eq ptr %.sroa.36.13, null
-  br i1 %260, label %261, label %_ZN15DirectiveSetPtr6clonedEv.exit86
+135:                                              ; preds = %131
+  %136 = icmp eq ptr %.sroa.36.6, null
+  br i1 %136, label %137, label %_ZN15DirectiveSetPtr6clonedEv.exit86
 
-261:                                              ; preds = %259
-  %262 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+137:                                              ; preds = %135
+  %138 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit86
 
-_ZN15DirectiveSetPtr6clonedEv.exit86:             ; preds = %259, %261
-  %.sroa.36.49 = phi ptr [ %262, %261 ], [ %.sroa.36.13, %259 ]
-  %263 = getelementptr inbounds nuw i8, ptr %.sroa.36.49, i64 229
-  %264 = and i8 %254, 1
-  store i8 %264, ptr %263, align 1
-  br label %265
+_ZN15DirectiveSetPtr6clonedEv.exit86:             ; preds = %135, %137
+  %.sroa.36.42 = phi ptr [ %138, %137 ], [ %.sroa.36.6, %135 ]
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.36.42, i64 208
+  store i64 %132, ptr %139, align 8
+  br label %140
 
-265:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit86, %253, %251, %247
-  %.sroa.36.14 = phi ptr [ %.sroa.36.13, %247 ], [ %.sroa.36.13, %253 ], [ %.sroa.36.49, %_ZN15DirectiveSetPtr6clonedEv.exit86 ], [ %.sroa.36.13, %251 ]
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 189
-  %267 = load i8, ptr %266, align 1
-  %268 = trunc i8 %267 to i1
-  br i1 %268, label %283, label %269
+140:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit86, %131, %129, %125
+  %.sroa.36.7 = phi ptr [ %.sroa.36.6, %125 ], [ %.sroa.36.6, %131 ], [ %.sroa.36.42, %_ZN15DirectiveSetPtr6clonedEv.exit86 ], [ %.sroa.36.6, %129 ]
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 182
+  %142 = load i8, ptr %141, align 2
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %155, label %144
 
-269:                                              ; preds = %265
-  %270 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 26, ptr noundef nonnull align 1 dereferenceable(1) %13) #14
-  br i1 %270, label %271, label %283
+144:                                              ; preds = %140
+  %145 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueImEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 13, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
+  br i1 %145, label %146, label %155
 
-271:                                              ; preds = %269
-  %272 = load i8, ptr %13, align 1
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 230
-  %274 = load i8, ptr %273, align 2
-  %275 = xor i8 %274, %272
-  %276 = and i8 %275, 1
-  %.not56 = icmp eq i8 %276, 0
-  br i1 %.not56, label %283, label %277
+146:                                              ; preds = %144
+  %147 = load i64, ptr %6, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %149 = load i64, ptr %148, align 8
+  %.not49 = icmp eq i64 %147, %149
+  br i1 %.not49, label %155, label %150
 
-277:                                              ; preds = %271
-  %278 = icmp eq ptr %.sroa.36.14, null
-  br i1 %278, label %279, label %_ZN15DirectiveSetPtr6clonedEv.exit87
+150:                                              ; preds = %146
+  %151 = icmp eq ptr %.sroa.36.7, null
+  br i1 %151, label %152, label %_ZN15DirectiveSetPtr6clonedEv.exit87
 
-279:                                              ; preds = %277
-  %280 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+152:                                              ; preds = %150
+  %153 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit87
 
-_ZN15DirectiveSetPtr6clonedEv.exit87:             ; preds = %277, %279
-  %.sroa.36.50 = phi ptr [ %280, %279 ], [ %.sroa.36.14, %277 ]
-  %281 = getelementptr inbounds nuw i8, ptr %.sroa.36.50, i64 230
-  %282 = and i8 %272, 1
-  store i8 %282, ptr %281, align 2
-  br label %283
+_ZN15DirectiveSetPtr6clonedEv.exit87:             ; preds = %150, %152
+  %.sroa.36.43 = phi ptr [ %153, %152 ], [ %.sroa.36.7, %150 ]
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.36.43, i64 216
+  store i64 %147, ptr %154, align 8
+  br label %155
 
-283:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit87, %271, %269, %265
-  %.sroa.36.15 = phi ptr [ %.sroa.36.14, %265 ], [ %.sroa.36.14, %271 ], [ %.sroa.36.50, %_ZN15DirectiveSetPtr6clonedEv.exit87 ], [ %.sroa.36.14, %269 ]
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 190
-  %285 = load i8, ptr %284, align 2
-  %286 = trunc i8 %285 to i1
-  br i1 %286, label %301, label %287
+155:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit87, %146, %144, %140
+  %.sroa.36.8 = phi ptr [ %.sroa.36.7, %140 ], [ %.sroa.36.7, %146 ], [ %.sroa.36.43, %_ZN15DirectiveSetPtr6clonedEv.exit87 ], [ %.sroa.36.7, %144 ]
+  %156 = load i8, ptr %71, align 1
+  %157 = trunc i8 %156 to i1
+  br i1 %157, label %172, label %158
 
-287:                                              ; preds = %283
-  %288 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 27, ptr noundef nonnull align 1 dereferenceable(1) %14) #14
-  br i1 %288, label %289, label %301
+158:                                              ; preds = %155
+  %159 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 14, ptr noundef nonnull align 1 dereferenceable(1) %7) #14
+  br i1 %159, label %160, label %172
 
-289:                                              ; preds = %287
-  %290 = load i8, ptr %14, align 1
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 231
-  %292 = load i8, ptr %291, align 1
-  %293 = xor i8 %292, %290
-  %294 = and i8 %293, 1
-  %.not57 = icmp eq i8 %294, 0
-  br i1 %.not57, label %301, label %295
+160:                                              ; preds = %158
+  %161 = load i8, ptr %7, align 1
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %163 = load i8, ptr %162, align 8
+  %164 = xor i8 %163, %161
+  %165 = and i8 %164, 1
+  %.not50 = icmp eq i8 %165, 0
+  br i1 %.not50, label %172, label %166
 
-295:                                              ; preds = %289
-  %296 = icmp eq ptr %.sroa.36.15, null
-  br i1 %296, label %297, label %_ZN15DirectiveSetPtr6clonedEv.exit88
+166:                                              ; preds = %160
+  %167 = icmp eq ptr %.sroa.36.8, null
+  br i1 %167, label %168, label %_ZN15DirectiveSetPtr6clonedEv.exit88
 
-297:                                              ; preds = %295
-  %298 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+168:                                              ; preds = %166
+  %169 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit88
 
-_ZN15DirectiveSetPtr6clonedEv.exit88:             ; preds = %295, %297
-  %.sroa.36.51 = phi ptr [ %298, %297 ], [ %.sroa.36.15, %295 ]
-  %299 = getelementptr inbounds nuw i8, ptr %.sroa.36.51, i64 231
-  %300 = and i8 %290, 1
-  store i8 %300, ptr %299, align 1
-  br label %301
+_ZN15DirectiveSetPtr6clonedEv.exit88:             ; preds = %166, %168
+  %.sroa.36.44 = phi ptr [ %169, %168 ], [ %.sroa.36.8, %166 ]
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.36.44, i64 224
+  %171 = and i8 %161, 1
+  store i8 %171, ptr %170, align 8
+  br label %172
 
-301:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit88, %289, %287, %283
-  %.sroa.36.16 = phi ptr [ %.sroa.36.15, %283 ], [ %.sroa.36.15, %289 ], [ %.sroa.36.51, %_ZN15DirectiveSetPtr6clonedEv.exit88 ], [ %.sroa.36.15, %287 ]
-  %302 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %303 = load i8, ptr %302, align 8
-  %304 = trunc i8 %303 to i1
-  br i1 %304, label %316, label %305
+172:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit88, %160, %158, %155
+  %.sroa.36.9 = phi ptr [ %.sroa.36.8, %155 ], [ %.sroa.36.8, %160 ], [ %.sroa.36.44, %_ZN15DirectiveSetPtr6clonedEv.exit88 ], [ %.sroa.36.8, %158 ]
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %174 = load i8, ptr %173, align 8
+  %175 = trunc i8 %174 to i1
+  br i1 %175, label %190, label %176
 
-305:                                              ; preds = %301
-  %306 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIlEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 24, ptr noundef nonnull align 8 dereferenceable(8) %15) #14
-  br i1 %306, label %307, label %316
+176:                                              ; preds = %172
+  %177 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 15, ptr noundef nonnull align 1 dereferenceable(1) %8) #14
+  br i1 %177, label %178, label %190
 
-307:                                              ; preds = %305
-  %308 = load i64, ptr %15, align 8
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %310 = load i64, ptr %309, align 8
-  %.not58 = icmp eq i64 %308, %310
-  br i1 %.not58, label %316, label %311
+178:                                              ; preds = %176
+  %179 = load i8, ptr %8, align 1
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 225
+  %181 = load i8, ptr %180, align 1
+  %182 = xor i8 %181, %179
+  %183 = and i8 %182, 1
+  %.not51 = icmp eq i8 %183, 0
+  br i1 %.not51, label %190, label %184
 
-311:                                              ; preds = %307
-  %312 = icmp eq ptr %.sroa.36.16, null
-  br i1 %312, label %313, label %_ZN15DirectiveSetPtr6clonedEv.exit89
+184:                                              ; preds = %178
+  %185 = icmp eq ptr %.sroa.36.9, null
+  br i1 %185, label %186, label %_ZN15DirectiveSetPtr6clonedEv.exit89
 
-313:                                              ; preds = %311
-  %314 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+186:                                              ; preds = %184
+  %187 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit89
 
-_ZN15DirectiveSetPtr6clonedEv.exit89:             ; preds = %311, %313
-  %.sroa.36.52 = phi ptr [ %314, %313 ], [ %.sroa.36.16, %311 ]
-  %315 = getelementptr inbounds nuw i8, ptr %.sroa.36.52, i64 240
-  store i64 %308, ptr %315, align 8
-  br label %316
+_ZN15DirectiveSetPtr6clonedEv.exit89:             ; preds = %184, %186
+  %.sroa.36.45 = phi ptr [ %187, %186 ], [ %.sroa.36.9, %184 ]
+  %188 = getelementptr inbounds nuw i8, ptr %.sroa.36.45, i64 225
+  %189 = and i8 %179, 1
+  store i8 %189, ptr %188, align 1
+  br label %190
 
-316:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit89, %307, %305, %301
-  %.sroa.36.17 = phi ptr [ %.sroa.36.16, %301 ], [ %.sroa.36.16, %307 ], [ %.sroa.36.52, %_ZN15DirectiveSetPtr6clonedEv.exit89 ], [ %.sroa.36.16, %305 ]
-  %317 = getelementptr inbounds nuw i8, ptr %0, i64 193
-  %318 = load i8, ptr %317, align 1
-  %319 = trunc i8 %318 to i1
-  br i1 %319, label %331, label %320
+190:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit89, %178, %176, %172
+  %.sroa.36.10 = phi ptr [ %.sroa.36.9, %172 ], [ %.sroa.36.9, %178 ], [ %.sroa.36.45, %_ZN15DirectiveSetPtr6clonedEv.exit89 ], [ %.sroa.36.9, %176 ]
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 185
+  %192 = load i8, ptr %191, align 1
+  %193 = trunc i8 %192 to i1
+  br i1 %193, label %208, label %194
 
-320:                                              ; preds = %316
-  %321 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIPKcEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 30, ptr noundef nonnull align 8 dereferenceable(8) %16) #14
-  br i1 %321, label %322, label %331
+194:                                              ; preds = %190
+  %195 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 16, ptr noundef nonnull align 1 dereferenceable(1) %9) #14
+  br i1 %195, label %196, label %208
 
-322:                                              ; preds = %320
-  %323 = load ptr, ptr %16, align 8
-  %324 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %325 = load ptr, ptr %324, align 8
-  %.not59 = icmp eq ptr %323, %325
-  br i1 %.not59, label %331, label %326
+196:                                              ; preds = %194
+  %197 = load i8, ptr %9, align 1
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 226
+  %199 = load i8, ptr %198, align 2
+  %200 = xor i8 %199, %197
+  %201 = and i8 %200, 1
+  %.not52 = icmp eq i8 %201, 0
+  br i1 %.not52, label %208, label %202
 
-326:                                              ; preds = %322
-  %327 = icmp eq ptr %.sroa.36.17, null
-  br i1 %327, label %328, label %_ZN15DirectiveSetPtr6clonedEv.exit90
+202:                                              ; preds = %196
+  %203 = icmp eq ptr %.sroa.36.10, null
+  br i1 %203, label %204, label %_ZN15DirectiveSetPtr6clonedEv.exit90
 
-328:                                              ; preds = %326
-  %329 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+204:                                              ; preds = %202
+  %205 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit90
 
-_ZN15DirectiveSetPtr6clonedEv.exit90:             ; preds = %326, %328
-  %.sroa.36.53 = phi ptr [ %329, %328 ], [ %.sroa.36.17, %326 ]
-  %330 = getelementptr inbounds nuw i8, ptr %.sroa.36.53, i64 248
-  store ptr %323, ptr %330, align 8
-  br label %331
+_ZN15DirectiveSetPtr6clonedEv.exit90:             ; preds = %202, %204
+  %.sroa.36.46 = phi ptr [ %205, %204 ], [ %.sroa.36.10, %202 ]
+  %206 = getelementptr inbounds nuw i8, ptr %.sroa.36.46, i64 226
+  %207 = and i8 %197, 1
+  store i8 %207, ptr %206, align 2
+  br label %208
 
-331:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit90, %322, %320, %316
-  %.sroa.36.18 = phi ptr [ %.sroa.36.17, %316 ], [ %.sroa.36.17, %322 ], [ %.sroa.36.53, %_ZN15DirectiveSetPtr6clonedEv.exit90 ], [ %.sroa.36.17, %320 ]
-  %332 = getelementptr inbounds nuw i8, ptr %0, i64 194
-  %333 = load i8, ptr %332, align 2
-  %334 = trunc i8 %333 to i1
-  br i1 %334, label %346, label %335
+208:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit90, %196, %194, %190
+  %.sroa.36.11 = phi ptr [ %.sroa.36.10, %190 ], [ %.sroa.36.10, %196 ], [ %.sroa.36.46, %_ZN15DirectiveSetPtr6clonedEv.exit90 ], [ %.sroa.36.10, %194 ]
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 186
+  %210 = load i8, ptr %209, align 2
+  %211 = trunc i8 %210 to i1
+  br i1 %211, label %226, label %212
 
-335:                                              ; preds = %331
-  %336 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIPKcEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 29, ptr noundef nonnull align 8 dereferenceable(8) %17) #14
-  br i1 %336, label %337, label %346
+212:                                              ; preds = %208
+  %213 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 18, ptr noundef nonnull align 1 dereferenceable(1) %10) #14
+  br i1 %213, label %214, label %226
 
-337:                                              ; preds = %335
-  %338 = load ptr, ptr %17, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %340 = load ptr, ptr %339, align 8
-  %.not60 = icmp eq ptr %338, %340
-  br i1 %.not60, label %346, label %341
+214:                                              ; preds = %212
+  %215 = load i8, ptr %10, align 1
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 227
+  %217 = load i8, ptr %216, align 1
+  %218 = xor i8 %217, %215
+  %219 = and i8 %218, 1
+  %.not53 = icmp eq i8 %219, 0
+  br i1 %.not53, label %226, label %220
 
-341:                                              ; preds = %337
-  %342 = icmp eq ptr %.sroa.36.18, null
-  br i1 %342, label %343, label %_ZN15DirectiveSetPtr6clonedEv.exit91
+220:                                              ; preds = %214
+  %221 = icmp eq ptr %.sroa.36.11, null
+  br i1 %221, label %222, label %_ZN15DirectiveSetPtr6clonedEv.exit91
 
-343:                                              ; preds = %341
-  %344 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+222:                                              ; preds = %220
+  %223 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit91
 
-_ZN15DirectiveSetPtr6clonedEv.exit91:             ; preds = %341, %343
-  %.sroa.36.54 = phi ptr [ %344, %343 ], [ %.sroa.36.18, %341 ]
-  %345 = getelementptr inbounds nuw i8, ptr %.sroa.36.54, i64 256
-  store ptr %338, ptr %345, align 8
-  br label %346
+_ZN15DirectiveSetPtr6clonedEv.exit91:             ; preds = %220, %222
+  %.sroa.36.47 = phi ptr [ %223, %222 ], [ %.sroa.36.11, %220 ]
+  %224 = getelementptr inbounds nuw i8, ptr %.sroa.36.47, i64 227
+  %225 = and i8 %215, 1
+  store i8 %225, ptr %224, align 1
+  br label %226
 
-346:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit91, %337, %335, %331
-  %.sroa.36.19 = phi ptr [ %.sroa.36.18, %331 ], [ %.sroa.36.18, %337 ], [ %.sroa.36.54, %_ZN15DirectiveSetPtr6clonedEv.exit91 ], [ %.sroa.36.18, %335 ]
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 195
-  %348 = load i8, ptr %347, align 1
-  %349 = trunc i8 %348 to i1
-  br i1 %349, label %364, label %350
+226:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit91, %214, %212, %208
+  %.sroa.36.12 = phi ptr [ %.sroa.36.11, %208 ], [ %.sroa.36.11, %214 ], [ %.sroa.36.47, %_ZN15DirectiveSetPtr6clonedEv.exit91 ], [ %.sroa.36.11, %212 ]
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 187
+  %228 = load i8, ptr %227, align 1
+  %229 = trunc i8 %228 to i1
+  br i1 %229, label %244, label %230
 
-350:                                              ; preds = %346
-  %351 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 31, ptr noundef nonnull align 1 dereferenceable(1) %18) #14
-  br i1 %351, label %352, label %364
+230:                                              ; preds = %226
+  %231 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 23, ptr noundef nonnull align 1 dereferenceable(1) %11) #14
+  br i1 %231, label %232, label %244
 
-352:                                              ; preds = %350
-  %353 = load i8, ptr %18, align 1
-  %354 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %355 = load i8, ptr %354, align 8
-  %356 = xor i8 %355, %353
-  %357 = and i8 %356, 1
-  %.not61 = icmp eq i8 %357, 0
-  br i1 %.not61, label %364, label %358
+232:                                              ; preds = %230
+  %233 = load i8, ptr %11, align 1
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %235 = load i8, ptr %234, align 4
+  %236 = xor i8 %235, %233
+  %237 = and i8 %236, 1
+  %.not54 = icmp eq i8 %237, 0
+  br i1 %.not54, label %244, label %238
 
-358:                                              ; preds = %352
-  %359 = icmp eq ptr %.sroa.36.19, null
-  br i1 %359, label %360, label %_ZN15DirectiveSetPtr6clonedEv.exit92
+238:                                              ; preds = %232
+  %239 = icmp eq ptr %.sroa.36.12, null
+  br i1 %239, label %240, label %_ZN15DirectiveSetPtr6clonedEv.exit92
 
-360:                                              ; preds = %358
-  %361 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+240:                                              ; preds = %238
+  %241 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit92
 
-_ZN15DirectiveSetPtr6clonedEv.exit92:             ; preds = %358, %360
-  %.sroa.36.55 = phi ptr [ %361, %360 ], [ %.sroa.36.19, %358 ]
-  %362 = getelementptr inbounds nuw i8, ptr %.sroa.36.55, i64 264
-  %363 = and i8 %353, 1
-  store i8 %363, ptr %362, align 8
-  br label %364
+_ZN15DirectiveSetPtr6clonedEv.exit92:             ; preds = %238, %240
+  %.sroa.36.48 = phi ptr [ %241, %240 ], [ %.sroa.36.12, %238 ]
+  %242 = getelementptr inbounds nuw i8, ptr %.sroa.36.48, i64 228
+  %243 = and i8 %233, 1
+  store i8 %243, ptr %242, align 4
+  br label %244
 
-364:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit92, %352, %350, %346
-  %.sroa.36.20 = phi ptr [ %.sroa.36.19, %346 ], [ %.sroa.36.19, %352 ], [ %.sroa.36.55, %_ZN15DirectiveSetPtr6clonedEv.exit92 ], [ %.sroa.36.19, %350 ]
-  %365 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %366 = load i8, ptr %365, align 4
-  %367 = trunc i8 %366 to i1
-  br i1 %367, label %382, label %368
+244:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit92, %232, %230, %226
+  %.sroa.36.13 = phi ptr [ %.sroa.36.12, %226 ], [ %.sroa.36.12, %232 ], [ %.sroa.36.48, %_ZN15DirectiveSetPtr6clonedEv.exit92 ], [ %.sroa.36.12, %230 ]
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %246 = load i8, ptr %245, align 4
+  %247 = trunc i8 %246 to i1
+  br i1 %247, label %262, label %248
 
-368:                                              ; preds = %364
-  %369 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 19, ptr noundef nonnull align 1 dereferenceable(1) %19) #14
-  br i1 %369, label %370, label %382
+248:                                              ; preds = %244
+  %249 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 25, ptr noundef nonnull align 1 dereferenceable(1) %12) #14
+  br i1 %249, label %250, label %262
 
-370:                                              ; preds = %368
-  %371 = load i8, ptr %19, align 1
-  %372 = getelementptr inbounds nuw i8, ptr %0, i64 265
-  %373 = load i8, ptr %372, align 1
-  %374 = xor i8 %373, %371
-  %375 = and i8 %374, 1
-  %.not62 = icmp eq i8 %375, 0
-  br i1 %.not62, label %382, label %376
+250:                                              ; preds = %248
+  %251 = load i8, ptr %12, align 1
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 229
+  %253 = load i8, ptr %252, align 1
+  %254 = xor i8 %253, %251
+  %255 = and i8 %254, 1
+  %.not55 = icmp eq i8 %255, 0
+  br i1 %.not55, label %262, label %256
 
-376:                                              ; preds = %370
-  %377 = icmp eq ptr %.sroa.36.20, null
-  br i1 %377, label %378, label %_ZN15DirectiveSetPtr6clonedEv.exit93
+256:                                              ; preds = %250
+  %257 = icmp eq ptr %.sroa.36.13, null
+  br i1 %257, label %258, label %_ZN15DirectiveSetPtr6clonedEv.exit93
 
-378:                                              ; preds = %376
-  %379 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+258:                                              ; preds = %256
+  %259 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit93
 
-_ZN15DirectiveSetPtr6clonedEv.exit93:             ; preds = %376, %378
-  %.sroa.36.56 = phi ptr [ %379, %378 ], [ %.sroa.36.20, %376 ]
-  %380 = getelementptr inbounds nuw i8, ptr %.sroa.36.56, i64 265
-  %381 = and i8 %371, 1
-  store i8 %381, ptr %380, align 1
-  br label %382
+_ZN15DirectiveSetPtr6clonedEv.exit93:             ; preds = %256, %258
+  %.sroa.36.49 = phi ptr [ %259, %258 ], [ %.sroa.36.13, %256 ]
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.36.49, i64 229
+  %261 = and i8 %251, 1
+  store i8 %261, ptr %260, align 1
+  br label %262
 
-382:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit93, %370, %368, %364
-  %.sroa.36.21 = phi ptr [ %.sroa.36.20, %364 ], [ %.sroa.36.20, %370 ], [ %.sroa.36.56, %_ZN15DirectiveSetPtr6clonedEv.exit93 ], [ %.sroa.36.20, %368 ]
-  %383 = getelementptr inbounds nuw i8, ptr %0, i64 197
-  %384 = load i8, ptr %383, align 1
-  %385 = trunc i8 %384 to i1
-  br i1 %385, label %400, label %386
+262:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit93, %250, %248, %244
+  %.sroa.36.14 = phi ptr [ %.sroa.36.13, %244 ], [ %.sroa.36.13, %250 ], [ %.sroa.36.49, %_ZN15DirectiveSetPtr6clonedEv.exit93 ], [ %.sroa.36.13, %248 ]
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 189
+  %264 = load i8, ptr %263, align 1
+  %265 = trunc i8 %264 to i1
+  br i1 %265, label %280, label %266
 
-386:                                              ; preds = %382
-  %387 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 17, ptr noundef nonnull align 1 dereferenceable(1) %20) #14
-  br i1 %387, label %388, label %400
+266:                                              ; preds = %262
+  %267 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 26, ptr noundef nonnull align 1 dereferenceable(1) %13) #14
+  br i1 %267, label %268, label %280
 
-388:                                              ; preds = %386
-  %389 = load i8, ptr %20, align 1
-  %390 = getelementptr inbounds nuw i8, ptr %0, i64 266
-  %391 = load i8, ptr %390, align 2
-  %392 = xor i8 %391, %389
-  %393 = and i8 %392, 1
-  %.not63 = icmp eq i8 %393, 0
-  br i1 %.not63, label %400, label %394
+268:                                              ; preds = %266
+  %269 = load i8, ptr %13, align 1
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 230
+  %271 = load i8, ptr %270, align 2
+  %272 = xor i8 %271, %269
+  %273 = and i8 %272, 1
+  %.not56 = icmp eq i8 %273, 0
+  br i1 %.not56, label %280, label %274
 
-394:                                              ; preds = %388
-  %395 = icmp eq ptr %.sroa.36.21, null
-  br i1 %395, label %396, label %_ZN15DirectiveSetPtr6clonedEv.exit94
+274:                                              ; preds = %268
+  %275 = icmp eq ptr %.sroa.36.14, null
+  br i1 %275, label %276, label %_ZN15DirectiveSetPtr6clonedEv.exit94
 
-396:                                              ; preds = %394
-  %397 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+276:                                              ; preds = %274
+  %277 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit94
 
-_ZN15DirectiveSetPtr6clonedEv.exit94:             ; preds = %394, %396
-  %.sroa.36.57 = phi ptr [ %397, %396 ], [ %.sroa.36.21, %394 ]
-  %398 = getelementptr inbounds nuw i8, ptr %.sroa.36.57, i64 266
-  %399 = and i8 %389, 1
-  store i8 %399, ptr %398, align 2
-  br label %400
+_ZN15DirectiveSetPtr6clonedEv.exit94:             ; preds = %274, %276
+  %.sroa.36.50 = phi ptr [ %277, %276 ], [ %.sroa.36.14, %274 ]
+  %278 = getelementptr inbounds nuw i8, ptr %.sroa.36.50, i64 230
+  %279 = and i8 %269, 1
+  store i8 %279, ptr %278, align 2
+  br label %280
 
-400:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit94, %388, %386, %382
-  %.sroa.36.22 = phi ptr [ %.sroa.36.21, %382 ], [ %.sroa.36.21, %388 ], [ %.sroa.36.57, %_ZN15DirectiveSetPtr6clonedEv.exit94 ], [ %.sroa.36.21, %386 ]
-  %401 = getelementptr inbounds nuw i8, ptr %0, i64 198
-  %402 = load i8, ptr %401, align 2
-  %403 = trunc i8 %402 to i1
-  br i1 %403, label %418, label %404
+280:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit94, %268, %266, %262
+  %.sroa.36.15 = phi ptr [ %.sroa.36.14, %262 ], [ %.sroa.36.14, %268 ], [ %.sroa.36.50, %_ZN15DirectiveSetPtr6clonedEv.exit94 ], [ %.sroa.36.14, %266 ]
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 190
+  %282 = load i8, ptr %281, align 2
+  %283 = trunc i8 %282 to i1
+  br i1 %283, label %298, label %284
 
-404:                                              ; preds = %400
-  %405 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 34, ptr noundef nonnull align 1 dereferenceable(1) %21) #14
-  br i1 %405, label %406, label %418
+284:                                              ; preds = %280
+  %285 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 27, ptr noundef nonnull align 1 dereferenceable(1) %14) #14
+  br i1 %285, label %286, label %298
 
-406:                                              ; preds = %404
-  %407 = load i8, ptr %21, align 1
-  %408 = getelementptr inbounds nuw i8, ptr %0, i64 267
-  %409 = load i8, ptr %408, align 1
-  %410 = xor i8 %409, %407
-  %411 = and i8 %410, 1
-  %.not64 = icmp eq i8 %411, 0
-  br i1 %.not64, label %418, label %412
+286:                                              ; preds = %284
+  %287 = load i8, ptr %14, align 1
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 231
+  %289 = load i8, ptr %288, align 1
+  %290 = xor i8 %289, %287
+  %291 = and i8 %290, 1
+  %.not57 = icmp eq i8 %291, 0
+  br i1 %.not57, label %298, label %292
 
-412:                                              ; preds = %406
-  %413 = icmp eq ptr %.sroa.36.22, null
-  br i1 %413, label %414, label %_ZN15DirectiveSetPtr6clonedEv.exit95
+292:                                              ; preds = %286
+  %293 = icmp eq ptr %.sroa.36.15, null
+  br i1 %293, label %294, label %_ZN15DirectiveSetPtr6clonedEv.exit95
 
-414:                                              ; preds = %412
-  %415 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+294:                                              ; preds = %292
+  %295 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit95
 
-_ZN15DirectiveSetPtr6clonedEv.exit95:             ; preds = %412, %414
-  %.sroa.36.58 = phi ptr [ %415, %414 ], [ %.sroa.36.22, %412 ]
-  %416 = getelementptr inbounds nuw i8, ptr %.sroa.36.58, i64 267
-  %417 = and i8 %407, 1
-  store i8 %417, ptr %416, align 1
-  br label %418
+_ZN15DirectiveSetPtr6clonedEv.exit95:             ; preds = %292, %294
+  %.sroa.36.51 = phi ptr [ %295, %294 ], [ %.sroa.36.15, %292 ]
+  %296 = getelementptr inbounds nuw i8, ptr %.sroa.36.51, i64 231
+  %297 = and i8 %287, 1
+  store i8 %297, ptr %296, align 1
+  br label %298
 
-418:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit95, %406, %404, %400
-  %.sroa.36.23 = phi ptr [ %.sroa.36.22, %400 ], [ %.sroa.36.22, %406 ], [ %.sroa.36.58, %_ZN15DirectiveSetPtr6clonedEv.exit95 ], [ %.sroa.36.22, %404 ]
-  %419 = getelementptr inbounds nuw i8, ptr %0, i64 199
-  %420 = load i8, ptr %419, align 1
-  %421 = trunc i8 %420 to i1
-  br i1 %421, label %436, label %422
+298:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit95, %286, %284, %280
+  %.sroa.36.16 = phi ptr [ %.sroa.36.15, %280 ], [ %.sroa.36.15, %286 ], [ %.sroa.36.51, %_ZN15DirectiveSetPtr6clonedEv.exit95 ], [ %.sroa.36.15, %284 ]
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %300 = load i8, ptr %299, align 8
+  %301 = trunc i8 %300 to i1
+  br i1 %301, label %313, label %302
 
-422:                                              ; preds = %418
-  %423 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 35, ptr noundef nonnull align 1 dereferenceable(1) %22) #14
-  br i1 %423, label %424, label %436
+302:                                              ; preds = %298
+  %303 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIlEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 24, ptr noundef nonnull align 8 dereferenceable(8) %15) #14
+  br i1 %303, label %304, label %313
 
-424:                                              ; preds = %422
-  %425 = load i8, ptr %22, align 1
-  %426 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %427 = load i8, ptr %426, align 4
-  %428 = xor i8 %427, %425
-  %429 = and i8 %428, 1
-  %.not65 = icmp eq i8 %429, 0
-  br i1 %.not65, label %436, label %430
+304:                                              ; preds = %302
+  %305 = load i64, ptr %15, align 8
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %307 = load i64, ptr %306, align 8
+  %.not58 = icmp eq i64 %305, %307
+  br i1 %.not58, label %313, label %308
 
-430:                                              ; preds = %424
-  %431 = icmp eq ptr %.sroa.36.23, null
-  br i1 %431, label %432, label %_ZN15DirectiveSetPtr6clonedEv.exit96
+308:                                              ; preds = %304
+  %309 = icmp eq ptr %.sroa.36.16, null
+  br i1 %309, label %310, label %_ZN15DirectiveSetPtr6clonedEv.exit96
 
-432:                                              ; preds = %430
-  %433 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+310:                                              ; preds = %308
+  %311 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit96
 
-_ZN15DirectiveSetPtr6clonedEv.exit96:             ; preds = %430, %432
-  %.sroa.36.59 = phi ptr [ %433, %432 ], [ %.sroa.36.23, %430 ]
-  %434 = getelementptr inbounds nuw i8, ptr %.sroa.36.59, i64 268
-  %435 = and i8 %425, 1
-  store i8 %435, ptr %434, align 4
-  br label %436
+_ZN15DirectiveSetPtr6clonedEv.exit96:             ; preds = %308, %310
+  %.sroa.36.52 = phi ptr [ %311, %310 ], [ %.sroa.36.16, %308 ]
+  %312 = getelementptr inbounds nuw i8, ptr %.sroa.36.52, i64 240
+  store i64 %305, ptr %312, align 8
+  br label %313
 
-436:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit96, %424, %422, %418
-  %.sroa.36.24 = phi ptr [ %.sroa.36.23, %418 ], [ %.sroa.36.23, %424 ], [ %.sroa.36.59, %_ZN15DirectiveSetPtr6clonedEv.exit96 ], [ %.sroa.36.23, %422 ]
-  %437 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %438 = load i8, ptr %437, align 8
-  %439 = trunc i8 %438 to i1
-  br i1 %439, label %454, label %440
+313:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit96, %304, %302, %298
+  %.sroa.36.17 = phi ptr [ %.sroa.36.16, %298 ], [ %.sroa.36.16, %304 ], [ %.sroa.36.52, %_ZN15DirectiveSetPtr6clonedEv.exit96 ], [ %.sroa.36.16, %302 ]
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 193
+  %315 = load i8, ptr %314, align 1
+  %316 = trunc i8 %315 to i1
+  br i1 %316, label %328, label %317
 
-440:                                              ; preds = %436
-  %441 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 36, ptr noundef nonnull align 1 dereferenceable(1) %23) #14
-  br i1 %441, label %442, label %454
+317:                                              ; preds = %313
+  %318 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIPKcEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 30, ptr noundef nonnull align 8 dereferenceable(8) %16) #14
+  br i1 %318, label %319, label %328
 
-442:                                              ; preds = %440
-  %443 = load i8, ptr %23, align 1
-  %444 = getelementptr inbounds nuw i8, ptr %0, i64 269
-  %445 = load i8, ptr %444, align 1
-  %446 = xor i8 %445, %443
-  %447 = and i8 %446, 1
-  %.not66 = icmp eq i8 %447, 0
-  br i1 %.not66, label %454, label %448
+319:                                              ; preds = %317
+  %320 = load ptr, ptr %16, align 8
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %322 = load ptr, ptr %321, align 8
+  %.not59 = icmp eq ptr %320, %322
+  br i1 %.not59, label %328, label %323
 
-448:                                              ; preds = %442
-  %449 = icmp eq ptr %.sroa.36.24, null
-  br i1 %449, label %450, label %_ZN15DirectiveSetPtr6clonedEv.exit97
+323:                                              ; preds = %319
+  %324 = icmp eq ptr %.sroa.36.17, null
+  br i1 %324, label %325, label %_ZN15DirectiveSetPtr6clonedEv.exit97
 
-450:                                              ; preds = %448
-  %451 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+325:                                              ; preds = %323
+  %326 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit97
 
-_ZN15DirectiveSetPtr6clonedEv.exit97:             ; preds = %448, %450
-  %.sroa.36.60 = phi ptr [ %451, %450 ], [ %.sroa.36.24, %448 ]
-  %452 = getelementptr inbounds nuw i8, ptr %.sroa.36.60, i64 269
-  %453 = and i8 %443, 1
-  store i8 %453, ptr %452, align 1
-  br label %454
+_ZN15DirectiveSetPtr6clonedEv.exit97:             ; preds = %323, %325
+  %.sroa.36.53 = phi ptr [ %326, %325 ], [ %.sroa.36.17, %323 ]
+  %327 = getelementptr inbounds nuw i8, ptr %.sroa.36.53, i64 248
+  store ptr %320, ptr %327, align 8
+  br label %328
 
-454:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit97, %442, %440, %436
-  %.sroa.36.25 = phi ptr [ %.sroa.36.24, %436 ], [ %.sroa.36.24, %442 ], [ %.sroa.36.60, %_ZN15DirectiveSetPtr6clonedEv.exit97 ], [ %.sroa.36.24, %440 ]
-  %455 = getelementptr inbounds nuw i8, ptr %0, i64 201
-  %456 = load i8, ptr %455, align 1
-  %457 = trunc i8 %456 to i1
-  br i1 %457, label %472, label %458
+328:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit97, %319, %317, %313
+  %.sroa.36.18 = phi ptr [ %.sroa.36.17, %313 ], [ %.sroa.36.17, %319 ], [ %.sroa.36.53, %_ZN15DirectiveSetPtr6clonedEv.exit97 ], [ %.sroa.36.17, %317 ]
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 194
+  %330 = load i8, ptr %329, align 2
+  %331 = trunc i8 %330 to i1
+  br i1 %331, label %343, label %332
 
-458:                                              ; preds = %454
-  %459 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 37, ptr noundef nonnull align 1 dereferenceable(1) %24) #14
-  br i1 %459, label %460, label %472
+332:                                              ; preds = %328
+  %333 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIPKcEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 29, ptr noundef nonnull align 8 dereferenceable(8) %17) #14
+  br i1 %333, label %334, label %343
 
-460:                                              ; preds = %458
-  %461 = load i8, ptr %24, align 1
-  %462 = getelementptr inbounds nuw i8, ptr %0, i64 270
-  %463 = load i8, ptr %462, align 2
-  %464 = xor i8 %463, %461
-  %465 = and i8 %464, 1
-  %.not67 = icmp eq i8 %465, 0
-  br i1 %.not67, label %472, label %466
+334:                                              ; preds = %332
+  %335 = load ptr, ptr %17, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %337 = load ptr, ptr %336, align 8
+  %.not60 = icmp eq ptr %335, %337
+  br i1 %.not60, label %343, label %338
 
-466:                                              ; preds = %460
-  %467 = icmp eq ptr %.sroa.36.25, null
-  br i1 %467, label %468, label %_ZN15DirectiveSetPtr6clonedEv.exit98
+338:                                              ; preds = %334
+  %339 = icmp eq ptr %.sroa.36.18, null
+  br i1 %339, label %340, label %_ZN15DirectiveSetPtr6clonedEv.exit98
 
-468:                                              ; preds = %466
-  %469 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+340:                                              ; preds = %338
+  %341 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit98
 
-_ZN15DirectiveSetPtr6clonedEv.exit98:             ; preds = %466, %468
-  %.sroa.36.61 = phi ptr [ %469, %468 ], [ %.sroa.36.25, %466 ]
-  %470 = getelementptr inbounds nuw i8, ptr %.sroa.36.61, i64 270
-  %471 = and i8 %461, 1
-  store i8 %471, ptr %470, align 2
-  br label %472
+_ZN15DirectiveSetPtr6clonedEv.exit98:             ; preds = %338, %340
+  %.sroa.36.54 = phi ptr [ %341, %340 ], [ %.sroa.36.18, %338 ]
+  %342 = getelementptr inbounds nuw i8, ptr %.sroa.36.54, i64 256
+  store ptr %335, ptr %342, align 8
+  br label %343
 
-472:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit98, %460, %458, %454
-  %.sroa.36.26 = phi ptr [ %.sroa.36.25, %454 ], [ %.sroa.36.25, %460 ], [ %.sroa.36.61, %_ZN15DirectiveSetPtr6clonedEv.exit98 ], [ %.sroa.36.25, %458 ]
-  %473 = getelementptr inbounds nuw i8, ptr %0, i64 202
-  %474 = load i8, ptr %473, align 2
-  %475 = trunc i8 %474 to i1
-  br i1 %475, label %487, label %476
+343:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit98, %334, %332, %328
+  %.sroa.36.19 = phi ptr [ %.sroa.36.18, %328 ], [ %.sroa.36.18, %334 ], [ %.sroa.36.54, %_ZN15DirectiveSetPtr6clonedEv.exit98 ], [ %.sroa.36.18, %332 ]
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 195
+  %345 = load i8, ptr %344, align 1
+  %346 = trunc i8 %345 to i1
+  br i1 %346, label %361, label %347
 
-476:                                              ; preds = %472
-  %477 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIlEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 38, ptr noundef nonnull align 8 dereferenceable(8) %25) #14
-  br i1 %477, label %478, label %487
+347:                                              ; preds = %343
+  %348 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 31, ptr noundef nonnull align 1 dereferenceable(1) %18) #14
+  br i1 %348, label %349, label %361
 
-478:                                              ; preds = %476
-  %479 = load i64, ptr %25, align 8
-  %480 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %481 = load i64, ptr %480, align 8
-  %.not68 = icmp eq i64 %479, %481
-  br i1 %.not68, label %487, label %482
+349:                                              ; preds = %347
+  %350 = load i8, ptr %18, align 1
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %352 = load i8, ptr %351, align 8
+  %353 = xor i8 %352, %350
+  %354 = and i8 %353, 1
+  %.not61 = icmp eq i8 %354, 0
+  br i1 %.not61, label %361, label %355
 
-482:                                              ; preds = %478
-  %483 = icmp eq ptr %.sroa.36.26, null
-  br i1 %483, label %484, label %_ZN15DirectiveSetPtr6clonedEv.exit99
+355:                                              ; preds = %349
+  %356 = icmp eq ptr %.sroa.36.19, null
+  br i1 %356, label %357, label %_ZN15DirectiveSetPtr6clonedEv.exit99
 
-484:                                              ; preds = %482
-  %485 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+357:                                              ; preds = %355
+  %358 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit99
 
-_ZN15DirectiveSetPtr6clonedEv.exit99:             ; preds = %482, %484
-  %.sroa.36.62 = phi ptr [ %485, %484 ], [ %.sroa.36.26, %482 ]
-  %486 = getelementptr inbounds nuw i8, ptr %.sroa.36.62, i64 272
-  store i64 %479, ptr %486, align 8
-  br label %487
+_ZN15DirectiveSetPtr6clonedEv.exit99:             ; preds = %355, %357
+  %.sroa.36.55 = phi ptr [ %358, %357 ], [ %.sroa.36.19, %355 ]
+  %359 = getelementptr inbounds nuw i8, ptr %.sroa.36.55, i64 264
+  %360 = and i8 %350, 1
+  store i8 %360, ptr %359, align 8
+  br label %361
 
-487:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit99, %478, %476, %472
-  %.sroa.36.27 = phi ptr [ %.sroa.36.26, %472 ], [ %.sroa.36.26, %478 ], [ %.sroa.36.62, %_ZN15DirectiveSetPtr6clonedEv.exit99 ], [ %.sroa.36.26, %476 ]
-  %488 = load i8, ptr %332, align 2
-  %489 = trunc i8 %488 to i1
-  br i1 %489, label %541, label %490
+361:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit99, %349, %347, %343
+  %.sroa.36.20 = phi ptr [ %.sroa.36.19, %343 ], [ %.sroa.36.19, %349 ], [ %.sroa.36.55, %_ZN15DirectiveSetPtr6clonedEv.exit99 ], [ %.sroa.36.19, %347 ]
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %363 = load i8, ptr %362, align 4
+  %364 = trunc i8 %363 to i1
+  br i1 %364, label %379, label %365
 
-490:                                              ; preds = %487
-  %491 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIPKcEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 29, ptr noundef nonnull align 8 dereferenceable(8) %26) #14
-  br i1 %491, label %492, label %541
+365:                                              ; preds = %361
+  %366 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 19, ptr noundef nonnull align 1 dereferenceable(1) %19) #14
+  br i1 %366, label %367, label %379
 
-492:                                              ; preds = %490
-  %493 = load ptr, ptr %26, align 8
-  call void @_ZN20ControlIntrinsicIterC2EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %27, ptr noundef %493, i1 noundef zeroext false)
-  %494 = icmp eq ptr %.sroa.36.27, null
-  br i1 %494, label %495, label %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit
+367:                                              ; preds = %365
+  %368 = load i8, ptr %19, align 1
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 265
+  %370 = load i8, ptr %369, align 1
+  %371 = xor i8 %370, %368
+  %372 = and i8 %371, 1
+  %.not62 = icmp eq i8 %372, 0
+  br i1 %.not62, label %379, label %373
 
-495:                                              ; preds = %492
-  %496 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
-  br label %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit
+373:                                              ; preds = %367
+  %374 = icmp eq ptr %.sroa.36.20, null
+  br i1 %374, label %375, label %_ZN15DirectiveSetPtr6clonedEv.exit100
 
-_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit: ; preds = %492, %495
-  %.sroa.36.63 = phi ptr [ %496, %495 ], [ %.sroa.36.27, %492 ]
-  %497 = getelementptr inbounds nuw i8, ptr %.sroa.36.63, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %497, i8 0, i64 108, i1 false)
-  %498 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %499 = load ptr, ptr %498, align 8
-  %.not69201 = icmp eq ptr %499, null
-  br i1 %.not69201, label %._crit_edge, label %.lr.ph
+375:                                              ; preds = %373
+  %376 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+  br label %_ZN15DirectiveSetPtr6clonedEv.exit100
 
-.lr.ph:                                           ; preds = %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit
-  %500 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %501 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  br label %502
+_ZN15DirectiveSetPtr6clonedEv.exit100:            ; preds = %373, %375
+  %.sroa.36.56 = phi ptr [ %376, %375 ], [ %.sroa.36.20, %373 ]
+  %377 = getelementptr inbounds nuw i8, ptr %.sroa.36.56, i64 265
+  %378 = and i8 %368, 1
+  store i8 %378, ptr %377, align 1
+  br label %379
 
-502:                                              ; preds = %.lr.ph, %_ZN20ControlIntrinsicIterppEv.exit
-  %503 = phi ptr [ %499, %.lr.ph ], [ %538, %_ZN20ControlIntrinsicIterppEv.exit ]
-  %.sroa.36.29203 = phi ptr [ %.sroa.36.63, %.lr.ph ], [ %.sroa.36.30, %_ZN20ControlIntrinsicIterppEv.exit ]
-  %504 = call noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef nonnull %503) #14
-  %.not70 = icmp eq i32 %504, 0
-  br i1 %.not70, label %526, label %505
+379:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit100, %367, %365, %361
+  %.sroa.36.21 = phi ptr [ %.sroa.36.20, %361 ], [ %.sroa.36.20, %367 ], [ %.sroa.36.56, %_ZN15DirectiveSetPtr6clonedEv.exit100 ], [ %.sroa.36.20, %365 ]
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 197
+  %381 = load i8, ptr %380, align 1
+  %382 = trunc i8 %381 to i1
+  br i1 %382, label %397, label %383
 
-505:                                              ; preds = %502
-  %506 = load i8, ptr %27, align 8
-  %507 = icmp eq ptr %.sroa.36.29203, null
-  br i1 %507, label %508, label %_ZN15DirectiveSetPtr6clonedEv.exit101
+383:                                              ; preds = %379
+  %384 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 17, ptr noundef nonnull align 1 dereferenceable(1) %20) #14
+  br i1 %384, label %385, label %397
 
-508:                                              ; preds = %505
-  %509 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+385:                                              ; preds = %383
+  %386 = load i8, ptr %20, align 1
+  %387 = getelementptr inbounds nuw i8, ptr %0, i64 266
+  %388 = load i8, ptr %387, align 2
+  %389 = xor i8 %388, %386
+  %390 = and i8 %389, 1
+  %.not63 = icmp eq i8 %390, 0
+  br i1 %.not63, label %397, label %391
+
+391:                                              ; preds = %385
+  %392 = icmp eq ptr %.sroa.36.21, null
+  br i1 %392, label %393, label %_ZN15DirectiveSetPtr6clonedEv.exit101
+
+393:                                              ; preds = %391
+  %394 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6clonedEv.exit101
 
-_ZN15DirectiveSetPtr6clonedEv.exit101:            ; preds = %505, %508
-  %.sroa.36.64 = phi ptr [ %509, %508 ], [ %.sroa.36.29203, %505 ]
-  %510 = getelementptr inbounds nuw i8, ptr %.sroa.36.64, i64 16
-  %511 = sext i32 %504 to i64
-  %512 = lshr i64 %511, 4
-  %513 = getelementptr inbounds nuw [27 x i32], ptr %510, i64 0, i64 %512
-  %514 = shl i32 %504, 1
-  %515 = and i32 %514, 30
-  %516 = load i32, ptr %513, align 4, !noalias !20
-  %517 = ashr i32 %516, %515
-  %518 = and i32 %517, 3
-  %519 = shl nuw i32 %518, %515
-  %520 = xor i32 %519, %516
-  %521 = and i8 %506, 1
-  %522 = or disjoint i8 %521, 2
-  %523 = zext nneg i8 %522 to i32
-  %524 = shl nuw i32 %523, %515
-  %525 = or i32 %520, %524
-  store i32 %525, ptr %513, align 4
-  br label %526
+_ZN15DirectiveSetPtr6clonedEv.exit101:            ; preds = %391, %393
+  %.sroa.36.57 = phi ptr [ %394, %393 ], [ %.sroa.36.21, %391 ]
+  %395 = getelementptr inbounds nuw i8, ptr %.sroa.36.57, i64 266
+  %396 = and i8 %386, 1
+  store i8 %396, ptr %395, align 2
+  br label %397
 
-526:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit101, %502
-  %.sroa.36.30 = phi ptr [ %.sroa.36.29203, %502 ], [ %.sroa.36.64, %_ZN15DirectiveSetPtr6clonedEv.exit101 ]
-  %527 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %500) #14
-  store ptr %527, ptr %498, align 8
-  %.not.i.i102 = icmp eq ptr %527, null
-  br i1 %.not.i.i102, label %._crit_edge, label %528
+397:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit101, %385, %383, %379
+  %.sroa.36.22 = phi ptr [ %.sroa.36.21, %379 ], [ %.sroa.36.21, %385 ], [ %.sroa.36.57, %_ZN15DirectiveSetPtr6clonedEv.exit101 ], [ %.sroa.36.21, %383 ]
+  %398 = getelementptr inbounds nuw i8, ptr %0, i64 198
+  %399 = load i8, ptr %398, align 2
+  %400 = trunc i8 %399 to i1
+  br i1 %400, label %415, label %401
 
-528:                                              ; preds = %526
-  %529 = load i8, ptr %501, align 8
-  %530 = trunc i8 %529 to i1
-  br i1 %530, label %_ZN20ControlIntrinsicIterppEv.exit, label %531
+401:                                              ; preds = %397
+  %402 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 34, ptr noundef nonnull align 1 dereferenceable(1) %21) #14
+  br i1 %402, label %403, label %415
 
-531:                                              ; preds = %528
-  %532 = load i8, ptr %527, align 1
-  switch i8 %532, label %533 [
-    i8 45, label %534
-    i8 43, label %534
+403:                                              ; preds = %401
+  %404 = load i8, ptr %21, align 1
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 267
+  %406 = load i8, ptr %405, align 1
+  %407 = xor i8 %406, %404
+  %408 = and i8 %407, 1
+  %.not64 = icmp eq i8 %408, 0
+  br i1 %.not64, label %415, label %409
+
+409:                                              ; preds = %403
+  %410 = icmp eq ptr %.sroa.36.22, null
+  br i1 %410, label %411, label %_ZN15DirectiveSetPtr6clonedEv.exit102
+
+411:                                              ; preds = %409
+  %412 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+  br label %_ZN15DirectiveSetPtr6clonedEv.exit102
+
+_ZN15DirectiveSetPtr6clonedEv.exit102:            ; preds = %409, %411
+  %.sroa.36.58 = phi ptr [ %412, %411 ], [ %.sroa.36.22, %409 ]
+  %413 = getelementptr inbounds nuw i8, ptr %.sroa.36.58, i64 267
+  %414 = and i8 %404, 1
+  store i8 %414, ptr %413, align 1
+  br label %415
+
+415:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit102, %403, %401, %397
+  %.sroa.36.23 = phi ptr [ %.sroa.36.22, %397 ], [ %.sroa.36.22, %403 ], [ %.sroa.36.58, %_ZN15DirectiveSetPtr6clonedEv.exit102 ], [ %.sroa.36.22, %401 ]
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 199
+  %417 = load i8, ptr %416, align 1
+  %418 = trunc i8 %417 to i1
+  br i1 %418, label %433, label %419
+
+419:                                              ; preds = %415
+  %420 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 35, ptr noundef nonnull align 1 dereferenceable(1) %22) #14
+  br i1 %420, label %421, label %433
+
+421:                                              ; preds = %419
+  %422 = load i8, ptr %22, align 1
+  %423 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %424 = load i8, ptr %423, align 4
+  %425 = xor i8 %424, %422
+  %426 = and i8 %425, 1
+  %.not65 = icmp eq i8 %426, 0
+  br i1 %.not65, label %433, label %427
+
+427:                                              ; preds = %421
+  %428 = icmp eq ptr %.sroa.36.23, null
+  br i1 %428, label %429, label %_ZN15DirectiveSetPtr6clonedEv.exit103
+
+429:                                              ; preds = %427
+  %430 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+  br label %_ZN15DirectiveSetPtr6clonedEv.exit103
+
+_ZN15DirectiveSetPtr6clonedEv.exit103:            ; preds = %427, %429
+  %.sroa.36.59 = phi ptr [ %430, %429 ], [ %.sroa.36.23, %427 ]
+  %431 = getelementptr inbounds nuw i8, ptr %.sroa.36.59, i64 268
+  %432 = and i8 %422, 1
+  store i8 %432, ptr %431, align 4
+  br label %433
+
+433:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit103, %421, %419, %415
+  %.sroa.36.24 = phi ptr [ %.sroa.36.23, %415 ], [ %.sroa.36.23, %421 ], [ %.sroa.36.59, %_ZN15DirectiveSetPtr6clonedEv.exit103 ], [ %.sroa.36.23, %419 ]
+  %434 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %435 = load i8, ptr %434, align 8
+  %436 = trunc i8 %435 to i1
+  br i1 %436, label %451, label %437
+
+437:                                              ; preds = %433
+  %438 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 36, ptr noundef nonnull align 1 dereferenceable(1) %23) #14
+  br i1 %438, label %439, label %451
+
+439:                                              ; preds = %437
+  %440 = load i8, ptr %23, align 1
+  %441 = getelementptr inbounds nuw i8, ptr %0, i64 269
+  %442 = load i8, ptr %441, align 1
+  %443 = xor i8 %442, %440
+  %444 = and i8 %443, 1
+  %.not66 = icmp eq i8 %444, 0
+  br i1 %.not66, label %451, label %445
+
+445:                                              ; preds = %439
+  %446 = icmp eq ptr %.sroa.36.24, null
+  br i1 %446, label %447, label %_ZN15DirectiveSetPtr6clonedEv.exit104
+
+447:                                              ; preds = %445
+  %448 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+  br label %_ZN15DirectiveSetPtr6clonedEv.exit104
+
+_ZN15DirectiveSetPtr6clonedEv.exit104:            ; preds = %445, %447
+  %.sroa.36.60 = phi ptr [ %448, %447 ], [ %.sroa.36.24, %445 ]
+  %449 = getelementptr inbounds nuw i8, ptr %.sroa.36.60, i64 269
+  %450 = and i8 %440, 1
+  store i8 %450, ptr %449, align 1
+  br label %451
+
+451:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit104, %439, %437, %433
+  %.sroa.36.25 = phi ptr [ %.sroa.36.24, %433 ], [ %.sroa.36.24, %439 ], [ %.sroa.36.60, %_ZN15DirectiveSetPtr6clonedEv.exit104 ], [ %.sroa.36.24, %437 ]
+  %452 = getelementptr inbounds nuw i8, ptr %0, i64 201
+  %453 = load i8, ptr %452, align 1
+  %454 = trunc i8 %453 to i1
+  br i1 %454, label %469, label %455
+
+455:                                              ; preds = %451
+  %456 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 37, ptr noundef nonnull align 1 dereferenceable(1) %24) #14
+  br i1 %456, label %457, label %469
+
+457:                                              ; preds = %455
+  %458 = load i8, ptr %24, align 1
+  %459 = getelementptr inbounds nuw i8, ptr %0, i64 270
+  %460 = load i8, ptr %459, align 2
+  %461 = xor i8 %460, %458
+  %462 = and i8 %461, 1
+  %.not67 = icmp eq i8 %462, 0
+  br i1 %.not67, label %469, label %463
+
+463:                                              ; preds = %457
+  %464 = icmp eq ptr %.sroa.36.25, null
+  br i1 %464, label %465, label %_ZN15DirectiveSetPtr6clonedEv.exit105
+
+465:                                              ; preds = %463
+  %466 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+  br label %_ZN15DirectiveSetPtr6clonedEv.exit105
+
+_ZN15DirectiveSetPtr6clonedEv.exit105:            ; preds = %463, %465
+  %.sroa.36.61 = phi ptr [ %466, %465 ], [ %.sroa.36.25, %463 ]
+  %467 = getelementptr inbounds nuw i8, ptr %.sroa.36.61, i64 270
+  %468 = and i8 %458, 1
+  store i8 %468, ptr %467, align 2
+  br label %469
+
+469:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit105, %457, %455, %451
+  %.sroa.36.26 = phi ptr [ %.sroa.36.25, %451 ], [ %.sroa.36.25, %457 ], [ %.sroa.36.61, %_ZN15DirectiveSetPtr6clonedEv.exit105 ], [ %.sroa.36.25, %455 ]
+  %470 = getelementptr inbounds nuw i8, ptr %0, i64 202
+  %471 = load i8, ptr %470, align 2
+  %472 = trunc i8 %471 to i1
+  br i1 %472, label %484, label %473
+
+473:                                              ; preds = %469
+  %474 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIlEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 38, ptr noundef nonnull align 8 dereferenceable(8) %25) #14
+  br i1 %474, label %475, label %484
+
+475:                                              ; preds = %473
+  %476 = load i64, ptr %25, align 8
+  %477 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %478 = load i64, ptr %477, align 8
+  %.not68 = icmp eq i64 %476, %478
+  br i1 %.not68, label %484, label %479
+
+479:                                              ; preds = %475
+  %480 = icmp eq ptr %.sroa.36.26, null
+  br i1 %480, label %481, label %_ZN15DirectiveSetPtr6clonedEv.exit106
+
+481:                                              ; preds = %479
+  %482 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+  br label %_ZN15DirectiveSetPtr6clonedEv.exit106
+
+_ZN15DirectiveSetPtr6clonedEv.exit106:            ; preds = %479, %481
+  %.sroa.36.62 = phi ptr [ %482, %481 ], [ %.sroa.36.26, %479 ]
+  %483 = getelementptr inbounds nuw i8, ptr %.sroa.36.62, i64 272
+  store i64 %476, ptr %483, align 8
+  br label %484
+
+484:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit106, %475, %473, %469
+  %.sroa.36.27 = phi ptr [ %.sroa.36.26, %469 ], [ %.sroa.36.26, %475 ], [ %.sroa.36.62, %_ZN15DirectiveSetPtr6clonedEv.exit106 ], [ %.sroa.36.26, %473 ]
+  %485 = load i8, ptr %329, align 2
+  %486 = trunc i8 %485 to i1
+  br i1 %486, label %537, label %487
+
+487:                                              ; preds = %484
+  %488 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIPKcEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 29, ptr noundef nonnull align 8 dereferenceable(8) %26) #14
+  br i1 %488, label %489, label %537
+
+489:                                              ; preds = %487
+  %490 = load ptr, ptr %26, align 8
+  call void @_ZN20ControlIntrinsicIterC2EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %27, ptr noundef %490, i1 noundef zeroext false)
+  %491 = icmp eq ptr %.sroa.36.27, null
+  br i1 %491, label %492, label %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit
+
+492:                                              ; preds = %489
+  %493 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+  br label %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit
+
+_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit: ; preds = %489, %492
+  %.sroa.36.63 = phi ptr [ %493, %492 ], [ %.sroa.36.27, %489 ]
+  %494 = getelementptr inbounds nuw i8, ptr %.sroa.36.63, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %494, i8 0, i64 108, i1 false)
+  %495 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %496 = load ptr, ptr %495, align 8
+  %.not69209 = icmp eq ptr %496, null
+  br i1 %.not69209, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit
+  %497 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %498 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  br label %499
+
+499:                                              ; preds = %.lr.ph, %_ZN20ControlIntrinsicIterppEv.exit
+  %500 = phi ptr [ %496, %.lr.ph ], [ %534, %_ZN20ControlIntrinsicIterppEv.exit ]
+  %.sroa.36.29211 = phi ptr [ %.sroa.36.63, %.lr.ph ], [ %.sroa.36.30, %_ZN20ControlIntrinsicIterppEv.exit ]
+  %501 = call noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef nonnull %500) #14
+  %.not70 = icmp eq i32 %501, 0
+  br i1 %.not70, label %523, label %502
+
+502:                                              ; preds = %499
+  %503 = load i8, ptr %27, align 8
+  %504 = icmp eq ptr %.sroa.36.29211, null
+  br i1 %504, label %505, label %_ZN15DirectiveSetPtr6clonedEv.exit108
+
+505:                                              ; preds = %502
+  %506 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+  br label %_ZN15DirectiveSetPtr6clonedEv.exit108
+
+_ZN15DirectiveSetPtr6clonedEv.exit108:            ; preds = %502, %505
+  %.sroa.36.64 = phi ptr [ %506, %505 ], [ %.sroa.36.29211, %502 ]
+  %507 = getelementptr inbounds nuw i8, ptr %.sroa.36.64, i64 16
+  %508 = sext i32 %501 to i64
+  %509 = lshr i64 %508, 4
+  %510 = getelementptr inbounds nuw [27 x i32], ptr %507, i64 0, i64 %509
+  %511 = shl i32 %501, 1
+  %512 = and i32 %511, 30
+  %513 = load i32, ptr %510, align 4, !noalias !20
+  %514 = ashr i32 %513, %512
+  %515 = and i32 %514, 3
+  %516 = shl nuw i32 %515, %512
+  %517 = xor i32 %516, %513
+  %518 = and i8 %503, 1
+  %519 = or disjoint i8 %518, 2
+  %520 = zext nneg i8 %519 to i32
+  %521 = shl nuw i32 %520, %512
+  %522 = or i32 %517, %521
+  store i32 %522, ptr %510, align 4
+  br label %523
+
+523:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit108, %499
+  %.sroa.36.30 = phi ptr [ %.sroa.36.29211, %499 ], [ %.sroa.36.64, %_ZN15DirectiveSetPtr6clonedEv.exit108 ]
+  %524 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %497) #14
+  store ptr %524, ptr %495, align 8
+  %.not.i.i109 = icmp eq ptr %524, null
+  %525 = load i8, ptr %498, align 8
+  %526 = trunc i8 %525 to i1
+  %or.cond7.i.i = select i1 %.not.i.i109, i1 true, i1 %526
+  br i1 %or.cond7.i.i, label %_ZN20ControlIntrinsicIterppEv.exit, label %527
+
+527:                                              ; preds = %523
+  %528 = load i8, ptr %524, align 1
+  switch i8 %528, label %529 [
+    i8 45, label %530
+    i8 43, label %530
   ]
 
-533:                                              ; preds = %531
-  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull %527) #14
-  %.pre = load ptr, ptr %498, align 8
+529:                                              ; preds = %527
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull %524) #14
+  %.pre = load ptr, ptr %495, align 8
   br label %_ZN20ControlIntrinsicIterppEv.exit
 
-534:                                              ; preds = %531, %531
-  %535 = icmp eq i8 %532, 43
-  %536 = zext i1 %535 to i8
-  store i8 %536, ptr %27, align 8
-  %537 = getelementptr inbounds nuw i8, ptr %527, i64 1
-  store ptr %537, ptr %498, align 8
+530:                                              ; preds = %527, %527
+  %531 = icmp eq i8 %528, 43
+  %532 = zext i1 %531 to i8
+  store i8 %532, ptr %27, align 8
+  %533 = getelementptr inbounds nuw i8, ptr %524, i64 1
+  store ptr %533, ptr %495, align 8
   br label %_ZN20ControlIntrinsicIterppEv.exit
 
-_ZN20ControlIntrinsicIterppEv.exit:               ; preds = %528, %533, %534
-  %538 = phi ptr [ %527, %528 ], [ %.pre, %533 ], [ %537, %534 ]
-  %.not69 = icmp eq ptr %538, null
-  br i1 %.not69, label %._crit_edge, label %502, !llvm.loop !23
+_ZN20ControlIntrinsicIterppEv.exit:               ; preds = %523, %529, %530
+  %534 = phi ptr [ %524, %523 ], [ %.pre, %529 ], [ %533, %530 ]
+  %.not69 = icmp eq ptr %534, null
+  br i1 %.not69, label %._crit_edge, label %499, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %526, %_ZN20ControlIntrinsicIterppEv.exit, %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit
-  %.sroa.36.29.lcssa = phi ptr [ %.sroa.36.63, %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit ], [ %.sroa.36.30, %_ZN20ControlIntrinsicIterppEv.exit ], [ %.sroa.36.30, %526 ]
-  %539 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %540 = load ptr, ptr %539, align 8
-  call void @_Z8FreeHeapPv(ptr noundef %540) #14
-  br label %541
+._crit_edge:                                      ; preds = %_ZN20ControlIntrinsicIterppEv.exit, %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit
+  %.sroa.36.29.lcssa = phi ptr [ %.sroa.36.63, %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit ], [ %.sroa.36.30, %_ZN20ControlIntrinsicIterppEv.exit ]
+  %535 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %536 = load ptr, ptr %535, align 8
+  call void @_Z8FreeHeapPv(ptr noundef %536) #14
+  br label %537
 
-541:                                              ; preds = %._crit_edge, %490, %487
-  %.sroa.36.28 = phi ptr [ %.sroa.36.27, %487 ], [ %.sroa.36.29.lcssa, %._crit_edge ], [ %.sroa.36.27, %490 ]
-  %.038 = phi i1 [ true, %487 ], [ false, %._crit_edge ], [ true, %490 ]
-  %542 = load i8, ptr %317, align 1
-  %543 = trunc i8 %542 to i1
-  br i1 %543, label %593, label %544
+537:                                              ; preds = %._crit_edge, %487, %484
+  %.sroa.36.28 = phi ptr [ %.sroa.36.27, %484 ], [ %.sroa.36.29.lcssa, %._crit_edge ], [ %.sroa.36.27, %487 ]
+  %.038 = phi i1 [ true, %484 ], [ false, %._crit_edge ], [ true, %487 ]
+  %538 = load i8, ptr %314, align 1
+  %539 = trunc i8 %538 to i1
+  br i1 %539, label %588, label %540
 
-544:                                              ; preds = %541
-  %545 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIPKcEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 30, ptr noundef nonnull align 8 dereferenceable(8) %26) #14
-  br i1 %545, label %546, label %593
+540:                                              ; preds = %537
+  %541 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIPKcEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 30, ptr noundef nonnull align 8 dereferenceable(8) %26) #14
+  br i1 %541, label %542, label %588
+
+542:                                              ; preds = %540
+  %543 = load ptr, ptr %26, align 8
+  call void @_ZN20ControlIntrinsicIterC2EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %28, ptr noundef %543, i1 noundef zeroext true)
+  br i1 %.038, label %544, label %549
+
+544:                                              ; preds = %542
+  %545 = icmp eq ptr %.sroa.36.28, null
+  br i1 %545, label %546, label %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit116
 
 546:                                              ; preds = %544
-  %547 = load ptr, ptr %26, align 8
-  call void @_ZN20ControlIntrinsicIterC2EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %28, ptr noundef %547, i1 noundef zeroext true)
-  br i1 %.038, label %548, label %553
+  %547 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+  br label %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit116
 
-548:                                              ; preds = %546
-  %549 = icmp eq ptr %.sroa.36.28, null
-  br i1 %549, label %550, label %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit109
+_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit116: ; preds = %544, %546
+  %.sroa.36.65 = phi ptr [ %547, %546 ], [ %.sroa.36.28, %544 ]
+  %548 = getelementptr inbounds nuw i8, ptr %.sroa.36.65, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %548, i8 0, i64 108, i1 false)
+  br label %549
 
-550:                                              ; preds = %548
-  %551 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
-  br label %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit109
+549:                                              ; preds = %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit116, %542
+  %.sroa.36.32 = phi ptr [ %.sroa.36.65, %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit116 ], [ %.sroa.36.28, %542 ]
+  %550 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %551 = load ptr, ptr %550, align 8
+  %.not71212 = icmp eq ptr %551, null
+  br i1 %.not71212, label %._crit_edge217, label %.lr.ph216
 
-_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit109: ; preds = %548, %550
-  %.sroa.36.65 = phi ptr [ %551, %550 ], [ %.sroa.36.28, %548 ]
-  %552 = getelementptr inbounds nuw i8, ptr %.sroa.36.65, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %552, i8 0, i64 108, i1 false)
-  br label %553
+.lr.ph216:                                        ; preds = %549
+  %552 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %553 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  br label %554
 
-553:                                              ; preds = %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit109, %546
-  %.sroa.36.32 = phi ptr [ %.sroa.36.65, %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit109 ], [ %.sroa.36.28, %546 ]
-  %554 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %555 = load ptr, ptr %554, align 8
-  %.not71204 = icmp eq ptr %555, null
-  br i1 %.not71204, label %._crit_edge209, label %.lr.ph208
+554:                                              ; preds = %.lr.ph216, %_ZN20ControlIntrinsicIterppEv.exit120
+  %555 = phi ptr [ %551, %.lr.ph216 ], [ %585, %_ZN20ControlIntrinsicIterppEv.exit120 ]
+  %.sroa.36.33213 = phi ptr [ %.sroa.36.32, %.lr.ph216 ], [ %.sroa.36.34, %_ZN20ControlIntrinsicIterppEv.exit120 ]
+  %556 = call noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef nonnull %555) #14
+  %.not72 = icmp eq i32 %556, 0
+  br i1 %.not72, label %574, label %557
 
-.lr.ph208:                                        ; preds = %553
-  %556 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %557 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  br label %558
+557:                                              ; preds = %554
+  %558 = icmp eq ptr %.sroa.36.33213, null
+  br i1 %558, label %559, label %_ZN15DirectiveSetPtr6clonedEv.exit117
 
-558:                                              ; preds = %.lr.ph208, %_ZN20ControlIntrinsicIterppEv.exit112
-  %559 = phi ptr [ %555, %.lr.ph208 ], [ %590, %_ZN20ControlIntrinsicIterppEv.exit112 ]
-  %.sroa.36.33205 = phi ptr [ %.sroa.36.32, %.lr.ph208 ], [ %.sroa.36.34, %_ZN20ControlIntrinsicIterppEv.exit112 ]
-  %560 = call noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef nonnull %559) #14
-  %.not72 = icmp eq i32 %560, 0
-  br i1 %.not72, label %578, label %561
+559:                                              ; preds = %557
+  %560 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
+  br label %_ZN15DirectiveSetPtr6clonedEv.exit117
 
-561:                                              ; preds = %558
-  %562 = icmp eq ptr %.sroa.36.33205, null
-  br i1 %562, label %563, label %_ZN15DirectiveSetPtr6clonedEv.exit110
+_ZN15DirectiveSetPtr6clonedEv.exit117:            ; preds = %557, %559
+  %.sroa.36.66 = phi ptr [ %560, %559 ], [ %.sroa.36.33213, %557 ]
+  %561 = getelementptr inbounds nuw i8, ptr %.sroa.36.66, i64 16
+  %562 = sext i32 %556 to i64
+  %563 = lshr i64 %562, 4
+  %564 = getelementptr inbounds nuw [27 x i32], ptr %561, i64 0, i64 %563
+  %565 = shl i32 %556, 1
+  %566 = and i32 %565, 30
+  %567 = load i32, ptr %564, align 4, !noalias !24
+  %568 = ashr i32 %567, %566
+  %569 = and i32 %568, 3
+  %570 = shl nuw i32 %569, %566
+  %571 = xor i32 %570, %567
+  %572 = shl nuw i32 2, %566
+  %573 = or i32 %571, %572
+  store i32 %573, ptr %564, align 4
+  br label %574
 
-563:                                              ; preds = %561
-  %564 = call noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef nonnull %0)
-  br label %_ZN15DirectiveSetPtr6clonedEv.exit110
+574:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit117, %554
+  %.sroa.36.34 = phi ptr [ %.sroa.36.33213, %554 ], [ %.sroa.36.66, %_ZN15DirectiveSetPtr6clonedEv.exit117 ]
+  %575 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %552) #14
+  store ptr %575, ptr %550, align 8
+  %.not.i.i118 = icmp eq ptr %575, null
+  %576 = load i8, ptr %553, align 8
+  %577 = trunc i8 %576 to i1
+  %or.cond7.i.i119 = select i1 %.not.i.i118, i1 true, i1 %577
+  br i1 %or.cond7.i.i119, label %_ZN20ControlIntrinsicIterppEv.exit120, label %578
 
-_ZN15DirectiveSetPtr6clonedEv.exit110:            ; preds = %561, %563
-  %.sroa.36.66 = phi ptr [ %564, %563 ], [ %.sroa.36.33205, %561 ]
-  %565 = getelementptr inbounds nuw i8, ptr %.sroa.36.66, i64 16
-  %566 = sext i32 %560 to i64
-  %567 = lshr i64 %566, 4
-  %568 = getelementptr inbounds nuw [27 x i32], ptr %565, i64 0, i64 %567
-  %569 = shl i32 %560, 1
-  %570 = and i32 %569, 30
-  %571 = load i32, ptr %568, align 4, !noalias !24
-  %572 = ashr i32 %571, %570
-  %573 = and i32 %572, 3
-  %574 = shl nuw i32 %573, %570
-  %575 = xor i32 %574, %571
-  %576 = shl nuw i32 2, %570
-  %577 = or i32 %575, %576
-  store i32 %577, ptr %568, align 4
-  br label %578
-
-578:                                              ; preds = %_ZN15DirectiveSetPtr6clonedEv.exit110, %558
-  %.sroa.36.34 = phi ptr [ %.sroa.36.33205, %558 ], [ %.sroa.36.66, %_ZN15DirectiveSetPtr6clonedEv.exit110 ]
-  %579 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %556) #14
-  store ptr %579, ptr %554, align 8
-  %.not.i.i111 = icmp eq ptr %579, null
-  br i1 %.not.i.i111, label %._crit_edge209, label %580
-
-580:                                              ; preds = %578
-  %581 = load i8, ptr %557, align 8
-  %582 = trunc i8 %581 to i1
-  br i1 %582, label %_ZN20ControlIntrinsicIterppEv.exit112, label %583
-
-583:                                              ; preds = %580
-  %584 = load i8, ptr %579, align 1
-  switch i8 %584, label %585 [
-    i8 45, label %586
-    i8 43, label %586
+578:                                              ; preds = %574
+  %579 = load i8, ptr %575, align 1
+  switch i8 %579, label %580 [
+    i8 45, label %581
+    i8 43, label %581
   ]
 
-585:                                              ; preds = %583
-  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull %579) #14
-  %.pre211 = load ptr, ptr %554, align 8
-  br label %_ZN20ControlIntrinsicIterppEv.exit112
+580:                                              ; preds = %578
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull %575) #14
+  %.pre219 = load ptr, ptr %550, align 8
+  br label %_ZN20ControlIntrinsicIterppEv.exit120
 
-586:                                              ; preds = %583, %583
-  %587 = icmp eq i8 %584, 43
-  %588 = zext i1 %587 to i8
-  store i8 %588, ptr %28, align 8
-  %589 = getelementptr inbounds nuw i8, ptr %579, i64 1
-  store ptr %589, ptr %554, align 8
-  br label %_ZN20ControlIntrinsicIterppEv.exit112
+581:                                              ; preds = %578, %578
+  %582 = icmp eq i8 %579, 43
+  %583 = zext i1 %582 to i8
+  store i8 %583, ptr %28, align 8
+  %584 = getelementptr inbounds nuw i8, ptr %575, i64 1
+  store ptr %584, ptr %550, align 8
+  br label %_ZN20ControlIntrinsicIterppEv.exit120
 
-_ZN20ControlIntrinsicIterppEv.exit112:            ; preds = %580, %585, %586
-  %590 = phi ptr [ %579, %580 ], [ %.pre211, %585 ], [ %589, %586 ]
-  %.not71 = icmp eq ptr %590, null
-  br i1 %.not71, label %._crit_edge209, label %558, !llvm.loop !27
+_ZN20ControlIntrinsicIterppEv.exit120:            ; preds = %574, %580, %581
+  %585 = phi ptr [ %575, %574 ], [ %.pre219, %580 ], [ %584, %581 ]
+  %.not71 = icmp eq ptr %585, null
+  br i1 %.not71, label %._crit_edge217, label %554, !llvm.loop !27
 
-._crit_edge209:                                   ; preds = %578, %_ZN20ControlIntrinsicIterppEv.exit112, %553
-  %.sroa.36.33.lcssa = phi ptr [ %.sroa.36.32, %553 ], [ %.sroa.36.34, %_ZN20ControlIntrinsicIterppEv.exit112 ], [ %.sroa.36.34, %578 ]
-  %591 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %592 = load ptr, ptr %591, align 8
-  call void @_Z8FreeHeapPv(ptr noundef %592) #14
-  br label %593
+._crit_edge217:                                   ; preds = %_ZN20ControlIntrinsicIterppEv.exit120, %549
+  %.sroa.36.33.lcssa = phi ptr [ %.sroa.36.32, %549 ], [ %.sroa.36.34, %_ZN20ControlIntrinsicIterppEv.exit120 ]
+  %586 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %587 = load ptr, ptr %586, align 8
+  call void @_Z8FreeHeapPv(ptr noundef %587) #14
+  br label %588
 
-593:                                              ; preds = %._crit_edge209, %544, %541
-  %.sroa.36.31 = phi ptr [ %.sroa.36.28, %541 ], [ %.sroa.36.33.lcssa, %._crit_edge209 ], [ %.sroa.36.28, %544 ]
+588:                                              ; preds = %._crit_edge217, %540, %537
+  %.sroa.36.31 = phi ptr [ %.sroa.36.28, %537 ], [ %.sroa.36.33.lcssa, %._crit_edge217 ], [ %.sroa.36.28, %540 ]
   %.not.i = icmp eq ptr %.sroa.36.31, null
-  br i1 %.not.i, label %_ZN15DirectiveSetPtr6commitEv.exit, label %594
+  br i1 %.not.i, label %_ZN15DirectiveSetPtr6commitEv.exit, label %589
 
-594:                                              ; preds = %593
+589:                                              ; preds = %588
   call void @_ZN15DirectivesStack7releaseEP12DirectiveSet(ptr noundef nonnull %0)
   br label %_ZN15DirectiveSetPtr6commitEv.exit
 
-_ZN15DirectiveSetPtr6commitEv.exit:               ; preds = %594, %593, %2, %32
-  %.0 = phi ptr [ %0, %32 ], [ %0, %2 ], [ %.sroa.36.31, %594 ], [ %0, %593 ]
+_ZN15DirectiveSetPtr6commitEv.exit:               ; preds = %589, %588, %2, %32
+  %.0 = phi ptr [ %0, %32 ], [ %0, %2 ], [ %.sroa.36.31, %589 ], [ %0, %588 ]
   ret ptr %.0
 }
 

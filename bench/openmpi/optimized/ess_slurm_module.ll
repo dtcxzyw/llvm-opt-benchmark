@@ -38,12 +38,10 @@ target triple = "x86_64-pc-linux-gnu"
 @prte_ess_base_num_procs = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0 {
+define internal i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i32 @prte_ess_base_std_prolog() #6
-  switch i32 %3, label %60 [
-    i32 0, label %4
-    i32 -43, label %.thread
-  ]
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %4, label %61
 
 4:                                                ; preds = %2
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4, !tbaa !3
@@ -152,31 +150,33 @@ define internal noundef i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0
 
 slurm_set_name.exit:                              ; preds = %15, %20, %43, %56
   %58 = tail call i32 @prte_ess_base_prted_setup() #6
-  switch i32 %58, label %.thread17 [
+  switch i32 %58, label %59 [
     i32 0, label %.thread
     i32 -43, label %.thread
   ]
 
-.thread17:                                        ; preds = %slurm_set_name.exit
-  %59 = tail call ptr @prte_strerror(i32 noundef %58) #6
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %59, ptr noundef nonnull @.str.2, i32 noundef 77) #6
-  br label %60
+59:                                               ; preds = %slurm_set_name.exit
+  %60 = tail call ptr @prte_strerror(i32 noundef %58) #6
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %60, ptr noundef nonnull @.str.2, i32 noundef 77) #6
+  br label %61
 
-60:                                               ; preds = %2, %.thread17
-  %.022 = phi ptr [ @.str.3, %.thread17 ], [ @.str, %2 ]
-  %.0721 = phi i32 [ %58, %.thread17 ], [ %3, %2 ]
-  %61 = load i8, ptr @prte_report_silent_errors, align 1, !tbaa !30, !range !31, !noundef !32
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %.thread, label %63
+61:                                               ; preds = %59, %2
+  %.08 = phi i32 [ %3, %2 ], [ %58, %59 ]
+  %.0 = phi ptr [ @.str, %2 ], [ @.str.3, %59 ]
+  %62 = icmp eq i32 %.08, -43
+  %63 = load i8, ptr @prte_report_silent_errors, align 1, !range !30
+  %64 = trunc nuw i8 %63 to i1
+  %or.cond = select i1 %62, i1 true, i1 %64
+  br i1 %or.cond, label %.thread, label %65
 
-63:                                               ; preds = %60
-  %64 = tail call ptr @prte_strerror(i32 noundef %.0721) #6
-  %65 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %.022, ptr noundef %64, i32 noundef %.0721) #6
+65:                                               ; preds = %61
+  %66 = tail call ptr @prte_strerror(i32 noundef %.08) #6
+  %67 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1, ptr noundef nonnull %.0, ptr noundef %66, i32 noundef %.08) #6
   br label %.thread
 
-.thread:                                          ; preds = %slurm_set_name.exit, %2, %60, %63, %slurm_set_name.exit
-  %.08 = phi i32 [ %58, %slurm_set_name.exit ], [ %.0721, %63 ], [ %.0721, %60 ], [ %3, %2 ], [ %58, %slurm_set_name.exit ]
-  ret i32 %.08
+.thread:                                          ; preds = %slurm_set_name.exit, %61, %65, %slurm_set_name.exit
+  %.09 = phi i32 [ %58, %slurm_set_name.exit ], [ %.08, %65 ], [ %.08, %61 ], [ %58, %slurm_set_name.exit ]
+  ret i32 %.09
 }
 
 ; Function Attrs: nounwind uwtable
@@ -267,6 +267,4 @@ attributes #6 = { nounwind }
 !27 = !{!23, !5, i64 800}
 !28 = !{!9, !9, i64 0}
 !29 = !{!23, !9, i64 792}
-!30 = !{!20, !20, i64 0}
-!31 = !{i8 0, i8 2}
-!32 = !{}
+!30 = !{i8 0, i8 2}

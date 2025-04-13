@@ -19,8 +19,8 @@ define void @_Z35rcFilterLowHangingWalkableObstaclesP9rcContextiR13rcHeightfield
   %4 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %5 = icmp eq ptr %4, null
   %6 = icmp ne ptr %0, null
-  %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %8, label %7
+  %or.cond3 = or i1 %6, %5
+  br i1 %or.cond3, label %8, label %7
 
 7:                                                ; preds = %3
   tail call void %4(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 31)
@@ -44,21 +44,21 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %8, %12
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.preheader.lr.ph, label %._crit_edge47
+  br i1 %19, label %.preheader.lr.ph, label %._crit_edge50
 
 .preheader.lr.ph:                                 ; preds = %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
   %20 = icmp sgt i32 %16, 0
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  br i1 %20, label %.preheader.us.preheader, label %._crit_edge47
+  br i1 %20, label %.preheader.us.preheader, label %._crit_edge50
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %22 = zext nneg i32 %16 to i64
-  %wide.trip.count53 = zext nneg i32 %18 to i64
+  %wide.trip.count56 = zext nneg i32 %18 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge45.us
-  %indvars.iv50 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next51, %._crit_edge45.us ]
-  %23 = mul nuw nsw i64 %indvars.iv50, %22
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge48.us
+  %indvars.iv53 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next54, %._crit_edge48.us ]
+  %23 = mul nuw nsw i64 %indvars.iv53, %22
   br label %24
 
 24:                                               ; preds = %.preheader.us, %._crit_edge.us
@@ -66,59 +66,59 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %8, %12
   %25 = load ptr, ptr %21, align 8
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %23
-  %.02937.us = load ptr, ptr %27, align 8
-  %.not38.us = icmp eq ptr %.02937.us, null
-  br i1 %.not38.us, label %._crit_edge.us, label %.lr.ph.us
+  %.03140.us = load ptr, ptr %27, align 8
+  %.not3841.us = icmp eq ptr %.03140.us, null
+  br i1 %.not3841.us, label %._crit_edge.us, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %24, %38
-  %.02942.us = phi ptr [ %.029.us, %38 ], [ %.02937.us, %24 ]
-  %.03041.us = phi i32 [ %40, %38 ], [ 0, %24 ]
-  %.03140.us = phi i1 [ %29, %38 ], [ false, %24 ]
-  %.03239.us = phi ptr [ %.02942.us, %38 ], [ null, %24 ]
-  %28 = load i32, ptr %.02942.us, align 8
+  %.03145.us = phi ptr [ %.031.us, %38 ], [ %.03140.us, %24 ]
+  %.03244.us = phi i32 [ %40, %38 ], [ 0, %24 ]
+  %.03343.us = phi i1 [ %29, %38 ], [ false, %24 ]
+  %.03442.us = phi ptr [ %.03145.us, %38 ], [ null, %24 ]
+  %28 = load i32, ptr %.03145.us, align 8
   %29 = icmp ugt i32 %28, 67108863
-  %.031.not.us = xor i1 %.03140.us, true
-  %brmerge.us = or i1 %29, %.031.not.us
-  br i1 %brmerge.us, label %38, label %30
+  %.not.us = xor i1 %29, true
+  %or.cond.us = and i1 %.03343.us, %.not.us
+  br i1 %or.cond.us, label %30, label %38
 
 30:                                               ; preds = %.lr.ph.us
   %31 = lshr i32 %28, 13
-  %32 = load i32, ptr %.03239.us, align 8
+  %32 = load i32, ptr %.03442.us, align 8
   %33 = lshr i32 %32, 13
   %34 = and i32 %33, 8191
   %35 = sub nsw i32 %31, %34
-  %.not36.us = icmp sgt i32 %35, %1
-  br i1 %.not36.us, label %38, label %36
+  %.not39.us = icmp sgt i32 %35, %1
+  br i1 %.not39.us, label %38, label %36
 
 36:                                               ; preds = %30
-  %37 = or disjoint i32 %28, %.03041.us
-  store i32 %37, ptr %.02942.us, align 8
+  %37 = or disjoint i32 %28, %.03244.us
+  store i32 %37, ptr %.03145.us, align 8
   br label %38
 
 38:                                               ; preds = %36, %30, %.lr.ph.us
   %39 = phi i32 [ %37, %36 ], [ %28, %30 ], [ %28, %.lr.ph.us ]
   %40 = and i32 %39, -67108864
-  %41 = getelementptr inbounds nuw i8, ptr %.02942.us, i64 8
-  %.029.us = load ptr, ptr %41, align 8
-  %.not.us = icmp eq ptr %.029.us, null
-  br i1 %.not.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !4
+  %41 = getelementptr inbounds nuw i8, ptr %.03145.us, i64 8
+  %.031.us = load ptr, ptr %41, align 8
+  %.not38.us = icmp eq ptr %.031.us, null
+  br i1 %.not38.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !4
 
 ._crit_edge.us:                                   ; preds = %38, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %22
-  br i1 %exitcond.not, label %._crit_edge45.us, label %24, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge48.us, label %24, !llvm.loop !6
 
-._crit_edge45.us:                                 ; preds = %._crit_edge.us
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %._crit_edge47, label %.preheader.us, !llvm.loop !7
+._crit_edge48.us:                                 ; preds = %._crit_edge.us
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
+  br i1 %exitcond57.not, label %._crit_edge50, label %.preheader.us, !llvm.loop !7
 
-._crit_edge47:                                    ; preds = %._crit_edge45.us, %.preheader.lr.ph, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
+._crit_edge50:                                    ; preds = %._crit_edge48.us, %.preheader.lr.ph, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
   %42 = load i8, ptr %9, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %_ZN13rcScopedTimerD2Ev.exit
 
-44:                                               ; preds = %._crit_edge47
+44:                                               ; preds = %._crit_edge50
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %47 = load ptr, ptr %46, align 8
@@ -132,7 +132,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %8, %12
   tail call void @__clang_call_terminate(ptr %50) #5
   unreachable
 
-_ZN13rcScopedTimerD2Ev.exit:                      ; preds = %._crit_edge47, %44
+_ZN13rcScopedTimerD2Ev.exit:                      ; preds = %._crit_edge50, %44
   ret void
 }
 

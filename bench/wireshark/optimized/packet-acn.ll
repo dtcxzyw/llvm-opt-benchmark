@@ -3211,12 +3211,12 @@ dissect_pdu_bit_flag_v.exit.i.i:                  ; preds = %271, %.thread.i
   %.0117178.i.i = phi ptr [ %355, %330 ], [ %.1118.i.i, %382 ]
   %358 = add nuw nsw i32 %.0116179.i.i, 1
   %359 = trunc nuw nsw i32 %358 to i8
-  br label %.preheader44.i.i.i
+  br label %.preheader45.i.i.i
 
-.preheader44.i.i.i:                               ; preds = %.preheader44.i.i.i, %357
-  %.041.i.i.i = phi i8 [ %367, %.preheader44.i.i.i ], [ %359, %357 ]
-  %.1.i.i.i = phi i8 [ %364, %.preheader44.i.i.i ], [ 0, %357 ]
-  %360 = urem i8 %.041.i.i.i, 10
+.preheader45.i.i.i:                               ; preds = %.preheader45.i.i.i, %357
+  %.043.i.i.i = phi i8 [ %367, %.preheader45.i.i.i ], [ %359, %357 ]
+  %.1.i.i.i = phi i8 [ %364, %.preheader45.i.i.i ], [ 0, %357 ]
+  %360 = urem i8 %.043.i.i.i, 10
   %361 = zext nneg i8 %360 to i64
   %362 = getelementptr [17 x i8], ptr @.str.761, i64 0, i64 %361
   %363 = load i8, ptr %362, align 1
@@ -3224,11 +3224,11 @@ dissect_pdu_bit_flag_v.exit.i.i:                  ; preds = %271, %.thread.i
   %365 = zext i8 %.1.i.i.i to i64
   %366 = getelementptr i8, ptr %.0117178.i.i, i64 %365
   store i8 %363, ptr %366, align 1
-  %367 = udiv i8 %.041.i.i.i, 10
-  %.not.i128.i.i = icmp ult i8 %.041.i.i.i, 10
-  br i1 %.not.i128.i.i, label %.preheader.i.i.i, label %.preheader44.i.i.i, !llvm.loop !11
+  %367 = udiv i8 %.043.i.i.i, 10
+  %.not.i128.i.i = icmp ult i8 %.043.i.i.i, 10
+  br i1 %.not.i128.i.i, label %.preheader.i.i.i, label %.preheader45.i.i.i, !llvm.loop !11
 
-.preheader.i.i.i:                                 ; preds = %.preheader44.i.i.i
+.preheader.i.i.i:                                 ; preds = %.preheader45.i.i.i
   %368 = icmp ult i8 %364, %.0114.i.i
   br i1 %368, label %.lr.ph.preheader.i.i.i, label %ltos.exit.i.i
 
@@ -3301,11 +3301,11 @@ ltos.exit.i.i:                                    ; preds = %.lr.ph.preheader.i.
 399:                                              ; preds = %395
   %400 = add i8 %396, -1
   %or.cond10.i.i = icmp ult i8 %400, 2
-  br i1 %or.cond10.i.i, label %.preheader44.i131.i.i.preheader, label %401
+  br i1 %or.cond10.i.i, label %.preheader45.i131.i.i.preheader, label %401
 
-.preheader44.i131.i.i.preheader:                  ; preds = %406, %399
-  %.041.i133.i.i.ph = phi i8 [ 1, %399 ], [ %.0115.i.i, %406 ]
-  br label %.preheader44.i131.i.i
+.preheader45.i131.i.i.preheader:                  ; preds = %406, %399
+  %.043.i133.i.i.ph = phi i8 [ 1, %399 ], [ %.0115.i.i, %406 ]
+  br label %.preheader45.i131.i.i
 
 401:                                              ; preds = %399
   %402 = zext i8 %396 to i16
@@ -3319,19 +3319,19 @@ ltos.exit.i.i:                                    ; preds = %.lr.ph.preheader.i.
   %407 = load i8, ptr @global_acn_dmx_display_zeros, align 1, !range !9, !noundef !10
   %408 = trunc nuw i8 %407 to i1
   %409 = icmp ne i8 %.0115.i.i, 0
-  %brmerge.i.i.i = or i1 %409, %408
-  br i1 %brmerge.i.i.i, label %.preheader44.i131.i.i.preheader, label %.preheader45.preheader.i.i.i
+  %or.cond4.i.i.i = or i1 %409, %408
+  br i1 %or.cond4.i.i.i, label %.preheader45.i131.i.i.preheader, label %.preheader46.preheader.i.i.i
 
-.preheader45.preheader.i.i.i:                     ; preds = %406
+.preheader46.preheader.i.i.i:                     ; preds = %406
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 %.2182.i.i, i8 46, i64 %392, i1 false)
   %410 = getelementptr i8, ptr %.2182.i.i, i64 %392
   store i8 32, ptr %410, align 1
   br label %ltos.exit146.i.i
 
-.preheader44.i131.i.i:                            ; preds = %.preheader44.i131.i.i.preheader, %.preheader44.i131.i.i
-  %.041.i133.i.i = phi i8 [ %418, %.preheader44.i131.i.i ], [ %.041.i133.i.i.ph, %.preheader44.i131.i.i.preheader ]
-  %.1.i134.i.i = phi i8 [ %415, %.preheader44.i131.i.i ], [ 0, %.preheader44.i131.i.i.preheader ]
-  %411 = urem i8 %.041.i133.i.i, %.0113.i.i
+.preheader45.i131.i.i:                            ; preds = %.preheader45.i131.i.i.preheader, %.preheader45.i131.i.i
+  %.043.i133.i.i = phi i8 [ %418, %.preheader45.i131.i.i ], [ %.043.i133.i.i.ph, %.preheader45.i131.i.i.preheader ]
+  %.1.i134.i.i = phi i8 [ %415, %.preheader45.i131.i.i ], [ 0, %.preheader45.i131.i.i.preheader ]
+  %411 = urem i8 %.043.i133.i.i, %.0113.i.i
   %412 = zext nneg i8 %411 to i64
   %413 = getelementptr [17 x i8], ptr @.str.761, i64 0, i64 %412
   %414 = load i8, ptr %413, align 1
@@ -3339,11 +3339,11 @@ ltos.exit.i.i:                                    ; preds = %.lr.ph.preheader.i.
   %416 = zext i8 %.1.i134.i.i to i64
   %417 = getelementptr i8, ptr %.2182.i.i, i64 %416
   store i8 %414, ptr %417, align 1
-  %418 = udiv i8 %.041.i133.i.i, %.0113.i.i
-  %.not.i135.i.i = icmp ugt i8 %.0113.i.i, %.041.i133.i.i
-  br i1 %.not.i135.i.i, label %.preheader.i137.i.i, label %.preheader44.i131.i.i, !llvm.loop !11
+  %418 = udiv i8 %.043.i133.i.i, %.0113.i.i
+  %.not.i135.i.i = icmp ugt i8 %.0113.i.i, %.043.i133.i.i
+  br i1 %.not.i135.i.i, label %.preheader.i137.i.i, label %.preheader45.i131.i.i, !llvm.loop !11
 
-.preheader.i137.i.i:                              ; preds = %.preheader44.i131.i.i
+.preheader.i137.i.i:                              ; preds = %.preheader45.i131.i.i
   %419 = icmp ult i8 %415, %.0114.i.i
   %420 = zext i8 %415 to i64
   br i1 %419, label %.lr.ph.preheader.i139.i.i, label %._crit_edge.i.i.i
@@ -3365,8 +3365,8 @@ ltos.exit.i.i:                                    ; preds = %.lr.ph.preheader.i.
   store i8 32, ptr %424, align 1
   br label %ltos.exit146.i.i
 
-ltos.exit146.i.i:                                 ; preds = %._crit_edge.i.i.i, %.preheader45.preheader.i.i.i
-  %.sink.in.i.i.i = phi i8 [ %.2.lcssa.i138.i.i, %._crit_edge.i.i.i ], [ %.0114.i.i, %.preheader45.preheader.i.i.i ]
+ltos.exit146.i.i:                                 ; preds = %._crit_edge.i.i.i, %.preheader46.preheader.i.i.i
+  %.sink.in.i.i.i = phi i8 [ %.2.lcssa.i138.i.i, %._crit_edge.i.i.i ], [ %.0114.i.i, %.preheader46.preheader.i.i.i ]
   %.sink.i129.i.i = add i8 %.sink.in.i.i.i, 1
   %426 = zext i8 %.sink.i129.i.i to i64
   %427 = getelementptr i8, ptr %.2182.i.i, i64 %426

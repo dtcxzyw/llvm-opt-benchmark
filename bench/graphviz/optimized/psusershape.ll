@@ -50,7 +50,7 @@ define void @epsf_init(ptr noundef %0) local_unnamed_addr #0 {
   %8 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str) #16
   %9 = tail call ptr @safefile(ptr noundef %8) #16
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %110, label %10
+  br i1 %.not, label %112, label %10
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %2) #16
@@ -73,18 +73,13 @@ define void @epsf_init(ptr noundef %0) local_unnamed_addr #0 {
   %16 = phi ptr [ %14, %12 ], [ %11, %10 ]
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call ptr %17(ptr noundef nonnull %16, ptr noundef nonnull %9, i32 noundef 512) #16
-  %.not40.i = icmp eq ptr %18, null
-  br i1 %.not40.i, label %19, label %user_init.exit.thread26
+  %.not41.i = icmp eq ptr %18, null
+  br i1 %.not41.i, label %19, label %user_init.exit.thread25
 
 19:                                               ; preds = %15
   %20 = tail call ptr @gv_fopen(ptr noundef nonnull %9, ptr noundef nonnull @.str.4) #16
-  %.not41.i = icmp eq ptr %20, null
-  br i1 %.not41.i, label %user_init.exit.thread, label %.preheader.i
-
-.preheader.i:                                     ; preds = %19
-  %21 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 8192, ptr noundef nonnull %20)
-  %.not4252.i = icmp eq ptr %21, null
-  br i1 %.not4252.i, label %._crit_edge.thread.i, label %.lr.ph.i
+  %.not42.i = icmp eq ptr %20, null
+  br i1 %.not42.i, label %user_init.exit.thread, label %.preheader.i
 
 user_init.exit.thread:                            ; preds = %19
   tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.15, ptr noundef nonnull %9) #16
@@ -96,44 +91,40 @@ user_init.exit.thread:                            ; preds = %19
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %2) #16
   br label %.critedge
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i.backedge
-  %.03354.i = phi i8 [ %.2.i, %.lr.ph.i.backedge ], [ 0, %.preheader.i ]
-  %.03553.i = phi i1 [ %spec.select.i, %.lr.ph.i.backedge ], [ false, %.preheader.i ]
-  %22 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.16, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %23 = icmp eq i32 %22, 4
-  %spec.select.i = or i1 %23, %.03553.i
-  %24 = load i8, ptr %2, align 16, !tbaa !15
-  %.not43.i = icmp eq i8 %24, 37
-  br i1 %.not43.i, label %27, label %25
+.preheader.i:                                     ; preds = %19, %28
+  %.036.i = phi i8 [ %spec.select.i, %28 ], [ 0, %19 ]
+  %.034.i = phi i8 [ %.2.i, %28 ], [ 0, %19 ]
+  %21 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 8192, ptr noundef nonnull %20)
+  %.not43.i = icmp eq ptr %21, null
+  br i1 %.not43.i, label %31, label %22
 
-25:                                               ; preds = %.lr.ph.i
-  %26 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.17) #17
-  %.not44.i = icmp eq ptr %26, null
-  %spec.select45.i = select i1 %.not44.i, i8 %.03354.i, i8 1
-  br label %27
+22:                                               ; preds = %.preheader.i
+  %23 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %2, ptr noundef nonnull @.str.16, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  %24 = icmp eq i32 %23, 4
+  %spec.select.i = select i1 %24, i8 1, i8 %.036.i
+  %25 = load i8, ptr %2, align 16, !tbaa !15
+  %.not44.i = icmp eq i8 %25, 37
+  br i1 %.not44.i, label %28, label %26
 
-27:                                               ; preds = %25, %.lr.ph.i
-  %.2.i = phi i8 [ %.03354.i, %.lr.ph.i ], [ %spec.select45.i, %25 ]
-  br i1 %spec.select.i, label %28, label %.thread
+26:                                               ; preds = %22
+  %27 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.17) #17
+  %.not45.i = icmp eq ptr %27, null
+  %spec.select46.i = select i1 %.not45.i, i8 %.034.i, i8 1
+  br label %28
 
-28:                                               ; preds = %27
-  %29 = trunc nuw i8 %.2.i to i1
-  br i1 %29, label %.thread.i, label %30
+28:                                               ; preds = %26, %22
+  %.2.i = phi i8 [ %.034.i, %22 ], [ %spec.select46.i, %26 ]
+  %29 = trunc nuw i8 %spec.select.i to i1
+  %30 = trunc nuw i8 %.2.i to i1
+  %or.cond.i = select i1 %29, i1 %30, i1 false
+  br i1 %or.cond.i, label %.thread.i, label %.preheader.i, !llvm.loop !16
 
-30:                                               ; preds = %28
-  %31 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 8192, ptr noundef nonnull %20)
-  %.not42.i = icmp eq ptr %31, null
-  br i1 %.not42.i, label %.thread.i, label %.lr.ph.i.backedge
+31:                                               ; preds = %.preheader.i
+  %32 = trunc nuw i8 %.036.i to i1
+  br i1 %32, label %.thread.i, label %73
 
-.lr.ph.i.backedge:                                ; preds = %30, %.thread
-  br label %.lr.ph.i, !llvm.loop !16
-
-.thread:                                          ; preds = %27
-  %32 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 8192, ptr noundef nonnull %20)
-  %.not42.i23 = icmp eq ptr %32, null
-  br i1 %.not42.i23, label %._crit_edge.thread.i, label %.lr.ph.i.backedge
-
-.thread.i:                                        ; preds = %30, %28
+.thread.i:                                        ; preds = %28, %31
+  %.13549.i = phi i8 [ %.034.i, %31 ], [ 1, %28 ]
   %33 = call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 121) 120) #18
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %gv_alloc.exit.i
@@ -206,14 +197,14 @@ gv_calloc.exit.i:                                 ; preds = %62, %.thread.i.i
   call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.18, ptr noundef nonnull %9) #16
   call void @free(ptr noundef %68) #16
   call void @free(ptr noundef nonnull %33) #16
-  br label %user_init.exit.thread30
+  br label %user_init.exit.thread29
 
-._crit_edge.thread.i:                             ; preds = %.thread, %.preheader.i
+73:                                               ; preds = %31
   call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.19, ptr noundef nonnull %9) #16
-  br label %user_init.exit.thread30
+  br label %user_init.exit.thread29
 
-user_init.exit.thread30:                          ; preds = %._crit_edge.thread.i, %72
-  %73 = call i32 @fclose(ptr noundef nonnull %20)
+user_init.exit.thread29:                          ; preds = %73, %72
+  %74 = call i32 @fclose(ptr noundef nonnull %20)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
@@ -223,74 +214,75 @@ user_init.exit.thread30:                          ; preds = %._crit_edge.thread.
   br label %.critedge
 
 user_init.exit:                                   ; preds = %gv_calloc.exit.i
-  %74 = getelementptr inbounds i8, ptr %68, i64 %59
-  store i8 0, ptr %74, align 1, !tbaa !15
-  %75 = load ptr, ptr @EPSF_contents, align 8, !tbaa !3
-  %76 = load ptr, ptr %75, align 8, !tbaa !9
-  %77 = call ptr %76(ptr noundef nonnull %75, ptr noundef nonnull %33, i32 noundef 1) #16
-  %78 = getelementptr inbounds nuw i8, ptr %33, i64 28
-  store i8 %.2.i, ptr %78, align 4, !tbaa !37
-  %79 = call i32 @fclose(ptr noundef nonnull %20)
-  br label %user_init.exit.thread26
+  %75 = getelementptr inbounds i8, ptr %68, i64 %59
+  store i8 0, ptr %75, align 1, !tbaa !15
+  %76 = load ptr, ptr @EPSF_contents, align 8, !tbaa !3
+  %77 = load ptr, ptr %76, align 8, !tbaa !9
+  %78 = call ptr %77(ptr noundef nonnull %76, ptr noundef nonnull %33, i32 noundef 1) #16
+  %79 = getelementptr inbounds nuw i8, ptr %33, i64 28
+  %80 = and i8 %.13549.i, 1
+  store i8 %80, ptr %79, align 4, !tbaa !37
+  %81 = call i32 @fclose(ptr noundef nonnull %20)
+  br label %user_init.exit.thread25
 
-user_init.exit.thread26:                          ; preds = %15, %user_init.exit
-  %.0.i29 = phi ptr [ %33, %user_init.exit ], [ %18, %15 ]
+user_init.exit.thread25:                          ; preds = %15, %user_init.exit
+  %.0.i28 = phi ptr [ %33, %user_init.exit ], [ %18, %15 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #16
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %2) #16
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 72
-  %81 = load double, ptr %80, align 8, !tbaa !29
-  %82 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 80
-  %83 = load double, ptr %82, align 8, !tbaa !30
-  %84 = fdiv double %81, 7.200000e+01
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !38
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  store double %84, ptr %87, align 8, !tbaa !42
-  %88 = fdiv double %83, 7.200000e+01
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 56
-  store double %88, ptr %89, align 8, !tbaa !55
-  %90 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 121) 24) #18
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %92, label %gv_alloc.exit
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 72
+  %83 = load double, ptr %82, align 8, !tbaa !29
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 80
+  %85 = load double, ptr %84, align 8, !tbaa !30
+  %86 = fdiv double %83, 7.200000e+01
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %88 = load ptr, ptr %87, align 8, !tbaa !38
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
+  store double %86, ptr %89, align 8, !tbaa !42
+  %90 = fdiv double %85, 7.200000e+01
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 56
+  store double %90, ptr %91, align 8, !tbaa !55
+  %92 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 121) 24) #18
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %94, label %gv_alloc.exit
 
-92:                                               ; preds = %user_init.exit.thread26
-  %93 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.22, i64 noundef 24) #19
+94:                                               ; preds = %user_init.exit.thread25
+  %95 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.22, i64 noundef 24) #19
   call fastcc void @graphviz_exit() #20
   unreachable
 
-gv_alloc.exit:                                    ; preds = %user_init.exit.thread26
-  %95 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  store ptr %90, ptr %95, align 8, !tbaa !56
-  %96 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 24
-  %97 = load i32, ptr %96, align 8, !tbaa !32
-  store i32 %97, ptr %90, align 8, !tbaa !57
-  %98 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 56
-  %99 = load double, ptr %98, align 8, !tbaa !21
-  %100 = fneg double %99
-  %101 = fmul double %81, 5.000000e-01
-  %102 = fsub double %100, %101
-  %103 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store double %102, ptr %103, align 8, !tbaa !59
-  %104 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 64
-  %105 = load double, ptr %104, align 8, !tbaa !28
-  %106 = fneg double %105
-  %107 = fmul double %83, 5.000000e-01
-  %108 = fsub double %106, %107
-  %109 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  store double %108, ptr %109, align 8, !tbaa !60
+gv_alloc.exit:                                    ; preds = %user_init.exit.thread25
+  %97 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  store ptr %92, ptr %97, align 8, !tbaa !56
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 24
+  %99 = load i32, ptr %98, align 8, !tbaa !32
+  store i32 %99, ptr %92, align 8, !tbaa !57
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 56
+  %101 = load double, ptr %100, align 8, !tbaa !21
+  %102 = fneg double %101
+  %103 = fmul double %83, 5.000000e-01
+  %104 = fsub double %102, %103
+  %105 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store double %104, ptr %105, align 8, !tbaa !59
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 64
+  %107 = load double, ptr %106, align 8, !tbaa !28
+  %108 = fneg double %107
+  %109 = fmul double %85, 5.000000e-01
+  %110 = fsub double %108, %109
+  %111 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store double %110, ptr %111, align 8, !tbaa !60
   br label %.critedge
 
-110:                                              ; preds = %1
-  %111 = tail call ptr @agnameof(ptr noundef %0) #16
-  tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.1, ptr noundef %111) #16
+112:                                              ; preds = %1
+  %113 = tail call ptr @agnameof(ptr noundef %0) #16
+  tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.1, ptr noundef %113) #16
   br label %.critedge
 
-.critedge:                                        ; preds = %user_init.exit.thread30, %user_init.exit.thread, %gv_alloc.exit, %110
+.critedge:                                        ; preds = %user_init.exit.thread29, %user_init.exit.thread, %gv_alloc.exit, %112
   ret void
 }
 

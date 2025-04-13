@@ -3089,8 +3089,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TfGetEnvSettingIbEERKT_RNS_12TfEnvSetting
   %.0.i = inttoptr i64 %.0.in.i to ptr
   %8 = load i8, ptr %.0.i, align 1
   %9 = trunc i8 %8 to i1
-  %brmerge = or i1 %1, %9
-  br i1 %brmerge, label %10, label %21
+  %or.cond = or i1 %1, %9
+  br i1 %or.cond, label %10, label %21
 
 10:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15TfGetEnvSettingIbEERKT_RNS_12TfEnvSettingIS1_EE.exit
   %11 = tail call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_12_GLOBAL__N_130_tokens_PrivateStaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS2_EEEptEv()

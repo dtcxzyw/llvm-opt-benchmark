@@ -331,7 +331,7 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   %.048 = phi i32 [ 0, %3 ], [ %.250, %82 ]
   %.144 = phi i64 [ %spec.select, %3 ], [ %70, %82 ]
   %.not = icmp eq i64 %.144, 0
-  br i1 %.not, label %.thread84, label %19
+  br i1 %.not, label %.thread86, label %19
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr %8, align 8, !tbaa !37
@@ -360,9 +360,9 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   %33 = trunc nuw i8 %32 to i1
   %34 = load i8, ptr %4, align 1, !range !35
   %35 = trunc nuw i8 %34 to i1
-  %or.cond = and i1 %31, %35
-  %or.cond91 = select i1 %33, i1 %or.cond, i1 false
-  br i1 %or.cond91, label %36, label %43
+  %or.cond = select i1 %33, i1 %35, i1 false
+  %or.cond71 = and i1 %31, %or.cond
+  br i1 %or.cond71, label %36, label %43
 
 36:                                               ; preds = %30
   %37 = zext i32 %.053 to i64
@@ -371,16 +371,16 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   %40 = sub i64 %..144, %39
   %41 = trunc i64 %40 to i32
   %42 = icmp sgt i32 %41, 0
-  %spec.select70 = select i1 %42, i64 %40, i64 %..144
+  %spec.select72 = select i1 %42, i64 %40, i64 %..144
   br label %43
 
 43:                                               ; preds = %36, %30
-  %.058 = phi i64 [ %spec.select70, %36 ], [ %..144, %30 ]
+  %.058 = phi i64 [ %spec.select72, %36 ], [ %..144, %30 ]
   %44 = load ptr, ptr %20, align 8, !tbaa !41
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(8256) %20)
-  br i1 %47, label %48, label %.thread77
+  br i1 %47, label %48, label %.thread79
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %8, align 8, !tbaa !37
@@ -422,8 +422,8 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   %73 = load i8, ptr %10, align 1, !tbaa !29, !range !35, !noundef !36
   %74 = trunc nuw i8 %73 to i1
   %75 = icmp eq i64 %71, %65
-  %or.cond71 = select i1 %74, i1 %75, i1 false
-  br i1 %or.cond71, label %76, label %.thread84
+  %or.cond73 = select i1 %74, i1 %75, i1 false
+  br i1 %or.cond73, label %76, label %.thread86
 
 76:                                               ; preds = %.thread
   %77 = icmp eq i32 %.250, 0
@@ -434,8 +434,8 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   %80 = trunc nuw i8 %79 to i1
   %81 = and i32 %68, 15
   %.not66 = icmp ne i32 %81, 0
-  %or.cond73.not = select i1 %80, i1 %.not66, i1 false
-  br i1 %or.cond73.not, label %82, label %.thread84
+  %or.cond75.not = select i1 %80, i1 %.not66, i1 false
+  br i1 %or.cond75.not, label %82, label %.thread86
 
 82:                                               ; preds = %78, %76
   %83 = load i32, ptr %17, align 4, !tbaa !34
@@ -445,16 +445,16 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i8 1, ptr %86, align 2, !tbaa !30
-  br label %.thread77
+  br label %.thread79
 
-.thread84:                                        ; preds = %.thread, %78, %18
+.thread86:                                        ; preds = %.thread, %78, %18
   %.154 = phi i32 [ %.053, %18 ], [ %68, %78 ], [ %68, %.thread ]
   %.149 = phi i32 [ %.048, %18 ], [ %.250, %78 ], [ %.250, %.thread ]
   %87 = load ptr, ptr %8, align 8, !tbaa !37
   %.not67 = icmp eq ptr %87, null
   br i1 %.not67, label %_ZN11ComprDataIO11ShowUnpReadEll.exit, label %88
 
-88:                                               ; preds = %.thread84
+88:                                               ; preds = %.thread86
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %90 = load i64, ptr %89, align 8, !tbaa !56
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -496,7 +496,7 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   store i32 %107, ptr %112, align 8, !tbaa !33
   br label %_ZN11ComprDataIO11ShowUnpReadEll.exit
 
-_ZN11ComprDataIO11ShowUnpReadEll.exit:            ; preds = %114, %111, %94, %88, %.thread84
+_ZN11ComprDataIO11ShowUnpReadEll.exit:            ; preds = %114, %111, %94, %88, %.thread86
   %.not68 = icmp eq i32 %.149, -1
   br i1 %.not68, label %126, label %119
 
@@ -515,9 +515,9 @@ _ZN11ComprDataIO11ShowUnpReadEll.exit:            ; preds = %114, %111, %94, %88
 126:                                              ; preds = %119, %122, %_ZN11ComprDataIO11ShowUnpReadEll.exit
   %.6 = phi i32 [ %.154, %122 ], [ %.154, %119 ], [ -1, %_ZN11ComprDataIO11ShowUnpReadEll.exit ]
   tail call void @_Z4Waitv()
-  br label %.thread77
+  br label %.thread79
 
-.thread77:                                        ; preds = %43, %85, %126
+.thread79:                                        ; preds = %43, %85, %126
   %.4 = phi i32 [ %.6, %126 ], [ -1, %85 ], [ -1, %43 ]
   ret i32 %.4
 }

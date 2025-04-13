@@ -1899,8 +1899,8 @@ _ZNKSt3mapImN4llvm22GlobalValueSummaryInfoESt4lessImESaISt4pairIKmS1_EEE4findERS
   %spec.select.i.i.i = select i1 %12, ptr %.19.i.i.i.i, ptr %5
   %13 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 32
   %14 = icmp ugt ptr %13, inttoptr (i64 7 to ptr)
-  %or.cond = select i1 %12, i1 %14, i1 false
-  br i1 %or.cond, label %15, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
+  %or.cond33 = select i1 %12, i1 %14, i1 false
+  br i1 %or.cond33, label %15, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
 
 15:                                               ; preds = %_ZNKSt3mapImN4llvm22GlobalValueSummaryInfoESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i
   %16 = ptrtoint ptr %13 to i64
@@ -1910,39 +1910,37 @@ _ZNKSt3mapImN4llvm22GlobalValueSummaryInfoESt4lessImESaISt4pairIKmS1_EEE4findERS
   %20 = load ptr, ptr %19, align 8, !tbaa !95
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !98
-  %23 = icmp eq ptr %22, %20
-  br i1 %23, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread, label %.preheader
-
-.preheader:                                       ; preds = %15
+  %23 = icmp ne ptr %22, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %25 = load i8, ptr %24, align 8, !tbaa !105, !range !48, !noundef !49
+  %25 = load i8, ptr %24, align 8, !range !48
   %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %.preheader.split.us, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
+  %or.cond = select i1 %23, i1 %26, i1 false
+  br i1 %or.cond, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.lr.ph.split, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
 
-.preheader.split.us:                              ; preds = %.preheader
+_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.lr.ph.split: ; preds = %15
   %27 = load ptr, ptr %20, align 8, !tbaa !99
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i16, ptr %28, align 4
   %30 = and i16 %29, 128
-  %.not22.us25 = icmp eq i16 %30, 0
-  br i1 %.not22.us25, label %.lr.ph, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
+  %.not2229 = icmp eq i16 %30, 0
+  br i1 %.not2229, label %.lr.ph, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
 
-_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.us: ; preds = %.lr.ph
-  %31 = load ptr, ptr %35, align 8, !tbaa !99
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  %33 = load i16, ptr %32, align 4
-  %34 = and i16 %33, 128
-  %.not22.us = icmp eq i16 %34, 0
-  br i1 %.not22.us, label %.lr.ph, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
+.lr.ph:                                           ; preds = %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.lr.ph.split, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit
+  %.01625.pn = phi ptr [ %31, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit ], [ %20, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.lr.ph.split ]
+  %31 = getelementptr inbounds nuw i8, ptr %.01625.pn, i64 8
+  %.not.not.not.not = icmp ne ptr %31, %22
+  br i1 %.not.not.not.not, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
 
-.lr.ph:                                           ; preds = %.preheader.split.us, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.us
-  %.01623.us.pn = phi ptr [ %35, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.us ], [ %20, %.preheader.split.us ]
-  %35 = getelementptr inbounds nuw i8, ptr %.01623.us.pn, i64 8
-  %.not.us.not.not.not = icmp ne ptr %35, %22
-  br i1 %.not.us.not.not.not, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.us, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
+_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit: ; preds = %.lr.ph
+  %32 = load ptr, ptr %31, align 8, !tbaa !99
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
+  %34 = load i16, ptr %33, align 4
+  %35 = and i16 %34, 128
+  %.not22 = icmp eq i16 %35, 0
+  br i1 %.not22, label %.lr.ph, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
 
-_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread: ; preds = %.lr.ph, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.us, %_ZNKSt3mapImN4llvm22GlobalValueSummaryInfoESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i, %2, %_ZNKSt8_Rb_treeImSt4pairIKmN4llvm22GlobalValueSummaryInfoEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %.preheader.split.us, %.preheader, %15
-  %.0 = phi i1 [ true, %15 ], [ true, %.preheader.split.us ], [ true, %.preheader ], [ true, %_ZNKSt8_Rb_treeImSt4pairIKmN4llvm22GlobalValueSummaryInfoEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ true, %2 ], [ true, %_ZNKSt3mapImN4llvm22GlobalValueSummaryInfoESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i ], [ %.not.us.not.not.not, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.us ], [ %.not.us.not.not.not, %.lr.ph ]
+_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread: ; preds = %.lr.ph, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit, %_ZNKSt3mapImN4llvm22GlobalValueSummaryInfoESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i, %2, %_ZNKSt8_Rb_treeImSt4pairIKmN4llvm22GlobalValueSummaryInfoEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.lr.ph.split, %15
+  %.0 = phi i1 [ true, %15 ], [ true, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.lr.ph.split ], [ true, %_ZNKSt8_Rb_treeImSt4pairIKmN4llvm22GlobalValueSummaryInfoEESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ true, %2 ], [ true, %_ZNKSt3mapImN4llvm22GlobalValueSummaryInfoESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i ], [ %.not.not.not.not, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit ], [ %.not.not.not.not, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1959,10 +1957,10 @@ define dso_local void @_ZN4llvm18ModuleSummaryIndex19propagateAttributesERKNS_8D
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !162
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not107 = icmp eq ptr %8, %9
-  br i1 %.not107, label %._crit_edge, label %.lr.ph109
+  %.not109 = icmp eq ptr %8, %9
+  br i1 %.not109, label %._crit_edge, label %.lr.ph111
 
-.lr.ph109:                                        ; preds = %6
+.lr.ph111:                                        ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1970,7 +1968,7 @@ define dso_local void @_ZN4llvm18ModuleSummaryIndex19propagateAttributesERKNS_8D
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br label %23
 
-._crit_edge:                                      ; preds = %.loopexit91, %6
+._crit_edge:                                      ; preds = %.loopexit93, %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 321
   store i8 1, ptr %15, align 1, !tbaa !157
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 322
@@ -1985,20 +1983,20 @@ define dso_local void @_ZN4llvm18ModuleSummaryIndex19propagateAttributesERKNS_8D
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #26
   br label %217
 
-23:                                               ; preds = %.lr.ph109, %.loopexit91
-  %.sroa.065.0108 = phi ptr [ %8, %.lr.ph109 ], [ %216, %.loopexit91 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.065.0108, i64 32
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.065.0108, i64 56
+23:                                               ; preds = %.lr.ph111, %.loopexit93
+  %.sroa.065.0110 = phi ptr [ %8, %.lr.ph111 ], [ %216, %.loopexit93 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.065.0110, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.065.0110, i64 56
   %26 = load ptr, ptr %25, align 8, !tbaa !169
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.065.0108, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.065.0110, i64 64
   %28 = load ptr, ptr %27, align 8, !tbaa !169
-  %.not84100 = icmp eq ptr %26, %28
-  br i1 %.not84100, label %.loopexit91, label %.lr.ph
+  %.not86102 = icmp eq ptr %26, %28
+  br i1 %.not86102, label %.loopexit93, label %.lr.ph
 
-.lr.ph:                                           ; preds = %23, %.loopexit90
-  %.030102 = phi i8 [ %205, %.loopexit90 ], [ 1, %23 ]
-  %.sroa.061.0101 = phi ptr [ %206, %.loopexit90 ], [ %26, %23 ]
-  %29 = load ptr, ptr %.sroa.061.0101, align 8, !tbaa !99
+.lr.ph:                                           ; preds = %23, %.loopexit92
+  %.030104 = phi i8 [ %205, %.loopexit92 ], [ 1, %23 ]
+  %.sroa.061.0103 = phi ptr [ %206, %.loopexit92 ], [ %26, %23 ]
+  %29 = load ptr, ptr %.sroa.061.0103, align 8, !tbaa !99
   %30 = load i8, ptr %10, align 8, !tbaa !105, !range !48, !noundef !49
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
@@ -2007,8 +2005,8 @@ _ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %33 = load i16, ptr %32, align 4
   %34 = and i16 %33, 128
-  %.not85 = icmp eq i16 %34, 0
-  br i1 %.not85, label %.thread81, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
+  %.not87 = icmp eq i16 %34, 0
+  br i1 %.not87, label %.thread81, label %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread
 
 _ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread: ; preds = %.lr.ph, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -2024,8 +2022,8 @@ _ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit: ; preds = %_ZNK4llvm18Module
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !170
   %41 = icmp ne i32 %40, 2
-  %.not3488 = icmp eq ptr %38, null
-  %.not34 = or i1 %.not3488, %41
+  %.not3490 = icmp eq ptr %38, null
+  %.not34 = or i1 %.not3490, %41
   br i1 %.not34, label %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E5countERKm.exit.thread, label %_ZNK4llvm18GlobalValueSummary13getBaseObjectEv.exit.i.i
 
 _ZNK4llvm18GlobalValueSummary13getBaseObjectEv.exit.i.i: ; preds = %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread, %_ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit
@@ -2097,7 +2095,7 @@ _ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapI
   %75 = load i8, ptr %74, align 8
   %76 = and i8 %75, -4
   store i8 %76, ptr %74, align 8
-  %.pre = load ptr, ptr %.sroa.061.0101, align 8, !tbaa !99
+  %.pre = load ptr, ptr %.sroa.061.0103, align 8, !tbaa !99
   br label %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E5countERKm.exit.thread
 
 _ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E5countERKm.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit.thread, %48, %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E5countERKm.exit, %_ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit
@@ -2109,7 +2107,7 @@ _ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapI
   %80 = zext i32 %.val36 to i64
   %81 = getelementptr inbounds nuw %"struct.llvm::ValueInfo", ptr %.val, i64 %80
   %.not14.i = icmp eq i32 %.val36, 0
-  br i1 %.not14.i, label %.loopexit90, label %.lr.ph17.i
+  br i1 %.not14.i, label %.loopexit92, label %.lr.ph17.i
 
 .lr.ph17.i:                                       ; preds = %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E5countERKm.exit.thread, %.loopexit.i
   %.015.i = phi ptr [ %197, %.loopexit.i ], [ %.val, %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E5countERKm.exit.thread ]
@@ -2369,49 +2367,49 @@ _ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit.i: ; preds = %179, %.lr.ph.i
 .loopexit.i:                                      ; preds = %99, %195, %88, %_ZNK4llvm6detail12DenseSetImplINS_9ValueInfoENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E8containsERKS2_.exit.thread.i, %_ZNK4llvm6detail12DenseSetImplINS_9ValueInfoENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E8containsERKS2_.exit.i
   %197 = getelementptr inbounds nuw i8, ptr %.015.i, i64 8
   %.not.i38 = icmp eq ptr %197, %81
-  br i1 %.not.i38, label %.loopexit90.loopexit, label %.lr.ph17.i
+  br i1 %.not.i38, label %.loopexit92.loopexit, label %.lr.ph17.i
 
-.loopexit90.loopexit:                             ; preds = %.loopexit.i
-  %.pre121 = load ptr, ptr %.sroa.061.0101, align 8, !tbaa !99
-  br label %.loopexit90
+.loopexit92.loopexit:                             ; preds = %.loopexit.i
+  %.pre123 = load ptr, ptr %.sroa.061.0103, align 8, !tbaa !99
+  br label %.loopexit92
 
-.loopexit90:                                      ; preds = %.loopexit90.loopexit, %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E5countERKm.exit.thread
-  %198 = phi ptr [ %.pre121, %.loopexit90.loopexit ], [ %77, %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E5countERKm.exit.thread ]
+.loopexit92:                                      ; preds = %.loopexit92.loopexit, %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E5countERKm.exit.thread
+  %198 = phi ptr [ %.pre123, %.loopexit92.loopexit ], [ %77, %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E5countERKm.exit.thread ]
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 12
   %200 = load i16, ptr %199, align 4
   %201 = and i16 %200, 256
   %202 = icmp ne i16 %201, 0
-  %203 = icmp ne i8 %.030102, 0
+  %203 = icmp ne i8 %.030104, 0
   %204 = select i1 %202, i1 %203, i1 false
   %205 = zext i1 %204 to i8
-  %206 = getelementptr inbounds nuw i8, ptr %.sroa.061.0101, i64 8
-  %.not84 = icmp eq ptr %206, %28
-  br i1 %.not84, label %.thread81, label %.lr.ph
+  %206 = getelementptr inbounds nuw i8, ptr %.sroa.061.0103, i64 8
+  %.not86 = icmp eq ptr %206, %28
+  br i1 %.not86, label %.thread81, label %.lr.ph
 
-.thread81:                                        ; preds = %.loopexit90, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit
-  %.030.lcssa.ph = phi i8 [ %205, %.loopexit90 ], [ %.030102, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit ]
+.thread81:                                        ; preds = %.loopexit92, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit
+  %.030.lcssa.ph = phi i8 [ %205, %.loopexit92 ], [ %.030104, %_ZNK4llvm18ModuleSummaryIndex17isGlobalValueLiveEPKNS_18GlobalValueSummaryE.exit ]
   %207 = trunc nuw i8 %.030.lcssa.ph to i1
-  br i1 %207, label %.loopexit91, label %208
+  br i1 %207, label %.loopexit93, label %208
 
 208:                                              ; preds = %.thread81
   %209 = load ptr, ptr %25, align 8, !tbaa !169
   %210 = load ptr, ptr %27, align 8, !tbaa !169
-  %.not86104 = icmp eq ptr %209, %210
-  br i1 %.not86104, label %.loopexit91, label %.lr.ph106
+  %.not88106 = icmp eq ptr %209, %210
+  br i1 %.not88106, label %.loopexit93, label %.lr.ph108
 
-.lr.ph106:                                        ; preds = %208, %.lr.ph106
-  %.sroa.057.0105 = phi ptr [ %215, %.lr.ph106 ], [ %209, %208 ]
-  %211 = load ptr, ptr %.sroa.057.0105, align 8, !tbaa !99
+.lr.ph108:                                        ; preds = %208, %.lr.ph108
+  %.sroa.057.0107 = phi ptr [ %215, %.lr.ph108 ], [ %209, %208 ]
+  %211 = load ptr, ptr %.sroa.057.0107, align 8, !tbaa !99
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 12
   %213 = load i16, ptr %212, align 4
   %214 = and i16 %213, -257
   store i16 %214, ptr %212, align 4
-  %215 = getelementptr inbounds nuw i8, ptr %.sroa.057.0105, i64 8
-  %.not86 = icmp eq ptr %215, %210
-  br i1 %.not86, label %.loopexit91, label %.lr.ph106
+  %215 = getelementptr inbounds nuw i8, ptr %.sroa.057.0107, i64 8
+  %.not88 = icmp eq ptr %215, %210
+  br i1 %.not88, label %.loopexit93, label %.lr.ph108
 
-.loopexit91:                                      ; preds = %.lr.ph106, %23, %208, %.thread81
-  %216 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.065.0108) #28
+.loopexit93:                                      ; preds = %.lr.ph108, %23, %208, %.thread81
+  %216 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.065.0110) #28
   %.not = icmp eq ptr %216, %9
   br i1 %.not, label %._crit_edge, label %23
 
@@ -2456,8 +2454,8 @@ _ZNK4llvm18GlobalValueSummary13getBaseObjectEv.exit.i: ; preds = %6, %3
 _ZN4llvm11GlobalValue21isInterposableLinkageENS0_12LinkageTypesE.exit.i: ; preds = %_ZNK4llvm18GlobalValueSummary13getBaseObjectEv.exit.i, %_ZNK4llvm18GlobalValueSummary13getBaseObjectEv.exit.i, %_ZNK4llvm18GlobalValueSummary13getBaseObjectEv.exit.i, %_ZNK4llvm18GlobalValueSummary13getBaseObjectEv.exit.i, %_ZNK4llvm18GlobalValueSummary13getBaseObjectEv.exit.i, %_ZNK4llvm18GlobalValueSummary13getBaseObjectEv.exit.i, %_ZNK4llvm18GlobalValueSummary13getBaseObjectEv.exit.i
   %13 = and i16 %10, 64
   %14 = icmp eq i16 %13, 0
-  %brmerge10.not.i = and i1 %2, %14
-  br i1 %brmerge10.not.i, label %15, label %_ZNK4llvm18ModuleSummaryIndex18canImportGlobalVarEPKNS_18GlobalValueSummaryEbRb.exit
+  %brmerge.not.i = and i1 %2, %14
+  br i1 %brmerge.not.i, label %15, label %_ZNK4llvm18ModuleSummaryIndex18canImportGlobalVarEPKNS_18GlobalValueSummaryEbRb.exit
 
 15:                                               ; preds = %_ZN4llvm11GlobalValue21isInterposableLinkageENS0_12LinkageTypesE.exit.i
   %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL23ImportConstantsWithRefs, i64 120), align 8, !tbaa !34, !range !48, !noundef !49
@@ -2540,8 +2538,8 @@ _ZN4llvm11GlobalValue21isInterposableLinkageENS0_12LinkageTypesE.exit: ; preds =
   %15 = icmp eq i16 %14, 0
   %16 = zext i1 %15 to i8
   store i8 %16, ptr %3, align 1, !tbaa !47
-  %brmerge10.not = and i1 %2, %15
-  br i1 %brmerge10.not, label %17, label %"_ZZNK4llvm18ModuleSummaryIndex18canImportGlobalVarEPKNS_18GlobalValueSummaryEbRbENK3$_0clEPKNS_16GlobalVarSummaryE.exit"
+  %brmerge.not = and i1 %2, %15
+  br i1 %brmerge.not, label %17, label %"_ZZNK4llvm18ModuleSummaryIndex18canImportGlobalVarEPKNS_18GlobalValueSummaryEbRbENK3$_0clEPKNS_16GlobalVarSummaryE.exit"
 
 17:                                               ; preds = %_ZN4llvm11GlobalValue21isInterposableLinkageENS0_12LinkageTypesE.exit
   %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL23ImportConstantsWithRefs, i64 120), align 8, !tbaa !34, !range !48, !noundef !49

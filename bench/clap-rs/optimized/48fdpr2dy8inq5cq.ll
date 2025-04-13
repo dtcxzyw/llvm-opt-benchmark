@@ -3636,15 +3636,15 @@ define void @_ZN12clap_builder7builder7command7Command9_do_parse17ha4d410d63c6c7
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 700
   %21 = load i32, ptr %20, align 4, !alias.scope !836, !noundef !5
   %22 = and i32 %21, 1
-  %.not40 = icmp eq i32 %22, 0
-  br i1 %.not40, label %23, label %.critedge
+  %.not38 = icmp eq i32 %22, 0
+  br i1 %.not38, label %23, label %.critedge
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %25 = load i32, ptr %24, align 8, !alias.scope !839, !noundef !5
   %26 = and i32 %25, 1
-  %.not41 = icmp eq i32 %26, 0
-  br i1 %.not41, label %27, label %.critedge
+  %.not39 = icmp eq i32 %26, 0
+  br i1 %.not39, label %27, label %.critedge
 
 27:                                               ; preds = %.critedge, %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8

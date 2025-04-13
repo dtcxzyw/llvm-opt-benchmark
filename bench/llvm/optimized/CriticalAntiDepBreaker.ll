@@ -703,11 +703,11 @@ define hidden void @_ZN4llvm22CriticalAntiDepBreaker18PrescanInstructionERNS_12M
   %13 = load i64, ptr %12, align 8, !tbaa !218
   %14 = and i64 %13, 128
   %.not137 = icmp eq i64 %14, 0
-  br i1 %.not137, label %16, label %36
+  br i1 %.not137, label %16, label %35
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %2
   %15 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 128, i32 noundef 1) #12
-  br i1 %15, label %36, label %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge
+  br i1 %15, label %35, label %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge: ; preds = %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit
   %.pre = load i32, ptr %3, align 4
@@ -730,11 +730,11 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge: ; preds = %_ZNK4
   %25 = load i64, ptr %24, align 8, !tbaa !218
   %26 = and i64 %25, 2147483648
   %.not138 = icmp eq i64 %26, 0
-  br i1 %.not138, label %28, label %36
+  br i1 %.not138, label %28, label %35
 
 _ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit: ; preds = %16
   %27 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 2147483648, i32 noundef 1) #12
-  br i1 %27, label %36, label %28
+  br i1 %27, label %35, label %28
 
 28:                                               ; preds = %21, %_ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -743,17 +743,16 @@ _ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit: ; preds = 
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 848
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull align 8 dereferenceable(70) %1) #12
-  %35 = xor i1 %34, true
-  br label %36
+  br label %35
 
-36:                                               ; preds = %21, %9, %28, %_ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit
-  %.not55 = phi i1 [ false, %_ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit ], [ false, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %35, %28 ], [ false, %9 ], [ false, %21 ]
+35:                                               ; preds = %21, %9, %28, %_ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit
+  %36 = phi i1 [ true, %_ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit ], [ true, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %34, %28 ], [ true, %9 ], [ true, %21 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %38 = load i24, ptr %37, align 8
   %.not151 = icmp eq i24 %38, 0
   br i1 %.not151, label %._crit_edge167, label %.lr.ph155
 
-.lr.ph155:                                        ; preds = %36
+.lr.ph155:                                        ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -769,8 +768,8 @@ _ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit: ; preds = 
 
 ._crit_edge156:                                   ; preds = %.loopexit145
   %.pre173 = load i24, ptr %37, align 8
-  %.not50163 = icmp eq i24 %.pre173, 0
-  br i1 %.not50163, label %._crit_edge167, label %.lr.ph166
+  %.not52163 = icmp eq i24 %.pre173, 0
+  br i1 %.not52163, label %._crit_edge167, label %.lr.ph166
 
 .lr.ph166:                                        ; preds = %._crit_edge156
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -838,8 +837,8 @@ _ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit: ; preds = 
   br label %100
 
 96:                                               ; preds = %80
-  %.not51 = icmp eq ptr %92, %88
-  %or.cond133 = and i1 %94, %.not51
+  %.not53 = icmp eq ptr %92, %88
+  %or.cond133 = and i1 %94, %.not53
   br i1 %or.cond133, label %100, label %97
 
 97:                                               ; preds = %.thread131, %96
@@ -867,8 +866,8 @@ _ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit: ; preds = 
 ._crit_edge:                                      ; preds = %116, %100
   %108 = getelementptr inbounds nuw ptr, ptr %.pre172, i64 %101
   %109 = load ptr, ptr %108, align 8, !tbaa !181
-  %.not52 = icmp eq ptr %109, inttoptr (i64 -1 to ptr)
-  br i1 %.not52, label %129, label %118
+  %.not54 = icmp eq ptr %109, inttoptr (i64 -1 to ptr)
+  br i1 %.not54, label %129, label %118
 
 110:                                              ; preds = %.lr.ph, %116
   %.sroa.0114.3147 = phi ptr [ %104, %.lr.ph ], [ %117, %116 ]
@@ -876,8 +875,8 @@ _ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit: ; preds = 
   %112 = zext i16 %111 to i64
   %113 = getelementptr inbounds nuw ptr, ptr %.pre172, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !181
-  %.not53 = icmp eq ptr %114, null
-  br i1 %.not53, label %116, label %115
+  %.not55 = icmp eq ptr %114, null
+  br i1 %.not55, label %116, label %115
 
 115:                                              ; preds = %110
   store ptr inttoptr (i64 -1 to ptr), ptr %113, align 8, !tbaa !181
@@ -927,9 +926,9 @@ _ZNSt8multimapIjPN4llvm14MachineOperandESt4lessIjESaISt4pairIKjS2_EEE6insertIS5_
 129:                                              ; preds = %_ZNSt8multimapIjPN4llvm14MachineOperandESt4lessIjESaISt4pairIKjS2_EEE6insertIS5_INS0_8RegisterES2_EEENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeEOSE_.exit, %._crit_edge
   %130 = load i32, ptr %63, align 8
   %131 = and i32 %130, 16777216
-  %.not.i = icmp ne i32 %131, 0
-  %brmerge = or i1 %.not55, %.not.i
-  br i1 %brmerge, label %.loopexit145, label %132
+  %.not.i = icmp eq i32 %131, 0
+  %or.cond3 = and i1 %36, %.not.i
+  br i1 %or.cond3, label %132, label %.loopexit145
 
 132:                                              ; preds = %129
   %133 = and i32 %69, 63
@@ -980,12 +979,12 @@ _ZN4llvm16MCSubRegIteratorppEv.exit:              ; preds = %_ZN4llvm16MCSubRegI
   %.not.i.i = icmp eq i16 %162, 0
   br i1 %.not.i.i, label %.loopexit145, label %_ZN4llvm16MCSubRegIteratorppEv.exit
 
-.loopexit145:                                     ; preds = %_ZN4llvm16MCSubRegIteratorppEv.exit, %142, %67, %129, %132, %61
+.loopexit145:                                     ; preds = %_ZN4llvm16MCSubRegIteratorppEv.exit, %142, %67, %132, %129, %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %49
   br i1 %.not, label %._crit_edge156, label %61, !llvm.loop !247
 
-._crit_edge167:                                   ; preds = %.loopexit, %36, %._crit_edge156
+._crit_edge167:                                   ; preds = %.loopexit, %35, %._crit_edge156
   ret void
 
 165:                                              ; preds = %.lr.ph166, %.loopexit
@@ -1086,8 +1085,8 @@ _ZN4llvm18MCSuperRegIteratorppEv.exit:            ; preds = %_ZN4llvm18MCSuperRe
 
 .loopexit:                                        ; preds = %_ZN4llvm18MCSuperRegIteratorppEv.exit, %._crit_edge160, %170, %177, %173, %165
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %.not50 = icmp eq i64 %indvars.iv.next170, %60
-  br i1 %.not50, label %._crit_edge167, label %165, !llvm.loop !255
+  %.not52 = icmp eq i64 %indvars.iv.next170, %60
+  br i1 %.not52, label %._crit_edge167, label %165, !llvm.loop !255
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

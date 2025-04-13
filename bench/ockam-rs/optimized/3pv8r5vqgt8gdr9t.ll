@@ -10946,7 +10946,7 @@ common.ret:                                       ; preds = %176, %30
 106:                                              ; preds = %84
   %.pre.i = load ptr, ptr %85, align 8, !alias.scope !1400, !noalias !1405
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.pre58.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !1400, !noalias !1405
+  %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !1400, !noalias !1405
   br label %112
 
 .body.i:                                          ; preds = %102
@@ -10977,7 +10977,7 @@ common.ret:                                       ; preds = %176, %30
 112:                                              ; preds = %107, %106
   %113 = phi ptr [ %86, %106 ], [ %88, %107 ]
   %114 = phi ptr [ %85, %106 ], [ %89, %107 ]
-  %115 = phi ptr [ %.pre58.i, %106 ], [ @anon.a3a67110ce06a869b442c94fcb10776f.47.llvm.13157132225597385975, %107 ]
+  %115 = phi ptr [ %.pre57.i, %106 ], [ @anon.a3a67110ce06a869b442c94fcb10776f.47.llvm.13157132225597385975, %107 ]
   %116 = phi ptr [ %.pre.i, %106 ], [ %.fca.0.extract.i.i.i, %107 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !1383
   call void @llvm.experimental.noalias.scope.decl(metadata !1408)
@@ -11151,7 +11151,7 @@ common.ret:                                       ; preds = %176, %30
   unreachable
 
 .body24.i:                                        ; preds = %166, %155, %137
-  %.pn17.i = phi { ptr, i32 } [ %138, %137 ], [ %167, %166 ], [ %.pn.i.i, %155 ]
+  %.pn18.i = phi { ptr, i32 } [ %138, %137 ], [ %167, %166 ], [ %.pn.i.i, %155 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !1383
   br label %.body29.i
 
@@ -11173,7 +11173,7 @@ common.ret:                                       ; preds = %176, %30
 .body29.i:                                        ; preds = %.body.i, %120, %128, %132, %.body24.i
   %170 = phi ptr [ %113, %.body24.i ], [ %113, %120 ], [ %88, %.body.i ], [ %113, %132 ], [ %113, %128 ]
   %171 = phi ptr [ %114, %.body24.i ], [ %114, %120 ], [ %89, %.body.i ], [ %114, %132 ], [ %114, %128 ]
-  %.pn20.i = phi { ptr, i32 } [ %.pn17.i, %.body24.i ], [ %121, %120 ], [ %103, %.body.i ], [ %133, %132 ], [ %129, %128 ]
+  %.pn20.i = phi { ptr, i32 } [ %.pn18.i, %.body24.i ], [ %121, %120 ], [ %103, %.body.i ], [ %133, %132 ], [ %129, %128 ]
   store i8 2, ptr %170, align 8, !noalias !1383
   br label %.body55
 

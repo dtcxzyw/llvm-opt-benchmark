@@ -19,114 +19,112 @@ define dso_local noundef zeroext i1 @create_tidscan_paths(ptr noundef %0, ptr no
   %6 = call fastcc ptr @TidQualFromRestrictInfoList(ptr noundef %0, ptr noundef %5, ptr noundef %1, ptr noundef %3)
   %.not = icmp eq ptr %6, null
   %.pre36 = load i8, ptr @enable_tidscan, align 1, !range !4
-  br i1 %.not, label %12, label %7
+  br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %2
   %8 = trunc nuw i8 %.pre36 to i1
-  %.pre = load i8, ptr %3, align 1, !range !4
-  %.pre38 = trunc nuw i8 %.pre to i1
-  %brmerge = select i1 %8, i1 true, i1 %.pre38
-  br i1 %brmerge, label %._crit_edge37, label %.thread
+  %9 = load i8, ptr %3, align 1, !range !4
+  %10 = trunc nuw i8 %9 to i1
+  %or.cond = select i1 %8, i1 true, i1 %10
+  br i1 %or.cond, label %11, label %.thread
 
-._crit_edge37:                                    ; preds = %7
-  %not. = xor i1 %8, true
-  %.pre38.mux = select i1 %not., i1 true, i1 %.pre38
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @create_tidscan_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %10) #6
-  tail call void @add_path(ptr noundef nonnull %1, ptr noundef %11) #6
-  br i1 %.pre38.mux, label %.thread, label %._crit_edge
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call ptr @create_tidscan_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %13) #6
+  tail call void @add_path(ptr noundef nonnull %1, ptr noundef %14) #6
+  br i1 %10, label %.thread, label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge37
-  %.pre35 = load i8, ptr @enable_tidscan, align 1, !range !4
-  br label %12
+._crit_edge:                                      ; preds = %11
+  %.pre = load i8, ptr @enable_tidscan, align 1, !range !4
+  br label %15
 
-12:                                               ; preds = %._crit_edge, %2
-  %13 = phi i8 [ %.pre35, %._crit_edge ], [ %.pre36, %2 ]
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %15, label %.thread
+15:                                               ; preds = %._crit_edge, %2
+  %16 = phi i8 [ %.pre, %._crit_edge ], [ %.pre36, %2 ]
+  %17 = trunc nuw i8 %16 to i1
+  br i1 %17, label %18, label %.thread
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 244
-  %18 = load i32, ptr %17, align 4
-  %19 = and i32 %18, 1
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %TidRangeQualFromRestrictInfoList.exit.thread, label %.preheader.i
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 244
+  %21 = load i32, ptr %20, align 4
+  %22 = and i32 %21, 1
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %TidRangeQualFromRestrictInfoList.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %.not.i = icmp eq ptr %16, null
+.preheader.i:                                     ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %TidRangeQualFromRestrictInfoList.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %23 = load i32, ptr %21, align 4
-  %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph27.i, label %TidRangeQualFromRestrictInfoList.exit.thread
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %26 = load i32, ptr %24, align 4
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %.lr.ph27.i, label %TidRangeQualFromRestrictInfoList.exit.thread
 
 .lr.ph27.i:                                       ; preds = %.lr.ph.i, %IsTidRangeClause.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %IsTidRangeClause.exit.thread.i ], [ 0, %.lr.ph.i ]
   %.0132125.i = phi ptr [ %.1.i, %IsTidRangeClause.exit.thread.i ], [ null, %.lr.ph.i ]
-  %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv.i
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef readonly %27, ptr noundef readonly %1)
-  br i1 %28, label %IsTidRangeClause.exit.i, label %IsTidRangeClause.exit.thread.i
+  %28 = load ptr, ptr %25, align 8
+  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv.i
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call fastcc zeroext i1 @IsBinaryTidClause(ptr noundef readonly %30, ptr noundef readonly %1)
+  br i1 %31, label %IsTidRangeClause.exit.i, label %IsTidRangeClause.exit.thread.i
 
 IsTidRangeClause.exit.i:                          ; preds = %.lr.ph27.i
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4
-  %33 = add i32 %32, -2799
-  %or.cond5.i.i = icmp ult i32 %33, 4
-  br i1 %or.cond5.i.i, label %34, label %IsTidRangeClause.exit.thread.i
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = add i32 %35, -2799
+  %or.cond5.i.i = icmp ult i32 %36, 4
+  br i1 %or.cond5.i.i, label %37, label %IsTidRangeClause.exit.thread.i
 
-34:                                               ; preds = %IsTidRangeClause.exit.i
-  %35 = tail call ptr @lappend(ptr noundef %.0132125.i, ptr noundef nonnull %27) #6
+37:                                               ; preds = %IsTidRangeClause.exit.i
+  %38 = tail call ptr @lappend(ptr noundef %.0132125.i, ptr noundef nonnull %30) #6
   br label %IsTidRangeClause.exit.thread.i
 
-IsTidRangeClause.exit.thread.i:                   ; preds = %34, %IsTidRangeClause.exit.i, %.lr.ph27.i
-  %.1.i = phi ptr [ %35, %34 ], [ %.0132125.i, %IsTidRangeClause.exit.i ], [ %.0132125.i, %.lr.ph27.i ]
+IsTidRangeClause.exit.thread.i:                   ; preds = %37, %IsTidRangeClause.exit.i, %.lr.ph27.i
+  %.1.i = phi ptr [ %38, %37 ], [ %.0132125.i, %IsTidRangeClause.exit.i ], [ %.0132125.i, %.lr.ph27.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %36 = load i32, ptr %21, align 4
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next.i, %37
-  br i1 %38, label %.lr.ph27.i, label %TidRangeQualFromRestrictInfoList.exit
+  %39 = load i32, ptr %24, align 4
+  %40 = sext i32 %39 to i64
+  %41 = icmp slt i64 %indvars.iv.next.i, %40
+  br i1 %41, label %.lr.ph27.i, label %TidRangeQualFromRestrictInfoList.exit
 
 TidRangeQualFromRestrictInfoList.exit:            ; preds = %IsTidRangeClause.exit.thread.i
-  %.not32 = icmp eq ptr %.1.i, null
-  br i1 %.not32, label %TidRangeQualFromRestrictInfoList.exit.thread, label %39
+  %.not33 = icmp eq ptr %.1.i, null
+  br i1 %.not33, label %TidRangeQualFromRestrictInfoList.exit.thread, label %42
 
-39:                                               ; preds = %TidRangeQualFromRestrictInfoList.exit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call ptr @create_tidrangescan_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.1.i, ptr noundef %41) #6
-  tail call void @add_path(ptr noundef %1, ptr noundef %42) #6
+42:                                               ; preds = %TidRangeQualFromRestrictInfoList.exit
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call ptr @create_tidrangescan_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.1.i, ptr noundef %44) #6
+  tail call void @add_path(ptr noundef %1, ptr noundef %45) #6
   br label %TidRangeQualFromRestrictInfoList.exit.thread
 
-TidRangeQualFromRestrictInfoList.exit.thread:     ; preds = %.lr.ph.i, %.preheader.i, %15, %39, %TidRangeQualFromRestrictInfoList.exit
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %44 = load i8, ptr %43, align 8, !range !4, !noundef !5
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %50
+TidRangeQualFromRestrictInfoList.exit.thread:     ; preds = %.lr.ph.i, %.preheader.i, %18, %42, %TidRangeQualFromRestrictInfoList.exit
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %47 = load i8, ptr %46, align 8, !range !4, !noundef !5
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %53
 
-46:                                               ; preds = %TidRangeQualFromRestrictInfoList.exit.thread
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call ptr @generate_implied_equalities_for_column(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @ec_member_matches_ctid, ptr noundef null, ptr noundef %48) #6
-  tail call fastcc void @BuildParameterizedTidPaths(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %49)
-  br label %50
-
-50:                                               ; preds = %46, %TidRangeQualFromRestrictInfoList.exit.thread
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %52 = load ptr, ptr %51, align 8
+49:                                               ; preds = %TidRangeQualFromRestrictInfoList.exit.thread
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call ptr @generate_implied_equalities_for_column(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @ec_member_matches_ctid, ptr noundef null, ptr noundef %51) #6
   tail call fastcc void @BuildParameterizedTidPaths(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %52)
+  br label %53
+
+53:                                               ; preds = %49, %TidRangeQualFromRestrictInfoList.exit.thread
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %55 = load ptr, ptr %54, align 8
+  tail call fastcc void @BuildParameterizedTidPaths(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %55)
   br label %.thread
 
-.thread:                                          ; preds = %7, %12, %._crit_edge37, %50
-  %.1 = phi i1 [ false, %50 ], [ true, %._crit_edge37 ], [ false, %12 ], [ false, %7 ]
+.thread:                                          ; preds = %7, %15, %11, %53
+  %.1 = phi i1 [ false, %53 ], [ true, %11 ], [ false, %15 ], [ false, %7 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
   ret i1 %.1
 }

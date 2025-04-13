@@ -313,7 +313,7 @@ define void @_ZN3gmx10EnergyData7Element12scheduleTaskEldRKSt8functionIFvS2_IFvv
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i8, ptr %7, align 8, !tbaa !4, !range !21, !noundef !22
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %_ZNSt14_Function_baseD2Ev.exit26
+  br i1 %9, label %10, label %_ZNSt14_Function_baseD2Ev.exit27
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -343,8 +343,8 @@ define void @_ZN3gmx10EnergyData7Element12scheduleTaskEldRKSt8functionIFvS2_IFvv
 
 _Z11do_per_stepll.exit:                           ; preds = %24, %21, %10
   %29 = phi i8 [ 0, %10 ], [ %28, %24 ], [ 0, %21 ]
-  %brmerge = select i1 %16, i1 true, i1 %13
-  br i1 %brmerge, label %30, label %55
+  %or.cond = select i1 %16, i1 true, i1 %13
+  br i1 %or.cond, label %30, label %55
 
 30:                                               ; preds = %_Z11do_per_stepll.exit
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -384,12 +384,12 @@ _Z11do_per_stepll.exit:                           ; preds = %24, %21, %10
 
 _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %38
   %41 = load ptr, ptr %31, align 8, !tbaa !37
-  %.not.i18 = icmp eq ptr %41, null
-  br i1 %.not.i18, label %_ZNSt14_Function_baseD2Ev.exit26, label %42
+  %.not.i19 = icmp eq ptr %41, null
+  br i1 %.not.i19, label %_ZNSt14_Function_baseD2Ev.exit27, label %42
 
 42:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit
   %43 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %44
+          to label %_ZNSt14_Function_baseD2Ev.exit27 unwind label %44
 
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
@@ -402,12 +402,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %38
   %48 = landingpad { ptr, i32 }
           cleanup
   %49 = load ptr, ptr %31, align 8, !tbaa !37
-  %.not.i19 = icmp eq ptr %49, null
-  br i1 %.not.i19, label %_ZNSt14_Function_baseD2Ev.exit28, label %50
+  %.not.i20 = icmp eq ptr %49, null
+  br i1 %.not.i20, label %_ZNSt14_Function_baseD2Ev.exit29, label %50
 
 50:                                               ; preds = %47
   %51 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit28 unwind label %52
+          to label %_ZNSt14_Function_baseD2Ev.exit29 unwind label %52
 
 52:                                               ; preds = %50
   %53 = landingpad { ptr, i32 }
@@ -427,30 +427,30 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %38
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx10EnergyData7Element12scheduleTaskEldRKSt8functionIFvS4_IS0_EEEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %57, align 8, !tbaa !37
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !37
-  %.not.i.i21 = icmp eq ptr %61, null
-  br i1 %.not.i.i21, label %62, label %63
+  %.not.i.i22 = icmp eq ptr %61, null
+  br i1 %.not.i.i22, label %62, label %63
 
 62:                                               ; preds = %55
   invoke void @_ZSt25__throw_bad_function_callv() #30
-          to label %.noexc22 unwind label %72
+          to label %.noexc23 unwind label %72
 
-.noexc22:                                         ; preds = %62
+.noexc23:                                         ; preds = %62
   unreachable
 
 63:                                               ; preds = %55
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !38
   invoke void %65(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit24 unwind label %72
+          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit25 unwind label %72
 
-_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit24:        ; preds = %63
+_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit25:        ; preds = %63
   %66 = load ptr, ptr %57, align 8, !tbaa !37
-  %.not.i25 = icmp eq ptr %66, null
-  br i1 %.not.i25, label %_ZNSt14_Function_baseD2Ev.exit26, label %67
+  %.not.i26 = icmp eq ptr %66, null
+  br i1 %.not.i26, label %_ZNSt14_Function_baseD2Ev.exit27, label %67
 
-67:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit24
+67:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit25
   %68 = invoke noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %69
+          to label %_ZNSt14_Function_baseD2Ev.exit27 unwind label %69
 
 69:                                               ; preds = %67
   %70 = landingpad { ptr, i32 }
@@ -463,12 +463,12 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit24:        ; preds = %63
   %73 = landingpad { ptr, i32 }
           cleanup
   %74 = load ptr, ptr %57, align 8, !tbaa !37
-  %.not.i27 = icmp eq ptr %74, null
-  br i1 %.not.i27, label %_ZNSt14_Function_baseD2Ev.exit28, label %75
+  %.not.i28 = icmp eq ptr %74, null
+  br i1 %.not.i28, label %_ZNSt14_Function_baseD2Ev.exit29, label %75
 
 75:                                               ; preds = %72
   %76 = invoke noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit28 unwind label %77
+          to label %_ZNSt14_Function_baseD2Ev.exit29 unwind label %77
 
 77:                                               ; preds = %75
   %78 = landingpad { ptr, i32 }
@@ -477,10 +477,10 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit24:        ; preds = %63
   call void @__clang_call_terminate(ptr %79) #31
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %42, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit, %67, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit24, %4
+_ZNSt14_Function_baseD2Ev.exit27:                 ; preds = %42, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit, %67, %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit25, %4
   ret void
 
-_ZNSt14_Function_baseD2Ev.exit28:                 ; preds = %50, %47, %75, %72
+_ZNSt14_Function_baseD2Ev.exit29:                 ; preds = %50, %47, %75, %72
   %.pn = phi { ptr, i32 } [ %73, %72 ], [ %73, %75 ], [ %48, %47 ], [ %48, %50 ]
   resume { ptr, i32 } %.pn
 }
@@ -730,97 +730,88 @@ define linkonce_odr void @_ZN3gmx10EnergyData7Element24trajectoryWriterTeardownE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.17") align 8 captures(none) initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 1
-  br i1 %4, label %5, label %14
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %6 = load i8, ptr %5, align 8, !range !21
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond, label %8, label %13
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %7 = load i8, ptr %6, align 8, !tbaa !4, !range !21, !noundef !22
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %14
+8:                                                ; preds = %3
+  %9 = ptrtoint ptr %1 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %12, align 8
+  store i64 %9, ptr %0, align 8, !tbaa !27
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %11, align 8, !tbaa !117
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %10, align 8, !tbaa !37
+  br label %13
 
-9:                                                ; preds = %5
-  %10 = ptrtoint ptr %1 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %13, align 8
-  store i64 %10, ptr %0, align 8, !tbaa !27
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %12, align 8, !tbaa !117
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %11, align 8, !tbaa !37
-  br label %14
-
-14:                                               ; preds = %3, %5, %9
-  %.sink = phi i8 [ 1, %9 ], [ 0, %5 ], [ 0, %3 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink, ptr %15, align 8, !tbaa !119
+13:                                               ; preds = %3, %8
+  %.sink = phi i8 [ 1, %8 ], [ 0, %3 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sink, ptr %14, align 8, !tbaa !119
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.27") align 8 captures(none) initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 1
-  br i1 %4, label %5, label %14
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %6 = load i8, ptr %5, align 8, !range !21
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond, label %8, label %13
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %7 = load i8, ptr %6, align 8, !tbaa !4, !range !21, !noundef !22
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %14
+8:                                                ; preds = %3
+  %9 = ptrtoint ptr %1 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %12, align 8
+  store i64 %9, ptr %0, align 8, !tbaa !27
+  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OlOdObSF_", ptr %11, align 8, !tbaa !121
+  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %10, align 8, !tbaa !37
+  br label %13
 
-9:                                                ; preds = %5
+13:                                               ; preds = %3, %8
+  %.sink = phi i8 [ 1, %8 ], [ 0, %3 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sink, ptr %14, align 8, !tbaa !123
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @_ZN3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.17") align 8 captures(none) initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = icmp eq i32 %2, 0
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %6 = load i8, ptr %5, align 8, !range !21
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond, label %.sink.split, label %8
+
+8:                                                ; preds = %3
+  %9 = icmp eq i32 %2, 2
+  %or.cond6 = select i1 %9, i1 %7, i1 false
+  br i1 %or.cond6, label %.sink.split, label %14
+
+.sink.split:                                      ; preds = %8, %3
+  %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E9_M_invokeERKSt9_Any_dataOlOd.sink" = phi ptr [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", %3 ], [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E9_M_invokeERKSt9_Any_dataOlOd", %8 ]
+  %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.sink" = phi ptr [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", %3 ], [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", %8 ]
   %10 = ptrtoint ptr %1 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %13, align 8
   store i64 %10, ptr %0, align 8, !tbaa !27
-  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OlOdObSF_", ptr %12, align 8, !tbaa !121
-  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %11, align 8, !tbaa !37
+  store ptr %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E9_M_invokeERKSt9_Any_dataOlOd.sink", ptr %12, align 8, !tbaa !117
+  store ptr %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.sink", ptr %11, align 8, !tbaa !37
   br label %14
 
-14:                                               ; preds = %3, %5, %9
-  %.sink = phi i8 [ 1, %9 ], [ 0, %5 ], [ 0, %3 ]
+14:                                               ; preds = %.sink.split, %8
+  %.sink = phi i8 [ 0, %8 ], [ 1, %.sink.split ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink, ptr %15, align 8, !tbaa !123
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.17") align 8 captures(none) initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %16 [
-    i32 0, label %4
-    i32 2, label %8
-  ]
-
-4:                                                ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %6 = load i8, ptr %5, align 8, !tbaa !4, !range !21, !noundef !22
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %.sink.split, label %16
-
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %10 = load i8, ptr %9, align 8, !tbaa !4, !range !21, !noundef !22
-  %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %.sink.split, label %16
-
-.sink.split:                                      ; preds = %8, %4
-  %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E9_M_invokeERKSt9_Any_dataOlOd.sink" = phi ptr [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", %4 ], [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E9_M_invokeERKSt9_Any_dataOlOd", %8 ]
-  %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.sink" = phi ptr [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", %4 ], [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", %8 ]
-  %12 = ptrtoint ptr %1 to i64
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %15, align 8
-  store i64 %12, ptr %0, align 8, !tbaa !27
-  store ptr %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E9_M_invokeERKSt9_Any_dataOlOd.sink", ptr %14, align 8, !tbaa !117
-  store ptr %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.sink", ptr %13, align 8, !tbaa !37
-  br label %16
-
-16:                                               ; preds = %.sink.split, %8, %3, %4
-  %.sink = phi i8 [ 0, %4 ], [ 0, %3 ], [ 0, %8 ], [ 1, %.sink.split ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink, ptr %17, align 8, !tbaa !119
+  store i8 %.sink, ptr %15, align 8, !tbaa !119
   ret void
 }
 
@@ -891,32 +882,30 @@ define linkonce_odr void @_ZThn8_N3gmx10EnergyData7Element24trajectoryWriterTear
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZThn8_N3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.27") align 8 captures(none) initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 -8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  %5 = icmp eq i32 %2, 1
-  br i1 %5, label %6, label %_ZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE.exit
+  %4 = icmp eq i32 %2, 1
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %6 = load i8, ptr %5, align 8, !range !21, !noalias !125
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond.i = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond.i, label %8, label %_ZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE.exit
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %8 = load i8, ptr %7, align 8, !tbaa !4, !range !21, !noalias !125, !noundef !22
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %_ZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE.exit
-
-10:                                               ; preds = %6
-  %11 = ptrtoint ptr %4 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %14, align 8, !alias.scope !125
-  store i64 %11, ptr %0, align 8, !tbaa !27, !alias.scope !125
-  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OlOdObSF_", ptr %13, align 8, !tbaa !121, !alias.scope !125
-  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %12, align 8, !tbaa !37, !alias.scope !125
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %1, i64 -8
+  %10 = ptrtoint ptr %9 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %13, align 8, !alias.scope !125
+  store i64 %10, ptr %0, align 8, !tbaa !27, !alias.scope !125
+  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOS1_OlOdObSF_", ptr %12, align 8, !tbaa !121, !alias.scope !125
+  store ptr @"_ZNSt17_Function_handlerIFvP10gmx_mdoutfldbbEZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS3_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %11, align 8, !tbaa !37, !alias.scope !125
   br label %_ZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE.exit
 
-_ZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE.exit: ; preds = %3, %6, %10
-  %.sink.i = phi i8 [ 1, %10 ], [ 0, %6 ], [ 0, %3 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink.i, ptr %15, align 8, !tbaa !123, !alias.scope !125
+_ZN3gmx10EnergyData7Element32registerTrajectoryWriterCallbackENS_15TrajectoryEventE.exit: ; preds = %3, %8
+  %.sink.i = phi i8 [ 1, %8 ], [ 0, %3 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sink.i, ptr %14, align 8, !tbaa !123, !alias.scope !125
   ret void
 }
 
@@ -974,32 +963,30 @@ _ZN3gmx10EnergyData7ElementD0Ev.exit:             ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZThn16_N3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.17") align 8 captures(none) initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  %5 = icmp eq i32 %2, 1
-  br i1 %5, label %6, label %_ZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit
+  %4 = icmp eq i32 %2, 1
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %6 = load i8, ptr %5, align 8, !range !21, !noalias !128
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond.i = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond.i, label %8, label %_ZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %8 = load i8, ptr %7, align 8, !tbaa !4, !range !21, !noalias !128, !noundef !22
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %_ZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit
-
-10:                                               ; preds = %6
-  %11 = ptrtoint ptr %4 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %14, align 8, !alias.scope !128
-  store i64 %11, ptr %0, align 8, !tbaa !27, !alias.scope !128
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %13, align 8, !tbaa !117, !alias.scope !128
-  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %12, align 8, !tbaa !37, !alias.scope !128
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %1, i64 -16
+  %10 = ptrtoint ptr %9 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %13, align 8, !alias.scope !128
+  store i64 %10, ptr %0, align 8, !tbaa !27, !alias.scope !128
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", ptr %12, align 8, !tbaa !117, !alias.scope !128
+  store ptr @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS1_15TrajectoryEventEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %11, align 8, !tbaa !37, !alias.scope !128
   br label %_ZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit
 
-_ZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit: ; preds = %3, %6, %10
-  %.sink.i = phi i8 [ 1, %10 ], [ 0, %6 ], [ 0, %3 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink.i, ptr %15, align 8, !tbaa !119, !alias.scope !128
+_ZN3gmx10EnergyData7Element35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit: ; preds = %3, %8
+  %.sink.i = phi i8 [ 1, %8 ], [ 0, %3 ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sink.i, ptr %14, align 8, !tbaa !119, !alias.scope !128
   ret void
 }
 
@@ -1059,40 +1046,35 @@ _ZN3gmx10EnergyData7ElementD0Ev.exit:             ; preds = %_ZNKSt7__cxx1112bas
 define void @_ZThn24_N3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.17") align 8 captures(none) initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 -24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  switch i32 %2, label %_ZN3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE.exit [
-    i32 0, label %5
-    i32 2, label %9
-  ]
-
-5:                                                ; preds = %3
+  %5 = icmp eq i32 %2, 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %7 = load i8, ptr %6, align 8, !tbaa !4, !range !21, !noalias !131, !noundef !22
+  %7 = load i8, ptr %6, align 8, !range !21, !noalias !131
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %.sink.split.i, label %_ZN3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE.exit
+  %or.cond.i = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond.i, label %.sink.split.i, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %11 = load i8, ptr %10, align 8, !tbaa !4, !range !21, !noalias !131, !noundef !22
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %.sink.split.i, label %_ZN3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE.exit
+  %10 = icmp eq i32 %2, 2
+  %or.cond6.i = select i1 %10, i1 %8, i1 false
+  br i1 %or.cond6.i, label %.sink.split.i, label %_ZN3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE.exit
 
-.sink.split.i:                                    ; preds = %9, %5
-  %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E9_M_invokeERKSt9_Any_dataOlOd.sink.i" = phi ptr [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", %5 ], [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E9_M_invokeERKSt9_Any_dataOlOd", %9 ]
-  %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.sink.i" = phi ptr [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", %5 ], [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", %9 ]
-  %13 = ptrtoint ptr %4 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %16, align 8, !alias.scope !131
-  store i64 %13, ptr %0, align 8, !tbaa !27, !alias.scope !131
-  store ptr %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E9_M_invokeERKSt9_Any_dataOlOd.sink.i", ptr %15, align 8, !tbaa !117, !alias.scope !131
-  store ptr %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.sink.i", ptr %14, align 8, !tbaa !37, !alias.scope !131
+.sink.split.i:                                    ; preds = %9, %3
+  %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E9_M_invokeERKSt9_Any_dataOlOd.sink.i" = phi ptr [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E9_M_invokeERKSt9_Any_dataOlOd", %3 ], [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E9_M_invokeERKSt9_Any_dataOlOd", %9 ]
+  %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.sink.i" = phi ptr [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", %3 ], [ @"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", %9 ]
+  %11 = ptrtoint ptr %4 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %14, align 8, !alias.scope !131
+  store i64 %11, ptr %0, align 8, !tbaa !27, !alias.scope !131
+  store ptr %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E9_M_invokeERKSt9_Any_dataOlOd.sink.i", ptr %13, align 8, !tbaa !117, !alias.scope !131
+  store ptr %"_ZNSt17_Function_handlerIFvldEZN3gmx10EnergyData7Element22registerEnergyCallbackENS1_20EnergySignallerEventEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.sink.i", ptr %12, align 8, !tbaa !37, !alias.scope !131
   br label %_ZN3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE.exit
 
-_ZN3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE.exit: ; preds = %3, %5, %9, %.sink.split.i
-  %.sink.i = phi i8 [ 0, %5 ], [ 0, %3 ], [ 0, %9 ], [ 1, %.sink.split.i ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink.i, ptr %17, align 8, !tbaa !119, !alias.scope !131
+_ZN3gmx10EnergyData7Element22registerEnergyCallbackENS_20EnergySignallerEventE.exit: ; preds = %9, %.sink.split.i
+  %.sink.i = phi i8 [ 0, %9 ], [ 1, %.sink.split.i ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sink.i, ptr %15, align 8, !tbaa !119, !alias.scope !131
   ret void
 }
 
@@ -1926,37 +1908,35 @@ define void @_ZN3gmx10EnergyData8teardownEv(ptr noundef nonnull readonly align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !236
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %25
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %8 = load i8, ptr %7, align 8, !range !21
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond = select i1 %6, i1 %9, i1 false
+  br i1 %or.cond, label %switch.edge, label %24
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %9 = load i8, ptr %8, align 8, !tbaa !141, !range !21, !noundef !22
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %switch.edge, label %25
-
-switch.edge:                                      ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !109
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %14 = load ptr, ptr %13, align 8, !tbaa !150
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !318
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !319
-  %19 = icmp ult i32 %18, 13
-  %switch.cast = trunc i32 %18 to i13
+switch.edge:                                      ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !109
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %13 = load ptr, ptr %12, align 8, !tbaa !150
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %15 = load i32, ptr %14, align 8, !tbaa !318
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !319
+  %18 = icmp ult i32 %17, 13
+  %switch.cast = trunc i32 %17 to i13
   %switch.downshift = lshr i13 -1023, %switch.cast
   %switch.masked = trunc i13 %switch.downshift to i1
-  %20 = select i1 %19, i1 %switch.masked, i1 false
-  tail call void @_ZNK3gmx12EnergyOutput23printEnergyConservationEP8_IO_FILEib(ptr noundef nonnull align 8 dereferenceable(392) %12, ptr noundef %14, i32 noundef %16, i1 noundef zeroext %20)
-  %21 = load ptr, ptr %11, align 8, !tbaa !109
-  %22 = load ptr, ptr %13, align 8, !tbaa !150
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %24 = load ptr, ptr %23, align 8, !tbaa !153
-  tail call void @_ZN3gmx12EnergyOutput13printAveragesEP8_IO_FILEPK16SimulationGroups(ptr noundef nonnull align 8 dereferenceable(392) %21, ptr noundef %22, ptr noundef %24)
-  br label %25
+  %19 = select i1 %18, i1 %switch.masked, i1 false
+  tail call void @_ZNK3gmx12EnergyOutput23printEnergyConservationEP8_IO_FILEib(ptr noundef nonnull align 8 dereferenceable(392) %11, ptr noundef %13, i32 noundef %15, i1 noundef zeroext %19)
+  %20 = load ptr, ptr %10, align 8, !tbaa !109
+  %21 = load ptr, ptr %12, align 8, !tbaa !150
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %23 = load ptr, ptr %22, align 8, !tbaa !153
+  tail call void @_ZN3gmx12EnergyOutput13printAveragesEP8_IO_FILEPK16SimulationGroups(ptr noundef nonnull align 8 dereferenceable(392) %20, ptr noundef %21, ptr noundef %23)
+  br label %24
 
-25:                                               ; preds = %switch.edge, %7, %1
+24:                                               ; preds = %switch.edge, %1
   ret void
 }
 
@@ -2007,7 +1987,7 @@ _ZNSt10unique_ptrIN3gmx12EnergyOutputESt14default_deleteIS1_EED2Ev.exit: ; preds
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %24 = load i8, ptr %23, align 8, !tbaa !141, !range !21, !noundef !22
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %26, label %64
+  br i1 %25, label %26, label %63
 
 26:                                               ; preds = %_ZNSt10unique_ptrIN3gmx12EnergyOutputESt14default_deleteIS1_EED2Ev.exit
   %27 = load i32, ptr %10, align 4, !tbaa !142
@@ -2025,42 +2005,40 @@ _ZNSt10unique_ptrIN3gmx12EnergyOutputESt14default_deleteIS1_EED2Ev.exit: ; preds
   %38 = tail call noundef i32 @_ZNK3gmx12EnergyOutput14numEnergyTermsEv(ptr noundef nonnull align 8 dereferenceable(392) %37)
   %39 = tail call noundef double @_Z10compute_ioPK10t_inputreciRK16SimulationGroupsii(ptr noundef %31, i32 noundef %34, ptr noundef nonnull align 8 dereferenceable(504) %36, i32 noundef %38, i32 noundef 1)
   %40 = fcmp ogt double %39, 2.000000e+03
-  br i1 %40, label %41, label %47
+  %41 = load i8, ptr %23, align 8, !range !21
+  %42 = trunc nuw i8 %41 to i1
+  %or.cond = select i1 %40, i1 %42, i1 false
+  br i1 %or.cond, label %43, label %46
 
-41:                                               ; preds = %26
-  %42 = load i8, ptr %23, align 8, !tbaa !141, !range !21, !noundef !22
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %44, label %47
+43:                                               ; preds = %26
+  %44 = load ptr, ptr @stderr, align 8, !tbaa !375
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.1, double noundef %39) #34
+  br label %46
 
-44:                                               ; preds = %41
-  %45 = load ptr, ptr @stderr, align 8, !tbaa !375
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.1, double noundef %39) #34
-  br label %47
+46:                                               ; preds = %43, %26
+  %47 = load ptr, ptr %6, align 8, !tbaa !145
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 181
+  %49 = load i8, ptr %48, align 1, !tbaa !376, !range !21, !noundef !22
+  %50 = trunc nuw i8 %49 to i1
+  br i1 %50, label %63, label %51
 
-47:                                               ; preds = %44, %41, %26
-  %48 = load ptr, ptr %6, align 8, !tbaa !145
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 181
-  %50 = load i8, ptr %49, align 1, !tbaa !376, !range !21, !noundef !22
-  %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %64, label %52
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %53 = load ptr, ptr %52, align 8, !tbaa !148
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 332
+  %55 = load float, ptr %54, align 4, !tbaa !186
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %57 = load i32, ptr %56, align 4, !tbaa !319
+  %.not = icmp eq i32 %57, 10
+  %58 = fmul float %55, 2.000000e+00
+  %spec.select = select i1 %.not, float %55, float %58
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %60 = load ptr, ptr %59, align 8, !tbaa !150
+  %61 = fpext float %spec.select to double
+  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.2, double noundef %61) #33
+  br label %63
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %54 = load ptr, ptr %53, align 8, !tbaa !148
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 332
-  %56 = load float, ptr %55, align 4, !tbaa !186
-  %57 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %58 = load i32, ptr %57, align 4, !tbaa !319
-  %.not = icmp eq i32 %58, 10
-  %59 = fmul float %56, 2.000000e+00
-  %spec.select = select i1 %.not, float %56, float %59
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %61 = load ptr, ptr %60, align 8, !tbaa !150
-  %62 = fpext float %spec.select to double
-  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.2, double noundef %62) #33
-  br label %64
-
-64:                                               ; preds = %47, %52, %_ZNSt10unique_ptrIN3gmx12EnergyOutputESt14default_deleteIS1_EED2Ev.exit
+63:                                               ; preds = %46, %51, %_ZNSt10unique_ptrIN3gmx12EnergyOutputESt14default_deleteIS1_EED2Ev.exit
   ret void
 }
 

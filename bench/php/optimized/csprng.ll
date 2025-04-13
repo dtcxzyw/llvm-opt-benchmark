@@ -207,15 +207,15 @@ define dso_local range(i32 -1, 1) i32 @php_random_bytes(ptr noundef nonnull %0, 
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #9
   %5 = call i32 @php_random_bytes_ex(ptr noundef %0, i64 noundef %1, ptr noundef %4, i64 noundef 128)
   %6 = icmp eq i32 %5, -1
-  %brmerge.not = and i1 %2, %6
-  br i1 %brmerge.not, label %7, label %10
+  %or.cond = and i1 %2, %6
+  br i1 %or.cond, label %7, label %10
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !12
   %9 = call ptr @zend_throw_exception(ptr noundef %8, ptr noundef nonnull %4, i64 noundef 0) #9
   br label %10
 
-10:                                               ; preds = %3, %7
+10:                                               ; preds = %7, %3
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #9
   ret i32 %5
 }
@@ -240,8 +240,8 @@ define dso_local range(i32 -1, 1) i32 @php_random_int(i64 noundef %0, i64 nounde
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #9
   %12 = call i32 @php_random_bytes_ex(ptr noundef nonnull %7, i64 noundef 8, ptr noundef %6, i64 noundef 128)
   %13 = icmp eq i32 %12, -1
-  %brmerge.not.i = and i1 %3, %13
-  br i1 %brmerge.not.i, label %php_random_bytes.exit.thread, label %php_random_bytes.exit
+  %or.cond.i = and i1 %3, %13
+  br i1 %or.cond.i, label %php_random_bytes.exit.thread, label %php_random_bytes.exit
 
 php_random_bytes.exit.thread:                     ; preds = %10
   %14 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !12

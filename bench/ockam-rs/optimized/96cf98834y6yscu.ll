@@ -6200,21 +6200,21 @@ common.resume:                                    ; preds = %30, %17
   resume { ptr, i32 } %common.resume.op
 
 22:                                               ; preds = %19
-  %.sroa.0.0.copyload19 = load ptr, ptr %6, align 8
-  %.sroa.5.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx21, i64 16, i1 false)
+  %.sroa.0.0.copyload18 = load ptr, ptr %6, align 8
+  %.sroa.5.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx20, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !815
   call void @"_ZN4core3ptr89drop_in_place$LT$ockam_core..flow_control..flow_controls..producer_info..ProducerInfo$GT$17hfd24a0a3f9b93871E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7), !noalias !812
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
-  %.not = icmp eq ptr %.sroa.0.0.copyload19, null
+  %.not = icmp eq ptr %.sroa.0.0.copyload18, null
   br i1 %.not, label %51, label %23
 
 23:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  store ptr %.sroa.0.0.copyload19, ptr %11, align 8
-  %.sroa.5.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx20, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
+  store ptr %.sroa.0.0.copyload18, ptr %11, align 8
+  %.sroa.5.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx19, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load i8, ptr %24, align 8, !noundef !14
@@ -6344,8 +6344,8 @@ define { ptr, ptr } @_ZN5ockam6remote7options18RemoteRelayOptions21create_access
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load ptr, ptr %2, align 8, !noundef !14
-  %.not3 = icmp eq ptr %20, null
-  br i1 %.not3, label %.body.thread, label %30
+  %.not17 = icmp eq ptr %20, null
+  br i1 %.not17, label %.body.thread, label %30
 
 21:                                               ; preds = %8
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 8, i64 noundef 96) #24
@@ -6378,15 +6378,15 @@ define { ptr, ptr } @_ZN5ockam6remote7options18RemoteRelayOptions21create_access
   br label %27
 
 27:                                               ; preds = %26, %.thread
-  %.sroa.0.022 = phi ptr [ %12, %.thread ], [ %16, %26 ]
-  %.sroa.3.021 = phi ptr [ @anon.4ba9c96f93d37aff8b4870b99605cc2b.34, %.thread ], [ @anon.4ba9c96f93d37aff8b4870b99605cc2b.7, %26 ]
-  %28 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.022, 0
-  %29 = insertvalue { ptr, ptr } %28, ptr %.sroa.3.021, 1
+  %.sroa.0.015 = phi ptr [ %12, %.thread ], [ %16, %26 ]
+  %.sroa.3.014 = phi ptr [ @anon.4ba9c96f93d37aff8b4870b99605cc2b.34, %.thread ], [ @anon.4ba9c96f93d37aff8b4870b99605cc2b.7, %26 ]
+  %28 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.015, 0
+  %29 = insertvalue { ptr, ptr } %28, ptr %.sroa.3.014, 1
   ret { ptr, ptr } %29
 
-.body.thread:                                     ; preds = %22, %.body, %30
-  %eh.lpad-body11 = phi { ptr, i32 } [ %19, %.body ], [ %19, %30 ], [ %23, %22 ]
-  resume { ptr, i32 } %eh.lpad-body11
+.body.thread:                                     ; preds = %22, %30, %.body
+  %eh.lpad-body8 = phi { ptr, i32 } [ %19, %30 ], [ %19, %.body ], [ %23, %22 ]
+  resume { ptr, i32 } %eh.lpad-body8
 
 30:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr77drop_in_place$LT$ockam_core..flow_control..flow_control_id..FlowControlId$GT$17hc99481ef71a543fcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #26

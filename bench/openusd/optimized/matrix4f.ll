@@ -2294,9 +2294,9 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4f14Or
   br label %75
 
 75:                                               ; preds = %66, %62, %2
-  %.not = xor i1 %1, true
-  %brmerge = or i1 %39, %.not
-  br i1 %brmerge, label %81, label %76
+  %.not = xor i1 %39, true
+  %or.cond = and i1 %1, %.not
+  br i1 %or.cond, label %76, label %81
 
 76:                                               ; preds = %75
   store ptr @.str.6, ptr %6, align 8
@@ -2311,7 +2311,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4f14Or
   call void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13TfCallContextEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %6, ptr noundef nonnull @.str.7)
   br label %81
 
-81:                                               ; preds = %75, %76
+81:                                               ; preds = %76, %75
   ret i1 %39
 }
 

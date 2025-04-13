@@ -4395,8 +4395,8 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   store ptr null, ptr %4, align 8
-  %.b90 = load i1, ptr @get_info_job.set_opts, align 1
-  br i1 %.b90, label %9, label %8
+  %.b92 = load i1, ptr @get_info_job.set_opts, align 1
+  br i1 %.b92, label %9, label %8
 
 8:                                                ; preds = %2
   tail call void @set_page_opts(i32 noundef 0, ptr noundef nonnull @display_data_job, i32 noundef 95, ptr noundef nonnull @.str.240) #17
@@ -4443,20 +4443,18 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr @get_info_job.display_widget, align 8
-  %.not91 = icmp eq ptr %24, null
-  br i1 %.not91, label %29, label %25
-
-25:                                               ; preds = %23
-  %26 = load i8, ptr @toggled, align 1, !range !18, !noundef !19
+  %25 = icmp ne ptr %24, null
+  %26 = load i8, ptr @toggled, align 1, !range !18
   %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %28, label %29
+  %or.cond3 = select i1 %25, i1 %27, i1 false
+  br i1 %or.cond3, label %28, label %29
 
-28:                                               ; preds = %25
+28:                                               ; preds = %23
   tail call void @gtk_widget_destroy(ptr noundef nonnull %24) #17
   store ptr null, ptr @get_info_job.display_widget, align 8
   br label %67
 
-29:                                               ; preds = %25, %23
+29:                                               ; preds = %23
   %30 = load i8, ptr @force_refresh, align 1, !range !18, !noundef !19
   %31 = zext nneg i8 %30 to i32
   %32 = tail call i32 @get_new_info_job(ptr noundef nonnull @get_info_job.job_info_ptr, i32 noundef %31)
@@ -4472,8 +4470,8 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr @get_info_job.display_widget, align 8
-  %.not93 = icmp eq ptr %37, null
-  br i1 %.not93, label %39, label %38
+  %.not94 = icmp eq ptr %37, null
+  br i1 %.not94, label %39, label %38
 
 38:                                               ; preds = %36
   tail call void @gtk_widget_destroy(ptr noundef nonnull %37) #17
@@ -4510,8 +4508,8 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr @get_info_job.display_widget, align 8
-  %.not92 = icmp eq ptr %56, null
-  br i1 %.not92, label %58, label %57
+  %.not93 = icmp eq ptr %56, null
+  br i1 %.not93, label %58, label %57
 
 57:                                               ; preds = %55
   tail call void @gtk_widget_destroy(ptr noundef nonnull %56) #17
@@ -4536,19 +4534,19 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   %68 = load ptr, ptr @get_info_job.job_info_ptr, align 8
   %69 = load ptr, ptr @get_info_job.step_info_ptr, align 8
   %70 = tail call fastcc ptr @_create_job_info_list(ptr noundef %68, ptr noundef %69, i32 noundef 0)
-  %.not94 = icmp eq ptr %70, null
-  br i1 %.not94, label %153, label %71
+  %.not95 = icmp eq ptr %70, null
+  br i1 %.not95, label %153, label %71
 
 71:                                               ; preds = %67
   %72 = load ptr, ptr @get_info_job.display_widget, align 8
-  %.not95 = icmp eq ptr %72, null
-  br i1 %.not95, label %.thread127, label %73
+  %.not96 = icmp eq ptr %72, null
+  br i1 %.not96, label %.thread128, label %73
 
 73:                                               ; preds = %71
   %74 = tail call i64 @gtk_tree_view_get_type() #18
   %75 = load ptr, ptr %72, align 8
-  %.not96 = icmp eq ptr %75, null
-  br i1 %.not96, label %79, label %76
+  %.not97 = icmp eq ptr %75, null
+  br i1 %.not97, label %79, label %76
 
 76:                                               ; preds = %73
   %77 = load i64, ptr %75, align 8
@@ -4558,14 +4556,14 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 79:                                               ; preds = %76, %73
   %80 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %72, i64 noundef %74) #20
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %.thread127, label %.critedge
+  br i1 %81, label %.thread128, label %.critedge
 
 .critedge:                                        ; preds = %76, %79
   %82 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %72, i64 noundef %74) #17
   %83 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %82) #17
   %84 = tail call i32 @gtk_tree_selection_count_selected_rows(ptr noundef %83) #17
-  %.not98 = icmp eq i32 %84, 0
-  br i1 %.not98, label %.thread127, label %85
+  %.not99 = icmp eq i32 %84, 0
+  br i1 %.not99, label %.thread128, label %85
 
 85:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
@@ -4576,9 +4574,9 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   %.pre = load ptr, ptr %4, align 8
   %88 = icmp eq ptr %.pre, null
-  br i1 %88, label %.thread127, label %126
+  br i1 %88, label %.thread128, label %126
 
-.thread127:                                       ; preds = %71, %79, %.critedge, %85
+.thread128:                                       ; preds = %71, %79, %.critedge, %85
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
   %89 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 98304, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3827, ptr noundef nonnull @__func__.get_info_job) #17
   store ptr %89, ptr %6, align 8
@@ -4587,48 +4585,48 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   store ptr %90, ptr %7, align 8
   %91 = call ptr @list_iterator_create(ptr noundef nonnull %70) #17
   %92 = call ptr @list_next(ptr noundef %91) #17
-  %.not100115 = icmp eq ptr %92, null
-  br i1 %.not100115, label %._crit_edge119, label %.lr.ph118
+  %.not101116 = icmp eq ptr %92, null
+  br i1 %.not101116, label %._crit_edge120, label %.lr.ph119
 
-.lr.ph118:                                        ; preds = %.thread127, %.loopexit
-  %93 = phi ptr [ %122, %.loopexit ], [ %92, %.thread127 ]
-  %.0116 = phi i32 [ %.1, %.loopexit ], [ 0, %.thread127 ]
+.lr.ph119:                                        ; preds = %.thread128, %.loopexit
+  %93 = phi ptr [ %122, %.loopexit ], [ %92, %.thread128 ]
+  %.0117 = phi i32 [ %.1, %.loopexit ], [ 0, %.thread128 ]
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 432
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, 255
-  %.not101 = icmp eq i32 %98, 1
-  br i1 %.not101, label %.preheader107, label %.loopexit, !llvm.loop !33
+  %.not102 = icmp eq i32 %98, 1
+  br i1 %.not102, label %.preheader108, label %.loopexit, !llvm.loop !33
 
-.preheader107:                                    ; preds = %.lr.ph118
+.preheader108:                                    ; preds = %.lr.ph119
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 528
   %100 = load ptr, ptr %99, align 8
   %101 = load i32, ptr %100, align 4
   %102 = icmp sgt i32 %101, -1
-  br i1 %102, label %.lr.ph114, label %.loopexit
+  br i1 %102, label %.lr.ph115, label %.loopexit
 
-.lr.ph114:                                        ; preds = %.preheader107, %._crit_edge
-  %103 = phi ptr [ %118, %._crit_edge ], [ %100, %.preheader107 ]
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %._crit_edge ], [ 0, %.preheader107 ]
-  %104 = phi i32 [ %120, %._crit_edge ], [ %101, %.preheader107 ]
-  %.2113 = phi i32 [ %.2., %._crit_edge ], [ %.0116, %.preheader107 ]
-  %105 = or disjoint i64 %indvars.iv123, 1
+.lr.ph115:                                        ; preds = %.preheader108, %._crit_edge
+  %103 = phi ptr [ %118, %._crit_edge ], [ %100, %.preheader108 ]
+  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %._crit_edge ], [ 0, %.preheader108 ]
+  %104 = phi i32 [ %120, %._crit_edge ], [ %101, %.preheader108 ]
+  %.2114 = phi i32 [ %.2., %._crit_edge ], [ %.0117, %.preheader108 ]
+  %105 = or disjoint i64 %indvars.iv124, 1
   %106 = getelementptr inbounds nuw i32, ptr %103, i64 %105
   %107 = load i32, ptr %106, align 4
-  %.2. = call i32 @llvm.smax.i32(i32 %.2113, i32 %107)
+  %.2. = call i32 @llvm.smax.i32(i32 %.2114, i32 %107)
   %108 = icmp sgt i32 %.2., 24576
   br i1 %108, label %110, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph114
-  %.not102110 = icmp sgt i32 %104, %107
-  br i1 %.not102110, label %._crit_edge, label %.lr.ph.preheader
+.preheader:                                       ; preds = %.lr.ph115
+  %.not103111 = icmp sgt i32 %104, %107
+  br i1 %.not103111, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %109 = zext nneg i32 %104 to i64
   br label %.lr.ph
 
-110:                                              ; preds = %.lr.ph114
+110:                                              ; preds = %.lr.ph115
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.47) #19
   unreachable
 
@@ -4644,29 +4642,29 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   %115 = getelementptr inbounds nuw i32, ptr %114, i64 %105
   %116 = load i32, ptr %115, align 4
   %117 = trunc nuw i64 %indvars.iv to i32
-  %.not102.not = icmp sgt i32 %116, %117
-  br i1 %.not102.not, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  %.not103.not = icmp sgt i32 %116, %117
+  br i1 %.not103.not, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %118 = phi ptr [ %103, %.preheader ], [ %114, %.lr.ph ]
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 2
-  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv.next124
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 2
+  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv.next125
   %120 = load i32, ptr %119, align 4
   %121 = icmp sgt i32 %120, -1
-  br i1 %121, label %.lr.ph114, label %.loopexit, !llvm.loop !35
+  br i1 %121, label %.lr.ph115, label %.loopexit, !llvm.loop !35
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader107, %.lr.ph118
-  %.1 = phi i32 [ %.0116, %.lr.ph118 ], [ %.0116, %.preheader107 ], [ %.2., %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %.preheader108, %.lr.ph119
+  %.1 = phi i32 [ %.0117, %.lr.ph119 ], [ %.0117, %.preheader108 ], [ %.2., %._crit_edge ]
   %122 = call ptr @list_next(ptr noundef %91) #17
-  %.not100 = icmp eq ptr %122, null
-  br i1 %.not100, label %._crit_edge119.loopexit, label %.lr.ph118
+  %.not101 = icmp eq ptr %122, null
+  br i1 %.not101, label %._crit_edge120.loopexit, label %.lr.ph119
 
-._crit_edge119.loopexit:                          ; preds = %.loopexit
+._crit_edge120.loopexit:                          ; preds = %.loopexit
   %123 = add nuw nsw i32 %.1, 1
-  br label %._crit_edge119
+  br label %._crit_edge120
 
-._crit_edge119:                                   ; preds = %._crit_edge119.loopexit, %.thread127
-  %.0.lcssa = phi i32 [ 1, %.thread127 ], [ %123, %._crit_edge119.loopexit ]
+._crit_edge120:                                   ; preds = %._crit_edge120.loopexit, %.thread128
+  %.0.lcssa = phi i32 [ 1, %.thread128 ], [ %123, %._crit_edge120.loopexit ]
   call void @list_iterator_destroy(ptr noundef %91) #17
   %124 = load ptr, ptr @grid_button_list, align 8
   call void @change_grid_color_array(ptr noundef %124, i32 noundef %.0.lcssa, ptr noundef %89, ptr noundef %90, i1 noundef zeroext true, i32 noundef 0) #17
@@ -4688,13 +4686,13 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   call void @gtk_tree_path_free(ptr noundef %131) #17
   br label %132
 
-132:                                              ; preds = %126, %._crit_edge119
+132:                                              ; preds = %126, %._crit_edge120
   %133 = load i32, ptr @get_info_job.view, align 4
   %134 = icmp eq i32 %133, 0
   %135 = load ptr, ptr @get_info_job.display_widget, align 8
   %136 = icmp ne ptr %135, null
-  %or.cond7 = select i1 %134, i1 %136, i1 false
-  br i1 %or.cond7, label %.thread, label %137
+  %or.cond9 = select i1 %134, i1 %136, i1 false
+  br i1 %or.cond9, label %.thread, label %137
 
 .thread:                                          ; preds = %132
   call void @gtk_widget_destroy(ptr noundef nonnull %135) #17
@@ -4702,8 +4700,8 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   br label %138
 
 137:                                              ; preds = %132
-  %.not103 = icmp eq ptr %135, null
-  br i1 %.not103, label %138, label %148
+  %.not104 = icmp eq ptr %135, null
+  br i1 %.not104, label %138, label %148
 
 138:                                              ; preds = %.thread, %137
   %139 = load ptr, ptr @local_display_data, align 8
@@ -4723,11 +4721,11 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   call void @set_column_width_fixed(ptr noundef %140, i32 noundef 49, i32 noundef 100) #17
   call void @set_column_width_fixed(ptr noundef %140, i32 noundef 50, i32 noundef 100) #17
   call void @set_column_width_fixed(ptr noundef %140, i32 noundef 51, i32 noundef 100) #17
-  %.pre126 = load ptr, ptr @get_info_job.display_widget, align 8
+  %.pre127 = load ptr, ptr @get_info_job.display_widget, align 8
   br label %148
 
 148:                                              ; preds = %138, %137
-  %149 = phi ptr [ %.pre126, %138 ], [ %135, %137 ]
+  %149 = phi ptr [ %.pre127, %138 ], [ %135, %137 ]
   store i32 1, ptr @get_info_job.view, align 4
   %150 = tail call i64 @gtk_tree_view_get_type() #18
   %151 = call ptr @g_type_check_instance_cast(ptr noundef %149, i64 noundef %150) #17
@@ -4741,14 +4739,14 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 
 153:                                              ; preds = %67, %152
   %154 = load ptr, ptr @main_window, align 8
-  %.not104 = icmp eq ptr %154, null
-  br i1 %.not104, label %159, label %155
+  %.not105 = icmp eq ptr %154, null
+  br i1 %.not105, label %159, label %155
 
 155:                                              ; preds = %153
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 80
   %157 = load ptr, ptr %156, align 8
-  %.not105 = icmp eq ptr %157, null
-  br i1 %.not105, label %159, label %158
+  %.not106 = icmp eq ptr %157, null
+  br i1 %.not106, label %159, label %158
 
 158:                                              ; preds = %155
   call void @gdk_window_set_cursor(ptr noundef nonnull %157, ptr noundef null) #17
@@ -5994,8 +5992,8 @@ define dso_local void @cluster_change_job() local_unnamed_addr #0 {
   br i1 %22, label %._crit_edge, label %.lr.ph.split, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %18, %9, %0
-  %.b90.i = load i1, ptr @get_info_job.set_opts, align 1
-  br i1 %.b90.i, label %24, label %23
+  %.b92.i = load i1, ptr @get_info_job.set_opts, align 1
+  br i1 %.b92.i, label %24, label %23
 
 23:                                               ; preds = %._crit_edge
   tail call void @set_page_opts(i32 noundef 0, ptr noundef nonnull @display_data_job, i32 noundef 95, ptr noundef nonnull @.str.240) #17
@@ -6433,22 +6431,22 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 40, ptr noundef nonnull @.str.76, ptr noundef %54, i32 noundef %56) #17
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %59 = load ptr, ptr %58, align 8
-  %.not287 = icmp eq ptr %59, null
-  br i1 %.not287, label %60, label %75
+  %.not288 = icmp eq ptr %59, null
+  br i1 %.not288, label %60, label %75
 
 60:                                               ; preds = %5
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %62 = load ptr, ptr %61, align 8
-  %.not288 = icmp eq ptr %62, null
-  br i1 %.not288, label %75, label %63
+  %.not289 = icmp eq ptr %62, null
+  br i1 %.not289, label %75, label %63
 
 63:                                               ; preds = %60
   %64 = tail call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %62) #17
   store ptr %64, ptr %58, align 8
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 396
   %66 = load i32, ptr %65, align 4
-  %.not289 = icmp eq i32 %66, 0
-  br i1 %.not289, label %67, label %71
+  %.not290 = icmp eq i32 %66, 0
+  br i1 %.not290, label %67, label %71
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 48
@@ -6469,22 +6467,22 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 75:                                               ; preds = %73, %60, %5
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %77 = load ptr, ptr %76, align 8
-  %.not290 = icmp eq ptr %77, null
-  br i1 %.not290, label %78, label %93
+  %.not291 = icmp eq ptr %77, null
+  br i1 %.not291, label %78, label %93
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %80 = load ptr, ptr %79, align 8
-  %.not291 = icmp eq ptr %80, null
-  br i1 %.not291, label %93, label %81
+  %.not292 = icmp eq ptr %80, null
+  br i1 %.not292, label %93, label %81
 
 81:                                               ; preds = %78
   %82 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %80) #17
   store ptr %82, ptr %76, align 8
   %83 = getelementptr inbounds nuw i8, ptr %51, i64 396
   %84 = load i32, ptr %83, align 4
-  %.not292 = icmp eq i32 %84, 0
-  br i1 %.not292, label %85, label %89
+  %.not293 = icmp eq i32 %84, 0
+  br i1 %.not293, label %85, label %89
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %51, i64 48
@@ -6509,26 +6507,26 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 95:                                               ; preds = %93
   %96 = getelementptr inbounds nuw i8, ptr %51, i64 396
   %97 = load i32, ptr %96, align 4
-  %.not293 = icmp eq i32 %97, 0
-  br i1 %.not293, label %98, label %101
+  %.not294 = icmp eq i32 %97, 0
+  br i1 %.not294, label %98, label %101
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %100 = load i32, ptr %99, align 8
-  %.not294 = icmp eq i32 %100, 0
-  br i1 %.not294, label %114, label %101
+  %.not295 = icmp eq i32 %100, 0
+  br i1 %.not295, label %114, label %101
 
 101:                                              ; preds = %98, %95
   %102 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %103 = load ptr, ptr %102, align 8
-  %.not303 = icmp eq ptr %103, null
-  br i1 %.not303, label %104, label %107
+  %.not304 = icmp eq ptr %103, null
+  br i1 %.not304, label %104, label %107
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %51, i64 52
   %106 = load i32, ptr %105, align 4
-  %.not304 = icmp eq i32 %106, -2
-  br i1 %.not304, label %111, label %107
+  %.not305 = icmp eq i32 %106, -2
+  br i1 %.not305, label %111, label %107
 
 107:                                              ; preds = %104, %101
   %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %94) #17
@@ -6538,7 +6536,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br label %175
 
 111:                                              ; preds = %104
-  br i1 %.not293, label %175, label %112
+  br i1 %.not294, label %175, label %112
 
 112:                                              ; preds = %111
   %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %94) #17
@@ -6550,26 +6548,26 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 115:                                              ; preds = %114
   %116 = getelementptr inbounds nuw i8, ptr %51, i64 396
   %117 = load i32, ptr %116, align 4
-  %.not295 = icmp eq i32 %117, 0
-  br i1 %.not295, label %118, label %121
+  %.not296 = icmp eq i32 %117, 0
+  br i1 %.not296, label %118, label %121
 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %120 = load i32, ptr %119, align 8
-  %.not296 = icmp eq i32 %120, 0
-  br i1 %.not296, label %136, label %121
+  %.not297 = icmp eq i32 %120, 0
+  br i1 %.not297, label %136, label %121
 
 121:                                              ; preds = %118, %115
   %122 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %123 = load ptr, ptr %122, align 8
-  %.not300 = icmp eq ptr %123, null
-  br i1 %.not300, label %124, label %127
+  %.not301 = icmp eq ptr %123, null
+  br i1 %.not301, label %124, label %127
 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %51, i64 52
   %126 = load i32, ptr %125, align 4
-  %.not301 = icmp eq i32 %126, -2
-  br i1 %.not301, label %132, label %127
+  %.not302 = icmp eq i32 %126, -2
+  br i1 %.not302, label %132, label %127
 
 127:                                              ; preds = %124, %121
   %128 = load ptr, ptr %58, align 8
@@ -6580,7 +6578,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br label %175
 
 132:                                              ; preds = %124
-  br i1 %.not295, label %175, label %133
+  br i1 %.not296, label %175, label %133
 
 133:                                              ; preds = %132
   %134 = load ptr, ptr %58, align 8
@@ -6590,8 +6588,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 136:                                              ; preds = %118, %114
   %137 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %138 = load ptr, ptr %137, align 8
-  %.not297 = icmp eq ptr %138, null
-  br i1 %.not297, label %148, label %139
+  %.not298 = icmp eq ptr %138, null
+  br i1 %.not298, label %148, label %139
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6607,8 +6605,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 148:                                              ; preds = %136
   %149 = getelementptr inbounds nuw i8, ptr %51, i64 52
   %150 = load i32, ptr %149, align 4
-  %.not298 = icmp eq i32 %150, -2
-  br i1 %.not298, label %160, label %151
+  %.not299 = icmp eq i32 %150, -2
+  br i1 %.not299, label %160, label %151
 
 151:                                              ; preds = %148
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6624,11 +6622,11 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 160:                                              ; preds = %148
   %161 = getelementptr inbounds nuw i8, ptr %51, i64 396
   %162 = load i32, ptr %161, align 4
-  %.not299 = icmp eq i32 %162, 0
+  %.not300 = icmp eq i32 %162, 0
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %164 = load ptr, ptr %163, align 8
   %165 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %164) #17
-  br i1 %.not299, label %175, label %166
+  br i1 %.not300, label %175, label %166
 
 166:                                              ; preds = %160
   %167 = load i32, ptr %161, align 4
@@ -6644,8 +6642,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 175:                                              ; preds = %160, %132, %133, %127, %151, %166, %139, %107, %112, %111
   %176 = getelementptr inbounds nuw i8, ptr %51, i64 396
   %177 = load i32, ptr %176, align 4
-  %.not306 = icmp eq i32 %177, 0
-  br i1 %.not306, label %178, label %179
+  %.not307 = icmp eq i32 %177, 0
+  br i1 %.not307, label %178, label %179
 
 178:                                              ; preds = %175
   store i32 4271950, ptr %41, align 16
@@ -6656,8 +6654,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 179:                                              ; preds = %178, %175
   %180 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %181 = load i32, ptr %180, align 8
-  %.not307 = icmp eq i32 %181, 0
-  br i1 %.not307, label %182, label %183
+  %.not308 = icmp eq i32 %181, 0
+  br i1 %.not308, label %182, label %183
 
 182:                                              ; preds = %179
   store i32 4271950, ptr %8, align 16
@@ -6667,16 +6665,16 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 183:                                              ; preds = %182, %179
   %184 = getelementptr inbounds nuw i8, ptr %51, i64 88
   %185 = load i16, ptr %184, align 8
-  %.not308 = icmp eq i16 %185, 0
-  %.str.39..str.38 = select i1 %.not308, ptr @.str.39, ptr @.str.38
+  %.not309 = icmp eq i16 %185, 0
+  %.str.39..str.38 = select i1 %.not309, ptr @.str.39, ptr @.str.38
   %186 = getelementptr inbounds nuw i8, ptr %51, i64 184
   %187 = load i16, ptr %186, align 8
-  %.not309 = icmp eq i16 %187, 0
-  %.0269 = select i1 %.not309, ptr @.str.39, ptr @.str.38
+  %.not310 = icmp eq i16 %187, 0
+  %.0270 = select i1 %.not310, ptr @.str.39, ptr @.str.38
   %188 = getelementptr inbounds nuw i8, ptr %51, i64 186
   %189 = load i16, ptr %188, align 2
-  %.not310 = icmp sgt i16 %189, -1
-  br i1 %.not310, label %191, label %190
+  %.not311 = icmp sgt i16 %189, -1
+  br i1 %.not311, label %191, label %190
 
 190:                                              ; preds = %183
   store i32 4271950, ptr %34, align 16
@@ -6692,8 +6690,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %195 = phi i16 [ %.pre, %191 ], [ %189, %190 ]
   %196 = icmp eq i16 %195, -2
   %197 = icmp sgt i16 %195, -1
-  %or.cond345 = or i1 %196, %197
-  br i1 %or.cond345, label %198, label %199
+  %or.cond347 = or i1 %196, %197
+  br i1 %or.cond347, label %198, label %199
 
 198:                                              ; preds = %194
   store i32 4271950, ptr %39, align 16
@@ -6744,24 +6742,24 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %230 = icmp eq i32 %229, 0
   %231 = lshr i32 %228, 8
   %232 = and i32 %231, 255
-  %.0261 = select i1 %230, i32 %232, i32 0
+  %.0262 = select i1 %230, i32 %232, i32 0
   %233 = shl nuw nsw i32 %229, 24
   %sext = add nuw i32 %233, 16777216
   %234 = icmp sgt i32 %sext, 33554431
-  %.0260 = select i1 %234, i32 %229, i32 0
-  %235 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 40, ptr noundef nonnull @.str.80, i32 noundef %.0261, i32 noundef %.0260) #17
+  %.0261 = select i1 %234, i32 %229, i32 0
+  %235 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 40, ptr noundef nonnull @.str.80, i32 noundef %.0262, i32 noundef %.0261) #17
   %236 = getelementptr inbounds nuw i8, ptr %51, i64 296
   %237 = load i32, ptr %236, align 8
   %238 = and i32 %237, 127
   %239 = icmp eq i32 %238, 0
   %240 = lshr i32 %237, 8
   %241 = and i32 %240, 255
-  %.1262 = select i1 %239, i32 %241, i32 0
+  %.1263 = select i1 %239, i32 %241, i32 0
   %242 = shl nuw nsw i32 %238, 24
-  %sext311 = add nuw i32 %242, 16777216
-  %243 = icmp sgt i32 %sext311, 33554431
+  %sext312 = add nuw i32 %242, 16777216
+  %243 = icmp sgt i32 %sext312, 33554431
   %.1 = select i1 %243, i32 %238, i32 0
-  %244 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 40, ptr noundef nonnull @.str.80, i32 noundef %.1262, i32 noundef %.1) #17
+  %244 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 40, ptr noundef nonnull @.str.80, i32 noundef %.1263, i32 noundef %.1) #17
   %245 = getelementptr inbounds nuw i8, ptr %51, i64 392
   %246 = load i32, ptr %245, align 8
   %247 = call ptr @gid_to_string(i32 noundef %246) #17
@@ -6769,8 +6767,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %248 = getelementptr inbounds nuw i8, ptr %51, i64 584
   %249 = load i64, ptr %248, align 8
   %250 = and i64 %249, 9223372036854775807
-  %.not313 = icmp eq i64 %250, 0
-  br i1 %.not313, label %267, label %251
+  %.not314 = icmp eq i64 %250, 0
+  br i1 %.not314, label %267, label %251
 
 251:                                              ; preds = %211
   %252 = uitofp nneg i64 %250 to float
@@ -6780,23 +6778,23 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %255 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #20
   %256 = getelementptr inbounds nuw i8, ptr %51, i64 488
   %257 = load ptr, ptr %256, align 8
-  %.not314 = icmp eq ptr %257, null
-  br i1 %.not314, label %261, label %258
+  %.not315 = icmp eq ptr %257, null
+  br i1 %.not315, label %261, label %258
 
 258:                                              ; preds = %251
-  %sext318 = shl i64 %255, 32
-  %259 = ashr exact i64 %sext318, 32
+  %sext319 = shl i64 %255, 32
+  %259 = ashr exact i64 %sext319, 32
   %260 = getelementptr inbounds i8, ptr %25, i64 %259
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %260, ptr noundef nonnull align 1 dereferenceable(10) @.str.84, i64 10, i1 false)
   br label %268
 
 261:                                              ; preds = %251
   %262 = load i64, ptr %248, align 8
-  %.not315 = icmp sgt i64 %262, -1
-  %sext316 = shl i64 %255, 32
-  %263 = ashr exact i64 %sext316, 32
+  %.not316 = icmp sgt i64 %262, -1
+  %sext317 = shl i64 %255, 32
+  %263 = ashr exact i64 %sext317, 32
   %264 = getelementptr inbounds i8, ptr %25, i64 %263
-  br i1 %.not315, label %266, label %265
+  br i1 %.not316, label %266, label %265
 
 265:                                              ; preds = %261
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %264, ptr noundef nonnull align 1 dereferenceable(9) @.str.85, i64 9, i1 false)
@@ -6818,8 +6816,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %273 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %272) #17
   %274 = getelementptr inbounds nuw i8, ptr %51, i64 776
   %275 = load ptr, ptr %274, align 8
-  %.not319 = icmp eq ptr %275, null
-  br i1 %.not319, label %276, label %280
+  %.not320 = icmp eq ptr %275, null
+  br i1 %.not320, label %276, label %280
 
 276:                                              ; preds = %268
   %277 = getelementptr inbounds nuw i8, ptr %51, i64 784
@@ -6828,15 +6826,15 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br label %280
 
 280:                                              ; preds = %268, %276
-  %.0267 = phi ptr [ %279, %276 ], [ %275, %268 ]
+  %.0268 = phi ptr [ %279, %276 ], [ %275, %268 ]
   %281 = getelementptr inbounds nuw i8, ptr %51, i64 664
   %282 = load i8, ptr %281, align 8
-  %.not320 = icmp eq i8 %282, 0
-  %.str.39..str.38346 = select i1 %.not320, ptr @.str.39, ptr @.str.38
+  %.not321 = icmp eq i8 %282, 0
+  %.str.39..str.38348 = select i1 %.not321, ptr @.str.39, ptr @.str.38
   %283 = getelementptr inbounds nuw i8, ptr %51, i64 692
   %284 = load i16, ptr %283, align 4
-  %.not321 = icmp eq i16 %284, 0
-  %.0270 = select i1 %.not321, ptr @.str.39, ptr @.str.38
+  %.not322 = icmp eq i16 %284, 0
+  %.0271 = select i1 %.not322, ptr @.str.39, ptr @.str.38
   %285 = getelementptr inbounds nuw i8, ptr %51, i64 520
   %286 = load i32, ptr %285, align 8
   %287 = zext i32 %286 to i64
@@ -6844,8 +6842,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %289 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %31, i64 noundef 40, ptr noundef nonnull @.str.88, i64 noundef %288) #17
   %290 = getelementptr inbounds nuw i8, ptr %51, i64 512
   %291 = load ptr, ptr %290, align 8
-  %.not322 = icmp eq ptr %291, null
-  br i1 %.not322, label %299, label %292
+  %.not323 = icmp eq ptr %291, null
+  br i1 %.not323, label %299, label %292
 
 292:                                              ; preds = %280
   %293 = getelementptr inbounds nuw i8, ptr %51, i64 432
@@ -6856,8 +6854,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 
 297:                                              ; preds = %292
   %298 = call i32 @xstrcasecmp(ptr noundef nonnull %291, ptr noundef nonnull @.str.74) #17
-  %.not323 = icmp eq i32 %298, 0
-  br i1 %.not323, label %299, label %301
+  %.not324 = icmp eq i32 %298, 0
+  br i1 %.not324, label %299, label %301
 
 299:                                              ; preds = %297, %292, %280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %10, ptr noundef nonnull align 1 dereferenceable(9) @.str.75, i64 9, i1 false)
@@ -6880,19 +6878,19 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 306:                                              ; preds = %301
   %307 = getelementptr inbounds nuw i8, ptr %51, i64 272
   %308 = load i64, ptr %307, align 8
-  %.not324 = icmp eq i64 %308, 0
-  %spec.select347 = select i1 %.not324, i64 %49, i64 %308
+  %.not325 = icmp eq i64 %308, 0
+  %spec.select349 = select i1 %.not325, i64 %49, i64 %308
   br label %309
 
 309:                                              ; preds = %306, %301
-  %.1266 = phi i64 [ %49, %301 ], [ %spec.select347, %306 ]
+  %.1267 = phi i64 [ %49, %301 ], [ %spec.select349, %306 ]
   %310 = getelementptr inbounds nuw i8, ptr %51, i64 832
   %311 = load i64, ptr %310, align 8
-  %.not325 = icmp eq i64 %311, 0
-  br i1 %.not325, label %319, label %312
+  %.not326 = icmp eq i64 %311, 0
+  br i1 %.not326, label %319, label %312
 
 312:                                              ; preds = %309
-  %313 = call double @difftime(i64 noundef %.1266, i64 noundef %311) #18
+  %313 = call double @difftime(i64 noundef %.1267, i64 noundef %311) #18
   %314 = getelementptr inbounds nuw i8, ptr %51, i64 616
   %315 = load i64, ptr %314, align 8
   %316 = sitofp i64 %315 to double
@@ -6903,33 +6901,33 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 319:                                              ; preds = %309
   %320 = getelementptr inbounds nuw i8, ptr %51, i64 760
   %321 = load i64, ptr %320, align 8
-  %322 = call double @difftime(i64 noundef %.1266, i64 noundef %321) #18
+  %322 = call double @difftime(i64 noundef %.1267, i64 noundef %321) #18
   %323 = fptosi double %322 to i64
   br label %324
 
 324:                                              ; preds = %312, %319, %303
-  %.0265 = phi i64 [ %305, %303 ], [ %318, %312 ], [ %323, %319 ]
+  %.0266 = phi i64 [ %305, %303 ], [ %318, %312 ], [ %323, %319 ]
   %325 = call i64 @time(ptr noundef null) #17
   %326 = getelementptr inbounds nuw i8, ptr %51, i64 760
   %327 = load i64, ptr %326, align 8
-  %328 = add i64 %.0265, %327
+  %328 = add i64 %.0266, %327
   %329 = sub i64 %325, %328
-  call void @secs2time_str(i64 noundef %.0265, ptr noundef nonnull %10, i32 noundef 40) #17
+  call void @secs2time_str(i64 noundef %.0266, ptr noundef nonnull %10, i32 noundef 40) #17
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %331 = load ptr, ptr %330, align 8
   %332 = call ptr @slurm_sort_node_list_str(ptr noundef %331) #17
-  %sext330 = shl i64 %329, 32
-  %333 = ashr exact i64 %sext330, 32
+  %sext331 = shl i64 %329, 32
+  %333 = ashr exact i64 %sext331, 32
   br label %334
 
 334:                                              ; preds = %324, %299
   %335 = phi ptr [ %332, %324 ], [ %300, %299 ]
-  %.0264 = phi i64 [ %333, %324 ], [ 0, %299 ]
+  %.0265 = phi i64 [ %333, %324 ], [ 0, %299 ]
   store ptr %335, ptr %46, align 8
   %336 = getelementptr inbounds nuw i8, ptr %51, i64 476
   %337 = load i32, ptr %336, align 4
-  %.not326 = icmp eq i32 %337, 0
-  br i1 %.not326, label %341, label %338
+  %.not327 = icmp eq i32 %337, 0
+  br i1 %.not327, label %341, label %338
 
 338:                                              ; preds = %334
   %339 = load i32, ptr %269, align 8
@@ -6993,8 +6991,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 366:                                              ; preds = %362, %363, %361
   %367 = getelementptr inbounds nuw i8, ptr %51, i64 600
   %368 = load i64, ptr %367, align 8
-  %.not327 = icmp eq i64 %368, 0
-  br i1 %.not327, label %370, label %369
+  %.not328 = icmp eq i64 %368, 0
+  br i1 %.not328, label %370, label %369
 
 369:                                              ; preds = %366
   call void @slurm_make_time_str(ptr noundef nonnull %367, ptr noundef nonnull %32, i32 noundef 256) #17
@@ -7007,8 +7005,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 371:                                              ; preds = %370, %369
   %372 = getelementptr inbounds nuw i8, ptr %51, i64 696
   %373 = load i64, ptr %372, align 8
-  %.not328 = icmp eq i64 %373, 0
-  br i1 %.not328, label %375, label %374
+  %.not329 = icmp eq i64 %373, 0
+  br i1 %.not329, label %375, label %374
 
 374:                                              ; preds = %371
   call void @slurm_make_time_str(ptr noundef nonnull %372, ptr noundef nonnull %11, i32 noundef 256) #17
@@ -7025,8 +7023,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   call void @slurm_make_time_str(ptr noundef nonnull %378, ptr noundef nonnull %12, i32 noundef 256) #17
   %379 = getelementptr inbounds nuw i8, ptr %51, i64 232
   %380 = load i64, ptr %379, align 8
-  %.not329 = icmp eq i64 %380, 0
-  br i1 %.not329, label %382, label %381
+  %.not330 = icmp eq i64 %380, 0
+  br i1 %.not330, label %382, label %381
 
 381:                                              ; preds = %376
   call void @slurm_make_time_str(ptr noundef nonnull %379, ptr noundef nonnull %40, i32 noundef 256) #17
@@ -7040,17 +7038,17 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   call void @slurm_get_job_stderr(ptr noundef nonnull %36, i32 noundef 128, ptr noundef nonnull %51) #17
   call void @slurm_get_job_stdin(ptr noundef nonnull %37, i32 noundef 128, ptr noundef nonnull %51) #17
   call void @slurm_get_job_stdout(ptr noundef nonnull %38, i32 noundef 128, ptr noundef nonnull %51) #17
-  call void @secs2time_str(i64 noundef %.0264, ptr noundef nonnull %16, i32 noundef 40) #17
+  call void @secs2time_str(i64 noundef %.0265, ptr noundef nonnull %16, i32 noundef 40) #17
   %384 = getelementptr inbounds nuw i8, ptr %51, i64 688
   %385 = load i32, ptr %384, align 8
-  %.not331 = icmp eq i32 %385, -2
-  br i1 %.not331, label %395, label %386
+  %.not332 = icmp eq i32 %385, -2
+  br i1 %.not332, label %395, label %386
 
 386:                                              ; preds = %383
   %387 = getelementptr inbounds nuw i8, ptr %51, i64 944
   %388 = load i32, ptr %387, align 8
-  %.not332 = icmp eq i32 %388, -2
-  br i1 %.not332, label %393, label %389
+  %.not333 = icmp eq i32 %388, -2
+  br i1 %.not333, label %393, label %389
 
 389:                                              ; preds = %386
   %390 = zext i32 %388 to i64
@@ -7071,25 +7069,25 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %397 = getelementptr inbounds nuw i8, ptr %51, i64 928
   %398 = load i32, ptr %397, align 8
   %399 = call ptr @uid_to_string_cached(i32 noundef %398) #17
-  %brmerge = or i1 %3, %4
-  br i1 %brmerge, label %400, label %431
+  %or.cond = or i1 %3, %4
+  br i1 %or.cond, label %400, label %431
 
 400:                                              ; preds = %396
   %401 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %402 = load ptr, ptr %401, align 8
-  %.not333 = icmp eq ptr %402, null
-  br i1 %.not333, label %403, label %408
+  %.not334 = icmp eq ptr %402, null
+  br i1 %.not334, label %403, label %408
 
 403:                                              ; preds = %400
   %404 = getelementptr inbounds nuw i8, ptr %51, i64 52
   %405 = load i32, ptr %404, align 4
-  %.not334 = icmp eq i32 %405, -2
-  br i1 %.not334, label %406, label %408
+  %.not335 = icmp eq i32 %405, -2
+  br i1 %.not335, label %406, label %408
 
 406:                                              ; preds = %403
   %407 = load i32, ptr %176, align 4
-  %.not335 = icmp eq i32 %407, 0
-  br i1 %.not335, label %431, label %408
+  %.not336 = icmp eq i32 %407, 0
+  br i1 %.not336, label %431, label %408
 
 408:                                              ; preds = %406, %403, %400
   %409 = load ptr, ptr %51, align 8
@@ -7111,7 +7109,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %425 = load ptr, ptr %424, align 8
   %426 = getelementptr inbounds nuw i8, ptr %51, i64 568
   %427 = load ptr, ptr %426, align 8
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef 1, ptr noundef %409, i32 noundef 3, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %18, i32 noundef 5, ptr noundef nonnull %8, i32 noundef 6, ptr noundef nonnull %9, i32 noundef 7, ptr noundef nonnull %.str.39..str.38, i32 noundef 8, ptr noundef %411, i32 noundef 9, ptr noundef %413, i32 noundef 10, ptr noundef %415, i32 noundef 11, ptr noundef %419, i32 noundef 12, i32 noundef %416, i32 noundef 13, ptr noundef %421, i32 noundef 14, ptr noundef %423, i32 noundef 15, ptr noundef nonnull %.0269, i32 noundef 26, ptr noundef %425, i32 noundef 36, ptr noundef nonnull %35, i32 noundef 37, ptr noundef nonnull %35, i32 noundef 33, ptr noundef nonnull %41, i32 noundef 34, ptr noundef nonnull %42, i32 noundef 35, ptr noundef nonnull %43, i32 noundef 57, ptr noundef %427, i32 noundef 91, i32 noundef 1, i32 noundef 92, ptr noundef %399, i32 noundef -1) #17
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef 1, ptr noundef %409, i32 noundef 3, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %18, i32 noundef 5, ptr noundef nonnull %8, i32 noundef 6, ptr noundef nonnull %9, i32 noundef 7, ptr noundef nonnull %.str.39..str.38, i32 noundef 8, ptr noundef %411, i32 noundef 9, ptr noundef %413, i32 noundef 10, ptr noundef %415, i32 noundef 11, ptr noundef %419, i32 noundef 12, i32 noundef %416, i32 noundef 13, ptr noundef %421, i32 noundef 14, ptr noundef %423, i32 noundef 15, ptr noundef nonnull %.0270, i32 noundef 26, ptr noundef %425, i32 noundef 36, ptr noundef nonnull %35, i32 noundef 37, ptr noundef nonnull %35, i32 noundef 33, ptr noundef nonnull %41, i32 noundef 34, ptr noundef nonnull %42, i32 noundef 35, ptr noundef nonnull %43, i32 noundef 57, ptr noundef %427, i32 noundef 91, i32 noundef 1, i32 noundef 92, ptr noundef %399, i32 noundef -1) #17
   br i1 %4, label %428, label %511
 
 428:                                              ; preds = %408
@@ -7200,7 +7198,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %508 = load ptr, ptr %507, align 8
   %509 = getelementptr inbounds nuw i8, ptr %51, i64 960
   %510 = load ptr, ptr %509, align 8
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef 1, ptr noundef %432, i32 noundef 3, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %18, i32 noundef 5, ptr noundef nonnull %8, i32 noundef 6, ptr noundef nonnull %9, i32 noundef 7, ptr noundef nonnull %.str.39..str.38, i32 noundef 8, ptr noundef %434, i32 noundef 9, ptr noundef %436, i32 noundef 10, ptr noundef %438, i32 noundef 11, ptr noundef %442, i32 noundef 12, i32 noundef %439, i32 noundef 13, ptr noundef %444, i32 noundef 14, ptr noundef %446, i32 noundef 15, ptr noundef nonnull %.0269, i32 noundef 16, ptr noundef nonnull %34, i32 noundef 17, ptr noundef nonnull %21, i32 noundef 19, ptr noundef nonnull %24, i32 noundef 20, ptr noundef nonnull %21, i32 noundef 21, ptr noundef nonnull %29, i32 noundef 18, ptr noundef %448, i32 noundef 41, ptr noundef nonnull %26, i32 noundef 22, ptr noundef nonnull %40, i32 noundef 23, ptr noundef %450, i32 noundef 24, ptr noundef nonnull %20, i32 noundef 25, ptr noundef nonnull %19, i32 noundef 26, ptr noundef %452, i32 noundef 27, ptr noundef %454, i32 noundef 59, ptr noundef %456, i32 noundef 28, ptr noundef %458, i32 noundef 29, ptr noundef %460, i32 noundef 30, ptr noundef %462, i32 noundef 32, ptr noundef %247, i32 noundef 36, ptr noundef nonnull %35, i32 noundef 37, ptr noundef nonnull %35, i32 noundef 39, ptr noundef %464, i32 noundef 40, ptr noundef %466, i32 noundef 42, ptr noundef nonnull %25, i32 noundef 43, ptr noundef %448, i32 noundef 45, ptr noundef %468, i32 noundef 47, ptr noundef nonnull %31, i32 noundef 52, ptr noundef %470, i32 noundef 48, ptr noundef %335, i32 noundef 49, ptr noundef %472, i32 noundef 50, ptr noundef %474, i32 noundef 51, ptr noundef %476, i32 noundef 53, ptr noundef nonnull %22, i32 noundef 54, ptr noundef nonnull %28, i32 noundef 55, ptr noundef nonnull %27, i32 noundef 56, ptr noundef %479, i32 noundef 33, ptr noundef nonnull %41, i32 noundef 34, ptr noundef nonnull %42, i32 noundef 35, ptr noundef nonnull %43, i32 noundef 57, ptr noundef %481, i32 noundef 58, ptr noundef nonnull %32, i32 noundef 60, ptr noundef nonnull %30, i32 noundef 61, ptr noundef %483, i32 noundef 62, ptr noundef %.0267, i32 noundef 63, ptr noundef nonnull %.str.39..str.38346, i32 noundef 64, ptr noundef nonnull %.0270, i32 noundef 66, i32 noundef %486, i32 noundef 65, ptr noundef %488, i32 noundef 67, ptr noundef %491, i32 noundef 68, i32 noundef %492, i32 noundef 69, ptr noundef nonnull %36, i32 noundef 70, ptr noundef nonnull %37, i32 noundef 71, ptr noundef nonnull %38, i32 noundef 72, ptr noundef nonnull %33, i32 noundef 74, ptr noundef nonnull %39, i32 noundef 75, ptr noundef nonnull %44, i32 noundef 76, ptr noundef nonnull %13, i32 noundef 77, ptr noundef nonnull %15, i32 noundef 79, ptr noundef nonnull %11, i32 noundef 80, ptr noundef nonnull %10, i32 noundef 81, ptr noundef nonnull %14, i32 noundef 82, ptr noundef nonnull %12, i32 noundef 83, ptr noundef nonnull %16, i32 noundef 78, ptr noundef nonnull %17, i32 noundef 44, ptr noundef nonnull %23, i32 noundef 84, ptr noundef %494, i32 noundef 85, ptr noundef %496, i32 noundef 86, ptr noundef %498, i32 noundef 87, ptr noundef %500, i32 noundef 88, ptr noundef %502, i32 noundef 89, ptr noundef %504, i32 noundef 90, ptr noundef %506, i32 noundef 91, i32 noundef 1, i32 noundef 92, ptr noundef %399, i32 noundef 93, ptr noundef %508, i32 noundef 94, ptr noundef %510, i32 noundef -1) #17
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef 1, ptr noundef %432, i32 noundef 3, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %18, i32 noundef 5, ptr noundef nonnull %8, i32 noundef 6, ptr noundef nonnull %9, i32 noundef 7, ptr noundef nonnull %.str.39..str.38, i32 noundef 8, ptr noundef %434, i32 noundef 9, ptr noundef %436, i32 noundef 10, ptr noundef %438, i32 noundef 11, ptr noundef %442, i32 noundef 12, i32 noundef %439, i32 noundef 13, ptr noundef %444, i32 noundef 14, ptr noundef %446, i32 noundef 15, ptr noundef nonnull %.0270, i32 noundef 16, ptr noundef nonnull %34, i32 noundef 17, ptr noundef nonnull %21, i32 noundef 19, ptr noundef nonnull %24, i32 noundef 20, ptr noundef nonnull %21, i32 noundef 21, ptr noundef nonnull %29, i32 noundef 18, ptr noundef %448, i32 noundef 41, ptr noundef nonnull %26, i32 noundef 22, ptr noundef nonnull %40, i32 noundef 23, ptr noundef %450, i32 noundef 24, ptr noundef nonnull %20, i32 noundef 25, ptr noundef nonnull %19, i32 noundef 26, ptr noundef %452, i32 noundef 27, ptr noundef %454, i32 noundef 59, ptr noundef %456, i32 noundef 28, ptr noundef %458, i32 noundef 29, ptr noundef %460, i32 noundef 30, ptr noundef %462, i32 noundef 32, ptr noundef %247, i32 noundef 36, ptr noundef nonnull %35, i32 noundef 37, ptr noundef nonnull %35, i32 noundef 39, ptr noundef %464, i32 noundef 40, ptr noundef %466, i32 noundef 42, ptr noundef nonnull %25, i32 noundef 43, ptr noundef %448, i32 noundef 45, ptr noundef %468, i32 noundef 47, ptr noundef nonnull %31, i32 noundef 52, ptr noundef %470, i32 noundef 48, ptr noundef %335, i32 noundef 49, ptr noundef %472, i32 noundef 50, ptr noundef %474, i32 noundef 51, ptr noundef %476, i32 noundef 53, ptr noundef nonnull %22, i32 noundef 54, ptr noundef nonnull %28, i32 noundef 55, ptr noundef nonnull %27, i32 noundef 56, ptr noundef %479, i32 noundef 33, ptr noundef nonnull %41, i32 noundef 34, ptr noundef nonnull %42, i32 noundef 35, ptr noundef nonnull %43, i32 noundef 57, ptr noundef %481, i32 noundef 58, ptr noundef nonnull %32, i32 noundef 60, ptr noundef nonnull %30, i32 noundef 61, ptr noundef %483, i32 noundef 62, ptr noundef %.0268, i32 noundef 63, ptr noundef nonnull %.str.39..str.38348, i32 noundef 64, ptr noundef nonnull %.0271, i32 noundef 66, i32 noundef %486, i32 noundef 65, ptr noundef %488, i32 noundef 67, ptr noundef %491, i32 noundef 68, i32 noundef %492, i32 noundef 69, ptr noundef nonnull %36, i32 noundef 70, ptr noundef nonnull %37, i32 noundef 71, ptr noundef nonnull %38, i32 noundef 72, ptr noundef nonnull %33, i32 noundef 74, ptr noundef nonnull %39, i32 noundef 75, ptr noundef nonnull %44, i32 noundef 76, ptr noundef nonnull %13, i32 noundef 77, ptr noundef nonnull %15, i32 noundef 79, ptr noundef nonnull %11, i32 noundef 80, ptr noundef nonnull %10, i32 noundef 81, ptr noundef nonnull %14, i32 noundef 82, ptr noundef nonnull %12, i32 noundef 83, ptr noundef nonnull %16, i32 noundef 78, ptr noundef nonnull %17, i32 noundef 44, ptr noundef nonnull %23, i32 noundef 84, ptr noundef %494, i32 noundef 85, ptr noundef %496, i32 noundef 86, ptr noundef %498, i32 noundef 87, ptr noundef %500, i32 noundef 88, ptr noundef %502, i32 noundef 89, ptr noundef %504, i32 noundef 90, ptr noundef %506, i32 noundef 91, i32 noundef 1, i32 noundef 92, ptr noundef %399, i32 noundef 93, ptr noundef %508, i32 noundef 94, ptr noundef %510, i32 noundef -1) #17
   br label %511
 
 511:                                              ; preds = %408, %428, %431
@@ -7212,27 +7210,27 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 514:                                              ; preds = %511
   %515 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %516 = load ptr, ptr %515, align 8
-  %.not336 = icmp eq ptr %516, null
-  br i1 %.not336, label %517, label %522
+  %.not337 = icmp eq ptr %516, null
+  br i1 %.not337, label %517, label %522
 
 517:                                              ; preds = %514
   %518 = getelementptr inbounds nuw i8, ptr %51, i64 52
   %519 = load i32, ptr %518, align 4
-  %.not337 = icmp eq i32 %519, -2
-  br i1 %.not337, label %520, label %522
+  %.not338 = icmp eq i32 %519, -2
+  br i1 %.not338, label %520, label %522
 
 520:                                              ; preds = %517
   %521 = load i32, ptr %176, align 4
-  %.not338 = icmp eq i32 %521, 0
-  br i1 %.not338, label %529, label %522
+  %.not339 = icmp eq i32 %521, 0
+  br i1 %.not339, label %529, label %522
 
 522:                                              ; preds = %520, %517, %514
   %523 = tail call i64 @gtk_tree_model_get_type() #18
   %524 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %523) #17
   %525 = call i32 @gtk_tree_model_iter_children(ptr noundef %524, ptr noundef nonnull %48, ptr noundef nonnull %spec.select) #17
-  %.not344 = icmp eq i32 %525, 0
+  %.not345 = icmp eq i32 %525, 0
   %526 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %523) #17
-  br i1 %.not344, label %528, label %527
+  br i1 %.not345, label %528, label %527
 
 527:                                              ; preds = %522
   call fastcc void @_update_info_task(ptr noundef %0, ptr noundef %526, ptr noundef nonnull %48, ptr noundef %spec.select, i1 noundef zeroext false)
@@ -7248,27 +7246,27 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 530:                                              ; preds = %529
   %531 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %532 = load ptr, ptr %531, align 8
-  %.not339 = icmp eq ptr %532, null
-  br i1 %.not339, label %533, label %538
+  %.not340 = icmp eq ptr %532, null
+  br i1 %.not340, label %533, label %538
 
 533:                                              ; preds = %530
   %534 = getelementptr inbounds nuw i8, ptr %51, i64 52
   %535 = load i32, ptr %534, align 4
-  %.not340 = icmp eq i32 %535, -2
-  br i1 %.not340, label %536, label %538
+  %.not341 = icmp eq i32 %535, -2
+  br i1 %.not341, label %536, label %538
 
 536:                                              ; preds = %533
   %537 = load i32, ptr %176, align 4
-  %.not341 = icmp eq i32 %537, 0
-  br i1 %.not341, label %551, label %538
+  %.not342 = icmp eq i32 %537, 0
+  br i1 %.not342, label %551, label %538
 
 538:                                              ; preds = %536, %533, %530
   %539 = tail call i64 @gtk_tree_model_get_type() #18
   %540 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %539) #17
   %541 = call i32 @gtk_tree_model_iter_children(ptr noundef %540, ptr noundef nonnull %48, ptr noundef nonnull %spec.select) #17
-  %.not343 = icmp eq i32 %541, 0
+  %.not344 = icmp eq i32 %541, 0
   %542 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %539) #17
-  br i1 %.not343, label %544, label %543
+  br i1 %.not344, label %544, label %543
 
 543:                                              ; preds = %538
   call fastcc void @_update_info_task(ptr noundef %0, ptr noundef %542, ptr noundef nonnull %48, ptr noundef %spec.select, i1 noundef zeroext true)
@@ -7283,8 +7281,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %546 = load ptr, ptr %545, align 8
   %547 = call ptr @list_iterator_create(ptr noundef %546) #17
   %548 = call ptr @list_next(ptr noundef %547) #17
-  %.not25.i349 = icmp eq ptr %548, null
-  br i1 %.not25.i349, label %_update_info_task.exit, label %.lr.ph
+  %.not25.i351 = icmp eq ptr %548, null
+  br i1 %.not25.i351, label %_update_info_task.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %544, %.lr.ph
   %549 = phi ptr [ %550, %.lr.ph ], [ %548, %544 ]
@@ -7303,9 +7301,9 @@ _update_info_task.exit:                           ; preds = %.lr.ph, %544
   %552 = tail call i64 @gtk_tree_model_get_type() #18
   %553 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %552) #17
   %554 = call i32 @gtk_tree_model_iter_children(ptr noundef %553, ptr noundef nonnull %48, ptr noundef nonnull %spec.select) #17
-  %.not342 = icmp eq i32 %554, 0
+  %.not343 = icmp eq i32 %554, 0
   %555 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %552) #17
-  br i1 %.not342, label %557, label %556
+  br i1 %.not343, label %557, label %556
 
 556:                                              ; preds = %551
   call fastcc void @_update_info_step(ptr noundef %0, ptr noundef %555, ptr noundef nonnull %48, ptr noundef %spec.select)

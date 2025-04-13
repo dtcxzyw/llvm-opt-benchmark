@@ -223,22 +223,20 @@ define hidden noundef zeroext i1 @_Z14is_explicit_gcN7GCCause5CauseE(i32 noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_Z14is_implicit_gcN7GCCause5CauseE(i32 noundef %0) local_unnamed_addr #3 {
   %2 = icmp ult i32 %0, 27
-  br i1 %2, label %switch.hole_check, label %3
+  %switch.shifted = lshr i32 75505665, %0
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_Z14is_explicit_gcN7GCCause5CauseE.exit, label %3
 
-3:                                                ; preds = %switch.hole_check, %1
+3:                                                ; preds = %1
   %4 = and i32 %0, -3
   %or.cond.i.i = icmp ne i32 %4, 4
   %5 = icmp ne i32 %0, 7
   %spec.select.i.i.not = and i1 %5, %or.cond.i.i
   br label %_Z14is_explicit_gcN7GCCause5CauseE.exit
 
-switch.hole_check:                                ; preds = %1
-  %switch.shifted = lshr i32 75505665, %0
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %_Z14is_explicit_gcN7GCCause5CauseE.exit, label %3
-
-_Z14is_explicit_gcN7GCCause5CauseE.exit:          ; preds = %switch.hole_check, %3
-  %6 = phi i1 [ %spec.select.i.i.not, %3 ], [ false, %switch.hole_check ]
+_Z14is_explicit_gcN7GCCause5CauseE.exit:          ; preds = %1, %3
+  %6 = phi i1 [ %spec.select.i.i.not, %3 ], [ false, %1 ]
   ret i1 %6
 }
 

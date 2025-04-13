@@ -610,52 +610,50 @@ define hidden void @_ZN11MetaspaceGC15post_initializeEv() local_unnamed_addr #0 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN11MetaspaceGC10can_expandEmb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
-  br i1 %1, label %3, label %16
+  %3 = load i8, ptr @UseCompressedClassPointers, align 1
+  %4 = trunc i8 %3 to i1
+  %or.cond = select i1 %1, i1 %4, i1 false
+  br i1 %or.cond, label %5, label %15
 
-3:                                                ; preds = %2
-  %4 = load i8, ptr @UseCompressedClassPointers, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %16
+5:                                                ; preds = %2
+  %6 = tail call noundef i64 @_ZN9metaspace15RunningCounters21committed_words_classEv() #14
+  %7 = add i64 %6, %0
+  %8 = shl i64 %7, 3
+  %9 = load i64, ptr @CompressedClassSpaceSize, align 8
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %15
 
-6:                                                ; preds = %3
-  %7 = tail call noundef i64 @_ZN9metaspace15RunningCounters21committed_words_classEv() #14
-  %8 = add i64 %7, %0
-  %9 = shl i64 %8, 3
-  %10 = load i64, ptr @CompressedClassSpaceSize, align 8
-  %11 = icmp ugt i64 %9, %10
-  br i1 %11, label %12, label %16
+11:                                               ; preds = %5
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_84ELS1_48ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not11 = icmp eq ptr %12, null
+  br i1 %.not11, label %26, label %13
 
-12:                                               ; preds = %6
-  %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_84ELS1_48ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not10 = icmp eq ptr %13, null
-  br i1 %.not10, label %27, label %14
+13:                                               ; preds = %11
+  %14 = lshr i64 %9, 3
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_84ELS1_48ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %14)
+  br label %26
 
-14:                                               ; preds = %12
-  %15 = lshr i64 %10, 3
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_84ELS1_48ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %15)
-  br label %27
+15:                                               ; preds = %5, %2
+  %16 = tail call noundef i64 @_ZN9metaspace15RunningCounters15committed_wordsEv() #14
+  %17 = add i64 %16, %0
+  %18 = shl i64 %17, 3
+  %19 = load i64, ptr @MaxMetaspaceSize, align 8
+  %20 = icmp ugt i64 %18, %19
+  br i1 %20, label %21, label %26
 
-16:                                               ; preds = %6, %3, %2
-  %17 = tail call noundef i64 @_ZN9metaspace15RunningCounters15committed_wordsEv() #14
-  %18 = add i64 %17, %0
-  %19 = shl i64 %18, 3
-  %20 = load i64, ptr @MaxMetaspaceSize, align 8
-  %21 = icmp ugt i64 %19, %20
-  br i1 %21, label %22, label %27
+21:                                               ; preds = %15
+  %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_84ELS1_48ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %26, label %23
 
-22:                                               ; preds = %16
-  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_84ELS1_48ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not = icmp eq ptr %23, null
-  br i1 %.not, label %27, label %24
+23:                                               ; preds = %21
+  %24 = select i1 %1, ptr @.str.11, ptr @.str.12
+  %25 = lshr i64 %19, 3
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_84ELS1_48ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull %24, i64 noundef %0, i64 noundef %25)
+  br label %26
 
-24:                                               ; preds = %22
-  %25 = select i1 %1, ptr @.str.11, ptr @.str.12
-  %26 = lshr i64 %20, 3
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_84ELS1_48ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull %25, i64 noundef %0, i64 noundef %26)
-  br label %27
-
-27:                                               ; preds = %16, %24, %22, %14, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %14 ], [ false, %22 ], [ false, %24 ], [ true, %16 ]
+26:                                               ; preds = %15, %23, %21, %13, %11
+  %.0 = phi i1 [ false, %11 ], [ false, %13 ], [ false, %21 ], [ false, %23 ], [ true, %15 ]
   ret i1 %.0
 }
 

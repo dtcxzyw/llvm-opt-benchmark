@@ -2526,12 +2526,12 @@ define void @_ZN10open_spiel9dou_dizhu10FormatHandB5cxx11EibRKSt5arrayIS1_IiLm15
   br i1 %exitcond.not, label %.split.us, label %.preheader.us, !llvm.loop !31
 
 18:                                               ; preds = %.lr.ph.us, %19
-  %.02040.us = phi i32 [ 0, %.lr.ph.us ], [ %20, %19 ]
+  %.02140.us = phi i32 [ 0, %.lr.ph.us ], [ %20, %19 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 noundef signext %25)
           to label %19 unwind label %.loopexit.split.us
 
 19:                                               ; preds = %18
-  %20 = add nuw nsw i32 %.02040.us, 1
+  %20 = add nuw nsw i32 %.02140.us, 1
   %21 = load i32, ptr %15, align 4
   %22 = icmp slt i32 %20, %21
   br i1 %22, label %18, label %._crit_edge.us, !llvm.loop !32
@@ -2561,12 +2561,12 @@ define void @_ZN10open_spiel9dou_dizhu10FormatHandB5cxx11EibRKSt5arrayIS1_IiLm15
   br label %32
 
 32:                                               ; preds = %.lr.ph, %33
-  %.02040 = phi i32 [ 0, %.lr.ph ], [ %34, %33 ]
+  %.02140 = phi i32 [ 0, %.lr.ph ], [ %34, %33 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 noundef signext %31)
           to label %33 unwind label %.loopexit.split
 
 33:                                               ; preds = %32
-  %34 = add nuw nsw i32 %.02040, 1
+  %34 = add nuw nsw i32 %.02140, 1
   %35 = load i32, ptr %26, align 4
   %36 = icmp slt i32 %34, %35
   br i1 %36, label %32, label %._crit_edge, !llvm.loop !32
@@ -2641,20 +2641,20 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm15EED2Ev.exit:
 52:                                               ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %54 = load i32, ptr %53, align 4
-  %.not23 = icmp eq i32 %54, 0
-  br i1 %.not23, label %60, label %59
+  %.not24 = icmp eq i32 %54, 0
+  br i1 %.not24, label %60, label %59
 
 .thread31:                                        ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %56 = load i32, ptr %55, align 4
-  %.not2332 = icmp eq i32 %56, 0
-  br i1 %.not2332, label %.thread33, label %59
+  %.not2432 = icmp eq i32 %56, 0
+  br i1 %.not2432, label %.thread33, label %59
 
 .thread:                                          ; preds = %48
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %58 = load i32, ptr %57, align 4
-  %.not2329 = icmp eq i32 %58, 0
-  br i1 %.not2329, label %.thread30, label %59
+  %.not2429 = icmp eq i32 %58, 0
+  br i1 %.not2429, label %.thread30, label %59
 
 59:                                               ; preds = %.thread31, %.thread, %52
   store ptr @.str.28, ptr %8, align 8

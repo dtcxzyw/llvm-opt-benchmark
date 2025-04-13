@@ -7030,9 +7030,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp3PLY16PropertyInstance13ParseInstanc
   store ptr %.0.lcssa.i.i, ptr %0, align 8
   %16 = load i8, ptr %.0.lcssa.i.i, align 1
   %17 = icmp ult i8 %16, 14
-  br i1 %17, label %switch.hole_check, label %18
+  %switch.maskindex = zext nneg i8 %16 to i16
+  %switch.shifted = lshr i16 13313, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %17, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit, label %18
 
-18:                                               ; preds = %switch.hole_check, %.critedge.i.i
+18:                                               ; preds = %.critedge.i.i
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load i8, ptr %19, align 8, !range !30, !noundef !31
   %21 = trunc nuw i8 %20 to i1
@@ -7259,14 +7263,8 @@ _ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit: ; preds = %100, %102
   store ptr %.0.lcssa.i.i36, ptr %0, align 8
   br label %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit
 
-switch.hole_check:                                ; preds = %.critedge.i.i
-  %switch.maskindex = zext nneg i8 %16 to i16
-  %switch.shifted = lshr i16 13313, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit, label %18
-
-_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit:         ; preds = %switch.hole_check, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit32, %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit
-  %.025 = phi i1 [ false, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit32 ], [ true, %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit ], [ false, %switch.hole_check ]
+_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit:         ; preds = %.critedge.i.i, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit32, %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit
+  %.025 = phi i1 [ false, %_ZN6Assimp10SkipSpacesIcEEbPPKT_S3_.exit32 ], [ true, %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit ], [ false, %.critedge.i.i ]
   ret i1 %.025
 }
 

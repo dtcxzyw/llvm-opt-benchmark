@@ -61,28 +61,28 @@ $_ZNSt3__116__pad_and_outputB8ne190000IcNS_11char_traitsIcEEEENS_19ostreambuf_it
 define void @_ZNK7mitsuba6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = atomicrmw sub ptr %3, i32 1 seq_cst, align 4
-  switch i32 %4, label %13 [
-    i32 0, label %5
-    i32 1, label %8
-  ]
+  %5 = icmp eq i32 %4, 0
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %2
-  %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str, i64 44, i64 1, ptr %6) #16
+6:                                                ; preds = %2
+  %7 = load ptr, ptr @stderr, align 8
+  %8 = tail call i64 @fwrite(ptr nonnull @.str, i64 44, i64 1, ptr %7) #16
   tail call void @abort() #17
   unreachable
 
-8:                                                ; preds = %2
-  br i1 %1, label %9, label %13
+9:                                                ; preds = %2
+  %10 = icmp eq i32 %4, 1
+  %or.cond = and i1 %1, %10
+  br i1 %or.cond, label %11, label %15
 
-9:                                                ; preds = %8
-  %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %0) #18
-  br label %13
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %0, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(12) %0) #18
+  br label %15
 
-13:                                               ; preds = %2, %8, %9
+15:                                               ; preds = %9, %11
   ret void
 }
 

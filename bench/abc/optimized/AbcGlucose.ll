@@ -520,8 +520,8 @@ define void @bmcg_sat_solver_var_set_frozen(ptr noundef %0, i32 noundef %1, i32 
   %11 = load i8, ptr %10, align 8, !tbaa !60, !range !70, !noundef !71
   %12 = trunc nuw i8 %11 to i1
   %.not.i = xor i1 %12, true
-  %brmerge.i = or i1 %4, %.not.i
-  br i1 %brmerge.i, label %_ZN5Gluco10SimpSolver9setFrozenEib.exit, label %13
+  %or.cond.i = or i1 %4, %.not.i
+  br i1 %or.cond.i, label %_ZN5Gluco10SimpSolver9setFrozenEib.exit, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1376

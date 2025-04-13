@@ -5284,63 +5284,63 @@ define internal fastcc ptr @dfvm_value_tostr(ptr noundef readonly captures(addre
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noalias ptr @value_type_tostr(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) unnamed_addr #2 {
-  %.not = icmp ne ptr %0, null
-  %brmerge.not = and i1 %.not, %1
-  br i1 %brmerge.not, label %5, label %3
+  %3 = icmp ne ptr %0, null
+  %or.cond = and i1 %3, %1
+  br i1 %or.cond, label %6, label %4
 
-3:                                                ; preds = %2
-  %4 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull @.str.97)
-  br label %30
+4:                                                ; preds = %2
+  %5 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull @.str.97)
+  br label %31
 
-5:                                                ; preds = %2
-  %6 = load i32, ptr %0, align 8
-  switch i32 %6, label %26 [
-    i32 2, label %7
-    i32 3, label %28
-    i32 1, label %13
-    i32 8, label %19
+6:                                                ; preds = %2
+  %7 = load i32, ptr %0, align 8
+  switch i32 %7, label %27 [
+    i32 2, label %8
+    i32 3, label %29
+    i32 1, label %14
+    i32 8, label %20
   ]
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load i32, ptr %10, align 8
-  %12 = tail call ptr @ftype_name(i32 noundef %11)
-  br label %28
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load i32, ptr %11, align 8
+  %13 = tail call ptr @ftype_name(i32 noundef %12)
+  br label %29
 
-13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8
+14:                                               ; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @fvalue_type_name(ptr noundef %17)
-  br label %28
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call ptr @fvalue_type_name(ptr noundef %18)
+  br label %29
 
-19:                                               ; preds = %5
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %23 = load i32, ptr %22, align 8
-  %.not11 = icmp eq i32 %23, 0
-  br i1 %.not11, label %28, label %24
+20:                                               ; preds = %6
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %24 = load i32, ptr %23, align 8
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %29, label %25
 
-24:                                               ; preds = %19
-  %25 = tail call ptr @ftype_name(i32 noundef %23)
-  br label %28
+25:                                               ; preds = %20
+  %26 = tail call ptr @ftype_name(i32 noundef %24)
+  br label %29
 
-26:                                               ; preds = %5
-  %27 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull @.str.97)
-  br label %30
+27:                                               ; preds = %6
+  %28 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef nonnull @.str.97)
+  br label %31
 
-28:                                               ; preds = %19, %5, %24, %13, %7
-  %.0 = phi ptr [ %25, %24 ], [ %18, %13 ], [ %12, %7 ], [ @.str.98, %5 ], [ @.str.99, %19 ]
-  %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.100, ptr noundef %.0)
-  br label %30
+29:                                               ; preds = %20, %6, %25, %14, %8
+  %.0 = phi ptr [ %26, %25 ], [ %19, %14 ], [ %13, %8 ], [ @.str.98, %6 ], [ @.str.99, %20 ]
+  %30 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.100, ptr noundef %.0)
+  br label %31
 
-30:                                               ; preds = %28, %26, %3
-  %.08 = phi ptr [ %27, %26 ], [ %29, %28 ], [ %4, %3 ]
-  ret ptr %.08
+31:                                               ; preds = %29, %27, %4
+  %.09 = phi ptr [ %28, %27 ], [ %30, %29 ], [ %5, %4 ]
+  ret ptr %.09
 }
 
 ; Function Attrs: null_pointer_is_valid

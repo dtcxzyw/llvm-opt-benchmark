@@ -18,15 +18,13 @@ define i32 @wc_PRF(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %
   call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %11) #6
   %switch.tableidx = add i32 %6, -1
   %12 = icmp ult i32 %switch.tableidx, 6
-  br i1 %12, label %switch.hole_check, label %ForceZero.exit86
-
-switch.hole_check:                                ; preds = %9
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 59, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %ForceZero.exit86
+  %or.cond = select i1 %12, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %ForceZero.exit86
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %9
   %13 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.wc_PRF, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -179,8 +177,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.not91 = icmp eq i32 %72, 0
   br i1 %.not91, label %ForceZero.exit86, label %.lr.ph29.i83, !llvm.loop !9
 
-ForceZero.exit86:                                 ; preds = %.lr.ph29.i83, %switch.hole_check, %9, %switch.lookup
-  %.048 = phi i32 [ -232, %9 ], [ -173, %switch.lookup ], [ -232, %switch.hole_check ], [ %.046, %.lr.ph29.i83 ]
+ForceZero.exit86:                                 ; preds = %.lr.ph29.i83, %9, %switch.lookup
+  %.048 = phi i32 [ -232, %9 ], [ -173, %switch.lookup ], [ %.046, %.lr.ph29.i83 ]
   call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #6
   ret i32 %.048

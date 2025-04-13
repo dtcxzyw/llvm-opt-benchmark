@@ -1314,8 +1314,8 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = load i32, ptr %48, align 8
   %50 = icmp ne i32 %49, 0
-  %brmerge = or i1 %2, %50
-  br i1 %brmerge, label %62, label %52
+  %or.cond = or i1 %2, %50
+  br i1 %or.cond, label %62, label %52
 
 51:                                               ; preds = %40
   br i1 %2, label %62, label %52
@@ -1344,7 +1344,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #7
   br label %62
 
-62:                                               ; preds = %47, %52, %51, %43, %BufferGetPage.exit
+62:                                               ; preds = %52, %51, %47, %43, %BufferGetPage.exit
   call void @UnlockReleaseBuffer(i32 noundef %5) #7
   %63 = load volatile i32, ptr @CritSectionCount, align 4
   %64 = add i32 %63, -1

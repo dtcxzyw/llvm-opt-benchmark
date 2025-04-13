@@ -1576,8 +1576,8 @@ define void @_ZN4pkpy7PyDeque9insertObjEbbiPNS_8PyObjectE(ptr noundef nonnull al
   %7 = alloca %"struct.std::_Deque_iterator.109", align 8
   %8 = alloca %"struct.std::_Deque_iterator", align 8
   store ptr %4, ptr %6, align 8
-  %brmerge.demorgan = and i1 %1, %2
-  br i1 %brmerge.demorgan, label %9, label %14
+  %or.cond = and i1 %1, %2
+  br i1 %or.cond, label %9, label %14
 
 9:                                                ; preds = %5
   %10 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -1595,8 +1595,8 @@ define void @_ZN4pkpy7PyDeque9insertObjEbbiPNS_8PyObjectE(ptr noundef nonnull al
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %5
-  %brmerge19 = or i1 %1, %2
-  br i1 %brmerge19, label %15, label %80
+  %or.cond3 = or i1 %1, %2
+  br i1 %or.cond3, label %15, label %80
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -2491,8 +2491,8 @@ define noundef ptr @_ZN4pkpy7PyDeque6popObjEbbPNS_8PyObjectEPNS_2VME(ptr noundef
   %6 = alloca %"struct.std::_Deque_iterator", align 8
   %7 = alloca %"struct.pkpy::Str", align 8
   %8 = alloca %"struct.std::_Deque_iterator", align 8
-  %brmerge.demorgan = and i1 %1, %2
-  br i1 %brmerge.demorgan, label %9, label %14
+  %or.cond = and i1 %1, %2
+  br i1 %or.cond, label %9, label %14
 
 9:                                                ; preds = %5
   %10 = tail call ptr @__cxa_allocate_exception(i64 16) #25
@@ -2510,10 +2510,10 @@ define noundef ptr @_ZN4pkpy7PyDeque6popObjEbbPNS_8PyObjectEPNS_2VME(ptr noundef
   br label %138
 
 14:                                               ; preds = %5
-  %brmerge21 = or i1 %1, %2
+  %or.cond3 = or i1 %1, %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %brmerge21, label %17, label %63
+  br i1 %or.cond3, label %17, label %63
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %15, align 8

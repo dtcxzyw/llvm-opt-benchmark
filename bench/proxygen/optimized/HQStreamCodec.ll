@@ -1347,21 +1347,24 @@ cleanup.done108:                                  ; preds = %cond.false76, %cond
   %callback_112 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %25 = load ptr, ptr %callback_112, align 8
   %tobool113.not = icmp eq ptr %25, null
-  br i1 %tobool113.not, label %if.end122, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %cleanup.done108
   %parsingTrailers_114 = getelementptr inbounds nuw i8, ptr %this, i64 450
   %26 = load i8, ptr %parsingTrailers_114, align 2
   %tobool115 = trunc i8 %26 to i1
-  br i1 %tobool115, label %if.end122, label %if.then116
+  %or.cond = select i1 %tobool113.not, i1 true, i1 %tobool115
+  br i1 %or.cond, label %if.end122, label %if.then116
 
-if.then116:                                       ; preds = %land.lhs.true
+if.then116:                                       ; preds = %cleanup.done108
   %streamId_118 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %27 = load i64, ptr %streamId_118, align 8
   %vtable119 = load ptr, ptr %25, align 8
   %28 = load ptr, ptr %vtable119, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef %27, ptr noundef null)
-          to label %if.end122 unwind label %lpad37
+          to label %if.then116.if.end122_crit_edge unwind label %lpad37
+
+if.then116.if.end122_crit_edge:                   ; preds = %if.then116
+  %.pre = load i8, ptr %parsingTrailers_114, align 2
+  %.pre18 = trunc i8 %.pre to i1
+  br label %if.end122
 
 lpad89:                                           ; preds = %invoke.cont100, %invoke.cont97, %invoke.cont95, %invoke.cont92, %invoke.cont90, %invoke.cont87
   %29 = landingpad { ptr, i32 }
@@ -1369,63 +1372,61 @@ lpad89:                                           ; preds = %invoke.cont100, %in
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp86) #22
   br label %ehcleanup
 
-if.end122:                                        ; preds = %if.then116, %land.lhs.true, %cleanup.done108
+if.end122:                                        ; preds = %if.then116.if.end122_crit_edge, %cleanup.done108
+  %tobool125.pre-phi = phi i1 [ %.pre18, %if.then116.if.end122_crit_edge ], [ %tobool115, %cleanup.done108 ]
   %decodeInfo_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   %transportDirection_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %30 = load i8, ptr %transportDirection_, align 16
   %cmp123 = icmp eq i8 %30, 0
-  %parsingTrailers_124 = getelementptr inbounds nuw i8, ptr %this, i64 450
-  %31 = load i8, ptr %parsingTrailers_124, align 2
-  %tobool125 = trunc i8 %31 to i1
   %strictValidation_ = getelementptr inbounds nuw i8, ptr %this, i64 448
-  %32 = load i8, ptr %strictValidation_, align 16
-  %tobool126 = trunc i8 %32 to i1
-  invoke void @_ZN8proxygen16HeaderDecodeInfo4initEbbbbb(ptr noundef nonnull align 8 dereferenceable(140) %decodeInfo_, i1 noundef zeroext %cmp123, i1 noundef zeroext %tobool125, i1 noundef zeroext true, i1 noundef zeroext %tobool126, i1 noundef zeroext false)
+  %31 = load i8, ptr %strictValidation_, align 16
+  %tobool126 = trunc i8 %31 to i1
+  invoke void @_ZN8proxygen16HeaderDecodeInfo4initEbbbbb(ptr noundef nonnull align 8 dereferenceable(140) %decodeInfo_, i1 noundef zeroext %cmp123, i1 noundef zeroext %tobool125.pre-phi, i1 noundef zeroext true, i1 noundef zeroext %tobool126, i1 noundef zeroext false)
           to label %invoke.cont127 unwind label %lpad37
 
 invoke.cont127:                                   ; preds = %if.end122
   %headerCodec_ = getelementptr inbounds nuw i8, ptr %this, i64 352
-  %33 = load ptr, ptr %headerCodec_, align 16
+  %32 = load ptr, ptr %headerCodec_, align 16
   %streamId_128 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %34 = load i64, ptr %streamId_128, align 8
-  %35 = load i64, ptr %outHeaderData, align 8
-  store i64 %35, ptr %agg.tmp, align 8
+  %33 = load i64, ptr %streamId_128, align 8
+  %34 = load i64, ptr %outHeaderData, align 8
+  store i64 %34, ptr %agg.tmp, align 8
   store ptr null, ptr %outHeaderData, align 8
   %length = getelementptr inbounds nuw i8, ptr %header, i64 8
-  %36 = load i64, ptr %length, align 8
-  %conv = trunc i64 %36 to i32
+  %35 = load i64, ptr %length, align 8
+  %conv = trunc i64 %35 to i32
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 160
-  call void @_ZN8proxygen10QPACKCodec15decodeStreamingEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEjPNS_5HPACK17StreamingCallbackE(ptr noundef nonnull align 8 dereferenceable(1024) %33, i64 noundef %34, ptr noundef nonnull %agg.tmp, i32 noundef %conv, ptr noundef nonnull %add.ptr) #22
-  %37 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %37, null
+  call void @_ZN8proxygen10QPACKCodec15decodeStreamingEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEjPNS_5HPACK17StreamingCallbackE(ptr noundef nonnull align 8 dereferenceable(1024) %32, i64 noundef %33, ptr noundef nonnull %agg.tmp, i32 noundef %conv, ptr noundef nonnull %add.ptr) #22
+  %36 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i = icmp eq ptr %36, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %invoke.cont127
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %37) #22
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %37) #22
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %36) #22
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %36) #22
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont127, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp, align 8
-  %38 = load ptr, ptr %decodeInfo_, align 16
-  %cmp.i.not = icmp eq ptr %38, null
+  %37 = load ptr, ptr %decodeInfo_, align 16
+  %cmp.i.not = icmp eq ptr %37, null
   br i1 %cmp.i.not, label %if.then131, label %cleanup
 
 if.then131:                                       ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
   %vtable132 = load ptr, ptr %this, align 16
   %vfn133 = getelementptr inbounds nuw i8, ptr %vtable132, i64 88
-  %39 = load ptr, ptr %vfn133, align 8
-  invoke void %39(ptr noundef nonnull align 16 dereferenceable(160) %this, i1 noundef zeroext false)
+  %38 = load ptr, ptr %vfn133, align 8
+  invoke void %38(ptr noundef nonnull align 16 dereferenceable(160) %this, i1 noundef zeroext false)
           to label %cleanup unwind label %lpad37
 
 cleanup:                                          ; preds = %cond.false40, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %if.then131, %cleanup.action64, %cond.end42
-  %40 = load ptr, ptr %outHeaderData, align 8
-  %cmp.not.i12 = icmp eq ptr %40, null
+  %39 = load ptr, ptr %outHeaderData, align 8
+  %cmp.not.i12 = icmp eq ptr %39, null
   br i1 %cmp.not.i12, label %return, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i13
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i13: ; preds = %cleanup
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %40) #22
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %40) #22
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %39) #22
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %39) #22
   br label %return
 
 ehcleanup:                                        ; preds = %lpad89, %lpad53, %lpad37

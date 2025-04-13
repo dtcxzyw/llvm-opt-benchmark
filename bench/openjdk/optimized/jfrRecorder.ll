@@ -626,8 +626,8 @@ _ZL6enablev.exit:                                 ; preds = %5, %8
 12:                                               ; preds = %_ZL6enablev.exit, %1
   %13 = call noundef zeroext i1 @_ZN11JfrRecorder17create_componentsEv()
   %.not = xor i1 %13, true
-  %brmerge = or i1 %0, %.not
-  br i1 %brmerge, label %14, label %15
+  %or.cond = or i1 %0, %.not
+  br i1 %or.cond, label %14, label %15
 
 14:                                               ; preds = %12
   call void @_ZN11JfrRecorder18destroy_componentsEv()

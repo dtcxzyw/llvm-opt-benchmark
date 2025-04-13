@@ -99,27 +99,25 @@ define range(i32 0, 2) i32 @H5M_top_term_package() local_unnamed_addr #0 {
   %4 = trunc nuw i8 %3 to i1
   %5 = xor i1 %4, true
   %6 = select i1 %2, i1 true, i1 %5
-  br i1 %6, label %7, label %13, !prof !9
+  %.b4 = load i1, ptr @H5M_top_package_initialize_s, align 1
+  %or.cond = select i1 %6, i1 %.b4, i1 false
+  br i1 %or.cond, label %7, label %12, !prof !12
 
 7:                                                ; preds = %0
-  %.b3 = load i1, ptr @H5M_top_package_initialize_s, align 1
-  br i1 %.b3, label %8, label %13
+  %8 = tail call i64 @H5I_nmembers(i32 noundef 6) #3
+  %9 = icmp slt i64 %8, 1
+  br i1 %9, label %.critedge, label %10
 
-8:                                                ; preds = %7
-  %9 = tail call i64 @H5I_nmembers(i32 noundef 6) #3
-  %10 = icmp slt i64 %9, 1
-  br i1 %10, label %.critedge, label %11
+10:                                               ; preds = %7
+  %11 = tail call i32 @H5I_clear_type(i32 noundef 6, i1 noundef zeroext false, i1 noundef zeroext false) #3
+  br label %12
 
-11:                                               ; preds = %8
-  %12 = tail call i32 @H5I_clear_type(i32 noundef 6, i1 noundef zeroext false, i1 noundef zeroext false) #3
-  br label %13
-
-.critedge:                                        ; preds = %8
+.critedge:                                        ; preds = %7
   store i1 false, ptr @H5M_top_package_initialize_s, align 1
-  br label %13
+  br label %12
 
-13:                                               ; preds = %11, %7, %.critedge, %0
-  %.0 = phi i32 [ 0, %.critedge ], [ 1, %11 ], [ 0, %7 ], [ 0, %0 ]
+12:                                               ; preds = %10, %.critedge, %0
+  %.0 = phi i32 [ 0, %.critedge ], [ 1, %10 ], [ 0, %0 ]
   ret i32 %.0
 }
 
@@ -142,7 +140,7 @@ define range(i32 0, 2) i32 @H5M_term_package() local_unnamed_addr #0 {
   store i8 0, ptr @H5M_init_g, align 1, !tbaa !3
   br label %7
 
-7:                                                ; preds = %0, %6, %3
+7:                                                ; preds = %6, %3, %0
   %.0 = phi i32 [ 0, %6 ], [ 1, %3 ], [ 0, %0 ]
   ret i32 %.0
 }

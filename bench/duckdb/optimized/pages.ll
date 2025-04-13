@@ -544,12 +544,7 @@ madvise_MADV_DONTNEED_zeroes_pages.exit:          ; preds = %27, %29
   %37 = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.10, i32 noundef 524288) #10
   %38 = trunc i64 %37 to i32
   %39 = icmp eq i32 %38, -1
-  br i1 %39, label %os_overcommits_proc.exit.thread, label %.preheader.i
-
-os_overcommits_proc.exit.thread:                  ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
-  store i8 0, ptr @os_overcommits, align 1, !tbaa !7
-  br label %55
+  br i1 %39, label %.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %36, %43
   %.014.i.i = phi i64 [ %.1.i.i, %43 ], [ undef, %36 ]
@@ -591,71 +586,88 @@ os_overcommits_proc.exit:                         ; preds = %.preheader.i, %45
   store i32 %54, ptr @mmap_flags, align 4, !tbaa !3
   br label %55
 
-55:                                               ; preds = %os_overcommits_proc.exit.thread, %52, %os_overcommits_proc.exit
-  %.0.i611 = phi i32 [ 0, %os_overcommits_proc.exit.thread ], [ 3, %52 ], [ 0, %os_overcommits_proc.exit ]
+55:                                               ; preds = %52, %os_overcommits_proc.exit
   %56 = load i32, ptr @duckdb_je_opt_metadata_thp, align 4, !tbaa !3
-  %.not.i7 = icmp eq i32 %56, 0
-  br i1 %.not.i7, label %init_thp_state.exit, label %57
-
-57:                                               ; preds = %55
-  %58 = load i8, ptr @duckdb_je_opt_abort, align 1, !tbaa !7, !range !9, !noundef !10
+  %57 = icmp ne i32 %56, 0
+  %58 = load i8, ptr @duckdb_je_opt_abort, align 1, !range !9
   %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %init_thp_state.exit
+  %or.cond.i = select i1 %57, i1 %59, i1 false
+  br i1 %or.cond.i, label %64, label %init_thp_state.exit
 
-60:                                               ; preds = %57
+.thread:                                          ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
+  store i8 0, ptr @os_overcommits, align 1, !tbaa !7
+  %60 = load i32, ptr @duckdb_je_opt_metadata_thp, align 4, !tbaa !3
+  %61 = icmp ne i32 %60, 0
+  %62 = load i8, ptr @duckdb_je_opt_abort, align 1, !range !9
+  %63 = trunc nuw i8 %62 to i1
+  %or.cond.i13 = select i1 %61, i1 %63, i1 false
+  br i1 %or.cond.i13, label %64, label %init_thp_state.exit.thread
+
+init_thp_state.exit.thread:                       ; preds = %.thread
+  store i32 3, ptr @duckdb_je_init_system_thp_mode, align 4, !tbaa !3
+  store i32 3, ptr @duckdb_je_opt_thp, align 4, !tbaa !3
+  br label %._crit_edge.i
+
+64:                                               ; preds = %.thread, %55
   call void @duckdb_je_malloc_write(ptr noundef nonnull @.str.11) #10
   call void @abort() #12
   unreachable
 
-init_thp_state.exit:                              ; preds = %55, %57
+init_thp_state.exit:                              ; preds = %55
   store i32 3, ptr @duckdb_je_init_system_thp_mode, align 4, !tbaa !3
   store i32 3, ptr @duckdb_je_opt_thp, align 4, !tbaa !3
-  %61 = load i32, ptr @mmap_flags, align 4, !tbaa !3
-  %62 = call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef %.0.i611, i32 noundef %61, i32 noundef -1, i64 noundef 0) #10
-  %magicptr = ptrtoint ptr %62 to i64
-  switch i64 %magicptr, label %63 [
+  %spec.select = select i1 %.1.i, i32 3, i32 0
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %init_thp_state.exit, %init_thp_state.exit.thread
+  %65 = phi i32 [ 0, %init_thp_state.exit.thread ], [ %spec.select, %init_thp_state.exit ]
+  %66 = load i32, ptr @mmap_flags, align 4, !tbaa !3
+  %67 = call ptr @mmap(ptr noundef null, i64 noundef 4096, i32 noundef %65, i32 noundef %66, i32 noundef -1, i64 noundef 0) #10
+  %magicptr = ptrtoint ptr %67 to i64
+  switch i64 %magicptr, label %68 [
     i64 -1, label %os_pages_unmap.exit
     i64 0, label %os_pages_unmap.exit
   ]
 
-63:                                               ; preds = %init_thp_state.exit
+68:                                               ; preds = %._crit_edge.i
   %.b.i = load i1, ptr @pages_can_purge_lazy_runtime, align 1
   br i1 %.b.i, label %duckdb_je_pages_purge_lazy.exit.thread, label %duckdb_je_pages_purge_lazy.exit
 
-duckdb_je_pages_purge_lazy.exit:                  ; preds = %63
-  %64 = call i32 @madvise(ptr noundef nonnull %62, i64 noundef 4096, i32 noundef 8) #10
-  %.not15 = icmp eq i32 %64, 0
-  br i1 %.not15, label %65, label %duckdb_je_pages_purge_lazy.exit.thread
+duckdb_je_pages_purge_lazy.exit:                  ; preds = %68
+  %69 = call i32 @madvise(ptr noundef nonnull %67, i64 noundef 4096, i32 noundef 8) #10
+  %.not19 = icmp eq i32 %69, 0
+  br i1 %.not19, label %70, label %duckdb_je_pages_purge_lazy.exit.thread
 
-duckdb_je_pages_purge_lazy.exit.thread:           ; preds = %63, %duckdb_je_pages_purge_lazy.exit
+duckdb_je_pages_purge_lazy.exit.thread:           ; preds = %68, %duckdb_je_pages_purge_lazy.exit
   store i1 true, ptr @pages_can_purge_lazy_runtime, align 1
-  br label %65
+  br label %70
 
-65:                                               ; preds = %duckdb_je_pages_purge_lazy.exit.thread, %duckdb_je_pages_purge_lazy.exit
-  %66 = call i32 @munmap(ptr noundef nonnull %62, i64 noundef 4096) #10
-  %67 = icmp eq i32 %66, -1
-  br i1 %67, label %68, label %os_pages_unmap.exit
+70:                                               ; preds = %duckdb_je_pages_purge_lazy.exit.thread, %duckdb_je_pages_purge_lazy.exit
+  %71 = call i32 @munmap(ptr noundef nonnull %67, i64 noundef 4096) #10
+  %72 = icmp eq i32 %71, -1
+  br i1 %72, label %73, label %os_pages_unmap.exit
 
-68:                                               ; preds = %65
+73:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #10
-  %69 = tail call ptr @__errno_location() #11
-  %70 = load i32, ptr %69, align 4, !tbaa !3
-  %71 = call i32 @duckdb_je_buferror(i32 noundef %70, ptr noundef nonnull %1, i64 noundef 64) #10
+  %74 = tail call ptr @__errno_location() #11
+  %75 = load i32, ptr %74, align 4, !tbaa !3
+  %76 = call i32 @duckdb_je_buferror(i32 noundef %75, ptr noundef nonnull %1, i64 noundef 64) #10
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull %1) #10
-  %72 = load i8, ptr @duckdb_je_opt_abort, align 1, !tbaa !7, !range !9, !noundef !10
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %74, label %75
+  %77 = load i8, ptr @duckdb_je_opt_abort, align 1, !tbaa !7, !range !9, !noundef !10
+  %78 = trunc nuw i8 %77 to i1
+  br i1 %78, label %79, label %80
 
-74:                                               ; preds = %68
+79:                                               ; preds = %73
   call void @abort() #12
   unreachable
 
-75:                                               ; preds = %68
+80:                                               ; preds = %73
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #10
   br label %os_pages_unmap.exit
 
-os_pages_unmap.exit:                              ; preds = %init_thp_state.exit, %init_thp_state.exit, %65, %75, %6
-  %.04 = phi i1 [ true, %6 ], [ false, %65 ], [ false, %75 ], [ true, %init_thp_state.exit ], [ true, %init_thp_state.exit ]
+os_pages_unmap.exit:                              ; preds = %._crit_edge.i, %._crit_edge.i, %70, %80, %6
+  %.04 = phi i1 [ true, %6 ], [ false, %70 ], [ false, %80 ], [ true, %._crit_edge.i ], [ true, %._crit_edge.i ]
   ret i1 %.04
 }
 

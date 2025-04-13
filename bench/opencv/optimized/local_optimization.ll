@@ -2171,8 +2171,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac12GraphCutImpl11refine
 
 16:                                               ; preds = %5
   store i32 0, ptr %4, align 4
-  %.sroa_idx39 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 2139095039, ptr %.sroa_idx39, align 4
+  %.sroa_idx40 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 2139095039, ptr %.sroa_idx40, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #25
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2201,7 +2201,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac12GraphCutImpl11refine
   br i1 %33, label %.lr.ph50, label %.loopexit
 
 .lr.ph50:                                         ; preds = %30, %82
-  %.02948 = phi i32 [ %83, %82 ], [ 0, %30 ]
+  %.03048 = phi i32 [ %83, %82 ], [ 0, %30 ]
   %.147 = phi i8 [ %.3.ph, %82 ], [ 0, %30 ]
   %34 = load i32, ptr %20, align 8, !tbaa !150
   %35 = icmp sgt i32 %31, %34
@@ -2222,7 +2222,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac12GraphCutImpl11refine
   br label %55
 
 48:                                               ; preds = %.lr.ph50
-  %.not = icmp eq i32 %.02948, 0
+  %.not = icmp eq i32 %.03048, 0
   br i1 %.not, label %49, label %._crit_edge51
 
 49:                                               ; preds = %48
@@ -2234,62 +2234,60 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac12GraphCutImpl11refine
   br label %55
 
 55:                                               ; preds = %49, %36
-  %.027 = phi i32 [ %47, %36 ], [ %54, %49 ]
-  %56 = icmp sgt i32 %.027, 0
+  %.028 = phi i32 [ %47, %36 ], [ %54, %49 ]
+  %56 = icmp sgt i32 %.028, 0
   br i1 %56, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %55
-  %wide.trip.count = zext nneg i32 %.027 to i64
+  %wide.trip.count = zext nneg i32 %.028 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %71, %55
-  %.4.lcssa = phi i8 [ %.147, %55 ], [ %.5, %71 ]
+._crit_edge:                                      ; preds = %73, %55
+  %.4.lcssa = phi i8 [ %.147, %55 ], [ %.5, %73 ]
   %57 = load ptr, ptr %28, align 8, !tbaa !80
-  %.not44 = icmp eq ptr %57, null
-  br i1 %.not44, label %82, label %72
+  %58 = icmp ne ptr %57, null
+  %59 = trunc nuw i8 %.4.lcssa to i1
+  %or.cond = select i1 %58, i1 %59, i1 false
+  br i1 %or.cond, label %74, label %82
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %71
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %71 ]
-  %.445 = phi i8 [ %.147, %.lr.ph.preheader ], [ %.5, %71 ]
-  %58 = load ptr, ptr %25, align 8, !tbaa !93
-  %59 = load ptr, ptr %22, align 8, !tbaa !164
-  %60 = getelementptr inbounds nuw %"class.cv::Mat", ptr %59, i64 %indvars.iv
-  %61 = load ptr, ptr %58, align 8, !tbaa !17
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 64
-  %63 = load ptr, ptr %62, align 8
-  %64 = call i64 %63(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(96) %60)
-  %.sroa.5.0.extract.shift = lshr i64 %64, 32
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %73
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %73 ]
+  %.445 = phi i8 [ %.147, %.lr.ph.preheader ], [ %.5, %73 ]
+  %60 = load ptr, ptr %25, align 8, !tbaa !93
+  %61 = load ptr, ptr %22, align 8, !tbaa !164
+  %62 = getelementptr inbounds nuw %"class.cv::Mat", ptr %61, i64 %indvars.iv
+  %63 = load ptr, ptr %60, align 8, !tbaa !17
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
+  %65 = load ptr, ptr %64, align 8
+  %66 = call i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(96) %62)
+  %.sroa.5.0.extract.shift = lshr i64 %66, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %65 = bitcast i32 %.sroa.5.0.extract.trunc to float
-  %66 = load float, ptr %.sroa_idx39, align 4, !tbaa !175
-  %67 = fcmp ogt float %66, %65
-  br i1 %67, label %68, label %71
+  %67 = bitcast i32 %.sroa.5.0.extract.trunc to float
+  %68 = load float, ptr %.sroa_idx40, align 4, !tbaa !175
+  %69 = fcmp ogt float %68, %67
+  br i1 %69, label %70, label %73
 
-68:                                               ; preds = %.lr.ph
-  %.sroa.0.0.extract.trunc = trunc i64 %64 to i32
+70:                                               ; preds = %.lr.ph
+  %.sroa.0.0.extract.trunc = trunc i64 %66 to i32
   store i32 %.sroa.0.0.extract.trunc, ptr %4, align 4
-  store i32 %.sroa.5.0.extract.trunc, ptr %.sroa_idx39, align 4
-  %69 = load ptr, ptr %22, align 8, !tbaa !164
-  %70 = getelementptr inbounds nuw %"class.cv::Mat", ptr %69, i64 %indvars.iv
+  store i32 %.sroa.5.0.extract.trunc, ptr %.sroa_idx40, align 4
+  %71 = load ptr, ptr %22, align 8, !tbaa !164
+  %72 = getelementptr inbounds nuw %"class.cv::Mat", ptr %71, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #25
   store i64 0, ptr %27, align 8
   store i32 33619968, ptr %7, align 8, !tbaa !171
   store ptr %3, ptr %26, align 8, !tbaa !174
-  call void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %70, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  call void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %72, ptr noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #25
-  br label %71
+  br label %73
 
-71:                                               ; preds = %68, %.lr.ph
-  %.5 = phi i8 [ 1, %68 ], [ %.445, %.lr.ph ]
+73:                                               ; preds = %70, %.lr.ph
+  %.5 = phi i8 [ 1, %70 ], [ %.445, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !176
 
-72:                                               ; preds = %._crit_edge
-  %73 = trunc nuw i8 %.4.lcssa to i1
-  br i1 %73, label %74, label %82
-
-74:                                               ; preds = %72
+74:                                               ; preds = %._crit_edge
   %75 = load i32, ptr %29, align 4, !tbaa !146
   %76 = load i32, ptr %2, align 4, !tbaa !168
   %77 = load ptr, ptr %57, align 8, !tbaa !17
@@ -2300,9 +2298,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac12GraphCutImpl11refine
   %spec.select = select i1 %81, i8 0, i8 %.4.lcssa
   br label %82
 
-82:                                               ; preds = %74, %72, %._crit_edge
-  %.3.ph = phi i8 [ %spec.select, %74 ], [ %.4.lcssa, %._crit_edge ], [ 0, %72 ]
-  %83 = add nuw nsw i32 %.02948, 1
+82:                                               ; preds = %74, %._crit_edge
+  %.3.ph = phi i8 [ %spec.select, %74 ], [ %.4.lcssa, %._crit_edge ]
+  %83 = add nuw nsw i32 %.03048, 1
   %84 = load i32, ptr %19, align 4, !tbaa !151
   %85 = icmp slt i32 %83, %84
   br i1 %85, label %.lr.ph50, label %._crit_edge51, !llvm.loop !177

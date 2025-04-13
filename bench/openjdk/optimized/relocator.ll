@@ -452,21 +452,19 @@ declare void @_ZN12methodHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceab
 define hidden noundef zeroext i1 @_ZN9Relocator22is_opcode_lookupswitchEN9Bytecodes4CodeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i32 %1, -170
   %3 = icmp ult i32 %switch.tableidx, 60
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
+  %switch.shifted = lshr i64 864691128455135235, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %4
 
-4:                                                ; preds = %switch.hole_check, %2
+4:                                                ; preds = %2
   %5 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %5, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 206) #11
   unreachable
 
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
-  %switch.shifted = lshr i64 864691128455135235, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %switch.cast = zext nneg i32 %switch.tableidx to i60
   %switch.downshift = lshr i60 -288230376151711742, %switch.cast
   %switch.masked = trunc i60 %switch.downshift to i1

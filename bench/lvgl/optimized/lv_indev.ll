@@ -193,14 +193,14 @@ define void @lv_indev_read(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.lv_indev_data_t, align 8
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %582, label %5
+  br i1 %4, label %583, label %5
 
 5:                                                ; preds = %1
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !22
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %582, label %9
+  br i1 %8, label %583, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -246,13 +246,13 @@ indev_proc_reset_query_handler.exit:              ; preds = %9, %13
   %29 = phi i8 [ %11, %9 ], [ %.pre, %13 ]
   %30 = and i8 %29, 4
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %582, label %32
+  br i1 %31, label %583, label %32
 
 32:                                               ; preds = %indev_proc_reset_query_handler.exit
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 816
   %34 = load ptr, ptr %33, align 8, !tbaa !67
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %35, label %582
+  br i1 %.not, label %35, label %583
 
 35:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #11
@@ -286,7 +286,7 @@ indev_proc_reset_query_handler.exit:              ; preds = %9, %13
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.phi.trans.insert239.i = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %.phi.trans.insert247.i = getelementptr inbounds nuw i8, ptr %0, i64 232
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 78
@@ -303,7 +303,7 @@ indev_proc_reset_query_handler.exit:              ; preds = %9, %13
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 140
   br label %80
 
-80:                                               ; preds = %indev_proc_reset_query_handler.exit55, %35
+80:                                               ; preds = %indev_proc_reset_query_handler.exit51, %35
   call void @lv_memset(ptr noundef nonnull %3, i8 noundef zeroext 0, i64 noundef 40) #11
   %81 = load i32, ptr %0, align 8, !tbaa !23
   switch i32 %81, label %88 [
@@ -396,7 +396,7 @@ thread-pre-split:                                 ; preds = %104, %indev_proc_re
     i32 1, label %114
     i32 2, label %195
     i32 4, label %324
-    i32 3, label %545
+    i32 3, label %546
   ]
 
 114:                                              ; preds = %112
@@ -575,7 +575,7 @@ indev_pointer_proc.exit:                          ; preds = %190, %191
   store i32 0, ptr %47, align 8, !tbaa !57
   %203 = and i8 %198, -10
   store i8 %203, ptr %10, align 4
-  store i32 0, ptr %.phi.trans.insert239.i, align 8, !tbaa !107
+  store i32 0, ptr %.phi.trans.insert247.i, align 8, !tbaa !107
   br label %.thread.i
 
 .thread.i:                                        ; preds = %200, %202, %201
@@ -594,9 +594,9 @@ indev_pointer_proc.exit:                          ; preds = %190, %191
 
 211:                                              ; preds = %208
   %212 = call zeroext i1 @lv_obj_has_state(ptr noundef nonnull %209, i16 noundef zeroext 128) #11
-  %213 = load i32, ptr %.phi.trans.insert239.i, align 8, !tbaa !107
+  %213 = load i32, ptr %.phi.trans.insert247.i, align 8, !tbaa !107
   %214 = load i32, ptr %56, align 4, !tbaa !85
-  store i32 %214, ptr %.phi.trans.insert239.i, align 8, !tbaa !107
+  store i32 %214, ptr %.phi.trans.insert247.i, align 8, !tbaa !107
   %215 = icmp eq i32 %214, 1
   %216 = icmp eq i32 %213, 0
   %or.cond.i32 = select i1 %215, i1 %216, i1 false
@@ -888,14 +888,14 @@ indev_reset_check.exit.thread.i:                  ; preds = %321, %301, %indev_r
   %327 = load i8, ptr %10, align 4
   %328 = and i8 %327, 8
   %.not.i34 = icmp eq i8 %328, 0
-  %or.cond250.i = select i1 %326, i1 true, i1 %.not.i34
-  br i1 %or.cond250.i, label %._crit_edge.i, label %indev_keypad_proc.exit
+  %or.cond259.i = select i1 %326, i1 true, i1 %.not.i34
+  br i1 %or.cond259.i, label %._crit_edge.i, label %indev_keypad_proc.exit
 
 ._crit_edge.i:                                    ; preds = %324
-  br i1 %.not.i34, label %._crit_edge238.i, label %329
+  br i1 %.not.i34, label %._crit_edge246.i, label %329
 
-._crit_edge238.i:                                 ; preds = %._crit_edge.i
-  %.pre240.i = load i32, ptr %.phi.trans.insert239.i, align 8, !tbaa !107
+._crit_edge246.i:                                 ; preds = %._crit_edge.i
+  %.pre248.i = load i32, ptr %.phi.trans.insert247.i, align 8, !tbaa !107
   br label %331
 
 329:                                              ; preds = %._crit_edge.i
@@ -904,9 +904,9 @@ indev_reset_check.exit.thread.i:                  ; preds = %321, %301, %indev_r
   store i8 %330, ptr %10, align 4
   br label %331
 
-331:                                              ; preds = %329, %._crit_edge238.i
-  %332 = phi i32 [ %.pre240.i, %._crit_edge238.i ], [ 0, %329 ]
-  store i32 %325, ptr %.phi.trans.insert239.i, align 8, !tbaa !107
+331:                                              ; preds = %329, %._crit_edge246.i
+  %332 = phi i32 [ %.pre248.i, %._crit_edge246.i ], [ 0, %329 ]
+  store i32 %325, ptr %.phi.trans.insert247.i, align 8, !tbaa !107
   %333 = load i32, ptr %36, align 8, !tbaa !82
   store i32 %333, ptr %37, align 4, !tbaa !81
   %334 = load ptr, ptr %66, align 8, !tbaa !108
@@ -921,8 +921,8 @@ indev_reset_check.exit.thread.i:                  ; preds = %321, %301, %indev_r
 
 339:                                              ; preds = %336
   %340 = load i32, ptr %56, align 4, !tbaa !85
-  %.not131.i36 = icmp eq i32 %340, 0
-  br i1 %.not131.i36, label %342, label %341
+  %.not136.i36 = icmp eq i32 %340, 0
+  br i1 %.not136.i36, label %342, label %341
 
 341:                                              ; preds = %339
   store i16 0, ptr %58, align 8, !tbaa !95
@@ -934,604 +934,609 @@ indev_reset_check.exit.thread.i:                  ; preds = %321, %301, %indev_r
   %345 = icmp eq i32 %344, 1
   %346 = icmp eq i32 %332, 0
   %or.cond.i37 = select i1 %345, i1 %346, i1 false
-  br i1 %or.cond.i37, label %347, label %382
+  br i1 %or.cond.i37, label %347, label %383
 
 347:                                              ; preds = %342
   %348 = call i32 @lv_tick_get() #11
   store i32 %348, ptr %47, align 8, !tbaa !57
   %349 = load i32, ptr %36, align 8, !tbaa !82
-  switch i32 %349, label %378 [
+  switch i32 %349, label %379 [
     i32 10, label %350
-    i32 20, label %364
-    i32 19, label %367
-    i32 27, label %370
+    i32 20, label %365
+    i32 19, label %368
+    i32 27, label %371
   ]
 
 350:                                              ; preds = %347
   %351 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %352 = call zeroext i1 @lv_obj_is_editable(ptr noundef %351) #11
-  br i1 %352, label %357, label %353
+  br i1 %352, label %.thread.i43, label %353
 
 353:                                              ; preds = %350
   %354 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %355 = call zeroext i1 @lv_obj_has_flag(ptr noundef %354, i32 noundef 16) #11
-  %356 = xor i1 %355, true
-  br label %357
+  %356 = call zeroext i1 @lv_group_get_editing(ptr noundef nonnull %334) #11
+  br i1 %356, label %360, label %358
 
-357:                                              ; preds = %353, %350
-  %358 = phi i1 [ false, %350 ], [ %356, %353 ]
-  %359 = call zeroext i1 @lv_group_get_editing(ptr noundef nonnull %334) #11
-  %brmerge.i = select i1 %359, i1 true, i1 %358
-  %brmerge.not.i = xor i1 %brmerge.i, true
-  %brmerge138.i = select i1 %brmerge.not.i, i1 true, i1 %343
-  br i1 %brmerge138.i, label %.critedge.ithread-pre-split, label %360
+.thread.i43:                                      ; preds = %350
+  %357 = call zeroext i1 @lv_group_get_editing(ptr noundef nonnull %334) #11
+  %.not218.i = xor i1 %357, true
+  %brmerge.i = select i1 %.not218.i, i1 true, i1 %343
+  br i1 %brmerge.i, label %.critedge.ithread-pre-split, label %361
 
-360:                                              ; preds = %357
-  %361 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
-  %362 = call fastcc i32 @send_event(i32 noundef 1, ptr noundef %361)
-  %363 = icmp eq i32 %362, 0
-  br i1 %363, label %indev_keypad_proc.exit, label %.critedge.ithread-pre-split
+358:                                              ; preds = %353
+  %359 = select i1 %355, i1 true, i1 %343
+  br i1 %359, label %.critedge.ithread-pre-split, label %361
 
-364:                                              ; preds = %347
-  %365 = load i16, ptr %58, align 8, !tbaa !95
-  %366 = add i16 %365, -1
-  store i16 %366, ptr %58, align 8, !tbaa !95
+360:                                              ; preds = %353
+  br i1 %343, label %.critedge.ithread-pre-split, label %361
+
+361:                                              ; preds = %360, %358, %.thread.i43
+  %362 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
+  %363 = call fastcc i32 @send_event(i32 noundef 1, ptr noundef %362)
+  %364 = icmp eq i32 %363, 0
+  br i1 %364, label %indev_keypad_proc.exit, label %.critedge.ithread-pre-split
+
+365:                                              ; preds = %347
+  %366 = load i16, ptr %58, align 8, !tbaa !95
+  %367 = add i16 %366, -1
+  store i16 %367, ptr %58, align 8, !tbaa !95
   br label %.critedge.i
 
-367:                                              ; preds = %347
-  %368 = load i16, ptr %58, align 8, !tbaa !95
-  %369 = add i16 %368, 1
-  store i16 %369, ptr %58, align 8, !tbaa !95
+368:                                              ; preds = %347
+  %369 = load i16, ptr %58, align 8, !tbaa !95
+  %370 = add i16 %369, 1
+  store i16 %370, ptr %58, align 8, !tbaa !95
   br label %.critedge.i
 
-370:                                              ; preds = %347
-  %371 = call i32 @lv_group_send_data(ptr noundef nonnull %334, i32 noundef 27) #11
-  %372 = load i8, ptr %10, align 4
-  %373 = and i8 %372, 2
-  %.not.i.i43 = icmp eq i8 %373, 0
-  br i1 %.not.i.i43, label %indev_reset_check.exit.thread.i47, label %indev_reset_check.exit.i44
+371:                                              ; preds = %347
+  %372 = call i32 @lv_group_send_data(ptr noundef nonnull %334, i32 noundef 27) #11
+  %373 = load i8, ptr %10, align 4
+  %374 = and i8 %373, 2
+  %.not.i.i38 = icmp eq i8 %374, 0
+  br i1 %.not.i.i38, label %indev_reset_check.exit.thread.i42, label %indev_reset_check.exit.i39
 
-indev_reset_check.exit.i44:                       ; preds = %370
+indev_reset_check.exit.i39:                       ; preds = %371
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %.pre.i.i45 = load i8, ptr %10, align 4
-  %.pre2.i.i46 = and i8 %.pre.i.i45, 2
-  %.not216.i = icmp eq i8 %.pre2.i.i46, 0
-  br i1 %.not216.i, label %indev_reset_check.exit.thread.i47, label %indev_keypad_proc.exit
+  %.pre.i.i40 = load i8, ptr %10, align 4
+  %.pre2.i.i41 = and i8 %.pre.i.i40, 2
+  %.not224.i = icmp eq i8 %.pre2.i.i41, 0
+  br i1 %.not224.i, label %indev_reset_check.exit.thread.i42, label %indev_keypad_proc.exit
 
-indev_reset_check.exit.thread.i47:                ; preds = %indev_reset_check.exit.i44, %370
-  br i1 %343, label %.critedge.ithread-pre-split, label %374
+indev_reset_check.exit.thread.i42:                ; preds = %indev_reset_check.exit.i39, %371
+  br i1 %343, label %.critedge.ithread-pre-split, label %375
 
-374:                                              ; preds = %indev_reset_check.exit.thread.i47
-  %375 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
-  %376 = call fastcc i32 @send_event(i32 noundef 39, ptr noundef %375)
-  %377 = icmp eq i32 %376, 0
-  br i1 %377, label %indev_keypad_proc.exit, label %.critedge.ithread-pre-split
+375:                                              ; preds = %indev_reset_check.exit.thread.i42
+  %376 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
+  %377 = call fastcc i32 @send_event(i32 noundef 39, ptr noundef %376)
+  %378 = icmp eq i32 %377, 0
+  br i1 %378, label %indev_keypad_proc.exit, label %.critedge.ithread-pre-split
 
-378:                                              ; preds = %347
-  %379 = call i32 @lv_group_send_data(ptr noundef nonnull %334, i32 noundef %349) #11
-  %380 = load i8, ptr %10, align 4
-  %381 = and i8 %380, 2
-  %.not.i153.i = icmp eq i8 %381, 0
-  br i1 %.not.i153.i, label %.critedge.ithread-pre-split, label %indev_reset_check.exit157.i
+379:                                              ; preds = %347
+  %380 = call i32 @lv_group_send_data(ptr noundef nonnull %334, i32 noundef %349) #11
+  %381 = load i8, ptr %10, align 4
+  %382 = and i8 %381, 2
+  %.not.i156.i = icmp eq i8 %382, 0
+  br i1 %.not.i156.i, label %.critedge.ithread-pre-split, label %indev_reset_check.exit160.i
 
-indev_reset_check.exit157.i:                      ; preds = %378
+indev_reset_check.exit160.i:                      ; preds = %379
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %.pre.i154.i = load i8, ptr %10, align 4
-  %.pre2.i155.i = and i8 %.pre.i154.i, 2
-  %.not217.i = icmp eq i8 %.pre2.i155.i, 0
-  br i1 %.not217.i, label %.critedge.ithread-pre-split, label %indev_keypad_proc.exit
+  %.pre.i157.i = load i8, ptr %10, align 4
+  %.pre2.i158.i = and i8 %.pre.i157.i, 2
+  %.not225.i = icmp eq i8 %.pre2.i158.i, 0
+  br i1 %.not225.i, label %.critedge.ithread-pre-split, label %indev_keypad_proc.exit
 
-382:                                              ; preds = %342
-  %383 = icmp eq i32 %332, 1
-  %or.cond7.i = select i1 %345, i1 %383, i1 false
-  br i1 %or.cond7.i, label %384, label %453
+383:                                              ; preds = %342
+  %384 = icmp eq i32 %332, 1
+  %or.cond7.i = select i1 %345, i1 %384, i1 false
+  br i1 %or.cond7.i, label %385, label %454
 
-384:                                              ; preds = %382
-  %385 = load i8, ptr %10, align 4
-  %386 = and i8 %385, 1
-  %387 = icmp eq i8 %386, 0
-  br i1 %387, label %388, label %.thread.i42
+385:                                              ; preds = %383
+  %386 = load i8, ptr %10, align 4
+  %387 = and i8 %386, 1
+  %388 = icmp eq i8 %387, 0
+  br i1 %388, label %389, label %.thread254.i
 
-388:                                              ; preds = %384
-  %389 = load i32, ptr %47, align 8, !tbaa !57
-  %390 = call i32 @lv_tick_elaps(i32 noundef %389) #11
-  %391 = load i16, ptr %67, align 4, !tbaa !27
-  %392 = zext i16 %391 to i32
-  %393 = icmp ugt i32 %390, %392
-  %.pre242.i = load i8, ptr %10, align 4
-  br i1 %393, label %394, label %428
+389:                                              ; preds = %385
+  %390 = load i32, ptr %47, align 8, !tbaa !57
+  %391 = call i32 @lv_tick_elaps(i32 noundef %390) #11
+  %392 = load i16, ptr %67, align 4, !tbaa !27
+  %393 = zext i16 %392 to i32
+  %394 = icmp ugt i32 %391, %393
+  %.pre250.i = load i8, ptr %10, align 4
+  br i1 %394, label %395, label %429
 
-394:                                              ; preds = %388
-  %395 = or i8 %.pre242.i, 1
-  store i8 %395, ptr %10, align 4
-  %396 = call i32 @lv_tick_get() #11
-  store i32 %396, ptr %48, align 4, !tbaa !58
-  %397 = load i32, ptr %36, align 8, !tbaa !82
-  %398 = icmp eq i32 %397, 10
-  br i1 %398, label %399, label %.critedge142.i
+395:                                              ; preds = %389
+  %396 = or i8 %.pre250.i, 1
+  store i8 %396, ptr %10, align 4
+  %397 = call i32 @lv_tick_get() #11
+  store i32 %397, ptr %48, align 4, !tbaa !58
+  %398 = load i32, ptr %36, align 8, !tbaa !82
+  %399 = icmp eq i32 %398, 10
+  br i1 %399, label %400, label %.critedge147.i
 
-399:                                              ; preds = %394
-  %400 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
-  %401 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %402 = call i32 @lv_indev_send_event(ptr noundef %400, i32 noundef 8, ptr noundef %401)
-  %403 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
-  %404 = getelementptr inbounds nuw i8, ptr %403, i64 28
-  %405 = load i8, ptr %404, align 4
-  %406 = and i8 %405, 2
-  %.not.i158.i = icmp eq i8 %406, 0
-  br i1 %.not.i158.i, label %.indev_reset_check.exit162.thread_crit_edge.i, label %indev_reset_check.exit162.i
+400:                                              ; preds = %395
+  %401 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
+  %402 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
+  %403 = call i32 @lv_indev_send_event(ptr noundef %401, i32 noundef 8, ptr noundef %402)
+  %404 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 28
+  %406 = load i8, ptr %405, align 4
+  %407 = and i8 %406, 2
+  %.not.i161.i = icmp eq i8 %407, 0
+  br i1 %.not.i161.i, label %.indev_reset_check.exit165.thread_crit_edge.i, label %indev_reset_check.exit165.i
 
-.indev_reset_check.exit162.thread_crit_edge.i:    ; preds = %399
-  %.pre243.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  br label %indev_reset_check.exit162.thread.i
+.indev_reset_check.exit165.thread_crit_edge.i:    ; preds = %400
+  %.pre251.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
+  br label %indev_reset_check.exit165.thread.i
 
-indev_reset_check.exit162.i:                      ; preds = %399
+indev_reset_check.exit165.i:                      ; preds = %400
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %.pre.i159.i = load i8, ptr %404, align 4
-  %.pre2.i160.i = and i8 %.pre.i159.i, 2
-  %.not214.i = icmp eq i8 %.pre2.i160.i, 0
-  br i1 %.not214.i, label %indev_reset_check.exit162.thread.i, label %indev_keypad_proc.exit
+  %.pre.i162.i = load i8, ptr %405, align 4
+  %.pre2.i163.i = and i8 %.pre.i162.i, 2
+  %.not222.i = icmp eq i8 %.pre2.i163.i, 0
+  br i1 %.not222.i, label %indev_reset_check.exit165.thread.i, label %indev_keypad_proc.exit
 
-indev_reset_check.exit162.thread.i:               ; preds = %indev_reset_check.exit162.i, %.indev_reset_check.exit162.thread_crit_edge.i
-  %407 = phi ptr [ %.pre243.i, %.indev_reset_check.exit162.thread_crit_edge.i ], [ null, %indev_reset_check.exit162.i ]
-  %408 = call zeroext i1 @lv_obj_is_editable(ptr noundef %407) #11
-  br i1 %408, label %.critedge140.i, label %409
+indev_reset_check.exit165.thread.i:               ; preds = %indev_reset_check.exit165.i, %.indev_reset_check.exit165.thread_crit_edge.i
+  %408 = phi ptr [ %.pre251.i, %.indev_reset_check.exit165.thread_crit_edge.i ], [ null, %indev_reset_check.exit165.i ]
+  %409 = call zeroext i1 @lv_obj_is_editable(ptr noundef %408) #11
+  br i1 %409, label %.critedge145.i, label %410
 
-409:                                              ; preds = %indev_reset_check.exit162.thread.i
-  %410 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %411 = call zeroext i1 @lv_obj_has_flag(ptr noundef %410, i32 noundef 16) #11
-  br i1 %411, label %.critedge140.i, label %417
+410:                                              ; preds = %indev_reset_check.exit165.thread.i
+  %411 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
+  %412 = call zeroext i1 @lv_obj_has_flag(ptr noundef %411, i32 noundef 16) #11
+  br i1 %412, label %.critedge145.i, label %418
 
-.critedge140.i:                                   ; preds = %409, %indev_reset_check.exit162.thread.i
-  %412 = call i32 @lv_group_get_obj_count(ptr noundef nonnull %334) #11
-  %413 = icmp ugt i32 %412, 1
-  br i1 %413, label %414, label %.critedge142.i
+.critedge145.i:                                   ; preds = %410, %indev_reset_check.exit165.thread.i
+  %413 = call i32 @lv_group_get_obj_count(ptr noundef nonnull %334) #11
+  %414 = icmp ugt i32 %413, 1
+  br i1 %414, label %415, label %.critedge147.i
 
-414:                                              ; preds = %.critedge140.i
-  %415 = call zeroext i1 @lv_group_get_editing(ptr noundef nonnull %334) #11
-  %not..i = xor i1 %415, true
+415:                                              ; preds = %.critedge145.i
+  %416 = call zeroext i1 @lv_group_get_editing(ptr noundef nonnull %334) #11
+  %not..i = xor i1 %416, true
   call void @lv_group_set_editing(ptr noundef nonnull %334, i1 noundef zeroext %not..i) #11
-  %416 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  call void @lv_obj_remove_state(ptr noundef %416, i16 noundef zeroext 32) #11
-  br label %.critedge142.i
+  %417 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
+  call void @lv_obj_remove_state(ptr noundef %417, i16 noundef zeroext 32) #11
+  br label %.critedge147.i
 
-417:                                              ; preds = %409
-  br i1 %343, label %.critedge142.i, label %418
+418:                                              ; preds = %410
+  br i1 %343, label %.critedge147.i, label %419
 
-418:                                              ; preds = %417
-  %419 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %420 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
-  %421 = call i32 @lv_obj_send_event(ptr noundef %419, i32 noundef 8, ptr noundef %420) #11
-  %422 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
-  %423 = getelementptr inbounds nuw i8, ptr %422, i64 28
-  %424 = load i8, ptr %423, align 4
-  %425 = and i8 %424, 2
-  %.not.i163.i = icmp eq i8 %425, 0
-  br i1 %.not.i163.i, label %.critedge142.i, label %indev_reset_check.exit167.i
+419:                                              ; preds = %418
+  %420 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
+  %421 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
+  %422 = call i32 @lv_obj_send_event(ptr noundef %420, i32 noundef 8, ptr noundef %421) #11
+  %423 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 28
+  %425 = load i8, ptr %424, align 4
+  %426 = and i8 %425, 2
+  %.not.i166.i = icmp eq i8 %426, 0
+  br i1 %.not.i166.i, label %.critedge147.i, label %indev_reset_check.exit170.i
 
-indev_reset_check.exit167.i:                      ; preds = %418
+indev_reset_check.exit170.i:                      ; preds = %419
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %.pre.i164.i = load i8, ptr %423, align 4
-  %.pre2.i165.i = and i8 %.pre.i164.i, 2
-  %.not215.i = icmp eq i8 %.pre2.i165.i, 0
-  br i1 %.not215.i, label %.critedge142.i, label %indev_keypad_proc.exit
+  %.pre.i167.i = load i8, ptr %424, align 4
+  %.pre2.i168.i = and i8 %.pre.i167.i, 2
+  %.not223.i = icmp eq i8 %.pre2.i168.i, 0
+  br i1 %.not223.i, label %.critedge147.i, label %indev_keypad_proc.exit
 
-.critedge142.i:                                   ; preds = %indev_reset_check.exit167.i, %418, %417, %414, %.critedge140.i, %394
-  %426 = load i8, ptr %10, align 4
-  %427 = or i8 %426, 1
+.critedge147.i:                                   ; preds = %indev_reset_check.exit170.i, %419, %418, %415, %.critedge145.i, %395
+  %427 = load i8, ptr %10, align 4
+  %428 = or i8 %427, 1
   br label %.critedge.ithread-pre-split.sink.split
 
-428:                                              ; preds = %388
-  %.pre245.i = and i8 %.pre242.i, 1
-  %429 = icmp eq i8 %.pre245.i, 0
-  br i1 %429, label %.critedge.ithread-pre-split, label %.thread.i42
+429:                                              ; preds = %389
+  %.pre253.i = and i8 %.pre250.i, 1
+  %430 = icmp eq i8 %.pre253.i, 0
+  br i1 %430, label %.critedge.ithread-pre-split, label %.thread254.i
 
-.thread.i42:                                      ; preds = %428, %384
-  %430 = load i32, ptr %48, align 4, !tbaa !58
-  %431 = call i32 @lv_tick_elaps(i32 noundef %430) #11
-  %432 = load i16, ptr %68, align 2, !tbaa !28
-  %433 = zext i16 %432 to i32
-  %434 = icmp ugt i32 %431, %433
-  br i1 %434, label %435, label %.critedge.ithread-pre-split
+.thread254.i:                                     ; preds = %429, %385
+  %431 = load i32, ptr %48, align 4, !tbaa !58
+  %432 = call i32 @lv_tick_elaps(i32 noundef %431) #11
+  %433 = load i16, ptr %68, align 2, !tbaa !28
+  %434 = zext i16 %433 to i32
+  %435 = icmp ugt i32 %432, %434
+  br i1 %435, label %436, label %.critedge.ithread-pre-split
 
-435:                                              ; preds = %.thread.i42
-  %436 = call i32 @lv_tick_get() #11
-  store i32 %436, ptr %48, align 4, !tbaa !58
-  %437 = load i32, ptr %36, align 8, !tbaa !82
-  switch i32 %437, label %449 [
-    i32 10, label %438
-    i32 20, label %443
-    i32 19, label %446
+436:                                              ; preds = %.thread254.i
+  %437 = call i32 @lv_tick_get() #11
+  store i32 %437, ptr %48, align 4, !tbaa !58
+  %438 = load i32, ptr %36, align 8, !tbaa !82
+  switch i32 %438, label %450 [
+    i32 10, label %439
+    i32 20, label %444
+    i32 19, label %447
   ]
 
-438:                                              ; preds = %435
-  br i1 %343, label %.critedge.ithread-pre-split, label %439
+439:                                              ; preds = %436
+  br i1 %343, label %.critedge.ithread-pre-split, label %440
 
-439:                                              ; preds = %438
-  %440 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
-  %441 = call fastcc i32 @send_event(i32 noundef 9, ptr noundef %440)
-  %442 = icmp eq i32 %441, 0
-  br i1 %442, label %indev_keypad_proc.exit, label %.critedge.ithread-pre-split
+440:                                              ; preds = %439
+  %441 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
+  %442 = call fastcc i32 @send_event(i32 noundef 9, ptr noundef %441)
+  %443 = icmp eq i32 %442, 0
+  br i1 %443, label %indev_keypad_proc.exit, label %.critedge.ithread-pre-split
 
-443:                                              ; preds = %435
-  %444 = load i16, ptr %58, align 8, !tbaa !95
-  %445 = add i16 %444, -1
-  store i16 %445, ptr %58, align 8, !tbaa !95
+444:                                              ; preds = %436
+  %445 = load i16, ptr %58, align 8, !tbaa !95
+  %446 = add i16 %445, -1
+  store i16 %446, ptr %58, align 8, !tbaa !95
   br label %.critedge.i
 
-446:                                              ; preds = %435
-  %447 = load i16, ptr %58, align 8, !tbaa !95
-  %448 = add i16 %447, 1
-  store i16 %448, ptr %58, align 8, !tbaa !95
+447:                                              ; preds = %436
+  %448 = load i16, ptr %58, align 8, !tbaa !95
+  %449 = add i16 %448, 1
+  store i16 %449, ptr %58, align 8, !tbaa !95
   br label %.critedge.i
 
-449:                                              ; preds = %435
-  %450 = call i32 @lv_group_send_data(ptr noundef nonnull %334, i32 noundef %437) #11
-  %451 = load i8, ptr %10, align 4
-  %452 = and i8 %451, 2
-  %.not.i168.i = icmp eq i8 %452, 0
-  br i1 %.not.i168.i, label %.critedge.ithread-pre-split, label %indev_reset_check.exit172.i
+450:                                              ; preds = %436
+  %451 = call i32 @lv_group_send_data(ptr noundef nonnull %334, i32 noundef %438) #11
+  %452 = load i8, ptr %10, align 4
+  %453 = and i8 %452, 2
+  %.not.i171.i = icmp eq i8 %453, 0
+  br i1 %.not.i171.i, label %.critedge.ithread-pre-split, label %indev_reset_check.exit175.i
 
-indev_reset_check.exit172.i:                      ; preds = %449
+indev_reset_check.exit175.i:                      ; preds = %450
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %.pre.i169.i = load i8, ptr %10, align 4
-  %.pre2.i170.i = and i8 %.pre.i169.i, 2
-  %.not213.i = icmp eq i8 %.pre2.i170.i, 0
-  br i1 %.not213.i, label %.critedge.ithread-pre-split, label %indev_keypad_proc.exit
+  %.pre.i172.i = load i8, ptr %10, align 4
+  %.pre2.i173.i = and i8 %.pre.i172.i, 2
+  %.not221.i = icmp eq i8 %.pre2.i173.i, 0
+  br i1 %.not221.i, label %.critedge.ithread-pre-split, label %indev_keypad_proc.exit
 
-453:                                              ; preds = %382
-  %454 = icmp eq i32 %344, 0
-  %or.cond9.i = select i1 %454, i1 %383, i1 false
-  br i1 %or.cond9.i, label %455, label %.critedge.ithread-pre-split
+454:                                              ; preds = %383
+  %455 = icmp eq i32 %344, 0
+  %or.cond9.i = select i1 %455, i1 %384, i1 false
+  br i1 %or.cond9.i, label %456, label %.critedge.ithread-pre-split
 
-455:                                              ; preds = %453
-  %456 = load i32, ptr %36, align 8, !tbaa !82
-  %457 = icmp eq i32 %456, 10
-  br i1 %457, label %458, label %.critedge148.i
+456:                                              ; preds = %454
+  %457 = load i32, ptr %36, align 8, !tbaa !82
+  %458 = icmp eq i32 %457, 10
+  br i1 %458, label %459, label %.critedge151.i
 
-458:                                              ; preds = %455
-  %459 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %460 = call zeroext i1 @lv_obj_is_editable(ptr noundef %459) #11
-  br i1 %460, label %.critedge144.i, label %461
+459:                                              ; preds = %456
+  %460 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
+  %461 = call zeroext i1 @lv_obj_is_editable(ptr noundef %460) #11
+  br i1 %461, label %.critedge149.i, label %462
 
-461:                                              ; preds = %458
-  %462 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %463 = call zeroext i1 @lv_obj_has_flag(ptr noundef %462, i32 noundef 16) #11
-  br i1 %463, label %.critedge144.i, label %464
+462:                                              ; preds = %459
+  %463 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
+  %464 = call zeroext i1 @lv_obj_has_flag(ptr noundef %463, i32 noundef 16) #11
+  br i1 %464, label %.critedge149.i, label %465
 
-464:                                              ; preds = %461
-  br i1 %343, label %.critedge148.i, label %465
+465:                                              ; preds = %462
+  br i1 %343, label %.critedge151.i, label %466
 
-465:                                              ; preds = %464
-  %466 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
-  %467 = call fastcc i32 @send_event(i32 noundef 11, ptr noundef %466)
-  %468 = icmp eq i32 %467, 0
-  br i1 %468, label %indev_keypad_proc.exit, label %469
+466:                                              ; preds = %465
+  %467 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
+  %468 = call fastcc i32 @send_event(i32 noundef 11, ptr noundef %467)
+  %469 = icmp eq i32 %468, 0
+  br i1 %469, label %indev_keypad_proc.exit, label %470
 
-469:                                              ; preds = %465
-  %470 = load i8, ptr %10, align 4
-  %471 = and i8 %470, 1
-  %.not211.i = icmp eq i8 %471, 0
-  br i1 %.not211.i, label %472, label %475
+470:                                              ; preds = %466
+  %471 = load i8, ptr %10, align 4
+  %472 = and i8 %471, 1
+  %.not219.i = icmp eq i8 %472, 0
+  br i1 %.not219.i, label %473, label %476
 
-472:                                              ; preds = %469
-  %473 = call fastcc i32 @indev_proc_short_click(ptr noundef nonnull %0)
-  %474 = icmp eq i32 %473, 0
-  br i1 %474, label %indev_keypad_proc.exit, label %475
+473:                                              ; preds = %470
+  %474 = call fastcc i32 @indev_proc_short_click(ptr noundef nonnull %0)
+  %475 = icmp eq i32 %474, 0
+  br i1 %475, label %indev_keypad_proc.exit, label %476
 
-475:                                              ; preds = %472, %469
-  %476 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
-  %477 = call fastcc i32 @send_event(i32 noundef 10, ptr noundef %476)
-  %478 = icmp eq i32 %477, 0
-  br i1 %478, label %indev_keypad_proc.exit, label %.critedge148.i
+476:                                              ; preds = %473, %470
+  %477 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
+  %478 = call fastcc i32 @send_event(i32 noundef 10, ptr noundef %477)
+  %479 = icmp eq i32 %478, 0
+  br i1 %479, label %indev_keypad_proc.exit, label %.critedge151.i
 
-.critedge144.i:                                   ; preds = %461, %458
-  %479 = call zeroext i1 @lv_group_get_editing(ptr noundef nonnull %334) #11
-  %480 = load i8, ptr %10, align 4
-  %481 = and i8 %480, 1
-  %.not133.i41 = icmp eq i8 %481, 0
-  br i1 %479, label %482, label %504
+.critedge149.i:                                   ; preds = %462, %459
+  %480 = call zeroext i1 @lv_group_get_editing(ptr noundef nonnull %334) #11
+  %481 = load i8, ptr %10, align 4
+  %482 = and i8 %481, 1
+  %.not138.i = icmp eq i8 %482, 0
+  br i1 %480, label %483, label %505
 
-482:                                              ; preds = %.critedge144.i
-  br i1 %.not133.i41, label %486, label %483
+483:                                              ; preds = %.critedge149.i
+  br i1 %.not138.i, label %487, label %484
 
-483:                                              ; preds = %482
-  %484 = call i32 @lv_group_get_obj_count(ptr noundef nonnull %334) #11
-  %485 = icmp ult i32 %484, 2
-  br i1 %485, label %486, label %502
+484:                                              ; preds = %483
+  %485 = call i32 @lv_group_get_obj_count(ptr noundef nonnull %334) #11
+  %486 = icmp ult i32 %485, 2
+  br i1 %486, label %487, label %503
 
-486:                                              ; preds = %483, %482
-  br i1 %343, label %498, label %487
+487:                                              ; preds = %484, %483
+  br i1 %343, label %499, label %488
 
-487:                                              ; preds = %486
-  %488 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
-  %489 = call fastcc i32 @send_event(i32 noundef 11, ptr noundef %488)
-  %490 = icmp eq i32 %489, 0
-  br i1 %490, label %indev_keypad_proc.exit, label %491
+488:                                              ; preds = %487
+  %489 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
+  %490 = call fastcc i32 @send_event(i32 noundef 11, ptr noundef %489)
+  %491 = icmp eq i32 %490, 0
+  br i1 %491, label %indev_keypad_proc.exit, label %492
 
-491:                                              ; preds = %487
-  %492 = call fastcc i32 @indev_proc_short_click(ptr noundef nonnull %0)
-  %493 = icmp eq i32 %492, 0
-  br i1 %493, label %indev_keypad_proc.exit, label %494
+492:                                              ; preds = %488
+  %493 = call fastcc i32 @indev_proc_short_click(ptr noundef nonnull %0)
+  %494 = icmp eq i32 %493, 0
+  br i1 %494, label %indev_keypad_proc.exit, label %495
 
-494:                                              ; preds = %491
-  %495 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
-  %496 = call fastcc i32 @send_event(i32 noundef 10, ptr noundef %495)
-  %497 = icmp eq i32 %496, 0
-  br i1 %497, label %indev_keypad_proc.exit, label %498
+495:                                              ; preds = %492
+  %496 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
+  %497 = call fastcc i32 @send_event(i32 noundef 10, ptr noundef %496)
+  %498 = icmp eq i32 %497, 0
+  br i1 %498, label %indev_keypad_proc.exit, label %499
 
-498:                                              ; preds = %494, %486
-  %499 = call i32 @lv_group_send_data(ptr noundef nonnull %334, i32 noundef 10) #11
-  %500 = load i8, ptr %10, align 4
-  %501 = and i8 %500, 2
-  %.not.i173.i = icmp eq i8 %501, 0
-  br i1 %.not.i173.i, label %.critedge148.i, label %indev_reset_check.exit177.i
+499:                                              ; preds = %495, %487
+  %500 = call i32 @lv_group_send_data(ptr noundef nonnull %334, i32 noundef 10) #11
+  %501 = load i8, ptr %10, align 4
+  %502 = and i8 %501, 2
+  %.not.i176.i = icmp eq i8 %502, 0
+  br i1 %.not.i176.i, label %.critedge151.i, label %indev_reset_check.exit180.i
 
-indev_reset_check.exit177.i:                      ; preds = %498
+indev_reset_check.exit180.i:                      ; preds = %499
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %.pre.i174.i = load i8, ptr %10, align 4
-  %.pre2.i175.i = and i8 %.pre.i174.i, 2
-  %.not212.i = icmp eq i8 %.pre2.i175.i, 0
-  br i1 %.not212.i, label %.critedge148.i, label %indev_keypad_proc.exit
+  %.pre.i177.i = load i8, ptr %10, align 4
+  %.pre2.i178.i = and i8 %.pre.i177.i, 2
+  %.not220.i = icmp eq i8 %.pre2.i178.i, 0
+  br i1 %.not220.i, label %.critedge151.i, label %indev_keypad_proc.exit
 
-502:                                              ; preds = %483
-  %503 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  call void @lv_obj_remove_state(ptr noundef %503, i16 noundef zeroext 32) #11
-  br label %.critedge148.i
+503:                                              ; preds = %484
+  %504 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
+  call void @lv_obj_remove_state(ptr noundef %504, i16 noundef zeroext 32) #11
+  br label %.critedge151.i
 
-504:                                              ; preds = %.critedge144.i
-  br i1 %.not133.i41, label %505, label %.critedge148.i
+505:                                              ; preds = %.critedge149.i
+  br i1 %.not138.i, label %506, label %.critedge151.i
 
-505:                                              ; preds = %504
+506:                                              ; preds = %505
   call void @lv_group_set_editing(ptr noundef nonnull %334, i1 noundef zeroext true) #11
-  br label %.critedge148.i
+  br label %.critedge151.i
 
-.critedge148.i:                                   ; preds = %505, %504, %502, %indev_reset_check.exit177.i, %498, %475, %464, %455
+.critedge151.i:                                   ; preds = %506, %505, %503, %indev_reset_check.exit180.i, %499, %476, %465, %456
   store i32 0, ptr %47, align 8, !tbaa !57
-  %506 = load i8, ptr %10, align 4
-  %507 = and i8 %506, -2
+  %507 = load i8, ptr %10, align 4
+  %508 = and i8 %507, -2
   br label %.critedge.ithread-pre-split.sink.split
 
-.critedge.ithread-pre-split.sink.split:           ; preds = %.critedge148.i, %.critedge142.i
-  %.sink = phi i8 [ %427, %.critedge142.i ], [ %507, %.critedge148.i ]
+.critedge.ithread-pre-split.sink.split:           ; preds = %.critedge151.i, %.critedge147.i
+  %.sink = phi i8 [ %428, %.critedge147.i ], [ %508, %.critedge151.i ]
   store i8 %.sink, ptr %10, align 4
   br label %.critedge.ithread-pre-split
 
-.critedge.ithread-pre-split:                      ; preds = %.critedge.ithread-pre-split.sink.split, %357, %360, %indev_reset_check.exit.thread.i47, %374, %378, %indev_reset_check.exit157.i, %428, %.thread.i42, %438, %439, %449, %indev_reset_check.exit172.i, %453
-  %.pr62 = load i16, ptr %58, align 8, !tbaa !95
+.critedge.ithread-pre-split:                      ; preds = %.critedge.ithread-pre-split.sink.split, %.thread.i43, %358, %360, %361, %indev_reset_check.exit.thread.i42, %375, %379, %indev_reset_check.exit160.i, %429, %.thread254.i, %439, %440, %450, %indev_reset_check.exit175.i, %454
+  %.pr58 = load i16, ptr %58, align 8, !tbaa !95
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge.ithread-pre-split, %446, %443, %367, %364
-  %508 = phi i16 [ %.pr62, %.critedge.ithread-pre-split ], [ %448, %446 ], [ %445, %443 ], [ %369, %367 ], [ %366, %364 ]
+.critedge.i:                                      ; preds = %.critedge.ithread-pre-split, %447, %444, %368, %365
+  %509 = phi i16 [ %.pr58, %.critedge.ithread-pre-split ], [ %449, %447 ], [ %446, %444 ], [ %370, %368 ], [ %367, %365 ]
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %.not135.i38 = icmp eq i16 %508, 0
-  br i1 %.not135.i38, label %indev_keypad_proc.exit, label %509
+  %.not141.i = icmp eq i16 %509, 0
+  br i1 %.not141.i, label %indev_keypad_proc.exit, label %510
 
-509:                                              ; preds = %.critedge.i
-  %510 = call zeroext i1 @lv_group_get_editing(ptr noundef nonnull %334) #11
-  %511 = load i16, ptr %58, align 8, !tbaa !95
-  %512 = icmp slt i16 %511, 0
-  br i1 %510, label %513, label %530
+510:                                              ; preds = %.critedge.i
+  %511 = call zeroext i1 @lv_group_get_editing(ptr noundef nonnull %334) #11
+  %512 = load i16, ptr %58, align 8, !tbaa !95
+  %513 = icmp slt i16 %512, 0
+  br i1 %511, label %514, label %531
 
-513:                                              ; preds = %509
-  br i1 %512, label %.lr.ph234.i, label %522
+514:                                              ; preds = %510
+  br i1 %513, label %.lr.ph242.i, label %523
 
-.lr.ph234.i:                                      ; preds = %513, %indev_reset_check.exit182.thread.i
-  %.0121233.i = phi i32 [ %517, %indev_reset_check.exit182.thread.i ], [ 0, %513 ]
-  %514 = call i32 @lv_group_send_data(ptr noundef nonnull %334, i32 noundef 20) #11
-  %515 = load i8, ptr %10, align 4
-  %516 = and i8 %515, 2
-  %.not.i178.i = icmp eq i8 %516, 0
-  br i1 %.not.i178.i, label %indev_reset_check.exit182.thread.i, label %indev_reset_check.exit182.i
+.lr.ph242.i:                                      ; preds = %514, %indev_reset_check.exit185.thread.i
+  %.0126241.i = phi i32 [ %518, %indev_reset_check.exit185.thread.i ], [ 0, %514 ]
+  %515 = call i32 @lv_group_send_data(ptr noundef nonnull %334, i32 noundef 20) #11
+  %516 = load i8, ptr %10, align 4
+  %517 = and i8 %516, 2
+  %.not.i181.i = icmp eq i8 %517, 0
+  br i1 %.not.i181.i, label %indev_reset_check.exit185.thread.i, label %indev_reset_check.exit185.i
 
-indev_reset_check.exit182.i:                      ; preds = %.lr.ph234.i
+indev_reset_check.exit185.i:                      ; preds = %.lr.ph242.i
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %.pre.i179.i = load i8, ptr %10, align 4
-  %.pre2.i180.i = and i8 %.pre.i179.i, 2
-  %.not221.i = icmp eq i8 %.pre2.i180.i, 0
-  br i1 %.not221.i, label %indev_reset_check.exit182.thread.i, label %indev_keypad_proc.exit
+  %.pre.i182.i = load i8, ptr %10, align 4
+  %.pre2.i183.i = and i8 %.pre.i182.i, 2
+  %.not229.i = icmp eq i8 %.pre2.i183.i, 0
+  br i1 %.not229.i, label %indev_reset_check.exit185.thread.i, label %indev_keypad_proc.exit
 
-indev_reset_check.exit182.thread.i:               ; preds = %indev_reset_check.exit182.i, %.lr.ph234.i
-  %517 = add nuw nsw i32 %.0121233.i, 1
-  %518 = load i16, ptr %58, align 8, !tbaa !95
-  %519 = sext i16 %518 to i32
-  %520 = sub nsw i32 0, %519
-  %521 = icmp slt i32 %517, %520
-  br i1 %521, label %.lr.ph234.i, label %indev_keypad_proc.exit, !llvm.loop !109
+indev_reset_check.exit185.thread.i:               ; preds = %indev_reset_check.exit185.i, %.lr.ph242.i
+  %518 = add nuw nsw i32 %.0126241.i, 1
+  %519 = load i16, ptr %58, align 8, !tbaa !95
+  %520 = sext i16 %519 to i32
+  %521 = sub nsw i32 0, %520
+  %522 = icmp slt i32 %518, %521
+  br i1 %522, label %.lr.ph242.i, label %indev_keypad_proc.exit, !llvm.loop !109
 
-522:                                              ; preds = %513
-  %.not137.i40 = icmp eq i16 %511, 0
-  br i1 %.not137.i40, label %indev_keypad_proc.exit, label %.lr.ph232.i
+523:                                              ; preds = %514
+  %.not143.i = icmp eq i16 %512, 0
+  br i1 %.not143.i, label %indev_keypad_proc.exit, label %.lr.ph240.i
 
-.lr.ph232.i:                                      ; preds = %522, %indev_reset_check.exit187.thread.i
-  %.1122231.i = phi i32 [ %526, %indev_reset_check.exit187.thread.i ], [ 0, %522 ]
-  %523 = call i32 @lv_group_send_data(ptr noundef nonnull %334, i32 noundef 19) #11
-  %524 = load i8, ptr %10, align 4
-  %525 = and i8 %524, 2
-  %.not.i183.i = icmp eq i8 %525, 0
-  br i1 %.not.i183.i, label %indev_reset_check.exit187.thread.i, label %indev_reset_check.exit187.i
+.lr.ph240.i:                                      ; preds = %523, %indev_reset_check.exit190.thread.i
+  %.1127239.i = phi i32 [ %527, %indev_reset_check.exit190.thread.i ], [ 0, %523 ]
+  %524 = call i32 @lv_group_send_data(ptr noundef nonnull %334, i32 noundef 19) #11
+  %525 = load i8, ptr %10, align 4
+  %526 = and i8 %525, 2
+  %.not.i186.i = icmp eq i8 %526, 0
+  br i1 %.not.i186.i, label %indev_reset_check.exit190.thread.i, label %indev_reset_check.exit190.i
 
-indev_reset_check.exit187.i:                      ; preds = %.lr.ph232.i
+indev_reset_check.exit190.i:                      ; preds = %.lr.ph240.i
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %.pre.i184.i = load i8, ptr %10, align 4
-  %.pre2.i185.i = and i8 %.pre.i184.i, 2
-  %.not220.i = icmp eq i8 %.pre2.i185.i, 0
-  br i1 %.not220.i, label %indev_reset_check.exit187.thread.i, label %indev_keypad_proc.exit
+  %.pre.i187.i = load i8, ptr %10, align 4
+  %.pre2.i188.i = and i8 %.pre.i187.i, 2
+  %.not228.i = icmp eq i8 %.pre2.i188.i, 0
+  br i1 %.not228.i, label %indev_reset_check.exit190.thread.i, label %indev_keypad_proc.exit
 
-indev_reset_check.exit187.thread.i:               ; preds = %indev_reset_check.exit187.i, %.lr.ph232.i
-  %526 = add nuw nsw i32 %.1122231.i, 1
-  %527 = load i16, ptr %58, align 8, !tbaa !95
-  %528 = sext i16 %527 to i32
-  %529 = icmp slt i32 %526, %528
-  br i1 %529, label %.lr.ph232.i, label %indev_keypad_proc.exit, !llvm.loop !111
+indev_reset_check.exit190.thread.i:               ; preds = %indev_reset_check.exit190.i, %.lr.ph240.i
+  %527 = add nuw nsw i32 %.1127239.i, 1
+  %528 = load i16, ptr %58, align 8, !tbaa !95
+  %529 = sext i16 %528 to i32
+  %530 = icmp slt i32 %527, %529
+  br i1 %530, label %.lr.ph240.i, label %indev_keypad_proc.exit, !llvm.loop !111
 
-530:                                              ; preds = %509
-  br i1 %512, label %.lr.ph230.i, label %538
+531:                                              ; preds = %510
+  br i1 %513, label %.lr.ph238.i, label %539
 
-.lr.ph230.i:                                      ; preds = %530, %indev_reset_check.exit192.thread.i
-  %.0229.i = phi i32 [ %533, %indev_reset_check.exit192.thread.i ], [ 0, %530 ]
+.lr.ph238.i:                                      ; preds = %531, %indev_reset_check.exit195.thread.i
+  %.0237.i = phi i32 [ %534, %indev_reset_check.exit195.thread.i ], [ 0, %531 ]
   call void @lv_group_focus_prev(ptr noundef nonnull %334) #11
-  %531 = load i8, ptr %10, align 4
-  %532 = and i8 %531, 2
-  %.not.i188.i = icmp eq i8 %532, 0
-  br i1 %.not.i188.i, label %indev_reset_check.exit192.thread.i, label %indev_reset_check.exit192.i
+  %532 = load i8, ptr %10, align 4
+  %533 = and i8 %532, 2
+  %.not.i191.i = icmp eq i8 %533, 0
+  br i1 %.not.i191.i, label %indev_reset_check.exit195.thread.i, label %indev_reset_check.exit195.i
 
-indev_reset_check.exit192.i:                      ; preds = %.lr.ph230.i
+indev_reset_check.exit195.i:                      ; preds = %.lr.ph238.i
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %.pre.i189.i = load i8, ptr %10, align 4
-  %.pre2.i190.i = and i8 %.pre.i189.i, 2
-  %.not219.i = icmp eq i8 %.pre2.i190.i, 0
-  br i1 %.not219.i, label %indev_reset_check.exit192.thread.i, label %indev_keypad_proc.exit
+  %.pre.i192.i = load i8, ptr %10, align 4
+  %.pre2.i193.i = and i8 %.pre.i192.i, 2
+  %.not227.i = icmp eq i8 %.pre2.i193.i, 0
+  br i1 %.not227.i, label %indev_reset_check.exit195.thread.i, label %indev_keypad_proc.exit
 
-indev_reset_check.exit192.thread.i:               ; preds = %indev_reset_check.exit192.i, %.lr.ph230.i
-  %533 = add nuw nsw i32 %.0229.i, 1
-  %534 = load i16, ptr %58, align 8, !tbaa !95
-  %535 = sext i16 %534 to i32
-  %536 = sub nsw i32 0, %535
-  %537 = icmp slt i32 %533, %536
-  br i1 %537, label %.lr.ph230.i, label %indev_keypad_proc.exit, !llvm.loop !112
+indev_reset_check.exit195.thread.i:               ; preds = %indev_reset_check.exit195.i, %.lr.ph238.i
+  %534 = add nuw nsw i32 %.0237.i, 1
+  %535 = load i16, ptr %58, align 8, !tbaa !95
+  %536 = sext i16 %535 to i32
+  %537 = sub nsw i32 0, %536
+  %538 = icmp slt i32 %534, %537
+  br i1 %538, label %.lr.ph238.i, label %indev_keypad_proc.exit, !llvm.loop !112
 
-538:                                              ; preds = %530
-  %.not136.i39 = icmp eq i16 %511, 0
-  br i1 %.not136.i39, label %indev_keypad_proc.exit, label %.lr.ph.i
+539:                                              ; preds = %531
+  %.not142.i = icmp eq i16 %512, 0
+  br i1 %.not142.i, label %indev_keypad_proc.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %538, %indev_reset_check.exit197.thread.i
-  %.1228.i = phi i32 [ %541, %indev_reset_check.exit197.thread.i ], [ 0, %538 ]
+.lr.ph.i:                                         ; preds = %539, %indev_reset_check.exit200.thread.i
+  %.1236.i = phi i32 [ %542, %indev_reset_check.exit200.thread.i ], [ 0, %539 ]
   call void @lv_group_focus_next(ptr noundef nonnull %334) #11
-  %539 = load i8, ptr %10, align 4
-  %540 = and i8 %539, 2
-  %.not.i193.i = icmp eq i8 %540, 0
-  br i1 %.not.i193.i, label %indev_reset_check.exit197.thread.i, label %indev_reset_check.exit197.i
+  %540 = load i8, ptr %10, align 4
+  %541 = and i8 %540, 2
+  %.not.i196.i = icmp eq i8 %541, 0
+  br i1 %.not.i196.i, label %indev_reset_check.exit200.thread.i, label %indev_reset_check.exit200.i
 
-indev_reset_check.exit197.i:                      ; preds = %.lr.ph.i
+indev_reset_check.exit200.i:                      ; preds = %.lr.ph.i
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %.pre.i194.i = load i8, ptr %10, align 4
-  %.pre2.i195.i = and i8 %.pre.i194.i, 2
-  %.not218.i = icmp eq i8 %.pre2.i195.i, 0
-  br i1 %.not218.i, label %indev_reset_check.exit197.thread.i, label %indev_keypad_proc.exit
+  %.pre.i197.i = load i8, ptr %10, align 4
+  %.pre2.i198.i = and i8 %.pre.i197.i, 2
+  %.not226.i = icmp eq i8 %.pre2.i198.i, 0
+  br i1 %.not226.i, label %indev_reset_check.exit200.thread.i, label %indev_keypad_proc.exit
 
-indev_reset_check.exit197.thread.i:               ; preds = %indev_reset_check.exit197.i, %.lr.ph.i
-  %541 = add nuw nsw i32 %.1228.i, 1
-  %542 = load i16, ptr %58, align 8, !tbaa !95
-  %543 = sext i16 %542 to i32
-  %544 = icmp slt i32 %541, %543
-  br i1 %544, label %.lr.ph.i, label %indev_keypad_proc.exit, !llvm.loop !113
+indev_reset_check.exit200.thread.i:               ; preds = %indev_reset_check.exit200.i, %.lr.ph.i
+  %542 = add nuw nsw i32 %.1236.i, 1
+  %543 = load i16, ptr %58, align 8, !tbaa !95
+  %544 = sext i16 %543 to i32
+  %545 = icmp slt i32 %542, %544
+  br i1 %545, label %.lr.ph.i, label %indev_keypad_proc.exit, !llvm.loop !113
 
-545:                                              ; preds = %112
-  %546 = load ptr, ptr %59, align 8, !tbaa !114
-  %547 = icmp eq ptr %546, null
-  br i1 %547, label %indev_keypad_proc.exit, label %548
+546:                                              ; preds = %112
+  %547 = load ptr, ptr %59, align 8, !tbaa !114
+  %548 = icmp eq ptr %547, null
+  br i1 %548, label %indev_keypad_proc.exit, label %549
 
-548:                                              ; preds = %545
-  %549 = load i32, ptr %60, align 4, !tbaa !115
-  %550 = zext i32 %549 to i64
-  %551 = getelementptr inbounds nuw %struct.lv_point_t, ptr %546, i64 %550
-  %552 = load i32, ptr %551, align 4, !tbaa !116
-  %553 = getelementptr inbounds nuw i8, ptr %551, i64 4
-  %554 = load i32, ptr %553, align 4, !tbaa !117
-  %555 = load i32, ptr %56, align 4, !tbaa !85
-  %556 = icmp eq i32 %555, 1
-  br i1 %556, label %557, label %562
+549:                                              ; preds = %546
+  %550 = load i32, ptr %60, align 4, !tbaa !115
+  %551 = zext i32 %550 to i64
+  %552 = getelementptr inbounds nuw %struct.lv_point_t, ptr %547, i64 %551
+  %553 = load i32, ptr %552, align 4, !tbaa !116
+  %554 = getelementptr inbounds nuw i8, ptr %552, i64 4
+  %555 = load i32, ptr %554, align 4, !tbaa !117
+  %556 = load i32, ptr %56, align 4, !tbaa !85
+  %557 = icmp eq i32 %556, 1
+  br i1 %557, label %558, label %563
 
-557:                                              ; preds = %548
-  %558 = load i32, ptr %61, align 8, !tbaa !91
-  %.not27.i = icmp eq i32 %558, %552
-  br i1 %.not27.i, label %559, label %561
+558:                                              ; preds = %549
+  %559 = load i32, ptr %61, align 8, !tbaa !91
+  %.not27.i = icmp eq i32 %559, %553
+  br i1 %.not27.i, label %560, label %562
 
-559:                                              ; preds = %557
-  %560 = load i32, ptr %62, align 4, !tbaa !92
-  %.not28.i = icmp eq i32 %560, %554
-  br i1 %.not28.i, label %562, label %561
+560:                                              ; preds = %558
+  %561 = load i32, ptr %62, align 4, !tbaa !92
+  %.not28.i = icmp eq i32 %561, %555
+  br i1 %.not28.i, label %563, label %562
 
-561:                                              ; preds = %559, %557
+562:                                              ; preds = %560, %558
   call fastcc void @indev_proc_release(ptr noundef nonnull %0)
-  br label %562
+  br label %563
 
-562:                                              ; preds = %561, %559, %548
-  %563 = load i8, ptr %10, align 4
-  %564 = and i8 %563, 2
-  %.not.i.i48 = icmp eq i8 %564, 0
-  br i1 %.not.i.i48, label %indev_reset_check.exit.thread.i53, label %indev_reset_check.exit.i49
+563:                                              ; preds = %562, %560, %549
+  %564 = load i8, ptr %10, align 4
+  %565 = and i8 %564, 2
+  %.not.i.i44 = icmp eq i8 %565, 0
+  br i1 %.not.i.i44, label %indev_reset_check.exit.thread.i49, label %indev_reset_check.exit.i45
 
-indev_reset_check.exit.i49:                       ; preds = %562
+indev_reset_check.exit.i45:                       ; preds = %563
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  %.pre.i.i50 = load i8, ptr %10, align 4
-  %.pre2.i.i51 = and i8 %.pre.i.i50, 2
-  %.not.i52 = icmp eq i8 %.pre2.i.i51, 0
-  br i1 %.not.i52, label %indev_reset_check.exit.thread.i53, label %indev_keypad_proc.exit
+  %.pre.i.i46 = load i8, ptr %10, align 4
+  %.pre2.i.i47 = and i8 %.pre.i.i46, 2
+  %.not.i48 = icmp eq i8 %.pre2.i.i47, 0
+  br i1 %.not.i48, label %indev_reset_check.exit.thread.i49, label %indev_keypad_proc.exit
 
-indev_reset_check.exit.thread.i53:                ; preds = %indev_reset_check.exit.i49, %562
-  store i32 %552, ptr %63, align 8, !tbaa !93
-  store i32 %554, ptr %64, align 4, !tbaa !94
-  %565 = load i32, ptr %56, align 4, !tbaa !85
-  %566 = icmp eq i32 %565, 1
-  br i1 %566, label %567, label %568
+indev_reset_check.exit.thread.i49:                ; preds = %indev_reset_check.exit.i45, %563
+  store i32 %553, ptr %63, align 8, !tbaa !93
+  store i32 %555, ptr %64, align 4, !tbaa !94
+  %566 = load i32, ptr %56, align 4, !tbaa !85
+  %567 = icmp eq i32 %566, 1
+  br i1 %567, label %568, label %569
 
-567:                                              ; preds = %indev_reset_check.exit.thread.i53
+568:                                              ; preds = %indev_reset_check.exit.thread.i49
   call fastcc void @indev_proc_press(ptr noundef nonnull %0)
-  br label %569
+  br label %570
 
-568:                                              ; preds = %indev_reset_check.exit.thread.i53
+569:                                              ; preds = %indev_reset_check.exit.thread.i49
   call fastcc void @indev_proc_release(ptr noundef nonnull %0)
-  br label %569
+  br label %570
 
-569:                                              ; preds = %568, %567
-  %570 = load i32, ptr %57, align 8, !tbaa !86
-  store i32 %570, ptr %65, align 4, !tbaa !106
-  %571 = load i8, ptr %10, align 4
-  %572 = and i8 %571, 2
-  %.not.i29.i = icmp eq i8 %572, 0
+570:                                              ; preds = %569, %568
+  %571 = load i32, ptr %57, align 8, !tbaa !86
+  store i32 %571, ptr %65, align 4, !tbaa !106
+  %572 = load i8, ptr %10, align 4
+  %573 = and i8 %572, 2
+  %.not.i29.i = icmp eq i8 %573, 0
   br i1 %.not.i29.i, label %indev_reset_check.exit33.thread.i, label %indev_reset_check.exit33.i
 
-indev_reset_check.exit33.i:                       ; preds = %569
+indev_reset_check.exit33.i:                       ; preds = %570
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %.pre.i30.i = load i8, ptr %10, align 4
   %.pre2.i31.i = and i8 %.pre.i30.i, 2
   %.not36.i = icmp eq i8 %.pre2.i31.i, 0
   br i1 %.not36.i, label %indev_reset_check.exit33.thread.i, label %indev_keypad_proc.exit
 
-indev_reset_check.exit33.thread.i:                ; preds = %indev_reset_check.exit33.i, %569
-  %573 = load i32, ptr %63, align 8, !tbaa !93
-  store i32 %573, ptr %61, align 8, !tbaa !91
-  %574 = load i32, ptr %64, align 4, !tbaa !94
-  store i32 %574, ptr %62, align 4, !tbaa !92
+indev_reset_check.exit33.thread.i:                ; preds = %indev_reset_check.exit33.i, %570
+  %574 = load i32, ptr %63, align 8, !tbaa !93
+  store i32 %574, ptr %61, align 8, !tbaa !91
+  %575 = load i32, ptr %64, align 4, !tbaa !94
+  store i32 %575, ptr %62, align 4, !tbaa !92
   br label %indev_keypad_proc.exit
 
-indev_keypad_proc.exit:                           ; preds = %indev_reset_check.exit197.thread.i, %indev_reset_check.exit197.i, %indev_reset_check.exit192.thread.i, %indev_reset_check.exit192.i, %indev_reset_check.exit187.thread.i, %indev_reset_check.exit187.i, %indev_reset_check.exit182.thread.i, %indev_reset_check.exit182.i, %indev_reset_check.exit33.thread.i, %indev_reset_check.exit33.i, %indev_reset_check.exit.i49, %545, %538, %522, %.critedge.i, %indev_reset_check.exit177.i, %494, %491, %487, %475, %472, %465, %indev_reset_check.exit172.i, %439, %indev_reset_check.exit167.i, %indev_reset_check.exit162.i, %indev_reset_check.exit157.i, %374, %indev_reset_check.exit.i44, %360, %336, %331, %324, %indev_reset_check.exit.thread.i, %317, %314, %306, %indev_reset_check.exit118.i, %indev_reset_check.exit113.i, %indev_reset_check.exit108.i, %287, %272, %send_event.exit.i, %indev_reset_check.exit103.i, %indev_reset_check.exit98.thread.i, %indev_reset_check.exit98.i, %indev_reset_check.exit93.thread.i, %indev_reset_check.exit93.i, %indev_reset_check.exit88.i, %indev_reset_check.exit.i, %208, %.thread.i, %200, %112, %indev_pointer_proc.exit
-  %575 = load i8, ptr %10, align 4
-  %576 = and i8 %575, 2
-  %.not.i54 = icmp eq i8 %576, 0
-  br i1 %.not.i54, label %indev_proc_reset_query_handler.exit55, label %577
+indev_keypad_proc.exit:                           ; preds = %indev_reset_check.exit200.thread.i, %indev_reset_check.exit200.i, %indev_reset_check.exit195.thread.i, %indev_reset_check.exit195.i, %indev_reset_check.exit190.thread.i, %indev_reset_check.exit190.i, %indev_reset_check.exit185.thread.i, %indev_reset_check.exit185.i, %indev_reset_check.exit33.thread.i, %indev_reset_check.exit33.i, %indev_reset_check.exit.i45, %546, %539, %523, %.critedge.i, %indev_reset_check.exit180.i, %495, %492, %488, %476, %473, %466, %indev_reset_check.exit175.i, %440, %indev_reset_check.exit170.i, %indev_reset_check.exit165.i, %indev_reset_check.exit160.i, %375, %indev_reset_check.exit.i39, %361, %336, %331, %324, %indev_reset_check.exit.thread.i, %317, %314, %306, %indev_reset_check.exit118.i, %indev_reset_check.exit113.i, %indev_reset_check.exit108.i, %287, %272, %send_event.exit.i, %indev_reset_check.exit103.i, %indev_reset_check.exit98.thread.i, %indev_reset_check.exit98.i, %indev_reset_check.exit93.thread.i, %indev_reset_check.exit93.i, %indev_reset_check.exit88.i, %indev_reset_check.exit.i, %208, %.thread.i, %200, %112, %indev_pointer_proc.exit
+  %576 = load i8, ptr %10, align 4
+  %577 = and i8 %576, 2
+  %.not.i50 = icmp eq i8 %577, 0
+  br i1 %.not.i50, label %indev_proc_reset_query_handler.exit51, label %578
 
-577:                                              ; preds = %indev_keypad_proc.exit
+578:                                              ; preds = %indev_keypad_proc.exit
   store ptr null, ptr %46, align 8, !tbaa !56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   store i32 0, ptr %47, align 8, !tbaa !57
   store i32 0, ptr %48, align 4, !tbaa !58
   store i32 0, ptr %49, align 8, !tbaa !59
   store i32 0, ptr %50, align 4, !tbaa !60
-  %578 = load i16, ptr %51, align 4
-  %579 = and i16 %578, -16
-  store i16 %579, ptr %51, align 4
+  %579 = load i16, ptr %51, align 4
+  %580 = and i16 %579, -16
+  store i16 %580, ptr %51, align 4
   store ptr null, ptr %45, align 8, !tbaa !61
   store i32 0, ptr %52, align 8, !tbaa !62
   store i32 0, ptr %53, align 4, !tbaa !63
   store i32 0, ptr %54, align 8, !tbaa !64
   store i32 0, ptr %55, align 4, !tbaa !65
-  %580 = and i8 %575, -20
-  store i8 %580, ptr %10, align 4
+  %581 = and i8 %576, -20
+  store i8 %581, ptr %10, align 4
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
-  br label %indev_proc_reset_query_handler.exit55
+  br label %indev_proc_reset_query_handler.exit51
 
-indev_proc_reset_query_handler.exit55:            ; preds = %indev_keypad_proc.exit, %577
-  br i1 %95, label %80, label %581, !llvm.loop !118
+indev_proc_reset_query_handler.exit51:            ; preds = %indev_keypad_proc.exit, %578
+  br i1 %95, label %80, label %582, !llvm.loop !118
 
-581:                                              ; preds = %indev_proc_reset_query_handler.exit55
+582:                                              ; preds = %indev_proc_reset_query_handler.exit51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #11
-  br label %582
+  br label %583
 
-582:                                              ; preds = %32, %indev_proc_reset_query_handler.exit, %5, %1, %581
+583:                                              ; preds = %32, %indev_proc_reset_query_handler.exit, %5, %1, %582
   ret void
 }
 

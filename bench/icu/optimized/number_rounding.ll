@@ -1788,287 +1788,285 @@ declare noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(pt
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   %4 = load i32, ptr %2, align 4, !tbaa !13
-  %5 = icmp slt i32 %4, 1
-  br i1 %5, label %6, label %158
+  %5 = icmp sgt i32 %4, 0
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %7 = load i8, ptr %6, align 4, !range !88
+  %8 = trunc nuw i8 %7 to i1
+  %or.cond = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond, label %157, label %9
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %8 = load i8, ptr %7, align 4, !tbaa !81, !range !88, !noundef !89
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %158, label %10
-
-10:                                               ; preds = %6
-  %11 = load i32, ptr %0, align 8, !tbaa !85
-  switch i32 %11, label %146 [
-    i32 0, label %12
-    i32 9, label %12
-    i32 1, label %13
-    i32 2, label %14
-    i32 3, label %27
-    i32 4, label %55
-    i32 5, label %117
-    i32 6, label %127
-    i32 7, label %136
-    i32 8, label %145
+9:                                                ; preds = %3
+  %10 = load i32, ptr %0, align 8, !tbaa !85
+  switch i32 %10, label %145 [
+    i32 0, label %11
+    i32 9, label %11
+    i32 1, label %12
+    i32 2, label %13
+    i32 3, label %26
+    i32 4, label %54
+    i32 5, label %116
+    i32 6, label %126
+    i32 7, label %135
+    i32 8, label %144
   ]
 
-12:                                               ; preds = %10, %10
+11:                                               ; preds = %9, %9
   store i32 5, ptr %2, align 4, !tbaa !13
-  br label %147
+  br label %146
 
-13:                                               ; preds = %10
+12:                                               ; preds = %9
   tail call void @_ZN6icu_776number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  br label %147
+  br label %146
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %17 = load i16, ptr %16, align 2, !tbaa !17
-  %18 = sext i16 %17 to i32
-  %19 = icmp eq i16 %17, -1
-  %20 = sub nsw i32 0, %18
-  %.0.i = select i1 %19, i32 -2147483648, i32 %20
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load i32, ptr %21, align 8, !tbaa !77
-  tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %.0.i, i32 noundef %22, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %23 = load i16, ptr %15, align 8, !tbaa !17
-  %24 = sext i16 %23 to i32
-  %25 = icmp eq i16 %23, 0
-  %.0.i59.neg = select i1 %25, i32 -2147483647, i32 %24
-  %26 = tail call i32 @uprv_max_77(i32 noundef 0, i32 noundef %.0.i59.neg)
-  br label %147
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %16 = load i16, ptr %15, align 2, !tbaa !17
+  %17 = sext i16 %16 to i32
+  %18 = icmp eq i16 %16, -1
+  %19 = sub nsw i32 0, %17
+  %.0.i = select i1 %18, i32 -2147483648, i32 %19
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %21 = load i32, ptr %20, align 8, !tbaa !77
+  tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %.0.i, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %22 = load i16, ptr %14, align 8, !tbaa !17
+  %23 = sext i16 %22 to i32
+  %24 = icmp eq i16 %22, 0
+  %.0.i62.neg = select i1 %24, i32 -2147483647, i32 %23
+  %25 = tail call i32 @uprv_max_77(i32 noundef 0, i32 noundef %.0.i62.neg)
+  br label %146
 
-27:                                               ; preds = %10
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %29 = load i16, ptr %28, align 2, !tbaa !17
-  %30 = sext i16 %29 to i32
-  %31 = icmp eq i16 %29, -1
-  br i1 %31, label %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit, label %32
+26:                                               ; preds = %9
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %28 = load i16, ptr %27, align 2, !tbaa !17
+  %29 = sext i16 %28 to i32
+  %30 = icmp eq i16 %28, -1
+  br i1 %30, label %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit, label %31
 
-32:                                               ; preds = %27
-  %33 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  br i1 %33, label %36, label %34
+31:                                               ; preds = %26
+  %32 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  br i1 %32, label %35, label %33
 
-34:                                               ; preds = %32
-  %35 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  br label %36
+33:                                               ; preds = %31
+  %34 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  br label %35
 
-36:                                               ; preds = %34, %32
-  %37 = phi i32 [ %35, %34 ], [ 0, %32 ]
-  %reass.sub70 = sub i32 %37, %30
-  %38 = add i32 %reass.sub70, 1
+35:                                               ; preds = %33, %31
+  %36 = phi i32 [ %34, %33 ], [ 0, %31 ]
+  %reass.sub73 = sub i32 %36, %29
+  %37 = add i32 %reass.sub73, 1
   br label %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit
 
-_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit: ; preds = %27, %36
-  %.0.i60 = phi i32 [ %38, %36 ], [ -2147483648, %27 ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %40 = load i32, ptr %39, align 8, !tbaa !77
-  tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %.0.i60, i32 noundef %40, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %42 = load i16, ptr %41, align 4, !tbaa !17
-  %43 = sext i16 %42 to i32
-  %44 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  br i1 %44, label %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit, label %45
+_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit: ; preds = %26, %35
+  %.0.i63 = phi i32 [ %37, %35 ], [ -2147483648, %26 ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %39 = load i32, ptr %38, align 8, !tbaa !77
+  tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %.0.i63, i32 noundef %39, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %41 = load i16, ptr %40, align 4, !tbaa !17
+  %42 = sext i16 %41 to i32
+  %43 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  br i1 %43, label %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit, label %44
 
-45:                                               ; preds = %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit
-  %46 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  %47 = xor i32 %46, -1
+44:                                               ; preds = %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit
+  %45 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  %46 = xor i32 %45, -1
   br label %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit
 
-_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit: ; preds = %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit, %45
-  %48 = phi i32 [ %47, %45 ], [ -1, %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit ]
-  %49 = add i32 %48, %43
-  %50 = tail call i32 @uprv_max_77(i32 noundef 0, i32 noundef %49)
-  %51 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  %52 = load i16, ptr %41, align 4
-  %53 = icmp sgt i16 %52, 0
-  %or.cond = select i1 %51, i1 %53, i1 false
-  br i1 %or.cond, label %54, label %147
+_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit: ; preds = %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit, %44
+  %47 = phi i32 [ %46, %44 ], [ -1, %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit ]
+  %48 = add i32 %47, %42
+  %49 = tail call i32 @uprv_max_77(i32 noundef 0, i32 noundef %48)
+  %50 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  %51 = load i16, ptr %40, align 4
+  %52 = icmp sgt i16 %51, 0
+  %or.cond59 = select i1 %50, i1 %52, i1 false
+  br i1 %or.cond59, label %53, label %146
 
-54:                                               ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit
+53:                                               ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit
   tail call void @_ZN6icu_776number4impl15DecimalQuantity20increaseMinIntegerToEi(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef 1)
-  br label %147
+  br label %146
 
-55:                                               ; preds = %10
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %58 = load i16, ptr %57, align 2, !tbaa !17
-  %59 = sext i16 %58 to i32
-  %60 = icmp eq i16 %58, -1
-  %61 = sub nsw i32 0, %59
-  %.0.i62 = select i1 %60, i32 -2147483648, i32 %61
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %63 = load i16, ptr %62, align 2, !tbaa !17
-  %64 = sext i16 %63 to i32
-  %65 = icmp eq i16 %63, -1
-  br i1 %65, label %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit65, label %66
+54:                                               ; preds = %9
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %57 = load i16, ptr %56, align 2, !tbaa !17
+  %58 = sext i16 %57 to i32
+  %59 = icmp eq i16 %57, -1
+  %60 = sub nsw i32 0, %58
+  %.0.i65 = select i1 %59, i32 -2147483648, i32 %60
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %62 = load i16, ptr %61, align 2, !tbaa !17
+  %63 = sext i16 %62 to i32
+  %64 = icmp eq i16 %62, -1
+  br i1 %64, label %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit68, label %65
 
-66:                                               ; preds = %55
-  %67 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  br i1 %67, label %70, label %68
+65:                                               ; preds = %54
+  %66 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  br i1 %66, label %69, label %67
 
-68:                                               ; preds = %66
-  %69 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  br label %70
+67:                                               ; preds = %65
+  %68 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  br label %69
 
-70:                                               ; preds = %68, %66
-  %71 = phi i32 [ %69, %68 ], [ 0, %66 ]
-  %reass.sub = sub i32 %71, %64
-  %72 = add i32 %reass.sub, 1
-  br label %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit65
+69:                                               ; preds = %67, %65
+  %70 = phi i32 [ %68, %67 ], [ 0, %65 ]
+  %reass.sub = sub i32 %70, %63
+  %71 = add i32 %reass.sub, 1
+  br label %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit68
 
-_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit65: ; preds = %55, %70
-  %.0.i64 = phi i32 [ %72, %70 ], [ -2147483648, %55 ]
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load i32, ptr %73, align 8, !tbaa !17
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %78
+_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit68: ; preds = %54, %69
+  %.0.i67 = phi i32 [ %71, %69 ], [ -2147483648, %54 ]
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %73 = load i32, ptr %72, align 8, !tbaa !17
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %77
 
-76:                                               ; preds = %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit65
-  %77 = tail call i32 @uprv_min_77(i32 noundef %.0.i62, i32 noundef %.0.i64)
-  br label %80
+75:                                               ; preds = %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit68
+  %76 = tail call i32 @uprv_min_77(i32 noundef %.0.i65, i32 noundef %.0.i67)
+  br label %79
 
-78:                                               ; preds = %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit65
-  %79 = tail call i32 @uprv_max_77(i32 noundef %.0.i62, i32 noundef %.0.i64)
-  br label %80
+77:                                               ; preds = %_ZN12_GLOBAL__N_131getRoundingMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit68
+  %78 = tail call i32 @uprv_max_77(i32 noundef %.0.i65, i32 noundef %.0.i67)
+  br label %79
 
-80:                                               ; preds = %78, %76
-  %.050 = phi i32 [ %77, %76 ], [ %79, %78 ]
-  %81 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  br i1 %81, label %91, label %82
+79:                                               ; preds = %77, %75
+  %.050 = phi i32 [ %76, %75 ], [ %78, %77 ]
+  %80 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  br i1 %80, label %90, label %81
 
-82:                                               ; preds = %80
-  %83 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %85 = load i32, ptr %84, align 8, !tbaa !77
-  tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %.050, i32 noundef %85, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %86 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  br i1 %86, label %91, label %87
+81:                                               ; preds = %79
+  %82 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %84 = load i32, ptr %83, align 8, !tbaa !77
+  tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %.050, i32 noundef %84, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %85 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  br i1 %85, label %90, label %86
 
-87:                                               ; preds = %82
-  %88 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  %.not53 = icmp ne i32 %88, %83
-  %89 = icmp eq i32 %.0.i62, %.0.i64
-  %or.cond57 = and i1 %89, %.not53
-  %90 = zext i1 %or.cond57 to i32
-  %spec.select = add nsw i32 %.0.i64, %90
-  br label %91
+86:                                               ; preds = %81
+  %87 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  %.not53 = icmp ne i32 %87, %82
+  %88 = icmp eq i32 %.0.i65, %.0.i67
+  %or.cond60 = and i1 %88, %.not53
+  %89 = zext i1 %or.cond60 to i32
+  %spec.select = add nsw i32 %.0.i67, %89
+  br label %90
 
-91:                                               ; preds = %87, %82, %80
-  %.049 = phi i32 [ %.0.i64, %80 ], [ %.0.i64, %82 ], [ %spec.select, %87 ]
-  %92 = load i16, ptr %56, align 8, !tbaa !17
-  %93 = sext i16 %92 to i32
-  %94 = icmp eq i16 %92, 0
-  %95 = sub nsw i32 0, %93
-  %.0.i66 = select i1 %94, i32 2147483647, i32 %95
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %97 = load i16, ptr %96, align 4, !tbaa !17
-  %98 = sext i16 %97 to i32
-  %99 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  br i1 %99, label %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit68, label %100
+90:                                               ; preds = %86, %81, %79
+  %.049 = phi i32 [ %.0.i67, %79 ], [ %.0.i67, %81 ], [ %spec.select, %86 ]
+  %91 = load i16, ptr %55, align 8, !tbaa !17
+  %92 = sext i16 %91 to i32
+  %93 = icmp eq i16 %91, 0
+  %94 = sub nsw i32 0, %92
+  %.0.i69 = select i1 %93, i32 2147483647, i32 %94
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %96 = load i16, ptr %95, align 4, !tbaa !17
+  %97 = sext i16 %96 to i32
+  %98 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  br i1 %98, label %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit71, label %99
 
-100:                                              ; preds = %91
-  %101 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
-  br label %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit68
+99:                                               ; preds = %90
+  %100 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %1)
+  br label %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit71
 
-_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit68: ; preds = %91, %100
-  %102 = phi i32 [ %101, %100 ], [ 0, %91 ]
-  %reass.sub.i67 = sub i32 %102, %98
-  %103 = add i32 %reass.sub.i67, 1
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %105 = load i8, ptr %104, align 4, !tbaa !17, !range !88, !noundef !89
-  %106 = trunc nuw i8 %105 to i1
-  br i1 %106, label %107, label %109
+_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit71: ; preds = %90, %99
+  %101 = phi i32 [ %100, %99 ], [ 0, %90 ]
+  %reass.sub.i70 = sub i32 %101, %97
+  %102 = add i32 %reass.sub.i70, 1
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %104 = load i8, ptr %103, align 4, !tbaa !17, !range !88, !noundef !89
+  %105 = trunc nuw i8 %104 to i1
+  br i1 %105, label %106, label %108
 
-107:                                              ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit68
-  %108 = tail call i32 @uprv_min_77(i32 noundef %.0.i66, i32 noundef %103)
-  br label %114
+106:                                              ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit71
+  %107 = tail call i32 @uprv_min_77(i32 noundef %.0.i69, i32 noundef %102)
+  br label %113
 
-109:                                              ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit68
-  %110 = load i32, ptr %73, align 8, !tbaa !17
-  %111 = icmp eq i32 %110, 0
-  %.not55 = icmp sgt i32 %.049, %.0.i62
-  br i1 %111, label %112, label %113
+108:                                              ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit71
+  %109 = load i32, ptr %72, align 8, !tbaa !17
+  %110 = icmp eq i32 %109, 0
+  %.not55 = icmp sgt i32 %.049, %.0.i65
+  br i1 %110, label %111, label %112
 
-112:                                              ; preds = %109
-  %. = select i1 %.not55, i32 %.0.i66, i32 %103
-  br label %114
+111:                                              ; preds = %108
+  %. = select i1 %.not55, i32 %.0.i69, i32 %102
+  br label %113
 
-113:                                              ; preds = %109
-  %.58 = select i1 %.not55, i32 %103, i32 %.0.i66
-  br label %114
+112:                                              ; preds = %108
+  %.61 = select i1 %.not55, i32 %102, i32 %.0.i69
+  br label %113
 
-114:                                              ; preds = %113, %112, %107
-  %.0 = phi i32 [ %108, %107 ], [ %., %112 ], [ %.58, %113 ]
-  %115 = sub nsw i32 0, %.0
-  %116 = tail call i32 @uprv_max_77(i32 noundef 0, i32 noundef %115)
-  br label %147
+113:                                              ; preds = %112, %111, %106
+  %.0 = phi i32 [ %107, %106 ], [ %., %111 ], [ %.61, %112 ]
+  %114 = sub nsw i32 0, %.0
+  %115 = tail call i32 @uprv_max_77(i32 noundef 0, i32 noundef %114)
+  br label %146
 
-117:                                              ; preds = %10
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %119 = load i64, ptr %118, align 8, !tbaa !17
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %121 = load i16, ptr %120, align 8, !tbaa !17
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %123 = load i32, ptr %122, align 8, !tbaa !77
-  tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToIncrementEms25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i64 noundef %119, i16 noundef signext %121, i32 noundef %123, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %125 = load i16, ptr %124, align 2, !tbaa !17
-  %126 = sext i16 %125 to i32
-  br label %147
+116:                                              ; preds = %9
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %118 = load i64, ptr %117, align 8, !tbaa !17
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %120 = load i16, ptr %119, align 8, !tbaa !17
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %122 = load i32, ptr %121, align 8, !tbaa !77
+  tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToIncrementEms25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i64 noundef %118, i16 noundef signext %120, i32 noundef %122, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  %124 = load i16, ptr %123, align 2, !tbaa !17
+  %125 = sext i16 %124 to i32
+  br label %146
 
-127:                                              ; preds = %10
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %129 = load i16, ptr %128, align 8, !tbaa !17
-  %130 = sext i16 %129 to i32
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %132 = load i32, ptr %131, align 8, !tbaa !77
-  tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %130, i32 noundef %132, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %134 = load i16, ptr %133, align 2, !tbaa !17
-  %135 = sext i16 %134 to i32
-  br label %147
+126:                                              ; preds = %9
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %128 = load i16, ptr %127, align 8, !tbaa !17
+  %129 = sext i16 %128 to i32
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %131 = load i32, ptr %130, align 8, !tbaa !77
+  tail call void @_ZN6icu_776number4impl15DecimalQuantity16roundToMagnitudeEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %129, i32 noundef %131, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  %133 = load i16, ptr %132, align 2, !tbaa !17
+  %134 = sext i16 %133 to i32
+  br label %146
 
-136:                                              ; preds = %10
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %138 = load i16, ptr %137, align 8, !tbaa !17
-  %139 = sext i16 %138 to i32
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %141 = load i32, ptr %140, align 8, !tbaa !77
-  tail call void @_ZN6icu_776number4impl15DecimalQuantity13roundToNickelEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %139, i32 noundef %141, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %143 = load i16, ptr %142, align 2, !tbaa !17
-  %144 = sext i16 %143 to i32
-  br label %147
+135:                                              ; preds = %9
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %137 = load i16, ptr %136, align 8, !tbaa !17
+  %138 = sext i16 %137 to i32
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %140 = load i32, ptr %139, align 8, !tbaa !77
+  tail call void @_ZN6icu_776number4impl15DecimalQuantity13roundToNickelEi25UNumberFormatRoundingModeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %138, i32 noundef %140, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  %142 = load i16, ptr %141, align 2, !tbaa !17
+  %143 = sext i16 %142 to i32
+  br label %146
 
-145:                                              ; preds = %10
+144:                                              ; preds = %9
   tail call void @abort() #24
   unreachable
 
-146:                                              ; preds = %10
+145:                                              ; preds = %9
   tail call void @abort() #24
   unreachable
 
-147:                                              ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit, %54, %136, %127, %117, %114, %14, %13, %12
-  %.048 = phi i32 [ %144, %136 ], [ %135, %127 ], [ %126, %117 ], [ %116, %114 ], [ %50, %54 ], [ %50, %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit ], [ %26, %14 ], [ 0, %13 ], [ 0, %12 ]
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %149 = load i32, ptr %148, align 8, !tbaa !90
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %157, label %151
+146:                                              ; preds = %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit, %53, %135, %126, %116, %113, %13, %12, %11
+  %.048 = phi i32 [ %143, %135 ], [ %134, %126 ], [ %125, %116 ], [ %115, %113 ], [ %49, %53 ], [ %49, %_ZN12_GLOBAL__N_130getDisplayMagnitudeSignificantERKN6icu_776number4impl15DecimalQuantityEi.exit ], [ %25, %13 ], [ 0, %12 ], [ 0, %11 ]
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %148 = load i32, ptr %147, align 8, !tbaa !90
+  %149 = icmp eq i32 %148, 0
+  br i1 %149, label %156, label %150
 
-151:                                              ; preds = %147
-  %152 = load ptr, ptr %1, align 8, !tbaa !86
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %154 = load ptr, ptr %153, align 8
-  %155 = tail call noundef double %154(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef 3)
-  %156 = fcmp une double %155, 0.000000e+00
-  br i1 %156, label %157, label %158
+150:                                              ; preds = %146
+  %151 = load ptr, ptr %1, align 8, !tbaa !86
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  %153 = load ptr, ptr %152, align 8
+  %154 = tail call noundef double %153(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef 3)
+  %155 = fcmp une double %154, 0.000000e+00
+  br i1 %155, label %156, label %157
 
-157:                                              ; preds = %151, %147
+156:                                              ; preds = %150, %146
   tail call void @_ZN6icu_776number4impl15DecimalQuantity14setMinFractionEi(ptr noundef nonnull align 8 dereferenceable(66) %1, i32 noundef %.048)
-  br label %158
+  br label %157
 
-158:                                              ; preds = %151, %157, %6, %3
+157:                                              ; preds = %150, %156, %3
   ret void
 }
 

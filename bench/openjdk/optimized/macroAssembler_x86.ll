@@ -636,43 +636,41 @@ define hidden void @_ZN14MacroAssembler10decrementqE8Registeri(ptr noundef nonnu
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %6
-  %9 = sub nsw i32 0, %2
-  %cond = icmp eq i32 %2, -1
-  br i1 %cond, label %10, label %14
+  %9 = icmp eq i32 %2, -1
+  %10 = load i8, ptr @UseIncDec, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond.i = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond.i, label %12, label %13
 
-10:                                               ; preds = %8
-  %11 = load i8, ptr @UseIncDec, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %10
+12:                                               ; preds = %8
   tail call void @_ZN9Assembler4incqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1) #18
   br label %_ZN14MacroAssembler10incrementqE8Registeri.exit
 
-14:                                               ; preds = %8, %10
-  tail call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %9) #18
+13:                                               ; preds = %8
+  %14 = sub nsw i32 0, %2
+  tail call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %14) #18
   br label %_ZN14MacroAssembler10incrementqE8Registeri.exit
 
 15:                                               ; preds = %6
-  switch i32 %2, label %20 [
-    i32 0, label %_ZN14MacroAssembler10incrementqE8Registeri.exit
-    i32 1, label %16
-  ]
+  %16 = icmp eq i32 %2, 0
+  br i1 %16, label %_ZN14MacroAssembler10incrementqE8Registeri.exit, label %17
 
-16:                                               ; preds = %15
-  %17 = load i8, ptr @UseIncDec, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %20
+17:                                               ; preds = %15
+  %18 = icmp eq i32 %2, 1
+  %19 = load i8, ptr @UseIncDec, align 1
+  %20 = trunc i8 %19 to i1
+  %or.cond = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond, label %21, label %22
 
-19:                                               ; preds = %16
+21:                                               ; preds = %17
   tail call void @_ZN9Assembler4decqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1) #18
   br label %_ZN14MacroAssembler10incrementqE8Registeri.exit
 
-20:                                               ; preds = %15, %16
+22:                                               ; preds = %17
   tail call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) #18
   br label %_ZN14MacroAssembler10incrementqE8Registeri.exit
 
-_ZN14MacroAssembler10incrementqE8Registeri.exit:  ; preds = %14, %13, %15, %20, %19, %5
+_ZN14MacroAssembler10incrementqE8Registeri.exit:  ; preds = %13, %12, %15, %22, %21, %5
   ret void
 }
 
@@ -683,37 +681,48 @@ define hidden void @_ZN14MacroAssembler10incrementqE8Registeri(ptr noundef nonnu
 
 5:                                                ; preds = %3
   tail call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef -2147483648) #18
-  br label %16
+  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
 
 6:                                                ; preds = %3
   %7 = icmp slt i32 %2, 0
-  br i1 %7, label %8, label %10
+  br i1 %7, label %8, label %15
 
 8:                                                ; preds = %6
-  %9 = sub nsw i32 0, %2
-  tail call void @_ZN14MacroAssembler10decrementqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %9)
-  br label %16
+  %9 = icmp eq i32 %2, -1
+  %10 = load i8, ptr @UseIncDec, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond.i = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond.i, label %12, label %13
 
-10:                                               ; preds = %6
-  switch i32 %2, label %15 [
-    i32 0, label %16
-    i32 1, label %11
-  ]
+12:                                               ; preds = %8
+  tail call void @_ZN9Assembler4decqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1) #18
+  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
 
-11:                                               ; preds = %10
-  %12 = load i8, ptr @UseIncDec, align 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %15
+13:                                               ; preds = %8
+  %14 = sub nsw i32 0, %2
+  tail call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %14) #18
+  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
 
-14:                                               ; preds = %11
+15:                                               ; preds = %6
+  %16 = icmp eq i32 %2, 0
+  br i1 %16, label %_ZN14MacroAssembler10decrementqE8Registeri.exit, label %17
+
+17:                                               ; preds = %15
+  %18 = icmp eq i32 %2, 1
+  %19 = load i8, ptr @UseIncDec, align 1
+  %20 = trunc i8 %19 to i1
+  %or.cond = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond, label %21, label %22
+
+21:                                               ; preds = %17
   tail call void @_ZN9Assembler4incqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1) #18
-  br label %16
+  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
 
-15:                                               ; preds = %10, %11
+22:                                               ; preds = %17
   tail call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) #18
-  br label %16
+  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
 
-16:                                               ; preds = %10, %15, %14, %8, %5
+_ZN14MacroAssembler10decrementqE8Registeri.exit:  ; preds = %13, %12, %15, %22, %21, %5
   ret void
 }
 
@@ -737,7 +746,7 @@ define hidden void @_ZN14MacroAssembler10decrementqE7Addressi(ptr noundef nonnul
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
   call void @_ZN9Assembler4subqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 noundef -2147483648) #18
-  br label %40
+  br label %41
 
 15:                                               ; preds = %3
   %16 = icmp slt i32 %2, 0
@@ -753,42 +762,41 @@ define hidden void @_ZN14MacroAssembler10decrementqE7Addressi(ptr noundef nonnul
   call void %22(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %18) #18
   %23 = sub nsw i32 0, %2
   call void @_ZN14MacroAssembler10incrementqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 noundef %23)
-  br label %40
+  br label %41
 
 24:                                               ; preds = %15
-  switch i32 %2, label %34 [
-    i32 0, label %40
-    i32 1, label %25
-  ]
+  %25 = icmp eq i32 %2, 0
+  br i1 %25, label %41, label %26
 
-25:                                               ; preds = %24
-  %26 = load i8, ptr @UseIncDec, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %34
-
-28:                                               ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
+26:                                               ; preds = %24
+  %27 = icmp eq i32 %2, 1
+  %28 = load i8, ptr @UseIncDec, align 1
+  %29 = trunc i8 %28 to i1
+  %or.cond = select i1 %27, i1 %29, i1 false
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #18
+  br i1 %or.cond, label %31, label %36
+
+31:                                               ; preds = %26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %33 = load ptr, ptr %30, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
   call void @_ZN9Assembler4decqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %6) #18
-  br label %40
+  br label %41
 
-34:                                               ; preds = %24, %25
+36:                                               ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %38 = load ptr, ptr %30, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
   call void @_ZN9Assembler4subqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %7, i32 noundef %2) #18
-  br label %40
+  br label %41
 
-40:                                               ; preds = %24, %34, %28, %17, %9
+41:                                               ; preds = %24, %36, %31, %17, %9
   ret void
 }
 
@@ -812,7 +820,7 @@ define hidden void @_ZN14MacroAssembler10incrementqE7Addressi(ptr noundef nonnul
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
   call void @_ZN9Assembler4addqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 noundef -2147483648) #18
-  br label %40
+  br label %41
 
 15:                                               ; preds = %3
   %16 = icmp slt i32 %2, 0
@@ -828,42 +836,41 @@ define hidden void @_ZN14MacroAssembler10incrementqE7Addressi(ptr noundef nonnul
   call void %22(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %18) #18
   %23 = sub nsw i32 0, %2
   call void @_ZN14MacroAssembler10decrementqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 noundef %23)
-  br label %40
+  br label %41
 
 24:                                               ; preds = %15
-  switch i32 %2, label %34 [
-    i32 0, label %40
-    i32 1, label %25
-  ]
+  %25 = icmp eq i32 %2, 0
+  br i1 %25, label %41, label %26
 
-25:                                               ; preds = %24
-  %26 = load i8, ptr @UseIncDec, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %34
-
-28:                                               ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
+26:                                               ; preds = %24
+  %27 = icmp eq i32 %2, 1
+  %28 = load i8, ptr @UseIncDec, align 1
+  %29 = trunc i8 %28 to i1
+  %or.cond = select i1 %27, i1 %29, i1 false
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #18
+  br i1 %or.cond, label %31, label %36
+
+31:                                               ; preds = %26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %33 = load ptr, ptr %30, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
   call void @_ZN9Assembler4incqE7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %6) #18
-  br label %40
+  br label %41
 
-34:                                               ; preds = %24, %25
+36:                                               ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %38 = load ptr, ptr %30, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
   call void @_ZN9Assembler4addqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %7, i32 noundef %2) #18
-  br label %40
+  br label %41
 
-40:                                               ; preds = %24, %34, %28, %17, %9
+41:                                               ; preds = %24, %36, %31, %17, %9
   ret void
 }
 
@@ -3629,20 +3636,18 @@ define hidden void @_ZN14MacroAssembler11object_moveEP6OopMapii9VMRegPairS2_bPi(
   %spec.select.i.i46 = select i1 %or.cond.i.i45, i32 %74, i32 -1
   %switch.tableidx = add nsw i32 %74, -1
   %75 = icmp ult i32 %switch.tableidx, 8
-  br i1 %75, label %switch.hole_check, label %76
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -93, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %75, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %76
 
-76:                                               ; preds = %switch.hole_check, %72
+76:                                               ; preds = %72
   %.not64 = icmp eq i32 %spec.select.i.i46, 9
   %. = select i1 %.not64, i32 4, i32 5
   br label %78
 
-switch.hole_check:                                ; preds = %72
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -93, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %76
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %72
   %77 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN14MacroAssembler11object_moveEP6OopMapii9VMRegPairS2_bPi, i64 0, i64 %77
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -4622,7 +4627,7 @@ define hidden void @_ZN14MacroAssembler10incrementlE7Addressi(ptr noundef nonnul
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
   call void @_ZN9Assembler4addlE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 noundef -2147483648) #18
-  br label %40
+  br label %41
 
 15:                                               ; preds = %3
   %16 = icmp slt i32 %2, 0
@@ -4638,42 +4643,41 @@ define hidden void @_ZN14MacroAssembler10incrementlE7Addressi(ptr noundef nonnul
   call void %22(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %18) #18
   %23 = sub nsw i32 0, %2
   call void @_ZN14MacroAssembler10decrementlE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 noundef %23)
-  br label %40
+  br label %41
 
 24:                                               ; preds = %15
-  switch i32 %2, label %34 [
-    i32 0, label %40
-    i32 1, label %25
-  ]
+  %25 = icmp eq i32 %2, 0
+  br i1 %25, label %41, label %26
 
-25:                                               ; preds = %24
-  %26 = load i8, ptr @UseIncDec, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %34
-
-28:                                               ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
+26:                                               ; preds = %24
+  %27 = icmp eq i32 %2, 1
+  %28 = load i8, ptr @UseIncDec, align 1
+  %29 = trunc i8 %28 to i1
+  %or.cond = select i1 %27, i1 %29, i1 false
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #18
+  br i1 %or.cond, label %31, label %36
+
+31:                                               ; preds = %26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %33 = load ptr, ptr %30, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
   call void @_ZN9Assembler4inclE7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %6) #18
-  br label %40
+  br label %41
 
-34:                                               ; preds = %24, %25
+36:                                               ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %38 = load ptr, ptr %30, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
   call void @_ZN9Assembler4addlE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %7, i32 noundef %2) #18
-  br label %40
+  br label %41
 
-40:                                               ; preds = %24, %34, %28, %17, %9
+41:                                               ; preds = %24, %36, %31, %17, %9
   ret void
 }
 
@@ -6945,43 +6949,41 @@ define hidden void @_ZN14MacroAssembler10decrementlE8Registeri(ptr noundef nonnu
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %6
-  %9 = sub nsw i32 0, %2
-  %cond = icmp eq i32 %2, -1
-  br i1 %cond, label %10, label %14
+  %9 = icmp eq i32 %2, -1
+  %10 = load i8, ptr @UseIncDec, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond.i = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond.i, label %12, label %13
 
-10:                                               ; preds = %8
-  %11 = load i8, ptr @UseIncDec, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %10
+12:                                               ; preds = %8
   tail call void @_ZN9Assembler4inclE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1) #18
   br label %_ZN14MacroAssembler10incrementlE8Registeri.exit
 
-14:                                               ; preds = %8, %10
-  tail call void @_ZN9Assembler4addlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %9) #18
+13:                                               ; preds = %8
+  %14 = sub nsw i32 0, %2
+  tail call void @_ZN9Assembler4addlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %14) #18
   br label %_ZN14MacroAssembler10incrementlE8Registeri.exit
 
 15:                                               ; preds = %6
-  switch i32 %2, label %20 [
-    i32 0, label %_ZN14MacroAssembler10incrementlE8Registeri.exit
-    i32 1, label %16
-  ]
+  %16 = icmp eq i32 %2, 0
+  br i1 %16, label %_ZN14MacroAssembler10incrementlE8Registeri.exit, label %17
 
-16:                                               ; preds = %15
-  %17 = load i8, ptr @UseIncDec, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %20
+17:                                               ; preds = %15
+  %18 = icmp eq i32 %2, 1
+  %19 = load i8, ptr @UseIncDec, align 1
+  %20 = trunc i8 %19 to i1
+  %or.cond = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond, label %21, label %22
 
-19:                                               ; preds = %16
+21:                                               ; preds = %17
   tail call void @_ZN9Assembler4declE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1) #18
   br label %_ZN14MacroAssembler10incrementlE8Registeri.exit
 
-20:                                               ; preds = %15, %16
+22:                                               ; preds = %17
   tail call void @_ZN9Assembler4sublE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) #18
   br label %_ZN14MacroAssembler10incrementlE8Registeri.exit
 
-_ZN14MacroAssembler10incrementlE8Registeri.exit:  ; preds = %14, %13, %15, %20, %19, %5
+_ZN14MacroAssembler10incrementlE8Registeri.exit:  ; preds = %13, %12, %15, %22, %21, %5
   ret void
 }
 
@@ -7640,37 +7642,48 @@ define hidden void @_ZN14MacroAssembler10incrementlE8Registeri(ptr noundef nonnu
 
 5:                                                ; preds = %3
   tail call void @_ZN9Assembler4addlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef -2147483648) #18
-  br label %16
+  br label %_ZN14MacroAssembler10decrementlE8Registeri.exit
 
 6:                                                ; preds = %3
   %7 = icmp slt i32 %2, 0
-  br i1 %7, label %8, label %10
+  br i1 %7, label %8, label %15
 
 8:                                                ; preds = %6
-  %9 = sub nsw i32 0, %2
-  tail call void @_ZN14MacroAssembler10decrementlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %9)
-  br label %16
+  %9 = icmp eq i32 %2, -1
+  %10 = load i8, ptr @UseIncDec, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond.i = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond.i, label %12, label %13
 
-10:                                               ; preds = %6
-  switch i32 %2, label %15 [
-    i32 0, label %16
-    i32 1, label %11
-  ]
+12:                                               ; preds = %8
+  tail call void @_ZN9Assembler4declE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1) #18
+  br label %_ZN14MacroAssembler10decrementlE8Registeri.exit
 
-11:                                               ; preds = %10
-  %12 = load i8, ptr @UseIncDec, align 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %15
+13:                                               ; preds = %8
+  %14 = sub nsw i32 0, %2
+  tail call void @_ZN9Assembler4sublE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %14) #18
+  br label %_ZN14MacroAssembler10decrementlE8Registeri.exit
 
-14:                                               ; preds = %11
+15:                                               ; preds = %6
+  %16 = icmp eq i32 %2, 0
+  br i1 %16, label %_ZN14MacroAssembler10decrementlE8Registeri.exit, label %17
+
+17:                                               ; preds = %15
+  %18 = icmp eq i32 %2, 1
+  %19 = load i8, ptr @UseIncDec, align 1
+  %20 = trunc i8 %19 to i1
+  %or.cond = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond, label %21, label %22
+
+21:                                               ; preds = %17
   tail call void @_ZN9Assembler4inclE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1) #18
-  br label %16
+  br label %_ZN14MacroAssembler10decrementlE8Registeri.exit
 
-15:                                               ; preds = %10, %11
+22:                                               ; preds = %17
   tail call void @_ZN9Assembler4addlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) #18
-  br label %16
+  br label %_ZN14MacroAssembler10decrementlE8Registeri.exit
 
-16:                                               ; preds = %10, %15, %14, %8, %5
+_ZN14MacroAssembler10decrementlE8Registeri.exit:  ; preds = %13, %12, %15, %22, %21, %5
   ret void
 }
 
@@ -7694,7 +7707,7 @@ define hidden void @_ZN14MacroAssembler10decrementlE7Addressi(ptr noundef nonnul
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %10) #18
   call void @_ZN9Assembler4sublE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 noundef -2147483648) #18
-  br label %40
+  br label %41
 
 15:                                               ; preds = %3
   %16 = icmp slt i32 %2, 0
@@ -7710,42 +7723,41 @@ define hidden void @_ZN14MacroAssembler10decrementlE7Addressi(ptr noundef nonnul
   call void %22(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %18) #18
   %23 = sub nsw i32 0, %2
   call void @_ZN14MacroAssembler10incrementlE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %5, i32 noundef %23)
-  br label %40
+  br label %41
 
 24:                                               ; preds = %15
-  switch i32 %2, label %34 [
-    i32 0, label %40
-    i32 1, label %25
-  ]
+  %25 = icmp eq i32 %2, 0
+  br i1 %25, label %41, label %26
 
-25:                                               ; preds = %24
-  %26 = load i8, ptr @UseIncDec, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %34
-
-28:                                               ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
+26:                                               ; preds = %24
+  %27 = icmp eq i32 %2, 1
+  %28 = load i8, ptr @UseIncDec, align 1
+  %29 = trunc i8 %28 to i1
+  %or.cond = select i1 %27, i1 %29, i1 false
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29) #18
+  br i1 %or.cond, label %31, label %36
+
+31:                                               ; preds = %26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %33 = load ptr, ptr %30, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %32) #18
   call void @_ZN9Assembler4declE7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %6) #18
-  br label %40
+  br label %41
 
-34:                                               ; preds = %24, %25
+36:                                               ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35) #18
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %38 = load ptr, ptr %30, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load ptr, ptr %39, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %37) #18
   call void @_ZN9Assembler4sublE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %7, i32 noundef %2) #18
-  br label %40
+  br label %41
 
-40:                                               ; preds = %24, %34, %28, %17, %9
+41:                                               ; preds = %24, %36, %31, %17, %9
   ret void
 }
 
@@ -13824,63 +13836,63 @@ define hidden void @_ZN14MacroAssembler9vblendvpsE11XMMRegisterS0_S0_S0_ibS0_(pt
   %9 = load i8, ptr @EnableX86ECoreOpts, align 1
   %10 = trunc i8 %9 to i1
   %11 = load i32, ptr @UseAVX, align 4
-  %12 = icmp slt i32 %11, 2
-  %not. = xor i1 %10, true
-  %13 = select i1 %not., i1 true, i1 %12
-  %.not89 = icmp eq i32 %7, -1
+  %12 = icmp sgt i32 %11, 1
+  %13 = select i1 %10, i1 %12, i1 false
+  %.not85 = icmp eq i32 %7, -1
   %.not = icmp eq i32 %7, %2
-  %or.cond = select i1 %.not89, i1 true, i1 %.not
-  br i1 %or.cond, label %16, label %14
+  %or.cond90 = select i1 %.not85, i1 true, i1 %.not
+  br i1 %or.cond90, label %16, label %14
 
 14:                                               ; preds = %8
-  %.not90 = icmp eq i32 %7, %3
-  %15 = icmp eq i32 %7, %1
-  %spec.select.not = select i1 %.not90, i1 true, i1 %15
+  %.not86 = icmp ne i32 %7, %3
+  %15 = icmp ne i32 %7, %1
+  %spec.select = select i1 %.not86, i1 %15, i1 false
   br label %16
 
 16:                                               ; preds = %14, %8
-  %.not63 = phi i1 [ true, %8 ], [ %spec.select.not, %14 ]
-  %.not91 = icmp eq i32 %1, %4
-  br i1 %.not91, label %.thread, label %17
+  %17 = phi i1 [ false, %8 ], [ %spec.select, %14 ]
+  %.not87 = icmp eq i32 %1, %4
+  br i1 %.not87, label %.thread, label %18
 
-17:                                               ; preds = %16
-  %.not92 = icmp eq i32 %1, %2
-  %18 = icmp eq i32 %1, %3
-  %spec.select88.not = select i1 %.not92, i1 %18, i1 false
-  %brmerge = or i1 %13, %.not63
-  %brmerge65 = or i1 %spec.select88.not, %brmerge
-  br i1 %brmerge65, label %.thread, label %19
+18:                                               ; preds = %16
+  %.not88 = icmp ne i32 %1, %2
+  %19 = icmp ne i32 %1, %3
+  %spec.select84 = select i1 %.not88, i1 true, i1 %19
+  %or.cond = and i1 %13, %17
+  %or.cond3 = and i1 %spec.select84, %or.cond
+  br i1 %or.cond3, label %20, label %.thread
 
-19:                                               ; preds = %17
-  br i1 %6, label %20, label %21
+20:                                               ; preds = %18
+  br i1 %6, label %21, label %22
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
   tail call void @_ZN9Assembler6vpsradE11XMMRegisterS0_ii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %4, i32 noundef 32, i32 noundef %5) #18
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %19
-  %.sroa.039.0 = phi i32 [ %7, %20 ], [ %4, %19 ]
-  br i1 %.not92, label %22, label %23
+22:                                               ; preds = %21, %20
+  %.sroa.042.0 = phi i32 [ %7, %21 ], [ %4, %20 ]
+  %.not89 = icmp eq i32 %1, %2
+  br i1 %.not89, label %23, label %24
 
-22:                                               ; preds = %21
-  tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 %.sroa.039.0, i32 %2, i32 noundef %5) #18
-  tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.039.0, i32 %3, i32 noundef %5) #18
-  br label %24
+23:                                               ; preds = %22
+  tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 %.sroa.042.0, i32 %2, i32 noundef %5) #18
+  tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.042.0, i32 %3, i32 noundef %5) #18
+  br label %25
 
-23:                                               ; preds = %21
-  tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %.sroa.039.0, i32 %3, i32 noundef %5) #18
-  tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.039.0, i32 %2, i32 noundef %5) #18
-  br label %24
+24:                                               ; preds = %22
+  tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %.sroa.042.0, i32 %3, i32 noundef %5) #18
+  tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.042.0, i32 %2, i32 noundef %5) #18
+  br label %25
 
-24:                                               ; preds = %23, %22
+25:                                               ; preds = %24, %23
   tail call void @_ZN9Assembler4vporE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, i32 %7, i32 noundef %5) #18
-  br label %25
+  br label %26
 
-.thread:                                          ; preds = %16, %17
+.thread:                                          ; preds = %16, %18
   tail call void @_ZN9Assembler9vblendvpsE11XMMRegisterS0_S0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5) #18
-  br label %25
+  br label %26
 
-25:                                               ; preds = %.thread, %24
+26:                                               ; preds = %.thread, %25
   ret void
 }
 
@@ -13897,67 +13909,67 @@ define hidden void @_ZN14MacroAssembler9vblendvpdE11XMMRegisterS0_S0_S0_ibS0_(pt
   %9 = load i8, ptr @EnableX86ECoreOpts, align 1
   %10 = trunc i8 %9 to i1
   %11 = load i32, ptr @UseAVX, align 4
-  %12 = icmp slt i32 %11, 2
-  %not. = xor i1 %10, true
-  %13 = select i1 %not., i1 true, i1 %12
-  %.not102 = icmp eq i32 %7, -1
+  %12 = icmp sgt i32 %11, 1
+  %13 = select i1 %10, i1 %12, i1 false
+  %.not97 = icmp eq i32 %7, -1
   %.not = icmp eq i32 %7, %2
-  %or.cond = select i1 %.not102, i1 true, i1 %.not
-  %.not103 = icmp eq i32 %7, %3
-  %or.cond109 = select i1 %or.cond, i1 true, i1 %.not103
-  br i1 %or.cond109, label %15, label %14
+  %or.cond103 = select i1 %.not97, i1 true, i1 %.not
+  %.not98 = icmp eq i32 %7, %3
+  %or.cond104 = select i1 %or.cond103, i1 true, i1 %.not98
+  br i1 %or.cond104, label %15, label %14
 
 14:                                               ; preds = %8
-  %.not104 = icmp ne i32 %7, %1
-  %brmerge.not = and i1 %6, %.not104
+  %.not99 = icmp ne i32 %7, %1
+  %brmerge.not = and i1 %6, %.not99
   %spec.select.v = select i1 %brmerge.not, i32 %4, i32 %1
-  %spec.select = icmp eq i32 %7, %spec.select.v
+  %spec.select = icmp ne i32 %7, %spec.select.v
   br label %15
 
 15:                                               ; preds = %14, %8
-  %.not73 = phi i1 [ true, %8 ], [ %spec.select, %14 ]
-  %.not105 = icmp eq i32 %1, %4
-  br i1 %.not105, label %.thread, label %16
+  %16 = phi i1 [ false, %8 ], [ %spec.select, %14 ]
+  %.not100 = icmp eq i32 %1, %4
+  br i1 %.not100, label %.thread, label %17
 
-16:                                               ; preds = %15
-  %.not106 = icmp eq i32 %1, %2
-  %17 = icmp eq i32 %1, %3
-  %spec.select101.not = select i1 %.not106, i1 %17, i1 false
-  %brmerge74 = or i1 %13, %.not73
-  %brmerge76 = or i1 %spec.select101.not, %brmerge74
-  br i1 %brmerge76, label %.thread, label %18
+17:                                               ; preds = %15
+  %.not101 = icmp ne i32 %1, %2
+  %18 = icmp ne i32 %1, %3
+  %spec.select96 = select i1 %.not101, i1 true, i1 %18
+  %or.cond = and i1 %13, %16
+  %or.cond3 = and i1 %spec.select96, %or.cond
+  br i1 %or.cond3, label %19, label %.thread
 
-18:                                               ; preds = %16
-  br i1 %6, label %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit, label %19
+19:                                               ; preds = %17
+  br i1 %6, label %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit, label %20
 
-_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit: ; preds = %18
+_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit: ; preds = %19
   tail call void @_ZN9Assembler5vpxorE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %7, i32 %7, i32 noundef %5) #18
   tail call void @_ZN9Assembler8vpcmpgtqE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %7, i32 %4, i32 noundef %5) #18
-  br label %19
+  br label %20
 
-19:                                               ; preds = %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit, %18
-  %.sroa.046.0 = phi i32 [ %7, %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit ], [ %4, %18 ]
-  br i1 %.not106, label %20, label %21
+20:                                               ; preds = %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit, %19
+  %.sroa.049.0 = phi i32 [ %7, %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit ], [ %4, %19 ]
+  %.not102 = icmp eq i32 %1, %2
+  br i1 %.not102, label %21, label %22
 
-20:                                               ; preds = %19
-  tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 %.sroa.046.0, i32 %2, i32 noundef %5) #18
-  tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.046.0, i32 %3, i32 noundef %5) #18
-  br label %22
+21:                                               ; preds = %20
+  tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 %.sroa.049.0, i32 %2, i32 noundef %5) #18
+  tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.049.0, i32 %3, i32 noundef %5) #18
+  br label %23
 
-21:                                               ; preds = %19
-  tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %.sroa.046.0, i32 %3, i32 noundef %5) #18
-  tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.046.0, i32 %2, i32 noundef %5) #18
-  br label %22
+22:                                               ; preds = %20
+  tail call void @_ZN9Assembler5vpandE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %.sroa.049.0, i32 %3, i32 noundef %5) #18
+  tail call void @_ZN9Assembler6vpandnE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %.sroa.049.0, i32 %2, i32 noundef %5) #18
+  br label %23
 
-22:                                               ; preds = %21, %20
+23:                                               ; preds = %22, %21
   tail call void @_ZN9Assembler4vporE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %1, i32 %7, i32 noundef %5) #18
-  br label %23
+  br label %24
 
-.thread:                                          ; preds = %15, %16
+.thread:                                          ; preds = %15, %17
   tail call void @_ZN9Assembler9vblendvpdE11XMMRegisterS0_S0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 noundef %5) #18
-  br label %23
+  br label %24
 
-23:                                               ; preds = %.thread, %22
+24:                                               ; preds = %.thread, %23
   ret void
 }
 
@@ -17062,13 +17074,13 @@ define hidden void @_ZN14MacroAssembler11zero_memoryE8RegisterS0_iS0_(ptr nounde
 
 33:                                               ; preds = %16
   call void @_ZN9Assembler4decqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2) #18
-  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
+  br label %_ZN14MacroAssembler9decrementE8Registeri.exit
 
 34:                                               ; preds = %16
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 noundef 1) #18
-  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
+  br label %_ZN14MacroAssembler9decrementE8Registeri.exit
 
-_ZN14MacroAssembler10decrementqE8Registeri.exit:  ; preds = %33, %34
+_ZN14MacroAssembler9decrementE8Registeri.exit:    ; preds = %33, %34
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %8, i1 noundef zeroext true) #18
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %7) #18
   ret void
@@ -21100,13 +21112,13 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit: ; preds = %59, %58, %52, %5
 
 159:                                              ; preds = %156
   call void @_ZN9Assembler4decqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2) #18
-  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
+  br label %_ZN14MacroAssembler9decrementE8Registeri.exit
 
 160:                                              ; preds = %156
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 noundef 1) #18
-  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
+  br label %_ZN14MacroAssembler9decrementE8Registeri.exit
 
-_ZN14MacroAssembler10decrementqE8Registeri.exit:  ; preds = %159, %160
+_ZN14MacroAssembler9decrementE8Registeri.exit:    ; preds = %159, %160
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %17) #18
   store i32 %1, ptr %27, align 8
   %161 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -21131,19 +21143,19 @@ _ZN14MacroAssembler10decrementqE8Registeri.exit:  ; preds = %159, %160
   %170 = trunc i8 %169 to i1
   br i1 %170, label %171, label %172
 
-171:                                              ; preds = %_ZN14MacroAssembler10decrementqE8Registeri.exit
+171:                                              ; preds = %_ZN14MacroAssembler9decrementE8Registeri.exit
   call void @_ZN9Assembler4decqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2) #18
-  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit96
+  br label %_ZN14MacroAssembler9decrementE8Registeri.exit96
 
-172:                                              ; preds = %_ZN14MacroAssembler10decrementqE8Registeri.exit
+172:                                              ; preds = %_ZN14MacroAssembler9decrementE8Registeri.exit
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 noundef 1) #18
-  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit96
+  br label %_ZN14MacroAssembler9decrementE8Registeri.exit96
 
-_ZN14MacroAssembler10decrementqE8Registeri.exit96: ; preds = %171, %172
+_ZN14MacroAssembler9decrementE8Registeri.exit96:  ; preds = %171, %172
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 13, ptr noundef nonnull align 8 dereferenceable(33) %17, ptr noundef nonnull @.str, i32 noundef 6124) #18
   br label %173
 
-173:                                              ; preds = %_ZN14MacroAssembler10decrementqE8Registeri.exit96, %155
+173:                                              ; preds = %_ZN14MacroAssembler9decrementE8Registeri.exit96, %155
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %19) #18
   ret void
 }
@@ -22148,119 +22160,119 @@ define hidden void @_ZN14MacroAssembler9clear_memE8RegisterS0_S0_11XMMRegisterb9
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 0, ptr %15, align 8
-  br i1 %5, label %16, label %19
+  %16 = load i8, ptr @UseXMMForObjInit, align 1
+  %17 = trunc i8 %16 to i1
+  %or.cond = select i1 %5, i1 %17, i1 false
+  br i1 %or.cond, label %19, label %18
 
-16:                                               ; preds = %7
-  %17 = load i8, ptr @UseXMMForObjInit, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %.thread, label %.thread30
-
-.thread30:                                        ; preds = %16
+18:                                               ; preds = %7
   tail call void @_ZN9Assembler4xorqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 %3) #18
-  br label %.thread
+  br label %19
 
-19:                                               ; preds = %7
-  tail call void @_ZN9Assembler4xorqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 %3) #18
+19:                                               ; preds = %7, %18
+  br i1 %5, label %48, label %20
+
+20:                                               ; preds = %19
   store i32 -1, ptr %10, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 0, ptr %22, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  store i32 0, ptr %21, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i8 0, ptr %23, align 8
   store i32 -1, ptr %11, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i8 0, ptr %25, align 8
-  %26 = load i64, ptr @InitArrayShortSize, align 8
-  %27 = sdiv i64 %26, 8
-  %28 = trunc i64 %27 to i32
-  tail call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 noundef %28) #18
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  store i32 0, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i8 0, ptr %26, align 8
+  %27 = load i64, ptr @InitArrayShortSize, align 8
+  %28 = sdiv i64 %27, 8
+  %29 = trunc i64 %28 to i32
+  tail call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 noundef %29) #18
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 15, ptr noundef nonnull align 8 dereferenceable(33) %11, ptr noundef nonnull @.str, i32 noundef 6237) #18
-  %29 = load i8, ptr @UseIncDec, align 1
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %32
+  %30 = load i8, ptr @UseIncDec, align 1
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %19
+32:                                               ; preds = %20
   call void @_ZN9Assembler4decqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2) #18
-  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
+  br label %_ZN14MacroAssembler9decrementE8Registeri.exit
 
-32:                                               ; preds = %19
+33:                                               ; preds = %20
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 noundef 1) #18
-  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
+  br label %_ZN14MacroAssembler9decrementE8Registeri.exit
 
-_ZN14MacroAssembler10decrementqE8Registeri.exit:  ; preds = %31, %32
+_ZN14MacroAssembler9decrementE8Registeri.exit:    ; preds = %32, %33
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(33) %9, ptr noundef nonnull @.str, i32 noundef 6242) #18
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %10) #18
   store i32 %1, ptr %12, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %2, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 -1, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 3, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i8 0, ptr %37, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i32 0, ptr %40, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 %2, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 -1, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i32 3, ptr %36, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i32 0, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  store i8 0, ptr %38, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr null, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store i32 0, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 21, i1 false)
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %41) #18
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %43 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %42) #18
   call void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %8, i32 %3) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  %43 = load i8, ptr @UseIncDec, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %46
+  %44 = load i8, ptr @UseIncDec, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %_ZN14MacroAssembler10decrementqE8Registeri.exit
+46:                                               ; preds = %_ZN14MacroAssembler9decrementE8Registeri.exit
   call void @_ZN9Assembler4decqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2) #18
-  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit29
+  br label %_ZN14MacroAssembler9decrementE8Registeri.exit30
 
-46:                                               ; preds = %_ZN14MacroAssembler10decrementqE8Registeri.exit
+47:                                               ; preds = %_ZN14MacroAssembler9decrementE8Registeri.exit
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 noundef 1) #18
-  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit29
+  br label %_ZN14MacroAssembler9decrementE8Registeri.exit30
 
-_ZN14MacroAssembler10decrementqE8Registeri.exit29: ; preds = %45, %46
+_ZN14MacroAssembler9decrementE8Registeri.exit30:  ; preds = %46, %47
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 13, ptr noundef nonnull align 8 dereferenceable(33) %10, ptr noundef nonnull @.str, i32 noundef 6248) #18
   call void @_ZN9Assembler6jmpb_0ER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %9, ptr noundef nonnull @.str, i32 noundef 6249) #18
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %11) #18
-  br label %.thread
+  br label %48
 
-.thread:                                          ; preds = %16, %.thread30, %_ZN14MacroAssembler10decrementqE8Registeri.exit29
-  %47 = load i8, ptr @UseFastStosb, align 1
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %50
+48:                                               ; preds = %_ZN14MacroAssembler9decrementE8Registeri.exit30, %19
+  %49 = load i8, ptr @UseFastStosb, align 1
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %52
 
-49:                                               ; preds = %.thread
+51:                                               ; preds = %48
   call void @_ZN9Assembler4shlqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %2, i32 noundef 3) #18
   call void @_ZN9Assembler9rep_stosbEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
-  br label %55
+  br label %57
 
-50:                                               ; preds = %.thread
-  %51 = load i8, ptr @UseXMMForObjInit, align 1
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %54
+52:                                               ; preds = %48
+  %53 = load i8, ptr @UseXMMForObjInit, align 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %56
 
-53:                                               ; preds = %50
+55:                                               ; preds = %52
   call void @_ZN14MacroAssembler13xmm_clear_memE8RegisterS0_S0_11XMMRegister9KRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %6)
-  br label %55
+  br label %57
 
-54:                                               ; preds = %50
+56:                                               ; preds = %52
   call void @_ZN9Assembler8rep_stosEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #18
-  br label %55
+  br label %57
 
-55:                                               ; preds = %53, %54, %49
+57:                                               ; preds = %55, %56, %51
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %9) #18
   ret void
 }
@@ -22353,7 +22365,7 @@ define hidden void @_ZN14MacroAssembler13generate_fillE9BasicTypeb8RegisterS1_S1
 
 69:                                               ; preds = %65, %8
   switch i8 %1, label %70 [
-    i8 8, label %.thread280
+    i8 8, label %.thread283
     i8 9, label %72
     i8 10, label %74
   ]
@@ -22364,7 +22376,7 @@ define hidden void @_ZN14MacroAssembler13generate_fillE9BasicTypeb8RegisterS1_S1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 6299) #19
   unreachable
 
-.thread280:                                       ; preds = %69
+.thread283:                                       ; preds = %69
   tail call void @_ZN9Assembler4andlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 noundef 255) #18
   tail call void @_ZN9Assembler4movlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %4) #18
   tail call void @_ZN9Assembler4shllE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 noundef 8) #18
@@ -22375,27 +22387,27 @@ define hidden void @_ZN14MacroAssembler13generate_fillE9BasicTypeb8RegisterS1_S1
   tail call void @_ZN9Assembler4andlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 noundef 65535) #18
   br label %73
 
-73:                                               ; preds = %.thread280, %72
-  %.0279282.ph = phi i32 [ 1, %72 ], [ 2, %.thread280 ]
-  %.ph = phi i1 [ false, %72 ], [ true, %.thread280 ]
+73:                                               ; preds = %.thread283, %72
+  %.0282285.ph = phi i32 [ 1, %72 ], [ 2, %.thread283 ]
+  %.ph = phi i1 [ false, %72 ], [ true, %.thread283 ]
   tail call void @_ZN9Assembler4movlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %4) #18
   tail call void @_ZN9Assembler4shllE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 noundef 16) #18
   tail call void @_ZN9Assembler3orlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 %6) #18
   br label %74
 
 74:                                               ; preds = %69, %73
-  %or.cond292 = phi i1 [ true, %73 ], [ false, %69 ]
+  %or.cond295 = phi i1 [ true, %73 ], [ false, %69 ]
   %75 = phi i1 [ %.ph, %73 ], [ false, %69 ]
-  %.0279282290 = phi i32 [ %.0279282.ph, %73 ], [ 0, %69 ]
-  %76 = shl nuw nsw i32 2, %.0279282290
+  %.0282285293 = phi i32 [ %.0282285.ph, %73 ], [ 0, %69 ]
+  %76 = shl nuw nsw i32 2, %.0282285293
   tail call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %76) #18
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(33) %17, i1 noundef zeroext true) #18
   %77 = load i8, ptr @UseUnalignedLoadStores, align 1
   %78 = trunc i8 %77 to i1
-  %brmerge = or i1 %2, %78
-  %or.cond.not = xor i1 %or.cond292, true
-  %brmerge263 = or i1 %brmerge, %or.cond.not
-  br i1 %brmerge263, label %127, label %79
+  %or.cond4 = or i1 %2, %78
+  %or.cond.not = xor i1 %or.cond295, true
+  %brmerge = or i1 %or.cond4, %or.cond.not
+  br i1 %brmerge, label %127, label %79
 
 79:                                               ; preds = %74
   store i32 -1, ptr %18, align 8
@@ -22408,7 +22420,7 @@ define hidden void @_ZN14MacroAssembler13generate_fillE9BasicTypeb8RegisterS1_S1
   br i1 %75, label %83, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %79
-  %.pre298 = sext i32 %3 to i64
+  %.pre301 = sext i32 %3 to i64
   br label %110
 
 83:                                               ; preds = %79
@@ -22474,34 +22486,34 @@ _ZN14MacroAssembler9incrementE8Registeri.exit:    ; preds = %104, %105
 
 108:                                              ; preds = %_ZN14MacroAssembler9incrementE8Registeri.exit
   call void @_ZN9Assembler4decqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5) #18
-  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
+  br label %_ZN14MacroAssembler9decrementE8Registeri.exit
 
 109:                                              ; preds = %_ZN14MacroAssembler9incrementE8Registeri.exit
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef 1) #18
-  br label %_ZN14MacroAssembler10decrementqE8Registeri.exit
+  br label %_ZN14MacroAssembler9decrementE8Registeri.exit
 
-_ZN14MacroAssembler10decrementqE8Registeri.exit:  ; preds = %108, %109
+_ZN14MacroAssembler9decrementE8Registeri.exit:    ; preds = %108, %109
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %19) #18
   br label %110
 
-110:                                              ; preds = %._crit_edge, %_ZN14MacroAssembler10decrementqE8Registeri.exit
-  %.pre-phi299 = phi i64 [ %.pre298, %._crit_edge ], [ %87, %_ZN14MacroAssembler10decrementqE8Registeri.exit ]
-  %111 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %.pre-phi299
+110:                                              ; preds = %._crit_edge, %_ZN14MacroAssembler9decrementE8Registeri.exit
+  %.pre-phi302 = phi i64 [ %.pre301, %._crit_edge ], [ %87, %_ZN14MacroAssembler9decrementE8Registeri.exit ]
+  %111 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %.pre-phi302
   %112 = ptrtoint ptr %111 to i64
   %113 = trunc i64 %112 to i32
   %114 = sub i32 %113, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %spec.select.i.i.i.i264 = icmp ult i32 %114, 32
-  br i1 %spec.select.i.i.i.i264, label %115, label %116
+  %spec.select.i.i.i.i267 = icmp ult i32 %114, 32
+  br i1 %spec.select.i.i.i.i267, label %115, label %116
 
 115:                                              ; preds = %110
   call void @_ZN9Assembler5testbE8Registerib(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 2, i1 noundef zeroext true) #18
-  br label %_ZN14MacroAssembler7testptrE8Registeri.exit265
+  br label %_ZN14MacroAssembler7testptrE8Registeri.exit268
 
 116:                                              ; preds = %110
   call void @_ZN9Assembler5testlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 2) #18
-  br label %_ZN14MacroAssembler7testptrE8Registeri.exit265
+  br label %_ZN14MacroAssembler7testptrE8Registeri.exit268
 
-_ZN14MacroAssembler7testptrE8Registeri.exit265:   ; preds = %115, %116
+_ZN14MacroAssembler7testptrE8Registeri.exit268:   ; preds = %115, %116
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %18, ptr noundef nonnull @.str, i32 noundef 6334) #18
   store i32 %3, ptr %21, align 8
   %117 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -22522,13 +22534,13 @@ _ZN14MacroAssembler7testptrE8Registeri.exit265:   ; preds = %115, %116
   store i32 0, ptr %124, align 8
   call void @_ZN9Assembler4movwE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %21, i32 %4) #18
   call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 2) #18
-  %125 = add nsw i32 %.0279282290, -1
+  %125 = add nsw i32 %.0282285293, -1
   %126 = shl nuw nsw i32 1, %125
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %126) #18
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %18) #18
   br label %127
 
-127:                                              ; preds = %74, %_ZN14MacroAssembler7testptrE8Registeri.exit265
+127:                                              ; preds = %74, %_ZN14MacroAssembler7testptrE8Registeri.exit268
   %128 = load i32, ptr @UseSSE, align 4
   %129 = icmp slt i32 %128, 2
   br i1 %129, label %130, label %184
@@ -22562,7 +22574,7 @@ _ZN14MacroAssembler7testptrE8Registeri.exit265:   ; preds = %115, %116
   store ptr null, ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i8 0, ptr %142, align 8
-  %143 = shl nuw nsw i32 8, %.0279282290
+  %143 = shl nuw nsw i32 8, %.0282285293
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %143) #18
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(33) %23, i1 noundef zeroext true) #18
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22596,19 +22608,19 @@ _ZN14MacroAssembler5alignEj.exit:                 ; preds = %130, %154
   br label %164
 
 164:                                              ; preds = %_ZN14MacroAssembler5alignEj.exit, %164
-  %.0262295 = phi i32 [ 0, %_ZN14MacroAssembler5alignEj.exit ], [ %165, %164 ]
+  %.0266298 = phi i32 [ 0, %_ZN14MacroAssembler5alignEj.exit ], [ %165, %164 ]
   store i32 %3, ptr %26, align 8
   store i32 -1, ptr %156, align 4
   store i32 -1, ptr %157, align 8
   store i32 -1, ptr %158, align 4
-  store i32 %.0262295, ptr %159, align 8
+  store i32 %.0266298, ptr %159, align 8
   store i8 0, ptr %160, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %161, align 8
   store ptr null, ptr %162, align 8
   store i32 0, ptr %163, align 8
   call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %26, i32 %4) #18
-  %165 = add nuw nsw i32 %.0262295, 4
-  %166 = icmp samesign ult i32 %.0262295, 28
+  %165 = add nuw nsw i32 %.0266298, 4
+  %166 = icmp samesign ult i32 %.0266298, 28
   br i1 %166, label %164, label %167, !llvm.loop !402
 
 167:                                              ; preds = %164
@@ -22676,18 +22688,18 @@ _ZN14MacroAssembler5alignEj.exit:                 ; preds = %130, %154
   %193 = ptrtoint ptr %192 to i64
   %194 = trunc i64 %193 to i32
   %195 = sub i32 %194, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %spec.select.i.i.i.i266 = icmp ult i32 %195, 32
-  br i1 %spec.select.i.i.i.i266, label %196, label %197
+  %spec.select.i.i.i.i269 = icmp ult i32 %195, 32
+  br i1 %spec.select.i.i.i.i269, label %196, label %197
 
 196:                                              ; preds = %190
   call void @_ZN9Assembler5testbE8Registerib(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 4, i1 noundef zeroext true) #18
-  br label %_ZN14MacroAssembler7testptrE8Registeri.exit267
+  br label %_ZN14MacroAssembler7testptrE8Registeri.exit270
 
 197:                                              ; preds = %190
   call void @_ZN9Assembler5testlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 4) #18
-  br label %_ZN14MacroAssembler7testptrE8Registeri.exit267
+  br label %_ZN14MacroAssembler7testptrE8Registeri.exit270
 
-_ZN14MacroAssembler7testptrE8Registeri.exit267:   ; preds = %196, %197
+_ZN14MacroAssembler7testptrE8Registeri.exit270:   ; preds = %196, %197
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %29, ptr noundef nonnull @.str, i32 noundef 6377) #18
   store i32 %3, ptr %30, align 8
   %198 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -22708,11 +22720,11 @@ _ZN14MacroAssembler7testptrE8Registeri.exit267:   ; preds = %196, %197
   store i32 0, ptr %205, align 8
   call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %30, i32 %4) #18
   call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 4) #18
-  %206 = shl nuw nsw i32 1, %.0279282290
+  %206 = shl nuw nsw i32 1, %.0282285293
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %206) #18
   br label %207
 
-207:                                              ; preds = %_ZN14MacroAssembler7testptrE8Registeri.exit267, %184
+207:                                              ; preds = %_ZN14MacroAssembler7testptrE8Registeri.exit270, %184
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %29) #18
   store i32 -1, ptr %31, align 8
   %208 = getelementptr inbounds nuw i8, ptr %31, i64 20
@@ -22745,29 +22757,27 @@ _ZN14MacroAssembler7testptrE8Registeri.exit267:   ; preds = %196, %197
   call void @_ZN9Assembler5movdlE11XMMRegister8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %4) #18
   %220 = load i32, ptr @UseAVX, align 4
   %221 = icmp sgt i32 %220, 1
-  br i1 %221, label %222, label %305
+  %222 = load i8, ptr @UseUnalignedLoadStores, align 1
+  %223 = trunc i8 %222 to i1
+  %or.cond9 = select i1 %221, i1 %223, i1 false
+  br i1 %or.cond9, label %224, label %305
 
-222:                                              ; preds = %207
-  %223 = load i8, ptr @UseUnalignedLoadStores, align 1
-  %224 = trunc i8 %223 to i1
-  br i1 %224, label %225, label %305
-
-225:                                              ; preds = %222
+224:                                              ; preds = %207
   store i32 -1, ptr %35, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %35, i64 20
-  store i32 0, ptr %226, align 4
-  %227 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr null, ptr %227, align 8
-  %228 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store i8 0, ptr %228, align 8
-  %.not = icmp eq i32 %220, 2
-  br i1 %.not, label %._crit_edge296, label %229
+  %225 = getelementptr inbounds nuw i8, ptr %35, i64 20
+  store i32 0, ptr %225, align 4
+  %226 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  store ptr null, ptr %226, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  store i8 0, ptr %227, align 8
+  %228 = icmp samesign ugt i32 %220, 2
+  br i1 %228, label %229, label %._crit_edge299
 
-._crit_edge296:                                   ; preds = %225
-  %.pre = shl nuw nsw i32 16, %.0279282290
+._crit_edge299:                                   ; preds = %224
+  %.pre = shl nuw nsw i32 16, %.0282285293
   br label %260
 
-229:                                              ; preds = %225
+229:                                              ; preds = %224
   store i32 -1, ptr %36, align 8
   %230 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i32 0, ptr %230, align 4
@@ -22786,7 +22796,7 @@ _ZN14MacroAssembler7testptrE8Registeri.exit267:   ; preds = %196, %197
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %236) #18
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(33) %37, ptr noundef nonnull @.str, i32 noundef 6395) #18
   call void @_ZN9Assembler12vpbroadcastdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %7, i32 noundef 2) #18
-  %237 = shl nuw nsw i32 16, %.0279282290
+  %237 = shl nuw nsw i32 16, %.0282285293
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %237) #18
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(33) %35, ptr noundef nonnull @.str, i32 noundef 6400) #18
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22799,15 +22809,15 @@ _ZN14MacroAssembler7testptrE8Registeri.exit267:   ; preds = %196, %197
   %245 = sub i64 %243, %244
   %246 = trunc i64 %245 to i32
   %247 = and i32 %246, 15
-  %.not.i.i268 = icmp eq i32 %247, 0
-  br i1 %.not.i.i268, label %_ZN14MacroAssembler5alignEj.exit269, label %248
+  %.not.i.i271 = icmp eq i32 %247, 0
+  br i1 %.not.i.i271, label %_ZN14MacroAssembler5alignEj.exit272, label %248
 
 248:                                              ; preds = %229
   %249 = sub nuw nsw i32 16, %247
   call void @_ZN9Assembler3nopEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %249) #18
-  br label %_ZN14MacroAssembler5alignEj.exit269
+  br label %_ZN14MacroAssembler5alignEj.exit272
 
-_ZN14MacroAssembler5alignEj.exit269:              ; preds = %229, %248
+_ZN14MacroAssembler5alignEj.exit272:              ; preds = %229, %248
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %36) #18
   store i32 %3, ptr %38, align 8
   %250 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -22840,8 +22850,8 @@ _ZN14MacroAssembler5alignEj.exit269:              ; preds = %229, %248
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %37) #18
   br label %260
 
-260:                                              ; preds = %._crit_edge296, %_ZN14MacroAssembler5alignEj.exit269
-  %.pre-phi297 = phi i32 [ %.pre, %._crit_edge296 ], [ %237, %_ZN14MacroAssembler5alignEj.exit269 ]
+260:                                              ; preds = %._crit_edge299, %_ZN14MacroAssembler5alignEj.exit272
+  %.pre-phi300 = phi i32 [ %.pre, %._crit_edge299 ], [ %237, %_ZN14MacroAssembler5alignEj.exit272 ]
   store i32 -1, ptr %39, align 8
   %261 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i32 0, ptr %261, align 4
@@ -22850,7 +22860,7 @@ _ZN14MacroAssembler5alignEj.exit269:              ; preds = %229, %248
   %263 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i8 0, ptr %263, align 8
   call void @_ZN9Assembler12vpbroadcastdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %7, i32 noundef 1) #18
-  call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %.pre-phi297) #18
+  call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %.pre-phi300) #18
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(33) %35, i1 noundef zeroext true) #18
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %265 = load ptr, ptr %264, align 8
@@ -22862,15 +22872,15 @@ _ZN14MacroAssembler5alignEj.exit269:              ; preds = %229, %248
   %271 = sub i64 %269, %270
   %272 = trunc i64 %271 to i32
   %273 = and i32 %272, 15
-  %.not.i.i270 = icmp eq i32 %273, 0
-  br i1 %.not.i.i270, label %_ZN14MacroAssembler5alignEj.exit271, label %274
+  %.not.i.i273 = icmp eq i32 %273, 0
+  br i1 %.not.i.i273, label %_ZN14MacroAssembler5alignEj.exit274, label %274
 
 274:                                              ; preds = %260
   %275 = sub nuw nsw i32 16, %273
   call void @_ZN9Assembler3nopEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %275) #18
-  br label %_ZN14MacroAssembler5alignEj.exit271
+  br label %_ZN14MacroAssembler5alignEj.exit274
 
-_ZN14MacroAssembler5alignEj.exit271:              ; preds = %260, %274
+_ZN14MacroAssembler5alignEj.exit274:              ; preds = %260, %274
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %39) #18
   store i32 %3, ptr %40, align 8
   %276 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -22920,10 +22930,10 @@ _ZN14MacroAssembler5alignEj.exit271:              ; preds = %260, %274
   call void @_ZN9Assembler7vmovdquE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %12, i32 %7) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 64) #18
-  call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %.pre-phi297) #18
+  call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %.pre-phi300) #18
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 13, ptr noundef nonnull align 8 dereferenceable(33) %39, i1 noundef zeroext true) #18
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %35) #18
-  %295 = shl nuw nsw i32 8, %.0279282290
+  %295 = shl nuw nsw i32 8, %.0282285293
   call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %295) #18
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(33) %32, ptr noundef nonnull @.str, i32 noundef 6429) #18
   store i32 %3, ptr %42, align 8
@@ -22956,9 +22966,9 @@ _ZN14MacroAssembler5alignEj.exit271:              ; preds = %260, %274
   call void @_ZN9Assembler6pshufdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %7, i32 noundef 0) #18
   br label %375
 
-305:                                              ; preds = %222, %207
+305:                                              ; preds = %207
   call void @_ZN9Assembler6pshufdE11XMMRegisterS0_i(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, i32 %7, i32 noundef 0) #18
-  %306 = shl nuw nsw i32 8, %.0279282290
+  %306 = shl nuw nsw i32 8, %.0282285293
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %306) #18
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(33) %32, i1 noundef zeroext true) #18
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22971,21 +22981,21 @@ _ZN14MacroAssembler5alignEj.exit271:              ; preds = %260, %274
   %314 = sub i64 %312, %313
   %315 = trunc i64 %314 to i32
   %316 = and i32 %315, 15
-  %.not.i.i272 = icmp eq i32 %316, 0
-  br i1 %.not.i.i272, label %_ZN14MacroAssembler5alignEj.exit273, label %317
+  %.not.i.i275 = icmp eq i32 %316, 0
+  br i1 %.not.i.i275, label %_ZN14MacroAssembler5alignEj.exit276, label %317
 
 317:                                              ; preds = %305
   %318 = sub nuw nsw i32 16, %316
   call void @_ZN9Assembler3nopEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %318) #18
-  br label %_ZN14MacroAssembler5alignEj.exit273
+  br label %_ZN14MacroAssembler5alignEj.exit276
 
-_ZN14MacroAssembler5alignEj.exit273:              ; preds = %305, %317
+_ZN14MacroAssembler5alignEj.exit276:              ; preds = %305, %317
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %31) #18
   %319 = load i8, ptr @UseUnalignedLoadStores, align 1
   %320 = trunc i8 %319 to i1
   br i1 %320, label %321, label %341
 
-321:                                              ; preds = %_ZN14MacroAssembler5alignEj.exit273
+321:                                              ; preds = %_ZN14MacroAssembler5alignEj.exit276
   store i32 %3, ptr %43, align 8
   %322 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 -1, ptr %322, align 4
@@ -23035,7 +23045,7 @@ _ZN14MacroAssembler5alignEj.exit273:              ; preds = %305, %317
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %374
 
-341:                                              ; preds = %_ZN14MacroAssembler5alignEj.exit273
+341:                                              ; preds = %_ZN14MacroAssembler5alignEj.exit276
   store i32 %3, ptr %45, align 8
   %342 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 -1, ptr %342, align 4
@@ -23117,8 +23127,8 @@ _ZN14MacroAssembler5alignEj.exit273:              ; preds = %305, %317
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %32) #18
   br label %375
 
-375:                                              ; preds = %374, %_ZN14MacroAssembler5alignEj.exit271
-  %.pre-phi = phi i32 [ %306, %374 ], [ %295, %_ZN14MacroAssembler5alignEj.exit271 ]
+375:                                              ; preds = %374, %_ZN14MacroAssembler5alignEj.exit274
+  %.pre-phi = phi i32 [ %306, %374 ], [ %295, %_ZN14MacroAssembler5alignEj.exit274 ]
   call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %.pre-phi) #18
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %15, ptr noundef nonnull @.str, i32 noundef 6465) #18
   call void @_ZN9Assembler6jmpb_0ER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %34, ptr noundef nonnull @.str, i32 noundef 6466) #18
@@ -23144,14 +23154,14 @@ _ZN14MacroAssembler5alignEj.exit273:              ; preds = %305, %317
   br label %384
 
 384:                                              ; preds = %375, %167
-  %.sink300 = phi ptr [ %34, %375 ], [ %25, %167 ]
+  %.sink303 = phi ptr [ %34, %375 ], [ %25, %167 ]
   %.sink = phi ptr [ %33, %375 ], [ %24, %167 ]
   call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 8) #18
-  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %.sink300) #18
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %.sink303) #18
   call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %76) #18
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 13, ptr noundef nonnull align 8 dereferenceable(33) %.sink, i1 noundef zeroext true) #18
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %17) #18
-  %385 = shl nuw nsw i32 1, %.0279282290
+  %385 = shl nuw nsw i32 1, %.0282285293
   %386 = sext i32 %5 to i64
   %387 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %386
   %388 = ptrtoint ptr %387 to i64
@@ -23188,7 +23198,7 @@ _ZN14MacroAssembler5testlE8Registeri.exit:        ; preds = %391, %392
   %400 = getelementptr inbounds nuw i8, ptr %50, i64 40
   store i32 0, ptr %400, align 8
   call void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %50, i32 %4) #18
-  br i1 %or.cond292, label %401, label %430
+  br i1 %or.cond295, label %401, label %430
 
 401:                                              ; preds = %_ZN14MacroAssembler5testlE8Registeri.exit
   store i32 -1, ptr %51, align 8
@@ -23200,21 +23210,21 @@ _ZN14MacroAssembler5testlE8Registeri.exit:        ; preds = %391, %392
   store i8 0, ptr %404, align 8
   call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 4) #18
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %16) #18
-  %405 = add nsw i32 %.0279282290, -1
+  %405 = add nsw i32 %.0282285293, -1
   %406 = shl nuw nsw i32 1, %405
   %407 = icmp ugt i32 %405, 6
-  %brmerge302 = or i1 %407, %spec.select.i.i
-  br i1 %brmerge302, label %409, label %408
+  %brmerge304 = or i1 %407, %spec.select.i.i
+  br i1 %brmerge304, label %409, label %408
 
 408:                                              ; preds = %401
   call void @_ZN9Assembler5testbE8Registerib(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %406, i1 noundef zeroext true) #18
-  br label %_ZN14MacroAssembler5testlE8Registeri.exit275
+  br label %_ZN14MacroAssembler5testlE8Registeri.exit278
 
 409:                                              ; preds = %401
   call void @_ZN9Assembler5testlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef %406) #18
-  br label %_ZN14MacroAssembler5testlE8Registeri.exit275
+  br label %_ZN14MacroAssembler5testlE8Registeri.exit278
 
-_ZN14MacroAssembler5testlE8Registeri.exit275:     ; preds = %408, %409
+_ZN14MacroAssembler5testlE8Registeri.exit278:     ; preds = %408, %409
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %51, ptr noundef nonnull @.str, i32 noundef 6490) #18
   store i32 %3, ptr %52, align 8
   %410 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -23236,20 +23246,20 @@ _ZN14MacroAssembler5testlE8Registeri.exit275:     ; preds = %408, %409
   call void @_ZN9Assembler4movwE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %52, i32 %4) #18
   br i1 %75, label %418, label %429
 
-418:                                              ; preds = %_ZN14MacroAssembler5testlE8Registeri.exit275
+418:                                              ; preds = %_ZN14MacroAssembler5testlE8Registeri.exit278
   call void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, i32 noundef 2) #18
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %51) #18
   br i1 %spec.select.i.i, label %420, label %419
 
 419:                                              ; preds = %418
   call void @_ZN9Assembler5testbE8Registerib(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef 1, i1 noundef zeroext true) #18
-  br label %_ZN14MacroAssembler5testlE8Registeri.exit277
+  br label %_ZN14MacroAssembler5testlE8Registeri.exit280
 
 420:                                              ; preds = %418
   call void @_ZN9Assembler5testlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %5, i32 noundef 1) #18
-  br label %_ZN14MacroAssembler5testlE8Registeri.exit277
+  br label %_ZN14MacroAssembler5testlE8Registeri.exit280
 
-_ZN14MacroAssembler5testlE8Registeri.exit277:     ; preds = %419, %420
+_ZN14MacroAssembler5testlE8Registeri.exit280:     ; preds = %419, %420
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %15, ptr noundef nonnull @.str, i32 noundef 6497) #18
   store i32 %3, ptr %53, align 8
   %421 = getelementptr inbounds nuw i8, ptr %53, i64 4
@@ -23271,7 +23281,7 @@ _ZN14MacroAssembler5testlE8Registeri.exit277:     ; preds = %419, %420
   call void @_ZN9Assembler4movbE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %53, i32 %4) #18
   br label %431
 
-429:                                              ; preds = %_ZN14MacroAssembler5testlE8Registeri.exit275
+429:                                              ; preds = %_ZN14MacroAssembler5testlE8Registeri.exit278
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %51) #18
   br label %431
 
@@ -23279,7 +23289,7 @@ _ZN14MacroAssembler5testlE8Registeri.exit277:     ; preds = %419, %420
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %16) #18
   br label %431
 
-431:                                              ; preds = %_ZN14MacroAssembler5testlE8Registeri.exit277, %429, %430
+431:                                              ; preds = %_ZN14MacroAssembler5testlE8Registeri.exit280, %429, %430
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %15) #18
   br label %432
 
@@ -34589,9 +34599,9 @@ declare void @_ZN9Assembler7clflushE7Address(ptr noundef nonnull align 8 derefer
 define hidden void @_ZN14MacroAssembler12cache_wbsyncEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 13194139533312
-  %brmerge = icmp eq i64 %4, 0
-  %or.cond.not = or i1 %1, %brmerge
-  br i1 %or.cond.not, label %6, label %5
+  %or.cond = icmp eq i64 %4, 0
+  %or.cond4.not = or i1 %1, %or.cond
+  br i1 %or.cond4.not, label %6, label %5
 
 5:                                                ; preds = %2
   tail call void @_ZN9Assembler6sfenceEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #18

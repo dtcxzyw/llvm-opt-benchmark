@@ -893,19 +893,19 @@ define internal i32 @cf_hc_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = load i8, ptr %7, align 4
   %9 = and i8 %8, 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %.preheader58, label %13
+  br i1 %.not, label %.preheader59, label %13
 
-.preheader58:                                     ; preds = %3
+.preheader59:                                     ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %11 = load i64, ptr %10, align 8, !tbaa !84
-  %.not69 = icmp eq i64 %11, 0
-  br i1 %.not69, label %._crit_edge.thread, label %.lr.ph
+  %.not70 = icmp eq i64 %11, 0
+  br i1 %.not70, label %._crit_edge.thread, label %.lr.ph
 
-._crit_edge.thread:                               ; preds = %.preheader58
+._crit_edge.thread:                               ; preds = %.preheader59
   store i8 1, ptr %2, align 1, !tbaa !98
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader58
+.lr.ph:                                           ; preds = %.preheader59
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   br label %14
 
@@ -914,8 +914,8 @@ define internal i32 @cf_hc_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %75
 
 14:                                               ; preds = %.lr.ph, %cf_hc_baller_is_active.exit.thread
-  %.04459 = phi i64 [ 0, %.lr.ph ], [ %35, %cf_hc_baller_is_active.exit.thread ]
-  %15 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %12, i64 0, i64 %.04459
+  %.04660 = phi i64 [ 0, %.lr.ph ], [ %35, %cf_hc_baller_is_active.exit.thread ]
+  %15 = getelementptr inbounds nuw [2 x %struct.cf_hc_baller], ptr %12, i64 0, i64 %.04660
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #4
   store i8 0, ptr %4, align 1, !tbaa !98
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -933,8 +933,8 @@ cf_hc_baller_is_active.exit:                      ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, 1
-  %.not56 = icmp eq i8 %23, 0
-  br i1 %.not56, label %24, label %cf_hc_baller_is_active.exit.thread
+  %.not58 = icmp eq i8 %23, 0
+  br i1 %.not58, label %24, label %cf_hc_baller_is_active.exit.thread
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %17, align 8, !tbaa !81
@@ -942,45 +942,43 @@ cf_hc_baller_is_active.exit:                      ; preds = %14
   %27 = load ptr, ptr %26, align 8, !tbaa !122
   %28 = call i32 %27(ptr noundef nonnull %17, ptr noundef %1, ptr noundef nonnull %4) #4
   store i32 %28, ptr %18, align 8, !tbaa !88
-  %.not57 = icmp eq i32 %28, 0
-  br i1 %.not57, label %29, label %32
-
-29:                                               ; preds = %24
-  %30 = load i8, ptr %4, align 1, !tbaa !98, !range !115, !noundef !116
+  %29 = icmp ne i32 %28, 0
+  %30 = load i8, ptr %4, align 1, !range !115
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %cf_hc_baller_is_active.exit.thread
+  %or.cond = select i1 %29, i1 true, i1 %31
+  br i1 %or.cond, label %32, label %cf_hc_baller_is_active.exit.thread
 
-32:                                               ; preds = %29, %24
+32:                                               ; preds = %24
   %33 = load i8, ptr %21, align 8
   %34 = or i8 %33, 1
   store i8 %34, ptr %21, align 8
   br label %cf_hc_baller_is_active.exit.thread
 
-cf_hc_baller_is_active.exit.thread:               ; preds = %14, %29, %32, %cf_hc_baller_is_active.exit, %20
+cf_hc_baller_is_active.exit.thread:               ; preds = %14, %32, %24, %cf_hc_baller_is_active.exit, %20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
-  %35 = add nuw i64 %.04459, 1
+  %35 = add nuw i64 %.04660, 1
   %36 = load i64, ptr %10, align 8, !tbaa !84
   %37 = icmp ult i64 %35, %36
   br i1 %37, label %14, label %._crit_edge, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %cf_hc_baller_is_active.exit.thread
   store i8 1, ptr %2, align 1, !tbaa !98
-  %.not70 = icmp eq i64 %36, 0
-  br i1 %.not70, label %.loopexit, label %.lr.ph62
+  %.not71 = icmp eq i64 %36, 0
+  br i1 %.not71, label %.loopexit, label %.lr.ph63
 
-.lr.ph62:                                         ; preds = %._crit_edge
+.lr.ph63:                                         ; preds = %._crit_edge
   %38 = getelementptr i8, ptr %6, i64 88
   br label %39
 
-39:                                               ; preds = %.lr.ph62, %45
-  %40 = phi i8 [ 1, %.lr.ph62 ], [ %46, %45 ]
-  %.14560 = phi i64 [ 0, %.lr.ph62 ], [ %47, %45 ]
-  %.idx54 = mul nuw nsw i64 %.14560, 56
-  %41 = getelementptr i8, ptr %38, i64 %.idx54
+39:                                               ; preds = %.lr.ph63, %45
+  %40 = phi i8 [ 1, %.lr.ph63 ], [ %46, %45 ]
+  %.14761 = phi i64 [ 0, %.lr.ph63 ], [ %47, %45 ]
+  %.idx56 = mul nuw nsw i64 %.14761, 56
+  %41 = getelementptr i8, ptr %38, i64 %.idx56
   %42 = load i8, ptr %41, align 8
   %43 = and i8 %42, 1
-  %.not55 = icmp eq i8 %43, 0
-  br i1 %.not55, label %44, label %45
+  %.not57 = icmp eq i8 %43, 0
+  br i1 %.not57, label %44, label %45
 
 44:                                               ; preds = %39
   store i8 0, ptr %2, align 1, !tbaa !98
@@ -988,60 +986,60 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %14, %29, %32, %cf_h
 
 45:                                               ; preds = %39, %44
   %46 = phi i8 [ %40, %39 ], [ 0, %44 ]
-  %47 = add nuw i64 %.14560, 1
+  %47 = add nuw i64 %.14761, 1
   %exitcond.not = icmp eq i64 %47, %36
-  br i1 %exitcond.not, label %._crit_edge63, label %39, !llvm.loop !124
+  br i1 %exitcond.not, label %._crit_edge64, label %39, !llvm.loop !124
 
-._crit_edge63:                                    ; preds = %45
+._crit_edge64:                                    ; preds = %45
   %48 = trunc nuw i8 %46 to i1
-  br i1 %48, label %.lr.ph66, label %.loopexit
+  br i1 %48, label %.lr.ph67, label %.loopexit
 
-.lr.ph66:                                         ; preds = %._crit_edge63
+.lr.ph67:                                         ; preds = %._crit_edge64
   %49 = getelementptr i8, ptr %6, i64 56
   br label %50
 
-50:                                               ; preds = %.lr.ph66, %50
-  %.04365 = phi i32 [ 0, %.lr.ph66 ], [ %spec.select, %50 ]
-  %.24664 = phi i64 [ 0, %.lr.ph66 ], [ %53, %50 ]
-  %.idx = mul nuw nsw i64 %.24664, 56
+50:                                               ; preds = %.lr.ph67, %50
+  %.04566 = phi i32 [ 0, %.lr.ph67 ], [ %spec.select, %50 ]
+  %.24865 = phi i64 [ 0, %.lr.ph67 ], [ %53, %50 ]
+  %.idx = mul nuw nsw i64 %.24865, 56
   %51 = getelementptr i8, ptr %49, i64 %.idx
   %52 = load i32, ptr %51, align 8, !tbaa !88
-  %.not53 = icmp eq i32 %52, 0
-  %spec.select = select i1 %.not53, i32 %.04365, i32 %52
-  %53 = add nuw i64 %.24664, 1
-  %exitcond72.not = icmp eq i64 %53, %36
-  br i1 %exitcond72.not, label %.loopexit, label %50, !llvm.loop !125
+  %.not55 = icmp eq i32 %52, 0
+  %spec.select = select i1 %.not55, i32 %.04566, i32 %52
+  %53 = add nuw i64 %.24865, 1
+  %exitcond73.not = icmp eq i64 %53, %36
+  br i1 %exitcond73.not, label %.loopexit, label %50, !llvm.loop !125
 
-.loopexit:                                        ; preds = %50, %._crit_edge.thread, %._crit_edge, %._crit_edge63
-  %54 = phi i8 [ %46, %._crit_edge63 ], [ 1, %._crit_edge ], [ 1, %._crit_edge.thread ], [ 1, %50 ]
-  %.2 = phi i32 [ 0, %._crit_edge63 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %spec.select, %50 ]
-  %.not50 = icmp eq ptr %1, null
-  br i1 %.not50, label %75, label %55
+.loopexit:                                        ; preds = %50, %._crit_edge.thread, %._crit_edge, %._crit_edge64
+  %54 = phi i8 [ %46, %._crit_edge64 ], [ 1, %._crit_edge ], [ 1, %._crit_edge.thread ], [ 1, %50 ]
+  %.2 = phi i32 [ 0, %._crit_edge64 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %spec.select, %50 ]
+  %.not52 = icmp eq ptr %1, null
+  br i1 %.not52, label %75, label %55
 
 55:                                               ; preds = %.loopexit
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 2658
   %57 = load i64, ptr %56, align 2
   %58 = and i64 %57, 2147483648
-  %.not51 = icmp eq i64 %58, 0
-  br i1 %.not51, label %75, label %59
+  %.not53 = icmp eq i64 %58, 0
+  br i1 %.not53, label %75, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 4864
   %61 = load ptr, ptr %60, align 8, !tbaa !12
-  %.not52 = icmp eq ptr %61, null
-  br i1 %.not52, label %67, label %62
+  %.not54 = icmp eq ptr %61, null
+  br i1 %.not54, label %67, label %62
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = load i32, ptr %63, align 8, !tbaa !79
   %65 = icmp sgt i32 %64, 0
   %66 = icmp ne ptr %0, null
-  %or.cond = and i1 %66, %65
-  br i1 %or.cond, label %68, label %75
+  %or.cond3 = and i1 %66, %65
+  br i1 %or.cond3, label %68, label %75
 
 67:                                               ; preds = %59
-  %.old1.not = icmp eq ptr %0, null
-  br i1 %.old1.not, label %75, label %68
+  %.old2.not = icmp eq ptr %0, null
+  br i1 %.old2.not, label %75, label %68
 
 68:                                               ; preds = %62, %67
   %69 = load ptr, ptr %0, align 8, !tbaa !81

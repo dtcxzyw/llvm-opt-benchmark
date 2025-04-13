@@ -1101,20 +1101,20 @@ _ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4C
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i23.i.i:    ; preds = %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit184.thread.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i157.i.i.i
   %bcmp.i.i.i.i24.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %.sroa.08.0.copyload.i.i.i, ptr noundef nonnull dereferenceable(7) @.str.25, i64 7)
   %396 = icmp eq i32 %bcmp.i.i.i.i24.i.i, 0
-  br i1 %396, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.i.i.i, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.thread.i.i.i
+  br i1 %396, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.thread.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i11.i.i.i:    ; preds = %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit184.thread.i.i.i
   %bcmp.i.i.i12.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %.sroa.08.0.copyload.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.26, i64 5)
   %397 = icmp eq i32 %bcmp.i.i.i12.i.i.i, 0
-  br i1 %397, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.i.i.i, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.thread.i.i.i
+  br i1 %397, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.thread.i.i.i
 
-_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i11.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i23.i.i
+_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i11.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i23.i.i
   %.promoted39.i.i.i.i = load ptr, ptr %42, align 8, !tbaa !10
   %398 = icmp eq ptr %.promoted39.i.i.i.i, %69
   br i1 %398, label %_ZN12_GLOBAL__N_17Scanner13skipDirectiveEN4llvm9StringRefERPKcS4_.exit.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.i.i.i, %422
-  %.promoted4041.i.i.i.i = phi ptr [ %423, %422 ], [ %.promoted39.i.i.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.i.i.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i, %422
+  %.promoted4041.i.i.i.i = phi ptr [ %423, %422 ], [ %.promoted39.i.i.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i ]
   %.pre.i.i.i.i.i = load i8, ptr %.promoted4041.i.i.i.i, align 1, !tbaa !95
   %399 = zext i8 %.pre.i.i.i.i.i to i64
   %400 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %399
@@ -1428,7 +1428,7 @@ _ZN4llvm15SmallVectorImplIN5clang26dependency_directives_scan5TokenEE6appendERKS
   store i32 %543, ptr %57, align 8, !tbaa !88
   br label %_ZN12_GLOBAL__N_17Scanner13skipDirectiveEN4llvm9StringRefERPKcS4_.exit.i.i
 
-_ZN12_GLOBAL__N_17Scanner13skipDirectiveEN4llvm9StringRefERPKcS4_.exit.i.i: ; preds = %422, %_ZL5isEOLPKcS0_.exit27.thread.i.i.i.i, %.lr.ph.i.i.i.i, %.preheader.i.i.i.i, %539, %537, %_ZN12_GLOBAL__N_17Scanner18lexIncludeFilenameERPKcS2_.exit.i.i, %474, %472, %440, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.thread.i.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i, %376
+_ZN12_GLOBAL__N_17Scanner13skipDirectiveEN4llvm9StringRefERPKcS4_.exit.i.i: ; preds = %422, %_ZL5isEOLPKcS0_.exit27.thread.i.i.i.i, %.lr.ph.i.i.i.i, %.preheader.i.i.i.i, %539, %537, %_ZN12_GLOBAL__N_17Scanner18lexIncludeFilenameERPKcS2_.exit.i.i, %474, %472, %440, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.thread.i.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i, %376
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41) #12
   br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i"
 

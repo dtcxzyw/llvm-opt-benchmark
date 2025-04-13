@@ -390,94 +390,90 @@ define dso_local noundef i32 @_Z26rcGetChunksOverlappingRectPK15rcChunkyTriMeshP
   br label %11
 
 11:                                               ; preds = %.lr.ph, %54
-  %.pre33 = phi i32 [ %7, %.lr.ph ], [ %.pre34, %54 ]
-  %12 = phi i32 [ %7, %.lr.ph ], [ %55, %54 ]
   %.032 = phi i32 [ 0, %.lr.ph ], [ %.1, %54 ]
-  %.02331 = phi i32 [ 0, %.lr.ph ], [ %.12429, %54 ]
-  %13 = load ptr, ptr %0, align 8
-  %14 = sext i32 %.032 to i64
-  %15 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %13, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load float, ptr %1, align 4
-  %18 = load float, ptr %16, align 4
-  %19 = fcmp ogt float %17, %18
-  br i1 %19, label %25, label %20
+  %.02631 = phi i32 [ 0, %.lr.ph ], [ %.12735, %54 ]
+  %12 = load ptr, ptr %0, align 8
+  %13 = sext i32 %.032 to i64
+  %14 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load float, ptr %1, align 4
+  %17 = load float, ptr %15, align 4
+  %18 = fcmp ogt float %16, %17
+  br i1 %18, label %24, label %19
 
-20:                                               ; preds = %11
-  %21 = load float, ptr %2, align 4
-  %22 = load float, ptr %15, align 4
-  %23 = fcmp olt float %21, %22
-  br i1 %23, label %25, label %24
+19:                                               ; preds = %11
+  %20 = load float, ptr %2, align 4
+  %21 = load float, ptr %14, align 4
+  %22 = fcmp olt float %20, %21
+  br i1 %22, label %24, label %23
 
-24:                                               ; preds = %20
-  br label %25
+23:                                               ; preds = %19
+  br label %24
 
-25:                                               ; preds = %24, %20, %11
-  %26 = phi i1 [ true, %24 ], [ false, %20 ], [ false, %11 ]
-  %27 = load float, ptr %9, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %29 = load float, ptr %28, align 4
-  %30 = fcmp ogt float %27, %29
-  br i1 %30, label %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread, label %31
+24:                                               ; preds = %23, %19, %11
+  %25 = phi i1 [ true, %23 ], [ false, %19 ], [ false, %11 ]
+  %26 = load float, ptr %9, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %28 = load float, ptr %27, align 4
+  %29 = fcmp ogt float %26, %28
+  br i1 %29, label %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread, label %30
 
-31:                                               ; preds = %25
-  %32 = load float, ptr %10, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %34 = load float, ptr %33, align 4
-  %35 = fcmp olt float %32, %34
-  br i1 %35, label %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread, label %_Z16checkOverlapRectPKfS0_S0_S0_.exit
+30:                                               ; preds = %24
+  %31 = load float, ptr %10, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %33 = load float, ptr %32, align 4
+  %34 = fcmp olt float %31, %33
+  br i1 %34, label %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread, label %_Z16checkOverlapRectPKfS0_S0_S0_.exit
 
-_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread:     ; preds = %31, %25
-  %36 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp sgt i32 %37, -1
-  br label %46
+_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread:     ; preds = %30, %24
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp sgt i32 %36, -1
+  br label %45
 
-_Z16checkOverlapRectPKfS0_S0_S0_.exit:            ; preds = %31
-  %39 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp sgt i32 %40, -1
-  %brmerge.demorgan = and i1 %26, %41
-  %42 = icmp slt i32 %.02331, %4
-  %or.cond = select i1 %brmerge.demorgan, i1 %42, i1 false
-  br i1 %or.cond, label %.thread, label %46
+_Z16checkOverlapRectPKfS0_S0_S0_.exit:            ; preds = %30
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp sgt i32 %39, -1
+  %or.cond = and i1 %25, %40
+  %41 = icmp slt i32 %.02631, %4
+  %or.cond28 = select i1 %or.cond, i1 %41, i1 false
+  br i1 %or.cond28, label %.thread, label %45
 
 .thread:                                          ; preds = %_Z16checkOverlapRectPKfS0_S0_S0_.exit
-  %43 = sext i32 %.02331 to i64
-  %44 = getelementptr inbounds i32, ptr %3, i64 %43
-  store i32 %.032, ptr %44, align 4
-  %45 = add nsw i32 %.02331, 1
-  %.pre.pre = load i32, ptr %6, align 8
-  br label %50
+  %42 = sext i32 %.02631 to i64
+  %43 = getelementptr inbounds i32, ptr %3, i64 %42
+  store i32 %.032, ptr %43, align 4
+  %44 = add nsw i32 %.02631, 1
+  br label %49
 
-46:                                               ; preds = %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread, %_Z16checkOverlapRectPKfS0_S0_S0_.exit
-  %47 = phi i1 [ %38, %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread ], [ %41, %_Z16checkOverlapRectPKfS0_S0_S0_.exit ]
-  %48 = phi i32 [ %37, %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread ], [ %40, %_Z16checkOverlapRectPKfS0_S0_S0_.exit ]
-  %49 = phi i1 [ false, %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread ], [ %26, %_Z16checkOverlapRectPKfS0_S0_S0_.exit ]
-  %brmerge26 = or i1 %49, %47
-  br i1 %brmerge26, label %50, label %52
+45:                                               ; preds = %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread, %_Z16checkOverlapRectPKfS0_S0_S0_.exit
+  %46 = phi i1 [ %40, %_Z16checkOverlapRectPKfS0_S0_S0_.exit ], [ %37, %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread ]
+  %47 = phi ptr [ %38, %_Z16checkOverlapRectPKfS0_S0_S0_.exit ], [ %35, %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread ]
+  %48 = phi i1 [ %25, %_Z16checkOverlapRectPKfS0_S0_S0_.exit ], [ false, %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread ]
+  %or.cond3 = or i1 %46, %48
+  br i1 %or.cond3, label %49, label %51
 
-50:                                               ; preds = %.thread, %46
-  %.pre = phi i32 [ %.pre.pre, %.thread ], [ %.pre33, %46 ]
-  %.12430 = phi i32 [ %45, %.thread ], [ %.02331, %46 ]
-  %51 = add nsw i32 %.032, 1
+49:                                               ; preds = %.thread, %45
+  %.12736 = phi i32 [ %44, %.thread ], [ %.02631, %45 ]
+  %50 = add nsw i32 %.032, 1
   br label %54
 
-52:                                               ; preds = %46
-  %53 = sub nsw i32 %.032, %48
+51:                                               ; preds = %45
+  %52 = load i32, ptr %47, align 4
+  %53 = sub nsw i32 %.032, %52
   br label %54
 
-54:                                               ; preds = %52, %50
-  %.pre34 = phi i32 [ %.pre, %50 ], [ %.pre33, %52 ]
-  %55 = phi i32 [ %.pre, %50 ], [ %12, %52 ]
-  %.12429 = phi i32 [ %.12430, %50 ], [ %.02331, %52 ]
-  %.1 = phi i32 [ %51, %50 ], [ %53, %52 ]
+54:                                               ; preds = %51, %49
+  %.12735 = phi i32 [ %.12736, %49 ], [ %.02631, %51 ]
+  %.1 = phi i32 [ %50, %49 ], [ %53, %51 ]
+  %55 = load i32, ptr %6, align 8
   %56 = icmp slt i32 %.1, %55
   br i1 %56, label %11, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %54, %5
-  %.023.lcssa = phi i32 [ 0, %5 ], [ %.12429, %54 ]
-  ret i32 %.023.lcssa
+  %.026.lcssa = phi i32 [ 0, %5 ], [ %.12735, %54 ]
+  ret i32 %.026.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -492,21 +488,21 @@ define dso_local noundef i32 @_Z29rcGetChunksOverlappingSegmentPK15rcChunkyTriMe
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %11
 
-11:                                               ; preds = %.lr.ph, %65
-  %.pre36 = phi i32 [ %7, %.lr.ph ], [ %.pre37, %65 ]
-  %12 = phi i32 [ %7, %.lr.ph ], [ %66, %65 ]
-  %.035 = phi i32 [ 0, %.lr.ph ], [ %.1, %65 ]
-  %.02334 = phi i32 [ 0, %.lr.ph ], [ %.12432, %65 ]
+11:                                               ; preds = %.lr.ph, %66
+  %.pre43 = phi i32 [ %7, %.lr.ph ], [ %.pre44, %66 ]
+  %12 = phi i32 [ %7, %.lr.ph ], [ %67, %66 ]
+  %.042 = phi i32 [ 0, %.lr.ph ], [ %.1, %66 ]
+  %.02641 = phi i32 [ 0, %.lr.ph ], [ %.12739, %66 ]
   %13 = load ptr, ptr %0, align 8
-  %14 = sext i32 %.035 to i64
+  %14 = sext i32 %.042 to i64
   %15 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.val = load float, ptr %2, align 4
-  %.val27 = load float, ptr %9, align 4
+  %.val29 = load float, ptr %9, align 4
   %17 = load float, ptr %1, align 4
   %18 = fsub float %.val, %17
   %19 = load float, ptr %10, align 4
-  %20 = fsub float %.val27, %19
+  %20 = fsub float %.val29, %19
   br label %21
 
 21:                                               ; preds = %50, %11
@@ -525,13 +521,13 @@ define dso_local noundef i32 @_Z29rcGetChunksOverlappingSegmentPK15rcChunkyTriMe
   %27 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %26, %28
-  br i1 %29, label %58, label %30
+  br i1 %29, label %59, label %30
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i
   %32 = load float, ptr %31, align 4
   %33 = fcmp ogt float %26, %32
-  br i1 %33, label %58, label %50
+  br i1 %33, label %59, label %50
 
 34:                                               ; preds = %21
   %35 = fdiv float 1.000000e+00, %indvars.iv.i.sroa.phi.sroa.speculated
@@ -553,7 +549,7 @@ define dso_local noundef i32 @_Z29rcGetChunksOverlappingSegmentPK15rcChunkyTriMe
   %48 = fcmp olt float %.039.i, %.0431.i
   %.144.i = select i1 %48, float %.039.i, float %.0431.i
   %49 = fcmp ogt float %.1.i, %.144.i
-  br i1 %49, label %58, label %50
+  br i1 %49, label %59, label %50
 
 50:                                               ; preds = %34, %30
   %.245.i = phi float [ %.0431.i, %30 ], [ %.144.i, %34 ]
@@ -564,45 +560,45 @@ _ZL19checkOverlapSegmentPKfS0_S0_S0_.exit:        ; preds = %50
   %51 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %52 = load i32, ptr %51, align 4
   %53 = icmp sgt i32 %52, -1
-  %54 = icmp slt i32 %.02334, %4
-  %or.cond = select i1 %53, i1 %54, i1 false
-  br i1 %or.cond, label %.thread, label %.thread43
+  %54 = icmp slt i32 %.02641, %4
+  %or.cond28 = select i1 %53, i1 %54, i1 false
+  br i1 %or.cond28, label %55, label %.thread
 
-.thread:                                          ; preds = %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit
-  %55 = sext i32 %.02334 to i64
-  %56 = getelementptr inbounds i32, ptr %3, i64 %55
-  store i32 %.035, ptr %56, align 4
-  %57 = add nsw i32 %.02334, 1
+55:                                               ; preds = %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit
+  %56 = sext i32 %.02641 to i64
+  %57 = getelementptr inbounds i32, ptr %3, i64 %56
+  store i32 %.042, ptr %57, align 4
+  %58 = add nsw i32 %.02641, 1
   %.pre.pre = load i32, ptr %6, align 8
-  br label %.thread43
+  br label %.thread
 
-58:                                               ; preds = %34, %24, %30
-  %59 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp sgt i32 %60, -1
-  br i1 %61, label %.thread43, label %63
+59:                                               ; preds = %34, %24, %30
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp sgt i32 %61, -1
+  br i1 %62, label %.thread, label %64
 
-.thread43:                                        ; preds = %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit, %.thread, %58
-  %.pre = phi i32 [ %.pre.pre, %.thread ], [ %.pre36, %58 ], [ %.pre36, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit ]
-  %.12433 = phi i32 [ %57, %.thread ], [ %.02334, %58 ], [ %.02334, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit ]
-  %62 = add nsw i32 %.035, 1
-  br label %65
+.thread:                                          ; preds = %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit, %55, %59
+  %.pre = phi i32 [ %.pre43, %59 ], [ %.pre43, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit ], [ %.pre.pre, %55 ]
+  %.12740 = phi i32 [ %.02641, %59 ], [ %.02641, %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit ], [ %58, %55 ]
+  %63 = add nsw i32 %.042, 1
+  br label %66
 
-63:                                               ; preds = %58
-  %64 = sub nsw i32 %.035, %60
-  br label %65
+64:                                               ; preds = %59
+  %65 = sub nsw i32 %.042, %61
+  br label %66
 
-65:                                               ; preds = %63, %.thread43
-  %.pre37 = phi i32 [ %.pre, %.thread43 ], [ %.pre36, %63 ]
-  %66 = phi i32 [ %.pre, %.thread43 ], [ %12, %63 ]
-  %.12432 = phi i32 [ %.12433, %.thread43 ], [ %.02334, %63 ]
-  %.1 = phi i32 [ %62, %.thread43 ], [ %64, %63 ]
-  %67 = icmp slt i32 %.1, %66
-  br i1 %67, label %11, label %._crit_edge, !llvm.loop !13
+66:                                               ; preds = %64, %.thread
+  %.pre44 = phi i32 [ %.pre, %.thread ], [ %.pre43, %64 ]
+  %67 = phi i32 [ %.pre, %.thread ], [ %12, %64 ]
+  %.12739 = phi i32 [ %.12740, %.thread ], [ %.02641, %64 ]
+  %.1 = phi i32 [ %63, %.thread ], [ %65, %64 ]
+  %68 = icmp slt i32 %.1, %67
+  br i1 %68, label %11, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %65, %5
-  %.023.lcssa = phi i32 [ 0, %5 ], [ %.12432, %65 ]
-  ret i32 %.023.lcssa
+._crit_edge:                                      ; preds = %66, %5
+  %.026.lcssa = phi i32 [ 0, %5 ], [ %.12739, %66 ]
+  ret i32 %.026.lcssa
 }
 
 ; Function Attrs: nofree

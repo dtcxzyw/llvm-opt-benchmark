@@ -11895,9 +11895,9 @@ default.unreachable:                              ; preds = %9
 
 30:                                               ; preds = %.noexc.i
   %31 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hdb1c1ed658baa990E()
-          to label %.noexc3.i unwind label %38
+          to label %.noexc4.i unwind label %38
 
-.noexc3.i:                                        ; preds = %30
+.noexc4.i:                                        ; preds = %30
   %32 = xor i1 %31, true
   %33 = zext i1 %32 to i8
   br label %40
@@ -11921,8 +11921,8 @@ default.unreachable:                              ; preds = %9
           cleanup
   br label %.body.i
 
-40:                                               ; preds = %.noexc3.i, %.noexc.i
-  %.sroa.01.0.i.i.i = phi i8 [ %33, %.noexc3.i ], [ 0, %.noexc.i ]
+40:                                               ; preds = %.noexc4.i, %.noexc.i
+  %.sroa.01.0.i.i.i = phi i8 [ %33, %.noexc4.i ], [ 0, %.noexc.i ]
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %42 = load atomic i8, ptr %41 monotonic, align 1, !noalias !1732
   %.not.i = icmp eq i8 %42, 0
@@ -11977,16 +11977,16 @@ default.unreachable:                              ; preds = %9
 
 61:                                               ; preds = %57
   %62 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hdb1c1ed658baa990E()
-          to label %.noexc5.i unwind label %38
+          to label %.noexc6.i unwind label %38
 
-.noexc5.i:                                        ; preds = %61
+.noexc6.i:                                        ; preds = %61
   br i1 %62, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.508871978467108173.exit.i.i.i, label %63
 
-63:                                               ; preds = %.noexc5.i
+63:                                               ; preds = %.noexc6.i
   store atomic i8 1, ptr %41 monotonic, align 1, !noalias !1747
   br label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.508871978467108173.exit.i.i.i
 
-_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.508871978467108173.exit.i.i.i: ; preds = %63, %.noexc5.i, %57, %55
+_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.508871978467108173.exit.i.i.i: ; preds = %63, %.noexc6.i, %57, %55
   %64 = atomicrmw xchg ptr %24, i32 0 release, align 4, !noalias !1754
   %65 = icmp eq i32 %64, 2
   br i1 %65, label %66, label %"_ZN4core3ptr90drop_in_place$LT$std..sync..mutex..MutexGuard$LT$futures_channel..mpsc..SenderTask$GT$$GT$17he46cf6412a0038a3E.llvm.508871978467108173.exit.i"

@@ -10733,14 +10733,12 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
   %219 = load i8, ptr %218, align 1, !tbaa !45
   %switch.tableidx = add i8 %219, -21
   %220 = icmp ult i8 %switch.tableidx, 5
-  br i1 %220, label %switch.hole_check, label %GetDhPublicKey.exit.thread
-
-switch.hole_check:                                ; preds = %214
   %switch.shifted = lshr i8 29, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %GetDhPublicKey.exit.thread
+  %or.cond293 = select i1 %220, i1 %switch.lobit, i1 false
+  br i1 %or.cond293, label %switch.lookup, label %GetDhPublicKey.exit.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %214
   %221 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.DoServerKeyExchange, i64 0, i64 %221
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -11157,9 +11155,9 @@ HashAlgoToType.exit204:                           ; preds = %397, %397
   %410 = load i16, ptr %409, align 2, !tbaa !325
   %411 = zext i16 %410 to i32
   %412 = load i8, ptr %14, align 1, !tbaa !313
-  %switch.tableidx294 = add i8 %412, -2
-  %413 = icmp ult i8 %switch.tableidx294, 5
-  %switch.idx.cast = zext i8 %switch.tableidx294 to i32
+  %switch.tableidx295 = add i8 %412, -2
+  %413 = icmp ult i8 %switch.tableidx295, 5
+  %switch.idx.cast = zext i8 %switch.tableidx295 to i32
   %switch.offset = add nuw nsw i32 %switch.idx.cast, 4
   %.0.i203 = select i1 %413, i32 %switch.offset, i32 0
   %414 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -11187,18 +11185,18 @@ IsAtLeastTLSv1_2.exit206:                         ; preds = %421
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %428 = load i32, ptr %427, align 8, !tbaa !203
   %429 = load i8, ptr %14, align 1, !tbaa !313
-  %switch.tableidx296 = add i8 %429, -2
-  %430 = icmp ult i8 %switch.tableidx296, 5
-  br i1 %430, label %switch.lookup295, label %TypeHash.exit
+  %switch.tableidx297 = add i8 %429, -2
+  %430 = icmp ult i8 %switch.tableidx297, 5
+  br i1 %430, label %switch.lookup296, label %TypeHash.exit
 
-switch.lookup295:                                 ; preds = %IsAtLeastTLSv1_2.exit206
-  %431 = zext nneg i8 %switch.tableidx296 to i64
-  %switch.gep297 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SendServerKeyExchange.24, i64 0, i64 %431
-  %switch.load298 = load i32, ptr %switch.gep297, align 4
+switch.lookup296:                                 ; preds = %IsAtLeastTLSv1_2.exit206
+  %431 = zext nneg i8 %switch.tableidx297 to i64
+  %switch.gep298 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SendServerKeyExchange.24, i64 0, i64 %431
+  %switch.load299 = load i32, ptr %switch.gep298, align 4
   br label %TypeHash.exit
 
-TypeHash.exit:                                    ; preds = %IsAtLeastTLSv1_2.exit206, %switch.lookup295
-  %.0.i207 = phi i32 [ %switch.load298, %switch.lookup295 ], [ 0, %IsAtLeastTLSv1_2.exit206 ]
+TypeHash.exit:                                    ; preds = %IsAtLeastTLSv1_2.exit206, %switch.lookup296
+  %.0.i207 = phi i32 [ %switch.load299, %switch.lookup296 ], [ 0, %IsAtLeastTLSv1_2.exit206 ]
   %432 = call i32 @wc_EncodeSignature(ptr noundef nonnull %6, ptr noundef %426, i32 noundef %428, i32 noundef %.0.i207) #27
   %433 = getelementptr inbounds nuw i8, ptr %5, i64 26
   %434 = load i16, ptr %433, align 2, !tbaa !325
@@ -11285,8 +11283,8 @@ IsEncryptionOn.exit.thread:                       ; preds = %.IsEncryptionOn.exi
   store i8 7, ptr %464, align 1, !tbaa !230
   br label %GetDhPublicKey.exit.thread
 
-GetDhPublicKey.exit.thread:                       ; preds = %switch.hole_check, %214, %324, %.thread261, %397, %.thread250, %348, %250, %293, %333, %326, %330, %320, %306, %HashAlgoToType.exit.thread, %.thread235, %270, %IsAtLeastTLSv1_2.exit, %257, %242, %240, %235, %switch.lookup, %209, %207, %71, %56, %74, %73, %59, %58, %76, %35, %32, %131, %183, %167, %156, %138, %115, %107, %92, %442, %4, %443, %449, %343, %IsEncryptionOn.exit.thread, %HashAlgoToType.exit204, %391
-  %.18 = phi i32 [ 0, %IsEncryptionOn.exit.thread ], [ -330, %442 ], [ %416, %HashAlgoToType.exit204 ], [ %.12, %391 ], [ -125, %343 ], [ -330, %449 ], [ -330, %443 ], [ -374, %4 ], [ -401, %71 ], [ -401, %56 ], [ -401, %74 ], [ -401, %73 ], [ -401, %59 ], [ -401, %58 ], [ -303, %76 ], [ -328, %35 ], [ -328, %32 ], [ -303, %131 ], [ -303, %183 ], [ -401, %167 ], [ -328, %156 ], [ -328, %138 ], [ -401, %115 ], [ -328, %107 ], [ -328, %92 ], [ -351, %214 ], [ -352, %242 ], [ %241, %240 ], [ %236, %235 ], [ -328, %switch.lookup ], [ -350, %209 ], [ -328, %207 ], [ -133, %293 ], [ -316, %333 ], [ -316, %326 ], [ -316, %330 ], [ %323, %320 ], [ -328, %306 ], [ -328, %HashAlgoToType.exit.thread ], [ -133, %.thread235 ], [ -501, %270 ], [ -328, %IsAtLeastTLSv1_2.exit ], [ -328, %257 ], [ -374, %250 ], [ -133, %348 ], [ -374, %.thread250 ], [ -133, %397 ], [ -374, %.thread261 ], [ -133, %324 ], [ -351, %switch.hole_check ]
+GetDhPublicKey.exit.thread:                       ; preds = %214, %324, %.thread261, %397, %.thread250, %348, %250, %293, %333, %326, %330, %320, %306, %HashAlgoToType.exit.thread, %.thread235, %270, %IsAtLeastTLSv1_2.exit, %257, %242, %240, %235, %switch.lookup, %209, %207, %71, %56, %74, %73, %59, %58, %76, %35, %32, %131, %183, %167, %156, %138, %115, %107, %92, %442, %4, %443, %449, %343, %IsEncryptionOn.exit.thread, %HashAlgoToType.exit204, %391
+  %.18 = phi i32 [ 0, %IsEncryptionOn.exit.thread ], [ -330, %442 ], [ %416, %HashAlgoToType.exit204 ], [ %.12, %391 ], [ -125, %343 ], [ -330, %449 ], [ -330, %443 ], [ -374, %4 ], [ -401, %71 ], [ -401, %56 ], [ -401, %74 ], [ -401, %73 ], [ -401, %59 ], [ -401, %58 ], [ -303, %76 ], [ -328, %35 ], [ -328, %32 ], [ -303, %131 ], [ -303, %183 ], [ -401, %167 ], [ -328, %156 ], [ -328, %138 ], [ -401, %115 ], [ -328, %107 ], [ -328, %92 ], [ -351, %214 ], [ -352, %242 ], [ %241, %240 ], [ %236, %235 ], [ -328, %switch.lookup ], [ -350, %209 ], [ -328, %207 ], [ -133, %293 ], [ -316, %333 ], [ -316, %326 ], [ -316, %330 ], [ %323, %320 ], [ -328, %306 ], [ -328, %HashAlgoToType.exit.thread ], [ -133, %.thread235 ], [ -501, %270 ], [ -328, %IsAtLeastTLSv1_2.exit ], [ -328, %257 ], [ -374, %250 ], [ -133, %348 ], [ -374, %.thread250 ], [ -133, %397 ], [ -374, %.thread261 ], [ -133, %324 ]
   %465 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %466 = load ptr, ptr %465, align 8, !tbaa !324
   %.not.i209 = icmp eq ptr %466, null
@@ -12858,14 +12856,12 @@ DecodeSigAlg.exit:                                ; preds = %29, %32, %34
 IsAtLeastTLSv1_2.exit133:                         ; preds = %85
   %switch.tableidx = add i8 %54, -2
   %89 = icmp ult i8 %switch.tableidx, 5
-  br i1 %89, label %switch.hole_check, label %IsAtLeastTLSv1_2.exit133.thread
-
-switch.hole_check:                                ; preds = %IsAtLeastTLSv1_2.exit133
   %switch.shifted = lshr i8 29, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %IsAtLeastTLSv1_2.exit133.thread
+  %or.cond176 = select i1 %89, i1 %switch.lobit, i1 false
+  br i1 %or.cond176, label %switch.lookup, label %IsAtLeastTLSv1_2.exit133.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %IsAtLeastTLSv1_2.exit133
   %90 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.SendCertificateVerify.21, i64 0, i64 %90
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -12877,7 +12873,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %switch.load175, ptr %84, align 8, !tbaa !203
   br label %IsAtLeastTLSv1_2.exit133.thread
 
-IsAtLeastTLSv1_2.exit133.thread:                  ; preds = %switch.hole_check, %IsAtLeastTLSv1_2.exit133, %85, %76, %73, %switch.lookup
+IsAtLeastTLSv1_2.exit133.thread:                  ; preds = %IsAtLeastTLSv1_2.exit133, %85, %76, %73, %switch.lookup
   store i8 2, ptr %7, align 2, !tbaa !277
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %94 = load ptr, ptr %93, align 16, !tbaa !298
@@ -12896,24 +12892,24 @@ IsAtLeastTLSv1_2.exit133.thread:                  ; preds = %switch.hole_check, 
   br i1 %or.cond.i134, label %101, label %104
 
 101:                                              ; preds = %98
-  %switch.tableidx177 = add i8 %54, -4
-  %102 = icmp ult i8 %switch.tableidx177, 3
-  br i1 %102, label %switch.lookup176, label %RsaVerify.exit.thread
+  %switch.tableidx178 = add i8 %54, -4
+  %102 = icmp ult i8 %switch.tableidx178, 3
+  br i1 %102, label %switch.lookup177, label %RsaVerify.exit.thread
 
-switch.lookup176:                                 ; preds = %101
+switch.lookup177:                                 ; preds = %101
   %narrow = add nuw nsw i8 %54, 2
   %switch.offset = zext nneg i8 %narrow to i32
-  %narrow208 = add nsw i8 %54, -3
-  %switch.offset179 = zext nneg i8 %narrow208 to i32
-  %103 = call i32 @wc_RsaPSS_VerifyInline(ptr noundef %100, i32 noundef %69, ptr noundef nonnull %5, i32 noundef %switch.offset, i32 noundef %switch.offset179, ptr noundef nonnull %94) #27
+  %narrow209 = add nsw i8 %54, -3
+  %switch.offset180 = zext nneg i8 %narrow209 to i32
+  %103 = call i32 @wc_RsaPSS_VerifyInline(ptr noundef %100, i32 noundef %69, ptr noundef nonnull %5, i32 noundef %switch.offset, i32 noundef %switch.offset180, ptr noundef nonnull %94) #27
   br label %RsaVerify.exit
 
 104:                                              ; preds = %98
   %105 = call i32 @wc_RsaSSL_VerifyInline(ptr noundef %100, i32 noundef %69, ptr noundef nonnull %5, ptr noundef nonnull %94) #27
   br label %RsaVerify.exit
 
-RsaVerify.exit:                                   ; preds = %switch.lookup176, %104
-  %.118.i = phi i32 [ %105, %104 ], [ %103, %switch.lookup176 ]
+RsaVerify.exit:                                   ; preds = %switch.lookup177, %104
+  %.118.i = phi i32 [ %105, %104 ], [ %103, %switch.lookup177 ]
   %106 = icmp sgt i32 %.118.i, -1
   br i1 %106, label %107, label %RsaVerify.exit.thread
 
@@ -13013,27 +13009,25 @@ IsAtLeastTLSv1_2.exit137:                         ; preds = %151
 
 157:                                              ; preds = %IsAtLeastTLSv1_2.exit137
   %158 = load i8, ptr %8, align 1, !tbaa !313
-  %switch.tableidx181 = add i8 %158, -2
-  %159 = icmp ult i8 %switch.tableidx181, 5
-  br i1 %159, label %switch.hole_check182, label %.SetDigest.exit141_crit_edge
+  %switch.tableidx182 = add i8 %158, -2
+  %159 = icmp ult i8 %switch.tableidx182, 5
+  %switch.shifted184 = lshr i8 29, %switch.tableidx182
+  %switch.lobit185 = trunc i8 %switch.shifted184 to i1
+  %or.cond190 = select i1 %159, i1 %switch.lobit185, i1 false
+  br i1 %or.cond190, label %switch.lookup183, label %.SetDigest.exit141_crit_edge
 
-.SetDigest.exit141_crit_edge:                     ; preds = %switch.hole_check182, %157
+.SetDigest.exit141_crit_edge:                     ; preds = %157
   %.phi.trans.insert168 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %.pre169 = load ptr, ptr %.phi.trans.insert168, align 16, !tbaa !202
   %.phi.trans.insert170 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %.pre171 = load i32, ptr %.phi.trans.insert170, align 8, !tbaa !203
   br label %SetDigest.exit141
 
-switch.hole_check182:                             ; preds = %157
-  %switch.shifted184 = lshr i8 29, %switch.tableidx181
-  %switch.lobit185 = trunc i8 %switch.shifted184 to i1
-  br i1 %switch.lobit185, label %switch.lookup183, label %.SetDigest.exit141_crit_edge
-
-switch.lookup183:                                 ; preds = %switch.hole_check182
-  %160 = zext nneg i8 %switch.tableidx181 to i64
+switch.lookup183:                                 ; preds = %157
+  %160 = zext nneg i8 %switch.tableidx182 to i64
   %switch.gep186 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.SendCertificateVerify.21, i64 0, i64 %160
   %switch.load187 = load i64, ptr %switch.gep186, align 8
-  %161 = zext nneg i8 %switch.tableidx181 to i64
+  %161 = zext nneg i8 %switch.tableidx182 to i64
   %switch.gep188 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SendCertificateVerify.22, i64 0, i64 %161
   %switch.load189 = load i32, ptr %switch.gep188, align 4
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -13055,11 +13049,11 @@ SetDigest.exit141:                                ; preds = %.SetDigest.exit141_
   %172 = load ptr, ptr %5, align 16, !tbaa !351
   %173 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %174 = load i32, ptr %173, align 16, !tbaa !348
-  %switch.tableidx191 = add i8 %158, -2
-  %175 = icmp ult i8 %switch.tableidx191, 5
-  %switch.idx.cast192 = zext i8 %switch.tableidx191 to i32
-  %switch.offset193 = add nuw nsw i32 %switch.idx.cast192, 4
-  %.0.i142 = select i1 %175, i32 %switch.offset193, i32 0
+  %switch.tableidx192 = add i8 %158, -2
+  %175 = icmp ult i8 %switch.tableidx192, 5
+  %switch.idx.cast193 = zext i8 %switch.tableidx192 to i32
+  %switch.offset194 = add nuw nsw i32 %switch.idx.cast193, 4
+  %.0.i142 = select i1 %175, i32 %switch.offset194, i32 0
   %176 = call i32 @sp_count_bits(ptr noundef nonnull %144) #27
   %177 = call i32 @wc_RsaPSS_CheckPadding_ex(ptr noundef %171, i32 noundef %170, ptr noundef %172, i32 noundef %174, i32 noundef %.0.i142, i32 noundef -1, i32 noundef %176) #27
   %.not126 = icmp eq i32 %177, 0
@@ -13068,27 +13062,25 @@ SetDigest.exit141:                                ; preds = %.SetDigest.exit141_
 178:                                              ; preds = %IsAtLeastTLSv1_2.exit137
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #27
   %179 = load i8, ptr %8, align 1, !tbaa !313
-  %switch.tableidx195 = add i8 %179, -2
-  %180 = icmp ult i8 %switch.tableidx195, 5
-  br i1 %180, label %switch.hole_check196, label %.SetDigest.exit146_crit_edge
+  %switch.tableidx196 = add i8 %179, -2
+  %180 = icmp ult i8 %switch.tableidx196, 5
+  %switch.shifted198 = lshr i8 29, %switch.tableidx196
+  %switch.lobit199 = trunc i8 %switch.shifted198 to i1
+  %or.cond204 = select i1 %180, i1 %switch.lobit199, i1 false
+  br i1 %or.cond204, label %switch.lookup197, label %.SetDigest.exit146_crit_edge
 
-.SetDigest.exit146_crit_edge:                     ; preds = %switch.hole_check196, %178
+.SetDigest.exit146_crit_edge:                     ; preds = %178
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 464
   %.pre = load ptr, ptr %.phi.trans.insert, align 16, !tbaa !202
   %.phi.trans.insert166 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %.pre167 = load i32, ptr %.phi.trans.insert166, align 8, !tbaa !203
   br label %SetDigest.exit146
 
-switch.hole_check196:                             ; preds = %178
-  %switch.shifted198 = lshr i8 29, %switch.tableidx195
-  %switch.lobit199 = trunc i8 %switch.shifted198 to i1
-  br i1 %switch.lobit199, label %switch.lookup197, label %.SetDigest.exit146_crit_edge
-
-switch.lookup197:                                 ; preds = %switch.hole_check196
-  %181 = zext nneg i8 %switch.tableidx195 to i64
+switch.lookup197:                                 ; preds = %178
+  %181 = zext nneg i8 %switch.tableidx196 to i64
   %switch.gep200 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.SendCertificateVerify.21, i64 0, i64 %181
   %switch.load201 = load i64, ptr %switch.gep200, align 8
-  %182 = zext nneg i8 %switch.tableidx195 to i64
+  %182 = zext nneg i8 %switch.tableidx196 to i64
   %switch.gep202 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SendCertificateVerify.22, i64 0, i64 %182
   %switch.load203 = load i32, ptr %switch.gep202, align 4
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -13107,18 +13099,18 @@ switch.lookup197:                                 ; preds = %switch.hole_check19
 SetDigest.exit146:                                ; preds = %.SetDigest.exit146_crit_edge, %switch.lookup197
   %191 = phi i32 [ %.pre167, %.SetDigest.exit146_crit_edge ], [ %switch.load203, %switch.lookup197 ]
   %192 = phi ptr [ %.pre, %.SetDigest.exit146_crit_edge ], [ %188, %switch.lookup197 ]
-  %switch.tableidx205 = add i8 %179, -2
-  %193 = icmp ult i8 %switch.tableidx205, 5
-  br i1 %193, label %switch.lookup204, label %TypeHash.exit
+  %switch.tableidx206 = add i8 %179, -2
+  %193 = icmp ult i8 %switch.tableidx206, 5
+  br i1 %193, label %switch.lookup205, label %TypeHash.exit
 
-switch.lookup204:                                 ; preds = %SetDigest.exit146
-  %194 = zext nneg i8 %switch.tableidx205 to i64
-  %switch.gep206 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SendServerKeyExchange.24, i64 0, i64 %194
-  %switch.load207 = load i32, ptr %switch.gep206, align 4
+switch.lookup205:                                 ; preds = %SetDigest.exit146
+  %194 = zext nneg i8 %switch.tableidx206 to i64
+  %switch.gep207 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SendServerKeyExchange.24, i64 0, i64 %194
+  %switch.load208 = load i32, ptr %switch.gep207, align 4
   br label %TypeHash.exit
 
-TypeHash.exit:                                    ; preds = %SetDigest.exit146, %switch.lookup204
-  %.0.i147 = phi i32 [ %switch.load207, %switch.lookup204 ], [ 0, %SetDigest.exit146 ]
+TypeHash.exit:                                    ; preds = %SetDigest.exit146, %switch.lookup205
+  %.0.i147 = phi i32 [ %switch.load208, %switch.lookup205 ], [ 0, %SetDigest.exit146 ]
   %195 = call i32 @wc_EncodeSignature(ptr noundef nonnull %6, ptr noundef %192, i32 noundef %191, i32 noundef %.0.i147) #27
   %196 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %195, ptr %196, align 16, !tbaa !348
@@ -21716,21 +21708,19 @@ SupportedHashSigAlgo.exit:                        ; preds = %.lr.ph.i, %46
   br i1 %brmerge.not, label %66, label %71
 
 66:                                               ; preds = %SupportedHashSigAlgo.exit
-  %67 = load i32, ptr %25, align 4, !tbaa !153
   %switch.tableidx = add i8 %.070, -2
-  %68 = icmp ult i8 %switch.tableidx, 5
-  br i1 %68, label %switch.hole_check, label %SupportedHashSigAlgo.exit.thread
-
-switch.hole_check:                                ; preds = %66
+  %67 = icmp ult i8 %switch.tableidx, 5
   %switch.shifted = lshr i8 29, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %SupportedHashSigAlgo.exit.thread
+  %or.cond98 = select i1 %67, i1 %switch.lobit, i1 false
+  br i1 %or.cond98, label %switch.lookup, label %SupportedHashSigAlgo.exit.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %66
+  %68 = load i32, ptr %25, align 4, !tbaa !153
   %69 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SendCertificateVerify.22, i64 0, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
-  %70 = and i32 %67, -4
+  %70 = and i32 %68, -4
   %.not53 = icmp eq i32 %switch.load, %70
   br i1 %.not53, label %83, label %SupportedHashSigAlgo.exit.thread
 
@@ -21777,11 +21767,11 @@ IsAtLeastTLSv1_2.exit.thread:                     ; preds = %75, %81, %81, %81, 
   store i8 3, ptr %13, align 8, !tbaa !306
   br label %.loopexit
 
-SupportedHashSigAlgo.exit.thread:                 ; preds = %60, %switch.hole_check, %66, %72, %44, %.preheader.i, %49, %.thread.i, %DecodeSigAlg.exit, %MatchSigAlgo.exit, %switch.lookup, %81, %71, %IsAtLeastTLSv1_2.exit.thread
-  %84 = phi i8 [ %11, %81 ], [ %82, %IsAtLeastTLSv1_2.exit.thread ], [ %28, %71 ], [ %28, %switch.lookup ], [ %28, %MatchSigAlgo.exit ], [ %28, %DecodeSigAlg.exit ], [ %28, %.thread.i ], [ %28, %49 ], [ %28, %.preheader.i ], [ %28, %66 ], [ %28, %44 ], [ %28, %72 ], [ %28, %switch.hole_check ], [ %28, %60 ]
-  %85 = phi i8 [ %29, %81 ], [ %.070, %IsAtLeastTLSv1_2.exit.thread ], [ %29, %71 ], [ %29, %switch.lookup ], [ %29, %MatchSigAlgo.exit ], [ %29, %DecodeSigAlg.exit ], [ %29, %.thread.i ], [ %29, %49 ], [ %29, %.preheader.i ], [ %29, %66 ], [ %29, %44 ], [ %29, %72 ], [ %29, %switch.hole_check ], [ %29, %60 ]
-  %86 = phi i8 [ %30, %81 ], [ %.069, %IsAtLeastTLSv1_2.exit.thread ], [ %30, %71 ], [ %30, %switch.lookup ], [ 1, %MatchSigAlgo.exit ], [ %30, %DecodeSigAlg.exit ], [ %30, %.thread.i ], [ %30, %49 ], [ %30, %.preheader.i ], [ %30, %66 ], [ %30, %44 ], [ %30, %72 ], [ %30, %switch.hole_check ], [ %30, %60 ]
-  %.2.ph = phi i32 [ %.04488, %81 ], [ 0, %IsAtLeastTLSv1_2.exit.thread ], [ %.04488, %71 ], [ %.04488, %switch.lookup ], [ %.04488, %MatchSigAlgo.exit ], [ %.04488, %DecodeSigAlg.exit ], [ %.04488, %.thread.i ], [ %.04488, %49 ], [ %.04488, %.preheader.i ], [ %.04488, %66 ], [ %.04488, %44 ], [ 0, %72 ], [ %.04488, %switch.hole_check ], [ %.04488, %60 ]
+SupportedHashSigAlgo.exit.thread:                 ; preds = %60, %66, %72, %44, %.preheader.i, %49, %.thread.i, %DecodeSigAlg.exit, %MatchSigAlgo.exit, %switch.lookup, %81, %71, %IsAtLeastTLSv1_2.exit.thread
+  %84 = phi i8 [ %11, %81 ], [ %82, %IsAtLeastTLSv1_2.exit.thread ], [ %28, %71 ], [ %28, %switch.lookup ], [ %28, %MatchSigAlgo.exit ], [ %28, %DecodeSigAlg.exit ], [ %28, %.thread.i ], [ %28, %49 ], [ %28, %.preheader.i ], [ %28, %66 ], [ %28, %44 ], [ %28, %72 ], [ %28, %60 ]
+  %85 = phi i8 [ %29, %81 ], [ %.070, %IsAtLeastTLSv1_2.exit.thread ], [ %29, %71 ], [ %29, %switch.lookup ], [ %29, %MatchSigAlgo.exit ], [ %29, %DecodeSigAlg.exit ], [ %29, %.thread.i ], [ %29, %49 ], [ %29, %.preheader.i ], [ %29, %66 ], [ %29, %44 ], [ %29, %72 ], [ %29, %60 ]
+  %86 = phi i8 [ %30, %81 ], [ %.069, %IsAtLeastTLSv1_2.exit.thread ], [ %30, %71 ], [ %30, %switch.lookup ], [ 1, %MatchSigAlgo.exit ], [ %30, %DecodeSigAlg.exit ], [ %30, %.thread.i ], [ %30, %49 ], [ %30, %.preheader.i ], [ %30, %66 ], [ %30, %44 ], [ %30, %72 ], [ %30, %60 ]
+  %.2.ph = phi i32 [ %.04488, %81 ], [ 0, %IsAtLeastTLSv1_2.exit.thread ], [ %.04488, %71 ], [ %.04488, %switch.lookup ], [ %.04488, %MatchSigAlgo.exit ], [ %.04488, %DecodeSigAlg.exit ], [ %.04488, %.thread.i ], [ %.04488, %49 ], [ %.04488, %.preheader.i ], [ %.04488, %66 ], [ %.04488, %44 ], [ 0, %72 ], [ %.04488, %60 ]
   %87 = add i32 %.04587, 2
   %88 = or disjoint i32 %87, 1
   %89 = icmp ult i32 %88, %2
@@ -23812,14 +23802,12 @@ IsAtLeastTLSv1_2.exit:                            ; preds = %64
   %69 = load i8, ptr %68, align 1, !tbaa !307
   %switch.tableidx = add i8 %69, -2
   %70 = icmp ult i8 %switch.tableidx, 5
-  br i1 %70, label %switch.hole_check, label %SetDigest.exit
-
-switch.hole_check:                                ; preds = %IsAtLeastTLSv1_2.exit
   %switch.shifted = lshr i8 29, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %SetDigest.exit
+  %or.cond = select i1 %70, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %SetDigest.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %IsAtLeastTLSv1_2.exit
   %71 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.SendCertificateVerify.21, i64 0, i64 %71
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -23843,7 +23831,7 @@ SetDigest.exit.sink.split:                        ; preds = %switch.lookup, %64,
   store i32 %.sink.i.sink, ptr %79, align 8, !tbaa !203
   br label %SetDigest.exit
 
-SetDigest.exit:                                   ; preds = %switch.hole_check, %IsAtLeastTLSv1_2.exit, %SetDigest.exit.sink.split
+SetDigest.exit:                                   ; preds = %IsAtLeastTLSv1_2.exit, %SetDigest.exit.sink.split
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %81 = load i32, ptr %80, align 8, !tbaa !204
   switch i32 %81, label %99 [
@@ -23929,30 +23917,28 @@ EncodeSigAlg.exit:                                ; preds = %IsAtLeastTLSv1_2.ex
   store i32 2, ptr %55, align 4, !tbaa !439
   %switch.tableidx270 = add i8 %109, -2
   %110 = icmp ult i8 %switch.tableidx270, 5
-  br i1 %110, label %switch.hole_check271, label %SetDigest.exit209
+  %switch.shifted272 = lshr i8 29, %switch.tableidx270
+  %switch.lobit273 = trunc i8 %switch.shifted272 to i1
+  %or.cond278 = select i1 %110, i1 %switch.lobit273, i1 false
+  br i1 %or.cond278, label %switch.lookup271, label %SetDigest.exit209
 
-switch.hole_check271:                             ; preds = %EncodeSigAlg.exit
-  %switch.shifted273 = lshr i8 29, %switch.tableidx270
-  %switch.lobit274 = trunc i8 %switch.shifted273 to i1
-  br i1 %switch.lobit274, label %switch.lookup272, label %SetDigest.exit209
-
-switch.lookup272:                                 ; preds = %switch.hole_check271
+switch.lookup271:                                 ; preds = %EncodeSigAlg.exit
   %111 = zext nneg i8 %switch.tableidx270 to i64
-  %switch.gep275 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.SendCertificateVerify.21, i64 0, i64 %111
-  %switch.load276 = load i64, ptr %switch.gep275, align 8
+  %switch.gep274 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.SendCertificateVerify.21, i64 0, i64 %111
+  %switch.load275 = load i64, ptr %switch.gep274, align 8
   %112 = zext nneg i8 %switch.tableidx270 to i64
-  %switch.gep277 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SendCertificateVerify.22, i64 0, i64 %112
-  %switch.load278 = load i32, ptr %switch.gep277, align 4
+  %switch.gep276 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SendCertificateVerify.22, i64 0, i64 %112
+  %switch.load277 = load i32, ptr %switch.gep276, align 4
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %114 = load i64, ptr %113, align 8
   %115 = or i64 %114, 1099511627776
   store i64 %115, ptr %113, align 8
   %116 = load ptr, ptr %36, align 16, !tbaa !159
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 %switch.load276
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 %switch.load275
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store ptr %117, ptr %118, align 16, !tbaa !202
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store i32 %switch.load278, ptr %119, align 8, !tbaa !203
+  store i32 %switch.load277, ptr %119, align 8, !tbaa !203
   br label %SetDigest.exit209
 
 120:                                              ; preds = %99, %100
@@ -23961,7 +23947,7 @@ switch.lookup272:                                 ; preds = %switch.hole_check27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %58, ptr noundef nonnull align 4 dereferenceable(36) %122, i64 36, i1 false)
   br label %SetDigest.exit209
 
-SetDigest.exit209:                                ; preds = %switch.hole_check271, %EncodeSigAlg.exit, %switch.lookup272, %120
+SetDigest.exit209:                                ; preds = %EncodeSigAlg.exit, %switch.lookup271, %120
   %123 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %124 = load i8, ptr %123, align 8, !tbaa !440
   switch i8 %124, label %161 [

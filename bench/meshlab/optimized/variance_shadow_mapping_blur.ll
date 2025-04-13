@@ -330,8 +330,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i44:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit49
 
 _ZN7QStringD2Ev.exit49:                           ; preds = %_ZN7QStringD2Ev.exit43, %_ZN9QtPrivate8RefCount5derefEv.exit.i45, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i44
-  %brmerge.demorgan = and i1 %19, %33
-  %brmerge19.demorgan = and i1 %brmerge.demorgan, %47
+  %or.cond = and i1 %19, %33
+  %or.cond3 = and i1 %or.cond, %47
   br label %69
 
 57:                                               ; preds = %14
@@ -368,14 +368,14 @@ _ZN7QStringD2Ev.exit49:                           ; preds = %_ZN7QStringD2Ev.exi
   br label %70
 
 69:                                               ; preds = %_ZN7QStringD2Ev.exit49, %1, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %1 ], [ %brmerge19.demorgan, %_ZN7QStringD2Ev.exit49 ]
+  %.0 = phi i1 [ false, %9 ], [ false, %1 ], [ %or.cond3, %_ZN7QStringD2Ev.exit49 ]
   ret i1 %.0
 
 70:                                               ; preds = %65, %67, %61, %63, %57, %59
   %.sink = phi ptr [ %3, %59 ], [ %3, %57 ], [ %5, %63 ], [ %5, %61 ], [ %7, %67 ], [ %7, %65 ]
-  %.pn14.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ], [ %64, %63 ], [ %62, %61 ], [ %68, %67 ], [ %66, %65 ]
+  %.pn17.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ], [ %64, %63 ], [ %62, %61 ], [ %68, %67 ], [ %66, %65 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #21
-  resume { ptr, i32 } %.pn14.pn
+  resume { ptr, i32 } %.pn17.pn
 }
 
 ; Function Attrs: mustprogress uwtable

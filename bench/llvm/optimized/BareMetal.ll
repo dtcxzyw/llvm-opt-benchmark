@@ -7801,19 +7801,19 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit.critedge:
   %3 = tail call { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitizersEv(ptr noundef nonnull align 8 dereferenceable(2392) %0) #20
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = or i64 %4, 144132780261945359
-  switch i32 %2, label %_ZN5clang13SanitizerMaskoRERKS0_.exit25 [
-    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit23.critedge
-    i32 28, label %_ZN5clang13SanitizerMaskoRERKS0_.exit23.critedge
-    i32 4, label %_ZN5clang13SanitizerMaskoRERKS0_.exit23.critedge
-    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit23.critedge
+  switch i32 %2, label %_ZN5clang13SanitizerMaskoRERKS0_.exit27 [
+    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit25.critedge
+    i32 28, label %_ZN5clang13SanitizerMaskoRERKS0_.exit25.critedge
+    i32 4, label %_ZN5clang13SanitizerMaskoRERKS0_.exit25.critedge
+    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit25.critedge
   ]
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit23.critedge: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
+_ZN5clang13SanitizerMaskoRERKS0_.exit25.critedge: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge
   %6 = or i64 %4, 144132780261945407
-  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit25
+  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit27
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit25:          ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit23.critedge
-  %.sroa.0.0 = phi i64 [ %5, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge ], [ %6, %_ZN5clang13SanitizerMaskoRERKS0_.exit23.critedge ]
+_ZN5clang13SanitizerMaskoRERKS0_.exit27:          ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge, %_ZN5clang13SanitizerMaskoRERKS0_.exit25.critedge
+  %.sroa.0.0 = phi i64 [ %5, %_ZN5clang13SanitizerMaskoRERKS0_.exit.critedge ], [ %6, %_ZN5clang13SanitizerMaskoRERKS0_.exit25.critedge ]
   %7 = extractvalue { i64, i64 } %3, 1
   %8 = or i64 %7, 512
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
@@ -10308,21 +10308,19 @@ define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseINSt7__cxx1112basi
   %5 = load i8, ptr %4, align 8, !tbaa !239, !range !186, !noundef !187
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load i8, ptr %7, align 8, !tbaa !239, !range !186, !noundef !187
+  %8 = load i8, ptr %7, align 8, !range !186
   %9 = trunc nuw i8 %8 to i1
-  br i1 %6, label %10, label %.thread
+  %or.cond = select i1 %6, i1 %9, i1 false
+  br i1 %or.cond, label %10, label %11
 
 10:                                               ; preds = %2
-  br i1 %9, label %11, label %29
-
-11:                                               ; preds = %10
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #20
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %9, label %12, label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_M_resetEv.exit
+11:                                               ; preds = %2
+  br i1 %9, label %12, label %29
 
-12:                                               ; preds = %.thread
+12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %0, align 8, !tbaa !108
   %14 = load ptr, ptr %1, align 8, !tbaa !86
@@ -10367,27 +10365,30 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i8 1, ptr %4, align 8, !tbaa !239
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_M_resetEv.exit
 
-29:                                               ; preds = %10
+29:                                               ; preds = %11
+  br i1 %6, label %30, label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_M_resetEv.exit
+
+30:                                               ; preds = %29
   store i8 0, ptr %4, align 8, !tbaa !239
-  %30 = load ptr, ptr %0, align 8, !tbaa !86
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = icmp eq ptr %30, %31
-  br i1 %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+  %31 = load ptr, ptr %0, align 8, !tbaa !86
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = icmp eq ptr %31, %32
+  br i1 %33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !87
-  %35 = icmp ult i64 %34, 16
-  tail call void @llvm.assume(i1 %35)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load i64, ptr %34, align 8, !tbaa !87
+  %36 = icmp ult i64 %35, 16
+  tail call void @llvm.assume(i1 %36)
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_M_resetEv.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %29
-  %36 = load i64, ptr %31, align 8, !tbaa !92
-  %37 = add i64 %36, 1
-  tail call void @_ZdlPvm(ptr noundef %30, i64 noundef %37) #21
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %30
+  %37 = load i64, ptr %32, align 8, !tbaa !92
+  %38 = add i64 %37, 1
+  tail call void @_ZdlPvm(ptr noundef %31, i64 noundef %38) #21
   br label %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_M_resetEv.exit: ; preds = %.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJRKS5_EEEvDpOT_.exit, %11
+_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8_M_resetEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %29, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJRKS5_EEEvDpOT_.exit, %10
   ret void
 }
 

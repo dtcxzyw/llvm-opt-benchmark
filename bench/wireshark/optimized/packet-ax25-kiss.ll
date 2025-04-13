@@ -97,170 +97,168 @@ define internal i32 @dissect_ax25_kiss(ptr noundef %0, ptr noundef %1, ptr nound
   %12 = zext i8 %11 to i32
   %13 = and i32 %12, 15
   %14 = lshr i32 %12, 4
-  switch i32 %13, label %32 [
+  switch i32 %13, label %33 [
     i32 1, label %15
     i32 2, label %17
     i32 3, label %19
     i32 4, label %21
     i32 5, label %23
     i32 6, label %25
-    i32 12, label %30
+    i32 12, label %31
   ]
 
 15:                                               ; preds = %4
   %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  br label %32
+  br label %33
 
 17:                                               ; preds = %4
   %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  br label %32
+  br label %33
 
 19:                                               ; preds = %4
   %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  br label %32
+  br label %33
 
 21:                                               ; preds = %4
   %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  br label %32
+  br label %33
 
 23:                                               ; preds = %4
   %24 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  br label %32
+  br label %33
 
 25:                                               ; preds = %4
   %26 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
-  %.not = icmp slt i32 %26, 1
-  br i1 %.not, label %32, label %27
-
-27:                                               ; preds = %25
-  %28 = load i8, ptr @gPREF_CKSUM_MODE, align 1, !range !6, !noundef !7
+  %27 = icmp sgt i32 %26, 0
+  %28 = load i8, ptr @gPREF_CKSUM_MODE, align 1, !range !6
   %29 = zext nneg i8 %28 to i32
-  %spec.select = sub nsw i32 %spec.store.select, %29
-  br label %32
+  %30 = select i1 %27, i32 %29, i32 0
+  %spec.select136 = sub nsw i32 %spec.store.select, %30
+  br label %33
 
-30:                                               ; preds = %4
-  %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  br label %32
+31:                                               ; preds = %4
+  %32 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  br label %33
 
-32:                                               ; preds = %27, %4, %25, %30, %23, %21, %19, %17, %15
-  %.0129 = phi i32 [ 0, %4 ], [ 2, %30 ], [ %spec.store.select, %25 ], [ 1, %23 ], [ 1, %21 ], [ 1, %19 ], [ 1, %17 ], [ 1, %15 ], [ %spec.select, %27 ]
-  %.0128.shrunk = phi i8 [ 0, %4 ], [ %31, %30 ], [ 0, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ 0, %27 ]
-  %.0128 = zext i8 %.0128.shrunk to i32
-  %33 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @kiss_frame_types, ptr noundef nonnull @.str.32)
-  %34 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %7, i64 noundef 80, i32 noundef 2, i64 noundef 80, ptr noundef nonnull @.str.33, ptr noundef %33, i32 noundef %14)
-  %35 = icmp sgt i32 %.0129, 0
-  br i1 %35, label %36, label %38
+33:                                               ; preds = %25, %4, %31, %23, %21, %19, %17, %15
+  %.0131 = phi i32 [ 0, %4 ], [ 2, %31 ], [ 1, %23 ], [ 1, %21 ], [ 1, %19 ], [ 1, %17 ], [ 1, %15 ], [ %spec.select136, %25 ]
+  %.0130.shrunk = phi i8 [ 0, %4 ], [ %32, %31 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ 0, %25 ]
+  %.0130 = zext i8 %.0130.shrunk to i32
+  %34 = tail call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @kiss_frame_types, ptr noundef nonnull @.str.32)
+  %35 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %7, i64 noundef 80, i32 noundef 2, i64 noundef 80, ptr noundef nonnull @.str.33, ptr noundef %34, i32 noundef %14)
+  %36 = icmp sgt i32 %.0131, 0
+  br i1 %36, label %37, label %39
 
-36:                                               ; preds = %32
-  %37 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %7, i64 noundef 80, i32 noundef 2, i64 noundef 80, ptr noundef nonnull @.str.34, ptr noundef %33, i32 noundef %.0128, i32 noundef %14)
-  br label %38
+37:                                               ; preds = %33
+  %38 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %7, i64 noundef 80, i32 noundef 2, i64 noundef 80, ptr noundef nonnull @.str.34, ptr noundef %34, i32 noundef %.0130, i32 noundef %14)
+  br label %39
 
-38:                                               ; preds = %36, %32
-  %39 = add i32 %.0129, 1
-  %40 = load ptr, ptr %8, align 8
-  tail call void @col_add_str(ptr noundef %40, i32 noundef 25, ptr noundef %7)
-  %.not134 = icmp eq ptr %2, null
-  br i1 %.not134, label %86, label %41
+39:                                               ; preds = %37, %33
+  %40 = add i32 %.0131, 1
+  %41 = load ptr, ptr %8, align 8
+  tail call void @col_add_str(ptr noundef %41, i32 noundef 25, ptr noundef %7)
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %87, label %42
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr @proto_ax25_kiss, align 4
-  %43 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
-  %44 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef %43, ptr noundef nonnull @.str.35, ptr noundef %7)
-  %45 = load i32, ptr @ett_ax25_kiss, align 4
-  %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45)
-  %47 = load i32, ptr @hf_ax25_kiss_cmd, align 4
-  %48 = tail call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %47, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %12)
-  %49 = load i32, ptr @hf_ax25_kiss_port, align 4
-  %50 = tail call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %14)
-  switch i32 %13, label %72 [
-    i32 12, label %69
-    i32 1, label %51
-    i32 2, label %54
-    i32 3, label %57
-    i32 4, label %60
-    i32 5, label %63
-    i32 6, label %66
+42:                                               ; preds = %39
+  %43 = load i32, ptr @proto_ax25_kiss, align 4
+  %44 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
+  %45 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef %44, ptr noundef nonnull @.str.35, ptr noundef %7)
+  %46 = load i32, ptr @ett_ax25_kiss, align 4
+  %47 = tail call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46)
+  %48 = load i32, ptr @hf_ax25_kiss_cmd, align 4
+  %49 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %12)
+  %50 = load i32, ptr @hf_ax25_kiss_port, align 4
+  %51 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %50, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %14)
+  switch i32 %13, label %73 [
+    i32 12, label %70
+    i32 1, label %52
+    i32 2, label %55
+    i32 3, label %58
+    i32 4, label %61
+    i32 5, label %64
+    i32 6, label %67
   ]
 
-51:                                               ; preds = %41
-  %52 = load i32, ptr @hf_ax25_kiss_txdelay, align 4
-  %53 = tail call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %52, ptr noundef %0, i32 noundef 1, i32 noundef %.0129, i32 noundef %.0128)
-  br label %72
+52:                                               ; preds = %42
+  %53 = load i32, ptr @hf_ax25_kiss_txdelay, align 4
+  %54 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %53, ptr noundef %0, i32 noundef 1, i32 noundef %.0131, i32 noundef %.0130)
+  br label %73
 
-54:                                               ; preds = %41
-  %55 = load i32, ptr @hf_ax25_kiss_persistence, align 4
-  %56 = tail call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %55, ptr noundef %0, i32 noundef 1, i32 noundef %.0129, i32 noundef %.0128)
-  br label %72
+55:                                               ; preds = %42
+  %56 = load i32, ptr @hf_ax25_kiss_persistence, align 4
+  %57 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %56, ptr noundef %0, i32 noundef 1, i32 noundef %.0131, i32 noundef %.0130)
+  br label %73
 
-57:                                               ; preds = %41
-  %58 = load i32, ptr @hf_ax25_kiss_slottime, align 4
-  %59 = tail call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %58, ptr noundef %0, i32 noundef 1, i32 noundef %.0129, i32 noundef %.0128)
-  br label %72
+58:                                               ; preds = %42
+  %59 = load i32, ptr @hf_ax25_kiss_slottime, align 4
+  %60 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %59, ptr noundef %0, i32 noundef 1, i32 noundef %.0131, i32 noundef %.0130)
+  br label %73
 
-60:                                               ; preds = %41
-  %61 = load i32, ptr @hf_ax25_kiss_txtail, align 4
-  %62 = tail call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %61, ptr noundef %0, i32 noundef 1, i32 noundef %.0129, i32 noundef %.0128)
-  br label %72
+61:                                               ; preds = %42
+  %62 = load i32, ptr @hf_ax25_kiss_txtail, align 4
+  %63 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %62, ptr noundef %0, i32 noundef 1, i32 noundef %.0131, i32 noundef %.0130)
+  br label %73
 
-63:                                               ; preds = %41
-  %64 = load i32, ptr @hf_ax25_kiss_fullduplex, align 4
-  %65 = tail call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %64, ptr noundef %0, i32 noundef 1, i32 noundef %.0129, i32 noundef %.0128)
-  br label %72
+64:                                               ; preds = %42
+  %65 = load i32, ptr @hf_ax25_kiss_fullduplex, align 4
+  %66 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %65, ptr noundef %0, i32 noundef 1, i32 noundef %.0131, i32 noundef %.0130)
+  br label %73
 
-66:                                               ; preds = %41
-  %67 = load i32, ptr @hf_ax25_kiss_sethardware, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %67, ptr noundef %0, i32 noundef 1, i32 noundef %.0129, i32 noundef 0)
-  br label %72
+67:                                               ; preds = %42
+  %68 = load i32, ptr @hf_ax25_kiss_sethardware, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %68, ptr noundef %0, i32 noundef 1, i32 noundef %.0131, i32 noundef 0)
+  br label %73
 
-69:                                               ; preds = %41
-  %70 = load i32, ptr @hf_ax25_kiss_data_ack, align 4
-  %71 = tail call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %70, ptr noundef %0, i32 noundef 1, i32 noundef %.0129, i32 noundef %.0128)
-  br label %72
+70:                                               ; preds = %42
+  %71 = load i32, ptr @hf_ax25_kiss_data_ack, align 4
+  %72 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %71, ptr noundef %0, i32 noundef 1, i32 noundef %.0131, i32 noundef %.0130)
+  br label %73
 
-72:                                               ; preds = %41, %69, %66, %63, %60, %57, %54, %51
-  %.1 = phi i32 [ 1, %41 ], [ %39, %66 ], [ %39, %63 ], [ %39, %60 ], [ %39, %57 ], [ %39, %54 ], [ %39, %51 ], [ %39, %69 ]
-  %73 = load i8, ptr @gPREF_CKSUM_MODE, align 1, !range !6, !noundef !7
-  %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %75, label %86
+73:                                               ; preds = %42, %70, %67, %64, %61, %58, %55, %52
+  %.1 = phi i32 [ 1, %42 ], [ %40, %67 ], [ %40, %64 ], [ %40, %61 ], [ %40, %58 ], [ %40, %55 ], [ %40, %52 ], [ %40, %70 ]
+  %74 = load i8, ptr @gPREF_CKSUM_MODE, align 1, !range !6, !noundef !7
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %87
 
-75:                                               ; preds = %72
-  %76 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %77 = add i32 %76, -1
-  %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.preheader, label %86
+76:                                               ; preds = %73
+  %77 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %78 = add i32 %77, -1
+  %79 = icmp sgt i32 %78, 0
+  br i1 %79, label %.preheader, label %87
 
-.preheader:                                       ; preds = %75, %.preheader
-  %.0130136 = phi i32 [ %82, %.preheader ], [ 0, %75 ]
-  %.0131135 = phi i32 [ %81, %.preheader ], [ 0, %75 ]
-  %79 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0130136)
-  %80 = zext i8 %79 to i32
-  %81 = xor i32 %.0131135, %80
-  %82 = add nuw nsw i32 %.0130136, 1
-  %exitcond.not = icmp eq i32 %82, %77
-  br i1 %exitcond.not, label %83, label %.preheader, !llvm.loop !8
+.preheader:                                       ; preds = %76, %.preheader
+  %.0132138 = phi i32 [ %83, %.preheader ], [ 0, %76 ]
+  %.0133137 = phi i32 [ %82, %.preheader ], [ 0, %76 ]
+  %80 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0132138)
+  %81 = zext i8 %80 to i32
+  %82 = xor i32 %.0133137, %81
+  %83 = add nuw nsw i32 %.0132138, 1
+  %exitcond.not = icmp eq i32 %83, %78
+  br i1 %exitcond.not, label %84, label %.preheader, !llvm.loop !8
 
-83:                                               ; preds = %.preheader
-  %84 = load i32, ptr @hf_ax25_kiss_cksum, align 4
-  %85 = tail call ptr @proto_tree_add_checksum(ptr noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef %84, i32 noundef -1, ptr noundef null, ptr noundef %1, i32 noundef %81, i32 noundef 0, i32 noundef 2)
-  br label %86
+84:                                               ; preds = %.preheader
+  %85 = load i32, ptr @hf_ax25_kiss_cksum, align 4
+  %86 = tail call ptr @proto_tree_add_checksum(ptr noundef %47, ptr noundef %0, i32 noundef 0, i32 noundef %85, i32 noundef -1, ptr noundef null, ptr noundef %1, i32 noundef %82, i32 noundef 0, i32 noundef 2)
+  br label %87
 
-86:                                               ; preds = %72, %83, %75, %38
-  %.0 = phi i32 [ %.1, %83 ], [ %.1, %75 ], [ %.1, %72 ], [ %39, %38 ]
-  switch i32 %13, label %91 [
-    i32 12, label %87
-    i32 0, label %87
+87:                                               ; preds = %73, %84, %76, %39
+  %.0 = phi i32 [ %.1, %84 ], [ %.1, %76 ], [ %.1, %73 ], [ %40, %39 ]
+  switch i32 %13, label %92 [
+    i32 12, label %88
+    i32 0, label %88
   ]
 
-87:                                               ; preds = %86, %86
-  %88 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0)
-  %89 = load ptr, ptr @ax25_handle, align 8
-  %90 = tail call i32 @call_dissector(ptr noundef %89, ptr noundef %88, ptr noundef %1, ptr noundef %2)
-  br label %91
+88:                                               ; preds = %87, %87
+  %89 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0)
+  %90 = load ptr, ptr @ax25_handle, align 8
+  %91 = tail call i32 @call_dissector(ptr noundef %90, ptr noundef %89, ptr noundef %1, ptr noundef %2)
+  br label %92
 
-91:                                               ; preds = %86, %87
-  %92 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %92
+92:                                               ; preds = %87, %88
+  %93 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %93
 }
 
 ; Function Attrs: null_pointer_is_valid

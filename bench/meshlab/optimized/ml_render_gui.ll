@@ -12179,15 +12179,15 @@ _ZN5QListIP17MLRenderingActionEixEi.exit:         ; preds = %.lr.ph, %_ZN5QListI
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 2147483647
-  %50 = icmp ugt i32 %46, %49
+  %50 = icmp ule i32 %46, %49
   %51 = load atomic i32, ptr %43 monotonic, align 4
-  %52 = icmp ugt i32 %51, 1
-  %brmerge.i.i = select i1 %52, i1 true, i1 %50
+  %52 = icmp ult i32 %51, 2
+  %or.cond.not.i.i = select i1 %52, i1 %50, i1 false
   %53 = load ptr, ptr %42, align 8
-  br i1 %brmerge.i.i, label %54, label %62
+  br i1 %or.cond.not.i.i, label %62, label %54
 
 54:                                               ; preds = %_ZN5QListIP17MLRenderingActionEixEi.exit
-  %55 = select i1 %50, i32 8, i32 0
+  %55 = select i1 %50, i32 0, i32 8
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %46, i32 %49)
   tail call void @_ZN7QVectorIP17MLRenderingActionE7reallocEi6QFlagsIN10QArrayData16AllocationOptionEE(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %spec.select.i.i, i32 %55)
   %56 = load ptr, ptr %3, align 8
@@ -12206,9 +12206,9 @@ _ZN5QListIP17MLRenderingActionEixEi.exit:         ; preds = %.lr.ph, %_ZN5QListI
 
 _ZN7QVectorIP17MLRenderingActionE9push_backERKS1_.exit: ; preds = %54, %62
   %.sink.i.i = phi i32 [ %45, %62 ], [ %61, %54 ]
-  %.sink6.i.i = phi ptr [ %65, %62 ], [ %59, %54 ]
+  %.sink8.i.i = phi ptr [ %65, %62 ], [ %59, %54 ]
   %66 = sext i32 %.sink.i.i to i64
-  %67 = getelementptr inbounds ptr, ptr %.sink6.i.i, i64 %66
+  %67 = getelementptr inbounds ptr, ptr %.sink8.i.i, i64 %66
   store ptr %53, ptr %67, align 8
   %68 = load ptr, ptr %3, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4

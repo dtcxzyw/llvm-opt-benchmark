@@ -9081,28 +9081,28 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState17LegalCheckerMovesEi(
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %29 = load ptr, ptr %28, align 8
-  %.not104124 = icmp eq ptr %27, %29
-  br i1 %.not104124, label %.loopexit, label %.lr.ph126
+  %.not101121 = icmp eq ptr %27, %29
+  br i1 %.not101121, label %.loopexit, label %.lr.ph123
 
-.lr.ph126:                                        ; preds = %25
+.lr.ph123:                                        ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %31 = sub nuw nsw i32 1, %2
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  switch i32 %2, label %.lr.ph126.split [
-    i32 0, label %.lr.ph126.split.us
-    i32 1, label %.lr.ph126.split.us128
+  switch i32 %2, label %.lr.ph123.split [
+    i32 0, label %.lr.ph123.split.us
+    i32 1, label %.lr.ph123.split.us125
   ]
 
-.lr.ph126.split.us:                               ; preds = %.lr.ph126, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us
-  %.sroa.094.0125.us = phi ptr [ %50, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us ], [ %27, %.lr.ph126 ]
-  %35 = load i32, ptr %.sroa.094.0125.us, align 4
+.lr.ph123.split.us:                               ; preds = %.lr.ph123, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us
+  %.sroa.094.0122.us = phi ptr [ %50, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us ], [ %27, %.lr.ph123 ]
+  %35 = load i32, ptr %.sroa.094.0122.us, align 4
   %36 = add i32 %35, -1
   %37 = icmp ult i32 %36, 6
   br i1 %37, label %38, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us
 
-38:                                               ; preds = %.lr.ph126.split.us
+38:                                               ; preds = %.lr.ph123.split.us
   %39 = load ptr, ptr %30, align 8
   %40 = getelementptr inbounds nuw %"class.std::vector.6", ptr %39, i64 %32
   %41 = zext nneg i32 %36 to i64
@@ -9119,26 +9119,26 @@ define void @_ZNK10open_spiel10backgammon15BackgammonState17LegalCheckerMovesEi(
   store i32 %35, ptr %33, align 4
   store i8 %48, ptr %34, align 4
   %49 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN10open_spiel10backgammon11CheckerMoveES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(9) %10)
-          to label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us unwind label %.loopexit105.split.us
+          to label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us unwind label %.loopexit102.split.us
 
-_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us: ; preds = %46, %38, %.lr.ph126.split.us
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.094.0125.us, i64 4
-  %.not104.us = icmp eq ptr %50, %29
-  br i1 %.not104.us, label %.loopexit, label %.lr.ph126.split.us
+_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us: ; preds = %46, %38, %.lr.ph123.split.us
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.094.0122.us, i64 4
+  %.not101.us = icmp eq ptr %50, %29
+  br i1 %.not101.us, label %.loopexit, label %.lr.ph123.split.us
 
-.loopexit105.split.us:                            ; preds = %46
+.loopexit102.split.us:                            ; preds = %46
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.lr.ph126.split.us128:                            ; preds = %.lr.ph126, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us131
-  %.sroa.094.0125.us129 = phi ptr [ %67, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us131 ], [ %27, %.lr.ph126 ]
-  %51 = load i32, ptr %.sroa.094.0125.us129, align 4
+.lr.ph123.split.us125:                            ; preds = %.lr.ph123, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us128
+  %.sroa.094.0122.us126 = phi ptr [ %67, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us128 ], [ %27, %.lr.ph123 ]
+  %51 = load i32, ptr %.sroa.094.0122.us126, align 4
   %52 = add i32 %51, -1
   %53 = icmp ult i32 %52, 6
-  br i1 %53, label %54, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us131
+  br i1 %53, label %54, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us128
 
-54:                                               ; preds = %.lr.ph126.split.us128
+54:                                               ; preds = %.lr.ph123.split.us125
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
@@ -9153,7 +9153,7 @@ _ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2
   %60 = getelementptr inbounds nuw i32, ptr %59, i64 %58
   %61 = load i32, ptr %60, align 4
   %62 = icmp slt i32 %61, 2
-  br i1 %62, label %63, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us131
+  br i1 %62, label %63, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us128
 
 63:                                               ; preds = %54
   %64 = icmp eq i32 %61, 1
@@ -9162,26 +9162,26 @@ _ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2
   store i32 %51, ptr %33, align 4
   store i8 %65, ptr %34, align 4
   %66 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN10open_spiel10backgammon11CheckerMoveES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(9) %10)
-          to label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us131 unwind label %.loopexit105.split.split.us
+          to label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us128 unwind label %.loopexit102.split.split.us
 
-_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us131: ; preds = %63, %54, %.lr.ph126.split.us128
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.094.0125.us129, i64 4
-  %.not104.us132 = icmp eq ptr %67, %29
-  br i1 %.not104.us132, label %.loopexit, label %.lr.ph126.split.us128
+_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us128: ; preds = %63, %54, %.lr.ph123.split.us125
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.094.0122.us126, i64 4
+  %.not101.us129 = icmp eq ptr %67, %29
+  br i1 %.not101.us129, label %.loopexit, label %.lr.ph123.split.us125
 
-.loopexit105.split.split.us:                      ; preds = %63
-  %lpad.loopexit.us133 = landingpad { ptr, i32 }
+.loopexit102.split.split.us:                      ; preds = %63
+  %lpad.loopexit.us130 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.lr.ph126.split:                                  ; preds = %.lr.ph126, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit
-  %.sroa.094.0125 = phi ptr [ %83, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit ], [ %27, %.lr.ph126 ]
-  %68 = load i32, ptr %.sroa.094.0125, align 4
+.lr.ph123.split:                                  ; preds = %.lr.ph123, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit
+  %.sroa.094.0122 = phi ptr [ %83, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit ], [ %27, %.lr.ph123 ]
+  %68 = load i32, ptr %.sroa.094.0122, align 4
   %69 = add i32 %68, -1
   %70 = icmp ult i32 %69, 6
   br i1 %70, label %_ZN4absl7debian28AlphaNumC2EPKc.exit.i, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit
 
-_ZN4absl7debian28AlphaNumC2EPKc.exit.i:           ; preds = %.lr.ph126.split
+_ZN4absl7debian28AlphaNumC2EPKc.exit.i:           ; preds = %.lr.ph123.split
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
@@ -9224,19 +9224,19 @@ _ZN4absl7debian28AlphaNumC2Ei.exit.i:             ; preds = %.noexc
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %_ZN4absl7debian28AlphaNumC2Ei.exit.i64, %_ZN4absl7debian28AlphaNumC2EPKc.exit.i63, %_ZN4absl7debian28AlphaNumC2Ei.exit.i, %_ZN4absl7debian28AlphaNumC2EPKc.exit.i, %84
-  %lpad.loopexit.split-lp108 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp105 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit105.split.us, %.loopexit105.split.split.us, %.loopexit.split-lp.loopexit.split.split.us, %.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp, %common.resume.i, %81
-  %eh.lpad-body = phi { ptr, i32 } [ %82, %81 ], [ %209, %common.resume.i ], [ %lpad.loopexit.us133, %.loopexit105.split.split.us ], [ %lpad.loopexit.us, %.loopexit105.split.us ], [ %lpad.loopexit.split-lp108, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit107.us122, %.loopexit.split-lp.loopexit.split.split.us ], [ %lpad.loopexit107.us, %.loopexit.split-lp.loopexit.split.us ]
+.body:                                            ; preds = %.loopexit102.split.us, %.loopexit102.split.split.us, %.loopexit.split-lp.loopexit.split.split.us, %.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp, %common.resume.i, %81
+  %eh.lpad-body = phi { ptr, i32 } [ %82, %81 ], [ %209, %common.resume.i ], [ %lpad.loopexit.us130, %.loopexit102.split.split.us ], [ %lpad.loopexit.us, %.loopexit102.split.us ], [ %lpad.loopexit.split-lp105, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit104.us119, %.loopexit.split-lp.loopexit.split.split.us ], [ %lpad.loopexit104.us, %.loopexit.split-lp.loopexit.split.us ]
   call void @_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #31
   resume { ptr, i32 } %eh.lpad-body
 
-_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit: ; preds = %.lr.ph126.split
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.094.0125, i64 4
-  %.not104 = icmp eq ptr %83, %29
-  br i1 %.not104, label %.loopexit, label %.lr.ph126.split
+_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit: ; preds = %.lr.ph123.split
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.094.0122, i64 4
+  %.not101 = icmp eq ptr %83, %29
+  br i1 %.not101, label %.loopexit, label %.lr.ph123.split
 
 84:                                               ; preds = %3
   %85 = invoke noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState9AllInHomeEi(ptr noundef nonnull align 8 dereferenceable(216) %1, i32 noundef %2)
@@ -9259,29 +9259,29 @@ _ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br i1 %85, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %.loopexit106.us
-  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.loopexit106.us ], [ 0, %.preheader ]
-  %indvars143 = trunc i64 %indvars.iv141 to i32
+.preheader.split.us:                              ; preds = %.preheader, %.loopexit103.us
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.loopexit103.us ], [ 0, %.preheader ]
+  %indvars140 = trunc i64 %indvars.iv138 to i32
   %100 = load ptr, ptr %86, align 8
   %101 = getelementptr inbounds %"class.std::vector.6", ptr %100, i64 %20
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv141
+  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv138
   %104 = load i32, ptr %103, align 4
   %105 = icmp sgt i32 %104, 0
-  br i1 %105, label %106, label %.loopexit106.us
+  br i1 %105, label %106, label %.loopexit103.us
 
 106:                                              ; preds = %.preheader.split.us
   %107 = load ptr, ptr %87, align 8
   %108 = load ptr, ptr %88, align 8
-  %.not111.us = icmp eq ptr %107, %108
-  br i1 %.not111.us, label %.loopexit106.us, label %.lr.ph.us
+  %.not108.us = icmp eq ptr %107, %108
+  br i1 %.not108.us, label %.loopexit103.us, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %106, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us118
-  %.sroa.090.0112.us116 = phi ptr [ %161, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us118 ], [ %107, %106 ]
-  %109 = load i32, ptr %.sroa.090.0112.us116, align 4
+.lr.ph.us:                                        ; preds = %106, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us115
+  %.sroa.090.0109.us113 = phi ptr [ %161, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us115 ], [ %107, %106 ]
+  %109 = load i32, ptr %.sroa.090.0109.us113, align 4
   %110 = add i32 %109, -1
   %111 = icmp ult i32 %110, 6
-  br i1 %111, label %112, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us118
+  br i1 %111, label %112, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us115
 
 112:                                              ; preds = %.lr.ph.us
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -9293,44 +9293,44 @@ _ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2
   ]
 
 113:                                              ; preds = %112
-  %114 = sub nsw i32 %indvars143, %109
+  %114 = sub nsw i32 %indvars140, %109
   %115 = icmp slt i32 %114, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   %116 = icmp eq i32 %114, 101
   %or.cond = or i1 %115, %116
-  br i1 %or.cond, label %.thread150, label %.thread147
+  br i1 %or.cond, label %.thread147, label %.thread144
 
 117:                                              ; preds = %112
-  %118 = add nuw nsw i32 %109, %indvars143
+  %118 = add nuw nsw i32 %109, %indvars140
   %119 = icmp sgt i32 %118, 23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  br i1 %119, label %130, label %.thread147
+  br i1 %119, label %130, label %.thread144
 
-.thread147:                                       ; preds = %113, %117
-  %.0.i62.us117149 = phi i32 [ %118, %117 ], [ %114, %113 ]
+.thread144:                                       ; preds = %113, %117
+  %.0.i62.us114146 = phi i32 [ %118, %117 ], [ %114, %113 ]
   %120 = load ptr, ptr %86, align 8
   %121 = getelementptr inbounds nuw %"class.std::vector.6", ptr %120, i64 %90
-  %122 = sext i32 %.0.i62.us117149 to i64
+  %122 = sext i32 %.0.i62.us114146 to i64
   %123 = load ptr, ptr %121, align 8
   %124 = getelementptr inbounds i32, ptr %123, i64 %122
   %125 = load i32, ptr %124, align 4
   %126 = icmp slt i32 %125, 2
-  br i1 %126, label %127, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us118
+  br i1 %126, label %127, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us115
 
-127:                                              ; preds = %.thread147
+127:                                              ; preds = %.thread144
   %128 = icmp eq i32 %125, 1
   %129 = zext i1 %128 to i8
-  store i32 %indvars143, ptr %13, align 4
+  store i32 %indvars140, ptr %13, align 4
   store i32 %109, ptr %91, align 4
   store i8 %129, ptr %92, align 4
   br label %.invoke
 
 130:                                              ; preds = %117
-  %131 = add nuw nsw i32 %109, %indvars143
+  %131 = add nuw nsw i32 %109, %indvars140
   %132 = icmp eq i32 %131, 24
   br i1 %132, label %158, label %.split.us
 
@@ -9361,20 +9361,20 @@ _ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2
 142:                                              ; preds = %141
   br label %_ZNK10open_spiel10backgammon15BackgammonState21FurthestCheckerInHomeEi.exit.us
 
-.thread150:                                       ; preds = %113
-  %143 = sub nsw i32 %indvars143, %109
+.thread147:                                       ; preds = %113
+  %143 = sub nsw i32 %indvars140, %109
   %144 = icmp eq i32 %143, -1
-  br i1 %144, label %158, label %.split55.us
+  br i1 %144, label %158, label %.split56.us
 
-.split55.us:                                      ; preds = %.thread150
+.split56.us:                                      ; preds = %.thread147
   %145 = load ptr, ptr %86, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load ptr, ptr %146, align 8
   br label %148
 
-148:                                              ; preds = %148, %.split55.us
-  %indvars.iv.i71.us = phi i64 [ 0, %.split55.us ], [ %indvars.iv.next.i74.us, %148 ]
-  %.01719.i72.us = phi i32 [ -1, %.split55.us ], [ %spec.select.i73.us, %148 ]
+148:                                              ; preds = %148, %.split56.us
+  %indvars.iv.i71.us = phi i64 [ 0, %.split56.us ], [ %indvars.iv.next.i74.us, %148 ]
+  %.01719.i72.us = phi i32 [ -1, %.split56.us ], [ %spec.select.i73.us, %148 ]
   %149 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv.i71.us
   %150 = load i32, ptr %149, align 4
   %151 = icmp sgt i32 %150, 0
@@ -9396,17 +9396,17 @@ _ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2
 _ZNK10open_spiel10backgammon15BackgammonState21FurthestCheckerInHomeEi.exit.us: ; preds = %154, %153, %153, %142, %141, %141
   %phi.call.us = phi i32 [ %spec.select.i.us, %142 ], [ -1, %141 ], [ -1, %141 ], [ %spec.select.i73.us, %154 ], [ -1, %153 ], [ -1, %153 ]
   %155 = zext i32 %phi.call.us to i64
-  %156 = icmp eq i64 %indvars.iv141, %155
-  br i1 %156, label %157, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us118
+  %156 = icmp eq i64 %indvars.iv138, %155
+  br i1 %156, label %157, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us115
 
 157:                                              ; preds = %_ZNK10open_spiel10backgammon15BackgammonState21FurthestCheckerInHomeEi.exit.us
-  store i32 %indvars143, ptr %12, align 4
+  store i32 %indvars140, ptr %12, align 4
   store i32 %109, ptr %96, align 4
   store i8 0, ptr %97, align 4
   br label %.invoke
 
-158:                                              ; preds = %.thread150, %130
-  store i32 %indvars143, ptr %11, align 4
+158:                                              ; preds = %.thread147, %130
+  store i32 %indvars140, ptr %11, align 4
   store i32 %109, ptr %98, align 4
   store i8 0, ptr %99, align 4
   br label %.invoke
@@ -9414,38 +9414,38 @@ _ZNK10open_spiel10backgammon15BackgammonState21FurthestCheckerInHomeEi.exit.us: 
 .invoke:                                          ; preds = %127, %157, %158
   %159 = phi ptr [ %11, %158 ], [ %12, %157 ], [ %13, %127 ]
   %160 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN10open_spiel10backgammon11CheckerMoveES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(9) %159)
-          to label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us118 unwind label %.loopexit.split-lp.loopexit.split.split.us
+          to label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us115 unwind label %.loopexit.split-lp.loopexit.split.split.us
 
-_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us118: ; preds = %.invoke, %_ZNK10open_spiel10backgammon15BackgammonState21FurthestCheckerInHomeEi.exit.us, %.thread147, %.lr.ph.us
-  %161 = getelementptr inbounds nuw i8, ptr %.sroa.090.0112.us116, i64 4
-  %.not.us119 = icmp eq ptr %161, %108
-  br i1 %.not.us119, label %.loopexit106.us, label %.lr.ph.us
+_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us115: ; preds = %.invoke, %_ZNK10open_spiel10backgammon15BackgammonState21FurthestCheckerInHomeEi.exit.us, %.thread144, %.lr.ph.us
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.090.0109.us113, i64 4
+  %.not.us116 = icmp eq ptr %161, %108
+  br i1 %.not.us116, label %.loopexit103.us, label %.lr.ph.us
 
-.loopexit106.us:                                  ; preds = %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us118, %106, %.preheader.split.us
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %exitcond144.not = icmp eq i64 %indvars.iv.next142, 24
-  br i1 %exitcond144.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !39
+.loopexit103.us:                                  ; preds = %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us115, %106, %.preheader.split.us
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %exitcond141.not = icmp eq i64 %indvars.iv.next139, 24
+  br i1 %exitcond141.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !39
 
 .loopexit.split-lp.loopexit.split.split.us:       ; preds = %.invoke
-  %lpad.loopexit107.us122 = landingpad { ptr, i32 }
+  %lpad.loopexit104.us119 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.preheader.split:                                 ; preds = %.preheader, %.loopexit106
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit106 ], [ 0, %.preheader ]
+.preheader.split:                                 ; preds = %.preheader, %.loopexit103
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit103 ], [ 0, %.preheader ]
   %162 = load ptr, ptr %86, align 8
   %163 = getelementptr inbounds %"class.std::vector.6", ptr %162, i64 %20
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv
   %166 = load i32, ptr %165, align 4
   %167 = icmp sgt i32 %166, 0
-  br i1 %167, label %168, label %.loopexit106
+  br i1 %167, label %168, label %.loopexit103
 
 168:                                              ; preds = %.preheader.split
   %169 = load ptr, ptr %87, align 8
   %170 = load ptr, ptr %88, align 8
-  %.not111 = icmp eq ptr %169, %170
-  br i1 %.not111, label %.loopexit106, label %.lr.ph.preheader
+  %.not108 = icmp eq ptr %169, %170
+  br i1 %.not108, label %.loopexit103, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %168
   %171 = trunc nuw nsw i64 %indvars.iv to i32
@@ -9454,8 +9454,8 @@ _ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us
-  %.sroa.090.0112.us = phi ptr [ %198, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us ], [ %169, %.lr.ph.preheader ]
-  %174 = load i32, ptr %.sroa.090.0112.us, align 4
+  %.sroa.090.0109.us = phi ptr [ %198, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us ], [ %169, %.lr.ph.preheader ]
+  %174 = load i32, ptr %.sroa.090.0109.us, align 4
   %175 = add i32 %174, -1
   %176 = icmp ult i32 %175, 6
   br i1 %176, label %177, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us
@@ -9472,20 +9472,20 @@ _ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2
 178:                                              ; preds = %177
   %179 = sub nsw i32 %171, %174
   %180 = icmp slt i32 %179, 0
-  br i1 %180, label %.thread159, label %184
+  br i1 %180, label %.thread156, label %184
 
 181:                                              ; preds = %177
   %182 = add nuw nsw i32 %174, %172
   %183 = icmp sgt i32 %182, 23
-  br i1 %183, label %.thread159, label %.thread161
+  br i1 %183, label %.thread156, label %.thread158
 
-.thread161:                                       ; preds = %181
+.thread158:                                       ; preds = %181
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %186
 
-.thread159:                                       ; preds = %181, %178
+.thread156:                                       ; preds = %181, %178
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
@@ -9498,11 +9498,11 @@ _ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2
   %185 = icmp eq i32 %179, 101
   br i1 %185, label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us, label %186
 
-186:                                              ; preds = %.thread161, %184
-  %.0.i62.us163 = phi i32 [ %182, %.thread161 ], [ %179, %184 ]
+186:                                              ; preds = %.thread158, %184
+  %.0.i62.us160 = phi i32 [ %182, %.thread158 ], [ %179, %184 ]
   %187 = load ptr, ptr %86, align 8
   %188 = getelementptr inbounds nuw %"class.std::vector.6", ptr %187, i64 %90
-  %189 = sext i32 %.0.i62.us163 to i64
+  %189 = sext i32 %.0.i62.us160 to i64
   %190 = load ptr, ptr %188, align 8
   %191 = getelementptr inbounds i32, ptr %190, i64 %189
   %192 = load i32, ptr %191, align 4
@@ -9518,13 +9518,13 @@ _ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2
   %197 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN10open_spiel10backgammon11CheckerMoveES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE16_M_insert_uniqueIS2_EESt4pairISt17_Rb_tree_iteratorIS2_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(9) %13)
           to label %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us unwind label %.loopexit.split-lp.loopexit.split.us
 
-_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us: ; preds = %.thread159, %194, %186, %184, %.lr.ph
-  %198 = getelementptr inbounds nuw i8, ptr %.sroa.090.0112.us, i64 4
+_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us: ; preds = %.thread156, %194, %186, %184, %.lr.ph
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.090.0109.us, i64 4
   %.not.us = icmp eq ptr %198, %170
-  br i1 %.not.us, label %.loopexit106, label %.lr.ph
+  br i1 %.not.us, label %.loopexit103, label %.lr.ph
 
 .loopexit.split-lp.loopexit.split.us:             ; preds = %194
-  %lpad.loopexit107.us = landingpad { ptr, i32 }
+  %lpad.loopexit104.us = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -9567,12 +9567,12 @@ common.resume.i:                                  ; preds = %.noexc70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #31
   br label %.body
 
-.loopexit106:                                     ; preds = %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us, %168, %.preheader.split
+.loopexit103:                                     ; preds = %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit81.us, %168, %.preheader.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
   br i1 %exitcond.not, label %.loopexit, label %.preheader.split, !llvm.loop !39
 
-.loopexit:                                        ; preds = %.loopexit106, %.loopexit106.us, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us131, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %25
+.loopexit:                                        ; preds = %.loopexit103, %.loopexit103.us, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us128, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit.us, %_ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %25
   ret void
 }
 

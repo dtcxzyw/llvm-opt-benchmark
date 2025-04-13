@@ -534,103 +534,101 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %47 = load ptr, ptr %46, align 8, !tbaa !103
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %49 = load ptr, ptr %48, align 8, !tbaa !103
-  %50 = icmp eq ptr %47, %49
-  br i1 %50, label %51, label %90
+  %50 = icmp ne ptr %47, %49
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %52 = load i8, ptr %51, align 8, !range !104
+  %53 = trunc nuw i8 %52 to i1
+  %or.cond = select i1 %50, i1 true, i1 %53
+  br i1 %or.cond, label %89, label %54
 
-51:                                               ; preds = %1
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %53 = load i8, ptr %52, align 8, !tbaa !78, !range !104, !noundef !99
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %90, label %55
+54:                                               ; preds = %1
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %56 = load i32, ptr %55, align 8, !tbaa !77
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %58, label %.thread
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %57 = load i32, ptr %56, align 8, !tbaa !77
-  %58 = icmp slt i32 %57, 0
-  br i1 %58, label %59, label %90
+58:                                               ; preds = %54
+  %59 = mul nsw i32 %5, 150
+  %60 = add nsw i32 %32, -150
+  %61 = icmp slt i32 %59, %60
+  br i1 %61, label %.preheader.lr.ph, label %._crit_edge30
 
-59:                                               ; preds = %55
-  %60 = mul nsw i32 %5, 150
-  %61 = add nsw i32 %32, -150
-  %62 = icmp slt i32 %60, %61
-  br i1 %62, label %.preheader.lr.ph, label %._crit_edge27
-
-.preheader.lr.ph:                                 ; preds = %59
-  %63 = icmp sgt i32 %45, 150
-  %64 = icmp ne i32 %8, 0
-  br i1 %63, label %.preheader.lr.ph.split.us, label %._crit_edge27
+.preheader.lr.ph:                                 ; preds = %58
+  %62 = icmp sgt i32 %45, 150
+  %63 = icmp ne i32 %8, 0
+  br i1 %62, label %.preheader.lr.ph.split.us, label %._crit_edge30
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  tail call void @llvm.assume(i1 %64)
-  %65 = zext nneg i32 %30 to i64
-  %66 = zext nneg i32 %25 to i64
-  %67 = zext nneg i32 %8 to i64
-  %68 = zext nneg i32 %60 to i64
-  %69 = zext nneg i32 %27 to i64
-  %70 = zext nneg i32 %10 to i64
-  %71 = zext nneg i32 %13 to i64
-  %72 = zext nneg i32 %14 to i64
-  %73 = icmp sgt i32 %5, -1
-  tail call void @llvm.assume(i1 %73)
+  tail call void @llvm.assume(i1 %63)
+  %64 = zext nneg i32 %30 to i64
+  %65 = zext nneg i32 %25 to i64
+  %66 = zext nneg i32 %8 to i64
+  %67 = zext nneg i32 %59 to i64
+  %68 = zext nneg i32 %27 to i64
+  %69 = zext nneg i32 %10 to i64
+  %70 = zext nneg i32 %13 to i64
+  %71 = zext nneg i32 %14 to i64
+  %72 = icmp sgt i32 %5, -1
+  tail call void @llvm.assume(i1 %72)
   %wide.trip.count = zext nneg i32 %45 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
-  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %._crit_edge.us ], [ %68, %.preheader.lr.ph.split.us ]
-  %.01725.us = phi float [ %.sroa.speculated12.us, %._crit_edge.us ], [ 1.000000e+08, %.preheader.lr.ph.split.us ]
-  %74 = add nuw nsw i64 %indvars.iv31, %69
-  %75 = icmp samesign ult i64 %74, %70
-  tail call void @llvm.assume(i1 %75)
-  %76 = mul nuw nsw i64 %74, %71
-  %77 = add nuw nsw i64 %76, %67
-  %78 = icmp samesign ule i64 %77, %72
-  tail call void @llvm.assume(i1 %78)
-  %79 = getelementptr inbounds nuw float, ptr %3, i64 %76
-  br label %80
+  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %._crit_edge.us ], [ %67, %.preheader.lr.ph.split.us ]
+  %.01728.us = phi float [ %.sroa.speculated12.us, %._crit_edge.us ], [ 1.000000e+08, %.preheader.lr.ph.split.us ]
+  %73 = add nuw nsw i64 %indvars.iv34, %68
+  %74 = icmp samesign ult i64 %73, %69
+  tail call void @llvm.assume(i1 %74)
+  %75 = mul nuw nsw i64 %73, %70
+  %76 = add nuw nsw i64 %75, %66
+  %77 = icmp samesign ule i64 %76, %71
+  tail call void @llvm.assume(i1 %77)
+  %78 = getelementptr inbounds nuw float, ptr %3, i64 %75
+  br label %79
 
-80:                                               ; preds = %.preheader.us, %80
-  %indvars.iv = phi i64 [ 150, %.preheader.us ], [ %indvars.iv.next, %80 ]
-  %.121.us = phi float [ %.01725.us, %.preheader.us ], [ %.sroa.speculated12.us, %80 ]
-  %81 = icmp samesign ult i64 %indvars.iv, %65
-  tail call void @llvm.assume(i1 %81)
-  %82 = add nuw nsw i64 %indvars.iv, %66
-  %83 = icmp samesign ule i64 %82, %67
-  tail call void @llvm.assume(i1 %83)
-  %84 = getelementptr inbounds nuw float, ptr %79, i64 %82
-  %85 = load float, ptr %84, align 4, !tbaa !82
-  %86 = fcmp olt float %.121.us, %85
-  %.sroa.speculated12.us = select i1 %86, float %.121.us, float %85
+79:                                               ; preds = %.preheader.us, %79
+  %indvars.iv = phi i64 [ 150, %.preheader.us ], [ %indvars.iv.next, %79 ]
+  %.124.us = phi float [ %.01728.us, %.preheader.us ], [ %.sroa.speculated12.us, %79 ]
+  %80 = icmp samesign ult i64 %indvars.iv, %64
+  tail call void @llvm.assume(i1 %80)
+  %81 = add nuw nsw i64 %indvars.iv, %65
+  %82 = icmp samesign ule i64 %81, %66
+  tail call void @llvm.assume(i1 %82)
+  %83 = getelementptr inbounds nuw float, ptr %78, i64 %81
+  %84 = load float, ptr %83, align 4, !tbaa !82
+  %85 = fcmp olt float %.124.us, %84
+  %.sroa.speculated12.us = select i1 %85, float %.124.us, float %84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %80, !llvm.loop !124
+  br i1 %exitcond.not, label %._crit_edge.us, label %79, !llvm.loop !124
 
-._crit_edge.us:                                   ; preds = %80
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %87 = trunc nuw i64 %indvars.iv.next32 to i32
-  %88 = icmp sgt i32 %61, %87
-  br i1 %88, label %.preheader.us, label %._crit_edge27.loopexit, !llvm.loop !125
+._crit_edge.us:                                   ; preds = %79
+  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
+  %86 = trunc nuw i64 %indvars.iv.next35 to i32
+  %87 = icmp sgt i32 %60, %86
+  br i1 %87, label %.preheader.us, label %._crit_edge30.loopexit, !llvm.loop !125
 
-._crit_edge27.loopexit:                           ; preds = %._crit_edge.us
-  %89 = fptosi float %.sroa.speculated12.us to i32
-  br label %._crit_edge27
+._crit_edge30.loopexit:                           ; preds = %._crit_edge.us
+  %88 = fptosi float %.sroa.speculated12.us to i32
+  br label %._crit_edge30
 
-._crit_edge27:                                    ; preds = %.preheader.lr.ph, %._crit_edge27.loopexit, %59
-  %.017.lcssa = phi i32 [ 100000000, %59 ], [ %89, %._crit_edge27.loopexit ], [ 100000000, %.preheader.lr.ph ]
-  store i32 %.017.lcssa, ptr %56, align 8, !tbaa !77
+._crit_edge30:                                    ; preds = %.preheader.lr.ph, %._crit_edge30.loopexit, %58
+  %.017.lcssa = phi i32 [ 100000000, %58 ], [ %88, %._crit_edge30.loopexit ], [ 100000000, %.preheader.lr.ph ]
+  store i32 %.017.lcssa, ptr %55, align 8, !tbaa !77
   tail call void (i32, ptr, ...) @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef 4096, ptr noundef nonnull @.str.2, i32 noundef %.017.lcssa)
-  br label %90
+  %.pre = load i8, ptr %51, align 8, !tbaa !78, !range !104
+  br label %89
 
-90:                                               ; preds = %._crit_edge27, %55, %51, %1
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %92 = load i8, ptr %91, align 8, !tbaa !78, !range !104, !noundef !99
-  %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %95, label %94
+89:                                               ; preds = %._crit_edge30, %1
+  %90 = phi i8 [ %.pre, %._crit_edge30 ], [ %52, %1 ]
+  %91 = trunc nuw i8 %90 to i1
+  br i1 %91, label %92, label %.thread
 
-94:                                               ; preds = %90
+.thread:                                          ; preds = %54, %89
   tail call void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr noundef nonnull align 8 dereferenceable(616) %0)
-  br label %95
+  br label %92
 
-95:                                               ; preds = %94, %90
+92:                                               ; preds = %.thread, %89
   tail call void @_ZN8rawspeed12RawImageData11startWorkerENS_14RawImageWorker18RawImageWorkerTaskEb(ptr noundef nonnull align 8 dereferenceable(616) %0, i16 noundef zeroext 1, i1 noundef zeroext true)
   ret void
 }

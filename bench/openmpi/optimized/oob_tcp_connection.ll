@@ -1820,8 +1820,8 @@ define void @prte_oob_tcp_peer_close(ptr noundef %0) local_unnamed_addr #0 {
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %26 = load ptr, ptr %25, align 8, !tbaa !76
-  %.not34 = icmp eq ptr %26, null
-  br i1 %.not34, label %29, label %27
+  %.not38 = icmp eq ptr %26, null
+  br i1 %.not38, label %29, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 276
@@ -1936,16 +1936,16 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %46, %4
   %83 = tail call noalias noundef ptr @malloc(i64 noundef %82) #14
   %84 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !12
   %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_tcp_peer_op_t_class, i64 32), align 8, !tbaa !13
-  %.not.i35 = icmp eq i32 %84, %85
-  br i1 %.not.i35, label %87, label %86
+  %.not.i39 = icmp eq i32 %84, %85
+  br i1 %.not.i39, label %87, label %86
 
 86:                                               ; preds = %81
   tail call void @pmix_class_initialize(ptr noundef nonnull @prte_oob_tcp_peer_op_t_class) #15
   br label %87
 
 87:                                               ; preds = %86, %81
-  %.not22.i36 = icmp eq ptr %83, null
-  br i1 %.not22.i36, label %pmix_obj_new_tma.exit41, label %88
+  %.not22.i40 = icmp eq ptr %83, null
+  br i1 %.not22.i40, label %pmix_obj_new_tma.exit45, label %88
 
 88:                                               ; preds = %87
   %89 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %83, ptr noundef null) #15
@@ -1959,19 +1959,19 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %46, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, i8 0, i64 24, i1 false)
   %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_tcp_peer_op_t_class, i64 40), align 8, !tbaa !18
   %95 = load ptr, ptr %94, align 8, !tbaa !19
-  %.not6.i.i37 = icmp eq ptr %95, null
-  br i1 %.not6.i.i37, label %pmix_obj_new_tma.exit41, label %.lr.ph.i.i38
+  %.not6.i.i41 = icmp eq ptr %95, null
+  br i1 %.not6.i.i41, label %pmix_obj_new_tma.exit45, label %.lr.ph.i.i42
 
-.lr.ph.i.i38:                                     ; preds = %88, %.lr.ph.i.i38
-  %96 = phi ptr [ %98, %.lr.ph.i.i38 ], [ %95, %88 ]
-  %.07.i.i39 = phi ptr [ %97, %.lr.ph.i.i38 ], [ %94, %88 ]
+.lr.ph.i.i42:                                     ; preds = %88, %.lr.ph.i.i42
+  %96 = phi ptr [ %98, %.lr.ph.i.i42 ], [ %95, %88 ]
+  %.07.i.i43 = phi ptr [ %97, %.lr.ph.i.i42 ], [ %94, %88 ]
   tail call void %96(ptr noundef nonnull %83) #15
-  %97 = getelementptr inbounds nuw i8, ptr %.07.i.i39, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.07.i.i43, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !19
-  %.not.i.i40 = icmp eq ptr %98, null
-  br i1 %.not.i.i40, label %pmix_obj_new_tma.exit41, label %.lr.ph.i.i38, !llvm.loop !20
+  %.not.i.i44 = icmp eq ptr %98, null
+  br i1 %.not.i.i44, label %pmix_obj_new_tma.exit45, label %.lr.ph.i.i42, !llvm.loop !20
 
-pmix_obj_new_tma.exit41:                          ; preds = %.lr.ph.i.i38, %87, %88
+pmix_obj_new_tma.exit45:                          ; preds = %.lr.ph.i.i42, %87, %88
   %99 = getelementptr inbounds nuw i8, ptr %83, i64 248
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @PMIx_Xfer_procid(ptr noundef nonnull %99, ptr noundef nonnull %100) #15
@@ -1980,8 +1980,8 @@ pmix_obj_new_tma.exit41:                          ; preds = %.lr.ph.i.i38, %87, 
   %103 = tail call i32 @prte_event_assign(ptr noundef nonnull %101, ptr noundef %102, i32 noundef -1, i16 noundef signext 4, ptr noundef nonnull @prte_mca_oob_tcp_component_lost_connection, ptr noundef %83) #15
   br label %104
 
-104:                                              ; preds = %pmix_obj_new_tma.exit41, %pmix_obj_new_tma.exit
-  %.sink = phi ptr [ %101, %pmix_obj_new_tma.exit41 ], [ %59, %pmix_obj_new_tma.exit ]
+104:                                              ; preds = %pmix_obj_new_tma.exit45, %pmix_obj_new_tma.exit
+  %.sink = phi ptr [ %101, %pmix_obj_new_tma.exit45 ], [ %59, %pmix_obj_new_tma.exit ]
   fence release
   tail call void @event_active(ptr noundef nonnull %.sink, i32 noundef 4, i16 noundef signext 1) #15
   ret void

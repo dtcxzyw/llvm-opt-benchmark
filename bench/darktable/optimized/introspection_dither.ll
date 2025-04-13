@@ -498,21 +498,19 @@ _process_posterize.exit:                          ; preds = %93, %switch.lookup
 153:                                              ; preds = %105
   %154 = getelementptr inbounds nuw i8, ptr %107, i64 624
   %155 = load i32, ptr %154, align 16, !tbaa !98, !noalias !99
-  %156 = trunc i32 %155 to i16
-  %trunc.i.i = and i16 %156, -256
-  %switch.selectcmp.i.i = icmp ne i16 %trunc.i.i, 512
-  %switch.selectcmp45.i.i = icmp eq i16 %trunc.i.i, 256
-  %narrow = xor i1 %switch.selectcmp45.i.i, %switch.selectcmp.i.i
   %trunc43.i.i = trunc i32 %155 to i8
-  %157 = icmp ult i8 %trunc43.i.i, 7
-  br i1 %157, label %switch.hole_check, label %.preheader27.i
-
-switch.hole_check:                                ; preds = %153
+  %156 = icmp ult i8 %trunc43.i.i, 7
   %switch.shifted = lshr i8 103, %trunc43.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup132, label %.preheader27.i
+  %or.cond = select i1 %156, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup132, label %.preheader27.i
 
-switch.lookup132:                                 ; preds = %switch.hole_check
+switch.lookup132:                                 ; preds = %153
+  %157 = trunc i32 %155 to i16
+  %trunc.i.i = and i16 %157, -256
+  %switch.selectcmp45.i.i = icmp eq i16 %trunc.i.i, 256
+  %switch.selectcmp.i.i = icmp ne i16 %trunc.i.i, 512
+  %narrow = xor i1 %switch.selectcmp45.i.i, %switch.selectcmp.i.i
   %trunc43.i.i.mask = and i32 %155, 7
   %158 = zext nneg i32 %trunc43.i.i.mask to i64
   %switch.gep133 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.process.9, i64 0, i64 %158
@@ -522,7 +520,7 @@ switch.lookup132:                                 ; preds = %switch.hole_check
   %160 = or i1 %.not44.i.i, %narrow
   br i1 %160, label %.preheader27.i, label %_get_dither_parameters.exit.thread.i
 
-.preheader27.i:                                   ; preds = %switch.hole_check, %153, %switch.lookup132
+.preheader27.i:                                   ; preds = %153, %switch.lookup132
   %161 = mul nsw i32 %114, %112
   %162 = icmp sgt i32 %161, 0
   br i1 %162, label %.lr.ph.preheader.i, label %_process_floyd_steinberg.exit

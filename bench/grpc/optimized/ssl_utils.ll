@@ -1868,8 +1868,8 @@ define noundef range(i32 0, 2) i32 @_Z43grpc_ssl_tsi_client_handshaker_factory_i
   %15 = alloca ptr, align 8
   %16 = zext i1 %2 to i8
   %17 = icmp ne ptr %1, null
-  %brmerge = or i1 %17, %2
-  br i1 %brmerge, label %38, label %18
+  %or.cond = or i1 %17, %2
+  br i1 %or.cond, label %38, label %18
 
 18:                                               ; preds = %10
   %19 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core9tsi_traceE, i64 16) monotonic, align 8
@@ -1932,15 +1932,15 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi38EEERS2_RAT__Kc.exit: ; pr
   br label %38
 
 38:                                               ; preds = %10, %36
-  %.036 = phi ptr [ %37, %36 ], [ null, %10 ]
-  %.026 = phi ptr [ %28, %36 ], [ %1, %10 ]
+  %.037 = phi ptr [ %37, %36 ], [ null, %10 ]
+  %.027 = phi ptr [ %28, %36 ], [ %1, %10 ]
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %45, label %39
 
 39:                                               ; preds = %38
   %40 = load ptr, ptr %0, align 8, !tbaa !39
-  %.not40 = icmp eq ptr %40, null
-  br i1 %.not40, label %45, label %41
+  %.not41 = icmp eq ptr %40, null
+  br i1 %.not41, label %45, label %41
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1959,9 +1959,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi38EEERS2_RAT__Kc.exit: ; pr
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %.026, ptr %50, align 8, !tbaa !100
+  store ptr %.027, ptr %50, align 8, !tbaa !100
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %.036, ptr %51, align 8, !tbaa !101
+  store ptr %.037, ptr %51, align 8, !tbaa !101
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %53 = invoke noundef i64 @_Z29grpc_chttp2_num_alpn_versionsv()
           to label %.noexc unwind label %.loopexit.split-lp
@@ -2092,8 +2092,8 @@ _ZNSt10shared_ptrIN9grpc_core12experimental11CrlProviderEEaSEOS3_.exit: ; preds 
           to label %101 unwind label %108
 
 101:                                              ; preds = %99
-  %.not41 = icmp eq i32 %98, 0
-  br i1 %.not41, label %118, label %102
+  %.not42 = icmp eq i32 %98, 0
+  br i1 %.not42, label %118, label %102
 
 102:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #30

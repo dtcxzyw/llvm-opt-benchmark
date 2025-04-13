@@ -1841,14 +1841,14 @@ define dso_local ptr @vxstrfmt(ptr noundef %0, ptr noundef %1) local_unnamed_add
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #20
   store ptr null, ptr %10, align 8
   %22 = load i8, ptr %0, align 1
-  %.not218 = icmp eq i8 %22, 0
-  br i1 %.not218, label %.thread157.thread, label %.lr.ph223
+  %.not217 = icmp eq i8 %22, 0
+  br i1 %.not217, label %.thread156.thread, label %.lr.ph222
 
-.thread157.thread:                                ; preds = %2
+.thread156.thread:                                ; preds = %2
   %23 = load ptr, ptr %9, align 8
-  br label %294
+  br label %295
 
-.lr.ph223:                                        ; preds = %2
+.lr.ph222:                                        ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1865,21 +1865,21 @@ define dso_local ptr @vxstrfmt(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %38
 
-38:                                               ; preds = %.lr.ph223, %264
-  %.089221 = phi ptr [ %0, %.lr.ph223 ], [ %265, %264 ]
-  %.0104220 = phi i32 [ 0, %.lr.ph223 ], [ %50, %264 ]
-  %.0107219 = phi i1 [ false, %.lr.ph223 ], [ %.4.ph, %264 ]
-  %39 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.089221, i32 noundef 37) #27
+38:                                               ; preds = %.lr.ph222, %264
+  %.090220 = phi ptr [ %0, %.lr.ph222 ], [ %265, %264 ]
+  %.0105219 = phi i32 [ 0, %.lr.ph222 ], [ %50, %264 ]
+  %.0108218 = phi i1 [ false, %.lr.ph222 ], [ %.4.ph, %264 ]
+  %39 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.090220, i32 noundef 37) #27
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread157.sink.split, label %.preheader164
+  br i1 %40, label %.thread156.sink.split, label %.preheader163
 
-.preheader164:                                    ; preds = %38, %47
-  %indvars.iv.in = phi i32 [ %indvars.iv, %47 ], [ %.0104220, %38 ]
-  %.0110 = phi ptr [ %49, %47 ], [ %39, %38 ]
-  %.3 = phi i1 [ true, %47 ], [ %.0107219, %38 ]
-  %.2106 = phi i32 [ %48, %47 ], [ %.0104220, %38 ]
+.preheader163:                                    ; preds = %38, %47
+  %indvars.iv.in = phi i32 [ %indvars.iv, %47 ], [ %.0105219, %38 ]
+  %.0111 = phi ptr [ %49, %47 ], [ %39, %38 ]
+  %.3 = phi i1 [ true, %47 ], [ %.0108218, %38 ]
+  %.2107 = phi i32 [ %48, %47 ], [ %.0105219, %38 ]
   %indvars.iv = add i32 %indvars.iv.in, 1
-  %41 = getelementptr inbounds nuw i8, ptr %.0110, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.0111, i64 1
   %42 = load i8, ptr %41, align 1
   switch i8 %42, label %47 [
     i8 109, label %switch.lookup
@@ -1889,18 +1889,18 @@ define dso_local ptr @vxstrfmt(ptr noundef %0, ptr noundef %1) local_unnamed_add
     i8 112, label %43
   ]
 
-43:                                               ; preds = %.preheader164
-  %44 = getelementptr inbounds nuw i8, ptr %.0110, i64 2
+43:                                               ; preds = %.preheader163
+  %44 = getelementptr inbounds nuw i8, ptr %.0111, i64 2
   %45 = load i8, ptr %44, align 1
   %switch.tableidx = add i8 %45, -65
   %46 = icmp ult i8 %switch.tableidx, 51
   br i1 %46, label %switch.hole_check, label %47
 
-47:                                               ; preds = %switch.hole_check, %43, %.preheader164
-  %48 = add nsw i32 %.2106, 1
+47:                                               ; preds = %switch.hole_check, %43, %.preheader163
+  %48 = add nsw i32 %.2107, 1
   %49 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %41, i32 noundef 37) #27
-  %.not128 = icmp eq ptr %49, null
-  br i1 %.not128, label %.thread157.sink.split, label %.preheader164, !llvm.loop !10
+  %.not129 = icmp eq ptr %49, null
+  br i1 %.not129, label %.thread156.sink.split, label %.preheader163, !llvm.loop !10
 
 switch.hole_check:                                ; preds = %43
   %switch.maskindex = zext nneg i8 %switch.tableidx to i64
@@ -1908,16 +1908,16 @@ switch.hole_check:                                ; preds = %43
   %switch.lobit = trunc i64 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %47
 
-switch.lookup:                                    ; preds = %switch.hole_check, %.preheader164, %.preheader164, %.preheader164, %.preheader164
-  %.4.ph = phi i1 [ %.3, %.preheader164 ], [ %.3, %.preheader164 ], [ %.3, %.preheader164 ], [ %.3, %.preheader164 ], [ true, %switch.hole_check ]
-  %50 = add nsw i32 %.2106, 1
+switch.lookup:                                    ; preds = %switch.hole_check, %.preheader163, %.preheader163, %.preheader163, %.preheader163
+  %.4.ph = phi i1 [ %.3, %.preheader163 ], [ %.3, %.preheader163 ], [ %.3, %.preheader163 ], [ %.3, %.preheader163 ], [ true, %switch.hole_check ]
+  %50 = add nsw i32 %.2107, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #20
   store ptr null, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %12) #20
-  %51 = ptrtoint ptr %.0110 to i64
-  %52 = ptrtoint ptr %.089221 to i64
+  %51 = ptrtoint ptr %.0111 to i64
+  %52 = ptrtoint ptr %.090220 to i64
   %53 = sub i64 %51, %52
-  call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.089221, i64 noundef %53) #20
+  call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.090220, i64 noundef %53) #20
   %54 = load i8, ptr %41, align 1
   switch i8 %54, label %thread-pre-split [
     i8 112, label %55
@@ -1928,7 +1928,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   ]
 
 55:                                               ; preds = %switch.lookup
-  %56 = getelementptr inbounds nuw i8, ptr %.0110, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.0111, i64 2
   %57 = load i8, ptr %56, align 1
   switch i8 %57, label %thread-pre-split [
     i8 65, label %58
@@ -1942,21 +1942,21 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 58:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #20
   call void @llvm.va_copy.p0(ptr nonnull %13, ptr %1)
-  %.not136208 = icmp slt i32 %.2106, 0
-  br i1 %.not136208, label %_addr2fmt.exit, label %.lr.ph211
+  %.not137207 = icmp slt i32 %.2107, 0
+  br i1 %.not137207, label %_addr2fmt.exit, label %.lr.ph210
 
-.lr.ph211:                                        ; preds = %58
-  %.promoted207 = load i32, ptr %13, align 16
+.lr.ph210:                                        ; preds = %58
+  %.promoted206 = load i32, ptr %13, align 16
   %59 = load ptr, ptr %37, align 16
-  %.promoted214 = load ptr, ptr %36, align 8
+  %.promoted213 = load ptr, ptr %36, align 8
   br label %85
 
-._crit_edge212:                                   ; preds = %95
+._crit_edge211:                                   ; preds = %95
   %60 = load ptr, ptr %98, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %_addr2fmt.exit, label %62
 
-62:                                               ; preds = %._crit_edge212
+62:                                               ; preds = %._crit_edge211
   %63 = load i16, ptr %60, align 8
   switch i16 %63, label %83 [
     i16 10, label %64
@@ -2002,17 +2002,17 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %84 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 256, ptr noundef nonnull @.str.40) #20
   br label %_addr2fmt.exit
 
-_addr2fmt.exit:                                   ; preds = %58, %._crit_edge212, %64, %71, %78, %81, %83
-  %.0.i = phi ptr [ @.str.35, %._crit_edge212 ], [ %12, %71 ], [ %12, %81 ], [ %12, %83 ], [ %12, %78 ], [ %12, %64 ], [ @.str.35, %58 ]
+_addr2fmt.exit:                                   ; preds = %58, %._crit_edge211, %64, %71, %78, %81, %83
+  %.0.i = phi ptr [ @.str.35, %._crit_edge211 ], [ %12, %71 ], [ %12, %81 ], [ %12, %83 ], [ %12, %78 ], [ %12, %64 ], [ @.str.35, %58 ]
   call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.0.i, i64 noundef -1) #20
   call void @llvm.va_end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #20
   br label %thread-pre-split
 
-85:                                               ; preds = %.lr.ph211, %95
-  %86 = phi ptr [ %.promoted214, %.lr.ph211 ], [ %96, %95 ]
-  %.096209 = phi i32 [ 0, %.lr.ph211 ], [ %99, %95 ]
-  %87 = phi i32 [ %.promoted207, %.lr.ph211 ], [ %97, %95 ]
+85:                                               ; preds = %.lr.ph210, %95
+  %86 = phi ptr [ %.promoted213, %.lr.ph210 ], [ %96, %95 ]
+  %.097208 = phi i32 [ 0, %.lr.ph210 ], [ %99, %95 ]
+  %87 = phi i32 [ %.promoted206, %.lr.ph210 ], [ %97, %95 ]
   %88 = icmp ult i32 %87, 41
   br i1 %88, label %89, label %93
 
@@ -2032,39 +2032,39 @@ _addr2fmt.exit:                                   ; preds = %58, %._crit_edge212
   %96 = phi ptr [ %86, %89 ], [ %94, %93 ]
   %97 = phi i32 [ %92, %89 ], [ %87, %93 ]
   %98 = phi ptr [ %91, %89 ], [ %86, %93 ]
-  %99 = add nuw i32 %.096209, 1
-  %exitcond252.not = icmp eq i32 %.096209, %indvars.iv.in
-  br i1 %exitcond252.not, label %._crit_edge212, label %85, !llvm.loop !13
+  %99 = add nuw i32 %.097208, 1
+  %exitcond251.not = icmp eq i32 %.097208, %indvars.iv.in
+  br i1 %exitcond251.not, label %._crit_edge211, label %85, !llvm.loop !13
 
 100:                                              ; preds = %55
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #20
   call void @llvm.va_copy.p0(ptr nonnull %14, ptr %1)
-  %.not135200 = icmp slt i32 %.2106, 0
-  br i1 %.not135200, label %._crit_edge204, label %.lr.ph203
+  %.not136199 = icmp slt i32 %.2107, 0
+  br i1 %.not136199, label %._crit_edge203, label %.lr.ph202
 
-.lr.ph203:                                        ; preds = %100
-  %.promoted199 = load i32, ptr %14, align 16
+.lr.ph202:                                        ; preds = %100
+  %.promoted198 = load i32, ptr %14, align 16
   %101 = load ptr, ptr %35, align 16
-  %.promoted206 = load ptr, ptr %34, align 8
+  %.promoted205 = load ptr, ptr %34, align 8
   br label %109
 
-._crit_edge204.loopexit:                          ; preds = %119
+._crit_edge203.loopexit:                          ; preds = %119
   %102 = load ptr, ptr %122, align 8
-  br label %._crit_edge204
+  br label %._crit_edge203
 
-._crit_edge204:                                   ; preds = %._crit_edge204.loopexit, %100
-  %.095.lcssa = phi ptr [ null, %100 ], [ %102, %._crit_edge204.loopexit ]
+._crit_edge203:                                   ; preds = %._crit_edge203.loopexit, %100
+  %.096.lcssa = phi ptr [ null, %100 ], [ %102, %._crit_edge203.loopexit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
   store ptr null, ptr %6, align 8
-  %103 = call i32 @serialize_g_data_to_string(ptr noundef nonnull %6, ptr noundef null, ptr noundef %.095.lcssa, ptr noundef nonnull @.str.41, i32 noundef 1) #20
+  %103 = call i32 @serialize_g_data_to_string(ptr noundef nonnull %6, ptr noundef null, ptr noundef %.096.lcssa, ptr noundef nonnull @.str.41, i32 noundef 1) #20
   %.not.i = icmp eq i32 %103, 0
   br i1 %.not.i, label %106, label %104
 
-104:                                              ; preds = %._crit_edge204
+104:                                              ; preds = %._crit_edge203
   %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 256, ptr noundef nonnull @.str.42) #20
   br label %_print_data_json.exit
 
-106:                                              ; preds = %._crit_edge204
+106:                                              ; preds = %._crit_edge203
   %107 = load ptr, ptr %6, align 8
   %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 256, ptr noundef nonnull @.str.43, ptr noundef %107) #20
   br label %_print_data_json.exit
@@ -2077,10 +2077,10 @@ _print_data_json.exit:                            ; preds = %104, %106
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #20
   br label %thread-pre-split
 
-109:                                              ; preds = %.lr.ph203, %119
-  %110 = phi ptr [ %.promoted206, %.lr.ph203 ], [ %120, %119 ]
-  %.094201 = phi i32 [ 0, %.lr.ph203 ], [ %123, %119 ]
-  %111 = phi i32 [ %.promoted199, %.lr.ph203 ], [ %121, %119 ]
+109:                                              ; preds = %.lr.ph202, %119
+  %110 = phi ptr [ %.promoted205, %.lr.ph202 ], [ %120, %119 ]
+  %.095200 = phi i32 [ 0, %.lr.ph202 ], [ %123, %119 ]
+  %111 = phi i32 [ %.promoted198, %.lr.ph202 ], [ %121, %119 ]
   %112 = icmp ult i32 %111, 41
   br i1 %112, label %113, label %117
 
@@ -2100,40 +2100,40 @@ _print_data_json.exit:                            ; preds = %104, %106
   %120 = phi ptr [ %110, %113 ], [ %118, %117 ]
   %121 = phi i32 [ %116, %113 ], [ %111, %117 ]
   %122 = phi ptr [ %115, %113 ], [ %110, %117 ]
-  %123 = add nuw i32 %.094201, 1
-  %exitcond249.not = icmp eq i32 %.094201, %indvars.iv.in
-  br i1 %exitcond249.not, label %._crit_edge204.loopexit, label %109, !llvm.loop !14
+  %123 = add nuw i32 %.095200, 1
+  %exitcond248.not = icmp eq i32 %.095200, %indvars.iv.in
+  br i1 %exitcond248.not, label %._crit_edge203.loopexit, label %109, !llvm.loop !14
 
 124:                                              ; preds = %55
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #20
   call void @llvm.va_copy.p0(ptr nonnull %15, ptr %1)
-  %.not134192 = icmp slt i32 %.2106, 0
-  br i1 %.not134192, label %._crit_edge196, label %.lr.ph195
+  %.not135191 = icmp slt i32 %.2107, 0
+  br i1 %.not135191, label %._crit_edge195, label %.lr.ph194
 
-.lr.ph195:                                        ; preds = %124
-  %.promoted191 = load i32, ptr %15, align 16
+.lr.ph194:                                        ; preds = %124
+  %.promoted190 = load i32, ptr %15, align 16
   %125 = load ptr, ptr %33, align 16
-  %.promoted198 = load ptr, ptr %32, align 8
+  %.promoted197 = load ptr, ptr %32, align 8
   br label %130
 
-._crit_edge196.loopexit:                          ; preds = %140
+._crit_edge195.loopexit:                          ; preds = %140
   %126 = load ptr, ptr %143, align 8
-  br label %._crit_edge196
+  br label %._crit_edge195
 
-._crit_edge196:                                   ; preds = %._crit_edge196.loopexit, %124
-  %.093.lcssa = phi ptr [ null, %124 ], [ %126, %._crit_edge196.loopexit ]
-  %127 = call ptr @data_get_type_string(ptr noundef %.093.lcssa) #20
-  %128 = ptrtoint ptr %.093.lcssa to i64
+._crit_edge195:                                   ; preds = %._crit_edge195.loopexit, %124
+  %.094.lcssa = phi ptr [ null, %124 ], [ %126, %._crit_edge195.loopexit ]
+  %127 = call ptr @data_get_type_string(ptr noundef %.094.lcssa) #20
+  %128 = ptrtoint ptr %.094.lcssa to i64
   %129 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 256, ptr noundef nonnull @.str.44, ptr noundef %127, i64 noundef %128) #20
   call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12, i64 noundef -1) #20
   call void @llvm.va_end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #20
   br label %thread-pre-split
 
-130:                                              ; preds = %.lr.ph195, %140
-  %131 = phi ptr [ %.promoted198, %.lr.ph195 ], [ %141, %140 ]
-  %.092193 = phi i32 [ 0, %.lr.ph195 ], [ %144, %140 ]
-  %132 = phi i32 [ %.promoted191, %.lr.ph195 ], [ %142, %140 ]
+130:                                              ; preds = %.lr.ph194, %140
+  %131 = phi ptr [ %.promoted197, %.lr.ph194 ], [ %141, %140 ]
+  %.093192 = phi i32 [ 0, %.lr.ph194 ], [ %144, %140 ]
+  %132 = phi i32 [ %.promoted190, %.lr.ph194 ], [ %142, %140 ]
   %133 = icmp ult i32 %132, 41
   br i1 %133, label %134, label %138
 
@@ -2153,26 +2153,26 @@ _print_data_json.exit:                            ; preds = %104, %106
   %141 = phi ptr [ %131, %134 ], [ %139, %138 ]
   %142 = phi i32 [ %137, %134 ], [ %132, %138 ]
   %143 = phi ptr [ %136, %134 ], [ %131, %138 ]
-  %144 = add nuw i32 %.092193, 1
-  %exitcond246.not = icmp eq i32 %.092193, %indvars.iv.in
-  br i1 %exitcond246.not, label %._crit_edge196.loopexit, label %130, !llvm.loop !15
+  %144 = add nuw i32 %.093192, 1
+  %exitcond245.not = icmp eq i32 %.093192, %indvars.iv.in
+  br i1 %exitcond245.not, label %._crit_edge195.loopexit, label %130, !llvm.loop !15
 
 145:                                              ; preds = %55
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #20
   call void @llvm.va_copy.p0(ptr nonnull %16, ptr %1)
-  %.not133184 = icmp slt i32 %.2106, 0
-  br i1 %.not133184, label %._crit_edge188, label %.lr.ph187
+  %.not134183 = icmp slt i32 %.2107, 0
+  br i1 %.not134183, label %._crit_edge187, label %.lr.ph186
 
-.lr.ph187:                                        ; preds = %145
-  %.promoted183 = load i32, ptr %16, align 16
+.lr.ph186:                                        ; preds = %145
+  %.promoted182 = load i32, ptr %16, align 16
   %146 = load ptr, ptr %31, align 16
-  %.promoted190 = load ptr, ptr %30, align 8
+  %.promoted189 = load ptr, ptr %30, align 8
   br label %147
 
-147:                                              ; preds = %.lr.ph187, %157
-  %148 = phi ptr [ %.promoted190, %.lr.ph187 ], [ %158, %157 ]
-  %.091185 = phi i32 [ 0, %.lr.ph187 ], [ %161, %157 ]
-  %149 = phi i32 [ %.promoted183, %.lr.ph187 ], [ %159, %157 ]
+147:                                              ; preds = %.lr.ph186, %157
+  %148 = phi ptr [ %.promoted189, %.lr.ph186 ], [ %158, %157 ]
+  %.092184 = phi i32 [ 0, %.lr.ph186 ], [ %161, %157 ]
+  %149 = phi i32 [ %.promoted182, %.lr.ph186 ], [ %159, %157 ]
   %150 = icmp ult i32 %149, 41
   br i1 %150, label %151, label %155
 
@@ -2192,17 +2192,17 @@ _print_data_json.exit:                            ; preds = %104, %106
   %158 = phi ptr [ %148, %151 ], [ %156, %155 ]
   %159 = phi i32 [ %154, %151 ], [ %149, %155 ]
   %160 = phi ptr [ %153, %151 ], [ %148, %155 ]
-  %161 = add nuw i32 %.091185, 1
-  %exitcond243.not = icmp eq i32 %.091185, %indvars.iv.in
-  br i1 %exitcond243.not, label %._crit_edge188.loopexit, label %147, !llvm.loop !16
+  %161 = add nuw i32 %.092184, 1
+  %exitcond242.not = icmp eq i32 %.092184, %indvars.iv.in
+  br i1 %exitcond242.not, label %._crit_edge187.loopexit, label %147, !llvm.loop !16
 
-._crit_edge188.loopexit:                          ; preds = %157
+._crit_edge187.loopexit:                          ; preds = %157
   %162 = load ptr, ptr %160, align 8
-  br label %._crit_edge188
+  br label %._crit_edge187
 
-._crit_edge188:                                   ; preds = %._crit_edge188.loopexit, %145
-  %.090.lcssa = phi ptr [ null, %145 ], [ %162, %._crit_edge188.loopexit ]
-  %163 = call fastcc ptr @_jobid2fmt(ptr noundef %.090.lcssa, ptr noundef %12)
+._crit_edge187:                                   ; preds = %._crit_edge187.loopexit, %145
+  %.091.lcssa = phi ptr [ null, %145 ], [ %162, %._crit_edge187.loopexit ]
+  %163 = call fastcc ptr @_jobid2fmt(ptr noundef %.091.lcssa, ptr noundef %12)
   call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %163, i64 noundef -1) #20
   call void @llvm.va_end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #20
@@ -2211,19 +2211,19 @@ _print_data_json.exit:                            ; preds = %104, %106
 164:                                              ; preds = %55
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #20
   call void @llvm.va_copy.p0(ptr nonnull %17, ptr %1)
-  %.not132176 = icmp slt i32 %.2106, 0
-  br i1 %.not132176, label %._crit_edge180, label %.lr.ph179
+  %.not133175 = icmp slt i32 %.2107, 0
+  br i1 %.not133175, label %._crit_edge179, label %.lr.ph178
 
-.lr.ph179:                                        ; preds = %164
-  %.promoted175 = load i32, ptr %17, align 16
+.lr.ph178:                                        ; preds = %164
+  %.promoted174 = load i32, ptr %17, align 16
   %165 = load ptr, ptr %29, align 16
-  %.promoted182 = load ptr, ptr %28, align 8
+  %.promoted181 = load ptr, ptr %28, align 8
   br label %166
 
-166:                                              ; preds = %.lr.ph179, %176
-  %167 = phi ptr [ %.promoted182, %.lr.ph179 ], [ %177, %176 ]
-  %.088177 = phi i32 [ 0, %.lr.ph179 ], [ %180, %176 ]
-  %168 = phi i32 [ %.promoted175, %.lr.ph179 ], [ %178, %176 ]
+166:                                              ; preds = %.lr.ph178, %176
+  %167 = phi ptr [ %.promoted181, %.lr.ph178 ], [ %177, %176 ]
+  %.089176 = phi i32 [ 0, %.lr.ph178 ], [ %180, %176 ]
+  %168 = phi i32 [ %.promoted174, %.lr.ph178 ], [ %178, %176 ]
   %169 = icmp ult i32 %168, 41
   br i1 %169, label %170, label %174
 
@@ -2243,17 +2243,17 @@ _print_data_json.exit:                            ; preds = %104, %106
   %177 = phi ptr [ %167, %170 ], [ %175, %174 ]
   %178 = phi i32 [ %173, %170 ], [ %168, %174 ]
   %179 = phi ptr [ %172, %170 ], [ %167, %174 ]
-  %180 = add nuw i32 %.088177, 1
-  %exitcond240.not = icmp eq i32 %.088177, %indvars.iv.in
-  br i1 %exitcond240.not, label %._crit_edge180.loopexit, label %166, !llvm.loop !17
+  %180 = add nuw i32 %.089176, 1
+  %exitcond239.not = icmp eq i32 %.089176, %indvars.iv.in
+  br i1 %exitcond239.not, label %._crit_edge179.loopexit, label %166, !llvm.loop !17
 
-._crit_edge180.loopexit:                          ; preds = %176
+._crit_edge179.loopexit:                          ; preds = %176
   %181 = load ptr, ptr %179, align 8
-  br label %._crit_edge180
+  br label %._crit_edge179
 
-._crit_edge180:                                   ; preds = %._crit_edge180.loopexit, %164
-  %.087.lcssa = phi ptr [ null, %164 ], [ %181, %._crit_edge180.loopexit ]
-  %182 = call ptr @log_build_step_id_str(ptr noundef %.087.lcssa, ptr noundef nonnull %12, i32 noundef 256, i16 noundef zeroext 1)
+._crit_edge179:                                   ; preds = %._crit_edge179.loopexit, %164
+  %.088.lcssa = phi ptr [ null, %164 ], [ %181, %._crit_edge179.loopexit ]
+  %182 = call ptr @log_build_step_id_str(ptr noundef %.088.lcssa, ptr noundef nonnull %12, i32 noundef 256, i16 noundef zeroext 1)
   call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12, i64 noundef -1) #20
   call void @llvm.va_end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #20
@@ -2262,18 +2262,18 @@ _print_data_json.exit:                            ; preds = %104, %106
 183:                                              ; preds = %55
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #20
   call void @llvm.va_copy.p0(ptr nonnull %18, ptr %1)
-  %.not130172 = icmp slt i32 %.2106, 0
-  br i1 %.not130172, label %_stepid2fmt.exit.critedge, label %.lr.ph
+  %.not131171 = icmp slt i32 %.2107, 0
+  br i1 %.not131171, label %_stepid2fmt.exit.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %183
   %.promoted = load i32, ptr %18, align 16
   %184 = load ptr, ptr %27, align 16
-  %.promoted174 = load ptr, ptr %26, align 8
+  %.promoted173 = load ptr, ptr %26, align 8
   br label %185
 
 185:                                              ; preds = %.lr.ph, %195
-  %186 = phi ptr [ %.promoted174, %.lr.ph ], [ %196, %195 ]
-  %.086173 = phi i32 [ 0, %.lr.ph ], [ %199, %195 ]
+  %186 = phi ptr [ %.promoted173, %.lr.ph ], [ %196, %195 ]
+  %.087172 = phi i32 [ 0, %.lr.ph ], [ %199, %195 ]
   %187 = phi i32 [ %.promoted, %.lr.ph ], [ %197, %195 ]
   %188 = icmp ult i32 %187, 41
   br i1 %188, label %189, label %193
@@ -2294,14 +2294,14 @@ _print_data_json.exit:                            ; preds = %104, %106
   %196 = phi ptr [ %186, %189 ], [ %194, %193 ]
   %197 = phi i32 [ %192, %189 ], [ %187, %193 ]
   %198 = phi ptr [ %191, %189 ], [ %186, %193 ]
-  %199 = add nuw i32 %.086173, 1
-  %exitcond.not = icmp eq i32 %.086173, %indvars.iv.in
+  %199 = add nuw i32 %.087172, 1
+  %exitcond.not = icmp eq i32 %.087172, %indvars.iv.in
   br i1 %exitcond.not, label %._crit_edge, label %185, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %195
   %200 = load ptr, ptr %198, align 8
-  %.not131 = icmp eq ptr %200, null
-  br i1 %.not131, label %_stepid2fmt.exit.critedge, label %201
+  %.not132 = icmp eq ptr %200, null
+  br i1 %.not132, label %_stepid2fmt.exit.critedge, label %201
 
 201:                                              ; preds = %._crit_edge
   %202 = load i32, ptr %200, align 8
@@ -2314,12 +2314,12 @@ _print_data_json.exit:                            ; preds = %104, %106
   br label %207
 
 207:                                              ; preds = %204, %201
-  %.084 = phi ptr [ %206, %204 ], [ null, %201 ]
-  %208 = call fastcc ptr @_jobid2fmt(ptr noundef %.084, ptr noundef %12)
+  %.085 = phi ptr [ %206, %204 ], [ null, %201 ]
+  %208 = call fastcc ptr @_jobid2fmt(ptr noundef %.085, ptr noundef %12)
   call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %208, i64 noundef -1) #20
   %209 = load i32, ptr %200, align 8
-  %.not.i146 = icmp eq i32 %209, -889271554
-  br i1 %.not.i146, label %210, label %_stepid2fmt.exit
+  %.not.i145 = icmp eq i32 %209, -889271554
+  br i1 %.not.i145, label %210, label %_stepid2fmt.exit
 
 210:                                              ; preds = %207
   %211 = getelementptr inbounds nuw i8, ptr %200, i64 280
@@ -2332,8 +2332,8 @@ _stepid2fmt.exit.critedge:                        ; preds = %183, %._crit_edge
   br label %_stepid2fmt.exit
 
 _stepid2fmt.exit:                                 ; preds = %_stepid2fmt.exit.critedge, %207, %210
-  %.0.i147 = phi ptr [ %12, %210 ], [ @.str.52, %207 ], [ @.str.51, %_stepid2fmt.exit.critedge ]
-  call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.0.i147, i64 noundef -1) #20
+  %.0.i146 = phi ptr [ %12, %210 ], [ @.str.52, %207 ], [ @.str.51, %_stepid2fmt.exit.critedge ]
+  call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.0.i146, i64 noundef -1) #20
   call void @llvm.va_end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #20
   br label %thread-pre-split
@@ -2355,8 +2355,8 @@ _stepid2fmt.exit:                                 ; preds = %_stepid2fmt.exit.cr
 
 220:                                              ; preds = %switch.lookup
   %221 = load ptr, ptr @log, align 8
-  %.not129 = icmp eq ptr %221, null
-  br i1 %.not129, label %222, label %223
+  %.not130 = icmp eq ptr %221, null
+  br i1 %.not130, label %222, label %223
 
 222:                                              ; preds = %220
   call void @_xiso8601timecat(ptr noundef nonnull %11, i1 noundef zeroext true) #20
@@ -2421,68 +2421,68 @@ _stepid2fmt.exit:                                 ; preds = %_stepid2fmt.exit.cr
   br label %_set_idbuf.exit
 
 _set_idbuf.exit:                                  ; preds = %235, %239
-  %.0.i148 = phi i32 [ 0, %239 ], [ 12, %235 ]
+  %.0.i147 = phi i32 [ 0, %239 ], [ 12, %235 ]
   %242 = call ptr @slurm_ctime2_r(ptr noundef nonnull %3, ptr noundef nonnull %4) #20
   %243 = load i64, ptr %25, align 8
   %244 = trunc i64 %243 to i32
   %245 = call i32 @getpid() #20
   %246 = tail call i64 @pthread_self() #21
   %247 = inttoptr i64 %246 to ptr
-  %248 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 256, ptr noundef nonnull @.str.54, ptr noundef nonnull %24, i32 noundef %244, i32 noundef %245, i32 noundef %.0.i148, ptr noundef nonnull %5, ptr noundef %247) #20
+  %248 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 256, ptr noundef nonnull @.str.54, ptr noundef nonnull %24, i32 noundef %244, i32 noundef %245, i32 noundef %.0.i147, ptr noundef nonnull %5, ptr noundef %247) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #20
   br label %.thread
 
-thread-pre-split:                                 ; preds = %switch.lookup, %218, %219, %222, %55, %_stepid2fmt.exit, %._crit_edge180, %._crit_edge188, %._crit_edge196, %_print_data_json.exit, %_addr2fmt.exit, %234, %230, %229, %228, %227, %226, %223
-  %.2.ph = phi ptr [ %56, %_addr2fmt.exit ], [ %56, %_print_data_json.exit ], [ %56, %._crit_edge196 ], [ %56, %._crit_edge188 ], [ %56, %._crit_edge180 ], [ %56, %_stepid2fmt.exit ], [ %56, %55 ], [ %41, %218 ], [ %41, %219 ], [ %41, %222 ], [ %41, %226 ], [ %41, %227 ], [ %41, %228 ], [ %41, %229 ], [ %41, %230 ], [ %41, %234 ], [ %41, %223 ], [ %41, %switch.lookup ]
+thread-pre-split:                                 ; preds = %switch.lookup, %218, %219, %222, %55, %_stepid2fmt.exit, %._crit_edge179, %._crit_edge187, %._crit_edge195, %_print_data_json.exit, %_addr2fmt.exit, %234, %230, %229, %228, %227, %226, %223
+  %.2.ph = phi ptr [ %56, %_addr2fmt.exit ], [ %56, %_print_data_json.exit ], [ %56, %._crit_edge195 ], [ %56, %._crit_edge187 ], [ %56, %._crit_edge179 ], [ %56, %_stepid2fmt.exit ], [ %56, %55 ], [ %41, %218 ], [ %41, %219 ], [ %41, %222 ], [ %41, %226 ], [ %41, %227 ], [ %41, %228 ], [ %41, %229 ], [ %41, %230 ], [ %41, %234 ], [ %41, %223 ], [ %41, %switch.lookup ]
   %.pr = load ptr, ptr %11, align 8
   br label %250
 
 .thread:                                          ; preds = %231, %_set_idbuf.exit
   store ptr %12, ptr %11, align 8
-  %249 = getelementptr inbounds nuw i8, ptr %.0110, i64 2
+  %249 = getelementptr inbounds nuw i8, ptr %.0111, i64 2
   br label %.preheader
 
 250:                                              ; preds = %thread-pre-split, %214
   %251 = phi ptr [ %.pr, %thread-pre-split ], [ %217, %214 ]
-  %.not141 = phi i1 [ false, %thread-pre-split ], [ true, %214 ]
+  %.not142 = phi i1 [ false, %thread-pre-split ], [ true, %214 ]
   %.2 = phi ptr [ %.2.ph, %thread-pre-split ], [ %41, %214 ]
   %252 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  %.not137 = icmp eq ptr %251, null
-  br i1 %.not137, label %264, label %.preheader
+  %.not138 = icmp eq ptr %251, null
+  br i1 %.not138, label %264, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %250
   %253 = phi ptr [ %249, %.thread ], [ %252, %250 ]
-  %.not141260 = phi i1 [ true, %.thread ], [ %.not141, %250 ]
+  %.not142259 = phi i1 [ true, %.thread ], [ %.not142, %250 ]
   %254 = phi ptr [ %12, %.thread ], [ %251, %250 ]
   %255 = load i8, ptr %254, align 1
-  %.not138215 = icmp eq i8 %255, 0
-  br i1 %.not138215, label %.critedge2.thread, label %.lr.ph217
+  %.not139214 = icmp eq i8 %255, 0
+  br i1 %.not139214, label %.critedge2.thread, label %.lr.ph216
 
-.lr.ph217:                                        ; preds = %.preheader, %257
-  %.083216 = phi ptr [ %261, %257 ], [ %254, %.preheader ]
-  %256 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.083216, i32 noundef 37) #27
-  %.not139 = icmp eq ptr %256, null
-  br i1 %.not139, label %.critedge2, label %257
+.lr.ph216:                                        ; preds = %.preheader, %257
+  %.084215 = phi ptr [ %261, %257 ], [ %254, %.preheader ]
+  %256 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.084215, i32 noundef 37) #27
+  %.not140 = icmp eq ptr %256, null
+  br i1 %.not140, label %.critedge2, label %257
 
-257:                                              ; preds = %.lr.ph217
+257:                                              ; preds = %.lr.ph216
   %258 = ptrtoint ptr %256 to i64
-  %259 = ptrtoint ptr %.083216 to i64
+  %259 = ptrtoint ptr %.084215 to i64
   %260 = sub i64 %258, %259
-  call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.083216, i64 noundef %260) #20
+  call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.084215, i64 noundef %260) #20
   call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @.str.15, i64 noundef -1) #20
   %261 = getelementptr inbounds nuw i8, ptr %256, i64 1
   %262 = load i8, ptr %261, align 1
-  %.not138 = icmp eq i8 %262, 0
-  br i1 %.not138, label %.critedge2.thread, label %.lr.ph217, !llvm.loop !19
+  %.not139 = icmp eq i8 %262, 0
+  br i1 %.not139, label %.critedge2.thread, label %.lr.ph216, !llvm.loop !19
 
-.critedge2:                                       ; preds = %.lr.ph217
-  call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.083216, i64 noundef -1) #20
+.critedge2:                                       ; preds = %.lr.ph216
+  call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.084215, i64 noundef -1) #20
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %257, %.preheader, %.critedge2
-  br i1 %.not141260, label %264, label %263
+  br i1 %.not142259, label %264, label %263
 
 263:                                              ; preds = %.critedge2.thread
   call void @slurm_xfree(ptr noundef nonnull %11) #20
@@ -2494,95 +2494,95 @@ thread-pre-split:                                 ; preds = %switch.lookup, %218
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #20
   %266 = load i8, ptr %265, align 1
   %.not = icmp eq i8 %266, 0
-  br i1 %.not, label %.thread157, label %38
+  br i1 %.not, label %.thread156, label %38
 
-.thread157.sink.split:                            ; preds = %38, %47
-  %.1108.ph = phi i1 [ true, %47 ], [ %.0107219, %38 ]
-  call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.089221, i64 noundef -1) #20
-  br label %.thread157
+.thread156.sink.split:                            ; preds = %38, %47
+  %.1109.ph = phi i1 [ true, %47 ], [ %.0108218, %38 ]
+  call void @_xstrncatat(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %.090220, i64 noundef -1) #20
+  br label %.thread156
 
-.thread157:                                       ; preds = %264, %.thread157.sink.split
-  %.1108 = phi i1 [ %.1108.ph, %.thread157.sink.split ], [ %.4.ph, %264 ]
+.thread156:                                       ; preds = %264, %.thread156.sink.split
+  %.1109 = phi i1 [ %.1109.ph, %.thread156.sink.split ], [ %.4.ph, %264 ]
   %267 = load ptr, ptr %9, align 8
-  %.not142 = icmp ne ptr %267, null
-  %brmerge.not = select i1 %.not142, i1 %.1108, i1 false
-  br i1 %brmerge.not, label %268, label %294
+  %268 = icmp ne ptr %267, null
+  %or.cond = select i1 %268, i1 %.1109, i1 false
+  br i1 %or.cond, label %269, label %295
 
-268:                                              ; preds = %.thread157
+269:                                              ; preds = %.thread156
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %19) #20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #20
   call void @llvm.va_copy.p0(ptr nonnull %20, ptr %1)
-  %269 = load ptr, ptr %9, align 8
-  %270 = call i32 @vsnprintf(ptr noundef nonnull %19, i64 noundef 256, ptr noundef %269, ptr noundef nonnull %20) #20
+  %270 = load ptr, ptr %9, align 8
+  %271 = call i32 @vsnprintf(ptr noundef nonnull %19, i64 noundef 256, ptr noundef %270, ptr noundef nonnull %20) #20
   call void @llvm.va_end.p0(ptr nonnull %20)
-  %271 = icmp sgt i32 %270, -1
-  br i1 %271, label %272, label %283
+  %272 = icmp sgt i32 %271, -1
+  br i1 %272, label %273, label %284
 
-272:                                              ; preds = %268
-  %273 = icmp samesign ult i32 %270, 256
-  br i1 %273, label %274, label %276
+273:                                              ; preds = %269
+  %274 = icmp samesign ult i32 %271, 256
+  br i1 %274, label %275, label %277
 
-274:                                              ; preds = %272
-  %275 = call ptr @xstrdup(ptr noundef nonnull %19) #20
-  br label %293
+275:                                              ; preds = %273
+  %276 = call ptr @xstrdup(ptr noundef nonnull %19) #20
+  br label %294
 
-276:                                              ; preds = %272
-  %277 = add nuw nsw i32 %270, 1
-  %278 = zext nneg i32 %277 to i64
-  %279 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %278, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 1194, ptr noundef nonnull @__func__.vxstrfmt) #20
-  %.not145 = icmp eq ptr %279, null
-  br i1 %.not145, label %293, label %280
+277:                                              ; preds = %273
+  %278 = add nuw nsw i32 %271, 1
+  %279 = zext nneg i32 %278 to i64
+  %280 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %279, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 1194, ptr noundef nonnull @__func__.vxstrfmt) #20
+  %.not144 = icmp eq ptr %280, null
+  br i1 %.not144, label %294, label %281
 
-280:                                              ; preds = %276
+281:                                              ; preds = %277
   call void @llvm.va_copy.p0(ptr nonnull %20, ptr %1)
-  %281 = load ptr, ptr %9, align 8
-  %282 = call i32 @vsnprintf(ptr noundef nonnull %279, i64 noundef %278, ptr noundef %281, ptr noundef nonnull %20) #20
+  %282 = load ptr, ptr %9, align 8
+  %283 = call i32 @vsnprintf(ptr noundef nonnull %280, i64 noundef %279, ptr noundef %282, ptr noundef nonnull %20) #20
   call void @llvm.va_end.p0(ptr nonnull %20)
-  br label %293
+  br label %294
 
-283:                                              ; preds = %268
+284:                                              ; preds = %269
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #20
   store ptr null, ptr %21, align 8
-  br label %284
+  br label %285
 
-284:                                              ; preds = %287, %283
-  %.0 = phi i64 [ 256, %283 ], [ %285, %287 ]
-  %285 = add i64 %.0, 256
-  %286 = call ptr @slurm_xrecalloc(ptr noundef nonnull %21, i64 noundef 1, i64 noundef %285, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 1215, ptr noundef nonnull @__func__.vxstrfmt) #20
-  store ptr %286, ptr %21, align 8
-  %.not144 = icmp eq ptr %286, null
-  br i1 %.not144, label %split, label %287
+285:                                              ; preds = %288, %284
+  %.0 = phi i64 [ 256, %284 ], [ %286, %288 ]
+  %286 = add i64 %.0, 256
+  %287 = call ptr @slurm_xrecalloc(ptr noundef nonnull %21, i64 noundef 1, i64 noundef %286, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 1215, ptr noundef nonnull @__func__.vxstrfmt) #20
+  store ptr %287, ptr %21, align 8
+  %.not143 = icmp eq ptr %287, null
+  br i1 %.not143, label %split, label %288
 
-287:                                              ; preds = %284
+288:                                              ; preds = %285
   call void @llvm.va_copy.p0(ptr nonnull %20, ptr %1)
-  %288 = load ptr, ptr %21, align 8
-  %289 = load ptr, ptr %9, align 8
-  %290 = call i32 @vsnprintf(ptr noundef %288, i64 noundef %285, ptr noundef %289, ptr noundef nonnull %20) #20
+  %289 = load ptr, ptr %21, align 8
+  %290 = load ptr, ptr %9, align 8
+  %291 = call i32 @vsnprintf(ptr noundef %289, i64 noundef %286, ptr noundef %290, ptr noundef nonnull %20) #20
   call void @llvm.va_end.p0(ptr nonnull %20)
-  %291 = icmp slt i32 %290, 0
-  br i1 %291, label %284, label %._crit_edge253, !llvm.loop !20
+  %292 = icmp slt i32 %291, 0
+  br i1 %292, label %285, label %._crit_edge252, !llvm.loop !20
 
-._crit_edge253:                                   ; preds = %287
+._crit_edge252:                                   ; preds = %288
   %.pre = load ptr, ptr %21, align 8
   br label %split, !llvm.loop !20
 
-split:                                            ; preds = %284, %._crit_edge253
-  %292 = phi ptr [ %.pre, %._crit_edge253 ], [ null, %284 ]
+split:                                            ; preds = %285, %._crit_edge252
+  %293 = phi ptr [ %.pre, %._crit_edge252 ], [ null, %285 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #20
-  br label %293
+  br label %294
 
-293:                                              ; preds = %274, %280, %276, %split
-  %.097 = phi ptr [ %275, %274 ], [ %279, %280 ], [ null, %276 ], [ %292, %split ]
+294:                                              ; preds = %275, %281, %277, %split
+  %.098 = phi ptr [ %276, %275 ], [ %280, %281 ], [ null, %277 ], [ %293, %split ]
   call void @slurm_xfree(ptr noundef nonnull %9) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #20
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %19) #20
-  br label %294
+  br label %295
 
-294:                                              ; preds = %.thread157.thread, %.thread157, %293
-  %.198 = phi ptr [ %.097, %293 ], [ %267, %.thread157 ], [ %23, %.thread157.thread ]
+295:                                              ; preds = %.thread156.thread, %.thread156, %294
+  %.199 = phi ptr [ %.098, %294 ], [ %267, %.thread156 ], [ %23, %.thread156.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #20
-  ret ptr %.198
+  ret ptr %.199
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -2877,8 +2877,8 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
 
 16:                                               ; preds = %6
   %17 = load ptr, ptr @log, align 8
-  %.not55 = icmp eq ptr %17, null
-  br i1 %.not55, label %22, label %18
+  %.not56 = icmp eq ptr %17, null
+  br i1 %.not56, label %22, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -2898,20 +2898,20 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   %28 = trunc nuw i8 %27 to i1
   %spec.select = select i1 %28, ptr @.str.56, ptr @.str.55
   %29 = load ptr, ptr @sched_log, align 8
-  %.not56 = icmp eq ptr %29, null
-  br i1 %.not56, label %50, label %30
+  %.not57 = icmp eq ptr %29, null
+  br i1 %.not57, label %50, label %30
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %32 = load i8, ptr %31, align 8, !range !8, !noundef !9
   %33 = trunc nuw i8 %32 to i1
-  %brmerge.demorgan = and i1 %1, %33
-  br i1 %brmerge.demorgan, label %34, label %50
+  %or.cond = and i1 %1, %33
+  br i1 %or.cond, label %34, label %50
 
 34:                                               ; preds = %30
   %35 = load volatile i32, ptr @highest_sched_log_level, align 4
-  %.not57 = icmp eq i32 %35, 0
-  br i1 %.not57, label %50, label %36
+  %.not58 = icmp eq i32 %35, 0
+  br i1 %.not58, label %50, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -2932,15 +2932,15 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   call void @slurm_xfree(ptr noundef nonnull %8) #20
   br label %50
 
-50:                                               ; preds = %30, %36, %34, %24
+50:                                               ; preds = %36, %34, %30, %24
   %51 = load volatile i32, ptr @highest_log_level, align 4
   %52 = icmp ugt i32 %0, %51
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %50
   %54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @log_lock) #20
-  %.not66 = icmp eq i32 %54, 0
-  br i1 %.not66, label %189, label %55
+  %.not67 = icmp eq i32 %54, 0
+  br i1 %.not67, label %189, label %55
 
 55:                                               ; preds = %53
   %56 = tail call ptr @__errno_location() #21
@@ -3007,12 +3007,12 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   br label %83
 
 83:                                               ; preds = %66, %67, %70, %74, %76, %78, %80, %81, %82, %62
-  %.046 = phi i32 [ 3, %82 ], [ 7, %81 ], [ 7, %80 ], [ 7, %78 ], [ 7, %76 ], [ 7, %74 ], [ %71, %70 ], [ 3, %67 ], [ 6, %62 ], [ 2, %66 ]
+  %.047 = phi i32 [ 3, %82 ], [ 7, %81 ], [ 7, %80 ], [ 7, %78 ], [ 7, %76 ], [ 7, %74 ], [ %71, %70 ], [ 3, %67 ], [ 6, %62 ], [ 2, %66 ]
   %.0 = phi ptr [ @.str.72, %82 ], [ @.str.71, %81 ], [ @.str.70, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %70 ], [ %69, %67 ], [ @.str.9, %62 ], [ @.str.59, %66 ]
   %84 = getelementptr inbounds nuw i8, ptr %58, i64 44
   %85 = load i32, ptr %84, align 4
-  %.not58 = icmp ugt i32 %0, %85
-  br i1 %.not58, label %114, label %86
+  %.not59 = icmp ugt i32 %0, %85
+  br i1 %.not59, label %114, label %86
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr @stdout, align 8
@@ -3057,15 +3057,15 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
 111:                                              ; preds = %97, %104, %89
   %112 = load ptr, ptr @stderr, align 8
   %113 = call i32 @fflush(ptr noundef %112)
-  %.pre69 = load ptr, ptr @log, align 8
+  %.pre68 = load ptr, ptr @log, align 8
   br label %114
 
 114:                                              ; preds = %111, %83
-  %115 = phi ptr [ %.pre69, %111 ], [ %58, %83 ]
+  %115 = phi ptr [ %.pre68, %111 ], [ %58, %83 ]
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8
-  %.not59 = icmp eq ptr %117, null
-  br i1 %.not59, label %174, label %118
+  %.not60 = icmp eq ptr %117, null
+  br i1 %.not60, label %174, label %118
 
 118:                                              ; preds = %114
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 52
@@ -3088,8 +3088,8 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   %129 = load ptr, ptr @log, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 44
   %131 = load i32, ptr %130, align 4
-  %.not60 = icmp ugt i32 %0, %131
-  %.str.78..str.77 = select i1 %.not60, ptr @.str.78, ptr @.str.77
+  %.not61 = icmp ugt i32 %0, %131
+  %.str.78..str.77 = select i1 %.not61, ptr @.str.78, ptr @.str.77
   %132 = call i64 @log_timestamp(ptr noundef nonnull %9, i64 noundef 50)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #20
   store ptr null, ptr %11, align 8
@@ -3100,8 +3100,8 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %11, ptr noundef nonnull @.str.79, ptr noundef %135, ptr noundef %.0, ptr noundef %136) #20
   %137 = call ptr @data_key_set(ptr noundef %128, ptr noundef nonnull @.str.80) #20
   %138 = call ptr @_data_set_string_own(ptr noundef %137, ptr noundef nonnull %11) #20
-  %.not61 = icmp eq ptr %138, null
-  br i1 %.not61, label %139, label %140
+  %.not62 = icmp eq ptr %138, null
+  br i1 %.not62, label %139, label %140
 
 139:                                              ; preds = %126
   call void @slurm_xfree(ptr noundef nonnull %11) #20
@@ -3114,8 +3114,8 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   %143 = call ptr @data_key_set(ptr noundef %128, ptr noundef nonnull @.str.82) #20
   %144 = call ptr @data_set_string(ptr noundef %143, ptr noundef nonnull %9) #20
   %145 = call i32 @serialize_g_data_to_string(ptr noundef nonnull %10, ptr noundef null, ptr noundef %128, ptr noundef nonnull @.str.41, i32 noundef 1) #20
-  %.not62 = icmp eq ptr %128, null
-  br i1 %.not62, label %147, label %146
+  %.not63 = icmp eq ptr %128, null
+  br i1 %.not63, label %147, label %146
 
 146:                                              ; preds = %140
   call void @data_free(ptr noundef nonnull %128) #20
@@ -3123,8 +3123,8 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
 
 147:                                              ; preds = %146, %140
   %148 = load ptr, ptr %10, align 8
-  %.not63 = icmp eq ptr %148, null
-  br i1 %.not63, label %155, label %149
+  %.not64 = icmp eq ptr %148, null
+  br i1 %.not64, label %155, label %149
 
 149:                                              ; preds = %147
   %150 = load ptr, ptr @log, align 8
@@ -3168,8 +3168,8 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   %175 = load ptr, ptr @log, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 48
   %177 = load i32, ptr %176, align 4
-  %.not64 = icmp ugt i32 %0, %177
-  br i1 %.not64, label %185, label %178
+  %.not65 = icmp ugt i32 %0, %177
+  br i1 %.not65, label %185, label %178
 
 178:                                              ; preds = %174
   %179 = tail call ptr @__errno_location() #21
@@ -3179,15 +3179,15 @@ define internal fastcc void @_log_msg(i32 noundef %0, i1 noundef zeroext %1, i1 
   %183 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @xlogfmtcat(ptr noundef %8, ptr noundef nonnull @.str.79, ptr noundef %182, ptr noundef %.0, ptr noundef %183)
   %184 = load ptr, ptr %8, align 8
-  call void (i32, ptr, ...) @syslog(i32 noundef %.046, ptr noundef nonnull @.str.85, ptr noundef %184) #20
+  call void (i32, ptr, ...) @syslog(i32 noundef %.047, ptr noundef nonnull @.str.85, ptr noundef %184) #20
   store i32 %180, ptr %179, align 4
   call void @slurm_xfree(ptr noundef nonnull %8) #20
   br label %185
 
 185:                                              ; preds = %174, %178
   %186 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @log_lock) #20
-  %.not65 = icmp eq i32 %186, 0
-  br i1 %.not65, label %189, label %187
+  %.not66 = icmp eq i32 %186, 0
+  br i1 %.not66, label %189, label %187
 
 187:                                              ; preds = %185
   %188 = tail call ptr @__errno_location() #21

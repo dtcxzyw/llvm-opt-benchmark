@@ -888,7 +888,7 @@ define void @_ZN4YAML7Emitter10EmitEndSeqEv(ptr noundef nonnull align 8 derefere
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = load i8, ptr %3, align 8, !tbaa !21, !range !39, !noundef !40
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %60
+  br i1 %5, label %6, label %58
 
 6:                                                ; preds = %1
   %7 = tail call noundef i32 @_ZNK4YAML12EmitterState16CurGroupFlowTypeEv(ptr noundef nonnull align 8 dereferenceable(224) %3)
@@ -906,7 +906,7 @@ define void @_ZN4YAML7Emitter10EmitEndSeqEv(ptr noundef nonnull align 8 derefere
   %14 = load ptr, ptr %0, align 8, !tbaa !3
   %15 = tail call noundef i32 @_ZNK4YAML12EmitterState16CurGroupFlowTypeEv(ptr noundef nonnull align 8 dereferenceable(224) %14)
   %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %58
+  br i1 %16, label %17, label %56
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -928,83 +928,79 @@ define void @_ZN4YAML7Emitter10EmitEndSeqEv(ptr noundef nonnull align 8 derefere
   %26 = getelementptr inbounds nuw i8, ptr %.pre, i64 208
   %27 = load i8, ptr %26, align 8, !tbaa !48, !range !39, !noundef !40
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %29
+  %29 = getelementptr inbounds nuw i8, ptr %.pre, i64 210
+  %30 = load i8, ptr %29, align 2, !range !39
+  %31 = trunc nuw i8 %30 to i1
+  %or.cond.i = select i1 %28, i1 true, i1 %31
+  br i1 %or.cond.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %.pre, i64 210
-  %31 = load i8, ptr %30, align 2, !tbaa !49, !range !39, !noundef !40
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %.pre, i64 211
+  %33 = load i8, ptr %32, align 1, !tbaa !52, !range !39, !noundef !40
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %.pre, i64 211
-  %34 = load i8, ptr %33, align 1, !tbaa !52, !range !39, !noundef !40
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread
-
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %25, %29, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, %23
-  %36 = getelementptr inbounds nuw i8, ptr %.pre, i64 200
-  %37 = load i64, ptr %36, align 8, !tbaa !53
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %39 = load i64, ptr %38, align 8, !tbaa !50
-  %40 = icmp ult i64 %39, %37
-  br i1 %40, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %25, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, %23
+  %35 = getelementptr inbounds nuw i8, ptr %.pre, i64 200
+  %36 = load i64, ptr %35, align 8, !tbaa !53
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %38 = load i64, ptr %37, align 8, !tbaa !50
+  %39 = icmp ult i64 %38, %36
+  br i1 %39, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
 
 .lr.ph.i:                                         ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 32, ptr %2, align 1, !tbaa !20
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull %2, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %41 = load i64, ptr %38, align 8, !tbaa !50
-  %42 = icmp ult i64 %41, %37
-  br i1 %42, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
+  %40 = load i64, ptr %37, align 8, !tbaa !50
+  %41 = icmp ult i64 %40, %36
+  br i1 %41, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
 
 _ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
-  br i1 %24, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2.thread.sink.split, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit._ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread_crit_edge
+  br i1 %24, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3.thread.sink.split, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit._ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread_crit_edge
 
 _ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit._ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread_crit_edge: ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
-  %.pre4 = load ptr, ptr %0, align 8, !tbaa !3
+  %.pre5 = load ptr, ptr %0, align 8, !tbaa !3
   br label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread
 
 _ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread: ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit._ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread_crit_edge, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %43 = phi ptr [ %.pre4, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit._ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread_crit_edge ], [ %.pre, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit ]
-  %44 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %43)
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %46, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2.thread
+  %42 = phi ptr [ %.pre5, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit._ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread_crit_edge ], [ %.pre, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit ]
+  %43 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %42)
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %45, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3.thread
 
-46:                                               ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread
-  %47 = load ptr, ptr %0, align 8, !tbaa !3
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 208
-  %49 = load i8, ptr %48, align 8, !tbaa !48, !range !39, !noundef !40
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2.thread, label %51
+45:                                               ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread
+  %46 = load ptr, ptr %0, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 208
+  %48 = load i8, ptr %47, align 8, !tbaa !48, !range !39, !noundef !40
+  %49 = trunc nuw i8 %48 to i1
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 210
+  %51 = load i8, ptr %50, align 2, !range !39
+  %52 = trunc nuw i8 %51 to i1
+  %or.cond.i2 = select i1 %49, i1 true, i1 %52
+  br i1 %or.cond.i2, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 210
-  %53 = load i8, ptr %52, align 2, !tbaa !49, !range !39, !noundef !40
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3:    ; preds = %45
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 211
+  %54 = load i8, ptr %53, align 1, !tbaa !52, !range !39, !noundef !40
+  %55 = trunc nuw i8 %54 to i1
+  br i1 %55, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3.thread.sink.split
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2:    ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 211
-  %56 = load i8, ptr %55, align 1, !tbaa !52, !range !39, !noundef !40
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2.thread.sink.split
-
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2.thread.sink.split: ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3.thread.sink.split: ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull @.str.4, i64 noundef 1)
-  br label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2.thread
+  br label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3.thread
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2.thread: ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2.thread.sink.split, %46, %51, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3.thread: ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3.thread.sink.split, %45, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull @.str.5, i64 noundef 1)
+  br label %56
+
+56:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit3.thread, %13
+  %57 = load ptr, ptr %0, align 8, !tbaa !3
+  call void @_ZN4YAML12EmitterState10EndedGroupENS_9GroupType5valueE(ptr noundef nonnull align 8 dereferenceable(224) %57, i32 noundef 1)
   br label %58
 
-58:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit2.thread, %13
-  %59 = load ptr, ptr %0, align 8, !tbaa !3
-  call void @_ZN4YAML12EmitterState10EndedGroupENS_9GroupType5valueE(ptr noundef nonnull align 8 dereferenceable(224) %59, i32 noundef 1)
-  br label %60
-
-60:                                               ; preds = %1, %58
+58:                                               ; preds = %1, %56
   ret void
 }
 
@@ -1032,7 +1028,7 @@ define void @_ZN4YAML7Emitter10EmitEndMapEv(ptr noundef nonnull align 8 derefere
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = load i8, ptr %3, align 8, !tbaa !21, !range !39, !noundef !40
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %51
+  br i1 %5, label %6, label %50
 
 6:                                                ; preds = %1
   %7 = tail call noundef i32 @_ZNK4YAML12EmitterState16CurGroupFlowTypeEv(ptr noundef nonnull align 8 dereferenceable(224) %3)
@@ -1050,7 +1046,7 @@ define void @_ZN4YAML7Emitter10EmitEndMapEv(ptr noundef nonnull align 8 derefere
   %14 = load ptr, ptr %0, align 8, !tbaa !3
   %15 = tail call noundef i32 @_ZNK4YAML12EmitterState16CurGroupFlowTypeEv(ptr noundef nonnull align 8 dereferenceable(224) %14)
   %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %49
+  br i1 %16, label %17, label %48
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1096,34 +1092,32 @@ _ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 208
   %40 = load i8, ptr %39, align 8, !tbaa !48, !range !39, !noundef !40
   %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %42
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 210
+  %43 = load i8, ptr %42, align 2, !range !39
+  %44 = trunc nuw i8 %43 to i1
+  %or.cond.i = select i1 %41, i1 true, i1 %44
+  br i1 %or.cond.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 210
-  %44 = load i8, ptr %43, align 2, !tbaa !49, !range !39, !noundef !40
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 211
-  %47 = load i8, ptr %46, align 1, !tbaa !52, !range !39, !noundef !40
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread.sink.split
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %37
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 211
+  %46 = load i8, ptr %45, align 1, !tbaa !52, !range !39, !noundef !40
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread.sink.split
 
 _ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread.sink.split: ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull @.str.6, i64 noundef 1)
   br label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread.sink.split, %37, %42, %33, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread.sink.split, %37, %33, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull @.str.7, i64 noundef 1)
-  br label %49
+  br label %48
 
-49:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %13
-  %50 = load ptr, ptr %0, align 8, !tbaa !3
-  call void @_ZN4YAML12EmitterState10EndedGroupENS_9GroupType5valueE(ptr noundef nonnull align 8 dereferenceable(224) %50, i32 noundef 2)
-  br label %51
+48:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %13
+  %49 = load ptr, ptr %0, align 8, !tbaa !3
+  call void @_ZN4YAML12EmitterState10EndedGroupENS_9GroupType5valueE(ptr noundef nonnull align 8 dereferenceable(224) %49, i32 noundef 2)
+  br label %50
 
-51:                                               ; preds = %1, %49
+50:                                               ; preds = %1, %48
   ret void
 }
 
@@ -1413,12 +1407,12 @@ define void @_ZN4YAML7Emitter14PrepareTopNodeENS_15EmitterNodeType5valueE(ptr no
 
 10:                                               ; preds = %9, %4
   switch i32 %1, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit [
-    i32 6, label %28
+    i32 6, label %29
     i32 1, label %11
     i32 2, label %11
     i32 3, label %11
     i32 5, label %11
-    i32 4, label %28
+    i32 4, label %29
   ]
 
 11:                                               ; preds = %10, %10, %10, %10
@@ -1442,39 +1436,37 @@ define void @_ZN4YAML7Emitter14PrepareTopNodeENS_15EmitterNodeType5valueE(ptr no
 
 25:                                               ; preds = %24, %11
   %26 = load i64, ptr %7, align 8, !tbaa !50
-  %.not.i = icmp ne i64 %26, 0
-  %brmerge.not.i = and i1 %19, %.not.i
-  br i1 %brmerge.not.i, label %27, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
+  %27 = icmp ne i64 %26, 0
+  %or.cond.i = and i1 %19, %27
+  br i1 %or.cond.i, label %28, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
-27:                                               ; preds = %25
+28:                                               ; preds = %25
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %20, ptr noundef nonnull @.str.13, i64 noundef 1)
   br label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
-28:                                               ; preds = %10, %10
-  %29 = load ptr, ptr %0, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 208
-  %31 = load i8, ptr %30, align 8, !tbaa !48, !range !39, !noundef !40
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %33
-
-33:                                               ; preds = %28
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 210
-  %35 = load i8, ptr %34, align 2, !tbaa !49, !range !39, !noundef !40
+29:                                               ; preds = %10, %10
+  %30 = load ptr, ptr %0, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 208
+  %32 = load i8, ptr %31, align 8, !tbaa !48, !range !39, !noundef !40
+  %33 = trunc nuw i8 %32 to i1
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 210
+  %35 = load i8, ptr %34, align 2, !range !39
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+  %or.cond.i3 = select i1 %33, i1 true, i1 %36
+  br i1 %or.cond.i3, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %29, i64 211
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %29
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 211
   %38 = load i8, ptr %37, align 1, !tbaa !52, !range !39, !noundef !40
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %28, %33, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %29, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %40, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
-_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit:        ; preds = %27, %25, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %2, %10
+_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit:        ; preds = %28, %25, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %2, %10
   ret void
 }
 
@@ -1488,113 +1480,111 @@ define void @_ZN4YAML7Emitter18FlowSeqPrepareNodeENS_15EmitterNodeType5valueE(pt
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %9 = load i8, ptr %8, align 8, !tbaa !48, !range !39, !noundef !40
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %11
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 210
+  %12 = load i8, ptr %11, align 2, !range !39
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond.i = select i1 %10, i1 true, i1 %13
+  br i1 %or.cond.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 210
-  %13 = load i8, ptr %12, align 2, !tbaa !49, !range !39, !noundef !40
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 211
+  %15 = load i8, ptr %14, align 1, !tbaa !52, !range !39, !noundef !40
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %17
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 211
-  %16 = load i8, ptr %15, align 1, !tbaa !52, !range !39, !noundef !40
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %18
+17:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = load i8, ptr %19, align 8, !tbaa !51, !range !39, !noundef !40
+  %21 = trunc nuw i8 %20 to i1
+  br i1 %21, label %22, label %23
 
-18:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load i8, ptr %20, align 8, !tbaa !51, !range !39, !noundef !40
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %24
+22:                                               ; preds = %17
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %23
 
-23:                                               ; preds = %18
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %24
+23:                                               ; preds = %22, %17
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = load i64, ptr %24, align 8, !tbaa !50
+  %26 = icmp ult i64 %25, %6
+  br i1 %26, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
 
-24:                                               ; preds = %23, %18
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %26 = load i64, ptr %25, align 8, !tbaa !50
-  %27 = icmp ult i64 %26, %6
-  br i1 %27, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
-
-.lr.ph.i:                                         ; preds = %24, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 32, ptr %4, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull %4, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %28 = load i64, ptr %25, align 8, !tbaa !50
-  %29 = icmp ult i64 %28, %6
-  br i1 %29, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
+  %27 = load i64, ptr %24, align 8, !tbaa !50
+  %28 = icmp ult i64 %27, %6
+  br i1 %28, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
 
-_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %24
-  %30 = load ptr, ptr %0, align 8, !tbaa !3
-  %31 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %30)
-  %32 = icmp eq i64 %31, 0
-  %.str.4..str.8 = select i1 %32, ptr @.str.4, ptr @.str.8
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull %.str.4..str.8, i64 noundef 1)
+_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %23
+  %29 = load ptr, ptr %0, align 8, !tbaa !3
+  %30 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %29)
+  %31 = icmp eq i64 %30, 0
+  %.str.4..str.8 = select i1 %31, ptr @.str.4, ptr @.str.8
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull %.str.4..str.8, i64 noundef 1)
   br label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, %2, %11, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, %2, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
   switch i32 %1, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit [
-    i32 5, label %33
-    i32 1, label %33
-    i32 2, label %33
-    i32 3, label %33
+    i32 5, label %32
+    i32 1, label %32
+    i32 2, label %32
+    i32 3, label %32
   ]
 
-33:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
-  %34 = load ptr, ptr %0, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 208
-  %36 = load i8, ptr %35, align 8, !tbaa !48, !range !39, !noundef !40
-  %37 = trunc nuw i8 %36 to i1
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 210
-  %39 = load i8, ptr %38, align 2, !range !39
-  %40 = trunc nuw i8 %39 to i1
-  %41 = select i1 %37, i1 true, i1 %40
-  br i1 %41, label %45, label %42
+32:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
+  %33 = load ptr, ptr %0, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 208
+  %35 = load i8, ptr %34, align 8, !tbaa !48, !range !39, !noundef !40
+  %36 = trunc nuw i8 %35 to i1
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 210
+  %38 = load i8, ptr %37, align 2, !range !39
+  %39 = trunc nuw i8 %38 to i1
+  %40 = select i1 %36, i1 true, i1 %39
+  br i1 %40, label %44, label %41
 
-42:                                               ; preds = %33
-  %43 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %34)
-  %44 = icmp ne i64 %43, 0
-  br label %45
+41:                                               ; preds = %32
+  %42 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %33)
+  %43 = icmp ne i64 %42, 0
+  br label %44
 
-45:                                               ; preds = %42, %33
-  %46 = phi i1 [ true, %33 ], [ %44, %42 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %49 = load i8, ptr %48, align 8, !tbaa !51, !range !39, !noundef !40
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %52
+44:                                               ; preds = %41, %32
+  %45 = phi i1 [ true, %32 ], [ %43, %41 ]
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %48 = load i8, ptr %47, align 8, !tbaa !51, !range !39, !noundef !40
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %50, label %51
 
-51:                                               ; preds = %45
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %47, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %52
+50:                                               ; preds = %44
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %46, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %51
 
-52:                                               ; preds = %51, %45
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %54 = load i64, ptr %53, align 8, !tbaa !50
-  %.not.i = icmp ne i64 %54, 0
-  %brmerge.not.i = and i1 %46, %.not.i
-  br i1 %brmerge.not.i, label %55, label %56
+51:                                               ; preds = %50, %44
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %53 = load i64, ptr %52, align 8, !tbaa !50
+  %54 = icmp ne i64 %53, 0
+  %or.cond.i3 = and i1 %45, %54
+  br i1 %or.cond.i3, label %55, label %56
 
-55:                                               ; preds = %52
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %47, ptr noundef nonnull @.str.13, i64 noundef 1)
-  %.pre.i = load i64, ptr %53, align 8, !tbaa !50
+55:                                               ; preds = %51
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %46, ptr noundef nonnull @.str.13, i64 noundef 1)
+  %.pre.i = load i64, ptr %52, align 8, !tbaa !50
   br label %56
 
-56:                                               ; preds = %55, %52
-  %57 = phi i64 [ %54, %52 ], [ %.pre.i, %55 ]
+56:                                               ; preds = %55, %51
+  %57 = phi i64 [ %.pre.i, %55 ], [ %53, %51 ]
   %58 = icmp ult i64 %57, %6
   br i1 %58, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
 .lr.ph.i.i:                                       ; preds = %56, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 32, ptr %3, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %47, ptr noundef nonnull %3, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %46, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %59 = load i64, ptr %53, align 8, !tbaa !50
+  %59 = load i64, ptr %52, align 8, !tbaa !50
   %60 = icmp ult i64 %59, %6
   br i1 %60, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit, !llvm.loop !54
 
@@ -1623,100 +1613,98 @@ define void @_ZN4YAML7Emitter19BlockSeqPrepareNodeENS_15EmitterNodeType5valueE(p
   %17 = load i8, ptr %16, align 2, !range !39
   %18 = trunc nuw i8 %17 to i1
   %19 = select i1 %15, i1 true, i1 %18
-  br i1 %19, label %35, label %20
+  br i1 %19, label %34, label %20
 
 20:                                               ; preds = %11
   %21 = tail call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %12)
-  %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %22, label %26
+  %.not = icmp ne i64 %21, 0
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %23 = load i8, ptr %22, align 8, !range !39
+  %24 = trunc nuw i8 %23 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %24
+  br i1 %or.cond, label %25, label %27
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load i8, ptr %23, align 8, !tbaa !51, !range !39, !noundef !40
-  %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %26, label %28
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %26, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %27
 
-26:                                               ; preds = %22, %20
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %27, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %28
+27:                                               ; preds = %20, %25
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %30 = load i64, ptr %29, align 8, !tbaa !50
+  %31 = icmp ult i64 %30, %7
+  br i1 %31, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
 
-28:                                               ; preds = %26, %22
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %31 = load i64, ptr %30, align 8, !tbaa !50
-  %32 = icmp ult i64 %31, %7
-  br i1 %32, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
-
-.lr.ph.i:                                         ; preds = %28, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %27, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 32, ptr %4, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %29, ptr noundef nonnull %4, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %28, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %33 = load i64, ptr %30, align 8, !tbaa !50
-  %34 = icmp ult i64 %33, %7
-  br i1 %34, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
+  %32 = load i64, ptr %29, align 8, !tbaa !50
+  %33 = icmp ult i64 %32, %7
+  br i1 %33, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
 
-_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %28
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %29, ptr noundef nonnull @.str.9, i64 noundef 1)
-  br label %35
+_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %27
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %28, ptr noundef nonnull @.str.9, i64 noundef 1)
+  br label %34
 
-35:                                               ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, %11
+34:                                               ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, %11
   switch i32 %1, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit [
     i32 6, label %59
-    i32 1, label %36
-    i32 2, label %36
-    i32 3, label %36
-    i32 5, label %36
+    i32 1, label %35
+    i32 2, label %35
+    i32 3, label %35
+    i32 5, label %35
     i32 4, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit.sink.split
   ]
 
-36:                                               ; preds = %35, %35, %35, %35
-  %37 = load ptr, ptr %0, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 208
-  %39 = load i8, ptr %38, align 8, !tbaa !48, !range !39, !noundef !40
-  %40 = trunc nuw i8 %39 to i1
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 210
-  %42 = load i8, ptr %41, align 2, !range !39
-  %43 = trunc nuw i8 %42 to i1
-  %44 = select i1 %40, i1 true, i1 %43
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %47 = load i8, ptr %46, align 8, !tbaa !51, !range !39, !noundef !40
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %50
+35:                                               ; preds = %34, %34, %34, %34
+  %36 = load ptr, ptr %0, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 208
+  %38 = load i8, ptr %37, align 8, !tbaa !48, !range !39, !noundef !40
+  %39 = trunc nuw i8 %38 to i1
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 210
+  %41 = load i8, ptr %40, align 2, !range !39
+  %42 = trunc nuw i8 %41 to i1
+  %43 = select i1 %39, i1 true, i1 %42
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %46 = load i8, ptr %45, align 8, !tbaa !51, !range !39, !noundef !40
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %49
 
-49:                                               ; preds = %36
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %45, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %50
+48:                                               ; preds = %35
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %44, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %49
 
-50:                                               ; preds = %49, %36
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %52 = load i64, ptr %51, align 8, !tbaa !50
-  %.not.i = icmp ne i64 %52, 0
-  %brmerge.not.i = and i1 %44, %.not.i
-  br i1 %brmerge.not.i, label %53, label %54
+49:                                               ; preds = %48, %35
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %51 = load i64, ptr %50, align 8, !tbaa !50
+  %52 = icmp ne i64 %51, 0
+  %or.cond.i = and i1 %43, %52
+  br i1 %or.cond.i, label %53, label %54
 
-53:                                               ; preds = %50
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %45, ptr noundef nonnull @.str.13, i64 noundef 1)
-  %.pre.i = load i64, ptr %51, align 8, !tbaa !50
+53:                                               ; preds = %49
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %44, ptr noundef nonnull @.str.13, i64 noundef 1)
+  %.pre.i = load i64, ptr %50, align 8, !tbaa !50
   br label %54
 
-54:                                               ; preds = %53, %50
-  %55 = phi i64 [ %52, %50 ], [ %.pre.i, %53 ]
+54:                                               ; preds = %53, %49
+  %55 = phi i64 [ %.pre.i, %53 ], [ %51, %49 ]
   %56 = icmp ult i64 %55, %9
   br i1 %56, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
 .lr.ph.i.i:                                       ; preds = %54, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 32, ptr %3, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %45, ptr noundef nonnull %3, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %44, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %57 = load i64, ptr %51, align 8, !tbaa !50
+  %57 = load i64, ptr %50, align 8, !tbaa !50
   %58 = icmp ult i64 %57, %9
   br i1 %58, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit, !llvm.loop !54
 
-59:                                               ; preds = %35
+59:                                               ; preds = %34
   %60 = load ptr, ptr %0, align 8, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 208
   %62 = load i8, ptr %61, align 8, !tbaa !48, !range !39, !noundef !40
@@ -1725,20 +1713,18 @@ _ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %28
   %65 = load i8, ptr %64, align 2, !range !39
   %66 = trunc nuw i8 %65 to i1
   %67 = select i1 %63, i1 true, i1 %66
-  br i1 %67, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit.sink.split, label %68
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %69 = load i8, ptr %68, align 8, !range !39
+  %70 = trunc nuw i8 %69 to i1
+  %or.cond12 = select i1 %67, i1 true, i1 %70
+  br i1 %or.cond12, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit.sink.split, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
-68:                                               ; preds = %59
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %70 = load i8, ptr %69, align 8, !tbaa !51, !range !39, !noundef !40
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit.sink.split, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
-
-_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit.sink.split: ; preds = %59, %68, %35
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %72, ptr noundef nonnull @.str.1, i64 noundef 1)
+_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit.sink.split: ; preds = %59, %34
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %71, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
-_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit:        ; preds = %.lr.ph.i.i, %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit.sink.split, %54, %35, %68, %2
+_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit:        ; preds = %.lr.ph.i.i, %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit.sink.split, %59, %54, %34, %2
   ret void
 }
 
@@ -1867,30 +1853,30 @@ define void @_ZN4YAML7Emitter15SpaceOrIndentToEbm(ptr noundef nonnull align 8 de
 10:                                               ; preds = %9, %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load i64, ptr %11, align 8, !tbaa !50
-  %.not = icmp ne i64 %12, 0
-  %brmerge.not = and i1 %1, %.not
-  br i1 %brmerge.not, label %13, label %14
+  %13 = icmp ne i64 %12, 0
+  %or.cond = and i1 %1, %13
+  br i1 %or.cond, label %14, label %15
 
-13:                                               ; preds = %10
+14:                                               ; preds = %10
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %5, ptr noundef nonnull @.str.13, i64 noundef 1)
   %.pre = load i64, ptr %11, align 8, !tbaa !50
-  br label %14
+  br label %15
 
-14:                                               ; preds = %10, %13
-  %15 = phi i64 [ %12, %10 ], [ %.pre, %13 ]
-  %16 = icmp ult i64 %15, %2
-  br i1 %16, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
+15:                                               ; preds = %14, %10
+  %16 = phi i64 [ %.pre, %14 ], [ %12, %10 ]
+  %17 = icmp ult i64 %16, %2
+  br i1 %17, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
 
-.lr.ph.i:                                         ; preds = %14, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %15, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 32, ptr %4, align 1, !tbaa !20
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %5, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %17 = load i64, ptr %11, align 8, !tbaa !50
-  %18 = icmp ult i64 %17, %2
-  br i1 %18, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
+  %18 = load i64, ptr %11, align 8, !tbaa !50
+  %19 = icmp ult i64 %18, %2
+  br i1 %19, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
 
-_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %14
+_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %15
   ret void
 }
 
@@ -1912,113 +1898,111 @@ define void @_ZN4YAML7Emitter21FlowMapPrepareLongKeyENS_15EmitterNodeType5valueE
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %9 = load i8, ptr %8, align 8, !tbaa !48, !range !39, !noundef !40
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %11
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 210
+  %12 = load i8, ptr %11, align 2, !range !39
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond.i = select i1 %10, i1 true, i1 %13
+  br i1 %or.cond.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 210
-  %13 = load i8, ptr %12, align 2, !tbaa !49, !range !39, !noundef !40
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 211
+  %15 = load i8, ptr %14, align 1, !tbaa !52, !range !39, !noundef !40
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %17
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 211
-  %16 = load i8, ptr %15, align 1, !tbaa !52, !range !39, !noundef !40
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %18
+17:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = load i8, ptr %19, align 8, !tbaa !51, !range !39, !noundef !40
+  %21 = trunc nuw i8 %20 to i1
+  br i1 %21, label %22, label %23
 
-18:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load i8, ptr %20, align 8, !tbaa !51, !range !39, !noundef !40
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %24
+22:                                               ; preds = %17
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %23
 
-23:                                               ; preds = %18
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %24
+23:                                               ; preds = %22, %17
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = load i64, ptr %24, align 8, !tbaa !50
+  %26 = icmp ult i64 %25, %6
+  br i1 %26, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
 
-24:                                               ; preds = %23, %18
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %26 = load i64, ptr %25, align 8, !tbaa !50
-  %27 = icmp ult i64 %26, %6
-  br i1 %27, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
-
-.lr.ph.i:                                         ; preds = %24, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 32, ptr %4, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull %4, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %28 = load i64, ptr %25, align 8, !tbaa !50
-  %29 = icmp ult i64 %28, %6
-  br i1 %29, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
+  %27 = load i64, ptr %24, align 8, !tbaa !50
+  %28 = icmp ult i64 %27, %6
+  br i1 %28, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
 
-_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %24
-  %30 = load ptr, ptr %0, align 8, !tbaa !3
-  %31 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %30)
-  %32 = icmp eq i64 %31, 0
-  %.str.10..str.11 = select i1 %32, ptr @.str.10, ptr @.str.11
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull %.str.10..str.11, i64 noundef 3)
+_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %23
+  %29 = load ptr, ptr %0, align 8, !tbaa !3
+  %30 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %29)
+  %31 = icmp eq i64 %30, 0
+  %.str.10..str.11 = select i1 %31, ptr @.str.10, ptr @.str.11
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull %.str.10..str.11, i64 noundef 3)
   br label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, %2, %11, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, %2, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
   switch i32 %1, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit [
-    i32 5, label %33
-    i32 1, label %33
-    i32 2, label %33
-    i32 3, label %33
+    i32 5, label %32
+    i32 1, label %32
+    i32 2, label %32
+    i32 3, label %32
   ]
 
-33:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
-  %34 = load ptr, ptr %0, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 208
-  %36 = load i8, ptr %35, align 8, !tbaa !48, !range !39, !noundef !40
-  %37 = trunc nuw i8 %36 to i1
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 210
-  %39 = load i8, ptr %38, align 2, !range !39
-  %40 = trunc nuw i8 %39 to i1
-  %41 = select i1 %37, i1 true, i1 %40
-  br i1 %41, label %45, label %42
+32:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
+  %33 = load ptr, ptr %0, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 208
+  %35 = load i8, ptr %34, align 8, !tbaa !48, !range !39, !noundef !40
+  %36 = trunc nuw i8 %35 to i1
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 210
+  %38 = load i8, ptr %37, align 2, !range !39
+  %39 = trunc nuw i8 %38 to i1
+  %40 = select i1 %36, i1 true, i1 %39
+  br i1 %40, label %44, label %41
 
-42:                                               ; preds = %33
-  %43 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %34)
-  %44 = icmp ne i64 %43, 0
-  br label %45
+41:                                               ; preds = %32
+  %42 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %33)
+  %43 = icmp ne i64 %42, 0
+  br label %44
 
-45:                                               ; preds = %42, %33
-  %46 = phi i1 [ true, %33 ], [ %44, %42 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %49 = load i8, ptr %48, align 8, !tbaa !51, !range !39, !noundef !40
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %52
+44:                                               ; preds = %41, %32
+  %45 = phi i1 [ true, %32 ], [ %43, %41 ]
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %48 = load i8, ptr %47, align 8, !tbaa !51, !range !39, !noundef !40
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %50, label %51
 
-51:                                               ; preds = %45
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %47, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %52
+50:                                               ; preds = %44
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %46, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %51
 
-52:                                               ; preds = %51, %45
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %54 = load i64, ptr %53, align 8, !tbaa !50
-  %.not.i = icmp ne i64 %54, 0
-  %brmerge.not.i = and i1 %46, %.not.i
-  br i1 %brmerge.not.i, label %55, label %56
+51:                                               ; preds = %50, %44
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %53 = load i64, ptr %52, align 8, !tbaa !50
+  %54 = icmp ne i64 %53, 0
+  %or.cond.i3 = and i1 %45, %54
+  br i1 %or.cond.i3, label %55, label %56
 
-55:                                               ; preds = %52
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %47, ptr noundef nonnull @.str.13, i64 noundef 1)
-  %.pre.i = load i64, ptr %53, align 8, !tbaa !50
+55:                                               ; preds = %51
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %46, ptr noundef nonnull @.str.13, i64 noundef 1)
+  %.pre.i = load i64, ptr %52, align 8, !tbaa !50
   br label %56
 
-56:                                               ; preds = %55, %52
-  %57 = phi i64 [ %54, %52 ], [ %.pre.i, %55 ]
+56:                                               ; preds = %55, %51
+  %57 = phi i64 [ %.pre.i, %55 ], [ %53, %51 ]
   %58 = icmp ult i64 %57, %6
   br i1 %58, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
 .lr.ph.i.i:                                       ; preds = %56, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 32, ptr %3, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %47, ptr noundef nonnull %3, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %46, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %59 = load i64, ptr %53, align 8, !tbaa !50
+  %59 = load i64, ptr %52, align 8, !tbaa !50
   %60 = icmp ult i64 %59, %6
   br i1 %60, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit, !llvm.loop !54
 
@@ -2036,113 +2020,111 @@ define void @_ZN4YAML7Emitter23FlowMapPrepareSimpleKeyENS_15EmitterNodeType5valu
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %9 = load i8, ptr %8, align 8, !tbaa !48, !range !39, !noundef !40
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %11
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 210
+  %12 = load i8, ptr %11, align 2, !range !39
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond.i = select i1 %10, i1 true, i1 %13
+  br i1 %or.cond.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 210
-  %13 = load i8, ptr %12, align 2, !tbaa !49, !range !39, !noundef !40
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 211
+  %15 = load i8, ptr %14, align 1, !tbaa !52, !range !39, !noundef !40
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %17
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 211
-  %16 = load i8, ptr %15, align 1, !tbaa !52, !range !39, !noundef !40
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %18
+17:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = load i8, ptr %19, align 8, !tbaa !51, !range !39, !noundef !40
+  %21 = trunc nuw i8 %20 to i1
+  br i1 %21, label %22, label %23
 
-18:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load i8, ptr %20, align 8, !tbaa !51, !range !39, !noundef !40
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %24
+22:                                               ; preds = %17
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %23
 
-23:                                               ; preds = %18
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %24
+23:                                               ; preds = %22, %17
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = load i64, ptr %24, align 8, !tbaa !50
+  %26 = icmp ult i64 %25, %6
+  br i1 %26, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
 
-24:                                               ; preds = %23, %18
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %26 = load i64, ptr %25, align 8, !tbaa !50
-  %27 = icmp ult i64 %26, %6
-  br i1 %27, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
-
-.lr.ph.i:                                         ; preds = %24, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 32, ptr %4, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull %4, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %28 = load i64, ptr %25, align 8, !tbaa !50
-  %29 = icmp ult i64 %28, %6
-  br i1 %29, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
+  %27 = load i64, ptr %24, align 8, !tbaa !50
+  %28 = icmp ult i64 %27, %6
+  br i1 %28, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
 
-_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %24
-  %30 = load ptr, ptr %0, align 8, !tbaa !3
-  %31 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %30)
-  %32 = icmp eq i64 %31, 0
-  %.str.6..str.8 = select i1 %32, ptr @.str.6, ptr @.str.8
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull %.str.6..str.8, i64 noundef 1)
+_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %23
+  %29 = load ptr, ptr %0, align 8, !tbaa !3
+  %30 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %29)
+  %31 = icmp eq i64 %30, 0
+  %.str.6..str.8 = select i1 %31, ptr @.str.6, ptr @.str.8
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull %.str.6..str.8, i64 noundef 1)
   br label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, %2, %11, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, %2, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
   switch i32 %1, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit [
-    i32 5, label %33
-    i32 1, label %33
-    i32 2, label %33
-    i32 3, label %33
+    i32 5, label %32
+    i32 1, label %32
+    i32 2, label %32
+    i32 3, label %32
   ]
 
-33:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
-  %34 = load ptr, ptr %0, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 208
-  %36 = load i8, ptr %35, align 8, !tbaa !48, !range !39, !noundef !40
-  %37 = trunc nuw i8 %36 to i1
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 210
-  %39 = load i8, ptr %38, align 2, !range !39
-  %40 = trunc nuw i8 %39 to i1
-  %41 = select i1 %37, i1 true, i1 %40
-  br i1 %41, label %45, label %42
+32:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
+  %33 = load ptr, ptr %0, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 208
+  %35 = load i8, ptr %34, align 8, !tbaa !48, !range !39, !noundef !40
+  %36 = trunc nuw i8 %35 to i1
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 210
+  %38 = load i8, ptr %37, align 2, !range !39
+  %39 = trunc nuw i8 %38 to i1
+  %40 = select i1 %36, i1 true, i1 %39
+  br i1 %40, label %44, label %41
 
-42:                                               ; preds = %33
-  %43 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %34)
-  %44 = icmp ne i64 %43, 0
-  br label %45
+41:                                               ; preds = %32
+  %42 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %33)
+  %43 = icmp ne i64 %42, 0
+  br label %44
 
-45:                                               ; preds = %42, %33
-  %46 = phi i1 [ true, %33 ], [ %44, %42 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %49 = load i8, ptr %48, align 8, !tbaa !51, !range !39, !noundef !40
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %52
+44:                                               ; preds = %41, %32
+  %45 = phi i1 [ true, %32 ], [ %43, %41 ]
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %48 = load i8, ptr %47, align 8, !tbaa !51, !range !39, !noundef !40
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %50, label %51
 
-51:                                               ; preds = %45
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %47, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %52
+50:                                               ; preds = %44
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %46, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %51
 
-52:                                               ; preds = %51, %45
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %54 = load i64, ptr %53, align 8, !tbaa !50
-  %.not.i = icmp ne i64 %54, 0
-  %brmerge.not.i = and i1 %46, %.not.i
-  br i1 %brmerge.not.i, label %55, label %56
+51:                                               ; preds = %50, %44
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %53 = load i64, ptr %52, align 8, !tbaa !50
+  %54 = icmp ne i64 %53, 0
+  %or.cond.i3 = and i1 %45, %54
+  br i1 %or.cond.i3, label %55, label %56
 
-55:                                               ; preds = %52
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %47, ptr noundef nonnull @.str.13, i64 noundef 1)
-  %.pre.i = load i64, ptr %53, align 8, !tbaa !50
+55:                                               ; preds = %51
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %46, ptr noundef nonnull @.str.13, i64 noundef 1)
+  %.pre.i = load i64, ptr %52, align 8, !tbaa !50
   br label %56
 
-56:                                               ; preds = %55, %52
-  %57 = phi i64 [ %54, %52 ], [ %.pre.i, %55 ]
+56:                                               ; preds = %55, %51
+  %57 = phi i64 [ %.pre.i, %55 ], [ %53, %51 ]
   %58 = icmp ult i64 %57, %6
   br i1 %58, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
 .lr.ph.i.i:                                       ; preds = %56, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 32, ptr %3, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %47, ptr noundef nonnull %3, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %46, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %59 = load i64, ptr %53, align 8, !tbaa !50
+  %59 = load i64, ptr %52, align 8, !tbaa !50
   %60 = icmp ult i64 %59, %6
   br i1 %60, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit, !llvm.loop !54
 
@@ -2160,109 +2142,107 @@ define void @_ZN4YAML7Emitter26FlowMapPrepareLongKeyValueENS_15EmitterNodeType5v
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %9 = load i8, ptr %8, align 8, !tbaa !48, !range !39, !noundef !40
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %11
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 210
+  %12 = load i8, ptr %11, align 2, !range !39
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond.i = select i1 %10, i1 true, i1 %13
+  br i1 %or.cond.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 210
-  %13 = load i8, ptr %12, align 2, !tbaa !49, !range !39, !noundef !40
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 211
+  %15 = load i8, ptr %14, align 1, !tbaa !52, !range !39, !noundef !40
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %17
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 211
-  %16 = load i8, ptr %15, align 1, !tbaa !52, !range !39, !noundef !40
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %18
+17:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = load i8, ptr %19, align 8, !tbaa !51, !range !39, !noundef !40
+  %21 = trunc nuw i8 %20 to i1
+  br i1 %21, label %22, label %23
 
-18:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load i8, ptr %20, align 8, !tbaa !51, !range !39, !noundef !40
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %24
+22:                                               ; preds = %17
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %23
 
-23:                                               ; preds = %18
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %24
+23:                                               ; preds = %22, %17
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = load i64, ptr %24, align 8, !tbaa !50
+  %26 = icmp ult i64 %25, %6
+  br i1 %26, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
 
-24:                                               ; preds = %23, %18
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %26 = load i64, ptr %25, align 8, !tbaa !50
-  %27 = icmp ult i64 %26, %6
-  br i1 %27, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
-
-.lr.ph.i:                                         ; preds = %24, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 32, ptr %4, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull %4, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %28 = load i64, ptr %25, align 8, !tbaa !50
-  %29 = icmp ult i64 %28, %6
-  br i1 %29, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
+  %27 = load i64, ptr %24, align 8, !tbaa !50
+  %28 = icmp ult i64 %27, %6
+  br i1 %28, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
 
-_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %24
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull @.str.12, i64 noundef 1)
+_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %23
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull @.str.12, i64 noundef 1)
   br label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %2, %11, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %2, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
   switch i32 %1, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit [
-    i32 5, label %30
-    i32 1, label %30
-    i32 2, label %30
-    i32 3, label %30
+    i32 5, label %29
+    i32 1, label %29
+    i32 2, label %29
+    i32 3, label %29
   ]
 
-30:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
-  %31 = load ptr, ptr %0, align 8, !tbaa !3
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 208
-  %33 = load i8, ptr %32, align 8, !tbaa !48, !range !39, !noundef !40
-  %34 = trunc nuw i8 %33 to i1
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 210
-  %36 = load i8, ptr %35, align 2, !range !39
-  %37 = trunc nuw i8 %36 to i1
-  %38 = select i1 %34, i1 true, i1 %37
-  br i1 %38, label %42, label %39
+29:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
+  %30 = load ptr, ptr %0, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 208
+  %32 = load i8, ptr %31, align 8, !tbaa !48, !range !39, !noundef !40
+  %33 = trunc nuw i8 %32 to i1
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 210
+  %35 = load i8, ptr %34, align 2, !range !39
+  %36 = trunc nuw i8 %35 to i1
+  %37 = select i1 %33, i1 true, i1 %36
+  br i1 %37, label %41, label %38
 
-39:                                               ; preds = %30
-  %40 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %31)
-  %41 = icmp ne i64 %40, 0
-  br label %42
+38:                                               ; preds = %29
+  %39 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %30)
+  %40 = icmp ne i64 %39, 0
+  br label %41
 
-42:                                               ; preds = %39, %30
-  %43 = phi i1 [ true, %30 ], [ %41, %39 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %46 = load i8, ptr %45, align 8, !tbaa !51, !range !39, !noundef !40
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %49
+41:                                               ; preds = %38, %29
+  %42 = phi i1 [ true, %29 ], [ %40, %38 ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %45 = load i8, ptr %44, align 8, !tbaa !51, !range !39, !noundef !40
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %47, label %48
 
-48:                                               ; preds = %42
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %44, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %49
+47:                                               ; preds = %41
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %43, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %48
 
-49:                                               ; preds = %48, %42
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %51 = load i64, ptr %50, align 8, !tbaa !50
-  %.not.i = icmp ne i64 %51, 0
-  %brmerge.not.i = and i1 %43, %.not.i
-  br i1 %brmerge.not.i, label %52, label %53
+48:                                               ; preds = %47, %41
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %50 = load i64, ptr %49, align 8, !tbaa !50
+  %51 = icmp ne i64 %50, 0
+  %or.cond.i3 = and i1 %42, %51
+  br i1 %or.cond.i3, label %52, label %53
 
-52:                                               ; preds = %49
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %44, ptr noundef nonnull @.str.13, i64 noundef 1)
-  %.pre.i = load i64, ptr %50, align 8, !tbaa !50
+52:                                               ; preds = %48
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %43, ptr noundef nonnull @.str.13, i64 noundef 1)
+  %.pre.i = load i64, ptr %49, align 8, !tbaa !50
   br label %53
 
-53:                                               ; preds = %52, %49
-  %54 = phi i64 [ %51, %49 ], [ %.pre.i, %52 ]
+53:                                               ; preds = %52, %48
+  %54 = phi i64 [ %.pre.i, %52 ], [ %50, %48 ]
   %55 = icmp ult i64 %54, %6
   br i1 %55, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
 .lr.ph.i.i:                                       ; preds = %53, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 32, ptr %3, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %44, ptr noundef nonnull %3, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %43, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %56 = load i64, ptr %50, align 8, !tbaa !50
+  %56 = load i64, ptr %49, align 8, !tbaa !50
   %57 = icmp ult i64 %56, %6
   br i1 %57, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit, !llvm.loop !54
 
@@ -2280,120 +2260,118 @@ define void @_ZN4YAML7Emitter28FlowMapPrepareSimpleKeyValueENS_15EmitterNodeType
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %9 = load i8, ptr %8, align 8, !tbaa !48, !range !39, !noundef !40
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %11
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 210
+  %12 = load i8, ptr %11, align 2, !range !39
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond.i = select i1 %10, i1 true, i1 %13
+  br i1 %or.cond.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 210
-  %13 = load i8, ptr %12, align 2, !tbaa !49, !range !39, !noundef !40
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 211
+  %15 = load i8, ptr %14, align 1, !tbaa !52, !range !39, !noundef !40
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %17
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 211
-  %16 = load i8, ptr %15, align 1, !tbaa !52, !range !39, !noundef !40
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %18
+17:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = load i8, ptr %19, align 8, !tbaa !51, !range !39, !noundef !40
+  %21 = trunc nuw i8 %20 to i1
+  br i1 %21, label %22, label %23
 
-18:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load i8, ptr %20, align 8, !tbaa !51, !range !39, !noundef !40
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %24
+22:                                               ; preds = %17
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %23
 
-23:                                               ; preds = %18
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %24
+23:                                               ; preds = %22, %17
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = load i64, ptr %24, align 8, !tbaa !50
+  %26 = icmp ult i64 %25, %6
+  br i1 %26, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
 
-24:                                               ; preds = %23, %18
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %26 = load i64, ptr %25, align 8, !tbaa !50
-  %27 = icmp ult i64 %26, %6
-  br i1 %27, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
-
-.lr.ph.i:                                         ; preds = %24, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 32, ptr %4, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull %4, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %28 = load i64, ptr %25, align 8, !tbaa !50
-  %29 = icmp ult i64 %28, %6
-  br i1 %29, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
+  %27 = load i64, ptr %24, align 8, !tbaa !50
+  %28 = icmp ult i64 %27, %6
+  br i1 %28, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !54
 
-_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %24
-  %30 = load ptr, ptr %0, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 209
-  %32 = load i8, ptr %31, align 1, !tbaa !66, !range !39, !noundef !40
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %35
+_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %23
+  %29 = load ptr, ptr %0, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 209
+  %31 = load i8, ptr %30, align 1, !tbaa !66, !range !39, !noundef !40
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %34
 
-34:                                               ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull @.str.13, i64 noundef 1)
-  br label %35
+33:                                               ; preds = %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull @.str.13, i64 noundef 1)
+  br label %34
 
-35:                                               ; preds = %34, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %19, ptr noundef nonnull @.str.12, i64 noundef 1)
+34:                                               ; preds = %33, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %18, ptr noundef nonnull @.str.12, i64 noundef 1)
   br label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %2, %11, %35, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %2, %34, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
   switch i32 %1, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit [
-    i32 5, label %36
-    i32 1, label %36
-    i32 2, label %36
-    i32 3, label %36
+    i32 5, label %35
+    i32 1, label %35
+    i32 2, label %35
+    i32 3, label %35
   ]
 
-36:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
-  %37 = load ptr, ptr %0, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 208
-  %39 = load i8, ptr %38, align 8, !tbaa !48, !range !39, !noundef !40
-  %40 = trunc nuw i8 %39 to i1
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 210
-  %42 = load i8, ptr %41, align 2, !range !39
-  %43 = trunc nuw i8 %42 to i1
-  %44 = select i1 %40, i1 true, i1 %43
-  br i1 %44, label %48, label %45
+35:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
+  %36 = load ptr, ptr %0, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 208
+  %38 = load i8, ptr %37, align 8, !tbaa !48, !range !39, !noundef !40
+  %39 = trunc nuw i8 %38 to i1
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 210
+  %41 = load i8, ptr %40, align 2, !range !39
+  %42 = trunc nuw i8 %41 to i1
+  %43 = select i1 %39, i1 true, i1 %42
+  br i1 %43, label %47, label %44
 
-45:                                               ; preds = %36
-  %46 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %37)
-  %47 = icmp ne i64 %46, 0
-  br label %48
+44:                                               ; preds = %35
+  %45 = call noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull align 8 dereferenceable(224) %36)
+  %46 = icmp ne i64 %45, 0
+  br label %47
 
-48:                                               ; preds = %45, %36
-  %49 = phi i1 [ true, %36 ], [ %47, %45 ]
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %52 = load i8, ptr %51, align 8, !tbaa !51, !range !39, !noundef !40
-  %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %54, label %55
+47:                                               ; preds = %44, %35
+  %48 = phi i1 [ true, %35 ], [ %46, %44 ]
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %51 = load i8, ptr %50, align 8, !tbaa !51, !range !39, !noundef !40
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %53, label %54
 
-54:                                               ; preds = %48
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %50, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %55
+53:                                               ; preds = %47
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %49, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %54
 
-55:                                               ; preds = %54, %48
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %57 = load i64, ptr %56, align 8, !tbaa !50
-  %.not.i = icmp ne i64 %57, 0
-  %brmerge.not.i = and i1 %49, %.not.i
-  br i1 %brmerge.not.i, label %58, label %59
+54:                                               ; preds = %53, %47
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %56 = load i64, ptr %55, align 8, !tbaa !50
+  %57 = icmp ne i64 %56, 0
+  %or.cond.i3 = and i1 %48, %57
+  br i1 %or.cond.i3, label %58, label %59
 
-58:                                               ; preds = %55
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %50, ptr noundef nonnull @.str.13, i64 noundef 1)
-  %.pre.i = load i64, ptr %56, align 8, !tbaa !50
+58:                                               ; preds = %54
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %49, ptr noundef nonnull @.str.13, i64 noundef 1)
+  %.pre.i = load i64, ptr %55, align 8, !tbaa !50
   br label %59
 
-59:                                               ; preds = %58, %55
-  %60 = phi i64 [ %57, %55 ], [ %.pre.i, %58 ]
+59:                                               ; preds = %58, %54
+  %60 = phi i64 [ %.pre.i, %58 ], [ %56, %54 ]
   %61 = icmp ult i64 %60, %6
   br i1 %61, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
 .lr.ph.i.i:                                       ; preds = %59, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 32, ptr %3, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %50, ptr noundef nonnull %3, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %49, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %62 = load i64, ptr %56, align 8, !tbaa !50
+  %62 = load i64, ptr %55, align 8, !tbaa !50
   %63 = icmp ult i64 %62, %6
   br i1 %63, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit, !llvm.loop !54
 
@@ -2487,8 +2465,8 @@ _ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %28
 42:                                               ; preds = %41, %35
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load i64, ptr %43, align 8, !tbaa !50
-  %.not.i.not = icmp eq i64 %44, 0
-  br i1 %.not.i.not, label %46, label %45
+  %.not6 = icmp eq i64 %44, 0
+  br i1 %.not6, label %46, label %45
 
 45:                                               ; preds = %42
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %37, ptr noundef nonnull @.str.13, i64 noundef 1)
@@ -2496,7 +2474,7 @@ _ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %28
   br label %46
 
 46:                                               ; preds = %45, %42
-  %47 = phi i64 [ 0, %42 ], [ %.pre.i, %45 ]
+  %47 = phi i64 [ %.pre.i, %45 ], [ 0, %42 ]
   %48 = icmp ult i64 %47, %36
   br i1 %48, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
@@ -2544,77 +2522,75 @@ define void @_ZN4YAML7Emitter24BlockMapPrepareSimpleKeyENS_15EmitterNodeType5val
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 208
   %12 = load i8, ptr %11, align 8, !tbaa !48, !range !39, !noundef !40
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %14
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 210
+  %15 = load i8, ptr %14, align 2, !range !39
+  %16 = trunc nuw i8 %15 to i1
+  %or.cond.i = select i1 %13, i1 true, i1 %16
+  br i1 %or.cond.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 210
-  %16 = load i8, ptr %15, align 2, !tbaa !49, !range !39, !noundef !40
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %9
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 211
+  %18 = load i8, ptr %17, align 1, !tbaa !52, !range !39, !noundef !40
+  %19 = trunc nuw i8 %18 to i1
+  %20 = icmp eq i64 %7, 0
+  %or.cond.not = or i1 %20, %19
+  br i1 %or.cond.not, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %21
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 211
-  %19 = load i8, ptr %18, align 1, !tbaa !52, !range !39, !noundef !40
-  %20 = trunc nuw i8 %19 to i1
-  %21 = icmp eq i64 %7, 0
-  %or.cond.not = or i1 %21, %20
-  br i1 %or.cond.not, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %22
-
-22:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %23, ptr noundef nonnull @.str.1, i64 noundef 1)
+21:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %22, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %9, %14, %22, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %9, %21, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
   switch i32 %1, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit [
-    i32 5, label %24
-    i32 1, label %24
-    i32 2, label %24
-    i32 3, label %24
+    i32 5, label %23
+    i32 1, label %23
+    i32 2, label %23
+    i32 3, label %23
   ]
 
-24:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
-  %25 = load ptr, ptr %0, align 8, !tbaa !3
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 208
-  %27 = load i8, ptr %26, align 8, !tbaa !48, !range !39, !noundef !40
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 210
-  %30 = load i8, ptr %29, align 2, !range !39
-  %31 = trunc nuw i8 %30 to i1
-  %32 = select i1 %28, i1 true, i1 %31
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %35 = load i8, ptr %34, align 8, !tbaa !51, !range !39, !noundef !40
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %38
+23:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
+  %24 = load ptr, ptr %0, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 208
+  %26 = load i8, ptr %25, align 8, !tbaa !48, !range !39, !noundef !40
+  %27 = trunc nuw i8 %26 to i1
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 210
+  %29 = load i8, ptr %28, align 2, !range !39
+  %30 = trunc nuw i8 %29 to i1
+  %31 = select i1 %27, i1 true, i1 %30
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %34 = load i8, ptr %33, align 8, !tbaa !51, !range !39, !noundef !40
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %37
 
-37:                                               ; preds = %24
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %33, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %38
+36:                                               ; preds = %23
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %32, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %37
 
-38:                                               ; preds = %37, %24
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %40 = load i64, ptr %39, align 8, !tbaa !50
-  %.not.i = icmp ne i64 %40, 0
-  %brmerge.not.i = and i1 %32, %.not.i
-  br i1 %brmerge.not.i, label %41, label %42
+37:                                               ; preds = %36, %23
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %39 = load i64, ptr %38, align 8, !tbaa !50
+  %40 = icmp ne i64 %39, 0
+  %or.cond.i6 = and i1 %31, %40
+  br i1 %or.cond.i6, label %41, label %42
 
-41:                                               ; preds = %38
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %33, ptr noundef nonnull @.str.13, i64 noundef 1)
-  %.pre.i = load i64, ptr %39, align 8, !tbaa !50
+41:                                               ; preds = %37
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %32, ptr noundef nonnull @.str.13, i64 noundef 1)
+  %.pre.i = load i64, ptr %38, align 8, !tbaa !50
   br label %42
 
-42:                                               ; preds = %41, %38
-  %43 = phi i64 [ %40, %38 ], [ %.pre.i, %41 ]
+42:                                               ; preds = %41, %37
+  %43 = phi i64 [ %.pre.i, %41 ], [ %39, %37 ]
   %44 = icmp ult i64 %43, %6
   br i1 %44, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
 .lr.ph.i.i:                                       ; preds = %42, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 32, ptr %3, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %33, ptr noundef nonnull %3, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %32, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %45 = load i64, ptr %39, align 8, !tbaa !50
+  %45 = load i64, ptr %38, align 8, !tbaa !50
   %46 = icmp ult i64 %45, %6
   br i1 %46, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit, !llvm.loop !54
 
@@ -2689,8 +2665,8 @@ _ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %18
 33:                                               ; preds = %32, %26
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load i64, ptr %34, align 8, !tbaa !50
-  %.not.i.not = icmp eq i64 %35, 0
-  br i1 %.not.i.not, label %37, label %36
+  %.not = icmp eq i64 %35, 0
+  br i1 %.not, label %37, label %36
 
 36:                                               ; preds = %33
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %28, ptr noundef nonnull @.str.13, i64 noundef 1)
@@ -2698,7 +2674,7 @@ _ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %18
   br label %37
 
 37:                                               ; preds = %36, %33
-  %38 = phi i64 [ 0, %33 ], [ %.pre.i, %36 ]
+  %38 = phi i64 [ %.pre.i, %36 ], [ 0, %33 ]
   %39 = icmp ult i64 %38, %27
   br i1 %39, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
@@ -2742,29 +2718,29 @@ _ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %18
 60:                                               ; preds = %59, %53
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %62 = load i64, ptr %61, align 8, !tbaa !50
-  %.not.i5.not = icmp eq i64 %62, 0
-  br i1 %.not.i5.not, label %64, label %63
+  %.not9 = icmp eq i64 %62, 0
+  br i1 %.not9, label %64, label %63
 
 63:                                               ; preds = %60
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %55, ptr noundef nonnull @.str.13, i64 noundef 1)
-  %.pre.i7 = load i64, ptr %61, align 8, !tbaa !50
+  %.pre.i6 = load i64, ptr %61, align 8, !tbaa !50
   br label %64
 
 64:                                               ; preds = %63, %60
-  %65 = phi i64 [ 0, %60 ], [ %.pre.i7, %63 ]
+  %65 = phi i64 [ %.pre.i6, %63 ], [ 0, %60 ]
   %66 = icmp ult i64 %65, %54
-  br i1 %66, label %.lr.ph.i.i6, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
+  br i1 %66, label %.lr.ph.i.i5, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
-.lr.ph.i.i6:                                      ; preds = %64, %.lr.ph.i.i6
+.lr.ph.i.i5:                                      ; preds = %64, %.lr.ph.i.i5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 32, ptr %3, align 1, !tbaa !20
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %55, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %67 = load i64, ptr %61, align 8, !tbaa !50
   %68 = icmp ult i64 %67, %54
-  br i1 %68, label %.lr.ph.i.i6, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit, !llvm.loop !54
+  br i1 %68, label %.lr.ph.i.i5, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit, !llvm.loop !54
 
-_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit:        ; preds = %.lr.ph.i.i, %.lr.ph.i.i6, %64, %37, %25, %2
+_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit:        ; preds = %.lr.ph.i.i, %.lr.ph.i.i5, %64, %37, %25, %2
   ret void
 }
 
@@ -2780,88 +2756,86 @@ define void @_ZN4YAML7Emitter29BlockMapPrepareSimpleKeyValueENS_15EmitterNodeTyp
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %11 = load i8, ptr %10, align 8, !tbaa !48, !range !39, !noundef !40
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %13
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 210
+  %14 = load i8, ptr %13, align 2, !range !39
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond.i = select i1 %12, i1 true, i1 %15
+  br i1 %or.cond.i, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %9, i64 210
-  %15 = load i8, ptr %14, align 2, !tbaa !49, !range !39, !noundef !40
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %2
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 211
+  %17 = load i8, ptr %16, align 1, !tbaa !52, !range !39, !noundef !40
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %19
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit:     ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 211
-  %18 = load i8, ptr %17, align 1, !tbaa !52, !range !39, !noundef !40
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, label %20
+19:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 209
+  %21 = load i8, ptr %20, align 1, !tbaa !66, !range !39, !noundef !40
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %25
 
-20:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 209
-  %22 = load i8, ptr %21, align 1, !tbaa !66, !range !39, !noundef !40
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %24, label %26
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %24, ptr noundef nonnull @.str.13, i64 noundef 1)
+  br label %25
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %25, ptr noundef nonnull @.str.13, i64 noundef 1)
-  br label %26
-
-26:                                               ; preds = %24, %20
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %27, ptr noundef nonnull @.str.12, i64 noundef 1)
+25:                                               ; preds = %23, %19
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %26, ptr noundef nonnull @.str.12, i64 noundef 1)
   br label %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
 
-_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %2, %13, %26, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
+_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread: ; preds = %2, %25, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit
   switch i32 %1, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit [
-    i32 6, label %43
-    i32 1, label %28
-    i32 2, label %28
-    i32 3, label %28
-    i32 5, label %28
-    i32 4, label %43
+    i32 6, label %42
+    i32 1, label %27
+    i32 2, label %27
+    i32 3, label %27
+    i32 5, label %27
+    i32 4, label %42
   ]
 
-28:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %31 = load i8, ptr %30, align 8, !tbaa !51, !range !39, !noundef !40
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %33, label %34
+27:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %30 = load i8, ptr %29, align 8, !tbaa !51, !range !39, !noundef !40
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %32, label %33
 
-33:                                               ; preds = %28
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %29, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %34
+32:                                               ; preds = %27
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %28, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %33
 
-34:                                               ; preds = %33, %28
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %36 = load i64, ptr %35, align 8, !tbaa !50
-  %.not.i.not = icmp eq i64 %36, 0
-  br i1 %.not.i.not, label %38, label %37
+33:                                               ; preds = %32, %27
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %35 = load i64, ptr %34, align 8, !tbaa !50
+  %.not = icmp eq i64 %35, 0
+  br i1 %.not, label %37, label %36
 
-37:                                               ; preds = %34
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %29, ptr noundef nonnull @.str.13, i64 noundef 1)
-  %.pre.i = load i64, ptr %35, align 8, !tbaa !50
-  br label %38
+36:                                               ; preds = %33
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %28, ptr noundef nonnull @.str.13, i64 noundef 1)
+  %.pre.i = load i64, ptr %34, align 8, !tbaa !50
+  br label %37
 
-38:                                               ; preds = %37, %34
-  %39 = phi i64 [ 0, %34 ], [ %.pre.i, %37 ]
-  %40 = icmp ult i64 %39, %8
-  br i1 %40, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
+37:                                               ; preds = %36, %33
+  %38 = phi i64 [ %.pre.i, %36 ], [ 0, %33 ]
+  %39 = icmp ult i64 %38, %8
+  br i1 %39, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
-.lr.ph.i.i:                                       ; preds = %38, %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %37, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 32, ptr %3, align 1, !tbaa !20
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %29, ptr noundef nonnull %3, i64 noundef 1)
+  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %28, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %41 = load i64, ptr %35, align 8, !tbaa !50
-  %42 = icmp ult i64 %41, %8
-  br i1 %42, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit, !llvm.loop !54
+  %40 = load i64, ptr %34, align 8, !tbaa !50
+  %41 = icmp ult i64 %40, %8
+  br i1 %41, label %.lr.ph.i.i, label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit, !llvm.loop !54
 
-43:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %44, ptr noundef nonnull @.str.1, i64 noundef 1)
+42:                                               ; preds = %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %43, ptr noundef nonnull @.str.1, i64 noundef 1)
   br label %_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit
 
-_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit:        ; preds = %.lr.ph.i.i, %38, %43, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
+_ZN4YAML7Emitter15SpaceOrIndentToEbm.exit:        ; preds = %.lr.ph.i.i, %37, %42, %_ZNK4YAML12EmitterState12HasBegunNodeEv.exit.thread
   ret void
 }
 

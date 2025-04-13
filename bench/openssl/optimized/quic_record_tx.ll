@@ -255,14 +255,12 @@ define range(i32 0, 2) i32 @ossl_qtx_write_pkt(ptr noundef %0, ptr noundef reado
   %trunc.i = trunc i32 %18 to i8
   %switch.tableidx = add i8 %trunc.i, -1
   %19 = icmp ult i8 %switch.tableidx, 5
-  br i1 %19, label %switch.hole_check, label %ossl_quic_pkt_type_to_enc_level.exit.thread
-
-switch.hole_check:                                ; preds = %17
   %switch.shifted = lshr i8 23, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %ossl_quic_pkt_type_to_enc_level.exit.thread
+  %or.cond = select i1 %19, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %ossl_quic_pkt_type_to_enc_level.exit.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %17
   %20 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ossl_qtx_write_pkt, i64 0, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -270,7 +268,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.selectcmp.i.i.not = icmp eq i32 %21, 4
   br i1 %switch.selectcmp.i.i.not, label %23, label %63
 
-ossl_quic_pkt_type_to_enc_level.exit.thread:      ; preds = %switch.hole_check, %17
+ossl_quic_pkt_type_to_enc_level.exit.thread:      ; preds = %17
   %22 = and i32 %18, 253
   %switch.selectcmp.i.i92.not = icmp eq i32 %22, 4
   br i1 %switch.selectcmp.i.i92.not, label %23, label %ossl_qtx_finish_dgram.exit90

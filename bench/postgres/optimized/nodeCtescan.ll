@@ -216,9 +216,9 @@ define internal ptr @CteScanNext(ptr noundef readonly captures(none) %0) #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i1 @tuplestore_ateof(ptr noundef %10) #3
-  %.not36 = xor i1 %15, true
-  %brmerge = select i1 %6, i1 true, i1 %.not36
-  br i1 %brmerge, label %23, label %16
+  %.not = xor i1 %6, true
+  %or.cond = select i1 %.not, i1 %15, i1 false
+  br i1 %or.cond, label %16, label %23
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr %7, align 8
@@ -228,7 +228,7 @@ define internal ptr @CteScanNext(ptr noundef readonly captures(none) %0) #0 {
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %16
-  %22 = tail call zeroext i1 @tuplestore_advance(ptr noundef %10, i1 noundef zeroext false) #3
+  %22 = tail call zeroext i1 @tuplestore_advance(ptr noundef %10, i1 noundef zeroext %6) #3
   br i1 %22, label %.thread, label %58
 
 23:                                               ; preds = %1
@@ -271,8 +271,8 @@ ExecProcNode.exit:                                ; preds = %30, %35
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %42 = load i16, ptr %41, align 4
   %43 = and i16 %42, 2
-  %.not = icmp eq i16 %43, 0
-  br i1 %.not, label %47, label %44
+  %.not36 = icmp eq i16 %43, 0
+  br i1 %.not36, label %47, label %44
 
 44:                                               ; preds = %40, %ExecProcNode.exit
   %45 = load ptr, ptr %7, align 8

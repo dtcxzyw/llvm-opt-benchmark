@@ -3271,8 +3271,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i: ; preds = %_ZNK14JfrThreadL
   %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 3786), align 2
   %38 = icmp ne i8 %37, 0
   %39 = tail call noundef zeroext i1 @_ZN8JfrEventI10EventFlushE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %36, ptr noundef nonnull %30, i64 noundef 0, i64 noundef 0, i1 noundef zeroext %38)
-  %brmerge.i = or i1 %39, %38
-  br i1 %brmerge.i, label %_ZN8JfrEventI10EventFlushE11write_eventEv.exit, label %40
+  %or.cond.i = or i1 %39, %38
+  br i1 %or.cond.i, label %_ZN8JfrEventI10EventFlushE11write_eventEv.exit, label %40
 
 40:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
   %41 = tail call noundef zeroext i1 @_ZN8JfrEventI10EventFlushE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %36, ptr noundef nonnull %30, i64 noundef 0, i64 noundef 0, i1 noundef zeroext true)

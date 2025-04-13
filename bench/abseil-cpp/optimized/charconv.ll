@@ -112,18 +112,18 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
   %56 = add nsw i32 %.sroa.speculated.i.i.i, -1
   %57 = zext nneg i32 %56 to i128
   %58 = shl nuw nsw i128 1, %57
-  %.sroa.03.0.insert.ext.i77.i.i.i = zext i64 %39 to i128
+  %.sroa.03.0.insert.ext.i78.i.i.i = zext i64 %39 to i128
   %59 = trunc i128 %notmask.i.i.i to i64
   %60 = xor i64 %59, -1
-  %.sroa.0.0.extract.trunc.i83.i.i.i = and i64 %39, %60
-  %61 = lshr i128 %.sroa.03.0.insert.ext.i77.i.i.i, %55
+  %.sroa.0.0.extract.trunc.i84.i.i.i = and i64 %39, %60
+  %61 = lshr i128 %.sroa.03.0.insert.ext.i78.i.i.i, %55
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc nuw nsw i128 %61 to i64
-  %.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i83.i.i.i to i128
+  %.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i84.i.i.i to i128
   %62 = icmp samesign ult i128 %58, %.sroa.0.0.insert.ext.i.i.i.i.i
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %54
-  %.sroa.0.0.extract.trunc.i98.i.i.i = add nuw i64 %.sroa.0.0.extract.trunc.i.i.i.i.i, 1
+  %.sroa.0.0.extract.trunc.i99.i.i.i = add nuw i64 %.sroa.0.0.extract.trunc.i.i.i.i.i, 1
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 64:                                               ; preds = %54
@@ -136,7 +136,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i: ; preds = %66, %64, %63, %52, %48
-  %.0.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i.i, %48 ], [ %.sroa.0.0.extract.trunc.i98.i.i.i, %63 ], [ 0, %52 ], [ %spec.select.i.i.i, %66 ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %64 ]
+  %.0.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i.i, %48 ], [ %.sroa.0.0.extract.trunc.i99.i.i.i, %63 ], [ 0, %52 ], [ %spec.select.i.i.i, %66 ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %64 ]
   %67 = add nsw i32 %.sroa.speculated.i.i.i, %.val60.i
   %68 = icmp eq i64 %.0.i.i.i, 9007199254740992
   %spec.select.i12.i.i = select i1 %68, i64 4503599627370496, i64 %.0.i.i.i
@@ -283,18 +283,18 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
   %135 = add nsw i32 %.sroa.speculated.i.i76.i, -1
   %136 = zext nneg i32 %135 to i128
   %137 = shl nuw nsw i128 1, %136
-  %.sroa.03.0.insert.ext.i77.i.i78.i = zext i64 %117 to i128
+  %.sroa.03.0.insert.ext.i78.i.i78.i = zext i64 %117 to i128
   %138 = trunc i128 %notmask.i.i77.i to i64
   %139 = xor i64 %138, -1
-  %.sroa.0.0.extract.trunc.i83.i.i79.i = and i64 %117, %139
-  %140 = lshr i128 %.sroa.03.0.insert.ext.i77.i.i78.i, %134
+  %.sroa.0.0.extract.trunc.i84.i.i79.i = and i64 %117, %139
+  %140 = lshr i128 %.sroa.03.0.insert.ext.i78.i.i78.i, %134
   %.sroa.0.0.extract.trunc.i.i.i.i80.i = trunc nuw nsw i128 %140 to i64
-  %.sroa.0.0.insert.ext.i.i.i.i81.i = zext i64 %.sroa.0.0.extract.trunc.i83.i.i79.i to i128
+  %.sroa.0.0.insert.ext.i.i.i.i81.i = zext i64 %.sroa.0.0.extract.trunc.i84.i.i79.i to i128
   %141 = icmp samesign ult i128 %137, %.sroa.0.0.insert.ext.i.i.i.i81.i
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %133
-  %.sroa.0.0.extract.trunc.i98.i.i92.i = add nuw i64 %.sroa.0.0.extract.trunc.i.i.i.i80.i, 1
+  %.sroa.0.0.extract.trunc.i99.i.i92.i = add nuw i64 %.sroa.0.0.extract.trunc.i.i.i.i80.i, 1
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit95.i
 
 143:                                              ; preds = %133
@@ -307,7 +307,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit95.i
 
 _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit95.i: ; preds = %145, %143, %142, %131, %127
-  %.0.i.i82.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i94.i, %127 ], [ %.sroa.0.0.extract.trunc.i98.i.i92.i, %142 ], [ 0, %131 ], [ %spec.select.i.i91.i, %145 ], [ %.sroa.0.0.extract.trunc.i.i.i.i80.i, %143 ]
+  %.0.i.i82.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i94.i, %127 ], [ %.sroa.0.0.extract.trunc.i99.i.i92.i, %142 ], [ 0, %131 ], [ %spec.select.i.i91.i, %145 ], [ %.sroa.0.0.extract.trunc.i.i.i.i80.i, %143 ]
   %146 = add nsw i32 %.sroa.speculated.i.i76.i, %.val62.i
   %147 = icmp eq i64 %.0.i.i82.i, 9007199254740992
   %spec.select.i12.i83.i = select i1 %147, i64 4503599627370496, i64 %.0.i.i82.i
@@ -670,69 +670,69 @@ _ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i: ; preds = %301, %299
   %313 = add nsw i32 %.sroa.speculated.i.i112.i, -1
   %314 = zext nneg i32 %313 to i128
   %315 = shl nuw nsw i128 1, %314
-  %.sroa.24.0.insert.ext.i75.i.i.i = zext i64 %.sroa.11.0.i.i to i128
-  %.sroa.24.0.insert.shift.i76.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i75.i.i.i, 64
-  %.sroa.03.0.insert.ext.i77.i.i114.i = zext i64 %.sroa.053.0.i.i to i128
-  %.sroa.03.0.insert.insert.i78.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i76.i.i.i, %.sroa.03.0.insert.ext.i77.i.i114.i
+  %.sroa.24.0.insert.ext.i76.i.i.i = zext i64 %.sroa.11.0.i.i to i128
+  %.sroa.24.0.insert.shift.i77.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i76.i.i.i, 64
+  %.sroa.03.0.insert.ext.i78.i.i114.i = zext i64 %.sroa.053.0.i.i to i128
+  %.sroa.03.0.insert.insert.i79.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i77.i.i.i, %.sroa.03.0.insert.ext.i78.i.i114.i
   %316 = trunc i128 %.sroa.03.0.insert.insert.i.i48.i.i to i64
-  %.sroa.0.0.extract.trunc.i83.i.i115.i = and i64 %.sroa.053.0.i.i, %316
-  %.sroa.2.0.extract.shift.i84.i.i.i = and i128 %.sroa.24.0.insert.shift.i76.i.i.i, %.sroa.03.0.insert.insert.i.i48.i.i
-  %317 = lshr i128 %.sroa.03.0.insert.insert.i78.i.i.i, %312
+  %.sroa.0.0.extract.trunc.i84.i.i115.i = and i64 %.sroa.053.0.i.i, %316
+  %.sroa.2.0.extract.shift.i85.i.i.i = and i128 %.sroa.24.0.insert.shift.i77.i.i.i, %.sroa.03.0.insert.insert.i.i48.i.i
+  %317 = lshr i128 %.sroa.03.0.insert.insert.i79.i.i.i, %312
   %.sroa.0.0.extract.trunc.i.i.i49.i.i = trunc i128 %317 to i64
-  %.sroa.0.0.insert.ext.i.i.i.i116.i = zext i64 %.sroa.0.0.extract.trunc.i83.i.i115.i to i128
-  %.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i128 %.sroa.2.0.extract.shift.i84.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i116.i
+  %.sroa.0.0.insert.ext.i.i.i.i116.i = zext i64 %.sroa.0.0.extract.trunc.i84.i.i115.i to i128
+  %.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i128 %.sroa.2.0.extract.shift.i85.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i116.i
   %318 = icmp samesign ult i128 %315, %.sroa.0.0.insert.insert.i.i.i.i.i
   br i1 %318, label %319, label %320
 
 319:                                              ; preds = %311
-  %.sroa.0.0.extract.trunc.i98.i.i127.i = add i64 %.sroa.0.0.extract.trunc.i.i.i49.i.i, 1
+  %.sroa.0.0.extract.trunc.i99.i.i127.i = add i64 %.sroa.0.0.extract.trunc.i.i.i49.i.i, 1
   br label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i
 
 320:                                              ; preds = %311
   %321 = icmp eq i128 %.sroa.0.0.insert.insert.i.i.i.i.i, %315
-  br i1 %321, label %322, label %324
+  br i1 %321, label %322, label %323
 
 322:                                              ; preds = %320
-  %.sroa.01.0.insert.ext.i122.i.i.i = and i128 %317, 1
-  %323 = icmp eq i128 %.sroa.01.0.insert.ext.i122.i.i.i, 0
-  %brmerge.not.i.i.i = and i1 %.033.i.i, %323
-  %not.brmerge.not.i.i.i = xor i1 %brmerge.not.i.i.i, true
-  %.sroa.0.0.extract.trunc.i.i.i.i.i125.i = zext i1 %not.brmerge.not.i.i.i to i64
+  %.sroa.01.0.insert.ext.i123.i.i.i = and i128 %317, 1
+  %.not176.i.i.i = icmp eq i128 %.sroa.01.0.insert.ext.i123.i.i.i, 0
+  %or.cond.i.i.i = and i1 %.033.i.i, %.not176.i.i.i
+  %not.or.cond.i.i.i = xor i1 %or.cond.i.i.i, true
+  %.sroa.0.0.extract.trunc.i.i.i.i.i125.i = zext i1 %not.or.cond.i.i.i to i64
   %spec.select.i.i126.i = add i64 %.sroa.0.0.extract.trunc.i.i.i.i.i125.i, %.sroa.0.0.extract.trunc.i.i.i49.i.i
   br label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i
 
-324:                                              ; preds = %320
-  %.sroa.03.0.insert.insert.i133.i.i.i = add nsw i128 %315, -1
-  %325 = icmp ne i128 %.sroa.0.0.insert.insert.i.i.i.i.i, %.sroa.03.0.insert.insert.i133.i.i.i
-  %or.cond.not.i.i.i = select i1 %.033.i.i, i1 true, i1 %325
-  br i1 %or.cond.not.i.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i
+323:                                              ; preds = %320
+  %.sroa.03.0.insert.insert.i134.i.i.i = add nsw i128 %315, -1
+  %324 = icmp ne i128 %.sroa.0.0.insert.insert.i.i.i.i.i, %.sroa.03.0.insert.insert.i134.i.i.i
+  %or.cond177.not.i.i.i = select i1 %.033.i.i, i1 true, i1 %324
+  br i1 %or.cond177.not.i.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i
 
 _ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i: ; preds = %305
-  %326 = sub nsw i32 0, %.sroa.speculated.i.i112.i
+  %325 = sub nsw i32 0, %.sroa.speculated.i.i112.i
   %.sroa.01.0.insert.ext.i.i50.i.i = zext i64 %.sroa.053.0.i.i to i128
-  %327 = zext nneg i32 %326 to i128
-  %328 = shl nuw nsw i128 %.sroa.01.0.insert.ext.i.i50.i.i, %327
-  %.sroa.0.0.extract.trunc.i.i51.i.i = trunc i128 %328 to i64
+  %326 = zext nneg i32 %325 to i128
+  %327 = shl nuw nsw i128 %.sroa.01.0.insert.ext.i.i50.i.i, %326
+  %.sroa.0.0.extract.trunc.i.i51.i.i = trunc i128 %327 to i64
   br i1 %.033.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i
 
-_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i: ; preds = %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %324
-  %.0.i70.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i51.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i49.i.i, %324 ]
-  %329 = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEmiRKNS_16strings_internal11ParsedFloatE(i64 noundef %.0.i70.i.i, i32 noundef %307, ptr noundef nonnull align 8 dereferenceable(48) %9)
-  %330 = zext i1 %329 to i64
-  %spec.select.i117.i = add i64 %.0.i70.i.i, %330
+_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i: ; preds = %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %323
+  %.0.i70.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i51.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i49.i.i, %323 ]
+  %328 = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEmiRKNS_16strings_internal11ParsedFloatE(i64 noundef %.0.i70.i.i, i32 noundef %307, ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %329 = zext i1 %328 to i64
+  %spec.select.i117.i = add i64 %.0.i70.i.i, %329
   br label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i
 
-_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i: ; preds = %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %324, %322, %319, %309
-  %.0.i118.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i51.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %spec.select.i117.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i ], [ %spec.select.i.i126.i, %322 ], [ 0, %309 ], [ %.sroa.0.0.extract.trunc.i.i.i49.i.i, %324 ], [ %.sroa.0.0.extract.trunc.i98.i.i127.i, %319 ]
-  %331 = icmp eq i64 %.0.i118.i, 9007199254740992
-  %spec.select.i52.i.i = select i1 %331, i64 4503599627370496, i64 %.0.i118.i
-  %332 = zext i1 %331 to i32
-  %spec.select9.i.i119.i = add nsw i32 %307, %332
-  %333 = icmp sgt i32 %spec.select9.i.i119.i, 971
-  %334 = icmp eq i64 %spec.select.i52.i.i, 0
-  %spec.select10.i.i120.i = select i1 %334, i32 -99999, i32 %spec.select9.i.i119.i
-  %.sroa.3.0.i.i121.i = select i1 %333, i32 99999, i32 %spec.select10.i.i120.i
-  %.sroa.0.0.i.i122.i = select i1 %333, i64 0, i64 %spec.select.i52.i.i
+_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i: ; preds = %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %323, %322, %319, %309
+  %.0.i118.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i51.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %spec.select.i117.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i ], [ %spec.select.i.i126.i, %322 ], [ 0, %309 ], [ %.sroa.0.0.extract.trunc.i.i.i49.i.i, %323 ], [ %.sroa.0.0.extract.trunc.i99.i.i127.i, %319 ]
+  %330 = icmp eq i64 %.0.i118.i, 9007199254740992
+  %spec.select.i52.i.i = select i1 %330, i64 4503599627370496, i64 %.0.i118.i
+  %331 = zext i1 %330 to i32
+  %spec.select9.i.i119.i = add nsw i32 %307, %331
+  %332 = icmp sgt i32 %spec.select9.i.i119.i, 971
+  %333 = icmp eq i64 %spec.select.i52.i.i, 0
+  %spec.select10.i.i120.i = select i1 %333, i32 -99999, i32 %spec.select9.i.i119.i
+  %.sroa.3.0.i.i121.i = select i1 %332, i32 99999, i32 %spec.select10.i.i120.i
+  %.sroa.0.0.i.i122.i = select i1 %332, i64 0, i64 %spec.select.i52.i.i
   %.fca.0.insert.i.i123.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.i.i122.i, 0
   %.fca.1.insert.i.i124.i = insertvalue { i64, i32 } %.fca.0.insert.i.i123.i, i32 %.sroa.3.0.i.i121.i, 1
   br label %_ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
@@ -741,41 +741,41 @@ _ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIdEENS0_15CalculatedFloatERKNS
   %.fca.1.insert.merged.i.i = phi { i64, i32 } [ %.fca.1.insert.i.i124.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i ], [ { i64 0, i32 -99999 }, %_ZN4absl12_GLOBAL__N_111EiselLemireIdEEbRKNS_16strings_internal11ParsedFloatEbPT_PSt4errc.exit.i ], [ { i64 0, i32 99999 }, %264 ]
   %.fca.0.extract.i = extractvalue { i64, i32 } %.fca.1.insert.merged.i.i, 0
   %.fca.1.extract.i = extractvalue { i64, i32 } %.fca.1.insert.merged.i.i, 1
-  %335 = icmp eq i32 %.fca.1.extract.i, 99999
-  br i1 %335, label %336, label %338
+  %334 = icmp eq i32 %.fca.1.extract.i, 99999
+  br i1 %334, label %335, label %337
 
-336:                                              ; preds = %_ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
-  %337 = select i1 %.049.i, double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF
-  store double %337, ptr %2, align 8, !tbaa !14
+335:                                              ; preds = %_ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
+  %336 = select i1 %.049.i, double 0xFFEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF
+  store double %336, ptr %2, align 8, !tbaa !14
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i
 
-338:                                              ; preds = %_ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
-  %339 = icmp eq i64 %.fca.0.extract.i, 0
-  %340 = icmp eq i32 %.fca.1.extract.i, -99999
-  %or.cond.i128.i = or i1 %339, %340
-  br i1 %or.cond.i128.i, label %341, label %343
+337:                                              ; preds = %_ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIdEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
+  %338 = icmp eq i64 %.fca.0.extract.i, 0
+  %339 = icmp eq i32 %.fca.1.extract.i, -99999
+  %or.cond.i128.i = or i1 %338, %339
+  br i1 %or.cond.i128.i, label %340, label %342
 
-341:                                              ; preds = %338
-  %342 = select i1 %.049.i, double -0.000000e+00, double 0.000000e+00
-  store double %342, ptr %2, align 8, !tbaa !14
+340:                                              ; preds = %337
+  %341 = select i1 %.049.i, double -0.000000e+00, double 0.000000e+00
+  store double %341, ptr %2, align 8, !tbaa !14
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i
 
-343:                                              ; preds = %338
-  %344 = select i1 %.049.i, i64 -9223372036854775808, i64 0
-  %345 = icmp ugt i64 %.fca.0.extract.i, 4503599627370495
-  %346 = add nsw i32 %.fca.1.extract.i, 1075
-  %347 = zext i32 %346 to i64
-  %348 = shl i64 %347, 52
-  %349 = and i64 %.fca.0.extract.i, 4503599627370495
-  %350 = select i1 %345, i64 %348, i64 0
-  %.06.i.i129.i = add i64 %350, %344
-  %351 = or disjoint i64 %.06.i.i129.i, %349
-  store i64 %351, ptr %2, align 8, !tbaa !14
+342:                                              ; preds = %337
+  %343 = select i1 %.049.i, i64 -9223372036854775808, i64 0
+  %344 = icmp ugt i64 %.fca.0.extract.i, 4503599627370495
+  %345 = add nsw i32 %.fca.1.extract.i, 1075
+  %346 = zext i32 %345 to i64
+  %347 = shl i64 %346, 52
+  %348 = and i64 %.fca.0.extract.i, 4503599627370495
+  %349 = select i1 %344, i64 %347, i64 0
+  %.06.i.i129.i = add i64 %349, %343
+  %350 = or disjoint i64 %.06.i.i129.i, %348
+  store i64 %350, ptr %2, align 8, !tbaa !14
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i
 
-_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i: ; preds = %343, %341, %336, %258, %208, %204, %196, %191, %187, %.thread.i
-  %.sroa.0137.3.i = phi ptr [ %0, %.thread.i ], [ %169, %336 ], [ %169, %341 ], [ %169, %343 ], [ %169, %187 ], [ %169, %191 ], [ %169, %196 ], [ %169, %204 ], [ %169, %208 ], [ %169, %258 ]
-  %.sroa.6138.3.i = phi i32 [ 22, %.thread.i ], [ 34, %336 ], [ 34, %341 ], [ 0, %343 ], [ 0, %187 ], [ 0, %191 ], [ 0, %196 ], [ 34, %204 ], [ 34, %208 ], [ 0, %258 ]
+_ZN4absl12_GLOBAL__N_112EncodeResultIdEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i: ; preds = %342, %340, %335, %258, %208, %204, %196, %191, %187, %.thread.i
+  %.sroa.0137.3.i = phi ptr [ %0, %.thread.i ], [ %169, %335 ], [ %169, %340 ], [ %169, %342 ], [ %169, %187 ], [ %169, %191 ], [ %169, %196 ], [ %169, %204 ], [ %169, %208 ], [ %169, %258 ]
+  %.sroa.6138.3.i = phi i32 [ 22, %.thread.i ], [ 34, %335 ], [ 34, %340 ], [ 0, %342 ], [ 0, %187 ], [ 0, %191 ], [ 0, %196 ], [ 34, %204 ], [ 34, %208 ], [ 0, %258 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #9
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
@@ -890,18 +890,18 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
   %56 = add nsw i32 %.sroa.speculated.i.i.i, -1
   %57 = zext nneg i32 %56 to i128
   %58 = shl nuw nsw i128 1, %57
-  %.sroa.03.0.insert.ext.i77.i.i.i = zext i64 %39 to i128
+  %.sroa.03.0.insert.ext.i78.i.i.i = zext i64 %39 to i128
   %59 = trunc i128 %notmask.i.i.i to i64
   %60 = xor i64 %59, -1
-  %.sroa.0.0.extract.trunc.i83.i.i.i = and i64 %39, %60
-  %61 = lshr i128 %.sroa.03.0.insert.ext.i77.i.i.i, %55
+  %.sroa.0.0.extract.trunc.i84.i.i.i = and i64 %39, %60
+  %61 = lshr i128 %.sroa.03.0.insert.ext.i78.i.i.i, %55
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc nuw nsw i128 %61 to i64
-  %.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i83.i.i.i to i128
+  %.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i84.i.i.i to i128
   %62 = icmp samesign ult i128 %58, %.sroa.0.0.insert.ext.i.i.i.i.i
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %54
-  %.sroa.0.0.extract.trunc.i98.i.i.i = add nuw i64 %.sroa.0.0.extract.trunc.i.i.i.i.i, 1
+  %.sroa.0.0.extract.trunc.i99.i.i.i = add nuw i64 %.sroa.0.0.extract.trunc.i.i.i.i.i, 1
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 64:                                               ; preds = %54
@@ -914,7 +914,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
 
 _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i: ; preds = %66, %64, %63, %52, %48
-  %.0.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i.i, %48 ], [ %.sroa.0.0.extract.trunc.i98.i.i.i, %63 ], [ 0, %52 ], [ %spec.select.i.i.i, %66 ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %64 ]
+  %.0.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i.i, %48 ], [ %.sroa.0.0.extract.trunc.i99.i.i.i, %63 ], [ 0, %52 ], [ %spec.select.i.i.i, %66 ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %64 ]
   %67 = add nsw i32 %.sroa.speculated.i.i.i, %.val60.i
   %68 = icmp eq i64 %.0.i.i.i, 16777216
   %spec.select.i12.i.i = select i1 %68, i64 8388608, i64 %.0.i.i.i
@@ -1061,18 +1061,18 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
   %135 = add nsw i32 %.sroa.speculated.i.i76.i, -1
   %136 = zext nneg i32 %135 to i128
   %137 = shl nuw nsw i128 1, %136
-  %.sroa.03.0.insert.ext.i77.i.i78.i = zext i64 %117 to i128
+  %.sroa.03.0.insert.ext.i78.i.i78.i = zext i64 %117 to i128
   %138 = trunc i128 %notmask.i.i77.i to i64
   %139 = xor i64 %138, -1
-  %.sroa.0.0.extract.trunc.i83.i.i79.i = and i64 %117, %139
-  %140 = lshr i128 %.sroa.03.0.insert.ext.i77.i.i78.i, %134
+  %.sroa.0.0.extract.trunc.i84.i.i79.i = and i64 %117, %139
+  %140 = lshr i128 %.sroa.03.0.insert.ext.i78.i.i78.i, %134
   %.sroa.0.0.extract.trunc.i.i.i.i80.i = trunc nuw nsw i128 %140 to i64
-  %.sroa.0.0.insert.ext.i.i.i.i81.i = zext i64 %.sroa.0.0.extract.trunc.i83.i.i79.i to i128
+  %.sroa.0.0.insert.ext.i.i.i.i81.i = zext i64 %.sroa.0.0.extract.trunc.i84.i.i79.i to i128
   %141 = icmp samesign ult i128 %137, %.sroa.0.0.insert.ext.i.i.i.i81.i
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %133
-  %.sroa.0.0.extract.trunc.i98.i.i92.i = add nuw i64 %.sroa.0.0.extract.trunc.i.i.i.i80.i, 1
+  %.sroa.0.0.extract.trunc.i99.i.i92.i = add nuw i64 %.sroa.0.0.extract.trunc.i.i.i.i80.i, 1
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit95.i
 
 143:                                              ; preds = %133
@@ -1085,7 +1085,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
   br label %_ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit95.i
 
 _ZN4absl12_GLOBAL__N_130CalculateFromParsedHexadecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit95.i: ; preds = %145, %143, %142, %131, %127
-  %.0.i.i82.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i94.i, %127 ], [ %.sroa.0.0.extract.trunc.i98.i.i92.i, %142 ], [ 0, %131 ], [ %spec.select.i.i91.i, %145 ], [ %.sroa.0.0.extract.trunc.i.i.i.i80.i, %143 ]
+  %.0.i.i82.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i94.i, %127 ], [ %.sroa.0.0.extract.trunc.i99.i.i92.i, %142 ], [ 0, %131 ], [ %spec.select.i.i91.i, %145 ], [ %.sroa.0.0.extract.trunc.i.i.i.i80.i, %143 ]
   %146 = add nsw i32 %.sroa.speculated.i.i76.i, %.val62.i
   %147 = icmp eq i64 %.0.i.i82.i, 16777216
   %spec.select.i12.i83.i = select i1 %147, i64 8388608, i64 %.0.i.i82.i
@@ -1451,69 +1451,69 @@ _ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i: ; preds = %304, %302
   %316 = add nsw i32 %.sroa.speculated.i.i112.i, -1
   %317 = zext nneg i32 %316 to i128
   %318 = shl nuw nsw i128 1, %317
-  %.sroa.24.0.insert.ext.i75.i.i.i = zext i64 %.sroa.11.0.i.i to i128
-  %.sroa.24.0.insert.shift.i76.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i75.i.i.i, 64
-  %.sroa.03.0.insert.ext.i77.i.i114.i = zext i64 %.sroa.053.0.i.i to i128
-  %.sroa.03.0.insert.insert.i78.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i76.i.i.i, %.sroa.03.0.insert.ext.i77.i.i114.i
+  %.sroa.24.0.insert.ext.i76.i.i.i = zext i64 %.sroa.11.0.i.i to i128
+  %.sroa.24.0.insert.shift.i77.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i76.i.i.i, 64
+  %.sroa.03.0.insert.ext.i78.i.i114.i = zext i64 %.sroa.053.0.i.i to i128
+  %.sroa.03.0.insert.insert.i79.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i77.i.i.i, %.sroa.03.0.insert.ext.i78.i.i114.i
   %319 = trunc i128 %.sroa.03.0.insert.insert.i.i48.i.i to i64
-  %.sroa.0.0.extract.trunc.i83.i.i115.i = and i64 %.sroa.053.0.i.i, %319
-  %.sroa.2.0.extract.shift.i84.i.i.i = and i128 %.sroa.24.0.insert.shift.i76.i.i.i, %.sroa.03.0.insert.insert.i.i48.i.i
-  %320 = lshr i128 %.sroa.03.0.insert.insert.i78.i.i.i, %315
+  %.sroa.0.0.extract.trunc.i84.i.i115.i = and i64 %.sroa.053.0.i.i, %319
+  %.sroa.2.0.extract.shift.i85.i.i.i = and i128 %.sroa.24.0.insert.shift.i77.i.i.i, %.sroa.03.0.insert.insert.i.i48.i.i
+  %320 = lshr i128 %.sroa.03.0.insert.insert.i79.i.i.i, %315
   %.sroa.0.0.extract.trunc.i.i.i49.i.i = trunc i128 %320 to i64
-  %.sroa.0.0.insert.ext.i.i.i.i116.i = zext i64 %.sroa.0.0.extract.trunc.i83.i.i115.i to i128
-  %.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i128 %.sroa.2.0.extract.shift.i84.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i116.i
+  %.sroa.0.0.insert.ext.i.i.i.i116.i = zext i64 %.sroa.0.0.extract.trunc.i84.i.i115.i to i128
+  %.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i128 %.sroa.2.0.extract.shift.i85.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i116.i
   %321 = icmp samesign ult i128 %318, %.sroa.0.0.insert.insert.i.i.i.i.i
   br i1 %321, label %322, label %323
 
 322:                                              ; preds = %314
-  %.sroa.0.0.extract.trunc.i98.i.i127.i = add i64 %.sroa.0.0.extract.trunc.i.i.i49.i.i, 1
+  %.sroa.0.0.extract.trunc.i99.i.i127.i = add i64 %.sroa.0.0.extract.trunc.i.i.i49.i.i, 1
   br label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i
 
 323:                                              ; preds = %314
   %324 = icmp eq i128 %.sroa.0.0.insert.insert.i.i.i.i.i, %318
-  br i1 %324, label %325, label %327
+  br i1 %324, label %325, label %326
 
 325:                                              ; preds = %323
-  %.sroa.01.0.insert.ext.i122.i.i.i = and i128 %320, 1
-  %326 = icmp eq i128 %.sroa.01.0.insert.ext.i122.i.i.i, 0
-  %brmerge.not.i.i.i = and i1 %.033.i.i, %326
-  %not.brmerge.not.i.i.i = xor i1 %brmerge.not.i.i.i, true
-  %.sroa.0.0.extract.trunc.i.i.i.i.i125.i = zext i1 %not.brmerge.not.i.i.i to i64
+  %.sroa.01.0.insert.ext.i123.i.i.i = and i128 %320, 1
+  %.not176.i.i.i = icmp eq i128 %.sroa.01.0.insert.ext.i123.i.i.i, 0
+  %or.cond.i.i.i = and i1 %.033.i.i, %.not176.i.i.i
+  %not.or.cond.i.i.i = xor i1 %or.cond.i.i.i, true
+  %.sroa.0.0.extract.trunc.i.i.i.i.i125.i = zext i1 %not.or.cond.i.i.i to i64
   %spec.select.i.i126.i = add i64 %.sroa.0.0.extract.trunc.i.i.i.i.i125.i, %.sroa.0.0.extract.trunc.i.i.i49.i.i
   br label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i
 
-327:                                              ; preds = %323
-  %.sroa.03.0.insert.insert.i133.i.i.i = add nsw i128 %318, -1
-  %328 = icmp ne i128 %.sroa.0.0.insert.insert.i.i.i.i.i, %.sroa.03.0.insert.insert.i133.i.i.i
-  %or.cond.not.i.i.i = select i1 %.033.i.i, i1 true, i1 %328
-  br i1 %or.cond.not.i.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i
+326:                                              ; preds = %323
+  %.sroa.03.0.insert.insert.i134.i.i.i = add nsw i128 %318, -1
+  %327 = icmp ne i128 %.sroa.0.0.insert.insert.i.i.i.i.i, %.sroa.03.0.insert.insert.i134.i.i.i
+  %or.cond177.not.i.i.i = select i1 %.033.i.i, i1 true, i1 %327
+  br i1 %or.cond177.not.i.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i
 
 _ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i: ; preds = %308
-  %329 = sub nsw i32 0, %.sroa.speculated.i.i112.i
+  %328 = sub nsw i32 0, %.sroa.speculated.i.i112.i
   %.sroa.01.0.insert.ext.i.i50.i.i = zext i64 %.sroa.053.0.i.i to i128
-  %330 = zext nneg i32 %329 to i128
-  %331 = shl nuw nsw i128 %.sroa.01.0.insert.ext.i.i50.i.i, %330
-  %.sroa.0.0.extract.trunc.i.i51.i.i = trunc i128 %331 to i64
+  %329 = zext nneg i32 %328 to i128
+  %330 = shl nuw nsw i128 %.sroa.01.0.insert.ext.i.i50.i.i, %329
+  %.sroa.0.0.extract.trunc.i.i51.i.i = trunc i128 %330 to i64
   br i1 %.033.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i
 
-_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i: ; preds = %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %327
-  %.0.i70.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i51.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i49.i.i, %327 ]
-  %332 = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEmiRKNS_16strings_internal11ParsedFloatE(i64 noundef %.0.i70.i.i, i32 noundef %310, ptr noundef nonnull align 8 dereferenceable(48) %9)
-  %333 = zext i1 %332 to i64
-  %spec.select.i117.i = add i64 %.0.i70.i.i, %333
+_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i: ; preds = %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %326
+  %.0.i70.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i51.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i49.i.i, %326 ]
+  %331 = call fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEmiRKNS_16strings_internal11ParsedFloatE(i64 noundef %.0.i70.i.i, i32 noundef %310, ptr noundef nonnull align 8 dereferenceable(48) %9)
+  %332 = zext i1 %331 to i64
+  %spec.select.i117.i = add i64 %.0.i70.i.i, %332
   br label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i
 
-_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i: ; preds = %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %327, %325, %322, %312
-  %.0.i118.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i51.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %spec.select.i117.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i ], [ %spec.select.i.i126.i, %325 ], [ 0, %312 ], [ %.sroa.0.0.extract.trunc.i.i.i49.i.i, %327 ], [ %.sroa.0.0.extract.trunc.i98.i.i127.i, %322 ]
-  %334 = icmp eq i64 %.0.i118.i, 16777216
-  %spec.select.i52.i.i = select i1 %334, i64 8388608, i64 %.0.i118.i
-  %335 = zext i1 %334 to i32
-  %spec.select9.i.i119.i = add nsw i32 %310, %335
-  %336 = icmp sgt i32 %spec.select9.i.i119.i, 104
-  %337 = icmp eq i64 %spec.select.i52.i.i, 0
-  %spec.select10.i.i120.i = select i1 %337, i32 -99999, i32 %spec.select9.i.i119.i
-  %.sroa.3.0.i.i121.i = select i1 %336, i32 99999, i32 %spec.select10.i.i120.i
-  %.sroa.0.0.i.i122.i = select i1 %336, i64 0, i64 %spec.select.i52.i.i
+_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i: ; preds = %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, %326, %325, %322, %312
+  %.0.i118.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i51.i.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i ], [ %spec.select.i117.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread67.i.i ], [ %spec.select.i.i126.i, %325 ], [ 0, %312 ], [ %.sroa.0.0.extract.trunc.i.i.i49.i.i, %326 ], [ %.sroa.0.0.extract.trunc.i99.i.i127.i, %322 ]
+  %333 = icmp eq i64 %.0.i118.i, 16777216
+  %spec.select.i52.i.i = select i1 %333, i64 8388608, i64 %.0.i118.i
+  %334 = zext i1 %333 to i32
+  %spec.select9.i.i119.i = add nsw i32 %310, %334
+  %335 = icmp sgt i32 %spec.select9.i.i119.i, 104
+  %336 = icmp eq i64 %spec.select.i52.i.i, 0
+  %spec.select10.i.i120.i = select i1 %336, i32 -99999, i32 %spec.select9.i.i119.i
+  %.sroa.3.0.i.i121.i = select i1 %335, i32 99999, i32 %spec.select10.i.i120.i
+  %.sroa.0.0.i.i122.i = select i1 %335, i64 0, i64 %spec.select.i52.i.i
   %.fca.0.insert.i.i123.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.i.i122.i, 0
   %.fca.1.insert.i.i124.i = insertvalue { i64, i32 } %.fca.0.insert.i.i123.i, i32 %.sroa.3.0.i.i121.i, 1
   br label %_ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
@@ -1522,41 +1522,41 @@ _ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIfEENS0_15CalculatedFloatERKNS
   %.fca.1.insert.merged.i.i = phi { i64, i32 } [ %.fca.1.insert.i.i124.i, %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.thread.i.i ], [ { i64 0, i32 -99999 }, %_ZN4absl12_GLOBAL__N_111EiselLemireIfEEbRKNS_16strings_internal11ParsedFloatEbPT_PSt4errc.exit.i ], [ { i64 0, i32 99999 }, %267 ]
   %.fca.0.extract.i = extractvalue { i64, i32 } %.fca.1.insert.merged.i.i, 0
   %.fca.1.extract.i = extractvalue { i64, i32 } %.fca.1.insert.merged.i.i, 1
-  %338 = icmp eq i32 %.fca.1.extract.i, 99999
-  br i1 %338, label %339, label %341
+  %337 = icmp eq i32 %.fca.1.extract.i, 99999
+  br i1 %337, label %338, label %340
 
-339:                                              ; preds = %_ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
-  %340 = select i1 %.049.i, float 0xC7EFFFFFE0000000, float 0x47EFFFFFE0000000
-  store float %340, ptr %2, align 4, !tbaa !22
+338:                                              ; preds = %_ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
+  %339 = select i1 %.049.i, float 0xC7EFFFFFE0000000, float 0x47EFFFFFE0000000
+  store float %339, ptr %2, align 4, !tbaa !22
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i
 
-341:                                              ; preds = %_ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
-  %342 = icmp eq i64 %.fca.0.extract.i, 0
-  %343 = icmp eq i32 %.fca.1.extract.i, -99999
-  %or.cond.i128.i = or i1 %342, %343
-  br i1 %or.cond.i128.i, label %344, label %346
+340:                                              ; preds = %_ZN4absl12_GLOBAL__N_126CalculateFromParsedDecimalIfEENS0_15CalculatedFloatERKNS_16strings_internal11ParsedFloatE.exit.i
+  %341 = icmp eq i64 %.fca.0.extract.i, 0
+  %342 = icmp eq i32 %.fca.1.extract.i, -99999
+  %or.cond.i128.i = or i1 %341, %342
+  br i1 %or.cond.i128.i, label %343, label %345
 
-344:                                              ; preds = %341
-  %345 = select i1 %.049.i, float -0.000000e+00, float 0.000000e+00
-  store float %345, ptr %2, align 4, !tbaa !22
+343:                                              ; preds = %340
+  %344 = select i1 %.049.i, float -0.000000e+00, float 0.000000e+00
+  store float %344, ptr %2, align 4, !tbaa !22
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i
 
-346:                                              ; preds = %341
-  %347 = trunc i64 %.fca.0.extract.i to i32
-  %348 = select i1 %.049.i, i32 -2147483648, i32 0
-  %349 = icmp ugt i32 %347, 8388607
-  %350 = shl i32 %.fca.1.extract.i, 23
-  %351 = add i32 %350, 1258291200
-  %352 = and i32 %347, 8388607
-  %353 = select i1 %349, i32 %351, i32 0
-  %.06.i.i129.i = add i32 %353, %348
-  %354 = or disjoint i32 %.06.i.i129.i, %352
-  store i32 %354, ptr %2, align 4, !tbaa !22
+345:                                              ; preds = %340
+  %346 = trunc i64 %.fca.0.extract.i to i32
+  %347 = select i1 %.049.i, i32 -2147483648, i32 0
+  %348 = icmp ugt i32 %346, 8388607
+  %349 = shl i32 %.fca.1.extract.i, 23
+  %350 = add i32 %349, 1258291200
+  %351 = and i32 %346, 8388607
+  %352 = select i1 %348, i32 %350, i32 0
+  %.06.i.i129.i = add i32 %352, %347
+  %353 = or disjoint i32 %.06.i.i129.i, %351
+  store i32 %353, ptr %2, align 4, !tbaa !22
   br label %_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i
 
-_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i: ; preds = %346, %344, %339, %258, %208, %204, %196, %191, %187, %.thread.i
-  %.sroa.0137.3.i = phi ptr [ %0, %.thread.i ], [ %169, %339 ], [ %169, %344 ], [ %169, %346 ], [ %169, %187 ], [ %169, %191 ], [ %169, %196 ], [ %169, %204 ], [ %169, %208 ], [ %169, %258 ]
-  %.sroa.6138.3.i = phi i32 [ 22, %.thread.i ], [ 34, %339 ], [ 34, %344 ], [ 0, %346 ], [ 0, %187 ], [ 0, %191 ], [ 0, %196 ], [ 34, %204 ], [ 34, %208 ], [ 0, %258 ]
+_ZN4absl12_GLOBAL__N_112EncodeResultIfEEvRKNS0_15CalculatedFloatEbPNS_17from_chars_resultEPT_.exit130.i: ; preds = %345, %343, %338, %258, %208, %204, %196, %191, %187, %.thread.i
+  %.sroa.0137.3.i = phi ptr [ %0, %.thread.i ], [ %169, %338 ], [ %169, %343 ], [ %169, %345 ], [ %169, %187 ], [ %169, %191 ], [ %169, %196 ], [ %169, %204 ], [ %169, %208 ], [ %169, %258 ]
+  %.sroa.6138.3.i = phi i32 [ 22, %.thread.i ], [ 34, %338 ], [ 34, %343 ], [ 0, %345 ], [ 0, %187 ], [ 0, %191 ], [ 0, %196 ], [ 34, %204 ], [ 34, %208 ], [ 0, %258 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #9
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 

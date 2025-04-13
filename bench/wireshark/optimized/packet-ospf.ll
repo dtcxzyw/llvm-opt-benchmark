@@ -2129,22 +2129,20 @@ dissect_ospfv2_lls_tlv.exit.us.i:                 ; preds = %._crit_edge.i.us.i,
   %380 = add nuw nsw i32 %379, 4
   %switch.tableidx = add i16 %376, -1
   %381 = icmp ult i16 %switch.tableidx, 8
-  br i1 %381, label %switch.hole_check, label %.thread.i.i
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -3, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond297 = select i1 %381, i1 %switch.lobit, i1 false
+  br i1 %or.cond297, label %switch.lookup, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %switch.hole_check, %.lr.ph.split.i231
+.thread.i.i:                                      ; preds = %.lr.ph.split.i231
   %382 = zext i16 %376 to i32
   %383 = load i32, ptr @ett_ospf_lls_tlv, align 4
   %384 = call ptr @val_to_str_const(i32 noundef %382, ptr noundef nonnull @lls_v3_tlv_type_vals, ptr noundef nonnull @.str.930)
   %385 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %336, ptr noundef %0, i32 noundef range(i32 -2147483648, 327930) %.040.i, i32 noundef %380, i32 noundef %383, ptr noundef null, ptr noundef nonnull @.str.832, ptr noundef %384)
   br label %392
 
-switch.hole_check:                                ; preds = %.lr.ph.split.i231
-  %switch.maskindex = trunc nuw i16 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -3, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.thread.i.i
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.lr.ph.split.i231
   %386 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.dissect_ospf, i64 0, i64 %386
   %switch.load = load ptr, ptr %switch.gep, align 8

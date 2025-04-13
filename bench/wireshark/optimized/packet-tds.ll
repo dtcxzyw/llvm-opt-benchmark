@@ -4824,8 +4824,8 @@ dissect_tds_prelogin_response.exit:               ; preds = %48, %.lr.ph, %58, %
   %75 = getelementptr i8, ptr %3, i64 28
   br label %76
 
-76:                                               ; preds = %.lr.ph336, %1350
-  %.0202331 = phi i32 [ 0, %.lr.ph336 ], [ %.1203, %1350 ]
+76:                                               ; preds = %.lr.ph336, %1348
+  %.0202331 = phi i32 [ 0, %.lr.ph336 ], [ %.1203, %1348 ]
   %77 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.0202331)
   %78 = load i32, ptr @tds_protocol_type, align 4
   %79 = icmp eq i32 %78, 65535
@@ -6276,7 +6276,7 @@ dissect_tds_rowfmt2_token.exit:                   ; preds = %.thread.i271, %751
 .thread:                                          ; preds = %337, %341, %383, %387, %753
   %.0298 = phi i32 [ %.0, %753 ], [ %340, %337 ], [ 5, %341 ], [ 9, %383 ], [ 5, %387 ]
   call void @proto_item_set_len(ptr noundef %117, i32 noundef %.0298)
-  br label %1350
+  br label %1348
 
 756:                                              ; preds = %83, %80
   switch i8 %77, label %774 [
@@ -7351,65 +7351,61 @@ dissect_tds_sessionstate_token.exit:              ; preds = %dissect_tds_session
   %1328 = call zeroext i16 @tvb_get_uint16(ptr noundef nonnull %0, i32 noundef %1325, i32 noundef %1327)
   %1329 = zext i16 %1328 to i32
   %1330 = add i32 %.0202331, 3
-  %.not26.i = icmp eq i16 %1328, 0
-  br i1 %.not26.i, label %dissect_tds_sspi_token.exit, label %1331
+  %.not28.i = icmp eq i16 %1328, 0
+  br i1 %.not28.i, label %dissect_tds_sspi_token.exit, label %1331
 
 1331:                                             ; preds = %1324
   %1332 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %0, i32 noundef %1330)
   %1333 = call i32 @tvb_strneql(ptr noundef nonnull %0, i32 noundef %1330, ptr noundef nonnull @.str.1368, i64 noundef 7)
   %1334 = icmp eq i32 %1333, 0
-  br i1 %1334, label %1344, label %1335
+  br i1 %1334, label %1342, label %1335
 
 1335:                                             ; preds = %1331
   %1336 = call i32 @get_ber_identifier(ptr noundef nonnull %0, i32 noundef %1330, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %1337 = load i8, ptr %5, align 1
   %1338 = icmp eq i8 %1337, 2
-  br i1 %1338, label %1339, label %1343
+  %1339 = load i8, ptr %6, align 1, !range !6
+  %1340 = trunc nuw i8 %1339 to i1
+  %or.cond.i = select i1 %1338, i1 %1340, i1 false
+  %1341 = load i32, ptr %7, align 4
+  %or.cond3.i = icmp ult i32 %1341, 2
+  %or.cond29.i = select i1 %or.cond.i, i1 %or.cond3.i, i1 false
+  %spnego_handle.gssapi_handle = select i1 %or.cond29.i, ptr @spnego_handle, ptr @gssapi_handle
+  br label %1342
 
-1339:                                             ; preds = %1335
-  %1340 = load i8, ptr %6, align 1, !range !6, !noundef !7
-  %1341 = trunc nuw i8 %1340 to i1
-  %1342 = load i32, ptr %7, align 4
-  %or.cond.i = icmp ult i32 %1342, 2
-  %or.cond27.i = select i1 %1341, i1 %or.cond.i, i1 false
-  br i1 %or.cond27.i, label %1344, label %1343
-
-1343:                                             ; preds = %1339, %1335
-  br label %1344
-
-1344:                                             ; preds = %1339, %1331, %1343
-  %gssapi_handle.sink = phi ptr [ @gssapi_handle, %1343 ], [ @ntlmssp_handle, %1331 ], [ @spnego_handle, %1339 ]
-  %1345 = load ptr, ptr %gssapi_handle.sink, align 8
-  %1346 = call i32 @call_dissector(ptr noundef %1345, ptr noundef %1332, ptr noundef %1, ptr noundef %778)
-  %1347 = add i32 %1330, %1329
+1342:                                             ; preds = %1335, %1331
+  %gssapi_handle.sink = phi ptr [ @ntlmssp_handle, %1331 ], [ %spnego_handle.gssapi_handle, %1335 ]
+  %1343 = load ptr, ptr %gssapi_handle.sink, align 8
+  %1344 = call i32 @call_dissector(ptr noundef %1343, ptr noundef %1332, ptr noundef %1, ptr noundef %778)
+  %1345 = add i32 %1330, %1329
   br label %dissect_tds_sspi_token.exit
 
-dissect_tds_sspi_token.exit:                      ; preds = %1324, %1344
-  %.0.i296 = phi i32 [ %1347, %1344 ], [ %1330, %1324 ]
+dissect_tds_sspi_token.exit:                      ; preds = %1324, %1342
+  %.0.i296 = phi i32 [ %1345, %1342 ], [ %1330, %1324 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
-  %1348 = sub i32 %.0.i296, %.0202331
+  %1346 = sub i32 %.0.i296, %.0202331
   br label %dissect_tds7_colmetadata_token.exit
 
 dissect_tds7_colmetadata_token.exit:              ; preds = %._crit_edge.i278, %dissect_tds_sspi_token.exit, %dissect_tds_sessionstate_token.exit, %1280, %1270, %dissect_tds_nbc_row_token.exit, %dissect_tds_featureextack_token.exit, %1192, %1188, %1184, %1180, %1176, %1172
-  %.1 = phi i32 [ %1348, %dissect_tds_sspi_token.exit ], [ %.lcssa.i, %dissect_tds_sessionstate_token.exit ], [ %1283, %1280 ], [ %1273, %1270 ], [ %1262, %dissect_tds_nbc_row_token.exit ], [ %1221, %dissect_tds_featureextack_token.exit ], [ %1195, %1192 ], [ %1191, %1188 ], [ %1187, %1184 ], [ %1183, %1180 ], [ %1179, %1176 ], [ %1175, %1172 ], [ %1171, %._crit_edge.i278 ]
-  %1349 = icmp eq i32 %.1, 0
-  br i1 %1349, label %.thread305, label %.thread302
+  %.1 = phi i32 [ %1346, %dissect_tds_sspi_token.exit ], [ %.lcssa.i, %dissect_tds_sessionstate_token.exit ], [ %1283, %1280 ], [ %1273, %1270 ], [ %1262, %dissect_tds_nbc_row_token.exit ], [ %1221, %dissect_tds_featureextack_token.exit ], [ %1195, %1192 ], [ %1191, %1188 ], [ %1187, %1184 ], [ %1183, %1180 ], [ %1179, %1176 ], [ %1175, %1172 ], [ %1171, %._crit_edge.i278 ]
+  %1347 = icmp eq i32 %.1, 0
+  br i1 %1347, label %.thread305, label %.thread302
 
 .thread302:                                       ; preds = %dissect_tds7_colmetadata_token.exit.thread, %1222, %1263, %1274, %dissect_tds7_colmetadata_token.exit
   %.1304 = phi i32 [ %.1, %dissect_tds7_colmetadata_token.exit ], [ %1225, %1222 ], [ 5, %1263 ], [ 5, %1274 ], [ 3, %dissect_tds7_colmetadata_token.exit.thread ]
   call void @proto_item_set_len(ptr noundef %776, i32 noundef %.1304)
-  br label %1350
+  br label %1348
 
-1350:                                             ; preds = %.thread302, %.thread
+1348:                                             ; preds = %.thread302, %.thread
   %.0.pn = phi i32 [ %.0298, %.thread ], [ %.1304, %.thread302 ]
   %.1203 = add i32 %.0.pn, %.0202331
-  %1351 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.1203)
-  %1352 = icmp sgt i32 %1351, 0
-  br i1 %1352, label %76, label %.thread305, !llvm.loop !28
+  %1349 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.1203)
+  %1350 = icmp sgt i32 %1349, 0
+  br i1 %1350, label %76, label %.thread305, !llvm.loop !28
 
-.thread305:                                       ; preds = %dissect_tds7_colmetadata_token.exit, %1350, %tds7_token_to_idx.exit, %dissect_tds_prelogin_response.exit, %dissect_tds_prelogin_response.exit.thread, %.thread299
+.thread305:                                       ; preds = %dissect_tds7_colmetadata_token.exit, %1348, %tds7_token_to_idx.exit, %dissect_tds_prelogin_response.exit, %dissect_tds_prelogin_response.exit.thread, %.thread299
   call void @llvm.lifetime.end.p0(i64 2056, ptr nonnull %43) #13
   ret void
 }
@@ -7430,33 +7426,31 @@ define internal fastcc void @dissect_tds_nt(ptr noundef nonnull %0, ptr noundef 
 11:                                               ; preds = %4
   %12 = load ptr, ptr @ntlmssp_handle, align 8
   %13 = tail call i32 @call_dissector(ptr noundef %12, ptr noundef %8, ptr noundef %1, ptr noundef %2)
-  br label %28
+  br label %27
 
 14:                                               ; preds = %4
   %15 = call i32 @get_ber_identifier(ptr noundef nonnull %0, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %16 = load i8, ptr %5, align 1
   %17 = icmp eq i8 %16, 2
-  br i1 %17, label %18, label %25
+  %18 = load i8, ptr %6, align 1, !range !6
+  %19 = trunc nuw i8 %18 to i1
+  %or.cond = select i1 %17, i1 %19, i1 false
+  %20 = load i32, ptr %7, align 4
+  %or.cond3 = icmp ult i32 %20, 2
+  %or.cond17 = select i1 %or.cond, i1 %or.cond3, i1 false
+  br i1 %or.cond17, label %21, label %24
 
-18:                                               ; preds = %14
-  %19 = load i8, ptr %6, align 1, !range !6, !noundef !7
-  %20 = trunc nuw i8 %19 to i1
-  %21 = load i32, ptr %7, align 4
-  %or.cond = icmp ult i32 %21, 2
-  %or.cond15 = select i1 %20, i1 %or.cond, i1 false
-  br i1 %or.cond15, label %22, label %25
+21:                                               ; preds = %14
+  %22 = load ptr, ptr @spnego_handle, align 8
+  %23 = call i32 @call_dissector(ptr noundef %22, ptr noundef %8, ptr noundef %1, ptr noundef %2)
+  br label %27
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr @spnego_handle, align 8
-  %24 = call i32 @call_dissector(ptr noundef %23, ptr noundef %8, ptr noundef %1, ptr noundef %2)
-  br label %28
+24:                                               ; preds = %14
+  %25 = load ptr, ptr @gssapi_handle, align 8
+  %26 = call i32 @call_dissector(ptr noundef %25, ptr noundef %8, ptr noundef %1, ptr noundef %2)
+  br label %27
 
-25:                                               ; preds = %18, %14
-  %26 = load ptr, ptr @gssapi_handle, align 8
-  %27 = call i32 @call_dissector(ptr noundef %26, ptr noundef %8, ptr noundef %1, ptr noundef %2)
-  br label %28
-
-28:                                               ; preds = %22, %25, %11
+27:                                               ; preds = %21, %24, %11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13

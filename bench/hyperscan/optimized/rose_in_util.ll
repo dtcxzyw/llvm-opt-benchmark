@@ -2191,41 +2191,43 @@ declare i32 @_ZN3ue212findMaxWidthERKNS_8NGHolderE(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 0, 4) i32 @_ZN3ue214whatRoseIsThisERKNS_11RoseInGraphERKNS_12graph_detail15edge_descriptorINS_9ue2_graphIS0_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 {
-  %.sroa.016.0.copyload = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.copyload, i64 32
+  %.sroa.022.0.copyload = load ptr, ptr %1, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %.sroa.022.0.copyload, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.copyload, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.022.0.copyload, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, -1
-  %spec.select36 = icmp ult i32 %9, 2
+  %spec.select = icmp ult i32 %9, 2
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %.thread, label %13
 
+.thread:                                          ; preds = %2
+  %.not37 = xor i1 %spec.select, true
+  br label %15
+
 13:                                               ; preds = %2
   %14 = icmp eq i32 %11, 4
-  %.not = xor i1 %spec.select36, true
-  %brmerge = or i1 %14, %.not
-  br i1 %brmerge, label %.thread, label %18
+  %.not = xor i1 %spec.select, true
+  %or.cond = or i1 %14, %.not
+  br i1 %or.cond, label %15, label %18
 
-.thread:                                          ; preds = %2, %13
-  %15 = phi i1 [ %14, %13 ], [ true, %2 ]
-  %.fr = freeze i1 %15
-  %16 = add i32 %8, -3
-  %switch = icmp ult i32 %16, -2
-  %or.cond.not = select i1 %.fr, i1 %switch, i1 false
-  br i1 %or.cond.not, label %18, label %17
+15:                                               ; preds = %.thread, %13
+  %.not39 = phi i1 [ %.not37, %.thread ], [ %.not, %13 ]
+  %16 = phi i1 [ true, %.thread ], [ %14, %13 ]
+  %or.cond4 = and i1 %.not39, %16
+  br i1 %or.cond4, label %18, label %17
 
-17:                                               ; preds = %.thread
-  %brmerge31 = or i1 %spec.select36, %.fr
-  %spec.select = select i1 %brmerge31, i32 3, i32 1
+17:                                               ; preds = %15
+  %or.cond6 = or i1 %spec.select, %16
+  %. = select i1 %or.cond6, i32 3, i32 1
   br label %18
 
-18:                                               ; preds = %.thread, %17, %13
-  %.0 = phi i32 [ 0, %13 ], [ %spec.select, %17 ], [ 2, %.thread ]
+18:                                               ; preds = %17, %15, %13
+  %.0 = phi i32 [ 0, %13 ], [ 2, %15 ], [ %., %17 ]
   ret i32 %.0
 }
 

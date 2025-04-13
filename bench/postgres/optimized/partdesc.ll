@@ -40,16 +40,16 @@ define dso_local ptr @RelationGetPartitionDesc(ptr noundef %0, i1 noundef zeroex
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i8, ptr %12, align 4, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
-  %brmerge.demorgan = and i1 %1, %14
-  br i1 %brmerge.demorgan, label %15, label %.critedge18
+  %or.cond = and i1 %1, %14
+  br i1 %or.cond, label %15, label %.critedge17
 
 15:                                               ; preds = %11
   %16 = tail call zeroext i1 @ActiveSnapshotSet() #6
-  br i1 %16, label %.critedge, label %..critedge18_crit_edge, !prof !6
+  br i1 %16, label %.critedge, label %..critedge17_crit_edge, !prof !6
 
-..critedge18_crit_edge:                           ; preds = %15
+..critedge17_crit_edge:                           ; preds = %15
   %.pre = load ptr, ptr %9, align 8
-  br label %.critedge18
+  br label %.critedge17
 
 .critedge:                                        ; preds = %2, %15
   br i1 %1, label %17, label %.thread
@@ -57,8 +57,8 @@ define dso_local ptr @RelationGetPartitionDesc(ptr noundef %0, i1 noundef zeroex
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %19 = load ptr, ptr %18, align 8
-  %.not14 = icmp eq ptr %19, null
-  br i1 %.not14, label %.thread, label %20
+  %.not15 = icmp eq ptr %19, null
+  br i1 %.not15, label %.thread, label %20
 
 20:                                               ; preds = %17
   %21 = tail call zeroext i1 @ActiveSnapshotSet() #6
@@ -73,7 +73,7 @@ define dso_local ptr @RelationGetPartitionDesc(ptr noundef %0, i1 noundef zeroex
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %18, align 8
-  br label %.critedge18
+  br label %.critedge17
 
 .thread:                                          ; preds = %22, %20, %17, %.critedge
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
@@ -103,7 +103,7 @@ list_length.exit.i:                               ; preds = %161
 .lr.ph.i:                                         ; preds = %list_length.exit.i.preheader, %list_length.exit.i
   %39 = phi i32 [ %37, %list_length.exit.i ], [ %34, %list_length.exit.i.preheader ]
   %40 = phi ptr [ %36, %list_length.exit.i ], [ %33, %list_length.exit.i.preheader ]
-  %.0117.i69207 = phi i1 [ true, %list_length.exit.i ], [ false, %list_length.exit.i.preheader ]
+  %.0120.i69209 = phi i1 [ true, %list_length.exit.i ], [ false, %list_length.exit.i.preheader ]
   %41 = phi ptr [ %163, %list_length.exit.i ], [ %32, %list_length.exit.i.preheader ]
   %42 = zext nneg i32 %39 to i64
   %43 = shl nuw nsw i64 %42, 2
@@ -123,20 +123,20 @@ list_length.exit.i:                               ; preds = %161
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
   %54 = call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %53) #6
-  %.not139.i = icmp eq ptr %54, null
-  br i1 %.not139.i, label %.thread148.i, label %55
+  %.not142.i = icmp eq ptr %54, null
+  br i1 %.not142.i, label %.thread150.i, label %55
 
 55:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
   %56 = call i64 @SysCacheGetAttr(i32 noundef 57, ptr noundef nonnull %54, i16 noundef signext 33, ptr noundef nonnull %6) #6
   %57 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %.thread150.i, label %59
+  br i1 %58, label %.thread152.i, label %59
 
-.thread150.i:                                     ; preds = %55
+.thread152.i:                                     ; preds = %55
   call void @ReleaseSysCache(ptr noundef nonnull %54) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  br label %.thread148.i
+  br label %.thread150.i
 
 59:                                               ; preds = %55
   %60 = inttoptr i64 %56 to ptr
@@ -145,18 +145,18 @@ list_length.exit.i:                               ; preds = %161
   call void @ReleaseSysCache(ptr noundef nonnull %54) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.thread148.i, label %.thread157.i
+  br i1 %63, label %.thread150.i, label %.thread157.i
 
-.thread148.i:                                     ; preds = %59, %.thread150.i, %.lr.ph
+.thread150.i:                                     ; preds = %59, %.thread152.i, %.lr.ph
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #6
   %64 = call ptr @table_open(i32 noundef 1259, i32 noundef 1) #6
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %53) #6
   %65 = call ptr @systable_beginscan(ptr noundef %64, i32 noundef 2662, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %7) #6
   %66 = call ptr @systable_getnext(ptr noundef %65) #6
-  %.not140.i = icmp eq ptr %66, null
-  br i1 %.not140.i, label %130, label %67
+  %.not143.i = icmp eq ptr %66, null
+  br i1 %.not143.i, label %130, label %67
 
-67:                                               ; preds = %.thread148.i
+67:                                               ; preds = %.thread150.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %69 = load ptr, ptr %68, align 8
@@ -271,26 +271,24 @@ heap_getattr.exit.i:                              ; preds = %121, %120, %115, %1
   br label %129
 
 129:                                              ; preds = %125, %heap_getattr.exit.i
-  %.4124.i = phi ptr [ null, %heap_getattr.exit.i ], [ %128, %125 ]
+  %.4127.i = phi ptr [ null, %heap_getattr.exit.i ], [ %128, %125 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
   br label %130
 
-130:                                              ; preds = %129, %.thread148.i
-  %.3123.i = phi ptr [ %.4124.i, %129 ], [ null, %.thread148.i ]
+130:                                              ; preds = %129, %.thread150.i
+  %.3126.i = phi ptr [ %.4127.i, %129 ], [ null, %.thread150.i ]
   call void @systable_endscan(ptr noundef %65) #6
   call void @table_close(ptr noundef %64, i32 noundef 1) #6
-  %.not141.i = icmp eq ptr %.3123.i, null
-  br i1 %.not141.i, label %131, label %132
-
-131:                                              ; preds = %130
-  br i1 %.0117.i69207, label %133, label %161
+  %131 = icmp ne ptr %.3126.i, null
+  %or.cond.i = or i1 %.0120.i69209, %131
+  br i1 %or.cond.i, label %132, label %161
 
 132:                                              ; preds = %130
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #6
-  br label %.thread157.i
+  %.not144.i = icmp eq ptr %.3126.i, null
+  br i1 %.not144.i, label %133, label %.thread157.i
 
-133:                                              ; preds = %131
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #6
+133:                                              ; preds = %132
   %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %134)
   %135 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef %52) #6
@@ -298,8 +296,8 @@ heap_getattr.exit.i:                              ; preds = %121, %120, %115, %1
   unreachable
 
 .thread157.i:                                     ; preds = %132, %59
-  %.2122160.i = phi ptr [ %.3123.i, %132 ], [ %62, %59 ]
-  %136 = load i32, ptr %.2122160.i, align 4
+  %.2125161.i = phi ptr [ %.3126.i, %132 ], [ %62, %59 ]
+  %136 = load i32, ptr %.2125161.i, align 4
   %137 = icmp eq i32 %136, 98
   br i1 %137, label %141, label %138
 
@@ -311,7 +309,7 @@ heap_getattr.exit.i:                              ; preds = %121, %120, %115, %1
   unreachable
 
 141:                                              ; preds = %.thread157.i
-  %142 = getelementptr inbounds nuw i8, ptr %.2122160.i, i64 5
+  %142 = getelementptr inbounds nuw i8, ptr %.2125161.i, i64 5
   %143 = load i8, ptr %142, align 1, !range !4, !noundef !5
   %144 = trunc nuw i8 %143 to i1
   br i1 %144, label %145, label %151
@@ -319,8 +317,8 @@ heap_getattr.exit.i:                              ; preds = %121, %120, %115, %1
 145:                                              ; preds = %141
   %146 = load i32, ptr %30, align 8
   %147 = call i32 @get_default_partition_oid(i32 noundef %146) #6
-  %.not143.i = icmp eq i32 %147, %52
-  br i1 %.not143.i, label %151, label %148
+  %.not145.i = icmp eq i32 %147, %52
+  br i1 %.not145.i, label %151, label %148
 
 148:                                              ; preds = %145
   %149 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -338,14 +336,14 @@ heap_getattr.exit.i:                              ; preds = %121, %120, %115, %1
   %156 = zext i1 %154 to i8
   store i8 %156, ptr %155, align 1
   %157 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i58
-  store ptr %.2122160.i, ptr %157, align 8
+  store ptr %.2125161.i, ptr %157, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i58, 1
   %158 = load i32, ptr %40, align 4
   %159 = sext i32 %158 to i64
   %160 = icmp slt i64 %indvars.iv.next.i, %159
   br i1 %160, label %.lr.ph, label %list_length.exit.thread._crit_edge.i.thread
 
-161:                                              ; preds = %131
+161:                                              ; preds = %130
   call void @AcceptInvalidationMessages() #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #6
   store i8 0, ptr %3, align 1
@@ -362,8 +360,8 @@ list_length.exit.thread._crit_edge.i.thread:      ; preds = %.lr.ph.i, %151
 list_length.exit.thread._crit_edge.thread.i:      ; preds = %161, %list_length.exit.i, %list_length.exit.i.preheader, %.thread, %list_length.exit.thread._crit_edge.i.thread
   %165 = phi i1 [ true, %list_length.exit.thread._crit_edge.i.thread ], [ false, %.thread ], [ false, %list_length.exit.i.preheader ], [ false, %list_length.exit.i ], [ false, %161 ]
   %166 = phi i32 [ %39, %list_length.exit.thread._crit_edge.i.thread ], [ 0, %.thread ], [ %34, %list_length.exit.i.preheader ], [ 0, %161 ], [ %37, %list_length.exit.i ]
-  %.1113269278.i = phi ptr [ %45, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %45, %list_length.exit.i ], [ %45, %161 ]
-  %.1111271277.i = phi ptr [ %44, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %44, %list_length.exit.i ], [ %44, %161 ]
+  %.1116271280.i = phi ptr [ %45, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %45, %list_length.exit.i ], [ %45, %161 ]
+  %.1114273279.i = phi ptr [ %44, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %44, %list_length.exit.i ], [ %44, %161 ]
   %.0.i = phi ptr [ %164, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ null, %list_length.exit.i ], [ null, %161 ]
   %167 = load ptr, ptr @CurTransactionContext, align 8
   %168 = call ptr @AllocSetContextCreateInternal(ptr noundef %167, ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #6
@@ -400,99 +398,98 @@ list_length.exit.thread._crit_edge.thread.i:      ; preds = %161, %list_length.e
   %188 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store ptr %187, ptr %188, align 8
   %189 = icmp sgt i32 %166, 0
-  br i1 %189, label %.lr.ph221.i, label %._crit_edge222.i
+  br i1 %189, label %.lr.ph222.i, label %._crit_edge223.i
 
-.lr.ph221.i:                                      ; preds = %176, %.lr.ph221.i
-  %indvars.iv262.i = phi i64 [ %indvars.iv.next263.i, %.lr.ph221.i ], [ 0, %176 ]
+.lr.ph222.i:                                      ; preds = %176, %.lr.ph222.i
+  %indvars.iv264.i = phi i64 [ %indvars.iv.next265.i, %.lr.ph222.i ], [ 0, %176 ]
   %190 = load ptr, ptr %5, align 8
-  %191 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv262.i
+  %191 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv264.i
   %192 = load i32, ptr %191, align 4
-  %193 = getelementptr inbounds nuw i32, ptr %.1111271277.i, i64 %indvars.iv262.i
+  %193 = getelementptr inbounds nuw i32, ptr %.1114273279.i, i64 %indvars.iv264.i
   %194 = load i32, ptr %193, align 4
   %195 = load ptr, ptr %186, align 8
   %196 = sext i32 %192 to i64
   %197 = getelementptr inbounds i32, ptr %195, i64 %196
   store i32 %194, ptr %197, align 4
-  %198 = getelementptr inbounds nuw i8, ptr %.1113269278.i, i64 %indvars.iv262.i
+  %198 = getelementptr inbounds nuw i8, ptr %.1116271280.i, i64 %indvars.iv264.i
   %199 = load i8, ptr %198, align 1, !range !4, !noundef !5
   %200 = load ptr, ptr %188, align 8
   %201 = getelementptr inbounds i8, ptr %200, i64 %196
   store i8 %199, ptr %201, align 1
-  %indvars.iv.next263.i = add nuw nsw i64 %indvars.iv262.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next263.i, %183
-  br i1 %exitcond.not.i, label %._crit_edge222.i, label %.lr.ph221.i, !llvm.loop !7
+  %indvars.iv.next265.i = add nuw nsw i64 %indvars.iv264.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next265.i, %183
+  br i1 %exitcond.not.i, label %._crit_edge223.i, label %.lr.ph222.i, !llvm.loop !7
 
-._crit_edge222.i:                                 ; preds = %.lr.ph221.i, %176
+._crit_edge223.i:                                 ; preds = %.lr.ph222.i, %176
   store ptr %177, ptr @CurrentMemoryContext, align 8
+  %.pre.i = load i8, ptr %3, align 1, !range !4
   br label %202
 
-202:                                              ; preds = %._crit_edge222.i, %list_length.exit.thread._crit_edge.thread.i
-  br i1 %1, label %203, label %.critedge.i
+202:                                              ; preds = %._crit_edge223.i, %list_length.exit.thread._crit_edge.thread.i
+  %203 = phi i8 [ %.pre.i, %._crit_edge223.i ], [ %174, %list_length.exit.thread._crit_edge.thread.i ]
+  %204 = trunc nuw i8 %203 to i1
+  %or.cond4.i = select i1 %1, i1 %204, i1 false
+  br i1 %or.cond4.i, label %205, label %.critedge.i
 
-203:                                              ; preds = %202
-  %204 = load i8, ptr %3, align 1, !range !4, !noundef !5
-  %205 = trunc nuw i8 %204 to i1
-  br i1 %205, label %206, label %.critedge.i
+205:                                              ; preds = %202
+  %206 = call zeroext i1 @ActiveSnapshotSet() #6
+  br i1 %206, label %207, label %.critedge.i
 
-206:                                              ; preds = %203
-  %207 = call zeroext i1 @ActiveSnapshotSet() #6
-  br i1 %207, label %208, label %.critedge.i
+207:                                              ; preds = %205
+  %208 = load i32, ptr %4, align 4
+  %.not.i = icmp eq i32 %208, 0
+  %209 = load ptr, ptr @CacheMemoryContext, align 8
+  call void @MemoryContextSetParent(ptr noundef %168, ptr noundef %209) #6
+  br i1 %.not.i, label %219, label %210
 
-208:                                              ; preds = %206
-  %209 = load i32, ptr %4, align 4
-  %.not.i = icmp eq i32 %209, 0
-  %210 = load ptr, ptr @CacheMemoryContext, align 8
-  call void @MemoryContextSetParent(ptr noundef %168, ptr noundef %210) #6
-  br i1 %.not.i, label %220, label %211
+210:                                              ; preds = %207
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %212 = load ptr, ptr %211, align 8
+  %.not147.i = icmp eq ptr %212, null
+  br i1 %.not147.i, label %214, label %213
 
-211:                                              ; preds = %208
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %213 = load ptr, ptr %212, align 8
-  %.not145.i = icmp eq ptr %213, null
-  br i1 %.not145.i, label %215, label %214
+213:                                              ; preds = %210
+  call void @MemoryContextSetParent(ptr noundef nonnull %212, ptr noundef %168) #6
+  br label %214
 
-214:                                              ; preds = %211
-  call void @MemoryContextSetParent(ptr noundef nonnull %213, ptr noundef %168) #6
-  br label %215
-
-215:                                              ; preds = %214, %211
-  store ptr %168, ptr %212, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %173, ptr %216, align 8
-  %217 = load i32, ptr %4, align 4
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 %217, ptr %218, align 8
+214:                                              ; preds = %213, %210
+  store ptr %168, ptr %211, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store ptr %173, ptr %215, align 8
+  %216 = load i32, ptr %4, align 4
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i32 %216, ptr %217, align 8
   br label %RelationBuildPartitionDesc.exit
 
-.critedge.i:                                      ; preds = %206, %203, %202
-  %219 = load ptr, ptr @CacheMemoryContext, align 8
-  call void @MemoryContextSetParent(ptr noundef %168, ptr noundef %219) #6
-  br label %220
+.critedge.i:                                      ; preds = %205, %202
+  %218 = load ptr, ptr @CacheMemoryContext, align 8
+  call void @MemoryContextSetParent(ptr noundef %168, ptr noundef %218) #6
+  br label %219
 
-220:                                              ; preds = %.critedge.i, %208
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %222 = load ptr, ptr %221, align 8
-  %.not144.i = icmp eq ptr %222, null
-  br i1 %.not144.i, label %224, label %223
+219:                                              ; preds = %.critedge.i, %207
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %221 = load ptr, ptr %220, align 8
+  %.not146.i = icmp eq ptr %221, null
+  br i1 %.not146.i, label %223, label %222
 
-223:                                              ; preds = %220
-  call void @MemoryContextSetParent(ptr noundef nonnull %222, ptr noundef %168) #6
-  br label %224
+222:                                              ; preds = %219
+  call void @MemoryContextSetParent(ptr noundef nonnull %221, ptr noundef %168) #6
+  br label %223
 
-224:                                              ; preds = %223, %220
-  store ptr %168, ptr %221, align 8
+223:                                              ; preds = %222, %219
+  store ptr %168, ptr %220, align 8
   store ptr %173, ptr %9, align 8
   br label %RelationBuildPartitionDesc.exit
 
-RelationBuildPartitionDesc.exit:                  ; preds = %215, %224
+RelationBuildPartitionDesc.exit:                  ; preds = %214, %223
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
-  br label %.critedge18
+  br label %.critedge17
 
-.critedge18:                                      ; preds = %11, %..critedge18_crit_edge, %27, %RelationBuildPartitionDesc.exit
-  %.012 = phi ptr [ %28, %27 ], [ %173, %RelationBuildPartitionDesc.exit ], [ %.pre, %..critedge18_crit_edge ], [ %10, %11 ]
-  ret ptr %.012
+.critedge17:                                      ; preds = %11, %..critedge17_crit_edge, %27, %RelationBuildPartitionDesc.exit
+  %.013 = phi ptr [ %28, %27 ], [ %173, %RelationBuildPartitionDesc.exit ], [ %.pre, %..critedge17_crit_edge ], [ %10, %11 ]
+  ret ptr %.013
 }
 
 declare zeroext i1 @ActiveSnapshotSet() local_unnamed_addr #1

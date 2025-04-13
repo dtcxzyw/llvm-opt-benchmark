@@ -7833,81 +7833,79 @@ define internal fastcc void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %10 = load i32, ptr %9, align 4, !noundef !7
   %11 = icmp ugt i32 %10, 1114111
-  br i1 %11, label %30, label %12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %13 = load i8, ptr %12, align 1, !range !101
+  %14 = trunc nuw i8 %13 to i1
+  %or.cond17 = select i1 %11, i1 true, i1 %14
+  br i1 %or.cond17, label %29, label %15
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %14 = load i8, ptr %13, align 1, !range !101, !noundef !7
-  %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %30, label %16
-
-16:                                               ; preds = %12
-  switch i32 %10, label %17 [
-    i32 0, label %30
+15:                                               ; preds = %2
+  switch i32 %10, label %16 [
+    i32 0, label %29
     i32 11, label %.sink.split
     i32 127, label %.sink.split
   ]
 
-17:                                               ; preds = %16
-  %18 = and i32 %10, 2095104
-  %or.cond = icmp eq i32 %18, 55296
-  br i1 %or.cond, label %30, label %19
+16:                                               ; preds = %15
+  %17 = and i32 %10, 2095104
+  %or.cond = icmp eq i32 %17, 55296
+  br i1 %or.cond, label %29, label %18
 
-19:                                               ; preds = %17
-  %20 = and i32 %10, 2097120
-  %or.cond5 = icmp eq i32 %20, 128
-  br i1 %or.cond5, label %36, label %21
+18:                                               ; preds = %16
+  %19 = and i32 %10, 2097120
+  %or.cond5 = icmp eq i32 %19, 128
+  br i1 %or.cond5, label %35, label %20
 
-21:                                               ; preds = %19
-  %22 = add nsw i32 %10, -1
-  %or.cond8 = icmp ult i32 %22, 8
-  %23 = add nsw i32 %10, -13
-  %or.cond11 = icmp ult i32 %23, 19
-  %or.cond41 = select i1 %or.cond8, i1 true, i1 %or.cond11
-  %24 = add nsw i32 %10, -64976
-  %or.cond14 = icmp ult i32 %24, 32
-  %or.cond42 = select i1 %or.cond41, i1 true, i1 %or.cond14
-  br i1 %or.cond42, label %.sink.split, label %25
+20:                                               ; preds = %18
+  %21 = add nsw i32 %10, -1
+  %or.cond8 = icmp ult i32 %21, 8
+  %22 = add nsw i32 %10, -13
+  %or.cond11 = icmp ult i32 %22, 19
+  %or.cond44 = select i1 %or.cond8, i1 true, i1 %or.cond11
+  %23 = add nsw i32 %10, -64976
+  %or.cond14 = icmp ult i32 %23, 32
+  %or.cond45 = select i1 %or.cond44, i1 true, i1 %or.cond14
+  br i1 %or.cond45, label %.sink.split, label %24
 
-25:                                               ; preds = %21
-  %26 = and i32 %10, 65534
-  %27 = icmp eq i32 %26, 65534
+24:                                               ; preds = %20
+  %25 = and i32 %10, 65534
+  %26 = icmp eq i32 %25, 65534
+  %27 = tail call noundef i32 @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer14finish_numeric4conv17h4263ce8023dbaa8bE(i32 noundef %10), !range !1141
+  br i1 %26, label %29, label %33
+
+.sink.split:                                      ; preds = %15, %15, %20, %35
   %28 = tail call noundef i32 @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer14finish_numeric4conv17h4263ce8023dbaa8bE(i32 noundef %10), !range !1141
-  br i1 %27, label %30, label %34
+  br label %29
 
-.sink.split:                                      ; preds = %16, %16, %21, %36
-  %29 = tail call noundef i32 @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer14finish_numeric4conv17h4263ce8023dbaa8bE(i32 noundef %10), !range !1141
-  br label %30
+29:                                               ; preds = %.sink.split, %24, %2, %35, %15, %16
+  %.sroa.040.0 = phi i32 [ 65533, %16 ], [ 65533, %15 ], [ %39, %35 ], [ 65533, %2 ], [ %27, %24 ], [ %28, %.sink.split ]
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 322
+  %31 = load i8, ptr %30, align 2, !range !101, !noundef !7
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %41, label %42
 
-30:                                               ; preds = %.sink.split, %25, %2, %12, %36, %16, %17
-  %.sroa.037.0 = phi i32 [ 65533, %17 ], [ 65533, %16 ], [ %40, %36 ], [ 65533, %12 ], [ 65533, %2 ], [ %28, %25 ], [ %29, %.sink.split ]
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 322
-  %32 = load i8, ptr %31, align 2, !range !101, !noundef !7
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %42, label %43
-
-34:                                               ; preds = %25, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit"
-  %.sroa.037.1 = phi i32 [ %.sroa.037.0, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit" ], [ %28, %25 ]
-  %.sroa.035.0.insert.ext = zext nneg i32 %.sroa.037.1 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i64 %.sroa.035.0.insert.ext, ptr %35, align 4
-  %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %.sroa.433.0..sroa_idx, align 4
+33:                                               ; preds = %24, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit"
+  %.sroa.040.1 = phi i32 [ %.sroa.040.0, %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit" ], [ %27, %24 ]
+  %.sroa.038.0.insert.ext = zext nneg i32 %.sroa.040.1 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i64 %.sroa.038.0.insert.ext, ptr %34, align 4
+  %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %.sroa.436.0..sroa_idx, align 4
   ret void
 
-36:                                               ; preds = %19
-  %37 = add nsw i32 %10, -128
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11markup5ever4data15C1_REPLACEMENTS17he0bcec75b31d08a6E, i64 0, i64 %38
-  %40 = load i32, ptr %39, align 4, !range !341, !noundef !7
-  %41 = icmp eq i32 %40, 1114112
-  br i1 %41, label %.sink.split, label %30
+35:                                               ; preds = %18
+  %36 = add nsw i32 %10, -128
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw [32 x i32], ptr @_ZN11markup5ever4data15C1_REPLACEMENTS17he0bcec75b31d08a6E, i64 0, i64 %37
+  %39 = load i32, ptr %38, align 4, !range !341, !noundef !7
+  %40 = icmp eq i32 %39, 1114112
+  br i1 %40, label %.sink.split, label %29
 
-42:                                               ; preds = %30
+41:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %9, ptr %7, align 8
-  %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u32$GT$3fmt17h524fcab693c83145E", ptr %.sroa.425.0..sroa_idx, align 8
+  %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u32$GT$3fmt17h524fcab693c83145E", ptr %.sroa.428.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   store i64 2, ptr %6, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -7926,53 +7924,53 @@ define internal fastcc void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer1
   store ptr @anon.f66fb0099faeb293079cbad8a26e25dd.139, ptr %4, align 8, !noalias !1149
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !1149
-  %.sroa.5.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %7, ptr %.sroa.5.0..sroa_idx43, align 8, !noalias !1149
-  %.sroa.6.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %.sroa.6.0..sroa_idx44, align 8, !noalias !1149
-  %.sroa.7.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %6, ptr %.sroa.7.0..sroa_idx45, align 8, !noalias !1149
-  %.sroa.8.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i64 1, ptr %.sroa.8.0..sroa_idx46, align 8, !noalias !1149
+  %.sroa.5.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %7, ptr %.sroa.5.0..sroa_idx46, align 8, !noalias !1149
+  %.sroa.6.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 1, ptr %.sroa.6.0..sroa_idx47, align 8, !noalias !1149
+  %.sroa.7.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %6, ptr %.sroa.7.0..sroa_idx48, align 8, !noalias !1149
+  %.sroa.8.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i64 1, ptr %.sroa.8.0..sroa_idx49, align 8, !noalias !1149
   call void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4), !noalias !1150
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !1142
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %.sroa.015.0.copyload = load i64, ptr %8, align 8
+  %.sroa.018.0.copyload = load i64, ptr %8, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.419.0.copyload = load i64, ptr %.sroa.419.0..sroa_idx, align 8
-  br label %43
+  %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.422.0.copyload = load i64, ptr %.sroa.422.0..sroa_idx, align 8
+  br label %42
 
-43:                                               ; preds = %30, %42
-  %.sroa.015.0 = phi i64 [ %.sroa.015.0.copyload, %42 ], [ -9223372036854775808, %30 ]
-  %.sroa.3.0 = phi ptr [ %.sroa.3.0.copyload, %42 ], [ @anon.f66fb0099faeb293079cbad8a26e25dd.137, %30 ]
-  %.sroa.419.0 = phi i64 [ %.sroa.419.0.copyload, %42 ], [ 35, %30 ]
+42:                                               ; preds = %29, %41
+  %.sroa.018.0 = phi i64 [ %.sroa.018.0.copyload, %41 ], [ -9223372036854775808, %29 ]
+  %.sroa.3.0 = phi ptr [ %.sroa.3.0.copyload, %41 ], [ @anon.f66fb0099faeb293079cbad8a26e25dd.137, %29 ]
+  %.sroa.422.0 = phi i64 [ %.sroa.422.0.copyload, %41 ], [ 35, %29 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sroa.015.0, ptr %44, align 8
-  %.sroa.3.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %.sroa.3.0, ptr %.sroa.3.0..sroa_idx17, align 8
-  %.sroa.419.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %.sroa.419.0, ptr %.sroa.419.0..sroa_idx20, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.sroa.018.0, ptr %43, align 8
+  %.sroa.3.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %.sroa.3.0, ptr %.sroa.3.0..sroa_idx20, align 8
+  %.sroa.422.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %.sroa.422.0, ptr %.sroa.422.0..sroa_idx23, align 8
   store i64 7, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1151
   call void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$13process_token17hc9163b18ab696dffE.llvm.8802131214607676127"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(480) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %5)
-  %45 = load i8, ptr %3, align 8, !range !1083, !noalias !1151, !noundef !7
-  %46 = icmp eq i8 %45, 0
-  br i1 %46, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit", label %47
+  %44 = load i8, ptr %3, align 8, !range !1083, !noalias !1151, !noundef !7
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit", label %46
 
-47:                                               ; preds = %43
+46:                                               ; preds = %42
   call void @"_ZN4core3ptr121drop_in_place$LT$html5ever..tokenizer..interface..TokenSinkResult$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17h4a9dcd2d4150d593E.llvm.8802131214607676127"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !1155
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1151
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.cda064d5e24691f6d8a4d6f6f2c0dbb7.173.llvm.8802131214607676127, i64 noundef 80, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cda064d5e24691f6d8a4d6f6f2c0dbb7.174.llvm.8802131214607676127) #33, !noalias !1155
   unreachable
 
-"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit": ; preds = %43
+"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$26process_token_and_continue17h945bd2e8012d6781E.exit": ; preds = %42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1151
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
-  br label %34
+  br label %33
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -165,18 +165,16 @@ mac_init.exit:                                    ; preds = %12
   %36 = phi i64 [ %35, %33 ], [ 32, %.fold.split66.i ], [ 48, %.fold.split67.i ], [ 20, %.fold.split81.i ], [ 28, %30 ], [ 28, %30 ], [ 28, %30 ]
   %switch.tableidx = add nsw i32 %32, -33554435
   %37 = icmp ult i32 %switch.tableidx, 16
-  br i1 %37, label %switch.hole_check, label %39
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 -6169, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %37, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %39
 
 .fold.split80.i:                                  ; preds = %30
   br label %.thread84.i
 
-switch.hole_check:                                ; preds = %.fold.split.i
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -6169, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %39
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.fold.split.i
   %38 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table.psa_mac_finish_internal, i64 0, i64 %38
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -187,7 +185,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %32, ptr %31, align 8, !tbaa !15
   br label %43
 
-39:                                               ; preds = %switch.hole_check, %.fold.split.i
+39:                                               ; preds = %.fold.split.i
   %40 = icmp eq i32 %32, 33554451
   %41 = select i1 %40, i64 72, i64 0
   store i32 %32, ptr %31, align 8, !tbaa !15

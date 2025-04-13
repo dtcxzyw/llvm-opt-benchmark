@@ -170,8 +170,8 @@ sz_sa2u.exit:                                     ; preds = %sz_s2u.exit, %.thre
   br i1 %.not.i.i, label %87, label %85
 
 85:                                               ; preds = %80
-  %.not42.i.i = icmp eq ptr %84, %77
-  br i1 %.not42.i.i, label %tsdn_witness_tsdp_get.exit, label %86
+  %.not43.i.i = icmp eq ptr %84, %77
+  br i1 %.not43.i.i, label %tsdn_witness_tsdp_get.exit, label %86
 
 86:                                               ; preds = %85
   tail call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull %82, ptr noundef %77) #15
@@ -182,7 +182,7 @@ sz_sa2u.exit:                                     ; preds = %sz_s2u.exit, %.thre
   br label %tsdn_witness_tsdp_get.exit
 
 tsdn_witness_tsdp_get.exit:                       ; preds = %67, %70, %72, %76, %85, %86, %87
-  %.0.i.i34 = phi ptr [ %71, %70 ], [ %.0.i.i.i.i, %67 ], [ %77, %76 ], [ %74, %72 ], [ %77, %85 ], [ %77, %86 ], [ %77, %87 ]
+  %.0.i.i34 = phi ptr [ %77, %76 ], [ %74, %72 ], [ %77, %85 ], [ %77, %86 ], [ %77, %87 ], [ %71, %70 ], [ %.0.i.i.i.i, %67 ]
   %88 = icmp samesign ult i64 %.018.i, 14337
   %89 = tail call ptr @je_arena_palloc(ptr noundef nonnull %0, ptr noundef %.0.i.i34, i64 noundef range(i64 1, 8070450532247928833) %.018.i, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext %88, ptr noundef null) #15
   %.not.i = icmp eq ptr %89, null
@@ -786,8 +786,8 @@ sz_sa2u.exit.i:                                   ; preds = %.thread.i, %sz_s2u.
   br i1 %.not.i.i.i, label %89, label %87
 
 87:                                               ; preds = %85
-  %.not42.i.i.i = icmp eq ptr %86, %82
-  br i1 %.not42.i.i.i, label %tsdn_witness_tsdp_get.exit.i, label %88
+  %.not43.i.i.i = icmp eq ptr %86, %82
+  br i1 %.not43.i.i.i, label %tsdn_witness_tsdp_get.exit.i, label %88
 
 88:                                               ; preds = %87
   call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %82) #15
@@ -798,7 +798,7 @@ sz_sa2u.exit.i:                                   ; preds = %.thread.i, %sz_s2u.
   br label %tsdn_witness_tsdp_get.exit.i
 
 tsdn_witness_tsdp_get.exit.i:                     ; preds = %89, %88, %87, %81, %78, %76, %73
-  %.0.i.i64.i = phi ptr [ %77, %76 ], [ %.0.i.i.i.i.i, %73 ], [ %82, %81 ], [ %79, %78 ], [ %82, %87 ], [ %82, %88 ], [ %82, %89 ]
+  %.0.i.i64.i = phi ptr [ %82, %81 ], [ %79, %78 ], [ %82, %87 ], [ %82, %88 ], [ %82, %89 ], [ %77, %76 ], [ %.0.i.i.i.i.i, %73 ]
   %90 = icmp samesign ult i64 %.018.i.i, 14337
   %91 = call ptr @je_arena_palloc(ptr noundef nonnull %0, ptr noundef %.0.i.i64.i, i64 noundef range(i64 1, 8070450532247928833) %.018.i.i, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext %90, ptr noundef null) #15
   %.not.i.i = icmp eq ptr %91, null
@@ -1917,8 +1917,8 @@ sz_sa2u.exit.i:                                   ; preds = %.thread.i, %sz_s2u.
   br i1 %.not.i.i.i, label %135, label %133
 
 133:                                              ; preds = %128
-  %.not42.i.i.i = icmp eq ptr %132, %125
-  br i1 %.not42.i.i.i, label %tsdn_witness_tsdp_get.exit.i, label %134
+  %.not43.i.i.i = icmp eq ptr %132, %125
+  br i1 %.not43.i.i.i, label %tsdn_witness_tsdp_get.exit.i, label %134
 
 134:                                              ; preds = %133
   call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %129, ptr noundef nonnull %130, ptr noundef %125) #15
@@ -1929,7 +1929,7 @@ sz_sa2u.exit.i:                                   ; preds = %.thread.i, %sz_s2u.
   br label %tsdn_witness_tsdp_get.exit.i
 
 tsdn_witness_tsdp_get.exit.i:                     ; preds = %135, %134, %133, %124, %120, %118, %115
-  %.0.i.i56.i = phi ptr [ %119, %118 ], [ %.0.i.i.i.i.i, %115 ], [ %125, %124 ], [ %122, %120 ], [ %125, %133 ], [ %125, %134 ], [ %125, %135 ]
+  %.0.i.i56.i = phi ptr [ %125, %124 ], [ %122, %120 ], [ %125, %133 ], [ %125, %134 ], [ %125, %135 ], [ %119, %118 ], [ %.0.i.i.i.i.i, %115 ]
   %136 = icmp samesign ult i64 %.018.i.i, 14337
   %137 = call ptr @je_arena_palloc(ptr noundef nonnull %0, ptr noundef %.0.i.i56.i, i64 noundef range(i64 1, 8070450532247928833) %.018.i.i, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext %136, ptr noundef null) #15
   %.not.i.i27 = icmp eq ptr %137, null

@@ -2655,26 +2655,26 @@ TwoPhaseFilePath.exit:                            ; preds = %6, %15
   %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.61, i32 noundef %20, i32 noundef %21) #14
   %23 = call i32 @unlink(ptr noundef nonnull %3) #14
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %32, label %24
+  br i1 %.not, label %33, label %24
 
 24:                                               ; preds = %TwoPhaseFilePath.exit
   %25 = tail call ptr @__errno_location() #17
   %26 = load i32, ptr %25, align 4
-  %.not2 = icmp ne i32 %26, 2
-  %brmerge = or i1 %1, %.not2
-  br i1 %brmerge, label %27, label %32
+  %27 = icmp ne i32 %26, 2
+  %or.cond = or i1 %1, %27
+  br i1 %or.cond, label %28, label %33
 
-27:                                               ; preds = %24
-  %28 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
-  br i1 %28, label %29, label %32
+28:                                               ; preds = %24
+  %29 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
+  br i1 %29, label %30, label %33
 
-29:                                               ; preds = %27
-  %30 = call i32 @errcode_for_file_access() #14
-  %31 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef nonnull %3) #14
+30:                                               ; preds = %28
+  %31 = call i32 @errcode_for_file_access() #14
+  %32 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef nonnull %3) #14
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1716, ptr noundef nonnull @__func__.RemoveTwoPhaseFile) #14
-  br label %32
+  br label %33
 
-32:                                               ; preds = %24, %29, %27, %TwoPhaseFilePath.exit
+33:                                               ; preds = %24, %30, %28, %TwoPhaseFilePath.exit
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #14
   ret void
 }

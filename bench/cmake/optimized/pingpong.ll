@@ -41,26 +41,26 @@ define dso_local i64 @Curl_pp_state_timeout(ptr noundef readonly captures(none) 
   %23 = sub nsw i64 %14, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %25 = load i32, ptr %24, align 8, !tbaa !81
-  %.not18 = icmp eq i32 %25, 0
-  %brmerge = or i1 %2, %.not18
-  br i1 %brmerge, label %38, label %26
+  %26 = icmp eq i32 %25, 0
+  %or.cond = or i1 %2, %26
+  br i1 %or.cond, label %39, label %27
 
-26:                                               ; preds = %13
-  %27 = zext i32 %25 to i64
-  %28 = tail call { i64, i32 } @Curl_now() #10
-  %29 = extractvalue { i64, i32 } %28, 0
-  %30 = extractvalue { i64, i32 } %28, 1
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 520
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 528
-  %34 = load i32, ptr %33, align 8
-  %35 = tail call i64 @Curl_timediff(i64 %29, i32 %30, i64 %32, i32 %34) #10
-  %36 = sub nsw i64 %27, %35
-  %37 = tail call i64 @llvm.smin.i64(i64 %23, i64 %36)
-  br label %38
+27:                                               ; preds = %13
+  %28 = zext i32 %25 to i64
+  %29 = tail call { i64, i32 } @Curl_now() #10
+  %30 = extractvalue { i64, i32 } %29, 0
+  %31 = extractvalue { i64, i32 } %29, 1
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 520
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 528
+  %35 = load i32, ptr %34, align 8
+  %36 = tail call i64 @Curl_timediff(i64 %30, i32 %31, i64 %33, i32 %35) #10
+  %37 = sub nsw i64 %28, %36
+  %38 = tail call i64 @llvm.smin.i64(i64 %23, i64 %37)
+  br label %39
 
-38:                                               ; preds = %13, %26
-  %.0 = phi i64 [ %37, %26 ], [ %23, %13 ]
+39:                                               ; preds = %27, %13
+  %.0 = phi i64 [ %23, %13 ], [ %38, %27 ]
   ret i64 %.0
 }
 
@@ -107,105 +107,105 @@ define dso_local i32 @Curl_pp_statemach(ptr noundef %0, ptr noundef readonly cap
   %26 = sub nsw i64 %17, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %28 = load i32, ptr %27, align 8, !tbaa !81
-  %.not18.i = icmp eq i32 %28, 0
-  %brmerge.i = or i1 %3, %.not18.i
-  br i1 %brmerge.i, label %Curl_pp_state_timeout.exit, label %29
+  %29 = icmp eq i32 %28, 0
+  %or.cond.i = or i1 %3, %29
+  br i1 %or.cond.i, label %Curl_pp_state_timeout.exit, label %30
 
-29:                                               ; preds = %16
-  %30 = zext i32 %28 to i64
-  %31 = tail call { i64, i32 } @Curl_now() #10
-  %32 = extractvalue { i64, i32 } %31, 0
-  %33 = extractvalue { i64, i32 } %31, 1
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 520
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 528
-  %37 = load i32, ptr %36, align 8
-  %38 = tail call i64 @Curl_timediff(i64 %32, i32 %33, i64 %35, i32 %37) #10
-  %39 = sub nsw i64 %30, %38
-  %40 = tail call i64 @llvm.smin.i64(i64 %26, i64 %39)
+30:                                               ; preds = %16
+  %31 = zext i32 %28 to i64
+  %32 = tail call { i64, i32 } @Curl_now() #10
+  %33 = extractvalue { i64, i32 } %32, 0
+  %34 = extractvalue { i64, i32 } %32, 1
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 520
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 528
+  %38 = load i32, ptr %37, align 8
+  %39 = tail call i64 @Curl_timediff(i64 %33, i32 %34, i64 %36, i32 %38) #10
+  %40 = sub nsw i64 %31, %39
+  %41 = tail call i64 @llvm.smin.i64(i64 %26, i64 %40)
   br label %Curl_pp_state_timeout.exit
 
-Curl_pp_state_timeout.exit:                       ; preds = %16, %29
-  %.0.i = phi i64 [ %40, %29 ], [ %26, %16 ]
-  %41 = icmp slt i64 %.0.i, 1
-  br i1 %41, label %42, label %43
+Curl_pp_state_timeout.exit:                       ; preds = %16, %30
+  %.0.i = phi i64 [ %26, %16 ], [ %41, %30 ]
+  %42 = icmp slt i64 %.0.i, 1
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %Curl_pp_state_timeout.exit
+43:                                               ; preds = %Curl_pp_state_timeout.exit
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str) #10
   br label %.thread
 
-43:                                               ; preds = %Curl_pp_state_timeout.exit
+44:                                               ; preds = %Curl_pp_state_timeout.exit
   %spec.select = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 1000)
   %.034 = select i1 %2, i64 %spec.select, i64 0
-  %44 = tail call zeroext i1 @Curl_conn_data_pending(ptr noundef nonnull %0, i32 noundef 0) #10
-  br i1 %44, label %58, label %45
+  %45 = tail call zeroext i1 @Curl_conn_data_pending(ptr noundef nonnull %0, i32 noundef 0) #10
+  br i1 %45, label %59, label %46
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %47 = load i64, ptr %46, align 8, !tbaa !83
-  %.not = icmp eq i64 %47, 0
-  br i1 %.not, label %48, label %58
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %48 = load i64, ptr %47, align 8, !tbaa !83
+  %.not = icmp eq i64 %48, 0
+  br i1 %.not, label %49, label %59
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %50 = load i64, ptr %49, align 8, !tbaa !84
-  %.not36 = icmp eq i64 %50, 0
-  br i1 %.not36, label %51, label %.thread48
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %51 = load i64, ptr %50, align 8, !tbaa !84
+  %.not36 = icmp eq i64 %51, 0
+  br i1 %.not36, label %52, label %.thread48
 
-51:                                               ; preds = %48
-  %52 = tail call zeroext i1 @Curl_conn_data_pending(ptr noundef nonnull %0, i32 noundef 0) #10
-  br i1 %52, label %58, label %53
+52:                                               ; preds = %49
+  %53 = tail call zeroext i1 @Curl_conn_data_pending(ptr noundef nonnull %0, i32 noundef 0) #10
+  br i1 %53, label %59, label %54
 
-53:                                               ; preds = %51
-  %.pre = load i64, ptr %49, align 8, !tbaa !84
+54:                                               ; preds = %52
+  %.pre = load i64, ptr %50, align 8, !tbaa !84
   %.pre.fr = freeze i64 %.pre
-  %54 = icmp eq i64 %.pre.fr, 0
-  %spec.select53 = select i1 %54, i32 %8, i32 -1
-  %spec.select54 = select i1 %54, i32 -1, i32 %8
+  %55 = icmp eq i64 %.pre.fr, 0
+  %spec.select53 = select i1 %55, i32 %8, i32 -1
+  %spec.select54 = select i1 %55, i32 -1, i32 %8
   br label %.thread48
 
-.thread48:                                        ; preds = %53, %48
-  %55 = phi i32 [ -1, %48 ], [ %spec.select53, %53 ]
-  %56 = phi i32 [ %8, %48 ], [ %spec.select54, %53 ]
-  %57 = tail call i32 @Curl_socket_check(i32 noundef %55, i32 noundef -1, i32 noundef %56, i64 noundef %.034) #10
-  br label %58
+.thread48:                                        ; preds = %54, %49
+  %56 = phi i32 [ -1, %49 ], [ %spec.select53, %54 ]
+  %57 = phi i32 [ %8, %49 ], [ %spec.select54, %54 ]
+  %58 = tail call i32 @Curl_socket_check(i32 noundef %56, i32 noundef -1, i32 noundef %57, i64 noundef %.034) #10
+  br label %59
 
-58:                                               ; preds = %51, %45, %43, %.thread48
-  %.032 = phi i32 [ %57, %.thread48 ], [ 1, %43 ], [ 1, %45 ], [ 1, %51 ]
-  br i1 %2, label %59, label %66
+59:                                               ; preds = %52, %46, %44, %.thread48
+  %.032 = phi i32 [ %58, %.thread48 ], [ 1, %44 ], [ 1, %46 ], [ 1, %52 ]
+  br i1 %2, label %60, label %67
 
-59:                                               ; preds = %58
-  %60 = tail call i32 @Curl_pgrsUpdate(ptr noundef nonnull %0) #10
-  %.not38 = icmp eq i32 %60, 0
-  br i1 %.not38, label %61, label %.thread
+60:                                               ; preds = %59
+  %61 = tail call i32 @Curl_pgrsUpdate(ptr noundef nonnull %0) #10
+  %.not38 = icmp eq i32 %61, 0
+  br i1 %.not38, label %62, label %.thread
 
-61:                                               ; preds = %59
-  %62 = tail call { i64, i32 } @Curl_now() #10
-  %63 = extractvalue { i64, i32 } %62, 0
-  %64 = extractvalue { i64, i32 } %62, 1
-  %65 = tail call i32 @Curl_speedcheck(ptr noundef nonnull %0, i64 %63, i32 %64) #10
-  %.not39 = icmp eq i32 %65, 0
-  br i1 %.not39, label %66, label %.thread
+62:                                               ; preds = %60
+  %63 = tail call { i64, i32 } @Curl_now() #10
+  %64 = extractvalue { i64, i32 } %63, 0
+  %65 = extractvalue { i64, i32 } %63, 1
+  %66 = tail call i32 @Curl_speedcheck(ptr noundef nonnull %0, i64 %64, i32 %65) #10
+  %.not39 = icmp eq i32 %66, 0
+  br i1 %.not39, label %67, label %.thread
 
-66:                                               ; preds = %61, %58
-  switch i32 %.032, label %68 [
-    i32 -1, label %67
+67:                                               ; preds = %62, %59
+  switch i32 %.032, label %69 [
+    i32 -1, label %68
     i32 0, label %.thread
   ]
 
-67:                                               ; preds = %66
+68:                                               ; preds = %67
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #10
   br label %.thread
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %70 = load ptr, ptr %69, align 8, !tbaa !85
-  %71 = load ptr, ptr %5, align 8, !tbaa !4
-  %72 = tail call i32 %70(ptr noundef nonnull %0, ptr noundef %71) #10
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %71 = load ptr, ptr %70, align 8, !tbaa !85
+  %72 = load ptr, ptr %5, align 8, !tbaa !4
+  %73 = tail call i32 %71(ptr noundef nonnull %0, ptr noundef %72) #10
   br label %.thread
 
-.thread:                                          ; preds = %59, %67, %68, %66, %61, %42
-  %.0 = phi i32 [ 28, %42 ], [ %65, %61 ], [ 27, %67 ], [ %72, %68 ], [ %.032, %66 ], [ 42, %59 ]
+.thread:                                          ; preds = %60, %68, %69, %67, %62, %43
+  %.0 = phi i32 [ 28, %43 ], [ %66, %62 ], [ 27, %68 ], [ %73, %69 ], [ %.032, %67 ], [ 42, %60 ]
   ret i32 %.0
 }
 

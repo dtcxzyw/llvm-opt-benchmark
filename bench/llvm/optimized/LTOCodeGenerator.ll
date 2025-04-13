@@ -7771,271 +7771,269 @@ define dso_local void @_ZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEv(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i8, ptr %2, align 8, !tbaa !175, !range !50, !noundef !51
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 258
+  %6 = load i8, ptr %5, align 2, !range !50
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond, label %8, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 258
-  %7 = load i8, ptr %6, align 2, !tbaa !177, !range !50, !noundef !51
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %11 = load i32, ptr %10, align 4, !tbaa !214
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %13
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %12 = load i32, ptr %11, align 4, !tbaa !214
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %14
-
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !78
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !324
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.not5.i.i = icmp eq ptr %18, %19
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !78
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %17 = load ptr, ptr %16, align 8, !tbaa !324
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.not5.i.i = icmp eq ptr %17, %18
   br i1 %.not5.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %21
+.lr.ph.i.i:                                       ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %20
 
-21:                                               ; preds = %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i", %.lr.ph.i.i
-  %.sroa.02.06.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %61, %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i" ]
-  %22 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i, i64 -56
-  %23 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i, i64 -24
-  %24 = load i32, ptr %23, align 8
-  %25 = and i32 %24, 15
-  %26 = add nsw i32 %25, -7
-  %spec.select.i.i.i.i.i = icmp ult i32 %26, 2
-  br i1 %spec.select.i.i.i.i.i, label %27, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i"
+20:                                               ; preds = %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i", %.lr.ph.i.i
+  %.sroa.02.06.i.i = phi ptr [ %17, %.lr.ph.i.i ], [ %60, %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i" ]
+  %21 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i, i64 -56
+  %22 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i, i64 -24
+  %23 = load i32, ptr %22, align 8
+  %24 = and i32 %23, 15
+  %25 = add nsw i32 %24, -7
+  %spec.select.i.i.i.i.i = icmp ult i32 %25, 2
+  br i1 %spec.select.i.i.i.i.i, label %26, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i"
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i, i64 -52
-  %29 = load i32, ptr %28, align 4
-  %30 = and i32 %29, 268435456
-  %.not.i.i.i = icmp eq i32 %30, 0
-  br i1 %.not.i.i.i, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i", label %31
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i, i64 -52
+  %28 = load i32, ptr %27, align 4
+  %29 = and i32 %28, 268435456
+  %.not.i.i.i = icmp eq i32 %29, 0
+  br i1 %.not.i.i.i, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i", label %30
 
-31:                                               ; preds = %27
-  %32 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(48) %22) #25
-  %33 = extractvalue { ptr, i64 } %32, 0
-  %34 = extractvalue { ptr, i64 } %32, 1
-  %35 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %33, i64 %34) #25
-  %36 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %33, i64 %34, i32 noundef %35) #25
-  %37 = icmp eq i32 %36, -1
-  %38 = load i32, ptr %20, align 8
-  %39 = zext i32 %38 to i64
-  %40 = sext i32 %36 to i64
-  %41 = icmp eq i64 %40, %39
-  %42 = select i1 %37, i1 true, i1 %41
-  br i1 %42, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i", label %43
+30:                                               ; preds = %26
+  %31 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(48) %21) #25
+  %32 = extractvalue { ptr, i64 } %31, 0
+  %33 = extractvalue { ptr, i64 } %31, 1
+  %34 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %32, i64 %33) #25
+  %35 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %32, i64 %33, i32 noundef %34) #25
+  %36 = icmp eq i32 %35, -1
+  %37 = load i32, ptr %19, align 8
+  %38 = zext i32 %37 to i64
+  %39 = sext i32 %35 to i64
+  %40 = icmp eq i64 %39, %38
+  %41 = select i1 %36, i1 true, i1 %40
+  br i1 %41, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i", label %42
 
-43:                                               ; preds = %31
-  %44 = load ptr, ptr %10, align 8
-  %.sroa.0.0.i.i.i.i.i = getelementptr inbounds ptr, ptr %44, i64 %40
-  %45 = load ptr, ptr %.sroa.0.0.i.i.i.i.i, align 8, !tbaa !217
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load i32, ptr %46, align 8, !tbaa !490
-  %48 = add i32 %47, -7
-  %spec.select.i.i5.i.i.i = icmp ult i32 %48, 2
-  %49 = load i32, ptr %23, align 8
-  %50 = and i32 %49, -817
-  %51 = select i1 %spec.select.i.i5.i.i.i, i32 %50, i32 %49
-  %52 = and i32 %47, 15
-  %53 = and i32 %51, -16
-  %54 = or disjoint i32 %53, %52
-  store i32 %54, ptr %23, align 8
-  %55 = add nsw i32 %52, -7
-  %spec.select.i.i.i.i.i.i.i = icmp ult i32 %55, 2
+42:                                               ; preds = %30
+  %43 = load ptr, ptr %9, align 8
+  %.sroa.0.0.i.i.i.i.i = getelementptr inbounds ptr, ptr %43, i64 %39
+  %44 = load ptr, ptr %.sroa.0.0.i.i.i.i.i, align 8, !tbaa !217
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i32, ptr %45, align 8, !tbaa !490
+  %47 = add i32 %46, -7
+  %spec.select.i.i5.i.i.i = icmp ult i32 %47, 2
+  %48 = load i32, ptr %22, align 8
+  %49 = and i32 %48, -817
+  %50 = select i1 %spec.select.i.i5.i.i.i, i32 %49, i32 %48
+  %51 = and i32 %46, 15
+  %52 = and i32 %50, -16
+  %53 = or disjoint i32 %52, %51
+  store i32 %53, ptr %22, align 8
+  %54 = add nsw i32 %51, -7
+  %spec.select.i.i.i.i.i.i.i = icmp ult i32 %54, 2
   br i1 %spec.select.i.i.i.i.i.i.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i: ; preds = %43
-  %56 = and i32 %51, 48
-  %57 = icmp ne i32 %56, 0
-  %58 = icmp ne i32 %52, 9
-  %spec.select.i2.i.i.i.i = and i1 %58, %57
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i: ; preds = %42
+  %55 = and i32 %50, 48
+  %56 = icmp ne i32 %55, 0
+  %57 = icmp ne i32 %51, 9
+  %spec.select.i2.i.i.i.i = and i1 %57, %56
   br i1 %spec.select.i2.i.i.i.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i"
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i, %43
-  %59 = or i32 %54, 16384
-  store i32 %59, ptr %23, align 8
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i, %42
+  %58 = or i32 %53, 16384
+  store i32 %58, ptr %22, align 8
   br label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i"
 
-"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i": ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i, %31, %27, %21
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !324
-  %.not.i.i = icmp eq ptr %61, %19
-  br i1 %.not.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit", label %21, !llvm.loop !493
+"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i": ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i, %30, %26, %20
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !324
+  %.not.i.i = icmp eq ptr %60, %18
+  br i1 %.not.i.i, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit", label %20, !llvm.loop !493
 
 "_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit": ; preds = %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i"
-  %.pre = load ptr, ptr %15, align 8, !tbaa !78
+  %.pre = load ptr, ptr %14, align 8, !tbaa !78
   br label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
 
-"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit": ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit", %14
-  %62 = phi ptr [ %.pre, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit" ], [ %16, %14 ]
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !324
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %.not5.i.i14 = icmp eq ptr %64, %65
-  br i1 %.not5.i.i14, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %.lr.ph.i.i15
+"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit": ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit", %13
+  %61 = phi ptr [ %.pre, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit" ], [ %15, %13 ]
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8, !tbaa !324
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %.not5.i.i16 = icmp eq ptr %63, %64
+  br i1 %.not5.i.i16, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %.lr.ph.i.i17
 
-.lr.ph.i.i15:                                     ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %67
+.lr.ph.i.i17:                                     ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %66
 
-67:                                               ; preds = %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i18", %.lr.ph.i.i15
-  %.sroa.02.06.i.i16 = phi ptr [ %64, %.lr.ph.i.i15 ], [ %107, %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i18" ]
-  %68 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i16, i64 -56
-  %69 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i16, i64 -24
-  %70 = load i32, ptr %69, align 8
-  %71 = and i32 %70, 15
-  %72 = add nsw i32 %71, -7
-  %spec.select.i.i.i.i.i17 = icmp ult i32 %72, 2
-  br i1 %spec.select.i.i.i.i.i17, label %73, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i18"
+66:                                               ; preds = %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i20", %.lr.ph.i.i17
+  %.sroa.02.06.i.i18 = phi ptr [ %63, %.lr.ph.i.i17 ], [ %106, %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i20" ]
+  %67 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i18, i64 -56
+  %68 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i18, i64 -24
+  %69 = load i32, ptr %68, align 8
+  %70 = and i32 %69, 15
+  %71 = add nsw i32 %70, -7
+  %spec.select.i.i.i.i.i19 = icmp ult i32 %71, 2
+  br i1 %spec.select.i.i.i.i.i19, label %72, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i20"
 
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i16, i64 -52
-  %75 = load i32, ptr %74, align 4
-  %76 = and i32 %75, 268435456
-  %.not.i.i.i20 = icmp eq i32 %76, 0
-  br i1 %.not.i.i.i20, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i18", label %77
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i18, i64 -52
+  %74 = load i32, ptr %73, align 4
+  %75 = and i32 %74, 268435456
+  %.not.i.i.i22 = icmp eq i32 %75, 0
+  br i1 %.not.i.i.i22, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i20", label %76
 
-77:                                               ; preds = %73
-  %78 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(48) %68) #25
-  %79 = extractvalue { ptr, i64 } %78, 0
-  %80 = extractvalue { ptr, i64 } %78, 1
-  %81 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %79, i64 %80) #25
-  %82 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %79, i64 %80, i32 noundef %81) #25
-  %83 = icmp eq i32 %82, -1
-  %84 = load i32, ptr %66, align 8
-  %85 = zext i32 %84 to i64
-  %86 = sext i32 %82 to i64
-  %87 = icmp eq i64 %86, %85
-  %88 = select i1 %83, i1 true, i1 %87
-  br i1 %88, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i18", label %89
+76:                                               ; preds = %72
+  %77 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(48) %67) #25
+  %78 = extractvalue { ptr, i64 } %77, 0
+  %79 = extractvalue { ptr, i64 } %77, 1
+  %80 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %78, i64 %79) #25
+  %81 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %78, i64 %79, i32 noundef %80) #25
+  %82 = icmp eq i32 %81, -1
+  %83 = load i32, ptr %65, align 8
+  %84 = zext i32 %83 to i64
+  %85 = sext i32 %81 to i64
+  %86 = icmp eq i64 %85, %84
+  %87 = select i1 %82, i1 true, i1 %86
+  br i1 %87, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i20", label %88
 
-89:                                               ; preds = %77
-  %90 = load ptr, ptr %10, align 8
-  %.sroa.0.0.i.i.i.i.i21 = getelementptr inbounds ptr, ptr %90, i64 %86
-  %91 = load ptr, ptr %.sroa.0.0.i.i.i.i.i21, align 8, !tbaa !217
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load i32, ptr %92, align 8, !tbaa !490
-  %94 = add i32 %93, -7
-  %spec.select.i.i5.i.i.i22 = icmp ult i32 %94, 2
-  %95 = load i32, ptr %69, align 8
-  %96 = and i32 %95, -817
-  %97 = select i1 %spec.select.i.i5.i.i.i22, i32 %96, i32 %95
-  %98 = and i32 %93, 15
-  %99 = and i32 %97, -16
-  %100 = or disjoint i32 %99, %98
-  store i32 %100, ptr %69, align 8
-  %101 = add nsw i32 %98, -7
-  %spec.select.i.i.i.i.i.i.i23 = icmp ult i32 %101, 2
-  br i1 %spec.select.i.i.i.i.i.i.i23, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i26, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i24
+88:                                               ; preds = %76
+  %89 = load ptr, ptr %9, align 8
+  %.sroa.0.0.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %89, i64 %85
+  %90 = load ptr, ptr %.sroa.0.0.i.i.i.i.i23, align 8, !tbaa !217
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load i32, ptr %91, align 8, !tbaa !490
+  %93 = add i32 %92, -7
+  %spec.select.i.i5.i.i.i24 = icmp ult i32 %93, 2
+  %94 = load i32, ptr %68, align 8
+  %95 = and i32 %94, -817
+  %96 = select i1 %spec.select.i.i5.i.i.i24, i32 %95, i32 %94
+  %97 = and i32 %92, 15
+  %98 = and i32 %96, -16
+  %99 = or disjoint i32 %98, %97
+  store i32 %99, ptr %68, align 8
+  %100 = add nsw i32 %97, -7
+  %spec.select.i.i.i.i.i.i.i25 = icmp ult i32 %100, 2
+  br i1 %spec.select.i.i.i.i.i.i.i25, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i28, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i26
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i24: ; preds = %89
-  %102 = and i32 %97, 48
-  %103 = icmp ne i32 %102, 0
-  %104 = icmp ne i32 %98, 9
-  %spec.select.i2.i.i.i.i25 = and i1 %104, %103
-  br i1 %spec.select.i2.i.i.i.i25, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i26, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i18"
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i26: ; preds = %88
+  %101 = and i32 %96, 48
+  %102 = icmp ne i32 %101, 0
+  %103 = icmp ne i32 %97, 9
+  %spec.select.i2.i.i.i.i27 = and i1 %103, %102
+  br i1 %spec.select.i2.i.i.i.i27, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i28, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i20"
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i26: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i24, %89
-  %105 = or i32 %100, 16384
-  store i32 %105, ptr %69, align 8
-  br label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i18"
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i28: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i26, %88
+  %104 = or i32 %99, 16384
+  store i32 %104, ptr %68, align 8
+  br label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i20"
 
-"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i18": ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i26, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i24, %77, %73, %67
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i16, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !324
-  %.not.i.i19 = icmp eq ptr %107, %65
-  br i1 %.not.i.i19, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit", label %67, !llvm.loop !494
+"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i20": ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i28, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i26, %76, %72, %66
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i18, i64 8
+  %106 = load ptr, ptr %105, align 8, !tbaa !324
+  %.not.i.i21 = icmp eq ptr %106, %64
+  br i1 %.not.i.i21, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit", label %66, !llvm.loop !494
 
-"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit": ; preds = %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i18"
-  %.pre46 = load ptr, ptr %15, align 8, !tbaa !78
+"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit": ; preds = %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i20"
+  %.pre48 = load ptr, ptr %14, align 8, !tbaa !78
   br label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
 
 "_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit": ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit", %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
-  %108 = phi ptr [ %.pre46, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit" ], [ %62, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit" ]
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %110 = load ptr, ptr %109, align 8, !tbaa !324
-  %111 = getelementptr inbounds nuw i8, ptr %108, i64 40
-  %.not5.i.i29 = icmp eq ptr %110, %111
-  br i1 %.not5.i.i29, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %.lr.ph.i.i30
+  %107 = phi ptr [ %.pre48, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit.loopexit" ], [ %61, %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit" ]
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 48
+  %109 = load ptr, ptr %108, align 8, !tbaa !324
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 40
+  %.not5.i.i31 = icmp eq ptr %109, %110
+  br i1 %.not5.i.i31, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %.lr.ph.i.i32
 
-.lr.ph.i.i30:                                     ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %113
+.lr.ph.i.i32:                                     ; preds = %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit"
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %112
 
-113:                                              ; preds = %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i33", %.lr.ph.i.i30
-  %.sroa.02.06.i.i31 = phi ptr [ %110, %.lr.ph.i.i30 ], [ %153, %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i33" ]
-  %114 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i31, i64 -48
-  %115 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i31, i64 -16
-  %116 = load i32, ptr %115, align 8
-  %117 = and i32 %116, 15
-  %118 = add nsw i32 %117, -7
-  %spec.select.i.i.i.i.i32 = icmp ult i32 %118, 2
-  br i1 %spec.select.i.i.i.i.i32, label %119, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i33"
+112:                                              ; preds = %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i35", %.lr.ph.i.i32
+  %.sroa.02.06.i.i33 = phi ptr [ %109, %.lr.ph.i.i32 ], [ %152, %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i35" ]
+  %113 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i33, i64 -48
+  %114 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i33, i64 -16
+  %115 = load i32, ptr %114, align 8
+  %116 = and i32 %115, 15
+  %117 = add nsw i32 %116, -7
+  %spec.select.i.i.i.i.i34 = icmp ult i32 %117, 2
+  br i1 %spec.select.i.i.i.i.i34, label %118, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i35"
 
-119:                                              ; preds = %113
-  %120 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i31, i64 -44
-  %121 = load i32, ptr %120, align 4
-  %122 = and i32 %121, 268435456
-  %.not.i.i.i35 = icmp eq i32 %122, 0
-  br i1 %.not.i.i.i35, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i33", label %123
+118:                                              ; preds = %112
+  %119 = getelementptr inbounds i8, ptr %.sroa.02.06.i.i33, i64 -44
+  %120 = load i32, ptr %119, align 4
+  %121 = and i32 %120, 268435456
+  %.not.i.i.i37 = icmp eq i32 %121, 0
+  br i1 %.not.i.i.i37, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i35", label %122
 
-123:                                              ; preds = %119
-  %124 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(48) %114) #25
-  %125 = extractvalue { ptr, i64 } %124, 0
-  %126 = extractvalue { ptr, i64 } %124, 1
-  %127 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %125, i64 %126) #25
-  %128 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr %125, i64 %126, i32 noundef %127) #25
-  %129 = icmp eq i32 %128, -1
-  %130 = load i32, ptr %112, align 8
-  %131 = zext i32 %130 to i64
-  %132 = sext i32 %128 to i64
-  %133 = icmp eq i64 %132, %131
-  %134 = select i1 %129, i1 true, i1 %133
-  br i1 %134, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i33", label %135
+122:                                              ; preds = %118
+  %123 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(48) %113) #25
+  %124 = extractvalue { ptr, i64 } %123, 0
+  %125 = extractvalue { ptr, i64 } %123, 1
+  %126 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %124, i64 %125) #25
+  %127 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %124, i64 %125, i32 noundef %126) #25
+  %128 = icmp eq i32 %127, -1
+  %129 = load i32, ptr %111, align 8
+  %130 = zext i32 %129 to i64
+  %131 = sext i32 %127 to i64
+  %132 = icmp eq i64 %131, %130
+  %133 = select i1 %128, i1 true, i1 %132
+  br i1 %133, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i35", label %134
 
-135:                                              ; preds = %123
-  %136 = load ptr, ptr %10, align 8
-  %.sroa.0.0.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %136, i64 %132
-  %137 = load ptr, ptr %.sroa.0.0.i.i.i.i.i36, align 8, !tbaa !217
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load i32, ptr %138, align 8, !tbaa !490
-  %140 = add i32 %139, -7
-  %spec.select.i.i5.i.i.i37 = icmp ult i32 %140, 2
-  %141 = load i32, ptr %115, align 8
-  %142 = and i32 %141, -817
-  %143 = select i1 %spec.select.i.i5.i.i.i37, i32 %142, i32 %141
-  %144 = and i32 %139, 15
-  %145 = and i32 %143, -16
-  %146 = or disjoint i32 %145, %144
-  store i32 %146, ptr %115, align 8
-  %147 = add nsw i32 %144, -7
-  %spec.select.i.i.i.i.i.i.i38 = icmp ult i32 %147, 2
-  br i1 %spec.select.i.i.i.i.i.i.i38, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i41, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i39
+134:                                              ; preds = %122
+  %135 = load ptr, ptr %9, align 8
+  %.sroa.0.0.i.i.i.i.i38 = getelementptr inbounds ptr, ptr %135, i64 %131
+  %136 = load ptr, ptr %.sroa.0.0.i.i.i.i.i38, align 8, !tbaa !217
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %138 = load i32, ptr %137, align 8, !tbaa !490
+  %139 = add i32 %138, -7
+  %spec.select.i.i5.i.i.i39 = icmp ult i32 %139, 2
+  %140 = load i32, ptr %114, align 8
+  %141 = and i32 %140, -817
+  %142 = select i1 %spec.select.i.i5.i.i.i39, i32 %141, i32 %140
+  %143 = and i32 %138, 15
+  %144 = and i32 %142, -16
+  %145 = or disjoint i32 %144, %143
+  store i32 %145, ptr %114, align 8
+  %146 = add nsw i32 %143, -7
+  %spec.select.i.i.i.i.i.i.i40 = icmp ult i32 %146, 2
+  br i1 %spec.select.i.i.i.i.i.i.i40, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i43, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i41
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i39: ; preds = %135
-  %148 = and i32 %143, 48
-  %149 = icmp ne i32 %148, 0
-  %150 = icmp ne i32 %144, 9
-  %spec.select.i2.i.i.i.i40 = and i1 %150, %149
-  br i1 %spec.select.i2.i.i.i.i40, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i41, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i33"
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i41: ; preds = %134
+  %147 = and i32 %142, 48
+  %148 = icmp ne i32 %147, 0
+  %149 = icmp ne i32 %143, 9
+  %spec.select.i2.i.i.i.i42 = and i1 %149, %148
+  br i1 %spec.select.i2.i.i.i.i42, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i43, label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i35"
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i41: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i39, %135
-  %151 = or i32 %146, 16384
-  store i32 %151, ptr %115, align 8
-  br label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i33"
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i43: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i41, %134
+  %150 = or i32 %145, 16384
+  store i32 %150, ptr %114, align 8
+  br label %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i35"
 
-"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i33": ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i41, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i39, %123, %119, %113
-  %152 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i31, i64 8
-  %153 = load ptr, ptr %152, align 8, !tbaa !324
-  %.not.i.i34 = icmp eq ptr %153, %111
-  br i1 %.not.i.i34, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %113, !llvm.loop !495
+"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i35": ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i.i.i43, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i.i.i41, %122, %118, %112
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i33, i64 8
+  %152 = load ptr, ptr %151, align 8, !tbaa !324
+  %.not.i.i36 = icmp eq ptr %152, %110
+  br i1 %.not.i.i36, label %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", label %112, !llvm.loop !495
 
-"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit": ; preds = %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i33", %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", %9, %1, %5
+"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit": ; preds = %"_ZZN4llvm16LTOCodeGenerator26restoreLinkageForExternalsEvENK3$_0clERNS_11GlobalValueE.exit.i.i35", %"_ZN4llvm8for_eachINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEEEEZNS_16LTOCodeGenerator26restoreLinkageForExternalsEvE3$_0EET0_OT_SB_.exit", %8, %1
   ret void
 }
 

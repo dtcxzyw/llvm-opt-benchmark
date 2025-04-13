@@ -580,60 +580,62 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter20ToS
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %7) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
   call void @_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_(double noundef %1, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 18, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %5)
-  %41 = load i32, ptr %0, align 8, !tbaa !4
-  %42 = and i32 %41, 8
-  %.not = icmp eq i32 %42, 0
-  %43 = load i8, ptr %6, align 1, !tbaa !29, !range !31, !noundef !32
-  %44 = trunc nuw i8 %43 to i1
-  %45 = fcmp une double %1, 0.000000e+00
-  %brmerge = select i1 %45, i1 true, i1 %.not
-  %or.cond18 = select i1 %44, i1 %brmerge, i1 false
-  br i1 %or.cond18, label %46, label %53
+  %41 = load i8, ptr %6, align 1, !tbaa !29, !range !31, !noundef !32
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %43, label %55
 
-46:                                               ; preds = %40
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %48 = load i32, ptr %47, align 8, !tbaa !19
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %47, align 8, !tbaa !19
-  %50 = load ptr, ptr %2, align 8, !tbaa !22
-  %51 = sext i32 %48 to i64
-  %52 = getelementptr inbounds i8, ptr %50, i64 %51
-  store i8 45, ptr %52, align 1, !tbaa !23
-  br label %53
+43:                                               ; preds = %40
+  %44 = load i32, ptr %0, align 8, !tbaa !4
+  %45 = and i32 %44, 8
+  %46 = icmp ne i32 %45, 0
+  %47 = fcmp oeq double %1, 0.000000e+00
+  %or.cond = select i1 %47, i1 %46, i1 false
+  br i1 %or.cond, label %55, label %48
 
-53:                                               ; preds = %46, %40
-  %54 = load i32, ptr %5, align 4, !tbaa !26
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %56 = load i32, ptr %55, align 4, !tbaa !14
-  %.not15.not = icmp sge i32 %56, %54
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %58 = load i32, ptr %57, align 8
-  %.not16 = icmp sgt i32 %54, %58
-  %or.cond = select i1 %.not15.not, i1 true, i1 %.not16
-  br i1 %or.cond, label %62, label %59
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %50 = load i32, ptr %49, align 8, !tbaa !19
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %49, align 8, !tbaa !19
+  %52 = load ptr, ptr %2, align 8, !tbaa !22
+  %53 = sext i32 %50 to i64
+  %54 = getelementptr inbounds i8, ptr %52, i64 %53
+  store i8 45, ptr %54, align 1, !tbaa !23
+  br label %55
 
-59:                                               ; preds = %53
-  %60 = load i32, ptr %8, align 4, !tbaa !26
-  %61 = sub nsw i32 %60, %54
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %61, i32 0)
-  call void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i32 noundef %60, i32 noundef %54, i32 noundef %.sroa.speculated, ptr noundef %2)
-  br label %65
+55:                                               ; preds = %43, %48, %40
+  %56 = load i32, ptr %5, align 4, !tbaa !26
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %58 = load i32, ptr %57, align 4, !tbaa !14
+  %.not.not = icmp sge i32 %58, %56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %60 = load i32, ptr %59, align 8
+  %.not = icmp sgt i32 %56, %60
+  %or.cond17 = select i1 %.not.not, i1 true, i1 %.not
+  br i1 %or.cond17, label %64, label %61
 
-62:                                               ; preds = %53
-  %63 = add nsw i32 %54, -1
-  %64 = load i32, ptr %8, align 4, !tbaa !26
-  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i32 noundef %64, i32 noundef %63, ptr noundef %2)
-  br label %65
+61:                                               ; preds = %55
+  %62 = load i32, ptr %8, align 4, !tbaa !26
+  %63 = sub nsw i32 %62, %56
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %63, i32 0)
+  call void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i32 noundef %62, i32 noundef %56, i32 noundef %.sroa.speculated, ptr noundef %2)
+  br label %67
 
-65:                                               ; preds = %62, %59
+64:                                               ; preds = %55
+  %65 = add nsw i32 %56, -1
+  %66 = load i32, ptr %8, align 4, !tbaa !26
+  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i32 noundef %66, i32 noundef %65, ptr noundef %2)
+  br label %67
+
+67:                                               ; preds = %64, %61
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   br label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
 
-_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit: ; preds = %.sink.split.i, %26, %13, %65
-  %.0 = phi i1 [ true, %65 ], [ false, %13 ], [ false, %26 ], [ true, %.sink.split.i ]
+_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit: ; preds = %.sink.split.i, %26, %13, %67
+  %.0 = phi i1 [ true, %67 ], [ false, %13 ], [ false, %26 ], [ true, %.sink.split.i ]
   ret i1 %.0
 }
 
@@ -772,8 +774,8 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter7ToFi
   %43 = icmp slt i32 %2, 101
   %44 = tail call double @llvm.fabs.f64(double %1)
   %or.cond = fcmp ult double %44, 0x4C63E9E4E4C2F344
-  %or.cond17 = and i1 %43, %or.cond
-  br i1 %or.cond17, label %45, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
+  %or.cond19 = and i1 %43, %or.cond
+  br i1 %or.cond19, label %45, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
 
 45:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
@@ -803,16 +805,17 @@ _ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaM
   br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
 
 _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit: ; preds = %47, %49, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
-  %54 = load i32, ptr %0, align 8, !tbaa !4
-  %55 = and i32 %54, 8
-  %.not = icmp eq i32 %55, 0
-  %56 = icmp slt i64 %8, 0
-  %57 = fcmp une double %1, 0.000000e+00
-  %brmerge = select i1 %57, i1 true, i1 %.not
-  %or.cond18 = select i1 %56, i1 %brmerge, i1 false
-  br i1 %or.cond18, label %58, label %65
+  %.not = icmp sgt i64 %8, -1
+  br i1 %.not, label %65, label %54
 
-58:                                               ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+54:                                               ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+  %55 = load i32, ptr %0, align 8, !tbaa !4
+  %56 = and i32 %55, 8
+  %57 = icmp ne i32 %56, 0
+  %or.cond3 = select i1 %46, i1 %57, i1 false
+  br i1 %or.cond3, label %65, label %58
+
+58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %60 = load i32, ptr %59, align 8, !tbaa !19
   %61 = add nsw i32 %60, 1
@@ -823,7 +826,7 @@ _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiP
   store i8 45, ptr %64, align 1, !tbaa !23
   br label %65
 
-65:                                               ; preds = %58, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+65:                                               ; preds = %54, %58, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
   %66 = load i32, ptr %7, align 4, !tbaa !26
   %67 = load i32, ptr %5, align 4, !tbaa !26
   call void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %66, i32 noundef %67, i32 noundef %2, ptr noundef %3)
@@ -901,8 +904,8 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter13ToE
 
 42:                                               ; preds = %4
   %43 = add i32 %2, -121
-  %or.cond = icmp ult i32 %43, -122
-  br i1 %or.cond, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %44
+  %or.cond24 = icmp ult i32 %43, -122
+  br i1 %or.cond24, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %44
 
 44:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
@@ -967,8 +970,8 @@ _ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaM
 
 _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31: ; preds = %._ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31_crit_edge, %58, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i30
   %65 = phi i32 [ %.pre, %._ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31_crit_edge ], [ 1, %58 ], [ %62, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i30 ]
-  %.not33 = icmp sgt i32 %65, %2
-  br i1 %.not33, label %._crit_edge, label %.lr.ph.preheader
+  %.not34 = icmp sgt i32 %65, %2
+  br i1 %.not34, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31
   %66 = sext i32 %65 to i64
@@ -984,38 +987,40 @@ _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiP
   br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
 
 _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit: ; preds = %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i, %50, %48, %._crit_edge
-  %70 = load i32, ptr %0, align 8, !tbaa !4
-  %71 = and i32 %70, 8
-  %.not23 = icmp eq i32 %71, 0
-  %72 = icmp slt i64 %8, 0
-  %73 = fcmp une double %1, 0.000000e+00
-  %brmerge = select i1 %73, i1 true, i1 %.not23
-  %or.cond24 = select i1 %72, i1 %brmerge, i1 false
-  br i1 %or.cond24, label %74, label %81
+  %.not33 = icmp sgt i64 %8, -1
+  br i1 %.not33, label %82, label %70
 
-74:                                               ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %76 = load i32, ptr %75, align 8, !tbaa !19
-  %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %75, align 8, !tbaa !19
-  %78 = load ptr, ptr %3, align 8, !tbaa !22
-  %79 = sext i32 %76 to i64
-  %80 = getelementptr inbounds i8, ptr %78, i64 %79
-  store i8 45, ptr %80, align 1, !tbaa !23
-  br label %81
+70:                                               ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+  %71 = load i32, ptr %0, align 8, !tbaa !4
+  %72 = and i32 %71, 8
+  %73 = icmp ne i32 %72, 0
+  %74 = fcmp oeq double %1, 0.000000e+00
+  %or.cond = select i1 %74, i1 %73, i1 false
+  br i1 %or.cond, label %82, label %75
 
-81:                                               ; preds = %74, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
-  %82 = load i32, ptr %5, align 4, !tbaa !26
-  %83 = add nsw i32 %82, -1
-  %84 = load i32, ptr %7, align 4, !tbaa !26
-  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %84, i32 noundef %83, ptr noundef %3)
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %77 = load i32, ptr %76, align 8, !tbaa !19
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %76, align 8, !tbaa !19
+  %79 = load ptr, ptr %3, align 8, !tbaa !22
+  %80 = sext i32 %77 to i64
+  %81 = getelementptr inbounds i8, ptr %79, i64 %80
+  store i8 45, ptr %81, align 1, !tbaa !23
+  br label %82
+
+82:                                               ; preds = %70, %75, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+  %83 = load i32, ptr %5, align 4, !tbaa !26
+  %84 = add nsw i32 %83, -1
+  %85 = load i32, ptr %7, align 4, !tbaa !26
+  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %85, i32 noundef %84, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 122, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   br label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
 
-_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %81
-  %.0 = phi i1 [ true, %81 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
+_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %82
+  %.0 = phi i1 [ true, %82 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
   ret i1 %.0
 }
 
@@ -1090,7 +1095,7 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter11ToP
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   call void @llvm.lifetime.start.p0(i64 121, ptr nonnull %6) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
-  %.0.i25 = tail call double @llvm.fabs.f64(double %1)
+  %.0.i24 = tail call double @llvm.fabs.f64(double %1)
   %45 = fcmp oeq double %1, 0.000000e+00
   br i1 %45, label %46, label %48
 
@@ -1103,11 +1108,11 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter11ToP
   br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
 
 48:                                               ; preds = %44
-  %49 = call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0.i25, i32 noundef 2, i32 noundef %2, ptr nonnull %6, i32 121, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  %49 = call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0.i24, i32 noundef 2, i32 noundef %2, ptr nonnull %6, i32 121, ptr noundef nonnull %7, ptr noundef nonnull %5)
   br i1 %49, label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
 
 _ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %48
-  call void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0.i25, i32 noundef 3, i32 noundef %2, ptr nonnull %6, i32 121, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  call void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0.i24, i32 noundef 3, i32 noundef %2, ptr nonnull %6, i32 121, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %50 = load i32, ptr %7, align 4, !tbaa !26
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %6, i64 %51
@@ -1115,16 +1120,17 @@ _ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaM
   br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
 
 _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit: ; preds = %46, %48, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
-  %53 = load i32, ptr %0, align 8, !tbaa !4
-  %54 = and i32 %53, 8
-  %.not = icmp eq i32 %54, 0
-  %55 = icmp slt i64 %8, 0
-  %56 = fcmp une double %1, 0.000000e+00
-  %brmerge = select i1 %56, i1 true, i1 %.not
-  %or.cond24 = select i1 %55, i1 %brmerge, i1 false
-  br i1 %or.cond24, label %57, label %64
+  %.not56 = icmp sgt i64 %8, -1
+  br i1 %.not56, label %64, label %53
 
-57:                                               ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+53:                                               ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+  %54 = load i32, ptr %0, align 8, !tbaa !4
+  %55 = and i32 %54, 8
+  %56 = icmp ne i32 %55, 0
+  %or.cond3 = select i1 %45, i1 %56, i1 false
+  br i1 %or.cond3, label %64, label %57
+
+57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %59 = load i32, ptr %58, align 8, !tbaa !19
   %60 = add nsw i32 %59, 1
@@ -1135,7 +1141,7 @@ _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiP
   store i8 45, ptr %63, align 1, !tbaa !23
   br label %64
 
-64:                                               ; preds = %57, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+64:                                               ; preds = %53, %57, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
   %65 = load i32, ptr %5, align 4, !tbaa !26
   %66 = add nsw i32 %65, -1
   %67 = sub i32 1, %65
@@ -1154,33 +1160,33 @@ _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiP
   %77 = load i32, ptr %76, align 8, !tbaa !17
   %78 = icmp sgt i32 %75, %77
   %79 = and i32 %71, 16
-  %.not23 = icmp eq i32 %79, 0
-  br i1 %.not23, label %98, label %81
+  %.not = icmp eq i32 %79, 0
+  br i1 %.not, label %98, label %81
 
 .thread:                                          ; preds = %64
   %80 = and i32 %71, 16
-  %.not2351 = icmp eq i32 %80, 0
-  br i1 %.not2351, label %.thread..thread53_crit_edge, label %.thread52
+  %.not50 = icmp eq i32 %80, 0
+  br i1 %.not50, label %.thread..thread52_crit_edge, label %.thread51
 
-.thread..thread53_crit_edge:                      ; preds = %.thread
+.thread..thread52_crit_edge:                      ; preds = %.thread
   %.pre66 = load i32, ptr %7, align 4, !tbaa !26
-  br label %.thread53
-
-81:                                               ; preds = %72
-  br i1 %78, label %.thread52, label %82
-
-82:                                               ; preds = %81
-  %.sroa.speculated32 = call i32 @llvm.smax.i32(i32 %65, i32 1)
   br label %.thread52
 
-.thread52:                                        ; preds = %.thread, %81, %82
+81:                                               ; preds = %72
+  br i1 %78, label %.thread51, label %82
+
+82:                                               ; preds = %81
+  %.sroa.speculated31 = call i32 @llvm.smax.i32(i32 %65, i32 1)
+  br label %.thread51
+
+.thread51:                                        ; preds = %.thread, %81, %82
   %83 = phi i1 [ false, %82 ], [ true, %81 ], [ true, %.thread ]
-  %84 = phi i32 [ %.sroa.speculated32, %82 ], [ 1, %81 ], [ 1, %.thread ]
+  %84 = phi i32 [ %.sroa.speculated31, %82 ], [ 1, %81 ], [ 1, %.thread ]
   %.promoted = load i32, ptr %7, align 4, !tbaa !26
   %85 = icmp sgt i32 %.promoted, %84
   br i1 %85, label %.lr.ph.preheader, label %.critedge
 
-.lr.ph.preheader:                                 ; preds = %.thread52
+.lr.ph.preheader:                                 ; preds = %.thread51
   %86 = zext nneg i32 %.promoted to i64
   %87 = zext nneg i32 %84 to i64
   %indvars.iv.next75 = add nsw i64 %86, -1
@@ -1211,40 +1217,40 @@ _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiP
   store i32 %94, ptr %7, align 4, !tbaa !26
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.lr.ph..critedge.loopexit.split.loop.exit68_crit_edge, %.thread52
-  %97 = phi i32 [ %.promoted, %.thread52 ], [ %94, %.lr.ph..critedge.loopexit.split.loop.exit68_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %94, %.critedge.loopexit ]
-  %.lcssa = phi i32 [ %.promoted, %.thread52 ], [ %96, %.lr.ph..critedge.loopexit.split.loop.exit68_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %84, %.critedge.loopexit ]
-  %.sroa.speculated42 = call i32 @llvm.smin.i32(i32 %.lcssa, i32 %2)
-  br i1 %83, label %.thread53, label %._crit_edge65
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.lr.ph..critedge.loopexit.split.loop.exit68_crit_edge, %.thread51
+  %97 = phi i32 [ %.promoted, %.thread51 ], [ %94, %.lr.ph..critedge.loopexit.split.loop.exit68_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %94, %.critedge.loopexit ]
+  %.lcssa = phi i32 [ %.promoted, %.thread51 ], [ %96, %.lr.ph..critedge.loopexit.split.loop.exit68_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %84, %.critedge.loopexit ]
+  %.sroa.speculated41 = call i32 @llvm.smin.i32(i32 %.lcssa, i32 %2)
+  br i1 %83, label %.thread52, label %._crit_edge65
 
 98:                                               ; preds = %72
   %.pre67 = load i32, ptr %7, align 4, !tbaa !26
-  br i1 %78, label %.thread53, label %._crit_edge65
+  br i1 %78, label %.thread52, label %._crit_edge65
 
-.thread53:                                        ; preds = %.thread..thread53_crit_edge, %.critedge, %98
-  %99 = phi i32 [ %.pre67, %98 ], [ %97, %.critedge ], [ %.pre66, %.thread..thread53_crit_edge ]
-  %.05055 = phi i32 [ %2, %98 ], [ %.sroa.speculated42, %.critedge ], [ %2, %.thread..thread53_crit_edge ]
-  %100 = icmp slt i32 %99, %.05055
+.thread52:                                        ; preds = %.thread..thread52_crit_edge, %.critedge, %98
+  %99 = phi i32 [ %.pre67, %98 ], [ %97, %.critedge ], [ %.pre66, %.thread..thread52_crit_edge ]
+  %.04954 = phi i32 [ %2, %98 ], [ %.sroa.speculated41, %.critedge ], [ %2, %.thread..thread52_crit_edge ]
+  %100 = icmp slt i32 %99, %.04954
   br i1 %100, label %.lr.ph60.preheader, label %._crit_edge
 
-.lr.ph60.preheader:                               ; preds = %.thread53
+.lr.ph60.preheader:                               ; preds = %.thread52
   %101 = sext i32 %99 to i64
   %scevgep = getelementptr i8, ptr %6, i64 %101
   %102 = xor i32 %99, -1
-  %103 = add i32 %.05055, %102
+  %103 = add i32 %.04954, %102
   %104 = zext i32 %103 to i64
   %105 = add nuw nsw i64 %104, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %105, i1 false), !tbaa !23
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph60.preheader, %.thread53
-  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %.05055, i32 noundef %66, ptr noundef %3)
+._crit_edge:                                      ; preds = %.lr.ph60.preheader, %.thread52
+  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %.04954, i32 noundef %66, ptr noundef %3)
   br label %108
 
 ._crit_edge65:                                    ; preds = %98, %.critedge
   %106 = phi i32 [ %97, %.critedge ], [ %.pre67, %98 ]
-  %.05056 = phi i32 [ %.sroa.speculated42, %.critedge ], [ %2, %98 ]
-  %107 = sub nsw i32 %.05056, %65
+  %.04955 = phi i32 [ %.sroa.speculated41, %.critedge ], [ %2, %98 ]
+  %107 = sub nsw i32 %.04955, %65
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %107, i32 0)
   call void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %106, i32 noundef %65, i32 noundef %.sroa.speculated, ptr noundef %3)
   br label %108
@@ -1256,8 +1262,8 @@ _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiP
   br label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
 
 _ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %108
-  %.019 = phi i1 [ true, %108 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
-  ret i1 %.019
+  %.021 = phi i1 [ true, %108 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
+  ret i1 %.021
 }
 
 declare noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef, i32 noundef, i32 noundef, ptr, i32, ptr noundef, ptr noundef) local_unnamed_addr #6

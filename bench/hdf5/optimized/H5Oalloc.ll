@@ -2350,16 +2350,16 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
   br label %36
 
 36:                                               ; preds = %32, %16
-  %.067 = phi ptr [ %3, %16 ], [ %35, %32 ]
+  %.068 = phi ptr [ %3, %16 ], [ %35, %32 ]
   %.0 = phi ptr [ %19, %16 ], [ %21, %32 ]
-  %37 = icmp ugt ptr %.067, %.0
+  %37 = icmp ugt ptr %.068, %.0
   br i1 %37, label %.preheader, label %136
 
 .preheader:                                       ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %39 = load i64, ptr %38, align 8, !tbaa !40
-  %.not81 = icmp eq i64 %39, 0
-  br i1 %.not81, label %._crit_edge, label %.lr.ph
+  %.not82 = icmp eq i64 %39, 0
+  br i1 %.not82, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -2377,7 +2377,7 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %61
   %48 = phi i64 [ %63, %61 ], [ 0, %.lr.ph.split.us ]
-  %.06677.us.us = phi i32 [ %62, %61 ], [ 0, %.lr.ph.split.us ]
+  %.06778.us.us = phi i32 [ %62, %61 ], [ 0, %.lr.ph.split.us ]
   %49 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %41, i64 %48, i32 6
   %50 = load ptr, ptr %49, align 8, !tbaa !50
   %51 = getelementptr inbounds i8, ptr %50, i64 -8
@@ -2386,10 +2386,10 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
   %54 = load i32, ptr %53, align 8, !tbaa !43
   %55 = icmp eq i32 %54, %46
   %.not.us.us = icmp uge ptr %51, %.0
-  %56 = icmp ult ptr %51, %.067
+  %56 = icmp ult ptr %51, %.068
   %57 = and i1 %.not.us.us, %56
-  %or.cond73.us.us = select i1 %55, i1 %57, i1 false
-  br i1 %or.cond73.us.us, label %58, label %61
+  %or.cond75.us.us = select i1 %55, i1 %57, i1 false
+  br i1 %or.cond75.us.us, label %58, label %61
 
 58:                                               ; preds = %.lr.ph.split.us.split.us
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -2398,14 +2398,14 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
   br label %61
 
 61:                                               ; preds = %58, %.lr.ph.split.us.split.us
-  %62 = add i32 %.06677.us.us, 1
+  %62 = add i32 %.06778.us.us, 1
   %63 = zext i32 %62 to i64
   %64 = icmp ugt i64 %39, %63
   br i1 %64, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !71
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %78
   %65 = phi i64 [ %80, %78 ], [ 0, %.lr.ph.split.us ]
-  %.06677.us = phi i32 [ %79, %78 ], [ 0, %.lr.ph.split.us ]
+  %.06778.us = phi i32 [ %79, %78 ], [ 0, %.lr.ph.split.us ]
   %66 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %41, i64 %65, i32 6
   %67 = load ptr, ptr %66, align 8, !tbaa !50
   %68 = getelementptr inbounds i8, ptr %67, i64 -8
@@ -2414,10 +2414,10 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
   %71 = load i32, ptr %70, align 8, !tbaa !43
   %72 = icmp eq i32 %71, %46
   %.not.us = icmp uge ptr %68, %.0
-  %73 = icmp ult ptr %68, %.067
+  %73 = icmp ult ptr %68, %.068
   %74 = and i1 %.not.us, %73
-  %or.cond73.us = select i1 %72, i1 %74, i1 false
-  br i1 %or.cond73.us, label %75, label %78
+  %or.cond75.us = select i1 %72, i1 %74, i1 false
+  br i1 %or.cond75.us, label %75, label %78
 
 75:                                               ; preds = %.lr.ph.split.us.split
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 32
@@ -2426,7 +2426,7 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
   br label %78
 
 78:                                               ; preds = %75, %.lr.ph.split.us.split
-  %79 = add i32 %.06677.us, 1
+  %79 = add i32 %.06778.us, 1
   %80 = zext i32 %79 to i64
   %81 = icmp ugt i64 %39, %80
   br i1 %81, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !71
@@ -2443,7 +2443,7 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %102
   %89 = phi i64 [ %104, %102 ], [ 0, %.lr.ph.split ]
-  %.06677.us78 = phi i32 [ %103, %102 ], [ 0, %.lr.ph.split ]
+  %.06778.us79 = phi i32 [ %103, %102 ], [ 0, %.lr.ph.split ]
   %90 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %41, i64 %89, i32 6
   %91 = load ptr, ptr %90, align 8, !tbaa !50
   %92 = getelementptr inbounds i8, ptr %91, i64 %88
@@ -2451,11 +2451,11 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load i32, ptr %94, align 8, !tbaa !43
   %96 = icmp eq i32 %95, %46
-  %.not.us79 = icmp uge ptr %92, %.0
-  %97 = icmp ult ptr %92, %.067
-  %98 = and i1 %.not.us79, %97
-  %or.cond73.us80 = select i1 %96, i1 %98, i1 false
-  br i1 %or.cond73.us80, label %99, label %102
+  %.not.us80 = icmp uge ptr %92, %.0
+  %97 = icmp ult ptr %92, %.068
+  %98 = and i1 %.not.us80, %97
+  %or.cond75.us81 = select i1 %96, i1 %98, i1 false
+  br i1 %or.cond75.us81, label %99, label %102
 
 99:                                               ; preds = %.lr.ph.split.split.us
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 32
@@ -2464,14 +2464,14 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
   br label %102
 
 102:                                              ; preds = %99, %.lr.ph.split.split.us
-  %103 = add i32 %.06677.us78, 1
+  %103 = add i32 %.06778.us79, 1
   %104 = zext i32 %103 to i64
   %105 = icmp ugt i64 %39, %104
   br i1 %105, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !71
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %119
   %106 = phi i64 [ %121, %119 ], [ 0, %.lr.ph.split ]
-  %.06677 = phi i32 [ %120, %119 ], [ 0, %.lr.ph.split ]
+  %.06778 = phi i32 [ %120, %119 ], [ 0, %.lr.ph.split ]
   %107 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %41, i64 %106, i32 6
   %108 = load ptr, ptr %107, align 8, !tbaa !50
   %109 = getelementptr inbounds i8, ptr %108, i64 %88
@@ -2480,10 +2480,10 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
   %112 = load i32, ptr %111, align 8, !tbaa !43
   %113 = icmp eq i32 %112, %46
   %.not = icmp uge ptr %109, %.0
-  %114 = icmp ult ptr %109, %.067
+  %114 = icmp ult ptr %109, %.068
   %115 = and i1 %.not, %114
-  %or.cond73 = select i1 %113, i1 %115, i1 false
-  br i1 %or.cond73, label %116, label %119
+  %or.cond75 = select i1 %113, i1 %115, i1 false
+  br i1 %or.cond75, label %116, label %119
 
 116:                                              ; preds = %.lr.ph.split.split
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 32
@@ -2492,7 +2492,7 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
   br label %119
 
 119:                                              ; preds = %116, %.lr.ph.split.split
-  %120 = add i32 %.06677, 1
+  %120 = add i32 %.06778, 1
   %121 = zext i32 %120 to i64
   %122 = icmp ugt i64 %39, %121
   br i1 %122, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !71
@@ -2502,7 +2502,7 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
 
 123:                                              ; preds = %._crit_edge
   %124 = getelementptr inbounds nuw i8, ptr %.0, i64 %4
-  %125 = ptrtoint ptr %.067 to i64
+  %125 = ptrtoint ptr %.068 to i64
   %126 = ptrtoint ptr %.0 to i64
   %127 = sub i64 %125, %126
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %124, ptr align 1 %.0, i64 %127, i1 false)
@@ -2512,7 +2512,7 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
 128:                                              ; preds = %._crit_edge
   %129 = sub i64 0, %4
   %130 = getelementptr inbounds i8, ptr %.0, i64 %129
-  %131 = ptrtoint ptr %.067 to i64
+  %131 = ptrtoint ptr %.068 to i64
   %132 = ptrtoint ptr %.0 to i64
   %133 = sub i64 %131, %132
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %130, ptr align 1 %.0, i64 %133, i1 false)
@@ -2522,9 +2522,9 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
   br label %158
 
 136:                                              ; preds = %36
-  %137 = icmp ne ptr %.067, %.0
-  %brmerge = or i1 %15, %137
-  br i1 %brmerge, label %158, label %138
+  %137 = icmp ne ptr %.068, %.0
+  %or.cond = or i1 %15, %137
+  br i1 %or.cond, label %158, label %138
 
 138:                                              ; preds = %136
   %139 = sub i64 0, %4
@@ -2554,8 +2554,8 @@ define internal fastcc void @H5O__eliminate_gap(ptr noundef readonly captures(no
   store ptr %157, ptr %13, align 8, !tbaa !50
   br label %158
 
-158:                                              ; preds = %136, %123, %128, %153
-  %159 = phi ptr [ %14, %136 ], [ %.pre, %123 ], [ %135, %128 ], [ %157, %153 ]
+158:                                              ; preds = %123, %128, %136, %153
+  %159 = phi ptr [ %.pre, %123 ], [ %135, %128 ], [ %14, %136 ], [ %157, %153 ]
   %160 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %161 = load i64, ptr %160, align 8, !tbaa !49
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 %161

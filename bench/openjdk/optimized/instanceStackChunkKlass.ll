@@ -310,49 +310,47 @@ define hidden void @_ZN23InstanceStackChunkKlass26oop_oop_iterate_stack_slowEP17
   %6 = alloca %class.OopIterateStackChunkFrameClosure, align 8
   %7 = load i8, ptr @UseZGC, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %12, label %9
+  %9 = load i8, ptr @UseShenandoahGC, align 1
+  %10 = trunc i8 %9 to i1
+  %or.cond = select i1 %8, i1 true, i1 %10
+  br i1 %or.cond, label %11, label %12
 
-9:                                                ; preds = %5
-  %10 = load i8, ptr @UseShenandoahGC, align 1
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %13
-
-12:                                               ; preds = %9, %5
+11:                                               ; preds = %5
   tail call void @_ZN17stackChunkOopDesc40relativize_derived_pointers_concurrentlyEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #10
-  br label %13
+  br label %12
 
-13:                                               ; preds = %12, %9
+12:                                               ; preds = %5, %11
   store ptr %2, ptr %6, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %3, ptr %14, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %3, ptr %13, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
-  %20 = zext i1 %19 to i8
-  store i8 %20, ptr %15, align 8
-  %21 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
-  %22 = ptrtoint ptr %1 to i64
-  %23 = sext i32 %21 to i64
-  %24 = add nsw i64 %23, %22
-  %25 = inttoptr i64 %24 to ptr
-  %26 = load volatile i8, ptr %25, align 1
-  %27 = and i8 %26, 1
-  %.not.i = icmp eq i8 %27, 0
-  br i1 %.not.i, label %29, label %28
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
+  %19 = zext i1 %18 to i8
+  store i8 %19, ptr %14, align 8
+  %20 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
+  %21 = ptrtoint ptr %1 to i64
+  %22 = sext i32 %20 to i64
+  %23 = add nsw i64 %22, %21
+  %24 = inttoptr i64 %23 to ptr
+  %25 = load volatile i8, ptr %24, align 1
+  %26 = and i8 %25, 1
+  %.not.i = icmp eq i8 %26, 0
+  br i1 %.not.i, label %28, label %27
 
-28:                                               ; preds = %13
+27:                                               ; preds = %12
   call void @_ZN17stackChunkOopDesc13iterate_stackIL11ChunkFrames1E32OopIterateStackChunkFrameClosureEEvPT0_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %6)
   br label %_ZN17stackChunkOopDesc13iterate_stackI32OopIterateStackChunkFrameClosureEEvPT_.exit
 
-29:                                               ; preds = %13
+28:                                               ; preds = %12
   call void @_ZN17stackChunkOopDesc13iterate_stackIL11ChunkFrames0E32OopIterateStackChunkFrameClosureEEvPT0_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %6)
   br label %_ZN17stackChunkOopDesc13iterate_stackI32OopIterateStackChunkFrameClosureEEvPT_.exit
 
-_ZN17stackChunkOopDesc13iterate_stackI32OopIterateStackChunkFrameClosureEEvPT_.exit: ; preds = %28, %29
+_ZN17stackChunkOopDesc13iterate_stackI32OopIterateStackChunkFrameClosureEEvPT_.exit: ; preds = %27, %28
   ret void
 }
 

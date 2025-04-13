@@ -66,8 +66,8 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   %.pr = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %.not9 = icmp eq i64 %.pr, -9223372036854775807
-  br i1 %.not9, label %23, label %.thread
+  %.not10 = icmp eq i64 %.pr, -9223372036854775807
+  br i1 %.not10, label %23, label %.thread
 
 .thread:                                          ; preds = %"_ZN9itertools11kmerge_impl17HeadTail$LT$I$GT$4next17hf03a948d1cf893e4E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
@@ -76,8 +76,8 @@ define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u2
 19:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6)
   %20 = load i64, ptr %7, align 8, !range !8, !noundef !4
-  %.not10 = icmp eq i64 %20, -9223372036854775807
-  br i1 %.not10, label %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit", label %77
+  %.not = icmp eq i64 %20, -9223372036854775807
+  br i1 %.not, label %"_ZN4core3ptr36drop_in_place$LT$uu_pr..FileLine$GT$17he0791ad9456e2988E.exit", label %77
 
 21:                                               ; preds = %23
   %22 = landingpad { ptr, i32 }

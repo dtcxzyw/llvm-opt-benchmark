@@ -273,22 +273,22 @@ define internal fastcc void @write_graph(ptr noundef %0, ptr noundef %1, i1 noun
   tail call void @aginit(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.9, i32 noundef -24, i32 noundef 0) #15
   %8 = tail call fastcc i32 @label_subgs(ptr noundef %0, i32 noundef 0, ptr noundef %7)
   %9 = tail call ptr @agfstnode(ptr noundef %0) #15
-  %.not114 = icmp eq ptr %9, null
-  br i1 %.not114, label %._crit_edge120, label %.lr.ph119
+  %.not113 = icmp eq ptr %9, null
+  br i1 %.not113, label %._crit_edge119, label %.lr.ph118
 
-.lr.ph119:                                        ; preds = %5, %._crit_edge
-  %.0117 = phi ptr [ %32, %._crit_edge ], [ %9, %5 ]
-  %.068116 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %5 ]
-  %.069115 = phi i32 [ %.170, %._crit_edge ], [ 0, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.0117, i64 16
+.lr.ph118:                                        ; preds = %5, %._crit_edge
+  %.0116 = phi ptr [ %32, %._crit_edge ], [ %9, %5 ]
+  %.068115 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %5 ]
+  %.069114 = phi i32 [ %.170, %._crit_edge ], [ 0, %5 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.0116, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !71
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 162
   %13 = load i8, ptr %12, align 2, !tbaa !92, !range !99, !noundef !100
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %22
 
-15:                                               ; preds = %.lr.ph119
-  %16 = tail call ptr @agnameof(ptr noundef nonnull %.0117) #15
+15:                                               ; preds = %.lr.ph118
+  %16 = tail call ptr @agnameof(ptr noundef nonnull %.0116) #15
   %17 = load ptr, ptr %7, align 8, !tbaa !101
   %18 = tail call ptr %17(ptr noundef nonnull %7, ptr noundef %16, i32 noundef 512) #15
   %.not.i = icmp eq ptr %18, null
@@ -299,44 +299,44 @@ define internal fastcc void @write_graph(ptr noundef %0, ptr noundef %1, i1 noun
   %21 = load i32, ptr %20, align 8, !tbaa !105
   br label %lookup.exit
 
-22:                                               ; preds = %.lr.ph119
-  %23 = add nsw i32 %.069115, 1
-  %24 = add nsw i32 %.069115, %8
+22:                                               ; preds = %.lr.ph118
+  %23 = add nsw i32 %.069114, 1
+  %24 = add nsw i32 %.069114, %8
   br label %lookup.exit
 
 lookup.exit:                                      ; preds = %19, %15, %22
   %.sink = phi i32 [ %24, %22 ], [ %21, %19 ], [ -1, %15 ]
-  %.170 = phi i32 [ %23, %22 ], [ %.069115, %19 ], [ %.069115, %15 ]
-  %25 = tail call ptr @aggetrec(ptr noundef nonnull %.0117, ptr noundef nonnull @.str.9, i32 noundef 0) #15
+  %.170 = phi i32 [ %23, %22 ], [ %.069114, %19 ], [ %.069114, %15 ]
+  %25 = tail call ptr @aggetrec(ptr noundef nonnull %.0116, ptr noundef nonnull @.str.9, i32 noundef 0) #15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 %.sink, ptr %26, align 8, !tbaa !107
-  %27 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.0117) #15
-  %.not71111 = icmp eq ptr %27, null
-  br i1 %.not71111, label %._crit_edge, label %.lr.ph
+  %27 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.0116) #15
+  %.not71110 = icmp eq ptr %27, null
+  br i1 %.not71110, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %lookup.exit, %.lr.ph
-  %.066113 = phi ptr [ %31, %.lr.ph ], [ %27, %lookup.exit ]
-  %.1112 = phi i32 [ %28, %.lr.ph ], [ %.068116, %lookup.exit ]
-  %28 = add nsw i32 %.1112, 1
-  %29 = tail call ptr @aggetrec(ptr noundef nonnull %.066113, ptr noundef nonnull @.str.9, i32 noundef 0) #15
+  %.066112 = phi ptr [ %31, %.lr.ph ], [ %27, %lookup.exit ]
+  %.1111 = phi i32 [ %28, %.lr.ph ], [ %.068115, %lookup.exit ]
+  %28 = add nsw i32 %.1111, 1
+  %29 = tail call ptr @aggetrec(ptr noundef nonnull %.066112, ptr noundef nonnull @.str.9, i32 noundef 0) #15
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i32 %.1112, ptr %30, align 8, !tbaa !107
-  %31 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.066113) #15
+  store i32 %.1111, ptr %30, align 8, !tbaa !107
+  %31 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.066112) #15
   %.not71 = icmp eq ptr %31, null
   br i1 %.not71, label %._crit_edge, label %.lr.ph, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %.lr.ph, %lookup.exit
-  %.1.lcssa = phi i32 [ %.068116, %lookup.exit ], [ %28, %.lr.ph ]
-  %32 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0117) #15
+  %.1.lcssa = phi i32 [ %.068115, %lookup.exit ], [ %28, %.lr.ph ]
+  %32 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0116) #15
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %._crit_edge120, label %.lr.ph119, !llvm.loop !110
+  br i1 %.not, label %._crit_edge119, label %.lr.ph118, !llvm.loop !110
 
-._crit_edge120:                                   ; preds = %._crit_edge, %5
+._crit_edge119:                                   ; preds = %._crit_edge, %5
   %33 = tail call i32 @dtclose(ptr noundef %7) #15
   br label %34
 
-34:                                               ; preds = %._crit_edge120, %4
-  %.067 = phi i32 [ %8, %._crit_edge120 ], [ 0, %4 ]
+34:                                               ; preds = %._crit_edge119, %4
+  %.067 = phi i32 [ %8, %._crit_edge119 ], [ 0, %4 ]
   %35 = load i32, ptr %3, align 4, !tbaa !69
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %3, align 4, !tbaa !69
@@ -452,91 +452,91 @@ indent.exit78:                                    ; preds = %.lr.ph.i76, %71
   %86 = add nsw i32 %85, 1
   store i32 %86, ptr %3, align 4, !tbaa !69
   %87 = icmp sgt i32 %85, 0
-  br i1 %87, label %.lr.ph.i105, label %indent.exit107
+  br i1 %87, label %.lr.ph.i104, label %indent.exit106
 
-.lr.ph.i105:                                      ; preds = %83, %.lr.ph.i105
-  %.03.i106 = phi i32 [ %89, %.lr.ph.i105 ], [ %85, %83 ]
+.lr.ph.i104:                                      ; preds = %83, %.lr.ph.i104
+  %.03.i105 = phi i32 [ %89, %.lr.ph.i104 ], [ %85, %83 ]
   %88 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.22) #15
-  %89 = add nsw i32 %.03.i106, -1
-  %90 = icmp samesign ugt i32 %.03.i106, 1
-  br i1 %90, label %.lr.ph.i105, label %indent.exit107, !llvm.loop !111
+  %89 = add nsw i32 %.03.i105, -1
+  %90 = icmp samesign ugt i32 %.03.i105, 1
+  br i1 %90, label %.lr.ph.i104, label %indent.exit106, !llvm.loop !111
 
-indent.exit107:                                   ; preds = %.lr.ph.i105, %83
+indent.exit106:                                   ; preds = %.lr.ph.i104, %83
   br i1 %2, label %91, label %93
 
-91:                                               ; preds = %indent.exit107
+91:                                               ; preds = %indent.exit106
   %92 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.78) #15
-  br label %indent.exit103.preheader
+  br label %indent.exit102.preheader
 
-93:                                               ; preds = %indent.exit107
+93:                                               ; preds = %indent.exit106
   %94 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.79) #15
   %95 = load i32, ptr %3, align 4, !tbaa !69
   %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph.i101, label %indent.exit103.preheader
+  br i1 %96, label %.lr.ph.i100, label %indent.exit102.preheader
 
-.lr.ph.i101:                                      ; preds = %93, %.lr.ph.i101
-  %.03.i102 = phi i32 [ %98, %.lr.ph.i101 ], [ %95, %93 ]
+.lr.ph.i100:                                      ; preds = %93, %.lr.ph.i100
+  %.03.i101 = phi i32 [ %98, %.lr.ph.i100 ], [ %95, %93 ]
   %97 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.22) #15
-  %98 = add nsw i32 %.03.i102, -1
-  %99 = icmp samesign ugt i32 %.03.i102, 1
-  br i1 %99, label %.lr.ph.i101, label %indent.exit103.preheader, !llvm.loop !111
+  %98 = add nsw i32 %.03.i101, -1
+  %99 = icmp samesign ugt i32 %.03.i101, 1
+  br i1 %99, label %.lr.ph.i100, label %indent.exit102.preheader, !llvm.loop !111
 
-indent.exit103.preheader:                         ; preds = %.lr.ph.i101, %93, %91
-  br label %indent.exit103
+indent.exit102.preheader:                         ; preds = %.lr.ph.i100, %93, %91
+  br label %indent.exit102
 
-indent.exit103:                                   ; preds = %indent.exit103.backedge, %indent.exit103.preheader
-  %.0.i80122 = phi ptr [ @.str.80, %indent.exit103.preheader ], [ @.str.11, %indent.exit103.backedge ]
-  %.026.i121 = phi ptr [ %82, %indent.exit103.preheader ], [ %.026.i121.be, %indent.exit103.backedge ]
-  %100 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull %.0.i80122) #15
+indent.exit102:                                   ; preds = %indent.exit102.backedge, %indent.exit102.preheader
+  %.0.i80121 = phi ptr [ @.str.80, %indent.exit102.preheader ], [ @.str.11, %indent.exit102.backedge ]
+  %.026.i120 = phi ptr [ %82, %indent.exit102.preheader ], [ %.026.i120.be, %indent.exit102.backedge ]
+  %100 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull %.0.i80121) #15
   br i1 %2, label %101, label %.thread
 
-101:                                              ; preds = %indent.exit103
-  tail call fastcc void @write_subg(ptr noundef %.026.i121, ptr noundef %1, ptr noundef nonnull %3)
-  %102 = tail call ptr @agnxtsubg(ptr noundef nonnull %.026.i121) #15
+101:                                              ; preds = %indent.exit102
+  tail call fastcc void @write_subg(ptr noundef %.026.i120, ptr noundef %1, ptr noundef nonnull %3)
+  %102 = tail call ptr @agnxtsubg(ptr noundef nonnull %.026.i120) #15
   %.not29.i = icmp eq ptr %102, null
-  br i1 %.not29.i, label %write_subgs.exit, label %indent.exit103.backedge
+  br i1 %.not29.i, label %write_subgs.exit, label %indent.exit102.backedge
 
-indent.exit103.backedge:                          ; preds = %101, %.thread
-  %.026.i121.be = phi ptr [ %102, %101 ], [ %106, %.thread ]
-  br label %indent.exit103, !llvm.loop !112
+indent.exit102.backedge:                          ; preds = %101, %.thread
+  %.026.i120.be = phi ptr [ %102, %101 ], [ %106, %.thread ]
+  br label %indent.exit102, !llvm.loop !112
 
-.thread:                                          ; preds = %indent.exit103
-  %103 = tail call ptr @aggetrec(ptr noundef nonnull %.026.i121, ptr noundef nonnull @.str.9, i32 noundef 0) #15
+.thread:                                          ; preds = %indent.exit102
+  %103 = tail call ptr @aggetrec(ptr noundef nonnull %.026.i120, ptr noundef nonnull @.str.9, i32 noundef 0) #15
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load i32, ptr %104, align 8, !tbaa !107
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.81, i32 noundef %105) #15
-  %106 = tail call ptr @agnxtsubg(ptr noundef nonnull %.026.i121) #15
-  %.not29.i127 = icmp eq ptr %106, null
-  br i1 %.not29.i127, label %.thread128, label %indent.exit103.backedge
+  %106 = tail call ptr @agnxtsubg(ptr noundef nonnull %.026.i120) #15
+  %.not29.i126 = icmp eq ptr %106, null
+  br i1 %.not29.i126, label %.thread127, label %indent.exit102.backedge
 
-.thread128:                                       ; preds = %.thread
+.thread127:                                       ; preds = %.thread
   %107 = load i32, ptr %3, align 4, !tbaa !69
   %108 = add nsw i32 %107, -1
   store i32 %108, ptr %3, align 4, !tbaa !69
   %109 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.14) #15
   %110 = load i32, ptr %3, align 4, !tbaa !69
   %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %.lr.ph.i97, label %indent.exit99
+  br i1 %111, label %.lr.ph.i96, label %indent.exit98
 
-.lr.ph.i97:                                       ; preds = %.thread128, %.lr.ph.i97
-  %.03.i98 = phi i32 [ %113, %.lr.ph.i97 ], [ %110, %.thread128 ]
+.lr.ph.i96:                                       ; preds = %.thread127, %.lr.ph.i96
+  %.03.i97 = phi i32 [ %113, %.lr.ph.i96 ], [ %110, %.thread127 ]
   %112 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.22) #15
-  %113 = add nsw i32 %.03.i98, -1
-  %114 = icmp samesign ugt i32 %.03.i98, 1
-  br i1 %114, label %.lr.ph.i97, label %indent.exit99, !llvm.loop !111
+  %113 = add nsw i32 %.03.i97, -1
+  %114 = icmp samesign ugt i32 %.03.i97, 1
+  br i1 %114, label %.lr.ph.i96, label %indent.exit98, !llvm.loop !111
 
-indent.exit99:                                    ; preds = %.lr.ph.i97, %.thread128
+indent.exit98:                                    ; preds = %.lr.ph.i96, %.thread127
   %115 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.46) #15
   br label %write_subgs.exit
 
-write_subgs.exit:                                 ; preds = %101, %81, %indent.exit99
+write_subgs.exit:                                 ; preds = %101, %81, %indent.exit98
   %116 = tail call ptr @agfstnode(ptr noundef %0) #15
-  %.not60.i = icmp eq ptr %116, null
-  br i1 %.not60.i, label %.critedge.i, label %.lr.ph.i81
+  %.not59.i = icmp eq ptr %116, null
+  br i1 %.not59.i, label %.critedge.i, label %.lr.ph.i81
 
 .lr.ph.i81:                                       ; preds = %write_subgs.exit, %122
-  %.04261.i = phi ptr [ %123, %122 ], [ %116, %write_subgs.exit ]
-  %117 = getelementptr inbounds nuw i8, ptr %.04261.i, i64 16
+  %.04360.i = phi ptr [ %123, %122 ], [ %116, %write_subgs.exit ]
+  %117 = getelementptr inbounds nuw i8, ptr %.04360.i, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !71
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 162
   %120 = load i8, ptr %119, align 2, !tbaa !92, !range !99, !noundef !100
@@ -544,13 +544,13 @@ write_subgs.exit:                                 ; preds = %101, %81, %indent.e
   br i1 %121, label %122, label %133
 
 122:                                              ; preds = %.lr.ph.i81
-  %123 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.04261.i) #15
+  %123 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.04360.i) #15
   %.not.i82 = icmp eq ptr %123, null
   br i1 %.not.i82, label %.critedge.i, label %.lr.ph.i81, !llvm.loop !113
 
 .critedge.i:                                      ; preds = %122, %write_subgs.exit
-  %brmerge.demorgan.i = and i1 %2, %.not.i79
-  br i1 %brmerge.demorgan.i, label %124, label %write_nodes.exit
+  %or.cond.i = and i1 %2, %.not.i79
+  br i1 %or.cond.i, label %124, label %write_nodes.exit
 
 124:                                              ; preds = %.critedge.i
   %125 = load i32, ptr %3, align 4, !tbaa !69
@@ -573,73 +573,73 @@ write_subgs.exit:                                 ; preds = %101, %81, %indent.e
   br i1 %2, label %135, label %144
 
 135:                                              ; preds = %133
-  br i1 %.not.i79, label %indent.exit56.i, label %136
+  br i1 %.not.i79, label %indent.exit55.i, label %136
 
 136:                                              ; preds = %135
   %137 = load i32, ptr %3, align 4, !tbaa !69
   %138 = add nsw i32 %137, 1
   store i32 %138, ptr %3, align 4, !tbaa !69
   %139 = icmp sgt i32 %137, 0
-  br i1 %139, label %.lr.ph.i48.i, label %indent.exit50.i
+  br i1 %139, label %.lr.ph.i47.i, label %indent.exit49.i
 
-.lr.ph.i48.i:                                     ; preds = %136, %.lr.ph.i48.i
-  %.03.i49.i = phi i32 [ %141, %.lr.ph.i48.i ], [ %137, %136 ]
+.lr.ph.i47.i:                                     ; preds = %136, %.lr.ph.i47.i
+  %.03.i48.i = phi i32 [ %141, %.lr.ph.i47.i ], [ %137, %136 ]
   %140 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.22) #15
-  %141 = add nsw i32 %.03.i49.i, -1
-  %142 = icmp samesign ugt i32 %.03.i49.i, 1
-  br i1 %142, label %.lr.ph.i48.i, label %indent.exit50.i, !llvm.loop !111
+  %141 = add nsw i32 %.03.i48.i, -1
+  %142 = icmp samesign ugt i32 %.03.i48.i, 1
+  br i1 %142, label %.lr.ph.i47.i, label %indent.exit49.i, !llvm.loop !111
 
-indent.exit50.i:                                  ; preds = %.lr.ph.i48.i, %136
+indent.exit49.i:                                  ; preds = %.lr.ph.i47.i, %136
   %143 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.78) #15
-  br label %indent.exit56.i
+  br label %indent.exit55.i
 
 144:                                              ; preds = %133
   %145 = load i32, ptr %3, align 4, !tbaa !69
   %146 = add nsw i32 %145, 1
   store i32 %146, ptr %3, align 4, !tbaa !69
   %147 = icmp sgt i32 %145, 0
-  br i1 %147, label %.lr.ph.i51.i, label %indent.exit53.i
+  br i1 %147, label %.lr.ph.i50.i, label %indent.exit52.i
 
-.lr.ph.i51.i:                                     ; preds = %144, %.lr.ph.i51.i
-  %.03.i52.i = phi i32 [ %149, %.lr.ph.i51.i ], [ %145, %144 ]
+.lr.ph.i50.i:                                     ; preds = %144, %.lr.ph.i50.i
+  %.03.i51.i = phi i32 [ %149, %.lr.ph.i50.i ], [ %145, %144 ]
   %148 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.22) #15
-  %149 = add nsw i32 %.03.i52.i, -1
-  %150 = icmp samesign ugt i32 %.03.i52.i, 1
-  br i1 %150, label %.lr.ph.i51.i, label %indent.exit53.i, !llvm.loop !111
+  %149 = add nsw i32 %.03.i51.i, -1
+  %150 = icmp samesign ugt i32 %.03.i51.i, 1
+  br i1 %150, label %.lr.ph.i50.i, label %indent.exit52.i, !llvm.loop !111
 
-indent.exit53.i:                                  ; preds = %.lr.ph.i51.i, %144
+indent.exit52.i:                                  ; preds = %.lr.ph.i50.i, %144
   %151 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.82) #15
   %152 = load i32, ptr %3, align 4, !tbaa !69
   %153 = icmp sgt i32 %152, 0
-  br i1 %153, label %.lr.ph.i54.i, label %indent.exit56.i
+  br i1 %153, label %.lr.ph.i53.i, label %indent.exit55.i
 
-.lr.ph.i54.i:                                     ; preds = %indent.exit53.i, %.lr.ph.i54.i
-  %.03.i55.i = phi i32 [ %155, %.lr.ph.i54.i ], [ %152, %indent.exit53.i ]
+.lr.ph.i53.i:                                     ; preds = %indent.exit52.i, %.lr.ph.i53.i
+  %.03.i54.i = phi i32 [ %155, %.lr.ph.i53.i ], [ %152, %indent.exit52.i ]
   %154 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.22) #15
-  %155 = add nsw i32 %.03.i55.i, -1
-  %156 = icmp samesign ugt i32 %.03.i55.i, 1
-  br i1 %156, label %.lr.ph.i54.i, label %indent.exit56.i, !llvm.loop !111
+  %155 = add nsw i32 %.03.i54.i, -1
+  %156 = icmp samesign ugt i32 %.03.i54.i, 1
+  br i1 %156, label %.lr.ph.i53.i, label %indent.exit55.i, !llvm.loop !111
 
-indent.exit56.i:                                  ; preds = %.lr.ph.i54.i, %indent.exit53.i, %indent.exit50.i, %135
+indent.exit55.i:                                  ; preds = %.lr.ph.i53.i, %indent.exit52.i, %indent.exit49.i, %135
   %157 = tail call ptr @agfstnode(ptr noundef %0) #15
-  %.not4562.i = icmp eq ptr %157, null
-  br i1 %.not4562.i, label %._crit_edge.i, label %.lr.ph65.i
+  %.not4661.i = icmp eq ptr %157, null
+  br i1 %.not4661.i, label %._crit_edge.i, label %.lr.ph64.i
 
-.lr.ph65.i:                                       ; preds = %indent.exit56.i
-  br i1 %2, label %.lr.ph65.split.us.i, label %.lr.ph65.split.i
+.lr.ph64.i:                                       ; preds = %indent.exit55.i
+  br i1 %2, label %.lr.ph64.split.us.i, label %.lr.ph64.split.i
 
-.lr.ph65.split.us.i:                              ; preds = %.lr.ph65.i, %write_node.exit.us.i
-  %.064.us.i = phi ptr [ %195, %write_node.exit.us.i ], [ %157, %.lr.ph65.i ]
-  %.04163.us.i = phi ptr [ %.1.us.i, %write_node.exit.us.i ], [ @.str.80, %.lr.ph65.i ]
-  %158 = getelementptr inbounds nuw i8, ptr %.064.us.i, i64 16
+.lr.ph64.split.us.i:                              ; preds = %.lr.ph64.i, %write_node.exit.us.i
+  %.063.us.i = phi ptr [ %195, %write_node.exit.us.i ], [ %157, %.lr.ph64.i ]
+  %.04262.us.i = phi ptr [ %.1.us.i, %write_node.exit.us.i ], [ @.str.80, %.lr.ph64.i ]
+  %158 = getelementptr inbounds nuw i8, ptr %.063.us.i, i64 16
   %159 = load ptr, ptr %158, align 8, !tbaa !71
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 162
   %161 = load i8, ptr %160, align 2, !tbaa !92, !range !99, !noundef !100
   %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %write_node.exit.us.i, label %163
 
-163:                                              ; preds = %.lr.ph65.split.us.i
-  %164 = tail call i32 @gvputs(ptr noundef %1, ptr noundef %.04163.us.i) #15
+163:                                              ; preds = %.lr.ph64.split.us.i
+  %164 = tail call i32 @gvputs(ptr noundef %1, ptr noundef %.04262.us.i) #15
   %165 = load i32, ptr %3, align 4, !tbaa !69
   %166 = add nsw i32 %165, 1
   store i32 %166, ptr %3, align 4, !tbaa !69
@@ -667,7 +667,7 @@ indent.exit.i.us.i:                               ; preds = %.lr.ph.i.i.us.i, %1
   br i1 %176, label %.lr.ph.i23.i.us.i, label %indent.exit25.i.us.i, !llvm.loop !111
 
 indent.exit25.i.us.i:                             ; preds = %.lr.ph.i23.i.us.i, %indent.exit.i.us.i
-  %177 = tail call ptr @aggetrec(ptr noundef nonnull %.064.us.i, ptr noundef nonnull @.str.9, i32 noundef 0) #15
+  %177 = tail call ptr @aggetrec(ptr noundef nonnull %.063.us.i, ptr noundef nonnull @.str.9, i32 noundef 0) #15
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load i32, ptr %178, align 8, !tbaa !107
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.83, i32 noundef %179) #15
@@ -684,9 +684,9 @@ indent.exit25.i.us.i:                             ; preds = %.lr.ph.i23.i.us.i, 
 
 indent.exit28.i.us.i:                             ; preds = %.lr.ph.i26.i.us.i, %indent.exit25.i.us.i
   %185 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.23) #15
-  %186 = tail call ptr @agnameof(ptr noundef nonnull %.064.us.i) #15
+  %186 = tail call ptr @agnameof(ptr noundef nonnull %.063.us.i) #15
   tail call fastcc void @stoj(ptr noundef %186, ptr noundef nonnull %3, ptr noundef %1)
-  tail call fastcc void @write_attrs(ptr noundef nonnull %.064.us.i, ptr noundef %1, ptr noundef nonnull %3)
+  tail call fastcc void @write_attrs(ptr noundef nonnull %.063.us.i, ptr noundef %1, ptr noundef nonnull %3)
   %187 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.14) #15
   %188 = load i32, ptr %3, align 4, !tbaa !69
   %189 = add nsw i32 %188, -1
@@ -705,53 +705,53 @@ indent.exit31.i.us.i:                             ; preds = %.lr.ph.i29.i.us.i, 
   %194 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.16) #15
   br label %write_node.exit.us.i
 
-write_node.exit.us.i:                             ; preds = %indent.exit31.i.us.i, %.lr.ph65.split.us.i
-  %.1.us.i = phi ptr [ %.04163.us.i, %.lr.ph65.split.us.i ], [ @.str.11, %indent.exit31.i.us.i ]
-  %195 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.064.us.i) #15
-  %.not45.us.i = icmp eq ptr %195, null
-  br i1 %.not45.us.i, label %._crit_edge.i, label %.lr.ph65.split.us.i, !llvm.loop !114
+write_node.exit.us.i:                             ; preds = %indent.exit31.i.us.i, %.lr.ph64.split.us.i
+  %.1.us.i = phi ptr [ %.04262.us.i, %.lr.ph64.split.us.i ], [ @.str.11, %indent.exit31.i.us.i ]
+  %195 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.063.us.i) #15
+  %.not46.us.i = icmp eq ptr %195, null
+  br i1 %.not46.us.i, label %._crit_edge.i, label %.lr.ph64.split.us.i, !llvm.loop !114
 
-._crit_edge.i:                                    ; preds = %write_node.exit.i, %write_node.exit.us.i, %indent.exit56.i
+._crit_edge.i:                                    ; preds = %write_node.exit.i, %write_node.exit.us.i, %indent.exit55.i
   %196 = load i32, ptr %3, align 4, !tbaa !69
   %197 = add nsw i32 %196, -1
   store i32 %197, ptr %3, align 4, !tbaa !69
   %198 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.14) #15
   %199 = load i32, ptr %3, align 4, !tbaa !69
   %200 = icmp sgt i32 %199, 0
-  br i1 %200, label %.lr.ph.i57.i, label %.sink.split.i
+  br i1 %200, label %.lr.ph.i56.i, label %.sink.split.i
 
-.lr.ph.i57.i:                                     ; preds = %._crit_edge.i, %.lr.ph.i57.i
-  %.03.i58.i = phi i32 [ %202, %.lr.ph.i57.i ], [ %199, %._crit_edge.i ]
+.lr.ph.i56.i:                                     ; preds = %._crit_edge.i, %.lr.ph.i56.i
+  %.03.i57.i = phi i32 [ %202, %.lr.ph.i56.i ], [ %199, %._crit_edge.i ]
   %201 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.22) #15
-  %202 = add nsw i32 %.03.i58.i, -1
-  %203 = icmp samesign ugt i32 %.03.i58.i, 1
-  br i1 %203, label %.lr.ph.i57.i, label %.sink.split.i, !llvm.loop !111
+  %202 = add nsw i32 %.03.i57.i, -1
+  %203 = icmp samesign ugt i32 %.03.i57.i, 1
+  br i1 %203, label %.lr.ph.i56.i, label %.sink.split.i, !llvm.loop !111
 
-.lr.ph65.split.i:                                 ; preds = %.lr.ph65.i, %write_node.exit.i
-  %.064.i = phi ptr [ %214, %write_node.exit.i ], [ %157, %.lr.ph65.i ]
-  %.04163.i = phi ptr [ %.1.i, %write_node.exit.i ], [ @.str.80, %.lr.ph65.i ]
-  %204 = getelementptr inbounds nuw i8, ptr %.064.i, i64 16
+.lr.ph64.split.i:                                 ; preds = %.lr.ph64.i, %write_node.exit.i
+  %.063.i = phi ptr [ %214, %write_node.exit.i ], [ %157, %.lr.ph64.i ]
+  %.04262.i = phi ptr [ %.1.i, %write_node.exit.i ], [ @.str.80, %.lr.ph64.i ]
+  %204 = getelementptr inbounds nuw i8, ptr %.063.i, i64 16
   %205 = load ptr, ptr %204, align 8, !tbaa !71
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 162
   %207 = load i8, ptr %206, align 2, !tbaa !92, !range !99, !noundef !100
   %208 = trunc nuw i8 %207 to i1
   br i1 %208, label %write_node.exit.i, label %209
 
-209:                                              ; preds = %.lr.ph65.split.i
-  %210 = tail call i32 @gvputs(ptr noundef %1, ptr noundef %.04163.i) #15
-  %211 = tail call ptr @aggetrec(ptr noundef nonnull %.064.i, ptr noundef nonnull @.str.9, i32 noundef 0) #15
+209:                                              ; preds = %.lr.ph64.split.i
+  %210 = tail call i32 @gvputs(ptr noundef %1, ptr noundef %.04262.i) #15
+  %211 = tail call ptr @aggetrec(ptr noundef nonnull %.063.i, ptr noundef nonnull @.str.9, i32 noundef 0) #15
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %213 = load i32, ptr %212, align 8, !tbaa !107
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %1, ptr noundef nonnull @.str.81, i32 noundef %213) #15
   br label %write_node.exit.i
 
-write_node.exit.i:                                ; preds = %209, %.lr.ph65.split.i
-  %.1.i = phi ptr [ %.04163.i, %.lr.ph65.split.i ], [ @.str.69, %209 ]
-  %214 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.064.i) #15
-  %.not45.i = icmp eq ptr %214, null
-  br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph65.split.i, !llvm.loop !114
+write_node.exit.i:                                ; preds = %209, %.lr.ph64.split.i
+  %.1.i = phi ptr [ %.04262.i, %.lr.ph64.split.i ], [ @.str.69, %209 ]
+  %214 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.063.i) #15
+  %.not46.i = icmp eq ptr %214, null
+  br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph64.split.i, !llvm.loop !114
 
-.sink.split.i:                                    ; preds = %.lr.ph.i57.i, %.lr.ph.i.i83, %._crit_edge.i, %124
+.sink.split.i:                                    ; preds = %.lr.ph.i56.i, %.lr.ph.i.i83, %._crit_edge.i, %124
   %215 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.46) #15
   br label %write_nodes.exit
 
@@ -819,20 +819,20 @@ gv_calloc.exit.i:                                 ; preds = %226
   %236 = add nsw i32 %235, 1
   store i32 %236, ptr %3, align 4, !tbaa !69
   %237 = icmp sgt i32 %235, 0
-  br i1 %237, label %.lr.ph.i.i90, label %indent.exit.i89
+  br i1 %237, label %.lr.ph.i.i89, label %indent.exit.i88
 
-.lr.ph.i.i90:                                     ; preds = %._crit_edge92.i, %.lr.ph.i.i90
-  %.03.i.i91 = phi i32 [ %239, %.lr.ph.i.i90 ], [ %235, %._crit_edge92.i ]
+.lr.ph.i.i89:                                     ; preds = %._crit_edge92.i, %.lr.ph.i.i89
+  %.03.i.i90 = phi i32 [ %239, %.lr.ph.i.i89 ], [ %235, %._crit_edge92.i ]
   %238 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.22) #15
-  %239 = add nsw i32 %.03.i.i91, -1
-  %240 = icmp samesign ugt i32 %.03.i.i91, 1
-  br i1 %240, label %.lr.ph.i.i90, label %indent.exit.i89, !llvm.loop !111
+  %239 = add nsw i32 %.03.i.i90, -1
+  %240 = icmp samesign ugt i32 %.03.i.i90, 1
+  br i1 %240, label %.lr.ph.i.i89, label %indent.exit.i88, !llvm.loop !111
 
-indent.exit.i89:                                  ; preds = %.lr.ph.i.i90, %._crit_edge92.i
+indent.exit.i88:                                  ; preds = %.lr.ph.i.i89, %._crit_edge92.i
   %241 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.84) #15
   br i1 %2, label %indent.exit66.i.preheader, label %247
 
-indent.exit66.i.preheader:                        ; preds = %.lr.ph.i64.i, %247, %indent.exit.i89
+indent.exit66.i.preheader:                        ; preds = %.lr.ph.i64.i, %247, %indent.exit.i88
   br label %indent.exit66.i
 
 .lr.ph91.i:                                       ; preds = %gv_calloc.exit.i, %._crit_edge86.i
@@ -845,8 +845,8 @@ indent.exit66.i.preheader:                        ; preds = %.lr.ph.i64.i, %247,
 ._crit_edge86.i:                                  ; preds = %.lr.ph85.i, %.lr.ph91.i
   %.1.lcssa.i = phi i64 [ %.05489.i, %.lr.ph91.i ], [ %245, %.lr.ph85.i ]
   %243 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.05390.i) #15
-  %.not60.i88 = icmp eq ptr %243, null
-  br i1 %.not60.i88, label %._crit_edge92.i, label %.lr.ph91.i, !llvm.loop !118
+  %.not60.i = icmp eq ptr %243, null
+  br i1 %.not60.i, label %._crit_edge92.i, label %.lr.ph91.i, !llvm.loop !118
 
 .lr.ph85.i:                                       ; preds = %.lr.ph91.i, %.lr.ph85.i
   %.05283.i = phi ptr [ %246, %.lr.ph85.i ], [ %242, %.lr.ph91.i ]
@@ -858,7 +858,7 @@ indent.exit66.i.preheader:                        ; preds = %.lr.ph.i64.i, %247,
   %.not62.i = icmp eq ptr %246, null
   br i1 %.not62.i, label %._crit_edge86.i, label %.lr.ph85.i, !llvm.loop !120
 
-247:                                              ; preds = %indent.exit.i89
+247:                                              ; preds = %indent.exit.i88
   %248 = load i32, ptr %3, align 4, !tbaa !69
   %249 = icmp sgt i32 %248, 0
   br i1 %249, label %.lr.ph.i64.i, label %indent.exit66.i.preheader
@@ -1031,16 +1031,16 @@ write_edges.exit:                                 ; preds = %write_nodes.exit, %
   %332 = add nsw i32 %331, -1
   store i32 %332, ptr %3, align 4, !tbaa !69
   %333 = icmp sgt i32 %331, 1
-  br i1 %333, label %.lr.ph.i93, label %indent.exit95
+  br i1 %333, label %.lr.ph.i92, label %indent.exit94
 
-.lr.ph.i93:                                       ; preds = %write_edges.exit, %.lr.ph.i93
-  %.03.i94 = phi i32 [ %335, %.lr.ph.i93 ], [ %332, %write_edges.exit ]
+.lr.ph.i92:                                       ; preds = %write_edges.exit, %.lr.ph.i92
+  %.03.i93 = phi i32 [ %335, %.lr.ph.i92 ], [ %332, %write_edges.exit ]
   %334 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull @.str.22) #15
-  %335 = add nsw i32 %.03.i94, -1
-  %336 = icmp samesign ugt i32 %.03.i94, 1
-  br i1 %336, label %.lr.ph.i93, label %indent.exit95, !llvm.loop !111
+  %335 = add nsw i32 %.03.i93, -1
+  %336 = icmp samesign ugt i32 %.03.i93, 1
+  br i1 %336, label %.lr.ph.i92, label %indent.exit94, !llvm.loop !111
 
-indent.exit95:                                    ; preds = %.lr.ph.i93, %write_edges.exit
+indent.exit94:                                    ; preds = %.lr.ph.i92, %write_edges.exit
   %.str.15..str.16 = select i1 %2, ptr @.str.15, ptr @.str.16
   %337 = tail call i32 @gvputs(ptr noundef %1, ptr noundef nonnull %.str.15..str.16) #15
   ret void

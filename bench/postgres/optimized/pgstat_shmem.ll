@@ -416,8 +416,8 @@ pgstat_setup_memcxt.exit:                         ; preds = %16, %18
 
 pgstat_setup_shared_refs.exit:                    ; preds = %pgstat_setup_memcxt.exit, %23
   %29 = phi ptr [ %22, %pgstat_setup_memcxt.exit ], [ %24, %23 ]
-  %.not33 = icmp eq ptr %4, null
-  br i1 %.not33, label %31, label %30
+  %.not35 = icmp eq ptr %4, null
+  br i1 %.not35, label %31, label %30
 
 30:                                               ; preds = %pgstat_setup_shared_refs.exit
   store i8 0, ptr %4, align 1
@@ -848,7 +848,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %202
   %239 = load volatile i32, ptr %224, align 4
   %240 = getelementptr inbounds nuw i8, ptr %213, i64 16
   store i32 %239, ptr %240, align 8
-  br i1 %.not33, label %.thread, label %241
+  br i1 %.not35, label %.thread, label %241
 
 241:                                              ; preds = %222
   store i8 1, ptr %4, align 1
@@ -863,8 +863,8 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %202
   br label %243
 
 243:                                              ; preds = %242, %212
-  %.029 = phi ptr [ %215, %212 ], [ %219, %242 ]
-  %.not = icmp eq ptr %.029, null
+  %.031 = phi ptr [ %215, %212 ], [ %219, %242 ]
+  %.not = icmp eq ptr %.031, null
   br i1 %.not, label %244, label %247
 
 244:                                              ; preds = %243
@@ -874,20 +874,20 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %202
   br label %292
 
 247:                                              ; preds = %243
-  %248 = getelementptr inbounds nuw i8, ptr %.029, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %249 = load i8, ptr %248, align 8, !range !6, !noundef !7
   %250 = trunc nuw i8 %249 to i1
-  %brmerge.demorgan = and i1 %3, %250
-  br i1 %brmerge.demorgan, label %251, label %275
+  %or.cond3 = and i1 %3, %250
+  br i1 %or.cond3, label %251, label %275
 
 251:                                              ; preds = %247
   %252 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  %253 = getelementptr inbounds nuw i8, ptr %.029, i64 32
+  %253 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %254 = load i64, ptr %253, align 8
   %255 = call ptr @dsa_get_address(ptr noundef %252, i64 noundef %254) #15
-  %256 = getelementptr inbounds nuw i8, ptr %.029, i64 20
+  %256 = getelementptr inbounds nuw i8, ptr %.031, i64 20
   %257 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %256, i32 1, ptr nonnull elementtype(i32) %256) #15, !srcloc !16
-  %258 = getelementptr inbounds nuw i8, ptr %.029, i64 24
+  %258 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %259 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %258, i32 1, ptr nonnull elementtype(i32) %258) #15, !srcloc !16
   store i8 0, ptr %248, align 8
   %260 = call ptr @pgstat_get_kind_info(i32 noundef %0) #15
@@ -902,14 +902,14 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %202
   call void @llvm.memset.p0.i64(ptr align 1 %264, i8 0, i64 %268, i1 false)
   %269 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %256, i32 1, ptr nonnull elementtype(i32) %256) #15, !srcloc !16
   %270 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_release_lock(ptr noundef %270, ptr noundef nonnull %.029) #15
+  call void @dshash_release_lock(ptr noundef %270, ptr noundef nonnull %.031) #15
   %271 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store ptr %255, ptr %271, align 8
-  store ptr %.029, ptr %213, align 8
+  store ptr %.031, ptr %213, align 8
   %272 = load volatile i32, ptr %258, align 4
   %273 = getelementptr inbounds nuw i8, ptr %213, i64 16
   store i32 %272, ptr %273, align 8
-  br i1 %.not33, label %292, label %274
+  br i1 %.not35, label %292, label %274
 
 274:                                              ; preds = %251
   store i8 1, ptr %4, align 1
@@ -920,7 +920,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %202
 
 276:                                              ; preds = %275
   %277 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_release_lock(ptr noundef %277, ptr noundef nonnull %.029) #15
+  call void @dshash_release_lock(ptr noundef %277, ptr noundef nonnull %.031) #15
   %278 = load i64, ptr %8, align 8
   %279 = load i64, ptr %11, align 8
   call fastcc void @pgstat_release_entry_ref(i64 %278, i64 %279, ptr noundef %213, i1 noundef zeroext false)
@@ -928,26 +928,26 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %202
 
 280:                                              ; preds = %275
   %281 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  %282 = getelementptr inbounds nuw i8, ptr %.029, i64 32
+  %282 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %283 = load i64, ptr %282, align 8
   %284 = call ptr @dsa_get_address(ptr noundef %281, i64 noundef %283) #15
-  %285 = getelementptr inbounds nuw i8, ptr %.029, i64 20
+  %285 = getelementptr inbounds nuw i8, ptr %.031, i64 20
   %286 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %285, i32 1, ptr nonnull elementtype(i32) %285) #15, !srcloc !16
   %287 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_release_lock(ptr noundef %287, ptr noundef nonnull %.029) #15
+  call void @dshash_release_lock(ptr noundef %287, ptr noundef nonnull %.031) #15
   %288 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store ptr %284, ptr %288, align 8
-  store ptr %.029, ptr %213, align 8
-  %289 = getelementptr inbounds nuw i8, ptr %.029, i64 24
+  store ptr %.031, ptr %213, align 8
+  %289 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %290 = load volatile i32, ptr %289, align 4
   %291 = getelementptr inbounds nuw i8, ptr %213, i64 16
   store i32 %290, ptr %291, align 8
   br label %292
 
 292:                                              ; preds = %251, %274, %.thread, %pgstat_get_entry_ref_cached.exit, %280, %276, %244
-  %.030 = phi ptr [ null, %276 ], [ %213, %280 ], [ null, %244 ], [ %204, %pgstat_get_entry_ref_cached.exit ], [ %213, %.thread ], [ %213, %274 ], [ %213, %251 ]
+  %.032 = phi ptr [ null, %276 ], [ %213, %280 ], [ null, %244 ], [ %204, %pgstat_get_entry_ref_cached.exit ], [ %213, %.thread ], [ %213, %274 ], [ %213, %251 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
-  ret ptr %.030
+  ret ptr %.032
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

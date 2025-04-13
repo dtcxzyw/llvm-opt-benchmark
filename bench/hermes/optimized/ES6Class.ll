@@ -33847,6 +33847,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %51 = load ptr, ptr %_currentProcessingClass, align 8
   %superCallFound = getelementptr inbounds nuw i8, ptr %51, i64 16
   %52 = load i8, ptr %superCallFound, align 8
+  %tobool = trunc i8 %52 to i1
   %53 = load ptr, ptr %__begin314.0144, align 8
   call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %53)
   %54 = load ptr, ptr %__begin314.0144, align 8
@@ -33857,13 +33858,10 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %Next2.i7.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %54, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %54, ptr %ctorStatements, align 8
-  br i1 %addedPropertyInitializers.1145, label %for.inc30, label %land.lhs.true
+  %or.cond = select i1 %addedPropertyInitializers.1145, i1 true, i1 %tobool
+  br i1 %or.cond, label %for.inc30, label %land.lhs.true24
 
-land.lhs.true:                                    ; preds = %for.body20
-  %tobool = trunc i8 %52 to i1
-  br i1 %tobool, label %for.inc30, label %land.lhs.true24
-
-land.lhs.true24:                                  ; preds = %land.lhs.true
+land.lhs.true24:                                  ; preds = %for.body20
   %56 = load ptr, ptr %_currentProcessingClass, align 8
   %superCallFound26 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %57 = load i8, ptr %superCallFound26, align 8
@@ -33911,8 +33909,8 @@ for.inc.i172:                                     ; preds = %if.then8.i166, %if.
   %cmp.i.not.i175 = icmp eq ptr %__begin2.sroa.0.0.i174, %_body.i153
   br i1 %cmp.i.not.i175, label %for.inc30, label %for.body.i157
 
-for.inc30:                                        ; preds = %for.inc.i172, %if.then28, %for.body20, %land.lhs.true, %land.lhs.true24
-  %addedPropertyInitializers.2 = phi i1 [ true, %for.body20 ], [ false, %land.lhs.true ], [ false, %land.lhs.true24 ], [ true, %if.then28 ], [ true, %for.inc.i172 ]
+for.inc30:                                        ; preds = %for.inc.i172, %if.then28, %for.body20, %land.lhs.true24
+  %addedPropertyInitializers.2 = phi i1 [ %addedPropertyInitializers.1145, %for.body20 ], [ false, %land.lhs.true24 ], [ true, %if.then28 ], [ true, %for.inc.i172 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin314.0144, i64 8
   %cmp19.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp19.not, label %for.end31.loopexit, label %for.body20

@@ -9437,24 +9437,22 @@ _ZNSt8optionalIN4llvm20MachineDominatorTreeEE5resetEv.exit: ; preds = %1, %_ZN4l
 define dso_local void @_ZNK4llvm31MachineDominatorTreeWrapperPass14verifyAnalysisEv(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #1 align 2 {
   %2 = load i8, ptr @_ZN4llvm20VerifyMachineDomInfoE, align 1, !tbaa !53, !range !54, !noundef !55
   %3 = trunc nuw i8 %2 to i1
-  br i1 %3, label %4, label %12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %5 = load i8, ptr %4, align 8, !range !54
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond = select i1 %3, i1 %6, i1 false
+  br i1 %or.cond, label %7, label %11
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %6 = load i8, ptr %5, align 8, !tbaa !397, !range !54, !noundef !55
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %12
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %9 = tail call noundef zeroext i1 @_ZN4llvm14DomTreeBuilder6VerifyINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEEEbRKT_NS5_17VerificationLevelE(ptr noundef nonnull align 8 dereferenceable(124) %8, i32 noundef 1)
+  br i1 %9, label %11, label %10
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = tail call noundef zeroext i1 @_ZN4llvm14DomTreeBuilder6VerifyINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEEEbRKT_NS5_17VerificationLevelE(ptr noundef nonnull align 8 dereferenceable(124) %9, i32 noundef 1)
-  br i1 %10, label %12, label %11
-
-11:                                               ; preds = %8
+10:                                               ; preds = %7
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.10, i1 noundef zeroext true) #21
   unreachable
 
-12:                                               ; preds = %8, %4, %1
+11:                                               ; preds = %7, %1
   ret void
 }
 

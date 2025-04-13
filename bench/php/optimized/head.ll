@@ -288,11 +288,11 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %14, %10, %thread-pr
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @php_header() local_unnamed_addr #0 {
   %1 = tail call i32 @sapi_send_headers() #10
-  %2 = icmp ne i32 %1, -1
+  %2 = icmp eq i32 %1, -1
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 72), align 8, !range !27
   %4 = trunc nuw i8 %3 to i1
-  %not. = xor i1 %4, true
-  %.0 = select i1 %2, i1 %not., i1 false
+  %or.cond = select i1 %2, i1 true, i1 %4
+  %.0 = xor i1 %or.cond, true
   ret i1 %.0
 }
 
@@ -2015,27 +2015,25 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
 
 16:                                               ; preds = %zend_parse_arg_long_ex.exit, %.thread71
   %.078 = phi i32 [ 0, %.thread71 ], [ 1, %zend_parse_arg_long_ex.exit ]
-  %.04977 = phi ptr [ null, %.thread71 ], [ %10, %zend_parse_arg_long_ex.exit ]
-  %.05276 = phi i32 [ 1, %.thread71 ], [ 9, %zend_parse_arg_long_ex.exit ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05276, i32 noundef %.078, ptr noundef null, i32 noundef 0, ptr noundef %.04977) #10
+  %.05077 = phi ptr [ null, %.thread71 ], [ %10, %zend_parse_arg_long_ex.exit ]
+  %.05376 = phi i32 [ 1, %.thread71 ], [ 9, %zend_parse_arg_long_ex.exit ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05376, i32 noundef %.078, ptr noundef null, i32 noundef 0, ptr noundef %.05077) #10
   br label %44
 
 .critedge:                                        ; preds = %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge, %zend_parse_arg_long_ex.exit.thread
   %17 = phi i64 [ %14, %zend_parse_arg_long_ex.exit.thread ], [ %.pr.pre, %zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge ]
-  %.not57 = icmp eq i64 %17, 0
-  br i1 %.not57, label %.critedge.thread, label %18
+  %.not58 = icmp eq i64 %17, 0
+  br i1 %.not58, label %.critedge.thread, label %18
 
 18:                                               ; preds = %.critedge
   %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 249), align 1, !tbaa !69
-  %.not59 = icmp eq i8 %19, 0
-  br i1 %.not59, label %30, label %20
-
-20:                                               ; preds = %18
-  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 73), align 1, !tbaa !87, !range !27, !noundef !28
+  %20 = icmp eq i8 %19, 0
+  %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 73), align 1, !range !27
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %30, label %23
+  %or.cond = select i1 %20, i1 true, i1 %22
+  br i1 %or.cond, label %30, label %23
 
-23:                                               ; preds = %20
+23:                                               ; preds = %18
   %24 = call ptr @php_output_get_start_filename() #10
   %25 = call i32 @php_output_get_start_lineno() #10
   %.not60 = icmp eq ptr %24, null
@@ -2054,10 +2052,10 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
   store i32 2, ptr %29, align 8, !tbaa !8
   br label %44
 
-30:                                               ; preds = %20, %18
-  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 216), align 8, !tbaa !88
+30:                                               ; preds = %18
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 216), align 8, !tbaa !87
   %32 = trunc i64 %17 to i32
-  store i32 %32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 216), align 8, !tbaa !88
+  store i32 %32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 216), align 8, !tbaa !87
   %.not61 = icmp eq i32 %31, 0
   br i1 %.not61, label %36, label %33
 
@@ -2074,9 +2072,9 @@ zend_parse_arg_long_ex.exit..critedgethread-pre-split_crit_edge: ; preds = %zend
   br label %44
 
 .critedge.thread:                                 ; preds = %7, %.critedge
-  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 216), align 8, !tbaa !88
-  %.not58 = icmp eq i32 %38, 0
-  br i1 %.not58, label %39, label %41
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 216), align 8, !tbaa !87
+  %.not59 = icmp eq i32 %38, 0
+  br i1 %.not59, label %39, label %41
 
 39:                                               ; preds = %.critedge.thread
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2232,5 +2230,4 @@ attributes #13 = { nounwind allocsize(0) }
 !84 = !{!13, !16, i64 8}
 !85 = !{!86, !24, i64 0}
 !86 = !{!"", !24, i64 0, !16, i64 8}
-!87 = !{!70, !5, i64 73}
-!88 = !{!70, !15, i64 216}
+!87 = !{!70, !15, i64 216}

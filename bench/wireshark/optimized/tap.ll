@@ -525,55 +525,55 @@ define void @reset_tap_listeners() local_unnamed_addr #0 {
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @draw_tap_listeners(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  %.09 = load ptr, ptr @tap_listener_queue, align 8
-  %.not10 = icmp eq ptr %.09, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph
+  %.010 = load ptr, ptr @tap_listener_queue, align 8
+  %.not11 = icmp eq ptr %.010, null
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   br i1 %0, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %8
-  %.011.us = phi ptr [ %.0.us, %8 ], [ %.09, %.lr.ph ]
-  %2 = getelementptr inbounds nuw i8, ptr %.011.us, i64 12
-  %3 = getelementptr inbounds nuw i8, ptr %.011.us, i64 64
+  %.012.us = phi ptr [ %.0.us, %8 ], [ %.010, %.lr.ph ]
+  %2 = getelementptr inbounds nuw i8, ptr %.012.us, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %.012.us, i64 64
   %4 = load ptr, ptr %3, align 8
-  %.not8.us = icmp eq ptr %4, null
-  br i1 %.not8.us, label %8, label %5
+  %.not9.us = icmp eq ptr %4, null
+  br i1 %.not9.us, label %8, label %5
 
 5:                                                ; preds = %.lr.ph.split.us
-  %6 = getelementptr inbounds nuw i8, ptr %.011.us, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %.012.us, i64 40
   %7 = load ptr, ptr %6, align 8
   tail call void %4(ptr noundef %7)
   br label %8
 
 8:                                                ; preds = %5, %.lr.ph.split.us
   store i8 0, ptr %2, align 4
-  %.0.us = load ptr, ptr %.011.us, align 8
+  %.0.us = load ptr, ptr %.012.us, align 8
   %.not.us = icmp eq ptr %.0.us, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %18
-  %.011 = phi ptr [ %.0, %18 ], [ %.09, %.lr.ph ]
-  %9 = getelementptr inbounds nuw i8, ptr %.011, i64 12
+  %.012 = phi ptr [ %.0, %18 ], [ %.010, %.lr.ph ]
+  %9 = getelementptr inbounds nuw i8, ptr %.012, i64 12
   %10 = load i8, ptr %9, align 4, !range !10, !noundef !11
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %.lr.ph.split
-  %13 = getelementptr inbounds nuw i8, ptr %.011, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.012, i64 64
   %14 = load ptr, ptr %13, align 8
-  %.not8 = icmp eq ptr %14, null
-  br i1 %.not8, label %18, label %15
+  %.not9 = icmp eq ptr %14, null
+  br i1 %.not9, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %.011, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.012, i64 40
   %17 = load ptr, ptr %16, align 8
   tail call void %14(ptr noundef %17)
   br label %18
 
-18:                                               ; preds = %.lr.ph.split, %12, %15
+18:                                               ; preds = %12, %15, %.lr.ph.split
   store i8 0, ptr %9, align 4
-  %.0 = load ptr, ptr %.011, align 8
+  %.0 = load ptr, ptr %.012, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 

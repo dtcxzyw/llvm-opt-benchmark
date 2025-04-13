@@ -1528,12 +1528,12 @@ define internal fastcc { ptr, ptr } @_ZN11uu_truncate13file_truncate17h4832843bc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 438, ptr %.sroa.413.0..sroa_idx, align 4
-  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 438, ptr %.sroa.414.0..sroa_idx, align 4
+  %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 9
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %.sroa.514.0..sroa_idx, i8 0, i64 6, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %.sroa.515.0..sroa_idx, i8 0, i64 6, i1 false)
   store i8 1, ptr %.sroa.6.0..sroa_idx, align 1
   %27 = zext i1 %2 to i8
   store i8 %27, ptr %.sroa.9.0..sroa_idx, align 4
@@ -1556,10 +1556,10 @@ define internal fastcc { ptr, ptr } @_ZN11uu_truncate13file_truncate17h4832843bc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   store i64 0, ptr %13, align 8
-  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %0, ptr %.sroa.410.0..sroa_idx, align 8
-  %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i64 %1, ptr %.sroa.511.0..sroa_idx, align 8
+  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %0, ptr %.sroa.411.0..sroa_idx, align 8
+  %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i64 %1, ptr %.sroa.512.0..sroa_idx, align 8
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i8 1, ptr %32, align 8
   store ptr %13, ptr %14, align 8
@@ -1631,9 +1631,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %31
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #14
   unreachable
 
-"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hd2cb2a300b0b8b39E.exit.thread": ; preds = %55, %.body, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hd2cb2a300b0b8b39E.exit", %67
-  %.pn21 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %lpad.thr_comm.split-lp, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hd2cb2a300b0b8b39E.exit" ], [ %lpad.thr_comm.split-lp, %67 ], [ %56, %55 ]
-  resume { ptr, i32 } %.pn21
+"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hd2cb2a300b0b8b39E.exit.thread": ; preds = %55, %.body, %67, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hd2cb2a300b0b8b39E.exit"
+  %.pn22 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %lpad.thr_comm.split-lp, %67 ], [ %lpad.thr_comm.split-lp, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hd2cb2a300b0b8b39E.exit" ], [ %56, %55 ]
+  resume { ptr, i32 } %.pn22
 
 47:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h61542d98d9f42d0eE.exit"
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -1648,8 +1648,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %31
   %.val31 = load ptr, ptr %52, align 8, !nonnull !5, !noundef !5
   %53 = call fastcc noundef i8 @_ZN3std2io5error5Error4kind17h86902a500789bccbE(ptr nonnull %.val31)
   %54 = icmp ne i8 %53, 0
-  %brmerge25 = or i1 %2, %54
-  br i1 %brmerge25, label %.thread61, label %.noexc41
+  %brmerge = or i1 %2, %54
+  br i1 %brmerge, label %.thread61, label %.noexc41
 
 55:                                               ; preds = %47
   %56 = landingpad { ptr, i32 }
@@ -1666,13 +1666,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %31
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hd2cb2a300b0b8b39E.exit": ; preds = %.thread61
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %61 = icmp eq i32 %28, 0
-  %brmerge = or i1 %61, %trunc
-  br i1 %brmerge, label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hd2cb2a300b0b8b39E.exit.thread", label %67
+  %61 = icmp ne i32 %28, 0
+  %or.cond = xor i1 %61, %trunc
+  br i1 %or.cond, label %67, label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hd2cb2a300b0b8b39E.exit.thread"
 
 .thread61:                                        ; preds = %51, %58
-  %.01964 = phi ptr [ %50, %58 ], [ %.val31, %51 ]
-  %62 = invoke noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..Error$u20$as$u20$uucore..mods..error..FromIo$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$$GT$15map_err_context17h67f1201a8e664eefE"(ptr noundef nonnull %.01964, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
+  %.02064 = phi ptr [ %50, %58 ], [ %.val31, %51 ]
+  %62 = invoke noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..Error$u20$as$u20$uucore..mods..error..FromIo$LT$alloc..boxed..Box$LT$uucore..mods..error..UIoError$GT$$GT$$GT$15map_err_context17h67f1201a8e664eefE"(ptr noundef nonnull %.02064, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
           to label %66 unwind label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hd2cb2a300b0b8b39E.exit"
 
 .noexc41:                                         ; preds = %51

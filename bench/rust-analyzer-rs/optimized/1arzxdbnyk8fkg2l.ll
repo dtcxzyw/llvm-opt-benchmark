@@ -3440,9 +3440,9 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h922abf5301a8c03aE"(p
   %10 = load i64, ptr %9, align 8, !range !183, !noundef !9
   %.not = icmp eq i64 %10, -9223372036854775808
   %11 = load i64, ptr %8, align 8, !range !183
-  %.not5 = icmp eq i64 %11, -9223372036854775808
-  %or.cond = select i1 %.not, i1 true, i1 %.not5
-  br i1 %or.cond, label %13, label %.thread15
+  %.not10 = icmp eq i64 %11, -9223372036854775808
+  %or.cond11 = select i1 %.not, i1 true, i1 %.not10
+  br i1 %or.cond11, label %13, label %.thread15
 
 .thread15:                                        ; preds = %3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
@@ -3460,8 +3460,8 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h922abf5301a8c03aE"(p
 
 15:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$$LP$usize$C$cargo_metadata..PackageId$RP$$GT$17h31c16051f4fe54faE.llvm.16283260474565314852.exit", %13
   %16 = phi i64 [ %.pre, %"_ZN4core3ptr62drop_in_place$LT$$LP$usize$C$cargo_metadata..PackageId$RP$$GT$17h31c16051f4fe54faE.llvm.16283260474565314852.exit" ], [ %11, %13 ]
-  %.not8 = icmp eq i64 %16, -9223372036854775808
-  br i1 %.not8, label %33, label %34
+  %.not20 = icmp eq i64 %16, -9223372036854775808
+  br i1 %.not20, label %33, label %34
 
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !983
@@ -3494,8 +3494,8 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h922abf5301a8c03aE"(p
   %27 = landingpad { ptr, i32 }
           cleanup
   %28 = load i64, ptr %8, align 8, !range !183, !noundef !9
-  %.not7 = icmp eq i64 %28, -9223372036854775808
-  br i1 %.not7, label %29, label %30
+  %.not19 = icmp eq i64 %28, -9223372036854775808
+  br i1 %.not19, label %29, label %30
 
 29:                                               ; preds = %30, %26
   resume { ptr, i32 } %27
@@ -3510,7 +3510,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h922abf5301a8c03aE"(p
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34
   unreachable
 
-33:                                               ; preds = %.thread15, %15, %"_ZN4core3ptr46drop_in_place$LT$cargo_metadata..PackageId$GT$17h2673387daed93db3E.exit"
+33:                                               ; preds = %.thread15, %"_ZN4core3ptr46drop_in_place$LT$cargo_metadata..PackageId$GT$17h2673387daed93db3E.exit", %15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   ret void
 

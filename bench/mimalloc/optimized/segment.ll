@@ -2668,8 +2668,8 @@ mi_segment_get_reclaim_tries.exit.i:              ; preds = %26, %23
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %mi_segment_get_reclaim_tries.exit.i
-  %.033.i.ph = phi i64 [ %spec.store.select.i.i, %mi_segment_get_reclaim_tries.exit.i ], [ %79, %.outer.backedge ]
-  %35 = icmp sgt i64 %.033.i.ph, 0
+  %.036.i.ph = phi i64 [ %spec.store.select.i.i, %mi_segment_get_reclaim_tries.exit.i ], [ %79, %.outer.backedge ]
+  %35 = icmp sgt i64 %.036.i.ph, 0
   br label %36
 
 36:                                               ; preds = %.outer, %91
@@ -2768,7 +2768,7 @@ mi_segment_check_free.exit.i:                     ; preds = %72
   br i1 %76, label %mi_segment_check_free.exit.thread.i, label %80
 
 mi_segment_check_free.exit.thread.i:              ; preds = %mi_segment_check_free.exit.i, %43
-  %77 = add nsw i64 %.033.i.ph, -1
+  %77 = add nsw i64 %.036.i.ph, -1
   %78 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %42, ptr noundef %0, i64 noundef 0, ptr noundef null, ptr noundef %4) #7
   br label %.outer.backedge
 
@@ -2783,17 +2783,17 @@ mi_segment_check_free.exit.thread.i:              ; preds = %mi_segment_check_fr
   %82 = getelementptr inbounds nuw i8, ptr %42, i64 152
   %83 = load i32, ptr %82, align 8, !tbaa !3
   %84 = icmp eq i32 %83, %2
-  %brmerge.not.i = select i1 %84, i1 %47, i1 false
-  br i1 %brmerge.not.i, label %mi_segment_try_reclaim.exit, label %85
+  %or.cond.i = select i1 %84, i1 %47, i1 false
+  br i1 %or.cond.i, label %mi_segment_try_reclaim.exit, label %85
 
 85:                                               ; preds = %81, %80
   %86 = load i64, ptr %44, align 8, !tbaa !66
   %87 = icmp ugt i64 %86, 3
-  %brmerge44.not.i = select i1 %87, i1 %47, i1 false
-  br i1 %brmerge44.not.i, label %88, label %91
+  %or.cond3.i = select i1 %87, i1 %47, i1 false
+  br i1 %or.cond3.i, label %88, label %91
 
 88:                                               ; preds = %85
-  %89 = add nsw i64 %.033.i.ph, -1
+  %89 = add nsw i64 %.036.i.ph, -1
   %90 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %42, ptr noundef %0, i64 noundef 0, ptr noundef null, ptr noundef %4) #7
   br label %.outer.backedge
 

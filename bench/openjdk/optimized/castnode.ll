@@ -1055,38 +1055,37 @@ define hidden noundef ptr @_ZN10CastIINode5IdealEP8PhaseGVNb(ptr noundef nonnull
   br i1 %8, label %_ZN18ConstraintCastNode5IdealEP8PhaseGVNb.exit, label %9
 
 9:                                                ; preds = %3, %7
-  br i1 %2, label %10, label %21
+  %.not10 = xor i1 %2, true
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = load i8, ptr %10, align 8
+  %12 = trunc i8 %11 to i1
+  %or.cond = select i1 %.not10, i1 true, i1 %12
+  br i1 %or.cond, label %20, label %13
 
-10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %12 = load i8, ptr %11, align 8
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %21, label %14
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  %17 = load i8, ptr %16, align 8
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %20, label %19
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  %18 = load i8, ptr %17, align 8
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %21, label %20
+19:                                               ; preds = %13
+  tail call void @_ZN7Compile30record_for_post_loop_opts_igvnEP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %15, ptr noundef nonnull %0) #6
+  %.pre = load i8, ptr %10, align 8
+  br label %20
 
-20:                                               ; preds = %14
-  tail call void @_ZN7Compile30record_for_post_loop_opts_igvnEP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %16, ptr noundef nonnull %0) #6
-  br label %21
+20:                                               ; preds = %19, %13, %9
+  %21 = phi i8 [ %.pre, %19 ], [ %11, %13 ], [ %11, %9 ]
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %_ZN18ConstraintCastNode5IdealEP8PhaseGVNb.exit, label %23
 
-21:                                               ; preds = %20, %14, %10, %9
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %23 = load i8, ptr %22, align 8
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %_ZN18ConstraintCastNode5IdealEP8PhaseGVNb.exit, label %25
-
-25:                                               ; preds = %21
-  %26 = tail call noundef ptr @_ZN18ConstraintCastNode21optimize_integer_castEP8PhaseGVN9BasicType(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i8 noundef zeroext 10)
+23:                                               ; preds = %20
+  %24 = tail call noundef ptr @_ZN18ConstraintCastNode21optimize_integer_castEP8PhaseGVN9BasicType(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i8 noundef zeroext 10)
   br label %_ZN18ConstraintCastNode5IdealEP8PhaseGVNb.exit
 
-_ZN18ConstraintCastNode5IdealEP8PhaseGVNb.exit:   ; preds = %7, %21, %25
-  %.0 = phi ptr [ %26, %25 ], [ null, %21 ], [ %0, %7 ]
+_ZN18ConstraintCastNode5IdealEP8PhaseGVNb.exit:   ; preds = %7, %20, %23
+  %.0 = phi ptr [ %24, %23 ], [ null, %20 ], [ %0, %7 ]
   ret ptr %.0
 }
 

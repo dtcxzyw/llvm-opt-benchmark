@@ -1898,21 +1898,25 @@ if.then:                                          ; preds = %entry
   %suppressMessages_ = getelementptr inbounds nuw i8, ptr %this, i64 336
   %1 = load i32, ptr %suppressMessages_, align 8
   %cmp = icmp eq i32 %1, 0
-  %cmp7 = icmp eq i32 %subsystem, %1
-  %or.cond = or i1 %cmp, %cmp7
-  br i1 %or.cond, label %return, label %if.end10
+  br i1 %cmp, label %return, label %if.end
 
-if.end10:                                         ; preds = %if.then, %entry
+if.end:                                           ; preds = %if.then
+  %cmp7 = icmp eq i32 %subsystem, %1
   %errorLimitReached_ = getelementptr inbounds nuw i8, ptr %this, i64 316
   %2 = load i8, ptr %errorLimitReached_, align 4
   %tobool = trunc i8 %2 to i1
-  br i1 %tobool, label %return, label %if.end12
+  %or.cond = select i1 %cmp7, i1 true, i1 %tobool
+  br i1 %or.cond, label %return, label %if.end12
 
-if.end12:                                         ; preds = %if.end10
-  switch i32 %dk, label %if.end22.thread [
-    i32 1, label %land.lhs.true
-    i32 3, label %land.lhs.true18
-  ]
+if.end10:                                         ; preds = %entry
+  %errorLimitReached_.old = getelementptr inbounds nuw i8, ptr %this, i64 316
+  %.old = load i8, ptr %errorLimitReached_.old, align 4
+  %tobool.old = trunc i8 %.old to i1
+  br i1 %tobool.old, label %return, label %if.end12
+
+if.end12:                                         ; preds = %if.end, %if.end10
+  %cmp13 = icmp eq i32 %dk, 1
+  br i1 %cmp13, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %if.end12
   %warningStatuses_.i = getelementptr inbounds nuw i8, ptr %this, i64 320
@@ -1955,57 +1959,58 @@ if.then15:                                        ; preds = %_ZN6hermes18SourceE
   store i8 1, ptr %lastMessageSuppressed_, align 8
   br label %return
 
-land.lhs.true18:                                  ; preds = %if.end12
+if.end16:                                         ; preds = %if.end12
+  %cmp17 = icmp eq i32 %dk, 3
   %lastMessageSuppressed_19 = getelementptr inbounds nuw i8, ptr %this, i64 344
   %9 = load i8, ptr %lastMessageSuppressed_19, align 8
   %tobool20 = trunc i8 %9 to i1
-  br i1 %tobool20, label %return, label %if.end22.thread
+  %or.cond8 = select i1 %cmp17, i1 %tobool20, i1 false
+  br i1 %or.cond8, label %return, label %if.end22
 
-if.end22.thread:                                  ; preds = %if.end12, %land.lhs.true18
-  %lastMessageSuppressed_2327 = getelementptr inbounds nuw i8, ptr %this, i64 344
-  store i8 0, ptr %lastMessageSuppressed_2327, align 8
+if.end22:                                         ; preds = %if.end16
+  store i8 0, ptr %lastMessageSuppressed_19, align 8
   br label %if.end28
 
 land.lhs.true25:                                  ; preds = %_ZN6hermes18SourceErrorManager16isWarningEnabledENS_7WarningE.exit
   store i8 0, ptr %lastMessageSuppressed_, align 8
   %warningsAreErrors_.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   %10 = load i64, ptr %warningsAreErrors_.i, align 8
-  %and.i.i.i.i7 = and i64 %10, 1
-  %tobool.i.not.i.i.i8 = icmp eq i64 %and.i.i.i.i7, 0
-  br i1 %tobool.i.not.i.i.i8, label %if.end.i.i.i18, label %if.then.i.i.i9
+  %and.i.i.i.i9 = and i64 %10, 1
+  %tobool.i.not.i.i.i10 = icmp eq i64 %and.i.i.i.i9, 0
+  br i1 %tobool.i.not.i.i.i10, label %if.end.i.i.i20, label %if.then.i.i.i11
 
-if.then.i.i.i9:                                   ; preds = %land.lhs.true25
-  %shr.i.i.i.i.i10 = lshr i64 %10, 1
-  %shr.i.i.i.i.i.i11 = lshr i64 %10, 58
-  %shl.i.i.i.i12 = shl nsw i64 -1, %shr.i.i.i.i.i.i11
-  %not.i.i.i.i13 = xor i64 %shl.i.i.i.i12, -1
-  %sh_prom.i.i.i14 = zext nneg i32 %w to i64
-  %11 = shl nuw i64 1, %sh_prom.i.i.i14
-  %and.i2.i.i.i15 = and i64 %shr.i.i.i.i.i10, %11
-  %12 = and i64 %and.i2.i.i.i15, %not.i.i.i.i13
+if.then.i.i.i11:                                  ; preds = %land.lhs.true25
+  %shr.i.i.i.i.i12 = lshr i64 %10, 1
+  %shr.i.i.i.i.i.i13 = lshr i64 %10, 58
+  %shl.i.i.i.i14 = shl nsw i64 -1, %shr.i.i.i.i.i.i13
+  %not.i.i.i.i15 = xor i64 %shl.i.i.i.i14, -1
+  %sh_prom.i.i.i16 = zext nneg i32 %w to i64
+  %11 = shl nuw i64 1, %sh_prom.i.i.i16
+  %and.i2.i.i.i17 = and i64 %shr.i.i.i.i.i12, %11
+  %12 = and i64 %and.i2.i.i.i17, %not.i.i.i.i15
   br label %_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit
 
-if.end.i.i.i18:                                   ; preds = %land.lhs.true25
+if.end.i.i.i20:                                   ; preds = %land.lhs.true25
   %13 = inttoptr i64 %10 to ptr
-  %div2.i.i.i.i.i19 = lshr i32 %w, 6
-  %conv.i.i.i.i.i20 = zext nneg i32 %div2.i.i.i.i.i19 to i64
+  %div2.i.i.i.i.i21 = lshr i32 %w, 6
+  %conv.i.i.i.i.i22 = zext nneg i32 %div2.i.i.i.i.i21 to i64
   %14 = load ptr, ptr %13, align 8
-  %arrayidx.i.i.i.i.i.i21 = getelementptr inbounds nuw i64, ptr %14, i64 %conv.i.i.i.i.i20
-  %rem.i.i.i.i.i22 = and i32 %w, 63
-  %15 = load i64, ptr %arrayidx.i.i.i.i.i.i21, align 8
-  %sh_prom.i.i.i.i23 = zext nneg i32 %rem.i.i.i.i.i22 to i64
-  %shl.i3.i.i.i24 = shl nuw i64 1, %sh_prom.i.i.i.i23
-  %and.i4.i.i.i25 = and i64 %15, %shl.i3.i.i.i24
+  %arrayidx.i.i.i.i.i.i23 = getelementptr inbounds nuw i64, ptr %14, i64 %conv.i.i.i.i.i22
+  %rem.i.i.i.i.i24 = and i32 %w, 63
+  %15 = load i64, ptr %arrayidx.i.i.i.i.i.i23, align 8
+  %sh_prom.i.i.i.i25 = zext nneg i32 %rem.i.i.i.i.i24 to i64
+  %shl.i3.i.i.i26 = shl nuw i64 1, %sh_prom.i.i.i.i25
+  %and.i4.i.i.i27 = and i64 %15, %shl.i3.i.i.i26
   br label %_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit
 
-_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit: ; preds = %if.then.i.i.i9, %if.end.i.i.i18
-  %retval.0.in.i.i.i16 = phi i64 [ %12, %if.then.i.i.i9 ], [ %and.i4.i.i.i25, %if.end.i.i.i18 ]
-  %retval.0.i.i.i17.not = icmp eq i64 %retval.0.in.i.i.i16, 0
-  %spec.select = zext i1 %retval.0.i.i.i17.not to i32
+_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit: ; preds = %if.then.i.i.i11, %if.end.i.i.i20
+  %retval.0.in.i.i.i18 = phi i64 [ %12, %if.then.i.i.i11 ], [ %and.i4.i.i.i27, %if.end.i.i.i20 ]
+  %retval.0.i.i.i19.not = icmp eq i64 %retval.0.in.i.i.i18, 0
+  %spec.select = zext i1 %retval.0.i.i.i19.not to i32
   br label %if.end28
 
-if.end28:                                         ; preds = %if.end22.thread, %_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit
-  %dk.addr.0 = phi i32 [ %spec.select, %_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit ], [ %dk, %if.end22.thread ]
+if.end28:                                         ; preds = %if.end22, %_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit
+  %dk.addr.0 = phi i32 [ %dk, %if.end22 ], [ %spec.select, %_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit ]
   %externalMessageBuffer_ = getelementptr inbounds nuw i8, ptr %this, i64 408
   %16 = load ptr, ptr %externalMessageBuffer_, align 8
   %tobool29.not = icmp eq ptr %16, null
@@ -2073,7 +2078,8 @@ land.rhs.i:                                       ; preds = %if.end34
   br i1 %cmp6.i, label %if.then.i, label %_ZN6hermes18SourceErrorManager18countAndGenMessageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineE.exit
 
 if.then.i:                                        ; preds = %land.rhs.i
-  store i8 1, ptr %errorLimitReached_, align 4
+  %errorLimitReached_.i = getelementptr inbounds nuw i8, ptr %this, i64 316
+  store i8 1, ptr %errorLimitReached_.i, align 4
   %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1
@@ -2086,7 +2092,7 @@ _ZN6hermes18SourceErrorManager18countAndGenMessageENS0_8DiagKindEN4llvh5SMLocENS
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
   br label %return
 
-return:                                           ; preds = %land.lhs.true18, %if.end10, %if.then, %_ZN6hermes18SourceErrorManager18countAndGenMessageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineE.exit, %_ZN6hermes19CollectMessagesRAII10addMessageENS_18SourceErrorManager8DiagKindEN4llvh5SMLocENS3_7SMRangeERKNS3_5TwineE.exit, %if.then15
+return:                                           ; preds = %if.end16, %if.end10, %if.end, %if.then, %_ZN6hermes18SourceErrorManager18countAndGenMessageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineE.exit, %_ZN6hermes19CollectMessagesRAII10addMessageENS_18SourceErrorManager8DiagKindEN4llvh5SMLocENS3_7SMRangeERKNS3_5TwineE.exit, %if.then15
   ret void
 }
 

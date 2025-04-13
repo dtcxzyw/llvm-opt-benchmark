@@ -4070,22 +4070,22 @@ define void @_ZN6icu_776number4impl8skeleton13parseSkeletonERKNS_13UnicodeString
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %13
-  %.053.ph = phi i32 [ 0, %13 ], [ %.053.ph.be, %.outer.backedge ]
-  %.050.ph = phi i32 [ 0, %13 ], [ %.050.ph.be, %.outer.backedge ]
-  %18 = icmp eq i32 %.053.ph, 0
+  %.055.ph = phi i32 [ 0, %13 ], [ %.055.ph.be, %.outer.backedge ]
+  %.052.ph = phi i32 [ 0, %13 ], [ %.052.ph.be, %.outer.backedge ]
+  %18 = icmp eq i32 %.055.ph, 0
   br label %19
 
 19:                                               ; preds = %.outer, %30
-  %.050 = phi i32 [ %33, %30 ], [ %.050.ph, %.outer ]
+  %.052 = phi i32 [ %33, %30 ], [ %.052.ph, %.outer ]
   %20 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %8)
           to label %21 unwind label %42
 
 21:                                               ; preds = %19
-  %22 = icmp slt i32 %.050, %20
+  %22 = icmp slt i32 %.052, %20
   br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %21
-  %24 = invoke noundef i32 @_ZNK6icu_7713StringSegment11codePointAtEi(ptr noundef nonnull align 8 dereferenceable(17) %8, i32 noundef %.050)
+  %24 = invoke noundef i32 @_ZNK6icu_7713StringSegment11codePointAtEi(ptr noundef nonnull align 8 dereferenceable(17) %8, i32 noundef %.052)
           to label %25 unwind label %44
 
 25:                                               ; preds = %23
@@ -4095,13 +4095,13 @@ define void @_ZN6icu_776number4impl8skeleton13parseSkeletonERKNS_13UnicodeString
 27:                                               ; preds = %25
   %28 = icmp ne i8 %26, 0
   %29 = icmp eq i32 %24, 47
-  %brmerge = or i1 %29, %28
-  br i1 %brmerge, label %48, label %30
+  %or.cond = or i1 %29, %28
+  br i1 %or.cond, label %48, label %30
 
 30:                                               ; preds = %27
   %31 = icmp ult i32 %24, 65536
   %32 = select i1 %31, i32 1, i32 2
-  %33 = add nsw i32 %32, %.050
+  %33 = add nsw i32 %32, %.052
   br i1 %18, label %34, label %19, !llvm.loop !36
 
 34:                                               ; preds = %30
@@ -4109,8 +4109,8 @@ define void @_ZN6icu_776number4impl8skeleton13parseSkeletonERKNS_13UnicodeString
           to label %.outer.backedge unwind label %.loopexit
 
 .outer.backedge:                                  ; preds = %34, %70
-  %.053.ph.be = phi i32 [ %.457, %70 ], [ 0, %34 ]
-  %.050.ph.be = phi i32 [ 0, %70 ], [ %33, %34 ]
+  %.055.ph.be = phi i32 [ %.459, %70 ], [ 0, %34 ]
+  %.052.ph.be = phi i32 [ 0, %70 ], [ %33, %34 ]
   br label %.outer, !llvm.loop !36
 
 36:                                               ; preds = %4
@@ -4154,15 +4154,15 @@ define void @_ZN6icu_776number4impl8skeleton13parseSkeletonERKNS_13UnicodeString
   br label %74
 
 48:                                               ; preds = %27
-  %.not = icmp eq i32 %.050, 0
+  %.not = icmp eq i32 %.052, 0
   br i1 %.not, label %64, label %49
 
 49:                                               ; preds = %48
-  invoke void @_ZN6icu_7713StringSegment9setLengthEi(ptr noundef nonnull align 8 dereferenceable(17) %8, i32 noundef %.050)
+  invoke void @_ZN6icu_7713StringSegment9setLengthEi(ptr noundef nonnull align 8 dereferenceable(17) %8, i32 noundef %.052)
           to label %50 unwind label %.loopexit
 
 50:                                               ; preds = %49
-  %51 = icmp eq i32 %.053.ph, 0
+  %51 = icmp eq i32 %.055.ph, 0
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %50
@@ -4176,11 +4176,11 @@ define void @_ZN6icu_776number4impl8skeleton13parseSkeletonERKNS_13UnicodeString
   br label %58
 
 56:                                               ; preds = %50
-  %57 = invoke noundef i32 @_ZN6icu_776number4impl8skeleton11parseOptionENS2_10ParseStateERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode(i32 noundef %.053.ph, ptr noundef nonnull align 8 dereferenceable(17) %8, ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %57 = invoke noundef i32 @_ZN6icu_776number4impl8skeleton11parseOptionENS2_10ParseStateERKNS_13StringSegmentERNS1_10MacroPropsER10UErrorCode(i32 noundef %.055.ph, ptr noundef nonnull align 8 dereferenceable(17) %8, ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %58 unwind label %.loopexit
 
 58:                                               ; preds = %56, %54
-  %.255 = phi i32 [ %53, %54 ], [ %57, %56 ]
+  %.257 = phi i32 [ %53, %54 ], [ %57, %56 ]
   invoke void @_ZN6icu_7713StringSegment11resetLengthEv(ptr noundef nonnull align 8 dereferenceable(17) %8)
           to label %59 unwind label %.loopexit
 
@@ -4198,31 +4198,31 @@ define void @_ZN6icu_776number4impl8skeleton13parseSkeletonERKNS_13UnicodeString
           to label %73 unwind label %.loopexit.split-lp
 
 63:                                               ; preds = %59
-  invoke void @_ZN6icu_7713StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %8, i32 noundef %.050)
+  invoke void @_ZN6icu_7713StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %8, i32 noundef %.052)
           to label %65 unwind label %.loopexit
 
 64:                                               ; preds = %48
-  %.not59 = icmp eq i32 %.053.ph, 0
-  br i1 %.not59, label %65, label %.invoke.sink.split
+  %.not61 = icmp eq i32 %.055.ph, 0
+  br i1 %.not61, label %65, label %.invoke.sink.split
 
 65:                                               ; preds = %63, %64
-  %.356 = phi i32 [ 0, %64 ], [ %.255, %63 ]
-  %66 = icmp eq i32 %.356, 0
-  %or.cond = and i1 %29, %66
-  br i1 %or.cond, label %.invoke.sink.split, label %67
+  %.358 = phi i32 [ 0, %64 ], [ %.257, %63 ]
+  %66 = icmp eq i32 %.358, 0
+  %or.cond3 = and i1 %29, %66
+  br i1 %or.cond3, label %.invoke.sink.split, label %67
 
 67:                                               ; preds = %65
-  %68 = icmp ne i32 %.356, 0
-  %or.cond3 = and i1 %28, %68
-  br i1 %or.cond3, label %69, label %70
+  %68 = icmp ne i32 %.358, 0
+  %or.cond5 = and i1 %28, %68
+  br i1 %or.cond5, label %69, label %70
 
 69:                                               ; preds = %67
-  %.356.off = add nsw i32 %.356, -4
-  %switch = icmp ult i32 %.356.off, 9
+  %.358.off = add nsw i32 %.358, -4
+  %switch = icmp ult i32 %.358.off, 9
   br i1 %switch, label %.invoke.sink.split, label %70
 
 70:                                               ; preds = %69, %67
-  %.457 = phi i32 [ %.356, %67 ], [ 0, %69 ]
+  %.459 = phi i32 [ %.358, %67 ], [ 0, %69 ]
   %71 = icmp ult i32 %24, 65536
   %72 = select i1 %71, i32 1, i32 2
   invoke void @_ZN6icu_7713StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %8, i32 noundef %72)

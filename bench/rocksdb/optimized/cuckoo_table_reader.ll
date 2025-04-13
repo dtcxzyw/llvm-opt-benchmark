@@ -2069,8 +2069,8 @@ define void @_ZN7rocksdb17CuckooTableReader3GetERKNS_11ReadOptionsERKNS_5SliceEP
   %41 = trunc nuw i8 %40 to i1
   %.val = load ptr, ptr %8, align 8
   %42 = icmp eq i32 %.02851, 0
-  %brmerge.not.i = and i1 %42, %41
-  br i1 %brmerge.not.i, label %43, label %45
+  %or.cond.i = and i1 %42, %41
+  br i1 %or.cond.i, label %43, label %45
 
 43:                                               ; preds = %34
   %44 = load i64, ptr %.val, align 8, !tbaa !144
@@ -2097,14 +2097,14 @@ define void @_ZN7rocksdb17CuckooTableReader3GetERKNS_11ReadOptionsERKNS_5SliceEP
   br label %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit
 
 _ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit: ; preds = %50, %52
-  %.011.i = phi i64 [ %51, %50 ], [ %54, %52 ]
+  %.012.i = phi i64 [ %51, %50 ], [ %54, %52 ]
   %55 = load i32, ptr %28, align 8, !tbaa !177
   %.not47.not = icmp eq i32 %55, 0
   br i1 %.not47.not, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit
   %56 = load ptr, ptr %27, align 8, !tbaa !22
-  %57 = mul i64 %.011.i, %36
+  %57 = mul i64 %.012.i, %36
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
   br label %.lr.ph
 
@@ -2696,8 +2696,8 @@ define void @_ZN7rocksdb17CuckooTableReader7PrepareERKNS_5SliceE(ptr noundef non
   br label %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit
 
 _ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit: ; preds = %27, %29
-  %.011.i = phi i64 [ %28, %27 ], [ %31, %29 ]
-  %32 = mul i64 %.011.i, %9
+  %.012.i = phi i64 [ %28, %27 ], [ %31, %29 ]
+  %32 = mul i64 %.012.i, %9
   %33 = add i64 %32, %6
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %35 = load i32, ptr %34, align 4, !tbaa !178

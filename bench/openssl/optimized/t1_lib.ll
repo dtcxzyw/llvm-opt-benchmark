@@ -6613,15 +6613,13 @@ tls12_rpk_and_privkey.exit.thread:                ; preds = %38, %42, %46, %tls1
 
 121:                                              ; preds = %118
   %122 = icmp ult i32 %.1184, 7
-  br i1 %122, label %switch.hole_check, label %153
-
-switch.hole_check:                                ; preds = %121
-  %switch.maskindex = trunc nuw i32 %.1184 to i8
+  %switch.maskindex = trunc i32 %.1184 to i8
   %switch.shifted = lshr i8 125, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %153
+  %or.cond396 = select i1 %122, i1 %switch.lobit, i1 false
+  br i1 %or.cond396, label %switch.lookup, label %153
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %121
   %123 = zext nneg i32 %.1184 to i64
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.tls1_check_chain, i64 0, i64 %123
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -6701,8 +6699,8 @@ tls1_lookup_sigalg.exit.thread:                   ; preds = %141, %138, %tls1_lo
   %.not233 = icmp eq i64 %.0180.lcssa, %128
   br i1 %.not233, label %._crit_edge.thread, label %153
 
-153:                                              ; preds = %switch.hole_check, %121, %118, %115, %._crit_edge, %switch.lookup
-  %.0182303 = phi i32 [ %switch.load, %._crit_edge ], [ %switch.load, %switch.lookup ], [ 0, %118 ], [ 0, %115 ], [ -1, %121 ], [ -1, %switch.hole_check ]
+153:                                              ; preds = %121, %118, %115, %._crit_edge, %switch.lookup
+  %.0182303 = phi i32 [ %switch.load, %._crit_edge ], [ %switch.load, %switch.lookup ], [ 0, %118 ], [ 0, %115 ], [ -1, %121 ]
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %155 = load ptr, ptr %154, align 8, !tbaa !136
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 216

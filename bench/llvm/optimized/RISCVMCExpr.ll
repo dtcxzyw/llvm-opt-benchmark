@@ -563,9 +563,13 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11RISCVMCExpr18evaluateAsConstantE
   %5 = load i32, ptr %4, align 8, !tbaa !36
   %switch.tableidx = add i32 %5, -3
   %6 = icmp ult i32 %switch.tableidx, 15
-  br i1 %6, label %switch.hole_check, label %7
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 31743, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-7:                                                ; preds = %switch.hole_check, %2
+7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !31
   %10 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateAsRelocatableERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef null, ptr noundef null) #13
@@ -603,14 +607,8 @@ _ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit:   ; preds = %20, %23
   store i64 %.0.i, ptr %1, align 8, !tbaa !73
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 31743, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
-
-switch.lookup:                                    ; preds = %switch.hole_check, %11, %7, %_ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit
-  %.0 = phi i1 [ true, %_ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit ], [ false, %7 ], [ false, %11 ], [ false, %switch.hole_check ]
+switch.lookup:                                    ; preds = %2, %11, %7, %_ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit
+  %.0 = phi i1 [ true, %_ZNK4llvm11RISCVMCExpr15evaluateAsInt64El.exit ], [ false, %7 ], [ false, %11 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
   ret i1 %.0
 }

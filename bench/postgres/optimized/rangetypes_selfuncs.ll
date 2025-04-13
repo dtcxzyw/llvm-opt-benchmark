@@ -1287,10 +1287,9 @@ define internal fastcc double @calc_length_hist_frac(ptr noundef readonly captur
 
 7:                                                ; preds = %5
   %8 = tail call double @llvm.fabs.f64(double %3)
-  %9 = fcmp une double %8, 0x7FF0000000000000
-  %.not98 = xor i1 %4, true
-  %brmerge = or i1 %9, %.not98
-  br i1 %brmerge, label %10, label %length_hist_bsearch.exit.thread
+  %9 = fcmp oeq double %8, 0x7FF0000000000000
+  %or.cond = and i1 %4, %9
+  br i1 %or.cond, label %length_hist_bsearch.exit.thread, label %10
 
 10:                                               ; preds = %7
   %11 = add i32 %1, -1
@@ -1379,55 +1378,55 @@ length_hist_bsearch.exit:                         ; preds = %.lr.ph.split.us.i, 
   br label %get_len_position.exit
 
 get_len_position.exit:                            ; preds = %53, %52, %51, %46, %43, %31
-  %.082 = phi double [ 0.000000e+00, %31 ], [ 5.000000e-01, %53 ], [ %50, %46 ], [ 5.000000e-01, %43 ], [ 1.000000e+00, %51 ], [ 0.000000e+00, %52 ]
-  %.080 = phi i32 [ 0, %31 ], [ %.0.lcssa.i, %53 ], [ %.0.lcssa.i, %46 ], [ %.0.lcssa.i, %43 ], [ %.0.lcssa.i, %51 ], [ %.0.lcssa.i, %52 ]
-  %54 = uitofp nneg i32 %.080 to double
-  %55 = fadd double %.082, %54
+  %.084 = phi double [ 0.000000e+00, %31 ], [ 5.000000e-01, %53 ], [ %50, %46 ], [ 5.000000e-01, %43 ], [ 1.000000e+00, %51 ], [ 0.000000e+00, %52 ]
+  %.082 = phi i32 [ 0, %31 ], [ %.0.lcssa.i, %53 ], [ %.0.lcssa.i, %46 ], [ %.0.lcssa.i, %43 ], [ %.0.lcssa.i, %51 ], [ %.0.lcssa.i, %52 ]
+  %54 = uitofp nneg i32 %.082 to double
+  %55 = fadd double %.084, %54
   %56 = uitofp nneg i32 %11 to double
   %57 = fdiv double %55, %56
   %58 = fcmp oeq double %3, %2
   br i1 %58, label %length_hist_bsearch.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %get_len_position.exit
-  %59 = icmp samesign ult i32 %.080, %11
+  %59 = icmp samesign ult i32 %.082, %11
   br i1 %59, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %60 = zext nneg i32 %.080 to i64
+  %60 = zext nneg i32 %.082 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %76
   %indvars.iv = phi i64 [ %60, %.lr.ph.preheader ], [ %indvars.iv.next, %76 ]
-  %.079128 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.2, %76 ]
-  %.084126 = phi double [ %57, %.lr.ph.preheader ], [ %68, %76 ]
-  %.087125 = phi double [ %2, %.lr.ph.preheader ], [ %62, %76 ]
+  %.081129 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.2, %76 ]
+  %.086127 = phi double [ %57, %.lr.ph.preheader ], [ %68, %76 ]
+  %.089126 = phi double [ %2, %.lr.ph.preheader ], [ %62, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.next
   %62 = load double, ptr %61, align 8
-  %63 = fcmp uge double %62, %3
-  %64 = fcmp ugt double %62, %3
-  %or.cond100 = or i1 %64, %.not98
-  %or.cond115 = and i1 %63, %or.cond100
+  %63 = fcmp olt double %62, %3
+  %64 = fcmp ole double %62, %3
+  %or.cond100.not = and i1 %4, %64
+  %or.cond116 = or i1 %63, %or.cond100.not
   %65 = trunc nuw i64 %indvars.iv to i32
-  br i1 %or.cond115, label %79, label %66
+  br i1 %or.cond116, label %66, label %79
 
 66:                                               ; preds = %.lr.ph
   %67 = uitofp nneg i32 %65 to double
   %68 = fdiv double %67, %56
-  %69 = fcmp ogt double %.084126, 0.000000e+00
+  %69 = fcmp ogt double %.086127, 0.000000e+00
   %70 = fcmp ogt double %68, 0.000000e+00
-  %or.cond = or i1 %69, %70
-  br i1 %or.cond, label %71, label %76
+  %or.cond3 = or i1 %69, %70
+  br i1 %or.cond3, label %71, label %76
 
 71:                                               ; preds = %66
-  %72 = fadd double %.084126, %68
+  %72 = fadd double %.086127, %68
   %73 = fmul double %72, 5.000000e-01
-  %74 = fsub double %62, %.087125
-  %75 = tail call double @llvm.fmuladd.f64(double %73, double %74, double %.079128)
+  %74 = fsub double %62, %.089126
+  %75 = tail call double @llvm.fmuladd.f64(double %73, double %74, double %.081129)
   br label %76
 
 76:                                               ; preds = %71, %66
-  %.2 = phi double [ %75, %71 ], [ %.079128, %66 ]
+  %.2 = phi double [ %75, %71 ], [ %.081129, %66 ]
   %77 = trunc nuw i64 %indvars.iv.next to i32
   %78 = icmp sgt i32 %11, %77
   br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !12
@@ -1446,38 +1445,38 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %76, %.preheader, %79, %86
-  %.087124 = phi double [ %.087125, %86 ], [ %.087125, %79 ], [ %2, %.preheader ], [ %62, %76 ]
-  %.084122 = phi double [ %.084126, %86 ], [ %.084126, %79 ], [ %57, %.preheader ], [ %68, %76 ]
-  %.181120 = phi i32 [ %65, %86 ], [ %65, %79 ], [ %.080, %.preheader ], [ %77, %76 ]
-  %.079118 = phi double [ %.079128, %86 ], [ %.079128, %79 ], [ 0.000000e+00, %.preheader ], [ %.2, %76 ]
-  %.183 = phi double [ %87, %86 ], [ 0.000000e+00, %79 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %76 ]
-  %88 = uitofp nneg i32 %.181120 to double
-  %89 = fadd double %.183, %88
+  %.089125 = phi double [ %.089126, %86 ], [ %.089126, %79 ], [ %2, %.preheader ], [ %62, %76 ]
+  %.086123 = phi double [ %.086127, %86 ], [ %.086127, %79 ], [ %57, %.preheader ], [ %68, %76 ]
+  %.183121 = phi i32 [ %65, %86 ], [ %65, %79 ], [ %.082, %.preheader ], [ %77, %76 ]
+  %.081119 = phi double [ %.081129, %86 ], [ %.081129, %79 ], [ 0.000000e+00, %.preheader ], [ %.2, %76 ]
+  %.185 = phi double [ %87, %86 ], [ 0.000000e+00, %79 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %76 ]
+  %88 = uitofp nneg i32 %.183121 to double
+  %89 = fadd double %.185, %88
   %90 = fdiv double %89, %56
-  %91 = fcmp ogt double %.084122, 0.000000e+00
+  %91 = fcmp ogt double %.086123, 0.000000e+00
   %92 = fcmp ogt double %90, 0.000000e+00
-  %or.cond3 = select i1 %91, i1 true, i1 %92
-  br i1 %or.cond3, label %93, label %98
+  %or.cond5 = select i1 %91, i1 true, i1 %92
+  br i1 %or.cond5, label %93, label %98
 
 93:                                               ; preds = %.loopexit
-  %94 = fadd double %.084122, %90
+  %94 = fadd double %.086123, %90
   %95 = fmul double %94, 5.000000e-01
-  %96 = fsub double %3, %.087124
-  %97 = tail call double @llvm.fmuladd.f64(double %95, double %96, double %.079118)
+  %96 = fsub double %3, %.089125
+  %97 = tail call double @llvm.fmuladd.f64(double %95, double %96, double %.081119)
   br label %98
 
 98:                                               ; preds = %.loopexit, %93
-  %.4 = phi double [ %97, %93 ], [ %.079118, %.loopexit ]
+  %.4 = phi double [ %97, %93 ], [ %.081119, %.loopexit ]
   %99 = tail call double @llvm.fabs.f64(double %.4)
-  %100 = fcmp une double %99, 0x7FF0000000000000
-  %brmerge103 = or i1 %9, %100
+  %100 = fcmp oeq double %99, 0x7FF0000000000000
+  %brmerge.not = and i1 %9, %100
   %101 = fsub double %3, %2
   %102 = fdiv double %.4, %101
-  %.090 = select i1 %brmerge103, double %102, double 5.000000e-01
+  %.092 = select i1 %brmerge.not, double 5.000000e-01, double %102
   br label %length_hist_bsearch.exit.thread
 
 length_hist_bsearch.exit.thread:                  ; preds = %10, %get_len_position.exit, %length_hist_bsearch.exit, %7, %5, %98
-  %.0 = phi double [ %.090, %98 ], [ 0.000000e+00, %5 ], [ 1.000000e+00, %7 ], [ 1.000000e+00, %length_hist_bsearch.exit ], [ %57, %get_len_position.exit ], [ 1.000000e+00, %10 ]
+  %.0 = phi double [ %.092, %98 ], [ 0.000000e+00, %5 ], [ 1.000000e+00, %7 ], [ 1.000000e+00, %length_hist_bsearch.exit ], [ %57, %get_len_position.exit ], [ 1.000000e+00, %10 ]
   ret double %.0
 }
 

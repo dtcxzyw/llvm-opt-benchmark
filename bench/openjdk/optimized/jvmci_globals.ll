@@ -65,9 +65,9 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
 
 4:                                                ; preds = %0
   %5 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 44) #5
-  br i1 %5, label %.thread41, label %6
+  br i1 %5, label %.thread, label %6
 
-.thread41:                                        ; preds = %4
+.thread:                                          ; preds = %4
   store i8 1, ptr @EnableJVMCI, align 1
   br label %8
 
@@ -76,7 +76,7 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
   %7 = trunc i8 %.pre to i1
   br i1 %7, label %8, label %11
 
-8:                                                ; preds = %.thread41, %6
+8:                                                ; preds = %.thread, %6
   %9 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 47) #5
   br i1 %9, label %10, label %11
 
@@ -91,10 +91,10 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
 
 14:                                               ; preds = %11
   %15 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 51) #5
-  br i1 %15, label %._crit_edge6, label %16
+  br i1 %15, label %._crit_edge14, label %16
 
-._crit_edge6:                                     ; preds = %14
-  %.pre7 = load i8, ptr @UseJVMCICompiler, align 1
+._crit_edge14:                                    ; preds = %14
+  %.pre15 = load i8, ptr @UseJVMCICompiler, align 1
   br label %23
 
 16:                                               ; preds = %14
@@ -104,19 +104,19 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
   %20 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %21 = select i1 %18, ptr %19, ptr %20
   %22 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #5
-  br label %291
+  br label %289
 
-23:                                               ; preds = %._crit_edge6, %11
-  %24 = phi i8 [ %.pre7, %._crit_edge6 ], [ %12, %11 ]
+23:                                               ; preds = %._crit_edge14, %11
+  %24 = phi i8 [ %.pre15, %._crit_edge14 ], [ %12, %11 ]
   %25 = trunc i8 %24 to i1
   br i1 %25, label %35, label %26
 
 26:                                               ; preds = %23
   %27 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 53) #5
-  br i1 %27, label %._crit_edge8, label %28
+  br i1 %27, label %._crit_edge16, label %28
 
-._crit_edge8:                                     ; preds = %26
-  %.pre9 = load i8, ptr @UseJVMCICompiler, align 1
+._crit_edge16:                                    ; preds = %26
+  %.pre17 = load i8, ptr @UseJVMCICompiler, align 1
   br label %35
 
 28:                                               ; preds = %26
@@ -126,19 +126,19 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
   %32 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %33 = select i1 %30, ptr %31, ptr %32
   %34 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %33, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5) #5
-  br label %291
+  br label %289
 
-35:                                               ; preds = %._crit_edge8, %23
-  %36 = phi i8 [ %.pre9, %._crit_edge8 ], [ %24, %23 ]
+35:                                               ; preds = %._crit_edge16, %23
+  %36 = phi i8 [ %.pre17, %._crit_edge16 ], [ %24, %23 ]
   %37 = trunc i8 %36 to i1
   br i1 %37, label %47, label %38
 
 38:                                               ; preds = %35
   %39 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 54) #5
-  br i1 %39, label %._crit_edge10, label %40
+  br i1 %39, label %._crit_edge18, label %40
 
-._crit_edge10:                                    ; preds = %38
-  %.pre11 = load i8, ptr @UseJVMCICompiler, align 1
+._crit_edge18:                                    ; preds = %38
+  %.pre19 = load i8, ptr @UseJVMCICompiler, align 1
   br label %47
 
 40:                                               ; preds = %38
@@ -148,19 +148,19 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
   %44 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %45 = select i1 %42, ptr %43, ptr %44
   %46 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %45, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5) #5
-  br label %291
+  br label %289
 
-47:                                               ; preds = %._crit_edge10, %35
-  %48 = phi i8 [ %.pre11, %._crit_edge10 ], [ %36, %35 ]
+47:                                               ; preds = %._crit_edge18, %35
+  %48 = phi i8 [ %.pre19, %._crit_edge18 ], [ %36, %35 ]
   %49 = trunc i8 %48 to i1
   br i1 %49, label %59, label %50
 
 50:                                               ; preds = %47
   %51 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 55) #5
-  br i1 %51, label %._crit_edge12, label %52
+  br i1 %51, label %._crit_edge20, label %52
 
-._crit_edge12:                                    ; preds = %50
-  %.pre13 = load i8, ptr @UseJVMCICompiler, align 1
+._crit_edge20:                                    ; preds = %50
+  %.pre21 = load i8, ptr @UseJVMCICompiler, align 1
   br label %59
 
 52:                                               ; preds = %50
@@ -170,19 +170,19 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
   %56 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %57 = select i1 %54, ptr %55, ptr %56
   %58 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %57, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.5) #5
-  br label %291
+  br label %289
 
-59:                                               ; preds = %._crit_edge12, %47
-  %60 = phi i8 [ %.pre13, %._crit_edge12 ], [ %48, %47 ]
+59:                                               ; preds = %._crit_edge20, %47
+  %60 = phi i8 [ %.pre21, %._crit_edge20 ], [ %48, %47 ]
   %61 = trunc i8 %60 to i1
   br i1 %61, label %71, label %62
 
 62:                                               ; preds = %59
   %63 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 66) #5
-  br i1 %63, label %._crit_edge14, label %64
+  br i1 %63, label %._crit_edge22, label %64
 
-._crit_edge14:                                    ; preds = %62
-  %.pre15 = load i8, ptr @UseJVMCICompiler, align 1
+._crit_edge22:                                    ; preds = %62
+  %.pre23 = load i8, ptr @UseJVMCICompiler, align 1
   br label %71
 
 64:                                               ; preds = %62
@@ -192,402 +192,400 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
   %68 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %69 = select i1 %66, ptr %67, ptr %68
   %70 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %69, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5) #5
-  br label %291
+  br label %289
 
-71:                                               ; preds = %._crit_edge14, %59
-  %72 = phi i8 [ %.pre15, %._crit_edge14 ], [ %60, %59 ]
+71:                                               ; preds = %._crit_edge22, %59
+  %72 = phi i8 [ %.pre23, %._crit_edge22 ], [ %60, %59 ]
   %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %.thread
+  br i1 %73, label %74, label %116
 
 74:                                               ; preds = %71
   %75 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 63) #5
-  br i1 %75, label %76, label %84
+  %.not = xor i1 %75, true
+  %76 = load i8, ptr @UseJVMCINativeLibrary, align 1
+  %77 = trunc i8 %76 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %77
+  br i1 %or.cond, label %83, label %78
 
-76:                                               ; preds = %74
-  %77 = load i8, ptr @UseJVMCINativeLibrary, align 1
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %84, label %79
+78:                                               ; preds = %74
+  %79 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %1, i64 noundef 4097, ptr noundef %80, ptr noundef nonnull @.str.10) #5
+  br i1 %81, label %82, label %83
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %1, i64 noundef 4097, ptr noundef %81, ptr noundef nonnull @.str.10) #5
-  br i1 %82, label %83, label %84
-
-83:                                               ; preds = %79
+82:                                               ; preds = %78
   store i8 1, ptr @UseJVMCINativeLibrary, align 1
-  br label %84
+  br label %83
 
-84:                                               ; preds = %79, %83, %76, %74
-  %85 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 44) #5
-  br i1 %85, label %96, label %86
+83:                                               ; preds = %78, %82, %74
+  %84 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 44) #5
+  %85 = load i8, ptr @EnableJVMCI, align 1
+  %86 = trunc i8 %85 to i1
+  %or.cond3 = select i1 %84, i1 true, i1 %86
+  br i1 %or.cond3, label %94, label %87
 
-86:                                               ; preds = %84
-  %87 = load i8, ptr @EnableJVMCI, align 1
-  %88 = trunc i8 %87 to i1
-  br i1 %88, label %96, label %89
+87:                                               ; preds = %83
+  %88 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %89 = trunc i8 %88 to i1
+  %90 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %91 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %92 = select i1 %89, ptr %90, ptr %91
+  %93 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %92, ptr noundef nonnull @.str.11) #5
+  br label %289
 
-89:                                               ; preds = %86
-  %90 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %91 = trunc i8 %90 to i1
-  %92 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %93 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %94 = select i1 %91, ptr %92, ptr %93
-  %95 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %94, ptr noundef nonnull @.str.11) #5
-  br label %291
-
-96:                                               ; preds = %86, %84
+94:                                               ; preds = %83
   store i8 1, ptr @EnableJVMCI, align 1
-  %97 = load i8, ptr @BootstrapJVMCI, align 1
+  %95 = load i8, ptr @BootstrapJVMCI, align 1
+  %96 = trunc i8 %95 to i1
+  %97 = load i8, ptr @UseJVMCINativeLibrary, align 1
   %98 = trunc i8 %97 to i1
-  br i1 %98, label %99, label %.thread53
+  %or.cond5 = select i1 %96, i1 %98, i1 false
+  br i1 %or.cond5, label %99, label %106
 
-99:                                               ; preds = %96
-  %100 = load i8, ptr @UseJVMCINativeLibrary, align 1
+99:                                               ; preds = %94
+  %100 = load i8, ptr @DisplayVMOutputToStdout, align 1
   %101 = trunc i8 %100 to i1
-  br i1 %101, label %102, label %109
+  %102 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %103 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %104 = select i1 %101, ptr %102, ptr %103
+  %105 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %104, ptr noundef nonnull @.str.12) #5
+  br label %289
 
-102:                                              ; preds = %99
-  %103 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %104 = trunc i8 %103 to i1
-  %105 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %106 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %107 = select i1 %104, ptr %105, ptr %106
-  %108 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %107, ptr noundef nonnull @.str.12) #5
-  br label %291
+106:                                              ; preds = %94
+  %107 = load i64, ptr @TieredStopAtLevel, align 8
+  %108 = icmp slt i64 %107, 4
+  %or.cond7 = select i1 %96, i1 %108, i1 false
+  br i1 %or.cond7, label %109, label %.thread65
 
-109:                                              ; preds = %99
-  %110 = load i64, ptr @TieredStopAtLevel, align 8
-  %111 = icmp slt i64 %110, 4
-  br i1 %111, label %112, label %.thread53
+109:                                              ; preds = %106
+  %110 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %111 = trunc i8 %110 to i1
+  %112 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %113 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %114 = select i1 %111, ptr %112, ptr %113
+  %115 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %114, ptr noundef nonnull @.str.13, i64 noundef %107) #5
+  br label %289
 
-112:                                              ; preds = %109
-  %113 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %114 = trunc i8 %113 to i1
-  %115 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %116 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %117 = select i1 %114, ptr %115, ptr %116
-  %118 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %117, ptr noundef nonnull @.str.13, i64 noundef %110) #5
-  br label %291
+116:                                              ; preds = %71
+  %.pre25 = load i8, ptr @EnableJVMCI, align 1
+  %117 = trunc i8 %.pre25 to i1
+  %.not8 = xor i1 %117, true
+  %118 = load i8, ptr @EagerJVMCI, align 1
+  %119 = trunc i8 %118 to i1
+  %or.cond10 = select i1 %.not8, i1 %119, i1 false
+  br i1 %or.cond10, label %120, label %121
 
-.thread:                                          ; preds = %71
-  %.pre16 = load i8, ptr @EnableJVMCI, align 1
-  %119 = trunc i8 %.pre16 to i1
-  br i1 %119, label %133, label %120
-
-120:                                              ; preds = %.thread
-  %121 = load i8, ptr @EagerJVMCI, align 1
-  %122 = trunc i8 %121 to i1
-  br i1 %122, label %123, label %124
-
-123:                                              ; preds = %120
+120:                                              ; preds = %116
   store i8 0, ptr @EagerJVMCI, align 1
-  br label %124
+  br i1 %117, label %131, label %122
 
-124:                                              ; preds = %120, %123
-  %125 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 56) #5
-  br i1 %125, label %._crit_edge17, label %126
+121:                                              ; preds = %116
+  br i1 %117, label %131, label %122
 
-._crit_edge17:                                    ; preds = %124
-  %.pre18 = load i8, ptr @EnableJVMCI, align 1
-  br label %133
+122:                                              ; preds = %120, %121
+  %123 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 56) #5
+  br i1 %123, label %._crit_edge26, label %124
 
-126:                                              ; preds = %124
-  %127 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %128 = trunc i8 %127 to i1
-  %129 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %130 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %131 = select i1 %128, ptr %129, ptr %130
-  %132 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %131, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #5
-  br label %291
+._crit_edge26:                                    ; preds = %122
+  %.pre27 = load i8, ptr @EnableJVMCI, align 1
+  br label %131
 
-133:                                              ; preds = %._crit_edge17, %.thread
-  %134 = phi i8 [ %.pre18, %._crit_edge17 ], [ %.pre16, %.thread ]
-  %135 = trunc i8 %134 to i1
-  br i1 %135, label %145, label %136
+124:                                              ; preds = %122
+  %125 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %126 = trunc i8 %125 to i1
+  %127 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %128 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %129 = select i1 %126, ptr %127, ptr %128
+  %130 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %129, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-136:                                              ; preds = %133
-  %137 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 57) #5
-  br i1 %137, label %._crit_edge19, label %138
+131:                                              ; preds = %120, %._crit_edge26, %121
+  %132 = phi i8 [ %.pre27, %._crit_edge26 ], [ %.pre25, %121 ], [ %.pre25, %120 ]
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %143, label %134
 
-._crit_edge19:                                    ; preds = %136
-  %.pre20 = load i8, ptr @EnableJVMCI, align 1
-  br label %145
+134:                                              ; preds = %131
+  %135 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 57) #5
+  br i1 %135, label %._crit_edge28, label %136
 
-138:                                              ; preds = %136
-  %139 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %140 = trunc i8 %139 to i1
-  %141 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %142 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %143 = select i1 %140, ptr %141, ptr %142
-  %144 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %143, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15) #5
-  br label %291
+._crit_edge28:                                    ; preds = %134
+  %.pre29 = load i8, ptr @EnableJVMCI, align 1
+  br label %143
 
-145:                                              ; preds = %._crit_edge19, %133
-  %146 = phi i8 [ %.pre20, %._crit_edge19 ], [ %134, %133 ]
-  %147 = trunc i8 %146 to i1
-  br i1 %147, label %157, label %148
+136:                                              ; preds = %134
+  %137 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %138 = trunc i8 %137 to i1
+  %139 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %140 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %141 = select i1 %138, ptr %139, ptr %140
+  %142 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %141, ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-148:                                              ; preds = %145
-  %149 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 58) #5
-  br i1 %149, label %._crit_edge21, label %150
+143:                                              ; preds = %._crit_edge28, %131
+  %144 = phi i8 [ %.pre29, %._crit_edge28 ], [ %132, %131 ]
+  %145 = trunc i8 %144 to i1
+  br i1 %145, label %155, label %146
 
-._crit_edge21:                                    ; preds = %148
-  %.pre22 = load i8, ptr @EnableJVMCI, align 1
-  br label %157
+146:                                              ; preds = %143
+  %147 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 58) #5
+  br i1 %147, label %._crit_edge30, label %148
 
-150:                                              ; preds = %148
-  %151 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %152 = trunc i8 %151 to i1
-  %153 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %154 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %155 = select i1 %152, ptr %153, ptr %154
-  %156 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %155, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15) #5
-  br label %291
+._crit_edge30:                                    ; preds = %146
+  %.pre31 = load i8, ptr @EnableJVMCI, align 1
+  br label %155
 
-157:                                              ; preds = %._crit_edge21, %145
-  %158 = phi i8 [ %.pre22, %._crit_edge21 ], [ %146, %145 ]
-  %159 = trunc i8 %158 to i1
-  br i1 %159, label %169, label %160
+148:                                              ; preds = %146
+  %149 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %150 = trunc i8 %149 to i1
+  %151 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %152 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %153 = select i1 %150, ptr %151, ptr %152
+  %154 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %153, ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-160:                                              ; preds = %157
-  %161 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 59) #5
-  br i1 %161, label %._crit_edge23, label %162
+155:                                              ; preds = %._crit_edge30, %143
+  %156 = phi i8 [ %.pre31, %._crit_edge30 ], [ %144, %143 ]
+  %157 = trunc i8 %156 to i1
+  br i1 %157, label %167, label %158
 
-._crit_edge23:                                    ; preds = %160
-  %.pre24 = load i8, ptr @EnableJVMCI, align 1
-  br label %169
+158:                                              ; preds = %155
+  %159 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 59) #5
+  br i1 %159, label %._crit_edge32, label %160
 
-162:                                              ; preds = %160
-  %163 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %164 = trunc i8 %163 to i1
-  %165 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %166 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %167 = select i1 %164, ptr %165, ptr %166
-  %168 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %167, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.15) #5
-  br label %291
+._crit_edge32:                                    ; preds = %158
+  %.pre33 = load i8, ptr @EnableJVMCI, align 1
+  br label %167
 
-169:                                              ; preds = %._crit_edge23, %157
-  %170 = phi i8 [ %.pre24, %._crit_edge23 ], [ %158, %157 ]
-  %171 = trunc i8 %170 to i1
-  br i1 %171, label %181, label %172
+160:                                              ; preds = %158
+  %161 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %162 = trunc i8 %161 to i1
+  %163 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %164 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %165 = select i1 %162, ptr %163, ptr %164
+  %166 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %165, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-172:                                              ; preds = %169
-  %173 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 60) #5
-  br i1 %173, label %._crit_edge25, label %174
+167:                                              ; preds = %._crit_edge32, %155
+  %168 = phi i8 [ %.pre33, %._crit_edge32 ], [ %156, %155 ]
+  %169 = trunc i8 %168 to i1
+  br i1 %169, label %179, label %170
 
-._crit_edge25:                                    ; preds = %172
-  %.pre26 = load i8, ptr @EnableJVMCI, align 1
-  br label %181
+170:                                              ; preds = %167
+  %171 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 60) #5
+  br i1 %171, label %._crit_edge34, label %172
 
-174:                                              ; preds = %172
-  %175 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %176 = trunc i8 %175 to i1
-  %177 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %178 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %179 = select i1 %176, ptr %177, ptr %178
-  %180 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %179, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.15) #5
-  br label %291
+._crit_edge34:                                    ; preds = %170
+  %.pre35 = load i8, ptr @EnableJVMCI, align 1
+  br label %179
 
-181:                                              ; preds = %._crit_edge25, %169
-  %182 = phi i8 [ %.pre26, %._crit_edge25 ], [ %170, %169 ]
-  %183 = trunc i8 %182 to i1
-  br i1 %183, label %193, label %184
+172:                                              ; preds = %170
+  %173 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %174 = trunc i8 %173 to i1
+  %175 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %176 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %177 = select i1 %174, ptr %175, ptr %176
+  %178 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %177, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-184:                                              ; preds = %181
-  %185 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 50) #5
-  br i1 %185, label %._crit_edge27, label %186
+179:                                              ; preds = %._crit_edge34, %167
+  %180 = phi i8 [ %.pre35, %._crit_edge34 ], [ %168, %167 ]
+  %181 = trunc i8 %180 to i1
+  br i1 %181, label %191, label %182
 
-._crit_edge27:                                    ; preds = %184
-  %.pre28 = load i8, ptr @EnableJVMCI, align 1
-  br label %193
+182:                                              ; preds = %179
+  %183 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 50) #5
+  br i1 %183, label %._crit_edge36, label %184
 
-186:                                              ; preds = %184
-  %187 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %188 = trunc i8 %187 to i1
-  %189 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %190 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %191 = select i1 %188, ptr %189, ptr %190
-  %192 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %191, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.15) #5
-  br label %291
+._crit_edge36:                                    ; preds = %182
+  %.pre37 = load i8, ptr @EnableJVMCI, align 1
+  br label %191
 
-193:                                              ; preds = %._crit_edge27, %181
-  %194 = phi i8 [ %.pre28, %._crit_edge27 ], [ %182, %181 ]
-  %195 = trunc i8 %194 to i1
-  br i1 %195, label %205, label %196
+184:                                              ; preds = %182
+  %185 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %186 = trunc i8 %185 to i1
+  %187 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %188 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %189 = select i1 %186, ptr %187, ptr %188
+  %190 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %189, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-196:                                              ; preds = %193
-  %197 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 48) #5
-  br i1 %197, label %._crit_edge29, label %198
+191:                                              ; preds = %._crit_edge36, %179
+  %192 = phi i8 [ %.pre37, %._crit_edge36 ], [ %180, %179 ]
+  %193 = trunc i8 %192 to i1
+  br i1 %193, label %203, label %194
 
-._crit_edge29:                                    ; preds = %196
-  %.pre30 = load i8, ptr @EnableJVMCI, align 1
-  br label %205
+194:                                              ; preds = %191
+  %195 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 48) #5
+  br i1 %195, label %._crit_edge38, label %196
 
-198:                                              ; preds = %196
-  %199 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %200 = trunc i8 %199 to i1
-  %201 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %202 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %203 = select i1 %200, ptr %201, ptr %202
-  %204 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %203, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.15) #5
-  br label %291
+._crit_edge38:                                    ; preds = %194
+  %.pre39 = load i8, ptr @EnableJVMCI, align 1
+  br label %203
 
-205:                                              ; preds = %._crit_edge29, %193
-  %206 = phi i8 [ %.pre30, %._crit_edge29 ], [ %194, %193 ]
-  %207 = trunc i8 %206 to i1
-  br i1 %207, label %217, label %208
+196:                                              ; preds = %194
+  %197 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %198 = trunc i8 %197 to i1
+  %199 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %200 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %201 = select i1 %198, ptr %199, ptr %200
+  %202 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %201, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-208:                                              ; preds = %205
-  %209 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 49) #5
-  br i1 %209, label %._crit_edge31, label %210
+203:                                              ; preds = %._crit_edge38, %191
+  %204 = phi i8 [ %.pre39, %._crit_edge38 ], [ %192, %191 ]
+  %205 = trunc i8 %204 to i1
+  br i1 %205, label %215, label %206
 
-._crit_edge31:                                    ; preds = %208
-  %.pre32 = load i8, ptr @EnableJVMCI, align 1
-  br label %217
+206:                                              ; preds = %203
+  %207 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 49) #5
+  br i1 %207, label %._crit_edge40, label %208
 
-210:                                              ; preds = %208
-  %211 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %212 = trunc i8 %211 to i1
-  %213 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %214 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %215 = select i1 %212, ptr %213, ptr %214
-  %216 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %215, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.15) #5
-  br label %291
+._crit_edge40:                                    ; preds = %206
+  %.pre41 = load i8, ptr @EnableJVMCI, align 1
+  br label %215
 
-217:                                              ; preds = %._crit_edge31, %205
-  %218 = phi i8 [ %.pre32, %._crit_edge31 ], [ %206, %205 ]
-  %219 = trunc i8 %218 to i1
-  br i1 %219, label %229, label %220
+208:                                              ; preds = %206
+  %209 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %210 = trunc i8 %209 to i1
+  %211 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %212 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %213 = select i1 %210, ptr %211, ptr %212
+  %214 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %213, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-220:                                              ; preds = %217
-  %221 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 63) #5
-  br i1 %221, label %._crit_edge33, label %222
+215:                                              ; preds = %._crit_edge40, %203
+  %216 = phi i8 [ %.pre41, %._crit_edge40 ], [ %204, %203 ]
+  %217 = trunc i8 %216 to i1
+  br i1 %217, label %227, label %218
 
-._crit_edge33:                                    ; preds = %220
-  %.pre34 = load i8, ptr @EnableJVMCI, align 1
-  br label %229
+218:                                              ; preds = %215
+  %219 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 63) #5
+  br i1 %219, label %._crit_edge42, label %220
 
-222:                                              ; preds = %220
-  %223 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %224 = trunc i8 %223 to i1
-  %225 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %226 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %227 = select i1 %224, ptr %225, ptr %226
-  %228 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %227, ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.15) #5
-  br label %291
+._crit_edge42:                                    ; preds = %218
+  %.pre43 = load i8, ptr @EnableJVMCI, align 1
+  br label %227
 
-229:                                              ; preds = %._crit_edge33, %217
-  %230 = phi i8 [ %.pre34, %._crit_edge33 ], [ %218, %217 ]
-  %231 = trunc i8 %230 to i1
-  br i1 %231, label %241, label %232
+220:                                              ; preds = %218
+  %221 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %222 = trunc i8 %221 to i1
+  %223 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %224 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %225 = select i1 %222, ptr %223, ptr %224
+  %226 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %225, ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-232:                                              ; preds = %229
-  %233 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 64) #5
-  br i1 %233, label %._crit_edge35, label %234
+227:                                              ; preds = %._crit_edge42, %215
+  %228 = phi i8 [ %.pre43, %._crit_edge42 ], [ %216, %215 ]
+  %229 = trunc i8 %228 to i1
+  br i1 %229, label %239, label %230
 
-._crit_edge35:                                    ; preds = %232
-  %.pre36 = load i8, ptr @EnableJVMCI, align 1
-  br label %241
+230:                                              ; preds = %227
+  %231 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 64) #5
+  br i1 %231, label %._crit_edge44, label %232
 
-234:                                              ; preds = %232
-  %235 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %236 = trunc i8 %235 to i1
-  %237 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %238 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %239 = select i1 %236, ptr %237, ptr %238
-  %240 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %239, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.15) #5
-  br label %291
+._crit_edge44:                                    ; preds = %230
+  %.pre45 = load i8, ptr @EnableJVMCI, align 1
+  br label %239
 
-241:                                              ; preds = %._crit_edge35, %229
-  %242 = phi i8 [ %.pre36, %._crit_edge35 ], [ %230, %229 ]
-  %243 = trunc i8 %242 to i1
-  br i1 %243, label %253, label %244
+232:                                              ; preds = %230
+  %233 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %234 = trunc i8 %233 to i1
+  %235 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %236 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %237 = select i1 %234, ptr %235, ptr %236
+  %238 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %237, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-244:                                              ; preds = %241
-  %245 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 61) #5
-  br i1 %245, label %._crit_edge37, label %246
+239:                                              ; preds = %._crit_edge44, %227
+  %240 = phi i8 [ %.pre45, %._crit_edge44 ], [ %228, %227 ]
+  %241 = trunc i8 %240 to i1
+  br i1 %241, label %251, label %242
 
-._crit_edge37:                                    ; preds = %244
-  %.pre38 = load i8, ptr @EnableJVMCI, align 1
-  br label %253
+242:                                              ; preds = %239
+  %243 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 61) #5
+  br i1 %243, label %._crit_edge46, label %244
 
-246:                                              ; preds = %244
-  %247 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %248 = trunc i8 %247 to i1
-  %249 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %250 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %251 = select i1 %248, ptr %249, ptr %250
-  %252 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %251, ptr noundef nonnull @.str, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.15) #5
-  br label %291
+._crit_edge46:                                    ; preds = %242
+  %.pre47 = load i8, ptr @EnableJVMCI, align 1
+  br label %251
 
-253:                                              ; preds = %._crit_edge37, %241
-  %254 = phi i8 [ %.pre38, %._crit_edge37 ], [ %242, %241 ]
-  %255 = trunc i8 %254 to i1
-  br i1 %255, label %265, label %256
+244:                                              ; preds = %242
+  %245 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %246 = trunc i8 %245 to i1
+  %247 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %248 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %249 = select i1 %246, ptr %247, ptr %248
+  %250 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %249, ptr noundef nonnull @.str, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-256:                                              ; preds = %253
-  %257 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 65) #5
-  br i1 %257, label %._crit_edge39, label %258
+251:                                              ; preds = %._crit_edge46, %239
+  %252 = phi i8 [ %.pre47, %._crit_edge46 ], [ %240, %239 ]
+  %253 = trunc i8 %252 to i1
+  br i1 %253, label %263, label %254
 
-._crit_edge39:                                    ; preds = %256
-  %.pre40 = load i8, ptr @EnableJVMCI, align 1
-  br label %265
+254:                                              ; preds = %251
+  %255 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 65) #5
+  br i1 %255, label %._crit_edge48, label %256
 
-258:                                              ; preds = %256
-  %259 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %260 = trunc i8 %259 to i1
-  %261 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %262 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %263 = select i1 %260, ptr %261, ptr %262
-  %264 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %263, ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.15) #5
-  br label %291
+._crit_edge48:                                    ; preds = %254
+  %.pre49 = load i8, ptr @EnableJVMCI, align 1
+  br label %263
 
-265:                                              ; preds = %._crit_edge39, %253
-  %266 = phi i8 [ %.pre40, %._crit_edge39 ], [ %254, %253 ]
-  %267 = trunc i8 %266 to i1
-  br i1 %267, label %.thread53, label %268
+256:                                              ; preds = %254
+  %257 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %258 = trunc i8 %257 to i1
+  %259 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %260 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %261 = select i1 %258, ptr %259, ptr %260
+  %262 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %261, ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-268:                                              ; preds = %265
-  %269 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 62) #5
-  br i1 %269, label %.thread53, label %270
+263:                                              ; preds = %._crit_edge48, %251
+  %264 = phi i8 [ %.pre49, %._crit_edge48 ], [ %252, %251 ]
+  %265 = trunc i8 %264 to i1
+  br i1 %265, label %.thread65, label %266
 
-270:                                              ; preds = %268
-  %271 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %272 = trunc i8 %271 to i1
-  %273 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %274 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %275 = select i1 %272, ptr %273, ptr %274
-  %276 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %275, ptr noundef nonnull @.str, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.15) #5
-  br label %291
+266:                                              ; preds = %263
+  %267 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 62) #5
+  br i1 %267, label %.thread65, label %268
 
-.thread53:                                        ; preds = %109, %96, %268, %265
-  %277 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
-  %.not = icmp eq ptr %277, null
-  br i1 %.not, label %291, label %278
+268:                                              ; preds = %266
+  %269 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %270 = trunc i8 %269 to i1
+  %271 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %272 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %273 = select i1 %270, ptr %271, ptr %272
+  %274 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %273, ptr noundef nonnull @.str, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.15) #5
+  br label %289
 
-278:                                              ; preds = %.thread53
-  %279 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 72, i8 noundef zeroext 8, i32 noundef 0) #5
-  %280 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
-  call void @_ZN10fileStreamC1EPKc(ptr noundef nonnull align 8 dereferenceable(65) %279, ptr noundef %280) #5
-  store ptr %279, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %281 = getelementptr inbounds nuw i8, ptr %279, i64 56
-  %282 = load ptr, ptr %281, align 8
-  %.not5 = icmp eq ptr %282, null
-  br i1 %.not5, label %283, label %291
+.thread65:                                        ; preds = %106, %266, %263
+  %275 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
+  %.not12 = icmp eq ptr %275, null
+  br i1 %.not12, label %289, label %276
 
-283:                                              ; preds = %278
-  %284 = load i8, ptr @DisplayVMOutputToStdout, align 1
-  %285 = trunc i8 %284 to i1
-  %286 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
-  %287 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
-  %288 = select i1 %285, ptr %286, ptr %287
-  %289 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
-  %290 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %288, ptr noundef nonnull @.str.28, ptr noundef %289) #5
-  br label %291
+276:                                              ; preds = %.thread65
+  %277 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 72, i8 noundef zeroext 8, i32 noundef 0) #5
+  %278 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
+  call void @_ZN10fileStreamC1EPKc(ptr noundef nonnull align 8 dereferenceable(65) %277, ptr noundef %278) #5
+  store ptr %277, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %277, i64 56
+  %280 = load ptr, ptr %279, align 8
+  %.not13 = icmp eq ptr %280, null
+  br i1 %.not13, label %281, label %289
 
-291:                                              ; preds = %.thread53, %278, %283, %270, %258, %246, %234, %222, %210, %198, %186, %174, %162, %150, %138, %126, %112, %102, %89, %64, %52, %40, %28, %16
-  %.0 = phi i1 [ false, %102 ], [ false, %112 ], [ false, %283 ], [ false, %270 ], [ false, %258 ], [ false, %246 ], [ false, %234 ], [ false, %222 ], [ false, %210 ], [ false, %198 ], [ false, %186 ], [ false, %174 ], [ false, %162 ], [ false, %150 ], [ false, %138 ], [ false, %126 ], [ false, %89 ], [ false, %64 ], [ false, %52 ], [ false, %40 ], [ false, %28 ], [ false, %16 ], [ true, %278 ], [ true, %.thread53 ]
+281:                                              ; preds = %276
+  %282 = load i8, ptr @DisplayVMOutputToStdout, align 1
+  %283 = trunc i8 %282 to i1
+  %284 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
+  %285 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
+  %286 = select i1 %283, ptr %284, ptr %285
+  %287 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
+  %288 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %286, ptr noundef nonnull @.str.28, ptr noundef %287) #5
+  br label %289
+
+289:                                              ; preds = %.thread65, %276, %281, %268, %256, %244, %232, %220, %208, %196, %184, %172, %160, %148, %136, %124, %109, %99, %87, %64, %52, %40, %28, %16
+  %.0 = phi i1 [ false, %99 ], [ false, %109 ], [ false, %281 ], [ false, %268 ], [ false, %256 ], [ false, %244 ], [ false, %232 ], [ false, %220 ], [ false, %208 ], [ false, %196 ], [ false, %184 ], [ false, %172 ], [ false, %160 ], [ false, %148 ], [ false, %136 ], [ false, %124 ], [ false, %87 ], [ false, %64 ], [ false, %52 ], [ false, %40 ], [ false, %28 ], [ false, %16 ], [ true, %276 ], [ true, %.thread65 ]
   ret i1 %.0
 }
 
@@ -672,31 +670,25 @@ declare void @_ZN7JVMFlag11set_productEv(ptr noundef nonnull align 8 dereference
 define hidden noundef zeroext i1 @_ZN12JVMCIGlobals17gc_supports_jvmciEv() local_unnamed_addr #2 align 2 {
   %1 = load i8, ptr @UseSerialGC, align 1
   %2 = trunc i8 %1 to i1
-  br i1 %2, label %15, label %3
-
-3:                                                ; preds = %0
-  %4 = load i8, ptr @UseParallelGC, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %15, label %6
-
-6:                                                ; preds = %3
-  %7 = load i8, ptr @UseG1GC, align 1
+  %3 = load i8, ptr @UseParallelGC, align 1
+  %4 = trunc i8 %3 to i1
+  %or.cond = select i1 %2, i1 true, i1 %4
+  %5 = load i8, ptr @UseG1GC, align 1
+  %6 = trunc i8 %5 to i1
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %6
+  %7 = load i8, ptr @UseZGC, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %15, label %9
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %8
+  br i1 %or.cond5, label %12, label %9
 
-9:                                                ; preds = %6
-  %10 = load i8, ptr @UseZGC, align 1
+9:                                                ; preds = %0
+  %10 = load i8, ptr @UseEpsilonGC, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %15, label %12
+  br label %12
 
-12:                                               ; preds = %9
-  %13 = load i8, ptr @UseEpsilonGC, align 1
-  %14 = trunc i8 %13 to i1
-  br label %15
-
-15:                                               ; preds = %12, %9, %6, %3, %0
-  %16 = phi i1 [ true, %9 ], [ true, %6 ], [ true, %3 ], [ true, %0 ], [ %14, %12 ]
-  ret i1 %16
+12:                                               ; preds = %9, %0
+  %13 = phi i1 [ true, %0 ], [ %11, %9 ]
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -708,35 +700,27 @@ define hidden void @_ZN12JVMCIGlobals24check_jvmci_supported_gcEv() local_unname
 3:                                                ; preds = %0
   %4 = load i8, ptr @UseSerialGC, align 1
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %_ZN12JVMCIGlobals17gc_supports_jvmciEv.exit.thread, label %6
-
-6:                                                ; preds = %3
-  %7 = load i8, ptr @UseParallelGC, align 1
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %_ZN12JVMCIGlobals17gc_supports_jvmciEv.exit.thread, label %9
-
-9:                                                ; preds = %6
-  %10 = load i8, ptr @UseG1GC, align 1
+  %6 = load i8, ptr @UseParallelGC, align 1
+  %7 = trunc i8 %6 to i1
+  %or.cond.i = select i1 %5, i1 true, i1 %7
+  %8 = load i8, ptr @UseG1GC, align 1
+  %9 = trunc i8 %8 to i1
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %9
+  %10 = load i8, ptr @UseZGC, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %_ZN12JVMCIGlobals17gc_supports_jvmciEv.exit.thread, label %12
+  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %11
+  %12 = load i8, ptr @UseEpsilonGC, align 1
+  %13 = trunc i8 %12 to i1
+  %or.cond = select i1 %or.cond5.i, i1 true, i1 %13
+  br i1 %or.cond, label %_ZN12JVMCIGlobals17gc_supports_jvmciEv.exit.thread, label %14
 
-12:                                               ; preds = %9
-  %13 = load i8, ptr @UseZGC, align 1
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %_ZN12JVMCIGlobals17gc_supports_jvmciEv.exit.thread, label %_ZN12JVMCIGlobals17gc_supports_jvmciEv.exit
-
-_ZN12JVMCIGlobals17gc_supports_jvmciEv.exit:      ; preds = %12
-  %15 = load i8, ptr @UseEpsilonGC, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %_ZN12JVMCIGlobals17gc_supports_jvmciEv.exit.thread, label %17
-
-17:                                               ; preds = %_ZN12JVMCIGlobals17gc_supports_jvmciEv.exit
-  %18 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %18, align 1
+14:                                               ; preds = %3
+  %15 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %15, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.32, i32 noundef 233, ptr noundef nonnull @.str.33) #7
   unreachable
 
-_ZN12JVMCIGlobals17gc_supports_jvmciEv.exit.thread: ; preds = %3, %6, %9, %12, %_ZN12JVMCIGlobals17gc_supports_jvmciEv.exit, %0
+_ZN12JVMCIGlobals17gc_supports_jvmciEv.exit.thread: ; preds = %3, %0
   ret void
 }
 

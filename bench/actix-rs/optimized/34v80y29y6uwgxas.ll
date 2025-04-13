@@ -1648,7 +1648,7 @@ define hidden void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOr
 
 .lr.ph:                                           ; preds = %21
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.3.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %27
@@ -1668,7 +1668,7 @@ define hidden void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOr
 
 31:                                               ; preds = %27
   store i64 %28, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.3.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.3.0..sroa_idx, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.3.0..sroa_idx3, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.3.0..sroa_idx, i64 192, i1 false)
   %32 = load i64, ptr %25, align 8, !noundef !4
   %33 = load i64, ptr %26, align 8, !noundef !4
   %34 = icmp eq i64 %32, %33
@@ -1736,7 +1736,7 @@ define hidden void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOr
 
 .lr.ph:                                           ; preds = %21
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.3.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %27
@@ -1756,7 +1756,7 @@ define hidden void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOr
 
 31:                                               ; preds = %27
   store i64 %28, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.3.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.3.0..sroa_idx, i64 192, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.3.0..sroa_idx3, ptr noundef nonnull align 8 dereferenceable(192) %.sroa.3.0..sroa_idx, i64 192, i1 false)
   %32 = load i64, ptr %25, align 8, !noundef !4
   %33 = load i64, ptr %26, align 8, !noundef !4
   %34 = icmp eq i64 %32, %33
@@ -2051,8 +2051,8 @@ common.resume:                                    ; preds = %78
   %100 = add i64 %69, 1
   store i64 %100, ptr %63, align 8
   store i64 1, ptr %0, align 8
-  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.43.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, i64 24, i1 false)
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.44.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, i64 24, i1 false)
   br label %72
 }
 

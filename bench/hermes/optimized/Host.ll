@@ -1218,15 +1218,15 @@ entry:
   %Capacity2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Lines, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i, align 4
   call void @_ZNK4llvh9StringRef5splitERNS_15SmallVectorImplIS0_EES0_ib(ptr noundef nonnull align 8 dereferenceable(16) %ProcCpuinfoContent, ptr noundef nonnull align 8 dereferenceable(16) %Lines, ptr nonnull @.str.30, i64 1, i32 noundef -1, i1 noundef zeroext true) #19
-  %add.ptr.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %CPUFeatures, i64 16
-  store ptr %add.ptr.i.i.i.i.i69, ptr %CPUFeatures, align 8
-  %Size.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %CPUFeatures, i64 8
-  store i32 0, ptr %Size.i.i.i.i.i70, align 8
-  %Capacity2.i.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %CPUFeatures, i64 12
-  store i32 32, ptr %Capacity2.i.i.i.i.i71, align 4
+  %add.ptr.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %CPUFeatures, i64 16
+  store ptr %add.ptr.i.i.i.i.i70, ptr %CPUFeatures, align 8
+  %Size.i.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %CPUFeatures, i64 8
+  store i32 0, ptr %Size.i.i.i.i.i71, align 8
+  %Capacity2.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %CPUFeatures, i64 12
+  store i32 32, ptr %Capacity2.i.i.i.i.i72, align 4
   %1 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %cmp.not107 = icmp eq i32 %1, 0
-  br i1 %cmp.not107, label %_ZN4llvh9StringRefC2EPKc.exit178, label %for.body.preheader
+  %cmp.not103 = icmp eq i32 %1, 0
+  br i1 %cmp.not103, label %_ZN4llvh9StringRefC2EPKc.exit178, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %2 = zext i32 %1 to i64
@@ -1258,10 +1258,10 @@ if.then10:                                        ; preds = %if.then
   %add = add nuw i64 %call8, 1
   %Length.i.i257 = getelementptr inbounds nuw i8, ptr %arrayidx.i201, i64 8
   %8 = load i64, ptr %Length.i.i257, align 8
-  %.sroa.speculated100 = call i64 @llvm.umin.i64(i64 %8, i64 %add)
+  %.sroa.speculated99 = call i64 @llvm.umin.i64(i64 %8, i64 %add)
   %9 = load ptr, ptr %arrayidx.i201, align 8
-  %add.ptr.i.i259 = getelementptr inbounds i8, ptr %9, i64 %.sroa.speculated100
-  %sub.i.i261 = sub i64 %8, %.sroa.speculated100
+  %add.ptr.i.i259 = getelementptr inbounds i8, ptr %9, i64 %.sroa.speculated99
+  %sub.i.i261 = sub i64 %8, %.sroa.speculated99
   store ptr %add.ptr.i.i259, ptr %ref.tmp, align 8
   %10 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %sub.i.i261, ptr %10, align 8
@@ -1274,9 +1274,9 @@ for.inc:                                          ; preds = %if.end.i, %if.then,
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %if.then10
-  %.pr = load i32, ptr %Size.i.i.i.i.i70, align 8
-  %cmp20.not109 = icmp eq i32 %.pr, 0
-  br i1 %cmp20.not109, label %for.end31, label %for.body21.lr.ph
+  %.pr = load i32, ptr %Size.i.i.i.i.i71, align 8
+  %cmp20.not105 = icmp eq i32 %.pr, 0
+  br i1 %cmp20.not105, label %for.end31, label %for.body21.lr.ph
 
 for.body21.lr.ph:                                 ; preds = %for.end
   %11 = load ptr, ptr %CPUFeatures, align 8
@@ -1284,9 +1284,9 @@ for.body21.lr.ph:                                 ; preds = %for.end
   br label %for.body21
 
 for.body21:                                       ; preds = %for.body21.lr.ph, %for.inc29
-  %indvars.iv118 = phi i64 [ 0, %for.body21.lr.ph ], [ %indvars.iv.next119, %for.inc29 ]
-  %HaveVectorSupport.0110 = phi i8 [ 0, %for.body21.lr.ph ], [ %HaveVectorSupport.1, %for.inc29 ]
-  %arrayidx.i196 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %11, i64 %indvars.iv118
+  %indvars.iv114 = phi i64 [ 0, %for.body21.lr.ph ], [ %indvars.iv.next115, %for.inc29 ]
+  %HaveVectorSupport.0106 = phi i1 [ false, %for.body21.lr.ph ], [ %HaveVectorSupport.1, %for.inc29 ]
+  %arrayidx.i196 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %11, i64 %indvars.iv114
   %agg.tmp22.sroa.2.0.arrayidx.i196.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i196, i64 8
   %agg.tmp22.sroa.2.0.copyload = load i64, ptr %agg.tmp22.sroa.2.0.arrayidx.i196.sroa_idx, align 8
   %cmp.i283 = icmp eq i64 %agg.tmp22.sroa.2.0.copyload, 2
@@ -1294,45 +1294,41 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
 
 if.end.i.i:                                       ; preds = %for.body21
   %agg.tmp22.sroa.0.0.copyload = load ptr, ptr %arrayidx.i196, align 8
-  %bcmp68 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp22.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(2) @.str.99, i64 2)
-  %13 = icmp eq i32 %bcmp68, 0
-  %spec.select = select i1 %13, i8 1, i8 %HaveVectorSupport.0110
+  %bcmp69 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp22.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(2) @.str.99, i64 2)
+  %13 = icmp eq i32 %bcmp69, 0
+  %spec.select = select i1 %13, i1 true, i1 %HaveVectorSupport.0106
   br label %for.inc29
 
 for.inc29:                                        ; preds = %if.end.i.i, %for.body21
-  %HaveVectorSupport.1 = phi i8 [ %HaveVectorSupport.0110, %for.body21 ], [ %spec.select, %if.end.i.i ]
-  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %cmp20.not = icmp eq i64 %indvars.iv.next119, %12
-  br i1 %cmp20.not, label %for.end31.loopexit, label %for.body21, !llvm.loop !15
+  %HaveVectorSupport.1 = phi i1 [ %HaveVectorSupport.0106, %for.body21 ], [ %spec.select, %if.end.i.i ]
+  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
+  %cmp20.not = icmp eq i64 %indvars.iv.next115, %12
+  br i1 %cmp20.not, label %for.end31, label %for.body21, !llvm.loop !15
 
-for.end31.loopexit:                               ; preds = %for.inc29
-  %14 = trunc nuw i8 %HaveVectorSupport.1 to i1
-  br label %for.end31
-
-for.end31:                                        ; preds = %for.end31.loopexit, %for.end
-  %HaveVectorSupport.0.lcssa.ph = phi i1 [ %14, %for.end31.loopexit ], [ false, %for.end ]
-  %.pr124 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %cmp37.not112 = icmp eq i32 %.pr124, 0
-  br i1 %cmp37.not112, label %_ZN4llvh9StringRefC2EPKc.exit178, label %for.body38.lr.ph
+for.end31:                                        ; preds = %for.inc29, %for.end
+  %HaveVectorSupport.0.lcssa.ph = phi i1 [ false, %for.end ], [ %HaveVectorSupport.1, %for.inc29 ]
+  %.pr120 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %cmp37.not108 = icmp eq i32 %.pr120, 0
+  br i1 %cmp37.not108, label %_ZN4llvh9StringRefC2EPKc.exit178, label %for.body38.lr.ph
 
 for.body38.lr.ph:                                 ; preds = %for.end31
-  %15 = load ptr, ptr %Lines, align 8
-  %16 = zext i32 %.pr124 to i64
+  %14 = load ptr, ptr %Lines, align 8
+  %15 = zext i32 %.pr120 to i64
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body38.lr.ph, %for.inc75
-  %indvars.iv120 = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next121, %for.inc75 ]
-  %arrayidx.i191 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %15, i64 %indvars.iv120
+  %indvars.iv116 = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next117, %for.inc75 ]
+  %arrayidx.i191 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %14, i64 %indvars.iv116
   %Length.i214 = getelementptr inbounds nuw i8, ptr %arrayidx.i191, i64 8
-  %17 = load i64, ptr %Length.i214, align 8
-  %cmp.i = icmp ugt i64 %17, 9
+  %16 = load i64, ptr %Length.i214, align 8
+  %cmp.i = icmp ugt i64 %16, 9
   br i1 %cmp.i, label %if.end.i273, label %for.inc75
 
 if.end.i273:                                      ; preds = %for.body38
-  %18 = load ptr, ptr %arrayidx.i191, align 8
-  %bcmp67 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %18, ptr noundef nonnull dereferenceable(10) @.str.100, i64 10)
-  %19 = icmp eq i32 %bcmp67, 0
-  br i1 %19, label %if.then43, label %for.inc75
+  %17 = load ptr, ptr %arrayidx.i191, align 8
+  %bcmp68 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %17, ptr noundef nonnull dereferenceable(10) @.str.100, i64 10)
+  %18 = icmp eq i32 %bcmp68, 0
+  br i1 %18, label %if.then43, label %for.inc75
 
 if.then43:                                        ; preds = %if.end.i273
   %call48 = call noundef i64 @_ZNK4llvh9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i191, ptr nonnull @.str.101, i64 10, i64 noundef 0) #19
@@ -1341,21 +1337,21 @@ if.then43:                                        ; preds = %if.end.i273
 
 if.then50:                                        ; preds = %if.then43
   %add51 = add i64 %call48, 10
-  %20 = load ptr, ptr %Lines, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %20, i64 %indvars.iv120
+  %19 = load ptr, ptr %Lines, align 8
+  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %19, i64 %indvars.iv116
   %Length.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %21 = load i64, ptr %Length.i.i, align 8
-  %.sroa.speculated93 = call i64 @llvm.umin.i64(i64 %21, i64 %add51)
-  %22 = load ptr, ptr %arrayidx.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 %.sroa.speculated93
-  %sub.i.i = sub i64 %21, %.sroa.speculated93
+  %20 = load i64, ptr %Length.i.i, align 8
+  %.sroa.speculated92 = call i64 @llvm.umin.i64(i64 %20, i64 %add51)
+  %21 = load ptr, ptr %arrayidx.i, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 %.sroa.speculated92
+  %sub.i.i = sub i64 %20, %.sroa.speculated92
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ULLVal.i)
   %call.i = call noundef zeroext i1 @_ZN4llvh20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %add.ptr.i.i, i64 %sub.i.i, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %ULLVal.i) #19
   br i1 %call.i, label %_ZNK4llvh9StringRef12getAsIntegerIjEENSt9enable_ifIXntsr3std14numeric_limitsIT_EE9is_signedEbE4typeEjRS3_.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then50
-  %23 = load i64, ptr %ULLVal.i, align 8
-  %cmp.not.i = icmp ult i64 %23, 4294967296
+  %22 = load i64, ptr %ULLVal.i, align 8
+  %cmp.not.i = icmp ult i64 %22, 4294967296
   br i1 %cmp.not.i, label %if.then57, label %_ZNK4llvh9StringRef12getAsIntegerIjEENSt9enable_ifIXntsr3std14numeric_limitsIT_EE9is_signedEbE4typeEjRS3_.exit.thread
 
 _ZNK4llvh9StringRef12getAsIntegerIjEENSt9enable_ifIXntsr3std14numeric_limitsIT_EE9is_signedEbE4typeEjRS3_.exit.thread: ; preds = %lor.lhs.false.i, %if.then50
@@ -1364,59 +1360,52 @@ _ZNK4llvh9StringRef12getAsIntegerIjEENSt9enable_ifIXntsr3std14numeric_limitsIT_E
 
 if.then57:                                        ; preds = %lor.lhs.false.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ULLVal.i)
-  %cmp58 = icmp samesign ugt i64 %23, 3905
-  br i1 %cmp58, label %land.lhs.true, label %if.end60
-
-land.lhs.true:                                    ; preds = %if.then57
-  br i1 %HaveVectorSupport.0.lcssa.ph, label %cleanup, label %if.end65.thread
+  %cmp58 = icmp samesign ugt i64 %22, 3905
+  %or.cond = select i1 %cmp58, i1 %HaveVectorSupport.0.lcssa.ph, i1 false
+  br i1 %or.cond, label %cleanup, label %if.end60
 
 if.end60:                                         ; preds = %if.then57
-  %cmp61 = icmp samesign ugt i64 %23, 2963
-  br i1 %cmp61, label %land.lhs.true62, label %if.end65
-
-land.lhs.true62:                                  ; preds = %if.end60
-  br i1 %HaveVectorSupport.0.lcssa.ph, label %cleanup, label %if.end65.thread
-
-if.end65.thread:                                  ; preds = %land.lhs.true62, %land.lhs.true
-  br label %cleanup
+  %cmp61 = icmp samesign ugt i64 %22, 2963
+  %or.cond1 = select i1 %cmp61, i1 %HaveVectorSupport.0.lcssa.ph, i1 false
+  br i1 %or.cond1, label %cleanup, label %if.end65
 
 if.end65:                                         ; preds = %if.end60
-  %cmp66 = icmp samesign ugt i64 %23, 2826
+  %cmp66 = icmp samesign ugt i64 %22, 2826
   br i1 %cmp66, label %cleanup, label %if.end68
 
 if.end68:                                         ; preds = %if.end65
-  %cmp69 = icmp samesign ugt i64 %23, 2816
+  %cmp69 = icmp samesign ugt i64 %22, 2816
   br i1 %cmp69, label %cleanup, label %_ZN4llvh9StringRefC2EPKc.exit178
 
 for.inc75:                                        ; preds = %if.end.i273, %for.body38
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %cmp37.not = icmp eq i64 %indvars.iv.next121, %16
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %cmp37.not = icmp eq i64 %indvars.iv.next117, %15
   br i1 %cmp37.not, label %_ZN4llvh9StringRefC2EPKc.exit178, label %for.body38, !llvm.loop !16
 
 _ZN4llvh9StringRefC2EPKc.exit178:                 ; preds = %for.inc75, %entry, %for.end31, %_ZNK4llvh9StringRef12getAsIntegerIjEENSt9enable_ifIXntsr3std14numeric_limitsIT_EE9is_signedEbE4typeEjRS3_.exit.thread, %if.then43, %if.end68
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end65.thread, %if.end68, %if.end65, %land.lhs.true62, %land.lhs.true, %_ZN4llvh9StringRefC2EPKc.exit178
-  %retval.sroa.0.0 = phi ptr [ @.str.1, %_ZN4llvh9StringRefC2EPKc.exit178 ], [ @.str.102, %land.lhs.true ], [ @.str.103, %land.lhs.true62 ], [ @.str.104, %if.end65 ], [ @.str.105, %if.end68 ], [ @.str.104, %if.end65.thread ]
-  %retval.sroa.6.0 = phi i64 [ 7, %_ZN4llvh9StringRefC2EPKc.exit178 ], [ 3, %land.lhs.true ], [ 3, %land.lhs.true62 ], [ 5, %if.end65 ], [ 4, %if.end68 ], [ 5, %if.end65.thread ]
-  %24 = load ptr, ptr %CPUFeatures, align 8
-  %cmp.i.i.i = icmp eq ptr %24, %add.ptr.i.i.i.i.i69
+cleanup:                                          ; preds = %if.end68, %if.end65, %if.end60, %if.then57, %_ZN4llvh9StringRefC2EPKc.exit178
+  %retval.sroa.0.0 = phi ptr [ @.str.1, %_ZN4llvh9StringRefC2EPKc.exit178 ], [ @.str.102, %if.then57 ], [ @.str.103, %if.end60 ], [ @.str.104, %if.end65 ], [ @.str.105, %if.end68 ]
+  %retval.sroa.6.0 = phi i64 [ 7, %_ZN4llvh9StringRefC2EPKc.exit178 ], [ 3, %if.then57 ], [ 3, %if.end60 ], [ 5, %if.end65 ], [ 4, %if.end68 ]
+  %23 = load ptr, ptr %CPUFeatures, align 8
+  %cmp.i.i.i = icmp eq ptr %23, %add.ptr.i.i.i.i.i70
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @free(ptr noundef %24) #19
+  call void @free(ptr noundef %23) #19
   br label %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit
 
 _ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit: ; preds = %cleanup, %if.then.i.i
-  %25 = load ptr, ptr %Lines, align 8
-  %cmp.i.i.i86 = icmp eq ptr %25, %add.ptr.i.i.i.i.i
-  br i1 %cmp.i.i.i86, label %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit88, label %if.then.i.i87
+  %24 = load ptr, ptr %Lines, align 8
+  %cmp.i.i.i87 = icmp eq ptr %24, %add.ptr.i.i.i.i.i
+  br i1 %cmp.i.i.i87, label %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit89, label %if.then.i.i88
 
-if.then.i.i87:                                    ; preds = %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit
-  call void @free(ptr noundef %25) #19
-  br label %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit88
+if.then.i.i88:                                    ; preds = %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit
+  call void @free(ptr noundef %24) #19
+  br label %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit89
 
-_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit88: ; preds = %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit, %if.then.i.i87
+_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit89: ; preds = %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit, %if.then.i.i88
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -1518,7 +1507,7 @@ _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %if.end3, %if.end.i
   %9 = and i32 %3, 26
   %Features.11.i = or disjoint i32 %Features.5.i, %9
   %10 = lshr i32 %asmresult2.i121, 22
-  %.lobit361.i = and i32 %10, 1
+  %.lobit379.i = and i32 %10, 1
   %and73.i = and i32 %asmresult2.i121, 402653184
   %cmp.i = icmp eq i32 %and73.i, 402653184
   br i1 %cmp.i, label %land.end.i, label %land.end.thread.i
@@ -1532,72 +1521,68 @@ land.end.i:                                       ; preds = %_ZL20detectX86Famil
   %12 = and i32 %asmresult.i.i, 230
   %13 = icmp eq i32 %12, 230
   %or84.i = or disjoint i32 %Features.11.i, 512
-  %spec.select360.i = select i1 %cmp75.i, i32 %or84.i, i32 %Features.11.i
+  %spec.select378.i = select i1 %cmp75.i, i32 %or84.i, i32 %Features.11.i
   br label %land.end.thread.i
 
 land.end.thread.i:                                ; preds = %land.end.i, %_ZL20detectX86FamilyModeljPjS_.exit
   %14 = phi i1 [ false, %_ZL20detectX86FamilyModeljPjS_.exit ], [ %13, %land.end.i ]
   %15 = phi i1 [ false, %_ZL20detectX86FamilyModeljPjS_.exit ], [ %cmp75.i, %land.end.i ]
-  %16 = phi i32 [ %Features.11.i, %_ZL20detectX86FamilyModeljPjS_.exit ], [ %spec.select360.i, %land.end.i ]
+  %16 = phi i32 [ %Features.11.i, %_ZL20detectX86FamilyModeljPjS_.exit ], [ %spec.select378.i, %land.end.i ]
   %cmp86.i = icmp ugt i32 %asmresult.i, 6
-  br i1 %cmp86.i, label %land.lhs.true100.i, label %if.end260.i
+  br i1 %cmp86.i, label %land.lhs.true252.i, label %if.end260.i
 
-land.lhs.true100.i:                               ; preds = %land.end.thread.i
+land.lhs.true252.i:                               ; preds = %land.end.thread.i
   %17 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #21, !srcloc !19
-  %asmresult1.i94.i = extractvalue { i32, i32, i32, i32 } %17, 1
+  %asmresult1.i106.i = extractvalue { i32, i32, i32, i32 } %17, 1
   %asmresult2.i.i = extractvalue { i32, i32, i32, i32 } %17, 2
-  %18 = and i32 %asmresult1.i94.i, 32
-  %tobool103.not.i = icmp eq i32 %18, 0
+  %18 = and i32 %asmresult1.i106.i, 32
+  %tobool103.i = icmp ne i32 %18, 0
+  %or.cond.i = and i1 %15, %tobool103.i
   %or107.i = or i32 %16, 1024
-  %spec.select72.i = select i1 %15, i32 %or107.i, i32 %16
-  %Features.14.ph.i = select i1 %tobool103.not.i, i32 %16, i32 %spec.select72.i
-  %19 = lshr i32 %asmresult1.i94.i, 18
+  %spec.select84.i = select i1 %or.cond.i, i32 %or107.i, i32 %16
+  %19 = lshr i32 %asmresult1.i106.i, 18
   %20 = and i32 %19, 2
-  %21 = lshr i32 %asmresult1.i94.i, 20
+  %21 = lshr i32 %asmresult1.i106.i, 20
   %22 = and i32 %21, 8
-  %23 = and i32 %asmresult1.i94.i, 134217728
-  %tobool177.not.i = icmp eq i32 %23, 0
-  %or181.i = or i32 %Features.14.ph.i, 16777216
-  %spec.select80.i = select i1 %14, i32 %or181.i, i32 %Features.14.ph.i
-  %Features.20.ph.i = select i1 %tobool177.not.i, i32 %Features.14.ph.i, i32 %spec.select80.i
-  %24 = and i32 %asmresult1.i94.i, 268435456
-  %tobool187.not.i = icmp eq i32 %24, 0
-  %25 = or i1 %tobool187.not.i, %14
-  %Features.21.ph.i = select i1 %25, i32 %Features.20.ph.i, i32 %Features.14.ph.i
-  %26 = lshr i32 %asmresult1.i94.i, 25
-  %27 = and i32 %26, 16
-  %28 = or disjoint i32 %20, %22
-  %29 = or disjoint i32 %28, %27
-  %spec.select82.i = or disjoint i32 %29, %.lobit361.i
-  %or219305.i = or i32 %Features.21.ph.i, 1048576
-  %spec.select84306.i = select i1 %14, i32 %or219305.i, i32 %Features.14.ph.i
-  %tobool215.not303362.i = icmp slt i32 %asmresult1.i94.i, 0
-  %Features.23307.i = select i1 %tobool215.not303362.i, i32 %spec.select84306.i, i32 %Features.21.ph.i
-  %30 = and i32 %asmresult2.i.i, 2
-  %tobool225.not.i = icmp eq i32 %30, 0
-  %or229.i = or i32 %Features.23307.i, 67108864
-  %spec.select85.i = select i1 %14, i32 %or229.i, i32 %Features.14.ph.i
-  %Features.24.ph.i = select i1 %tobool225.not.i, i32 %Features.23307.i, i32 %spec.select85.i
+  %23 = and i32 %asmresult1.i106.i, 134217728
+  %tobool177.i = icmp ne i32 %23, 0
+  %or.cond5.i = and i1 %14, %tobool177.i
+  %or181.i = or i32 %spec.select84.i, 16777216
+  %spec.select92.i = select i1 %or.cond5.i, i32 %or181.i, i32 %spec.select84.i
+  %24 = lshr i32 %asmresult1.i106.i, 25
+  %25 = and i32 %24, 16
+  %26 = or disjoint i32 %20, %22
+  %27 = or disjoint i32 %26, %25
+  %spec.select94.i = or disjoint i32 %27, %.lobit379.i
+  %tobool215.i = icmp slt i32 %asmresult1.i106.i, 0
+  %or.cond8.i = and i1 %14, %tobool215.i
+  %or219.i = or i32 %spec.select92.i, 1048576
+  %spec.select96.i = select i1 %or.cond8.i, i32 %or219.i, i32 %spec.select92.i
+  %28 = and i32 %asmresult2.i.i, 2
+  %tobool225.i = icmp ne i32 %28, 0
+  %or.cond9.i = and i1 %14, %tobool225.i
+  %or229.i = or i32 %spec.select96.i, 67108864
+  %spec.select97.i = select i1 %or.cond9.i, i32 %or229.i, i32 %spec.select96.i
   br label %if.end260.i
 
-if.end260.i:                                      ; preds = %land.lhs.true100.i, %land.end.thread.i
-  %Features2.3295308322328337.i = phi i32 [ %.lobit361.i, %land.end.thread.i ], [ %spec.select82.i, %land.lhs.true100.i ]
-  %Features.27.i = phi i32 [ %16, %land.end.thread.i ], [ %Features.24.ph.i, %land.lhs.true100.i ]
-  %31 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648) #21, !srcloc !17
-  %asmresult.i95.i = extractvalue { i32, i32, i32, i32 } %31, 0
-  %cmp262.i = icmp ugt i32 %asmresult.i95.i, -2147483648
+if.end260.i:                                      ; preds = %land.lhs.true252.i, %land.end.thread.i
+  %Features2.3307314330337348354.i = phi i32 [ %spec.select94.i, %land.lhs.true252.i ], [ %.lobit379.i, %land.end.thread.i ]
+  %Features.27.i = phi i32 [ %spec.select97.i, %land.lhs.true252.i ], [ %16, %land.end.thread.i ]
+  %29 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648) #21, !srcloc !17
+  %asmresult.i107.i = extractvalue { i32, i32, i32, i32 } %29, 0
+  %cmp262.i = icmp ugt i32 %asmresult.i107.i, -2147483648
   br i1 %cmp262.i, label %land.lhs.true293.i, label %_ZL20getAvailableFeaturesjjjPjS_.exit
 
 land.lhs.true293.i:                               ; preds = %if.end260.i
-  %32 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483647) #21, !srcloc !17
-  %asmresult3.i102.i = extractvalue { i32, i32, i32, i32 } %32, 3
-  %33 = lshr i32 %asmresult3.i102.i, 27
-  %34 = and i32 %33, 4
-  %spec.select92.i = or i32 %34, %Features2.3295308322328337.i
+  %30 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483647) #21, !srcloc !17
+  %asmresult3.i114.i = extractvalue { i32, i32, i32, i32 } %30, 3
+  %31 = lshr i32 %asmresult3.i114.i, 27
+  %32 = and i32 %31, 4
+  %spec.select104.i = or i32 %32, %Features2.3307314330337348354.i
   br label %_ZL20getAvailableFeaturesjjjPjS_.exit
 
 _ZL20getAvailableFeaturesjjjPjS_.exit:            ; preds = %if.end260.i, %land.lhs.true293.i
-  %Features2.4.i = phi i32 [ %spec.select92.i, %land.lhs.true293.i ], [ %Features2.3295308322328337.i, %if.end260.i ]
+  %Features2.4.i = phi i32 [ %spec.select104.i, %land.lhs.true293.i ], [ %Features2.3307314330337348354.i, %if.end260.i ]
   switch i32 %asmresult1.i, label %_ZN4llvh9StringRefC2EPKc.exit745 [
     i32 1970169159, label %if.then6
     i32 1752462657, label %if.then8
@@ -1643,10 +1628,10 @@ sw.bb5.i:                                         ; preds = %if.end.i123
     i32 22, label %sw.bb11.i
     i32 23, label %sw.bb12.i
     i32 29, label %sw.bb12.i
-    i32 26, label %if.end10.thread160
-    i32 30, label %if.end10.thread160
-    i32 31, label %if.end10.thread160
-    i32 46, label %if.end10.thread160
+    i32 26, label %if.end10.thread164
+    i32 30, label %if.end10.thread164
+    i32 31, label %if.end10.thread164
+    i32 46, label %if.end10.thread164
     i32 37, label %return
     i32 44, label %return
     i32 47, label %return
@@ -1668,11 +1653,11 @@ sw.bb5.i:                                         ; preds = %if.end.i123
     i32 158, label %sw.bb19.i
     i32 85, label %sw.bb20.i
     i32 102, label %sw.bb21.i
-    i32 28, label %if.end79.thread223
-    i32 38, label %if.end79.thread223
-    i32 39, label %if.end79.thread223
-    i32 53, label %if.end79.thread223
-    i32 54, label %if.end79.thread223
+    i32 28, label %if.end79.thread227
+    i32 38, label %if.end79.thread227
+    i32 39, label %if.end79.thread227
+    i32 53, label %if.end79.thread227
+    i32 54, label %if.end79.thread227
     i32 55, label %sw.bb23.i
     i32 74, label %sw.bb23.i
     i32 77, label %sw.bb23.i
@@ -1755,7 +1740,7 @@ if.then42.i:                                      ; preds = %if.end39.i
   %and43.i = and i32 %Features2.4.i, 16
   %tobool44.not.i = icmp eq i32 %and43.i, 0
   %spec.select = select i1 %tobool44.not.i, i64 7, i64 8
-  %spec.select283 = select i1 %tobool44.not.i, ptr @.str.121, ptr @.str.152
+  %spec.select287 = select i1 %tobool44.not.i, ptr @.str.121, ptr @.str.152
   br label %return
 
 if.end47.i:                                       ; preds = %if.end39.i
@@ -1781,7 +1766,7 @@ if.end59.i:                                       ; preds = %if.end55.i
 if.then62.i:                                      ; preds = %if.end59.i
   %and63.i = and i32 %Features2.4.i, 1
   %tobool64.not.i = icmp eq i32 %and63.i, 0
-  br i1 %tobool64.not.i, label %if.end10.thread160, label %return
+  br i1 %tobool64.not.i, label %if.end10.thread164, label %return
 
 if.end68.i:                                       ; preds = %if.end59.i
   %and69.i = and i32 %Features.27.i, 128
@@ -1796,7 +1781,7 @@ if.end72.i:                                       ; preds = %if.end68.i
 if.then75.i:                                      ; preds = %if.end72.i
   %and76.i = and i32 %Features2.4.i, 1
   %tobool77.not.i = icmp eq i32 %and76.i, 0
-  br i1 %tobool77.not.i, label %return, label %if.end79.thread223
+  br i1 %tobool77.not.i, label %return, label %if.end79.thread227
 
 if.end81.i:                                       ; preds = %if.end72.i
   %and82.i = and i32 %Features2.4.i, 4
@@ -1831,71 +1816,71 @@ sw.bb102.i:                                       ; preds = %if.end.i123
 if.end106.i:                                      ; preds = %sw.bb102.i
   %and107.i = and i32 %Features.27.i, 32
   %tobool108.not.i = icmp eq i32 %and107.i, 0
-  %spec.select284 = select i1 %tobool108.not.i, ptr @.str.143, ptr @.str.147
+  %spec.select288 = select i1 %tobool108.not.i, ptr @.str.143, ptr @.str.147
   br label %return
 
 if.then8:                                         ; preds = %_ZL20getAvailableFeaturesjjjPjS_.exit
   switch i32 %Family.1, label %_ZN4llvh9StringRefC2EPKc.exit745 [
-    i32 4, label %sw.bb.i141
-    i32 5, label %sw.bb1.i138
-    i32 6, label %sw.bb6.i134
-    i32 15, label %sw.bb7.i133
-    i32 16, label %sw.bb12.i129
+    i32 4, label %sw.bb.i145
+    i32 5, label %sw.bb1.i142
+    i32 6, label %sw.bb6.i138
+    i32 15, label %sw.bb7.i137
+    i32 16, label %sw.bb12.i133
     i32 20, label %_ZN4llvh9StringRefC2EPKc.exit495
     i32 21, label %sw.bb18.i126
     i32 22, label %_ZN4llvh9StringRefC2EPKc.exit505
     i32 23, label %return
   ]
 
-sw.bb.i141:                                       ; preds = %if.then8
+sw.bb.i145:                                       ; preds = %if.then8
   br label %return
 
-sw.bb1.i138:                                      ; preds = %if.then8
+sw.bb1.i142:                                      ; preds = %if.then8
   %switch.tableidx = add nsw i32 %Model.0, -6
-  %35 = icmp ult i32 %switch.tableidx, 8
-  br i1 %35, label %switch.lookup, label %_ZN4llvh9StringRefC2EPKc.exit555
+  %33 = icmp ult i32 %switch.tableidx, 8
+  br i1 %33, label %switch.lookup, label %_ZN4llvh9StringRefC2EPKc.exit555
 
-sw.bb6.i134:                                      ; preds = %if.then8
-  %and.i135 = and i32 %Features.27.i, 8
-  %tobool.not.i136 = icmp eq i32 %and.i135, 0
-  %spec.select285 = select i1 %tobool.not.i136, i64 6, i64 9
-  %spec.select286 = select i1 %tobool.not.i136, ptr @.str.148, ptr @.str.149
+sw.bb6.i138:                                      ; preds = %if.then8
+  %and.i139 = and i32 %Features.27.i, 8
+  %tobool.not.i140 = icmp eq i32 %and.i139, 0
+  %spec.select289 = select i1 %tobool.not.i140, i64 6, i64 9
+  %spec.select290 = select i1 %tobool.not.i140, ptr @.str.148, ptr @.str.149
   br label %return
 
-sw.bb7.i133:                                      ; preds = %if.then8
+sw.bb7.i137:                                      ; preds = %if.then8
   %and8.i = and i32 %Features.27.i, 32
   %tobool9.not.i = icmp eq i32 %and8.i, 0
-  %spec.select287 = select i1 %tobool9.not.i, i64 2, i64 7
-  %spec.select288 = select i1 %tobool9.not.i, ptr @.str.150, ptr @.str.151
+  %spec.select291 = select i1 %tobool9.not.i, i64 2, i64 7
+  %spec.select292 = select i1 %tobool9.not.i, ptr @.str.150, ptr @.str.151
   br label %return
 
-sw.bb12.i129:                                     ; preds = %if.then8
+sw.bb12.i133:                                     ; preds = %if.then8
   br label %return
 
 sw.bb18.i126:                                     ; preds = %if.then8
-  %36 = and i32 %Model.0, -32
-  %or.cond.i = icmp eq i32 %36, 96
-  br i1 %or.cond.i, label %return, label %if.end21.i
+  %34 = and i32 %Model.0, -32
+  %or.cond.i127 = icmp eq i32 %34, 96
+  br i1 %or.cond.i127, label %return, label %if.end21.i
 
 if.end21.i:                                       ; preds = %sw.bb18.i126
-  %37 = and i32 %Model.0, -16
-  %or.cond1.i = icmp eq i32 %37, 48
-  br i1 %or.cond1.i, label %return, label %if.end26.i
+  %35 = and i32 %Model.0, -16
+  %or.cond1.i128 = icmp eq i32 %35, 48
+  br i1 %or.cond1.i128, label %return, label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.end21.i
-  %or.cond2.i = icmp eq i32 %37, 16
+  %or.cond2.i129 = icmp eq i32 %35, 16
   %cmp30.i = icmp eq i32 %Model.0, 2
-  %or.cond3.i = or i1 %cmp30.i, %or.cond2.i
-  %spec.select289 = select i1 %or.cond3.i, ptr @.str.114, ptr @.str.113
+  %or.cond3.i130 = or i1 %cmp30.i, %or.cond2.i129
+  %spec.select293 = select i1 %or.cond3.i130, ptr @.str.114, ptr @.str.113
   br label %return
 
-if.end10.thread160:                               ; preds = %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %if.then62.i
+if.end10.thread164:                               ; preds = %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %if.then62.i
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit305:                 ; preds = %sw.bb5.i, %sw.bb5.i
   br label %return
 
-if.end79.thread223:                               ; preds = %if.then75.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i
+if.end79.thread227:                               ; preds = %if.then75.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit495:                 ; preds = %if.then8
@@ -1907,7 +1892,7 @@ _ZN4llvh9StringRefC2EPKc.exit505:                 ; preds = %if.then8
 _ZN4llvh9StringRefC2EPKc.exit525:                 ; preds = %sw.bb5.i
   br label %return
 
-_ZN4llvh9StringRefC2EPKc.exit555:                 ; preds = %sw.bb1.i138, %sw.bb2.i
+_ZN4llvh9StringRefC2EPKc.exit555:                 ; preds = %sw.bb1.i142, %sw.bb2.i
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit575:                 ; preds = %if.end97.i, %sw.bb5.i
@@ -1919,18 +1904,18 @@ _ZN4llvh9StringRefC2EPKc.exit725:                 ; preds = %sw.bb5.i
 _ZN4llvh9StringRefC2EPKc.exit745:                 ; preds = %if.then8, %if.then6, %if.end.i123, %_ZL20getAvailableFeaturesjjjPjS_.exit
   br label %return
 
-switch.lookup:                                    ; preds = %sw.bb1.i138
-  %38 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv, i64 0, i64 %38
+switch.lookup:                                    ; preds = %sw.bb1.i142
+  %36 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv, i64 0, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
-  %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep290 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv.1, i64 0, i64 %39
-  %switch.load291 = load ptr, ptr %switch.gep290, align 8
+  %37 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep294 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv.1, i64 0, i64 %37
+  %switch.load295 = load ptr, ptr %switch.gep294, align 8
   br label %return
 
-return:                                           ; preds = %switch.lookup, %if.end26.i, %sw.bb7.i133, %sw.bb6.i134, %if.end106.i, %if.then42.i, %sw.bb12.i129, %if.then75.i, %sw.bb24.i, %sw.bb102.i, %sw.bb10.i, %if.end85.i, %sw.bb9.i, %if.end89.i, %sw.bb8.i, %if.end93.i, %sw.bb7.i, %if.end97.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i141, %if.end.i123, %sw.bb26.i, %if.end35.i, %sw.bb23.i, %if.then62.i, %if.end79.thread223, %if.end68.i, %sw.bb12.i, %if.end81.i, %sw.bb11.i, %sw.default.i, %sw.bb21.i, %if.end31.i, %sw.bb20.i, %sw.bb19.i, %if.end47.i, %sw.bb18.i, %if.end51.i, %sw.bb17.i, %if.then8, %sw.bb18.i126, %if.end21.i, %if.end55.i, %sw.bb15.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %if.end10.thread160, %entry, %_ZN4llvh9StringRefC2EPKc.exit745, %_ZN4llvh9StringRefC2EPKc.exit725, %_ZN4llvh9StringRefC2EPKc.exit575, %_ZN4llvh9StringRefC2EPKc.exit555, %_ZN4llvh9StringRefC2EPKc.exit525, %_ZN4llvh9StringRefC2EPKc.exit505, %_ZN4llvh9StringRefC2EPKc.exit495, %_ZN4llvh9StringRefC2EPKc.exit305
-  %retval.sroa.59.0 = phi i64 [ 9, %_ZN4llvh9StringRefC2EPKc.exit305 ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit495 ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit505 ], [ 3, %_ZN4llvh9StringRefC2EPKc.exit525 ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit555 ], [ 10, %_ZN4llvh9StringRefC2EPKc.exit575 ], [ 13, %_ZN4llvh9StringRefC2EPKc.exit725 ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit745 ], [ 7, %entry ], [ 7, %if.end10.thread160 ], [ 8, %sw.bb5.i ], [ 8, %sw.bb5.i ], [ 8, %sw.bb5.i ], [ 11, %sw.bb15.i ], [ 11, %if.end55.i ], [ 6, %if.end21.i ], [ 6, %sw.bb18.i126 ], [ 6, %if.then8 ], [ 7, %sw.bb17.i ], [ 7, %if.end51.i ], [ 9, %sw.bb18.i ], [ 9, %if.end47.i ], [ 7, %sw.bb19.i ], [ 14, %sw.bb20.i ], [ 14, %if.end31.i ], [ 10, %sw.bb21.i ], [ 10, %sw.default.i ], [ 5, %sw.bb11.i ], [ 5, %if.end81.i ], [ 6, %sw.bb12.i ], [ 6, %if.end68.i ], [ 7, %if.end79.thread223 ], [ 10, %if.then62.i ], [ 10, %sw.bb23.i ], [ 3, %if.end35.i ], [ 3, %sw.bb26.i ], [ 4, %if.end.i123 ], [ 4, %sw.bb.i141 ], [ 4, %sw.bb1.i ], [ 11, %sw.bb2.i ], [ 8, %if.end97.i ], [ 8, %sw.bb7.i ], [ 8, %if.end93.i ], [ 8, %sw.bb8.i ], [ 9, %if.end89.i ], [ 9, %sw.bb9.i ], [ 5, %if.end85.i ], [ 5, %sw.bb10.i ], [ 6, %sw.bb102.i ], [ 8, %sw.bb24.i ], [ 5, %if.then75.i ], [ 8, %sw.bb12.i129 ], [ %spec.select, %if.then42.i ], [ 6, %if.end26.i ], [ 8, %if.end106.i ], [ %spec.select285, %sw.bb6.i134 ], [ %spec.select287, %sw.bb7.i133 ], [ %switch.load, %switch.lookup ]
-  %retval.sroa.0.0 = phi ptr [ @.str.118, %_ZN4llvh9StringRefC2EPKc.exit305 ], [ @.str.133, %_ZN4llvh9StringRefC2EPKc.exit495 ], [ @.str.134, %_ZN4llvh9StringRefC2EPKc.exit505 ], [ @.str.135, %_ZN4llvh9StringRefC2EPKc.exit525 ], [ @.str.138, %_ZN4llvh9StringRefC2EPKc.exit555 ], [ @.str.140, %_ZN4llvh9StringRefC2EPKc.exit575 ], [ @.str.153, %_ZN4llvh9StringRefC2EPKc.exit725 ], [ @.str.1, %_ZN4llvh9StringRefC2EPKc.exit745 ], [ @.str.1, %entry ], [ @.str.109, %if.end10.thread160 ], [ @.str.110, %sw.bb5.i ], [ @.str.110, %sw.bb5.i ], [ @.str.110, %sw.bb5.i ], [ @.str.111, %sw.bb15.i ], [ @.str.111, %if.end55.i ], [ @.str.115, %if.end21.i ], [ @.str.116, %sw.bb18.i126 ], [ @.str.117, %if.then8 ], [ @.str.119, %sw.bb17.i ], [ @.str.119, %if.end51.i ], [ @.str.120, %sw.bb18.i ], [ @.str.120, %if.end47.i ], [ @.str.121, %sw.bb19.i ], [ @.str.122, %sw.bb20.i ], [ @.str.122, %if.end31.i ], [ @.str.123, %sw.bb21.i ], [ @.str.123, %sw.default.i ], [ @.str.124, %sw.bb11.i ], [ @.str.124, %if.end81.i ], [ @.str.125, %sw.bb12.i ], [ @.str.125, %if.end68.i ], [ @.str.130, %if.end79.thread223 ], [ @.str.131, %if.then62.i ], [ @.str.131, %sw.bb23.i ], [ @.str.132, %if.end35.i ], [ @.str.132, %sw.bb26.i ], [ @.str.136, %if.end.i123 ], [ @.str.137, %sw.bb.i141 ], [ @.str.137, %sw.bb1.i ], [ @.str.139, %sw.bb2.i ], [ @.str.141, %if.end97.i ], [ @.str.141, %sw.bb7.i ], [ @.str.142, %if.end93.i ], [ @.str.142, %sw.bb8.i ], [ @.str.144, %if.end89.i ], [ @.str.144, %sw.bb9.i ], [ @.str.145, %if.end85.i ], [ @.str.145, %sw.bb10.i ], [ @.str.146, %sw.bb102.i ], [ @.str.152, %sw.bb24.i ], [ @.str.124, %if.then75.i ], [ @.str.112, %sw.bb12.i129 ], [ %spec.select283, %if.then42.i ], [ %spec.select289, %if.end26.i ], [ %spec.select284, %if.end106.i ], [ %spec.select286, %sw.bb6.i134 ], [ %spec.select288, %sw.bb7.i133 ], [ %switch.load291, %switch.lookup ]
+return:                                           ; preds = %switch.lookup, %if.end26.i, %sw.bb7.i137, %sw.bb6.i138, %if.end106.i, %if.then42.i, %sw.bb12.i133, %if.then75.i, %sw.bb24.i, %sw.bb102.i, %sw.bb10.i, %if.end85.i, %sw.bb9.i, %if.end89.i, %sw.bb8.i, %if.end93.i, %sw.bb7.i, %if.end97.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i145, %if.end.i123, %sw.bb26.i, %if.end35.i, %sw.bb23.i, %if.then62.i, %if.end79.thread227, %if.end68.i, %sw.bb12.i, %if.end81.i, %sw.bb11.i, %sw.default.i, %sw.bb21.i, %if.end31.i, %sw.bb20.i, %sw.bb19.i, %if.end47.i, %sw.bb18.i, %if.end51.i, %sw.bb17.i, %if.then8, %sw.bb18.i126, %if.end21.i, %if.end55.i, %sw.bb15.i, %sw.bb5.i, %sw.bb5.i, %sw.bb5.i, %if.end10.thread164, %entry, %_ZN4llvh9StringRefC2EPKc.exit745, %_ZN4llvh9StringRefC2EPKc.exit725, %_ZN4llvh9StringRefC2EPKc.exit575, %_ZN4llvh9StringRefC2EPKc.exit555, %_ZN4llvh9StringRefC2EPKc.exit525, %_ZN4llvh9StringRefC2EPKc.exit505, %_ZN4llvh9StringRefC2EPKc.exit495, %_ZN4llvh9StringRefC2EPKc.exit305
+  %retval.sroa.59.0 = phi i64 [ 9, %_ZN4llvh9StringRefC2EPKc.exit305 ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit495 ], [ 6, %_ZN4llvh9StringRefC2EPKc.exit505 ], [ 3, %_ZN4llvh9StringRefC2EPKc.exit525 ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit555 ], [ 10, %_ZN4llvh9StringRefC2EPKc.exit575 ], [ 13, %_ZN4llvh9StringRefC2EPKc.exit725 ], [ 7, %_ZN4llvh9StringRefC2EPKc.exit745 ], [ 7, %entry ], [ 7, %if.end10.thread164 ], [ 8, %sw.bb5.i ], [ 8, %sw.bb5.i ], [ 8, %sw.bb5.i ], [ 11, %sw.bb15.i ], [ 11, %if.end55.i ], [ 6, %if.end21.i ], [ 6, %sw.bb18.i126 ], [ 6, %if.then8 ], [ 7, %sw.bb17.i ], [ 7, %if.end51.i ], [ 9, %sw.bb18.i ], [ 9, %if.end47.i ], [ 7, %sw.bb19.i ], [ 14, %sw.bb20.i ], [ 14, %if.end31.i ], [ 10, %sw.bb21.i ], [ 10, %sw.default.i ], [ 5, %sw.bb11.i ], [ 5, %if.end81.i ], [ 6, %sw.bb12.i ], [ 6, %if.end68.i ], [ 7, %if.end79.thread227 ], [ 10, %if.then62.i ], [ 10, %sw.bb23.i ], [ 3, %if.end35.i ], [ 3, %sw.bb26.i ], [ 4, %if.end.i123 ], [ 4, %sw.bb.i145 ], [ 4, %sw.bb1.i ], [ 11, %sw.bb2.i ], [ 8, %if.end97.i ], [ 8, %sw.bb7.i ], [ 8, %if.end93.i ], [ 8, %sw.bb8.i ], [ 9, %if.end89.i ], [ 9, %sw.bb9.i ], [ 5, %if.end85.i ], [ 5, %sw.bb10.i ], [ 6, %sw.bb102.i ], [ 8, %sw.bb24.i ], [ 5, %if.then75.i ], [ 8, %sw.bb12.i133 ], [ %spec.select, %if.then42.i ], [ 6, %if.end26.i ], [ 8, %if.end106.i ], [ %spec.select289, %sw.bb6.i138 ], [ %spec.select291, %sw.bb7.i137 ], [ %switch.load, %switch.lookup ]
+  %retval.sroa.0.0 = phi ptr [ @.str.118, %_ZN4llvh9StringRefC2EPKc.exit305 ], [ @.str.133, %_ZN4llvh9StringRefC2EPKc.exit495 ], [ @.str.134, %_ZN4llvh9StringRefC2EPKc.exit505 ], [ @.str.135, %_ZN4llvh9StringRefC2EPKc.exit525 ], [ @.str.138, %_ZN4llvh9StringRefC2EPKc.exit555 ], [ @.str.140, %_ZN4llvh9StringRefC2EPKc.exit575 ], [ @.str.153, %_ZN4llvh9StringRefC2EPKc.exit725 ], [ @.str.1, %_ZN4llvh9StringRefC2EPKc.exit745 ], [ @.str.1, %entry ], [ @.str.109, %if.end10.thread164 ], [ @.str.110, %sw.bb5.i ], [ @.str.110, %sw.bb5.i ], [ @.str.110, %sw.bb5.i ], [ @.str.111, %sw.bb15.i ], [ @.str.111, %if.end55.i ], [ @.str.115, %if.end21.i ], [ @.str.116, %sw.bb18.i126 ], [ @.str.117, %if.then8 ], [ @.str.119, %sw.bb17.i ], [ @.str.119, %if.end51.i ], [ @.str.120, %sw.bb18.i ], [ @.str.120, %if.end47.i ], [ @.str.121, %sw.bb19.i ], [ @.str.122, %sw.bb20.i ], [ @.str.122, %if.end31.i ], [ @.str.123, %sw.bb21.i ], [ @.str.123, %sw.default.i ], [ @.str.124, %sw.bb11.i ], [ @.str.124, %if.end81.i ], [ @.str.125, %sw.bb12.i ], [ @.str.125, %if.end68.i ], [ @.str.130, %if.end79.thread227 ], [ @.str.131, %if.then62.i ], [ @.str.131, %sw.bb23.i ], [ @.str.132, %if.end35.i ], [ @.str.132, %sw.bb26.i ], [ @.str.136, %if.end.i123 ], [ @.str.137, %sw.bb.i145 ], [ @.str.137, %sw.bb1.i ], [ @.str.139, %sw.bb2.i ], [ @.str.141, %if.end97.i ], [ @.str.141, %sw.bb7.i ], [ @.str.142, %if.end93.i ], [ @.str.142, %sw.bb8.i ], [ @.str.144, %if.end89.i ], [ @.str.144, %sw.bb9.i ], [ @.str.145, %if.end85.i ], [ @.str.145, %sw.bb10.i ], [ @.str.146, %sw.bb102.i ], [ @.str.152, %sw.bb24.i ], [ @.str.124, %if.then75.i ], [ @.str.112, %sw.bb12.i133 ], [ %spec.select287, %if.then42.i ], [ %spec.select293, %if.end26.i ], [ %spec.select288, %if.end106.i ], [ %spec.select290, %sw.bb6.i138 ], [ %spec.select292, %sw.bb7.i137 ], [ %switch.load295, %switch.lookup ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.59.0, 1
   ret { ptr, i64 } %.fca.1.insert

@@ -118,7 +118,7 @@ atomic_load_b.exit:                               ; preds = %atomic_compare_exch
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %37
 
-37:                                               ; preds = %.preheader, %97
+37:                                               ; preds = %.preheader, %98
   %38 = tail call ptr @sbrk(i64 noundef 0) #6
   %39 = icmp eq ptr %38, inttoptr (i64 -1 to ptr)
   br i1 %39, label %.thread, label %atomic_store_p.exit.i
@@ -175,7 +175,7 @@ atomic_store_p.exit.i:                            ; preds = %37
   %67 = add i64 %66, %47
   %68 = tail call ptr @sbrk(i64 noundef %67) #6
   %69 = icmp eq ptr %68, %38
-  br i1 %69, label %atomic_store_p.exit, label %97
+  br i1 %69, label %atomic_store_p.exit, label %98
 
 atomic_store_p.exit:                              ; preds = %65
   %70 = inttoptr i64 %47 to ptr
@@ -204,49 +204,49 @@ atomic_store_p.exit:                              ; preds = %65
   br label %80
 
 80:                                               ; preds = %77, %74
-  %.not121.not = phi i1 [ %78, %77 ], [ true, %74 ]
-  %81 = load i8, ptr %5, align 1, !tbaa !11, !range !13, !noundef !14
-  %82 = trunc nuw i8 %81 to i1
-  %brmerge.not = select i1 %82, i1 %.not121.not, i1 false
-  br i1 %brmerge.not, label %83, label %.thread89
+  %81 = phi i1 [ %78, %77 ], [ true, %74 ]
+  %82 = load i8, ptr %5, align 1, !tbaa !11, !range !13, !noundef !14
+  %83 = trunc nuw i8 %82 to i1
+  %or.cond114 = select i1 %83, i1 %81, i1 false
+  br i1 %or.cond114, label %84, label %.thread89
 
-83:                                               ; preds = %80
+84:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #6
-  %84 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %84, i8 0, i64 104, i1 false)
-  %85 = tail call ptr @je_arena_get_ehooks(ptr noundef nonnull %1) #6
+  %85 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %85, i8 0, i64 104, i1 false)
+  %86 = tail call ptr @je_arena_get_ehooks(ptr noundef nonnull %1) #6
   %.val80 = load i32, ptr %32, align 8, !tbaa !15
   %.not94 = icmp eq i64 %3, 0
-  %86 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %70, ptr %86, align 8, !tbaa !71
-  %87 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %3, ptr %87, align 8, !tbaa !72
-  %88 = and i32 %.val80, -268431361
-  %.masked.i83 = zext i32 %88 to i64
-  %89 = select i1 %.not94, i64 0, i64 4096
-  %90 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i64 235, ptr %90, align 8, !tbaa !73
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %70, ptr %87, align 8, !tbaa !71
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 %3, ptr %88, align 8, !tbaa !72
+  %89 = and i32 %.val80, -268431361
+  %.masked.i83 = zext i32 %89 to i64
+  %90 = select i1 %.not94, i64 0, i64 4096
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i64 235, ptr %91, align 8, !tbaa !73
   %.not.i84 = icmp eq i8 %43, 0
-  %91 = select i1 %.not.i84, i64 8192, i64 17592186052608
-  %92 = or disjoint i64 %91, %89
-  %93 = or disjoint i64 %92, %.masked.i83
-  store i64 %93, ptr %9, align 8, !tbaa !69
-  %94 = call zeroext i1 @je_extent_purge_forced_wrapper(ptr noundef %0, ptr noundef %85, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %3) #6
-  br i1 %94, label %95, label %96
+  %92 = select i1 %.not.i84, i64 8192, i64 17592186052608
+  %93 = or disjoint i64 %92, %90
+  %94 = or disjoint i64 %93, %.masked.i83
+  store i64 %94, ptr %9, align 8, !tbaa !69
+  %95 = call zeroext i1 @je_extent_purge_forced_wrapper(ptr noundef %0, ptr noundef %86, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %3) #6
+  br i1 %95, label %96, label %97
 
-95:                                               ; preds = %83
+96:                                               ; preds = %84
   call void @llvm.memset.p0.i64(ptr align 1 %70, i8 0, i64 %3, i1 false)
-  br label %96
+  br label %97
 
-96:                                               ; preds = %95, %83
+97:                                               ; preds = %96, %84
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #6
   br label %.thread89
 
-97:                                               ; preds = %65
-  %98 = icmp eq ptr %68, inttoptr (i64 -1 to ptr)
-  br i1 %98, label %atomic_store_b.exit, label %37
+98:                                               ; preds = %65
+  %99 = icmp eq ptr %68, inttoptr (i64 -1 to ptr)
+  br i1 %99, label %atomic_store_b.exit, label %37
 
-atomic_store_b.exit:                              ; preds = %97
+atomic_store_b.exit:                              ; preds = %98
   store atomic i8 1, ptr @dss_exhausted.0 release, align 1
   br label %.thread
 
@@ -255,8 +255,8 @@ atomic_store_b.exit:                              ; preds = %97
   tail call void @je_edata_cache_put(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %13) #6
   br label %.thread89
 
-.thread89:                                        ; preds = %80, %96, %11, %7, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %7 ], [ null, %11 ], [ %70, %96 ], [ %70, %80 ]
+.thread89:                                        ; preds = %80, %97, %11, %7, %.thread
+  %.0 = phi ptr [ null, %.thread ], [ null, %7 ], [ null, %11 ], [ %70, %97 ], [ %70, %80 ]
   ret ptr %.0
 }
 

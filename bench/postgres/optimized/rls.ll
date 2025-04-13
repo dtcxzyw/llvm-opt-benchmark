@@ -26,8 +26,8 @@ define dso_local range(i32 0, 3) i32 @check_enable_rls(i32 noundef %0, i32 nound
 9:                                                ; preds = %6
   %10 = zext i32 %0 to i64
   %11 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %10) #4
-  %.not21 = icmp eq ptr %11, null
-  br i1 %.not21, label %42, label %12
+  %.not22 = icmp eq ptr %11, null
+  br i1 %.not22, label %42, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr i8, ptr %11, i64 16
@@ -63,8 +63,8 @@ define dso_local range(i32 0, 3) i32 @check_enable_rls(i32 noundef %0, i32 nound
 31:                                               ; preds = %29, %26
   %32 = load i8, ptr @row_security, align 1, !range !4, !noundef !5
   %33 = trunc nuw i8 %32 to i1
-  %brmerge = or i1 %2, %33
-  br i1 %brmerge, label %42, label %34
+  %or.cond = or i1 %2, %33
+  br i1 %or.cond, label %42, label %34
 
 34:                                               ; preds = %31
   %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
@@ -124,8 +124,8 @@ define dso_local range(i64 0, 2) i64 @row_security_active(ptr noundef readonly c
 7:                                                ; preds = %1
   %8 = and i64 %3, 4294967295
   %9 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %8) #4
-  %.not21.i = icmp eq ptr %9, null
-  br i1 %.not21.i, label %check_enable_rls.exit, label %10
+  %.not22.i = icmp eq ptr %9, null
+  br i1 %.not22.i, label %check_enable_rls.exit, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr i8, ptr %9, i64 16
@@ -182,8 +182,8 @@ define dso_local range(i64 0, 2) i64 @row_security_active_name(ptr noundef reado
 11:                                               ; preds = %1
   %12 = zext i32 %8 to i64
   %13 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %12) #4
-  %.not21.i = icmp eq ptr %13, null
-  br i1 %.not21.i, label %check_enable_rls.exit, label %14
+  %.not22.i = icmp eq ptr %13, null
+  br i1 %.not22.i, label %check_enable_rls.exit, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr i8, ptr %13, i64 16

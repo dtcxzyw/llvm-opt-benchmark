@@ -1853,8 +1853,8 @@ define dso_local void @ImportSnapshot(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %1
   %10 = tail call i32 @GetTopTransactionIdIfAny() #18
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %13
+  %.not40 = icmp eq i32 %10, 0
+  br i1 %.not40, label %11, label %13
 
 11:                                               ; preds = %9
   %12 = tail call zeroext i1 @IsSubTransaction() #18
@@ -1884,8 +1884,8 @@ define dso_local void @ImportSnapshot(ptr noundef %0) local_unnamed_addr #0 {
 24:                                               ; preds = %17
   %25 = tail call i64 @strspn(ptr noundef %0, ptr noundef nonnull @.str.31) #19
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
-  %.not38 = icmp eq i64 %25, %26
-  br i1 %.not38, label %31, label %27
+  %.not41 = icmp eq i64 %25, %26
+  br i1 %.not41, label %31, label %27
 
 27:                                               ; preds = %24
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -1898,8 +1898,8 @@ define dso_local void @ImportSnapshot(ptr noundef %0) local_unnamed_addr #0 {
 31:                                               ; preds = %24
   %32 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.33, ptr noundef nonnull %0) #18
   %33 = call ptr @AllocateFile(ptr noundef nonnull %2, ptr noundef nonnull @.str.34) #18
-  %.not39 = icmp eq ptr %33, null
-  br i1 %.not39, label %34, label %45
+  %.not42 = icmp eq ptr %33, null
+  br i1 %.not42, label %34, label %45
 
 34:                                               ; preds = %31
   %35 = tail call ptr @__errno_location() #20
@@ -1924,8 +1924,8 @@ define dso_local void @ImportSnapshot(ptr noundef %0) local_unnamed_addr #0 {
 45:                                               ; preds = %31
   %46 = call i32 @fileno(ptr noundef nonnull %33) #18
   %47 = call i32 @fstat(i32 noundef %46, ptr noundef nonnull %3) #18
-  %.not40 = icmp eq i32 %47, 0
-  br i1 %.not40, label %51, label %48
+  %.not43 = icmp eq i32 %47, 0
+  br i1 %.not43, label %51, label %48
 
 48:                                               ; preds = %45
   %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -1940,8 +1940,8 @@ define dso_local void @ImportSnapshot(ptr noundef %0) local_unnamed_addr #0 {
   %54 = add i64 %53, 1
   %55 = call ptr @palloc(i64 noundef %54) #18
   %56 = call i64 @fread(ptr noundef %55, i64 noundef %53, i64 noundef 1, ptr noundef nonnull %33)
-  %.not41 = icmp eq i64 %56, 1
-  br i1 %.not41, label %60, label %57
+  %.not44 = icmp eq i64 %56, 1
+  br i1 %.not44, label %60, label %57
 
 57:                                               ; preds = %51
   %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -2003,7 +2003,7 @@ parseVxidFromText.exit:                           ; preds = %77
   %85 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.41, ptr noundef %4, ptr noundef %2)
   %86 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.42, ptr noundef %4, ptr noundef %2)
   %87 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.43, ptr noundef %4, ptr noundef %2)
-  %.not42 = icmp eq i32 %87, 0
+  %.not45 = icmp eq i32 %87, 0
   store i32 0, ptr %6, align 8
   %88 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.44, ptr noundef %4, ptr noundef %2)
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -2036,8 +2036,8 @@ parseVxidFromText.exit:                           ; preds = %77
   %105 = call ptr @palloc(i64 noundef %104) #18
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %105, ptr %106, align 8
-  %.not49 = icmp eq i32 %92, 0
-  br i1 %.not49, label %._crit_edge, label %.lr.ph
+  %.not51 = icmp eq i32 %92, 0
+  br i1 %.not51, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %102, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %102 ]
@@ -2082,17 +2082,17 @@ parseVxidFromText.exit:                           ; preds = %77
   %127 = call ptr @palloc(i64 noundef %126) #18
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %127, ptr %128, align 8
-  %.not50 = icmp eq i32 %114, 0
-  br i1 %.not50, label %.loopexit, label %.lr.ph48
+  %.not52 = icmp eq i32 %114, 0
+  br i1 %.not52, label %.loopexit, label %.lr.ph50
 
-.lr.ph48:                                         ; preds = %124, %.lr.ph48
-  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph48 ], [ 0, %124 ]
+.lr.ph50:                                         ; preds = %124, %.lr.ph50
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.lr.ph50 ], [ 0, %124 ]
   %129 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.51, ptr noundef %4, ptr noundef %2)
-  %130 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv52
+  %130 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv54
   store i32 %129, ptr %130, align 4
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %125
-  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph48, !llvm.loop !15
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %125
+  br i1 %exitcond58.not, label %.loopexit, label %.lr.ph50, !llvm.loop !15
 
 131:                                              ; preds = %._crit_edge
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -2101,7 +2101,7 @@ parseVxidFromText.exit:                           ; preds = %77
   store ptr null, ptr %133, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph48, %124, %131
+.loopexit:                                        ; preds = %.lr.ph50, %124, %131
   %134 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.52, ptr noundef %4, ptr noundef %2)
   %135 = icmp ne i32 %134, 0
   %136 = getelementptr inbounds nuw i8, ptr %6, i64 45
@@ -2128,11 +2128,11 @@ parseVxidFromText.exit:                           ; preds = %77
 147:                                              ; preds = %.loopexit
   %148 = load i32, ptr @XactIsoLevel, align 4
   %149 = icmp eq i32 %148, 3
-  br i1 %149, label %150, label %163
+  br i1 %149, label %150, label %162
 
 150:                                              ; preds = %147
-  %.not43 = icmp eq i32 %86, 3
-  br i1 %.not43, label %155, label %151
+  %.not46 = icmp eq i32 %86, 3
+  br i1 %.not46, label %155, label %151
 
 151:                                              ; preds = %150
   %152 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
@@ -2143,35 +2143,33 @@ parseVxidFromText.exit:                           ; preds = %77
   unreachable
 
 155:                                              ; preds = %150
-  br i1 %.not42, label %163, label %156
+  %156 = load i8, ptr @XactReadOnly, align 1, !range !4
+  %157 = trunc nuw i8 %156 to i1
+  %or.cond9 = select i1 %.not45, i1 true, i1 %157
+  br i1 %or.cond9, label %162, label %158
 
-156:                                              ; preds = %155
-  %157 = load i8, ptr @XactReadOnly, align 1, !range !4, !noundef !5
-  %158 = trunc nuw i8 %157 to i1
-  br i1 %158, label %163, label %159
-
-159:                                              ; preds = %156
-  %160 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %160)
-  %161 = call i32 @errcode(i32 noundef 1088) #18
-  %162 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #18
+158:                                              ; preds = %155
+  %159 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  call void @llvm.assume(i1 %159)
+  %160 = call i32 @errcode(i32 noundef 1088) #18
+  %161 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #18
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1476, ptr noundef nonnull @__func__.ImportSnapshot) #18
   unreachable
 
-163:                                              ; preds = %155, %156, %147
-  %164 = load i32, ptr @MyDatabaseId, align 4
-  %.not44 = icmp eq i32 %85, %164
-  br i1 %.not44, label %169, label %165
+162:                                              ; preds = %155, %147
+  %163 = load i32, ptr @MyDatabaseId, align 4
+  %.not = icmp eq i32 %85, %163
+  br i1 %.not, label %168, label %164
 
-165:                                              ; preds = %163
-  %166 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %166)
-  %167 = call i32 @errcode(i32 noundef 1088) #18
-  %168 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55) #18
+164:                                              ; preds = %162
+  %165 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  call void @llvm.assume(i1 %165)
+  %166 = call i32 @errcode(i32 noundef 1088) #18
+  %167 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55) #18
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1491, ptr noundef nonnull @__func__.ImportSnapshot) #18
   unreachable
 
-169:                                              ; preds = %163
+168:                                              ; preds = %162
   call fastcc void @SetTransactionSnapshot(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %84, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
@@ -2740,9 +2738,10 @@ define dso_local void @SerializeSnapshot(ptr noundef readonly captures(none) %0,
   %15 = load i8, ptr %14, align 1, !range !4, !noundef !5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i32, ptr %16, align 8
+  %.not18 = xor i1 %13, true
   %18 = trunc nuw i8 %15 to i1
-  %spec.select = select i1 %18, i32 %10, i32 0
-  %.sroa.6.0 = select i1 %13, i32 %spec.select, i32 %10
+  %or.cond = select i1 %.not18, i1 true, i1 %18
+  %.sroa.6.0 = select i1 %or.cond, i32 %10, i32 0
   store i32 %4, ptr %1, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %6, ptr %.sroa.4.0..sroa_idx, align 1

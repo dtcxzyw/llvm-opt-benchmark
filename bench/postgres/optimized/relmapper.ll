@@ -992,14 +992,14 @@ merge_map_updates.exit20:                         ; preds = %apply_map_update.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtEOXact_RelationMap(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
-  %.not3 = xor i1 %0, true
-  %brmerge = or i1 %1, %.not3
-  br i1 %brmerge, label %9, label %3
+  %.not = xor i1 %0, true
+  %or.cond = or i1 %1, %.not
+  br i1 %or.cond, label %9, label %3
 
 3:                                                ; preds = %2
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_shared_updates, i64 4), align 4
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5
+  %.not3 = icmp eq i32 %4, 0
+  br i1 %.not3, label %6, label %5
 
 5:                                                ; preds = %3
   tail call fastcc void @perform_relmap_update(i1 noundef zeroext true, ptr noundef nonnull @active_shared_updates)
@@ -1008,8 +1008,8 @@ define dso_local void @AtEOXact_RelationMap(i1 noundef zeroext %0, i1 noundef ze
 
 6:                                                ; preds = %5, %3
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4
-  %.not2 = icmp eq i32 %7, 0
-  br i1 %.not2, label %10, label %8
+  %.not4 = icmp eq i32 %7, 0
+  br i1 %.not4, label %10, label %8
 
 8:                                                ; preds = %6
   tail call fastcc void @perform_relmap_update(i1 noundef zeroext false, ptr noundef nonnull @active_local_updates)

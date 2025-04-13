@@ -2615,8 +2615,8 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6Threa
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, 2
-  %.not.i46 = icmp eq i64 %40, 0
-  br i1 %.not.i46, label %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit, label %41
+  %.not.i47 = icmp eq i64 %40, 0
+  br i1 %.not.i47, label %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit, label %41
 
 41:                                               ; preds = %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8ScopedCSC2EP6ThreadPS2_.exit
   %42 = load volatile ptr, ptr %20, align 8
@@ -2660,18 +2660,18 @@ _ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exi
 62:                                               ; preds = %.lr.ph.i
   %63 = load volatile ptr, ptr %.018.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
-  %.not.i47 = icmp eq ptr %63, null
-  br i1 %.not.i47, label %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8get_nodeI20FinalizerEntryLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread, label %.lr.ph.i, !llvm.loop !15
+  %.not.i48 = icmp eq ptr %63, null
+  br i1 %.not.i48, label %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8get_nodeI20FinalizerEntryLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread, label %.lr.ph.i, !llvm.loop !15
 
 _ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8get_nodeI20FinalizerEntryLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread: ; preds = %62, %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit
-  %.1.i60 = phi i64 [ 0, %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit ], [ %56, %62 ]
+  %.1.i61 = phi i64 [ 0, %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit ], [ %56, %62 ]
   store volatile ptr %51, ptr %14, align 8
   %64 = load volatile ptr, ptr %.0.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   %65 = ptrtoint ptr %64 to i64
   %66 = and i64 %65, 1
-  %.not.i48 = icmp eq i64 %66, 0
-  br i1 %.not.i48, label %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket9cas_firstEPNS2_4NodeES5_.exit, label %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
+  %.not.i49 = icmp eq i64 %66, 0
+  br i1 %.not.i49, label %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket9cas_firstEPNS2_4NodeES5_.exit, label %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
 
 _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket9cas_firstEPNS2_4NodeES5_.exit: ; preds = %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8get_nodeI20FinalizerEntryLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread
   %67 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, ptr %51, ptr nonnull align 8 dereferenceable(8) %.0.i) #16, !srcloc !20
@@ -2680,8 +2680,8 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket9cas_firstEP
 
 69:                                               ; preds = %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket9cas_firstEPNS2_4NodeES5_.exit
   %70 = load ptr, ptr %0, align 8
-  %.not.i50 = icmp eq ptr %70, null
-  br i1 %.not.i50, label %.thread, label %71
+  %.not.i51 = icmp eq ptr %70, null
+  br i1 %.not.i51, label %.thread, label %71
 
 71:                                               ; preds = %69
   tail call void @_ZN19TableRateStatistics3addEv(ptr noundef nonnull align 8 dereferenceable(64) %70) #16
@@ -2720,29 +2720,29 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket9cas_firstEP
   br label %79
 
 79:                                               ; preds = %.thread, %78
-  %.1.ph81 = phi i1 [ false, %78 ], [ true, %.thread ]
-  %.1.i59.ph79 = phi i64 [ %56, %78 ], [ %.1.i60, %.thread ]
-  %.not44 = icmp eq ptr %5, null
-  br i1 %.not44, label %85, label %80
+  %.1.ph82 = phi i1 [ true, %.thread ], [ false, %78 ]
+  %.1.i60.ph80 = phi i64 [ %.1.i61, %.thread ], [ %56, %78 ]
+  %.not45 = icmp eq ptr %5, null
+  br i1 %.not45, label %85, label %80
 
 80:                                               ; preds = %79
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %82 = load i64, ptr %81, align 8
-  %83 = icmp ugt i64 %.1.i59.ph79, %82
+  %83 = icmp ugt i64 %.1.i60.ph80, %82
   %84 = zext i1 %83 to i8
   store i8 %84, ptr %5, align 1
   br label %85
 
 85:                                               ; preds = %80, %79
-  %.not45 = icmp eq ptr %6, null
-  br i1 %.not45, label %87, label %86
+  %.not46 = icmp eq ptr %6, null
+  br i1 %.not46, label %87, label %86
 
 86:                                               ; preds = %85
   store i8 0, ptr %6, align 1
   br label %87
 
 87:                                               ; preds = %86, %85
-  ret i1 %.1.ph81
+  ret i1 %.1.ph82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

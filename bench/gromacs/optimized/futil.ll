@@ -4503,8 +4503,8 @@ define noundef i32 @_Z13gmx_file_copyRKNSt10filesystem7__cxx114pathES3_b(ptr nou
   store ptr %8, ptr %7, align 8, !tbaa !24
   %9 = tail call noundef zeroext i1 @_ZNSt10filesystem8is_emptyERKNS_7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %.not = xor i1 %9, true
-  %brmerge = or i1 %2, %.not
-  br i1 %brmerge, label %10, label %13
+  %or.cond = or i1 %2, %.not
+  br i1 %or.cond, label %10, label %13
 
 10:                                               ; preds = %6
   %11 = call noundef zeroext i1 @_ZNSt10filesystem9copy_fileERKNS_7__cxx114pathES3_NS_12copy_optionsERSt10error_code(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i16 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %4)

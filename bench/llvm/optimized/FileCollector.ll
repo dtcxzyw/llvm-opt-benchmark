@@ -1392,8 +1392,8 @@ define dso_local { i32, ptr } @_ZN4llvm13FileCollector9copyFilesEb(ptr noundef n
   %18 = call { i32, ptr } @_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext true, i32 noundef 504) #20
   %19 = extractvalue { i32, ptr } %18, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #20
-  %.not55 = icmp eq i32 %19, 0
-  br i1 %.not55, label %20, label %103
+  %.not = icmp eq i32 %19, 0
+  br i1 %.not, label %20, label %108
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1410,8 +1410,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %20
   %25 = load ptr, ptr %24, align 8, !tbaa !71
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %27 = load ptr, ptr %26, align 8, !tbaa !71
-  %.not5662 = icmp eq ptr %25, %27
-  br i1 %.not5662, label %.critedge32, label %.lr.ph
+  %.not5356 = icmp eq ptr %25, %27
+  br i1 %.not5356, label %.critedge30, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 44
@@ -1438,8 +1438,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %20
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 33
   br label %50
 
-50:                                               ; preds = %.lr.ph, %select.unfold49
-  %.sroa.037.063 = phi ptr [ %25, %.lr.ph ], [ %97, %select.unfold49 ]
+50:                                               ; preds = %.lr.ph, %101
+  %.sroa.035.057 = phi ptr [ %25, %.lr.ph ], [ %102, %101 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 44, i1 false)
   store i32 65535, ptr %28, align 4, !tbaa !73
@@ -1447,26 +1447,26 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #20
   store i8 4, ptr %30, align 8, !tbaa !52
   store i8 1, ptr %31, align 1, !tbaa !55
-  store ptr %.sroa.037.063, ptr %7, align 8, !tbaa !27
+  store ptr %.sroa.035.057, ptr %7, align 8, !tbaa !27
   %51 = call { i32, ptr } @_ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb(ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(72) %6, i1 noundef zeroext true) #20
   %52 = extractvalue { i32, ptr } %51, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #20
-  %.not57 = icmp eq i32 %52, 0
-  br i1 %.not57, label %54, label %53
+  %.not54 = icmp eq i32 %52, 0
+  br i1 %.not54, label %54, label %53
 
 53:                                               ; preds = %50
-  br i1 %1, label %select.unfold, label %select.unfold49
+  br i1 %1, label %select.unfold, label %101
 
 54:                                               ; preds = %50
   %55 = load i32, ptr %32, align 8, !tbaa !76
   %56 = icmp eq i32 %55, 1
-  br i1 %56, label %select.unfold49, label %57
+  br i1 %56, label %101, label %57
 
 57:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #20
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.037.063, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.035.057, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !26
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.037.063, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.035.057, i64 40
   %61 = load i64, ptr %60, align 8, !tbaa !22
   %62 = call { ptr, i64 } @_ZN4llvm3sys4path11parent_pathENS_9StringRefENS1_5StyleE(ptr %59, i64 %61, i32 noundef 0) #20
   %63 = extractvalue { ptr, i64 } %62, 0
@@ -1478,134 +1478,134 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %20
   %65 = call { i32, ptr } @_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %8, i1 noundef zeroext true, i32 noundef 504) #20
   %66 = extractvalue { i32, ptr } %65, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #20
-  %.not58 = icmp ne i32 %66, 0
-  %brmerge.not = and i1 %1, %.not58
-  br i1 %brmerge.not, label %select.unfold, label %67
+  %67 = icmp ne i32 %66, 0
+  %or.cond = and i1 %1, %67
+  br i1 %or.cond, label %select.unfold, label %68
 
-67:                                               ; preds = %57
-  %68 = load i32, ptr %32, align 8, !tbaa !76
-  %69 = icmp eq i32 %68, 3
-  br i1 %69, label %70, label %73
+68:                                               ; preds = %57
+  %69 = load i32, ptr %32, align 8, !tbaa !76
+  %70 = icmp eq i32 %69, 3
+  br i1 %70, label %71, label %75
 
-70:                                               ; preds = %67
+71:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #20
   store i8 4, ptr %48, align 8, !tbaa !52
   store i8 1, ptr %49, align 1, !tbaa !55
   store ptr %58, ptr %9, align 8, !tbaa !27
-  %71 = call { i32, ptr } @_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext true, i32 noundef 504) #20
-  %72 = extractvalue { i32, ptr } %71, 0
+  %72 = call { i32, ptr } @_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext true, i32 noundef 504) #20
+  %73 = extractvalue { i32, ptr } %72, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #20
-  %.not60 = icmp ne i32 %72, 0
-  %brmerge24.not = and i1 %1, %.not60
-  br i1 %brmerge24.not, label %select.unfold, label %select.unfold49
+  %74 = icmp ne i32 %73, 0
+  %or.cond5 = and i1 %1, %74
+  br i1 %or.cond5, label %select.unfold, label %101
 
-73:                                               ; preds = %67
+75:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #20
   store i8 4, ptr %36, align 8, !tbaa !52
   store i8 1, ptr %37, align 1, !tbaa !55
-  store ptr %.sroa.037.063, ptr %10, align 8, !tbaa !27
+  store ptr %.sroa.035.057, ptr %10, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #20
   store i8 4, ptr %38, align 8, !tbaa !52
   store i8 1, ptr %39, align 1, !tbaa !55
   store ptr %58, ptr %11, align 8, !tbaa !27
-  %74 = call { i32, ptr } @_ZN4llvm3sys2fs9copy_fileERKNS_5TwineES4_(ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(34) %11) #20
-  %75 = extractvalue { i32, ptr } %74, 0
+  %76 = call { i32, ptr } @_ZN4llvm3sys2fs9copy_fileERKNS_5TwineES4_(ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(34) %11) #20
+  %77 = extractvalue { i32, ptr } %76, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #20
-  %.not = icmp ne i32 %75, 0
-  %brmerge27.not = and i1 %1, %.not
-  br i1 %brmerge27.not, label %select.unfold, label %76
+  %78 = icmp ne i32 %77, 0
+  %or.cond7 = and i1 %1, %78
+  br i1 %or.cond7, label %select.unfold, label %79
 
-76:                                               ; preds = %73
+79:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #20
   store i8 4, ptr %40, align 8, !tbaa !52
   store i8 1, ptr %41, align 1, !tbaa !55
-  store ptr %.sroa.037.063, ptr %13, align 8, !tbaa !27
+  store ptr %.sroa.035.057, ptr %13, align 8, !tbaa !27
   call void @_ZN4llvm3sys2fs14getPermissionsERKNS_5TwineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr") align 8 %12, ptr noundef nonnull align 8 dereferenceable(34) %13) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #20
-  %77 = load i8, ptr %42, align 8
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %.critedge, label %79
+  %80 = load i8, ptr %42, align 8
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %.critedge, label %82
 
-79:                                               ; preds = %76
+82:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #20
   store i8 4, ptr %43, align 8, !tbaa !52
   store i8 1, ptr %44, align 1, !tbaa !55
   store ptr %58, ptr %14, align 8, !tbaa !27
-  %80 = load i32, ptr %12, align 8, !tbaa !77
-  %81 = call { i32, ptr } @_ZN4llvm3sys2fs14setPermissionsERKNS_5TwineENS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %14, i32 noundef %80) #20
-  %82 = extractvalue { i32, ptr } %81, 0
+  %83 = load i32, ptr %12, align 8, !tbaa !77
+  %84 = call { i32, ptr } @_ZN4llvm3sys2fs14setPermissionsERKNS_5TwineENS1_5permsE(ptr noundef nonnull align 8 dereferenceable(34) %14, i32 noundef %83) #20
+  %85 = extractvalue { i32, ptr } %84, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #20
-  %.not59 = icmp ne i32 %82, 0
-  %brmerge30.not = and i1 %1, %.not59
-  br i1 %brmerge30.not, label %96, label %.critedge
+  %86 = icmp ne i32 %85, 0
+  %or.cond9 = and i1 %1, %86
+  br i1 %or.cond9, label %100, label %.critedge
 
-.critedge:                                        ; preds = %79, %76
+.critedge:                                        ; preds = %82, %79
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #20
-  %83 = load ptr, ptr %58, align 8, !tbaa !26
-  %84 = load i64, ptr %60, align 8, !tbaa !22
+  %87 = load ptr, ptr %58, align 8, !tbaa !26
+  %88 = load i64, ptr %60, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
   store i8 5, ptr %45, align 8, !tbaa !52
   store i8 1, ptr %46, align 1, !tbaa !55
-  store ptr %83, ptr %4, align 8, !tbaa !27
-  store i64 %84, ptr %47, align 8, !tbaa !27
-  %85 = call { i32, ptr } @_ZN4llvm3sys2fs8openFileERKNS_5TwineERiNS1_19CreationDispositionENS1_10FileAccessENS1_9OpenFlagsEj(ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 438) #20
-  %86 = extractvalue { i32, ptr } %85, 0
+  store ptr %87, ptr %4, align 8, !tbaa !27
+  store i64 %88, ptr %47, align 8, !tbaa !27
+  %89 = call { i32, ptr } @_ZN4llvm3sys2fs8openFileERKNS_5TwineERiNS1_19CreationDispositionENS1_10FileAccessENS1_9OpenFlagsEj(ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 438) #20
+  %90 = extractvalue { i32, ptr } %89, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
-  %.not.i = icmp eq i32 %86, 0
-  br i1 %.not.i, label %87, label %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit
+  %.not.i = icmp eq i32 %90, 0
+  br i1 %.not.i, label %91, label %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit
 
-87:                                               ; preds = %.critedge
-  %88 = load i32, ptr %3, align 4, !tbaa !38
-  %89 = call i64 @_ZNK4llvm3sys2fs17basic_file_status19getLastAccessedTimeEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #20
-  %90 = call i64 @_ZNK4llvm3sys2fs17basic_file_status23getLastModificationTimeEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #20
-  %91 = call { i32, ptr } @_ZN4llvm3sys2fs32setLastAccessAndModificationTimeEiNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESA_(i32 noundef %88, i64 %89, i64 %90) #20
-  %92 = extractvalue { i32, ptr } %91, 0
-  %.not7.i = icmp eq i32 %92, 0
-  br i1 %.not7.i, label %93, label %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit
+91:                                               ; preds = %.critedge
+  %92 = load i32, ptr %3, align 4, !tbaa !38
+  %93 = call i64 @_ZNK4llvm3sys2fs17basic_file_status19getLastAccessedTimeEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #20
+  %94 = call i64 @_ZNK4llvm3sys2fs17basic_file_status23getLastModificationTimeEv(ptr noundef nonnull align 8 dereferenceable(72) %6) #20
+  %95 = call { i32, ptr } @_ZN4llvm3sys2fs32setLastAccessAndModificationTimeEiNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESA_(i32 noundef %92, i64 %93, i64 %94) #20
+  %96 = extractvalue { i32, ptr } %95, 0
+  %.not7.i = icmp eq i32 %96, 0
+  br i1 %.not7.i, label %97, label %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit
 
-93:                                               ; preds = %87
-  %94 = load i32, ptr %3, align 4, !tbaa !38
-  %95 = call { i32, ptr } @_ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi(i32 noundef %94) #20
+97:                                               ; preds = %91
+  %98 = load i32, ptr %3, align 4, !tbaa !38
+  %99 = call { i32, ptr } @_ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi(i32 noundef %98) #20
   br label %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit
 
-_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit: ; preds = %93, %.critedge, %87
+_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit: ; preds = %97, %.critedge, %91
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
-  br label %select.unfold49
+  br label %101
 
-96:                                               ; preds = %79
+100:                                              ; preds = %82
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #20
   br label %select.unfold
 
-select.unfold49:                                  ; preds = %70, %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit, %54, %53
+101:                                              ; preds = %_ZL29copyAccessAndModificationTimeN4llvm9StringRefERKNS_3sys2fs11file_statusE.exit, %54, %53, %71
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #20
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.037.063, i64 72
-  %.not56 = icmp eq ptr %97, %27
-  br i1 %.not56, label %.critedge32, label %50
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.035.057, i64 72
+  %.not53 = icmp eq ptr %102, %27
+  br i1 %.not53, label %.critedge30, label %50
 
-select.unfold:                                    ; preds = %53, %57, %73, %70, %96
-  %.sroa.043.1.ph = phi i32 [ %82, %96 ], [ %52, %53 ], [ %72, %70 ], [ %75, %73 ], [ %66, %57 ]
-  %.pn = phi { i32, ptr } [ %81, %96 ], [ %51, %53 ], [ %71, %70 ], [ %74, %73 ], [ %65, %57 ]
+select.unfold:                                    ; preds = %71, %53, %57, %75, %100
+  %.sroa.041.1.ph = phi i32 [ %85, %100 ], [ %73, %71 ], [ %52, %53 ], [ %66, %57 ], [ %77, %75 ]
+  %.pn = phi { i32, ptr } [ %84, %100 ], [ %72, %71 ], [ %51, %53 ], [ %65, %57 ], [ %76, %75 ]
   %.sroa.14.1.ph = extractvalue { i32, ptr } %.pn, 1
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #20
-  br label %99
+  br label %104
 
-.critedge32:                                      ; preds = %select.unfold49, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %98 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #23
-  br label %99
+.critedge30:                                      ; preds = %101, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+  %103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #23
+  br label %104
 
-99:                                               ; preds = %select.unfold, %.critedge32
-  %.sroa.043.3 = phi i32 [ %.sroa.043.1.ph, %select.unfold ], [ 0, %.critedge32 ]
-  %.sroa.14.3 = phi ptr [ %.sroa.14.1.ph, %select.unfold ], [ %98, %.critedge32 ]
-  %100 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %21) #20
-  %101 = insertvalue { i32, ptr } poison, i32 %.sroa.043.3, 0
-  %102 = insertvalue { i32, ptr } %101, ptr %.sroa.14.3, 1
-  br label %103
+104:                                              ; preds = %select.unfold, %.critedge30
+  %.sroa.041.3 = phi i32 [ %.sroa.041.1.ph, %select.unfold ], [ 0, %.critedge30 ]
+  %.sroa.14.3 = phi ptr [ %.sroa.14.1.ph, %select.unfold ], [ %103, %.critedge30 ]
+  %105 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %21) #20
+  %106 = insertvalue { i32, ptr } poison, i32 %.sroa.041.3, 0
+  %107 = insertvalue { i32, ptr } %106, ptr %.sroa.14.3, 1
+  br label %108
 
-103:                                              ; preds = %2, %99
-  %.fca.1.insert.merged = phi { i32, ptr } [ %102, %99 ], [ %18, %2 ]
+108:                                              ; preds = %2, %104
+  %.fca.1.insert.merged = phi { i32, ptr } [ %107, %104 ], [ %18, %2 ]
   ret { i32, ptr } %.fca.1.insert.merged
 }
 

@@ -23,19 +23,17 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef nonnull ptr @reftable_error_str(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, 13
   %2 = icmp ugt i32 %0, -14
-  br i1 %2, label %switch.hole_check, label %3
-
-3:                                                ; preds = %switch.hole_check, %1
-  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @reftable_error_str.buf, i64 noundef 250, ptr noundef nonnull @.str.12, i32 noundef %0) #2
-  br label %6
-
-switch.hole_check:                                ; preds = %1
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 8175, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
+  %or.cond = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %3
 
-switch.lookup:                                    ; preds = %switch.hole_check
+3:                                                ; preds = %1
+  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @reftable_error_str.buf, i64 noundef 250, ptr noundef nonnull @.str.12, i32 noundef %0) #2
+  br label %6
+
+switch.lookup:                                    ; preds = %1
   %5 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table.reftable_error_str, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8

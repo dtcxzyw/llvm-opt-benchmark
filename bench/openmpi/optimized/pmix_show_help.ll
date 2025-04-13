@@ -121,7 +121,7 @@ define range(i32 -46, 1) i32 @pmix_help_check_dups(ptr noundef %0, ptr noundef %
 
 20:                                               ; preds = %19, %._crit_edge.i
   %.not22.i.i = icmp eq ptr %16, null
-  br i1 %.not22.i.i, label %57, label %21
+  br i1 %.not22.i.i, label %56, label %21
 
 21:                                               ; preds = %20
   %22 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %16, ptr noundef null) #18
@@ -154,61 +154,59 @@ define range(i32 -46, 1) i32 @pmix_help_check_dups(ptr noundef %0, ptr noundef %
   store i32 %35, ptr %33, align 8, !tbaa !31
   %36 = load i64, ptr @show_help_time_last_displayed, align 8, !tbaa !32
   %37 = add nsw i64 %36, 5
-  %38 = icmp sgt i64 %3, %37
-  br i1 %38, label %39, label %41
+  %38 = icmp sle i64 %3, %37
+  %.b14 = load i1, ptr @show_help_timer_set, align 1
+  %or.cond = select i1 %38, i1 true, i1 %.b14
+  br i1 %or.cond, label %40, label %39
 
 39:                                               ; preds = %32
-  %.b1113 = load i1, ptr @show_help_timer_set, align 1
-  br i1 %.b1113, label %.thread, label %40
-
-40:                                               ; preds = %39
   tail call void @pmix_show_accumulated_duplicates(i32 poison, i16 signext poison, ptr poison)
-  br label %41
+  %.b1215.pr = load i1, ptr @show_help_timer_set, align 1
+  br i1 %.b1215.pr, label %58, label %41
 
-41:                                               ; preds = %40, %32
-  %.b1014.pr = load i1, ptr @show_help_timer_set, align 1
-  br i1 %.b1014.pr, label %.thread, label %42
+40:                                               ; preds = %32
+  br i1 %.b14, label %58, label %41
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8, !tbaa !33
-  %44 = tail call i32 @pmix_event_assign(ptr noundef nonnull @show_help_timer_event, ptr noundef %43, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @pmix_show_accumulated_duplicates, ptr noundef null) #18
-  %45 = tail call i32 @event_add(ptr noundef nonnull @show_help_timer_event, ptr noundef nonnull @show_help_interval) #18
+41:                                               ; preds = %39, %40
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8, !tbaa !33
+  %43 = tail call i32 @pmix_event_assign(ptr noundef nonnull @show_help_timer_event, ptr noundef %42, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @pmix_show_accumulated_duplicates, ptr noundef null) #18
+  %44 = tail call i32 @event_add(ptr noundef nonnull @show_help_timer_event, ptr noundef nonnull @show_help_interval) #18
   store i1 true, ptr @show_help_timer_set, align 1
-  br label %.thread
+  br label %58
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %21
-  %46 = tail call noalias ptr @strdup(ptr noundef %0) #18
-  %47 = getelementptr inbounds nuw i8, ptr %16, i64 144
-  store ptr %46, ptr %47, align 8, !tbaa !13
-  %48 = tail call noalias ptr @strdup(ptr noundef %1) #18
-  %49 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  store ptr %48, ptr %49, align 8, !tbaa !19
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 248), align 8, !tbaa !50
-  %51 = getelementptr inbounds nuw i8, ptr %16, i64 128
-  store ptr %50, ptr %51, align 8, !tbaa !50
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 120
-  store volatile ptr %16, ptr %52, align 8, !tbaa !3
-  %53 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  store ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 120), ptr %53, align 8, !tbaa !3
+  %45 = tail call noalias ptr @strdup(ptr noundef %0) #18
+  %46 = getelementptr inbounds nuw i8, ptr %16, i64 144
+  store ptr %45, ptr %46, align 8, !tbaa !13
+  %47 = tail call noalias ptr @strdup(ptr noundef %1) #18
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 152
+  store ptr %47, ptr %48, align 8, !tbaa !19
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 248), align 8, !tbaa !50
+  %50 = getelementptr inbounds nuw i8, ptr %16, i64 128
+  store ptr %49, ptr %50, align 8, !tbaa !50
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 120
+  store volatile ptr %16, ptr %51, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw i8, ptr %16, i64 120
+  store ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 120), ptr %52, align 8, !tbaa !3
   store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 248), align 8, !tbaa !50
-  %54 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 264), align 8, !tbaa !51
-  %55 = add i64 %54, 1
-  store volatile i64 %55, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 264), align 8, !tbaa !51
-  %.b12 = load i1, ptr @show_help_timer_set, align 1
-  br i1 %.b12, label %.thread, label %56
+  %53 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 264), align 8, !tbaa !51
+  %54 = add i64 %53, 1
+  store volatile i64 %54, ptr getelementptr inbounds nuw (i8, ptr @abd_tuples, i64 264), align 8, !tbaa !51
+  %.b1113 = load i1, ptr @show_help_timer_set, align 1
+  br i1 %.b1113, label %58, label %55
 
-56:                                               ; preds = %.loopexit
+55:                                               ; preds = %.loopexit
   store i64 %3, ptr @show_help_time_last_displayed, align 8, !tbaa !32
-  br label %.thread
+  br label %58
 
-57:                                               ; preds = %20
-  %58 = tail call ptr @PMIx_Error_string(i32 noundef -29) #18
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %58, ptr noundef nonnull @.str.1, i32 noundef 320) #18
-  br label %.thread
+56:                                               ; preds = %20
+  %57 = tail call ptr @PMIx_Error_string(i32 noundef -29) #18
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %57, ptr noundef nonnull @.str.1, i32 noundef 320) #18
+  br label %58
 
-.thread:                                          ; preds = %39, %42, %41, %.loopexit, %56, %57
-  %.017.i18 = phi i32 [ 0, %42 ], [ 0, %41 ], [ -46, %.loopexit ], [ -46, %56 ], [ -29, %57 ], [ 0, %39 ]
-  ret i32 %.017.i18
+58:                                               ; preds = %39, %41, %40, %.loopexit, %55, %56
+  %.017.i19 = phi i32 [ 0, %41 ], [ 0, %40 ], [ -46, %.loopexit ], [ -46, %55 ], [ -29, %56 ], [ 0, %39 ]
+  ret i32 %.017.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

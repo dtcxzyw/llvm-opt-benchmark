@@ -259,8 +259,8 @@ define noundef i32 @_ZN3zmq15tcp_open_socketEPKcRKNS_9options_tEbbPNS_13tcp_addr
   %15 = zext i16 %14 to i32
   %16 = tail call noundef i32 @_ZN3zmq11open_socketEiii(i32 noundef %15, i32 noundef 1, i32 noundef 6)
   %17 = icmp eq i32 %16, -1
-  %brmerge.not = and i1 %3, %17
-  br i1 %brmerge.not, label %18, label %32
+  %or.cond = and i1 %3, %17
+  br i1 %or.cond, label %18, label %31
 
 18:                                               ; preds = %13
   %19 = tail call noundef zeroext i16 @_ZNK3zmq13tcp_address_t6familyEv(ptr noundef nonnull align 4 dereferenceable(57) %4)
@@ -271,135 +271,133 @@ define noundef i32 @_ZN3zmq15tcp_open_socketEPKcRKNS_9options_tEbbPNS_13tcp_addr
   %22 = tail call ptr @__errno_location() #8
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = icmp eq i32 %23, 97
-  br i1 %24, label %25, label %.thread
+  %25 = load i8, ptr %9, align 8, !range !51
+  %26 = trunc nuw i8 %25 to i1
+  %or.cond56 = select i1 %24, i1 %26, i1 false
+  br i1 %or.cond56, label %27, label %.thread
 
-25:                                               ; preds = %21
-  %26 = load i8, ptr %9, align 8, !tbaa !12, !range !51, !noundef !52
-  %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %28, label %.thread
+27:                                               ; preds = %21
+  %28 = tail call noundef i32 @_ZN3zmq13tcp_address_t7resolveEPKcbb(ptr noundef nonnull align 4 dereferenceable(57) %4, ptr noundef %0, i1 noundef zeroext %2, i1 noundef zeroext false)
+  %.not50 = icmp eq i32 %28, 0
+  br i1 %.not50, label %29, label %.thread
 
-28:                                               ; preds = %25
-  %29 = tail call noundef i32 @_ZN3zmq13tcp_address_t7resolveEPKcbb(ptr noundef nonnull align 4 dereferenceable(57) %4, ptr noundef %0, i1 noundef zeroext %2, i1 noundef zeroext false)
-  %.not50 = icmp eq i32 %29, 0
-  br i1 %.not50, label %30, label %.thread
+29:                                               ; preds = %27
+  %30 = tail call noundef i32 @_ZN3zmq11open_socketEiii(i32 noundef 2, i32 noundef 1, i32 noundef 6)
+  br label %31
 
-30:                                               ; preds = %28
-  %31 = tail call noundef i32 @_ZN3zmq11open_socketEiii(i32 noundef 2, i32 noundef 1, i32 noundef 6)
-  br label %32
+31:                                               ; preds = %29, %13
+  %.043 = phi i32 [ %30, %29 ], [ %16, %13 ]
+  %32 = icmp eq i32 %.043, -1
+  br i1 %32, label %.thread, label %33
 
-32:                                               ; preds = %13, %30
-  %.042 = phi i32 [ %31, %30 ], [ %16, %13 ]
-  %33 = icmp eq i32 %.042, -1
-  br i1 %33, label %.thread, label %34
+33:                                               ; preds = %31
+  %34 = tail call noundef zeroext i16 @_ZNK3zmq13tcp_address_t6familyEv(ptr noundef nonnull align 4 dereferenceable(57) %4)
+  %35 = icmp eq i16 %34, 10
+  br i1 %35, label %36, label %37
 
-34:                                               ; preds = %32
-  %35 = tail call noundef zeroext i16 @_ZNK3zmq13tcp_address_t6familyEv(ptr noundef nonnull align 4 dereferenceable(57) %4)
-  %36 = icmp eq i16 %35, 10
-  br i1 %36, label %37, label %38
+36:                                               ; preds = %33
+  tail call void @_ZN3zmq19enable_ipv4_mappingEi(i32 noundef %.043)
+  br label %37
 
-37:                                               ; preds = %34
-  tail call void @_ZN3zmq19enable_ipv4_mappingEi(i32 noundef %.042)
-  br label %38
+37:                                               ; preds = %36, %33
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 300
+  %39 = load i32, ptr %38, align 4, !tbaa !53
+  %.not51 = icmp eq i32 %39, 0
+  br i1 %.not51, label %41, label %40
 
-38:                                               ; preds = %37, %34
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 300
-  %40 = load i32, ptr %39, align 4, !tbaa !53
-  %.not51 = icmp eq i32 %40, 0
-  br i1 %.not51, label %42, label %41
+40:                                               ; preds = %37
+  tail call void @_ZN3zmq22set_ip_type_of_serviceEii(i32 noundef %.043, i32 noundef %39)
+  br label %41
 
-41:                                               ; preds = %38
-  tail call void @_ZN3zmq22set_ip_type_of_serviceEii(i32 noundef %.042, i32 noundef %40)
-  br label %42
+41:                                               ; preds = %40, %37
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  %43 = load i32, ptr %42, align 8, !tbaa !54
+  %.not52 = icmp eq i32 %43, 0
+  br i1 %.not52, label %45, label %44
 
-42:                                               ; preds = %41, %38
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %44 = load i32, ptr %43, align 8, !tbaa !54
-  %.not52 = icmp eq i32 %44, 0
-  br i1 %.not52, label %46, label %45
+44:                                               ; preds = %41
+  tail call void @_ZN3zmq19set_socket_priorityEii(i32 noundef %.043, i32 noundef %43)
+  br label %45
 
-45:                                               ; preds = %42
-  tail call void @_ZN3zmq19set_socket_priorityEii(i32 noundef %.042, i32 noundef %44)
-  br label %46
+45:                                               ; preds = %41, %44
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 968
+  %47 = load i64, ptr %46, align 8, !tbaa !55
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %53, label %49
 
-46:                                               ; preds = %42, %45
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 968
-  %48 = load i64, ptr %47, align 8, !tbaa !55
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %54, label %50
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 960
+  %51 = tail call noundef i32 @_ZN3zmq14bind_to_deviceEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %.043, ptr noundef nonnull align 8 dereferenceable(32) %50)
+  %52 = icmp eq i32 %51, -1
+  br i1 %52, label %72, label %53
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 960
-  %52 = tail call noundef i32 @_ZN3zmq14bind_to_deviceEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %.042, ptr noundef nonnull align 8 dereferenceable(32) %51)
-  %53 = icmp eq i32 %52, -1
-  br i1 %53, label %73, label %54
+53:                                               ; preds = %49, %45
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 292
+  %55 = load i32, ptr %54, align 4, !tbaa !56
+  %56 = icmp sgt i32 %55, -1
+  br i1 %56, label %57, label %59
 
-54:                                               ; preds = %50, %46
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 292
-  %56 = load i32, ptr %55, align 4, !tbaa !56
-  %57 = icmp sgt i32 %56, -1
-  br i1 %57, label %58, label %60
-
-58:                                               ; preds = %54
+57:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  store i32 %56, ptr %8, align 4, !tbaa !3
-  %59 = call i32 @setsockopt(i32 noundef %.042, i32 noundef 1, i32 noundef 7, ptr noundef nonnull %8, i32 noundef 4) #7
-  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %.042, i32 noundef %59)
+  store i32 %55, ptr %8, align 4, !tbaa !3
+  %58 = call i32 @setsockopt(i32 noundef %.043, i32 noundef 1, i32 noundef 7, ptr noundef nonnull %8, i32 noundef 4) #7
+  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %.043, i32 noundef %58)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %60
+  br label %59
 
-60:                                               ; preds = %58, %54
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %62 = load i32, ptr %61, align 8, !tbaa !57
-  %63 = icmp sgt i32 %62, -1
-  br i1 %63, label %64, label %66
+59:                                               ; preds = %57, %53
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %61 = load i32, ptr %60, align 8, !tbaa !57
+  %62 = icmp sgt i32 %61, -1
+  br i1 %62, label %63, label %65
 
-64:                                               ; preds = %60
+63:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  store i32 %62, ptr %7, align 4, !tbaa !3
-  %65 = call i32 @setsockopt(i32 noundef %.042, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %7, i32 noundef 4) #7
-  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %.042, i32 noundef %65)
+  store i32 %61, ptr %7, align 4, !tbaa !3
+  %64 = call i32 @setsockopt(i32 noundef %.043, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %7, i32 noundef 4) #7
+  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %.043, i32 noundef %64)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %66
+  br label %65
 
-66:                                               ; preds = %64, %60
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 1332
-  %68 = load i32, ptr %67, align 4, !tbaa !58
-  %.not54 = icmp eq i32 %68, 0
-  br i1 %.not54, label %.thread, label %69
+65:                                               ; preds = %63, %59
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 1332
+  %67 = load i32, ptr %66, align 4, !tbaa !58
+  %.not54 = icmp eq i32 %67, 0
+  br i1 %.not54, label %.thread, label %68
 
-69:                                               ; preds = %66
+68:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  store i32 %68, ptr %6, align 4, !tbaa !3
-  %70 = icmp sgt i32 %68, 0
-  br i1 %70, label %71, label %_ZN3zmq18tune_tcp_busy_pollEii.exit
+  store i32 %67, ptr %6, align 4, !tbaa !3
+  %69 = icmp sgt i32 %67, 0
+  br i1 %69, label %70, label %_ZN3zmq18tune_tcp_busy_pollEii.exit
 
-71:                                               ; preds = %69
-  %72 = call i32 @setsockopt(i32 noundef %.042, i32 noundef 1, i32 noundef 46, ptr noundef nonnull %6, i32 noundef 4) #7
-  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %.042, i32 noundef %72)
+70:                                               ; preds = %68
+  %71 = call i32 @setsockopt(i32 noundef %.043, i32 noundef 1, i32 noundef 46, ptr noundef nonnull %6, i32 noundef 4) #7
+  call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %.043, i32 noundef %71)
   br label %_ZN3zmq18tune_tcp_busy_pollEii.exit
 
-_ZN3zmq18tune_tcp_busy_pollEii.exit:              ; preds = %69, %71
+_ZN3zmq18tune_tcp_busy_pollEii.exit:              ; preds = %68, %70
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %.thread
 
-73:                                               ; preds = %50
-  %74 = tail call i32 @close(i32 noundef %.042)
-  %.not53 = icmp eq i32 %74, 0
-  br i1 %.not53, label %.thread, label %75, !prof !59
+72:                                               ; preds = %49
+  %73 = tail call i32 @close(i32 noundef %.043)
+  %.not53 = icmp eq i32 %73, 0
+  br i1 %.not53, label %.thread, label %74, !prof !59
 
-75:                                               ; preds = %73
-  %76 = tail call ptr @__errno_location() #8
-  %77 = load i32, ptr %76, align 4, !tbaa !3
-  %78 = tail call ptr @strerror(i32 noundef %77) #7
-  %79 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str, ptr noundef %78, ptr noundef nonnull @.str.1, i32 noundef 400) #9
-  %81 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %82 = tail call i32 @fflush(ptr noundef %81)
-  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %78)
+74:                                               ; preds = %72
+  %75 = tail call ptr @__errno_location() #8
+  %76 = load i32, ptr %75, align 4, !tbaa !3
+  %77 = tail call ptr @strerror(i32 noundef %76) #7
+  %78 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str, ptr noundef %77, ptr noundef nonnull @.str.1, i32 noundef 400) #9
+  %80 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %81 = tail call i32 @fflush(ptr noundef %80)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %77)
   br label %.thread
 
-.thread:                                          ; preds = %18, %21, %25, %28, %32, %_ZN3zmq18tune_tcp_busy_pollEii.exit, %66, %75, %73, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %28 ], [ -1, %32 ], [ %.042, %_ZN3zmq18tune_tcp_busy_pollEii.exit ], [ %.042, %66 ], [ -1, %75 ], [ -1, %73 ], [ -1, %25 ], [ -1, %21 ], [ -1, %18 ]
+.thread:                                          ; preds = %18, %21, %27, %31, %_ZN3zmq18tune_tcp_busy_pollEii.exit, %65, %74, %72, %5
+  %.0 = phi i32 [ -1, %5 ], [ -1, %27 ], [ -1, %31 ], [ %.043, %_ZN3zmq18tune_tcp_busy_pollEii.exit ], [ %.043, %65 ], [ -1, %74 ], [ -1, %72 ], [ -1, %21 ], [ -1, %18 ]
   ret i32 %.0
 }
 

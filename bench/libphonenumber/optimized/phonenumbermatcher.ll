@@ -1096,7 +1096,11 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit: ; preds
 .noexc43:                                         ; preds = %66
   %switch.tableidx = add i32 %67, -1
   %68 = icmp ult i32 %switch.tableidx, 38
-  br i1 %68, label %switch.hole_check, label %.critedge
+  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
+  %switch.shifted = lshr i64 137438953551, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond = select i1 %68, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit, label %.critedge
 
 69:                                               ; preds = %36
   %70 = landingpad { ptr, i32 }
@@ -1108,7 +1112,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit: ; preds
           cleanup
   br label %112
 
-.critedge:                                        ; preds = %switch.hole_check, %.noexc43, %.noexc42, %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit, %27
+.critedge:                                        ; preds = %.noexc43, %.noexc42, %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit, %27
   %73 = sext i32 %2 to i64
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load i64, ptr %74, align 8, !tbaa !26
@@ -1176,20 +1180,14 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit47: ; pre
           cleanup
   br label %112
 
-switch.hole_check:                                ; preds = %.noexc43
-  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
-  %switch.shifted = lshr i64 137438953551, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit, label %.critedge
-
 switch.lookup64:                                  ; preds = %.noexc53
   %switch.cast = zext nneg i32 %103 to i39
   %switch.downshift = lshr i39 274877906785, %switch.cast
   %switch.masked = trunc i39 %switch.downshift to i1
   br label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit
 
-_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit: ; preds = %switch.hole_check, %.noexc53, %switch.lookup64, %92, %56, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit47, %.noexc52, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit, %.critedge
-  %switch = phi i1 [ true, %.critedge ], [ false, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit ], [ true, %.noexc52 ], [ false, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit47 ], [ false, %56 ], [ false, %92 ], [ %switch.masked, %switch.lookup64 ], [ true, %.noexc53 ], [ false, %switch.hole_check ]
+_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit: ; preds = %.noexc43, %.noexc53, %switch.lookup64, %92, %56, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit47, %.noexc52, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit, %.critedge
+  %switch = phi i1 [ true, %.critedge ], [ false, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit ], [ true, %.noexc52 ], [ false, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit47 ], [ false, %56 ], [ false, %92 ], [ %switch.masked, %switch.lookup64 ], [ true, %.noexc53 ], [ false, %.noexc43 ]
   %107 = icmp eq ptr %34, null
   br i1 %107, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit, label %108
 

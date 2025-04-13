@@ -1226,20 +1226,18 @@ if.end:                                           ; preds = %invoke.cont
           to label %invoke.cont33 unwind label %lpad7
 
 invoke.cont33:                                    ; preds = %if.end
-  %tobool35.not = icmp eq ptr %call34, null
-  br i1 %tobool35.not, label %if.end39, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %invoke.cont33
+  %tobool35.not = icmp ne ptr %call34, null
   %setEnableConnectProtocol_ = getelementptr inbounds nuw i8, ptr %this, i64 1872
   %13 = load i8, ptr %setEnableConnectProtocol_, align 8
   %tobool36 = trunc i8 %13 to i1
-  br i1 %tobool36, label %if.then37, label %if.end39
+  %or.cond = select i1 %tobool35.not, i1 %tobool36, i1 false
+  br i1 %or.cond, label %if.then37, label %if.end39
 
-if.then37:                                        ; preds = %land.lhs.true
+if.then37:                                        ; preds = %invoke.cont33
   invoke void @_ZN8proxygen12HTTPSettings10setSettingENS_10SettingsIdEm(ptr noundef nonnull align 8 dereferenceable(24) %call34, i64 noundef 8, i64 noundef 1)
           to label %if.end39 unwind label %lpad7
 
-if.end39:                                         ; preds = %if.then37, %land.lhs.true, %invoke.cont33
+if.end39:                                         ; preds = %if.then37, %invoke.cont33
   %vtable40 = load ptr, ptr %this, align 8
   %vfn41 = getelementptr inbounds nuw i8, ptr %vtable40, i64 408
   %14 = load ptr, ptr %vfn41, align 8

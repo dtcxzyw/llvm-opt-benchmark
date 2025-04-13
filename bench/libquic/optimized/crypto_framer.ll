@@ -1399,49 +1399,49 @@ define noundef ptr @_ZN3net12CryptoFramer25ConstructHandshakeMessageERKNS_22Cryp
   br label %15
 
 15:                                               ; preds = %9, %1
-  %.053 = phi i64 [ %spec.select, %9 ], [ 0, %1 ]
-  %.045 = phi i8 [ 1, %9 ], [ 0, %1 ]
-  %.044 = phi i64 [ %14, %9 ], [ %6, %1 ]
-  %.043 = phi i64 [ %10, %9 ], [ %5, %1 ]
-  %16 = icmp ugt i64 %.043, 128
+  %.058 = phi i64 [ %spec.select, %9 ], [ 0, %1 ]
+  %.050 = phi i8 [ 1, %9 ], [ 0, %1 ]
+  %.049 = phi i64 [ %14, %9 ], [ %6, %1 ]
+  %.048 = phi i64 [ %10, %9 ], [ %5, %1 ]
+  %16 = icmp ugt i64 %.048, 128
   br i1 %16, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.044) #19
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.049) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
-  invoke void @_ZN3net14QuicDataWriterC1EmPc(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.044, ptr noundef nonnull %18)
-          to label %19 unwind label %.thread100
+  invoke void @_ZN3net14QuicDataWriterC1EmPc(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.049, ptr noundef nonnull %18)
+          to label %19 unwind label %.thread104
 
 19:                                               ; preds = %17
   %20 = load i32, ptr %0, align 8, !tbaa !66
   %21 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %20)
-          to label %22 unwind label %.thread107
+          to label %22 unwind label %.thread111
 
 22:                                               ; preds = %19
   br i1 %21, label %25, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
-.thread100:                                       ; preds = %17
+.thread104:                                       ; preds = %17
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i63
+  br label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i68
 
-.thread107:                                       ; preds = %19, %25, %29
+.thread111:                                       ; preds = %19, %25, %29
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3net14QuicDataWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
-  br label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i63
+  br label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i68
 
 25:                                               ; preds = %22
-  %26 = trunc nuw nsw i64 %.043 to i16
+  %26 = trunc nuw nsw i64 %.048 to i16
   %27 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt16Et(ptr noundef nonnull align 8 dereferenceable(24) %2, i16 noundef zeroext %26)
-          to label %28 unwind label %.thread107
+          to label %28 unwind label %.thread111
 
 28:                                               ; preds = %25
   br i1 %27, label %29, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 29:                                               ; preds = %28
   %30 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt16Et(ptr noundef nonnull align 8 dereferenceable(24) %2, i16 noundef zeroext 0)
-          to label %31 unwind label %.thread107
+          to label %31 unwind label %.thread111
 
 31:                                               ; preds = %29
   br i1 %30, label %32, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
@@ -1451,213 +1451,206 @@ define noundef ptr @_ZN3net12CryptoFramer25ConstructHandshakeMessageERKNS_22Cryp
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !91
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not125 = icmp eq ptr %34, %35
-  br i1 %.not125, label %._crit_edge, label %.lr.ph
+  %.not129 = icmp eq ptr %34, %35
+  br i1 %.not129, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32
-  %36 = trunc i64 %.053 to i32
+  %36 = trunc i64 %.058 to i32
   br label %39
 
-37:                                               ; preds = %52, %50, %59, %.thread
+37:                                               ; preds = %49, %47, %57, %52
   %38 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread112
+  br label %.thread116
 
-39:                                               ; preds = %.lr.ph, %66
-  %.150127 = phi i8 [ %.045, %.lr.ph ], [ %.352, %66 ]
-  %.sroa.071.0126 = phi ptr [ %34, %.lr.ph ], [ %67, %66 ]
-  %40 = phi i32 [ 0, %.lr.ph ], [ %63, %66 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.071.0126, i64 32
+39:                                               ; preds = %.lr.ph, %64
+  %.155131 = phi i8 [ %.050, %.lr.ph ], [ %.357, %64 ]
+  %.sroa.076.0130 = phi ptr [ %34, %.lr.ph ], [ %65, %64 ]
+  %40 = phi i32 [ 0, %.lr.ph ], [ %61, %64 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.076.0130, i64 32
   %42 = load i32, ptr %41, align 8, !tbaa !92
   %43 = icmp eq i32 %42, 4473168
-  br i1 %43, label %44, label %46
+  %44 = trunc nuw i8 %.155131 to i1
+  %or.cond = select i1 %43, i1 %44, i1 false
+  br i1 %or.cond, label %.thread100, label %45
 
-44:                                               ; preds = %39
-  %45 = trunc nuw i8 %.150127 to i1
-  br i1 %45, label %.thread96, label %.thread
+45:                                               ; preds = %39
+  %46 = icmp ugt i32 %42, 4473168
+  %or.cond4 = select i1 %46, i1 %44, i1 false
+  br i1 %or.cond4, label %47, label %52
 
-46:                                               ; preds = %39
-  %47 = icmp ugt i32 %42, 4473168
-  br i1 %47, label %48, label %.thread
-
-48:                                               ; preds = %46
-  %49 = trunc nuw i8 %.150127 to i1
-  br i1 %49, label %50, label %.thread
-
-50:                                               ; preds = %48
-  %51 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 4473168)
+47:                                               ; preds = %45
+  %48 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 4473168)
           to label %.noexc unwind label %37
 
-.noexc:                                           ; preds = %50
-  br i1 %51, label %52, label %.thread96
+.noexc:                                           ; preds = %47
+  br i1 %48, label %49, label %.thread100
 
-52:                                               ; preds = %.noexc
-  %53 = add i32 %40, %36
-  %54 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %53)
+49:                                               ; preds = %.noexc
+  %50 = add i32 %40, %36
+  %51 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %50)
           to label %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit unwind label %37
 
-_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit: ; preds = %52
-  br i1 %54, label %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit..thread_crit_edge, label %.thread96
+_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit: ; preds = %49
+  br i1 %51, label %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit._crit_edge, label %.thread100
 
-_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit..thread_crit_edge: ; preds = %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit
+_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit._crit_edge: ; preds = %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit
   %.pre = load i32, ptr %41, align 8, !tbaa !92
-  br label %.thread
+  br label %52
 
-.thread:                                          ; preds = %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit..thread_crit_edge, %44, %48, %46
-  %55 = phi i32 [ %.pre, %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit..thread_crit_edge ], [ %42, %48 ], [ %42, %46 ], [ 4473168, %44 ]
-  %56 = phi i32 [ %53, %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit..thread_crit_edge ], [ %40, %48 ], [ %40, %46 ], [ %40, %44 ]
-  %.352 = phi i8 [ 0, %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit..thread_crit_edge ], [ 0, %48 ], [ %.150127, %46 ], [ 0, %44 ]
-  %57 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %55)
-          to label %58 unwind label %37
+52:                                               ; preds = %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit._crit_edge, %45
+  %53 = phi i32 [ %.pre, %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit._crit_edge ], [ %42, %45 ]
+  %54 = phi i32 [ %50, %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit._crit_edge ], [ %40, %45 ]
+  %.357 = phi i8 [ 0, %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit._crit_edge ], [ %.155131, %45 ]
+  %55 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %53)
+          to label %56 unwind label %37
 
-58:                                               ; preds = %.thread
-  br i1 %57, label %59, label %.thread96
+56:                                               ; preds = %52
+  br i1 %55, label %57, label %.thread100
 
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.071.0126, i64 48
-  %61 = load i64, ptr %60, align 8, !tbaa !42
-  %62 = trunc i64 %61 to i32
-  %63 = add i32 %56, %62
-  %64 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %63)
-          to label %65 unwind label %37
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.076.0130, i64 48
+  %59 = load i64, ptr %58, align 8, !tbaa !42
+  %60 = trunc i64 %59 to i32
+  %61 = add i32 %54, %60
+  %62 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %61)
+          to label %63 unwind label %37
 
-65:                                               ; preds = %59
-  br i1 %64, label %66, label %.thread96
+63:                                               ; preds = %57
+  br i1 %62, label %64, label %.thread100
 
-66:                                               ; preds = %65
-  %67 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.071.0126) #20
-  %.not = icmp eq ptr %67, %35
+64:                                               ; preds = %63
+  %65 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.076.0130) #20
+  %.not = icmp eq ptr %65, %35
   br i1 %.not, label %._crit_edge, label %39, !llvm.loop !94
 
-._crit_edge:                                      ; preds = %66, %32
-  %.lcssa124 = phi i32 [ 0, %32 ], [ %63, %66 ]
-  %.150.lcssa = phi i8 [ %.045, %32 ], [ %.352, %66 ]
-  store i32 %.lcssa124, ptr %3, align 4
-  %68 = trunc nuw i8 %.150.lcssa to i1
-  br i1 %68, label %69, label %74
+._crit_edge:                                      ; preds = %64, %32
+  %.lcssa128 = phi i32 [ 0, %32 ], [ %61, %64 ]
+  %.155.lcssa = phi i8 [ %.050, %32 ], [ %.357, %64 ]
+  store i32 %.lcssa128, ptr %3, align 4
+  %66 = trunc nuw i8 %.155.lcssa to i1
+  br i1 %66, label %67, label %72
 
-69:                                               ; preds = %._crit_edge
-  %70 = invoke noundef zeroext i1 @_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj(ptr noundef nonnull %2, i64 noundef %.053, ptr noundef nonnull %3)
-          to label %71 unwind label %72
+67:                                               ; preds = %._crit_edge
+  %68 = invoke noundef zeroext i1 @_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj(ptr noundef nonnull %2, i64 noundef %.058, ptr noundef nonnull %3)
+          to label %69 unwind label %70
 
-71:                                               ; preds = %69
-  br i1 %70, label %74, label %.thread96
+69:                                               ; preds = %67
+  br i1 %68, label %72, label %.thread100
 
-72:                                               ; preds = %99, %96, %69
-  %73 = landingpad { ptr, i32 }
+70:                                               ; preds = %96, %93, %67
+  %71 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread112
+  br label %.thread116
 
-74:                                               ; preds = %71, %._crit_edge
-  %75 = load ptr, ptr %33, align 8, !tbaa !91
-  %.not116130 = icmp eq ptr %75, %35
-  br i1 %.not116130, label %._crit_edge135, label %.lr.ph134
+72:                                               ; preds = %69, %._crit_edge
+  %73 = load ptr, ptr %33, align 8, !tbaa !91
+  %.not120134 = icmp eq ptr %73, %35
+  br i1 %.not120134, label %._crit_edge139, label %.lr.ph138
 
-76:                                               ; preds = %86, %83
-  %77 = landingpad { ptr, i32 }
+74:                                               ; preds = %83, %80
+  %75 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread112
+  br label %.thread116
 
-.lr.ph134:                                        ; preds = %74, %93
-  %.146132 = phi i8 [ %.348, %93 ], [ %.045, %74 ]
-  %.sroa.065.0131 = phi ptr [ %94, %93 ], [ %75, %74 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.065.0131, i64 32
-  %79 = load i32, ptr %78, align 8, !tbaa !92
-  %80 = icmp ugt i32 %79, 4473168
-  br i1 %80, label %81, label %86
+.lr.ph138:                                        ; preds = %72, %90
+  %.151136 = phi i8 [ %.353, %90 ], [ %.050, %72 ]
+  %.sroa.070.0135 = phi ptr [ %91, %90 ], [ %73, %72 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.070.0135, i64 32
+  %77 = load i32, ptr %76, align 8, !tbaa !92
+  %78 = icmp ugt i32 %77, 4473168
+  %79 = trunc nuw i8 %.151136 to i1
+  %or.cond6 = select i1 %78, i1 %79, i1 false
+  br i1 %or.cond6, label %80, label %83
 
-81:                                               ; preds = %.lr.ph134
-  %82 = trunc nuw i8 %.146132 to i1
-  br i1 %82, label %83, label %86
+80:                                               ; preds = %.lr.ph138
+  %81 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter17WriteRepeatedByteEhm(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext 45, i64 noundef %.058)
+          to label %82 unwind label %74
 
-83:                                               ; preds = %81
-  %84 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter17WriteRepeatedByteEhm(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext 45, i64 noundef %.053)
-          to label %85 unwind label %76
+82:                                               ; preds = %80
+  br i1 %81, label %83, label %.thread100
 
-85:                                               ; preds = %83
-  br i1 %84, label %86, label %.thread96
+83:                                               ; preds = %82, %.lr.ph138
+  %.353 = phi i8 [ 0, %82 ], [ %.151136, %.lr.ph138 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.070.0135, i64 40
+  %85 = load ptr, ptr %84, align 8, !tbaa !49
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.070.0135, i64 48
+  %87 = load i64, ptr %86, align 8, !tbaa !42
+  %88 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteBytesEPKvm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %85, i64 noundef %87)
+          to label %89 unwind label %74
 
-86:                                               ; preds = %85, %81, %.lr.ph134
-  %.348 = phi i8 [ 0, %85 ], [ 0, %81 ], [ %.146132, %.lr.ph134 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.065.0131, i64 40
-  %88 = load ptr, ptr %87, align 8, !tbaa !49
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.065.0131, i64 48
-  %90 = load i64, ptr %89, align 8, !tbaa !42
-  %91 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteBytesEPKvm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %88, i64 noundef %90)
-          to label %92 unwind label %76
+89:                                               ; preds = %83
+  br i1 %88, label %90, label %.thread100
 
-92:                                               ; preds = %86
-  br i1 %91, label %93, label %.thread96
+90:                                               ; preds = %89
+  %91 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.070.0135) #20
+  %.not120 = icmp eq ptr %91, %35
+  br i1 %.not120, label %._crit_edge139, label %.lr.ph138, !llvm.loop !95
 
-93:                                               ; preds = %92
-  %94 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.065.0131) #20
-  %.not116 = icmp eq ptr %94, %35
-  br i1 %.not116, label %._crit_edge135, label %.lr.ph134, !llvm.loop !95
+._crit_edge139:                                   ; preds = %90, %72
+  %.151.lcssa = phi i8 [ %.050, %72 ], [ %.353, %90 ]
+  %92 = trunc nuw i8 %.151.lcssa to i1
+  br i1 %92, label %93, label %96
 
-._crit_edge135:                                   ; preds = %93, %74
-  %.146.lcssa = phi i8 [ %.045, %74 ], [ %.348, %93 ]
-  %95 = trunc nuw i8 %.146.lcssa to i1
-  br i1 %95, label %96, label %99
+93:                                               ; preds = %._crit_edge139
+  %94 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter17WriteRepeatedByteEhm(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext 45, i64 noundef %.058)
+          to label %95 unwind label %70
 
-96:                                               ; preds = %._crit_edge135
-  %97 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter17WriteRepeatedByteEhm(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext 45, i64 noundef %.053)
-          to label %98 unwind label %72
+95:                                               ; preds = %93
+  br i1 %94, label %96, label %.thread100
+
+96:                                               ; preds = %95, %._crit_edge139
+  %97 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
+          to label %98 unwind label %70
 
 98:                                               ; preds = %96
-  br i1 %97, label %99, label %.thread96
+  invoke void @_ZN3net8QuicDataC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(25) %97, ptr noundef nonnull %18, i64 noundef %.049, i1 noundef zeroext true)
+          to label %99 unwind label %100
 
-99:                                               ; preds = %98, %._crit_edge135
-  %100 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
-          to label %101 unwind label %72
-
-101:                                              ; preds = %99
-  invoke void @_ZN3net8QuicDataC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(25) %100, ptr noundef nonnull %18, i64 noundef %.044, i1 noundef zeroext true)
-          to label %102 unwind label %103
-
-.thread96:                                        ; preds = %65, %58, %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit, %44, %.noexc, %92, %85, %98, %71
+.thread100:                                       ; preds = %63, %56, %_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj.exit, %39, %.noexc, %89, %82, %95, %69
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
   br label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
-102:                                              ; preds = %101
+99:                                               ; preds = %98
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
   call void @_ZN3net14QuicDataWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
-_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %22, %28, %31, %.thread96
+_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %22, %28, %31, %.thread100
   call void @_ZN3net14QuicDataWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
   call void @_ZdaPv(ptr noundef nonnull %18) #16
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
-.thread112:                                       ; preds = %72, %76, %37
-  %.pn.ph = phi { ptr, i32 } [ %38, %37 ], [ %77, %76 ], [ %73, %72 ]
+.thread116:                                       ; preds = %70, %74, %37
+  %.pn.ph = phi { ptr, i32 } [ %38, %37 ], [ %75, %74 ], [ %71, %70 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
   call void @_ZN3net14QuicDataWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
-  br label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i63
+  br label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i68
 
-103:                                              ; preds = %101
-  %104 = landingpad { ptr, i32 }
+100:                                              ; preds = %98
+  %101 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %100) #16
+  call void @_ZdlPv(ptr noundef nonnull %97) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
   call void @_ZN3net14QuicDataWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
-  br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit64
+  br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit69
 
-_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i63: ; preds = %.thread112, %.thread107, %.thread100
-  %.pn.pn.pn105 = phi { ptr, i32 } [ %23, %.thread100 ], [ %24, %.thread107 ], [ %.pn.ph, %.thread112 ]
+_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i68: ; preds = %.thread116, %.thread111, %.thread104
+  %.pn.pn.pn109 = phi { ptr, i32 } [ %23, %.thread104 ], [ %24, %.thread111 ], [ %.pn.ph, %.thread116 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
   call void @_ZdaPv(ptr noundef nonnull %18) #16
-  br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit64
+  br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit69
 
-_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit64: ; preds = %103, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i63
-  %.pn.pn.pn106 = phi { ptr, i32 } [ %104, %103 ], [ %.pn.pn.pn105, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i63 ]
-  resume { ptr, i32 } %.pn.pn.pn106
+_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit69: ; preds = %100, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i68
+  %.pn.pn.pn110 = phi { ptr, i32 } [ %101, %100 ], [ %.pn.pn.pn109, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i68 ]
+  resume { ptr, i32 } %.pn.pn.pn110
 
-_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %102, %15
-  %.040 = phi ptr [ null, %15 ], [ %100, %102 ], [ null, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
-  ret ptr %.040
+_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %99, %15
+  %.045 = phi ptr [ null, %15 ], [ %97, %99 ], [ null, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
+  ret ptr %.045
 }
 
 declare noundef i64 @_ZNK3net22CryptoHandshakeMessage4sizeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1

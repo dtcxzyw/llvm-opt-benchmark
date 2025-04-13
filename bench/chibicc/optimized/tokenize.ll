@@ -416,8 +416,8 @@ is_keyword.exit:                                  ; preds = %.preheader.i, %.lr.
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !43
   %29 = and i16 %28, 4096
-  %.not31.i.i = icmp eq i16 %29, 0
-  br i1 %.not31.i.i, label %31, label %30
+  %.not34.i.i = icmp eq i16 %29, 0
+  br i1 %.not34.i.i, label %31, label %30
 
 30:                                               ; preds = %21
   store ptr %24, ptr %2, align 8, !tbaa !39
@@ -425,8 +425,8 @@ is_keyword.exit:                                  ; preds = %.preheader.i, %.lr.
 
 31:                                               ; preds = %21, %18
   %32 = tail call i32 @strncasecmp(ptr noundef %19, ptr noundef nonnull @.str.69, i64 noundef 2) #30
-  %.not32.i.i = icmp eq i32 %32, 0
-  br i1 %.not32.i.i, label %33, label %38
+  %.not35.i.i = icmp eq i32 %32, 0
+  br i1 %.not35.i.i, label %33, label %38
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 2
@@ -442,28 +442,28 @@ is_keyword.exit:                                  ; preds = %.preheader.i, %.lr.
 38:                                               ; preds = %33, %31
   %39 = load i8, ptr %19, align 1, !tbaa !18
   %40 = icmp ne i8 %39, 48
-  %spec.select44.i.i = select i1 %40, i32 10, i32 8
+  %spec.select47.i.i = select i1 %40, i32 10, i32 8
   br label %sub_0.i.i
 
 sub_0.i.i:                                        ; preds = %38, %37, %30
   %41 = phi ptr [ %34, %37 ], [ %24, %30 ], [ %19, %38 ]
   %42 = phi i1 [ false, %37 ], [ false, %30 ], [ %40, %38 ]
-  %.028.i.i = phi i32 [ 2, %37 ], [ 16, %30 ], [ %spec.select44.i.i, %38 ]
-  %43 = call i64 @strtoul(ptr noundef nonnull %41, ptr noundef nonnull %2, i32 noundef %.028.i.i) #25
+  %.031.i.i = phi i32 [ 2, %37 ], [ 16, %30 ], [ %spec.select47.i.i, %38 ]
+  %43 = call i64 @strtoul(ptr noundef nonnull %41, ptr noundef nonnull %2, i32 noundef %.031.i.i) #25
   %44 = load ptr, ptr %2, align 8, !tbaa !39
   %45 = load i8, ptr %44, align 1
   switch i8 %45, label %.tail.thread.i [
     i8 76, label %sub_1.i.i
-    i8 108, label %sub_157.i.i
-    i8 85, label %sub_167.i.i
+    i8 108, label %sub_155.i.i
+    i8 85, label %sub_165.i.i
     i8 117, label %sub_1.i
   ]
 
 sub_1.i.i:                                        ; preds = %sub_0.i.i
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %47 = load i8, ptr %46, align 1
-  %.not76.i.i = icmp eq i8 %47, 76
-  br i1 %.not76.i.i, label %.tail.i.i, label %.tail.thread.i
+  %.not74.i.i = icmp eq i8 %47, 76
+  br i1 %.not74.i.i, label %.tail.i.i, label %.tail.thread.i
 
 .tail.i.i:                                        ; preds = %sub_1.i.i
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 2
@@ -473,13 +473,13 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
     i8 117, label %70
   ]
 
-sub_157.i.i:                                      ; preds = %sub_0.i.i
+sub_155.i.i:                                      ; preds = %sub_0.i.i
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %51 = load i8, ptr %50, align 1
-  %.not80.i.i = icmp eq i8 %51, 108
-  br i1 %.not80.i.i, label %.tail55.i.i, label %.tail.thread.i
+  %.not78.i.i = icmp eq i8 %51, 108
+  br i1 %.not78.i.i, label %.tail53.i.i, label %.tail.thread.i
 
-.tail55.i.i:                                      ; preds = %sub_157.i.i
+.tail53.i.i:                                      ; preds = %sub_155.i.i
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %53 = load i8, ptr %52, align 1
   switch i8 %53, label %.tail.thread.i [
@@ -487,21 +487,21 @@ sub_157.i.i:                                      ; preds = %sub_0.i.i
     i8 117, label %70
   ]
 
-sub_167.i.i:                                      ; preds = %sub_0.i.i
+sub_165.i.i:                                      ; preds = %sub_0.i.i
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %55 = load i8, ptr %54, align 1
   switch i8 %55, label %.tail.thread.i [
-    i8 76, label %.tail65.i.i
-    i8 108, label %.tail70.i.i
+    i8 76, label %.tail63.i.i
+    i8 108, label %.tail68.i.i
   ]
 
-.tail65.i.i:                                      ; preds = %sub_167.i.i
+.tail63.i.i:                                      ; preds = %sub_165.i.i
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 76
   br i1 %58, label %70, label %.tail.thread.i
 
-.tail70.i.i:                                      ; preds = %sub_167.i.i
+.tail68.i.i:                                      ; preds = %sub_165.i.i
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 108
@@ -511,11 +511,11 @@ sub_1.i:                                          ; preds = %sub_0.i.i
   %62 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %63 = load i8, ptr %62, align 1
   switch i8 %63, label %.tail.thread.i [
-    i8 76, label %.tail70.thread.i.tail.i
+    i8 76, label %.tail68.thread.i.tail.i
     i8 108, label %.tail.i
   ]
 
-.tail70.thread.i.tail.i:                          ; preds = %sub_1.i
+.tail68.thread.i.tail.i:                          ; preds = %sub_1.i
   %64 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %65 = load i8, ptr %64, align 1
   %66 = icmp eq i8 %65, 76
@@ -527,19 +527,19 @@ sub_1.i:                                          ; preds = %sub_0.i.i
   %69 = icmp eq i8 %68, 108
   br i1 %69, label %70, label %.tail.thread.i
 
-70:                                               ; preds = %.tail.i, %.tail70.thread.i.tail.i, %.tail70.i.i, %.tail65.i.i, %.tail55.i.i, %.tail55.i.i, %.tail.i.i, %.tail.i.i
+70:                                               ; preds = %.tail.i, %.tail68.thread.i.tail.i, %.tail68.i.i, %.tail63.i.i, %.tail53.i.i, %.tail53.i.i, %.tail.i.i, %.tail.i.i
   %71 = getelementptr inbounds nuw i8, ptr %44, i64 3
   br label %88
 
-.tail.thread.i:                                   ; preds = %sub_1.i, %.tail70.thread.i.tail.i, %.tail.i, %.tail70.i.i, %.tail65.i.i, %sub_167.i.i, %.tail55.i.i, %sub_157.i.i, %.tail.i.i, %sub_1.i.i, %sub_0.i.i
+.tail.thread.i:                                   ; preds = %sub_1.i, %.tail68.thread.i.tail.i, %.tail.i, %.tail68.i.i, %.tail63.i.i, %sub_165.i.i, %.tail53.i.i, %sub_155.i.i, %.tail.i.i, %sub_1.i.i, %sub_0.i.i
   %72 = tail call i32 @strncasecmp(ptr noundef nonnull %44, ptr noundef nonnull @.str.78, i64 noundef 2) #30
-  %.not33.i.i = icmp eq i32 %72, 0
-  br i1 %.not33.i.i, label %75, label %73
+  %.not36.i.i = icmp eq i32 %72, 0
+  br i1 %.not36.i.i, label %75, label %73
 
 73:                                               ; preds = %.tail.thread.i
   %74 = tail call i32 @strncasecmp(ptr noundef nonnull %44, ptr noundef nonnull @.str.79, i64 noundef 2) #30
-  %.not34.i.i = icmp eq i32 %74, 0
-  br i1 %.not34.i.i, label %75, label %sub_017.i
+  %.not37.i.i = icmp eq i32 %74, 0
+  br i1 %.not37.i.i, label %75, label %sub_017.i
 
 75:                                               ; preds = %73, %.tail.thread.i
   %76 = getelementptr inbounds nuw i8, ptr %44, i64 2
@@ -579,96 +579,96 @@ sub_017.i:                                        ; preds = %73
 
 88:                                               ; preds = %86, %.thread40.i, %83, %sub_017.i, %75, %70
   %89 = phi ptr [ %71, %70 ], [ %84, %83 ], [ %85, %.thread40.i ], [ %87, %86 ], [ %76, %75 ], [ %44, %sub_017.i ]
-  %.026.not48.i.i = phi i1 [ false, %70 ], [ false, %83 ], [ false, %.thread40.i ], [ true, %86 ], [ false, %75 ], [ true, %sub_017.i ]
-  %.025.not49.i.i = phi i1 [ false, %70 ], [ true, %83 ], [ true, %.thread40.i ], [ false, %86 ], [ false, %75 ], [ true, %sub_017.i ]
+  %.029.i.i = phi i1 [ true, %70 ], [ true, %83 ], [ true, %.thread40.i ], [ false, %86 ], [ true, %75 ], [ false, %sub_017.i ]
+  %.028.i.i = phi i1 [ true, %70 ], [ false, %83 ], [ false, %.thread40.i ], [ true, %86 ], [ true, %75 ], [ false, %sub_017.i ]
   %90 = load ptr, ptr %9, align 16, !tbaa !32
   %91 = load i32, ptr %11, align 8, !tbaa !33
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %90, i64 %92
-  %.not35.i.i = icmp eq ptr %89, %93
-  br i1 %.not35.i.i, label %94, label %136
+  %.not38.i.i = icmp eq ptr %89, %93
+  br i1 %.not38.i.i, label %94, label %136
 
 94:                                               ; preds = %88
-  %brmerge.i.i = or i1 %.026.not48.i.i, %.025.not49.i.i
+  %or.cond.i.i = and i1 %.029.i.i, %.028.i.i
   br i1 %42, label %95, label %110
 
 95:                                               ; preds = %94
-  br i1 %brmerge.i.i, label %98, label %96
+  br i1 %or.cond.i.i, label %96, label %98
 
 96:                                               ; preds = %95
   %97 = load ptr, ptr @ty_ulong, align 8, !tbaa !45
   br label %convert_pp_int.exit.thread.i
 
 98:                                               ; preds = %95
-  br i1 %.026.not48.i.i, label %101, label %99
+  br i1 %.029.i.i, label %99, label %101
 
 99:                                               ; preds = %98
   %100 = load ptr, ptr @ty_long, align 8, !tbaa !45
   br label %convert_pp_int.exit.thread.i
 
 101:                                              ; preds = %98
-  br i1 %.025.not49.i.i, label %106, label %102
+  br i1 %.028.i.i, label %102, label %106
 
 102:                                              ; preds = %101
-  %.not43.i.i = icmp ult i64 %43, 4294967296
+  %.not46.i.i = icmp ult i64 %43, 4294967296
   %103 = load ptr, ptr @ty_ulong, align 8
   %104 = load ptr, ptr @ty_uint, align 8
-  %105 = select i1 %.not43.i.i, ptr %104, ptr %103
+  %105 = select i1 %.not46.i.i, ptr %104, ptr %103
   br label %convert_pp_int.exit.thread.i
 
 106:                                              ; preds = %101
-  %.not42.i.i = icmp ult i64 %43, 2147483648
+  %.not45.i.i = icmp ult i64 %43, 2147483648
   %107 = load ptr, ptr @ty_long, align 8
   %108 = load ptr, ptr @ty_int, align 8
-  %109 = select i1 %.not42.i.i, ptr %108, ptr %107
+  %109 = select i1 %.not45.i.i, ptr %108, ptr %107
   br label %convert_pp_int.exit.thread.i
 
 110:                                              ; preds = %94
-  br i1 %brmerge.i.i, label %113, label %111
+  br i1 %or.cond.i.i, label %111, label %113
 
 111:                                              ; preds = %110
   %112 = load ptr, ptr @ty_ulong, align 8, !tbaa !45
   br label %convert_pp_int.exit.thread.i
 
 113:                                              ; preds = %110
-  br i1 %.026.not48.i.i, label %118, label %114
+  br i1 %.029.i.i, label %114, label %118
 
 114:                                              ; preds = %113
   %115 = load ptr, ptr @ty_ulong, align 8
   %116 = load ptr, ptr @ty_long, align 8
-  %.not4041.i.i = icmp slt i64 %43, 0
-  %117 = select i1 %.not4041.i.i, ptr %115, ptr %116
+  %.not4344.i.i = icmp slt i64 %43, 0
+  %117 = select i1 %.not4344.i.i, ptr %115, ptr %116
   br label %convert_pp_int.exit.thread.i
 
 118:                                              ; preds = %113
-  br i1 %.025.not49.i.i, label %123, label %119
+  br i1 %.028.i.i, label %119, label %123
 
 119:                                              ; preds = %118
-  %.not39.i.i = icmp ult i64 %43, 4294967296
+  %.not42.i.i = icmp ult i64 %43, 4294967296
   %120 = load ptr, ptr @ty_ulong, align 8
   %121 = load ptr, ptr @ty_uint, align 8
-  %122 = select i1 %.not39.i.i, ptr %121, ptr %120
+  %122 = select i1 %.not42.i.i, ptr %121, ptr %120
   br label %convert_pp_int.exit.thread.i
 
 123:                                              ; preds = %118
-  %.not36.i.i = icmp sgt i64 %43, -1
-  br i1 %.not36.i.i, label %126, label %124
+  %.not39.i.i = icmp sgt i64 %43, -1
+  br i1 %.not39.i.i, label %126, label %124
 
 124:                                              ; preds = %123
   %125 = load ptr, ptr @ty_ulong, align 8, !tbaa !45
   br label %convert_pp_int.exit.thread.i
 
 126:                                              ; preds = %123
-  %.not37.i.i = icmp samesign ult i64 %43, 4294967296
-  br i1 %.not37.i.i, label %129, label %127
+  %.not40.i.i = icmp samesign ult i64 %43, 4294967296
+  br i1 %.not40.i.i, label %129, label %127
 
 127:                                              ; preds = %126
   %128 = load ptr, ptr @ty_long, align 8, !tbaa !45
   br label %convert_pp_int.exit.thread.i
 
 129:                                              ; preds = %126
-  %.not38.i.i = icmp samesign ult i64 %43, 2147483648
-  br i1 %.not38.i.i, label %132, label %130
+  %.not41.i.i = icmp samesign ult i64 %43, 2147483648
+  br i1 %.not41.i.i, label %132, label %130
 
 130:                                              ; preds = %129
   %131 = load ptr, ptr @ty_uint, align 8, !tbaa !45

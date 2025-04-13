@@ -137,7 +137,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br i1 %exitcond.not.i, label %pm_strpbrk_utf8.exit, label %.split.us.i26, !llvm.loop !37
 
 .split.i29:                                       ; preds = %60, %85
-  %.pre23.i = phi ptr [ %.pre23.i90, %85 ], [ getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 96), %60 ]
+  %.pre23.i = phi ptr [ %.pre23.i89, %85 ], [ getelementptr inbounds nuw (i8, ptr @pm_encodings, i64 96), %60 ]
   %.016.i = phi i64 [ %86, %85 ], [ 0, %60 ]
   %70 = getelementptr i8, ptr %1, i64 %.016.i
   %71 = load i8, ptr %70, align 1, !tbaa !32
@@ -169,12 +169,12 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br label %pm_strpbrk_explicit_encoding_set.exit.i
 
 pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
-  %.pre23.i91 = phi ptr [ %.pre23.i, %76 ], [ %.pre23.i, %78 ], [ %.pre.i, %81 ]
-  store ptr %.pre23.i91, ptr %61, align 8, !tbaa !38
+  %.pre23.i90 = phi ptr [ %.pre23.i, %76 ], [ %.pre23.i, %78 ], [ %.pre.i, %81 ]
+  store ptr %.pre23.i90, ptr %61, align 8, !tbaa !38
   br label %85
 
 85:                                               ; preds = %pm_strpbrk_explicit_encoding_set.exit.i, %74
-  %.pre23.i90 = phi ptr [ %.pre23.i91, %pm_strpbrk_explicit_encoding_set.exit.i ], [ %.pre23.i, %74 ]
+  %.pre23.i89 = phi ptr [ %.pre23.i90, %pm_strpbrk_explicit_encoding_set.exit.i ], [ %.pre23.i, %74 ]
   %86 = add nuw nsw i64 %.016.i, 1
   %exitcond22.not.i = icmp eq i64 %86, %3
   br i1 %exitcond22.not.i, label %pm_strpbrk_utf8.exit, label %.split.i29, !llvm.loop !37
@@ -312,22 +312,22 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
   br i1 %4, label %.split.i46, label %.split.us.i42
 
 .split.us.i42:                                    ; preds = %150, %155
-  %.03744.us.i = phi i64 [ %156, %155 ], [ 0, %150 ]
-  %151 = getelementptr i8, ptr %1, i64 %.03744.us.i
+  %.03843.us.i = phi i64 [ %156, %155 ], [ 0, %150 ]
+  %151 = getelementptr i8, ptr %1, i64 %.03843.us.i
   %152 = load i8, ptr %151, align 1, !tbaa !32
   %153 = zext i8 %152 to i32
   %154 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef %153) #3
   %.not.us.i43 = icmp eq ptr %154, null
-  br i1 %.not.us.i43, label %155, label %pm_strpbrk_utf8.exit.loopexit100.split.loop.exit
+  br i1 %.not.us.i43, label %155, label %pm_strpbrk_utf8.exit.loopexit99.split.loop.exit
 
 155:                                              ; preds = %.split.us.i42
-  %156 = add nuw nsw i64 %.03744.us.i, 1
+  %156 = add nuw nsw i64 %.03843.us.i, 1
   %exitcond.not.i45 = icmp eq i64 %156, %3
   br i1 %exitcond.not.i45, label %pm_strpbrk_utf8.exit, label %.split.us.i42, !llvm.loop !45
 
 .split.i46:                                       ; preds = %150, %193
-  %.03744.i = phi i64 [ %.1.i48, %193 ], [ 0, %150 ]
-  %157 = getelementptr i8, ptr %1, i64 %.03744.i
+  %.03843.i = phi i64 [ %.1.i48, %193 ], [ 0, %150 ]
+  %157 = getelementptr i8, ptr %1, i64 %.03843.i
   %158 = load i8, ptr %157, align 1, !tbaa !32
   %159 = zext i8 %158 to i32
   %160 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef %159) #3
@@ -339,44 +339,44 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
   br i1 %162, label %165, label %163
 
 163:                                              ; preds = %161
-  %164 = add nuw nsw i64 %.03744.i, 1
+  %164 = add nuw nsw i64 %.03843.i, 1
   br label %193
 
 165:                                              ; preds = %161
   %166 = load ptr, ptr %58, align 8, !tbaa !42
-  %167 = sub nsw i64 %3, %.03744.i
+  %167 = sub nsw i64 %3, %.03843.i
   %168 = tail call i64 %166(ptr noundef nonnull %157, i64 noundef %167) #4
   %169 = load ptr, ptr %92, align 8, !tbaa !38
   %.not.i.i49 = icmp eq ptr %169, null
-  %.pre51.i50 = load ptr, ptr %57, align 8, !tbaa !36
-  br i1 %.not.i.i49, label %pm_strpbrk_explicit_encoding_set.exit.i52, label %170
+  %.pre50.i = load ptr, ptr %57, align 8, !tbaa !36
+  br i1 %.not.i.i49, label %pm_strpbrk_explicit_encoding_set.exit.i51, label %170
 
 170:                                              ; preds = %165
   %171 = icmp eq ptr %169, @pm_encodings
-  %172 = icmp ne ptr %.pre51.i50, @pm_encodings
-  %or.cond.i.i51 = and i1 %171, %172
-  br i1 %or.cond.i.i51, label %173, label %pm_strpbrk_explicit_encoding_set.exit.i52
+  %172 = icmp ne ptr %.pre50.i, @pm_encodings
+  %or.cond.i.i50 = and i1 %171, %172
+  br i1 %or.cond.i.i50, label %173, label %pm_strpbrk_explicit_encoding_set.exit.i51
 
 173:                                              ; preds = %170
   %174 = getelementptr i8, ptr %1, i64 %168
-  %175 = getelementptr inbounds nuw i8, ptr %.pre51.i50, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %.pre50.i, i64 32
   %176 = load ptr, ptr %175, align 8, !tbaa !39
   %177 = tail call zeroext i1 (ptr, ptr, ptr, i32, ...) @pm_diagnostic_list_append_format(ptr noundef nonnull %93, ptr noundef nonnull %1, ptr noundef %174, i32 noundef 182, ptr noundef %176) #4
-  %.pre.i53 = load ptr, ptr %57, align 8, !tbaa !36
-  br label %pm_strpbrk_explicit_encoding_set.exit.i52
+  %.pre.i52 = load ptr, ptr %57, align 8, !tbaa !36
+  br label %pm_strpbrk_explicit_encoding_set.exit.i51
 
-pm_strpbrk_explicit_encoding_set.exit.i52:        ; preds = %173, %170, %165
-  %178 = phi ptr [ %.pre51.i50, %165 ], [ %.pre51.i50, %170 ], [ %.pre.i53, %173 ]
+pm_strpbrk_explicit_encoding_set.exit.i51:        ; preds = %173, %170, %165
+  %178 = phi ptr [ %.pre50.i, %165 ], [ %.pre50.i, %170 ], [ %.pre.i52, %173 ]
   store ptr %178, ptr %92, align 8, !tbaa !38
-  %.not41.i = icmp eq i64 %168, 0
-  br i1 %.not41.i, label %.preheader.i, label %179
+  %.not42.i = icmp eq i64 %168, 0
+  br i1 %.not42.i, label %.preheader.i, label %179
 
-179:                                              ; preds = %pm_strpbrk_explicit_encoding_set.exit.i52
-  %180 = add i64 %168, %.03744.i
+179:                                              ; preds = %pm_strpbrk_explicit_encoding_set.exit.i51
+  %180 = add i64 %168, %.03843.i
   br label %193
 
-.preheader.i:                                     ; preds = %pm_strpbrk_explicit_encoding_set.exit.i52, %183
-  %.3.i = phi i64 [ %181, %183 ], [ %.03744.i, %pm_strpbrk_explicit_encoding_set.exit.i52 ]
+.preheader.i:                                     ; preds = %pm_strpbrk_explicit_encoding_set.exit.i51, %183
+  %.3.i = phi i64 [ %181, %183 ], [ %.03843.i, %pm_strpbrk_explicit_encoding_set.exit.i51 ]
   %181 = add nuw i64 %.3.i, 1
   %182 = icmp ult i64 %181, %3
   br i1 %182, label %183, label %.critedge.i
@@ -401,12 +401,12 @@ pm_strpbrk_explicit_encoding_set.exit.i52:        ; preds = %173, %170, %165
   %194 = icmp ult i64 %.1.i48, %3
   br i1 %194, label %.split.i46, label %pm_strpbrk_utf8.exit, !llvm.loop !45
 
-pm_strpbrk_utf8.exit.loopexit100.split.loop.exit: ; preds = %.split.us.i42
-  %195 = getelementptr i8, ptr %1, i64 %.03744.us.i
+pm_strpbrk_utf8.exit.loopexit99.split.loop.exit:  ; preds = %.split.us.i42
+  %195 = getelementptr i8, ptr %1, i64 %.03843.us.i
   br label %pm_strpbrk_utf8.exit
 
-pm_strpbrk_utf8.exit:                             ; preds = %54, %.split.i, %37, %.split.us.i, %155, %193, %.split.i46, %148, %.split.i31, %132, %.split.us.i35, %68, %85, %pm_strpbrk_utf8.exit.loopexit100.split.loop.exit, %.split.loop.exit14.i, %5
-  %.0 = phi ptr [ null, %5 ], [ %87, %.split.loop.exit14.i ], [ %195, %pm_strpbrk_utf8.exit.loopexit100.split.loop.exit ], [ null, %85 ], [ null, %68 ], [ null, %132 ], [ %95, %.split.us.i35 ], [ null, %148 ], [ %134, %.split.i31 ], [ null, %193 ], [ %157, %.split.i46 ], [ null, %155 ], [ null, %37 ], [ %13, %.split.us.i ], [ null, %54 ], [ %39, %.split.i ]
+pm_strpbrk_utf8.exit:                             ; preds = %54, %.split.i, %37, %.split.us.i, %155, %193, %.split.i46, %148, %.split.i31, %132, %.split.us.i35, %68, %85, %pm_strpbrk_utf8.exit.loopexit99.split.loop.exit, %.split.loop.exit14.i, %5
+  %.0 = phi ptr [ null, %5 ], [ %87, %.split.loop.exit14.i ], [ %195, %pm_strpbrk_utf8.exit.loopexit99.split.loop.exit ], [ null, %85 ], [ null, %68 ], [ null, %132 ], [ %95, %.split.us.i35 ], [ null, %148 ], [ %134, %.split.i31 ], [ null, %193 ], [ %157, %.split.i46 ], [ null, %155 ], [ null, %37 ], [ %13, %.split.us.i ], [ null, %54 ], [ %39, %.split.i ]
   ret ptr %.0
 }
 

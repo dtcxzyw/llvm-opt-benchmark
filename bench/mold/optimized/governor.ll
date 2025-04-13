@@ -736,12 +736,12 @@ _ZN3tbb6detail2d114global_controlD2Ev.exit.i:     ; preds = %6
 11:                                               ; preds = %2
   %12 = tail call noundef zeroext i1 @_ZN3tbb6detail2r113finalize_implERNS0_2d121task_scheduler_handleE(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %13 = load ptr, ptr %0, align 8, !tbaa !132
-  %.not.i8 = icmp eq ptr %13, null
-  br i1 %.not.i8, label %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit10, label %14
+  %.not.i9 = icmp eq ptr %13, null
+  br i1 %.not.i9, label %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit11, label %14
 
 14:                                               ; preds = %11
   invoke void @_ZN3tbb6detail2r17destroyERNS0_2d114global_controlE(ptr noundef nonnull align 8 dereferenceable(20) %13)
-          to label %_ZN3tbb6detail2d114global_controlD2Ev.exit.i9 unwind label %15
+          to label %_ZN3tbb6detail2d114global_controlD2Ev.exit.i10 unwind label %15
 
 15:                                               ; preds = %14
   %16 = landingpad { ptr, i32 }
@@ -750,23 +750,23 @@ _ZN3tbb6detail2d114global_controlD2Ev.exit.i:     ; preds = %6
   tail call void @__clang_call_terminate(ptr %17) #15
   unreachable
 
-_ZN3tbb6detail2d114global_controlD2Ev.exit.i9:    ; preds = %14
+_ZN3tbb6detail2d114global_controlD2Ev.exit.i10:   ; preds = %14
   %18 = load ptr, ptr %0, align 8, !tbaa !132
   tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef %18)
   store ptr null, ptr %0, align 8, !tbaa !132
-  br label %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit10
+  br label %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit11
 
-_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit10: ; preds = %11, %_ZN3tbb6detail2d114global_controlD2Ev.exit.i9
+_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit11: ; preds = %11, %_ZN3tbb6detail2d114global_controlD2Ev.exit.i10
   %19 = icmp ne i64 %1, 2
-  %brmerge = or i1 %19, %12
-  br i1 %brmerge, label %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit, label %20
+  %or.cond = or i1 %19, %12
+  br i1 %or.cond, label %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit, label %20
 
-20:                                               ; preds = %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit10
+20:                                               ; preds = %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit11
   tail call void @_ZN3tbb6detail2r115throw_exceptionENS0_2d012exception_idE(i32 noundef 11)
   br label %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit
 
-_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit: ; preds = %_ZN3tbb6detail2d114global_controlD2Ev.exit.i, %4, %20, %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit10
-  %.0 = phi i1 [ %12, %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit10 ], [ false, %20 ], [ true, %4 ], [ true, %_ZN3tbb6detail2d114global_controlD2Ev.exit.i ]
+_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit: ; preds = %_ZN3tbb6detail2d114global_controlD2Ev.exit.i, %4, %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit11, %20
+  %.0 = phi i1 [ false, %20 ], [ %12, %_ZN3tbb6detail2r112release_implERNS0_2d121task_scheduler_handleE.exit11 ], [ true, %4 ], [ true, %_ZN3tbb6detail2d114global_controlD2Ev.exit.i ]
   ret i1 %.0
 }
 

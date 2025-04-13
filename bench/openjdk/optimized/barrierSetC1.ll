@@ -647,86 +647,82 @@ define hidden void @_ZN12BarrierSetC117store_at_resolvedER9LIRAccess7LIR_Opr(ptr
   %9 = trunc i8 %8 to i1
   %10 = select i1 %7, i1 true, i1 %9
   %11 = and i64 %5, 2147483648
-  %.not.not = icmp eq i64 %11, 0
-  %12 = and i64 %5, 4294967296
-  %.not29 = icmp eq i64 %12, 0
-  %13 = load ptr, ptr %1, align 8
-  br i1 %.not29, label %48, label %14
+  %12 = icmp eq i64 %11, 0
+  %13 = and i64 %5, 4294967296
+  %.not30 = icmp eq i64 %13, 0
+  %14 = load ptr, ptr %1, align 8
+  br i1 %.not30, label %49, label %15
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %20
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %_ZNK13LIRAddressOpr3oprEv.exit
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %22 = load i8, ptr %21, align 8
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %44
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %23 = load i8, ptr %22, align 8
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %45
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = and i64 %26, 7
-  switch i64 %27, label %44 [
-    i64 5, label %28
-    i64 3, label %28
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = and i64 %27, 7
+  switch i64 %28, label %45 [
+    i64 5, label %29
+    i64 3, label %29
   ]
 
-28:                                               ; preds = %24, %24
-  %29 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %30 = load i64, ptr %29, align 8
-  %31 = and i64 %30, 7
-  %32 = icmp eq i64 %31, 7
-  br i1 %32, label %33, label %_ZNK13LIRAddressOpr3oprEv.exit
+29:                                               ; preds = %25, %25
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %31 = load i64, ptr %30, align 8
+  %32 = and i64 %31, 7
+  %33 = icmp eq i64 %32, 7
+  br i1 %33, label %34, label %_ZNK13LIRAddressOpr3oprEv.exit
 
-33:                                               ; preds = %28
-  %34 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %16, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %38) #6
-  %40 = tail call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %35, i8 noundef zeroext %39) #6
-  store i64 %40, ptr %29, align 8
-  %41 = load ptr, ptr %34, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 144
-  %43 = load ptr, ptr %42, align 8
-  %.sroa.01.0.copyload.i.i = load i64, ptr %25, align 8
-  tail call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %43, i64 %.sroa.01.0.copyload.i.i, i64 %40, ptr noundef null)
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %17, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %39) #6
+  %41 = tail call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %36, i8 noundef zeroext %40) #6
+  store i64 %41, ptr %30, align 8
+  %42 = load ptr, ptr %35, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 144
+  %44 = load ptr, ptr %43, align 8
+  %.sroa.01.0.copyload.i.i = load i64, ptr %26, align 8
+  tail call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %44, i64 %.sroa.01.0.copyload.i.i, i64 %41, ptr noundef null)
   br label %_ZNK13LIRAddressOpr3oprEv.exit
 
-44:                                               ; preds = %24, %20
-  %45 = getelementptr inbounds nuw i8, ptr %16, i64 16
+45:                                               ; preds = %25, %21
+  %46 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br label %_ZNK13LIRAddressOpr3oprEv.exit
 
-_ZNK13LIRAddressOpr3oprEv.exit:                   ; preds = %18, %28, %33, %44
-  %.sroa.0.0.in.i = phi ptr [ %19, %18 ], [ %45, %44 ], [ %29, %33 ], [ %29, %28 ]
+_ZNK13LIRAddressOpr3oprEv.exit:                   ; preds = %19, %29, %34, %45
+  %.sroa.0.0.in.i = phi ptr [ %20, %19 ], [ %46, %45 ], [ %30, %34 ], [ %30, %29 ]
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %47 = tail call i64 @_ZN12LIRGenerator12mask_booleanE7LIR_OprS0_RP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %13, i64 %.sroa.0.0.i, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %46) #6
-  br label %48
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %48 = tail call i64 @_ZN12LIRGenerator12mask_booleanE7LIR_OprS0_RP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %14, i64 %.sroa.0.0.i, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %47) #6
+  br label %49
 
-48:                                               ; preds = %_ZNK13LIRAddressOpr3oprEv.exit, %3
-  %.sroa.026.0 = phi i64 [ %47, %_ZNK13LIRAddressOpr3oprEv.exit ], [ %2, %3 ]
+49:                                               ; preds = %_ZNK13LIRAddressOpr3oprEv.exit, %3
+  %.sroa.027.0 = phi i64 [ %48, %_ZNK13LIRAddressOpr3oprEv.exit ], [ %2, %3 ]
   br i1 %10, label %50, label %.thread
 
-.thread:                                          ; preds = %48
-  %49 = select i1 %.not.not, i32 0, i32 3
-  br label %61
-
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %13, i64 144
+50:                                               ; preds = %49
+  %51 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %52 = load ptr, ptr %51, align 8
   tail call void @_ZN8LIR_List14membar_releaseEv(ptr noundef nonnull align 8 dereferenceable(32) %52)
-  br i1 %.not.not, label %.thread36, label %61
+  br i1 %12, label %.thread35, label %.thread
 
-.thread36:                                        ; preds = %50
+.thread35:                                        ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.0.0.copyload.i = load i64, ptr %53, align 8
   %54 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -736,32 +732,32 @@ _ZNK13LIRAddressOpr3oprEv.exit:                   ; preds = %18, %28, %33, %44
   %58 = tail call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %54) #6
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %60 = load ptr, ptr %59, align 8
-  tail call void @_ZN12LIRGenerator20volatile_field_storeE7LIR_OprP11LIR_AddressP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %13, i64 %.sroa.026.0, ptr noundef %58, ptr noundef %60) #6
-  br label %73
+  tail call void @_ZN12LIRGenerator20volatile_field_storeE7LIR_OprP11LIR_AddressP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %14, i64 %.sroa.027.0, ptr noundef %58, ptr noundef %60) #6
+  br label %72
 
-61:                                               ; preds = %50, %.thread
-  %62 = phi i32 [ %49, %.thread ], [ 3, %50 ]
-  %63 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.sroa.0.0.copyload.i31 = load i64, ptr %65, align 8
-  %66 = inttoptr i64 %.sroa.0.0.copyload.i31 to ptr
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(8) %66) #6
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %72 = load ptr, ptr %71, align 8
-  tail call void @_ZN8LIR_List5storeE7LIR_OprP11LIR_AddressP12CodeEmitInfo13LIR_PatchCode(ptr noundef nonnull align 8 dereferenceable(32) %64, i64 %.sroa.026.0, ptr noundef %70, ptr noundef %72, i32 noundef %62) #6
-  br i1 %10, label %73, label %76
+.thread:                                          ; preds = %49, %50
+  %61 = select i1 %12, i32 0, i32 3
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 144
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.sroa.0.0.copyload.i32 = load i64, ptr %64, align 8
+  %65 = inttoptr i64 %.sroa.0.0.copyload.i32 to ptr
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = tail call noundef ptr %68(ptr noundef nonnull align 8 dereferenceable(8) %65) #6
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %71 = load ptr, ptr %70, align 8
+  tail call void @_ZN8LIR_List5storeE7LIR_OprP11LIR_AddressP12CodeEmitInfo13LIR_PatchCode(ptr noundef nonnull align 8 dereferenceable(32) %63, i64 %.sroa.027.0, ptr noundef %69, ptr noundef %71, i32 noundef %61) #6
+  br i1 %10, label %72, label %75
 
-73:                                               ; preds = %.thread36, %61
-  %74 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  %75 = load ptr, ptr %74, align 8
-  tail call void @_ZN8LIR_List6membarEv(ptr noundef nonnull align 8 dereferenceable(32) %75)
-  br label %76
+72:                                               ; preds = %.thread35, %.thread
+  %73 = getelementptr inbounds nuw i8, ptr %14, i64 144
+  %74 = load ptr, ptr %73, align 8
+  tail call void @_ZN8LIR_List6membarEv(ptr noundef nonnull align 8 dereferenceable(32) %74)
+  br label %75
 
-76:                                               ; preds = %73, %61
+75:                                               ; preds = %72, %.thread
   ret void
 }
 
@@ -980,206 +976,206 @@ define hidden void @_ZN12BarrierSetC116load_at_resolvedER9LIRAccess7LIR_Opr(ptr 
   %10 = trunc i8 %9 to i1
   %11 = select i1 %8, i1 true, i1 %10
   %12 = and i64 %6, 2147483648
-  %.not = icmp eq i64 %12, 0
-  %13 = and i64 %6, 4294967296
-  %.not37 = icmp eq i64 %13, 0
-  %14 = and i64 %6, 524288
+  %13 = icmp eq i64 %12, 0
+  %14 = and i64 %6, 4294967296
   %.not38 = icmp eq i64 %14, 0
-  %15 = select i1 %.not, i32 0, i32 3
-  br i1 %.not38, label %25, label %16
+  %15 = and i64 %6, 524288
+  %.not39 = icmp eq i64 %15, 0
+  %16 = select i1 %13, i32 0, i32 3
+  br i1 %.not39, label %26, label %17
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.sroa.0.0.copyload.i = load i64, ptr %19, align 8
-  %20 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %20) #6
-  tail call void @_ZN8LIR_List9move_wideEP11LIR_Address7LIR_OprP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef %24, i64 %2, ptr noundef null)
-  br label %46
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.sroa.0.0.copyload.i = load i64, ptr %20, align 8
+  %21 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #6
+  tail call void @_ZN8LIR_List9move_wideEP11LIR_Address7LIR_OprP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %25, i64 %2, ptr noundef null)
+  br label %47
 
-25:                                               ; preds = %3
-  %brmerge.not = and i1 %.not, %11
-  br i1 %brmerge.not, label %26, label %35
+26:                                               ; preds = %3
+  %or.cond.not = and i1 %13, %11
+  br i1 %or.cond.not, label %27, label %36
 
-26:                                               ; preds = %25
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.sroa.0.0.copyload.i40 = load i64, ptr %27, align 8
-  %28 = inttoptr i64 %.sroa.0.0.copyload.i40 to ptr
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %28) #6
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %34 = load ptr, ptr %33, align 8
-  tail call void @_ZN12LIRGenerator19volatile_field_loadEP11LIR_Address7LIR_OprP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noundef %32, i64 %2, ptr noundef %34) #6
-  br label %46
+27:                                               ; preds = %26
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.sroa.0.0.copyload.i41 = load i64, ptr %28, align 8
+  %29 = inttoptr i64 %.sroa.0.0.copyload.i41 to ptr
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(8) %29) #6
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %35 = load ptr, ptr %34, align 8
+  tail call void @_ZN12LIRGenerator19volatile_field_loadEP11LIR_Address7LIR_OprP12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(232) %4, ptr noundef %33, i64 %2, ptr noundef %35) #6
+  br label %47
 
-35:                                               ; preds = %25
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.sroa.0.0.copyload.i41 = load i64, ptr %38, align 8
-  %39 = inttoptr i64 %.sroa.0.0.copyload.i41 to ptr
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #6
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %45 = load ptr, ptr %44, align 8
-  tail call void @_ZN8LIR_List4loadEP11LIR_Address7LIR_OprP12CodeEmitInfo13LIR_PatchCode(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef %43, i64 %2, ptr noundef %45, i32 noundef %15) #6
-  br label %46
+36:                                               ; preds = %26
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.sroa.0.0.copyload.i42 = load i64, ptr %39, align 8
+  %40 = inttoptr i64 %.sroa.0.0.copyload.i42 to ptr
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(8) %40) #6
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %46 = load ptr, ptr %45, align 8
+  tail call void @_ZN8LIR_List4loadEP11LIR_Address7LIR_OprP12CodeEmitInfo13LIR_PatchCode(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef %44, i64 %2, ptr noundef %46, i32 noundef %16) #6
+  br label %47
 
-46:                                               ; preds = %26, %35, %16
-  br i1 %11, label %47, label %50
+47:                                               ; preds = %27, %36, %17
+  br i1 %11, label %48, label %51
 
-47:                                               ; preds = %46
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %49 = load ptr, ptr %48, align 8
-  tail call void @_ZN8LIR_List14membar_acquireEv(ptr noundef nonnull align 8 dereferenceable(32) %49)
-  br label %50
+48:                                               ; preds = %47
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  %50 = load ptr, ptr %49, align 8
+  tail call void @_ZN8LIR_List14membar_acquireEv(ptr noundef nonnull align 8 dereferenceable(32) %50)
+  br label %51
 
-50:                                               ; preds = %47, %46
-  br i1 %.not37, label %125, label %51
+51:                                               ; preds = %48, %47
+  br i1 %.not38, label %126, label %52
 
-51:                                               ; preds = %50
-  %52 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1808
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 128
-  %57 = load ptr, ptr %56, align 8
+52:                                               ; preds = %51
+  %53 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1808
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 128
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %62 = load ptr, ptr %61, align 8
-  %63 = ptrtoint ptr %60 to i64
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %63, %64
-  %.not.i.i.i = icmp ult i64 %65, 40
-  br i1 %.not.i.i.i, label %68, label %66
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %63 = load ptr, ptr %62, align 8
+  %64 = ptrtoint ptr %61 to i64
+  %65 = ptrtoint ptr %63 to i64
+  %66 = sub i64 %64, %65
+  %.not.i.i.i = icmp ult i64 %66, 40
+  br i1 %.not.i.i.i, label %69, label %67
 
-66:                                               ; preds = %51
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  store ptr %67, ptr %61, align 8
+67:                                               ; preds = %52
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  store ptr %68, ptr %62, align 8
   br label %_ZN22CompilationResourceObjnwEm.exit
 
-68:                                               ; preds = %51
-  %69 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %58, i64 noundef 40, i32 noundef 0) #6
+69:                                               ; preds = %52
+  %70 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %59, i64 noundef 40, i32 noundef 0) #6
   br label %_ZN22CompilationResourceObjnwEm.exit
 
-_ZN22CompilationResourceObjnwEm.exit:             ; preds = %66, %68
-  %.0.i.i.i = phi ptr [ %62, %66 ], [ %69, %68 ]
-  %70 = icmp eq ptr %.0.i.i.i, null
-  br i1 %70, label %75, label %71
+_ZN22CompilationResourceObjnwEm.exit:             ; preds = %67, %69
+  %.0.i.i.i = phi ptr [ %63, %67 ], [ %70, %69 ]
+  %71 = icmp eq ptr %.0.i.i.i, null
+  br i1 %71, label %76, label %72
 
-71:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
+72:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
   store i32 -1, ptr %.0.i.i.i, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
-  store i32 0, ptr %72, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  store ptr null, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  store i8 0, ptr %74, align 8
-  br label %75
+  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
+  store i32 0, ptr %73, align 4
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
+  store ptr null, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
+  store i8 0, ptr %75, align 8
+  br label %76
 
-75:                                               ; preds = %71, %_ZN22CompilationResourceObjnwEm.exit
-  %76 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %52, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1808
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 128
-  %82 = load ptr, ptr %81, align 8
+76:                                               ; preds = %72, %_ZN22CompilationResourceObjnwEm.exit
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %53, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1808
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 128
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %87 = load ptr, ptr %86, align 8
-  %88 = ptrtoint ptr %85 to i64
-  %89 = ptrtoint ptr %87 to i64
-  %90 = sub i64 %88, %89
-  %.not.i.i.i.i.i = icmp ult i64 %90, 24
-  br i1 %.not.i.i.i.i.i, label %93, label %91
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %88 = load ptr, ptr %87, align 8
+  %89 = ptrtoint ptr %86 to i64
+  %90 = ptrtoint ptr %88 to i64
+  %91 = sub i64 %89, %90
+  %.not.i.i.i.i.i = icmp ult i64 %91, 24
+  br i1 %.not.i.i.i.i.i, label %94, label %92
 
-91:                                               ; preds = %75
-  %92 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  store ptr %92, ptr %86, align 8
+92:                                               ; preds = %76
+  %93 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  store ptr %93, ptr %87, align 8
   br label %_ZN22CompilationResourceObjnwEm.exit.i.i
 
-93:                                               ; preds = %75
-  %94 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %83, i64 noundef 24, i32 noundef 0) #6
+94:                                               ; preds = %76
+  %95 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %84, i64 noundef 24, i32 noundef 0) #6
   br label %_ZN22CompilationResourceObjnwEm.exit.i.i
 
-_ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %93, %91
-  %.0.i.i.i.i.i = phi ptr [ %87, %91 ], [ %94, %93 ]
-  %95 = icmp eq ptr %.0.i.i.i.i.i, null
-  br i1 %95, label %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit, label %96
+_ZN22CompilationResourceObjnwEm.exit.i.i:         ; preds = %94, %92
+  %.0.i.i.i.i.i = phi ptr [ %88, %92 ], [ %95, %94 ]
+  %96 = icmp eq ptr %.0.i.i.i.i.i, null
+  br i1 %96, label %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit, label %97
 
-96:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
+97:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i.i, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
-  store i8 10, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
-  store i32 0, ptr %98, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
+  store i8 10, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
+  store i32 0, ptr %99, align 8
   br label %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit
 
-_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit: ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i, %96
-  %99 = ptrtoint ptr %.0.i.i.i.i.i to i64
-  tail call void @_ZN8LIR_List3cmpE13LIR_Condition7LIR_OprS1_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %77, i32 noundef 0, i64 %2, i64 %99, ptr noundef null)
-  %100 = load ptr, ptr %76, align 8
-  tail call void @_ZN8LIR_List6branchE13LIR_ConditionP5Label(ptr noundef nonnull align 8 dereferenceable(32) %100, i32 noundef 0, ptr noundef %.0.i.i.i)
-  %101 = load ptr, ptr %76, align 8
-  %102 = load ptr, ptr %52, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1808
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 128
-  %106 = load ptr, ptr %105, align 8
+_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit: ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i, %97
+  %100 = ptrtoint ptr %.0.i.i.i.i.i to i64
+  tail call void @_ZN8LIR_List3cmpE13LIR_Condition7LIR_OprS1_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %78, i32 noundef 0, i64 %2, i64 %100, ptr noundef null)
+  %101 = load ptr, ptr %77, align 8
+  tail call void @_ZN8LIR_List6branchE13LIR_ConditionP5Label(ptr noundef nonnull align 8 dereferenceable(32) %101, i32 noundef 0, ptr noundef %.0.i.i.i)
+  %102 = load ptr, ptr %77, align 8
+  %103 = load ptr, ptr %53, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 1808
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 128
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  %111 = load ptr, ptr %110, align 8
-  %112 = ptrtoint ptr %109 to i64
-  %113 = ptrtoint ptr %111 to i64
-  %114 = sub i64 %112, %113
-  %.not.i.i.i.i = icmp ult i64 %114, 24
-  br i1 %.not.i.i.i.i, label %117, label %115
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  %112 = load ptr, ptr %111, align 8
+  %113 = ptrtoint ptr %110 to i64
+  %114 = ptrtoint ptr %112 to i64
+  %115 = sub i64 %113, %114
+  %.not.i.i.i.i = icmp ult i64 %115, 24
+  br i1 %.not.i.i.i.i, label %118, label %116
 
-115:                                              ; preds = %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit
-  %116 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  store ptr %116, ptr %110, align 8
+116:                                              ; preds = %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  store ptr %117, ptr %111, align 8
   br label %_ZN22CompilationResourceObjnwEm.exit.i
 
-117:                                              ; preds = %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit
-  %118 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %107, i64 noundef 24, i32 noundef 0) #6
+118:                                              ; preds = %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit
+  %119 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %108, i64 noundef 24, i32 noundef 0) #6
   br label %_ZN22CompilationResourceObjnwEm.exit.i
 
-_ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %117, %115
-  %.0.i.i.i.i = phi ptr [ %111, %115 ], [ %118, %117 ]
-  %119 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %119, label %_ZN11LIR_OprFact8intConstEi.exit, label %120
+_ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %118, %116
+  %.0.i.i.i.i = phi ptr [ %112, %116 ], [ %119, %118 ]
+  %120 = icmp eq ptr %.0.i.i.i.i, null
+  br i1 %120, label %_ZN11LIR_OprFact8intConstEi.exit, label %121
 
-120:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
+121:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit.i
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV9LIR_Const, i64 16), ptr %.0.i.i.i.i, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store i8 10, ptr %121, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  store i32 1, ptr %122, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store i8 10, ptr %122, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  store i32 1, ptr %123, align 8
   br label %_ZN11LIR_OprFact8intConstEi.exit
 
-_ZN11LIR_OprFact8intConstEi.exit:                 ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %120
-  %123 = ptrtoint ptr %.0.i.i.i.i to i64
-  tail call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %101, i64 %123, i64 %2, ptr noundef null)
-  %124 = load ptr, ptr %76, align 8
-  tail call void @_ZN8LIR_List18branch_destinationEP5Label(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef %.0.i.i.i)
-  br label %125
+_ZN11LIR_OprFact8intConstEi.exit:                 ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %121
+  %124 = ptrtoint ptr %.0.i.i.i.i to i64
+  tail call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %102, i64 %124, i64 %2, ptr noundef null)
+  %125 = load ptr, ptr %77, align 8
+  tail call void @_ZN8LIR_List18branch_destinationEP5Label(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef %.0.i.i.i)
+  br label %126
 
-125:                                              ; preds = %_ZN11LIR_OprFact8intConstEi.exit, %50
+126:                                              ; preds = %_ZN11LIR_OprFact8intConstEi.exit, %51
   ret void
 }
 

@@ -3948,8 +3948,8 @@ cleanup.action:                                   ; preds = %invoke.cont10
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
   %4 = load i64, ptr %pendingWriteSizeDelta_, align 8
   %cmp21 = icmp sgt i64 %4, -1
-  %brmerge.not = and i1 %update, %cmp21
-  br i1 %brmerge.not, label %if.then, label %return
+  %or.cond = and i1 %update, %cmp21
+  br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %cleanup.done
   store i64 0, ptr %pendingWriteSizeDelta_, align 8
@@ -3979,7 +3979,7 @@ lpad:                                             ; preds = %invoke.cont10, %inv
   resume { ptr, i32 } %8
 
 return:                                           ; preds = %cleanup.done, %_ZN8proxygen15HTTPSessionBase18updateWriteBufSizeEl.exit
-  %retval.0 = xor i1 %brmerge.not, true
+  %retval.0 = xor i1 %or.cond, true
   ret i1 %retval.0
 }
 
@@ -4448,24 +4448,22 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext %delayed) unnamed_addr #5 comdat align 2 {
 entry:
-  br i1 %delayed, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
+  %delayed.not = xor i1 %delayed, true
   %destroyPending_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %destroyPending_, align 4
   %tobool2 = trunc i8 %0 to i1
-  br i1 %tobool2, label %if.end, label %delete.end
+  %or.cond = select i1 %delayed.not, i1 true, i1 %tobool2
+  br i1 %or.cond, label %if.end, label %delete.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %destroyPending_3 = getelementptr inbounds nuw i8, ptr %this, i64 12
-  store i8 0, ptr %destroyPending_3, align 4
+if.end:                                           ; preds = %entry
+  store i8 0, ptr %destroyPending_, align 4
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this) #22
   br label %delete.end
 
-delete.end:                                       ; preds = %land.lhs.true, %if.end
+delete.end:                                       ; preds = %entry, %if.end
   ret void
 }
 

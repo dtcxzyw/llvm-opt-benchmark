@@ -431,16 +431,16 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   %6 = add i32 %spec.select, -3000000
   %7 = icmp ult i32 %6, 3
   %8 = add nuw nsw i32 %spec.select, -3000003
-  %.033 = select i1 %7, i32 %8, i32 %6
+  %.038 = select i1 %7, i32 %8, i32 %6
   %9 = add i32 %spec.select, -40000000
   %10 = icmp ult i32 %9, 3
   %11 = add nuw nsw i32 %spec.select, -40000003
-  %.034 = select i1 %10, i32 %11, i32 %9
+  %.039 = select i1 %10, i32 %11, i32 %9
   %12 = load i32, ptr @autovacuum_freeze_max_age, align 4
   %13 = add i32 %12, %0
   %14 = icmp ult i32 %13, 3
   %15 = add nuw nsw i32 %13, 3
-  %.031 = select i1 %14, i32 %15, i32 %13
+  %.036 = select i1 %14, i32 %15, i32 %13
   %16 = load ptr, ptr @MainLWLockArray, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 384
   %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %17, i32 noundef 0) #8
@@ -448,11 +448,11 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  store i32 %.031, ptr %21, align 4
+  store i32 %.036, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i32 %.034, ptr %22, align 8
+  store i32 %.039, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  store i32 %.033, ptr %23, align 4
+  store i32 %.038, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i32 %spec.select, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 36
@@ -472,66 +472,62 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   br label %34
 
 34:                                               ; preds = %32, %2
-  %35 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %28, i32 noundef %.031) #8
-  br i1 %35, label %36, label %43
+  %35 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %28, i32 noundef %.036) #8
+  %36 = load i8, ptr @IsUnderPostmaster, align 1, !range !4
+  %37 = trunc nuw i8 %36 to i1
+  %or.cond = select i1 %35, i1 %37, i1 false
+  %or.cond.not = xor i1 %or.cond, true
+  %38 = load i8, ptr @InRecovery, align 1, !range !4
+  %39 = trunc nuw i8 %38 to i1
+  %or.cond3 = select i1 %or.cond.not, i1 true, i1 %39
+  br i1 %or.cond3, label %41, label %40
 
-36:                                               ; preds = %34
-  %37 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %43
-
-39:                                               ; preds = %36
-  %40 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %43, label %42
-
-42:                                               ; preds = %39
+40:                                               ; preds = %34
   tail call void @SendPostmasterSignal(i32 noundef 3) #8
-  br label %43
+  br label %41
 
-43:                                               ; preds = %42, %39, %36, %34
-  %44 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %28, i32 noundef %.034) #8
-  br i1 %44, label %45, label %62
+41:                                               ; preds = %40, %34
+  %42 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %28, i32 noundef %.039) #8
+  %.not = xor i1 %42, true
+  %43 = load i8, ptr @InRecovery, align 1, !range !4
+  %44 = trunc nuw i8 %43 to i1
+  %or.cond5 = select i1 %.not, i1 true, i1 %44
+  br i1 %or.cond5, label %59, label %45
 
-45:                                               ; preds = %43
-  %46 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %62, label %48
+45:                                               ; preds = %41
+  %46 = tail call zeroext i1 @IsTransactionState() #8
+  br i1 %46, label %47, label %.thread
 
-48:                                               ; preds = %45
-  %49 = tail call zeroext i1 @IsTransactionState() #8
-  br i1 %49, label %50, label %.thread
+47:                                               ; preds = %45
+  %48 = tail call ptr @get_database_name(i32 noundef %1) #8
+  %.not47 = icmp eq ptr %48, null
+  br i1 %.not47, label %.thread, label %49
 
-50:                                               ; preds = %48
-  %51 = tail call ptr @get_database_name(i32 noundef %1) #8
-  %.not = icmp eq ptr %51, null
-  br i1 %.not, label %.thread, label %52
+49:                                               ; preds = %47
+  %50 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
+  br i1 %50, label %51, label %59
 
-52:                                               ; preds = %50
-  %53 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
-  br i1 %53, label %54, label %62
-
-54:                                               ; preds = %52
-  %55 = sub i32 %spec.select, %28
-  %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %51, i32 noundef %55) #8
+51:                                               ; preds = %49
+  %52 = sub i32 %spec.select, %28
+  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %48, i32 noundef %52) #8
   br label %.sink.split
 
-.thread:                                          ; preds = %48, %50
-  %57 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
-  br i1 %57, label %58, label %62
+.thread:                                          ; preds = %45, %47
+  %54 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
+  br i1 %54, label %55, label %59
 
-58:                                               ; preds = %.thread
-  %59 = sub i32 %spec.select, %28
-  %60 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %1, i32 noundef %59) #8
+55:                                               ; preds = %.thread
+  %56 = sub i32 %spec.select, %28
+  %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %1, i32 noundef %56) #8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %58, %54
-  %.sink = phi i32 [ 494, %54 ], [ 501, %58 ]
-  %61 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10) #8
+.sink.split:                                      ; preds = %55, %51
+  %.sink = phi i32 [ 494, %51 ], [ 501, %55 ]
+  %58 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.SetTransactionIdLimit) #8
-  br label %62
+  br label %59
 
-62:                                               ; preds = %.sink.split, %52, %.thread, %45, %43
+59:                                               ; preds = %.sink.split, %49, %.thread, %41
   ret void
 }
 

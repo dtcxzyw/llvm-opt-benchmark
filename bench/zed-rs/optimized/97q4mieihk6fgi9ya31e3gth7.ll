@@ -29486,8 +29486,8 @@ define hidden void @"_ZN8zvariant8gvariant3ser22SeqSerializer$LT$W$GT$7end_seq17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8, !range !20, !noundef !5
-  %24 = icmp ne i64 %23, -9223372036854775808
-  br i1 %24, label %27, label %26
+  %24 = icmp eq i64 %23, -9223372036854775808
+  br i1 %24, label %26, label %27
 
 25:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false)
@@ -29577,16 +29577,16 @@ define hidden void @"_ZN8zvariant8gvariant3ser22SeqSerializer$LT$W$GT$7end_seq17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %33
 
-55:                                               ; preds = %56, %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit12", %53
+55:                                               ; preds = %56, %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit14", %53
   ret void
 
 56:                                               ; preds = %33, %25
-  %.sroa.06.1 = phi i1 [ %24, %33 ], [ false, %25 ]
+  %.sroa.09.1 = phi i1 [ %24, %33 ], [ true, %25 ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load i64, ptr %57, align 8, !range !20, !noundef !5
-  %59 = icmp eq i64 %58, -9223372036854775808
-  %brmerge = or i1 %.sroa.06.1, %59
-  br i1 %brmerge, label %55, label %60
+  %59 = icmp ne i64 %58, -9223372036854775808
+  %or.cond = and i1 %.sroa.09.1, %59
+  br i1 %or.cond, label %60, label %55
 
 60:                                               ; preds = %56
   call void @llvm.experimental.noalias.scope.decl(metadata !7896)
@@ -29611,7 +29611,7 @@ define hidden void @"_ZN8zvariant8gvariant3ser22SeqSerializer$LT$W$GT$7end_seq17
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %67 = load i64, ptr %66, align 8, !range !20, !noalias !7906, !noundef !5
   %68 = icmp eq i64 %67, 0
-  br i1 %68, label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit12", label %69
+  br i1 %68, label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit14", label %69
 
 69:                                               ; preds = %65
   %70 = load ptr, ptr %3, align 8, !noalias !7906, !nonnull !5, !noundef !5
@@ -29619,7 +29619,7 @@ define hidden void @"_ZN8zvariant8gvariant3ser22SeqSerializer$LT$W$GT$7end_seq17
   %72 = load i64, ptr %71, align 8, !noalias !7906, !noundef !5
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324"(ptr noalias noundef nonnull readonly align 1 %73, ptr noundef nonnull %70, i64 noundef %67, i64 noundef %72)
-  br label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit12"
+  br label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit14"
 
 74:                                               ; preds = %63
   %75 = landingpad { ptr, i32 }
@@ -29627,11 +29627,11 @@ define hidden void @"_ZN8zvariant8gvariant3ser22SeqSerializer$LT$W$GT$7end_seq17
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %76, %.body, %37, %63
-  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %lpad.thr_comm.split-lp, %.body ], [ %lpad.thr_comm.split-lp, %76 ], [ %38, %37 ]
+common.resume:                                    ; preds = %.body, %76, %37, %63
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %lpad.thr_comm.split-lp, %76 ], [ %lpad.thr_comm.split-lp, %.body ], [ %38, %37 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit12": ; preds = %65, %69
+"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit14": ; preds = %65, %69
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !7906
   br label %55
 
@@ -29686,8 +29686,8 @@ define hidden void @"_ZN8zvariant8gvariant3ser22SeqSerializer$LT$W$GT$7end_seq17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8, !range !20, !noundef !5
-  %24 = icmp ne i64 %23, -9223372036854775808
-  br i1 %24, label %27, label %26
+  %24 = icmp eq i64 %23, -9223372036854775808
+  br i1 %24, label %26, label %27
 
 25:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false)
@@ -29777,16 +29777,16 @@ define hidden void @"_ZN8zvariant8gvariant3ser22SeqSerializer$LT$W$GT$7end_seq17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %33
 
-55:                                               ; preds = %56, %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit12", %53
+55:                                               ; preds = %56, %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit14", %53
   ret void
 
 56:                                               ; preds = %33, %25
-  %.sroa.06.1 = phi i1 [ %24, %33 ], [ false, %25 ]
+  %.sroa.09.1 = phi i1 [ %24, %33 ], [ true, %25 ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load i64, ptr %57, align 8, !range !20, !noundef !5
-  %59 = icmp eq i64 %58, -9223372036854775808
-  %brmerge = or i1 %.sroa.06.1, %59
-  br i1 %brmerge, label %55, label %60
+  %59 = icmp ne i64 %58, -9223372036854775808
+  %or.cond = and i1 %.sroa.09.1, %59
+  br i1 %or.cond, label %60, label %55
 
 60:                                               ; preds = %56
   call void @llvm.experimental.noalias.scope.decl(metadata !7926)
@@ -29811,7 +29811,7 @@ define hidden void @"_ZN8zvariant8gvariant3ser22SeqSerializer$LT$W$GT$7end_seq17
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %67 = load i64, ptr %66, align 8, !range !20, !noalias !7936, !noundef !5
   %68 = icmp eq i64 %67, 0
-  br i1 %68, label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit12", label %69
+  br i1 %68, label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit14", label %69
 
 69:                                               ; preds = %65
   %70 = load ptr, ptr %3, align 8, !noalias !7936, !nonnull !5, !noundef !5
@@ -29819,7 +29819,7 @@ define hidden void @"_ZN8zvariant8gvariant3ser22SeqSerializer$LT$W$GT$7end_seq17
   %72 = load i64, ptr %71, align 8, !noalias !7936, !noundef !5
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324"(ptr noalias noundef nonnull readonly align 1 %73, ptr noundef nonnull %70, i64 noundef %67, i64 noundef %72)
-  br label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit12"
+  br label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit14"
 
 74:                                               ; preds = %63
   %75 = landingpad { ptr, i32 }
@@ -29827,11 +29827,11 @@ define hidden void @"_ZN8zvariant8gvariant3ser22SeqSerializer$LT$W$GT$7end_seq17
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %76, %.body, %37, %63
-  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %lpad.thr_comm.split-lp, %.body ], [ %lpad.thr_comm.split-lp, %76 ], [ %38, %37 ]
+common.resume:                                    ; preds = %.body, %76, %37, %63
+  %common.resume.op = phi { ptr, i32 } [ %64, %63 ], [ %lpad.thr_comm.split-lp, %76 ], [ %lpad.thr_comm.split-lp, %.body ], [ %38, %37 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit12": ; preds = %65, %69
+"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit14": ; preds = %65, %69
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !7936
   br label %55
 
@@ -29878,15 +29878,15 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
   store i32 %.sroa.0.0.copyload, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %22 = load i64, ptr %1, align 8, !range !20, !noundef !5
-  %23 = icmp ne i64 %22, -9223372036854775808
-  br i1 %23, label %32, label %31
+  %23 = icmp eq i64 %22, -9223372036854775808
+  br i1 %23, label %31, label %32
 
 24:                                               ; preds = %13
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %25 = load i64, ptr %1, align 8, !range !20, !noundef !5
-  %.not13 = icmp eq i64 %25, -9223372036854775808
-  br i1 %.not13, label %common.resume, label %101
+  %.not33 = icmp eq i64 %25, -9223372036854775808
+  br i1 %.not33, label %common.resume, label %101
 
 26:                                               ; preds = %13
   %27 = load i64, ptr %10, align 8, !range !93, !noundef !5
@@ -29968,19 +29968,19 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
 56:                                               ; preds = %32
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %58 = load i64, ptr %57, align 8, !noundef !5
-  %.not10 = icmp eq i64 %58, 0
-  br i1 %.not10, label %71, label %59
+  %.not13 = icmp eq i64 %58, 0
+  br i1 %.not13, label %71, label %59
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %61 = load i64, ptr %60, align 8, !noundef !5
   %62 = load i64, ptr %9, align 8, !noundef !5
-  %.not11 = icmp ult i64 %61, %62
-  %63 = select i1 %.not11, i64 0, i64 %62
-  %.sroa.06.0 = sub nuw i64 %61, %63
+  %.not14 = icmp ult i64 %61, %62
+  %63 = select i1 %.not14, i64 0, i64 %62
+  %.sroa.09.0 = sub nuw i64 %61, %63
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %65 = load ptr, ptr %64, align 8, !nonnull !5, !noundef !5
-  %66 = getelementptr inbounds i64, ptr %65, i64 %.sroa.06.0
+  %66 = getelementptr inbounds i64, ptr %65, i64 %.sroa.09.0
   %67 = load i64, ptr %66, align 8, !noundef !5
   %68 = icmp eq i64 %67, %38
   br i1 %68, label %69, label %71
@@ -30015,15 +30015,15 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %40
 
-77:                                               ; preds = %78, %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit16", %75
+77:                                               ; preds = %78, %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit17", %75
   ret void
 
 78:                                               ; preds = %40, %30
-  %.sroa.04.2 = phi i1 [ %23, %40 ], [ false, %30 ]
+  %.sroa.07.2 = phi i1 [ %23, %40 ], [ true, %30 ]
   %79 = load i64, ptr %1, align 8, !range !20, !noundef !5
-  %80 = icmp eq i64 %79, -9223372036854775808
-  %brmerge = or i1 %.sroa.04.2, %80
-  br i1 %brmerge, label %77, label %85
+  %80 = icmp ne i64 %79, -9223372036854775808
+  %or.cond = and i1 %.sroa.07.2, %80
+  br i1 %or.cond, label %85, label %77
 
 81:                                               ; preds = %69
   %82 = landingpad { ptr, i32 }
@@ -30060,7 +30060,7 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %92 = load i64, ptr %91, align 8, !range !20, !noalias !7966, !noundef !5
   %93 = icmp eq i64 %92, 0
-  br i1 %93, label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit16", label %94
+  br i1 %93, label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit17", label %94
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr %3, align 8, !noalias !7966, !nonnull !5, !noundef !5
@@ -30068,7 +30068,7 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
   %97 = load i64, ptr %96, align 8, !noalias !7966, !noundef !5
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324"(ptr noalias noundef nonnull readonly align 1 %98, ptr noundef nonnull %95, i64 noundef %92, i64 noundef %97)
-  br label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit16"
+  br label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit17"
 
 99:                                               ; preds = %88
   %100 = landingpad { ptr, i32 }
@@ -30076,11 +30076,11 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %101, %24, %44, %81, %88
-  %common.resume.op = phi { ptr, i32 } [ %89, %88 ], [ %lpad.thr_comm.split-lp, %24 ], [ %lpad.thr_comm.split-lp, %101 ], [ %45, %44 ], [ %82, %81 ]
+common.resume:                                    ; preds = %24, %101, %44, %81, %88
+  %common.resume.op = phi { ptr, i32 } [ %89, %88 ], [ %lpad.thr_comm.split-lp, %101 ], [ %lpad.thr_comm.split-lp, %24 ], [ %45, %44 ], [ %82, %81 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit16": ; preds = %90, %94
+"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit17": ; preds = %90, %94
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !7966
   br label %77
 
@@ -30121,15 +30121,15 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
   store i32 %.sroa.0.0.copyload, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %22 = load i64, ptr %1, align 8, !range !20, !noundef !5
-  %23 = icmp ne i64 %22, -9223372036854775808
-  br i1 %23, label %32, label %31
+  %23 = icmp eq i64 %22, -9223372036854775808
+  br i1 %23, label %31, label %32
 
 24:                                               ; preds = %13
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %25 = load i64, ptr %1, align 8, !range !20, !noundef !5
-  %.not13 = icmp eq i64 %25, -9223372036854775808
-  br i1 %.not13, label %common.resume, label %101
+  %.not33 = icmp eq i64 %25, -9223372036854775808
+  br i1 %.not33, label %common.resume, label %101
 
 26:                                               ; preds = %13
   %27 = load i64, ptr %10, align 8, !range !93, !noundef !5
@@ -30211,19 +30211,19 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
 56:                                               ; preds = %32
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %58 = load i64, ptr %57, align 8, !noundef !5
-  %.not10 = icmp eq i64 %58, 0
-  br i1 %.not10, label %71, label %59
+  %.not13 = icmp eq i64 %58, 0
+  br i1 %.not13, label %71, label %59
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %61 = load i64, ptr %60, align 8, !noundef !5
   %62 = load i64, ptr %9, align 8, !noundef !5
-  %.not11 = icmp ult i64 %61, %62
-  %63 = select i1 %.not11, i64 0, i64 %62
-  %.sroa.06.0 = sub nuw i64 %61, %63
+  %.not14 = icmp ult i64 %61, %62
+  %63 = select i1 %.not14, i64 0, i64 %62
+  %.sroa.09.0 = sub nuw i64 %61, %63
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %65 = load ptr, ptr %64, align 8, !nonnull !5, !noundef !5
-  %66 = getelementptr inbounds i64, ptr %65, i64 %.sroa.06.0
+  %66 = getelementptr inbounds i64, ptr %65, i64 %.sroa.09.0
   %67 = load i64, ptr %66, align 8, !noundef !5
   %68 = icmp eq i64 %67, %38
   br i1 %68, label %69, label %71
@@ -30258,15 +30258,15 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   br label %40
 
-77:                                               ; preds = %78, %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit16", %75
+77:                                               ; preds = %78, %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit17", %75
   ret void
 
 78:                                               ; preds = %40, %30
-  %.sroa.04.2 = phi i1 [ %23, %40 ], [ false, %30 ]
+  %.sroa.07.2 = phi i1 [ %23, %40 ], [ true, %30 ]
   %79 = load i64, ptr %1, align 8, !range !20, !noundef !5
-  %80 = icmp eq i64 %79, -9223372036854775808
-  %brmerge = or i1 %.sroa.04.2, %80
-  br i1 %brmerge, label %77, label %85
+  %80 = icmp ne i64 %79, -9223372036854775808
+  %or.cond = and i1 %.sroa.07.2, %80
+  br i1 %or.cond, label %85, label %77
 
 81:                                               ; preds = %69
   %82 = landingpad { ptr, i32 }
@@ -30303,7 +30303,7 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %92 = load i64, ptr %91, align 8, !range !20, !noalias !7996, !noundef !5
   %93 = icmp eq i64 %92, 0
-  br i1 %93, label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit16", label %94
+  br i1 %93, label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit17", label %94
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr %3, align 8, !noalias !7996, !nonnull !5, !noundef !5
@@ -30311,7 +30311,7 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
   %97 = load i64, ptr %96, align 8, !noalias !7996, !noundef !5
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324"(ptr noalias noundef nonnull readonly align 1 %98, ptr noundef nonnull %95, i64 noundef %92, i64 noundef %97)
-  br label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit16"
+  br label %"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit17"
 
 99:                                               ; preds = %88
   %100 = landingpad { ptr, i32 }
@@ -30319,11 +30319,11 @@ define hidden void @"_ZN8zvariant8gvariant3ser25StructSerializer$LT$W$GT$10end_s
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #16
   unreachable
 
-common.resume:                                    ; preds = %101, %24, %44, %81, %88
-  %common.resume.op = phi { ptr, i32 } [ %89, %88 ], [ %lpad.thr_comm.split-lp, %24 ], [ %lpad.thr_comm.split-lp, %101 ], [ %45, %44 ], [ %82, %81 ]
+common.resume:                                    ; preds = %24, %101, %44, %81, %88
+  %common.resume.op = phi { ptr, i32 } [ %89, %88 ], [ %lpad.thr_comm.split-lp, %101 ], [ %lpad.thr_comm.split-lp, %24 ], [ %45, %44 ], [ %82, %81 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit16": ; preds = %90, %94
+"_ZN4core3ptr62drop_in_place$LT$zvariant..framing_offsets..FramingOffsets$GT$17hb0af96098ecaff1cE.exit17": ; preds = %90, %94
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !7996
   br label %77
 

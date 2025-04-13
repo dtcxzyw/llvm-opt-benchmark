@@ -1277,10 +1277,10 @@ define weak_odr void @_ZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependen
   %13 = load i32, ptr %12, align 8, !tbaa !25
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
-  %.not151 = icmp eq i32 %13, 0
-  br i1 %.not151, label %._crit_edge156, label %.lr.ph155
+  %.not134 = icmp eq i32 %13, 0
+  br i1 %.not134, label %._crit_edge139, label %.lr.ph138
 
-.lr.ph155:                                        ; preds = %1
+.lr.ph138:                                        ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -1293,17 +1293,17 @@ define weak_odr void @_ZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependen
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %26
 
-._crit_edge156:                                   ; preds = %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit66, %1
+._crit_edge139:                                   ; preds = %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit67, %1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #18
   ret void
 
-26:                                               ; preds = %.lr.ph155, %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit66
-  %.046152 = phi ptr [ %11, %.lr.ph155 ], [ %166, %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit66 ]
+26:                                               ; preds = %.lr.ph138, %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit67
+  %.049135 = phi ptr [ %11, %.lr.ph138 ], [ %172, %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit67 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   store ptr %16, ptr %3, align 8, !tbaa !23
   store i32 0, ptr %17, align 8, !tbaa !25
   store i32 2, ptr %18, align 4, !tbaa !66
-  %27 = load ptr, ptr %.046152, align 8, !tbaa !55
+  %27 = load ptr, ptr %.049135, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
   store ptr @_ZN4llvm12function_refIFbPNS_11InstructionEEE11callback_fnIZNS_30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvEUlPKS1_E_EEblS2_, ptr %4, align 8, !tbaa !67
   store i64 %20, ptr %19, align 8, !tbaa !69
@@ -1311,18 +1311,18 @@ define weak_odr void @_ZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependen
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   %29 = load i32, ptr %17, align 8, !tbaa !25
   %.not.i = icmp eq i32 %29, 0
-  %.not52148 = icmp eq ptr %.046152, %15
-  %or.cond = or i1 %.not.i, %.not52148
-  br i1 %or.cond, label %.loopexit128, label %.lr.ph150
+  %.not55131 = icmp eq ptr %.049135, %15
+  %or.cond140 = or i1 %.not.i, %.not55131
+  br i1 %or.cond140, label %.loopexit112, label %.lr.ph133
 
-.lr.ph150:                                        ; preds = %26, %161
-  %.049149 = phi ptr [ %162, %161 ], [ %.046152, %26 ]
-  %30 = load ptr, ptr %.046152, align 8, !tbaa !55
-  %31 = load ptr, ptr %.049149, align 8, !tbaa !55
+.lr.ph133:                                        ; preds = %26, %167
+  %.052132 = phi ptr [ %168, %167 ], [ %.049135, %26 ]
+  %30 = load ptr, ptr %.049135, align 8, !tbaa !55
+  %31 = load ptr, ptr %.052132, align 8, !tbaa !55
   %32 = icmp eq ptr %30, %31
-  br i1 %32, label %161, label %33
+  br i1 %32, label %167, label %33
 
-33:                                               ; preds = %.lr.ph150
+33:                                               ; preds = %.lr.ph133
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
   store ptr %21, ptr %5, align 8, !tbaa !23
   store i32 0, ptr %22, align 8, !tbaa !25
@@ -1333,46 +1333,46 @@ define weak_odr void @_ZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependen
   %34 = call noundef zeroext i1 @_ZNK4llvm7DDGNode19collectInstructionsERKNS_12function_refIFbPNS_11InstructionEEEERNS_15SmallVectorImplIS3_EE(ptr noundef nonnull align 8 dereferenceable(52) %31, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
   %35 = load i32, ptr %22, align 8, !tbaa !25
-  %.not.i58 = icmp eq i32 %35, 0
-  br i1 %.not.i58, label %.loopexit, label %36
+  %.not.i59 = icmp eq i32 %35, 0
+  br i1 %.not.i59, label %.loopexit, label %36
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %3, align 8, !tbaa !23
   %38 = load i32, ptr %17, align 8, !tbaa !25
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %39
-  %.not53141 = icmp eq i32 %38, 0
-  br i1 %.not53141, label %.loopexit, label %.lr.ph146
+  %.not56124 = icmp eq i32 %38, 0
+  br i1 %.not56124, label %.loopexit, label %.lr.ph129
 
-.lr.ph146:                                        ; preds = %36, %.lr.ph146.backedge
-  %41 = phi i32 [ %.pre, %.lr.ph146.backedge ], [ %35, %36 ]
-  %.050144 = phi ptr [ %.050144.be, %.lr.ph146.backedge ], [ %37, %36 ]
-  %.087143 = phi i8 [ %.2, %.lr.ph146.backedge ], [ 0, %36 ]
-  %.089142 = phi i8 [ %.291, %.lr.ph146.backedge ], [ 0, %36 ]
-  %42 = load ptr, ptr %.050144, align 8, !tbaa !36
-  %43 = load ptr, ptr %5, align 8, !tbaa !23
-  %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
-  %.not54132 = icmp eq i32 %41, 0
-  br i1 %.not54132, label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge, label %.lr.ph137
+.lr.ph129:                                        ; preds = %36, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge
+  %.053127 = phi ptr [ %163, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge ], [ %37, %36 ]
+  %.088126 = phi i8 [ %.2, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge ], [ 0, %36 ]
+  %.089125 = phi i8 [ %.291, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge ], [ 0, %36 ]
+  %41 = load ptr, ptr %.053127, align 8, !tbaa !36
+  %42 = load ptr, ptr %5, align 8, !tbaa !23
+  %43 = load i32, ptr %22, align 8, !tbaa !25
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
+  %.not57116 = icmp eq i32 %43, 0
+  br i1 %.not57116, label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge, label %.lr.ph120
 
-.lr.ph137:                                        ; preds = %.lr.ph146, %152
-  %.048136 = phi ptr [ %153, %152 ], [ %43, %.lr.ph146 ]
-  %.188134 = phi i8 [ %.3116121, %152 ], [ %.087143, %.lr.ph146 ]
-  %.190133 = phi i8 [ %.392115122, %152 ], [ %.089142, %.lr.ph146 ]
-  %46 = load ptr, ptr %.048136, align 8, !tbaa !36
+.lr.ph120:                                        ; preds = %.lr.ph129, %159
+  %.051119 = phi ptr [ %160, %159 ], [ %42, %.lr.ph129 ]
+  %.1118 = phi i8 [ %.3103108, %159 ], [ %.088126, %.lr.ph129 ]
+  %.190117 = phi i8 [ %.392102109, %159 ], [ %.089125, %.lr.ph129 ]
+  %46 = load ptr, ptr %.051119, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
   %47 = load ptr, ptr %25, align 8, !tbaa !98
-  call void @_ZN4llvm14DependenceInfo7dependsEPNS_11InstructionES2_b(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(44) %47, ptr noundef %42, ptr noundef %46, i1 noundef zeroext true) #18
+  call void @_ZN4llvm14DependenceInfo7dependsEPNS_11InstructionES2_b(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(44) %47, ptr noundef %41, ptr noundef %46, i1 noundef zeroext true) #18
   %48 = load ptr, ptr %7, align 8, !tbaa !99
-  %.not126 = icmp eq ptr %48, null
-  br i1 %.not126, label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread, label %49
+  %.not110 = icmp eq ptr %48, null
+  br i1 %.not110, label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread, label %49
 
-_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread: ; preds = %.lr.ph137
+_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread: ; preds = %.lr.ph120
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
-  br label %152
+  br label %159
 
-49:                                               ; preds = %.lr.ph137
+49:                                               ; preds = %.lr.ph120
   %50 = load ptr, ptr %48, align 8, !tbaa !3
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
@@ -1380,9 +1380,9 @@ _ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread: ;
   br i1 %53, label %54, label %70
 
 54:                                               ; preds = %49
-  %55 = load ptr, ptr %.046152, align 8, !tbaa !55
-  %56 = load ptr, ptr %.049149, align 8, !tbaa !55
-  %57 = trunc i8 %.188134 to i1
+  %55 = load ptr, ptr %.049135, align 8, !tbaa !55
+  %56 = load ptr, ptr %.052132, align 8, !tbaa !55
+  %57 = trunc nuw i8 %.1118 to i1
   br i1 %57, label %63, label %58
 
 58:                                               ; preds = %54
@@ -1393,15 +1393,15 @@ _ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread: ;
   br label %63
 
 63:                                               ; preds = %58, %54
-  %64 = trunc i8 %.190133 to i1
-  br i1 %64, label %.thread108, label %65
+  %64 = trunc nuw i8 %.190117 to i1
+  br i1 %64, label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread, label %65
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %0, align 8, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8
   %69 = call noundef nonnull align 8 dereferenceable(12) ptr %68(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(52) %56, ptr noundef nonnull align 8 dereferenceable(52) %55) #18
-  br label %.thread108
+  br label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread
 
 70:                                               ; preds = %49
   %71 = load ptr, ptr %7, align 8, !tbaa !99
@@ -1414,7 +1414,7 @@ _ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread: ;
 
 _ZNK4llvm10Dependence9isOrderedEv.exit:           ; preds = %73
   %75 = call noundef zeroext i1 @_ZNK4llvm10Dependence6isAntiEv(ptr noundef nonnull align 8 dereferenceable(40) %71) #18
-  br i1 %75, label %_ZNK4llvm10Dependence9isOrderedEv.exit.thread, label %138
+  br i1 %75, label %_ZNK4llvm10Dependence9isOrderedEv.exit.thread, label %145
 
 _ZNK4llvm10Dependence9isOrderedEv.exit.thread:    ; preds = %70, %73, %_ZNK4llvm10Dependence9isOrderedEv.exit
   %76 = load ptr, ptr %7, align 8, !tbaa !99
@@ -1422,7 +1422,7 @@ _ZNK4llvm10Dependence9isOrderedEv.exit.thread:    ; preds = %70, %73, %_ZNK4llvm
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(40) %76) #18
-  br i1 %80, label %138, label %.preheader
+  br i1 %80, label %145, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK4llvm10Dependence9isOrderedEv.exit.thread
   %81 = load ptr, ptr %7, align 8, !tbaa !99
@@ -1430,16 +1430,16 @@ _ZNK4llvm10Dependence9isOrderedEv.exit.thread:    ; preds = %70, %73, %_ZNK4llvm
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %84 = load ptr, ptr %83, align 8
   %85 = call noundef i32 %84(ptr noundef nonnull align 8 dereferenceable(40) %81) #18
-  %.not55130 = icmp eq i32 %85, 0
-  br i1 %.not55130, label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit61, label %.lr.ph
+  %.not58114 = icmp eq i32 %85, 0
+  br i1 %.not58114, label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %130
-  %.0131 = phi i32 [ %131, %130 ], [ 1, %.preheader ]
+  %.0115 = phi i32 [ %131, %130 ], [ 1, %.preheader ]
   %86 = load ptr, ptr %7, align 8, !tbaa !99
   %87 = load ptr, ptr %86, align 8, !tbaa !3
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 48
   %89 = load ptr, ptr %88, align 8
-  %90 = call noundef i32 %89(ptr noundef nonnull align 8 dereferenceable(40) %86, i32 noundef %.0131) #18
+  %90 = call noundef i32 %89(ptr noundef nonnull align 8 dereferenceable(40) %86, i32 noundef %.0115) #18
   %91 = icmp eq i32 %90, 2
   br i1 %91, label %130, label %92
 
@@ -1448,36 +1448,36 @@ _ZNK4llvm10Dependence9isOrderedEv.exit.thread:    ; preds = %70, %73, %_ZNK4llvm
   %94 = load ptr, ptr %93, align 8, !tbaa !3
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %96 = load ptr, ptr %95, align 8
-  %97 = call noundef i32 %96(ptr noundef nonnull align 8 dereferenceable(40) %93, i32 noundef %.0131) #18
+  %97 = call noundef i32 %96(ptr noundef nonnull align 8 dereferenceable(40) %93, i32 noundef %.0115) #18
   %98 = icmp eq i32 %97, 4
   br i1 %98, label %.critedge, label %107
 
 .critedge:                                        ; preds = %92
-  %99 = trunc i8 %.190133 to i1
-  br i1 %99, label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit, label %100
+  %99 = trunc nuw i8 %.190117 to i1
+  br i1 %99, label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread, label %100
 
 100:                                              ; preds = %.critedge
-  %101 = load ptr, ptr %.049149, align 8, !tbaa !55
-  %102 = load ptr, ptr %.046152, align 8, !tbaa !55
+  %101 = load ptr, ptr %.052132, align 8, !tbaa !55
+  %102 = load ptr, ptr %.049135, align 8, !tbaa !55
   %103 = load ptr, ptr %0, align 8, !tbaa !3
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 48
   %105 = load ptr, ptr %104, align 8
   %106 = call noundef nonnull align 8 dereferenceable(12) ptr %105(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(52) %101, ptr noundef nonnull align 8 dereferenceable(52) %102) #18
-  br label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit
+  br label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread
 
 107:                                              ; preds = %92
   %108 = load ptr, ptr %7, align 8, !tbaa !99
   %109 = load ptr, ptr %108, align 8, !tbaa !3
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 48
   %111 = load ptr, ptr %110, align 8
-  %112 = call noundef i32 %111(ptr noundef nonnull align 8 dereferenceable(40) %108, i32 noundef %.0131) #18
+  %112 = call noundef i32 %111(ptr noundef nonnull align 8 dereferenceable(40) %108, i32 noundef %.0115) #18
   %113 = icmp eq i32 %112, 1
-  br i1 %113, label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit61, label %114
+  br i1 %113, label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62, label %114
 
 114:                                              ; preds = %107
-  %115 = load ptr, ptr %.046152, align 8, !tbaa !55
-  %116 = load ptr, ptr %.049149, align 8, !tbaa !55
-  %117 = trunc i8 %.188134 to i1
+  %115 = load ptr, ptr %.049135, align 8, !tbaa !55
+  %116 = load ptr, ptr %.052132, align 8, !tbaa !55
+  %117 = trunc nuw i8 %.1118 to i1
   br i1 %117, label %123, label %118
 
 118:                                              ; preds = %114
@@ -1488,135 +1488,123 @@ _ZNK4llvm10Dependence9isOrderedEv.exit.thread:    ; preds = %70, %73, %_ZNK4llvm
   br label %123
 
 123:                                              ; preds = %118, %114
-  %124 = trunc i8 %.190133 to i1
-  br i1 %124, label %.thread108, label %125
+  %124 = trunc nuw i8 %.190117 to i1
+  br i1 %124, label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread, label %125
 
 125:                                              ; preds = %123
   %126 = load ptr, ptr %0, align 8, !tbaa !3
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 48
   %128 = load ptr, ptr %127, align 8
   %129 = call noundef nonnull align 8 dereferenceable(12) ptr %128(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(52) %116, ptr noundef nonnull align 8 dereferenceable(52) %115) #18
-  br label %.thread108
+  br label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread
 
 130:                                              ; preds = %.lr.ph
-  %131 = add i32 %.0131, 1
+  %131 = add i32 %.0115, 1
   %132 = load ptr, ptr %7, align 8, !tbaa !99
   %133 = load ptr, ptr %132, align 8, !tbaa !3
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 40
   %135 = load ptr, ptr %134, align 8
   %136 = call noundef i32 %135(ptr noundef nonnull align 8 dereferenceable(40) %132) #18
-  %.not55 = icmp ugt i32 %131, %136
-  br i1 %.not55, label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit61, label %.lr.ph, !llvm.loop !101
+  %.not58 = icmp ugt i32 %131, %136
+  br i1 %.not58, label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62, label %.lr.ph, !llvm.loop !101
 
-_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit61: ; preds = %130, %.preheader, %107
-  %137 = trunc i8 %.188134 to i1
-  br i1 %137, label %147, label %.sink.split
+_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62: ; preds = %130, %.preheader, %107
+  %137 = trunc nuw i8 %.1118 to i1
+  br i1 %137, label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread, label %138
 
-138:                                              ; preds = %_ZNK4llvm10Dependence9isOrderedEv.exit.thread, %_ZNK4llvm10Dependence9isOrderedEv.exit
-  %139 = trunc i8 %.188134 to i1
-  br i1 %139, label %147, label %.sink.split
+138:                                              ; preds = %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62
+  %139 = load ptr, ptr %.052132, align 8, !tbaa !55
+  %140 = load ptr, ptr %.049135, align 8, !tbaa !55
+  %141 = load ptr, ptr %0, align 8, !tbaa !3
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 48
+  %143 = load ptr, ptr %142, align 8
+  %144 = call noundef nonnull align 8 dereferenceable(12) ptr %143(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(52) %140, ptr noundef nonnull align 8 dereferenceable(52) %139) #18
+  br label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread
 
-_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit: ; preds = %100, %.critedge
-  %140 = trunc i8 %.188134 to i1
-  %spec.select123 = select i1 %140, i32 10, i32 0
-  br label %.thread108
+145:                                              ; preds = %_ZNK4llvm10Dependence9isOrderedEv.exit.thread, %_ZNK4llvm10Dependence9isOrderedEv.exit
+  %146 = trunc nuw i8 %.1118 to i1
+  br i1 %146, label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread, label %147
 
-.sink.split:                                      ; preds = %138, %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit61
-  %141 = load ptr, ptr %.049149, align 8, !tbaa !55
-  %142 = load ptr, ptr %.046152, align 8, !tbaa !55
-  %143 = load ptr, ptr %0, align 8, !tbaa !3
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 48
-  %145 = load ptr, ptr %144, align 8
-  %146 = call noundef nonnull align 8 dereferenceable(12) ptr %145(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(52) %142, ptr noundef nonnull align 8 dereferenceable(52) %141) #18
-  br label %147
+147:                                              ; preds = %145
+  %148 = load ptr, ptr %.052132, align 8, !tbaa !55
+  %149 = load ptr, ptr %.049135, align 8, !tbaa !55
+  %150 = load ptr, ptr %0, align 8, !tbaa !3
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 48
+  %152 = load ptr, ptr %151, align 8
+  %153 = call noundef nonnull align 8 dereferenceable(12) ptr %152(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(52) %149, ptr noundef nonnull align 8 dereferenceable(52) %148) #18
+  br label %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread
 
-147:                                              ; preds = %.sink.split, %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit61, %138
-  %148 = trunc i8 %.190133 to i1
-  %spec.select125 = select i1 %148, i32 10, i32 0
-  br label %.thread108
-
-.thread108:                                       ; preds = %147, %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit, %125, %123, %63, %65
-  %.392.ph = phi i8 [ 1, %65 ], [ 1, %63 ], [ 1, %123 ], [ 1, %125 ], [ 1, %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit ], [ %.190133, %147 ]
-  %.3.ph = phi i8 [ 1, %65 ], [ 1, %63 ], [ 1, %123 ], [ 1, %125 ], [ %.188134, %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit ], [ 1, %147 ]
-  %.047.ph = phi i32 [ 10, %65 ], [ 10, %63 ], [ 10, %123 ], [ 10, %125 ], [ %spec.select123, %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit ], [ %spec.select125, %147 ]
+_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread: ; preds = %125, %123, %63, %65, %.critedge, %100, %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62, %138, %145, %147
+  %.493 = phi i8 [ 1, %63 ], [ 1, %65 ], [ 1, %.critedge ], [ 1, %100 ], [ %.190117, %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62 ], [ %.190117, %138 ], [ %.190117, %145 ], [ %.190117, %147 ], [ 1, %123 ], [ 1, %125 ]
+  %.4 = phi i8 [ 1, %63 ], [ 1, %65 ], [ %.1118, %.critedge ], [ %.1118, %100 ], [ 1, %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62 ], [ 1, %138 ], [ 1, %145 ], [ 1, %147 ], [ 1, %123 ], [ 1, %125 ]
+  %154 = trunc nuw i8 %.4 to i1
+  %155 = trunc nuw i8 %.493 to i1
+  %or.cond = select i1 %154, i1 %155, i1 false
   %.pr = load ptr, ptr %7, align 8, !tbaa !99
-  %.not.i65 = icmp eq ptr %.pr, null
-  br i1 %.not.i65, label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i
+  %.not.i66 = icmp eq ptr %.pr, null
+  br i1 %.not.i66, label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i: ; preds = %.thread108
-  %149 = load ptr, ptr %.pr, align 8, !tbaa !3
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(40) %.pr) #18
+_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i: ; preds = %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread
+  %156 = load ptr, ptr %.pr, align 8, !tbaa !3
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %158 = load ptr, ptr %157, align 8
+  call void %158(ptr noundef nonnull align 8 dereferenceable(40) %.pr) #18
   br label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit: ; preds = %.thread108, %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZZN4llvm30AbstractDependenceGraphBuilderINS_19DataDependenceGraphEE27createMemoryDependencyEdgesEvENKUlRNS_7DDGNodeES4_E_clES4_S4_.exit62.thread, %_ZNKSt14default_deleteIN4llvm10DependenceEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
-  %cond = icmp eq i32 %.047.ph, 0
-  br i1 %cond, label %152, label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge
+  br i1 %or.cond, label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge, label %159
 
-152:                                              ; preds = %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread
-  %.392115122 = phi i8 [ %.190133, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread ], [ %.392.ph, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit ]
-  %.3116121 = phi i8 [ %.188134, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread ], [ %.3.ph, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit ]
-  %153 = getelementptr inbounds nuw i8, ptr %.048136, i64 8
-  %.not54 = icmp eq ptr %153, %45
-  br i1 %.not54, label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge, label %.lr.ph137
+159:                                              ; preds = %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread
+  %.392102109 = phi i8 [ %.190117, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread ], [ %.493, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit ]
+  %.3103108 = phi i8 [ %.1118, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit.thread ], [ %.4, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit ]
+  %160 = getelementptr inbounds nuw i8, ptr %.051119, i64 8
+  %.not57 = icmp eq ptr %160, %45
+  br i1 %.not57, label %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge, label %.lr.ph120
 
-_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge: ; preds = %152, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit, %.lr.ph146
-  %.291 = phi i8 [ %.089142, %.lr.ph146 ], [ %.392.ph, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit ], [ %.392115122, %152 ]
-  %.2 = phi i8 [ %.087143, %.lr.ph146 ], [ %.3.ph, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit ], [ %.3116121, %152 ]
-  %154 = trunc i8 %.2 to i1
-  br i1 %154, label %155, label %.critedge57
+_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge: ; preds = %159, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit, %.lr.ph129
+  %.291 = phi i8 [ %.089125, %.lr.ph129 ], [ 1, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit ], [ %.392102109, %159 ]
+  %.2 = phi i8 [ %.088126, %.lr.ph129 ], [ 1, %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit ], [ %.3103108, %159 ]
+  %161 = trunc nuw i8 %.2 to i1
+  %162 = trunc nuw i8 %.291 to i1
+  %or.cond4 = select i1 %161, i1 %162, i1 false
+  %163 = getelementptr inbounds nuw i8, ptr %.053127, i64 8
+  %.not56 = icmp eq ptr %163, %40
+  %or.cond141 = select i1 %or.cond4, i1 true, i1 %.not56
+  br i1 %or.cond141, label %.loopexit, label %.lr.ph129
 
-155:                                              ; preds = %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge
-  %156 = trunc i8 %.291 to i1
-  %157 = getelementptr inbounds nuw i8, ptr %.050144, i64 8
-  %.not53 = icmp eq ptr %157, %40
-  %or.cond157 = select i1 %156, i1 true, i1 %.not53
-  br i1 %or.cond157, label %.loopexit, label %.lr.ph146.backedge
+.loopexit:                                        ; preds = %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge, %36, %33
+  %164 = load ptr, ptr %5, align 8, !tbaa !23
+  %165 = icmp eq ptr %164, %21
+  br i1 %165, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit, label %166
 
-.critedge57:                                      ; preds = %_ZNSt10unique_ptrIN4llvm10DependenceESt14default_deleteIS1_EED2Ev.exit._crit_edge
-  %.old = getelementptr inbounds nuw i8, ptr %.050144, i64 8
-  %.not53.old = icmp eq ptr %.old, %40
-  br i1 %.not53.old, label %.loopexit, label %.lr.ph146.backedge
-
-.lr.ph146.backedge:                               ; preds = %.critedge57, %155
-  %.050144.be = phi ptr [ %.old, %.critedge57 ], [ %157, %155 ]
-  %.pre = load i32, ptr %22, align 8, !tbaa !25
-  br label %.lr.ph146
-
-.loopexit:                                        ; preds = %155, %.critedge57, %36, %33
-  %158 = load ptr, ptr %5, align 8, !tbaa !23
-  %159 = icmp eq ptr %158, %21
-  br i1 %159, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit, label %160
-
-160:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %158) #18
+166:                                              ; preds = %.loopexit
+  call void @free(ptr noundef %164) #18
   br label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit: ; preds = %.loopexit, %160
+_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit: ; preds = %.loopexit, %166
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #18
-  br label %161
+  br label %167
 
-161:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit, %.lr.ph150
-  %162 = getelementptr inbounds nuw i8, ptr %.049149, i64 8
-  %.not52 = icmp eq ptr %162, %15
-  br i1 %.not52, label %.loopexit128, label %.lr.ph150, !llvm.loop !102
+167:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit, %.lr.ph133
+  %168 = getelementptr inbounds nuw i8, ptr %.052132, i64 8
+  %.not55 = icmp eq ptr %168, %15
+  br i1 %.not55, label %.loopexit112, label %.lr.ph133, !llvm.loop !102
 
-.loopexit128:                                     ; preds = %161, %26
-  %163 = load ptr, ptr %3, align 8, !tbaa !23
-  %164 = icmp eq ptr %163, %16
-  br i1 %164, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit66, label %165
+.loopexit112:                                     ; preds = %167, %26
+  %169 = load ptr, ptr %3, align 8, !tbaa !23
+  %170 = icmp eq ptr %169, %16
+  br i1 %170, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit67, label %171
 
-165:                                              ; preds = %.loopexit128
-  call void @free(ptr noundef %163) #18
-  br label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit66
+171:                                              ; preds = %.loopexit112
+  call void @free(ptr noundef %169) #18
+  br label %_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit67
 
-_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit66: ; preds = %.loopexit128, %165
+_ZN4llvm11SmallVectorIPNS_11InstructionELj2EED2Ev.exit67: ; preds = %.loopexit112, %171
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #18
-  %166 = getelementptr inbounds nuw i8, ptr %.046152, i64 8
-  %.not = icmp eq ptr %166, %15
-  br i1 %.not, label %._crit_edge156, label %26, !llvm.loop !103
+  %172 = getelementptr inbounds nuw i8, ptr %.049135, i64 8
+  %.not = icmp eq ptr %172, %15
+  br i1 %.not, label %._crit_edge139, label %26, !llvm.loop !103
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -459,57 +459,57 @@ define dso_local void @_ZdlPv(ptr noundef %0) local_unnamed_addr #2 personality 
   %8 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %3, i64 0, i64 %6
   %9 = load i64, ptr %8, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %9, %7
-  br i1 %.not.i.i.not, label %10, label %.noexc.thread, !prof !11
+  br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
-  %13 = lshr i64 %4, 12
-  %14 = and i64 %13, 262143
-  %15 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %12, i64 %14
-  %16 = load atomic i64, ptr %15 monotonic, align 8, !noalias !26
-  %17 = trunc i64 %16 to i1
-  br i1 %17, label %.noexc2, label %.noexc.thread, !prof !11
+.noexc:                                           ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %12 = lshr i64 %4, 12
+  %13 = and i64 %12, 262143
+  %14 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %11, i64 %13
+  %15 = load atomic i64, ptr %14 monotonic, align 8, !noalias !26
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %.noexc2, label %.noexc.thread, !prof !29
 
-.noexc2:                                          ; preds = %10
-  %18 = lshr i64 %16, 48
-  %19 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %18
-  %20 = load i64, ptr %19, align 8, !tbaa !9
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 912
-  %22 = load i64, ptr %21, align 8, !tbaa !9
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 920
-  %24 = load i64, ptr %23, align 8, !tbaa !9
-  %25 = add i64 %22, %20
-  %.not.i = icmp ult i64 %25, %24
-  br i1 %.not.i, label %.noexc3, label %.noexc.thread, !prof !11
+.noexc2:                                          ; preds = %.noexc
+  %17 = lshr i64 %15, 48
+  %18 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %17
+  %19 = load i64, ptr %18, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 912
+  %21 = load i64, ptr %20, align 8, !tbaa !9
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 920
+  %23 = load i64, ptr %22, align 8, !tbaa !9
+  %24 = add i64 %21, %19
+  %.not26.i = icmp ult i64 %24, %23
+  br i1 %.not26.i, label %.noexc3, label %.noexc.thread, !prof !11
 
 .noexc3:                                          ; preds = %.noexc2
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 936
-  %27 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %26, i64 0, i64 %18
-  %28 = load ptr, ptr %27, align 8, !tbaa !12
-  %29 = ptrtoint ptr %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 18
-  %31 = load i16, ptr %30, align 2, !tbaa !29
-  %32 = trunc i64 %29 to i16
-  %33 = icmp eq i16 %31, %32
-  br i1 %33, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 936
+  %26 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %25, i64 0, i64 %17
+  %27 = load ptr, ptr %26, align 8, !tbaa !12
+  %28 = ptrtoint ptr %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 18
+  %30 = load i16, ptr %29, align 2, !tbaa !30
+  %31 = trunc i64 %28 to i16
+  %32 = icmp eq i16 %30, %31
+  br i1 %32, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
-  %34 = getelementptr inbounds i8, ptr %28, i64 -8
-  store ptr %34, ptr %27, align 8, !tbaa !12
-  store ptr %0, ptr %34, align 8, !tbaa !19
-  store i64 %25, ptr %21, align 8, !tbaa !9
+  %33 = getelementptr inbounds i8, ptr %27, i64 -8
+  store ptr %33, ptr %26, align 8, !tbaa !12
+  store ptr %0, ptr %33, align 8, !tbaa !19
+  store i64 %24, ptr %20, align 8, !tbaa !9
   br label %_ZL12je_free_implPv.exit
 
-.noexc.thread:                                    ; preds = %1, %10, %.noexc2, %.noexc3
+.noexc.thread:                                    ; preds = %1, %.noexc, %.noexc2, %.noexc3
   invoke void @je_free_default(ptr noundef %0)
-          to label %_ZL12je_free_implPv.exit unwind label %35
+          to label %_ZL12je_free_implPv.exit unwind label %34
 
-35:                                               ; preds = %.noexc.thread
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %.noexc.thread
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #17
+  %36 = extractvalue { ptr, i32 } %35, 0
+  tail call void @__clang_call_terminate(ptr %36) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -527,57 +527,57 @@ define dso_local void @_ZdaPv(ptr noundef %0) local_unnamed_addr #2 personality 
   %8 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %3, i64 0, i64 %6
   %9 = load i64, ptr %8, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %9, %7
-  br i1 %.not.i.i.not, label %10, label %.noexc.thread, !prof !11
+  br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
-  %13 = lshr i64 %4, 12
-  %14 = and i64 %13, 262143
-  %15 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %12, i64 %14
-  %16 = load atomic i64, ptr %15 monotonic, align 8, !noalias !30
-  %17 = trunc i64 %16 to i1
-  br i1 %17, label %.noexc2, label %.noexc.thread, !prof !11
+.noexc:                                           ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %12 = lshr i64 %4, 12
+  %13 = and i64 %12, 262143
+  %14 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %11, i64 %13
+  %15 = load atomic i64, ptr %14 monotonic, align 8, !noalias !31
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %.noexc2, label %.noexc.thread, !prof !29
 
-.noexc2:                                          ; preds = %10
-  %18 = lshr i64 %16, 48
-  %19 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %18
-  %20 = load i64, ptr %19, align 8, !tbaa !9
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 912
-  %22 = load i64, ptr %21, align 8, !tbaa !9
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 920
-  %24 = load i64, ptr %23, align 8, !tbaa !9
-  %25 = add i64 %22, %20
-  %.not.i = icmp ult i64 %25, %24
-  br i1 %.not.i, label %.noexc3, label %.noexc.thread, !prof !11
+.noexc2:                                          ; preds = %.noexc
+  %17 = lshr i64 %15, 48
+  %18 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %17
+  %19 = load i64, ptr %18, align 8, !tbaa !9
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 912
+  %21 = load i64, ptr %20, align 8, !tbaa !9
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 920
+  %23 = load i64, ptr %22, align 8, !tbaa !9
+  %24 = add i64 %21, %19
+  %.not26.i = icmp ult i64 %24, %23
+  br i1 %.not26.i, label %.noexc3, label %.noexc.thread, !prof !11
 
 .noexc3:                                          ; preds = %.noexc2
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 936
-  %27 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %26, i64 0, i64 %18
-  %28 = load ptr, ptr %27, align 8, !tbaa !12
-  %29 = ptrtoint ptr %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 18
-  %31 = load i16, ptr %30, align 2, !tbaa !29
-  %32 = trunc i64 %29 to i16
-  %33 = icmp eq i16 %31, %32
-  br i1 %33, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 936
+  %26 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %25, i64 0, i64 %17
+  %27 = load ptr, ptr %26, align 8, !tbaa !12
+  %28 = ptrtoint ptr %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 18
+  %30 = load i16, ptr %29, align 2, !tbaa !30
+  %31 = trunc i64 %28 to i16
+  %32 = icmp eq i16 %30, %31
+  br i1 %32, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
-  %34 = getelementptr inbounds i8, ptr %28, i64 -8
-  store ptr %34, ptr %27, align 8, !tbaa !12
-  store ptr %0, ptr %34, align 8, !tbaa !19
-  store i64 %25, ptr %21, align 8, !tbaa !9
+  %33 = getelementptr inbounds i8, ptr %27, i64 -8
+  store ptr %33, ptr %26, align 8, !tbaa !12
+  store ptr %0, ptr %33, align 8, !tbaa !19
+  store i64 %24, ptr %20, align 8, !tbaa !9
   br label %_ZL12je_free_implPv.exit
 
-.noexc.thread:                                    ; preds = %1, %10, %.noexc2, %.noexc3
+.noexc.thread:                                    ; preds = %1, %.noexc, %.noexc2, %.noexc3
   invoke void @je_free_default(ptr noundef %0)
-          to label %_ZL12je_free_implPv.exit unwind label %35
+          to label %_ZL12je_free_implPv.exit unwind label %34
 
-35:                                               ; preds = %.noexc.thread
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %.noexc.thread
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #17
+  %36 = extractvalue { ptr, i32 } %35, 0
+  tail call void @__clang_call_terminate(ptr %36) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -595,57 +595,57 @@ define dso_local void @_ZdlPvRKSt9nothrow_t(ptr noundef %0, ptr noundef nonnull 
   %9 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %4, i64 0, i64 %7
   %10 = load i64, ptr %9, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %10, %8
-  br i1 %.not.i.i.not, label %11, label %.noexc.thread, !prof !11
+  br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = lshr i64 %5, 12
-  %15 = and i64 %14, 262143
-  %16 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %13, i64 %15
-  %17 = load atomic i64, ptr %16 monotonic, align 8, !noalias !33
-  %18 = trunc i64 %17 to i1
-  br i1 %18, label %.noexc2, label %.noexc.thread, !prof !11
+.noexc:                                           ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %13 = lshr i64 %5, 12
+  %14 = and i64 %13, 262143
+  %15 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %12, i64 %14
+  %16 = load atomic i64, ptr %15 monotonic, align 8, !noalias !34
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %.noexc2, label %.noexc.thread, !prof !29
 
-.noexc2:                                          ; preds = %11
-  %19 = lshr i64 %17, 48
-  %20 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %19
-  %21 = load i64, ptr %20, align 8, !tbaa !9
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 912
-  %23 = load i64, ptr %22, align 8, !tbaa !9
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 920
-  %25 = load i64, ptr %24, align 8, !tbaa !9
-  %26 = add i64 %23, %21
-  %.not.i = icmp ult i64 %26, %25
-  br i1 %.not.i, label %.noexc3, label %.noexc.thread, !prof !11
+.noexc2:                                          ; preds = %.noexc
+  %18 = lshr i64 %16, 48
+  %19 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 912
+  %22 = load i64, ptr %21, align 8, !tbaa !9
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 920
+  %24 = load i64, ptr %23, align 8, !tbaa !9
+  %25 = add i64 %22, %20
+  %.not26.i = icmp ult i64 %25, %24
+  br i1 %.not26.i, label %.noexc3, label %.noexc.thread, !prof !11
 
 .noexc3:                                          ; preds = %.noexc2
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 936
-  %28 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %27, i64 0, i64 %19
-  %29 = load ptr, ptr %28, align 8, !tbaa !12
-  %30 = ptrtoint ptr %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 18
-  %32 = load i16, ptr %31, align 2, !tbaa !29
-  %33 = trunc i64 %30 to i16
-  %34 = icmp eq i16 %32, %33
-  br i1 %34, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 936
+  %27 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %26, i64 0, i64 %18
+  %28 = load ptr, ptr %27, align 8, !tbaa !12
+  %29 = ptrtoint ptr %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 18
+  %31 = load i16, ptr %30, align 2, !tbaa !30
+  %32 = trunc i64 %29 to i16
+  %33 = icmp eq i16 %31, %32
+  br i1 %33, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
-  %35 = getelementptr inbounds i8, ptr %29, i64 -8
-  store ptr %35, ptr %28, align 8, !tbaa !12
-  store ptr %0, ptr %35, align 8, !tbaa !19
-  store i64 %26, ptr %22, align 8, !tbaa !9
+  %34 = getelementptr inbounds i8, ptr %28, i64 -8
+  store ptr %34, ptr %27, align 8, !tbaa !12
+  store ptr %0, ptr %34, align 8, !tbaa !19
+  store i64 %25, ptr %21, align 8, !tbaa !9
   br label %_ZL12je_free_implPv.exit
 
-.noexc.thread:                                    ; preds = %2, %11, %.noexc2, %.noexc3
+.noexc.thread:                                    ; preds = %2, %.noexc, %.noexc2, %.noexc3
   invoke void @je_free_default(ptr noundef %0)
-          to label %_ZL12je_free_implPv.exit unwind label %36
+          to label %_ZL12je_free_implPv.exit unwind label %35
 
-36:                                               ; preds = %.noexc.thread
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %.noexc.thread
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #17
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -663,57 +663,57 @@ define dso_local void @_ZdaPvRKSt9nothrow_t(ptr noundef %0, ptr noundef nonnull 
   %9 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %4, i64 0, i64 %7
   %10 = load i64, ptr %9, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %10, %8
-  br i1 %.not.i.i.not, label %11, label %.noexc.thread, !prof !11
+  br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = lshr i64 %5, 12
-  %15 = and i64 %14, 262143
-  %16 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %13, i64 %15
-  %17 = load atomic i64, ptr %16 monotonic, align 8, !noalias !36
-  %18 = trunc i64 %17 to i1
-  br i1 %18, label %.noexc2, label %.noexc.thread, !prof !11
+.noexc:                                           ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %13 = lshr i64 %5, 12
+  %14 = and i64 %13, 262143
+  %15 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %12, i64 %14
+  %16 = load atomic i64, ptr %15 monotonic, align 8, !noalias !37
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %.noexc2, label %.noexc.thread, !prof !29
 
-.noexc2:                                          ; preds = %11
-  %19 = lshr i64 %17, 48
-  %20 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %19
-  %21 = load i64, ptr %20, align 8, !tbaa !9
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 912
-  %23 = load i64, ptr %22, align 8, !tbaa !9
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 920
-  %25 = load i64, ptr %24, align 8, !tbaa !9
-  %26 = add i64 %23, %21
-  %.not.i = icmp ult i64 %26, %25
-  br i1 %.not.i, label %.noexc3, label %.noexc.thread, !prof !11
+.noexc2:                                          ; preds = %.noexc
+  %18 = lshr i64 %16, 48
+  %19 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 912
+  %22 = load i64, ptr %21, align 8, !tbaa !9
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 920
+  %24 = load i64, ptr %23, align 8, !tbaa !9
+  %25 = add i64 %22, %20
+  %.not26.i = icmp ult i64 %25, %24
+  br i1 %.not26.i, label %.noexc3, label %.noexc.thread, !prof !11
 
 .noexc3:                                          ; preds = %.noexc2
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 936
-  %28 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %27, i64 0, i64 %19
-  %29 = load ptr, ptr %28, align 8, !tbaa !12
-  %30 = ptrtoint ptr %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 18
-  %32 = load i16, ptr %31, align 2, !tbaa !29
-  %33 = trunc i64 %30 to i16
-  %34 = icmp eq i16 %32, %33
-  br i1 %34, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 936
+  %27 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %26, i64 0, i64 %18
+  %28 = load ptr, ptr %27, align 8, !tbaa !12
+  %29 = ptrtoint ptr %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 18
+  %31 = load i16, ptr %30, align 2, !tbaa !30
+  %32 = trunc i64 %29 to i16
+  %33 = icmp eq i16 %31, %32
+  br i1 %33, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
-  %35 = getelementptr inbounds i8, ptr %29, i64 -8
-  store ptr %35, ptr %28, align 8, !tbaa !12
-  store ptr %0, ptr %35, align 8, !tbaa !19
-  store i64 %26, ptr %22, align 8, !tbaa !9
+  %34 = getelementptr inbounds i8, ptr %28, i64 -8
+  store ptr %34, ptr %27, align 8, !tbaa !12
+  store ptr %0, ptr %34, align 8, !tbaa !19
+  store i64 %25, ptr %21, align 8, !tbaa !9
   br label %_ZL12je_free_implPv.exit
 
-.noexc.thread:                                    ; preds = %2, %11, %.noexc2, %.noexc3
+.noexc.thread:                                    ; preds = %2, %.noexc, %.noexc2, %.noexc3
   invoke void @je_free_default(ptr noundef %0)
-          to label %_ZL12je_free_implPv.exit unwind label %36
+          to label %_ZL12je_free_implPv.exit unwind label %35
 
-36:                                               ; preds = %.noexc.thread
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %.noexc.thread
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #17
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -743,8 +743,8 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 920
   %17 = load i64, ptr %16, align 8, !tbaa !9
   %18 = add i64 %15, %13
-  %.not.i.i = icmp ult i64 %18, %17
-  br i1 %.not.i.i, label %19, label %30, !prof !11
+  %.not26.i.i = icmp ult i64 %18, %17
+  br i1 %.not26.i.i, label %19, label %30, !prof !11
 
 19:                                               ; preds = %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 936
@@ -753,7 +753,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %4
   %23 = load ptr, ptr %22, align 8, !tbaa !12
   %24 = ptrtoint ptr %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 18
-  %26 = load i16, ptr %25, align 2, !tbaa !29
+  %26 = load i16, ptr %25, align 2, !tbaa !30
   %27 = trunc i64 %24 to i16
   %28 = icmp eq i16 %26, %27
   br i1 %28, label %30, label %_ZL13free_fastpathPvmb.exit.i, !prof !4
@@ -803,8 +803,8 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 920
   %17 = load i64, ptr %16, align 8, !tbaa !9
   %18 = add i64 %15, %13
-  %.not.i.i = icmp ult i64 %18, %17
-  br i1 %.not.i.i, label %19, label %30, !prof !11
+  %.not26.i.i = icmp ult i64 %18, %17
+  br i1 %.not26.i.i, label %19, label %30, !prof !11
 
 19:                                               ; preds = %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 936
@@ -813,7 +813,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %4
   %23 = load ptr, ptr %22, align 8, !tbaa !12
   %24 = ptrtoint ptr %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 18
-  %26 = load i16, ptr %25, align 2, !tbaa !29
+  %26 = load i16, ptr %25, align 2, !tbaa !30
   %27 = trunc i64 %24 to i16
   %28 = icmp eq i16 %26, %27
   br i1 %28, label %30, label %_ZL13free_fastpathPvmb.exit.i, !prof !4
@@ -851,57 +851,57 @@ define dso_local void @_ZdlPvSt11align_val_t(ptr noundef %0, i64 noundef %1) loc
   %9 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %4, i64 0, i64 %7
   %10 = load i64, ptr %9, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %10, %8
-  br i1 %.not.i.i.not, label %11, label %.noexc.thread, !prof !11
+  br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = lshr i64 %5, 12
-  %15 = and i64 %14, 262143
-  %16 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %13, i64 %15
-  %17 = load atomic i64, ptr %16 monotonic, align 8, !noalias !39
-  %18 = trunc i64 %17 to i1
-  br i1 %18, label %.noexc2, label %.noexc.thread, !prof !11
+.noexc:                                           ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %13 = lshr i64 %5, 12
+  %14 = and i64 %13, 262143
+  %15 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %12, i64 %14
+  %16 = load atomic i64, ptr %15 monotonic, align 8, !noalias !40
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %.noexc2, label %.noexc.thread, !prof !29
 
-.noexc2:                                          ; preds = %11
-  %19 = lshr i64 %17, 48
-  %20 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %19
-  %21 = load i64, ptr %20, align 8, !tbaa !9
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 912
-  %23 = load i64, ptr %22, align 8, !tbaa !9
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 920
-  %25 = load i64, ptr %24, align 8, !tbaa !9
-  %26 = add i64 %23, %21
-  %.not.i = icmp ult i64 %26, %25
-  br i1 %.not.i, label %.noexc3, label %.noexc.thread, !prof !11
+.noexc2:                                          ; preds = %.noexc
+  %18 = lshr i64 %16, 48
+  %19 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 912
+  %22 = load i64, ptr %21, align 8, !tbaa !9
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 920
+  %24 = load i64, ptr %23, align 8, !tbaa !9
+  %25 = add i64 %22, %20
+  %.not26.i = icmp ult i64 %25, %24
+  br i1 %.not26.i, label %.noexc3, label %.noexc.thread, !prof !11
 
 .noexc3:                                          ; preds = %.noexc2
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 936
-  %28 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %27, i64 0, i64 %19
-  %29 = load ptr, ptr %28, align 8, !tbaa !12
-  %30 = ptrtoint ptr %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 18
-  %32 = load i16, ptr %31, align 2, !tbaa !29
-  %33 = trunc i64 %30 to i16
-  %34 = icmp eq i16 %32, %33
-  br i1 %34, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 936
+  %27 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %26, i64 0, i64 %18
+  %28 = load ptr, ptr %27, align 8, !tbaa !12
+  %29 = ptrtoint ptr %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 18
+  %31 = load i16, ptr %30, align 2, !tbaa !30
+  %32 = trunc i64 %29 to i16
+  %33 = icmp eq i16 %31, %32
+  br i1 %33, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
-  %35 = getelementptr inbounds i8, ptr %29, i64 -8
-  store ptr %35, ptr %28, align 8, !tbaa !12
-  store ptr %0, ptr %35, align 8, !tbaa !19
-  store i64 %26, ptr %22, align 8, !tbaa !9
+  %34 = getelementptr inbounds i8, ptr %28, i64 -8
+  store ptr %34, ptr %27, align 8, !tbaa !12
+  store ptr %0, ptr %34, align 8, !tbaa !19
+  store i64 %25, ptr %21, align 8, !tbaa !9
   br label %_ZL12je_free_implPv.exit
 
-.noexc.thread:                                    ; preds = %2, %11, %.noexc2, %.noexc3
+.noexc.thread:                                    ; preds = %2, %.noexc, %.noexc2, %.noexc3
   invoke void @je_free_default(ptr noundef %0)
-          to label %_ZL12je_free_implPv.exit unwind label %36
+          to label %_ZL12je_free_implPv.exit unwind label %35
 
-36:                                               ; preds = %.noexc.thread
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %.noexc.thread
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #17
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -919,57 +919,57 @@ define dso_local void @_ZdaPvSt11align_val_t(ptr noundef %0, i64 noundef %1) loc
   %9 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %4, i64 0, i64 %7
   %10 = load i64, ptr %9, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %10, %8
-  br i1 %.not.i.i.not, label %11, label %.noexc.thread, !prof !11
+  br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = lshr i64 %5, 12
-  %15 = and i64 %14, 262143
-  %16 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %13, i64 %15
-  %17 = load atomic i64, ptr %16 monotonic, align 8, !noalias !42
-  %18 = trunc i64 %17 to i1
-  br i1 %18, label %.noexc2, label %.noexc.thread, !prof !11
+.noexc:                                           ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %13 = lshr i64 %5, 12
+  %14 = and i64 %13, 262143
+  %15 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %12, i64 %14
+  %16 = load atomic i64, ptr %15 monotonic, align 8, !noalias !43
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %.noexc2, label %.noexc.thread, !prof !29
 
-.noexc2:                                          ; preds = %11
-  %19 = lshr i64 %17, 48
-  %20 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %19
-  %21 = load i64, ptr %20, align 8, !tbaa !9
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 912
-  %23 = load i64, ptr %22, align 8, !tbaa !9
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 920
-  %25 = load i64, ptr %24, align 8, !tbaa !9
-  %26 = add i64 %23, %21
-  %.not.i = icmp ult i64 %26, %25
-  br i1 %.not.i, label %.noexc3, label %.noexc.thread, !prof !11
+.noexc2:                                          ; preds = %.noexc
+  %18 = lshr i64 %16, 48
+  %19 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !9
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 912
+  %22 = load i64, ptr %21, align 8, !tbaa !9
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 920
+  %24 = load i64, ptr %23, align 8, !tbaa !9
+  %25 = add i64 %22, %20
+  %.not26.i = icmp ult i64 %25, %24
+  br i1 %.not26.i, label %.noexc3, label %.noexc.thread, !prof !11
 
 .noexc3:                                          ; preds = %.noexc2
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 936
-  %28 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %27, i64 0, i64 %19
-  %29 = load ptr, ptr %28, align 8, !tbaa !12
-  %30 = ptrtoint ptr %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 18
-  %32 = load i16, ptr %31, align 2, !tbaa !29
-  %33 = trunc i64 %30 to i16
-  %34 = icmp eq i16 %32, %33
-  br i1 %34, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 936
+  %27 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %26, i64 0, i64 %18
+  %28 = load ptr, ptr %27, align 8, !tbaa !12
+  %29 = ptrtoint ptr %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 18
+  %31 = load i16, ptr %30, align 2, !tbaa !30
+  %32 = trunc i64 %29 to i16
+  %33 = icmp eq i16 %31, %32
+  br i1 %33, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
-  %35 = getelementptr inbounds i8, ptr %29, i64 -8
-  store ptr %35, ptr %28, align 8, !tbaa !12
-  store ptr %0, ptr %35, align 8, !tbaa !19
-  store i64 %26, ptr %22, align 8, !tbaa !9
+  %34 = getelementptr inbounds i8, ptr %28, i64 -8
+  store ptr %34, ptr %27, align 8, !tbaa !12
+  store ptr %0, ptr %34, align 8, !tbaa !19
+  store i64 %25, ptr %21, align 8, !tbaa !9
   br label %_ZL12je_free_implPv.exit
 
-.noexc.thread:                                    ; preds = %2, %11, %.noexc2, %.noexc3
+.noexc.thread:                                    ; preds = %2, %.noexc, %.noexc2, %.noexc3
   invoke void @je_free_default(ptr noundef %0)
-          to label %_ZL12je_free_implPv.exit unwind label %36
+          to label %_ZL12je_free_implPv.exit unwind label %35
 
-36:                                               ; preds = %.noexc.thread
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %.noexc.thread
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #17
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -987,57 +987,57 @@ define dso_local void @_ZdlPvSt11align_val_tRKSt9nothrow_t(ptr noundef %0, i64 n
   %10 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %5, i64 0, i64 %8
   %11 = load i64, ptr %10, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %11, %9
-  br i1 %.not.i.i.not, label %12, label %.noexc.thread, !prof !11
+  br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !25
-  %15 = lshr i64 %6, 12
-  %16 = and i64 %15, 262143
-  %17 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %14, i64 %16
-  %18 = load atomic i64, ptr %17 monotonic, align 8, !noalias !45
-  %19 = trunc i64 %18 to i1
-  br i1 %19, label %.noexc2, label %.noexc.thread, !prof !11
+.noexc:                                           ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %14 = lshr i64 %6, 12
+  %15 = and i64 %14, 262143
+  %16 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %13, i64 %15
+  %17 = load atomic i64, ptr %16 monotonic, align 8, !noalias !46
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %.noexc2, label %.noexc.thread, !prof !29
 
-.noexc2:                                          ; preds = %12
-  %20 = lshr i64 %18, 48
-  %21 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %20
-  %22 = load i64, ptr %21, align 8, !tbaa !9
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 912
-  %24 = load i64, ptr %23, align 8, !tbaa !9
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 920
-  %26 = load i64, ptr %25, align 8, !tbaa !9
-  %27 = add i64 %24, %22
-  %.not.i = icmp ult i64 %27, %26
-  br i1 %.not.i, label %.noexc3, label %.noexc.thread, !prof !11
+.noexc2:                                          ; preds = %.noexc
+  %19 = lshr i64 %17, 48
+  %20 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %19
+  %21 = load i64, ptr %20, align 8, !tbaa !9
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 912
+  %23 = load i64, ptr %22, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 920
+  %25 = load i64, ptr %24, align 8, !tbaa !9
+  %26 = add i64 %23, %21
+  %.not26.i = icmp ult i64 %26, %25
+  br i1 %.not26.i, label %.noexc3, label %.noexc.thread, !prof !11
 
 .noexc3:                                          ; preds = %.noexc2
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 936
-  %29 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %28, i64 0, i64 %20
-  %30 = load ptr, ptr %29, align 8, !tbaa !12
-  %31 = ptrtoint ptr %30 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 18
-  %33 = load i16, ptr %32, align 2, !tbaa !29
-  %34 = trunc i64 %31 to i16
-  %35 = icmp eq i16 %33, %34
-  br i1 %35, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 936
+  %28 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %27, i64 0, i64 %19
+  %29 = load ptr, ptr %28, align 8, !tbaa !12
+  %30 = ptrtoint ptr %29 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 18
+  %32 = load i16, ptr %31, align 2, !tbaa !30
+  %33 = trunc i64 %30 to i16
+  %34 = icmp eq i16 %32, %33
+  br i1 %34, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
-  %36 = getelementptr inbounds i8, ptr %30, i64 -8
-  store ptr %36, ptr %29, align 8, !tbaa !12
-  store ptr %0, ptr %36, align 8, !tbaa !19
-  store i64 %27, ptr %23, align 8, !tbaa !9
+  %35 = getelementptr inbounds i8, ptr %29, i64 -8
+  store ptr %35, ptr %28, align 8, !tbaa !12
+  store ptr %0, ptr %35, align 8, !tbaa !19
+  store i64 %26, ptr %22, align 8, !tbaa !9
   br label %_ZL12je_free_implPv.exit
 
-.noexc.thread:                                    ; preds = %3, %12, %.noexc2, %.noexc3
+.noexc.thread:                                    ; preds = %3, %.noexc, %.noexc2, %.noexc3
   invoke void @je_free_default(ptr noundef %0)
-          to label %_ZL12je_free_implPv.exit unwind label %37
+          to label %_ZL12je_free_implPv.exit unwind label %36
 
-37:                                               ; preds = %.noexc.thread
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %.noexc.thread
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #17
+  %38 = extractvalue { ptr, i32 } %37, 0
+  tail call void @__clang_call_terminate(ptr %38) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -1055,57 +1055,57 @@ define dso_local void @_ZdaPvSt11align_val_tRKSt9nothrow_t(ptr noundef %0, i64 n
   %10 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %5, i64 0, i64 %8
   %11 = load i64, ptr %10, align 8, !tbaa !22
   %.not.i.i.not = icmp eq i64 %11, %9
-  br i1 %.not.i.i.not, label %12, label %.noexc.thread, !prof !11
+  br i1 %.not.i.i.not, label %.noexc, label %.noexc.thread, !prof !11
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !25
-  %15 = lshr i64 %6, 12
-  %16 = and i64 %15, 262143
-  %17 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %14, i64 %16
-  %18 = load atomic i64, ptr %17 monotonic, align 8, !noalias !48
-  %19 = trunc i64 %18 to i1
-  br i1 %19, label %.noexc2, label %.noexc.thread, !prof !11
+.noexc:                                           ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %14 = lshr i64 %6, 12
+  %15 = and i64 %14, 262143
+  %16 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %13, i64 %15
+  %17 = load atomic i64, ptr %16 monotonic, align 8, !noalias !49
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %.noexc2, label %.noexc.thread, !prof !29
 
-.noexc2:                                          ; preds = %12
-  %20 = lshr i64 %18, 48
-  %21 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %20
-  %22 = load i64, ptr %21, align 8, !tbaa !9
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 912
-  %24 = load i64, ptr %23, align 8, !tbaa !9
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 920
-  %26 = load i64, ptr %25, align 8, !tbaa !9
-  %27 = add i64 %24, %22
-  %.not.i = icmp ult i64 %27, %26
-  br i1 %.not.i, label %.noexc3, label %.noexc.thread, !prof !11
+.noexc2:                                          ; preds = %.noexc
+  %19 = lshr i64 %17, 48
+  %20 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %19
+  %21 = load i64, ptr %20, align 8, !tbaa !9
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 912
+  %23 = load i64, ptr %22, align 8, !tbaa !9
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 920
+  %25 = load i64, ptr %24, align 8, !tbaa !9
+  %26 = add i64 %23, %21
+  %.not26.i = icmp ult i64 %26, %25
+  br i1 %.not26.i, label %.noexc3, label %.noexc.thread, !prof !11
 
 .noexc3:                                          ; preds = %.noexc2
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 936
-  %29 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %28, i64 0, i64 %20
-  %30 = load ptr, ptr %29, align 8, !tbaa !12
-  %31 = ptrtoint ptr %30 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 18
-  %33 = load i16, ptr %32, align 2, !tbaa !29
-  %34 = trunc i64 %31 to i16
-  %35 = icmp eq i16 %33, %34
-  br i1 %35, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 936
+  %28 = getelementptr inbounds nuw [73 x %struct.cache_bin_s], ptr %27, i64 0, i64 %19
+  %29 = load ptr, ptr %28, align 8, !tbaa !12
+  %30 = ptrtoint ptr %29 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 18
+  %32 = load i16, ptr %31, align 2, !tbaa !30
+  %33 = trunc i64 %30 to i16
+  %34 = icmp eq i16 %32, %33
+  br i1 %34, label %.noexc.thread, label %_ZL13free_fastpathPvmb.exit, !prof !4
 
 _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
-  %36 = getelementptr inbounds i8, ptr %30, i64 -8
-  store ptr %36, ptr %29, align 8, !tbaa !12
-  store ptr %0, ptr %36, align 8, !tbaa !19
-  store i64 %27, ptr %23, align 8, !tbaa !9
+  %35 = getelementptr inbounds i8, ptr %29, i64 -8
+  store ptr %35, ptr %28, align 8, !tbaa !12
+  store ptr %0, ptr %35, align 8, !tbaa !19
+  store i64 %26, ptr %22, align 8, !tbaa !9
   br label %_ZL12je_free_implPv.exit
 
-.noexc.thread:                                    ; preds = %3, %12, %.noexc2, %.noexc3
+.noexc.thread:                                    ; preds = %3, %.noexc, %.noexc2, %.noexc3
   invoke void @je_free_default(ptr noundef %0)
-          to label %_ZL12je_free_implPv.exit unwind label %37
+          to label %_ZL12je_free_implPv.exit unwind label %36
 
-37:                                               ; preds = %.noexc.thread
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %.noexc.thread
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #17
+  %38 = extractvalue { ptr, i32 } %37, 0
+  tail call void @__clang_call_terminate(ptr %38) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -1158,8 +1158,8 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %15
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 920
   %28 = load i64, ptr %27, align 8, !tbaa !9
   %29 = add i64 %26, %24
-  %.not.i.i = icmp ult i64 %29, %28
-  br i1 %.not.i.i, label %30, label %.thread, !prof !11
+  %.not26.i.i = icmp ult i64 %29, %28
+  br i1 %.not26.i.i, label %30, label %.thread, !prof !11
 
 30:                                               ; preds = %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 936
@@ -1168,7 +1168,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %15
   %34 = load ptr, ptr %33, align 8, !tbaa !12
   %35 = ptrtoint ptr %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 18
-  %37 = load i16, ptr %36, align 2, !tbaa !29
+  %37 = load i16, ptr %36, align 2, !tbaa !30
   %38 = trunc i64 %35 to i16
   %39 = icmp eq i16 %37, %38
   br i1 %39, label %.thread, label %_ZL13free_fastpathPvmb.exit.i, !prof !4
@@ -1242,8 +1242,8 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %15
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 920
   %28 = load i64, ptr %27, align 8, !tbaa !9
   %29 = add i64 %26, %24
-  %.not.i.i = icmp ult i64 %29, %28
-  br i1 %.not.i.i, label %30, label %.thread, !prof !11
+  %.not26.i.i = icmp ult i64 %29, %28
+  br i1 %.not26.i.i, label %30, label %.thread, !prof !11
 
 30:                                               ; preds = %_ZL28sz_size2index_usize_fastpathmPjPm.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 936
@@ -1252,7 +1252,7 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %15
   %34 = load ptr, ptr %33, align 8, !tbaa !12
   %35 = ptrtoint ptr %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 18
-  %37 = load i16, ptr %36, align 2, !tbaa !29
+  %37 = load i16, ptr %36, align 2, !tbaa !30
   %38 = trunc i64 %35 to i16
   %39 = icmp eq i16 %37, %38
   br i1 %39, label %.thread, label %_ZL13free_fastpathPvmb.exit.i, !prof !4
@@ -1323,7 +1323,7 @@ declare ptr @je_malloc_default(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress noinline uwtable
 define internal fastcc noundef ptr @_ZL9handleOOMmb(i64 noundef %0, i1 noundef zeroext %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
-  %3 = load i8, ptr @je_opt_experimental_infallible_new, align 1, !tbaa !51, !range !53, !noundef !54
+  %3 = load i8, ptr @je_opt_experimental_infallible_new, align 1, !tbaa !52, !range !54, !noundef !55
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %.preheader
 
@@ -1331,7 +1331,7 @@ define internal fastcc noundef ptr @_ZL9handleOOMmb(i64 noundef %0, i1 noundef z
   %6 = icmp ugt i64 %0, 1073741823
   %7 = select i1 %6, ptr @.str.5, ptr @.str.6
   tail call void (ptr, ...) @je_safety_check_fail(ptr noundef nonnull @.str.7, i64 noundef %0, ptr noundef nonnull %7)
-  br label %.thread22
+  br label %.thread23
 
 .preheader:                                       ; preds = %2, %23
   %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL9handleOOMmbE3mtx) #18
@@ -1371,19 +1371,19 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.preheader
 23:                                               ; preds = %14
   %24 = tail call noalias ptr @malloc(i64 noundef %0) #20
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.preheader, label %.thread22
+  br i1 %25, label %.preheader, label %.thread23
 
 26:                                               ; preds = %15
   resume { ptr, i32 } %16
 
 .loopexit:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %20
-  br i1 %1, label %.thread22, label %27
+  br i1 %1, label %.thread23, label %27
 
 27:                                               ; preds = %.loopexit
   tail call void @_ZSt17__throw_bad_allocv() #19
   unreachable
 
-.thread22:                                        ; preds = %23, %.loopexit, %5
+.thread23:                                        ; preds = %23, %.loopexit, %5
   %.0 = phi ptr [ null, %5 ], [ null, %.loopexit ], [ %24, %23 ]
   ret ptr %.0
 }
@@ -1497,29 +1497,30 @@ attributes #20 = { nounwind allocsize(0) }
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
 !28 = distinct !{!28, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
-!29 = !{!13, !16, i64 18}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
-!32 = distinct !{!32, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
-!35 = distinct !{!35, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
-!38 = distinct !{!38, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
-!41 = distinct !{!41, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
-!44 = distinct !{!44, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
-!47 = distinct !{!47, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
-!50 = distinct !{!50, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"bool", !7, i64 0}
-!53 = !{i8 0, i8 2}
-!54 = !{}
+!29 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!30 = !{!13, !16, i64 18}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
+!33 = distinct !{!33, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
+!36 = distinct !{!36, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
+!39 = distinct !{!39, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
+!42 = distinct !{!42, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
+!45 = distinct !{!45, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
+!48 = distinct !{!48, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb: argument 0"}
+!51 = distinct !{!51, !"_ZL19rtree_leaf_elm_readP6tsdn_sP7rtree_sP16rtree_leaf_elm_sb"}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"bool", !7, i64 0}
+!54 = !{i8 0, i8 2}
+!55 = !{}

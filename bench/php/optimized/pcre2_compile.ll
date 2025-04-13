@@ -546,19 +546,17 @@ define hidden i32 @_pcre2_check_escape_8(ptr noundef captures(none) %0, ptr noun
 switch.early.test:                                ; preds = %173
   %switch.tableidx = add nsw i32 %.0310.fr, -99
   %175 = icmp ult i32 %switch.tableidx, 22
-  br i1 %175, label %switch.hole_check, label %176
+  %switch.shifted = lshr i32 2101265, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond710 = select i1 %175, i1 %switch.lobit, i1 false
+  br i1 %or.cond710, label %switch.lookup, label %176
 
-176:                                              ; preds = %switch.hole_check, %switch.early.test
+176:                                              ; preds = %switch.early.test
   store i32 103, ptr %3, align 4, !tbaa !22
   br label %543
 
-switch.hole_check:                                ; preds = %switch.early.test
-  %switch.shifted = lshr i32 2101265, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %176
-
-switch.lookup:                                    ; preds = %switch.hole_check, %173, %171
-  %.0302 = phi i1 [ %.not414, %171 ], [ true, %173 ], [ true, %switch.hole_check ]
+switch.lookup:                                    ; preds = %switch.early.test, %173, %171
+  %.0302 = phi i1 [ %.not414, %171 ], [ true, %173 ], [ true, %switch.early.test ]
   switch i32 %.0310.fr, label %540 [
     i32 70, label %177
     i32 108, label %177

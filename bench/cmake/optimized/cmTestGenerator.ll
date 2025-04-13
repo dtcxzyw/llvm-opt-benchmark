@@ -6673,34 +6673,32 @@ define dso_local noundef zeroext i1 @_ZNK15cmTestGenerator19NeedsScriptNoConfigE
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i8, ptr %2, align 8, !tbaa !58, !range !55, !noundef !56
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %22
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %6 = load i8, ptr %5, align 8, !range !55
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond, label %8, label %21
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %7 = load i8, ptr %6, align 8, !tbaa !57, !range !55, !noundef !56
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %22
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = load ptr, ptr %9, align 8, !tbaa !74
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = load ptr, ptr %11, align 8, !tbaa !74
+  %13 = icmp eq ptr %10, %12
+  br i1 %13, label %14, label %21
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !74
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !74
-  %14 = icmp eq ptr %11, %13
-  br i1 %14, label %15, label %22
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %16 = load ptr, ptr %15, align 8, !tbaa !243
+  %17 = load ptr, ptr %16, align 8, !tbaa !74
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !74
+  %20 = icmp ne ptr %17, %19
+  br label %21
 
-15:                                               ; preds = %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %17 = load ptr, ptr %16, align 8, !tbaa !243
-  %18 = load ptr, ptr %17, align 8, !tbaa !74
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !74
-  %21 = icmp ne ptr %18, %20
-  br label %22
-
-22:                                               ; preds = %15, %9, %5, %1
-  %23 = phi i1 [ false, %9 ], [ false, %5 ], [ false, %1 ], [ %21, %15 ]
-  ret i1 %23
+21:                                               ; preds = %14, %8, %1
+  %22 = phi i1 [ false, %8 ], [ false, %1 ], [ %20, %14 ]
+  ret i1 %22
 }
 
 declare noundef zeroext i1 @_ZNK12cmConstStackI17cmListFileContext19cmListFileBacktraceE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0

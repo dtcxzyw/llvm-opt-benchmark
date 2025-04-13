@@ -149,16 +149,16 @@ define dso_local i32 @tool_setopt_enum(ptr noundef %0, ptr noundef readonly capt
   %.not = icmp eq i64 %5, 0
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !4
-  %.not31 = icmp eq ptr %9, null
-  %10 = icmp ne i32 %7, 0
-  %11 = or i1 %.not, %.not31
-  %or.cond36 = select i1 %11, i1 true, i1 %10
-  br i1 %or.cond36, label %24, label %.preheader
+  %10 = icmp eq ptr %9, null
+  %or.cond = or i1 %.not, %10
+  %11 = icmp ne i32 %7, 0
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %11
+  br i1 %or.cond3, label %24, label %.preheader
 
 .preheader:                                       ; preds = %6
   %12 = load ptr, ptr %4, align 8, !tbaa !17
-  %.not3238 = icmp eq ptr %12, null
-  br i1 %.not3238, label %._crit_edge, label %.lr.ph.preheader
+  %.not3338 = icmp eq ptr %12, null
+  br i1 %.not3338, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -167,35 +167,35 @@ define dso_local i32 @tool_setopt_enum(ptr noundef %0, ptr noundef readonly capt
   br i1 %15, label %.lr.ph._crit_edge, label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0223943 = phi ptr [ %16, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds nuw i8, ptr %.0223943, i64 16
+  %.0243943 = phi ptr [ %16, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %16 = getelementptr inbounds nuw i8, ptr %.0243943, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !17
-  %.not32 = icmp eq ptr %17, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  %.not33 = icmp eq ptr %17, null
+  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.lr.ph44
-  %18 = getelementptr inbounds nuw i8, ptr %.0223943, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.0243943, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !19
   %20 = icmp eq i64 %19, %5
   br i1 %20, label %.lr.ph._crit_edge, label %.lr.ph44, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph44, %.preheader
   %21 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.58, ptr noundef %2, i64 noundef %5) #8
-  %.not34 = icmp eq i32 %21, 0
-  br i1 %.not34, label %23, label %24
+  %.not35 = icmp eq i32 %21, 0
+  br i1 %.not35, label %23, label %24
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %12, %.lr.ph.preheader ], [ %17, %.lr.ph ]
   %22 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.59, ptr noundef %2, ptr noundef nonnull %.lcssa) #8
-  %.not35 = icmp eq i32 %22, 0
-  br i1 %.not35, label %23, label %24
+  %.not36 = icmp eq i32 %22, 0
+  br i1 %.not36, label %23, label %24
 
 23:                                               ; preds = %.lr.ph._crit_edge, %._crit_edge
   br label %24
 
 24:                                               ; preds = %23, %._crit_edge, %.lr.ph._crit_edge, %6
-  %.025 = phi i32 [ %7, %6 ], [ 0, %23 ], [ %21, %._crit_edge ], [ %22, %.lr.ph._crit_edge ]
-  ret i32 %.025
+  %.027 = phi i32 [ %7, %6 ], [ 0, %23 ], [ %21, %._crit_edge ], [ %22, %.lr.ph._crit_edge ]
+  ret i32 %.027
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -214,11 +214,11 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
   %.not = icmp eq i64 %4, 0
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !4
-  %.not36 = icmp eq ptr %8, null
-  %9 = icmp ne i32 %6, 0
-  %10 = or i1 %.not, %.not36
-  %or.cond42 = select i1 %10, i1 true, i1 %9
-  br i1 %or.cond42, label %30, label %.preheader
+  %9 = icmp eq ptr %8, null
+  %or.cond = or i1 %.not, %9
+  %10 = icmp ne i32 %6, 0
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %10
+  br i1 %or.cond3, label %30, label %.preheader
 
 .preheader:                                       ; preds = %5
   %11 = and i64 %4, 65535
@@ -226,14 +226,14 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
   br i1 %.not4748, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %14
-  %.0274449 = phi ptr [ %12, %14 ], [ @setopt_nv_CURL_SSLVERSION, %.preheader ]
-  %12 = getelementptr inbounds nuw i8, ptr %.0274449, i64 16
+  %.0294449 = phi ptr [ %12, %14 ], [ @setopt_nv_CURL_SSLVERSION, %.preheader ]
+  %12 = getelementptr inbounds nuw i8, ptr %.0294449, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !17
-  %.not37 = icmp eq ptr %13, null
-  br i1 %.not37, label %._crit_edge52, label %14, !llvm.loop !22
+  %.not38 = icmp eq ptr %13, null
+  br i1 %.not38, label %._crit_edge52, label %14, !llvm.loop !22
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.0274449, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.0294449, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !19
   %.not47 = icmp eq i64 %16, %11
   br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !22
@@ -249,14 +249,14 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
   br i1 %18, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %._crit_edge, %21
-  %.0264655 = phi ptr [ %19, %21 ], [ @setopt_nv_CURL_SSLVERSION_MAX, %._crit_edge ]
-  %19 = getelementptr inbounds nuw i8, ptr %.0264655, i64 16
+  %.0284655 = phi ptr [ %19, %21 ], [ @setopt_nv_CURL_SSLVERSION_MAX, %._crit_edge ]
+  %19 = getelementptr inbounds nuw i8, ptr %.0284655, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !17
-  %.not38 = icmp eq ptr %20, null
-  br i1 %.not38, label %._crit_edge60, label %21, !llvm.loop !23
+  %.not39 = icmp eq ptr %20, null
+  br i1 %.not39, label %._crit_edge60, label %21, !llvm.loop !23
 
 21:                                               ; preds = %.lr.ph57
-  %22 = getelementptr inbounds nuw i8, ptr %.0264655, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.0284655, i64 24
   %23 = load i64, ptr %22, align 8, !tbaa !19
   %24 = icmp eq i64 %23, %17
   br i1 %24, label %._crit_edge58, label %.lr.ph57, !llvm.loop !23
@@ -270,20 +270,20 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
 
 25:                                               ; preds = %._crit_edge58
   %26 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.58, ptr noundef %2, i64 noundef %4) #8
-  %.not40 = icmp eq i32 %26, 0
-  br i1 %.not40, label %29, label %30
+  %.not41 = icmp eq i32 %26, 0
+  br i1 %.not41, label %29, label %30
 
 27:                                               ; preds = %._crit_edge58
   %28 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.60, ptr noundef %2, ptr noundef nonnull %.lcssa43, ptr noundef %.lcssa) #8
-  %.not41 = icmp eq i32 %28, 0
-  br i1 %.not41, label %29, label %30
+  %.not42 = icmp eq i32 %28, 0
+  br i1 %.not42, label %29, label %30
 
 29:                                               ; preds = %27, %25
   br label %30
 
 30:                                               ; preds = %29, %25, %27, %5
-  %.030 = phi i32 [ %6, %5 ], [ 0, %29 ], [ %26, %25 ], [ %28, %27 ]
-  ret i32 %.030
+  %.032 = phi i32 [ %6, %5 ], [ 0, %29 ], [ %26, %25 ], [ %28, %27 ]
+  ret i32 %.032
 }
 
 ; Function Attrs: nounwind uwtable
@@ -293,41 +293,41 @@ define dso_local i32 @tool_setopt_bitmask(ptr noundef %0, ptr noundef readonly c
   %.not = icmp eq i64 %5, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !4
-  %.not41 = icmp eq ptr %10, null
-  %11 = icmp ne i32 %8, 0
-  %12 = or i1 %.not, %.not41
-  %or.cond47 = select i1 %12, i1 true, i1 %11
-  br i1 %or.cond47, label %36, label %13
+  %11 = icmp eq ptr %10, null
+  %or.cond = or i1 %.not, %11
+  %12 = icmp ne i32 %8, 0
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %12
+  br i1 %or.cond3, label %36, label %13
 
 13:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #8
   %14 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull @.str.61, ptr noundef %2) #8
   %15 = load ptr, ptr %4, align 8, !tbaa !24
-  %.not4253 = icmp eq ptr %15, null
-  br i1 %.not4253, label %._crit_edge.thread, label %.lr.ph
+  %.not4353 = icmp eq ptr %15, null
+  br i1 %.not4353, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %32
   %16 = phi ptr [ %34, %32 ], [ %15, %13 ]
-  %.02655 = phi ptr [ %33, %32 ], [ %4, %13 ]
-  %.02754 = phi i64 [ %.2, %32 ], [ %5, %13 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.02655, i64 8
+  %.02855 = phi ptr [ %33, %32 ], [ %4, %13 ]
+  %.02954 = phi i64 [ %.2, %32 ], [ %5, %13 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.02855, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !26
-  %19 = xor i64 %.02754, -1
+  %19 = xor i64 %.02954, -1
   %20 = and i64 %18, %19
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %.lr.ph
   %23 = xor i64 %18, -1
-  %24 = and i64 %.02754, %23
-  %.not43 = icmp eq i64 %24, 0
-  %25 = select i1 %.not43, ptr @.str.64, ptr @.str.63
+  %24 = and i64 %.02954, %23
+  %.not44 = icmp eq i64 %24, 0
+  %25 = select i1 %.not44, ptr @.str.64, ptr @.str.63
   %26 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.62, ptr noundef nonnull %7, ptr noundef nonnull %16, ptr noundef nonnull %25) #8
-  %.not44 = icmp eq i32 %26, 0
-  br i1 %.not44, label %27, label %.loopexit
+  %.not45 = icmp eq i32 %26, 0
+  br i1 %.not45, label %27, label %.loopexit
 
 27:                                               ; preds = %22
-  br i1 %.not43, label %.thread, label %28
+  br i1 %.not44, label %.thread, label %28
 
 28:                                               ; preds = %27
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #9
@@ -336,33 +336,33 @@ define dso_local i32 @tool_setopt_bitmask(ptr noundef %0, ptr noundef readonly c
   br label %32
 
 32:                                               ; preds = %.lr.ph, %28
-  %.2 = phi i64 [ %24, %28 ], [ %.02754, %.lr.ph ]
-  %33 = getelementptr inbounds nuw i8, ptr %.02655, i64 16
+  %.2 = phi i64 [ %24, %28 ], [ %.02954, %.lr.ph ]
+  %33 = getelementptr inbounds nuw i8, ptr %.02855, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !24
-  %.not42 = icmp eq ptr %34, null
-  br i1 %.not42, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  %.not43 = icmp eq ptr %34, null
+  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %32
-  %.not45 = icmp eq i64 %.2, 0
-  br i1 %.not45, label %.thread, label %._crit_edge.thread
+  %.not46 = icmp eq i64 %.2, 0
+  br i1 %.not46, label %.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %13, %._crit_edge
-  %.027.lcssa59 = phi i64 [ %.2, %._crit_edge ], [ %5, %13 ]
-  %35 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.67, ptr noundef nonnull %7, i64 noundef %.027.lcssa59) #8
-  %.not46 = icmp eq i32 %35, 0
-  br i1 %.not46, label %.thread, label %.loopexit
+  %.029.lcssa59 = phi i64 [ %.2, %._crit_edge ], [ %5, %13 ]
+  %35 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.67, ptr noundef nonnull %7, i64 noundef %.029.lcssa59) #8
+  %.not47 = icmp eq i32 %35, 0
+  br i1 %.not47, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %27, %._crit_edge.thread, %._crit_edge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %._crit_edge.thread, %.thread
-  %.231 = phi i32 [ 0, %.thread ], [ %35, %._crit_edge.thread ], [ %26, %22 ]
+  %.233 = phi i32 [ 0, %.thread ], [ %35, %._crit_edge.thread ], [ %26, %22 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #8
   br label %36
 
 36:                                               ; preds = %.loopexit, %6
-  %.032 = phi i32 [ %.231, %.loopexit ], [ %8, %6 ]
-  ret i32 %.032
+  %.034 = phi i32 [ %8, %6 ], [ %.233, %.loopexit ]
+  ret i32 %.034
 }
 
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -595,32 +595,32 @@ define dso_local i32 @tool_setopt(ptr noundef %0, i1 noundef zeroext %1, ptr nou
 
 26:                                               ; preds = %23, %32
   %27 = phi ptr [ @.str.101, %23 ], [ %34, %32 ]
-  %.06098 = phi ptr [ @setopt_nv_CURLNONZERODEFAULTS, %23 ], [ %33, %32 ]
+  %.06498 = phi ptr [ @setopt_nv_CURLNONZERODEFAULTS, %23 ], [ %33, %32 ]
   %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %27) #9
-  %.not86 = icmp eq i32 %28, 0
-  br i1 %.not86, label %29, label %32
+  %.not89 = icmp eq i32 %28, 0
+  br i1 %.not89, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %.06098, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.06498, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !19
   br label %.loopexit
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds nuw i8, ptr %.06098, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.06498, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !17
-  %.not85 = icmp eq ptr %34, null
-  br i1 %.not85, label %.loopexit, label %26, !llvm.loop !46
+  %.not88 = icmp eq ptr %34, null
+  br i1 %.not88, label %.loopexit, label %26, !llvm.loop !46
 
 .loopexit:                                        ; preds = %32, %29
-  %.061 = phi i64 [ %31, %29 ], [ 0, %32 ]
+  %.065 = phi i64 [ %31, %29 ], [ 0, %32 ]
   %35 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %8, i64 noundef 256, ptr noundef nonnull @.str.70, i64 noundef %25) #8
   %36 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %0, i32 noundef %5, i64 noundef %25) #8
-  %37 = icmp eq i64 %25, %.061
-  br label %97
+  %37 = icmp eq i64 %25, %.065
+  br label %98
 
 38:                                               ; preds = %6
   %39 = icmp ult i32 %5, 30000
-  br i1 %39, label %40, label %62
+  br i1 %39, label %40, label %63
 
 40:                                               ; preds = %38
   %41 = load i32, ptr %7, align 16
@@ -647,151 +647,151 @@ define dso_local i32 @tool_setopt(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   %54 = phi ptr [ %47, %43 ], [ %51, %49 ]
   %55 = load ptr, ptr %54, align 8, !tbaa !47
   %56 = icmp samesign ugt i32 %5, 19999
-  %.not84 = icmp eq ptr %55, null
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %53
-  %not..not84 = xor i1 %.not84, true
-  %..str.71 = select i1 %.not84, ptr null, ptr @.str.71
-  br label %60
+  %.not87 = icmp eq ptr %55, null
+  %not..not87 = xor i1 %.not87, true
+  %..str.71 = select i1 %.not87, ptr null, ptr @.str.71
+  br label %61
 
 58:                                               ; preds = %53
-  %.not91 = xor i1 %1, true
-  %brmerge = or i1 %.not84, %.not91
-  br i1 %brmerge, label %59, label %60
+  %59 = icmp ne ptr %55, null
+  %or.cond = and i1 %1, %59
+  br i1 %or.cond, label %61, label %60
 
-59:                                               ; preds = %58
-  %not..not83 = xor i1 %.not84, true
-  %..str.72 = select i1 %.not84, ptr null, ptr @.str.72
-  br label %60
+60:                                               ; preds = %58
+  %not. = xor i1 %59, true
+  %.str.72. = select i1 %59, ptr @.str.72, ptr null
+  br label %61
 
-60:                                               ; preds = %59, %58, %57
-  %.170 = phi i1 [ false, %57 ], [ true, %58 ], [ false, %59 ]
-  %.264 = phi i1 [ %.not84, %57 ], [ false, %58 ], [ %.not84, %59 ]
-  %.158 = phi i1 [ %not..not84, %57 ], [ false, %58 ], [ %not..not83, %59 ]
-  %.1 = phi ptr [ %..str.71, %57 ], [ %55, %58 ], [ %..str.72, %59 ]
-  %61 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %0, i32 noundef %5, ptr noundef %55) #8
-  br label %97
+61:                                               ; preds = %60, %58, %57
+  %.174 = phi i1 [ false, %57 ], [ true, %58 ], [ false, %60 ]
+  %.268 = phi i1 [ %.not87, %57 ], [ false, %58 ], [ %not., %60 ]
+  %.162 = phi i1 [ %not..not87, %57 ], [ false, %58 ], [ %59, %60 ]
+  %.1 = phi ptr [ %..str.71, %57 ], [ %55, %58 ], [ %.str.72., %60 ]
+  %62 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %0, i32 noundef %5, ptr noundef %55) #8
+  br label %98
 
-62:                                               ; preds = %38
-  %63 = icmp ult i32 %5, 40000
-  %64 = load i32, ptr %7, align 16
-  %65 = icmp ult i32 %64, 41
-  br i1 %63, label %66, label %82
+63:                                               ; preds = %38
+  %64 = icmp ult i32 %5, 40000
+  %65 = load i32, ptr %7, align 16
+  %66 = icmp ult i32 %65, 41
+  br i1 %64, label %67, label %83
 
-66:                                               ; preds = %62
-  br i1 %65, label %67, label %73
+67:                                               ; preds = %63
+  br i1 %66, label %68, label %74
 
-67:                                               ; preds = %66
-  %68 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %69 = load ptr, ptr %68, align 16
-  %70 = zext nneg i32 %64 to i64
-  %71 = getelementptr i8, ptr %69, i64 %70
-  %72 = add nuw nsw i32 %64, 8
-  store i32 %72, ptr %7, align 16
-  br label %77
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %70 = load ptr, ptr %69, align 16
+  %71 = zext nneg i32 %65 to i64
+  %72 = getelementptr i8, ptr %70, i64 %71
+  %73 = add nuw nsw i32 %65, 8
+  store i32 %73, ptr %7, align 16
+  br label %78
 
-73:                                               ; preds = %66
-  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr i8, ptr %75, i64 8
-  store ptr %76, ptr %74, align 8
-  br label %77
+74:                                               ; preds = %67
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr i8, ptr %76, i64 8
+  store ptr %77, ptr %75, align 8
+  br label %78
 
-77:                                               ; preds = %73, %67
-  %78 = phi ptr [ %71, %67 ], [ %75, %73 ]
-  %79 = load i64, ptr %78, align 8, !tbaa !45
-  %80 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %8, i64 noundef 256, ptr noundef nonnull @.str.73, i64 noundef %79) #8
-  %81 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %0, i32 noundef %5, i64 noundef %79) #8
-  %.not82 = icmp eq i64 %79, 0
-  br label %97
+78:                                               ; preds = %74, %68
+  %79 = phi ptr [ %72, %68 ], [ %76, %74 ]
+  %80 = load i64, ptr %79, align 8, !tbaa !45
+  %81 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %8, i64 noundef 256, ptr noundef nonnull @.str.73, i64 noundef %80) #8
+  %82 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %0, i32 noundef %5, i64 noundef %80) #8
+  %.not86 = icmp eq i64 %80, 0
+  br label %98
 
-82:                                               ; preds = %62
-  br i1 %65, label %83, label %89
+83:                                               ; preds = %63
+  br i1 %66, label %84, label %90
 
-83:                                               ; preds = %82
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %85 = load ptr, ptr %84, align 16
-  %86 = zext nneg i32 %64 to i64
-  %87 = getelementptr i8, ptr %85, i64 %86
-  %88 = add nuw nsw i32 %64, 8
-  store i32 %88, ptr %7, align 16
-  br label %93
+84:                                               ; preds = %83
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %86 = load ptr, ptr %85, align 16
+  %87 = zext nneg i32 %65 to i64
+  %88 = getelementptr i8, ptr %86, i64 %87
+  %89 = add nuw nsw i32 %65, 8
+  store i32 %89, ptr %7, align 16
+  br label %94
 
-89:                                               ; preds = %82
-  %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr i8, ptr %91, i64 8
-  store ptr %92, ptr %90, align 8
-  br label %93
+90:                                               ; preds = %83
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr i8, ptr %92, i64 8
+  store ptr %93, ptr %91, align 8
+  br label %94
 
-93:                                               ; preds = %89, %83
-  %94 = phi ptr [ %87, %83 ], [ %91, %89 ]
-  %95 = load ptr, ptr %94, align 8, !tbaa !47
-  %.not = icmp eq ptr %95, null
+94:                                               ; preds = %90, %84
+  %95 = phi ptr [ %88, %84 ], [ %92, %90 ]
+  %96 = load ptr, ptr %95, align 8, !tbaa !47
+  %.not = icmp eq ptr %96, null
   %..str.74 = select i1 %.not, ptr null, ptr @.str.74
-  %.259 = xor i1 %.not, true
-  %96 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %0, i32 noundef %5, ptr noundef %95) #8
-  br label %97
+  %.263 = xor i1 %.not, true
+  %97 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %0, i32 noundef %5, ptr noundef %96) #8
+  br label %98
 
-97:                                               ; preds = %60, %93, %77, %.loopexit
-  %.069 = phi i1 [ false, %.loopexit ], [ %.170, %60 ], [ false, %77 ], [ false, %93 ]
-  %.065 = phi i32 [ %36, %.loopexit ], [ %61, %60 ], [ %81, %77 ], [ %96, %93 ]
-  %.163 = phi i1 [ %37, %.loopexit ], [ %.264, %60 ], [ %.not82, %77 ], [ %.not, %93 ]
-  %.057 = phi i1 [ false, %.loopexit ], [ %.158, %60 ], [ false, %77 ], [ %.259, %93 ]
-  %.056 = phi ptr [ %8, %.loopexit ], [ %.1, %60 ], [ %8, %77 ], [ %..str.74, %93 ]
+98:                                               ; preds = %61, %94, %78, %.loopexit
+  %.073 = phi i1 [ false, %.loopexit ], [ %.174, %61 ], [ false, %78 ], [ false, %94 ]
+  %.069 = phi i32 [ %36, %.loopexit ], [ %62, %61 ], [ %82, %78 ], [ %97, %94 ]
+  %.167 = phi i1 [ %37, %.loopexit ], [ %.268, %61 ], [ %.not86, %78 ], [ %.not, %94 ]
+  %.061 = phi i1 [ false, %.loopexit ], [ %.162, %61 ], [ false, %78 ], [ %.263, %94 ]
+  %.060 = phi ptr [ %8, %.loopexit ], [ %.1, %61 ], [ %8, %78 ], [ %..str.74, %94 ]
   call void @llvm.va_end.p0(ptr nonnull %7)
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %99 = load ptr, ptr %98, align 8, !tbaa !4
-  %.not87 = icmp eq ptr %99, null
-  %100 = icmp ne i32 %.065, 0
-  %101 = select i1 %.not87, i1 true, i1 %.163
-  %or.cond94 = select i1 %101, i1 true, i1 %100
-  br i1 %or.cond94, label %select.unfold, label %102
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %100 = load ptr, ptr %99, align 8, !tbaa !4
+  %101 = icmp eq ptr %100, null
+  %or.cond3 = or i1 %.167, %101
+  %102 = icmp ne i32 %.069, 0
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %102
+  br i1 %or.cond5, label %select.unfold, label %103
 
-102:                                              ; preds = %97
-  br i1 %.057, label %103, label %108
+103:                                              ; preds = %98
+  br i1 %.061, label %104, label %109
 
-103:                                              ; preds = %102
-  %104 = load i8, ptr %.056, align 1, !tbaa !48
-  %105 = icmp eq i8 %104, 111
-  %106 = select i1 %105, ptr @.str.76, ptr @.str.66
-  %107 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_toohard, ptr noundef nonnull @.str.75, ptr noundef %4, ptr noundef nonnull %106, ptr noundef nonnull %.056) #8
+104:                                              ; preds = %103
+  %105 = load i8, ptr %.060, align 1, !tbaa !48
+  %106 = icmp eq i8 %105, 111
+  %107 = select i1 %106, ptr @.str.76, ptr @.str.66
+  %108 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_toohard, ptr noundef nonnull @.str.75, ptr noundef %4, ptr noundef nonnull %107, ptr noundef nonnull %.060) #8
   br label %select.unfold
 
-108:                                              ; preds = %102
-  br i1 %.069, label %109, label %118
+109:                                              ; preds = %103
+  br i1 %.073, label %110, label %119
 
-109:                                              ; preds = %108
-  %110 = icmp eq i32 %5, 10015
-  br i1 %110, label %111, label %114
+110:                                              ; preds = %109
+  %111 = icmp eq i32 %5, 10015
+  br i1 %111, label %112, label %115
 
-111:                                              ; preds = %109
-  %112 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  %113 = call i64 @curlx_dyn_len(ptr noundef nonnull %112) #8
-  br label %114
+112:                                              ; preds = %110
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  %114 = call i64 @curlx_dyn_len(ptr noundef nonnull %113) #8
+  br label %115
 
-114:                                              ; preds = %111, %109
-  %.054 = phi i64 [ %113, %111 ], [ -1, %109 ]
-  %115 = call fastcc ptr @c_escape(ptr noundef %.056, i64 noundef %.054)
-  %.not88 = icmp eq ptr %115, null
-  br i1 %.not88, label %select.unfold, label %116
+115:                                              ; preds = %112, %110
+  %.058 = phi i64 [ %114, %112 ], [ -1, %110 ]
+  %116 = call fastcc ptr @c_escape(ptr noundef %.060, i64 noundef %.058)
+  %.not90 = icmp eq ptr %116, null
+  br i1 %.not90, label %select.unfold, label %117
 
-116:                                              ; preds = %114
-  %117 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.77, ptr noundef %4, ptr noundef nonnull %115) #8
+117:                                              ; preds = %115
+  %118 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.77, ptr noundef %4, ptr noundef nonnull %116) #8
   br label %select.unfold
 
-118:                                              ; preds = %108
-  %119 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.78, ptr noundef %4, ptr noundef %.056) #8
+119:                                              ; preds = %109
+  %120 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.78, ptr noundef %4, ptr noundef %.060) #8
   br label %select.unfold
 
-select.unfold:                                    ; preds = %116, %97, %103, %118, %114
-  %.068 = phi ptr [ null, %103 ], [ null, %118 ], [ null, %97 ], [ null, %114 ], [ %115, %116 ]
-  %.267 = phi i32 [ %107, %103 ], [ %119, %118 ], [ %.065, %97 ], [ 27, %114 ], [ %117, %116 ]
-  call void @free(ptr noundef %.068) #8
+select.unfold:                                    ; preds = %117, %98, %104, %119, %115
+  %.072 = phi ptr [ null, %98 ], [ null, %104 ], [ null, %119 ], [ null, %115 ], [ %116, %117 ]
+  %.271 = phi i32 [ %.069, %98 ], [ %108, %104 ], [ %120, %119 ], [ 27, %115 ], [ %118, %117 ]
+  call void @free(ptr noundef %.072) #8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
-  ret i32 %.267
+  ret i32 %.271
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn

@@ -1730,14 +1730,12 @@ _ZN8facebook5velox10ClockTimerD2Ev.exit:          ; preds = %for.body
   %10 = tail call noundef i64 @llvm.x86.rdtsc()
   %sub.i = sub i64 %10, %8
   %cmp9 = icmp sgt i32 %conv8, 0
-  br i1 %cmp9, label %land.lhs.true, label %if.end18
-
-land.lhs.true:                                    ; preds = %_ZN8facebook5velox10ClockTimerD2Ev.exit
   %11 = load i8, ptr @_ZN3fLB28FLAGS_velox_time_allocationsE, align 1
   %tobool = trunc i8 %11 to i1
-  br i1 %tobool, label %if.then10, label %if.end18
+  %or.cond = select i1 %cmp9, i1 %tobool, i1 false
+  br i1 %or.cond, label %if.then10, label %if.end18
 
-if.then10:                                        ; preds = %land.lhs.true
+if.then10:                                        ; preds = %_ZN8facebook5velox10ClockTimerD2Ev.exit
   %12 = load ptr, ptr %sizeClassSizes_, align 8
   %add.ptr.i11 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
   %13 = load i64, ptr %add.ptr.i11, align 8
@@ -1773,7 +1771,7 @@ _ZN8facebook5velox10ClockTimerD2Ev.exit22:        ; preds = %for.body
   %20 = tail call noundef i64 @llvm.x86.rdtsc()
   resume { ptr, i32 } %19
 
-if.end18:                                         ; preds = %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit, %land.lhs.true, %_ZN8facebook5velox10ClockTimerD2Ev.exit
+if.end18:                                         ; preds = %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit, %_ZN8facebook5velox10ClockTimerD2Ev.exit
   %sext = shl i64 %call7, 32
   %conv19 = ashr exact i64 %sext, 32
   %add = add i64 %conv19, %numFreed.034

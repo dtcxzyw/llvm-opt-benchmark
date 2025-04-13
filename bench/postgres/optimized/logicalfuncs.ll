@@ -73,7 +73,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br label %31
 
 31:                                               ; preds = %20, %27
-  %.068 = phi i64 [ %30, %27 ], [ 0, %20 ]
+  %.069 = phi i64 [ %30, %27 ], [ 0, %20 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load i8, ptr %32, align 8, !range !4, !noundef !5
   %34 = trunc nuw i8 %33 to i1
@@ -87,7 +87,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br label %39
 
 39:                                               ; preds = %31, %35
-  %.069 = phi i32 [ %38, %35 ], [ 0, %31 ]
+  %.070 = phi i32 [ %38, %35 ], [ 0, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load i8, ptr %40, align 8, !range !4, !noundef !5
   %42 = trunc nuw i8 %41 to i1
@@ -166,16 +166,16 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.189 = phi ptr [ %97, %.lr.ph ], [ null, %.preheader ]
-  %.07388 = phi i32 [ %98, %.lr.ph ], [ 0, %.preheader ]
+  %.188 = phi ptr [ %97, %.lr.ph ], [ null, %.preheader ]
+  %.07487 = phi i32 [ %98, %.lr.ph ], [ 0, %.preheader ]
   %82 = load ptr, ptr %5, align 8
-  %83 = sext i32 %.07388 to i64
+  %83 = sext i32 %.07487 to i64
   %84 = getelementptr inbounds i64, ptr %82, i64 %83
   %85 = load i64, ptr %84, align 8
   %86 = inttoptr i64 %85 to ptr
   %87 = call ptr @text_to_cstring(ptr noundef %86) #9
   %88 = load ptr, ptr %5, align 8
-  %89 = or disjoint i32 %.07388, 1
+  %89 = or disjoint i32 %.07487, 1
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i64, ptr %88, i64 %90
   %92 = load i64, ptr %91, align 8
@@ -183,8 +183,8 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %94 = call ptr @text_to_cstring(ptr noundef %93) #9
   %95 = call ptr @makeString(ptr noundef %94) #9
   %96 = call ptr @makeDefElem(ptr noundef %87, ptr noundef %95, i32 noundef -1) #9
-  %97 = call ptr @lappend(ptr noundef %.189, ptr noundef %96) #9
-  %98 = add i32 %.07388, 2
+  %97 = call ptr @lappend(ptr noundef %.188, ptr noundef %96) #9
+  %98 = add i32 %.07487, 2
   %99 = load i32, ptr %4, align 4
   %100 = icmp slt i32 %98, %99
   br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -196,7 +196,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br label %101
 
 101:                                              ; preds = %._crit_edge, %72
-  %.072 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %72 ]
+  %.073 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %72 ]
   call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 0) #9
   %102 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %103 = load ptr, ptr %102, align 8
@@ -217,14 +217,14 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br label %112
 
 112:                                              ; preds = %110, %108
-  %.070 = phi i64 [ %111, %110 ], [ %109, %108 ]
+  %.071 = phi i64 [ %111, %110 ], [ %109, %108 ]
   call void @ReplicationSlotAcquire(ptr noundef %23, i1 noundef zeroext true, i1 noundef zeroext true) #9
   %113 = load ptr, ptr @PG_exception_stack, align 8
   %114 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #9
   %115 = call i32 @__sigsetjmp(ptr noundef nonnull %6, i32 noundef 0) #11
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %221
+  br i1 %116, label %117, label %222
 
 117:                                              ; preds = %112
   store ptr %6, ptr @PG_exception_stack, align 8
@@ -233,15 +233,15 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   store ptr @wal_segment_open, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @wal_segment_close, ptr %119, align 8
-  %120 = call ptr @CreateDecodingContext(i64 noundef 0, ptr noundef %.072, i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef nonnull @LogicalOutputPrepareWrite, ptr noundef nonnull @LogicalOutputWrite, ptr noundef null) #9
+  %120 = call ptr @CreateDecodingContext(i64 noundef 0, ptr noundef %.073, i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef nonnull @LogicalOutputPrepareWrite, ptr noundef nonnull @LogicalOutputWrite, ptr noundef null) #9
   store ptr %58, ptr @CurrentMemoryContext, align 8
   br i1 %2, label %134, label %121
 
 121:                                              ; preds = %117
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 216
   %123 = load i32, ptr %122, align 8
-  %.not76 = icmp eq i32 %123, 1
-  br i1 %.not76, label %134, label %124
+  %.not77 = icmp eq i32 %123, 1
+  br i1 %.not77, label %134, label %124
 
 124:                                              ; preds = %121
   %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -258,10 +258,10 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   unreachable
 
 134:                                              ; preds = %121, %117
-  %135 = icmp eq i64 %.068, 0
-  %136 = call i64 @llvm.umin.i64(i64 %.068, i64 %.070)
-  %.071 = select i1 %135, i64 %.070, i64 %136
-  call void @WaitForStandbyConfirmation(i64 noundef %.071) #9
+  %135 = icmp eq i64 %.069, 0
+  %136 = call i64 @llvm.umin.i64(i64 %.069, i64 %.071)
+  %.072 = select i1 %135, i64 %.071, i64 %136
+  call void @WaitForStandbyConfirmation(i64 noundef %.072) #9
   %137 = getelementptr inbounds nuw i8, ptr %120, i64 272
   store ptr %52, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %120, i64 16
@@ -274,30 +274,30 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %143 = load ptr, ptr %138, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 48
   %145 = load i64, ptr %144, align 8
-  %146 = icmp ult i64 %145, %.070
-  br i1 %146, label %.lr.ph91, label %.loopexit
+  %146 = icmp ult i64 %145, %.071
+  br i1 %146, label %.lr.ph90, label %.loopexit
 
-.lr.ph91:                                         ; preds = %134
-  %.not81 = icmp eq i32 %.069, 0
-  %147 = sext i32 %.069 to i64
+.lr.ph90:                                         ; preds = %134
+  %.not82 = icmp eq i32 %.070, 0
+  %147 = sext i32 %.070 to i64
   %148 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  br i1 %135, label %.lr.ph91.split.us, label %.lr.ph91.split
+  br i1 %135, label %.lr.ph90.split.us, label %.lr.ph90.split
 
-.lr.ph91.split.us:                                ; preds = %.lr.ph91
-  br i1 %.not81, label %.lr.ph91.split.us.split.us, label %.lr.ph91.split.us.split
+.lr.ph90.split.us:                                ; preds = %.lr.ph90
+  br i1 %.not82, label %.lr.ph90.split.us.split.us, label %.lr.ph90.split.us.split
 
-.lr.ph91.split.us.split.us:                       ; preds = %.lr.ph91.split.us, %158
-  %149 = phi ptr [ %159, %158 ], [ %143, %.lr.ph91.split.us ]
+.lr.ph90.split.us.split.us:                       ; preds = %.lr.ph90.split.us, %158
+  %149 = phi ptr [ %159, %158 ], [ %143, %.lr.ph90.split.us ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   store ptr null, ptr %8, align 8
   %150 = call ptr @XLogReadRecord(ptr noundef nonnull %149, ptr noundef nonnull %8) #9
   %151 = load ptr, ptr %8, align 8
-  %.not77.us.us = icmp eq ptr %151, null
-  br i1 %.not77.us.us, label %152, label %.split.us
+  %.not78.us.us = icmp eq ptr %151, null
+  br i1 %.not78.us.us, label %152, label %.split.us
 
-152:                                              ; preds = %.lr.ph91.split.us.split.us
-  %.not78.us.us = icmp eq ptr %150, null
-  br i1 %.not78.us.us, label %155, label %153
+152:                                              ; preds = %.lr.ph90.split.us.split.us
+  %.not79.us.us = icmp eq ptr %150, null
+  br i1 %.not79.us.us, label %155, label %153
 
 153:                                              ; preds = %152
   %154 = load ptr, ptr %138, align 8
@@ -306,8 +306,8 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 155:                                              ; preds = %153, %152
   %156 = load volatile i32, ptr @InterruptPending, align 4
-  %.not83.us.us = icmp eq i32 %156, 0
-  br i1 %.not83.us.us, label %158, label %157, !prof !8
+  %.not84.us.us = icmp eq i32 %156, 0
+  br i1 %.not84.us.us, label %158, label %157, !prof !8
 
 157:                                              ; preds = %155
   call void @ProcessInterrupts() #9
@@ -318,21 +318,21 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %159 = load ptr, ptr %138, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 48
   %161 = load i64, ptr %160, align 8
-  %162 = icmp ult i64 %161, %.070
-  br i1 %162, label %.lr.ph91.split.us.split.us, label %.loopexit
+  %162 = icmp ult i64 %161, %.071
+  br i1 %162, label %.lr.ph90.split.us.split.us, label %.loopexit
 
-.lr.ph91.split.us.split:                          ; preds = %.lr.ph91.split.us, %174
-  %163 = phi ptr [ %175, %174 ], [ %143, %.lr.ph91.split.us ]
+.lr.ph90.split.us.split:                          ; preds = %.lr.ph90.split.us, %174
+  %163 = phi ptr [ %175, %174 ], [ %143, %.lr.ph90.split.us ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   store ptr null, ptr %8, align 8
   %164 = call ptr @XLogReadRecord(ptr noundef nonnull %163, ptr noundef nonnull %8) #9
   %165 = load ptr, ptr %8, align 8
-  %.not77.us = icmp eq ptr %165, null
-  br i1 %.not77.us, label %166, label %.split.us
+  %.not78.us = icmp eq ptr %165, null
+  br i1 %.not78.us, label %166, label %.split.us
 
-166:                                              ; preds = %.lr.ph91.split.us.split
-  %.not78.us = icmp eq ptr %164, null
-  br i1 %.not78.us, label %169, label %167
+166:                                              ; preds = %.lr.ph90.split.us.split
+  %.not79.us = icmp eq ptr %164, null
+  br i1 %.not79.us, label %169, label %167
 
 167:                                              ; preds = %166
   %168 = load ptr, ptr %138, align 8
@@ -341,13 +341,13 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 169:                                              ; preds = %167, %166
   %170 = load i64, ptr %148, align 8
-  %.not82.us = icmp slt i64 %170, %147
-  br i1 %.not82.us, label %171, label %.thread.loopexit
+  %.not83.us = icmp slt i64 %170, %147
+  br i1 %.not83.us, label %171, label %.thread.loopexit
 
 171:                                              ; preds = %169
   %172 = load volatile i32, ptr @InterruptPending, align 4
-  %.not83.us = icmp eq i32 %172, 0
-  br i1 %.not83.us, label %174, label %173, !prof !8
+  %.not84.us = icmp eq i32 %172, 0
+  br i1 %.not84.us, label %174, label %173, !prof !8
 
 173:                                              ; preds = %171
   call void @ProcessInterrupts() #9
@@ -358,24 +358,24 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %175 = load ptr, ptr %138, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 48
   %177 = load i64, ptr %176, align 8
-  %178 = icmp ult i64 %177, %.070
-  br i1 %178, label %.lr.ph91.split.us.split, label %.loopexit
+  %178 = icmp ult i64 %177, %.071
+  br i1 %178, label %.lr.ph90.split.us.split, label %.loopexit
 
-.lr.ph91.split:                                   ; preds = %.lr.ph91
-  br i1 %.not81, label %.lr.ph91.split.split.us, label %.lr.ph91.split.split
+.lr.ph90.split:                                   ; preds = %.lr.ph90
+  br i1 %.not82, label %.lr.ph90.split.split.us, label %.lr.ph90.split.split
 
-.lr.ph91.split.split.us:                          ; preds = %.lr.ph91.split, %192
-  %179 = phi ptr [ %194, %192 ], [ %143, %.lr.ph91.split ]
+.lr.ph90.split.split.us:                          ; preds = %.lr.ph90.split, %192
+  %179 = phi ptr [ %194, %192 ], [ %143, %.lr.ph90.split ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   store ptr null, ptr %8, align 8
   %180 = call ptr @XLogReadRecord(ptr noundef nonnull %179, ptr noundef nonnull %8) #9
   %181 = load ptr, ptr %8, align 8
-  %.not77.us92 = icmp eq ptr %181, null
-  br i1 %.not77.us92, label %182, label %.split.us
+  %.not78.us91 = icmp eq ptr %181, null
+  br i1 %.not78.us91, label %182, label %.split.us
 
-182:                                              ; preds = %.lr.ph91.split.split.us
-  %.not78.us93 = icmp eq ptr %180, null
-  br i1 %.not78.us93, label %185, label %183
+182:                                              ; preds = %.lr.ph90.split.split.us
+  %.not79.us92 = icmp eq ptr %180, null
+  br i1 %.not79.us92, label %185, label %183
 
 183:                                              ; preds = %182
   %184 = load ptr, ptr %138, align 8
@@ -386,38 +386,38 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %186 = load ptr, ptr %138, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 48
   %188 = load i64, ptr %187, align 8
-  %.not80.us = icmp ugt i64 %.068, %188
-  br i1 %.not80.us, label %189, label %.thread
+  %.not81.us = icmp ugt i64 %.069, %188
+  br i1 %.not81.us, label %189, label %.thread
 
 189:                                              ; preds = %185
   %190 = load volatile i32, ptr @InterruptPending, align 4
-  %.not83.us94 = icmp eq i32 %190, 0
-  br i1 %.not83.us94, label %192, label %191, !prof !8
+  %.not84.us93 = icmp eq i32 %190, 0
+  br i1 %.not84.us93, label %192, label %191, !prof !8
 
 191:                                              ; preds = %189
   call void @ProcessInterrupts() #9
-  %.pre105 = load ptr, ptr %138, align 8
-  %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %.pre105, i64 48
-  %.pre107 = load i64, ptr %.phi.trans.insert106, align 8
+  %.pre104 = load ptr, ptr %138, align 8
+  %.phi.trans.insert105 = getelementptr inbounds nuw i8, ptr %.pre104, i64 48
+  %.pre106 = load i64, ptr %.phi.trans.insert105, align 8
   br label %192
 
 192:                                              ; preds = %191, %189
-  %193 = phi i64 [ %.pre107, %191 ], [ %188, %189 ]
-  %194 = phi ptr [ %.pre105, %191 ], [ %186, %189 ]
+  %193 = phi i64 [ %.pre106, %191 ], [ %188, %189 ]
+  %194 = phi ptr [ %.pre104, %191 ], [ %186, %189 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  %195 = icmp ult i64 %193, %.070
-  br i1 %195, label %.lr.ph91.split.split.us, label %.loopexit
+  %195 = icmp ult i64 %193, %.071
+  br i1 %195, label %.lr.ph90.split.split.us, label %.loopexit
 
-.lr.ph91.split.split:                             ; preds = %.lr.ph91.split, %214
-  %196 = phi ptr [ %216, %214 ], [ %143, %.lr.ph91.split ]
+.lr.ph90.split.split:                             ; preds = %.lr.ph90.split, %214
+  %196 = phi ptr [ %216, %214 ], [ %143, %.lr.ph90.split ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   store ptr null, ptr %8, align 8
   %197 = call ptr @XLogReadRecord(ptr noundef nonnull %196, ptr noundef nonnull %8) #9
   %198 = load ptr, ptr %8, align 8
-  %.not77 = icmp eq ptr %198, null
-  br i1 %.not77, label %202, label %.split.us
+  %.not78 = icmp eq ptr %198, null
+  br i1 %.not78, label %202, label %.split.us
 
-.split.us:                                        ; preds = %.lr.ph91.split.split, %.lr.ph91.split.split.us, %.lr.ph91.split.us.split, %.lr.ph91.split.us.split.us
+.split.us:                                        ; preds = %.lr.ph90.split.split, %.lr.ph90.split.split.us, %.lr.ph90.split.us.split, %.lr.ph90.split.us.split.us
   %199 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %199)
   %200 = load ptr, ptr %8, align 8
@@ -425,9 +425,9 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #9
   unreachable
 
-202:                                              ; preds = %.lr.ph91.split.split
-  %.not78 = icmp eq ptr %197, null
-  br i1 %.not78, label %205, label %203
+202:                                              ; preds = %.lr.ph90.split.split
+  %.not79 = icmp eq ptr %197, null
+  br i1 %.not79, label %205, label %203
 
 203:                                              ; preds = %202
   %204 = load ptr, ptr %138, align 8
@@ -438,57 +438,57 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %206 = load ptr, ptr %138, align 8
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 48
   %208 = load i64, ptr %207, align 8
-  %.not80 = icmp ugt i64 %.068, %208
-  br i1 %.not80, label %209, label %.thread
+  %.not81 = icmp ugt i64 %.069, %208
+  br i1 %.not81, label %209, label %.thread
 
 209:                                              ; preds = %205
   %210 = load i64, ptr %148, align 8
-  %.not82 = icmp slt i64 %210, %147
-  br i1 %.not82, label %211, label %.thread
+  %.not83 = icmp slt i64 %210, %147
+  br i1 %.not83, label %211, label %.thread
 
 211:                                              ; preds = %209
   %212 = load volatile i32, ptr @InterruptPending, align 4
-  %.not83 = icmp eq i32 %212, 0
-  br i1 %.not83, label %214, label %213, !prof !8
+  %.not84 = icmp eq i32 %212, 0
+  br i1 %.not84, label %214, label %213, !prof !8
 
 213:                                              ; preds = %211
   call void @ProcessInterrupts() #9
   %.pre = load ptr, ptr %138, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %.pre104 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre103 = load i64, ptr %.phi.trans.insert, align 8
   br label %214
 
 .thread.loopexit:                                 ; preds = %169
-  %.pre108.pre = load ptr, ptr %138, align 8
-  %.phi.trans.insert109.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre108.pre, i64 48
-  %.pre110.pre = load i64, ptr %.phi.trans.insert109.phi.trans.insert, align 8
+  %.pre107.pre = load ptr, ptr %138, align 8
+  %.phi.trans.insert108.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre107.pre, i64 48
+  %.pre109.pre = load i64, ptr %.phi.trans.insert108.phi.trans.insert, align 8
   br label %.thread
 
 .thread:                                          ; preds = %205, %209, %185, %.thread.loopexit
-  %.pre110 = phi i64 [ %.pre110.pre, %.thread.loopexit ], [ %188, %185 ], [ %208, %209 ], [ %208, %205 ]
+  %.pre109 = phi i64 [ %.pre109.pre, %.thread.loopexit ], [ %188, %185 ], [ %208, %209 ], [ %208, %205 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   br label %.loopexit
 
 214:                                              ; preds = %211, %213
-  %215 = phi i64 [ %208, %211 ], [ %.pre104, %213 ]
+  %215 = phi i64 [ %208, %211 ], [ %.pre103, %213 ]
   %216 = phi ptr [ %206, %211 ], [ %.pre, %213 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  %217 = icmp ult i64 %215, %.070
-  br i1 %217, label %.lr.ph91.split.split, label %.loopexit
+  %217 = icmp ult i64 %215, %.071
+  br i1 %217, label %.lr.ph90.split.split, label %.loopexit
 
 .loopexit:                                        ; preds = %214, %192, %174, %158, %134, %.thread
-  %218 = phi i64 [ %145, %134 ], [ %.pre110, %.thread ], [ %161, %158 ], [ %177, %174 ], [ %193, %192 ], [ %215, %214 ]
+  %218 = phi i64 [ %145, %134 ], [ %.pre109, %.thread ], [ %161, %158 ], [ %177, %174 ], [ %193, %192 ], [ %215, %214 ]
   store ptr %12, ptr @CurrentResourceOwner, align 8
-  %.not84 = icmp ne i64 %218, 0
-  %brmerge.not = and i1 %1, %.not84
-  br i1 %brmerge.not, label %219, label %220
+  %219 = icmp ne i64 %218, 0
+  %or.cond = and i1 %1, %219
+  br i1 %or.cond, label %220, label %221
 
-219:                                              ; preds = %.loopexit
+220:                                              ; preds = %.loopexit
   call void @LogicalConfirmReceivedLocation(i64 noundef %218) #9
   call void @ReplicationSlotMarkDirty() #9
-  br label %220
+  br label %221
 
-220:                                              ; preds = %.loopexit, %219
+221:                                              ; preds = %220, %.loopexit
   call void @FreeDecodingContext(ptr noundef nonnull %120) #9
   call void @ReplicationSlotRelease() #9
   call void @InvalidateSystemCaches() #9
@@ -497,7 +497,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #9
   ret void
 
-221:                                              ; preds = %112
+222:                                              ; preds = %112
   store ptr %113, ptr @PG_exception_stack, align 8
   store ptr %114, ptr @error_context_stack, align 8
   call void @InvalidateSystemCaches() #9

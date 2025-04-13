@@ -602,8 +602,8 @@ land.rhs.preheader:                               ; preds = %for.cond
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body15
-  %quoteStart.147 = phi ptr [ %quoteStart.2, %while.body15 ], [ %quoteStart.0, %land.rhs.preheader ]
-  %isQuoted.246 = phi i8 [ %isQuoted.3, %while.body15 ], [ %isQuoted.1, %land.rhs.preheader ]
+  %quoteStart.147 = phi ptr [ %spec.select41, %while.body15 ], [ %quoteStart.0, %land.rhs.preheader ]
+  %isQuoted.246 = phi i8 [ %spec.select40, %while.body15 ], [ %isQuoted.1, %land.rhs.preheader ]
   %ptr.245 = phi ptr [ %incdec.ptr, %while.body15 ], [ %ptr.1, %land.rhs.preheader ]
   %1 = load i8, ptr %ptr.245, align 1
   %conv = zext i8 %1 to i32
@@ -612,19 +612,19 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   br i1 %tobool14.not, label %while.body15, label %while.end
 
 while.body15:                                     ; preds = %land.rhs
-  %cmp17 = icmp eq i8 %1, 34
+  %cmp17 = icmp ne i8 %1, 34
   %tobool18 = trunc nuw i8 %isQuoted.246 to i1
-  %spec.select41 = select i1 %tobool18, ptr %quoteStart.147, ptr %ptr.245
-  %isQuoted.3 = select i1 %cmp17, i8 1, i8 %isQuoted.246
-  %quoteStart.2 = select i1 %cmp17, ptr %spec.select41, ptr %quoteStart.147
+  %or.cond = select i1 %cmp17, i1 true, i1 %tobool18
+  %spec.select40 = select i1 %or.cond, i8 %isQuoted.246, i8 1
+  %spec.select41 = select i1 %or.cond, ptr %quoteStart.147, ptr %ptr.245
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %ptr.245, i64 1
   %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep66
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !13
 
 while.end:                                        ; preds = %land.rhs, %while.body15, %for.cond
   %ptr.2.lcssa = phi ptr [ %ptr.1, %for.cond ], [ %scevgep66, %while.body15 ], [ %ptr.245, %land.rhs ]
-  %isQuoted.2.lcssa = phi i8 [ %isQuoted.1, %for.cond ], [ %isQuoted.3, %while.body15 ], [ %isQuoted.246, %land.rhs ]
-  %quoteStart.1.lcssa = phi ptr [ %quoteStart.0, %for.cond ], [ %quoteStart.2, %while.body15 ], [ %quoteStart.147, %land.rhs ]
+  %isQuoted.2.lcssa = phi i8 [ %isQuoted.1, %for.cond ], [ %spec.select40, %while.body15 ], [ %isQuoted.246, %land.rhs ]
+  %quoteStart.1.lcssa = phi ptr [ %quoteStart.0, %for.cond ], [ %spec.select41, %while.body15 ], [ %quoteStart.147, %land.rhs ]
   %tobool21 = trunc nuw i8 %isQuoted.2.lcssa to i1
   br i1 %tobool21, label %if.then22, label %for.end
 

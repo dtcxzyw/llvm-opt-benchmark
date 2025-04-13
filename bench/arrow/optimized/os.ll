@@ -214,13 +214,13 @@ _mi_os_good_alloc_size.exit.thread:               ; preds = %14, %_mi_os_good_al
   %29 = trunc nuw i8 %28 to i1
   %spec.select.i = select i1 %29, i32 16418, i32 34
   %.b2.i.i = load i1, ptr @large_os_page_size, align 8
-  br i1 %.b2.i.i, label %30, label %.thread128.i
+  br i1 %.b2.i.i, label %30, label %.thread131.i
 
 30:                                               ; preds = %_mi_os_good_alloc_size.exit.thread
   %31 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 6) #10
-  br label %.thread128.i
+  br label %.thread131.i
 
-.thread128.i:                                     ; preds = %30, %_mi_os_good_alloc_size.exit.thread
+.thread131.i:                                     ; preds = %30, %_mi_os_good_alloc_size.exit.thread
   %32 = tail call ptr @mmap(ptr noundef null, i64 noundef range(i64 1, 0) %.010.i9, i32 noundef range(i32 0, 4) 3, i32 noundef range(i32 34, 2013528099) %spec.select.i, i32 noundef -1, i64 noundef 0) #10
   %magicptr = ptrtoint ptr %32 to i64
   switch i64 %magicptr, label %mi_unix_mmap.exit [
@@ -228,13 +228,13 @@ _mi_os_good_alloc_size.exit.thread:               ; preds = %14, %_mi_os_good_al
     i64 0, label %mi_unix_mmap.exit.thread
   ]
 
-mi_unix_mmap.exit.thread:                         ; preds = %.thread128.i, %.thread128.i
+mi_unix_mmap.exit.thread:                         ; preds = %.thread131.i, %.thread131.i
   %33 = tail call ptr @__errno_location() #11
   %34 = load i32, ptr %33, align 4, !tbaa !13
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.5, i64 noundef range(i64 1, 0) %.010.i9, i32 noundef %34, ptr noundef null, i32 noundef 0, i32 noundef 0) #10
   br label %mi_os_mem_alloc.exit
 
-mi_unix_mmap.exit:                                ; preds = %.thread128.i
+mi_unix_mmap.exit:                                ; preds = %.thread131.i
   tail call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %.010.i9) #10
   tail call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %.010.i9) #10
   br label %mi_os_mem_alloc.exit
@@ -504,13 +504,13 @@ mi_os_mem_free.exit.i:                            ; preds = %74, %73
   %82 = trunc nuw i8 %81 to i1
   %spec.select.i85.i = select i1 %82, i32 16418, i32 34
   %.b2.i.i.i = load i1, ptr @large_os_page_size, align 8
-  br i1 %.b2.i.i.i, label %83, label %.thread128.i.i
+  br i1 %.b2.i.i.i, label %83, label %.thread131.i.i
 
 83:                                               ; preds = %80
   %84 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 6) #10
-  br label %.thread128.i.i
+  br label %.thread131.i.i
 
-.thread128.i.i:                                   ; preds = %83, %80
+.thread131.i.i:                                   ; preds = %83, %80
   store i8 0, ptr %47, align 1, !tbaa !3
   %85 = tail call ptr @mmap(ptr noundef null, i64 noundef range(i64 1, 0) %78, i32 noundef range(i32 0, 4) %spec.select.i.i, i32 noundef range(i32 34, 2013528099) %spec.select.i85.i, i32 noundef -1, i64 noundef 0) #10
   %magicptr.i = ptrtoint ptr %85 to i64
@@ -519,13 +519,13 @@ mi_os_mem_free.exit.i:                            ; preds = %74, %73
     i64 0, label %mi_unix_mmap.exit.thread.i
   ]
 
-mi_unix_mmap.exit.thread.i:                       ; preds = %.thread128.i.i, %.thread128.i.i
+mi_unix_mmap.exit.thread.i:                       ; preds = %.thread131.i.i, %.thread131.i.i
   %86 = tail call ptr @__errno_location() #11
   %87 = load i32, ptr %86, align 4, !tbaa !13
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.5, i64 noundef range(i64 1, 0) %78, i32 noundef %87, ptr noundef null, i32 noundef 0, i32 noundef 0) #10
   br label %mi_os_mem_alloc_aligned.exit
 
-mi_unix_mmap.exit.i:                              ; preds = %.thread128.i.i
+mi_unix_mmap.exit.i:                              ; preds = %.thread131.i.i
   tail call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %78) #10
   br i1 %2, label %88, label %mi_align_up_ptr.exit.i
 
@@ -1141,8 +1141,8 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 %36
   %38 = load atomic i64, ptr @mi_unix_mmap.large_page_try_ok acquire, align 8
   %.b.i.i = load i1, ptr @mi_unix_mmap.mi_huge_pages_available, align 1
-  %spec.select.i = select i1 %.b.i.i, i32 1409548322, i32 2013528098
-  %39 = call ptr @mmap(ptr noundef nonnull %37, i64 noundef range(i64 1, 0) 1073741824, i32 noundef range(i32 0, 4) 3, i32 noundef range(i32 34, 2013528099) %spec.select.i, i32 noundef -1, i64 noundef 0) #10
+  %..i.i = select i1 %.b.i.i, i32 1409548322, i32 2013528098
+  %39 = call ptr @mmap(ptr noundef nonnull %37, i64 noundef range(i64 1, 0) 1073741824, i32 noundef range(i32 0, 4) 3, i32 noundef range(i32 34, 2013528099) %..i.i, i32 noundef -1, i64 noundef 0) #10
   %magicptr.i = ptrtoint ptr %39 to i64
   switch i64 %magicptr.i, label %mi_unix_mmap.exit.thread15.i [
     i64 -1, label %mi_unix_mmapx.exit.thread.i.i
@@ -1418,21 +1418,21 @@ define internal fastcc ptr @mi_unix_mmap(ptr noundef %0, i64 noundef range(i64 1
 
 10:                                               ; preds = %7
   %.b2.i = load i1, ptr @large_os_page_size, align 8
-  br i1 %.b2.i, label %11, label %.thread128
+  br i1 %.b2.i, label %11, label %.thread131
 
 11:                                               ; preds = %10
   %12 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 6) #10
-  br i1 %12, label %use_large_os_page.exit, label %.thread128
+  br i1 %12, label %use_large_os_page.exit, label %.thread131
 
 use_large_os_page.exit:                           ; preds = %11
   %13 = or i64 %2, %1
   %14 = and i64 %13, 2097151
   %15 = icmp eq i64 %14, 0
-  %brmerge.not = and i1 %15, %5
-  br i1 %brmerge.not, label %18, label %.thread128
+  %or.cond = and i1 %15, %5
+  br i1 %or.cond, label %18, label %.thread131
 
 16:                                               ; preds = %7
-  br i1 %5, label %.thread, label %.thread128
+  br i1 %5, label %.thread, label %.thread131
 
 .thread:                                          ; preds = %16
   %17 = load atomic i64, ptr @mi_unix_mmap.large_page_try_ok acquire, align 8
@@ -1441,238 +1441,230 @@ use_large_os_page.exit:                           ; preds = %11
 18:                                               ; preds = %use_large_os_page.exit
   %19 = load atomic i64, ptr @mi_unix_mmap.large_page_try_ok acquire, align 8
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %23, label %.thread119
+  br i1 %20, label %23, label %.thread122
 
-.thread119:                                       ; preds = %18
+.thread122:                                       ; preds = %18
   %21 = add i64 %19, -1
   %22 = cmpxchg ptr @mi_unix_mmap.large_page_try_ok, i64 %19, i64 %21 acq_rel acquire, align 8
-  br label %.thread128
+  br label %.thread131
 
 23:                                               ; preds = %.thread, %18
   %24 = and i64 %1, 1073741823
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %23
+  %25 = icmp ne i64 %24, 0
   %.b = load i1, ptr @mi_unix_mmap.mi_huge_pages_available, align 1
-  br i1 %.b, label %27, label %28
-
-27:                                               ; preds = %26, %23
-  br label %28
-
-28:                                               ; preds = %26, %27
-  %.071 = phi i32 [ 1409548322, %27 ], [ 2013528098, %26 ]
+  %or.cond8.not = select i1 %25, i1 true, i1 %.b
+  %. = select i1 %or.cond8.not, i32 1409548322, i32 2013528098
   store i8 1, ptr %6, align 1, !tbaa !3
-  %29 = icmp ne ptr %0, null
-  %30 = add i64 %2, -67108865
-  %or.cond.i.i = icmp ult i64 %30, -67108863
-  %or.cond.i = or i1 %29, %or.cond.i.i
-  br i1 %or.cond.i, label %.thread.i, label %31
+  %26 = icmp ne ptr %0, null
+  %27 = add i64 %2, -67108865
+  %or.cond.i.i = icmp ult i64 %27, -67108863
+  %or.cond.i = or i1 %26, %or.cond.i.i
+  br i1 %or.cond.i, label %.thread.i, label %28
 
-31:                                               ; preds = %28
-  %32 = add i64 %1, 67108863
-  %33 = and i64 %32, -67108864
-  %34 = icmp ugt i64 %33, 1073741824
-  br i1 %34, label %.thread.i, label %35
+28:                                               ; preds = %23
+  %29 = add i64 %1, 67108863
+  %30 = and i64 %29, -67108864
+  %31 = icmp ugt i64 %30, 1073741824
+  br i1 %31, label %.thread.i, label %32
 
-35:                                               ; preds = %31
-  %36 = atomicrmw add ptr @aligned_base, i64 %33 acq_rel, align 64
-  %37 = add i64 %36, -32985348833281
-  %or.cond3.i.i = icmp ult i64 %37, -32985348833280
-  br i1 %or.cond3.i.i, label %38, label %48
+32:                                               ; preds = %28
+  %33 = atomicrmw add ptr @aligned_base, i64 %30 acq_rel, align 64
+  %34 = add i64 %33, -32985348833281
+  %or.cond3.i.i = icmp ult i64 %34, -32985348833280
+  br i1 %or.cond3.i.i, label %35, label %45
 
-38:                                               ; preds = %35
-  %39 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %40 = load ptr, ptr %39, align 8, !tbaa !17
-  %41 = tail call i64 @_mi_heap_random_next(ptr noundef %40) #10
-  %42 = shl i64 %41, 9
-  %43 = and i64 %42, 4397979402240
-  %44 = add nuw nsw i64 %43, 2199023255552
-  %45 = add i64 %36, %33
-  %46 = cmpxchg ptr @aligned_base, i64 %45, i64 %44 acq_rel acquire, align 64
-  %47 = atomicrmw add ptr @aligned_base, i64 %33 acq_rel, align 64
-  br label %48
+35:                                               ; preds = %32
+  %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
+  %37 = load ptr, ptr %36, align 8, !tbaa !17
+  %38 = tail call i64 @_mi_heap_random_next(ptr noundef %37) #10
+  %39 = shl i64 %38, 9
+  %40 = and i64 %39, 4397979402240
+  %41 = add nuw nsw i64 %40, 2199023255552
+  %42 = add i64 %33, %30
+  %43 = cmpxchg ptr @aligned_base, i64 %42, i64 %41 acq_rel acquire, align 64
+  %44 = atomicrmw add ptr @aligned_base, i64 %30 acq_rel, align 64
+  br label %45
 
-48:                                               ; preds = %38, %35
-  %.025.i.i = phi i64 [ %47, %38 ], [ %36, %35 ]
-  %49 = urem i64 %.025.i.i, %2
-  %.not.i.i = icmp ne i64 %49, 0
+45:                                               ; preds = %35, %32
+  %.025.i.i = phi i64 [ %44, %35 ], [ %33, %32 ]
+  %46 = urem i64 %.025.i.i, %2
+  %.not.i.i = icmp ne i64 %46, 0
   %.not.i = icmp eq i64 %.025.i.i, 0
   %or.cond32.i = or i1 %.not.i, %.not.i.i
-  br i1 %or.cond32.i, label %.thread.i, label %50
+  br i1 %or.cond32.i, label %.thread.i, label %47
 
-50:                                               ; preds = %48
-  %51 = inttoptr i64 %.025.i.i to ptr
-  %52 = tail call ptr @mmap(ptr noundef nonnull %51, i64 noundef range(i64 1, 0) %1, i32 noundef range(i32 0, 4) %3, i32 noundef range(i32 34, 2013528099) %.071, i32 noundef -1, i64 noundef 0) #10
-  %.not24.i = icmp eq ptr %52, inttoptr (i64 -1 to ptr)
+47:                                               ; preds = %45
+  %48 = inttoptr i64 %.025.i.i to ptr
+  %49 = tail call ptr @mmap(ptr noundef nonnull %48, i64 noundef range(i64 1, 0) %1, i32 noundef range(i32 0, 4) %3, i32 noundef range(i32 34, 2013528099) %., i32 noundef -1, i64 noundef 0) #10
+  %.not24.i = icmp eq ptr %49, inttoptr (i64 -1 to ptr)
   br i1 %.not24.i, label %.thread.i, label %mi_unix_mmapx.exit
 
-.thread.i:                                        ; preds = %50, %48, %31, %28
-  %53 = tail call ptr @mmap(ptr noundef %0, i64 noundef range(i64 1, 0) %1, i32 noundef range(i32 0, 4) %3, i32 noundef range(i32 34, 2013528099) %.071, i32 noundef -1, i64 noundef 0) #10
-  %.not25.i = icmp eq ptr %53, inttoptr (i64 -1 to ptr)
+.thread.i:                                        ; preds = %47, %45, %28, %23
+  %50 = tail call ptr @mmap(ptr noundef %0, i64 noundef range(i64 1, 0) %1, i32 noundef range(i32 0, 4) %3, i32 noundef range(i32 34, 2013528099) %., i32 noundef -1, i64 noundef 0) #10
+  %.not25.i = icmp eq ptr %50, inttoptr (i64 -1 to ptr)
   br i1 %.not25.i, label %mi_unix_mmapx.exit.thread, label %mi_unix_mmapx.exit
 
-mi_unix_mmapx.exit:                               ; preds = %.thread.i, %50
-  %.3.i = phi ptr [ %53, %.thread.i ], [ %52, %50 ]
-  %54 = icmp eq ptr %.3.i, null
-  br i1 %54, label %mi_unix_mmapx.exit.thread, label %.thread134
+mi_unix_mmapx.exit:                               ; preds = %.thread.i, %47
+  %.3.i = phi ptr [ %50, %.thread.i ], [ %49, %47 ]
+  %51 = icmp eq ptr %.3.i, null
+  br i1 %51, label %mi_unix_mmapx.exit.thread, label %.thread137
 
 mi_unix_mmapx.exit.thread:                        ; preds = %.thread.i, %mi_unix_mmapx.exit
   store i1 true, ptr @mi_unix_mmap.mi_huge_pages_available, align 1
-  %55 = tail call ptr @__errno_location() #11
-  %56 = load i32, ptr %55, align 4, !tbaa !13
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i32 noundef %56) #10
-  br i1 %or.cond.i, label %.thread.i93, label %57
+  %52 = tail call ptr @__errno_location() #11
+  %53 = load i32, ptr %52, align 4, !tbaa !13
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i32 noundef %53) #10
+  br i1 %or.cond.i, label %.thread.i98, label %54
 
-57:                                               ; preds = %mi_unix_mmapx.exit.thread
-  %58 = add i64 %1, 67108863
-  %59 = and i64 %58, -67108864
-  %60 = icmp ugt i64 %59, 1073741824
-  br i1 %60, label %.thread.i93, label %61
+54:                                               ; preds = %mi_unix_mmapx.exit.thread
+  %55 = add i64 %1, 67108863
+  %56 = and i64 %55, -67108864
+  %57 = icmp ugt i64 %56, 1073741824
+  br i1 %57, label %.thread.i98, label %58
 
-61:                                               ; preds = %57
-  %62 = atomicrmw add ptr @aligned_base, i64 %59 acq_rel, align 64
-  %63 = add i64 %62, -32985348833281
-  %or.cond3.i.i86 = icmp ult i64 %63, -32985348833280
-  br i1 %or.cond3.i.i86, label %64, label %74
+58:                                               ; preds = %54
+  %59 = atomicrmw add ptr @aligned_base, i64 %56 acq_rel, align 64
+  %60 = add i64 %59, -32985348833281
+  %or.cond3.i.i91 = icmp ult i64 %60, -32985348833280
+  br i1 %or.cond3.i.i91, label %61, label %71
 
-64:                                               ; preds = %61
-  %65 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %66 = load ptr, ptr %65, align 8, !tbaa !17
-  %67 = tail call i64 @_mi_heap_random_next(ptr noundef %66) #10
-  %68 = shl i64 %67, 9
-  %69 = and i64 %68, 4397979402240
-  %70 = add nuw nsw i64 %69, 2199023255552
-  %71 = add i64 %62, %59
-  %72 = cmpxchg ptr @aligned_base, i64 %71, i64 %70 acq_rel acquire, align 64
-  %73 = atomicrmw add ptr @aligned_base, i64 %59 acq_rel, align 64
-  br label %74
+61:                                               ; preds = %58
+  %62 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
+  %63 = load ptr, ptr %62, align 8, !tbaa !17
+  %64 = tail call i64 @_mi_heap_random_next(ptr noundef %63) #10
+  %65 = shl i64 %64, 9
+  %66 = and i64 %65, 4397979402240
+  %67 = add nuw nsw i64 %66, 2199023255552
+  %68 = add i64 %59, %56
+  %69 = cmpxchg ptr @aligned_base, i64 %68, i64 %67 acq_rel acquire, align 64
+  %70 = atomicrmw add ptr @aligned_base, i64 %56 acq_rel, align 64
+  br label %71
 
-74:                                               ; preds = %64, %61
-  %.025.i.i87 = phi i64 [ %73, %64 ], [ %62, %61 ]
-  %75 = urem i64 %.025.i.i87, %2
-  %.not.i.i88 = icmp ne i64 %75, 0
-  %.not.i89 = icmp eq i64 %.025.i.i87, 0
-  %or.cond32.i90 = or i1 %.not.i89, %.not.i.i88
-  br i1 %or.cond32.i90, label %.thread.i93, label %76
+71:                                               ; preds = %61, %58
+  %.025.i.i92 = phi i64 [ %70, %61 ], [ %59, %58 ]
+  %72 = urem i64 %.025.i.i92, %2
+  %.not.i.i93 = icmp ne i64 %72, 0
+  %.not.i94 = icmp eq i64 %.025.i.i92, 0
+  %or.cond32.i95 = or i1 %.not.i94, %.not.i.i93
+  br i1 %or.cond32.i95, label %.thread.i98, label %73
 
-76:                                               ; preds = %74
-  %77 = inttoptr i64 %.025.i.i87 to ptr
-  %78 = tail call ptr @mmap(ptr noundef nonnull %77, i64 noundef range(i64 1, 0) %1, i32 noundef range(i32 0, 4) %3, i32 noundef 1409548322, i32 noundef -1, i64 noundef 0) #10
-  %.not24.i91 = icmp eq ptr %78, inttoptr (i64 -1 to ptr)
-  br i1 %.not24.i91, label %.thread.i93, label %mi_unix_mmapx.exit96
+73:                                               ; preds = %71
+  %74 = inttoptr i64 %.025.i.i92 to ptr
+  %75 = tail call ptr @mmap(ptr noundef nonnull %74, i64 noundef range(i64 1, 0) %1, i32 noundef range(i32 0, 4) %3, i32 noundef 1409548322, i32 noundef -1, i64 noundef 0) #10
+  %.not24.i96 = icmp eq ptr %75, inttoptr (i64 -1 to ptr)
+  br i1 %.not24.i96, label %.thread.i98, label %mi_unix_mmapx.exit101
 
-.thread.i93:                                      ; preds = %76, %74, %57, %mi_unix_mmapx.exit.thread
-  %79 = tail call ptr @mmap(ptr noundef %0, i64 noundef range(i64 1, 0) %1, i32 noundef range(i32 0, 4) %3, i32 noundef 1409548322, i32 noundef -1, i64 noundef 0) #10
-  %.not25.i94 = icmp eq ptr %79, inttoptr (i64 -1 to ptr)
-  %..i95 = select i1 %.not25.i94, ptr null, ptr %79
-  br label %mi_unix_mmapx.exit96
+.thread.i98:                                      ; preds = %73, %71, %54, %mi_unix_mmapx.exit.thread
+  %76 = tail call ptr @mmap(ptr noundef %0, i64 noundef range(i64 1, 0) %1, i32 noundef range(i32 0, 4) %3, i32 noundef 1409548322, i32 noundef -1, i64 noundef 0) #10
+  %.not25.i99 = icmp eq ptr %76, inttoptr (i64 -1 to ptr)
+  %..i100 = select i1 %.not25.i99, ptr null, ptr %76
+  br label %mi_unix_mmapx.exit101
 
-mi_unix_mmapx.exit96:                             ; preds = %.thread.i93, %76
-  %.370 = phi ptr [ %..i95, %.thread.i93 ], [ %78, %76 ]
-  %80 = icmp ne ptr %.370, null
-  %or.cond.not = select i1 %4, i1 true, i1 %80
-  br i1 %or.cond.not, label %.thread134, label %.thread130
+mi_unix_mmapx.exit101:                            ; preds = %.thread.i98, %73
+  %.380 = phi ptr [ %..i100, %.thread.i98 ], [ %75, %73 ]
+  %77 = icmp ne ptr %.380, null
+  %or.cond139.not = select i1 %4, i1 true, i1 %77
+  br i1 %or.cond139.not, label %.thread137, label %.thread133
 
-.thread130:                                       ; preds = %mi_unix_mmapx.exit96
+.thread133:                                       ; preds = %mi_unix_mmapx.exit101
   store atomic i64 8, ptr @mi_unix_mmap.large_page_try_ok release, align 8
-  br label %.thread128
+  br label %.thread131
 
-.thread128:                                       ; preds = %10, %11, %.thread119, %use_large_os_page.exit, %16, %.thread130
+.thread131:                                       ; preds = %10, %11, %.thread122, %use_large_os_page.exit, %16, %.thread133
   store i8 0, ptr %6, align 1, !tbaa !3
-  %81 = icmp ne ptr %0, null
-  %82 = add i64 %2, -67108865
-  %or.cond.i.i97 = icmp ult i64 %82, -67108863
-  %or.cond.i98 = or i1 %81, %or.cond.i.i97
-  br i1 %or.cond.i98, label %.thread.i106, label %83
+  %78 = icmp ne ptr %0, null
+  %79 = add i64 %2, -67108865
+  %or.cond.i.i102 = icmp ult i64 %79, -67108863
+  %or.cond.i103 = or i1 %78, %or.cond.i.i102
+  br i1 %or.cond.i103, label %.thread.i111, label %80
 
-83:                                               ; preds = %.thread128
-  %84 = add i64 %1, 67108863
-  %85 = and i64 %84, -67108864
-  %86 = icmp ugt i64 %85, 1073741824
-  br i1 %86, label %.thread.i106, label %87
+80:                                               ; preds = %.thread131
+  %81 = add i64 %1, 67108863
+  %82 = and i64 %81, -67108864
+  %83 = icmp ugt i64 %82, 1073741824
+  br i1 %83, label %.thread.i111, label %84
 
-87:                                               ; preds = %83
-  %88 = atomicrmw add ptr @aligned_base, i64 %85 acq_rel, align 64
-  %89 = add i64 %88, -32985348833281
-  %or.cond3.i.i99 = icmp ult i64 %89, -32985348833280
-  br i1 %or.cond3.i.i99, label %90, label %100
+84:                                               ; preds = %80
+  %85 = atomicrmw add ptr @aligned_base, i64 %82 acq_rel, align 64
+  %86 = add i64 %85, -32985348833281
+  %or.cond3.i.i104 = icmp ult i64 %86, -32985348833280
+  br i1 %or.cond3.i.i104, label %87, label %97
 
-90:                                               ; preds = %87
-  %91 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %92 = load ptr, ptr %91, align 8, !tbaa !17
-  %93 = tail call i64 @_mi_heap_random_next(ptr noundef %92) #10
-  %94 = shl i64 %93, 9
-  %95 = and i64 %94, 4397979402240
-  %96 = add nuw nsw i64 %95, 2199023255552
-  %97 = add i64 %88, %85
-  %98 = cmpxchg ptr @aligned_base, i64 %97, i64 %96 acq_rel acquire, align 64
-  %99 = atomicrmw add ptr @aligned_base, i64 %85 acq_rel, align 64
-  br label %100
+87:                                               ; preds = %84
+  %88 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
+  %89 = load ptr, ptr %88, align 8, !tbaa !17
+  %90 = tail call i64 @_mi_heap_random_next(ptr noundef %89) #10
+  %91 = shl i64 %90, 9
+  %92 = and i64 %91, 4397979402240
+  %93 = add nuw nsw i64 %92, 2199023255552
+  %94 = add i64 %85, %82
+  %95 = cmpxchg ptr @aligned_base, i64 %94, i64 %93 acq_rel acquire, align 64
+  %96 = atomicrmw add ptr @aligned_base, i64 %82 acq_rel, align 64
+  br label %97
 
-100:                                              ; preds = %90, %87
-  %.025.i.i100 = phi i64 [ %99, %90 ], [ %88, %87 ]
-  %101 = urem i64 %.025.i.i100, %2
-  %.not.i.i101 = icmp ne i64 %101, 0
-  %.not.i102 = icmp eq i64 %.025.i.i100, 0
-  %or.cond32.i103 = or i1 %.not.i102, %.not.i.i101
-  br i1 %or.cond32.i103, label %.thread.i106, label %102
+97:                                               ; preds = %87, %84
+  %.025.i.i105 = phi i64 [ %96, %87 ], [ %85, %84 ]
+  %98 = urem i64 %.025.i.i105, %2
+  %.not.i.i106 = icmp ne i64 %98, 0
+  %.not.i107 = icmp eq i64 %.025.i.i105, 0
+  %or.cond32.i108 = or i1 %.not.i107, %.not.i.i106
+  br i1 %or.cond32.i108, label %.thread.i111, label %99
 
-102:                                              ; preds = %100
-  %103 = inttoptr i64 %.025.i.i100 to ptr
-  %104 = tail call ptr @mmap(ptr noundef nonnull %103, i64 noundef range(i64 1, 0) %1, i32 noundef range(i32 0, 4) %3, i32 noundef range(i32 34, 2013528099) %spec.select, i32 noundef -1, i64 noundef 0) #10
-  %.not24.i104 = icmp eq ptr %104, inttoptr (i64 -1 to ptr)
-  br i1 %.not24.i104, label %.thread.i106, label %mi_unix_mmapx.exit109
+99:                                               ; preds = %97
+  %100 = inttoptr i64 %.025.i.i105 to ptr
+  %101 = tail call ptr @mmap(ptr noundef nonnull %100, i64 noundef range(i64 1, 0) %1, i32 noundef range(i32 0, 4) %3, i32 noundef range(i32 34, 2013528099) %spec.select, i32 noundef -1, i64 noundef 0) #10
+  %.not24.i109 = icmp eq ptr %101, inttoptr (i64 -1 to ptr)
+  br i1 %.not24.i109, label %.thread.i111, label %mi_unix_mmapx.exit114
 
-.thread.i106:                                     ; preds = %102, %100, %83, %.thread128
-  %105 = tail call ptr @mmap(ptr noundef %0, i64 noundef range(i64 1, 0) %1, i32 noundef range(i32 0, 4) %3, i32 noundef range(i32 34, 2013528099) %spec.select, i32 noundef -1, i64 noundef 0) #10
-  %.not25.i107 = icmp eq ptr %105, inttoptr (i64 -1 to ptr)
-  %..i108 = select i1 %.not25.i107, ptr null, ptr %105
-  br label %mi_unix_mmapx.exit109
+.thread.i111:                                     ; preds = %99, %97, %80, %.thread131
+  %102 = tail call ptr @mmap(ptr noundef %0, i64 noundef range(i64 1, 0) %1, i32 noundef range(i32 0, 4) %3, i32 noundef range(i32 34, 2013528099) %spec.select, i32 noundef -1, i64 noundef 0) #10
+  %.not25.i112 = icmp eq ptr %102, inttoptr (i64 -1 to ptr)
+  %..i113 = select i1 %.not25.i112, ptr null, ptr %102
+  br label %mi_unix_mmapx.exit114
 
-mi_unix_mmapx.exit109:                            ; preds = %102, %.thread.i106
-  %.3.i105 = phi ptr [ %..i108, %.thread.i106 ], [ %104, %102 ]
-  %.not = icmp ne ptr %.3.i105, null
-  %brmerge82.not = and i1 %5, %.not
-  br i1 %brmerge82.not, label %106, label %116
+mi_unix_mmapx.exit114:                            ; preds = %99, %.thread.i111
+  %.3.i110 = phi ptr [ %..i113, %.thread.i111 ], [ %101, %99 ]
+  %103 = icmp ne ptr %.3.i110, null
+  %or.cond11 = and i1 %5, %103
+  br i1 %or.cond11, label %104, label %114
 
-106:                                              ; preds = %mi_unix_mmapx.exit109
-  %.b2.i110 = load i1, ptr @large_os_page_size, align 8
-  br i1 %.b2.i110, label %107, label %.thread134
+104:                                              ; preds = %mi_unix_mmapx.exit114
+  %.b2.i115 = load i1, ptr @large_os_page_size, align 8
+  br i1 %.b2.i115, label %105, label %.thread137
 
-107:                                              ; preds = %106
-  %108 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 6) #10
-  br i1 %108, label %use_large_os_page.exit112, label %.thread134
+105:                                              ; preds = %104
+  %106 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 6) #10
+  br i1 %106, label %use_large_os_page.exit117, label %.thread137
 
-use_large_os_page.exit112:                        ; preds = %107
-  %109 = or i64 %2, %1
-  %110 = and i64 %109, 2097151
-  %111 = icmp eq i64 %110, 0
-  br i1 %111, label %112, label %.thread134
+use_large_os_page.exit117:                        ; preds = %105
+  %107 = or i64 %2, %1
+  %108 = and i64 %107, 2097151
+  %109 = icmp eq i64 %108, 0
+  br i1 %109, label %110, label %.thread137
 
-112:                                              ; preds = %use_large_os_page.exit112
-  %113 = tail call i32 @madvise(ptr noundef nonnull %.3.i105, i64 noundef %1, i32 noundef 14) #10
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %.thread134
+110:                                              ; preds = %use_large_os_page.exit117
+  %111 = tail call i32 @madvise(ptr noundef nonnull %.3.i110, i64 noundef %1, i32 noundef 14) #10
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %.thread137
 
-115:                                              ; preds = %112
+113:                                              ; preds = %110
   store i8 1, ptr %6, align 1, !tbaa !3
-  br label %.thread134
+  br label %.thread137
 
-116:                                              ; preds = %mi_unix_mmapx.exit109
-  %117 = icmp eq ptr %.3.i105, null
-  br i1 %117, label %118, label %.thread134
+114:                                              ; preds = %mi_unix_mmapx.exit114
+  %115 = icmp eq ptr %.3.i110, null
+  br i1 %115, label %116, label %.thread137
 
-118:                                              ; preds = %116
-  %119 = tail call ptr @__errno_location() #11
-  %120 = load i32, ptr %119, align 4, !tbaa !13
-  %121 = zext i1 %4 to i32
-  %122 = zext i1 %5 to i32
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.5, i64 noundef %1, i32 noundef %120, ptr noundef %0, i32 noundef %121, i32 noundef %122) #10
-  br label %.thread134
+116:                                              ; preds = %114
+  %117 = tail call ptr @__errno_location() #11
+  %118 = load i32, ptr %117, align 4, !tbaa !13
+  %119 = zext i1 %4 to i32
+  %120 = zext i1 %5 to i32
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.5, i64 noundef %1, i32 noundef %118, ptr noundef %0, i32 noundef %119, i32 noundef %120) #10
+  br label %.thread137
 
-.thread134:                                       ; preds = %mi_unix_mmapx.exit, %106, %107, %use_large_os_page.exit112, %112, %115, %mi_unix_mmapx.exit96, %116, %118
-  %.3 = phi ptr [ null, %118 ], [ %.3.i105, %116 ], [ %.370, %mi_unix_mmapx.exit96 ], [ %.3.i105, %use_large_os_page.exit112 ], [ %.3.i105, %112 ], [ %.3.i105, %115 ], [ %.3.i105, %107 ], [ %.3.i105, %106 ], [ %.3.i, %mi_unix_mmapx.exit ]
+.thread137:                                       ; preds = %mi_unix_mmapx.exit, %104, %105, %use_large_os_page.exit117, %110, %113, %mi_unix_mmapx.exit101, %114, %116
+  %.3 = phi ptr [ null, %116 ], [ %.3.i110, %114 ], [ %.380, %mi_unix_mmapx.exit101 ], [ %.3.i110, %use_large_os_page.exit117 ], [ %.3.i110, %110 ], [ %.3.i110, %113 ], [ %.3.i110, %105 ], [ %.3.i110, %104 ], [ %.3.i, %mi_unix_mmapx.exit ]
   ret ptr %.3
 }
 

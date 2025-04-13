@@ -781,17 +781,16 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit: ; preds = %67, %75
   %126 = load i8, ptr %125, align 2, !tbaa !67, !range !94, !noundef !95
   %127 = trunc nuw i8 %126 to i1
   %128 = load i64, ptr %121, align 8
-  %129 = icmp ule i64 %123, %128
-  %.not4.i.i = select i1 %127, i1 true, i1 %129
-  br i1 %.not4.i.i, label %130, label %.critedge46
-
-130:                                              ; preds = %122
+  %129 = icmp ugt i64 %123, %128
+  %not..i.i.i = xor i1 %127, true
+  %130 = select i1 %not..i.i.i, i1 %129, i1 false
   %131 = getelementptr inbounds nuw i8, ptr %124, i64 41
-  %132 = load i8, ptr %131, align 1, !tbaa !77, !range !94, !noundef !95
+  %132 = load i8, ptr %131, align 1, !range !94
   %133 = trunc nuw i8 %132 to i1
-  br i1 %133, label %.critedge46, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i
+  %or.cond.i.i = select i1 %130, i1 true, i1 %133
+  br i1 %or.cond.i.i, label %.critedge46, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i
 
-_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i: ; preds = %130
+_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i: ; preds = %122
   %134 = load ptr, ptr %124, align 8, !tbaa !105
   %135 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %136 = load ptr, ptr %135, align 8, !tbaa !105
@@ -799,8 +798,8 @@ _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i
   %138 = getelementptr inbounds nuw i8, ptr %124, i64 48
   %139 = load i64, ptr %138, align 8
   %140 = icmp ule i64 %139, %128
-  %.not6.i.i = select i1 %137, i1 %140, i1 false
-  br i1 %.not6.i.i, label %141, label %.critedge46
+  %.not7.i.i = select i1 %137, i1 %140, i1 false
+  br i1 %.not7.i.i, label %141, label %.critedge46
 
 141:                                              ; preds = %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i
   %142 = load ptr, ptr %47, align 8, !tbaa !106
@@ -836,7 +835,7 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i: ; preds = %147,
   %156 = icmp eq ptr %155, %storemerge.i.i
   br i1 %156, label %.critedge46, label %122, !llvm.loop !109
 
-.critedge46:                                      ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i, %130, %122, %117, %.critedge, %13, %5
+.critedge46:                                      ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit.i, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.i, %122, %117, %.critedge, %13, %5
   ret void
 }
 
@@ -865,17 +864,16 @@ define void @_ZN3net20QuicUnackedPacketMap21RemoveObsoletePacketsEv(ptr noundef 
   %16 = load i8, ptr %15, align 2, !tbaa !67, !range !94, !noundef !95
   %17 = trunc nuw i8 %16 to i1
   %18 = load i64, ptr %8, align 8
-  %19 = icmp ule i64 %13, %18
-  %.not4.i = select i1 %17, i1 true, i1 %19
-  br i1 %.not4.i, label %20, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread
-
-20:                                               ; preds = %12
+  %19 = icmp ugt i64 %13, %18
+  %not..i.i = xor i1 %17, true
+  %20 = select i1 %not..i.i, i1 %19, i1 false
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 41
-  %22 = load i8, ptr %21, align 1, !tbaa !77, !range !94, !noundef !95
+  %22 = load i8, ptr %21, align 1, !range !94
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
+  %or.cond.i = select i1 %20, i1 true, i1 %23
+  br i1 %or.cond.i, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
 
-_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: ; preds = %20
+_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: ; preds = %12
   %24 = load ptr, ptr %14, align 8, !tbaa !105
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !105
@@ -883,8 +881,8 @@ _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: 
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %29 = load i64, ptr %28, align 8
   %30 = icmp ule i64 %29, %18
-  %.not6.i = select i1 %27, i1 %30, i1 false
-  br i1 %.not6.i, label %31, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread
+  %.not7.i = select i1 %27, i1 %30, i1 false
+  br i1 %.not7.i, label %31, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread
 
 31:                                               ; preds = %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
   %32 = load ptr, ptr %9, align 8, !tbaa !106
@@ -920,7 +918,7 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit: ; preds = %34, %3
   %46 = icmp eq ptr %45, %storemerge.i
   br i1 %46, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, label %12, !llvm.loop !109
 
-_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread: ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit, %20, %12, %1
+_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread: ; preds = %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE9pop_frontEv.exit, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit, %12, %1
   ret void
 }
 
@@ -931,17 +929,16 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = icmp ule i64 %1, %8
-  %.not4 = select i1 %6, i1 true, i1 %9
-  br i1 %.not4, label %10, label %22
-
-10:                                               ; preds = %3
+  %9 = icmp ugt i64 %1, %8
+  %not..i = xor i1 %6, true
+  %10 = select i1 %not..i, i1 %9, i1 false
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 41
-  %12 = load i8, ptr %11, align 1, !tbaa !77, !range !94, !noundef !95
+  %12 = load i8, ptr %11, align 1, !range !94
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %22, label %14
+  %or.cond = select i1 %10, i1 true, i1 %13
+  br i1 %or.cond, label %22, label %14
 
-14:                                               ; preds = %10
+14:                                               ; preds = %3
   %15 = load ptr, ptr %2, align 8, !tbaa !105
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !105
@@ -949,11 +946,11 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %20 = load i64, ptr %19, align 8
   %21 = icmp ule i64 %20, %8
-  %.not6 = select i1 %18, i1 %21, i1 false
+  %.not7 = select i1 %18, i1 %21, i1 false
   br label %22
 
-22:                                               ; preds = %14, %10, %3
-  %23 = phi i1 [ false, %10 ], [ false, %3 ], [ %.not6, %14 ]
+22:                                               ; preds = %14, %3
+  %23 = phi i1 [ false, %3 ], [ %.not7, %14 ]
   ret i1 %23
 }
 
@@ -1363,17 +1360,16 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %48, %56
   %64 = trunc nuw i8 %63 to i1
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load i64, ptr %65, align 8
-  %67 = icmp ule i64 %1, %66
-  %.not4.i = select i1 %64, i1 true, i1 %67
-  br i1 %.not4.i, label %68, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
-
-68:                                               ; preds = %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
+  %67 = icmp ugt i64 %1, %66
+  %not..i.i = xor i1 %64, true
+  %68 = select i1 %not..i.i, i1 %67, i1 false
   %69 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 41
-  %70 = load i8, ptr %69, align 1, !tbaa !77, !range !94, !noundef !95
+  %70 = load i8, ptr %69, align 1, !range !94
   %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit, label %72
+  %or.cond.i = select i1 %68, i1 true, i1 %71
+  br i1 %or.cond.i, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit, label %72
 
-72:                                               ; preds = %68
+72:                                               ; preds = %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
   %73 = load ptr, ptr %storemerge.i.i.i.i, align 8, !tbaa !105
   %74 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !105
@@ -1381,11 +1377,11 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %48, %56
   %77 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i, i64 48
   %78 = load i64, ptr %77, align 8
   %79 = icmp ugt i64 %78, %66
-  %.not6.i.not = select i1 %76, i1 true, i1 %79
+  %.not7.i.not = select i1 %76, i1 true, i1 %79
   br label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
 
-_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: ; preds = %72, %68, %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit, %2, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %68 ], [ true, %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ], [ %.not6.i.not, %72 ]
+_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: ; preds = %72, %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit, %2, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit ], [ %.not7.i.not, %72 ]
   ret i1 %.0
 }
 
@@ -2185,17 +2181,16 @@ define noundef i64 @_ZNK3net20QuicUnackedPacketMap29GetNumUnackedPacketsDebugOnl
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 42
   %16 = load i8, ptr %15, align 2, !tbaa !67, !range !94, !noundef !95
   %17 = trunc nuw i8 %16 to i1
-  %18 = icmp ule i64 %.014, %13
-  %.not4.i = select i1 %17, i1 true, i1 %18
-  br i1 %.not4.i, label %19, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread
-
-19:                                               ; preds = %14
+  %18 = icmp ugt i64 %.014, %13
+  %not..i.i = xor i1 %17, true
+  %19 = select i1 %not..i.i, i1 %18, i1 false
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 41
-  %21 = load i8, ptr %20, align 1, !tbaa !77, !range !94, !noundef !95
+  %21 = load i8, ptr %20, align 1, !range !94
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
+  %or.cond.i = select i1 %19, i1 true, i1 %22
+  br i1 %or.cond.i, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread, label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
 
-_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: ; preds = %19
+_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: ; preds = %14
   %23 = load ptr, ptr %.sroa.05.010, align 8, !tbaa !105
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !105
@@ -2203,14 +2198,14 @@ _ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit: 
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 48
   %28 = load i64, ptr %27, align 8
   %29 = icmp ule i64 %28, %13
-  %.not6.i = select i1 %26, i1 %29, i1 false
-  %cond.fr = freeze i1 %.not6.i
+  %.not7.i = select i1 %26, i1 %29, i1 false
+  %cond.fr = freeze i1 %.not7.i
   %not.cond.fr = xor i1 %cond.fr, true
   %30 = zext i1 %not.cond.fr to i64
   br label %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread
 
-_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread: ; preds = %14, %19, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
-  %.sink = phi i64 [ %30, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit ], [ 1, %19 ], [ 1, %14 ]
+_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit.thread: ; preds = %14, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit
+  %.sink = phi i64 [ %30, %_ZNK3net20QuicUnackedPacketMap15IsPacketUselessEmRKNS_16TransmissionInfoE.exit ], [ 1, %14 ]
   %spec.select = add i64 %.0413, %.sink
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 80
   %32 = icmp eq ptr %31, %.sroa.10.011

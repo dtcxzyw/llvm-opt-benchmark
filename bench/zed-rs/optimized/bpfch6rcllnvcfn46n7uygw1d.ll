@@ -189,33 +189,33 @@ default.unreachable.i.i:                          ; preds = %32
 
 .noexc.i:                                         ; preds = %36
   %41 = extractvalue { i32, i32 } %40, 0
-  %switch.i3.i = icmp eq i32 %41, 0
-  br i1 %switch.i3.i, label %.noexc4.i, label %42
+  %switch.i4.i = icmp eq i32 %41, 0
+  br i1 %switch.i4.i, label %.noexc5.i, label %42
 
 42:                                               ; preds = %.noexc.i
   invoke void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 8 %39)
-          to label %.noexc4.i unwind label %52
-
-.noexc4.i:                                        ; preds = %42, %.noexc.i
-  %43 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h0064211d09df5926E.llvm.16277607300600093276(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE, i8 noundef 0)
           to label %.noexc5.i unwind label %52
 
-.noexc5.i:                                        ; preds = %.noexc4.i
+.noexc5.i:                                        ; preds = %42, %.noexc.i
+  %43 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h0064211d09df5926E.llvm.16277607300600093276(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE, i8 noundef 0)
+          to label %.noexc6.i unwind label %52
+
+.noexc6.i:                                        ; preds = %.noexc5.i
   %44 = and i64 %43, 9223372036854775807
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %_ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.16277607300600093276.exit.i.i, label %46
 
-46:                                               ; preds = %.noexc5.i
+46:                                               ; preds = %.noexc6.i
   %47 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hdb1c1ed658baa990E()
-          to label %.noexc6.i unwind label %52
+          to label %.noexc7.i unwind label %52
 
-.noexc6.i:                                        ; preds = %46
+.noexc7.i:                                        ; preds = %46
   %48 = xor i1 %47, true
   %49 = zext i1 %48 to i8
   br label %_ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.16277607300600093276.exit.i.i
 
-_ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.16277607300600093276.exit.i.i: ; preds = %.noexc6.i, %.noexc5.i
-  %.sroa.01.0.i.i.i = phi i8 [ %49, %.noexc6.i ], [ 0, %.noexc5.i ]
+_ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.16277607300600093276.exit.i.i: ; preds = %.noexc7.i, %.noexc6.i
+  %.sroa.01.0.i.i.i = phi i8 [ %49, %.noexc7.i ], [ 0, %.noexc6.i ]
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %51 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h93b7354a02b83e2bE.llvm.16277607300600093276(ptr noundef nonnull align 1 %50, i8 noundef 0)
           to label %54 unwind label %52
@@ -225,7 +225,7 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.16277607300600093276.exi
   invoke void @"_ZN4core3ptr109drop_in_place$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$futures_channel..mpsc..SenderTask$GT$$GT$$GT$17h6ff259dbd0eb4a5dE.llvm.9485743902246897451"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #27
           to label %common.resume unwind label %95
 
-52:                                               ; preds = %78, %73, %_ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.16277607300600093276.exit.i.i, %46, %.noexc4.i, %42, %36
+52:                                               ; preds = %78, %73, %_ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.16277607300600093276.exit.i.i, %46, %.noexc5.i, %42, %36
   %53 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -283,16 +283,16 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.16277607300600093276.exi
 
 73:                                               ; preds = %69
   %74 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hdb1c1ed658baa990E()
-          to label %.noexc8.i unwind label %52
+          to label %.noexc9.i unwind label %52
 
-.noexc8.i:                                        ; preds = %73
+.noexc9.i:                                        ; preds = %73
   br i1 %74, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9485743902246897451.exit.i.i.i, label %75
 
-75:                                               ; preds = %.noexc8.i
+75:                                               ; preds = %.noexc9.i
   store atomic i8 1, ptr %50 monotonic, align 1, !noalias !11
   br label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9485743902246897451.exit.i.i.i
 
-_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9485743902246897451.exit.i.i.i: ; preds = %75, %.noexc8.i, %69, %67
+_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9485743902246897451.exit.i.i.i: ; preds = %75, %.noexc9.i, %69, %67
   %76 = atomicrmw xchg ptr %39, i32 0 release, align 4, !noalias !18
   %77 = icmp eq i32 %76, 2
   br i1 %77, label %78, label %"_ZN4core3ptr90drop_in_place$LT$std..sync..mutex..MutexGuard$LT$futures_channel..mpsc..SenderTask$GT$$GT$17h8071194ecbc536dbE.llvm.9485743902246897451.exit.i"
@@ -16793,9 +16793,9 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9seco
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17he25c9470f68461c8E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17he25c9470f68461c8E.exit": ; preds = %3, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h1bc13f68598a1b32E.exit.i"
-  %.sroa.03.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h1bc13f68598a1b32E.exit.i" ]
-  %21 = icmp eq ptr %.sroa.03.0.i, null
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i, i64 8
+  %.sroa.05.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h1bc13f68598a1b32E.exit.i" ]
+  %21 = icmp eq ptr %.sroa.05.0.i, null
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 8
   %spec.select = select i1 %21, ptr null, ptr %22
   ret ptr %spec.select
 }

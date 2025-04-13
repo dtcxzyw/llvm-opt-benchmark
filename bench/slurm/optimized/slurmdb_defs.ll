@@ -3446,19 +3446,19 @@ define dso_local ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_add
 
 4:                                                ; preds = %1
   %5 = tail call i32 @xstrcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #19
-  %.not34 = icmp eq i32 %5, 0
+  %.not37 = icmp eq i32 %5, 0
   br label %6
 
 6:                                                ; preds = %4, %1
-  %.0 = phi i1 [ false, %1 ], [ %.not34, %4 ]
+  %.0 = phi i1 [ false, %1 ], [ %.not37, %4 ]
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 248), align 8
   %8 = tail call ptr @acct_storage_g_get_connection(i32 noundef 0, ptr noundef null, i1 noundef zeroext true, ptr noundef %7) #19
   store ptr %8, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -2, ptr %9, align 8
-  %brmerge = or i1 %.not, %.0
-  br i1 %brmerge, label %14, label %10
+  %or.cond = or i1 %.not, %.0
+  br i1 %or.cond, label %14, label %10
 
 10:                                               ; preds = %6
   %11 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #19
@@ -3467,11 +3467,11 @@ define dso_local ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_add
   %13 = tail call i32 @slurm_addto_char_list(ptr noundef %11, ptr noundef nonnull %0) #19
   br label %14
 
-14:                                               ; preds = %6, %10
+14:                                               ; preds = %10, %6
   %15 = tail call i32 @getuid() #19
   %16 = call ptr @acct_storage_g_get_clusters(ptr noundef %8, i32 noundef %15, ptr noundef nonnull %2) #19
-  %.not35 = icmp eq ptr %16, null
-  br i1 %.not35, label %17, label %19
+  %.not38 = icmp eq ptr %16, null
+  br i1 %.not38, label %17, label %19
 
 17:                                               ; preds = %14
   %18 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6) #19
@@ -3479,18 +3479,18 @@ define dso_local ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_add
 
 19:                                               ; preds = %14
   %20 = call ptr @list_iterator_create(ptr noundef nonnull %16) #19
-  br i1 %brmerge, label %.preheader, label %28
+  br i1 %or.cond, label %.preheader, label %28
 
 .preheader:                                       ; preds = %19
   %21 = call ptr @list_next(ptr noundef %20) #19
-  %.not4048 = icmp eq ptr %21, null
-  br i1 %.not4048, label %.loopexit, label %.lr.ph
+  %.not4350 = icmp eq ptr %21, null
+  br i1 %.not4350, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %26
   %22 = phi ptr [ %27, %26 ], [ %21, %.preheader ]
   %23 = call i32 @slurmdb_setup_cluster_rec(ptr noundef nonnull %22)
-  %.not43 = icmp eq i32 %23, 0
-  br i1 %.not43, label %26, label %24
+  %.not46 = icmp eq i32 %23, 0
+  br i1 %.not46, label %26, label %24
 
 24:                                               ; preds = %.lr.ph
   %25 = call i32 @list_delete_item(ptr noundef %20) #19
@@ -3498,32 +3498,32 @@ define dso_local ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_add
 
 26:                                               ; preds = %24, %.lr.ph
   %27 = call ptr @list_next(ptr noundef %20) #19
-  %.not40 = icmp eq ptr %27, null
-  br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  %.not43 = icmp eq ptr %27, null
+  br i1 %.not43, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 28:                                               ; preds = %19
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @list_iterator_create(ptr noundef %30) #19
   %32 = call ptr @list_next(ptr noundef %31) #19
-  %.not3647 = icmp eq ptr %32, null
-  br i1 %.not3647, label %._crit_edge, label %.preheader45
+  %.not3949 = icmp eq ptr %32, null
+  br i1 %.not3949, label %._crit_edge, label %.preheader47
 
-.preheader45:                                     ; preds = %28, %45
+.preheader47:                                     ; preds = %28, %45
   %33 = phi ptr [ %46, %45 ], [ %32, %28 ]
   br label %34
 
-34:                                               ; preds = %.preheader45, %36
+34:                                               ; preds = %.preheader47, %36
   %35 = call ptr @list_next(ptr noundef %20) #19
-  %.not37 = icmp eq ptr %35, null
-  br i1 %.not37, label %.critedge, label %36
+  %.not40 = icmp eq ptr %35, null
+  br i1 %.not40, label %.critedge, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 280
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 @xstrcmp(ptr noundef nonnull %33, ptr noundef %38) #19
-  %.not38 = icmp eq i32 %39, 0
-  br i1 %.not38, label %41, label %34, !llvm.loop !13
+  %.not41 = icmp eq i32 %39, 0
+  br i1 %.not41, label %41, label %34, !llvm.loop !13
 
 .critedge:                                        ; preds = %34
   %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull %33) #19
@@ -3531,8 +3531,8 @@ define dso_local ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_add
 
 41:                                               ; preds = %36
   %42 = call i32 @slurmdb_setup_cluster_rec(ptr noundef nonnull %35)
-  %.not39 = icmp eq i32 %42, 0
-  br i1 %.not39, label %45, label %43
+  %.not42 = icmp eq i32 %42, 0
+  br i1 %.not42, label %45, label %43
 
 43:                                               ; preds = %41
   %44 = call i32 @list_delete_item(ptr noundef %20) #19
@@ -3541,8 +3541,8 @@ define dso_local ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_add
 45:                                               ; preds = %41, %43, %.critedge
   call void @list_iterator_reset(ptr noundef %20) #19
   %46 = call ptr @list_next(ptr noundef %31) #19
-  %.not36 = icmp eq ptr %46, null
-  br i1 %.not36, label %._crit_edge, label %.preheader45, !llvm.loop !14
+  %.not39 = icmp eq ptr %46, null
+  br i1 %.not39, label %._crit_edge, label %.preheader47, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %45, %28
   call void @list_iterator_destroy(ptr noundef %31) #19
@@ -3555,8 +3555,8 @@ define dso_local ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_add
 47:                                               ; preds = %17, %.loopexit
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %49 = load ptr, ptr %48, align 8
-  %.not41 = icmp eq ptr %49, null
-  br i1 %.not41, label %51, label %50
+  %.not44 = icmp eq ptr %49, null
+  br i1 %.not44, label %51, label %50
 
 50:                                               ; preds = %47
   call void @list_destroy(ptr noundef nonnull %49) #19
@@ -3565,22 +3565,22 @@ define dso_local ptr @slurmdb_get_info_cluster(ptr noundef %0) local_unnamed_add
 51:                                               ; preds = %50, %47
   store ptr null, ptr %48, align 8
   %52 = call i32 @acct_storage_g_close_connection(ptr noundef nonnull %3) #19
-  br i1 %.not35, label %56, label %53
+  br i1 %.not38, label %56, label %53
 
 53:                                               ; preds = %51
   %54 = call i32 @list_count(ptr noundef nonnull %16) #19
-  %.not42 = icmp eq i32 %54, 0
-  br i1 %.not42, label %55, label %56
+  %.not45 = icmp eq i32 %54, 0
+  br i1 %.not45, label %55, label %56
 
 55:                                               ; preds = %53
   call void @list_destroy(ptr noundef nonnull %16) #19
   br label %56
 
 56:                                               ; preds = %55, %53, %51
-  %.026 = phi ptr [ %16, %53 ], [ null, %55 ], [ null, %51 ]
+  %.029 = phi ptr [ %16, %53 ], [ null, %55 ], [ null, %51 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #19
-  ret ptr %.026
+  ret ptr %.029
 }
 
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -4537,23 +4537,23 @@ define dso_local noundef nonnull ptr @slurmdb_cluster_fed_states_str(i32 noundef
 
 4:                                                ; preds = %1
   %5 = and i32 %0, 48
-  %brmerge.not = icmp eq i32 %5, 48
+  %or.cond = icmp eq i32 %5, 48
   %.str.19..str.18 = select i1 %.not, ptr @.str.19, ptr @.str.18
-  %spec.select = select i1 %brmerge.not, ptr @.str.17, ptr %.str.19..str.18
+  %spec.select = select i1 %or.cond, ptr @.str.17, ptr %.str.19..str.18
   br label %9
 
 6:                                                ; preds = %1
   %7 = and i32 %0, 48
-  %brmerge14.not = icmp eq i32 %7, 48
+  %or.cond3 = icmp eq i32 %7, 48
   %.str.22..str.21 = select i1 %.not, ptr @.str.22, ptr @.str.21
-  %spec.select15 = select i1 %brmerge14.not, ptr @.str.20, ptr %.str.22..str.21
+  %spec.select16 = select i1 %or.cond3, ptr @.str.20, ptr %.str.22..str.21
   br label %9
 
 8:                                                ; preds = %1
   br label %9
 
 9:                                                ; preds = %6, %4, %1, %8
-  %.0 = phi ptr [ @.str.24, %8 ], [ @.str.23, %1 ], [ %spec.select, %4 ], [ %spec.select15, %6 ]
+  %.0 = phi ptr [ @.str.24, %8 ], [ @.str.23, %1 ], [ %spec.select, %4 ], [ %spec.select16, %6 ]
   ret ptr %.0
 }
 

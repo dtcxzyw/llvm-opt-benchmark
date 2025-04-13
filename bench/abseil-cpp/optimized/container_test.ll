@@ -19082,13 +19082,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSt16__is_permutationIN9__gnu
   br i1 %.not.i.i, label %_ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit, label %.lr.ph.i.i, !llvm.loop !329
 
 _ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit: ; preds = %.lr.ph.i.i, %.critedge
-  %.05.i.i = phi i64 [ 0, %.critedge ], [ %21, %.lr.ph.i.i ]
-  %22 = or i64 %.05.i.i, %19
+  %.06.i.i = phi i64 [ 0, %.critedge ], [ %21, %.lr.ph.i.i ]
+  %22 = or i64 %.06.i.i, %19
   %or.cond = icmp eq i64 %22, 0
   br i1 %or.cond, label %.thread, label %23
 
 23:                                               ; preds = %_ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit
-  %.not = icmp eq i64 %19, %.05.i.i
+  %.not = icmp eq i64 %19, %.06.i.i
   br i1 %.not, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %23
@@ -19300,17 +19300,17 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSt16__is_permutationISt20_Li
   br i1 %.not.i.i, label %_ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit, label %.lr.ph.i.i, !llvm.loop !329
 
 _ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit: ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.05.i.i = phi i64 [ 0, %.preheader.i.i ], [ %17, %.lr.ph.i.i ]
+  %.06.i.i = phi i64 [ 0, %.preheader.i.i ], [ %17, %.lr.ph.i.i ]
   %18 = ptrtoint ptr %3 to i64
   %19 = ptrtoint ptr %.sroa.050.0.lcssa to i64
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 2
-  %22 = or i64 %.05.i.i, %21
+  %22 = or i64 %.06.i.i, %21
   %or.cond = icmp eq i64 %22, 0
   br i1 %or.cond, label %.thread, label %23
 
 23:                                               ; preds = %_ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit
-  %.not = icmp eq i64 %.05.i.i, %21
+  %.not = icmp eq i64 %.06.i.i, %21
   br i1 %.not, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %23
@@ -19675,13 +19675,13 @@ _ZSt16next_permutationIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEbT_S
   br i1 %.not.i.i.i122, label %_ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i, label %.lr.ph.i.i.i121, !llvm.loop !329
 
 _ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i: ; preds = %.lr.ph.i.i.i121, %.critedge.i
-  %.05.i.i.i = phi i64 [ 0, %.critedge.i ], [ %71, %.lr.ph.i.i.i121 ]
-  %72 = or i64 %.05.i.i.i, %69
+  %.06.i.i.i = phi i64 [ 0, %.critedge.i ], [ %71, %.lr.ph.i.i.i121 ]
+  %72 = or i64 %.06.i.i.i, %69
   %or.cond.i = icmp eq i64 %72, 0
   br i1 %or.cond.i, label %.thread287, label %73
 
 73:                                               ; preds = %_ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i
-  %.not.i = icmp eq i64 %69, %.05.i.i.i
+  %.not.i = icmp eq i64 %69, %.06.i.i.i
   br i1 %.not.i, label %.preheader.i, label %.loopexit315
 
 .preheader.i:                                     ; preds = %73
@@ -20044,16 +20044,16 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %.thread287, %174, %
   br i1 %.not.i.i.i131, label %_ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i132, label %.lr.ph.i.i.i128, !llvm.loop !329
 
 _ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i132: ; preds = %.lr.ph.i.i.i128, %.preheader.i.i.i126
-  %.05.i.i.i133 = phi i64 [ 0, %.preheader.i.i.i126 ], [ %197, %.lr.ph.i.i.i128 ]
+  %.06.i.i.i133 = phi i64 [ 0, %.preheader.i.i.i126 ], [ %197, %.lr.ph.i.i.i128 ]
   %198 = ptrtoint ptr %.sroa.060.0.lcssa.i to i64
   %199 = sub i64 %66, %198
   %200 = ashr exact i64 %199, 2
-  %201 = or i64 %.05.i.i.i133, %200
+  %201 = or i64 %.06.i.i.i133, %200
   %or.cond.i134 = icmp eq i64 %201, 0
   br i1 %or.cond.i134, label %.thread291, label %202
 
 202:                                              ; preds = %_ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i132
-  %.not.i135 = icmp eq i64 %.05.i.i.i133, %200
+  %.not.i135 = icmp eq i64 %.06.i.i.i133, %200
   br i1 %.not.i135, label %.preheader.i137, label %.loopexit312
 
 .preheader.i137:                                  ; preds = %202
@@ -20381,13 +20381,13 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %_ZN7testing15Ass
   br i1 %.not.i.i.i158, label %_ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i159, label %.lr.ph.i.i.i155, !llvm.loop !329
 
 _ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i159: ; preds = %.lr.ph.i.i.i155, %.critedge.i149
-  %.05.i.i.i160 = phi i64 [ 0, %.critedge.i149 ], [ %304, %.lr.ph.i.i.i155 ]
-  %305 = or i64 %.05.i.i.i160, %302
+  %.06.i.i.i160 = phi i64 [ 0, %.critedge.i149 ], [ %304, %.lr.ph.i.i.i155 ]
+  %305 = or i64 %.06.i.i.i160, %302
   %or.cond.i161 = icmp eq i64 %305, 0
   br i1 %or.cond.i161, label %.loopexit311, label %306
 
 306:                                              ; preds = %_ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i159
-  %.not.i162 = icmp eq i64 %302, %.05.i.i.i160
+  %.not.i162 = icmp eq i64 %302, %.06.i.i.i160
   br i1 %.not.i162, label %.preheader.i164, label %.thread295
 
 .preheader.i164:                                  ; preds = %306
@@ -20769,15 +20769,15 @@ _ZN7testing15AssertionResultD2Ev.exit95:          ; preds = %.thread295, %408, %
   br i1 %.not.i.i.i215, label %_ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i216, label %.lr.ph.i.i.i212, !llvm.loop !329
 
 _ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i216: ; preds = %.lr.ph.i.i.i212, %.preheader.i.i.i210
-  %.05.i.i.i217 = phi i64 [ 0, %.preheader.i.i.i210 ], [ %430, %.lr.ph.i.i.i212 ]
+  %.06.i.i.i217 = phi i64 [ 0, %.preheader.i.i.i210 ], [ %430, %.lr.ph.i.i.i212 ]
   %gepdiff349 = sub nsw i64 16, %.sroa.060.0.lcssa.i207.idx
   %431 = ashr exact i64 %gepdiff349, 2
-  %432 = or i64 %.05.i.i.i217, %431
+  %432 = or i64 %.06.i.i.i217, %431
   %or.cond.i218 = icmp eq i64 %432, 0
   br i1 %or.cond.i218, label %.loopexit, label %433
 
 433:                                              ; preds = %_ZSt8distanceISt20_List_const_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3_S3_.exit.i216
-  %.not.i219 = icmp eq i64 %.05.i.i.i217, %431
+  %.not.i219 = icmp eq i64 %.06.i.i.i217, %431
   br i1 %.not.i219, label %.preheader.i221, label %.thread299
 
 .preheader.i221:                                  ; preds = %433

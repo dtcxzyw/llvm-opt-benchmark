@@ -258,8 +258,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage1
   %31 = load i32, ptr %23, align 4
   %32 = tail call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__13HioGetHioTypeENS_9HioFormatE(i32 noundef %31)
   %33 = icmp eq i32 %32, 7
-  %brmerge = or i1 %30, %33
-  br i1 %brmerge, label %34, label %_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage7CleanupEv.exit
+  %or.cond7 = or i1 %30, %33
+  br i1 %or.cond7, label %34, label %_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage7CleanupEv.exit
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -301,8 +301,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage1
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 %54, ptr %59, align 8
   %60 = call i32 @avifImageYUVToRGB(ptr noundef nonnull %39, ptr noundef nonnull %7)
-  %.not146 = icmp eq i32 %60, 0
-  br i1 %.not146, label %70, label %61
+  %.not148 = icmp eq i32 %60, 0
+  br i1 %.not148, label %70, label %61
 
 61:                                               ; preds = %34
   store ptr @.str.2, ptr %8, align 8
@@ -340,8 +340,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage1
   %or.cond.i = select i1 %78, i1 true, i1 %79
   %80 = or i32 %74, %76
   %or.cond40.not48.i.not = icmp eq i32 %80, 0
-  %or.cond208 = or i1 %or.cond40.not48.i.not, %or.cond.i
-  br i1 %or.cond208, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9CropImageEPS3_iiiiiii.exit, label %.preheader41.us.preheader.i
+  %or.cond210 = or i1 %or.cond40.not48.i.not, %or.cond.i
+  br i1 %or.cond210, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9CropImageEPS3_iiiiiii.exit, label %.preheader41.us.preheader.i
 
 .preheader41.us.preheader.i:                      ; preds = %70
   %81 = zext nneg i32 %25 to i64
@@ -399,11 +399,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half
 
 98:                                               ; preds = %97, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE9CropImageEPS3_iiiiiii.exit
   %99 = load i32, ptr %5, align 8
-  %.not147 = icmp ne i32 %77, %99
+  %.not149 = icmp ne i32 %77, %99
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = icmp ne i32 %77, %101
-  %103 = select i1 %.not147, i1 true, i1 %102
+  %103 = select i1 %.not149, i1 true, i1 %102
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   br i1 %103, label %104, label %_ZNSt6vectorIfSaIfEED2Ev.exit.thread
 
@@ -418,27 +418,27 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half
   %109 = load ptr, ptr %10, align 8
   %110 = icmp ne ptr %71, null
   %111 = icmp ne ptr %109, null
-  %or.cond.i153 = and i1 %110, %111
+  %or.cond.i155 = and i1 %110, %111
   %112 = icmp sgt i32 %106, 0
-  %or.cond = and i1 %112, %or.cond.i153
+  %or.cond = and i1 %112, %or.cond.i155
   br i1 %or.cond, label %.lr.ph.preheader.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit
 
 .lr.ph.preheader.i:                               ; preds = %108
-  %wide.trip.count.i154 = zext nneg i32 %106 to i64
+  %wide.trip.count.i156 = zext nneg i32 %106 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i155 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i156, %.lr.ph.i ]
-  %113 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %71, i64 %indvars.iv.i155
+  %indvars.iv.i157 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i158, %.lr.ph.i ]
+  %113 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %71, i64 %indvars.iv.i157
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %114 to i64
   %116 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %115
   %117 = load float, ptr %116, align 4
-  %118 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv.i155
+  %118 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv.i157
   store float %117, ptr %118, align 4
-  %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i155, 1
-  %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i156, %wide.trip.count.i154
-  br i1 %exitcond.not.i157, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
+  %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i157, 1
+  %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, %wide.trip.count.i156
+  br i1 %exitcond.not.i159, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %10, align 8
@@ -501,14 +501,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFl
 148:                                              ; preds = %104
   %149 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit159
+  br label %_ZNSt6vectorIfSaIfEED2Ev.exit161
 
 150:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit
   %151 = landingpad { ptr, i32 }
           cleanup
   %152 = load ptr, ptr %10, align 8
-  %.not.i.i.i158 = icmp eq ptr %152, null
-  br i1 %.not.i.i.i158, label %_ZNSt6vectorIfSaIfEED2Ev.exit159, label %153
+  %.not.i.i.i160 = icmp eq ptr %152, null
+  br i1 %.not.i.i.i160, label %_ZNSt6vectorIfSaIfEED2Ev.exit161, label %153
 
 153:                                              ; preds = %150
   %154 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -517,13 +517,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFl
   %157 = ptrtoint ptr %152 to i64
   %158 = sub i64 %156, %157
   call void @_ZdlPvm(ptr noundef nonnull %152, i64 noundef %158) #26
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit159
+  br label %_ZNSt6vectorIfSaIfEED2Ev.exit161
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %142, %127
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %160 = load i8, ptr %159, align 8
   %161 = trunc i8 %160 to i1
-  br i1 %161, label %165, label %.thread190
+  br i1 %161, label %165, label %.thread192
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.thread:             ; preds = %98
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -532,63 +532,63 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.thread:             ; preds = %98
   br i1 %164, label %_ZNSt6vectorIfSaIfEED2Ev.exit.thread..thread_crit_edge, label %200
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.thread..thread_crit_edge: ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.thread
-  %.pre219 = mul nsw i32 %77, %73
-  %.pre220 = mul nsw i32 %.pre219, %25
-  %.pre222 = sext i32 %.pre220 to i64
+  %.pre221 = mul nsw i32 %77, %73
+  %.pre222 = mul nsw i32 %.pre221, %25
+  %.pre224 = sext i32 %.pre222 to i64
   br label %.thread
 
 165:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
   %166 = icmp eq ptr %128, null
-  br i1 %166, label %.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit168
+  br i1 %166, label %.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170
 
 .thread:                                          ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.thread..thread_crit_edge, %165
-  %.pre-phi223 = phi i64 [ %.pre222, %_ZNSt6vectorIfSaIfEED2Ev.exit.thread..thread_crit_edge ], [ %107, %165 ]
-  %.pre-phi221 = phi i32 [ %.pre220, %_ZNSt6vectorIfSaIfEED2Ev.exit.thread..thread_crit_edge ], [ %106, %165 ]
-  %.0134186189 = phi ptr [ %71, %_ZNSt6vectorIfSaIfEED2Ev.exit.thread..thread_crit_edge ], [ null, %165 ]
-  invoke void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %.pre-phi223)
+  %.pre-phi225 = phi i64 [ %.pre224, %_ZNSt6vectorIfSaIfEED2Ev.exit.thread..thread_crit_edge ], [ %107, %165 ]
+  %.pre-phi223 = phi i32 [ %.pre222, %_ZNSt6vectorIfSaIfEED2Ev.exit.thread..thread_crit_edge ], [ %106, %165 ]
+  %.0136188191 = phi ptr [ %71, %_ZNSt6vectorIfSaIfEED2Ev.exit.thread..thread_crit_edge ], [ null, %165 ]
+  invoke void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %.pre-phi225)
           to label %167 unwind label %178
 
 167:                                              ; preds = %.thread
   %168 = load ptr, ptr %9, align 8
-  %169 = icmp ne ptr %.0134186189, null
+  %169 = icmp ne ptr %.0136188191, null
   %170 = icmp ne ptr %168, null
-  %or.cond.i160 = and i1 %169, %170
-  %171 = icmp sgt i32 %.pre-phi221, 0
-  %or.cond207 = and i1 %171, %or.cond.i160
-  br i1 %or.cond207, label %.lr.ph.preheader.i162, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit168
+  %or.cond.i162 = and i1 %169, %170
+  %171 = icmp sgt i32 %.pre-phi223, 0
+  %or.cond209 = and i1 %171, %or.cond.i162
+  br i1 %or.cond209, label %.lr.ph.preheader.i164, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170
 
-.lr.ph.preheader.i162:                            ; preds = %167
-  %wide.trip.count.i163 = zext nneg i32 %.pre-phi221 to i64
-  br label %.lr.ph.i164
+.lr.ph.preheader.i164:                            ; preds = %167
+  %wide.trip.count.i165 = zext nneg i32 %.pre-phi223 to i64
+  br label %.lr.ph.i166
 
-.lr.ph.i164:                                      ; preds = %.lr.ph.i164, %.lr.ph.preheader.i162
-  %indvars.iv.i165 = phi i64 [ 0, %.lr.ph.preheader.i162 ], [ %indvars.iv.next.i166, %.lr.ph.i164 ]
-  %172 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %.0134186189, i64 %indvars.iv.i165
+.lr.ph.i166:                                      ; preds = %.lr.ph.i166, %.lr.ph.preheader.i164
+  %indvars.iv.i167 = phi i64 [ 0, %.lr.ph.preheader.i164 ], [ %indvars.iv.next.i168, %.lr.ph.i166 ]
+  %172 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %.0136188191, i64 %indvars.iv.i167
   %173 = load i16, ptr %172, align 2
   %174 = zext i16 %173 to i64
   %175 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %174
   %176 = load float, ptr %175, align 4
-  %177 = getelementptr inbounds nuw float, ptr %168, i64 %indvars.iv.i165
+  %177 = getelementptr inbounds nuw float, ptr %168, i64 %indvars.iv.i167
   store float %176, ptr %177, align 4
-  %indvars.iv.next.i166 = add nuw nsw i64 %indvars.iv.i165, 1
-  %exitcond.not.i167 = icmp eq i64 %indvars.iv.next.i166, %wide.trip.count.i163
-  br i1 %exitcond.not.i167, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit168.loopexit, label %.lr.ph.i164, !llvm.loop !8
+  %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i167, 1
+  %exitcond.not.i169 = icmp eq i64 %indvars.iv.next.i168, %wide.trip.count.i165
+  br i1 %exitcond.not.i169, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170.loopexit, label %.lr.ph.i166, !llvm.loop !8
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit168.loopexit: ; preds = %.lr.ph.i164
-  %.pre210 = load ptr, ptr %9, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit168
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170.loopexit: ; preds = %.lr.ph.i166
+  %.pre212 = load ptr, ptr %9, align 8
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170
 
-178:                                              ; preds = %.thread197, %181, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit168, %.thread
+178:                                              ; preds = %.thread199, %181, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170, %.thread
   %179 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit159
+  br label %_ZNSt6vectorIfSaIfEED2Ev.exit161
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit168: ; preds = %167, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit168.loopexit, %165
-  %.2138 = phi ptr [ %128, %165 ], [ %.pre210, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit168.loopexit ], [ %168, %167 ]
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170: ; preds = %167, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170.loopexit, %165
+  %.2140 = phi ptr [ %128, %165 ], [ %.pre212, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170.loopexit ], [ %168, %167 ]
   %180 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33GfColorSpaceNames_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__17GfColorSpaceNamesE)
           to label %181 unwind label %178
 
-181:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit168
+181:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFloatEPNS_8pxr_half4halfEPfiii.exit170
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 136
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceC1ERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %182)
           to label %183 unwind label %178
@@ -609,8 +609,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFl
 189:                                              ; preds = %187
   %190 = mul nsw i32 %188, 3
   %191 = sext i32 %190 to i64
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfColorSpace14ConvertRGBSpanERKS0_NS_6TfSpanIfEE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr %.2138, i64 %191)
-          to label %.thread224 unwind label %194
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfColorSpace14ConvertRGBSpanERKS0_NS_6TfSpanIfEE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr %.2140, i64 %191)
+          to label %.thread226 unwind label %194
 
 192:                                              ; preds = %185, %183
   %193 = landingpad { ptr, i32 }
@@ -626,107 +626,107 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFl
 196:                                              ; preds = %187
   %197 = mul nsw i32 %188, %25
   %198 = sext i32 %197 to i64
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfColorSpace15ConvertRGBASpanERKS0_NS_6TfSpanIfEE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr %.2138, i64 %198)
-          to label %.thread224 unwind label %194
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfColorSpace15ConvertRGBASpanERKS0_NS_6TfSpanIfEE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr %.2140, i64 %198)
+          to label %.thread226 unwind label %194
 
 199:                                              ; preds = %194, %192
   %.pn = phi { ptr, i32 } [ %195, %194 ], [ %193, %192 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #24
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit159
+  br label %_ZNSt6vectorIfSaIfEED2Ev.exit161
 
 200:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.thread
-  %.not150 = icmp eq ptr %71, null
+  %.not152 = icmp eq ptr %71, null
   br i1 %33, label %201, label %206
 
-.thread224:                                       ; preds = %189, %196
+.thread226:                                       ; preds = %189, %196
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #24
-  br i1 %33, label %.thread231, label %..thread202_crit_edge
+  br i1 %33, label %.thread233, label %..thread204_crit_edge
 
-.thread231:                                       ; preds = %.thread224
-  %.pre212235 = load i32, ptr %7, align 8
-  %.pre214236 = load i32, ptr %43, align 4
-  br label %.thread197
+.thread233:                                       ; preds = %.thread226
+  %.pre214237 = load i32, ptr %7, align 8
+  %.pre216238 = load i32, ptr %43, align 4
+  br label %.thread199
 
-.thread190:                                       ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %.pre216 = load i32, ptr %7, align 8
-  %.pre218 = load i32, ptr %43, align 4
-  br i1 %33, label %.thread197, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit.sink.split
+.thread192:                                       ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
+  %.pre218 = load i32, ptr %7, align 8
+  %.pre220 = load i32, ptr %43, align 4
+  br i1 %33, label %.thread199, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit.sink.split
 
 201:                                              ; preds = %200
-  %.pre212 = load i32, ptr %7, align 8
-  %.pre214 = load i32, ptr %43, align 4
-  br i1 %.not150, label %.thread197, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit.sink.split
+  %.pre214 = load i32, ptr %7, align 8
+  %.pre216 = load i32, ptr %43, align 4
+  br i1 %.not152, label %.thread199, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit.sink.split
 
-.thread197:                                       ; preds = %.thread231, %.thread190, %201
-  %202 = phi i32 [ %.pre214, %201 ], [ %.pre218, %.thread190 ], [ %.pre214236, %.thread231 ]
-  %203 = phi i32 [ %.pre212, %201 ], [ %.pre216, %.thread190 ], [ %.pre212235, %.thread231 ]
-  %.1137193201 = phi ptr [ null, %201 ], [ %128, %.thread190 ], [ %.2138, %.thread231 ]
+.thread199:                                       ; preds = %.thread233, %.thread192, %201
+  %202 = phi i32 [ %.pre216, %201 ], [ %.pre220, %.thread192 ], [ %.pre216238, %.thread233 ]
+  %203 = phi i32 [ %.pre214, %201 ], [ %.pre218, %.thread192 ], [ %.pre214237, %.thread233 ]
+  %.1139195203 = phi ptr [ null, %201 ], [ %128, %.thread192 ], [ %.2140, %.thread233 ]
   %204 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %205 = load ptr, ptr %204, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE11FloatToHalfEPfPNS_8pxr_half4halfEiii(ptr noundef %.1137193201, ptr noundef %205, i32 noundef %203, i32 noundef %202, i32 noundef %25)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorIfE11FloatToHalfEPfPNS_8pxr_half4halfEiii(ptr noundef %.1139195203, ptr noundef %205, i32 noundef %203, i32 noundef %202, i32 noundef %25)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit unwind label %178
 
 206:                                              ; preds = %200
-  br i1 %.not150, label %..thread202_crit_edge, label %207
+  br i1 %.not152, label %..thread204_crit_edge, label %207
 
-..thread202_crit_edge:                            ; preds = %.thread224, %206
-  %.1137228241 = phi ptr [ null, %206 ], [ %.2138, %.thread224 ]
-  %.pre215 = load i32, ptr %7, align 8
-  %.pre217 = load i32, ptr %43, align 4
+..thread204_crit_edge:                            ; preds = %.thread226, %206
+  %.1139230243 = phi ptr [ null, %206 ], [ %.2140, %.thread226 ]
+  %.pre217 = load i32, ptr %7, align 8
+  %.pre219 = load i32, ptr %43, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit.sink.split
 
 207:                                              ; preds = %206
   %208 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %209 = load ptr, ptr %208, align 8
-  %.not.i169 = icmp eq ptr %209, null
-  br i1 %.not.i169, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit, label %.preheader.i170
+  %.not.i171 = icmp eq ptr %209, null
+  br i1 %.not.i171, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit, label %.preheader.i172
 
-.preheader.i170:                                  ; preds = %207
+.preheader.i172:                                  ; preds = %207
   %210 = load i32, ptr %43, align 4
   %211 = load i32, ptr %7, align 8
   %212 = mul i32 %210, %25
   %213 = mul i32 %212, %211
   %214 = icmp sgt i32 %213, 0
-  br i1 %214, label %.lr.ph.preheader.i171, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit
+  br i1 %214, label %.lr.ph.preheader.i173, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit
 
-.lr.ph.preheader.i171:                            ; preds = %.preheader.i170
-  %wide.trip.count.i172 = zext nneg i32 %213 to i64
-  br label %.lr.ph.i173
+.lr.ph.preheader.i173:                            ; preds = %.preheader.i172
+  %wide.trip.count.i174 = zext nneg i32 %213 to i64
+  br label %.lr.ph.i175
 
-.lr.ph.i173:                                      ; preds = %.lr.ph.i173, %.lr.ph.preheader.i171
-  %indvars.iv.i174 = phi i64 [ 0, %.lr.ph.preheader.i171 ], [ %indvars.iv.next.i175, %.lr.ph.i173 ]
-  %215 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %71, i64 %indvars.iv.i174
+.lr.ph.i175:                                      ; preds = %.lr.ph.i175, %.lr.ph.preheader.i173
+  %indvars.iv.i176 = phi i64 [ 0, %.lr.ph.preheader.i173 ], [ %indvars.iv.next.i177, %.lr.ph.i175 ]
+  %215 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %71, i64 %indvars.iv.i176
   %216 = load i16, ptr %215, align 2
   %217 = zext i16 %216 to i64
   %218 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %217
   %219 = load float, ptr %218, align 4
-  %220 = getelementptr inbounds nuw float, ptr %209, i64 %indvars.iv.i174
+  %220 = getelementptr inbounds nuw float, ptr %209, i64 %indvars.iv.i176
   store float %219, ptr %220, align 4
-  %indvars.iv.next.i175 = add nuw nsw i64 %indvars.iv.i174, 1
-  %exitcond.not.i176 = icmp eq i64 %indvars.iv.next.i175, %wide.trip.count.i172
-  br i1 %exitcond.not.i176, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit, label %.lr.ph.i173, !llvm.loop !9
+  %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i176, 1
+  %exitcond.not.i178 = icmp eq i64 %indvars.iv.next.i177, %wide.trip.count.i174
+  br i1 %exitcond.not.i178, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit, label %.lr.ph.i175, !llvm.loop !9
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit.sink.split: ; preds = %.thread190, %..thread202_crit_edge, %201
-  %.sink248 = phi i32 [ %.pre212, %201 ], [ %.pre215, %..thread202_crit_edge ], [ %.pre216, %.thread190 ]
-  %.sink247 = phi i32 [ %.pre214, %201 ], [ %.pre217, %..thread202_crit_edge ], [ %.pre218, %.thread190 ]
-  %.sink244 = phi i64 [ 1, %201 ], [ 2, %..thread202_crit_edge ], [ 2, %.thread190 ]
-  %.1137194206.sink = phi ptr [ %71, %201 ], [ %.1137228241, %..thread202_crit_edge ], [ %128, %.thread190 ]
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit.sink.split: ; preds = %.thread192, %..thread204_crit_edge, %201
+  %.sink250 = phi i32 [ %.pre214, %201 ], [ %.pre217, %..thread204_crit_edge ], [ %.pre218, %.thread192 ]
+  %.sink249 = phi i32 [ %.pre216, %201 ], [ %.pre219, %..thread204_crit_edge ], [ %.pre220, %.thread192 ]
+  %.sink246 = phi i64 [ 1, %201 ], [ 2, %..thread204_crit_edge ], [ 2, %.thread192 ]
+  %.1139196208.sink = phi ptr [ %71, %201 ], [ %.1139230243, %..thread204_crit_edge ], [ %128, %.thread192 ]
   %221 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %222 = load ptr, ptr %221, align 8
-  %223 = mul i32 %.sink248, %25
-  %224 = mul i32 %223, %.sink247
+  %223 = mul i32 %.sink250, %25
+  %224 = mul i32 %223, %.sink249
   %225 = zext i32 %224 to i64
-  %226 = shl nuw nsw i64 %225, %.sink244
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %222, ptr align 2 %.1137194206.sink, i64 %226, i1 false)
+  %226 = shl nuw nsw i64 %225, %.sink246
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %222, ptr align 2 %.1139196208.sink, i64 %226, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit: ; preds = %.lr.ph.i173, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit.sink.split, %.preheader.i170, %207, %.thread197
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit: ; preds = %.lr.ph.i175, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit.sink.split, %.preheader.i172, %207, %.thread199
   %227 = load ptr, ptr %58, align 8
   call void @free(ptr noundef %227) #24
   %228 = load ptr, ptr %9, align 8
-  %.not.i.i.i177 = icmp eq ptr %228, null
-  br i1 %.not.i.i.i177, label %_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage7CleanupEv.exit, label %229
+  %.not.i.i.i179 = icmp eq ptr %228, null
+  br i1 %.not.i.i.i179, label %_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage7CleanupEv.exit, label %229
 
 229:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit
   %230 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -737,27 +737,27 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half
   call void @_ZdlPvm(ptr noundef nonnull %228, i64 noundef %234) #26
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage7CleanupEv.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit159:                 ; preds = %153, %150, %199, %178, %148
-  %.pn151 = phi { ptr, i32 } [ %179, %178 ], [ %.pn, %199 ], [ %149, %148 ], [ %151, %150 ], [ %151, %153 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit161:                 ; preds = %153, %150, %199, %178, %148
+  %.pn153 = phi { ptr, i32 } [ %179, %178 ], [ %.pn, %199 ], [ %149, %148 ], [ %151, %150 ], [ %151, %153 ]
   %235 = load ptr, ptr %9, align 8
-  %.not.i.i.i179 = icmp eq ptr %235, null
-  br i1 %.not.i.i.i179, label %_ZNSt6vectorIfSaIfEED2Ev.exit180, label %236
+  %.not.i.i.i181 = icmp eq ptr %235, null
+  br i1 %.not.i.i.i181, label %_ZNSt6vectorIfSaIfEED2Ev.exit182, label %236
 
-236:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit159
+236:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit161
   %237 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %238 = load ptr, ptr %237, align 8
   %239 = ptrtoint ptr %238 to i64
   %240 = ptrtoint ptr %235 to i64
   %241 = sub i64 %239, %240
   call void @_ZdlPvm(ptr noundef nonnull %235, i64 noundef %241) #26
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit180
+  br label %_ZNSt6vectorIfSaIfEED2Ev.exit182
 
-_ZNSt6vectorIfSaIfEED2Ev.exit180:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit159, %236
-  resume { ptr, i32 } %.pn151
+_ZNSt6vectorIfSaIfEED2Ev.exit182:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit161, %236
+  resume { ptr, i32 } %.pn153
 
 _ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage7CleanupEv.exit: ; preds = %229, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit, %69, %61, %27, %22, %18, %6
-  %.0133 = phi i1 [ false, %6 ], [ false, %18 ], [ false, %22 ], [ false, %27 ], [ false, %61 ], [ false, %69 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit ], [ true, %229 ]
-  ret i1 %.0133
+  %.0135 = phi i1 [ false, %6 ], [ false, %18 ], [ false, %22 ], [ false, %27 ], [ false, %61 ], [ false, %69 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half4halfEE11HalfToFloatEPS3_Pfiii.exit ], [ true, %229 ]
+  ret i1 %.0135
 }
 
 declare noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__20HioGetComponentCountENS_9HioFormatE(i32 noundef) local_unnamed_addr #1

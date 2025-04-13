@@ -252,9 +252,9 @@ define hidden noundef zeroext i1 @_mi_segment_cache_push(ptr noundef %0, i64 nou
   %.not = icmp eq i64 %1, 67108864
   %11 = ptrtoint ptr %0 to i64
   %12 = and i64 %11, 67108863
-  %.not35 = icmp eq i64 %12, 0
-  %or.cond = and i1 %.not, %.not35
-  br i1 %or.cond, label %13, label %55
+  %.not38 = icmp eq i64 %12, 0
+  %or.cond40 = and i1 %.not, %.not38
+  br i1 %or.cond40, label %13, label %55
 
 13:                                               ; preds = %8
   %14 = load atomic i64, ptr @_mi_numa_node_count monotonic, align 8
@@ -276,8 +276,8 @@ _mi_os_numa_node.exit:                            ; preds = %13
   br label %_mi_os_numa_node_count.exit
 
 _mi_os_numa_node_count.exit:                      ; preds = %18, %20
-  %.0.i38 = phi i64 [ %21, %20 ], [ %19, %18 ]
-  %22 = udiv i64 16, %.0.i38
+  %.0.i41 = phi i64 [ %21, %20 ], [ %19, %18 ]
+  %22 = udiv i64 16, %.0.i41
   %23 = zext nneg i32 %16 to i64
   %24 = mul nuw nsw i64 %22, %23
   %25 = icmp samesign ugt i64 %24, 15
@@ -285,10 +285,10 @@ _mi_os_numa_node_count.exit:                      ; preds = %18, %20
   br label %_mi_os_numa_node.exit.thread
 
 _mi_os_numa_node.exit.thread:                     ; preds = %13, %_mi_os_numa_node_count.exit, %_mi_os_numa_node.exit
-  %.032 = phi i64 [ %spec.store.select, %_mi_os_numa_node_count.exit ], [ 0, %_mi_os_numa_node.exit ], [ 0, %13 ]
+  %.035 = phi i64 [ %spec.store.select, %_mi_os_numa_node_count.exit ], [ 0, %_mi_os_numa_node.exit ], [ 0, %13 ]
   tail call fastcc void @mi_segment_cache_purge(i1 noundef zeroext false, ptr noundef %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  %26 = call zeroext i1 @_mi_bitmap_try_find_from_claim(ptr noundef nonnull @cache_inuse, i64 noundef 16, i64 noundef %.032, i64 noundef 1, ptr noundef nonnull %9) #9
+  %26 = call zeroext i1 @_mi_bitmap_try_find_from_claim(ptr noundef nonnull @cache_inuse, i64 noundef 16, i64 noundef %.035, i64 noundef 1, ptr noundef nonnull %9) #9
   br i1 %26, label %27, label %54
 
 27:                                               ; preds = %_mi_os_numa_node.exit.thread
@@ -311,16 +311,16 @@ _mi_os_numa_node.exit.thread:                     ; preds = %13, %_mi_os_numa_no
   %.057.i = phi i64 [ 0, %27 ], [ %38, %35 ]
   %36 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %.057.i
   %37 = load i64, ptr %36, align 8, !tbaa !5
-  %.not.i39 = icmp eq i64 %37, 0
+  %.not.i42 = icmp eq i64 %37, 0
   %38 = add nuw nsw i64 %.057.i, 1
   %exitcond.i = icmp ne i64 %38, 16
-  %or.cond.not.i = select i1 %.not.i39, i1 %exitcond.i, i1 false
+  %or.cond.not.i = select i1 %.not.i42, i1 %exitcond.i, i1 false
   br i1 %or.cond.not.i, label %35, label %mi_commit_mask_is_empty.exit, !llvm.loop !26
 
 mi_commit_mask_is_empty.exit:                     ; preds = %35
-  %brmerge = or i1 %5, %.not.i39
-  %brmerge37 = or i1 %6, %brmerge
-  br i1 %brmerge37, label %50, label %39
+  %or.cond = or i1 %5, %.not.i42
+  %or.cond3 = or i1 %6, %or.cond
+  br i1 %or.cond3, label %50, label %39
 
 39:                                               ; preds = %mi_commit_mask_is_empty.exit
   %40 = call zeroext i1 @mi_option_is_enabled(i32 noundef 22) #9
@@ -345,7 +345,7 @@ mi_commit_mask_is_empty.exit:                     ; preds = %35
   store atomic i64 %49, ptr %32 release, align 8
   br label %50
 
-50:                                               ; preds = %44, %47, %mi_commit_mask_is_empty.exit, %39
+50:                                               ; preds = %44, %47, %39, %mi_commit_mask_is_empty.exit
   %51 = select i1 %5, ptr @cache_available_large, ptr @cache_available
   %52 = load i64, ptr %9, align 8, !tbaa !5
   %53 = call zeroext i1 @_mi_bitmap_unclaim(ptr noundef nonnull %51, i64 noundef 16, i64 noundef 1, i64 noundef %52) #9

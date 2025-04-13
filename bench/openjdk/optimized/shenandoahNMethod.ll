@@ -667,26 +667,26 @@ define hidden void @_ZN17ShenandoahNMethod12heal_nmethodEP7nmethod(ptr noundef r
   %32 = load i16, ptr %31, align 4
   %33 = zext i16 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 %33
-  %.not18.i = icmp eq i16 %32, 0
-  br i1 %.not18.i, label %_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit, label %.lr.ph16.i
+  %.not20.i = icmp eq i16 %32, 0
+  br i1 %.not20.i, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %.lr.ph18.i
 
-.lr.ph16.i:                                       ; preds = %._crit_edge.i, %40
-  %.014.i = phi ptr [ %41, %40 ], [ %30, %._crit_edge.i ]
-  %35 = load ptr, ptr %.014.i, align 8
+.lr.ph18.i:                                       ; preds = %._crit_edge.i, %40
+  %.016.i = phi ptr [ %41, %40 ], [ %30, %._crit_edge.i ]
+  %35 = load ptr, ptr %.016.i, align 8
   %36 = call noundef ptr @_ZN8Universe12non_oop_wordEv() #15
   %.not.i = icmp eq ptr %35, %36
   br i1 %.not.i, label %40, label %37
 
-37:                                               ; preds = %.lr.ph16.i
+37:                                               ; preds = %.lr.ph18.i
   %38 = load ptr, ptr %3, align 8
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.014.i) #15
+  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.016.i) #15
   br label %40
 
-40:                                               ; preds = %37, %.lr.ph16.i
-  %41 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
+40:                                               ; preds = %37, %.lr.ph18.i
+  %41 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
   %42 = icmp ult ptr %41, %34
-  br i1 %42, label %.lr.ph16.i, label %_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit, !llvm.loop !16
+  br i1 %42, label %.lr.ph18.i, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, !llvm.loop !16
 
 43:                                               ; preds = %1
   %44 = load volatile i8, ptr %7, align 1
@@ -700,7 +700,7 @@ define hidden void @_ZN17ShenandoahNMethod12heal_nmethodEP7nmethod(ptr noundef r
   %48 = load volatile i8, ptr %47, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
   %49 = icmp eq i8 %48, 1
-  br i1 %49, label %50, label %_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit
+  br i1 %49, label %50, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 50:                                               ; preds = %46, %43
   %51 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -784,53 +784,53 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %59, %60, %64, %69
   %95 = load i16, ptr %94, align 4
   %96 = zext i16 %95 to i64
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 %96
-  %.not18.i.i = icmp eq i16 %95, 0
-  br i1 %.not18.i.i, label %._crit_edge17.i.i, label %.lr.ph16.i.i
+  %.not20.i.i = icmp eq i16 %95, 0
+  br i1 %.not20.i.i, label %._crit_edge19.i.i, label %.lr.ph18.i.i
 
-.lr.ph16.i.i:                                     ; preds = %._crit_edge.i.i, %103
-  %.014.i.i = phi ptr [ %104, %103 ], [ %93, %._crit_edge.i.i ]
-  %98 = load ptr, ptr %.014.i.i, align 8
+.lr.ph18.i.i:                                     ; preds = %._crit_edge.i.i, %103
+  %.016.i.i = phi ptr [ %104, %103 ], [ %93, %._crit_edge.i.i ]
+  %98 = load ptr, ptr %.016.i.i, align 8
   %99 = call noundef ptr @_ZN8Universe12non_oop_wordEv() #15
   %.not.i.i = icmp eq ptr %98, %99
   br i1 %.not.i.i, label %103, label %100
 
-100:                                              ; preds = %.lr.ph16.i.i
+100:                                              ; preds = %.lr.ph18.i.i
   %101 = load ptr, ptr %2, align 8
   %102 = load ptr, ptr %101, align 8
-  call void %102(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.014.i.i) #15
+  call void %102(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.016.i.i) #15
   br label %103
 
-103:                                              ; preds = %100, %.lr.ph16.i.i
-  %104 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
+103:                                              ; preds = %100, %.lr.ph18.i.i
+  %104 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
   %105 = icmp ult ptr %104, %97
-  br i1 %105, label %.lr.ph16.i.i, label %._crit_edge17.i.i, !llvm.loop !16
+  br i1 %105, label %.lr.ph18.i.i, label %._crit_edge19.i.i, !llvm.loop !16
 
-._crit_edge17.i.i:                                ; preds = %103, %._crit_edge.i.i
+._crit_edge19.i.i:                                ; preds = %103, %._crit_edge.i.i
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %107 = load i8, ptr %106, align 4
   %108 = trunc i8 %107 to i1
   br i1 %108, label %109, label %_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit
 
-109:                                              ; preds = %._crit_edge17.i.i
+109:                                              ; preds = %._crit_edge19.i.i
   %110 = load ptr, ptr %5, align 8
   call void @_ZN7nmethod19fix_oop_relocationsEPhS0_b(ptr noundef nonnull align 8 dereferenceable(214) %110, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #15
   br label %_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit
 
-_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit: ; preds = %._crit_edge17.i.i, %109
+_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit: ; preds = %._crit_edge19.i.i, %109
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %111 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %112 = load i8, ptr %55, align 1
   %113 = add i8 %112, -1
   store i8 %113, ptr %55, align 1
   %114 = icmp ugt i8 %112, 1
-  br i1 %114, label %_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit, label %115
+  br i1 %114, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %115
 
 115:                                              ; preds = %_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 2448
   call void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %116, ptr noundef nonnull %52) #15
-  br label %_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit
+  br label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
-_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit: ; preds = %40, %115, %_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit, %._crit_edge.i, %46
+_ZN22ShenandoahEvacOOMScopeD2Ev.exit:             ; preds = %40, %._crit_edge.i, %115, %_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit, %46
   ret void
 }
 

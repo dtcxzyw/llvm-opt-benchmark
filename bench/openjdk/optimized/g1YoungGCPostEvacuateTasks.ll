@@ -737,8 +737,8 @@ define hidden void @_ZN39G1PostEvacuateCollectionSetCleanupTask2C2EP23G1ParScanT
 19:                                               ; preds = %14, %4
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %21 = load volatile i32, ptr %20, align 4
-  %.not30 = icmp eq i32 %21, 0
-  br i1 %.not30, label %33, label %22
+  %.not31 = icmp eq i32 %21, 0
+  br i1 %.not31, label %33, label %22
 
 22:                                               ; preds = %19
   %23 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 5, i32 noundef 0) #14
@@ -781,55 +781,53 @@ define hidden void @_ZN39G1PostEvacuateCollectionSetCleanupTask2C2EP23G1ParScanT
   tail call void @_ZN13G1BatchedTask17add_parallel_taskEP17G1AbstractSubTask(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %34) #14
   %43 = load i8, ptr @UseTLAB, align 1
   %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %56
+  %45 = load i8, ptr @ResizeTLAB, align 1
+  %46 = trunc i8 %45 to i1
+  %or.cond = select i1 %44, i1 %46, i1 false
+  br i1 %or.cond, label %47, label %55
 
-45:                                               ; preds = %33
-  %46 = load i8, ptr @ResizeTLAB, align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %56
+47:                                               ; preds = %33
+  %48 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 5, i32 noundef 0) #14
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 31, ptr %49, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN39G1PostEvacuateCollectionSetCleanupTask215ResizeTLABsTaskE, i64 16), ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %51 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %52 = load ptr, ptr %51, align 8
+  tail call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef %52) #14
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 80
+  store i32 250, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 84
+  store volatile i32 0, ptr %54, align 4
+  tail call void @_ZN13G1BatchedTask17add_parallel_taskEP17G1AbstractSubTask(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %48) #14
+  br label %55
 
-48:                                               ; preds = %45
-  %49 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 5, i32 noundef 0) #14
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 31, ptr %50, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN39G1PostEvacuateCollectionSetCleanupTask215ResizeTLABsTaskE, i64 16), ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %52 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %53 = load ptr, ptr %52, align 8
-  tail call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %51, ptr noundef %53) #14
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 80
-  store i32 250, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %49, i64 84
-  store volatile i32 0, ptr %55, align 4
-  tail call void @_ZN13G1BatchedTask17add_parallel_taskEP17G1AbstractSubTask(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %49) #14
-  br label %56
-
-56:                                               ; preds = %48, %45, %33
-  %57 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 5, i32 noundef 0) #14
-  %58 = tail call noundef ptr @_ZNK23G1ParScanThreadStateSet21surviving_young_wordsEv(ptr noundef nonnull align 8 dereferenceable(480) %1) #14
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i32 28, ptr %59, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN39G1PostEvacuateCollectionSetCleanupTask221FreeCollectionSetTaskE, i64 16), ptr %57, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %61 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  store ptr %61, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store ptr %2, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  store ptr null, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  tail call void @_ZN19G1HeapRegionClaimerC1Ej(ptr noundef nonnull align 8 dereferenceable(16) %64, i32 noundef 0) #14
-  %65 = getelementptr inbounds nuw i8, ptr %57, i64 56
-  store ptr %58, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %57, i64 72
-  store ptr %3, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %57, i64 80
-  store volatile i32 0, ptr %68, align 8
-  %69 = load ptr, ptr %60, align 8
-  tail call void @_ZN15G1CollectedHeap10clear_edenEv(ptr noundef nonnull align 8 dereferenceable(1488) %69) #14
-  tail call void @_ZN13G1BatchedTask17add_parallel_taskEP17G1AbstractSubTask(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %57) #14
+55:                                               ; preds = %47, %33
+  %56 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i8 noundef zeroext 5, i32 noundef 0) #14
+  %57 = tail call noundef ptr @_ZNK23G1ParScanThreadStateSet21surviving_young_wordsEv(ptr noundef nonnull align 8 dereferenceable(480) %1) #14
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store i32 28, ptr %58, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN39G1PostEvacuateCollectionSetCleanupTask221FreeCollectionSetTaskE, i64 16), ptr %56, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %60 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  store ptr %60, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  store ptr %2, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  store ptr null, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  tail call void @_ZN19G1HeapRegionClaimerC1Ej(ptr noundef nonnull align 8 dereferenceable(16) %63, i32 noundef 0) #14
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 56
+  store ptr %57, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %56, i64 64
+  store i32 0, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 72
+  store ptr %3, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %56, i64 80
+  store volatile i32 0, ptr %67, align 8
+  %68 = load ptr, ptr %59, align 8
+  tail call void @_ZN15G1CollectedHeap10clear_edenEv(ptr noundef nonnull align 8 dereferenceable(1488) %68) #14
+  tail call void @_ZN13G1BatchedTask17add_parallel_taskEP17G1AbstractSubTask(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %56) #14
   ret void
 }
 
@@ -3239,8 +3237,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i: ; preds = %_ZNK14JfrThreadL
   %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1770), align 2
   %39 = icmp ne i8 %38, 0
   %40 = tail call noundef zeroext i1 @_ZN8JfrEventI20EventGCPhaseParallelE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %37, ptr noundef nonnull %30, i64 noundef %31, i64 noundef 0, i1 noundef zeroext %39)
-  %brmerge.i = or i1 %40, %39
-  br i1 %brmerge.i, label %_ZN8JfrEventI20EventGCPhaseParallelE11write_eventEv.exit, label %41
+  %or.cond.i = or i1 %40, %39
+  br i1 %or.cond.i, label %_ZN8JfrEventI20EventGCPhaseParallelE11write_eventEv.exit, label %41
 
 41:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
   %42 = tail call noundef zeroext i1 @_ZN8JfrEventI20EventGCPhaseParallelE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %37, ptr noundef nonnull %30, i64 noundef %31, i64 noundef 0, i1 noundef zeroext true)

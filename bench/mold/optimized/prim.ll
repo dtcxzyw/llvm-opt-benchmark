@@ -191,7 +191,7 @@ define internal fastcc ptr @unix_mmap(ptr noundef %0, i64 noundef %1, i64 nounde
 15:                                               ; preds = %12
   %16 = load atomic i64, ptr @unix_mmap.large_page_try_ok acquire, align 8
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %.thread79, label %.thread86
+  br i1 %17, label %24, label %.thread86
 
 .thread86:                                        ; preds = %15
   %18 = add i64 %16, -1
@@ -201,33 +201,31 @@ define internal fastcc ptr @unix_mmap(ptr noundef %0, i64 noundef %1, i64 nounde
 20:                                               ; preds = %9
   %21 = load atomic i64, ptr @unix_mmap.large_page_try_ok acquire, align 8
   %22 = and i64 %1, 1073741823
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %.thread79
-
-24:                                               ; preds = %20
+  %23 = icmp ne i64 %22, 0
   %.b = load i1, ptr @unix_mmap.mi_huge_pages_available, align 1
-  br i1 %.b, label %.thread79, label %25
+  %or.cond4.not = select i1 %23, i1 true, i1 %.b
+  br i1 %or.cond4.not, label %24, label %25
 
-.thread79:                                        ; preds = %15, %24, %20
+24:                                               ; preds = %15, %20
   br label %25
 
-25:                                               ; preds = %24, %.thread79
-  %.067 = phi i32 [ 1409548322, %.thread79 ], [ 2013528098, %24 ]
+25:                                               ; preds = %20, %24
+  %.071 = phi i32 [ 1409548322, %24 ], [ 2013528098, %20 ]
   store i8 1, ptr %6, align 1, !tbaa !17
-  %26 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %.067) #13
+  %26 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %.071) #13
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %unix_madvise.exit
 
 28:                                               ; preds = %25
-  %29 = and i32 %.067, 2013265920
+  %29 = and i32 %.071, 2013265920
   %30 = icmp eq i32 %29, 2013265920
   br i1 %30, label %31, label %.thread81
 
 31:                                               ; preds = %28
   store i1 true, ptr @unix_mmap.mi_huge_pages_available, align 1
-  br i1 %4, label %.thread104, label %35
+  br i1 %4, label %.thread102, label %35
 
-.thread104:                                       ; preds = %31
+.thread102:                                       ; preds = %31
   %32 = tail call ptr @__errno_location() #12
   %33 = load i32, ptr %32, align 4, !tbaa !15
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i32 noundef %33) #10
@@ -236,8 +234,8 @@ define internal fastcc ptr @unix_mmap(ptr noundef %0, i64 noundef %1, i64 nounde
 
 35:                                               ; preds = %31
   %36 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef 1409548322) #13
-  %.not106 = icmp eq ptr %36, null
-  br i1 %.not106, label %.thread97, label %unix_madvise.exit
+  %.not = icmp eq ptr %36, null
+  br i1 %.not, label %.thread97, label %unix_madvise.exit
 
 .thread81:                                        ; preds = %28
   br i1 %4, label %unix_madvise.exit, label %.thread97
@@ -249,20 +247,20 @@ define internal fastcc ptr @unix_mmap(ptr noundef %0, i64 noundef %1, i64 nounde
 .thread95:                                        ; preds = %.thread86, %7, %10, %12, %.thread97
   store i8 0, ptr %6, align 1, !tbaa !17
   %37 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %spec.select) #13
-  %.not = icmp ne ptr %37, null
-  %brmerge.not = and i1 %5, %.not
-  br i1 %brmerge.not, label %38, label %unix_madvise.exit
+  %38 = icmp ne ptr %37, null
+  %or.cond6 = and i1 %5, %38
+  br i1 %or.cond6, label %39, label %unix_madvise.exit
 
-38:                                               ; preds = %.thread95
-  %39 = tail call zeroext i1 @_mi_os_use_large_page(i64 noundef %1, i64 noundef %2) #10
-  br i1 %39, label %40, label %unix_madvise.exit
+39:                                               ; preds = %.thread95
+  %40 = tail call zeroext i1 @_mi_os_use_large_page(i64 noundef %1, i64 noundef %2) #10
+  br i1 %40, label %41, label %unix_madvise.exit
 
-40:                                               ; preds = %38
-  %41 = tail call i32 @madvise(ptr noundef nonnull %37, i64 noundef %1, i32 noundef 14) #10
+41:                                               ; preds = %39
+  %42 = tail call i32 @madvise(ptr noundef nonnull %37, i64 noundef %1, i32 noundef 14) #10
   br label %unix_madvise.exit
 
-unix_madvise.exit:                                ; preds = %25, %.thread104, %40, %.thread81, %35, %38, %.thread95
-  %.3 = phi ptr [ %37, %38 ], [ %37, %.thread95 ], [ %36, %35 ], [ null, %.thread81 ], [ %37, %40 ], [ %34, %.thread104 ], [ %26, %25 ]
+unix_madvise.exit:                                ; preds = %25, %.thread102, %41, %.thread81, %35, %39, %.thread95
+  %.3 = phi ptr [ %37, %39 ], [ %37, %.thread95 ], [ %36, %35 ], [ null, %.thread81 ], [ %37, %41 ], [ %34, %.thread102 ], [ %26, %25 ]
   ret ptr %.3
 }
 
@@ -373,81 +371,73 @@ define hidden i32 @_mi_prim_alloc_huge_os_pages(ptr noundef %0, i64 noundef %1, 
   %7 = tail call zeroext i1 @_mi_os_has_overcommit() #10
   %8 = load atomic i64, ptr @unix_mmap.large_page_try_ok acquire, align 8
   %9 = and i64 %1, 1073741823
-  %10 = icmp eq i64 %9, 0
-  br i1 %10, label %11, label %.thread79.i
-
-11:                                               ; preds = %5
+  %10 = icmp ne i64 %9, 0
   %.b.i = load i1, ptr @unix_mmap.mi_huge_pages_available, align 1
-  br i1 %.b.i, label %.thread79.i, label %12
+  %or.cond4.not.i = select i1 %10, i1 true, i1 %.b.i
+  %spec.select = select i1 %or.cond4.not.i, i32 1409548322, i32 2013528098
+  %11 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %0, i64 noundef %1, i64 noundef 33554432, i32 noundef 3, i32 noundef %spec.select) #13
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %unix_mmap.exit
 
-.thread79.i:                                      ; preds = %11, %5
-  br label %12
+13:                                               ; preds = %5
+  %14 = and i32 %spec.select, 2013265920
+  %15 = icmp eq i32 %14, 2013265920
+  br i1 %15, label %16, label %.thread
 
-12:                                               ; preds = %.thread79.i, %11
-  %.067.i = phi i32 [ 1409548322, %.thread79.i ], [ 2013528098, %11 ]
-  %13 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %0, i64 noundef %1, i64 noundef 33554432, i32 noundef 3, i32 noundef %.067.i) #13
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %unix_mmap.exit
-
-15:                                               ; preds = %12
-  %16 = and i32 %.067.i, 2013265920
-  %17 = icmp eq i32 %16, 2013265920
-  br i1 %17, label %18, label %.thread
-
-.thread:                                          ; preds = %15
+.thread:                                          ; preds = %13
   store ptr null, ptr %4, align 8, !tbaa !18
-  br label %35
-
-18:                                               ; preds = %15
-  store i1 true, ptr @unix_mmap.mi_huge_pages_available, align 1
-  %19 = tail call ptr @__errno_location() #12
-  %20 = load i32, ptr %19, align 4, !tbaa !15
-  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i32 noundef %20) #10
-  %21 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %0, i64 noundef %1, i64 noundef 33554432, i32 noundef 3, i32 noundef 1409548322) #13
-  br label %unix_mmap.exit
-
-unix_mmap.exit:                                   ; preds = %12, %18
-  %.3.i = phi ptr [ %21, %18 ], [ %13, %12 ]
-  store ptr %.3.i, ptr %4, align 8, !tbaa !18
-  %22 = icmp ne ptr %.3.i, null
-  %23 = icmp ult i32 %2, 64
-  %or.cond3 = and i1 %23, %22
-  br i1 %or.cond3, label %24, label %33
-
-24:                                               ; preds = %unix_mmap.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  %25 = zext nneg i32 %2 to i64
-  %26 = shl nuw i64 1, %25
-  store i64 %26, ptr %6, align 8, !tbaa !22
-  %27 = call i64 (i64, ...) @syscall(i64 noundef 237, ptr noundef nonnull %.3.i, i64 noundef %1, i64 noundef 1, ptr noundef nonnull %6, i64 noundef 64, i32 noundef 0) #10
-  %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %32, label %28
-
-28:                                               ; preds = %24
-  %29 = tail call ptr @__errno_location() #12
-  %30 = load i32, ptr %29, align 4, !tbaa !15
-  %31 = sext i32 %30 to i64
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str, i32 noundef %2, i64 noundef %31, i64 noundef %31) #10
-  br label %32
-
-32:                                               ; preds = %28, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  %.pr = load ptr, ptr %4, align 8, !tbaa !18
   br label %33
 
-33:                                               ; preds = %32, %unix_mmap.exit
-  %34 = phi ptr [ %.pr, %32 ], [ %.3.i, %unix_mmap.exit ]
-  %.not17 = icmp eq ptr %34, null
-  br i1 %.not17, label %35, label %38
+16:                                               ; preds = %13
+  store i1 true, ptr @unix_mmap.mi_huge_pages_available, align 1
+  %17 = tail call ptr @__errno_location() #12
+  %18 = load i32, ptr %17, align 4, !tbaa !15
+  tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i32 noundef %18) #10
+  %19 = tail call fastcc ptr @unix_mmap_prim(ptr noundef %0, i64 noundef %1, i64 noundef 33554432, i32 noundef 3, i32 noundef 1409548322) #13
+  br label %unix_mmap.exit
 
-35:                                               ; preds = %.thread, %33
-  %36 = tail call ptr @__errno_location() #12
-  %37 = load i32, ptr %36, align 4, !tbaa !15
-  br label %38
+unix_mmap.exit:                                   ; preds = %5, %16
+  %.3.i = phi ptr [ %19, %16 ], [ %11, %5 ]
+  store ptr %.3.i, ptr %4, align 8, !tbaa !18
+  %20 = icmp ne ptr %.3.i, null
+  %21 = icmp ult i32 %2, 64
+  %or.cond3 = and i1 %21, %20
+  br i1 %or.cond3, label %22, label %31
 
-38:                                               ; preds = %33, %35
-  %39 = phi i32 [ %37, %35 ], [ 0, %33 ]
-  ret i32 %39
+22:                                               ; preds = %unix_mmap.exit
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  %23 = zext nneg i32 %2 to i64
+  %24 = shl nuw i64 1, %23
+  store i64 %24, ptr %6, align 8, !tbaa !22
+  %25 = call i64 (i64, ...) @syscall(i64 noundef 237, ptr noundef nonnull %.3.i, i64 noundef %1, i64 noundef 1, ptr noundef nonnull %6, i64 noundef 64, i32 noundef 0) #10
+  %.not = icmp eq i64 %25, 0
+  br i1 %.not, label %30, label %26
+
+26:                                               ; preds = %22
+  %27 = tail call ptr @__errno_location() #12
+  %28 = load i32, ptr %27, align 4, !tbaa !15
+  %29 = sext i32 %28 to i64
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str, i32 noundef %2, i64 noundef %29, i64 noundef %29) #10
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  %.pr = load ptr, ptr %4, align 8, !tbaa !18
+  br label %31
+
+31:                                               ; preds = %30, %unix_mmap.exit
+  %32 = phi ptr [ %.pr, %30 ], [ %.3.i, %unix_mmap.exit ]
+  %.not17 = icmp eq ptr %32, null
+  br i1 %.not17, label %33, label %36
+
+33:                                               ; preds = %.thread, %31
+  %34 = tail call ptr @__errno_location() #12
+  %35 = load i32, ptr %34, align 4, !tbaa !15
+  br label %36
+
+36:                                               ; preds = %31, %33
+  %37 = phi i32 [ %35, %33 ], [ 0, %31 ]
+  ret i32 %37
 }
 
 declare void @_mi_warning_message(ptr noundef, ...) local_unnamed_addr #3

@@ -1637,55 +1637,36 @@ define void @_ZNK3gmx31OutputRequirementOptionDirector7processEv(ptr dead_on_unw
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %27 = load i8, ptr %26, align 1, !tbaa !116, !range !107, !noundef !108
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %33, label %29
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %30 = load i8, ptr %29, align 8, !range !107
+  %31 = trunc nuw i8 %30 to i1
+  %or.cond = select i1 %28, i1 true, i1 %31
+  br i1 %or.cond, label %.sink.split, label %38
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load i8, ptr %30, align 8, !tbaa !117, !range !107, !noundef !108
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %43, label %50
+.sink.split:                                      ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %33 = load float, ptr %32, align 8, !tbaa !117
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %33, ptr %34, align 4, !tbaa !118
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %36 = load float, ptr %35, align 4, !tbaa !119
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %36, ptr %37, align 4, !tbaa !120
+  %. = select i1 %31, i32 3, i32 2
+  %.sink = select i1 %28, i32 %., i32 1
+  store i32 %.sink, ptr %6, align 4, !tbaa !121
+  br label %38
 
-33:                                               ; preds = %25
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load float, ptr %34, align 8, !tbaa !118
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %35, ptr %36, align 4, !tbaa !119
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %38 = load float, ptr %37, align 4, !tbaa !120
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %38, ptr %39, align 4, !tbaa !121
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %41 = load i8, ptr %40, align 8, !tbaa !117, !range !107, !noundef !108
-  %42 = trunc nuw i8 %41 to i1
-  %. = select i1 %42, i32 3, i32 2
-  br label %.sink.split
-
-43:                                               ; preds = %29
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %45 = load float, ptr %44, align 8, !tbaa !118
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %45, ptr %46, align 4, !tbaa !119
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %48 = load float, ptr %47, align 4, !tbaa !120
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %48, ptr %49, align 4, !tbaa !121
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %33, %43
-  %.sink = phi i32 [ 1, %43 ], [ %., %33 ]
-  store i32 %.sink, ptr %6, align 4, !tbaa !122
-  br label %50
-
-50:                                               ; preds = %.sink.split, %29
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %52 = load i32, ptr %51, align 4, !tbaa !123
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %52, ptr %53, align 4, !tbaa !124
-  %54 = load i32, ptr %1, align 8, !tbaa !125
-  store i32 %54, ptr %0, align 4, !tbaa !93
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %56 = load i32, ptr %55, align 4, !tbaa !126
-  store i32 %56, ptr %3, align 4, !tbaa !98
+38:                                               ; preds = %.sink.split, %25
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %40 = load i32, ptr %39, align 4, !tbaa !122
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 %40, ptr %41, align 4, !tbaa !123
+  %42 = load i32, ptr %1, align 8, !tbaa !124
+  store i32 %42, ptr %0, align 4, !tbaa !93
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %44 = load i32, ptr %43, align 4, !tbaa !125
+  store i32 %44, ptr %3, align 4, !tbaa !98
   ret void
 }
 
@@ -1838,13 +1819,12 @@ attributes #16 = { noreturn }
 !114 = !{!102, !46, i64 12}
 !115 = !{!102, !6, i64 8}
 !116 = !{!102, !46, i64 25}
-!117 = !{!102, !46, i64 24}
-!118 = !{!102, !97, i64 16}
-!119 = !{!94, !97, i64 20}
-!120 = !{!102, !97, i64 20}
-!121 = !{!94, !97, i64 24}
-!122 = !{!94, !96, i64 16}
-!123 = !{!102, !80, i64 60}
-!124 = !{!94, !80, i64 68}
-!125 = !{!102, !51, i64 0}
-!126 = !{!102, !51, i64 4}
+!117 = !{!102, !97, i64 16}
+!118 = !{!94, !97, i64 20}
+!119 = !{!102, !97, i64 20}
+!120 = !{!94, !97, i64 24}
+!121 = !{!94, !96, i64 16}
+!122 = !{!102, !80, i64 60}
+!123 = !{!94, !80, i64 68}
+!124 = !{!102, !51, i64 0}
+!125 = !{!102, !51, i64 4}

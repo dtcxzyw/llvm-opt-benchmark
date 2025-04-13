@@ -298,8 +298,8 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   br i1 %76, label %82, label %77
 
 77:                                               ; preds = %65
-  %.not84.i = icmp slt i32 %67, %74
-  br i1 %.not84.i, label %78, label %82
+  %.not.i48 = icmp slt i32 %67, %74
+  br i1 %.not.i48, label %78, label %82
 
 78:                                               ; preds = %77
   %79 = call i32 @lv_label_get_letter_on(ptr noundef %75, ptr noundef nonnull %12, i1 noundef zeroext true) #10
@@ -308,25 +308,25 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   br label %82
 
 82:                                               ; preds = %78, %77, %65
-  %.078.i = phi i32 [ %79, %78 ], [ 0, %65 ], [ 32767, %77 ]
-  %.not.i48 = phi i1 [ %81, %78 ], [ false, %65 ], [ false, %77 ]
+  %.080.i = phi i32 [ %79, %78 ], [ 0, %65 ], [ 32767, %77 ]
+  %.0.not.i = phi i1 [ %81, %78 ], [ false, %65 ], [ false, %77 ]
   %83 = getelementptr inbounds nuw i8, ptr %46, i64 152
   %84 = load i8, ptr %83, align 8
   %85 = and i8 %84, 2
-  %.not85.i = icmp eq i8 %85, 0
-  br i1 %.not85.i, label %101, label %86
+  %.not86.i = icmp eq i8 %85, 0
+  br i1 %.not86.i, label %101, label %86
 
 86:                                               ; preds = %82
   %87 = and i8 %84, 1
-  %.not86.i = icmp eq i8 %87, 0
-  %88 = icmp eq i32 %72, 1
-  %89 = select i1 %.not86.i, i1 %.not.i48, i1 false
-  %or.cond94.i = select i1 %89, i1 %88, i1 false
-  br i1 %or.cond94.i, label %.thread.i, label %93
+  %88 = icmp eq i8 %87, 0
+  %or.cond4.not88.i = select i1 %88, i1 %.0.not.i, i1 false
+  %89 = icmp eq i32 %72, 1
+  %or.cond6.i = select i1 %or.cond4.not88.i, i1 %89, i1 false
+  br i1 %or.cond6.i, label %.thread.i, label %93
 
 .thread.i:                                        ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %46, i64 144
-  store i32 %.078.i, ptr %90, align 8, !tbaa !32
+  store i32 %.080.i, ptr %90, align 8, !tbaa !32
   %91 = getelementptr inbounds nuw i8, ptr %46, i64 148
   store i32 65535, ptr %91, align 4, !tbaa !33
   %92 = or disjoint i8 %84, 1
@@ -337,19 +337,19 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 93:                                               ; preds = %86
   %94 = icmp ne i8 %87, 0
   %95 = icmp eq i32 %72, 2
-  %or.cond6.i = select i1 %94, i1 %95, i1 false
-  br i1 %or.cond6.i, label %96, label %98
+  %or.cond8.i = select i1 %94, i1 %95, i1 false
+  br i1 %or.cond8.i, label %96, label %98
 
 96:                                               ; preds = %93
   %97 = getelementptr inbounds nuw i8, ptr %46, i64 148
-  store i32 %.078.i, ptr %97, align 4, !tbaa !33
+  store i32 %.080.i, ptr %97, align 4, !tbaa !33
   br label %101
 
 98:                                               ; preds = %93
   %99 = and i32 %72, -9
-  %or.cond8.i = icmp eq i32 %99, 3
-  %or.cond95.i = select i1 %94, i1 %or.cond8.i, i1 false
-  br i1 %or.cond95.i, label %100, label %101
+  %or.cond10.i = icmp eq i32 %99, 3
+  %or.cond96.i = select i1 %94, i1 %or.cond10.i, i1 false
+  br i1 %or.cond96.i, label %100, label %101
 
 100:                                              ; preds = %98
   call void @lv_obj_add_flag(ptr noundef nonnull %46, i32 noundef 768) #10
@@ -361,15 +361,15 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   %103 = and i8 %102, 1
   %104 = icmp ne i8 %103, 0
   %105 = icmp eq i32 %72, 1
-  %or.cond10.i = select i1 %104, i1 true, i1 %105
-  br i1 %or.cond10.i, label %106, label %.thread99.i
+  %or.cond12.i = select i1 %104, i1 true, i1 %105
+  br i1 %or.cond12.i, label %106, label %.thread100.i
 
 106:                                              ; preds = %101, %.thread.i
-  call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %46, i32 noundef %.078.i)
-  %.pre97.i = load i8, ptr %83, align 8
-  %.pre98.i = and i8 %.pre97.i, 1
-  %107 = icmp eq i8 %.pre98.i, 0
-  br i1 %107, label %.thread99.i, label %108
+  call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %46, i32 noundef %.080.i)
+  %.pre98.i = load i8, ptr %83, align 8
+  %.pre99.i = and i8 %.pre98.i, 1
+  %107 = icmp eq i8 %.pre99.i, 0
+  br i1 %107, label %.thread100.i, label %108
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %46, i64 144
@@ -382,14 +382,14 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 114:                                              ; preds = %108
   %115 = getelementptr inbounds nuw i8, ptr %75, i64 92
   %116 = load i32, ptr %115, align 4, !tbaa !34
-  %.not92.i = icmp eq i32 %116, %112
-  br i1 %.not92.i, label %117, label %120
+  %.not94.i = icmp eq i32 %116, %112
+  br i1 %.not94.i, label %117, label %120
 
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %75, i64 96
   %119 = load i32, ptr %118, align 8, !tbaa !37
-  %.not93.i = icmp eq i32 %119, %110
-  br i1 %.not93.i, label %136, label %120
+  %.not95.i = icmp eq i32 %119, %110
+  br i1 %.not95.i, label %136, label %120
 
 120:                                              ; preds = %117, %114
   store i32 %112, ptr %115, align 4, !tbaa !34
@@ -402,28 +402,28 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   br i1 %122, label %125, label %130
 
 125:                                              ; preds = %121
-  %.not90.i = icmp eq i32 %124, %110
-  br i1 %.not90.i, label %126, label %129
+  %.not92.i = icmp eq i32 %124, %110
+  br i1 %.not92.i, label %126, label %129
 
 126:                                              ; preds = %125
   %127 = getelementptr inbounds nuw i8, ptr %75, i64 96
   %128 = load i32, ptr %127, align 8, !tbaa !37
-  %.not91.i = icmp eq i32 %128, %112
-  br i1 %.not91.i, label %136, label %129
+  %.not93.i = icmp eq i32 %128, %112
+  br i1 %.not93.i, label %136, label %129
 
 129:                                              ; preds = %126, %125
   store i32 %110, ptr %123, align 4, !tbaa !34
   br label %.sink.split.i
 
 130:                                              ; preds = %121
-  %.not88.i = icmp eq i32 %124, 65535
-  br i1 %.not88.i, label %131, label %134
+  %.not90.i = icmp eq i32 %124, 65535
+  br i1 %.not90.i, label %131, label %134
 
 131:                                              ; preds = %130
   %132 = getelementptr inbounds nuw i8, ptr %75, i64 96
   %133 = load i32, ptr %132, align 8, !tbaa !37
-  %.not89.i = icmp eq i32 %133, 65535
-  br i1 %.not89.i, label %136, label %134
+  %.not91.i = icmp eq i32 %133, 65535
+  br i1 %.not91.i, label %136, label %134
 
 134:                                              ; preds = %131, %130
   store i32 65535, ptr %123, align 4, !tbaa !34
@@ -438,20 +438,20 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 
 136:                                              ; preds = %.sink.split.i, %131, %126, %117
   %137 = and i32 %72, -9
-  %or.cond12.i = icmp eq i32 %137, 3
-  br i1 %or.cond12.i, label %138, label %.thread99.i
+  %or.cond14.i = icmp eq i32 %137, 3
+  br i1 %or.cond14.i, label %138, label %.thread100.i
 
 138:                                              ; preds = %136
   %139 = load i8, ptr %83, align 8
   %140 = and i8 %139, -2
   store i8 %140, ptr %83, align 8
-  br label %.thread99.i
+  br label %.thread100.i
 
-.thread99.i:                                      ; preds = %138, %136, %106, %101
+.thread100.i:                                     ; preds = %138, %136, %106, %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
   br label %141
 
-141:                                              ; preds = %.thread99.i, %57
+141:                                              ; preds = %.thread100.i, %57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10

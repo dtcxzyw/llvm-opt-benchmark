@@ -231,8 +231,7 @@ $_ZNSt6vectorI20InstructionSpecifierSaIS0_EE17_M_default_appendEm = comdat any
 @_ZTVN4llvm15X86Disassembler11ExactFilterE = external unnamed_addr constant { [7 x ptr] }, align 8
 @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr14emitDecodePathERNS0_18DisassemblerTablesE = private unnamed_addr constant [3 x i32] [i32 16, i32 32, i32 64], align 4
 @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv = private unnamed_addr constant [4 x i32] [i32 41, i32 39, i32 40, i32 38], align 4
-@switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv.3 = private unnamed_addr constant [3 x i32] [i32 37, i32 35, i32 36], align 4
-@switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv.4 = private unnamed_addr constant [3 x i32] [i32 27, i32 28, i32 26], align 4
+@switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv.3 = private unnamed_addr constant [3 x i32] [i32 27, i32 28, i32 26], align 4
 
 @_ZN4llvm15X86Disassembler21RecognizableInstrBaseC1ERKNS_18CodeGenInstructionE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm15X86Disassembler21RecognizableInstrBaseC2ERKNS_18CodeGenInstructionE
 @_ZN4llvm15X86Disassembler17RecognizableInstrC1ERNS0_18DisassemblerTablesERKNS_18CodeGenInstructionEt = unnamed_addr alias void (ptr, ptr, ptr, i16), ptr @_ZN4llvm15X86Disassembler17RecognizableInstrC2ERNS0_18DisassemblerTablesERKNS_18CodeGenInstructionEt
@@ -968,30 +967,29 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86Disassembler21RecognizableIns
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %3 = load i8, ptr %2, align 1, !tbaa !106
   %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %17, label %4
+  br i1 %.not, label %16, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i8, ptr %5, align 1, !tbaa !121, !range !99, !noundef !100
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %12
+  %.not1 = xor i1 %7, true
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  %9 = load i8, ptr %8, align 1, !range !99
+  %10 = trunc nuw i8 %9 to i1
+  %or.cond = select i1 %.not1, i1 true, i1 %10
+  br i1 %or.cond, label %11, label %16
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %10 = load i8, ptr %9, align 1, !tbaa !123, !range !99, !noundef !100
-  %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %17
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  %13 = load i8, ptr %12, align 1, !tbaa !122, !range !99, !noundef !100
+  %14 = trunc nuw i8 %13 to i1
+  %15 = xor i1 %14, true
+  br label %16
 
-12:                                               ; preds = %8, %4
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %14 = load i8, ptr %13, align 1, !tbaa !122, !range !99, !noundef !100
-  %15 = trunc nuw i8 %14 to i1
-  %16 = xor i1 %15, true
-  br label %17
-
-17:                                               ; preds = %12, %8, %1
-  %18 = phi i1 [ false, %8 ], [ false, %1 ], [ %16, %12 ]
-  ret i1 %18
+16:                                               ; preds = %4, %11, %1
+  %17 = phi i1 [ false, %1 ], [ %15, %11 ], [ false, %4 ]
+  ret i1 %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1203,7 +1201,7 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr12processInst
   %4 = alloca %"class.llvm::X86Disassembler::RecognizableInstr", align 8
   %5 = load ptr, ptr %1, align 8, !tbaa !74
   %6 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %5, ptr nonnull @.str.40, i64 7)
-  br i1 %6, label %7, label %32
+  br i1 %6, label %7, label %31
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #17
@@ -1217,55 +1215,47 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr12processInst
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %12 = load i8, ptr %11, align 4, !tbaa !121, !range !99, !noundef !100
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %_ZNK4llvm15X86Disassembler21RecognizableInstrBase15shouldBeEmittedEv.exit
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 22
+  %15 = load i8, ptr %14, align 2, !range !99
+  %16 = trunc nuw i8 %15 to i1
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 21
+  %18 = load i8, ptr %17, align 1, !range !99
+  %19 = trunc nuw i8 %18 to i1
+  %.not = xor i1 %16, true
+  %not.or.cond.i = select i1 %13, i1 %.not, i1 false
+  %20 = select i1 %not.or.cond.i, i1 true, i1 %19
+  br i1 %20, label %_ZNK4llvm15X86Disassembler21RecognizableInstrBase15shouldBeEmittedEv.exit.thread, label %21
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 22
-  %16 = load i8, ptr %15, align 2, !tbaa !123, !range !99, !noundef !100
-  %17 = trunc nuw i8 %16 to i1
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 21
-  %19 = load i8, ptr %18, align 1, !range !99
-  %20 = trunc nuw i8 %19 to i1
-  %not. = xor i1 %17, true
-  %21 = select i1 %not., i1 true, i1 %20
-  br i1 %21, label %_ZNK4llvm15X86Disassembler21RecognizableInstrBase15shouldBeEmittedEv.exit.thread, label %22
-
-_ZNK4llvm15X86Disassembler21RecognizableInstrBase15shouldBeEmittedEv.exit: ; preds = %10
-  %.old = getelementptr inbounds nuw i8, ptr %4, i64 21
-  %.old4 = load i8, ptr %.old, align 1, !tbaa !122, !range !99, !noundef !100
-  %.old5 = trunc nuw i8 %.old4 to i1
-  br i1 %.old5, label %_ZNK4llvm15X86Disassembler21RecognizableInstrBase15shouldBeEmittedEv.exit.thread, label %22
-
-22:                                               ; preds = %14, %_ZNK4llvm15X86Disassembler21RecognizableInstrBase15shouldBeEmittedEv.exit
+21:                                               ; preds = %10
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr24emitInstructionSpecifierEv(ptr noundef nonnull align 8 dereferenceable(104) %4)
   call void @_ZNK4llvm15X86Disassembler17RecognizableInstr14emitDecodePathERNS0_18DisassemblerTablesE(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 8 dereferenceable(169) %0)
   br label %_ZNK4llvm15X86Disassembler21RecognizableInstrBase15shouldBeEmittedEv.exit.thread
 
-_ZNK4llvm15X86Disassembler21RecognizableInstrBase15shouldBeEmittedEv.exit.thread: ; preds = %7, %14, %_ZNK4llvm15X86Disassembler21RecognizableInstrBase15shouldBeEmittedEv.exit, %22
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %26 = icmp eq ptr %24, %25
-  br i1 %26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZNK4llvm15X86Disassembler21RecognizableInstrBase15shouldBeEmittedEv.exit.thread: ; preds = %10, %7, %21
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %23 = load ptr, ptr %22, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %25 = icmp eq ptr %23, %24
+  br i1 %25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNK4llvm15X86Disassembler21RecognizableInstrBase15shouldBeEmittedEv.exit.thread
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %28 = load i64, ptr %27, align 8, !tbaa !11
-  %29 = icmp ult i64 %28, 16
-  call void @llvm.assume(i1 %29)
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %27 = load i64, ptr %26, align 8, !tbaa !11
+  %28 = icmp ult i64 %27, 16
+  call void @llvm.assume(i1 %28)
   br label %_ZN4llvm15X86Disassembler17RecognizableInstrD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNK4llvm15X86Disassembler21RecognizableInstrBase15shouldBeEmittedEv.exit.thread
-  %30 = load i64, ptr %25, align 8, !tbaa !12
-  %31 = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %24, i64 noundef %31) #18
+  %29 = load i64, ptr %24, align 8, !tbaa !12
+  %30 = add i64 %29, 1
+  call void @_ZdlPvm(ptr noundef %23, i64 noundef %30) #18
   br label %_ZN4llvm15X86Disassembler17RecognizableInstrD2Ev.exit
 
 _ZN4llvm15X86Disassembler17RecognizableInstrD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #17
-  br label %32
+  br label %31
 
-32:                                               ; preds = %3, %_ZN4llvm15X86Disassembler17RecognizableInstrD2Ev.exit
+31:                                               ; preds = %3, %_ZN4llvm15X86Disassembler17RecognizableInstrD2Ev.exit
   ret void
 }
 
@@ -1294,15 +1284,15 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr24emitInstruc
   %20 = sdiv exact i64 %19, 264
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
   %21 = and i64 %20, 4294967295
-  %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not143 = icmp eq i64 %21, 0
+  br i1 %.not143, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %wide.trip.count = and i64 %20, 4294967295
-  br label %25
+  br label %28
 
-._crit_edge:                                      ; preds = %49, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.2, %49 ]
+._crit_edge:                                      ; preds = %52, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %.2, %52 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
   store i32 0, ptr %3, align 4, !tbaa !152
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
@@ -1310,529 +1300,523 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr24emitInstruc
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !104
   %24 = icmp eq i8 %23, 8
-  br i1 %24, label %50, label %58
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %26 = load i8, ptr %25, align 1, !range !99
+  %27 = trunc nuw i8 %26 to i1
+  %or.cond = select i1 %24, i1 %27, i1 false
+  br i1 %or.cond, label %53, label %57
 
-25:                                               ; preds = %.lr.ph, %49
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %.0125 = phi i32 [ 0, %.lr.ph ], [ %.2, %49 ]
-  %26 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %16, i64 %indvars.iv, i32 10
-  %27 = load ptr, ptr %26, align 8, !tbaa !153
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !153
-  %30 = icmp eq ptr %27, %29
-  br i1 %30, label %45, label %31
+28:                                               ; preds = %.lr.ph, %52
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
+  %.0142 = phi i32 [ 0, %.lr.ph ], [ %.2, %52 ]
+  %29 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %16, i64 %indvars.iv, i32 10
+  %30 = load ptr, ptr %29, align 8, !tbaa !153
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !153
+  %33 = icmp eq ptr %30, %32
+  br i1 %33, label %48, label %34
 
-31:                                               ; preds = %25
-  %32 = load i32, ptr %27, align 4, !tbaa !155
-  %33 = icmp eq i32 %32, 2
-  br i1 %33, label %34, label %41
+34:                                               ; preds = %28
+  %35 = load i32, ptr %30, align 4, !tbaa !155
+  %36 = icmp eq i32 %35, 2
+  br i1 %36, label %37, label %44
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %indvars.iv
-  %36 = trunc nuw i64 %indvars.iv to i32
-  store i32 %36, ptr %35, align 4, !tbaa !152
-  %37 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %38 = load i32, ptr %37, align 4, !tbaa !158
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %39
-  store i32 %36, ptr %40, align 4, !tbaa !152
-  br label %49
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %39 = trunc nuw i64 %indvars.iv to i32
+  store i32 %39, ptr %38, align 4, !tbaa !152
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %41 = load i32, ptr %40, align 4, !tbaa !158
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %42
+  store i32 %39, ptr %43, align 4, !tbaa !152
+  br label %52
 
-41:                                               ; preds = %31
-  %42 = add i32 %.0125, 1
-  %43 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %indvars.iv
-  %44 = trunc nuw i64 %indvars.iv to i32
-  store i32 %44, ptr %43, align 4, !tbaa !152
-  br label %49
+44:                                               ; preds = %34
+  %45 = add i32 %.0142, 1
+  %46 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %47 = trunc nuw i64 %indvars.iv to i32
+  store i32 %47, ptr %46, align 4, !tbaa !152
+  br label %52
 
-45:                                               ; preds = %25
-  %46 = add i32 %.0125, 1
-  %47 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %indvars.iv
-  %48 = trunc nuw i64 %indvars.iv to i32
-  store i32 %48, ptr %47, align 4, !tbaa !152
-  br label %49
+48:                                               ; preds = %28
+  %49 = add i32 %.0142, 1
+  %50 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %51 = trunc nuw i64 %indvars.iv to i32
+  store i32 %51, ptr %50, align 4, !tbaa !152
+  br label %52
 
-49:                                               ; preds = %34, %41, %45
-  %.2 = phi i32 [ %46, %45 ], [ %.0125, %34 ], [ %42, %41 ]
+52:                                               ; preds = %37, %44, %48
+  %.2 = phi i32 [ %49, %48 ], [ %.0142, %37 ], [ %45, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !159
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !159
 
-50:                                               ; preds = %._crit_edge
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %52 = load i8, ptr %51, align 1, !tbaa !117, !range !99, !noundef !100
-  %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %54, label %58
+53:                                               ; preds = %._crit_edge
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = load i8, ptr %54, align 8, !tbaa !111, !range !99, !noundef !100
+  %56 = trunc nuw i8 %55 to i1
+  br label %57
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load i8, ptr %55, align 8, !tbaa !111, !range !99, !noundef !100
-  %57 = trunc nuw i8 %56 to i1
-  br label %58
-
-58:                                               ; preds = %54, %50, %._crit_edge
-  %59 = phi i1 [ false, %50 ], [ false, %._crit_edge ], [ %57, %54 ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %61 = load i8, ptr %60, align 1, !tbaa !106
-  switch i8 %61, label %62 [
-    i8 10, label %167
-    i8 4, label %63
-    i8 5, label %64
-    i8 6, label %65
-    i8 1, label %66
-    i8 3, label %67
-    i8 2, label %68
-    i8 9, label %69
-    i8 18, label %70
-    i8 40, label %71
-    i8 19, label %85
-    i8 20, label %86
-    i8 24, label %87
-    i8 23, label %87
-    i8 41, label %101
-    i8 42, label %115
-    i8 43, label %116
-    i8 44, label %117
-    i8 25, label %120
-    i8 22, label %120
-    i8 26, label %134
-    i8 27, label %135
-    i8 28, label %136
-    i8 46, label %139
-    i8 21, label %140
-    i8 47, label %141
-    i8 48, label %141
-    i8 49, label %141
-    i8 50, label %141
-    i8 51, label %141
-    i8 52, label %141
-    i8 53, label %141
-    i8 54, label %141
-    i8 55, label %141
-    i8 30, label %152
-    i8 31, label %153
-    i8 32, label %153
-    i8 33, label %153
-    i8 34, label %153
-    i8 35, label %153
-    i8 36, label %153
-    i8 37, label %153
-    i8 38, label %153
-    i8 39, label %153
-    i8 7, label %164
-    i8 8, label %165
-    i8 56, label %166
-    i8 57, label %166
-    i8 58, label %166
-    i8 59, label %166
-    i8 60, label %166
-    i8 61, label %166
-    i8 62, label %166
-    i8 63, label %166
-    i8 64, label %166
-    i8 65, label %166
-    i8 66, label %166
-    i8 67, label %166
-    i8 68, label %166
-    i8 69, label %166
-    i8 70, label %166
-    i8 71, label %166
-    i8 72, label %166
-    i8 73, label %166
-    i8 74, label %166
-    i8 75, label %166
-    i8 76, label %166
-    i8 77, label %166
-    i8 78, label %166
-    i8 79, label %166
-    i8 80, label %166
-    i8 81, label %166
-    i8 82, label %166
-    i8 83, label %166
-    i8 84, label %166
-    i8 85, label %166
-    i8 86, label %166
-    i8 87, label %166
-    i8 88, label %166
-    i8 89, label %166
-    i8 90, label %166
-    i8 91, label %166
-    i8 92, label %166
-    i8 93, label %166
-    i8 94, label %166
-    i8 95, label %166
-    i8 96, label %166
-    i8 97, label %166
-    i8 98, label %166
-    i8 99, label %166
-    i8 100, label %166
-    i8 101, label %166
-    i8 102, label %166
-    i8 103, label %166
-    i8 104, label %166
-    i8 105, label %166
-    i8 106, label %166
-    i8 107, label %166
-    i8 108, label %166
-    i8 109, label %166
-    i8 110, label %166
-    i8 111, label %166
-    i8 112, label %166
-    i8 113, label %166
-    i8 114, label %166
-    i8 115, label %166
-    i8 116, label %166
-    i8 117, label %166
-    i8 118, label %166
-    i8 119, label %166
-    i8 120, label %166
-    i8 121, label %166
-    i8 122, label %166
-    i8 123, label %166
-    i8 124, label %166
-    i8 125, label %166
-    i8 126, label %166
-    i8 127, label %166
+57:                                               ; preds = %53, %._crit_edge
+  %58 = phi i1 [ false, %._crit_edge ], [ %56, %53 ]
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %60 = load i8, ptr %59, align 1, !tbaa !106
+  switch i8 %60, label %61 [
+    i8 10, label %162
+    i8 4, label %62
+    i8 5, label %63
+    i8 6, label %64
+    i8 1, label %65
+    i8 3, label %66
+    i8 2, label %67
+    i8 9, label %68
+    i8 18, label %69
+    i8 40, label %70
+    i8 19, label %83
+    i8 20, label %84
+    i8 24, label %85
+    i8 23, label %85
+    i8 41, label %98
+    i8 42, label %111
+    i8 43, label %112
+    i8 44, label %113
+    i8 25, label %116
+    i8 22, label %116
+    i8 26, label %129
+    i8 27, label %130
+    i8 28, label %131
+    i8 46, label %134
+    i8 21, label %135
+    i8 47, label %136
+    i8 48, label %136
+    i8 49, label %136
+    i8 50, label %136
+    i8 51, label %136
+    i8 52, label %136
+    i8 53, label %136
+    i8 54, label %136
+    i8 55, label %136
+    i8 30, label %147
+    i8 31, label %148
+    i8 32, label %148
+    i8 33, label %148
+    i8 34, label %148
+    i8 35, label %148
+    i8 36, label %148
+    i8 37, label %148
+    i8 38, label %148
+    i8 39, label %148
+    i8 7, label %159
+    i8 8, label %160
+    i8 56, label %161
+    i8 57, label %161
+    i8 58, label %161
+    i8 59, label %161
+    i8 60, label %161
+    i8 61, label %161
+    i8 62, label %161
+    i8 63, label %161
+    i8 64, label %161
+    i8 65, label %161
+    i8 66, label %161
+    i8 67, label %161
+    i8 68, label %161
+    i8 69, label %161
+    i8 70, label %161
+    i8 71, label %161
+    i8 72, label %161
+    i8 73, label %161
+    i8 74, label %161
+    i8 75, label %161
+    i8 76, label %161
+    i8 77, label %161
+    i8 78, label %161
+    i8 79, label %161
+    i8 80, label %161
+    i8 81, label %161
+    i8 82, label %161
+    i8 83, label %161
+    i8 84, label %161
+    i8 85, label %161
+    i8 86, label %161
+    i8 87, label %161
+    i8 88, label %161
+    i8 89, label %161
+    i8 90, label %161
+    i8 91, label %161
+    i8 92, label %161
+    i8 93, label %161
+    i8 94, label %161
+    i8 95, label %161
+    i8 96, label %161
+    i8 97, label %161
+    i8 98, label %161
+    i8 99, label %161
+    i8 100, label %161
+    i8 101, label %161
+    i8 102, label %161
+    i8 103, label %161
+    i8 104, label %161
+    i8 105, label %161
+    i8 106, label %161
+    i8 107, label %161
+    i8 108, label %161
+    i8 109, label %161
+    i8 110, label %161
+    i8 111, label %161
+    i8 112, label %161
+    i8 113, label %161
+    i8 114, label %161
+    i8 115, label %161
+    i8 116, label %161
+    i8 117, label %161
+    i8 118, label %161
+    i8 119, label %161
+    i8 120, label %161
+    i8 121, label %161
+    i8 122, label %161
+    i8 123, label %161
+    i8 124, label %161
+    i8 125, label %161
+    i8 126, label %161
+    i8 127, label %161
   ]
 
-62:                                               ; preds = %58
+61:                                               ; preds = %57
   unreachable
 
-63:                                               ; preds = %58
+62:                                               ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-64:                                               ; preds = %58
+63:                                               ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-65:                                               ; preds = %58
+64:                                               ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-66:                                               ; preds = %58
+65:                                               ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-67:                                               ; preds = %58
+66:                                               ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-68:                                               ; preds = %58
+67:                                               ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-69:                                               ; preds = %58
+68:                                               ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-70:                                               ; preds = %58
+69:                                               ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-71:                                               ; preds = %58
-  br i1 %59, label %72, label %73
+70:                                               ; preds = %57
+  br i1 %58, label %71, label %72
 
-72:                                               ; preds = %71
+71:                                               ; preds = %70
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %73
+  br label %72
 
-73:                                               ; preds = %72, %71
+72:                                               ; preds = %71, %70
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %75 = load i8, ptr %74, align 1, !tbaa !115, !range !99, !noundef !100
-  %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %77, label %78
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %74 = load i8, ptr %73, align 1, !tbaa !115, !range !99, !noundef !100
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %76, label %77
 
-77:                                               ; preds = %73
+76:                                               ; preds = %72
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %78
+  br label %77
 
-78:                                               ; preds = %77, %73
-  br i1 %59, label %84, label %79
+77:                                               ; preds = %76, %72
+  %.not = xor i1 %58, true
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %79 = load i8, ptr %78, align 8, !range !99
+  %80 = trunc nuw i8 %79 to i1
+  %or.cond128 = select i1 %.not, i1 %80, i1 false
+  br i1 %or.cond128, label %81, label %82
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %81 = load i8, ptr %80, align 8, !tbaa !111, !range !99, !noundef !100
-  %82 = trunc nuw i8 %81 to i1
-  br i1 %82, label %83, label %84
-
-83:                                               ; preds = %79
+81:                                               ; preds = %77
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %84
+  br label %82
 
-84:                                               ; preds = %83, %79, %78
+82:                                               ; preds = %81, %77
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-85:                                               ; preds = %58
+83:                                               ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-86:                                               ; preds = %58
+84:                                               ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-87:                                               ; preds = %58, %58
-  br i1 %59, label %88, label %89
+85:                                               ; preds = %57, %57
+  br i1 %58, label %86, label %87
 
-88:                                               ; preds = %87
+86:                                               ; preds = %85
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %89
+  br label %87
 
-89:                                               ; preds = %88, %87
+87:                                               ; preds = %86, %85
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %91 = load i8, ptr %90, align 1, !tbaa !115, !range !99, !noundef !100
-  %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %93, label %94
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %89 = load i8, ptr %88, align 1, !tbaa !115, !range !99, !noundef !100
+  %90 = trunc nuw i8 %89 to i1
+  br i1 %90, label %91, label %92
 
-93:                                               ; preds = %89
+91:                                               ; preds = %87
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %94
+  br label %92
 
-94:                                               ; preds = %93, %89
-  br i1 %59, label %100, label %95
+92:                                               ; preds = %91, %87
+  %.not129 = xor i1 %58, true
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %94 = load i8, ptr %93, align 8, !range !99
+  %95 = trunc nuw i8 %94 to i1
+  %or.cond132 = select i1 %.not129, i1 %95, i1 false
+  br i1 %or.cond132, label %96, label %97
 
-95:                                               ; preds = %94
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %97 = load i8, ptr %96, align 8, !tbaa !111, !range !99, !noundef !100
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %100
+96:                                               ; preds = %92
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  br label %97
 
-99:                                               ; preds = %95
+97:                                               ; preds = %96, %92
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  br label %162
+
+98:                                               ; preds = %57
+  br i1 %58, label %99, label %100
+
+99:                                               ; preds = %98
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   br label %100
 
-100:                                              ; preds = %99, %95, %94
+100:                                              ; preds = %99, %98
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %102 = load i8, ptr %101, align 1, !tbaa !115, !range !99, !noundef !100
+  %103 = trunc nuw i8 %102 to i1
+  br i1 %103, label %104, label %105
 
-101:                                              ; preds = %58
-  br i1 %59, label %102, label %103
-
-102:                                              ; preds = %101
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %103
-
-103:                                              ; preds = %102, %101
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %105 = load i8, ptr %104, align 1, !tbaa !115, !range !99, !noundef !100
-  %106 = trunc nuw i8 %105 to i1
-  br i1 %106, label %107, label %108
-
-107:                                              ; preds = %103
+104:                                              ; preds = %100
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %108
+  br label %105
 
-108:                                              ; preds = %107, %103
-  br i1 %59, label %114, label %109
+105:                                              ; preds = %104, %100
+  %.not133 = xor i1 %58, true
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %107 = load i8, ptr %106, align 8, !range !99
+  %108 = trunc nuw i8 %107 to i1
+  %or.cond136 = select i1 %.not133, i1 %108, i1 false
+  br i1 %or.cond136, label %109, label %110
 
-109:                                              ; preds = %108
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %111 = load i8, ptr %110, align 8, !tbaa !111, !range !99, !noundef !100
-  %112 = trunc nuw i8 %111 to i1
-  br i1 %112, label %113, label %114
-
-113:                                              ; preds = %109
+109:                                              ; preds = %105
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %114
+  br label %110
 
-114:                                              ; preds = %113, %109, %108
+110:                                              ; preds = %109, %105
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-115:                                              ; preds = %58
+111:                                              ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-116:                                              ; preds = %58
+112:                                              ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-117:                                              ; preds = %58
-  br i1 %59, label %118, label %119
+113:                                              ; preds = %57
+  br i1 %58, label %114, label %115
 
-118:                                              ; preds = %117
+114:                                              ; preds = %113
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %119
+  br label %115
 
-119:                                              ; preds = %118, %117
+115:                                              ; preds = %114, %113
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-120:                                              ; preds = %58, %58
-  br i1 %59, label %121, label %122
+116:                                              ; preds = %57, %57
+  br i1 %58, label %117, label %118
 
-121:                                              ; preds = %120
+117:                                              ; preds = %116
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %122
+  br label %118
 
-122:                                              ; preds = %121, %120
+118:                                              ; preds = %117, %116
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %124 = load i8, ptr %123, align 1, !tbaa !115, !range !99, !noundef !100
-  %125 = trunc nuw i8 %124 to i1
-  br i1 %125, label %126, label %127
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %120 = load i8, ptr %119, align 1, !tbaa !115, !range !99, !noundef !100
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %123
 
-126:                                              ; preds = %122
+122:                                              ; preds = %118
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %127
+  br label %123
 
-127:                                              ; preds = %126, %122
-  br i1 %59, label %133, label %128
+123:                                              ; preds = %122, %118
+  %.not137 = xor i1 %58, true
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %125 = load i8, ptr %124, align 8, !range !99
+  %126 = trunc nuw i8 %125 to i1
+  %or.cond140 = select i1 %.not137, i1 %126, i1 false
+  br i1 %or.cond140, label %127, label %128
 
-128:                                              ; preds = %127
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %130 = load i8, ptr %129, align 8, !tbaa !111, !range !99, !noundef !100
-  %131 = trunc nuw i8 %130 to i1
-  br i1 %131, label %132, label %133
+127:                                              ; preds = %123
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  br label %128
 
-132:                                              ; preds = %128
+128:                                              ; preds = %127, %123
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  br label %162
+
+129:                                              ; preds = %57
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  br label %162
+
+130:                                              ; preds = %57
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  br label %162
+
+131:                                              ; preds = %57
+  br i1 %58, label %132, label %133
+
+132:                                              ; preds = %131
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   br label %133
 
-133:                                              ; preds = %132, %128, %127
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
-
-134:                                              ; preds = %58
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
-
-135:                                              ; preds = %58
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
-
-136:                                              ; preds = %58
-  br i1 %59, label %137, label %138
-
-137:                                              ; preds = %136
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %138
-
-138:                                              ; preds = %137, %136
+133:                                              ; preds = %132, %131
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-139:                                              ; preds = %58
+134:                                              ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-140:                                              ; preds = %58
+135:                                              ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28roRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-141:                                              ; preds = %58, %58, %58, %58, %58, %58, %58, %58, %58
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %143 = load i8, ptr %142, align 8, !tbaa !111, !range !99, !noundef !100
+136:                                              ; preds = %57, %57, %57, %57, %57, %57, %57, %57, %57
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %138 = load i8, ptr %137, align 8, !tbaa !111, !range !99, !noundef !100
+  %139 = trunc nuw i8 %138 to i1
+  br i1 %139, label %140, label %141
+
+140:                                              ; preds = %136
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  br label %141
+
+141:                                              ; preds = %140, %136
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %143 = load i8, ptr %142, align 1, !tbaa !115, !range !99, !noundef !100
   %144 = trunc nuw i8 %143 to i1
   br i1 %144, label %145, label %146
 
 145:                                              ; preds = %141
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   br label %146
 
 146:                                              ; preds = %145, %141
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %148 = load i8, ptr %147, align 1, !tbaa !115, !range !99, !noundef !100
-  %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %150, label %151
-
-150:                                              ; preds = %146
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %151
-
-151:                                              ; preds = %150, %146
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28rmRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-152:                                              ; preds = %58
+147:                                              ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr32opcodeModifierEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-153:                                              ; preds = %58, %58, %58, %58, %58, %58, %58, %58, %58
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %155 = load i8, ptr %154, align 8, !tbaa !111, !range !99, !noundef !100
+148:                                              ; preds = %57, %57, %57, %57, %57, %57, %57, %57, %57
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %150 = load i8, ptr %149, align 8, !tbaa !111, !range !99, !noundef !100
+  %151 = trunc nuw i8 %150 to i1
+  br i1 %151, label %152, label %153
+
+152:                                              ; preds = %148
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  br label %153
+
+153:                                              ; preds = %152, %148
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %155 = load i8, ptr %154, align 1, !tbaa !115, !range !99, !noundef !100
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %157, label %158
 
 157:                                              ; preds = %153
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr30vvvvRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
+  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   br label %158
 
 158:                                              ; preds = %157, %153
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %160 = load i8, ptr %159, align 1, !tbaa !115, !range !99, !noundef !100
-  %161 = trunc nuw i8 %160 to i1
-  br i1 %161, label %162, label %163
-
-162:                                              ; preds = %158
-  call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr35writemaskRegisterEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %163
-
-163:                                              ; preds = %162, %158
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr24memoryEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-164:                                              ; preds = %58
+159:                                              ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-165:                                              ; preds = %58
+160:                                              ; preds = %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr27immediateEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-166:                                              ; preds = %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58, %58
+161:                                              ; preds = %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57, %57
   call void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOperandEbRjS2_jPKjPFNS0_15OperandEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhE(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa, ptr noundef nonnull %2, ptr noundef nonnull @_ZN4llvm15X86Disassembler17RecognizableInstr28relocationEncodingFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh)
-  br label %167
+  br label %162
 
-167:                                              ; preds = %66, %67, %68, %69, %70, %84, %85, %86, %100, %114, %115, %116, %119, %133, %134, %135, %138, %139, %140, %151, %152, %163, %164, %165, %166, %58, %65, %64, %63
+162:                                              ; preds = %65, %66, %67, %68, %69, %82, %83, %84, %97, %110, %111, %112, %115, %128, %129, %130, %133, %134, %135, %146, %147, %158, %159, %160, %161, %57, %64, %63, %62
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
@@ -2136,1321 +2120,1154 @@ _ZNSt10unique_ptrIN4llvm15X86Disassembler11ModRMFilterESt14default_deleteIS2_EED
 define dso_local noundef range(i32 0, 219) i32 @_ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4, !tbaa !107
-  switch i8 %3, label %638 [
+  switch i8 %3, label %548 [
     i8 3, label %4
-    i8 1, label %598
-    i8 2, label %598
+    i8 1, label %512
+    i8 2, label %512
   ]
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %6 = load i8, ptr %5, align 2, !tbaa !125, !range !99, !noundef !100
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %18
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %9 = load i8, ptr %8, align 4, !range !99
+  %10 = trunc nuw i8 %9 to i1
+  %or.cond = select i1 %7, i1 %10, i1 false
+  br i1 %or.cond, label %11, label %17
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i8, ptr %9, align 4, !tbaa !114, !range !99, !noundef !100
-  %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %18
-
-12:                                               ; preds = %8
-  %13 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
-  %14 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull @.str.41)
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
-  %17 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull @.str.42)
+11:                                               ; preds = %4
+  %12 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
+  %13 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull @.str.41)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %15 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %16 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull @.str.42)
   unreachable
 
-18:                                               ; preds = %8, %4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %20 = load i8, ptr %19, align 1, !tbaa !127, !range !99, !noundef !100
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %.thread
+17:                                               ; preds = %4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 19
+  %19 = load i8, ptr %18, align 1, !tbaa !127, !range !99, !noundef !100
+  %20 = trunc nuw i8 %19 to i1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load i8, ptr %21, align 8, !range !99
+  %23 = trunc nuw i8 %22 to i1
+  %or.cond20 = select i1 %20, i1 %23, i1 false
+  br i1 %or.cond20, label %24, label %115
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load i8, ptr %23, align 8, !tbaa !118, !range !99, !noundef !100
-  %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %26, label %117
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %26 = load i8, ptr %25, align 1, !tbaa !110, !range !99, !noundef !100
+  %27 = trunc nuw i8 %26 to i1
+  %28 = load i8, ptr %0, align 8, !tbaa !102
+  br i1 %27, label %29, label %72
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %28 = load i8, ptr %27, align 1, !tbaa !110, !range !99, !noundef !100
-  %29 = trunc nuw i8 %28 to i1
-  %30 = load i8, ptr %0, align 8, !tbaa !102
-  br i1 %29, label %31, label %74
-
-31:                                               ; preds = %26
-  switch i8 %30, label %68 [
-    i8 1, label %32
-    i8 2, label %41
-    i8 3, label %50
-    i8 4, label %59
+29:                                               ; preds = %24
+  switch i8 %28, label %66 [
+    i8 1, label %30
+    i8 2, label %39
+    i8 3, label %48
+    i8 4, label %57
   ]
 
-32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %34 = load i8, ptr %33, align 2, !tbaa !116, !range !99, !noundef !100
-  %35 = trunc nuw i8 %34 to i1
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %37 = load i8, ptr %36, align 1, !range !99
-  %38 = trunc nuw i8 %37 to i1
-  %39 = select i1 %38, i32 210, i32 202
-  %40 = select i1 %35, i32 218, i32 %39
-  br label %.thread60
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %32 = load i8, ptr %31, align 2, !tbaa !116, !range !99, !noundef !100
+  %33 = trunc nuw i8 %32 to i1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %35 = load i8, ptr %34, align 1, !range !99
+  %36 = trunc nuw i8 %35 to i1
+  %37 = select i1 %36, i32 210, i32 202
+  %38 = select i1 %33, i32 218, i32 %37
+  br label %614
 
-41:                                               ; preds = %31
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %43 = load i8, ptr %42, align 2, !tbaa !116, !range !99, !noundef !100
-  %44 = trunc nuw i8 %43 to i1
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %46 = load i8, ptr %45, align 1, !range !99
-  %47 = trunc nuw i8 %46 to i1
-  %48 = select i1 %47, i32 208, i32 200
-  %49 = select i1 %44, i32 216, i32 %48
-  br label %.thread60
+39:                                               ; preds = %29
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %41 = load i8, ptr %40, align 2, !tbaa !116, !range !99, !noundef !100
+  %42 = trunc nuw i8 %41 to i1
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %44 = load i8, ptr %43, align 1, !range !99
+  %45 = trunc nuw i8 %44 to i1
+  %46 = select i1 %45, i32 208, i32 200
+  %47 = select i1 %42, i32 216, i32 %46
+  br label %614
 
-50:                                               ; preds = %31
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %52 = load i8, ptr %51, align 2, !tbaa !116, !range !99, !noundef !100
-  %53 = trunc nuw i8 %52 to i1
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %55 = load i8, ptr %54, align 1, !range !99
-  %56 = trunc nuw i8 %55 to i1
-  %57 = select i1 %56, i32 209, i32 201
-  %58 = select i1 %53, i32 217, i32 %57
-  br label %.thread60
+48:                                               ; preds = %29
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %50 = load i8, ptr %49, align 2, !tbaa !116, !range !99, !noundef !100
+  %51 = trunc nuw i8 %50 to i1
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %53 = load i8, ptr %52, align 1, !range !99
+  %54 = trunc nuw i8 %53 to i1
+  %55 = select i1 %54, i32 209, i32 201
+  %56 = select i1 %51, i32 217, i32 %55
+  br label %614
 
-59:                                               ; preds = %31
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %61 = load i8, ptr %60, align 2, !tbaa !116, !range !99, !noundef !100
-  %62 = trunc nuw i8 %61 to i1
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %64 = load i8, ptr %63, align 1, !range !99
-  %65 = trunc nuw i8 %64 to i1
-  %66 = select i1 %65, i32 207, i32 199
-  %67 = select i1 %62, i32 215, i32 %66
-  br label %.thread60
+57:                                               ; preds = %29
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %59 = load i8, ptr %58, align 2, !tbaa !116, !range !99, !noundef !100
+  %60 = trunc nuw i8 %59 to i1
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %62 = load i8, ptr %61, align 1, !range !99
+  %63 = trunc nuw i8 %62 to i1
+  %64 = select i1 %63, i32 207, i32 199
+  %65 = select i1 %60, i32 215, i32 %64
+  br label %614
 
-68:                                               ; preds = %31
-  %69 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
-  %70 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %69, ptr noundef nonnull @.str.43)
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %72 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %70, ptr noundef nonnull align 8 dereferenceable(32) %71)
-  %73 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %72, ptr noundef nonnull @.str.42)
+66:                                               ; preds = %29
+  %67 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
+  %68 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef nonnull @.str.43)
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %70 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef nonnull align 8 dereferenceable(32) %69)
+  %71 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %70, ptr noundef nonnull @.str.42)
   unreachable
 
-74:                                               ; preds = %26
-  switch i8 %30, label %111 [
-    i8 1, label %75
-    i8 2, label %84
-    i8 3, label %93
-    i8 4, label %102
+72:                                               ; preds = %24
+  switch i8 %28, label %109 [
+    i8 1, label %73
+    i8 2, label %82
+    i8 3, label %91
+    i8 4, label %100
   ]
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %77 = load i8, ptr %76, align 2, !tbaa !116, !range !99, !noundef !100
-  %78 = trunc nuw i8 %77 to i1
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %80 = load i8, ptr %79, align 1, !range !99
-  %81 = trunc nuw i8 %80 to i1
-  %82 = select i1 %81, i32 206, i32 198
-  %83 = select i1 %78, i32 214, i32 %82
-  br label %.thread60
+73:                                               ; preds = %72
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %75 = load i8, ptr %74, align 2, !tbaa !116, !range !99, !noundef !100
+  %76 = trunc nuw i8 %75 to i1
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %78 = load i8, ptr %77, align 1, !range !99
+  %79 = trunc nuw i8 %78 to i1
+  %80 = select i1 %79, i32 206, i32 198
+  %81 = select i1 %76, i32 214, i32 %80
+  br label %614
 
-84:                                               ; preds = %74
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %86 = load i8, ptr %85, align 2, !tbaa !116, !range !99, !noundef !100
-  %87 = trunc nuw i8 %86 to i1
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %89 = load i8, ptr %88, align 1, !range !99
-  %90 = trunc nuw i8 %89 to i1
-  %91 = select i1 %90, i32 204, i32 196
-  %92 = select i1 %87, i32 212, i32 %91
-  br label %.thread60
+82:                                               ; preds = %72
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %84 = load i8, ptr %83, align 2, !tbaa !116, !range !99, !noundef !100
+  %85 = trunc nuw i8 %84 to i1
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %87 = load i8, ptr %86, align 1, !range !99
+  %88 = trunc nuw i8 %87 to i1
+  %89 = select i1 %88, i32 204, i32 196
+  %90 = select i1 %85, i32 212, i32 %89
+  br label %614
 
-93:                                               ; preds = %74
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %95 = load i8, ptr %94, align 2, !tbaa !116, !range !99, !noundef !100
-  %96 = trunc nuw i8 %95 to i1
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %98 = load i8, ptr %97, align 1, !range !99
-  %99 = trunc nuw i8 %98 to i1
-  %100 = select i1 %99, i32 205, i32 197
-  %101 = select i1 %96, i32 213, i32 %100
-  br label %.thread60
+91:                                               ; preds = %72
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %93 = load i8, ptr %92, align 2, !tbaa !116, !range !99, !noundef !100
+  %94 = trunc nuw i8 %93 to i1
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %96 = load i8, ptr %95, align 1, !range !99
+  %97 = trunc nuw i8 %96 to i1
+  %98 = select i1 %97, i32 205, i32 197
+  %99 = select i1 %94, i32 213, i32 %98
+  br label %614
 
-102:                                              ; preds = %74
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %104 = load i8, ptr %103, align 2, !tbaa !116, !range !99, !noundef !100
-  %105 = trunc nuw i8 %104 to i1
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %107 = load i8, ptr %106, align 1, !range !99
-  %108 = trunc nuw i8 %107 to i1
-  %109 = select i1 %108, i32 203, i32 195
-  %110 = select i1 %105, i32 211, i32 %109
-  br label %.thread60
+100:                                              ; preds = %72
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %102 = load i8, ptr %101, align 2, !tbaa !116, !range !99, !noundef !100
+  %103 = trunc nuw i8 %102 to i1
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %105 = load i8, ptr %104, align 1, !range !99
+  %106 = trunc nuw i8 %105 to i1
+  %107 = select i1 %106, i32 203, i32 195
+  %108 = select i1 %103, i32 211, i32 %107
+  br label %614
 
-111:                                              ; preds = %74
-  %112 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
-  %113 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %112, ptr noundef nonnull @.str.43)
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %115 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %113, ptr noundef nonnull align 8 dereferenceable(32) %114)
-  %116 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %115, ptr noundef nonnull @.str.42)
+109:                                              ; preds = %72
+  %110 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
+  %111 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %110, ptr noundef nonnull @.str.43)
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %113 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %111, ptr noundef nonnull align 8 dereferenceable(32) %112)
+  %114 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %113, ptr noundef nonnull @.str.42)
   unreachable
 
-117:                                              ; preds = %22
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %119 = load i8, ptr %118, align 1, !tbaa !119, !range !99, !noundef !100
-  %120 = trunc nuw i8 %119 to i1
-  br i1 %120, label %124, label %439
+115:                                              ; preds = %17
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %117 = load i8, ptr %116, align 1, !tbaa !119, !range !99, !noundef !100
+  %118 = trunc nuw i8 %117 to i1
+  br i1 %118, label %119, label %135
 
-.thread:                                          ; preds = %18
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %122 = load i8, ptr %121, align 1, !tbaa !119, !range !99, !noundef !100
-  %123 = trunc nuw i8 %122 to i1
-  br i1 %123, label %124, label %140
+119:                                              ; preds = %115
+  %120 = load i8, ptr %0, align 8, !tbaa !102
+  %121 = icmp eq i8 %120, 1
+  br i1 %121, label %122, label %126
 
-124:                                              ; preds = %.thread, %117
-  %125 = load i8, ptr %0, align 8, !tbaa !102
-  %126 = icmp eq i8 %125, 1
-  br i1 %126, label %127, label %131
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %124 = load i8, ptr %123, align 1, !tbaa !117, !range !99, !noundef !100
+  %125 = trunc nuw i8 %124 to i1
+  %. = select i1 %125, i32 101, i32 49
+  br label %614
 
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %129 = load i8, ptr %128, align 1, !tbaa !117, !range !99, !noundef !100
-  %130 = trunc nuw i8 %129 to i1
-  %. = select i1 %130, i32 101, i32 49
-  br label %.thread60
+126:                                              ; preds = %119
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %128 = load i8, ptr %127, align 1, !tbaa !110, !range !99, !noundef !100
+  %129 = trunc nuw i8 %128 to i1
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %131 = load i8, ptr %130, align 1, !tbaa !117, !range !99, !noundef !100
+  %132 = trunc nuw i8 %131 to i1
+  br i1 %129, label %133, label %134
 
-131:                                              ; preds = %124
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %133 = load i8, ptr %132, align 1, !tbaa !110, !range !99, !noundef !100
-  %134 = trunc nuw i8 %133 to i1
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %136 = load i8, ptr %135, align 1, !tbaa !117, !range !99, !noundef !100
-  %137 = trunc nuw i8 %136 to i1
-  br i1 %134, label %138, label %139
+133:                                              ; preds = %126
+  %.21 = select i1 %132, i32 103, i32 52
+  br label %614
 
-138:                                              ; preds = %131
-  %.16 = select i1 %137, i32 103, i32 52
-  br label %.thread60
+134:                                              ; preds = %126
+  %.22 = select i1 %132, i32 97, i32 43
+  br label %614
 
-139:                                              ; preds = %131
-  %.17 = select i1 %137, i32 97, i32 43
-  br label %.thread60
+135:                                              ; preds = %115
+  %.not = xor i1 %20, true
+  %or.cond24 = and i1 %7, %.not
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %137 = load i8, ptr %136, align 1, !range !99
+  %138 = trunc nuw i8 %137 to i1
+  %or.cond27 = select i1 %or.cond24, i1 %138, i1 false
+  br i1 %or.cond27, label %139, label %199
 
-140:                                              ; preds = %.thread
-  br i1 %7, label %141, label %288
+139:                                              ; preds = %135
+  %140 = load i8, ptr %0, align 8, !tbaa !102
+  switch i8 %140, label %193 [
+    i8 1, label %141
+    i8 2, label %154
+    i8 3, label %167
+    i8 4, label %180
+  ]
 
-141:                                              ; preds = %140
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %143 = load i8, ptr %142, align 1, !tbaa !110, !range !99, !noundef !100
+141:                                              ; preds = %139
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %143 = load i8, ptr %142, align 2, !tbaa !116, !range !99, !noundef !100
   %144 = trunc nuw i8 %143 to i1
-  %145 = load i8, ptr %0, align 8, !tbaa !102
-  br i1 %144, label %146, label %217
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %146 = load i8, ptr %145, align 1, !range !99
+  %147 = trunc nuw i8 %146 to i1
+  %or.cond30 = select i1 %144, i1 %147, i1 false
+  br i1 %or.cond30, label %614, label %148
 
-146:                                              ; preds = %141
-  switch i8 %145, label %211 [
-    i8 1, label %147
-    i8 2, label %163
-    i8 3, label %179
-    i8 4, label %195
-  ]
+148:                                              ; preds = %141
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %150 = load i8, ptr %149, align 1, !tbaa !115, !range !99, !noundef !100
+  %151 = trunc nuw i8 %150 to i1
+  %or.cond33 = select i1 %151, i1 %147, i1 false
+  %brmerge = or i1 %or.cond33, %144
+  %.mux = select i1 %or.cond33, i32 138, i32 186
+  br i1 %brmerge, label %614, label %152
 
-147:                                              ; preds = %146
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %149 = load i8, ptr %148, align 2, !tbaa !116, !range !99, !noundef !100
-  %150 = trunc nuw i8 %149 to i1
-  br i1 %150, label %151, label %.thread129
+152:                                              ; preds = %148
+  %153 = select i1 %147, i32 114, i32 63
+  %spec.select = select i1 %151, i32 87, i32 %153
+  br label %614
 
-151:                                              ; preds = %147
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %153 = load i8, ptr %152, align 1, !tbaa !117, !range !99, !noundef !100
-  %154 = trunc nuw i8 %153 to i1
-  %spec.select321 = select i1 %154, i32 162, i32 186
-  br label %.thread60
-
-.thread129:                                       ; preds = %147
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %156 = load i8, ptr %155, align 1, !tbaa !115, !range !99, !noundef !100
+154:                                              ; preds = %139
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %156 = load i8, ptr %155, align 2, !tbaa !116, !range !99, !noundef !100
   %157 = trunc nuw i8 %156 to i1
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %159 = load i8, ptr %158, align 1, !tbaa !117, !range !99, !noundef !100
+  %159 = load i8, ptr %158, align 1, !range !99
   %160 = trunc nuw i8 %159 to i1
-  br i1 %157, label %.thread153, label %161
+  %or.cond36 = select i1 %157, i1 %160, i1 false
+  br i1 %or.cond36, label %614, label %161
 
-.thread153:                                       ; preds = %.thread129
-  %spec.select258 = select i1 %160, i32 138, i32 87
-  br label %.thread60
+161:                                              ; preds = %154
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %163 = load i8, ptr %162, align 1, !tbaa !115, !range !99, !noundef !100
+  %164 = trunc nuw i8 %163 to i1
+  %or.cond39 = select i1 %164, i1 %160, i1 false
+  %brmerge241 = or i1 %or.cond39, %157
+  %.mux242 = select i1 %or.cond39, i32 136, i32 184
+  br i1 %brmerge241, label %614, label %165
 
-161:                                              ; preds = %.thread129
-  %162 = select i1 %160, i32 114, i32 63
-  br label %.thread60
+165:                                              ; preds = %161
+  %166 = select i1 %160, i32 112, i32 61
+  %spec.select243 = select i1 %164, i32 85, i32 %166
+  br label %614
 
-163:                                              ; preds = %146
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %165 = load i8, ptr %164, align 2, !tbaa !116, !range !99, !noundef !100
-  %166 = trunc nuw i8 %165 to i1
-  br i1 %166, label %167, label %.thread130
-
-167:                                              ; preds = %163
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %169 = load i8, ptr %168, align 1, !tbaa !117, !range !99, !noundef !100
+167:                                              ; preds = %139
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %169 = load i8, ptr %168, align 2, !tbaa !116, !range !99, !noundef !100
   %170 = trunc nuw i8 %169 to i1
-  %spec.select322 = select i1 %170, i32 160, i32 184
-  br label %.thread60
-
-.thread130:                                       ; preds = %163
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %172 = load i8, ptr %171, align 1, !tbaa !115, !range !99, !noundef !100
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %172 = load i8, ptr %171, align 1, !range !99
   %173 = trunc nuw i8 %172 to i1
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %175 = load i8, ptr %174, align 1, !tbaa !117, !range !99, !noundef !100
-  %176 = trunc nuw i8 %175 to i1
-  br i1 %173, label %.thread155, label %177
+  %or.cond42 = select i1 %170, i1 %173, i1 false
+  br i1 %or.cond42, label %614, label %174
 
-.thread155:                                       ; preds = %.thread130
-  %spec.select259 = select i1 %176, i32 136, i32 85
-  br label %.thread60
+174:                                              ; preds = %167
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %176 = load i8, ptr %175, align 1, !tbaa !115, !range !99, !noundef !100
+  %177 = trunc nuw i8 %176 to i1
+  %or.cond45 = select i1 %177, i1 %173, i1 false
+  %brmerge244 = or i1 %or.cond45, %170
+  %.mux245 = select i1 %or.cond45, i32 137, i32 185
+  br i1 %brmerge244, label %614, label %178
 
-177:                                              ; preds = %.thread130
-  %178 = select i1 %176, i32 112, i32 61
-  br label %.thread60
+178:                                              ; preds = %174
+  %179 = select i1 %173, i32 113, i32 62
+  %spec.select246 = select i1 %177, i32 86, i32 %179
+  br label %614
 
-179:                                              ; preds = %146
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %181 = load i8, ptr %180, align 2, !tbaa !116, !range !99, !noundef !100
-  %182 = trunc nuw i8 %181 to i1
-  br i1 %182, label %183, label %.thread131
-
-183:                                              ; preds = %179
+180:                                              ; preds = %139
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %182 = load i8, ptr %181, align 2, !tbaa !116, !range !99, !noundef !100
+  %183 = trunc nuw i8 %182 to i1
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %185 = load i8, ptr %184, align 1, !tbaa !117, !range !99, !noundef !100
+  %185 = load i8, ptr %184, align 1, !range !99
   %186 = trunc nuw i8 %185 to i1
-  %spec.select323 = select i1 %186, i32 161, i32 185
-  br label %.thread60
+  %or.cond48 = select i1 %183, i1 %186, i1 false
+  br i1 %or.cond48, label %614, label %187
 
-.thread131:                                       ; preds = %179
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %188 = load i8, ptr %187, align 1, !tbaa !115, !range !99, !noundef !100
-  %189 = trunc nuw i8 %188 to i1
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %191 = load i8, ptr %190, align 1, !tbaa !117, !range !99, !noundef !100
-  %192 = trunc nuw i8 %191 to i1
-  br i1 %189, label %.thread157, label %193
+187:                                              ; preds = %180
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %189 = load i8, ptr %188, align 1, !tbaa !115, !range !99, !noundef !100
+  %190 = trunc nuw i8 %189 to i1
+  %or.cond51 = select i1 %190, i1 %186, i1 false
+  %brmerge247 = or i1 %or.cond51, %183
+  %.mux248 = select i1 %or.cond51, i32 135, i32 183
+  br i1 %brmerge247, label %614, label %191
 
-.thread157:                                       ; preds = %.thread131
-  %spec.select260 = select i1 %192, i32 137, i32 86
-  br label %.thread60
+191:                                              ; preds = %187
+  %192 = select i1 %186, i32 111, i32 60
+  %spec.select249 = select i1 %190, i32 84, i32 %192
+  br label %614
 
-193:                                              ; preds = %.thread131
-  %194 = select i1 %192, i32 113, i32 62
-  br label %.thread60
+193:                                              ; preds = %139
+  %194 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
+  %195 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %194, ptr noundef nonnull @.str.43)
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %197 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %195, ptr noundef nonnull align 8 dereferenceable(32) %196)
+  %198 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %197, ptr noundef nonnull @.str.42)
+  unreachable
 
-195:                                              ; preds = %146
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %197 = load i8, ptr %196, align 2, !tbaa !116, !range !99, !noundef !100
-  %198 = trunc nuw i8 %197 to i1
-  br i1 %198, label %199, label %.thread132
+199:                                              ; preds = %135
+  br i1 %or.cond24, label %200, label %260
 
-199:                                              ; preds = %195
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %201 = load i8, ptr %200, align 1, !tbaa !117, !range !99, !noundef !100
-  %202 = trunc nuw i8 %201 to i1
-  %spec.select324 = select i1 %202, i32 159, i32 183
-  br label %.thread60
+200:                                              ; preds = %199
+  %201 = load i8, ptr %0, align 8, !tbaa !102
+  switch i8 %201, label %254 [
+    i8 1, label %202
+    i8 2, label %215
+    i8 3, label %228
+    i8 4, label %241
+  ]
 
-.thread132:                                       ; preds = %195
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %204 = load i8, ptr %203, align 1, !tbaa !115, !range !99, !noundef !100
+202:                                              ; preds = %200
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %204 = load i8, ptr %203, align 2, !tbaa !116, !range !99, !noundef !100
   %205 = trunc nuw i8 %204 to i1
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %207 = load i8, ptr %206, align 1, !tbaa !117, !range !99, !noundef !100
+  %207 = load i8, ptr %206, align 1, !range !99
   %208 = trunc nuw i8 %207 to i1
-  br i1 %205, label %.thread159, label %209
+  %or.cond57 = select i1 %205, i1 %208, i1 false
+  br i1 %or.cond57, label %614, label %209
 
-.thread159:                                       ; preds = %.thread132
-  %spec.select261 = select i1 %208, i32 135, i32 84
-  br label %.thread60
+209:                                              ; preds = %202
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %211 = load i8, ptr %210, align 1, !tbaa !115, !range !99, !noundef !100
+  %212 = trunc nuw i8 %211 to i1
+  %or.cond60 = select i1 %212, i1 %208, i1 false
+  %brmerge250 = or i1 %or.cond60, %205
+  %.mux251 = select i1 %or.cond60, i32 134, i32 182
+  br i1 %brmerge250, label %614, label %213
 
-209:                                              ; preds = %.thread132
-  %210 = select i1 %208, i32 111, i32 60
-  br label %.thread60
+213:                                              ; preds = %209
+  %214 = select i1 %208, i32 110, i32 59
+  %spec.select252 = select i1 %212, i32 83, i32 %214
+  br label %614
 
-211:                                              ; preds = %146
-  %212 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
-  %213 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %212, ptr noundef nonnull @.str.43)
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %215 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %213, ptr noundef nonnull align 8 dereferenceable(32) %214)
-  %216 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %215, ptr noundef nonnull @.str.42)
-  unreachable
-
-217:                                              ; preds = %141
-  switch i8 %145, label %282 [
-    i8 1, label %218
-    i8 2, label %234
-    i8 3, label %250
-    i8 4, label %266
-  ]
-
-218:                                              ; preds = %217
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %220 = load i8, ptr %219, align 2, !tbaa !116, !range !99, !noundef !100
+215:                                              ; preds = %200
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %217 = load i8, ptr %216, align 2, !tbaa !116, !range !99, !noundef !100
+  %218 = trunc nuw i8 %217 to i1
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %220 = load i8, ptr %219, align 1, !range !99
   %221 = trunc nuw i8 %220 to i1
-  br i1 %221, label %222, label %.thread133
+  %or.cond63 = select i1 %218, i1 %221, i1 false
+  br i1 %or.cond63, label %614, label %222
 
-222:                                              ; preds = %218
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %224 = load i8, ptr %223, align 1, !tbaa !117, !range !99, !noundef !100
+222:                                              ; preds = %215
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %224 = load i8, ptr %223, align 1, !tbaa !115, !range !99, !noundef !100
   %225 = trunc nuw i8 %224 to i1
-  %spec.select325 = select i1 %225, i32 158, i32 182
-  br label %.thread60
+  %or.cond66 = select i1 %225, i1 %221, i1 false
+  %brmerge253 = or i1 %or.cond66, %218
+  %.mux254 = select i1 %or.cond66, i32 132, i32 180
+  br i1 %brmerge253, label %614, label %226
 
-.thread133:                                       ; preds = %218
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %227 = load i8, ptr %226, align 1, !tbaa !115, !range !99, !noundef !100
-  %228 = trunc nuw i8 %227 to i1
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %230 = load i8, ptr %229, align 1, !tbaa !117, !range !99, !noundef !100
+226:                                              ; preds = %222
+  %227 = select i1 %221, i32 108, i32 57
+  %spec.select255 = select i1 %225, i32 81, i32 %227
+  br label %614
+
+228:                                              ; preds = %200
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %230 = load i8, ptr %229, align 2, !tbaa !116, !range !99, !noundef !100
   %231 = trunc nuw i8 %230 to i1
-  br i1 %228, label %.thread161, label %232
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %233 = load i8, ptr %232, align 1, !range !99
+  %234 = trunc nuw i8 %233 to i1
+  %or.cond69 = select i1 %231, i1 %234, i1 false
+  br i1 %or.cond69, label %614, label %235
 
-.thread161:                                       ; preds = %.thread133
-  %spec.select262 = select i1 %231, i32 134, i32 83
-  br label %.thread60
+235:                                              ; preds = %228
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %237 = load i8, ptr %236, align 1, !tbaa !115, !range !99, !noundef !100
+  %238 = trunc nuw i8 %237 to i1
+  %or.cond72 = select i1 %238, i1 %234, i1 false
+  %brmerge256 = or i1 %or.cond72, %231
+  %.mux257 = select i1 %or.cond72, i32 133, i32 181
+  br i1 %brmerge256, label %614, label %239
 
-232:                                              ; preds = %.thread133
-  %233 = select i1 %231, i32 110, i32 59
-  br label %.thread60
+239:                                              ; preds = %235
+  %240 = select i1 %234, i32 109, i32 58
+  %spec.select258 = select i1 %238, i32 82, i32 %240
+  br label %614
 
-234:                                              ; preds = %217
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %236 = load i8, ptr %235, align 2, !tbaa !116, !range !99, !noundef !100
-  %237 = trunc nuw i8 %236 to i1
-  br i1 %237, label %238, label %.thread134
-
-238:                                              ; preds = %234
-  %239 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %240 = load i8, ptr %239, align 1, !tbaa !117, !range !99, !noundef !100
-  %241 = trunc nuw i8 %240 to i1
-  %spec.select326 = select i1 %241, i32 156, i32 180
-  br label %.thread60
-
-.thread134:                                       ; preds = %234
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %243 = load i8, ptr %242, align 1, !tbaa !115, !range !99, !noundef !100
+241:                                              ; preds = %200
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %243 = load i8, ptr %242, align 2, !tbaa !116, !range !99, !noundef !100
   %244 = trunc nuw i8 %243 to i1
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %246 = load i8, ptr %245, align 1, !tbaa !117, !range !99, !noundef !100
+  %246 = load i8, ptr %245, align 1, !range !99
   %247 = trunc nuw i8 %246 to i1
-  br i1 %244, label %.thread163, label %248
+  %or.cond75 = select i1 %244, i1 %247, i1 false
+  br i1 %or.cond75, label %614, label %248
 
-.thread163:                                       ; preds = %.thread134
-  %spec.select263 = select i1 %247, i32 132, i32 81
-  br label %.thread60
+248:                                              ; preds = %241
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %250 = load i8, ptr %249, align 1, !tbaa !115, !range !99, !noundef !100
+  %251 = trunc nuw i8 %250 to i1
+  %or.cond78 = select i1 %251, i1 %247, i1 false
+  %brmerge259 = or i1 %or.cond78, %244
+  %.mux260 = select i1 %or.cond78, i32 131, i32 179
+  br i1 %brmerge259, label %614, label %252
 
-248:                                              ; preds = %.thread134
-  %249 = select i1 %247, i32 108, i32 57
-  br label %.thread60
+252:                                              ; preds = %248
+  %253 = select i1 %247, i32 107, i32 56
+  %spec.select261 = select i1 %251, i32 80, i32 %253
+  br label %614
 
-250:                                              ; preds = %217
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %252 = load i8, ptr %251, align 2, !tbaa !116, !range !99, !noundef !100
-  %253 = trunc nuw i8 %252 to i1
-  br i1 %253, label %254, label %.thread135
-
-254:                                              ; preds = %250
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %256 = load i8, ptr %255, align 1, !tbaa !117, !range !99, !noundef !100
-  %257 = trunc nuw i8 %256 to i1
-  %spec.select327 = select i1 %257, i32 157, i32 181
-  br label %.thread60
-
-.thread135:                                       ; preds = %250
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %259 = load i8, ptr %258, align 1, !tbaa !115, !range !99, !noundef !100
-  %260 = trunc nuw i8 %259 to i1
-  %261 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %262 = load i8, ptr %261, align 1, !tbaa !117, !range !99, !noundef !100
-  %263 = trunc nuw i8 %262 to i1
-  br i1 %260, label %.thread165, label %264
-
-.thread165:                                       ; preds = %.thread135
-  %spec.select264 = select i1 %263, i32 133, i32 82
-  br label %.thread60
-
-264:                                              ; preds = %.thread135
-  %265 = select i1 %263, i32 109, i32 58
-  br label %.thread60
-
-266:                                              ; preds = %217
-  %267 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %268 = load i8, ptr %267, align 2, !tbaa !116, !range !99, !noundef !100
-  %269 = trunc nuw i8 %268 to i1
-  br i1 %269, label %270, label %.thread136
-
-270:                                              ; preds = %266
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %272 = load i8, ptr %271, align 1, !tbaa !117, !range !99, !noundef !100
-  %273 = trunc nuw i8 %272 to i1
-  %spec.select328 = select i1 %273, i32 155, i32 179
-  br label %.thread60
-
-.thread136:                                       ; preds = %266
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %275 = load i8, ptr %274, align 1, !tbaa !115, !range !99, !noundef !100
-  %276 = trunc nuw i8 %275 to i1
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %278 = load i8, ptr %277, align 1, !tbaa !117, !range !99, !noundef !100
-  %279 = trunc nuw i8 %278 to i1
-  br i1 %276, label %.thread167, label %280
-
-.thread167:                                       ; preds = %.thread136
-  %spec.select265 = select i1 %279, i32 131, i32 80
-  br label %.thread60
-
-280:                                              ; preds = %.thread136
-  %281 = select i1 %279, i32 107, i32 56
-  br label %.thread60
-
-282:                                              ; preds = %217
-  %283 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
-  %284 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %283, ptr noundef nonnull @.str.43)
-  %285 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %286 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %284, ptr noundef nonnull align 8 dereferenceable(32) %285)
-  %287 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %286, ptr noundef nonnull @.str.42)
+254:                                              ; preds = %200
+  %255 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
+  %256 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %255, ptr noundef nonnull @.str.43)
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %258 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %256, ptr noundef nonnull align 8 dereferenceable(32) %257)
+  %259 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %258, ptr noundef nonnull @.str.42)
   unreachable
 
-288:                                              ; preds = %140
-  %289 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %290 = load i8, ptr %289, align 4, !tbaa !114, !range !99, !noundef !100
-  %291 = trunc nuw i8 %290 to i1
-  br i1 %291, label %292, label %439
+260:                                              ; preds = %199
+  %or.cond82 = select i1 %.not, i1 %10, i1 false
+  %or.cond85 = select i1 %or.cond82, i1 %138, i1 false
+  %261 = load i8, ptr %0, align 8, !tbaa !102
+  br i1 %or.cond85, label %262, label %321
 
-292:                                              ; preds = %288
-  %293 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %294 = load i8, ptr %293, align 1, !tbaa !110, !range !99, !noundef !100
-  %295 = trunc nuw i8 %294 to i1
-  %296 = load i8, ptr %0, align 8, !tbaa !102
-  br i1 %295, label %297, label %368
-
-297:                                              ; preds = %292
-  switch i8 %296, label %362 [
-    i8 1, label %298
-    i8 2, label %314
-    i8 3, label %330
-    i8 4, label %346
+262:                                              ; preds = %260
+  switch i8 %261, label %315 [
+    i8 1, label %263
+    i8 2, label %276
+    i8 3, label %289
+    i8 4, label %302
   ]
 
-298:                                              ; preds = %297
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %300 = load i8, ptr %299, align 2, !tbaa !116, !range !99, !noundef !100
-  %301 = trunc nuw i8 %300 to i1
-  br i1 %301, label %302, label %.thread137
+263:                                              ; preds = %262
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %265 = load i8, ptr %264, align 2, !tbaa !116, !range !99, !noundef !100
+  %266 = trunc nuw i8 %265 to i1
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %268 = load i8, ptr %267, align 1, !range !99
+  %269 = trunc nuw i8 %268 to i1
+  %or.cond88 = select i1 %266, i1 %269, i1 false
+  br i1 %or.cond88, label %614, label %270
 
-302:                                              ; preds = %298
-  %303 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %304 = load i8, ptr %303, align 1, !tbaa !117, !range !99, !noundef !100
+270:                                              ; preds = %263
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %272 = load i8, ptr %271, align 1, !tbaa !115, !range !99, !noundef !100
+  %273 = trunc nuw i8 %272 to i1
+  %or.cond91 = select i1 %273, i1 %269, i1 false
+  %brmerge262 = or i1 %or.cond91, %266
+  %.mux263 = select i1 %or.cond91, i32 146, i32 194
+  br i1 %brmerge262, label %614, label %274
+
+274:                                              ; preds = %270
+  %275 = select i1 %269, i32 122, i32 71
+  %spec.select264 = select i1 %273, i32 95, i32 %275
+  br label %614
+
+276:                                              ; preds = %262
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %278 = load i8, ptr %277, align 2, !tbaa !116, !range !99, !noundef !100
+  %279 = trunc nuw i8 %278 to i1
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %281 = load i8, ptr %280, align 1, !range !99
+  %282 = trunc nuw i8 %281 to i1
+  %or.cond94 = select i1 %279, i1 %282, i1 false
+  br i1 %or.cond94, label %614, label %283
+
+283:                                              ; preds = %276
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %285 = load i8, ptr %284, align 1, !tbaa !115, !range !99, !noundef !100
+  %286 = trunc nuw i8 %285 to i1
+  %or.cond97 = select i1 %286, i1 %282, i1 false
+  %brmerge265 = or i1 %or.cond97, %279
+  %.mux266 = select i1 %or.cond97, i32 144, i32 192
+  br i1 %brmerge265, label %614, label %287
+
+287:                                              ; preds = %283
+  %288 = select i1 %282, i32 120, i32 69
+  %spec.select267 = select i1 %286, i32 93, i32 %288
+  br label %614
+
+289:                                              ; preds = %262
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %291 = load i8, ptr %290, align 2, !tbaa !116, !range !99, !noundef !100
+  %292 = trunc nuw i8 %291 to i1
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %294 = load i8, ptr %293, align 1, !range !99
+  %295 = trunc nuw i8 %294 to i1
+  %or.cond100 = select i1 %292, i1 %295, i1 false
+  br i1 %or.cond100, label %614, label %296
+
+296:                                              ; preds = %289
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %298 = load i8, ptr %297, align 1, !tbaa !115, !range !99, !noundef !100
+  %299 = trunc nuw i8 %298 to i1
+  %or.cond103 = select i1 %299, i1 %295, i1 false
+  %brmerge268 = or i1 %or.cond103, %292
+  %.mux269 = select i1 %or.cond103, i32 145, i32 193
+  br i1 %brmerge268, label %614, label %300
+
+300:                                              ; preds = %296
+  %301 = select i1 %295, i32 121, i32 70
+  %spec.select270 = select i1 %299, i32 94, i32 %301
+  br label %614
+
+302:                                              ; preds = %262
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %304 = load i8, ptr %303, align 2, !tbaa !116, !range !99, !noundef !100
   %305 = trunc nuw i8 %304 to i1
-  %spec.select329 = select i1 %305, i32 170, i32 194
-  br label %.thread60
-
-.thread137:                                       ; preds = %298
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %307 = load i8, ptr %306, align 1, !tbaa !115, !range !99, !noundef !100
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %307 = load i8, ptr %306, align 1, !range !99
   %308 = trunc nuw i8 %307 to i1
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %310 = load i8, ptr %309, align 1, !tbaa !117, !range !99, !noundef !100
-  %311 = trunc nuw i8 %310 to i1
-  br i1 %308, label %.thread169, label %312
+  %or.cond106 = select i1 %305, i1 %308, i1 false
+  br i1 %or.cond106, label %614, label %309
 
-.thread169:                                       ; preds = %.thread137
-  %spec.select266 = select i1 %311, i32 146, i32 95
-  br label %.thread60
+309:                                              ; preds = %302
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %311 = load i8, ptr %310, align 1, !tbaa !115, !range !99, !noundef !100
+  %312 = trunc nuw i8 %311 to i1
+  %or.cond109 = select i1 %312, i1 %308, i1 false
+  %brmerge271 = or i1 %or.cond109, %305
+  %.mux272 = select i1 %or.cond109, i32 143, i32 191
+  br i1 %brmerge271, label %614, label %313
 
-312:                                              ; preds = %.thread137
-  %313 = select i1 %311, i32 122, i32 71
-  br label %.thread60
+313:                                              ; preds = %309
+  %314 = select i1 %308, i32 119, i32 68
+  %spec.select273 = select i1 %312, i32 92, i32 %314
+  br label %614
 
-314:                                              ; preds = %297
-  %315 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %316 = load i8, ptr %315, align 2, !tbaa !116, !range !99, !noundef !100
-  %317 = trunc nuw i8 %316 to i1
-  br i1 %317, label %318, label %.thread138
+315:                                              ; preds = %262
+  %316 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
+  %317 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %316, ptr noundef nonnull @.str.43)
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %319 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %317, ptr noundef nonnull align 8 dereferenceable(32) %318)
+  %320 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %319, ptr noundef nonnull @.str.42)
+  unreachable
 
-318:                                              ; preds = %314
-  %319 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %320 = load i8, ptr %319, align 1, !tbaa !117, !range !99, !noundef !100
-  %321 = trunc nuw i8 %320 to i1
-  %spec.select330 = select i1 %321, i32 168, i32 192
-  br label %.thread60
+321:                                              ; preds = %260
+  br i1 %or.cond82, label %322, label %381
 
-.thread138:                                       ; preds = %314
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %323 = load i8, ptr %322, align 1, !tbaa !115, !range !99, !noundef !100
-  %324 = trunc nuw i8 %323 to i1
-  %325 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %326 = load i8, ptr %325, align 1, !tbaa !117, !range !99, !noundef !100
-  %327 = trunc nuw i8 %326 to i1
-  br i1 %324, label %.thread171, label %328
+322:                                              ; preds = %321
+  switch i8 %261, label %375 [
+    i8 1, label %323
+    i8 3, label %336
+    i8 2, label %349
+    i8 4, label %362
+  ]
 
-.thread171:                                       ; preds = %.thread138
-  %spec.select267 = select i1 %327, i32 144, i32 93
-  br label %.thread60
+323:                                              ; preds = %322
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %325 = load i8, ptr %324, align 2, !tbaa !116, !range !99, !noundef !100
+  %326 = trunc nuw i8 %325 to i1
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %328 = load i8, ptr %327, align 1, !range !99
+  %329 = trunc nuw i8 %328 to i1
+  %or.cond116 = select i1 %326, i1 %329, i1 false
+  br i1 %or.cond116, label %614, label %330
 
-328:                                              ; preds = %.thread138
-  %329 = select i1 %327, i32 120, i32 69
-  br label %.thread60
-
-330:                                              ; preds = %297
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %332 = load i8, ptr %331, align 2, !tbaa !116, !range !99, !noundef !100
+330:                                              ; preds = %323
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %332 = load i8, ptr %331, align 1, !tbaa !115, !range !99, !noundef !100
   %333 = trunc nuw i8 %332 to i1
-  br i1 %333, label %334, label %.thread139
+  %or.cond119 = select i1 %333, i1 %329, i1 false
+  %brmerge274 = or i1 %or.cond119, %326
+  %.mux275 = select i1 %or.cond119, i32 142, i32 190
+  br i1 %brmerge274, label %614, label %334
 
 334:                                              ; preds = %330
-  %335 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %336 = load i8, ptr %335, align 1, !tbaa !117, !range !99, !noundef !100
-  %337 = trunc nuw i8 %336 to i1
-  %spec.select331 = select i1 %337, i32 169, i32 193
-  br label %.thread60
+  %335 = select i1 %329, i32 118, i32 67
+  %spec.select276 = select i1 %333, i32 91, i32 %335
+  br label %614
 
-.thread139:                                       ; preds = %330
-  %338 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %339 = load i8, ptr %338, align 1, !tbaa !115, !range !99, !noundef !100
-  %340 = trunc nuw i8 %339 to i1
-  %341 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %342 = load i8, ptr %341, align 1, !tbaa !117, !range !99, !noundef !100
-  %343 = trunc nuw i8 %342 to i1
-  br i1 %340, label %.thread173, label %344
+336:                                              ; preds = %322
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %338 = load i8, ptr %337, align 2, !tbaa !116, !range !99, !noundef !100
+  %339 = trunc nuw i8 %338 to i1
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %341 = load i8, ptr %340, align 1, !range !99
+  %342 = trunc nuw i8 %341 to i1
+  %or.cond122 = select i1 %339, i1 %342, i1 false
+  br i1 %or.cond122, label %614, label %343
 
-.thread173:                                       ; preds = %.thread139
-  %spec.select268 = select i1 %343, i32 145, i32 94
-  br label %.thread60
+343:                                              ; preds = %336
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %345 = load i8, ptr %344, align 1, !tbaa !115, !range !99, !noundef !100
+  %346 = trunc nuw i8 %345 to i1
+  %or.cond125 = select i1 %346, i1 %342, i1 false
+  %brmerge277 = or i1 %or.cond125, %339
+  %.mux278 = select i1 %or.cond125, i32 141, i32 189
+  br i1 %brmerge277, label %614, label %347
 
-344:                                              ; preds = %.thread139
-  %345 = select i1 %343, i32 121, i32 70
-  br label %.thread60
+347:                                              ; preds = %343
+  %348 = select i1 %342, i32 117, i32 66
+  %spec.select279 = select i1 %346, i32 90, i32 %348
+  br label %614
 
-346:                                              ; preds = %297
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %348 = load i8, ptr %347, align 2, !tbaa !116, !range !99, !noundef !100
-  %349 = trunc nuw i8 %348 to i1
-  br i1 %349, label %350, label %.thread140
+349:                                              ; preds = %322
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %351 = load i8, ptr %350, align 2, !tbaa !116, !range !99, !noundef !100
+  %352 = trunc nuw i8 %351 to i1
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %354 = load i8, ptr %353, align 1, !range !99
+  %355 = trunc nuw i8 %354 to i1
+  %or.cond128 = select i1 %352, i1 %355, i1 false
+  br i1 %or.cond128, label %614, label %356
 
-350:                                              ; preds = %346
-  %351 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %352 = load i8, ptr %351, align 1, !tbaa !117, !range !99, !noundef !100
-  %353 = trunc nuw i8 %352 to i1
-  %spec.select332 = select i1 %353, i32 167, i32 191
-  br label %.thread60
-
-.thread140:                                       ; preds = %346
-  %354 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %355 = load i8, ptr %354, align 1, !tbaa !115, !range !99, !noundef !100
-  %356 = trunc nuw i8 %355 to i1
-  %357 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %358 = load i8, ptr %357, align 1, !tbaa !117, !range !99, !noundef !100
+356:                                              ; preds = %349
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %358 = load i8, ptr %357, align 1, !tbaa !115, !range !99, !noundef !100
   %359 = trunc nuw i8 %358 to i1
-  br i1 %356, label %.thread175, label %360
+  %or.cond131 = select i1 %359, i1 %355, i1 false
+  %brmerge280 = or i1 %or.cond131, %352
+  %.mux281 = select i1 %or.cond131, i32 140, i32 188
+  br i1 %brmerge280, label %614, label %360
 
-.thread175:                                       ; preds = %.thread140
-  %spec.select269 = select i1 %359, i32 143, i32 92
-  br label %.thread60
+360:                                              ; preds = %356
+  %361 = select i1 %355, i32 116, i32 65
+  %spec.select282 = select i1 %359, i32 89, i32 %361
+  br label %614
 
-360:                                              ; preds = %.thread140
-  %361 = select i1 %359, i32 119, i32 68
-  br label %.thread60
+362:                                              ; preds = %322
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %364 = load i8, ptr %363, align 2, !tbaa !116, !range !99, !noundef !100
+  %365 = trunc nuw i8 %364 to i1
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %367 = load i8, ptr %366, align 1, !range !99
+  %368 = trunc nuw i8 %367 to i1
+  %or.cond134 = select i1 %365, i1 %368, i1 false
+  br i1 %or.cond134, label %614, label %369
 
-362:                                              ; preds = %297
-  %363 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
-  %364 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %363, ptr noundef nonnull @.str.43)
-  %365 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %366 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %364, ptr noundef nonnull align 8 dereferenceable(32) %365)
-  %367 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %366, ptr noundef nonnull @.str.42)
-  unreachable
-
-368:                                              ; preds = %292
-  switch i8 %296, label %433 [
-    i8 1, label %369
-    i8 3, label %385
-    i8 2, label %401
-    i8 4, label %417
-  ]
-
-369:                                              ; preds = %368
-  %370 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %371 = load i8, ptr %370, align 2, !tbaa !116, !range !99, !noundef !100
+369:                                              ; preds = %362
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %371 = load i8, ptr %370, align 1, !tbaa !115, !range !99, !noundef !100
   %372 = trunc nuw i8 %371 to i1
-  br i1 %372, label %373, label %.thread141
+  %or.cond137 = select i1 %372, i1 %368, i1 false
+  %brmerge283 = or i1 %or.cond137, %365
+  %.mux284 = select i1 %or.cond137, i32 139, i32 187
+  br i1 %brmerge283, label %614, label %373
 
 373:                                              ; preds = %369
-  %374 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %375 = load i8, ptr %374, align 1, !tbaa !117, !range !99, !noundef !100
-  %376 = trunc nuw i8 %375 to i1
-  %spec.select333 = select i1 %376, i32 166, i32 190
-  br label %.thread60
+  %374 = select i1 %368, i32 115, i32 64
+  %spec.select285 = select i1 %372, i32 88, i32 %374
+  br label %614
 
-.thread141:                                       ; preds = %369
-  %377 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %378 = load i8, ptr %377, align 1, !tbaa !115, !range !99, !noundef !100
-  %379 = trunc nuw i8 %378 to i1
-  %380 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %381 = load i8, ptr %380, align 1, !tbaa !117, !range !99, !noundef !100
-  %382 = trunc nuw i8 %381 to i1
-  br i1 %379, label %.thread177, label %383
-
-.thread177:                                       ; preds = %.thread141
-  %spec.select270 = select i1 %382, i32 142, i32 91
-  br label %.thread60
-
-383:                                              ; preds = %.thread141
-  %384 = select i1 %382, i32 118, i32 67
-  br label %.thread60
-
-385:                                              ; preds = %368
-  %386 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %387 = load i8, ptr %386, align 2, !tbaa !116, !range !99, !noundef !100
-  %388 = trunc nuw i8 %387 to i1
-  br i1 %388, label %389, label %.thread142
-
-389:                                              ; preds = %385
-  %390 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %391 = load i8, ptr %390, align 1, !tbaa !117, !range !99, !noundef !100
-  %392 = trunc nuw i8 %391 to i1
-  %spec.select334 = select i1 %392, i32 165, i32 189
-  br label %.thread60
-
-.thread142:                                       ; preds = %385
-  %393 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %394 = load i8, ptr %393, align 1, !tbaa !115, !range !99, !noundef !100
-  %395 = trunc nuw i8 %394 to i1
-  %396 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %397 = load i8, ptr %396, align 1, !tbaa !117, !range !99, !noundef !100
-  %398 = trunc nuw i8 %397 to i1
-  br i1 %395, label %.thread179, label %399
-
-.thread179:                                       ; preds = %.thread142
-  %spec.select271 = select i1 %398, i32 141, i32 90
-  br label %.thread60
-
-399:                                              ; preds = %.thread142
-  %400 = select i1 %398, i32 117, i32 66
-  br label %.thread60
-
-401:                                              ; preds = %368
-  %402 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %403 = load i8, ptr %402, align 2, !tbaa !116, !range !99, !noundef !100
-  %404 = trunc nuw i8 %403 to i1
-  br i1 %404, label %405, label %.thread143
-
-405:                                              ; preds = %401
-  %406 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %407 = load i8, ptr %406, align 1, !tbaa !117, !range !99, !noundef !100
-  %408 = trunc nuw i8 %407 to i1
-  %spec.select335 = select i1 %408, i32 164, i32 188
-  br label %.thread60
-
-.thread143:                                       ; preds = %401
-  %409 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %410 = load i8, ptr %409, align 1, !tbaa !115, !range !99, !noundef !100
-  %411 = trunc nuw i8 %410 to i1
-  %412 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %413 = load i8, ptr %412, align 1, !tbaa !117, !range !99, !noundef !100
-  %414 = trunc nuw i8 %413 to i1
-  br i1 %411, label %.thread181, label %415
-
-.thread181:                                       ; preds = %.thread143
-  %spec.select272 = select i1 %414, i32 140, i32 89
-  br label %.thread60
-
-415:                                              ; preds = %.thread143
-  %416 = select i1 %414, i32 116, i32 65
-  br label %.thread60
-
-417:                                              ; preds = %368
-  %418 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %419 = load i8, ptr %418, align 2, !tbaa !116, !range !99, !noundef !100
-  %420 = trunc nuw i8 %419 to i1
-  br i1 %420, label %421, label %.thread144
-
-421:                                              ; preds = %417
-  %422 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %423 = load i8, ptr %422, align 1, !tbaa !117, !range !99, !noundef !100
-  %424 = trunc nuw i8 %423 to i1
-  %spec.select336 = select i1 %424, i32 163, i32 187
-  br label %.thread60
-
-.thread144:                                       ; preds = %417
-  %425 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %426 = load i8, ptr %425, align 1, !tbaa !115, !range !99, !noundef !100
-  %427 = trunc nuw i8 %426 to i1
-  %428 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %429 = load i8, ptr %428, align 1, !tbaa !117, !range !99, !noundef !100
-  %430 = trunc nuw i8 %429 to i1
-  br i1 %427, label %.thread183, label %431
-
-.thread183:                                       ; preds = %.thread144
-  %spec.select273 = select i1 %430, i32 139, i32 88
-  br label %.thread60
-
-431:                                              ; preds = %.thread144
-  %432 = select i1 %430, i32 115, i32 64
-  br label %.thread60
-
-433:                                              ; preds = %368
-  %434 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
-  %435 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %434, ptr noundef nonnull @.str.43)
-  %436 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %437 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %435, ptr noundef nonnull align 8 dereferenceable(32) %436)
-  %438 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %437, ptr noundef nonnull @.str.42)
+375:                                              ; preds = %322
+  %376 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
+  %377 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %376, ptr noundef nonnull @.str.43)
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %379 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %377, ptr noundef nonnull align 8 dereferenceable(32) %378)
+  %380 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %379, ptr noundef nonnull @.str.42)
   unreachable
 
-439:                                              ; preds = %288, %117
-  %440 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %441 = load i8, ptr %440, align 1, !tbaa !110, !range !99, !noundef !100
-  %442 = trunc nuw i8 %441 to i1
-  %443 = load i8, ptr %0, align 8, !tbaa !102
-  br i1 %442, label %444, label %515
+381:                                              ; preds = %321
+  br i1 %138, label %382, label %441
 
-444:                                              ; preds = %439
-  switch i8 %443, label %509 [
-    i8 1, label %445
-    i8 2, label %461
-    i8 3, label %477
+382:                                              ; preds = %381
+  switch i8 %261, label %435 [
+    i8 1, label %383
+    i8 2, label %396
+    i8 3, label %409
+    i8 4, label %422
+  ]
+
+383:                                              ; preds = %382
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %385 = load i8, ptr %384, align 2, !tbaa !116, !range !99, !noundef !100
+  %386 = trunc nuw i8 %385 to i1
+  %387 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %388 = load i8, ptr %387, align 1, !range !99
+  %389 = trunc nuw i8 %388 to i1
+  %or.cond140 = select i1 %386, i1 %389, i1 false
+  br i1 %or.cond140, label %614, label %390
+
+390:                                              ; preds = %383
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %392 = load i8, ptr %391, align 1, !tbaa !115, !range !99, !noundef !100
+  %393 = trunc nuw i8 %392 to i1
+  %or.cond143 = select i1 %393, i1 %389, i1 false
+  %brmerge286 = or i1 %or.cond143, %386
+  %.mux287 = select i1 %or.cond143, i32 130, i32 178
+  br i1 %brmerge286, label %614, label %394
+
+394:                                              ; preds = %390
+  %395 = select i1 %389, i32 106, i32 55
+  %spec.select288 = select i1 %393, i32 79, i32 %395
+  br label %614
+
+396:                                              ; preds = %382
+  %397 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %398 = load i8, ptr %397, align 2, !tbaa !116, !range !99, !noundef !100
+  %399 = trunc nuw i8 %398 to i1
+  %400 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %401 = load i8, ptr %400, align 1, !range !99
+  %402 = trunc nuw i8 %401 to i1
+  %or.cond146 = select i1 %399, i1 %402, i1 false
+  br i1 %or.cond146, label %614, label %403
+
+403:                                              ; preds = %396
+  %404 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %405 = load i8, ptr %404, align 1, !tbaa !115, !range !99, !noundef !100
+  %406 = trunc nuw i8 %405 to i1
+  %or.cond149 = select i1 %406, i1 %402, i1 false
+  %brmerge289 = or i1 %or.cond149, %399
+  %.mux290 = select i1 %or.cond149, i32 128, i32 176
+  br i1 %brmerge289, label %614, label %407
+
+407:                                              ; preds = %403
+  %408 = select i1 %402, i32 104, i32 53
+  %spec.select291 = select i1 %406, i32 77, i32 %408
+  br label %614
+
+409:                                              ; preds = %382
+  %410 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %411 = load i8, ptr %410, align 2, !tbaa !116, !range !99, !noundef !100
+  %412 = trunc nuw i8 %411 to i1
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %414 = load i8, ptr %413, align 1, !range !99
+  %415 = trunc nuw i8 %414 to i1
+  %or.cond152 = select i1 %412, i1 %415, i1 false
+  br i1 %or.cond152, label %614, label %416
+
+416:                                              ; preds = %409
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %418 = load i8, ptr %417, align 1, !tbaa !115, !range !99, !noundef !100
+  %419 = trunc nuw i8 %418 to i1
+  %or.cond155 = select i1 %419, i1 %415, i1 false
+  %brmerge292 = or i1 %or.cond155, %412
+  %.mux293 = select i1 %or.cond155, i32 129, i32 177
+  br i1 %brmerge292, label %614, label %420
+
+420:                                              ; preds = %416
+  %421 = select i1 %415, i32 105, i32 54
+  %spec.select294 = select i1 %419, i32 78, i32 %421
+  br label %614
+
+422:                                              ; preds = %382
+  %423 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %424 = load i8, ptr %423, align 2, !tbaa !116, !range !99, !noundef !100
+  %425 = trunc nuw i8 %424 to i1
+  %426 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %427 = load i8, ptr %426, align 1, !range !99
+  %428 = trunc nuw i8 %427 to i1
+  %or.cond158 = select i1 %425, i1 %428, i1 false
+  br i1 %or.cond158, label %614, label %429
+
+429:                                              ; preds = %422
+  %430 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %431 = load i8, ptr %430, align 1, !tbaa !115, !range !99, !noundef !100
+  %432 = trunc nuw i8 %431 to i1
+  %or.cond161 = select i1 %432, i1 %428, i1 false
+  %brmerge295 = or i1 %or.cond161, %425
+  %.mux296 = select i1 %or.cond161, i32 127, i32 175
+  br i1 %brmerge295, label %614, label %433
+
+433:                                              ; preds = %429
+  %434 = select i1 %428, i32 102, i32 51
+  %spec.select297 = select i1 %432, i32 76, i32 %434
+  br label %614
+
+435:                                              ; preds = %382
+  %436 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
+  %437 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %436, ptr noundef nonnull @.str.43)
+  %438 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %439 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %437, ptr noundef nonnull align 8 dereferenceable(32) %438)
+  %440 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %439, ptr noundef nonnull @.str.42)
+  unreachable
+
+441:                                              ; preds = %381
+  switch i8 %261, label %506 [
+    i8 1, label %442
+    i8 3, label %459
+    i8 2, label %476
     i8 4, label %493
   ]
 
-445:                                              ; preds = %444
-  %446 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %447 = load i8, ptr %446, align 2, !tbaa !116, !range !99, !noundef !100
-  %448 = trunc nuw i8 %447 to i1
-  br i1 %448, label %449, label %.thread145
+442:                                              ; preds = %441
+  %443 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %444 = load i8, ptr %443, align 2, !tbaa !109
+  %445 = icmp eq i8 %444, 2
+  br i1 %445, label %614, label %446
 
-449:                                              ; preds = %445
+446:                                              ; preds = %442
+  %447 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %448 = load i8, ptr %447, align 2, !tbaa !116, !range !99, !noundef !100
+  %449 = trunc nuw i8 %448 to i1
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %451 = load i8, ptr %450, align 1, !tbaa !117, !range !99, !noundef !100
+  %451 = load i8, ptr %450, align 1, !range !99
   %452 = trunc nuw i8 %451 to i1
-  %spec.select337 = select i1 %452, i32 154, i32 178
-  br label %.thread60
+  %or.cond164 = select i1 %449, i1 %452, i1 false
+  br i1 %or.cond164, label %614, label %453
 
-.thread145:                                       ; preds = %445
-  %453 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %454 = load i8, ptr %453, align 1, !tbaa !115, !range !99, !noundef !100
-  %455 = trunc nuw i8 %454 to i1
-  %456 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %457 = load i8, ptr %456, align 1, !tbaa !117, !range !99, !noundef !100
-  %458 = trunc nuw i8 %457 to i1
-  br i1 %455, label %.thread185, label %459
+453:                                              ; preds = %446
+  %454 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %455 = load i8, ptr %454, align 1, !tbaa !115, !range !99, !noundef !100
+  %456 = trunc nuw i8 %455 to i1
+  %or.cond167 = select i1 %456, i1 %452, i1 false
+  %brmerge298 = or i1 %or.cond167, %449
+  %.mux299 = select i1 %or.cond167, i32 126, i32 174
+  br i1 %brmerge298, label %614, label %457
 
-.thread185:                                       ; preds = %.thread145
-  %spec.select274 = select i1 %458, i32 130, i32 79
-  br label %.thread60
+457:                                              ; preds = %453
+  %458 = select i1 %452, i32 100, i32 48
+  %spec.select300 = select i1 %456, i32 75, i32 %458
+  br label %614
 
-459:                                              ; preds = %.thread145
-  %460 = select i1 %458, i32 106, i32 55
-  br label %.thread60
+459:                                              ; preds = %441
+  %460 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %461 = load i8, ptr %460, align 2, !tbaa !109
+  %462 = icmp eq i8 %461, 2
+  br i1 %462, label %614, label %463
 
-461:                                              ; preds = %444
-  %462 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %463 = load i8, ptr %462, align 2, !tbaa !116, !range !99, !noundef !100
-  %464 = trunc nuw i8 %463 to i1
-  br i1 %464, label %465, label %.thread146
+463:                                              ; preds = %459
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %465 = load i8, ptr %464, align 2, !tbaa !116, !range !99, !noundef !100
+  %466 = trunc nuw i8 %465 to i1
+  %467 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %468 = load i8, ptr %467, align 1, !range !99
+  %469 = trunc nuw i8 %468 to i1
+  %or.cond170 = select i1 %466, i1 %469, i1 false
+  br i1 %or.cond170, label %614, label %470
 
-465:                                              ; preds = %461
-  %466 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %467 = load i8, ptr %466, align 1, !tbaa !117, !range !99, !noundef !100
-  %468 = trunc nuw i8 %467 to i1
-  %spec.select338 = select i1 %468, i32 152, i32 176
-  br label %.thread60
+470:                                              ; preds = %463
+  %471 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %472 = load i8, ptr %471, align 1, !tbaa !115, !range !99, !noundef !100
+  %473 = trunc nuw i8 %472 to i1
+  %or.cond173 = select i1 %473, i1 %469, i1 false
+  %brmerge301 = or i1 %or.cond173, %466
+  %.mux302 = select i1 %or.cond173, i32 125, i32 173
+  br i1 %brmerge301, label %614, label %474
 
-.thread146:                                       ; preds = %461
-  %469 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %470 = load i8, ptr %469, align 1, !tbaa !115, !range !99, !noundef !100
-  %471 = trunc nuw i8 %470 to i1
-  %472 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %473 = load i8, ptr %472, align 1, !tbaa !117, !range !99, !noundef !100
-  %474 = trunc nuw i8 %473 to i1
-  br i1 %471, label %.thread187, label %475
+474:                                              ; preds = %470
+  %475 = select i1 %469, i32 99, i32 46
+  %spec.select303 = select i1 %473, i32 74, i32 %475
+  br label %614
 
-.thread187:                                       ; preds = %.thread146
-  %spec.select275 = select i1 %474, i32 128, i32 77
-  br label %.thread60
+476:                                              ; preds = %441
+  %477 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %478 = load i8, ptr %477, align 2, !tbaa !109
+  %479 = icmp eq i8 %478, 2
+  br i1 %479, label %614, label %480
 
-475:                                              ; preds = %.thread146
-  %476 = select i1 %474, i32 104, i32 53
-  br label %.thread60
+480:                                              ; preds = %476
+  %481 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %482 = load i8, ptr %481, align 2, !tbaa !116, !range !99, !noundef !100
+  %483 = trunc nuw i8 %482 to i1
+  %484 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %485 = load i8, ptr %484, align 1, !range !99
+  %486 = trunc nuw i8 %485 to i1
+  %or.cond176 = select i1 %483, i1 %486, i1 false
+  br i1 %or.cond176, label %614, label %487
 
-477:                                              ; preds = %444
-  %478 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %479 = load i8, ptr %478, align 2, !tbaa !116, !range !99, !noundef !100
-  %480 = trunc nuw i8 %479 to i1
-  br i1 %480, label %481, label %.thread147
-
-481:                                              ; preds = %477
-  %482 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %483 = load i8, ptr %482, align 1, !tbaa !117, !range !99, !noundef !100
-  %484 = trunc nuw i8 %483 to i1
-  %spec.select339 = select i1 %484, i32 153, i32 177
-  br label %.thread60
-
-.thread147:                                       ; preds = %477
-  %485 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %486 = load i8, ptr %485, align 1, !tbaa !115, !range !99, !noundef !100
-  %487 = trunc nuw i8 %486 to i1
-  %488 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %489 = load i8, ptr %488, align 1, !tbaa !117, !range !99, !noundef !100
+487:                                              ; preds = %480
+  %488 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %489 = load i8, ptr %488, align 1, !tbaa !115, !range !99, !noundef !100
   %490 = trunc nuw i8 %489 to i1
-  br i1 %487, label %.thread189, label %491
+  %or.cond179 = select i1 %490, i1 %486, i1 false
+  %brmerge304 = or i1 %or.cond179, %483
+  %.mux305 = select i1 %or.cond179, i32 124, i32 172
+  br i1 %brmerge304, label %614, label %491
 
-.thread189:                                       ; preds = %.thread147
-  %spec.select276 = select i1 %490, i32 129, i32 78
-  br label %.thread60
+491:                                              ; preds = %487
+  %492 = select i1 %486, i32 98, i32 44
+  %spec.select306 = select i1 %490, i32 73, i32 %492
+  br label %614
 
-491:                                              ; preds = %.thread147
-  %492 = select i1 %490, i32 105, i32 54
-  br label %.thread60
-
-493:                                              ; preds = %444
+493:                                              ; preds = %441
   %494 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %495 = load i8, ptr %494, align 2, !tbaa !116, !range !99, !noundef !100
   %496 = trunc nuw i8 %495 to i1
-  br i1 %496, label %497, label %.thread148
+  %497 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  %498 = load i8, ptr %497, align 1, !range !99
+  %499 = trunc nuw i8 %498 to i1
+  %or.cond182 = select i1 %496, i1 %499, i1 false
+  br i1 %or.cond182, label %614, label %500
 
-497:                                              ; preds = %493
-  %498 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %499 = load i8, ptr %498, align 1, !tbaa !117, !range !99, !noundef !100
-  %500 = trunc nuw i8 %499 to i1
-  %spec.select340 = select i1 %500, i32 151, i32 175
-  br label %.thread60
-
-.thread148:                                       ; preds = %493
+500:                                              ; preds = %493
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %502 = load i8, ptr %501, align 1, !tbaa !115, !range !99, !noundef !100
   %503 = trunc nuw i8 %502 to i1
-  %504 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %505 = load i8, ptr %504, align 1, !tbaa !117, !range !99, !noundef !100
-  %506 = trunc nuw i8 %505 to i1
-  br i1 %503, label %.thread191, label %507
+  %or.cond185 = select i1 %503, i1 %499, i1 false
+  %brmerge307 = or i1 %or.cond185, %496
+  %.mux308 = select i1 %or.cond185, i32 123, i32 171
+  br i1 %brmerge307, label %614, label %504
 
-.thread191:                                       ; preds = %.thread148
-  %spec.select277 = select i1 %506, i32 127, i32 76
-  br label %.thread60
+504:                                              ; preds = %500
+  %505 = select i1 %499, i32 96, i32 42
+  %spec.select309 = select i1 %503, i32 72, i32 %505
+  br label %614
 
-507:                                              ; preds = %.thread148
-  %508 = select i1 %506, i32 102, i32 51
-  br label %.thread60
-
-509:                                              ; preds = %444
-  %510 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
-  %511 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %510, ptr noundef nonnull @.str.43)
-  %512 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %513 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %511, ptr noundef nonnull align 8 dereferenceable(32) %512)
-  %514 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %513, ptr noundef nonnull @.str.42)
+506:                                              ; preds = %441
+  %507 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
+  %508 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %507, ptr noundef nonnull @.str.43)
+  %509 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %510 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %508, ptr noundef nonnull align 8 dereferenceable(32) %509)
+  %511 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %510, ptr noundef nonnull @.str.42)
   unreachable
 
-515:                                              ; preds = %439
-  switch i8 %443, label %592 [
-    i8 1, label %516
-    i8 3, label %536
-    i8 2, label %556
-    i8 4, label %576
+512:                                              ; preds = %1, %1
+  %513 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %514 = load i8, ptr %513, align 2, !tbaa !125, !range !99, !noundef !100
+  %515 = trunc nuw i8 %514 to i1
+  %516 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %517 = load i8, ptr %516, align 1, !range !99
+  %518 = trunc nuw i8 %517 to i1
+  %or.cond188 = select i1 %515, i1 %518, i1 false
+  %519 = load i8, ptr %0, align 8, !tbaa !102
+  br i1 %or.cond188, label %520, label %528
+
+520:                                              ; preds = %512
+  %switch.tableidx = add i8 %519, -1
+  %521 = icmp ult i8 %switch.tableidx, 4
+  br i1 %521, label %switch.lookup, label %522
+
+522:                                              ; preds = %520
+  %523 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
+  %524 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %523, ptr noundef nonnull @.str.43)
+  %525 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %526 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %524, ptr noundef nonnull align 8 dereferenceable(32) %525)
+  %527 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %526, ptr noundef nonnull @.str.42)
+  unreachable
+
+528:                                              ; preds = %512
+  %529 = icmp eq i8 %519, 1
+  %or.cond190 = and i1 %529, %515
+  br i1 %or.cond190, label %614, label %530
+
+530:                                              ; preds = %528
+  %or.cond193 = select i1 %529, i1 %518, i1 false
+  %.mux311 = select i1 %or.cond193, i32 33, i32 29
+  br i1 %529, label %614, label %531
+
+531:                                              ; preds = %530
+  %532 = icmp eq i8 %519, 2
+  %or.cond194 = and i1 %532, %515
+  br i1 %or.cond194, label %614, label %533
+
+533:                                              ; preds = %531
+  %534 = icmp eq i8 %519, 3
+  %or.cond196 = and i1 %534, %515
+  br i1 %or.cond196, label %614, label %535
+
+535:                                              ; preds = %533
+  %or.cond198 = and i1 %532, %518
+  br i1 %or.cond198, label %614, label %536
+
+536:                                              ; preds = %535
+  %or.cond200 = and i1 %534, %518
+  br i1 %or.cond200, label %614, label %537
+
+537:                                              ; preds = %536
+  %538 = icmp eq i8 %519, 4
+  %or.cond202 = and i1 %538, %518
+  br i1 %or.cond202, label %614, label %539
+
+539:                                              ; preds = %537
+  %or.cond204 = and i1 %538, %515
+  br i1 %or.cond204, label %614, label %540
+
+540:                                              ; preds = %539
+  %switch.tableidx335 = add i8 %519, -2
+  %541 = icmp ult i8 %switch.tableidx335, 3
+  br i1 %541, label %switch.lookup334, label %542
+
+542:                                              ; preds = %540
+  %543 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
+  %544 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %543, ptr noundef nonnull @.str.43)
+  %545 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %546 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %544, ptr noundef nonnull align 8 dereferenceable(32) %545)
+  %547 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %546, ptr noundef nonnull @.str.42)
+  unreachable
+
+548:                                              ; preds = %1
+  %549 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %550 = load i8, ptr %549, align 1, !tbaa !137, !range !99, !noundef !100
+  %551 = trunc nuw i8 %550 to i1
+  %552 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %553 = load i8, ptr %552, align 1, !range !99
+  %554 = trunc nuw i8 %553 to i1
+  %or.cond207 = select i1 %551, i1 true, i1 %554
+  br i1 %or.cond207, label %559, label %555
+
+555:                                              ; preds = %548
+  %556 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %557 = load i8, ptr %556, align 2, !tbaa !109
+  %558 = icmp eq i8 %557, 3
+  br i1 %558, label %573, label %598
+
+559:                                              ; preds = %548
+  br i1 %554, label %561, label %..thread239_crit_edge
+
+..thread239_crit_edge:                            ; preds = %559
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %.pre = load i8, ptr %.phi.trans.insert, align 2
+  %560 = icmp eq i8 %.pre, 2
+  br label %573
+
+561:                                              ; preds = %559
+  %562 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %563 = load i8, ptr %562, align 1, !tbaa !108
+  %564 = icmp eq i8 %563, 1
+  %565 = load i8, ptr %0, align 8
+  %566 = icmp eq i8 %565, 1
+  %or.cond209 = select i1 %564, i1 true, i1 %566
+  br i1 %or.cond209, label %614, label %567
+
+567:                                              ; preds = %561
+  %568 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %569 = load i8, ptr %568, align 2
+  %570 = icmp eq i8 %569, 2
+  br i1 %570, label %614, label %.thread329
+
+.thread329:                                       ; preds = %567
+  %571 = icmp eq i8 %565, 3
+  %572 = icmp eq i8 %565, 2
+  br label %581
+
+573:                                              ; preds = %555, %..thread239_crit_edge
+  %574 = phi i1 [ %560, %..thread239_crit_edge ], [ false, %555 ]
+  %.phi.trans.insert323 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %.pre324 = load i8, ptr %.phi.trans.insert323, align 1, !tbaa !108
+  %.pre325 = load i8, ptr %0, align 8
+  %.pre324.fr = freeze i8 %.pre324
+  %575 = icmp eq i8 %.pre324.fr, 1
+  %576 = icmp eq i8 %.pre325, 3
+  %or.cond214 = select i1 %575, i1 %576, i1 false
+  br i1 %or.cond214, label %614, label %577
+
+577:                                              ; preds = %573
+  %578 = icmp eq i8 %.pre325, 2
+  %or.cond216 = select i1 %575, i1 %578, i1 false
+  br i1 %or.cond216, label %614, label %579
+
+579:                                              ; preds = %577
+  %580 = icmp eq i8 %.pre325, 1
+  %or.cond218 = select i1 %574, i1 %580, i1 false
+  %spec.select333 = select i1 %575, i1 %574, i1 %or.cond218
+  br label %581
+
+581:                                              ; preds = %579, %.thread329
+  %or.cond218332 = phi i1 [ false, %.thread329 ], [ %or.cond218, %579 ]
+  %582 = phi i1 [ false, %.thread329 ], [ %580, %579 ]
+  %583 = phi i1 [ %571, %.thread329 ], [ %576, %579 ]
+  %584 = phi i1 [ false, %.thread329 ], [ %574, %579 ]
+  %585 = phi i1 [ false, %.thread329 ], [ %575, %579 ]
+  %586 = phi i8 [ %565, %.thread329 ], [ %.pre325, %579 ]
+  %587 = phi i1 [ %572, %.thread329 ], [ %578, %579 ]
+  %588 = phi i1 [ false, %.thread329 ], [ %spec.select333, %579 ]
+  %brmerge313 = or i1 %585, %or.cond218332
+  %brmerge315 = select i1 %585, i1 true, i1 %582
+  %589 = and i1 %brmerge313, %588
+  %.mux314.mux = select i1 %589, i32 15, i32 13
+  %brmerge316 = select i1 %brmerge315, i1 true, i1 %584
+  %.mux314.mux.mux = select i1 %brmerge315, i32 %.mux314.mux, i32 14
+  br i1 %brmerge316, label %614, label %590
+
+590:                                              ; preds = %581
+  %or.cond221 = and i1 %587, %554
+  br i1 %or.cond221, label %614, label %591
+
+591:                                              ; preds = %590
+  %or.cond223 = select i1 %554, i1 %583, i1 false
+  br i1 %or.cond223, label %614, label %592
+
+592:                                              ; preds = %591
+  switch i8 %586, label %594 [
+    i8 3, label %614
+    i8 2, label %593
   ]
 
-516:                                              ; preds = %515
-  %517 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %518 = load i8, ptr %517, align 2, !tbaa !109
-  %519 = icmp eq i8 %518, 2
-  br i1 %519, label %.thread60, label %520
+593:                                              ; preds = %592
+  br label %614
 
-520:                                              ; preds = %516
-  %521 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %522 = load i8, ptr %521, align 2, !tbaa !116, !range !99, !noundef !100
-  %523 = trunc nuw i8 %522 to i1
-  br i1 %523, label %524, label %.thread149
+594:                                              ; preds = %592
+  %595 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %596 = load i8, ptr %595, align 8, !tbaa !126, !range !99, !noundef !100
+  %597 = trunc nuw i8 %596 to i1
+  %.224 = select i1 %554, i32 11, i32 1
+  %spec.select317 = select i1 %597, i32 25, i32 %.224
+  br label %614
 
-524:                                              ; preds = %520
-  %525 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %526 = load i8, ptr %525, align 1, !tbaa !117, !range !99, !noundef !100
-  %527 = trunc nuw i8 %526 to i1
-  %spec.select341 = select i1 %527, i32 150, i32 174
-  br label %.thread60
+598:                                              ; preds = %555
+  %599 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %600 = load i8, ptr %599, align 1, !tbaa !108
+  %601 = icmp eq i8 %600, 1
+  %602 = load i8, ptr %0, align 8
+  %603 = icmp eq i8 %602, 3
+  %or.cond226 = select i1 %601, i1 %603, i1 false
+  br i1 %or.cond226, label %614, label %604
 
-.thread149:                                       ; preds = %520
-  %528 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %529 = load i8, ptr %528, align 1, !tbaa !115, !range !99, !noundef !100
-  %530 = trunc nuw i8 %529 to i1
-  %531 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %532 = load i8, ptr %531, align 1, !tbaa !117, !range !99, !noundef !100
-  %533 = trunc nuw i8 %532 to i1
-  br i1 %530, label %.thread193, label %534
+604:                                              ; preds = %598
+  %605 = icmp eq i8 %602, 2
+  %or.cond228 = select i1 %601, i1 %605, i1 false
+  br i1 %or.cond228, label %614, label %606
 
-.thread193:                                       ; preds = %.thread149
-  %spec.select278 = select i1 %533, i32 126, i32 75
-  br label %.thread60
+606:                                              ; preds = %604
+  %607 = icmp eq i8 %557, 1
+  %or.cond230 = select i1 %607, i1 %603, i1 false
+  br i1 %or.cond230, label %614, label %608
 
-534:                                              ; preds = %.thread149
-  %535 = select i1 %533, i32 100, i32 48
-  br label %.thread60
+608:                                              ; preds = %606
+  %or.cond232 = select i1 %607, i1 %605, i1 false
+  br i1 %or.cond232, label %614, label %609
 
-536:                                              ; preds = %515
-  %537 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %538 = load i8, ptr %537, align 2, !tbaa !109
-  %539 = icmp eq i8 %538, 2
-  br i1 %539, label %.thread60, label %540
+609:                                              ; preds = %608
+  %610 = icmp eq i8 %602, 1
+  %or.cond234 = select i1 %607, i1 %610, i1 false
+  %or.cond236 = and i1 %607, %601
+  %or.cond318 = or i1 %or.cond236, %or.cond234
+  %brmerge321 = select i1 %601, i1 true, i1 %610
+  %.mux320.mux = select i1 %or.cond318, i32 4, i32 2
+  %brmerge322 = or i1 %607, %brmerge321
+  %.mux320.mux.mux = select i1 %brmerge321, i32 %.mux320.mux, i32 3
+  br i1 %brmerge322, label %614, label %611
 
-540:                                              ; preds = %536
-  %541 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %542 = load i8, ptr %541, align 2, !tbaa !116, !range !99, !noundef !100
-  %543 = trunc nuw i8 %542 to i1
-  br i1 %543, label %544, label %.thread150
+611:                                              ; preds = %609
+  %switch.select = select i1 %605, i32 6, i32 0
+  %switch.select238 = select i1 %603, i32 5, i32 %switch.select
+  br label %614
 
-544:                                              ; preds = %540
-  %545 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %546 = load i8, ptr %545, align 1, !tbaa !117, !range !99, !noundef !100
-  %547 = trunc nuw i8 %546 to i1
-  %spec.select342 = select i1 %547, i32 149, i32 173
-  br label %.thread60
-
-.thread150:                                       ; preds = %540
-  %548 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %549 = load i8, ptr %548, align 1, !tbaa !115, !range !99, !noundef !100
-  %550 = trunc nuw i8 %549 to i1
-  %551 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %552 = load i8, ptr %551, align 1, !tbaa !117, !range !99, !noundef !100
-  %553 = trunc nuw i8 %552 to i1
-  br i1 %550, label %.thread195, label %554
-
-.thread195:                                       ; preds = %.thread150
-  %spec.select279 = select i1 %553, i32 125, i32 74
-  br label %.thread60
-
-554:                                              ; preds = %.thread150
-  %555 = select i1 %553, i32 99, i32 46
-  br label %.thread60
-
-556:                                              ; preds = %515
-  %557 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %558 = load i8, ptr %557, align 2, !tbaa !109
-  %559 = icmp eq i8 %558, 2
-  br i1 %559, label %.thread60, label %560
-
-560:                                              ; preds = %556
-  %561 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %562 = load i8, ptr %561, align 2, !tbaa !116, !range !99, !noundef !100
-  %563 = trunc nuw i8 %562 to i1
-  br i1 %563, label %564, label %.thread151
-
-564:                                              ; preds = %560
-  %565 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %566 = load i8, ptr %565, align 1, !tbaa !117, !range !99, !noundef !100
-  %567 = trunc nuw i8 %566 to i1
-  %spec.select343 = select i1 %567, i32 148, i32 172
-  br label %.thread60
-
-.thread151:                                       ; preds = %560
-  %568 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %569 = load i8, ptr %568, align 1, !tbaa !115, !range !99, !noundef !100
-  %570 = trunc nuw i8 %569 to i1
-  %571 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %572 = load i8, ptr %571, align 1, !tbaa !117, !range !99, !noundef !100
-  %573 = trunc nuw i8 %572 to i1
-  br i1 %570, label %.thread197, label %574
-
-.thread197:                                       ; preds = %.thread151
-  %spec.select280 = select i1 %573, i32 124, i32 73
-  br label %.thread60
-
-574:                                              ; preds = %.thread151
-  %575 = select i1 %573, i32 98, i32 44
-  br label %.thread60
-
-576:                                              ; preds = %515
-  %577 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %578 = load i8, ptr %577, align 2, !tbaa !116, !range !99, !noundef !100
-  %579 = trunc nuw i8 %578 to i1
-  br i1 %579, label %580, label %.thread152
-
-580:                                              ; preds = %576
-  %581 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %582 = load i8, ptr %581, align 1, !tbaa !117, !range !99, !noundef !100
-  %583 = trunc nuw i8 %582 to i1
-  %spec.select344 = select i1 %583, i32 147, i32 171
-  br label %.thread60
-
-.thread152:                                       ; preds = %576
-  %584 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %585 = load i8, ptr %584, align 1, !tbaa !115, !range !99, !noundef !100
-  %586 = trunc nuw i8 %585 to i1
-  %587 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %588 = load i8, ptr %587, align 1, !tbaa !117, !range !99, !noundef !100
-  %589 = trunc nuw i8 %588 to i1
-  br i1 %586, label %.thread199, label %590
-
-.thread199:                                       ; preds = %.thread152
-  %spec.select281 = select i1 %589, i32 123, i32 72
-  br label %.thread60
-
-590:                                              ; preds = %.thread152
-  %591 = select i1 %589, i32 96, i32 42
-  br label %.thread60
-
-592:                                              ; preds = %515
-  %593 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
-  %594 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %593, ptr noundef nonnull @.str.43)
-  %595 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %596 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %594, ptr noundef nonnull align 8 dereferenceable(32) %595)
-  %597 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %596, ptr noundef nonnull @.str.42)
-  unreachable
-
-598:                                              ; preds = %1, %1
-  %599 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %600 = load i8, ptr %599, align 2, !tbaa !125, !range !99, !noundef !100
-  %601 = trunc nuw i8 %600 to i1
-  br i1 %601, label %602, label %.thread113
-
-602:                                              ; preds = %598
-  %603 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %604 = load i8, ptr %603, align 1, !tbaa !110, !range !99, !noundef !100
-  %605 = trunc nuw i8 %604 to i1
-  %606 = load i8, ptr %0, align 8, !tbaa !102
-  %switch.tableidx = add i8 %606, -1
-  br i1 %605, label %607, label %615
-
-607:                                              ; preds = %602
-  %608 = icmp ult i8 %switch.tableidx, 4
-  br i1 %608, label %switch.lookup, label %609
-
-609:                                              ; preds = %607
-  %610 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
-  %611 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %610, ptr noundef nonnull @.str.43)
-  %612 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %613 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %611, ptr noundef nonnull align 8 dereferenceable(32) %612)
-  %614 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %613, ptr noundef nonnull @.str.42)
-  unreachable
-
-615:                                              ; preds = %602
-  %616 = icmp ult i8 %switch.tableidx, 3
-  br i1 %616, label %switch.lookup346, label %629
-
-.thread113:                                       ; preds = %598
-  %617 = load i8, ptr %0, align 8, !tbaa !102
-  %618 = icmp eq i8 %617, 1
-  br i1 %618, label %619, label %623
-
-619:                                              ; preds = %.thread113
-  %620 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %621 = load i8, ptr %620, align 1, !tbaa !110, !range !99, !noundef !100
-  %622 = trunc nuw i8 %621 to i1
-  %spec.select = select i1 %622, i32 33, i32 29
-  br label %.thread60
-
-623:                                              ; preds = %.thread113
-  %624 = icmp eq i8 %617, 2
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !110, !range !99
-  %.pre288 = trunc nuw i8 %.pre to i1
-  %or.cond21 = and i1 %624, %.pre288
-  br i1 %or.cond21, label %.thread60, label %625
-
-625:                                              ; preds = %623
-  %626 = icmp eq i8 %617, 3
-  %or.cond23 = and i1 %626, %.pre288
-  br i1 %or.cond23, label %.thread60, label %627
-
-627:                                              ; preds = %625
-  %628 = icmp eq i8 %617, 4
-  %or.cond25 = and i1 %628, %.pre288
-  br i1 %or.cond25, label %.thread60, label %.thread307
-
-629:                                              ; preds = %615
-  %630 = icmp eq i8 %606, 4
-  br i1 %630, label %.thread60, label %.thread307
-
-.thread307:                                       ; preds = %627, %629
-  %.ph116122126295300306310 = phi i8 [ %606, %629 ], [ %617, %627 ]
-  %switch.tableidx351 = add i8 %.ph116122126295300306310, -2
-  %631 = icmp ult i8 %switch.tableidx351, 3
-  br i1 %631, label %switch.lookup350, label %632
-
-632:                                              ; preds = %.thread307
-  %633 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #17
-  %634 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %633, ptr noundef nonnull @.str.43)
-  %635 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %636 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %634, ptr noundef nonnull align 8 dereferenceable(32) %635)
-  %637 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %636, ptr noundef nonnull @.str.42)
-  unreachable
-
-638:                                              ; preds = %1
-  %639 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %640 = load i8, ptr %639, align 1, !tbaa !137, !range !99, !noundef !100
-  %641 = trunc nuw i8 %640 to i1
-  %.phi.trans.insert283 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %.pre284 = load i8, ptr %.phi.trans.insert283, align 1, !tbaa !110, !range !99
-  %642 = trunc nuw i8 %.pre284 to i1
-  br i1 %641, label %648, label %643
-
-643:                                              ; preds = %638
-  br i1 %642, label %.thread311, label %644
-
-644:                                              ; preds = %643
-  %645 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %646 = load i8, ptr %645, align 2, !tbaa !109
-  %647 = icmp eq i8 %646, 3
-  br i1 %647, label %.thread312, label %687
-
-648:                                              ; preds = %638
-  br i1 %642, label %.thread311, label %.thread312
-
-.thread311:                                       ; preds = %643, %648
-  %649 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %650 = load i8, ptr %649, align 1, !tbaa !108
-  %651 = icmp eq i8 %650, 1
-  %652 = load i8, ptr %0, align 8
-  %653 = icmp eq i8 %652, 1
-  %or.cond29 = select i1 %651, i1 true, i1 %653
-  br i1 %or.cond29, label %.thread60, label %654
-
-654:                                              ; preds = %.thread311
-  %655 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %656 = load i8, ptr %655, align 2
-  %657 = icmp eq i8 %656, 2
-  br i1 %657, label %.thread60, label %.thread317
-
-.thread317:                                       ; preds = %654
-  %658 = icmp eq i8 %652, 3
-  %659 = icmp eq i8 %652, 2
-  br label %669
-
-.thread312:                                       ; preds = %644, %648
-  %660 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %661 = load i8, ptr %660, align 2
-  %662 = icmp eq i8 %661, 2
-  %.phi.trans.insert285 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %.pre286 = load i8, ptr %.phi.trans.insert285, align 1, !tbaa !108
-  %.pre287 = load i8, ptr %0, align 8
-  %.pre286.fr = freeze i8 %.pre286
-  %663 = icmp eq i8 %.pre286.fr, 1
-  %664 = icmp eq i8 %.pre287, 3
-  %or.cond34 = select i1 %663, i1 %664, i1 false
-  br i1 %or.cond34, label %.thread60, label %665
-
-665:                                              ; preds = %.thread312
-  %666 = icmp eq i8 %.pre287, 2
-  %or.cond36 = select i1 %663, i1 %666, i1 false
-  br i1 %or.cond36, label %.thread60, label %667
-
-667:                                              ; preds = %665
-  %668 = icmp eq i8 %.pre287, 1
-  %or.cond38 = select i1 %662, i1 %668, i1 false
-  %spec.select345 = select i1 %663, i1 %662, i1 %or.cond38
-  br label %669
-
-669:                                              ; preds = %667, %.thread317
-  %or.cond38320 = phi i1 [ false, %.thread317 ], [ %or.cond38, %667 ]
-  %670 = phi i1 [ false, %.thread317 ], [ %668, %667 ]
-  %671 = phi i1 [ %658, %.thread317 ], [ %664, %667 ]
-  %672 = phi i1 [ false, %.thread317 ], [ %662, %667 ]
-  %673 = phi i1 [ false, %.thread317 ], [ %663, %667 ]
-  %674 = phi i8 [ %652, %.thread317 ], [ %.pre287, %667 ]
-  %675 = phi i1 [ true, %.thread317 ], [ false, %667 ]
-  %676 = phi i1 [ %659, %.thread317 ], [ %666, %667 ]
-  %677 = phi i1 [ false, %.thread317 ], [ %spec.select345, %667 ]
-  %brmerge248 = or i1 %673, %or.cond38320
-  %brmerge250 = select i1 %673, i1 true, i1 %670
-  %678 = and i1 %brmerge248, %677
-  %.mux249.mux = select i1 %678, i32 15, i32 13
-  %brmerge251 = select i1 %brmerge250, i1 true, i1 %672
-  %.mux249.mux.mux = select i1 %brmerge250, i32 %.mux249.mux, i32 14
-  br i1 %brmerge251, label %.thread60, label %679
-
-679:                                              ; preds = %669
-  %or.cond41 = and i1 %676, %675
-  br i1 %or.cond41, label %.thread60, label %680
-
-680:                                              ; preds = %679
-  %or.cond43 = select i1 %675, i1 %671, i1 false
-  br i1 %or.cond43, label %.thread60, label %681
-
-681:                                              ; preds = %680
-  switch i8 %674, label %683 [
-    i8 3, label %.thread60
-    i8 2, label %682
-  ]
-
-682:                                              ; preds = %681
-  br label %.thread60
-
-683:                                              ; preds = %681
-  %684 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %685 = load i8, ptr %684, align 8, !tbaa !126, !range !99, !noundef !100
-  %686 = trunc nuw i8 %685 to i1
-  %.44 = select i1 %675, i32 11, i32 1
-  %spec.select252 = select i1 %686, i32 25, i32 %.44
-  br label %.thread60
-
-687:                                              ; preds = %644
-  %688 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %689 = load i8, ptr %688, align 1, !tbaa !108
-  %690 = icmp eq i8 %689, 1
-  %691 = load i8, ptr %0, align 8
-  %692 = icmp eq i8 %691, 3
-  %or.cond46 = select i1 %690, i1 %692, i1 false
-  br i1 %or.cond46, label %.thread60, label %693
-
-693:                                              ; preds = %687
-  %694 = icmp eq i8 %691, 2
-  %or.cond48 = select i1 %690, i1 %694, i1 false
-  br i1 %or.cond48, label %.thread60, label %695
-
-695:                                              ; preds = %693
-  %696 = icmp eq i8 %646, 1
-  %or.cond50 = select i1 %696, i1 %692, i1 false
-  br i1 %or.cond50, label %.thread60, label %697
-
-697:                                              ; preds = %695
-  %or.cond52 = select i1 %696, i1 %694, i1 false
-  br i1 %or.cond52, label %.thread60, label %698
-
-698:                                              ; preds = %697
-  %699 = icmp eq i8 %691, 1
-  %or.cond54 = select i1 %696, i1 %699, i1 false
-  %or.cond56 = and i1 %696, %690
-  %or.cond253 = or i1 %or.cond56, %or.cond54
-  %brmerge256 = select i1 %690, i1 true, i1 %699
-  %.mux255.mux = select i1 %or.cond253, i32 4, i32 2
-  %brmerge257 = or i1 %696, %brmerge256
-  %.mux255.mux.mux = select i1 %brmerge256, i32 %.mux255.mux, i32 3
-  br i1 %brmerge257, label %.thread60, label %700
-
-700:                                              ; preds = %698
-  %switch.select = select i1 %694, i32 6, i32 0
-  %switch.select58 = select i1 %692, i32 5, i32 %switch.select
-  br label %.thread60
-
-switch.lookup:                                    ; preds = %607
-  %701 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv, i64 0, i64 %701
+switch.lookup:                                    ; preds = %520
+  %612 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv, i64 0, i64 %612
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %.thread60
+  br label %614
 
-switch.lookup346:                                 ; preds = %615
-  %702 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep348 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv.3, i64 0, i64 %702
-  %switch.load349 = load i32, ptr %switch.gep348, align 4
-  br label %.thread60
+switch.lookup334:                                 ; preds = %540
+  %613 = zext nneg i8 %switch.tableidx335 to i64
+  %switch.gep336 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv.3, i64 0, i64 %613
+  %switch.load337 = load i32, ptr %switch.gep336, align 4
+  br label %614
 
-switch.lookup350:                                 ; preds = %.thread307
-  %703 = zext nneg i8 %switch.tableidx351 to i64
-  %switch.gep352 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv.4, i64 0, i64 %703
-  %switch.load353 = load i32, ptr %switch.gep352, align 4
-  br label %.thread60
-
-.thread60:                                        ; preds = %switch.lookup350, %switch.lookup346, %switch.lookup, %580, %564, %544, %524, %497, %481, %465, %449, %421, %405, %389, %373, %350, %334, %318, %302, %270, %254, %238, %222, %199, %183, %167, %151, %.thread199, %.thread197, %.thread195, %.thread193, %.thread191, %.thread189, %.thread187, %.thread185, %.thread183, %.thread181, %.thread179, %.thread177, %.thread175, %.thread173, %.thread171, %.thread169, %.thread167, %.thread165, %.thread163, %.thread161, %.thread159, %.thread157, %.thread155, %.thread153, %683, %619, %698, %669, %700, %697, %695, %693, %687, %681, %680, %679, %665, %.thread312, %654, %.thread311, %629, %627, %625, %623, %590, %556, %574, %536, %554, %516, %534, %507, %491, %475, %459, %431, %415, %399, %383, %360, %344, %328, %312, %280, %264, %248, %232, %209, %193, %177, %161, %682, %75, %93, %102, %84, %32, %50, %59, %41, %127, %139, %138
-  %.0 = phi i32 [ %40, %32 ], [ %49, %41 ], [ %58, %50 ], [ %67, %59 ], [ %83, %75 ], [ %92, %84 ], [ %101, %93 ], [ %110, %102 ], [ %., %127 ], [ %.16, %138 ], [ %.17, %139 ], [ 17, %682 ], [ %162, %161 ], [ %178, %177 ], [ %194, %193 ], [ %210, %209 ], [ %233, %232 ], [ %249, %248 ], [ %265, %264 ], [ %281, %280 ], [ %313, %312 ], [ %329, %328 ], [ %345, %344 ], [ %361, %360 ], [ %384, %383 ], [ %400, %399 ], [ %416, %415 ], [ %432, %431 ], [ %460, %459 ], [ %476, %475 ], [ %492, %491 ], [ %508, %507 ], [ 50, %516 ], [ %535, %534 ], [ 47, %536 ], [ %555, %554 ], [ 45, %556 ], [ %575, %574 ], [ %591, %590 ], [ 31, %623 ], [ 32, %625 ], [ 30, %627 ], [ 34, %629 ], [ 24, %.thread311 ], [ 12, %654 ], [ 18, %.thread312 ], [ 19, %665 ], [ %.mux249.mux.mux, %669 ], [ 22, %679 ], [ 23, %680 ], [ 16, %681 ], [ 7, %687 ], [ 8, %693 ], [ 9, %695 ], [ 10, %697 ], [ %.mux255.mux.mux, %698 ], [ %switch.select58, %700 ], [ %spec.select, %619 ], [ %spec.select252, %683 ], [ %spec.select258, %.thread153 ], [ %spec.select259, %.thread155 ], [ %spec.select260, %.thread157 ], [ %spec.select261, %.thread159 ], [ %spec.select262, %.thread161 ], [ %spec.select263, %.thread163 ], [ %spec.select264, %.thread165 ], [ %spec.select265, %.thread167 ], [ %spec.select266, %.thread169 ], [ %spec.select267, %.thread171 ], [ %spec.select268, %.thread173 ], [ %spec.select269, %.thread175 ], [ %spec.select270, %.thread177 ], [ %spec.select271, %.thread179 ], [ %spec.select272, %.thread181 ], [ %spec.select273, %.thread183 ], [ %spec.select274, %.thread185 ], [ %spec.select275, %.thread187 ], [ %spec.select276, %.thread189 ], [ %spec.select277, %.thread191 ], [ %spec.select278, %.thread193 ], [ %spec.select279, %.thread195 ], [ %spec.select280, %.thread197 ], [ %spec.select281, %.thread199 ], [ %spec.select321, %151 ], [ %spec.select322, %167 ], [ %spec.select323, %183 ], [ %spec.select324, %199 ], [ %spec.select325, %222 ], [ %spec.select326, %238 ], [ %spec.select327, %254 ], [ %spec.select328, %270 ], [ %spec.select329, %302 ], [ %spec.select330, %318 ], [ %spec.select331, %334 ], [ %spec.select332, %350 ], [ %spec.select333, %373 ], [ %spec.select334, %389 ], [ %spec.select335, %405 ], [ %spec.select336, %421 ], [ %spec.select337, %449 ], [ %spec.select338, %465 ], [ %spec.select339, %481 ], [ %spec.select340, %497 ], [ %spec.select341, %524 ], [ %spec.select342, %544 ], [ %spec.select343, %564 ], [ %spec.select344, %580 ], [ %switch.load, %switch.lookup ], [ %switch.load349, %switch.lookup346 ], [ %switch.load353, %switch.lookup350 ]
+614:                                              ; preds = %switch.lookup334, %switch.lookup, %594, %504, %491, %474, %457, %433, %420, %407, %394, %373, %360, %347, %334, %313, %300, %287, %274, %252, %239, %226, %213, %191, %178, %165, %152, %609, %581, %530, %500, %487, %470, %453, %429, %416, %403, %390, %369, %356, %343, %330, %309, %296, %283, %270, %248, %235, %222, %209, %187, %174, %161, %148, %611, %608, %606, %604, %598, %592, %591, %590, %577, %573, %567, %561, %539, %537, %536, %535, %533, %531, %528, %493, %476, %480, %459, %463, %442, %446, %422, %409, %396, %383, %362, %349, %336, %323, %302, %289, %276, %263, %241, %228, %215, %202, %180, %167, %154, %141, %593, %73, %91, %100, %82, %30, %48, %57, %39, %122, %134, %133
+  %.0 = phi i32 [ %38, %30 ], [ %47, %39 ], [ %56, %48 ], [ %65, %57 ], [ %81, %73 ], [ %90, %82 ], [ %99, %91 ], [ %108, %100 ], [ %., %122 ], [ %.21, %133 ], [ %.22, %134 ], [ 17, %593 ], [ 162, %141 ], [ %.mux, %148 ], [ 160, %154 ], [ %.mux242, %161 ], [ 161, %167 ], [ %.mux245, %174 ], [ 159, %180 ], [ %.mux248, %187 ], [ 158, %202 ], [ %.mux251, %209 ], [ 156, %215 ], [ %.mux254, %222 ], [ 157, %228 ], [ %.mux257, %235 ], [ 155, %241 ], [ %.mux260, %248 ], [ 170, %263 ], [ %.mux263, %270 ], [ 168, %276 ], [ %.mux266, %283 ], [ 169, %289 ], [ %.mux269, %296 ], [ 167, %302 ], [ %.mux272, %309 ], [ 166, %323 ], [ %.mux275, %330 ], [ 165, %336 ], [ %.mux278, %343 ], [ 164, %349 ], [ %.mux281, %356 ], [ 163, %362 ], [ %.mux284, %369 ], [ 154, %383 ], [ %.mux287, %390 ], [ 152, %396 ], [ %.mux290, %403 ], [ 153, %409 ], [ %.mux293, %416 ], [ 151, %422 ], [ %.mux296, %429 ], [ 50, %442 ], [ 150, %446 ], [ %.mux299, %453 ], [ 47, %459 ], [ 149, %463 ], [ %.mux302, %470 ], [ 45, %476 ], [ 148, %480 ], [ %.mux305, %487 ], [ 147, %493 ], [ %.mux308, %500 ], [ 37, %528 ], [ %.mux311, %530 ], [ 35, %531 ], [ 36, %533 ], [ 31, %535 ], [ 32, %536 ], [ 30, %537 ], [ 34, %539 ], [ 24, %561 ], [ 12, %567 ], [ 18, %573 ], [ 19, %577 ], [ %.mux314.mux.mux, %581 ], [ 22, %590 ], [ 23, %591 ], [ 16, %592 ], [ 7, %598 ], [ 8, %604 ], [ 9, %606 ], [ 10, %608 ], [ %.mux320.mux.mux, %609 ], [ %switch.select238, %611 ], [ %spec.select, %152 ], [ %spec.select243, %165 ], [ %spec.select246, %178 ], [ %spec.select249, %191 ], [ %spec.select252, %213 ], [ %spec.select255, %226 ], [ %spec.select258, %239 ], [ %spec.select261, %252 ], [ %spec.select264, %274 ], [ %spec.select267, %287 ], [ %spec.select270, %300 ], [ %spec.select273, %313 ], [ %spec.select276, %334 ], [ %spec.select279, %347 ], [ %spec.select282, %360 ], [ %spec.select285, %373 ], [ %spec.select288, %394 ], [ %spec.select291, %407 ], [ %spec.select294, %420 ], [ %spec.select297, %433 ], [ %spec.select300, %457 ], [ %spec.select303, %474 ], [ %spec.select306, %491 ], [ %spec.select309, %504 ], [ %spec.select317, %594 ], [ %switch.load, %switch.lookup ], [ %switch.load337, %switch.lookup334 ]
   ret i32 %.0
 }
 

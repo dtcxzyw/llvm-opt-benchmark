@@ -29,8 +29,8 @@ define hidden void @_mi_heap_collect_abandon(ptr noundef %0) local_unnamed_addr 
 define internal fastcc void @mi_heap_collect_ex(ptr noundef %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %0, @_mi_heap_empty
-  %or.cond = and i1 %3, %4
-  br i1 %or.cond, label %5, label %85
+  %or.cond37 = and i1 %3, %4
+  br i1 %or.cond37, label %5, label %87
 
 5:                                                ; preds = %2
   %6 = icmp ne i32 %1, 0
@@ -46,11 +46,10 @@ define internal fastcc void @mi_heap_collect_ex(ptr noundef %0, i32 noundef rang
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = tail call i64 @_mi_thread_id() #11
-  %13 = icmp ne i64 %11, %12
+  %13 = icmp eq i64 %11, %12
   %14 = icmp eq i32 %1, 1
-  %.not = xor i1 %14, true
-  %brmerge = select i1 %.not, i1 true, i1 %13
-  br i1 %brmerge, label %.critedge, label %15
+  %or.cond = select i1 %14, i1 %13, i1 false
+  br i1 %or.cond, label %15, label %.critedge
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8, !tbaa !14
@@ -71,184 +70,183 @@ define internal fastcc void @mi_heap_collect_ex(ptr noundef %0, i32 noundef rang
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %.thread, %9
-  %.not2040 = phi i1 [ true, %.thread ], [ %13, %9 ]
   %26 = phi i1 [ %8, %.thread ], [ %14, %9 ]
-  %27 = icmp eq i32 %1, 2
-  br i1 %27, label %28, label %.critedge.thread
+  %27 = phi i1 [ false, %.thread ], [ %13, %9 ]
+  %28 = icmp eq i32 %1, 2
+  br i1 %28, label %29, label %.critedge.thread
 
-28:                                               ; preds = %.critedge
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %30 = load i64, ptr %29, align 8, !tbaa !27
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.critedge.thread, label %.preheader.i
+29:                                               ; preds = %.critedge
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %31 = load i64, ptr %30, align 8, !tbaa !27
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %.critedge.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1264
-  br label %33
+.preheader.i:                                     ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1264
+  br label %34
 
-33:                                               ; preds = %.critedge.i, %.preheader.i
-  %.02229.i = phi i64 [ 0, %.preheader.i ], [ %38, %.critedge.i ]
-  %34 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %32, i64 0, i64 %.02229.i
-  %35 = load ptr, ptr %34, align 8, !tbaa !28
-  %.not.i43 = icmp eq ptr %35, null
-  br i1 %.not.i43, label %.critedge.i, label %.lr.ph
+34:                                               ; preds = %.critedge.i, %.preheader.i
+  %.02229.i = phi i64 [ 0, %.preheader.i ], [ %39, %.critedge.i ]
+  %35 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %33, i64 0, i64 %.02229.i
+  %36 = load ptr, ptr %35, align 8, !tbaa !28
+  %.not.i38 = icmp eq ptr %36, null
+  br i1 %.not.i38, label %.critedge.i, label %.lr.ph
 
-.lr.ph:                                           ; preds = %33, %.lr.ph
-  %.020.i44 = phi ptr [ %37, %.lr.ph ], [ %35, %33 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.020.i44, i64 72
-  %37 = load ptr, ptr %36, align 8, !tbaa !31
-  tail call void @_mi_page_use_delayed_free(ptr noundef nonnull %.020.i44, i32 noundef 3, i1 noundef zeroext false) #11
-  %.not.i = icmp eq ptr %37, null
+.lr.ph:                                           ; preds = %34, %.lr.ph
+  %.020.i39 = phi ptr [ %38, %.lr.ph ], [ %36, %34 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.020.i39, i64 72
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
+  tail call void @_mi_page_use_delayed_free(ptr noundef nonnull %.020.i39, i32 noundef 3, i1 noundef zeroext false) #11
+  %.not.i = icmp eq ptr %38, null
   br i1 %.not.i, label %.critedge.i, label %.lr.ph, !llvm.loop !36
 
-.critedge.i:                                      ; preds = %.lr.ph, %33
-  %38 = add nuw nsw i64 %.02229.i, 1
-  %exitcond.i = icmp eq i64 %38, 75
-  br i1 %exitcond.i, label %.critedge.thread, label %33, !llvm.loop !38
+.critedge.i:                                      ; preds = %.lr.ph, %34
+  %39 = add nuw nsw i64 %.02229.i, 1
+  %exitcond.i = icmp eq i64 %39, 75
+  br i1 %exitcond.i, label %.critedge.thread, label %34, !llvm.loop !38
 
-.critedge.thread:                                 ; preds = %.critedge.i, %20, %24, %15, %.critedge, %28
-  %39 = phi i1 [ false, %.critedge ], [ true, %28 ], [ false, %15 ], [ false, %24 ], [ false, %20 ], [ true, %.critedge.i ]
-  %40 = phi i1 [ %26, %.critedge ], [ %26, %28 ], [ %14, %15 ], [ %14, %24 ], [ %14, %20 ], [ %26, %.critedge.i ]
-  %.not204042 = phi i1 [ %.not2040, %.critedge ], [ %.not2040, %28 ], [ false, %15 ], [ false, %24 ], [ false, %20 ], [ %.not2040, %.critedge.i ]
+.critedge.thread:                                 ; preds = %.critedge.i, %20, %24, %15, %.critedge, %29
+  %40 = phi i1 [ false, %.critedge ], [ true, %29 ], [ false, %15 ], [ false, %24 ], [ false, %20 ], [ true, %.critedge.i ]
+  %41 = phi i1 [ %27, %.critedge ], [ %27, %29 ], [ true, %15 ], [ true, %24 ], [ true, %20 ], [ %27, %.critedge.i ]
+  %42 = phi i1 [ %26, %.critedge ], [ %26, %29 ], [ true, %15 ], [ true, %24 ], [ true, %20 ], [ %26, %.critedge.i ]
   tail call void @_mi_heap_delayed_free_all(ptr noundef nonnull %0) #11
   tail call void @_mi_heap_collect_retired(ptr noundef nonnull %0, i1 noundef zeroext %6) #11
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %42 = load i64, ptr %41, align 8, !tbaa !27
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %mi_heap_visit_pages.exit31, label %.preheader.i24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %44 = load i64, ptr %43, align 8, !tbaa !27
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %mi_heap_visit_pages.exit30, label %.preheader.i23
 
-.preheader.i24:                                   ; preds = %.critedge.thread
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1264
-  br i1 %40, label %.preheader.i24.split.us, label %.preheader.i24.split
+.preheader.i23:                                   ; preds = %.critedge.thread
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1264
+  br i1 %42, label %.preheader.i23.split.us, label %.preheader.i23.split
 
-.preheader.i24.split.us:                          ; preds = %.preheader.i24, %.critedge.i29.us
-  %.02229.i25.us = phi i64 [ %47, %.critedge.i29.us ], [ 0, %.preheader.i24 ]
-  %45 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %44, i64 0, i64 %.02229.i25.us
-  %46 = load ptr, ptr %45, align 8, !tbaa !28
-  %.not.i2745.us = icmp eq ptr %46, null
-  br i1 %.not.i2745.us, label %.critedge.i29.us, label %.thread.i.us.us
+.preheader.i23.split.us:                          ; preds = %.preheader.i23, %.critedge.i28.us
+  %.02229.i24.us = phi i64 [ %49, %.critedge.i28.us ], [ 0, %.preheader.i23 ]
+  %47 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %46, i64 0, i64 %.02229.i24.us
+  %48 = load ptr, ptr %47, align 8, !tbaa !28
+  %.not.i2640.us = icmp eq ptr %48, null
+  br i1 %.not.i2640.us, label %.critedge.i28.us, label %.thread.i.us.us
 
-.critedge.i29.us:                                 ; preds = %mi_heap_page_collect.exit.us.us, %.preheader.i24.split.us
-  %47 = add nuw nsw i64 %.02229.i25.us, 1
-  %exitcond.i30.us = icmp eq i64 %47, 75
-  br i1 %exitcond.i30.us, label %mi_heap_visit_pages.exit31, label %.preheader.i24.split.us, !llvm.loop !38
+.critedge.i28.us:                                 ; preds = %mi_heap_page_collect.exit.us.us, %.preheader.i23.split.us
+  %49 = add nuw nsw i64 %.02229.i24.us, 1
+  %exitcond.i29.us = icmp eq i64 %49, 75
+  br i1 %exitcond.i29.us, label %mi_heap_visit_pages.exit30, label %.preheader.i23.split.us, !llvm.loop !38
 
-.thread.i.us.us:                                  ; preds = %.preheader.i24.split.us, %mi_heap_page_collect.exit.us.us
-  %.020.i2646.us.us = phi ptr [ %49, %mi_heap_page_collect.exit.us.us ], [ %46, %.preheader.i24.split.us ]
-  %48 = getelementptr inbounds nuw i8, ptr %.020.i2646.us.us, i64 72
-  %49 = load ptr, ptr %48, align 8, !tbaa !31
-  tail call void @_mi_page_free_collect(ptr noundef nonnull %.020.i2646.us.us, i1 noundef zeroext %6) #11
-  %50 = ptrtoint ptr %.020.i2646.us.us to i64
-  %51 = add i64 %50, -1
-  %52 = and i64 %51, -33554432
-  %53 = inttoptr i64 %52 to ptr
-  %54 = icmp slt i64 %51, 33554432
-  %55 = select i1 %54, ptr null, ptr %53
-  tail call void @_mi_segment_collect(ptr noundef %55, i1 noundef zeroext true) #11
-  %56 = getelementptr i8, ptr %.020.i2646.us.us, i64 32
-  %.val12.i.us.us = load i16, ptr %56, align 8, !tbaa !39
-  %57 = icmp eq i16 %.val12.i.us.us, 0
-  br i1 %57, label %58, label %mi_heap_page_collect.exit.us.us
+.thread.i.us.us:                                  ; preds = %.preheader.i23.split.us, %mi_heap_page_collect.exit.us.us
+  %.020.i2541.us.us = phi ptr [ %51, %mi_heap_page_collect.exit.us.us ], [ %48, %.preheader.i23.split.us ]
+  %50 = getelementptr inbounds nuw i8, ptr %.020.i2541.us.us, i64 72
+  %51 = load ptr, ptr %50, align 8, !tbaa !31
+  tail call void @_mi_page_free_collect(ptr noundef nonnull %.020.i2541.us.us, i1 noundef zeroext %6) #11
+  %52 = ptrtoint ptr %.020.i2541.us.us to i64
+  %53 = add i64 %52, -1
+  %54 = and i64 %53, -33554432
+  %55 = inttoptr i64 %54 to ptr
+  %56 = icmp slt i64 %53, 33554432
+  %57 = select i1 %56, ptr null, ptr %55
+  tail call void @_mi_segment_collect(ptr noundef %57, i1 noundef zeroext true) #11
+  %58 = getelementptr i8, ptr %.020.i2541.us.us, i64 32
+  %.val12.i.us.us = load i16, ptr %58, align 8, !tbaa !39
+  %59 = icmp eq i16 %.val12.i.us.us, 0
+  br i1 %59, label %60, label %mi_heap_page_collect.exit.us.us
 
-58:                                               ; preds = %.thread.i.us.us
-  tail call void @_mi_page_free(ptr noundef nonnull %.020.i2646.us.us, ptr noundef nonnull %45, i1 noundef zeroext %6) #11
+60:                                               ; preds = %.thread.i.us.us
+  tail call void @_mi_page_free(ptr noundef nonnull %.020.i2541.us.us, ptr noundef nonnull %47, i1 noundef zeroext %6) #11
   br label %mi_heap_page_collect.exit.us.us
 
-mi_heap_page_collect.exit.us.us:                  ; preds = %58, %.thread.i.us.us
-  %.not.i27.us.us = icmp eq ptr %49, null
-  br i1 %.not.i27.us.us, label %.critedge.i29.us, label %.thread.i.us.us, !llvm.loop !36
+mi_heap_page_collect.exit.us.us:                  ; preds = %60, %.thread.i.us.us
+  %.not.i26.us.us = icmp eq ptr %51, null
+  br i1 %.not.i26.us.us, label %.critedge.i28.us, label %.thread.i.us.us, !llvm.loop !36
 
-.preheader.i24.split:                             ; preds = %.preheader.i24
-  br i1 %39, label %.preheader.i24.split.split.us, label %.preheader.i24.split.split
+.preheader.i23.split:                             ; preds = %.preheader.i23
+  br i1 %40, label %.preheader.i23.split.split.us, label %.preheader.i23.split.split
 
-.preheader.i24.split.split.us:                    ; preds = %.preheader.i24.split, %.critedge.i29.us53
-  %.02229.i25.us51 = phi i64 [ %61, %.critedge.i29.us53 ], [ 0, %.preheader.i24.split ]
-  %59 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %44, i64 0, i64 %.02229.i25.us51
-  %60 = load ptr, ptr %59, align 8, !tbaa !28
-  %.not.i2745.us52 = icmp eq ptr %60, null
-  br i1 %.not.i2745.us52, label %.critedge.i29.us53, label %.lr.ph47.us55
+.preheader.i23.split.split.us:                    ; preds = %.preheader.i23.split, %.critedge.i28.us48
+  %.02229.i24.us46 = phi i64 [ %63, %.critedge.i28.us48 ], [ 0, %.preheader.i23.split ]
+  %61 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %46, i64 0, i64 %.02229.i24.us46
+  %62 = load ptr, ptr %61, align 8, !tbaa !28
+  %.not.i2640.us47 = icmp eq ptr %62, null
+  br i1 %.not.i2640.us47, label %.critedge.i28.us48, label %.lr.ph42.us50
 
-.critedge.i29.us53:                               ; preds = %mi_heap_page_collect.exit.us49.us, %.preheader.i24.split.split.us
-  %61 = add nuw nsw i64 %.02229.i25.us51, 1
-  %exitcond.i30.us54 = icmp eq i64 %61, 75
-  br i1 %exitcond.i30.us54, label %mi_heap_visit_pages.exit31, label %.preheader.i24.split.split.us, !llvm.loop !38
+.critedge.i28.us48:                               ; preds = %mi_heap_page_collect.exit.us44.us, %.preheader.i23.split.split.us
+  %63 = add nuw nsw i64 %.02229.i24.us46, 1
+  %exitcond.i29.us49 = icmp eq i64 %63, 75
+  br i1 %exitcond.i29.us49, label %mi_heap_visit_pages.exit30, label %.preheader.i23.split.split.us, !llvm.loop !38
 
-.lr.ph47.us55:                                    ; preds = %.preheader.i24.split.split.us, %mi_heap_page_collect.exit.us49.us
-  %.020.i2646.us48.us = phi ptr [ %63, %mi_heap_page_collect.exit.us49.us ], [ %60, %.preheader.i24.split.split.us ]
-  %62 = getelementptr inbounds nuw i8, ptr %.020.i2646.us48.us, i64 72
-  %63 = load ptr, ptr %62, align 8, !tbaa !31
-  tail call void @_mi_page_free_collect(ptr noundef nonnull %.020.i2646.us48.us, i1 noundef zeroext %6) #11
-  %64 = getelementptr i8, ptr %.020.i2646.us48.us, i64 32
-  %.val.i.us.us = load i16, ptr %64, align 8, !tbaa !39
-  %65 = icmp eq i16 %.val.i.us.us, 0
-  br i1 %65, label %67, label %66
+.lr.ph42.us50:                                    ; preds = %.preheader.i23.split.split.us, %mi_heap_page_collect.exit.us44.us
+  %.020.i2541.us43.us = phi ptr [ %65, %mi_heap_page_collect.exit.us44.us ], [ %62, %.preheader.i23.split.split.us ]
+  %64 = getelementptr inbounds nuw i8, ptr %.020.i2541.us43.us, i64 72
+  %65 = load ptr, ptr %64, align 8, !tbaa !31
+  tail call void @_mi_page_free_collect(ptr noundef nonnull %.020.i2541.us43.us, i1 noundef zeroext %6) #11
+  %66 = getelementptr i8, ptr %.020.i2541.us43.us, i64 32
+  %.val.i.us.us = load i16, ptr %66, align 8, !tbaa !39
+  %67 = icmp eq i16 %.val.i.us.us, 0
+  br i1 %67, label %69, label %68
 
-66:                                               ; preds = %.lr.ph47.us55
-  tail call void @_mi_page_abandon(ptr noundef nonnull %.020.i2646.us48.us, ptr noundef nonnull %59) #11
-  br label %mi_heap_page_collect.exit.us49.us
+68:                                               ; preds = %.lr.ph42.us50
+  tail call void @_mi_page_abandon(ptr noundef nonnull %.020.i2541.us43.us, ptr noundef nonnull %61) #11
+  br label %mi_heap_page_collect.exit.us44.us
 
-67:                                               ; preds = %.lr.ph47.us55
-  tail call void @_mi_page_free(ptr noundef nonnull %.020.i2646.us48.us, ptr noundef nonnull %59, i1 noundef zeroext %6) #11
-  br label %mi_heap_page_collect.exit.us49.us
+69:                                               ; preds = %.lr.ph42.us50
+  tail call void @_mi_page_free(ptr noundef nonnull %.020.i2541.us43.us, ptr noundef nonnull %61, i1 noundef zeroext %6) #11
+  br label %mi_heap_page_collect.exit.us44.us
 
-mi_heap_page_collect.exit.us49.us:                ; preds = %67, %66
-  %.not.i27.us50.us = icmp eq ptr %63, null
-  br i1 %.not.i27.us50.us, label %.critedge.i29.us53, label %.lr.ph47.us55, !llvm.loop !36
+mi_heap_page_collect.exit.us44.us:                ; preds = %69, %68
+  %.not.i26.us45.us = icmp eq ptr %65, null
+  br i1 %.not.i26.us45.us, label %.critedge.i28.us48, label %.lr.ph42.us50, !llvm.loop !36
 
-.preheader.i24.split.split:                       ; preds = %.preheader.i24.split, %.critedge.i29
-  %.02229.i25 = phi i64 [ %75, %.critedge.i29 ], [ 0, %.preheader.i24.split ]
-  %68 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %44, i64 0, i64 %.02229.i25
-  %69 = load ptr, ptr %68, align 8, !tbaa !28
-  %.not.i2745 = icmp eq ptr %69, null
-  br i1 %.not.i2745, label %.critedge.i29, label %.lr.ph47
+.preheader.i23.split.split:                       ; preds = %.preheader.i23.split, %.critedge.i28
+  %.02229.i24 = phi i64 [ %77, %.critedge.i28 ], [ 0, %.preheader.i23.split ]
+  %70 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %46, i64 0, i64 %.02229.i24
+  %71 = load ptr, ptr %70, align 8, !tbaa !28
+  %.not.i2640 = icmp eq ptr %71, null
+  br i1 %.not.i2640, label %.critedge.i28, label %.lr.ph42
 
-.lr.ph47:                                         ; preds = %.preheader.i24.split.split, %mi_heap_page_collect.exit
-  %.020.i2646 = phi ptr [ %71, %mi_heap_page_collect.exit ], [ %69, %.preheader.i24.split.split ]
-  %70 = getelementptr inbounds nuw i8, ptr %.020.i2646, i64 72
-  %71 = load ptr, ptr %70, align 8, !tbaa !31
-  tail call void @_mi_page_free_collect(ptr noundef nonnull %.020.i2646, i1 noundef zeroext %6) #11
-  %72 = getelementptr i8, ptr %.020.i2646, i64 32
-  %.val.i = load i16, ptr %72, align 8, !tbaa !39
-  %73 = icmp eq i16 %.val.i, 0
-  br i1 %73, label %74, label %mi_heap_page_collect.exit
+.lr.ph42:                                         ; preds = %.preheader.i23.split.split, %mi_heap_page_collect.exit
+  %.020.i2541 = phi ptr [ %73, %mi_heap_page_collect.exit ], [ %71, %.preheader.i23.split.split ]
+  %72 = getelementptr inbounds nuw i8, ptr %.020.i2541, i64 72
+  %73 = load ptr, ptr %72, align 8, !tbaa !31
+  tail call void @_mi_page_free_collect(ptr noundef nonnull %.020.i2541, i1 noundef zeroext %6) #11
+  %74 = getelementptr i8, ptr %.020.i2541, i64 32
+  %.val.i = load i16, ptr %74, align 8, !tbaa !39
+  %75 = icmp eq i16 %.val.i, 0
+  br i1 %75, label %76, label %mi_heap_page_collect.exit
 
-74:                                               ; preds = %.lr.ph47
-  tail call void @_mi_page_free(ptr noundef nonnull %.020.i2646, ptr noundef nonnull %68, i1 noundef zeroext %6) #11
+76:                                               ; preds = %.lr.ph42
+  tail call void @_mi_page_free(ptr noundef nonnull %.020.i2541, ptr noundef nonnull %70, i1 noundef zeroext %6) #11
   br label %mi_heap_page_collect.exit
 
-mi_heap_page_collect.exit:                        ; preds = %.lr.ph47, %74
-  %.not.i27 = icmp eq ptr %71, null
-  br i1 %.not.i27, label %.critedge.i29, label %.lr.ph47, !llvm.loop !36
+mi_heap_page_collect.exit:                        ; preds = %.lr.ph42, %76
+  %.not.i26 = icmp eq ptr %73, null
+  br i1 %.not.i26, label %.critedge.i28, label %.lr.ph42, !llvm.loop !36
 
-.critedge.i29:                                    ; preds = %mi_heap_page_collect.exit, %.preheader.i24.split.split
-  %75 = add nuw nsw i64 %.02229.i25, 1
-  %exitcond.i30 = icmp eq i64 %75, 75
-  br i1 %exitcond.i30, label %mi_heap_visit_pages.exit31, label %.preheader.i24.split.split, !llvm.loop !38
+.critedge.i28:                                    ; preds = %mi_heap_page_collect.exit, %.preheader.i23.split.split
+  %77 = add nuw nsw i64 %.02229.i24, 1
+  %exitcond.i29 = icmp eq i64 %77, 75
+  br i1 %exitcond.i29, label %mi_heap_visit_pages.exit30, label %.preheader.i23.split.split, !llvm.loop !38
 
-mi_heap_visit_pages.exit31:                       ; preds = %.critedge.i29, %.critedge.i29.us53, %.critedge.i29.us, %.critedge.thread
-  %76 = load ptr, ptr %0, align 8, !tbaa !14
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  tail call void @_mi_abandoned_collect(ptr noundef nonnull %0, i1 noundef zeroext %40, ptr noundef nonnull %77) #11
-  %.not21 = xor i1 %6, true
-  %brmerge23 = select i1 %.not21, i1 true, i1 %.not204042
-  br i1 %brmerge23, label %84, label %78
+mi_heap_visit_pages.exit30:                       ; preds = %.critedge.i28, %.critedge.i28.us48, %.critedge.i28.us, %.critedge.thread
+  %78 = load ptr, ptr %0, align 8, !tbaa !14
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  tail call void @_mi_abandoned_collect(ptr noundef nonnull %0, i1 noundef zeroext %42, ptr noundef nonnull %79) #11
+  %or.cond3 = select i1 %6, i1 %41, i1 false
+  br i1 %or.cond3, label %80, label %86
 
-78:                                               ; preds = %mi_heap_visit_pages.exit31
-  %79 = load ptr, ptr %0, align 8, !tbaa !14
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !15
-  %82 = icmp eq ptr %81, %0
-  br i1 %82, label %83, label %84
+80:                                               ; preds = %mi_heap_visit_pages.exit30
+  %81 = load ptr, ptr %0, align 8, !tbaa !14
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !15
+  %84 = icmp eq ptr %83, %0
+  br i1 %84, label %85, label %86
 
-83:                                               ; preds = %78
+85:                                               ; preds = %80
   tail call void @_mi_thread_data_collect() #11
-  br label %84
+  br label %86
 
-84:                                               ; preds = %mi_heap_visit_pages.exit31, %83, %78
-  tail call void @_mi_arenas_collect(i1 noundef zeroext %40) #11
-  br label %85
+86:                                               ; preds = %85, %80, %mi_heap_visit_pages.exit30
+  tail call void @_mi_arenas_collect(i1 noundef zeroext %42) #11
+  br label %87
 
-85:                                               ; preds = %2, %84
+87:                                               ; preds = %2, %86
   ret void
 }
 

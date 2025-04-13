@@ -438,9 +438,13 @@ define void @_ZN6icu_7716RBBITableBuilder12calcNullableEPNS_8RBBINodeE(ptr nound
 4:                                                ; preds = %2
   %5 = load i32, ptr %1, align 8, !tbaa !52
   %6 = icmp ult i32 %5, 7
-  br i1 %6, label %switch.hole_check, label %7
+  %switch.maskindex = trunc i32 %5 to i8
+  %switch.shifted = lshr i8 113, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-7:                                                ; preds = %switch.hole_check, %4
+7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !43
   tail call void @_ZN6icu_7716RBBITableBuilder12calcNullableEPNS_8RBBINodeE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %9)
@@ -486,13 +490,7 @@ define void @_ZN6icu_7716RBBITableBuilder12calcNullableEPNS_8RBBINodeE(ptr nound
 31:                                               ; preds = %7
   br label %.sink.split
 
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc nuw i32 %5 to i8
-  %switch.shifted = lshr i8 113, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
   %switch.cast = trunc nuw i32 %5 to i7
   %switch.downshift = lshr i7 48, %switch.cast
   %switch.masked = trunc i7 %switch.downshift to i1

@@ -39706,8 +39706,8 @@ _ZNK5arrow5Datum5arrayEv.exit:                    ; preds = %370
 
 394:                                              ; preds = %389
   %395 = icmp slt i64 %393, 1
-  %brmerge = or i1 %395, %204
-  br i1 %brmerge, label %754, label %396
+  %or.cond = or i1 %395, %204
+  br i1 %or.cond, label %754, label %396
 
 396:                                              ; preds = %394
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #22
@@ -40588,19 +40588,19 @@ _ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit: ; preds = %723, %_ZN5arro
   br i1 %623, label %812, label %824
 
 751:                                              ; preds = %639, %633
-  %.pn70 = phi { ptr, i32 } [ %634, %633 ], [ %640, %639 ]
+  %.pn71 = phi { ptr, i32 } [ %634, %633 ], [ %640, %639 ]
   call void @_ZN5arrow6ResultINS_5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #22
   br label %752
 
 752:                                              ; preds = %751, %632
-  %.pn70.pn = phi { ptr, i32 } [ %.pn70, %751 ], [ %.pn.pn, %632 ]
+  %.pn71.pn = phi { ptr, i32 } [ %.pn71, %751 ], [ %.pn.pn, %632 ]
   call void @_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #22
   br label %753
 
 753:                                              ; preds = %752, %591
-  %.pn74 = phi { ptr, i32 } [ %592, %591 ], [ %.pn70.pn, %752 ]
+  %.pn75 = phi { ptr, i32 } [ %592, %591 ], [ %.pn71.pn, %752 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #22
   br label %.body152
@@ -40837,12 +40837,12 @@ _ZN5arrow5DatumD2Ev.exit208:                      ; preds = %_ZNSt12__shared_ptr
   br label %_ZN5arrow6StatusC2ERKS0_.exit132
 
 .body152:                                         ; preds = %582, %422, %753, %810, %589
-  %.pn77 = phi { ptr, i32 } [ %590, %589 ], [ %811, %810 ], [ %.pn74, %753 ], [ %423, %422 ], [ %.pn.pn.i, %582 ]
+  %.pn78 = phi { ptr, i32 } [ %590, %589 ], [ %811, %810 ], [ %.pn75, %753 ], [ %423, %422 ], [ %.pn.pn.i, %582 ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #22
   br label %850
 
 850:                                              ; preds = %.body152, %587
-  %.pn77.pn = phi { ptr, i32 } [ %.pn77, %.body152 ], [ %588, %587 ]
+  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %.body152 ], [ %588, %587 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #22
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #22
@@ -40940,18 +40940,18 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit219
   br label %_ZN5arrow6StatusC2ERKS0_.exit112
 
 886:                                              ; preds = %850, %364
-  %.pn81 = phi { ptr, i32 } [ %365, %364 ], [ %.pn77.pn, %850 ]
+  %.pn82 = phi { ptr, i32 } [ %365, %364 ], [ %.pn78.pn, %850 ]
   call void @_ZN5arrow6ResultINS_5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #22
   br label %887
 
 887:                                              ; preds = %886, %362
-  %.pn81.pn = phi { ptr, i32 } [ %.pn81, %886 ], [ %363, %362 ]
+  %.pn82.pn = phi { ptr, i32 } [ %.pn82, %886 ], [ %363, %362 ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
   br label %888
 
 888:                                              ; preds = %887, %360
-  %.pn81.pn.pn = phi { ptr, i32 } [ %.pn81.pn, %887 ], [ %361, %360 ]
+  %.pn82.pn.pn = phi { ptr, i32 } [ %.pn82.pn, %887 ], [ %361, %360 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #22
   br label %920
 
@@ -41031,7 +41031,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev.exit: ; preds = %_ZN5arrow6Res
   br label %_ZN5arrow6StatusC2ERKS0_.exit
 
 920:                                              ; preds = %888, %220
-  %.pn85 = phi { ptr, i32 } [ %221, %220 ], [ %.pn81.pn.pn, %888 ]
+  %.pn86 = phi { ptr, i32 } [ %221, %220 ], [ %.pn82.pn.pn, %888 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #22
   br label %949
@@ -41106,7 +41106,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit233:
   ret void
 
 949:                                              ; preds = %218, %920, %216, %200
-  %.pn90 = phi { ptr, i32 } [ %201, %200 ], [ %217, %216 ], [ %.pn85, %920 ], [ %219, %218 ]
+  %.pn91 = phi { ptr, i32 } [ %201, %200 ], [ %217, %216 ], [ %.pn86, %920 ], [ %219, %218 ]
   %950 = load ptr, ptr %20, align 8, !tbaa !93
   %.not.i.i234 = icmp eq ptr %950, null
   br i1 %.not.i.i234, label %_ZN5arrow6ResultIbED2Ev.exit236, label %951, !prof !96
@@ -41126,10 +41126,10 @@ _ZN5arrow6ResultIbED2Ev.exit236:                  ; preds = %949, %951, %955
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i41.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i, %_ZN5arrow6ResultIbED2Ev.exit236, %198
-  %.pn90.pn.pn = phi { ptr, i32 } [ %199, %198 ], [ %.pn90, %_ZN5arrow6ResultIbED2Ev.exit236 ], [ %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i ], [ %177, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i41.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn91.pn.pn = phi { ptr, i32 } [ %199, %198 ], [ %.pn91, %_ZN5arrow6ResultIbED2Ev.exit236 ], [ %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i ], [ %177, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i41.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #22
-  resume { ptr, i32 } %.pn90.pn.pn
+  resume { ptr, i32 } %.pn91.pn.pn
 }
 
 declare noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #3
@@ -45926,8 +45926,8 @@ _ZNK5arrow5Datum5arrayEv.exit:                    ; preds = %370
 
 394:                                              ; preds = %389
   %395 = icmp slt i64 %393, 1
-  %brmerge = or i1 %395, %204
-  br i1 %brmerge, label %754, label %396
+  %or.cond = or i1 %395, %204
+  br i1 %or.cond, label %754, label %396
 
 396:                                              ; preds = %394
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #22
@@ -46808,19 +46808,19 @@ _ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit: ; preds = %723, %_ZN5arro
   br i1 %623, label %812, label %824
 
 751:                                              ; preds = %639, %633
-  %.pn70 = phi { ptr, i32 } [ %634, %633 ], [ %640, %639 ]
+  %.pn71 = phi { ptr, i32 } [ %634, %633 ], [ %640, %639 ]
   call void @_ZN5arrow6ResultINS_5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #22
   br label %752
 
 752:                                              ; preds = %751, %632
-  %.pn70.pn = phi { ptr, i32 } [ %.pn70, %751 ], [ %.pn.pn, %632 ]
+  %.pn71.pn = phi { ptr, i32 } [ %.pn71, %751 ], [ %.pn.pn, %632 ]
   call void @_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #22
   br label %753
 
 753:                                              ; preds = %752, %591
-  %.pn74 = phi { ptr, i32 } [ %592, %591 ], [ %.pn70.pn, %752 ]
+  %.pn75 = phi { ptr, i32 } [ %592, %591 ], [ %.pn71.pn, %752 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #22
   br label %.body152
@@ -47057,12 +47057,12 @@ _ZN5arrow5DatumD2Ev.exit208:                      ; preds = %_ZNSt12__shared_ptr
   br label %_ZN5arrow6StatusC2ERKS0_.exit132
 
 .body152:                                         ; preds = %582, %422, %753, %810, %589
-  %.pn77 = phi { ptr, i32 } [ %590, %589 ], [ %811, %810 ], [ %.pn74, %753 ], [ %423, %422 ], [ %.pn.pn.i, %582 ]
+  %.pn78 = phi { ptr, i32 } [ %590, %589 ], [ %811, %810 ], [ %.pn75, %753 ], [ %423, %422 ], [ %.pn.pn.i, %582 ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #22
   br label %850
 
 850:                                              ; preds = %.body152, %587
-  %.pn77.pn = phi { ptr, i32 } [ %.pn77, %.body152 ], [ %588, %587 ]
+  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %.body152 ], [ %588, %587 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #22
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #22
@@ -47160,18 +47160,18 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit219
   br label %_ZN5arrow6StatusC2ERKS0_.exit112
 
 886:                                              ; preds = %850, %364
-  %.pn81 = phi { ptr, i32 } [ %365, %364 ], [ %.pn77.pn, %850 ]
+  %.pn82 = phi { ptr, i32 } [ %365, %364 ], [ %.pn78.pn, %850 ]
   call void @_ZN5arrow6ResultINS_5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #22
   br label %887
 
 887:                                              ; preds = %886, %362
-  %.pn81.pn = phi { ptr, i32 } [ %.pn81, %886 ], [ %363, %362 ]
+  %.pn82.pn = phi { ptr, i32 } [ %.pn82, %886 ], [ %363, %362 ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
   br label %888
 
 888:                                              ; preds = %887, %360
-  %.pn81.pn.pn = phi { ptr, i32 } [ %.pn81.pn, %887 ], [ %361, %360 ]
+  %.pn82.pn.pn = phi { ptr, i32 } [ %.pn82.pn, %887 ], [ %361, %360 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #22
   br label %920
 
@@ -47251,7 +47251,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev.exit: ; preds = %_ZN5arrow6Res
   br label %_ZN5arrow6StatusC2ERKS0_.exit
 
 920:                                              ; preds = %888, %220
-  %.pn85 = phi { ptr, i32 } [ %221, %220 ], [ %.pn81.pn.pn, %888 ]
+  %.pn86 = phi { ptr, i32 } [ %221, %220 ], [ %.pn82.pn.pn, %888 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #22
   br label %949
@@ -47326,7 +47326,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit233:
   ret void
 
 949:                                              ; preds = %218, %920, %216, %200
-  %.pn90 = phi { ptr, i32 } [ %201, %200 ], [ %217, %216 ], [ %.pn85, %920 ], [ %219, %218 ]
+  %.pn91 = phi { ptr, i32 } [ %201, %200 ], [ %217, %216 ], [ %.pn86, %920 ], [ %219, %218 ]
   %950 = load ptr, ptr %20, align 8, !tbaa !93
   %.not.i.i234 = icmp eq ptr %950, null
   br i1 %.not.i.i234, label %_ZN5arrow6ResultIbED2Ev.exit236, label %951, !prof !96
@@ -47346,10 +47346,10 @@ _ZN5arrow6ResultIbED2Ev.exit236:                  ; preds = %949, %951, %955
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i41.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i, %_ZN5arrow6ResultIbED2Ev.exit236, %198
-  %.pn90.pn.pn = phi { ptr, i32 } [ %199, %198 ], [ %.pn90, %_ZN5arrow6ResultIbED2Ev.exit236 ], [ %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i ], [ %177, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i41.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn91.pn.pn = phi { ptr, i32 } [ %199, %198 ], [ %.pn91, %_ZN5arrow6ResultIbED2Ev.exit236 ], [ %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i ], [ %177, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i41.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #22
-  resume { ptr, i32 } %.pn90.pn.pn
+  resume { ptr, i32 } %.pn91.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -48323,8 +48323,8 @@ _ZNK5arrow5Datum5arrayEv.exit:                    ; preds = %371
 
 395:                                              ; preds = %390
   %396 = icmp slt i64 %394, 1
-  %brmerge = or i1 %396, %205
-  br i1 %brmerge, label %753, label %397
+  %or.cond = or i1 %396, %205
+  br i1 %or.cond, label %753, label %397
 
 397:                                              ; preds = %395
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #22
@@ -49203,19 +49203,19 @@ _ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit: ; preds = %722, %_ZN5arro
   br i1 %622, label %809, label %821
 
 750:                                              ; preds = %638, %632
-  %.pn70 = phi { ptr, i32 } [ %633, %632 ], [ %639, %638 ]
+  %.pn71 = phi { ptr, i32 } [ %633, %632 ], [ %639, %638 ]
   call void @_ZN5arrow6ResultINS_5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #22
   br label %751
 
 751:                                              ; preds = %750, %631
-  %.pn70.pn = phi { ptr, i32 } [ %.pn70, %750 ], [ %.pn.pn, %631 ]
+  %.pn71.pn = phi { ptr, i32 } [ %.pn71, %750 ], [ %.pn.pn, %631 ]
   call void @_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #22
   br label %752
 
 752:                                              ; preds = %751, %590
-  %.pn74 = phi { ptr, i32 } [ %591, %590 ], [ %.pn70.pn, %751 ]
+  %.pn75 = phi { ptr, i32 } [ %591, %590 ], [ %.pn71.pn, %751 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #22
   br label %.body152
@@ -49450,12 +49450,12 @@ _ZN5arrow5DatumD2Ev.exit208:                      ; preds = %_ZNSt12__shared_ptr
   br label %_ZN5arrow6StatusC2ERKS0_.exit132
 
 .body152:                                         ; preds = %581, %423, %752, %807, %588
-  %.pn77 = phi { ptr, i32 } [ %589, %588 ], [ %808, %807 ], [ %.pn74, %752 ], [ %424, %423 ], [ %.pn.pn.i, %581 ]
+  %.pn78 = phi { ptr, i32 } [ %589, %588 ], [ %808, %807 ], [ %.pn75, %752 ], [ %424, %423 ], [ %.pn.pn.i, %581 ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #22
   br label %847
 
 847:                                              ; preds = %.body152, %586
-  %.pn77.pn = phi { ptr, i32 } [ %.pn77, %.body152 ], [ %587, %586 ]
+  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %.body152 ], [ %587, %586 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #22
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #22
@@ -49553,18 +49553,18 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit219
   br label %_ZN5arrow6StatusC2ERKS0_.exit112
 
 883:                                              ; preds = %847, %365
-  %.pn81 = phi { ptr, i32 } [ %366, %365 ], [ %.pn77.pn, %847 ]
+  %.pn82 = phi { ptr, i32 } [ %366, %365 ], [ %.pn78.pn, %847 ]
   call void @_ZN5arrow6ResultINS_5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #22
   br label %884
 
 884:                                              ; preds = %883, %363
-  %.pn81.pn = phi { ptr, i32 } [ %.pn81, %883 ], [ %364, %363 ]
+  %.pn82.pn = phi { ptr, i32 } [ %.pn82, %883 ], [ %364, %363 ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
   br label %885
 
 885:                                              ; preds = %884, %361
-  %.pn81.pn.pn = phi { ptr, i32 } [ %.pn81.pn, %884 ], [ %362, %361 ]
+  %.pn82.pn.pn = phi { ptr, i32 } [ %.pn82.pn, %884 ], [ %362, %361 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #22
   br label %917
 
@@ -49644,7 +49644,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev.exit: ; preds = %_ZN5arrow6Res
   br label %_ZN5arrow6StatusC2ERKS0_.exit
 
 917:                                              ; preds = %885, %221
-  %.pn85 = phi { ptr, i32 } [ %222, %221 ], [ %.pn81.pn.pn, %885 ]
+  %.pn86 = phi { ptr, i32 } [ %222, %221 ], [ %.pn82.pn.pn, %885 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #22
   br label %946
@@ -49719,7 +49719,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit233:
   ret void
 
 946:                                              ; preds = %219, %917, %217, %201
-  %.pn90 = phi { ptr, i32 } [ %202, %201 ], [ %218, %217 ], [ %.pn85, %917 ], [ %220, %219 ]
+  %.pn91 = phi { ptr, i32 } [ %202, %201 ], [ %218, %217 ], [ %.pn86, %917 ], [ %220, %219 ]
   %947 = load ptr, ptr %20, align 8, !tbaa !93
   %.not.i.i234 = icmp eq ptr %947, null
   br i1 %.not.i.i234, label %_ZN5arrow6ResultIbED2Ev.exit236, label %948, !prof !96
@@ -49739,10 +49739,10 @@ _ZN5arrow6ResultIbED2Ev.exit236:                  ; preds = %946, %948, %952
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i41.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i, %_ZN5arrow6ResultIbED2Ev.exit236, %199
-  %.pn90.pn.pn = phi { ptr, i32 } [ %200, %199 ], [ %.pn90, %_ZN5arrow6ResultIbED2Ev.exit236 ], [ %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i ], [ %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i41.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn91.pn.pn = phi { ptr, i32 } [ %200, %199 ], [ %.pn91, %_ZN5arrow6ResultIbED2Ev.exit236 ], [ %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i ], [ %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i41.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #22
-  resume { ptr, i32 } %.pn90.pn.pn
+  resume { ptr, i32 } %.pn91.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -50716,8 +50716,8 @@ _ZNK5arrow5Datum5arrayEv.exit:                    ; preds = %371
 
 395:                                              ; preds = %390
   %396 = icmp slt i64 %394, 1
-  %brmerge = or i1 %396, %205
-  br i1 %brmerge, label %753, label %397
+  %or.cond = or i1 %396, %205
+  br i1 %or.cond, label %753, label %397
 
 397:                                              ; preds = %395
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #22
@@ -51596,19 +51596,19 @@ _ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev.exit: ; preds = %722, %_ZN5arro
   br i1 %622, label %809, label %821
 
 750:                                              ; preds = %638, %632
-  %.pn70 = phi { ptr, i32 } [ %633, %632 ], [ %639, %638 ]
+  %.pn71 = phi { ptr, i32 } [ %633, %632 ], [ %639, %638 ]
   call void @_ZN5arrow6ResultINS_5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #22
   br label %751
 
 751:                                              ; preds = %750, %631
-  %.pn70.pn = phi { ptr, i32 } [ %.pn70, %750 ], [ %.pn.pn, %631 ]
+  %.pn71.pn = phi { ptr, i32 } [ %.pn71, %750 ], [ %.pn.pn, %631 ]
   call void @_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #22
   br label %752
 
 752:                                              ; preds = %751, %590
-  %.pn74 = phi { ptr, i32 } [ %591, %590 ], [ %.pn70.pn, %751 ]
+  %.pn75 = phi { ptr, i32 } [ %591, %590 ], [ %.pn71.pn, %751 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_5ArrayEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #22
   br label %.body152
@@ -51843,12 +51843,12 @@ _ZN5arrow5DatumD2Ev.exit208:                      ; preds = %_ZNSt12__shared_ptr
   br label %_ZN5arrow6StatusC2ERKS0_.exit132
 
 .body152:                                         ; preds = %581, %423, %752, %807, %588
-  %.pn77 = phi { ptr, i32 } [ %589, %588 ], [ %808, %807 ], [ %.pn74, %752 ], [ %424, %423 ], [ %.pn.pn.i, %581 ]
+  %.pn78 = phi { ptr, i32 } [ %589, %588 ], [ %808, %807 ], [ %.pn75, %752 ], [ %424, %423 ], [ %.pn.pn.i, %581 ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #22
   br label %847
 
 847:                                              ; preds = %.body152, %586
-  %.pn77.pn = phi { ptr, i32 } [ %.pn77, %.body152 ], [ %587, %586 ]
+  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %.body152 ], [ %587, %586 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #22
   call void @_ZN5arrow5DatumD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #22
@@ -51946,18 +51946,18 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit219
   br label %_ZN5arrow6StatusC2ERKS0_.exit112
 
 883:                                              ; preds = %847, %365
-  %.pn81 = phi { ptr, i32 } [ %366, %365 ], [ %.pn77.pn, %847 ]
+  %.pn82 = phi { ptr, i32 } [ %366, %365 ], [ %.pn78.pn, %847 ]
   call void @_ZN5arrow6ResultINS_5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #22
   br label %884
 
 884:                                              ; preds = %883, %363
-  %.pn81.pn = phi { ptr, i32 } [ %.pn81, %883 ], [ %364, %363 ]
+  %.pn82.pn = phi { ptr, i32 } [ %.pn82, %883 ], [ %364, %363 ]
   call void @_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
   br label %885
 
 885:                                              ; preds = %884, %361
-  %.pn81.pn.pn = phi { ptr, i32 } [ %.pn81.pn, %884 ], [ %362, %361 ]
+  %.pn82.pn.pn = phi { ptr, i32 } [ %.pn82.pn, %884 ], [ %362, %361 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #22
   br label %917
 
@@ -52037,7 +52037,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev.exit: ; preds = %_ZN5arrow6Res
   br label %_ZN5arrow6StatusC2ERKS0_.exit
 
 917:                                              ; preds = %885, %221
-  %.pn85 = phi { ptr, i32 } [ %222, %221 ], [ %.pn81.pn.pn, %885 ]
+  %.pn86 = phi { ptr, i32 } [ %222, %221 ], [ %.pn82.pn.pn, %885 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #22
   br label %946
@@ -52112,7 +52112,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit233:
   ret void
 
 946:                                              ; preds = %219, %917, %217, %201
-  %.pn90 = phi { ptr, i32 } [ %202, %201 ], [ %218, %217 ], [ %.pn85, %917 ], [ %220, %219 ]
+  %.pn91 = phi { ptr, i32 } [ %202, %201 ], [ %218, %217 ], [ %.pn86, %917 ], [ %220, %219 ]
   %947 = load ptr, ptr %20, align 8, !tbaa !93
   %.not.i.i234 = icmp eq ptr %947, null
   br i1 %.not.i.i234, label %_ZN5arrow6ResultIbED2Ev.exit236, label %948, !prof !96
@@ -52132,10 +52132,10 @@ _ZN5arrow6ResultIbED2Ev.exit236:                  ; preds = %946, %948, %952
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i41.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i, %_ZN5arrow6ResultIbED2Ev.exit236, %199
-  %.pn90.pn.pn = phi { ptr, i32 } [ %200, %199 ], [ %.pn90, %_ZN5arrow6ResultIbED2Ev.exit236 ], [ %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i ], [ %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i41.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn91.pn.pn = phi { ptr, i32 } [ %200, %199 ], [ %.pn91, %_ZN5arrow6ResultIbED2Ev.exit236 ], [ %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i ], [ %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i41.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #22
-  resume { ptr, i32 } %.pn90.pn.pn
+  resume { ptr, i32 } %.pn91.pn.pn
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

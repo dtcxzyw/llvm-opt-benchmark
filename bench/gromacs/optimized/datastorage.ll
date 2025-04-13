@@ -1552,40 +1552,38 @@ define void @_ZN3gmx24AnalysisDataStorageFrame13selectDataSetEi(ptr noundef nonn
 
 13:                                               ; preds = %9
   %14 = tail call noundef zeroext i1 @_ZNK3gmx20AbstractAnalysisData12isMultipointEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  br i1 %14, label %15, label %20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %16 = load i8, ptr %15, align 4, !range !99
+  %17 = trunc nuw i8 %16 to i1
+  %or.cond = select i1 %14, i1 %17, i1 false
+  br i1 %or.cond, label %18, label %19
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %17 = load i8, ptr %16, align 4, !tbaa !96, !range !99, !noundef !100
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %15
+18:                                               ; preds = %13
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24AnalysisDataStorageFrame13selectDataSetEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 681) #22
   unreachable
 
-20:                                               ; preds = %13, %15
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %1, ptr %21, align 8, !tbaa !128
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %22, align 4, !tbaa !129
-  %.not16 = icmp eq i32 %1, 0
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %1, ptr %20, align 8, !tbaa !128
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 0, ptr %21, align 4, !tbaa !129
+  %.not18 = icmp eq i32 %1, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %20
-  %23 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %1)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %23, ptr %24, align 8, !tbaa !130
+._crit_edge:                                      ; preds = %.lr.ph, %19
+  %22 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %1)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %22, ptr %23, align 8, !tbaa !130
   ret void
 
-.lr.ph:                                           ; preds = %20, %.lr.ph
-  %.015 = phi i32 [ %28, %.lr.ph ], [ 0, %20 ]
-  %25 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %.015)
-  %26 = load i32, ptr %22, align 4, !tbaa !129
-  %27 = add nsw i32 %26, %25
-  store i32 %27, ptr %22, align 4, !tbaa !129
-  %28 = add nuw nsw i32 %.015, 1
-  %exitcond.not = icmp eq i32 %28, %1
+.lr.ph:                                           ; preds = %19, %.lr.ph
+  %.017 = phi i32 [ %27, %.lr.ph ], [ 0, %19 ]
+  %24 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %.017)
+  %25 = load i32, ptr %21, align 4, !tbaa !129
+  %26 = add nsw i32 %25, %24
+  store i32 %26, ptr %21, align 4, !tbaa !129
+  %27 = add nuw nsw i32 %.017, 1
+  %exitcond.not = icmp eq i32 %27, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
 }
 

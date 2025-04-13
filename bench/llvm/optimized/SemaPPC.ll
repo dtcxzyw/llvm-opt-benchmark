@@ -688,554 +688,554 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaPPC27CheckPPCBuiltinFunctionC
   ]
 
 _ZN5clangL15isPPC_64BuiltinEj.exit:               ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %29 = icmp eq i32 %28, 64
-  br i1 %29, label %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, label %30
+  %.not271 = icmp eq i32 %28, 64
+  br i1 %.not271, label %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, label %29
 
-30:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit
+29:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %8) #14
-  %31 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %31, i32 noundef 2622, i1 noundef zeroext false) #14
-  %32 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  %34 = load i8, ptr %33, align 8, !tbaa !33, !range !36, !noundef !37
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %38
+  %30 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %30, i32 noundef 2622, i1 noundef zeroext false) #14
+  %31 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 120
+  %33 = load i8, ptr %32, align 8, !tbaa !33, !range !36, !noundef !37
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %35, label %37
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 32
+35:                                               ; preds = %29
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #14
-  store i64 %32, ptr %6, align 8
+  store i64 %31, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
-  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %37, ptr noundef nonnull align 4 dereferenceable(9) %6)
+  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %36, ptr noundef nonnull align 4 dereferenceable(9) %6)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #14
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 132
-  %41 = load i8, ptr %40, align 4, !tbaa !68, !range !36, !noundef !37
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
+37:                                               ; preds = %29
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 132
+  %40 = load i8, ptr %39, align 4, !tbaa !68, !range !36, !noundef !37
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %42, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
-43:                                               ; preds = %38
-  %44 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %8) #14
+42:                                               ; preds = %37
+  %43 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %8) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !70
-  %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %47
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !70
+  %.not.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %46
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %46, align 8, !tbaa !82
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %50 = load ptr, ptr %49, align 8
-  %51 = call noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(168) %46) #14
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %45, align 8, !tbaa !82
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %50 = call noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(168) %45) #14
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %47, %43
-  %52 = phi ptr [ %51, %47 ], [ null, %43 ]
-  store ptr %52, ptr %7, align 8, !tbaa !84
-  %53 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %54 = load i32, ptr %39, align 8, !tbaa !32
-  %55 = zext i32 %54 to i64
-  %56 = load ptr, ptr %53, align 8, !tbaa !86
-  %57 = getelementptr inbounds nuw %"struct.std::pair", ptr %56, i64 %55, i32 2
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %46, %42
+  %51 = phi ptr [ %50, %46 ], [ null, %42 ]
+  store ptr %51, ptr %7, align 8, !tbaa !84
+  %52 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %53 = load i32, ptr %38, align 8, !tbaa !32
+  %54 = zext i32 %53 to i64
+  %55 = load ptr, ptr %52, align 8, !tbaa !86
+  %56 = getelementptr inbounds nuw %"struct.std::pair", ptr %55, i64 %54, i32 2
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #14
-  store i64 %32, ptr %5, align 8
+  store i64 %31, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %57, ptr noundef nonnull align 4 dereferenceable(9) %5)
+  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %56, ptr noundef nonnull align 4 dereferenceable(9) %5)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
-_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: ; preds = %36, %38, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
-  %58 = load i8, ptr %33, align 8, !tbaa !33, !range !36, !noundef !37
-  %59 = trunc nuw i8 %58 to i1
+_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: ; preds = %35, %37, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
+  %57 = load i8, ptr %32, align 8, !tbaa !33, !range !36, !noundef !37
+  %58 = trunc nuw i8 %57 to i1
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %8) #14
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN5clangL15isPPC_64BuiltinEj.exit.thread:        ; preds = %4, %_ZN5clangL15isPPC_64BuiltinEj.exit
   switch i32 %2, label %_ZN4llvm5APIntD2Ev.exit [
-    i32 1795, label %60
-    i32 1796, label %60
-    i32 1631, label %66
-    i32 2037, label %69
-    i32 2038, label %69
-    i32 2047, label %72
-    i32 2042, label %75
-    i32 2040, label %75
-    i32 2043, label %78
-    i32 2041, label %78
-    i32 2070, label %84
-    i32 2071, label %87
-    i32 1633, label %97
-    i32 1634, label %97
-    i32 1635, label %97
-    i32 1636, label %97
-    i32 2011, label %100
-    i32 2012, label %100
-    i32 2075, label %102
-    i32 1883, label %105
-    i32 2013, label %108
-    i32 1888, label %111
-    i32 1889, label %114
-    i32 2019, label %117
-    i32 1514, label %120
-    i32 1513, label %120
-    i32 1538, label %123
-    i32 1548, label %126
-    i32 1549, label %129
-    i32 1550, label %135
-    i32 1583, label %141
-    i32 1559, label %183
-    i32 1560, label %183
-    i32 1563, label %186
-    i32 1564, label %189
-    i32 1528, label %195
-    i32 1529, label %198
-    i32 1930, label %201
-    i32 1931, label %201
-    i32 1863, label %204
-    i32 1864, label %204
-    i32 1865, label %204
-    i32 1866, label %204
-    i32 1983, label %207
-    i32 1984, label %207
-    i32 1985, label %207
-    i32 1986, label %207
-    i32 1534, label %210
-    i32 1584, label %234
-    i32 1587, label %234
-    i32 1585, label %234
-    i32 1588, label %234
-    i32 1586, label %234
-    i32 1589, label %234
-    i32 2081, label %297
-    i32 2082, label %299
-    i32 2083, label %301
-    i32 2084, label %303
-    i32 2085, label %305
-    i32 2086, label %307
-    i32 2087, label %309
-    i32 2088, label %311
-    i32 2089, label %313
-    i32 2090, label %315
-    i32 2091, label %317
-    i32 2092, label %319
-    i32 2093, label %321
-    i32 2094, label %323
-    i32 2095, label %325
-    i32 2096, label %327
-    i32 2097, label %329
-    i32 2098, label %331
-    i32 2099, label %333
-    i32 2100, label %335
-    i32 2101, label %337
-    i32 2102, label %339
-    i32 2103, label %341
-    i32 2104, label %343
-    i32 2105, label %345
-    i32 2106, label %347
-    i32 2107, label %349
-    i32 2108, label %351
-    i32 2109, label %353
-    i32 2110, label %355
-    i32 2111, label %357
-    i32 2112, label %359
-    i32 2113, label %361
-    i32 2114, label %363
-    i32 2115, label %365
-    i32 2116, label %367
-    i32 2117, label %369
-    i32 2118, label %371
-    i32 2119, label %373
-    i32 2120, label %375
-    i32 2121, label %377
-    i32 2122, label %379
-    i32 2123, label %381
-    i32 2124, label %383
-    i32 2125, label %385
-    i32 2126, label %387
-    i32 2127, label %389
-    i32 2128, label %391
-    i32 2129, label %393
-    i32 2130, label %395
-    i32 2131, label %397
-    i32 2132, label %399
-    i32 2133, label %401
-    i32 2134, label %403
-    i32 2135, label %405
-    i32 2136, label %407
-    i32 2137, label %409
-    i32 2138, label %411
-    i32 2139, label %413
-    i32 2140, label %415
-    i32 2141, label %417
-    i32 2142, label %419
-    i32 2143, label %421
-    i32 2144, label %423
-    i32 2145, label %425
-    i32 2146, label %427
-    i32 2147, label %429
-    i32 2148, label %431
-    i32 2149, label %433
-    i32 2150, label %435
-    i32 2151, label %437
-    i32 2152, label %439
-    i32 2153, label %441
+    i32 1795, label %59
+    i32 1796, label %59
+    i32 1631, label %65
+    i32 2037, label %68
+    i32 2038, label %68
+    i32 2047, label %71
+    i32 2042, label %74
+    i32 2040, label %74
+    i32 2043, label %77
+    i32 2041, label %77
+    i32 2070, label %83
+    i32 2071, label %86
+    i32 1633, label %96
+    i32 1634, label %96
+    i32 1635, label %96
+    i32 1636, label %96
+    i32 2011, label %99
+    i32 2012, label %99
+    i32 2075, label %101
+    i32 1883, label %104
+    i32 2013, label %107
+    i32 1888, label %110
+    i32 1889, label %113
+    i32 2019, label %116
+    i32 1514, label %119
+    i32 1513, label %119
+    i32 1538, label %122
+    i32 1548, label %125
+    i32 1549, label %128
+    i32 1550, label %134
+    i32 1583, label %140
+    i32 1559, label %182
+    i32 1560, label %182
+    i32 1563, label %185
+    i32 1564, label %188
+    i32 1528, label %194
+    i32 1529, label %197
+    i32 1930, label %200
+    i32 1931, label %200
+    i32 1863, label %203
+    i32 1864, label %203
+    i32 1865, label %203
+    i32 1866, label %203
+    i32 1983, label %206
+    i32 1984, label %206
+    i32 1985, label %206
+    i32 1986, label %206
+    i32 1534, label %209
+    i32 1584, label %233
+    i32 1587, label %233
+    i32 1585, label %233
+    i32 1588, label %233
+    i32 1586, label %233
+    i32 1589, label %233
+    i32 2081, label %296
+    i32 2082, label %298
+    i32 2083, label %300
+    i32 2084, label %302
+    i32 2085, label %304
+    i32 2086, label %306
+    i32 2087, label %308
+    i32 2088, label %310
+    i32 2089, label %312
+    i32 2090, label %314
+    i32 2091, label %316
+    i32 2092, label %318
+    i32 2093, label %320
+    i32 2094, label %322
+    i32 2095, label %324
+    i32 2096, label %326
+    i32 2097, label %328
+    i32 2098, label %330
+    i32 2099, label %332
+    i32 2100, label %334
+    i32 2101, label %336
+    i32 2102, label %338
+    i32 2103, label %340
+    i32 2104, label %342
+    i32 2105, label %344
+    i32 2106, label %346
+    i32 2107, label %348
+    i32 2108, label %350
+    i32 2109, label %352
+    i32 2110, label %354
+    i32 2111, label %356
+    i32 2112, label %358
+    i32 2113, label %360
+    i32 2114, label %362
+    i32 2115, label %364
+    i32 2116, label %366
+    i32 2117, label %368
+    i32 2118, label %370
+    i32 2119, label %372
+    i32 2120, label %374
+    i32 2121, label %376
+    i32 2122, label %378
+    i32 2123, label %380
+    i32 2124, label %382
+    i32 2125, label %384
+    i32 2126, label %386
+    i32 2127, label %388
+    i32 2128, label %390
+    i32 2129, label %392
+    i32 2130, label %394
+    i32 2131, label %396
+    i32 2132, label %398
+    i32 2133, label %400
+    i32 2134, label %402
+    i32 2135, label %404
+    i32 2136, label %406
+    i32 2137, label %408
+    i32 2138, label %410
+    i32 2139, label %412
+    i32 2140, label %414
+    i32 2141, label %416
+    i32 2142, label %418
+    i32 2143, label %420
+    i32 2144, label %422
+    i32 2145, label %424
+    i32 2146, label %426
+    i32 2147, label %428
+    i32 2148, label %430
+    i32 2149, label %432
+    i32 2150, label %434
+    i32 2151, label %436
+    i32 2152, label %438
+    i32 2153, label %440
   ]
 
-60:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %61 = load ptr, ptr %0, align 8, !tbaa !95
-  %62 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %61, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #14
-  br i1 %62, label %_ZN4llvm5APIntD2Ev.exit, label %63
+59:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %60 = load ptr, ptr %0, align 8, !tbaa !95
+  %61 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %60, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #14
+  br i1 %61, label %_ZN4llvm5APIntD2Ev.exit, label %62
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %0, align 8, !tbaa !95
-  %65 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %64, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 15, i1 noundef zeroext true) #14
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %0, align 8, !tbaa !95
+  %64 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %63, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 15, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-66:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %67 = load ptr, ptr %0, align 8, !tbaa !95
-  %68 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %67, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #14
+65:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %66 = load ptr, ptr %0, align 8, !tbaa !95
+  %67 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %66, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-69:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %70 = load ptr, ptr %0, align 8, !tbaa !95
-  %71 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %70, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #14
+68:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %69 = load ptr, ptr %0, align 8, !tbaa !95
+  %70 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %69, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-72:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %73 = load ptr, ptr %0, align 8, !tbaa !95
-  %74 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %73, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #14
+71:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %72 = load ptr, ptr %0, align 8, !tbaa !95
+  %73 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %72, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-75:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %76 = load ptr, ptr %0, align 8, !tbaa !95
-  %77 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %76, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #14
+74:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %75 = load ptr, ptr %0, align 8, !tbaa !95
+  %76 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %75, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-78:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %79 = load ptr, ptr %0, align 8, !tbaa !95
-  %80 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %79, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #14
-  br i1 %80, label %_ZN4llvm5APIntD2Ev.exit, label %81
+77:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %78 = load ptr, ptr %0, align 8, !tbaa !95
+  %79 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %78, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #14
+  br i1 %79, label %_ZN4llvm5APIntD2Ev.exit, label %80
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr %0, align 8, !tbaa !95
-  %83 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %82, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #14
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %0, align 8, !tbaa !95
+  %82 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %81, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-84:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %85 = load ptr, ptr %0, align 8, !tbaa !95
-  %86 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %85, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #14
-  br i1 %86, label %_ZN4llvm5APIntD2Ev.exit, label %87
+83:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %84 = load ptr, ptr %0, align 8, !tbaa !95
+  %85 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %84, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #14
+  br i1 %85, label %_ZN4llvm5APIntD2Ev.exit, label %86
 
-87:                                               ; preds = %84, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %89 = load ptr, ptr %88, align 8, !tbaa !97
-  %90 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #18
-  %.not240 = icmp eq ptr %89, %90
-  br i1 %.not240, label %_ZN4llvm5APIntD2Ev.exit, label %91
+86:                                               ; preds = %83, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %88 = load ptr, ptr %87, align 8, !tbaa !97
+  %89 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #18
+  %.not243 = icmp eq ptr %88, %89
+  br i1 %.not243, label %_ZN4llvm5APIntD2Ev.exit, label %90
 
-91:                                               ; preds = %87
+90:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %9) #14
-  %92 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %92, i32 noundef 4516, i1 noundef zeroext false) #14
-  %93 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsIA14_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr noundef nonnull align 1 dereferenceable(14) @.str)
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 120
-  %95 = load i8, ptr %94, align 8, !tbaa !33, !range !36, !noundef !37
-  %96 = trunc nuw i8 %95 to i1
+  %91 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %91, i32 noundef 4516, i1 noundef zeroext false) #14
+  %92 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsIA14_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr noundef nonnull align 1 dereferenceable(14) @.str)
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 120
+  %94 = load i8, ptr %93, align 8, !tbaa !33, !range !36, !noundef !37
+  %95 = trunc nuw i8 %94 to i1
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %9) #14
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-97:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %98 = load ptr, ptr %0, align 8, !tbaa !95
-  %99 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %98, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #14
+96:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %97 = load ptr, ptr %0, align 8, !tbaa !95
+  %98 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %97, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-100:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %101 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC10BuiltinVSXEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3)
+99:                                               ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %100 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC10BuiltinVSXEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-102:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %103 = load ptr, ptr %0, align 8, !tbaa !95
-  %104 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %103, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #14
+101:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %102 = load ptr, ptr %0, align 8, !tbaa !95
+  %103 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %102, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-105:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %106 = load ptr, ptr %0, align 8, !tbaa !95
-  %107 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %106, ptr noundef %3, i32 noundef 1, i32 noundef 2, i32 noundef 7, i1 noundef zeroext true) #14
+104:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %105 = load ptr, ptr %0, align 8, !tbaa !95
+  %106 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %105, ptr noundef %3, i32 noundef 1, i32 noundef 2, i32 noundef 7, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-108:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %109 = load ptr, ptr %0, align 8, !tbaa !95
-  %110 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %109, ptr noundef %3, i32 noundef 3, i32 noundef 0, i32 noundef 255, i1 noundef zeroext true) #14
+107:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %108 = load ptr, ptr %0, align 8, !tbaa !95
+  %109 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %108, ptr noundef %3, i32 noundef 3, i32 noundef 0, i32 noundef 255, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-111:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %112 = load ptr, ptr %0, align 8, !tbaa !95
-  %113 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %112, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #14
+110:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %111 = load ptr, ptr %0, align 8, !tbaa !95
+  %112 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %111, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-114:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %115 = load ptr, ptr %0, align 8, !tbaa !95
-  %116 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %115, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #14
+113:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %114 = load ptr, ptr %0, align 8, !tbaa !95
+  %115 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %114, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-117:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %118 = load ptr, ptr %0, align 8, !tbaa !95
-  %119 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %118, ptr noundef %3, i32 noundef 3, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #14
+116:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %117 = load ptr, ptr %0, align 8, !tbaa !95
+  %118 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %117, ptr noundef %3, i32 noundef 3, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-120:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %121 = load ptr, ptr %0, align 8, !tbaa !95
-  %122 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %121, ptr noundef %3, i32 noundef 2, i32 noundef 1, i32 noundef 31, i1 noundef zeroext true) #14
+119:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %120 = load ptr, ptr %0, align 8, !tbaa !95
+  %121 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %120, ptr noundef %3, i32 noundef 2, i32 noundef 1, i32 noundef 31, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-123:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %124 = load ptr, ptr %0, align 8, !tbaa !95
-  %125 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %124, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #14
+122:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %123 = load ptr, ptr %0, align 8, !tbaa !95
+  %124 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %123, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-126:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %127 = load ptr, ptr %0, align 8, !tbaa !95
-  %128 = tail call noundef zeroext i1 @_ZN5clang4Sema16ValueIsRunOfOnesEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %127, ptr noundef %3, i32 noundef 2) #14
+125:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %126 = load ptr, ptr %0, align 8, !tbaa !95
+  %127 = tail call noundef zeroext i1 @_ZN5clang4Sema16ValueIsRunOfOnesEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %126, ptr noundef %3, i32 noundef 2) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-129:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %130 = load ptr, ptr %0, align 8, !tbaa !95
-  %131 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %130, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #14
-  br i1 %131, label %_ZN4llvm5APIntD2Ev.exit, label %132
+128:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %129 = load ptr, ptr %0, align 8, !tbaa !95
+  %130 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %129, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #14
+  br i1 %130, label %_ZN4llvm5APIntD2Ev.exit, label %131
 
-132:                                              ; preds = %129
-  %133 = load ptr, ptr %0, align 8, !tbaa !95
-  %134 = tail call noundef zeroext i1 @_ZN5clang4Sema16ValueIsRunOfOnesEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %133, ptr noundef %3, i32 noundef 3) #14
+131:                                              ; preds = %128
+  %132 = load ptr, ptr %0, align 8, !tbaa !95
+  %133 = tail call noundef zeroext i1 @_ZN5clang4Sema16ValueIsRunOfOnesEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %132, ptr noundef %3, i32 noundef 3) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-135:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %136 = load ptr, ptr %0, align 8, !tbaa !95
-  %137 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %136, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 63, i1 noundef zeroext true) #14
-  br i1 %137, label %_ZN4llvm5APIntD2Ev.exit, label %138
+134:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %135 = load ptr, ptr %0, align 8, !tbaa !95
+  %136 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %135, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 63, i1 noundef zeroext true) #14
+  br i1 %136, label %_ZN4llvm5APIntD2Ev.exit, label %137
 
-138:                                              ; preds = %135
-  %139 = load ptr, ptr %0, align 8, !tbaa !95
-  %140 = tail call noundef zeroext i1 @_ZN5clang4Sema16ValueIsRunOfOnesEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %139, ptr noundef %3, i32 noundef 3) #14
+137:                                              ; preds = %134
+  %138 = load ptr, ptr %0, align 8, !tbaa !95
+  %139 = tail call noundef zeroext i1 @_ZN5clang4Sema16ValueIsRunOfOnesEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %138, ptr noundef %3, i32 noundef 3) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-141:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %142 = load ptr, ptr %0, align 8, !tbaa !95
-  %143 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %142, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #14
-  br i1 %143, label %_ZN4llvm5APIntD2Ev.exit, label %144
+140:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %141 = load ptr, ptr %0, align 8, !tbaa !95
+  %142 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %141, ptr noundef %3, i32 noundef 2, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #14
+  br i1 %142, label %_ZN4llvm5APIntD2Ev.exit, label %143
 
-144:                                              ; preds = %141
+143:                                              ; preds = %140
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #14
-  %145 = load i32, ptr %3, align 8
-  %146 = lshr i32 %145, 24
-  %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw i8, ptr %3, i64 %147
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %150 = lshr i32 %145, 19
-  %151 = and i32 %150, 1
-  %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %155 = load ptr, ptr %154, align 8, !tbaa !98
-  call void @_ZNK5clang4Expr22getIntegerConstantExprERKNS_10ASTContextEPNS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.1079") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull align 8 dereferenceable(23216) %25, ptr noundef null) #14
-  %156 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %157 = load i32, ptr %156, align 8, !tbaa !100
-  %158 = icmp ult i32 %157, 65
-  br i1 %158, label %159, label %167
+  %144 = load i32, ptr %3, align 8
+  %145 = lshr i32 %144, 24
+  %146 = zext nneg i32 %145 to i64
+  %147 = getelementptr inbounds nuw i8, ptr %3, i64 %146
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %149 = lshr i32 %144, 19
+  %150 = and i32 %149, 1
+  %151 = zext nneg i32 %150 to i64
+  %152 = getelementptr inbounds nuw ptr, ptr %148, i64 %151
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
+  %154 = load ptr, ptr %153, align 8, !tbaa !98
+  call void @_ZNK5clang4Expr22getIntegerConstantExprERKNS_10ASTContextEPNS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.1079") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %154, ptr noundef nonnull align 8 dereferenceable(23216) %25, ptr noundef null) #14
+  %155 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %156 = load i32, ptr %155, align 8, !tbaa !100
+  %157 = icmp ult i32 %156, 65
+  br i1 %157, label %158, label %166
 
-159:                                              ; preds = %144
-  %160 = load i64, ptr %11, align 8
-  %161 = icmp eq i32 %157, 0
-  %162 = sub nuw nsw i32 64, %157
-  %163 = zext nneg i32 %162 to i64
-  %164 = shl i64 %160, %163
-  %165 = ashr exact i64 %164, %163
-  %.0.i.i = select i1 %161, i64 0, i64 %165
-  %166 = inttoptr i64 %160 to ptr
+158:                                              ; preds = %143
+  %159 = load i64, ptr %11, align 8
+  %160 = icmp eq i32 %156, 0
+  %161 = sub nuw nsw i32 64, %156
+  %162 = zext nneg i32 %161 to i64
+  %163 = shl i64 %159, %162
+  %164 = ashr exact i64 %163, %162
+  %.0.i.i = select i1 %160, i64 0, i64 %164
+  %165 = inttoptr i64 %159 to ptr
   br label %_ZNK4llvm5APInt12getSExtValueEv.exit
 
-167:                                              ; preds = %144
-  %168 = load ptr, ptr %11, align 8, !tbaa !19
-  %169 = load i64, ptr %168, align 8, !tbaa !67
+166:                                              ; preds = %143
+  %167 = load ptr, ptr %11, align 8, !tbaa !19
+  %168 = load i64, ptr %167, align 8, !tbaa !67
   br label %_ZNK4llvm5APInt12getSExtValueEv.exit
 
-_ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %159, %167
-  %170 = phi ptr [ %166, %159 ], [ %168, %167 ]
-  %.0.i243 = phi i64 [ %.0.i.i, %159 ], [ %169, %167 ]
-  %171 = trunc i64 %.0.i243 to i32
-  %172 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %173 = load i8, ptr %172, align 8, !tbaa !102, !range !36, !noundef !37
-  %174 = trunc nuw i8 %173 to i1
-  br i1 %174, label %175, label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
+_ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %158, %166
+  %169 = phi ptr [ %165, %158 ], [ %167, %166 ]
+  %.0.i244 = phi i64 [ %.0.i.i, %158 ], [ %168, %166 ]
+  %170 = trunc i64 %.0.i244 to i32
+  %171 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %172 = load i8, ptr %171, align 8, !tbaa !102, !range !36, !noundef !37
+  %173 = trunc nuw i8 %172 to i1
+  br i1 %173, label %174, label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
 
-175:                                              ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit
-  store i8 0, ptr %172, align 8, !tbaa !102
-  %176 = icmp ult i32 %157, 65
-  %177 = icmp eq ptr %170, null
-  %or.cond = select i1 %176, i1 true, i1 %177
-  br i1 %or.cond, label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit, label %178
+174:                                              ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit
+  store i8 0, ptr %171, align 8, !tbaa !102
+  %175 = icmp ult i32 %156, 65
+  %176 = icmp eq ptr %169, null
+  %or.cond = select i1 %175, i1 true, i1 %176
+  br i1 %or.cond, label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit, label %177
 
-178:                                              ; preds = %175
-  call void @_ZdaPv(ptr noundef nonnull %170) #17
+177:                                              ; preds = %174
+  call void @_ZdaPv(ptr noundef nonnull %169) #17
   br label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
 
-_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit, %175, %178
+_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit, %174, %177
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #14
-  store i32 %171, ptr %10, align 4, !tbaa !32
-  %.not239 = icmp eq i32 %171, 0
-  br i1 %.not239, label %182, label %179
+  store i32 %170, ptr %10, align 4, !tbaa !32
+  %.not242 = icmp eq i32 %170, 0
+  br i1 %.not242, label %181, label %178
 
-179:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
+178:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %12) #14
-  %180 = call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %180, i32 noundef 6193, i1 noundef zeroext false) #14
-  %181 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %12, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %179 = call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %179, i32 noundef 6193, i1 noundef zeroext false) #14
+  %180 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %12, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #14
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %12) #14
-  br label %182
+  br label %181
 
-182:                                              ; preds = %179, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
+181:                                              ; preds = %178, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-183:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %184 = load ptr, ptr %0, align 8, !tbaa !95
-  %185 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %184, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #14
+182:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %183 = load ptr, ptr %0, align 8, !tbaa !95
+  %184 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %183, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 31, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-186:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %187 = load ptr, ptr %0, align 8, !tbaa !95
-  %188 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %187, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 255, i1 noundef zeroext true) #14
+185:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %186 = load ptr, ptr %0, align 8, !tbaa !95
+  %187 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %186, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 255, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-189:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %190 = load ptr, ptr %0, align 8, !tbaa !95
-  %191 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %190, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #14
-  br i1 %191, label %_ZN4llvm5APIntD2Ev.exit, label %192
+188:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %189 = load ptr, ptr %0, align 8, !tbaa !95
+  %190 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %189, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #14
+  br i1 %190, label %_ZN4llvm5APIntD2Ev.exit, label %191
 
-192:                                              ; preds = %189
-  %193 = load ptr, ptr %0, align 8, !tbaa !95
-  %194 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %193, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 15, i1 noundef zeroext true) #14
+191:                                              ; preds = %188
+  %192 = load ptr, ptr %0, align 8, !tbaa !95
+  %193 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %192, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 15, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-195:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %196 = load ptr, ptr %0, align 8, !tbaa !95
-  %197 = tail call noundef zeroext i1 @_ZN5clang4Sema24BuiltinConstantArgPower2EPNS_8CallExprEi(ptr noundef nonnull align 8 dereferenceable(17504) %196, ptr noundef %3, i32 noundef 0) #14
+194:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %195 = load ptr, ptr %0, align 8, !tbaa !95
+  %196 = tail call noundef zeroext i1 @_ZN5clang4Sema24BuiltinConstantArgPower2EPNS_8CallExprEi(ptr noundef nonnull align 8 dereferenceable(17504) %195, ptr noundef %3, i32 noundef 0) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-198:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %199 = load ptr, ptr %0, align 8, !tbaa !95
-  %200 = tail call noundef zeroext i1 @_ZN5clang4Sema16ValueIsRunOfOnesEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %199, ptr noundef %3, i32 noundef 2) #14
+197:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %198 = load ptr, ptr %0, align 8, !tbaa !95
+  %199 = tail call noundef zeroext i1 @_ZN5clang4Sema16ValueIsRunOfOnesEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504) %198, ptr noundef %3, i32 noundef 2) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-201:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %202 = load ptr, ptr %0, align 8, !tbaa !95
-  %203 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %202, ptr noundef %3, i32 noundef 1, i32 noundef 1, i32 noundef 16, i1 noundef zeroext true) #14
+200:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %201 = load ptr, ptr %0, align 8, !tbaa !95
+  %202 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %201, ptr noundef %3, i32 noundef 1, i32 noundef 1, i32 noundef 16, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-204:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %205 = load ptr, ptr %0, align 8, !tbaa !95
-  %206 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %205, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #14
+203:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %204 = load ptr, ptr %0, align 8, !tbaa !95
+  %205 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %204, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-207:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %208 = load ptr, ptr %0, align 8, !tbaa !95
-  %209 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %208, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #14
+206:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %207 = load ptr, ptr %0, align 8, !tbaa !95
+  %208 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %207, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 3, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-210:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %211 = load i32, ptr %3, align 8
-  %212 = lshr i32 %211, 24
-  %213 = zext nneg i32 %212 to i64
-  %214 = getelementptr inbounds nuw i8, ptr %3, i64 %213
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  %216 = lshr i32 %211, 19
-  %217 = and i32 %216, 1
-  %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr inbounds nuw ptr, ptr %215, i64 %218
-  %220 = load ptr, ptr %219, align 8, !tbaa !98
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %221, align 8, !tbaa !19
-  %222 = getelementptr inbounds nuw i8, ptr %25, i64 18640
-  %.sroa.0.0.copyload.i244 = load i64, ptr %222, align 8, !tbaa !19
-  %.not272 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i244
-  br i1 %.not272, label %.critedge, label %223
-
-223:                                              ; preds = %210
-  %224 = getelementptr inbounds nuw i8, ptr %25, i64 18648
-  %.sroa.0.0.copyload.i245 = load i64, ptr %224, align 8, !tbaa !19
+209:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %210 = load i32, ptr %3, align 8
+  %211 = lshr i32 %210, 24
+  %212 = zext nneg i32 %211 to i64
+  %213 = getelementptr inbounds nuw i8, ptr %3, i64 %212
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  %215 = lshr i32 %210, 19
+  %216 = and i32 %215, 1
+  %217 = zext nneg i32 %216 to i64
+  %218 = getelementptr inbounds nuw ptr, ptr %214, i64 %217
+  %219 = load ptr, ptr %218, align 8, !tbaa !98
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %220, align 8, !tbaa !19
+  %221 = getelementptr inbounds nuw i8, ptr %25, i64 18640
+  %.sroa.0.0.copyload.i245 = load i64, ptr %221, align 8, !tbaa !19
   %.not273 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i245
-  br i1 %.not273, label %.critedge, label %225
+  br i1 %.not273, label %.critedge, label %222
 
-225:                                              ; preds = %223
-  %226 = getelementptr inbounds nuw i8, ptr %25, i64 18664
-  %.sroa.0.0.copyload.i248 = load i64, ptr %226, align 8, !tbaa !19
-  %.not274 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i248
-  br i1 %.not274, label %.critedge, label %227
+222:                                              ; preds = %209
+  %223 = getelementptr inbounds nuw i8, ptr %25, i64 18648
+  %.sroa.0.0.copyload.i246 = load i64, ptr %223, align 8, !tbaa !19
+  %.not274 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i246
+  br i1 %.not274, label %.critedge, label %224
 
-227:                                              ; preds = %225
+224:                                              ; preds = %222
+  %225 = getelementptr inbounds nuw i8, ptr %25, i64 18664
+  %.sroa.0.0.copyload.i249 = load i64, ptr %225, align 8, !tbaa !19
+  %.not275 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i249
+  br i1 %.not275, label %.critedge, label %226
+
+226:                                              ; preds = %224
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %13) #14
-  %228 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %228, i32 noundef 4517, i1 noundef zeroext false) #14
-  %229 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %230 = load i8, ptr %229, align 8, !tbaa !33, !range !36, !noundef !37
-  %231 = trunc nuw i8 %230 to i1
+  %227 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %227, i32 noundef 4517, i1 noundef zeroext false) #14
+  %228 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %229 = load i8, ptr %228, align 8, !tbaa !33, !range !36, !noundef !37
+  %230 = trunc nuw i8 %229 to i1
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #14
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %13) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-.critedge:                                        ; preds = %223, %210, %225
-  %232 = load ptr, ptr %0, align 8, !tbaa !95
-  %233 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %232, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 127, i1 noundef zeroext true) #14
+.critedge:                                        ; preds = %222, %209, %224
+  %231 = load ptr, ptr %0, align 8, !tbaa !95
+  %232 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %231, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 127, i1 noundef zeroext true) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-234:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %235 = getelementptr inbounds nuw i8, ptr %25, i64 17288
-  %236 = load ptr, ptr %235, align 8, !tbaa !104
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 260
-  %238 = load i32, ptr %237, align 4, !tbaa !453
-  %239 = icmp eq i32 %238, 19
-  br i1 %239, label %240, label %255
+233:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %234 = getelementptr inbounds nuw i8, ptr %25, i64 17288
+  %235 = load ptr, ptr %234, align 8, !tbaa !104
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 260
+  %237 = load i32, ptr %236, align 4, !tbaa !453
+  %238 = icmp eq i32 %237, 19
+  br i1 %238, label %239, label %254
 
-240:                                              ; preds = %234
-  switch i32 %2, label %255 [
-    i32 1587, label %241
-    i32 1584, label %241
+239:                                              ; preds = %233
+  switch i32 %2, label %254 [
+    i32 1587, label %240
+    i32 1584, label %240
   ]
 
-241:                                              ; preds = %240, %240
+240:                                              ; preds = %239, %239
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %14) #14
-  %242 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %242, i32 noundef 4777, i1 noundef zeroext false) #14
-  %243 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsIA8_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %14, ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
+  %241 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %241, i32 noundef 4777, i1 noundef zeroext false) #14
+  %242 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsIA8_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %14, ptr noundef nonnull align 1 dereferenceable(8) @.str.1)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #14
   store i8 1, ptr %15, align 1, !tbaa !461
-  %244 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %243, ptr noundef nonnull align 1 dereferenceable(1) %15)
+  %243 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %242, ptr noundef nonnull align 1 dereferenceable(1) %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #14
   store i32 128, ptr %16, align 4, !tbaa !32
-  %245 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %244, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  %244 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %243, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
-  %246 = getelementptr inbounds nuw i8, ptr %25, i64 18656
-  %.sroa.0.0.copyload.i251 = load i64, ptr %246, align 8, !tbaa !19
-  store i64 %.sroa.0.0.copyload.i251, ptr %17, align 8
-  %247 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %245, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %245 = getelementptr inbounds nuw i8, ptr %25, i64 18656
+  %.sroa.0.0.copyload.i252 = load i64, ptr %245, align 8, !tbaa !19
+  store i64 %.sroa.0.0.copyload.i252, ptr %17, align 8
+  %246 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %244, ptr noundef nonnull align 8 dereferenceable(8) %17)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #14
   store i8 0, ptr %18, align 1, !tbaa !461
-  %248 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %247, ptr noundef nonnull align 1 dereferenceable(1) %18)
-  %249 = load ptr, ptr %235, align 8, !tbaa !104
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 216
-  %251 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS_8SemaBase21SemaDiagnosticBuilderESA_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %248, ptr noundef nonnull align 8 dereferenceable(32) %250)
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 120
-  %253 = load i8, ptr %252, align 8, !tbaa !33, !range !36, !noundef !37
-  %254 = trunc nuw i8 %253 to i1
+  %247 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIbvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %246, ptr noundef nonnull align 1 dereferenceable(1) %18)
+  %248 = load ptr, ptr %234, align 8, !tbaa !104
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 216
+  %250 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKNS_8SemaBase21SemaDiagnosticBuilderESA_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %247, ptr noundef nonnull align 8 dereferenceable(32) %249)
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 120
+  %252 = load i8, ptr %251, align 8, !tbaa !33, !range !36, !noundef !37
+  %253 = trunc nuw i8 %252 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
@@ -1244,97 +1244,95 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %_ZNK4llvm5API
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %14) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-255:                                              ; preds = %240, %234
+254:                                              ; preds = %239, %233
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
-  %256 = getelementptr inbounds nuw i8, ptr %25, i64 18656
-  %.sroa.0.0.copyload.i252 = load i64, ptr %256, align 8, !tbaa !19
-  store i64 %.sroa.0.0.copyload.i252, ptr %19, align 8
+  %255 = getelementptr inbounds nuw i8, ptr %25, i64 18656
+  %.sroa.0.0.copyload.i253 = load i64, ptr %255, align 8, !tbaa !19
+  store i64 %.sroa.0.0.copyload.i253, ptr %19, align 8
   %switch.tableidx = add i32 %2, -1585
-  %257 = icmp ult i32 %switch.tableidx, 5
-  br i1 %257, label %switch.hole_check, label %260
-
-switch.hole_check:                                ; preds = %255
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
+  %256 = icmp ult i32 %switch.tableidx, 5
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 27, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %260
+  %or.cond284 = select i1 %256, i1 %switch.lobit, i1 false
+  br i1 %or.cond284, label %switch.lookup, label %259
 
-switch.lookup:                                    ; preds = %switch.hole_check
-  %258 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang7SemaPPC27CheckPPCBuiltinFunctionCallERKNS_10TargetInfoEjPNS_8CallExprE, i64 0, i64 %258
+switch.lookup:                                    ; preds = %254
+  %257 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang7SemaPPC27CheckPPCBuiltinFunctionCallERKNS_10TargetInfoEjPNS_8CallExprE, i64 0, i64 %257
   %switch.load = load i64, ptr %switch.gep, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %25, i64 %switch.load
-  %.sroa.0.0.copyload.i254 = load i64, ptr %259, align 8, !tbaa !19
-  store i64 %.sroa.0.0.copyload.i254, ptr %19, align 8, !tbaa !19
-  br label %260
+  %258 = getelementptr inbounds nuw i8, ptr %25, i64 %switch.load
+  %.sroa.0.0.copyload.i255 = load i64, ptr %258, align 8, !tbaa !19
+  store i64 %.sroa.0.0.copyload.i255, ptr %19, align 8, !tbaa !19
+  br label %259
 
-260:                                              ; preds = %switch.hole_check, %255, %switch.lookup
-  %.0.copyload.i.i2.i.i257 = phi i64 [ %.sroa.0.0.copyload.i252, %255 ], [ %.sroa.0.0.copyload.i254, %switch.lookup ], [ %.sroa.0.0.copyload.i252, %switch.hole_check ]
-  %261 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %262 = load i32, ptr %261, align 8, !tbaa !462
-  %.not275.not = icmp eq i32 %262, 0
-  br i1 %.not275.not, label %.loopexit, label %.lr.ph
+259:                                              ; preds = %254, %switch.lookup
+  %.0.copyload.i.i2.i.i258 = phi i64 [ %.sroa.0.0.copyload.i253, %254 ], [ %.sroa.0.0.copyload.i255, %switch.lookup ]
+  %260 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %261 = load i32, ptr %260, align 8, !tbaa !462
+  %.not276.not = icmp eq i32 %261, 0
+  br i1 %.not276.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %260
+.lr.ph:                                           ; preds = %259
   %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %263 = load i32, ptr %3, align 8
-  %264 = lshr i32 %263, 24
-  %265 = zext nneg i32 %264 to i64
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %265
-  %266 = lshr i32 %263, 19
-  %267 = and i32 %266, 1
-  %268 = zext nneg i32 %267 to i64
-  %269 = getelementptr inbounds nuw ptr, ptr %gep, i64 %268
-  %wide.trip.count = zext i32 %262 to i64
-  br label %271
+  %262 = load i32, ptr %3, align 8
+  %263 = lshr i32 %262, 24
+  %264 = zext nneg i32 %263 to i64
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %264
+  %265 = lshr i32 %262, 19
+  %266 = and i32 %265, 1
+  %267 = zext nneg i32 %266 to i64
+  %268 = getelementptr inbounds nuw ptr, ptr %gep, i64 %267
+  %wide.trip.count = zext i32 %261 to i64
+  br label %270
 
-270:                                              ; preds = %271
+269:                                              ; preds = %270
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %271, !llvm.loop !464
+  br i1 %exitcond.not, label %.loopexit, label %270, !llvm.loop !464
 
-271:                                              ; preds = %.lr.ph, %270
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %270 ]
-  %272 = getelementptr inbounds nuw ptr, ptr %269, i64 %indvars.iv
-  %273 = load ptr, ptr %272, align 8, !tbaa !98
-  %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  %.sroa.0.0.copyload.i255 = load i64, ptr %274, align 8, !tbaa !19
-  %.not271 = icmp eq i64 %.sroa.0.0.copyload.i255, %.0.copyload.i.i2.i.i257
-  br i1 %.not271, label %270, label %275
+270:                                              ; preds = %.lr.ph, %269
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %269 ]
+  %271 = getelementptr inbounds nuw ptr, ptr %268, i64 %indvars.iv
+  %272 = load ptr, ptr %271, align 8, !tbaa !98
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
+  %.sroa.0.0.copyload.i256 = load i64, ptr %273, align 8, !tbaa !19
+  %.not272 = icmp eq i64 %.sroa.0.0.copyload.i256, %.0.copyload.i.i2.i.i258
+  br i1 %.not272, label %269, label %274
 
-275:                                              ; preds = %271
+274:                                              ; preds = %270
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %20) #14
-  %276 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %276, i32 noundef 4944, i1 noundef zeroext false) #14
+  %275 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %275, i32 noundef 4944, i1 noundef zeroext false) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
-  %277 = load i32, ptr %3, align 8
-  %278 = lshr i32 %277, 24
-  %279 = zext nneg i32 %278 to i64
-  %280 = getelementptr inbounds nuw i8, ptr %3, i64 %279
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  %282 = lshr i32 %277, 19
-  %283 = and i32 %282, 1
-  %284 = zext nneg i32 %283 to i64
-  %285 = getelementptr inbounds nuw ptr, ptr %281, i64 %284
-  %286 = getelementptr inbounds nuw ptr, ptr %285, i64 %indvars.iv
-  %287 = load ptr, ptr %286, align 8, !tbaa !98
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
-  %.sroa.0.0.copyload.i258 = load i64, ptr %288, align 8, !tbaa !19
-  store i64 %.sroa.0.0.copyload.i258, ptr %21, align 8
-  %289 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
-  %290 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %289, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  %276 = load i32, ptr %3, align 8
+  %277 = lshr i32 %276, 24
+  %278 = zext nneg i32 %277 to i64
+  %279 = getelementptr inbounds nuw i8, ptr %3, i64 %278
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
+  %281 = lshr i32 %276, 19
+  %282 = and i32 %281, 1
+  %283 = zext nneg i32 %282 to i64
+  %284 = getelementptr inbounds nuw ptr, ptr %280, i64 %283
+  %285 = getelementptr inbounds nuw ptr, ptr %284, i64 %indvars.iv
+  %286 = load ptr, ptr %285, align 8, !tbaa !98
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  %.sroa.0.0.copyload.i259 = load i64, ptr %287, align 8, !tbaa !19
+  store i64 %.sroa.0.0.copyload.i259, ptr %21, align 8
+  %288 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  %289 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(136) %288, ptr noundef nonnull align 8 dereferenceable(8) %19)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #14
   store i32 1, ptr %22, align 4, !tbaa !32
-  %291 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %290, ptr noundef nonnull align 4 dereferenceable(4) %22)
+  %290 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %289, ptr noundef nonnull align 4 dereferenceable(4) %22)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #14
   store i32 0, ptr %23, align 4, !tbaa !32
-  %292 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %291, ptr noundef nonnull align 4 dereferenceable(4) %23)
+  %291 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %290, ptr noundef nonnull align 4 dereferenceable(4) %23)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #14
   store i32 0, ptr %24, align 4, !tbaa !32
-  %293 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %292, ptr noundef nonnull align 4 dereferenceable(4) %24)
-  %294 = getelementptr inbounds nuw i8, ptr %293, i64 120
-  %295 = load i8, ptr %294, align 8, !tbaa !33, !range !36, !noundef !37
-  %296 = trunc nuw i8 %295 to i1
+  %292 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(136) %291, ptr noundef nonnull align 4 dereferenceable(4) %24)
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 120
+  %294 = load i8, ptr %293, align 8, !tbaa !33, !range !36, !noundef !37
+  %295 = trunc nuw i8 %294 to i1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #14
@@ -1343,305 +1341,305 @@ switch.lookup:                                    ; preds = %switch.hole_check
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %20) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %270, %260, %275
-  %spec.select = phi i1 [ %296, %275 ], [ false, %260 ], [ false, %270 ]
+.loopexit:                                        ; preds = %269, %259, %274
+  %spec.select = phi i1 [ %295, %274 ], [ false, %259 ], [ false, %269 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
   br label %_ZN4llvm5APIntD2Ev.exit
 
-297:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %298 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.2)
+296:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %297 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.2)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-299:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %300 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.3)
+298:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %299 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.3)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-301:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %302 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.4)
+300:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %301 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.4)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-303:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %304 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.5)
+302:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %303 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.5)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-305:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %306 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.4)
+304:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %305 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.4)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-307:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %308 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.6)
+306:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %307 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.6)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-309:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %310 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.2)
+308:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %309 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.2)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-311:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %312 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.3)
+310:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %311 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.3)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-313:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %314 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.4)
+312:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %313 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.4)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-315:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %316 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.5)
+314:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %315 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.5)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-317:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %318 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.6)
+316:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %317 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.6)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-319:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %320 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.7)
+318:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %319 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.7)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-321:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %322 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.8)
+320:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %321 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.8)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-323:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %324 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.8)
+322:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %323 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.8)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-325:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %326 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.8)
+324:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %325 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.8)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-327:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %328 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+326:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %327 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-329:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %330 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+328:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %329 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-331:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %332 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+330:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %331 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-333:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %334 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+332:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %333 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-335:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %336 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+334:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %335 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-337:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %338 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+336:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %337 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-339:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %340 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.10)
+338:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %339 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.10)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-341:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %342 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.11)
+340:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %341 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.11)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-343:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %344 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.12)
+342:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %343 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.12)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-345:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %346 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+344:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %345 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-347:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %348 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+346:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %347 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-349:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %350 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+348:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %349 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-351:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %352 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.14)
+350:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %351 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.14)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-353:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %354 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.15)
+352:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %353 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.15)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-355:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %356 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+354:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %355 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-357:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %358 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+356:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %357 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-359:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %360 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+358:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %359 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-361:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %362 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+360:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %361 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-363:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %364 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+362:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %363 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-365:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %366 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.11)
+364:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %365 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.11)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-367:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %368 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.12)
+366:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %367 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.12)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-369:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %370 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.12)
+368:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %369 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.12)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-371:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %372 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+370:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %371 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-373:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %374 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+372:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %373 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-375:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %376 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+374:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %375 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-377:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %378 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+376:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %377 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-379:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %380 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+378:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %379 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-381:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %382 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+380:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %381 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-383:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %384 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+382:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %383 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-385:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %386 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+384:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %385 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-387:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %388 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+386:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %387 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-389:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %390 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+388:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %389 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-391:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %392 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+390:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %391 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-393:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %394 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+392:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %393 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-395:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %396 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+394:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %395 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-397:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %398 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+396:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %397 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-399:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %400 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.14)
+398:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %399 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.14)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-401:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %402 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.14)
+400:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %401 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.14)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-403:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %404 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.14)
+402:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %403 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.14)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-405:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %406 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.14)
+404:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %405 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.14)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-407:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %408 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.10)
+406:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %407 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.10)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-409:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %410 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.10)
+408:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %409 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.10)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-411:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %412 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.10)
+410:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %411 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.10)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-413:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %414 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.10)
+412:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %413 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.10)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-415:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %416 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.15)
+414:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %415 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.15)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-417:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %418 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.15)
+416:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %417 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.15)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-419:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %420 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.15)
+418:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %419 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.15)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-421:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %422 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.15)
+420:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %421 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.15)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-423:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %424 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+422:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %423 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-425:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %426 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+424:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %425 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-427:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %428 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+426:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %427 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-429:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %430 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+428:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %429 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-431:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %432 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+430:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %431 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-433:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %434 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
+432:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %433 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.9)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-435:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %436 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+434:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %435 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-437:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %438 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+436:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %437 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-439:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %440 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+438:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %439 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-441:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
-  %442 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
+440:                                              ; preds = %_ZN5clangL15isPPC_64BuiltinEj.exit.thread
+  %441 = tail call noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, i32 poison, ptr noundef nonnull @.str.13)
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit, %66, %69, %72, %75, %91, %97, %100, %102, %105, %108, %111, %114, %117, %120, %123, %126, %182, %183, %186, %195, %198, %201, %204, %207, %241, %.loopexit, %297, %299, %301, %303, %305, %307, %309, %311, %313, %315, %317, %319, %321, %323, %325, %327, %329, %331, %333, %335, %337, %339, %341, %343, %345, %347, %349, %351, %353, %355, %357, %359, %361, %363, %365, %367, %369, %371, %373, %375, %377, %379, %381, %383, %385, %387, %389, %391, %393, %395, %397, %399, %401, %403, %405, %407, %409, %411, %413, %415, %417, %419, %421, %423, %425, %427, %429, %431, %433, %435, %437, %439, %441, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %63, %60, %81, %78, %84, %87, %132, %129, %138, %135, %141, %192, %189, %.critedge, %227
-  %.0 = phi i1 [ %442, %441 ], [ %440, %439 ], [ %438, %437 ], [ %436, %435 ], [ %434, %433 ], [ %432, %431 ], [ %430, %429 ], [ %428, %427 ], [ %426, %425 ], [ %424, %423 ], [ %422, %421 ], [ %420, %419 ], [ %418, %417 ], [ %416, %415 ], [ %414, %413 ], [ %412, %411 ], [ %410, %409 ], [ %408, %407 ], [ %406, %405 ], [ %404, %403 ], [ %402, %401 ], [ %400, %399 ], [ %398, %397 ], [ %396, %395 ], [ %394, %393 ], [ %392, %391 ], [ %390, %389 ], [ %388, %387 ], [ %386, %385 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ %372, %371 ], [ %370, %369 ], [ %368, %367 ], [ %366, %365 ], [ %364, %363 ], [ %362, %361 ], [ %360, %359 ], [ %358, %357 ], [ %356, %355 ], [ %354, %353 ], [ %352, %351 ], [ %350, %349 ], [ %348, %347 ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %316, %315 ], [ %314, %313 ], [ %312, %311 ], [ %310, %309 ], [ %308, %307 ], [ %306, %305 ], [ %304, %303 ], [ %302, %301 ], [ %300, %299 ], [ %298, %297 ], [ %254, %241 ], [ %spec.select, %.loopexit ], [ %209, %207 ], [ %206, %204 ], [ %203, %201 ], [ %200, %198 ], [ %197, %195 ], [ %188, %186 ], [ %185, %183 ], [ false, %182 ], [ %128, %126 ], [ %125, %123 ], [ %122, %120 ], [ %119, %117 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %100 ], [ %99, %97 ], [ %96, %91 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %59, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ false, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread ], [ true, %60 ], [ %65, %63 ], [ true, %78 ], [ %83, %81 ], [ true, %84 ], [ false, %87 ], [ true, %129 ], [ %134, %132 ], [ true, %135 ], [ %140, %138 ], [ true, %141 ], [ true, %189 ], [ %194, %192 ], [ %231, %227 ], [ %233, %.critedge ]
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit, %65, %68, %71, %74, %90, %96, %99, %101, %104, %107, %110, %113, %116, %119, %122, %125, %181, %182, %185, %194, %197, %200, %203, %206, %240, %.loopexit, %296, %298, %300, %302, %304, %306, %308, %310, %312, %314, %316, %318, %320, %322, %324, %326, %328, %330, %332, %334, %336, %338, %340, %342, %344, %346, %348, %350, %352, %354, %356, %358, %360, %362, %364, %366, %368, %370, %372, %374, %376, %378, %380, %382, %384, %386, %388, %390, %392, %394, %396, %398, %400, %402, %404, %406, %408, %410, %412, %414, %416, %418, %420, %422, %424, %426, %428, %430, %432, %434, %436, %438, %440, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread, %62, %59, %80, %77, %83, %86, %131, %128, %137, %134, %140, %191, %188, %.critedge, %226
+  %.0 = phi i1 [ %441, %440 ], [ %439, %438 ], [ %437, %436 ], [ %435, %434 ], [ %433, %432 ], [ %431, %430 ], [ %429, %428 ], [ %427, %426 ], [ %425, %424 ], [ %423, %422 ], [ %421, %420 ], [ %419, %418 ], [ %417, %416 ], [ %415, %414 ], [ %413, %412 ], [ %411, %410 ], [ %409, %408 ], [ %407, %406 ], [ %405, %404 ], [ %403, %402 ], [ %401, %400 ], [ %399, %398 ], [ %397, %396 ], [ %395, %394 ], [ %393, %392 ], [ %391, %390 ], [ %389, %388 ], [ %387, %386 ], [ %385, %384 ], [ %383, %382 ], [ %381, %380 ], [ %379, %378 ], [ %377, %376 ], [ %375, %374 ], [ %373, %372 ], [ %371, %370 ], [ %369, %368 ], [ %367, %366 ], [ %365, %364 ], [ %363, %362 ], [ %361, %360 ], [ %359, %358 ], [ %357, %356 ], [ %355, %354 ], [ %353, %352 ], [ %351, %350 ], [ %349, %348 ], [ %347, %346 ], [ %345, %344 ], [ %343, %342 ], [ %341, %340 ], [ %339, %338 ], [ %337, %336 ], [ %335, %334 ], [ %333, %332 ], [ %331, %330 ], [ %329, %328 ], [ %327, %326 ], [ %325, %324 ], [ %323, %322 ], [ %321, %320 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %253, %240 ], [ %spec.select, %.loopexit ], [ %208, %206 ], [ %205, %203 ], [ %202, %200 ], [ %199, %197 ], [ %196, %194 ], [ %187, %185 ], [ %184, %182 ], [ false, %181 ], [ %127, %125 ], [ %124, %122 ], [ %121, %119 ], [ %118, %116 ], [ %115, %113 ], [ %112, %110 ], [ %109, %107 ], [ %106, %104 ], [ %103, %101 ], [ %100, %99 ], [ %98, %96 ], [ %95, %90 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %58, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ false, %_ZN5clangL15isPPC_64BuiltinEj.exit.thread ], [ true, %59 ], [ %64, %62 ], [ true, %77 ], [ %82, %80 ], [ true, %83 ], [ false, %86 ], [ true, %128 ], [ %133, %131 ], [ true, %134 ], [ %139, %137 ], [ true, %140 ], [ true, %188 ], [ %193, %191 ], [ %230, %226 ], [ %232, %.critedge ]
   ret i1 %.0
 }
 

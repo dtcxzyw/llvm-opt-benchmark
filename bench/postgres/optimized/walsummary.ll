@@ -539,24 +539,24 @@ define dso_local i32 @OpenWalSummaryFile(ptr noundef readonly captures(none) %0,
   %15 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.2, i32 noundef %5, i32 noundef %8, i32 noundef %9, i32 noundef %13, i32 noundef %14) #12
   %16 = call i32 @PathNameOpenFile(ptr noundef nonnull %3, i32 noundef 0) #12
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %25
+  br i1 %17, label %18, label %26
 
 18:                                               ; preds = %2
   %19 = tail call ptr @__errno_location() #14
   %20 = load i32, ptr %19, align 4
-  %.not = icmp eq i32 %20, 17
-  %brmerge.not = and i1 %1, %.not
-  br i1 %brmerge.not, label %25, label %21
+  %21 = icmp eq i32 %20, 17
+  %or.cond = and i1 %1, %21
+  br i1 %or.cond, label %26, label %22
 
-21:                                               ; preds = %18
-  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %22)
-  %23 = call i32 @errcode_for_file_access() #12
-  %24 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #12
+22:                                               ; preds = %18
+  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %23)
+  %24 = call i32 @errcode_for_file_access() #12
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #12
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 220, ptr noundef nonnull @__func__.OpenWalSummaryFile) #12
   unreachable
 
-25:                                               ; preds = %18, %2
+26:                                               ; preds = %18, %2
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #12
   ret i32 %16
 }

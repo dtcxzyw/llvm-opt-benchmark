@@ -1629,21 +1629,21 @@ define dso_local i32 @get_cast_oid(i32 noundef %0, i32 noundef %1, i1 noundef ze
   %4 = zext i32 %0 to i64
   %5 = zext i32 %1 to i64
   %6 = tail call i32 @GetSysCacheOid(i32 noundef 12, i16 noundef signext 1, i64 noundef %4, i64 noundef %5, i64 noundef 0, i64 noundef 0) #8
-  %.not = icmp ne i32 %6, 0
-  %brmerge = or i1 %2, %.not
-  br i1 %brmerge, label %13, label %7
+  %7 = icmp ne i32 %6, 0
+  %or.cond = or i1 %2, %7
+  br i1 %or.cond, label %14, label %8
 
-7:                                                ; preds = %3
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %10 = tail call ptr @format_type_be(i32 noundef %0) #8
-  %11 = tail call ptr @format_type_be(i32 noundef %1) #8
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %10, ptr noundef %11) #8
+8:                                                ; preds = %3
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %9)
+  %10 = tail call i32 @errcode(i32 noundef 67137668) #8
+  %11 = tail call ptr @format_type_be(i32 noundef %0) #8
+  %12 = tail call ptr @format_type_be(i32 noundef %1) #8
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %11, ptr noundef %12) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1020, ptr noundef nonnull @__func__.get_cast_oid) #8
   unreachable
 
-13:                                               ; preds = %3
+14:                                               ; preds = %3
   ret i32 %6
 }
 
@@ -4860,19 +4860,19 @@ define dso_local zeroext i1 @get_index_isclustered(i32 noundef %0) local_unnamed
 define dso_local i32 @get_publication_oid(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
   %4 = tail call i32 @GetSysCacheOid(i32 noundef 48, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
-  %.not = icmp ne i32 %4, 0
-  %brmerge = or i1 %1, %.not
-  br i1 %brmerge, label %9, label %5
+  %5 = icmp ne i32 %4, 0
+  %or.cond = or i1 %1, %5
+  br i1 %or.cond, label %10, label %6
 
-5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %0) #8
+6:                                                ; preds = %2
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %7)
+  %8 = tail call i32 @errcode(i32 noundef 67137668) #8
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %0) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3661, ptr noundef nonnull @__func__.get_publication_oid) #8
   unreachable
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   ret i32 %4
 }
 
@@ -4916,19 +4916,19 @@ define dso_local i32 @get_subscription_oid(ptr noundef %0, i1 noundef zeroext %1
   %4 = zext i32 %3 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = tail call i32 @GetSysCacheOid(i32 noundef 66, i16 noundef signext 1, i64 noundef %4, i64 noundef %5, i64 noundef 0, i64 noundef 0) #8
-  %.not = icmp ne i32 %6, 0
-  %brmerge = or i1 %1, %.not
-  br i1 %brmerge, label %11, label %7
+  %7 = icmp ne i32 %6, 0
+  %or.cond = or i1 %1, %7
+  br i1 %or.cond, label %12, label %8
 
-7:                                                ; preds = %2
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %0) #8
+8:                                                ; preds = %2
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %9)
+  %10 = tail call i32 @errcode(i32 noundef 67137668) #8
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %0) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3711, ptr noundef nonnull @__func__.get_subscription_oid) #8
   unreachable
 
-11:                                               ; preds = %2
+12:                                               ; preds = %2
   ret i32 %6
 }
 

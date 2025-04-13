@@ -10723,63 +10723,56 @@ define internal i32 @dissect_kerberos_T_e_data_octets(i1 noundef zeroext %0, ptr
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #21
   %12 = call i32 @get_ber_identifier(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %13 = load i8, ptr %7, align 1
-  %.not25 = icmp eq i8 %13, 0
-  br i1 %.not25, label %14, label %.thread
-
-14:                                               ; preds = %6
-  %15 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %14 = icmp eq i8 %13, 0
+  %15 = load i8, ptr %8, align 1, !range !6
   %16 = trunc nuw i8 %15 to i1
+  %or.cond = select i1 %14, i1 %16, i1 false
   %17 = load i32, ptr %9, align 4
   %18 = icmp eq i32 %17, 16
-  %or.cond.not = select i1 %16, i1 %18, i1 false
-  br i1 %or.cond.not, label %19, label %.thread
+  %or.cond3.not = select i1 %or.cond, i1 %18, i1 false
+  br i1 %or.cond3.not, label %19, label %40
 
-19:                                               ; preds = %14
+19:                                               ; preds = %6
   %20 = call i32 @get_ber_length(ptr noundef %1, i32 noundef %12, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %21 = load i32, ptr %10, align 4
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.thread, label %23
+  br i1 %22, label %40, label %23
 
 23:                                               ; preds = %19
   %24 = call i32 @get_ber_identifier(ptr noundef %1, i32 noundef %20, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %25 = load i8, ptr %7, align 1
-  switch i8 %25, label %.thread [
-    i8 2, label %26
-    i8 0, label %34
-  ]
-
-26:                                               ; preds = %23
-  %27 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %26 = icmp eq i8 %25, 2
+  %27 = load i8, ptr %8, align 1, !range !6
   %28 = trunc nuw i8 %27 to i1
+  %or.cond5 = select i1 %26, i1 %28, i1 false
   %29 = load i32, ptr %9, align 4
   %30 = icmp eq i32 %29, 1
-  %or.cond3 = select i1 %28, i1 %30, i1 false
-  br i1 %or.cond3, label %31, label %.thread
+  %or.cond7 = select i1 %or.cond5, i1 %30, i1 false
+  br i1 %or.cond7, label %31, label %34
 
-31:                                               ; preds = %26
+31:                                               ; preds = %23
   %32 = load i32, ptr @ett_kerberos_PA_DATA, align 4
   %33 = call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @PA_DATA_sequence, i32 noundef %5, i32 noundef %32)
-  br label %43
+  br label %42
 
 34:                                               ; preds = %23
-  %35 = load i8, ptr %8, align 1, !range !6, !noundef !7
-  %36 = trunc nuw i8 %35 to i1
-  %37 = load i32, ptr %9, align 4
-  %38 = icmp eq i32 %37, 16
-  %or.cond5 = select i1 %36, i1 %38, i1 false
-  br i1 %or.cond5, label %39, label %.thread
+  %35 = icmp eq i8 %25, 0
+  %or.cond9 = select i1 %35, i1 %28, i1 false
+  %36 = icmp eq i32 %29, 16
+  %or.cond11 = select i1 %or.cond9, i1 %36, i1 false
+  br i1 %or.cond11, label %37, label %40
 
-39:                                               ; preds = %34
-  %40 = load i32, ptr @ett_kerberos_T_rEP_SEQUENCE_OF_PA_DATA, align 4
-  %41 = call i32 @dissect_ber_sequence_of(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @T_rEP_SEQUENCE_OF_PA_DATA_sequence_of, i32 noundef %5, i32 noundef %40)
-  br label %43
+37:                                               ; preds = %34
+  %38 = load i32, ptr @ett_kerberos_T_rEP_SEQUENCE_OF_PA_DATA, align 4
+  %39 = call i32 @dissect_ber_sequence_of(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @T_rEP_SEQUENCE_OF_PA_DATA_sequence_of, i32 noundef %5, i32 noundef %38)
+  br label %42
 
-.thread:                                          ; preds = %23, %26, %34, %19, %6, %14
-  %42 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2)
-  br label %43
+40:                                               ; preds = %34, %19, %6
+  %41 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2)
+  br label %42
 
-43:                                               ; preds = %.thread, %39, %31
-  %.0 = phi i32 [ %42, %.thread ], [ %33, %31 ], [ %41, %39 ]
+42:                                               ; preds = %40, %37, %31
+  %.0 = phi i32 [ %41, %40 ], [ %33, %31 ], [ %39, %37 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #21

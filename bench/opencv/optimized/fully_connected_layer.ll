@@ -4059,44 +4059,45 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn23FullyConnectedLayerIm
   %8 = trunc nuw i8 %7 to i1
   %9 = select i1 %5, i1 true, i1 %8
   switch i32 %1, label %.fold.split [
-    i32 5, label %19
-    i32 3, label %19
+    i32 5, label %23
+    i32 3, label %23
     i32 1, label %10
-    i32 6, label %15
-    i32 8, label %19
-    i32 1000000, label %19
-    i32 4, label %16
+    i32 6, label %16
+    i32 8, label %23
+    i32 1000000, label %23
+    i32 4, label %20
   ]
 
 10:                                               ; preds = %2
   %11 = tail call noundef zeroext i1 @_ZN2cv3dnn10haveHalideEv()
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp ne i32 %13, 1
-  %not. = xor i1 %11, true
-  %or.cond16 = select i1 %not., i1 true, i1 %14
-  %brmerge = select i1 %or.cond16, i1 true, i1 %9
-  br i1 %brmerge, label %.fold.split, label %19
+  br i1 %11, label %12, label %.fold.split
 
-15:                                               ; preds = %2
-  %.old = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %.old17 = load i32, ptr %.old, align 4, !tbaa !62
-  %.old18 = icmp ne i32 %.old17, 1
-  %or.cond.not = select i1 %.old18, i1 true, i1 %9
-  br i1 %or.cond.not, label %.fold.split, label %19
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %14 = load i32, ptr %13, align 4, !tbaa !62
+  %15 = icmp ne i32 %14, 1
+  %or.cond3 = select i1 %15, i1 true, i1 %9
+  br i1 %or.cond3, label %.fold.split, label %23
 
 16:                                               ; preds = %2
-  %17 = tail call noundef zeroext i1 @_ZN2cv3dnn10haveVulkanEv()
-  %18 = xor i1 %9, true
-  %spec.select = select i1 %17, i1 %18, i1 false
-  br label %19
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %18 = load i32, ptr %17, align 4, !tbaa !62
+  %19 = icmp ne i32 %18, 1
+  %or.cond5 = select i1 %19, i1 true, i1 %9
+  br i1 %or.cond5, label %.fold.split, label %23
 
-.fold.split:                                      ; preds = %10, %15, %2
-  br label %19
+20:                                               ; preds = %2
+  %21 = tail call noundef zeroext i1 @_ZN2cv3dnn10haveVulkanEv()
+  %22 = xor i1 %9, true
+  %spec.select = select i1 %21, i1 %22, i1 false
+  br label %23
 
-19:                                               ; preds = %15, %2, %2, %2, %2, %16, %.fold.split, %10
-  %20 = phi i1 [ true, %2 ], [ true, %10 ], [ false, %.fold.split ], [ %spec.select, %16 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %15 ]
-  ret i1 %20
+.fold.split:                                      ; preds = %16, %10, %12, %2
+  br label %23
+
+23:                                               ; preds = %2, %2, %2, %2, %20, %.fold.split, %16, %12
+  %24 = phi i1 [ true, %2 ], [ true, %12 ], [ true, %16 ], [ false, %.fold.split ], [ %spec.select, %20 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
+  ret i1 %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

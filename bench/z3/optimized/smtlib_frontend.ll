@@ -2526,15 +2526,13 @@ define internal fastcc void @_ZL18display_statisticsv() unnamed_addr #5 personal
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
   %4 = tail call i64 @clock() #26
   %5 = load ptr, ptr @_ZL13g_cmd_context, align 8, !tbaa !233
-  %.not = icmp eq ptr %5, null
-  br i1 %.not, label %24, label %6
-
-6:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %7 = load i8, ptr @g_display_statistics, align 1, !tbaa !235, !range !236, !noundef !237
+  %6 = icmp ne ptr %5, null
+  %7 = load i8, ptr @g_display_statistics, align 1, !range !236
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %24
+  %or.cond = select i1 %6, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %24
 
-9:                                                ; preds = %6
+9:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 336
   invoke void @_ZN10stream_ref3setEPKc(ptr noundef nonnull align 8 dereferenceable(81) %10, ptr noundef nonnull @.str.18)
           to label %_ZN11cmd_context18set_regular_streamEPKc.exit unwind label %17
@@ -2563,7 +2561,7 @@ _ZN11cmd_context18set_regular_streamEPKc.exit:    ; preds = %9
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr)
           to label %24 unwind label %17
 
-24:                                               ; preds = %22, %6, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+24:                                               ; preds = %22, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #26
   ret void
 }

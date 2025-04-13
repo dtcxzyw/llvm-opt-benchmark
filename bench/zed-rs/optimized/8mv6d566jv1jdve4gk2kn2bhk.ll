@@ -2189,8 +2189,8 @@ default.unreachable69:                            ; preds = %21
   %42 = sext i32 %41 to i64
   %43 = icmp eq i32 %41, 0
   %44 = sub i64 %23, %40
-  %spec.select51 = select i1 %43, i64 %44, i64 %42
-  %45 = icmp slt i64 %spec.select51, 0
+  %spec.select52 = select i1 %43, i64 %44, i64 %42
+  %45 = icmp slt i64 %spec.select52, 0
   br i1 %45, label %47, label %46
 
 46:                                               ; preds = %27, %36
@@ -10053,8 +10053,8 @@ define internal noundef zeroext i1 @"_ZN4gpui3app10AppContext14observe_global28_
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #47, !noalias !2998
   unreachable
 
-common.resume.i:                                  ; preds = %76, %37
-  %common.resume.op.i = phi { ptr, i32 } [ %38, %37 ], [ %77, %76 ]
+common.resume.i:                                  ; preds = %77, %37
+  %common.resume.op.i = phi { ptr, i32 } [ %38, %37 ], [ %78, %77 ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h54c424fd0dc81f2dE.llvm.10321688783904056783.exit.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h0a3a546318dcc0adE.exit.i.i.i.i"
@@ -10080,68 +10080,68 @@ common.resume.i:                                  ; preds = %76, %37
 _ZN4gpui3app10AppContext6global17h057211313d2097bcE.exit.i: ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h54c424fd0dc81f2dE.llvm.10321688783904056783.exit.i.i"
   %54 = load ptr, ptr %0, align 8, !alias.scope !2954, !noalias !2957, !noundef !4
   store ptr null, ptr %0, align 8, !alias.scope !2954, !noalias !2957
-  %.not.i = icmp eq ptr %54, null
-  br i1 %.not.i, label %"_ZN74_$LT$gpui..app..AppContext$u20$as$u20$feature_flags..FeatureFlagAppExt$GT$13wait_for_flag28_$u7b$$u7b$closure$u7d$$u7d$17haced128a851a77deE.exit", label %55
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %"_ZN74_$LT$gpui..app..AppContext$u20$as$u20$feature_flags..FeatureFlagAppExt$GT$13wait_for_flag28_$u7b$$u7b$closure$u7d$$u7d$17haced128a851a77deE.exit", label %56
 
-55:                                               ; preds = %_ZN4gpui3app10AppContext6global17h057211313d2097bcE.exit.i
+56:                                               ; preds = %_ZN4gpui3app10AppContext6global17h057211313d2097bcE.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !3003
   store ptr %54, ptr %4, align 8, !noalias !3003
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3004)
-  %56 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %57 = load i8, ptr %56, align 8, !range !484, !alias.scope !3004, !noalias !3003, !noundef !4
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %73, label %59
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %58 = load i8, ptr %57, align 8, !range !484, !alias.scope !3004, !noalias !3003, !noundef !4
+  %59 = trunc nuw i8 %58 to i1
+  br i1 %59, label %74, label %60
 
-59:                                               ; preds = %.noexc.i, %55
-  %60 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %61 = load ptr, ptr %60, align 8, !alias.scope !3004, !noalias !3003, !nonnull !4, !noundef !4
-  %62 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %63 = load i64, ptr %62, align 8, !alias.scope !3004, !noalias !3003, !noundef !4
-  %64 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %61, i64 %63
-  %.not.i.i.i = icmp eq i64 %63, 0
+60:                                               ; preds = %.noexc.i, %56
+  %61 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %62 = load ptr, ptr %61, align 8, !alias.scope !3004, !noalias !3003, !nonnull !4, !noundef !4
+  %63 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %64 = load i64, ptr %63, align 8, !alias.scope !3004, !noalias !3003, !noundef !4
+  %65 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %62, i64 %64
+  %.not.i.i.i = icmp eq i64 %64, 0
   br i1 %.not.i.i.i, label %_ZN13feature_flags12FeatureFlags8has_flag17h14785a4be4eee313E.exit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %59, %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i"
-  %65 = phi ptr [ %66, %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i" ], [ %61, %59 ]
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
+.lr.ph.i.i.i:                                     ; preds = %60, %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i"
+  %66 = phi ptr [ %67, %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i" ], [ %62, %60 ]
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3007)
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %68 = load i64, ptr %67, align 8, !alias.scope !3007, !noalias !3010, !noundef !4
-  %.not.i.i.i.i4.i = icmp eq i64 %68, 12
-  br i1 %.not.i.i.i.i4.i, label %69, label %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i"
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %69 = load i64, ptr %68, align 8, !alias.scope !3007, !noalias !3010, !noundef !4
+  %.not.i.i.i.i5.i = icmp eq i64 %69, 12
+  br i1 %.not.i.i.i.i5.i, label %70, label %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i"
 
-69:                                               ; preds = %.lr.ph.i.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %71 = load ptr, ptr %70, align 8, !alias.scope !3007, !noalias !3010, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(12) %71, ptr noundef nonnull dereferenceable(12) @anon.7f07c37e1fc47e16523bd1a763d178e5.33.llvm.7674728272632859446, i64 12), !alias.scope !3013, !noalias !3017
-  %72 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %72, label %_ZN13feature_flags12FeatureFlags8has_flag17h14785a4be4eee313E.exit.i, label %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i"
+70:                                               ; preds = %.lr.ph.i.i.i
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %72 = load ptr, ptr %71, align 8, !alias.scope !3007, !noalias !3010, !nonnull !4, !noundef !4
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(12) %72, ptr noundef nonnull dereferenceable(12) @anon.7f07c37e1fc47e16523bd1a763d178e5.33.llvm.7674728272632859446, i64 12), !alias.scope !3013, !noalias !3017
+  %73 = icmp eq i32 %bcmp.i.i.i.i.i, 0
+  br i1 %73, label %_ZN13feature_flags12FeatureFlags8has_flag17h14785a4be4eee313E.exit.i, label %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i"
 
-"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i": ; preds = %69, %.lr.ph.i.i.i
-  %.not9.i.i.i = icmp eq ptr %66, %64
+"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i": ; preds = %70, %.lr.ph.i.i.i
+  %.not9.i.i.i = icmp eq ptr %67, %65
   br i1 %.not9.i.i.i, label %_ZN13feature_flags12FeatureFlags8has_flag17h14785a4be4eee313E.exit.i, label %.lr.ph.i.i.i
 
-73:                                               ; preds = %55
-  %74 = invoke noundef zeroext i1 @"_ZN73_$LT$feature_flags..AutoCommand$u20$as$u20$feature_flags..FeatureFlag$GT$17enabled_for_staff17h1f2856bf13d3efa0E"()
-          to label %.noexc.i unwind label %76, !noalias !3003
+74:                                               ; preds = %56
+  %75 = invoke noundef zeroext i1 @"_ZN73_$LT$feature_flags..AutoCommand$u20$as$u20$feature_flags..FeatureFlag$GT$17enabled_for_staff17h1f2856bf13d3efa0E"()
+          to label %.noexc.i unwind label %77, !noalias !3003
 
-.noexc.i:                                         ; preds = %73
-  br i1 %74, label %_ZN13feature_flags12FeatureFlags8has_flag17h14785a4be4eee313E.exit.i, label %59
+.noexc.i:                                         ; preds = %74
+  br i1 %75, label %_ZN13feature_flags12FeatureFlags8has_flag17h14785a4be4eee313E.exit.i, label %60
 
-_ZN13feature_flags12FeatureFlags8has_flag17h14785a4be4eee313E.exit.i: ; preds = %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i", %69, %.noexc.i, %59
-  %.sroa.0.0.i.i = phi i1 [ true, %.noexc.i ], [ false, %59 ], [ false, %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i" ], [ true, %69 ]
-  %75 = tail call noundef i8 @"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17h23f6bfe76c677022E"(ptr noundef nonnull %54, i1 noundef zeroext %.sroa.0.0.i.i), !range !3018, !noalias !3003
+_ZN13feature_flags12FeatureFlags8has_flag17h14785a4be4eee313E.exit.i: ; preds = %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i", %70, %.noexc.i, %60
+  %.sroa.0.0.i.i = phi i1 [ true, %.noexc.i ], [ false, %60 ], [ false, %"_ZN13feature_flags12FeatureFlags8has_flag28_$u7b$$u7b$closure$u7d$$u7d$17hb578735a8dfa9d38E.llvm.7674728272632859446.exit.backedge.i.i.i" ], [ true, %70 ]
+  %76 = tail call noundef i8 @"_ZN15futures_channel7oneshot15Sender$LT$T$GT$4send17h23f6bfe76c677022E"(ptr noundef nonnull %54, i1 noundef zeroext %.sroa.0.0.i.i), !range !3018, !noalias !3003
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !3003
   br label %"_ZN74_$LT$gpui..app..AppContext$u20$as$u20$feature_flags..FeatureFlagAppExt$GT$13wait_for_flag28_$u7b$$u7b$closure$u7d$$u7d$17haced128a851a77deE.exit"
 
-76:                                               ; preds = %73
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %74
+  %78 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$futures_channel..oneshot..Sender$LT$bool$GT$$GT$17h648546bc00ee9e53E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #46
-          to label %common.resume.i unwind label %78, !noalias !3003
+          to label %common.resume.i unwind label %79, !noalias !3003
 
-78:                                               ; preds = %76
-  %79 = landingpad { ptr, i32 }
+79:                                               ; preds = %77
+  %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #47, !noalias !3003
   unreachable

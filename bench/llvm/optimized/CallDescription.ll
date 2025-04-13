@@ -383,9 +383,9 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesIm
   %10 = icmp ult i32 %9, 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load i32, ptr %11, align 8, !tbaa !8
-  %or.cond.v = select i1 %10, i32 2, i32 3
-  %or.cond.not = icmp eq i32 %12, %or.cond.v
-  br i1 %or.cond.not, label %81, label %13
+  %or.cond12.v = select i1 %10, i32 2, i32 3
+  %or.cond12.not = icmp eq i32 %12, %or.cond12.v
+  br i1 %or.cond12.not, label %81, label %13
 
 13:                                               ; preds = %5
   %14 = icmp eq i32 %12, 1
@@ -414,8 +414,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesIm
   %31 = trunc i64 %2 to i32
   %.0.i = select i1 %29, i32 %30, i32 %31
   %32 = zext i32 %.0.i to i64
-  %.not8 = icmp ult i64 %2, %32
-  br i1 %.not8, label %81, label %33
+  %.not11 = icmp ult i64 %2, %32
+  br i1 %.not11, label %81, label %33
 
 33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -438,8 +438,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesIm
   %48 = trunc i64 %2 to i32
   %.0.i14 = select i1 %46, i32 %47, i32 %48
   %49 = zext i32 %.0.i14 to i64
-  %.not6 = icmp eq i64 %2, %49
-  br i1 %.not6, label %50, label %81
+  %.not9 = icmp eq i64 %2, %49
+  br i1 %.not9, label %50, label %81
 
 50:                                               ; preds = %42
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -450,8 +450,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento15CallDescription11matchesIm
   %56 = trunc i64 %3 to i32
   %.0.i15 = select i1 %54, i32 %55, i32 %56
   %57 = zext i32 %.0.i15 to i64
-  %.not7 = icmp eq i64 %3, %57
-  br i1 %.not7, label %58, label %81
+  %.not10 = icmp eq i64 %3, %57
+  br i1 %.not10, label %58, label %81
 
 58:                                               ; preds = %50
   %59 = load i32, ptr %11, align 8, !tbaa !8

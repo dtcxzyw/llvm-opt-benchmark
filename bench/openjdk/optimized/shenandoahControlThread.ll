@@ -231,9 +231,9 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
   br label %38
 
 38:                                               ; preds = %.lr.ph, %206
-  %.0110 = phi i32 [ %23, %.lr.ph ], [ %.1, %206 ]
-  %.076109 = phi double [ %12, %.lr.ph ], [ %.177, %206 ]
-  %.078108 = phi double [ %13, %.lr.ph ], [ %.179, %206 ]
+  %.0117 = phi i32 [ %23, %.lr.ph ], [ %.1, %206 ]
+  %.084116 = phi double [ %12, %.lr.ph ], [ %.185, %206 ]
+  %.086115 = phi double [ %13, %.lr.ph ], [ %.187, %206 ]
   %39 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #10
   br i1 %39, label %.critedge, label %40
 
@@ -251,8 +251,8 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
 
 48:                                               ; preds = %40
   %49 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not106 = icmp eq ptr %49, null
-  br i1 %.not106, label %51, label %50
+  %.not113 = icmp eq ptr %49, null
+  br i1 %.not113, label %51, label %50
 
 50:                                               ; preds = %48
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.4)
@@ -293,8 +293,8 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
 
 69:                                               ; preds = %68
   %70 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not105 = icmp eq ptr %70, null
-  br i1 %.not105, label %73, label %71
+  %.not112 = icmp eq ptr %70, null
+  br i1 %.not112, label %73, label %71
 
 71:                                               ; preds = %69
   %72 = call noundef ptr @_ZN7GCCause9to_stringENS_5CauseE(i32 noundef %45) #10
@@ -322,29 +322,29 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(193) %21) #10
+  %spec.select = select i1 %87, i32 26, i32 34
+  %spec.select94 = zext i1 %87 to i32
   %88 = load ptr, ptr %21, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 112
   %90 = load ptr, ptr %89, align 8
   %91 = call noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(193) %21) #10
   call void @_ZN14ShenandoahHeap18set_unload_classesEb(ptr noundef nonnull align 8 dereferenceable(2657) %10, i1 noundef zeroext %91) #10
-  %spec.select = select i1 %87, i32 26, i32 34
-  %spec.select86 = zext i1 %87 to i32
   %92 = load i8, ptr @ShenandoahAlwaysClearSoftRefs, align 1
   %93 = trunc i8 %92 to i1
   br i1 %93, label %.thread, label %94
 
 .thread:                                          ; preds = %78, %73, %64, %60, %83
-  %.080103 = phi i32 [ %spec.select86, %83 ], [ 3, %73 ], [ 1, %78 ], [ 3, %64 ], [ 2, %60 ]
-  %.082101 = phi i32 [ 0, %83 ], [ 0, %73 ], [ 0, %78 ], [ %52, %64 ], [ %52, %60 ]
-  %.08399 = phi i32 [ %spec.select, %83 ], [ %45, %73 ], [ %45, %78 ], [ 13, %64 ], [ 13, %60 ]
+  %.088110 = phi i32 [ %spec.select94, %83 ], [ 3, %73 ], [ 1, %78 ], [ 3, %64 ], [ 2, %60 ]
+  %.090108 = phi i32 [ 0, %83 ], [ 0, %73 ], [ 0, %78 ], [ %52, %64 ], [ %52, %60 ]
+  %.091106 = phi i32 [ %spec.select, %83 ], [ %45, %73 ], [ %45, %78 ], [ 13, %64 ], [ 13, %60 ]
   store i8 1, ptr %28, align 1
   br label %94
 
-94:                                               ; preds = %.thread, %83
-  %.080102 = phi i32 [ %.080103, %.thread ], [ %spec.select86, %83 ]
-  %.082100 = phi i32 [ %.082101, %.thread ], [ 0, %83 ]
-  %.08398 = phi i32 [ %.08399, %.thread ], [ %spec.select, %83 ]
-  %.not = icmp eq i32 %.080102, 0
+94:                                               ; preds = %83, %.thread
+  %.088109 = phi i32 [ %spec.select94, %83 ], [ %.088110, %.thread ]
+  %.090107 = phi i32 [ 0, %83 ], [ %.090108, %.thread ]
+  %.091105 = phi i32 [ %spec.select, %83 ], [ %.091106, %.thread ]
+  %.not = icmp eq i32 %.088109, 0
   br i1 %.not, label %148, label %95
 
 95:                                               ; preds = %94
@@ -354,14 +354,14 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
   call void @_ZN14ShenandoahHeap26set_forced_counters_updateEb(ptr noundef nonnull align 8 dereferenceable(2657) %10, i1 noundef zeroext true) #10
   %96 = load ptr, ptr %29, align 8
   call void @_ZN17ShenandoahFreeSet21log_status_under_lockEv(ptr noundef nonnull align 8 dereferenceable(224) %96) #10
-  switch i32 %.080102, label %default.unreachable [
+  switch i32 %.088109, label %default.unreachable [
     i32 1, label %97
     i32 2, label %98
     i32 3, label %100
   ]
 
 97:                                               ; preds = %95
-  call void @_ZN23ShenandoahControlThread31service_concurrent_normal_cycleEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(1868) %0, i32 noundef %.08398)
+  call void @_ZN23ShenandoahControlThread31service_concurrent_normal_cycleEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(1868) %0, i32 noundef %.091105)
   br label %102
 
 98:                                               ; preds = %95
@@ -369,9 +369,9 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @_ZN8GCIdMarkC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #10
-  call void @_ZN19ShenandoahGCSessionC1EN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef %.08398) #10
-  call void @_ZN17ShenandoahDegenGCC1EN12ShenandoahGC20ShenandoahDegenPointE(ptr noundef nonnull align 8 dereferenceable(13) %7, i32 noundef %.082100) #10
-  %99 = call noundef zeroext i1 @_ZN17ShenandoahDegenGC7collectEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(13) %7, i32 noundef %.08398) #10
+  call void @_ZN19ShenandoahGCSessionC1EN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef %.091105) #10
+  call void @_ZN17ShenandoahDegenGCC1EN12ShenandoahGC20ShenandoahDegenPointE(ptr noundef nonnull align 8 dereferenceable(13) %7, i32 noundef %.090107) #10
+  %99 = call noundef zeroext i1 @_ZN17ShenandoahDegenGC7collectEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(13) %7, i32 noundef %.091105) #10
   call void @_ZN19ShenandoahGCSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #10
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -384,9 +384,9 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN8GCIdMarkC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #10
-  call void @_ZN19ShenandoahGCSessionC1EN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %.08398) #10
+  call void @_ZN19ShenandoahGCSessionC1EN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %.091105) #10
   call void @_ZN16ShenandoahFullGCC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
-  %101 = call noundef zeroext i1 @_ZN16ShenandoahFullGC7collectEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.08398) #10
+  %101 = call noundef zeroext i1 @_ZN16ShenandoahFullGC7collectEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %.091105) #10
   call void @_ZN16ShenandoahFullGCD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
   call void @_ZN19ShenandoahGCSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #10
   call void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #10
@@ -444,8 +444,8 @@ default.unreachable:                              ; preds = %95
 
 118:                                              ; preds = %116, %112
   %119 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_146ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not107 = icmp eq ptr %119, null
-  br i1 %.not107, label %_ZN12ResourceMarkD2Ev.exit, label %120
+  %.not114 = icmp eq ptr %119, null
+  br i1 %.not114, label %_ZN12ResourceMarkD2Ev.exit, label %120
 
 120:                                              ; preds = %118
   %121 = load ptr, ptr %34, align 8
@@ -515,8 +515,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %142, %140, %118
   %149 = load i8, ptr @ShenandoahPacing, align 1
   %150 = trunc i8 %149 to i1
   %151 = icmp ne i64 %46, 0
-  %or.cond = and i1 %151, %150
-  br i1 %or.cond, label %152, label %_ZN15ShenandoahPacer12report_allocEm.exit
+  %or.cond5 = and i1 %151, %150
+  br i1 %or.cond5, label %152, label %_ZN15ShenandoahPacer12report_allocEm.exit
 
 152:                                              ; preds = %148
   %153 = load ptr, ptr %33, align 8
@@ -546,18 +546,18 @@ _ZN15ShenandoahPacer12report_allocEm.exit:        ; preds = %163, %159, %152, %1
   br i1 %167, label %168, label %187
 
 168:                                              ; preds = %_ZN15ShenandoahPacer12report_allocEm.exit
-  %brmerge87 = or i1 %44, %47
-  %169 = fsub double %165, %.076109
+  %or.cond7 = or i1 %44, %47
+  %169 = fsub double %165, %.084116
   %170 = fcmp ogt double %169, %17
-  %or.cond89 = select i1 %brmerge87, i1 true, i1 %170
-  br i1 %or.cond89, label %171, label %187
+  %or.cond96 = select i1 %or.cond7, i1 true, i1 %170
+  br i1 %or.cond96, label %171, label %187
 
 171:                                              ; preds = %168
   %172 = load i64, ptr @ShenandoahUncommitDelay, align 8
   %173 = uitofp i64 %172 to double
   %174 = fdiv double %173, 1.000000e+03
   %175 = fsub double %165, %174
-  %176 = select i1 %brmerge87, double %165, double %175
+  %176 = select i1 %or.cond7, double %165, double %175
   br i1 %47, label %177, label %182
 
 177:                                              ; preds = %171
@@ -579,7 +579,7 @@ _ZN15ShenandoahPacer12report_allocEm.exit:        ; preds = %163, %159, %152, %1
   br label %187
 
 187:                                              ; preds = %168, %184, %_ZN15ShenandoahPacer12report_allocEm.exit
-  %.177 = phi double [ %165, %184 ], [ %.076109, %_ZN15ShenandoahPacer12report_allocEm.exit ], [ %.076109, %168 ]
+  %.185 = phi double [ %165, %184 ], [ %.084116, %_ZN15ShenandoahPacer12report_allocEm.exit ], [ %.084116, %168 ]
   %188 = load volatile i8, ptr %37, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   %189 = icmp eq i8 %188, 1
@@ -596,7 +596,7 @@ _ZN14ShenandoahHeap11has_changedEv.exit:          ; preds = %187
   br label %206
 
 _ZN14ShenandoahHeap11has_changedEv.exit.thread:   ; preds = %187, %_ZN14ShenandoahHeap11has_changedEv.exit
-  %195 = fsub double %165, %.078108
+  %195 = fsub double %165, %.086115
   %196 = fmul double %195, 1.000000e+03
   %197 = load i64, ptr @ShenandoahControlIntervalAdjustPeriod, align 8
   %198 = uitofp i64 %197 to double
@@ -606,14 +606,14 @@ _ZN14ShenandoahHeap11has_changedEv.exit.thread:   ; preds = %187, %_ZN14Shenando
 200:                                              ; preds = %_ZN14ShenandoahHeap11has_changedEv.exit.thread
   %201 = load i64, ptr @ShenandoahControlIntervalMax, align 8
   %202 = trunc i64 %201 to i32
-  %203 = shl nsw i32 %.0110, 1
+  %203 = shl nsw i32 %.0117, 1
   %204 = call noundef i32 @llvm.smax.i32(i32 %203, i32 1)
   %205 = call noundef i32 @llvm.smin.i32(i32 %202, i32 %204)
   br label %206
 
 206:                                              ; preds = %_ZN14ShenandoahHeap11has_changedEv.exit.thread, %200, %192
-  %.179 = phi double [ %.078108, %192 ], [ %165, %200 ], [ %.078108, %_ZN14ShenandoahHeap11has_changedEv.exit.thread ]
-  %.1 = phi i32 [ %194, %192 ], [ %205, %200 ], [ %.0110, %_ZN14ShenandoahHeap11has_changedEv.exit.thread ]
+  %.187 = phi double [ %.086115, %192 ], [ %165, %200 ], [ %.086115, %_ZN14ShenandoahHeap11has_changedEv.exit.thread ]
+  %.1 = phi i32 [ %194, %192 ], [ %205, %200 ], [ %.0117, %_ZN14ShenandoahHeap11has_changedEv.exit.thread ]
   %207 = sext i32 %.1 to i64
   call void @_ZN2os17naked_short_sleepEl(i64 noundef %207) #10
   %208 = call noundef zeroext i1 @_ZN20ShenandoahController20in_graceful_shutdownEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
@@ -621,15 +621,15 @@ _ZN14ShenandoahHeap11has_changedEv.exit.thread:   ; preds = %187, %_ZN14Shenando
 
 .critedge:                                        ; preds = %38, %206, %1
   %209 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #10
-  br i1 %209, label %._crit_edge, label %.lr.ph112
+  br i1 %209, label %._crit_edge, label %.lr.ph119
 
-.lr.ph112:                                        ; preds = %.critedge, %.lr.ph112
+.lr.ph119:                                        ; preds = %.critedge, %.lr.ph119
   %210 = load i64, ptr @ShenandoahControlIntervalMin, align 8
   call void @_ZN2os17naked_short_sleepEl(i64 noundef %210) #10
   %211 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #10
-  br i1 %211, label %._crit_edge, label %.lr.ph112, !llvm.loop !12
+  br i1 %211, label %._crit_edge, label %.lr.ph119, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %.lr.ph112, %.critedge
+._crit_edge:                                      ; preds = %.lr.ph119, %.critedge
   ret void
 }
 

@@ -46,13 +46,13 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 define hidden void @_ZN17EpsilonInitLogger17print_gc_specificEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @InitialHeapSize, align 8
   %3 = load i64, ptr @MaxHeapSize, align 8
-  %.not = icmp eq i64 %2, %3
-  br i1 %.not, label %7, label %4
+  %.not3 = icmp eq i64 %2, %3
+  br i1 %.not3, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not8 = icmp eq ptr %5, null
-  br i1 %.not8, label %7, label %6
+  %.not10 = icmp eq ptr %5, null
+  br i1 %.not10, label %7, label %6
 
 6:                                                ; preds = %4
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str)
@@ -60,120 +60,119 @@ define hidden void @_ZN17EpsilonInitLogger17print_gc_specificEv(ptr nonnull read
 
 7:                                                ; preds = %6, %4, %1
   %8 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1106) #4
-  br i1 %8, label %9, label %15
+  %.not = xor i1 %8, true
+  %9 = load i8, ptr @AlwaysPreTouch, align 1
+  %10 = trunc i8 %9 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %10
+  br i1 %or.cond, label %14, label %11
 
-9:                                                ; preds = %7
-  %10 = load i8, ptr @AlwaysPreTouch, align 1
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %15, label %12
+11:                                               ; preds = %7
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not11 = icmp eq ptr %12, null
+  br i1 %.not11, label %14, label %13
 
-12:                                               ; preds = %9
-  %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not9 = icmp eq ptr %13, null
-  br i1 %.not9, label %15, label %14
-
-14:                                               ; preds = %12
+13:                                               ; preds = %11
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.4)
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %12, %9, %7
-  %16 = load i8, ptr @UseTLAB, align 1
-  %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %58
+14:                                               ; preds = %13, %11, %7
+  %15 = load i8, ptr @UseTLAB, align 1
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %57
 
-18:                                               ; preds = %15
-  %19 = tail call noundef ptr @_ZN11EpsilonHeap4heapEv() #4
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 176
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(480) %19) #4
-  %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not11 = icmp eq ptr %24, null
-  br i1 %.not11, label %44, label %25
+17:                                               ; preds = %14
+  %18 = tail call noundef ptr @_ZN11EpsilonHeap4heapEv() #4
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(480) %18) #4
+  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not13 = icmp eq ptr %23, null
+  br i1 %.not13, label %43, label %24
 
-25:                                               ; preds = %18
-  %26 = shl i64 %23, 3
-  %27 = icmp ugt i64 %26, 1073741823
-  %28 = and i64 %23, 134217727
-  %29 = icmp eq i64 %28, 0
-  %or.cond.i = and i1 %27, %29
-  br i1 %or.cond.i, label %_Z23byte_size_in_exact_unitm.exit, label %30
+24:                                               ; preds = %17
+  %25 = shl i64 %22, 3
+  %26 = icmp ugt i64 %25, 1073741823
+  %27 = and i64 %22, 134217727
+  %28 = icmp eq i64 %27, 0
+  %or.cond.i = and i1 %26, %28
+  br i1 %or.cond.i, label %_Z23byte_size_in_exact_unitm.exit, label %29
 
-30:                                               ; preds = %25
-  %31 = icmp ugt i64 %26, 1048575
-  %32 = and i64 %23, 131071
-  %33 = icmp eq i64 %32, 0
-  %or.cond14.i = and i1 %31, %33
-  br i1 %or.cond14.i, label %.thread, label %36
+29:                                               ; preds = %24
+  %30 = icmp ugt i64 %25, 1048575
+  %31 = and i64 %22, 131071
+  %32 = icmp eq i64 %31, 0
+  %or.cond14.i = and i1 %30, %32
+  br i1 %or.cond14.i, label %.thread, label %35
 
-.thread:                                          ; preds = %30
-  %34 = lshr exact i64 %26, 20
+.thread:                                          ; preds = %29
+  %33 = lshr exact i64 %25, 20
   br label %_Z24exact_unit_for_byte_sizem.exit
 
-_Z23byte_size_in_exact_unitm.exit:                ; preds = %25
-  %35 = lshr exact i64 %26, 30
+_Z23byte_size_in_exact_unitm.exit:                ; preds = %24
+  %34 = lshr exact i64 %25, 30
   br label %_Z24exact_unit_for_byte_sizem.exit
 
-36:                                               ; preds = %30
-  %37 = icmp ugt i64 %26, 1023
-  %38 = and i64 %23, 127
-  %39 = icmp eq i64 %38, 0
-  %or.cond16.i = and i1 %37, %39
-  %40 = lshr exact i64 %26, 10
-  %spec.select.i = select i1 %or.cond16.i, i64 %40, i64 %26
-  %41 = icmp ugt i64 %26, 1023
-  %42 = and i64 %23, 127
-  %43 = icmp eq i64 %42, 0
-  %or.cond11.i = and i1 %41, %43
-  %spec.select.i3 = select i1 %or.cond11.i, ptr @.str.12, ptr @.str.13
+35:                                               ; preds = %29
+  %36 = icmp ugt i64 %25, 1023
+  %37 = and i64 %22, 127
+  %38 = icmp eq i64 %37, 0
+  %or.cond16.i = and i1 %36, %38
+  %39 = lshr exact i64 %25, 10
+  %spec.select.i = select i1 %or.cond16.i, i64 %39, i64 %25
+  %40 = icmp ugt i64 %25, 1023
+  %41 = and i64 %22, 127
+  %42 = icmp eq i64 %41, 0
+  %or.cond11.i = and i1 %40, %42
+  %spec.select.i5 = select i1 %or.cond11.i, ptr @.str.12, ptr @.str.13
   br label %_Z24exact_unit_for_byte_sizem.exit
 
-_Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_size_in_exact_unitm.exit, %36
-  %.0.i7 = phi i64 [ %35, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i, %36 ], [ %34, %.thread ]
-  %.0.i4 = phi ptr [ @.str.10, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i3, %36 ], [ @.str.11, %.thread ]
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.5, i64 noundef %.0.i7, ptr noundef nonnull %.0.i4)
-  br label %44
+_Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_size_in_exact_unitm.exit, %35
+  %.0.i9 = phi i64 [ %34, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i, %35 ], [ %33, %.thread ]
+  %.0.i6 = phi ptr [ @.str.10, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i5, %35 ], [ @.str.11, %.thread ]
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.5, i64 noundef %.0.i9, ptr noundef nonnull %.0.i6)
+  br label %43
 
-44:                                               ; preds = %18, %_Z24exact_unit_for_byte_sizem.exit
-  %45 = load i8, ptr @EpsilonElasticTLAB, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %51
+43:                                               ; preds = %17, %_Z24exact_unit_for_byte_sizem.exit
+  %44 = load i8, ptr @EpsilonElasticTLAB, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %50
 
-47:                                               ; preds = %44
-  %48 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not12 = icmp eq ptr %48, null
-  br i1 %.not12, label %51, label %49
+46:                                               ; preds = %43
+  %47 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not14 = icmp eq ptr %47, null
+  br i1 %.not14, label %50, label %48
 
-49:                                               ; preds = %47
-  %50 = load double, ptr @EpsilonTLABElasticity, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.6, double noundef %50)
-  br label %51
+48:                                               ; preds = %46
+  %49 = load double, ptr @EpsilonTLABElasticity, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.6, double noundef %49)
+  br label %50
 
-51:                                               ; preds = %49, %47, %44
-  %52 = load i8, ptr @EpsilonElasticTLABDecay, align 1
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %54, label %61
+50:                                               ; preds = %48, %46, %43
+  %51 = load i8, ptr @EpsilonElasticTLABDecay, align 1
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %60
 
-54:                                               ; preds = %51
-  %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not13 = icmp eq ptr %55, null
-  br i1 %.not13, label %61, label %56
+53:                                               ; preds = %50
+  %54 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not15 = icmp eq ptr %54, null
+  br i1 %.not15, label %60, label %55
 
-56:                                               ; preds = %54
-  %57 = load i64, ptr @EpsilonTLABDecayTime, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.7, i64 noundef %57)
-  br label %61
+55:                                               ; preds = %53
+  %56 = load i64, ptr @EpsilonTLABDecayTime, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.7, i64 noundef %56)
+  br label %60
 
-58:                                               ; preds = %15
-  %59 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not10 = icmp eq ptr %59, null
-  br i1 %.not10, label %61, label %60
+57:                                               ; preds = %14
+  %58 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not12 = icmp eq ptr %58, null
+  br i1 %.not12, label %60, label %59
 
-60:                                               ; preds = %58
+59:                                               ; preds = %57
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8)
-  br label %61
+  br label %60
 
-61:                                               ; preds = %60, %58, %51, %54, %56
+60:                                               ; preds = %59, %57, %50, %53, %55
   ret void
 }
 

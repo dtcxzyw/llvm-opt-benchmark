@@ -119,19 +119,19 @@ thread-pre-split:                                 ; preds = %15
 
 23:                                               ; preds = %22, %19
   %24 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1096) #6
-  br i1 %24, label %25, label %thread-pre-split4
+  br i1 %24, label %25, label %thread-pre-split8
 
 25:                                               ; preds = %23
   %26 = tail call noundef i32 @_ZN11XHeuristics19nconcurrent_workersEv() #6
   store i32 %26, ptr @ConcGCThreads, align 4
   br label %27
 
-thread-pre-split4:                                ; preds = %23
-  %.pr5 = load i32, ptr @ConcGCThreads, align 4
+thread-pre-split8:                                ; preds = %23
+  %.pr9 = load i32, ptr @ConcGCThreads, align 4
   br label %27
 
-27:                                               ; preds = %thread-pre-split4, %25
-  %28 = phi i32 [ %.pr5, %thread-pre-split4 ], [ %26, %25 ]
+27:                                               ; preds = %thread-pre-split8, %25
+  %28 = phi i32 [ %.pr9, %thread-pre-split8 ], [ %26, %25 ]
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %31
 
@@ -184,24 +184,20 @@ thread-pre-split4:                                ; preds = %23
   store i8 0, ptr @VerifyBeforeExit, align 1
   %49 = load i8, ptr @VerifyBeforeGC, align 1
   %50 = trunc i8 %49 to i1
-  br i1 %50, label %57, label %51
+  %51 = load i8, ptr @VerifyDuringGC, align 1
+  %52 = trunc i8 %51 to i1
+  %or.cond3 = select i1 %50, i1 true, i1 %52
+  %53 = load i8, ptr @VerifyAfterGC, align 1
+  %54 = trunc i8 %53 to i1
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %54
+  br i1 %or.cond5, label %55, label %56
 
-51:                                               ; preds = %48
-  %52 = load i8, ptr @VerifyDuringGC, align 1
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %57, label %54
-
-54:                                               ; preds = %51
-  %55 = load i8, ptr @VerifyAfterGC, align 1
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %57, label %58
-
-57:                                               ; preds = %54, %51, %48
+55:                                               ; preds = %48
   store i8 1, ptr @ZVerifyRoots, align 1
   store i8 1, ptr @ZVerifyObjects, align 1
-  br label %58
+  br label %56
 
-58:                                               ; preds = %57, %54
+56:                                               ; preds = %48, %55
   ret void
 }
 

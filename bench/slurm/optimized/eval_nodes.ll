@@ -69,7 +69,7 @@ define dso_local noundef zeroext i1 @eval_nodes_gres(ptr noundef %0, ptr noundef
 
 31:                                               ; preds = %19, %27, %7
   %32 = phi i64 [ %15, %7 ], [ %25, %27 ], [ %15, %19 ]
-  %.063 = phi i32 [ %11, %7 ], [ %30, %27 ], [ %11, %19 ]
+  %.064 = phi i32 [ %11, %7 ], [ %30, %27 ], [ %11, %19 ]
   %spec.select = tail call i64 @llvm.umax.i64(i64 %32, i64 1)
   store i64 %spec.select, ptr %1, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -92,23 +92,23 @@ define dso_local noundef zeroext i1 @eval_nodes_gres(ptr noundef %0, ptr noundef
 47:                                               ; preds = %31
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 1040
   %49 = load ptr, ptr %48, align 8
-  %.not29.i = icmp eq ptr %49, null
+  %.not30.i = icmp eq ptr %49, null
   br label %50
 
 50:                                               ; preds = %47, %31
-  %.024.i = phi i1 [ false, %31 ], [ %.not29.i, %47 ]
+  %.025.i = phi i1 [ false, %31 ], [ %.not30.i, %47 ]
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 472
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 65535
   %54 = icmp ne i32 %53, 4
-  %brmerge.i = or i1 %.024.i, %54
-  br i1 %brmerge.i, label %62, label %55
+  %or.cond.i = or i1 %.025.i, %54
+  br i1 %or.cond.i, label %62, label %55
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 248
   %57 = load ptr, ptr %56, align 8
-  %.not30.i = icmp eq ptr %57, null
-  br i1 %.not30.i, label %71, label %58
+  %.not31.i = icmp eq ptr %57, null
+  br i1 %.not31.i, label %71, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -130,10 +130,10 @@ define dso_local noundef zeroext i1 @eval_nodes_gres(ptr noundef %0, ptr noundef
   br label %71
 
 71:                                               ; preds = %64, %62, %58, %55
-  %.025.i = phi i64 [ %70, %64 ], [ 65534, %62 ], [ 65534, %58 ], [ 65534, %55 ]
+  %.026.i = phi i64 [ %70, %64 ], [ 65534, %62 ], [ 65534, %58 ], [ 65534, %55 ]
   %.0.i = phi i64 [ 65534, %64 ], [ 65534, %62 ], [ %61, %58 ], [ 1, %55 ]
   %72 = tail call i64 @llvm.umin.i64(i64 range(i64 1, 0) %spec.select, i64 %.0.i)
-  %73 = tail call i64 @llvm.umin.i64(i64 %72, i64 %.025.i)
+  %73 = tail call i64 @llvm.umin.i64(i64 %72, i64 %.026.i)
   %74 = load i32, ptr %38, align 4
   %75 = zext i32 %74 to i64
   %76 = icmp samesign ult i64 %73, %75
@@ -465,91 +465,78 @@ _reduce_res_core_by_task_cnt.exit:                ; preds = %71, %_reduce_res_co
   %229 = load ptr, ptr %12, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 301
   %231 = load i8, ptr %230, align 1
-  %.not70 = icmp eq i8 %231, 0
+  %.not71 = icmp eq i8 %231, 0
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 96
   %233 = load i16, ptr %232, align 8
   %234 = trunc i64 %..i to i16
-  %235 = select i1 %.not70, i16 %234, i16 1
+  %235 = select i1 %.not71, i16 %234, i16 1
   %.0 = mul i16 %233, %235
-  %.not71 = icmp eq i64 %..i, 0
-  br i1 %.not71, label %241, label %236
+  %.not72 = icmp eq i64 %..i, 0
+  br i1 %.not72, label %.thread75, label %236
 
 236:                                              ; preds = %_reduce_res_core_by_task_cnt.exit
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %238 = load i16, ptr %237, align 8
   %239 = icmp uge i16 %238, %.0
-  %240 = zext i1 %239 to i8
-  br label %241
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  %241 = load i8, ptr %240, align 1, !range !14, !noundef !15
+  %242 = trunc nuw i8 %241 to i1
+  %or.cond = select i1 %242, i1 %239, i1 false
+  br i1 %or.cond, label %243, label %267
 
-241:                                              ; preds = %_reduce_res_core_by_task_cnt.exit, %236
-  %.064 = phi i8 [ %240, %236 ], [ 0, %_reduce_res_core_by_task_cnt.exit ]
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %243 = load i8, ptr %242, align 1, !range !14, !noundef !15
-  %244 = trunc nuw i8 %243 to i1
-  br i1 %244, label %245, label %273
-
-245:                                              ; preds = %241
-  %246 = trunc nuw i8 %.064 to i1
-  br i1 %246, label %247, label %.thread
-
-247:                                              ; preds = %245
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %249 = load ptr, ptr %0, align 8
-  %250 = getelementptr inbounds ptr, ptr %249, i64 %35
+243:                                              ; preds = %236
+  %244 = load ptr, ptr %0, align 8
+  %245 = getelementptr inbounds ptr, ptr %244, i64 %35
+  %246 = load ptr, ptr %245, align 8
+  %247 = load ptr, ptr %33, align 8
+  %248 = getelementptr inbounds ptr, ptr %247, i64 %35
+  %249 = load ptr, ptr %248, align 8
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %251 = load ptr, ptr %250, align 8
-  %252 = load ptr, ptr %33, align 8
-  %253 = getelementptr inbounds ptr, ptr %252, i64 %35
-  %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
-  %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds nuw i8, ptr %254, i64 32
-  %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  %260 = load ptr, ptr %259, align 8
-  %261 = load i16, ptr %41, align 4
-  %262 = getelementptr inbounds nuw i8, ptr %3, i64 514
-  %263 = load i16, ptr %262, align 2
-  %264 = zext i16 %263 to i32
-  %265 = getelementptr inbounds nuw i8, ptr %3, i64 82
-  %266 = load i16, ptr %265, align 2
-  %267 = getelementptr inbounds nuw i8, ptr %3, i64 528
-  %268 = load i16, ptr %267, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %270 = load i16, ptr %269, align 8
-  %271 = call zeroext i1 @gres_sched_add(ptr noundef nonnull %248, ptr noundef %251, ptr noundef %256, ptr noundef %258, ptr noundef %260, i16 noundef zeroext %261, i32 noundef %264, i16 noundef zeroext %266, i16 noundef zeroext %268, i16 noundef zeroext %270, i16 noundef zeroext %.0, i32 noundef %5) #8
-  %272 = zext i1 %271 to i8
-  br label %273
+  %252 = getelementptr inbounds nuw i8, ptr %249, i64 32
+  %253 = load ptr, ptr %252, align 8
+  %254 = getelementptr inbounds nuw i8, ptr %2, i64 296
+  %255 = load ptr, ptr %254, align 8
+  %256 = load i16, ptr %41, align 4
+  %257 = getelementptr inbounds nuw i8, ptr %3, i64 514
+  %258 = load i16, ptr %257, align 2
+  %259 = zext i16 %258 to i32
+  %260 = getelementptr inbounds nuw i8, ptr %3, i64 82
+  %261 = load i16, ptr %260, align 2
+  %262 = getelementptr inbounds nuw i8, ptr %3, i64 528
+  %263 = load i16, ptr %262, align 8
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %265 = load i16, ptr %264, align 8
+  %266 = call zeroext i1 @gres_sched_add(ptr noundef nonnull %237, ptr noundef %246, ptr noundef %251, ptr noundef %253, ptr noundef %255, i16 noundef zeroext %256, i32 noundef %259, i16 noundef zeroext %261, i16 noundef zeroext %263, i16 noundef zeroext %265, i16 noundef zeroext %.0, i32 noundef %5) #8
+  br i1 %266, label %268, label %.thread75
 
-273:                                              ; preds = %247, %241
-  %.1 = phi i8 [ %272, %247 ], [ %.064, %241 ]
-  %274 = trunc nuw i8 %.1 to i1
-  br i1 %274, label %275, label %.thread
+267:                                              ; preds = %236
+  br i1 %239, label %268, label %.thread75
 
-275:                                              ; preds = %273
-  %276 = load i64, ptr %1, align 8
-  %277 = sub i64 %276, %..i
-  store i64 %277, ptr %1, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load i16, ptr %.phi.trans.insert, align 8
-  br label %279
+268:                                              ; preds = %243, %267
+  %269 = load i64, ptr %1, align 8
+  %270 = sub i64 %269, %..i
+  store i64 %270, ptr %1, align 8
+  %.pre = load i16, ptr %237, align 8
+  br label %272
 
-.thread:                                          ; preds = %245, %273
-  %278 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 0, ptr %278, align 8
-  br label %279
+.thread75:                                        ; preds = %243, %_reduce_res_core_by_task_cnt.exit, %267
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i16 0, ptr %271, align 8
+  br label %272
 
-279:                                              ; preds = %.thread, %275
-  %280 = phi i16 [ 0, %.thread ], [ %.pre, %275 ]
-  %281 = phi i1 [ false, %.thread ], [ true, %275 ]
-  %282 = load ptr, ptr %33, align 8
-  %283 = getelementptr inbounds ptr, ptr %282, i64 %35
-  %284 = load ptr, ptr %283, align 8
-  store i16 %280, ptr %284, align 8
-  %285 = zext i32 %.063 to i64
-  %286 = load i64, ptr %1, align 8
-  %287 = add i64 %286, %285
-  store i64 %287, ptr %1, align 8
-  ret i1 %281
+272:                                              ; preds = %.thread75, %268
+  %273 = phi i16 [ 0, %.thread75 ], [ %.pre, %268 ]
+  %274 = phi i1 [ false, %.thread75 ], [ true, %268 ]
+  %275 = load ptr, ptr %33, align 8
+  %276 = getelementptr inbounds ptr, ptr %275, i64 %35
+  %277 = load ptr, ptr %276, align 8
+  store i16 %273, ptr %277, align 8
+  %278 = zext i32 %.064 to i64
+  %279 = load i64, ptr %1, align 8
+  %280 = add i64 %279, %278
+  store i64 %280, ptr %1, align 8
+  ret i1 %274
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

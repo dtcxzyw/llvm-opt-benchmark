@@ -614,39 +614,39 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %26, %27, %31, %36
   %62 = load i16, ptr %61, align 4
   %63 = zext i16 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 %63
-  %.not18.i.i = icmp eq i16 %62, 0
-  br i1 %.not18.i.i, label %._crit_edge17.i.i, label %.lr.ph16.i.i
+  %.not20.i.i = icmp eq i16 %62, 0
+  br i1 %.not20.i.i, label %._crit_edge19.i.i, label %.lr.ph18.i.i
 
-.lr.ph16.i.i:                                     ; preds = %._crit_edge.i.i, %70
-  %.014.i.i = phi ptr [ %71, %70 ], [ %60, %._crit_edge.i.i ]
-  %65 = load ptr, ptr %.014.i.i, align 8
+.lr.ph18.i.i:                                     ; preds = %._crit_edge.i.i, %70
+  %.016.i.i = phi ptr [ %71, %70 ], [ %60, %._crit_edge.i.i ]
+  %65 = load ptr, ptr %.016.i.i, align 8
   %66 = call noundef ptr @_ZN8Universe12non_oop_wordEv() #7
   %.not.i.i = icmp eq ptr %65, %66
   br i1 %.not.i.i, label %70, label %67
 
-67:                                               ; preds = %.lr.ph16.i.i
+67:                                               ; preds = %.lr.ph18.i.i
   %68 = load ptr, ptr %3, align 8
   %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.014.i.i) #7
+  call void %69(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.016.i.i) #7
   br label %70
 
-70:                                               ; preds = %67, %.lr.ph16.i.i
-  %71 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
+70:                                               ; preds = %67, %.lr.ph18.i.i
+  %71 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
   %72 = icmp ult ptr %71, %64
-  br i1 %72, label %.lr.ph16.i.i, label %._crit_edge17.i.i, !llvm.loop !9
+  br i1 %72, label %.lr.ph18.i.i, label %._crit_edge19.i.i, !llvm.loop !9
 
-._crit_edge17.i.i:                                ; preds = %70, %._crit_edge.i.i
+._crit_edge19.i.i:                                ; preds = %70, %._crit_edge.i.i
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %74 = load i8, ptr %73, align 4
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit
 
-76:                                               ; preds = %._crit_edge17.i.i
+76:                                               ; preds = %._crit_edge19.i.i
   %77 = load ptr, ptr %5, align 8
   call void @_ZN7nmethod19fix_oop_relocationsEPhS0_b(ptr noundef nonnull align 8 dereferenceable(214) %77, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #7
   br label %_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit
 
-_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit: ; preds = %._crit_edge17.i.i, %76
+_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit: ; preds = %._crit_edge19.i.i, %76
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %78 = load ptr, ptr %14, align 8
   call void @_ZN17BarrierSetNMethod15set_guard_valueEP7nmethodi(ptr noundef nonnull align 8 dereferenceable(12) %78, ptr noundef nonnull %1, i32 noundef 0) #7

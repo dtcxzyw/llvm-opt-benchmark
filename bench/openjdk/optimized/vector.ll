@@ -244,78 +244,76 @@ define hidden void @_ZN11PhaseVector20scalarize_vbox_nodesEv(ptr noundef nonnull
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8
-  %8 = icmp ne ptr %7, null
+  %8 = icmp eq ptr %7, null
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 376
   %10 = load ptr, ptr %9, align 8
-  %11 = icmp ne ptr %10, null
-  %12 = select i1 %8, i1 true, i1 %11
-  br i1 %12, label %.loopexit, label %13
+  %11 = icmp eq ptr %10, null
+  %.not10 = select i1 %8, i1 %11, i1 false
+  %12 = load i8, ptr @EnableVectorReboxing, align 1
+  %13 = trunc i8 %12 to i1
+  %or.cond = select i1 %.not10, i1 %13, i1 false
+  br i1 %or.cond, label %14, label %.loopexit
 
-13:                                               ; preds = %1
-  %14 = load i8, ptr @EnableVectorReboxing, align 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %.loopexit
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 416
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph, label %.loopexit
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 416
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.loopexit
-
-.lr.ph:                                           ; preds = %16, %53
-  %20 = phi ptr [ %43, %53 ], [ %3, %16 ]
-  %.08.in = phi i32 [ %56, %53 ], [ %18, %16 ]
-  %.08 = add nsw i32 %.08.in, -1
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 424
-  %22 = load ptr, ptr %21, align 8
-  %23 = zext nneg i32 %.08 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+.lr.ph:                                           ; preds = %14, %51
+  %18 = phi ptr [ %41, %51 ], [ %3, %14 ]
+  %.012.in = phi i32 [ %54, %51 ], [ %16, %14 ]
+  %.012 = add nsw i32 %.012.in, -1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 424
+  %20 = load ptr, ptr %19, align 8
+  %21 = zext nneg i32 %.012 to i64
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(52) %25) #6
-  %29 = icmp eq i32 %28, 468
-  br i1 %29, label %30, label %42
+  %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(52) %23) #6
+  %27 = icmp eq i32 %26, 468
+  br i1 %27, label %28, label %40
 
-30:                                               ; preds = %.lr.ph
-  tail call void @_ZN11PhaseVector19scalarize_vbox_nodeEP13VectorBoxNode(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %25)
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 352
+28:                                               ; preds = %.lr.ph
+  tail call void @_ZN11PhaseVector19scalarize_vbox_nodeEP13VectorBoxNode(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %23)
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 352
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 88
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp ne ptr %35, null
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 376
-  %38 = load ptr, ptr %37, align 8
-  %39 = icmp ne ptr %38, null
-  %40 = select i1 %36, i1 true, i1 %39
-  br i1 %40, label %.loopexit, label %41
+  %34 = icmp ne ptr %33, null
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 376
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp ne ptr %36, null
+  %38 = select i1 %34, i1 true, i1 %37
+  br i1 %38, label %.loopexit, label %39
 
-41:                                               ; preds = %30
-  tail call void @_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %31, i32 noundef 13, i32 noundef 3, ptr noundef nonnull %25) #6
-  br label %42
+39:                                               ; preds = %28
+  tail call void @_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %29, i32 noundef 13, i32 noundef 3, ptr noundef nonnull %23) #6
+  br label %40
 
-42:                                               ; preds = %41, %.lr.ph
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 352
+40:                                               ; preds = %39, %.lr.ph
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 352
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 88
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp ne ptr %47, null
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 376
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp ne ptr %50, null
-  %52 = select i1 %48, i1 true, i1 %51
-  br i1 %52, label %.loopexit, label %53
+  %46 = icmp ne ptr %45, null
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 376
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ne ptr %48, null
+  %50 = select i1 %46, i1 true, i1 %49
+  br i1 %50, label %.loopexit, label %51
 
-53:                                               ; preds = %42
-  %54 = getelementptr inbounds nuw i8, ptr %43, i64 416
-  %55 = load i32, ptr %54, align 4
-  %56 = tail call i32 @llvm.smin.i32(i32 %.08, i32 %55)
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !9
+51:                                               ; preds = %40
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 416
+  %53 = load i32, ptr %52, align 4
+  %54 = tail call i32 @llvm.smin.i32(i32 %.012, i32 %53)
+  %55 = icmp sgt i32 %54, 0
+  br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %53, %30, %42, %16, %13, %1
+.loopexit:                                        ; preds = %51, %28, %40, %14, %1
   ret void
 }
 

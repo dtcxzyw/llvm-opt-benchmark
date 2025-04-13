@@ -5273,103 +5273,103 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7V3Error15abortIfWarningsEv() local_unnamed_addr #8 align 2 {
   %1 = tail call noundef zeroext i1 @_ZN7V3Error9warnFatalEv()
-  br i1 %1, label %2, label %.thread8
+  br i1 %1, label %2, label %.thread6
 
 2:                                                ; preds = %0
   %3 = tail call noundef i32 @_ZN7V3Error9warnCountEv()
   %4 = icmp ne i32 %3, 0
   %5 = tail call noundef i32 @_ZN7V3Error10errorCountEv()
-  %.not = icmp ne i32 %5, 0
-  %brmerge.not = and i1 %4, %.not
-  br i1 %brmerge.not, label %6, label %30
+  %6 = icmp ne i32 %5, 0
+  %or.cond = and i1 %4, %6
+  br i1 %or.cond, label %7, label %31
 
-6:                                                ; preds = %2
-  %7 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCode(i8 3)
-  %8 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.34)
-  %10 = load ptr, ptr %9, align 8, !tbaa !52
-  %11 = getelementptr i8, ptr %10, i64 -24
-  %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !175
-  %16 = and i32 %15, -75
-  %17 = or disjoint i32 %16, 2
-  store i32 %17, ptr %14, align 4, !tbaa !176
-  %18 = tail call noundef nonnull align 8 dereferenceable(760) ptr @_ZN7V3Error1sEv()
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %20 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %19, ptr nonnull @.str, ptr nonnull @.str.2, i32 327, ptr null)
-  %21 = load i32, ptr %20, align 8, !tbaa !165
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %21)
-  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.35)
-  %24 = tail call noundef nonnull align 8 dereferenceable(760) ptr @_ZN7V3Error1sEv()
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 76
-  %26 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %25, ptr nonnull @.str, ptr nonnull @.str.2, i32 326, ptr null)
-  %27 = load i32, ptr %26, align 4, !tbaa !140
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %27)
-  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.36)
-  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %29) #33
+7:                                                ; preds = %2
+  %8 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCode(i8 3)
+  %9 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.34)
+  %11 = load ptr, ptr %10, align 8, !tbaa !52
+  %12 = getelementptr i8, ptr %11, i64 -24
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %10, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load i32, ptr %15, align 8, !tbaa !175
+  %17 = and i32 %16, -75
+  %18 = or disjoint i32 %17, 2
+  store i32 %18, ptr %15, align 4, !tbaa !176
+  %19 = tail call noundef nonnull align 8 dereferenceable(760) ptr @_ZN7V3Error1sEv()
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
+  %21 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %20, ptr nonnull @.str, ptr nonnull @.str.2, i32 327, ptr null)
+  %22 = load i32, ptr %21, align 8, !tbaa !165
+  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef %22)
+  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.35)
+  %25 = tail call noundef nonnull align 8 dereferenceable(760) ptr @_ZN7V3Error1sEv()
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 76
+  %27 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %26, ptr nonnull @.str, ptr nonnull @.str.2, i32 326, ptr null)
+  %28 = load i32, ptr %27, align 4, !tbaa !140
+  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef %28)
+  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.36)
+  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %30) #33
   unreachable
 
-30:                                               ; preds = %2
-  %31 = tail call noundef i32 @_ZN7V3Error10errorCountEv()
-  %.not2 = icmp eq i32 %31, 0
-  br i1 %.not2, label %52, label %34
-
-.thread8:                                         ; preds = %0
+31:                                               ; preds = %2
   %32 = tail call noundef i32 @_ZN7V3Error10errorCountEv()
+  %.not = icmp eq i32 %32, 0
+  br i1 %.not, label %53, label %35
+
+.thread6:                                         ; preds = %0
   %33 = tail call noundef i32 @_ZN7V3Error10errorCountEv()
-  %.not29 = icmp eq i32 %33, 0
-  br i1 %.not29, label %.thread10, label %34
+  %34 = tail call noundef i32 @_ZN7V3Error10errorCountEv()
+  %.not7 = icmp eq i32 %34, 0
+  br i1 %.not7, label %.thread8, label %35
 
-34:                                               ; preds = %.thread8, %30
-  %35 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCode(i8 3)
-  %36 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull @.str.34)
-  %38 = load ptr, ptr %37, align 8, !tbaa !52
-  %39 = getelementptr i8, ptr %38, i64 -24
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 %40
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %43 = load i32, ptr %42, align 8, !tbaa !175
-  %44 = and i32 %43, -75
-  %45 = or disjoint i32 %44, 2
-  store i32 %45, ptr %42, align 4, !tbaa !176
-  %46 = tail call noundef nonnull align 8 dereferenceable(760) ptr @_ZN7V3Error1sEv()
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 80
-  %48 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %47, ptr nonnull @.str, ptr nonnull @.str.2, i32 327, ptr null)
-  %49 = load i32, ptr %48, align 8, !tbaa !165
-  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %37, i32 noundef %49)
-  %51 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull @.str.37)
-  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %51) #33
+35:                                               ; preds = %.thread6, %31
+  %36 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCode(i8 3)
+  %37 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @.str.34)
+  %39 = load ptr, ptr %38, align 8, !tbaa !52
+  %40 = getelementptr i8, ptr %39, i64 -24
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %38, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %44 = load i32, ptr %43, align 8, !tbaa !175
+  %45 = and i32 %44, -75
+  %46 = or disjoint i32 %45, 2
+  store i32 %46, ptr %43, align 4, !tbaa !176
+  %47 = tail call noundef nonnull align 8 dereferenceable(760) ptr @_ZN7V3Error1sEv()
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 80
+  %49 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %48, ptr nonnull @.str, ptr nonnull @.str.2, i32 327, ptr null)
+  %50 = load i32, ptr %49, align 8, !tbaa !165
+  %51 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %38, i32 noundef %50)
+  %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.37)
+  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %52) #33
   unreachable
 
-52:                                               ; preds = %30
-  br i1 %4, label %53, label %.thread10
+53:                                               ; preds = %31
+  br i1 %4, label %54, label %.thread8
 
-53:                                               ; preds = %52
-  %54 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCode(i8 3)
-  %55 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull @.str.34)
-  %57 = load ptr, ptr %56, align 8, !tbaa !52
-  %58 = getelementptr i8, ptr %57, i64 -24
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %62 = load i32, ptr %61, align 8, !tbaa !175
-  %63 = and i32 %62, -75
-  %64 = or disjoint i32 %63, 2
-  store i32 %64, ptr %61, align 4, !tbaa !176
-  %65 = tail call noundef nonnull align 8 dereferenceable(760) ptr @_ZN7V3Error1sEv()
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 76
-  %67 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %66, ptr nonnull @.str, ptr nonnull @.str.2, i32 326, ptr null)
-  %68 = load i32, ptr %67, align 4, !tbaa !140
-  %69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %56, i32 noundef %68)
-  %70 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull @.str.36)
-  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %70) #33
+54:                                               ; preds = %53
+  %55 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCode(i8 3)
+  %56 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull @.str.34)
+  %58 = load ptr, ptr %57, align 8, !tbaa !52
+  %59 = getelementptr i8, ptr %58, i64 -24
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %57, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %63 = load i32, ptr %62, align 8, !tbaa !175
+  %64 = and i32 %63, -75
+  %65 = or disjoint i32 %64, 2
+  store i32 %65, ptr %62, align 4, !tbaa !176
+  %66 = tail call noundef nonnull align 8 dereferenceable(760) ptr @_ZN7V3Error1sEv()
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 76
+  %68 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %67, ptr nonnull @.str, ptr nonnull @.str.2, i32 326, ptr null)
+  %69 = load i32, ptr %68, align 4, !tbaa !140
+  %70 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %57, i32 noundef %69)
+  %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.36)
+  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %71) #33
   unreachable
 
-.thread10:                                        ; preds = %.thread8, %52
+.thread8:                                         ; preds = %.thread6, %53
   ret void
 }
 

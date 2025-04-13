@@ -1890,99 +1890,99 @@ get_useful_pathkeys_for_relation.exit:            ; preds = %list_length.exit.i,
   %35 = load ptr, ptr %.val, align 8
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %.thread, label %.lr.ph64
+  br i1 %.not, label %.thread, label %.lr.ph66
 
-.lr.ph64:                                         ; preds = %get_useful_pathkeys_for_relation.exit
+.lr.ph66:                                         ; preds = %get_useful_pathkeys_for_relation.exit
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load i32, ptr %36, align 4
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph81, label %.thread
+  br i1 %40, label %.lr.ph86, label %.thread
 
-.lr.ph81:                                         ; preds = %.lr.ph64, %._crit_edge
-  %indvars.iv6780 = phi i64 [ %indvars.iv.next68, %._crit_edge ], [ 0, %.lr.ph64 ]
+.lr.ph86:                                         ; preds = %.lr.ph66, %._crit_edge
+  %indvars.iv6985 = phi i64 [ %indvars.iv.next70, %._crit_edge ], [ 0, %.lr.ph66 ]
   %41 = load ptr, ptr %37, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv6780
+  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv6985
   %43 = load ptr, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
   %44 = load ptr, ptr %6, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %.not51 = icmp eq ptr %44, null
-  br i1 %.not51, label %._crit_edge, label %.lr.ph
+  %.not54 = icmp eq ptr %44, null
+  br i1 %.not54, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph81
+.lr.ph:                                           ; preds = %.lr.ph86
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %47 = load i32, ptr %45, align 4
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph79, label %._crit_edge
+  br i1 %48, label %.lr.ph84, label %._crit_edge
 
-._crit_edge:                                      ; preds = %75, %.lr.ph, %.lr.ph81
+._crit_edge:                                      ; preds = %74, %.lr.ph, %.lr.ph86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv6780, 1
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv6985, 1
   %49 = load i32, ptr %36, align 4
   %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next68, %50
-  br i1 %51, label %.lr.ph81, label %.thread
+  %51 = icmp slt i64 %indvars.iv.next70, %50
+  br i1 %51, label %.lr.ph86, label %.thread
 
-.lr.ph79:                                         ; preds = %.lr.ph, %75
-  %indvars.iv78 = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.lr.ph ]
+.lr.ph84:                                         ; preds = %.lr.ph, %74
+  %indvars.iv83 = phi i64 [ %indvars.iv.next, %74 ], [ 0, %.lr.ph ]
   %52 = load ptr, ptr %46, align 8
-  %53 = getelementptr inbounds nuw %union.ListCell, ptr %52, i64 %indvars.iv78
+  %53 = getelementptr inbounds nuw %union.ListCell, ptr %52, i64 %indvars.iv83
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = call zeroext i1 @pathkeys_count_contained_in(ptr noundef %43, ptr noundef %56, ptr noundef nonnull %5) #9
-  br i1 %57, label %75, label %58
+  br i1 %57, label %74, label %58
 
-58:                                               ; preds = %.lr.ph79
-  %.not53 = icmp eq ptr %54, %35
-  %.pr = load i32, ptr %5, align 4
-  %59 = icmp eq i32 %.pr, 0
-  br i1 %.not53, label %64, label %60
+58:                                               ; preds = %.lr.ph84
+  %.not56 = icmp eq ptr %54, %35
+  %.pre72 = load i32, ptr %5, align 4
+  %.pre73 = load i8, ptr @enable_incremental_sort, align 1, !range !4
+  br i1 %.not56, label %._crit_edge74, label %59
 
-60:                                               ; preds = %58
-  br i1 %59, label %75, label %61
+._crit_edge74:                                    ; preds = %58
+  %.pre75 = trunc nuw i8 %.pre73 to i1
+  br label %62
 
-61:                                               ; preds = %60
-  %62 = load i8, ptr @enable_incremental_sort, align 1, !range !4, !noundef !5
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %.thread60.thread, label %75
+59:                                               ; preds = %58
+  %60 = icmp ne i32 %.pre72, 0
+  %61 = trunc nuw i8 %.pre73 to i1
+  %or.cond = select i1 %60, i1 %61, i1 false
+  br i1 %or.cond, label %62, label %74
 
-64:                                               ; preds = %58
-  br i1 %59, label %66, label %.thread60
+62:                                               ; preds = %._crit_edge74, %59
+  %.pre-phi = phi i1 [ %.pre75, %._crit_edge74 ], [ true, %59 ]
+  %63 = icmp ne i32 %.pre72, 0
+  %or.cond3 = select i1 %63, i1 %.pre-phi, i1 false
+  br i1 %or.cond3, label %66, label %64
 
-.thread60:                                        ; preds = %64
-  %.pre70 = load i8, ptr @enable_incremental_sort, align 1, !range !4
-  %65 = trunc nuw i8 %.pre70 to i1
-  br i1 %65, label %.thread60.thread, label %66
+64:                                               ; preds = %62
+  %65 = call ptr @create_sort_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %54, ptr noundef %43, double noundef -1.000000e+00) #9
+  br label %68
 
-66:                                               ; preds = %.thread60, %64
-  %67 = call ptr @create_sort_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %54, ptr noundef %43, double noundef -1.000000e+00) #9
-  br label %69
+66:                                               ; preds = %62
+  %67 = call ptr @create_incremental_sort_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %54, ptr noundef %43, i32 noundef %.pre72, double noundef -1.000000e+00) #9
+  br label %68
 
-.thread60.thread:                                 ; preds = %61, %.thread60
-  %68 = call ptr @create_incremental_sort_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %54, ptr noundef %43, i32 noundef %.pr, double noundef -1.000000e+00) #9
-  br label %69
+68:                                               ; preds = %66, %64
+  %.047 = phi ptr [ %67, %66 ], [ %65, %64 ]
+  %69 = call double @compute_gather_rows(ptr noundef %.047) #9
+  store double %69, ptr %4, align 8
+  %70 = load ptr, ptr %38, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %.047, i64 72
+  %72 = load ptr, ptr %71, align 8
+  %73 = call ptr @create_gather_merge_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.047, ptr noundef %70, ptr noundef %72, ptr noundef null, ptr noundef %spec.select) #9
+  call void @add_path(ptr noundef nonnull %1, ptr noundef %73) #9
+  br label %74
 
-69:                                               ; preds = %.thread60.thread, %66
-  %.044 = phi ptr [ %67, %66 ], [ %68, %.thread60.thread ]
-  %70 = call double @compute_gather_rows(ptr noundef %.044) #9
-  store double %70, ptr %4, align 8
-  %71 = load ptr, ptr %38, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %.044, i64 72
-  %73 = load ptr, ptr %72, align 8
-  %74 = call ptr @create_gather_merge_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.044, ptr noundef %71, ptr noundef %73, ptr noundef null, ptr noundef %spec.select) #9
-  call void @add_path(ptr noundef nonnull %1, ptr noundef %74) #9
-  br label %75
+74:                                               ; preds = %59, %.lr.ph84, %68
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv83, 1
+  %75 = load i32, ptr %45, align 4
+  %76 = sext i32 %75 to i64
+  %77 = icmp slt i64 %indvars.iv.next, %76
+  br i1 %77, label %.lr.ph84, label %._crit_edge
 
-75:                                               ; preds = %60, %61, %.lr.ph79, %69
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv78, 1
-  %76 = load i32, ptr %45, align 4
-  %77 = sext i32 %76 to i64
-  %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph79, label %._crit_edge
-
-.thread:                                          ; preds = %._crit_edge, %.lr.ph64, %list_length.exit.i.thread, %28, %9, %get_useful_pathkeys_for_relation.exit, %3
+.thread:                                          ; preds = %._crit_edge, %.lr.ph66, %list_length.exit.i.thread, %28, %9, %get_useful_pathkeys_for_relation.exit, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   ret void
 }

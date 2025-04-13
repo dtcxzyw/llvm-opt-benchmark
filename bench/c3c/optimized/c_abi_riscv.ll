@@ -80,18 +80,18 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   br label %18
 
 18:                                               ; preds = %14, %11
-  %.059 = phi i32 [ %17, %14 ], [ %12, %11 ]
-  %19 = add i32 %.059, -18
+  %.060 = phi i32 [ %17, %14 ], [ %12, %11 ]
+  %19 = add i32 %.060, -18
   %20 = icmp ult i32 %19, -5
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 244), align 4
-  %.not = icmp ult i32 %21, %10
-  %or.cond = select i1 %20, i1 true, i1 %.not
-  br i1 %or.cond, label %27, label %22
+  %.not70 = icmp ult i32 %21, %10
+  %or.cond78 = select i1 %20, i1 true, i1 %.not70
+  br i1 %or.cond78, label %27, label %22
 
 22:                                               ; preds = %18
   %23 = load i32, ptr %3, align 4
-  %.not69 = icmp eq i32 %23, 0
-  br i1 %.not69, label %27, label %24
+  %.not71 = icmp eq i32 %23, 0
+  br i1 %.not71, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = add i32 %23, -1
@@ -100,10 +100,10 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   br label %116
 
 27:                                               ; preds = %22, %18
-  %.not70 = icmp ne i32 %21, 0
+  %.not72 = icmp ne i32 %21, 0
   %28 = icmp eq i32 %12, 26
-  %or.cond107 = and i1 %28, %.not70
-  br i1 %or.cond107, label %29, label %.critedge
+  %or.cond108 = and i1 %28, %.not72
+  br i1 %or.cond108, label %29, label %.critedge
 
 29:                                               ; preds = %27
   store i32 0, ptr %7, align 4
@@ -115,8 +115,8 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   %.not23.i = icmp ne ptr %31, null
   %32 = load ptr, ptr %6, align 8
   %.not24.i = icmp eq ptr %32, null
-  %or.cond108 = select i1 %.not23.i, i1 %.not24.i, i1 false
-  br i1 %or.cond108, label %33, label %36
+  %or.cond109 = select i1 %.not23.i, i1 %.not24.i, i1 false
+  br i1 %or.cond109, label %33, label %36
 
 33:                                               ; preds = %29
   %34 = call zeroext i1 @abi_type_is_float(ptr nonnull %31) #5
@@ -138,39 +138,39 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
 .sink.split.i:                                    ; preds = %37
   %39 = call zeroext i1 @abi_type_is_float(ptr nonnull %38) #5
   %not. = xor i1 %39, true
-  %spec.select109 = zext i1 %not. to i32
-  %spec.select110 = zext i1 %39 to i32
+  %spec.select110 = zext i1 %not. to i32
+  %spec.select111 = zext i1 %39 to i32
   br label %.sink.split.i.cont
 
 .sink.split.i.cont:                               ; preds = %.sink.split.i, %37
-  %.098 = phi i32 [ 0, %37 ], [ %spec.select109, %.sink.split.i ]
-  %.097 = phi i32 [ 0, %37 ], [ %spec.select110, %.sink.split.i ]
+  %.099 = phi i32 [ 0, %37 ], [ %spec.select110, %.sink.split.i ]
+  %.098 = phi i32 [ 0, %37 ], [ %spec.select111, %.sink.split.i ]
   %40 = load ptr, ptr %6, align 8
   %.not25.i = icmp eq ptr %40, null
   br i1 %.not25.i, label %.sink.split28.i.else, label %.sink.split28.i
 
 .sink.split28.i:                                  ; preds = %.sink.split.i.cont
   %41 = call zeroext i1 @abi_type_is_float(ptr nonnull %40) #5
-  %.sroa.speculated = select i1 %41, i32 %.097, i32 %.098
+  %.sroa.speculated = select i1 %41, i32 %.098, i32 %.099
   %42 = add nuw nsw i32 %.sroa.speculated, 1
-  %spec.select111 = select i1 %41, i32 %.098, i32 %42
-  %spec.select112 = select i1 %41, i32 %42, i32 %.097
+  %spec.select112 = select i1 %41, i32 %.099, i32 %42
+  %spec.select113 = select i1 %41, i32 %42, i32 %.098
   br label %.sink.split28.i.else
 
 .sink.split28.i.else:                             ; preds = %.sink.split28.i, %.sink.split.i.cont
-  %.199.ph = phi i32 [ %.098, %.sink.split.i.cont ], [ %spec.select111, %.sink.split28.i ]
-  %.1.ph = phi i32 [ %.097, %.sink.split.i.cont ], [ %spec.select112, %.sink.split28.i ]
+  %.1100.ph = phi i32 [ %.099, %.sink.split.i.cont ], [ %spec.select112, %.sink.split28.i ]
+  %.1.ph = phi i32 [ %.098, %.sink.split.i.cont ], [ %spec.select113, %.sink.split28.i ]
   %43 = load i32, ptr %2, align 4
-  %.not71 = icmp ugt i32 %.199.ph, %43
-  br i1 %.not71, label %.critedge, label %44
+  %.not73 = icmp ugt i32 %.1100.ph, %43
+  br i1 %.not73, label %.critedge, label %44
 
 44:                                               ; preds = %.sink.split28.i.else
   %45 = load i32, ptr %3, align 4
-  %.not72 = icmp ugt i32 %.1.ph, %45
-  br i1 %.not72, label %.critedge, label %46
+  %.not74 = icmp ugt i32 %.1.ph, %45
+  br i1 %.not74, label %.critedge, label %46
 
 46:                                               ; preds = %44
-  %47 = sub i32 %43, %.199.ph
+  %47 = sub i32 %43, %.1100.ph
   store i32 %47, ptr %2, align 4
   %48 = load i32, ptr %3, align 4
   %49 = sub i32 %48, %.1.ph
@@ -185,8 +185,8 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   %54 = call i32 @type_abi_alignment(ptr noundef %0) #5
   %55 = shl i32 %9, 1
   %56 = icmp ne i32 %54, %55
-  %or.cond81.not = select i1 %1, i1 true, i1 %56
-  br i1 %or.cond81.not, label %61, label %57
+  %or.cond83.not = select i1 %1, i1 true, i1 %56
+  br i1 %or.cond83.not, label %61, label %57
 
 57:                                               ; preds = %.critedge
   %58 = load i32, ptr %2, align 4
@@ -196,25 +196,25 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
 
 61:                                               ; preds = %.critedge
   %62 = icmp ule i32 %10, %9
-  %.not73 = icmp ugt i32 %10, %55
-  %or.cond82 = or i1 %62, %.not73
-  %spec.select86 = select i1 %or.cond82, i32 1, i32 2
+  %.not75 = icmp ugt i32 %10, %55
+  %or.cond84 = or i1 %62, %.not75
+  %spec.select87 = select i1 %or.cond84, i32 1, i32 2
   %.pre = load i32, ptr %2, align 4
   br label %63
 
 63:                                               ; preds = %61, %57
   %64 = phi i32 [ %58, %57 ], [ %.pre, %61 ]
-  %.057 = phi i32 [ %60, %57 ], [ %spec.select86, %61 ]
-  %65 = icmp ugt i32 %.057, %64
-  %66 = call i32 @llvm.usub.sat.i32(i32 %64, i32 %.057)
+  %.058 = phi i32 [ %60, %57 ], [ %spec.select87, %61 ]
+  %65 = icmp ugt i32 %.058, %64
+  %66 = call i32 @llvm.usub.sat.i32(i32 %64, i32 %.058)
   store i32 %66, ptr %2, align 4
   %67 = call zeroext i1 @type_is_abi_aggregate(ptr noundef %0) #5
   br i1 %67, label %92, label %68
 
 68:                                               ; preds = %63
   %69 = load i32, ptr %0, align 8
-  %.not74 = icmp eq i32 %69, 37
-  br i1 %.not74, label %92, label %70
+  %.not76 = icmp eq i32 %69, 37
+  br i1 %.not76, label %92, label %70
 
 70:                                               ; preds = %68
   %71 = icmp ult i32 %10, %9
@@ -234,15 +234,15 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   %.0 = phi i32 [ %77, %74 ], [ %69, %72 ]
   %79 = add i32 %.0, -13
   %80 = icmp ult i32 %79, -11
-  %brmerge = select i1 %80, i1 true, i1 %65
-  br i1 %brmerge, label %90, label %81
+  %or.cond = or i1 %65, %80
+  br i1 %or.cond, label %90, label %81
 
 81:                                               ; preds = %78
   %82 = icmp eq i32 %9, 8
   %83 = load ptr, ptr @type_uint, align 8
   %84 = icmp eq ptr %0, %83
-  %or.cond85 = select i1 %82, i1 %84, i1 false
-  br i1 %or.cond85, label %85, label %88
+  %or.cond86 = select i1 %82, i1 %84, i1 false
+  br i1 %or.cond86, label %85, label %88
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr @type_int, align 8
@@ -258,12 +258,12 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   br label %116
 
 92:                                               ; preds = %68, %63
-  %.not75 = icmp ugt i32 %10, %55
-  br i1 %.not75, label %114, label %93
+  %.not = icmp ugt i32 %10, %55
+  br i1 %.not, label %114, label %93
 
 93:                                               ; preds = %92
-  %.not76 = icmp ugt i32 %10, %9
-  br i1 %.not76, label %99, label %94
+  %.not77 = icmp ugt i32 %10, %9
+  br i1 %.not77, label %99, label %94
 
 94:                                               ; preds = %93
   %95 = shl i32 %9, 3
@@ -298,8 +298,8 @@ define internal fastcc ptr @riscv_classify_argument_type(ptr noundef %0, i1 noun
   br label %116
 
 116:                                              ; preds = %114, %108, %103, %94, %90, %88, %85, %46, %24
-  %.060 = phi ptr [ %26, %24 ], [ %53, %46 ], [ %98, %94 ], [ %107, %103 ], [ %113, %108 ], [ %115, %114 ], [ %91, %90 ], [ %87, %85 ], [ %89, %88 ]
-  ret ptr %.060
+  %.061 = phi ptr [ %26, %24 ], [ %53, %46 ], [ %98, %94 ], [ %107, %103 ], [ %113, %108 ], [ %115, %114 ], [ %91, %90 ], [ %87, %85 ], [ %89, %88 ]
+  ret ptr %.061
 }
 
 ; Function Attrs: nounwind uwtable
@@ -643,21 +643,21 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   br label %13
 
 13:                                               ; preds = %6, %9
-  %.078 = phi i32 [ %12, %9 ], [ %7, %6 ]
-  %.in = add i32 %.078, -2
+  %.080 = phi i32 [ %12, %9 ], [ %7, %6 ]
+  %.in = add i32 %.080, -2
   %14 = icmp ult i32 %.in, 11
-  %15 = add i32 %.078, -13
+  %15 = add i32 %.080, -13
   %16 = icmp ult i32 %15, 5
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 244), align 4
   %18 = tail call i32 @type_size(ptr noundef nonnull %0) #5
-  %brmerge = icmp ult i32 %.in, 16
-  br i1 %brmerge, label %19, label %35
+  %or.cond = icmp ult i32 %.in, 16
+  br i1 %or.cond, label %19, label %35
 
 19:                                               ; preds = %13
   %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 240), align 8
   %21 = icmp ugt i32 %18, %20
-  %or.cond88 = select i1 %14, i1 %21, i1 false
-  br i1 %or.cond88, label %.loopexit, label %22
+  %or.cond90 = select i1 %14, i1 %21, i1 false
+  br i1 %or.cond90, label %.loopexit, label %22
 
 22:                                               ; preds = %19
   br i1 %16, label %23, label %26
@@ -665,16 +665,16 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
 23:                                               ; preds = %22
   %24 = icmp ugt i32 %18, %17
   %25 = icmp ult i32 %18, 4
-  %or.cond = or i1 %24, %25
-  br i1 %or.cond, label %.loopexit, label %26
+  %or.cond3 = or i1 %24, %25
+  br i1 %or.cond3, label %.loopexit, label %26
 
 26:                                               ; preds = %23, %22
   br i1 %14, label %27, label %31
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr %2, align 8
-  %.not95 = icmp eq ptr %28, null
-  br i1 %.not95, label %.thread90, label %29
+  %.not97 = icmp eq ptr %28, null
+  br i1 %.not97, label %.thread92, label %29
 
 29:                                               ; preds = %27
   %30 = tail call zeroext i1 @abi_type_is_integer(ptr nonnull %28) #5
@@ -682,18 +682,18 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
 
 31:                                               ; preds = %29, %26
   %.pr = load ptr, ptr %2, align 8
-  %.not96 = icmp eq ptr %.pr, null
-  br i1 %.not96, label %.thread90, label %32
+  %.not98 = icmp eq ptr %.pr, null
+  br i1 %.not98, label %.thread92, label %32
 
-.thread90:                                        ; preds = %27, %31
+.thread92:                                        ; preds = %27, %31
   store ptr %0, ptr %2, align 8
   store i32 %1, ptr %3, align 4
   br label %.loopexit
 
 32:                                               ; preds = %31
   %33 = load ptr, ptr %4, align 8
-  %.not97 = icmp eq ptr %33, null
-  br i1 %.not97, label %34, label %.loopexit
+  %.not99 = icmp eq ptr %33, null
+  br i1 %.not99, label %34, label %.loopexit
 
 34:                                               ; preds = %32
   store ptr %0, ptr %4, align 8
@@ -704,7 +704,7 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   %36 = load i32, ptr %0, align 8
   switch i32 %36, label %48 [
     i32 33, label %37
-    i32 31, label %.thread91
+    i32 31, label %.thread93
   ]
 
 37:                                               ; preds = %35
@@ -714,18 +714,18 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   %41 = zext i32 %40 to i64
   %42 = load ptr, ptr %38, align 8
   %43 = tail call i32 @type_size(ptr noundef %42) #5
-  %.not105 = icmp eq i32 %40, 0
-  br i1 %.not105, label %.loopexit, label %.lr.ph
+  %.not107 = icmp eq i32 %40, 0
+  br i1 %.not107, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %45
-  %.079100 = phi i64 [ %47, %45 ], [ 0, %37 ]
-  %.08299 = phi i32 [ %46, %45 ], [ %1, %37 ]
-  %44 = tail call fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef %42, i32 noundef %.08299, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %.081102 = phi i64 [ %47, %45 ], [ 0, %37 ]
+  %.084101 = phi i32 [ %46, %45 ], [ %1, %37 ]
+  %44 = tail call fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef %42, i32 noundef %.084101, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br i1 %44, label %45, label %.loopexit
 
 45:                                               ; preds = %.lr.ph
-  %46 = add i32 %.08299, %43
-  %47 = add nuw nsw i64 %.079100, 1
+  %46 = add i32 %.084101, %43
+  %47 = add nuw nsw i64 %.081102, 1
   %exitcond.not = icmp eq i64 %47, %41
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
@@ -733,18 +733,18 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   %49 = and i32 %36, -2
   %50 = icmp ne i32 %49, 26
   %51 = icmp eq i32 %36, 27
-  %or.cond94 = or i1 %51, %50
-  br i1 %or.cond94, label %.loopexit, label %.thread93
+  %or.cond96 = or i1 %51, %50
+  br i1 %or.cond96, label %.loopexit, label %.thread95
 
-.thread91:                                        ; preds = %35
+.thread93:                                        ; preds = %35
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, -2
   %56 = icmp eq i32 %55, 26
-  br i1 %56, label %.thread93, label %.loopexit
+  br i1 %56, label %.thread95, label %.loopexit
 
-.thread93:                                        ; preds = %48, %.thread91
+.thread95:                                        ; preds = %48, %.thread93
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 104
@@ -752,23 +752,23 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   %.not = icmp eq ptr %60, null
   br i1 %.not, label %._crit_edge, label %61
 
-61:                                               ; preds = %.thread93
+61:                                               ; preds = %.thread95
   %62 = getelementptr inbounds i8, ptr %60, i64 -8
   %63 = load i32, ptr %62, align 4
-  %.not106 = icmp eq i32 %63, 0
-  br i1 %.not106, label %._crit_edge, label %.lr.ph104.preheader
+  %.not108 = icmp eq i32 %63, 0
+  br i1 %.not108, label %._crit_edge, label %.lr.ph106.preheader
 
-.lr.ph104.preheader:                              ; preds = %61
+.lr.ph106.preheader:                              ; preds = %61
   %wide.trip.count = zext i32 %63 to i64
-  br label %.lr.ph104
+  br label %.lr.ph106
 
-64:                                               ; preds = %.lr.ph104
+64:                                               ; preds = %.lr.ph106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond109.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond109.not, label %._crit_edge, label %.lr.ph104, !llvm.loop !10
+  %exitcond111.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond111.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !10
 
-.lr.ph104:                                        ; preds = %.lr.ph104.preheader, %64
-  %indvars.iv = phi i64 [ 0, %.lr.ph104.preheader ], [ %indvars.iv.next, %64 ]
+.lr.ph106:                                        ; preds = %.lr.ph106.preheader, %64
+  %indvars.iv = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next, %64 ]
   %65 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 72
@@ -780,14 +780,14 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
   %73 = tail call fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef %68, i32 noundef %72, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br i1 %73, label %64, label %.loopexit
 
-._crit_edge:                                      ; preds = %64, %.thread93, %61
+._crit_edge:                                      ; preds = %64, %.thread95, %61
   %74 = load ptr, ptr %2, align 8
   %75 = icmp ne ptr %74, null
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %45, %.lr.ph104, %37, %.thread91, %48, %32, %29, %23, %19, %._crit_edge, %34, %.thread90
-  %.081 = phi i1 [ true, %34 ], [ true, %.thread90 ], [ %75, %._crit_edge ], [ false, %19 ], [ false, %23 ], [ false, %29 ], [ false, %32 ], [ false, %48 ], [ false, %.thread91 ], [ true, %37 ], [ false, %.lr.ph104 ], [ %44, %45 ], [ %44, %.lr.ph ]
-  ret i1 %.081
+.loopexit:                                        ; preds = %.lr.ph, %45, %.lr.ph106, %37, %.thread93, %48, %32, %29, %23, %19, %._crit_edge, %34, %.thread92
+  %.083 = phi i1 [ true, %34 ], [ true, %.thread92 ], [ %75, %._crit_edge ], [ false, %19 ], [ false, %23 ], [ false, %29 ], [ false, %32 ], [ false, %48 ], [ false, %.thread93 ], [ true, %37 ], [ false, %.lr.ph106 ], [ %44, %45 ], [ %44, %.lr.ph ]
+  ret i1 %.083
 }
 
 declare zeroext i1 @abi_type_is_float(ptr) local_unnamed_addr #1

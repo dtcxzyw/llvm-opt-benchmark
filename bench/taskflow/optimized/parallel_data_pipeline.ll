@@ -12627,7 +12627,7 @@ _ZNSt6vectorIN2tf14TFProfObserver13WorkerSummaryESaIS2_EE17_M_realloc_insertIJRK
   br label %_ZNSt6vectorIN2tf14TFProfObserver13WorkerSummaryESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEEaSIRKS8_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS9_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESE_ISt6__and_IJSt9is_scalarIS8_ESF_IS8_NSt5decayISI_E4typeEEEEESt16is_constructibleIS8_JSI_EESt13is_assignableIRS8_SI_EEERS9_E4typeEOSI_.exit: ; preds = %.lr.ph173, %.thread140
-  %.val309 = phi i64 [ %.promoted, %.lr.ph173 ], [ %126, %.thread140 ]
+  %.val308 = phi i64 [ %.promoted, %.lr.ph173 ], [ %126, %.thread140 ]
   %88 = phi i64 [ 0, %.lr.ph173 ], [ %126, %.thread140 ]
   %89 = phi i64 [ 0, %.lr.ph173 ], [ %127, %.thread140 ]
   %90 = phi i64 [ 0, %.lr.ph173 ], [ %121, %.thread140 ]
@@ -12684,7 +12684,7 @@ _ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5r
 123:                                              ; preds = %.thread138
   %124 = tail call i64 @llvm.umin.i64(i64 %89, i64 %101)
   %125 = icmp ult i64 %101, %88
-  %.pre274 = select i1 %125, i64 %.val309, i64 %101
+  %.pre274 = select i1 %125, i64 %.val308, i64 %101
   br label %.critedge
 
 .critedge:                                        ; preds = %.thread138, %123
@@ -12781,7 +12781,7 @@ _ZNSt6vectorIN2tf14TFProfObserver13WorkerSummaryESaIS2_EE9push_backERKS2_.exit: 
   %170 = sdiv i64 %169, 1000
   br label %.thread142
 
-.thread142:                                       ; preds = %_ZN2tf14TFProfObserver7SummaryC2Ev.exit, %._crit_edge230, %._crit_edge, %168
+.thread142:                                       ; preds = %_ZN2tf14TFProfObserver7SummaryC2Ev.exit, %._crit_edge, %168, %._crit_edge230
   %.0 = phi i64 [ %170, %168 ], [ 0, %._crit_edge230 ], [ 0, %._crit_edge ], [ 0, %_ZN2tf14TFProfObserver7SummaryC2Ev.exit ]
   %171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.44, i64 noundef 11)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %238

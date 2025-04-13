@@ -2277,21 +2277,19 @@ define internal fastcc range(i32 -1, 1) i32 @_keyvalue_regex(ptr noundef %0, ptr
   %27 = load i8, ptr %26, align 1
   %switch.tableidx = add i8 %27, -42
   %28 = icmp ult i8 %switch.tableidx, 6
-  br i1 %28, label %switch.hole_check, label %30
-
-switch.hole_check:                                ; preds = %24
   %switch.shifted = lshr i8 43, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %30
+  %or.cond43 = select i1 %28, i1 %switch.lobit, i1 false
+  br i1 %or.cond43, label %switch.lookup, label %30
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %24
   %29 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._keyvalue_regex, i64 0, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %5, align 4
   br label %30
 
-30:                                               ; preds = %switch.hole_check, %24, %switch.lookup, %10
+30:                                               ; preds = %24, %switch.lookup, %10
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %32 = load i32, ptr %31, align 8
   %.not38 = icmp eq i32 %32, -1

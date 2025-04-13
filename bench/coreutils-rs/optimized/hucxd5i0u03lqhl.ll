@@ -2395,18 +2395,18 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h6d3e5597ffd31278E.exit.i: ; preds =
   tail call void @llvm.experimental.noalias.scope.decl(metadata !646), !noalias !526
   tail call void @llvm.experimental.noalias.scope.decl(metadata !649), !noalias !526
   %322 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %.val.i.i6.i = load ptr, ptr %322, align 8, !alias.scope !651, !noalias !654, !nonnull !5, !noundef !5
+  %.val.i.i9.i = load ptr, ptr %322, align 8, !alias.scope !651, !noalias !654, !nonnull !5, !noundef !5
   %323 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %.val9.i.i7.i = load ptr, ptr %323, align 8, !alias.scope !651, !noalias !654, !nonnull !5, !noundef !5
+  %.val9.i.i10.i = load ptr, ptr %323, align 8, !alias.scope !651, !noalias !654, !nonnull !5, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !655), !noalias !526
   tail call void @llvm.experimental.noalias.scope.decl(metadata !658), !noalias !526
-  %324 = icmp eq ptr %.val.i.i6.i, %.val9.i.i7.i
+  %324 = icmp eq ptr %.val.i.i9.i, %.val9.i.i10.i
   br i1 %324, label %327, label %325
 
 325:                                              ; preds = %321
-  %326 = getelementptr inbounds nuw i8, ptr %.val.i.i6.i, i64 24
+  %326 = getelementptr inbounds nuw i8, ptr %.val.i.i9.i, i64 24
   store ptr %326, ptr %322, align 8, !alias.scope !660, !noalias !661
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %.val.i.i6.i, i64 24, i1 false), !noalias !662
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %.val.i.i9.i, i64 24, i1 false), !noalias !662
   br label %_ZN4core4iter6traits8iterator8Iterator3nth17h6d3e5597ffd31278E.exit.i
 
 327:                                              ; preds = %321

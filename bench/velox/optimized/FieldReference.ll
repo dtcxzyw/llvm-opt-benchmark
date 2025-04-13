@@ -2665,16 +2665,14 @@ if.end8.sink.split.i.i.i.i670:                    ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit: ; preds = %if.end223, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i657, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i667, %if.end8.sink.split.i.i.i.i670
   %349 = load ptr, ptr %inputs_, align 8
   %350 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i680 = icmp eq ptr %349, %350
-  br i1 %cmp.i.i680, label %if.end233, label %land.lhs.true226
-
-land.lhs.true226:                                 ; preds = %_ZNSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
+  %cmp.i.i680 = icmp ne ptr %349, %350
   %mayHaveNulls_.i681 = getelementptr inbounds nuw i8, ptr %decoded, i64 56
   %351 = load i8, ptr %mayHaveNulls_.i681, align 8
   %tobool.i682 = trunc i8 %351 to i1
-  br i1 %tobool.i682, label %if.then229, label %if.end233
+  %or.cond = select i1 %cmp.i.i680, i1 %tobool.i682, i1 false
+  br i1 %or.cond, label %if.then229, label %if.end233
 
-if.then229:                                       ; preds = %land.lhs.true226
+if.then229:                                       ; preds = %_ZNSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
   %call231 = invoke noundef ptr @_ZN8facebook5velox13DecodedVector5nullsEv(ptr noundef nonnull align 8 dereferenceable(120) %decoded)
           to label %invoke.cont230 unwind label %lpad158
 
@@ -2682,7 +2680,7 @@ invoke.cont230:                                   ; preds = %if.then229
   invoke void @_ZNK8facebook5velox4exec4Expr8addNullsERKNS0_17SelectivityVectorEPKmRNS1_7EvalCtxERSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(442) %this, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef %call231, ptr noundef nonnull align 8 dereferenceable(104) %context, ptr noundef nonnull align 8 dereferenceable(16) %result)
           to label %if.end233 unwind label %lpad158
 
-if.end233:                                        ; preds = %invoke.cont230, %land.lhs.true226, %_ZNSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
+if.end233:                                        ; preds = %invoke.cont230, %_ZNSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit
   %352 = load ptr, ptr %_M_refcount.i.i234, align 8
   %cmp.not.i.i.i684 = icmp eq ptr %352, null
   br i1 %cmp.not.i.i.i684, label %cleanup, label %if.then.i.i.i685
@@ -4268,16 +4266,14 @@ lpad:                                             ; preds = %invoke.cont, %entry
 define linkonce_odr void @_ZNK8facebook5velox4exec7EvalCtx16moveOrCopyResultERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERS5_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %localResult, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %result, align 8
-  %cmp.i.not.i = icmp eq ptr %0, null
-  br i1 %cmp.i.not.i, label %if.else, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %entry
+  %cmp.i.i = icmp eq ptr %0, null
   %isFinalSelection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 74
   %1 = load i8, ptr %isFinalSelection_.i.i, align 2
   %tobool.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i, label %if.else, label %land.rhs.i
+  %or.cond.i = select i1 %cmp.i.i, i1 true, i1 %tobool.i.i
+  br i1 %or.cond.i, label %if.else, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %land.lhs.true.i
+land.rhs.i:                                       ; preds = %entry
   %finalSelection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = load ptr, ptr %finalSelection_.i.i, align 8
   %begin_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -4317,7 +4313,7 @@ if.then:                                          ; preds = %_ZNK8facebook5velox
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(99) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef null)
   br label %if.end
 
-if.else:                                          ; preds = %entry, %land.lhs.true.i, %_ZNK8facebook5velox4exec7EvalCtx23resultShouldBePreservedERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorE.exit
+if.else:                                          ; preds = %entry, %_ZNK8facebook5velox4exec7EvalCtx23resultShouldBePreservedERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorE.exit
   %12 = load ptr, ptr %localResult, align 8
   store ptr %12, ptr %result, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %result, i64 8
@@ -4871,8 +4867,8 @@ entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp ne ptr %0, %1
-  %brmerge.not = and i1 %recursive, %cmp.i.i
-  br i1 %brmerge.not, label %if.then, label %if.end
+  %or.cond = and i1 %recursive, %cmp.i.i
+  br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   invoke void @_ZNK8facebook5velox4exec4Expr12appendInputsERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(442) %this, ptr noundef nonnull align 8 dereferenceable(128) %out)
@@ -4889,7 +4885,7 @@ lpad:                                             ; preds = %invoke.cont7, %if.e
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %out) #18
   resume { ptr, i32 } %2
 
-if.end:                                           ; preds = %entry, %invoke.cont
+if.end:                                           ; preds = %invoke.cont, %entry
   %add.ptr4 = getelementptr inbounds nuw i8, ptr %out, i64 16
   %name_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr4, ptr noundef nonnull align 8 dereferenceable(32) %name_.i)

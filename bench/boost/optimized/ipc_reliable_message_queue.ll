@@ -5435,8 +5435,8 @@ _ZN5boost12interprocess10error_infoC2Ei.exit85:   ; preds = %31, %35
   call void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTIN5boost12interprocess22interprocess_exceptionE, ptr nonnull @_ZN5boost12interprocess22interprocess_exceptionD2Ev) #34
   unreachable
 
-common.resume:                                    ; preds = %62, %93, %85, %41, %51
-  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %42, %41 ], [ %63, %62 ], [ %86, %85 ], [ %94, %93 ]
+common.resume:                                    ; preds = %60, %93, %85, %41, %51
+  %common.resume.op = phi { ptr, i32 } [ %52, %51 ], [ %42, %41 ], [ %61, %60 ], [ %86, %85 ], [ %94, %93 ]
   resume { ptr, i32 } %common.resume.op
 
 51:                                               ; preds = %47
@@ -5453,45 +5453,43 @@ _ZN5boost12interprocess13mapped_region27priv_size_from_mapping_sizeElllRm.exit: 
 
 54:                                               ; preds = %_ZN5boost12interprocess13mapped_region27priv_size_from_mapping_sizeElllRm.exit, %_ZN5boost12interprocess13mapped_region13get_page_sizeEv.exit.i
   %.1 = phi i64 [ %53, %_ZN5boost12interprocess13mapped_region27priv_size_from_mapping_sizeElllRm.exit ], [ %4, %_ZN5boost12interprocess13mapped_region13get_page_sizeEv.exit.i ]
-  %55 = icmp eq i32 %6, -1
-  %56 = select i1 %55, i32 0, i32 %6
-  %57 = icmp ult i32 %2, 5
-  br i1 %57, label %switch.hole_check, label %58
+  %55 = icmp ult i32 %2, 5
+  %switch.maskindex = trunc i32 %2 to i8
+  %switch.shifted = lshr i8 29, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond112 = select i1 %55, i1 %switch.lobit, i1 false
+  br i1 %or.cond112, label %switch.lookup, label %56
 
-58:                                               ; preds = %switch.hole_check, %54
+56:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #32
   store i32 0, ptr %11, align 4, !tbaa !24
-  %59 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 17, ptr %59, align 4, !tbaa !70
-  %60 = tail call ptr @__cxa_allocate_exception(i64 48) #32
-  invoke void @_ZN5boost12interprocess22interprocess_exceptionC2ERKNS0_10error_infoEPKc(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef null)
-          to label %61 unwind label %62
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 17, ptr %57, align 4, !tbaa !70
+  %58 = tail call ptr @__cxa_allocate_exception(i64 48) #32
+  invoke void @_ZN5boost12interprocess22interprocess_exceptionC2ERKNS0_10error_infoEPKc(ptr noundef nonnull align 8 dereferenceable(48) %58, ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef null)
+          to label %59 unwind label %60
 
-61:                                               ; preds = %58
-  call void @__cxa_throw(ptr nonnull %60, ptr nonnull @_ZTIN5boost12interprocess22interprocess_exceptionE, ptr nonnull @_ZN5boost12interprocess22interprocess_exceptionD2Ev) #34
+59:                                               ; preds = %56
+  call void @__cxa_throw(ptr nonnull %58, ptr nonnull @_ZTIN5boost12interprocess22interprocess_exceptionE, ptr nonnull @_ZN5boost12interprocess22interprocess_exceptionD2Ev) #34
   unreachable
 
-62:                                               ; preds = %58
-  %63 = landingpad { ptr, i32 }
+60:                                               ; preds = %56
+  %61 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %60) #32
+  call void @__cxa_free_exception(ptr nonnull %58) #32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #32
   br label %common.resume
 
-switch.hole_check:                                ; preds = %54
-  %switch.maskindex = trunc nuw i32 %2 to i8
-  %switch.shifted = lshr i8 29, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %58
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %54
+  %62 = icmp eq i32 %6, -1
+  %63 = select i1 %62, i32 0, i32 %6
   %64 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5boost12interprocess13mapped_regionC2INS0_20shared_memory_objectEEERKT_NS0_6mode_tElmPKvi, i64 0, i64 %64
   %switch.load = load i32, ptr %switch.gep, align 4
   %65 = zext nneg i32 %2 to i64
   %switch.gep110 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5boost12interprocess13mapped_regionC2INS0_20shared_memory_objectEEERKT_NS0_6mode_tElmPKvi.1, i64 0, i64 %65
   %switch.load111 = load i32, ptr %switch.gep110, align 4
-  %66 = or i32 %56, %switch.load
+  %66 = or i32 %63, %switch.load
   %67 = add i64 %.1, %22
   %68 = load i32, ptr %1, align 8, !tbaa !42
   %69 = sub nsw i64 %3, %22

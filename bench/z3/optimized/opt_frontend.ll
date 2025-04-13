@@ -333,14 +333,12 @@ declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL9on_ctrl_ci(i32 %0) #6 {
   %2 = load ptr, ptr @_ZL5g_opt, align 8, !tbaa !25
-  %.not = icmp eq ptr %2, null
-  br i1 %.not, label %9, label %3
-
-3:                                                ; preds = %1
+  %3 = icmp eq ptr %2, null
   %.b = load i1, ptr @_ZL17g_first_interrupt, align 1
-  br i1 %.b, label %9, label %4
+  %or.cond.not = select i1 %3, i1 true, i1 %.b
+  br i1 %or.cond.not, label %9, label %4
 
-4:                                                ; preds = %3
+4:                                                ; preds = %1
   %5 = load ptr, ptr %2, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8
@@ -349,7 +347,7 @@ define internal void @_ZL9on_ctrl_ci(i32 %0) #6 {
   store i1 true, ptr @_ZL17g_first_interrupt, align 1
   br label %12
 
-9:                                                ; preds = %3, %1
+9:                                                ; preds = %1
   %10 = tail call ptr @signal(i32 noundef 2, ptr noundef null) #23
   tail call fastcc void @_ZL18display_statisticsv()
   %11 = tail call i32 @raise(i32 noundef 2) #23

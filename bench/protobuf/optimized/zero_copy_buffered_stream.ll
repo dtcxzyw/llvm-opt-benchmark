@@ -498,15 +498,14 @@ lor.lhs.false.i.i.i:                              ; preds = %if.then.i.i30
   %using_buf_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i8, ptr %using_buf_.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %13 to i1
-  br i1 %tobool.i.i.i, label %if.end.i.i.i, label %invoke.cont.i.i
-
-if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
+  %tobool.not.i.i.i = xor i1 %tobool.i.i.i, true
   %eof_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i8, ptr %eof_.i.i.i, align 8
   %tobool3.i.i.i = trunc i8 %14 to i1
-  br i1 %tobool3.i.i.i, label %invoke.cont.i.i, label %if.end5.i.i.i
+  %or.cond.i.i.i = select i1 %tobool.not.i.i.i, i1 true, i1 %tobool3.i.i.i
+  br i1 %or.cond.i.i.i, label %invoke.cont.i.i, label %if.end5.i.i.i
 
-if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
+if.end5.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   %buf_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %_M_finish.i.i.i.i, align 8
@@ -517,12 +516,12 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %17 = load i64, ptr %buffer_start_.i.i.i, align 8
   %last_chunk_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %last_chunk_.i.i.i, align 8
-  %.neg195 = add i64 %17, %sub.ptr.lhs.cast.i.i.i.i
+  %.neg199 = add i64 %17, %sub.ptr.lhs.cast.i.i.i.i
   %19 = add i64 %18, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.i.i.i33 = sub i64 %.neg195, %19
+  %sub.i.i.i31 = sub i64 %.neg199, %19
   %cursor_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i64, ptr %cursor_.i.i.i, align 8
-  %storemerge.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %20, i64 %sub.i.i.i33)
+  %storemerge.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %20, i64 %sub.i.i.i31)
   store i64 %storemerge.i.i.i, ptr %cursor_.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %15, %16
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i.i, label %invoke.cont.i.i.i.i.i
@@ -535,7 +534,7 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit.i.i.i:          ; preds = %invoke.cont.i.i.i.i
   store i8 0, ptr %using_buf_.i.i.i, align 8
   br label %invoke.cont.i.i
 
-invoke.cont.i.i:                                  ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i.i, %if.end.i.i.i, %lor.lhs.false.i.i.i, %if.then.i.i30
+invoke.cont.i.i:                                  ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i.i, %lor.lhs.false.i.i.i, %if.then.i.i30
   %.pre = load i32, ptr %outstanding_buffer_borrows_.i.i, align 4
   br label %if.then.i.i.i
 
@@ -544,8 +543,8 @@ if.then.i.i.i:                                    ; preds = %invoke.cont8, %invo
   store ptr %this, ptr %guard, align 8
   %inc.i.i.i.i = add nsw i32 %21, 1
   store i32 %inc.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i, align 4
-  %cmp.i.i.i.i31 = icmp eq i32 %21, 0
-  br i1 %cmp.i.i.i.i31, label %if.then.i.thread, label %if.then.i
+  %cmp.i.i.i.i32 = icmp eq i32 %21, 0
+  br i1 %cmp.i.i.i.i32, label %if.then.i.thread, label %if.then.i
 
 if.then.i.thread:                                 ; preds = %if.then.i.i.i
   %22 = load i64, ptr %cursor_.i, align 8
@@ -561,23 +560,22 @@ if.then.i:                                        ; preds = %if.then.i.i.i
 lor.lhs.false.i.i:                                ; preds = %if.then.i.thread, %if.then.i
   %23 = load i8, ptr %using_buf_.i.i, align 8
   %tobool.i.i37 = trunc i8 %23 to i1
-  br i1 %tobool.i.i37, label %if.end.i.i, label %if.end
-
-if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
+  %tobool.not.i.i = xor i1 %tobool.i.i37, true
   %24 = load i8, ptr %eof_.i.i, align 8
   %tobool3.i.i = trunc i8 %24 to i1
-  br i1 %tobool3.i.i, label %if.end, label %if.end5.i.i
+  %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %tobool3.i.i
+  br i1 %or.cond.i.i, label %if.end, label %if.end5.i.i
 
-if.end5.i.i:                                      ; preds = %if.end.i.i
+if.end5.i.i:                                      ; preds = %lor.lhs.false.i.i
   %25 = load ptr, ptr %_M_finish.i.i.i, align 8
   %26 = load ptr, ptr %buf_.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i40 = ptrtoint ptr %25 to i64
   %sub.ptr.rhs.cast.i.i.i41 = ptrtoint ptr %26 to i64
   %27 = load i64, ptr %buffer_start_.i.i, align 8
   %28 = load i64, ptr %last_chunk_.i.i, align 8
-  %.neg197 = add i64 %27, %sub.ptr.lhs.cast.i.i.i40
+  %.neg201 = add i64 %27, %sub.ptr.lhs.cast.i.i.i40
   %29 = add i64 %28, %sub.ptr.rhs.cast.i.i.i41
-  %sub.i.i45 = sub i64 %.neg197, %29
+  %sub.i.i45 = sub i64 %.neg201, %29
   %30 = load i64, ptr %cursor_.i, align 8
   %storemerge.i.i = tail call i64 @llvm.usub.sat.i64(i64 %30, i64 %sub.i.i45)
   store i64 %storemerge.i.i, ptr %cursor_.i, align 8
@@ -593,17 +591,17 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit.i.i:            ; preds = %invoke.cont.i.i.i.i
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %if.end
-  %lpad.loopexit204 = landingpad { ptr, i32 }
+  %lpad.loopexit208 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.i.invoke, %if.then14
-  %lpad.loopexit.split-lp205 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp209 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-if.end:                                           ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i, %if.end.i.i, %lor.lhs.false.i.i, %if.then.i, %invoke.cont4
-  %31 = phi ptr [ %this, %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i ], [ %this, %if.end.i.i ], [ %this, %lor.lhs.false.i.i ], [ %this, %if.then.i ], [ %0, %invoke.cont4 ]
+if.end:                                           ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i, %lor.lhs.false.i.i, %if.then.i, %invoke.cont4
+  %31 = phi ptr [ %this, %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i ], [ %this, %lor.lhs.false.i.i ], [ %this, %if.then.i ], [ %0, %invoke.cont4 ]
   %call13 = invoke noundef zeroext i1 @_ZN6google8protobuf13json_internal22ZeroCopyBufferedStream9ReadChunkEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
           to label %invoke.cont12 unwind label %lpad.loopexit
 
@@ -633,13 +631,13 @@ lpad.i.i:                                         ; preds = %if.then.i.i.i47
   br label %ehcleanup
 
 invoke.cont18:                                    ; preds = %if.then.i.i.i47
-  %.pre262 = load i64, ptr %ref.tmp15, align 8
-  %and.i.i.i = and i64 %.pre262, 1
+  %.pre266 = load i64, ptr %ref.tmp15, align 8
+  %and.i.i.i = and i64 %.pre266, 1
   %cmp.i.i.i48 = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i48, label %cleanup, label %if.then.i.i49
 
 if.then.i.i49:                                    ; preds = %invoke.cont18
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.pre262)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.pre266)
           to label %cleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i49
@@ -663,7 +661,7 @@ if.then.i.i56:                                    ; preds = %if.end19
 
 invoke.cont21:                                    ; preds = %if.then.i.i56, %if.end19
   %cmp.not.i.i60 = icmp eq ptr %31, null
-  br i1 %cmp.not.i.i60, label %if.then.i.i.i71, label %if.then.i.i61
+  br i1 %cmp.not.i.i60, label %if.then.i.i.i89, label %if.then.i.i61
 
 if.then.i.i61:                                    ; preds = %invoke.cont21
   %outstanding_buffer_borrows_.i.i.i62 = getelementptr inbounds nuw i8, ptr %31, i64 76
@@ -671,122 +669,120 @@ if.then.i.i61:                                    ; preds = %invoke.cont21
   %dec.i.i.i63 = add nsw i32 %38, -1
   store i32 %dec.i.i.i63, ptr %outstanding_buffer_borrows_.i.i.i62, align 4
   %cmp.i.i.i64 = icmp sgt i32 %38, 1
-  br i1 %cmp.i.i.i64, label %invoke.cont.i.i68, label %lor.lhs.false.i.i.i65
+  br i1 %cmp.i.i.i64, label %invoke.cont.i.i86, label %lor.lhs.false.i.i.i65
 
 lor.lhs.false.i.i.i65:                            ; preds = %if.then.i.i61
   %using_buf_.i.i.i66 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %39 = load i8, ptr %using_buf_.i.i.i66, align 8
   %tobool.i.i.i67 = trunc i8 %39 to i1
-  br i1 %tobool.i.i.i67, label %if.end.i.i.i78, label %invoke.cont.i.i68
+  %tobool.not.i.i.i68 = xor i1 %tobool.i.i.i67, true
+  %eof_.i.i.i69 = getelementptr inbounds nuw i8, ptr %31, i64 72
+  %40 = load i8, ptr %eof_.i.i.i69, align 8
+  %tobool3.i.i.i70 = trunc i8 %40 to i1
+  %or.cond.i.i.i71 = select i1 %tobool.not.i.i.i68, i1 true, i1 %tobool3.i.i.i70
+  br i1 %or.cond.i.i.i71, label %invoke.cont.i.i86, label %if.end5.i.i.i72
 
-if.end.i.i.i78:                                   ; preds = %lor.lhs.false.i.i.i65
-  %eof_.i.i.i79 = getelementptr inbounds nuw i8, ptr %31, i64 72
-  %40 = load i8, ptr %eof_.i.i.i79, align 8
-  %tobool3.i.i.i80 = trunc i8 %40 to i1
-  br i1 %tobool3.i.i.i80, label %invoke.cont.i.i68, label %if.end5.i.i.i81
+if.end5.i.i.i72:                                  ; preds = %lor.lhs.false.i.i.i65
+  %buf_.i.i.i73 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %_M_finish.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %41 = load ptr, ptr %_M_finish.i.i.i.i74, align 8
+  %42 = load ptr, ptr %buf_.i.i.i73, align 8
+  %sub.ptr.lhs.cast.i.i.i.i75 = ptrtoint ptr %41 to i64
+  %sub.ptr.rhs.cast.i.i.i.i76 = ptrtoint ptr %42 to i64
+  %buffer_start_.i.i.i77 = getelementptr inbounds nuw i8, ptr %31, i64 64
+  %43 = load i64, ptr %buffer_start_.i.i.i77, align 8
+  %last_chunk_.i.i.i78 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %44 = load i64, ptr %last_chunk_.i.i.i78, align 8
+  %.neg205 = add i64 %43, %sub.ptr.lhs.cast.i.i.i.i75
+  %45 = add i64 %44, %sub.ptr.rhs.cast.i.i.i.i76
+  %sub.i.i.i80 = sub i64 %.neg205, %45
+  %cursor_.i.i.i81 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  %46 = load i64, ptr %cursor_.i.i.i81, align 8
+  %storemerge.i.i.i82 = tail call i64 @llvm.usub.sat.i64(i64 %46, i64 %sub.i.i.i80)
+  store i64 %storemerge.i.i.i82, ptr %cursor_.i.i.i81, align 8
+  %tobool.not.i.i.i.i.i83 = icmp eq ptr %41, %42
+  br i1 %tobool.not.i.i.i.i.i83, label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i.i85, label %invoke.cont.i.i.i.i.i84
 
-if.end5.i.i.i81:                                  ; preds = %if.end.i.i.i78
-  %buf_.i.i.i82 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %_M_finish.i.i.i.i83 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %41 = load ptr, ptr %_M_finish.i.i.i.i83, align 8
-  %42 = load ptr, ptr %buf_.i.i.i82, align 8
-  %sub.ptr.lhs.cast.i.i.i.i84 = ptrtoint ptr %41 to i64
-  %sub.ptr.rhs.cast.i.i.i.i85 = ptrtoint ptr %42 to i64
-  %buffer_start_.i.i.i86 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %43 = load i64, ptr %buffer_start_.i.i.i86, align 8
-  %last_chunk_.i.i.i87 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %44 = load i64, ptr %last_chunk_.i.i.i87, align 8
-  %.neg201 = add i64 %43, %sub.ptr.lhs.cast.i.i.i.i84
-  %45 = add i64 %44, %sub.ptr.rhs.cast.i.i.i.i85
-  %sub.i.i.i89 = sub i64 %.neg201, %45
-  %cursor_.i.i.i90 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %46 = load i64, ptr %cursor_.i.i.i90, align 8
-  %storemerge.i.i.i91 = tail call i64 @llvm.usub.sat.i64(i64 %46, i64 %sub.i.i.i89)
-  store i64 %storemerge.i.i.i91, ptr %cursor_.i.i.i90, align 8
-  %tobool.not.i.i.i.i.i92 = icmp eq ptr %41, %42
-  br i1 %tobool.not.i.i.i.i.i92, label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i.i94, label %invoke.cont.i.i.i.i.i93
+invoke.cont.i.i.i.i.i84:                          ; preds = %if.end5.i.i.i72
+  store ptr %42, ptr %_M_finish.i.i.i.i74, align 8
+  br label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i.i85
 
-invoke.cont.i.i.i.i.i93:                          ; preds = %if.end5.i.i.i81
-  store ptr %42, ptr %_M_finish.i.i.i.i83, align 8
-  br label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i.i94
-
-_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i.i94:        ; preds = %invoke.cont.i.i.i.i.i93, %if.end5.i.i.i81
+_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i.i85:        ; preds = %invoke.cont.i.i.i.i.i84, %if.end5.i.i.i72
   store i8 0, ptr %using_buf_.i.i.i66, align 8
-  br label %invoke.cont.i.i68
+  br label %invoke.cont.i.i86
 
-invoke.cont.i.i68:                                ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i.i94, %if.end.i.i.i78, %lor.lhs.false.i.i.i65, %if.then.i.i61
-  %.pre263 = load i32, ptr %outstanding_buffer_borrows_.i.i, align 4
-  br label %if.then.i.i.i71
+invoke.cont.i.i86:                                ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i.i85, %lor.lhs.false.i.i.i65, %if.then.i.i61
+  %.pre267 = load i32, ptr %outstanding_buffer_borrows_.i.i, align 4
+  br label %if.then.i.i.i89
 
-if.then.i.i.i71:                                  ; preds = %invoke.cont21, %invoke.cont.i.i68
-  %47 = phi i32 [ %inc.i.i54, %invoke.cont21 ], [ %.pre263, %invoke.cont.i.i68 ]
+if.then.i.i.i89:                                  ; preds = %invoke.cont21, %invoke.cont.i.i86
+  %47 = phi i32 [ %inc.i.i54, %invoke.cont21 ], [ %.pre267, %invoke.cont.i.i86 ]
   store ptr %this, ptr %guard, align 8
-  %inc.i.i.i.i73 = add nsw i32 %47, 1
-  store i32 %inc.i.i.i.i73, ptr %outstanding_buffer_borrows_.i.i, align 4
-  %cmp.i.i.i.i74 = icmp eq i32 %47, 0
-  br i1 %cmp.i.i.i.i74, label %if.then.i97.thread, label %if.then.i97
+  %inc.i.i.i.i91 = add nsw i32 %47, 1
+  store i32 %inc.i.i.i.i91, ptr %outstanding_buffer_borrows_.i.i, align 4
+  %cmp.i.i.i.i92 = icmp eq i32 %47, 0
+  br i1 %cmp.i.i.i.i92, label %if.then.i98.thread, label %if.then.i98
 
-if.then.i97.thread:                               ; preds = %if.then.i.i.i71
+if.then.i98.thread:                               ; preds = %if.then.i.i.i89
   %48 = load i64, ptr %cursor_.i, align 8
   store i64 %48, ptr %buffer_start_.i.i, align 8
   store i32 %47, ptr %outstanding_buffer_borrows_.i.i, align 4
-  br label %lor.lhs.false.i.i101
+  br label %lor.lhs.false.i.i102
 
-if.then.i97:                                      ; preds = %if.then.i.i.i71
+if.then.i98:                                      ; preds = %if.then.i.i.i89
   store i32 %47, ptr %outstanding_buffer_borrows_.i.i, align 4
-  %cmp.i.i100 = icmp sgt i32 %47, 0
-  br i1 %cmp.i.i100, label %while.cond.backedge, label %lor.lhs.false.i.i101
+  %cmp.i.i101 = icmp sgt i32 %47, 0
+  br i1 %cmp.i.i101, label %while.cond.backedge, label %lor.lhs.false.i.i102
 
-while.cond.backedge:                              ; preds = %if.then.i97, %lor.lhs.false.i.i101, %if.end.i.i105, %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i121
+while.cond.backedge:                              ; preds = %if.then.i98, %lor.lhs.false.i.i102, %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i122
   br label %while.cond, !llvm.loop !10
 
-lor.lhs.false.i.i101:                             ; preds = %if.then.i97.thread, %if.then.i97
+lor.lhs.false.i.i102:                             ; preds = %if.then.i98.thread, %if.then.i98
   %49 = load i8, ptr %using_buf_.i.i, align 8
-  %tobool.i.i103 = trunc i8 %49 to i1
-  br i1 %tobool.i.i103, label %if.end.i.i105, label %while.cond.backedge
-
-if.end.i.i105:                                    ; preds = %lor.lhs.false.i.i101
+  %tobool.i.i104 = trunc i8 %49 to i1
+  %tobool.not.i.i105 = xor i1 %tobool.i.i104, true
   %50 = load i8, ptr %eof_.i.i, align 8
   %tobool3.i.i107 = trunc i8 %50 to i1
-  br i1 %tobool3.i.i107, label %while.cond.backedge, label %if.end5.i.i108
+  %or.cond.i.i108 = select i1 %tobool.not.i.i105, i1 true, i1 %tobool3.i.i107
+  br i1 %or.cond.i.i108, label %while.cond.backedge, label %if.end5.i.i109
 
-if.end5.i.i108:                                   ; preds = %if.end.i.i105
+if.end5.i.i109:                                   ; preds = %lor.lhs.false.i.i102
   %51 = load ptr, ptr %_M_finish.i.i.i, align 8
   %52 = load ptr, ptr %buf_.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i111 = ptrtoint ptr %51 to i64
-  %sub.ptr.rhs.cast.i.i.i112 = ptrtoint ptr %52 to i64
+  %sub.ptr.lhs.cast.i.i.i112 = ptrtoint ptr %51 to i64
+  %sub.ptr.rhs.cast.i.i.i113 = ptrtoint ptr %52 to i64
   %53 = load i64, ptr %buffer_start_.i.i, align 8
   %54 = load i64, ptr %last_chunk_.i.i, align 8
-  %.neg203 = add i64 %53, %sub.ptr.lhs.cast.i.i.i111
-  %55 = add i64 %54, %sub.ptr.rhs.cast.i.i.i112
-  %sub.i.i116 = sub i64 %.neg203, %55
+  %.neg207 = add i64 %53, %sub.ptr.lhs.cast.i.i.i112
+  %55 = add i64 %54, %sub.ptr.rhs.cast.i.i.i113
+  %sub.i.i117 = sub i64 %.neg207, %55
   %56 = load i64, ptr %cursor_.i, align 8
-  %storemerge.i.i118 = tail call i64 @llvm.usub.sat.i64(i64 %56, i64 %sub.i.i116)
-  store i64 %storemerge.i.i118, ptr %cursor_.i, align 8
-  %tobool.not.i.i.i.i119 = icmp eq ptr %51, %52
-  br i1 %tobool.not.i.i.i.i119, label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i121, label %invoke.cont.i.i.i.i120
+  %storemerge.i.i119 = tail call i64 @llvm.usub.sat.i64(i64 %56, i64 %sub.i.i117)
+  store i64 %storemerge.i.i119, ptr %cursor_.i, align 8
+  %tobool.not.i.i.i.i120 = icmp eq ptr %51, %52
+  br i1 %tobool.not.i.i.i.i120, label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i122, label %invoke.cont.i.i.i.i121
 
-invoke.cont.i.i.i.i120:                           ; preds = %if.end5.i.i108
+invoke.cont.i.i.i.i121:                           ; preds = %if.end5.i.i109
   store ptr %52, ptr %_M_finish.i.i.i, align 8
-  br label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i121
+  br label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i122
 
-_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i121:         ; preds = %invoke.cont.i.i.i.i120, %if.end5.i.i108
+_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i122:         ; preds = %invoke.cont.i.i.i.i121, %if.end5.i.i109
   store i8 0, ptr %using_buf_.i.i, align 8
   br label %while.cond.backedge
 
 while.end30:                                      ; preds = %invoke.cont
   %57 = load i32, ptr %outstanding_buffer_borrows_.i.i, align 4
-  %inc.i.i126 = add nsw i32 %57, 1
-  store i32 %inc.i.i126, ptr %outstanding_buffer_borrows_.i.i, align 4
-  %cmp.i.i127 = icmp eq i32 %57, 0
-  br i1 %cmp.i.i127, label %if.then.i133.thread, label %if.then.i.i.i.i.i
+  %inc.i.i128 = add nsw i32 %57, 1
+  store i32 %inc.i.i128, ptr %outstanding_buffer_borrows_.i.i, align 4
+  %cmp.i.i129 = icmp eq i32 %57, 0
+  br i1 %cmp.i.i129, label %if.then.i135.thread, label %if.then.i.i.i.i.i
 
-if.then.i133.thread:                              ; preds = %while.end30
+if.then.i135.thread:                              ; preds = %while.end30
   store i64 %1, ptr %buffer_start_.i.i, align 8
   %58 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %this, ptr %58, align 8
   store i64 0, ptr %agg.result, align 8
-  store i32 %inc.i.i126, ptr %outstanding_buffer_borrows_.i.i, align 4
+  store i32 %inc.i.i128, ptr %outstanding_buffer_borrows_.i.i, align 4
   br label %cleanup
 
 if.then.i.i.i.i.i:                                ; preds = %while.end30
@@ -794,108 +790,108 @@ if.then.i.i.i.i.i:                                ; preds = %while.end30
   store ptr %this, ptr %59, align 8
   %inc.i.i.i.i.i.i = add nsw i32 %57, 2
   store i32 %inc.i.i.i.i.i.i, ptr %outstanding_buffer_borrows_.i.i, align 4
-  %cmp.i.i.i.i.i.i = icmp eq i32 %inc.i.i126, 0
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i133.thread191, label %if.then.i133
+  %cmp.i.i.i.i.i.i = icmp eq i32 %inc.i.i128, 0
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i135.thread195, label %if.then.i135
 
-if.then.i133.thread191:                           ; preds = %if.then.i.i.i.i.i
+if.then.i135.thread195:                           ; preds = %if.then.i.i.i.i.i
   store i64 %1, ptr %buffer_start_.i.i, align 8
   store i64 0, ptr %agg.result, align 8
   store i32 0, ptr %outstanding_buffer_borrows_.i.i, align 4
-  br i1 %tobool.i.i, label %if.end.i.i141, label %cleanup
+  br label %lor.lhs.false.i.i139
 
-if.then.i133:                                     ; preds = %if.then.i.i.i.i.i
+if.then.i135:                                     ; preds = %if.then.i.i.i.i.i
   store i64 0, ptr %agg.result, align 8
-  store i32 %inc.i.i126, ptr %outstanding_buffer_borrows_.i.i, align 4
-  %cmp.i.i136 = icmp slt i32 %57, 0
-  %brmerge.not = and i1 %cmp.i.i136, %tobool.i.i
-  br i1 %brmerge.not, label %if.end.i.i141, label %cleanup
+  store i32 %inc.i.i128, ptr %outstanding_buffer_borrows_.i.i, align 4
+  %cmp.i.i138 = icmp sgt i32 %57, -1
+  br i1 %cmp.i.i138, label %cleanup, label %lor.lhs.false.i.i139
 
-if.end.i.i141:                                    ; preds = %if.then.i133, %if.then.i133.thread191
+lor.lhs.false.i.i139:                             ; preds = %if.then.i135.thread195, %if.then.i135
+  %tobool.not.i.i142 = xor i1 %tobool.i.i, true
   %60 = load i8, ptr %eof_.i.i, align 8
-  %tobool3.i.i143 = trunc i8 %60 to i1
-  br i1 %tobool3.i.i143, label %cleanup, label %if.end5.i.i144
+  %tobool3.i.i144 = trunc i8 %60 to i1
+  %or.cond.i.i145 = select i1 %tobool.not.i.i142, i1 true, i1 %tobool3.i.i144
+  br i1 %or.cond.i.i145, label %cleanup, label %if.end5.i.i146
 
-if.end5.i.i144:                                   ; preds = %if.end.i.i141
+if.end5.i.i146:                                   ; preds = %lor.lhs.false.i.i139
   %61 = load ptr, ptr %_M_finish.i.i.i, align 8
   %62 = load ptr, ptr %buf_.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i147 = ptrtoint ptr %61 to i64
-  %sub.ptr.rhs.cast.i.i.i148 = ptrtoint ptr %62 to i64
+  %sub.ptr.lhs.cast.i.i.i149 = ptrtoint ptr %61 to i64
+  %sub.ptr.rhs.cast.i.i.i150 = ptrtoint ptr %62 to i64
   %63 = load i64, ptr %buffer_start_.i.i, align 8
-  %64 = add i64 %63, %sub.ptr.lhs.cast.i.i.i147
-  %65 = add i64 %view.sroa.0.0.copyload.i.i, %sub.ptr.rhs.cast.i.i.i148
-  %sub.i.i152 = sub i64 %64, %65
-  %storemerge.i.i154 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %sub.i.i152)
-  store i64 %storemerge.i.i154, ptr %cursor_.i, align 8
-  %tobool.not.i.i.i.i155 = icmp eq ptr %61, %62
-  br i1 %tobool.not.i.i.i.i155, label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i157, label %invoke.cont.i.i.i.i156
+  %64 = add i64 %63, %sub.ptr.lhs.cast.i.i.i149
+  %65 = add i64 %view.sroa.0.0.copyload.i.i, %sub.ptr.rhs.cast.i.i.i150
+  %sub.i.i154 = sub i64 %64, %65
+  %storemerge.i.i156 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %sub.i.i154)
+  store i64 %storemerge.i.i156, ptr %cursor_.i, align 8
+  %tobool.not.i.i.i.i157 = icmp eq ptr %61, %62
+  br i1 %tobool.not.i.i.i.i157, label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i159, label %invoke.cont.i.i.i.i158
 
-invoke.cont.i.i.i.i156:                           ; preds = %if.end5.i.i144
+invoke.cont.i.i.i.i158:                           ; preds = %if.end5.i.i146
   store ptr %62, ptr %_M_finish.i.i.i, align 8
-  br label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i157
+  br label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i159
 
-_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i157:         ; preds = %invoke.cont.i.i.i.i156, %if.end5.i.i144
+_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i159:         ; preds = %invoke.cont.i.i.i.i158, %if.end5.i.i146
   store i8 0, ptr %using_buf_.i.i, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont16, %if.then.i133.thread, %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i157, %if.end.i.i141, %if.then.i133.thread191, %if.then.i133, %if.then.i.i49, %invoke.cont18
-  %66 = phi ptr [ %0, %if.then.i133.thread ], [ %0, %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i157 ], [ %0, %if.end.i.i141 ], [ %0, %if.then.i133.thread191 ], [ %0, %if.then.i133 ], [ %31, %if.then.i.i49 ], [ %31, %invoke.cont18 ], [ %31, %invoke.cont16 ]
-  %cmp.not.i159 = icmp eq ptr %66, null
-  br i1 %cmp.not.i159, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit185, label %if.then.i160
+cleanup:                                          ; preds = %invoke.cont16, %if.then.i135.thread, %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i159, %lor.lhs.false.i.i139, %if.then.i135, %if.then.i.i49, %invoke.cont18
+  %66 = phi ptr [ %0, %if.then.i135.thread ], [ %0, %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i159 ], [ %0, %lor.lhs.false.i.i139 ], [ %0, %if.then.i135 ], [ %31, %if.then.i.i49 ], [ %31, %invoke.cont18 ], [ %31, %invoke.cont16 ]
+  %cmp.not.i162 = icmp eq ptr %66, null
+  br i1 %cmp.not.i162, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit189, label %if.then.i163
 
-if.then.i160:                                     ; preds = %cleanup
-  %outstanding_buffer_borrows_.i.i161 = getelementptr inbounds nuw i8, ptr %66, i64 76
-  %67 = load i32, ptr %outstanding_buffer_borrows_.i.i161, align 4
-  %dec.i.i162 = add nsw i32 %67, -1
-  store i32 %dec.i.i162, ptr %outstanding_buffer_borrows_.i.i161, align 4
-  %cmp.i.i163 = icmp sgt i32 %67, 1
-  br i1 %cmp.i.i163, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit185, label %lor.lhs.false.i.i164
+if.then.i163:                                     ; preds = %cleanup
+  %outstanding_buffer_borrows_.i.i164 = getelementptr inbounds nuw i8, ptr %66, i64 76
+  %67 = load i32, ptr %outstanding_buffer_borrows_.i.i164, align 4
+  %dec.i.i165 = add nsw i32 %67, -1
+  store i32 %dec.i.i165, ptr %outstanding_buffer_borrows_.i.i164, align 4
+  %cmp.i.i166 = icmp sgt i32 %67, 1
+  br i1 %cmp.i.i166, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit189, label %lor.lhs.false.i.i167
 
-lor.lhs.false.i.i164:                             ; preds = %if.then.i160
-  %using_buf_.i.i165 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %68 = load i8, ptr %using_buf_.i.i165, align 8
-  %tobool.i.i166 = trunc i8 %68 to i1
-  br i1 %tobool.i.i166, label %if.end.i.i168, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit185
+lor.lhs.false.i.i167:                             ; preds = %if.then.i163
+  %using_buf_.i.i168 = getelementptr inbounds nuw i8, ptr %66, i64 48
+  %68 = load i8, ptr %using_buf_.i.i168, align 8
+  %tobool.i.i169 = trunc i8 %68 to i1
+  %tobool.not.i.i170 = xor i1 %tobool.i.i169, true
+  %eof_.i.i171 = getelementptr inbounds nuw i8, ptr %66, i64 72
+  %69 = load i8, ptr %eof_.i.i171, align 8
+  %tobool3.i.i172 = trunc i8 %69 to i1
+  %or.cond.i.i173 = select i1 %tobool.not.i.i170, i1 true, i1 %tobool3.i.i172
+  br i1 %or.cond.i.i173, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit189, label %if.end5.i.i174
 
-if.end.i.i168:                                    ; preds = %lor.lhs.false.i.i164
-  %eof_.i.i169 = getelementptr inbounds nuw i8, ptr %66, i64 72
-  %69 = load i8, ptr %eof_.i.i169, align 8
-  %tobool3.i.i170 = trunc i8 %69 to i1
-  br i1 %tobool3.i.i170, label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit185, label %if.end5.i.i171
+if.end5.i.i174:                                   ; preds = %lor.lhs.false.i.i167
+  %buf_.i.i175 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  %_M_finish.i.i.i176 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  %70 = load ptr, ptr %_M_finish.i.i.i176, align 8
+  %71 = load ptr, ptr %buf_.i.i175, align 8
+  %sub.ptr.lhs.cast.i.i.i177 = ptrtoint ptr %70 to i64
+  %sub.ptr.rhs.cast.i.i.i178 = ptrtoint ptr %71 to i64
+  %buffer_start_.i.i179 = getelementptr inbounds nuw i8, ptr %66, i64 64
+  %72 = load i64, ptr %buffer_start_.i.i179, align 8
+  %last_chunk_.i.i180 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %73 = load i64, ptr %last_chunk_.i.i180, align 8
+  %.neg203 = add i64 %72, %sub.ptr.lhs.cast.i.i.i177
+  %74 = add i64 %73, %sub.ptr.rhs.cast.i.i.i178
+  %sub.i.i182 = sub i64 %.neg203, %74
+  %cursor_.i.i183 = getelementptr inbounds nuw i8, ptr %66, i64 56
+  %75 = load i64, ptr %cursor_.i.i183, align 8
+  %storemerge.i.i184 = call i64 @llvm.usub.sat.i64(i64 %75, i64 %sub.i.i182)
+  store i64 %storemerge.i.i184, ptr %cursor_.i.i183, align 8
+  %tobool.not.i.i.i.i185 = icmp eq ptr %70, %71
+  br i1 %tobool.not.i.i.i.i185, label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i187, label %invoke.cont.i.i.i.i186
 
-if.end5.i.i171:                                   ; preds = %if.end.i.i168
-  %buf_.i.i172 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %_M_finish.i.i.i173 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %70 = load ptr, ptr %_M_finish.i.i.i173, align 8
-  %71 = load ptr, ptr %buf_.i.i172, align 8
-  %sub.ptr.lhs.cast.i.i.i174 = ptrtoint ptr %70 to i64
-  %sub.ptr.rhs.cast.i.i.i175 = ptrtoint ptr %71 to i64
-  %buffer_start_.i.i176 = getelementptr inbounds nuw i8, ptr %66, i64 64
-  %72 = load i64, ptr %buffer_start_.i.i176, align 8
-  %last_chunk_.i.i177 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %73 = load i64, ptr %last_chunk_.i.i177, align 8
-  %.neg199 = add i64 %72, %sub.ptr.lhs.cast.i.i.i174
-  %74 = add i64 %73, %sub.ptr.rhs.cast.i.i.i175
-  %sub.i.i179 = sub i64 %.neg199, %74
-  %cursor_.i.i180 = getelementptr inbounds nuw i8, ptr %66, i64 56
-  %75 = load i64, ptr %cursor_.i.i180, align 8
-  %storemerge.i.i181 = call i64 @llvm.usub.sat.i64(i64 %75, i64 %sub.i.i179)
-  store i64 %storemerge.i.i181, ptr %cursor_.i.i180, align 8
-  %tobool.not.i.i.i.i182 = icmp eq ptr %70, %71
-  br i1 %tobool.not.i.i.i.i182, label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i184, label %invoke.cont.i.i.i.i183
+invoke.cont.i.i.i.i186:                           ; preds = %if.end5.i.i174
+  store ptr %71, ptr %_M_finish.i.i.i176, align 8
+  br label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i187
 
-invoke.cont.i.i.i.i183:                           ; preds = %if.end5.i.i171
-  store ptr %71, ptr %_M_finish.i.i.i173, align 8
-  br label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i184
+_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i187:         ; preds = %invoke.cont.i.i.i.i186, %if.end5.i.i174
+  store i8 0, ptr %using_buf_.i.i168, align 8
+  br label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit189
 
-_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i184:         ; preds = %invoke.cont.i.i.i.i183, %if.end5.i.i171
-  store i8 0, ptr %using_buf_.i.i165, align 8
-  br label %_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit185
-
-_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit185: ; preds = %if.then.i160, %lor.lhs.false.i.i164, %if.end.i.i168, %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i184, %cleanup
+_ZN6google8protobuf13json_internal14BufferingGuardD2Ev.exit189: ; preds = %if.then.i163, %lor.lhs.false.i.i167, %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.i187, %cleanup
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i.i
-  %.pn = phi { ptr, i32 } [ %33, %lpad.i.i ], [ %lpad.loopexit204, %lpad.loopexit ], [ %lpad.loopexit.split-lp205, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %33, %lpad.i.i ], [ %lpad.loopexit208, %lpad.loopexit ], [ %lpad.loopexit.split-lp209, %lpad.loopexit.split-lp ]
   call void @_ZN6google8protobuf13json_internal14BufferingGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %guard) #18
   resume { ptr, i32 } %.pn
 }
@@ -921,15 +917,14 @@ lor.lhs.false.i:                                  ; preds = %if.then
   %using_buf_.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %2 = load i8, ptr %using_buf_.i, align 8
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %if.end.i, label %invoke.cont
-
-if.end.i:                                         ; preds = %lor.lhs.false.i
+  %tobool.not.i = xor i1 %tobool.i, true
   %eof_.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i8, ptr %eof_.i, align 8
   %tobool3.i = trunc i8 %3 to i1
-  br i1 %tobool3.i, label %invoke.cont, label %if.end5.i
+  %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %tobool3.i
+  br i1 %or.cond.i, label %invoke.cont, label %if.end5.i
 
-if.end5.i:                                        ; preds = %if.end.i
+if.end5.i:                                        ; preds = %lor.lhs.false.i
   %buf_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %_M_finish.i.i, align 8
@@ -958,7 +953,7 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit.i:              ; preds = %invoke.cont.i.i.i, 
   store i8 0, ptr %using_buf_.i, align 8
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i, %if.end.i, %lor.lhs.false.i, %if.then
+invoke.cont:                                      ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i, %lor.lhs.false.i, %if.then
   store ptr null, ptr %this, align 8
   br label %if.end
 
@@ -1003,15 +998,14 @@ lor.lhs.false:                                    ; preds = %entry
   %using_buf_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load i8, ptr %using_buf_, align 8
   %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.end, label %return
-
-if.end:                                           ; preds = %lor.lhs.false
+  %tobool.not = xor i1 %tobool, true
   %eof_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %2 = load i8, ptr %eof_, align 8
   %tobool3 = trunc i8 %2 to i1
-  br i1 %tobool3, label %return, label %if.end5
+  %or.cond = select i1 %tobool.not, i1 true, i1 %tobool3
+  br i1 %or.cond, label %return, label %if.end5
 
-if.end5:                                          ; preds = %if.end
+if.end5:                                          ; preds = %lor.lhs.false
   %buf_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_finish.i, align 8
@@ -1040,7 +1034,7 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %if.end5, %invoke.co
   store i8 0, ptr %using_buf_, align 8
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %_ZNSt6vectorIcSaIcEE5clearEv.exit
+return:                                           ; preds = %entry, %lor.lhs.false, %_ZNSt6vectorIcSaIcEE5clearEv.exit
   ret void
 }
 

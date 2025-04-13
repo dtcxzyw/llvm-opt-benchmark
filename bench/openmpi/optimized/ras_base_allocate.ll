@@ -573,21 +573,21 @@ define internal fastcc void @display_cpus(ptr noundef readonly captures(none) %0
   %12 = tail call i32 @prte_hwloc_base_get_nbobjs_by_type(ptr noundef %11, i32 noundef 3) #15
   %13 = load ptr, ptr %10, align 8, !tbaa !48
   %14 = tail call i32 @prte_hwloc_base_get_nbobjs_by_type(ptr noundef %13, i32 noundef 2) #15
-  %15 = icmp eq i32 %12, %14
-  %not. = xor i1 %9, true
-  %spec.select54 = select i1 %15, i1 %not., i1 false
-  %spec.select54.fr = freeze i1 %spec.select54
+  %15 = icmp ne i32 %12, %14
+  %or.cond = select i1 %15, i1 true, i1 %9
+  %or.cond.fr = freeze i1 %or.cond
+  %.053 = xor i1 %or.cond.fr, true
   %16 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %6, i16 noundef zeroext 279, ptr noundef null, i16 noundef zeroext 1) #15
   %.fr = freeze i1 %16
-  %brmerge = or i1 %.fr, %spec.select54.fr
-  br i1 %brmerge, label %19, label %17
+  %or.cond3 = or i1 %.fr, %.053
+  br i1 %or.cond3, label %19, label %17
 
 17:                                               ; preds = %8
   %18 = tail call noalias ptr @hwloc_bitmap_alloc() #15
   br label %19
 
-19:                                               ; preds = %8, %17
-  %.049 = phi ptr [ null, %8 ], [ %18, %17 ]
+19:                                               ; preds = %17, %8
+  %.052 = phi ptr [ null, %8 ], [ %18, %17 ]
   %20 = tail call noalias ptr @hwloc_bitmap_alloc() #15
   %21 = load i32, ptr @prte_clean_output, align 4, !tbaa !51
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %21, ptr noundef nonnull @.str.43, ptr noundef %2) #15
@@ -599,101 +599,101 @@ define internal fastcc void @display_cpus(ptr noundef readonly captures(none) %0
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  br i1 %spec.select54.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %or.cond.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %37
-  %.055.us = phi i32 [ %38, %37 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  br i1 %.fr, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %37
+  %.057.us.us = phi i32 [ %38, %37 ], [ 0, %.lr.ph.split.us ]
   %26 = load ptr, ptr %10, align 8, !tbaa !48
-  %27 = call ptr @prte_hwloc_base_get_obj_by_type(ptr noundef %26, i32 noundef 1, i32 noundef %.055.us) #15
+  %27 = call ptr @prte_hwloc_base_get_obj_by_type(ptr noundef %26, i32 noundef 1, i32 noundef %.057.us.us) #15
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 184
   %29 = load ptr, ptr %28, align 8, !tbaa !52
   %30 = call i32 @hwloc_bitmap_and(ptr noundef %20, ptr noundef %29, ptr noundef %25) #15
   %31 = call i32 @hwloc_bitmap_iszero(ptr noundef %20) #16
-  %.not53.us = icmp eq i32 %31, 0
-  br i1 %.not53.us, label %34, label %32
+  %.not56.us.us = icmp eq i32 %31, 0
+  br i1 %.not56.us.us, label %34, label %32
 
-32:                                               ; preds = %.lr.ph.split.us
+32:                                               ; preds = %.lr.ph.split.us.split.us
   %33 = load i32, ptr @prte_clean_output, align 4, !tbaa !51
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %33, ptr noundef nonnull @.str.45, i32 noundef %.055.us) #15
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %33, ptr noundef nonnull @.str.45, i32 noundef %.057.us.us) #15
   br label %37
 
-34:                                               ; preds = %.lr.ph.split.us
+34:                                               ; preds = %.lr.ph.split.us.split.us
   %35 = call i32 @hwloc_bitmap_list_snprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %20) #15
   %36 = load i32, ptr @prte_clean_output, align 4, !tbaa !51
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %36, ptr noundef nonnull @.str.46, i32 noundef %.055.us, ptr noundef nonnull %4) #15
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %36, ptr noundef nonnull @.str.46, i32 noundef %.057.us.us, ptr noundef nonnull %4) #15
   br label %37
 
 37:                                               ; preds = %34, %32
-  %38 = add nuw i32 %.055.us, 1
+  %38 = add nuw i32 %.057.us.us, 1
   %exitcond62.not = icmp eq i32 %38, %23
-  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !58
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !58
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.fr, label %.lr.ph.split.split.us, label %.lr.ph.split.split
-
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %50
-  %.055.us56 = phi i32 [ %51, %50 ], [ 0, %.lr.ph.split ]
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %51
+  %.057.us = phi i32 [ %52, %51 ], [ 0, %.lr.ph.split.us ]
   %39 = load ptr, ptr %10, align 8, !tbaa !48
-  %40 = call ptr @prte_hwloc_base_get_obj_by_type(ptr noundef %39, i32 noundef 1, i32 noundef %.055.us56) #15
+  %40 = call ptr @prte_hwloc_base_get_obj_by_type(ptr noundef %39, i32 noundef 1, i32 noundef %.057.us) #15
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 184
   %42 = load ptr, ptr %41, align 8, !tbaa !52
   %43 = call i32 @hwloc_bitmap_and(ptr noundef %20, ptr noundef %42, ptr noundef %25) #15
   %44 = call i32 @hwloc_bitmap_iszero(ptr noundef %20) #16
-  %.not53.us57 = icmp eq i32 %44, 0
-  br i1 %.not53.us57, label %47, label %45
+  %.not56.us = icmp eq i32 %44, 0
+  br i1 %.not56.us, label %47, label %45
 
-45:                                               ; preds = %.lr.ph.split.split.us
+45:                                               ; preds = %.lr.ph.split.us.split
   %46 = load i32, ptr @prte_clean_output, align 4, !tbaa !51
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %46, ptr noundef nonnull @.str.45, i32 noundef %.055.us56) #15
-  br label %50
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %46, ptr noundef nonnull @.str.45, i32 noundef %.057.us) #15
+  br label %51
 
-47:                                               ; preds = %.lr.ph.split.split.us
-  %48 = call i32 @hwloc_bitmap_list_snprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %20) #15
-  %49 = load i32, ptr @prte_clean_output, align 4, !tbaa !51
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %49, ptr noundef nonnull @.str.46, i32 noundef %.055.us56, ptr noundef nonnull %4) #15
-  br label %50
+47:                                               ; preds = %.lr.ph.split.us.split
+  %48 = load ptr, ptr %10, align 8, !tbaa !48
+  call void @prte_hwloc_build_map(ptr noundef %48, ptr noundef %20, i1 noundef zeroext false, ptr noundef %.052) #15
+  %49 = call i32 @hwloc_bitmap_list_snprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %.052) #15
+  %50 = load i32, ptr @prte_clean_output, align 4, !tbaa !51
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %50, ptr noundef nonnull @.str.46, i32 noundef %.057.us, ptr noundef nonnull %4) #15
+  br label %51
 
-50:                                               ; preds = %47, %45
-  %51 = add nuw i32 %.055.us56, 1
-  %exitcond61.not = icmp eq i32 %51, %23
-  br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !58
+51:                                               ; preds = %47, %45
+  %52 = add nuw i32 %.057.us, 1
+  %exitcond61.not = icmp eq i32 %52, %23
+  br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !58
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %64
-  %.055 = phi i32 [ %65, %64 ], [ 0, %.lr.ph.split ]
-  %52 = load ptr, ptr %10, align 8, !tbaa !48
-  %53 = call ptr @prte_hwloc_base_get_obj_by_type(ptr noundef %52, i32 noundef 1, i32 noundef %.055) #15
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
-  %55 = load ptr, ptr %54, align 8, !tbaa !52
-  %56 = call i32 @hwloc_bitmap_and(ptr noundef %20, ptr noundef %55, ptr noundef %25) #15
-  %57 = call i32 @hwloc_bitmap_iszero(ptr noundef %20) #16
-  %.not53 = icmp eq i32 %57, 0
-  br i1 %.not53, label %60, label %58
+.lr.ph.split:                                     ; preds = %.lr.ph, %64
+  %.057 = phi i32 [ %65, %64 ], [ 0, %.lr.ph ]
+  %53 = load ptr, ptr %10, align 8, !tbaa !48
+  %54 = call ptr @prte_hwloc_base_get_obj_by_type(ptr noundef %53, i32 noundef 1, i32 noundef %.057) #15
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
+  %56 = load ptr, ptr %55, align 8, !tbaa !52
+  %57 = call i32 @hwloc_bitmap_and(ptr noundef %20, ptr noundef %56, ptr noundef %25) #15
+  %58 = call i32 @hwloc_bitmap_iszero(ptr noundef %20) #16
+  %.not56 = icmp eq i32 %58, 0
+  br i1 %.not56, label %61, label %59
 
-58:                                               ; preds = %.lr.ph.split.split
-  %59 = load i32, ptr @prte_clean_output, align 4, !tbaa !51
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %59, ptr noundef nonnull @.str.45, i32 noundef %.055) #15
+59:                                               ; preds = %.lr.ph.split
+  %60 = load i32, ptr @prte_clean_output, align 4, !tbaa !51
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %60, ptr noundef nonnull @.str.45, i32 noundef %.057) #15
   br label %64
 
-60:                                               ; preds = %.lr.ph.split.split
-  %61 = load ptr, ptr %10, align 8, !tbaa !48
-  call void @prte_hwloc_build_map(ptr noundef %61, ptr noundef %20, i1 noundef zeroext false, ptr noundef %.049) #15
-  %62 = call i32 @hwloc_bitmap_list_snprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %.049) #15
+61:                                               ; preds = %.lr.ph.split
+  %62 = call i32 @hwloc_bitmap_list_snprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef %20) #15
   %63 = load i32, ptr @prte_clean_output, align 4, !tbaa !51
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %63, ptr noundef nonnull @.str.46, i32 noundef %.055, ptr noundef nonnull %4) #15
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %63, ptr noundef nonnull @.str.46, i32 noundef %.057, ptr noundef nonnull %4) #15
   br label %64
 
-64:                                               ; preds = %60, %58
-  %65 = add nuw i32 %.055, 1
+64:                                               ; preds = %61, %59
+  %65 = add nuw i32 %.057, 1
   %exitcond.not = icmp eq i32 %65, %23
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !58
 
-._crit_edge:                                      ; preds = %64, %50, %37, %19
+._crit_edge:                                      ; preds = %64, %51, %37, %19
   call void @hwloc_bitmap_free(ptr noundef %20) #15
-  %.not = icmp eq ptr %.049, null
+  %.not = icmp eq ptr %.052, null
   br i1 %.not, label %67, label %66
 
 66:                                               ; preds = %._crit_edge
-  call void @hwloc_bitmap_free(ptr noundef nonnull %.049) #15
+  call void @hwloc_bitmap_free(ptr noundef nonnull %.052) #15
   br label %67
 
 67:                                               ; preds = %._crit_edge, %66

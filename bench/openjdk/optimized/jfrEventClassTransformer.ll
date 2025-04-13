@@ -814,8 +814,8 @@ _ZL25create_new_instance_klassP13InstanceKlassP15ClassFileStreamP10JavaThread.ex
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %5)
   %281 = icmp eq ptr %.0.i.i.i, null
-  %brmerge.not.i.i = and i1 %.not6071.i, %281
-  br i1 %brmerge.not.i.i, label %282, label %_ZL21create_instance_klassRP13InstanceKlassP15ClassFileStreambP10JavaThread.exit.i
+  %or.cond.i.i = and i1 %.not6071.i, %281
+  br i1 %or.cond.i.i, label %282, label %_ZL21create_instance_klassRP13InstanceKlassP15ClassFileStreambP10JavaThread.exit.i
 
 282:                                              ; preds = %_ZL25create_new_instance_klassP13InstanceKlassP15ClassFileStreamP10JavaThread.exit.i.i
   %283 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
@@ -1595,8 +1595,8 @@ _ZL24position_stream_after_cpPK15ClassFileStream.exit.i: ; preds = %103, %_ZL21s
 
 111:                                              ; preds = %_ZL24position_stream_after_cpPK15ClassFileStream.exit.i
   %112 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not.i22 = icmp eq ptr %112, null
-  br i1 %.not.i22, label %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit.thread, label %113
+  %.not.i23 = icmp eq ptr %112, null
+  br i1 %.not.i23, label %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit.thread, label %113
 
 113:                                              ; preds = %111
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.18, i64 noundef %108)
@@ -3193,161 +3193,161 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
   %744 = getelementptr inbounds nuw i8, ptr %742, i64 2
   store ptr %744, ptr %76, align 8
   %745 = add i32 %445, 2
-  %.not21.i.i = icmp eq i16 %.0.i.i.i.i.i101.i, 0
-  br i1 %.not21.i.i, label %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.i, label %.lr.ph4.i.i
+  %.not20.i.i = icmp eq i16 %.0.i.i.i.i.i101.i, 0
+  br i1 %.not20.i.i, label %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.i, label %.lr.ph3.i.i
 
-.lr.ph4.i.i:                                      ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE7reserveEm.exit.i.i
+.lr.ph3.i.i:                                      ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE7reserveEm.exit.i.i
   %746 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %umax36.i.i = call i16 @llvm.umax.i16(i16 %743, i16 1)
-  br i1 %.not.i68.i, label %.lr.ph4.split.us.i.i, label %.lr.ph4.split.i.i
+  %umax35.i.i = call i16 @llvm.umax.i16(i16 %743, i16 1)
+  br i1 %.not.i68.i, label %.lr.ph3.split.us.i.i, label %.lr.ph3.split.i.i
 
-.lr.ph4.split.us.i.i:                             ; preds = %.lr.ph4.i.i, %._crit_edge.us.i.i
-  %.promoted.us19.i.i = phi ptr [ %.promoted.us18.i.i, %._crit_edge.us.i.i ], [ %744, %.lr.ph4.i.i ]
-  %.0283.us.i.i = phi i16 [ %750, %._crit_edge.us.i.i ], [ 0, %.lr.ph4.i.i ]
-  %747 = getelementptr inbounds nuw i8, ptr %.promoted.us19.i.i, i64 6
+.lr.ph3.split.us.i.i:                             ; preds = %.lr.ph3.i.i, %._crit_edge.us.i.i
+  %.promoted.us18.i.i = phi ptr [ %.promoted.us17.i.i, %._crit_edge.us.i.i ], [ %744, %.lr.ph3.i.i ]
+  %.0292.us.i.i = phi i16 [ %750, %._crit_edge.us.i.i ], [ 0, %.lr.ph3.i.i ]
+  %747 = getelementptr inbounds nuw i8, ptr %.promoted.us18.i.i, i64 6
   store ptr %747, ptr %76, align 8
-  %.0.i.i.i.i33.us.i.i = load i16, ptr %747, align 1
-  %748 = getelementptr inbounds nuw i8, ptr %.promoted.us19.i.i, i64 8
+  %.0.i.i.i.i32.us.i.i = load i16, ptr %747, align 1
+  %748 = getelementptr inbounds nuw i8, ptr %.promoted.us18.i.i, i64 8
   store ptr %748, ptr %76, align 8
-  %.not24.i.i = icmp eq i16 %.0.i.i.i.i33.us.i.i, 0
-  br i1 %.not24.i.i, label %._crit_edge.us.i.i, label %.lr.ph.us.preheader.i.i
+  %.not23.i107.i = icmp eq i16 %.0.i.i.i.i32.us.i.i, 0
+  br i1 %.not23.i107.i, label %._crit_edge.us.i.i, label %.lr.ph.us.preheader.i.i
 
-.lr.ph.us.preheader.i.i:                          ; preds = %.lr.ph4.split.us.i.i
-  %749 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i33.us.i.i)
-  %umax34.i.i = call i16 @llvm.umax.i16(i16 %749, i16 1)
+.lr.ph.us.preheader.i.i:                          ; preds = %.lr.ph3.split.us.i.i
+  %749 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i32.us.i.i)
+  %umax33.i.i = call i16 @llvm.umax.i16(i16 %749, i16 1)
   br label %.lr.ph.us.i.i
 
-._crit_edge.us.i.i:                               ; preds = %.lr.ph.us.i.i, %.lr.ph4.split.us.i.i
-  %.promoted.us18.i.i = phi ptr [ %748, %.lr.ph4.split.us.i.i ], [ %756, %.lr.ph.us.i.i ]
-  %750 = add nuw i16 %.0283.us.i.i, 1
-  %exitcond37.not.i.i = icmp eq i16 %750, %umax36.i.i
-  br i1 %exitcond37.not.i.i, label %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.i, label %.lr.ph4.split.us.i.i, !llvm.loop !22
+._crit_edge.us.i.i:                               ; preds = %.lr.ph.us.i.i, %.lr.ph3.split.us.i.i
+  %.promoted.us17.i.i = phi ptr [ %748, %.lr.ph3.split.us.i.i ], [ %756, %.lr.ph.us.i.i ]
+  %750 = add nuw i16 %.0292.us.i.i, 1
+  %exitcond36.not.i.i = icmp eq i16 %750, %umax35.i.i
+  br i1 %exitcond36.not.i.i, label %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.i, label %.lr.ph3.split.us.i.i, !llvm.loop !22
 
 .lr.ph.us.i.i:                                    ; preds = %.lr.ph.us.i.i, %.lr.ph.us.preheader.i.i
   %751 = phi ptr [ %756, %.lr.ph.us.i.i ], [ %748, %.lr.ph.us.preheader.i.i ]
-  %.02.us.i.i = phi i16 [ %757, %.lr.ph.us.i.i ], [ 0, %.lr.ph.us.preheader.i.i ]
+  %.01.us.i.i = phi i16 [ %757, %.lr.ph.us.i.i ], [ 0, %.lr.ph.us.preheader.i.i ]
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 2
   store ptr %752, ptr %76, align 8
-  %.0.i.i.i.i34.us.i.i = load i32, ptr %752, align 1
-  %753 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i34.us.i.i)
+  %.0.i.i.i.i33.us.i.i = load i32, ptr %752, align 1
+  %753 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i33.us.i.i)
   %754 = getelementptr inbounds nuw i8, ptr %751, i64 6
   %755 = sext i32 %753 to i64
   %756 = getelementptr inbounds i8, ptr %754, i64 %755
   store ptr %756, ptr %76, align 8
-  %757 = add nuw i16 %.02.us.i.i, 1
-  %exitcond35.not.i.i = icmp eq i16 %757, %umax34.i.i
-  br i1 %exitcond35.not.i.i, label %._crit_edge.us.i.i, label %.lr.ph.us.i.i, !llvm.loop !23
+  %757 = add nuw i16 %.01.us.i.i, 1
+  %exitcond34.not.i.i = icmp eq i16 %757, %umax33.i.i
+  br i1 %exitcond34.not.i.i, label %._crit_edge.us.i.i, label %.lr.ph.us.i.i, !llvm.loop !23
 
-.lr.ph4.split.i.i:                                ; preds = %.lr.ph4.i.i
-  br i1 %.0.i.i, label %.lr.ph4.split.split.preheader.i.i, label %.lr.ph4.split.split.us.i.i
+.lr.ph3.split.i.i:                                ; preds = %.lr.ph3.i.i
+  br i1 %.0.i.i, label %.lr.ph3.split.split.preheader.i.i, label %.lr.ph3.split.split.us.i.i
 
-.lr.ph4.split.split.preheader.i.i:                ; preds = %.lr.ph4.split.i.i
+.lr.ph3.split.split.preheader.i.i:                ; preds = %.lr.ph3.split.i.i
   %.pre332.i = load ptr, ptr %71, align 8
-  br label %.lr.ph4.split.split.i.i
+  br label %.lr.ph3.split.split.i.i
 
-.lr.ph4.split.split.us.i.i:                       ; preds = %.lr.ph4.split.i.i, %._crit_edge.us13.i.i
-  %.promoted.us1216.i.i = phi ptr [ %.promoted.us1215.i.i, %._crit_edge.us13.i.i ], [ %744, %.lr.ph4.split.i.i ]
-  %.0283.us6.i.i = phi i16 [ %761, %._crit_edge.us13.i.i ], [ 0, %.lr.ph4.split.i.i ]
-  %758 = getelementptr inbounds nuw i8, ptr %.promoted.us1216.i.i, i64 6
+.lr.ph3.split.split.us.i.i:                       ; preds = %.lr.ph3.split.i.i, %._crit_edge.us12.i.i
+  %.promoted.us1115.i.i = phi ptr [ %.promoted.us1114.i.i, %._crit_edge.us12.i.i ], [ %744, %.lr.ph3.split.i.i ]
+  %.0292.us5.i.i = phi i16 [ %761, %._crit_edge.us12.i.i ], [ 0, %.lr.ph3.split.i.i ]
+  %758 = getelementptr inbounds nuw i8, ptr %.promoted.us1115.i.i, i64 6
   store ptr %758, ptr %76, align 8
-  %.0.i.i.i.i33.us8.i.i = load i16, ptr %758, align 1
-  %759 = getelementptr inbounds nuw i8, ptr %.promoted.us1216.i.i, i64 8
+  %.0.i.i.i.i32.us7.i.i = load i16, ptr %758, align 1
+  %759 = getelementptr inbounds nuw i8, ptr %.promoted.us1115.i.i, i64 8
   store ptr %759, ptr %76, align 8
-  %.not22.i.i = icmp eq i16 %.0.i.i.i.i33.us8.i.i, 0
-  br i1 %.not22.i.i, label %._crit_edge.us13.i.i, label %.lr.ph.us11.preheader.i.i
+  %.not21.i.i = icmp eq i16 %.0.i.i.i.i32.us7.i.i, 0
+  br i1 %.not21.i.i, label %._crit_edge.us12.i.i, label %.lr.ph.us10.preheader.i.i
 
-.lr.ph.us11.preheader.i.i:                        ; preds = %.lr.ph4.split.split.us.i.i
-  %760 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i33.us8.i.i)
+.lr.ph.us10.preheader.i.i:                        ; preds = %.lr.ph3.split.split.us.i.i
+  %760 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i32.us7.i.i)
   %umax.i103.i = call i16 @llvm.umax.i16(i16 %760, i16 1)
-  br label %.lr.ph.us11.i.i
+  br label %.lr.ph.us10.i.i
 
-._crit_edge.us13.i.i:                             ; preds = %.lr.ph.us11.i.i, %.lr.ph4.split.split.us.i.i
-  %.promoted.us1215.i.i = phi ptr [ %759, %.lr.ph4.split.split.us.i.i ], [ %767, %.lr.ph.us11.i.i ]
-  %761 = add nuw i16 %.0283.us6.i.i, 1
-  %exitcond29.not.i.i = icmp eq i16 %761, %umax36.i.i
-  br i1 %exitcond29.not.i.i, label %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.i, label %.lr.ph4.split.split.us.i.i, !llvm.loop !22
+._crit_edge.us12.i.i:                             ; preds = %.lr.ph.us10.i.i, %.lr.ph3.split.split.us.i.i
+  %.promoted.us1114.i.i = phi ptr [ %759, %.lr.ph3.split.split.us.i.i ], [ %767, %.lr.ph.us10.i.i ]
+  %761 = add nuw i16 %.0292.us5.i.i, 1
+  %exitcond28.not.i.i = icmp eq i16 %761, %umax35.i.i
+  br i1 %exitcond28.not.i.i, label %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.i, label %.lr.ph3.split.split.us.i.i, !llvm.loop !22
 
-.lr.ph.us11.i.i:                                  ; preds = %.lr.ph.us11.i.i, %.lr.ph.us11.preheader.i.i
-  %762 = phi ptr [ %767, %.lr.ph.us11.i.i ], [ %759, %.lr.ph.us11.preheader.i.i ]
-  %.02.us9.i.i = phi i16 [ %768, %.lr.ph.us11.i.i ], [ 0, %.lr.ph.us11.preheader.i.i ]
+.lr.ph.us10.i.i:                                  ; preds = %.lr.ph.us10.i.i, %.lr.ph.us10.preheader.i.i
+  %762 = phi ptr [ %767, %.lr.ph.us10.i.i ], [ %759, %.lr.ph.us10.preheader.i.i ]
+  %.01.us8.i.i = phi i16 [ %768, %.lr.ph.us10.i.i ], [ 0, %.lr.ph.us10.preheader.i.i ]
   %763 = getelementptr inbounds nuw i8, ptr %762, i64 2
   store ptr %763, ptr %76, align 8
-  %.0.i.i.i.i34.us10.i.i = load i32, ptr %763, align 1
-  %764 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i34.us10.i.i)
+  %.0.i.i.i.i33.us9.i.i = load i32, ptr %763, align 1
+  %764 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i33.us9.i.i)
   %765 = getelementptr inbounds nuw i8, ptr %762, i64 6
   %766 = sext i32 %764 to i64
   %767 = getelementptr inbounds i8, ptr %765, i64 %766
   store ptr %767, ptr %76, align 8
-  %768 = add nuw i16 %.02.us9.i.i, 1
+  %768 = add nuw i16 %.01.us8.i.i, 1
   %exitcond.not.i104.i = icmp eq i16 %768, %umax.i103.i
-  br i1 %exitcond.not.i104.i, label %._crit_edge.us13.i.i, label %.lr.ph.us11.i.i, !llvm.loop !23
+  br i1 %exitcond.not.i104.i, label %._crit_edge.us12.i.i, label %.lr.ph.us10.i.i, !llvm.loop !23
 
-.lr.ph4.split.split.i.i:                          ; preds = %826, %.lr.ph4.split.split.preheader.i.i
-  %769 = phi ptr [ %741, %.lr.ph4.split.split.preheader.i.i ], [ %827, %826 ]
-  %770 = phi ptr [ %741, %.lr.ph4.split.split.preheader.i.i ], [ %828, %826 ]
-  %771 = phi ptr [ %.pre332.i, %.lr.ph4.split.split.preheader.i.i ], [ %829, %826 ]
-  %772 = phi ptr [ %744, %.lr.ph4.split.split.preheader.i.i ], [ %830, %826 ]
-  %.0272.i = phi i32 [ %745, %.lr.ph4.split.split.preheader.i.i ], [ %.1.i, %826 ]
-  %.0283.i.i = phi i16 [ 0, %.lr.ph4.split.split.preheader.i.i ], [ %831, %826 ]
+.lr.ph3.split.split.i.i:                          ; preds = %826, %.lr.ph3.split.split.preheader.i.i
+  %769 = phi ptr [ %741, %.lr.ph3.split.split.preheader.i.i ], [ %827, %826 ]
+  %770 = phi ptr [ %741, %.lr.ph3.split.split.preheader.i.i ], [ %828, %826 ]
+  %771 = phi ptr [ %.pre332.i, %.lr.ph3.split.split.preheader.i.i ], [ %829, %826 ]
+  %772 = phi ptr [ %744, %.lr.ph3.split.split.preheader.i.i ], [ %830, %826 ]
+  %.0272.i = phi i32 [ %745, %.lr.ph3.split.split.preheader.i.i ], [ %.1.i, %826 ]
+  %.0292.i.i = phi i16 [ 0, %.lr.ph3.split.split.preheader.i.i ], [ %831, %826 ]
   %773 = ptrtoint ptr %772 to i64
   %774 = ptrtoint ptr %771 to i64
   %775 = sub i64 %773, %774
   %776 = trunc i64 %775 to i32
   %777 = getelementptr inbounds nuw i8, ptr %772, i64 2
   store ptr %777, ptr %76, align 8
-  %.0.i.i.i.i32.i.i = load i16, ptr %777, align 1
-  %778 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i32.i.i)
+  %.0.i.i.i.i31.i.i = load i16, ptr %777, align 1
+  %778 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i31.i.i)
   %779 = getelementptr inbounds nuw i8, ptr %772, i64 6
   store ptr %779, ptr %76, align 8
-  %.0.i.i.i.i33.i.i = load i16, ptr %779, align 1
+  %.0.i.i.i.i32.i.i = load i16, ptr %779, align 1
   %780 = getelementptr inbounds nuw i8, ptr %772, i64 8
   store ptr %780, ptr %76, align 8
-  %.not23.i105.i = icmp eq i16 %.0.i.i.i.i33.i.i, 0
-  br i1 %.not23.i105.i, label %._crit_edge.i107.i, label %.lr.ph.i106.i
+  %.not22.i.i = icmp eq i16 %.0.i.i.i.i32.i.i, 0
+  br i1 %.not22.i.i, label %._crit_edge.i106.i, label %.lr.ph.i105.i
 
-.lr.ph.i106.i:                                    ; preds = %.lr.ph4.split.split.i.i
-  %781 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i33.i.i)
-  %umax30.i.i = call i16 @llvm.umax.i16(i16 %781, i16 1)
+.lr.ph.i105.i:                                    ; preds = %.lr.ph3.split.split.i.i
+  %781 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i32.i.i)
+  %umax29.i.i = call i16 @llvm.umax.i16(i16 %781, i16 1)
   br label %782
 
-782:                                              ; preds = %782, %.lr.ph.i106.i
-  %783 = phi ptr [ %780, %.lr.ph.i106.i ], [ %788, %782 ]
-  %.02.i.i = phi i16 [ 0, %.lr.ph.i106.i ], [ %789, %782 ]
+782:                                              ; preds = %782, %.lr.ph.i105.i
+  %783 = phi ptr [ %780, %.lr.ph.i105.i ], [ %788, %782 ]
+  %.01.i.i = phi i16 [ 0, %.lr.ph.i105.i ], [ %789, %782 ]
   %784 = getelementptr inbounds nuw i8, ptr %783, i64 2
   store ptr %784, ptr %76, align 8
-  %.0.i.i.i.i34.i.i = load i32, ptr %784, align 1
-  %785 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i34.i.i)
+  %.0.i.i.i.i33.i.i = load i32, ptr %784, align 1
+  %785 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i33.i.i)
   %786 = getelementptr inbounds nuw i8, ptr %783, i64 6
   %787 = sext i32 %785 to i64
   %788 = getelementptr inbounds i8, ptr %786, i64 %787
   store ptr %788, ptr %76, align 8
-  %789 = add nuw i16 %.02.i.i, 1
-  %exitcond31.not.i.i = icmp eq i16 %789, %umax30.i.i
-  br i1 %exitcond31.not.i.i, label %._crit_edge.i107.i, label %782, !llvm.loop !23
+  %789 = add nuw i16 %.01.i.i, 1
+  %exitcond30.not.i.i = icmp eq i16 %789, %umax29.i.i
+  br i1 %exitcond30.not.i.i, label %._crit_edge.i106.i, label %782, !llvm.loop !23
 
-._crit_edge.i107.i:                               ; preds = %782, %.lr.ph4.split.split.i.i
-  %790 = phi ptr [ %780, %.lr.ph4.split.split.i.i ], [ %788, %782 ]
+._crit_edge.i106.i:                               ; preds = %782, %.lr.ph3.split.split.i.i
+  %790 = phi ptr [ %780, %.lr.ph3.split.split.i.i ], [ %788, %782 ]
   %791 = load ptr, ptr %746, align 8
   %792 = getelementptr inbounds nuw i8, ptr %791, i64 36
   %793 = load i16, ptr %792, align 4
   %794 = icmp eq i16 %778, %793
   br i1 %794, label %795, label %826
 
-795:                                              ; preds = %._crit_edge.i107.i
+795:                                              ; preds = %._crit_edge.i106.i
   %796 = zext i32 %.0272.i to i64
   %797 = getelementptr inbounds nuw i8, ptr %771, i64 %796
   %798 = sub i32 %776, %.0272.i
   %799 = zext i32 %798 to i64
   %800 = load ptr, ptr %122, align 8
-  %.not.i.i35.i.i = icmp eq ptr %800, null
-  br i1 %.not.i.i35.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i, label %801
+  %.not.i.i34.i.i = icmp eq ptr %800, null
+  br i1 %.not.i.i34.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i, label %801
 
 801:                                              ; preds = %795
   %802 = ptrtoint ptr %800 to i64
   %803 = ptrtoint ptr %770 to i64
   %804 = sub i64 %802, %803
   %805 = icmp ult i64 %804, %799
-  br i1 %805, label %806, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i36.i.i
+  br i1 %805, label %806, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i
 
 806:                                              ; preds = %801
   %807 = load ptr, ptr %10, align 8
@@ -3360,24 +3360,24 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
   store ptr %811, ptr %122, align 8
   %812 = getelementptr inbounds i8, ptr %810, i64 %809
   store ptr %812, ptr %121, align 8
-  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i36.i.i
+  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i36.i.i: ; preds = %806, %801
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i: ; preds = %806, %801
   %813 = phi ptr [ %812, %806 ], [ %769, %801 ]
   %814 = phi ptr [ %812, %806 ], [ %770, %801 ]
-  %.not.i37.i.i = icmp eq ptr %814, null
-  br i1 %.not.i37.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i, label %815
+  %.not.i36.i.i = icmp eq ptr %814, null
+  br i1 %.not.i36.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i, label %815
 
-815:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i36.i.i
+815:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %814, ptr align 1 %797, i64 %799, i1 false)
   %816 = load ptr, ptr %121, align 8
   %817 = getelementptr inbounds nuw i8, ptr %816, i64 %799
   store ptr %817, ptr %121, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i: ; preds = %815, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i36.i.i, %795
-  %818 = phi ptr [ %817, %815 ], [ %813, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i36.i.i ], [ %769, %795 ]
-  %819 = phi ptr [ %817, %815 ], [ null, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i36.i.i ], [ %770, %795 ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i: ; preds = %815, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i, %795
+  %818 = phi ptr [ %817, %815 ], [ %813, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i ], [ %769, %795 ]
+  %819 = phi ptr [ %817, %815 ], [ null, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i35.i.i ], [ %770, %795 ]
   %820 = load ptr, ptr %76, align 8
   %821 = load ptr, ptr %71, align 8
   %822 = ptrtoint ptr %820 to i64
@@ -3386,25 +3386,25 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
   %825 = trunc i64 %824 to i32
   br label %826
 
-826:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i, %._crit_edge.i107.i
-  %827 = phi ptr [ %818, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %769, %._crit_edge.i107.i ]
-  %828 = phi ptr [ %819, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %770, %._crit_edge.i107.i ]
-  %829 = phi ptr [ %821, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %771, %._crit_edge.i107.i ]
-  %830 = phi ptr [ %820, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %790, %._crit_edge.i107.i ]
-  %.1.i = phi i32 [ %825, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %.0272.i, %._crit_edge.i107.i ]
-  %831 = add nuw i16 %.0283.i.i, 1
-  %exitcond33.not.i.i = icmp eq i16 %831, %umax36.i.i
-  br i1 %exitcond33.not.i.i, label %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i, label %.lr.ph4.split.split.i.i, !llvm.loop !22
+826:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i, %._crit_edge.i106.i
+  %827 = phi ptr [ %818, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %769, %._crit_edge.i106.i ]
+  %828 = phi ptr [ %819, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %770, %._crit_edge.i106.i ]
+  %829 = phi ptr [ %821, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %771, %._crit_edge.i106.i ]
+  %830 = phi ptr [ %820, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %790, %._crit_edge.i106.i ]
+  %.1.i = phi i32 [ %825, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i.i ], [ %.0272.i, %._crit_edge.i106.i ]
+  %831 = add nuw i16 %.0292.i.i, 1
+  %exitcond32.not.i.i = icmp eq i16 %831, %umax35.i.i
+  br i1 %exitcond32.not.i.i, label %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i, label %.lr.ph3.split.split.i.i, !llvm.loop !22
 
 _ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i: ; preds = %826
   %.pre333.i = load ptr, ptr %122, align 8
   br label %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.i
 
-_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.i: ; preds = %._crit_edge.us13.i.i, %._crit_edge.us.i.i, %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE7reserveEm.exit.i.i
-  %832 = phi ptr [ %741, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE7reserveEm.exit.i.i ], [ %827, %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i ], [ %741, %._crit_edge.us.i.i ], [ %741, %._crit_edge.us13.i.i ]
-  %833 = phi ptr [ %740, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE7reserveEm.exit.i.i ], [ %.pre333.i, %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i ], [ %740, %._crit_edge.us.i.i ], [ %740, %._crit_edge.us13.i.i ]
-  %834 = phi ptr [ %744, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE7reserveEm.exit.i.i ], [ %830, %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i ], [ %.promoted.us18.i.i, %._crit_edge.us.i.i ], [ %.promoted.us1215.i.i, %._crit_edge.us13.i.i ]
-  %.2.i = phi i32 [ %745, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE7reserveEm.exit.i.i ], [ %.1.i, %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i ], [ %745, %._crit_edge.us.i.i ], [ %745, %._crit_edge.us13.i.i ]
+_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.i: ; preds = %._crit_edge.us12.i.i, %._crit_edge.us.i.i, %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE7reserveEm.exit.i.i
+  %832 = phi ptr [ %741, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE7reserveEm.exit.i.i ], [ %827, %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i ], [ %741, %._crit_edge.us.i.i ], [ %741, %._crit_edge.us12.i.i ]
+  %833 = phi ptr [ %740, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE7reserveEm.exit.i.i ], [ %.pre333.i, %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i ], [ %740, %._crit_edge.us.i.i ], [ %740, %._crit_edge.us12.i.i ]
+  %834 = phi ptr [ %744, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE7reserveEm.exit.i.i ], [ %830, %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i ], [ %.promoted.us17.i.i, %._crit_edge.us.i.i ], [ %.promoted.us1114.i.i, %._crit_edge.us12.i.i ]
+  %.2.i = phi i32 [ %745, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE7reserveEm.exit.i.i ], [ %.1.i, %_ZL29position_stream_after_methodsR18JfrBigEndianWriterPK15ClassFileStreamPKtbPK6MethodRj.exit.loopexit296.i ], [ %745, %._crit_edge.us.i.i ], [ %745, %._crit_edge.us12.i.i ]
   %835 = load ptr, ptr %71, align 8
   %836 = ptrtoint ptr %834 to i64
   %837 = ptrtoint ptr %835 to i64
@@ -7183,14 +7183,14 @@ _ZL20insert_clinit_methodPK13InstanceKlassRK15ClassFileParserR18JfrBigEndianWrit
   %.0.i = phi i16 [ 5, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit112._crit_edge.i ], [ %spec.select.i, %_ZL20insert_clinit_methodPK13InstanceKlassRK15ClassFileParserR18JfrBigEndianWritertPKttPK6MethodP10JavaThread.exit.i ]
   %2317 = add i16 %.0.i, %743
   %.not.i147.i = icmp eq ptr %2316, null
-  %.pre43 = load ptr, ptr %10, align 8
+  %.pre44 = load ptr, ptr %10, align 8
   br i1 %.not.i147.i, label %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit, label %2318
 
 2318:                                             ; preds = %2315
   %2319 = ptrtoint ptr %.pre367.i to i64
-  %2320 = ptrtoint ptr %.pre43 to i64
+  %2320 = ptrtoint ptr %.pre44 to i64
   %2321 = sub i64 %2319, %2320
-  %2322 = getelementptr inbounds i8, ptr %.pre43, i64 %739
+  %2322 = getelementptr inbounds i8, ptr %.pre44, i64 %739
   %2323 = ptrtoint ptr %2316 to i64
   %2324 = ptrtoint ptr %2322 to i64
   %2325 = sub i64 %2323, %2324
@@ -7207,7 +7207,7 @@ _ZL20insert_clinit_methodPK13InstanceKlassRK15ClassFileParserR18JfrBigEndianWrit
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i148.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i148.i: ; preds = %2327, %2318
-  %.pre4446 = phi ptr [ %2328, %2327 ], [ %.pre43, %2318 ]
+  %.pre4547 = phi ptr [ %2328, %2327 ], [ %.pre44, %2318 ]
   %2331 = phi ptr [ %2329, %2327 ], [ %2316, %2318 ]
   %.0.i.i.i.i149.i = phi ptr [ %2330, %2327 ], [ %2322, %2318 ]
   %.not.i.i.i150.i = icmp eq ptr %.0.i.i.i.i149.i, null
@@ -7231,18 +7231,18 @@ _ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i.i.i.i.i151.i: ; preds 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEPhPKT_mSA_.exit.i.i.i152.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.thread.i.i.i.i.i151.i, %_ZN20BigEndianEncoderImpl6encodeItEEmT_Ph.exit.i.i.i.i.i.i156.i
   %2337 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i149.i, i64 2
   %.pre.i153.i = load ptr, ptr %122, align 8
-  %.pre44.pre = load ptr, ptr %10, align 8
+  %.pre45.pre = load ptr, ptr %10, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i154.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i154.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEPhPKT_mSA_.exit.i.i.i152.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i148.i
-  %.pre44 = phi ptr [ %.pre4446, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i148.i ], [ %.pre44.pre, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEPhPKT_mSA_.exit.i.i.i152.i ]
+  %.pre45 = phi ptr [ %.pre4547, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i148.i ], [ %.pre45.pre, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEPhPKT_mSA_.exit.i.i.i152.i ]
   %2338 = phi ptr [ null, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i148.i ], [ %2337, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEPhPKT_mSA_.exit.i.i.i152.i ]
   %.pr289.i = phi ptr [ %2331, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i148.i ], [ %.pre.i153.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEPhPKT_mSA_.exit.i.i.i152.i ]
   %.not.i3.i155.i = icmp eq ptr %.pr289.i, null
   br i1 %.not.i3.i155.i, label %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit, label %2339
 
 2339:                                             ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i154.i
-  %2340 = getelementptr inbounds i8, ptr %.pre44, i64 %2321
+  %2340 = getelementptr inbounds i8, ptr %.pre45, i64 %2321
   store ptr %2340, ptr %121, align 8
   %2341 = load ptr, ptr %71, align 8
   %2342 = and i64 %838, 4294967295
@@ -7266,7 +7266,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i159.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i159.i: ; preds = %2350, %2339
-  %2354 = phi ptr [ %2351, %2350 ], [ %.pre44, %2339 ]
+  %2354 = phi ptr [ %2351, %2350 ], [ %.pre45, %2339 ]
   %.0.i.i160.i = phi ptr [ %2353, %2350 ], [ %2340, %2339 ]
   %.not.i161.i = icmp eq ptr %.0.i.i160.i, null
   br i1 %.not.i161.i, label %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit, label %2355
@@ -7284,7 +7284,7 @@ _ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10
   br label %2413
 
 _ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit: ; preds = %2315, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i154.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i159.i, %2355
-  %2358 = phi ptr [ %.pre43, %2315 ], [ %2354, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i159.i ], [ %.pre, %2355 ], [ %.pre44, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i154.i ]
+  %2358 = phi ptr [ %.pre44, %2315 ], [ %2354, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i159.i ], [ %.pre, %2355 ], [ %.pre45, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i154.i ]
   %2359 = phi ptr [ %.pre367.i, %2315 ], [ null, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i159.i ], [ %2357, %2355 ], [ %2338, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i154.i ]
   %2360 = ptrtoint ptr %2359 to i64
   %2361 = ptrtoint ptr %2358 to i64
@@ -7297,12 +7297,12 @@ _ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10
   %2366 = trunc nuw i8 %2365 to i1
   %not..i = xor i1 %2364, true
   %2367 = select i1 %not..i, i1 true, i1 %2366
-  %2368 = zext i1 %2367 to i8
-  %2369 = call noundef zeroext i1 @_ZN3Jfr12is_recordingEv() #17
-  %brmerge = or i1 %2369, %2367
-  br i1 %brmerge, label %2370, label %2409
+  %2368 = call noundef zeroext i1 @_ZN3Jfr12is_recordingEv() #17
+  %or.cond = or i1 %2368, %2367
+  br i1 %or.cond, label %2369, label %2409
 
-2370:                                             ; preds = %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit
+2369:                                             ; preds = %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit
+  %2370 = zext i1 %2367 to i8
   store i32 0, ptr %12, align 4
   store ptr null, ptr %13, align 8
   %2371 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -7312,13 +7312,13 @@ _ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10
   %2375 = icmp eq ptr %2374, null
   br i1 %2375, label %_ZNK5Klass11java_mirrorEv.exit, label %2376
 
-2376:                                             ; preds = %2370
+2376:                                             ; preds = %2369
   %2377 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %2378 = call noundef ptr %2377(ptr noundef nonnull %2374) #17
   br label %_ZNK5Klass11java_mirrorEv.exit
 
-_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %2370, %2376
-  %2379 = phi ptr [ %2378, %2376 ], [ null, %2370 ]
+_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %2369, %2376
+  %2379 = phi ptr [ %2378, %2376 ], [ null, %2369 ]
   %2380 = call noundef ptr @_ZN14JfrJavaSupport16local_jni_handleEP7oopDescP10JavaThread(ptr noundef %2379, ptr noundef %3) #17
   %2381 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %2382 = load ptr, ptr %2381, align 8
@@ -7344,22 +7344,22 @@ _ZNK15ClassLoaderData25is_boot_class_loader_dataEv.exit: ; preds = %_ZNK5Klass11
   %2395 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %2396 = load i64, ptr %2395, align 8
   %2397 = lshr i64 %2396, 16
-  call void @_ZN10JfrUpcalls31new_bytes_eager_instrumentationElhhP7_jclassiPKhPiPPhP10JavaThread(i64 noundef %2397, i8 noundef zeroext %2368, i8 noundef zeroext %2394, ptr noundef %2380, i32 noundef %2363, ptr noundef nonnull %109, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %3) #17
+  call void @_ZN10JfrUpcalls31new_bytes_eager_instrumentationElhhP7_jclassiPKhPiPPhP10JavaThread(i64 noundef %2397, i8 noundef zeroext %2370, i8 noundef zeroext %2394, ptr noundef %2380, i32 noundef %2363, ptr noundef nonnull %109, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %3) #17
   call void @_ZN14JfrJavaSupport24destroy_local_jni_handleEP8_jobject(ptr noundef %2380) #17
   %2398 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %2399 = load ptr, ptr %2398, align 8
-  %.not28 = icmp eq ptr %2399, null
-  br i1 %.not28, label %_ZL21has_pending_exceptionP10JavaThread.exit, label %2400
+  %.not29 = icmp eq ptr %2399, null
+  br i1 %.not29, label %_ZL21has_pending_exceptionP10JavaThread.exit, label %2400
 
 2400:                                             ; preds = %_ZNK15ClassLoaderData25is_boot_class_loader_dataEv.exit
   %2401 = call noundef ptr @_ZN19java_lang_Throwable7messageEP7oopDesc(ptr noundef nonnull %2399) #17
-  %.not.i.i23 = icmp eq ptr %2401, null
-  br i1 %.not.i.i23, label %_ZL21has_pending_exceptionP10JavaThread.exit.thread, label %2402
+  %.not.i.i24 = icmp eq ptr %2401, null
+  br i1 %.not.i.i24, label %_ZL21has_pending_exceptionP10JavaThread.exit.thread, label %2402
 
 2402:                                             ; preds = %2400
   %2403 = call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef nonnull %2401) #17
-  %.not6.i.i24 = icmp eq ptr %2403, null
-  br i1 %.not6.i.i24, label %_ZL21has_pending_exceptionP10JavaThread.exit.thread, label %2404
+  %.not6.i.i25 = icmp eq ptr %2403, null
+  br i1 %.not6.i.i25, label %_ZL21has_pending_exceptionP10JavaThread.exit.thread, label %2404
 
 2404:                                             ; preds = %2402
   %2405 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
@@ -7381,12 +7381,12 @@ _ZL21has_pending_exceptionP10JavaThread.exit:     ; preds = %_ZNK15ClassLoaderDa
   br label %2409
 
 2409:                                             ; preds = %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit, %_ZL21has_pending_exceptionP10JavaThread.exit
-  %.026 = phi i32 [ %2408, %_ZL21has_pending_exceptionP10JavaThread.exit ], [ %2363, %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit ]
-  %.020 = phi ptr [ %2407, %_ZL21has_pending_exceptionP10JavaThread.exit ], [ %109, %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit ]
+  %.027 = phi i32 [ %2408, %_ZL21has_pending_exceptionP10JavaThread.exit ], [ %2363, %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit ]
+  %.021 = phi ptr [ %2407, %_ZL21has_pending_exceptionP10JavaThread.exit ], [ %109, %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit ]
   %2410 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #17
   %2411 = load i8, ptr @_ZN15ClassFileStream6verifyE, align 1
   %2412 = trunc i8 %2411 to i1
-  call void @_ZN15ClassFileStreamC1EPKhiPKcbb(ptr noundef nonnull align 8 dereferenceable(42) %2410, ptr noundef %.020, i32 noundef %.026, ptr noundef null, i1 noundef zeroext %2412, i1 noundef zeroext false) #17
+  call void @_ZN15ClassFileStreamC1EPKhiPKcbb(ptr noundef nonnull align 8 dereferenceable(42) %2410, ptr noundef %.021, i32 noundef %.027, ptr noundef null, i1 noundef zeroext %2412, i1 noundef zeroext false) #17
   br label %2413
 
 2413:                                             ; preds = %_ZL21has_pending_exceptionP10JavaThread.exit.thread, %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit.thread, %2409, %_ZL50invalid_preconditions_for_subklass_on_initial_loadPK13InstanceKlass.exit.thread

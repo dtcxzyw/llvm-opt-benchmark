@@ -3391,35 +3391,35 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl18container_internal19
   %28 = icmp ult i64 %14, 17
   %29 = icmp ult i64 %27, %14
   %30 = and i1 %28, %29
-  %.not = icmp ne i64 %27, 0
-  %brmerge.not = and i1 %.not, %30
-  br i1 %brmerge.not, label %31, label %32
-
-31:                                               ; preds = %7
-  tail call void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull %24, i64 noundef %14)
-  br label %36
+  %31 = icmp ne i64 %27, 0
+  %or.cond = and i1 %31, %30
+  br i1 %or.cond, label %32, label %33
 
 32:                                               ; preds = %7
-  %33 = load i64, ptr %1, align 8, !tbaa !95
-  %34 = add i64 %33, 16
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %24, i8 -128, i64 %34, i1 false)
-  %35 = getelementptr inbounds nuw i8, ptr %24, i64 %33
-  store i8 -1, ptr %35, align 1, !tbaa !117
-  br label %36
+  tail call void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull %24, i64 noundef %14)
+  br label %37
 
-36:                                               ; preds = %31, %32
-  %37 = load ptr, ptr %26, align 8, !tbaa !49
-  %38 = getelementptr inbounds i8, ptr %37, i64 -8
-  %39 = load i64, ptr %1, align 8, !tbaa !95
-  %40 = lshr i64 %39, 3
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !109
-  %43 = lshr i64 %42, 1
-  %44 = add nuw i64 %40, %43
-  %45 = sub i64 %39, %44
-  store i64 %45, ptr %38, align 8, !tbaa !136
-  %46 = and i64 %42, -2
-  store i64 %46, ptr %41, align 8, !tbaa !109
+33:                                               ; preds = %7
+  %34 = load i64, ptr %1, align 8, !tbaa !95
+  %35 = add i64 %34, 16
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %24, i8 -128, i64 %35, i1 false)
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 %34
+  store i8 -1, ptr %36, align 1, !tbaa !117
+  br label %37
+
+37:                                               ; preds = %32, %33
+  %38 = load ptr, ptr %26, align 8, !tbaa !49
+  %39 = getelementptr inbounds i8, ptr %38, i64 -8
+  %40 = load i64, ptr %1, align 8, !tbaa !95
+  %41 = lshr i64 %40, 3
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !109
+  %44 = lshr i64 %43, 1
+  %45 = add nuw i64 %41, %44
+  %46 = sub i64 %40, %45
+  store i64 %46, ptr %39, align 8, !tbaa !136
+  %47 = and i64 %43, -2
+  store i64 %47, ptr %42, align 8, !tbaa !109
   ret i1 %30
 }
 

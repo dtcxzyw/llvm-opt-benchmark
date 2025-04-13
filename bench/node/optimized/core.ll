@@ -1370,15 +1370,13 @@ entry:
   %0 = load i32, ptr %type, align 8
   %switch.tableidx = add i32 %0, -7
   %1 = icmp ult i32 %switch.tableidx, 9
-  br i1 %1, label %switch.hole_check, label %return
-
-switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 419, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %return
+  %or.cond6 = select i1 %1, i1 %switch.lobit, i1 false
+  br i1 %or.cond6, label %switch.lookup, label %return
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1396,8 +1394,8 @@ if.end:                                           ; preds = %switch.lookup
   store i32 %fd_out.0, ptr %fd, align 4
   br label %return
 
-return:                                           ; preds = %switch.hole_check, %entry, %switch.lookup, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ -22, %entry ], [ -9, %switch.lookup ], [ -22, %switch.hole_check ]
+return:                                           ; preds = %entry, %switch.lookup, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ -22, %entry ], [ -9, %switch.lookup ]
   ret i32 %retval.0
 }
 
@@ -2837,15 +2835,13 @@ entry:
   %0 = load i32, ptr %type.i, align 8
   %switch.tableidx = add i32 %0, -7
   %1 = icmp ult i32 %switch.tableidx, 9
-  br i1 %1, label %switch.hole_check, label %return
-
-switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 419, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %return
+  %or.cond = select i1 %1, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %return
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table.uv__getsockpeername, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -2877,8 +2873,8 @@ if.end4:                                          ; preds = %if.end
   store i32 %6, ptr %namelen, align 4
   br label %return
 
-return:                                           ; preds = %switch.hole_check, %entry, %switch.lookup, %if.end4, %if.then2
-  %retval.0 = phi i32 [ %sub, %if.then2 ], [ 0, %if.end4 ], [ -9, %switch.lookup ], [ -22, %entry ], [ -22, %switch.hole_check ]
+return:                                           ; preds = %entry, %switch.lookup, %if.end4, %if.then2
+  %retval.0 = phi i32 [ %sub, %if.then2 ], [ 0, %if.end4 ], [ -9, %switch.lookup ], [ -22, %entry ]
   ret i32 %retval.0
 }
 

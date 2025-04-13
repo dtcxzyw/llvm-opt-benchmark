@@ -2714,9 +2714,13 @@ define dso_local noundef range(i32 0, 2518) i32 @_ZN4llvm6X86_MC28resolveVariant
   %602 = load i64, ptr %601, align 8, !tbaa !21
   %switch.tableidx = add i64 %602, -6
   %603 = icmp ult i64 %switch.tableidx, 9
-  br i1 %603, label %switch.hole_check, label %604
+  %switch.maskindex = trunc i64 %switch.tableidx to i16
+  %switch.shifted = lshr i16 451, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %603, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.fold.split, label %604
 
-604:                                              ; preds = %switch.hole_check, %598
+604:                                              ; preds = %598
   %605 = icmp eq i64 %602, 15
   %.1237 = select i1 %605, i32 2483, i32 2480
   br label %.fold.split
@@ -5711,14 +5715,8 @@ define dso_local noundef range(i32 0, 2518) i32 @_ZN4llvm6X86_MC28resolveVariant
 .fold.split2072:                                  ; preds = %1719, %1719
   br label %.fold.split
 
-switch.hole_check:                                ; preds = %598
-  %switch.maskindex = trunc nuw i64 %switch.tableidx to i16
-  %switch.shifted = lshr i16 451, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %.fold.split, label %604
-
-.fold.split:                                      ; preds = %switch.hole_check, %1719, %1719, %1709, %1709, %1699, %1699, %1078, %1078, %1068, %1068, %52, %52, %42, %42, %32, %32, %22, %22, %12, %12, %1718, %1718, %.fold.split2072, %.fold.split2071, %.fold.split2070, %.fold.split2069, %1708, %1708, %.fold.split2068, %.fold.split2067, %.fold.split2066, %.fold.split2065, %1698, %1698, %.fold.split2064, %.fold.split2063, %.fold.split2062, %.fold.split2061, %1077, %1077, %.fold.split2060, %.fold.split2059, %.fold.split2058, %.fold.split2057, %1067, %1067, %.fold.split2056, %.fold.split2055, %.fold.split2054, %.fold.split2053, %51, %51, %.fold.split2052, %.fold.split2051, %.fold.split2050, %.fold.split2049, %41, %41, %.fold.split2048, %.fold.split2047, %.fold.split2046, %.fold.split2045, %31, %31, %.fold.split2044, %.fold.split2043, %.fold.split2042, %.fold.split2041, %21, %21, %.fold.split2040, %.fold.split2039, %.fold.split2038, %.fold.split2037, %11, %11, %.fold.split2036, %.fold.split2035, %.fold.split2034, %.fold.split2033, %704, %.fold.split2003, %.fold.split2001, %.fold.split1993, %.fold.split1991, %.fold.split1983, %.fold.split1981, %.fold.split1973, %.fold.split1971, %.fold.split1963, %.fold.split1961, %938, %.fold.split1953, %.fold.split1951, %.fold.split1943, %.fold.split1941, %.fold.split1933, %.fold.split1931, %.fold.split1923, %.fold.split1921, %.fold.split1913, %.fold.split1911, %757, %749, %741, %733, %725, %717, %701, %693, %685, %677, %669, %661, %652, %644, %636, %628, %620, %612, %595, %587, %579, %571, %563, %555, %4, %5, %15, %25, %35, %45, %55, %930, %998, %1061, %1071, %1466, %1476, %1486, %1496, %1506, %1516, %1601, %1692, %1702, %1712, %1722, %1728, %1738, %1968, %1978, %1988, %2148, %2252, %61, %142, %207, %280, %345, %410, %475, %548, %597, %654, %703, %759, %816, %873, %941, %1012, %1081, %1098, %1115, %1196, %1229, %1254, %1335, %1368, %1385, %1526, %1551, %1576, %1607, %1624, %1641, %1658, %1675, %1748, %1765, %1830, %1911, %1998, %2023, %2048, %2073, %2098, %2123, %2154, %2235, %2254, %2244, %2236, %2227, %2219, %2211, %2203, %2195, %2187, %2179, %2171, %2163, %2155, %2150, %2140, %2132, %2124, %2115, %2107, %2099, %2090, %2082, %2074, %2065, %2057, %2049, %2040, %2032, %2024, %2015, %2007, %1999, %1990, %1980, %1970, %1960, %1952, %1944, %1936, %1928, %1920, %1912, %1903, %1895, %1887, %1879, %1871, %1863, %1855, %1847, %1839, %1831, %1822, %1814, %1806, %1798, %1790, %1782, %1774, %1766, %1757, %1749, %1740, %1730, %1724, %1720, %1710, %1700, %1684, %1676, %1667, %1659, %1650, %1642, %1633, %1625, %1616, %1608, %1603, %1593, %1585, %1577, %1568, %1560, %1552, %1543, %1535, %1527, %1518, %1508, %1498, %1488, %1478, %1468, %1458, %1450, %1442, %1434, %1426, %1418, %1410, %1402, %1394, %1386, %1377, %1369, %1360, %1352, %1344, %1336, %1327, %1319, %1311, %1303, %1295, %1287, %1279, %1271, %1263, %1255, %1246, %1238, %1230, %1221, %1213, %1205, %1197, %1188, %1180, %1172, %1164, %1156, %1148, %1140, %1132, %1124, %1116, %1107, %1099, %1090, %1082, %1079, %1069, %1049, %1057, %1037, %1045, %1025, %1033, %1013, %1021, %1008, %990, %982, %974, %966, %958, %950, %942, %922, %914, %906, %898, %890, %882, %874, %865, %857, %849, %841, %833, %825, %817, %808, %800, %792, %784, %776, %768, %760, %751, %743, %735, %727, %719, %711, %709, %695, %687, %679, %671, %663, %655, %646, %638, %630, %622, %614, %606, %604, %589, %581, %573, %565, %557, %549, %540, %532, %524, %516, %508, %500, %492, %484, %476, %467, %459, %451, %443, %435, %427, %419, %411, %402, %394, %386, %378, %370, %362, %354, %346, %337, %329, %321, %313, %305, %297, %289, %281, %272, %264, %256, %248, %240, %232, %224, %216, %208, %199, %191, %183, %175, %167, %159, %151, %143, %134, %126, %118, %110, %102, %94, %86, %78, %70, %62, %57, %53, %43, %33, %23, %13, %1060, %1048, %1036, %1024, %.critedge2, %.critedge
-  %.0 = phi i32 [ 2508, %1024 ], [ 2508, %1036 ], [ 2508, %1048 ], [ 2508, %1060 ], [ 2506, %.critedge2 ], [ 2505, %.critedge ], [ 2415, %11 ], [ %., %13 ], [ 2425, %21 ], [ %.1172, %23 ], [ 2415, %31 ], [ %.1173, %33 ], [ 2435, %41 ], [ %.1174, %43 ], [ 2435, %51 ], [ %.1175, %53 ], [ %.1176, %57 ], [ %.1177, %62 ], [ %.1178, %70 ], [ %.1179, %78 ], [ %.1180, %86 ], [ %.1181, %94 ], [ %.1182, %102 ], [ %.1183, %110 ], [ %.1184, %118 ], [ %.1185, %126 ], [ %.1186, %134 ], [ %.1187, %143 ], [ %.1188, %151 ], [ %.1189, %159 ], [ %.1190, %167 ], [ %.1191, %175 ], [ %.1192, %183 ], [ %.1193, %191 ], [ %.1194, %199 ], [ %.1195, %208 ], [ %.1196, %216 ], [ %.1197, %224 ], [ %.1198, %232 ], [ %.1199, %240 ], [ %.1200, %248 ], [ %.1201, %256 ], [ %.1202, %264 ], [ %.1203, %272 ], [ %.1204, %281 ], [ %.1205, %289 ], [ %.1206, %297 ], [ %.1207, %305 ], [ %.1208, %313 ], [ %.1209, %321 ], [ %.1210, %329 ], [ %.1211, %337 ], [ %.1212, %346 ], [ %.1213, %354 ], [ %.1214, %362 ], [ %.1215, %370 ], [ %.1216, %378 ], [ %.1217, %386 ], [ %.1218, %394 ], [ %.1219, %402 ], [ %.1220, %411 ], [ %.1221, %419 ], [ %.1222, %427 ], [ %.1223, %435 ], [ %.1224, %443 ], [ %.1225, %451 ], [ %.1226, %459 ], [ %.1227, %467 ], [ %.1228, %476 ], [ %.1229, %484 ], [ %.1230, %492 ], [ %.1231, %500 ], [ %.1232, %508 ], [ %.1233, %516 ], [ %.1234, %524 ], [ %.1235, %532 ], [ %.1236, %540 ], [ 2475, %549 ], [ 2477, %557 ], [ 2472, %565 ], [ 2474, %573 ], [ 2478, %581 ], [ 2476, %589 ], [ %.1237, %604 ], [ 2482, %606 ], [ 2485, %614 ], [ 2479, %622 ], [ 2481, %630 ], [ 2486, %638 ], [ 2484, %646 ], [ 2490, %655 ], [ 2492, %663 ], [ 2487, %671 ], [ 2489, %679 ], [ 2493, %687 ], [ 2491, %695 ], [ %.1238, %709 ], [ 2497, %711 ], [ 2500, %719 ], [ 2494, %727 ], [ 2496, %735 ], [ 2501, %743 ], [ 2499, %751 ], [ %.1239, %760 ], [ %.1240, %768 ], [ %.1241, %776 ], [ %.1242, %784 ], [ %.1243, %792 ], [ %.1244, %800 ], [ %.1245, %808 ], [ %.1246, %817 ], [ %.1247, %825 ], [ %.1248, %833 ], [ %.1249, %841 ], [ %.1250, %849 ], [ %.1251, %857 ], [ %.1252, %865 ], [ %.1253, %874 ], [ %.1254, %882 ], [ %.1255, %890 ], [ %.1256, %898 ], [ %.1257, %906 ], [ %.1258, %914 ], [ %.1259, %922 ], [ %.1260, %942 ], [ %.1261, %950 ], [ %.1262, %958 ], [ %.1263, %966 ], [ %.1264, %974 ], [ %.1265, %982 ], [ %.1266, %990 ], [ 2460, %1008 ], [ 2510, %1021 ], [ 2510, %1013 ], [ 2511, %1033 ], [ 2511, %1025 ], [ 2507, %1045 ], [ 2507, %1037 ], [ 2509, %1057 ], [ 2509, %1049 ], [ 2415, %1067 ], [ %.1267, %1069 ], [ 2435, %1077 ], [ %.1268, %1079 ], [ %.1269, %1082 ], [ %.1270, %1090 ], [ %.1271, %1099 ], [ %.1272, %1107 ], [ %.1273, %1116 ], [ %.1274, %1124 ], [ %.1275, %1132 ], [ %.1276, %1140 ], [ %.1277, %1148 ], [ %.1278, %1156 ], [ %.1279, %1164 ], [ %.1280, %1172 ], [ %.1281, %1180 ], [ %.1282, %1188 ], [ %.1283, %1197 ], [ %.1284, %1205 ], [ %.1285, %1213 ], [ %.1286, %1221 ], [ %.1287, %1230 ], [ %.1288, %1238 ], [ %.1289, %1246 ], [ %.1290, %1255 ], [ %.1291, %1263 ], [ %.1292, %1271 ], [ %.1293, %1279 ], [ %.1294, %1287 ], [ %.1295, %1295 ], [ %.1296, %1303 ], [ %.1297, %1311 ], [ %.1298, %1319 ], [ %.1299, %1327 ], [ %.1300, %1336 ], [ %.1301, %1344 ], [ %.1302, %1352 ], [ %.1303, %1360 ], [ %.1304, %1369 ], [ %.1305, %1377 ], [ %.1306, %1386 ], [ %.1307, %1394 ], [ %.1308, %1402 ], [ %.1309, %1410 ], [ %.1310, %1418 ], [ %.1311, %1426 ], [ %.1312, %1434 ], [ %.1313, %1442 ], [ %.1314, %1450 ], [ %.1315, %1458 ], [ %.1316, %1468 ], [ %.1317, %1478 ], [ %.1318, %1488 ], [ %.1319, %1498 ], [ %.1320, %1508 ], [ %.1321, %1518 ], [ %.1322, %1527 ], [ %.1323, %1535 ], [ %.1324, %1543 ], [ %.1325, %1552 ], [ %.1326, %1560 ], [ %.1327, %1568 ], [ %.1328, %1577 ], [ %.1329, %1585 ], [ %.1330, %1593 ], [ %.1331, %1603 ], [ %.1332, %1608 ], [ %.1333, %1616 ], [ %.1334, %1625 ], [ %.1335, %1633 ], [ %.1336, %1642 ], [ %.1337, %1650 ], [ %.1338, %1659 ], [ %.1339, %1667 ], [ %.1340, %1676 ], [ %.1341, %1684 ], [ 2415, %1698 ], [ %.1342, %1700 ], [ 2425, %1708 ], [ %.1343, %1710 ], [ 2435, %1718 ], [ %.1344, %1720 ], [ %.1345, %1724 ], [ %.1346, %1730 ], [ %.1347, %1740 ], [ %.1348, %1749 ], [ %.1349, %1757 ], [ %.1350, %1766 ], [ %.1351, %1774 ], [ %.1352, %1782 ], [ %.1353, %1790 ], [ %.1354, %1798 ], [ %.1355, %1806 ], [ %.1356, %1814 ], [ %.1357, %1822 ], [ %.1358, %1831 ], [ %.1359, %1839 ], [ %.1360, %1847 ], [ %.1361, %1855 ], [ %.1362, %1863 ], [ %.1363, %1871 ], [ %.1364, %1879 ], [ %.1365, %1887 ], [ %.1366, %1895 ], [ %.1367, %1903 ], [ %.1368, %1912 ], [ %.1369, %1920 ], [ %.1370, %1928 ], [ %.1371, %1936 ], [ %.1372, %1944 ], [ %.1373, %1952 ], [ %.1374, %1960 ], [ %.1375, %1970 ], [ %.1376, %1980 ], [ %.1377, %1990 ], [ %.1378, %1999 ], [ %.1379, %2007 ], [ %.1380, %2015 ], [ %.1381, %2024 ], [ %.1382, %2032 ], [ %.1383, %2040 ], [ %.1384, %2049 ], [ %.1385, %2057 ], [ %.1386, %2065 ], [ %.1387, %2074 ], [ %.1388, %2082 ], [ %.1389, %2090 ], [ %.1390, %2099 ], [ %.1391, %2107 ], [ %.1392, %2115 ], [ %.1393, %2124 ], [ %.1394, %2132 ], [ %.1395, %2140 ], [ %.1396, %2150 ], [ %.1397, %2155 ], [ %.1398, %2163 ], [ %.1399, %2171 ], [ %.1400, %2179 ], [ %.1401, %2187 ], [ %.1402, %2195 ], [ %.1403, %2203 ], [ %.1404, %2211 ], [ %.1405, %2219 ], [ %.1406, %2227 ], [ %.1407, %2236 ], [ %.1408, %2244 ], [ %.1409, %2254 ], [ 0, %2235 ], [ 0, %2154 ], [ 0, %2123 ], [ 0, %2098 ], [ 0, %2073 ], [ 0, %2048 ], [ 0, %2023 ], [ 0, %1998 ], [ 0, %1911 ], [ 0, %1830 ], [ 0, %1765 ], [ 0, %1748 ], [ 0, %1675 ], [ 0, %1658 ], [ 0, %1641 ], [ 0, %1624 ], [ 0, %1607 ], [ 0, %1576 ], [ 0, %1551 ], [ 0, %1526 ], [ 0, %1385 ], [ 0, %1368 ], [ 0, %1335 ], [ 0, %1254 ], [ 0, %1229 ], [ 0, %1196 ], [ 0, %1115 ], [ 0, %1098 ], [ 0, %1081 ], [ 0, %1012 ], [ 0, %941 ], [ 0, %873 ], [ 0, %816 ], [ 0, %759 ], [ 0, %703 ], [ 0, %654 ], [ 0, %597 ], [ 0, %548 ], [ 0, %475 ], [ 0, %410 ], [ 0, %345 ], [ 0, %280 ], [ 0, %207 ], [ 0, %142 ], [ 0, %61 ], [ 0, %2252 ], [ 0, %2148 ], [ 0, %1988 ], [ 0, %1978 ], [ 0, %1968 ], [ 0, %1738 ], [ 0, %1728 ], [ 0, %1722 ], [ 0, %1712 ], [ 0, %1702 ], [ 0, %1692 ], [ 0, %1601 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ], [ 0, %1071 ], [ 0, %1061 ], [ 0, %998 ], [ 0, %930 ], [ 0, %55 ], [ 0, %45 ], [ 0, %35 ], [ 0, %25 ], [ 0, %15 ], [ 0, %5 ], [ 0, %4 ], [ %spec.select, %555 ], [ %spec.select1410, %563 ], [ %spec.select1411, %571 ], [ %spec.select1412, %579 ], [ %spec.select1413, %587 ], [ %spec.select1414, %595 ], [ %spec.select1415, %612 ], [ %spec.select1416, %620 ], [ %spec.select1417, %628 ], [ %spec.select1418, %636 ], [ %spec.select1419, %644 ], [ %spec.select1420, %652 ], [ %spec.select1421, %661 ], [ %spec.select1422, %669 ], [ %spec.select1423, %677 ], [ %spec.select1424, %685 ], [ %spec.select1425, %693 ], [ %spec.select1426, %701 ], [ %spec.select1427, %717 ], [ %spec.select1428, %725 ], [ %spec.select1429, %733 ], [ %spec.select1430, %741 ], [ %spec.select1431, %749 ], [ %spec.select1432, %757 ], [ 2415, %11 ], [ 2421, %.fold.split1911 ], [ 2422, %.fold.split1913 ], [ 2425, %21 ], [ 2431, %.fold.split1921 ], [ 2432, %.fold.split1923 ], [ 2415, %31 ], [ 2421, %.fold.split1931 ], [ 2422, %.fold.split1933 ], [ 2435, %41 ], [ 2441, %.fold.split1941 ], [ 2442, %.fold.split1943 ], [ 2435, %51 ], [ 2441, %.fold.split1951 ], [ 2442, %.fold.split1953 ], [ 2498, %704 ], [ 2504, %938 ], [ 2415, %1067 ], [ 2421, %.fold.split1961 ], [ 2422, %.fold.split1963 ], [ 2435, %1077 ], [ 2441, %.fold.split1971 ], [ 2442, %.fold.split1973 ], [ 2415, %1698 ], [ 2421, %.fold.split1981 ], [ 2422, %.fold.split1983 ], [ 2425, %1708 ], [ 2431, %.fold.split1991 ], [ 2432, %.fold.split1993 ], [ 2435, %1718 ], [ 2441, %.fold.split2001 ], [ 2442, %.fold.split2003 ], [ 2416, %.fold.split2033 ], [ 2417, %.fold.split2034 ], [ 2418, %.fold.split2035 ], [ 2419, %.fold.split2036 ], [ 2426, %.fold.split2037 ], [ 2427, %.fold.split2038 ], [ 2428, %.fold.split2039 ], [ 2429, %.fold.split2040 ], [ 2416, %.fold.split2041 ], [ 2417, %.fold.split2042 ], [ 2418, %.fold.split2043 ], [ 2419, %.fold.split2044 ], [ 2436, %.fold.split2045 ], [ 2437, %.fold.split2046 ], [ 2438, %.fold.split2047 ], [ 2439, %.fold.split2048 ], [ 2436, %.fold.split2049 ], [ 2437, %.fold.split2050 ], [ 2438, %.fold.split2051 ], [ 2439, %.fold.split2052 ], [ 2416, %.fold.split2053 ], [ 2417, %.fold.split2054 ], [ 2418, %.fold.split2055 ], [ 2419, %.fold.split2056 ], [ 2436, %.fold.split2057 ], [ 2437, %.fold.split2058 ], [ 2438, %.fold.split2059 ], [ 2439, %.fold.split2060 ], [ 2416, %.fold.split2061 ], [ 2417, %.fold.split2062 ], [ 2418, %.fold.split2063 ], [ 2419, %.fold.split2064 ], [ 2426, %.fold.split2065 ], [ 2427, %.fold.split2066 ], [ 2428, %.fold.split2067 ], [ 2429, %.fold.split2068 ], [ 2436, %.fold.split2069 ], [ 2437, %.fold.split2070 ], [ 2438, %.fold.split2071 ], [ 2439, %.fold.split2072 ], [ 2420, %12 ], [ 2420, %12 ], [ 2430, %22 ], [ 2430, %22 ], [ 2420, %32 ], [ 2420, %32 ], [ 2440, %42 ], [ 2440, %42 ], [ 2440, %52 ], [ 2440, %52 ], [ 2420, %1068 ], [ 2420, %1068 ], [ 2440, %1078 ], [ 2440, %1078 ], [ 2420, %1699 ], [ 2420, %1699 ], [ 2430, %1709 ], [ 2430, %1709 ], [ 2440, %1719 ], [ 2440, %1719 ], [ 2483, %switch.hole_check ]
+.fold.split:                                      ; preds = %598, %1719, %1719, %1709, %1709, %1699, %1699, %1078, %1078, %1068, %1068, %52, %52, %42, %42, %32, %32, %22, %22, %12, %12, %1718, %1718, %.fold.split2072, %.fold.split2071, %.fold.split2070, %.fold.split2069, %1708, %1708, %.fold.split2068, %.fold.split2067, %.fold.split2066, %.fold.split2065, %1698, %1698, %.fold.split2064, %.fold.split2063, %.fold.split2062, %.fold.split2061, %1077, %1077, %.fold.split2060, %.fold.split2059, %.fold.split2058, %.fold.split2057, %1067, %1067, %.fold.split2056, %.fold.split2055, %.fold.split2054, %.fold.split2053, %51, %51, %.fold.split2052, %.fold.split2051, %.fold.split2050, %.fold.split2049, %41, %41, %.fold.split2048, %.fold.split2047, %.fold.split2046, %.fold.split2045, %31, %31, %.fold.split2044, %.fold.split2043, %.fold.split2042, %.fold.split2041, %21, %21, %.fold.split2040, %.fold.split2039, %.fold.split2038, %.fold.split2037, %11, %11, %.fold.split2036, %.fold.split2035, %.fold.split2034, %.fold.split2033, %704, %.fold.split2003, %.fold.split2001, %.fold.split1993, %.fold.split1991, %.fold.split1983, %.fold.split1981, %.fold.split1973, %.fold.split1971, %.fold.split1963, %.fold.split1961, %938, %.fold.split1953, %.fold.split1951, %.fold.split1943, %.fold.split1941, %.fold.split1933, %.fold.split1931, %.fold.split1923, %.fold.split1921, %.fold.split1913, %.fold.split1911, %757, %749, %741, %733, %725, %717, %701, %693, %685, %677, %669, %661, %652, %644, %636, %628, %620, %612, %595, %587, %579, %571, %563, %555, %4, %5, %15, %25, %35, %45, %55, %930, %998, %1061, %1071, %1466, %1476, %1486, %1496, %1506, %1516, %1601, %1692, %1702, %1712, %1722, %1728, %1738, %1968, %1978, %1988, %2148, %2252, %61, %142, %207, %280, %345, %410, %475, %548, %597, %654, %703, %759, %816, %873, %941, %1012, %1081, %1098, %1115, %1196, %1229, %1254, %1335, %1368, %1385, %1526, %1551, %1576, %1607, %1624, %1641, %1658, %1675, %1748, %1765, %1830, %1911, %1998, %2023, %2048, %2073, %2098, %2123, %2154, %2235, %2254, %2244, %2236, %2227, %2219, %2211, %2203, %2195, %2187, %2179, %2171, %2163, %2155, %2150, %2140, %2132, %2124, %2115, %2107, %2099, %2090, %2082, %2074, %2065, %2057, %2049, %2040, %2032, %2024, %2015, %2007, %1999, %1990, %1980, %1970, %1960, %1952, %1944, %1936, %1928, %1920, %1912, %1903, %1895, %1887, %1879, %1871, %1863, %1855, %1847, %1839, %1831, %1822, %1814, %1806, %1798, %1790, %1782, %1774, %1766, %1757, %1749, %1740, %1730, %1724, %1720, %1710, %1700, %1684, %1676, %1667, %1659, %1650, %1642, %1633, %1625, %1616, %1608, %1603, %1593, %1585, %1577, %1568, %1560, %1552, %1543, %1535, %1527, %1518, %1508, %1498, %1488, %1478, %1468, %1458, %1450, %1442, %1434, %1426, %1418, %1410, %1402, %1394, %1386, %1377, %1369, %1360, %1352, %1344, %1336, %1327, %1319, %1311, %1303, %1295, %1287, %1279, %1271, %1263, %1255, %1246, %1238, %1230, %1221, %1213, %1205, %1197, %1188, %1180, %1172, %1164, %1156, %1148, %1140, %1132, %1124, %1116, %1107, %1099, %1090, %1082, %1079, %1069, %1049, %1057, %1037, %1045, %1025, %1033, %1013, %1021, %1008, %990, %982, %974, %966, %958, %950, %942, %922, %914, %906, %898, %890, %882, %874, %865, %857, %849, %841, %833, %825, %817, %808, %800, %792, %784, %776, %768, %760, %751, %743, %735, %727, %719, %711, %709, %695, %687, %679, %671, %663, %655, %646, %638, %630, %622, %614, %606, %604, %589, %581, %573, %565, %557, %549, %540, %532, %524, %516, %508, %500, %492, %484, %476, %467, %459, %451, %443, %435, %427, %419, %411, %402, %394, %386, %378, %370, %362, %354, %346, %337, %329, %321, %313, %305, %297, %289, %281, %272, %264, %256, %248, %240, %232, %224, %216, %208, %199, %191, %183, %175, %167, %159, %151, %143, %134, %126, %118, %110, %102, %94, %86, %78, %70, %62, %57, %53, %43, %33, %23, %13, %1060, %1048, %1036, %1024, %.critedge2, %.critedge
+  %.0 = phi i32 [ 2508, %1024 ], [ 2508, %1036 ], [ 2508, %1048 ], [ 2508, %1060 ], [ 2506, %.critedge2 ], [ 2505, %.critedge ], [ 2415, %11 ], [ %., %13 ], [ 2425, %21 ], [ %.1172, %23 ], [ 2415, %31 ], [ %.1173, %33 ], [ 2435, %41 ], [ %.1174, %43 ], [ 2435, %51 ], [ %.1175, %53 ], [ %.1176, %57 ], [ %.1177, %62 ], [ %.1178, %70 ], [ %.1179, %78 ], [ %.1180, %86 ], [ %.1181, %94 ], [ %.1182, %102 ], [ %.1183, %110 ], [ %.1184, %118 ], [ %.1185, %126 ], [ %.1186, %134 ], [ %.1187, %143 ], [ %.1188, %151 ], [ %.1189, %159 ], [ %.1190, %167 ], [ %.1191, %175 ], [ %.1192, %183 ], [ %.1193, %191 ], [ %.1194, %199 ], [ %.1195, %208 ], [ %.1196, %216 ], [ %.1197, %224 ], [ %.1198, %232 ], [ %.1199, %240 ], [ %.1200, %248 ], [ %.1201, %256 ], [ %.1202, %264 ], [ %.1203, %272 ], [ %.1204, %281 ], [ %.1205, %289 ], [ %.1206, %297 ], [ %.1207, %305 ], [ %.1208, %313 ], [ %.1209, %321 ], [ %.1210, %329 ], [ %.1211, %337 ], [ %.1212, %346 ], [ %.1213, %354 ], [ %.1214, %362 ], [ %.1215, %370 ], [ %.1216, %378 ], [ %.1217, %386 ], [ %.1218, %394 ], [ %.1219, %402 ], [ %.1220, %411 ], [ %.1221, %419 ], [ %.1222, %427 ], [ %.1223, %435 ], [ %.1224, %443 ], [ %.1225, %451 ], [ %.1226, %459 ], [ %.1227, %467 ], [ %.1228, %476 ], [ %.1229, %484 ], [ %.1230, %492 ], [ %.1231, %500 ], [ %.1232, %508 ], [ %.1233, %516 ], [ %.1234, %524 ], [ %.1235, %532 ], [ %.1236, %540 ], [ 2475, %549 ], [ 2477, %557 ], [ 2472, %565 ], [ 2474, %573 ], [ 2478, %581 ], [ 2476, %589 ], [ %.1237, %604 ], [ 2482, %606 ], [ 2485, %614 ], [ 2479, %622 ], [ 2481, %630 ], [ 2486, %638 ], [ 2484, %646 ], [ 2490, %655 ], [ 2492, %663 ], [ 2487, %671 ], [ 2489, %679 ], [ 2493, %687 ], [ 2491, %695 ], [ %.1238, %709 ], [ 2497, %711 ], [ 2500, %719 ], [ 2494, %727 ], [ 2496, %735 ], [ 2501, %743 ], [ 2499, %751 ], [ %.1239, %760 ], [ %.1240, %768 ], [ %.1241, %776 ], [ %.1242, %784 ], [ %.1243, %792 ], [ %.1244, %800 ], [ %.1245, %808 ], [ %.1246, %817 ], [ %.1247, %825 ], [ %.1248, %833 ], [ %.1249, %841 ], [ %.1250, %849 ], [ %.1251, %857 ], [ %.1252, %865 ], [ %.1253, %874 ], [ %.1254, %882 ], [ %.1255, %890 ], [ %.1256, %898 ], [ %.1257, %906 ], [ %.1258, %914 ], [ %.1259, %922 ], [ %.1260, %942 ], [ %.1261, %950 ], [ %.1262, %958 ], [ %.1263, %966 ], [ %.1264, %974 ], [ %.1265, %982 ], [ %.1266, %990 ], [ 2460, %1008 ], [ 2510, %1021 ], [ 2510, %1013 ], [ 2511, %1033 ], [ 2511, %1025 ], [ 2507, %1045 ], [ 2507, %1037 ], [ 2509, %1057 ], [ 2509, %1049 ], [ 2415, %1067 ], [ %.1267, %1069 ], [ 2435, %1077 ], [ %.1268, %1079 ], [ %.1269, %1082 ], [ %.1270, %1090 ], [ %.1271, %1099 ], [ %.1272, %1107 ], [ %.1273, %1116 ], [ %.1274, %1124 ], [ %.1275, %1132 ], [ %.1276, %1140 ], [ %.1277, %1148 ], [ %.1278, %1156 ], [ %.1279, %1164 ], [ %.1280, %1172 ], [ %.1281, %1180 ], [ %.1282, %1188 ], [ %.1283, %1197 ], [ %.1284, %1205 ], [ %.1285, %1213 ], [ %.1286, %1221 ], [ %.1287, %1230 ], [ %.1288, %1238 ], [ %.1289, %1246 ], [ %.1290, %1255 ], [ %.1291, %1263 ], [ %.1292, %1271 ], [ %.1293, %1279 ], [ %.1294, %1287 ], [ %.1295, %1295 ], [ %.1296, %1303 ], [ %.1297, %1311 ], [ %.1298, %1319 ], [ %.1299, %1327 ], [ %.1300, %1336 ], [ %.1301, %1344 ], [ %.1302, %1352 ], [ %.1303, %1360 ], [ %.1304, %1369 ], [ %.1305, %1377 ], [ %.1306, %1386 ], [ %.1307, %1394 ], [ %.1308, %1402 ], [ %.1309, %1410 ], [ %.1310, %1418 ], [ %.1311, %1426 ], [ %.1312, %1434 ], [ %.1313, %1442 ], [ %.1314, %1450 ], [ %.1315, %1458 ], [ %.1316, %1468 ], [ %.1317, %1478 ], [ %.1318, %1488 ], [ %.1319, %1498 ], [ %.1320, %1508 ], [ %.1321, %1518 ], [ %.1322, %1527 ], [ %.1323, %1535 ], [ %.1324, %1543 ], [ %.1325, %1552 ], [ %.1326, %1560 ], [ %.1327, %1568 ], [ %.1328, %1577 ], [ %.1329, %1585 ], [ %.1330, %1593 ], [ %.1331, %1603 ], [ %.1332, %1608 ], [ %.1333, %1616 ], [ %.1334, %1625 ], [ %.1335, %1633 ], [ %.1336, %1642 ], [ %.1337, %1650 ], [ %.1338, %1659 ], [ %.1339, %1667 ], [ %.1340, %1676 ], [ %.1341, %1684 ], [ 2415, %1698 ], [ %.1342, %1700 ], [ 2425, %1708 ], [ %.1343, %1710 ], [ 2435, %1718 ], [ %.1344, %1720 ], [ %.1345, %1724 ], [ %.1346, %1730 ], [ %.1347, %1740 ], [ %.1348, %1749 ], [ %.1349, %1757 ], [ %.1350, %1766 ], [ %.1351, %1774 ], [ %.1352, %1782 ], [ %.1353, %1790 ], [ %.1354, %1798 ], [ %.1355, %1806 ], [ %.1356, %1814 ], [ %.1357, %1822 ], [ %.1358, %1831 ], [ %.1359, %1839 ], [ %.1360, %1847 ], [ %.1361, %1855 ], [ %.1362, %1863 ], [ %.1363, %1871 ], [ %.1364, %1879 ], [ %.1365, %1887 ], [ %.1366, %1895 ], [ %.1367, %1903 ], [ %.1368, %1912 ], [ %.1369, %1920 ], [ %.1370, %1928 ], [ %.1371, %1936 ], [ %.1372, %1944 ], [ %.1373, %1952 ], [ %.1374, %1960 ], [ %.1375, %1970 ], [ %.1376, %1980 ], [ %.1377, %1990 ], [ %.1378, %1999 ], [ %.1379, %2007 ], [ %.1380, %2015 ], [ %.1381, %2024 ], [ %.1382, %2032 ], [ %.1383, %2040 ], [ %.1384, %2049 ], [ %.1385, %2057 ], [ %.1386, %2065 ], [ %.1387, %2074 ], [ %.1388, %2082 ], [ %.1389, %2090 ], [ %.1390, %2099 ], [ %.1391, %2107 ], [ %.1392, %2115 ], [ %.1393, %2124 ], [ %.1394, %2132 ], [ %.1395, %2140 ], [ %.1396, %2150 ], [ %.1397, %2155 ], [ %.1398, %2163 ], [ %.1399, %2171 ], [ %.1400, %2179 ], [ %.1401, %2187 ], [ %.1402, %2195 ], [ %.1403, %2203 ], [ %.1404, %2211 ], [ %.1405, %2219 ], [ %.1406, %2227 ], [ %.1407, %2236 ], [ %.1408, %2244 ], [ %.1409, %2254 ], [ 0, %2235 ], [ 0, %2154 ], [ 0, %2123 ], [ 0, %2098 ], [ 0, %2073 ], [ 0, %2048 ], [ 0, %2023 ], [ 0, %1998 ], [ 0, %1911 ], [ 0, %1830 ], [ 0, %1765 ], [ 0, %1748 ], [ 0, %1675 ], [ 0, %1658 ], [ 0, %1641 ], [ 0, %1624 ], [ 0, %1607 ], [ 0, %1576 ], [ 0, %1551 ], [ 0, %1526 ], [ 0, %1385 ], [ 0, %1368 ], [ 0, %1335 ], [ 0, %1254 ], [ 0, %1229 ], [ 0, %1196 ], [ 0, %1115 ], [ 0, %1098 ], [ 0, %1081 ], [ 0, %1012 ], [ 0, %941 ], [ 0, %873 ], [ 0, %816 ], [ 0, %759 ], [ 0, %703 ], [ 0, %654 ], [ 0, %597 ], [ 0, %548 ], [ 0, %475 ], [ 0, %410 ], [ 0, %345 ], [ 0, %280 ], [ 0, %207 ], [ 0, %142 ], [ 0, %61 ], [ 0, %2252 ], [ 0, %2148 ], [ 0, %1988 ], [ 0, %1978 ], [ 0, %1968 ], [ 0, %1738 ], [ 0, %1728 ], [ 0, %1722 ], [ 0, %1712 ], [ 0, %1702 ], [ 0, %1692 ], [ 0, %1601 ], [ 0, %1516 ], [ 0, %1506 ], [ 0, %1496 ], [ 0, %1486 ], [ 0, %1476 ], [ 0, %1466 ], [ 0, %1071 ], [ 0, %1061 ], [ 0, %998 ], [ 0, %930 ], [ 0, %55 ], [ 0, %45 ], [ 0, %35 ], [ 0, %25 ], [ 0, %15 ], [ 0, %5 ], [ 0, %4 ], [ %spec.select, %555 ], [ %spec.select1410, %563 ], [ %spec.select1411, %571 ], [ %spec.select1412, %579 ], [ %spec.select1413, %587 ], [ %spec.select1414, %595 ], [ %spec.select1415, %612 ], [ %spec.select1416, %620 ], [ %spec.select1417, %628 ], [ %spec.select1418, %636 ], [ %spec.select1419, %644 ], [ %spec.select1420, %652 ], [ %spec.select1421, %661 ], [ %spec.select1422, %669 ], [ %spec.select1423, %677 ], [ %spec.select1424, %685 ], [ %spec.select1425, %693 ], [ %spec.select1426, %701 ], [ %spec.select1427, %717 ], [ %spec.select1428, %725 ], [ %spec.select1429, %733 ], [ %spec.select1430, %741 ], [ %spec.select1431, %749 ], [ %spec.select1432, %757 ], [ 2415, %11 ], [ 2421, %.fold.split1911 ], [ 2422, %.fold.split1913 ], [ 2425, %21 ], [ 2431, %.fold.split1921 ], [ 2432, %.fold.split1923 ], [ 2415, %31 ], [ 2421, %.fold.split1931 ], [ 2422, %.fold.split1933 ], [ 2435, %41 ], [ 2441, %.fold.split1941 ], [ 2442, %.fold.split1943 ], [ 2435, %51 ], [ 2441, %.fold.split1951 ], [ 2442, %.fold.split1953 ], [ 2498, %704 ], [ 2504, %938 ], [ 2415, %1067 ], [ 2421, %.fold.split1961 ], [ 2422, %.fold.split1963 ], [ 2435, %1077 ], [ 2441, %.fold.split1971 ], [ 2442, %.fold.split1973 ], [ 2415, %1698 ], [ 2421, %.fold.split1981 ], [ 2422, %.fold.split1983 ], [ 2425, %1708 ], [ 2431, %.fold.split1991 ], [ 2432, %.fold.split1993 ], [ 2435, %1718 ], [ 2441, %.fold.split2001 ], [ 2442, %.fold.split2003 ], [ 2416, %.fold.split2033 ], [ 2417, %.fold.split2034 ], [ 2418, %.fold.split2035 ], [ 2419, %.fold.split2036 ], [ 2426, %.fold.split2037 ], [ 2427, %.fold.split2038 ], [ 2428, %.fold.split2039 ], [ 2429, %.fold.split2040 ], [ 2416, %.fold.split2041 ], [ 2417, %.fold.split2042 ], [ 2418, %.fold.split2043 ], [ 2419, %.fold.split2044 ], [ 2436, %.fold.split2045 ], [ 2437, %.fold.split2046 ], [ 2438, %.fold.split2047 ], [ 2439, %.fold.split2048 ], [ 2436, %.fold.split2049 ], [ 2437, %.fold.split2050 ], [ 2438, %.fold.split2051 ], [ 2439, %.fold.split2052 ], [ 2416, %.fold.split2053 ], [ 2417, %.fold.split2054 ], [ 2418, %.fold.split2055 ], [ 2419, %.fold.split2056 ], [ 2436, %.fold.split2057 ], [ 2437, %.fold.split2058 ], [ 2438, %.fold.split2059 ], [ 2439, %.fold.split2060 ], [ 2416, %.fold.split2061 ], [ 2417, %.fold.split2062 ], [ 2418, %.fold.split2063 ], [ 2419, %.fold.split2064 ], [ 2426, %.fold.split2065 ], [ 2427, %.fold.split2066 ], [ 2428, %.fold.split2067 ], [ 2429, %.fold.split2068 ], [ 2436, %.fold.split2069 ], [ 2437, %.fold.split2070 ], [ 2438, %.fold.split2071 ], [ 2439, %.fold.split2072 ], [ 2420, %12 ], [ 2420, %12 ], [ 2430, %22 ], [ 2430, %22 ], [ 2420, %32 ], [ 2420, %32 ], [ 2440, %42 ], [ 2440, %42 ], [ 2440, %52 ], [ 2440, %52 ], [ 2420, %1068 ], [ 2420, %1068 ], [ 2440, %1078 ], [ 2440, %1078 ], [ 2420, %1699 ], [ 2420, %1699 ], [ 2430, %1709 ], [ 2430, %1709 ], [ 2440, %1719 ], [ 2440, %1719 ], [ 2483, %598 ]
   ret i32 %.0
 }
 
@@ -7494,22 +7492,22 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6X86_MC18X86MCInstrAnalysis20clear
   %17 = load i8, ptr %16, align 1, !tbaa !97
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !98
-  %.fr97 = freeze i64 %19
-  %20 = and i64 %.fr97, 1610612736
+  %.fr96 = freeze i64 %19
+  %20 = and i64 %.fr96, 1610612736
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !99
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 1128
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !100
-  %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 1142
-  %.sroa.555.0.copyload = load i16, ptr %.sroa.555.0..sroa_idx, align 2, !tbaa !54
+  %.sroa.557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 1142
+  %.sroa.557.0.copyload = load i16, ptr %.sroa.557.0..sroa_idx, align 2, !tbaa !54
   %.sroa.17.40..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4072
   %.sroa.17.40.copyload = load ptr, ptr %.sroa.17.40..sroa_idx, align 8, !tbaa !100
-  %.sroa.1962.40..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4086
-  %.sroa.1962.40.copyload = load i16, ptr %.sroa.1962.40..sroa_idx, align 2, !tbaa !54
+  %.sroa.1964.40..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4086
+  %.sroa.1964.40.copyload = load i16, ptr %.sroa.1964.40..sroa_idx, align 2, !tbaa !54
   %.sroa.22.72..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4136
   %.sroa.22.72.copyload = load ptr, ptr %.sroa.22.72..sroa_idx, align 8, !tbaa !100
-  %.sroa.2465.72..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4150
-  %.sroa.2465.72.copyload = load i16, ptr %.sroa.2465.72..sroa_idx, align 2, !tbaa !54
+  %.sroa.2467.72..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4150
+  %.sroa.2467.72.copyload = load i16, ptr %.sroa.2467.72..sroa_idx, align 2, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !86
   %25 = icmp ult i32 %24, 65
@@ -7529,32 +7527,32 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6X86_MC18X86MCInstrAnalysis20clear
   br label %_ZN4llvm5APInt12clearAllBitsEv.exit
 
 _ZN4llvm5APInt12clearAllBitsEv.exit:              ; preds = %26, %27
-  %.not95 = icmp eq i8 %13, 0
-  br i1 %.not95, label %.preheader, label %.lr.ph
+  %.not94 = icmp eq i8 %13, 0
+  br i1 %.not94, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm5APInt12clearAllBitsEv.exit
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %33 = zext i16 %.sroa.555.0.copyload to i32
+  %33 = zext i16 %.sroa.557.0.copyload to i32
   %switch = icmp eq i64 %20, 0
-  %34 = zext i16 %.sroa.1962.40.copyload to i32
-  %35 = zext i16 %.sroa.2465.72.copyload to i32
+  %34 = zext i16 %.sroa.1964.40.copyload to i32
+  %35 = zext i16 %.sroa.2467.72.copyload to i32
   %36 = load i32, ptr %23, align 8
-  %.fr98 = freeze i32 %36
-  %37 = icmp ult i32 %.fr98, 65
-  %wide.trip.count117 = zext i8 %13 to i64
+  %.fr97 = freeze i32 %36
+  %37 = icmp ult i32 %.fr97, 65
+  %wide.trip.count116 = zext i8 %13 to i64
   br i1 %switch, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %37, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.preheader
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
-  %.pre124 = load ptr, ptr %32, align 8, !tbaa !17
+  %.pre123 = load ptr, ptr %32, align 8, !tbaa !17
   br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZN4llvm5APInt6setBitEj.exit.us.us
-  %indvars.iv114 = phi i64 [ %indvars.iv.next115, %_ZN4llvm5APInt6setBitEj.exit.us.us ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %_ZN4llvm5APInt6setBitEj.exit.us.us ], [ 0, %.lr.ph.split.us ]
   %38 = load ptr, ptr %32, align 8, !tbaa !17
-  %39 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %38, i64 %indvars.iv114, i32 1
+  %39 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %38, i64 %indvars.iv113, i32 1
   %40 = load i32, ptr %39, align 8, !tbaa !21
   %41 = lshr i32 %40, 3
   %.not.i.i.us.us = icmp samesign ult i32 %41, %33
@@ -7572,7 +7570,7 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us.us: ; preds = %.l
   br i1 %.not.i.us.us, label %_ZN4llvm5APInt6setBitEj.exit.us.us, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us.us"
 
 "_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us.us": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us.us
-  %49 = and i64 %indvars.iv114, 63
+  %49 = and i64 %indvars.iv113, 63
   %50 = shl nuw i64 1, %49
   %51 = load i64, ptr %3, align 8, !tbaa !21
   %52 = or i64 %51, %50
@@ -7580,13 +7578,13 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us.us: ; preds = %.l
   br label %_ZN4llvm5APInt6setBitEj.exit.us.us
 
 _ZN4llvm5APInt6setBitEj.exit.us.us:               ; preds = %.lr.ph.split.us.split.us, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us.us, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us.us"
-  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %.preheader, label %.lr.ph.split.us.split.us, !llvm.loop !101
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
+  br i1 %exitcond117.not, label %.preheader, label %.lr.ph.split.us.split.us, !llvm.loop !101
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %_ZN4llvm5APInt6setBitEj.exit.us
-  %indvars.iv109 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next110, %_ZN4llvm5APInt6setBitEj.exit.us ]
-  %53 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.pre124, i64 %indvars.iv109, i32 1
+  %indvars.iv108 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next109, %_ZN4llvm5APInt6setBitEj.exit.us ]
+  %53 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.pre123, i64 %indvars.iv108, i32 1
   %54 = load i32, ptr %53, align 8, !tbaa !21
   %55 = lshr i32 %54, 3
   %.not.i.i.us = icmp samesign ult i32 %55, %33
@@ -7604,10 +7602,10 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us: ; preds = %.lr.p
   br i1 %.not.i.us, label %_ZN4llvm5APInt6setBitEj.exit.us, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us"
 
 "_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us
-  %63 = and i64 %indvars.iv109, 63
+  %63 = and i64 %indvars.iv108, 63
   %64 = shl nuw i64 1, %63
   %65 = load ptr, ptr %3, align 8, !tbaa !21
-  %66 = lshr i64 %indvars.iv109, 6
+  %66 = lshr i64 %indvars.iv108, 6
   %67 = and i64 %66, 67108863
   %68 = getelementptr inbounds nuw i64, ptr %65, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !38
@@ -7616,9 +7614,9 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us: ; preds = %.lr.p
   br label %_ZN4llvm5APInt6setBitEj.exit.us
 
 _ZN4llvm5APInt6setBitEj.exit.us:                  ; preds = %.lr.ph.split.us.split, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us"
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count117
-  br i1 %exitcond113.not, label %.preheader, label %.lr.ph.split.us.split, !llvm.loop !101
+  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count116
+  br i1 %exitcond112.not, label %.preheader, label %.lr.ph.split.us.split, !llvm.loop !101
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %37, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
@@ -7627,16 +7625,16 @@ _ZN4llvm5APInt6setBitEj.exit.us:                  ; preds = %.lr.ph.split.us.spl
   %.pre = load ptr, ptr %32, align 8, !tbaa !17
   br label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN4llvm5APInt6setBitEj.exit.us91
-  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %_ZN4llvm5APInt6setBitEj.exit.us91 ], [ 0, %.lr.ph.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN4llvm5APInt6setBitEj.exit.us90
+  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %_ZN4llvm5APInt6setBitEj.exit.us90 ], [ 0, %.lr.ph.split ]
   %71 = load ptr, ptr %32, align 8, !tbaa !17
-  %72 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %71, i64 %indvars.iv104, i32 1
+  %72 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %71, i64 %indvars.iv103, i32 1
   %73 = load i32, ptr %72, align 8, !tbaa !21
   %74 = lshr i32 %73, 3
-  %.not.i.i.us86 = icmp samesign ult i32 %74, %33
-  br i1 %.not.i.i.us86, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us87, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i.us89
+  %.not.i.i.us85 = icmp samesign ult i32 %74, %33
+  br i1 %.not.i.i.us85, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us86, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i.us88
 
-_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us87: ; preds = %.lr.ph.split.split.us
+_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us86: ; preds = %.lr.ph.split.split.us
   %75 = and i32 %73, 7
   %76 = zext nneg i32 %74 to i64
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 %76
@@ -7644,14 +7642,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us87: ; preds = %.lr
   %79 = zext i8 %78 to i32
   %80 = shl nuw nsw i32 1, %75
   %81 = and i32 %80, %79
-  %.not.i.us88 = icmp eq i32 %81, 0
-  br i1 %.not.i.us88, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i.us89, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us90"
+  %.not.i.us87 = icmp eq i32 %81, 0
+  br i1 %.not.i.us87, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i.us88, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us89"
 
-_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i.us89: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us87, %.lr.ph.split.split.us
-  %.not.i4.i.us = icmp samesign ult i32 %74, %34
-  br i1 %.not.i4.i.us, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i.us, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i.us
+_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i.us88: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us86, %.lr.ph.split.split.us
+  %.not.i9.i.us = icmp samesign ult i32 %74, %34
+  br i1 %.not.i9.i.us, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i.us, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i.us
 
-_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i.us: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i.us89
+_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i.us: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i.us88
   %82 = and i32 %73, 7
   %83 = zext nneg i32 %74 to i64
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.17.40.copyload, i64 %83
@@ -7659,14 +7657,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i.us: ; preds = %_ZNK
   %86 = zext i8 %85 to i32
   %87 = shl nuw nsw i32 1, %82
   %88 = and i32 %87, %86
-  %.not14.i.us = icmp eq i32 %88, 0
-  br i1 %.not14.i.us, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i.us, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us90"
+  %.not19.i.us = icmp eq i32 %88, 0
+  br i1 %.not19.i.us, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i.us, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us89"
 
-_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i.us: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i.us, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i.us89
-  %.not.i7.i.us = icmp samesign ult i32 %74, %35
-  br i1 %.not.i7.i.us, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.us", label %_ZN4llvm5APInt6setBitEj.exit.us91
+_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i.us: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i.us, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i.us88
+  %.not.i12.i.us = icmp samesign ult i32 %74, %35
+  br i1 %.not.i12.i.us, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.us", label %_ZN4llvm5APInt6setBitEj.exit.us90
 
-"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.us": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i.us
+"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.us": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i.us
   %89 = and i32 %73, 7
   %90 = zext nneg i32 %74 to i64
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.22.72.copyload, i64 %90
@@ -7674,36 +7672,36 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i.us: ; preds 
   %93 = zext i8 %92 to i32
   %94 = shl nuw nsw i32 1, %89
   %95 = and i32 %94, %93
-  %.not83.us = icmp eq i32 %95, 0
-  br i1 %.not83.us, label %_ZN4llvm5APInt6setBitEj.exit.us91, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us90"
+  %.not82.us = icmp eq i32 %95, 0
+  br i1 %.not82.us, label %_ZN4llvm5APInt6setBitEj.exit.us90, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us89"
 
-"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us90": ; preds = %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.us", %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i.us, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us87
-  %96 = and i64 %indvars.iv104, 63
+"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us89": ; preds = %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.us", %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i.us, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.us86
+  %96 = and i64 %indvars.iv103, 63
   %97 = shl nuw i64 1, %96
   %98 = load i64, ptr %3, align 8, !tbaa !21
   %99 = or i64 %98, %97
   store i64 %99, ptr %3, align 8, !tbaa !21
-  br label %_ZN4llvm5APInt6setBitEj.exit.us91
+  br label %_ZN4llvm5APInt6setBitEj.exit.us90
 
-_ZN4llvm5APInt6setBitEj.exit.us91:                ; preds = %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us90", %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.us", %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i.us
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count117
-  br i1 %exitcond108.not, label %.preheader, label %.lr.ph.split.split.us, !llvm.loop !101
+_ZN4llvm5APInt6setBitEj.exit.us90:                ; preds = %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread.us89", %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.us", %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i.us
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count116
+  br i1 %exitcond107.not, label %.preheader, label %.lr.ph.split.split.us, !llvm.loop !101
 
-.preheader:                                       ; preds = %_ZN4llvm5APInt6setBitEj.exit, %_ZN4llvm5APInt6setBitEj.exit.us91, %_ZN4llvm5APInt6setBitEj.exit.us, %_ZN4llvm5APInt6setBitEj.exit.us.us, %_ZN4llvm5APInt12clearAllBitsEv.exit
+.preheader:                                       ; preds = %_ZN4llvm5APInt6setBitEj.exit, %_ZN4llvm5APInt6setBitEj.exit.us90, %_ZN4llvm5APInt6setBitEj.exit.us, %_ZN4llvm5APInt6setBitEj.exit.us.us, %_ZN4llvm5APInt12clearAllBitsEv.exit
   %invariant.gep = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.not99 = icmp eq i8 %17, 0
-  %.pre126 = load i32, ptr %23, align 8, !tbaa !86
-  br i1 %.not99, label %._crit_edge, label %.lr.ph94
+  %.not98 = icmp eq i8 %17, 0
+  %.pre125 = load i32, ptr %23, align 8, !tbaa !86
+  br i1 %.not98, label %._crit_edge, label %.lr.ph93
 
-.lr.ph94:                                         ; preds = %.preheader
-  %100 = zext i16 %.sroa.555.0.copyload to i32
-  %switch81 = icmp eq i64 %20, 0
-  %101 = zext i16 %.sroa.1962.40.copyload to i32
-  %102 = zext i16 %.sroa.2465.72.copyload to i32
-  %103 = icmp ult i32 %.pre126, 65
+.lr.ph93:                                         ; preds = %.preheader
+  %100 = zext i16 %.sroa.557.0.copyload to i32
+  %switch80 = icmp eq i64 %20, 0
+  %101 = zext i16 %.sroa.1964.40.copyload to i32
+  %102 = zext i16 %.sroa.2467.72.copyload to i32
+  %103 = icmp ult i32 %.pre125, 65
   %104 = zext i8 %13 to i64
-  %wide.trip.count122 = zext i8 %17 to i64
+  %wide.trip.count121 = zext i8 %17 to i64
   br label %146
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %_ZN4llvm5APInt6setBitEj.exit
@@ -7726,10 +7724,10 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i: ; preds = %.lr.ph.s
   br i1 %.not.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread"
 
 _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %.lr.ph.split.split
-  %.not.i4.i = icmp samesign ult i32 %107, %34
-  br i1 %.not.i4.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i
+  %.not.i9.i = icmp samesign ult i32 %107, %34
+  br i1 %.not.i9.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i
 
-_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
+_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
   %115 = and i32 %106, 7
   %116 = zext nneg i32 %107 to i64
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.17.40.copyload, i64 %116
@@ -7737,14 +7735,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i: ; preds = %_ZNK4ll
   %119 = zext i8 %118 to i32
   %120 = shl nuw nsw i32 1, %115
   %121 = and i32 %120, %119
-  %.not14.i = icmp eq i32 %121, 0
-  br i1 %.not14.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread"
+  %.not19.i = icmp eq i32 %121, 0
+  br i1 %.not19.i, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread"
 
-_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
-  %.not.i7.i = icmp samesign ult i32 %107, %35
-  br i1 %.not.i7.i, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit", label %_ZN4llvm5APInt6setBitEj.exit
+_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i
+  %.not.i12.i = icmp samesign ult i32 %107, %35
+  br i1 %.not.i12.i, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit", label %_ZN4llvm5APInt6setBitEj.exit
 
-"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i
+"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i
   %122 = and i32 %106, 7
   %123 = zext nneg i32 %107 to i64
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.22.72.copyload, i64 %123
@@ -7752,10 +7750,10 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i: ; preds = %
   %126 = zext i8 %125 to i32
   %127 = shl nuw nsw i32 1, %122
   %128 = and i32 %127, %126
-  %.not83 = icmp eq i32 %128, 0
-  br i1 %.not83, label %_ZN4llvm5APInt6setBitEj.exit, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread"
+  %.not82 = icmp eq i32 %128, 0
+  br i1 %.not82, label %_ZN4llvm5APInt6setBitEj.exit, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread"
 
-"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit"
+"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit"
   %129 = and i64 %indvars.iv, 63
   %130 = shl nuw i64 1, %129
   %131 = load ptr, ptr %3, align 8, !tbaa !21
@@ -7767,17 +7765,17 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i: ; preds = %
   store i64 %136, ptr %134, align 8, !tbaa !38
   br label %_ZN4llvm5APInt6setBitEj.exit
 
-_ZN4llvm5APInt6setBitEj.exit:                     ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread", %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit"
+_ZN4llvm5APInt6setBitEj.exit:                     ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit.thread", %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit"
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count117
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count116
   br i1 %exitcond.not, label %.preheader, label %.lr.ph.split.split, !llvm.loop !101
 
-._crit_edge.loopexit:                             ; preds = %_ZN4llvm5APInt6setBitEj.exit51
-  %.pre125 = load i32, ptr %23, align 8, !tbaa !86
+._crit_edge.loopexit:                             ; preds = %_ZN4llvm5APInt6setBitEj.exit53
+  %.pre124 = load i32, ptr %23, align 8, !tbaa !86
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %137 = phi i32 [ %.pre125, %._crit_edge.loopexit ], [ %.pre126, %.preheader ]
+  %137 = phi i32 [ %.pre124, %._crit_edge.loopexit ], [ %.pre125, %.preheader ]
   %138 = icmp ult i32 %137, 65
   br i1 %138, label %139, label %142
 
@@ -7796,8 +7794,8 @@ _ZNK4llvm5APInt12getBoolValueEv.exit:             ; preds = %139, %142
   %145 = xor i1 %.0.i.i, true
   ret i1 %145
 
-146:                                              ; preds = %.lr.ph94, %_ZN4llvm5APInt6setBitEj.exit51
-  %indvars.iv119 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next120, %_ZN4llvm5APInt6setBitEj.exit51 ]
+146:                                              ; preds = %.lr.ph93, %_ZN4llvm5APInt6setBitEj.exit53
+  %indvars.iv118 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next119, %_ZN4llvm5APInt6setBitEj.exit53 ]
   %147 = load i16, ptr %11, align 8, !tbaa !102
   %148 = zext i16 %147 to i64
   %gep = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %invariant.gep, i64 %148
@@ -7807,14 +7805,14 @@ _ZNK4llvm5APInt12getBoolValueEv.exit:             ; preds = %139, %142
   %152 = load i8, ptr %15, align 8, !tbaa !104
   %153 = zext i8 %152 to i64
   %154 = getelementptr inbounds nuw i16, ptr %151, i64 %153
-  %155 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv119
+  %155 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv118
   %156 = load i16, ptr %155, align 2, !tbaa !54
   %157 = zext i16 %156 to i32
   %158 = lshr i32 %157, 3
   %.not.i.i40 = icmp samesign ult i32 %158, %100
-  br i1 %.not.i.i40, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i48, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41
+  br i1 %.not.i.i40, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i50, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41
 
-_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i48: ; preds = %146
+_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i50: ; preds = %146
   %159 = and i32 %157, 7
   %160 = zext nneg i32 %158 to i64
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 %160
@@ -7822,17 +7820,17 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i48: ; preds = %146
   %163 = zext i8 %162 to i32
   %164 = shl nuw nsw i32 1, %159
   %165 = and i32 %164, %163
-  %.not.i49 = icmp eq i32 %165, 0
-  br i1 %.not.i49, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50.thread"
+  %.not.i51 = icmp eq i32 %165, 0
+  br i1 %.not.i51, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52.thread"
 
-_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i48, %146
-  br i1 %switch81, label %_ZN4llvm5APInt6setBitEj.exit51, label %166
+_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i50, %146
+  br i1 %switch80, label %_ZN4llvm5APInt6setBitEj.exit53, label %166
 
 166:                                              ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41
-  %.not.i4.i43 = icmp samesign ult i32 %158, %101
-  br i1 %.not.i4.i43, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i46, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i44
+  %.not.i9.i45 = icmp samesign ult i32 %158, %101
+  br i1 %.not.i9.i45, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i48, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i46
 
-_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i46: ; preds = %166
+_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i48: ; preds = %166
   %167 = and i32 %157, 7
   %168 = zext nneg i32 %158 to i64
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.17.40.copyload, i64 %168
@@ -7840,14 +7838,14 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i46: ; preds = %166
   %171 = zext i8 %170 to i32
   %172 = shl nuw nsw i32 1, %167
   %173 = and i32 %172, %171
-  %.not14.i47 = icmp eq i32 %173, 0
-  br i1 %.not14.i47, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i44, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50.thread"
+  %.not19.i49 = icmp eq i32 %173, 0
+  br i1 %.not19.i49, label %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i46, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52.thread"
 
-_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i44: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i46, %166
-  %.not.i7.i45 = icmp samesign ult i32 %158, %102
-  br i1 %.not.i7.i45, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50", label %_ZN4llvm5APInt6setBitEj.exit51
+_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i46: ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i48, %166
+  %.not.i12.i47 = icmp samesign ult i32 %158, %102
+  br i1 %.not.i12.i47, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52", label %_ZN4llvm5APInt6setBitEj.exit53
 
-"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i44
+"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i46
   %174 = and i32 %157, 7
   %175 = zext nneg i32 %158 to i64
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.22.72.copyload, i64 %175
@@ -7856,21 +7854,21 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i44: ; preds =
   %179 = shl nuw nsw i32 1, %174
   %180 = and i32 %179, %178
   %.not = icmp eq i32 %180, 0
-  br i1 %.not, label %_ZN4llvm5APInt6setBitEj.exit51, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50.thread"
+  br i1 %.not, label %_ZN4llvm5APInt6setBitEj.exit53, label %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52.thread"
 
-"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50.thread": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.i46, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i48, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50"
-  %181 = add nuw nsw i64 %indvars.iv119, %104
+"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52.thread": ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.i48, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i50, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52"
+  %181 = add nuw nsw i64 %indvars.iv118, %104
   %182 = and i64 %181, 63
   %183 = shl nuw i64 1, %182
   br i1 %103, label %184, label %187
 
-184:                                              ; preds = %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50.thread"
+184:                                              ; preds = %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52.thread"
   %185 = load i64, ptr %3, align 8, !tbaa !21
   %186 = or i64 %185, %183
   store i64 %186, ptr %3, align 8, !tbaa !21
-  br label %_ZN4llvm5APInt6setBitEj.exit51
+  br label %_ZN4llvm5APInt6setBitEj.exit53
 
-187:                                              ; preds = %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50.thread"
+187:                                              ; preds = %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52.thread"
   %188 = load ptr, ptr %3, align 8, !tbaa !21
   %189 = lshr i64 %181, 6
   %190 = and i64 %189, 67108863
@@ -7878,12 +7876,12 @@ _ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i44: ; preds =
   %192 = load i64, ptr %191, align 8, !tbaa !38
   %193 = or i64 %192, %183
   store i64 %193, ptr %191, align 8, !tbaa !38
-  br label %_ZN4llvm5APInt6setBitEj.exit51
+  br label %_ZN4llvm5APInt6setBitEj.exit53
 
-_ZN4llvm5APInt6setBitEj.exit51:                   ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit6.thread.i44, %187, %184, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit50"
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge.loopexit, label %146, !llvm.loop !105
+_ZN4llvm5APInt6setBitEj.exit53:                   ; preds = %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.thread.i41, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit11.thread.i46, %187, %184, %"_ZZNK4llvm6X86_MC18X86MCInstrAnalysis20clearsSuperRegistersERKNS_14MCRegisterInfoERKNS_6MCInstERNS_5APIntEENK3$_0clEj.exit52"
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
+  br i1 %exitcond122.not, label %._crit_edge.loopexit, label %146, !llvm.loop !105
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

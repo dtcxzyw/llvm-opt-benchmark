@@ -452,8 +452,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %115 = load ptr, ptr %42, align 8, !tbaa !21
   %116 = icmp eq ptr %112, %113
   %117 = icmp eq ptr %114, %115
-  %narrow.i.i.i.i.i.i.i185 = select i1 %116, i1 true, i1 %117
-  br i1 %narrow.i.i.i.i.i.i.i185, label %.critedge34, label %.lr.ph
+  %narrow.i.i.i.i.i.i.i186 = select i1 %116, i1 true, i1 %117
+  br i1 %narrow.i.i.i.i.i.i.i186, label %.critedge34, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.critedge.loopexit
   %118 = phi ptr [ %43, %.lr.ph.lr.ph ], [ %115, %.critedge.loopexit ]
@@ -463,9 +463,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %122
 
 122:                                              ; preds = %.lr.ph, %437
-  %.sroa.10.0187 = phi ptr [ %121, %.lr.ph ], [ %438, %437 ]
-  %.sroa.046.0186 = phi ptr [ %119, %.lr.ph ], [ %439, %437 ]
-  %123 = load ptr, ptr %.sroa.046.0186, align 8, !tbaa !22
+  %.sroa.10.0188 = phi ptr [ %121, %.lr.ph ], [ %438, %437 ]
+  %.sroa.047.0187 = phi ptr [ %119, %.lr.ph ], [ %439, %437 ]
+  %123 = load ptr, ptr %.sroa.047.0187, align 8, !tbaa !22
   %.not = icmp eq ptr %123, null
   br i1 %.not, label %124, label %137
 
@@ -515,7 +515,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZN
 137:                                              ; preds = %122
   %138 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #23
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.10.0187, i64 80
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.10.0188, i64 80
   %140 = load ptr, ptr %139, align 8, !tbaa !26, !noalias !28
   %.not.i.i = icmp eq ptr %140, null
   br i1 %.not.i.i, label %141, label %_ZNKSt8functionIFN2cv12GComputationEvEEclEv.exit
@@ -525,8 +525,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZN
   unreachable
 
 _ZNKSt8functionIFN2cv12GComputationEvEEclEv.exit: ; preds = %137
-  %142 = getelementptr inbounds nuw i8, ptr %.sroa.10.0187, i64 64
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.10.0187, i64 88
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.10.0188, i64 64
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.10.0188, i64 88
   %144 = load ptr, ptr %143, align 8, !tbaa !31, !noalias !28
   call void %144(ptr dead_on_unwind nonnull writable sret(%"class.cv::GComputation") align 8 %31, ptr noundef nonnull align 8 dereferenceable(32) %142)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %18) #23
@@ -586,20 +586,20 @@ _ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4Dat
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #23
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #23
   invoke void @_ZNK3ade7details12InitIdsArrayIN2cv5gimpl5InputEJNS3_6OutputENS3_2OpENS3_4DataENS3_10ConstValueENS3_6IslandENS3_8ProtocolENS3_17OriginalInputMetaENS3_10OutputMetaENS3_7JournalENS_6passes19TopologicalSortDataENS3_17DataObjectCounterENS3_11IslandModelENS3_14ActiveBackendsENS3_18CustomMetaFunctionENS3_9StreamingENS3_12DeserializedENS3_13HasIntrinsicsENS3_10DesyncPathENS3_10DesyncEdgeENS3_14DesynchronizedENS3_11CompileArgsEEEclERKNS_5GraphENS_4util11MemoryRangeINS0_10MetadataIdEEE(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(168) %138, ptr nonnull %55, i64 22)
-          to label %.noexc41 unwind label %435
+          to label %.noexc42 unwind label %435
 
-.noexc41:                                         ; preds = %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEC2ERNS_5GraphE.exit.i
+.noexc42:                                         ; preds = %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEC2ERNS_5GraphE.exit.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #23
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %19) #23
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %20) #23
-  %158 = load ptr, ptr %.sroa.046.0186, align 8, !tbaa !22
+  %158 = load ptr, ptr %.sroa.047.0187, align 8, !tbaa !22
   %159 = ptrtoint ptr %158 to i64
   store i64 %159, ptr %20, align 8, !tbaa !33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %56, i8 0, i64 184, i1 false), !tbaa !36
   invoke void @_ZN3ade7details16checkUniqueNamesIJN2cv5gimpl8NodeTypeENS3_5InputENS3_6OutputENS3_2OpENS3_4DataENS3_10ConstValueENS3_6IslandENS3_8ProtocolENS3_17OriginalInputMetaENS3_10OutputMetaENS3_7JournalENS_6passes19TopologicalSortDataENS3_17DataObjectCounterENS3_11IslandModelENS3_14ActiveBackendsENS3_18CustomMetaFunctionENS3_9StreamingENS3_12DeserializedENS3_13HasIntrinsicsENS3_10DesyncPathENS3_10DesyncEdgeENS3_14DesynchronizedENS3_11CompileArgsEEEEvv()
-          to label %.noexc42 unwind label %435
+          to label %.noexc43 unwind label %435
 
-.noexc42:                                         ; preds = %.noexc41
+.noexc43:                                         ; preds = %.noexc42
   %160 = load i64, ptr %20, align 8, !tbaa !33
   %161 = inttoptr i64 %160 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #23
@@ -610,7 +610,7 @@ _ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4Dat
   %162 = invoke ptr @_ZNK3ade5Graph13getMetadataIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %161, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %163 unwind label %168
 
-163:                                              ; preds = %.noexc42
+163:                                              ; preds = %.noexc43
   store ptr %162, ptr %56, align 8, !tbaa !40
   %164 = load ptr, ptr %14, align 8, !tbaa !14
   %165 = icmp eq ptr %164, %57
@@ -626,7 +626,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZdlPv(ptr noundef %164) #25
   br label %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEC2ERNS_5GraphE.exit27.i
 
-168:                                              ; preds = %.noexc42
+168:                                              ; preds = %.noexc43
   %169 = landingpad { ptr, i32 }
           cleanup
   %170 = load ptr, ptr %14, align 8, !tbaa !14
@@ -651,29 +651,29 @@ _ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4Dat
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #23
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #23
   invoke void @_ZNK3ade7details12InitIdsArrayIN2cv5gimpl5InputEJNS3_6OutputENS3_2OpENS3_4DataENS3_10ConstValueENS3_6IslandENS3_8ProtocolENS3_17OriginalInputMetaENS3_10OutputMetaENS3_7JournalENS_6passes19TopologicalSortDataENS3_17DataObjectCounterENS3_11IslandModelENS3_14ActiveBackendsENS3_18CustomMetaFunctionENS3_9StreamingENS3_12DeserializedENS3_13HasIntrinsicsENS3_10DesyncPathENS3_10DesyncEdgeENS3_14DesynchronizedENS3_11CompileArgsEEEclERKNS_5GraphENS_4util11MemoryRangeINS0_10MetadataIdEEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(168) %161, ptr nonnull %60, i64 22)
-          to label %.noexc43 unwind label %435
-
-.noexc43:                                         ; preds = %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEC2ERNS_5GraphE.exit27.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #23
-  invoke void @_ZN2cv5gimpl11findMatchesERKN3ade10TypedGraphIJNS0_8NodeTypeENS0_5InputENS0_6OutputENS0_2OpENS0_4DataENS0_10ConstValueENS0_6IslandENS0_8ProtocolENS0_17OriginalInputMetaENS0_10OutputMetaENS0_7JournalENS1_6passes19TopologicalSortDataENS0_17DataObjectCounterENS0_11IslandModelENS0_14ActiveBackendsENS0_18CustomMetaFunctionENS0_9StreamingENS0_12DeserializedENS0_13HasIntrinsicsENS0_10DesyncPathENS0_10DesyncEdgeENS0_14DesynchronizedENS0_11CompileArgsEEEEST_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::gimpl::SubgraphMatch") align 8 %19, ptr noundef nonnull align 8 dereferenceable(192) %20, ptr noundef nonnull align 8 dereferenceable(192) %18)
           to label %.noexc44 unwind label %435
 
-.noexc44:                                         ; preds = %.noexc43
+.noexc44:                                         ; preds = %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEC2ERNS_5GraphE.exit27.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #23
+  invoke void @_ZN2cv5gimpl11findMatchesERKN3ade10TypedGraphIJNS0_8NodeTypeENS0_5InputENS0_6OutputENS0_2OpENS0_4DataENS0_10ConstValueENS0_6IslandENS0_8ProtocolENS0_17OriginalInputMetaENS0_10OutputMetaENS0_7JournalENS1_6passes19TopologicalSortDataENS0_17DataObjectCounterENS0_11IslandModelENS0_14ActiveBackendsENS0_18CustomMetaFunctionENS0_9StreamingENS0_12DeserializedENS0_13HasIntrinsicsENS0_10DesyncPathENS0_10DesyncEdgeENS0_14DesynchronizedENS0_11CompileArgsEEEEST_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::gimpl::SubgraphMatch") align 8 %19, ptr noundef nonnull align 8 dereferenceable(192) %20, ptr noundef nonnull align 8 dereferenceable(192) %18)
+          to label %.noexc45 unwind label %435
+
+.noexc45:                                         ; preds = %.noexc44
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %20) #23
   %174 = load i64, ptr %61, align 8, !tbaa !41
   %175 = icmp eq i64 %174, 0
   %176 = load i64, ptr %62, align 8
   %177 = icmp eq i64 %176, 0
-  %or.cond.i.i = select i1 %175, i1 true, i1 %177
+  %or.cond.i.i40 = select i1 %175, i1 true, i1 %177
   %178 = load i64, ptr %63, align 8
   %179 = icmp eq i64 %178, 0
-  %or.cond7.i.i = select i1 %or.cond.i.i, i1 true, i1 %179
+  %or.cond7.i.i = select i1 %or.cond.i.i40, i1 true, i1 %179
   %180 = load i64, ptr %64, align 8
   %181 = icmp eq i64 %180, 0
   %or.cond11.i.i = select i1 %or.cond7.i.i, i1 true, i1 %181
   br i1 %or.cond11.i.i, label %411, label %182
 
-182:                                              ; preds = %.noexc44
+182:                                              ; preds = %.noexc45
   %183 = load ptr, ptr %65, align 8, !tbaa !53
   %184 = load ptr, ptr %66, align 8, !tbaa !53
   %185 = icmp eq ptr %183, %184
@@ -698,8 +698,8 @@ _ZNK2cv5gimpl13SubgraphMatch2okEv.exit.i:         ; preds = %182
 191:                                              ; preds = %189
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 40
   %193 = load i64, ptr %192, align 8, !tbaa !55
-  %.not.i.i40 = icmp eq i64 %193, 0
-  br i1 %.not.i.i40, label %198, label %194
+  %.not.i.i41 = icmp eq i64 %193, 0
+  br i1 %.not.i.i41, label %198, label %194
 
 194:                                              ; preds = %191
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #23
@@ -758,7 +758,7 @@ _ZN2cv12GComputation4Priv4ExprC2ERKS2_.exit.i:    ; preds = %.noexc.i
 
 _ZNSt5tupleIJRSt6vectorIN2cv5gimpl6RcDescESaIS3_EES6_RS0_IN3ade6HandleINS7_4NodeEEESaISA_EESD_EEaSIJS5_S5_SC_SC_EEENSt9enable_ifIXcl12__assignableIDpRKT_EEERSE_E4typeERKS_IJDpSH_EE.exit.i: ; preds = %.noexc32.i
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %25) #23
-  %208 = load ptr, ptr %.sroa.046.0186, align 8, !tbaa !22
+  %208 = load ptr, ptr %.sroa.047.0187, align 8, !tbaa !22
   %209 = ptrtoint ptr %208 to i64
   store i64 %209, ptr %25, align 8, !tbaa !33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %76, i8 0, i64 184, i1 false), !tbaa !36
@@ -908,7 +908,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %25) #23
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %26) #23
-  %260 = load ptr, ptr %.sroa.046.0186, align 8, !tbaa !22
+  %260 = load ptr, ptr %.sroa.047.0187, align 8, !tbaa !22
   %261 = ptrtoint ptr %260 to i64
   store i64 %261, ptr %26, align 8, !tbaa !33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %82, i8 0, i64 184, i1 false), !tbaa !36
@@ -1389,8 +1389,8 @@ _ZN2cv5gimpl13GModelBuilderD2Ev.exit.i:           ; preds = %395, %_ZNSt10_Hasht
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %18) #23
   br label %.body
 
-411:                                              ; preds = %_ZN2cv5gimpl13GModelBuilderD2Ev.exit.i, %_ZNK2cv5gimpl13SubgraphMatch2okEv.exit.i, %182, %.noexc44
-  %412 = phi i1 [ false, %_ZNK2cv5gimpl13SubgraphMatch2okEv.exit.i ], [ true, %_ZN2cv5gimpl13GModelBuilderD2Ev.exit.i ], [ false, %182 ], [ false, %.noexc44 ]
+411:                                              ; preds = %_ZN2cv5gimpl13GModelBuilderD2Ev.exit.i, %_ZNK2cv5gimpl13SubgraphMatch2okEv.exit.i, %182, %.noexc45
+  %412 = phi i1 [ false, %_ZNK2cv5gimpl13SubgraphMatch2okEv.exit.i ], [ true, %_ZN2cv5gimpl13GModelBuilderD2Ev.exit.i ], [ false, %182 ], [ false, %.noexc45 ]
   call void @_ZN2cv5gimpl13SubgraphMatchD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %19) #23
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %19) #23
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %18) #23
@@ -1446,7 +1446,7 @@ _ZN2cv12GComputationD2Ev.exit:                    ; preds = %411, %419, %_ZN9__g
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #23
   br i1 %412, label %.critedge.loopexit, label %437
 
-435:                                              ; preds = %.noexc43, %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEC2ERNS_5GraphE.exit27.i, %.noexc41, %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEC2ERNS_5GraphE.exit.i, %_ZNKSt8functionIFN2cv12GComputationEvEEclEv.exit
+435:                                              ; preds = %.noexc44, %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEC2ERNS_5GraphE.exit27.i, %.noexc42, %_ZN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS2_5InputENS2_6OutputENS2_2OpENS2_4DataENS2_10ConstValueENS2_6IslandENS2_8ProtocolENS2_17OriginalInputMetaENS2_10OutputMetaENS2_7JournalENS_6passes19TopologicalSortDataENS2_17DataObjectCounterENS2_11IslandModelENS2_14ActiveBackendsENS2_18CustomMetaFunctionENS2_9StreamingENS2_12DeserializedENS2_13HasIntrinsicsENS2_10DesyncPathENS2_10DesyncEdgeENS2_14DesynchronizedENS2_11CompileArgsEEEC2ERNS_5GraphE.exit.i, %_ZNKSt8functionIFN2cv12GComputationEvEEclEv.exit
   %436 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1458,8 +1458,8 @@ _ZN2cv12GComputationD2Ev.exit:                    ; preds = %411, %419, %_ZN9__g
   br label %442
 
 437:                                              ; preds = %_ZN2cv12GComputationD2Ev.exit
-  %438 = getelementptr inbounds nuw i8, ptr %.sroa.10.0187, i64 96
-  %439 = getelementptr inbounds nuw i8, ptr %.sroa.046.0186, i64 8
+  %438 = getelementptr inbounds nuw i8, ptr %.sroa.10.0188, i64 96
+  %439 = getelementptr inbounds nuw i8, ptr %.sroa.047.0187, i64 8
   %440 = icmp eq ptr %438, %120
   %441 = icmp eq ptr %439, %118
   %narrow.i.i.i.i.i.i.i = select i1 %440, i1 true, i1 %441

@@ -4813,39 +4813,39 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %16, %17, %21, %26
   %47 = load i16, ptr %46, align 4
   %48 = zext i16 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 %48
-  %.not18.i = icmp eq i16 %47, 0
-  br i1 %.not18.i, label %._crit_edge17.i, label %.lr.ph16.i
+  %.not20.i = icmp eq i16 %47, 0
+  br i1 %.not20.i, label %._crit_edge19.i, label %.lr.ph18.i
 
-.lr.ph16.i:                                       ; preds = %._crit_edge.i, %55
-  %.014.i = phi ptr [ %56, %55 ], [ %45, %._crit_edge.i ]
-  %50 = load ptr, ptr %.014.i, align 8
+.lr.ph18.i:                                       ; preds = %._crit_edge.i, %55
+  %.016.i = phi ptr [ %56, %55 ], [ %45, %._crit_edge.i ]
+  %50 = load ptr, ptr %.016.i, align 8
   %51 = tail call noundef ptr @_ZN8Universe12non_oop_wordEv() #14
   %.not.i = icmp eq ptr %50, %51
   br i1 %.not.i, label %55, label %52
 
-52:                                               ; preds = %.lr.ph16.i
+52:                                               ; preds = %.lr.ph18.i
   %53 = load ptr, ptr %27, align 8
   %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %.014.i) #14
+  tail call void %54(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %.016.i) #14
   br label %55
 
-55:                                               ; preds = %52, %.lr.ph16.i
-  %56 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
+55:                                               ; preds = %52, %.lr.ph18.i
+  %56 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
   %57 = icmp ult ptr %56, %49
-  br i1 %57, label %.lr.ph16.i, label %._crit_edge17.i, !llvm.loop !27
+  br i1 %57, label %.lr.ph18.i, label %._crit_edge19.i, !llvm.loop !27
 
-._crit_edge17.i:                                  ; preds = %55, %._crit_edge.i
+._crit_edge19.i:                                  ; preds = %55, %._crit_edge.i
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %59 = load i8, ptr %58, align 4
   %60 = trunc i8 %59 to i1
   br i1 %60, label %61, label %_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit
 
-61:                                               ; preds = %._crit_edge17.i
+61:                                               ; preds = %._crit_edge19.i
   %62 = load ptr, ptr %4, align 8
   tail call void @_ZN7nmethod19fix_oop_relocationsEPhS0_b(ptr noundef nonnull align 8 dereferenceable(214) %62, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #14
   br label %_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit
 
-_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit: ; preds = %._crit_edge17.i, %61
+_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit: ; preds = %._crit_edge19.i, %61
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8
   tail call void @_ZN17BarrierSetNMethod6disarmEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12) %64, ptr noundef %1) #14

@@ -1009,9 +1009,13 @@ define internal noundef zeroext i1 @_ZL35ggml_backend_cpu_device_supports_opP19g
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load i32, ptr %7, align 8, !tbaa !84
   %9 = icmp ult i32 %8, 37
-  br i1 %9, label %switch.hole_check, label %10
+  %switch.maskindex = zext nneg i32 %8 to i64
+  %switch.shifted = lshr i64 128849018881, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond = select i1 %9, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.edge, label %10
 
-10:                                               ; preds = %switch.hole_check, %2
+10:                                               ; preds = %2
   %11 = load atomic i8, ptr @_ZGVZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts acquire, align 8
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit, !prof !4
@@ -1184,20 +1188,14 @@ _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %10, %13, %16
   %91 = icmp eq i32 %90, 0
   br label %switch.edge
 
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = zext nneg i32 %8 to i64
-  %switch.shifted = lshr i64 128849018881, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.edge, label %10
-
 switch.lookup96:                                  ; preds = %42
   %switch.cast = trunc nuw i32 %43 to i30
   %switch.downshift = lshr i30 529596415, %switch.cast
   %switch.masked = trunc i30 %switch.downshift to i1
   br label %switch.edge
 
-switch.edge:                                      ; preds = %26, %37, %switch.hole_check, %42, %switch.lookup96, %.critedge83, %72, %74, %80, %86, %89, %63, %66, %54, %57, %45, %48, %60
-  %.0 = phi i1 [ %62, %60 ], [ true, %45 ], [ %53, %48 ], [ false, %57 ], [ false, %54 ], [ false, %63 ], [ %68, %66 ], [ false, %86 ], [ false, %80 ], [ false, %74 ], [ false, %72 ], [ %91, %89 ], [ true, %.critedge83 ], [ %switch.masked, %switch.lookup96 ], [ true, %42 ], [ true, %switch.hole_check ], [ false, %37 ], [ true, %26 ]
+switch.edge:                                      ; preds = %26, %37, %2, %42, %switch.lookup96, %.critedge83, %72, %74, %80, %86, %89, %63, %66, %54, %57, %45, %48, %60
+  %.0 = phi i1 [ %62, %60 ], [ true, %45 ], [ %53, %48 ], [ false, %57 ], [ false, %54 ], [ false, %63 ], [ %68, %66 ], [ false, %86 ], [ false, %80 ], [ false, %74 ], [ false, %72 ], [ %91, %89 ], [ true, %.critedge83 ], [ %switch.masked, %switch.lookup96 ], [ true, %42 ], [ true, %2 ], [ false, %37 ], [ true, %26 ]
   ret i1 %.0
 }
 

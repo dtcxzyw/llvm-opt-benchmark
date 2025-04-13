@@ -1866,10 +1866,10 @@ if.then.i:                                        ; preds = %land.lhs.true4.i
   br label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %land.lhs.true.i, %land.lhs.true4.i, %if.then.i
-  %sub.ptr.rhs.cast.i19 = ptrtoint ptr %0 to i64
-  %sub.ptr.lhs.cast.i18 = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i20 = sub i64 %sub.ptr.lhs.cast.i18, %sub.ptr.rhs.cast.i19
-  %sub.ptr.div.i21 = ashr exact i64 %sub.ptr.sub.i20, 4
+  %sub.ptr.rhs.cast.i27 = ptrtoint ptr %0 to i64
+  %sub.ptr.lhs.cast.i26 = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i28 = sub i64 %sub.ptr.lhs.cast.i26, %sub.ptr.rhs.cast.i27
+  %sub.ptr.div.i29 = ashr exact i64 %sub.ptr.sub.i28, 4
   %lastRangeEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %isBits_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %isReverseBitOrder_ = getelementptr inbounds nuw i8, ptr %this, i64 9
@@ -1878,32 +1878,31 @@ for.body.lr.ph:                                   ; preds = %land.lhs.true.i, %l
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
-  %sub.ptr.div.i25 = phi i64 [ %sub.ptr.div.i21, %for.body.lr.ph ], [ %sub.ptr.div.i, %if.end ]
+  %sub.ptr.div.i33 = phi i64 [ %sub.ptr.div.i29, %for.body.lr.ph ], [ %sub.ptr.div.i, %if.end ]
   %5 = phi ptr [ %0, %for.body.lr.ph ], [ %15, %if.end ]
-  %sub = add nsw i64 %sub.ptr.div.i25, -1
+  %sub = add nsw i64 %sub.ptr.div.i33, -1
   %cmp5 = icmp eq i64 %sub, %indvars.iv
   %size = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %5, i64 %indvars.iv, i32 1
   %cond.in = select i1 %cmp5, ptr %lastRangeEnd_, ptr %size
   %cond = load i32, ptr %cond.in, align 8
   %6 = load i8, ptr %isBits_, align 8
   %tobool = trunc i8 %6 to i1
-  br i1 %tobool, label %land.lhs.true, label %if.end
+  br i1 %tobool, label %cond.end13, label %if.end
 
-land.lhs.true:                                    ; preds = %for.body
+cond.end13:                                       ; preds = %for.body
   %add.i.i = add i32 %cond, 7
   %div.i = sdiv i32 %add.i.i, 8
   %7 = load i8, ptr %isReverseBitOrder_, align 1
   %tobool18 = trunc i8 %7 to i1
-  br i1 %tobool18, label %land.lhs.true19, label %if.end
-
-land.lhs.true19:                                  ; preds = %land.lhs.true
+  %or.cond.not = xor i1 %tobool18, true
   %8 = load i8, ptr %isReversed_, align 2
   %tobool20 = trunc i8 %8 to i1
-  br i1 %tobool20, label %if.end, label %if.then
+  %or.cond8 = select i1 %or.cond.not, i1 true, i1 %tobool20
+  br i1 %or.cond8, label %if.end, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true19
-  %add.ptr.i13 = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %5, i64 %indvars.iv
-  %9 = load ptr, ptr %add.ptr.i13, align 8
+if.then:                                          ; preds = %cond.end13
+  %add.ptr.i15 = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %5, i64 %indvars.iv
+  %9 = load ptr, ptr %add.ptr.i15, align 8
   %cmp15.i = icmp sgt i32 %add.i.i, 7
   br i1 %cmp15.i, label %for.body.preheader.i, label %if.end
 
@@ -1925,12 +1924,12 @@ if.end.loopexit:                                  ; preds = %for.body.i
   %.pre = load ptr, ptr %ranges_.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.end.loopexit, %if.then, %for.body, %land.lhs.true19, %land.lhs.true
-  %11 = phi ptr [ %5, %land.lhs.true19 ], [ %5, %land.lhs.true ], [ %5, %for.body ], [ %5, %if.then ], [ %.pre, %if.end.loopexit ]
-  %cond1416 = phi i32 [ %div.i, %land.lhs.true19 ], [ %div.i, %land.lhs.true ], [ %cond, %for.body ], [ %div.i, %if.then ], [ %div.i, %if.end.loopexit ]
-  %add.ptr.i14 = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %11, i64 %indvars.iv
-  %12 = load ptr, ptr %add.ptr.i14, align 8
-  %conv28 = sext i32 %cond1416 to i64
+if.end:                                           ; preds = %if.end.loopexit, %for.body, %if.then, %cond.end13
+  %11 = phi ptr [ %5, %cond.end13 ], [ %5, %if.then ], [ %5, %for.body ], [ %.pre, %if.end.loopexit ]
+  %cond1425 = phi i32 [ %div.i, %cond.end13 ], [ %div.i, %if.then ], [ %cond, %for.body ], [ %div.i, %if.end.loopexit ]
+  %add.ptr.i16 = getelementptr inbounds nuw %"struct.facebook::velox::ByteRange", ptr %11, i64 %indvars.iv
+  %12 = load ptr, ptr %add.ptr.i16, align 8
+  %conv28 = sext i32 %cond1425 to i64
   %vtable = load ptr, ptr %out, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
@@ -1949,20 +1948,18 @@ for.end:                                          ; preds = %if.end, %entry
   %isBits_29 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %16 = load i8, ptr %isBits_29, align 8
   %tobool30 = trunc i8 %16 to i1
-  br i1 %tobool30, label %land.lhs.true31, label %if.end36
-
-land.lhs.true31:                                  ; preds = %for.end
   %isReverseBitOrder_32 = getelementptr inbounds nuw i8, ptr %this, i64 9
   %17 = load i8, ptr %isReverseBitOrder_32, align 1
   %tobool33 = trunc i8 %17 to i1
-  br i1 %tobool33, label %if.then34, label %if.end36
+  %or.cond9 = select i1 %tobool30, i1 %tobool33, i1 false
+  br i1 %or.cond9, label %if.then34, label %if.end36
 
-if.then34:                                        ; preds = %land.lhs.true31
+if.then34:                                        ; preds = %for.end
   %isReversed_35 = getelementptr inbounds nuw i8, ptr %this, i64 10
   store i8 1, ptr %isReversed_35, align 2
   br label %if.end36
 
-if.end36:                                         ; preds = %if.then34, %land.lhs.true31, %for.end
+if.end36:                                         ; preds = %if.then34, %for.end
   ret void
 }
 

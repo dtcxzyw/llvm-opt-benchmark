@@ -579,7 +579,7 @@ define noundef i32 @H5CX_term_package() local_unnamed_addr #4 {
   store i8 0, ptr @H5CX_init_g, align 1, !tbaa !3
   br label %4
 
-4:                                                ; preds = %0, %3
+4:                                                ; preds = %3, %0
   ret i32 0
 }
 

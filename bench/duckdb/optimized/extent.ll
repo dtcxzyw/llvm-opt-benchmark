@@ -426,8 +426,8 @@ extent_alloc_retained.exit.thread28:              ; preds = %malloc_mutex_lock.e
   %35 = icmp eq ptr %4, null
   %or.cond.i = and i1 %35, %34
   %or.cond.not.i = xor i1 %or.cond.i, true
-  %brmerge.i = or i1 %8, %or.cond.not.i
-  br i1 %brmerge.i, label %extent_alloc_retained.exit.thread, label %36
+  %or.cond3.i = or i1 %8, %or.cond.not.i
+  br i1 %or.cond3.i, label %extent_alloc_retained.exit.thread, label %36
 
 36:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
@@ -622,8 +622,8 @@ ehooks_alloc.exit.i.i:                            ; preds = %91, %tsd_fetch_impl
 139:                                              ; preds = %125
   %140 = sub i64 %136, %135
   %141 = sub i64 %140, %5
-  %.not.i.i30.i = icmp eq i64 %134, %130
-  br i1 %.not.i.i30.i, label %145, label %142
+  %.not.i.i32.i = icmp eq i64 %134, %130
+  br i1 %.not.i.i32.i, label %145, label %142
 
 142:                                              ; preds = %139
   %143 = call fastcc ptr @extent_split_impl(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2, ptr noundef nonnull %55, i64 noundef %135, i64 noundef %140)
@@ -659,8 +659,8 @@ ehooks_alloc.exit.i.i:                            ; preds = %91, %tsd_fetch_impl
   br label %154
 
 extent_split_interior.exit.i.i:                   ; preds = %146
-  %.not.i31.i = icmp eq ptr %.0149.i.i, null
-  br i1 %.not.i31.i, label %.thread135.i.i, label %153
+  %.not.i33.i = icmp eq ptr %.0149.i.i, null
+  br i1 %.not.i33.i, label %.thread135.i.i, label %153
 
 153:                                              ; preds = %extent_split_interior.exit.i.i
   call void @duckdb_je_extent_record(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %28, ptr noundef nonnull %.0149.i.i)

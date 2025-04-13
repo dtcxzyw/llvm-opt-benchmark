@@ -1614,28 +1614,22 @@ declare i32 @uloc_countAvailable_77() local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define zeroext i1 @unum_hasAttribute_77(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %7, label %4
+  br i1 %3, label %switch.lookup, label %4
 
 4:                                                ; preds = %2
   %5 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN6icu_7712NumberFormatE, ptr nonnull @_ZTIN6icu_7713DecimalFormatE, i64 0) #11
   %6 = icmp ne ptr %5, null
-  br label %7
-
-7:                                                ; preds = %2, %4
-  %8 = phi i1 [ %6, %4 ], [ false, %2 ]
-  %switch.tableidx = add i32 %1, -3
-  %9 = icmp ult i32 %switch.tableidx, 17
-  br i1 %9, label %switch.hole_check, label %switch.lookup
-
-switch.hole_check:                                ; preds = %7
-  %switch.shifted = lshr i32 65855, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  %spec.select = select i1 %switch.lobit, i1 true, i1 %8
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %switch.hole_check, %7
-  %.0 = phi i1 [ %8, %7 ], [ %spec.select, %switch.hole_check ]
-  ret i1 %.0
+switch.lookup:                                    ; preds = %2, %4
+  %7 = phi i1 [ %6, %4 ], [ false, %2 ]
+  %switch.tableidx = add i32 %1, -3
+  %8 = icmp ult i32 %switch.tableidx, 17
+  %switch.shifted = lshr i32 65855, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %8, i1 %switch.lobit, i1 false
+  %spec.select = select i1 %or.cond, i1 true, i1 %7
+  ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress uwtable

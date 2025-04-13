@@ -1351,7 +1351,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load i8, ptr %4, align 8, !tbaa !32, !range !99, !noundef !100
   %6 = trunc nuw i8 %5 to i1
-  %brmerge.demorgan = and i1 %2, %6
+  %or.cond = and i1 %2, %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !12
@@ -1363,7 +1363,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %14 = load ptr, ptr %10, align 8, !tbaa !138
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !12
-  br i1 %brmerge.demorgan, label %17, label %100
+  br i1 %or.cond, label %17, label %100
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1434,14 +1434,14 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   br label %74
 
 74:                                               ; preds = %.lr.ph28, %74
-  %.02027 = phi i32 [ 0, %.lr.ph28 ], [ %97, %74 ]
-  %.02126 = phi ptr [ %60, %.lr.ph28 ], [ %98, %74 ]
-  %75 = getelementptr inbounds nuw i8, ptr %.02126, i64 4
+  %.02127 = phi i32 [ 0, %.lr.ph28 ], [ %97, %74 ]
+  %.02226 = phi ptr [ %60, %.lr.ph28 ], [ %98, %74 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.02226, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !102
   %77 = zext i32 %76 to i64
   %78 = getelementptr inbounds nuw float, ptr %63, i64 %77
   %79 = load float, ptr %78, align 4, !tbaa !34
-  %80 = load i32, ptr %.02126, align 4, !tbaa !102
+  %80 = load i32, ptr %.02226, align 4, !tbaa !102
   %81 = zext i32 %80 to i64
   %82 = getelementptr inbounds nuw float, ptr %65, i64 %81
   store float %79, ptr %82, align 4, !tbaa !34
@@ -1461,8 +1461,8 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %95 = zext i32 %94 to i64
   %96 = getelementptr inbounds nuw float, ptr %65, i64 %95
   store float %93, ptr %96, align 4, !tbaa !34
-  %97 = add nuw i32 %.02027, 2
-  %98 = getelementptr inbounds nuw i8, ptr %.02126, i64 8
+  %97 = add nuw i32 %.02127, 2
+  %98 = getelementptr inbounds nuw i8, ptr %.02226, i64 8
   %99 = icmp ult i32 %97, %58
   br i1 %99, label %74, label %.loopexit, !llvm.loop !140
 
@@ -1485,18 +1485,18 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
 
 110:                                              ; preds = %.lr.ph, %110
   %.025 = phi i32 [ 0, %.lr.ph ], [ %119, %110 ]
-  %.01924 = phi ptr [ %104, %.lr.ph ], [ %120, %110 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.01924, i64 4
+  %.02024 = phi ptr [ %104, %.lr.ph ], [ %120, %110 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.02024, i64 4
   %112 = load i32, ptr %111, align 4, !tbaa !102
   %113 = zext i32 %112 to i64
   %114 = getelementptr inbounds nuw float, ptr %107, i64 %113
   %115 = load float, ptr %114, align 4, !tbaa !34
-  %116 = load i32, ptr %.01924, align 4, !tbaa !102
+  %116 = load i32, ptr %.02024, align 4, !tbaa !102
   %117 = zext i32 %116 to i64
   %118 = getelementptr inbounds nuw float, ptr %109, i64 %117
   store float %115, ptr %118, align 4, !tbaa !34
   %119 = add nuw i32 %.025, 2
-  %120 = getelementptr inbounds nuw i8, ptr %.01924, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.02024, i64 8
   %121 = icmp ult i32 %119, %102
   br i1 %121, label %110, label %.loopexit, !llvm.loop !141
 

@@ -3404,14 +3404,14 @@ define void @_ZN16FilterDockDialog26on_applyPushButton_clickedEv(ptr noundef non
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 32768
-  %.not8 = icmp eq i32 %17, 0
-  br i1 %.not8, label %.thread, label %18
+  %.not10 = icmp eq i32 %17, 0
+  br i1 %.not10, label %.thread, label %18
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %.thread18, label %21
+  br i1 %.not, label %41, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3423,19 +3423,19 @@ define void @_ZN16FilterDockDialog26on_applyPushButton_clickedEv(ptr noundef non
   %27 = icmp ne ptr %25, null
   %28 = icmp ne ptr %26, null
   %or.cond.i = and i1 %27, %28
-  br i1 %or.cond.i, label %29, label %40
+  br i1 %or.cond.i, label %29, label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 1368
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null
-  br i1 %.not.i, label %40, label %32
+  br i1 %.not.i, label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 240
   %34 = load ptr, ptr %33, align 8
   %.not15.i = icmp eq ptr %34, null
-  br i1 %.not15.i, label %40, label %35
+  br i1 %.not15.i, label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 1224
@@ -3444,28 +3444,30 @@ define void @_ZN16FilterDockDialog26on_applyPushButton_clickedEv(ptr noundef non
   call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %34, i32 noundef %37, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(7) %3)
   %38 = load i32, ptr %36, align 8
   %39 = call noundef zeroext i1 @_ZN26MLSceneGLSharedDataContext13manageBuffersEi(ptr noundef nonnull align 8 dereferenceable(168) %34, i32 noundef %38)
-  br label %40
+  br label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit
 
-40:                                               ; preds = %35, %32, %29, %21
+_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit: ; preds = %21, %29, %32, %35
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3)
   %.pre = load ptr, ptr %5, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 104
-  %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert12 = getelementptr inbounds nuw i8, ptr %.pre11, i64 40
-  %.pre13 = load ptr, ptr %.phi.trans.insert12, align 8
-  %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %.pre13, i64 8
-  %.pre15 = load i32, ptr %.phi.trans.insert14, align 8
-  %.pre16 = and i32 %.pre15, 32768
-  %41 = icmp eq i32 %.pre16, 0
-  br i1 %41, label %.thread, label %.thread18
+  %.pre12 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %.pre12, i64 40
+  %.pre14 = load ptr, ptr %.phi.trans.insert13, align 8
+  %.phi.trans.insert15 = getelementptr inbounds nuw i8, ptr %.pre14, i64 8
+  %.pre16 = load i32, ptr %.phi.trans.insert15, align 8
+  %.pre17 = and i32 %.pre16, 32768
+  %40 = icmp ne i32 %.pre17, 0
+  br label %41
 
-.thread18:                                        ; preds = %18, %40
+41:                                               ; preds = %18, %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit
+  %.pre-phi = phi i1 [ true, %18 ], [ %40, %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %43 = load i8, ptr %42, align 8
   %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %.thread
+  %or.cond = select i1 %.pre-phi, i1 %44, i1 false
+  br i1 %or.cond, label %45, label %.thread
 
-45:                                               ; preds = %.thread18
+45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %47 = call noundef zeroext i1 @_ZN17RichParameterListeqERKS_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %46)
   br i1 %47, label %48, label %.thread
@@ -3481,20 +3483,20 @@ define void @_ZN16FilterDockDialog26on_applyPushButton_clickedEv(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2)
   %56 = icmp ne ptr %54, null
   %57 = icmp ne ptr %55, null
-  %or.cond.i4 = and i1 %56, %57
-  br i1 %or.cond.i4, label %58, label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit7
+  %or.cond.i6 = and i1 %56, %57
+  br i1 %or.cond.i6, label %58, label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit9
 
 58:                                               ; preds = %48
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 1368
   %60 = load ptr, ptr %59, align 8
-  %.not.i5 = icmp eq ptr %60, null
-  br i1 %.not.i5, label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit7, label %61
+  %.not.i7 = icmp eq ptr %60, null
+  br i1 %.not.i7, label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit9, label %61
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 240
   %63 = load ptr, ptr %62, align 8
-  %.not15.i6 = icmp eq ptr %63, null
-  br i1 %.not15.i6, label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit7, label %64
+  %.not15.i8 = icmp eq ptr %63, null
+  br i1 %.not15.i8, label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit9, label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 1224
@@ -3503,13 +3505,13 @@ define void @_ZN16FilterDockDialog26on_applyPushButton_clickedEv(ptr noundef non
   call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %63, i32 noundef %66, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(7) %2)
   %67 = load i32, ptr %65, align 8
   %68 = call noundef zeroext i1 @_ZN26MLSceneGLSharedDataContext13manageBuffersEi(ptr noundef nonnull align 8 dereferenceable(168) %63, i32 noundef %67)
-  br label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit7
+  br label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit9
 
-_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit7: ; preds = %48, %58, %61, %64
+_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit9: ; preds = %48, %58, %61, %64
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %2)
   br label %74
 
-.thread:                                          ; preds = %1, %45, %.thread18, %40
+.thread:                                          ; preds = %1, %45, %41
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %70 = load ptr, ptr %69, align 8
   call void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9)
@@ -3526,7 +3528,7 @@ _ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit7: ; pre
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #19
   resume { ptr, i32 } %73
 
-74:                                               ; preds = %71, %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit7
+74:                                               ; preds = %71, %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit9
   %75 = load ptr, ptr %5, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 104
   %77 = load ptr, ptr %76, align 8
@@ -3535,8 +3537,8 @@ _ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit7: ; pre
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i32, ptr %80, align 8
   %82 = and i32 %81, 32768
-  %.not10 = icmp eq i32 %82, 0
-  br i1 %.not10, label %89, label %83
+  %.not11 = icmp eq i32 %82, 0
+  br i1 %.not11, label %89, label %83
 
 83:                                               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 120

@@ -55,89 +55,87 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nounde
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br i1 %15, label %._crit_edge, label %16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = trunc i8 %17 to i1
+  %or.cond = select i1 %15, i1 true, i1 %18
+  br i1 %or.cond, label %19, label %61
 
-16:                                               ; preds = %12
-  %17 = trunc i8 %.pre to i1
-  br i1 %17, label %._crit_edge, label %59
+19:                                               ; preds = %12
+  %20 = xor i8 %17, %14
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %.loopexit, label %22
 
-._crit_edge:                                      ; preds = %12, %16
-  %18 = xor i8 %.pre, %14
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %.loopexit, label %20
-
-20:                                               ; preds = %._crit_edge
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %25, align 4
-  %.not179 = icmp eq i32 %23, %26
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i32, ptr %27, align 4
+  %.not179 = icmp eq i32 %25, %28
   br i1 %.not179, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %20
-  %27 = icmp sgt i32 %23, 0
-  br i1 %27, label %.lr.ph, label %.loopexit
+.preheader:                                       ; preds = %22
+  %29 = icmp sgt i32 %25, 0
+  br i1 %29, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %33 = load ptr, ptr %32, align 8
   %.off = add i8 %3, -4
   %switch = icmp ult i8 %.off, 8
-  br i1 %switch, label %.lr.ph.split.preheader, label %52
+  br i1 %switch, label %.lr.ph.split.preheader, label %54
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %wide.trip.count = zext nneg i32 %23 to i64
+  %wide.trip.count = zext nneg i32 %25 to i64
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %58
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %58 ]
-  %32 = getelementptr inbounds nuw %union.jvalue, ptr %29, i64 %indvars.iv
-  %.sroa.0.0.copyload80 = load i32, ptr %32, align 8
-  %.sroa_idx81 = getelementptr inbounds nuw i8, ptr %32, i64 4
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %60
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %60 ]
+  %34 = getelementptr inbounds nuw %union.jvalue, ptr %31, i64 %indvars.iv
+  %.sroa.0.0.copyload80 = load i32, ptr %34, align 8
+  %.sroa_idx81 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %.sroa.0.0.copyload82 = load i32, ptr %.sroa_idx81, align 4
-  %33 = getelementptr inbounds nuw %union.jvalue, ptr %31, i64 %indvars.iv
-  %.sroa.0.0.copyload8 = load i32, ptr %33, align 8
-  %.sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %35 = getelementptr inbounds nuw %union.jvalue, ptr %33, i64 %indvars.iv
+  %.sroa.0.0.copyload8 = load i32, ptr %35, align 8
+  %.sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 4
   %.sroa.0.0.copyload9 = load i32, ptr %.sroa_idx, align 4
-  switch i8 %3, label %50 [
-    i8 4, label %54
-    i8 8, label %34
-    i8 5, label %36
-    i8 9, label %40
-    i8 10, label %44
-    i8 11, label %46
-    i8 6, label %48
+  switch i8 %3, label %52 [
+    i8 4, label %56
+    i8 8, label %36
+    i8 5, label %38
+    i8 9, label %42
+    i8 10, label %46
+    i8 11, label %48
+    i8 6, label %50
   ]
 
-34:                                               ; preds = %.lr.ph.split
+36:                                               ; preds = %.lr.ph.split
   %.unshifted = xor i32 %.sroa.0.0.copyload8, %.sroa.0.0.copyload80
   %.mask = and i32 %.unshifted, 255
-  %35 = icmp eq i32 %.mask, 0
-  br i1 %35, label %58, label %.loopexit
+  %37 = icmp eq i32 %.mask, 0
+  br i1 %37, label %60, label %.loopexit
 
-36:                                               ; preds = %.lr.ph.split
-  %37 = xor i32 %.sroa.0.0.copyload8, %.sroa.0.0.copyload80
-  %38 = and i32 %37, 65535
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %58, label %.loopexit
+38:                                               ; preds = %.lr.ph.split
+  %39 = xor i32 %.sroa.0.0.copyload8, %.sroa.0.0.copyload80
+  %40 = and i32 %39, 65535
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %60, label %.loopexit
 
-40:                                               ; preds = %.lr.ph.split
-  %41 = trunc i32 %.sroa.0.0.copyload80 to i16
-  %42 = trunc i32 %.sroa.0.0.copyload8 to i16
-  %43 = icmp eq i16 %41, %42
-  br i1 %43, label %58, label %.loopexit
-
-44:                                               ; preds = %.lr.ph.split
-  %45 = icmp eq i32 %.sroa.0.0.copyload80, %.sroa.0.0.copyload8
-  br i1 %45, label %58, label %.loopexit
+42:                                               ; preds = %.lr.ph.split
+  %43 = trunc i32 %.sroa.0.0.copyload80 to i16
+  %44 = trunc i32 %.sroa.0.0.copyload8 to i16
+  %45 = icmp eq i16 %43, %44
+  br i1 %45, label %60, label %.loopexit
 
 46:                                               ; preds = %.lr.ph.split
+  %47 = icmp eq i32 %.sroa.0.0.copyload80, %.sroa.0.0.copyload8
+  br i1 %47, label %60, label %.loopexit
+
+48:                                               ; preds = %.lr.ph.split
   %.sroa.0.sroa.989.0.insert.ext90 = zext i32 %.sroa.0.0.copyload82 to i64
   %.sroa.0.sroa.989.0.insert.shift91 = shl nuw i64 %.sroa.0.sroa.989.0.insert.ext90, 32
   %.sroa.0.sroa.0.0.insert.ext86 = zext i32 %.sroa.0.0.copyload80 to i64
@@ -146,14 +144,14 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nounde
   %.sroa.0.sroa.9.0.insert.shift14 = shl nuw i64 %.sroa.0.sroa.9.0.insert.ext13, 32
   %.sroa.0.sroa.0.0.insert.ext10 = zext i32 %.sroa.0.0.copyload8 to i64
   %.sroa.0.sroa.0.0.insert.insert12 = or disjoint i64 %.sroa.0.sroa.9.0.insert.shift14, %.sroa.0.sroa.0.0.insert.ext10
-  %47 = icmp eq i64 %.sroa.0.sroa.0.0.insert.insert88, %.sroa.0.sroa.0.0.insert.insert12
-  br i1 %47, label %58, label %.loopexit
-
-48:                                               ; preds = %.lr.ph.split
-  %49 = icmp eq i32 %.sroa.0.0.copyload80, %.sroa.0.0.copyload8
-  br i1 %49, label %58, label %.loopexit
+  %49 = icmp eq i64 %.sroa.0.sroa.0.0.insert.insert88, %.sroa.0.sroa.0.0.insert.insert12
+  br i1 %49, label %60, label %.loopexit
 
 50:                                               ; preds = %.lr.ph.split
+  %51 = icmp eq i32 %.sroa.0.0.copyload80, %.sroa.0.0.copyload8
+  br i1 %51, label %60, label %.loopexit
+
+52:                                               ; preds = %.lr.ph.split
   %.sroa.0.sroa.989.0.insert.ext = zext i32 %.sroa.0.0.copyload82 to i64
   %.sroa.0.sroa.989.0.insert.shift = shl nuw i64 %.sroa.0.sroa.989.0.insert.ext, 32
   %.sroa.0.sroa.0.0.insert.ext83 = zext i32 %.sroa.0.0.copyload80 to i64
@@ -162,102 +160,102 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nounde
   %.sroa.0.sroa.9.0.insert.shift = shl nuw i64 %.sroa.0.sroa.9.0.insert.ext, 32
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.0.0.copyload8 to i64
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.9.0.insert.shift, %.sroa.0.sroa.0.0.insert.ext
-  %51 = icmp eq i64 %.sroa.0.sroa.0.0.insert.insert85, %.sroa.0.sroa.0.0.insert.insert
-  br i1 %51, label %58, label %.loopexit
+  %53 = icmp eq i64 %.sroa.0.sroa.0.0.insert.insert85, %.sroa.0.sroa.0.0.insert.insert
+  br i1 %53, label %60, label %.loopexit
 
-52:                                               ; preds = %.lr.ph
-  %53 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %53, align 1
+54:                                               ; preds = %.lr.ph
+  %55 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %55, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 56) #9
   unreachable
 
-54:                                               ; preds = %.lr.ph.split
-  %55 = xor i32 %.sroa.0.0.copyload8, %.sroa.0.0.copyload80
-  %56 = and i32 %55, 255
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %.loopexit
+56:                                               ; preds = %.lr.ph.split
+  %57 = xor i32 %.sroa.0.0.copyload8, %.sroa.0.0.copyload80
+  %58 = and i32 %57, 255
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %.loopexit
 
-58:                                               ; preds = %34, %36, %40, %44, %46, %48, %50, %54
+60:                                               ; preds = %36, %38, %42, %46, %48, %50, %52, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
-59:                                               ; preds = %16
-  switch i8 %3, label %102 [
-    i8 10, label %60
-    i8 6, label %66
-    i8 11, label %72
-    i8 7, label %78
-    i8 12, label %84
-    i8 15, label %84
-    i8 14, label %90
-    i8 17, label %96
+61:                                               ; preds = %12
+  switch i8 %3, label %104 [
+    i8 10, label %62
+    i8 6, label %68
+    i8 11, label %74
+    i8 7, label %80
+    i8 12, label %86
+    i8 15, label %86
+    i8 14, label %92
+    i8 17, label %98
   ]
 
-60:                                               ; preds = %59
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+62:                                               ; preds = %61
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %62, %64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %66 = load i32, ptr %65, align 8
+  %67 = icmp eq i32 %64, %66
   br label %.loopexit
 
-66:                                               ; preds = %59
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
+68:                                               ; preds = %61
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load i32, ptr %69, align 8
-  %71 = icmp eq i32 %68, %70
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp eq i32 %70, %72
   br label %.loopexit
 
-72:                                               ; preds = %59
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
+74:                                               ; preds = %61
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load i64, ptr %75, align 8
-  %77 = icmp eq i64 %74, %76
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %78 = load i64, ptr %77, align 8
+  %79 = icmp eq i64 %76, %78
   br label %.loopexit
 
-78:                                               ; preds = %59
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
+80:                                               ; preds = %61
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load i64, ptr %81, align 8
-  %83 = icmp eq i64 %80, %82
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %84 = load i64, ptr %83, align 8
+  %85 = icmp eq i64 %82, %84
   br label %.loopexit
 
-84:                                               ; preds = %59, %59
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
+86:                                               ; preds = %61, %61
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %86, %88
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp eq ptr %88, %90
   br label %.loopexit
 
-90:                                               ; preds = %59
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
+92:                                               ; preds = %61
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %94 = load ptr, ptr %93, align 8
-  %95 = icmp eq ptr %92, %94
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp eq ptr %94, %96
   br label %.loopexit
 
-96:                                               ; preds = %59
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
+98:                                               ; preds = %61
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %100 = load ptr, ptr %99, align 8
-  %101 = icmp eq ptr %98, %100
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %100, %102
   br label %.loopexit
 
-102:                                              ; preds = %59
-  %103 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %103, align 1
+104:                                              ; preds = %61
+  %105 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %105, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 74) #9
   unreachable
 
-.loopexit:                                        ; preds = %54, %58, %50, %48, %46, %44, %40, %36, %34, %.preheader, %._crit_edge, %20, %5, %2, %96, %90, %84, %78, %72, %66, %60
-  %.0175 = phi i1 [ %101, %96 ], [ %95, %90 ], [ %89, %84 ], [ %83, %78 ], [ %77, %72 ], [ %71, %66 ], [ %65, %60 ], [ false, %2 ], [ false, %5 ], [ false, %20 ], [ false, %._crit_edge ], [ true, %.preheader ], [ false, %54 ], [ true, %58 ], [ false, %50 ], [ false, %48 ], [ false, %46 ], [ false, %44 ], [ false, %40 ], [ false, %36 ], [ false, %34 ]
+.loopexit:                                        ; preds = %56, %60, %52, %50, %48, %46, %42, %38, %36, %.preheader, %19, %22, %5, %2, %98, %92, %86, %80, %74, %68, %62
+  %.0175 = phi i1 [ %103, %98 ], [ %97, %92 ], [ %91, %86 ], [ %85, %80 ], [ %79, %74 ], [ %73, %68 ], [ %67, %62 ], [ false, %2 ], [ false, %5 ], [ false, %22 ], [ false, %19 ], [ true, %.preheader ], [ false, %56 ], [ true, %60 ], [ false, %52 ], [ false, %50 ], [ false, %48 ], [ false, %46 ], [ false, %42 ], [ false, %38 ], [ false, %36 ]
   ret i1 %.0175
 }
 

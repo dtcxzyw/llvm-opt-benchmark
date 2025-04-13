@@ -301,8 +301,8 @@ define hidden i64 @_ZN18ModRefBarrierSetC115resolve_addressER9LIRAccessb(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 3221225472
-  %or.cond.not = icmp eq i64 %6, 1073741824
-  br i1 %or.cond.not, label %7, label %13
+  %or.cond = icmp eq i64 %6, 1073741824
+  br i1 %or.cond, label %7, label %13
 
 7:                                                ; preds = %3
   %8 = and i64 %5, 2228224

@@ -20344,10 +20344,10 @@ define internal fastcc void @_ZN3ue2L10addLiteralEPNS_17ComponentSequenceEcRKNS_
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %9 = load i8, ptr %8, align 1, !range !10, !noundef !11
   %10 = trunc nuw i8 %9 to i1
-  %.pre = load i8, ptr %2, align 1, !range !10
-  %11 = trunc nuw i8 %.pre to i1
-  %12 = select i1 %10, i1 %11, i1 false
-  br i1 %12, label %13, label %._crit_edge
+  %11 = load i8, ptr %2, align 1, !range !10
+  %12 = trunc nuw i8 %11 to i1
+  %or.cond = select i1 %10, i1 %12, i1 false
+  br i1 %or.cond, label %13, label %48
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
@@ -20390,8 +20390,8 @@ _ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i: ; preds = %26
 _ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit: ; preds = %26, %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i
   store ptr null, ptr %5, align 8
   %31 = load ptr, ptr %4, align 8
-  %.not.i13 = icmp eq ptr %31, null
-  br i1 %.not.i13, label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i
+  %.not.i14 = icmp eq ptr %31, null
+  br i1 %.not.i14, label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit
   %32 = load ptr, ptr %31, align 8
@@ -20402,7 +20402,7 @@ _ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i: ; preds = %_ZNSt10
 
 _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  br label %68
+  br label %69
 
 35:                                               ; preds = %19, %13
   %36 = landingpad { ptr, i32 }
@@ -20413,113 +20413,111 @@ _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit: ; pre
   %38 = landingpad { ptr, i32 }
           cleanup
   %39 = load ptr, ptr %5, align 8
-  %.not.i14 = icmp eq ptr %39, null
-  br i1 %.not.i14, label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit16, label %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i15
+  %.not.i15 = icmp eq ptr %39, null
+  br i1 %.not.i15, label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit17, label %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i16
 
-_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i15: ; preds = %37
+_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i16: ; preds = %37
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(16) %39) #24
-  br label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit16
+  br label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit17
 
-_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit16: ; preds = %37, %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i15
+_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit17: ; preds = %37, %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i16
   store ptr null, ptr %5, align 8
   br label %43
 
-43:                                               ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit16, %35
-  %.pn = phi { ptr, i32 } [ %38, %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit16 ], [ %36, %35 ]
+43:                                               ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit17, %35
+  %.pn = phi { ptr, i32 } [ %38, %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit17 ], [ %36, %35 ]
   %44 = load ptr, ptr %4, align 8
-  %.not.i17 = icmp eq ptr %44, null
-  br i1 %.not.i17, label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit19, label %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i18
+  %.not.i18 = icmp eq ptr %44, null
+  br i1 %.not.i18, label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit20, label %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i19
 
-_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i18: ; preds = %43
+_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i19: ; preds = %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(29) %44) #24
-  br label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit19
+  br label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit20
 
-_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit19: ; preds = %43, %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i18
+_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit20: ; preds = %43, %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  br label %69
+  br label %70
 
-._crit_edge:                                      ; preds = %3
-  %.not = xor i1 %10, true
-  %.mux = select i1 %.not, i1 %11, i1 false
+48:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
-  call void @_ZN3ue224getLiteralComponentClassEhb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.39") align 8 %7, i8 noundef zeroext %1, i1 noundef zeroext %.mux)
-  %48 = load ptr, ptr %7, align 8
+  call void @_ZN3ue224getLiteralComponentClassEhb(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.39") align 8 %7, i8 noundef zeroext %1, i1 noundef zeroext %12)
+  %49 = load ptr, ptr %7, align 8
   store ptr null, ptr %7, align 8
-  store ptr %48, ptr %6, align 8
+  store ptr %49, ptr %6, align 8
   invoke void @_ZN3ue217ComponentSequence12addComponentESt10unique_ptrINS_9ComponentESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %6)
-          to label %49 unwind label %58
+          to label %50 unwind label %59
 
-49:                                               ; preds = %._crit_edge
-  %50 = load ptr, ptr %6, align 8
-  %.not.i20 = icmp eq ptr %50, null
-  br i1 %.not.i20, label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit22, label %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i21
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %6, align 8
+  %.not.i21 = icmp eq ptr %51, null
+  br i1 %.not.i21, label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit23, label %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i22
 
-_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i21: ; preds = %49
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %50) #24
-  br label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit22
+_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i22: ; preds = %50
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = load ptr, ptr %53, align 8
+  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %51) #24
+  br label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit23
 
-_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit22: ; preds = %49, %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i21
+_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit23: ; preds = %50, %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i22
   store ptr null, ptr %6, align 8
-  %54 = load ptr, ptr %7, align 8
-  %.not.i23 = icmp eq ptr %54, null
-  br i1 %.not.i23, label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit25, label %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i24
+  %55 = load ptr, ptr %7, align 8
+  %.not.i24 = icmp eq ptr %55, null
+  br i1 %.not.i24, label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit26, label %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i25
 
-_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i24: ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit22
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(29) %54) #24
-  br label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit25
+_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i25: ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit23
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(29) %55) #24
+  br label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit26
 
-_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit25: ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit22, %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
-  br label %68
-
-58:                                               ; preds = %._crit_edge
-  %59 = landingpad { ptr, i32 }
-          cleanup
-  %60 = load ptr, ptr %6, align 8
-  %.not.i26 = icmp eq ptr %60, null
-  br i1 %.not.i26, label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit28, label %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i27
-
-_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i27: ; preds = %58
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(16) %60) #24
-  br label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit28
-
-_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit28: ; preds = %58, %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i27
-  store ptr null, ptr %6, align 8
-  %64 = load ptr, ptr %7, align 8
-  %.not.i29 = icmp eq ptr %64, null
-  br i1 %.not.i29, label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit31, label %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i30
-
-_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i30: ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit28
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load ptr, ptr %66, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(29) %64) #24
-  br label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit31
-
-_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit31: ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit28, %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i30
+_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit26: ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit23, %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
   br label %69
 
-68:                                               ; preds = %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit25, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit
+59:                                               ; preds = %48
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = load ptr, ptr %6, align 8
+  %.not.i27 = icmp eq ptr %61, null
+  br i1 %.not.i27, label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit29, label %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i28
+
+_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i28: ; preds = %59
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8
+  call void %64(ptr noundef nonnull align 8 dereferenceable(16) %61) #24
+  br label %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit29
+
+_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit29: ; preds = %59, %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i28
+  store ptr null, ptr %6, align 8
+  %65 = load ptr, ptr %7, align 8
+  %.not.i30 = icmp eq ptr %65, null
+  br i1 %.not.i30, label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit32, label %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i31
+
+_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i31: ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit29
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load ptr, ptr %67, align 8
+  call void %68(ptr noundef nonnull align 8 dereferenceable(29) %65) #24
+  br label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit32
+
+_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit32: ; preds = %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit29, %_ZNKSt14default_deleteIN3ue214ComponentClassEEclEPS1_.exit.i31
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
+  br label %70
+
+69:                                               ; preds = %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit26, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit
   ret void
 
-69:                                               ; preds = %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit31, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit19
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit19 ], [ %59, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit31 ]
+70:                                               ; preds = %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit32, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit20
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit20 ], [ %60, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit32 ]
   resume { ptr, i32 } %.pn.pn
 }
 

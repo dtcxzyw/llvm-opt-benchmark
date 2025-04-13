@@ -283,99 +283,95 @@ declare void @_ZN20LinearLeastSquareFit6updateEdd(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20PSAdaptiveSizePolicy20major_collection_endEmN7GCCause5CauseE(ptr noundef nonnull align 8 captures(none) dereferenceable(312) initializes((288, 296)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_major_timerE) #7
-  switch i32 %2, label %52 [
-    i32 23, label %4
-    i32 0, label %4
+  %4 = icmp eq i32 %2, 0
+  %5 = icmp eq i32 %2, 23
+  %6 = or i1 %4, %5
+  %7 = load i8, ptr @UseAdaptiveSizePolicyWithSystemGC, align 1
+  %8 = trunc i8 %7 to i1
+  %or.cond.i = select i1 %6, i1 %8, i1 false
+  br i1 %or.cond.i, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit
+
+_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit: ; preds = %3
+  switch i32 %2, label %54 [
     i32 18, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
     i32 13, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
   ]
 
-4:                                                ; preds = %3, %3
-  %5 = load i8, ptr @UseAdaptiveSizePolicyWithSystemGC, align 1
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit
+_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread: ; preds = %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit, %3
+  %9 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_major_timerE) #7
+  %10 = fmul double %9, 1.000000e+03
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %12 = load ptr, ptr %11, align 8
+  %13 = fptrunc double %9 to float
+  tail call void @_ZN21AdaptivePaddedAverage6sampleEf(ptr noundef nonnull align 4 dereferenceable(32) %12, float noundef %13) #7
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %15 = load double, ptr %14, align 8
+  %16 = fcmp ogt double %15, 0.000000e+00
+  %17 = fcmp ogt double %9, 0.000000e+00
+  %or.cond = and i1 %17, %16
+  br i1 %or.cond, label %18, label %27
 
-_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit: ; preds = %4
-  switch i32 %2, label %52 [
-    i32 18, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
-    i32 13, label %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
-  ]
+18:                                               ; preds = %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
+  %19 = fadd double %9, %15
+  %20 = fdiv double %9, %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %22 = load ptr, ptr %21, align 8
+  %23 = fptrunc double %20 to float
+  tail call void @_ZN23AdaptiveWeightedAverage6sampleEf(ptr noundef nonnull align 4 dereferenceable(20) %22, float noundef %23) #7
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %25 = load ptr, ptr %24, align 8
+  %26 = fptrunc double %19 to float
+  tail call void @_ZN23AdaptiveWeightedAverage6sampleEf(ptr noundef nonnull align 4 dereferenceable(20) %25, float noundef %26) #7
+  br label %27
 
-_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread: ; preds = %3, %3, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit, %4
-  %7 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_major_timerE) #7
-  %8 = fmul double %7, 1.000000e+03
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %10 = load ptr, ptr %9, align 8
-  %11 = fptrunc double %7 to float
-  tail call void @_ZN21AdaptivePaddedAverage6sampleEf(ptr noundef nonnull align 4 dereferenceable(32) %10, float noundef %11) #7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %13 = load double, ptr %12, align 8
-  %14 = fcmp ogt double %13, 0.000000e+00
-  %15 = fcmp ogt double %7, 0.000000e+00
-  %or.cond = and i1 %15, %14
-  br i1 %or.cond, label %16, label %25
-
-16:                                               ; preds = %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
-  %17 = fadd double %7, %13
-  %18 = fdiv double %7, %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = load ptr, ptr %19, align 8
-  %21 = fptrunc double %18 to float
-  tail call void @_ZN23AdaptiveWeightedAverage6sampleEf(ptr noundef nonnull align 4 dereferenceable(20) %20, float noundef %21) #7
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %23 = load ptr, ptr %22, align 8
-  %24 = fptrunc double %17 to float
-  tail call void @_ZN23AdaptiveWeightedAverage6sampleEf(ptr noundef nonnull align 4 dereferenceable(20) %23, float noundef %24) #7
-  br label %25
-
-25:                                               ; preds = %16, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
-  %.0 = phi double [ %18, %16 ], [ 0.000000e+00, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8
-  %28 = uitofp i64 %27 to double
-  %29 = fmul double %28, 0x3EB0000000000000
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = load i64, ptr %30, align 8
-  %32 = uitofp i64 %31 to double
-  %33 = fmul double %32, 0x3EB0000000000000
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %35 = load ptr, ptr %34, align 8
-  tail call void @_ZN20LinearLeastSquareFit6updateEdd(ptr noundef nonnull align 8 dereferenceable(88) %35, double noundef %33, double noundef %8) #7
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 264
+27:                                               ; preds = %18, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread
+  %.0 = phi double [ %20, %18 ], [ 0.000000e+00, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load i64, ptr %28, align 8
+  %30 = uitofp i64 %29 to double
+  %31 = fmul double %30, 0x3EB0000000000000
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %33 = load i64, ptr %32, align 8
+  %34 = uitofp i64 %33 to double
+  %35 = fmul double %34, 0x3EB0000000000000
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %37 = load ptr, ptr %36, align 8
-  tail call void @_ZN20LinearLeastSquareFit6updateEdd(ptr noundef nonnull align 8 dereferenceable(88) %37, double noundef %29, double noundef %8) #7
-  %38 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not = icmp eq ptr %38, null
-  br i1 %.not, label %44, label %39
+  tail call void @_ZN20LinearLeastSquareFit6updateEdd(ptr noundef nonnull align 8 dereferenceable(88) %37, double noundef %35, double noundef %10) #7
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %39 = load ptr, ptr %38, align 8
+  tail call void @_ZN20LinearLeastSquareFit6updateEdd(ptr noundef nonnull align 8 dereferenceable(88) %39, double noundef %31, double noundef %10) #7
+  %40 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not = icmp eq ptr %40, null
+  br i1 %.not, label %46, label %41
 
-39:                                               ; preds = %25
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %41 = load ptr, ptr %40, align 8
-  %42 = load float, ptr %41, align 4
-  %43 = fpext float %42 to double
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str, double noundef %.0, double noundef %43)
-  br label %44
+41:                                               ; preds = %27
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %43 = load ptr, ptr %42, align 8
+  %44 = load float, ptr %43, align 4
+  %45 = fpext float %44 to double
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str, double noundef %.0, double noundef %45)
+  br label %46
 
-44:                                               ; preds = %25, %39
-  %45 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not21 = icmp eq ptr %45, null
-  br i1 %.not21, label %49, label %46
+46:                                               ; preds = %27, %41
+  %47 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not21 = icmp eq ptr %47, null
+  br i1 %.not21, label %51, label %48
 
-46:                                               ; preds = %44
-  %47 = load double, ptr %12, align 8
-  %48 = fmul double %47, 1.000000e+03
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.4, double noundef %8, double noundef %48)
-  br label %49
+48:                                               ; preds = %46
+  %49 = load double, ptr %14, align 8
+  %50 = fmul double %49, 1.000000e+03
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.4, double noundef %10, double noundef %50)
+  br label %51
 
-49:                                               ; preds = %44, %46
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %51 = load ptr, ptr %50, align 8
-  tail call void @_ZN20LinearLeastSquareFit6updateEdd(ptr noundef nonnull align 8 dereferenceable(88) %51, double noundef %33, double noundef %.0) #7
-  br label %52
+51:                                               ; preds = %46, %48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %53 = load ptr, ptr %52, align 8
+  tail call void @_ZN20LinearLeastSquareFit6updateEdd(ptr noundef nonnull align 8 dereferenceable(88) %53, double noundef %35, double noundef %.0) #7
+  br label %54
 
-52:                                               ; preds = %3, %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit, %49
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i64 %1, ptr %53, align 8
+54:                                               ; preds = %_ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit, %51
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i64 %1, ptr %55, align 8
   store i64 0, ptr @_ZN18AdaptiveSizePolicy12_major_timerE, align 8
   tail call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_major_timerE) #7
   ret void
@@ -447,16 +443,16 @@ define hidden void @_ZN20PSAdaptiveSizePolicy23compute_eden_space_sizeEmmmmb(ptr
   %32 = fcmp olt double %31, %29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 232
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert23 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
-  %.pre24 = load float, ptr %.phi.trans.insert23, align 4
-  %33 = fpext float %.pre24 to double
+  %.phi.trans.insert25 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
+  %.pre26 = load float, ptr %.phi.trans.insert25, align 4
+  %33 = fpext float %.pre26 to double
   %34 = fcmp olt double %31, %33
-  %or.cond = select i1 %32, i1 true, i1 %34
-  br i1 %or.cond, label %._crit_edge, label %56
+  %or.cond29 = select i1 %32, i1 true, i1 %34
+  br i1 %or.cond29, label %._crit_edge, label %56
 
 ._crit_edge:                                      ; preds = %6
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %36 = fcmp ogt float %28, %.pre24
+  %36 = fcmp ogt float %28, %.pre26
   br i1 %36, label %37, label %_ZN20PSAdaptiveSizePolicy32adjust_eden_for_minor_pause_timeEPm.exit.i
 
 37:                                               ; preds = %._crit_edge
@@ -500,197 +496,195 @@ _ZN20PSAdaptiveSizePolicy32adjust_eden_for_minor_pause_timeEPm.exit.i: ; preds =
 
 62:                                               ; preds = %56
   call void @_ZN20PSAdaptiveSizePolicy26adjust_eden_for_throughputEbPm(ptr noundef nonnull align 8 dereferenceable(312) %0, i1 noundef zeroext %5, ptr noundef nonnull %7)
-  %.pre25 = load i64, ptr %7, align 8
+  %.pre27 = load i64, ptr %7, align 8
   br label %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit
 
 63:                                               ; preds = %56
   %64 = load i8, ptr @UseAdaptiveSizePolicyFootprintGoal, align 1
   %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %67 = load i8, ptr %66, align 8
+  %68 = trunc i8 %67 to i1
+  %or.cond = select i1 %65, i1 %68, i1 false
+  br i1 %or.cond, label %69, label %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %68 = load i8, ptr %67, align 8
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit
+69:                                               ; preds = %63
+  %70 = load ptr, ptr %20, align 8
+  %71 = load float, ptr %70, align 4
+  %72 = fcmp ult float %71, 0.000000e+00
+  br i1 %72, label %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit, label %73
 
-70:                                               ; preds = %66
-  %71 = load ptr, ptr %20, align 8
-  %72 = load float, ptr %71, align 4
-  %73 = fcmp ult float %72, 0.000000e+00
-  br i1 %73, label %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit, label %74
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %21, align 8
+  %75 = load float, ptr %74, align 4
+  %76 = fcmp ult float %75, 0.000000e+00
+  br i1 %76, label %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit, label %77
 
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %21, align 8
-  %76 = load float, ptr %75, align 4
-  %77 = fcmp ult float %76, 0.000000e+00
-  br i1 %77, label %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit, label %78
-
-78:                                               ; preds = %74
-  %79 = add i64 %19, %3
-  %80 = tail call noundef i64 @_ZN20PSAdaptiveSizePolicy25adjust_eden_for_footprintEmm(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %3, i64 noundef %79)
+77:                                               ; preds = %73
+  %78 = add i64 %19, %3
+  %79 = tail call noundef i64 @_ZN20PSAdaptiveSizePolicy25adjust_eden_for_footprintEmm(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %3, i64 noundef %78)
   br label %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit
 
-_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit: ; preds = %51, %_ZN20PSAdaptiveSizePolicy32adjust_eden_for_minor_pause_timeEPm.exit.i, %63, %66, %70, %74, %78, %62
-  %81 = phi i64 [ %49, %51 ], [ %49, %_ZN20PSAdaptiveSizePolicy32adjust_eden_for_minor_pause_timeEPm.exit.i ], [ %3, %63 ], [ %3, %66 ], [ %3, %70 ], [ %3, %74 ], [ %80, %78 ], [ %.pre25, %62 ]
-  %82 = icmp ugt i64 %81, %4
-  br i1 %82, label %83, label %91
+_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit: ; preds = %51, %_ZN20PSAdaptiveSizePolicy32adjust_eden_for_minor_pause_timeEPm.exit.i, %63, %69, %73, %77, %62
+  %80 = phi i64 [ %49, %51 ], [ %49, %_ZN20PSAdaptiveSizePolicy32adjust_eden_for_minor_pause_timeEPm.exit.i ], [ %3, %63 ], [ %3, %69 ], [ %3, %73 ], [ %79, %77 ], [ %.pre27, %62 ]
+  %81 = icmp ugt i64 %80, %4
+  br i1 %81, label %82, label %90
 
-83:                                               ; preds = %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit
-  %84 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not = icmp eq ptr %84, null
-  br i1 %.not, label %91, label %85
+82:                                               ; preds = %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit
+  %83 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not = icmp eq ptr %83, null
+  br i1 %.not, label %90, label %84
 
-85:                                               ; preds = %83
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %87 = load i64, ptr %86, align 8
-  %88 = load ptr, ptr %12, align 8
-  %89 = load float, ptr %88, align 4
-  %90 = fptoui float %89 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.5, i64 noundef %81, i64 noundef %87, i64 noundef %4, i64 noundef %3, i64 noundef %4, i64 noundef %90)
-  br label %91
+84:                                               ; preds = %82
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %86 = load i64, ptr %85, align 8
+  %87 = load ptr, ptr %12, align 8
+  %88 = load float, ptr %87, align 4
+  %89 = fptoui float %88 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.5, i64 noundef %80, i64 noundef %86, i64 noundef %4, i64 noundef %3, i64 noundef %4, i64 noundef %89)
+  br label %90
 
-91:                                               ; preds = %85, %83, %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit
-  %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = tail call noundef double %94(ptr noundef nonnull align 8 dereferenceable(232) %0) #7
-  %96 = fcmp ogt double %95, %24
-  br i1 %96, label %97, label %105
+90:                                               ; preds = %84, %82, %_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm.exit
+  %91 = load ptr, ptr %0, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = tail call noundef double %93(ptr noundef nonnull align 8 dereferenceable(232) %0) #7
+  %95 = fcmp ogt double %94, %24
+  br i1 %95, label %96, label %104
 
-97:                                               ; preds = %91
-  %98 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not17 = icmp eq ptr %98, null
-  br i1 %.not17, label %105, label %99
+96:                                               ; preds = %90
+  %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not19 = icmp eq ptr %97, null
+  br i1 %.not19, label %104, label %98
 
-99:                                               ; preds = %97
-  %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call noundef double %102(ptr noundef nonnull align 8 dereferenceable(232) %0) #7
-  %104 = load i32, ptr @GCTimeLimit, align 4
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, double noundef %103, i32 noundef %104)
-  br label %105
+98:                                               ; preds = %96
+  %99 = load ptr, ptr %0, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = tail call noundef double %101(ptr noundef nonnull align 8 dereferenceable(232) %0) #7
+  %103 = load i32, ptr @GCTimeLimit, align 4
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.6, double noundef %102, i32 noundef %103)
+  br label %104
 
-105:                                              ; preds = %99, %97, %91
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %107 = load i64, ptr %106, align 8
-  %108 = add i64 %81, -1
-  %109 = add i64 %108, %107
-  %110 = sub i64 0, %107
-  %111 = and i64 %109, %110
-  %112 = tail call noundef i64 @llvm.umax.i64(i64 %111, i64 %107)
-  %113 = and i64 %4, %110
-  %114 = icmp ugt i64 %112, %113
-  %115 = tail call i64 @llvm.umax.i64(i64 %113, i64 %3)
-  %storemerge = select i1 %114, i64 %115, i64 %112
-  %116 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not18 = icmp eq ptr %116, null
-  br i1 %.not18, label %134, label %117
+104:                                              ; preds = %98, %96, %90
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %106 = load i64, ptr %105, align 8
+  %107 = add i64 %80, -1
+  %108 = add i64 %107, %106
+  %109 = sub i64 0, %106
+  %110 = and i64 %108, %109
+  %111 = tail call noundef i64 @llvm.umax.i64(i64 %110, i64 %106)
+  %112 = and i64 %4, %109
+  %113 = icmp ugt i64 %111, %112
+  %114 = tail call i64 @llvm.umax.i64(i64 %112, i64 %3)
+  %storemerge = select i1 %113, i64 %114, i64 %111
+  %115 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not20 = icmp eq ptr %115, null
+  br i1 %.not20, label %133, label %116
 
-117:                                              ; preds = %105
-  %118 = load ptr, ptr %21, align 8
-  %119 = load float, ptr %118, align 4
-  %120 = fcmp olt float %119, 0.000000e+00
-  %121 = select i1 %120, float 0.000000e+00, float %119
-  %122 = fpext float %121 to double
-  %123 = load ptr, ptr %20, align 8
-  %124 = load float, ptr %123, align 4
-  %125 = fcmp olt float %124, 0.000000e+00
-  %126 = select i1 %125, float 0.000000e+00, float %124
-  %127 = fpext float %126 to double
-  %128 = load ptr, ptr %0, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
-  %130 = load ptr, ptr %129, align 8
-  %131 = tail call noundef double %130(ptr noundef nonnull align 8 dereferenceable(232) %0) #7
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %133 = load double, ptr %132, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.7, double noundef %122, double noundef %127, double noundef %131, double noundef %133)
-  br label %134
+116:                                              ; preds = %104
+  %117 = load ptr, ptr %21, align 8
+  %118 = load float, ptr %117, align 4
+  %119 = fcmp olt float %118, 0.000000e+00
+  %120 = select i1 %119, float 0.000000e+00, float %118
+  %121 = fpext float %120 to double
+  %122 = load ptr, ptr %20, align 8
+  %123 = load float, ptr %122, align 4
+  %124 = fcmp olt float %123, 0.000000e+00
+  %125 = select i1 %124, float 0.000000e+00, float %123
+  %126 = fpext float %125 to double
+  %127 = load ptr, ptr %0, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
+  %129 = load ptr, ptr %128, align 8
+  %130 = tail call noundef double %129(ptr noundef nonnull align 8 dereferenceable(232) %0) #7
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %132 = load double, ptr %131, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.7, double noundef %121, double noundef %126, double noundef %130, double noundef %132)
+  br label %133
 
-134:                                              ; preds = %105, %117
-  %135 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not19 = icmp eq ptr %135, null
-  br i1 %.not19, label %155, label %136
+133:                                              ; preds = %104, %116
+  %134 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not21 = icmp eq ptr %134, null
+  br i1 %.not21, label %154, label %135
 
-136:                                              ; preds = %134
-  %137 = load ptr, ptr %25, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 20
-  %139 = load float, ptr %138, align 4
-  %140 = fpext float %139 to double
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 20
-  %144 = load float, ptr %143, align 4
-  %145 = fpext float %144 to double
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %147 = load ptr, ptr %146, align 8
-  %148 = load float, ptr %147, align 4
-  %149 = fpext float %148 to double
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %151 = load ptr, ptr %150, align 8
-  %152 = load float, ptr %151, align 4
-  %153 = fpext float %152 to double
-  %154 = load double, ptr %30, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.8, double noundef %140, double noundef %145, double noundef %149, double noundef %153, double noundef %154)
-  br label %155
+135:                                              ; preds = %133
+  %136 = load ptr, ptr %25, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 20
+  %138 = load float, ptr %137, align 4
+  %139 = fpext float %138 to double
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 20
+  %143 = load float, ptr %142, align 4
+  %144 = fpext float %143 to double
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %146 = load ptr, ptr %145, align 8
+  %147 = load float, ptr %146, align 4
+  %148 = fpext float %147 to double
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %150 = load ptr, ptr %149, align 8
+  %151 = load float, ptr %150, align 4
+  %152 = fpext float %151 to double
+  %153 = load double, ptr %30, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.8, double noundef %139, double noundef %144, double noundef %148, double noundef %152, double noundef %153)
+  br label %154
 
-155:                                              ; preds = %134, %136
-  %156 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not20 = icmp eq ptr %156, null
-  br i1 %.not20, label %172, label %157
+154:                                              ; preds = %133, %135
+  %155 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not22 = icmp eq ptr %155, null
+  br i1 %.not22, label %171, label %156
 
-157:                                              ; preds = %155
-  %158 = load ptr, ptr %8, align 8
-  %159 = load float, ptr %158, align 4
-  %160 = load ptr, ptr %12, align 8
-  %161 = load float, ptr %160, align 4
-  %162 = fadd float %159, %161
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %164 = load ptr, ptr %163, align 8
-  %165 = load float, ptr %164, align 4
-  %166 = fadd float %162, %165
-  %167 = fptoui float %166 to i64
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %169 = load i64, ptr %168, align 8
-  %170 = load i64, ptr %18, align 8
-  %171 = add i64 %170, %169
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %167, i64 noundef %171)
-  br label %172
+156:                                              ; preds = %154
+  %157 = load ptr, ptr %8, align 8
+  %158 = load float, ptr %157, align 4
+  %159 = load ptr, ptr %12, align 8
+  %160 = load float, ptr %159, align 4
+  %161 = fadd float %158, %160
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %163 = load ptr, ptr %162, align 8
+  %164 = load float, ptr %163, align 4
+  %165 = fadd float %161, %164
+  %166 = fptoui float %165 to i64
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %168 = load i64, ptr %167, align 8
+  %169 = load i64, ptr %18, align 8
+  %170 = add i64 %169, %168
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %166, i64 noundef %170)
+  br label %171
 
-172:                                              ; preds = %155, %157
-  %173 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not21 = icmp eq ptr %173, null
-  br i1 %.not21, label %185, label %174
+171:                                              ; preds = %154, %156
+  %172 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not23 = icmp eq ptr %172, null
+  br i1 %.not23, label %184, label %173
 
-174:                                              ; preds = %172
-  %175 = load ptr, ptr %8, align 8
-  %176 = load float, ptr %175, align 4
-  %177 = fptoui float %176 to i64
-  %178 = load ptr, ptr %12, align 8
-  %179 = load float, ptr %178, align 4
-  %180 = fptoui float %179 to i64
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %182 = load ptr, ptr %181, align 8
-  %183 = load float, ptr %182, align 4
-  %184 = fptoui float %183 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %177, i64 noundef %180, i64 noundef %184)
-  br label %185
+173:                                              ; preds = %171
+  %174 = load ptr, ptr %8, align 8
+  %175 = load float, ptr %174, align 4
+  %176 = fptoui float %175 to i64
+  %177 = load ptr, ptr %12, align 8
+  %178 = load float, ptr %177, align 4
+  %179 = fptoui float %178 to i64
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %181 = load ptr, ptr %180, align 8
+  %182 = load float, ptr %181, align 4
+  %183 = fptoui float %182 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %176, i64 noundef %179, i64 noundef %183)
+  br label %184
 
-185:                                              ; preds = %172, %174
-  %186 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not22 = icmp eq ptr %186, null
-  br i1 %.not22, label %190, label %187
+184:                                              ; preds = %171, %173
+  %185 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not24 = icmp eq ptr %185, null
+  br i1 %.not24, label %189, label %186
 
-187:                                              ; preds = %185
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %189 = load i64, ptr %188, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.11, i64 noundef %189, i64 noundef %storemerge)
-  br label %190
+186:                                              ; preds = %184
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %188 = load i64, ptr %187, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.11, i64 noundef %188, i64 noundef %storemerge)
+  br label %189
 
-190:                                              ; preds = %185, %187
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %storemerge, ptr %191, align 8
+189:                                              ; preds = %184, %186
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %storemerge, ptr %190, align 8
   ret void
 }
 
@@ -809,193 +803,191 @@ define hidden void @_ZN20PSAdaptiveSizePolicy26compute_old_gen_free_spaceEmmmb(p
 80:                                               ; preds = %71
   %81 = load i8, ptr @UseAdaptiveSizePolicyFootprintGoal, align 1
   %82 = trunc i8 %81 to i1
-  br i1 %82, label %83, label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %84 = load i8, ptr %83, align 8
+  %85 = trunc i8 %84 to i1
+  %or.cond23 = select i1 %82, i1 %85, i1 false
+  br i1 %or.cond23, label %86, label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %85 = load i8, ptr %84, align 8
-  %86 = trunc i8 %85 to i1
-  br i1 %86, label %87, label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %14, align 8
+  %88 = load float, ptr %87, align 4
+  %89 = fcmp ult float %88, 0.000000e+00
+  br i1 %89, label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread, label %90
 
-87:                                               ; preds = %83
-  %88 = load ptr, ptr %14, align 8
-  %89 = load float, ptr %88, align 4
-  %90 = fcmp ult float %89, 0.000000e+00
-  br i1 %90, label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread, label %91
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %15, align 8
+  %92 = load float, ptr %91, align 4
+  %93 = fcmp oge float %92, 0.000000e+00
+  %or.cond = and i1 %4, %93
+  br i1 %or.cond, label %94, label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr %15, align 8
-  %93 = load float, ptr %92, align 4
-  %94 = fcmp oge float %93, 0.000000e+00
-  %brmerge.not = and i1 %4, %94
-  br i1 %brmerge.not, label %95, label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
-
-95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  store i32 8, ptr %96, align 4
-  %97 = add i64 %13, %2
-  %98 = tail call noundef i64 @_ZN20PSAdaptiveSizePolicy26adjust_promo_for_footprintEmm(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %13, i64 noundef %97)
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  store i32 8, ptr %95, align 4
+  %96 = add i64 %13, %2
+  %97 = tail call noundef i64 @_ZN20PSAdaptiveSizePolicy26adjust_promo_for_footprintEmm(ptr noundef nonnull align 8 dereferenceable(312) %0, i64 noundef %13, i64 noundef %96)
   br label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit
 
-_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit: ; preds = %66, %63, %78, %95
-  %99 = phi i64 [ %64, %66 ], [ %64, %63 ], [ %.pre, %78 ], [ %98, %95 ]
-  %100 = icmp ugt i64 %99, %22
-  br i1 %100, label %101, label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
+_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit: ; preds = %66, %63, %78, %94
+  %98 = phi i64 [ %64, %66 ], [ %64, %63 ], [ %.pre, %78 ], [ %97, %94 ]
+  %99 = icmp ugt i64 %98, %22
+  br i1 %99, label %100, label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
 
-101:                                              ; preds = %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit
-  %102 = load ptr, ptr %17, align 8
-  %103 = load float, ptr %102, align 4
-  %104 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not = icmp eq ptr %104, null
-  br i1 %.not, label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread, label %105
+100:                                              ; preds = %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit
+  %101 = load ptr, ptr %17, align 8
+  %102 = load float, ptr %101, align 4
+  %103 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not = icmp eq ptr %103, null
+  br i1 %.not, label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread, label %104
 
-105:                                              ; preds = %101
-  %106 = fsub float %16, %103
-  %107 = fptoui float %106 to i64
-  %108 = fptoui float %103 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.12, i64 noundef %99, i64 noundef %22, i64 noundef %107, i64 noundef %3, i64 noundef %108)
+104:                                              ; preds = %100
+  %105 = fsub float %16, %102
+  %106 = fptoui float %105 to i64
+  %107 = fptoui float %102 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.12, i64 noundef %98, i64 noundef %22, i64 noundef %106, i64 noundef %3, i64 noundef %107)
   br label %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
 
-_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread: ; preds = %41, %80, %83, %87, %77, %91, %105, %101, %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit
-  %109 = phi i64 [ %99, %105 ], [ %99, %101 ], [ %99, %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit ], [ %13, %91 ], [ %13, %77 ], [ %13, %87 ], [ %13, %83 ], [ %13, %80 ], [ %13, %41 ]
-  %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = tail call noundef double %112(ptr noundef nonnull align 8 dereferenceable(232) %0) #7
-  %114 = fcmp ogt double %113, %25
-  br i1 %114, label %115, label %123
+_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread: ; preds = %41, %80, %86, %90, %77, %104, %100, %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit
+  %108 = phi i64 [ %98, %104 ], [ %98, %100 ], [ %98, %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit ], [ %13, %77 ], [ %13, %90 ], [ %13, %86 ], [ %13, %80 ], [ %13, %41 ]
+  %109 = load ptr, ptr %0, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = load ptr, ptr %110, align 8
+  %112 = tail call noundef double %111(ptr noundef nonnull align 8 dereferenceable(232) %0) #7
+  %113 = fcmp ogt double %112, %25
+  br i1 %113, label %114, label %122
 
-115:                                              ; preds = %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
-  %116 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not21 = icmp eq ptr %116, null
-  br i1 %.not21, label %123, label %117
+114:                                              ; preds = %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
+  %115 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not24 = icmp eq ptr %115, null
+  br i1 %.not24, label %122, label %116
 
-117:                                              ; preds = %115
-  %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = load ptr, ptr %119, align 8
-  %121 = tail call noundef double %120(ptr noundef nonnull align 8 dereferenceable(232) %0) #7
-  %122 = load i32, ptr @GCTimeLimit, align 4
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.13, double noundef %121, i32 noundef %122)
-  br label %123
+116:                                              ; preds = %114
+  %117 = load ptr, ptr %0, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %119 = load ptr, ptr %118, align 8
+  %120 = tail call noundef double %119(ptr noundef nonnull align 8 dereferenceable(232) %0) #7
+  %121 = load i32, ptr @GCTimeLimit, align 4
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.13, double noundef %120, i32 noundef %121)
+  br label %122
 
-123:                                              ; preds = %117, %115, %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %125 = load i64, ptr %124, align 8
-  %126 = add i64 %109, -1
-  %127 = add i64 %126, %125
-  %128 = sub i64 0, %125
-  %129 = and i64 %127, %128
-  %130 = tail call noundef i64 @llvm.umax.i64(i64 %129, i64 %125)
-  %131 = and i64 %22, %128
-  %132 = tail call noundef i64 @llvm.umin.i64(i64 %130, i64 %131)
-  %133 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not22 = icmp eq ptr %133, null
-  br i1 %.not22, label %151, label %134
+122:                                              ; preds = %116, %114, %_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %124 = load i64, ptr %123, align 8
+  %125 = add i64 %108, -1
+  %126 = add i64 %125, %124
+  %127 = sub i64 0, %124
+  %128 = and i64 %126, %127
+  %129 = tail call noundef i64 @llvm.umax.i64(i64 %128, i64 %124)
+  %130 = and i64 %22, %127
+  %131 = tail call noundef i64 @llvm.umin.i64(i64 %129, i64 %130)
+  %132 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not25 = icmp eq ptr %132, null
+  br i1 %.not25, label %150, label %133
 
-134:                                              ; preds = %123
-  %135 = load ptr, ptr %15, align 8
-  %136 = load float, ptr %135, align 4
-  %137 = fcmp olt float %136, 0.000000e+00
-  %138 = select i1 %137, float 0.000000e+00, float %136
-  %139 = fpext float %138 to double
-  %140 = load ptr, ptr %14, align 8
-  %141 = load float, ptr %140, align 4
-  %142 = fcmp olt float %141, 0.000000e+00
-  %143 = select i1 %142, float 0.000000e+00, float %141
-  %144 = fpext float %143 to double
-  %145 = load ptr, ptr %0, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 32
-  %147 = load ptr, ptr %146, align 8
-  %148 = tail call noundef double %147(ptr noundef nonnull align 8 dereferenceable(232) %0) #7
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %150 = load double, ptr %149, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.14, double noundef %139, double noundef %144, double noundef %148, double noundef %150)
-  br label %151
+133:                                              ; preds = %122
+  %134 = load ptr, ptr %15, align 8
+  %135 = load float, ptr %134, align 4
+  %136 = fcmp olt float %135, 0.000000e+00
+  %137 = select i1 %136, float 0.000000e+00, float %135
+  %138 = fpext float %137 to double
+  %139 = load ptr, ptr %14, align 8
+  %140 = load float, ptr %139, align 4
+  %141 = fcmp olt float %140, 0.000000e+00
+  %142 = select i1 %141, float 0.000000e+00, float %140
+  %143 = fpext float %142 to double
+  %144 = load ptr, ptr %0, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
+  %146 = load ptr, ptr %145, align 8
+  %147 = tail call noundef double %146(ptr noundef nonnull align 8 dereferenceable(232) %0) #7
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %149 = load double, ptr %148, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.14, double noundef %138, double noundef %143, double noundef %147, double noundef %149)
+  br label %150
 
-151:                                              ; preds = %123, %134
-  %152 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not23 = icmp eq ptr %152, null
-  br i1 %.not23, label %172, label %153
+150:                                              ; preds = %122, %133
+  %151 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not26 = icmp eq ptr %151, null
+  br i1 %.not26, label %171, label %152
 
-153:                                              ; preds = %151
-  %154 = load ptr, ptr %26, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 20
-  %156 = load float, ptr %155, align 4
-  %157 = fpext float %156 to double
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 20
-  %161 = load float, ptr %160, align 4
-  %162 = fpext float %161 to double
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %164 = load ptr, ptr %163, align 8
-  %165 = load float, ptr %164, align 4
-  %166 = fpext float %165 to double
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %168 = load ptr, ptr %167, align 8
-  %169 = load float, ptr %168, align 4
-  %170 = fpext float %169 to double
-  %171 = load double, ptr %31, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.15, double noundef %157, double noundef %162, double noundef %166, double noundef %170, double noundef %171)
-  br label %172
+152:                                              ; preds = %150
+  %153 = load ptr, ptr %26, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 20
+  %155 = load float, ptr %154, align 4
+  %156 = fpext float %155 to double
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 20
+  %160 = load float, ptr %159, align 4
+  %161 = fpext float %160 to double
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %163 = load ptr, ptr %162, align 8
+  %164 = load float, ptr %163, align 4
+  %165 = fpext float %164 to double
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %167 = load ptr, ptr %166, align 8
+  %168 = load float, ptr %167, align 4
+  %169 = fpext float %168 to double
+  %170 = load double, ptr %31, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.15, double noundef %156, double noundef %161, double noundef %165, double noundef %169, double noundef %170)
+  br label %171
 
-172:                                              ; preds = %151, %153
-  %173 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not24 = icmp eq ptr %173, null
-  br i1 %.not24, label %190, label %174
+171:                                              ; preds = %150, %152
+  %172 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not27 = icmp eq ptr %172, null
+  br i1 %.not27, label %189, label %173
 
-174:                                              ; preds = %172
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %176 = load ptr, ptr %175, align 8
-  %177 = load float, ptr %176, align 4
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %179 = load ptr, ptr %178, align 8
-  %180 = load float, ptr %179, align 4
-  %181 = fadd float %177, %180
-  %182 = load ptr, ptr %17, align 8
-  %183 = load float, ptr %182, align 4
-  %184 = fadd float %181, %183
-  %185 = fptoui float %184 to i64
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %187 = load i64, ptr %186, align 8
-  %188 = load i64, ptr %12, align 8
-  %189 = add i64 %188, %187
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %185, i64 noundef %189)
-  br label %190
+173:                                              ; preds = %171
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %175 = load ptr, ptr %174, align 8
+  %176 = load float, ptr %175, align 4
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %178 = load ptr, ptr %177, align 8
+  %179 = load float, ptr %178, align 4
+  %180 = fadd float %176, %179
+  %181 = load ptr, ptr %17, align 8
+  %182 = load float, ptr %181, align 4
+  %183 = fadd float %180, %182
+  %184 = fptoui float %183 to i64
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %186 = load i64, ptr %185, align 8
+  %187 = load i64, ptr %12, align 8
+  %188 = add i64 %187, %186
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %184, i64 noundef %188)
+  br label %189
 
-190:                                              ; preds = %172, %174
-  %191 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not25 = icmp eq ptr %191, null
-  br i1 %.not25, label %204, label %192
+189:                                              ; preds = %171, %173
+  %190 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not28 = icmp eq ptr %190, null
+  br i1 %.not28, label %203, label %191
 
-192:                                              ; preds = %190
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %194 = load ptr, ptr %193, align 8
-  %195 = load float, ptr %194, align 4
-  %196 = fptoui float %195 to i64
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %198 = load ptr, ptr %197, align 8
-  %199 = load float, ptr %198, align 4
-  %200 = fptoui float %199 to i64
-  %201 = load ptr, ptr %17, align 8
-  %202 = load float, ptr %201, align 4
-  %203 = fptoui float %202 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %196, i64 noundef %200, i64 noundef %203)
-  br label %204
+191:                                              ; preds = %189
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %193 = load ptr, ptr %192, align 8
+  %194 = load float, ptr %193, align 4
+  %195 = fptoui float %194 to i64
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %197 = load ptr, ptr %196, align 8
+  %198 = load float, ptr %197, align 4
+  %199 = fptoui float %198 to i64
+  %200 = load ptr, ptr %17, align 8
+  %201 = load float, ptr %200, align 4
+  %202 = fptoui float %201 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %195, i64 noundef %199, i64 noundef %202)
+  br label %203
 
-204:                                              ; preds = %190, %192
-  %205 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not26 = icmp eq ptr %205, null
-  br i1 %.not26, label %208, label %206
+203:                                              ; preds = %189, %191
+  %204 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not29 = icmp eq ptr %204, null
+  br i1 %.not29, label %207, label %205
 
-206:                                              ; preds = %204
-  %207 = load i64, ptr %12, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, i64 noundef %207, i64 noundef %132)
-  br label %208
+205:                                              ; preds = %203
+  %206 = load i64, ptr %12, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, i64 noundef %206, i64 noundef %131)
+  br label %207
 
-208:                                              ; preds = %204, %206
-  store i64 %132, ptr %12, align 8
+207:                                              ; preds = %203, %205
+  store i64 %131, ptr %12, align 8
   ret void
 }
 
@@ -1699,189 +1691,174 @@ declare noundef i64 @_ZN18AdaptiveSizePolicy15promo_incrementEmj(ptr noundef non
 define hidden noundef i32 @_ZN20PSAdaptiveSizePolicy41compute_survivor_space_size_and_thresholdEbjm(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %0, i1 noundef zeroext %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load i8, ptr @UsePSAdaptiveSurvivorSizePolicy, align 1
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %111
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %8 = load i8, ptr %7, align 8
+  %9 = trunc i8 %8 to i1
+  %or.cond43 = select i1 %6, i1 %9, i1 false
+  br i1 %or.cond43, label %10, label %103
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %9 = load i8, ptr %8, align 8
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %111
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 205
+  store i8 0, ptr %11, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 204
+  store i8 0, ptr %12, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 206
+  store i8 0, ptr %13, align 2
+  br i1 %1, label %36, label %14
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 205
-  store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  store i8 0, ptr %13, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 206
-  store i8 0, ptr %14, align 2
-  br i1 %1, label %37, label %15
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %16 = load ptr, ptr %15, align 8
+  %17 = load float, ptr %16, align 4
+  %18 = fcmp olt float %17, 0.000000e+00
+  %19 = select i1 %18, float 0.000000e+00, float %17
+  %20 = fpext float %19 to double
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %22 = load ptr, ptr %21, align 8
+  %23 = load float, ptr %22, align 4
+  %24 = fcmp olt float %23, 0.000000e+00
+  %25 = select i1 %24, float 0.000000e+00, float %23
+  %26 = fpext float %25 to double
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %28 = load double, ptr %27, align 8
+  %29 = fmul double %28, %20
+  %30 = fcmp olt double %29, %26
+  br i1 %30, label %31, label %32
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %17 = load ptr, ptr %16, align 8
-  %18 = load float, ptr %17, align 4
-  %19 = fcmp olt float %18, 0.000000e+00
-  %20 = select i1 %19, float 0.000000e+00, float %18
-  %21 = fpext float %20 to double
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %23 = load ptr, ptr %22, align 8
-  %24 = load float, ptr %23, align 4
-  %25 = fcmp olt float %24, 0.000000e+00
-  %26 = select i1 %25, float 0.000000e+00, float %24
-  %27 = fpext float %26 to double
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %29 = load double, ptr %28, align 8
-  %30 = fmul double %29, %21
-  %31 = fcmp olt double %30, %27
-  br i1 %31, label %32, label %33
+31:                                               ; preds = %14
+  store i8 1, ptr %11, align 1
+  br label %36
 
-32:                                               ; preds = %15
-  store i8 1, ptr %12, align 1
-  br label %37
+32:                                               ; preds = %14
+  %33 = fmul double %28, %26
+  %34 = fcmp olt double %33, %20
+  br i1 %34, label %35, label %36
 
-33:                                               ; preds = %15
-  %34 = fmul double %29, %27
-  %35 = fcmp olt double %34, %21
-  br i1 %35, label %36, label %37
+35:                                               ; preds = %32
+  store i8 1, ptr %12, align 4
+  br label %36
 
-36:                                               ; preds = %33
-  store i8 1, ptr %13, align 4
-  br label %37
+36:                                               ; preds = %10, %31, %35, %32
+  %.not4 = phi i1 [ true, %31 ], [ false, %35 ], [ true, %32 ], [ true, %10 ]
+  %.031 = phi i1 [ true, %31 ], [ false, %35 ], [ false, %32 ], [ true, %10 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
+  %40 = load float, ptr %39, align 4
+  %41 = fptoui float %40 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %43 = load i64, ptr %42, align 8
+  %44 = add i64 %41, -1
+  %45 = add i64 %44, %43
+  %46 = sub i64 0, %43
+  %47 = and i64 %45, %46
+  %48 = tail call noundef i64 @llvm.umax.i64(i64 %47, i64 %43)
+  %49 = icmp ugt i64 %48, %3
+  br i1 %49, label %50, label %51
 
-37:                                               ; preds = %11, %32, %36, %33
-  %.024 = phi i1 [ false, %32 ], [ true, %36 ], [ false, %33 ], [ false, %11 ]
-  %.023 = phi i1 [ true, %32 ], [ false, %36 ], [ false, %33 ], [ true, %11 ]
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 20
-  %41 = load float, ptr %40, align 4
-  %42 = fptoui float %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %44 = load i64, ptr %43, align 8
-  %45 = add i64 %42, -1
-  %46 = add i64 %45, %44
-  %47 = sub i64 0, %44
-  %48 = and i64 %46, %47
-  %49 = tail call noundef i64 @llvm.umax.i64(i64 %48, i64 %44)
-  %50 = icmp ugt i64 %49, %3
-  br i1 %50, label %.thread, label %51
+50:                                               ; preds = %36
+  store i8 1, ptr %13, align 2
+  br label %51
 
-.thread:                                          ; preds = %37
-  store i8 1, ptr %14, align 2
-  br label %52
+51:                                               ; preds = %50, %36
+  %.1 = phi i1 [ true, %50 ], [ %.031, %36 ]
+  %.0 = phi i64 [ %3, %50 ], [ %48, %36 ]
+  %.not = xor i1 %.1, true
+  %52 = load i8, ptr @AlwaysTenure, align 1
+  %53 = trunc i8 %52 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %53
+  %54 = load i8, ptr @NeverTenure, align 1
+  %55 = trunc i8 %54 to i1
+  %or.cond3 = select i1 %or.cond, i1 true, i1 %55
+  br i1 %or.cond3, label %59, label %56
 
-51:                                               ; preds = %37
-  br i1 %.023, label %52, label %61
+56:                                               ; preds = %51
+  %57 = icmp ugt i32 %2, 1
+  %58 = sext i1 %57 to i32
+  br label %63
 
-52:                                               ; preds = %.thread, %51
-  %.036 = phi i64 [ %3, %.thread ], [ %49, %51 ]
-  %53 = load i8, ptr @AlwaysTenure, align 1
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %61, label %55
+59:                                               ; preds = %51
+  %or.cond6 = select i1 %.not4, i1 true, i1 %53
+  %or.cond8 = select i1 %or.cond6, i1 true, i1 %55
+  %60 = load i32, ptr @MaxTenuringThreshold, align 4
+  %61 = icmp ult i32 %2, %60
+  %not.or.cond8 = xor i1 %or.cond8, true
+  %or.cond39.not = select i1 %not.or.cond8, i1 %61, i1 false
+  %62 = zext i1 %or.cond39.not to i32
+  br label %63
 
-55:                                               ; preds = %52
-  %56 = load i8, ptr @NeverTenure, align 1
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %61, label %58
+63:                                               ; preds = %59, %56
+  %.pn = phi i32 [ %58, %56 ], [ %62, %59 ]
+  %.030 = add i32 %.pn, %2
+  %64 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not45 = icmp eq ptr %64, null
+  br i1 %.not45, label %71, label %65
 
-58:                                               ; preds = %55
-  %59 = icmp ugt i32 %2, 1
-  %60 = sext i1 %59 to i32
-  %spec.select = add i32 %2, %60
+65:                                               ; preds = %63
+  %66 = load float, ptr %38, align 4
+  %67 = fpext float %66 to double
+  %68 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %69 = load float, ptr %68, align 4
+  %70 = fpext float %69 to double
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.27, double noundef %67, double noundef %70)
   br label %71
 
-61:                                               ; preds = %55, %52, %51
-  %.035 = phi i64 [ %.036, %55 ], [ %.036, %52 ], [ %49, %51 ]
-  br i1 %.024, label %62, label %71
-
-62:                                               ; preds = %61
-  %63 = load i8, ptr @AlwaysTenure, align 1
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %71, label %65
-
-65:                                               ; preds = %62
-  %66 = load i8, ptr @NeverTenure, align 1
-  %67 = trunc i8 %66 to i1
-  %68 = load i32, ptr @MaxTenuringThreshold, align 4
-  %69 = icmp ult i32 %2, %68
-  %not. = xor i1 %67, true
-  %or.cond.not = select i1 %not., i1 %69, i1 false
-  %70 = zext i1 %or.cond.not to i32
-  %spec.select31 = add i32 %2, %70
-  br label %71
-
-71:                                               ; preds = %65, %58, %61, %62
-  %.034 = phi i64 [ %.035, %62 ], [ %.035, %61 ], [ %.036, %58 ], [ %.035, %65 ]
-  %.022 = phi i32 [ %2, %62 ], [ %2, %61 ], [ %spec.select, %58 ], [ %spec.select31, %65 ]
-  %72 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not = icmp eq ptr %72, null
-  br i1 %.not, label %79, label %73
+71:                                               ; preds = %63, %65
+  %72 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not46 = icmp eq ptr %72, null
+  br i1 %.not46, label %78, label %73
 
 73:                                               ; preds = %71
-  %74 = load float, ptr %39, align 4
-  %75 = fpext float %74 to double
-  %76 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %77 = load float, ptr %76, align 4
-  %78 = fpext float %77 to double
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.27, double noundef %75, double noundef %78)
-  br label %79
+  %74 = load ptr, ptr %37, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 20
+  %76 = load float, ptr %75, align 4
+  %77 = fpext float %76 to double
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.28, double noundef %77)
+  br label %78
 
-79:                                               ; preds = %71, %73
-  %80 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not38 = icmp eq ptr %80, null
-  br i1 %.not38, label %86, label %81
+78:                                               ; preds = %71, %73
+  %79 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not47 = icmp eq ptr %79, null
+  br i1 %.not47, label %88, label %80
 
-81:                                               ; preds = %79
-  %82 = load ptr, ptr %38, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 20
-  %84 = load float, ptr %83, align 4
-  %85 = fpext float %84 to double
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.28, double noundef %85)
-  br label %86
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %82 = load ptr, ptr %81, align 8
+  %83 = load float, ptr %82, align 4
+  %84 = fpext float %83 to double
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  %86 = load float, ptr %85, align 4
+  %87 = fpext float %86 to double
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.29, double noundef %84, double noundef %87)
+  br label %88
 
-86:                                               ; preds = %79, %81
-  %87 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not39 = icmp eq ptr %87, null
-  br i1 %.not39, label %96, label %88
+88:                                               ; preds = %78, %80
+  %89 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not48 = icmp eq ptr %89, null
+  br i1 %.not48, label %101, label %90
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %90 = load ptr, ptr %89, align 8
-  %91 = load float, ptr %90, align 4
-  %92 = fpext float %91 to double
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 24
+90:                                               ; preds = %88
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 20
   %94 = load float, ptr %93, align 4
   %95 = fpext float %94 to double
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.29, double noundef %92, double noundef %95)
-  br label %96
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 20
+  %99 = load float, ptr %98, align 4
+  %100 = fpext float %99 to double
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.30, double noundef %95, double noundef %100, i32 noundef %.030, i64 noundef %.0)
+  br label %101
 
-96:                                               ; preds = %86, %88
-  %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not40 = icmp eq ptr %97, null
-  br i1 %.not40, label %109, label %98
+101:                                              ; preds = %88, %90
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %.0, ptr %102, align 8
+  br label %103
 
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 20
-  %102 = load float, ptr %101, align 4
-  %103 = fpext float %102 to double
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 20
-  %107 = load float, ptr %106, align 4
-  %108 = fpext float %107 to double
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.30, double noundef %103, double noundef %108, i32 noundef %.022, i64 noundef %.034)
-  br label %109
-
-109:                                              ; preds = %96, %98
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.034, ptr %110, align 8
-  br label %111
-
-111:                                              ; preds = %4, %7, %109
-  %.021 = phi i32 [ %.022, %109 ], [ %2, %7 ], [ %2, %4 ]
-  ret i32 %.021
+103:                                              ; preds = %4, %101
+  %.029 = phi i32 [ %.030, %101 ], [ %2, %4 ]
+  ret i32 %.029
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

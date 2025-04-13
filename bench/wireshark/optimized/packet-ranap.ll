@@ -11594,15 +11594,13 @@ define internal i32 @dissect_ranap_RRC_Container(ptr noundef %0, i32 noundef %1,
 
 9:                                                ; preds = %5
   %10 = call i32 @tvb_reported_length(ptr noundef nonnull %8)
-  %.not12 = icmp eq i32 %10, 0
-  br i1 %.not12, label %37, label %11
-
-11:                                               ; preds = %9
-  %12 = load i8, ptr @glbl_dissect_container, align 1, !range !6, !noundef !7
+  %11 = icmp ne i32 %10, 0
+  %12 = load i8, ptr @glbl_dissect_container, align 1, !range !6
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %37
+  %or.cond = select i1 %11, i1 %13, i1 false
+  br i1 %or.cond, label %14, label %37
 
-14:                                               ; preds = %11
+14:                                               ; preds = %9
   %15 = load i32, ptr @ProtocolIE_ID, align 4
   switch i32 %15, label %37 [
     i32 61, label %16
@@ -11639,7 +11637,7 @@ define internal i32 @dissect_ranap_RRC_Container(ptr noundef %0, i32 noundef %1,
   %36 = call i32 @call_dissector(ptr noundef %34, ptr noundef %26, ptr noundef %28, ptr noundef %35)
   br label %37
 
-37:                                               ; preds = %16, %33, %29, %14, %11, %9, %5
+37:                                               ; preds = %16, %33, %29, %14, %9, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   ret i32 %7
 }
@@ -14389,4 +14387,3 @@ attributes #5 = { allocsize(1) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = !{}

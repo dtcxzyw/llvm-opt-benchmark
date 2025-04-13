@@ -240,10 +240,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_smc_movemedium(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr readnone captures(none) %7) #0 {
-  %.not = icmp ne ptr %2, null
-  %9 = and i1 %4, %5
-  %brmerge19.not = and i1 %.not, %9
-  br i1 %brmerge19.not, label %10, label %28
+  %9 = icmp ne ptr %2, null
+  %or.cond = and i1 %9, %4
+  %or.cond3 = and i1 %or.cond, %5
+  br i1 %or.cond3, label %10, label %28
 
 10:                                               ; preds = %8
   %11 = load i32, ptr @hf_scsi_smc_mta, align 4
@@ -281,8 +281,8 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr noundef re
   br i1 %.not, label %.loopexit, label %9
 
 9:                                                ; preds = %8
-  %brmerge.demorgan = and i1 %4, %5
-  br i1 %brmerge.demorgan, label %10, label %33
+  %or.cond = and i1 %4, %5
+  br i1 %or.cond, label %10, label %33
 
 10:                                               ; preds = %9
   %11 = load i32, ptr @hf_scsi_smc_voltag, align 4
@@ -322,8 +322,8 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr noundef re
   %41 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %40)
   %42 = load i32, ptr @hf_scsi_smc_byte_count_of_report_available, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %42, ptr noundef %0, i32 noundef %40, i32 noundef 3, i32 noundef 0)
-  %.not104108 = icmp eq i32 %41, 0
-  br i1 %.not104108, label %.loopexit, label %.lr.ph
+  %.not105108 = icmp eq i32 %41, 0
+  br i1 %.not105108, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34
   %44 = add i32 %3, 8
@@ -332,11 +332,11 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr noundef re
 
 46:                                               ; preds = %.lr.ph, %dissect_scsi_smc_elements.exit
   %.0110 = phi i32 [ %44, %.lr.ph ], [ %220, %dissect_scsi_smc_elements.exit ]
-  %.095109 = phi i32 [ %41, %.lr.ph ], [ %221, %dissect_scsi_smc_elements.exit ]
+  %.096109 = phi i32 [ %41, %.lr.ph ], [ %221, %dissect_scsi_smc_elements.exit ]
   %47 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0110)
   %48 = load i32, ptr @hf_scsi_smc_element_type_code, align 4
   %49 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %48, ptr noundef %0, i32 noundef %.0110, i32 noundef 1, i32 noundef 0)
-  %50 = icmp eq i32 %.095109, 1
+  %50 = icmp eq i32 %.096109, 1
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %46
@@ -346,7 +346,7 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr noundef re
   %55 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %54, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0)
   %56 = load i32, ptr @hf_scsi_smc_avoltag, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %56, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0)
-  %58 = and i32 %.095109, -2
+  %58 = and i32 %.096109, -2
   %59 = icmp eq i32 %58, 2
   br i1 %59, label %.loopexit, label %60
 
@@ -355,7 +355,7 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr noundef re
   %62 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %61)
   %63 = load i32, ptr @hf_scsi_smc_element_descriptor_length, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %63, ptr noundef %0, i32 noundef %61, i32 noundef 2, i32 noundef 0)
-  %65 = and i32 %.095109, -4
+  %65 = and i32 %.096109, -4
   %switch = icmp eq i32 %65, 4
   br i1 %switch, label %.loopexit, label %66
 
@@ -365,7 +365,7 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr noundef re
   %69 = load i32, ptr @hf_scsi_smc_byte_count_of_descriptor_data_available, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %69, ptr noundef %0, i32 noundef %67, i32 noundef 3, i32 noundef 0)
   %71 = add i32 %.0110, 8
-  %72 = add i32 %.095109, -8
+  %72 = add i32 %.096109, -8
   %spec.select = tail call i32 @llvm.umin.i32(i32 %68, i32 %72)
   %73 = zext i16 %62 to i32
   %.not24.i = icmp eq i32 %spec.select, 0
@@ -641,8 +641,8 @@ dissect_scsi_smc_element.exit.i:                  ; preds = %215, %214, %207, %1
 dissect_scsi_smc_elements.exit:                   ; preds = %75, %dissect_scsi_smc_element.exit.i, %66
   %220 = add i32 %spec.select, %71
   %221 = sub i32 %72, %spec.select
-  %.not104 = icmp eq i32 %221, 0
-  br i1 %.not104, label %.loopexit, label %46, !llvm.loop !9
+  %.not105 = icmp eq i32 %221, 0
+  br i1 %.not105, label %.loopexit, label %46, !llvm.loop !9
 
 .loopexit:                                        ; preds = %51, %46, %dissect_scsi_smc_elements.exit, %60, %34, %10, %33, %8
   ret void
@@ -668,10 +668,10 @@ declare void @dissect_spc_requestsense(ptr noundef, ptr noundef, ptr noundef, i3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_smc_initialize_element_status(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr readnone captures(none) %7) #0 {
-  %.not = icmp ne ptr %2, null
-  %9 = and i1 %4, %5
-  %brmerge7.not = and i1 %.not, %9
-  br i1 %brmerge7.not, label %10, label %15
+  %9 = icmp ne ptr %2, null
+  %or.cond = and i1 %9, %4
+  %or.cond3 = and i1 %or.cond, %5
+  br i1 %or.cond3, label %10, label %15
 
 10:                                               ; preds = %8
   %11 = add i32 %3, 4
@@ -701,10 +701,10 @@ declare void @dissect_spc_modesense6(ptr noundef, ptr noundef, ptr noundef, i32 
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_smc_openclose_importexport_element(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr readnone captures(none) %7) #0 {
-  %.not = icmp ne ptr %2, null
-  %9 = and i1 %4, %5
-  %brmerge13.not = and i1 %.not, %9
-  br i1 %brmerge13.not, label %10, label %21
+  %9 = icmp ne ptr %2, null
+  %or.cond = and i1 %9, %4
+  %or.cond3 = and i1 %or.cond, %5
+  br i1 %or.cond3, label %10, label %21
 
 10:                                               ; preds = %8
   %11 = load i32, ptr @hf_scsi_smc_ea, align 4
@@ -731,10 +731,10 @@ declare void @dissect_spc_preventallowmediaremoval(ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_smc_position_to_element(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr readnone captures(none) %7) #0 {
-  %.not = icmp ne ptr %2, null
-  %9 = and i1 %4, %5
-  %brmerge16.not = and i1 %.not, %9
-  br i1 %brmerge16.not, label %10, label %25
+  %9 = icmp ne ptr %2, null
+  %or.cond = and i1 %9, %4
+  %or.cond3 = and i1 %or.cond, %5
+  br i1 %or.cond3, label %10, label %25
 
 10:                                               ; preds = %8
   %11 = load i32, ptr @hf_scsi_smc_mta, align 4
@@ -759,10 +759,10 @@ define internal void @dissect_smc_position_to_element(ptr noundef %0, ptr readno
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_smc_initialize_element_status_with_range(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr readnone captures(none) %7) #0 {
-  %.not = icmp ne ptr %2, null
-  %9 = and i1 %4, %5
-  %brmerge16.not = and i1 %.not, %9
-  br i1 %brmerge16.not, label %10, label %24
+  %9 = icmp ne ptr %2, null
+  %or.cond = and i1 %9, %4
+  %or.cond3 = and i1 %or.cond, %5
+  br i1 %or.cond3, label %10, label %24
 
 10:                                               ; preds = %8
   %11 = load i32, ptr @hf_scsi_smc_range_flags, align 4
@@ -819,10 +819,10 @@ declare void @dissect_spc_mgmt_protocol_in(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_smc_exchangemedium(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr readnone captures(none) %7) #0 {
-  %.not = icmp ne ptr %2, null
-  %9 = and i1 %4, %5
-  %brmerge22.not = and i1 %.not, %9
-  br i1 %brmerge22.not, label %10, label %31
+  %9 = icmp ne ptr %2, null
+  %or.cond = and i1 %9, %4
+  %or.cond3 = and i1 %or.cond, %5
+  br i1 %or.cond3, label %10, label %31
 
 10:                                               ; preds = %8
   %11 = load i32, ptr @hf_scsi_smc_mta, align 4

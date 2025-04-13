@@ -52,21 +52,19 @@ _ZN13OldObjectRoot18system_oop_storageENS_6SystemE.exit: ; preds = %1
 
 _ZN13OldObjectRoot18system_oop_storageENS_6SystemE.exit.thread: ; preds = %1, %_ZN13OldObjectRoot18system_oop_storageENS_6SystemE.exit
   %6 = icmp ult i32 %0, 11
-  br i1 %6, label %switch.hole_check, label %7
+  %switch.maskindex = trunc i32 %0 to i16
+  %switch.shifted = lshr i16 1799, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-7:                                                ; preds = %switch.hole_check, %_ZN13OldObjectRoot18system_oop_storageENS_6SystemE.exit.thread
+7:                                                ; preds = %_ZN13OldObjectRoot18system_oop_storageENS_6SystemE.exit.thread
   %8 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %8, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.9, i32 noundef 65) #4
   unreachable
 
-switch.hole_check:                                ; preds = %_ZN13OldObjectRoot18system_oop_storageENS_6SystemE.exit.thread
-  %switch.maskindex = trunc nuw i32 %0 to i16
-  %switch.shifted = lshr i16 1799, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZN13OldObjectRoot18system_oop_storageENS_6SystemE.exit.thread
   %9 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table._ZN13OldObjectRoot18system_descriptionENS_6SystemE, i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8

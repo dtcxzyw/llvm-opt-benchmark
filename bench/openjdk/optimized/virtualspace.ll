@@ -1551,16 +1551,15 @@ define hidden void @_ZN17ReservedHeapSpaceC2EmmmPKc(ptr noundef nonnull align 8 
 18:                                               ; preds = %16, %13
   %19 = call noundef zeroext i1 @_ZN2os28can_commit_large_page_memoryEv() #13
   %20 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %21 = icmp eq i64 %3, %20
-  %.not20 = select i1 %19, i1 true, i1 %21
-  br i1 %.not20, label %_ZL21large_pages_requestedv.exit.thread18, label %22
-
-22:                                               ; preds = %18
+  %21 = icmp ne i64 %3, %20
+  %not..i = xor i1 %19, true
+  %22 = select i1 %not..i, i1 %21, i1 false
   %23 = load i8, ptr @UseLargePages, align 1
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %25, label %_ZL21large_pages_requestedv.exit.thread18
+  %or.cond = select i1 %22, i1 %24, i1 false
+  br i1 %or.cond, label %25, label %_ZL21large_pages_requestedv.exit.thread18
 
-25:                                               ; preds = %22
+25:                                               ; preds = %18
   %26 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 456) #13
   br i1 %26, label %_ZL21large_pages_requestedv.exit, label %_ZL21large_pages_requestedv.exit.thread
 
@@ -1570,14 +1569,14 @@ _ZL21large_pages_requestedv.exit:                 ; preds = %25
 
 _ZL21large_pages_requestedv.exit.thread:          ; preds = %25, %_ZL21large_pages_requestedv.exit
   %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not21 = icmp eq ptr %28, null
-  br i1 %.not21, label %_ZL21large_pages_requestedv.exit.thread18, label %29
+  %.not20 = icmp eq ptr %28, null
+  br i1 %.not20, label %_ZL21large_pages_requestedv.exit.thread18, label %29
 
 29:                                               ; preds = %_ZL21large_pages_requestedv.exit.thread
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.13)
   br label %_ZL21large_pages_requestedv.exit.thread18
 
-_ZL21large_pages_requestedv.exit.thread18:        ; preds = %22, %12, %29, %_ZL21large_pages_requestedv.exit.thread, %_ZL21large_pages_requestedv.exit, %18
+_ZL21large_pages_requestedv.exit.thread18:        ; preds = %12, %29, %_ZL21large_pages_requestedv.exit.thread, %_ZL21large_pages_requestedv.exit, %18
   %30 = add i64 %2, -1
   %31 = and i64 %30, %1
   %32 = icmp eq i64 %31, 0
@@ -1889,14 +1888,14 @@ define hidden noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr noundef non
   %16 = sub i64 %7, %15
   %17 = add i64 %16, %14
   %18 = icmp ult i64 %17, %1
-  br i1 %18, label %_ZL15commit_expandedPcmmbb.exit, label %19
+  br i1 %18, label %123, label %19
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   %23 = getelementptr inbounds i8, ptr %10, i64 %1
-  br i1 %22, label %_ZL15commit_expandedPcmmbb.exit.sink.split, label %24
+  br i1 %22, label %.sink.split, label %24
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1952,113 +1951,110 @@ define hidden noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr noundef non
   %73 = ptrtoint ptr %71 to i64
   %74 = sub i64 %59, %73
   %.0 = select i1 %72, i64 %74, i64 0
-  br i1 %.not, label %75, label %90
+  br i1 %.not, label %75, label %88
 
 75:                                               ; preds = %24
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %77 = load i8, ptr %76, align 1
   %78 = trunc i8 %77 to i1
   %79 = tail call noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %62, i64 noundef range(i64 1, 0) %64, i64 noundef %38, i1 noundef zeroext %78) #13
-  br i1 %79, label %80, label %_ZL15commit_expandedPcmmbb.exit
+  %80 = load i8, ptr @AlwaysPreTouch, align 1
+  %81 = trunc i8 %80 to i1
+  %or.cond.i = select i1 %2, i1 true, i1 %81
+  %or.cond10.i = select i1 %79, i1 %or.cond.i, i1 false
+  br i1 %or.cond10.i, label %82, label %_ZL15commit_expandedPcmmbb.exit
 
-80:                                               ; preds = %75
-  br i1 %2, label %84, label %81
-
-81:                                               ; preds = %80
-  %82 = load i8, ptr @AlwaysPreTouch, align 1
-  %83 = trunc i8 %82 to i1
-  br i1 %83, label %84, label %87
-
-84:                                               ; preds = %81, %80
-  %85 = getelementptr inbounds i8, ptr %62, i64 %64
-  %86 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %62, ptr noundef nonnull %85, i64 noundef %86) #13
-  br label %87
-
-87:                                               ; preds = %81, %84
-  %88 = load ptr, ptr %61, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 %64
-  store ptr %89, ptr %61, align 8
-  br label %90
-
-90:                                               ; preds = %87, %24
-  %.not36 = icmp eq i64 %.029, 0
-  br i1 %.not36, label %108, label %91
-
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %65, align 8
-  %93 = load i64, ptr %45, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %95 = load i8, ptr %94, align 1
-  %96 = trunc i8 %95 to i1
-  %97 = tail call noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %92, i64 noundef range(i64 1, 0) %.029, i64 noundef %93, i1 noundef zeroext %96) #13
-  br i1 %97, label %98, label %_ZL15commit_expandedPcmmbb.exit
-
-98:                                               ; preds = %91
-  br i1 %2, label %102, label %99
-
-99:                                               ; preds = %98
-  %100 = load i8, ptr @AlwaysPreTouch, align 1
-  %101 = trunc i8 %100 to i1
-  br i1 %101, label %102, label %105
-
-102:                                              ; preds = %99, %98
-  %103 = getelementptr inbounds i8, ptr %92, i64 %.029
-  %104 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %92, ptr noundef nonnull %103, i64 noundef %104) #13
-  br label %105
-
-105:                                              ; preds = %99, %102
-  %106 = load ptr, ptr %65, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 %.029
-  store ptr %107, ptr %65, align 8
-  br label %108
-
-108:                                              ; preds = %105, %90
-  %.not37 = icmp eq i64 %.0, 0
-  br i1 %.not37, label %126, label %109
-
-109:                                              ; preds = %108
-  %110 = load ptr, ptr %70, align 8
-  %111 = load i64, ptr %53, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %113 = load i8, ptr %112, align 1
-  %114 = trunc i8 %113 to i1
-  %115 = tail call noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %110, i64 noundef range(i64 1, 0) %.0, i64 noundef %111, i1 noundef zeroext %114) #13
-  br i1 %115, label %116, label %_ZL15commit_expandedPcmmbb.exit
-
-116:                                              ; preds = %109
-  br i1 %2, label %120, label %117
-
-117:                                              ; preds = %116
-  %118 = load i8, ptr @AlwaysPreTouch, align 1
-  %119 = trunc i8 %118 to i1
-  br i1 %119, label %120, label %123
-
-120:                                              ; preds = %117, %116
-  %121 = getelementptr inbounds i8, ptr %110, i64 %.0
-  %122 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %110, ptr noundef nonnull %121, i64 noundef %122) #13
-  br label %123
-
-123:                                              ; preds = %117, %120
-  %124 = load ptr, ptr %70, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 %.0
-  store ptr %125, ptr %70, align 8
-  br label %126
-
-126:                                              ; preds = %123, %108
-  %127 = load ptr, ptr %9, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 %1
-  br label %_ZL15commit_expandedPcmmbb.exit.sink.split
-
-_ZL15commit_expandedPcmmbb.exit.sink.split:       ; preds = %19, %126
-  %.sink = phi ptr [ %128, %126 ], [ %23, %19 ]
-  store ptr %.sink, ptr %9, align 8
+82:                                               ; preds = %75
+  %83 = getelementptr inbounds i8, ptr %62, i64 %64
+  %84 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %62, ptr noundef nonnull %83, i64 noundef %84) #13
   br label %_ZL15commit_expandedPcmmbb.exit
 
-_ZL15commit_expandedPcmmbb.exit:                  ; preds = %_ZL15commit_expandedPcmmbb.exit.sink.split, %109, %91, %75, %3
-  %.031 = phi i1 [ false, %3 ], [ false, %75 ], [ false, %91 ], [ false, %109 ], [ true, %_ZL15commit_expandedPcmmbb.exit.sink.split ]
+_ZL15commit_expandedPcmmbb.exit:                  ; preds = %75, %82
+  br i1 %79, label %85, label %123
+
+85:                                               ; preds = %_ZL15commit_expandedPcmmbb.exit
+  %86 = load ptr, ptr %61, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 %64
+  store ptr %87, ptr %61, align 8
+  br label %88
+
+88:                                               ; preds = %85, %24
+  %.not36 = icmp eq i64 %.029, 0
+  br i1 %.not36, label %104, label %89
+
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %65, align 8
+  %91 = load i64, ptr %45, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %93 = load i8, ptr %92, align 1
+  %94 = trunc i8 %93 to i1
+  %95 = tail call noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %90, i64 noundef range(i64 1, 0) %.029, i64 noundef %91, i1 noundef zeroext %94) #13
+  %96 = load i8, ptr @AlwaysPreTouch, align 1
+  %97 = trunc i8 %96 to i1
+  %or.cond.i38 = select i1 %2, i1 true, i1 %97
+  %or.cond10.i39 = select i1 %95, i1 %or.cond.i38, i1 false
+  br i1 %or.cond10.i39, label %98, label %_ZL15commit_expandedPcmmbb.exit40
+
+98:                                               ; preds = %89
+  %99 = getelementptr inbounds i8, ptr %90, i64 %.029
+  %100 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %90, ptr noundef nonnull %99, i64 noundef %100) #13
+  br label %_ZL15commit_expandedPcmmbb.exit40
+
+_ZL15commit_expandedPcmmbb.exit40:                ; preds = %89, %98
+  br i1 %95, label %101, label %123
+
+101:                                              ; preds = %_ZL15commit_expandedPcmmbb.exit40
+  %102 = load ptr, ptr %65, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 %.029
+  store ptr %103, ptr %65, align 8
+  br label %104
+
+104:                                              ; preds = %101, %88
+  %.not37 = icmp eq i64 %.0, 0
+  br i1 %.not37, label %120, label %105
+
+105:                                              ; preds = %104
+  %106 = load ptr, ptr %70, align 8
+  %107 = load i64, ptr %53, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %109 = load i8, ptr %108, align 1
+  %110 = trunc i8 %109 to i1
+  %111 = tail call noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %106, i64 noundef range(i64 1, 0) %.0, i64 noundef %107, i1 noundef zeroext %110) #13
+  %112 = load i8, ptr @AlwaysPreTouch, align 1
+  %113 = trunc i8 %112 to i1
+  %or.cond.i41 = select i1 %2, i1 true, i1 %113
+  %or.cond10.i42 = select i1 %111, i1 %or.cond.i41, i1 false
+  br i1 %or.cond10.i42, label %114, label %_ZL15commit_expandedPcmmbb.exit43
+
+114:                                              ; preds = %105
+  %115 = getelementptr inbounds i8, ptr %106, i64 %.0
+  %116 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %106, ptr noundef nonnull %115, i64 noundef %116) #13
+  br label %_ZL15commit_expandedPcmmbb.exit43
+
+_ZL15commit_expandedPcmmbb.exit43:                ; preds = %105, %114
+  br i1 %111, label %117, label %123
+
+117:                                              ; preds = %_ZL15commit_expandedPcmmbb.exit43
+  %118 = load ptr, ptr %70, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 %.0
+  store ptr %119, ptr %70, align 8
+  br label %120
+
+120:                                              ; preds = %117, %104
+  %121 = load ptr, ptr %9, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 %1
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %19, %120
+  %.sink = phi ptr [ %122, %120 ], [ %23, %19 ]
+  store ptr %.sink, ptr %9, align 8
+  br label %123
+
+123:                                              ; preds = %.sink.split, %_ZL15commit_expandedPcmmbb.exit43, %_ZL15commit_expandedPcmmbb.exit40, %_ZL15commit_expandedPcmmbb.exit, %3
+  %.031 = phi i1 [ false, %3 ], [ false, %_ZL15commit_expandedPcmmbb.exit ], [ false, %_ZL15commit_expandedPcmmbb.exit40 ], [ false, %_ZL15commit_expandedPcmmbb.exit43 ], [ true, %.sink.split ]
   ret i1 %.031
 }
 

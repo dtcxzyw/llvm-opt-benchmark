@@ -3511,7 +3511,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i32, ptr %13, align 8, !tbaa !11
   %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %.loopexit45.thread, label %.lr.ph.i
+  br i1 %.not.i, label %.loopexit46.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -3539,7 +3539,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   store i64 %29, ptr %30, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit45, label %19, !llvm.loop !52
+  br i1 %exitcond.not.i, label %.loopexit46, label %19, !llvm.loop !52
 
 31:                                               ; preds = %19
   %32 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !21
@@ -3550,19 +3550,19 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__point_get_version_enc_size, i32 noundef 1068, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.25) #15
   br label %94
 
-.loopexit45:                                      ; preds = %26
+.loopexit46:                                      ; preds = %26
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %39 = load i64, ptr %38, align 8, !tbaa !31
   %40 = icmp ugt i64 %39, 4294967295
   br i1 %40, label %.loopexit, label %.lr.ph.preheader
 
-.loopexit45.thread:                               ; preds = %.preheader.i
+.loopexit46.thread:                               ; preds = %.preheader.i
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %42 = load i64, ptr %41, align 8, !tbaa !31
   %43 = icmp ugt i64 %42, 4294967295
   br label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %.loopexit45
+.lr.ph.preheader:                                 ; preds = %.loopexit46
   %wide.trip.count = zext i32 %14 to i64
   br label %.lr.ph
 
@@ -3573,13 +3573,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   %46 = icmp ugt i64 %45, 4294967295
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %46, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !94
+  %or.cond61 = select i1 %46, i1 true, i1 %exitcond.not
+  br i1 %or.cond61, label %.loopexit, label %.lr.ph, !llvm.loop !94
 
-.loopexit:                                        ; preds = %.lr.ph, %.loopexit45, %.loopexit45.thread
-  %47 = phi i1 [ true, %.loopexit45 ], [ %43, %.loopexit45.thread ], [ false, %.lr.ph ]
-  %48 = phi ptr [ %38, %.loopexit45 ], [ %41, %.loopexit45.thread ], [ %38, %.lr.ph ]
-  %.039 = phi i1 [ false, %.loopexit45 ], [ false, %.loopexit45.thread ], [ %46, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit46, %.loopexit46.thread
+  %47 = phi i1 [ true, %.loopexit46 ], [ %43, %.loopexit46.thread ], [ false, %.lr.ph ]
+  %48 = phi ptr [ %38, %.loopexit46 ], [ %41, %.loopexit46.thread ], [ %38, %.lr.ph ]
+  %.040 = phi i1 [ false, %.loopexit46 ], [ false, %.loopexit46.thread ], [ %46, %.lr.ph ]
   %49 = call i32 @H5CX_get_libver_bounds(ptr noundef nonnull %4, ptr noundef nonnull %5) #15
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %55
@@ -3591,18 +3591,18 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   br label %94
 
 55:                                               ; preds = %.loopexit
-  %brmerge = or i1 %47, %.039
-  %.038 = select i1 %brmerge, i32 2, i32 1
+  %or.cond = or i1 %47, %.040
+  %. = select i1 %or.cond, i32 2, i32 1
   %56 = load i32, ptr %4, align 4, !tbaa !30
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds [7 x i32], ptr @H5O_sds_point_ver_bounds, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !30
-  %.038. = call i32 @llvm.umax.i32(i32 %.038, i32 %59)
+  %.. = call i32 @llvm.umax.i32(i32 %., i32 %59)
   %60 = load i32, ptr %5, align 4, !tbaa !30
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds [7 x i32], ptr @H5O_sds_point_ver_bounds, i64 0, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !30
-  %64 = icmp ugt i32 %.038., %63
+  %64 = icmp ugt i32 %.., %63
   br i1 %64, label %65, label %77
 
 65:                                               ; preds = %55
@@ -3615,7 +3615,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   br label %94
 
 70:                                               ; preds = %65
-  br i1 %.039, label %71, label %74
+  br i1 %.040, label %71, label %74
 
 71:                                               ; preds = %70
   %72 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !21
@@ -3628,8 +3628,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   br label %94
 
 77:                                               ; preds = %55
-  store i32 %.038., ptr %1, align 4, !tbaa !30
-  switch i32 %.038., label %90 [
+  store i32 %.., ptr %1, align 4, !tbaa !30
+  switch i32 %.., label %90 [
     i32 1, label %78
     i32 2, label %79
   ]
@@ -3641,26 +3641,26 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
 79:                                               ; preds = %77
   %80 = load i64, ptr %48, align 8, !tbaa !31
   %81 = load i32, ptr %13, align 8, !tbaa !11
-  %.not53 = icmp eq i32 %81, 0
-  br i1 %.not53, label %._crit_edge, label %.lr.ph51.preheader
+  %.not54 = icmp eq i32 %81, 0
+  br i1 %.not54, label %._crit_edge, label %.lr.ph52.preheader
 
-.lr.ph51.preheader:                               ; preds = %79
-  %wide.trip.count58 = zext i32 %81 to i64
-  br label %.lr.ph51
+.lr.ph52.preheader:                               ; preds = %79
+  %wide.trip.count59 = zext i32 %81 to i64
+  br label %.lr.ph52
 
-.lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next56, %.lr.ph51 ]
-  %.03649 = phi i64 [ %80, %.lr.ph51.preheader ], [ %spec.select, %.lr.ph51 ]
-  %82 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv55
+.lr.ph52:                                         ; preds = %.lr.ph52.preheader, %.lr.ph52
+  %indvars.iv56 = phi i64 [ 0, %.lr.ph52.preheader ], [ %indvars.iv.next57, %.lr.ph52 ]
+  %.03750 = phi i64 [ %80, %.lr.ph52.preheader ], [ %spec.select, %.lr.ph52 ]
+  %82 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv56
   %83 = load i64, ptr %82, align 8, !tbaa !21
-  %spec.select = call i64 @llvm.umax.i64(i64 %83, i64 %.03649)
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph51, !llvm.loop !95
+  %spec.select = call i64 @llvm.umax.i64(i64 %83, i64 %.03750)
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
+  br i1 %exitcond60.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !95
 
-._crit_edge:                                      ; preds = %.lr.ph51, %79
-  %.036.lcssa = phi i64 [ %80, %79 ], [ %spec.select, %.lr.ph51 ]
-  %84 = icmp ugt i64 %.036.lcssa, 4294967295
+._crit_edge:                                      ; preds = %.lr.ph52, %79
+  %.037.lcssa = phi i64 [ %80, %79 ], [ %spec.select, %.lr.ph52 ]
+  %84 = icmp ugt i64 %.037.lcssa, 4294967295
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %._crit_edge
@@ -3668,7 +3668,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   br label %94
 
 86:                                               ; preds = %._crit_edge
-  %87 = icmp samesign ugt i64 %.036.lcssa, 65535
+  %87 = icmp samesign ugt i64 %.037.lcssa, 65535
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %86

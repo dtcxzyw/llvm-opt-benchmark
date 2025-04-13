@@ -979,8 +979,8 @@ invoke.cont34:                                    ; preds = %_ZSt11lower_boundIN
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %cmp.i = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i.i.i.i.i
-  %brmerge.not.i = and i1 %cmp.i, %loadedv.i
-  %sub.i = sext i1 %brmerge.not.i to i64
+  %or.cond.i = and i1 %cmp.i, %loadedv.i
+  %sub.i = sext i1 %or.cond.i to i64
   %cond.i = add nsw i64 %sub.ptr.div.i.i, %sub.i
   %cmp502.not = icmp eq i64 %cond.i, 0
   br i1 %cmp502.not, label %if.end172, label %land.end.lr.ph
@@ -1926,7 +1926,7 @@ if.else250:                                       ; preds = %_ZNK5boost10shared_
   %163 = load i32, ptr %lockoutDays_.i, align 4, !tbaa !107
   %conv = zext i32 %163 to i64
   %sub = sub nsw i64 %cond.i, %conv
-  %cmp259.not = icmp ne i32 %163, 0
+  %cmp259 = icmp ne i32 %163, 0
   %call263 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_18YieldTermStructureEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %curve)
           to label %invoke.cont262 unwind label %lpad261
 
@@ -1961,8 +1961,8 @@ invoke.cont269:                                   ; preds = %call.i.noexc
   %168 = load i64, ptr %add.ptr.i280, align 8, !tbaa !42
   %169 = load i64, ptr %date, align 8, !tbaa !42
   %cmp.i281 = icmp eq i64 %168, %169
-  %brmerge = or i1 %cmp259.not, %cmp.i281
-  br i1 %brmerge, label %if.then275, label %if.else299
+  %or.cond = or i1 %cmp259, %cmp.i281
+  br i1 %or.cond, label %if.then275, label %if.else299
 
 if.then275:                                       ; preds = %invoke.cont269
   %call278 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_18YieldTermStructureEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %curve)

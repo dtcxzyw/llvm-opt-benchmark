@@ -2536,8 +2536,8 @@ define ptr @H5T__open_name(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %43 = load ptr, ptr %5, align 8, !tbaa !55
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i64, ptr %44, align 8, !tbaa !50
-  %.not12 = icmp eq i64 %45, -1
-  br i1 %.not12, label %.thread, label %46
+  %.not13 = icmp eq i64 %45, -1
+  br i1 %.not13, label %.thread, label %46
 
 46:                                               ; preds = %42
   %47 = call i32 @H5G_loc_free(ptr noundef nonnull %5) #9

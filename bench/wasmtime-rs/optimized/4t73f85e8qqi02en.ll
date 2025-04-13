@@ -438,12 +438,12 @@ define hidden void @"_ZN118_$LT$clap_builder..parser..matches..arg_matches..Valu
   %9 = load ptr, ptr %1, align 8, !alias.scope !141, !noalias !142, !nonnull !4, !noundef !4
   call void %9(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(32) %3), !noalias !145
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !132
-  %.sroa.05.0.copyload6 = load i64, ptr %4, align 8, !noalias !126
+  %.sroa.03.0.copyload4 = load i64, ptr %4, align 8, !noalias !126
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !129
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !129
-  %.not = icmp eq i64 %.sroa.05.0.copyload6, -9223372036854775808
+  %.not = icmp eq i64 %.sroa.03.0.copyload4, -9223372036854775808
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heceb535ce053713dE.llvm.1804880793895523134.exit"
@@ -451,7 +451,7 @@ define hidden void @"_ZN118_$LT$clap_builder..parser..matches..arg_matches..Valu
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = add i64 %12, -1
   store i64 %13, ptr %11, align 8
-  store i64 %.sroa.05.0.copyload6, ptr %0, align 8
+  store i64 %.sroa.03.0.copyload4, ptr %0, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   br label %15
@@ -491,12 +491,12 @@ define hidden void @"_ZN118_$LT$clap_builder..parser..matches..arg_matches..Valu
   %9 = load ptr, ptr %1, align 8, !alias.scope !161, !noalias !162, !nonnull !4, !noundef !4
   call void %9(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(32) %3), !noalias !165
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !152
-  %.sroa.05.0.copyload6 = load i64, ptr %4, align 8, !noalias !146
+  %.sroa.03.0.copyload4 = load i64, ptr %4, align 8, !noalias !146
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !149
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !149
-  %.not = icmp eq i64 %.sroa.05.0.copyload6, -9223372036854775808
+  %.not = icmp eq i64 %.sroa.03.0.copyload4, -9223372036854775808
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h27cbbe4a95c1e430E.llvm.1804880793895523134.exit"
@@ -504,7 +504,7 @@ define hidden void @"_ZN118_$LT$clap_builder..parser..matches..arg_matches..Valu
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = add i64 %12, -1
   store i64 %13, ptr %11, align 8
-  store i64 %.sroa.05.0.copyload6, ptr %0, align 8
+  store i64 %.sroa.03.0.copyload4, ptr %0, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   br label %15
@@ -544,12 +544,12 @@ define hidden void @"_ZN118_$LT$clap_builder..parser..matches..arg_matches..Valu
   %9 = load ptr, ptr %1, align 8, !alias.scope !181, !noalias !182, !nonnull !4, !noundef !4
   call void %9(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(32) %3), !noalias !185
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !172
-  %.sroa.05.0.copyload6 = load i64, ptr %4, align 8, !noalias !166
+  %.sroa.03.0.copyload4 = load i64, ptr %4, align 8, !noalias !166
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !169
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !169
-  %.not = icmp eq i64 %.sroa.05.0.copyload6, -9223372036854775808
+  %.not = icmp eq i64 %.sroa.03.0.copyload4, -9223372036854775808
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9444f89f0e42bacbE.llvm.1804880793895523134.exit"
@@ -557,7 +557,7 @@ define hidden void @"_ZN118_$LT$clap_builder..parser..matches..arg_matches..Valu
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = add i64 %12, -1
   store i64 %13, ptr %11, align 8
-  store i64 %.sroa.05.0.copyload6, ptr %0, align 8
+  store i64 %.sroa.03.0.copyload4, ptr %0, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   br label %15
@@ -597,12 +597,12 @@ define hidden void @"_ZN118_$LT$clap_builder..parser..matches..arg_matches..Valu
   %9 = load ptr, ptr %1, align 8, !alias.scope !201, !noalias !202, !nonnull !4, !noundef !4
   call void %9(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(32) %3), !noalias !205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !192
-  %.sroa.05.0.copyload6 = load i64, ptr %4, align 8, !noalias !186
+  %.sroa.03.0.copyload4 = load i64, ptr %4, align 8, !noalias !186
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !189
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !189
-  %.not = icmp eq i64 %.sroa.05.0.copyload6, -9223372036854775808
+  %.not = icmp eq i64 %.sroa.03.0.copyload4, -9223372036854775808
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfc352359cdc47aebE.llvm.1804880793895523134.exit"
@@ -610,7 +610,7 @@ define hidden void @"_ZN118_$LT$clap_builder..parser..matches..arg_matches..Valu
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = add i64 %12, -1
   store i64 %13, ptr %11, align 8
-  store i64 %.sroa.05.0.copyload6, ptr %0, align 8
+  store i64 %.sroa.03.0.copyload4, ptr %0, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   br label %15
@@ -650,12 +650,12 @@ define hidden void @"_ZN118_$LT$clap_builder..parser..matches..arg_matches..Valu
   %9 = load ptr, ptr %1, align 8, !alias.scope !221, !noalias !222, !nonnull !4, !noundef !4
   call void %9(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(32) %3), !noalias !225
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !212
-  %.sroa.05.0.copyload6 = load i64, ptr %4, align 8, !noalias !206
+  %.sroa.03.0.copyload4 = load i64, ptr %4, align 8, !noalias !206
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !209
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !209
-  %.not = icmp eq i64 %.sroa.05.0.copyload6, -9223372036854775808
+  %.not = icmp eq i64 %.sroa.03.0.copyload4, -9223372036854775808
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1189be57dcccfbfE.llvm.1804880793895523134.exit"
@@ -663,7 +663,7 @@ define hidden void @"_ZN118_$LT$clap_builder..parser..matches..arg_matches..Valu
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = add i64 %12, -1
   store i64 %13, ptr %11, align 8
-  store i64 %.sroa.05.0.copyload6, ptr %0, align 8
+  store i64 %.sroa.03.0.copyload4, ptr %0, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   br label %15

@@ -943,15 +943,15 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %23 = getelementptr inbounds i8, ptr %1, i64 -16
   %.neg.i.i.i.i = mul i64 %2, -8
   %24 = getelementptr inbounds i8, ptr %23, i64 %.neg.i.i.i.i
-  %.not.i4.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i4.i.i, label %.critedge.i.i.i.preheader, label %thread-pre-split.i.i
+  %.not19.i4.i.i = icmp eq i64 %2, 0
+  br i1 %.not19.i4.i.i, label %.critedge.i.i.i.preheader, label %thread-pre-split.i.i
 
 .critedge.i.i.i.preheader:                        ; preds = %25, %22
   br label %.critedge.i.i.i
 
 25:                                               ; preds = %thread-pre-split.i.i
-  %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %.critedge.i.i.i.preheader, label %thread-pre-split.i.i
+  %.not19.i.i.i = icmp eq i64 %28, 0
+  br i1 %.not19.i.i.i, label %.critedge.i.i.i.preheader, label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %22, %25
   %26 = phi i64 [ %28, %25 ], [ %2, %22 ]
@@ -964,8 +964,8 @@ thread-pre-split.i.i:                             ; preds = %22, %25
   br i1 %.not.i.i, label %25, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_9EventBaseEEEE17precheckedAdvanceEv.exit.i, !prof !24, !llvm.loop !55
 
 .critedge.i.i.i:                                  ; preds = %.critedge.i.i.i.preheader, %.critedge.i.i.i
-  %.016.i.i.i = phi ptr [ %32, %.critedge.i.i.i ], [ %24, %.critedge.i.i.i.preheader ]
-  %32 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 -128
+  %.017.i.i.i = phi ptr [ %32, %.critedge.i.i.i ], [ %24, %.critedge.i.i.i.preheader ]
+  %32 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -128
   %33 = load <16 x i8>, ptr %32, align 16, !tbaa !36
   %34 = icmp slt <16 x i8> %33, zeroinitializer
   %35 = bitcast <16 x i1> %34 to i16
@@ -980,7 +980,7 @@ thread-pre-split.i.i:                             ; preds = %22, %25
   %41 = zext nneg i32 %40 to i64
   %42 = icmp ne ptr %32, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 -112
+  %43 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -112
   %44 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %43, i64 0, i64 %41
   br label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_9EventBaseEEEE17precheckedAdvanceEv.exit.i
 
@@ -1863,15 +1863,15 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %23 = getelementptr inbounds i8, ptr %1, i64 -16
   %.neg.i.i.i.i = mul i64 %2, -8
   %24 = getelementptr inbounds i8, ptr %23, i64 %.neg.i.i.i.i
-  %.not.i4.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i4.i.i, label %.critedge.i.i.i.preheader, label %thread-pre-split.i.i
+  %.not19.i4.i.i = icmp eq i64 %2, 0
+  br i1 %.not19.i4.i.i, label %.critedge.i.i.i.preheader, label %thread-pre-split.i.i
 
 .critedge.i.i.i.preheader:                        ; preds = %25, %22
   br label %.critedge.i.i.i
 
 25:                                               ; preds = %thread-pre-split.i.i
-  %.not.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i, label %.critedge.i.i.i.preheader, label %thread-pre-split.i.i
+  %.not19.i.i.i = icmp eq i64 %28, 0
+  br i1 %.not19.i.i.i, label %.critedge.i.i.i.preheader, label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %22, %25
   %26 = phi i64 [ %28, %25 ], [ %2, %22 ]
@@ -1884,8 +1884,8 @@ thread-pre-split.i.i:                             ; preds = %22, %25
   br i1 %.not.i.i, label %25, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_6detail18EventBaseLocalBaseEEEE17precheckedAdvanceEv.exit.i, !prof !24, !llvm.loop !106
 
 .critedge.i.i.i:                                  ; preds = %.critedge.i.i.i.preheader, %.critedge.i.i.i
-  %.016.i.i.i = phi ptr [ %32, %.critedge.i.i.i ], [ %24, %.critedge.i.i.i.preheader ]
-  %32 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 -128
+  %.017.i.i.i = phi ptr [ %32, %.critedge.i.i.i ], [ %24, %.critedge.i.i.i.preheader ]
+  %32 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -128
   %33 = load <16 x i8>, ptr %32, align 16, !tbaa !36
   %34 = icmp slt <16 x i8> %33, zeroinitializer
   %35 = bitcast <16 x i1> %34 to i16
@@ -1900,7 +1900,7 @@ thread-pre-split.i.i:                             ; preds = %22, %25
   %41 = zext nneg i32 %40 to i64
   %42 = icmp ne ptr %32, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 -112
+  %43 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -112
   %44 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %43, i64 0, i64 %41
   br label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_6detail18EventBaseLocalBaseEEEE17precheckedAdvanceEv.exit.i
 

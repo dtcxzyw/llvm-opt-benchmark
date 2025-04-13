@@ -1609,7 +1609,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4e051fe5b6328b64E.llvm.15938
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %110, %85, %64, %.thread34.i.i.i.i, %56, %.loopexit.split-lp.i.i.i.i, %.loopexit.i.i.i.i
-  %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i.i, %.thread34.i.i.i.i ], [ %65, %64 ], [ %86, %85 ], [ %lpad.thr_comm.split-lp.i.i.i.i, %110 ], [ %lpad.phi45.i.i.i.i, %56 ], [ %lpad.loopexit.i.i.i.i, %.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
+  %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i.i, %.thread34.i.i.i.i ], [ %65, %64 ], [ %86, %85 ], [ %lpad.thr_comm.split-lp.i.i.i.i, %110 ], [ %lpad.phi44.i.i.i.i, %56 ], [ %lpad.loopexit.i.i.i.i, %.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$$LP$$RP$$GT$$GT$17h4652c88ef20f0d3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #39
           to label %70 unwind label %68, !noalias !244
 
@@ -1655,27 +1655,27 @@ define hidden void @_ZN3std9panicking3try7do_call17h4e051fe5b6328b64E.llvm.15938
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %52, align 8, !noalias !267
   invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2d959d102d7682cc7cbcc0dd1a59e417.15.llvm.7682092217504716512) #37
-          to label %55 unwind label %.loopexit.split-lp42.i.i.i.i, !noalias !268
+          to label %55 unwind label %.loopexit.split-lp41.i.i.i.i, !noalias !268
 
 53:                                               ; preds = %45
   %54 = invoke { i64, i32 } @_ZN17crossbeam_channel7channel4read17hcbda3e4009f252f2E.llvm.7682092217504716512(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(72) %32)
-          to label %59 unwind label %.loopexit41.i.i.i.i, !noalias !244
+          to label %59 unwind label %.loopexit40.i.i.i.i, !noalias !244
 
 55:                                               ; preds = %48
   unreachable
 
-.loopexit41.i.i.i.i:                              ; preds = %53
-  %lpad.loopexit43.i.i.i.i = landingpad { ptr, i32 }
+.loopexit40.i.i.i.i:                              ; preds = %53
+  %lpad.loopexit42.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %56
 
-.loopexit.split-lp42.i.i.i.i:                     ; preds = %48
-  %lpad.loopexit.split-lp44.i.i.i.i = landingpad { ptr, i32 }
+.loopexit.split-lp41.i.i.i.i:                     ; preds = %48
+  %lpad.loopexit.split-lp43.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %56
 
-56:                                               ; preds = %.loopexit.split-lp42.i.i.i.i, %.loopexit41.i.i.i.i
-  %lpad.phi45.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit43.i.i.i.i, %.loopexit41.i.i.i.i ], [ %lpad.loopexit.split-lp44.i.i.i.i, %.loopexit.split-lp42.i.i.i.i ]
+56:                                               ; preds = %.loopexit.split-lp41.i.i.i.i, %.loopexit40.i.i.i.i
+  %lpad.phi44.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit42.i.i.i.i, %.loopexit40.i.i.i.i ], [ %lpad.loopexit.split-lp43.i.i.i.i, %.loopexit.split-lp41.i.i.i.i ]
   invoke void @"_ZN86_$LT$crossbeam_channel..select..SelectedOperation$u20$as$u20$core..ops..drop..Drop$GT$4drop17h79ec0f24d4043fe2E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %11)
           to label %.thread.i.i.i.i unwind label %57, !noalias !244
 
@@ -1742,20 +1742,20 @@ define hidden void @_ZN3std9panicking3try7do_call17h4e051fe5b6328b64E.llvm.15938
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %12), !noalias !256
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13), !noalias !256
   invoke void @"_ZN4core3ptr73drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$$LP$$RP$$GT$$GT$17h4652c88ef20f0d3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
-          to label %71 unwind label %.loopexit46.i.i.i.i, !noalias !244
+          to label %71 unwind label %.loopexit45.i.i.i.i, !noalias !244
 
-70:                                               ; preds = %.loopexit.split-lp47.i.i.i.i, %.loopexit46.i.i.i.i, %.thread.i.i.i.i
-  %.pn13.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i.i, %.thread.i.i.i.i ], [ %lpad.loopexit48.i.i.i.i, %.loopexit46.i.i.i.i ], [ %lpad.loopexit.split-lp49.i.i.i.i, %.loopexit.split-lp47.i.i.i.i ]
+70:                                               ; preds = %.loopexit.split-lp46.i.i.i.i, %.loopexit45.i.i.i.i, %.thread.i.i.i.i
+  %.pn13.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i.i, %.thread.i.i.i.i ], [ %lpad.loopexit47.i.i.i.i, %.loopexit45.i.i.i.i ], [ %lpad.loopexit.split-lp48.i.i.i.i, %.loopexit.split-lp46.i.i.i.i ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$std..time..Instant$GT$$GT$17h29997a0733d24c06E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15) #39
           to label %18 unwind label %68, !noalias !244
 
-.loopexit46.i.i.i.i:                              ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17had393beb7746c24dE.exit21.i.i.i.i"
-  %lpad.loopexit48.i.i.i.i = landingpad { ptr, i32 }
+.loopexit45.i.i.i.i:                              ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17had393beb7746c24dE.exit21.i.i.i.i"
+  %lpad.loopexit47.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %70
 
-.loopexit.split-lp47.i.i.i.i:                     ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17h464bd3a8089aa27dE.exit.i.i.i.i
-  %lpad.loopexit.split-lp49.i.i.i.i = landingpad { ptr, i32 }
+.loopexit.split-lp46.i.i.i.i:                     ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17h464bd3a8089aa27dE.exit.i.i.i.i
+  %lpad.loopexit.split-lp48.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %70
 
@@ -1811,7 +1811,7 @@ _ZN17crossbeam_channel6select17SelectedOperation4recv17h464bd3a8089aa27dE.exit.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %12), !noalias !256
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13), !noalias !256
   invoke void @"_ZN4core3ptr73drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$$LP$$RP$$GT$$GT$17h4652c88ef20f0d3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
-          to label %89 unwind label %.loopexit.split-lp47.i.i.i.i, !noalias !244
+          to label %89 unwind label %.loopexit.split-lp46.i.i.i.i, !noalias !244
 
 89:                                               ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17h464bd3a8089aa27dE.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !256
@@ -2005,7 +2005,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h95e4f92c5cb389dfE.llvm.15938
   unreachable
 
 .thread.i.i.i.i:                                  ; preds = %110, %85, %64, %.thread34.i.i.i.i, %56, %.loopexit.split-lp.i.i.i.i, %.loopexit.i.i.i.i
-  %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i.i, %.thread34.i.i.i.i ], [ %65, %64 ], [ %86, %85 ], [ %lpad.thr_comm.split-lp.i.i.i.i, %110 ], [ %lpad.phi45.i.i.i.i, %56 ], [ %lpad.loopexit.i.i.i.i, %.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
+  %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i.i, %.thread34.i.i.i.i ], [ %65, %64 ], [ %86, %85 ], [ %lpad.thr_comm.split-lp.i.i.i.i, %110 ], [ %lpad.phi44.i.i.i.i, %56 ], [ %lpad.loopexit.i.i.i.i, %.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$$LP$$RP$$GT$$GT$17h4652c88ef20f0d3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #39
           to label %70 unwind label %68, !noalias !320
 
@@ -2051,27 +2051,27 @@ define hidden void @_ZN3std9panicking3try7do_call17h95e4f92c5cb389dfE.llvm.15938
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %52, align 8, !noalias !342
   invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2d959d102d7682cc7cbcc0dd1a59e417.15.llvm.7682092217504716512) #37
-          to label %55 unwind label %.loopexit.split-lp42.i.i.i.i, !noalias !343
+          to label %55 unwind label %.loopexit.split-lp41.i.i.i.i, !noalias !343
 
 53:                                               ; preds = %45
   %54 = invoke { i64, i32 } @_ZN17crossbeam_channel7channel4read17hcbda3e4009f252f2E.llvm.7682092217504716512(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(72) %32)
-          to label %59 unwind label %.loopexit41.i.i.i.i, !noalias !320
+          to label %59 unwind label %.loopexit40.i.i.i.i, !noalias !320
 
 55:                                               ; preds = %48
   unreachable
 
-.loopexit41.i.i.i.i:                              ; preds = %53
-  %lpad.loopexit43.i.i.i.i = landingpad { ptr, i32 }
+.loopexit40.i.i.i.i:                              ; preds = %53
+  %lpad.loopexit42.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %56
 
-.loopexit.split-lp42.i.i.i.i:                     ; preds = %48
-  %lpad.loopexit.split-lp44.i.i.i.i = landingpad { ptr, i32 }
+.loopexit.split-lp41.i.i.i.i:                     ; preds = %48
+  %lpad.loopexit.split-lp43.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %56
 
-56:                                               ; preds = %.loopexit.split-lp42.i.i.i.i, %.loopexit41.i.i.i.i
-  %lpad.phi45.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit43.i.i.i.i, %.loopexit41.i.i.i.i ], [ %lpad.loopexit.split-lp44.i.i.i.i, %.loopexit.split-lp42.i.i.i.i ]
+56:                                               ; preds = %.loopexit.split-lp41.i.i.i.i, %.loopexit40.i.i.i.i
+  %lpad.phi44.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit42.i.i.i.i, %.loopexit40.i.i.i.i ], [ %lpad.loopexit.split-lp43.i.i.i.i, %.loopexit.split-lp41.i.i.i.i ]
   invoke void @"_ZN86_$LT$crossbeam_channel..select..SelectedOperation$u20$as$u20$core..ops..drop..Drop$GT$4drop17h79ec0f24d4043fe2E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %11)
           to label %.thread.i.i.i.i unwind label %57, !noalias !320
 
@@ -2138,20 +2138,20 @@ define hidden void @_ZN3std9panicking3try7do_call17h95e4f92c5cb389dfE.llvm.15938
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %12), !noalias !332
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13), !noalias !332
   invoke void @"_ZN4core3ptr73drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$$LP$$RP$$GT$$GT$17h4652c88ef20f0d3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
-          to label %71 unwind label %.loopexit46.i.i.i.i, !noalias !320
+          to label %71 unwind label %.loopexit45.i.i.i.i, !noalias !320
 
-70:                                               ; preds = %.loopexit.split-lp47.i.i.i.i, %.loopexit46.i.i.i.i, %.thread.i.i.i.i
-  %.pn13.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i.i, %.thread.i.i.i.i ], [ %lpad.loopexit48.i.i.i.i, %.loopexit46.i.i.i.i ], [ %lpad.loopexit.split-lp49.i.i.i.i, %.loopexit.split-lp47.i.i.i.i ]
+70:                                               ; preds = %.loopexit.split-lp46.i.i.i.i, %.loopexit45.i.i.i.i, %.thread.i.i.i.i
+  %.pn13.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i.i, %.thread.i.i.i.i ], [ %lpad.loopexit47.i.i.i.i, %.loopexit45.i.i.i.i ], [ %lpad.loopexit.split-lp48.i.i.i.i, %.loopexit.split-lp46.i.i.i.i ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$std..time..Instant$GT$$GT$17h29997a0733d24c06E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15) #39
           to label %18 unwind label %68, !noalias !320
 
-.loopexit46.i.i.i.i:                              ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17had393beb7746c24dE.exit21.i.i.i.i"
-  %lpad.loopexit48.i.i.i.i = landingpad { ptr, i32 }
+.loopexit45.i.i.i.i:                              ; preds = %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17had393beb7746c24dE.exit21.i.i.i.i"
+  %lpad.loopexit47.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %70
 
-.loopexit.split-lp47.i.i.i.i:                     ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17h464bd3a8089aa27dE.exit.i.i.i.i
-  %lpad.loopexit.split-lp49.i.i.i.i = landingpad { ptr, i32 }
+.loopexit.split-lp46.i.i.i.i:                     ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17h464bd3a8089aa27dE.exit.i.i.i.i
+  %lpad.loopexit.split-lp48.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %70
 
@@ -2207,7 +2207,7 @@ _ZN17crossbeam_channel6select17SelectedOperation4recv17h464bd3a8089aa27dE.exit.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %12), !noalias !332
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13), !noalias !332
   invoke void @"_ZN4core3ptr73drop_in_place$LT$crossbeam_channel..channel..Receiver$LT$$LP$$RP$$GT$$GT$17h4652c88ef20f0d3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
-          to label %89 unwind label %.loopexit.split-lp47.i.i.i.i, !noalias !320
+          to label %89 unwind label %.loopexit.split-lp46.i.i.i.i, !noalias !320
 
 89:                                               ; preds = %_ZN17crossbeam_channel6select17SelectedOperation4recv17h464bd3a8089aa27dE.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !332

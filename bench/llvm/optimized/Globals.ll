@@ -1870,9 +1870,13 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12GlobalObject20canIncreaseAlignme
 _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i: ; preds = %17, %12, %10
   %switch.tableidx = add nsw i32 %8, -2
   %22 = icmp ult i32 %switch.tableidx, 9
-  br i1 %22, label %switch.hole_check, label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit
+  %switch.maskindex = trunc nsw i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 399, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond32 = select i1 %22, i1 %switch.lobit, i1 false
+  br i1 %or.cond32, label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.thread, label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit
 
-_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit: ; preds = %switch.hole_check, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i
+_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit: ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i
   %23 = and i32 %7, 67108864
   %.not30 = icmp eq i32 %23, 0
   %24 = and i32 %7, 8257536
@@ -1994,14 +1998,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .critedge22:                                      ; preds = %66, %64
   br label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.thread
 
-switch.hole_check:                                ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i
-  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 399, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.thread, label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit
-
-_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.thread: ; preds = %switch.hole_check, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit, %17, %1, %12, %43, %63, %.critedge22, %66
-  %.0 = phi i1 [ false, %43 ], [ false, %66 ], [ true, %.critedge22 ], [ true, %63 ], [ false, %12 ], [ false, %1 ], [ false, %17 ], [ false, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit ], [ false, %switch.hole_check ]
+_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.thread: ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit, %17, %1, %12, %43, %63, %.critedge22, %66
+  %.0 = phi i1 [ false, %43 ], [ false, %66 ], [ true, %.critedge22 ], [ true, %63 ], [ false, %12 ], [ false, %1 ], [ false, %17 ], [ false, %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit ], [ false, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i ]
   ret i1 %.0
 }
 

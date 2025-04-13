@@ -163,19 +163,19 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   br label %18
 
 18:                                               ; preds = %.noexc, %10
-  %.val6 = phi i64 [ %.promoted.i, %10 ], [ %21, %.noexc ]
+  %.val16 = phi i64 [ %.promoted.i, %10 ], [ %21, %.noexc ]
   %.0.i = phi i64 [ 0, %10 ], [ %22, %.noexc ]
   %19 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %5, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i.i.i), !noalias !11
   invoke void @"_ZN64_$LT$parquet..format..KeyValue$u20$as$u20$core..clone..Clone$GT$5clone17h3bab8aa0ec2bbdf8E.llvm.171605402441639591"(ptr noalias noundef nonnull sret({ { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }) align 8 captures(none) dereferenceable(48) %.sroa.0.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %19)
-          to label %.noexc unwind label %59
+          to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %20 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %16, i64 %.val6
+  %20 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %16, i64 %.val16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i.i.i, i64 48, i1 false), !noalias !19
-  %21 = add i64 %.val6, 1
+  %21 = add i64 %.val16, 1
   store i64 %21, ptr %17, align 8, !alias.scope !20, !noalias !23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i.i.i), !noalias !11
   %22 = add nuw i64 %.0.i, 1
@@ -185,15 +185,15 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha14b5f9d98d86161E.exit": ; preds = %.noexc, %6, %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !noundef !4
-  %.not2 = icmp eq ptr %25, null
-  br i1 %.not2, label %.critedge, label %27
+  %.not12 = icmp eq ptr %25, null
+  br i1 %.not12, label %.critedge, label %27
 
 .body:                                            ; preds = %44, %49
   %eh.lpad-body.i = phi { ptr, i32 } [ %50, %49 ], [ %45, %44 ]
   %26 = icmp ne ptr %.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %26)
   store i64 %.val19.i, ptr %.sroa.0.0.copyload, align 8, !noalias !26
-  br label %58
+  br label %61
 
 27:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha14b5f9d98d86161E.exit"
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -222,8 +222,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 
 38:                                               ; preds = %51, %31
   %.val19.i = phi i64 [ %.sroa.6.0.copyload, %31 ], [ %53, %51 ]
-  %.0.i8 = phi i64 [ 0, %31 ], [ %54, %51 ]
-  %39 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %25, i64 %.0.i8
+  %.0.i18 = phi i64 [ 0, %31 ], [ %54, %51 ]
+  %39 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %25, i64 %.0.i18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.sroa.0.i.i)
@@ -280,7 +280,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %53 = add i64 %.val19.i, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5.i.i.i.i)
-  %54 = add nuw i64 %.0.i8, 1
+  %54 = add nuw i64 %.0.i18, 1
   %55 = icmp eq i64 %54, %35
   br i1 %55, label %56, label %38
 
@@ -290,26 +290,26 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   store i64 %53, ptr %.sroa.0.0.copyload, align 8, !noalias !26
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5b681d77a8c02723E.exit"
 
-58:                                               ; preds = %.body, %59
-  %eh.lpad-body11 = phi { ptr, i32 } [ %60, %59 ], [ %eh.lpad-body.i, %.body ]
-  resume { ptr, i32 } %eh.lpad-body11
-
-59:                                               ; preds = %18
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %18
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %.val5 = load ptr, ptr %1, align 8, !nonnull !4, !align !51, !noundef !4
-  store i64 %.val6, ptr %.val5, align 8
-  br label %58
+  %.val15 = load ptr, ptr %1, align 8, !nonnull !4, !align !51, !noundef !4
+  store i64 %.val16, ptr %.val15, align 8
+  br label %61
+
+.critedge:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha14b5f9d98d86161E.exit"
+  %.val = load ptr, ptr %1, align 8, !nonnull !4, !align !51, !noundef !4
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val14 = load i64, ptr %60, align 8, !noundef !4
+  store i64 %.val14, ptr %.val, align 8
+  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5b681d77a8c02723E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5b681d77a8c02723E.exit": ; preds = %36, %56, %.critedge
   ret void
 
-.critedge:                                        ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha14b5f9d98d86161E.exit"
-  %.val = load ptr, ptr %1, align 8, !nonnull !4, !align !51, !noundef !4
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val4 = load i64, ptr %61, align 8, !noundef !4
-  store i64 %.val4, ptr %.val, align 8
-  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5b681d77a8c02723E.exit"
+61:                                               ; preds = %.body, %58
+  %eh.lpad-body21 = phi { ptr, i32 } [ %59, %58 ], [ %eh.lpad-body.i, %.body ]
+  resume { ptr, i32 } %eh.lpad-body21
 }
 
 ; Function Attrs: cold nonlazybind uwtable

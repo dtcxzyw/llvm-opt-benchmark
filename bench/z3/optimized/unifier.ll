@@ -1225,25 +1225,25 @@ _ZNK6vectorISt4pairI11expr_offsetS1_ELb0EjE5emptyEv.exit: ; preds = %_ZNK6vector
   %31 = getelementptr inbounds i8, ptr %30, i64 -4
   %32 = load i32, ptr %31, align 4, !tbaa !9
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.critedge63, label %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE4backEv.exit
+  br i1 %33, label %.critedge62, label %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE4backEv.exit
 
 _ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE4backEv.exit: ; preds = %_ZNK6vectorISt4pairI11expr_offsetS1_ELb0EjE5emptyEv.exit
   %34 = add i32 %32, -1
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %30, i64 %35
-  %.sroa.044.0.copyload = load ptr, ptr %36, align 8, !tbaa !45
-  %.sroa.245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %.sroa.245.0.copyload = load i32, ptr %.sroa.245.0..sroa_idx, align 8, !tbaa !9
-  %37 = call { ptr, i32 } @_ZN7unifier4findE11expr_offset(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr %.sroa.044.0.copyload, i32 %.sroa.245.0.copyload)
-  %.fca.0.extract40 = extractvalue { ptr, i32 } %37, 0
-  %.fca.1.extract41 = extractvalue { ptr, i32 } %37, 1
-  store ptr %.fca.0.extract40, ptr %6, align 8, !tbaa !45
-  store i32 %.fca.1.extract41, ptr %9, align 8, !tbaa !9
+  %.sroa.045.0.copyload = load ptr, ptr %36, align 8, !tbaa !45
+  %.sroa.246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %.sroa.246.0.copyload = load i32, ptr %.sroa.246.0..sroa_idx, align 8, !tbaa !9
+  %37 = call { ptr, i32 } @_ZN7unifier4findE11expr_offset(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr %.sroa.045.0.copyload, i32 %.sroa.246.0.copyload)
+  %.fca.0.extract41 = extractvalue { ptr, i32 } %37, 0
+  %.fca.1.extract42 = extractvalue { ptr, i32 } %37, 1
+  store ptr %.fca.0.extract41, ptr %6, align 8, !tbaa !45
+  store i32 %.fca.1.extract42, ptr %9, align 8, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %.sroa.036.0.copyload = load ptr, ptr %38, align 8, !tbaa !45
-  %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %.sroa.237.0.copyload = load i32, ptr %.sroa.237.0..sroa_idx, align 8, !tbaa !9
-  %39 = call { ptr, i32 } @_ZN7unifier4findE11expr_offset(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr %.sroa.036.0.copyload, i32 %.sroa.237.0.copyload)
+  %.sroa.037.0.copyload = load ptr, ptr %38, align 8, !tbaa !45
+  %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %.sroa.238.0.copyload = load i32, ptr %.sroa.238.0..sroa_idx, align 8, !tbaa !9
+  %39 = call { ptr, i32 } @_ZN7unifier4findE11expr_offset(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr %.sroa.037.0.copyload, i32 %.sroa.238.0.copyload)
   %.fca.0.extract = extractvalue { ptr, i32 } %39, 0
   %.fca.1.extract = extractvalue { ptr, i32 } %39, 1
   store ptr %.fca.0.extract, ptr %7, align 8, !tbaa !45
@@ -1265,27 +1265,27 @@ _ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE4backEv.exit: ; preds = %_ZNK6vectorIS
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %51, 65535
-  %53 = icmp ne i32 %52, 1
+  %53 = icmp eq i32 %52, 1
   %54 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 65535
-  %57 = icmp ne i32 %56, 1
-  %brmerge = or i1 %53, %57
-  br i1 %brmerge, label %59, label %58
+  %57 = icmp eq i32 %56, 1
+  %or.cond = and i1 %53, %57
+  br i1 %or.cond, label %58, label %59
 
 58:                                               ; preds = %49
   call void @_ZN7unifier6union2E11expr_offsetS0_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr nonnull %44, i32 %46, ptr nonnull %.fca.0.extract, i32 %47)
   br label %.critedge
 
 59:                                               ; preds = %49
-  br i1 %53, label %61, label %60
+  br i1 %53, label %60, label %61
 
 60:                                               ; preds = %59
   call void @_ZN7unifier6union1ERK11expr_offsetS2_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %7)
   br label %.critedge
 
 61:                                               ; preds = %59
-  br i1 %57, label %63, label %62
+  br i1 %57, label %62, label %63
 
 62:                                               ; preds = %61
   call void @_ZN7unifier6union1ERK11expr_offsetS2_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %6)
@@ -1297,21 +1297,21 @@ _ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE4backEv.exit: ; preds = %_ZNK6vectorIS
   %66 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !111
   %.not = icmp eq ptr %65, %67
-  br i1 %.not, label %68, label %.critedge63
+  br i1 %.not, label %68, label %.critedge62
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %70 = load i32, ptr %69, align 8, !tbaa !115
   %71 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 24
   %72 = load i32, ptr %71, align 8, !tbaa !115
-  %.not58 = icmp eq i32 %70, %72
-  br i1 %.not58, label %73, label %.critedge63
+  %.not59 = icmp eq i32 %70, %72
+  br i1 %.not59, label %73, label %.critedge62
 
 73:                                               ; preds = %68
   call void @_ZN7unifier6union2E11expr_offsetS0_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr nonnull %44, i32 %46, ptr nonnull %.fca.0.extract, i32 %47)
   %74 = load i32, ptr %69, align 8, !tbaa !115
-  %.not5975 = icmp eq i32 %74, 0
-  br i1 %.not5975, label %.critedge, label %.lr.ph
+  %.not6074 = icmp eq i32 %74, 0
+  br i1 %.not6074, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -1320,9 +1320,9 @@ _ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE4backEv.exit: ; preds = %_ZNK6vectorIS
   %.pre = load ptr, ptr %12, align 8, !tbaa !3
   br label %78
 
-78:                                               ; preds = %.lr.ph, %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit67
-  %79 = phi ptr [ %.pre, %.lr.ph ], [ %97, %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit67 ]
-  %indvars.iv = phi i64 [ %77, %.lr.ph ], [ %80, %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit67 ]
+78:                                               ; preds = %.lr.ph, %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit66
+  %79 = phi ptr [ %.pre, %.lr.ph ], [ %97, %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit66 ]
+  %indvars.iv = phi i64 [ %77, %.lr.ph ], [ %80, %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit66 ]
   %80 = add nsw i64 %indvars.iv, -1
   %81 = getelementptr inbounds nuw [0 x ptr], ptr %75, i64 0, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !45
@@ -1337,23 +1337,23 @@ _ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE4backEv.exit: ; preds = %_ZNK6vectorIS
   %89 = getelementptr inbounds i8, ptr %79, i64 -8
   %90 = load i32, ptr %89, align 4, !tbaa !9
   %91 = icmp eq i32 %88, %90
-  br i1 %91, label %92, label %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit67
+  br i1 %91, label %92, label %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit66
 
 92:                                               ; preds = %86, %78
   call void @_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %.pre.i64 = load ptr, ptr %12, align 8, !tbaa !3
-  %.phi.trans.insert.i65 = getelementptr inbounds i8, ptr %.pre.i64, i64 -4
-  %.pre2.i66 = load i32, ptr %.phi.trans.insert.i65, align 4, !tbaa !9
-  br label %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit67
+  %.pre.i63 = load ptr, ptr %12, align 8, !tbaa !3
+  %.phi.trans.insert.i64 = getelementptr inbounds i8, ptr %.pre.i63, i64 -4
+  %.pre2.i65 = load i32, ptr %.phi.trans.insert.i64, align 4, !tbaa !9
+  br label %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit66
 
-_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit67: ; preds = %86, %92
-  %93 = phi i32 [ %.pre2.i66, %92 ], [ %88, %86 ]
-  %94 = phi ptr [ %.pre.i64, %92 ], [ %79, %86 ]
+_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit66: ; preds = %86, %92
+  %93 = phi i32 [ %.pre2.i65, %92 ], [ %88, %86 ]
+  %94 = phi ptr [ %.pre.i63, %92 ], [ %79, %86 ]
   %95 = zext i32 %93 to i64
   %96 = getelementptr inbounds nuw %"struct.std::pair", ptr %94, i64 %95
   store ptr %82, ptr %96, align 8
-  %.sroa.473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i32 %46, ptr %.sroa.473.0..sroa_idx, align 8
+  %.sroa.472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 8
+  store i32 %46, ptr %.sroa.472.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 16
   store ptr %84, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 24
@@ -1363,15 +1363,15 @@ _ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit67: ; preds = %86
   %99 = load i32, ptr %98, align 4, !tbaa !9
   %100 = add i32 %99, 1
   store i32 %100, ptr %98, align 4, !tbaa !9
-  %.not59.wide = icmp eq i64 %80, 0
-  br i1 %.not59.wide, label %.critedge, label %78, !llvm.loop !116
+  %.not60.wide = icmp eq i64 %80, 0
+  br i1 %.not60.wide, label %.critedge, label %78, !llvm.loop !116
 
-.critedge:                                        ; preds = %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit67, %73, %60, %62, %58, %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE4backEv.exit
+.critedge:                                        ; preds = %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE9push_backERKS2_.exit66, %73, %60, %62, %58, %_ZN6vectorISt4pairI11expr_offsetS1_ELb0EjE4backEv.exit
   %.pr = load ptr, ptr %12, align 8, !tbaa !3
   %101 = icmp eq ptr %.pr, null
-  br i1 %101, label %.critedge63, label %_ZNK6vectorISt4pairI11expr_offsetS1_ELb0EjE5emptyEv.exit, !llvm.loop !117
+  br i1 %101, label %.critedge62, label %_ZNK6vectorISt4pairI11expr_offsetS1_ELb0EjE5emptyEv.exit, !llvm.loop !117
 
-.critedge63:                                      ; preds = %_ZNK6vectorISt4pairI11expr_offsetS1_ELb0EjE5emptyEv.exit, %63, %68, %.critedge
+.critedge62:                                      ; preds = %_ZNK6vectorISt4pairI11expr_offsetS1_ELb0EjE5emptyEv.exit, %63, %68, %.critedge
   %.ph = phi i1 [ true, %_ZNK6vectorISt4pairI11expr_offsetS1_ELb0EjE5emptyEv.exit ], [ false, %63 ], [ false, %68 ], [ true, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   ret i1 %.ph

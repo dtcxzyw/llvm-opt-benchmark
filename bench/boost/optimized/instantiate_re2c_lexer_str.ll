@@ -44103,9 +44103,13 @@ define linkonce_odr hidden noundef i32 @_ZN5boost4wave8cpplexer4impl23classify_u
 28:                                               ; preds = %24
   %switch.tableidx = add i64 %0, -904
   %29 = icmp ult i64 %switch.tableidx, 5
-  br i1 %29, label %switch.hole_check, label %30
+  %switch.maskindex = trunc i64 %switch.tableidx to i8
+  %switch.shifted = lshr i8 23, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond360 = select i1 %29, i1 %switch.lobit, i1 false
+  br i1 %or.cond360, label %switch.lookup, label %30
 
-30:                                               ; preds = %switch.hole_check, %28
+30:                                               ; preds = %28
   %31 = add i64 %0, -910
   %32 = icmp ult i64 %31, 20
   %33 = add i64 %0, -931
@@ -44119,9 +44123,13 @@ define linkonce_odr hidden noundef i32 @_ZN5boost4wave8cpplexer4impl23classify_u
 switch.early.test:                                ; preds = %30
   %switch.tableidx347 = add i64 %0, -986
   %37 = icmp ult i64 %switch.tableidx347, 7
-  br i1 %37, label %switch.hole_check348, label %38
+  %switch.maskindex350 = trunc i64 %switch.tableidx347 to i8
+  %switch.shifted351 = lshr i8 85, %switch.maskindex350
+  %switch.lobit352 = trunc i8 %switch.shifted351 to i1
+  %or.cond361 = select i1 %37, i1 %switch.lobit352, i1 false
+  br i1 %or.cond361, label %switch.lookup, label %38
 
-38:                                               ; preds = %switch.hole_check348, %switch.early.test
+38:                                               ; preds = %switch.early.test
   %39 = add i64 %0, -994
   %40 = icmp ult i64 %39, 18
   %41 = add i64 %0, -7936
@@ -44258,15 +44266,17 @@ switch.early.test154:                             ; preds = %38
 122:                                              ; preds = %51
   %switch.tableidx354 = add i64 %0, -2474
   %123 = icmp ult i64 %switch.tableidx354, 9
-  br i1 %123, label %switch.hole_check355, label %124
+  %switch.maskindex357 = trunc i64 %switch.tableidx354 to i16
+  %switch.shifted358 = lshr i16 383, %switch.maskindex357
+  %switch.lobit359 = trunc i16 %switch.shifted358 to i1
+  %or.cond362 = select i1 %123, i1 %switch.lobit359, i1 false
+  %124 = add i64 %0, -2579
+  %125 = icmp ult i64 %124, 22
+  %or.cond364 = or i1 %or.cond362, %125
+  br i1 %or.cond364, label %switch.lookup, label %switch.early.test343
 
-124:                                              ; preds = %122
-  %.old = add i64 %0, -2579
-  %.old360 = icmp ult i64 %.old, 22
-  br i1 %.old360, label %switch.lookup, label %switch.early.test343
-
-switch.early.test343:                             ; preds = %switch.hole_check355, %124
-  switch i64 %0, label %125 [
+switch.early.test343:                             ; preds = %122
+  switch i64 %0, label %126 [
     i64 2617, label %switch.lookup
     i64 2616, label %switch.lookup
     i64 2614, label %switch.lookup
@@ -44314,13 +44324,13 @@ switch.early.test343:                             ; preds = %switch.hole_check35
     i64 2693, label %switch.lookup
   ]
 
-125:                                              ; preds = %switch.early.test343
-  %126 = add i64 %0, -2707
-  %127 = icmp ult i64 %126, 22
-  br i1 %127, label %switch.lookup, label %switch.early.test344
+126:                                              ; preds = %switch.early.test343
+  %127 = add i64 %0, -2707
+  %128 = icmp ult i64 %127, 22
+  br i1 %128, label %switch.lookup, label %switch.early.test344
 
-switch.early.test344:                             ; preds = %125
-  switch i64 %0, label %128 [
+switch.early.test344:                             ; preds = %126
+  switch i64 %0, label %129 [
     i64 2739, label %switch.lookup
     i64 2738, label %switch.lookup
     i64 2736, label %switch.lookup
@@ -44341,13 +44351,13 @@ switch.early.test344:                             ; preds = %125
     i64 2741, label %switch.lookup
   ]
 
-128:                                              ; preds = %switch.early.test344
-  %129 = add i64 %0, -2835
-  %130 = icmp ult i64 %129, 22
-  br i1 %130, label %switch.lookup, label %switch.early.test345
+129:                                              ; preds = %switch.early.test344
+  %130 = add i64 %0, -2835
+  %131 = icmp ult i64 %130, 22
+  br i1 %131, label %switch.lookup, label %switch.early.test345
 
-switch.early.test345:                             ; preds = %128
-  switch i64 %0, label %131 [
+switch.early.test345:                             ; preds = %129
+  switch i64 %0, label %132 [
     i64 2965, label %switch.lookup
     i64 2964, label %switch.lookup
     i64 2963, label %switch.lookup
@@ -44394,104 +44404,86 @@ switch.early.test345:                             ; preds = %128
     i64 2969, label %switch.lookup
   ]
 
-131:                                              ; preds = %switch.early.test345
-  %132 = icmp eq i64 %90, 2974
-  %133 = add i64 %0, -2979
-  %134 = icmp ult i64 %133, 2
-  %or.cond296 = or i1 %132, %134
-  %135 = add i64 %0, -2984
-  %136 = icmp ult i64 %135, 3
-  %or.cond298 = or i1 %136, %or.cond296
-  %137 = add i64 %0, -2990
-  %138 = icmp ult i64 %137, 8
-  %or.cond300 = or i1 %138, %or.cond298
-  %139 = add i64 %0, -2999
-  %140 = icmp ult i64 %139, 3
-  %or.cond302 = or i1 %140, %or.cond300
-  %141 = add i64 %0, -3077
-  %142 = icmp ult i64 %141, 8
-  %or.cond304 = or i1 %142, %or.cond302
-  %143 = add i64 %0, -3086
-  %144 = icmp ult i64 %143, 3
-  %or.cond306 = or i1 %144, %or.cond304
-  %145 = add i64 %0, -3090
-  %146 = icmp ult i64 %145, 23
-  %or.cond308 = or i1 %146, %or.cond306
-  %147 = add i64 %0, -3114
-  %148 = icmp ult i64 %147, 10
-  %or.cond310 = or i1 %148, %or.cond308
-  %149 = add i64 %0, -3125
-  %150 = icmp ult i64 %149, 5
-  %or.cond312 = or i1 %150, %or.cond310
-  %151 = icmp eq i64 %90, 3168
-  %or.cond314 = or i1 %151, %or.cond312
-  %152 = add i64 %0, -3205
-  %153 = icmp ult i64 %152, 8
-  %or.cond316 = or i1 %153, %or.cond314
-  %154 = add i64 %0, -3214
-  %155 = icmp ult i64 %154, 3
-  %or.cond318 = or i1 %155, %or.cond316
-  %156 = add i64 %0, -3218
-  %157 = icmp ult i64 %156, 23
-  %or.cond320 = or i1 %157, %or.cond318
-  %158 = add i64 %0, -3242
-  %159 = icmp ult i64 %158, 10
-  %or.cond322 = or i1 %159, %or.cond320
-  %160 = add i64 %0, -3253
-  %161 = icmp ult i64 %160, 5
-  %or.cond324 = or i1 %161, %or.cond322
-  %162 = icmp eq i64 %90, 3296
-  %or.cond326 = or i1 %162, %or.cond324
-  %163 = add i64 %0, -3333
-  %164 = icmp ult i64 %163, 8
-  %or.cond328 = or i1 %164, %or.cond326
-  %165 = add i64 %0, -3342
-  %166 = icmp ult i64 %165, 3
-  %or.cond330 = or i1 %166, %or.cond328
-  %167 = add i64 %0, -3346
-  %168 = icmp ult i64 %167, 23
-  %or.cond332 = or i1 %168, %or.cond330
-  %169 = add i64 %0, -3370
-  %170 = icmp ult i64 %169, 16
-  %or.cond334 = or i1 %170, %or.cond332
-  %171 = icmp eq i64 %90, 3424
-  %or.cond336 = or i1 %171, %or.cond334
-  %172 = add i64 %0, -3585
-  %173 = icmp ult i64 %172, 48
-  %or.cond338 = or i1 %173, %or.cond336
-  %174 = icmp eq i64 %90, 3634
-  %or.cond340 = or i1 %174, %or.cond338
-  %175 = add i64 %0, -3648
-  %176 = icmp ult i64 %175, 7
-  %or.cond342 = or i1 %176, %or.cond340
-  br i1 %or.cond342, label %switch.lookup, label %177
+132:                                              ; preds = %switch.early.test345
+  %133 = icmp eq i64 %90, 2974
+  %134 = add i64 %0, -2979
+  %135 = icmp ult i64 %134, 2
+  %or.cond296 = or i1 %133, %135
+  %136 = add i64 %0, -2984
+  %137 = icmp ult i64 %136, 3
+  %or.cond298 = or i1 %137, %or.cond296
+  %138 = add i64 %0, -2990
+  %139 = icmp ult i64 %138, 8
+  %or.cond300 = or i1 %139, %or.cond298
+  %140 = add i64 %0, -2999
+  %141 = icmp ult i64 %140, 3
+  %or.cond302 = or i1 %141, %or.cond300
+  %142 = add i64 %0, -3077
+  %143 = icmp ult i64 %142, 8
+  %or.cond304 = or i1 %143, %or.cond302
+  %144 = add i64 %0, -3086
+  %145 = icmp ult i64 %144, 3
+  %or.cond306 = or i1 %145, %or.cond304
+  %146 = add i64 %0, -3090
+  %147 = icmp ult i64 %146, 23
+  %or.cond308 = or i1 %147, %or.cond306
+  %148 = add i64 %0, -3114
+  %149 = icmp ult i64 %148, 10
+  %or.cond310 = or i1 %149, %or.cond308
+  %150 = add i64 %0, -3125
+  %151 = icmp ult i64 %150, 5
+  %or.cond312 = or i1 %151, %or.cond310
+  %152 = icmp eq i64 %90, 3168
+  %or.cond314 = or i1 %152, %or.cond312
+  %153 = add i64 %0, -3205
+  %154 = icmp ult i64 %153, 8
+  %or.cond316 = or i1 %154, %or.cond314
+  %155 = add i64 %0, -3214
+  %156 = icmp ult i64 %155, 3
+  %or.cond318 = or i1 %156, %or.cond316
+  %157 = add i64 %0, -3218
+  %158 = icmp ult i64 %157, 23
+  %or.cond320 = or i1 %158, %or.cond318
+  %159 = add i64 %0, -3242
+  %160 = icmp ult i64 %159, 10
+  %or.cond322 = or i1 %160, %or.cond320
+  %161 = add i64 %0, -3253
+  %162 = icmp ult i64 %161, 5
+  %or.cond324 = or i1 %162, %or.cond322
+  %163 = icmp eq i64 %90, 3296
+  %or.cond326 = or i1 %163, %or.cond324
+  %164 = add i64 %0, -3333
+  %165 = icmp ult i64 %164, 8
+  %or.cond328 = or i1 %165, %or.cond326
+  %166 = add i64 %0, -3342
+  %167 = icmp ult i64 %166, 3
+  %or.cond330 = or i1 %167, %or.cond328
+  %168 = add i64 %0, -3346
+  %169 = icmp ult i64 %168, 23
+  %or.cond332 = or i1 %169, %or.cond330
+  %170 = add i64 %0, -3370
+  %171 = icmp ult i64 %170, 16
+  %or.cond334 = or i1 %171, %or.cond332
+  %172 = icmp eq i64 %90, 3424
+  %or.cond336 = or i1 %172, %or.cond334
+  %173 = add i64 %0, -3585
+  %174 = icmp ult i64 %173, 48
+  %or.cond338 = or i1 %174, %or.cond336
+  %175 = icmp eq i64 %90, 3634
+  %or.cond340 = or i1 %175, %or.cond338
+  %176 = add i64 %0, -3648
+  %177 = icmp ult i64 %176, 7
+  %or.cond342 = or i1 %177, %or.cond340
+  br i1 %or.cond342, label %switch.lookup, label %178
 
-177:                                              ; preds = %131
-  %178 = add i64 %0, -3663
-  %179 = icmp ult i64 %178, 13
-  %spec.select = select i1 %179, i32 0, i32 3
+178:                                              ; preds = %132
+  %179 = add i64 %0, -3663
+  %180 = icmp ult i64 %179, 13
+  %spec.select = select i1 %180, i32 0, i32 3
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %28
-  %switch.maskindex = trunc nuw i64 %switch.tableidx to i8
-  %switch.shifted = lshr i8 23, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %30
-
-switch.hole_check348:                             ; preds = %switch.early.test
-  %switch.maskindex350 = trunc nuw i64 %switch.tableidx347 to i8
-  %switch.shifted351 = lshr i8 85, %switch.maskindex350
-  %switch.lobit352 = trunc i8 %switch.shifted351 to i1
-  br i1 %switch.lobit352, label %switch.lookup, label %38
-
-switch.hole_check355:                             ; preds = %122
-  %switch.maskindex357 = trunc nuw i64 %switch.tableidx354 to i16
-  %switch.shifted358 = lshr i16 383, %switch.maskindex357
-  %switch.lobit359 = trunc i16 %switch.shifted358 to i1
-  br i1 %switch.lobit359, label %switch.lookup, label %switch.early.test343
-
-switch.lookup:                                    ; preds = %switch.hole_check355, %switch.hole_check348, %switch.hole_check, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %128, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %125, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %124, %177, %131, %30, %38, %51, %switch.early.test154, %switch.early.test154, %switch.early.test154, %11, %24, %5, %7, %1
-  %.0 = phi i32 [ 1, %1 ], [ 2, %7 ], [ 2, %5 ], [ 0, %24 ], [ 0, %11 ], [ 0, %switch.early.test154 ], [ 0, %switch.early.test154 ], [ 0, %switch.early.test154 ], [ 0, %51 ], [ 0, %38 ], [ 0, %30 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test345 ], [ 0, %131 ], [ %spec.select, %177 ], [ 0, %124 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %125 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %128 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.hole_check ], [ 0, %switch.hole_check348 ], [ 0, %switch.hole_check355 ]
+switch.lookup:                                    ; preds = %122, %switch.early.test, %28, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %switch.early.test345, %129, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %switch.early.test344, %126, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %switch.early.test343, %178, %132, %30, %38, %51, %switch.early.test154, %switch.early.test154, %switch.early.test154, %11, %24, %5, %7, %1
+  %.0 = phi i32 [ 1, %1 ], [ 2, %7 ], [ 2, %5 ], [ 0, %24 ], [ 0, %11 ], [ 0, %switch.early.test154 ], [ 0, %switch.early.test154 ], [ 0, %switch.early.test154 ], [ 0, %51 ], [ 0, %38 ], [ 0, %30 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test345 ], [ 0, %132 ], [ %spec.select, %178 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %switch.early.test343 ], [ 0, %126 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %switch.early.test344 ], [ 0, %129 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %switch.early.test345 ], [ 0, %28 ], [ 0, %switch.early.test ], [ 0, %122 ]
   ret i32 %.0
 }
 

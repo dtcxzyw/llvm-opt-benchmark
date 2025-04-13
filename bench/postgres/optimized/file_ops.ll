@@ -46,56 +46,56 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @open_target_file(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @dry_run, align 1, !range !4, !noundef !5
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %24, label %5
+  br i1 %4, label %25, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr @dstfd, align 4
-  %.not = icmp eq i32 %6, -1
-  %brmerge = or i1 %1, %.not
-  br i1 %brmerge, label %14, label %7
+  %7 = icmp eq i32 %6, -1
+  %or.cond = or i1 %1, %7
+  br i1 %or.cond, label %15, label %8
 
-7:                                                ; preds = %5
-  %8 = load ptr, ptr @datadir_target, align 8
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #10
-  %10 = add i64 %9, 1
-  %11 = getelementptr inbounds nuw [1024 x i8], ptr @dstpath, i64 0, i64 %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %11) #10
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %24, label %.thread
+8:                                                ; preds = %5
+  %9 = load ptr, ptr @datadir_target, align 8
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
+  %11 = add i64 %10, 1
+  %12 = getelementptr inbounds nuw [1024 x i8], ptr @dstpath, i64 0, i64 %11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %12) #10
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %25, label %.thread
 
-14:                                               ; preds = %5
-  br i1 %.not, label %close_target_file.exit, label %.thread
+15:                                               ; preds = %5
+  br i1 %7, label %close_target_file.exit, label %.thread
 
-.thread:                                          ; preds = %7, %14
-  %15 = tail call i32 @close(i32 noundef %6) #11
-  %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %17, label %16
+.thread:                                          ; preds = %8, %15
+  %16 = tail call i32 @close(i32 noundef %6) #11
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %18, label %17
 
-16:                                               ; preds = %.thread
+17:                                               ; preds = %.thread
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @dstpath) #11
   tail call void @exit(i32 noundef 1) #12
   unreachable
 
-17:                                               ; preds = %.thread
+18:                                               ; preds = %.thread
   store i32 -1, ptr @dstfd, align 4
   br label %close_target_file.exit
 
-close_target_file.exit:                           ; preds = %14, %17
-  %18 = load ptr, ptr @datadir_target, align 8
-  %19 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @dstpath, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %18, ptr noundef %0) #11
+close_target_file.exit:                           ; preds = %15, %18
+  %19 = load ptr, ptr @datadir_target, align 8
+  %20 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @dstpath, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %19, ptr noundef %0) #11
   %spec.select = select i1 %1, i32 577, i32 65
-  %20 = load i32, ptr @pg_file_create_mode, align 4
-  %21 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @dstpath, i32 noundef %spec.select, i32 noundef %20) #11
-  store i32 %21, ptr @dstfd, align 4
-  %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %24
+  %21 = load i32, ptr @pg_file_create_mode, align 4
+  %22 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @dstpath, i32 noundef %spec.select, i32 noundef %21) #11
+  store i32 %22, ptr @dstfd, align 4
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %25
 
-23:                                               ; preds = %close_target_file.exit
+24:                                               ; preds = %close_target_file.exit
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @dstpath) #11
   tail call void @exit(i32 noundef 1) #12
   unreachable
 
-24:                                               ; preds = %close_target_file.exit, %7, %2
+25:                                               ; preds = %close_target_file.exit, %8, %2
   ret void
 }
 
@@ -336,8 +336,8 @@ define dso_local void @remove_target_file(ptr noundef %0, i1 noundef zeroext %1)
   %11 = tail call ptr @__errno_location() #13
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 2
-  %brmerge.not = and i1 %1, %13
-  br i1 %brmerge.not, label %15, label %14
+  %or.cond = and i1 %1, %13
+  br i1 %or.cond, label %15, label %14
 
 14:                                               ; preds = %10
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #11
@@ -480,20 +480,19 @@ declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #6
 define dso_local void @sync_target_dir() local_unnamed_addr #0 {
   %1 = load i8, ptr @do_sync, align 1, !range !4, !noundef !5
   %2 = trunc nuw i8 %1 to i1
-  br i1 %2, label %3, label %9
+  %.not = xor i1 %2, true
+  %3 = load i8, ptr @dry_run, align 1, !range !4
+  %4 = trunc nuw i8 %3 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %4
+  br i1 %or.cond, label %8, label %5
 
-3:                                                ; preds = %0
-  %4 = load i8, ptr @dry_run, align 1, !range !4, !noundef !5
-  %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %9, label %6
+5:                                                ; preds = %0
+  %6 = load ptr, ptr @datadir_target, align 8
+  %7 = load i32, ptr @sync_method, align 4
+  tail call void @sync_pgdata(ptr noundef %6, i32 noundef 180000, i32 noundef %7) #11
+  br label %8
 
-6:                                                ; preds = %3
-  %7 = load ptr, ptr @datadir_target, align 8
-  %8 = load i32, ptr @sync_method, align 4
-  tail call void @sync_pgdata(ptr noundef %7, i32 noundef 180000, i32 noundef %8) #11
-  br label %9
-
-9:                                                ; preds = %0, %3, %6
+8:                                                ; preds = %0, %5
   ret void
 }
 

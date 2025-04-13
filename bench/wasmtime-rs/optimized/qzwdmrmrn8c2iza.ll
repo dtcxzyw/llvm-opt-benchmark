@@ -94404,8 +94404,8 @@ define void @"_ZN79_$LT$wasmtime..runtime..store..StoreOpaque$u20$as$u20$core..o
   br label %53
 
 53:                                               ; preds = %132, %49
-  %.sroa.04.0 = phi i64 [ 0, %49 ], [ %133, %132 ]
-  %exitcond.not = icmp eq i64 %.sroa.04.0, %51
+  %.sroa.05.0 = phi i64 [ 0, %49 ], [ %133, %132 ]
+  %exitcond.not = icmp eq i64 %.sroa.05.0, %51
   br i1 %exitcond.not, label %54, label %132
 
 54:                                               ; preds = %53
@@ -94614,7 +94614,7 @@ define void @"_ZN79_$LT$wasmtime..runtime..store..StoreOpaque$u20$as$u20$core..o
   unreachable
 
 132:                                              ; preds = %53
-  %133 = add i64 %.sroa.04.0, 1
+  %133 = add i64 %.sroa.05.0, 1
   %134 = load ptr, ptr %52, align 8, !invariant.load !4, !nonnull !4
   invoke void %134(ptr noundef nonnull align 1 %7)
           to label %53 unwind label %.loopexit

@@ -813,18 +813,18 @@ define hidden void @"_ZN89_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$
   %9 = alloca { i64, [39 x i64] }, align 8
   %10 = alloca { { i64, [21 x i64] }, { { { { { i64, ptr, {} }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } } }, align 8
   %11 = alloca { i64, [21 x i64] }, align 8
-  %.val35 = load i32, ptr %4, align 4, !noundef !4
-  %12 = sext i32 %.val35 to i64
+  %.val36 = load i32, ptr %4, align 4, !noundef !4
+  %12 = sext i32 %.val36 to i64
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %11)
   store i64 3, ptr %11, align 8
-  %.sroa.6.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 -9223372036854775805, ptr %.sroa.6.0..sroa_idx36, align 8
-  %.sroa.837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i64 -9223372036854775805, ptr %.sroa.837.0..sroa_idx, align 8
-  %.sroa.938.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store i64 -9223372036854775805, ptr %.sroa.938.0..sroa_idx, align 8
-  %.sroa.1039.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store i64 %12, ptr %.sroa.1039.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 -9223372036854775805, ptr %.sroa.6.0..sroa_idx37, align 8
+  %.sroa.838.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i64 -9223372036854775805, ptr %.sroa.838.0..sroa_idx, align 8
+  %.sroa.939.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 56
+  store i64 -9223372036854775805, ptr %.sroa.939.0..sroa_idx, align 8
+  %.sroa.1040.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 80
+  store i64 %12, ptr %.sroa.1040.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %10)
   %13 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4b59b07f47952ad5E"(i64 noundef %3, i1 noundef zeroext false)
           to label %14 unwind label %36
@@ -838,12 +838,12 @@ define hidden void @"_ZN89_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %10, ptr noundef nonnull align 8 dereferenceable(176) %11, i64 176, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store i64 %15, ptr %18, align 8
-  %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 184
-  store ptr %16, ptr %.sroa.03.sroa.4.0..sroa_idx, align 8
-  %.sroa.03.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 192
-  store i64 %3, ptr %.sroa.03.sroa.5.0..sroa_idx, align 8
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 200
-  store i64 -9223372036854775805, ptr %.sroa.44.0..sroa_idx, align 8
+  %.sroa.04.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 184
+  store ptr %16, ptr %.sroa.04.sroa.4.0..sroa_idx, align 8
+  %.sroa.04.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 192
+  store i64 %3, ptr %.sroa.04.sroa.5.0..sroa_idx, align 8
+  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 200
+  store i64 -9223372036854775805, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 224
   store i64 -9223372036854775805, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 248
@@ -864,10 +864,10 @@ define hidden void @"_ZN89_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$
   tail call void @llvm.assume(i1 %23)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %2, i64 %3, i1 false)
   store i64 %21, ptr %8, align 8
-  %.sroa.0.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %22, ptr %.sroa.0.sroa.429.0..sroa_idx, align 8
-  %.sroa.0.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %3, ptr %.sroa.0.sroa.530.0..sroa_idx, align 8
+  %.sroa.0.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %22, ptr %.sroa.0.sroa.430.0..sroa_idx, align 8
+  %.sroa.0.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %3, ptr %.sroa.0.sroa.531.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %7, ptr noundef nonnull align 8 dereferenceable(320) %10, i64 320, i1 false)
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %6)
@@ -915,8 +915,8 @@ define hidden void @"_ZN89_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$
   unreachable
 
 .thread:                                          ; preds = %29, %33, %36
-  %.pn33 = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.split-lp, %33 ], [ %30, %29 ]
-  resume { ptr, i32 } %.pn33
+  %.pn34 = phi { ptr, i32 } [ %37, %36 ], [ %lpad.thr_comm.split-lp, %33 ], [ %30, %29 ]
+  resume { ptr, i32 } %.pn34
 
 36:                                               ; preds = %5
   %37 = landingpad { ptr, i32 }
@@ -967,12 +967,12 @@ define hidden void @"_ZN89_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %10, ptr noundef nonnull align 8 dereferenceable(176) %12, i64 176, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store i64 %19, ptr %22, align 8
-  %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 184
-  store ptr %20, ptr %.sroa.03.sroa.4.0..sroa_idx, align 8
-  %.sroa.03.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 192
-  store i64 %3, ptr %.sroa.03.sroa.5.0..sroa_idx, align 8
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 200
-  store i64 -9223372036854775805, ptr %.sroa.44.0..sroa_idx, align 8
+  %.sroa.04.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 184
+  store ptr %20, ptr %.sroa.04.sroa.4.0..sroa_idx, align 8
+  %.sroa.04.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 192
+  store i64 %3, ptr %.sroa.04.sroa.5.0..sroa_idx, align 8
+  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 200
+  store i64 -9223372036854775805, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 224
   store i64 -9223372036854775805, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 248
@@ -993,10 +993,10 @@ define hidden void @"_ZN89_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$
   call void @llvm.assume(i1 %27)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %2, i64 %3, i1 false)
   store i64 %25, ptr %8, align 8
-  %.sroa.0.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %26, ptr %.sroa.0.sroa.429.0..sroa_idx, align 8
-  %.sroa.0.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %3, ptr %.sroa.0.sroa.530.0..sroa_idx, align 8
+  %.sroa.0.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %26, ptr %.sroa.0.sroa.430.0..sroa_idx, align 8
+  %.sroa.0.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %3, ptr %.sroa.0.sroa.531.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %7, ptr noundef nonnull align 8 dereferenceable(320) %10, i64 320, i1 false)
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %6)
@@ -1037,9 +1037,9 @@ define hidden void @"_ZN89_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %11)
   br label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..ser..Error$GT$17hbcee45955ad8b151E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$toml_edit..ser..Error$GT$17hbcee45955ad8b151E.exit": ; preds = %45, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$toml_edit..table..TableKeyValue$GT$$GT$17h25766876669bee46E.exit"
+"_ZN4core3ptr42drop_in_place$LT$toml_edit..ser..Error$GT$17hbcee45955ad8b151E.exit": ; preds = %42, %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$toml_edit..table..TableKeyValue$GT$$GT$17h25766876669bee46E.exit"
   store i64 -9223372036854775803, ptr %0, align 8
-  br label %49
+  br label %48
 
 37:                                               ; preds = %18
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -1054,8 +1054,8 @@ define hidden void @"_ZN89_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$
   unreachable
 
 .thread:                                          ; preds = %33, %37, %40
-  %.pn33 = phi { ptr, i32 } [ %41, %40 ], [ %lpad.thr_comm.split-lp, %37 ], [ %34, %33 ]
-  resume { ptr, i32 } %.pn33
+  %.pn34 = phi { ptr, i32 } [ %41, %40 ], [ %lpad.thr_comm.split-lp, %37 ], [ %34, %33 ]
+  resume { ptr, i32 } %.pn34
 
 40:                                               ; preds = %16
   %41 = landingpad { ptr, i32 }
@@ -1066,22 +1066,20 @@ define hidden void @"_ZN89_$LT$toml_edit..ser..map..SerializeInlineTable$u20$as$
 42:                                               ; preds = %5
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.0.0.copyload = load i64, ptr %43, align 8
-  %.sroa.6.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %44 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775806
-  br i1 %44, label %45, label %48
+  %45 = load i8, ptr %13, align 1, !range !208
+  %46 = trunc nuw i8 %45 to i1
+  %or.cond = select i1 %44, i1 %46, i1 false
+  br i1 %or.cond, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..ser..Error$GT$17hbcee45955ad8b151E.exit", label %47
 
-45:                                               ; preds = %42
-  %46 = load i8, ptr %13, align 1, !range !208, !noundef !4
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %"_ZN4core3ptr42drop_in_place$LT$toml_edit..ser..Error$GT$17hbcee45955ad8b151E.exit", label %48
-
-48:                                               ; preds = %42, %45
+47:                                               ; preds = %42
+  %.sroa.6.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
-  %.sroa.448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.448.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx45, i64 16, i1 false)
-  br label %49
+  %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.449.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx46, i64 16, i1 false)
+  br label %48
 
-49:                                               ; preds = %48, %"_ZN4core3ptr42drop_in_place$LT$toml_edit..ser..Error$GT$17hbcee45955ad8b151E.exit"
+48:                                               ; preds = %47, %"_ZN4core3ptr42drop_in_place$LT$toml_edit..ser..Error$GT$17hbcee45955ad8b151E.exit"
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   ret void

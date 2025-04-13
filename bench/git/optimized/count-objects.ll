@@ -276,15 +276,13 @@ define internal void @real_report_garbage(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #7
   %4 = icmp ult i32 %0, 5
-  br i1 %4, label %switch.hole_check, label %bits_to_msg.exit
-
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc nuw i32 %0 to i8
+  %switch.maskindex = trunc i32 %0 to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %bits_to_msg.exit
+  %or.cond = select i1 %4, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %bits_to_msg.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.real_report_garbage, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -307,7 +305,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i64 %14, ptr @garbage, align 8, !tbaa !24
   br label %bits_to_msg.exit
 
-bits_to_msg.exit:                                 ; preds = %switch.hole_check, %2, %12
+bits_to_msg.exit:                                 ; preds = %2, %12
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #7
   ret void
 }

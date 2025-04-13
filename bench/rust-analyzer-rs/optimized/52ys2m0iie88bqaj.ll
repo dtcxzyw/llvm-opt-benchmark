@@ -104,8 +104,8 @@ default.unreachable186:                           ; preds = %2
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hefcfda9315375cfdE.llvm.18152640266846470746.exit.i": ; preds = %21
   %25 = tail call { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h22f353d3a8956380E.llvm.18152640266846470746"(ptr noalias noundef nonnull align 8 dereferenceable(32) %22)
   %26 = extractvalue { ptr, ptr } %25, 0
-  %.not.not.i = icmp eq ptr %26, null
-  br i1 %.not.not.i, label %118, label %131
+  %.not.i = icmp eq ptr %26, null
+  br i1 %.not.i, label %118, label %131
 
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8

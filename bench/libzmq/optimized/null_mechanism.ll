@@ -341,7 +341,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq16null_mechanism_t22next_handshake_c
 10:                                               ; preds = %6, %2
   %11 = tail call ptr @__errno_location() #20
   store i32 11, ptr %11, align 4, !tbaa !21
-  br label %64
+  br label %66
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -363,95 +363,95 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq16null_mechanism_t22next_handshake_c
 23:                                               ; preds = %19
   %24 = tail call ptr @__errno_location() #20
   store i32 11, ptr %24, align 4, !tbaa !21
-  br label %64
+  br label %66
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   %27 = load ptr, ptr %26, align 8, !tbaa !25
   %28 = tail call noundef i32 @_ZN3zmq14session_base_t11zap_connectEv(ptr noundef nonnull align 8 dereferenceable(1624) %27)
-  switch i32 %28, label %.thread [
-    i32 -1, label %29
-    i32 0, label %38
-  ]
-
-29:                                               ; preds = %25
+  %29 = icmp eq i32 %28, -1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %31 = load i8, ptr %30, align 8, !tbaa !63, !range !18, !noundef !19
+  %31 = load i8, ptr %30, align 8, !range !18
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %33, label %.thread
+  %or.cond = select i1 %29, i1 %32, i1 false
+  br i1 %or.cond, label %33, label %38
 
-33:                                               ; preds = %29
+33:                                               ; preds = %25
   %34 = load ptr, ptr %26, align 8, !tbaa !25
   %35 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %34)
   %36 = load ptr, ptr %26, align 8, !tbaa !25
   %37 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %36)
   tail call void @_ZN3zmq13socket_base_t32event_handshake_failed_no_detailERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %35, ptr noundef nonnull align 8 dereferenceable(68) %37, i32 noundef 14)
-  br label %64
+  br label %66
 
 38:                                               ; preds = %25
-  tail call void @_ZN3zmq12zap_client_t16send_zap_requestEPKcmPPKhPmm(ptr noundef nonnull align 8 dereferenceable(1576) %0, ptr noundef nonnull @.str.6, i64 noundef 4, ptr noundef null, ptr noundef null, i64 noundef 0)
-  store i8 1, ptr %20, align 4, !tbaa !24
-  %39 = tail call noundef i32 @_ZN3zmq12zap_client_t29receive_and_process_zap_replyEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %40, label %64
+  %39 = icmp eq i32 %28, 0
+  br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %38
+  tail call void @_ZN3zmq12zap_client_t16send_zap_requestEPKcmPPKhPmm(ptr noundef nonnull align 8 dereferenceable(1576) %0, ptr noundef nonnull @.str.6, i64 noundef 4, ptr noundef null, ptr noundef null, i64 noundef 0)
+  store i8 1, ptr %20, align 4, !tbaa !24
+  %41 = tail call noundef i32 @_ZN3zmq12zap_client_t29receive_and_process_zap_replyEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
+  %.not = icmp eq i32 %41, 0
+  br i1 %.not, label %42, label %66
+
+42:                                               ; preds = %40
   store i8 1, ptr %16, align 1, !tbaa !23
   br label %.thread
 
-.thread:                                          ; preds = %29, %40, %25, %15, %12
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 77
-  %42 = load i8, ptr %41, align 1, !tbaa !23, !range !18, !noundef !19
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %44, label %63
+.thread:                                          ; preds = %38, %42, %15, %12
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 77
+  %44 = load i8, ptr %43, align 1, !tbaa !23, !range !18, !noundef !19
+  %45 = trunc nuw i8 %44 to i1
+  br i1 %45, label %46, label %65
 
-44:                                               ; preds = %.thread
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %46 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str) #18
-  %.not18 = icmp eq i32 %46, 0
-  br i1 %.not18, label %63, label %47
+46:                                               ; preds = %.thread
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %48 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str) #18
+  %.not20 = icmp eq i32 %48, 0
+  br i1 %.not20, label %65, label %49
 
-47:                                               ; preds = %44
+49:                                               ; preds = %46
   store i8 1, ptr %7, align 1, !tbaa !20
-  %48 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.1) #18
-  %.not19 = icmp eq i32 %48, 0
-  br i1 %.not19, label %61, label %49
-
-49:                                               ; preds = %47
-  %50 = tail call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %1, i64 noundef 10)
-  %.not15 = icmp eq i32 %50, 0
-  br i1 %.not15, label %56, label %51, !prof !64
+  %50 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.1) #18
+  %.not21 = icmp eq i32 %50, 0
+  br i1 %.not21, label %63, label %51
 
 51:                                               ; preds = %49
-  %52 = load ptr, ptr @stderr, align 8, !tbaa !65
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 81) #21
-  %54 = load ptr, ptr @stderr, align 8, !tbaa !65
-  %55 = tail call i32 @fflush(ptr noundef %54)
+  %52 = tail call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %1, i64 noundef 10)
+  %.not15 = icmp eq i32 %52, 0
+  br i1 %.not15, label %58, label %53, !prof !63
+
+53:                                               ; preds = %51
+  %54 = load ptr, ptr @stderr, align 8, !tbaa !64
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 81) #21
+  %56 = load ptr, ptr @stderr, align 8, !tbaa !64
+  %57 = tail call i32 @fflush(ptr noundef %56)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.3)
-  br label %56
+  br label %58
 
-56:                                               ; preds = %51, %49
-  %57 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %57, ptr noundef nonnull align 1 dereferenceable(6) @_ZL18error_command_name, i64 6, i1 false)
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 6
-  store i8 3, ptr %58, align 1, !tbaa !67
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 7
-  %60 = load ptr, ptr %45, align 8, !tbaa !6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %59, ptr noundef nonnull align 1 dereferenceable(3) %60, i64 3, i1 false)
-  br label %64
+58:                                               ; preds = %53, %51
+  %59 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %59, ptr noundef nonnull align 1 dereferenceable(6) @_ZL18error_command_name, i64 6, i1 false)
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
+  store i8 3, ptr %60, align 1, !tbaa !66
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 7
+  %62 = load ptr, ptr %47, align 8, !tbaa !6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %61, ptr noundef nonnull align 1 dereferenceable(3) %62, i64 3, i1 false)
+  br label %66
 
-61:                                               ; preds = %47
-  %62 = tail call ptr @__errno_location() #20
-  store i32 11, ptr %62, align 4, !tbaa !21
-  br label %64
+63:                                               ; preds = %49
+  %64 = tail call ptr @__errno_location() #20
+  store i32 11, ptr %64, align 4, !tbaa !21
+  br label %66
 
-63:                                               ; preds = %44, %.thread
+65:                                               ; preds = %46, %.thread
   tail call void @_ZNK3zmq11mechanism_t34make_command_with_basic_propertiesEPNS_5msg_tEPKcm(ptr noundef nonnull align 8 dereferenceable(1488) %13, ptr noundef %1, ptr noundef nonnull @_ZL18ready_command_name, i64 noundef 6)
   store i8 1, ptr %3, align 8, !tbaa !14
-  br label %64
+  br label %66
 
-64:                                               ; preds = %33, %38, %63, %61, %56, %23, %10
-  %.0 = phi i32 [ -1, %10 ], [ 0, %56 ], [ -1, %61 ], [ 0, %63 ], [ -1, %23 ], [ -1, %38 ], [ -1, %33 ]
+66:                                               ; preds = %33, %40, %65, %63, %58, %23, %10
+  %.0 = phi i32 [ -1, %10 ], [ 0, %58 ], [ -1, %63 ], [ 0, %65 ], [ -1, %23 ], [ -1, %40 ], [ -1, %33 ]
   ret i32 %.0
 }
 
@@ -506,105 +506,103 @@ define noundef range(i32 -1, 1) i32 @_ZTv0_n32_N3zmq16null_mechanism_t22next_han
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq16null_mechanism_t25process_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  %4 = load i8, ptr %3, align 2, !tbaa !68, !range !18, !noundef !19
+  %4 = load i8, ptr %3, align 2, !tbaa !67, !range !18, !noundef !19
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %10, label %6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 75
+  %7 = load i8, ptr %6, align 1, !range !18
+  %8 = trunc nuw i8 %7 to i1
+  %or.cond = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond, label %9, label %16
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 75
-  %8 = load i8, ptr %7, align 1, !tbaa !69, !range !18, !noundef !19
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %17
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1568
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %12 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %11)
+  %13 = load ptr, ptr %10, align 8, !tbaa !25
+  %14 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %13)
+  tail call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %12, ptr noundef nonnull align 8 dereferenceable(68) %14, i32 noundef 268435457)
+  %15 = tail call ptr @__errno_location() #20
+  store i32 71, ptr %15, align 4, !tbaa !21
+  br label %57
 
-10:                                               ; preds = %6, %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1568
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
-  %13 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %12)
-  %14 = load ptr, ptr %11, align 8, !tbaa !25
-  %15 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %14)
-  tail call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %13, ptr noundef nonnull align 8 dereferenceable(68) %15, i32 noundef 268435457)
-  %16 = tail call ptr @__errno_location() #20
-  store i32 71, ptr %16, align 4, !tbaa !21
-  br label %58
+16:                                               ; preds = %2
+  %17 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %18 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %19 = icmp ugt i64 %18, 5
+  br i1 %19, label %20, label %.thread
 
-17:                                               ; preds = %6
-  %18 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %19 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %20 = icmp ugt i64 %19, 5
-  br i1 %20, label %21, label %.thread
-
-21:                                               ; preds = %17
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %18, ptr noundef nonnull dereferenceable(6) @_ZL18ready_command_name, i64 6)
+20:                                               ; preds = %16
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %17, ptr noundef nonnull dereferenceable(6) @_ZL18ready_command_name, i64 6)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %22, label %27
+  br i1 %.not, label %21, label %26
 
-22:                                               ; preds = %21
-  store i8 1, ptr %3, align 2, !tbaa !68
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 6
-  %25 = add i64 %19, -6
-  %26 = tail call noundef i32 @_ZN3zmq11mechanism_t14parse_metadataEPKhmb(ptr noundef nonnull align 8 dereferenceable(1488) %23, ptr noundef nonnull %24, i64 noundef %25, i1 noundef zeroext false)
-  br label %36
+21:                                               ; preds = %20
+  store i8 1, ptr %3, align 2, !tbaa !67
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 6
+  %24 = add i64 %18, -6
+  %25 = tail call noundef i32 @_ZN3zmq11mechanism_t14parse_metadataEPKhmb(ptr noundef nonnull align 8 dereferenceable(1488) %22, ptr noundef nonnull %23, i64 noundef %24, i1 noundef zeroext false)
+  br label %35
 
-27:                                               ; preds = %21
-  %bcmp24 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %18, ptr noundef nonnull dereferenceable(6) @_ZL18error_command_name, i64 6)
+26:                                               ; preds = %20
+  %bcmp24 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %17, ptr noundef nonnull dereferenceable(6) @_ZL18error_command_name, i64 6)
   %.not25 = icmp eq i32 %bcmp24, 0
-  br i1 %.not25, label %28, label %.thread
+  br i1 %.not25, label %27, label %.thread
 
-28:                                               ; preds = %27
-  %29 = tail call noundef i32 @_ZN3zmq16null_mechanism_t21process_error_commandEPKhm(ptr noundef nonnull align 8 dereferenceable(1576) %0, ptr noundef nonnull %18, i64 noundef %19)
-  br label %36
+27:                                               ; preds = %26
+  %28 = tail call noundef i32 @_ZN3zmq16null_mechanism_t21process_error_commandEPKhm(ptr noundef nonnull align 8 dereferenceable(1576) %0, ptr noundef nonnull %17, i64 noundef %18)
+  br label %35
 
-.thread:                                          ; preds = %27, %17
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1568
-  %31 = load ptr, ptr %30, align 8, !tbaa !25
-  %32 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %31)
-  %33 = load ptr, ptr %30, align 8, !tbaa !25
-  %34 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %33)
-  tail call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %32, ptr noundef nonnull align 8 dereferenceable(68) %34, i32 noundef 268435457)
-  %35 = tail call ptr @__errno_location() #20
-  store i32 71, ptr %35, align 4, !tbaa !21
-  br label %58
+.thread:                                          ; preds = %26, %16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1568
+  %30 = load ptr, ptr %29, align 8, !tbaa !25
+  %31 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %30)
+  %32 = load ptr, ptr %29, align 8, !tbaa !25
+  %33 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %32)
+  tail call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %31, ptr noundef nonnull align 8 dereferenceable(68) %33, i32 noundef 268435457)
+  %34 = tail call ptr @__errno_location() #20
+  store i32 71, ptr %34, align 4, !tbaa !21
+  br label %57
 
-36:                                               ; preds = %28, %22
-  %.021 = phi i32 [ %29, %28 ], [ %26, %22 ]
-  %37 = icmp eq i32 %.021, 0
-  br i1 %37, label %38, label %58
+35:                                               ; preds = %27, %21
+  %.021 = phi i32 [ %28, %27 ], [ %25, %21 ]
+  %36 = icmp eq i32 %.021, 0
+  br i1 %36, label %37, label %57
 
-38:                                               ; preds = %36
-  %39 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %.not26 = icmp eq i32 %39, 0
-  br i1 %.not26, label %48, label %40, !prof !64
+37:                                               ; preds = %35
+  %38 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %.not26 = icmp eq i32 %38, 0
+  br i1 %.not26, label %47, label %39, !prof !63
 
-40:                                               ; preds = %38
-  %41 = tail call ptr @__errno_location() #20
-  %42 = load i32, ptr %41, align 4, !tbaa !21
-  %43 = tail call ptr @strerror(i32 noundef %42) #18
-  %44 = load ptr, ptr @stderr, align 8, !tbaa !65
-  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.5, ptr noundef %43, ptr noundef nonnull @.str.4, i32 noundef 132) #21
-  %46 = load ptr, ptr @stderr, align 8, !tbaa !65
-  %47 = tail call i32 @fflush(ptr noundef %46)
-  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %43)
-  br label %48
+39:                                               ; preds = %37
+  %40 = tail call ptr @__errno_location() #20
+  %41 = load i32, ptr %40, align 4, !tbaa !21
+  %42 = tail call ptr @strerror(i32 noundef %41) #18
+  %43 = load ptr, ptr @stderr, align 8, !tbaa !64
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.5, ptr noundef %42, ptr noundef nonnull @.str.4, i32 noundef 132) #21
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !64
+  %46 = tail call i32 @fflush(ptr noundef %45)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %42)
+  br label %47
 
-48:                                               ; preds = %40, %38
-  %49 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %.not27 = icmp eq i32 %49, 0
-  br i1 %.not27, label %58, label %50, !prof !64
+47:                                               ; preds = %39, %37
+  %48 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %.not27 = icmp eq i32 %48, 0
+  br i1 %.not27, label %57, label %49, !prof !63
 
-50:                                               ; preds = %48
-  %51 = tail call ptr @__errno_location() #20
-  %52 = load i32, ptr %51, align 4, !tbaa !21
-  %53 = tail call ptr @strerror(i32 noundef %52) #18
-  %54 = load ptr, ptr @stderr, align 8, !tbaa !65
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.5, ptr noundef %53, ptr noundef nonnull @.str.4, i32 noundef 134) #21
-  %56 = load ptr, ptr @stderr, align 8, !tbaa !65
-  %57 = tail call i32 @fflush(ptr noundef %56)
-  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %53)
-  br label %58
+49:                                               ; preds = %47
+  %50 = tail call ptr @__errno_location() #20
+  %51 = load i32, ptr %50, align 4, !tbaa !21
+  %52 = tail call ptr @strerror(i32 noundef %51) #18
+  %53 = load ptr, ptr @stderr, align 8, !tbaa !64
+  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.5, ptr noundef %52, ptr noundef nonnull @.str.4, i32 noundef 134) #21
+  %55 = load ptr, ptr @stderr, align 8, !tbaa !64
+  %56 = tail call i32 @fflush(ptr noundef %55)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %52)
+  br label %57
 
-58:                                               ; preds = %.thread, %36, %50, %48, %10
-  %.0 = phi i32 [ -1, %10 ], [ %49, %50 ], [ 0, %48 ], [ %.021, %36 ], [ -1, %.thread ]
+57:                                               ; preds = %.thread, %35, %49, %47, %9
+  %.0 = phi i32 [ -1, %9 ], [ %48, %49 ], [ 0, %47 ], [ %.021, %35 ], [ -1, %.thread ]
   ret i32 %.0
 }
 
@@ -615,7 +613,7 @@ declare noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq16null_mechanism_t21process_ready_commandEPKhm(ptr noundef nonnull align 8 dereferenceable(1576) initializes((74, 75)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  store i8 1, ptr %4, align 2, !tbaa !68
+  store i8 1, ptr %4, align 2, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %7 = add i64 %2, -6
@@ -641,7 +639,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq16null_mechanism_t21process_error_co
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %14 = load i8, ptr %13, align 1, !tbaa !67
+  %14 = load i8, ptr %13, align 1, !tbaa !66
   %15 = zext i8 %14 to i64
   %16 = add i64 %2, -7
   %17 = icmp ult i64 %16, %15
@@ -663,7 +661,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq16null_mechanism_t21process_error_co
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN3zmq16mechanism_base_t19handle_error_reasonEPKcm(ptr noundef nonnull align 8 dereferenceable(1496) %27, ptr noundef nonnull %26, i64 noundef %15)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 75
-  store i8 1, ptr %28, align 1, !tbaa !69
+  store i8 1, ptr %28, align 1, !tbaa !68
   br label %29
 
 29:                                               ; preds = %18, %25, %5
@@ -764,14 +762,12 @@ define noundef range(i32 0, 3) i32 @_ZNK3zmq16null_mechanism_t6statusEv(ptr noun
   %3 = load i8, ptr %2, align 8, !tbaa !14, !range !18, !noundef !19
   %4 = trunc nuw i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  %6 = load i8, ptr %5, align 2, !tbaa !68, !range !18
+  %6 = load i8, ptr %5, align 2, !range !18
   %7 = trunc nuw i8 %6 to i1
-  %8 = select i1 %4, i1 %7, i1 false
-  br i1 %8, label %19, label %._crit_edge
+  %or.cond = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond, label %19, label %8
 
-._crit_edge:                                      ; preds = %1
-  %.not = xor i1 %4, true
-  %.mux = select i1 %.not, i1 %7, i1 false
+8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %10 = load i8, ptr %9, align 1, !range !18
   %11 = trunc nuw i8 %10 to i1
@@ -779,13 +775,13 @@ define noundef range(i32 0, 3) i32 @_ZNK3zmq16null_mechanism_t6statusEv(ptr noun
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 75
   %14 = load i8, ptr %13, align 1, !range !18
   %15 = trunc nuw i8 %14 to i1
-  %16 = select i1 %.mux, i1 true, i1 %15
+  %16 = select i1 %7, i1 true, i1 %15
   %17 = select i1 %12, i1 %16, i1 false
   %18 = select i1 %17, i32 2, i32 0
   br label %19
 
-19:                                               ; preds = %1, %._crit_edge
-  %.0 = phi i32 [ %18, %._crit_edge ], [ 1, %1 ]
+19:                                               ; preds = %1, %8
+  %.0 = phi i32 [ %18, %8 ], [ 1, %1 ]
   ret i32 %.0
 }
 
@@ -799,14 +795,12 @@ define noundef range(i32 0, 3) i32 @_ZTv0_n72_NK3zmq16null_mechanism_t6statusEv(
   %7 = load i8, ptr %6, align 8, !tbaa !14, !range !18, !noundef !19
   %8 = trunc nuw i8 %7 to i1
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 74
-  %10 = load i8, ptr %9, align 2, !tbaa !68, !range !18
+  %10 = load i8, ptr %9, align 2, !range !18
   %11 = trunc nuw i8 %10 to i1
-  %12 = select i1 %8, i1 %11, i1 false
-  br i1 %12, label %_ZNK3zmq16null_mechanism_t6statusEv.exit, label %._crit_edge.i
+  %or.cond.i = select i1 %8, i1 %11, i1 false
+  br i1 %or.cond.i, label %_ZNK3zmq16null_mechanism_t6statusEv.exit, label %12
 
-._crit_edge.i:                                    ; preds = %1
-  %.not.i = xor i1 %8, true
-  %.mux.i = select i1 %.not.i, i1 %11, i1 false
+12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 73
   %14 = load i8, ptr %13, align 1, !range !18
   %15 = trunc nuw i8 %14 to i1
@@ -814,13 +808,13 @@ define noundef range(i32 0, 3) i32 @_ZTv0_n72_NK3zmq16null_mechanism_t6statusEv(
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 75
   %18 = load i8, ptr %17, align 1, !range !18
   %19 = trunc nuw i8 %18 to i1
-  %20 = select i1 %.mux.i, i1 true, i1 %19
+  %20 = select i1 %11, i1 true, i1 %19
   %21 = select i1 %16, i1 %20, i1 false
   %22 = select i1 %21, i32 2, i32 0
   br label %_ZNK3zmq16null_mechanism_t6statusEv.exit
 
-_ZNK3zmq16null_mechanism_t6statusEv.exit:         ; preds = %1, %._crit_edge.i
-  %.0.i = phi i32 [ %22, %._crit_edge.i ], [ 1, %1 ]
+_ZNK3zmq16null_mechanism_t6statusEv.exit:         ; preds = %1, %12
+  %.0.i = phi i32 [ %22, %12 ], [ 1, %1 ]
   ret i32 %.0.i
 }
 
@@ -975,10 +969,9 @@ attributes #22 = { noreturn nounwind }
 !60 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
 !61 = !{!"_ZTSN3zmq6blob_tE", !9, i64 0, !12, i64 8, !17, i64 16}
 !62 = !{!"p1 _ZTSN3zmq14session_base_tE", !10, i64 0}
-!63 = !{!27, !17, i64 1000}
-!64 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!65 = !{!66, !66, i64 0}
-!66 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!67 = !{!11, !11, i64 0}
-!68 = !{!15, !17, i64 74}
-!69 = !{!15, !17, i64 75}
+!63 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!66 = !{!11, !11, i64 0}
+!67 = !{!15, !17, i64 74}
+!68 = !{!15, !17, i64 75}

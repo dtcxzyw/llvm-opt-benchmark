@@ -1180,9 +1180,13 @@ define internal fastcc range(i32 0, 32) i32 @rb_type(i64 noundef %0) unnamed_add
 11:                                               ; preds = %1
   %12 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
   %13 = icmp ult i64 %12, 10
-  br i1 %13, label %switch.hole_check, label %14
+  %switch.maskindex = trunc i64 %12 to i16
+  %switch.shifted = lshr i16 547, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %14
 
-14:                                               ; preds = %switch.hole_check, %11
+14:                                               ; preds = %11
   %15 = and i64 %0, 1
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %16, label %19
@@ -1193,13 +1197,7 @@ define internal fastcc range(i32 0, 32) i32 @rb_type(i64 noundef %0) unnamed_add
   %spec.select = select i1 %18, i32 20, i32 4
   br label %19
 
-switch.hole_check:                                ; preds = %11
-  %switch.maskindex = trunc nuw i64 %12 to i16
-  %switch.shifted = lshr i16 547, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %14
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %11
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_type, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %19

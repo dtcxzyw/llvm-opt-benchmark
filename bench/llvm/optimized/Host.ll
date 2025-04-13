@@ -2902,7 +2902,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys14getHostCPUNameEv() local_unnamed_ad
   %1 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !62
   %2 = extractvalue { i32, i32, i32, i32 } %1, 0
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %_ZN4llvm9StringRefC2EPKc.exit.thread144, label %4
+  br i1 %3, label %_ZN4llvm9StringRefC2EPKc.exit.thread163, label %4
 
 4:                                                ; preds = %0
   %5 = extractvalue { i32, i32, i32, i32 } %1, 1
@@ -2921,7 +2921,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys14getHostCPUNameEv() local_unnamed_ad
   %or.cond5.i = select i1 %12, i1 %13, i1 false
   %14 = icmp eq i32 %6, 1145913699
   %or.cond7.i = select i1 %or.cond5.i, i1 %14, i1 false
-  br i1 %or.cond7.i, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+  br i1 %or.cond7.i, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit:            ; preds = %11, %4
   %15 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 1) #21, !srcloc !63
@@ -2944,45 +2944,45 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit:            ; preds = %11, %4
   br label %27
 
 27:                                               ; preds = %23, %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit
-  %.0121 = phi i32 [ %20, %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit ], [ %26, %23 ]
+  %.0140 = phi i32 [ %20, %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit ], [ %26, %23 ]
   %28 = lshr i32 %16, 12
   %29 = and i32 %28, 240
   %30 = or disjoint i32 %22, %29
   br label %_ZL20detectX86FamilyModeljPjS_.exit
 
 _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit, %27
-  %.1 = phi i32 [ %20, %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit ], [ %.0121, %27 ]
-  %.0120 = phi i32 [ %22, %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit ], [ %30, %27 ]
+  %.1 = phi i32 [ %20, %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit ], [ %.0140, %27 ]
+  %.0139 = phi i32 [ %22, %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit ], [ %30, %27 ]
   %31 = lshr i32 %18, 15
   %.lobit = and i32 %31, 1
   %32 = lshr i32 %18, 22
   %33 = and i32 %32, 26
-  %.sroa.013.3 = or disjoint i32 %.lobit, %33
+  %.sroa.032.3 = or disjoint i32 %.lobit, %33
   %34 = shl i32 %17, 5
   %35 = and i32 %34, 32
-  %.sroa.013.4 = or disjoint i32 %.sroa.013.3, %35
+  %.sroa.032.4 = or disjoint i32 %.sroa.032.3, %35
   %36 = shl i32 %17, 18
   %37 = and i32 %36, 524288
-  %.sroa.013.5 = or disjoint i32 %.sroa.013.4, %37
+  %.sroa.032.5 = or disjoint i32 %.sroa.032.4, %37
   %38 = lshr i32 %17, 3
   %39 = and i32 %38, 64
-  %.sroa.013.6 = or disjoint i32 %.sroa.013.5, %39
+  %.sroa.032.6 = or disjoint i32 %.sroa.032.5, %39
   %40 = shl i32 %17, 2
   %41 = and i32 %40, 16384
-  %.sroa.013.7 = or disjoint i32 %.sroa.013.6, %41
+  %.sroa.032.7 = or disjoint i32 %.sroa.032.6, %41
   %42 = lshr i32 %17, 12
   %43 = and i32 %42, 128
-  %.sroa.013.8 = or i32 %.sroa.013.7, %43
+  %.sroa.032.8 = or i32 %.sroa.032.7, %43
   %44 = and i32 %17, 1048576
   %45 = lshr exact i32 %44, 12
-  %.sroa.013.9 = or i32 %.sroa.013.8, %45
+  %.sroa.032.9 = or i32 %.sroa.032.8, %45
   %.sroa.67.0 = lshr exact i32 %44, 1
   %46 = lshr i32 %17, 21
   %47 = and i32 %46, 4
-  %.sroa.013.10 = or i32 %.sroa.013.9, %47
+  %.sroa.032.10 = or i32 %.sroa.032.9, %47
   %48 = lshr i32 %17, 7
   %49 = and i32 %48, 262144
-  %.sroa.013.11 = or i32 %.sroa.013.10, %49
+  %.sroa.032.11 = or i32 %.sroa.032.10, %49
   %50 = shl i32 %17, 4
   %51 = and i32 %50, 67108864
   %.sroa.67.1 = or disjoint i32 %.sroa.67.0, %51
@@ -2999,614 +2999,614 @@ _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %_ZL18getX86CpuIDAnd
 
 59:                                               ; preds = %54
   %60 = and i32 %56, 224
-  %61 = icmp ne i32 %60, 224
-  %62 = or i32 %.sroa.013.11, 512
+  %61 = icmp eq i32 %60, 224
+  %62 = or i32 %.sroa.032.11, 512
   br label %.thread.i
 
 .thread.i:                                        ; preds = %59, %54, %_ZL20detectX86FamilyModeljPjS_.exit
-  %.sroa.013.12 = phi i32 [ %62, %59 ], [ %.sroa.013.11, %54 ], [ %.sroa.013.11, %_ZL20detectX86FamilyModeljPjS_.exit ]
-  %.not143.i = phi i1 [ %61, %59 ], [ true, %54 ], [ true, %_ZL20detectX86FamilyModeljPjS_.exit ]
-  %.not88.i = phi i1 [ false, %59 ], [ true, %54 ], [ true, %_ZL20detectX86FamilyModeljPjS_.exit ]
-  %63 = icmp ugt i32 %2, 6
-  br i1 %63, label %.critedge.i, label %.critedge142.i
+  %.sroa.032.12 = phi i32 [ %62, %59 ], [ %.sroa.032.11, %54 ], [ %.sroa.032.11, %_ZL20detectX86FamilyModeljPjS_.exit ]
+  %63 = phi i1 [ %61, %59 ], [ false, %54 ], [ false, %_ZL20detectX86FamilyModeljPjS_.exit ]
+  %64 = phi i1 [ true, %59 ], [ false, %54 ], [ false, %_ZL20detectX86FamilyModeljPjS_.exit ]
+  %65 = icmp ugt i32 %2, 6
+  br i1 %65, label %.critedge.i, label %.critedge126.i
 
 .critedge.i:                                      ; preds = %.thread.i
-  %64 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 0) #21, !srcloc !65
-  %65 = extractvalue { i32, i32, i32, i32 } %64, 0
-  %66 = extractvalue { i32, i32, i32, i32 } %64, 1
-  %67 = extractvalue { i32, i32, i32, i32 } %64, 2
-  %68 = extractvalue { i32, i32, i32, i32 } %64, 3
-  %69 = shl i32 %66, 13
-  %70 = and i32 %69, 65536
-  %spec.select133 = or i32 %70, %.sroa.013.12
-  %71 = and i32 %66, 32
-  %.not62.i = icmp eq i32 %71, 0
-  %brmerge.i = or i1 %.not88.i, %.not62.i
-  %72 = or i32 %spec.select133, 1024
-  %.sroa.013.18 = select i1 %brmerge.i, i32 %spec.select133, i32 %72
-  %73 = shl i32 %66, 9
-  %74 = and i32 %73, 131072
-  %.sroa.013.19 = or i32 %.sroa.013.18, %74
-  %75 = and i32 %66, 65536
-  %.not64.i = icmp eq i32 %75, 0
-  %brmerge92.i = or i1 %.not143.i, %.not64.i
-  %76 = or i32 %.sroa.013.19, 32768
-  %.sroa.013.20 = select i1 %brmerge92.i, i32 %.sroa.013.19, i32 %76
-  %77 = and i32 %66, 131072
-  %.not65.i = icmp eq i32 %77, 0
-  %brmerge95.i = or i1 %.not143.i, %.not65.i
-  %78 = or i32 %.sroa.013.20, 4194304
-  %.sroa.013.21 = select i1 %brmerge95.i, i32 %.sroa.013.20, i32 %78
-  %79 = lshr i32 %66, 11
-  %80 = and i32 %79, 256
-  %81 = and i32 %66, 2097152
-  %.not67.i = icmp eq i32 %81, 0
-  %brmerge99.i = or i1 %.not143.i, %.not67.i
-  %82 = or i32 %.sroa.013.21, 134217728
-  %.sroa.013.22 = select i1 %brmerge99.i, i32 %.sroa.013.21, i32 %82
-  %83 = lshr i32 %66, 12
-  %84 = and i32 %83, 2048
-  %85 = and i32 %66, 268435456
-  %.not69.i = icmp eq i32 %85, 0
-  %brmerge103.i = or i1 %.not143.i, %.not69.i
-  %86 = or i32 %.sroa.013.22, 8388608
-  %.sroa.013.23 = select i1 %brmerge103.i, i32 %.sroa.013.22, i32 %86
-  %87 = lshr i32 %66, 19
-  %88 = and i32 %87, 1024
-  %89 = and i32 %66, 1073741824
-  %.not71.i = icmp eq i32 %89, 0
-  %brmerge107.i = or i1 %.not143.i, %.not71.i
-  %90 = or i32 %.sroa.013.23, 2097152
-  %.sroa.013.24 = select i1 %brmerge107.i, i32 %.sroa.013.23, i32 %90
-  %.not72.i = icmp sgt i32 %66, -1
-  %brmerge112.i = or i1 %.not143.i, %.not72.i
-  %91 = or i32 %.sroa.013.24, 1048576
-  %.sroa.013.25 = select i1 %brmerge112.i, i32 %.sroa.013.24, i32 %91
-  %92 = and i32 %67, 2
-  %.not73.i = icmp eq i32 %92, 0
-  %brmerge115.i = or i1 %.not143.i, %.not73.i
-  %93 = or i32 %.sroa.013.25, 67108864
-  %.sroa.013.26 = select i1 %brmerge115.i, i32 %.sroa.013.25, i32 %93
-  %94 = and i32 %67, 64
-  %.not74.i = icmp eq i32 %94, 0
-  %brmerge118.i = or i1 %.not143.i, %.not74.i
-  %95 = or i32 %.sroa.013.26, -2147483648
-  %.sroa.013.27 = select i1 %brmerge118.i, i32 %.sroa.013.26, i32 %95
-  %96 = or disjoint i32 %84, %80
-  %.sroa.67.5 = or disjoint i32 %96, %.sroa.67.1
-  %97 = and i32 %67, 2048
-  %.not77.i = icmp eq i32 %97, 0
-  %brmerge125.i = or i1 %.not143.i, %.not77.i
-  %98 = or disjoint i32 %.sroa.67.5, 4
-  %.sroa.67.7 = select i1 %brmerge125.i, i32 %.sroa.67.5, i32 %98
-  %99 = and i32 %67, 16384
-  %.not79.i = icmp eq i32 %99, 0
-  %brmerge131.i = or i1 %.not143.i, %.not79.i
-  %100 = or i32 %.sroa.013.27, 1073741824
-  %.sroa.013.28 = select i1 %brmerge131.i, i32 %.sroa.013.27, i32 %100
-  %101 = and i32 %68, 4
-  %.not80.i = icmp eq i32 %101, 0
-  %brmerge134.i = or i1 %.not143.i, %.not80.i
-  %102 = or i32 %.sroa.013.28, 268435456
-  %.sroa.013.29 = select i1 %brmerge134.i, i32 %.sroa.013.28, i32 %102
-  %103 = and i32 %68, 8
-  %.not81.i = icmp eq i32 %103, 0
-  %brmerge137.i = or i1 %.not143.i, %.not81.i
-  %104 = or i32 %.sroa.013.29, 536870912
-  %.sroa.013.30 = select i1 %brmerge137.i, i32 %.sroa.013.29, i32 %104
-  %105 = and i32 %68, 256
-  %.not82.i = icmp eq i32 %105, 0
-  %brmerge140.i = or i1 %.not143.i, %.not82.i
-  %106 = or i32 %.sroa.67.7, 32
-  %.sroa.67.9 = select i1 %brmerge140.i, i32 %.sroa.67.7, i32 %106
-  %.not288.i = icmp eq i32 %65, 0
-  br i1 %.not288.i, label %.critedge142.i, label %107
+  %66 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 0) #21, !srcloc !65
+  %67 = extractvalue { i32, i32, i32, i32 } %66, 0
+  %68 = extractvalue { i32, i32, i32, i32 } %66, 1
+  %69 = extractvalue { i32, i32, i32, i32 } %66, 2
+  %70 = extractvalue { i32, i32, i32, i32 } %66, 3
+  %71 = shl i32 %68, 13
+  %72 = and i32 %71, 65536
+  %spec.select152 = or i32 %72, %.sroa.032.12
+  %73 = and i32 %68, 32
+  %74 = icmp ne i32 %73, 0
+  %or.cond.i3 = and i1 %64, %74
+  %75 = or i32 %spec.select152, 1024
+  %.sroa.032.18 = select i1 %or.cond.i3, i32 %75, i32 %spec.select152
+  %76 = shl i32 %68, 9
+  %77 = and i32 %76, 131072
+  %.sroa.032.19 = or i32 %.sroa.032.18, %77
+  %78 = and i32 %68, 65536
+  %79 = icmp ne i32 %78, 0
+  %or.cond3.i4 = and i1 %63, %79
+  %80 = or i32 %.sroa.032.19, 32768
+  %.sroa.032.20 = select i1 %or.cond3.i4, i32 %80, i32 %.sroa.032.19
+  %81 = and i32 %68, 131072
+  %82 = icmp ne i32 %81, 0
+  %or.cond5.i5 = and i1 %63, %82
+  %83 = or i32 %.sroa.032.20, 4194304
+  %.sroa.032.21 = select i1 %or.cond5.i5, i32 %83, i32 %.sroa.032.20
+  %84 = lshr i32 %68, 11
+  %85 = and i32 %84, 256
+  %86 = and i32 %68, 2097152
+  %87 = icmp ne i32 %86, 0
+  %or.cond7.i6 = and i1 %63, %87
+  %88 = or i32 %.sroa.032.21, 134217728
+  %.sroa.032.22 = select i1 %or.cond7.i6, i32 %88, i32 %.sroa.032.21
+  %89 = lshr i32 %68, 12
+  %90 = and i32 %89, 2048
+  %91 = and i32 %68, 268435456
+  %92 = icmp ne i32 %91, 0
+  %or.cond9.i = and i1 %63, %92
+  %93 = or i32 %.sroa.032.22, 8388608
+  %.sroa.032.23 = select i1 %or.cond9.i, i32 %93, i32 %.sroa.032.22
+  %94 = lshr i32 %68, 19
+  %95 = and i32 %94, 1024
+  %96 = and i32 %68, 1073741824
+  %97 = icmp ne i32 %96, 0
+  %or.cond11.i = and i1 %63, %97
+  %98 = or i32 %.sroa.032.23, 2097152
+  %.sroa.032.24 = select i1 %or.cond11.i, i32 %98, i32 %.sroa.032.23
+  %99 = icmp slt i32 %68, 0
+  %or.cond13.i = and i1 %63, %99
+  %100 = or i32 %.sroa.032.24, 1048576
+  %.sroa.032.25 = select i1 %or.cond13.i, i32 %100, i32 %.sroa.032.24
+  %101 = and i32 %69, 2
+  %102 = icmp ne i32 %101, 0
+  %or.cond15.i = and i1 %63, %102
+  %103 = or i32 %.sroa.032.25, 67108864
+  %.sroa.032.26 = select i1 %or.cond15.i, i32 %103, i32 %.sroa.032.25
+  %104 = and i32 %69, 64
+  %105 = icmp ne i32 %104, 0
+  %or.cond17.i = and i1 %63, %105
+  %106 = or i32 %.sroa.032.26, -2147483648
+  %.sroa.032.27 = select i1 %or.cond17.i, i32 %106, i32 %.sroa.032.26
+  %107 = or disjoint i32 %90, %85
+  %.sroa.67.5 = or disjoint i32 %107, %.sroa.67.1
+  %108 = and i32 %69, 2048
+  %109 = icmp ne i32 %108, 0
+  %or.cond21.i = and i1 %63, %109
+  %110 = or disjoint i32 %.sroa.67.5, 4
+  %.sroa.67.7 = select i1 %or.cond21.i, i32 %110, i32 %.sroa.67.5
+  %111 = and i32 %69, 16384
+  %112 = icmp ne i32 %111, 0
+  %or.cond25.i = and i1 %63, %112
+  %113 = or i32 %.sroa.032.27, 1073741824
+  %.sroa.032.28 = select i1 %or.cond25.i, i32 %113, i32 %.sroa.032.27
+  %114 = and i32 %70, 4
+  %115 = icmp ne i32 %114, 0
+  %or.cond27.i = and i1 %63, %115
+  %116 = or i32 %.sroa.032.28, 268435456
+  %.sroa.032.29 = select i1 %or.cond27.i, i32 %116, i32 %.sroa.032.28
+  %117 = and i32 %70, 8
+  %118 = icmp ne i32 %117, 0
+  %or.cond29.i = and i1 %63, %118
+  %119 = or i32 %.sroa.032.29, 536870912
+  %.sroa.032.30 = select i1 %or.cond29.i, i32 %119, i32 %.sroa.032.29
+  %120 = and i32 %70, 256
+  %121 = icmp ne i32 %120, 0
+  %or.cond31.i = and i1 %63, %121
+  %122 = or i32 %.sroa.67.7, 32
+  %.sroa.67.9 = select i1 %or.cond31.i, i32 %122, i32 %.sroa.67.7
+  %.not270.i = icmp eq i32 %67, 0
+  br i1 %.not270.i, label %.critedge126.i, label %123
 
-107:                                              ; preds = %.critedge.i
-  %108 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 1) #21, !srcloc !65
-  %109 = extractvalue { i32, i32, i32, i32 } %108, 0
-  %110 = and i32 %109, 32
-  %.not83.i = icmp eq i32 %110, 0
-  %brmerge144.i = or i1 %.not143.i, %.not83.i
-  %111 = or i32 %.sroa.67.9, 16
-  %spec.select134 = select i1 %brmerge144.i, i32 %.sroa.67.9, i32 %111
-  br label %.critedge142.i
+123:                                              ; preds = %.critedge.i
+  %124 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 1) #21, !srcloc !65
+  %125 = extractvalue { i32, i32, i32, i32 } %124, 0
+  %126 = and i32 %125, 32
+  %127 = icmp ne i32 %126, 0
+  %or.cond35.i = and i1 %63, %127
+  %128 = or i32 %.sroa.67.9, 16
+  %spec.select153 = select i1 %or.cond35.i, i32 %128, i32 %.sroa.67.9
+  br label %.critedge126.i
 
-.critedge142.i:                                   ; preds = %107, %.critedge.i, %.thread.i
-  %.sroa.013.13 = phi i32 [ %.sroa.013.30, %.critedge.i ], [ %.sroa.013.12, %.thread.i ], [ %.sroa.013.30, %107 ]
-  %.sroa.67.2 = phi i32 [ %.sroa.67.9, %.critedge.i ], [ %.sroa.67.1, %.thread.i ], [ %spec.select134, %107 ]
-  %.sroa.92.0 = phi i32 [ %88, %.critedge.i ], [ 0, %.thread.i ], [ %88, %107 ]
-  %112 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483648) #21, !srcloc !62
-  %113 = extractvalue { i32, i32, i32, i32 } %112, 0
-  %or.cond287.i = icmp ugt i32 %113, -2147483648
-  br i1 %or.cond287.i, label %.critedge146.i, label %_ZL20getAvailableFeaturesjjjPj.exit
+.critedge126.i:                                   ; preds = %123, %.critedge.i, %.thread.i
+  %.sroa.032.13 = phi i32 [ %.sroa.032.30, %.critedge.i ], [ %.sroa.032.12, %.thread.i ], [ %.sroa.032.30, %123 ]
+  %.sroa.67.2 = phi i32 [ %.sroa.67.9, %.critedge.i ], [ %.sroa.67.1, %.thread.i ], [ %spec.select153, %123 ]
+  %.sroa.92.0 = phi i32 [ %95, %.critedge.i ], [ 0, %.thread.i ], [ %95, %123 ]
+  %129 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483648) #21, !srcloc !62
+  %130 = extractvalue { i32, i32, i32, i32 } %129, 0
+  %or.cond269.i = icmp ugt i32 %130, -2147483648
+  br i1 %or.cond269.i, label %.critedge128.i, label %_ZL20getAvailableFeaturesjjjPj.exit
 
-.critedge146.i:                                   ; preds = %.critedge142.i
-  %114 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483647) #21, !srcloc !63
-  %115 = extractvalue { i32, i32, i32, i32 } %114, 2
-  %116 = extractvalue { i32, i32, i32, i32 } %114, 3
-  %117 = shl i32 %115, 5
-  %118 = and i32 %117, 2048
-  %119 = shl i32 %115, 2
-  %120 = and i32 %119, 8192
-  %121 = lshr i32 %115, 4
-  %122 = and i32 %121, 4096
-  %123 = or disjoint i32 %120, %118
-  %124 = or disjoint i32 %123, %122
-  %.sroa.013.16 = or i32 %124, %.sroa.013.13
-  %125 = lshr i32 %116, 20
-  %126 = and i32 %125, 512
-  %spec.select143 = or i32 %126, %.sroa.67.2
+.critedge128.i:                                   ; preds = %.critedge126.i
+  %131 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483647) #21, !srcloc !63
+  %132 = extractvalue { i32, i32, i32, i32 } %131, 2
+  %133 = extractvalue { i32, i32, i32, i32 } %131, 3
+  %134 = shl i32 %132, 5
+  %135 = and i32 %134, 2048
+  %136 = shl i32 %132, 2
+  %137 = and i32 %136, 8192
+  %138 = lshr i32 %132, 4
+  %139 = and i32 %138, 4096
+  %140 = or disjoint i32 %137, %135
+  %141 = or disjoint i32 %140, %139
+  %.sroa.032.16 = or i32 %141, %.sroa.032.13
+  %142 = lshr i32 %133, 20
+  %143 = and i32 %142, 512
+  %spec.select162 = or i32 %143, %.sroa.67.2
   br label %_ZL20getAvailableFeaturesjjjPj.exit
 
-_ZL20getAvailableFeaturesjjjPj.exit:              ; preds = %.critedge146.i, %.critedge142.i
-  %.sroa.013.31 = phi i32 [ %.sroa.013.13, %.critedge142.i ], [ %.sroa.013.16, %.critedge146.i ]
-  %.sroa.67.10 = phi i32 [ %.sroa.67.2, %.critedge142.i ], [ %spec.select143, %.critedge146.i ]
-  br i1 %or.cond3.i, label %127, label %216
+_ZL20getAvailableFeaturesjjjPj.exit:              ; preds = %.critedge128.i, %.critedge126.i
+  %.sroa.032.31 = phi i32 [ %.sroa.032.13, %.critedge126.i ], [ %.sroa.032.16, %.critedge128.i ]
+  %.sroa.67.10 = phi i32 [ %.sroa.67.2, %.critedge126.i ], [ %spec.select162, %.critedge128.i ]
+  br i1 %or.cond3.i, label %144, label %233
 
-127:                                              ; preds = %_ZL20getAvailableFeaturesjjjPj.exit
+144:                                              ; preds = %_ZL20getAvailableFeaturesjjjPj.exit
   switch i32 %.1, label %_ZN4llvm9StringRefC2EPKc.exit.thread [
-    i32 3, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
-    i32 4, label %128
-    i32 5, label %129
-    i32 6, label %131
-    i32 15, label %211
-    i32 19, label %215
+    i32 3, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
+    i32 4, label %145
+    i32 5, label %146
+    i32 6, label %148
+    i32 15, label %228
+    i32 19, label %232
   ]
 
-128:                                              ; preds = %127
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+145:                                              ; preds = %144
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-129:                                              ; preds = %127
-  %130 = and i32 %.sroa.013.31, 2
-  %.not118.i = icmp eq i32 %130, 0
-  %..i4 = select i1 %.not118.i, i64 7, i64 11
+146:                                              ; preds = %144
+  %147 = and i32 %.sroa.032.31, 2
+  %.not118.i = icmp eq i32 %147, 0
+  %..i19 = select i1 %.not118.i, i64 7, i64 11
   %.str.394..str.393.i = select i1 %.not118.i, ptr @.str.394, ptr @.str.393
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-131:                                              ; preds = %127
-  switch i32 %.0120, label %171 [
-    i32 15, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
-    i32 22, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
-    i32 23, label %132
-    i32 29, label %132
-    i32 26, label %133
-    i32 30, label %133
-    i32 31, label %133
-    i32 46, label %133
-    i32 37, label %134
-    i32 44, label %134
-    i32 47, label %134
-    i32 42, label %135
-    i32 45, label %135
-    i32 58, label %136
-    i32 62, label %136
-    i32 60, label %137
-    i32 63, label %137
-    i32 69, label %137
-    i32 70, label %137
-    i32 61, label %138
-    i32 71, label %138
-    i32 79, label %138
-    i32 86, label %138
-    i32 78, label %139
-    i32 94, label %139
-    i32 142, label %139
-    i32 158, label %139
-    i32 165, label %139
-    i32 166, label %139
-    i32 167, label %140
-    i32 85, label %141
-    i32 102, label %145
-    i32 125, label %146
-    i32 126, label %146
-    i32 140, label %147
-    i32 141, label %147
-    i32 151, label %148
-    i32 154, label %148
-    i32 190, label %149
-    i32 183, label %150
-    i32 186, label %150
-    i32 191, label %150
-    i32 170, label %151
-    i32 172, label %151
-    i32 197, label %152
-    i32 181, label %152
-    i32 198, label %153
-    i32 189, label %154
-    i32 204, label %155
-    i32 173, label %156
-    i32 174, label %157
-    i32 106, label %158
-    i32 108, label %158
-    i32 207, label %159
-    i32 143, label %160
-    i32 28, label %161
-    i32 38, label %161
-    i32 39, label %161
-    i32 53, label %161
-    i32 54, label %161
-    i32 55, label %162
-    i32 74, label %162
-    i32 77, label %162
-    i32 90, label %162
-    i32 93, label %162
-    i32 76, label %162
-    i32 92, label %163
-    i32 95, label %163
-    i32 122, label %164
-    i32 134, label %165
-    i32 138, label %165
-    i32 150, label %165
-    i32 156, label %165
-    i32 175, label %166
-    i32 182, label %167
-    i32 221, label %168
-    i32 87, label %169
-    i32 133, label %170
+148:                                              ; preds = %144
+  switch i32 %.0139, label %188 [
+    i32 15, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
+    i32 22, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
+    i32 23, label %149
+    i32 29, label %149
+    i32 26, label %150
+    i32 30, label %150
+    i32 31, label %150
+    i32 46, label %150
+    i32 37, label %151
+    i32 44, label %151
+    i32 47, label %151
+    i32 42, label %152
+    i32 45, label %152
+    i32 58, label %153
+    i32 62, label %153
+    i32 60, label %154
+    i32 63, label %154
+    i32 69, label %154
+    i32 70, label %154
+    i32 61, label %155
+    i32 71, label %155
+    i32 79, label %155
+    i32 86, label %155
+    i32 78, label %156
+    i32 94, label %156
+    i32 142, label %156
+    i32 158, label %156
+    i32 165, label %156
+    i32 166, label %156
+    i32 167, label %157
+    i32 85, label %158
+    i32 102, label %162
+    i32 125, label %163
+    i32 126, label %163
+    i32 140, label %164
+    i32 141, label %164
+    i32 151, label %165
+    i32 154, label %165
+    i32 190, label %166
+    i32 183, label %167
+    i32 186, label %167
+    i32 191, label %167
+    i32 170, label %168
+    i32 172, label %168
+    i32 197, label %169
+    i32 181, label %169
+    i32 198, label %170
+    i32 189, label %171
+    i32 204, label %172
+    i32 173, label %173
+    i32 174, label %174
+    i32 106, label %175
+    i32 108, label %175
+    i32 207, label %176
+    i32 143, label %177
+    i32 28, label %178
+    i32 38, label %178
+    i32 39, label %178
+    i32 53, label %178
+    i32 54, label %178
+    i32 55, label %179
+    i32 74, label %179
+    i32 77, label %179
+    i32 90, label %179
+    i32 93, label %179
+    i32 76, label %179
+    i32 92, label %180
+    i32 95, label %180
+    i32 122, label %181
+    i32 134, label %182
+    i32 138, label %182
+    i32 150, label %182
+    i32 156, label %182
+    i32 175, label %183
+    i32 182, label %184
+    i32 221, label %185
+    i32 87, label %186
+    i32 133, label %187
   ]
 
-132:                                              ; preds = %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+149:                                              ; preds = %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-133:                                              ; preds = %131, %131, %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+150:                                              ; preds = %148, %148, %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-134:                                              ; preds = %131, %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+151:                                              ; preds = %148, %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-135:                                              ; preds = %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+152:                                              ; preds = %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-136:                                              ; preds = %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+153:                                              ; preds = %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-137:                                              ; preds = %131, %131, %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+154:                                              ; preds = %148, %148, %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-138:                                              ; preds = %131, %131, %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+155:                                              ; preds = %148, %148, %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-139:                                              ; preds = %131, %131, %131, %131, %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+156:                                              ; preds = %148, %148, %148, %148, %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-140:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+157:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-141:                                              ; preds = %131
-  %142 = and i32 %.sroa.67.10, 16
-  %.not95.i = icmp eq i32 %142, 0
-  br i1 %.not95.i, label %143, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+158:                                              ; preds = %148
+  %159 = and i32 %.sroa.67.10, 16
+  %.not95.i9 = icmp eq i32 %159, 0
+  br i1 %.not95.i9, label %160, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-143:                                              ; preds = %141
-  %144 = and i32 %.sroa.67.10, 4
-  %.not96.i = icmp eq i32 %144, 0
-  %spec.select136 = select i1 %.not96.i, i64 14, i64 11
-  %spec.select137 = select i1 %.not96.i, ptr @.str.407, ptr @.str.406
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+160:                                              ; preds = %158
+  %161 = and i32 %.sroa.67.10, 4
+  %.not96.i10 = icmp eq i32 %161, 0
+  %spec.select155 = select i1 %.not96.i10, i64 14, i64 11
+  %spec.select156 = select i1 %.not96.i10, ptr @.str.407, ptr @.str.406
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-145:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+162:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-146:                                              ; preds = %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+163:                                              ; preds = %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-147:                                              ; preds = %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+164:                                              ; preds = %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-148:                                              ; preds = %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+165:                                              ; preds = %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-149:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+166:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-150:                                              ; preds = %131, %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+167:                                              ; preds = %148, %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-151:                                              ; preds = %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+168:                                              ; preds = %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-152:                                              ; preds = %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+169:                                              ; preds = %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-153:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+170:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-154:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+171:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-155:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+172:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-156:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+173:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-157:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+174:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-158:                                              ; preds = %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+175:                                              ; preds = %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-159:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+176:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-160:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+177:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-161:                                              ; preds = %131, %131, %131, %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+178:                                              ; preds = %148, %148, %148, %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-162:                                              ; preds = %131, %131, %131, %131, %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+179:                                              ; preds = %148, %148, %148, %148, %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-163:                                              ; preds = %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+180:                                              ; preds = %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-164:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+181:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-165:                                              ; preds = %131, %131, %131, %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+182:                                              ; preds = %148, %148, %148, %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-166:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+183:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-167:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+184:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-168:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+185:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-169:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+186:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-170:                                              ; preds = %131
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+187:                                              ; preds = %148
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-171:                                              ; preds = %131
-  %172 = and i32 %.sroa.67.10, 32
-  %.not97.i = icmp eq i32 %172, 0
-  br i1 %.not97.i, label %173, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+188:                                              ; preds = %148
+  %189 = and i32 %.sroa.67.10, 32
+  %.not97.i11 = icmp eq i32 %189, 0
+  br i1 %.not97.i11, label %190, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-173:                                              ; preds = %171
-  %.not98.i = icmp sgt i32 %.sroa.013.31, -1
-  br i1 %.not98.i, label %174, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+190:                                              ; preds = %188
+  %.not98.i12 = icmp sgt i32 %.sroa.032.31, -1
+  br i1 %.not98.i12, label %191, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-174:                                              ; preds = %173
-  %175 = and i32 %.sroa.013.31, 67108864
-  %.not99.i = icmp eq i32 %175, 0
-  br i1 %.not99.i, label %176, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+191:                                              ; preds = %190
+  %192 = and i32 %.sroa.032.31, 67108864
+  %.not99.i13 = icmp eq i32 %192, 0
+  br i1 %.not99.i13, label %193, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-176:                                              ; preds = %174
-  %177 = and i32 %.sroa.67.10, 16
-  %.not100.i = icmp eq i32 %177, 0
-  br i1 %.not100.i, label %178, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+193:                                              ; preds = %191
+  %194 = and i32 %.sroa.67.10, 16
+  %.not100.i14 = icmp eq i32 %194, 0
+  br i1 %.not100.i14, label %195, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-178:                                              ; preds = %176
-  %179 = and i32 %.sroa.67.10, 4
-  %.not101.i = icmp eq i32 %179, 0
-  br i1 %.not101.i, label %180, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+195:                                              ; preds = %193
+  %196 = and i32 %.sroa.67.10, 4
+  %.not101.i15 = icmp eq i32 %196, 0
+  br i1 %.not101.i15, label %197, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-180:                                              ; preds = %178
-  %181 = and i32 %.sroa.013.31, 1048576
-  %.not102.i = icmp eq i32 %181, 0
-  br i1 %.not102.i, label %182, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+197:                                              ; preds = %195
+  %198 = and i32 %.sroa.032.31, 1048576
+  %.not102.i16 = icmp eq i32 %198, 0
+  br i1 %.not102.i16, label %199, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-182:                                              ; preds = %180
-  %183 = and i32 %.sroa.67.10, 2048
-  %.not103.i = icmp eq i32 %183, 0
-  br i1 %.not103.i, label %185, label %184
+199:                                              ; preds = %197
+  %200 = and i32 %.sroa.67.10, 2048
+  %.not103.i17 = icmp eq i32 %200, 0
+  br i1 %.not103.i17, label %202, label %201
 
-184:                                              ; preds = %182
+201:                                              ; preds = %199
   %.not117.i = icmp eq i32 %.sroa.92.0, 0
   %.256.i = select i1 %.not117.i, i64 7, i64 8
   %.str.403..str.426.i = select i1 %.not117.i, ptr @.str.403, ptr @.str.426
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-185:                                              ; preds = %182
-  %186 = and i32 %.sroa.67.10, 256
-  %.not104.i = icmp eq i32 %186, 0
-  br i1 %.not104.i, label %187, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+202:                                              ; preds = %199
+  %203 = and i32 %.sroa.67.10, 256
+  %.not104.i18 = icmp eq i32 %203, 0
+  br i1 %.not104.i18, label %204, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-187:                                              ; preds = %185
-  %188 = and i32 %.sroa.013.31, 1024
-  %.not105.i = icmp eq i32 %188, 0
-  br i1 %.not105.i, label %189, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+204:                                              ; preds = %202
+  %205 = and i32 %.sroa.032.31, 1024
+  %.not105.i = icmp eq i32 %205, 0
+  br i1 %.not105.i, label %206, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-189:                                              ; preds = %187
-  %190 = and i32 %.sroa.013.31, 512
-  %.not106.i = icmp eq i32 %190, 0
-  br i1 %.not106.i, label %191, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+206:                                              ; preds = %204
+  %207 = and i32 %.sroa.032.31, 512
+  %.not106.i = icmp eq i32 %207, 0
+  br i1 %.not106.i, label %208, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-191:                                              ; preds = %189
-  %192 = and i32 %.sroa.013.31, 256
-  %.not107.i = icmp eq i32 %192, 0
-  br i1 %.not107.i, label %195, label %193
+208:                                              ; preds = %206
+  %209 = and i32 %.sroa.032.31, 256
+  %.not107.i = icmp eq i32 %209, 0
+  br i1 %.not107.i, label %212, label %210
 
-193:                                              ; preds = %191
-  %194 = and i32 %.sroa.67.10, 67108864
-  %.not116.i = icmp eq i32 %194, 0
+210:                                              ; preds = %208
+  %211 = and i32 %.sroa.67.10, 67108864
+  %.not116.i = icmp eq i32 %211, 0
   %.257.i = select i1 %.not116.i, i64 7, i64 10
   %.str.397..str.425.i = select i1 %.not116.i, ptr @.str.397, ptr @.str.425
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-195:                                              ; preds = %191
-  %196 = and i32 %.sroa.013.31, 128
-  %.not108.i = icmp eq i32 %196, 0
-  br i1 %.not108.i, label %197, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+212:                                              ; preds = %208
+  %213 = and i32 %.sroa.032.31, 128
+  %.not108.i = icmp eq i32 %213, 0
+  br i1 %.not108.i, label %214, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-197:                                              ; preds = %195
-  %198 = and i32 %.sroa.013.31, 64
-  %.not109.i = icmp eq i32 %198, 0
-  br i1 %.not109.i, label %201, label %199
+214:                                              ; preds = %212
+  %215 = and i32 %.sroa.032.31, 64
+  %.not109.i = icmp eq i32 %215, 0
+  br i1 %.not109.i, label %218, label %216
 
-199:                                              ; preds = %197
-  %200 = and i32 %.sroa.67.10, 67108864
-  %.not115.i = icmp eq i32 %200, 0
+216:                                              ; preds = %214
+  %217 = and i32 %.sroa.67.10, 67108864
+  %.not115.i = icmp eq i32 %217, 0
   %.258.i = select i1 %.not115.i, i64 5, i64 7
   %.str.395..str.424.i = select i1 %.not115.i, ptr @.str.395, ptr @.str.424
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-201:                                              ; preds = %197
-  %202 = and i32 %.sroa.67.10, 512
-  %.not110.i = icmp eq i32 %202, 0
-  br i1 %.not110.i, label %203, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+218:                                              ; preds = %214
+  %219 = and i32 %.sroa.67.10, 512
+  %.not110.i = icmp eq i32 %219, 0
+  br i1 %.not110.i, label %220, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-203:                                              ; preds = %201
-  %204 = and i32 %.sroa.013.31, 32
-  %.not111.i = icmp eq i32 %204, 0
-  br i1 %.not111.i, label %205, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+220:                                              ; preds = %218
+  %221 = and i32 %.sroa.032.31, 32
+  %.not111.i = icmp eq i32 %221, 0
+  br i1 %.not111.i, label %222, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-205:                                              ; preds = %203
-  %206 = and i32 %.sroa.013.31, 16
-  %.not112.i = icmp eq i32 %206, 0
-  br i1 %.not112.i, label %207, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+222:                                              ; preds = %220
+  %223 = and i32 %.sroa.032.31, 16
+  %.not112.i = icmp eq i32 %223, 0
+  br i1 %.not112.i, label %224, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-207:                                              ; preds = %205
-  %208 = and i32 %.sroa.013.31, 8
-  %.not113.i = icmp eq i32 %208, 0
-  br i1 %.not113.i, label %209, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+224:                                              ; preds = %222
+  %225 = and i32 %.sroa.032.31, 8
+  %.not113.i = icmp eq i32 %225, 0
+  br i1 %.not113.i, label %226, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-209:                                              ; preds = %207
-  %210 = and i32 %.sroa.013.31, 2
-  %.not114.i = icmp eq i32 %210, 0
+226:                                              ; preds = %224
+  %227 = and i32 %.sroa.032.31, 2
+  %.not114.i = icmp eq i32 %227, 0
   %.259.i = select i1 %.not114.i, i64 10, i64 8
   %.str.438..str.437.i = select i1 %.not114.i, ptr @.str.438, ptr @.str.437
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-211:                                              ; preds = %127
-  %212 = and i32 %.sroa.67.10, 512
-  %.not.i3 = icmp eq i32 %212, 0
-  br i1 %.not.i3, label %213, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+228:                                              ; preds = %144
+  %229 = and i32 %.sroa.67.10, 512
+  %.not.i7 = icmp eq i32 %229, 0
+  br i1 %.not.i7, label %230, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-213:                                              ; preds = %211
-  %214 = and i32 %.sroa.013.31, 32
-  %.not94.i = icmp eq i32 %214, 0
-  %.str.441..str.440.i = select i1 %.not94.i, ptr @.str.441, ptr @.str.440
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+230:                                              ; preds = %228
+  %231 = and i32 %.sroa.032.31, 32
+  %.not94.i8 = icmp eq i32 %231, 0
+  %.str.441..str.440.i = select i1 %.not94.i8, ptr @.str.441, ptr @.str.440
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-215:                                              ; preds = %127
-  %cond.i = icmp eq i32 %.0120, 1
-  br i1 %cond.i, label %_ZN4llvm9StringRefC2EPKc.exit.thread144, label %_ZN4llvm9StringRefC2EPKc.exit.thread
+232:                                              ; preds = %144
+  %cond.i = icmp eq i32 %.0139, 1
+  br i1 %cond.i, label %_ZN4llvm9StringRefC2EPKc.exit.thread163, label %_ZN4llvm9StringRefC2EPKc.exit.thread
 
-216:                                              ; preds = %_ZL20getAvailableFeaturesjjjPj.exit
+233:                                              ; preds = %_ZL20getAvailableFeaturesjjjPj.exit
   switch i32 %.1, label %_ZN4llvm9StringRefC2EPKc.exit.thread [
     i32 4, label %_ZN4llvm9StringRefC2EPKc.exit
-    i32 5, label %217
-    i32 6, label %219
-    i32 15, label %221
-    i32 16, label %223
-    i32 18, label %223
-    i32 20, label %224
-    i32 21, label %225
-    i32 22, label %231
-    i32 23, label %232
-    i32 25, label %239
-    i32 26, label %247
+    i32 5, label %234
+    i32 6, label %236
+    i32 15, label %238
+    i32 16, label %240
+    i32 18, label %240
+    i32 20, label %241
+    i32 21, label %242
+    i32 22, label %248
+    i32 23, label %249
+    i32 25, label %256
+    i32 26, label %264
   ]
 
-217:                                              ; preds = %216
-  %switch.tableidx = add nsw i32 %.0120, -6
-  %218 = icmp ult i32 %switch.tableidx, 8
-  br i1 %218, label %switch.lookup, label %_ZN4llvm9StringRefC2EPKc.exit
+234:                                              ; preds = %233
+  %switch.tableidx = add nsw i32 %.0139, -6
+  %235 = icmp ult i32 %switch.tableidx, 8
+  br i1 %235, label %switch.lookup, label %_ZN4llvm9StringRefC2EPKc.exit
 
-219:                                              ; preds = %216
-  %220 = and i32 %.sroa.013.31, 8
-  %.not121.i = icmp eq i32 %220, 0
+236:                                              ; preds = %233
+  %237 = and i32 %.sroa.032.31, 8
+  %.not121.i = icmp eq i32 %237, 0
   %.str.448..str.447.i = select i1 %.not121.i, ptr @.str.448, ptr @.str.447
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-221:                                              ; preds = %216
-  %222 = and i32 %.sroa.013.31, 32
-  %.not.i9 = icmp eq i32 %222, 0
-  %.str.450..str.449.i = select i1 %.not.i9, ptr @.str.450, ptr @.str.449
+238:                                              ; preds = %233
+  %239 = and i32 %.sroa.032.31, 32
+  %.not.i28 = icmp eq i32 %239, 0
+  %.str.450..str.449.i = select i1 %.not.i28, ptr @.str.450, ptr @.str.449
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-223:                                              ; preds = %216, %216
+240:                                              ; preds = %233, %233
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-224:                                              ; preds = %216
+241:                                              ; preds = %233
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-225:                                              ; preds = %216
-  %226 = and i32 %.0120, -32
-  %or.cond.i5 = icmp eq i32 %226, 96
-  br i1 %or.cond.i5, label %_ZN4llvm9StringRefC2EPKc.exit, label %227
+242:                                              ; preds = %233
+  %243 = and i32 %.0139, -32
+  %or.cond.i24 = icmp eq i32 %243, 96
+  br i1 %or.cond.i24, label %_ZN4llvm9StringRefC2EPKc.exit, label %244
 
-227:                                              ; preds = %225
-  %228 = and i32 %.0120, -16
-  %or.cond3.i6 = icmp eq i32 %228, 48
-  br i1 %or.cond3.i6, label %_ZN4llvm9StringRefC2EPKc.exit, label %229
+244:                                              ; preds = %242
+  %245 = and i32 %.0139, -16
+  %or.cond3.i25 = icmp eq i32 %245, 48
+  br i1 %or.cond3.i25, label %_ZN4llvm9StringRefC2EPKc.exit, label %246
 
-229:                                              ; preds = %227
-  %or.cond5.i7 = icmp eq i32 %228, 16
-  %230 = icmp eq i32 %.0120, 2
-  %or.cond7.i8 = or i1 %230, %or.cond5.i7
-  %spec.select140 = select i1 %or.cond7.i8, ptr @.str.456, ptr @.str.453
+246:                                              ; preds = %244
+  %or.cond5.i26 = icmp eq i32 %245, 16
+  %247 = icmp eq i32 %.0139, 2
+  %or.cond7.i27 = or i1 %247, %or.cond5.i26
+  %spec.select159 = select i1 %or.cond7.i27, ptr @.str.456, ptr @.str.453
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-231:                                              ; preds = %216
+248:                                              ; preds = %233
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-232:                                              ; preds = %216
-  %233 = and i32 %.0120, -16
-  %or.cond9.i = icmp eq i32 %233, 48
-  %234 = icmp eq i32 %.0120, 71
-  %or.cond11.i = or i1 %234, %or.cond9.i
-  %235 = and i32 %.0120, -32
-  %236 = icmp eq i32 %235, 96
-  %or.cond124.i = or i1 %236, %or.cond11.i
-  %237 = and i32 %.0120, -4
-  %or.cond19.i = icmp eq i32 %237, 132
-  %or.cond125.i = or i1 %or.cond19.i, %or.cond124.i
-  %238 = icmp eq i32 %233, 144
-  %or.cond127.i = or i1 %238, %or.cond125.i
-  %or.cond25.i = icmp eq i32 %233, 160
-  %or.cond128.i = or i1 %or.cond25.i, %or.cond127.i
-  %spec.select141 = select i1 %or.cond128.i, ptr @.str.459, ptr @.str.458
+249:                                              ; preds = %233
+  %250 = and i32 %.0139, -16
+  %or.cond9.i20 = icmp eq i32 %250, 48
+  %251 = icmp eq i32 %.0139, 71
+  %or.cond11.i21 = or i1 %251, %or.cond9.i20
+  %252 = and i32 %.0139, -32
+  %253 = icmp eq i32 %252, 96
+  %or.cond124.i = or i1 %253, %or.cond11.i21
+  %254 = and i32 %.0139, -4
+  %or.cond19.i22 = icmp eq i32 %254, 132
+  %or.cond125.i = or i1 %or.cond19.i22, %or.cond124.i
+  %255 = icmp eq i32 %250, 144
+  %or.cond127.i = or i1 %255, %or.cond125.i
+  %or.cond25.i23 = icmp eq i32 %250, 160
+  %or.cond128.i = or i1 %or.cond25.i23, %or.cond127.i
+  %spec.select160 = select i1 %or.cond128.i, ptr @.str.459, ptr @.str.458
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-239:                                              ; preds = %216
-  %240 = icmp samesign ult i32 %.0120, 16
-  %241 = add nsw i32 %.0120, -32
-  %switch.i = icmp ult i32 %241, 64
-  %or.cond1.i = or i1 %240, %switch.i
-  br i1 %or.cond1.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %242
+256:                                              ; preds = %233
+  %257 = icmp samesign ult i32 %.0139, 16
+  %258 = add nsw i32 %.0139, -32
+  %switch.i = icmp ult i32 %258, 64
+  %or.cond1.i = or i1 %257, %switch.i
+  br i1 %or.cond1.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %259
 
-242:                                              ; preds = %239
-  %243 = and i32 %.0120, -16
-  %244 = icmp samesign ult i32 %.0120, 32
-  %245 = and i32 %.0120, -32
-  %246 = icmp eq i32 %245, 96
-  %or.cond136.i = or i1 %244, %246
-  %or.cond47.i = icmp eq i32 %243, 160
+259:                                              ; preds = %256
+  %260 = and i32 %.0139, -16
+  %261 = icmp samesign ult i32 %.0139, 32
+  %262 = and i32 %.0139, -32
+  %263 = icmp eq i32 %262, 96
+  %or.cond136.i = or i1 %261, %263
+  %or.cond47.i = icmp eq i32 %260, 160
   %or.cond137.i = or i1 %or.cond47.i, %or.cond136.i
-  %spec.select142 = select i1 %or.cond137.i, ptr @.str.461, ptr @.str.460
+  %spec.select161 = select i1 %or.cond137.i, ptr @.str.461, ptr @.str.460
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-247:                                              ; preds = %216
+264:                                              ; preds = %233
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-switch.lookup:                                    ; preds = %217
-  %248 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvm3sys14getHostCPUNameEv, i64 0, i64 %248
+switch.lookup:                                    ; preds = %234
+  %265 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN4llvm3sys14getHostCPUNameEv, i64 0, i64 %265
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
-_ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %switch.lookup, %217, %239, %227, %225, %221, %219, %224, %231, %216, %247, %223, %229, %232, %242
-  %.0.i.ph = phi ptr [ @.str.460, %239 ], [ @.str.455, %227 ], [ @.str.454, %225 ], [ %.str.450..str.449.i, %221 ], [ %.str.448..str.447.i, %219 ], [ @.str.394, %217 ], [ @.str.451, %223 ], [ @.str.452, %224 ], [ @.str.457, %231 ], [ @.str.462, %247 ], [ @.str.392, %216 ], [ %spec.select140, %229 ], [ %spec.select141, %232 ], [ %spec.select142, %242 ], [ %switch.load, %switch.lookup ]
-  %249 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.ph) #18
-  %250 = icmp eq i64 %249, 0
-  br i1 %250, label %_ZN4llvm9StringRefC2EPKc.exit.thread, label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+_ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %switch.lookup, %234, %256, %244, %242, %238, %236, %241, %248, %233, %264, %240, %246, %249, %259
+  %.0.i.ph = phi ptr [ @.str.460, %256 ], [ @.str.455, %244 ], [ @.str.454, %242 ], [ %.str.450..str.449.i, %238 ], [ %.str.448..str.447.i, %236 ], [ @.str.394, %234 ], [ @.str.451, %240 ], [ @.str.452, %241 ], [ @.str.457, %248 ], [ @.str.462, %264 ], [ @.str.392, %233 ], [ %spec.select159, %246 ], [ %spec.select160, %249 ], [ %spec.select161, %259 ], [ %switch.load, %switch.lookup ]
+  %266 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.ph) #18
+  %267 = icmp eq i64 %266, 0
+  br i1 %267, label %_ZN4llvm9StringRefC2EPKc.exit.thread, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-_ZN4llvm9StringRefC2EPKc.exit.thread:             ; preds = %215, %127, %216, %_ZN4llvm9StringRefC2EPKc.exit
-  br label %_ZN4llvm9StringRefC2EPKc.exit.thread144
+_ZN4llvm9StringRefC2EPKc.exit.thread:             ; preds = %232, %144, %233, %_ZN4llvm9StringRefC2EPKc.exit
+  br label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
-_ZN4llvm9StringRefC2EPKc.exit.thread144:          ; preds = %215, %127, %143, %141, %131, %131, %213, %211, %209, %207, %205, %203, %201, %199, %195, %193, %189, %187, %185, %184, %180, %178, %176, %174, %173, %171, %129, %128, %132, %133, %134, %135, %136, %137, %138, %139, %140, %145, %146, %147, %148, %149, %150, %151, %152, %153, %154, %155, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %168, %169, %170, %0, %11, %_ZN4llvm9StringRefC2EPKc.exit.thread, %_ZN4llvm9StringRefC2EPKc.exit
-  %.sroa.0118.0 = phi ptr [ @.str.1, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %.0.i.ph, %_ZN4llvm9StringRefC2EPKc.exit ], [ @.str.1, %11 ], [ @.str.1, %0 ], [ %spec.select137, %143 ], [ @.str.405, %141 ], [ @.str.395, %131 ], [ @.str.395, %131 ], [ %.str.441..str.440.i, %213 ], [ @.str.439, %211 ], [ %.str.438..str.437.i, %209 ], [ @.str.436, %207 ], [ @.str.435, %205 ], [ @.str.434, %203 ], [ @.str.395, %201 ], [ %.str.395..str.424.i, %199 ], [ @.str.396, %195 ], [ %.str.397..str.425.i, %193 ], [ @.str.399, %189 ], [ @.str.401, %187 ], [ @.str.402, %185 ], [ %.str.403..str.426.i, %184 ], [ @.str.407, %180 ], [ @.str.406, %178 ], [ @.str.405, %176 ], [ @.str.408, %174 ], [ @.str.409, %173 ], [ @.str.410, %171 ], [ %.str.394..str.393.i, %129 ], [ @.str.392, %128 ], [ @.str.396, %132 ], [ @.str.397, %133 ], [ @.str.398, %134 ], [ @.str.399, %135 ], [ @.str.400, %136 ], [ @.str.401, %137 ], [ @.str.402, %138 ], [ @.str.403, %139 ], [ @.str.404, %140 ], [ @.str.408, %145 ], [ @.str.409, %146 ], [ @.str.410, %147 ], [ @.str.411, %148 ], [ @.str.412, %149 ], [ @.str.413, %150 ], [ @.str.414, %151 ], [ @.str.415, %152 ], [ @.str.416, %153 ], [ @.str.417, %154 ], [ @.str.418, %155 ], [ @.str.419, %156 ], [ @.str.420, %157 ], [ @.str.421, %158 ], [ @.str.422, %159 ], [ @.str.423, %160 ], [ @.str.424, %161 ], [ @.str.425, %162 ], [ @.str.426, %163 ], [ @.str.427, %164 ], [ @.str.428, %165 ], [ @.str.429, %166 ], [ @.str.430, %167 ], [ @.str.431, %168 ], [ @.str.432, %169 ], [ @.str.433, %170 ], [ @.str.391, %127 ], [ @.str.442, %215 ]
-  %.sroa.4119.0 = phi i64 [ 7, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %249, %_ZN4llvm9StringRefC2EPKc.exit ], [ 7, %11 ], [ 7, %0 ], [ %spec.select136, %143 ], [ 10, %141 ], [ 5, %131 ], [ 5, %131 ], [ 8, %213 ], [ 6, %211 ], [ %.259.i, %209 ], [ 8, %207 ], [ 9, %205 ], [ 5, %203 ], [ 5, %201 ], [ %.258.i, %199 ], [ 6, %195 ], [ %.257.i, %193 ], [ 11, %189 ], [ 7, %187 ], [ 9, %185 ], [ %.256.i, %184 ], [ 14, %180 ], [ 11, %178 ], [ 10, %176 ], [ 10, %174 ], [ 14, %173 ], [ 9, %171 ], [ %..i4, %129 ], [ 4, %128 ], [ 6, %132 ], [ 7, %133 ], [ 8, %134 ], [ 11, %135 ], [ 9, %136 ], [ 7, %137 ], [ 9, %138 ], [ 7, %139 ], [ 10, %140 ], [ 10, %145 ], [ 14, %146 ], [ 9, %147 ], [ 9, %148 ], [ 9, %149 ], [ 10, %150 ], [ 10, %151 ], [ 9, %152 ], [ 11, %153 ], [ 9, %154 ], [ 11, %155 ], [ 13, %156 ], [ 15, %157 ], [ 14, %158 ], [ 13, %159 ], [ 14, %160 ], [ 7, %161 ], [ 10, %162 ], [ 8, %163 ], [ 13, %164 ], [ 7, %165 ], [ 12, %166 ], [ 10, %167 ], [ 16, %168 ], [ 3, %169 ], [ 3, %170 ], [ 4, %127 ], [ 13, %215 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0118.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4119.0, 1
+_ZN4llvm9StringRefC2EPKc.exit.thread163:          ; preds = %232, %144, %160, %158, %148, %148, %230, %228, %226, %224, %222, %220, %218, %216, %212, %210, %206, %204, %202, %201, %197, %195, %193, %191, %190, %188, %146, %145, %149, %150, %151, %152, %153, %154, %155, %156, %157, %162, %163, %164, %165, %166, %167, %168, %169, %170, %171, %172, %173, %174, %175, %176, %177, %178, %179, %180, %181, %182, %183, %184, %185, %186, %187, %0, %11, %_ZN4llvm9StringRefC2EPKc.exit.thread, %_ZN4llvm9StringRefC2EPKc.exit
+  %.sroa.0137.0 = phi ptr [ @.str.1, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %.0.i.ph, %_ZN4llvm9StringRefC2EPKc.exit ], [ @.str.1, %11 ], [ @.str.1, %0 ], [ %spec.select156, %160 ], [ @.str.405, %158 ], [ @.str.395, %148 ], [ @.str.395, %148 ], [ %.str.441..str.440.i, %230 ], [ @.str.439, %228 ], [ %.str.438..str.437.i, %226 ], [ @.str.436, %224 ], [ @.str.435, %222 ], [ @.str.434, %220 ], [ @.str.395, %218 ], [ %.str.395..str.424.i, %216 ], [ @.str.396, %212 ], [ %.str.397..str.425.i, %210 ], [ @.str.399, %206 ], [ @.str.401, %204 ], [ @.str.402, %202 ], [ %.str.403..str.426.i, %201 ], [ @.str.407, %197 ], [ @.str.406, %195 ], [ @.str.405, %193 ], [ @.str.408, %191 ], [ @.str.409, %190 ], [ @.str.410, %188 ], [ %.str.394..str.393.i, %146 ], [ @.str.392, %145 ], [ @.str.396, %149 ], [ @.str.397, %150 ], [ @.str.398, %151 ], [ @.str.399, %152 ], [ @.str.400, %153 ], [ @.str.401, %154 ], [ @.str.402, %155 ], [ @.str.403, %156 ], [ @.str.404, %157 ], [ @.str.408, %162 ], [ @.str.409, %163 ], [ @.str.410, %164 ], [ @.str.411, %165 ], [ @.str.412, %166 ], [ @.str.413, %167 ], [ @.str.414, %168 ], [ @.str.415, %169 ], [ @.str.416, %170 ], [ @.str.417, %171 ], [ @.str.418, %172 ], [ @.str.419, %173 ], [ @.str.420, %174 ], [ @.str.421, %175 ], [ @.str.422, %176 ], [ @.str.423, %177 ], [ @.str.424, %178 ], [ @.str.425, %179 ], [ @.str.426, %180 ], [ @.str.427, %181 ], [ @.str.428, %182 ], [ @.str.429, %183 ], [ @.str.430, %184 ], [ @.str.431, %185 ], [ @.str.432, %186 ], [ @.str.433, %187 ], [ @.str.391, %144 ], [ @.str.442, %232 ]
+  %.sroa.4138.0 = phi i64 [ 7, %_ZN4llvm9StringRefC2EPKc.exit.thread ], [ %266, %_ZN4llvm9StringRefC2EPKc.exit ], [ 7, %11 ], [ 7, %0 ], [ %spec.select155, %160 ], [ 10, %158 ], [ 5, %148 ], [ 5, %148 ], [ 8, %230 ], [ 6, %228 ], [ %.259.i, %226 ], [ 8, %224 ], [ 9, %222 ], [ 5, %220 ], [ 5, %218 ], [ %.258.i, %216 ], [ 6, %212 ], [ %.257.i, %210 ], [ 11, %206 ], [ 7, %204 ], [ 9, %202 ], [ %.256.i, %201 ], [ 14, %197 ], [ 11, %195 ], [ 10, %193 ], [ 10, %191 ], [ 14, %190 ], [ 9, %188 ], [ %..i19, %146 ], [ 4, %145 ], [ 6, %149 ], [ 7, %150 ], [ 8, %151 ], [ 11, %152 ], [ 9, %153 ], [ 7, %154 ], [ 9, %155 ], [ 7, %156 ], [ 10, %157 ], [ 10, %162 ], [ 14, %163 ], [ 9, %164 ], [ 9, %165 ], [ 9, %166 ], [ 10, %167 ], [ 10, %168 ], [ 9, %169 ], [ 11, %170 ], [ 9, %171 ], [ 11, %172 ], [ 13, %173 ], [ 15, %174 ], [ 14, %175 ], [ 13, %176 ], [ 14, %177 ], [ 7, %178 ], [ 10, %179 ], [ 8, %180 ], [ 13, %181 ], [ 7, %182 ], [ 12, %183 ], [ 10, %184 ], [ 16, %185 ], [ 3, %186 ], [ 3, %187 ], [ 4, %144 ], [ 13, %232 ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0137.0, 0
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4138.0, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -3788,8 +3788,8 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit:            ; preds = %1
   %132 = extractvalue { i32, i32 } %131, 0
   %133 = extractvalue { i32, i32 } %131, 1
   %134 = and i32 %8, 268435456
-  %.not159 = icmp eq i32 %134, 0
-  br i1 %.not159, label %.critedge, label %135
+  %.not161 = icmp eq i32 %134, 0
+  br i1 %.not161, label %.critedge, label %135
 
 135:                                              ; preds = %130
   %136 = and i32 %132, 6
@@ -3910,8 +3910,8 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit297.thread:  ; preds = %.critedge, %_ZL18ge
   %216 = zext i1 %211 to i8
   store i8 %216, ptr %215, align 1, !tbaa !71
   %217 = and i32 %.0810, 2048
-  %.not160 = icmp eq i32 %217, 0
-  %spec.select = select i1 %.not160, i8 0, i8 %139
+  %.not162 = icmp eq i32 %217, 0
+  %spec.select = select i1 %.not162, i8 0, i8 %139
   %spec.select875 = select i1 %184, i8 %spec.select, i8 0
   %218 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.283, i64 3) #18
   %219 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.283, i64 3, i32 noundef %218)
@@ -3930,9 +3930,9 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit297.thread:  ; preds = %.critedge, %_ZL18ge
   %229 = zext i1 %224 to i8
   store i8 %229, ptr %228, align 1, !tbaa !71
   %230 = and i32 %.0810, 65536
-  %.not161 = icmp eq i32 %230, 0
-  %spec.select197 = select i1 %.not161, i8 0, i8 %139
-  %231 = select i1 %184, i8 %spec.select197, i8 0
+  %.not163 = icmp eq i32 %230, 0
+  %spec.select199 = select i1 %.not163, i8 0, i8 %139
+  %231 = select i1 %184, i8 %spec.select199, i8 0
   %232 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.285, i64 4) #18
   %233 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.285, i64 4, i32 noundef %232)
   %.fca.0.extract.i305 = extractvalue { ptr, i8 } %233, 0
@@ -4064,9 +4064,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %319 = zext i1 %314 to i8
   store i8 %319, ptr %318, align 1, !tbaa !71
   %320 = and i32 %.2794, 32
-  %.not162 = icmp eq i32 %320, 0
-  %spec.select198 = select i1 %.not162, i8 0, i8 %139
-  %321 = select i1 %290, i8 %spec.select198, i8 0
+  %.not164 = icmp eq i32 %320, 0
+  %spec.select200 = select i1 %.not164, i8 0, i8 %139
+  %321 = select i1 %290, i8 %spec.select200, i8 0
   %322 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.295, i64 4) #18
   %323 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.295, i64 4, i32 noundef %322)
   %.fca.0.extract.i316 = extractvalue { ptr, i8 } %323, 0
@@ -4104,8 +4104,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %349 = zext i1 %344 to i8
   store i8 %349, ptr %348, align 1, !tbaa !71
   %350 = and i32 %.2794, 65536
-  %.not163 = icmp ne i32 %350, 0
-  %351 = select i1 %290, i1 %.not163, i1 false
+  %.not165 = icmp ne i32 %350, 0
+  %351 = select i1 %290, i1 %.not165, i1 false
   %narrow857 = select i1 %351, i1 %142, i1 false
   %352 = zext i1 %narrow857 to i8
   %353 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.299, i64 7) #18
@@ -4134,8 +4134,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
 
 368:                                              ; preds = %363, %296
   %369 = and i32 %.2794, 131072
-  %.not164 = icmp ne i32 %369, 0
-  %370 = select i1 %290, i1 %.not164, i1 false
+  %.not166 = icmp ne i32 %369, 0
+  %370 = select i1 %290, i1 %.not166, i1 false
   %narrow858 = select i1 %370, i1 %142, i1 false
   %371 = zext i1 %narrow858 to i8
   %372 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.301, i64 8) #18
@@ -4165,8 +4165,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %391 = zext i1 %386 to i8
   store i8 %391, ptr %390, align 1, !tbaa !71
   %392 = and i32 %.2794, 2097152
-  %.not165 = icmp ne i32 %392, 0
-  %393 = select i1 %290, i1 %.not165, i1 false
+  %.not167 = icmp ne i32 %392, 0
+  %393 = select i1 %290, i1 %.not167, i1 false
   %narrow859 = select i1 %393, i1 %142, i1 false
   %394 = zext i1 %narrow859 to i8
   %395 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.304, i64 10) #18
@@ -4196,8 +4196,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %414 = zext i1 %409 to i8
   store i8 %414, ptr %413, align 1, !tbaa !71
   %415 = and i32 %.2794, 268435456
-  %.not166 = icmp ne i32 %415, 0
-  %416 = select i1 %290, i1 %.not166, i1 false
+  %.not168 = icmp ne i32 %415, 0
+  %416 = select i1 %290, i1 %.not168, i1 false
   %narrow860 = select i1 %416, i1 %142, i1 false
   %417 = zext i1 %narrow860 to i8
   %418 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.307, i64 8) #18
@@ -4216,24 +4216,24 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 8
   %429 = zext i1 %424 to i8
   store i8 %429, ptr %428, align 1, !tbaa !71
-  br i1 %290, label %430, label %.critedge205
+  br i1 %290, label %430, label %.critedge207
 
 430:                                              ; preds = %368
   %431 = and i32 %.2794, 1073741824
-  %.not167 = icmp eq i32 %431, 0
+  %.not169 = icmp eq i32 %431, 0
   %432 = zext i1 %142 to i8
-  %spec.select203 = select i1 %.not167, i8 0, i8 %432
+  %spec.select205 = select i1 %.not169, i8 0, i8 %432
   %433 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.309, i64 8) #18
   %434 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.309, i64 8, i32 noundef %433)
   %.fca.0.extract.i331 = extractvalue { ptr, i8 } %434, 0
   %435 = load ptr, ptr %.fca.0.extract.i331, align 8, !tbaa !69
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
-  store i8 %spec.select203, ptr %436, align 1, !tbaa !71
-  %.not168 = icmp sgt i32 %.2794, -1
-  %spec.select274 = select i1 %.not168, i8 0, i8 %432
+  store i8 %spec.select205, ptr %436, align 1, !tbaa !71
+  %.not170 = icmp sgt i32 %.2794, -1
+  %spec.select274 = select i1 %.not170, i8 0, i8 %432
   br label %441
 
-.critedge205:                                     ; preds = %368
+.critedge207:                                     ; preds = %368
   %437 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.309, i64 8) #18
   %438 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.309, i64 8, i32 noundef %437)
   %.fca.0.extract.i332 = extractvalue { ptr, i8 } %438, 0
@@ -4242,8 +4242,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   store i8 0, ptr %440, align 1, !tbaa !71
   br label %441
 
-441:                                              ; preds = %430, %.critedge205
-  %442 = phi i8 [ 0, %.critedge205 ], [ %spec.select274, %430 ]
+441:                                              ; preds = %430, %.critedge207
+  %442 = phi i8 [ 0, %.critedge207 ], [ %spec.select274, %430 ]
   %443 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.310, i64 8) #18
   %444 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.310, i64 8, i32 noundef %443)
   %.fca.0.extract.i333 = extractvalue { ptr, i8 } %444, 0
@@ -4251,8 +4251,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
   store i8 %442, ptr %446, align 1, !tbaa !71
   %447 = and i32 %.2812, 2
-  %.not169 = icmp ne i32 %447, 0
-  %448 = select i1 %290, i1 %.not169, i1 false
+  %.not171 = icmp ne i32 %447, 0
+  %448 = select i1 %290, i1 %.not171, i1 false
   %narrow861 = select i1 %448, i1 %142, i1 false
   %449 = zext i1 %narrow861 to i8
   %450 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.311, i64 10) #18
@@ -4282,8 +4282,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %469 = zext i1 %464 to i8
   store i8 %469, ptr %468, align 1, !tbaa !71
   %470 = and i32 %.2812, 64
-  %.not170 = icmp ne i32 %470, 0
-  %471 = select i1 %290, i1 %.not170, i1 false
+  %.not172 = icmp ne i32 %470, 0
+  %471 = select i1 %290, i1 %.not172, i1 false
   %narrow862 = select i1 %471, i1 %142, i1 false
   %472 = zext i1 %narrow862 to i8
   %473 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.314, i64 11) #18
@@ -4312,24 +4312,24 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 8
   %492 = zext i1 %487 to i8
   store i8 %492, ptr %491, align 1, !tbaa !71
-  br i1 %290, label %493, label %.critedge212
+  br i1 %290, label %493, label %.critedge214
 
 493:                                              ; preds = %441
   %494 = and i32 %.2812, 512
-  %.not171 = icmp eq i32 %494, 0
-  %spec.select210 = select i1 %.not171, i8 0, i8 %139
+  %.not173 = icmp eq i32 %494, 0
+  %spec.select212 = select i1 %.not173, i8 0, i8 %139
   %495 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.317, i64 4) #18
   %496 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.317, i64 4, i32 noundef %495)
   %.fca.0.extract.i340 = extractvalue { ptr, i8 } %496, 0
   %497 = load ptr, ptr %.fca.0.extract.i340, align 8, !tbaa !69
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 8
-  store i8 %spec.select210, ptr %498, align 1, !tbaa !71
+  store i8 %spec.select212, ptr %498, align 1, !tbaa !71
   %499 = and i32 %.2812, 1024
-  %.not172 = icmp eq i32 %499, 0
-  %spec.select213 = select i1 %.not172, i8 0, i8 %139
+  %.not174 = icmp eq i32 %499, 0
+  %spec.select215 = select i1 %.not174, i8 0, i8 %139
   br label %504
 
-.critedge212:                                     ; preds = %441
+.critedge214:                                     ; preds = %441
   %500 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.317, i64 4) #18
   %501 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.317, i64 4, i32 noundef %500)
   %.fca.0.extract.i341 = extractvalue { ptr, i8 } %501, 0
@@ -4338,33 +4338,33 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   store i8 0, ptr %503, align 1, !tbaa !71
   br label %504
 
-504:                                              ; preds = %493, %.critedge212
-  %505 = phi i8 [ 0, %.critedge212 ], [ %spec.select213, %493 ]
+504:                                              ; preds = %493, %.critedge214
+  %505 = phi i8 [ 0, %.critedge214 ], [ %spec.select215, %493 ]
   %506 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.318, i64 10) #18
   %507 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.318, i64 10, i32 noundef %506)
   %.fca.0.extract.i342 = extractvalue { ptr, i8 } %507, 0
   %508 = load ptr, ptr %.fca.0.extract.i342, align 8, !tbaa !69
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   store i8 %505, ptr %509, align 1, !tbaa !71
-  br i1 %290, label %510, label %.critedge218
+  br i1 %290, label %510, label %.critedge220
 
 510:                                              ; preds = %504
   %511 = and i32 %.2812, 2048
-  %.not173 = icmp eq i32 %511, 0
+  %.not175 = icmp eq i32 %511, 0
   %512 = zext i1 %142 to i8
-  %spec.select216 = select i1 %.not173, i8 0, i8 %512
+  %spec.select218 = select i1 %.not175, i8 0, i8 %512
   %513 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.319, i64 10) #18
   %514 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.319, i64 10, i32 noundef %513)
   %.fca.0.extract.i343 = extractvalue { ptr, i8 } %514, 0
   %515 = load ptr, ptr %.fca.0.extract.i343, align 8, !tbaa !69
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 8
-  store i8 %spec.select216, ptr %516, align 1, !tbaa !71
+  store i8 %spec.select218, ptr %516, align 1, !tbaa !71
   %517 = and i32 %.2812, 4096
-  %.not174 = icmp eq i32 %517, 0
-  %spec.select219 = select i1 %.not174, i8 0, i8 %512
+  %.not176 = icmp eq i32 %517, 0
+  %spec.select221 = select i1 %.not176, i8 0, i8 %512
   br label %522
 
-.critedge218:                                     ; preds = %504
+.critedge220:                                     ; preds = %504
   %518 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.319, i64 10) #18
   %519 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.319, i64 10, i32 noundef %518)
   %.fca.0.extract.i344 = extractvalue { ptr, i8 } %519, 0
@@ -4373,8 +4373,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   store i8 0, ptr %521, align 1, !tbaa !71
   br label %522
 
-522:                                              ; preds = %510, %.critedge218
-  %523 = phi i8 [ 0, %.critedge218 ], [ %spec.select219, %510 ]
+522:                                              ; preds = %510, %.critedge220
+  %523 = phi i8 [ 0, %.critedge220 ], [ %spec.select221, %510 ]
   %524 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.320, i64 12) #18
   %525 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.320, i64 12, i32 noundef %524)
   %.fca.0.extract.i345 = extractvalue { ptr, i8 } %525, 0
@@ -4382,8 +4382,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
   store i8 %523, ptr %527, align 1, !tbaa !71
   %528 = and i32 %.2812, 16384
-  %.not175 = icmp ne i32 %528, 0
-  %529 = select i1 %290, i1 %.not175, i1 false
+  %.not177 = icmp ne i32 %528, 0
+  %529 = select i1 %290, i1 %.not177, i1 false
   %narrow863 = select i1 %529, i1 %142, i1 false
   %530 = zext i1 %narrow863 to i8
   %531 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.321, i64 15) #18
@@ -4463,8 +4463,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %590 = zext i1 %585 to i8
   store i8 %590, ptr %589, align 1, !tbaa !71
   %591 = and i32 %.3822, 256
-  %.not176 = icmp ne i32 %591, 0
-  %592 = select i1 %290, i1 %.not176, i1 false
+  %.not178 = icmp ne i32 %591, 0
+  %592 = select i1 %290, i1 %.not178, i1 false
   %narrow864 = select i1 %592, i1 %142, i1 false
   %593 = zext i1 %narrow864 to i8
   %594 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.329, i64 18) #18
@@ -4503,26 +4503,26 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = zext i1 %616 to i8
   store i8 %621, ptr %620, align 1, !tbaa !71
-  br i1 %290, label %622, label %.critedge226
+  br i1 %290, label %622, label %.critedge228
 
 622:                                              ; preds = %522
   %623 = and i32 %.3822, 4194304
-  %.not177 = icmp ne i32 %623, 0
-  %narrow = select i1 %.not177, i1 %145, i1 false
-  %spec.select224 = zext i1 %narrow to i8
+  %.not179 = icmp ne i32 %623, 0
+  %narrow = select i1 %.not179, i1 %145, i1 false
+  %spec.select226 = zext i1 %narrow to i8
   %624 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.333, i64 8) #18
   %625 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.333, i64 8, i32 noundef %624)
   %.fca.0.extract.i358 = extractvalue { ptr, i8 } %625, 0
   %626 = load ptr, ptr %.fca.0.extract.i358, align 8, !tbaa !69
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 8
-  store i8 %spec.select224, ptr %627, align 1, !tbaa !71
+  store i8 %spec.select226, ptr %627, align 1, !tbaa !71
   %628 = and i32 %.3822, 8388608
-  %.not178 = icmp ne i32 %628, 0
-  %narrow865 = select i1 %.not178, i1 %142, i1 false
-  %spec.select227 = zext i1 %narrow865 to i8
+  %.not180 = icmp ne i32 %628, 0
+  %narrow865 = select i1 %.not180, i1 %142, i1 false
+  %spec.select229 = zext i1 %narrow865 to i8
   br label %633
 
-.critedge226:                                     ; preds = %522
+.critedge228:                                     ; preds = %522
   %629 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.333, i64 8) #18
   %630 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.333, i64 8, i32 noundef %629)
   %.fca.0.extract.i359 = extractvalue { ptr, i8 } %630, 0
@@ -4531,33 +4531,33 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   store i8 0, ptr %632, align 1, !tbaa !71
   br label %633
 
-633:                                              ; preds = %622, %.critedge226
-  %634 = phi i8 [ 0, %.critedge226 ], [ %spec.select227, %622 ]
+633:                                              ; preds = %622, %.critedge228
+  %634 = phi i8 [ 0, %.critedge228 ], [ %spec.select229, %622 ]
   %635 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.334, i64 10) #18
   %636 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.334, i64 10, i32 noundef %635)
   %.fca.0.extract.i360 = extractvalue { ptr, i8 } %636, 0
   %637 = load ptr, ptr %.fca.0.extract.i360, align 8, !tbaa !69
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 8
   store i8 %634, ptr %638, align 1, !tbaa !71
-  br i1 %290, label %639, label %.critedge232
+  br i1 %290, label %639, label %.critedge234
 
 639:                                              ; preds = %633
   %640 = and i32 %.3822, 16777216
-  %.not179 = icmp eq i32 %640, 0
+  %.not181 = icmp eq i32 %640, 0
   %641 = zext i1 %145 to i8
-  %spec.select230 = select i1 %.not179, i8 0, i8 %641
+  %spec.select232 = select i1 %.not181, i8 0, i8 %641
   %642 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.335, i64 8) #18
   %643 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.335, i64 8, i32 noundef %642)
   %.fca.0.extract.i361 = extractvalue { ptr, i8 } %643, 0
   %644 = load ptr, ptr %.fca.0.extract.i361, align 8, !tbaa !69
   %645 = getelementptr inbounds nuw i8, ptr %644, i64 8
-  store i8 %spec.select230, ptr %645, align 1, !tbaa !71
+  store i8 %spec.select232, ptr %645, align 1, !tbaa !71
   %646 = and i32 %.3822, 33554432
-  %.not180 = icmp eq i32 %646, 0
-  %spec.select233 = select i1 %.not180, i8 0, i8 %641
+  %.not182 = icmp eq i32 %646, 0
+  %spec.select235 = select i1 %.not182, i8 0, i8 %641
   br label %651
 
-.critedge232:                                     ; preds = %633
+.critedge234:                                     ; preds = %633
   %647 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.335, i64 8) #18
   %648 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.335, i64 8, i32 noundef %647)
   %.fca.0.extract.i362 = extractvalue { ptr, i8 } %648, 0
@@ -4566,8 +4566,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   store i8 0, ptr %650, align 1, !tbaa !71
   br label %651
 
-651:                                              ; preds = %639, %.critedge232
-  %652 = phi i8 [ 0, %.critedge232 ], [ %spec.select233, %639 ]
+651:                                              ; preds = %639, %.critedge234
+  %652 = phi i8 [ 0, %.critedge234 ], [ %spec.select235, %639 ]
   %653 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.336, i64 8) #18
   %654 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.336, i64 8, i32 noundef %653)
   %.fca.0.extract.i363 = extractvalue { ptr, i8 } %654, 0
@@ -4629,25 +4629,25 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %693 = getelementptr inbounds nuw i8, ptr %692, i64 8
   %694 = zext i1 %689 to i8
   store i8 %694, ptr %693, align 1, !tbaa !71
-  br i1 %or.cond3, label %695, label %.critedge236
+  br i1 %or.cond3, label %695, label %.critedge238
 
 695:                                              ; preds = %662
   %696 = and i32 %.4, 16
-  %.not181 = icmp eq i32 %696, 0
-  %spec.select234 = select i1 %.not181, i8 0, i8 %139
+  %.not183 = icmp eq i32 %696, 0
+  %spec.select236 = select i1 %.not183, i8 0, i8 %139
   %697 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.341, i64 7) #18
   %698 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.341, i64 7, i32 noundef %697)
   %.fca.0.extract.i369 = extractvalue { ptr, i8 } %698, 0
   %699 = load ptr, ptr %.fca.0.extract.i369, align 8, !tbaa !69
   %700 = getelementptr inbounds nuw i8, ptr %699, i64 8
-  store i8 %spec.select234, ptr %700, align 1, !tbaa !71
+  store i8 %spec.select236, ptr %700, align 1, !tbaa !71
   %701 = and i32 %.4, 32
-  %.not182 = icmp ne i32 %701, 0
-  %narrow866 = select i1 %.not182, i1 %142, i1 false
-  %spec.select237 = zext i1 %narrow866 to i8
+  %.not184 = icmp ne i32 %701, 0
+  %narrow866 = select i1 %.not184, i1 %142, i1 false
+  %spec.select239 = zext i1 %narrow866 to i8
   br label %706
 
-.critedge236:                                     ; preds = %662
+.critedge238:                                     ; preds = %662
   %702 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.341, i64 7) #18
   %703 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.341, i64 7, i32 noundef %702)
   %.fca.0.extract.i370 = extractvalue { ptr, i8 } %703, 0
@@ -4656,8 +4656,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   store i8 0, ptr %705, align 1, !tbaa !71
   br label %706
 
-706:                                              ; preds = %695, %.critedge236
-  %707 = phi i8 [ 0, %.critedge236 ], [ %spec.select237, %695 ]
+706:                                              ; preds = %695, %.critedge238
+  %707 = phi i8 [ 0, %.critedge238 ], [ %spec.select239, %695 ]
   %708 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.342, i64 10) #18
   %709 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.342, i64 10, i32 noundef %708)
   %.fca.0.extract.i371 = extractvalue { ptr, i8 } %709, 0
@@ -4665,8 +4665,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 8
   store i8 %707, ptr %711, align 1, !tbaa !71
   %712 = and i32 %.4, 2097152
-  %.not183 = icmp ne i32 %712, 0
-  %713 = select i1 %or.cond3, i1 %.not183, i1 false
+  %.not185 = icmp ne i32 %712, 0
+  %713 = select i1 %or.cond3, i1 %.not185, i1 false
   %narrow868 = select i1 %713, i1 %145, i1 false
   %714 = zext i1 %narrow868 to i8
   %715 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.343, i64 8) #18
@@ -4696,9 +4696,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %734 = zext i1 %729 to i8
   store i8 %734, ptr %733, align 1, !tbaa !71
   %735 = and i32 %.4, 8388608
-  %.not184 = icmp eq i32 %735, 0
-  %spec.select241 = select i1 %.not184, i8 0, i8 %139
-  %736 = select i1 %or.cond3, i8 %spec.select241, i8 0
+  %.not186 = icmp eq i32 %735, 0
+  %spec.select243 = select i1 %.not186, i8 0, i8 %139
+  %736 = select i1 %or.cond3, i8 %spec.select243, i8 0
   %737 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.346, i64 7) #18
   %738 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.346, i64 7, i32 noundef %737)
   %.fca.0.extract.i375 = extractvalue { ptr, i8 } %738, 0
@@ -4714,24 +4714,24 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %746 = getelementptr inbounds nuw i8, ptr %745, i64 8
   %747 = zext i1 %742 to i8
   store i8 %747, ptr %746, align 1, !tbaa !71
-  br i1 %or.cond3, label %748, label %.critedge244
+  br i1 %or.cond3, label %748, label %.critedge246
 
 748:                                              ; preds = %706
   %749 = and i32 %.4823, 16
-  %.not185 = icmp eq i32 %749, 0
-  %spec.select242 = select i1 %.not185, i8 0, i8 %139
+  %.not187 = icmp eq i32 %749, 0
+  %spec.select244 = select i1 %.not187, i8 0, i8 %139
   %750 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.348, i64 11) #18
   %751 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.348, i64 11, i32 noundef %750)
   %.fca.0.extract.i377 = extractvalue { ptr, i8 } %751, 0
   %752 = load ptr, ptr %.fca.0.extract.i377, align 8, !tbaa !69
   %753 = getelementptr inbounds nuw i8, ptr %752, i64 8
-  store i8 %spec.select242, ptr %753, align 1, !tbaa !71
+  store i8 %spec.select244, ptr %753, align 1, !tbaa !71
   %754 = and i32 %.4823, 32
-  %.not186 = icmp eq i32 %754, 0
-  %spec.select245 = select i1 %.not186, i8 0, i8 %139
+  %.not188 = icmp eq i32 %754, 0
+  %spec.select247 = select i1 %.not188, i8 0, i8 %139
   br label %759
 
-.critedge244:                                     ; preds = %706
+.critedge246:                                     ; preds = %706
   %755 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.348, i64 11) #18
   %756 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.348, i64 11, i32 noundef %755)
   %.fca.0.extract.i378 = extractvalue { ptr, i8 } %756, 0
@@ -4740,33 +4740,33 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   store i8 0, ptr %758, align 1, !tbaa !71
   br label %759
 
-759:                                              ; preds = %748, %.critedge244
-  %760 = phi i8 [ 0, %.critedge244 ], [ %spec.select245, %748 ]
+759:                                              ; preds = %748, %.critedge246
+  %760 = phi i8 [ 0, %.critedge246 ], [ %spec.select247, %748 ]
   %761 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.349, i64 12) #18
   %762 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.349, i64 12, i32 noundef %761)
   %.fca.0.extract.i379 = extractvalue { ptr, i8 } %762, 0
   %763 = load ptr, ptr %.fca.0.extract.i379, align 8, !tbaa !69
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 8
   store i8 %760, ptr %764, align 1, !tbaa !71
-  br i1 %or.cond3, label %765, label %.critedge250
+  br i1 %or.cond3, label %765, label %.critedge252
 
 765:                                              ; preds = %759
   %766 = and i32 %.4823, 256
-  %.not187 = icmp ne i32 %766, 0
-  %narrow869 = select i1 %.not187, i1 %145, i1 false
-  %spec.select248 = zext i1 %narrow869 to i8
+  %.not189 = icmp ne i32 %766, 0
+  %narrow869 = select i1 %.not189, i1 %145, i1 false
+  %spec.select250 = zext i1 %narrow869 to i8
   %767 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.350, i64 11) #18
   %768 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.350, i64 11, i32 noundef %767)
   %.fca.0.extract.i380 = extractvalue { ptr, i8 } %768, 0
   %769 = load ptr, ptr %.fca.0.extract.i380, align 8, !tbaa !69
   %770 = getelementptr inbounds nuw i8, ptr %769, i64 8
-  store i8 %spec.select248, ptr %770, align 1, !tbaa !71
+  store i8 %spec.select250, ptr %770, align 1, !tbaa !71
   %771 = and i32 %.4823, 1024
-  %.not188 = icmp eq i32 %771, 0
-  %spec.select251 = select i1 %.not188, i8 0, i8 %139
+  %.not190 = icmp eq i32 %771, 0
+  %spec.select253 = select i1 %.not190, i8 0, i8 %139
   br label %776
 
-.critedge250:                                     ; preds = %759
+.critedge252:                                     ; preds = %759
   %772 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.350, i64 11) #18
   %773 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.350, i64 11, i32 noundef %772)
   %.fca.0.extract.i381 = extractvalue { ptr, i8 } %773, 0
@@ -4775,8 +4775,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   store i8 0, ptr %775, align 1, !tbaa !71
   br label %776
 
-776:                                              ; preds = %765, %.critedge250
-  %777 = phi i8 [ 0, %.critedge250 ], [ %spec.select251, %765 ]
+776:                                              ; preds = %765, %.critedge252
+  %777 = phi i8 [ 0, %.critedge252 ], [ %spec.select253, %765 ]
   %778 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.351, i64 12) #18
   %779 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.351, i64 12, i32 noundef %778)
   %.fca.0.extract.i382 = extractvalue { ptr, i8 } %779, 0
@@ -4859,28 +4859,28 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %836 = getelementptr inbounds nuw i8, ptr %835, i64 8
   store i8 %804, ptr %836, align 1, !tbaa !71
   %837 = icmp ugt i32 %4, 12
-  br i1 %837, label %838, label %.critedge254
+  br i1 %837, label %838, label %.critedge256
 
 838:                                              ; preds = %776
   %839 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 13, i32 range(i32 0, 2) 1) #21, !srcloc !65
   %840 = extractvalue { i32, i32, i32, i32 } %839, 0
   %841 = extractvalue { i32, i32, i32, i32 } %839, 1
   %842 = and i32 %840, 1
-  %.not189 = icmp eq i32 %842, 0
-  %spec.select252 = select i1 %.not189, i8 0, i8 %139
+  %.not191 = icmp eq i32 %842, 0
+  %spec.select254 = select i1 %.not191, i8 0, i8 %139
   %843 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.362, i64 8) #18
   %844 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.362, i64 8, i32 noundef %843)
   %.fca.0.extract.i394 = extractvalue { ptr, i8 } %844, 0
   %845 = load ptr, ptr %.fca.0.extract.i394, align 8, !tbaa !69
   %846 = getelementptr inbounds nuw i8, ptr %845, i64 8
-  store i8 %spec.select252, ptr %846, align 1, !tbaa !71
+  store i8 %spec.select254, ptr %846, align 1, !tbaa !71
   %847 = and i32 %840, 2
-  %.not190 = icmp eq i32 %847, 0
-  %spec.select255 = select i1 %.not190, i8 0, i8 %139
+  %.not192 = icmp eq i32 %847, 0
+  %spec.select257 = select i1 %.not192, i8 0, i8 %139
   %.pre873 = and i32 %840, 8
   br label %852
 
-.critedge254:                                     ; preds = %776
+.critedge256:                                     ; preds = %776
   %848 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.362, i64 8) #18
   %849 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.362, i64 8, i32 noundef %848)
   %.fca.0.extract.i395 = extractvalue { ptr, i8 } %849, 0
@@ -4889,20 +4889,20 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   store i8 0, ptr %851, align 1, !tbaa !71
   br label %852
 
-852:                                              ; preds = %838, %.critedge254
-  %.pre-phi874 = phi i32 [ %.pre873, %838 ], [ %687, %.critedge254 ]
-  %.5848 = phi i32 [ %840, %838 ], [ %.4, %.critedge254 ]
-  %.4796845 = phi i32 [ %841, %838 ], [ %.3795, %.critedge254 ]
-  %853 = phi i8 [ %spec.select255, %838 ], [ 0, %.critedge254 ]
+852:                                              ; preds = %838, %.critedge256
+  %.pre-phi874 = phi i32 [ %.pre873, %838 ], [ %687, %.critedge256 ]
+  %.5848 = phi i32 [ %840, %838 ], [ %.4, %.critedge256 ]
+  %.4796845 = phi i32 [ %841, %838 ], [ %.3795, %.critedge256 ]
+  %853 = phi i8 [ %spec.select257, %838 ], [ 0, %.critedge256 ]
   %854 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.363, i64 6) #18
   %855 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.363, i64 6, i32 noundef %854)
   %.fca.0.extract.i396 = extractvalue { ptr, i8 } %855, 0
   %856 = load ptr, ptr %.fca.0.extract.i396, align 8, !tbaa !69
   %857 = getelementptr inbounds nuw i8, ptr %856, i64 8
   store i8 %853, ptr %857, align 1, !tbaa !71
-  %.not191 = icmp eq i32 %.pre-phi874, 0
-  %spec.select258 = select i1 %.not191, i8 0, i8 %139
-  %858 = select i1 %837, i8 %spec.select258, i8 0
+  %.not193 = icmp eq i32 %.pre-phi874, 0
+  %spec.select260 = select i1 %.not193, i8 0, i8 %139
+  %858 = select i1 %837, i8 %spec.select260, i8 0
   %859 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.364, i64 6) #18
   %860 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.364, i64 6, i32 noundef %859)
   %.fca.0.extract.i397 = extractvalue { ptr, i8 } %860, 0
@@ -4931,8 +4931,8 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit398:      ; preds = %852
   %874 = getelementptr inbounds nuw i8, ptr %873, i64 8
   %875 = zext i1 %870 to i8
   store i8 %875, ptr %874, align 1, !tbaa !71
-  %876 = icmp ult i32 %4, 25
-  br i1 %876, label %880, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit400
+  %876 = icmp ugt i32 %4, 24
+  br i1 %876, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit400, label %880
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %877 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 25) #21, !srcloc !63
@@ -4946,7 +4946,7 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %881 = trunc i32 %.6798 to i8
   %882 = lshr i8 %881, 2
   %883 = and i8 %882, 1
-  %884 = select i1 %876, i8 0, i8 %883
+  %884 = select i1 %876, i8 %883, i8 0
   %885 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.366, i64 6) #18
   %886 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.366, i64 6, i32 noundef %885)
   %.fca.0.extract.i401 = extractvalue { ptr, i8 } %886, 0
@@ -4961,9 +4961,9 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %892 = extractvalue { i32, i32, i32, i32 } %891, 0
   %893 = extractvalue { i32, i32, i32, i32 } %891, 1
   %894 = and i32 %892, 16
-  %.not192 = icmp eq i32 %894, 0
+  %.not194 = icmp eq i32 %894, 0
   %895 = zext i1 %145 to i8
-  %spec.select261 = select i1 %.not192, i8 0, i8 %895
+  %spec.select261 = select i1 %.not194, i8 0, i8 %895
   %896 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.367, i64 7) #18
   %897 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.367, i64 7, i32 noundef %896)
   %.fca.0.extract.i403 = extractvalue { ptr, i8 } %897, 0
@@ -4971,8 +4971,8 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %899 = getelementptr inbounds nuw i8, ptr %898, i64 8
   store i8 %spec.select261, ptr %899, align 1, !tbaa !71
   %900 = and i32 %892, 32
-  %.not193 = icmp eq i32 %900, 0
-  %spec.select264 = select i1 %.not193, i8 0, i8 %895
+  %.not195 = icmp eq i32 %900, 0
+  %spec.select264 = select i1 %.not195, i8 0, i8 %895
   br label %905
 
 .critedge263:                                     ; preds = %880
@@ -4998,9 +4998,9 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
 
 911:                                              ; preds = %905
   %912 = and i32 %.8855, 64
-  %.not194 = icmp eq i32 %912, 0
+  %.not196 = icmp eq i32 %912, 0
   %913 = zext i1 %145 to i8
-  %spec.select267 = select i1 %.not194, i8 0, i8 %913
+  %spec.select267 = select i1 %.not196, i8 0, i8 %913
   %914 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.369, i64 8) #18
   %915 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.369, i64 8, i32 noundef %914)
   %.fca.0.extract.i406 = extractvalue { ptr, i8 } %915, 0
@@ -5008,8 +5008,8 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %917 = getelementptr inbounds nuw i8, ptr %916, i64 8
   store i8 %spec.select267, ptr %917, align 1, !tbaa !71
   %918 = and i32 %.8855, 128
-  %.not195 = icmp eq i32 %918, 0
-  %spec.select270 = select i1 %.not195, i8 0, i8 %913
+  %.not197 = icmp eq i32 %918, 0
+  %spec.select270 = select i1 %.not197, i8 0, i8 %913
   br label %923
 
 .critedge269:                                     ; preds = %905
@@ -5030,8 +5030,8 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %928 = getelementptr inbounds nuw i8, ptr %927, i64 8
   store i8 %924, ptr %928, align 1, !tbaa !71
   %929 = and i32 %.8855, 256
-  %.not196 = icmp ne i32 %929, 0
-  %930 = select i1 %889, i1 %.not196, i1 false
+  %.not198 = icmp ne i32 %929, 0
+  %930 = select i1 %889, i1 %.not198, i1 false
   %narrow871 = select i1 %930, i1 %145, i1 false
   %931 = zext i1 %narrow871 to i8
   %932 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.371, i64 9) #18

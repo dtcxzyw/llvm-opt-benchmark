@@ -2722,8 +2722,8 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %22 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  %brmerge.i.i.i.i.i.i.i.i = or i1 %21, %24
-  br i1 %brmerge.i.i.i.i.i.i.i.i, label %25, label %27
+  %or.cond.i.i.i.i.i.i.i.i = or i1 %21, %24
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %25, label %27
 
 25:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %26 = xor i1 %21, %24
@@ -2788,8 +2788,8 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %21 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  %brmerge.i.i.i.i.i.i.i.i = or i1 %20, %23
-  br i1 %brmerge.i.i.i.i.i.i.i.i, label %24, label %26
+  %or.cond.i.i.i.i.i.i.i.i = or i1 %20, %23
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %25 = xor i1 %20, %23

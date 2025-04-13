@@ -957,18 +957,16 @@ for.end158:                                       ; preds = %for.inc156, %invoke
   %safe_boundary_check159 = getelementptr inbounds nuw i8, ptr %file_options, i64 192
   %28 = load i8, ptr %safe_boundary_check159, align 8
   %tobool160 = trunc i8 %28 to i1
-  br i1 %tobool160, label %land.lhs.true, label %if.end166
-
-land.lhs.true:                                    ; preds = %for.end158
   %29 = load i8, ptr %opensource_runtime, align 1
   %tobool162 = trunc i8 %29 to i1
-  br i1 %tobool162, label %if.then163, label %if.end166
+  %or.cond = select i1 %tobool160, i1 %tobool162, i1 false
+  br i1 %or.cond, label %if.then163, label %if.end166
 
-if.then163:                                       ; preds = %land.lhs.true
+if.then163:                                       ; preds = %for.end158
   %call165 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %error, ptr noundef nonnull @.str.20)
           to label %cleanup546 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.end166:                                        ; preds = %land.lhs.true, %for.end158
+if.end166:                                        ; preds = %for.end158
   %name_.i140 = getelementptr inbounds nuw i8, ptr %file, i64 8
   %30 = load ptr, ptr %name_.i140, align 8
   %call170 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #25

@@ -3287,46 +3287,44 @@ PyMutex_LockFlags.exit:                           ; preds = %10, %16
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 10745
   %48 = load i8, ptr %47, align 1, !tbaa !267, !range !268, !noundef !269
   %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %53, label %50
+  %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10409), align 1, !range !268
+  %51 = trunc nuw i8 %50 to i1
+  %or.cond.i = select i1 %49, i1 true, i1 %51
+  br i1 %or.cond.i, label %52, label %init_threadstate.exit
 
-50:                                               ; preds = %25
-  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10409), align 1, !tbaa !270, !range !268, !noundef !269
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %53, label %init_threadstate.exit
-
-53:                                               ; preds = %50, %25
-  %54 = getelementptr inbounds nuw i8, ptr %.06.i20, i64 40
-  store i32 2, ptr %54, align 8, !tbaa !235
+52:                                               ; preds = %25
+  %53 = getelementptr inbounds nuw i8, ptr %.06.i20, i64 40
+  store i32 2, ptr %53, align 8, !tbaa !235
   br label %init_threadstate.exit
 
-init_threadstate.exit:                            ; preds = %50, %53
-  %55 = or disjoint i32 %22, 1
-  store i32 %55, ptr %21, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 7336
-  %57 = load ptr, ptr %56, align 8, !tbaa !238
-  %.not.i16 = icmp eq ptr %57, null
-  br i1 %.not.i16, label %add_threadstate.exit, label %58
+init_threadstate.exit:                            ; preds = %25, %52
+  %54 = or disjoint i32 %22, 1
+  store i32 %54, ptr %21, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 7336
+  %56 = load ptr, ptr %55, align 8, !tbaa !238
+  %.not.i16 = icmp eq ptr %56, null
+  br i1 %.not.i16, label %add_threadstate.exit, label %57
 
-58:                                               ; preds = %init_threadstate.exit
-  store ptr %.06.i20, ptr %57, align 8, !tbaa !271
+57:                                               ; preds = %init_threadstate.exit
+  store ptr %.06.i20, ptr %56, align 8, !tbaa !270
   br label %add_threadstate.exit
 
-add_threadstate.exit:                             ; preds = %init_threadstate.exit, %58
-  %59 = getelementptr inbounds nuw i8, ptr %.06.i20, i64 8
-  store ptr %57, ptr %59, align 8, !tbaa !272
-  store ptr %.06.i20, ptr %56, align 8, !tbaa !238
-  %60 = load ptr, ptr %11, align 8, !tbaa !204
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 696
-  %62 = cmpxchg ptr %61, i8 1, i8 0 seq_cst seq_cst, align 1
-  %63 = extractvalue { i8, i1 } %62, 1
-  br i1 %63, label %_PyMutex_Unlock.exit, label %64
+add_threadstate.exit:                             ; preds = %init_threadstate.exit, %57
+  %58 = getelementptr inbounds nuw i8, ptr %.06.i20, i64 8
+  store ptr %56, ptr %58, align 8, !tbaa !271
+  store ptr %.06.i20, ptr %55, align 8, !tbaa !238
+  %59 = load ptr, ptr %11, align 8, !tbaa !204
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 696
+  %61 = cmpxchg ptr %60, i8 1, i8 0 seq_cst seq_cst, align 1
+  %62 = extractvalue { i8, i1 } %61, 1
+  br i1 %62, label %_PyMutex_Unlock.exit, label %63
 
-64:                                               ; preds = %add_threadstate.exit
-  tail call void @PyMutex_Unlock(ptr noundef nonnull %61) #16
+63:                                               ; preds = %add_threadstate.exit
+  tail call void @PyMutex_Unlock(ptr noundef nonnull %60) #16
   br label %_PyMutex_Unlock.exit
 
-_PyMutex_Unlock.exit:                             ; preds = %6, %64, %add_threadstate.exit
-  %.0 = phi ptr [ %.06.i20, %add_threadstate.exit ], [ %.06.i20, %64 ], [ null, %6 ]
+_PyMutex_Unlock.exit:                             ; preds = %6, %63, %add_threadstate.exit
+  %.0 = phi ptr [ %.06.i20, %add_threadstate.exit ], [ %.06.i20, %63 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -3357,7 +3355,7 @@ define dso_local void @PyThreadState_Clear(ptr noundef %0) local_unnamed_addr #1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !221
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8200
-  %8 = load i32, ptr %7, align 8, !tbaa !273
+  %8 = load i32, ptr %7, align 8, !tbaa !272
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.critedge, label %9
 
@@ -3368,18 +3366,18 @@ define dso_local void @PyThreadState_Clear(ptr noundef %0) local_unnamed_addr #1
   br i1 %.not95, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !274
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !273
   %14 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 55, i64 1, ptr %13) #18
   br label %15
 
 15:                                               ; preds = %9, %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %17 = load ptr, ptr %16, align 8, !tbaa !275
+  %17 = load ptr, ptr %16, align 8, !tbaa !274
   %.not96 = icmp eq ptr %17, null
   br i1 %.not96, label %.critedge, label %18
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr @stderr, align 8, !tbaa !274
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !273
   %20 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 58, i64 1, ptr %19) #18
   tail call void @_PyErr_Print(ptr noundef nonnull %0) #16
   br label %.critedge
@@ -3570,38 +3568,38 @@ Py_DECREF.exit126:                                ; preds = %84, %81, %79, %Py_D
   br i1 %.not105, label %91, label %88
 
 88:                                               ; preds = %85
-  %89 = load ptr, ptr @stderr, align 8, !tbaa !274
+  %89 = load ptr, ptr @stderr, align 8, !tbaa !273
   %90 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 59, i64 1, ptr %89) #18
   br label %91
 
 91:                                               ; preds = %88, %85, %Py_DECREF.exit126
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %93 = load ptr, ptr %92, align 8, !tbaa !276
+  %93 = load ptr, ptr %92, align 8, !tbaa !275
   %.not106 = icmp eq ptr %93, null
   br i1 %.not106, label %99, label %94
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %5, align 8, !tbaa !221
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 223032
-  %97 = load i64, ptr %96, align 8, !tbaa !277
+  %97 = load i64, ptr %96, align 8, !tbaa !276
   %98 = add i64 %97, -1
-  store i64 %98, ptr %96, align 8, !tbaa !277
-  store ptr null, ptr %92, align 8, !tbaa !276
+  store i64 %98, ptr %96, align 8, !tbaa !276
+  store ptr null, ptr %92, align 8, !tbaa !275
   br label %99
 
 99:                                               ; preds = %94, %91
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %101 = load ptr, ptr %100, align 8, !tbaa !278
+  %101 = load ptr, ptr %100, align 8, !tbaa !277
   %.not107 = icmp eq ptr %101, null
   br i1 %.not107, label %107, label %102
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %5, align 8, !tbaa !221
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 223040
-  %105 = load i64, ptr %104, align 8, !tbaa !279
+  %105 = load i64, ptr %104, align 8, !tbaa !278
   %106 = add i64 %105, -1
-  store i64 %106, ptr %104, align 8, !tbaa !279
-  store ptr null, ptr %100, align 8, !tbaa !278
+  store i64 %106, ptr %104, align 8, !tbaa !278
+  store ptr null, ptr %100, align 8, !tbaa !277
   br label %107
 
 107:                                              ; preds = %99, %102
@@ -3816,15 +3814,15 @@ define internal fastcc void @tstate_delete_common(ptr noundef %0, i32 noundef ra
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %12, %18
-  %20 = load ptr, ptr %0, align 8, !tbaa !271
+  %20 = load ptr, ptr %0, align 8, !tbaa !270
   %.not = icmp eq ptr %20, null
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !272
+  %22 = load ptr, ptr %21, align 8, !tbaa !271
   br i1 %.not, label %25, label %23
 
 23:                                               ; preds = %PyMutex_LockFlags.exit
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %22, ptr %24, align 8, !tbaa !272
+  store ptr %22, ptr %24, align 8, !tbaa !271
   br label %27
 
 25:                                               ; preds = %PyMutex_LockFlags.exit
@@ -3837,7 +3835,7 @@ PyMutex_LockFlags.exit:                           ; preds = %12, %18
   br i1 %.not31, label %29, label %28
 
 28:                                               ; preds = %27
-  store ptr %20, ptr %22, align 8, !tbaa !271
+  store ptr %20, ptr %22, align 8, !tbaa !270
   br label %29
 
 29:                                               ; preds = %28, %27
@@ -3854,9 +3852,9 @@ PyMutex_LockFlags.exit:                           ; preds = %12, %18
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 10752
-  %38 = load i64, ptr %37, align 8, !tbaa !280
+  %38 = load i64, ptr %37, align 8, !tbaa !279
   %39 = add i64 %38, -1
-  store i64 %39, ptr %37, align 8, !tbaa !280
+  store i64 %39, ptr %37, align 8, !tbaa !279
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %41, label %decrement_stoptheworld_countdown.exit
 
@@ -3867,15 +3865,15 @@ PyMutex_LockFlags.exit:                           ; preds = %12, %18
 
 decrement_stoptheworld_countdown.exit:            ; preds = %41, %36, %32
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 10409
-  %44 = load i8, ptr %43, align 1, !tbaa !270, !range !268, !noundef !269
+  %44 = load i8, ptr %43, align 1, !tbaa !280, !range !268, !noundef !269
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %decrement_stoptheworld_countdown.exit36
 
 46:                                               ; preds = %decrement_stoptheworld_countdown.exit
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 10416
-  %48 = load i64, ptr %47, align 8, !tbaa !280
+  %48 = load i64, ptr %47, align 8, !tbaa !279
   %49 = add i64 %48, -1
-  store i64 %49, ptr %47, align 8, !tbaa !280
+  store i64 %49, ptr %47, align 8, !tbaa !279
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %51, label %decrement_stoptheworld_countdown.exit36
 
@@ -4054,20 +4052,20 @@ PyMutex_LockFlags.exit:                           ; preds = %1, %9
 
 14:                                               ; preds = %PyMutex_LockFlags.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !272
+  %16 = load ptr, ptr %15, align 8, !tbaa !271
   br label %17
 
 17:                                               ; preds = %14, %PyMutex_LockFlags.exit
   %.0 = phi ptr [ %16, %14 ], [ %12, %PyMutex_LockFlags.exit ]
-  %18 = load ptr, ptr %0, align 8, !tbaa !271
+  %18 = load ptr, ptr %0, align 8, !tbaa !270
   %.not = icmp eq ptr %18, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !272
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !271
   br i1 %.not, label %._crit_edge, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %.pre, ptr %20, align 8, !tbaa !272
+  store ptr %.pre, ptr %20, align 8, !tbaa !271
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %17, %19
@@ -4075,7 +4073,7 @@ PyMutex_LockFlags.exit:                           ; preds = %1, %9
   br i1 %.not23, label %22, label %21
 
 21:                                               ; preds = %._crit_edge
-  store ptr %18, ptr %.pre, align 8, !tbaa !271
+  store ptr %18, ptr %.pre, align 8, !tbaa !270
   br label %22
 
 22:                                               ; preds = %21, %._crit_edge
@@ -4101,7 +4099,7 @@ define hidden void @_PyThreadState_DeleteList(ptr noundef %0) local_unnamed_addr
 .lr.ph:                                           ; preds = %1, %free_threadstate.exit
   %.07 = phi ptr [ %3, %free_threadstate.exit ], [ %0, %1 ]
   %2 = getelementptr inbounds nuw i8, ptr %.07, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !272
+  %3 = load ptr, ptr %2, align 8, !tbaa !271
   tail call void @PyThreadState_Clear(ptr noundef nonnull %.07)
   %4 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !236
@@ -4357,7 +4355,7 @@ define hidden void @_PyThreadState_Suspend(ptr noundef %0) local_unnamed_addr #1
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %1, %4
-  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10409), align 1, !tbaa !270, !range !268, !noundef !269
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10409), align 1, !tbaa !280, !range !268, !noundef !269
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %15, label %8
 
@@ -4438,9 +4436,9 @@ detach_thread.exit13:                             ; preds = %31, %32
 
 PyMutex_LockFlags.exit14:                         ; preds = %detach_thread.exit13, %42
   %44 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !280
+  %45 = load i64, ptr %44, align 8, !tbaa !279
   %46 = add i64 %45, -1
-  store i64 %46, ptr %44, align 8, !tbaa !280
+  store i64 %46, ptr %44, align 8, !tbaa !279
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %48, label %decrement_stoptheworld_countdown.exit
 
@@ -4730,7 +4728,7 @@ define dso_local ptr @PyInterpreterState_ThreadHead(ptr noundef readonly capture
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @PyThreadState_Next(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !272
+  %3 = load ptr, ptr %2, align 8, !tbaa !271
   ret ptr %3
 }
 
@@ -5886,17 +5884,17 @@ attributes #18 = { cold }
 !267 = !{!116, !89, i64 10745}
 !268 = !{i8 0, i8 2}
 !269 = !{}
-!270 = !{!10, !89, i64 10409}
-!271 = !{!170, !5, i64 0}
-!272 = !{!170, !5, i64 8}
-!273 = !{!129, !30, i64 208}
-!274 = !{!69, !69, i64 0}
-!275 = !{!170, !53, i64 112}
-!276 = !{!170, !6, i64 80}
-!277 = !{!116, !12, i64 223032}
-!278 = !{!170, !6, i64 88}
-!279 = !{!116, !12, i64 223040}
-!280 = !{!88, !12, i64 8}
+!270 = !{!170, !5, i64 0}
+!271 = !{!170, !5, i64 8}
+!272 = !{!129, !30, i64 208}
+!273 = !{!69, !69, i64 0}
+!274 = !{!170, !53, i64 112}
+!275 = !{!170, !6, i64 80}
+!276 = !{!116, !12, i64 223032}
+!277 = !{!170, !6, i64 88}
+!278 = !{!116, !12, i64 223040}
+!279 = !{!88, !12, i64 8}
+!280 = !{!10, !89, i64 10409}
 !281 = !{!170, !174, i64 232}
 !282 = !{!283, !174, i64 0}
 !283 = !{!"_stack_chunk", !174, i64 0, !12, i64 8, !12, i64 16, !7, i64 24}

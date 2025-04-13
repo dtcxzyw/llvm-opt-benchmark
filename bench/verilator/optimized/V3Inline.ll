@@ -4555,7 +4555,7 @@ _ZN7AstNode9privateIsI8AstIfaceP13AstNodeModuleEEbPKS_.exit: ; preds = %_ZNSt6ve
   %.pre = load ptr, ptr %3, align 8, !tbaa !169
   br label %_ZN7AstNode9privateIsI8AstIfaceP13AstNodeModuleEEbPKS_.exit.thread
 
-49:                                               ; preds = %63, %_ZNKSt6vectorIP13AstNodeModuleSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %23, %62, %48
+49:                                               ; preds = %62, %_ZNKSt6vectorIP13AstNodeModuleSaIS1_EE12_M_check_lenEmPKc.exit.i.i, %23, %61, %48
   %50 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %3, align 8, !tbaa !198
@@ -4566,28 +4566,26 @@ _ZN7AstNode9privateIsI8AstIfaceP13AstNodeModuleEEbPKS_.exit.thread: ; preds = %.
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 255
   %53 = load i16, ptr %52, align 1
   %54 = trunc i16 %53 to i1
-  br i1 %54, label %55, label %63
+  br i1 %54, label %55, label %62
 
 55:                                               ; preds = %_ZN7AstNode9privateIsI8AstIfaceP13AstNodeModuleEEbPKS_.exit.thread
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 248
   %57 = load i32, ptr %56, align 8, !tbaa !233
-  %58 = icmp eq i32 %57, 1
-  br i1 %58, label %62, label %59
+  %58 = icmp ne i32 %57, 1
+  %59 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1012), align 4, !range !114
+  %60 = trunc nuw i8 %59 to i1
+  %or.cond = select i1 %58, i1 %60, i1 false
+  br i1 %or.cond, label %62, label %61
 
-59:                                               ; preds = %55
-  %60 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1012), align 4, !tbaa !224, !range !114, !noundef !115
-  %61 = trunc nuw i8 %60 to i1
-  br i1 %61, label %63, label %62
-
-62:                                               ; preds = %59, %55
+61:                                               ; preds = %55
   invoke void @_ZN17InlineMarkVisitor10cantInlineEPKcb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull @.str.36, i1 noundef zeroext false)
-          to label %63 unwind label %49
+          to label %62 unwind label %49
 
-63:                                               ; preds = %62, %59, %_ZN7AstNode9privateIsI8AstIfaceP13AstNodeModuleEEbPKS_.exit.thread
+62:                                               ; preds = %55, %61, %_ZN7AstNode9privateIsI8AstIfaceP13AstNodeModuleEEbPKS_.exit.thread
   invoke void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit unwind label %49
 
-_ZN9VNVisitor15iterateChildrenEP7AstNode.exit:    ; preds = %63
+_ZN9VNVisitor15iterateChildrenEP7AstNode.exit:    ; preds = %62
   store ptr null, ptr %3, align 8, !tbaa !198
   ret void
 }

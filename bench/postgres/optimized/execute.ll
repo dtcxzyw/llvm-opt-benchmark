@@ -3747,8 +3747,8 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1
-  %.not54 = icmp eq i8 %7, 0
-  br i1 %.not54, label %._crit_edge, label %.lr.ph
+  %.not4255 = icmp eq i8 %7, 0
+  br i1 %.not4255, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
@@ -3756,24 +3756,24 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %2, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.thread48.us.us
-  %8 = phi i8 [ %41, %.thread48.us.us ], [ %7, %.lr.ph.split.us ]
-  %.03456.us.us = phi i32 [ %38, %.thread48.us.us ], [ %1, %.lr.ph.split.us ]
-  %.03555.us.us = phi i1 [ %.136.us.us, %.thread48.us.us ], [ false, %.lr.ph.split.us ]
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.thread50.us.us
+  %8 = phi i8 [ %41, %.thread50.us.us ], [ %7, %.lr.ph.split.us ]
+  %.03557.us.us = phi i32 [ %38, %.thread50.us.us ], [ %1, %.lr.ph.split.us ]
+  %.03656.us.us = phi i1 [ %.137.us.us, %.thread50.us.us ], [ false, %.lr.ph.split.us ]
   %9 = icmp eq i8 %8, 39
   br i1 %9, label %36, label %10
 
 10:                                               ; preds = %.lr.ph.split.us.split.us
-  br i1 %.03555.us.us, label %.thread48.us.us, label %11
+  br i1 %.03656.us.us, label %.thread50.us.us, label %11
 
 11:                                               ; preds = %10
   %12 = icmp eq i8 %8, 36
-  br i1 %12, label %13, label %.thread48.us.us
+  br i1 %12, label %13, label %.thread50.us.us
 
 13:                                               ; preds = %11
   %14 = tail call ptr @__ctype_b_loc() #16
   %15 = load ptr, ptr %14, align 8
-  %16 = add i32 %.03456.us.us, 1
+  %16 = add i32 %.03557.us.us, 1
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = load i8, ptr %18, align 1
@@ -3781,12 +3781,12 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %21 = getelementptr inbounds nuw i16, ptr %15, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 2048
-  %.not41.us.us = icmp eq i16 %23, 0
-  br i1 %.not41.us.us, label %.thread48.us.us, label %.preheader.us.us
+  %.not43.us.us = icmp eq i16 %23, 0
+  br i1 %.not43.us.us, label %.thread50.us.us, label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %13, %.preheader.us.us
-  %.033.us.us = phi i32 [ %32, %.preheader.us.us ], [ %16, %13 ]
-  %24 = sext i32 %.033.us.us to i64
+  %.034.us.us = phi i32 [ %32, %.preheader.us.us ], [ %16, %13 ]
+  %24 = sext i32 %.034.us.us to i64
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i64
@@ -3794,44 +3794,44 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
   %31 = and i32 %30, 2048
-  %.not42.us.us = icmp eq i32 %31, 0
-  %32 = add i32 %.033.us.us, 1
-  br i1 %.not42.us.us, label %33, label %.preheader.us.us, !llvm.loop !30
+  %.not44.us.us = icmp eq i32 %31, 0
+  %32 = add i32 %.034.us.us, 1
+  br i1 %.not44.us.us, label %33, label %.preheader.us.us, !llvm.loop !30
 
 33:                                               ; preds = %.preheader.us.us
   %34 = and i32 %30, 1024
-  %.not43.us.us = icmp ne i32 %34, 0
+  %.not45.us.us = icmp ne i32 %34, 0
   %35 = icmp slt i8 %26, 0
-  %or.cond46.not52.us.us = or i1 %35, %.not43.us.us
-  %.not44.us.us = icmp eq i8 %26, 95
-  %or.cond47.us.us = or i1 %.not44.us.us, %or.cond46.not52.us.us
-  br i1 %or.cond47.us.us, label %.thread48.us.us, label %._crit_edge
+  %or.cond48.not53.us.us = or i1 %35, %.not45.us.us
+  %.not46.us.us = icmp eq i8 %26, 95
+  %or.cond49.us.us = or i1 %.not46.us.us, %or.cond48.not53.us.us
+  br i1 %or.cond49.us.us, label %.thread50.us.us, label %._crit_edge
 
 36:                                               ; preds = %.lr.ph.split.us.split.us
-  %37 = xor i1 %.03555.us.us, true
-  br label %.thread48.us.us
+  %37 = xor i1 %.03656.us.us, true
+  br label %.thread50.us.us
 
-.thread48.us.us:                                  ; preds = %11, %36, %33, %13, %10
-  %.136.us.us = phi i1 [ %37, %36 ], [ true, %10 ], [ false, %33 ], [ false, %13 ], [ false, %11 ]
-  %38 = add i32 %.03456.us.us, 1
+.thread50.us.us:                                  ; preds = %11, %36, %33, %13, %10
+  %.137.us.us = phi i1 [ %37, %36 ], [ true, %10 ], [ false, %33 ], [ false, %13 ], [ false, %11 ]
+  %38 = add i32 %.03557.us.us, 1
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i8, ptr %0, i64 %39
   %41 = load i8, ptr %40, align 1
-  %.not.us.us = icmp eq i8 %41, 0
-  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !31
+  %.not42.us.us = icmp eq i8 %41, 0
+  br i1 %.not42.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !31
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread48.us
-  %42 = phi i8 [ %74, %.thread48.us ], [ %7, %.lr.ph.split.us ]
-  %.03456.us = phi i32 [ %71, %.thread48.us ], [ %1, %.lr.ph.split.us ]
-  %.03555.us = phi i1 [ %.136.us, %.thread48.us ], [ false, %.lr.ph.split.us ]
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread50.us
+  %42 = phi i8 [ %74, %.thread50.us ], [ %7, %.lr.ph.split.us ]
+  %.03557.us = phi i32 [ %71, %.thread50.us ], [ %1, %.lr.ph.split.us ]
+  %.03656.us = phi i1 [ %.137.us, %.thread50.us ], [ false, %.lr.ph.split.us ]
   %43 = icmp eq i8 %42, 39
   br i1 %43, label %69, label %44
 
 44:                                               ; preds = %.lr.ph.split.us.split
-  br i1 %.03555.us, label %.thread48.us, label %45
+  br i1 %.03656.us, label %.thread50.us, label %45
 
 45:                                               ; preds = %44
-  switch i8 %42, label %.thread48.us [
+  switch i8 %42, label %.thread50.us [
     i8 36, label %46
     i8 63, label %._crit_edge
   ]
@@ -3839,7 +3839,7 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
 46:                                               ; preds = %45
   %47 = tail call ptr @__ctype_b_loc() #16
   %48 = load ptr, ptr %47, align 8
-  %49 = add i32 %.03456.us, 1
+  %49 = add i32 %.03557.us, 1
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %0, i64 %50
   %52 = load i8, ptr %51, align 1
@@ -3847,12 +3847,12 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %54 = getelementptr inbounds nuw i16, ptr %48, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 2048
-  %.not41.us = icmp eq i16 %56, 0
-  br i1 %.not41.us, label %.thread48.us, label %.preheader.us
+  %.not43.us = icmp eq i16 %56, 0
+  br i1 %.not43.us, label %.thread50.us, label %.preheader.us
 
 .preheader.us:                                    ; preds = %46, %.preheader.us
-  %.033.us = phi i32 [ %65, %.preheader.us ], [ %49, %46 ]
-  %57 = sext i32 %.033.us to i64
+  %.034.us = phi i32 [ %65, %.preheader.us ], [ %49, %46 ]
+  %57 = sext i32 %.034.us to i64
   %58 = getelementptr inbounds i8, ptr %0, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
@@ -3860,58 +3860,58 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %62 to i32
   %64 = and i32 %63, 2048
-  %.not42.us = icmp eq i32 %64, 0
-  %65 = add i32 %.033.us, 1
-  br i1 %.not42.us, label %66, label %.preheader.us, !llvm.loop !30
+  %.not44.us = icmp eq i32 %64, 0
+  %65 = add i32 %.034.us, 1
+  br i1 %.not44.us, label %66, label %.preheader.us, !llvm.loop !30
 
 66:                                               ; preds = %.preheader.us
   %67 = and i32 %63, 1024
-  %.not43.us = icmp ne i32 %67, 0
+  %.not45.us = icmp ne i32 %67, 0
   %68 = icmp slt i8 %59, 0
-  %or.cond46.not52.us = or i1 %68, %.not43.us
-  %.not44.us = icmp eq i8 %59, 95
-  %or.cond47.us = or i1 %.not44.us, %or.cond46.not52.us
-  br i1 %or.cond47.us, label %.thread48.us, label %._crit_edge
+  %or.cond48.not53.us = or i1 %68, %.not45.us
+  %.not46.us = icmp eq i8 %59, 95
+  %or.cond49.us = or i1 %.not46.us, %or.cond48.not53.us
+  br i1 %or.cond49.us, label %.thread50.us, label %._crit_edge
 
 69:                                               ; preds = %.lr.ph.split.us.split
-  %70 = xor i1 %.03555.us, true
-  br label %.thread48.us
+  %70 = xor i1 %.03656.us, true
+  br label %.thread50.us
 
-.thread48.us:                                     ; preds = %45, %69, %66, %46, %44
-  %.136.us = phi i1 [ %70, %69 ], [ true, %44 ], [ false, %66 ], [ false, %46 ], [ false, %45 ]
-  %71 = add i32 %.03456.us, 1
+.thread50.us:                                     ; preds = %45, %69, %66, %46, %44
+  %.137.us = phi i1 [ %70, %69 ], [ true, %44 ], [ false, %66 ], [ false, %46 ], [ false, %45 ]
+  %71 = add i32 %.03557.us, 1
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %0, i64 %72
   %74 = load i8, ptr %73, align 1
-  %.not.us = icmp eq i8 %74, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !31
+  %.not42.us = icmp eq i8 %74, 0
+  br i1 %.not42.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %2, label %.lr.ph.split.split, label %.lr.ph.split.split.us
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread48.us75
-  %75 = phi i8 [ %112, %.thread48.us75 ], [ %7, %.lr.ph.split ]
-  %.03456.us63 = phi i32 [ %109, %.thread48.us75 ], [ %1, %.lr.ph.split ]
-  %.03555.us64 = phi i1 [ %.136.us76, %.thread48.us75 ], [ false, %.lr.ph.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread50.us76
+  %75 = phi i8 [ %112, %.thread50.us76 ], [ %7, %.lr.ph.split ]
+  %.03557.us64 = phi i32 [ %109, %.thread50.us76 ], [ %1, %.lr.ph.split ]
+  %.03656.us65 = phi i1 [ %.137.us77, %.thread50.us76 ], [ false, %.lr.ph.split ]
   %76 = icmp eq i8 %75, 92
-  %or.cond.us = and i1 %.03555.us64, %76
-  br i1 %or.cond.us, label %107, label %77
+  %or.cond47.us = and i1 %.03656.us65, %76
+  br i1 %or.cond47.us, label %107, label %77
 
 77:                                               ; preds = %.lr.ph.split.split.us
   %78 = icmp eq i8 %75, 39
   br i1 %78, label %105, label %79
 
 79:                                               ; preds = %77
-  br i1 %.03555.us64, label %.thread48.us75, label %80
+  br i1 %.03656.us65, label %.thread50.us76, label %80
 
 80:                                               ; preds = %79
   %81 = icmp eq i8 %75, 36
-  br i1 %81, label %82, label %.thread48.us75
+  br i1 %81, label %82, label %.thread50.us76
 
 82:                                               ; preds = %80
   %83 = tail call ptr @__ctype_b_loc() #16
   %84 = load ptr, ptr %83, align 8
-  %85 = add i32 %.03456.us63, 1
+  %85 = add i32 %.03557.us64, 1
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds i8, ptr %0, i64 %86
   %88 = load i8, ptr %87, align 1
@@ -3919,12 +3919,12 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %90 = getelementptr inbounds nuw i16, ptr %84, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 2048
-  %.not41.us66 = icmp eq i16 %92, 0
-  br i1 %.not41.us66, label %.thread48.us75, label %.preheader.us79
+  %.not43.us67 = icmp eq i16 %92, 0
+  br i1 %.not43.us67, label %.thread50.us76, label %.preheader.us80
 
-.preheader.us79:                                  ; preds = %82, %.preheader.us79
-  %.033.us67 = phi i32 [ %101, %.preheader.us79 ], [ %85, %82 ]
-  %93 = sext i32 %.033.us67 to i64
+.preheader.us80:                                  ; preds = %82, %.preheader.us80
+  %.034.us68 = phi i32 [ %101, %.preheader.us80 ], [ %85, %82 ]
+  %93 = sext i32 %.034.us68 to i64
   %94 = getelementptr inbounds i8, ptr %0, i64 %93
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i64
@@ -3932,62 +3932,62 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i32
   %100 = and i32 %99, 2048
-  %.not42.us68 = icmp eq i32 %100, 0
-  %101 = add i32 %.033.us67, 1
-  br i1 %.not42.us68, label %102, label %.preheader.us79, !llvm.loop !30
+  %.not44.us69 = icmp eq i32 %100, 0
+  %101 = add i32 %.034.us68, 1
+  br i1 %.not44.us69, label %102, label %.preheader.us80, !llvm.loop !30
 
-102:                                              ; preds = %.preheader.us79
+102:                                              ; preds = %.preheader.us80
   %103 = and i32 %99, 1024
-  %.not43.us71 = icmp ne i32 %103, 0
+  %.not45.us72 = icmp ne i32 %103, 0
   %104 = icmp slt i8 %95, 0
-  %or.cond46.not52.us72 = or i1 %104, %.not43.us71
-  %.not44.us73 = icmp eq i8 %95, 95
-  %or.cond47.us74 = or i1 %.not44.us73, %or.cond46.not52.us72
-  br i1 %or.cond47.us74, label %.thread48.us75, label %._crit_edge
+  %or.cond48.not53.us73 = or i1 %104, %.not45.us72
+  %.not46.us74 = icmp eq i8 %95, 95
+  %or.cond49.us75 = or i1 %.not46.us74, %or.cond48.not53.us73
+  br i1 %or.cond49.us75, label %.thread50.us76, label %._crit_edge
 
 105:                                              ; preds = %77
-  %106 = xor i1 %.03555.us64, true
-  br label %.thread48.us75
+  %106 = xor i1 %.03656.us65, true
+  br label %.thread50.us76
 
 107:                                              ; preds = %.lr.ph.split.split.us
-  %108 = add i32 %.03456.us63, 1
-  br label %.thread48.us75
+  %108 = add i32 %.03557.us64, 1
+  br label %.thread50.us76
 
-.thread48.us75:                                   ; preds = %80, %107, %105, %102, %82, %79
-  %.136.us76 = phi i1 [ %106, %105 ], [ true, %79 ], [ false, %102 ], [ true, %107 ], [ false, %82 ], [ false, %80 ]
-  %.1.us77 = phi i32 [ %.03456.us63, %105 ], [ %.03456.us63, %79 ], [ %.03456.us63, %102 ], [ %108, %107 ], [ %.03456.us63, %82 ], [ %.03456.us63, %80 ]
-  %109 = add i32 %.1.us77, 1
+.thread50.us76:                                   ; preds = %80, %107, %105, %102, %82, %79
+  %.137.us77 = phi i1 [ %106, %105 ], [ true, %79 ], [ false, %102 ], [ true, %107 ], [ false, %82 ], [ false, %80 ]
+  %.1.us78 = phi i32 [ %.03557.us64, %105 ], [ %.03557.us64, %79 ], [ %.03557.us64, %102 ], [ %108, %107 ], [ %.03557.us64, %82 ], [ %.03557.us64, %80 ]
+  %109 = add i32 %.1.us78, 1
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds i8, ptr %0, i64 %110
   %112 = load i8, ptr %111, align 1
-  %.not.us78 = icmp eq i8 %112, 0
-  br i1 %.not.us78, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !31
+  %.not42.us79 = icmp eq i8 %112, 0
+  br i1 %.not42.us79, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !31
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread48
-  %113 = phi i8 [ %149, %.thread48 ], [ %7, %.lr.ph.split ]
-  %.03456 = phi i32 [ %146, %.thread48 ], [ %1, %.lr.ph.split ]
-  %.03555 = phi i1 [ %.136, %.thread48 ], [ false, %.lr.ph.split ]
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread50
+  %113 = phi i8 [ %149, %.thread50 ], [ %7, %.lr.ph.split ]
+  %.03557 = phi i32 [ %146, %.thread50 ], [ %1, %.lr.ph.split ]
+  %.03656 = phi i1 [ %.137, %.thread50 ], [ false, %.lr.ph.split ]
   %114 = icmp eq i8 %113, 92
-  %or.cond = and i1 %.03555, %114
-  br i1 %or.cond, label %115, label %117
+  %or.cond47 = and i1 %.03656, %114
+  br i1 %or.cond47, label %115, label %117
 
 115:                                              ; preds = %.lr.ph.split.split
-  %116 = add i32 %.03456, 1
-  br label %.thread48
+  %116 = add i32 %.03557, 1
+  br label %.thread50
 
 117:                                              ; preds = %.lr.ph.split.split
   %118 = icmp eq i8 %113, 39
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
-  %120 = xor i1 %.03555, true
-  br label %.thread48
+  %120 = xor i1 %.03656, true
+  br label %.thread50
 
 121:                                              ; preds = %117
-  br i1 %.03555, label %.thread48, label %122
+  br i1 %.03656, label %.thread50, label %122
 
 122:                                              ; preds = %121
-  switch i8 %113, label %.thread48 [
+  switch i8 %113, label %.thread50 [
     i8 36, label %123
     i8 63, label %._crit_edge
   ]
@@ -3995,7 +3995,7 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
 123:                                              ; preds = %122
   %124 = tail call ptr @__ctype_b_loc() #16
   %125 = load ptr, ptr %124, align 8
-  %126 = add i32 %.03456, 1
+  %126 = add i32 %.03557, 1
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i8, ptr %0, i64 %127
   %129 = load i8, ptr %128, align 1
@@ -4003,12 +4003,12 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %131 = getelementptr inbounds nuw i16, ptr %125, i64 %130
   %132 = load i16, ptr %131, align 2
   %133 = and i16 %132, 2048
-  %.not41 = icmp eq i16 %133, 0
-  br i1 %.not41, label %.thread48, label %.preheader
+  %.not43 = icmp eq i16 %133, 0
+  br i1 %.not43, label %.thread50, label %.preheader
 
 .preheader:                                       ; preds = %123, %.preheader
-  %.033 = phi i32 [ %142, %.preheader ], [ %126, %123 ]
-  %134 = sext i32 %.033 to i64
+  %.034 = phi i32 [ %142, %.preheader ], [ %126, %123 ]
+  %134 = sext i32 %.034 to i64
   %135 = getelementptr inbounds i8, ptr %0, i64 %134
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i64
@@ -4016,31 +4016,31 @@ define internal fastcc i32 @next_insert(ptr noundef readonly captures(none) %0, 
   %139 = load i16, ptr %138, align 2
   %140 = zext i16 %139 to i32
   %141 = and i32 %140, 2048
-  %.not42 = icmp eq i32 %141, 0
-  %142 = add i32 %.033, 1
-  br i1 %.not42, label %143, label %.preheader, !llvm.loop !30
+  %.not44 = icmp eq i32 %141, 0
+  %142 = add i32 %.034, 1
+  br i1 %.not44, label %143, label %.preheader, !llvm.loop !30
 
 143:                                              ; preds = %.preheader
   %144 = and i32 %140, 1024
-  %.not43 = icmp ne i32 %144, 0
+  %.not45 = icmp ne i32 %144, 0
   %145 = icmp slt i8 %136, 0
-  %or.cond46.not52 = or i1 %145, %.not43
-  %.not44 = icmp eq i8 %136, 95
-  %or.cond47 = or i1 %.not44, %or.cond46.not52
-  br i1 %or.cond47, label %.thread48, label %._crit_edge
+  %or.cond48.not53 = or i1 %145, %.not45
+  %.not46 = icmp eq i8 %136, 95
+  %or.cond49 = or i1 %.not46, %or.cond48.not53
+  br i1 %or.cond49, label %.thread50, label %._crit_edge
 
-.thread48:                                        ; preds = %122, %123, %115, %121, %143, %119
-  %.136 = phi i1 [ %120, %119 ], [ true, %121 ], [ false, %143 ], [ true, %115 ], [ false, %123 ], [ false, %122 ]
-  %.1 = phi i32 [ %.03456, %119 ], [ %.03456, %121 ], [ %.03456, %143 ], [ %116, %115 ], [ %.03456, %123 ], [ %.03456, %122 ]
+.thread50:                                        ; preds = %122, %123, %115, %121, %143, %119
+  %.137 = phi i1 [ %120, %119 ], [ true, %121 ], [ false, %143 ], [ true, %115 ], [ false, %123 ], [ false, %122 ]
+  %.1 = phi i32 [ %.03557, %119 ], [ %.03557, %121 ], [ %.03557, %143 ], [ %116, %115 ], [ %.03557, %123 ], [ %.03557, %122 ]
   %146 = add i32 %.1, 1
   %147 = sext i32 %146 to i64
   %148 = getelementptr inbounds i8, ptr %0, i64 %147
   %149 = load i8, ptr %148, align 1
-  %.not = icmp eq i8 %149, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !31
+  %.not42 = icmp eq i8 %149, 0
+  br i1 %.not42, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %102, %.thread48.us75, %143, %.thread48, %122, %33, %.thread48.us.us, %66, %.thread48.us, %45, %4
-  %.2 = phi i32 [ -1, %4 ], [ %.03456.us, %45 ], [ -1, %.thread48.us ], [ %.03456.us, %66 ], [ -1, %.thread48.us.us ], [ %.03456.us.us, %33 ], [ %.03456, %122 ], [ -1, %.thread48 ], [ %.03456, %143 ], [ -1, %.thread48.us75 ], [ %.03456.us63, %102 ]
+._crit_edge:                                      ; preds = %102, %.thread50.us76, %143, %.thread50, %122, %33, %.thread50.us.us, %66, %.thread50.us, %45, %4
+  %.2 = phi i32 [ -1, %4 ], [ %.03557.us, %45 ], [ -1, %.thread50.us ], [ %.03557.us, %66 ], [ -1, %.thread50.us.us ], [ %.03557.us.us, %33 ], [ %.03557, %122 ], [ -1, %.thread50 ], [ %.03557, %143 ], [ -1, %.thread50.us76 ], [ %.03557.us64, %102 ]
   ret i32 %.2
 }
 

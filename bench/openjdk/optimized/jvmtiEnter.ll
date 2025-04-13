@@ -117,14 +117,12 @@ $_ZN12ResourceMarkD2Ev = comdat any
 define hidden noundef zeroext i1 @_ZN9JvmtiUtil20has_event_capabilityE10jvmtiEventPK17jvmtiCapabilities(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i32 %0, -58
   %3 = icmp ult i32 %switch.tableidx, 31
-  br i1 %3, label %switch.hole_check, label %8
-
-switch.hole_check:                                ; preds = %2
   %switch.shifted = lshr i32 2005372927, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %8
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %8
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [31 x i64], ptr @switch.table._ZN9JvmtiUtil20has_event_capabilityE10jvmtiEventPK17jvmtiCapabilities, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -133,8 +131,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %7 = icmp ne i64 %6, 0
   br label %8
 
-8:                                                ; preds = %switch.hole_check, %2, %switch.lookup
-  %.0 = phi i1 [ true, %2 ], [ %7, %switch.lookup ], [ true, %switch.hole_check ]
+8:                                                ; preds = %2, %switch.lookup
+  %.0 = phi i1 [ true, %2 ], [ %7, %switch.lookup ]
   ret i1 %.0
 }
 

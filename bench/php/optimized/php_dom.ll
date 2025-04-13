@@ -991,22 +991,20 @@ define hidden zeroext i1 @dom_node_is_read_only(ptr noundef readonly captures(no
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %switch.tableidx = add i32 %3, -5
   %4 = icmp ult i32 %switch.tableidx, 14
-  br i1 %4, label %switch.hole_check, label %5
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 16035, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %4, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %5
 
-5:                                                ; preds = %switch.hole_check, %1
+5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = icmp eq ptr %7, null
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 16035, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %5
-
-switch.lookup:                                    ; preds = %switch.hole_check, %5
-  %.0 = phi i1 [ %8, %5 ], [ true, %switch.hole_check ]
+switch.lookup:                                    ; preds = %1, %5
+  %.0 = phi i1 [ %8, %5 ], [ true, %1 ]
   ret i1 %.0
 }
 

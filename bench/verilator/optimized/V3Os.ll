@@ -784,8 +784,8 @@ define dso_local void @_ZN4V3Os15filenameCleanupERKNSt7__cxx1112basic_stringIcSt
   %8 = load ptr, ptr %1, align 8, !tbaa !19
   %9 = load i64, ptr %5, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
-  %.not2223 = icmp samesign eq i64 %9, 0
-  br i1 %.not2223, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp samesign eq i64 %9, 0
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %34, %7
   %11 = load i64, ptr %4, align 8, !tbaa !16
@@ -801,12 +801,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit.preheader: ;
   br label %60
 
 .lr.ph:                                           ; preds = %7, %34
-  %.01525 = phi i1 [ %16, %34 ], [ false, %7 ]
-  %.sroa.019.024 = phi ptr [ %35, %34 ], [ %8, %7 ]
-  %15 = load i8, ptr %.sroa.019.024, align 1, !tbaa !18
+  %.01625 = phi i1 [ %16, %34 ], [ false, %7 ]
+  %.sroa.020.024 = phi ptr [ %35, %34 ], [ %8, %7 ]
+  %15 = load i8, ptr %.sroa.020.024, align 1, !tbaa !18
   %16 = icmp eq i8 %15, 47
-  %brmerge.demorgan = and i1 %.01525, %16
-  br i1 %brmerge.demorgan, label %34, label %19
+  %or.cond = and i1 %.01625, %16
+  br i1 %or.cond, label %34, label %19
 
 17:                                               ; preds = %29
   %18 = landingpad { ptr, i32 }
@@ -850,9 +850,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   br label %34
 
 34:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %.lr.ph
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.019.024, i64 1
-  %.not22 = icmp eq ptr %35, %10
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.020.024, i64 1
+  %.not = icmp eq ptr %35, %10
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 36:                                               ; preds = %._crit_edge
   %37 = load ptr, ptr %0, align 8, !tbaa !19

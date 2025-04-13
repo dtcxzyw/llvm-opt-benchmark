@@ -419,19 +419,17 @@ thread-pre-split:                                 ; preds = %101, %94
   %148 = add i32 %147, -4096
   %149 = call i32 @llvm.fshl.i32(i32 %148, i32 %148, i32 20)
   %150 = icmp ult i32 %149, 10
-  br i1 %150, label %switch.hole_check, label %151
+  %switch.maskindex = trunc i32 %149 to i16
+  %switch.shifted = lshr i16 683, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %150, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %151
 
-151:                                              ; preds = %switch.hole_check, %146
+151:                                              ; preds = %146
   call void @__archive_write_entry_filetype_unsupported(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.1) #12
   br label %.thread192
 
-switch.hole_check:                                ; preds = %146
-  %switch.maskindex = trunc nuw i32 %149 to i16
-  %switch.shifted = lshr i16 683, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %151
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %146
   %152 = zext nneg i32 %149 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.archive_write_gnutar_header, i64 0, i64 %152
   %switch.load = load i32, ptr %switch.gep, align 4

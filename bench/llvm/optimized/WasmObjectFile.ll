@@ -19948,26 +19948,24 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4llvm6object14WasmObj
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 448
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(684) %0) #26
-  br i1 %6, label %18, label %7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 589
+  %8 = load i8, ptr %7, align 1, !range !256
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond, label %17, label %10
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 589
-  %9 = load i8, ptr %8, align 1, !tbaa !682, !range !256, !noundef !257
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %18, label %11
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %12 = and i64 %1, 4294967295
+  %13 = load ptr, ptr %11, align 8, !tbaa !405
+  %14 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %13, i64 %12, i32 1
+  %15 = load i32, ptr %14, align 4, !tbaa !200
+  %16 = zext i32 %15 to i64
+  br label %17
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %13 = and i64 %1, 4294967295
-  %14 = load ptr, ptr %12, align 8, !tbaa !405
-  %15 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %14, i64 %13, i32 1
-  %16 = load i32, ptr %15, align 4, !tbaa !200
-  %17 = zext i32 %16 to i64
-  br label %18
-
-18:                                               ; preds = %2, %7, %11
-  %19 = phi i64 [ %17, %11 ], [ 0, %7 ], [ 0, %2 ]
-  ret i64 %19
+17:                                               ; preds = %2, %10
+  %18 = phi i64 [ %16, %10 ], [ 0, %2 ]
+  ret i64 %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

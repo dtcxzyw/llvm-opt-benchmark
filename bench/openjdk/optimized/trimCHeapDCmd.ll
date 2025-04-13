@@ -278,16 +278,16 @@ define linkonce_odr hidden void @_ZN4DCmd5parseEP7CmdLinecP10JavaThread(ptr noun
   %13 = call noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(57) %5, ptr noundef %3) #5
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  %brmerge.not = and i1 %13, %16
-  br i1 %brmerge.not, label %17, label %19
+  %.not7 = icmp eq ptr %15, null
+  %or.cond = and i1 %13, %.not7
+  br i1 %or.cond, label %16, label %18
 
-17:                                               ; preds = %4
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, i32 noundef 290, ptr noundef %18, ptr noundef nonnull @.str.15) #5
-  br label %19
+16:                                               ; preds = %4
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, i32 noundef 290, ptr noundef %17, ptr noundef nonnull @.str.15) #5
+  br label %18
 
-19:                                               ; preds = %4, %17
+18:                                               ; preds = %4, %16
   ret void
 }
 

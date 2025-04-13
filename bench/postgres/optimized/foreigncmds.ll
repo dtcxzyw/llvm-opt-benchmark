@@ -1053,8 +1053,8 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nound
   store i64 %56, ptr %57, align 16
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 1, ptr %58, align 1
-  %.not25 = icmp eq i32 %55, 0
-  br i1 %.not25, label %66, label %59
+  %.not26 = icmp eq i32 %55, 0
+  br i1 %.not26, label %66, label %59
 
 59:                                               ; preds = %54
   %60 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #9
@@ -1074,8 +1074,8 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nound
   %67 = phi i32 [ 0, %54 ], [ %55, %61 ], [ %55, %59 ], [ %65, %63 ]
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %69 = load ptr, ptr %68, align 8
-  %.not26 = icmp eq ptr %69, null
-  br i1 %.not26, label %82, label %70
+  %.not27 = icmp eq ptr %69, null
+  br i1 %.not27, label %82, label %70
 
 70:                                               ; preds = %66
   %71 = call i64 @SysCacheGetAttr(i32 noundef 30, ptr noundef nonnull %26, i16 noundef signext 7, ptr noundef nonnull %7) #9
@@ -1084,8 +1084,8 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nound
   %spec.select = select i1 %73, i64 0, i64 %71
   %74 = load ptr, ptr %68, align 8
   %75 = call i64 @transformGenericOptions(i32 noundef 2328, i64 noundef %spec.select, ptr noundef %74, i32 noundef %67)
-  %.not27 = icmp eq i64 %75, 0
-  br i1 %.not27, label %78, label %76
+  %.not28 = icmp eq i64 %75, 0
+  br i1 %.not28, label %78, label %76
 
 76:                                               ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1115,15 +1115,15 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nound
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %88, align 8
   %89 = or i8 %52, %41
-  %brmerge.not = icmp eq i8 %89, 0
-  br i1 %brmerge.not, label %101, label %90
+  %or.cond.not = icmp eq i8 %89, 0
+  br i1 %or.cond.not, label %101, label %90
 
 90:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #9
   %91 = call i64 @deleteDependencyRecordsForClass(i32 noundef 2328, i32 noundef %38, i32 noundef 1255, i8 noundef signext 110) #9
   %92 = load i32, ptr %10, align 4
-  %.not28 = icmp eq i32 %92, 0
-  br i1 %.not28, label %96, label %93
+  %.not29 = icmp eq i32 %92, 0
+  br i1 %.not29, label %96, label %93
 
 93:                                               ; preds = %90
   store i32 1255, ptr %12, align 4
@@ -1135,8 +1135,8 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nound
   br label %96
 
 96:                                               ; preds = %93, %90
-  %.not29 = icmp eq i32 %67, 0
-  br i1 %.not29, label %100, label %97
+  %.not30 = icmp eq i32 %67, 0
+  br i1 %.not30, label %100, label %97
 
 97:                                               ; preds = %96
   store i32 1255, ptr %12, align 4
@@ -1151,10 +1151,10 @@ define dso_local { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr nound
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #9
   br label %101
 
-101:                                              ; preds = %82, %100
+101:                                              ; preds = %100, %82
   %102 = load ptr, ptr @object_access_hook, align 8
-  %.not30 = icmp eq ptr %102, null
-  br i1 %.not30, label %104, label %103
+  %.not31 = icmp eq ptr %102, null
+  br i1 %.not31, label %104, label %103
 
 103:                                              ; preds = %101
   call void @RunObjectPostAlterHook(i32 noundef 2328, i32 noundef %38, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #9

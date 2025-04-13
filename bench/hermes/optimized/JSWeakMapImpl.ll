@@ -243,8 +243,9 @@ define weak_odr hidden void @_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE51EE21W
 entry:
   %hasValue_.i.i = getelementptr inbounds nuw i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %tobool.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+  %1 = and i8 %0, 1
+  %or.cond.not = icmp eq i8 %1, 0
+  br i1 %or.cond.not, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
 _ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds nuw i8, ptr %mb, i64 208
@@ -404,8 +405,9 @@ define weak_odr hidden void @_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE52EE21W
 entry:
   %hasValue_.i.i = getelementptr inbounds nuw i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
-  %tobool.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split
+  %1 = and i8 %0, 1
+  %or.cond.not = icmp eq i8 %1, 0
+  br i1 %or.cond.not, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
 _ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split: ; preds = %entry
   %jsObjectOverlapSlots_.i = getelementptr inbounds nuw i8, ptr %mb, i64 208
@@ -1233,21 +1235,19 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS
   %17 = ptrtoint ptr %retval.0.i.i.i.i to i64
   %and.i.i.i.i.i.i12 = and i64 %17, -4194304
   %18 = inttoptr i64 %and.i.i.i.i.i.i12 to ptr
-  %cmp.i.i.i.i.i = icmp eq ptr %16, %18
-  br i1 %cmp.i.i.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit, label %land.rhs.i.i.i.i
-
-land.rhs.i.i.i.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
+  %cmp.i.i.i.i.i = icmp ne ptr %16, %18
   %ogMarkingBarriers_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
   %19 = load i8, ptr %ogMarkingBarriers_.i.i.i.i, align 1
   %tobool.i.i.i.i = trunc i8 %19 to i1
-  br i1 %tobool.i.i.i.i, label %if.then.i.i2.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit
+  %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
+  br i1 %or.cond.i.i.i.i, label %if.then.i.i2.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit
 
-if.then.i.i2.i.i:                                 ; preds = %land.rhs.i.i.i.i
+if.then.i.i2.i.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %retval.0.i.i.i.i, align 8
   tail call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i) #15
   br label %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit
 
-_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i, %land.rhs.i.i.i.i, %if.then.i.i2.i.i
+_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i, %if.then.i.i2.i.i
   %conv.i.i = zext i32 %13 to i64
   %or.i.i.i = or disjoint i64 %conv.i.i, -1125899906842624
   store i64 %or.i.i.i, ptr %retval.0.i.i.i.i, align 8
@@ -1310,27 +1310,25 @@ if.else.i.i.i:                                    ; preds = %entry
 
 _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.then.i.i.i ], [ %arrayidx.i.i.i.i, %if.else.i.i.i ]
-  %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %youngGen_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %6 = load ptr, ptr %youngGen_.i.i.i.i, align 8
   %7 = ptrtoint ptr %retval.0.i.i.i to i64
   %and.i.i.i.i.i = and i64 %7, -4194304
   %8 = inttoptr i64 %and.i.i.i.i.i to ptr
-  %cmp.i.i.i.i = icmp eq ptr %6, %8
-  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE9setNonPtrILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit, label %land.rhs.i.i.i
-
-land.rhs.i.i.i:                                   ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i
+  %cmp.i.i.i.i = icmp ne ptr %6, %8
   %ogMarkingBarriers_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
   %9 = load i8, ptr %ogMarkingBarriers_.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i.i, label %if.then.i.i2.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE9setNonPtrILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit
+  %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 %tobool.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %if.then.i.i2.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE9setNonPtrILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit
 
-if.then.i.i2.i:                                   ; preds = %land.rhs.i.i.i
+if.then.i.i2.i:                                   ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i
+  %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.0.i.i.i, align 8
   tail call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i64 %agg.tmp.sroa.0.0.copyload.i.i.i) #15
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE9setNonPtrILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE9setNonPtrILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i, %land.rhs.i.i.i, %if.then.i.i2.i
+_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE9setNonPtrILNS3_6InlineE0EEEvRNS0_7RuntimeEjS2_.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i, %if.then.i.i2.i
   %conv.i = zext i32 %3 to i64
   %or.i.i = or disjoint i64 %conv.i, -1125899906842624
   store i64 %or.i.i, ptr %retval.0.i.i.i, align 8
@@ -1979,20 +1977,18 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS
   %13 = ptrtoint ptr %retval.0.i.i.i.i to i64
   %and.i.i.i.i.i.i = and i64 %13, -4194304
   %14 = inttoptr i64 %and.i.i.i.i.i.i to ptr
-  %cmp.i.i.i.i.i = icmp eq ptr %12, %14
-  br i1 %cmp.i.i.i.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit, label %land.rhs.i.i.i.i
-
-land.rhs.i.i.i.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
+  %cmp.i.i.i.i.i = icmp ne ptr %12, %14
   %15 = load i8, ptr %ogMarkingBarriers_.i.i.i.i, align 1
   %tobool.i.i.i.i = trunc i8 %15 to i1
-  br i1 %tobool.i.i.i.i, label %if.then.i.i2.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit
+  %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
+  br i1 %or.cond.i.i.i.i, label %if.then.i.i2.i.i, label %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit
 
-if.then.i.i2.i.i:                                 ; preds = %land.rhs.i.i.i.i
+if.then.i.i2.i.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %retval.0.i.i.i.i, align 8
   tail call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i) #15
   br label %_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit
 
-_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i, %land.rhs.i.i.i.i, %if.then.i.i2.i.i
+_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i, %if.then.i.i2.i.i
   %conv.i.i = zext i32 %9 to i64
   %or.i.i.i = or disjoint i64 %conv.i.i, -1125899906842624
   store i64 %or.i.i.i, ptr %retval.0.i.i.i.i, align 8
@@ -2164,8 +2160,9 @@ define hidden void @_ZN6hermes2vm18JSWeakMapBuildMetaEPKNS0_6GCCellERNS0_8Metada
 entry:
   %hasValue_.i.i.i = getelementptr inbounds nuw i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i.i, align 4
-  %tobool.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i, label %_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE51EE21WeakMapOrSetBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split.i
+  %1 = and i8 %0, 1
+  %or.cond.not.i = icmp eq i8 %1, 0
+  br i1 %or.cond.not.i, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split.i, label %_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE51EE21WeakMapOrSetBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
 _ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split.i: ; preds = %entry
   %jsObjectOverlapSlots_.i.i = getelementptr inbounds nuw i8, ptr %mb, i64 208
@@ -2187,8 +2184,9 @@ define hidden void @_ZN6hermes2vm18JSWeakSetBuildMetaEPKNS0_6GCCellERNS0_8Metada
 entry:
   %hasValue_.i.i.i = getelementptr inbounds nuw i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i.i, align 4
-  %tobool.i.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i.i, label %_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE52EE21WeakMapOrSetBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split.i
+  %1 = and i8 %0, 1
+  %or.cond.not.i = icmp eq i8 %1, 0
+  br i1 %or.cond.not.i, label %_ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split.i, label %_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE52EE21WeakMapOrSetBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit
 
 _ZN6hermes2vm17JSWeakMapImplBase24WeakMapImplBaseBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE.exit.sink.split.i: ; preds = %entry
   %jsObjectOverlapSlots_.i.i = getelementptr inbounds nuw i8, ptr %mb, i64 208

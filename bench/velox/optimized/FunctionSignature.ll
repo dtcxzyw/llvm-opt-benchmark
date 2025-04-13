@@ -2304,9 +2304,9 @@ cleanup.done:                                     ; preds = %cond.end.thread, %c
   store i8 %frombool1, ptr %orderableTypesOnly_, align 2
   %comparableTypesOnly_ = getelementptr inbounds nuw i8, ptr %this, i64 67
   store i8 %frombool2, ptr %comparableTypesOnly_, align 1
-  %brmerge = or i1 %orderableTypesOnly, %comaprableTypesOnly
-  %or.cond = or i1 %knownTypesOnly, %brmerge
-  br i1 %or.cond, label %lor.rhs, label %if.end
+  %or.cond = or i1 %knownTypesOnly, %orderableTypesOnly
+  %brmerge = or i1 %or.cond, %comaprableTypesOnly
+  br i1 %brmerge, label %lor.rhs, label %if.end
 
 lor.rhs:                                          ; preds = %cleanup.done
   %cmp.i.not = icmp eq i8 %type, 0

@@ -1691,8 +1691,8 @@ heap_idx_for_size.exit.i:                         ; preds = %21
   %30 = load i16, ptr %29, align 4
   %31 = and i16 %30, 288
   %32 = icmp eq i16 %31, 0
-  %brmerge.not.i = and i1 %6, %32
-  br i1 %brmerge.not.i, label %33, label %76, !prof !191
+  %or.cond.i = and i1 %6, %32
+  br i1 %or.cond.i, label %33, label %76, !prof !191
 
 33:                                               ; preds = %heap_idx_for_size.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -13934,9 +13934,9 @@ define hidden noalias nonnull ptr @rb_xmalloc_mul_add_mul(i64 noundef %0, i64 no
   %11 = extractvalue { i64, i1 } %9, 0
   %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 %11)
   %13 = extractvalue { i64, i1 } %12, 1
-  %narrow.i.i = or i1 %10, %13
-  %narrow16.i.i = or i1 %7, %narrow.i.i
-  br i1 %narrow16.i.i, label %14, label %size_mul_add_mul_or_raise.exit, !prof !79
+  %or.cond.i.i = or i1 %7, %10
+  %narrow.i.i = or i1 %or.cond.i.i, %13
+  br i1 %narrow.i.i, label %14, label %size_mul_add_mul_or_raise.exit, !prof !79
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !62
@@ -13996,9 +13996,9 @@ define hidden noalias noundef nonnull ptr @rb_xcalloc_mul_add_mul(i64 noundef %0
   %11 = extractvalue { i64, i1 } %9, 0
   %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 %11)
   %13 = extractvalue { i64, i1 } %12, 1
-  %narrow.i.i = or i1 %10, %13
-  %narrow16.i.i = or i1 %7, %narrow.i.i
-  br i1 %narrow16.i.i, label %14, label %size_mul_add_mul_or_raise.exit, !prof !79
+  %or.cond.i.i = or i1 %7, %10
+  %narrow.i.i = or i1 %or.cond.i.i, %13
+  br i1 %narrow.i.i, label %14, label %size_mul_add_mul_or_raise.exit, !prof !79
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !62
@@ -26749,9 +26749,13 @@ define internal fastcc nonnull ptr @obj_type_name(i64 noundef %0) unnamed_addr #
 6:                                                ; preds = %1
   %7 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
   %8 = icmp ult i64 %7, 10
-  br i1 %8, label %switch.hole_check, label %9
+  %switch.maskindex = trunc i64 %7 to i16
+  %switch.shifted = lshr i16 547, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %8, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %9
 
-9:                                                ; preds = %switch.hole_check, %6
+9:                                                ; preds = %6
   %10 = and i64 %0, 1
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %11, label %rb_type.exit.thread14
@@ -26885,13 +26889,7 @@ rb_objspace_data_type_name.exit.i:                ; preds = %35
 43:                                               ; preds = %rb_type.exit
   br label %type_name.exit
 
-switch.hole_check:                                ; preds = %6
-  %switch.maskindex = trunc nuw i64 %7 to i16
-  %switch.shifted = lshr i16 547, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %9
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %6
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %type_name.exit
@@ -29649,9 +29647,13 @@ rb_gc_impl_garbage_object_p.exit.thread90.i.i.i:  ; preds = %rb_gc_impl_garbage_
 186:                                              ; preds = %180
   %187 = call i64 @llvm.fshl.i64(i64 %.052105.i.i.i, i64 %.052105.i.i.i, i64 62)
   %188 = icmp ult i64 %187, 10
-  br i1 %188, label %switch.hole_check, label %189
+  %switch.maskindex = trunc i64 %187 to i16
+  %switch.shifted = lshr i16 547, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %188, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %189
 
-189:                                              ; preds = %switch.hole_check, %186
+189:                                              ; preds = %186
   %190 = and i64 %.052105.i.i.i, 1
   %.not.i.i105.i.i = icmp eq i64 %190, 0
   br i1 %.not.i.i105.i.i, label %191, label %obj_type_name.exit106.i.i
@@ -29662,13 +29664,7 @@ rb_gc_impl_garbage_object_p.exit.thread90.i.i.i:  ; preds = %rb_gc_impl_garbage_
   %spec.select.i.i = select i1 %193, ptr @.str.250, ptr @.str.236
   br label %obj_type_name.exit106.i.i
 
-switch.hole_check:                                ; preds = %186
-  %switch.maskindex = trunc nuw i64 %187 to i16
-  %switch.shifted = lshr i16 547, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %189
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %186
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 0, i64 %187
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %obj_type_name.exit106.i.i
@@ -29733,9 +29729,13 @@ RB_FL_TEST.exit87.thread.i.i.i:                   ; preds = %RB_FL_ABLE.exit.i83
 219:                                              ; preds = %214
   %220 = call i64 @llvm.fshl.i64(i64 %.052105.i.i.i, i64 %.052105.i.i.i, i64 62)
   %221 = icmp ult i64 %220, 10
-  br i1 %221, label %switch.hole_check100, label %222
+  %switch.maskindex101 = trunc i64 %220 to i16
+  %switch.shifted102 = lshr i16 547, %switch.maskindex101
+  %switch.lobit103 = trunc i16 %switch.shifted102 to i1
+  %or.cond106 = select i1 %221, i1 %switch.lobit103, i1 false
+  br i1 %or.cond106, label %switch.lookup100, label %222
 
-222:                                              ; preds = %switch.hole_check100, %219
+222:                                              ; preds = %219
   %223 = and i64 %.052105.i.i.i, 1
   %.not.i.i92.i.i = icmp eq i64 %223, 0
   br i1 %.not.i.i92.i.i, label %224, label %rb_type.exit.thread14.i.i.i
@@ -29868,19 +29868,13 @@ rb_objspace_data_type_name.exit.i.i.i.i:          ; preds = %247
 255:                                              ; preds = %rb_type.exit.i.i.i
   br label %obj_type_name.exit.i.i
 
-switch.hole_check100:                             ; preds = %219
-  %switch.maskindex102 = trunc nuw i64 %220 to i16
-  %switch.shifted103 = lshr i16 547, %switch.maskindex102
-  %switch.lobit104 = trunc i16 %switch.shifted103 to i1
-  br i1 %switch.lobit104, label %switch.lookup101, label %222
-
-switch.lookup101:                                 ; preds = %switch.hole_check100
-  %switch.gep105 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 0, i64 %220
-  %switch.load106 = load ptr, ptr %switch.gep105, align 8
+switch.lookup100:                                 ; preds = %219
+  %switch.gep104 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 0, i64 %220
+  %switch.load105 = load ptr, ptr %switch.gep104, align 8
   br label %obj_type_name.exit.i.i
 
-obj_type_name.exit.i.i:                           ; preds = %switch.lookup101, %255, %rb_objspace_data_type_name.exit.i.i.i.i, %247, %246, %245, %244, %243, %rb_type.exit.thread16.i.i.i, %rb_type.exit.thread14.i.i.i, %rb_type.exit.thread12.i.i.i, %rb_type.exit.thread10.i.i.i, %rb_type.exit.thread8.i.i.i, %rb_type.exit.thread6.i.i.i, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %rb_type.exit.thread.i.i.i, %232, %231, %230, %rb_type.exit.i.i.i
-  %.0.i3.i.i.i = phi ptr [ @.str.258, %255 ], [ @.str.256, %246 ], [ @.str.255, %245 ], [ @.str.254, %244 ], [ @.str.253, %243 ], [ @.str.252, %rb_type.exit.thread16.i.i.i ], [ @.str.251, %rb_type.exit.thread14.i.i.i ], [ @.str.250, %rb_type.exit.thread12.i.i.i ], [ @.str.249, %rb_type.exit.thread10.i.i.i ], [ @.str.248, %rb_type.exit.thread8.i.i.i ], [ @.str.247, %rb_type.exit.thread6.i.i.i ], [ @.str.246, %242 ], [ @.str.245, %241 ], [ @.str.244, %240 ], [ @.str.243, %239 ], [ @.str.242, %238 ], [ @.str.241, %237 ], [ @.str.240, %236 ], [ @.str.239, %235 ], [ @.str.238, %234 ], [ @.str.237, %233 ], [ @.str.236, %rb_type.exit.thread.i.i.i ], [ @.str.235, %232 ], [ @.str.234, %231 ], [ @.str.233, %230 ], [ @.str.232, %rb_type.exit.i.i.i ], [ @.str.257, %247 ], [ %spec.select.i4.i.i.i, %rb_objspace_data_type_name.exit.i.i.i.i ], [ %switch.load106, %switch.lookup101 ]
+obj_type_name.exit.i.i:                           ; preds = %switch.lookup100, %255, %rb_objspace_data_type_name.exit.i.i.i.i, %247, %246, %245, %244, %243, %rb_type.exit.thread16.i.i.i, %rb_type.exit.thread14.i.i.i, %rb_type.exit.thread12.i.i.i, %rb_type.exit.thread10.i.i.i, %rb_type.exit.thread8.i.i.i, %rb_type.exit.thread6.i.i.i, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %rb_type.exit.thread.i.i.i, %232, %231, %230, %rb_type.exit.i.i.i
+  %.0.i3.i.i.i = phi ptr [ @.str.258, %255 ], [ @.str.256, %246 ], [ @.str.255, %245 ], [ @.str.254, %244 ], [ @.str.253, %243 ], [ @.str.252, %rb_type.exit.thread16.i.i.i ], [ @.str.251, %rb_type.exit.thread14.i.i.i ], [ @.str.250, %rb_type.exit.thread12.i.i.i ], [ @.str.249, %rb_type.exit.thread10.i.i.i ], [ @.str.248, %rb_type.exit.thread8.i.i.i ], [ @.str.247, %rb_type.exit.thread6.i.i.i ], [ @.str.246, %242 ], [ @.str.245, %241 ], [ @.str.244, %240 ], [ @.str.243, %239 ], [ @.str.242, %238 ], [ @.str.241, %237 ], [ @.str.240, %236 ], [ @.str.239, %235 ], [ @.str.238, %234 ], [ @.str.237, %233 ], [ @.str.236, %rb_type.exit.thread.i.i.i ], [ @.str.235, %232 ], [ @.str.234, %231 ], [ @.str.233, %230 ], [ @.str.232, %rb_type.exit.i.i.i ], [ @.str.257, %247 ], [ %spec.select.i4.i.i.i, %rb_objspace_data_type_name.exit.i.i.i.i ], [ %switch.load105, %switch.lookup100 ]
   %256 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %210, i32 noundef 1, ptr noundef nonnull @.str.418, ptr noundef nonnull %215, ptr noundef nonnull %218, ptr noundef nonnull %.0.i3.i.i.i) #7
   %257 = load i32, ptr %21, align 8, !tbaa !682
   %258 = add i32 %257, 1
@@ -29938,9 +29932,13 @@ verify_internal_consistency_i.exit.i.i:           ; preds = %RVALUE_BLACK_P.exit
 273:                                              ; preds = %270
   %274 = call i64 @llvm.fshl.i64(i64 %266, i64 %266, i64 62)
   %275 = icmp ult i64 %274, 10
-  br i1 %275, label %switch.hole_check108, label %276
+  %switch.maskindex109 = trunc i64 %274 to i16
+  %switch.shifted110 = lshr i16 547, %switch.maskindex109
+  %switch.lobit111 = trunc i16 %switch.shifted110 to i1
+  %or.cond114 = select i1 %275, i1 %switch.lobit111, i1 false
+  br i1 %or.cond114, label %switch.lookup108, label %276
 
-276:                                              ; preds = %switch.hole_check108, %273
+276:                                              ; preds = %273
   %277 = and i64 %266, 1
   %.not.i.i.i.i52.i.i = icmp eq i64 %277, 0
   br i1 %.not.i.i.i.i52.i.i, label %278, label %rb_type.exit.thread14.i.i.i.i.i
@@ -30066,19 +30064,13 @@ rb_objspace_data_type_name.exit.i.i.i.i.i.i:      ; preds = %297
 305:                                              ; preds = %rb_type.exit.i.i.i.i.i
   br label %obj_type_name.exit.i.i.i.i
 
-switch.hole_check108:                             ; preds = %273
-  %switch.maskindex110 = trunc nuw i64 %274 to i16
-  %switch.shifted111 = lshr i16 547, %switch.maskindex110
-  %switch.lobit112 = trunc i16 %switch.shifted111 to i1
-  br i1 %switch.lobit112, label %switch.lookup109, label %276
-
-switch.lookup109:                                 ; preds = %switch.hole_check108
-  %switch.gep113 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 0, i64 %274
-  %switch.load114 = load ptr, ptr %switch.gep113, align 8
+switch.lookup108:                                 ; preds = %273
+  %switch.gep112 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 0, i64 %274
+  %switch.load113 = load ptr, ptr %switch.gep112, align 8
   br label %obj_type_name.exit.i.i.i.i
 
-obj_type_name.exit.i.i.i.i:                       ; preds = %switch.lookup109, %305, %rb_objspace_data_type_name.exit.i.i.i.i.i.i, %297, %296, %295, %294, %293, %rb_type.exit.thread16.i.i.i.i.i, %rb_type.exit.thread14.i.i.i.i.i, %rb_type.exit.thread12.i.i.i.i.i, %rb_type.exit.thread10.i.i.i.i.i, %rb_type.exit.thread8.i.i.i.i.i, %rb_type.exit.thread6.i.i.i.i.i, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %rb_type.exit.thread.i.i.i.i.i, %282, %281, %rb_type.exit.i.i.i.i.i
-  %.0.i3.i.i.i.i.i = phi ptr [ @.str.258, %305 ], [ @.str.256, %296 ], [ @.str.255, %295 ], [ @.str.254, %294 ], [ @.str.253, %293 ], [ @.str.252, %rb_type.exit.thread16.i.i.i.i.i ], [ @.str.251, %rb_type.exit.thread14.i.i.i.i.i ], [ @.str.250, %rb_type.exit.thread12.i.i.i.i.i ], [ @.str.249, %rb_type.exit.thread10.i.i.i.i.i ], [ @.str.248, %rb_type.exit.thread8.i.i.i.i.i ], [ @.str.247, %rb_type.exit.thread6.i.i.i.i.i ], [ @.str.246, %292 ], [ @.str.245, %291 ], [ @.str.244, %290 ], [ @.str.243, %289 ], [ @.str.242, %288 ], [ @.str.241, %287 ], [ @.str.240, %286 ], [ @.str.239, %285 ], [ @.str.238, %284 ], [ @.str.237, %283 ], [ @.str.236, %rb_type.exit.thread.i.i.i.i.i ], [ @.str.235, %282 ], [ @.str.234, %281 ], [ @.str.257, %297 ], [ %spec.select.i4.i.i.i.i.i, %rb_objspace_data_type_name.exit.i.i.i.i.i.i ], [ @.str.233, %rb_type.exit.i.i.i.i.i ], [ %switch.load114, %switch.lookup109 ]
+obj_type_name.exit.i.i.i.i:                       ; preds = %switch.lookup108, %305, %rb_objspace_data_type_name.exit.i.i.i.i.i.i, %297, %296, %295, %294, %293, %rb_type.exit.thread16.i.i.i.i.i, %rb_type.exit.thread14.i.i.i.i.i, %rb_type.exit.thread12.i.i.i.i.i, %rb_type.exit.thread10.i.i.i.i.i, %rb_type.exit.thread8.i.i.i.i.i, %rb_type.exit.thread6.i.i.i.i.i, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %rb_type.exit.thread.i.i.i.i.i, %282, %281, %rb_type.exit.i.i.i.i.i
+  %.0.i3.i.i.i.i.i = phi ptr [ @.str.258, %305 ], [ @.str.256, %296 ], [ @.str.255, %295 ], [ @.str.254, %294 ], [ @.str.253, %293 ], [ @.str.252, %rb_type.exit.thread16.i.i.i.i.i ], [ @.str.251, %rb_type.exit.thread14.i.i.i.i.i ], [ @.str.250, %rb_type.exit.thread12.i.i.i.i.i ], [ @.str.249, %rb_type.exit.thread10.i.i.i.i.i ], [ @.str.248, %rb_type.exit.thread8.i.i.i.i.i ], [ @.str.247, %rb_type.exit.thread6.i.i.i.i.i ], [ @.str.246, %292 ], [ @.str.245, %291 ], [ @.str.244, %290 ], [ @.str.243, %289 ], [ @.str.242, %288 ], [ @.str.241, %287 ], [ @.str.240, %286 ], [ @.str.239, %285 ], [ @.str.238, %284 ], [ @.str.237, %283 ], [ @.str.236, %rb_type.exit.thread.i.i.i.i.i ], [ @.str.235, %282 ], [ @.str.234, %281 ], [ @.str.257, %297 ], [ %spec.select.i4.i.i.i.i.i, %rb_objspace_data_type_name.exit.i.i.i.i.i.i ], [ @.str.233, %rb_type.exit.i.i.i.i.i ], [ %switch.load113, %switch.lookup108 ]
   %306 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %271, i32 noundef 1, ptr noundef nonnull @.str.439, ptr noundef nonnull %.0.i3.i.i.i.i.i) #7
   br label %307
 
@@ -30201,9 +30193,13 @@ obj_type_name.exit.i.i.i.i:                       ; preds = %switch.lookup109, %
 366:                                              ; preds = %360
   %367 = call i64 @llvm.fshl.i64(i64 %.059161.i.i.i.i.i, i64 %.059161.i.i.i.i.i, i64 62)
   %368 = icmp ult i64 %367, 10
-  br i1 %368, label %switch.hole_check116, label %369
+  %switch.maskindex117 = trunc i64 %367 to i16
+  %switch.shifted118 = lshr i16 547, %switch.maskindex117
+  %switch.lobit119 = trunc i16 %switch.shifted118 to i1
+  %or.cond122 = select i1 %368, i1 %switch.lobit119, i1 false
+  br i1 %or.cond122, label %switch.lookup116, label %369
 
-369:                                              ; preds = %switch.hole_check116, %366
+369:                                              ; preds = %366
   %370 = and i64 %.059161.i.i.i.i.i, 1
   %.not.i.i8.i.i.i = icmp eq i64 %370, 0
   br i1 %.not.i.i8.i.i.i, label %371, label %rb_type.exit.thread14.i.i.i.i
@@ -30337,19 +30333,13 @@ rb_objspace_data_type_name.exit.i.i.i.i.i:        ; preds = %395
 403:                                              ; preds = %rb_type.exit.i.i.i.i
   br label %obj_type_name.exit.i.i.i
 
-switch.hole_check116:                             ; preds = %366
-  %switch.maskindex118 = trunc nuw i64 %367 to i16
-  %switch.shifted119 = lshr i16 547, %switch.maskindex118
-  %switch.lobit120 = trunc i16 %switch.shifted119 to i1
-  br i1 %switch.lobit120, label %switch.lookup117, label %369
-
-switch.lookup117:                                 ; preds = %switch.hole_check116
-  %switch.gep121 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 0, i64 %367
-  %switch.load122 = load ptr, ptr %switch.gep121, align 8
+switch.lookup116:                                 ; preds = %366
+  %switch.gep120 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.gc_verify_internal_consistency_m.109, i64 0, i64 %367
+  %switch.load121 = load ptr, ptr %switch.gep120, align 8
   br label %obj_type_name.exit.i.i.i
 
-obj_type_name.exit.i.i.i:                         ; preds = %switch.lookup117, %403, %rb_objspace_data_type_name.exit.i.i.i.i.i, %395, %394, %393, %392, %391, %rb_type.exit.thread16.i.i.i.i, %rb_type.exit.thread14.i.i.i.i, %rb_type.exit.thread12.i.i.i.i, %rb_type.exit.thread10.i.i.i.i, %rb_type.exit.thread8.i.i.i.i, %rb_type.exit.thread6.i.i.i.i, %390, %389, %388, %387, %386, %385, %384, %383, %382, %381, %rb_type.exit.thread.i.i.i.i, %380, %379, %378, %rb_type.exit.i.i.i.i
-  %.0.i3.i.i.i.i = phi ptr [ @.str.258, %403 ], [ @.str.256, %394 ], [ @.str.255, %393 ], [ @.str.254, %392 ], [ @.str.253, %391 ], [ @.str.252, %rb_type.exit.thread16.i.i.i.i ], [ @.str.251, %rb_type.exit.thread14.i.i.i.i ], [ @.str.250, %rb_type.exit.thread12.i.i.i.i ], [ @.str.249, %rb_type.exit.thread10.i.i.i.i ], [ @.str.248, %rb_type.exit.thread8.i.i.i.i ], [ @.str.247, %rb_type.exit.thread6.i.i.i.i ], [ @.str.246, %390 ], [ @.str.245, %389 ], [ @.str.244, %388 ], [ @.str.243, %387 ], [ @.str.242, %386 ], [ @.str.241, %385 ], [ @.str.240, %384 ], [ @.str.239, %383 ], [ @.str.238, %382 ], [ @.str.237, %381 ], [ @.str.236, %rb_type.exit.thread.i.i.i.i ], [ @.str.235, %380 ], [ @.str.234, %379 ], [ @.str.233, %378 ], [ @.str.232, %rb_type.exit.i.i.i.i ], [ @.str.257, %395 ], [ %spec.select.i4.i.i.i.i, %rb_objspace_data_type_name.exit.i.i.i.i.i ], [ %switch.load122, %switch.lookup117 ]
+obj_type_name.exit.i.i.i:                         ; preds = %switch.lookup116, %403, %rb_objspace_data_type_name.exit.i.i.i.i.i, %395, %394, %393, %392, %391, %rb_type.exit.thread16.i.i.i.i, %rb_type.exit.thread14.i.i.i.i, %rb_type.exit.thread12.i.i.i.i, %rb_type.exit.thread10.i.i.i.i, %rb_type.exit.thread8.i.i.i.i, %rb_type.exit.thread6.i.i.i.i, %390, %389, %388, %387, %386, %385, %384, %383, %382, %381, %rb_type.exit.thread.i.i.i.i, %380, %379, %378, %rb_type.exit.i.i.i.i
+  %.0.i3.i.i.i.i = phi ptr [ @.str.258, %403 ], [ @.str.256, %394 ], [ @.str.255, %393 ], [ @.str.254, %392 ], [ @.str.253, %391 ], [ @.str.252, %rb_type.exit.thread16.i.i.i.i ], [ @.str.251, %rb_type.exit.thread14.i.i.i.i ], [ @.str.250, %rb_type.exit.thread12.i.i.i.i ], [ @.str.249, %rb_type.exit.thread10.i.i.i.i ], [ @.str.248, %rb_type.exit.thread8.i.i.i.i ], [ @.str.247, %rb_type.exit.thread6.i.i.i.i ], [ @.str.246, %390 ], [ @.str.245, %389 ], [ @.str.244, %388 ], [ @.str.243, %387 ], [ @.str.242, %386 ], [ @.str.241, %385 ], [ @.str.240, %384 ], [ @.str.239, %383 ], [ @.str.238, %382 ], [ @.str.237, %381 ], [ @.str.236, %rb_type.exit.thread.i.i.i.i ], [ @.str.235, %380 ], [ @.str.234, %379 ], [ @.str.233, %378 ], [ @.str.232, %rb_type.exit.i.i.i.i ], [ @.str.257, %395 ], [ %spec.select.i4.i.i.i.i, %rb_objspace_data_type_name.exit.i.i.i.i.i ], [ %switch.load121, %switch.lookup116 ]
   %404 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %361, i32 noundef 1, ptr noundef nonnull @.str.440, ptr noundef nonnull %.0.i3.i.i.i.i) #7
   br label %405
 

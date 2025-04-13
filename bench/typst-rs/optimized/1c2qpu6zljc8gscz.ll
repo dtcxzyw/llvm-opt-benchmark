@@ -8279,73 +8279,67 @@ define hidden void @"_ZN6flate23zio19Writer$LT$W$C$D$GT$10take_inner17h27f520b28
 define hidden void @"_ZN6flate23zio19Writer$LT$W$C$D$GT$17write_with_status17h1566959aee0251f0E"(ptr noalias noundef writeonly sret({ [8 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %.split.us, label %.split
+  %7 = icmp eq i64 %3, 0
+  br i1 %7, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %4
-  %7 = tail call fastcc noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h257717789127ae2fE"(ptr noalias noundef align 8 dereferenceable(72) %1)
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %.split37.us, label %.split35.us
+  %8 = tail call fastcc noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h257717789127ae2fE"(ptr noalias noundef align 8 dereferenceable(72) %1)
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %.split26.us, label %.split24.us
 
-.split37.us:                                      ; preds = %.split.us
-  %.val14.us = load i64, ptr %6, align 8, !noundef !13
-  %9 = tail call i64 @"_ZN58_$LT$flate2..mem..Compress$u20$as$u20$flate2..zio..Ops$GT$7run_vec17hf4cddf9586e9b33dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i8 noundef 0)
+.split26.us:                                      ; preds = %.split.us
+  %.val16.us = load i64, ptr %6, align 8, !noundef !13
+  %10 = tail call i64 @"_ZN58_$LT$flate2..mem..Compress$u20$as$u20$flate2..zio..Ops$GT$7run_vec17hf4cddf9586e9b33dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i8 noundef 0)
   %.val.us = load i64, ptr %6, align 8, !noundef !13
-  %10 = and i64 %9, 4294967295
-  %11 = icmp eq i64 %10, 2
-  %.sroa.412.0.extract.shift.le55 = lshr i64 %9, 32
-  %.sroa.412.0.extract.trunc.le2956 = trunc i64 %.sroa.412.0.extract.shift.le55 to i8
-  %12 = sub i64 %.val.us, %.val14.us
-  br i1 %11, label %.thread, label %.critedge
+  %11 = and i64 %10, 4294967295
+  %.not.us.not = icmp eq i64 %11, 2
+  br i1 %.not.us.not, label %20, label %22
 
-.split:                                           ; preds = %4, %24
-  %13 = tail call fastcc noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h257717789127ae2fE"(ptr noalias noundef align 8 dereferenceable(72) %1)
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %.split35.us
+.split:                                           ; preds = %4, %14
+  %12 = tail call fastcc noundef ptr @"_ZN6flate23zio19Writer$LT$W$C$D$GT$4dump17h257717789127ae2fE"(ptr noalias noundef align 8 dereferenceable(72) %1)
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %.split24.us
 
-15:                                               ; preds = %.split
-  %.val14 = load i64, ptr %6, align 8, !noundef !13
-  %16 = tail call i64 @"_ZN58_$LT$flate2..mem..Compress$u20$as$u20$flate2..zio..Ops$GT$7run_vec17hf4cddf9586e9b33dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i8 noundef 0)
+14:                                               ; preds = %.split
+  %.val16 = load i64, ptr %6, align 8, !noundef !13
+  %15 = tail call i64 @"_ZN58_$LT$flate2..mem..Compress$u20$as$u20$flate2..zio..Ops$GT$7run_vec17hf4cddf9586e9b33dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i8 noundef 0)
   %.val = load i64, ptr %6, align 8, !noundef !13
-  %17 = and i64 %16, 4294967295
-  %18 = icmp eq i64 %17, 2
-  %19 = and i64 %16, 1095216660480
-  %20 = icmp eq i64 %19, 8589934592
-  %21 = icmp eq i64 %.val, %.val14
-  br i1 %21, label %23, label %.split37
+  %16 = and i64 %15, 4294967295
+  %.not = icmp ne i64 %16, 2
+  %17 = and i64 %15, 1095216660480
+  %18 = icmp eq i64 %17, 8589934592
+  %or.cond2 = or i1 %.not, %18
+  %19 = icmp ne i64 %.val, %.val16
+  %brmerge = select i1 %19, i1 true, i1 %or.cond2
+  br i1 %brmerge, label %.split26, label %.split
 
-.split35.us:                                      ; preds = %.split, %.split.us
-  %.us-phi = phi ptr [ %7, %.split.us ], [ %13, %.split ]
+.split24.us:                                      ; preds = %.split, %.split.us
+  %.us-phi = phi ptr [ %8, %.split.us ], [ %12, %.split ]
   store ptr %.us-phi, ptr %0, align 8
-  br label %27
+  br label %24
 
-.split37:                                         ; preds = %15
-  %.sroa.412.0.extract.shift.le = lshr i64 %16, 32
-  %.sroa.412.0.extract.trunc.le29 = trunc i64 %.sroa.412.0.extract.shift.le to i8
-  %22 = sub i64 %.val, %.val14
-  br i1 %18, label %.thread, label %.critedge
+.split26:                                         ; preds = %14
+  br i1 %.not, label %22, label %20
 
-23:                                               ; preds = %15
-  br i1 %18, label %24, label %.critedge
+20:                                               ; preds = %.split26.us, %.split26
+  %.us-phi2935 = phi i64 [ %.val.us, %.split26.us ], [ %.val, %.split26 ]
+  %.us-phi2834 = phi i64 [ %.val16.us, %.split26.us ], [ %.val16, %.split26 ]
+  %.us-phi2733 = phi i64 [ %10, %.split26.us ], [ %15, %.split26 ]
+  %21 = sub i64 %.us-phi2935, %.us-phi2834
+  %.sroa.414.0.extract.shift.le = lshr i64 %.us-phi2733, 32
+  %.sroa.414.0.extract.trunc.le = trunc i64 %.sroa.414.0.extract.shift.le to i8
+  store i64 %21, ptr %0, align 8
+  br label %24
 
-24:                                               ; preds = %23
-  br i1 %20, label %.thread, label %.split
+22:                                               ; preds = %.split26.us, %.split26
+  %23 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hc3ef7541a3e6296eE(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.136, i64 noundef 22)
+  store ptr %23, ptr %0, align 8
+  br label %24
 
-.thread:                                          ; preds = %24, %.split37.us, %.split37
-  %.sroa.412.0.extract.trunc26 = phi i8 [ %.sroa.412.0.extract.trunc.le29, %.split37 ], [ %.sroa.412.0.extract.trunc.le2956, %.split37.us ], [ 2, %24 ]
-  %25 = phi i64 [ %22, %.split37 ], [ %12, %.split37.us ], [ 0, %24 ]
-  store i64 %25, ptr %0, align 8
-  br label %27
-
-.critedge:                                        ; preds = %23, %.split37.us, %.split37
-  %26 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hc3ef7541a3e6296eE(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.136, i64 noundef 22)
-  store ptr %26, ptr %0, align 8
-  br label %27
-
-27:                                               ; preds = %.critedge, %.thread, %.split35.us
-  %.sink = phi i8 [ 3, %.critedge ], [ %.sroa.412.0.extract.trunc26, %.thread ], [ 3, %.split35.us ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %28, align 8
+24:                                               ; preds = %22, %20, %.split24.us
+  %.sink = phi i8 [ 3, %22 ], [ %.sroa.414.0.extract.trunc.le, %20 ], [ 3, %.split24.us ]
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %25, align 8
   ret void
 }
 

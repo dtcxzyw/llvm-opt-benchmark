@@ -188,9 +188,13 @@ define hidden noundef zeroext i1 @display_column_strings(i32 noundef %0, ptr nou
   %23 = load i32, ptr %22, align 8
   %switch.tableidx = add i32 %23, -2
   %24 = icmp ult i32 %switch.tableidx, 43
-  br i1 %24, label %switch.hole_check, label %25
+  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
+  %switch.shifted = lshr i64 4985785942017, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond = select i1 %24, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.loopexit, label %25
 
-25:                                               ; preds = %switch.hole_check, %20
+25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not46 = icmp eq ptr %27, null
@@ -199,27 +203,19 @@ define hidden noundef zeroext i1 @display_column_strings(i32 noundef %0, ptr nou
 28:                                               ; preds = %25
   %switch.tableidx102 = add i32 %23, -3
   %29 = icmp ult i32 %switch.tableidx102, 33
-  br i1 %29, label %switch.hole_check103, label %30
+  %switch.maskindex105 = zext nneg i32 %switch.tableidx102 to i64
+  %switch.shifted106 = lshr i64 4295098367, %switch.maskindex105
+  %switch.lobit107 = trunc i64 %switch.shifted106 to i1
+  %or.cond108 = select i1 %29, i1 %switch.lobit107, i1 false
+  br i1 %or.cond108, label %.loopexit, label %30
 
-30:                                               ; preds = %switch.hole_check103, %28, %25, %.lr.ph
+30:                                               ; preds = %28, %25, %.lr.ph
   %31 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %31, %12
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
-switch.hole_check:                                ; preds = %20
-  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
-  %switch.shifted = lshr i64 4985785942017, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %.loopexit, label %25
-
-switch.hole_check103:                             ; preds = %28
-  %switch.maskindex105 = zext nneg i32 %switch.tableidx102 to i64
-  %switch.shifted106 = lshr i64 4295098367, %switch.maskindex105
-  %switch.lobit107 = trunc i64 %switch.shifted106 to i1
-  br i1 %switch.lobit107, label %.loopexit, label %30
-
-.loopexit:                                        ; preds = %30, %switch.hole_check, %switch.hole_check103, %9, %3, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %3 ], [ false, %9 ], [ true, %switch.hole_check103 ], [ true, %switch.hole_check ], [ false, %30 ]
+.loopexit:                                        ; preds = %30, %20, %28, %9, %3, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %3 ], [ false, %9 ], [ true, %28 ], [ true, %20 ], [ false, %30 ]
   ret i1 %.0
 }
 

@@ -995,8 +995,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKjEEEvNS_10source_locE
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %34
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %34
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
@@ -26748,8 +26748,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger5errorIA37_cEEvRKT_(ptr nounde
   %8 = icmp slt i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %9)
-  %brmerge.i.i.i = or i1 %8, %10
-  br i1 %brmerge.i.i.i, label %11, label %_ZN6spdlog6logger3logIA37_cEEvNS_5level10level_enumERKT_.exit
+  %or.cond.i.i.i = or i1 %8, %10
+  br i1 %or.cond.i.i.i, label %11, label %_ZN6spdlog6logger3logIA37_cEEvNS_5level10level_enumERKT_.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8

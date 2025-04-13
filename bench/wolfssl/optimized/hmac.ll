@@ -1008,15 +1008,13 @@ define i32 @wc_HKDF_Extract_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, p
   call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %10) #8
   %switch.tableidx = add i32 %0, -3
   %11 = icmp ult i32 %switch.tableidx, 11
-  br i1 %11, label %switch.hole_check, label %wc_HmacSizeByType.exit
-
-switch.hole_check:                                ; preds = %8
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %wc_HmacSizeByType.exit
+  %or.cond = select i1 %11, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %wc_HmacSizeByType.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %8
   %12 = icmp eq ptr %1, null
   br i1 %12, label %13, label %16
 
@@ -1052,8 +1050,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   call void @wc_HmacFree(ptr noundef nonnull %10)
   br label %wc_HmacSizeByType.exit
 
-wc_HmacSizeByType.exit:                           ; preds = %switch.hole_check, %8, %.thread
-  %.0 = phi i32 [ %.2, %.thread ], [ -173, %8 ], [ -173, %switch.hole_check ]
+wc_HmacSizeByType.exit:                           ; preds = %8, %.thread
+  %.0 = phi i32 [ %.2, %.thread ], [ -173, %8 ]
   call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #8
   ret i32 %.0
@@ -1067,15 +1065,13 @@ define i32 @wc_HKDF_Extract(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr 
   call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %8) #8
   %switch.tableidx = add i32 %0, -3
   %9 = icmp ult i32 %switch.tableidx, 11
-  br i1 %9, label %switch.hole_check, label %wc_HKDF_Extract_ex.exit
-
-switch.hole_check:                                ; preds = %6
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %wc_HKDF_Extract_ex.exit
+  %or.cond = select i1 %9, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %wc_HKDF_Extract_ex.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %6
   %10 = icmp eq ptr %1, null
   br i1 %10, label %11, label %14
 
@@ -1109,8 +1105,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   call void @wc_HmacFree(ptr noundef nonnull %8)
   br label %wc_HKDF_Extract_ex.exit
 
-wc_HKDF_Extract_ex.exit:                          ; preds = %switch.hole_check, %6, %.thread.i
-  %.0.i = phi i32 [ %.2.i, %.thread.i ], [ -173, %6 ], [ -173, %switch.hole_check ]
+wc_HKDF_Extract_ex.exit:                          ; preds = %6, %.thread.i
+  %.0.i = phi i32 [ %.2.i, %.thread.i ], [ -173, %6 ]
   call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #8
   ret i32 %.0.i
@@ -1127,15 +1123,13 @@ define i32 @wc_HKDF_Expand_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, pt
   store i8 1, ptr %12, align 1, !tbaa !10
   %switch.tableidx = add i32 %0, -3
   %13 = icmp ult i32 %switch.tableidx, 11
-  br i1 %13, label %switch.hole_check, label %wc_HmacSizeByType.exit
-
-switch.hole_check:                                ; preds = %9
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 1983, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %wc_HmacSizeByType.exit
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %wc_HmacSizeByType.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %9
   %14 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -1207,8 +1201,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   call void @wc_HmacFree(ptr noundef nonnull %11)
   br label %wc_HmacSizeByType.exit
 
-wc_HmacSizeByType.exit:                           ; preds = %switch.hole_check, %9, %switch.lookup, %16, %.thread
-  %.0 = phi i32 [ %.1, %.thread ], [ -173, %16 ], [ -173, %switch.lookup ], [ -173, %9 ], [ -173, %switch.hole_check ]
+wc_HmacSizeByType.exit:                           ; preds = %9, %switch.lookup, %16, %.thread
+  %.0 = phi i32 [ %.1, %.thread ], [ -173, %16 ], [ -173, %switch.lookup ], [ -173, %9 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #8
   call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %11) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8

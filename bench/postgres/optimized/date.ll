@@ -4192,65 +4192,73 @@ define dso_local range(i64 0, 2) i64 @overlaps_time(ptr noundef captures(none) %
 
 24:                                               ; preds = %23
   %spec.select = tail call i64 @llvm.smax.i64(i64 %3, i64 %5)
-  %spec.select53 = tail call i64 @llvm.smin.i64(i64 %3, i64 %5)
+  %spec.select54 = tail call i64 @llvm.smin.i64(i64 %3, i64 %5)
   br label %25
 
 25:                                               ; preds = %24, %22, %23
-  %.050 = phi i1 [ true, %23 ], [ true, %22 ], [ false, %24 ]
-  %.049 = phi i64 [ %5, %23 ], [ %5, %22 ], [ %spec.select, %24 ]
-  %.047 = phi i64 [ %3, %23 ], [ %5, %22 ], [ %spec.select53, %24 ]
+  %.051 = phi i8 [ 1, %23 ], [ 1, %22 ], [ 0, %24 ]
+  %.050 = phi i64 [ %5, %23 ], [ %5, %22 ], [ %spec.select, %24 ]
+  %.048 = phi i64 [ %3, %23 ], [ %5, %22 ], [ %spec.select54, %24 ]
   br i1 %18, label %26, label %27
 
 26:                                               ; preds = %25
-  br i1 %21, label %.sink.split, label %28
+  br i1 %21, label %.sink.split, label %29
 
 27:                                               ; preds = %25
-  br i1 %21, label %28, label %.thread
+  br i1 %21, label %29, label %28
 
-28:                                               ; preds = %26, %27
-  %.051 = phi i64 [ %7, %27 ], [ %9, %26 ]
-  %29 = icmp sgt i64 %.047, %.051
-  br i1 %29, label %.sink.split, label %33
+28:                                               ; preds = %27
+  %spec.select55 = tail call i64 @llvm.smax.i64(i64 %7, i64 %9)
+  %spec.select56 = tail call i64 @llvm.smin.i64(i64 %7, i64 %9)
+  br label %29
 
-.thread:                                          ; preds = %27
-  %spec.select55 = tail call i64 @llvm.smin.i64(i64 %7, i64 %9)
-  %30 = icmp sgt i64 %.047, %spec.select55
-  br i1 %30, label %31, label %33
+29:                                               ; preds = %28, %26, %27
+  %.053 = phi i64 [ %9, %27 ], [ %9, %26 ], [ %spec.select55, %28 ]
+  %.052 = phi i64 [ %7, %27 ], [ %9, %26 ], [ %spec.select56, %28 ]
+  %.049 = phi i8 [ 1, %27 ], [ 1, %26 ], [ 0, %28 ]
+  %30 = icmp sgt i64 %.048, %.052
+  br i1 %30, label %31, label %37
 
-31:                                               ; preds = %.thread
-  %spec.select54 = tail call i64 @llvm.smax.i64(i64 %7, i64 %9)
-  %32 = icmp sge i64 %.047, %spec.select54
-  %brmerge.not = and i1 %32, %.050
-  %not.59 = xor i1 %32, true
-  br i1 %brmerge.not, label %.sink.split, label %40
+31:                                               ; preds = %29
+  %32 = trunc nuw i8 %.049 to i1
+  br i1 %32, label %.sink.split, label %33
 
-33:                                               ; preds = %.thread, %28
-  %.04866 = phi i1 [ false, %.thread ], [ true, %28 ]
-  %.05164 = phi i64 [ %spec.select55, %.thread ], [ %.051, %28 ]
-  %34 = icmp slt i64 %.047, %.05164
-  br i1 %34, label %35, label %38
+33:                                               ; preds = %31
+  %34 = icmp slt i64 %.048, %.053
+  br i1 %34, label %48, label %35
 
 35:                                               ; preds = %33
-  br i1 %.050, label %.sink.split, label %36
+  %36 = trunc nuw i8 %.051 to i1
+  br i1 %36, label %.sink.split, label %48
 
-36:                                               ; preds = %35
-  %37 = icmp sge i64 %.05164, %.049
-  %brmerge56.not = and i1 %37, %.04866
-  %not. = xor i1 %37, true
-  br i1 %brmerge56.not, label %.sink.split, label %40
+37:                                               ; preds = %29
+  %38 = icmp slt i64 %.048, %.052
+  br i1 %38, label %39, label %45
 
-38:                                               ; preds = %33
-  %brmerge58 = or i1 %.050, %.04866
-  br i1 %brmerge58, label %.sink.split, label %40
+39:                                               ; preds = %37
+  %40 = trunc nuw i8 %.051 to i1
+  br i1 %40, label %.sink.split, label %41
 
-.sink.split:                                      ; preds = %38, %36, %35, %31, %28, %26, %22
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %39, align 4
-  br label %40
+41:                                               ; preds = %39
+  %42 = icmp slt i64 %.052, %.050
+  br i1 %42, label %48, label %43
 
-40:                                               ; preds = %.sink.split, %38, %36, %31
-  %.0.shrunk = phi i1 [ %not.59, %31 ], [ %not., %36 ], [ true, %38 ], [ false, %.sink.split ]
-  %.0 = zext i1 %.0.shrunk to i64
+43:                                               ; preds = %41
+  %44 = trunc nuw i8 %.049 to i1
+  br i1 %44, label %.sink.split, label %48
+
+45:                                               ; preds = %37
+  %46 = or i8 %.049, %.051
+  %or.cond.not = icmp eq i8 %46, 0
+  br i1 %or.cond.not, label %48, label %.sink.split
+
+.sink.split:                                      ; preds = %45, %43, %39, %35, %31, %26, %22
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %47, align 4
+  br label %48
+
+48:                                               ; preds = %.sink.split, %45, %43, %41, %35, %33
+  %.0 = phi i64 [ 1, %33 ], [ 0, %35 ], [ 1, %41 ], [ 0, %43 ], [ 1, %45 ], [ 0, %.sink.split ]
   ret i64 %.0
 }
 
@@ -5906,72 +5914,79 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr noundef captures(none)
   %25 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %3, i64 noundef %5) #16
   %.not = icmp eq i64 %25, 0
   %spec.select = select i1 %.not, i64 %5, i64 %3
-  %spec.select53 = select i1 %.not, i64 %3, i64 %5
+  %spec.select54 = select i1 %.not, i64 %3, i64 %5
   br label %26
 
 26:                                               ; preds = %24, %22, %23
-  %.050 = phi i1 [ true, %23 ], [ true, %22 ], [ false, %24 ]
-  %.049 = phi i64 [ %5, %23 ], [ %5, %22 ], [ %spec.select, %24 ]
-  %.047 = phi i64 [ %3, %23 ], [ %5, %22 ], [ %spec.select53, %24 ]
+  %.051 = phi i8 [ 1, %23 ], [ 1, %22 ], [ 0, %24 ]
+  %.050 = phi i64 [ %5, %23 ], [ %5, %22 ], [ %spec.select, %24 ]
+  %.048 = phi i64 [ %3, %23 ], [ %5, %22 ], [ %spec.select54, %24 ]
   br i1 %18, label %27, label %28
 
 27:                                               ; preds = %26
-  br i1 %21, label %.sink.split, label %29
+  br i1 %21, label %.sink.split, label %31
 
 28:                                               ; preds = %26
-  br i1 %21, label %29, label %.thread
+  br i1 %21, label %31, label %29
 
-29:                                               ; preds = %27, %28
-  %.051 = phi i64 [ %7, %28 ], [ %9, %27 ]
-  %30 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %.047, i64 noundef %.051) #16
+29:                                               ; preds = %28
+  %30 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %7, i64 noundef %9) #16
   %.not57 = icmp eq i64 %30, 0
-  br i1 %.not57, label %35, label %.sink.split
+  %spec.select55 = select i1 %.not57, i64 %9, i64 %7
+  %spec.select56 = select i1 %.not57, i64 %7, i64 %9
+  br label %31
 
-.thread:                                          ; preds = %28
-  %31 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %7, i64 noundef %9) #16
-  %.not56 = icmp eq i64 %31, 0
-  %spec.select55 = select i1 %.not56, i64 %7, i64 %9
-  %32 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %.047, i64 noundef %spec.select55) #16
-  %.not5767 = icmp eq i64 %32, 0
-  br i1 %.not5767, label %35, label %33
+31:                                               ; preds = %29, %27, %28
+  %.053 = phi i64 [ %9, %28 ], [ %9, %27 ], [ %spec.select55, %29 ]
+  %.052 = phi i64 [ %7, %28 ], [ %9, %27 ], [ %spec.select56, %29 ]
+  %.049 = phi i8 [ 1, %28 ], [ 1, %27 ], [ 0, %29 ]
+  %32 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %.048, i64 noundef %.052) #16
+  %.not58 = icmp eq i64 %32, 0
+  br i1 %.not58, label %39, label %33
 
-33:                                               ; preds = %.thread
-  %spec.select54 = select i1 %.not56, i64 %9, i64 %7
-  %34 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.047, i64 noundef %spec.select54) #16
-  %.not60 = icmp eq i64 %34, 0
-  %brmerge.not = and i1 %.not60, %.050
-  %not..not60 = xor i1 %.not60, true
-  br i1 %brmerge.not, label %.sink.split, label %42
+33:                                               ; preds = %31
+  %34 = trunc nuw i8 %.049 to i1
+  br i1 %34, label %.sink.split, label %35
 
-35:                                               ; preds = %.thread, %29
-  %.04871 = phi i1 [ false, %.thread ], [ true, %29 ]
-  %.05169 = phi i64 [ %spec.select55, %.thread ], [ %.051, %29 ]
-  %36 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.047, i64 noundef %.05169) #16
-  %.not58 = icmp eq i64 %36, 0
-  br i1 %.not58, label %40, label %37
+35:                                               ; preds = %33
+  %36 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.048, i64 noundef %.053) #16
+  %.not61 = icmp eq i64 %36, 0
+  br i1 %.not61, label %37, label %50
 
 37:                                               ; preds = %35
-  br i1 %.050, label %.sink.split, label %38
+  %38 = trunc nuw i8 %.051 to i1
+  br i1 %38, label %.sink.split, label %50
 
-38:                                               ; preds = %37
-  %39 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.05169, i64 noundef %.049) #16
-  %.not59 = icmp eq i64 %39, 0
-  %brmerge61.not = and i1 %.not59, %.04871
-  %not..not59 = xor i1 %.not59, true
-  br i1 %brmerge61.not, label %.sink.split, label %42
+39:                                               ; preds = %31
+  %40 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.048, i64 noundef %.052) #16
+  %.not59 = icmp eq i64 %40, 0
+  br i1 %.not59, label %47, label %41
 
-40:                                               ; preds = %35
-  %brmerge63 = or i1 %.050, %.04871
-  br i1 %brmerge63, label %.sink.split, label %42
+41:                                               ; preds = %39
+  %42 = trunc nuw i8 %.051 to i1
+  br i1 %42, label %.sink.split, label %43
 
-.sink.split:                                      ; preds = %40, %38, %37, %33, %29, %27, %22
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %41, align 4
-  br label %42
+43:                                               ; preds = %41
+  %44 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.052, i64 noundef %.050) #16
+  %.not60 = icmp eq i64 %44, 0
+  br i1 %.not60, label %45, label %50
 
-42:                                               ; preds = %.sink.split, %40, %38, %33
-  %.0.shrunk = phi i1 [ %not..not60, %33 ], [ %not..not59, %38 ], [ true, %40 ], [ false, %.sink.split ]
-  %.0 = zext i1 %.0.shrunk to i64
+45:                                               ; preds = %43
+  %46 = trunc nuw i8 %.049 to i1
+  br i1 %46, label %.sink.split, label %50
+
+47:                                               ; preds = %39
+  %48 = or i8 %.049, %.051
+  %or.cond.not = icmp eq i8 %48, 0
+  br i1 %or.cond.not, label %50, label %.sink.split
+
+.sink.split:                                      ; preds = %47, %45, %41, %37, %33, %27, %22
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %49, align 4
+  br label %50
+
+50:                                               ; preds = %.sink.split, %47, %45, %43, %37, %35
+  %.0 = phi i64 [ 1, %35 ], [ 0, %37 ], [ 1, %43 ], [ 0, %45 ], [ 1, %47 ], [ 0, %.sink.split ]
   ret i64 %.0
 }
 

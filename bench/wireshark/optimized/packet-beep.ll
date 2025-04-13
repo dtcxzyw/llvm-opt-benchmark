@@ -1153,45 +1153,41 @@ define internal fastcc range(i32 -1, 3) i32 @check_term(ptr noundef %0, ptr noun
 11:                                               ; preds = %7
   %12 = load i32, ptr @hf_beep_crlf_terminator, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef 0)
-  br label %35
+  br label %33
 
 14:                                               ; preds = %7, %4
   %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
-  %16 = icmp eq i8 %15, 13
-  br i1 %16, label %17, label %22
+  %16 = icmp ne i8 %15, 13
+  %17 = load i8, ptr @global_beep_strict_term, align 1, !range !6
+  %18 = trunc nuw i8 %17 to i1
+  %or.cond = select i1 %16, i1 true, i1 %18
+  br i1 %or.cond, label %21, label %19
 
-17:                                               ; preds = %14
-  %18 = load i8, ptr @global_beep_strict_term, align 1, !range !6, !noundef !7
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %22, label %20
+19:                                               ; preds = %14
+  %20 = tail call ptr @proto_tree_add_expert(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_beep_cr_terminator, ptr noundef %0, i32 noundef %2, i32 noundef 1)
+  br label %33
 
-20:                                               ; preds = %17
-  %21 = tail call ptr @proto_tree_add_expert(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_beep_cr_terminator, ptr noundef %0, i32 noundef %2, i32 noundef 1)
-  br label %35
+21:                                               ; preds = %14
+  %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
+  %23 = icmp ne i8 %22, 10
+  %24 = load i8, ptr @global_beep_strict_term, align 1, !range !6
+  %25 = trunc nuw i8 %24 to i1
+  %or.cond3 = select i1 %23, i1 true, i1 %25
+  br i1 %or.cond3, label %28, label %26
 
-22:                                               ; preds = %17, %14
-  %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
-  %24 = icmp eq i8 %23, 10
-  br i1 %24, label %25, label %30
+26:                                               ; preds = %21
+  %27 = tail call ptr @proto_tree_add_expert(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_beep_lf_terminator, ptr noundef %0, i32 noundef %2, i32 noundef 1)
+  br label %33
 
-25:                                               ; preds = %22
-  %26 = load i8, ptr @global_beep_strict_term, align 1, !range !6, !noundef !7
-  %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %30, label %28
+28:                                               ; preds = %21
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call ptr @tvb_format_text(ptr noundef %30, ptr noundef %0, i32 noundef %2, i32 noundef 2)
+  %32 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_beep_invalid_terminator, ptr noundef %0, i32 noundef %2, i32 noundef 1, ptr noundef nonnull @.str.66, ptr noundef %31)
+  br label %33
 
-28:                                               ; preds = %25
-  %29 = tail call ptr @proto_tree_add_expert(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_beep_lf_terminator, ptr noundef %0, i32 noundef %2, i32 noundef 1)
-  br label %35
-
-30:                                               ; preds = %25, %22
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call ptr @tvb_format_text(ptr noundef %32, ptr noundef %0, i32 noundef %2, i32 noundef 2)
-  %34 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_beep_invalid_terminator, ptr noundef %0, i32 noundef %2, i32 noundef 1, ptr noundef nonnull @.str.66, ptr noundef %33)
-  br label %35
-
-35:                                               ; preds = %30, %28, %20, %11
-  %.0 = phi i32 [ 2, %11 ], [ -1, %30 ], [ 1, %28 ], [ 1, %20 ]
+33:                                               ; preds = %28, %26, %19, %11
+  %.0 = phi i32 [ 2, %11 ], [ -1, %28 ], [ 1, %26 ], [ 1, %19 ]
   ret i32 %.0
 }
 

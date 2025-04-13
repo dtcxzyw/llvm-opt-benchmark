@@ -211,40 +211,38 @@ _ZN3tbb6detail2r123concurrent_monitor_baseImE11commit_waitERNS1_9wait_nodeImEE.e
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 33
   %30 = load i8, ptr %29, align 1, !tbaa !35, !range !36, !noundef !37
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 34
+  %33 = load i8, ptr %32, align 2, !range !36
+  %34 = trunc nuw i8 %33 to i1
+  %or.cond.i = select i1 %31, i1 %34, i1 false
+  br i1 %or.cond.i, label %35, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit
 
-32:                                               ; preds = %"_ZN3tbb6detail2r123concurrent_monitor_baseImE4waitINS1_10sleep_nodeImEEZNS1_26wait_bounded_queue_monitorEPNS1_18concurrent_monitorEmlRNS0_2d113delegate_baseEE3$_0EEbOT0_OT_.exit"
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 34
-  %34 = load i8, ptr %33, align 2, !tbaa !38, !range !36, !noundef !37
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit
+35:                                               ; preds = %"_ZN3tbb6detail2r123concurrent_monitor_baseImE4waitINS1_10sleep_nodeImEEZNS1_26wait_bounded_queue_monitorEPNS1_18concurrent_monitorEmlRNS0_2d113delegate_baseEE3$_0EEbOT0_OT_.exit"
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %37 = cmpxchg ptr %36, i32 0, i32 1 seq_cst seq_cst, align 4
+  %38 = extractvalue { i32, i1 } %37, 1
+  br i1 %38, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit, label %39
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %38 = cmpxchg ptr %37, i32 0, i32 1 seq_cst seq_cst, align 4
-  %39 = extractvalue { i32, i1 } %38, 1
-  br i1 %39, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit, label %40
+39:                                               ; preds = %35
+  %40 = extractvalue { i32, i1 } %37, 0
+  %.not.i.i = icmp eq i32 %40, 2
+  br i1 %.not.i.i, label %.lr.ph.i.i.preheader, label %41
 
-40:                                               ; preds = %36
-  %41 = extractvalue { i32, i1 } %38, 0
-  %.not.i.i = icmp eq i32 %41, 2
-  br i1 %.not.i.i, label %.lr.ph.i.i.preheader, label %42
+41:                                               ; preds = %39
+  %42 = atomicrmw xchg ptr %36, i32 2 seq_cst, align 4
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit, label %.lr.ph.i.i.preheader
 
-42:                                               ; preds = %40
-  %43 = atomicrmw xchg ptr %37, i32 2 seq_cst, align 4
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit, label %.lr.ph.i.i.preheader
-
-.lr.ph.i.i.preheader:                             ; preds = %42, %40
+.lr.ph.i.i.preheader:                             ; preds = %41, %39
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %45 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %37, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #9
-  %46 = atomicrmw xchg ptr %37, i32 2 seq_cst, align 4
-  %.not1.i.i = icmp eq i32 %46, 0
-  br i1 %.not1.i.i, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !39
+  %44 = call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %36, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #9
+  %45 = atomicrmw xchg ptr %36, i32 2 seq_cst, align 4
+  %.not1.i.i = icmp eq i32 %45, 0
+  br i1 %.not1.i.i, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !38
 
-_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit:        ; preds = %.lr.ph.i.i, %"_ZN3tbb6detail2r123concurrent_monitor_baseImE4waitINS1_10sleep_nodeImEEZNS1_26wait_bounded_queue_monitorEPNS1_18concurrent_monitorEmlRNS0_2d113delegate_baseEE3$_0EEbOT0_OT_.exit", %32, %36, %42
+_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit:        ; preds = %.lr.ph.i.i, %"_ZN3tbb6detail2r123concurrent_monitor_baseImE4waitINS1_10sleep_nodeImEEZNS1_26wait_bounded_queue_monitorEPNS1_18concurrent_monitorEmlRNS0_2d113delegate_baseEE3$_0EEbOT0_OT_.exit", %35, %41
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
   ret void
 
@@ -273,40 +271,38 @@ define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeImED2Ev(ptr noundef nonnu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %3 = load i8, ptr %2, align 1, !tbaa !35, !range !36, !noundef !37
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  %6 = load i8, ptr %5, align 2, !range !36
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond, label %8, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %7 = load i8, ptr %6, align 2, !tbaa !38, !range !36, !noundef !37
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = cmpxchg ptr %9, i32 0, i32 1 seq_cst seq_cst, align 4
+  %11 = extractvalue { i32, i1 } %10, 1
+  br i1 %11, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %12
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = cmpxchg ptr %10, i32 0, i32 1 seq_cst seq_cst, align 4
-  %12 = extractvalue { i32, i1 } %11, 1
-  br i1 %12, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %13
+12:                                               ; preds = %8
+  %13 = extractvalue { i32, i1 } %10, 0
+  %.not.i = icmp eq i32 %13, 2
+  br i1 %.not.i, label %.lr.ph.i.preheader, label %14
 
-13:                                               ; preds = %9
-  %14 = extractvalue { i32, i1 } %11, 0
-  %.not.i = icmp eq i32 %14, 2
-  br i1 %.not.i, label %.lr.ph.i.preheader, label %15
+14:                                               ; preds = %12
+  %15 = atomicrmw xchg ptr %9, i32 2 seq_cst, align 4
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %.lr.ph.i.preheader
 
-15:                                               ; preds = %13
-  %16 = atomicrmw xchg ptr %10, i32 2 seq_cst, align 4
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %15, %13
+.lr.ph.i.preheader:                               ; preds = %14, %12
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %18 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #9
-  %19 = atomicrmw xchg ptr %10, i32 2 seq_cst, align 4
-  %.not1.i = icmp eq i32 %19, 0
-  br i1 %.not1.i, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %.lr.ph.i, !llvm.loop !39
+  %17 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #9
+  %18 = atomicrmw xchg ptr %9, i32 2 seq_cst, align 4
+  %.not1.i = icmp eq i32 %18, 0
+  br i1 %.not1.i, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %.lr.ph.i, !llvm.loop !38
 
-_ZN3tbb6detail2r116binary_semaphore1PEv.exit:     ; preds = %.lr.ph.i, %15, %9, %5, %1
+_ZN3tbb6detail2r116binary_semaphore1PEv.exit:     ; preds = %.lr.ph.i, %14, %8, %1
   ret void
 }
 
@@ -334,7 +330,7 @@ define void @_ZN3tbb6detail2r128notify_bounded_queue_monitorEPNS1_18concurrent_m
   %5 = alloca %"struct.tbb::detail::r1::predicate_leq", align 8
   %6 = getelementptr inbounds nuw %"class.tbb::detail::r1::concurrent_monitor", ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  store i64 %2, ptr %5, align 8, !tbaa !40
+  store i64 %2, ptr %5, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
   store i8 0, ptr %4, align 1, !tbaa !10
   call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, ptr nonnull elementtype(i8) %4) #9, !srcloc !11
@@ -362,40 +358,38 @@ define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeImED0Ev(ptr noundef nonnu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %3 = load i8, ptr %2, align 1, !tbaa !35, !range !36, !noundef !37
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  %6 = load i8, ptr %5, align 2, !range !36
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond.i = select i1 %4, i1 %7, i1 false
+  br i1 %or.cond.i, label %8, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %7 = load i8, ptr %6, align 2, !tbaa !38, !range !36, !noundef !37
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = cmpxchg ptr %9, i32 0, i32 1 seq_cst seq_cst, align 4
+  %11 = extractvalue { i32, i1 } %10, 1
+  br i1 %11, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit, label %12
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = cmpxchg ptr %10, i32 0, i32 1 seq_cst seq_cst, align 4
-  %12 = extractvalue { i32, i1 } %11, 1
-  br i1 %12, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit, label %13
+12:                                               ; preds = %8
+  %13 = extractvalue { i32, i1 } %10, 0
+  %.not.i.i = icmp eq i32 %13, 2
+  br i1 %.not.i.i, label %.lr.ph.i.i.preheader, label %14
 
-13:                                               ; preds = %9
-  %14 = extractvalue { i32, i1 } %11, 0
-  %.not.i.i = icmp eq i32 %14, 2
-  br i1 %.not.i.i, label %.lr.ph.i.i.preheader, label %15
+14:                                               ; preds = %12
+  %15 = atomicrmw xchg ptr %9, i32 2 seq_cst, align 4
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit, label %.lr.ph.i.i.preheader
 
-15:                                               ; preds = %13
-  %16 = atomicrmw xchg ptr %10, i32 2 seq_cst, align 4
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit, label %.lr.ph.i.i.preheader
-
-.lr.ph.i.i.preheader:                             ; preds = %15, %13
+.lr.ph.i.i.preheader:                             ; preds = %14, %12
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %18 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #9
-  %19 = atomicrmw xchg ptr %10, i32 2 seq_cst, align 4
-  %.not1.i.i = icmp eq i32 %19, 0
-  br i1 %.not1.i.i, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !39
+  %17 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #9
+  %18 = atomicrmw xchg ptr %9, i32 2 seq_cst, align 4
+  %.not1.i.i = icmp eq i32 %18, 0
+  br i1 %.not1.i.i, label %_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !38
 
-_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit:        ; preds = %.lr.ph.i.i, %1, %5, %9, %15
+_ZN3tbb6detail2r110sleep_nodeImED2Ev.exit:        ; preds = %.lr.ph.i.i, %1, %8, %14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #11
   ret void
 }
@@ -441,11 +435,11 @@ define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeImE4waitEv(ptr noundef no
   %10 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #9
   %11 = atomicrmw xchg ptr %2, i32 2 seq_cst, align 4
   %.not1.i = icmp eq i32 %11, 0
-  br i1 %.not1.i, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not1.i, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %.lr.ph.i, !llvm.loop !38
 
 _ZN3tbb6detail2r116binary_semaphore1PEv.exit:     ; preds = %.lr.ph.i, %1, %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  %13 = load i8, ptr %12, align 1, !tbaa !42, !range !36, !noundef !37
+  %13 = load i8, ptr %12, align 1, !tbaa !41, !range !36, !noundef !37
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %16
 
@@ -460,7 +454,7 @@ _ZN3tbb6detail2r116binary_semaphore1PEv.exit:     ; preds = %.lr.ph.i, %1, %7
 ; Function Attrs: mustprogress sspstrong uwtable
 define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeImE5resetEv(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  store i8 0, ptr %2, align 2, !tbaa !38
+  store i8 0, ptr %2, align 2, !tbaa !42
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = cmpxchg ptr %3, i32 0, i32 1 seq_cst seq_cst, align 4
   %5 = extractvalue { i32, i1 } %4, 1
@@ -483,7 +477,7 @@ define linkonce_odr void @_ZN3tbb6detail2r110sleep_nodeImE5resetEv(ptr noundef n
   %11 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 128, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef 0) #9
   %12 = atomicrmw xchg ptr %3, i32 2 seq_cst, align 4
   %.not1.i = icmp eq i32 %12, 0
-  br i1 %.not1.i, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %.lr.ph.i, !llvm.loop !39
+  br i1 %.not1.i, label %_ZN3tbb6detail2r116binary_semaphore1PEv.exit, label %.lr.ph.i, !llvm.loop !38
 
 _ZN3tbb6detail2r116binary_semaphore1PEv.exit:     ; preds = %.lr.ph.i, %1, %8
   ret void
@@ -522,7 +516,7 @@ define linkonce_odr void @_ZN3tbb6detail2r123concurrent_monitor_baseImE12prepare
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %9 = load i8, ptr %8, align 2, !tbaa !38, !range !36, !noundef !37
+  %9 = load i8, ptr %8, align 2, !tbaa !42, !range !36, !noundef !37
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %.sink.split, label %14
 
@@ -645,7 +639,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds 
 ; Function Attrs: mustprogress sspstrong uwtable
 define linkonce_odr void @_ZN3tbb6detail2r123concurrent_monitor_baseImE11cancel_waitERNS1_9wait_nodeImEE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  store i8 1, ptr %3, align 2, !tbaa !38
+  store i8 1, ptr %3, align 2, !tbaa !42
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load atomic i8, ptr %4 acquire, align 8
   %6 = trunc i8 %5 to i1
@@ -739,7 +733,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit: ; pre
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %40, ptr %41, align 8, !tbaa !9
   store atomic i8 0, ptr %4 monotonic, align 8
-  store i8 0, ptr %3, align 2, !tbaa !38
+  store i8 0, ptr %3, align 2, !tbaa !42
   br label %42
 
 42:                                               ; preds = %33, %_ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEEC2ERS3_.exit
@@ -939,7 +933,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds 
   %55 = load ptr, ptr %.019, align 8, !tbaa !3
   %56 = getelementptr inbounds i8, ptr %.019, i64 -8
   %57 = getelementptr inbounds nuw i8, ptr %.019, i64 27
-  store i8 1, ptr %57, align 1, !tbaa !42
+  store i8 1, ptr %57, align 1, !tbaa !41
   %58 = load ptr, ptr %56, align 8, !tbaa !21
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load ptr, ptr %59, align 8
@@ -1068,7 +1062,7 @@ _ZNSt10lock_guardIN3tbb6detail2r124concurrent_monitor_mutexEED2Ev.exit: ; preds 
   %46 = load ptr, ptr %45, align 8, !tbaa !9
   %47 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
   %48 = load i64, ptr %47, align 8, !tbaa !14
-  %49 = load i64, ptr %1, align 8, !tbaa !40
+  %49 = load i64, ptr %1, align 8, !tbaa !39
   %.not19 = icmp ugt i64 %48, %49
   br i1 %.not19, label %60, label %50
 
@@ -1169,11 +1163,11 @@ attributes #11 = { builtin nounwind }
 !35 = !{!15, !19, i64 33}
 !36 = !{i8 0, i8 2}
 !37 = !{}
-!38 = !{!15, !19, i64 34}
-!39 = distinct !{!39, !13}
-!40 = !{!41, !16, i64 0}
-!41 = !{!"_ZTSN3tbb6detail2r113predicate_leqE", !16, i64 0}
-!42 = !{!15, !19, i64 35}
+!38 = distinct !{!38, !13}
+!39 = !{!40, !16, i64 0}
+!40 = !{!"_ZTSN3tbb6detail2r113predicate_leqE", !16, i64 0}
+!41 = !{!15, !19, i64 35}
+!42 = !{!15, !19, i64 34}
 !43 = distinct !{!43, !13}
 !44 = distinct !{!44, !13}
 !45 = distinct !{!45, !13}

@@ -676,8 +676,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %60 = icmp ugt i64 %.037.i, 16383
   %61 = zext i32 %59 to i64
   %62 = icmp uge i64 %.037.i, %61
-  %or.cond.not30.i.i = and i1 %60, %62
-  br i1 %or.cond.not30.i.i, label %63, label %92
+  %or.cond22.not29.i.i = and i1 %60, %62
+  br i1 %or.cond22.not29.i.i, label %63, label %92
 
 63:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24, !noalias !57
@@ -1386,16 +1386,16 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_
   %.037 = phi i64 [ %4, %23 ], [ %52, %50 ], [ %3, %25 ]
   %.0 = phi i64 [ %3, %23 ], [ %52, %50 ], [ %3, %25 ]
   %54 = load i32, ptr @_ZZL15getOpenFileImplIN4llvm12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbbSt8optionalINS0_5AlignEEE8PageSize, align 4, !tbaa !41
-  %brmerge.not.i = and i1 %6, %7
-  br i1 %brmerge.not.i, label %_ZL13shouldUseMmapimmlbib.exit.thread, label %55
+  %or.cond.i = and i1 %6, %7
+  br i1 %or.cond.i, label %_ZL13shouldUseMmapimmlbib.exit.thread, label %55
 
 55:                                               ; preds = %53
   %56 = icmp ugt i64 %.037, 16383
   %57 = zext i32 %54 to i64
   %58 = icmp uge i64 %.037, %57
-  %or.cond.not30.i = and i1 %56, %58
-  %brmerge24.not.i = and i1 %6, %or.cond.not30.i
-  br i1 %brmerge24.not.i, label %59, label %_ZL13shouldUseMmapimmlbib.exit
+  %or.cond22.not29.i = and i1 %56, %58
+  %brmerge.not.i = and i1 %6, %or.cond22.not29.i
+  br i1 %brmerge.not.i, label %59, label %_ZL13shouldUseMmapimmlbib.exit
 
 59:                                               ; preds = %55
   %60 = icmp eq i64 %.0, -1
@@ -1410,8 +1410,8 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
   %64 = call { i32, ptr } @_ZN4llvm3sys2fs6statusEiRNS1_11file_statusE(i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %10) #24
   %65 = extractvalue { i32, ptr } %64, 0
-  %.not31.i = icmp eq i32 %65, 0
-  br i1 %.not31.i, label %.thread.i, label %68
+  %.not30.i = icmp eq i32 %65, 0
+  br i1 %.not30.i, label %.thread.i, label %68
 
 .thread.i:                                        ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -1424,20 +1424,20 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_
   br label %_ZL13shouldUseMmapimmlbib.exit.thread
 
 69:                                               ; preds = %.thread.i, %59
-  %.016.i = phi i64 [ %.0, %59 ], [ %67, %.thread.i ]
+  %.017.i = phi i64 [ %.0, %59 ], [ %67, %.thread.i ]
   %70 = add i64 %.037, %5
-  %.not.i = icmp eq i64 %70, %.016.i
+  %.not.i = icmp eq i64 %70, %.017.i
   br i1 %.not.i, label %71, label %_ZL13shouldUseMmapimmlbib.exit.thread
 
 71:                                               ; preds = %69
   %72 = add nsw i32 %54, -1
   %73 = sext i32 %72 to i64
-  %74 = and i64 %.016.i, %73
+  %74 = and i64 %.017.i, %73
   %.not81 = icmp eq i64 %74, 0
   br i1 %.not81, label %_ZL13shouldUseMmapimmlbib.exit.thread, label %75
 
 _ZL13shouldUseMmapimmlbib.exit:                   ; preds = %55
-  br i1 %or.cond.not30.i, label %75, label %_ZL13shouldUseMmapimmlbib.exit.thread
+  br i1 %or.cond22.not29.i, label %75, label %_ZL13shouldUseMmapimmlbib.exit.thread
 
 75:                                               ; preds = %71, %_ZL13shouldUseMmapimmlbib.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #24

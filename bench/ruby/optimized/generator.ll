@@ -2227,9 +2227,9 @@ define internal void @generate_json(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br label %9
 
-9:                                                ; preds = %127, %4
-  %storemerge = phi i64 [ %3, %4 ], [ %128, %127 ]
-  %.0 = phi i1 [ false, %4 ], [ true, %127 ]
+9:                                                ; preds = %128, %4
+  %storemerge = phi i64 [ %3, %4 ], [ %129, %128 ]
+  %.0.not = phi i1 [ true, %4 ], [ false, %128 ]
   store i64 %storemerge, ptr %6, align 8, !tbaa !6
   switch i64 %storemerge, label %52 [
     i64 4, label %10
@@ -2273,11 +2273,11 @@ generate_json_null.exit:                          ; preds = %10, %17
 
 31:                                               ; preds = %24
   call fastcc void @fbuffer_do_inc_capa(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) 5)
-  %.pre.i.i56 = load i64, ptr %27, align 8, !tbaa !56
+  %.pre.i.i57 = load i64, ptr %27, align 8, !tbaa !56
   br label %generate_json_false.exit
 
 generate_json_false.exit:                         ; preds = %24, %31
-  %32 = phi i64 [ %.pre.i.i56, %31 ], [ %28, %24 ]
+  %32 = phi i64 [ %.pre.i.i57, %31 ], [ %28, %24 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !46
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %32
@@ -2298,11 +2298,11 @@ generate_json_false.exit:                         ; preds = %24, %31
 
 45:                                               ; preds = %38
   call fastcc void @fbuffer_do_inc_capa(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) 4)
-  %.pre.i.i57 = load i64, ptr %41, align 8, !tbaa !56
+  %.pre.i.i58 = load i64, ptr %41, align 8, !tbaa !56
   br label %generate_json_true.exit
 
 generate_json_true.exit:                          ; preds = %38, %45
-  %46 = phi i64 [ %.pre.i.i57, %45 ], [ %42, %38 ]
+  %46 = phi i64 [ %.pre.i.i58, %45 ], [ %42, %38 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %46
@@ -2321,8 +2321,8 @@ generate_json_true.exit:                          ; preds = %38, %45
 
 57:                                               ; preds = %52
   %58 = and i64 %storemerge, 1
-  %.not58 = icmp eq i64 %58, 0
-  br i1 %.not58, label %85, label %59
+  %.not = icmp eq i64 %58, 0
+  br i1 %.not, label %85, label %59
 
 59:                                               ; preds = %57
   %60 = ashr i64 %storemerge, 1
@@ -2441,8 +2441,8 @@ generate_json_fixnum.exit:                        ; preds = %fltoa.exit.i.i, %ru
 
 105:                                              ; preds = %97
   %106 = load i64, ptr @rb_cHash, align 8, !tbaa !6
-  %.not54 = icmp eq i64 %100, %106
-  br i1 %.not54, label %107, label %121
+  %.not56 = icmp eq i64 %100, %106
+  br i1 %.not56, label %107, label %121
 
 107:                                              ; preds = %105
   call void @generate_json_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %storemerge)
@@ -2450,8 +2450,8 @@ generate_json_fixnum.exit:                        ; preds = %fltoa.exit.i.i, %ru
 
 108:                                              ; preds = %97
   %109 = load i64, ptr @rb_cArray, align 8, !tbaa !6
-  %.not53 = icmp eq i64 %100, %109
-  br i1 %.not53, label %110, label %121
+  %.not55 = icmp eq i64 %100, %109
+  br i1 %.not55, label %110, label %121
 
 110:                                              ; preds = %108
   call void @generate_json_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %storemerge)
@@ -2459,8 +2459,8 @@ generate_json_fixnum.exit:                        ; preds = %fltoa.exit.i.i, %ru
 
 111:                                              ; preds = %97
   %112 = load i64, ptr @rb_cString, align 8, !tbaa !6
-  %.not52 = icmp eq i64 %100, %112
-  br i1 %.not52, label %113, label %121
+  %.not54 = icmp eq i64 %100, %112
+  br i1 %.not54, label %113, label %121
 
 113:                                              ; preds = %111
   call void @generate_json_string(ptr noundef %0, ptr poison, ptr noundef %2, i64 noundef %storemerge)
@@ -2472,8 +2472,8 @@ generate_json_fixnum.exit:                        ; preds = %fltoa.exit.i.i, %ru
 
 115:                                              ; preds = %97
   %116 = load i64, ptr @rb_cFloat, align 8, !tbaa !6
-  %.not51 = icmp eq i64 %100, %116
-  br i1 %.not51, label %117, label %121
+  %.not53 = icmp eq i64 %100, %116
+  br i1 %.not53, label %117, label %121
 
 117:                                              ; preds = %115
   call void @generate_json_float(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %storemerge)
@@ -2481,8 +2481,8 @@ generate_json_fixnum.exit:                        ; preds = %fltoa.exit.i.i, %ru
 
 118:                                              ; preds = %97
   %119 = load i64, ptr @cFragment, align 8, !tbaa !6
-  %.not = icmp eq i64 %100, %119
-  br i1 %.not, label %120, label %121
+  %.not52 = icmp eq i64 %100, %119
+  br i1 %.not52, label %120, label %121
 
 120:                                              ; preds = %118
   call fastcc void @generate_json_fragment(ptr noundef %0, i64 noundef %storemerge)
@@ -2491,29 +2491,29 @@ generate_json_fixnum.exit:                        ; preds = %fltoa.exit.i.i, %ru
 121:                                              ; preds = %97, %118, %115, %111, %108, %105, %88
   %122 = load i8, ptr %7, align 1, !tbaa !36, !range !34, !noundef !35
   %123 = trunc nuw i8 %122 to i1
-  br i1 %123, label %124, label %131
+  br i1 %123, label %124, label %132
 
 124:                                              ; preds = %121
   %125 = load i64, ptr %8, align 8, !tbaa !30
   %126 = and i64 %125, -5
-  %.not60 = icmp eq i64 %126, 0
-  %brmerge = or i1 %.0, %.not60
-  br i1 %brmerge, label %129, label %127
+  %127 = icmp ne i64 %126, 0
+  %or.cond.not = and i1 %.0.not, %127
+  br i1 %or.cond.not, label %128, label %130
 
-127:                                              ; preds = %124
-  %128 = call i64 @rb_proc_call_with_block(i64 noundef %125, i32 noundef 1, ptr noundef nonnull %6, i64 noundef 4) #22
+128:                                              ; preds = %124
+  %129 = call i64 @rb_proc_call_with_block(i64 noundef %125, i32 noundef 1, ptr noundef nonnull %6, i64 noundef 4) #22
   br label %9
 
-129:                                              ; preds = %124
-  %130 = call fastcc i64 @rb_class_of(i64 noundef %storemerge) #27
-  call void (i64, ptr, ...) @raise_generator_error(i64 noundef %storemerge, ptr noundef nonnull @.str.81, i64 noundef %130) #28
+130:                                              ; preds = %124
+  %131 = call fastcc i64 @rb_class_of(i64 noundef %storemerge) #27
+  call void (i64, ptr, ...) @raise_generator_error(i64 noundef %storemerge, ptr noundef nonnull @.str.81, i64 noundef %131) #28
   unreachable
 
-131:                                              ; preds = %121
+132:                                              ; preds = %121
   call fastcc void @generate_json_fallback(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %storemerge)
   br label %generate_json_symbol.exit
 
-generate_json_symbol.exit:                        ; preds = %96, %94, %generate_json_false.exit, %87, %generate_json_fixnum.exit, %131, %120, %117, %114, %113, %110, %107, %104, %generate_json_true.exit, %generate_json_null.exit
+generate_json_symbol.exit:                        ; preds = %96, %94, %generate_json_false.exit, %87, %generate_json_fixnum.exit, %132, %120, %117, %114, %113, %110, %107, %104, %generate_json_true.exit, %generate_json_null.exit
   ret void
 }
 

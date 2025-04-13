@@ -191,8 +191,8 @@ common.resume:                                    ; preds = %51, %49, %75, %72, 
   br label %49
 
 55:                                               ; preds = %40
-  %.not4 = icmp eq ptr %44, null
-  br i1 %.not4, label %45, label %58
+  %.not5 = icmp eq ptr %44, null
+  br i1 %.not5, label %45, label %58
 
 56:                                               ; preds = %58
   %57 = landingpad { ptr, i32 }

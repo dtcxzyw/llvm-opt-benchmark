@@ -247,9 +247,9 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrap
 
 11:                                               ; preds = %9, %7
   %12 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11HasTangentsEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  %.not = xor i1 %2, true
-  %brmerge = or i1 %12, %.not
-  br i1 %brmerge, label %13, label %16
+  %.not = xor i1 %12, true
+  %or.cond = and i1 %2, %.not
+  br i1 %or.cond, label %16, label %13
 
 13:                                               ; preds = %11
   %14 = icmp eq i32 %3, 0
@@ -295,8 +295,8 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrap
 
 19:                                               ; preds = %17, %15
   %20 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11HasTangentsEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  %brmerge.i = or i1 %12, %20
-  br i1 %brmerge.i, label %21, label %_ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrapolationTypeERKNS_10TsKeyFrameERKSt4pairINS_19TsExtrapolationTypeES4_EbNS_6TsSideE.exit
+  %or.cond.i.not = or i1 %12, %20
+  br i1 %or.cond.i.not, label %21, label %_ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrapolationTypeERKNS_10TsKeyFrameERKSt4pairINS_19TsExtrapolationTypeES4_EbNS_6TsSideE.exit
 
 21:                                               ; preds = %19
   %22 = icmp eq i32 %2, 0
@@ -325,14 +325,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7Ts_EvalERKNS_8TsSplineEdNS_6T
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %13, align 8
-  br label %133
+  br label %134
 
 14:                                               ; preds = %5
   %15 = call ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline11lower_boundERKd(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %16 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline12GetKeyFramesEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %17 = load ptr, ptr %16, align 8
-  %.not88 = icmp eq ptr %15, %17
-  br i1 %.not88, label %20, label %18
+  %.not = icmp eq ptr %15, %17
+  br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %15, i64 -72
@@ -372,7 +372,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7Ts_EvalERKNS_8TsSplineEdNS_6T
 38:                                               ; preds = %.thread, %33
   %39 = phi ptr [ %37, %.thread ], [ %15, %33 ]
   %40 = phi i1 [ false, %.thread ], [ true, %33 ]
-  %storemerge41.in = phi ptr [ %15, %.thread ], [ %34, %33 ]
+  %storemerge42.in = phi ptr [ %15, %.thread ], [ %34, %33 ]
   %41 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline12GetKeyFramesEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %42 = load ptr, ptr %41, align 8
   %43 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline12GetKeyFramesEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -388,202 +388,203 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7Ts_EvalERKNS_8TsSplineEdNS_6T
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 -72
   %55 = icmp eq ptr %39, %54
-  br i1 %40, label %56, label %107
+  br i1 %40, label %56, label %108
 
 56:                                               ; preds = %38
   %57 = icmp eq i32 %4, 0
-  br i1 %57, label %58, label %66
+  br i1 %57, label %58, label %67
 
 58:                                               ; preds = %56
   %59 = icmp ne i32 %3, 0
-  %brmerge = or i1 %59, %50
-  br i1 %brmerge, label %64, label %60
+  %or.cond = or i1 %59, %50
+  br i1 %or.cond, label %64, label %60
 
 60:                                               ; preds = %58
   %61 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %.thread87
+  br i1 %62, label %63, label %.thread88
 
 63:                                               ; preds = %60
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame8GetValueEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
-  br label %133
+  br label %134
 
 64:                                               ; preds = %58
-  br i1 %59, label %65, label %.thread87
+  %65 = icmp eq i32 %3, 0
+  br i1 %65, label %.thread88, label %66
 
-.thread87:                                        ; preds = %60, %64
+.thread88:                                        ; preds = %60, %64
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame12GetLeftValueEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %39)
-  br label %133
+  br label %134
 
-65:                                               ; preds = %64
+66:                                               ; preds = %64
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame8GetValueEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %39)
-  br label %133
+  br label %134
 
-66:                                               ; preds = %56
-  %67 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame16IsExtrapolatableEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
-  br i1 %67, label %69, label %68
+67:                                               ; preds = %56
+  %68 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame16IsExtrapolatableEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
+  br i1 %68, label %70, label %69
 
-68:                                               ; preds = %66
+69:                                               ; preds = %67
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame7GetZeroEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %39)
-  br label %133
+  br label %134
 
-69:                                               ; preds = %66
-  %70 = icmp eq i32 %3, 0
-  br i1 %70, label %71, label %96
+70:                                               ; preds = %67
+  %71 = icmp eq i32 %3, 0
+  br i1 %71, label %72, label %97
 
-71:                                               ; preds = %69
-  br i1 %50, label %72, label %73
+72:                                               ; preds = %70
+  br i1 %50, label %73, label %74
 
-72:                                               ; preds = %71
+73:                                               ; preds = %72
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetExtrapolationSlopeEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %39, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0)
-  br label %133
+  br label %134
 
-73:                                               ; preds = %71
-  %74 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %77
+74:                                               ; preds = %72
+  %75 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %73
+77:                                               ; preds = %74
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame7GetZeroEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %39)
-  br label %133
+  br label %134
 
-77:                                               ; preds = %73
-  %78 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %84
+78:                                               ; preds = %74
+  %79 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %85
 
-80:                                               ; preds = %77
-  %81 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
-  %82 = icmp eq i32 %81, 2
-  br i1 %82, label %83, label %84
+81:                                               ; preds = %78
+  %82 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
+  %83 = icmp eq i32 %82, 2
+  br i1 %83, label %84, label %85
 
-83:                                               ; preds = %80
+84:                                               ; preds = %81
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame7GetZeroEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %39)
-  br label %133
+  br label %134
 
-84:                                               ; preds = %80, %77
-  %85 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %91
+85:                                               ; preds = %81, %78
+  %86 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %92
 
-87:                                               ; preds = %84
-  %88 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
-  %89 = icmp eq i32 %88, 1
-  br i1 %89, label %90, label %91
+88:                                               ; preds = %85
+  %89 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
+  %90 = icmp eq i32 %89, 1
+  br i1 %90, label %91, label %92
 
-90:                                               ; preds = %87
+91:                                               ; preds = %88
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSlopeToAdjacentKnotEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %39, i32 noundef 0)
-  br label %133
+  br label %134
 
-91:                                               ; preds = %87, %84
-  %92 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
-  %93 = icmp eq i32 %92, 1
-  br i1 %93, label %94, label %95
+92:                                               ; preds = %88, %85
+  %93 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
+  %94 = icmp eq i32 %93, 1
+  br i1 %94, label %95, label %96
 
-94:                                               ; preds = %91
+95:                                               ; preds = %92
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSlopeToAdjacentKnotEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %39, i32 noundef 0)
-  br label %133
+  br label %134
 
-95:                                               ; preds = %91
+96:                                               ; preds = %92
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame22GetLeftValueDerivativeEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %39)
-  br label %133
+  br label %134
 
-96:                                               ; preds = %69
-  br i1 %55, label %97, label %98
+97:                                               ; preds = %70
+  br i1 %55, label %98, label %99
 
-97:                                               ; preds = %96
+98:                                               ; preds = %97
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetExtrapolationSlopeEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %39, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 1)
-  br label %133
+  br label %134
 
-98:                                               ; preds = %96
-  %99 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %102
+99:                                               ; preds = %97
+  %100 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %103
 
-101:                                              ; preds = %98
+102:                                              ; preds = %99
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame7GetZeroEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %39)
-  br label %133
+  br label %134
 
-102:                                              ; preds = %98
-  %103 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
-  %104 = icmp eq i32 %103, 1
-  br i1 %104, label %105, label %106
+103:                                              ; preds = %99
+  %104 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %39)
+  %105 = icmp eq i32 %104, 1
+  br i1 %105, label %106, label %107
 
-105:                                              ; preds = %102
+106:                                              ; preds = %103
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSlopeToAdjacentKnotEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %39, i32 noundef 1)
-  br label %133
+  br label %134
 
-106:                                              ; preds = %102
+107:                                              ; preds = %103
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame18GetValueDerivativeEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %39)
-  br label %133
+  br label %134
 
-107:                                              ; preds = %38
-  %108 = icmp eq ptr %storemerge41.in, %42
-  br i1 %108, label %109, label %114
+108:                                              ; preds = %38
+  %109 = icmp eq ptr %storemerge42.in, %42
+  br i1 %109, label %110, label %115
 
-109:                                              ; preds = %107
-  %110 = icmp eq i32 %4, 0
-  br i1 %110, label %111, label %113
+110:                                              ; preds = %108
+  %111 = icmp eq i32 %4, 0
+  br i1 %111, label %112, label %114
 
-111:                                              ; preds = %109
-  %112 = load double, ptr %6, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L12_ExtrapolateEdN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, double noundef %112, ptr %storemerge41.in, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0)
-  br label %133
+112:                                              ; preds = %110
+  %113 = load double, ptr %6, align 8
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L12_ExtrapolateEdN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, double noundef %113, ptr %storemerge42.in, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0)
+  br label %134
 
-113:                                              ; preds = %109
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetExtrapolationSlopeEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr %storemerge41.in, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0)
-  br label %133
+114:                                              ; preds = %110
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetExtrapolationSlopeEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr %storemerge42.in, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0)
+  br label %134
 
-114:                                              ; preds = %107
-  br i1 %47, label %115, label %120
+115:                                              ; preds = %108
+  br i1 %47, label %116, label %121
 
-115:                                              ; preds = %114
-  %116 = icmp eq i32 %4, 0
-  br i1 %116, label %117, label %119
+116:                                              ; preds = %115
+  %117 = icmp eq i32 %4, 0
+  br i1 %117, label %118, label %120
 
-117:                                              ; preds = %115
-  %118 = load double, ptr %6, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L12_ExtrapolateEdN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, double noundef %118, ptr %storemerge, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 1)
-  br label %133
+118:                                              ; preds = %116
+  %119 = load double, ptr %6, align 8
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L12_ExtrapolateEdN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, double noundef %119, ptr %storemerge, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 1)
+  br label %134
 
-119:                                              ; preds = %115
+120:                                              ; preds = %116
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetExtrapolationSlopeEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr %storemerge, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 1)
-  br label %133
+  br label %134
 
-120:                                              ; preds = %114
-  switch i32 %4, label %131 [
-    i32 1, label %121
-    i32 0, label %129
+121:                                              ; preds = %115
+  switch i32 %4, label %132 [
+    i32 1, label %122
+    i32 0, label %130
   ]
 
-121:                                              ; preds = %120
-  %122 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame16IsExtrapolatableEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
-  br i1 %122, label %123, label %131
+122:                                              ; preds = %121
+  %123 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame16IsExtrapolatableEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
+  br i1 %123, label %124, label %132
 
-123:                                              ; preds = %121
-  %124 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame16SupportsTangentsEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
-  br i1 %124, label %131, label %125
+124:                                              ; preds = %122
+  %125 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame16SupportsTangentsEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
+  br i1 %125, label %132, label %126
 
-125:                                              ; preds = %123
-  %126 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
-  %127 = icmp eq i32 %126, 1
-  br i1 %127, label %128, label %131
+126:                                              ; preds = %124
+  %127 = call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %storemerge)
+  %128 = icmp eq i32 %127, 1
+  br i1 %128, label %129, label %132
 
-128:                                              ; preds = %125
+129:                                              ; preds = %126
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L23_GetSlopeToAdjacentKnotEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %storemerge, i32 noundef 1)
-  br label %133
+  br label %134
 
-129:                                              ; preds = %120
-  %130 = load double, ptr %6, align 8
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache12EvalUncachedERKNS_10TsKeyFrameES3_d(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %storemerge, ptr noundef nonnull align 8 dereferenceable(72) %storemerge41.in, double noundef %130)
-  br label %133
+130:                                              ; preds = %121
+  %131 = load double, ptr %6, align 8
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache12EvalUncachedERKNS_10TsKeyFrameES3_d(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %storemerge, ptr noundef nonnull align 8 dereferenceable(72) %storemerge42.in, double noundef %131)
+  br label %134
 
-131:                                              ; preds = %121, %123, %125, %120
-  %132 = load double, ptr %6, align 8
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache22EvalDerivativeUncachedERKNS_10TsKeyFrameES3_d(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %storemerge, ptr noundef nonnull align 8 dereferenceable(72) %storemerge41.in, double noundef %132)
-  br label %133
+132:                                              ; preds = %122, %124, %126, %121
+  %133 = load double, ptr %6, align 8
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__19Ts_UntypedEvalCache22EvalDerivativeUncachedERKNS_10TsKeyFrameES3_d(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %storemerge, ptr noundef nonnull align 8 dereferenceable(72) %storemerge42.in, double noundef %133)
+  br label %134
 
-133:                                              ; preds = %129, %131, %117, %119, %111, %113, %.thread87, %65, %128, %106, %105, %101, %97, %95, %94, %90, %83, %76, %72, %68, %63, %12
+134:                                              ; preds = %130, %132, %118, %120, %112, %114, %.thread88, %66, %129, %107, %106, %102, %98, %96, %95, %91, %84, %77, %73, %69, %63, %12
   ret void
 }
 
@@ -649,8 +650,8 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetExtrapo
           to label %.noexc15 unwind label %29
 
 .noexc15:                                         ; preds = %24
-  %brmerge.i.i = or i1 %17, %25
-  br i1 %brmerge.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrapolationTypeERKNS_10TsKeyFrameERKNS_8TsSplineENS_6TsSideE.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrapolationTypeERKNS_10TsKeyFrameERKNS_8TsSplineENS_6TsSideE.exit.thread
+  %or.cond.i.not.i = or i1 %17, %25
+  br i1 %or.cond.i.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrapolationTypeERKNS_10TsKeyFrameERKNS_8TsSplineENS_6TsSideE.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrapolationTypeERKNS_10TsKeyFrameERKNS_8TsSplineENS_6TsSideE.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__32Ts_GetEffectiveExtrapolationTypeERKNS_10TsKeyFrameERKNS_8TsSplineENS_6TsSideE.exit: ; preds = %.noexc15
   %26 = icmp eq i32 %3, 0

@@ -870,7 +870,7 @@ define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %5 = alloca %struct.zbee_nwk_green_power_packet, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
   %6 = icmp eq ptr %3, null
-  br i1 %6, label %180, label %7
+  br i1 %6, label %181, label %7
 
 7:                                                ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
@@ -914,63 +914,59 @@ define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %38 = load ptr, ptr %11, align 8
   %39 = tail call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @zbee_nwk_gp_frame_types, ptr noundef nonnull @.str.305)
   tail call void @col_set_str(ptr noundef %38, i32 noundef 25, ptr noundef %39)
-  br i1 %29, label %40, label %55
+  br i1 %29, label %42, label %40
 
 40:                                               ; preds = %7
-  %41 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %42 = zext i8 %41 to i32
-  %43 = tail call i32 @zbee_get_bit_field(i32 noundef %42, i32 noundef 7)
-  %44 = trunc i32 %43 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %44, ptr %45, align 2
-  %46 = tail call i32 @zbee_get_bit_field(i32 noundef %42, i32 noundef 24)
-  %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %47, ptr %48, align 1
-  %49 = tail call i32 @zbee_get_bit_field(i32 noundef %42, i32 noundef 128)
-  %50 = trunc i32 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i8 %50, ptr %51, align 4
-  %52 = load i32, ptr @hf_zbee_nwk_gp_fc_ext_field, align 4
-  %53 = load i32, ptr @ett_zbee_nwk_fcf_ext, align 4
-  %54 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 1, i32 noundef %52, i32 noundef %53, ptr noundef nonnull @dissect_zbee_nwk_gp.ext_fields, i32 noundef 0)
-  br label %55
+  %.not196 = icmp eq i8 %27, 0
+  br i1 %.not196, label %63, label %.thread192
 
-55:                                               ; preds = %40, %7
-  %56 = phi i8 [ %47, %40 ], [ 0, %7 ]
-  %57 = phi i8 [ %44, %40 ], [ 0, %7 ]
-  %.0142 = phi i32 [ 2, %40 ], [ 1, %7 ]
-  switch i8 %27, label %.thread154 [
-    i8 0, label %58
-    i8 1, label %60
-  ]
+.thread192:                                       ; preds = %40
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i8 0, ptr %41, align 4
+  br label %101
 
-58:                                               ; preds = %55
-  %59 = icmp ne i8 %57, 0
-  %or.cond.not = select i1 %29, i1 %59, i1 false
-  br i1 %or.cond.not, label %.thread154.thread181, label %65
+42:                                               ; preds = %7
+  %43 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %44 = zext i8 %43 to i32
+  %45 = tail call i32 @zbee_get_bit_field(i32 noundef %44, i32 noundef 7)
+  %46 = trunc i32 %45 to i8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %46, ptr %47, align 2
+  %48 = tail call i32 @zbee_get_bit_field(i32 noundef %44, i32 noundef 24)
+  %49 = trunc i32 %48 to i8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  store i8 %49, ptr %50, align 1
+  %51 = tail call i32 @zbee_get_bit_field(i32 noundef %44, i32 noundef 128)
+  %52 = trunc i32 %51 to i8
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i8 %52, ptr %53, align 4
+  %54 = load i32, ptr @hf_zbee_nwk_gp_fc_ext_field, align 4
+  %55 = load i32, ptr @ett_zbee_nwk_fcf_ext, align 4
+  %56 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 1, i32 noundef %54, i32 noundef %55, ptr noundef nonnull @dissect_zbee_nwk_gp.ext_fields, i32 noundef 0)
+  %57 = icmp eq i8 %27, 0
+  %58 = icmp eq i8 %46, 0
+  %or.cond9 = select i1 %57, i1 %58, i1 false
+  br i1 %or.cond9, label %63, label %59
 
-60:                                               ; preds = %55
-  %61 = icmp eq i8 %57, 0
-  %or.cond7 = select i1 %29, i1 %61, i1 false
-  br i1 %or.cond7, label %62, label %.thread154
+59:                                               ; preds = %42
+  %60 = icmp eq i8 %27, 1
+  %or.cond16 = select i1 %60, i1 %58, i1 false
+  br i1 %or.cond16, label %61, label %74
 
-62:                                               ; preds = %60
-  %63 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0142)
-  %.not = icmp eq i8 %63, -13
-  br i1 %.not, label %.thread172, label %65
+61:                                               ; preds = %59
+  %62 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %.not = icmp eq i8 %62, -13
+  br i1 %.not, label %74, label %63
 
-.thread172:                                       ; preds = %62
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 0, ptr %64, align 4
-  br label %.thread178
-
-65:                                               ; preds = %62, %58
-  %66 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0142)
+63:                                               ; preds = %42, %40, %61
+  %.0151179 = phi i32 [ 2, %42 ], [ 1, %40 ], [ 2, %61 ]
+  %64 = phi i8 [ 0, %42 ], [ 0, %40 ], [ %46, %61 ]
+  %65 = phi i8 [ %49, %42 ], [ 0, %40 ], [ %49, %61 ]
+  %66 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0151179)
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %66, ptr %67, align 8
   %68 = load i32, ptr @hf_zbee_nwk_gp_zgpd_src_id, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %68, ptr noundef %0, i32 noundef %.0142, i32 noundef 4, i32 noundef -2147483648)
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %68, ptr noundef %0, i32 noundef %.0151179, i32 noundef 4, i32 noundef -2147483648)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.306, i32 noundef %66)
   %70 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %70, i32 noundef 25, ptr noundef nonnull @.str.306, i32 noundef %66)
@@ -978,225 +974,212 @@ define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr nou
   tail call void @col_clear(ptr noundef %71, i32 noundef 37)
   %72 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %72, i32 noundef 37, ptr noundef nonnull @.str.307, i32 noundef %66)
-  %73 = or disjoint i32 %.0142, 4
-  br label %.thread154
+  %73 = or disjoint i32 %.0151179, 4
+  br label %74
 
-.thread154:                                       ; preds = %55, %65, %60
-  %.1143 = phi i32 [ %73, %65 ], [ %.0142, %60 ], [ %.0142, %55 ]
-  %74 = icmp eq i8 %57, 2
-  br i1 %74, label %.thread176, label %77
+74:                                               ; preds = %63, %61, %59
+  %75 = phi i8 [ %64, %63 ], [ %46, %61 ], [ %46, %59 ]
+  %76 = phi i8 [ %65, %63 ], [ %49, %61 ], [ %49, %59 ]
+  %.1152 = phi i32 [ %73, %63 ], [ 2, %61 ], [ 2, %59 ]
+  %77 = icmp eq i8 %75, 2
+  br i1 %77, label %78, label %86
 
-.thread154.thread181:                             ; preds = %58
-  %75 = icmp eq i8 %57, 2
-  br i1 %75, label %.thread176, label %.thread185
-
-.thread185:                                       ; preds = %.thread154.thread181
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 0, ptr %76, align 4
-  br label %87
-
-77:                                               ; preds = %.thread154
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 0, ptr %78, align 4
-  br i1 %29, label %87, label %101
-
-.thread176:                                       ; preds = %.thread154, %.thread154.thread181
-  %.1143183 = phi i32 [ %.0142, %.thread154.thread181 ], [ %.1143, %.thread154 ]
-  %79 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1143183)
+78:                                               ; preds = %74
+  %79 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1152)
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %79, ptr %80, align 4
   %81 = load i32, ptr @hf_zbee_nwk_gp_zgpd_endpoint, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %81, ptr noundef %0, i32 noundef %.1143183, i32 noundef 1, i32 noundef -2147483648)
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %81, ptr noundef %0, i32 noundef %.1152, i32 noundef 1, i32 noundef -2147483648)
   %83 = zext i8 %79 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.308, i32 noundef %83)
   %84 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.308, i32 noundef %83)
-  %85 = add nuw nsw i32 %.1143183, 1
-  %86 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 0, ptr %86, align 4
-  br i1 %29, label %.thread178, label %101
+  %85 = add nuw nsw i32 %.1152, 1
+  br label %86
 
-87:                                               ; preds = %.thread185, %77
-  %88 = phi ptr [ %78, %77 ], [ %76, %.thread185 ]
-  %.2171 = phi i32 [ %.1143, %77 ], [ %.0142, %.thread185 ]
-  %switch = icmp ult i8 %57, 3
-  br i1 %switch, label %.thread178, label %101
+86:                                               ; preds = %78, %74
+  %87 = phi i8 [ 2, %78 ], [ %75, %74 ]
+  %.2 = phi i32 [ %85, %78 ], [ %.1152, %74 ]
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i8 0, ptr %88, align 4
+  %switch = icmp ult i8 %87, 3
+  %or.cond194 = and i1 %29, %switch
+  br i1 %or.cond194, label %89, label %101
 
-.thread178:                                       ; preds = %.thread176, %.thread172, %87
-  %.2171175 = phi i32 [ %.0142, %.thread172 ], [ %.2171, %87 ], [ %85, %.thread176 ]
-  %89 = phi ptr [ %64, %.thread172 ], [ %88, %87 ], [ %86, %.thread176 ]
-  %90 = icmp eq i8 %56, 1
-  %91 = icmp ne i8 %57, 1
-  %or.cond19 = and i1 %91, %90
-  br i1 %or.cond19, label %92, label %93
+89:                                               ; preds = %86
+  %90 = icmp eq i8 %76, 1
+  %91 = icmp ne i8 %87, 1
+  %or.cond28 = and i1 %91, %90
+  br i1 %or.cond28, label %92, label %93
 
-92:                                               ; preds = %.thread178
-  store i8 2, ptr %89, align 4
+92:                                               ; preds = %89
+  store i8 2, ptr %88, align 4
   br label %101
 
-93:                                               ; preds = %.thread178
-  %94 = and i8 %56, -2
-  %or.cond23 = icmp eq i8 %94, 2
-  br i1 %or.cond23, label %95, label %101
+93:                                               ; preds = %89
+  %94 = and i8 %76, -2
+  %or.cond32 = icmp eq i8 %94, 2
+  br i1 %or.cond32, label %95, label %101
 
 95:                                               ; preds = %93
-  store i8 4, ptr %89, align 4
-  %96 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.2171175)
+  store i8 4, ptr %88, align 4
+  %96 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.2)
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %96, ptr %97, align 8
   %98 = load i32, ptr @hf_zbee_nwk_gp_security_frame_counter, align 4
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %98, ptr noundef %0, i32 noundef %.2171175, i32 noundef 4, i32 noundef -2147483648)
-  %100 = add nuw nsw i32 %.2171175, 4
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %98, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef -2147483648)
+  %100 = add nuw nsw i32 %.2, 4
   br label %101
 
-101:                                              ; preds = %.thread176, %87, %95, %93, %92, %77
-  %102 = phi ptr [ %89, %92 ], [ %89, %95 ], [ %89, %93 ], [ %88, %87 ], [ %78, %77 ], [ %86, %.thread176 ]
-  %103 = phi i8 [ 2, %92 ], [ 4, %95 ], [ 0, %93 ], [ 0, %87 ], [ 0, %77 ], [ 0, %.thread176 ]
-  %.3 = phi i32 [ %.2171175, %92 ], [ %100, %95 ], [ %.2171175, %93 ], [ %.2171, %87 ], [ %.1143, %77 ], [ %85, %.thread176 ]
-  %104 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %105 = zext nneg i8 %103 to i32
-  %106 = add nuw nsw i32 %.3, %105
-  %107 = sub i32 %104, %106
-  %108 = trunc i32 %107 to i8
-  %109 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i8 %108, ptr %109, align 4
-  %110 = and i32 %107, 255
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %114
+101:                                              ; preds = %.thread192, %95, %93, %92, %86
+  %102 = phi ptr [ %88, %92 ], [ %88, %95 ], [ %88, %93 ], [ %88, %86 ], [ %41, %.thread192 ]
+  %103 = phi i8 [ 1, %92 ], [ %76, %95 ], [ %76, %93 ], [ %76, %86 ], [ 0, %.thread192 ]
+  %104 = phi i8 [ 2, %92 ], [ 4, %95 ], [ 0, %93 ], [ 0, %86 ], [ 0, %.thread192 ]
+  %.3 = phi i32 [ %.2, %92 ], [ %100, %95 ], [ %.2, %93 ], [ %.2, %86 ], [ 1, %.thread192 ]
+  %105 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %106 = zext nneg i8 %104 to i32
+  %107 = add nuw nsw i32 %.3, %106
+  %108 = sub i32 %105, %107
+  %109 = trunc i32 %108 to i8
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  store i8 %109, ptr %110, align 4
+  %111 = and i32 %108, 255
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %115
 
-112:                                              ; preds = %101
-  %113 = tail call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_zbee_nwk_gp_no_payload, ptr noundef %0, i32 noundef 0, i32 noundef -1)
-  br label %180
+113:                                              ; preds = %101
+  %114 = tail call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_zbee_nwk_gp_no_payload, ptr noundef %0, i32 noundef 0, i32 noundef -1)
+  br label %181
 
-114:                                              ; preds = %101
-  switch i8 %103, label %123 [
-    i8 2, label %115
-    i8 4, label %119
+115:                                              ; preds = %101
+  switch i8 %104, label %124 [
+    i8 2, label %116
+    i8 4, label %120
   ]
 
-115:                                              ; preds = %114
-  %116 = add nuw nsw i32 %110, %.3
-  %117 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %116)
-  %118 = zext i16 %117 to i32
+116:                                              ; preds = %115
+  %117 = add nuw nsw i32 %111, %.3
+  %118 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %117)
+  %119 = zext i16 %118 to i32
   br label %.sink.split
 
-119:                                              ; preds = %114
-  %120 = add nuw nsw i32 %110, %.3
-  %121 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %120)
+120:                                              ; preds = %115
+  %121 = add nuw nsw i32 %111, %.3
+  %122 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %121)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %115, %119
-  %.sink = phi i32 [ %121, %119 ], [ %118, %115 ]
-  %122 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %.sink, ptr %122, align 8
-  br label %123
+.sink.split:                                      ; preds = %116, %120
+  %.sink = phi i32 [ %122, %120 ], [ %119, %116 ]
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i32 %.sink, ptr %123, align 8
+  br label %124
 
-123:                                              ; preds = %.sink.split, %114
-  %124 = and i32 %107, 255
-  %125 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.3, i32 noundef %124)
-  %126 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %.not149 = icmp eq i8 %56, 3
-  br i1 %.not149, label %129, label %127
+124:                                              ; preds = %.sink.split, %115
+  %125 = and i32 %108, 255
+  %126 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.3, i32 noundef %125)
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %.not158 = icmp eq i8 %103, 3
+  br i1 %.not158, label %130, label %128
 
-127:                                              ; preds = %123
-  %128 = call i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %125, ptr noundef %1, ptr noundef %18, ptr noundef nonnull %5)
-  %.pre = load i8, ptr %109, align 4
-  %.pre167 = load i8, ptr %102, align 4
-  %.pre168 = zext i8 %.pre to i32
-  br label %129
+128:                                              ; preds = %124
+  %129 = call i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %126, ptr noundef %1, ptr noundef %18, ptr noundef nonnull %5)
+  %.pre = load i8, ptr %110, align 4
+  %.pre174 = load i8, ptr %102, align 4
+  %.pre175 = zext i8 %.pre to i32
+  br label %130
 
-129:                                              ; preds = %127, %123
-  %.pre-phi = phi i32 [ %.pre168, %127 ], [ %124, %123 ]
-  %130 = phi i8 [ %.pre167, %127 ], [ %103, %123 ]
-  %131 = phi i8 [ %.pre, %127 ], [ %108, %123 ]
-  %132 = add nuw nsw i32 %.3, %.pre-phi
-  %.not150 = icmp eq i8 %130, 0
-  br i1 %.not150, label %143, label %133
+130:                                              ; preds = %128, %124
+  %.pre-phi = phi i32 [ %.pre175, %128 ], [ %125, %124 ]
+  %131 = phi i8 [ %.pre174, %128 ], [ %104, %124 ]
+  %132 = phi i8 [ %.pre, %128 ], [ %109, %124 ]
+  %133 = add nuw nsw i32 %.3, %.pre-phi
+  %.not159 = icmp eq i8 %131, 0
+  br i1 %.not159, label %144, label %134
 
-133:                                              ; preds = %129
-  %134 = zext i8 %130 to i32
-  %135 = icmp eq i8 %130, 4
-  %136 = load i32, ptr @hf_zbee_nwk_gp_security_mic_4b, align 4
-  %137 = load i32, ptr @hf_zbee_nwk_gp_security_mic_2b, align 4
-  %138 = select i1 %135, i32 %136, i32 %137
-  %139 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %140 = load i32, ptr %139, align 8
-  %141 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %138, ptr noundef %0, i32 noundef %132, i32 noundef %134, i32 noundef %140)
-  %142 = add nuw nsw i32 %132, %134
-  br label %143
+134:                                              ; preds = %130
+  %135 = zext i8 %131 to i32
+  %136 = icmp eq i8 %131, 4
+  %137 = load i32, ptr @hf_zbee_nwk_gp_security_mic_4b, align 4
+  %138 = load i32, ptr @hf_zbee_nwk_gp_security_mic_2b, align 4
+  %139 = select i1 %136, i32 %137, i32 %138
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %141 = load i32, ptr %140, align 8
+  %142 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %139, ptr noundef %0, i32 noundef %133, i32 noundef %135, i32 noundef %141)
+  %143 = add nuw nsw i32 %133, %135
+  br label %144
 
-143:                                              ; preds = %133, %129
-  %.4 = phi i32 [ %142, %133 ], [ %132, %129 ]
-  %144 = call i32 @tvb_captured_length(ptr noundef %0)
-  %145 = icmp ult i32 %.4, %144
-  %146 = load i8, ptr %126, align 1
-  %147 = icmp ne i8 %146, 3
-  %or.cond27 = select i1 %145, i1 %147, i1 false
-  br i1 %or.cond27, label %148, label %150
+144:                                              ; preds = %134, %130
+  %.4 = phi i32 [ %143, %134 ], [ %133, %130 ]
+  %145 = call i32 @tvb_captured_length(ptr noundef %0)
+  %146 = icmp ult i32 %.4, %145
+  %147 = load i8, ptr %127, align 1
+  %148 = icmp ne i8 %147, 3
+  %or.cond36 = select i1 %146, i1 %148, i1 false
+  br i1 %or.cond36, label %149, label %151
 
-148:                                              ; preds = %143
-  %149 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_zbee_nwk_gp_inval_residual_data, ptr noundef %0, i32 noundef %.4, i32 noundef -1)
-  br label %180
+149:                                              ; preds = %144
+  %150 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_zbee_nwk_gp_inval_residual_data, ptr noundef %0, i32 noundef %.4, i32 noundef -1)
+  br label %181
 
-150:                                              ; preds = %143
-  %151 = icmp eq i8 %146, 3
-  br i1 %151, label %152, label %178
+151:                                              ; preds = %144
+  %152 = icmp eq i8 %147, 3
+  br i1 %152, label %153, label %179
 
-152:                                              ; preds = %150
-  %153 = call i32 @tvb_captured_length(ptr noundef %0)
-  %154 = call i32 @tvb_reported_length(ptr noundef %0)
-  %.not151 = icmp ult i32 %153, %154
-  br i1 %.not151, label %.thread155, label %155
+153:                                              ; preds = %151
+  %154 = call i32 @tvb_captured_length(ptr noundef %0)
+  %155 = call i32 @tvb_reported_length(ptr noundef %0)
+  %.not160 = icmp ult i32 %154, %155
+  br i1 %.not160, label %.thread, label %156
 
-155:                                              ; preds = %152
-  %156 = load ptr, ptr %19, align 8
-  %157 = zext i8 %131 to i64
-  %158 = call noalias ptr @wmem_alloc(ptr noundef %156, i64 noundef %157) #13
-  %.0144165 = load ptr, ptr @zbee_gp_keyring, align 8
-  %159 = icmp eq ptr %.0144165, null
-  br i1 %159, label %.thread155, label %.lr.ph
+156:                                              ; preds = %153
+  %157 = load ptr, ptr %19, align 8
+  %158 = zext i8 %132 to i64
+  %159 = call noalias ptr @wmem_alloc(ptr noundef %157, i64 noundef %158) #13
+  %.0153172 = load ptr, ptr @zbee_gp_keyring, align 8
+  %160 = icmp eq ptr %.0153172, null
+  br i1 %160, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %155
-  %160 = zext i8 %130 to i32
-  %161 = add nuw nsw i32 %.pre-phi, %160
-  %162 = sub nsw i32 %.4, %161
-  %163 = trunc i32 %162 to i8
-  br label %164
+.lr.ph:                                           ; preds = %156
+  %161 = zext i8 %131 to i32
+  %162 = add nuw nsw i32 %.pre-phi, %161
+  %163 = sub nsw i32 %.4, %162
+  %164 = trunc i32 %163 to i8
+  br label %165
 
-164:                                              ; preds = %.lr.ph, %164
-  %.0144166 = phi ptr [ %.0144165, %.lr.ph ], [ %.0144, %164 ]
-  %165 = load ptr, ptr %.0144166, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  %167 = call fastcc zeroext i1 @zbee_gp_decrypt_payload(ptr noundef nonnull %5, ptr noundef %23, i8 noundef signext %163, ptr noundef %158, i32 noundef %.pre-phi, i32 noundef %160, ptr noundef nonnull %166)
-  %168 = getelementptr inbounds nuw i8, ptr %.0144166, i64 8
-  %.0144 = load ptr, ptr %168, align 8
-  %169 = icmp eq ptr %.0144, null
-  %.not153 = select i1 %169, i1 true, i1 %167
-  br i1 %.not153, label %._crit_edge, label %164, !llvm.loop !11
+165:                                              ; preds = %.lr.ph, %165
+  %.0153173 = phi ptr [ %.0153172, %.lr.ph ], [ %.0153, %165 ]
+  %166 = load ptr, ptr %.0153173, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  %168 = call fastcc zeroext i1 @zbee_gp_decrypt_payload(ptr noundef nonnull %5, ptr noundef %23, i8 noundef signext %164, ptr noundef %159, i32 noundef %.pre-phi, i32 noundef %161, ptr noundef nonnull %167)
+  %169 = getelementptr inbounds nuw i8, ptr %.0153173, i64 8
+  %.0153 = load ptr, ptr %169, align 8
+  %170 = icmp eq ptr %.0153, null
+  %.not162 = select i1 %170, i1 true, i1 %168
+  br i1 %.not162, label %._crit_edge, label %165, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %164
-  br i1 %167, label %170, label %.thread155
+._crit_edge:                                      ; preds = %165
+  br i1 %168, label %171, label %.thread
 
-170:                                              ; preds = %._crit_edge
-  %171 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %158, i32 noundef %.pre-phi, i32 noundef %.pre-phi)
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %171, ptr noundef nonnull @.str.309)
-  %172 = call i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %171, ptr noundef %1, ptr noundef %18, ptr noundef nonnull %5)
-  br label %178
+171:                                              ; preds = %._crit_edge
+  %172 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %159, i32 noundef %.pre-phi, i32 noundef %.pre-phi)
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %172, ptr noundef nonnull @.str.309)
+  %173 = call i32 @dissect_zbee_nwk_gp_cmd(ptr noundef %172, ptr noundef %1, ptr noundef %18, ptr noundef nonnull %5)
+  br label %179
 
-.thread155:                                       ; preds = %155, %152, %._crit_edge
-  %173 = zext i8 %130 to i32
-  %174 = add nuw nsw i32 %.pre-phi, %173
-  %175 = sub nsw i32 %.4, %174
-  %176 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %175, i32 noundef %.pre-phi, i32 noundef -1)
-  %177 = call i32 @call_data_dissector(ptr noundef %176, ptr noundef %1, ptr noundef %2)
-  br label %178
+.thread:                                          ; preds = %156, %153, %._crit_edge
+  %174 = zext i8 %131 to i32
+  %175 = add nuw nsw i32 %.pre-phi, %174
+  %176 = sub nsw i32 %.4, %175
+  %177 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %176, i32 noundef %.pre-phi, i32 noundef -1)
+  %178 = call i32 @call_data_dissector(ptr noundef %177, ptr noundef %1, ptr noundef %2)
+  br label %179
 
-178:                                              ; preds = %170, %.thread155, %150
-  %179 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %180
+179:                                              ; preds = %171, %.thread, %151
+  %180 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %181
 
-180:                                              ; preds = %4, %178, %148, %112
-  %.0 = phi i32 [ %.3, %112 ], [ %.4, %148 ], [ %179, %178 ], [ 0, %4 ]
+181:                                              ; preds = %4, %179, %149, %113
+  %.0 = phi i32 [ %.3, %113 ], [ %.4, %149 ], [ %180, %179 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
   ret i32 %.0
 }

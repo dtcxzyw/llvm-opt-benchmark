@@ -118,9 +118,9 @@ define noundef i64 @_Z15fast_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, i6
 26:                                               ; preds = %13
   %27 = icmp ne i64 %25, 0
   %28 = and i64 %20, 4194304
-  %.not90 = icmp eq i64 %28, 0
-  %or.cond95 = and i1 %.not90, %27
-  br i1 %or.cond95, label %46, label %29
+  %.not95 = icmp eq i64 %28, 0
+  %or.cond100 = and i1 %.not95, %27
+  br i1 %or.cond100, label %46, label %29
 
 29:                                               ; preds = %26
   %30 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -140,10 +140,10 @@ define noundef i64 @_Z15fast_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load i64, ptr %37, align 8, !tbaa !97
   %39 = and i64 %38, 4194304
-  %.not = icmp eq i64 %39, 0
-  %40 = select i1 %.not, i64 1, i64 3
-  %.not89 = icmp ult i64 %25, %40
-  br i1 %.not89, label %41, label %46, !prof !7
+  %.not93 = icmp eq i64 %39, 0
+  %40 = select i1 %.not93, i64 1, i64 3
+  %.not94 = icmp ult i64 %25, %40
+  br i1 %.not94, label %41, label %46, !prof !7
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -165,8 +165,8 @@ define noundef i64 @_Z15fast_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(37) %48) #11
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i99 = load i64, ptr %53, align 8, !tbaa !3
-  %54 = and i64 %.sink.i.i99, 68719476736
+  %.sink.i.i101 = load i64, ptr %53, align 8, !tbaa !3
+  %54 = and i64 %.sink.i.i101, 68719476736
   %.0.i.not.i = icmp eq i64 %54, 0
   %55 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %56 = and i64 %55, %52
@@ -191,10 +191,10 @@ define noundef i64 @_Z15fast_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, i6
 72:                                               ; preds = %46
   %73 = load ptr, ptr %4, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %.sink.i.i100 = load i64, ptr %74, align 8, !tbaa !3
-  %75 = and i64 %.sink.i.i100, 128
-  %.0.i.i101.not = icmp eq i64 %75, 0
-  br i1 %.0.i.i101.not, label %81, label %76
+  %.sink.i.i102 = load i64, ptr %74, align 8, !tbaa !3
+  %75 = and i64 %.sink.i.i102, 128
+  %.0.i.i103.not = icmp eq i64 %75, 0
+  br i1 %.0.i.i103.not, label %81, label %76
 
 76:                                               ; preds = %72
   %77 = and i64 %20, 128
@@ -205,7 +205,7 @@ define noundef i64 @_Z15fast_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %81
 
 81:                                               ; preds = %76, %72
-  %.188 = phi i1 [ %78, %76 ], [ false, %72 ]
+  %.192 = phi i1 [ %78, %76 ], [ false, %72 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %83 = load ptr, ptr %82, align 8, !tbaa !96
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
@@ -215,7 +215,7 @@ define noundef i64 @_Z15fast_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.087 = phi i1 [ true, %46 ], [ %.188, %81 ]
+  %.091 = phi i1 [ true, %46 ], [ %.192, %81 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i = load i64, ptr %88, align 8, !tbaa !3
   %89 = and i64 %.sink.i, 4294967296
@@ -257,21 +257,21 @@ define noundef i64 @_Z15fast_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %119 = and i64 %118, 1
   %120 = load ptr, ptr %4, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %.sink.i.i102 = load i64, ptr %121, align 8, !tbaa !3
-  %122 = and i64 %.sink.i.i102, 262144
-  %.0.i.i103.not = icmp eq i64 %122, 0
-  %123 = select i1 %.0.i.i103.not, i64 %98, i64 %119
+  %.sink.i.i104 = load i64, ptr %121, align 8, !tbaa !3
+  %122 = and i64 %.sink.i.i104, 262144
+  %.0.i.i105.not = icmp eq i64 %122, 0
+  %123 = select i1 %.0.i.i105.not, i64 %98, i64 %119
   br label %128
 
 124:                                              ; preds = %90
   %125 = lshr i64 %110, 2
   %126 = and i64 %125, 1
-  %127 = select i1 %.087, i64 %126, i64 %98
+  %127 = select i1 %.091, i64 %126, i64 %98
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.185 = phi i64 [ %127, %124 ], [ %123, %117 ]
-  %129 = icmp eq i64 %.185, 0
+  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
 130:                                              ; preds = %128
@@ -296,8 +296,8 @@ define noundef i64 @_Z15fast_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %143 = and i64 %142, -4398046511105
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %140, i64 noundef %143) #11
   %144 = icmp eq i64 %64, 0
-  %brmerge = or i1 %144, %.087
-  br i1 %brmerge, label %145, label %thread-pre-split
+  %or.cond = or i1 %144, %.091
+  br i1 %or.cond, label %145, label %thread-pre-split
 
 145:                                              ; preds = %138
   %146 = load ptr, ptr %139, align 8, !tbaa !96
@@ -305,8 +305,8 @@ define noundef i64 @_Z15fast_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %148 = load i64, ptr %147, align 8, !tbaa !97
   %149 = and i64 %148, -16777217
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %146, i64 noundef %149) #11
-  %or.cond = and i1 %144, %.087
-  br i1 %or.cond, label %150, label %thread-pre-split
+  %or.cond3 = and i1 %144, %.091
+  br i1 %or.cond3, label %150, label %thread-pre-split
 
 150:                                              ; preds = %145
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -329,11 +329,11 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   %159 = and i64 %69, -25166081
   %160 = load i8, ptr %21, align 2, !tbaa !22, !range !93, !noundef !94
   %161 = trunc nuw i8 %160 to i1
-  %.not96 = xor i1 %161, true
+  %.not = xor i1 %161, true
   %162 = icmp eq i64 %64, 0
-  %163 = and i1 %162, %.not96
-  %or.cond98 = and i1 %.087, %163
-  br i1 %or.cond98, label %164, label %169
+  %163 = and i1 %162, %.not
+  %or.cond7 = and i1 %.091, %163
+  br i1 %or.cond7, label %164, label %169
 
 164:                                              ; preds = %158
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -344,10 +344,10 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   br label %169
 
 169:                                              ; preds = %158, %164, %155
-  %.086 = phi i64 [ %159, %158 ], [ %159, %164 ], [ %69, %155 ]
+  %.090 = phi i64 [ %159, %164 ], [ %159, %158 ], [ %69, %155 ]
   %170 = load ptr, ptr %57, align 8, !tbaa !104
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.086) #11
-  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.087)
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.090) #11
+  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.091)
   ret i64 5
 }
 
@@ -414,9 +414,9 @@ define noundef i64 @_Z15fast_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, i6
 26:                                               ; preds = %13
   %27 = icmp ne i64 %25, 0
   %28 = and i64 %20, 4194304
-  %.not90 = icmp eq i64 %28, 0
-  %or.cond95 = and i1 %.not90, %27
-  br i1 %or.cond95, label %46, label %29
+  %.not95 = icmp eq i64 %28, 0
+  %or.cond100 = and i1 %.not95, %27
+  br i1 %or.cond100, label %46, label %29
 
 29:                                               ; preds = %26
   %30 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -436,10 +436,10 @@ define noundef i64 @_Z15fast_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load i64, ptr %37, align 8, !tbaa !97
   %39 = and i64 %38, 4194304
-  %.not = icmp eq i64 %39, 0
-  %40 = select i1 %.not, i64 1, i64 3
-  %.not89 = icmp ult i64 %25, %40
-  br i1 %.not89, label %41, label %46, !prof !7
+  %.not93 = icmp eq i64 %39, 0
+  %40 = select i1 %.not93, i64 1, i64 3
+  %.not94 = icmp ult i64 %25, %40
+  br i1 %.not94, label %41, label %46, !prof !7
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -461,8 +461,8 @@ define noundef i64 @_Z15fast_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(37) %48) #11
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i99 = load i64, ptr %53, align 8, !tbaa !3
-  %54 = and i64 %.sink.i.i99, 68719476736
+  %.sink.i.i101 = load i64, ptr %53, align 8, !tbaa !3
+  %54 = and i64 %.sink.i.i101, 68719476736
   %.0.i.not.i = icmp eq i64 %54, 0
   %55 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %56 = and i64 %55, %52
@@ -487,10 +487,10 @@ define noundef i64 @_Z15fast_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, i6
 72:                                               ; preds = %46
   %73 = load ptr, ptr %4, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %.sink.i.i100 = load i64, ptr %74, align 8, !tbaa !3
-  %75 = and i64 %.sink.i.i100, 128
-  %.0.i.i101.not = icmp eq i64 %75, 0
-  br i1 %.0.i.i101.not, label %81, label %76
+  %.sink.i.i102 = load i64, ptr %74, align 8, !tbaa !3
+  %75 = and i64 %.sink.i.i102, 128
+  %.0.i.i103.not = icmp eq i64 %75, 0
+  br i1 %.0.i.i103.not, label %81, label %76
 
 76:                                               ; preds = %72
   %77 = and i64 %20, 128
@@ -501,7 +501,7 @@ define noundef i64 @_Z15fast_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %81
 
 81:                                               ; preds = %76, %72
-  %.188 = phi i1 [ %78, %76 ], [ false, %72 ]
+  %.192 = phi i1 [ %78, %76 ], [ false, %72 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %83 = load ptr, ptr %82, align 8, !tbaa !96
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
@@ -511,7 +511,7 @@ define noundef i64 @_Z15fast_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.087 = phi i1 [ true, %46 ], [ %.188, %81 ]
+  %.091 = phi i1 [ true, %46 ], [ %.192, %81 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i = load i64, ptr %88, align 8, !tbaa !3
   %89 = and i64 %.sink.i, 4294967296
@@ -553,21 +553,21 @@ define noundef i64 @_Z15fast_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %119 = and i64 %118, 1
   %120 = load ptr, ptr %4, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %.sink.i.i102 = load i64, ptr %121, align 8, !tbaa !3
-  %122 = and i64 %.sink.i.i102, 262144
-  %.0.i.i103.not = icmp eq i64 %122, 0
-  %123 = select i1 %.0.i.i103.not, i64 %98, i64 %119
+  %.sink.i.i104 = load i64, ptr %121, align 8, !tbaa !3
+  %122 = and i64 %.sink.i.i104, 262144
+  %.0.i.i105.not = icmp eq i64 %122, 0
+  %123 = select i1 %.0.i.i105.not, i64 %98, i64 %119
   br label %128
 
 124:                                              ; preds = %90
   %125 = lshr i64 %110, 2
   %126 = and i64 %125, 1
-  %127 = select i1 %.087, i64 %126, i64 %98
+  %127 = select i1 %.091, i64 %126, i64 %98
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.185 = phi i64 [ %127, %124 ], [ %123, %117 ]
-  %129 = icmp eq i64 %.185, 0
+  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
 130:                                              ; preds = %128
@@ -592,8 +592,8 @@ define noundef i64 @_Z15fast_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %143 = and i64 %142, -4398046511105
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %140, i64 noundef %143) #11
   %144 = icmp eq i64 %64, 0
-  %brmerge = or i1 %144, %.087
-  br i1 %brmerge, label %145, label %thread-pre-split
+  %or.cond = or i1 %144, %.091
+  br i1 %or.cond, label %145, label %thread-pre-split
 
 145:                                              ; preds = %138
   %146 = load ptr, ptr %139, align 8, !tbaa !96
@@ -601,8 +601,8 @@ define noundef i64 @_Z15fast_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %148 = load i64, ptr %147, align 8, !tbaa !97
   %149 = and i64 %148, -16777217
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %146, i64 noundef %149) #11
-  %or.cond = and i1 %144, %.087
-  br i1 %or.cond, label %150, label %thread-pre-split
+  %or.cond3 = and i1 %144, %.091
+  br i1 %or.cond3, label %150, label %thread-pre-split
 
 150:                                              ; preds = %145
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -625,11 +625,11 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   %159 = and i64 %69, -25166081
   %160 = load i8, ptr %21, align 2, !tbaa !22, !range !93, !noundef !94
   %161 = trunc nuw i8 %160 to i1
-  %.not96 = xor i1 %161, true
+  %.not = xor i1 %161, true
   %162 = icmp eq i64 %64, 0
-  %163 = and i1 %162, %.not96
-  %or.cond98 = and i1 %.087, %163
-  br i1 %or.cond98, label %164, label %169
+  %163 = and i1 %162, %.not
+  %or.cond7 = and i1 %.091, %163
+  br i1 %or.cond7, label %164, label %169
 
 164:                                              ; preds = %158
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -640,10 +640,10 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   br label %169
 
 169:                                              ; preds = %158, %164, %155
-  %.086 = phi i64 [ %159, %158 ], [ %159, %164 ], [ %69, %155 ]
+  %.090 = phi i64 [ %159, %164 ], [ %159, %158 ], [ %69, %155 ]
   %170 = load ptr, ptr %57, align 8, !tbaa !104
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.086) #11
-  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.087)
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.090) #11
+  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.091)
   ret i64 5
 }
 
@@ -687,9 +687,9 @@ define noundef i64 @_Z17logged_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, 
 26:                                               ; preds = %13
   %27 = icmp ne i64 %25, 0
   %28 = and i64 %20, 4194304
-  %.not90 = icmp eq i64 %28, 0
-  %or.cond95 = and i1 %.not90, %27
-  br i1 %or.cond95, label %46, label %29
+  %.not95 = icmp eq i64 %28, 0
+  %or.cond100 = and i1 %.not95, %27
+  br i1 %or.cond100, label %46, label %29
 
 29:                                               ; preds = %26
   %30 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -709,10 +709,10 @@ define noundef i64 @_Z17logged_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, 
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load i64, ptr %37, align 8, !tbaa !97
   %39 = and i64 %38, 4194304
-  %.not = icmp eq i64 %39, 0
-  %40 = select i1 %.not, i64 1, i64 3
-  %.not89 = icmp ult i64 %25, %40
-  br i1 %.not89, label %41, label %46, !prof !7
+  %.not93 = icmp eq i64 %39, 0
+  %40 = select i1 %.not93, i64 1, i64 3
+  %.not94 = icmp ult i64 %25, %40
+  br i1 %.not94, label %41, label %46, !prof !7
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -734,8 +734,8 @@ define noundef i64 @_Z17logged_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, 
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(37) %48) #11
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i99 = load i64, ptr %53, align 8, !tbaa !3
-  %54 = and i64 %.sink.i.i99, 68719476736
+  %.sink.i.i101 = load i64, ptr %53, align 8, !tbaa !3
+  %54 = and i64 %.sink.i.i101, 68719476736
   %.0.i.not.i = icmp eq i64 %54, 0
   %55 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %56 = and i64 %55, %52
@@ -760,10 +760,10 @@ define noundef i64 @_Z17logged_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %4, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %.sink.i.i100 = load i64, ptr %74, align 8, !tbaa !3
-  %75 = and i64 %.sink.i.i100, 128
-  %.0.i.i101.not = icmp eq i64 %75, 0
-  br i1 %.0.i.i101.not, label %81, label %76
+  %.sink.i.i102 = load i64, ptr %74, align 8, !tbaa !3
+  %75 = and i64 %.sink.i.i102, 128
+  %.0.i.i103.not = icmp eq i64 %75, 0
+  br i1 %.0.i.i103.not, label %81, label %76
 
 76:                                               ; preds = %72
   %77 = and i64 %20, 128
@@ -774,7 +774,7 @@ define noundef i64 @_Z17logged_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %81
 
 81:                                               ; preds = %76, %72
-  %.188 = phi i1 [ %78, %76 ], [ false, %72 ]
+  %.192 = phi i1 [ %78, %76 ], [ false, %72 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %83 = load ptr, ptr %82, align 8, !tbaa !96
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
@@ -784,7 +784,7 @@ define noundef i64 @_Z17logged_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.087 = phi i1 [ true, %46 ], [ %.188, %81 ]
+  %.091 = phi i1 [ true, %46 ], [ %.192, %81 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i = load i64, ptr %88, align 8, !tbaa !3
   %89 = and i64 %.sink.i, 4294967296
@@ -826,21 +826,21 @@ define noundef i64 @_Z17logged_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, 
   %119 = and i64 %118, 1
   %120 = load ptr, ptr %4, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %.sink.i.i102 = load i64, ptr %121, align 8, !tbaa !3
-  %122 = and i64 %.sink.i.i102, 262144
-  %.0.i.i103.not = icmp eq i64 %122, 0
-  %123 = select i1 %.0.i.i103.not, i64 %98, i64 %119
+  %.sink.i.i104 = load i64, ptr %121, align 8, !tbaa !3
+  %122 = and i64 %.sink.i.i104, 262144
+  %.0.i.i105.not = icmp eq i64 %122, 0
+  %123 = select i1 %.0.i.i105.not, i64 %98, i64 %119
   br label %128
 
 124:                                              ; preds = %90
   %125 = lshr i64 %110, 2
   %126 = and i64 %125, 1
-  %127 = select i1 %.087, i64 %126, i64 %98
+  %127 = select i1 %.091, i64 %126, i64 %98
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.185 = phi i64 [ %127, %124 ], [ %123, %117 ]
-  %129 = icmp eq i64 %.185, 0
+  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
 130:                                              ; preds = %128
@@ -865,8 +865,8 @@ define noundef i64 @_Z17logged_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, 
   %143 = and i64 %142, -4398046511105
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %140, i64 noundef %143) #11
   %144 = icmp eq i64 %64, 0
-  %brmerge = or i1 %144, %.087
-  br i1 %brmerge, label %145, label %thread-pre-split
+  %or.cond = or i1 %144, %.091
+  br i1 %or.cond, label %145, label %thread-pre-split
 
 145:                                              ; preds = %138
   %146 = load ptr, ptr %139, align 8, !tbaa !96
@@ -874,8 +874,8 @@ define noundef i64 @_Z17logged_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, 
   %148 = load i64, ptr %147, align 8, !tbaa !97
   %149 = and i64 %148, -16777217
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %146, i64 noundef %149) #11
-  %or.cond = and i1 %144, %.087
-  br i1 %or.cond, label %150, label %thread-pre-split
+  %or.cond3 = and i1 %144, %.091
+  br i1 %or.cond3, label %150, label %thread-pre-split
 
 150:                                              ; preds = %145
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -898,11 +898,11 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   %159 = and i64 %69, -25166081
   %160 = load i8, ptr %21, align 2, !tbaa !22, !range !93, !noundef !94
   %161 = trunc nuw i8 %160 to i1
-  %.not96 = xor i1 %161, true
+  %.not = xor i1 %161, true
   %162 = icmp eq i64 %64, 0
-  %163 = and i1 %162, %.not96
-  %or.cond98 = and i1 %.087, %163
-  br i1 %or.cond98, label %164, label %169
+  %163 = and i1 %162, %.not
+  %or.cond7 = and i1 %.091, %163
+  br i1 %or.cond7, label %164, label %169
 
 164:                                              ; preds = %158
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -913,10 +913,10 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   br label %169
 
 169:                                              ; preds = %158, %164, %155
-  %.086 = phi i64 [ %159, %158 ], [ %159, %164 ], [ %69, %155 ]
+  %.090 = phi i64 [ %159, %164 ], [ %159, %158 ], [ %69, %155 ]
   %170 = load ptr, ptr %57, align 8, !tbaa !104
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.086) #11
-  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.087)
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.090) #11
+  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.091)
   ret i64 5
 }
 
@@ -960,9 +960,9 @@ define noundef i64 @_Z17logged_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, 
 26:                                               ; preds = %13
   %27 = icmp ne i64 %25, 0
   %28 = and i64 %20, 4194304
-  %.not90 = icmp eq i64 %28, 0
-  %or.cond95 = and i1 %.not90, %27
-  br i1 %or.cond95, label %46, label %29
+  %.not95 = icmp eq i64 %28, 0
+  %or.cond100 = and i1 %.not95, %27
+  br i1 %or.cond100, label %46, label %29
 
 29:                                               ; preds = %26
   %30 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -982,10 +982,10 @@ define noundef i64 @_Z17logged_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, 
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load i64, ptr %37, align 8, !tbaa !97
   %39 = and i64 %38, 4194304
-  %.not = icmp eq i64 %39, 0
-  %40 = select i1 %.not, i64 1, i64 3
-  %.not89 = icmp ult i64 %25, %40
-  br i1 %.not89, label %41, label %46, !prof !7
+  %.not93 = icmp eq i64 %39, 0
+  %40 = select i1 %.not93, i64 1, i64 3
+  %.not94 = icmp ult i64 %25, %40
+  br i1 %.not94, label %41, label %46, !prof !7
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -1007,8 +1007,8 @@ define noundef i64 @_Z17logged_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, 
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(37) %48) #11
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i99 = load i64, ptr %53, align 8, !tbaa !3
-  %54 = and i64 %.sink.i.i99, 68719476736
+  %.sink.i.i101 = load i64, ptr %53, align 8, !tbaa !3
+  %54 = and i64 %.sink.i.i101, 68719476736
   %.0.i.not.i = icmp eq i64 %54, 0
   %55 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %56 = and i64 %55, %52
@@ -1033,10 +1033,10 @@ define noundef i64 @_Z17logged_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %4, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %.sink.i.i100 = load i64, ptr %74, align 8, !tbaa !3
-  %75 = and i64 %.sink.i.i100, 128
-  %.0.i.i101.not = icmp eq i64 %75, 0
-  br i1 %.0.i.i101.not, label %81, label %76
+  %.sink.i.i102 = load i64, ptr %74, align 8, !tbaa !3
+  %75 = and i64 %.sink.i.i102, 128
+  %.0.i.i103.not = icmp eq i64 %75, 0
+  br i1 %.0.i.i103.not, label %81, label %76
 
 76:                                               ; preds = %72
   %77 = and i64 %20, 128
@@ -1047,7 +1047,7 @@ define noundef i64 @_Z17logged_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %81
 
 81:                                               ; preds = %76, %72
-  %.188 = phi i1 [ %78, %76 ], [ false, %72 ]
+  %.192 = phi i1 [ %78, %76 ], [ false, %72 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %83 = load ptr, ptr %82, align 8, !tbaa !96
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
@@ -1057,7 +1057,7 @@ define noundef i64 @_Z17logged_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.087 = phi i1 [ true, %46 ], [ %.188, %81 ]
+  %.091 = phi i1 [ true, %46 ], [ %.192, %81 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i = load i64, ptr %88, align 8, !tbaa !3
   %89 = and i64 %.sink.i, 4294967296
@@ -1099,21 +1099,21 @@ define noundef i64 @_Z17logged_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, 
   %119 = and i64 %118, 1
   %120 = load ptr, ptr %4, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %.sink.i.i102 = load i64, ptr %121, align 8, !tbaa !3
-  %122 = and i64 %.sink.i.i102, 262144
-  %.0.i.i103.not = icmp eq i64 %122, 0
-  %123 = select i1 %.0.i.i103.not, i64 %98, i64 %119
+  %.sink.i.i104 = load i64, ptr %121, align 8, !tbaa !3
+  %122 = and i64 %.sink.i.i104, 262144
+  %.0.i.i105.not = icmp eq i64 %122, 0
+  %123 = select i1 %.0.i.i105.not, i64 %98, i64 %119
   br label %128
 
 124:                                              ; preds = %90
   %125 = lshr i64 %110, 2
   %126 = and i64 %125, 1
-  %127 = select i1 %.087, i64 %126, i64 %98
+  %127 = select i1 %.091, i64 %126, i64 %98
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.185 = phi i64 [ %127, %124 ], [ %123, %117 ]
-  %129 = icmp eq i64 %.185, 0
+  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
 130:                                              ; preds = %128
@@ -1138,8 +1138,8 @@ define noundef i64 @_Z17logged_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, 
   %143 = and i64 %142, -4398046511105
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %140, i64 noundef %143) #11
   %144 = icmp eq i64 %64, 0
-  %brmerge = or i1 %144, %.087
-  br i1 %brmerge, label %145, label %thread-pre-split
+  %or.cond = or i1 %144, %.091
+  br i1 %or.cond, label %145, label %thread-pre-split
 
 145:                                              ; preds = %138
   %146 = load ptr, ptr %139, align 8, !tbaa !96
@@ -1147,8 +1147,8 @@ define noundef i64 @_Z17logged_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, 
   %148 = load i64, ptr %147, align 8, !tbaa !97
   %149 = and i64 %148, -16777217
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %146, i64 noundef %149) #11
-  %or.cond = and i1 %144, %.087
-  br i1 %or.cond, label %150, label %thread-pre-split
+  %or.cond3 = and i1 %144, %.091
+  br i1 %or.cond3, label %150, label %thread-pre-split
 
 150:                                              ; preds = %145
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -1171,11 +1171,11 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   %159 = and i64 %69, -25166081
   %160 = load i8, ptr %21, align 2, !tbaa !22, !range !93, !noundef !94
   %161 = trunc nuw i8 %160 to i1
-  %.not96 = xor i1 %161, true
+  %.not = xor i1 %161, true
   %162 = icmp eq i64 %64, 0
-  %163 = and i1 %162, %.not96
-  %or.cond98 = and i1 %.087, %163
-  br i1 %or.cond98, label %164, label %169
+  %163 = and i1 %162, %.not
+  %or.cond7 = and i1 %.091, %163
+  br i1 %or.cond7, label %164, label %169
 
 164:                                              ; preds = %158
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -1186,10 +1186,10 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   br label %169
 
 169:                                              ; preds = %158, %164, %155
-  %.086 = phi i64 [ %159, %158 ], [ %159, %164 ], [ %69, %155 ]
+  %.090 = phi i64 [ %159, %164 ], [ %159, %158 ], [ %69, %155 ]
   %170 = load ptr, ptr %57, align 8, !tbaa !104
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.086) #11
-  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.087)
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.090) #11
+  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.091)
   ret i64 5
 }
 
@@ -1233,9 +1233,9 @@ define noundef i64 @_Z15fast_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, i6
 26:                                               ; preds = %13
   %27 = icmp ne i64 %25, 0
   %28 = and i64 %20, 4194304
-  %.not90 = icmp eq i64 %28, 0
-  %or.cond95 = and i1 %.not90, %27
-  br i1 %or.cond95, label %46, label %29
+  %.not95 = icmp eq i64 %28, 0
+  %or.cond100 = and i1 %.not95, %27
+  br i1 %or.cond100, label %46, label %29
 
 29:                                               ; preds = %26
   %30 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -1255,10 +1255,10 @@ define noundef i64 @_Z15fast_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load i64, ptr %37, align 8, !tbaa !97
   %39 = and i64 %38, 4194304
-  %.not = icmp eq i64 %39, 0
-  %40 = select i1 %.not, i64 1, i64 3
-  %.not89 = icmp ult i64 %25, %40
-  br i1 %.not89, label %41, label %46, !prof !7
+  %.not93 = icmp eq i64 %39, 0
+  %40 = select i1 %.not93, i64 1, i64 3
+  %.not94 = icmp ult i64 %25, %40
+  br i1 %.not94, label %41, label %46, !prof !7
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -1280,8 +1280,8 @@ define noundef i64 @_Z15fast_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(37) %48) #11
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i99 = load i64, ptr %53, align 8, !tbaa !3
-  %54 = and i64 %.sink.i.i99, 68719476736
+  %.sink.i.i101 = load i64, ptr %53, align 8, !tbaa !3
+  %54 = and i64 %.sink.i.i101, 68719476736
   %.0.i.not.i = icmp eq i64 %54, 0
   %55 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %56 = and i64 %55, %52
@@ -1306,10 +1306,10 @@ define noundef i64 @_Z15fast_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, i6
 72:                                               ; preds = %46
   %73 = load ptr, ptr %4, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %.sink.i.i100 = load i64, ptr %74, align 8, !tbaa !3
-  %75 = and i64 %.sink.i.i100, 128
-  %.0.i.i101.not = icmp eq i64 %75, 0
-  br i1 %.0.i.i101.not, label %81, label %76
+  %.sink.i.i102 = load i64, ptr %74, align 8, !tbaa !3
+  %75 = and i64 %.sink.i.i102, 128
+  %.0.i.i103.not = icmp eq i64 %75, 0
+  br i1 %.0.i.i103.not, label %81, label %76
 
 76:                                               ; preds = %72
   %77 = and i64 %20, 128
@@ -1320,7 +1320,7 @@ define noundef i64 @_Z15fast_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %81
 
 81:                                               ; preds = %76, %72
-  %.188 = phi i1 [ %78, %76 ], [ false, %72 ]
+  %.192 = phi i1 [ %78, %76 ], [ false, %72 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %83 = load ptr, ptr %82, align 8, !tbaa !96
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
@@ -1330,7 +1330,7 @@ define noundef i64 @_Z15fast_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.087 = phi i1 [ true, %46 ], [ %.188, %81 ]
+  %.091 = phi i1 [ true, %46 ], [ %.192, %81 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i = load i64, ptr %88, align 8, !tbaa !3
   %89 = and i64 %.sink.i, 4294967296
@@ -1372,21 +1372,21 @@ define noundef i64 @_Z15fast_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %119 = and i64 %118, 1
   %120 = load ptr, ptr %4, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %.sink.i.i102 = load i64, ptr %121, align 8, !tbaa !3
-  %122 = and i64 %.sink.i.i102, 262144
-  %.0.i.i103.not = icmp eq i64 %122, 0
-  %123 = select i1 %.0.i.i103.not, i64 %98, i64 %119
+  %.sink.i.i104 = load i64, ptr %121, align 8, !tbaa !3
+  %122 = and i64 %.sink.i.i104, 262144
+  %.0.i.i105.not = icmp eq i64 %122, 0
+  %123 = select i1 %.0.i.i105.not, i64 %98, i64 %119
   br label %128
 
 124:                                              ; preds = %90
   %125 = lshr i64 %110, 2
   %126 = and i64 %125, 1
-  %127 = select i1 %.087, i64 %126, i64 %98
+  %127 = select i1 %.091, i64 %126, i64 %98
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.185 = phi i64 [ %127, %124 ], [ %123, %117 ]
-  %129 = icmp eq i64 %.185, 0
+  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
 130:                                              ; preds = %128
@@ -1411,8 +1411,8 @@ define noundef i64 @_Z15fast_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %143 = and i64 %142, -4398046511105
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %140, i64 noundef %143) #11
   %144 = icmp eq i64 %64, 0
-  %brmerge = or i1 %144, %.087
-  br i1 %brmerge, label %145, label %thread-pre-split
+  %or.cond = or i1 %144, %.091
+  br i1 %or.cond, label %145, label %thread-pre-split
 
 145:                                              ; preds = %138
   %146 = load ptr, ptr %139, align 8, !tbaa !96
@@ -1420,8 +1420,8 @@ define noundef i64 @_Z15fast_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %148 = load i64, ptr %147, align 8, !tbaa !97
   %149 = and i64 %148, -16777217
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %146, i64 noundef %149) #11
-  %or.cond = and i1 %144, %.087
-  br i1 %or.cond, label %150, label %thread-pre-split
+  %or.cond3 = and i1 %144, %.091
+  br i1 %or.cond3, label %150, label %thread-pre-split
 
 150:                                              ; preds = %145
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -1444,11 +1444,11 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   %159 = and i64 %69, -25166081
   %160 = load i8, ptr %21, align 2, !tbaa !22, !range !93, !noundef !94
   %161 = trunc nuw i8 %160 to i1
-  %.not96 = xor i1 %161, true
+  %.not = xor i1 %161, true
   %162 = icmp eq i64 %64, 0
-  %163 = and i1 %162, %.not96
-  %or.cond98 = and i1 %.087, %163
-  br i1 %or.cond98, label %164, label %169
+  %163 = and i1 %162, %.not
+  %or.cond7 = and i1 %.091, %163
+  br i1 %or.cond7, label %164, label %169
 
 164:                                              ; preds = %158
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -1459,10 +1459,10 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   br label %169
 
 169:                                              ; preds = %158, %164, %155
-  %.086 = phi i64 [ %159, %158 ], [ %159, %164 ], [ %69, %155 ]
+  %.090 = phi i64 [ %159, %164 ], [ %159, %158 ], [ %69, %155 ]
   %170 = load ptr, ptr %57, align 8, !tbaa !104
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.086) #11
-  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.087)
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.090) #11
+  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.091)
   ret i64 5
 }
 
@@ -1506,9 +1506,9 @@ define noundef i64 @_Z15fast_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, i6
 26:                                               ; preds = %13
   %27 = icmp ne i64 %25, 0
   %28 = and i64 %20, 4194304
-  %.not90 = icmp eq i64 %28, 0
-  %or.cond95 = and i1 %.not90, %27
-  br i1 %or.cond95, label %46, label %29
+  %.not95 = icmp eq i64 %28, 0
+  %or.cond100 = and i1 %.not95, %27
+  br i1 %or.cond100, label %46, label %29
 
 29:                                               ; preds = %26
   %30 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -1528,10 +1528,10 @@ define noundef i64 @_Z15fast_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load i64, ptr %37, align 8, !tbaa !97
   %39 = and i64 %38, 4194304
-  %.not = icmp eq i64 %39, 0
-  %40 = select i1 %.not, i64 1, i64 3
-  %.not89 = icmp ult i64 %25, %40
-  br i1 %.not89, label %41, label %46, !prof !7
+  %.not93 = icmp eq i64 %39, 0
+  %40 = select i1 %.not93, i64 1, i64 3
+  %.not94 = icmp ult i64 %25, %40
+  br i1 %.not94, label %41, label %46, !prof !7
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -1553,8 +1553,8 @@ define noundef i64 @_Z15fast_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(37) %48) #11
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i99 = load i64, ptr %53, align 8, !tbaa !3
-  %54 = and i64 %.sink.i.i99, 68719476736
+  %.sink.i.i101 = load i64, ptr %53, align 8, !tbaa !3
+  %54 = and i64 %.sink.i.i101, 68719476736
   %.0.i.not.i = icmp eq i64 %54, 0
   %55 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %56 = and i64 %55, %52
@@ -1579,10 +1579,10 @@ define noundef i64 @_Z15fast_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, i6
 72:                                               ; preds = %46
   %73 = load ptr, ptr %4, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %.sink.i.i100 = load i64, ptr %74, align 8, !tbaa !3
-  %75 = and i64 %.sink.i.i100, 128
-  %.0.i.i101.not = icmp eq i64 %75, 0
-  br i1 %.0.i.i101.not, label %81, label %76
+  %.sink.i.i102 = load i64, ptr %74, align 8, !tbaa !3
+  %75 = and i64 %.sink.i.i102, 128
+  %.0.i.i103.not = icmp eq i64 %75, 0
+  br i1 %.0.i.i103.not, label %81, label %76
 
 76:                                               ; preds = %72
   %77 = and i64 %20, 128
@@ -1593,7 +1593,7 @@ define noundef i64 @_Z15fast_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %81
 
 81:                                               ; preds = %76, %72
-  %.188 = phi i1 [ %78, %76 ], [ false, %72 ]
+  %.192 = phi i1 [ %78, %76 ], [ false, %72 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %83 = load ptr, ptr %82, align 8, !tbaa !96
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
@@ -1603,7 +1603,7 @@ define noundef i64 @_Z15fast_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.087 = phi i1 [ true, %46 ], [ %.188, %81 ]
+  %.091 = phi i1 [ true, %46 ], [ %.192, %81 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i = load i64, ptr %88, align 8, !tbaa !3
   %89 = and i64 %.sink.i, 4294967296
@@ -1645,21 +1645,21 @@ define noundef i64 @_Z15fast_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %119 = and i64 %118, 1
   %120 = load ptr, ptr %4, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %.sink.i.i102 = load i64, ptr %121, align 8, !tbaa !3
-  %122 = and i64 %.sink.i.i102, 262144
-  %.0.i.i103.not = icmp eq i64 %122, 0
-  %123 = select i1 %.0.i.i103.not, i64 %98, i64 %119
+  %.sink.i.i104 = load i64, ptr %121, align 8, !tbaa !3
+  %122 = and i64 %.sink.i.i104, 262144
+  %.0.i.i105.not = icmp eq i64 %122, 0
+  %123 = select i1 %.0.i.i105.not, i64 %98, i64 %119
   br label %128
 
 124:                                              ; preds = %90
   %125 = lshr i64 %110, 2
   %126 = and i64 %125, 1
-  %127 = select i1 %.087, i64 %126, i64 %98
+  %127 = select i1 %.091, i64 %126, i64 %98
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.185 = phi i64 [ %127, %124 ], [ %123, %117 ]
-  %129 = icmp eq i64 %.185, 0
+  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
 130:                                              ; preds = %128
@@ -1684,8 +1684,8 @@ define noundef i64 @_Z15fast_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %143 = and i64 %142, -4398046511105
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %140, i64 noundef %143) #11
   %144 = icmp eq i64 %64, 0
-  %brmerge = or i1 %144, %.087
-  br i1 %brmerge, label %145, label %thread-pre-split
+  %or.cond = or i1 %144, %.091
+  br i1 %or.cond, label %145, label %thread-pre-split
 
 145:                                              ; preds = %138
   %146 = load ptr, ptr %139, align 8, !tbaa !96
@@ -1693,8 +1693,8 @@ define noundef i64 @_Z15fast_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   %148 = load i64, ptr %147, align 8, !tbaa !97
   %149 = and i64 %148, -16777217
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %146, i64 noundef %149) #11
-  %or.cond = and i1 %144, %.087
-  br i1 %or.cond, label %150, label %thread-pre-split
+  %or.cond3 = and i1 %144, %.091
+  br i1 %or.cond3, label %150, label %thread-pre-split
 
 150:                                              ; preds = %145
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -1717,11 +1717,11 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   %159 = and i64 %69, -25166081
   %160 = load i8, ptr %21, align 2, !tbaa !22, !range !93, !noundef !94
   %161 = trunc nuw i8 %160 to i1
-  %.not96 = xor i1 %161, true
+  %.not = xor i1 %161, true
   %162 = icmp eq i64 %64, 0
-  %163 = and i1 %162, %.not96
-  %or.cond98 = and i1 %.087, %163
-  br i1 %or.cond98, label %164, label %169
+  %163 = and i1 %162, %.not
+  %or.cond7 = and i1 %.091, %163
+  br i1 %or.cond7, label %164, label %169
 
 164:                                              ; preds = %158
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -1732,10 +1732,10 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   br label %169
 
 169:                                              ; preds = %158, %164, %155
-  %.086 = phi i64 [ %159, %158 ], [ %159, %164 ], [ %69, %155 ]
+  %.090 = phi i64 [ %159, %164 ], [ %159, %158 ], [ %69, %155 ]
   %170 = load ptr, ptr %57, align 8, !tbaa !104
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.086) #11
-  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.087)
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.090) #11
+  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.091)
   ret i64 5
 }
 
@@ -1779,9 +1779,9 @@ define noundef i64 @_Z17logged_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, 
 26:                                               ; preds = %13
   %27 = icmp ne i64 %25, 0
   %28 = and i64 %20, 4194304
-  %.not90 = icmp eq i64 %28, 0
-  %or.cond95 = and i1 %.not90, %27
-  br i1 %or.cond95, label %46, label %29
+  %.not95 = icmp eq i64 %28, 0
+  %or.cond100 = and i1 %.not95, %27
+  br i1 %or.cond100, label %46, label %29
 
 29:                                               ; preds = %26
   %30 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -1801,10 +1801,10 @@ define noundef i64 @_Z17logged_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, 
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load i64, ptr %37, align 8, !tbaa !97
   %39 = and i64 %38, 4194304
-  %.not = icmp eq i64 %39, 0
-  %40 = select i1 %.not, i64 1, i64 3
-  %.not89 = icmp ult i64 %25, %40
-  br i1 %.not89, label %41, label %46, !prof !7
+  %.not93 = icmp eq i64 %39, 0
+  %40 = select i1 %.not93, i64 1, i64 3
+  %.not94 = icmp ult i64 %25, %40
+  br i1 %.not94, label %41, label %46, !prof !7
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -1826,8 +1826,8 @@ define noundef i64 @_Z17logged_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, 
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(37) %48) #11
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i99 = load i64, ptr %53, align 8, !tbaa !3
-  %54 = and i64 %.sink.i.i99, 68719476736
+  %.sink.i.i101 = load i64, ptr %53, align 8, !tbaa !3
+  %54 = and i64 %.sink.i.i101, 68719476736
   %.0.i.not.i = icmp eq i64 %54, 0
   %55 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %56 = and i64 %55, %52
@@ -1852,10 +1852,10 @@ define noundef i64 @_Z17logged_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %4, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %.sink.i.i100 = load i64, ptr %74, align 8, !tbaa !3
-  %75 = and i64 %.sink.i.i100, 128
-  %.0.i.i101.not = icmp eq i64 %75, 0
-  br i1 %.0.i.i101.not, label %81, label %76
+  %.sink.i.i102 = load i64, ptr %74, align 8, !tbaa !3
+  %75 = and i64 %.sink.i.i102, 128
+  %.0.i.i103.not = icmp eq i64 %75, 0
+  br i1 %.0.i.i103.not, label %81, label %76
 
 76:                                               ; preds = %72
   %77 = and i64 %20, 128
@@ -1866,7 +1866,7 @@ define noundef i64 @_Z17logged_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %81
 
 81:                                               ; preds = %76, %72
-  %.188 = phi i1 [ %78, %76 ], [ false, %72 ]
+  %.192 = phi i1 [ %78, %76 ], [ false, %72 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %83 = load ptr, ptr %82, align 8, !tbaa !96
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
@@ -1876,7 +1876,7 @@ define noundef i64 @_Z17logged_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.087 = phi i1 [ true, %46 ], [ %.188, %81 ]
+  %.091 = phi i1 [ true, %46 ], [ %.192, %81 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i = load i64, ptr %88, align 8, !tbaa !3
   %89 = and i64 %.sink.i, 4294967296
@@ -1918,21 +1918,21 @@ define noundef i64 @_Z17logged_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, 
   %119 = and i64 %118, 1
   %120 = load ptr, ptr %4, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %.sink.i.i102 = load i64, ptr %121, align 8, !tbaa !3
-  %122 = and i64 %.sink.i.i102, 262144
-  %.0.i.i103.not = icmp eq i64 %122, 0
-  %123 = select i1 %.0.i.i103.not, i64 %98, i64 %119
+  %.sink.i.i104 = load i64, ptr %121, align 8, !tbaa !3
+  %122 = and i64 %.sink.i.i104, 262144
+  %.0.i.i105.not = icmp eq i64 %122, 0
+  %123 = select i1 %.0.i.i105.not, i64 %98, i64 %119
   br label %128
 
 124:                                              ; preds = %90
   %125 = lshr i64 %110, 2
   %126 = and i64 %125, 1
-  %127 = select i1 %.087, i64 %126, i64 %98
+  %127 = select i1 %.091, i64 %126, i64 %98
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.185 = phi i64 [ %127, %124 ], [ %123, %117 ]
-  %129 = icmp eq i64 %.185, 0
+  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
 130:                                              ; preds = %128
@@ -1957,8 +1957,8 @@ define noundef i64 @_Z17logged_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, 
   %143 = and i64 %142, -4398046511105
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %140, i64 noundef %143) #11
   %144 = icmp eq i64 %64, 0
-  %brmerge = or i1 %144, %.087
-  br i1 %brmerge, label %145, label %thread-pre-split
+  %or.cond = or i1 %144, %.091
+  br i1 %or.cond, label %145, label %thread-pre-split
 
 145:                                              ; preds = %138
   %146 = load ptr, ptr %139, align 8, !tbaa !96
@@ -1966,8 +1966,8 @@ define noundef i64 @_Z17logged_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, 
   %148 = load i64, ptr %147, align 8, !tbaa !97
   %149 = and i64 %148, -16777217
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %146, i64 noundef %149) #11
-  %or.cond = and i1 %144, %.087
-  br i1 %or.cond, label %150, label %thread-pre-split
+  %or.cond3 = and i1 %144, %.091
+  br i1 %or.cond3, label %150, label %thread-pre-split
 
 150:                                              ; preds = %145
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -1990,11 +1990,11 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   %159 = and i64 %69, -25166081
   %160 = load i8, ptr %21, align 2, !tbaa !22, !range !93, !noundef !94
   %161 = trunc nuw i8 %160 to i1
-  %.not96 = xor i1 %161, true
+  %.not = xor i1 %161, true
   %162 = icmp eq i64 %64, 0
-  %163 = and i1 %162, %.not96
-  %or.cond98 = and i1 %.087, %163
-  br i1 %or.cond98, label %164, label %169
+  %163 = and i1 %162, %.not
+  %or.cond7 = and i1 %.091, %163
+  br i1 %or.cond7, label %164, label %169
 
 164:                                              ; preds = %158
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -2005,10 +2005,10 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   br label %169
 
 169:                                              ; preds = %158, %164, %155
-  %.086 = phi i64 [ %159, %158 ], [ %159, %164 ], [ %69, %155 ]
+  %.090 = phi i64 [ %159, %164 ], [ %159, %158 ], [ %69, %155 ]
   %170 = load ptr, ptr %57, align 8, !tbaa !104
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.086) #11
-  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.087)
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.090) #11
+  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.091)
   ret i64 5
 }
 
@@ -2052,9 +2052,9 @@ define noundef i64 @_Z17logged_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, 
 26:                                               ; preds = %13
   %27 = icmp ne i64 %25, 0
   %28 = and i64 %20, 4194304
-  %.not90 = icmp eq i64 %28, 0
-  %or.cond95 = and i1 %.not90, %27
-  br i1 %or.cond95, label %46, label %29
+  %.not95 = icmp eq i64 %28, 0
+  %or.cond100 = and i1 %.not95, %27
+  br i1 %or.cond100, label %46, label %29
 
 29:                                               ; preds = %26
   %30 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -2074,10 +2074,10 @@ define noundef i64 @_Z17logged_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, 
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load i64, ptr %37, align 8, !tbaa !97
   %39 = and i64 %38, 4194304
-  %.not = icmp eq i64 %39, 0
-  %40 = select i1 %.not, i64 1, i64 3
-  %.not89 = icmp ult i64 %25, %40
-  br i1 %.not89, label %41, label %46, !prof !7
+  %.not93 = icmp eq i64 %39, 0
+  %40 = select i1 %.not93, i64 1, i64 3
+  %.not94 = icmp ult i64 %25, %40
+  br i1 %.not94, label %41, label %46, !prof !7
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -2099,8 +2099,8 @@ define noundef i64 @_Z17logged_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, 
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(37) %48) #11
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i99 = load i64, ptr %53, align 8, !tbaa !3
-  %54 = and i64 %.sink.i.i99, 68719476736
+  %.sink.i.i101 = load i64, ptr %53, align 8, !tbaa !3
+  %54 = and i64 %.sink.i.i101, 68719476736
   %.0.i.not.i = icmp eq i64 %54, 0
   %55 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %56 = and i64 %55, %52
@@ -2125,10 +2125,10 @@ define noundef i64 @_Z17logged_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %4, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %.sink.i.i100 = load i64, ptr %74, align 8, !tbaa !3
-  %75 = and i64 %.sink.i.i100, 128
-  %.0.i.i101.not = icmp eq i64 %75, 0
-  br i1 %.0.i.i101.not, label %81, label %76
+  %.sink.i.i102 = load i64, ptr %74, align 8, !tbaa !3
+  %75 = and i64 %.sink.i.i102, 128
+  %.0.i.i103.not = icmp eq i64 %75, 0
+  br i1 %.0.i.i103.not, label %81, label %76
 
 76:                                               ; preds = %72
   %77 = and i64 %20, 128
@@ -2139,7 +2139,7 @@ define noundef i64 @_Z17logged_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %81
 
 81:                                               ; preds = %76, %72
-  %.188 = phi i1 [ %78, %76 ], [ false, %72 ]
+  %.192 = phi i1 [ %78, %76 ], [ false, %72 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %83 = load ptr, ptr %82, align 8, !tbaa !96
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
@@ -2149,7 +2149,7 @@ define noundef i64 @_Z17logged_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.087 = phi i1 [ true, %46 ], [ %.188, %81 ]
+  %.091 = phi i1 [ true, %46 ], [ %.192, %81 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i = load i64, ptr %88, align 8, !tbaa !3
   %89 = and i64 %.sink.i, 4294967296
@@ -2191,21 +2191,21 @@ define noundef i64 @_Z17logged_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, 
   %119 = and i64 %118, 1
   %120 = load ptr, ptr %4, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %.sink.i.i102 = load i64, ptr %121, align 8, !tbaa !3
-  %122 = and i64 %.sink.i.i102, 262144
-  %.0.i.i103.not = icmp eq i64 %122, 0
-  %123 = select i1 %.0.i.i103.not, i64 %98, i64 %119
+  %.sink.i.i104 = load i64, ptr %121, align 8, !tbaa !3
+  %122 = and i64 %.sink.i.i104, 262144
+  %.0.i.i105.not = icmp eq i64 %122, 0
+  %123 = select i1 %.0.i.i105.not, i64 %98, i64 %119
   br label %128
 
 124:                                              ; preds = %90
   %125 = lshr i64 %110, 2
   %126 = and i64 %125, 1
-  %127 = select i1 %.087, i64 %126, i64 %98
+  %127 = select i1 %.091, i64 %126, i64 %98
   br label %128
 
 128:                                              ; preds = %124, %117
-  %.185 = phi i64 [ %127, %124 ], [ %123, %117 ]
-  %129 = icmp eq i64 %.185, 0
+  %.189 = phi i64 [ %127, %124 ], [ %123, %117 ]
+  %129 = icmp eq i64 %.189, 0
   br i1 %129, label %.critedge, label %130
 
 130:                                              ; preds = %128
@@ -2230,8 +2230,8 @@ define noundef i64 @_Z17logged_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, 
   %143 = and i64 %142, -4398046511105
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %140, i64 noundef %143) #11
   %144 = icmp eq i64 %64, 0
-  %brmerge = or i1 %144, %.087
-  br i1 %brmerge, label %145, label %thread-pre-split
+  %or.cond = or i1 %144, %.091
+  br i1 %or.cond, label %145, label %thread-pre-split
 
 145:                                              ; preds = %138
   %146 = load ptr, ptr %139, align 8, !tbaa !96
@@ -2239,8 +2239,8 @@ define noundef i64 @_Z17logged_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, 
   %148 = load i64, ptr %147, align 8, !tbaa !97
   %149 = and i64 %148, -16777217
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %146, i64 noundef %149) #11
-  %or.cond = and i1 %144, %.087
-  br i1 %or.cond, label %150, label %thread-pre-split
+  %or.cond3 = and i1 %144, %.091
+  br i1 %or.cond3, label %150, label %thread-pre-split
 
 150:                                              ; preds = %145
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -2263,11 +2263,11 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   %159 = and i64 %69, -25166081
   %160 = load i8, ptr %21, align 2, !tbaa !22, !range !93, !noundef !94
   %161 = trunc nuw i8 %160 to i1
-  %.not96 = xor i1 %161, true
+  %.not = xor i1 %161, true
   %162 = icmp eq i64 %64, 0
-  %163 = and i1 %162, %.not96
-  %or.cond98 = and i1 %.087, %163
-  br i1 %or.cond98, label %164, label %169
+  %163 = and i1 %162, %.not
+  %or.cond7 = and i1 %.091, %163
+  br i1 %or.cond7, label %164, label %169
 
 164:                                              ; preds = %158
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 2192
@@ -2278,10 +2278,10 @@ thread-pre-split:                                 ; preds = %138, %150, %145
   br label %169
 
 169:                                              ; preds = %158, %164, %155
-  %.086 = phi i64 [ %159, %158 ], [ %159, %164 ], [ %69, %155 ]
+  %.090 = phi i64 [ %159, %164 ], [ %159, %158 ], [ %69, %155 ]
   %170 = load ptr, ptr %57, align 8, !tbaa !104
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.086) #11
-  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.087)
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %170, i64 noundef %.090) #11
+  tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(266872) %0, i64 noundef %64, i1 noundef zeroext %.091)
   ret i64 5
 }
 

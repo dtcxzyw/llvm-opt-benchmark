@@ -3466,8 +3466,8 @@ define dso_local noundef nonnull align 8 dereferenceable(353) ptr @_ZN4llvm23GIS
   %5 = load i8, ptr %4, align 8, !tbaa !78, !range !232, !noundef !224
   %6 = trunc nuw i8 %5 to i1
   %.not = xor i1 %6, true
-  %brmerge = or i1 %2, %.not
-  br i1 %brmerge, label %7, label %17
+  %or.cond = or i1 %2, %.not
+  br i1 %or.cond, label %7, label %17
 
 7:                                                ; preds = %3
   tail call void @_ZN4llvm12GISelCSEInfo13releaseMemoryEv(ptr noundef nonnull align 8 dereferenceable(353) %0)

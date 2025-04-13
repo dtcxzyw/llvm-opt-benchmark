@@ -14130,9 +14130,13 @@ define internal fastcc range(i32 -53, 4) i32 @cvHandleNFlag(ptr noundef nonnull 
 27:                                               ; preds = %22, %11
   %switch.tableidx = add i32 %6, -4
   %28 = icmp ult i32 %switch.tableidx, 10
-  br i1 %28, label %switch.hole_check, label %29
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 929, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %28, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %29
 
-29:                                               ; preds = %switch.hole_check, %27, %22
+29:                                               ; preds = %27, %22
   %30 = load double, ptr %15, align 8, !tbaa !222
   %31 = tail call double @SUNRabs(double noundef %30) #13
   %32 = fdiv double %19, %31
@@ -14154,13 +14158,7 @@ define internal fastcc range(i32 -53, 4) i32 @cvHandleNFlag(ptr noundef nonnull 
   tail call fastcc void @cvRescale(ptr noundef %0)
   br label %43
 
-switch.hole_check:                                ; preds = %27
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 929, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %29
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %27
   %42 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.cvHandleNFlag, i64 0, i64 %42
   %switch.load = load i32, ptr %switch.gep, align 4

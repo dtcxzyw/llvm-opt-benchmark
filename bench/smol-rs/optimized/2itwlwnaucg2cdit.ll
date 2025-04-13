@@ -53,8 +53,8 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
   %.0.i.i.i = phi i8 [ %17, %14 ], [ 0, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %19 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull align 1 %18, i8 noundef 0), !noalias !4
-  %.not35 = icmp eq i8 %19, 0
-  br i1 %.not35, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00d3d7638698e9ffE.exit", label %20
+  %.not33 = icmp eq i8 %19, 0
+  br i1 %.not33, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00d3d7638698e9ffE.exit", label %20
 
 20:                                               ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h1774aaa6362465c8E.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !7
@@ -95,8 +95,8 @@ common.resume:                                    ; preds = %42, %29, %48, %22
           to label %common.resume unwind label %51
 
 31:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00d3d7638698e9ffE.exit"
-  %.fca.0.extract1 = extractvalue { ptr, ptr } %28, 0
-  %.fca.1.extract2 = extractvalue { ptr, ptr } %28, 1
+  %.fca.0.extract4 = extractvalue { ptr, ptr } %28, 0
+  %.fca.1.extract5 = extractvalue { ptr, ptr } %28, 1
   %32 = trunc nuw i8 %.0.i.i.i to i1
   br i1 %32, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, label %33
 
@@ -129,26 +129,26 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %38, %.noe
 42:                                               ; preds = %41, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i
   %43 = landingpad { ptr, i32 }
           cleanup
-  %.not10 = icmp eq ptr %.fca.0.extract1, null
-  br i1 %.not10, label %common.resume, label %48
+  %.not34 = icmp eq ptr %.fca.0.extract4, null
+  br i1 %.not34, label %common.resume, label %48
 
 "_ZN4core3ptr81drop_in_place$LT$std..sync..mutex..MutexGuard$LT$async_executor..Sleepers$GT$$GT$17heb022e5d62b48961E.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, %41
-  %.not = icmp eq ptr %.fca.0.extract1, null
+  %.not = icmp eq ptr %.fca.0.extract4, null
   br i1 %.not, label %47, label %44
 
 44:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$std..sync..mutex..MutexGuard$LT$async_executor..Sleepers$GT$$GT$17heb022e5d62b48961E.exit"
-  %45 = getelementptr inbounds nuw i8, ptr %.fca.0.extract1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.fca.0.extract4, i64 8
   %46 = load ptr, ptr %45, align 8, !nonnull !10, !noundef !10
-  tail call void %46(ptr noundef %.fca.1.extract2)
+  tail call void %46(ptr noundef %.fca.1.extract5)
   br label %47
 
 47:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$std..sync..mutex..MutexGuard$LT$async_executor..Sleepers$GT$$GT$17heb022e5d62b48961E.exit", %44, %1
   ret void
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw i8, ptr %.fca.0.extract1, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.fca.0.extract4, i64 24
   %50 = load ptr, ptr %49, align 8, !nonnull !10, !noundef !10
-  invoke void %50(ptr noundef %.fca.1.extract2)
+  invoke void %50(ptr noundef %.fca.1.extract5)
           to label %common.resume unwind label %51
 
 51:                                               ; preds = %48, %29

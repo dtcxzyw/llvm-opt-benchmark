@@ -1073,8 +1073,8 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
   %24 = landingpad { ptr, i32 }
           cleanup
   %25 = load i64, ptr %13, align 8, !range !63, !alias.scope !152, !noalias !157, !noundef !40
-  %.not5.i = icmp eq i64 %25, -9223372036854775808
-  br i1 %.not5.i, label %common.resume, label %32
+  %.not14.i = icmp eq i64 %25, -9223372036854775808
+  br i1 %.not14.i, label %common.resume, label %32
 
 26:                                               ; preds = %21
   %27 = invoke noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$GT$8with_cmd17h725a1cc49d213509E"(ptr noalias noundef nonnull align 8 %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %1)
@@ -1083,9 +1083,9 @@ define internal fastcc void @"_ZN75_$LT$F$u20$as$u20$clap_builder..builder..valu
 28:                                               ; preds = %26
   %29 = load i64, ptr %13, align 8, !range !63, !alias.scope !152, !noalias !157, !noundef !40
   %.not.i = icmp eq i64 %29, -9223372036854775808
-  br i1 %.not.i, label %78, label %.thread12.i
+  br i1 %.not.i, label %78, label %.thread10.i
 
-.thread12.i:                                      ; preds = %28
+.thread10.i:                                      ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !155
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !157
@@ -1252,12 +1252,12 @@ common.resume:                                    ; preds = %50, %77, %23, %32
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a4d2dce9fcb1551E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #19
           to label %common.resume unwind label %75, !noalias !174
 
-78:                                               ; preds = %.thread12.i, %28
-  %.017.i = phi ptr [ %31, %.thread12.i ], [ %27, %28 ]
+78:                                               ; preds = %.thread10.i, %28
+  %.013.i = phi ptr [ %31, %.thread10.i ], [ %27, %28 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.017.i, ptr %79, align 8
+  store ptr %.013.i, ptr %79, align 8
   br label %88
 
 80:                                               ; preds = %35

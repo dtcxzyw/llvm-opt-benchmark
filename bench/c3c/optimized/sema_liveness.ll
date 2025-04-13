@@ -71,14 +71,14 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
   %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 165), align 1
   %7 = trunc i8 %6 to i1
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 48), align 8
-  %.not118 = icmp eq ptr %8, null
-  br i1 %.not118, label %._crit_edge, label %9
+  %.not121 = icmp eq ptr %8, null
+  br i1 %.not121, label %._crit_edge, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %8, i64 -8
   %11 = load i32, ptr %10, align 4
-  %.not173 = icmp eq i32 %11, 0
-  br i1 %.not173, label %._crit_edge, label %.lr.ph.preheader
+  %.not172 = icmp eq i32 %11, 0
+  br i1 %.not172, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %9
   %wide.trip.count = zext i32 %11 to i64
@@ -91,10 +91,10 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 2048
-  %.not137 = icmp eq i16 %16, 0
+  %.not138 = icmp eq i16 %16, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  br i1 %.not137, label %.lr.ph._crit_edge, label %17
+  br i1 %.not138, label %.lr.ph._crit_edge, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = or i64 %.pre, 1073741824
@@ -104,8 +104,8 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %17
   %19 = phi i64 [ %18, %17 ], [ %.pre, %.lr.ph ]
   %20 = and i64 %19, 1342177280
-  %or.cond = icmp eq i64 %20, 0
-  br i1 %or.cond, label %22, label %21
+  %or.cond141 = icmp eq i64 %20, 0
+  br i1 %or.cond141, label %22, label %21
 
 21:                                               ; preds = %.lr.ph._crit_edge
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef nonnull %13)
@@ -118,211 +118,211 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %22, %3, %9
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 24), align 8
-  %.not119 = icmp eq ptr %23, null
-  br i1 %.not119, label %._crit_edge172, label %24
+  %.not122 = icmp eq ptr %23, null
+  br i1 %.not122, label %._crit_edge171, label %24
 
 24:                                               ; preds = %._crit_edge
   %25 = getelementptr inbounds i8, ptr %23, i64 -8
   %26 = load i32, ptr %25, align 4
-  %.not174 = icmp eq i32 %26, 0
-  br i1 %.not174, label %._crit_edge172, label %.lr.ph171.preheader
+  %.not173 = icmp eq i32 %26, 0
+  br i1 %.not173, label %._crit_edge171, label %.lr.ph170.preheader
 
-.lr.ph171.preheader:                              ; preds = %24
-  %wide.trip.count209 = zext i32 %26 to i64
-  br label %.lr.ph171
+.lr.ph170.preheader:                              ; preds = %24
+  %wide.trip.count208 = zext i32 %26 to i64
+  br label %.lr.ph170
 
-.lr.ph171:                                        ; preds = %.lr.ph171.preheader, %._crit_edge168
-  %indvars.iv206 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next207, %._crit_edge168 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv206
+.lr.ph170:                                        ; preds = %.lr.ph170.preheader, %._crit_edge167
+  %indvars.iv205 = phi i64 [ 0, %.lr.ph170.preheader ], [ %indvars.iv.next206, %._crit_edge167 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv205
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load ptr, ptr %29, align 8
-  %.not120 = icmp eq ptr %30, null
-  br i1 %.not120, label %._crit_edge168, label %31
+  %.not123 = icmp eq ptr %30, null
+  br i1 %.not123, label %._crit_edge167, label %31
 
-31:                                               ; preds = %.lr.ph171
+31:                                               ; preds = %.lr.ph170
   %32 = getelementptr inbounds i8, ptr %30, i64 -8
   %33 = load i32, ptr %32, align 4
-  %.not175 = icmp eq i32 %33, 0
-  br i1 %.not175, label %._crit_edge168, label %.lr.ph167.preheader
+  %.not174 = icmp eq i32 %33, 0
+  br i1 %.not174, label %._crit_edge167, label %.lr.ph166.preheader
 
-.lr.ph167.preheader:                              ; preds = %31
-  %wide.trip.count204 = zext i32 %33 to i64
-  br label %.lr.ph167
+.lr.ph166.preheader:                              ; preds = %31
+  %wide.trip.count203 = zext i32 %33 to i64
+  br label %.lr.ph166
 
-.lr.ph167:                                        ; preds = %.lr.ph167.preheader, %._crit_edge164
-  %indvars.iv201 = phi i64 [ 0, %.lr.ph167.preheader ], [ %indvars.iv.next202, %._crit_edge164 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv201
+.lr.ph166:                                        ; preds = %.lr.ph166.preheader, %._crit_edge163
+  %indvars.iv200 = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next201, %._crit_edge163 ]
+  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv200
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
-  %.not121 = icmp eq ptr %37, null
-  br i1 %.not121, label %._crit_edge152, label %38
+  %.not124 = icmp eq ptr %37, null
+  br i1 %.not124, label %._crit_edge151, label %38
 
-38:                                               ; preds = %.lr.ph167
+38:                                               ; preds = %.lr.ph166
   %39 = getelementptr inbounds i8, ptr %37, i64 -8
   %40 = load i32, ptr %39, align 4
-  %.not176 = icmp eq i32 %40, 0
-  br i1 %.not176, label %._crit_edge152, label %.lr.ph151.preheader
+  %.not175 = icmp eq i32 %40, 0
+  br i1 %.not175, label %._crit_edge151, label %.lr.ph150.preheader
 
-.lr.ph151.preheader:                              ; preds = %38
-  %wide.trip.count184 = zext i32 %40 to i64
-  br label %.lr.ph151
+.lr.ph150.preheader:                              ; preds = %38
+  %wide.trip.count183 = zext i32 %40 to i64
+  br label %.lr.ph150
 
-.lr.ph151:                                        ; preds = %.lr.ph151.preheader, %55
-  %indvars.iv181 = phi i64 [ 0, %.lr.ph151.preheader ], [ %indvars.iv.next182, %55 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv181
+.lr.ph150:                                        ; preds = %.lr.ph150.preheader, %57
+  %indvars.iv180 = phi i64 [ 0, %.lr.ph150.preheader ], [ %indvars.iv.next181, %57 ]
+  %41 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv180
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = and i64 %44, 1342177280
-  %or.cond140 = icmp eq i64 %45, 0
-  br i1 %or.cond140, label %46, label %54
+  %or.cond142 = icmp eq i64 %45, 0
+  br i1 %or.cond142, label %46, label %56
 
-46:                                               ; preds = %.lr.ph151
+46:                                               ; preds = %.lr.ph150
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 120
   %48 = load i16, ptr %47, align 8
   %49 = and i16 %48, 768
-  %or.cond141 = icmp eq i16 %49, 0
-  br i1 %or.cond141, label %50, label %54
+  %or.cond143 = icmp eq i16 %49, 0
+  br i1 %or.cond143, label %50, label %56
 
 50:                                               ; preds = %46
   %51 = and i16 %48, 32
-  %.not135 = icmp ne i16 %51, 0
-  %brmerge.not = select i1 %.not135, i1 %5, i1 false
-  br i1 %brmerge.not, label %54, label %52
+  %52 = icmp ne i16 %51, 0
+  %or.cond = select i1 %52, i1 %5, i1 false
+  br i1 %or.cond, label %56, label %53
 
-52:                                               ; preds = %50
-  %53 = and i16 %48, 16
-  %.not136 = icmp ne i16 %53, 0
-  %brmerge144.not = select i1 %.not136, i1 %7, i1 false
-  br i1 %brmerge144.not, label %54, label %55
+53:                                               ; preds = %50
+  %54 = and i16 %48, 16
+  %55 = icmp ne i16 %54, 0
+  %or.cond3 = select i1 %55, i1 %7, i1 false
+  br i1 %or.cond3, label %56, label %57
 
-54:                                               ; preds = %52, %50, %46, %.lr.ph151
+56:                                               ; preds = %53, %50, %46, %.lr.ph150
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef nonnull %42)
-  br label %55
+  br label %57
 
-55:                                               ; preds = %52, %54
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
-  br i1 %exitcond185.not, label %._crit_edge152, label %.lr.ph151, !llvm.loop !9
+57:                                               ; preds = %53, %56
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
+  br i1 %exitcond184.not, label %._crit_edge151, label %.lr.ph150, !llvm.loop !9
 
-._crit_edge152:                                   ; preds = %55, %.lr.ph167, %38
-  %56 = getelementptr inbounds nuw i8, ptr %35, i64 160
-  %57 = load ptr, ptr %56, align 8
-  %.not122 = icmp eq ptr %57, null
-  br i1 %.not122, label %._crit_edge156, label %58
+._crit_edge151:                                   ; preds = %57, %.lr.ph166, %38
+  %58 = getelementptr inbounds nuw i8, ptr %35, i64 160
+  %59 = load ptr, ptr %58, align 8
+  %.not125 = icmp eq ptr %59, null
+  br i1 %.not125, label %._crit_edge155, label %60
 
-58:                                               ; preds = %._crit_edge152
-  %59 = getelementptr inbounds i8, ptr %57, i64 -8
-  %60 = load i32, ptr %59, align 4
-  %.not177 = icmp eq i32 %60, 0
-  br i1 %.not177, label %._crit_edge156, label %.lr.ph155.preheader
+60:                                               ; preds = %._crit_edge151
+  %61 = getelementptr inbounds i8, ptr %59, i64 -8
+  %62 = load i32, ptr %61, align 4
+  %.not176 = icmp eq i32 %62, 0
+  br i1 %.not176, label %._crit_edge155, label %.lr.ph154.preheader
 
-.lr.ph155.preheader:                              ; preds = %58
-  %wide.trip.count189 = zext i32 %60 to i64
-  br label %.lr.ph155
+.lr.ph154.preheader:                              ; preds = %60
+  %wide.trip.count188 = zext i32 %62 to i64
+  br label %.lr.ph154
 
-.lr.ph155:                                        ; preds = %.lr.ph155.preheader, %67
-  %indvars.iv186 = phi i64 [ 0, %.lr.ph155.preheader ], [ %indvars.iv.next187, %67 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv186
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %64 = load i64, ptr %63, align 8
-  %65 = and i64 %64, 1342177280
-  %or.cond145 = icmp eq i64 %65, 0
-  br i1 %or.cond145, label %67, label %66
+.lr.ph154:                                        ; preds = %.lr.ph154.preheader, %69
+  %indvars.iv185 = phi i64 [ 0, %.lr.ph154.preheader ], [ %indvars.iv.next186, %69 ]
+  %63 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv185
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %66 = load i64, ptr %65, align 8
+  %67 = and i64 %66, 1342177280
+  %or.cond144 = icmp eq i64 %67, 0
+  br i1 %or.cond144, label %69, label %68
 
-66:                                               ; preds = %.lr.ph155
-  tail call fastcc void @sema_trace_decl_liveness(ptr noundef nonnull %62)
-  br label %67
+68:                                               ; preds = %.lr.ph154
+  tail call fastcc void @sema_trace_decl_liveness(ptr noundef nonnull %64)
+  br label %69
 
-67:                                               ; preds = %.lr.ph155, %66
-  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
-  %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %._crit_edge156, label %.lr.ph155, !llvm.loop !10
+69:                                               ; preds = %.lr.ph154, %68
+  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
+  %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
+  br i1 %exitcond189.not, label %._crit_edge155, label %.lr.ph154, !llvm.loop !10
 
-._crit_edge156:                                   ; preds = %67, %._crit_edge152, %58
-  %68 = getelementptr inbounds nuw i8, ptr %35, i64 144
-  %69 = load ptr, ptr %68, align 8
-  %.not123 = icmp eq ptr %69, null
-  br i1 %.not123, label %._crit_edge160, label %70
+._crit_edge155:                                   ; preds = %69, %._crit_edge151, %60
+  %70 = getelementptr inbounds nuw i8, ptr %35, i64 144
+  %71 = load ptr, ptr %70, align 8
+  %.not126 = icmp eq ptr %71, null
+  br i1 %.not126, label %._crit_edge159, label %72
 
-70:                                               ; preds = %._crit_edge156
-  %71 = getelementptr inbounds i8, ptr %69, i64 -8
-  %72 = load i32, ptr %71, align 4
-  %.not178 = icmp eq i32 %72, 0
-  br i1 %.not178, label %._crit_edge160, label %.lr.ph159.preheader
+72:                                               ; preds = %._crit_edge155
+  %73 = getelementptr inbounds i8, ptr %71, i64 -8
+  %74 = load i32, ptr %73, align 4
+  %.not177 = icmp eq i32 %74, 0
+  br i1 %.not177, label %._crit_edge159, label %.lr.ph158.preheader
 
-.lr.ph159.preheader:                              ; preds = %70
-  %wide.trip.count194 = zext i32 %72 to i64
-  br label %.lr.ph159
+.lr.ph158.preheader:                              ; preds = %72
+  %wide.trip.count193 = zext i32 %74 to i64
+  br label %.lr.ph158
 
-.lr.ph159:                                        ; preds = %.lr.ph159.preheader, %79
-  %indvars.iv191 = phi i64 [ 0, %.lr.ph159.preheader ], [ %indvars.iv.next192, %79 ]
-  %73 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv191
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %76 = load i64, ptr %75, align 8
-  %77 = and i64 %76, 1342177280
-  %or.cond146 = icmp eq i64 %77, 0
-  br i1 %or.cond146, label %79, label %78
+.lr.ph158:                                        ; preds = %.lr.ph158.preheader, %81
+  %indvars.iv190 = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next191, %81 ]
+  %75 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv190
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %78 = load i64, ptr %77, align 8
+  %79 = and i64 %78, 1342177280
+  %or.cond145 = icmp eq i64 %79, 0
+  br i1 %or.cond145, label %81, label %80
 
-78:                                               ; preds = %.lr.ph159
-  tail call fastcc void @sema_trace_decl_liveness(ptr noundef nonnull %74)
-  br label %79
+80:                                               ; preds = %.lr.ph158
+  tail call fastcc void @sema_trace_decl_liveness(ptr noundef nonnull %76)
+  br label %81
 
-79:                                               ; preds = %.lr.ph159, %78
-  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
-  %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
-  br i1 %exitcond195.not, label %._crit_edge160, label %.lr.ph159, !llvm.loop !11
+81:                                               ; preds = %.lr.ph158, %80
+  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
+  br i1 %exitcond194.not, label %._crit_edge159, label %.lr.ph158, !llvm.loop !11
 
-._crit_edge160:                                   ; preds = %79, %._crit_edge156, %70
-  %80 = getelementptr inbounds nuw i8, ptr %35, i64 224
-  %81 = load ptr, ptr %80, align 8
-  %.not124 = icmp eq ptr %81, null
-  br i1 %.not124, label %._crit_edge164, label %82
+._crit_edge159:                                   ; preds = %81, %._crit_edge155, %72
+  %82 = getelementptr inbounds nuw i8, ptr %35, i64 224
+  %83 = load ptr, ptr %82, align 8
+  %.not127 = icmp eq ptr %83, null
+  br i1 %.not127, label %._crit_edge163, label %84
 
-82:                                               ; preds = %._crit_edge160
-  %83 = getelementptr inbounds i8, ptr %81, i64 -8
-  %84 = load i32, ptr %83, align 4
-  %.not179 = icmp eq i32 %84, 0
-  br i1 %.not179, label %._crit_edge164, label %.lr.ph163.preheader
+84:                                               ; preds = %._crit_edge159
+  %85 = getelementptr inbounds i8, ptr %83, i64 -8
+  %86 = load i32, ptr %85, align 4
+  %.not178 = icmp eq i32 %86, 0
+  br i1 %.not178, label %._crit_edge163, label %.lr.ph162.preheader
 
-.lr.ph163.preheader:                              ; preds = %82
-  %wide.trip.count199 = zext i32 %84 to i64
-  br label %.lr.ph163
+.lr.ph162.preheader:                              ; preds = %84
+  %wide.trip.count198 = zext i32 %86 to i64
+  br label %.lr.ph162
 
-.lr.ph163:                                        ; preds = %.lr.ph163.preheader, %91
-  %indvars.iv196 = phi i64 [ 0, %.lr.ph163.preheader ], [ %indvars.iv.next197, %91 ]
-  %85 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv196
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %88 = load i64, ptr %87, align 8
-  %89 = and i64 %88, 1342177280
-  %or.cond147 = icmp eq i64 %89, 0
-  br i1 %or.cond147, label %91, label %90
+.lr.ph162:                                        ; preds = %.lr.ph162.preheader, %93
+  %indvars.iv195 = phi i64 [ 0, %.lr.ph162.preheader ], [ %indvars.iv.next196, %93 ]
+  %87 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv195
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  %90 = load i64, ptr %89, align 8
+  %91 = and i64 %90, 1342177280
+  %or.cond146 = icmp eq i64 %91, 0
+  br i1 %or.cond146, label %93, label %92
 
-90:                                               ; preds = %.lr.ph163
-  tail call fastcc void @sema_trace_decl_liveness(ptr noundef nonnull %86)
-  br label %91
+92:                                               ; preds = %.lr.ph162
+  tail call fastcc void @sema_trace_decl_liveness(ptr noundef nonnull %88)
+  br label %93
 
-91:                                               ; preds = %.lr.ph163, %90
-  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
-  %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
-  br i1 %exitcond200.not, label %._crit_edge164, label %.lr.ph163, !llvm.loop !12
+93:                                               ; preds = %.lr.ph162, %92
+  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
+  %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
+  br i1 %exitcond199.not, label %._crit_edge163, label %.lr.ph162, !llvm.loop !12
 
-._crit_edge164:                                   ; preds = %91, %._crit_edge160, %82
-  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
-  %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
-  br i1 %exitcond205.not, label %._crit_edge168, label %.lr.ph167, !llvm.loop !13
+._crit_edge163:                                   ; preds = %93, %._crit_edge159, %84
+  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
+  %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
+  br i1 %exitcond204.not, label %._crit_edge167, label %.lr.ph166, !llvm.loop !13
 
-._crit_edge168:                                   ; preds = %._crit_edge164, %.lr.ph171, %31
-  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
-  br i1 %exitcond210.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !14
+._crit_edge167:                                   ; preds = %._crit_edge163, %.lr.ph170, %31
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
+  %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
+  br i1 %exitcond209.not, label %._crit_edge171, label %.lr.ph170, !llvm.loop !14
 
-._crit_edge172:                                   ; preds = %._crit_edge168, %._crit_edge, %24
+._crit_edge171:                                   ; preds = %._crit_edge167, %._crit_edge, %24
   ret void
 }
 

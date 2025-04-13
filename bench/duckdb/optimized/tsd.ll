@@ -803,27 +803,26 @@ tsd_fetch_impl.exit:                              ; preds = %0, %4
 9:                                                ; preds = %7
   %10 = load i8, ptr @duckdb_je_malloc_slow, align 1, !tbaa !44, !range !45, !noundef !46
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %atomic_exchange_u8.exit.i, label %12
+  %12 = load i8, ptr %1, align 8, !range !45
+  %13 = trunc nuw i8 %12 to i1
+  %.not4 = xor i1 %13, true
+  %or.cond.not = select i1 %11, i1 true, i1 %.not4
+  %14 = load i8, ptr %6, align 1
+  %15 = icmp sgt i8 %14, 0
+  %or.cond3 = select i1 %or.cond.not, i1 true, i1 %15
+  br i1 %or.cond3, label %atomic_exchange_u8.exit.i, label %16
 
-12:                                               ; preds = %9
-  %13 = load i8, ptr %1, align 8, !tbaa !44, !range !45, !noundef !46
-  %14 = trunc nuw i8 %13 to i1
-  %15 = load i8, ptr %6, align 1
-  %16 = icmp slt i8 %15, 1
-  %or.cond.not = select i1 %14, i1 %16, i1 false
-  br i1 %or.cond.not, label %17, label %atomic_exchange_u8.exit.i
-
-17:                                               ; preds = %12
-  %18 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
-  %.not.i.i = icmp ne i32 %18, 0
+16:                                               ; preds = %9
+  %17 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
+  %.not.i.i = icmp ne i32 %17, 0
   %spec.select.i.i = zext i1 %.not.i.i to i8
   br label %atomic_exchange_u8.exit.i
 
-atomic_exchange_u8.exit.i:                        ; preds = %17, %12, %9, %7
-  %.0.i5.i = phi i8 [ 1, %9 ], [ %spec.select.i.i, %17 ], [ %.val.i.i, %7 ], [ 1, %12 ]
-  %19 = atomicrmw xchg ptr %2, i8 %.0.i5.i acquire, align 1
-  %20 = icmp eq i8 %19, 2
-  br i1 %20, label %7, label %duckdb_je_tsd_slow_update.exit
+atomic_exchange_u8.exit.i:                        ; preds = %16, %9, %7
+  %.0.i5.i = phi i8 [ 1, %9 ], [ %spec.select.i.i, %16 ], [ %.val.i.i, %7 ]
+  %18 = atomicrmw xchg ptr %2, i8 %.0.i5.i acquire, align 1
+  %19 = icmp eq i8 %18, 2
+  br i1 %19, label %7, label %duckdb_je_tsd_slow_update.exit
 
 duckdb_je_tsd_slow_update.exit:                   ; preds = %atomic_exchange_u8.exit.i
   tail call void @duckdb_je_te_recompute_fast_threshold(ptr noundef nonnull %1) #7

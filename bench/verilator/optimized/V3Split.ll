@@ -10060,7 +10060,7 @@ define linkonce_odr dso_local void @_ZN25RemovePlaceholdersVisitor5visitEP9AstNo
   %4 = load i8, ptr %3, align 8, !tbaa !118, !range !57, !noundef !58
   store i8 1, ptr %3, align 8, !tbaa !89
   invoke void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit unwind label %16
+          to label %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit unwind label %15
 
 _ZN9VNVisitor15iterateChildrenEP7AstNode.exit:    ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -10072,29 +10072,27 @@ _ZN9VNVisitor15iterateChildrenEP7AstNode.exit:    ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !133
   %.not6 = icmp eq ptr %9, null
-  br i1 %.not6, label %10, label %_ZN9VNVisitor11pushDeletepEP7AstNode.exit
+  %10 = load i8, ptr %3, align 8, !range !57
+  %11 = trunc nuw i8 %10 to i1
+  %or.cond = select i1 %.not6, i1 %11, i1 false
+  br i1 %or.cond, label %12, label %_ZN9VNVisitor11pushDeletepEP7AstNode.exit
 
-10:                                               ; preds = %7
-  %11 = load i8, ptr %3, align 8, !tbaa !89, !range !57, !noundef !58
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %_ZN9VNVisitor11pushDeletepEP7AstNode.exit
+12:                                               ; preds = %7
+  %13 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(154) %1, ptr noundef null)
+          to label %_ZN9AstNodeIf12unlinkFrBackEP10VNRelinker.exit unwind label %15
 
-13:                                               ; preds = %10
-  %14 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(154) %1, ptr noundef null)
-          to label %_ZN9AstNodeIf12unlinkFrBackEP10VNRelinker.exit unwind label %16
+_ZN9AstNodeIf12unlinkFrBackEP10VNRelinker.exit:   ; preds = %12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef %13)
+          to label %_ZN9VNVisitor11pushDeletepEP7AstNode.exit unwind label %15
 
-_ZN9AstNodeIf12unlinkFrBackEP10VNRelinker.exit:   ; preds = %13
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %14)
-          to label %_ZN9VNVisitor11pushDeletepEP7AstNode.exit unwind label %16
-
-16:                                               ; preds = %_ZN9AstNodeIf12unlinkFrBackEP10VNRelinker.exit, %13, %2
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %_ZN9AstNodeIf12unlinkFrBackEP10VNRelinker.exit, %12, %2
+  %16 = landingpad { ptr, i32 }
           cleanup
   store i8 %4, ptr %3, align 8, !tbaa !118
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %16
 
-_ZN9VNVisitor11pushDeletepEP7AstNode.exit:        ; preds = %_ZN9AstNodeIf12unlinkFrBackEP10VNRelinker.exit, %10, %7, %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit
+_ZN9VNVisitor11pushDeletepEP7AstNode.exit:        ; preds = %_ZN9AstNodeIf12unlinkFrBackEP10VNRelinker.exit, %7, %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit
   store i8 %4, ptr %3, align 8, !tbaa !118
   ret void
 }

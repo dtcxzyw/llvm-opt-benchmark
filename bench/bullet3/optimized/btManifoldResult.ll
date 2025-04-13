@@ -156,7 +156,7 @@ define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(p
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = tail call noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr noundef nonnull align 8 dereferenceable(880) %7)
   %9 = fcmp ogt float %3, %8
-  br i1 %9, label %350, label %10
+  br i1 %9, label %351, label %10
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %6, align 8, !tbaa !27
@@ -169,7 +169,7 @@ define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(p
   %.not = icmp eq ptr %13, %17
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 856
   %19 = load i32, ptr %18, align 8, !tbaa !42
-  %20 = icmp ne i32 %19, 0
+  %20 = icmp eq i32 %19, 0
   %21 = load float, ptr %1, align 4, !tbaa !43
   %22 = fmul float %3, %21
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -186,9 +186,9 @@ define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(p
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load float, ptr %34, align 4, !tbaa !43
   %36 = fadd float %28, %35
-  %.sroa.0.0.vec.insert.i34 = insertelement <2 x float> poison, float %30, i64 0
-  %.sroa.0.4.vec.insert.i35 = insertelement <2 x float> %.sroa.0.0.vec.insert.i34, float %33, i64 1
-  %.sroa.3.12.vec.insert.i36 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %36, i64 0
+  %.sroa.0.0.vec.insert.i33 = insertelement <2 x float> poison, float %30, i64 0
+  %.sroa.0.4.vec.insert.i34 = insertelement <2 x float> %.sroa.0.0.vec.insert.i33, float %33, i64 1
+  %.sroa.3.12.vec.insert.i35 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %36, i64 0
   br i1 %.not, label %78, label %37
 
 37:                                               ; preds = %10
@@ -274,9 +274,9 @@ define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(p
   %112 = fmul float %85, %104
   %113 = tail call float @llvm.fmuladd.f32(float %103, float %82, float %112)
   %114 = tail call noundef float @llvm.fmuladd.f32(float %105, float %88, float %113)
-  %.sroa.0.0.vec.insert.i2.i44 = insertelement <2 x float> poison, float %108, i64 0
-  %.sroa.0.4.vec.insert.i3.i45 = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i44, float %111, i64 1
-  %.sroa.3.12.vec.insert.i4.i46 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %114, i64 0
+  %.sroa.0.0.vec.insert.i2.i43 = insertelement <2 x float> poison, float %108, i64 0
+  %.sroa.0.4.vec.insert.i3.i44 = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i43, float %111, i64 1
+  %.sroa.3.12.vec.insert.i4.i45 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %114, i64 0
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %116 = load ptr, ptr %115, align 8, !tbaa !33
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
@@ -284,27 +284,27 @@ define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(p
   br label %119
 
 119:                                              ; preds = %78, %37
-  %.sink136 = phi ptr [ %118, %78 ], [ %17, %37 ]
-  %.sroa.555.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i4.i46, %78 ], [ %.sroa.3.12.vec.insert.i4.i, %37 ]
-  %.sroa.054.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i3.i45, %78 ], [ %.sroa.0.4.vec.insert.i3.i, %37 ]
-  %120 = getelementptr inbounds nuw i8, ptr %.sink136, i64 8
-  %121 = getelementptr inbounds nuw i8, ptr %.sink136, i64 56
+  %.sink135 = phi ptr [ %118, %78 ], [ %17, %37 ]
+  %.sroa.554.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i4.i45, %78 ], [ %.sroa.3.12.vec.insert.i4.i, %37 ]
+  %.sroa.053.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i3.i44, %78 ], [ %.sroa.0.4.vec.insert.i3.i, %37 ]
+  %120 = getelementptr inbounds nuw i8, ptr %.sink135, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %.sink135, i64 56
   %122 = load float, ptr %121, align 4, !tbaa !43
   %123 = fsub float %29, %122
-  %124 = getelementptr inbounds nuw i8, ptr %.sink136, i64 60
+  %124 = getelementptr inbounds nuw i8, ptr %.sink135, i64 60
   %125 = load float, ptr %124, align 4, !tbaa !43
   %126 = fsub float %32, %125
-  %127 = getelementptr inbounds nuw i8, ptr %.sink136, i64 64
+  %127 = getelementptr inbounds nuw i8, ptr %.sink135, i64 64
   %128 = load float, ptr %127, align 4, !tbaa !43
   %129 = fsub float %35, %128
-  %130 = getelementptr inbounds nuw i8, ptr %.sink136, i64 24
-  %131 = getelementptr inbounds nuw i8, ptr %.sink136, i64 40
-  %132 = getelementptr inbounds nuw i8, ptr %.sink136, i64 12
-  %133 = getelementptr inbounds nuw i8, ptr %.sink136, i64 28
-  %134 = getelementptr inbounds nuw i8, ptr %.sink136, i64 44
-  %135 = getelementptr inbounds nuw i8, ptr %.sink136, i64 16
-  %136 = getelementptr inbounds nuw i8, ptr %.sink136, i64 32
-  %137 = getelementptr inbounds nuw i8, ptr %.sink136, i64 48
+  %130 = getelementptr inbounds nuw i8, ptr %.sink135, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %.sink135, i64 40
+  %132 = getelementptr inbounds nuw i8, ptr %.sink135, i64 12
+  %133 = getelementptr inbounds nuw i8, ptr %.sink135, i64 28
+  %134 = getelementptr inbounds nuw i8, ptr %.sink135, i64 44
+  %135 = getelementptr inbounds nuw i8, ptr %.sink135, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.sink135, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %.sink135, i64 48
   %138 = load float, ptr %120, align 4, !tbaa !43, !noalias !50
   %139 = load float, ptr %130, align 4, !tbaa !43, !noalias !50
   %140 = load float, ptr %131, align 4, !tbaa !43, !noalias !50
@@ -323,17 +323,17 @@ define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(p
   %153 = fmul float %126, %145
   %154 = tail call float @llvm.fmuladd.f32(float %144, float %123, float %153)
   %155 = tail call noundef float @llvm.fmuladd.f32(float %146, float %129, float %154)
-  %.sroa.0.0.vec.insert.i2.i49 = insertelement <2 x float> poison, float %149, i64 0
-  %.sroa.0.4.vec.insert.i3.i50 = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i49, float %152, i64 1
-  %.sroa.3.12.vec.insert.i4.i51 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %155, i64 0
+  %.sroa.0.0.vec.insert.i2.i48 = insertelement <2 x float> poison, float %149, i64 0
+  %.sroa.0.4.vec.insert.i3.i49 = insertelement <2 x float> %.sroa.0.0.vec.insert.i2.i48, float %152, i64 1
+  %.sroa.3.12.vec.insert.i4.i50 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %155, i64 0
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #11
-  store <2 x float> %.sroa.054.0, ptr %5, align 8
-  %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store <2 x float> %.sroa.555.0, ptr %.sroa.555.0..sroa_idx, align 8, !tbaa !51
+  store <2 x float> %.sroa.053.0, ptr %5, align 8
+  %.sroa.554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store <2 x float> %.sroa.554.0, ptr %.sroa.554.0..sroa_idx, align 8, !tbaa !51
   %156 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store <2 x float> %.sroa.0.4.vec.insert.i3.i50, ptr %156, align 8
+  store <2 x float> %.sroa.0.4.vec.insert.i3.i49, ptr %156, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store <2 x float> %.sroa.3.12.vec.insert.i4.i51, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !51
+  store <2 x float> %.sroa.3.12.vec.insert.i4.i50, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !51
   %157 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %158 = getelementptr inbounds nuw i8, ptr %5, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !52
@@ -346,9 +346,9 @@ define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %161, i8 -1, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %162, i8 0, i64 84, i1 false)
   %163 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store <2 x float> %.sroa.0.4.vec.insert.i35, ptr %163, align 8
+  store <2 x float> %.sroa.0.4.vec.insert.i34, ptr %163, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store <2 x float> %.sroa.3.12.vec.insert.i36, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !51
+  store <2 x float> %.sroa.3.12.vec.insert.i35, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !52
   %164 = call noundef i32 @_ZNK20btPersistentManifold13getCacheEntryERK15btManifoldPoint(ptr noundef nonnull align 8 dereferenceable(880) %11, ptr noundef nonnull align 8 dereferenceable(204) %5)
   %165 = load ptr, ptr @gCalculateCombinedFrictionCallback, align 8, !tbaa !55
@@ -397,18 +397,18 @@ define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(p
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 224
   %205 = load i32, ptr %204, align 8, !tbaa !60
   %206 = and i32 %205, 128
-  %.not24 = icmp eq i32 %206, 0
+  %.not25 = icmp eq i32 %206, 0
   %.pre = load ptr, ptr %169, align 8, !tbaa !33
   %207 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %208 = load ptr, ptr %207, align 8, !tbaa !39
-  br i1 %.not24, label %209, label %._crit_edge
+  br i1 %.not25, label %209, label %._crit_edge
 
 209:                                              ; preds = %119
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 224
   %211 = load i32, ptr %210, align 8, !tbaa !60
   %212 = and i32 %211, 128
-  %.not25 = icmp eq i32 %212, 0
-  br i1 %.not25, label %228, label %._crit_edge
+  %.not26 = icmp eq i32 %212, 0
+  br i1 %.not26, label %228, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %119, %209
   %213 = load ptr, ptr @gCalculateCombinedContactDampingCallback, align 8, !tbaa !55
@@ -429,18 +429,18 @@ define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(p
   %226 = load i32, ptr %225, align 8, !tbaa !61
   %227 = or i32 %226, 8
   store i32 %227, ptr %225, align 8, !tbaa !61
-  %.pre78 = load ptr, ptr %14, align 8, !tbaa !32
-  %.phi.trans.insert79 = getelementptr inbounds nuw i8, ptr %.pre78, i64 16
-  %.pre80 = load ptr, ptr %.phi.trans.insert79, align 8, !tbaa !39
-  %.phi.trans.insert81 = getelementptr inbounds nuw i8, ptr %.pre80, i64 224
-  %.pre82 = load i32, ptr %.phi.trans.insert81, align 8, !tbaa !60
+  %.pre77 = load ptr, ptr %14, align 8, !tbaa !32
+  %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %.pre77, i64 16
+  %.pre79 = load ptr, ptr %.phi.trans.insert78, align 8, !tbaa !39
+  %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %.pre79, i64 224
+  %.pre81 = load i32, ptr %.phi.trans.insert80, align 8, !tbaa !60
   br label %228
 
 228:                                              ; preds = %._crit_edge, %209
-  %229 = phi i32 [ %.pre82, %._crit_edge ], [ %205, %209 ]
+  %229 = phi i32 [ %.pre81, %._crit_edge ], [ %205, %209 ]
   %230 = and i32 %229, 512
-  %.not26 = icmp eq i32 %230, 0
-  br i1 %.not26, label %231, label %238
+  %.not27 = icmp eq i32 %230, 0
+  br i1 %.not27, label %231, label %238
 
 231:                                              ; preds = %228
   %232 = load ptr, ptr %169, align 8, !tbaa !33
@@ -449,8 +449,8 @@ define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(p
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 224
   %236 = load i32, ptr %235, align 8, !tbaa !60
   %237 = and i32 %236, 512
-  %.not27 = icmp eq i32 %237, 0
-  br i1 %.not27, label %242, label %238
+  %.not28 = icmp eq i32 %237, 0
+  br i1 %.not28, label %242, label %238
 
 238:                                              ; preds = %231, %228
   %239 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -504,40 +504,40 @@ define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(p
   br label %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
 
 _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %250, %264
-  %.sink72 = phi float [ 0.000000e+00, %250 ], [ %272, %264 ]
-  %.sink71 = phi float [ %257, %250 ], [ %273, %264 ]
-  %.sink70 = phi float [ %258, %250 ], [ 0.000000e+00, %264 ]
-  %.sink69 = phi float [ %259, %250 ], [ %275, %264 ]
+  %.sink71 = phi float [ 0.000000e+00, %250 ], [ %272, %264 ]
+  %.sink70 = phi float [ %257, %250 ], [ %273, %264 ]
+  %.sink69 = phi float [ %258, %250 ], [ 0.000000e+00, %264 ]
+  %.sink68 = phi float [ %259, %250 ], [ %275, %264 ]
   %.sink = phi float [ %262, %250 ], [ %276, %264 ]
   %.sink.i = phi float [ %263, %250 ], [ %277, %264 ]
-  store float %.sink72, ptr %243, align 4, !tbaa !43
+  store float %.sink71, ptr %243, align 4, !tbaa !43
   %278 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  store float %.sink71, ptr %278, align 8, !tbaa !43
-  store float %.sink70, ptr %249, align 4, !tbaa !43
-  store float %.sink69, ptr %244, align 4, !tbaa !43
+  store float %.sink70, ptr %278, align 8, !tbaa !43
+  store float %.sink69, ptr %249, align 4, !tbaa !43
+  store float %.sink68, ptr %244, align 4, !tbaa !43
   %279 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store float %.sink, ptr %279, align 8, !tbaa !43
   %280 = getelementptr inbounds nuw i8, ptr %5, i64 196
   store float %.sink.i, ptr %280, align 4, !tbaa !43
   %. = select i1 %.not, i64 32, i64 36
-  %.141 = select i1 %.not, i64 36, i64 32
-  %.142 = select i1 %.not, i64 40, i64 44
-  %.143 = select i1 %.not, i64 44, i64 40
+  %.140 = select i1 %.not, i64 36, i64 32
+  %.141 = select i1 %.not, i64 40, i64 44
+  %.142 = select i1 %.not, i64 44, i64 40
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %282 = getelementptr inbounds nuw i8, ptr %0, i64 %.141
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 %.142
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 %.143
-  %.sink73 = load i32, ptr %284, align 4, !tbaa !62
-  %.sink74 = load i32, ptr %283, align 4, !tbaa !62
-  %.sink75 = load i32, ptr %282, align 4, !tbaa !62
-  %.sink76 = load i32, ptr %281, align 4, !tbaa !62
-  store i32 %.sink76, ptr %161, align 4, !tbaa !63
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 %.140
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 %.141
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 %.142
+  %.sink72 = load i32, ptr %284, align 4, !tbaa !62
+  %.sink73 = load i32, ptr %283, align 4, !tbaa !62
+  %.sink74 = load i32, ptr %282, align 4, !tbaa !62
+  %.sink75 = load i32, ptr %281, align 4, !tbaa !62
+  store i32 %.sink75, ptr %161, align 4, !tbaa !63
   %285 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i32 %.sink75, ptr %285, align 8, !tbaa !64
+  store i32 %.sink74, ptr %285, align 8, !tbaa !64
   %286 = getelementptr inbounds nuw i8, ptr %5, i64 108
-  store i32 %.sink74, ptr %286, align 4, !tbaa !65
+  store i32 %.sink73, ptr %286, align 4, !tbaa !65
   %287 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store i32 %.sink73, ptr %287, align 8, !tbaa !66
+  store i32 %.sink72, ptr %287, align 8, !tbaa !66
   %288 = icmp sgt i32 %164, -1
   %289 = load ptr, ptr %6, align 8, !tbaa !27
   br i1 %288, label %290, label %317
@@ -594,8 +594,8 @@ _ZN20btPersistentManifold19replaceContactPointERK15btManifoldPointi.exit: ; pred
 319:                                              ; preds = %317, %_ZN20btPersistentManifold19replaceContactPointERK15btManifoldPointi.exit
   %.0 = phi i32 [ %164, %_ZN20btPersistentManifold19replaceContactPointERK15btManifoldPointi.exit ], [ %318, %317 ]
   %320 = load ptr, ptr @gContactAddedCallback, align 8, !tbaa !55
-  %.not28 = icmp eq ptr %320, null
-  br i1 %.not28, label %346, label %321
+  %.not29 = icmp eq ptr %320, null
+  br i1 %.not29, label %346, label %321
 
 321:                                              ; preds = %319
   %322 = load ptr, ptr %14, align 8, !tbaa !32
@@ -604,22 +604,22 @@ _ZN20btPersistentManifold19replaceContactPointERK15btManifoldPointi.exit: ; pred
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 224
   %326 = load i32, ptr %325, align 8, !tbaa !60
   %327 = and i32 %326, 8
-  %.not29 = icmp eq i32 %327, 0
-  %.val66.pre = load ptr, ptr %169, align 8
-  br i1 %.not29, label %328, label %334
+  %.not30 = icmp eq i32 %327, 0
+  %.val65.pre = load ptr, ptr %169, align 8
+  br i1 %.not30, label %328, label %334
 
 328:                                              ; preds = %321
-  %329 = getelementptr inbounds nuw i8, ptr %.val66.pre, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %.val65.pre, i64 16
   %330 = load ptr, ptr %329, align 8, !tbaa !39
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 224
   %332 = load i32, ptr %331, align 8, !tbaa !60
   %333 = and i32 %332, 8
-  %.not30 = icmp eq i32 %333, 0
-  br i1 %.not30, label %346, label %334
+  %.not31 = icmp eq i32 %333, 0
+  br i1 %.not31, label %346, label %334
 
 334:                                              ; preds = %328, %321
-  %335 = select i1 %.not, ptr %322, ptr %.val66.pre
-  %336 = select i1 %.not, ptr %.val66.pre, ptr %322
+  %335 = select i1 %.not, ptr %322, ptr %.val65.pre
+  %336 = select i1 %.not, ptr %.val65.pre, ptr %322
   %337 = load ptr, ptr %6, align 8, !tbaa !27
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %339 = sext i32 %.0 to i64
@@ -633,19 +633,19 @@ _ZN20btPersistentManifold19replaceContactPointERK15btManifoldPointi.exit: ; pred
 
 346:                                              ; preds = %334, %328, %319
   %347 = load ptr, ptr @gContactStartedCallback, align 8, !tbaa !55
-  %.not32 = icmp eq ptr %347, null
-  %brmerge = or i1 %20, %.not32
-  br i1 %brmerge, label %349, label %348
+  %348 = icmp ne ptr %347, null
+  %or.cond = and i1 %20, %348
+  br i1 %or.cond, label %349, label %350
 
-348:                                              ; preds = %346
+349:                                              ; preds = %346
   call void %347(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  br label %349
-
-349:                                              ; preds = %346, %348
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #11
   br label %350
 
-350:                                              ; preds = %4, %349
+350:                                              ; preds = %349, %346
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #11
+  br label %351
+
+351:                                              ; preds = %4, %350
   ret void
 }
 

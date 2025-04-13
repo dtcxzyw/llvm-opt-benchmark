@@ -505,7 +505,7 @@ define hidden void @_ZN4cvc58internal6theory5arith22getApproximateConstantENS0_1
   unreachable
 
 common.resume:                                    ; preds = %50, %_ZN4cvc58internal8RationalD2Ev.exit207
-  %common.resume.op = phi { ptr, i32 } [ %.pn89.pn, %_ZN4cvc58internal8RationalD2Ev.exit207 ], [ %51, %50 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn92.pn, %_ZN4cvc58internal8RationalD2Ev.exit207 ], [ %51, %50 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal8RationalC2ERKS1_.exit:          ; preds = %45
@@ -685,7 +685,7 @@ _ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %_ZN4cvc58internal8R
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit101:           ; preds = %109, %107
-  %.pn55 = phi { ptr, i32 } [ %108, %107 ], [ %110, %109 ]
+  %.pn58 = phi { ptr, i32 } [ %108, %107 ], [ %110, %109 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
   br label %399
 
@@ -790,7 +790,7 @@ _ZN4cvc58internal8RationalD2Ev.exit109:           ; preds = %_ZN4cvc58internal8R
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit111:           ; preds = %137, %135
-  %.pn80 = phi { ptr, i32 } [ %136, %135 ], [ %138, %137 ]
+  %.pn83 = phi { ptr, i32 } [ %136, %135 ], [ %138, %137 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #23
   br label %383
 
@@ -813,7 +813,7 @@ _ZN4cvc58internal8RationalD2Ev.exit111:           ; preds = %137, %135
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit113:           ; preds = %144, %142
-  %.pn82 = phi { ptr, i32 } [ %143, %142 ], [ %145, %144 ]
+  %.pn85 = phi { ptr, i32 } [ %143, %142 ], [ %145, %144 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #23
   br label %383
 
@@ -871,9 +871,9 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit:   ; preds = %152, %155, %159
   br label %170
 
 170:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit, %351
-  %.020 = phi i32 [ %57, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ], [ %.121, %351 ]
+  %.023 = phi i32 [ %57, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ], [ %.124, %351 ]
   %.0 = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ], [ %.1, %351 ]
-  %171 = add i32 %.0, %.020
+  %171 = add i32 %.0, %.023
   %172 = lshr i32 %171, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #23
@@ -956,8 +956,8 @@ _ZN4cvc58internal8RationalD2Ev.exit123:           ; preds = %188
 
 194:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit123
   %195 = icmp slt i32 %179, 1
-  %brmerge = or i1 %2, %195
-  br i1 %brmerge, label %235, label %196
+  %or.cond = or i1 %2, %195
+  br i1 %or.cond, label %235, label %196
 
 196:                                              ; preds = %194
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #23
@@ -1035,7 +1035,7 @@ _ZN4cvc58internal8RationalD2Ev.exit129:           ; preds = %_ZN4cvc58internal8R
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit131:           ; preds = %214, %212
-  %.pn57 = phi { ptr, i32 } [ %213, %212 ], [ %215, %214 ]
+  %.pn60 = phi { ptr, i32 } [ %213, %212 ], [ %215, %214 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #23
   br label %_ZN4cvc58internal8RationalD2Ev.exit179
 
@@ -1050,7 +1050,7 @@ _ZN4cvc58internal8RationalD2Ev.exit131:           ; preds = %214, %212
   br label %.body120
 
 .body120:                                         ; preds = %221, %183
-  %.pn59 = phi { ptr, i32 } [ %222, %221 ], [ %184, %183 ]
+  %.pn62 = phi { ptr, i32 } [ %222, %221 ], [ %184, %183 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #23
   br label %354
 
@@ -1078,7 +1078,7 @@ _ZN4cvc58internal8RationalD2Ev.exit131:           ; preds = %214, %212
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit135:           ; preds = %227, %225
-  %.pn61 = phi { ptr, i32 } [ %226, %225 ], [ %228, %227 ]
+  %.pn64 = phi { ptr, i32 } [ %226, %225 ], [ %228, %227 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %_ZN4cvc58internal8RationalD2Ev.exit137 unwind label %232
 
@@ -1090,14 +1090,14 @@ _ZN4cvc58internal8RationalD2Ev.exit135:           ; preds = %227, %225
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit137:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit135, %223
-  %.pn61.pn = phi { ptr, i32 } [ %224, %223 ], [ %.pn61, %_ZN4cvc58internal8RationalD2Ev.exit135 ]
+  %.pn64.pn = phi { ptr, i32 } [ %224, %223 ], [ %.pn64, %_ZN4cvc58internal8RationalD2Ev.exit135 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #23
   br label %354
 
 235:                                              ; preds = %194
-  %brmerge94.not = and i1 %2, %.inv.i116
-  br i1 %brmerge94.not, label %236, label %258
+  %or.cond3 = and i1 %2, %.inv.i116
+  br i1 %or.cond3, label %236, label %258
 
 236:                                              ; preds = %235
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #23
@@ -1165,7 +1165,7 @@ _ZN4cvc58internal8RationalD2Ev.exit143:           ; preds = %_ZN4cvc58internal8R
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit145:           ; preds = %250, %248
-  %.pn64 = phi { ptr, i32 } [ %249, %248 ], [ %251, %250 ]
+  %.pn67 = phi { ptr, i32 } [ %249, %248 ], [ %251, %250 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %_ZN4cvc58internal8RationalD2Ev.exit147 unwind label %255
 
@@ -1177,7 +1177,7 @@ _ZN4cvc58internal8RationalD2Ev.exit145:           ; preds = %250, %248
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit147:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit145, %246
-  %.pn64.pn = phi { ptr, i32 } [ %247, %246 ], [ %.pn64, %_ZN4cvc58internal8RationalD2Ev.exit145 ]
+  %.pn67.pn = phi { ptr, i32 } [ %247, %246 ], [ %.pn67, %_ZN4cvc58internal8RationalD2Ev.exit145 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #23
   br label %354
@@ -1356,7 +1356,7 @@ _ZN4cvc58internal8RationalD2Ev.exit164:           ; preds = %_ZN4cvc58internal12
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit166:           ; preds = %316, %314
-  %.pn67 = phi { ptr, i32 } [ %315, %314 ], [ %317, %316 ]
+  %.pn70 = phi { ptr, i32 } [ %315, %314 ], [ %317, %316 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #23
   br label %354
 
@@ -1377,7 +1377,7 @@ _ZN4cvc58internal8RationalD2Ev.exit166:           ; preds = %316, %314
   br label %327
 
 327:                                              ; preds = %325, %323
-  %.pn69 = phi { ptr, i32 } [ %326, %325 ], [ %324, %323 ]
+  %.pn72 = phi { ptr, i32 } [ %326, %325 ], [ %324, %323 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %.body155 unwind label %328
 
@@ -1389,7 +1389,7 @@ _ZN4cvc58internal8RationalD2Ev.exit166:           ; preds = %316, %314
   unreachable
 
 .body155:                                         ; preds = %327, %321, %264
-  %.pn69.pn = phi { ptr, i32 } [ %322, %321 ], [ %265, %264 ], [ %.pn69, %327 ]
+  %.pn72.pn = phi { ptr, i32 } [ %322, %321 ], [ %265, %264 ], [ %.pn72, %327 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #23
   br label %354
@@ -1407,7 +1407,7 @@ _ZN4cvc58internal8RationalD2Ev.exit166:           ; preds = %316, %314
   br label %333
 
 333:                                              ; preds = %331, %.fold.split, %332, %_ZN4cvc58internal8RationalD2Ev.exit164
-  %.121 = phi i32 [ %.020, %_ZN4cvc58internal8RationalD2Ev.exit164 ], [ %.020, %332 ], [ %172, %331 ], [ %.020, %.fold.split ]
+  %.124 = phi i32 [ %.023, %_ZN4cvc58internal8RationalD2Ev.exit164 ], [ %.023, %332 ], [ %172, %331 ], [ %.023, %.fold.split ]
   %.1 = phi i32 [ %.0, %_ZN4cvc58internal8RationalD2Ev.exit164 ], [ %172, %332 ], [ %.0, %331 ], [ %.0, %.fold.split ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %_ZN4cvc58internal8RationalD2Ev.exit170 unwind label %334
@@ -1467,7 +1467,7 @@ _ZN4cvc58internal8RationalD2Ev.exit172:           ; preds = %_ZN4cvc58internal8R
   br i1 %353, label %170, label %361, !llvm.loop !24
 
 354:                                              ; preds = %.body155, %_ZN4cvc58internal8RationalD2Ev.exit166, %_ZN4cvc58internal8RationalD2Ev.exit147, %_ZN4cvc58internal8RationalD2Ev.exit137, %.body120
-  %.pn69.pn.pn = phi { ptr, i32 } [ %.pn69.pn, %.body155 ], [ %.pn67, %_ZN4cvc58internal8RationalD2Ev.exit166 ], [ %.pn64.pn, %_ZN4cvc58internal8RationalD2Ev.exit147 ], [ %.pn61.pn, %_ZN4cvc58internal8RationalD2Ev.exit137 ], [ %.pn59, %.body120 ]
+  %.pn72.pn.pn = phi { ptr, i32 } [ %.pn72.pn, %.body155 ], [ %.pn70, %_ZN4cvc58internal8RationalD2Ev.exit166 ], [ %.pn67.pn, %_ZN4cvc58internal8RationalD2Ev.exit147 ], [ %.pn64.pn, %_ZN4cvc58internal8RationalD2Ev.exit137 ], [ %.pn62, %.body120 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %_ZN4cvc58internal8RationalD2Ev.exit177 unwind label %355
 
@@ -1479,7 +1479,7 @@ _ZN4cvc58internal8RationalD2Ev.exit172:           ; preds = %_ZN4cvc58internal8R
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit177:           ; preds = %354, %219
-  %.pn69.pn.pn.pn = phi { ptr, i32 } [ %220, %219 ], [ %.pn69.pn.pn, %354 ]
+  %.pn72.pn.pn.pn = phi { ptr, i32 } [ %220, %219 ], [ %.pn72.pn.pn, %354 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #23
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %_ZN4cvc58internal8RationalD2Ev.exit179 unwind label %358
@@ -1492,7 +1492,7 @@ _ZN4cvc58internal8RationalD2Ev.exit177:           ; preds = %354, %219
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit179:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit177, %_ZN4cvc58internal8RationalD2Ev.exit131
-  %.pn69.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57, %_ZN4cvc58internal8RationalD2Ev.exit131 ], [ %.pn69.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit177 ]
+  %.pn72.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn60, %_ZN4cvc58internal8RationalD2Ev.exit131 ], [ %.pn72.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit177 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #23
   br label %.body174
 
@@ -1560,12 +1560,12 @@ _ZN4cvc58internal8RationalD2Ev.exit189:           ; preds = %_ZN4cvc58internal8R
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
 .body174:                                         ; preds = %349, %_ZN4cvc58internal8RationalD2Ev.exit179
-  %.pn75 = phi { ptr, i32 } [ %.pn69.pn.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit179 ], [ %350, %349 ]
+  %.pn78 = phi { ptr, i32 } [ %.pn72.pn.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit179 ], [ %350, %349 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #23
   br label %.body
 
 .body:                                            ; preds = %210, %161, %.body174
-  %.pn75.pn = phi { ptr, i32 } [ %.pn75, %.body174 ], [ %211, %210 ], [ %162, %161 ]
+  %.pn78.pn = phi { ptr, i32 } [ %.pn78, %.body174 ], [ %211, %210 ], [ %162, %161 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %_ZN4cvc58internal8RationalD2Ev.exit191 unwind label %377
 
@@ -1577,7 +1577,7 @@ _ZN4cvc58internal8RationalD2Ev.exit189:           ; preds = %_ZN4cvc58internal8R
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit191:           ; preds = %.body, %208
-  %.pn75.pn.pn = phi { ptr, i32 } [ %209, %208 ], [ %.pn75.pn, %.body ]
+  %.pn78.pn.pn = phi { ptr, i32 } [ %209, %208 ], [ %.pn78.pn, %.body ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #23
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %_ZN4cvc58internal8RationalD2Ev.exit193 unwind label %380
@@ -1590,12 +1590,12 @@ _ZN4cvc58internal8RationalD2Ev.exit191:           ; preds = %.body, %208
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit193:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit191, %206
-  %.pn75.pn.pn.pn = phi { ptr, i32 } [ %207, %206 ], [ %.pn75.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit191 ]
+  %.pn78.pn.pn.pn = phi { ptr, i32 } [ %207, %206 ], [ %.pn78.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit191 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #23
   br label %383
 
 383:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit193, %_ZN4cvc58internal8RationalD2Ev.exit113, %_ZN4cvc58internal8RationalD2Ev.exit111
-  %.pn82.pn = phi { ptr, i32 } [ %.pn82, %_ZN4cvc58internal8RationalD2Ev.exit113 ], [ %.pn80, %_ZN4cvc58internal8RationalD2Ev.exit111 ], [ %.pn75.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit193 ]
+  %.pn85.pn = phi { ptr, i32 } [ %.pn85, %_ZN4cvc58internal8RationalD2Ev.exit113 ], [ %.pn83, %_ZN4cvc58internal8RationalD2Ev.exit111 ], [ %.pn78.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit193 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %_ZN4cvc58internal8RationalD2Ev.exit195 unwind label %384
 
@@ -1607,7 +1607,7 @@ _ZN4cvc58internal8RationalD2Ev.exit193:           ; preds = %_ZN4cvc58internal8R
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit195:           ; preds = %383, %133
-  %.pn82.pn.pn = phi { ptr, i32 } [ %134, %133 ], [ %.pn82.pn, %383 ]
+  %.pn85.pn.pn = phi { ptr, i32 } [ %134, %133 ], [ %.pn85.pn, %383 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %_ZN4cvc58internal8RationalD2Ev.exit197 unwind label %387
@@ -1620,7 +1620,7 @@ _ZN4cvc58internal8RationalD2Ev.exit195:           ; preds = %383, %133
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit197:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit195, %131
-  %.pn82.pn.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %.pn82.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit195 ]
+  %.pn85.pn.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %.pn85.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit195 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN4cvc58internal8RationalD2Ev.exit199 unwind label %390
@@ -1633,7 +1633,7 @@ _ZN4cvc58internal8RationalD2Ev.exit197:           ; preds = %_ZN4cvc58internal8R
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit199:           ; preds = %_ZN4cvc58internal8RationalD2Ev.exit197, %129
-  %.pn82.pn.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %.pn82.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit197 ]
+  %.pn85.pn.pn.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %.pn85.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit197 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
   br label %399
 
@@ -1665,7 +1665,7 @@ _ZN4cvc58internal8RationalD2Ev.exit203:           ; preds = %_ZN4cvc58internal8R
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 399:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit101, %_ZN4cvc58internal8RationalD2Ev.exit199, %97, %_ZN4cvc58internal7IntegerD2Ev.exit97
-  %.pn89 = phi { ptr, i32 } [ %98, %97 ], [ %.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit97 ], [ %.pn82.pn.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit199 ], [ %.pn55, %_ZN4cvc58internal8RationalD2Ev.exit101 ]
+  %.pn92 = phi { ptr, i32 } [ %98, %97 ], [ %.pn.pn, %_ZN4cvc58internal7IntegerD2Ev.exit97 ], [ %.pn85.pn.pn.pn.pn, %_ZN4cvc58internal8RationalD2Ev.exit199 ], [ %.pn58, %_ZN4cvc58internal8RationalD2Ev.exit101 ]
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN4cvc58internal8RationalD2Ev.exit205 unwind label %400
 
@@ -1677,7 +1677,7 @@ _ZN4cvc58internal8RationalD2Ev.exit203:           ; preds = %_ZN4cvc58internal8R
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit205:           ; preds = %399, %83
-  %.pn89.pn = phi { ptr, i32 } [ %84, %83 ], [ %.pn89, %399 ]
+  %.pn92.pn = phi { ptr, i32 } [ %84, %83 ], [ %.pn92, %399 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN4cvc58internal8RationalD2Ev.exit207 unwind label %403

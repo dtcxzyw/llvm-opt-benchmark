@@ -3188,7 +3188,7 @@ define internal i32 @dissect_cip_io_generic(ptr noundef %0, ptr readnone capture
   %7 = load i32, ptr @ett_cip_io_generic, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread, label %9
+  br i1 %.not, label %33, label %9
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %3, align 8
@@ -3207,38 +3207,36 @@ define internal i32 @dissect_cip_io_generic(ptr noundef %0, ptr readnone capture
   %.1 = phi i32 [ 2, %15 ], [ 0, %9 ]
   %19 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %20 = icmp sgt i32 %19, 3
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %33
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i32, ptr %22, align 8
-  switch i32 %23, label %.thread [
-    i32 1, label %24
-    i32 2, label %27
-  ]
-
-24:                                               ; preds = %21
-  %25 = load i8, ptr @enip_OTrun_idle, align 1, !range !17, !noundef !18
+  %24 = icmp eq i32 %23, 1
+  %25 = load i8, ptr @enip_OTrun_idle, align 1, !range !17
   %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %30, label %.thread
+  %or.cond = select i1 %24, i1 %26, i1 false
+  br i1 %or.cond, label %31, label %27
 
 27:                                               ; preds = %21
-  %28 = load i8, ptr @enip_TOrun_idle, align 1, !range !17, !noundef !18
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %.thread
+  %28 = icmp eq i32 %23, 2
+  %29 = load i8, ptr @enip_TOrun_idle, align 1, !range !17
+  %30 = trunc nuw i8 %29 to i1
+  %or.cond3 = select i1 %28, i1 %30, i1 false
+  br i1 %or.cond3, label %31, label %33
 
-30:                                               ; preds = %27, %24
+31:                                               ; preds = %27, %21
   tail call void @dissect_cip_run_idle(ptr noundef %0, i32 noundef %.1, ptr noundef %8)
-  %31 = or disjoint i32 %.1, 4
-  br label %.thread
+  %32 = or disjoint i32 %.1, 4
+  br label %33
 
-.thread:                                          ; preds = %21, %24, %18, %27, %30, %4
-  %.0 = phi i32 [ %31, %30 ], [ %.1, %27 ], [ %.1, %18 ], [ 0, %4 ], [ %.1, %24 ], [ %.1, %21 ]
-  %32 = load i32, ptr @hf_cip_io_data, align 4
-  %33 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0)
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %32, ptr noundef %0, i32 noundef %.0, i32 noundef %33, i32 noundef 0)
-  %35 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %35
+33:                                               ; preds = %18, %27, %31, %4
+  %.0 = phi i32 [ %32, %31 ], [ %.1, %27 ], [ %.1, %18 ], [ 0, %4 ]
+  %34 = load i32, ptr @hf_cip_io_data, align 4
+  %35 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0)
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %34, ptr noundef %0, i32 noundef %.0, i32 noundef %35, i32 noundef 0)
+  %37 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %37
 }
 
 ; Function Attrs: null_pointer_is_valid

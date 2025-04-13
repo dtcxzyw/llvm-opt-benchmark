@@ -3946,8 +3946,8 @@ default.unreachable1026:                          ; preds = %2548, %2279, %1965,
   %trunc.i.i = trunc nuw i64 %438 to i1
   %439 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %440 = load ptr, ptr %439, align 8, !alias.scope !448, !noalias !453
-  %.014.i.i = select i1 %trunc.i.i, ptr %440, ptr null
-  invoke void @_ZN10aws_config15provider_config14ProviderConfig7with_fs17ha2fe357fdf1100e6E(ptr noalias noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} } }, ptr, ptr, ptr, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(152) %189, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(152) %188, ptr noundef %.014.i.i)
+  %.015.i.i = select i1 %trunc.i.i, ptr %440, ptr null
+  invoke void @_ZN10aws_config15provider_config14ProviderConfig7with_fs17ha2fe357fdf1100e6E(ptr noalias noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} } }, ptr, ptr, ptr, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(152) %189, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(152) %188, ptr noundef %.015.i.i)
           to label %442 unwind label %.thread47.i.i, !noalias !451
 
 .thread47.i.i:                                    ; preds = %436
@@ -3958,10 +3958,10 @@ default.unreachable1026:                          ; preds = %2548, %2279, %1965,
 442:                                              ; preds = %436
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %188), !noalias !451
   %443 = load i64, ptr %191, align 8, !range !8, !alias.scope !448, !noalias !453, !noundef !4
-  %trunc22.i.i = trunc nuw i64 %443 to i1
+  %trunc23.i.i = trunc nuw i64 %443 to i1
   %444 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %445 = load ptr, ptr %444, align 8, !alias.scope !448, !noalias !453
-  %.0.i.i = select i1 %trunc22.i.i, ptr %445, ptr null
+  %.0.i.i = select i1 %trunc23.i.i, ptr %445, ptr null
   invoke void @_ZN10aws_config15provider_config14ProviderConfig8with_env17h0120a73933244803E(ptr noalias noundef nonnull sret({ { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} } }, ptr, ptr, ptr, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(152) %190, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(152) %189, ptr noundef %.0.i.i)
           to label %.noexc268 unwind label %520
 
@@ -4092,11 +4092,11 @@ default.unreachable1026:                          ; preds = %2548, %2279, %1965,
   unreachable
 
 493:                                              ; preds = %494
-  br i1 %.12139.i.i, label %495, label %.body
+  br i1 %.12239.i.i, label %495, label %.body
 
 494:                                              ; preds = %.thread47.i.i, %.thread.i.i
   %.pn41.i.i = phi { ptr, i32 } [ %421, %.thread.i.i ], [ %441, %.thread47.i.i ]
-  %.12139.i.i = phi i1 [ true, %.thread.i.i ], [ false, %.thread47.i.i ]
+  %.12239.i.i = phi i1 [ true, %.thread.i.i ], [ false, %.thread47.i.i ]
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_types..os_shim_internal..Env$GT$$GT$17hf1f3627114281392E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %191) #29
           to label %493 unwind label %491, !noalias !453
 
@@ -13086,8 +13086,8 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.2348
   %.0.i.i.i.i = phi i8 [ %81, %.noexc5.i ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.2348384389168151573.exit.i ]
   %83 = getelementptr inbounds nuw i8, ptr %64, i64 20
   %84 = load atomic i8, ptr %83 monotonic, align 1, !noalias !1315
-  %.not10.i = icmp eq i8 %84, 0
-  br i1 %.not10.i, label %92, label %85
+  %.not8.i = icmp eq i8 %84, 0
+  br i1 %.not8.i, label %92, label %85
 
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1318

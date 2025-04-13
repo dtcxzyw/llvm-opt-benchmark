@@ -577,8 +577,8 @@ _ZN3zmq6pipe_t11check_writeEv.exit.i:             ; preds = %27
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %42)
-  %brmerge.i = or i1 %43, %42
-  br i1 %brmerge.i, label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread, label %49
+  %or.cond.i = or i1 %43, %42
+  br i1 %or.cond.i, label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread, label %49
 
 49:                                               ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i
   %50 = load i64, ptr %31, align 8, !tbaa !104
@@ -594,7 +594,7 @@ _ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit:           ; preds = %39, %16
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   br label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread
 
-_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread:    ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i, %49, %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit
+_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread:    ; preds = %49, %_ZN3zmq6pipe_t11check_writeEv.exit.i, %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit
   %56 = load i32, ptr %24, align 8, !tbaa !105
   %57 = icmp eq i32 %56, 3
   br i1 %57, label %_ZN3zmq6pipe_t5flushEv.exit, label %58
@@ -678,8 +678,8 @@ _ZN3zmq6pipe_t11check_writeEv.exit:               ; preds = %9
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %24)
-  %brmerge = or i1 %25, %24
-  br i1 %brmerge, label %_ZN3zmq6pipe_t11check_writeEv.exit.thread, label %31
+  %or.cond = or i1 %25, %24
+  br i1 %or.cond, label %_ZN3zmq6pipe_t11check_writeEv.exit.thread, label %31
 
 31:                                               ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit
   %32 = load i64, ptr %13, align 8, !tbaa !104
@@ -687,9 +687,9 @@ _ZN3zmq6pipe_t11check_writeEv.exit:               ; preds = %9
   store i64 %33, ptr %13, align 8, !tbaa !104
   br label %_ZN3zmq6pipe_t11check_writeEv.exit.thread
 
-_ZN3zmq6pipe_t11check_writeEv.exit.thread:        ; preds = %21, %2, %31, %_ZN3zmq6pipe_t11check_writeEv.exit
-  %.0.i8 = phi i1 [ true, %31 ], [ true, %_ZN3zmq6pipe_t11check_writeEv.exit ], [ false, %2 ], [ false, %21 ]
-  ret i1 %.0.i8
+_ZN3zmq6pipe_t11check_writeEv.exit.thread:        ; preds = %21, %2, %_ZN3zmq6pipe_t11check_writeEv.exit, %31
+  %.0.i9 = phi i1 [ true, %_ZN3zmq6pipe_t11check_writeEv.exit ], [ true, %31 ], [ false, %2 ], [ false, %21 ]
+  ret i1 %.0.i9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -787,8 +787,8 @@ _ZN3zmq6pipe_t11check_writeEv.exit.i:             ; preds = %27
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %42)
-  %brmerge.i = or i1 %43, %42
-  br i1 %brmerge.i, label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread, label %49
+  %or.cond.i = or i1 %43, %42
+  br i1 %or.cond.i, label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread, label %49
 
 49:                                               ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i
   %50 = load i64, ptr %31, align 8, !tbaa !104
@@ -804,7 +804,7 @@ _ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit:           ; preds = %39, %20
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   br label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread
 
-_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread:    ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i, %49, %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit
+_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread:    ; preds = %49, %_ZN3zmq6pipe_t11check_writeEv.exit.i, %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit
   %56 = load i32, ptr %24, align 8, !tbaa !105
   %57 = icmp eq i32 %56, 3
   br i1 %57, label %_ZN3zmq6pipe_t5flushEv.exit, label %58

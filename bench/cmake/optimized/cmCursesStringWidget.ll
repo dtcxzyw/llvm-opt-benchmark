@@ -470,50 +470,48 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget9PrintKeysEv(ptr n
   %2 = alloca [3 x i8], align 1
   %3 = load ptr, ptr @stdscr, align 8, !tbaa !33
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread12, label %4
+  br i1 %.not, label %.thread15, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i16, ptr %5, align 4, !tbaa !35
-  %7 = sext i16 %6 to i32
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %9 = load i16, ptr %8, align 2, !tbaa !41
-  %10 = icmp slt i16 %9, 64
-  %11 = icmp slt i16 %6, 5
-  %or.cond = select i1 %10, i1 true, i1 %11
-  br i1 %or.cond, label %.thread12, label %12
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %8 = load i16, ptr %7, align 2, !tbaa !41
+  %9 = icmp sgt i16 %8, 63
+  %10 = icmp sgt i16 %6, 4
+  %or.cond.not21 = select i1 %9, i1 %10, i1 false
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %12 = load i8, ptr %11, align 4, !range !26
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond14 = select i1 %or.cond.not21, i1 %13, i1 false
+  br i1 %or.cond14, label %14, label %.thread15
 
-12:                                               ; preds = %4
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %14 = load i8, ptr %13, align 4, !tbaa !16, !range !26, !noundef !27
-  %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %16, label %.thread12
-
-16:                                               ; preds = %12
+14:                                               ; preds = %4
+  %15 = zext nneg i16 %6 to i32
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2, ptr noundef nonnull align 1 dereferenceable(3) @__const._ZN20cmCursesStringWidget9PrintKeysEv.fmt_s, i64 3, i1 false)
-  %17 = add nsw i32 %7, -3
-  %18 = tail call i32 @move(i32 noundef %17, i32 noundef 0)
-  %19 = load ptr, ptr @stdscr, align 8, !tbaa !33
-  %20 = tail call i32 @wclrtoeol(ptr noundef %19)
-  %21 = add nsw i32 %7, -2
-  %22 = tail call i32 @move(i32 noundef %21, i32 noundef 0)
-  %23 = call i32 (ptr, ...) @printw(ptr noundef nonnull %2, ptr noundef nonnull @.str.3)
-  %24 = load ptr, ptr @stdscr, align 8, !tbaa !33
-  %25 = call i32 @wclrtoeol(ptr noundef %24)
-  %26 = add nsw i32 %7, -1
-  %27 = call i32 @move(i32 noundef %26, i32 noundef 0)
-  %28 = call i32 (ptr, ...) @printw(ptr noundef nonnull %2, ptr noundef nonnull @.str.4)
-  %29 = load ptr, ptr @stdscr, align 8, !tbaa !33
-  %30 = call i32 @wclrtoeol(ptr noundef %29)
-  %31 = call i32 @move(i32 noundef %7, i32 noundef 0)
-  %32 = load ptr, ptr @stdscr, align 8, !tbaa !33
-  %33 = call i32 @wclrtoeol(ptr noundef %32)
+  %16 = add nsw i32 %15, -3
+  %17 = tail call i32 @move(i32 noundef %16, i32 noundef 0)
+  %18 = load ptr, ptr @stdscr, align 8, !tbaa !33
+  %19 = tail call i32 @wclrtoeol(ptr noundef %18)
+  %20 = add nsw i32 %15, -2
+  %21 = tail call i32 @move(i32 noundef %20, i32 noundef 0)
+  %22 = call i32 (ptr, ...) @printw(ptr noundef nonnull %2, ptr noundef nonnull @.str.3)
+  %23 = load ptr, ptr @stdscr, align 8, !tbaa !33
+  %24 = call i32 @wclrtoeol(ptr noundef %23)
+  %25 = add nsw i32 %15, -1
+  %26 = call i32 @move(i32 noundef %25, i32 noundef 0)
+  %27 = call i32 (ptr, ...) @printw(ptr noundef nonnull %2, ptr noundef nonnull @.str.4)
+  %28 = load ptr, ptr @stdscr, align 8, !tbaa !33
+  %29 = call i32 @wclrtoeol(ptr noundef %28)
+  %30 = call i32 @move(i32 noundef %15, i32 noundef 0)
+  %31 = load ptr, ptr @stdscr, align 8, !tbaa !33
+  %32 = call i32 @wclrtoeol(ptr noundef %31)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %2) #14
-  br label %.thread12
+  br label %.thread15
 
-.thread12:                                        ; preds = %1, %12, %4, %16
-  %.0 = phi i1 [ true, %16 ], [ false, %4 ], [ false, %12 ], [ false, %1 ]
+.thread15:                                        ; preds = %1, %4, %14
+  %.0 = phi i1 [ true, %14 ], [ false, %4 ], [ false, %1 ]
   ret i1 %.0
 }
 

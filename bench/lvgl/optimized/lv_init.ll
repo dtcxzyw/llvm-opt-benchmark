@@ -101,14 +101,13 @@ declare void @lv_svg_decoder_init() local_unnamed_addr #2
 define void @lv_deinit() local_unnamed_addr #1 {
   %1 = load i8, ptr @lv_global, align 8, !tbaa !3, !range !30, !noundef !31
   %2 = trunc nuw i8 %1 to i1
-  br i1 %2, label %3, label %7
+  %.not = xor i1 %2, true
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 1), align 1, !range !30
+  %4 = trunc nuw i8 %3 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %4
+  br i1 %or.cond, label %6, label %5
 
-3:                                                ; preds = %0
-  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 1), align 1, !tbaa !37, !range !30, !noundef !31
-  %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %7, label %6
-
-6:                                                ; preds = %3
+5:                                                ; preds = %0
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 1), align 1, !tbaa !37
   tail call void @lv_display_set_default(ptr noundef null) #3
   tail call void @lv_ll_clear_custom(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 128), ptr noundef nonnull @lv_indev_delete) #3
@@ -130,9 +129,9 @@ define void @lv_deinit() local_unnamed_addr #1 {
   tail call void @lv_timer_core_deinit() #3
   tail call void @lv_mem_deinit() #3
   store i8 0, ptr @lv_global, align 8, !tbaa !3
-  br label %7
+  br label %6
 
-7:                                                ; preds = %3, %0, %6
+6:                                                ; preds = %0, %5
   ret void
 }
 

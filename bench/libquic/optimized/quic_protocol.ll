@@ -978,9 +978,9 @@ define void @_ZN3net23FilterSupportedVersionsESt6vectorINS_11QuicVersionESaIS1_E
 _ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %4, %5
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit, label %.noexc7
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit, label %.noexc10
 
-.noexc7:                                          ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+.noexc10:                                         ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #28
   store ptr %10, ptr %0, align 8, !tbaa !31
   %11 = getelementptr i8, ptr %10, i64 %8
@@ -990,7 +990,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; pre
   %13 = icmp eq i64 %8, 4
   br i1 %13, label %.lr.ph, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc7
+.lr.ph.preheader.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc10
   %14 = getelementptr i8, ptr %10, i64 4
   %15 = add nsw i64 %8, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %14, i8 0, i64 %15, i1 false), !tbaa !66
@@ -1002,7 +1002,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   br label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i, %.noexc7
+.lr.ph:                                           ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i, %.noexc10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1010,52 +1010,50 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit
   %20 = phi ptr [ %16, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit ], [ %18, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
-  %.lcssa71 = phi ptr [ null, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit ], [ %164, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
-  %.lcssa = phi ptr [ null, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit ], [ %165, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
+  %.lcssa74 = phi ptr [ null, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit ], [ %162, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
+  %.lcssa = phi ptr [ null, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit ], [ %163, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
   store ptr %.lcssa, ptr %20, align 1
-  store ptr %.lcssa71, ptr %0, align 8
+  store ptr %.lcssa74, ptr %0, align 8
   ret void
 
 21:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
-  %22 = phi ptr [ %11, %.lr.ph ], [ %159, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
-  %23 = phi ptr [ %11, %.lr.ph ], [ %160, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
-  %24 = phi ptr [ %11, %.lr.ph ], [ %161, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
-  %25 = phi ptr [ %11, %.lr.ph ], [ %162, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
-  %26 = phi ptr [ %11, %.lr.ph ], [ %163, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
-  %.sroa.060.079 = phi ptr [ %5, %.lr.ph ], [ %166, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
-  %27 = phi ptr [ %10, %.lr.ph ], [ %165, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
-  %28 = phi ptr [ %10, %.lr.ph ], [ %164, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
-  %29 = load i32, ptr %.sroa.060.079, align 4, !tbaa !66
+  %22 = phi ptr [ %11, %.lr.ph ], [ %157, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
+  %23 = phi ptr [ %11, %.lr.ph ], [ %158, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
+  %24 = phi ptr [ %11, %.lr.ph ], [ %159, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
+  %25 = phi ptr [ %11, %.lr.ph ], [ %160, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
+  %26 = phi ptr [ %11, %.lr.ph ], [ %161, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
+  %.sroa.063.082 = phi ptr [ %5, %.lr.ph ], [ %164, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
+  %27 = phi ptr [ %10, %.lr.ph ], [ %163, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
+  %28 = phi ptr [ %10, %.lr.ph ], [ %162, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
+  %29 = load i32, ptr %.sroa.063.082, align 4, !tbaa !66
   %30 = icmp slt i32 %29, 32
-  br i1 %30, label %31, label %60
+  br i1 %30, label %31, label %59
 
 31:                                               ; preds = %21
   %32 = load i8, ptr @FLAGS_quic_disable_pre_32, align 1, !tbaa !69, !range !19, !noundef !20
   %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit, label %34
+  %34 = load i8, ptr @FLAGS_quic_disable_pre_34, align 1, !range !19
+  %35 = trunc nuw i8 %34 to i1
+  %or.cond = select i1 %33, i1 true, i1 %35
+  br i1 %or.cond, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit, label %36
 
-34:                                               ; preds = %31
-  %35 = load i8, ptr @FLAGS_quic_disable_pre_34, align 1, !tbaa !69, !range !19, !noundef !20
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit, label %37
-
-37:                                               ; preds = %34
+36:                                               ; preds = %31
   %.not.i = icmp eq ptr %27, %22
-  br i1 %.not.i, label %40, label %38
+  br i1 %.not.i, label %39, label %37
 
-38:                                               ; preds = %37
+37:                                               ; preds = %36
   store i32 %29, ptr %27, align 4, !tbaa !66
-  %39 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 4
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
-40:                                               ; preds = %37
-  %41 = ptrtoint ptr %22 to i64
-  %42 = ptrtoint ptr %28 to i64
-  %43 = sub i64 %41, %42
-  %44 = icmp eq i64 %43, 9223372036854775804
-  br i1 %44, label %.invoke, label %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+39:                                               ; preds = %36
+  %40 = ptrtoint ptr %22 to i64
+  %41 = ptrtoint ptr %28 to i64
+  %42 = sub i64 %40, %41
+  %43 = icmp eq i64 %42, 9223372036854775804
+  br i1 %43, label %.invoke, label %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
-.invoke:                                          ; preds = %40, %141, %120, %93, %68
+.invoke:                                          ; preds = %39, %139, %118, %92, %67
   store ptr %27, ptr %18, align 8
   store ptr %28, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.68) #27
@@ -1064,319 +1062,317 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE5clearEv.exit: ; preds = %_ZNSt6vectorIN
 .cont:                                            ; preds = %.invoke
   unreachable
 
-_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %40
-  %45 = ashr exact i64 %43, 2
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %45, i64 1)
-  %46 = add nsw i64 %.sroa.speculated.i.i.i, %45
-  %47 = icmp ult i64 %46, %45
-  %48 = tail call i64 @llvm.umin.i64(i64 %46, i64 2305843009213693951)
-  %49 = select i1 %47, i64 2305843009213693951, i64 %48
-  %.not.i.i.i = icmp ne i64 %49, 0
+_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %39
+  %44 = ashr exact i64 %42, 2
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %44, i64 1)
+  %45 = add nsw i64 %.sroa.speculated.i.i.i, %44
+  %46 = icmp ult i64 %45, %44
+  %47 = tail call i64 @llvm.umin.i64(i64 %45, i64 2305843009213693951)
+  %48 = select i1 %46, i64 2305843009213693951, i64 %47
+  %.not.i.i.i = icmp ne i64 %48, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
-  %50 = shl nuw nsw i64 %49, 2
-  %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #28
-          to label %.noexc9 unwind label %.loopexit
+  %49 = shl nuw nsw i64 %48, 2
+  %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #28
+          to label %.noexc12 unwind label %.loopexit
 
-.noexc9:                                          ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %52 = getelementptr inbounds i8, ptr %51, i64 %43
-  store i32 %29, ptr %52, align 4, !tbaa !66
-  %53 = icmp sgt i64 %43, 0
-  br i1 %53, label %54, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+.noexc12:                                         ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %51 = getelementptr inbounds i8, ptr %50, i64 %42
+  store i32 %29, ptr %51, align 4, !tbaa !66
+  %52 = icmp sgt i64 %42, 0
+  br i1 %52, label %53, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-54:                                               ; preds = %.noexc9
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %51, ptr align 4 %28, i64 %43, i1 false)
+53:                                               ; preds = %.noexc12
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %50, ptr align 4 %28, i64 %42, i1 false)
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %54, %.noexc9
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 4
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %53, %.noexc12
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %.not.i17.i.i = icmp eq ptr %28, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %56
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %55
 
-56:                                               ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+55:                                               ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %28) #29
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %57 = getelementptr inbounds nuw i32, ptr %51, i64 %49
-  store ptr %57, ptr %19, align 8, !tbaa !33
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %55, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
+  %56 = getelementptr inbounds nuw i32, ptr %50, i64 %48
+  store ptr %56, ptr %19, align 8, !tbaa !33
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
-.loopexit:                                        ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i12, %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i22, %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i32, %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i42
+.loopexit:                                        ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i15, %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i25, %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i35, %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i45
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store ptr %27, ptr %18, align 8
   store ptr %28, ptr %0, align 8
-  br label %58
+  br label %57
 
 .loopexit.split-lp:                               ; preds = %.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %57
 
-58:                                               ; preds = %.loopexit.split-lp, %.loopexit
+57:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i10 = icmp eq ptr %28, null
-  br i1 %.not.i.i.i10, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit, label %59
+  %.not.i.i.i13 = icmp eq ptr %28, null
+  br i1 %.not.i.i.i13, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit, label %58
 
-59:                                               ; preds = %58
+58:                                               ; preds = %57
   tail call void @_ZdlPv(ptr noundef nonnull %28) #29
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit
 
-60:                                               ; preds = %21
-  %61 = icmp samesign ult i32 %29, 34
-  br i1 %61, label %62, label %86
+59:                                               ; preds = %21
+  %60 = icmp samesign ult i32 %29, 34
+  br i1 %60, label %61, label %85
 
-62:                                               ; preds = %60
-  %63 = load i8, ptr @FLAGS_quic_disable_pre_34, align 1, !tbaa !69, !range !19, !noundef !20
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit, label %65
+61:                                               ; preds = %59
+  %62 = load i8, ptr @FLAGS_quic_disable_pre_34, align 1, !tbaa !69, !range !19, !noundef !20
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit, label %64
 
-65:                                               ; preds = %62
-  %.not.i11 = icmp eq ptr %27, %23
-  br i1 %.not.i11, label %68, label %66
+64:                                               ; preds = %61
+  %.not.i14 = icmp eq ptr %27, %23
+  br i1 %.not.i14, label %67, label %65
 
-66:                                               ; preds = %65
+65:                                               ; preds = %64
   store i32 %29, ptr %27, align 4, !tbaa !66
-  %67 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %27, i64 4
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
-68:                                               ; preds = %65
-  %69 = ptrtoint ptr %23 to i64
-  %70 = ptrtoint ptr %28 to i64
-  %71 = sub i64 %69, %70
-  %72 = icmp eq i64 %71, 9223372036854775804
-  br i1 %72, label %.invoke, label %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i12
+67:                                               ; preds = %64
+  %68 = ptrtoint ptr %23 to i64
+  %69 = ptrtoint ptr %28 to i64
+  %70 = sub i64 %68, %69
+  %71 = icmp eq i64 %70, 9223372036854775804
+  br i1 %71, label %.invoke, label %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i15
 
-_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i12: ; preds = %68
-  %73 = ashr exact i64 %71, 2
-  %.sroa.speculated.i.i.i13 = tail call i64 @llvm.umax.i64(i64 %73, i64 1)
-  %74 = add nsw i64 %.sroa.speculated.i.i.i13, %73
-  %75 = icmp ult i64 %74, %73
-  %76 = tail call i64 @llvm.umin.i64(i64 %74, i64 2305843009213693951)
-  %77 = select i1 %75, i64 2305843009213693951, i64 %76
-  %.not.i.i.i14 = icmp ne i64 %77, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i14)
-  %78 = shl nuw nsw i64 %77, 2
-  %79 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %78) #28
-          to label %.noexc19 unwind label %.loopexit
+_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i15: ; preds = %67
+  %72 = ashr exact i64 %70, 2
+  %.sroa.speculated.i.i.i16 = tail call i64 @llvm.umax.i64(i64 %72, i64 1)
+  %73 = add nsw i64 %.sroa.speculated.i.i.i16, %72
+  %74 = icmp ult i64 %73, %72
+  %75 = tail call i64 @llvm.umin.i64(i64 %73, i64 2305843009213693951)
+  %76 = select i1 %74, i64 2305843009213693951, i64 %75
+  %.not.i.i.i17 = icmp ne i64 %76, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i17)
+  %77 = shl nuw nsw i64 %76, 2
+  %78 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %77) #28
+          to label %.noexc22 unwind label %.loopexit
 
-.noexc19:                                         ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i12
-  %80 = getelementptr inbounds i8, ptr %79, i64 %71
-  store i32 %29, ptr %80, align 4, !tbaa !66
-  %81 = icmp sgt i64 %71, 0
-  br i1 %81, label %82, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i15
+.noexc22:                                         ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i15
+  %79 = getelementptr inbounds i8, ptr %78, i64 %70
+  store i32 %29, ptr %79, align 4, !tbaa !66
+  %80 = icmp sgt i64 %70, 0
+  br i1 %80, label %81, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i18
 
-82:                                               ; preds = %.noexc19
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %79, ptr align 4 %28, i64 %71, i1 false)
-  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i15
+81:                                               ; preds = %.noexc22
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %78, ptr align 4 %28, i64 %70, i1 false)
+  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i18
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i15: ; preds = %82, %.noexc19
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %.not.i17.i.i16 = icmp eq ptr %28, null
-  br i1 %.not.i17.i.i16, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i17, label %84
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i18: ; preds = %81, %.noexc22
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  %.not.i17.i.i19 = icmp eq ptr %28, null
+  br i1 %.not.i17.i.i19, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20, label %83
 
-84:                                               ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i15
+83:                                               ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i18
   tail call void @_ZdlPv(ptr noundef nonnull %28) #29
-  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i17
+  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i17: ; preds = %84, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i15
-  %85 = getelementptr inbounds nuw i32, ptr %79, i64 %77
-  store ptr %85, ptr %19, align 8, !tbaa !33
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20: ; preds = %83, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i18
+  %84 = getelementptr inbounds nuw i32, ptr %78, i64 %76
+  store ptr %84, ptr %19, align 8, !tbaa !33
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
-86:                                               ; preds = %60
-  switch i32 %29, label %138 [
-    i32 35, label %87
-    i32 36, label %111
+85:                                               ; preds = %59
+  switch i32 %29, label %136 [
+    i32 35, label %86
+    i32 36, label %110
   ]
 
-87:                                               ; preds = %86
-  %88 = load i8, ptr @FLAGS_quic_enable_version_35, align 1, !tbaa !69, !range !19, !noundef !20
-  %89 = trunc nuw i8 %88 to i1
-  br i1 %89, label %90, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
+86:                                               ; preds = %85
+  %87 = load i8, ptr @FLAGS_quic_enable_version_35, align 1, !tbaa !69, !range !19, !noundef !20
+  %88 = trunc nuw i8 %87 to i1
+  br i1 %88, label %89, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
-90:                                               ; preds = %87
-  %.not.i21 = icmp eq ptr %27, %25
-  br i1 %.not.i21, label %93, label %91
+89:                                               ; preds = %86
+  %.not.i24 = icmp eq ptr %27, %25
+  br i1 %.not.i24, label %92, label %90
 
-91:                                               ; preds = %90
+90:                                               ; preds = %89
   store i32 35, ptr %27, align 4, !tbaa !66
-  %92 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %27, i64 4
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
-93:                                               ; preds = %90
-  %94 = ptrtoint ptr %25 to i64
-  %95 = ptrtoint ptr %28 to i64
-  %96 = sub i64 %94, %95
-  %97 = icmp eq i64 %96, 9223372036854775804
-  br i1 %97, label %.invoke, label %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i22
+92:                                               ; preds = %89
+  %93 = ptrtoint ptr %25 to i64
+  %94 = ptrtoint ptr %28 to i64
+  %95 = sub i64 %93, %94
+  %96 = icmp eq i64 %95, 9223372036854775804
+  br i1 %96, label %.invoke, label %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i25
 
-_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i22: ; preds = %93
-  %98 = ashr exact i64 %96, 2
-  %.sroa.speculated.i.i.i23 = tail call i64 @llvm.umax.i64(i64 %98, i64 1)
-  %99 = add nsw i64 %.sroa.speculated.i.i.i23, %98
-  %100 = icmp ult i64 %99, %98
-  %101 = tail call i64 @llvm.umin.i64(i64 %99, i64 2305843009213693951)
-  %102 = select i1 %100, i64 2305843009213693951, i64 %101
-  %.not.i.i.i24 = icmp ne i64 %102, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i24)
-  %103 = shl nuw nsw i64 %102, 2
-  %104 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %103) #28
-          to label %.noexc29 unwind label %.loopexit
+_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i25: ; preds = %92
+  %97 = ashr exact i64 %95, 2
+  %.sroa.speculated.i.i.i26 = tail call i64 @llvm.umax.i64(i64 %97, i64 1)
+  %98 = add nsw i64 %.sroa.speculated.i.i.i26, %97
+  %99 = icmp ult i64 %98, %97
+  %100 = tail call i64 @llvm.umin.i64(i64 %98, i64 2305843009213693951)
+  %101 = select i1 %99, i64 2305843009213693951, i64 %100
+  %.not.i.i.i27 = icmp ne i64 %101, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i27)
+  %102 = shl nuw nsw i64 %101, 2
+  %103 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %102) #28
+          to label %.noexc32 unwind label %.loopexit
 
-.noexc29:                                         ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i22
-  %105 = getelementptr inbounds i8, ptr %104, i64 %96
-  store i32 35, ptr %105, align 4, !tbaa !66
-  %106 = icmp sgt i64 %96, 0
-  br i1 %106, label %107, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i25
+.noexc32:                                         ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i25
+  %104 = getelementptr inbounds i8, ptr %103, i64 %95
+  store i32 35, ptr %104, align 4, !tbaa !66
+  %105 = icmp sgt i64 %95, 0
+  br i1 %105, label %106, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i28
 
-107:                                              ; preds = %.noexc29
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %104, ptr align 4 %28, i64 %96, i1 false)
-  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i25
+106:                                              ; preds = %.noexc32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %103, ptr align 4 %28, i64 %95, i1 false)
+  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i28
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i25: ; preds = %107, %.noexc29
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %.not.i17.i.i26 = icmp eq ptr %28, null
-  br i1 %.not.i17.i.i26, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i27, label %109
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i28: ; preds = %106, %.noexc32
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  %.not.i17.i.i29 = icmp eq ptr %28, null
+  br i1 %.not.i17.i.i29, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30, label %108
 
-109:                                              ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i25
+108:                                              ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i28
   tail call void @_ZdlPv(ptr noundef nonnull %28) #29
-  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i27
+  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i27: ; preds = %109, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i25
-  %110 = getelementptr inbounds nuw i32, ptr %104, i64 %102
-  store ptr %110, ptr %19, align 8, !tbaa !33
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30: ; preds = %108, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i28
+  %109 = getelementptr inbounds nuw i32, ptr %103, i64 %101
+  store ptr %109, ptr %19, align 8, !tbaa !33
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
-111:                                              ; preds = %86
-  %112 = load i8, ptr @FLAGS_quic_enable_version_35, align 1, !tbaa !69, !range !19, !noundef !20
-  %113 = trunc nuw i8 %112 to i1
-  br i1 %113, label %114, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
+110:                                              ; preds = %85
+  %111 = load i8, ptr @FLAGS_quic_enable_version_35, align 1, !tbaa !69, !range !19, !noundef !20
+  %112 = trunc nuw i8 %111 to i1
+  %113 = load i8, ptr @FLAGS_quic_enable_version_36_v2, align 1, !range !19
+  %114 = trunc nuw i8 %113 to i1
+  %or.cond3 = select i1 %112, i1 %114, i1 false
+  br i1 %or.cond3, label %115, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
-114:                                              ; preds = %111
-  %115 = load i8, ptr @FLAGS_quic_enable_version_36_v2, align 1, !tbaa !69, !range !19, !noundef !20
-  %116 = trunc nuw i8 %115 to i1
-  br i1 %116, label %117, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
+115:                                              ; preds = %110
+  %.not.i34 = icmp eq ptr %27, %26
+  br i1 %.not.i34, label %118, label %116
 
-117:                                              ; preds = %114
-  %.not.i31 = icmp eq ptr %27, %26
-  br i1 %.not.i31, label %120, label %118
-
-118:                                              ; preds = %117
+116:                                              ; preds = %115
   store i32 36, ptr %27, align 4, !tbaa !66
-  %119 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %27, i64 4
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
-120:                                              ; preds = %117
-  %121 = ptrtoint ptr %26 to i64
-  %122 = ptrtoint ptr %28 to i64
-  %123 = sub i64 %121, %122
-  %124 = icmp eq i64 %123, 9223372036854775804
-  br i1 %124, label %.invoke, label %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i32
+118:                                              ; preds = %115
+  %119 = ptrtoint ptr %26 to i64
+  %120 = ptrtoint ptr %28 to i64
+  %121 = sub i64 %119, %120
+  %122 = icmp eq i64 %121, 9223372036854775804
+  br i1 %122, label %.invoke, label %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i35
 
-_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i32: ; preds = %120
-  %125 = ashr exact i64 %123, 2
-  %.sroa.speculated.i.i.i33 = tail call i64 @llvm.umax.i64(i64 %125, i64 1)
-  %126 = add nsw i64 %.sroa.speculated.i.i.i33, %125
-  %127 = icmp ult i64 %126, %125
-  %128 = tail call i64 @llvm.umin.i64(i64 %126, i64 2305843009213693951)
-  %129 = select i1 %127, i64 2305843009213693951, i64 %128
-  %.not.i.i.i34 = icmp ne i64 %129, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i34)
-  %130 = shl nuw nsw i64 %129, 2
-  %131 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %130) #28
-          to label %.noexc39 unwind label %.loopexit
+_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i35: ; preds = %118
+  %123 = ashr exact i64 %121, 2
+  %.sroa.speculated.i.i.i36 = tail call i64 @llvm.umax.i64(i64 %123, i64 1)
+  %124 = add nsw i64 %.sroa.speculated.i.i.i36, %123
+  %125 = icmp ult i64 %124, %123
+  %126 = tail call i64 @llvm.umin.i64(i64 %124, i64 2305843009213693951)
+  %127 = select i1 %125, i64 2305843009213693951, i64 %126
+  %.not.i.i.i37 = icmp ne i64 %127, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i37)
+  %128 = shl nuw nsw i64 %127, 2
+  %129 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %128) #28
+          to label %.noexc42 unwind label %.loopexit
 
-.noexc39:                                         ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i32
-  %132 = getelementptr inbounds i8, ptr %131, i64 %123
-  store i32 36, ptr %132, align 4, !tbaa !66
-  %133 = icmp sgt i64 %123, 0
-  br i1 %133, label %134, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i35
+.noexc42:                                         ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i35
+  %130 = getelementptr inbounds i8, ptr %129, i64 %121
+  store i32 36, ptr %130, align 4, !tbaa !66
+  %131 = icmp sgt i64 %121, 0
+  br i1 %131, label %132, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i38
 
-134:                                              ; preds = %.noexc39
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %131, ptr align 4 %28, i64 %123, i1 false)
-  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i35
+132:                                              ; preds = %.noexc42
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %129, ptr align 4 %28, i64 %121, i1 false)
+  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i38
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i35: ; preds = %134, %.noexc39
-  %135 = getelementptr inbounds nuw i8, ptr %132, i64 4
-  %.not.i17.i.i36 = icmp eq ptr %28, null
-  br i1 %.not.i17.i.i36, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37, label %136
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i38: ; preds = %132, %.noexc42
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 4
+  %.not.i17.i.i39 = icmp eq ptr %28, null
+  br i1 %.not.i17.i.i39, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40, label %134
 
-136:                                              ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i35
+134:                                              ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i38
   tail call void @_ZdlPv(ptr noundef nonnull %28) #29
-  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37
+  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37: ; preds = %136, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i35
-  %137 = getelementptr inbounds nuw i32, ptr %131, i64 %129
-  store ptr %137, ptr %19, align 8, !tbaa !33
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40: ; preds = %134, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i38
+  %135 = getelementptr inbounds nuw i32, ptr %129, i64 %127
+  store ptr %135, ptr %19, align 8, !tbaa !33
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
-138:                                              ; preds = %86
-  %.not.i41 = icmp eq ptr %27, %24
-  br i1 %.not.i41, label %141, label %139
+136:                                              ; preds = %85
+  %.not.i44 = icmp eq ptr %27, %24
+  br i1 %.not.i44, label %139, label %137
 
-139:                                              ; preds = %138
+137:                                              ; preds = %136
   store i32 %29, ptr %27, align 4, !tbaa !66
-  %140 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %27, i64 4
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
-141:                                              ; preds = %138
-  %142 = ptrtoint ptr %24 to i64
-  %143 = ptrtoint ptr %28 to i64
-  %144 = sub i64 %142, %143
-  %145 = icmp eq i64 %144, 9223372036854775804
-  br i1 %145, label %.invoke, label %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i42
+139:                                              ; preds = %136
+  %140 = ptrtoint ptr %24 to i64
+  %141 = ptrtoint ptr %28 to i64
+  %142 = sub i64 %140, %141
+  %143 = icmp eq i64 %142, 9223372036854775804
+  br i1 %143, label %.invoke, label %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i45
 
-_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i42: ; preds = %141
-  %146 = ashr exact i64 %144, 2
-  %.sroa.speculated.i.i.i43 = tail call i64 @llvm.umax.i64(i64 %146, i64 1)
-  %147 = add nsw i64 %.sroa.speculated.i.i.i43, %146
-  %148 = icmp ult i64 %147, %146
-  %149 = tail call i64 @llvm.umin.i64(i64 %147, i64 2305843009213693951)
-  %150 = select i1 %148, i64 2305843009213693951, i64 %149
-  %.not.i.i.i44 = icmp ne i64 %150, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i44)
-  %151 = shl nuw nsw i64 %150, 2
-  %152 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %151) #28
-          to label %.noexc49 unwind label %.loopexit
+_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i45: ; preds = %139
+  %144 = ashr exact i64 %142, 2
+  %.sroa.speculated.i.i.i46 = tail call i64 @llvm.umax.i64(i64 %144, i64 1)
+  %145 = add nsw i64 %.sroa.speculated.i.i.i46, %144
+  %146 = icmp ult i64 %145, %144
+  %147 = tail call i64 @llvm.umin.i64(i64 %145, i64 2305843009213693951)
+  %148 = select i1 %146, i64 2305843009213693951, i64 %147
+  %.not.i.i.i47 = icmp ne i64 %148, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i47)
+  %149 = shl nuw nsw i64 %148, 2
+  %150 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %149) #28
+          to label %.noexc52 unwind label %.loopexit
 
-.noexc49:                                         ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i42
-  %153 = getelementptr inbounds i8, ptr %152, i64 %144
-  store i32 %29, ptr %153, align 4, !tbaa !66
-  %154 = icmp sgt i64 %144, 0
-  br i1 %154, label %155, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i45
+.noexc52:                                         ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i45
+  %151 = getelementptr inbounds i8, ptr %150, i64 %142
+  store i32 %29, ptr %151, align 4, !tbaa !66
+  %152 = icmp sgt i64 %142, 0
+  br i1 %152, label %153, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i48
 
-155:                                              ; preds = %.noexc49
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %152, ptr align 4 %28, i64 %144, i1 false)
-  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i45
+153:                                              ; preds = %.noexc52
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %150, ptr align 4 %28, i64 %142, i1 false)
+  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i48
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i45: ; preds = %155, %.noexc49
-  %156 = getelementptr inbounds nuw i8, ptr %153, i64 4
-  %.not.i17.i.i46 = icmp eq ptr %28, null
-  br i1 %.not.i17.i.i46, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i47, label %157
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i48: ; preds = %153, %.noexc52
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 4
+  %.not.i17.i.i49 = icmp eq ptr %28, null
+  br i1 %.not.i17.i.i49, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50, label %155
 
-157:                                              ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i45
+155:                                              ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i48
   tail call void @_ZdlPv(ptr noundef nonnull %28) #29
-  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i47
+  br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i47: ; preds = %157, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i45
-  %158 = getelementptr inbounds nuw i32, ptr %152, i64 %150
-  store ptr %158, ptr %19, align 8, !tbaa !33
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50: ; preds = %155, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i48
+  %156 = getelementptr inbounds nuw i32, ptr %150, i64 %148
+  store ptr %156, ptr %19, align 8, !tbaa !33
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i47, %139, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37, %118, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i27, %91, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i17, %66, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %38, %62, %114, %111, %87, %31, %34
-  %159 = phi ptr [ %158, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i47 ], [ %22, %139 ], [ %137, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37 ], [ %22, %118 ], [ %110, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i27 ], [ %22, %91 ], [ %85, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i17 ], [ %22, %66 ], [ %57, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %22, %38 ], [ %22, %62 ], [ %22, %114 ], [ %22, %111 ], [ %22, %87 ], [ %22, %31 ], [ %22, %34 ]
-  %160 = phi ptr [ %158, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i47 ], [ %23, %139 ], [ %137, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37 ], [ %23, %118 ], [ %110, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i27 ], [ %23, %91 ], [ %85, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i17 ], [ %23, %66 ], [ %57, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %22, %38 ], [ %23, %62 ], [ %23, %114 ], [ %23, %111 ], [ %23, %87 ], [ %23, %31 ], [ %23, %34 ]
-  %161 = phi ptr [ %158, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i47 ], [ %24, %139 ], [ %137, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37 ], [ %24, %118 ], [ %110, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i27 ], [ %24, %91 ], [ %85, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i17 ], [ %23, %66 ], [ %57, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %22, %38 ], [ %24, %62 ], [ %24, %114 ], [ %24, %111 ], [ %24, %87 ], [ %24, %31 ], [ %24, %34 ]
-  %162 = phi ptr [ %158, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i47 ], [ %24, %139 ], [ %137, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37 ], [ %25, %118 ], [ %110, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i27 ], [ %25, %91 ], [ %85, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i17 ], [ %23, %66 ], [ %57, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %22, %38 ], [ %25, %62 ], [ %25, %114 ], [ %25, %111 ], [ %25, %87 ], [ %25, %31 ], [ %25, %34 ]
-  %163 = phi ptr [ %158, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i47 ], [ %24, %139 ], [ %137, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37 ], [ %26, %118 ], [ %110, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i27 ], [ %25, %91 ], [ %85, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i17 ], [ %23, %66 ], [ %57, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %22, %38 ], [ %26, %62 ], [ %26, %114 ], [ %26, %111 ], [ %26, %87 ], [ %26, %31 ], [ %26, %34 ]
-  %164 = phi ptr [ %152, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i47 ], [ %28, %139 ], [ %131, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37 ], [ %28, %118 ], [ %104, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i27 ], [ %28, %91 ], [ %79, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i17 ], [ %28, %66 ], [ %51, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %28, %38 ], [ %28, %62 ], [ %28, %114 ], [ %28, %111 ], [ %28, %87 ], [ %28, %31 ], [ %28, %34 ]
-  %165 = phi ptr [ %156, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i47 ], [ %140, %139 ], [ %135, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i37 ], [ %119, %118 ], [ %108, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i27 ], [ %92, %91 ], [ %83, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i17 ], [ %67, %66 ], [ %55, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %39, %38 ], [ %27, %62 ], [ %27, %114 ], [ %27, %111 ], [ %27, %87 ], [ %27, %31 ], [ %27, %34 ]
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.060.079, i64 4
-  %.not = icmp eq ptr %166, %4
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50, %137, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40, %116, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30, %90, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20, %65, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %37, %61, %110, %86, %31
+  %157 = phi ptr [ %156, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50 ], [ %22, %137 ], [ %135, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40 ], [ %22, %116 ], [ %109, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30 ], [ %22, %90 ], [ %84, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20 ], [ %22, %65 ], [ %56, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %22, %37 ], [ %22, %61 ], [ %22, %110 ], [ %22, %86 ], [ %22, %31 ]
+  %158 = phi ptr [ %156, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50 ], [ %23, %137 ], [ %135, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40 ], [ %23, %116 ], [ %109, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30 ], [ %23, %90 ], [ %84, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20 ], [ %23, %65 ], [ %56, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %22, %37 ], [ %23, %61 ], [ %23, %110 ], [ %23, %86 ], [ %23, %31 ]
+  %159 = phi ptr [ %156, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50 ], [ %24, %137 ], [ %135, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40 ], [ %24, %116 ], [ %109, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30 ], [ %24, %90 ], [ %84, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20 ], [ %23, %65 ], [ %56, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %22, %37 ], [ %24, %61 ], [ %24, %110 ], [ %24, %86 ], [ %24, %31 ]
+  %160 = phi ptr [ %156, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50 ], [ %24, %137 ], [ %135, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40 ], [ %25, %116 ], [ %109, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30 ], [ %25, %90 ], [ %84, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20 ], [ %23, %65 ], [ %56, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %22, %37 ], [ %25, %61 ], [ %25, %110 ], [ %25, %86 ], [ %25, %31 ]
+  %161 = phi ptr [ %156, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50 ], [ %24, %137 ], [ %135, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40 ], [ %26, %116 ], [ %109, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30 ], [ %25, %90 ], [ %84, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20 ], [ %23, %65 ], [ %56, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %22, %37 ], [ %26, %61 ], [ %26, %110 ], [ %26, %86 ], [ %26, %31 ]
+  %162 = phi ptr [ %150, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50 ], [ %28, %137 ], [ %129, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40 ], [ %28, %116 ], [ %103, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30 ], [ %28, %90 ], [ %78, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20 ], [ %28, %65 ], [ %50, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %28, %37 ], [ %28, %61 ], [ %28, %110 ], [ %28, %86 ], [ %28, %31 ]
+  %163 = phi ptr [ %154, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50 ], [ %138, %137 ], [ %133, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40 ], [ %117, %116 ], [ %107, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30 ], [ %91, %90 ], [ %82, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20 ], [ %66, %65 ], [ %54, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %38, %37 ], [ %27, %61 ], [ %27, %110 ], [ %27, %86 ], [ %27, %31 ]
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.063.082, i64 4
+  %.not = icmp eq ptr %164, %4
   br i1 %.not, label %._crit_edge, label %21
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit: ; preds = %59, %58
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit: ; preds = %58, %57
   resume { ptr, i32 } %lpad.phi
 }
 

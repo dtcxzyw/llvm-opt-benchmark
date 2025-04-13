@@ -925,146 +925,146 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
   call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #5
   %8 = call ptr @systable_beginscan(ptr noundef %6, i32 noundef 2680, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %5) #5
   %9 = call ptr @systable_getnext(ptr noundef %8) #5
-  %.not31 = icmp eq ptr %9, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not2633 = icmp eq ptr %9, null
+  br i1 %.not2633, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %.not22 = icmp eq i32 %1, 0
-  br i1 %.not22, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not27 = icmp eq i32 %1, 0
+  br i1 %.not27, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %2, label %.lr.ph.split.us.split.us.split, label %.lr.ph.split.us.split.split.us
+  br i1 %2, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split.split
 
-.lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us, %19
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %19
   %10 = phi ptr [ %21, %19 ], [ %9, %.lr.ph.split.us ]
   %11 = getelementptr i8, ptr %10, i64 16
-  %.val28.us.us = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %.val28.us.us, i64 22
+  %.val30.us.us = load ptr, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %.val30.us.us, i64 22
   %13 = load i8, ptr %12, align 2
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %.val28.us.us, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %.val30.us.us, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load i8, ptr %16, align 4, !range !4, !noundef !5
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %.split34.us
+  br i1 %18, label %19, label %.split36.us
 
-19:                                               ; preds = %.lr.ph.split.us.split.us.split
+19:                                               ; preds = %.lr.ph.split.us.split.us
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %20) #5
   %21 = call ptr @systable_getnext(ptr noundef %8) #5
-  %.not.us.us = icmp eq ptr %21, null
-  br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us.split, !llvm.loop !9
+  %.not26.us.us = icmp eq ptr %21, null
+  br i1 %.not26.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !9
 
-.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us, %31
+.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us, %31
   %22 = phi ptr [ %33, %31 ], [ %9, %.lr.ph.split.us ]
   %23 = getelementptr i8, ptr %22, i64 16
-  %.val28.us.us54 = load ptr, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %.val28.us.us54, i64 22
+  %.val30.us = load ptr, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %.val30.us, i64 22
   %25 = load i8, ptr %24, align 2
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %.val28.us.us54, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %.val30.us, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i8, ptr %28, align 4, !range !4, !noundef !5
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %.split.us, label %31
 
-31:                                               ; preds = %.lr.ph.split.us.split.split.us
+31:                                               ; preds = %.lr.ph.split.us.split.split
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 4
   call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %32) #5
   %33 = call ptr @systable_getnext(ptr noundef %8) #5
-  %.not.us.us56 = icmp eq ptr %33, null
-  br i1 %.not.us.us56, label %._crit_edge, label %.lr.ph.split.us.split.split.us, !llvm.loop !9
+  %.not26.us = icmp eq ptr %33, null
+  br i1 %.not26.us, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %2, label %.lr.ph.split.split.us.split, label %.lr.ph.split.split.split.us
+  br i1 %2, label %.lr.ph.split.split.us, label %.lr.ph.split.split.split
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split, %49
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %49
   %34 = phi ptr [ %50, %49 ], [ %9, %.lr.ph.split ]
-  %.032.us35 = phi i1 [ %.1.us40, %49 ], [ false, %.lr.ph.split ]
+  %.034.us37 = phi i1 [ %.1.us42, %49 ], [ false, %.lr.ph.split ]
   %35 = getelementptr i8, ptr %34, i64 16
-  %.val28.us36 = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %.val28.us36, i64 22
+  %.val30.us38 = load ptr, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %.val30.us38, i64 22
   %37 = load i8, ptr %36, align 2
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw i8, ptr %.val28.us36, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %.val30.us38, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, %1
   br i1 %42, label %43, label %49
 
-43:                                               ; preds = %.lr.ph.split.split.us.split
+43:                                               ; preds = %.lr.ph.split.split.us
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %45 = load i8, ptr %44, align 4, !range !4, !noundef !5
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %.split34.us
+  br i1 %46, label %47, label %.split36.us
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 4
   call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %48) #5
   br label %49
 
-49:                                               ; preds = %47, %.lr.ph.split.split.us.split
-  %.1.us40 = phi i1 [ true, %47 ], [ %.032.us35, %.lr.ph.split.split.us.split ]
+49:                                               ; preds = %47, %.lr.ph.split.split.us
+  %.1.us42 = phi i1 [ true, %47 ], [ %.034.us37, %.lr.ph.split.split.us ]
   %50 = call ptr @systable_getnext(ptr noundef %8) #5
-  %.not.us41 = icmp eq ptr %50, null
-  br i1 %.not.us41, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !9
+  %.not26.us43 = icmp eq ptr %50, null
+  br i1 %.not26.us43, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !9
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split, %66
-  %51 = phi ptr [ %67, %66 ], [ %9, %.lr.ph.split ]
-  %.032.us44 = phi i1 [ %.1.us48, %66 ], [ false, %.lr.ph.split ]
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split, %77
+  %51 = phi ptr [ %78, %77 ], [ %9, %.lr.ph.split ]
+  %.034 = phi i1 [ %.1, %77 ], [ false, %.lr.ph.split ]
   %52 = getelementptr i8, ptr %51, i64 16
-  %.val28.us45 = load ptr, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %.val28.us45, i64 22
+  %.val30 = load ptr, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %.val30, i64 22
   %54 = load i8, ptr %53, align 2
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %.val28.us45, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %.val30, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %58, %1
-  br i1 %59, label %60, label %66
+  br i1 %59, label %60, label %77
 
-60:                                               ; preds = %.lr.ph.split.split.split.us
+60:                                               ; preds = %.lr.ph.split.split.split
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %62 = load i8, ptr %61, align 4, !range !4, !noundef !5
   %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %.split.us, label %64
+  br i1 %63, label %.split.us, label %70
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %65) #5
-  br label %66
-
-66:                                               ; preds = %64, %.lr.ph.split.split.split.us
-  %.1.us48 = phi i1 [ true, %64 ], [ %.032.us44, %.lr.ph.split.split.split.us ]
-  %67 = call ptr @systable_getnext(ptr noundef %8) #5
-  %.not.us49 = icmp eq ptr %67, null
-  br i1 %.not.us49, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !9
-
-.split.us:                                        ; preds = %60, %.lr.ph.split.us.split.split.us
-  %68 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %68)
-  %69 = call i32 @errcode(i32 noundef 325) #5
-  %.not23 = icmp eq ptr %3, null
-  %70 = select i1 %.not23, ptr @.str.5, ptr %3
-  %71 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %70) #5
-  %72 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #5
-  %73 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #5
+.split.us:                                        ; preds = %60, %.lr.ph.split.us.split.split
+  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  call void @llvm.assume(i1 %64)
+  %65 = call i32 @errcode(i32 noundef 325) #5
+  %.not28 = icmp eq ptr %3, null
+  %66 = select i1 %.not28, ptr @.str.5, ptr %3
+  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %66) #5
+  %68 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #5
+  %69 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 595, ptr noundef nonnull @__func__.DeleteInheritsTuple) #5
   unreachable
 
-.split34.us:                                      ; preds = %43, %.lr.ph.split.us.split.us.split
-  %74 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %74)
-  %75 = call i32 @errcode(i32 noundef 325) #5
-  %.not24 = icmp eq ptr %3, null
-  %76 = select i1 %.not24, ptr @.str.5, ptr %3
-  %77 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %76) #5
-  %78 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9) #5
+70:                                               ; preds = %60
+  %71 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %71) #5
+  br label %77
+
+.split36.us:                                      ; preds = %43, %.lr.ph.split.us.split.us
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  call void @llvm.assume(i1 %72)
+  %73 = call i32 @errcode(i32 noundef 325) #5
+  %.not29 = icmp eq ptr %3, null
+  %74 = select i1 %.not29, ptr @.str.5, ptr %3
+  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %74) #5
+  %76 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 601, ptr noundef nonnull @__func__.DeleteInheritsTuple) #5
   unreachable
 
-._crit_edge:                                      ; preds = %66, %49, %31, %19, %4
-  %.0.lcssa = phi i1 [ false, %4 ], [ true, %19 ], [ true, %31 ], [ %.1.us40, %49 ], [ %.1.us48, %66 ]
+77:                                               ; preds = %70, %.lr.ph.split.split.split
+  %.1 = phi i1 [ true, %70 ], [ %.034, %.lr.ph.split.split.split ]
+  %78 = call ptr @systable_getnext(ptr noundef %8) #5
+  %.not26 = icmp eq ptr %78, null
+  br i1 %.not26, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !9
+
+._crit_edge:                                      ; preds = %77, %49, %31, %19, %4
+  %.0.lcssa = phi i1 [ false, %4 ], [ true, %19 ], [ true, %31 ], [ %.1.us42, %49 ], [ %.1, %77 ]
   call void @systable_endscan(ptr noundef %8) #5
   call void @table_close(ptr noundef %6, i32 noundef 3) #5
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #5

@@ -7286,13 +7286,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
 
 76:                                               ; preds = %73
   %77 = icmp ult i64 %1, 5
-  br i1 %77, label %_ZNKSt5arrayIiLm5EE2atEm.exit20, label %78
+  br i1 %77, label %_ZNKSt5arrayIiLm5EE2atEm.exit22, label %78
 
 78:                                               ; preds = %76
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.115, i64 noundef %1, i64 noundef 5) #27
   unreachable
 
-_ZNKSt5arrayIiLm5EE2atEm.exit20:                  ; preds = %76
+_ZNKSt5arrayIiLm5EE2atEm.exit22:                  ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %80 = load i32, ptr %79, align 4
   %81 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 0, i64 %1
@@ -7337,13 +7337,13 @@ _ZNKSt5arrayIiLm5EE2atEm.exit20:                  ; preds = %76
 
 104:                                              ; preds = %98
   %105 = icmp ult i64 %1, 5
-  br i1 %105, label %_ZNKSt5arrayIiLm5EE2atEm.exit22, label %106
+  br i1 %105, label %_ZNKSt5arrayIiLm5EE2atEm.exit24, label %106
 
 106:                                              ; preds = %104
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.115, i64 noundef %1, i64 noundef 5) #27
   unreachable
 
-_ZNKSt5arrayIiLm5EE2atEm.exit22:                  ; preds = %104
+_ZNKSt5arrayIiLm5EE2atEm.exit24:                  ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %108 = load i32, ptr %107, align 4
   %109 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 0, i64 %1
@@ -7365,10 +7365,10 @@ _ZNKSt5arrayIiLm5EE2atEm.exit22:                  ; preds = %104
   store i32 %123, ptr %124, align 8
   br label %125
 
-125:                                              ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit20, %_ZNKSt5arrayIiLm5EE2atEm.exit22, %69
-  %.sink = phi i32 [ -5, %_ZNKSt5arrayIiLm5EE2atEm.exit20 ], [ -1, %_ZNKSt5arrayIiLm5EE2atEm.exit22 ], [ 0, %69 ]
-  %.015 = phi i32 [ %87, %_ZNKSt5arrayIiLm5EE2atEm.exit20 ], [ %115, %_ZNKSt5arrayIiLm5EE2atEm.exit22 ], [ %71, %69 ]
-  %.0 = phi i32 [ %94, %_ZNKSt5arrayIiLm5EE2atEm.exit20 ], [ %122, %_ZNKSt5arrayIiLm5EE2atEm.exit22 ], [ %72, %69 ]
+125:                                              ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit22, %_ZNKSt5arrayIiLm5EE2atEm.exit24, %69
+  %.sink = phi i32 [ -5, %_ZNKSt5arrayIiLm5EE2atEm.exit22 ], [ -1, %_ZNKSt5arrayIiLm5EE2atEm.exit24 ], [ 0, %69 ]
+  %.015 = phi i32 [ %87, %_ZNKSt5arrayIiLm5EE2atEm.exit22 ], [ %115, %_ZNKSt5arrayIiLm5EE2atEm.exit24 ], [ %71, %69 ]
+  %.0 = phi i32 [ %94, %_ZNKSt5arrayIiLm5EE2atEm.exit22 ], [ %122, %_ZNKSt5arrayIiLm5EE2atEm.exit24 ], [ %72, %69 ]
   store i32 %.sink, ptr %24, align 4
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %127 = load ptr, ptr %126, align 8
@@ -7405,9 +7405,9 @@ _ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState19IsForbiddenPosition
   ret void
 
 140:                                              ; preds = %102, %67, %60, %50, %28
-  %.sink24 = phi ptr [ %22, %102 ], [ %18, %67 ], [ %14, %60 ], [ %10, %50 ], [ %5, %28 ]
+  %.sink28 = phi ptr [ %22, %102 ], [ %18, %67 ], [ %14, %60 ], [ %10, %50 ], [ %5, %28 ]
   %.pn = phi { ptr, i32 } [ %103, %102 ], [ %68, %67 ], [ %61, %60 ], [ %51, %50 ], [ %29, %28 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink24) #26
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink28) #26
   resume { ptr, i32 } %.pn
 }
 
@@ -7727,126 +7727,124 @@ define void @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState14Action
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(60) %1)
-  br i1 %13, label %14, label %_ZN4absl7debian211string_viewC2EPKc.exit3
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %15 = load i8, ptr %14, align 8
+  %16 = trunc i8 %15 to i1
+  %or.cond = select i1 %13, i1 %16, i1 false
+  br i1 %or.cond, label %_ZN4absl7debian211string_viewC2EPKc.exit, label %_ZN4absl7debian211string_viewC2EPKc.exit5
 
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %16 = load i8, ptr %15, align 8
-  %17 = trunc i8 %16 to i1
-  br i1 %17, label %_ZN4absl7debian211string_viewC2EPKc.exit, label %_ZN4absl7debian211string_viewC2EPKc.exit3
+_ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %4
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %18 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferElPc(i64 noundef %3, ptr noundef nonnull %17)
+  %19 = ptrtoint ptr %18 to i64
+  %20 = ptrtoint ptr %17 to i64
+  %21 = sub i64 %19, %20
+  store ptr %17, ptr %7, align 8
+  %22 = icmp sgt i64 %21, -1
+  br i1 %22, label %_ZN4absl7debian219substitute_internal3ArgC2El.exit, label %23
 
-_ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %19 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferElPc(i64 noundef %3, ptr noundef nonnull %18)
-  %20 = ptrtoint ptr %19 to i64
-  %21 = ptrtoint ptr %18 to i64
-  %22 = sub i64 %20, %21
-  store ptr %18, ptr %7, align 8
-  %23 = icmp sgt i64 %22, -1
-  br i1 %23, label %_ZN4absl7debian219substitute_internal3ArgC2El.exit, label %24
-
-24:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit
+23:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit
   call void @llvm.trap()
   unreachable
 
 _ZN4absl7debian219substitute_internal3ArgC2El.exit: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %22, ptr %25, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %21, ptr %24, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !51
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %7, align 8, !noalias !51
-  %.sroa.2.0.copyload.i.i.i = load i64, ptr %25, align 8, !noalias !51
+  %.sroa.2.0.copyload.i.i.i = load i64, ptr %24, align 8, !noalias !51
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %6, align 16, !noalias !51
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.2.0.copyload.i.i.i, ptr %26, align 8, !noalias !51
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.2.0.copyload.i.i.i, ptr %25, align 8, !noalias !51
   invoke void @_ZN4absl7debian219substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_11string_viewEPKS9_m(ptr noundef nonnull align 8 %0, ptr nonnull @.str.64, i64 13, ptr noundef nonnull %6, i64 noundef 1)
-          to label %_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgE.exit unwind label %27
+          to label %_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgE.exit unwind label %26
 
-common.resume:                                    ; preds = %54, %27
-  %common.resume.op = phi { ptr, i32 } [ %28, %27 ], [ %55, %54 ]
+common.resume:                                    ; preds = %53, %26
+  %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %54, %53 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
   resume { ptr, i32 } %common.resume.op
 
-27:                                               ; preds = %_ZN4absl7debian219substitute_internal3ArgC2El.exit
-  %28 = landingpad { ptr, i32 }
+26:                                               ; preds = %_ZN4absl7debian219substitute_internal3ArgC2El.exit
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgE.exit: ; preds = %_ZN4absl7debian219substitute_internal3ArgC2El.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !51
-  br label %56
+  br label %55
 
-_ZN4absl7debian211string_viewC2EPKc.exit3:        ; preds = %4, %14
-  %29 = icmp ult i64 %3, 5
-  br i1 %29, label %_ZNKSt5arrayIiLm5EE2atEm.exit, label %30
+_ZN4absl7debian211string_viewC2EPKc.exit5:        ; preds = %4
+  %28 = icmp ult i64 %3, 5
+  br i1 %28, label %_ZNKSt5arrayIiLm5EE2atEm.exit, label %29
 
-30:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit3
+29:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit5
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.115, i64 noundef %3, i64 noundef 5) #27
   unreachable
 
-_ZNKSt5arrayIiLm5EE2atEm.exit:                    ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit3
-  %31 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 0, i64 %3
-  %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %34 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %32, ptr noundef nonnull %33)
-  %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %33 to i64
-  %37 = sub i64 %35, %36
-  store ptr %33, ptr %8, align 8
-  %38 = icmp sgt i64 %37, -1
-  br i1 %38, label %_ZNKSt5arrayIiLm5EE2atEm.exit4, label %39
+_ZNKSt5arrayIiLm5EE2atEm.exit:                    ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit5
+  %30 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 0, i64 %3
+  %31 = load i32, ptr %30, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %33 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %31, ptr noundef nonnull %32)
+  %34 = ptrtoint ptr %33 to i64
+  %35 = ptrtoint ptr %32 to i64
+  %36 = sub i64 %34, %35
+  store ptr %32, ptr %8, align 8
+  %37 = icmp sgt i64 %36, -1
+  br i1 %37, label %_ZNKSt5arrayIiLm5EE2atEm.exit6, label %38
 
-39:                                               ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit
+38:                                               ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit
   call void @llvm.trap()
   unreachable
 
-_ZNKSt5arrayIiLm5EE2atEm.exit4:                   ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %37, ptr %40, align 8
-  %41 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 0, i64 %3
-  %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %44 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %42, ptr noundef nonnull %43)
-  %45 = ptrtoint ptr %44 to i64
-  %46 = ptrtoint ptr %43 to i64
-  %47 = sub i64 %45, %46
-  store ptr %43, ptr %9, align 8
-  %48 = icmp sgt i64 %47, -1
-  br i1 %48, label %_ZN4absl7debian219substitute_internal3ArgC2Ei.exit5, label %49
+_ZNKSt5arrayIiLm5EE2atEm.exit6:                   ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %36, ptr %39, align 8
+  %40 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 0, i64 %3
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %43 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEiPc(i32 noundef %41, ptr noundef nonnull %42)
+  %44 = ptrtoint ptr %43 to i64
+  %45 = ptrtoint ptr %42 to i64
+  %46 = sub i64 %44, %45
+  store ptr %42, ptr %9, align 8
+  %47 = icmp sgt i64 %46, -1
+  br i1 %47, label %_ZN4absl7debian219substitute_internal3ArgC2Ei.exit7, label %48
 
-49:                                               ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit4
+48:                                               ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit6
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian219substitute_internal3ArgC2Ei.exit5: ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit4
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %47, ptr %50, align 8
+_ZN4absl7debian219substitute_internal3ArgC2Ei.exit7: ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit6
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %46, ptr %49, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !54
-  %.sroa.0.0.copyload.i.i.i6 = load ptr, ptr %8, align 8, !noalias !54
-  %.sroa.2.0.copyload.i.i.i8 = load i64, ptr %40, align 8, !noalias !54
-  store ptr %.sroa.0.0.copyload.i.i.i6, ptr %5, align 16, !noalias !54
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sroa.2.0.copyload.i.i.i8, ptr %51, align 8, !noalias !54
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.0.0.copyload.i.i.i8 = load ptr, ptr %8, align 8, !noalias !54
+  %.sroa.2.0.copyload.i.i.i10 = load i64, ptr %39, align 8, !noalias !54
+  store ptr %.sroa.0.0.copyload.i.i.i8, ptr %5, align 16, !noalias !54
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.sroa.2.0.copyload.i.i.i10, ptr %50, align 8, !noalias !54
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.0.0.copyload.i5.i.i = load ptr, ptr %9, align 8, !noalias !54
-  %.sroa.2.0.copyload.i7.i.i = load i64, ptr %50, align 8, !noalias !54
-  store ptr %.sroa.0.0.copyload.i5.i.i, ptr %52, align 16, !noalias !54
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %.sroa.2.0.copyload.i7.i.i, ptr %53, align 8, !noalias !54
+  %.sroa.2.0.copyload.i7.i.i = load i64, ptr %49, align 8, !noalias !54
+  store ptr %.sroa.0.0.copyload.i5.i.i, ptr %51, align 16, !noalias !54
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %.sroa.2.0.copyload.i7.i.i, ptr %52, align 8, !noalias !54
   invoke void @_ZN4absl7debian219substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_11string_viewEPKS9_m(ptr noundef nonnull align 8 %0, ptr nonnull @.str.65, i64 7, ptr noundef nonnull %5, i64 noundef 2)
-          to label %_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgES5_.exit unwind label %54
+          to label %_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgES5_.exit unwind label %53
 
-54:                                               ; preds = %_ZN4absl7debian219substitute_internal3ArgC2Ei.exit5
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %_ZN4absl7debian219substitute_internal3ArgC2Ei.exit7
+  %54 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgES5_.exit: ; preds = %_ZN4absl7debian219substitute_internal3ArgC2Ei.exit5
+_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgES5_.exit: ; preds = %_ZN4absl7debian219substitute_internal3ArgC2Ei.exit7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !54
-  br label %56
+  br label %55
 
-56:                                               ; preds = %_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgES5_.exit, %_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgE.exit
+55:                                               ; preds = %_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgES5_.exit, %_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgE.exit
   ret void
 }
 

@@ -580,93 +580,91 @@ define linkonce_odr dso_local void @_ZN10LargeWorld4StepER8Settings(ptr noundef 
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load i32, ptr %41, align 8, !tbaa !67
   %43 = and i32 %42, 1
-  %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %67, label %44
+  %.not = icmp ne i32 %43, 0
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 332
+  %45 = load i8, ptr %44, align 4, !range !31
+  %46 = trunc nuw i8 %45 to i1
+  %or.cond = select i1 %.not, i1 %46, i1 false
+  br i1 %or.cond, label %47, label %66
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  %46 = load i8, ptr %45, align 4, !tbaa !61, !range !31, !noundef !32
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %67
-
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %50 = load i32, ptr %49, align 4, !tbaa !59
-  %51 = sitofp i32 %50 to float
-  %52 = fadd float %51, 5.000000e-01
-  %53 = load float, ptr %4, align 4, !tbaa !7
-  %54 = fmul float %53, %52
-  %55 = fsub float %54, %10
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  store float %55, ptr %56, align 4, !tbaa !68
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %49 = load i32, ptr %48, align 4, !tbaa !59
+  %50 = sitofp i32 %49 to float
+  %51 = fadd float %50, 5.000000e-01
+  %52 = load float, ptr %4, align 4, !tbaa !7
+  %53 = fmul float %52, %51
+  %54 = fsub float %53, %10
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 324
+  store float %54, ptr %55, align 4, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
   call void @b2DefaultExplosionDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ExplosionDef) align 8 %3)
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %58 = load i64, ptr %56, align 4
-  store i64 %58, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store float 2.000000e+00, ptr %59, align 8, !tbaa !69
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store float 0x3FB99999A0000000, ptr %60, align 4, !tbaa !71
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store float 1.000000e+00, ptr %61, align 8, !tbaa !72
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %.sroa.01.0.copyload = load i32, ptr %62, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %57 = load i64, ptr %55, align 4
+  store i64 %57, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store float 2.000000e+00, ptr %58, align 8, !tbaa !69
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store float 0x3FB99999A0000000, ptr %59, align 4, !tbaa !71
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store float 1.000000e+00, ptr %60, align 8, !tbaa !72
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %.sroa.01.0.copyload = load i32, ptr %61, align 4
   call void @b2World_Explode(i32 %.sroa.01.0.copyload, ptr noundef nonnull %3)
-  %63 = load i32, ptr %49, align 4, !tbaa !59
-  %64 = add nsw i32 %63, 1
-  %65 = load i32, ptr %6, align 8, !tbaa !25
-  %66 = srem i32 %64, %65
-  store i32 %66, ptr %49, align 4, !tbaa !59
+  %62 = load i32, ptr %48, align 4, !tbaa !59
+  %63 = add nsw i32 %62, 1
+  %64 = load i32, ptr %6, align 8, !tbaa !25
+  %65 = srem i32 %63, %64
+  store i32 %65, ptr %48, align 4, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
-  br label %67
+  %.pre = load i8, ptr %44, align 4, !tbaa !61, !range !31
+  br label %66
 
-67:                                               ; preds = %48, %44, %40
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  %69 = load i8, ptr %68, align 4, !tbaa !61, !range !31, !noundef !32
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %73
+66:                                               ; preds = %47, %40
+  %67 = phi i8 [ %.pre, %47 ], [ %45, %40 ]
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %69, label %71
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  %.sroa.0.0.copyload = load <2 x float>, ptr %72, align 4
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 324
+  %.sroa.0.0.copyload = load <2 x float>, ptr %70, align 4
   call void @_ZN4Draw10DrawCircleE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.0.0.copyload, float noundef 2.000000e+00, i32 noundef 15794175)
-  br label %73
+  br label %71
 
-73:                                               ; preds = %71, %67
-  %74 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
-  %75 = call i32 @glfwGetKey(ptr noundef %74, i32 noundef 65)
-  %76 = icmp eq i32 %75, 1
-  br i1 %76, label %77, label %79
+71:                                               ; preds = %69, %66
+  %72 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
+  %73 = call i32 @glfwGetKey(ptr noundef %72, i32 noundef 65)
+  %74 = icmp eq i32 %73, 1
+  br i1 %74, label %75, label %77
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  call void @_ZN3Car8SetSpeedEf(ptr noundef nonnull align 4 dereferenceable(41) %78, float noundef 2.000000e+01)
-  br label %79
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  call void @_ZN3Car8SetSpeedEf(ptr noundef nonnull align 4 dereferenceable(41) %76, float noundef 2.000000e+01)
+  br label %77
 
-79:                                               ; preds = %77, %73
-  %80 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
-  %81 = call i32 @glfwGetKey(ptr noundef %80, i32 noundef 83)
-  %82 = icmp eq i32 %81, 1
-  br i1 %82, label %83, label %85
+77:                                               ; preds = %75, %71
+  %78 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
+  %79 = call i32 @glfwGetKey(ptr noundef %78, i32 noundef 83)
+  %80 = icmp eq i32 %79, 1
+  br i1 %80, label %81, label %83
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  call void @_ZN3Car8SetSpeedEf(ptr noundef nonnull align 4 dereferenceable(41) %84, float noundef 0.000000e+00)
-  br label %85
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  call void @_ZN3Car8SetSpeedEf(ptr noundef nonnull align 4 dereferenceable(41) %82, float noundef 0.000000e+00)
+  br label %83
 
-85:                                               ; preds = %83, %79
-  %86 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
-  %87 = call i32 @glfwGetKey(ptr noundef %86, i32 noundef 68)
-  %88 = icmp eq i32 %87, 1
-  br i1 %88, label %89, label %91
+83:                                               ; preds = %81, %77
+  %84 = load ptr, ptr @g_mainWindow, align 8, !tbaa !73
+  %85 = call i32 @glfwGetKey(ptr noundef %84, i32 noundef 68)
+  %86 = icmp eq i32 %85, 1
+  br i1 %86, label %87, label %89
 
-89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  call void @_ZN3Car8SetSpeedEf(ptr noundef nonnull align 4 dereferenceable(41) %90, float noundef -5.000000e+00)
-  br label %91
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  call void @_ZN3Car8SetSpeedEf(ptr noundef nonnull align 4 dereferenceable(41) %88, float noundef -5.000000e+00)
+  br label %89
 
-91:                                               ; preds = %89, %85
+89:                                               ; preds = %87, %83
   call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   ret void
 }

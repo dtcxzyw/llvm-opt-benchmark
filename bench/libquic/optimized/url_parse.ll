@@ -424,55 +424,55 @@ define noundef i32 @_ZNK3url6Parsed6LengthEv(ptr noundef nonnull readonly align 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !8
-  %.not26.i = icmp eq i32 %10, -1
+  %.not.i = icmp eq i32 %10, -1
   %11 = load i32, ptr %0, align 8
   %12 = add i32 %10, 1
   %13 = add i32 %12, %11
-  %.0.i = select i1 %.not26.i, i32 0, i32 %13
+  %.0.i = select i1 %.not.i, i32 0, i32 %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !8
-  %.not27.i = icmp eq i32 %16, -1
+  %.not25.i = icmp eq i32 %16, -1
   %17 = load i32, ptr %14, align 8
   %18 = add nuw i32 %16, 1
   %19 = add i32 %18, %17
-  %.1.i = select i1 %.not27.i, i32 %.0.i, i32 %19
+  %.1.i = select i1 %.not25.i, i32 %.0.i, i32 %19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !8
-  %.not28.i = icmp eq i32 %22, -1
+  %.not26.i = icmp eq i32 %22, -1
   %23 = load i32, ptr %20, align 8
   %24 = add nuw i32 %22, 1
   %25 = add i32 %24, %23
-  %.2.i = select i1 %.not28.i, i32 %.1.i, i32 %25
+  %.2.i = select i1 %.not26.i, i32 %.1.i, i32 %25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4, !tbaa !8
-  %.not29.i = icmp eq i32 %28, -1
+  %.not27.i = icmp eq i32 %28, -1
   %29 = load i32, ptr %26, align 8
   %30 = add nsw i32 %29, %28
-  %.3.i = select i1 %.not29.i, i32 %.2.i, i32 %30
+  %.3.i = select i1 %.not27.i, i32 %.2.i, i32 %30
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %33 = load i32, ptr %32, align 4, !tbaa !8
-  %.not30.i = icmp eq i32 %33, -1
+  %.not28.i = icmp eq i32 %33, -1
   %34 = load i32, ptr %31, align 8
   %35 = add nsw i32 %34, %33
-  %.4.i = select i1 %.not30.i, i32 %.3.i, i32 %35
+  %.4.i = select i1 %.not28.i, i32 %.3.i, i32 %35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %38 = load i32, ptr %37, align 4, !tbaa !8
-  %.not.i = icmp eq i32 %38, -1
+  %.not29.i = icmp eq i32 %38, -1
   %39 = load i32, ptr %36, align 8
   %40 = add nsw i32 %39, %38
-  %.5.i = select i1 %.not.i, i32 %.4.i, i32 %40
+  %.5.i = select i1 %.not29.i, i32 %.4.i, i32 %40
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %43 = load i32, ptr %42, align 4, !tbaa !8
-  %.not31.i = icmp eq i32 %43, -1
+  %.not30.i = icmp eq i32 %43, -1
   %44 = load i32, ptr %41, align 8
   %45 = add nsw i32 %44, %43
-  %.6.i = select i1 %.not31.i, i32 %.5.i, i32 %45
+  %.6.i = select i1 %.not30.i, i32 %.5.i, i32 %45
   br label %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit
 
 _ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit: ; preds = %8, %4
@@ -492,15 +492,15 @@ define noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !8
-  %.not26 = icmp eq i32 %9, -1
+  %.not = icmp eq i32 %9, -1
   %10 = load i32, ptr %0, align 8
   %11 = add i32 %9, 1
   %12 = add i32 %11, %10
-  %.0 = select i1 %.not26, i32 0, i32 %12
+  %.0 = select i1 %.not, i32 0, i32 %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !8
-  %.not27 = icmp eq i32 %14, -1
-  br i1 %.not27, label %22, label %15
+  %.not25 = icmp eq i32 %14, -1
+  br i1 %.not25, label %22, label %15
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -517,8 +517,8 @@ define noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb
   %.1 = phi i32 [ %21, %19 ], [ %.0, %7 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i32, ptr %23, align 4, !tbaa !8
-  %.not28 = icmp eq i32 %24, -1
-  br i1 %.not28, label %32, label %25
+  %.not26 = icmp eq i32 %24, -1
+  br i1 %.not26, label %32, label %25
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -535,8 +535,8 @@ define noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb
   %.2 = phi i32 [ %31, %29 ], [ %.1, %22 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %34 = load i32, ptr %33, align 4, !tbaa !8
-  %.not29 = icmp eq i32 %34, -1
-  br i1 %.not29, label %41, label %35
+  %.not27 = icmp eq i32 %34, -1
+  br i1 %.not27, label %41, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -553,8 +553,8 @@ define noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %44 = load i32, ptr %43, align 4, !tbaa !8
-  %.not30 = icmp eq i32 %44, -1
-  br i1 %.not30, label %56, label %45
+  %.not28 = icmp eq i32 %44, -1
+  br i1 %.not28, label %56, label %45
 
 45:                                               ; preds = %41
   %46 = icmp slt i32 %1, 4
@@ -562,8 +562,8 @@ define noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb
 
 47:                                               ; preds = %45
   %48 = icmp eq i32 %1, 4
-  %brmerge.not = and i1 %48, %2
-  br i1 %brmerge.not, label %49, label %52
+  %or.cond = and i1 %48, %2
+  br i1 %or.cond, label %49, label %52
 
 49:                                               ; preds = %47, %45
   %50 = load i32, ptr %42, align 8, !tbaa !14
@@ -582,8 +582,8 @@ define noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb
   %.4 = phi i32 [ %55, %54 ], [ %.3, %41 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %58 = load i32, ptr %57, align 4, !tbaa !8
-  %.not = icmp eq i32 %58, -1
-  br i1 %.not, label %65, label %59
+  %.not29 = icmp eq i32 %58, -1
+  br i1 %.not29, label %65, label %59
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -600,8 +600,8 @@ define noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %68 = load i32, ptr %67, align 4, !tbaa !8
-  %.not31 = icmp eq i32 %68, -1
-  br i1 %.not31, label %80, label %69
+  %.not30 = icmp eq i32 %68, -1
+  br i1 %.not30, label %80, label %69
 
 69:                                               ; preds = %65
   %70 = icmp slt i32 %1, 6
@@ -609,8 +609,8 @@ define noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb
 
 71:                                               ; preds = %69
   %72 = icmp eq i32 %1, 6
-  %brmerge23.not = and i1 %72, %2
-  br i1 %brmerge23.not, label %73, label %76
+  %or.cond3 = and i1 %72, %2
+  br i1 %or.cond3, label %73, label %76
 
 73:                                               ; preds = %71, %69
   %74 = load i32, ptr %66, align 8, !tbaa !15
@@ -629,21 +629,21 @@ define noundef i32 @_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb
   %.6 = phi i32 [ %79, %78 ], [ %.5, %65 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %82 = load i32, ptr %81, align 4, !tbaa !8
-  %.not33 = icmp eq i32 %82, -1
-  br i1 %.not33, label %88, label %83
+  %.not31 = icmp eq i32 %82, -1
+  br i1 %.not31, label %88, label %83
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %85 = icmp ne i32 %1, 7
-  %brmerge25 = or i1 %85, %2
+  %or.cond5 = or i1 %85, %2
   %86 = load i32, ptr %84, align 8, !tbaa !16
-  %87 = sext i1 %brmerge25 to i32
+  %87 = sext i1 %or.cond5 to i32
   %spec.select = add nsw i32 %86, %87
   br label %88
 
 88:                                               ; preds = %76, %59, %52, %35, %25, %15, %83, %49, %73, %80, %5
-  %.017 = phi i32 [ %6, %5 ], [ %51, %49 ], [ %75, %73 ], [ %.6, %80 ], [ %spec.select, %83 ], [ %18, %15 ], [ %28, %25 ], [ %38, %35 ], [ %53, %52 ], [ %62, %59 ], [ %77, %76 ]
-  ret i32 %.017
+  %.022 = phi i32 [ %6, %5 ], [ %51, %49 ], [ %75, %73 ], [ %.6, %80 ], [ %spec.select, %83 ], [ %18, %15 ], [ %28, %25 ], [ %38, %35 ], [ %53, %52 ], [ %62, %59 ], [ %77, %76 ]
+  ret i32 %.022
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -656,16 +656,16 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 define i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !8
-  %.not26.i = icmp eq i32 %3, -1
+  %.not.i = icmp eq i32 %3, -1
   %4 = load i32, ptr %0, align 8
   %5 = add i32 %3, 1
   %6 = add i32 %5, %4
-  %.0.i = select i1 %.not26.i, i32 0, i32 %6
+  %.0.i = select i1 %.not.i, i32 0, i32 %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !8
-  %.not27.i = icmp eq i32 %9, -1
-  br i1 %.not27.i, label %12, label %10
+  %.not25.i = icmp eq i32 %9, -1
+  br i1 %.not25.i, label %12, label %10
 
 10:                                               ; preds = %1
   %11 = load i32, ptr %7, align 8, !tbaa !17
@@ -674,8 +674,8 @@ define i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull readonly align 8 c
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4, !tbaa !8
-  %.not28.i = icmp eq i32 %14, -1
-  br i1 %.not28.i, label %18, label %15
+  %.not26.i = icmp eq i32 %14, -1
+  br i1 %.not26.i, label %18, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -685,8 +685,8 @@ define i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull readonly align 8 c
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %20 = load i32, ptr %19, align 4, !tbaa !8
-  %.not29.i = icmp eq i32 %20, -1
-  br i1 %.not29.i, label %24, label %21
+  %.not27.i = icmp eq i32 %20, -1
+  br i1 %.not27.i, label %24, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -696,8 +696,8 @@ define i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull readonly align 8 c
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %26 = load i32, ptr %25, align 4, !tbaa !8
-  %.not30.i = icmp eq i32 %26, -1
-  br i1 %.not30.i, label %31, label %27
+  %.not28.i = icmp eq i32 %26, -1
+  br i1 %.not28.i, label %31, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -708,8 +708,8 @@ define i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull readonly align 8 c
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %33 = load i32, ptr %32, align 4, !tbaa !8
-  %.not.i = icmp eq i32 %33, -1
-  br i1 %.not.i, label %37, label %34
+  %.not29.i = icmp eq i32 %33, -1
+  br i1 %.not29.i, label %37, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -719,8 +719,8 @@ define i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull readonly align 8 c
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %39 = load i32, ptr %38, align 4, !tbaa !8
-  %.not31.i = icmp eq i32 %39, -1
-  br i1 %.not31.i, label %44, label %40
+  %.not30.i = icmp eq i32 %39, -1
+  br i1 %.not30.i, label %44, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -731,8 +731,8 @@ define i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull readonly align 8 c
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %46 = load i32, ptr %45, align 4, !tbaa !8
-  %.not33.i = icmp eq i32 %46, -1
-  br i1 %.not33.i, label %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit, label %47
+  %.not31.i = icmp eq i32 %46, -1
+  br i1 %.not31.i, label %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -741,7 +741,7 @@ define i64 @_ZNK3url6Parsed10GetContentEv(ptr noundef nonnull readonly align 8 c
   br label %_ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit
 
 _ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit: ; preds = %10, %15, %21, %27, %34, %40, %44, %47
-  %.017.i = phi i32 [ %11, %10 ], [ %17, %15 ], [ %23, %21 ], [ %30, %27 ], [ %36, %34 ], [ %43, %40 ], [ %.0.i, %44 ], [ %spec.select.i, %47 ]
+  %.022.i = phi i32 [ %11, %10 ], [ %17, %15 ], [ %23, %21 ], [ %30, %27 ], [ %36, %34 ], [ %43, %40 ], [ %.0.i, %44 ], [ %spec.select.i, %47 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %51 = load i32, ptr %50, align 4, !tbaa !8
   %.not.i4 = icmp eq i32 %51, -1
@@ -757,51 +757,51 @@ _ZNK3url6Parsed21CountCharactersBeforeENS0_13ComponentTypeEb.exit: ; preds = %10
   %57 = load i32, ptr %7, align 8
   %58 = add nuw i32 %9, 1
   %59 = add i32 %58, %57
-  %.1.i.i = select i1 %.not27.i, i32 %.0.i, i32 %59
+  %.1.i.i = select i1 %.not25.i, i32 %.0.i, i32 %59
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %62 = load i32, ptr %61, align 4, !tbaa !8
-  %.not28.i.i = icmp eq i32 %62, -1
+  %.not26.i.i = icmp eq i32 %62, -1
   %63 = load i32, ptr %60, align 8
   %64 = add nuw i32 %62, 1
   %65 = add i32 %64, %63
-  %.2.i.i = select i1 %.not28.i.i, i32 %.1.i.i, i32 %65
+  %.2.i.i = select i1 %.not26.i.i, i32 %.1.i.i, i32 %65
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %68 = load i32, ptr %67, align 4, !tbaa !8
-  %.not29.i.i = icmp eq i32 %68, -1
+  %.not27.i.i = icmp eq i32 %68, -1
   %69 = load i32, ptr %66, align 8
   %70 = add nsw i32 %69, %68
-  %.3.i.i = select i1 %.not29.i.i, i32 %.2.i.i, i32 %70
+  %.3.i.i = select i1 %.not27.i.i, i32 %.2.i.i, i32 %70
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %73 = load i32, ptr %72, align 4, !tbaa !8
-  %.not30.i.i = icmp eq i32 %73, -1
+  %.not28.i.i = icmp eq i32 %73, -1
   %74 = load i32, ptr %71, align 8
   %75 = add nsw i32 %74, %73
-  %.4.i.i = select i1 %.not30.i.i, i32 %.3.i.i, i32 %75
+  %.4.i.i = select i1 %.not28.i.i, i32 %.3.i.i, i32 %75
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %78 = load i32, ptr %77, align 4, !tbaa !8
-  %.not.i.i = icmp eq i32 %78, -1
+  %.not29.i.i = icmp eq i32 %78, -1
   %79 = load i32, ptr %76, align 8
   %80 = add nsw i32 %79, %78
-  %.5.i.i = select i1 %.not.i.i, i32 %.4.i.i, i32 %80
+  %.5.i.i = select i1 %.not29.i.i, i32 %.4.i.i, i32 %80
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %83 = load i32, ptr %82, align 4, !tbaa !8
-  %.not31.i.i = icmp eq i32 %83, -1
+  %.not30.i.i = icmp eq i32 %83, -1
   %84 = load i32, ptr %81, align 8
   %85 = add nsw i32 %84, %83
-  %.6.i.i = select i1 %.not31.i.i, i32 %.5.i.i, i32 %85
+  %.6.i.i = select i1 %.not30.i.i, i32 %.5.i.i, i32 %85
   br label %_ZNK3url6Parsed6LengthEv.exit
 
 _ZNK3url6Parsed6LengthEv.exit:                    ; preds = %52, %56
   %.0.i5 = phi i32 [ %55, %52 ], [ %.6.i.i, %56 ]
-  %.not = icmp eq i32 %.0.i5, %.017.i
-  %86 = sub nsw i32 %.0.i5, %.017.i
+  %.not = icmp eq i32 %.0.i5, %.022.i
+  %86 = sub nsw i32 %.0.i5, %.022.i
   %spec.select = select i1 %.not, i32 -1, i32 %86
-  %spec.select6 = select i1 %.not, i32 0, i32 %.017.i
+  %spec.select6 = select i1 %.not, i32 0, i32 %.022.i
   %.sroa.3.0.insert.ext = zext i32 %spec.select to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %spec.select6 to i64

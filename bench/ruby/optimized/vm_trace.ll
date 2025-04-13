@@ -5942,65 +5942,65 @@ define internal fastcc void @update_global_event_hook(i32 noundef %0, i32 nounde
   %5 = and i32 %4, 213887
   %6 = xor i32 %5, -1
   %7 = and i32 %3, %6
-  %.not = icmp ne i32 %7, 0
-  %8 = and i32 %0, 32
-  %9 = icmp eq i32 %8, 0
-  %10 = and i32 %1, 32
-  %11 = icmp ne i32 %10, 0
-  %12 = and i1 %9, %11
-  %13 = and i32 %0, 64
-  %14 = icmp eq i32 %13, 0
-  %15 = and i32 %1, 64
-  %16 = icmp ne i32 %15, 0
-  %17 = and i1 %14, %16
-  %18 = and i32 %0, 8
-  %19 = icmp eq i32 %18, 0
-  %20 = and i32 %1, 8
-  %21 = icmp ne i32 %20, 0
-  %22 = and i1 %19, %21
-  %23 = and i32 %0, 16
-  %24 = icmp eq i32 %23, 0
-  %25 = and i32 %1, 16
-  %26 = icmp ne i32 %25, 0
-  %27 = and i1 %24, %26
-  br i1 %.not, label %28, label %30
+  %8 = icmp ne i32 %7, 0
+  %9 = and i32 %0, 32
+  %10 = icmp eq i32 %9, 0
+  %11 = and i32 %1, 32
+  %12 = icmp ne i32 %11, 0
+  %13 = and i1 %10, %12
+  %14 = and i32 %0, 64
+  %15 = icmp eq i32 %14, 0
+  %16 = and i32 %1, 64
+  %17 = icmp ne i32 %16, 0
+  %18 = and i1 %15, %17
+  %19 = and i32 %0, 8
+  %20 = icmp eq i32 %19, 0
+  %21 = and i32 %1, 8
+  %22 = icmp ne i32 %21, 0
+  %23 = and i1 %20, %22
+  %24 = and i32 %0, 16
+  %25 = icmp eq i32 %24, 0
+  %26 = and i32 %1, 16
+  %27 = icmp ne i32 %26, 0
+  %28 = and i1 %25, %27
+  br i1 %8, label %29, label %31
 
-28:                                               ; preds = %2
-  %29 = or i32 %5, %3
-  tail call void @rb_iseq_trace_set_all(i32 noundef %29) #5
-  br label %34
+29:                                               ; preds = %2
+  %30 = or i32 %5, %3
+  tail call void @rb_iseq_trace_set_all(i32 noundef %30) #5
+  br label %35
 
-30:                                               ; preds = %2
-  %brmerge = or i1 %12, %17
-  br i1 %brmerge, label %31, label %32
+31:                                               ; preds = %2
+  %or.cond = or i1 %13, %18
+  br i1 %or.cond, label %32, label %33
 
-31:                                               ; preds = %30
+32:                                               ; preds = %31
   tail call void @rb_clear_attr_ccs() #5
-  br label %34
+  br label %35
 
-32:                                               ; preds = %30
-  %brmerge24 = or i1 %22, %27
-  br i1 %brmerge24, label %33, label %34
+33:                                               ; preds = %31
+  %or.cond3 = or i1 %23, %28
+  br i1 %or.cond3, label %34, label %35
 
-33:                                               ; preds = %32
+34:                                               ; preds = %33
   tail call void @rb_clear_bf_ccs() #5
-  br label %34
+  br label %35
 
-34:                                               ; preds = %32, %31, %33, %28
+35:                                               ; preds = %32, %33, %34, %29
   store i32 %1, ptr @ruby_vm_event_flags, align 4, !tbaa !80
-  %35 = load i32, ptr @ruby_vm_event_enabled_global_flags, align 4, !tbaa !80
-  %36 = or i32 %35, %1
-  store i32 %36, ptr @ruby_vm_event_enabled_global_flags, align 4, !tbaa !80
+  %36 = load i32, ptr @ruby_vm_event_enabled_global_flags, align 4, !tbaa !80
+  %37 = or i32 %36, %1
+  store i32 %37, ptr @ruby_vm_event_enabled_global_flags, align 4, !tbaa !80
   tail call void @rb_objspace_set_event_hook(i32 noundef %1) #5
-  %brmerge25 = or i1 %12, %.not
-  %brmerge26 = or i1 %17, %brmerge25
-  br i1 %brmerge26, label %37, label %38
+  %or.cond5 = or i1 %13, %8
+  %or.cond7 = or i1 %18, %or.cond5
+  br i1 %or.cond7, label %38, label %39
 
-37:                                               ; preds = %34
+38:                                               ; preds = %35
   tail call void @rb_yjit_tracing_invalidate_all() #5
-  br label %38
+  br label %39
 
-38:                                               ; preds = %34, %37
+39:                                               ; preds = %35, %38
   ret void
 }
 

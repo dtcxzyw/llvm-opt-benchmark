@@ -221,7 +221,7 @@ define dso_local ptr @ExecInsertIndexTuples(ptr noundef %0, ptr noundef %1, ptr 
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %1, ptr %27, align 8
   %28 = icmp sgt i32 %14, 0
-  br i1 %28, label %.lr.ph, label %._crit_edge115
+  br i1 %28, label %.lr.ph, label %._crit_edge117
 
 .lr.ph:                                           ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -230,13 +230,13 @@ define dso_local ptr @ExecInsertIndexTuples(ptr noundef %0, ptr noundef %1, ptr 
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %32
 
-32:                                               ; preds = %.lr.ph, %163
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %163 ]
-  %.075113 = phi ptr [ null, %.lr.ph ], [ %.1, %163 ]
+32:                                               ; preds = %.lr.ph, %164
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %164 ]
+  %.079115 = phi ptr [ null, %.lr.ph ], [ %.1, %164 ]
   %33 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %163, label %36
+  br i1 %35, label %164, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
@@ -244,7 +244,7 @@ define dso_local ptr @ExecInsertIndexTuples(ptr noundef %0, ptr noundef %1, ptr 
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 162
   %40 = load i8, ptr %39, align 2, !range !4, !noundef !5
   %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %42, label %163
+  br i1 %41, label %42, label %164
 
 42:                                               ; preds = %36
   br i1 %7, label %43, label %47
@@ -253,13 +253,13 @@ define dso_local ptr @ExecInsertIndexTuples(ptr noundef %0, ptr noundef %1, ptr 
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 167
   %45 = load i8, ptr %44, align 1, !range !4, !noundef !5
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %163
+  br i1 %46, label %47, label %164
 
 47:                                               ; preds = %43, %42
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %49 = load ptr, ptr %48, align 8
-  %.not84 = icmp eq ptr %49, null
-  br i1 %.not84, label %62, label %50
+  %.not88 = icmp eq ptr %49, null
+  br i1 %.not88, label %62, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 104
@@ -283,17 +283,17 @@ ExecQual.exit.thread:                             ; preds = %54
   br label %62
 
 ExecQual.exit:                                    ; preds = %54, %.thread
-  %.07295 = phi ptr [ %52, %.thread ], [ %55, %54 ]
+  %.07697 = phi ptr [ %52, %.thread ], [ %55, %54 ]
   %57 = load ptr, ptr %29, align 8
   %58 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %57, ptr @CurrentMemoryContext, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %.07295, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %.07697, i64 32
   %60 = load ptr, ptr %59, align 8
-  %61 = call i64 %60(ptr noundef nonnull %.07295, ptr noundef %26, ptr noundef nonnull %9) #6
+  %61 = call i64 %60(ptr noundef nonnull %.07697, ptr noundef %26, ptr noundef nonnull %9) #6
   store ptr %58, ptr @CurrentMemoryContext, align 8
-  %.not102 = icmp eq i64 %61, 0
+  %.not104 = icmp eq i64 %61, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  br i1 %.not102, label %163, label %62
+  br i1 %.not104, label %164, label %62
 
 62:                                               ; preds = %ExecQual.exit.thread, %ExecQual.exit, %47
   call void @FormIndexDatum(ptr noundef nonnull %38, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11) #6
@@ -302,13 +302,13 @@ ExecQual.exit:                                    ; preds = %54, %.thread
 63:                                               ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %34, i64 328
   %65 = load ptr, ptr %64, align 8
-  br i1 %30, label %.thread97, label %69
+  br i1 %30, label %.thread99, label %69
 
-.thread97:                                        ; preds = %63
+.thread99:                                        ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %67 = load i8, ptr %66, align 4, !range !4, !noundef !5
   %68 = trunc nuw i8 %67 to i1
-  %.mux92101 = select i1 %68, i32 2, i32 0
+  %.mux94103 = select i1 %68, i32 2, i32 0
   br label %83
 
 69:                                               ; preds = %63
@@ -323,24 +323,24 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 12
   %77 = load i8, ptr %76, align 4, !range !4, !noundef !5
   %78 = trunc nuw i8 %77 to i1
-  %.not90 = xor i1 %78, true
-  %brmerge91 = select i1 %.not90, i1 true, i1 %73
-  %.mux92 = select i1 %78, i32 2, i32 0
-  br i1 %brmerge91, label %83, label %79
+  %.not93 = xor i1 %78, true
+  %brmerge = select i1 %.not93, i1 true, i1 %73
+  %.mux94 = select i1 %78, i32 2, i32 0
+  br i1 %brmerge, label %83, label %79
 
 79:                                               ; preds = %72
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %81 = load i8, ptr %80, align 4, !range !4, !noundef !5
   %82 = trunc nuw i8 %81 to i1
   %not. = xor i1 %82, true
-  %.87 = select i1 %82, i32 1, i32 2
+  %.90 = select i1 %82, i32 1, i32 2
   br label %83
 
-83:                                               ; preds = %.thread97, %72, %79
-  %84 = phi ptr [ %74, %72 ], [ %74, %79 ], [ %64, %.thread97 ]
-  %85 = phi i1 [ %73, %72 ], [ false, %79 ], [ true, %.thread97 ]
-  %86 = phi i1 [ %78, %72 ], [ %not., %79 ], [ %68, %.thread97 ]
-  %.076 = phi i32 [ %.mux92, %72 ], [ %.87, %79 ], [ %.mux92101, %.thread97 ]
+83:                                               ; preds = %.thread99, %72, %79
+  %84 = phi ptr [ %74, %72 ], [ %74, %79 ], [ %64, %.thread99 ]
+  %85 = phi i1 [ %73, %72 ], [ false, %79 ], [ true, %.thread99 ]
+  %86 = phi i1 [ %78, %72 ], [ %not., %79 ], [ %68, %.thread99 ]
+  %.080 = phi i32 [ %.mux94, %72 ], [ %.90, %79 ], [ %.mux94103, %.thread99 ]
   br i1 %3, label %87, label %index_unchanged_by_update.exit
 
 87:                                               ; preds = %83
@@ -410,8 +410,8 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   br i1 %.not.i, label %.outer.i, label %._crit_edge.i, !llvm.loop !9
 
 .thread.i:                                        ; preds = %.outer.i, %105
-  %indvars.iv.i109 = phi i64 [ %indvars.iv.next56.i, %105 ], [ %indvars.iv.ph.i, %.outer.i ]
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv.i109, 1
+  %indvars.iv.i111 = phi i64 [ %indvars.iv.next56.i, %105 ], [ %indvars.iv.ph.i, %.outer.i ]
+  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv.i111, 1
   %.not57.i = icmp slt i64 %indvars.iv.next56.i, %101
   br i1 %.not57.i, label %105, label %._crit_edge.thread.i, !llvm.loop !9
 
@@ -477,11 +477,11 @@ index_expression_changed_walker.exit.i:           ; preds = %131, %125, %119
 
 index_unchanged_by_update.exit:                   ; preds = %137, %136, %.critedge.i, %.thread48.i, %91, %83
   %138 = phi i1 [ false, %83 ], [ %94, %91 ], [ false, %136 ], [ true, %137 ], [ true, %.critedge.i ], [ false, %.thread48.i ]
-  %139 = call zeroext i1 @index_insert(ptr noundef nonnull %34, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %20, i32 noundef %.076, i1 noundef zeroext %138, ptr noundef nonnull %38) #6
+  %139 = call zeroext i1 @index_insert(ptr noundef nonnull %34, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %20, i32 noundef %.080, i1 noundef zeroext %138, ptr noundef nonnull %38) #6
   %140 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %141 = load ptr, ptr %140, align 8
-  %.not85 = icmp eq ptr %141, null
-  br i1 %.not85, label %150, label %142
+  %.not89 = icmp eq ptr %141, null
+  br i1 %.not89, label %150, label %142
 
 142:                                              ; preds = %index_unchanged_by_update.exit
   br i1 %85, label %148, label %143
@@ -491,55 +491,55 @@ index_unchanged_by_update.exit:                   ; preds = %137, %136, %.crited
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load i8, ptr %145, align 4, !range !4, !noundef !5
   %147 = trunc nuw i8 %146 to i1
-  %not.103 = xor i1 %147, true
-  %.89 = zext i1 %not.103 to i32
+  %not.105 = xor i1 %147, true
+  %.92 = zext i1 %not.105 to i32
   br label %148
 
 148:                                              ; preds = %143, %142
-  %.071 = phi i1 [ true, %142 ], [ %not.103, %143 ]
-  %.0 = phi i32 [ 2, %142 ], [ %.89, %143 ]
-  %149 = call fastcc zeroext i1 @check_exclusion_or_unique_constraint(ptr noundef %20, ptr noundef nonnull %34, ptr noundef nonnull %38, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %2, i1 noundef zeroext false, i32 noundef %.0, i1 noundef zeroext %.071, ptr noundef null)
+  %.075 = phi i1 [ true, %142 ], [ %not.105, %143 ]
+  %.0 = phi i32 [ 2, %142 ], [ %.92, %143 ]
+  %149 = call fastcc zeroext i1 @check_exclusion_or_unique_constraint(ptr noundef %20, ptr noundef nonnull %34, ptr noundef nonnull %38, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %2, i1 noundef zeroext false, i32 noundef %.0, i1 noundef zeroext %.075, ptr noundef null)
   br label %150
 
 150:                                              ; preds = %148, %index_unchanged_by_update.exit
-  %.074.in = phi i1 [ %149, %148 ], [ %139, %index_unchanged_by_update.exit ]
-  br i1 %86, label %153, label %151
+  %.078.in = phi i1 [ %149, %148 ], [ %139, %index_unchanged_by_update.exit ]
+  br i1 %86, label %154, label %151
 
 151:                                              ; preds = %150
   %152 = load ptr, ptr %140, align 8
-  %.not86 = icmp eq ptr %152, null
-  %brmerge = select i1 %.not86, i1 true, i1 %.074.in
-  br i1 %brmerge, label %163, label %154
+  %153 = icmp eq ptr %152, null
+  %or.cond = select i1 %153, i1 true, i1 %.078.in
+  br i1 %or.cond, label %164, label %155
 
-153:                                              ; preds = %150
-  br i1 %.074.in, label %163, label %154
+154:                                              ; preds = %150
+  br i1 %.078.in, label %164, label %155
 
-154:                                              ; preds = %151, %153
-  %155 = getelementptr inbounds nuw i8, ptr %34, i64 72
-  %156 = load i32, ptr %155, align 8
-  %157 = call ptr @lappend_oid(ptr noundef %.075113, i32 noundef %156) #6
-  %158 = load ptr, ptr %84, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
-  %160 = load i8, ptr %159, align 4, !range !4, !noundef !5
-  %161 = trunc nuw i8 %160 to i1
-  %or.cond = and i1 %31, %161
-  br i1 %or.cond, label %162, label %163
+155:                                              ; preds = %151, %154
+  %156 = getelementptr inbounds nuw i8, ptr %34, i64 72
+  %157 = load i32, ptr %156, align 8
+  %158 = call ptr @lappend_oid(ptr noundef %.079115, i32 noundef %157) #6
+  %159 = load ptr, ptr %84, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  %161 = load i8, ptr %160, align 4, !range !4, !noundef !5
+  %162 = trunc nuw i8 %161 to i1
+  %or.cond4 = and i1 %31, %162
+  br i1 %or.cond4, label %163, label %164
 
-162:                                              ; preds = %154
+163:                                              ; preds = %155
   store i8 1, ptr %5, align 1
-  br label %163
+  br label %164
 
-163:                                              ; preds = %153, %162, %154, %151, %43, %36, %32, %ExecQual.exit
-  %.1 = phi ptr [ %.075113, %ExecQual.exit ], [ %.075113, %32 ], [ %.075113, %36 ], [ %.075113, %43 ], [ %.075113, %153 ], [ %157, %162 ], [ %157, %154 ], [ %.075113, %151 ]
+164:                                              ; preds = %151, %154, %163, %155, %43, %36, %32, %ExecQual.exit
+  %.1 = phi ptr [ %.079115, %ExecQual.exit ], [ %.079115, %32 ], [ %.079115, %36 ], [ %.079115, %43 ], [ %.079115, %154 ], [ %158, %163 ], [ %158, %155 ], [ %.079115, %151 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge115, label %32, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge117, label %32, !llvm.loop !10
 
-._crit_edge115:                                   ; preds = %163, %25
-  %.075.lcssa = phi ptr [ null, %25 ], [ %.1, %163 ]
+._crit_edge117:                                   ; preds = %164, %25
+  %.079.lcssa = phi ptr [ null, %25 ], [ %.1, %164 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #6
-  ret ptr %.075.lcssa
+  ret ptr %.079.lcssa
 }
 
 declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #2
@@ -997,7 +997,7 @@ define dso_local noundef zeroext i1 @ExecCheckIndexConstraints(ptr noundef reado
 
 29:                                               ; preds = %.lr.ph, %select.unfold
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %select.unfold ]
-  %.05485 = phi i1 [ false, %.lr.ph ], [ %.155.ph, %select.unfold ]
+  %.05585 = phi i1 [ false, %.lr.ph ], [ %.156.ph, %select.unfold ]
   %30 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -1099,29 +1099,29 @@ ExecQual.exit:                                    ; preds = %73, %.thread
   br i1 %81, label %select.unfold, label %.loopexit
 
 select.unfold:                                    ; preds = %.thread71, %29, %39, %42, %47, %ExecQual.exit
-  %.155.ph = phi i1 [ true, %ExecQual.exit ], [ %.05485, %47 ], [ %.05485, %42 ], [ %.05485, %39 ], [ %.05485, %29 ], [ true, %.thread71 ]
+  %.156.ph = phi i1 [ true, %ExecQual.exit ], [ %.05585, %47 ], [ %.05585, %42 ], [ %.05585, %39 ], [ %.05585, %29 ], [ true, %.thread71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %select.unfold, %24
-  %.054.lcssa = phi i1 [ false, %24 ], [ %.155.ph, %select.unfold ]
-  %.not61 = icmp eq ptr %5, null
-  %brmerge = select i1 %.not61, i1 true, i1 %.054.lcssa
-  br i1 %brmerge, label %.loopexit, label %82
+  %.055.lcssa = phi i1 [ false, %24 ], [ %.156.ph, %select.unfold ]
+  %82 = icmp eq ptr %5, null
+  %or.cond = select i1 %82, i1 true, i1 %.055.lcssa
+  br i1 %or.cond, label %.loopexit, label %83
 
-82:                                               ; preds = %._crit_edge
-  %83 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %83)
-  %84 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
+83:                                               ; preds = %._crit_edge
+  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %84)
+  %85 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 650, ptr noundef nonnull @__func__.ExecCheckIndexConstraints) #6
   unreachable
 
 .loopexit:                                        ; preds = %.thread71, %._crit_edge
-  %85 = phi i1 [ true, %._crit_edge ], [ false, %.thread71 ]
+  %86 = phi i1 [ true, %._crit_edge ], [ false, %.thread71 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #6
-  ret i1 %85
+  ret i1 %86
 }
 
 ; Function Attrs: cold

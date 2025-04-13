@@ -398,7 +398,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$6filter17h979d8cf7fcbc8146E"(ptr w
   %4 = alloca [32 x i8], align 8
   %5 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %5, 4
-  br i1 %.not, label %13, label %6
+  br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
@@ -409,7 +409,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$6filter17h979d8cf7fcbc8146E"(ptr w
   %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h0af91a94639c7349E"(ptr nonnull align 8 %4) #11
-          to label %12 unwind label %16
+          to label %18 unwind label %15
 
 10:                                               ; preds = %6
   br i1 %7, label %11, label %.thread
@@ -417,33 +417,33 @@ define void @"_ZN4core6option15Option$LT$T$GT$6filter17h979d8cf7fcbc8146E"(ptr w
 .thread:                                          ; preds = %10
   call void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h0af91a94639c7349E"(ptr nonnull align 8 %4)
   store i32 4, ptr %0, align 8
-  br label %15
+  br label %14
 
 11:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  br label %15
+  br label %14
 
-12:                                               ; preds = %8
-  resume { ptr, i32 } %9
-
-13:                                               ; preds = %3
+12:                                               ; preds = %3
   store i32 4, ptr %0, align 8
-  %14 = load i32, ptr %1, align 8
-  %.not6 = icmp eq i32 %14, 4
-  br i1 %.not6, label %15, label %18
+  %13 = load i32, ptr %1, align 8
+  %.not9 = icmp eq i32 %13, 4
+  br i1 %.not9, label %14, label %17
 
-15:                                               ; preds = %.thread, %13, %18, %11
+14:                                               ; preds = %.thread, %17, %12, %11
   ret void
 
-16:                                               ; preds = %8
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-18:                                               ; preds = %13
+17:                                               ; preds = %12
   tail call void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h0af91a94639c7349E"(ptr nonnull align 8 %1)
-  br label %15
+  br label %14
+
+18:                                               ; preds = %8
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

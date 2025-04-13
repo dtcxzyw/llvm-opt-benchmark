@@ -112,22 +112,20 @@ define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr noundef rea
   %52 = load i32, ptr %51, align 8
   %switch.tableidx = add i32 %52, -2
   %53 = icmp ult i32 %switch.tableidx, 6
-  br i1 %53, label %switch.hole_check, label %.split
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 39, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond281 = select i1 %53, i1 %switch.lobit, i1 false
+  br i1 %or.cond281, label %switch.lookup, label %.split
 
-.split:                                           ; preds = %switch.hole_check, %48
+.split:                                           ; preds = %48
   %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %54)
   %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 167, ptr noundef nonnull @__func__.transformMergeStmt) #6
   unreachable
 
-switch.hole_check:                                ; preds = %48
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 39, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.split
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %48
   %56 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table.transformMergeStmt, i64 0, i64 %56
   %switch.load = load i64, ptr %switch.gep, align 8

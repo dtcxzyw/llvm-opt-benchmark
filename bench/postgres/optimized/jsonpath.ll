@@ -331,22 +331,20 @@ declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #3
 define dso_local noundef nonnull ptr @jspOperationName(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -4
   %2 = icmp ult i32 %switch.tableidx, 50
-  br i1 %2, label %switch.hole_check, label %3
+  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
+  %switch.shifted = lshr i64 1125796693540851, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %3
 
-3:                                                ; preds = %switch.hole_check, %1
+3:                                                ; preds = %1
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %0) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 918, ptr noundef nonnull @__func__.jspOperationName) #13
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
-  %switch.shifted = lshr i64 1125796693540851, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [50 x ptr], ptr @switch.table.jspOperationName, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8

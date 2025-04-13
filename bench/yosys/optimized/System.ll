@@ -106,8 +106,8 @@ _ZL11memReadPeakv.exit:                           ; preds = %1, %.critedge.i
   %.0.i = phi double [ %18, %.critedge.i ], [ 0.000000e+00, %1 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #9
   %19 = fcmp une double %.0.i, 0.000000e+00
-  %brmerge = or i1 %0, %19
-  br i1 %brmerge, label %22, label %20
+  %or.cond = or i1 %0, %19
+  br i1 %or.cond, label %22, label %20
 
 20:                                               ; preds = %_ZL11memReadPeakv.exit
   %21 = call noundef double @_ZN7Minisat7memUsedEv()

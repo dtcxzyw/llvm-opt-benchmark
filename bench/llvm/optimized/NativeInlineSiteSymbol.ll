@@ -1210,11 +1210,11 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
   store i32 0, ptr %2, align 4, !tbaa !97
   store i32 0, ptr %3, align 4, !tbaa !97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0138)
-  %.sroa.0138.4..sroa_idx234 = getelementptr inbounds nuw i8, ptr %.sroa.0138, i64 4
-  store i8 0, ptr %.sroa.0138.4..sroa_idx234, align 4, !tbaa !98
+  %.sroa.0138.4..sroa_idx239 = getelementptr inbounds nuw i8, ptr %.sroa.0138, i64 4
+  store i8 0, ptr %.sroa.0138.4..sroa_idx239, align 4, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0118)
-  %.sroa.0118.4..sroa_idx227 = getelementptr inbounds nuw i8, ptr %.sroa.0118, i64 4
-  store i8 0, ptr %.sroa.0118.4..sroa_idx227, align 4, !tbaa !98
+  %.sroa.0118.4..sroa_idx236 = getelementptr inbounds nuw i8, ptr %.sroa.0118, i64 4
+  store i8 0, ptr %.sroa.0118.4..sroa_idx236, align 4, !tbaa !98
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !13, !noalias !100
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1231,8 +1231,8 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
   store i64 %12, ptr %.sroa.561.56..sroa_idx, align 8, !tbaa !64
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false), !alias.scope !105
-  %.not.i.i.i.i183 = icmp eq ptr %9, %7
-  br i1 %.not.i.i.i.i183, label %_ZNK4llvm20iterator_facade_baseINS_8codeview24BinaryAnnotationIteratorESt20forward_iterator_tagNS1_17DecodedAnnotationElPS4_RS4_EneERKS2_.exit, label %.lr.ph
+  %.not.i.i.i.i184 = icmp eq ptr %9, %7
+  br i1 %.not.i.i.i.i184, label %_ZNK4llvm20iterator_facade_baseINS_8codeview24BinaryAnnotationIteratorESt20forward_iterator_tagNS1_17DecodedAnnotationElPS4_RS4_EneERKS2_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1240,26 +1240,23 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sroa.2.7..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %.sroa.2.i54, i64 7
-  %.sroa.0118.4..sroa_idx228 = getelementptr inbounds nuw i8, ptr %.sroa.0118, i64 4
-  %.sroa.0138.4..sroa_idx235 = getelementptr inbounds nuw i8, ptr %.sroa.0138, i64 4
-  %.sroa.0118.4..sroa_idx229 = getelementptr inbounds nuw i8, ptr %.sroa.0118, i64 4
-  %.sroa.0138.4..sroa_idx236 = getelementptr inbounds nuw i8, ptr %.sroa.0138, i64 4
-  %.sroa.0118.4..sroa_idx230 = getelementptr inbounds nuw i8, ptr %.sroa.0118, i64 4
-  %.sroa.0118.4..sroa_idx231 = getelementptr inbounds nuw i8, ptr %.sroa.0118, i64 4
-  %.sroa.0118.4..sroa_idx232 = getelementptr inbounds nuw i8, ptr %.sroa.0118, i64 4
-  %.sroa.0138.4..sroa_idx237 = getelementptr inbounds nuw i8, ptr %.sroa.0138, i64 4
-  %.sroa.0118.4..sroa_idx233 = getelementptr inbounds nuw i8, ptr %.sroa.0118, i64 4
+  %.sroa.0138.4..sroa_idx240 = getelementptr inbounds nuw i8, ptr %.sroa.0138, i64 4
+  %.sroa.0138.4..sroa_idx241 = getelementptr inbounds nuw i8, ptr %.sroa.0138, i64 4
+  %.sroa.0118.4..sroa_idx237 = getelementptr inbounds nuw i8, ptr %.sroa.0118, i64 4
+  %.sroa.0138.4..sroa_idx242 = getelementptr inbounds nuw i8, ptr %.sroa.0138, i64 4
+  %.sroa.0118.4..sroa_idx238 = getelementptr inbounds nuw i8, ptr %.sroa.0118, i64 4
   br label %20
 
 20:                                               ; preds = %.lr.ph, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit
-  %.sroa.0138.4..sroa.0138.4..sroa.0138.4.152 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0138.4..sroa.0138.4..sroa.0138.4.152222, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
+  %.sroa.0118.4..sroa.0118.4..sroa.0118.4.128 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0118.4..sroa.0118.4..sroa.0118.4.128231, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
+  %.sroa.0138.4..sroa.0138.4..sroa.0138.4.152 = phi i8 [ 0, %.lr.ph ], [ %.sroa.0138.4..sroa.0138.4..sroa.0138.4.152229, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
   %.sroa.0115.0 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0115.2, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
   %.sroa.0.0 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0.1, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
-  %.0189 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
-  %.sroa.7.0188 = phi i1 [ false, %.lr.ph ], [ %.sroa.7.5.ph, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
-  %.sroa.8.0187 = phi i8 [ 0, %.lr.ph ], [ %.sroa.8.5.ph, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
-  %.sroa.0111.0186 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0111.1, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
-  %.sroa.5.0185 = phi i1 [ false, %.lr.ph ], [ %.sroa.5.4.ph, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
+  %.0190 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
+  %.sroa.7.0189 = phi i1 [ false, %.lr.ph ], [ %.sroa.7.5.ph, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
+  %.sroa.8.0188 = phi i8 [ 0, %.lr.ph ], [ %.sroa.8.5.ph, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
+  %.sroa.0111.0187 = phi i32 [ undef, %.lr.ph ], [ %.sroa.0111.1, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
+  %.sroa.5.0186 = phi i1 [ false, %.lr.ph ], [ %.sroa.5.4.ph, %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit ]
   %21 = call noundef zeroext i1 @_ZN4llvm8codeview24BinaryAnnotationIterator22ParseCurrentAnnotationEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
   %22 = load i32, ptr %16, align 8, !tbaa !108
   switch i32 %22, label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit" [
@@ -1275,13 +1272,12 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
 
 23:                                               ; preds = %20, %20, %20
   %24 = load i32, ptr %17, align 4, !tbaa !112
-  %25 = add i32 %24, %.0189
+  %25 = add i32 %24, %.0190
   %26 = trunc nuw i8 %.sroa.0138.4..sroa.0138.4..sroa.0138.4.152 to i1
   br i1 %26, label %27, label %.sink.split.i
 
 27:                                               ; preds = %23
-  %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.128 = load i8, ptr %.sroa.0118.4..sroa_idx232, align 4, !tbaa !98
-  %28 = trunc nuw i8 %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.128 to i1
+  %28 = trunc nuw i8 %.sroa.0118.4..sroa.0118.4..sroa.0118.4.128 to i1
   br i1 %28, label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit", label %29
 
 29:                                               ; preds = %27
@@ -1303,8 +1299,7 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
   br i1 %33, label %34, label %.sink.split.i24
 
 34:                                               ; preds = %31
-  %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.126 = load i8, ptr %.sroa.0118.4..sroa_idx231, align 4, !tbaa !98
-  %35 = trunc nuw i8 %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.126 to i1
+  %35 = trunc nuw i8 %.sroa.0118.4..sroa.0118.4..sroa.0118.4.128 to i1
   br i1 %35, label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit", label %36
 
 36:                                               ; preds = %34
@@ -1313,7 +1308,7 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
   br label %.sink.split.i24
 
 .sink.split.i24:                                  ; preds = %31, %36
-  %.sink8.i25 = phi i32 [ %37, %36 ], [ %.0189, %31 ]
+  %.sink8.i25 = phi i32 [ %37, %36 ], [ %.0190, %31 ]
   %.sink.i26 = phi ptr [ %.sroa.0118, %36 ], [ %.sroa.0138, %31 ]
   %.sroa.0.0.insert.ext.i27 = zext i32 %.sink8.i25 to i64
   %.sroa.0.0.insert.insert.i28 = or disjoint i64 %.sroa.0.0.insert.ext.i27, 4294967296
@@ -1322,13 +1317,12 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
 
 38:                                               ; preds = %20
   %39 = load i32, ptr %19, align 8, !tbaa !113
-  %40 = add i32 %39, %.0189
+  %40 = add i32 %39, %.0190
   %41 = trunc nuw i8 %.sroa.0138.4..sroa.0138.4..sroa.0138.4.152 to i1
   br i1 %41, label %42, label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit35"
 
 42:                                               ; preds = %38
-  %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.124 = load i8, ptr %.sroa.0118.4..sroa_idx229, align 4, !tbaa !98
-  %43 = trunc nuw i8 %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.124 to i1
+  %43 = trunc nuw i8 %.sroa.0118.4..sroa.0118.4..sroa.0118.4.128 to i1
   br i1 %43, label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit35.thread", label %45
 
 "_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit35.thread": ; preds = %42
@@ -1346,14 +1340,14 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
   %.sroa.0.0.insert.ext.i33 = zext i32 %.sink8.i31 to i64
   %.sroa.0.0.insert.insert.i34 = or disjoint i64 %.sroa.0.0.insert.ext.i33, 4294967296
   store i64 %.sroa.0.0.insert.insert.i34, ptr %.sink.i32, align 8
-  %.sroa.0138.4..sroa.0138.4..sroa.0138.4..sroa.0138.4.146.pre = load i8, ptr %.sroa.0138.4..sroa_idx236, align 4, !tbaa !98
+  %.sroa.0138.4..sroa.0138.4..sroa.0138.4..sroa.0138.4.146.pre = load i8, ptr %.sroa.0138.4..sroa_idx241, align 4, !tbaa !98
   %47 = load i32, ptr %17, align 4, !tbaa !112
   %48 = trunc nuw i8 %.sroa.0138.4..sroa.0138.4..sroa.0138.4..sroa.0138.4.146.pre to i1
   br i1 %48, label %49, label %.sink.split.i36
 
 49:                                               ; preds = %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit35.thread", %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit35"
   %50 = phi i32 [ %44, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit35.thread" ], [ %47, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit35" ]
-  %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.122 = load i8, ptr %.sroa.0118.4..sroa_idx230, align 4, !tbaa !98
+  %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.122 = load i8, ptr %.sroa.0118.4..sroa_idx237, align 4, !tbaa !98
   %51 = trunc nuw i8 %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.122 to i1
   br i1 %51, label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit", label %52
 
@@ -1376,7 +1370,7 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
   %56 = add i32 %55, %54
   store i32 %56, ptr %2, align 4, !tbaa !97
   %57 = trunc nuw i8 %.sroa.0138.4..sroa.0138.4..sroa.0138.4.152 to i1
-  %58 = trunc nuw i8 %.sroa.8.0187 to i1
+  %58 = trunc nuw i8 %.sroa.8.0188 to i1
   %59 = select i1 %57, i1 %58, i1 false
   br i1 %59, label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit", label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else"
 
@@ -1385,13 +1379,12 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
 
 60:                                               ; preds = %20
   %61 = load i32, ptr %17, align 4, !tbaa !112
-  %62 = add i32 %61, %.0189
+  %62 = add i32 %61, %.0190
   %63 = trunc nuw i8 %.sroa.0138.4..sroa.0138.4..sroa.0138.4.152 to i1
   br i1 %63, label %64, label %.sink.split.i43
 
 64:                                               ; preds = %60
-  %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4. = load i8, ptr %.sroa.0118.4..sroa_idx228, align 4, !tbaa !98
-  %65 = trunc nuw i8 %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4. to i1
+  %65 = trunc nuw i8 %.sroa.0118.4..sroa.0118.4..sroa.0118.4.128 to i1
   br i1 %65, label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48", label %66
 
 66:                                               ; preds = %64
@@ -1405,7 +1398,7 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
   %.sroa.0.0.insert.ext.i46 = zext i32 %.sink8.i44 to i64
   %.sroa.0.0.insert.insert.i47 = or disjoint i64 %.sroa.0.0.insert.ext.i46, 4294967296
   store i64 %.sroa.0.0.insert.insert.i47, ptr %.sink.i45, align 8
-  %.sroa.0138.4..sroa.0138.4..sroa.0138.4..sroa.0138.4.154.pre = load i8, ptr %.sroa.0138.4..sroa_idx235, align 4, !tbaa !98
+  %.sroa.0138.4..sroa.0138.4..sroa.0138.4..sroa.0138.4.154.pre = load i8, ptr %.sroa.0138.4..sroa_idx240, align 4, !tbaa !98
   %68 = trunc nuw i8 %.sroa.0138.4..sroa.0138.4..sroa.0138.4..sroa.0138.4.154.pre to i1
   br label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48"
 
@@ -1415,7 +1408,7 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
   %70 = load i32, ptr %2, align 4, !tbaa !97
   %71 = add i32 %70, %69
   store i32 %71, ptr %2, align 4, !tbaa !97
-  %72 = trunc nuw i8 %.sroa.8.0187 to i1
+  %72 = trunc nuw i8 %.sroa.8.0188 to i1
   %73 = select i1 %.sroa.0138.4..sroa.0138.4..sroa.0138.4.154, i1 %72, i1 false
   br i1 %73, label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit", label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else"
 
@@ -1434,80 +1427,79 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS
 "_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit": ; preds = %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else", %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48", %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else", %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit", %74, %77, %.sink.split.i36, %49, %.sink.split.i24, %34, %.sink.split.i, %27, %20
   %.sroa.0115.1 = phi i32 [ %.sroa.0115.0, %20 ], [ %.sroa.0115.0, %74 ], [ %.sroa.0115.0, %77 ], [ %.sroa.0115.0, %49 ], [ %.sroa.0115.0, %.sink.split.i36 ], [ %.sroa.0115.0, %34 ], [ %.sroa.0115.0, %.sink.split.i24 ], [ %.sroa.0115.0, %27 ], [ %.sroa.0115.0, %.sink.split.i ], [ %56, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else" ], [ %.sroa.0115.0, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit" ], [ %71, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else" ], [ %.sroa.0115.0, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48" ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0, %20 ], [ %.sroa.0.0, %74 ], [ %.sroa.0.0, %77 ], [ %.sroa.0.0, %49 ], [ %.sroa.0.0, %.sink.split.i36 ], [ %.sroa.0.0, %34 ], [ %.sroa.0.0, %.sink.split.i24 ], [ %.sroa.0.0, %27 ], [ %.sroa.0.0, %.sink.split.i ], [ %.sroa.0.0, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else" ], [ %56, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit" ], [ %.sroa.0.0, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else" ], [ %71, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48" ]
-  %.sroa.5.1 = phi i1 [ %.sroa.5.0185, %20 ], [ true, %74 ], [ %.sroa.5.0185, %77 ], [ %.sroa.5.0185, %49 ], [ %.sroa.5.0185, %.sink.split.i36 ], [ %.sroa.5.0185, %34 ], [ %.sroa.5.0185, %.sink.split.i24 ], [ %.sroa.5.0185, %27 ], [ %.sroa.5.0185, %.sink.split.i ], [ %.sroa.5.0185, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else" ], [ %.sroa.5.0185, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit" ], [ %.sroa.5.0185, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else" ], [ %.sroa.5.0185, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48" ]
-  %.sroa.0111.1 = phi i32 [ %.sroa.0111.0186, %20 ], [ %75, %74 ], [ %.sroa.0111.0186, %77 ], [ %.sroa.0111.0186, %49 ], [ %.sroa.0111.0186, %.sink.split.i36 ], [ %.sroa.0111.0186, %34 ], [ %.sroa.0111.0186, %.sink.split.i24 ], [ %.sroa.0111.0186, %27 ], [ %.sroa.0111.0186, %.sink.split.i ], [ %.sroa.0111.0186, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else" ], [ %.sroa.0111.0186, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit" ], [ %.sroa.0111.0186, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else" ], [ %.sroa.0111.0186, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48" ]
-  %.sroa.8.1 = phi i8 [ %.sroa.8.0187, %20 ], [ %.sroa.8.0187, %74 ], [ %.sroa.8.0187, %77 ], [ %.sroa.8.0187, %49 ], [ %.sroa.8.0187, %.sink.split.i36 ], [ %.sroa.8.0187, %34 ], [ %.sroa.8.0187, %.sink.split.i24 ], [ %.sroa.8.0187, %27 ], [ %.sroa.8.0187, %.sink.split.i ], [ 1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else" ], [ 1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit" ], [ 1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else" ], [ 1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48" ]
-  %.sroa.7.1 = phi i1 [ %.sroa.7.0188, %20 ], [ %.sroa.7.0188, %74 ], [ %.sroa.7.0188, %77 ], [ %.sroa.7.0188, %49 ], [ %.sroa.7.0188, %.sink.split.i36 ], [ %.sroa.7.0188, %34 ], [ %.sroa.7.0188, %.sink.split.i24 ], [ %.sroa.7.0188, %27 ], [ %.sroa.7.0188, %.sink.split.i ], [ %.sroa.7.0188, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else" ], [ true, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit" ], [ %.sroa.7.0188, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else" ], [ true, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48" ]
-  %.1 = phi i32 [ %.0189, %20 ], [ %.0189, %74 ], [ %.0189, %77 ], [ %40, %49 ], [ %40, %.sink.split.i36 ], [ %.0189, %34 ], [ %.0189, %.sink.split.i24 ], [ %25, %27 ], [ %25, %.sink.split.i ], [ %.0189, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else" ], [ %.0189, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit" ], [ %62, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else" ], [ %62, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48" ]
-  %.sroa.0138.4..sroa.0138.4..sroa.0138.4..sroa.0138.4.160 = load i8, ptr %.sroa.0138.4..sroa_idx237, align 4, !tbaa !98
+  %.sroa.5.1 = phi i1 [ %.sroa.5.0186, %20 ], [ true, %74 ], [ %.sroa.5.0186, %77 ], [ %.sroa.5.0186, %49 ], [ %.sroa.5.0186, %.sink.split.i36 ], [ %.sroa.5.0186, %34 ], [ %.sroa.5.0186, %.sink.split.i24 ], [ %.sroa.5.0186, %27 ], [ %.sroa.5.0186, %.sink.split.i ], [ %.sroa.5.0186, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else" ], [ %.sroa.5.0186, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit" ], [ %.sroa.5.0186, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else" ], [ %.sroa.5.0186, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48" ]
+  %.sroa.0111.1 = phi i32 [ %.sroa.0111.0187, %20 ], [ %75, %74 ], [ %.sroa.0111.0187, %77 ], [ %.sroa.0111.0187, %49 ], [ %.sroa.0111.0187, %.sink.split.i36 ], [ %.sroa.0111.0187, %34 ], [ %.sroa.0111.0187, %.sink.split.i24 ], [ %.sroa.0111.0187, %27 ], [ %.sroa.0111.0187, %.sink.split.i ], [ %.sroa.0111.0187, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else" ], [ %.sroa.0111.0187, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit" ], [ %.sroa.0111.0187, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else" ], [ %.sroa.0111.0187, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48" ]
+  %.sroa.8.1 = phi i8 [ %.sroa.8.0188, %20 ], [ %.sroa.8.0188, %74 ], [ %.sroa.8.0188, %77 ], [ %.sroa.8.0188, %49 ], [ %.sroa.8.0188, %.sink.split.i36 ], [ %.sroa.8.0188, %34 ], [ %.sroa.8.0188, %.sink.split.i24 ], [ %.sroa.8.0188, %27 ], [ %.sroa.8.0188, %.sink.split.i ], [ 1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else" ], [ 1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit" ], [ 1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else" ], [ 1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48" ]
+  %.sroa.7.1 = phi i1 [ %.sroa.7.0189, %20 ], [ %.sroa.7.0189, %74 ], [ %.sroa.7.0189, %77 ], [ %.sroa.7.0189, %49 ], [ %.sroa.7.0189, %.sink.split.i36 ], [ %.sroa.7.0189, %34 ], [ %.sroa.7.0189, %.sink.split.i24 ], [ %.sroa.7.0189, %27 ], [ %.sroa.7.0189, %.sink.split.i ], [ %.sroa.7.0189, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else" ], [ true, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit" ], [ %.sroa.7.0189, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else" ], [ true, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48" ]
+  %.1 = phi i32 [ %.0190, %20 ], [ %.0190, %74 ], [ %.0190, %77 ], [ %40, %49 ], [ %40, %.sink.split.i36 ], [ %.0190, %34 ], [ %.0190, %.sink.split.i24 ], [ %25, %27 ], [ %25, %.sink.split.i ], [ %.0190, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit.else" ], [ %.0190, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_1clEi.exit" ], [ %62, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48.else" ], [ %62, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit48" ]
+  %.sroa.0138.4..sroa.0138.4..sroa.0138.4..sroa.0138.4.160 = load i8, ptr %.sroa.0138.4..sroa_idx242, align 4, !tbaa !98
   %78 = trunc nuw i8 %.sroa.0138.4..sroa.0138.4..sroa.0138.4..sroa.0138.4.160 to i1
-  br i1 %78, label %79, label %89
+  %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.130 = load i8, ptr %.sroa.0118.4..sroa_idx238, align 4
+  %79 = trunc nuw i8 %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.130 to i1
+  %or.cond = select i1 %78, i1 %79, i1 false
+  br i1 %or.cond, label %80, label %88
 
-79:                                               ; preds = %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit"
-  %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.130 = load i8, ptr %.sroa.0118.4..sroa_idx233, align 4, !tbaa !98
-  %80 = trunc nuw i8 %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.130 to i1
-  br i1 %80, label %81, label %89
+80:                                               ; preds = %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit"
+  %81 = trunc nuw i8 %.sroa.8.1 to i1
+  br i1 %81, label %82, label %88
 
-81:                                               ; preds = %79
-  %82 = trunc nuw i8 %.sroa.8.1 to i1
-  br i1 %82, label %83, label %89
-
-83:                                               ; preds = %81
+82:                                               ; preds = %80
   %.sroa.0138.0..sroa.0138.0..sroa.0138.0..sroa.0138.0.143 = load i32, ptr %.sroa.0138, align 8
   %.not.i = icmp ule i32 %.sroa.0138.0..sroa.0138.0..sroa.0138.0..sroa.0138.0.143, %1
   %.sroa.0118.0..sroa.0118.0..sroa.0118.0..sroa.0118.0. = load i32, ptr %.sroa.0118, align 8
-  %84 = icmp ult i32 %1, %.sroa.0118.0..sroa.0118.0..sroa.0118.0..sroa.0118.0.
-  %or.cond = select i1 %.not.i, i1 %84, i1 false
-  br i1 %or.cond, label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_3clEv.exit", label %85
+  %83 = icmp ult i32 %1, %.sroa.0118.0..sroa.0118.0..sroa.0118.0..sroa.0118.0.
+  %or.cond179 = select i1 %.not.i, i1 %83, i1 false
+  br i1 %or.cond179, label %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_3clEv.exit", label %84
 
-85:                                               ; preds = %83
-  br i1 %.sroa.5.1, label %86, label %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i
+84:                                               ; preds = %82
+  br i1 %.sroa.5.1, label %85, label %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i
 
-86:                                               ; preds = %85
+85:                                               ; preds = %84
   store i32 %.sroa.0111.1, ptr %3, align 4, !tbaa !97
   br label %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i
 
-_ZNSt8optionalIiEaSESt9nullopt_t.exit.i:          ; preds = %86, %85
+_ZNSt8optionalIiEaSESt9nullopt_t.exit.i:          ; preds = %85, %84
   %spec.select = select i1 %.sroa.7.1, i32 %.sroa.0.1, i32 %.sroa.0115.1
   %.sroa.0118.0..sroa.0118.0..sroa.0118.0..sroa.0118.0.119 = load i64, ptr %.sroa.0118, align 8
   store i64 %.sroa.0118.0..sroa.0118.0..sroa.0118.0..sroa.0118.0.119, ptr %.sroa.0138, align 8
   %.sroa.0111.0.insert.ext = zext i32 %.sroa.0111.1 to i64
   store i64 %.sroa.0111.0.insert.ext, ptr %.sroa.0118, align 8
-  %87 = lshr i64 %.sroa.0118.0..sroa.0118.0..sroa.0118.0..sroa.0118.0.119, 32
-  %88 = trunc i64 %87 to i8
-  br label %89
+  %86 = lshr i64 %.sroa.0118.0..sroa.0118.0..sroa.0118.0..sroa.0118.0.119, 32
+  %87 = trunc i64 %86 to i8
+  br label %88
 
-"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_3clEv.exit": ; preds = %83
+"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_3clEv.exit": ; preds = %82
   store i32 %.sroa.0115.1, ptr %2, align 4, !tbaa !97
   br label %_ZNK4llvm20iterator_facade_baseINS_8codeview24BinaryAnnotationIteratorESt20forward_iterator_tagNS1_17DecodedAnnotationElPS4_RS4_EneERKS2_.exit
 
-89:                                               ; preds = %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i, %81, %79, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit"
-  %.sroa.0138.4..sroa.0138.4..sroa.0138.4.152222 = phi i8 [ %88, %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i ], [ 1, %81 ], [ 1, %79 ], [ 0, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit" ]
-  %.sroa.0115.2 = phi i32 [ %spec.select, %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i ], [ %.sroa.0115.1, %81 ], [ %.sroa.0115.1, %79 ], [ %.sroa.0115.1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit" ]
-  %.sroa.5.4.ph = phi i1 [ false, %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i ], [ %.sroa.5.1, %81 ], [ %.sroa.5.1, %79 ], [ %.sroa.5.1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit" ]
-  %.sroa.8.5.ph = phi i8 [ 1, %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i ], [ 0, %81 ], [ %.sroa.8.1, %79 ], [ %.sroa.8.1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit" ]
-  %.sroa.7.5.ph = phi i1 [ false, %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i ], [ %.sroa.7.1, %81 ], [ %.sroa.7.1, %79 ], [ %.sroa.7.1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit" ]
+88:                                               ; preds = %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i, %80, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit"
+  %.sroa.0118.4..sroa.0118.4..sroa.0118.4.128231 = phi i8 [ 0, %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i ], [ 1, %80 ], [ %.sroa.0118.4..sroa.0118.4..sroa.0118.4..sroa.0118.4.130, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit" ]
+  %.sroa.0138.4..sroa.0138.4..sroa.0138.4.152229 = phi i8 [ %87, %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i ], [ 1, %80 ], [ %.sroa.0138.4..sroa.0138.4..sroa.0138.4..sroa.0138.4.160, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit" ]
+  %.sroa.0115.2 = phi i32 [ %spec.select, %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i ], [ %.sroa.0115.1, %80 ], [ %.sroa.0115.1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit" ]
+  %.sroa.5.4.ph = phi i1 [ false, %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i ], [ %.sroa.5.1, %80 ], [ %.sroa.5.1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit" ]
+  %.sroa.8.5.ph = phi i8 [ 1, %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i ], [ 0, %80 ], [ %.sroa.8.1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit" ]
+  %.sroa.7.5.ph = phi i1 [ false, %_ZNSt8optionalIiEaSESt9nullopt_t.exit.i ], [ %.sroa.7.1, %80 ], [ %.sroa.7.1, %"_ZZNK4llvm3pdb22NativeInlineSiteSymbol13getLineOffsetEjRjS2_ENK3$_0clEj.exit" ]
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.2.i54)
-  %90 = call noundef zeroext i1 @_ZN4llvm8codeview24BinaryAnnotationIterator22ParseCurrentAnnotationEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
-  br i1 %90, label %92, label %91
+  %89 = call noundef zeroext i1 @_ZN4llvm8codeview24BinaryAnnotationIterator22ParseCurrentAnnotationEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
+  br i1 %89, label %91, label %90
 
-91:                                               ; preds = %89
+90:                                               ; preds = %88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.2.i54, i8 0, i64 39, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.2.7..sroa_idx.i55, i64 16, i1 false), !tbaa.struct !115
   br label %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit
 
-92:                                               ; preds = %89
+91:                                               ; preds = %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !115
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %93 = load i8, ptr %13, align 8, !tbaa !103, !range !116, !noundef !117
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %95, label %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit
+  %92 = load i8, ptr %13, align 8, !tbaa !103, !range !116, !noundef !117
+  %93 = trunc nuw i8 %92 to i1
+  br i1 %93, label %94, label %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit
 
-95:                                               ; preds = %92
+94:                                               ; preds = %91
   store i8 0, ptr %13, align 8, !tbaa !103
   br label %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit
 
-_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit: ; preds = %91, %92, %95
+_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit: ; preds = %90, %91, %94
   call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.2.i54)
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.561.56..sroa_idx, align 8, !tbaa !64
   %.not.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i, 0

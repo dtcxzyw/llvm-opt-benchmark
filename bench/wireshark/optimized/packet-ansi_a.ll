@@ -11954,8 +11954,8 @@ define internal fastcc void @dissect_dtap_common(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #7
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %7 = icmp ugt i32 %6, 2
-  %brmerge = or i1 %3, %7
-  br i1 %brmerge, label %10, label %8
+  %or.cond = or i1 %3, %7
+  br i1 %or.cond, label %10, label %8
 
 8:                                                ; preds = %4
   %9 = tail call i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2)
@@ -11994,9 +11994,9 @@ define internal fastcc void @dissect_dtap_common(ptr noundef %0, ptr noundef %1,
   br label %30
 
 30:                                               ; preds = %26, %10
-  %.075 = phi i32 [ 0, %10 ], [ 2, %26 ]
-  %.072 = phi i32 [ 0, %10 ], [ %29, %26 ]
-  %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.075)
+  %.076 = phi i32 [ 0, %10 ], [ 2, %26 ]
+  %.073 = phi i32 [ 0, %10 ], [ %29, %26 ]
+  %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.076)
   %32 = zext i8 %31 to i32
   %33 = load ptr, ptr @ansi_a_dtap_strings, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -12049,14 +12049,14 @@ my_try_val_to_str_idx.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i
 58:                                               ; preds = %my_try_val_to_str_idx.exit, %my_try_val_to_str_idx.exit.thread
   %59 = phi i1 [ true, %my_try_val_to_str_idx.exit.thread ], [ false, %my_try_val_to_str_idx.exit ]
   %.08184 = phi i64 [ -1, %my_try_val_to_str_idx.exit.thread ], [ %57, %my_try_val_to_str_idx.exit ]
-  %.074 = phi ptr [ %45, %my_try_val_to_str_idx.exit.thread ], [ %51, %my_try_val_to_str_idx.exit ]
-  %.073 = phi ptr [ %47, %my_try_val_to_str_idx.exit.thread ], [ %55, %my_try_val_to_str_idx.exit ]
+  %.075 = phi ptr [ %45, %my_try_val_to_str_idx.exit.thread ], [ %51, %my_try_val_to_str_idx.exit ]
+  %.074 = phi ptr [ %47, %my_try_val_to_str_idx.exit.thread ], [ %55, %my_try_val_to_str_idx.exit ]
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.074, ptr %60, align 8
+  store ptr %.075, ptr %60, align 8
   br i1 %3, label %81, label %61
 
 61:                                               ; preds = %58
-  %switch.tableidx = add nsw i32 %.072, -3
+  %switch.tableidx = add nsw i32 %.073, -3
   %62 = icmp ult i32 %switch.tableidx, 13
   br i1 %62, label %switch.lookup, label %64
 
@@ -12069,7 +12069,7 @@ switch.lookup:                                    ; preds = %61
 64:                                               ; preds = %61, %switch.lookup
   %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.270, %61 ]
   %65 = load i32, ptr @hf_ansi_a_protocol_disc, align 4
-  %66 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.073, i32 noundef %65, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %.072, ptr noundef nonnull @.str.1766, ptr noundef nonnull %.0)
+  %66 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.074, i32 noundef %65, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %.073, ptr noundef nonnull @.str.1766, ptr noundef nonnull %.0)
   %67 = load i32, ptr @ett_dtap_oct_1, align 4
   %68 = tail call ptr @proto_item_add_subtree(ptr noundef %66, i32 noundef %67)
   %69 = load i32, ptr @hf_ansi_a_reserved_bits_8_f0, align 4
@@ -12082,21 +12082,21 @@ switch.lookup:                                    ; preds = %61
 
 74:                                               ; preds = %64
   %75 = load i32, ptr @hf_ansi_a_ti_flag, align 4
-  %76 = tail call ptr @proto_tree_add_item(ptr noundef %.073, i32 noundef %75, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %.074, i32 noundef %75, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %77 = load i32, ptr @hf_ansi_a_ti_ti, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %.073, i32 noundef %77, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %.074, i32 noundef %77, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %64, %74
   %hf_ansi_a_reserved_bits_8_0f.sink = phi ptr [ @hf_ansi_a_reserved_bits_8_0f, %74 ], [ @hf_ansi_a_reserved_octet, %64 ]
   %79 = load i32, ptr %hf_ansi_a_reserved_bits_8_0f.sink, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %.073, i32 noundef %79, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %.074, i32 noundef %79, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   br label %81
 
 81:                                               ; preds = %.sink.split, %58
   %82 = load i32, ptr @hf_ansi_a_dtap_msgtype, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %.073, i32 noundef %82, ptr noundef %0, i32 noundef %.075, i32 noundef 1, i32 noundef 0)
-  %84 = or disjoint i32 %.075, 1
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %.074, i32 noundef %82, ptr noundef %0, i32 noundef %.076, i32 noundef 1, i32 noundef 0)
+  %84 = or disjoint i32 %.076, 1
   %85 = load ptr, ptr @dissect_dtap_common.tap_p, align 8
   store i8 1, ptr %85, align 1
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
@@ -12118,13 +12118,13 @@ switch.lookup:                                    ; preds = %61
   br i1 %.not, label %97, label %95
 
 95:                                               ; preds = %91
-  %96 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.073, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_miss_dtap_msg_diss, ptr noundef %0, i32 noundef %84, i32 noundef %89, ptr noundef nonnull @.str.1752)
+  %96 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.074, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_miss_dtap_msg_diss, ptr noundef %0, i32 noundef %84, i32 noundef %89, ptr noundef nonnull @.str.1752)
   br label %100
 
 97:                                               ; preds = %91
   %98 = getelementptr [38 x ptr], ptr @dtap_msg_fcn, i64 0, i64 %.08184
   %99 = load ptr, ptr %98, align 8
-  call void %99(ptr noundef %0, ptr noundef %1, ptr noundef %.073, i32 noundef %84, i32 noundef %89, ptr noundef nonnull %5)
+  call void %99(ptr noundef %0, ptr noundef %1, ptr noundef %.074, i32 noundef %84, i32 noundef %89, ptr noundef nonnull %5)
   br label %100
 
 100:                                              ; preds = %95, %97, %88, %81, %8

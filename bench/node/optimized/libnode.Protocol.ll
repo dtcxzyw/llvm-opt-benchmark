@@ -14516,11 +14516,11 @@ while.cond.i54.preheader:                         ; preds = %if.end
   br label %while.cond.i54
 
 while.cond.i33.preheader:                         ; preds = %if.end
-  %scevgep145 = getelementptr i8, ptr %start.addr.019.i, i64 8
+  %scevgep144 = getelementptr i8, ptr %start.addr.019.i, i64 8
   br label %while.cond.i33
 
 while.cond.i.preheader:                           ; preds = %if.end
-  %scevgep147 = getelementptr i8, ptr %start.addr.019.i, i64 8
+  %scevgep146 = getelementptr i8, ptr %start.addr.019.i, i64 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %land.rhs.i
@@ -14531,8 +14531,8 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
   br i1 %cmp.i31, label %land.lhs.true.i, label %while.end.i
 
 land.lhs.true.i:                                  ; preds = %while.cond.i
-  %exitcond148 = icmp eq i64 %token.addr.0.i.idx, 4
-  br i1 %exitcond148, label %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit.thread, label %land.rhs.i
+  %exitcond147 = icmp eq i64 %token.addr.0.i.idx, 4
+  br i1 %exitcond147, label %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit.thread, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %4 = load i8, ptr %token.addr.0.i.ptr, align 1
@@ -14556,7 +14556,7 @@ while.end.i:                                      ; preds = %while.cond.i, %whil
   br i1 %cmp7.not.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit.thread, label %return
 
 _ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit.thread: ; preds = %land.lhs.true.i, %while.end.i
-  %start.addr.18.i = phi ptr [ %start.addr.1.ph.i, %while.end.i ], [ %scevgep147, %land.lhs.true.i ]
+  %start.addr.18.i = phi ptr [ %start.addr.1.ph.i, %while.end.i ], [ %scevgep146, %land.lhs.true.i ]
   store ptr %start.addr.18.i, ptr %tokenEnd, align 8
   br label %return
 
@@ -14568,8 +14568,8 @@ while.cond.i33:                                   ; preds = %while.cond.i33.preh
   br i1 %cmp.i36, label %land.lhs.true.i45, label %while.end.i37
 
 land.lhs.true.i45:                                ; preds = %while.cond.i33
-  %exitcond146 = icmp eq i64 %token.addr.0.i35.idx, 4
-  br i1 %exitcond146, label %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit53.thread, label %land.rhs.i47
+  %exitcond145 = icmp eq i64 %token.addr.0.i35.idx, 4
+  br i1 %exitcond145, label %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit53.thread, label %land.rhs.i47
 
 land.rhs.i47:                                     ; preds = %land.lhs.true.i45
   %6 = load i8, ptr %token.addr.0.i35.ptr, align 1
@@ -14593,7 +14593,7 @@ while.end.i37:                                    ; preds = %while.cond.i33, %wh
   br i1 %cmp7.not.i41, label %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit53.thread, label %return
 
 _ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit53.thread: ; preds = %land.lhs.true.i45, %while.end.i37
-  %start.addr.18.i44 = phi ptr [ %start.addr.1.ph.i38, %while.end.i37 ], [ %scevgep145, %land.lhs.true.i45 ]
+  %start.addr.18.i44 = phi ptr [ %start.addr.1.ph.i38, %while.end.i37 ], [ %scevgep144, %land.lhs.true.i45 ]
   store ptr %start.addr.18.i44, ptr %tokenEnd, align 8
   br label %return
 
@@ -14673,69 +14673,69 @@ if.end.i76:                                       ; preds = %if.end, %if.end, %i
 
 if.end.i.i:                                       ; preds = %if.end.i76
   %10 = load i16, ptr %spec.select.i, align 2
-  %cmp1.i.i = icmp ne i16 %10, 48
-  %cmp310.i.i = icmp ult ptr %spec.select.i, %end
-  br i1 %cmp310.i.i, label %land.lhs.true.i.i, label %return
+  %cmp1.i.i = icmp eq i16 %10, 48
+  %cmp312.i.i = icmp ult ptr %spec.select.i, %end
+  br i1 %cmp312.i.i, label %land.lhs.true.i.i, label %return
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i, %while.body.i.i
-  %length.012.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %if.end.i.i ]
-  %start.addr.011.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %spec.select.i, %if.end.i.i ]
-  %11 = load i16, ptr %start.addr.011.i.i, align 2
+  %length.014.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %if.end.i.i ]
+  %start.addr.013.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %spec.select.i, %if.end.i.i ]
+  %11 = load i16, ptr %start.addr.013.i.i, align 2
   %12 = add i16 %11, -48
-  %or.cond.i.i79 = icmp ult i16 %12, 10
-  br i1 %or.cond.i.i79, label %while.body.i.i, label %while.end.i.i
+  %or.cond11.i.i = icmp ult i16 %12, 10
+  br i1 %or.cond11.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %land.lhs.true.i.i
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %start.addr.011.i.i, i64 2
-  %inc.i.i = add nuw nsw i32 %length.012.i.i, 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %start.addr.013.i.i, i64 2
+  %inc.i.i = add nuw nsw i32 %length.014.i.i, 1
   %cmp3.i.i = icmp ult ptr %incdec.ptr.i.i, %end
   br i1 %cmp3.i.i, label %land.lhs.true.i.i, label %if.end9.i.i, !llvm.loop !293
 
 while.end.i.i:                                    ; preds = %land.lhs.true.i.i
-  %tobool.not.i.i = icmp eq i32 %length.012.i.i, 0
+  %tobool.not.i.i = icmp eq i32 %length.014.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %while.body.i.i, %while.end.i.i
-  %length.0.lcssa24.i.i = phi i32 [ %length.012.i.i, %while.end.i.i ], [ %inc.i.i, %while.body.i.i ]
-  %start.addr.0.lcssa23.i.i = phi ptr [ %start.addr.011.i.i, %while.end.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %cmp12.i.i = icmp eq i32 %length.0.lcssa24.i.i, 1
-  %brmerge.i.i = select i1 %cmp12.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %brmerge.i.i, label %if.end5.i, label %return
+  %length.0.lcssa26.i.i = phi i32 [ %length.014.i.i, %while.end.i.i ], [ %inc.i.i, %while.body.i.i ]
+  %start.addr.0.lcssa25.i.i = phi ptr [ %start.addr.013.i.i, %while.end.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
+  %cmp12.i.i = icmp ne i32 %length.0.lcssa26.i.i, 1
+  %or.cond1.i.i = select i1 %cmp12.i.i, i1 %cmp1.i.i, i1 false
+  br i1 %or.cond1.i.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end9.i.i
-  %cmp6.i = icmp eq ptr %start.addr.0.lcssa23.i.i, %end
+  %cmp6.i = icmp eq ptr %start.addr.0.lcssa25.i.i, %end
   br i1 %cmp6.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end5.i
-  %13 = load i16, ptr %start.addr.0.lcssa23.i.i, align 2
+  %13 = load i16, ptr %start.addr.0.lcssa25.i.i, align 2
   %cmp10.i = icmp eq i16 %13, 46
   br i1 %cmp10.i, label %if.then11.i, label %if.end19.i
 
 if.then11.i:                                      ; preds = %if.end8.i
-  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %start.addr.0.lcssa23.i.i, i64 2
-  %cmp310.i21.i = icmp ult ptr %incdec.ptr12.i, %end
-  br i1 %cmp310.i21.i, label %land.lhs.true.i23.i, label %return
+  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %start.addr.0.lcssa25.i.i, i64 2
+  %cmp312.i21.i = icmp ult ptr %incdec.ptr12.i, %end
+  br i1 %cmp312.i21.i, label %land.lhs.true.i23.i, label %return
 
 land.lhs.true.i23.i:                              ; preds = %if.then11.i, %while.body.i35.i
-  %length.012.i24.i = phi i32 [ %inc.i37.i, %while.body.i35.i ], [ 0, %if.then11.i ]
-  %start.addr.011.i25.i = phi ptr [ %incdec.ptr.i36.i, %while.body.i35.i ], [ %incdec.ptr12.i, %if.then11.i ]
-  %14 = load i16, ptr %start.addr.011.i25.i, align 2
+  %length.014.i24.i = phi i32 [ %inc.i37.i, %while.body.i35.i ], [ 0, %if.then11.i ]
+  %start.addr.013.i25.i = phi ptr [ %incdec.ptr.i36.i, %while.body.i35.i ], [ %incdec.ptr12.i, %if.then11.i ]
+  %14 = load i16, ptr %start.addr.013.i25.i, align 2
   %15 = add i16 %14, -48
-  %or.cond.i26.i = icmp ult i16 %15, 10
-  br i1 %or.cond.i26.i, label %while.body.i35.i, label %while.end.i27.i
+  %or.cond11.i26.i = icmp ult i16 %15, 10
+  br i1 %or.cond11.i26.i, label %while.body.i35.i, label %while.end.i27.i
 
 while.body.i35.i:                                 ; preds = %land.lhs.true.i23.i
-  %incdec.ptr.i36.i = getelementptr inbounds nuw i8, ptr %start.addr.011.i25.i, i64 2
-  %inc.i37.i = add nuw nsw i32 %length.012.i24.i, 1
+  %incdec.ptr.i36.i = getelementptr inbounds nuw i8, ptr %start.addr.013.i25.i, i64 2
+  %inc.i37.i = add nuw nsw i32 %length.014.i24.i, 1
   %cmp3.i38.i = icmp ult ptr %incdec.ptr.i36.i, %end
   br i1 %cmp3.i38.i, label %land.lhs.true.i23.i, label %if.end15.i, !llvm.loop !293
 
 while.end.i27.i:                                  ; preds = %land.lhs.true.i23.i
-  %tobool.not.i28.i = icmp eq i32 %length.012.i24.i, 0
+  %tobool.not.i28.i = icmp eq i32 %length.014.i24.i, 0
   br i1 %tobool.not.i28.i, label %return, label %if.end15.i
 
 if.end15.i:                                       ; preds = %while.body.i35.i, %while.end.i27.i
-  %start.addr.5.i = phi ptr [ %start.addr.011.i25.i, %while.end.i27.i ], [ %incdec.ptr.i36.i, %while.body.i35.i ]
+  %start.addr.5.i = phi ptr [ %start.addr.013.i25.i, %while.end.i27.i ], [ %incdec.ptr.i36.i, %while.body.i35.i ]
   %cmp16.i = icmp eq ptr %start.addr.5.i, %end
   br i1 %cmp16.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit, label %if.end18.i
 
@@ -14744,14 +14744,14 @@ if.end18.i:                                       ; preds = %if.end15.i
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end18.i, %if.end8.i
-  %start.addr.1.i80 = phi ptr [ %start.addr.5.i, %if.end18.i ], [ %start.addr.0.lcssa23.i.i, %if.end8.i ]
+  %start.addr.1.i79 = phi ptr [ %start.addr.5.i, %if.end18.i ], [ %start.addr.0.lcssa25.i.i, %if.end8.i ]
   %c.0.i = phi i16 [ %16, %if.end18.i ], [ %13, %if.end8.i ]
   %17 = and i16 %c.0.i, -33
   %or.cond.i = icmp eq i16 %17, 69
   br i1 %or.cond.i, label %if.then24.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit
 
 if.then24.i:                                      ; preds = %if.end19.i
-  %incdec.ptr25.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i80, i64 2
+  %incdec.ptr25.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i79, i64 2
   %cmp26.i = icmp eq ptr %incdec.ptr25.i, %end
   br i1 %cmp26.i, label %return, label %if.end28.i
 
@@ -14763,35 +14763,35 @@ if.end28.i:                                       ; preds = %if.then24.i
   ]
 
 if.then34.i:                                      ; preds = %if.end28.i, %if.end28.i
-  %incdec.ptr35.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i80, i64 4
+  %incdec.ptr35.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i79, i64 4
   %cmp36.i = icmp eq ptr %incdec.ptr35.i, %end
   br i1 %cmp36.i, label %return, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then34.i, %if.end28.i
   %start.addr.3.i = phi ptr [ %incdec.ptr25.i, %if.end28.i ], [ %incdec.ptr35.i, %if.then34.i ]
-  %cmp310.i43.i = icmp ult ptr %start.addr.3.i, %end
-  br i1 %cmp310.i43.i, label %land.lhs.true.i45.i, label %return
+  %cmp312.i43.i = icmp ult ptr %start.addr.3.i, %end
+  br i1 %cmp312.i43.i, label %land.lhs.true.i45.i, label %return
 
 land.lhs.true.i45.i:                              ; preds = %if.end39.i, %while.body.i57.i
-  %length.012.i46.i = phi i32 [ %inc.i59.i, %while.body.i57.i ], [ 0, %if.end39.i ]
-  %start.addr.011.i47.i = phi ptr [ %incdec.ptr.i58.i, %while.body.i57.i ], [ %start.addr.3.i, %if.end39.i ]
-  %19 = load i16, ptr %start.addr.011.i47.i, align 2
+  %length.014.i46.i = phi i32 [ %inc.i59.i, %while.body.i57.i ], [ 0, %if.end39.i ]
+  %start.addr.013.i47.i = phi ptr [ %incdec.ptr.i58.i, %while.body.i57.i ], [ %start.addr.3.i, %if.end39.i ]
+  %19 = load i16, ptr %start.addr.013.i47.i, align 2
   %20 = add i16 %19, -48
-  %or.cond.i48.i = icmp ult i16 %20, 10
-  br i1 %or.cond.i48.i, label %while.body.i57.i, label %while.end.i49.i
+  %or.cond11.i48.i = icmp ult i16 %20, 10
+  br i1 %or.cond11.i48.i, label %while.body.i57.i, label %while.end.i49.i
 
 while.body.i57.i:                                 ; preds = %land.lhs.true.i45.i
-  %incdec.ptr.i58.i = getelementptr inbounds nuw i8, ptr %start.addr.011.i47.i, i64 2
-  %inc.i59.i = add nuw nsw i32 %length.012.i46.i, 1
+  %incdec.ptr.i58.i = getelementptr inbounds nuw i8, ptr %start.addr.013.i47.i, i64 2
+  %inc.i59.i = add nuw nsw i32 %length.014.i46.i, 1
   %cmp3.i60.i = icmp ult ptr %incdec.ptr.i58.i, %end
   br i1 %cmp3.i60.i, label %land.lhs.true.i45.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit, !llvm.loop !293
 
 while.end.i49.i:                                  ; preds = %land.lhs.true.i45.i
-  %tobool.not.i50.i = icmp eq i32 %length.012.i46.i, 0
+  %tobool.not.i50.i = icmp eq i32 %length.014.i46.i, 0
   br i1 %tobool.not.i50.i, label %return, label %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit
 
 _ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit: ; preds = %while.body.i57.i, %if.end5.i, %if.end15.i, %if.end19.i, %while.end.i49.i
-  %start.addr.2.sink.i = phi ptr [ %start.addr.0.lcssa23.i.i, %if.end5.i ], [ %start.addr.5.i, %if.end15.i ], [ %start.addr.1.i80, %if.end19.i ], [ %start.addr.011.i47.i, %while.end.i49.i ], [ %incdec.ptr.i58.i, %while.body.i57.i ]
+  %start.addr.2.sink.i = phi ptr [ %start.addr.0.lcssa25.i.i, %if.end5.i ], [ %start.addr.5.i, %if.end15.i ], [ %start.addr.1.i79, %if.end19.i ], [ %start.addr.013.i47.i, %while.end.i49.i ], [ %incdec.ptr.i58.i, %while.body.i57.i ]
   store ptr %start.addr.2.sink.i, ptr %tokenEnd, align 8
   br label %return
 
@@ -14802,24 +14802,24 @@ sw.bb26:                                          ; preds = %if.end
 
 while.body.lr.ph.i:                               ; preds = %sw.bb26
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %end to i64
-  br label %while.body.i82
+  br label %while.body.i81
 
-while.body.i82:                                   ; preds = %if.end17.i, %while.body.lr.ph.i
-  %start.addr.036.i = phi ptr [ %add.ptr27, %while.body.lr.ph.i ], [ %start.addr.1.i86, %if.end17.i ]
-  %incdec.ptr.i83 = getelementptr inbounds nuw i8, ptr %start.addr.036.i, i64 2
+while.body.i81:                                   ; preds = %if.end17.i, %while.body.lr.ph.i
+  %start.addr.036.i = phi ptr [ %add.ptr27, %while.body.lr.ph.i ], [ %start.addr.1.i85, %if.end17.i ]
+  %incdec.ptr.i82 = getelementptr inbounds nuw i8, ptr %start.addr.036.i, i64 2
   %21 = load i16, ptr %start.addr.036.i, align 2
   switch i16 %21, label %if.end17.i [
-    i16 92, label %if.then.i84
+    i16 92, label %if.then.i83
     i16 34, label %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenItEEbPKT_S6_PS6_.exit
   ]
 
-if.then.i84:                                      ; preds = %while.body.i82
-  %cmp2.i = icmp eq ptr %incdec.ptr.i83, %end
-  br i1 %cmp2.i, label %return, label %if.end.i85
+if.then.i83:                                      ; preds = %while.body.i81
+  %cmp2.i = icmp eq ptr %incdec.ptr.i82, %end
+  br i1 %cmp2.i, label %return, label %if.end.i84
 
-if.end.i85:                                       ; preds = %if.then.i84
+if.end.i84:                                       ; preds = %if.then.i83
   %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %start.addr.036.i, i64 4
-  %22 = load i16, ptr %incdec.ptr.i83, align 2
+  %22 = load i16, ptr %incdec.ptr.i82, align 2
   switch i16 %22, label %return [
     i16 120, label %sw.bb.i
     i16 117, label %sw.bb8.i
@@ -14834,48 +14834,48 @@ if.end.i85:                                       ; preds = %if.then.i84
     i16 34, label %if.end17.i
   ]
 
-sw.bb.i:                                          ; preds = %if.end.i85
+sw.bb.i:                                          ; preds = %if.end.i84
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.i88 = icmp slt i64 %sub.ptr.sub.i.i, 3
-  br i1 %cmp.i.i88, label %return, label %for.body.i.preheader.i
+  %cmp.i.i87 = icmp slt i64 %sub.ptr.sub.i.i, 3
+  br i1 %cmp.i.i87, label %return, label %for.body.i.preheader.i
 
 for.body.i.preheader.i:                           ; preds = %sw.bb.i
   %scevgep45.i = getelementptr i8, ptr %start.addr.036.i, i64 8
-  br label %for.body.i.i89
+  br label %for.body.i.i88
 
-for.body.i.i89:                                   ; preds = %for.inc.i.i92, %for.body.i.preheader.i
-  %i.017.i.i = phi i32 [ %inc.i.i93, %for.inc.i.i92 ], [ 0, %for.body.i.preheader.i ]
-  %start.addr.016.i.i = phi ptr [ %incdec.ptr.i.i90, %for.inc.i.i92 ], [ %incdec.ptr4.i, %for.body.i.preheader.i ]
-  %incdec.ptr.i.i90 = getelementptr inbounds nuw i8, ptr %start.addr.016.i.i, i64 2
+for.body.i.i88:                                   ; preds = %for.inc.i.i91, %for.body.i.preheader.i
+  %i.017.i.i = phi i32 [ %inc.i.i92, %for.inc.i.i91 ], [ 0, %for.body.i.preheader.i ]
+  %start.addr.016.i.i = phi ptr [ %incdec.ptr.i.i89, %for.inc.i.i91 ], [ %incdec.ptr4.i, %for.body.i.preheader.i ]
+  %incdec.ptr.i.i89 = getelementptr inbounds nuw i8, ptr %start.addr.016.i.i, i64 2
   %23 = load i16, ptr %start.addr.016.i.i, align 2
   %.fr14.i.i = freeze i16 %23
   %24 = add i16 %.fr14.i.i, -48
-  %or.cond.i.i91 = icmp ult i16 %24, 10
-  br i1 %or.cond.i.i91, label %for.inc.i.i92, label %switch.early.test.i.i
+  %or.cond.i.i90 = icmp ult i16 %24, 10
+  br i1 %or.cond.i.i90, label %for.inc.i.i91, label %switch.early.test.i.i
 
-switch.early.test.i.i:                            ; preds = %for.body.i.i89
+switch.early.test.i.i:                            ; preds = %for.body.i.i88
   switch i16 %.fr14.i.i, label %return [
-    i16 102, label %for.inc.i.i92
-    i16 101, label %for.inc.i.i92
-    i16 100, label %for.inc.i.i92
-    i16 99, label %for.inc.i.i92
-    i16 98, label %for.inc.i.i92
-    i16 97, label %for.inc.i.i92
-    i16 70, label %for.inc.i.i92
-    i16 69, label %for.inc.i.i92
-    i16 68, label %for.inc.i.i92
-    i16 67, label %for.inc.i.i92
-    i16 66, label %for.inc.i.i92
-    i16 65, label %for.inc.i.i92
+    i16 102, label %for.inc.i.i91
+    i16 101, label %for.inc.i.i91
+    i16 100, label %for.inc.i.i91
+    i16 99, label %for.inc.i.i91
+    i16 98, label %for.inc.i.i91
+    i16 97, label %for.inc.i.i91
+    i16 70, label %for.inc.i.i91
+    i16 69, label %for.inc.i.i91
+    i16 68, label %for.inc.i.i91
+    i16 67, label %for.inc.i.i91
+    i16 66, label %for.inc.i.i91
+    i16 65, label %for.inc.i.i91
   ]
 
-for.inc.i.i92:                                    ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %for.body.i.i89
-  %inc.i.i93 = add nuw nsw i32 %i.017.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i93, 2
-  br i1 %exitcond.not.i.i, label %if.end17.i, label %for.body.i.i89, !llvm.loop !294
+for.inc.i.i91:                                    ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %for.body.i.i88
+  %inc.i.i92 = add nuw nsw i32 %i.017.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i92, 2
+  br i1 %exitcond.not.i.i, label %if.end17.i, label %for.body.i.i88, !llvm.loop !294
 
-sw.bb8.i:                                         ; preds = %if.end.i85
+sw.bb8.i:                                         ; preds = %if.end.i84
   %sub.ptr.rhs.cast.i7.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i7.i
   %cmp.i10.i = icmp slt i64 %sub.ptr.sub.i8.i, 8
@@ -14916,17 +14916,17 @@ for.inc.i18.i:                                    ; preds = %switch.early.test.i
   %exitcond.not.i20.i = icmp eq i32 %inc.i19.i, 4
   br i1 %exitcond.not.i20.i, label %if.end17.i, label %for.body.i11.i, !llvm.loop !294
 
-if.end17.i:                                       ; preds = %for.inc.i18.i, %for.inc.i.i92, %if.end.i85, %if.end.i85, %if.end.i85, %if.end.i85, %if.end.i85, %if.end.i85, %if.end.i85, %if.end.i85, %if.end.i85, %while.body.i82
-  %start.addr.1.i86 = phi ptr [ %incdec.ptr.i83, %while.body.i82 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %scevgep45.i, %for.inc.i.i92 ], [ %scevgep.i, %for.inc.i18.i ]
-  %cmp.i87 = icmp ult ptr %start.addr.1.i86, %end
-  br i1 %cmp.i87, label %while.body.i82, label %return, !llvm.loop !295
+if.end17.i:                                       ; preds = %for.inc.i18.i, %for.inc.i.i91, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %while.body.i81
+  %start.addr.1.i85 = phi ptr [ %incdec.ptr.i82, %while.body.i81 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %scevgep45.i, %for.inc.i.i91 ], [ %scevgep.i, %for.inc.i18.i ]
+  %cmp.i86 = icmp ult ptr %start.addr.1.i85, %end
+  br i1 %cmp.i86, label %while.body.i81, label %return, !llvm.loop !295
 
-_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenItEEbPKT_S6_PS6_.exit: ; preds = %while.body.i82
-  store ptr %incdec.ptr.i83, ptr %tokenEnd, align 8
+_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenItEEbPKT_S6_PS6_.exit: ; preds = %while.body.i81
+  store ptr %incdec.ptr.i82, ptr %tokenEnd, align 8
   br label %return
 
-return:                                           ; preds = %if.then.i84, %if.end.i85, %if.end17.i, %sw.bb.i, %sw.bb8.i, %switch.early.test.i17.i, %switch.early.test.i.i, %sw.bb26, %while.end.i49.i, %if.end39.i, %while.end.i27.i, %if.then11.i, %if.end.i.i, %if.end9.i.i, %while.end.i.i, %if.end.i76, %if.then34.i, %if.then24.i, %if.end, %while.end.i, %while.end.i37, %while.end.i58, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenItEEbPKT_S6_PS6_.exit, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit74.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit53.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
-  %retval.0 = phi i32 [ 10, %sw.bb20 ], [ 1, %sw.bb18 ], [ 0, %sw.bb16 ], [ 9, %sw.bb14 ], [ 3, %sw.bb12 ], [ 2, %sw.bb11 ], [ 11, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit ], [ 5, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit ], [ 4, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenItEEbPKT_S6_PS6_.exit ], [ 11, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit.thread ], [ 8, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit.thread ], [ 6, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit53.thread ], [ 7, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit74.thread ], [ 11, %while.end.i58 ], [ 11, %while.end.i37 ], [ 11, %while.end.i ], [ 11, %if.end ], [ 11, %if.then24.i ], [ 11, %if.then34.i ], [ 11, %if.end.i76 ], [ 11, %while.end.i.i ], [ 11, %if.end9.i.i ], [ 11, %if.end.i.i ], [ 11, %if.then11.i ], [ 11, %while.end.i27.i ], [ 11, %if.end39.i ], [ 11, %while.end.i49.i ], [ 11, %sw.bb26 ], [ 11, %switch.early.test.i.i ], [ 11, %switch.early.test.i17.i ], [ 11, %sw.bb8.i ], [ 11, %sw.bb.i ], [ 11, %if.end17.i ], [ 11, %if.end.i85 ], [ 11, %if.then.i84 ]
+return:                                           ; preds = %if.then.i83, %if.end.i84, %if.end17.i, %sw.bb.i, %sw.bb8.i, %switch.early.test.i17.i, %switch.early.test.i.i, %sw.bb26, %while.end.i49.i, %if.end39.i, %while.end.i27.i, %if.then11.i, %if.end.i.i, %if.end9.i.i, %while.end.i.i, %if.end.i76, %if.then34.i, %if.then24.i, %if.end, %while.end.i, %while.end.i37, %while.end.i58, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenItEEbPKT_S6_PS6_.exit, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit74.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit53.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
+  %retval.0 = phi i32 [ 10, %sw.bb20 ], [ 1, %sw.bb18 ], [ 0, %sw.bb16 ], [ 9, %sw.bb14 ], [ 3, %sw.bb12 ], [ 2, %sw.bb11 ], [ 11, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit ], [ 5, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit ], [ 4, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenItEEbPKT_S6_PS6_.exit ], [ 11, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit.thread ], [ 8, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit.thread ], [ 6, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit53.thread ], [ 7, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit74.thread ], [ 11, %while.end.i58 ], [ 11, %while.end.i37 ], [ 11, %while.end.i ], [ 11, %if.end ], [ 11, %if.then24.i ], [ 11, %if.then34.i ], [ 11, %if.end.i76 ], [ 11, %while.end.i.i ], [ 11, %if.end9.i.i ], [ 11, %if.end.i.i ], [ 11, %if.then11.i ], [ 11, %while.end.i27.i ], [ 11, %if.end39.i ], [ 11, %while.end.i49.i ], [ 11, %sw.bb26 ], [ 11, %switch.early.test.i.i ], [ 11, %switch.early.test.i17.i ], [ 11, %sw.bb8.i ], [ 11, %sw.bb.i ], [ 11, %if.end17.i ], [ 11, %if.end.i84 ], [ 11, %if.then.i83 ]
   ret i32 %retval.0
 }
 
@@ -15714,11 +15714,11 @@ while.cond.i54.preheader:                         ; preds = %if.end
   br label %while.cond.i54
 
 while.cond.i33.preheader:                         ; preds = %if.end
-  %scevgep136 = getelementptr i8, ptr %start.addr.018.i, i64 4
+  %scevgep135 = getelementptr i8, ptr %start.addr.018.i, i64 4
   br label %while.cond.i33
 
 while.cond.i.preheader:                           ; preds = %if.end
-  %scevgep138 = getelementptr i8, ptr %start.addr.018.i, i64 4
+  %scevgep137 = getelementptr i8, ptr %start.addr.018.i, i64 4
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %land.rhs.i
@@ -15729,8 +15729,8 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
   br i1 %cmp.i31, label %land.lhs.true.i, label %while.end.i
 
 land.lhs.true.i:                                  ; preds = %while.cond.i
-  %exitcond139 = icmp eq i64 %token.addr.0.i.idx, 4
-  br i1 %exitcond139, label %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit.thread, label %land.rhs.i
+  %exitcond138 = icmp eq i64 %token.addr.0.i.idx, 4
+  br i1 %exitcond138, label %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit.thread, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %4 = load i8, ptr %token.addr.0.i.ptr, align 1
@@ -15754,7 +15754,7 @@ while.end.i:                                      ; preds = %while.cond.i, %whil
   br i1 %cmp7.not.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit.thread, label %return
 
 _ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit.thread: ; preds = %land.lhs.true.i, %while.end.i
-  %start.addr.18.i = phi ptr [ %start.addr.1.ph.i, %while.end.i ], [ %scevgep138, %land.lhs.true.i ]
+  %start.addr.18.i = phi ptr [ %start.addr.1.ph.i, %while.end.i ], [ %scevgep137, %land.lhs.true.i ]
   store ptr %start.addr.18.i, ptr %tokenEnd, align 8
   br label %return
 
@@ -15766,8 +15766,8 @@ while.cond.i33:                                   ; preds = %while.cond.i33.preh
   br i1 %cmp.i36, label %land.lhs.true.i45, label %while.end.i37
 
 land.lhs.true.i45:                                ; preds = %while.cond.i33
-  %exitcond137 = icmp eq i64 %token.addr.0.i35.idx, 4
-  br i1 %exitcond137, label %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit53.thread, label %land.rhs.i47
+  %exitcond136 = icmp eq i64 %token.addr.0.i35.idx, 4
+  br i1 %exitcond136, label %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit53.thread, label %land.rhs.i47
 
 land.rhs.i47:                                     ; preds = %land.lhs.true.i45
   %6 = load i8, ptr %token.addr.0.i35.ptr, align 1
@@ -15791,7 +15791,7 @@ while.end.i37:                                    ; preds = %while.cond.i33, %wh
   br i1 %cmp7.not.i41, label %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit53.thread, label %return
 
 _ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit53.thread: ; preds = %land.lhs.true.i45, %while.end.i37
-  %start.addr.18.i44 = phi ptr [ %start.addr.1.ph.i38, %while.end.i37 ], [ %scevgep136, %land.lhs.true.i45 ]
+  %start.addr.18.i44 = phi ptr [ %start.addr.1.ph.i38, %while.end.i37 ], [ %scevgep135, %land.lhs.true.i45 ]
   store ptr %start.addr.18.i44, ptr %tokenEnd, align 8
   br label %return
 
@@ -15866,87 +15866,87 @@ if.end.i76:                                       ; preds = %if.end, %if.end, %i
   %cmp1.i = icmp eq i8 %3, 45
   %spec.select.idx.i = zext i1 %cmp1.i to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %start.addr.018.i, i64 %spec.select.idx.i
-  %start17.i.i = ptrtoint ptr %spec.select.i to i64
-  %end16.i.i = ptrtoint ptr %end to i64
+  %start19.i.i = ptrtoint ptr %spec.select.i to i64
+  %end18.i.i = ptrtoint ptr %end to i64
   %cmp.i.i77 = icmp eq ptr %spec.select.i, %end
   br i1 %cmp.i.i77, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i76
   %10 = load i8, ptr %spec.select.i, align 1
-  %cmp1.i.i = icmp ne i8 %10, 48
-  %cmp310.i.i = icmp ult ptr %spec.select.i, %end
-  br i1 %cmp310.i.i, label %land.lhs.true.preheader.i.i, label %return
+  %cmp1.i.i = icmp eq i8 %10, 48
+  %cmp312.i.i = icmp ult ptr %spec.select.i, %end
+  br i1 %cmp312.i.i, label %land.lhs.true.preheader.i.i, label %return
 
 land.lhs.true.preheader.i.i:                      ; preds = %if.end.i.i
-  %11 = sub i64 %end16.i.i, %start17.i.i
+  %11 = sub i64 %end18.i.i, %start19.i.i
   %scevgep.i.i = getelementptr i8, ptr %spec.select.i, i64 %11
-  %12 = trunc i64 %end16.i.i to i32
-  %13 = trunc i64 %start17.i.i to i32
+  %12 = trunc i64 %end18.i.i to i32
+  %13 = trunc i64 %start19.i.i to i32
   %14 = sub i32 %12, %13
   br label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.body.i.i, %land.lhs.true.preheader.i.i
-  %length.012.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %land.lhs.true.preheader.i.i ]
-  %start.addr.011.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %spec.select.i, %land.lhs.true.preheader.i.i ]
-  %15 = load i8, ptr %start.addr.011.i.i, align 1
+  %length.014.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %land.lhs.true.preheader.i.i ]
+  %start.addr.013.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %spec.select.i, %land.lhs.true.preheader.i.i ]
+  %15 = load i8, ptr %start.addr.013.i.i, align 1
   %16 = add i8 %15, -48
-  %or.cond.i.i78 = icmp ult i8 %16, 10
-  br i1 %or.cond.i.i78, label %while.body.i.i, label %while.end.i.i
+  %or.cond11.i.i = icmp ult i8 %16, 10
+  br i1 %or.cond11.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %land.lhs.true.i.i
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %start.addr.011.i.i, i64 1
-  %inc.i.i = add nuw nsw i32 %length.012.i.i, 1
-  %exitcond.not.i.i81 = icmp eq ptr %incdec.ptr.i.i, %end
-  br i1 %exitcond.not.i.i81, label %while.end.i.i, label %land.lhs.true.i.i, !llvm.loop !332
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %start.addr.013.i.i, i64 1
+  %inc.i.i = add nuw nsw i32 %length.014.i.i, 1
+  %exitcond.not.i.i80 = icmp eq ptr %incdec.ptr.i.i, %end
+  br i1 %exitcond.not.i.i80, label %while.end.i.i, label %land.lhs.true.i.i, !llvm.loop !332
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %land.lhs.true.i.i
-  %start.addr.0.lcssa.i.i = phi ptr [ %scevgep.i.i, %while.body.i.i ], [ %start.addr.011.i.i, %land.lhs.true.i.i ]
-  %length.0.lcssa.i.i = phi i32 [ %14, %while.body.i.i ], [ %length.012.i.i, %land.lhs.true.i.i ]
-  %tobool.not.i.i = icmp ne i32 %length.0.lcssa.i.i, 0
-  %cmp12.i.i = icmp eq i32 %length.0.lcssa.i.i, 1
-  %brmerge.i.i = select i1 %cmp12.i.i, i1 true, i1 %cmp1.i.i
-  %or.cond81.i = select i1 %tobool.not.i.i, i1 %brmerge.i.i, i1 false
-  br i1 %or.cond81.i, label %if.end5.i, label %return
+  %start.addr.0.lcssa.i.i = phi ptr [ %scevgep.i.i, %while.body.i.i ], [ %start.addr.013.i.i, %land.lhs.true.i.i ]
+  %length.0.lcssa.i.i = phi i32 [ %14, %while.body.i.i ], [ %length.014.i.i, %land.lhs.true.i.i ]
+  %tobool.not.i.i = icmp eq i32 %length.0.lcssa.i.i, 0
+  %cmp12.i.i = icmp ne i32 %length.0.lcssa.i.i, 1
+  %or.cond1.i.i = select i1 %cmp12.i.i, i1 %cmp1.i.i, i1 false
+  %or.cond81.i = select i1 %tobool.not.i.i, i1 true, i1 %or.cond1.i.i
+  br i1 %or.cond81.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %while.end.i.i
   %cmp6.i = icmp eq ptr %start.addr.0.lcssa.i.i, %end
-  br i1 %cmp6.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenIhEEbPKT_S6_PS6_.exit, label %if.end8.i79
+  br i1 %cmp6.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenIhEEbPKT_S6_PS6_.exit, label %if.end8.i78
 
-if.end8.i79:                                      ; preds = %if.end5.i
+if.end8.i78:                                      ; preds = %if.end5.i
   %17 = load i8, ptr %start.addr.0.lcssa.i.i, align 1
   %cmp10.i = icmp eq i8 %17, 46
   br i1 %cmp10.i, label %if.then11.i, label %if.end19.i
 
-if.then11.i:                                      ; preds = %if.end8.i79
+if.then11.i:                                      ; preds = %if.end8.i78
   %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %start.addr.0.lcssa.i.i, i64 1
-  %cmp310.i23.i = icmp ult ptr %incdec.ptr12.i, %end
-  br i1 %cmp310.i23.i, label %land.lhs.true.preheader.i25.i, label %return
+  %cmp312.i23.i = icmp ult ptr %incdec.ptr12.i, %end
+  br i1 %cmp312.i23.i, label %land.lhs.true.preheader.i25.i, label %return
 
 land.lhs.true.preheader.i25.i:                    ; preds = %if.then11.i
-  %start17.i18.i = ptrtoint ptr %incdec.ptr12.i to i64
-  %18 = sub i64 %end16.i.i, %start17.i18.i
+  %start19.i18.i = ptrtoint ptr %incdec.ptr12.i to i64
+  %18 = sub i64 %end18.i.i, %start19.i18.i
   %scevgep.i26.i = getelementptr i8, ptr %incdec.ptr12.i, i64 %18
-  %19 = trunc i64 %start17.i18.i to i32
+  %19 = trunc i64 %start19.i18.i to i32
   %20 = sub i32 %12, %19
   br label %land.lhs.true.i27.i
 
 land.lhs.true.i27.i:                              ; preds = %while.body.i39.i, %land.lhs.true.preheader.i25.i
-  %length.012.i28.i = phi i32 [ %inc.i41.i, %while.body.i39.i ], [ 0, %land.lhs.true.preheader.i25.i ]
-  %start.addr.011.i29.i = phi ptr [ %incdec.ptr.i40.i, %while.body.i39.i ], [ %incdec.ptr12.i, %land.lhs.true.preheader.i25.i ]
-  %21 = load i8, ptr %start.addr.011.i29.i, align 1
+  %length.014.i28.i = phi i32 [ %inc.i41.i, %while.body.i39.i ], [ 0, %land.lhs.true.preheader.i25.i ]
+  %start.addr.013.i29.i = phi ptr [ %incdec.ptr.i40.i, %while.body.i39.i ], [ %incdec.ptr12.i, %land.lhs.true.preheader.i25.i ]
+  %21 = load i8, ptr %start.addr.013.i29.i, align 1
   %22 = add i8 %21, -48
-  %or.cond.i30.i = icmp ult i8 %22, 10
-  br i1 %or.cond.i30.i, label %while.body.i39.i, label %while.end.i31.i
+  %or.cond11.i30.i = icmp ult i8 %22, 10
+  br i1 %or.cond11.i30.i, label %while.body.i39.i, label %while.end.i31.i
 
 while.body.i39.i:                                 ; preds = %land.lhs.true.i27.i
-  %incdec.ptr.i40.i = getelementptr inbounds nuw i8, ptr %start.addr.011.i29.i, i64 1
-  %inc.i41.i = add nuw nsw i32 %length.012.i28.i, 1
+  %incdec.ptr.i40.i = getelementptr inbounds nuw i8, ptr %start.addr.013.i29.i, i64 1
+  %inc.i41.i = add nuw nsw i32 %length.014.i28.i, 1
   %exitcond.not.i42.i = icmp eq ptr %incdec.ptr.i40.i, %end
   br i1 %exitcond.not.i42.i, label %while.end.i31.i, label %land.lhs.true.i27.i, !llvm.loop !332
 
 while.end.i31.i:                                  ; preds = %while.body.i39.i, %land.lhs.true.i27.i
-  %start.addr.0.lcssa.i32.i = phi ptr [ %scevgep.i26.i, %while.body.i39.i ], [ %start.addr.011.i29.i, %land.lhs.true.i27.i ]
-  %length.0.lcssa.i33.i = phi i32 [ %20, %while.body.i39.i ], [ %length.012.i28.i, %land.lhs.true.i27.i ]
+  %start.addr.0.lcssa.i32.i = phi ptr [ %scevgep.i26.i, %while.body.i39.i ], [ %start.addr.013.i29.i, %land.lhs.true.i27.i ]
+  %length.0.lcssa.i33.i = phi i32 [ %20, %while.body.i39.i ], [ %length.014.i28.i, %land.lhs.true.i27.i ]
   %tobool.not.i34.i = icmp eq i32 %length.0.lcssa.i33.i, 0
   br i1 %tobool.not.i34.i, label %return, label %if.end15.i
 
@@ -15958,15 +15958,15 @@ if.end18.i:                                       ; preds = %if.end15.i
   %23 = load i8, ptr %start.addr.0.lcssa.i32.i, align 1
   br label %if.end19.i
 
-if.end19.i:                                       ; preds = %if.end18.i, %if.end8.i79
-  %start.addr.1.i80 = phi ptr [ %start.addr.0.lcssa.i32.i, %if.end18.i ], [ %start.addr.0.lcssa.i.i, %if.end8.i79 ]
-  %c.0.i = phi i8 [ %23, %if.end18.i ], [ %17, %if.end8.i79 ]
+if.end19.i:                                       ; preds = %if.end18.i, %if.end8.i78
+  %start.addr.1.i79 = phi ptr [ %start.addr.0.lcssa.i32.i, %if.end18.i ], [ %start.addr.0.lcssa.i.i, %if.end8.i78 ]
+  %c.0.i = phi i8 [ %23, %if.end18.i ], [ %17, %if.end8.i78 ]
   %24 = and i8 %c.0.i, -33
   %or.cond.i = icmp eq i8 %24, 69
   br i1 %or.cond.i, label %if.then24.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenIhEEbPKT_S6_PS6_.exit
 
 if.then24.i:                                      ; preds = %if.end19.i
-  %incdec.ptr25.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i80, i64 1
+  %incdec.ptr25.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i79, i64 1
   %cmp26.i = icmp eq ptr %incdec.ptr25.i, %end
   br i1 %cmp26.i, label %return, label %if.end28.i
 
@@ -15978,45 +15978,45 @@ if.end28.i:                                       ; preds = %if.then24.i
   ]
 
 if.then34.i:                                      ; preds = %if.end28.i, %if.end28.i
-  %incdec.ptr35.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i80, i64 2
+  %incdec.ptr35.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i79, i64 2
   %cmp36.i = icmp eq ptr %incdec.ptr35.i, %end
   br i1 %cmp36.i, label %return, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then34.i, %if.end28.i
   %start.addr.3.i = phi ptr [ %incdec.ptr25.i, %if.end28.i ], [ %incdec.ptr35.i, %if.then34.i ]
-  %cmp310.i49.i = icmp ult ptr %start.addr.3.i, %end
-  br i1 %cmp310.i49.i, label %land.lhs.true.preheader.i51.i, label %return
+  %cmp312.i49.i = icmp ult ptr %start.addr.3.i, %end
+  br i1 %cmp312.i49.i, label %land.lhs.true.preheader.i51.i, label %return
 
 land.lhs.true.preheader.i51.i:                    ; preds = %if.end39.i
-  %start17.i44.i = ptrtoint ptr %start.addr.3.i to i64
-  %26 = sub i64 %end16.i.i, %start17.i44.i
+  %start19.i44.i = ptrtoint ptr %start.addr.3.i to i64
+  %26 = sub i64 %end18.i.i, %start19.i44.i
   %scevgep.i52.i = getelementptr i8, ptr %start.addr.3.i, i64 %26
-  %27 = trunc i64 %start17.i44.i to i32
+  %27 = trunc i64 %start19.i44.i to i32
   %28 = sub i32 %12, %27
   br label %land.lhs.true.i53.i
 
 land.lhs.true.i53.i:                              ; preds = %while.body.i65.i, %land.lhs.true.preheader.i51.i
-  %length.012.i54.i = phi i32 [ %inc.i67.i, %while.body.i65.i ], [ 0, %land.lhs.true.preheader.i51.i ]
-  %start.addr.011.i55.i = phi ptr [ %incdec.ptr.i66.i, %while.body.i65.i ], [ %start.addr.3.i, %land.lhs.true.preheader.i51.i ]
-  %29 = load i8, ptr %start.addr.011.i55.i, align 1
+  %length.014.i54.i = phi i32 [ %inc.i67.i, %while.body.i65.i ], [ 0, %land.lhs.true.preheader.i51.i ]
+  %start.addr.013.i55.i = phi ptr [ %incdec.ptr.i66.i, %while.body.i65.i ], [ %start.addr.3.i, %land.lhs.true.preheader.i51.i ]
+  %29 = load i8, ptr %start.addr.013.i55.i, align 1
   %30 = add i8 %29, -48
-  %or.cond.i56.i = icmp ult i8 %30, 10
-  br i1 %or.cond.i56.i, label %while.body.i65.i, label %while.end.i57.i
+  %or.cond11.i56.i = icmp ult i8 %30, 10
+  br i1 %or.cond11.i56.i, label %while.body.i65.i, label %while.end.i57.i
 
 while.body.i65.i:                                 ; preds = %land.lhs.true.i53.i
-  %incdec.ptr.i66.i = getelementptr inbounds nuw i8, ptr %start.addr.011.i55.i, i64 1
-  %inc.i67.i = add nuw nsw i32 %length.012.i54.i, 1
+  %incdec.ptr.i66.i = getelementptr inbounds nuw i8, ptr %start.addr.013.i55.i, i64 1
+  %inc.i67.i = add nuw nsw i32 %length.014.i54.i, 1
   %exitcond.not.i68.i = icmp eq ptr %incdec.ptr.i66.i, %end
   br i1 %exitcond.not.i68.i, label %while.end.i57.i, label %land.lhs.true.i53.i, !llvm.loop !332
 
 while.end.i57.i:                                  ; preds = %while.body.i65.i, %land.lhs.true.i53.i
-  %start.addr.0.lcssa.i58.i = phi ptr [ %scevgep.i52.i, %while.body.i65.i ], [ %start.addr.011.i55.i, %land.lhs.true.i53.i ]
-  %length.0.lcssa.i59.i = phi i32 [ %28, %while.body.i65.i ], [ %length.012.i54.i, %land.lhs.true.i53.i ]
+  %start.addr.0.lcssa.i58.i = phi ptr [ %scevgep.i52.i, %while.body.i65.i ], [ %start.addr.013.i55.i, %land.lhs.true.i53.i ]
+  %length.0.lcssa.i59.i = phi i32 [ %28, %while.body.i65.i ], [ %length.014.i54.i, %land.lhs.true.i53.i ]
   %tobool.not.i60.i = icmp eq i32 %length.0.lcssa.i59.i, 0
   br i1 %tobool.not.i60.i, label %return, label %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenIhEEbPKT_S6_PS6_.exit
 
 _ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenIhEEbPKT_S6_PS6_.exit: ; preds = %if.end5.i, %if.end15.i, %if.end19.i, %while.end.i57.i
-  %start.addr.2.sink.i = phi ptr [ %start.addr.0.lcssa.i.i, %if.end5.i ], [ %start.addr.0.lcssa.i32.i, %if.end15.i ], [ %start.addr.1.i80, %if.end19.i ], [ %start.addr.0.lcssa.i58.i, %while.end.i57.i ]
+  %start.addr.2.sink.i = phi ptr [ %start.addr.0.lcssa.i.i, %if.end5.i ], [ %start.addr.0.lcssa.i32.i, %if.end15.i ], [ %start.addr.1.i79, %if.end19.i ], [ %start.addr.0.lcssa.i58.i, %while.end.i57.i ]
   store ptr %start.addr.2.sink.i, ptr %tokenEnd, align 8
   br label %return
 
@@ -16027,24 +16027,24 @@ sw.bb26:                                          ; preds = %if.end
 
 while.body.lr.ph.i:                               ; preds = %sw.bb26
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %end to i64
-  br label %while.body.i83
+  br label %while.body.i82
 
-while.body.i83:                                   ; preds = %if.end17.i, %while.body.lr.ph.i
-  %start.addr.035.i = phi ptr [ %add.ptr27, %while.body.lr.ph.i ], [ %start.addr.1.i87, %if.end17.i ]
-  %incdec.ptr.i84 = getelementptr inbounds nuw i8, ptr %start.addr.035.i, i64 1
+while.body.i82:                                   ; preds = %if.end17.i, %while.body.lr.ph.i
+  %start.addr.035.i = phi ptr [ %add.ptr27, %while.body.lr.ph.i ], [ %start.addr.1.i86, %if.end17.i ]
+  %incdec.ptr.i83 = getelementptr inbounds nuw i8, ptr %start.addr.035.i, i64 1
   %31 = load i8, ptr %start.addr.035.i, align 1
   switch i8 %31, label %if.end17.i [
-    i8 92, label %if.then.i85
+    i8 92, label %if.then.i84
     i8 34, label %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenIhEEbPKT_S6_PS6_.exit
   ]
 
-if.then.i85:                                      ; preds = %while.body.i83
-  %cmp2.i = icmp eq ptr %incdec.ptr.i84, %end
-  br i1 %cmp2.i, label %return, label %if.end.i86
+if.then.i84:                                      ; preds = %while.body.i82
+  %cmp2.i = icmp eq ptr %incdec.ptr.i83, %end
+  br i1 %cmp2.i, label %return, label %if.end.i85
 
-if.end.i86:                                       ; preds = %if.then.i85
+if.end.i85:                                       ; preds = %if.then.i84
   %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %start.addr.035.i, i64 2
-  %32 = load i8, ptr %incdec.ptr.i84, align 1
+  %32 = load i8, ptr %incdec.ptr.i83, align 1
   switch i8 %32, label %return [
     i8 120, label %sw.bb.i
     i8 117, label %sw.bb8.i
@@ -16059,48 +16059,48 @@ if.end.i86:                                       ; preds = %if.then.i85
     i8 34, label %if.end17.i
   ]
 
-sw.bb.i:                                          ; preds = %if.end.i86
+sw.bb.i:                                          ; preds = %if.end.i85
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.i89 = icmp slt i64 %sub.ptr.sub.i.i, 2
-  br i1 %cmp.i.i89, label %return, label %for.body.preheader.i.i
+  %cmp.i.i88 = icmp slt i64 %sub.ptr.sub.i.i, 2
+  br i1 %cmp.i.i88, label %return, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %sw.bb.i
-  %scevgep.i.i90 = getelementptr i8, ptr %start.addr.035.i, i64 4
-  br label %for.body.i.i91
+  %scevgep.i.i89 = getelementptr i8, ptr %start.addr.035.i, i64 4
+  br label %for.body.i.i90
 
-for.body.i.i91:                                   ; preds = %for.inc.i.i94, %for.body.preheader.i.i
-  %i.017.i.i = phi i32 [ %inc.i.i95, %for.inc.i.i94 ], [ 0, %for.body.preheader.i.i ]
-  %start.addr.016.i.i = phi ptr [ %incdec.ptr.i.i92, %for.inc.i.i94 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
-  %incdec.ptr.i.i92 = getelementptr inbounds nuw i8, ptr %start.addr.016.i.i, i64 1
+for.body.i.i90:                                   ; preds = %for.inc.i.i93, %for.body.preheader.i.i
+  %i.017.i.i = phi i32 [ %inc.i.i94, %for.inc.i.i93 ], [ 0, %for.body.preheader.i.i ]
+  %start.addr.016.i.i = phi ptr [ %incdec.ptr.i.i91, %for.inc.i.i93 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
+  %incdec.ptr.i.i91 = getelementptr inbounds nuw i8, ptr %start.addr.016.i.i, i64 1
   %33 = load i8, ptr %start.addr.016.i.i, align 1
   %.fr14.i.i = freeze i8 %33
   %34 = add i8 %.fr14.i.i, -48
-  %or.cond.i.i93 = icmp ult i8 %34, 10
-  br i1 %or.cond.i.i93, label %for.inc.i.i94, label %switch.early.test.i.i
+  %or.cond.i.i92 = icmp ult i8 %34, 10
+  br i1 %or.cond.i.i92, label %for.inc.i.i93, label %switch.early.test.i.i
 
-switch.early.test.i.i:                            ; preds = %for.body.i.i91
+switch.early.test.i.i:                            ; preds = %for.body.i.i90
   switch i8 %.fr14.i.i, label %return [
-    i8 102, label %for.inc.i.i94
-    i8 101, label %for.inc.i.i94
-    i8 100, label %for.inc.i.i94
-    i8 99, label %for.inc.i.i94
-    i8 98, label %for.inc.i.i94
-    i8 97, label %for.inc.i.i94
-    i8 70, label %for.inc.i.i94
-    i8 69, label %for.inc.i.i94
-    i8 68, label %for.inc.i.i94
-    i8 67, label %for.inc.i.i94
-    i8 66, label %for.inc.i.i94
-    i8 65, label %for.inc.i.i94
+    i8 102, label %for.inc.i.i93
+    i8 101, label %for.inc.i.i93
+    i8 100, label %for.inc.i.i93
+    i8 99, label %for.inc.i.i93
+    i8 98, label %for.inc.i.i93
+    i8 97, label %for.inc.i.i93
+    i8 70, label %for.inc.i.i93
+    i8 69, label %for.inc.i.i93
+    i8 68, label %for.inc.i.i93
+    i8 67, label %for.inc.i.i93
+    i8 66, label %for.inc.i.i93
+    i8 65, label %for.inc.i.i93
   ]
 
-for.inc.i.i94:                                    ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %for.body.i.i91
-  %inc.i.i95 = add nuw nsw i32 %i.017.i.i, 1
-  %exitcond.not.i.i96 = icmp eq i32 %inc.i.i95, 2
-  br i1 %exitcond.not.i.i96, label %if.end17.i, label %for.body.i.i91, !llvm.loop !333
+for.inc.i.i93:                                    ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %for.body.i.i90
+  %inc.i.i94 = add nuw nsw i32 %i.017.i.i, 1
+  %exitcond.not.i.i95 = icmp eq i32 %inc.i.i94, 2
+  br i1 %exitcond.not.i.i95, label %if.end17.i, label %for.body.i.i90, !llvm.loop !333
 
-sw.bb8.i:                                         ; preds = %if.end.i86
+sw.bb8.i:                                         ; preds = %if.end.i85
   %sub.ptr.rhs.cast.i7.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i7.i
   %cmp.i9.i = icmp slt i64 %sub.ptr.sub.i8.i, 4
@@ -16141,17 +16141,17 @@ for.inc.i19.i:                                    ; preds = %switch.early.test.i
   %exitcond.not.i21.i = icmp eq i32 %inc.i20.i, 4
   br i1 %exitcond.not.i21.i, label %if.end17.i, label %for.body.i12.i, !llvm.loop !333
 
-if.end17.i:                                       ; preds = %for.inc.i19.i, %for.inc.i.i94, %if.end.i86, %if.end.i86, %if.end.i86, %if.end.i86, %if.end.i86, %if.end.i86, %if.end.i86, %if.end.i86, %if.end.i86, %while.body.i83
-  %start.addr.1.i87 = phi ptr [ %incdec.ptr.i84, %while.body.i83 ], [ %incdec.ptr4.i, %if.end.i86 ], [ %incdec.ptr4.i, %if.end.i86 ], [ %incdec.ptr4.i, %if.end.i86 ], [ %incdec.ptr4.i, %if.end.i86 ], [ %incdec.ptr4.i, %if.end.i86 ], [ %incdec.ptr4.i, %if.end.i86 ], [ %incdec.ptr4.i, %if.end.i86 ], [ %incdec.ptr4.i, %if.end.i86 ], [ %incdec.ptr4.i, %if.end.i86 ], [ %scevgep.i.i90, %for.inc.i.i94 ], [ %scevgep.i11.i, %for.inc.i19.i ]
-  %cmp.i88 = icmp ult ptr %start.addr.1.i87, %end
-  br i1 %cmp.i88, label %while.body.i83, label %return, !llvm.loop !334
+if.end17.i:                                       ; preds = %for.inc.i19.i, %for.inc.i.i93, %if.end.i85, %if.end.i85, %if.end.i85, %if.end.i85, %if.end.i85, %if.end.i85, %if.end.i85, %if.end.i85, %if.end.i85, %while.body.i82
+  %start.addr.1.i86 = phi ptr [ %incdec.ptr.i83, %while.body.i82 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %incdec.ptr4.i, %if.end.i85 ], [ %scevgep.i.i89, %for.inc.i.i93 ], [ %scevgep.i11.i, %for.inc.i19.i ]
+  %cmp.i87 = icmp ult ptr %start.addr.1.i86, %end
+  br i1 %cmp.i87, label %while.body.i82, label %return, !llvm.loop !334
 
-_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenIhEEbPKT_S6_PS6_.exit: ; preds = %while.body.i83
-  store ptr %incdec.ptr.i84, ptr %tokenEnd, align 8
+_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenIhEEbPKT_S6_PS6_.exit: ; preds = %while.body.i82
+  store ptr %incdec.ptr.i83, ptr %tokenEnd, align 8
   br label %return
 
-return:                                           ; preds = %if.then.i85, %if.end.i86, %if.end17.i, %sw.bb.i, %sw.bb8.i, %switch.early.test.i18.i, %switch.early.test.i.i, %sw.bb26, %while.end.i57.i, %if.end39.i, %while.end.i31.i, %if.then11.i, %if.end.i.i, %while.end.i.i, %if.end.i76, %if.then34.i, %if.then24.i, %if.end, %while.end.i, %while.end.i37, %while.end.i58, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenIhEEbPKT_S6_PS6_.exit, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenIhEEbPKT_S6_PS6_.exit, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit74.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit53.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
-  %retval.0 = phi i32 [ 10, %sw.bb20 ], [ 1, %sw.bb18 ], [ 0, %sw.bb16 ], [ 9, %sw.bb14 ], [ 3, %sw.bb12 ], [ 2, %sw.bb11 ], [ 11, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit ], [ 5, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenIhEEbPKT_S6_PS6_.exit ], [ 4, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenIhEEbPKT_S6_PS6_.exit ], [ 11, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit.thread ], [ 8, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit.thread ], [ 6, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit53.thread ], [ 7, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit74.thread ], [ 11, %while.end.i58 ], [ 11, %while.end.i37 ], [ 11, %while.end.i ], [ 11, %if.end ], [ 11, %if.then24.i ], [ 11, %if.then34.i ], [ 11, %if.end.i76 ], [ 11, %while.end.i.i ], [ 11, %if.end.i.i ], [ 11, %if.then11.i ], [ 11, %while.end.i31.i ], [ 11, %if.end39.i ], [ 11, %while.end.i57.i ], [ 11, %sw.bb26 ], [ 11, %switch.early.test.i.i ], [ 11, %switch.early.test.i18.i ], [ 11, %sw.bb8.i ], [ 11, %sw.bb.i ], [ 11, %if.end17.i ], [ 11, %if.end.i86 ], [ 11, %if.then.i85 ]
+return:                                           ; preds = %if.then.i84, %if.end.i85, %if.end17.i, %sw.bb.i, %sw.bb8.i, %switch.early.test.i18.i, %switch.early.test.i.i, %sw.bb26, %while.end.i57.i, %if.end39.i, %while.end.i31.i, %if.then11.i, %if.end.i.i, %while.end.i.i, %if.end.i76, %if.then34.i, %if.then24.i, %if.end, %while.end.i, %while.end.i37, %while.end.i58, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenIhEEbPKT_S6_PS6_.exit, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenIhEEbPKT_S6_PS6_.exit, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit74.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit53.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
+  %retval.0 = phi i32 [ 10, %sw.bb20 ], [ 1, %sw.bb18 ], [ 0, %sw.bb16 ], [ 9, %sw.bb14 ], [ 3, %sw.bb12 ], [ 2, %sw.bb11 ], [ 11, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit ], [ 5, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenIhEEbPKT_S6_PS6_.exit ], [ 4, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenIhEEbPKT_S6_PS6_.exit ], [ 11, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit.thread ], [ 8, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit.thread ], [ 6, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit53.thread ], [ 7, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenIhEEbPKT_S6_PS6_PKc.exit74.thread ], [ 11, %while.end.i58 ], [ 11, %while.end.i37 ], [ 11, %while.end.i ], [ 11, %if.end ], [ 11, %if.then24.i ], [ 11, %if.then34.i ], [ 11, %if.end.i76 ], [ 11, %while.end.i.i ], [ 11, %if.end.i.i ], [ 11, %if.then11.i ], [ 11, %while.end.i31.i ], [ 11, %if.end39.i ], [ 11, %while.end.i57.i ], [ 11, %sw.bb26 ], [ 11, %switch.early.test.i.i ], [ 11, %switch.early.test.i18.i ], [ 11, %sw.bb8.i ], [ 11, %sw.bb.i ], [ 11, %if.end17.i ], [ 11, %if.end.i85 ], [ 11, %if.then.i84 ]
   ret i32 %retval.0
 }
 
@@ -23941,11 +23941,11 @@ while.cond.i54.preheader:                         ; preds = %if.end
   br label %while.cond.i54
 
 while.cond.i33.preheader:                         ; preds = %if.end
-  %scevgep134 = getelementptr i8, ptr %start.addr.014.i, i64 4
+  %scevgep133 = getelementptr i8, ptr %start.addr.014.i, i64 4
   br label %while.cond.i33
 
 while.cond.i.preheader:                           ; preds = %if.end
-  %scevgep136 = getelementptr i8, ptr %start.addr.014.i, i64 4
+  %scevgep135 = getelementptr i8, ptr %start.addr.014.i, i64 4
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %land.rhs.i
@@ -23956,8 +23956,8 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
   br i1 %cmp.i31, label %land.lhs.true.i, label %while.end.i
 
 land.lhs.true.i:                                  ; preds = %while.cond.i
-  %exitcond137 = icmp eq i64 %token.addr.0.i.idx, 4
-  br i1 %exitcond137, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit.thread, label %land.rhs.i
+  %exitcond136 = icmp eq i64 %token.addr.0.i.idx, 4
+  br i1 %exitcond136, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit.thread, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %4 = load i8, ptr %token.addr.0.i.ptr, align 1
@@ -23981,7 +23981,7 @@ while.end.i:                                      ; preds = %while.cond.i, %whil
   br i1 %cmp7.not.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit.thread, label %return
 
 _ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit.thread: ; preds = %land.lhs.true.i, %while.end.i
-  %start.addr.18.i = phi ptr [ %start.addr.1.ph.i, %while.end.i ], [ %scevgep136, %land.lhs.true.i ]
+  %start.addr.18.i = phi ptr [ %start.addr.1.ph.i, %while.end.i ], [ %scevgep135, %land.lhs.true.i ]
   store ptr %start.addr.18.i, ptr %token_end, align 8
   br label %return
 
@@ -23993,8 +23993,8 @@ while.cond.i33:                                   ; preds = %while.cond.i33.preh
   br i1 %cmp.i36, label %land.lhs.true.i45, label %while.end.i37
 
 land.lhs.true.i45:                                ; preds = %while.cond.i33
-  %exitcond135 = icmp eq i64 %token.addr.0.i35.idx, 4
-  br i1 %exitcond135, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit53.thread, label %land.rhs.i47
+  %exitcond134 = icmp eq i64 %token.addr.0.i35.idx, 4
+  br i1 %exitcond134, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit53.thread, label %land.rhs.i47
 
 land.rhs.i47:                                     ; preds = %land.lhs.true.i45
   %6 = load i8, ptr %token.addr.0.i35.ptr, align 1
@@ -24018,7 +24018,7 @@ while.end.i37:                                    ; preds = %while.cond.i33, %wh
   br i1 %cmp7.not.i41, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit53.thread, label %return
 
 _ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit53.thread: ; preds = %land.lhs.true.i45, %while.end.i37
-  %start.addr.18.i44 = phi ptr [ %start.addr.1.ph.i38, %while.end.i37 ], [ %scevgep134, %land.lhs.true.i45 ]
+  %start.addr.18.i44 = phi ptr [ %start.addr.1.ph.i38, %while.end.i37 ], [ %scevgep133, %land.lhs.true.i45 ]
   store ptr %start.addr.18.i44, ptr %token_end, align 8
   br label %return
 
@@ -24093,47 +24093,47 @@ if.end.i76:                                       ; preds = %if.end, %if.end, %i
   %cmp1.i = icmp eq i8 %3, 45
   %spec.select.idx.i = zext i1 %cmp1.i to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %start.addr.014.i, i64 %spec.select.idx.i
-  %start17.i.i = ptrtoint ptr %spec.select.i to i64
-  %end16.i.i = ptrtoint ptr %end to i64
+  %start19.i.i = ptrtoint ptr %spec.select.i to i64
+  %end18.i.i = ptrtoint ptr %end to i64
   %cmp.i.i = icmp eq ptr %spec.select.i, %end
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i76
   %10 = load i8, ptr %spec.select.i, align 1
-  %cmp1.i.i = icmp ne i8 %10, 48
-  %cmp310.i.i = icmp ult ptr %spec.select.i, %end
-  br i1 %cmp310.i.i, label %land.lhs.true.preheader.i.i, label %return
+  %cmp1.i.i = icmp eq i8 %10, 48
+  %cmp312.i.i = icmp ult ptr %spec.select.i, %end
+  br i1 %cmp312.i.i, label %land.lhs.true.preheader.i.i, label %return
 
 land.lhs.true.preheader.i.i:                      ; preds = %if.end.i.i
-  %11 = sub i64 %end16.i.i, %start17.i.i
+  %11 = sub i64 %end18.i.i, %start19.i.i
   %scevgep.i.i = getelementptr i8, ptr %spec.select.i, i64 %11
-  %12 = trunc i64 %end16.i.i to i32
-  %13 = trunc i64 %start17.i.i to i32
+  %12 = trunc i64 %end18.i.i to i32
+  %13 = trunc i64 %start19.i.i to i32
   %14 = sub i32 %12, %13
   br label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.body.i.i, %land.lhs.true.preheader.i.i
-  %length.012.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %land.lhs.true.preheader.i.i ]
-  %start.addr.011.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %spec.select.i, %land.lhs.true.preheader.i.i ]
-  %15 = load i8, ptr %start.addr.011.i.i, align 1
+  %length.014.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %land.lhs.true.preheader.i.i ]
+  %start.addr.013.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %spec.select.i, %land.lhs.true.preheader.i.i ]
+  %15 = load i8, ptr %start.addr.013.i.i, align 1
   %16 = add i8 %15, -48
-  %or.cond.i.i77 = icmp ult i8 %16, 10
-  br i1 %or.cond.i.i77, label %while.body.i.i, label %while.end.i.i
+  %or.cond11.i.i = icmp ult i8 %16, 10
+  br i1 %or.cond11.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %land.lhs.true.i.i
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %start.addr.011.i.i, i64 1
-  %inc.i.i = add nuw nsw i32 %length.012.i.i, 1
-  %exitcond.not.i.i79 = icmp eq ptr %incdec.ptr.i.i, %end
-  br i1 %exitcond.not.i.i79, label %while.end.i.i, label %land.lhs.true.i.i, !llvm.loop !429
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %start.addr.013.i.i, i64 1
+  %inc.i.i = add nuw nsw i32 %length.014.i.i, 1
+  %exitcond.not.i.i78 = icmp eq ptr %incdec.ptr.i.i, %end
+  br i1 %exitcond.not.i.i78, label %while.end.i.i, label %land.lhs.true.i.i, !llvm.loop !429
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %land.lhs.true.i.i
-  %start.addr.0.lcssa.i.i = phi ptr [ %scevgep.i.i, %while.body.i.i ], [ %start.addr.011.i.i, %land.lhs.true.i.i ]
-  %length.0.lcssa.i.i = phi i32 [ %14, %while.body.i.i ], [ %length.012.i.i, %land.lhs.true.i.i ]
-  %tobool.not.i.i = icmp ne i32 %length.0.lcssa.i.i, 0
-  %cmp12.i.i = icmp eq i32 %length.0.lcssa.i.i, 1
-  %brmerge.i.i = select i1 %cmp12.i.i, i1 true, i1 %cmp1.i.i
-  %or.cond81.i = select i1 %tobool.not.i.i, i1 %brmerge.i.i, i1 false
-  br i1 %or.cond81.i, label %if.end5.i, label %return
+  %start.addr.0.lcssa.i.i = phi ptr [ %scevgep.i.i, %while.body.i.i ], [ %start.addr.013.i.i, %land.lhs.true.i.i ]
+  %length.0.lcssa.i.i = phi i32 [ %14, %while.body.i.i ], [ %length.014.i.i, %land.lhs.true.i.i ]
+  %tobool.not.i.i = icmp eq i32 %length.0.lcssa.i.i, 0
+  %cmp12.i.i = icmp ne i32 %length.0.lcssa.i.i, 1
+  %or.cond1.i.i = select i1 %cmp12.i.i, i1 %cmp1.i.i, i1 false
+  %or.cond81.i = select i1 %tobool.not.i.i, i1 true, i1 %or.cond1.i.i
+  br i1 %or.cond81.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %while.end.i.i
   %cmp6.i = icmp eq ptr %start.addr.0.lcssa.i.i, %end
@@ -24146,34 +24146,34 @@ if.end8.i:                                        ; preds = %if.end5.i
 
 if.then11.i:                                      ; preds = %if.end8.i
   %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %start.addr.0.lcssa.i.i, i64 1
-  %cmp310.i23.i = icmp ult ptr %incdec.ptr12.i, %end
-  br i1 %cmp310.i23.i, label %land.lhs.true.preheader.i25.i, label %return
+  %cmp312.i23.i = icmp ult ptr %incdec.ptr12.i, %end
+  br i1 %cmp312.i23.i, label %land.lhs.true.preheader.i25.i, label %return
 
 land.lhs.true.preheader.i25.i:                    ; preds = %if.then11.i
-  %start17.i18.i = ptrtoint ptr %incdec.ptr12.i to i64
-  %18 = sub i64 %end16.i.i, %start17.i18.i
+  %start19.i18.i = ptrtoint ptr %incdec.ptr12.i to i64
+  %18 = sub i64 %end18.i.i, %start19.i18.i
   %scevgep.i26.i = getelementptr i8, ptr %incdec.ptr12.i, i64 %18
-  %19 = trunc i64 %start17.i18.i to i32
+  %19 = trunc i64 %start19.i18.i to i32
   %20 = sub i32 %12, %19
   br label %land.lhs.true.i27.i
 
 land.lhs.true.i27.i:                              ; preds = %while.body.i39.i, %land.lhs.true.preheader.i25.i
-  %length.012.i28.i = phi i32 [ %inc.i41.i, %while.body.i39.i ], [ 0, %land.lhs.true.preheader.i25.i ]
-  %start.addr.011.i29.i = phi ptr [ %incdec.ptr.i40.i, %while.body.i39.i ], [ %incdec.ptr12.i, %land.lhs.true.preheader.i25.i ]
-  %21 = load i8, ptr %start.addr.011.i29.i, align 1
+  %length.014.i28.i = phi i32 [ %inc.i41.i, %while.body.i39.i ], [ 0, %land.lhs.true.preheader.i25.i ]
+  %start.addr.013.i29.i = phi ptr [ %incdec.ptr.i40.i, %while.body.i39.i ], [ %incdec.ptr12.i, %land.lhs.true.preheader.i25.i ]
+  %21 = load i8, ptr %start.addr.013.i29.i, align 1
   %22 = add i8 %21, -48
-  %or.cond.i30.i = icmp ult i8 %22, 10
-  br i1 %or.cond.i30.i, label %while.body.i39.i, label %while.end.i31.i
+  %or.cond11.i30.i = icmp ult i8 %22, 10
+  br i1 %or.cond11.i30.i, label %while.body.i39.i, label %while.end.i31.i
 
 while.body.i39.i:                                 ; preds = %land.lhs.true.i27.i
-  %incdec.ptr.i40.i = getelementptr inbounds nuw i8, ptr %start.addr.011.i29.i, i64 1
-  %inc.i41.i = add nuw nsw i32 %length.012.i28.i, 1
+  %incdec.ptr.i40.i = getelementptr inbounds nuw i8, ptr %start.addr.013.i29.i, i64 1
+  %inc.i41.i = add nuw nsw i32 %length.014.i28.i, 1
   %exitcond.not.i42.i = icmp eq ptr %incdec.ptr.i40.i, %end
   br i1 %exitcond.not.i42.i, label %while.end.i31.i, label %land.lhs.true.i27.i, !llvm.loop !429
 
 while.end.i31.i:                                  ; preds = %while.body.i39.i, %land.lhs.true.i27.i
-  %start.addr.0.lcssa.i32.i = phi ptr [ %scevgep.i26.i, %while.body.i39.i ], [ %start.addr.011.i29.i, %land.lhs.true.i27.i ]
-  %length.0.lcssa.i33.i = phi i32 [ %20, %while.body.i39.i ], [ %length.012.i28.i, %land.lhs.true.i27.i ]
+  %start.addr.0.lcssa.i32.i = phi ptr [ %scevgep.i26.i, %while.body.i39.i ], [ %start.addr.013.i29.i, %land.lhs.true.i27.i ]
+  %length.0.lcssa.i33.i = phi i32 [ %20, %while.body.i39.i ], [ %length.014.i28.i, %land.lhs.true.i27.i ]
   %tobool.not.i34.i = icmp eq i32 %length.0.lcssa.i33.i, 0
   br i1 %tobool.not.i34.i, label %return, label %if.end15.i
 
@@ -24186,14 +24186,14 @@ if.end18.i:                                       ; preds = %if.end15.i
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end18.i, %if.end8.i
-  %start.addr.1.i78 = phi ptr [ %start.addr.0.lcssa.i32.i, %if.end18.i ], [ %start.addr.0.lcssa.i.i, %if.end8.i ]
+  %start.addr.1.i77 = phi ptr [ %start.addr.0.lcssa.i32.i, %if.end18.i ], [ %start.addr.0.lcssa.i.i, %if.end8.i ]
   %c.0.i = phi i8 [ %23, %if.end18.i ], [ %17, %if.end8.i ]
   %24 = and i8 %c.0.i, -33
   %or.cond.i = icmp eq i8 %24, 69
   br i1 %or.cond.i, label %if.then24.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseNumberTokenEPKhS7_PS7_.exit
 
 if.then24.i:                                      ; preds = %if.end19.i
-  %incdec.ptr25.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i78, i64 1
+  %incdec.ptr25.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i77, i64 1
   %cmp26.i = icmp eq ptr %incdec.ptr25.i, %end
   br i1 %cmp26.i, label %return, label %if.end28.i
 
@@ -24205,45 +24205,45 @@ if.end28.i:                                       ; preds = %if.then24.i
   ]
 
 if.then34.i:                                      ; preds = %if.end28.i, %if.end28.i
-  %incdec.ptr35.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i78, i64 2
+  %incdec.ptr35.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i77, i64 2
   %cmp36.i = icmp eq ptr %incdec.ptr35.i, %end
   br i1 %cmp36.i, label %return, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then34.i, %if.end28.i
   %start.addr.3.i = phi ptr [ %incdec.ptr25.i, %if.end28.i ], [ %incdec.ptr35.i, %if.then34.i ]
-  %cmp310.i49.i = icmp ult ptr %start.addr.3.i, %end
-  br i1 %cmp310.i49.i, label %land.lhs.true.preheader.i51.i, label %return
+  %cmp312.i49.i = icmp ult ptr %start.addr.3.i, %end
+  br i1 %cmp312.i49.i, label %land.lhs.true.preheader.i51.i, label %return
 
 land.lhs.true.preheader.i51.i:                    ; preds = %if.end39.i
-  %start17.i44.i = ptrtoint ptr %start.addr.3.i to i64
-  %26 = sub i64 %end16.i.i, %start17.i44.i
+  %start19.i44.i = ptrtoint ptr %start.addr.3.i to i64
+  %26 = sub i64 %end18.i.i, %start19.i44.i
   %scevgep.i52.i = getelementptr i8, ptr %start.addr.3.i, i64 %26
-  %27 = trunc i64 %start17.i44.i to i32
+  %27 = trunc i64 %start19.i44.i to i32
   %28 = sub i32 %12, %27
   br label %land.lhs.true.i53.i
 
 land.lhs.true.i53.i:                              ; preds = %while.body.i65.i, %land.lhs.true.preheader.i51.i
-  %length.012.i54.i = phi i32 [ %inc.i67.i, %while.body.i65.i ], [ 0, %land.lhs.true.preheader.i51.i ]
-  %start.addr.011.i55.i = phi ptr [ %incdec.ptr.i66.i, %while.body.i65.i ], [ %start.addr.3.i, %land.lhs.true.preheader.i51.i ]
-  %29 = load i8, ptr %start.addr.011.i55.i, align 1
+  %length.014.i54.i = phi i32 [ %inc.i67.i, %while.body.i65.i ], [ 0, %land.lhs.true.preheader.i51.i ]
+  %start.addr.013.i55.i = phi ptr [ %incdec.ptr.i66.i, %while.body.i65.i ], [ %start.addr.3.i, %land.lhs.true.preheader.i51.i ]
+  %29 = load i8, ptr %start.addr.013.i55.i, align 1
   %30 = add i8 %29, -48
-  %or.cond.i56.i = icmp ult i8 %30, 10
-  br i1 %or.cond.i56.i, label %while.body.i65.i, label %while.end.i57.i
+  %or.cond11.i56.i = icmp ult i8 %30, 10
+  br i1 %or.cond11.i56.i, label %while.body.i65.i, label %while.end.i57.i
 
 while.body.i65.i:                                 ; preds = %land.lhs.true.i53.i
-  %incdec.ptr.i66.i = getelementptr inbounds nuw i8, ptr %start.addr.011.i55.i, i64 1
-  %inc.i67.i = add nuw nsw i32 %length.012.i54.i, 1
+  %incdec.ptr.i66.i = getelementptr inbounds nuw i8, ptr %start.addr.013.i55.i, i64 1
+  %inc.i67.i = add nuw nsw i32 %length.014.i54.i, 1
   %exitcond.not.i68.i = icmp eq ptr %incdec.ptr.i66.i, %end
   br i1 %exitcond.not.i68.i, label %while.end.i57.i, label %land.lhs.true.i53.i, !llvm.loop !429
 
 while.end.i57.i:                                  ; preds = %while.body.i65.i, %land.lhs.true.i53.i
-  %start.addr.0.lcssa.i58.i = phi ptr [ %scevgep.i52.i, %while.body.i65.i ], [ %start.addr.011.i55.i, %land.lhs.true.i53.i ]
-  %length.0.lcssa.i59.i = phi i32 [ %28, %while.body.i65.i ], [ %length.012.i54.i, %land.lhs.true.i53.i ]
+  %start.addr.0.lcssa.i58.i = phi ptr [ %scevgep.i52.i, %while.body.i65.i ], [ %start.addr.013.i55.i, %land.lhs.true.i53.i ]
+  %length.0.lcssa.i59.i = phi i32 [ %28, %while.body.i65.i ], [ %length.014.i54.i, %land.lhs.true.i53.i ]
   %tobool.not.i60.i = icmp eq i32 %length.0.lcssa.i59.i, 0
   br i1 %tobool.not.i60.i, label %return, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseNumberTokenEPKhS7_PS7_.exit
 
 _ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseNumberTokenEPKhS7_PS7_.exit: ; preds = %if.end5.i, %if.end15.i, %if.end19.i, %while.end.i57.i
-  %start.addr.2.sink.i = phi ptr [ %start.addr.0.lcssa.i.i, %if.end5.i ], [ %start.addr.0.lcssa.i32.i, %if.end15.i ], [ %start.addr.1.i78, %if.end19.i ], [ %start.addr.0.lcssa.i58.i, %while.end.i57.i ]
+  %start.addr.2.sink.i = phi ptr [ %start.addr.0.lcssa.i.i, %if.end5.i ], [ %start.addr.0.lcssa.i32.i, %if.end15.i ], [ %start.addr.1.i77, %if.end19.i ], [ %start.addr.0.lcssa.i58.i, %while.end.i57.i ]
   store ptr %start.addr.2.sink.i, ptr %token_end, align 8
   br label %return
 
@@ -24254,24 +24254,24 @@ sw.bb26:                                          ; preds = %if.end
 
 while.body.lr.ph.i:                               ; preds = %sw.bb26
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %end to i64
-  br label %while.body.i81
+  br label %while.body.i80
 
-while.body.i81:                                   ; preds = %if.end17.i, %while.body.lr.ph.i
-  %start.addr.035.i = phi ptr [ %add.ptr27, %while.body.lr.ph.i ], [ %start.addr.1.i85, %if.end17.i ]
-  %incdec.ptr.i82 = getelementptr inbounds nuw i8, ptr %start.addr.035.i, i64 1
+while.body.i80:                                   ; preds = %if.end17.i, %while.body.lr.ph.i
+  %start.addr.035.i = phi ptr [ %add.ptr27, %while.body.lr.ph.i ], [ %start.addr.1.i84, %if.end17.i ]
+  %incdec.ptr.i81 = getelementptr inbounds nuw i8, ptr %start.addr.035.i, i64 1
   %31 = load i8, ptr %start.addr.035.i, align 1
   switch i8 %31, label %if.end17.i [
-    i8 92, label %if.then.i83
+    i8 92, label %if.then.i82
     i8 34, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseStringTokenEPKhS7_PS7_.exit
   ]
 
-if.then.i83:                                      ; preds = %while.body.i81
-  %cmp2.i = icmp eq ptr %incdec.ptr.i82, %end
-  br i1 %cmp2.i, label %return, label %if.end.i84
+if.then.i82:                                      ; preds = %while.body.i80
+  %cmp2.i = icmp eq ptr %incdec.ptr.i81, %end
+  br i1 %cmp2.i, label %return, label %if.end.i83
 
-if.end.i84:                                       ; preds = %if.then.i83
+if.end.i83:                                       ; preds = %if.then.i82
   %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %start.addr.035.i, i64 2
-  %32 = load i8, ptr %incdec.ptr.i82, align 1
+  %32 = load i8, ptr %incdec.ptr.i81, align 1
   switch i8 %32, label %return [
     i8 120, label %sw.bb.i
     i8 117, label %sw.bb8.i
@@ -24286,48 +24286,48 @@ if.end.i84:                                       ; preds = %if.then.i83
     i8 34, label %if.end17.i
   ]
 
-sw.bb.i:                                          ; preds = %if.end.i84
+sw.bb.i:                                          ; preds = %if.end.i83
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.i87 = icmp slt i64 %sub.ptr.sub.i.i, 2
-  br i1 %cmp.i.i87, label %return, label %for.body.preheader.i.i
+  %cmp.i.i86 = icmp slt i64 %sub.ptr.sub.i.i, 2
+  br i1 %cmp.i.i86, label %return, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %sw.bb.i
-  %scevgep.i.i88 = getelementptr i8, ptr %start.addr.035.i, i64 4
-  br label %for.body.i.i89
+  %scevgep.i.i87 = getelementptr i8, ptr %start.addr.035.i, i64 4
+  br label %for.body.i.i88
 
-for.body.i.i89:                                   ; preds = %for.inc.i.i92, %for.body.preheader.i.i
-  %i.017.i.i = phi i32 [ %inc.i.i93, %for.inc.i.i92 ], [ 0, %for.body.preheader.i.i ]
-  %start.addr.016.i.i = phi ptr [ %incdec.ptr.i.i90, %for.inc.i.i92 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
-  %incdec.ptr.i.i90 = getelementptr inbounds nuw i8, ptr %start.addr.016.i.i, i64 1
+for.body.i.i88:                                   ; preds = %for.inc.i.i91, %for.body.preheader.i.i
+  %i.017.i.i = phi i32 [ %inc.i.i92, %for.inc.i.i91 ], [ 0, %for.body.preheader.i.i ]
+  %start.addr.016.i.i = phi ptr [ %incdec.ptr.i.i89, %for.inc.i.i91 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
+  %incdec.ptr.i.i89 = getelementptr inbounds nuw i8, ptr %start.addr.016.i.i, i64 1
   %33 = load i8, ptr %start.addr.016.i.i, align 1
   %.fr14.i.i = freeze i8 %33
   %34 = add i8 %.fr14.i.i, -48
-  %or.cond.i.i91 = icmp ult i8 %34, 10
-  br i1 %or.cond.i.i91, label %for.inc.i.i92, label %switch.early.test.i.i
+  %or.cond.i.i90 = icmp ult i8 %34, 10
+  br i1 %or.cond.i.i90, label %for.inc.i.i91, label %switch.early.test.i.i
 
-switch.early.test.i.i:                            ; preds = %for.body.i.i89
+switch.early.test.i.i:                            ; preds = %for.body.i.i88
   switch i8 %.fr14.i.i, label %return [
-    i8 102, label %for.inc.i.i92
-    i8 101, label %for.inc.i.i92
-    i8 100, label %for.inc.i.i92
-    i8 99, label %for.inc.i.i92
-    i8 98, label %for.inc.i.i92
-    i8 97, label %for.inc.i.i92
-    i8 70, label %for.inc.i.i92
-    i8 69, label %for.inc.i.i92
-    i8 68, label %for.inc.i.i92
-    i8 67, label %for.inc.i.i92
-    i8 66, label %for.inc.i.i92
-    i8 65, label %for.inc.i.i92
+    i8 102, label %for.inc.i.i91
+    i8 101, label %for.inc.i.i91
+    i8 100, label %for.inc.i.i91
+    i8 99, label %for.inc.i.i91
+    i8 98, label %for.inc.i.i91
+    i8 97, label %for.inc.i.i91
+    i8 70, label %for.inc.i.i91
+    i8 69, label %for.inc.i.i91
+    i8 68, label %for.inc.i.i91
+    i8 67, label %for.inc.i.i91
+    i8 66, label %for.inc.i.i91
+    i8 65, label %for.inc.i.i91
   ]
 
-for.inc.i.i92:                                    ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %for.body.i.i89
-  %inc.i.i93 = add nuw nsw i32 %i.017.i.i, 1
-  %exitcond.not.i.i94 = icmp eq i32 %inc.i.i93, 2
-  br i1 %exitcond.not.i.i94, label %if.end17.i, label %for.body.i.i89, !llvm.loop !430
+for.inc.i.i91:                                    ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %for.body.i.i88
+  %inc.i.i92 = add nuw nsw i32 %i.017.i.i, 1
+  %exitcond.not.i.i93 = icmp eq i32 %inc.i.i92, 2
+  br i1 %exitcond.not.i.i93, label %if.end17.i, label %for.body.i.i88, !llvm.loop !430
 
-sw.bb8.i:                                         ; preds = %if.end.i84
+sw.bb8.i:                                         ; preds = %if.end.i83
   %sub.ptr.rhs.cast.i7.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i7.i
   %cmp.i9.i = icmp slt i64 %sub.ptr.sub.i8.i, 4
@@ -24368,17 +24368,17 @@ for.inc.i19.i:                                    ; preds = %switch.early.test.i
   %exitcond.not.i21.i = icmp eq i32 %inc.i20.i, 4
   br i1 %exitcond.not.i21.i, label %if.end17.i, label %for.body.i12.i, !llvm.loop !430
 
-if.end17.i:                                       ; preds = %for.inc.i19.i, %for.inc.i.i92, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %while.body.i81
-  %start.addr.1.i85 = phi ptr [ %incdec.ptr.i82, %while.body.i81 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %scevgep.i.i88, %for.inc.i.i92 ], [ %scevgep.i11.i, %for.inc.i19.i ]
-  %cmp.i86 = icmp ult ptr %start.addr.1.i85, %end
-  br i1 %cmp.i86, label %while.body.i81, label %return, !llvm.loop !431
+if.end17.i:                                       ; preds = %for.inc.i19.i, %for.inc.i.i91, %if.end.i83, %if.end.i83, %if.end.i83, %if.end.i83, %if.end.i83, %if.end.i83, %if.end.i83, %if.end.i83, %if.end.i83, %while.body.i80
+  %start.addr.1.i84 = phi ptr [ %incdec.ptr.i81, %while.body.i80 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %scevgep.i.i87, %for.inc.i.i91 ], [ %scevgep.i11.i, %for.inc.i19.i ]
+  %cmp.i85 = icmp ult ptr %start.addr.1.i84, %end
+  br i1 %cmp.i85, label %while.body.i80, label %return, !llvm.loop !431
 
-_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseStringTokenEPKhS7_PS7_.exit: ; preds = %while.body.i81
-  store ptr %incdec.ptr.i82, ptr %token_end, align 8
+_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseStringTokenEPKhS7_PS7_.exit: ; preds = %while.body.i80
+  store ptr %incdec.ptr.i81, ptr %token_end, align 8
   br label %return
 
-return:                                           ; preds = %if.then.i83, %if.end.i84, %if.end17.i, %sw.bb.i, %sw.bb8.i, %switch.early.test.i18.i, %switch.early.test.i.i, %sw.bb26, %while.end.i57.i, %if.end39.i, %while.end.i31.i, %if.then11.i, %if.end.i.i, %while.end.i.i, %if.end.i76, %if.then34.i, %if.then24.i, %if.end, %while.end.i, %while.end.i37, %while.end.i58, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseStringTokenEPKhS7_PS7_.exit, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseNumberTokenEPKhS7_PS7_.exit, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit74.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit53.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
-  %retval.0 = phi i32 [ 10, %sw.bb20 ], [ 1, %sw.bb18 ], [ 0, %sw.bb16 ], [ 9, %sw.bb14 ], [ 3, %sw.bb12 ], [ 2, %sw.bb11 ], [ 12, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit ], [ 5, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseNumberTokenEPKhS7_PS7_.exit ], [ 4, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseStringTokenEPKhS7_PS7_.exit ], [ 12, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit.thread ], [ 8, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit.thread ], [ 6, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit53.thread ], [ 7, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit74.thread ], [ 11, %while.end.i58 ], [ 11, %while.end.i37 ], [ 11, %while.end.i ], [ 11, %if.end ], [ 11, %if.then24.i ], [ 11, %if.then34.i ], [ 11, %if.end.i76 ], [ 11, %while.end.i.i ], [ 11, %if.end.i.i ], [ 11, %if.then11.i ], [ 11, %while.end.i31.i ], [ 11, %if.end39.i ], [ 11, %while.end.i57.i ], [ 11, %sw.bb26 ], [ 11, %switch.early.test.i.i ], [ 11, %switch.early.test.i18.i ], [ 11, %sw.bb8.i ], [ 11, %sw.bb.i ], [ 11, %if.end17.i ], [ 11, %if.end.i84 ], [ 11, %if.then.i83 ]
+return:                                           ; preds = %if.then.i82, %if.end.i83, %if.end17.i, %sw.bb.i, %sw.bb8.i, %switch.early.test.i18.i, %switch.early.test.i.i, %sw.bb26, %while.end.i57.i, %if.end39.i, %while.end.i31.i, %if.then11.i, %if.end.i.i, %while.end.i.i, %if.end.i76, %if.then34.i, %if.then24.i, %if.end, %while.end.i, %while.end.i37, %while.end.i58, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseStringTokenEPKhS7_PS7_.exit, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseNumberTokenEPKhS7_PS7_.exit, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit74.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit53.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
+  %retval.0 = phi i32 [ 10, %sw.bb20 ], [ 1, %sw.bb18 ], [ 0, %sw.bb16 ], [ 9, %sw.bb14 ], [ 3, %sw.bb12 ], [ 2, %sw.bb11 ], [ 12, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit ], [ 5, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseNumberTokenEPKhS7_PS7_.exit ], [ 4, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE16ParseStringTokenEPKhS7_PS7_.exit ], [ 12, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit.thread ], [ 8, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit.thread ], [ 6, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit53.thread ], [ 7, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE15ParseConstTokenEPKhS7_PS7_PKc.exit74.thread ], [ 11, %while.end.i58 ], [ 11, %while.end.i37 ], [ 11, %while.end.i ], [ 11, %if.end ], [ 11, %if.then24.i ], [ 11, %if.then34.i ], [ 11, %if.end.i76 ], [ 11, %while.end.i.i ], [ 11, %if.end.i.i ], [ 11, %if.then11.i ], [ 11, %while.end.i31.i ], [ 11, %if.end39.i ], [ 11, %while.end.i57.i ], [ 11, %sw.bb26 ], [ 11, %switch.early.test.i.i ], [ 11, %switch.early.test.i18.i ], [ 11, %sw.bb8.i ], [ 11, %sw.bb.i ], [ 11, %if.end17.i ], [ 11, %if.end.i83 ], [ 11, %if.then.i82 ]
   ret i32 %retval.0
 }
 
@@ -25768,11 +25768,11 @@ while.cond.i54.preheader:                         ; preds = %if.end
   br label %while.cond.i54
 
 while.cond.i33.preheader:                         ; preds = %if.end
-  %scevgep143 = getelementptr i8, ptr %start.addr.014.i, i64 8
+  %scevgep142 = getelementptr i8, ptr %start.addr.014.i, i64 8
   br label %while.cond.i33
 
 while.cond.i.preheader:                           ; preds = %if.end
-  %scevgep145 = getelementptr i8, ptr %start.addr.014.i, i64 8
+  %scevgep144 = getelementptr i8, ptr %start.addr.014.i, i64 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %land.rhs.i
@@ -25783,8 +25783,8 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
   br i1 %cmp.i31, label %land.lhs.true.i, label %while.end.i
 
 land.lhs.true.i:                                  ; preds = %while.cond.i
-  %exitcond146 = icmp eq i64 %token.addr.0.i.idx, 4
-  br i1 %exitcond146, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit.thread, label %land.rhs.i
+  %exitcond145 = icmp eq i64 %token.addr.0.i.idx, 4
+  br i1 %exitcond145, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit.thread, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %4 = load i8, ptr %token.addr.0.i.ptr, align 1
@@ -25808,7 +25808,7 @@ while.end.i:                                      ; preds = %while.cond.i, %whil
   br i1 %cmp7.not.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit.thread, label %return
 
 _ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit.thread: ; preds = %land.lhs.true.i, %while.end.i
-  %start.addr.18.i = phi ptr [ %start.addr.1.ph.i, %while.end.i ], [ %scevgep145, %land.lhs.true.i ]
+  %start.addr.18.i = phi ptr [ %start.addr.1.ph.i, %while.end.i ], [ %scevgep144, %land.lhs.true.i ]
   store ptr %start.addr.18.i, ptr %token_end, align 8
   br label %return
 
@@ -25820,8 +25820,8 @@ while.cond.i33:                                   ; preds = %while.cond.i33.preh
   br i1 %cmp.i36, label %land.lhs.true.i45, label %while.end.i37
 
 land.lhs.true.i45:                                ; preds = %while.cond.i33
-  %exitcond144 = icmp eq i64 %token.addr.0.i35.idx, 4
-  br i1 %exitcond144, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit53.thread, label %land.rhs.i47
+  %exitcond143 = icmp eq i64 %token.addr.0.i35.idx, 4
+  br i1 %exitcond143, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit53.thread, label %land.rhs.i47
 
 land.rhs.i47:                                     ; preds = %land.lhs.true.i45
   %6 = load i8, ptr %token.addr.0.i35.ptr, align 1
@@ -25845,7 +25845,7 @@ while.end.i37:                                    ; preds = %while.cond.i33, %wh
   br i1 %cmp7.not.i41, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit53.thread, label %return
 
 _ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit53.thread: ; preds = %land.lhs.true.i45, %while.end.i37
-  %start.addr.18.i44 = phi ptr [ %start.addr.1.ph.i38, %while.end.i37 ], [ %scevgep143, %land.lhs.true.i45 ]
+  %start.addr.18.i44 = phi ptr [ %start.addr.1.ph.i38, %while.end.i37 ], [ %scevgep142, %land.lhs.true.i45 ]
   store ptr %start.addr.18.i44, ptr %token_end, align 8
   br label %return
 
@@ -25925,69 +25925,69 @@ if.end.i76:                                       ; preds = %if.end, %if.end, %i
 
 if.end.i.i:                                       ; preds = %if.end.i76
   %10 = load i16, ptr %spec.select.i, align 2
-  %cmp1.i.i = icmp ne i16 %10, 48
-  %cmp310.i.i = icmp ult ptr %spec.select.i, %end
-  br i1 %cmp310.i.i, label %land.lhs.true.i.i, label %return
+  %cmp1.i.i = icmp eq i16 %10, 48
+  %cmp312.i.i = icmp ult ptr %spec.select.i, %end
+  br i1 %cmp312.i.i, label %land.lhs.true.i.i, label %return
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i, %while.body.i.i
-  %length.012.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %if.end.i.i ]
-  %start.addr.011.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %spec.select.i, %if.end.i.i ]
-  %11 = load i16, ptr %start.addr.011.i.i, align 2
+  %length.014.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %if.end.i.i ]
+  %start.addr.013.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %spec.select.i, %if.end.i.i ]
+  %11 = load i16, ptr %start.addr.013.i.i, align 2
   %12 = add i16 %11, -48
-  %or.cond.i.i77 = icmp ult i16 %12, 10
-  br i1 %or.cond.i.i77, label %while.body.i.i, label %while.end.i.i
+  %or.cond11.i.i = icmp ult i16 %12, 10
+  br i1 %or.cond11.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %land.lhs.true.i.i
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %start.addr.011.i.i, i64 2
-  %inc.i.i = add nuw nsw i32 %length.012.i.i, 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %start.addr.013.i.i, i64 2
+  %inc.i.i = add nuw nsw i32 %length.014.i.i, 1
   %cmp3.i.i = icmp ult ptr %incdec.ptr.i.i, %end
   br i1 %cmp3.i.i, label %land.lhs.true.i.i, label %if.end9.i.i, !llvm.loop !440
 
 while.end.i.i:                                    ; preds = %land.lhs.true.i.i
-  %tobool.not.i.i = icmp eq i32 %length.012.i.i, 0
+  %tobool.not.i.i = icmp eq i32 %length.014.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %while.body.i.i, %while.end.i.i
-  %length.0.lcssa24.i.i = phi i32 [ %length.012.i.i, %while.end.i.i ], [ %inc.i.i, %while.body.i.i ]
-  %start.addr.0.lcssa23.i.i = phi ptr [ %start.addr.011.i.i, %while.end.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %cmp12.i.i = icmp eq i32 %length.0.lcssa24.i.i, 1
-  %brmerge.i.i = select i1 %cmp12.i.i, i1 true, i1 %cmp1.i.i
-  br i1 %brmerge.i.i, label %if.end5.i, label %return
+  %length.0.lcssa26.i.i = phi i32 [ %length.014.i.i, %while.end.i.i ], [ %inc.i.i, %while.body.i.i ]
+  %start.addr.0.lcssa25.i.i = phi ptr [ %start.addr.013.i.i, %while.end.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
+  %cmp12.i.i = icmp ne i32 %length.0.lcssa26.i.i, 1
+  %or.cond1.i.i = select i1 %cmp12.i.i, i1 %cmp1.i.i, i1 false
+  br i1 %or.cond1.i.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end9.i.i
-  %cmp6.i = icmp eq ptr %start.addr.0.lcssa23.i.i, %end
+  %cmp6.i = icmp eq ptr %start.addr.0.lcssa25.i.i, %end
   br i1 %cmp6.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end5.i
-  %13 = load i16, ptr %start.addr.0.lcssa23.i.i, align 2
+  %13 = load i16, ptr %start.addr.0.lcssa25.i.i, align 2
   %cmp10.i = icmp eq i16 %13, 46
   br i1 %cmp10.i, label %if.then11.i, label %if.end19.i
 
 if.then11.i:                                      ; preds = %if.end8.i
-  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %start.addr.0.lcssa23.i.i, i64 2
-  %cmp310.i21.i = icmp ult ptr %incdec.ptr12.i, %end
-  br i1 %cmp310.i21.i, label %land.lhs.true.i23.i, label %return
+  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %start.addr.0.lcssa25.i.i, i64 2
+  %cmp312.i21.i = icmp ult ptr %incdec.ptr12.i, %end
+  br i1 %cmp312.i21.i, label %land.lhs.true.i23.i, label %return
 
 land.lhs.true.i23.i:                              ; preds = %if.then11.i, %while.body.i35.i
-  %length.012.i24.i = phi i32 [ %inc.i37.i, %while.body.i35.i ], [ 0, %if.then11.i ]
-  %start.addr.011.i25.i = phi ptr [ %incdec.ptr.i36.i, %while.body.i35.i ], [ %incdec.ptr12.i, %if.then11.i ]
-  %14 = load i16, ptr %start.addr.011.i25.i, align 2
+  %length.014.i24.i = phi i32 [ %inc.i37.i, %while.body.i35.i ], [ 0, %if.then11.i ]
+  %start.addr.013.i25.i = phi ptr [ %incdec.ptr.i36.i, %while.body.i35.i ], [ %incdec.ptr12.i, %if.then11.i ]
+  %14 = load i16, ptr %start.addr.013.i25.i, align 2
   %15 = add i16 %14, -48
-  %or.cond.i26.i = icmp ult i16 %15, 10
-  br i1 %or.cond.i26.i, label %while.body.i35.i, label %while.end.i27.i
+  %or.cond11.i26.i = icmp ult i16 %15, 10
+  br i1 %or.cond11.i26.i, label %while.body.i35.i, label %while.end.i27.i
 
 while.body.i35.i:                                 ; preds = %land.lhs.true.i23.i
-  %incdec.ptr.i36.i = getelementptr inbounds nuw i8, ptr %start.addr.011.i25.i, i64 2
-  %inc.i37.i = add nuw nsw i32 %length.012.i24.i, 1
+  %incdec.ptr.i36.i = getelementptr inbounds nuw i8, ptr %start.addr.013.i25.i, i64 2
+  %inc.i37.i = add nuw nsw i32 %length.014.i24.i, 1
   %cmp3.i38.i = icmp ult ptr %incdec.ptr.i36.i, %end
   br i1 %cmp3.i38.i, label %land.lhs.true.i23.i, label %if.end15.i, !llvm.loop !440
 
 while.end.i27.i:                                  ; preds = %land.lhs.true.i23.i
-  %tobool.not.i28.i = icmp eq i32 %length.012.i24.i, 0
+  %tobool.not.i28.i = icmp eq i32 %length.014.i24.i, 0
   br i1 %tobool.not.i28.i, label %return, label %if.end15.i
 
 if.end15.i:                                       ; preds = %while.body.i35.i, %while.end.i27.i
-  %start.addr.5.i = phi ptr [ %start.addr.011.i25.i, %while.end.i27.i ], [ %incdec.ptr.i36.i, %while.body.i35.i ]
+  %start.addr.5.i = phi ptr [ %start.addr.013.i25.i, %while.end.i27.i ], [ %incdec.ptr.i36.i, %while.body.i35.i ]
   %cmp16.i = icmp eq ptr %start.addr.5.i, %end
   br i1 %cmp16.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit, label %if.end18.i
 
@@ -25996,14 +25996,14 @@ if.end18.i:                                       ; preds = %if.end15.i
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end18.i, %if.end8.i
-  %start.addr.1.i78 = phi ptr [ %start.addr.5.i, %if.end18.i ], [ %start.addr.0.lcssa23.i.i, %if.end8.i ]
+  %start.addr.1.i77 = phi ptr [ %start.addr.5.i, %if.end18.i ], [ %start.addr.0.lcssa25.i.i, %if.end8.i ]
   %c.0.i = phi i16 [ %16, %if.end18.i ], [ %13, %if.end8.i ]
   %17 = and i16 %c.0.i, -33
   %or.cond.i = icmp eq i16 %17, 69
   br i1 %or.cond.i, label %if.then24.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit
 
 if.then24.i:                                      ; preds = %if.end19.i
-  %incdec.ptr25.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i78, i64 2
+  %incdec.ptr25.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i77, i64 2
   %cmp26.i = icmp eq ptr %incdec.ptr25.i, %end
   br i1 %cmp26.i, label %return, label %if.end28.i
 
@@ -26015,35 +26015,35 @@ if.end28.i:                                       ; preds = %if.then24.i
   ]
 
 if.then34.i:                                      ; preds = %if.end28.i, %if.end28.i
-  %incdec.ptr35.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i78, i64 4
+  %incdec.ptr35.i = getelementptr inbounds nuw i8, ptr %start.addr.1.i77, i64 4
   %cmp36.i = icmp eq ptr %incdec.ptr35.i, %end
   br i1 %cmp36.i, label %return, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then34.i, %if.end28.i
   %start.addr.3.i = phi ptr [ %incdec.ptr25.i, %if.end28.i ], [ %incdec.ptr35.i, %if.then34.i ]
-  %cmp310.i43.i = icmp ult ptr %start.addr.3.i, %end
-  br i1 %cmp310.i43.i, label %land.lhs.true.i45.i, label %return
+  %cmp312.i43.i = icmp ult ptr %start.addr.3.i, %end
+  br i1 %cmp312.i43.i, label %land.lhs.true.i45.i, label %return
 
 land.lhs.true.i45.i:                              ; preds = %if.end39.i, %while.body.i57.i
-  %length.012.i46.i = phi i32 [ %inc.i59.i, %while.body.i57.i ], [ 0, %if.end39.i ]
-  %start.addr.011.i47.i = phi ptr [ %incdec.ptr.i58.i, %while.body.i57.i ], [ %start.addr.3.i, %if.end39.i ]
-  %19 = load i16, ptr %start.addr.011.i47.i, align 2
+  %length.014.i46.i = phi i32 [ %inc.i59.i, %while.body.i57.i ], [ 0, %if.end39.i ]
+  %start.addr.013.i47.i = phi ptr [ %incdec.ptr.i58.i, %while.body.i57.i ], [ %start.addr.3.i, %if.end39.i ]
+  %19 = load i16, ptr %start.addr.013.i47.i, align 2
   %20 = add i16 %19, -48
-  %or.cond.i48.i = icmp ult i16 %20, 10
-  br i1 %or.cond.i48.i, label %while.body.i57.i, label %while.end.i49.i
+  %or.cond11.i48.i = icmp ult i16 %20, 10
+  br i1 %or.cond11.i48.i, label %while.body.i57.i, label %while.end.i49.i
 
 while.body.i57.i:                                 ; preds = %land.lhs.true.i45.i
-  %incdec.ptr.i58.i = getelementptr inbounds nuw i8, ptr %start.addr.011.i47.i, i64 2
-  %inc.i59.i = add nuw nsw i32 %length.012.i46.i, 1
+  %incdec.ptr.i58.i = getelementptr inbounds nuw i8, ptr %start.addr.013.i47.i, i64 2
+  %inc.i59.i = add nuw nsw i32 %length.014.i46.i, 1
   %cmp3.i60.i = icmp ult ptr %incdec.ptr.i58.i, %end
   br i1 %cmp3.i60.i, label %land.lhs.true.i45.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit, !llvm.loop !440
 
 while.end.i49.i:                                  ; preds = %land.lhs.true.i45.i
-  %tobool.not.i50.i = icmp eq i32 %length.012.i46.i, 0
+  %tobool.not.i50.i = icmp eq i32 %length.014.i46.i, 0
   br i1 %tobool.not.i50.i, label %return, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit
 
 _ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit: ; preds = %while.body.i57.i, %if.end5.i, %if.end15.i, %if.end19.i, %while.end.i49.i
-  %start.addr.2.sink.i = phi ptr [ %start.addr.0.lcssa23.i.i, %if.end5.i ], [ %start.addr.5.i, %if.end15.i ], [ %start.addr.1.i78, %if.end19.i ], [ %start.addr.011.i47.i, %while.end.i49.i ], [ %incdec.ptr.i58.i, %while.body.i57.i ]
+  %start.addr.2.sink.i = phi ptr [ %start.addr.0.lcssa25.i.i, %if.end5.i ], [ %start.addr.5.i, %if.end15.i ], [ %start.addr.1.i77, %if.end19.i ], [ %start.addr.013.i47.i, %while.end.i49.i ], [ %incdec.ptr.i58.i, %while.body.i57.i ]
   store ptr %start.addr.2.sink.i, ptr %token_end, align 8
   br label %return
 
@@ -26054,24 +26054,24 @@ sw.bb26:                                          ; preds = %if.end
 
 while.body.lr.ph.i:                               ; preds = %sw.bb26
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %end to i64
-  br label %while.body.i80
+  br label %while.body.i79
 
-while.body.i80:                                   ; preds = %if.end17.i, %while.body.lr.ph.i
-  %start.addr.036.i = phi ptr [ %add.ptr27, %while.body.lr.ph.i ], [ %start.addr.1.i84, %if.end17.i ]
-  %incdec.ptr.i81 = getelementptr inbounds nuw i8, ptr %start.addr.036.i, i64 2
+while.body.i79:                                   ; preds = %if.end17.i, %while.body.lr.ph.i
+  %start.addr.036.i = phi ptr [ %add.ptr27, %while.body.lr.ph.i ], [ %start.addr.1.i83, %if.end17.i ]
+  %incdec.ptr.i80 = getelementptr inbounds nuw i8, ptr %start.addr.036.i, i64 2
   %21 = load i16, ptr %start.addr.036.i, align 2
   switch i16 %21, label %if.end17.i [
-    i16 92, label %if.then.i82
+    i16 92, label %if.then.i81
     i16 34, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseStringTokenEPKtS7_PS7_.exit
   ]
 
-if.then.i82:                                      ; preds = %while.body.i80
-  %cmp2.i = icmp eq ptr %incdec.ptr.i81, %end
-  br i1 %cmp2.i, label %return, label %if.end.i83
+if.then.i81:                                      ; preds = %while.body.i79
+  %cmp2.i = icmp eq ptr %incdec.ptr.i80, %end
+  br i1 %cmp2.i, label %return, label %if.end.i82
 
-if.end.i83:                                       ; preds = %if.then.i82
+if.end.i82:                                       ; preds = %if.then.i81
   %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %start.addr.036.i, i64 4
-  %22 = load i16, ptr %incdec.ptr.i81, align 2
+  %22 = load i16, ptr %incdec.ptr.i80, align 2
   switch i16 %22, label %return [
     i16 120, label %sw.bb.i
     i16 117, label %sw.bb8.i
@@ -26086,48 +26086,48 @@ if.end.i83:                                       ; preds = %if.then.i82
     i16 34, label %if.end17.i
   ]
 
-sw.bb.i:                                          ; preds = %if.end.i83
+sw.bb.i:                                          ; preds = %if.end.i82
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i.i86 = icmp slt i64 %sub.ptr.sub.i.i, 3
-  br i1 %cmp.i.i86, label %return, label %for.body.i.preheader.i
+  %cmp.i.i85 = icmp slt i64 %sub.ptr.sub.i.i, 3
+  br i1 %cmp.i.i85, label %return, label %for.body.i.preheader.i
 
 for.body.i.preheader.i:                           ; preds = %sw.bb.i
   %scevgep45.i = getelementptr i8, ptr %start.addr.036.i, i64 8
-  br label %for.body.i.i87
+  br label %for.body.i.i86
 
-for.body.i.i87:                                   ; preds = %for.inc.i.i90, %for.body.i.preheader.i
-  %i.017.i.i = phi i32 [ %inc.i.i91, %for.inc.i.i90 ], [ 0, %for.body.i.preheader.i ]
-  %start.addr.016.i.i = phi ptr [ %incdec.ptr.i.i88, %for.inc.i.i90 ], [ %incdec.ptr4.i, %for.body.i.preheader.i ]
-  %incdec.ptr.i.i88 = getelementptr inbounds nuw i8, ptr %start.addr.016.i.i, i64 2
+for.body.i.i86:                                   ; preds = %for.inc.i.i89, %for.body.i.preheader.i
+  %i.017.i.i = phi i32 [ %inc.i.i90, %for.inc.i.i89 ], [ 0, %for.body.i.preheader.i ]
+  %start.addr.016.i.i = phi ptr [ %incdec.ptr.i.i87, %for.inc.i.i89 ], [ %incdec.ptr4.i, %for.body.i.preheader.i ]
+  %incdec.ptr.i.i87 = getelementptr inbounds nuw i8, ptr %start.addr.016.i.i, i64 2
   %23 = load i16, ptr %start.addr.016.i.i, align 2
   %.fr14.i.i = freeze i16 %23
   %24 = add i16 %.fr14.i.i, -48
-  %or.cond.i.i89 = icmp ult i16 %24, 10
-  br i1 %or.cond.i.i89, label %for.inc.i.i90, label %switch.early.test.i.i
+  %or.cond.i.i88 = icmp ult i16 %24, 10
+  br i1 %or.cond.i.i88, label %for.inc.i.i89, label %switch.early.test.i.i
 
-switch.early.test.i.i:                            ; preds = %for.body.i.i87
+switch.early.test.i.i:                            ; preds = %for.body.i.i86
   switch i16 %.fr14.i.i, label %return [
-    i16 102, label %for.inc.i.i90
-    i16 101, label %for.inc.i.i90
-    i16 100, label %for.inc.i.i90
-    i16 99, label %for.inc.i.i90
-    i16 98, label %for.inc.i.i90
-    i16 97, label %for.inc.i.i90
-    i16 70, label %for.inc.i.i90
-    i16 69, label %for.inc.i.i90
-    i16 68, label %for.inc.i.i90
-    i16 67, label %for.inc.i.i90
-    i16 66, label %for.inc.i.i90
-    i16 65, label %for.inc.i.i90
+    i16 102, label %for.inc.i.i89
+    i16 101, label %for.inc.i.i89
+    i16 100, label %for.inc.i.i89
+    i16 99, label %for.inc.i.i89
+    i16 98, label %for.inc.i.i89
+    i16 97, label %for.inc.i.i89
+    i16 70, label %for.inc.i.i89
+    i16 69, label %for.inc.i.i89
+    i16 68, label %for.inc.i.i89
+    i16 67, label %for.inc.i.i89
+    i16 66, label %for.inc.i.i89
+    i16 65, label %for.inc.i.i89
   ]
 
-for.inc.i.i90:                                    ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %for.body.i.i87
-  %inc.i.i91 = add nuw nsw i32 %i.017.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %inc.i.i91, 2
-  br i1 %exitcond.not.i.i, label %if.end17.i, label %for.body.i.i87, !llvm.loop !441
+for.inc.i.i89:                                    ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %for.body.i.i86
+  %inc.i.i90 = add nuw nsw i32 %i.017.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %inc.i.i90, 2
+  br i1 %exitcond.not.i.i, label %if.end17.i, label %for.body.i.i86, !llvm.loop !441
 
-sw.bb8.i:                                         ; preds = %if.end.i83
+sw.bb8.i:                                         ; preds = %if.end.i82
   %sub.ptr.rhs.cast.i7.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i7.i
   %cmp.i10.i = icmp slt i64 %sub.ptr.sub.i8.i, 8
@@ -26168,17 +26168,17 @@ for.inc.i18.i:                                    ; preds = %switch.early.test.i
   %exitcond.not.i20.i = icmp eq i32 %inc.i19.i, 4
   br i1 %exitcond.not.i20.i, label %if.end17.i, label %for.body.i11.i, !llvm.loop !441
 
-if.end17.i:                                       ; preds = %for.inc.i18.i, %for.inc.i.i90, %if.end.i83, %if.end.i83, %if.end.i83, %if.end.i83, %if.end.i83, %if.end.i83, %if.end.i83, %if.end.i83, %if.end.i83, %while.body.i80
-  %start.addr.1.i84 = phi ptr [ %incdec.ptr.i81, %while.body.i80 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %incdec.ptr4.i, %if.end.i83 ], [ %scevgep45.i, %for.inc.i.i90 ], [ %scevgep.i, %for.inc.i18.i ]
-  %cmp.i85 = icmp ult ptr %start.addr.1.i84, %end
-  br i1 %cmp.i85, label %while.body.i80, label %return, !llvm.loop !442
+if.end17.i:                                       ; preds = %for.inc.i18.i, %for.inc.i.i89, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %while.body.i79
+  %start.addr.1.i83 = phi ptr [ %incdec.ptr.i80, %while.body.i79 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %scevgep45.i, %for.inc.i.i89 ], [ %scevgep.i, %for.inc.i18.i ]
+  %cmp.i84 = icmp ult ptr %start.addr.1.i83, %end
+  br i1 %cmp.i84, label %while.body.i79, label %return, !llvm.loop !442
 
-_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseStringTokenEPKtS7_PS7_.exit: ; preds = %while.body.i80
-  store ptr %incdec.ptr.i81, ptr %token_end, align 8
+_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseStringTokenEPKtS7_PS7_.exit: ; preds = %while.body.i79
+  store ptr %incdec.ptr.i80, ptr %token_end, align 8
   br label %return
 
-return:                                           ; preds = %if.then.i82, %if.end.i83, %if.end17.i, %sw.bb.i, %sw.bb8.i, %switch.early.test.i17.i, %switch.early.test.i.i, %sw.bb26, %while.end.i49.i, %if.end39.i, %while.end.i27.i, %if.then11.i, %if.end.i.i, %if.end9.i.i, %while.end.i.i, %if.end.i76, %if.then34.i, %if.then24.i, %if.end, %while.end.i, %while.end.i37, %while.end.i58, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseStringTokenEPKtS7_PS7_.exit, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit74.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit53.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
-  %retval.0 = phi i32 [ 10, %sw.bb20 ], [ 1, %sw.bb18 ], [ 0, %sw.bb16 ], [ 9, %sw.bb14 ], [ 3, %sw.bb12 ], [ 2, %sw.bb11 ], [ 12, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit ], [ 5, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit ], [ 4, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseStringTokenEPKtS7_PS7_.exit ], [ 12, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit.thread ], [ 8, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit.thread ], [ 6, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit53.thread ], [ 7, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit74.thread ], [ 11, %while.end.i58 ], [ 11, %while.end.i37 ], [ 11, %while.end.i ], [ 11, %if.end ], [ 11, %if.then24.i ], [ 11, %if.then34.i ], [ 11, %if.end.i76 ], [ 11, %while.end.i.i ], [ 11, %if.end9.i.i ], [ 11, %if.end.i.i ], [ 11, %if.then11.i ], [ 11, %while.end.i27.i ], [ 11, %if.end39.i ], [ 11, %while.end.i49.i ], [ 11, %sw.bb26 ], [ 11, %switch.early.test.i.i ], [ 11, %switch.early.test.i17.i ], [ 11, %sw.bb8.i ], [ 11, %sw.bb.i ], [ 11, %if.end17.i ], [ 11, %if.end.i83 ], [ 11, %if.then.i82 ]
+return:                                           ; preds = %if.then.i81, %if.end.i82, %if.end17.i, %sw.bb.i, %sw.bb8.i, %switch.early.test.i17.i, %switch.early.test.i.i, %sw.bb26, %while.end.i49.i, %if.end39.i, %while.end.i27.i, %if.then11.i, %if.end.i.i, %if.end9.i.i, %while.end.i.i, %if.end.i76, %if.then34.i, %if.then24.i, %if.end, %while.end.i, %while.end.i37, %while.end.i58, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseStringTokenEPKtS7_PS7_.exit, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit74.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit53.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
+  %retval.0 = phi i32 [ 10, %sw.bb20 ], [ 1, %sw.bb18 ], [ 0, %sw.bb16 ], [ 9, %sw.bb14 ], [ 3, %sw.bb12 ], [ 2, %sw.bb11 ], [ 12, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit ], [ 5, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit ], [ 4, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseStringTokenEPKtS7_PS7_.exit ], [ 12, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit.thread ], [ 8, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit.thread ], [ 6, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit53.thread ], [ 7, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit74.thread ], [ 11, %while.end.i58 ], [ 11, %while.end.i37 ], [ 11, %while.end.i ], [ 11, %if.end ], [ 11, %if.then24.i ], [ 11, %if.then34.i ], [ 11, %if.end.i76 ], [ 11, %while.end.i.i ], [ 11, %if.end9.i.i ], [ 11, %if.end.i.i ], [ 11, %if.then11.i ], [ 11, %while.end.i27.i ], [ 11, %if.end39.i ], [ 11, %while.end.i49.i ], [ 11, %sw.bb26 ], [ 11, %switch.early.test.i.i ], [ 11, %switch.early.test.i17.i ], [ 11, %sw.bb8.i ], [ 11, %sw.bb.i ], [ 11, %if.end17.i ], [ 11, %if.end.i82 ], [ 11, %if.then.i81 ]
   ret i32 %retval.0
 }
 

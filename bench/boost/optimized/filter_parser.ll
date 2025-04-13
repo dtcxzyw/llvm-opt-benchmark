@@ -2646,16 +2646,16 @@ declare noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spa
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE19parse_subexpressionERPKcS6_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !14
-  %.not.not90 = icmp eq ptr %6, %2
-  br i1 %.not.not90, label %.loopexit59.thread, label %.lr.ph
+  %.not5189.not = icmp eq ptr %6, %2
+  br i1 %.not5189.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit
-  %.03793 = phi i1 [ %41, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ false, %4 ]
-  %.03892 = phi i1 [ true, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ false, %4 ]
-  %.04091 = phi ptr [ %42, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ %6, %4 ]
-  %7 = load i8, ptr %.04091, align 1, !tbaa !44
+  %.03892 = phi i1 [ %41, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ false, %4 ]
+  %.03991 = phi i1 [ true, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ false, %4 ]
+  %.04190 = phi ptr [ %42, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ %6, %4 ]
+  %7 = load i8, ptr %.04190, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
-  %8 = getelementptr inbounds nuw i8, ptr %.04091, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.04190, i64 1
   store ptr %8, ptr %5, align 8, !tbaa !14
   switch i8 %7, label %.lr.ph.i.preheader [
     i8 37, label %9
@@ -2663,7 +2663,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   ]
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph
-  %scevgep = getelementptr i8, ptr %.04091, i64 3
+  %scevgep = getelementptr i8, ptr %.04190, i64 3
   br label %.lr.ph.i
 
 9:                                                ; preds = %.lr.ph
@@ -2684,8 +2684,8 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 17:                                               ; preds = %14
   %18 = load i8, ptr %15, align 1, !tbaa !44
-  %.not50 = icmp eq i8 %18, 37
-  br i1 %.not50, label %20, label %19
+  %.not52 = icmp eq i8 %18, 37
+  br i1 %.not52, label %20, label %19
 
 19:                                               ; preds = %17, %14
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 248, ptr noundef nonnull @.str.82) #23
@@ -2694,7 +2694,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %22 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %21, ptr noundef %2)
-  br i1 %.03892, label %25, label %23
+  br i1 %.03991, label %25, label %23
 
 23:                                               ; preds = %20
   %24 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE14parse_relationEPKcS6_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %22, ptr noundef %2)
@@ -2706,7 +2706,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %30
   %.01528.i.idx = phi i64 [ %.01528.i.add, %30 ], [ 0, %.lr.ph.i.preheader ]
-  %.01827.i = phi ptr [ %32, %30 ], [ %.04091, %.lr.ph.i.preheader ]
+  %.01827.i = phi ptr [ %32, %30 ], [ %.04190, %.lr.ph.i.preheader ]
   %26 = load i8, ptr %.01827.i, align 1, !tbaa !44
   %exitcond = icmp eq i64 %.01528.i.idx, 3
   br i1 %exitcond, label %27, label %30
@@ -2743,31 +2743,31 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 38:                                               ; preds = %23, %25, %34
   %.3 = phi ptr [ %36, %34 ], [ %22, %25 ], [ %24, %23 ]
-  br i1 %.03793, label %39, label %.thread
+  br i1 %.03892, label %39, label %.thread61
 
 39:                                               ; preds = %38
   call void @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE11on_negationEv(ptr noundef nonnull align 8 dereferenceable(176) %0)
-  br label %.thread
+  br label %.thread61
 
-.thread:                                          ; preds = %39, %38
+.thread61:                                        ; preds = %38, %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  br label %.loopexit59.thread
+  br label %._crit_edge.thread
 
 _ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit: ; preds = %27, %.lr.ph
   %40 = phi ptr [ %8, %.lr.ph ], [ %scevgep, %27 ]
-  %41 = xor i1 %.03793, true
+  %41 = xor i1 %.03892, true
   %42 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef %40, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  %.not.not = icmp eq ptr %42, %2
-  br i1 %.not.not, label %.loopexit59, label %.lr.ph
+  %.not51 = icmp eq ptr %42, %2
+  br i1 %.not51, label %._crit_edge, label %.lr.ph
 
-.loopexit59:                                      ; preds = %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit
+._crit_edge:                                      ; preds = %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 289, ptr noundef nonnull @.str.84) #23
   unreachable
 
-.loopexit59.thread:                               ; preds = %.thread, %4
-  %.141121 = phi ptr [ %6, %4 ], [ %.3, %.thread ]
-  store ptr %.141121, ptr %1, align 8, !tbaa !14
+._crit_edge.thread:                               ; preds = %4, %.thread61
+  %.14267 = phi ptr [ %.3, %.thread61 ], [ %6, %4 ]
+  store ptr %.14267, ptr %1, align 8, !tbaa !14
   ret void
 }
 
@@ -7058,16 +7058,16 @@ declare noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spa
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE19parse_subexpressionERPKwS6_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !14
-  %.not.not90 = icmp eq ptr %6, %2
-  br i1 %.not.not90, label %.loopexit59.thread, label %.lr.ph
+  %.not5189.not = icmp eq ptr %6, %2
+  br i1 %.not5189.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit
-  %.03793 = phi i1 [ %42, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ false, %4 ]
-  %.03892 = phi i1 [ true, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ false, %4 ]
-  %.04091 = phi ptr [ %43, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ %6, %4 ]
-  %7 = load i32, ptr %.04091, align 4, !tbaa !76
+  %.03892 = phi i1 [ %42, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ false, %4 ]
+  %.03991 = phi i1 [ true, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ false, %4 ]
+  %.04190 = phi ptr [ %43, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ %6, %4 ]
+  %7 = load i32, ptr %.04190, align 4, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
-  %8 = getelementptr inbounds nuw i8, ptr %.04091, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.04190, i64 4
   store ptr %8, ptr %5, align 8, !tbaa !14
   switch i32 %7, label %.lr.ph.i.preheader [
     i32 37, label %9
@@ -7075,7 +7075,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   ]
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph
-  %scevgep = getelementptr i8, ptr %.04091, i64 12
+  %scevgep = getelementptr i8, ptr %.04190, i64 12
   br label %.lr.ph.i
 
 9:                                                ; preds = %.lr.ph
@@ -7096,8 +7096,8 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 17:                                               ; preds = %14
   %18 = load i32, ptr %15, align 4, !tbaa !76
-  %.not50 = icmp eq i32 %18, 37
-  br i1 %.not50, label %20, label %19
+  %.not52 = icmp eq i32 %18, 37
+  br i1 %.not52, label %20, label %19
 
 19:                                               ; preds = %17, %14
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 248, ptr noundef nonnull @.str.82) #23
@@ -7106,7 +7106,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %22 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spaces_leftEPKwS6_(ptr noundef nonnull %21, ptr noundef %2)
-  br i1 %.03892, label %25, label %23
+  br i1 %.03991, label %25, label %23
 
 23:                                               ; preds = %20
   %24 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE14parse_relationEPKwS6_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %22, ptr noundef %2)
@@ -7118,7 +7118,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %31
   %.01528.i = phi ptr [ %33, %31 ], [ @.str.109, %.lr.ph.i.preheader ]
-  %.01827.i = phi ptr [ %32, %31 ], [ %.04091, %.lr.ph.i.preheader ]
+  %.01827.i = phi ptr [ %32, %31 ], [ %.04190, %.lr.ph.i.preheader ]
   %26 = load i32, ptr %.01827.i, align 4, !tbaa !76
   %27 = load i32, ptr %.01528.i, align 4, !tbaa !76
   %28 = icmp eq i32 %27, 0
@@ -7153,31 +7153,31 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 39:                                               ; preds = %23, %25, %35
   %.3 = phi ptr [ %37, %35 ], [ %22, %25 ], [ %24, %23 ]
-  br i1 %.03793, label %40, label %.thread
+  br i1 %.03892, label %40, label %.thread61
 
 40:                                               ; preds = %39
   call void @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE11on_negationEv(ptr noundef nonnull align 8 dereferenceable(176) %0)
-  br label %.thread
+  br label %.thread61
 
-.thread:                                          ; preds = %40, %39
+.thread61:                                        ; preds = %39, %40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  br label %.loopexit59.thread
+  br label %._crit_edge.thread
 
 _ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit: ; preds = %29, %.lr.ph
   %41 = phi ptr [ %8, %.lr.ph ], [ %scevgep, %29 ]
-  %42 = xor i1 %.03793, true
+  %42 = xor i1 %.03892, true
   %43 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spaces_leftEPKwS6_(ptr noundef %41, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
-  %.not.not = icmp eq ptr %43, %2
-  br i1 %.not.not, label %.loopexit59, label %.lr.ph
+  %.not51 = icmp eq ptr %43, %2
+  br i1 %.not51, label %._crit_edge, label %.lr.ph
 
-.loopexit59:                                      ; preds = %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit
+._crit_edge:                                      ; preds = %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 289, ptr noundef nonnull @.str.84) #23
   unreachable
 
-.loopexit59.thread:                               ; preds = %.thread, %4
-  %.141121 = phi ptr [ %6, %4 ], [ %.3, %.thread ]
-  store ptr %.141121, ptr %1, align 8, !tbaa !14
+._crit_edge.thread:                               ; preds = %4, %.thread61
+  %.14267 = phi ptr [ %.3, %.thread61 ], [ %6, %4 ]
+  store ptr %.14267, ptr %1, align 8, !tbaa !14
   ret void
 }
 

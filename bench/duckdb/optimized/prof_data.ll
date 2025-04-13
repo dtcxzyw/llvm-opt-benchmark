@@ -260,8 +260,8 @@ malloc_mutex_lock.exit:                           ; preds = %8, %14
 21:                                               ; preds = %malloc_mutex_lock.exit
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %23 = tail call i64 @duckdb_je_ckh_count(ptr noundef nonnull %22) #13
-  %.not.i.i14 = icmp eq i64 %23, 0
-  br i1 %.not.i.i14, label %.critedge13, label %24
+  %.not4.i.i = icmp eq i64 %23, 0
+  br i1 %.not4.i.i, label %.critedge13, label %24
 
 24:                                               ; preds = %21
   store i8 0, ptr %18, align 1, !tbaa !35
@@ -1290,13 +1290,13 @@ prof_tdata_should_destroy.exit.thread.i:          ; preds = %17
 
 prof_tdata_should_destroy.exit.i:                 ; preds = %17
   %30 = tail call i64 @duckdb_je_ckh_count(ptr noundef nonnull %21) #13
-  %.not.i.i.i = icmp eq i64 %30, 0
+  %.not4.i.i.i = icmp eq i64 %30, 0
   %31 = load ptr, ptr %20, align 8, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store atomic i8 0, ptr %32 monotonic, align 1
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #13
-  br i1 %.not.i.i.i, label %35, label %46
+  br i1 %.not4.i.i.i, label %35, label %46
 
 35:                                               ; preds = %prof_tdata_should_destroy.exit.i
   %36 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_tdatas_mtx, i64 72)) #13

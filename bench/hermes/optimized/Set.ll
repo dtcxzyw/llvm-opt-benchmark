@@ -1597,16 +1597,14 @@ if.else:                                          ; preds = %_ZN6hermes2vm9GCPoi
   %24 = ptrtoint ptr %data_75 to i64
   %and.i.i.i.i = and i64 %24, 562949949227008
   %25 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i = icmp eq ptr %23, %25
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %if.else
+  %cmp.i.i.i = icmp ne ptr %23, %25
   %ogMarkingBarriers_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
   %26 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
   %tobool.i.i = trunc i8 %26 to i1
-  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
+  %or.cond.i.i = select i1 %cmp.i.i.i, i1 %tobool.i.i, i1 false
+  br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
 
-if.then.i.i:                                      ; preds = %land.rhs.i.i
+if.then.i.i:                                      ; preds = %if.else
   %27 = load i32, ptr %data_75, align 4
   %cmp.i.i.not.i.i = icmp eq i32 %27, 0
   br i1 %cmp.i.i.not.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, label %if.then3.i.i
@@ -1615,7 +1613,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   tail call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i32 %27) #5
   br label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
 
-_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit: ; preds = %if.else, %land.rhs.i.i, %if.then.i.i, %if.then3.i.i
+_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit: ; preds = %if.else, %if.then.i.i, %if.then3.i.i
   store i32 0, ptr %data_75, align 4
   br label %if.end78
 

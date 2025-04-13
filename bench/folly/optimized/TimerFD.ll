@@ -242,24 +242,22 @@ define void @_ZThn192_N5folly7TimerFDD0Ev(ptr readnone captures(none) %0) unname
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr noundef nonnull align 8 dereferenceable(13) %0, i1 noundef zeroext %1) unnamed_addr #1 comdat align 2 {
-  br i1 %1, label %3, label %7
+  %.not = xor i1 %1, true
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %4 = load i8, ptr %3, align 4, !range !52
+  %5 = trunc nuw i8 %4 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %5
+  br i1 %or.cond, label %6, label %10
 
-3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i8, ptr %4, align 4, !tbaa !52, !range !53, !noundef !54
-  %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %12
+6:                                                ; preds = %2
+  store i8 0, ptr %3, align 4, !tbaa !53
+  %7 = load ptr, ptr %0, align 8, !tbaa !40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(13) %0) #16
+  br label %10
 
-7:                                                ; preds = %3, %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %8, align 4, !tbaa !52
-  %9 = load ptr, ptr %0, align 8, !tbaa !40
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(13) %0) #16
-  br label %12
-
-12:                                               ; preds = %3, %7
+10:                                               ; preds = %2, %6
   ret void
 }
 
@@ -272,7 +270,7 @@ define linkonce_odr void @_ZN5folly18DelayedDestruction7destroyEv(ptr noundef no
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 1, ptr %5, align 4, !tbaa !52
+  store i8 1, ptr %5, align 4, !tbaa !53
   br label %10
 
 6:                                                ; preds = %1
@@ -295,18 +293,18 @@ define void @_ZN5folly7TimerFDC2EPNS_9EventBaseE(ptr noundef nonnull align 8 der
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 0, ptr %6, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  store i8 0, ptr %7, align 4, !tbaa !52
+  store i8 0, ptr %7, align 4, !tbaa !53
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5folly7TimerFDE, i64 16), ptr %0, align 8, !tbaa !40
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly7TimerFDE, i64 72), ptr %4, align 8, !tbaa !40
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly7TimerFDE, i64 112), ptr %5, align 8, !tbaa !40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr null, ptr %8, align 8, !tbaa !55
+  store ptr null, ptr %8, align 8, !tbaa !54
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %3, ptr %9, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 1, ptr %10, align 8, !tbaa !56
+  store i32 1, ptr %10, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %4, ptr %11, align 8, !tbaa !57
+  store ptr %4, ptr %11, align 8, !tbaa !56
   %12 = icmp sgt i32 %3, 0
   br i1 %12, label %13, label %_ZN5folly7TimerFDC2EPNS_9EventBaseEi.exit
 
@@ -352,18 +350,18 @@ define void @_ZN5folly7TimerFDC2EPNS_9EventBaseEi(ptr noundef nonnull align 8 de
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 0, ptr %6, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  store i8 0, ptr %7, align 4, !tbaa !52
+  store i8 0, ptr %7, align 4, !tbaa !53
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5folly7TimerFDE, i64 16), ptr %0, align 8, !tbaa !40
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly7TimerFDE, i64 72), ptr %4, align 8, !tbaa !40
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly7TimerFDE, i64 112), ptr %5, align 8, !tbaa !40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr null, ptr %8, align 8, !tbaa !55
+  store ptr null, ptr %8, align 8, !tbaa !54
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %2, ptr %9, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 1, ptr %10, align 8, !tbaa !56
+  store i32 1, ptr %10, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %4, ptr %11, align 8, !tbaa !57
+  store ptr %4, ptr %11, align 8, !tbaa !56
   %12 = icmp sgt i32 %2, 0
   br i1 %12, label %13, label %_ZN5folly12EventHandler15registerHandlerEt.exit
 
@@ -565,11 +563,11 @@ define void @_ZN5folly7TimerFD8scheduleENSt6chrono8durationIlSt5ratioILl1ELl1000
   %8 = sdiv i64 %spec.select, 1000000
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store i64 %8, ptr %9, align 8, !tbaa !58
+  store i64 %8, ptr %9, align 8, !tbaa !57
   %10 = mul nsw i64 %spec.select, 1000
   %11 = srem i64 %10, 1000000000
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %11, ptr %12, align 8, !tbaa !61
+  store i64 %11, ptr %12, align 8, !tbaa !60
   %13 = call i32 @timerfd_settime(i32 noundef %5, i32 noundef 0, ptr noundef nonnull %3, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
   br label %_ZN5folly7TimerFD8setTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE.exit
@@ -591,11 +589,11 @@ define noundef zeroext i1 @_ZN5folly7TimerFD8setTimerENSt6chrono8durationIlSt5ra
   %8 = sdiv i64 %1, 1000000
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  store i64 %8, ptr %9, align 8, !tbaa !58
+  store i64 %8, ptr %9, align 8, !tbaa !57
   %10 = mul nsw i64 %1, 1000
   %11 = srem i64 %10, 1000000000
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %11, ptr %12, align 8, !tbaa !61
+  store i64 %11, ptr %12, align 8, !tbaa !60
   %13 = call i32 @timerfd_settime(i32 noundef %5, i32 noundef 0, ptr noundef nonnull %3, ptr noundef null) #16
   %14 = icmp eq i32 %13, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
@@ -842,13 +840,12 @@ attributes #18 = { builtin nounwind }
 !49 = !{!45, !22, i64 40}
 !50 = !{!45, !22, i64 16}
 !51 = !{!45, !13, i64 24}
-!52 = !{!31, !32, i64 12}
-!53 = !{i8 0, i8 2}
-!54 = !{}
-!55 = !{!38, !39, i64 0}
-!56 = !{!28, !29, i64 0}
-!57 = !{!10, !10, i64 0}
-!58 = !{!59, !13, i64 16}
-!59 = !{!"_ZTS10itimerspec", !60, i64 0, !60, i64 16}
-!60 = !{!"_ZTS8timespec", !13, i64 0, !13, i64 8}
-!61 = !{!59, !13, i64 24}
+!52 = !{i8 0, i8 2}
+!53 = !{!31, !32, i64 12}
+!54 = !{!38, !39, i64 0}
+!55 = !{!28, !29, i64 0}
+!56 = !{!10, !10, i64 0}
+!57 = !{!58, !13, i64 16}
+!58 = !{!"_ZTS10itimerspec", !59, i64 0, !59, i64 16}
+!59 = !{!"_ZTS8timespec", !13, i64 0, !13, i64 8}
+!60 = !{!58, !13, i64 24}

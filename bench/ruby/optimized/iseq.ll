@@ -6382,19 +6382,17 @@ RSTRING_PTR.exit216:                              ; preds = %93, %97
   %104 = load i32, ptr %102, align 8, !tbaa !292
   %switch.tableidx = add i32 %104, -3
   %105 = icmp ult i32 %switch.tableidx, 11
-  br i1 %105, label %switch.hole_check, label %106
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 1365, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond276 = select i1 %105, i1 %switch.lobit, i1 false
+  br i1 %or.cond276, label %switch.lookup, label %106
 
-106:                                              ; preds = %switch.hole_check, %.lr.ph
+106:                                              ; preds = %.lr.ph
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.190, i32 noundef %104) #23
   unreachable
 
-switch.hole_check:                                ; preds = %.lr.ph
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 1365, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %106
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.lr.ph
   %107 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.rb_iseq_disasm_recursive, i64 0, i64 %107
   %switch.load = load ptr, ptr %switch.gep, align 8

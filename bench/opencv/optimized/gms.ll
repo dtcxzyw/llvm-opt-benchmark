@@ -462,8 +462,8 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_default_appendEm.exit: ; preds = %41, %39, 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher13getInlierMaskERSt6vectorIbSaIbEEbb(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %brmerge = or i1 %2, %3
-  br i1 %brmerge, label %9, label %5
+  %or.cond = or i1 %2, %3
+  br i1 %or.cond, label %9, label %5
 
 5:                                                ; preds = %4
   tail call void @_ZN2cv11xfeatures2d10GMSMatcher8setScaleEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 0)
@@ -473,12 +473,10 @@ define hidden noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher13getInlierMaskERSt6ve
   br label %.loopexit
 
 9:                                                ; preds = %4
-  %.not = xor i1 %2, true
-  %.not47 = xor i1 %3, true
-  %brmerge48 = or i1 %.not, %.not47
-  br i1 %brmerge48, label %82, label %.preheader54
+  %or.cond3 = and i1 %2, %3
+  br i1 %or.cond3, label %.preheader, label %82
 
-.preheader54:                                     ; preds = %9
+.preheader:                                       ; preds = %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %11 = icmp eq ptr %10, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -489,42 +487,42 @@ define hidden noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher13getInlierMaskERSt6ve
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   br i1 %11, label %.split.us.us, label %.split
 
-.split.us.us:                                     ; preds = %.preheader54, %.split59.us.us
-  %.04061.us = phi i32 [ %spec.select, %.split59.us.us ], [ 0, %.preheader54 ]
-  %.04360.us = phi i32 [ %17, %.split59.us.us ], [ 0, %.preheader54 ]
-  tail call void @_ZN2cv11xfeatures2d10GMSMatcher8setScaleEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.04360.us)
+.split.us.us:                                     ; preds = %.preheader, %.split65.us.us
+  %.04867.us = phi i32 [ %spec.select, %.split65.us.us ], [ 0, %.preheader ]
+  %.05166.us = phi i32 [ %17, %.split65.us.us ], [ 0, %.preheader ]
+  tail call void @_ZN2cv11xfeatures2d10GMSMatcher8setScaleEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.05166.us)
   br label %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us
 
 _ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us:          ; preds = %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us, %.split.us.us
-  %.157.us.us = phi i32 [ %.04061.us, %.split.us.us ], [ %spec.select, %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us ]
-  %.04256.us.us = phi i32 [ 1, %.split.us.us ], [ %16, %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us ]
-  %15 = tail call noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher3runEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.04256.us.us)
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %15, i32 %.157.us.us)
-  %16 = add nuw nsw i32 %.04256.us.us, 1
-  %exitcond72.not = icmp eq i32 %16, 9
-  br i1 %exitcond72.not, label %.split59.us.us, label %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us, !llvm.loop !69
+  %.163.us.us = phi i32 [ %.04867.us, %.split.us.us ], [ %spec.select, %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us ]
+  %.05062.us.us = phi i32 [ 1, %.split.us.us ], [ %16, %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us ]
+  %15 = tail call noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher3runEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.05062.us.us)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %15, i32 %.163.us.us)
+  %16 = add nuw nsw i32 %.05062.us.us, 1
+  %exitcond76.not = icmp eq i32 %16, 9
+  br i1 %exitcond76.not, label %.split65.us.us, label %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us, !llvm.loop !69
 
-.split59.us.us:                                   ; preds = %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us
-  %17 = add nuw nsw i32 %.04360.us, 1
-  %exitcond73.not = icmp eq i32 %17, 5
-  br i1 %exitcond73.not, label %.loopexit, label %.split.us.us, !llvm.loop !70
+.split65.us.us:                                   ; preds = %_ZNSt6vectorIbSaIbEEaSERKS1_.exit.us.us
+  %17 = add nuw nsw i32 %.05166.us, 1
+  %exitcond77.not = icmp eq i32 %17, 5
+  br i1 %exitcond77.not, label %.loopexit, label %.split.us.us, !llvm.loop !70
 
-.split:                                           ; preds = %.preheader54, %.split59
-  %.04061 = phi i32 [ %.2, %.split59 ], [ 0, %.preheader54 ]
-  %.04360 = phi i32 [ %18, %.split59 ], [ 0, %.preheader54 ]
-  tail call void @_ZN2cv11xfeatures2d10GMSMatcher8setScaleEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.04360)
+.split:                                           ; preds = %.preheader, %.split65
+  %.04867 = phi i32 [ %.2, %.split65 ], [ 0, %.preheader ]
+  %.05166 = phi i32 [ %18, %.split65 ], [ 0, %.preheader ]
+  tail call void @_ZN2cv11xfeatures2d10GMSMatcher8setScaleEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.05166)
   br label %19
 
-.split59:                                         ; preds = %_ZNSt6vectorIbSaIbEEaSERKS1_.exit
-  %18 = add nuw nsw i32 %.04360, 1
-  %exitcond71.not = icmp eq i32 %18, 5
-  br i1 %exitcond71.not, label %.loopexit, label %.split, !llvm.loop !70
+.split65:                                         ; preds = %_ZNSt6vectorIbSaIbEEaSERKS1_.exit
+  %18 = add nuw nsw i32 %.05166, 1
+  %exitcond75.not = icmp eq i32 %18, 5
+  br i1 %exitcond75.not, label %.loopexit, label %.split, !llvm.loop !70
 
 19:                                               ; preds = %.split, %_ZNSt6vectorIbSaIbEEaSERKS1_.exit
-  %.157 = phi i32 [ %.04061, %.split ], [ %.2, %_ZNSt6vectorIbSaIbEEaSERKS1_.exit ]
-  %.04256 = phi i32 [ 1, %.split ], [ %81, %_ZNSt6vectorIbSaIbEEaSERKS1_.exit ]
-  %20 = tail call noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher3runEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.04256)
-  %21 = icmp sgt i32 %20, %.157
+  %.163 = phi i32 [ %.04867, %.split ], [ %.2, %_ZNSt6vectorIbSaIbEEaSERKS1_.exit ]
+  %.05062 = phi i32 [ 1, %.split ], [ %81, %_ZNSt6vectorIbSaIbEEaSERKS1_.exit ]
+  %20 = tail call noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher3runEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.05062)
+  %21 = icmp sgt i32 %20, %.163
   br i1 %21, label %22, label %_ZNSt6vectorIbSaIbEEaSERKS1_.exit
 
 22:                                               ; preds = %19
@@ -674,14 +672,15 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   br label %_ZNSt6vectorIbSaIbEEaSERKS1_.exit
 
 _ZNSt6vectorIbSaIbEEaSERKS1_.exit:                ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit.i, %19
-  %.2 = phi i32 [ %.157, %19 ], [ %20, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit.i ]
-  %81 = add nuw nsw i32 %.04256, 1
-  %exitcond.not = icmp eq i32 %81, 9
-  br i1 %exitcond.not, label %.split59, label %19, !llvm.loop !69
+  %.2 = phi i32 [ %.163, %19 ], [ %20, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit.i ]
+  %81 = add nuw nsw i32 %.05062, 1
+  %exitcond74.not = icmp eq i32 %81, 9
+  br i1 %exitcond74.not, label %.split65, label %19, !llvm.loop !69
 
 82:                                               ; preds = %9
-  %brmerge50 = or i1 %3, %.not
-  br i1 %brmerge50, label %92, label %83
+  %.not = xor i1 %2, true
+  %or.cond5 = or i1 %3, %.not
+  br i1 %or.cond5, label %92, label %83
 
 83:                                               ; preds = %82
   tail call void @_ZN2cv11xfeatures2d10GMSMatcher8setScaleEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 0)
@@ -689,10 +688,10 @@ _ZNSt6vectorIbSaIbEEaSERKS1_.exit:                ; preds = %_ZNSt6vectorIbSaIbE
   br label %85
 
 85:                                               ; preds = %83, %90
-  %.364 = phi i32 [ 0, %83 ], [ %.4, %90 ]
-  %.04163 = phi i32 [ 1, %83 ], [ %91, %90 ]
-  %86 = tail call noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher3runEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.04163)
-  %87 = icmp sgt i32 %86, %.364
+  %.359 = phi i32 [ 0, %83 ], [ %.4, %90 ]
+  %.04958 = phi i32 [ 1, %83 ], [ %91, %90 ]
+  %86 = tail call noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher3runEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.04958)
+  %87 = icmp sgt i32 %86, %.359
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %85
@@ -700,25 +699,25 @@ _ZNSt6vectorIbSaIbEEaSERKS1_.exit:                ; preds = %_ZNSt6vectorIbSaIbE
   br label %90
 
 90:                                               ; preds = %88, %85
-  %.4 = phi i32 [ %86, %88 ], [ %.364, %85 ]
-  %91 = add nuw nsw i32 %.04163, 1
-  %exitcond74.not = icmp eq i32 %91, 9
-  br i1 %exitcond74.not, label %.loopexit, label %85, !llvm.loop !75
+  %.4 = phi i32 [ %86, %88 ], [ %.359, %85 ]
+  %91 = add nuw nsw i32 %.04958, 1
+  %exitcond.not = icmp eq i32 %91, 9
+  br i1 %exitcond.not, label %.loopexit, label %85, !llvm.loop !75
 
 92:                                               ; preds = %82
-  %brmerge52 = or i1 %2, %.not47
-  br i1 %brmerge52, label %.loopexit, label %.preheader
+  %or.cond8 = and i1 %3, %.not
+  br i1 %or.cond8, label %.preheader55, label %.loopexit
 
-.preheader:                                       ; preds = %92
+.preheader55:                                     ; preds = %92
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br label %94
 
-94:                                               ; preds = %.preheader, %99
-  %.03966 = phi i32 [ 0, %.preheader ], [ %100, %99 ]
-  %.565 = phi i32 [ 0, %.preheader ], [ %.6, %99 ]
-  tail call void @_ZN2cv11xfeatures2d10GMSMatcher8setScaleEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.03966)
+94:                                               ; preds = %.preheader55, %99
+  %.04761 = phi i32 [ 0, %.preheader55 ], [ %100, %99 ]
+  %.560 = phi i32 [ 0, %.preheader55 ], [ %.6, %99 ]
+  tail call void @_ZN2cv11xfeatures2d10GMSMatcher8setScaleEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %.04761)
   %95 = tail call noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher3runEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef 1)
-  %96 = icmp sgt i32 %95, %.565
+  %96 = icmp sgt i32 %95, %.560
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %94
@@ -726,13 +725,13 @@ _ZNSt6vectorIbSaIbEEaSERKS1_.exit:                ; preds = %_ZNSt6vectorIbSaIbE
   br label %99
 
 99:                                               ; preds = %97, %94
-  %.6 = phi i32 [ %95, %97 ], [ %.565, %94 ]
-  %100 = add nuw nsw i32 %.03966, 1
-  %exitcond75.not = icmp eq i32 %100, 5
-  br i1 %exitcond75.not, label %.loopexit, label %94, !llvm.loop !76
+  %.6 = phi i32 [ %95, %97 ], [ %.560, %94 ]
+  %100 = add nuw nsw i32 %.04761, 1
+  %exitcond73.not = icmp eq i32 %100, 5
+  br i1 %exitcond73.not, label %.loopexit, label %94, !llvm.loop !76
 
-.loopexit:                                        ; preds = %.split59, %.split59.us.us, %90, %99, %92, %5
-  %.0 = phi i32 [ %6, %5 ], [ 0, %92 ], [ %.6, %99 ], [ %.4, %90 ], [ %spec.select, %.split59.us.us ], [ %.2, %.split59 ]
+.loopexit:                                        ; preds = %90, %99, %.split65, %.split65.us.us, %92, %5
+  %.0 = phi i32 [ %6, %5 ], [ 0, %92 ], [ %spec.select, %.split65.us.us ], [ %.2, %.split65 ], [ %.6, %99 ], [ %.4, %90 ]
   ret i32 %.0
 }
 

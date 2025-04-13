@@ -12684,15 +12684,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common18FloatingPointRangeIdE15testDoubleRangeEddb(ptr noundef nonnull align 8 dereferenceable(40) %this, double noundef %min, double noundef %max, i1 noundef zeroext %hasNull) unnamed_addr #2 comdat align 2 {
 entry:
-  br i1 %hasNull, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
   %nullAllowed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %nullAllowed_, align 8
   %tobool2 = trunc i8 %0 to i1
-  br i1 %tobool2, label %return, label %if.end
+  %or.cond = select i1 %hasNull, i1 %tobool2, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %upper_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load double, ptr %upper_, align 8
   %cmp = fcmp ule double %min, %1
@@ -12702,8 +12700,8 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %lnot = select i1 %cmp, i1 %cmp3, i1 false
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i1 [ %lnot, %if.end ], [ true, %land.lhs.true ]
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i1 [ %lnot, %if.end ], [ true, %entry ]
   ret i1 %retval.0
 }
 
@@ -12970,15 +12968,13 @@ land.end45:                                       ; preds = %if.end15.i.i32, %if
 
 lor.lhs.false:                                    ; preds = %land.end45
   %cmp47 = fcmp oeq double %16, %19
-  br i1 %cmp47, label %land.lhs.true, label %if.end54
-
-land.lhs.true:                                    ; preds = %lor.lhs.false
   %lowerExclusive_48 = getelementptr inbounds nuw i8, ptr %this, i64 17
   %40 = load i8, ptr %lowerExclusive_48, align 1
   %tobool49 = trunc i8 %40 to i1
-  br i1 %tobool49, label %if.then, label %if.end54
+  %or.cond = select i1 %cmp47, i1 %tobool49, i1 false
+  br i1 %or.cond, label %if.then, label %if.end54
 
-if.then:                                          ; preds = %land.lhs.true, %land.end45
+if.then:                                          ; preds = %lor.lhs.false, %land.end45
   %tobool50 = trunc nuw i8 %frombool to i1
   %call.i40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32, !noalias !4
   %nullAllowed_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i40, i64 8
@@ -13002,7 +12998,7 @@ _ZNSt10unique_ptrIN8facebook5velox6common11AlwaysFalseESt14default_deleteIS3_EED
   store ptr %call.i40, ptr %agg.result, align 8
   br label %return
 
-if.end54:                                         ; preds = %land.lhs.true, %lor.lhs.false
+if.end54:                                         ; preds = %lor.lhs.false
   %call.i47 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32, !noalias !412
   %nullAllowed_.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %call.i47, i64 8
   store i8 %frombool, ptr %nullAllowed_.i.i.i.i54, align 8, !noalias !412
@@ -13966,15 +13962,13 @@ _ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5ba
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common18FloatingPointRangeIfE15testDoubleRangeEddb(ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %min, double noundef %max, i1 noundef zeroext %hasNull) unnamed_addr #2 comdat align 2 {
 entry:
-  br i1 %hasNull, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
   %nullAllowed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %nullAllowed_, align 8
   %tobool2 = trunc i8 %0 to i1
-  br i1 %tobool2, label %return, label %if.end
+  %or.cond = select i1 %hasNull, i1 %tobool2, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %upper_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load float, ptr %upper_, align 8
   %conv = fpext float %1 to double
@@ -13986,8 +13980,8 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %lnot = select i1 %cmp, i1 %cmp4, i1 false
   br label %return
 
-return:                                           ; preds = %land.lhs.true, %if.end
-  %retval.0 = phi i1 [ %lnot, %if.end ], [ true, %land.lhs.true ]
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i1 [ %lnot, %if.end ], [ true, %entry ]
   ret i1 %retval.0
 }
 
@@ -14244,15 +14238,13 @@ land.end48:                                       ; preds = %if.end15.i.i32, %if
 
 lor.lhs.false:                                    ; preds = %land.end48
   %cmp50 = fcmp oeq float %16, %19
-  br i1 %cmp50, label %land.lhs.true, label %if.end57
-
-land.lhs.true:                                    ; preds = %lor.lhs.false
   %lowerExclusive_51 = getelementptr inbounds nuw i8, ptr %this, i64 17
   %40 = load i8, ptr %lowerExclusive_51, align 1
   %tobool52 = trunc i8 %40 to i1
-  br i1 %tobool52, label %if.then, label %if.end57
+  %or.cond = select i1 %cmp50, i1 %tobool52, i1 false
+  br i1 %or.cond, label %if.then, label %if.end57
 
-if.then:                                          ; preds = %land.lhs.true, %land.end48
+if.then:                                          ; preds = %lor.lhs.false, %land.end48
   %tobool53 = trunc nuw i8 %frombool to i1
   %call.i40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32, !noalias !4
   %nullAllowed_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i40, i64 8
@@ -14276,7 +14268,7 @@ _ZNSt10unique_ptrIN8facebook5velox6common11AlwaysFalseESt14default_deleteIS3_EED
   store ptr %call.i40, ptr %agg.result, align 8
   br label %return
 
-if.end57:                                         ; preds = %land.lhs.true, %lor.lhs.false
+if.end57:                                         ; preds = %lor.lhs.false
   %call.i47 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32, !noalias !435
   %nullAllowed_.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %call.i47, i64 8
   store i8 %frombool, ptr %nullAllowed_.i.i.i.i54, align 8, !noalias !435
@@ -14672,24 +14664,18 @@ invoke.cont11:                                    ; preds = %_ZN8facebook5velox6
   %singleValue_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i8, ptr %lowerExclusive_.i, align 1
   %tobool12 = trunc i8 %0 to i1
-  br i1 %tobool12, label %land.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %invoke.cont11
   %1 = load i8, ptr %upperExclusive_.i, align 1
   %tobool13 = trunc i8 %1 to i1
-  br i1 %tobool13, label %land.end, label %land.lhs.true14
-
-land.lhs.true14:                                  ; preds = %land.lhs.true
+  %or.cond = select i1 %tobool12, i1 true, i1 %tobool13
   %2 = load i8, ptr %lowerUnbounded_.i, align 8
   %tobool15 = trunc i8 %2 to i1
-  br i1 %tobool15, label %land.end, label %land.lhs.true16
-
-land.lhs.true16:                                  ; preds = %land.lhs.true14
+  %or.cond2 = select i1 %or.cond, i1 true, i1 %tobool15
   %3 = load i8, ptr %upperUnbounded_.i, align 2
   %tobool17 = trunc i8 %3 to i1
-  br i1 %tobool17, label %land.end, label %land.rhs
+  %or.cond3 = select i1 %or.cond2, i1 true, i1 %tobool17
+  br i1 %or.cond3, label %land.end, label %land.rhs
 
-land.rhs:                                         ; preds = %land.lhs.true16
+land.rhs:                                         ; preds = %invoke.cont11
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #31
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %upper_) #31
   %cmp.i = icmp eq i64 %call.i, %call1.i
@@ -14708,8 +14694,8 @@ if.end.i.i:                                       ; preds = %land.rhs.i
   %5 = zext i1 %4 to i8
   br label %land.end
 
-land.end:                                         ; preds = %if.end.i.i, %land.rhs.i, %land.rhs, %land.lhs.true16, %land.lhs.true14, %land.lhs.true, %invoke.cont11
-  %frombool20 = phi i8 [ 0, %land.lhs.true16 ], [ 0, %land.lhs.true14 ], [ 0, %land.lhs.true ], [ 0, %invoke.cont11 ], [ 0, %land.rhs ], [ %5, %if.end.i.i ], [ 1, %land.rhs.i ]
+land.end:                                         ; preds = %if.end.i.i, %land.rhs.i, %land.rhs, %invoke.cont11
+  %frombool20 = phi i8 [ 0, %invoke.cont11 ], [ 0, %land.rhs ], [ %5, %if.end.i.i ], [ 1, %land.rhs.i ]
   store i8 %frombool20, ptr %singleValue_, align 8
   %6 = load i8, ptr %lowerUnbounded_.i, align 8
   %tobool22 = trunc i8 %6 to i1

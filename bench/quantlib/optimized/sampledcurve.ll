@@ -1069,9 +1069,9 @@ cond.true.i:                                      ; preds = %invoke.cont
   br label %.noexc22
 
 .noexc22:                                         ; preds = %.noexc22.preheader, %invoke.cont18
-  %grid.039 = phi ptr [ %incdec.ptr20, %invoke.cont18 ], [ %10, %.noexc22.preheader ]
-  %val.038 = phi ptr [ %incdec.ptr, %invoke.cont18 ], [ %call.i12, %.noexc22.preheader ]
-  %11 = load double, ptr %grid.039, align 8, !tbaa !21
+  %grid.048 = phi ptr [ %incdec.ptr20, %invoke.cont18 ], [ %10, %.noexc22.preheader ]
+  %val.047 = phi ptr [ %incdec.ptr, %invoke.cont18 ], [ %call.i12, %.noexc22.preheader ]
+  %11 = load double, ptr %grid.048, align 8, !tbaa !21
   %12 = load ptr, ptr %impl_.i, align 8, !tbaa !29
   %cmp.not.i.i16 = icmp eq ptr %12, null
   br i1 %cmp.not.i.i16, label %cond.false.i.i20, label %_ZNK5boost10shared_ptrIN8QuantLib13Interpolation4ImplEEptEv.exit.i17, !prof !31
@@ -1093,9 +1093,9 @@ _ZNK5boost10shared_ptrIN8QuantLib13Interpolation4ImplEEptEv.exit.i17: ; preds = 
           to label %invoke.cont18 unwind label %lpad11.thread
 
 invoke.cont18:                                    ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13Interpolation4ImplEEptEv.exit.i17
-  store double %call2.i24, ptr %val.038, align 8, !tbaa !21
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %val.038, i64 8
-  %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %grid.039, i64 8
+  store double %call2.i24, ptr %val.047, align 8, !tbaa !21
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %val.047, i64 8
+  %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %grid.048, i64 8
   %15 = load ptr, ptr %new_grid, align 8, !tbaa !20
   %16 = load i64, ptr %n_.i10, align 8, !tbaa !3
   %add.ptr.i14 = getelementptr inbounds nuw double, ptr %15, i64 %16
@@ -1124,15 +1124,15 @@ lpad11:                                           ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.not.i.i25, label %ehcleanup25, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %lpad11.thread, %lpad11
-  %lpad.phi46 = phi { ptr, i32 } [ %lpad.loopexit, %lpad11.thread ], [ %lpad.loopexit.split-lp, %lpad11 ]
-  %newValues.sroa.0.045 = phi ptr [ %call.i12, %lpad11.thread ], [ %19, %lpad11 ]
-  call void @_ZdaPv(ptr noundef nonnull %newValues.sroa.0.045) #24
+  %lpad.phi55 = phi { ptr, i32 } [ %lpad.loopexit, %lpad11.thread ], [ %lpad.loopexit.split-lp, %lpad11 ]
+  %newValues.sroa.0.054 = phi ptr [ %call.i12, %lpad11.thread ], [ %19, %lpad11 ]
+  call void @_ZdaPv(ptr noundef nonnull %newValues.sroa.0.054) #24
   br label %ehcleanup25
 
 for.end:                                          ; preds = %invoke.cont18, %invoke.cont
-  %cond.i41 = phi ptr [ null, %invoke.cont ], [ %call.i12, %invoke.cont18 ]
+  %cond.i50 = phi ptr [ null, %invoke.cont ], [ %call.i12, %invoke.cont18 ]
   %19 = load ptr, ptr %values_, align 8, !tbaa !20
-  store ptr %cond.i41, ptr %values_, align 8, !tbaa !20
+  store ptr %cond.i50, ptr %values_, align 8, !tbaa !20
   %n_.i26 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %6, ptr %n_.i26, align 8, !tbaa !24
   %20 = load i64, ptr %n_.i10, align 8, !tbaa !3
@@ -1216,7 +1216,7 @@ _ZN8QuantLib13InterpolationD2Ev.exit:             ; preds = %_ZN8QuantLib5ArrayD
   ret void
 
 ehcleanup25:                                      ; preds = %lpad7, %lpad11, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %17, %lpad ], [ %18, %lpad7 ], [ %lpad.loopexit.split-lp, %lpad11 ], [ %lpad.phi46, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i ]
+  %.pn.pn = phi { ptr, i32 } [ %17, %lpad ], [ %18, %lpad7 ], [ %lpad.loopexit.split-lp, %lpad11 ], [ %lpad.phi55, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i ]
   call void @_ZN8QuantLib13InterpolationD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %priceSpline) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %priceSpline) #22
   resume { ptr, i32 } %.pn.pn

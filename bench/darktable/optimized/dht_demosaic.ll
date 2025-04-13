@@ -1888,8 +1888,8 @@ define void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 cap
   ret void
 
 15:                                               ; preds = %.lr.ph, %.thread.thread
-  %.070 = phi i32 [ %2, %.lr.ph ], [ %88, %.thread.thread ]
-  %16 = add nsw i32 %.070, 4
+  %.075 = phi i32 [ %2, %.lr.ph ], [ %88, %.thread.thread ]
+  %16 = add nsw i32 %.075, 4
   %17 = load ptr, ptr %11, align 8, !tbaa !78
   %18 = load i32, ptr %12, align 4, !tbaa !76
   %19 = mul nsw i32 %18, %10
@@ -1915,46 +1915,46 @@ define void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 cap
   %36 = load i8, ptr %35, align 1, !tbaa !96
   %37 = and i8 %36, 4
   %narrow = add nuw nsw i8 %37, %31
-  %38 = add nsw i32 %.070, 3
+  %38 = add nsw i32 %.075, 3
   %39 = add nsw i32 %38, %19
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %17, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !96
   %43 = and i8 %42, 4
-  %narrow55 = add nuw nsw i8 %narrow, %43
-  %44 = add nsw i32 %.070, 5
+  %narrow59 = add nuw nsw i8 %narrow, %43
+  %44 = add nsw i32 %.075, 5
   %45 = add nsw i32 %44, %19
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %17, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !96
   %49 = and i8 %48, 4
-  %narrow56 = add nuw nsw i8 %narrow55, %49
+  %narrow60 = add nuw nsw i8 %narrow59, %49
   %50 = and i8 %30, 2
   %51 = and i8 %36, 2
-  %narrow57 = add nuw nsw i8 %51, %50
+  %narrow61 = add nuw nsw i8 %51, %50
   %52 = and i8 %42, 2
-  %narrow58 = add nuw nsw i8 %narrow57, %52
+  %narrow62 = add nuw nsw i8 %narrow61, %52
   %53 = and i8 %48, 2
-  %narrow59 = add nuw nsw i8 %narrow58, %53
+  %narrow63 = add nuw nsw i8 %narrow62, %53
   %54 = and i8 %23, 4
-  %.not60 = icmp eq i8 %54, 0
-  br i1 %.not60, label %56, label %55
+  %.not64 = icmp eq i8 %54, 0
+  br i1 %.not64, label %56, label %55
 
 55:                                               ; preds = %25
-  %.not62 = icmp eq i8 %31, 0
-  br i1 %.not62, label %58, label %.thread.thread
+  %.not66 = icmp eq i8 %31, 0
+  br i1 %.not66, label %58, label %.thread.thread
 
 56:                                               ; preds = %25
-  %.not61 = icmp ne i8 %52, 0
+  %.not65 = icmp ne i8 %52, 0
   %57 = icmp ne i8 %53, 0
-  %spec.select = select i1 %.not61, i1 true, i1 %57
+  %spec.select = select i1 %.not65, i1 true, i1 %57
   br label %.thread
 
 58:                                               ; preds = %55
   %59 = icmp ne i8 %37, 0
-  %60 = icmp samesign ult i8 %narrow59, 5
-  %brmerge = select i1 %60, i1 true, i1 %59
-  br i1 %brmerge, label %.thread, label %61
+  %60 = icmp samesign ult i8 %narrow63, 5
+  %or.cond3 = select i1 %60, i1 true, i1 %59
+  br i1 %or.cond3, label %.thread, label %61
 
 61:                                               ; preds = %58
   %62 = and i8 %23, -6
@@ -1969,24 +1969,24 @@ define void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 cap
   %70 = or i8 %69, 2
   store i8 %70, ptr %68, align 1, !tbaa !96
   %.pre = load ptr, ptr %11, align 8, !tbaa !78
-  %.pre71 = load i32, ptr %12, align 4, !tbaa !76
-  %.pre72 = mul nsw i32 %.pre71, %10
-  %.pre73 = add nsw i32 %.pre72, %16
-  %.pre75 = sext i32 %.pre73 to i64
+  %.pre76 = load i32, ptr %12, align 4, !tbaa !76
+  %.pre77 = mul nsw i32 %.pre76, %10
+  %.pre78 = add nsw i32 %.pre77, %16
+  %.pre80 = sext i32 %.pre78 to i64
   br label %.thread
 
-.thread:                                          ; preds = %56, %58, %61
-  %.pre-phi76 = phi i64 [ %21, %56 ], [ %21, %58 ], [ %.pre75, %61 ]
-  %71 = phi ptr [ %17, %56 ], [ %17, %58 ], [ %.pre, %61 ]
-  %72 = phi i1 [ %spec.select, %56 ], [ %59, %58 ], [ false, %61 ]
-  %73 = getelementptr inbounds i8, ptr %71, i64 %.pre-phi76
+.thread:                                          ; preds = %56, %61, %58
+  %.pre-phi81 = phi i64 [ %21, %56 ], [ %.pre80, %61 ], [ %21, %58 ]
+  %71 = phi ptr [ %17, %56 ], [ %.pre, %61 ], [ %17, %58 ]
+  %72 = phi i1 [ %spec.select, %56 ], [ false, %61 ], [ %59, %58 ]
+  %73 = getelementptr inbounds i8, ptr %71, i64 %.pre-phi81
   %74 = load i8, ptr %73, align 1, !tbaa !96
   %75 = and i8 %74, 2
   %76 = icmp eq i8 %75, 0
-  %77 = icmp samesign ult i8 %narrow56, 9
-  %or.cond3.not69 = select i1 %76, i1 true, i1 %77
-  %brmerge63 = select i1 %or.cond3.not69, i1 true, i1 %72
-  br i1 %brmerge63, label %.thread.thread, label %78
+  %77 = icmp samesign ult i8 %narrow60, 9
+  %or.cond5.not72 = select i1 %76, i1 true, i1 %77
+  %or.cond7 = select i1 %or.cond5.not72, i1 true, i1 %72
+  br i1 %or.cond7, label %.thread.thread, label %78
 
 78:                                               ; preds = %.thread
   %79 = and i8 %74, -3
@@ -2002,8 +2002,8 @@ define void @_ZN3DHT14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 cap
   store i8 %87, ptr %85, align 1, !tbaa !96
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %55, %78, %.thread, %15
-  %88 = add nsw i32 %.070, 2
+.thread.thread:                                   ; preds = %55, %.thread, %78, %15
+  %88 = add nsw i32 %.075, 2
   %89 = icmp slt i32 %88, %8
   br i1 %89, label %15, label %._crit_edge, !llvm.loop !113
 }
@@ -2432,8 +2432,8 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
   ret void
 
 15:                                               ; preds = %.lr.ph, %.thread.thread
-  %.087 = phi i32 [ %2, %.lr.ph ], [ %124, %.thread.thread ]
-  %16 = add nsw i32 %.087, 4
+  %.092 = phi i32 [ %2, %.lr.ph ], [ %124, %.thread.thread ]
+  %16 = add nsw i32 %.092, 4
   %17 = load ptr, ptr %11, align 8, !tbaa !78
   %18 = load i32, ptr %12, align 4, !tbaa !76
   %19 = mul nsw i32 %18, %10
@@ -2459,39 +2459,39 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
   %36 = load i8, ptr %35, align 1, !tbaa !96
   %37 = and i8 %36, 16
   %narrow = add nuw nsw i8 %37, %31
-  %38 = add nsw i32 %.087, 3
+  %38 = add nsw i32 %.092, 3
   %39 = add nsw i32 %19, %38
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %17, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !96
   %43 = and i8 %42, 16
-  %narrow71 = add nuw nsw i8 %narrow, %43
-  %44 = add nsw i32 %.087, 5
+  %narrow75 = add nuw nsw i8 %narrow, %43
+  %44 = add nsw i32 %.092, 5
   %45 = add nsw i32 %19, %44
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %17, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !96
   %49 = and i8 %48, 16
-  %narrow72 = add nuw nsw i8 %narrow71, %49
+  %narrow76 = add nuw nsw i8 %narrow75, %49
   %50 = add nsw i32 %26, %38
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %17, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !96
   %54 = and i8 %53, 16
-  %narrow82 = add nuw nsw i8 %narrow72, %54
+  %narrow90 = add nuw nsw i8 %narrow76, %54
   %55 = add nsw i32 %26, %44
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %17, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !96
   %59 = and i8 %58, 16
-  %narrow94 = add nuw nsw i8 %narrow82, %59
+  %narrow99 = add nuw nsw i8 %narrow90, %59
   %60 = add nsw i32 %32, %38
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i8, ptr %17, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !96
   %64 = and i8 %63, 16
-  %narrow98 = add nuw i8 %narrow94, %64
-  %65 = zext i8 %narrow98 to i32
+  %narrow103 = add nuw i8 %narrow99, %64
+  %65 = zext i8 %narrow103 to i32
   %66 = add nsw i32 %32, %44
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %17, i64 %67
@@ -2501,12 +2501,12 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
   %72 = add nuw nsw i32 %65, %71
   %73 = and i8 %30, 32
   %74 = and i8 %36, 32
-  %narrow73 = add nuw nsw i8 %74, %73
+  %narrow77 = add nuw nsw i8 %74, %73
   %75 = and i8 %42, 32
-  %narrow74 = add nuw nsw i8 %narrow73, %75
+  %narrow78 = add nuw nsw i8 %narrow77, %75
   %76 = and i8 %48, 32
-  %narrow83 = add nuw i8 %narrow74, %76
-  %77 = zext i8 %narrow83 to i32
+  %narrow91 = add nuw i8 %narrow78, %76
+  %77 = zext i8 %narrow91 to i32
   %78 = and i8 %53, 32
   %79 = zext nneg i8 %78 to i32
   %80 = add nuw nsw i32 %77, %79
@@ -2520,24 +2520,24 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
   %88 = zext nneg i8 %87 to i32
   %89 = add nuw nsw i32 %86, %88
   %90 = and i8 %23, 16
-  %.not75 = icmp eq i8 %90, 0
-  br i1 %.not75, label %92, label %91
+  %.not79 = icmp eq i8 %90, 0
+  br i1 %.not79, label %92, label %91
 
 91:                                               ; preds = %25
-  %.not77 = icmp eq i8 %54, 0
-  br i1 %.not77, label %94, label %.thread.thread
+  %.not81 = icmp eq i8 %54, 0
+  br i1 %.not81, label %94, label %.thread.thread
 
 92:                                               ; preds = %25
-  %.not76 = icmp ne i8 %81, 0
+  %.not80 = icmp ne i8 %81, 0
   %93 = icmp ne i8 %84, 0
-  %spec.select = select i1 %.not76, i1 true, i1 %93
+  %spec.select = select i1 %.not80, i1 true, i1 %93
   br label %.thread
 
 94:                                               ; preds = %91
   %95 = icmp ne i8 %70, 0
   %96 = icmp samesign ult i32 %89, 160
-  %brmerge = select i1 %96, i1 true, i1 %95
-  br i1 %brmerge, label %.thread, label %97
+  %or.cond3 = select i1 %96, i1 true, i1 %95
+  br i1 %or.cond3, label %.thread, label %97
 
 97:                                               ; preds = %94
   %98 = and i8 %23, -25
@@ -2552,24 +2552,24 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
   %106 = or i8 %105, 32
   store i8 %106, ptr %104, align 1, !tbaa !96
   %.pre = load ptr, ptr %11, align 8, !tbaa !78
-  %.pre88 = load i32, ptr %12, align 4, !tbaa !76
-  %.pre89 = mul nsw i32 %.pre88, %10
-  %.pre90 = add nsw i32 %.pre89, %16
-  %.pre92 = sext i32 %.pre90 to i64
+  %.pre93 = load i32, ptr %12, align 4, !tbaa !76
+  %.pre94 = mul nsw i32 %.pre93, %10
+  %.pre95 = add nsw i32 %.pre94, %16
+  %.pre97 = sext i32 %.pre95 to i64
   br label %.thread
 
-.thread:                                          ; preds = %92, %94, %97
-  %.pre-phi93 = phi i64 [ %21, %92 ], [ %21, %94 ], [ %.pre92, %97 ]
-  %107 = phi ptr [ %17, %92 ], [ %17, %94 ], [ %.pre, %97 ]
-  %108 = phi i1 [ %spec.select, %92 ], [ %95, %94 ], [ false, %97 ]
-  %109 = getelementptr inbounds i8, ptr %107, i64 %.pre-phi93
+.thread:                                          ; preds = %92, %97, %94
+  %.pre-phi98 = phi i64 [ %21, %92 ], [ %.pre97, %97 ], [ %21, %94 ]
+  %107 = phi ptr [ %17, %92 ], [ %.pre, %97 ], [ %17, %94 ]
+  %108 = phi i1 [ %spec.select, %92 ], [ false, %97 ], [ %95, %94 ]
+  %109 = getelementptr inbounds i8, ptr %107, i64 %.pre-phi98
   %110 = load i8, ptr %109, align 1, !tbaa !96
   %111 = and i8 %110, 32
   %112 = icmp eq i8 %111, 0
   %113 = icmp samesign ult i32 %72, 80
-  %or.cond3.not86 = select i1 %112, i1 true, i1 %113
-  %brmerge78 = select i1 %or.cond3.not86, i1 true, i1 %108
-  br i1 %brmerge78, label %.thread.thread, label %114
+  %or.cond5.not87 = select i1 %112, i1 true, i1 %113
+  %or.cond7 = select i1 %or.cond5.not87, i1 true, i1 %108
+  br i1 %or.cond7, label %.thread.thread, label %114
 
 114:                                              ; preds = %.thread
   %115 = and i8 %110, -33
@@ -2585,8 +2585,8 @@ define void @_ZN3DHT16refine_diag_dirsEii(ptr noundef nonnull readonly align 8 c
   store i8 %123, ptr %121, align 1, !tbaa !96
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %91, %114, %.thread, %15
-  %124 = add nsw i32 %.087, 2
+.thread.thread:                                   ; preds = %91, %.thread, %114, %15
+  %124 = add nsw i32 %.092, 2
   %125 = icmp slt i32 %124, %8
   br i1 %125, label %15, label %._crit_edge, !llvm.loop !115
 }

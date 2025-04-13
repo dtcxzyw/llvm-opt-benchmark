@@ -297,26 +297,26 @@ atomic_load_u.exit:
   %4 = alloca [5 x i64], align 16
   %5 = load atomic i32, ptr @nhooks.0 monotonic, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %29, label %7, !prof !21
+  br i1 %6, label %28, label %7, !prof !21
 
 7:                                                ; preds = %atomic_load_u.exit
   %8 = tail call fastcc ptr @hook_reentrantp()
   %9 = load i8, ptr %8, align 1, !tbaa !22, !range !24, !noundef !25
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %29, label %11
+  br i1 %10, label %28, label %11
 
 11:                                               ; preds = %7
   store i8 1, ptr %8, align 1, !tbaa !22
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %13
 
-12:                                               ; preds = %28
+12:                                               ; preds = %27
   store i8 0, ptr %8, align 1, !tbaa !22
-  br label %29
+  br label %28
 
-13:                                               ; preds = %11, %28
-  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %28 ]
+13:                                               ; preds = %11, %27
+  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %27 ]
   %14 = getelementptr inbounds nuw [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   %15 = load atomic i64, ptr %14 acquire, align 16
@@ -332,7 +332,7 @@ atomic_load_u.exit:
   fence acquire
   %19 = load atomic i64, ptr %14 monotonic, align 16
   %.not12.i = icmp eq i64 %15, %19
-  br i1 %.not12.i, label %25, label %seq_try_load_hooks.exit.thread
+  br i1 %.not12.i, label %seq_try_load_hooks.exit, label %seq_try_load_hooks.exit.thread
 
 20:                                               ; preds = %20, %.preheader.i
   %.01113.i = phi i64 [ 0, %.preheader.i ], [ %24, %20 ]
@@ -346,28 +346,28 @@ atomic_load_u.exit:
 
 seq_try_load_hooks.exit.thread:                   ; preds = %13, %18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
-  br label %28
+  br label %27
 
-25:                                               ; preds = %18
+seq_try_load_hooks.exit:                          ; preds = %18
   %.sroa.0.0.copyload = load ptr, ptr %4, align 16
-  %.sroa.415.0.copyload = load ptr, ptr %.sroa.415.0..sroa_idx, align 8
+  %.sroa.417.0.copyload = load ptr, ptr %.sroa.417.0..sroa_idx, align 8
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
-  %26 = trunc nuw i8 %.sroa.5.0.copyload to i1
+  %25 = trunc nuw i8 %.sroa.5.0.copyload to i1
   %.not = icmp ne ptr %.sroa.0.0.copyload, null
-  %or.cond.not = select i1 %26, i1 %.not, i1 false
-  br i1 %or.cond.not, label %27, label %28
+  %or.cond.not = select i1 %25, i1 %.not, i1 false
+  br i1 %or.cond.not, label %26, label %27
 
-27:                                               ; preds = %25
-  tail call void %.sroa.0.0.copyload(ptr noundef %.sroa.415.0.copyload, i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #6
-  br label %28
+26:                                               ; preds = %seq_try_load_hooks.exit
+  tail call void %.sroa.0.0.copyload(ptr noundef %.sroa.417.0.copyload, i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #6
+  br label %27
 
-28:                                               ; preds = %seq_try_load_hooks.exit.thread, %27, %25
+27:                                               ; preds = %seq_try_load_hooks.exit.thread, %26, %seq_try_load_hooks.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %12, label %13, !llvm.loop !26
 
-29:                                               ; preds = %12, %7, %atomic_load_u.exit
+28:                                               ; preds = %12, %7, %atomic_load_u.exit
   ret void
 }
 
@@ -377,27 +377,27 @@ atomic_load_u.exit:
   %3 = alloca [5 x i64], align 16
   %4 = load atomic i32, ptr @nhooks.0 monotonic, align 4
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %28, label %6, !prof !21
+  br i1 %5, label %27, label %6, !prof !21
 
 6:                                                ; preds = %atomic_load_u.exit
   %7 = tail call fastcc ptr @hook_reentrantp()
   %8 = load i8, ptr %7, align 1, !tbaa !22, !range !24, !noundef !25
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %28, label %10
+  br i1 %9, label %27, label %10
 
 10:                                               ; preds = %6
   store i8 1, ptr %7, align 1, !tbaa !22
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %12
 
-11:                                               ; preds = %27
+11:                                               ; preds = %26
   store i8 0, ptr %7, align 1, !tbaa !22
-  br label %28
+  br label %27
 
-12:                                               ; preds = %10, %27
-  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %27 ]
+12:                                               ; preds = %10, %26
+  %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %26 ]
   %13 = getelementptr inbounds nuw [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   %14 = load atomic i64, ptr %13 acquire, align 16
@@ -413,7 +413,7 @@ atomic_load_u.exit:
   fence acquire
   %18 = load atomic i64, ptr %13 monotonic, align 16
   %.not12.i = icmp eq i64 %14, %18
-  br i1 %.not12.i, label %24, label %seq_try_load_hooks.exit.thread
+  br i1 %.not12.i, label %seq_try_load_hooks.exit, label %seq_try_load_hooks.exit.thread
 
 19:                                               ; preds = %19, %.preheader.i
   %.01113.i = phi i64 [ 0, %.preheader.i ], [ %23, %19 ]
@@ -427,28 +427,28 @@ atomic_load_u.exit:
 
 seq_try_load_hooks.exit.thread:                   ; preds = %12, %17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
-  br label %27
+  br label %26
 
-24:                                               ; preds = %17
+seq_try_load_hooks.exit:                          ; preds = %17
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.414.0.copyload = load ptr, ptr %.sroa.414.0..sroa_idx, align 8
+  %.sroa.416.0.copyload = load ptr, ptr %.sroa.416.0..sroa_idx, align 8
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
-  %25 = trunc nuw i8 %.sroa.5.0.copyload to i1
+  %24 = trunc nuw i8 %.sroa.5.0.copyload to i1
   %.not = icmp ne ptr %.sroa.3.0.copyload, null
-  %or.cond.not = select i1 %25, i1 %.not, i1 false
-  br i1 %or.cond.not, label %26, label %27
+  %or.cond.not = select i1 %24, i1 %.not, i1 false
+  br i1 %or.cond.not, label %25, label %26
 
-26:                                               ; preds = %24
-  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.414.0.copyload, i32 noundef %0, ptr noundef %1, ptr noundef %2) #6
-  br label %27
+25:                                               ; preds = %seq_try_load_hooks.exit
+  tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.416.0.copyload, i32 noundef %0, ptr noundef %1, ptr noundef %2) #6
+  br label %26
 
-27:                                               ; preds = %seq_try_load_hooks.exit.thread, %26, %24
+26:                                               ; preds = %seq_try_load_hooks.exit.thread, %25, %seq_try_load_hooks.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %11, label %12, !llvm.loop !27
 
-28:                                               ; preds = %11, %6, %atomic_load_u.exit
+27:                                               ; preds = %11, %6, %atomic_load_u.exit
   ret void
 }
 
@@ -458,13 +458,13 @@ atomic_load_u.exit:
   %6 = alloca [5 x i64], align 16
   %7 = load atomic i32, ptr @nhooks.0 monotonic, align 4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %31, label %9, !prof !21
+  br i1 %8, label %30, label %9, !prof !21
 
 9:                                                ; preds = %atomic_load_u.exit
   %10 = tail call fastcc ptr @hook_reentrantp()
   %11 = load i8, ptr %10, align 1, !tbaa !22, !range !24, !noundef !25
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %31, label %13
+  br i1 %12, label %30, label %13
 
 13:                                               ; preds = %9
   store i8 1, ptr %10, align 1, !tbaa !22
@@ -473,12 +473,12 @@ atomic_load_u.exit:
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %15
 
-14:                                               ; preds = %30
+14:                                               ; preds = %29
   store i8 0, ptr %10, align 1, !tbaa !22
-  br label %31
+  br label %30
 
-15:                                               ; preds = %13, %30
-  %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %30 ]
+15:                                               ; preds = %13, %29
+  %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %29 ]
   %16 = getelementptr inbounds nuw [4 x %struct.seq_hooks_t], ptr @hooks, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   %17 = load atomic i64, ptr %16 acquire, align 16
@@ -494,7 +494,7 @@ atomic_load_u.exit:
   fence acquire
   %21 = load atomic i64, ptr %16 monotonic, align 16
   %.not12.i = icmp eq i64 %17, %21
-  br i1 %.not12.i, label %27, label %seq_try_load_hooks.exit.thread
+  br i1 %.not12.i, label %seq_try_load_hooks.exit, label %seq_try_load_hooks.exit.thread
 
 22:                                               ; preds = %22, %.preheader.i
   %.01113.i = phi i64 [ 0, %.preheader.i ], [ %26, %22 ]
@@ -508,28 +508,28 @@ atomic_load_u.exit:
 
 seq_try_load_hooks.exit.thread:                   ; preds = %15, %20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
-  br label %30
+  br label %29
 
-27:                                               ; preds = %20
+seq_try_load_hooks.exit:                          ; preds = %20
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 16
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
-  %28 = trunc nuw i8 %.sroa.5.0.copyload to i1
+  %27 = trunc nuw i8 %.sroa.5.0.copyload to i1
   %.not = icmp ne ptr %.sroa.3.0.copyload, null
-  %or.cond.not = select i1 %28, i1 %.not, i1 false
-  br i1 %or.cond.not, label %29, label %30
+  %or.cond.not = select i1 %27, i1 %.not, i1 false
+  br i1 %or.cond.not, label %28, label %29
 
-29:                                               ; preds = %27
+28:                                               ; preds = %seq_try_load_hooks.exit
   tail call void %.sroa.3.0.copyload(ptr noundef %.sroa.4.0.copyload, i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #6
-  br label %30
+  br label %29
 
-30:                                               ; preds = %seq_try_load_hooks.exit.thread, %29, %27
+29:                                               ; preds = %seq_try_load_hooks.exit.thread, %28, %seq_try_load_hooks.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %14, label %15, !llvm.loop !28
 
-31:                                               ; preds = %14, %9, %atomic_load_u.exit
+30:                                               ; preds = %14, %9, %atomic_load_u.exit
   ret void
 }
 

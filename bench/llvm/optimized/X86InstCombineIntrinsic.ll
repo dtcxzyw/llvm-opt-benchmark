@@ -10008,7 +10008,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %106 = and i1 %.0.i.i, %.0.i.i7165
   %107 = and i1 %.0.i.i, %.0.i.i7170
   %108 = and i1 %.0.i.i7165, %.0.i.i7170
-  %spec.select6234 = and i1 %.0.i.i, %108
+  %spec.select = and i1 %106, %.0.i.i7170
   %109 = load i32, ptr %78, align 8, !tbaa !23
   %110 = icmp ult i32 %109, 65
   %111 = load ptr, ptr %77, align 8
@@ -10279,25 +10279,25 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   br label %1329
 
 115:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %116, label %1329
+  br i1 %spec.select, label %116, label %1329
 
 116:                                              ; preds = %115
   %117 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5959 = extractvalue { ptr, i8 } %117, 0
-  %.fca.1.extract5960 = extractvalue { ptr, i8 } %117, 1
-  %118 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5959, i8 %.fca.1.extract5960, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5952 = extractvalue { ptr, i8 } %118, 0
+  %.fca.0.extract5960 = extractvalue { ptr, i8 } %117, 0
+  %.fca.1.extract5961 = extractvalue { ptr, i8 } %117, 1
+  %118 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5960, i8 %.fca.1.extract5961, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5953 = extractvalue { ptr, i8 } %118, 0
   br label %1329
 
 119:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %120, label %1329
+  br i1 %spec.select, label %120, label %1329
 
 120:                                              ; preds = %119
   %121 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5940 = extractvalue { ptr, i8 } %121, 0
-  %.fca.1.extract5941 = extractvalue { ptr, i8 } %121, 1
-  %122 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5940, i8 %.fca.1.extract5941, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5933 = extractvalue { ptr, i8 } %122, 0
+  %.fca.0.extract5941 = extractvalue { ptr, i8 } %121, 0
+  %.fca.1.extract5942 = extractvalue { ptr, i8 } %121, 1
+  %122 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5941, i8 %.fca.1.extract5942, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5934 = extractvalue { ptr, i8 } %122, 0
   br label %1329
 
 123:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -10305,18 +10305,18 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
 
 124:                                              ; preds = %123
   %125 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5923 = extractvalue { ptr, i8 } %125, 0
+  %.fca.0.extract5924 = extractvalue { ptr, i8 } %125, 0
   br label %1329
 
 126:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %127, label %1329
+  br i1 %spec.select, label %127, label %1329
 
 127:                                              ; preds = %126
   %128 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5911 = extractvalue { ptr, i8 } %128, 0
-  %.fca.1.extract5912 = extractvalue { ptr, i8 } %128, 1
-  %129 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5911, i8 %.fca.1.extract5912, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5904 = extractvalue { ptr, i8 } %129, 0
+  %.fca.0.extract5912 = extractvalue { ptr, i8 } %128, 0
+  %.fca.1.extract5913 = extractvalue { ptr, i8 } %128, 1
+  %129 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5912, i8 %.fca.1.extract5913, ptr nonnull %89, i8 -52)
+  %.fca.0.extract5905 = extractvalue { ptr, i8 } %129, 0
   br label %1329
 
 130:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -10324,51 +10324,51 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
 
 131:                                              ; preds = %130
   %132 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5894 = extractvalue { ptr, i8 } %132, 0
+  %.fca.0.extract5895 = extractvalue { ptr, i8 } %132, 0
   br label %1329
 
 133:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %134, label %1329
+  br i1 %spec.select, label %134, label %1329
 
 134:                                              ; preds = %133
   %135 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5879 = extractvalue { ptr, i8 } %135, 0
-  %.fca.1.extract5880 = extractvalue { ptr, i8 } %135, 1
-  %136 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5879, i8 %.fca.1.extract5880)
-  %.fca.0.extract5875 = extractvalue { ptr, i8 } %136, 0
+  %.fca.0.extract5880 = extractvalue { ptr, i8 } %135, 0
+  %.fca.1.extract5881 = extractvalue { ptr, i8 } %135, 1
+  %136 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5880, i8 %.fca.1.extract5881)
+  %.fca.0.extract5876 = extractvalue { ptr, i8 } %136, 0
   br label %1329
 
 137:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %138, label %1329
+  br i1 %spec.select, label %138, label %1329
 
 138:                                              ; preds = %137
   %139 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5860 = extractvalue { ptr, i8 } %139, 0
-  %.fca.1.extract5861 = extractvalue { ptr, i8 } %139, 1
-  %140 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5860, i8 %.fca.1.extract5861)
-  %.fca.0.extract5856 = extractvalue { ptr, i8 } %140, 0
+  %.fca.0.extract5861 = extractvalue { ptr, i8 } %139, 0
+  %.fca.1.extract5862 = extractvalue { ptr, i8 } %139, 1
+  %140 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5861, i8 %.fca.1.extract5862)
+  %.fca.0.extract5857 = extractvalue { ptr, i8 } %140, 0
   br label %1329
 
 141:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %142, label %1329
+  br i1 %spec.select, label %142, label %1329
 
 142:                                              ; preds = %141
   %143 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5841 = extractvalue { ptr, i8 } %143, 0
-  %.fca.1.extract5842 = extractvalue { ptr, i8 } %143, 1
-  %144 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5841, i8 %.fca.1.extract5842)
-  %.fca.0.extract5837 = extractvalue { ptr, i8 } %144, 0
+  %.fca.0.extract5842 = extractvalue { ptr, i8 } %143, 0
+  %.fca.1.extract5843 = extractvalue { ptr, i8 } %143, 1
+  %144 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5842, i8 %.fca.1.extract5843)
+  %.fca.0.extract5838 = extractvalue { ptr, i8 } %144, 0
   br label %1329
 
 145:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %146, label %1329
+  br i1 %spec.select, label %146, label %1329
 
 146:                                              ; preds = %145
   %147 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5822 = extractvalue { ptr, i8 } %147, 0
-  %.fca.1.extract5823 = extractvalue { ptr, i8 } %147, 1
-  %148 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5822, i8 %.fca.1.extract5823)
-  %.fca.0.extract5818 = extractvalue { ptr, i8 } %148, 0
+  %.fca.0.extract5823 = extractvalue { ptr, i8 } %147, 0
+  %.fca.1.extract5824 = extractvalue { ptr, i8 } %147, 1
+  %148 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5823, i8 %.fca.1.extract5824)
+  %.fca.0.extract5819 = extractvalue { ptr, i8 } %148, 0
   br label %1329
 
 149:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -10381,11 +10381,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %152 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %65)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %65) #15
   %153 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %152, i8 85)
-  %.fca.0.extract5802 = extractvalue { ptr, i8 } %153, 0
+  %.fca.0.extract5803 = extractvalue { ptr, i8 } %153, 0
   br label %1329
 
 154:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %155, label %1329
+  br i1 %spec.select, label %155, label %1329
 
 155:                                              ; preds = %154
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %64) #15
@@ -10394,10 +10394,10 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %157 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %64)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %64) #15
   %158 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %157, i8 51)
-  %.fca.0.extract5781 = extractvalue { ptr, i8 } %158, 0
-  %.fca.1.extract5782 = extractvalue { ptr, i8 } %158, 1
-  %159 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5781, i8 %.fca.1.extract5782)
-  %.fca.0.extract5777 = extractvalue { ptr, i8 } %159, 0
+  %.fca.0.extract5782 = extractvalue { ptr, i8 } %158, 0
+  %.fca.1.extract5783 = extractvalue { ptr, i8 } %158, 1
+  %159 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5782, i8 %.fca.1.extract5783)
+  %.fca.0.extract5778 = extractvalue { ptr, i8 } %159, 0
   br label %1329
 
 160:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -10410,11 +10410,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %163 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %63)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63) #15
   %164 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %163, i8 51)
-  %.fca.0.extract5761 = extractvalue { ptr, i8 } %164, 0
+  %.fca.0.extract5762 = extractvalue { ptr, i8 } %164, 0
   br label %1329
 
 165:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %166, label %1329
+  br i1 %spec.select, label %166, label %1329
 
 166:                                              ; preds = %165
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %62) #15
@@ -10423,21 +10423,21 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %168 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %62)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %62) #15
   %169 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %168, i8 85)
-  %.fca.0.extract5740 = extractvalue { ptr, i8 } %169, 0
-  %.fca.1.extract5741 = extractvalue { ptr, i8 } %169, 1
-  %170 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5740, i8 %.fca.1.extract5741)
-  %.fca.0.extract5736 = extractvalue { ptr, i8 } %170, 0
+  %.fca.0.extract5741 = extractvalue { ptr, i8 } %169, 0
+  %.fca.1.extract5742 = extractvalue { ptr, i8 } %169, 1
+  %170 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5741, i8 %.fca.1.extract5742)
+  %.fca.0.extract5737 = extractvalue { ptr, i8 } %170, 0
   br label %1329
 
 171:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %172, label %1329
+  br i1 %spec.select, label %172, label %1329
 
 172:                                              ; preds = %171
   %173 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5721 = extractvalue { ptr, i8 } %173, 0
-  %.fca.1.extract5722 = extractvalue { ptr, i8 } %173, 1
-  %174 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5721, i8 %.fca.1.extract5722)
-  %.fca.0.extract5717 = extractvalue { ptr, i8 } %174, 0
+  %.fca.0.extract5722 = extractvalue { ptr, i8 } %173, 0
+  %.fca.1.extract5723 = extractvalue { ptr, i8 } %173, 1
+  %174 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5722, i8 %.fca.1.extract5723)
+  %.fca.0.extract5718 = extractvalue { ptr, i8 } %174, 0
   br label %1329
 
 175:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -10449,14 +10449,14 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   br label %1329
 
 178:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %179, label %1329
+  br i1 %spec.select, label %179, label %1329
 
 179:                                              ; preds = %178
   %180 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5695 = extractvalue { ptr, i8 } %180, 0
-  %.fca.1.extract5696 = extractvalue { ptr, i8 } %180, 1
-  %181 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5695, i8 %.fca.1.extract5696)
-  %.fca.0.extract5691 = extractvalue { ptr, i8 } %181, 0
+  %.fca.0.extract5696 = extractvalue { ptr, i8 } %180, 0
+  %.fca.1.extract5697 = extractvalue { ptr, i8 } %180, 1
+  %181 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5696, i8 %.fca.1.extract5697)
+  %.fca.0.extract5692 = extractvalue { ptr, i8 } %181, 0
   br label %1329
 
 182:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -10464,213 +10464,213 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
 
 183:                                              ; preds = %182
   %184 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5681 = extractvalue { ptr, i8 } %184, 0
+  %.fca.0.extract5682 = extractvalue { ptr, i8 } %184, 0
   br label %1329
 
 185:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %186, label %1329
+  br i1 %spec.select, label %186, label %1329
 
 186:                                              ; preds = %185
   %187 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5669 = extractvalue { ptr, i8 } %187, 0
-  %.fca.1.extract5670 = extractvalue { ptr, i8 } %187, 1
-  %188 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5669, i8 %.fca.1.extract5670, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5662 = extractvalue { ptr, i8 } %188, 0
+  %.fca.0.extract5670 = extractvalue { ptr, i8 } %187, 0
+  %.fca.1.extract5671 = extractvalue { ptr, i8 } %187, 1
+  %188 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5670, i8 %.fca.1.extract5671, ptr nonnull %89, i8 -52)
+  %.fca.0.extract5663 = extractvalue { ptr, i8 } %188, 0
   br label %1329
 
 189:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %190, label %1329
+  br i1 %spec.select, label %190, label %1329
 
 190:                                              ; preds = %189
   %191 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5650 = extractvalue { ptr, i8 } %191, 0
-  %.fca.1.extract5651 = extractvalue { ptr, i8 } %191, 1
-  %192 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5650, i8 %.fca.1.extract5651, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5643 = extractvalue { ptr, i8 } %192, 0
+  %.fca.0.extract5651 = extractvalue { ptr, i8 } %191, 0
+  %.fca.1.extract5652 = extractvalue { ptr, i8 } %191, 1
+  %192 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5651, i8 %.fca.1.extract5652, ptr nonnull %89, i8 -52)
+  %.fca.0.extract5644 = extractvalue { ptr, i8 } %192, 0
   br label %1329
 
 193:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %194, label %1329
+  br i1 %spec.select, label %194, label %1329
 
 194:                                              ; preds = %193
   %195 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5631 = extractvalue { ptr, i8 } %195, 0
-  %.fca.1.extract5632 = extractvalue { ptr, i8 } %195, 1
-  %196 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5631, i8 %.fca.1.extract5632, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5624 = extractvalue { ptr, i8 } %196, 0
+  %.fca.0.extract5632 = extractvalue { ptr, i8 } %195, 0
+  %.fca.1.extract5633 = extractvalue { ptr, i8 } %195, 1
+  %196 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5632, i8 %.fca.1.extract5633, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5625 = extractvalue { ptr, i8 } %196, 0
   br label %1329
 
 197:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %198, label %1329
+  br i1 %spec.select, label %198, label %1329
 
 198:                                              ; preds = %197
   %199 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5612 = extractvalue { ptr, i8 } %199, 0
-  %.fca.1.extract5613 = extractvalue { ptr, i8 } %199, 1
-  %200 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5612, i8 %.fca.1.extract5613, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5605 = extractvalue { ptr, i8 } %200, 0
+  %.fca.0.extract5613 = extractvalue { ptr, i8 } %199, 0
+  %.fca.1.extract5614 = extractvalue { ptr, i8 } %199, 1
+  %200 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5613, i8 %.fca.1.extract5614, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5606 = extractvalue { ptr, i8 } %200, 0
   br label %1329
 
 201:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %202, label %1329
+  br i1 %spec.select, label %202, label %1329
 
 202:                                              ; preds = %201
   %203 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5593 = extractvalue { ptr, i8 } %203, 0
-  %.fca.1.extract5594 = extractvalue { ptr, i8 } %203, 1
+  %.fca.0.extract5594 = extractvalue { ptr, i8 } %203, 0
+  %.fca.1.extract5595 = extractvalue { ptr, i8 } %203, 1
   %204 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5579 = extractvalue { ptr, i8 } %204, 0
-  %.fca.1.extract5580 = extractvalue { ptr, i8 } %204, 1
-  %205 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5579, i8 %.fca.1.extract5580, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5572 = extractvalue { ptr, i8 } %205, 0
-  %.fca.1.extract5573 = extractvalue { ptr, i8 } %205, 1
-  %206 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5593, i8 %.fca.1.extract5594, ptr %.fca.0.extract5572, i8 %.fca.1.extract5573)
-  %.fca.0.extract5568 = extractvalue { ptr, i8 } %206, 0
+  %.fca.0.extract5580 = extractvalue { ptr, i8 } %204, 0
+  %.fca.1.extract5581 = extractvalue { ptr, i8 } %204, 1
+  %205 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5580, i8 %.fca.1.extract5581, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5573 = extractvalue { ptr, i8 } %205, 0
+  %.fca.1.extract5574 = extractvalue { ptr, i8 } %205, 1
+  %206 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5594, i8 %.fca.1.extract5595, ptr %.fca.0.extract5573, i8 %.fca.1.extract5574)
+  %.fca.0.extract5569 = extractvalue { ptr, i8 } %206, 0
   br label %1329
 
 207:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %208, label %1329
+  br i1 %spec.select, label %208, label %1329
 
 208:                                              ; preds = %207
   %209 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5556 = extractvalue { ptr, i8 } %209, 0
-  %.fca.1.extract5557 = extractvalue { ptr, i8 } %209, 1
+  %.fca.0.extract5557 = extractvalue { ptr, i8 } %209, 0
+  %.fca.1.extract5558 = extractvalue { ptr, i8 } %209, 1
   %210 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5542 = extractvalue { ptr, i8 } %210, 0
-  %.fca.1.extract5543 = extractvalue { ptr, i8 } %210, 1
-  %211 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5542, i8 %.fca.1.extract5543, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5535 = extractvalue { ptr, i8 } %211, 0
-  %.fca.1.extract5536 = extractvalue { ptr, i8 } %211, 1
-  %212 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5556, i8 %.fca.1.extract5557, ptr %.fca.0.extract5535, i8 %.fca.1.extract5536)
-  %.fca.0.extract5531 = extractvalue { ptr, i8 } %212, 0
+  %.fca.0.extract5543 = extractvalue { ptr, i8 } %210, 0
+  %.fca.1.extract5544 = extractvalue { ptr, i8 } %210, 1
+  %211 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5543, i8 %.fca.1.extract5544, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5536 = extractvalue { ptr, i8 } %211, 0
+  %.fca.1.extract5537 = extractvalue { ptr, i8 } %211, 1
+  %212 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5557, i8 %.fca.1.extract5558, ptr %.fca.0.extract5536, i8 %.fca.1.extract5537)
+  %.fca.0.extract5532 = extractvalue { ptr, i8 } %212, 0
   br label %1329
 
 213:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %214, label %1329
+  br i1 %spec.select, label %214, label %1329
 
 214:                                              ; preds = %213
   %215 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5519 = extractvalue { ptr, i8 } %215, 0
-  %.fca.1.extract5520 = extractvalue { ptr, i8 } %215, 1
+  %.fca.0.extract5520 = extractvalue { ptr, i8 } %215, 0
+  %.fca.1.extract5521 = extractvalue { ptr, i8 } %215, 1
   %216 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5507 = extractvalue { ptr, i8 } %216, 0
-  %.fca.1.extract5508 = extractvalue { ptr, i8 } %216, 1
-  %217 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5519, i8 %.fca.1.extract5520, ptr %.fca.0.extract5507, i8 %.fca.1.extract5508)
-  %.fca.0.extract5503 = extractvalue { ptr, i8 } %217, 0
+  %.fca.0.extract5508 = extractvalue { ptr, i8 } %216, 0
+  %.fca.1.extract5509 = extractvalue { ptr, i8 } %216, 1
+  %217 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5520, i8 %.fca.1.extract5521, ptr %.fca.0.extract5508, i8 %.fca.1.extract5509)
+  %.fca.0.extract5504 = extractvalue { ptr, i8 } %217, 0
   br label %1329
 
 218:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %219, label %1329
+  br i1 %spec.select, label %219, label %1329
 
 219:                                              ; preds = %218
   %220 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5491 = extractvalue { ptr, i8 } %220, 0
-  %.fca.1.extract5492 = extractvalue { ptr, i8 } %220, 1
+  %.fca.0.extract5492 = extractvalue { ptr, i8 } %220, 0
+  %.fca.1.extract5493 = extractvalue { ptr, i8 } %220, 1
   %221 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5479 = extractvalue { ptr, i8 } %221, 0
-  %.fca.1.extract5480 = extractvalue { ptr, i8 } %221, 1
-  %222 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5491, i8 %.fca.1.extract5492, ptr %.fca.0.extract5479, i8 %.fca.1.extract5480)
-  %.fca.0.extract5475 = extractvalue { ptr, i8 } %222, 0
+  %.fca.0.extract5480 = extractvalue { ptr, i8 } %221, 0
+  %.fca.1.extract5481 = extractvalue { ptr, i8 } %221, 1
+  %222 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5492, i8 %.fca.1.extract5493, ptr %.fca.0.extract5480, i8 %.fca.1.extract5481)
+  %.fca.0.extract5476 = extractvalue { ptr, i8 } %222, 0
   br label %1329
 
 223:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %224, label %1329
+  br i1 %spec.select, label %224, label %1329
 
 224:                                              ; preds = %223
   %225 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5458 = extractvalue { ptr, i8 } %225, 0
-  %.fca.1.extract5459 = extractvalue { ptr, i8 } %225, 1
-  %226 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5458, i8 %.fca.1.extract5459, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5451 = extractvalue { ptr, i8 } %226, 0
-  %.fca.1.extract5452 = extractvalue { ptr, i8 } %226, 1
-  %227 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5451, i8 %.fca.1.extract5452)
-  %.fca.0.extract5447 = extractvalue { ptr, i8 } %227, 0
+  %.fca.0.extract5459 = extractvalue { ptr, i8 } %225, 0
+  %.fca.1.extract5460 = extractvalue { ptr, i8 } %225, 1
+  %226 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5459, i8 %.fca.1.extract5460, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5452 = extractvalue { ptr, i8 } %226, 0
+  %.fca.1.extract5453 = extractvalue { ptr, i8 } %226, 1
+  %227 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5452, i8 %.fca.1.extract5453)
+  %.fca.0.extract5448 = extractvalue { ptr, i8 } %227, 0
   br label %1329
 
 228:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %229, label %1329
+  br i1 %spec.select, label %229, label %1329
 
 229:                                              ; preds = %228
   %230 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5430 = extractvalue { ptr, i8 } %230, 0
-  %.fca.1.extract5431 = extractvalue { ptr, i8 } %230, 1
-  %231 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5430, i8 %.fca.1.extract5431, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5423 = extractvalue { ptr, i8 } %231, 0
-  %.fca.1.extract5424 = extractvalue { ptr, i8 } %231, 1
-  %232 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5423, i8 %.fca.1.extract5424)
-  %.fca.0.extract5419 = extractvalue { ptr, i8 } %232, 0
+  %.fca.0.extract5431 = extractvalue { ptr, i8 } %230, 0
+  %.fca.1.extract5432 = extractvalue { ptr, i8 } %230, 1
+  %231 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5431, i8 %.fca.1.extract5432, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5424 = extractvalue { ptr, i8 } %231, 0
+  %.fca.1.extract5425 = extractvalue { ptr, i8 } %231, 1
+  %232 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5424, i8 %.fca.1.extract5425)
+  %.fca.0.extract5420 = extractvalue { ptr, i8 } %232, 0
   br label %1329
 
 233:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %234, label %1329
+  br i1 %spec.select, label %234, label %1329
 
 234:                                              ; preds = %233
   %235 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5402 = extractvalue { ptr, i8 } %235, 0
-  %.fca.1.extract5403 = extractvalue { ptr, i8 } %235, 1
-  %236 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5402, i8 %.fca.1.extract5403, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5395 = extractvalue { ptr, i8 } %236, 0
-  %.fca.1.extract5396 = extractvalue { ptr, i8 } %236, 1
-  %237 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5395, i8 %.fca.1.extract5396)
-  %.fca.0.extract5391 = extractvalue { ptr, i8 } %237, 0
+  %.fca.0.extract5403 = extractvalue { ptr, i8 } %235, 0
+  %.fca.1.extract5404 = extractvalue { ptr, i8 } %235, 1
+  %236 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5403, i8 %.fca.1.extract5404, ptr nonnull %89, i8 -52)
+  %.fca.0.extract5396 = extractvalue { ptr, i8 } %236, 0
+  %.fca.1.extract5397 = extractvalue { ptr, i8 } %236, 1
+  %237 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5396, i8 %.fca.1.extract5397)
+  %.fca.0.extract5392 = extractvalue { ptr, i8 } %237, 0
   br label %1329
 
 238:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %239, label %1329
+  br i1 %spec.select, label %239, label %1329
 
 239:                                              ; preds = %238
   %240 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5374 = extractvalue { ptr, i8 } %240, 0
-  %.fca.1.extract5375 = extractvalue { ptr, i8 } %240, 1
-  %241 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5374, i8 %.fca.1.extract5375, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5367 = extractvalue { ptr, i8 } %241, 0
-  %.fca.1.extract5368 = extractvalue { ptr, i8 } %241, 1
-  %242 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5367, i8 %.fca.1.extract5368)
-  %.fca.0.extract5363 = extractvalue { ptr, i8 } %242, 0
+  %.fca.0.extract5375 = extractvalue { ptr, i8 } %240, 0
+  %.fca.1.extract5376 = extractvalue { ptr, i8 } %240, 1
+  %241 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5375, i8 %.fca.1.extract5376, ptr nonnull %89, i8 -52)
+  %.fca.0.extract5368 = extractvalue { ptr, i8 } %241, 0
+  %.fca.1.extract5369 = extractvalue { ptr, i8 } %241, 1
+  %242 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5368, i8 %.fca.1.extract5369)
+  %.fca.0.extract5364 = extractvalue { ptr, i8 } %242, 0
   br label %1329
 
 243:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %244, label %1329
+  br i1 %spec.select, label %244, label %1329
 
 244:                                              ; preds = %243
   %245 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5348 = extractvalue { ptr, i8 } %245, 0
-  %.fca.1.extract5349 = extractvalue { ptr, i8 } %245, 1
-  %246 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5348, i8 %.fca.1.extract5349)
-  %.fca.0.extract5344 = extractvalue { ptr, i8 } %246, 0
+  %.fca.0.extract5349 = extractvalue { ptr, i8 } %245, 0
+  %.fca.1.extract5350 = extractvalue { ptr, i8 } %245, 1
+  %246 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5349, i8 %.fca.1.extract5350)
+  %.fca.0.extract5345 = extractvalue { ptr, i8 } %246, 0
   br label %1329
 
 247:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %248, label %1329
+  br i1 %spec.select, label %248, label %1329
 
 248:                                              ; preds = %247
   %249 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5329 = extractvalue { ptr, i8 } %249, 0
-  %.fca.1.extract5330 = extractvalue { ptr, i8 } %249, 1
-  %250 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5329, i8 %.fca.1.extract5330)
-  %.fca.0.extract5325 = extractvalue { ptr, i8 } %250, 0
+  %.fca.0.extract5330 = extractvalue { ptr, i8 } %249, 0
+  %.fca.1.extract5331 = extractvalue { ptr, i8 } %249, 1
+  %250 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5330, i8 %.fca.1.extract5331)
+  %.fca.0.extract5326 = extractvalue { ptr, i8 } %250, 0
   br label %1329
 
 251:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %252, label %1329
+  br i1 %spec.select, label %252, label %1329
 
 252:                                              ; preds = %251
   %253 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5313 = extractvalue { ptr, i8 } %253, 0
-  %.fca.1.extract5314 = extractvalue { ptr, i8 } %253, 1
-  %254 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5313, i8 %.fca.1.extract5314, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5306 = extractvalue { ptr, i8 } %254, 0
+  %.fca.0.extract5314 = extractvalue { ptr, i8 } %253, 0
+  %.fca.1.extract5315 = extractvalue { ptr, i8 } %253, 1
+  %254 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5314, i8 %.fca.1.extract5315, ptr nonnull %89, i8 -52)
+  %.fca.0.extract5307 = extractvalue { ptr, i8 } %254, 0
   br label %1329
 
 255:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %256, label %1329
+  br i1 %spec.select, label %256, label %1329
 
 256:                                              ; preds = %255
   %257 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5294 = extractvalue { ptr, i8 } %257, 0
-  %.fca.1.extract5295 = extractvalue { ptr, i8 } %257, 1
-  %258 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5294, i8 %.fca.1.extract5295, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5287 = extractvalue { ptr, i8 } %258, 0
+  %.fca.0.extract5295 = extractvalue { ptr, i8 } %257, 0
+  %.fca.1.extract5296 = extractvalue { ptr, i8 } %257, 1
+  %258 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5295, i8 %.fca.1.extract5296, ptr nonnull %89, i8 -52)
+  %.fca.0.extract5288 = extractvalue { ptr, i8 } %258, 0
   br label %1329
 
 259:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -10683,11 +10683,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %262 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %60)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %60) #15
   %263 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %262, i8 85)
-  %.fca.0.extract5271 = extractvalue { ptr, i8 } %263, 0
+  %.fca.0.extract5272 = extractvalue { ptr, i8 } %263, 0
   br label %1329
 
 264:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %265, label %1329
+  br i1 %spec.select, label %265, label %1329
 
 265:                                              ; preds = %264
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %59) #15
@@ -10696,140 +10696,140 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %267 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %59)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %59) #15
   %268 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %267, i8 15)
-  %.fca.0.extract5250 = extractvalue { ptr, i8 } %268, 0
-  %.fca.1.extract5251 = extractvalue { ptr, i8 } %268, 1
-  %269 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract5250, i8 %.fca.1.extract5251)
-  %.fca.0.extract5246 = extractvalue { ptr, i8 } %269, 0
+  %.fca.0.extract5251 = extractvalue { ptr, i8 } %268, 0
+  %.fca.1.extract5252 = extractvalue { ptr, i8 } %268, 1
+  %269 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract5251, i8 %.fca.1.extract5252)
+  %.fca.0.extract5247 = extractvalue { ptr, i8 } %269, 0
   br label %1329
 
 270:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %271, label %1329
+  br i1 %spec.select, label %271, label %1329
 
 271:                                              ; preds = %270
   %272 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5234 = extractvalue { ptr, i8 } %272, 0
-  %.fca.1.extract5235 = extractvalue { ptr, i8 } %272, 1
+  %.fca.0.extract5235 = extractvalue { ptr, i8 } %272, 0
+  %.fca.1.extract5236 = extractvalue { ptr, i8 } %272, 1
   %273 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5222 = extractvalue { ptr, i8 } %273, 0
-  %.fca.1.extract5223 = extractvalue { ptr, i8 } %273, 1
-  %274 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5234, i8 %.fca.1.extract5235, ptr %.fca.0.extract5222, i8 %.fca.1.extract5223)
-  %.fca.0.extract5218 = extractvalue { ptr, i8 } %274, 0
+  %.fca.0.extract5223 = extractvalue { ptr, i8 } %273, 0
+  %.fca.1.extract5224 = extractvalue { ptr, i8 } %273, 1
+  %274 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5235, i8 %.fca.1.extract5236, ptr %.fca.0.extract5223, i8 %.fca.1.extract5224)
+  %.fca.0.extract5219 = extractvalue { ptr, i8 } %274, 0
   br label %1329
 
 275:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %276, label %1329
+  br i1 %spec.select, label %276, label %1329
 
 276:                                              ; preds = %275
   %277 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5201 = extractvalue { ptr, i8 } %277, 0
-  %.fca.1.extract5202 = extractvalue { ptr, i8 } %277, 1
-  %278 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5201, i8 %.fca.1.extract5202, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5194 = extractvalue { ptr, i8 } %278, 0
-  %.fca.1.extract5195 = extractvalue { ptr, i8 } %278, 1
-  %279 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5194, i8 %.fca.1.extract5195)
-  %.fca.0.extract5190 = extractvalue { ptr, i8 } %279, 0
+  %.fca.0.extract5202 = extractvalue { ptr, i8 } %277, 0
+  %.fca.1.extract5203 = extractvalue { ptr, i8 } %277, 1
+  %278 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5202, i8 %.fca.1.extract5203, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5195 = extractvalue { ptr, i8 } %278, 0
+  %.fca.1.extract5196 = extractvalue { ptr, i8 } %278, 1
+  %279 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract5195, i8 %.fca.1.extract5196)
+  %.fca.0.extract5191 = extractvalue { ptr, i8 } %279, 0
   br label %1329
 
 280:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %281, label %1329
+  br i1 %spec.select, label %281, label %1329
 
 281:                                              ; preds = %280
   %282 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5178 = extractvalue { ptr, i8 } %282, 0
-  %.fca.1.extract5179 = extractvalue { ptr, i8 } %282, 1
+  %.fca.0.extract5179 = extractvalue { ptr, i8 } %282, 0
+  %.fca.1.extract5180 = extractvalue { ptr, i8 } %282, 1
   %283 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5166 = extractvalue { ptr, i8 } %283, 0
-  %.fca.1.extract5167 = extractvalue { ptr, i8 } %283, 1
-  %284 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5178, i8 %.fca.1.extract5179, ptr %.fca.0.extract5166, i8 %.fca.1.extract5167)
-  %.fca.0.extract5162 = extractvalue { ptr, i8 } %284, 0
+  %.fca.0.extract5167 = extractvalue { ptr, i8 } %283, 0
+  %.fca.1.extract5168 = extractvalue { ptr, i8 } %283, 1
+  %284 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5179, i8 %.fca.1.extract5180, ptr %.fca.0.extract5167, i8 %.fca.1.extract5168)
+  %.fca.0.extract5163 = extractvalue { ptr, i8 } %284, 0
   br label %1329
 
 285:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %286, label %1329
+  br i1 %spec.select, label %286, label %1329
 
 286:                                              ; preds = %285
   %287 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5148 = extractvalue { ptr, i8 } %287, 0
-  %.fca.1.extract5149 = extractvalue { ptr, i8 } %287, 1
-  %288 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5148, i8 %.fca.1.extract5149, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5141 = extractvalue { ptr, i8 } %288, 0
-  %.fca.1.extract5142 = extractvalue { ptr, i8 } %288, 1
-  %289 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5141, i8 %.fca.1.extract5142, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5134 = extractvalue { ptr, i8 } %289, 0
+  %.fca.0.extract5149 = extractvalue { ptr, i8 } %287, 0
+  %.fca.1.extract5150 = extractvalue { ptr, i8 } %287, 1
+  %288 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5149, i8 %.fca.1.extract5150, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5142 = extractvalue { ptr, i8 } %288, 0
+  %.fca.1.extract5143 = extractvalue { ptr, i8 } %288, 1
+  %289 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5142, i8 %.fca.1.extract5143, ptr nonnull %89, i8 -52)
+  %.fca.0.extract5135 = extractvalue { ptr, i8 } %289, 0
   br label %1329
 
 290:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %291, label %1329
+  br i1 %spec.select, label %291, label %1329
 
 291:                                              ; preds = %290
   %292 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5122 = extractvalue { ptr, i8 } %292, 0
-  %.fca.1.extract5123 = extractvalue { ptr, i8 } %292, 1
-  %293 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5122, i8 %.fca.1.extract5123, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5115 = extractvalue { ptr, i8 } %293, 0
+  %.fca.0.extract5123 = extractvalue { ptr, i8 } %292, 0
+  %.fca.1.extract5124 = extractvalue { ptr, i8 } %292, 1
+  %293 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5123, i8 %.fca.1.extract5124, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5116 = extractvalue { ptr, i8 } %293, 0
   br label %1329
 
 294:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %295, label %1329
+  br i1 %spec.select, label %295, label %1329
 
 295:                                              ; preds = %294
   %296 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5103 = extractvalue { ptr, i8 } %296, 0
-  %.fca.1.extract5104 = extractvalue { ptr, i8 } %296, 1
+  %.fca.0.extract5104 = extractvalue { ptr, i8 } %296, 0
+  %.fca.1.extract5105 = extractvalue { ptr, i8 } %296, 1
   %297 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5089 = extractvalue { ptr, i8 } %297, 0
-  %.fca.1.extract5090 = extractvalue { ptr, i8 } %297, 1
-  %298 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5089, i8 %.fca.1.extract5090, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5082 = extractvalue { ptr, i8 } %298, 0
-  %.fca.1.extract5083 = extractvalue { ptr, i8 } %298, 1
-  %299 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5103, i8 %.fca.1.extract5104, ptr %.fca.0.extract5082, i8 %.fca.1.extract5083)
-  %.fca.0.extract5078 = extractvalue { ptr, i8 } %299, 0
+  %.fca.0.extract5090 = extractvalue { ptr, i8 } %297, 0
+  %.fca.1.extract5091 = extractvalue { ptr, i8 } %297, 1
+  %298 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5090, i8 %.fca.1.extract5091, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5083 = extractvalue { ptr, i8 } %298, 0
+  %.fca.1.extract5084 = extractvalue { ptr, i8 } %298, 1
+  %299 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5104, i8 %.fca.1.extract5105, ptr %.fca.0.extract5083, i8 %.fca.1.extract5084)
+  %.fca.0.extract5079 = extractvalue { ptr, i8 } %299, 0
   br label %1329
 
 300:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %301, label %1329
+  br i1 %spec.select, label %301, label %1329
 
 301:                                              ; preds = %300
   %302 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5066 = extractvalue { ptr, i8 } %302, 0
-  %.fca.1.extract5067 = extractvalue { ptr, i8 } %302, 1
-  %303 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5066, i8 %.fca.1.extract5067, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5059 = extractvalue { ptr, i8 } %303, 0
+  %.fca.0.extract5067 = extractvalue { ptr, i8 } %302, 0
+  %.fca.1.extract5068 = extractvalue { ptr, i8 } %302, 1
+  %303 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5067, i8 %.fca.1.extract5068, ptr nonnull %91, i8 -86)
+  %.fca.0.extract5060 = extractvalue { ptr, i8 } %303, 0
   br label %1329
 
 304:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %305, label %1329
+  br i1 %spec.select, label %305, label %1329
 
 305:                                              ; preds = %304
   %306 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5045 = extractvalue { ptr, i8 } %306, 0
-  %.fca.1.extract5046 = extractvalue { ptr, i8 } %306, 1
+  %.fca.0.extract5046 = extractvalue { ptr, i8 } %306, 0
+  %.fca.1.extract5047 = extractvalue { ptr, i8 } %306, 1
   %307 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract5033 = extractvalue { ptr, i8 } %307, 0
-  %.fca.1.extract5034 = extractvalue { ptr, i8 } %307, 1
-  %308 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5045, i8 %.fca.1.extract5046, ptr %.fca.0.extract5033, i8 %.fca.1.extract5034)
-  %.fca.0.extract5029 = extractvalue { ptr, i8 } %308, 0
-  %.fca.1.extract5030 = extractvalue { ptr, i8 } %308, 1
-  %309 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5029, i8 %.fca.1.extract5030, ptr nonnull %87, i8 -16)
-  %.fca.0.extract5022 = extractvalue { ptr, i8 } %309, 0
+  %.fca.0.extract5034 = extractvalue { ptr, i8 } %307, 0
+  %.fca.1.extract5035 = extractvalue { ptr, i8 } %307, 1
+  %308 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5046, i8 %.fca.1.extract5047, ptr %.fca.0.extract5034, i8 %.fca.1.extract5035)
+  %.fca.0.extract5030 = extractvalue { ptr, i8 } %308, 0
+  %.fca.1.extract5031 = extractvalue { ptr, i8 } %308, 1
+  %309 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract5030, i8 %.fca.1.extract5031, ptr nonnull %87, i8 -16)
+  %.fca.0.extract5023 = extractvalue { ptr, i8 } %309, 0
   br label %1329
 
 310:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %311, label %1329
+  br i1 %spec.select, label %311, label %1329
 
 311:                                              ; preds = %310
   %312 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract5010 = extractvalue { ptr, i8 } %312, 0
-  %.fca.1.extract5011 = extractvalue { ptr, i8 } %312, 1
+  %.fca.0.extract5011 = extractvalue { ptr, i8 } %312, 0
+  %.fca.1.extract5012 = extractvalue { ptr, i8 } %312, 1
   %313 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4998 = extractvalue { ptr, i8 } %313, 0
-  %.fca.1.extract4999 = extractvalue { ptr, i8 } %313, 1
-  %314 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5010, i8 %.fca.1.extract5011, ptr %.fca.0.extract4998, i8 %.fca.1.extract4999)
-  %.fca.0.extract4994 = extractvalue { ptr, i8 } %314, 0
+  %.fca.0.extract4999 = extractvalue { ptr, i8 } %313, 0
+  %.fca.1.extract5000 = extractvalue { ptr, i8 } %313, 1
+  %314 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract5011, i8 %.fca.1.extract5012, ptr %.fca.0.extract4999, i8 %.fca.1.extract5000)
+  %.fca.0.extract4995 = extractvalue { ptr, i8 } %314, 0
   br label %1329
 
 315:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %316, label %1329
+  br i1 %spec.select, label %316, label %1329
 
 316:                                              ; preds = %315
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %58) #15
@@ -10838,28 +10838,28 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %318 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %58)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %58) #15
   %319 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %318, i8 85)
-  %.fca.0.extract4973 = extractvalue { ptr, i8 } %319, 0
-  %.fca.1.extract4974 = extractvalue { ptr, i8 } %319, 1
-  %320 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4973, i8 %.fca.1.extract4974)
-  %.fca.0.extract4969 = extractvalue { ptr, i8 } %320, 0
+  %.fca.0.extract4974 = extractvalue { ptr, i8 } %319, 0
+  %.fca.1.extract4975 = extractvalue { ptr, i8 } %319, 1
+  %320 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4974, i8 %.fca.1.extract4975)
+  %.fca.0.extract4970 = extractvalue { ptr, i8 } %320, 0
   br label %1329
 
 321:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %322, label %1329
+  br i1 %spec.select, label %322, label %1329
 
 322:                                              ; preds = %321
   %323 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4952 = extractvalue { ptr, i8 } %323, 0
-  %.fca.1.extract4953 = extractvalue { ptr, i8 } %323, 1
-  %324 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4952, i8 %.fca.1.extract4953, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4945 = extractvalue { ptr, i8 } %324, 0
-  %.fca.1.extract4946 = extractvalue { ptr, i8 } %324, 1
-  %325 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4945, i8 %.fca.1.extract4946)
-  %.fca.0.extract4941 = extractvalue { ptr, i8 } %325, 0
+  %.fca.0.extract4953 = extractvalue { ptr, i8 } %323, 0
+  %.fca.1.extract4954 = extractvalue { ptr, i8 } %323, 1
+  %324 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4953, i8 %.fca.1.extract4954, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4946 = extractvalue { ptr, i8 } %324, 0
+  %.fca.1.extract4947 = extractvalue { ptr, i8 } %324, 1
+  %325 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4946, i8 %.fca.1.extract4947)
+  %.fca.0.extract4942 = extractvalue { ptr, i8 } %325, 0
   br label %1329
 
 326:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %327, label %1329
+  br i1 %spec.select, label %327, label %1329
 
 327:                                              ; preds = %326
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %57) #15
@@ -10868,10 +10868,10 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %329 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %57)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %57) #15
   %330 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %329, i8 85)
-  %.fca.0.extract4920 = extractvalue { ptr, i8 } %330, 0
-  %.fca.1.extract4921 = extractvalue { ptr, i8 } %330, 1
-  %331 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4920, i8 %.fca.1.extract4921)
-  %.fca.0.extract4916 = extractvalue { ptr, i8 } %331, 0
+  %.fca.0.extract4921 = extractvalue { ptr, i8 } %330, 0
+  %.fca.1.extract4922 = extractvalue { ptr, i8 } %330, 1
+  %331 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4921, i8 %.fca.1.extract4922)
+  %.fca.0.extract4917 = extractvalue { ptr, i8 } %331, 0
   br label %1329
 
 332:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -10884,11 +10884,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %335 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %56)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %56) #15
   %336 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %335, i8 15)
-  %.fca.0.extract4900 = extractvalue { ptr, i8 } %336, 0
+  %.fca.0.extract4901 = extractvalue { ptr, i8 } %336, 0
   br label %1329
 
 337:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %338, label %1329
+  br i1 %spec.select, label %338, label %1329
 
 338:                                              ; preds = %337
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %55) #15
@@ -10897,21 +10897,21 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %340 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %55)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %55) #15
   %341 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %340, i8 85)
-  %.fca.0.extract4882 = extractvalue { ptr, i8 } %341, 0
-  %.fca.1.extract4883 = extractvalue { ptr, i8 } %341, 1
-  %342 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4882, i8 %.fca.1.extract4883, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4875 = extractvalue { ptr, i8 } %342, 0
+  %.fca.0.extract4883 = extractvalue { ptr, i8 } %341, 0
+  %.fca.1.extract4884 = extractvalue { ptr, i8 } %341, 1
+  %342 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4883, i8 %.fca.1.extract4884, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4876 = extractvalue { ptr, i8 } %342, 0
   br label %1329
 
 343:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %344, label %1329
+  br i1 %spec.select, label %344, label %1329
 
 344:                                              ; preds = %343
   %345 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4863 = extractvalue { ptr, i8 } %345, 0
-  %.fca.1.extract4864 = extractvalue { ptr, i8 } %345, 1
-  %346 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4863, i8 %.fca.1.extract4864, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4856 = extractvalue { ptr, i8 } %346, 0
+  %.fca.0.extract4864 = extractvalue { ptr, i8 } %345, 0
+  %.fca.1.extract4865 = extractvalue { ptr, i8 } %345, 1
+  %346 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4864, i8 %.fca.1.extract4865, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4857 = extractvalue { ptr, i8 } %346, 0
   br label %1329
 
 347:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -10923,71 +10923,71 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   br label %1329
 
 350:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %351, label %1329
+  br i1 %spec.select, label %351, label %1329
 
 351:                                              ; preds = %350
   %352 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4837 = extractvalue { ptr, i8 } %352, 0
-  %.fca.1.extract4838 = extractvalue { ptr, i8 } %352, 1
+  %.fca.0.extract4838 = extractvalue { ptr, i8 } %352, 0
+  %.fca.1.extract4839 = extractvalue { ptr, i8 } %352, 1
   %353 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4825 = extractvalue { ptr, i8 } %353, 0
-  %.fca.1.extract4826 = extractvalue { ptr, i8 } %353, 1
-  %354 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4837, i8 %.fca.1.extract4838, ptr %.fca.0.extract4825, i8 %.fca.1.extract4826)
-  %.fca.0.extract4821 = extractvalue { ptr, i8 } %354, 0
+  %.fca.0.extract4826 = extractvalue { ptr, i8 } %353, 0
+  %.fca.1.extract4827 = extractvalue { ptr, i8 } %353, 1
+  %354 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4838, i8 %.fca.1.extract4839, ptr %.fca.0.extract4826, i8 %.fca.1.extract4827)
+  %.fca.0.extract4822 = extractvalue { ptr, i8 } %354, 0
   br label %1329
 
 355:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %356, label %1329
+  br i1 %spec.select, label %356, label %1329
 
 356:                                              ; preds = %355
   %357 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4801 = extractvalue { ptr, i8 } %357, 0
-  %.fca.1.extract4802 = extractvalue { ptr, i8 } %357, 1
-  %358 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4801, i8 %.fca.1.extract4802)
-  %.fca.0.extract4797 = extractvalue { ptr, i8 } %358, 0
-  %.fca.1.extract4798 = extractvalue { ptr, i8 } %358, 1
-  %359 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract4797, i8 %.fca.1.extract4798)
-  %.fca.0.extract4793 = extractvalue { ptr, i8 } %359, 0
+  %.fca.0.extract4802 = extractvalue { ptr, i8 } %357, 0
+  %.fca.1.extract4803 = extractvalue { ptr, i8 } %357, 1
+  %358 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4802, i8 %.fca.1.extract4803)
+  %.fca.0.extract4798 = extractvalue { ptr, i8 } %358, 0
+  %.fca.1.extract4799 = extractvalue { ptr, i8 } %358, 1
+  %359 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract4798, i8 %.fca.1.extract4799)
+  %.fca.0.extract4794 = extractvalue { ptr, i8 } %359, 0
   br label %1329
 
 360:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %361, label %1329
+  br i1 %spec.select, label %361, label %1329
 
 361:                                              ; preds = %360
   %362 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4781 = extractvalue { ptr, i8 } %362, 0
-  %.fca.1.extract4782 = extractvalue { ptr, i8 } %362, 1
-  %363 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4781, i8 %.fca.1.extract4782, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4774 = extractvalue { ptr, i8 } %363, 0
+  %.fca.0.extract4782 = extractvalue { ptr, i8 } %362, 0
+  %.fca.1.extract4783 = extractvalue { ptr, i8 } %362, 1
+  %363 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4782, i8 %.fca.1.extract4783, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4775 = extractvalue { ptr, i8 } %363, 0
   br label %1329
 
 364:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %365, label %1329
+  br i1 %spec.select, label %365, label %1329
 
 365:                                              ; preds = %364
   %366 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4762 = extractvalue { ptr, i8 } %366, 0
-  %.fca.1.extract4763 = extractvalue { ptr, i8 } %366, 1
-  %367 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4762, i8 %.fca.1.extract4763, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4755 = extractvalue { ptr, i8 } %367, 0
+  %.fca.0.extract4763 = extractvalue { ptr, i8 } %366, 0
+  %.fca.1.extract4764 = extractvalue { ptr, i8 } %366, 1
+  %367 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4763, i8 %.fca.1.extract4764, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4756 = extractvalue { ptr, i8 } %367, 0
   br label %1329
 
 368:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %369, label %1329
+  br i1 %spec.select, label %369, label %1329
 
 369:                                              ; preds = %368
   %370 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4743 = extractvalue { ptr, i8 } %370, 0
-  %.fca.1.extract4744 = extractvalue { ptr, i8 } %370, 1
+  %.fca.0.extract4744 = extractvalue { ptr, i8 } %370, 0
+  %.fca.1.extract4745 = extractvalue { ptr, i8 } %370, 1
   %371 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4731 = extractvalue { ptr, i8 } %371, 0
-  %.fca.1.extract4732 = extractvalue { ptr, i8 } %371, 1
-  %372 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4743, i8 %.fca.1.extract4744, ptr %.fca.0.extract4731, i8 %.fca.1.extract4732)
-  %.fca.0.extract4727 = extractvalue { ptr, i8 } %372, 0
+  %.fca.0.extract4732 = extractvalue { ptr, i8 } %371, 0
+  %.fca.1.extract4733 = extractvalue { ptr, i8 } %371, 1
+  %372 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4744, i8 %.fca.1.extract4745, ptr %.fca.0.extract4732, i8 %.fca.1.extract4733)
+  %.fca.0.extract4728 = extractvalue { ptr, i8 } %372, 0
   br label %1329
 
 373:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %374, label %1329
+  br i1 %spec.select, label %374, label %1329
 
 374:                                              ; preds = %373
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %53) #15
@@ -10996,28 +10996,28 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %376 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %53)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %53) #15
   %377 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %376, i8 85)
-  %.fca.0.extract4709 = extractvalue { ptr, i8 } %377, 0
-  %.fca.1.extract4710 = extractvalue { ptr, i8 } %377, 1
-  %378 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4709, i8 %.fca.1.extract4710, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4702 = extractvalue { ptr, i8 } %378, 0
+  %.fca.0.extract4710 = extractvalue { ptr, i8 } %377, 0
+  %.fca.1.extract4711 = extractvalue { ptr, i8 } %377, 1
+  %378 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4710, i8 %.fca.1.extract4711, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4703 = extractvalue { ptr, i8 } %378, 0
   br label %1329
 
 379:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %380, label %1329
+  br i1 %spec.select, label %380, label %1329
 
 380:                                              ; preds = %379
   %381 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4682 = extractvalue { ptr, i8 } %381, 0
-  %.fca.1.extract4683 = extractvalue { ptr, i8 } %381, 1
-  %382 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4682, i8 %.fca.1.extract4683)
-  %.fca.0.extract4678 = extractvalue { ptr, i8 } %382, 0
-  %.fca.1.extract4679 = extractvalue { ptr, i8 } %382, 1
-  %383 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract4678, i8 %.fca.1.extract4679)
-  %.fca.0.extract4674 = extractvalue { ptr, i8 } %383, 0
+  %.fca.0.extract4683 = extractvalue { ptr, i8 } %381, 0
+  %.fca.1.extract4684 = extractvalue { ptr, i8 } %381, 1
+  %382 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4683, i8 %.fca.1.extract4684)
+  %.fca.0.extract4679 = extractvalue { ptr, i8 } %382, 0
+  %.fca.1.extract4680 = extractvalue { ptr, i8 } %382, 1
+  %383 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract4679, i8 %.fca.1.extract4680)
+  %.fca.0.extract4675 = extractvalue { ptr, i8 } %383, 0
   br label %1329
 
 384:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %385, label %1329
+  br i1 %spec.select, label %385, label %1329
 
 385:                                              ; preds = %384
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %52) #15
@@ -11026,33 +11026,33 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %387 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %52)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %52) #15
   %388 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %387, i8 85)
-  %.fca.0.extract4656 = extractvalue { ptr, i8 } %388, 0
-  %.fca.1.extract4657 = extractvalue { ptr, i8 } %388, 1
-  %389 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4656, i8 %.fca.1.extract4657, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4649 = extractvalue { ptr, i8 } %389, 0
+  %.fca.0.extract4657 = extractvalue { ptr, i8 } %388, 0
+  %.fca.1.extract4658 = extractvalue { ptr, i8 } %388, 1
+  %389 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4657, i8 %.fca.1.extract4658, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4650 = extractvalue { ptr, i8 } %389, 0
   br label %1329
 
 390:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
   %391 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4639 = extractvalue { ptr, i8 } %391, 0
+  %.fca.0.extract4640 = extractvalue { ptr, i8 } %391, 0
   br label %1329
 
 392:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %393, label %1329
+  br i1 %spec.select, label %393, label %1329
 
 393:                                              ; preds = %392
   %394 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4622 = extractvalue { ptr, i8 } %394, 0
-  %.fca.1.extract4623 = extractvalue { ptr, i8 } %394, 1
-  %395 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4622, i8 %.fca.1.extract4623, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4615 = extractvalue { ptr, i8 } %395, 0
-  %.fca.1.extract4616 = extractvalue { ptr, i8 } %395, 1
-  %396 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4615, i8 %.fca.1.extract4616)
-  %.fca.0.extract4611 = extractvalue { ptr, i8 } %396, 0
+  %.fca.0.extract4623 = extractvalue { ptr, i8 } %394, 0
+  %.fca.1.extract4624 = extractvalue { ptr, i8 } %394, 1
+  %395 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4623, i8 %.fca.1.extract4624, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4616 = extractvalue { ptr, i8 } %395, 0
+  %.fca.1.extract4617 = extractvalue { ptr, i8 } %395, 1
+  %396 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4616, i8 %.fca.1.extract4617)
+  %.fca.0.extract4612 = extractvalue { ptr, i8 } %396, 0
   br label %1329
 
 397:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %398, label %1329
+  br i1 %spec.select, label %398, label %1329
 
 398:                                              ; preds = %397
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %51) #15
@@ -11061,13 +11061,13 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %400 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %51)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %51) #15
   %401 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %400, i8 85)
-  %.fca.0.extract4588 = extractvalue { ptr, i8 } %401, 0
-  %.fca.1.extract4589 = extractvalue { ptr, i8 } %401, 1
-  %402 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4588, i8 %.fca.1.extract4589, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4581 = extractvalue { ptr, i8 } %402, 0
-  %.fca.1.extract4582 = extractvalue { ptr, i8 } %402, 1
-  %403 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4581, i8 %.fca.1.extract4582)
-  %.fca.0.extract4577 = extractvalue { ptr, i8 } %403, 0
+  %.fca.0.extract4589 = extractvalue { ptr, i8 } %401, 0
+  %.fca.1.extract4590 = extractvalue { ptr, i8 } %401, 1
+  %402 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4589, i8 %.fca.1.extract4590, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4582 = extractvalue { ptr, i8 } %402, 0
+  %.fca.1.extract4583 = extractvalue { ptr, i8 } %402, 1
+  %403 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4582, i8 %.fca.1.extract4583)
+  %.fca.0.extract4578 = extractvalue { ptr, i8 } %403, 0
   br label %1329
 
 404:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -11075,57 +11075,57 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
 
 405:                                              ; preds = %404
   %406 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4567 = extractvalue { ptr, i8 } %406, 0
+  %.fca.0.extract4568 = extractvalue { ptr, i8 } %406, 0
   br label %1329
 
 407:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %408, label %1329
+  br i1 %spec.select, label %408, label %1329
 
 408:                                              ; preds = %407
   %409 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4555 = extractvalue { ptr, i8 } %409, 0
-  %.fca.1.extract4556 = extractvalue { ptr, i8 } %409, 1
-  %410 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4555, i8 %.fca.1.extract4556, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4548 = extractvalue { ptr, i8 } %410, 0
+  %.fca.0.extract4556 = extractvalue { ptr, i8 } %409, 0
+  %.fca.1.extract4557 = extractvalue { ptr, i8 } %409, 1
+  %410 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4556, i8 %.fca.1.extract4557, ptr nonnull %91, i8 -86)
+  %.fca.0.extract4549 = extractvalue { ptr, i8 } %410, 0
   br label %1329
 
 411:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %412, label %1329
+  br i1 %spec.select, label %412, label %1329
 
 412:                                              ; preds = %411
   %413 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4536 = extractvalue { ptr, i8 } %413, 0
-  %.fca.1.extract4537 = extractvalue { ptr, i8 } %413, 1
-  %414 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4536, i8 %.fca.1.extract4537, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4529 = extractvalue { ptr, i8 } %414, 0
+  %.fca.0.extract4537 = extractvalue { ptr, i8 } %413, 0
+  %.fca.1.extract4538 = extractvalue { ptr, i8 } %413, 1
+  %414 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4537, i8 %.fca.1.extract4538, ptr nonnull %91, i8 -86)
+  %.fca.0.extract4530 = extractvalue { ptr, i8 } %414, 0
   br label %1329
 
 415:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %416, label %1329
+  br i1 %spec.select, label %416, label %1329
 
 416:                                              ; preds = %415
   %417 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4517 = extractvalue { ptr, i8 } %417, 0
-  %.fca.1.extract4518 = extractvalue { ptr, i8 } %417, 1
+  %.fca.0.extract4518 = extractvalue { ptr, i8 } %417, 0
+  %.fca.1.extract4519 = extractvalue { ptr, i8 } %417, 1
   %418 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4505 = extractvalue { ptr, i8 } %418, 0
-  %.fca.1.extract4506 = extractvalue { ptr, i8 } %418, 1
-  %419 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4517, i8 %.fca.1.extract4518, ptr %.fca.0.extract4505, i8 %.fca.1.extract4506)
-  %.fca.0.extract4501 = extractvalue { ptr, i8 } %419, 0
+  %.fca.0.extract4506 = extractvalue { ptr, i8 } %418, 0
+  %.fca.1.extract4507 = extractvalue { ptr, i8 } %418, 1
+  %419 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4518, i8 %.fca.1.extract4519, ptr %.fca.0.extract4506, i8 %.fca.1.extract4507)
+  %.fca.0.extract4502 = extractvalue { ptr, i8 } %419, 0
   br label %1329
 
 420:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %421, label %1329
+  br i1 %spec.select, label %421, label %1329
 
 421:                                              ; preds = %420
   %422 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4484 = extractvalue { ptr, i8 } %422, 0
-  %.fca.1.extract4485 = extractvalue { ptr, i8 } %422, 1
-  %423 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4484, i8 %.fca.1.extract4485, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4477 = extractvalue { ptr, i8 } %423, 0
-  %.fca.1.extract4478 = extractvalue { ptr, i8 } %423, 1
-  %424 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4477, i8 %.fca.1.extract4478)
-  %.fca.0.extract4473 = extractvalue { ptr, i8 } %424, 0
+  %.fca.0.extract4485 = extractvalue { ptr, i8 } %422, 0
+  %.fca.1.extract4486 = extractvalue { ptr, i8 } %422, 1
+  %423 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4485, i8 %.fca.1.extract4486, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4478 = extractvalue { ptr, i8 } %423, 0
+  %.fca.1.extract4479 = extractvalue { ptr, i8 } %423, 1
+  %424 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4478, i8 %.fca.1.extract4479)
+  %.fca.0.extract4474 = extractvalue { ptr, i8 } %424, 0
   br label %1329
 
 425:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -11138,11 +11138,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %428 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %50)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %50) #15
   %429 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %428, i8 51)
-  %.fca.0.extract4457 = extractvalue { ptr, i8 } %429, 0
+  %.fca.0.extract4458 = extractvalue { ptr, i8 } %429, 0
   br label %1329
 
 430:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %431, label %1329
+  br i1 %spec.select, label %431, label %1329
 
 431:                                              ; preds = %430
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %49) #15
@@ -11151,84 +11151,84 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %433 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %49)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %49) #15
   %434 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %433, i8 15)
-  %.fca.0.extract4439 = extractvalue { ptr, i8 } %434, 0
-  %.fca.1.extract4440 = extractvalue { ptr, i8 } %434, 1
-  %435 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4439, i8 %.fca.1.extract4440, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4432 = extractvalue { ptr, i8 } %435, 0
+  %.fca.0.extract4440 = extractvalue { ptr, i8 } %434, 0
+  %.fca.1.extract4441 = extractvalue { ptr, i8 } %434, 1
+  %435 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4440, i8 %.fca.1.extract4441, ptr nonnull %91, i8 -86)
+  %.fca.0.extract4433 = extractvalue { ptr, i8 } %435, 0
   br label %1329
 
 436:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %437, label %1329
+  br i1 %spec.select, label %437, label %1329
 
 437:                                              ; preds = %436
   %438 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4418 = extractvalue { ptr, i8 } %438, 0
-  %.fca.1.extract4419 = extractvalue { ptr, i8 } %438, 1
-  %439 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4418, i8 %.fca.1.extract4419, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4411 = extractvalue { ptr, i8 } %439, 0
-  %.fca.1.extract4412 = extractvalue { ptr, i8 } %439, 1
-  %440 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4411, i8 %.fca.1.extract4412, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4404 = extractvalue { ptr, i8 } %440, 0
+  %.fca.0.extract4419 = extractvalue { ptr, i8 } %438, 0
+  %.fca.1.extract4420 = extractvalue { ptr, i8 } %438, 1
+  %439 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4419, i8 %.fca.1.extract4420, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4412 = extractvalue { ptr, i8 } %439, 0
+  %.fca.1.extract4413 = extractvalue { ptr, i8 } %439, 1
+  %440 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4412, i8 %.fca.1.extract4413, ptr nonnull %91, i8 -86)
+  %.fca.0.extract4405 = extractvalue { ptr, i8 } %440, 0
   br label %1329
 
 441:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %442, label %1329
+  br i1 %spec.select, label %442, label %1329
 
 442:                                              ; preds = %441
   %443 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4390 = extractvalue { ptr, i8 } %443, 0
-  %.fca.1.extract4391 = extractvalue { ptr, i8 } %443, 1
-  %444 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4390, i8 %.fca.1.extract4391, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4383 = extractvalue { ptr, i8 } %444, 0
-  %.fca.1.extract4384 = extractvalue { ptr, i8 } %444, 1
-  %445 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4383, i8 %.fca.1.extract4384, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4376 = extractvalue { ptr, i8 } %445, 0
+  %.fca.0.extract4391 = extractvalue { ptr, i8 } %443, 0
+  %.fca.1.extract4392 = extractvalue { ptr, i8 } %443, 1
+  %444 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4391, i8 %.fca.1.extract4392, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4384 = extractvalue { ptr, i8 } %444, 0
+  %.fca.1.extract4385 = extractvalue { ptr, i8 } %444, 1
+  %445 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4384, i8 %.fca.1.extract4385, ptr nonnull %91, i8 -86)
+  %.fca.0.extract4377 = extractvalue { ptr, i8 } %445, 0
   br label %1329
 
 446:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %447, label %1329
+  br i1 %spec.select, label %447, label %1329
 
 447:                                              ; preds = %446
   %448 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4364 = extractvalue { ptr, i8 } %448, 0
-  %.fca.1.extract4365 = extractvalue { ptr, i8 } %448, 1
-  %449 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4364, i8 %.fca.1.extract4365, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4357 = extractvalue { ptr, i8 } %449, 0
+  %.fca.0.extract4365 = extractvalue { ptr, i8 } %448, 0
+  %.fca.1.extract4366 = extractvalue { ptr, i8 } %448, 1
+  %449 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4365, i8 %.fca.1.extract4366, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4358 = extractvalue { ptr, i8 } %449, 0
   br label %1329
 
 450:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %451, label %1329
+  br i1 %spec.select, label %451, label %1329
 
 451:                                              ; preds = %450
   %452 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4343 = extractvalue { ptr, i8 } %452, 0
-  %.fca.1.extract4344 = extractvalue { ptr, i8 } %452, 1
+  %.fca.0.extract4344 = extractvalue { ptr, i8 } %452, 0
+  %.fca.1.extract4345 = extractvalue { ptr, i8 } %452, 1
   %453 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4331 = extractvalue { ptr, i8 } %453, 0
-  %.fca.1.extract4332 = extractvalue { ptr, i8 } %453, 1
-  %454 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4343, i8 %.fca.1.extract4344, ptr %.fca.0.extract4331, i8 %.fca.1.extract4332)
-  %.fca.0.extract4327 = extractvalue { ptr, i8 } %454, 0
-  %.fca.1.extract4328 = extractvalue { ptr, i8 } %454, 1
-  %455 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4327, i8 %.fca.1.extract4328, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4320 = extractvalue { ptr, i8 } %455, 0
+  %.fca.0.extract4332 = extractvalue { ptr, i8 } %453, 0
+  %.fca.1.extract4333 = extractvalue { ptr, i8 } %453, 1
+  %454 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4344, i8 %.fca.1.extract4345, ptr %.fca.0.extract4332, i8 %.fca.1.extract4333)
+  %.fca.0.extract4328 = extractvalue { ptr, i8 } %454, 0
+  %.fca.1.extract4329 = extractvalue { ptr, i8 } %454, 1
+  %455 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4328, i8 %.fca.1.extract4329, ptr nonnull %91, i8 -86)
+  %.fca.0.extract4321 = extractvalue { ptr, i8 } %455, 0
   br label %1329
 
 456:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %457, label %1329
+  br i1 %spec.select, label %457, label %1329
 
 457:                                              ; preds = %456
   %458 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4308 = extractvalue { ptr, i8 } %458, 0
-  %.fca.1.extract4309 = extractvalue { ptr, i8 } %458, 1
+  %.fca.0.extract4309 = extractvalue { ptr, i8 } %458, 0
+  %.fca.1.extract4310 = extractvalue { ptr, i8 } %458, 1
   %459 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4296 = extractvalue { ptr, i8 } %459, 0
-  %.fca.1.extract4297 = extractvalue { ptr, i8 } %459, 1
-  %460 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4308, i8 %.fca.1.extract4309, ptr %.fca.0.extract4296, i8 %.fca.1.extract4297)
-  %.fca.0.extract4292 = extractvalue { ptr, i8 } %460, 0
+  %.fca.0.extract4297 = extractvalue { ptr, i8 } %459, 0
+  %.fca.1.extract4298 = extractvalue { ptr, i8 } %459, 1
+  %460 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4309, i8 %.fca.1.extract4310, ptr %.fca.0.extract4297, i8 %.fca.1.extract4298)
+  %.fca.0.extract4293 = extractvalue { ptr, i8 } %460, 0
   br label %1329
 
 461:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %462, label %1329
+  br i1 %spec.select, label %462, label %1329
 
 462:                                              ; preds = %461
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %48) #15
@@ -11237,56 +11237,56 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %464 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %48)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48) #15
   %465 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %464, i8 51)
-  %.fca.0.extract4271 = extractvalue { ptr, i8 } %465, 0
-  %.fca.1.extract4272 = extractvalue { ptr, i8 } %465, 1
-  %466 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4271, i8 %.fca.1.extract4272)
-  %.fca.0.extract4267 = extractvalue { ptr, i8 } %466, 0
+  %.fca.0.extract4272 = extractvalue { ptr, i8 } %465, 0
+  %.fca.1.extract4273 = extractvalue { ptr, i8 } %465, 1
+  %466 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4272, i8 %.fca.1.extract4273)
+  %.fca.0.extract4268 = extractvalue { ptr, i8 } %466, 0
   br label %1329
 
 467:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %468, label %1329
+  br i1 %spec.select, label %468, label %1329
 
 468:                                              ; preds = %467
   %469 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4255 = extractvalue { ptr, i8 } %469, 0
-  %.fca.1.extract4256 = extractvalue { ptr, i8 } %469, 1
-  %470 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4255, i8 %.fca.1.extract4256, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4248 = extractvalue { ptr, i8 } %470, 0
+  %.fca.0.extract4256 = extractvalue { ptr, i8 } %469, 0
+  %.fca.1.extract4257 = extractvalue { ptr, i8 } %469, 1
+  %470 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4256, i8 %.fca.1.extract4257, ptr nonnull %89, i8 -52)
+  %.fca.0.extract4249 = extractvalue { ptr, i8 } %470, 0
   br label %1329
 
 471:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %472, label %1329
+  br i1 %spec.select, label %472, label %1329
 
 472:                                              ; preds = %471
   %473 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4234 = extractvalue { ptr, i8 } %473, 0
-  %.fca.1.extract4235 = extractvalue { ptr, i8 } %473, 1
+  %.fca.0.extract4235 = extractvalue { ptr, i8 } %473, 0
+  %.fca.1.extract4236 = extractvalue { ptr, i8 } %473, 1
   %474 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4222 = extractvalue { ptr, i8 } %474, 0
-  %.fca.1.extract4223 = extractvalue { ptr, i8 } %474, 1
-  %475 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4234, i8 %.fca.1.extract4235, ptr %.fca.0.extract4222, i8 %.fca.1.extract4223)
-  %.fca.0.extract4218 = extractvalue { ptr, i8 } %475, 0
-  %.fca.1.extract4219 = extractvalue { ptr, i8 } %475, 1
-  %476 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4218, i8 %.fca.1.extract4219, ptr nonnull %87, i8 -16)
-  %.fca.0.extract4211 = extractvalue { ptr, i8 } %476, 0
+  %.fca.0.extract4223 = extractvalue { ptr, i8 } %474, 0
+  %.fca.1.extract4224 = extractvalue { ptr, i8 } %474, 1
+  %475 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4235, i8 %.fca.1.extract4236, ptr %.fca.0.extract4223, i8 %.fca.1.extract4224)
+  %.fca.0.extract4219 = extractvalue { ptr, i8 } %475, 0
+  %.fca.1.extract4220 = extractvalue { ptr, i8 } %475, 1
+  %476 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4219, i8 %.fca.1.extract4220, ptr nonnull %87, i8 -16)
+  %.fca.0.extract4212 = extractvalue { ptr, i8 } %476, 0
   br label %1329
 
 477:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %478, label %1329
+  br i1 %spec.select, label %478, label %1329
 
 478:                                              ; preds = %477
   %479 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4194 = extractvalue { ptr, i8 } %479, 0
-  %.fca.1.extract4195 = extractvalue { ptr, i8 } %479, 1
-  %480 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4194, i8 %.fca.1.extract4195, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4187 = extractvalue { ptr, i8 } %480, 0
-  %.fca.1.extract4188 = extractvalue { ptr, i8 } %480, 1
-  %481 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4187, i8 %.fca.1.extract4188)
-  %.fca.0.extract4183 = extractvalue { ptr, i8 } %481, 0
+  %.fca.0.extract4195 = extractvalue { ptr, i8 } %479, 0
+  %.fca.1.extract4196 = extractvalue { ptr, i8 } %479, 1
+  %480 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4195, i8 %.fca.1.extract4196, ptr nonnull %91, i8 -86)
+  %.fca.0.extract4188 = extractvalue { ptr, i8 } %480, 0
+  %.fca.1.extract4189 = extractvalue { ptr, i8 } %480, 1
+  %481 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4188, i8 %.fca.1.extract4189)
+  %.fca.0.extract4184 = extractvalue { ptr, i8 } %481, 0
   br label %1329
 
 482:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %483, label %1329
+  br i1 %spec.select, label %483, label %1329
 
 483:                                              ; preds = %482
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47) #15
@@ -11295,10 +11295,10 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %485 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %47)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47) #15
   %486 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %485, i8 85)
-  %.fca.0.extract4162 = extractvalue { ptr, i8 } %486, 0
-  %.fca.1.extract4163 = extractvalue { ptr, i8 } %486, 1
-  %487 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4162, i8 %.fca.1.extract4163)
-  %.fca.0.extract4158 = extractvalue { ptr, i8 } %487, 0
+  %.fca.0.extract4163 = extractvalue { ptr, i8 } %486, 0
+  %.fca.1.extract4164 = extractvalue { ptr, i8 } %486, 1
+  %487 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract4163, i8 %.fca.1.extract4164)
+  %.fca.0.extract4159 = extractvalue { ptr, i8 } %487, 0
   br label %1329
 
 488:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -11311,11 +11311,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %491 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %46)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %46) #15
   %492 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %491, i8 15)
-  %.fca.0.extract4142 = extractvalue { ptr, i8 } %492, 0
+  %.fca.0.extract4143 = extractvalue { ptr, i8 } %492, 0
   br label %1329
 
 493:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %494, label %1329
+  br i1 %spec.select, label %494, label %1329
 
 494:                                              ; preds = %493
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %45) #15
@@ -11324,49 +11324,49 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %496 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %45)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %45) #15
   %497 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %496, i8 51)
-  %.fca.0.extract4124 = extractvalue { ptr, i8 } %497, 0
-  %.fca.1.extract4125 = extractvalue { ptr, i8 } %497, 1
-  %498 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4124, i8 %.fca.1.extract4125, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4117 = extractvalue { ptr, i8 } %498, 0
+  %.fca.0.extract4125 = extractvalue { ptr, i8 } %497, 0
+  %.fca.1.extract4126 = extractvalue { ptr, i8 } %497, 1
+  %498 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4125, i8 %.fca.1.extract4126, ptr nonnull %91, i8 -86)
+  %.fca.0.extract4118 = extractvalue { ptr, i8 } %498, 0
   br label %1329
 
 499:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %500, label %1329
+  br i1 %spec.select, label %500, label %1329
 
 500:                                              ; preds = %499
   %501 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4105 = extractvalue { ptr, i8 } %501, 0
-  %.fca.1.extract4106 = extractvalue { ptr, i8 } %501, 1
+  %.fca.0.extract4106 = extractvalue { ptr, i8 } %501, 0
+  %.fca.1.extract4107 = extractvalue { ptr, i8 } %501, 1
   %502 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4093 = extractvalue { ptr, i8 } %502, 0
-  %.fca.1.extract4094 = extractvalue { ptr, i8 } %502, 1
-  %503 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4105, i8 %.fca.1.extract4106, ptr %.fca.0.extract4093, i8 %.fca.1.extract4094)
-  %.fca.0.extract4089 = extractvalue { ptr, i8 } %503, 0
+  %.fca.0.extract4094 = extractvalue { ptr, i8 } %502, 0
+  %.fca.1.extract4095 = extractvalue { ptr, i8 } %502, 1
+  %503 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4106, i8 %.fca.1.extract4107, ptr %.fca.0.extract4094, i8 %.fca.1.extract4095)
+  %.fca.0.extract4090 = extractvalue { ptr, i8 } %503, 0
   br label %1329
 
 504:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %505, label %1329
+  br i1 %spec.select, label %505, label %1329
 
 505:                                              ; preds = %504
   %506 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4075 = extractvalue { ptr, i8 } %506, 0
-  %.fca.1.extract4076 = extractvalue { ptr, i8 } %506, 1
-  %507 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4075, i8 %.fca.1.extract4076, ptr nonnull %87, i8 -16)
-  %.fca.0.extract4068 = extractvalue { ptr, i8 } %507, 0
-  %.fca.1.extract4069 = extractvalue { ptr, i8 } %507, 1
-  %508 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4068, i8 %.fca.1.extract4069, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4061 = extractvalue { ptr, i8 } %508, 0
+  %.fca.0.extract4076 = extractvalue { ptr, i8 } %506, 0
+  %.fca.1.extract4077 = extractvalue { ptr, i8 } %506, 1
+  %507 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4076, i8 %.fca.1.extract4077, ptr nonnull %87, i8 -16)
+  %.fca.0.extract4069 = extractvalue { ptr, i8 } %507, 0
+  %.fca.1.extract4070 = extractvalue { ptr, i8 } %507, 1
+  %508 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4069, i8 %.fca.1.extract4070, ptr nonnull %91, i8 -86)
+  %.fca.0.extract4062 = extractvalue { ptr, i8 } %508, 0
   br label %1329
 
 509:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %510, label %1329
+  br i1 %spec.select, label %510, label %1329
 
 510:                                              ; preds = %509
   %511 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4049 = extractvalue { ptr, i8 } %511, 0
-  %.fca.1.extract4050 = extractvalue { ptr, i8 } %511, 1
-  %512 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4049, i8 %.fca.1.extract4050, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4042 = extractvalue { ptr, i8 } %512, 0
+  %.fca.0.extract4050 = extractvalue { ptr, i8 } %511, 0
+  %.fca.1.extract4051 = extractvalue { ptr, i8 } %511, 1
+  %512 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4050, i8 %.fca.1.extract4051, ptr nonnull %91, i8 -86)
+  %.fca.0.extract4043 = extractvalue { ptr, i8 } %512, 0
   br label %1329
 
 513:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -11378,43 +11378,43 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   br label %1329
 
 516:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %517, label %1329
+  br i1 %spec.select, label %517, label %1329
 
 517:                                              ; preds = %516
   %518 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4023 = extractvalue { ptr, i8 } %518, 0
-  %.fca.1.extract4024 = extractvalue { ptr, i8 } %518, 1
-  %519 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4023, i8 %.fca.1.extract4024, ptr nonnull %91, i8 -86)
-  %.fca.0.extract4016 = extractvalue { ptr, i8 } %519, 0
+  %.fca.0.extract4024 = extractvalue { ptr, i8 } %518, 0
+  %.fca.1.extract4025 = extractvalue { ptr, i8 } %518, 1
+  %519 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4024, i8 %.fca.1.extract4025, ptr nonnull %91, i8 -86)
+  %.fca.0.extract4017 = extractvalue { ptr, i8 } %519, 0
   br label %1329
 
 520:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %521, label %1329
+  br i1 %spec.select, label %521, label %1329
 
 521:                                              ; preds = %520
   %522 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract4004 = extractvalue { ptr, i8 } %522, 0
-  %.fca.1.extract4005 = extractvalue { ptr, i8 } %522, 1
-  %523 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4004, i8 %.fca.1.extract4005, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3997 = extractvalue { ptr, i8 } %523, 0
+  %.fca.0.extract4005 = extractvalue { ptr, i8 } %522, 0
+  %.fca.1.extract4006 = extractvalue { ptr, i8 } %522, 1
+  %523 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract4005, i8 %.fca.1.extract4006, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3998 = extractvalue { ptr, i8 } %523, 0
   br label %1329
 
 524:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %525, label %1329
+  br i1 %spec.select, label %525, label %1329
 
 525:                                              ; preds = %524
   %526 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3985 = extractvalue { ptr, i8 } %526, 0
-  %.fca.1.extract3986 = extractvalue { ptr, i8 } %526, 1
+  %.fca.0.extract3986 = extractvalue { ptr, i8 } %526, 0
+  %.fca.1.extract3987 = extractvalue { ptr, i8 } %526, 1
   %527 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3973 = extractvalue { ptr, i8 } %527, 0
-  %.fca.1.extract3974 = extractvalue { ptr, i8 } %527, 1
-  %528 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3985, i8 %.fca.1.extract3986, ptr %.fca.0.extract3973, i8 %.fca.1.extract3974)
-  %.fca.0.extract3969 = extractvalue { ptr, i8 } %528, 0
+  %.fca.0.extract3974 = extractvalue { ptr, i8 } %527, 0
+  %.fca.1.extract3975 = extractvalue { ptr, i8 } %527, 1
+  %528 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3986, i8 %.fca.1.extract3987, ptr %.fca.0.extract3974, i8 %.fca.1.extract3975)
+  %.fca.0.extract3970 = extractvalue { ptr, i8 } %528, 0
   br label %1329
 
 529:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %530, label %1329
+  br i1 %spec.select, label %530, label %1329
 
 530:                                              ; preds = %529
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %43) #15
@@ -11423,47 +11423,47 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %532 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %43)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %43) #15
   %533 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %532, i8 51)
-  %.fca.0.extract3951 = extractvalue { ptr, i8 } %533, 0
-  %.fca.1.extract3952 = extractvalue { ptr, i8 } %533, 1
-  %534 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3951, i8 %.fca.1.extract3952, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3944 = extractvalue { ptr, i8 } %534, 0
+  %.fca.0.extract3952 = extractvalue { ptr, i8 } %533, 0
+  %.fca.1.extract3953 = extractvalue { ptr, i8 } %533, 1
+  %534 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3952, i8 %.fca.1.extract3953, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3945 = extractvalue { ptr, i8 } %534, 0
   br label %1329
 
 535:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
   %536 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3934 = extractvalue { ptr, i8 } %536, 0
+  %.fca.0.extract3935 = extractvalue { ptr, i8 } %536, 0
   br label %1329
 
 537:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %538, label %1329
+  br i1 %spec.select, label %538, label %1329
 
 538:                                              ; preds = %537
   %539 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3917 = extractvalue { ptr, i8 } %539, 0
-  %.fca.1.extract3918 = extractvalue { ptr, i8 } %539, 1
-  %540 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3917, i8 %.fca.1.extract3918, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3910 = extractvalue { ptr, i8 } %540, 0
-  %.fca.1.extract3911 = extractvalue { ptr, i8 } %540, 1
-  %541 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract3910, i8 %.fca.1.extract3911)
-  %.fca.0.extract3906 = extractvalue { ptr, i8 } %541, 0
+  %.fca.0.extract3918 = extractvalue { ptr, i8 } %539, 0
+  %.fca.1.extract3919 = extractvalue { ptr, i8 } %539, 1
+  %540 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3918, i8 %.fca.1.extract3919, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3911 = extractvalue { ptr, i8 } %540, 0
+  %.fca.1.extract3912 = extractvalue { ptr, i8 } %540, 1
+  %541 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract3911, i8 %.fca.1.extract3912)
+  %.fca.0.extract3907 = extractvalue { ptr, i8 } %541, 0
   br label %1329
 
 542:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %543, label %1329
+  br i1 %spec.select, label %543, label %1329
 
 543:                                              ; preds = %542
   %544 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3892 = extractvalue { ptr, i8 } %544, 0
-  %.fca.1.extract3893 = extractvalue { ptr, i8 } %544, 1
-  %545 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3892, i8 %.fca.1.extract3893, ptr nonnull %87, i8 -16)
-  %.fca.0.extract3885 = extractvalue { ptr, i8 } %545, 0
-  %.fca.1.extract3886 = extractvalue { ptr, i8 } %545, 1
-  %546 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3885, i8 %.fca.1.extract3886, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3878 = extractvalue { ptr, i8 } %546, 0
+  %.fca.0.extract3893 = extractvalue { ptr, i8 } %544, 0
+  %.fca.1.extract3894 = extractvalue { ptr, i8 } %544, 1
+  %545 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3893, i8 %.fca.1.extract3894, ptr nonnull %87, i8 -16)
+  %.fca.0.extract3886 = extractvalue { ptr, i8 } %545, 0
+  %.fca.1.extract3887 = extractvalue { ptr, i8 } %545, 1
+  %546 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3886, i8 %.fca.1.extract3887, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3879 = extractvalue { ptr, i8 } %546, 0
   br label %1329
 
 547:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %548, label %1329
+  br i1 %spec.select, label %548, label %1329
 
 548:                                              ; preds = %547
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %42) #15
@@ -11472,14 +11472,14 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %550 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %42)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %42) #15
   %551 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %550, i8 51)
-  %.fca.0.extract3860 = extractvalue { ptr, i8 } %551, 0
-  %.fca.1.extract3861 = extractvalue { ptr, i8 } %551, 1
-  %552 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3860, i8 %.fca.1.extract3861, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3853 = extractvalue { ptr, i8 } %552, 0
+  %.fca.0.extract3861 = extractvalue { ptr, i8 } %551, 0
+  %.fca.1.extract3862 = extractvalue { ptr, i8 } %551, 1
+  %552 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3861, i8 %.fca.1.extract3862, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3854 = extractvalue { ptr, i8 } %552, 0
   br label %1329
 
 553:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %554, label %1329
+  br i1 %spec.select, label %554, label %1329
 
 554:                                              ; preds = %553
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %41) #15
@@ -11488,13 +11488,13 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %556 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %41)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41) #15
   %557 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %556, i8 51)
-  %.fca.0.extract3830 = extractvalue { ptr, i8 } %557, 0
-  %.fca.1.extract3831 = extractvalue { ptr, i8 } %557, 1
-  %558 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3830, i8 %.fca.1.extract3831, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3823 = extractvalue { ptr, i8 } %558, 0
-  %.fca.1.extract3824 = extractvalue { ptr, i8 } %558, 1
-  %559 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract3823, i8 %.fca.1.extract3824)
-  %.fca.0.extract3819 = extractvalue { ptr, i8 } %559, 0
+  %.fca.0.extract3831 = extractvalue { ptr, i8 } %557, 0
+  %.fca.1.extract3832 = extractvalue { ptr, i8 } %557, 1
+  %558 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3831, i8 %.fca.1.extract3832, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3824 = extractvalue { ptr, i8 } %558, 0
+  %.fca.1.extract3825 = extractvalue { ptr, i8 } %558, 1
+  %559 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract3824, i8 %.fca.1.extract3825)
+  %.fca.0.extract3820 = extractvalue { ptr, i8 } %559, 0
   br label %1329
 
 560:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -11502,53 +11502,53 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
 
 561:                                              ; preds = %560
   %562 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3809 = extractvalue { ptr, i8 } %562, 0
+  %.fca.0.extract3810 = extractvalue { ptr, i8 } %562, 0
   br label %1329
 
 563:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %564, label %1329
+  br i1 %spec.select, label %564, label %1329
 
 564:                                              ; preds = %563
   %565 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3794 = extractvalue { ptr, i8 } %565, 0
-  %.fca.1.extract3795 = extractvalue { ptr, i8 } %565, 1
-  %566 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract3794, i8 %.fca.1.extract3795)
-  %.fca.0.extract3790 = extractvalue { ptr, i8 } %566, 0
+  %.fca.0.extract3795 = extractvalue { ptr, i8 } %565, 0
+  %.fca.1.extract3796 = extractvalue { ptr, i8 } %565, 1
+  %566 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract3795, i8 %.fca.1.extract3796)
+  %.fca.0.extract3791 = extractvalue { ptr, i8 } %566, 0
   br label %1329
 
 567:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %568, label %1329
+  br i1 %spec.select, label %568, label %1329
 
 568:                                              ; preds = %567
   %569 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3776 = extractvalue { ptr, i8 } %569, 0
-  %.fca.1.extract3777 = extractvalue { ptr, i8 } %569, 1
+  %.fca.0.extract3777 = extractvalue { ptr, i8 } %569, 0
+  %.fca.1.extract3778 = extractvalue { ptr, i8 } %569, 1
   %570 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3764 = extractvalue { ptr, i8 } %570, 0
-  %.fca.1.extract3765 = extractvalue { ptr, i8 } %570, 1
-  %571 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3776, i8 %.fca.1.extract3777, ptr %.fca.0.extract3764, i8 %.fca.1.extract3765)
-  %.fca.0.extract3760 = extractvalue { ptr, i8 } %571, 0
-  %.fca.1.extract3761 = extractvalue { ptr, i8 } %571, 1
-  %572 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3760, i8 %.fca.1.extract3761, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3753 = extractvalue { ptr, i8 } %572, 0
+  %.fca.0.extract3765 = extractvalue { ptr, i8 } %570, 0
+  %.fca.1.extract3766 = extractvalue { ptr, i8 } %570, 1
+  %571 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3777, i8 %.fca.1.extract3778, ptr %.fca.0.extract3765, i8 %.fca.1.extract3766)
+  %.fca.0.extract3761 = extractvalue { ptr, i8 } %571, 0
+  %.fca.1.extract3762 = extractvalue { ptr, i8 } %571, 1
+  %572 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3761, i8 %.fca.1.extract3762, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3754 = extractvalue { ptr, i8 } %572, 0
   br label %1329
 
 573:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %574, label %1329
+  br i1 %spec.select, label %574, label %1329
 
 574:                                              ; preds = %573
   %575 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3741 = extractvalue { ptr, i8 } %575, 0
-  %.fca.1.extract3742 = extractvalue { ptr, i8 } %575, 1
+  %.fca.0.extract3742 = extractvalue { ptr, i8 } %575, 0
+  %.fca.1.extract3743 = extractvalue { ptr, i8 } %575, 1
   %576 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3729 = extractvalue { ptr, i8 } %576, 0
-  %.fca.1.extract3730 = extractvalue { ptr, i8 } %576, 1
-  %577 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3741, i8 %.fca.1.extract3742, ptr %.fca.0.extract3729, i8 %.fca.1.extract3730)
-  %.fca.0.extract3725 = extractvalue { ptr, i8 } %577, 0
+  %.fca.0.extract3730 = extractvalue { ptr, i8 } %576, 0
+  %.fca.1.extract3731 = extractvalue { ptr, i8 } %576, 1
+  %577 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3742, i8 %.fca.1.extract3743, ptr %.fca.0.extract3730, i8 %.fca.1.extract3731)
+  %.fca.0.extract3726 = extractvalue { ptr, i8 } %577, 0
   br label %1329
 
 578:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %579, label %1329
+  br i1 %spec.select, label %579, label %1329
 
 579:                                              ; preds = %578
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %40) #15
@@ -11557,28 +11557,28 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %581 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %40)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40) #15
   %582 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %581, i8 15)
-  %.fca.0.extract3704 = extractvalue { ptr, i8 } %582, 0
-  %.fca.1.extract3705 = extractvalue { ptr, i8 } %582, 1
-  %583 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract3704, i8 %.fca.1.extract3705)
-  %.fca.0.extract3700 = extractvalue { ptr, i8 } %583, 0
+  %.fca.0.extract3705 = extractvalue { ptr, i8 } %582, 0
+  %.fca.1.extract3706 = extractvalue { ptr, i8 } %582, 1
+  %583 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract3705, i8 %.fca.1.extract3706)
+  %.fca.0.extract3701 = extractvalue { ptr, i8 } %583, 0
   br label %1329
 
 584:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %585, label %1329
+  br i1 %spec.select, label %585, label %1329
 
 585:                                              ; preds = %584
   %586 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3688 = extractvalue { ptr, i8 } %586, 0
-  %.fca.1.extract3689 = extractvalue { ptr, i8 } %586, 1
+  %.fca.0.extract3689 = extractvalue { ptr, i8 } %586, 0
+  %.fca.1.extract3690 = extractvalue { ptr, i8 } %586, 1
   %587 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3676 = extractvalue { ptr, i8 } %587, 0
-  %.fca.1.extract3677 = extractvalue { ptr, i8 } %587, 1
-  %588 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3688, i8 %.fca.1.extract3689, ptr %.fca.0.extract3676, i8 %.fca.1.extract3677)
-  %.fca.0.extract3672 = extractvalue { ptr, i8 } %588, 0
+  %.fca.0.extract3677 = extractvalue { ptr, i8 } %587, 0
+  %.fca.1.extract3678 = extractvalue { ptr, i8 } %587, 1
+  %588 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3689, i8 %.fca.1.extract3690, ptr %.fca.0.extract3677, i8 %.fca.1.extract3678)
+  %.fca.0.extract3673 = extractvalue { ptr, i8 } %588, 0
   br label %1329
 
 589:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %590, label %1329
+  br i1 %spec.select, label %590, label %1329
 
 590:                                              ; preds = %589
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39) #15
@@ -11587,117 +11587,117 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %592 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %39)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39) #15
   %593 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %592, i8 15)
-  %.fca.0.extract3654 = extractvalue { ptr, i8 } %593, 0
-  %.fca.1.extract3655 = extractvalue { ptr, i8 } %593, 1
-  %594 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3654, i8 %.fca.1.extract3655, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3647 = extractvalue { ptr, i8 } %594, 0
+  %.fca.0.extract3655 = extractvalue { ptr, i8 } %593, 0
+  %.fca.1.extract3656 = extractvalue { ptr, i8 } %593, 1
+  %594 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3655, i8 %.fca.1.extract3656, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3648 = extractvalue { ptr, i8 } %594, 0
   br label %1329
 
 595:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
   %596 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3637 = extractvalue { ptr, i8 } %596, 0
+  %.fca.0.extract3638 = extractvalue { ptr, i8 } %596, 0
   br label %1329
 
 597:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %598, label %1329
+  br i1 %spec.select, label %598, label %1329
 
 598:                                              ; preds = %597
   %599 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3625 = extractvalue { ptr, i8 } %599, 0
-  %.fca.1.extract3626 = extractvalue { ptr, i8 } %599, 1
+  %.fca.0.extract3626 = extractvalue { ptr, i8 } %599, 0
+  %.fca.1.extract3627 = extractvalue { ptr, i8 } %599, 1
   %600 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3613 = extractvalue { ptr, i8 } %600, 0
-  %.fca.1.extract3614 = extractvalue { ptr, i8 } %600, 1
-  %601 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3625, i8 %.fca.1.extract3626, ptr %.fca.0.extract3613, i8 %.fca.1.extract3614)
-  %.fca.0.extract3609 = extractvalue { ptr, i8 } %601, 0
+  %.fca.0.extract3614 = extractvalue { ptr, i8 } %600, 0
+  %.fca.1.extract3615 = extractvalue { ptr, i8 } %600, 1
+  %601 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3626, i8 %.fca.1.extract3627, ptr %.fca.0.extract3614, i8 %.fca.1.extract3615)
+  %.fca.0.extract3610 = extractvalue { ptr, i8 } %601, 0
   br label %1329
 
 602:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %603, label %1329
+  br i1 %spec.select, label %603, label %1329
 
 603:                                              ; preds = %602
   %604 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3597 = extractvalue { ptr, i8 } %604, 0
-  %.fca.1.extract3598 = extractvalue { ptr, i8 } %604, 1
+  %.fca.0.extract3598 = extractvalue { ptr, i8 } %604, 0
+  %.fca.1.extract3599 = extractvalue { ptr, i8 } %604, 1
   %605 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3583 = extractvalue { ptr, i8 } %605, 0
-  %.fca.1.extract3584 = extractvalue { ptr, i8 } %605, 1
-  %606 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3583, i8 %.fca.1.extract3584, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3576 = extractvalue { ptr, i8 } %606, 0
-  %.fca.1.extract3577 = extractvalue { ptr, i8 } %606, 1
-  %607 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3597, i8 %.fca.1.extract3598, ptr %.fca.0.extract3576, i8 %.fca.1.extract3577)
-  %.fca.0.extract3572 = extractvalue { ptr, i8 } %607, 0
+  %.fca.0.extract3584 = extractvalue { ptr, i8 } %605, 0
+  %.fca.1.extract3585 = extractvalue { ptr, i8 } %605, 1
+  %606 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3584, i8 %.fca.1.extract3585, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3577 = extractvalue { ptr, i8 } %606, 0
+  %.fca.1.extract3578 = extractvalue { ptr, i8 } %606, 1
+  %607 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3598, i8 %.fca.1.extract3599, ptr %.fca.0.extract3577, i8 %.fca.1.extract3578)
+  %.fca.0.extract3573 = extractvalue { ptr, i8 } %607, 0
   br label %1329
 
 608:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %609, label %1329
+  br i1 %spec.select, label %609, label %1329
 
 609:                                              ; preds = %608
   %610 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3560 = extractvalue { ptr, i8 } %610, 0
-  %.fca.1.extract3561 = extractvalue { ptr, i8 } %610, 1
-  %611 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3560, i8 %.fca.1.extract3561, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3553 = extractvalue { ptr, i8 } %611, 0
+  %.fca.0.extract3561 = extractvalue { ptr, i8 } %610, 0
+  %.fca.1.extract3562 = extractvalue { ptr, i8 } %610, 1
+  %611 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3561, i8 %.fca.1.extract3562, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3554 = extractvalue { ptr, i8 } %611, 0
   br label %1329
 
 612:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %613, label %1329
+  br i1 %spec.select, label %613, label %1329
 
 613:                                              ; preds = %612
   %614 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3541 = extractvalue { ptr, i8 } %614, 0
-  %.fca.1.extract3542 = extractvalue { ptr, i8 } %614, 1
-  %615 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3541, i8 %.fca.1.extract3542, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3534 = extractvalue { ptr, i8 } %615, 0
+  %.fca.0.extract3542 = extractvalue { ptr, i8 } %614, 0
+  %.fca.1.extract3543 = extractvalue { ptr, i8 } %614, 1
+  %615 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3542, i8 %.fca.1.extract3543, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3535 = extractvalue { ptr, i8 } %615, 0
   br label %1329
 
 616:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %617, label %1329
+  br i1 %spec.select, label %617, label %1329
 
 617:                                              ; preds = %616
   %618 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3522 = extractvalue { ptr, i8 } %618, 0
-  %.fca.1.extract3523 = extractvalue { ptr, i8 } %618, 1
+  %.fca.0.extract3523 = extractvalue { ptr, i8 } %618, 0
+  %.fca.1.extract3524 = extractvalue { ptr, i8 } %618, 1
   %619 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3508 = extractvalue { ptr, i8 } %619, 0
-  %.fca.1.extract3509 = extractvalue { ptr, i8 } %619, 1
-  %620 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3508, i8 %.fca.1.extract3509, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3501 = extractvalue { ptr, i8 } %620, 0
-  %.fca.1.extract3502 = extractvalue { ptr, i8 } %620, 1
-  %621 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3522, i8 %.fca.1.extract3523, ptr %.fca.0.extract3501, i8 %.fca.1.extract3502)
-  %.fca.0.extract3497 = extractvalue { ptr, i8 } %621, 0
+  %.fca.0.extract3509 = extractvalue { ptr, i8 } %619, 0
+  %.fca.1.extract3510 = extractvalue { ptr, i8 } %619, 1
+  %620 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3509, i8 %.fca.1.extract3510, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3502 = extractvalue { ptr, i8 } %620, 0
+  %.fca.1.extract3503 = extractvalue { ptr, i8 } %620, 1
+  %621 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3523, i8 %.fca.1.extract3524, ptr %.fca.0.extract3502, i8 %.fca.1.extract3503)
+  %.fca.0.extract3498 = extractvalue { ptr, i8 } %621, 0
   br label %1329
 
 622:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %623, label %1329
+  br i1 %spec.select, label %623, label %1329
 
 623:                                              ; preds = %622
   %624 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3485 = extractvalue { ptr, i8 } %624, 0
-  %.fca.1.extract3486 = extractvalue { ptr, i8 } %624, 1
-  %625 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3485, i8 %.fca.1.extract3486, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3478 = extractvalue { ptr, i8 } %625, 0
+  %.fca.0.extract3486 = extractvalue { ptr, i8 } %624, 0
+  %.fca.1.extract3487 = extractvalue { ptr, i8 } %624, 1
+  %625 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3486, i8 %.fca.1.extract3487, ptr nonnull %89, i8 -52)
+  %.fca.0.extract3479 = extractvalue { ptr, i8 } %625, 0
   br label %1329
 
 626:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %627, label %1329
+  br i1 %spec.select, label %627, label %1329
 
 627:                                              ; preds = %626
   %628 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3464 = extractvalue { ptr, i8 } %628, 0
-  %.fca.1.extract3465 = extractvalue { ptr, i8 } %628, 1
+  %.fca.0.extract3465 = extractvalue { ptr, i8 } %628, 0
+  %.fca.1.extract3466 = extractvalue { ptr, i8 } %628, 1
   %629 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3452 = extractvalue { ptr, i8 } %629, 0
-  %.fca.1.extract3453 = extractvalue { ptr, i8 } %629, 1
-  %630 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3464, i8 %.fca.1.extract3465, ptr %.fca.0.extract3452, i8 %.fca.1.extract3453)
-  %.fca.0.extract3448 = extractvalue { ptr, i8 } %630, 0
-  %.fca.1.extract3449 = extractvalue { ptr, i8 } %630, 1
-  %631 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3448, i8 %.fca.1.extract3449, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3441 = extractvalue { ptr, i8 } %631, 0
+  %.fca.0.extract3453 = extractvalue { ptr, i8 } %629, 0
+  %.fca.1.extract3454 = extractvalue { ptr, i8 } %629, 1
+  %630 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3465, i8 %.fca.1.extract3466, ptr %.fca.0.extract3453, i8 %.fca.1.extract3454)
+  %.fca.0.extract3449 = extractvalue { ptr, i8 } %630, 0
+  %.fca.1.extract3450 = extractvalue { ptr, i8 } %630, 1
+  %631 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3449, i8 %.fca.1.extract3450, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3442 = extractvalue { ptr, i8 } %631, 0
   br label %1329
 
 632:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %633, label %1329
+  br i1 %spec.select, label %633, label %1329
 
 633:                                              ; preds = %632
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %38) #15
@@ -11706,70 +11706,70 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %635 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %38)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %38) #15
   %636 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %635, i8 51)
-  %.fca.0.extract3423 = extractvalue { ptr, i8 } %636, 0
-  %.fca.1.extract3424 = extractvalue { ptr, i8 } %636, 1
+  %.fca.0.extract3424 = extractvalue { ptr, i8 } %636, 0
+  %.fca.1.extract3425 = extractvalue { ptr, i8 } %636, 1
   %637 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3411 = extractvalue { ptr, i8 } %637, 0
-  %.fca.1.extract3412 = extractvalue { ptr, i8 } %637, 1
-  %638 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3423, i8 %.fca.1.extract3424, ptr %.fca.0.extract3411, i8 %.fca.1.extract3412)
-  %.fca.0.extract3407 = extractvalue { ptr, i8 } %638, 0
+  %.fca.0.extract3412 = extractvalue { ptr, i8 } %637, 0
+  %.fca.1.extract3413 = extractvalue { ptr, i8 } %637, 1
+  %638 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3424, i8 %.fca.1.extract3425, ptr %.fca.0.extract3412, i8 %.fca.1.extract3413)
+  %.fca.0.extract3408 = extractvalue { ptr, i8 } %638, 0
   br label %1329
 
 639:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %640, label %1329
+  br i1 %spec.select, label %640, label %1329
 
 640:                                              ; preds = %639
   %641 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3392 = extractvalue { ptr, i8 } %641, 0
-  %.fca.1.extract3393 = extractvalue { ptr, i8 } %641, 1
-  %642 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract3392, i8 %.fca.1.extract3393)
-  %.fca.0.extract3388 = extractvalue { ptr, i8 } %642, 0
+  %.fca.0.extract3393 = extractvalue { ptr, i8 } %641, 0
+  %.fca.1.extract3394 = extractvalue { ptr, i8 } %641, 1
+  %642 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract3393, i8 %.fca.1.extract3394)
+  %.fca.0.extract3389 = extractvalue { ptr, i8 } %642, 0
   br label %1329
 
 643:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %644, label %1329
+  br i1 %spec.select, label %644, label %1329
 
 644:                                              ; preds = %643
   %645 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3373 = extractvalue { ptr, i8 } %645, 0
-  %.fca.1.extract3374 = extractvalue { ptr, i8 } %645, 1
-  %646 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract3373, i8 %.fca.1.extract3374)
-  %.fca.0.extract3369 = extractvalue { ptr, i8 } %646, 0
+  %.fca.0.extract3374 = extractvalue { ptr, i8 } %645, 0
+  %.fca.1.extract3375 = extractvalue { ptr, i8 } %645, 1
+  %646 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract3374, i8 %.fca.1.extract3375)
+  %.fca.0.extract3370 = extractvalue { ptr, i8 } %646, 0
   br label %1329
 
 647:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %648, label %1329
+  br i1 %spec.select, label %648, label %1329
 
 648:                                              ; preds = %647
   %649 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3355 = extractvalue { ptr, i8 } %649, 0
-  %.fca.1.extract3356 = extractvalue { ptr, i8 } %649, 1
+  %.fca.0.extract3356 = extractvalue { ptr, i8 } %649, 0
+  %.fca.1.extract3357 = extractvalue { ptr, i8 } %649, 1
   %650 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3343 = extractvalue { ptr, i8 } %650, 0
-  %.fca.1.extract3344 = extractvalue { ptr, i8 } %650, 1
-  %651 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3355, i8 %.fca.1.extract3356, ptr %.fca.0.extract3343, i8 %.fca.1.extract3344)
-  %.fca.0.extract3339 = extractvalue { ptr, i8 } %651, 0
-  %.fca.1.extract3340 = extractvalue { ptr, i8 } %651, 1
-  %652 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3339, i8 %.fca.1.extract3340, ptr nonnull %87, i8 -16)
-  %.fca.0.extract3332 = extractvalue { ptr, i8 } %652, 0
+  %.fca.0.extract3344 = extractvalue { ptr, i8 } %650, 0
+  %.fca.1.extract3345 = extractvalue { ptr, i8 } %650, 1
+  %651 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3356, i8 %.fca.1.extract3357, ptr %.fca.0.extract3344, i8 %.fca.1.extract3345)
+  %.fca.0.extract3340 = extractvalue { ptr, i8 } %651, 0
+  %.fca.1.extract3341 = extractvalue { ptr, i8 } %651, 1
+  %652 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3340, i8 %.fca.1.extract3341, ptr nonnull %87, i8 -16)
+  %.fca.0.extract3333 = extractvalue { ptr, i8 } %652, 0
   br label %1329
 
 653:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %654, label %1329
+  br i1 %spec.select, label %654, label %1329
 
 654:                                              ; preds = %653
   %655 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3318 = extractvalue { ptr, i8 } %655, 0
-  %.fca.1.extract3319 = extractvalue { ptr, i8 } %655, 1
-  %656 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3318, i8 %.fca.1.extract3319, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3311 = extractvalue { ptr, i8 } %656, 0
-  %.fca.1.extract3312 = extractvalue { ptr, i8 } %656, 1
-  %657 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3311, i8 %.fca.1.extract3312, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3304 = extractvalue { ptr, i8 } %657, 0
+  %.fca.0.extract3319 = extractvalue { ptr, i8 } %655, 0
+  %.fca.1.extract3320 = extractvalue { ptr, i8 } %655, 1
+  %656 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3319, i8 %.fca.1.extract3320, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3312 = extractvalue { ptr, i8 } %656, 0
+  %.fca.1.extract3313 = extractvalue { ptr, i8 } %656, 1
+  %657 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3312, i8 %.fca.1.extract3313, ptr nonnull %89, i8 -52)
+  %.fca.0.extract3305 = extractvalue { ptr, i8 } %657, 0
   br label %1329
 
 658:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %659, label %1329
+  br i1 %spec.select, label %659, label %1329
 
 659:                                              ; preds = %658
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37) #15
@@ -11778,28 +11778,28 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %661 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %37)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37) #15
   %662 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %661, i8 85)
-  %.fca.0.extract3286 = extractvalue { ptr, i8 } %662, 0
-  %.fca.1.extract3287 = extractvalue { ptr, i8 } %662, 1
-  %663 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3286, i8 %.fca.1.extract3287, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3279 = extractvalue { ptr, i8 } %663, 0
+  %.fca.0.extract3287 = extractvalue { ptr, i8 } %662, 0
+  %.fca.1.extract3288 = extractvalue { ptr, i8 } %662, 1
+  %663 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3287, i8 %.fca.1.extract3288, ptr nonnull %89, i8 -52)
+  %.fca.0.extract3280 = extractvalue { ptr, i8 } %663, 0
   br label %1329
 
 664:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %665, label %1329
+  br i1 %spec.select, label %665, label %1329
 
 665:                                              ; preds = %664
   %666 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3265 = extractvalue { ptr, i8 } %666, 0
-  %.fca.1.extract3266 = extractvalue { ptr, i8 } %666, 1
-  %667 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3265, i8 %.fca.1.extract3266, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3258 = extractvalue { ptr, i8 } %667, 0
-  %.fca.1.extract3259 = extractvalue { ptr, i8 } %667, 1
-  %668 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3258, i8 %.fca.1.extract3259, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3251 = extractvalue { ptr, i8 } %668, 0
+  %.fca.0.extract3266 = extractvalue { ptr, i8 } %666, 0
+  %.fca.1.extract3267 = extractvalue { ptr, i8 } %666, 1
+  %667 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3266, i8 %.fca.1.extract3267, ptr nonnull %89, i8 -52)
+  %.fca.0.extract3259 = extractvalue { ptr, i8 } %667, 0
+  %.fca.1.extract3260 = extractvalue { ptr, i8 } %667, 1
+  %668 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3259, i8 %.fca.1.extract3260, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3252 = extractvalue { ptr, i8 } %668, 0
   br label %1329
 
 669:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %670, label %1329
+  br i1 %spec.select, label %670, label %1329
 
 670:                                              ; preds = %669
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %36) #15
@@ -11808,14 +11808,14 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %672 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %36)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36) #15
   %673 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %672, i8 51)
-  %.fca.0.extract3233 = extractvalue { ptr, i8 } %673, 0
-  %.fca.1.extract3234 = extractvalue { ptr, i8 } %673, 1
-  %674 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3233, i8 %.fca.1.extract3234, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3226 = extractvalue { ptr, i8 } %674, 0
+  %.fca.0.extract3234 = extractvalue { ptr, i8 } %673, 0
+  %.fca.1.extract3235 = extractvalue { ptr, i8 } %673, 1
+  %674 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3234, i8 %.fca.1.extract3235, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3227 = extractvalue { ptr, i8 } %674, 0
   br label %1329
 
 675:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %676, label %1329
+  br i1 %spec.select, label %676, label %1329
 
 676:                                              ; preds = %675
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35) #15
@@ -11824,13 +11824,13 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %678 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %35)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %35) #15
   %679 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %678, i8 15)
-  %.fca.0.extract3203 = extractvalue { ptr, i8 } %679, 0
-  %.fca.1.extract3204 = extractvalue { ptr, i8 } %679, 1
-  %680 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3203, i8 %.fca.1.extract3204, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3196 = extractvalue { ptr, i8 } %680, 0
-  %.fca.1.extract3197 = extractvalue { ptr, i8 } %680, 1
-  %681 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract3196, i8 %.fca.1.extract3197)
-  %.fca.0.extract3192 = extractvalue { ptr, i8 } %681, 0
+  %.fca.0.extract3204 = extractvalue { ptr, i8 } %679, 0
+  %.fca.1.extract3205 = extractvalue { ptr, i8 } %679, 1
+  %680 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3204, i8 %.fca.1.extract3205, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3197 = extractvalue { ptr, i8 } %680, 0
+  %.fca.1.extract3198 = extractvalue { ptr, i8 } %680, 1
+  %681 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract3197, i8 %.fca.1.extract3198)
+  %.fca.0.extract3193 = extractvalue { ptr, i8 } %681, 0
   br label %1329
 
 682:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -11838,242 +11838,242 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
 
 683:                                              ; preds = %682
   %684 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3182 = extractvalue { ptr, i8 } %684, 0
+  %.fca.0.extract3183 = extractvalue { ptr, i8 } %684, 0
   br label %1329
 
 685:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %686, label %1329
+  br i1 %spec.select, label %686, label %1329
 
 686:                                              ; preds = %685
   %687 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3167 = extractvalue { ptr, i8 } %687, 0
-  %.fca.1.extract3168 = extractvalue { ptr, i8 } %687, 1
-  %688 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract3167, i8 %.fca.1.extract3168)
-  %.fca.0.extract3163 = extractvalue { ptr, i8 } %688, 0
+  %.fca.0.extract3168 = extractvalue { ptr, i8 } %687, 0
+  %.fca.1.extract3169 = extractvalue { ptr, i8 } %687, 1
+  %688 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract3168, i8 %.fca.1.extract3169)
+  %.fca.0.extract3164 = extractvalue { ptr, i8 } %688, 0
   br label %1329
 
 689:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %690, label %1329
+  br i1 %spec.select, label %690, label %1329
 
 690:                                              ; preds = %689
   %691 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3149 = extractvalue { ptr, i8 } %691, 0
-  %.fca.1.extract3150 = extractvalue { ptr, i8 } %691, 1
+  %.fca.0.extract3150 = extractvalue { ptr, i8 } %691, 0
+  %.fca.1.extract3151 = extractvalue { ptr, i8 } %691, 1
   %692 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3137 = extractvalue { ptr, i8 } %692, 0
-  %.fca.1.extract3138 = extractvalue { ptr, i8 } %692, 1
-  %693 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3149, i8 %.fca.1.extract3150, ptr %.fca.0.extract3137, i8 %.fca.1.extract3138)
-  %.fca.0.extract3133 = extractvalue { ptr, i8 } %693, 0
-  %.fca.1.extract3134 = extractvalue { ptr, i8 } %693, 1
-  %694 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3133, i8 %.fca.1.extract3134, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3126 = extractvalue { ptr, i8 } %694, 0
+  %.fca.0.extract3138 = extractvalue { ptr, i8 } %692, 0
+  %.fca.1.extract3139 = extractvalue { ptr, i8 } %692, 1
+  %693 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3150, i8 %.fca.1.extract3151, ptr %.fca.0.extract3138, i8 %.fca.1.extract3139)
+  %.fca.0.extract3134 = extractvalue { ptr, i8 } %693, 0
+  %.fca.1.extract3135 = extractvalue { ptr, i8 } %693, 1
+  %694 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3134, i8 %.fca.1.extract3135, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3127 = extractvalue { ptr, i8 } %694, 0
   br label %1329
 
 695:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %696, label %1329
+  br i1 %spec.select, label %696, label %1329
 
 696:                                              ; preds = %695
   %697 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3114 = extractvalue { ptr, i8 } %697, 0
-  %.fca.1.extract3115 = extractvalue { ptr, i8 } %697, 1
+  %.fca.0.extract3115 = extractvalue { ptr, i8 } %697, 0
+  %.fca.1.extract3116 = extractvalue { ptr, i8 } %697, 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34) #15
   %698 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i16 257, ptr %698, align 8
   %699 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %34)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34) #15
   %700 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %699, i8 15)
-  %.fca.0.extract3096 = extractvalue { ptr, i8 } %700, 0
-  %.fca.1.extract3097 = extractvalue { ptr, i8 } %700, 1
-  %701 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3114, i8 %.fca.1.extract3115, ptr %.fca.0.extract3096, i8 %.fca.1.extract3097)
-  %.fca.0.extract3092 = extractvalue { ptr, i8 } %701, 0
+  %.fca.0.extract3097 = extractvalue { ptr, i8 } %700, 0
+  %.fca.1.extract3098 = extractvalue { ptr, i8 } %700, 1
+  %701 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3115, i8 %.fca.1.extract3116, ptr %.fca.0.extract3097, i8 %.fca.1.extract3098)
+  %.fca.0.extract3093 = extractvalue { ptr, i8 } %701, 0
   br label %1329
 
 702:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %703, label %1329
+  br i1 %spec.select, label %703, label %1329
 
 703:                                              ; preds = %702
   %704 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3080 = extractvalue { ptr, i8 } %704, 0
-  %.fca.1.extract3081 = extractvalue { ptr, i8 } %704, 1
-  %705 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3080, i8 %.fca.1.extract3081, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3073 = extractvalue { ptr, i8 } %705, 0
+  %.fca.0.extract3081 = extractvalue { ptr, i8 } %704, 0
+  %.fca.1.extract3082 = extractvalue { ptr, i8 } %704, 1
+  %705 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3081, i8 %.fca.1.extract3082, ptr nonnull %89, i8 -52)
+  %.fca.0.extract3074 = extractvalue { ptr, i8 } %705, 0
   br label %1329
 
 706:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %707, label %1329
+  br i1 %spec.select, label %707, label %1329
 
 707:                                              ; preds = %706
   %708 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3061 = extractvalue { ptr, i8 } %708, 0
-  %.fca.1.extract3062 = extractvalue { ptr, i8 } %708, 1
+  %.fca.0.extract3062 = extractvalue { ptr, i8 } %708, 0
+  %.fca.1.extract3063 = extractvalue { ptr, i8 } %708, 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33) #15
   %709 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i16 257, ptr %709, align 8
   %710 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %33)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33) #15
   %711 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %710, i8 15)
-  %.fca.0.extract3043 = extractvalue { ptr, i8 } %711, 0
-  %.fca.1.extract3044 = extractvalue { ptr, i8 } %711, 1
-  %712 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3061, i8 %.fca.1.extract3062, ptr %.fca.0.extract3043, i8 %.fca.1.extract3044)
-  %.fca.0.extract3039 = extractvalue { ptr, i8 } %712, 0
+  %.fca.0.extract3044 = extractvalue { ptr, i8 } %711, 0
+  %.fca.1.extract3045 = extractvalue { ptr, i8 } %711, 1
+  %712 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3062, i8 %.fca.1.extract3063, ptr %.fca.0.extract3044, i8 %.fca.1.extract3045)
+  %.fca.0.extract3040 = extractvalue { ptr, i8 } %712, 0
   br label %1329
 
 713:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %714, label %1329
+  br i1 %spec.select, label %714, label %1329
 
 714:                                              ; preds = %713
   %715 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3027 = extractvalue { ptr, i8 } %715, 0
-  %.fca.1.extract3028 = extractvalue { ptr, i8 } %715, 1
-  %716 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3027, i8 %.fca.1.extract3028, ptr nonnull %91, i8 -86)
-  %.fca.0.extract3020 = extractvalue { ptr, i8 } %716, 0
+  %.fca.0.extract3028 = extractvalue { ptr, i8 } %715, 0
+  %.fca.1.extract3029 = extractvalue { ptr, i8 } %715, 1
+  %716 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract3028, i8 %.fca.1.extract3029, ptr nonnull %91, i8 -86)
+  %.fca.0.extract3021 = extractvalue { ptr, i8 } %716, 0
   br label %1329
 
 717:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %718, label %1329
+  br i1 %spec.select, label %718, label %1329
 
 718:                                              ; preds = %717
   %719 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3008 = extractvalue { ptr, i8 } %719, 0
-  %.fca.1.extract3009 = extractvalue { ptr, i8 } %719, 1
+  %.fca.0.extract3009 = extractvalue { ptr, i8 } %719, 0
+  %.fca.1.extract3010 = extractvalue { ptr, i8 } %719, 1
   %720 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2996 = extractvalue { ptr, i8 } %720, 0
-  %.fca.1.extract2997 = extractvalue { ptr, i8 } %720, 1
-  %721 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3008, i8 %.fca.1.extract3009, ptr %.fca.0.extract2996, i8 %.fca.1.extract2997)
-  %.fca.0.extract2992 = extractvalue { ptr, i8 } %721, 0
+  %.fca.0.extract2997 = extractvalue { ptr, i8 } %720, 0
+  %.fca.1.extract2998 = extractvalue { ptr, i8 } %720, 1
+  %721 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3009, i8 %.fca.1.extract3010, ptr %.fca.0.extract2997, i8 %.fca.1.extract2998)
+  %.fca.0.extract2993 = extractvalue { ptr, i8 } %721, 0
   br label %1329
 
 722:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %723, label %1329
+  br i1 %spec.select, label %723, label %1329
 
 723:                                              ; preds = %722
   %724 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2980 = extractvalue { ptr, i8 } %724, 0
-  %.fca.1.extract2981 = extractvalue { ptr, i8 } %724, 1
-  %725 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2980, i8 %.fca.1.extract2981, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2973 = extractvalue { ptr, i8 } %725, 0
+  %.fca.0.extract2981 = extractvalue { ptr, i8 } %724, 0
+  %.fca.1.extract2982 = extractvalue { ptr, i8 } %724, 1
+  %725 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2981, i8 %.fca.1.extract2982, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2974 = extractvalue { ptr, i8 } %725, 0
   br label %1329
 
 726:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %727, label %1329
+  br i1 %spec.select, label %727, label %1329
 
 727:                                              ; preds = %726
   %728 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2961 = extractvalue { ptr, i8 } %728, 0
-  %.fca.1.extract2962 = extractvalue { ptr, i8 } %728, 1
-  %729 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2961, i8 %.fca.1.extract2962, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2954 = extractvalue { ptr, i8 } %729, 0
+  %.fca.0.extract2962 = extractvalue { ptr, i8 } %728, 0
+  %.fca.1.extract2963 = extractvalue { ptr, i8 } %728, 1
+  %729 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2962, i8 %.fca.1.extract2963, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2955 = extractvalue { ptr, i8 } %729, 0
   br label %1329
 
 730:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %731, label %1329
+  br i1 %spec.select, label %731, label %1329
 
 731:                                              ; preds = %730
   %732 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2942 = extractvalue { ptr, i8 } %732, 0
-  %.fca.1.extract2943 = extractvalue { ptr, i8 } %732, 1
+  %.fca.0.extract2943 = extractvalue { ptr, i8 } %732, 0
+  %.fca.1.extract2944 = extractvalue { ptr, i8 } %732, 1
   %733 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2930 = extractvalue { ptr, i8 } %733, 0
-  %.fca.1.extract2931 = extractvalue { ptr, i8 } %733, 1
-  %734 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2942, i8 %.fca.1.extract2943, ptr %.fca.0.extract2930, i8 %.fca.1.extract2931)
-  %.fca.0.extract2926 = extractvalue { ptr, i8 } %734, 0
+  %.fca.0.extract2931 = extractvalue { ptr, i8 } %733, 0
+  %.fca.1.extract2932 = extractvalue { ptr, i8 } %733, 1
+  %734 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2943, i8 %.fca.1.extract2944, ptr %.fca.0.extract2931, i8 %.fca.1.extract2932)
+  %.fca.0.extract2927 = extractvalue { ptr, i8 } %734, 0
   br label %1329
 
 735:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %736, label %1329
+  br i1 %spec.select, label %736, label %1329
 
 736:                                              ; preds = %735
   %737 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2914 = extractvalue { ptr, i8 } %737, 0
-  %.fca.1.extract2915 = extractvalue { ptr, i8 } %737, 1
-  %738 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2914, i8 %.fca.1.extract2915, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2907 = extractvalue { ptr, i8 } %738, 0
+  %.fca.0.extract2915 = extractvalue { ptr, i8 } %737, 0
+  %.fca.1.extract2916 = extractvalue { ptr, i8 } %737, 1
+  %738 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2915, i8 %.fca.1.extract2916, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2908 = extractvalue { ptr, i8 } %738, 0
   br label %1329
 
 739:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %740, label %1329
+  br i1 %spec.select, label %740, label %1329
 
 740:                                              ; preds = %739
   %741 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2895 = extractvalue { ptr, i8 } %741, 0
-  %.fca.1.extract2896 = extractvalue { ptr, i8 } %741, 1
+  %.fca.0.extract2896 = extractvalue { ptr, i8 } %741, 0
+  %.fca.1.extract2897 = extractvalue { ptr, i8 } %741, 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %32) #15
   %742 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i16 257, ptr %742, align 8
   %743 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %32)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32) #15
   %744 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %743, i8 15)
-  %.fca.0.extract2877 = extractvalue { ptr, i8 } %744, 0
-  %.fca.1.extract2878 = extractvalue { ptr, i8 } %744, 1
-  %745 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2895, i8 %.fca.1.extract2896, ptr %.fca.0.extract2877, i8 %.fca.1.extract2878)
-  %.fca.0.extract2873 = extractvalue { ptr, i8 } %745, 0
+  %.fca.0.extract2878 = extractvalue { ptr, i8 } %744, 0
+  %.fca.1.extract2879 = extractvalue { ptr, i8 } %744, 1
+  %745 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2896, i8 %.fca.1.extract2897, ptr %.fca.0.extract2878, i8 %.fca.1.extract2879)
+  %.fca.0.extract2874 = extractvalue { ptr, i8 } %745, 0
   br label %1329
 
 746:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %747, label %1329
+  br i1 %spec.select, label %747, label %1329
 
 747:                                              ; preds = %746
   %748 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2861 = extractvalue { ptr, i8 } %748, 0
-  %.fca.1.extract2862 = extractvalue { ptr, i8 } %748, 1
-  %749 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2861, i8 %.fca.1.extract2862, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2854 = extractvalue { ptr, i8 } %749, 0
+  %.fca.0.extract2862 = extractvalue { ptr, i8 } %748, 0
+  %.fca.1.extract2863 = extractvalue { ptr, i8 } %748, 1
+  %749 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2862, i8 %.fca.1.extract2863, ptr nonnull %89, i8 -52)
+  %.fca.0.extract2855 = extractvalue { ptr, i8 } %749, 0
   br label %1329
 
 750:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %751, label %1329
+  br i1 %spec.select, label %751, label %1329
 
 751:                                              ; preds = %750
   %752 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2842 = extractvalue { ptr, i8 } %752, 0
-  %.fca.1.extract2843 = extractvalue { ptr, i8 } %752, 1
+  %.fca.0.extract2843 = extractvalue { ptr, i8 } %752, 0
+  %.fca.1.extract2844 = extractvalue { ptr, i8 } %752, 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31) #15
   %753 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i16 257, ptr %753, align 8
   %754 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %31)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31) #15
   %755 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %754, i8 15)
-  %.fca.0.extract2824 = extractvalue { ptr, i8 } %755, 0
-  %.fca.1.extract2825 = extractvalue { ptr, i8 } %755, 1
-  %756 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2842, i8 %.fca.1.extract2843, ptr %.fca.0.extract2824, i8 %.fca.1.extract2825)
-  %.fca.0.extract2820 = extractvalue { ptr, i8 } %756, 0
+  %.fca.0.extract2825 = extractvalue { ptr, i8 } %755, 0
+  %.fca.1.extract2826 = extractvalue { ptr, i8 } %755, 1
+  %756 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2843, i8 %.fca.1.extract2844, ptr %.fca.0.extract2825, i8 %.fca.1.extract2826)
+  %.fca.0.extract2821 = extractvalue { ptr, i8 } %756, 0
   br label %1329
 
 757:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %758, label %1329
+  br i1 %spec.select, label %758, label %1329
 
 758:                                              ; preds = %757
   %759 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2806 = extractvalue { ptr, i8 } %759, 0
-  %.fca.1.extract2807 = extractvalue { ptr, i8 } %759, 1
+  %.fca.0.extract2807 = extractvalue { ptr, i8 } %759, 0
+  %.fca.1.extract2808 = extractvalue { ptr, i8 } %759, 1
   %760 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2794 = extractvalue { ptr, i8 } %760, 0
-  %.fca.1.extract2795 = extractvalue { ptr, i8 } %760, 1
-  %761 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2806, i8 %.fca.1.extract2807, ptr %.fca.0.extract2794, i8 %.fca.1.extract2795)
-  %.fca.0.extract2790 = extractvalue { ptr, i8 } %761, 0
-  %.fca.1.extract2791 = extractvalue { ptr, i8 } %761, 1
-  %762 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2790, i8 %.fca.1.extract2791, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2783 = extractvalue { ptr, i8 } %762, 0
+  %.fca.0.extract2795 = extractvalue { ptr, i8 } %760, 0
+  %.fca.1.extract2796 = extractvalue { ptr, i8 } %760, 1
+  %761 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2807, i8 %.fca.1.extract2808, ptr %.fca.0.extract2795, i8 %.fca.1.extract2796)
+  %.fca.0.extract2791 = extractvalue { ptr, i8 } %761, 0
+  %.fca.1.extract2792 = extractvalue { ptr, i8 } %761, 1
+  %762 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2791, i8 %.fca.1.extract2792, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2784 = extractvalue { ptr, i8 } %762, 0
   br label %1329
 
 763:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %764, label %1329
+  br i1 %spec.select, label %764, label %1329
 
 764:                                              ; preds = %763
   %765 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2768 = extractvalue { ptr, i8 } %765, 0
-  %.fca.1.extract2769 = extractvalue { ptr, i8 } %765, 1
-  %766 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract2768, i8 %.fca.1.extract2769)
-  %.fca.0.extract2764 = extractvalue { ptr, i8 } %766, 0
+  %.fca.0.extract2769 = extractvalue { ptr, i8 } %765, 0
+  %.fca.1.extract2770 = extractvalue { ptr, i8 } %765, 1
+  %766 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract2769, i8 %.fca.1.extract2770)
+  %.fca.0.extract2765 = extractvalue { ptr, i8 } %766, 0
   br label %1329
 
 767:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
   %768 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2754 = extractvalue { ptr, i8 } %768, 0
+  %.fca.0.extract2755 = extractvalue { ptr, i8 } %768, 0
   br label %1329
 
 769:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %770, label %1329
+  br i1 %spec.select, label %770, label %1329
 
 770:                                              ; preds = %769
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30) #15
@@ -12082,17 +12082,17 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %772 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %30)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30) #15
   %773 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %772, i8 15)
-  %.fca.0.extract2731 = extractvalue { ptr, i8 } %773, 0
-  %.fca.1.extract2732 = extractvalue { ptr, i8 } %773, 1
-  %774 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2731, i8 %.fca.1.extract2732, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2724 = extractvalue { ptr, i8 } %774, 0
-  %.fca.1.extract2725 = extractvalue { ptr, i8 } %774, 1
-  %775 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract2724, i8 %.fca.1.extract2725)
-  %.fca.0.extract2720 = extractvalue { ptr, i8 } %775, 0
+  %.fca.0.extract2732 = extractvalue { ptr, i8 } %773, 0
+  %.fca.1.extract2733 = extractvalue { ptr, i8 } %773, 1
+  %774 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2732, i8 %.fca.1.extract2733, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2725 = extractvalue { ptr, i8 } %774, 0
+  %.fca.1.extract2726 = extractvalue { ptr, i8 } %774, 1
+  %775 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract2725, i8 %.fca.1.extract2726)
+  %.fca.0.extract2721 = extractvalue { ptr, i8 } %775, 0
   br label %1329
 
 776:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %777, label %1329
+  br i1 %spec.select, label %777, label %1329
 
 777:                                              ; preds = %776
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29) #15
@@ -12101,28 +12101,28 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %779 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %29)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #15
   %780 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %779, i8 51)
-  %.fca.0.extract2702 = extractvalue { ptr, i8 } %780, 0
-  %.fca.1.extract2703 = extractvalue { ptr, i8 } %780, 1
-  %781 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2702, i8 %.fca.1.extract2703, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2695 = extractvalue { ptr, i8 } %781, 0
+  %.fca.0.extract2703 = extractvalue { ptr, i8 } %780, 0
+  %.fca.1.extract2704 = extractvalue { ptr, i8 } %780, 1
+  %781 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2703, i8 %.fca.1.extract2704, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2696 = extractvalue { ptr, i8 } %781, 0
   br label %1329
 
 782:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %783, label %1329
+  br i1 %spec.select, label %783, label %1329
 
 783:                                              ; preds = %782
   %784 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2681 = extractvalue { ptr, i8 } %784, 0
-  %.fca.1.extract2682 = extractvalue { ptr, i8 } %784, 1
-  %785 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2681, i8 %.fca.1.extract2682, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2674 = extractvalue { ptr, i8 } %785, 0
-  %.fca.1.extract2675 = extractvalue { ptr, i8 } %785, 1
-  %786 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2674, i8 %.fca.1.extract2675, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2667 = extractvalue { ptr, i8 } %786, 0
+  %.fca.0.extract2682 = extractvalue { ptr, i8 } %784, 0
+  %.fca.1.extract2683 = extractvalue { ptr, i8 } %784, 1
+  %785 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2682, i8 %.fca.1.extract2683, ptr nonnull %89, i8 -52)
+  %.fca.0.extract2675 = extractvalue { ptr, i8 } %785, 0
+  %.fca.1.extract2676 = extractvalue { ptr, i8 } %785, 1
+  %786 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2675, i8 %.fca.1.extract2676, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2668 = extractvalue { ptr, i8 } %786, 0
   br label %1329
 
 787:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %788, label %1329
+  br i1 %spec.select, label %788, label %1329
 
 788:                                              ; preds = %787
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28) #15
@@ -12131,67 +12131,67 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %790 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %28)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28) #15
   %791 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %790, i8 85)
-  %.fca.0.extract2649 = extractvalue { ptr, i8 } %791, 0
-  %.fca.1.extract2650 = extractvalue { ptr, i8 } %791, 1
-  %792 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2649, i8 %.fca.1.extract2650, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2642 = extractvalue { ptr, i8 } %792, 0
+  %.fca.0.extract2650 = extractvalue { ptr, i8 } %791, 0
+  %.fca.1.extract2651 = extractvalue { ptr, i8 } %791, 1
+  %792 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2650, i8 %.fca.1.extract2651, ptr nonnull %89, i8 -52)
+  %.fca.0.extract2643 = extractvalue { ptr, i8 } %792, 0
   br label %1329
 
 793:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %794, label %1329
+  br i1 %spec.select, label %794, label %1329
 
 794:                                              ; preds = %793
   %795 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2628 = extractvalue { ptr, i8 } %795, 0
-  %.fca.1.extract2629 = extractvalue { ptr, i8 } %795, 1
-  %796 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2628, i8 %.fca.1.extract2629, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2621 = extractvalue { ptr, i8 } %796, 0
-  %.fca.1.extract2622 = extractvalue { ptr, i8 } %796, 1
-  %797 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2621, i8 %.fca.1.extract2622, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2614 = extractvalue { ptr, i8 } %797, 0
+  %.fca.0.extract2629 = extractvalue { ptr, i8 } %795, 0
+  %.fca.1.extract2630 = extractvalue { ptr, i8 } %795, 1
+  %796 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2629, i8 %.fca.1.extract2630, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2622 = extractvalue { ptr, i8 } %796, 0
+  %.fca.1.extract2623 = extractvalue { ptr, i8 } %796, 1
+  %797 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2622, i8 %.fca.1.extract2623, ptr nonnull %89, i8 -52)
+  %.fca.0.extract2615 = extractvalue { ptr, i8 } %797, 0
   br label %1329
 
 798:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %799, label %1329
+  br i1 %spec.select, label %799, label %1329
 
 799:                                              ; preds = %798
   %800 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2600 = extractvalue { ptr, i8 } %800, 0
-  %.fca.1.extract2601 = extractvalue { ptr, i8 } %800, 1
+  %.fca.0.extract2601 = extractvalue { ptr, i8 } %800, 0
+  %.fca.1.extract2602 = extractvalue { ptr, i8 } %800, 1
   %801 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2588 = extractvalue { ptr, i8 } %801, 0
-  %.fca.1.extract2589 = extractvalue { ptr, i8 } %801, 1
-  %802 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2600, i8 %.fca.1.extract2601, ptr %.fca.0.extract2588, i8 %.fca.1.extract2589)
-  %.fca.0.extract2584 = extractvalue { ptr, i8 } %802, 0
-  %.fca.1.extract2585 = extractvalue { ptr, i8 } %802, 1
-  %803 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2584, i8 %.fca.1.extract2585, ptr nonnull %87, i8 -16)
-  %.fca.0.extract2577 = extractvalue { ptr, i8 } %803, 0
+  %.fca.0.extract2589 = extractvalue { ptr, i8 } %801, 0
+  %.fca.1.extract2590 = extractvalue { ptr, i8 } %801, 1
+  %802 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2601, i8 %.fca.1.extract2602, ptr %.fca.0.extract2589, i8 %.fca.1.extract2590)
+  %.fca.0.extract2585 = extractvalue { ptr, i8 } %802, 0
+  %.fca.1.extract2586 = extractvalue { ptr, i8 } %802, 1
+  %803 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2585, i8 %.fca.1.extract2586, ptr nonnull %87, i8 -16)
+  %.fca.0.extract2578 = extractvalue { ptr, i8 } %803, 0
   br label %1329
 
 804:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %805, label %1329
+  br i1 %spec.select, label %805, label %1329
 
 805:                                              ; preds = %804
   %806 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2562 = extractvalue { ptr, i8 } %806, 0
-  %.fca.1.extract2563 = extractvalue { ptr, i8 } %806, 1
-  %807 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract2562, i8 %.fca.1.extract2563)
-  %.fca.0.extract2558 = extractvalue { ptr, i8 } %807, 0
+  %.fca.0.extract2563 = extractvalue { ptr, i8 } %806, 0
+  %.fca.1.extract2564 = extractvalue { ptr, i8 } %806, 1
+  %807 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract2563, i8 %.fca.1.extract2564)
+  %.fca.0.extract2559 = extractvalue { ptr, i8 } %807, 0
   br label %1329
 
 808:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %809, label %1329
+  br i1 %spec.select, label %809, label %1329
 
 809:                                              ; preds = %808
   %810 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2543 = extractvalue { ptr, i8 } %810, 0
-  %.fca.1.extract2544 = extractvalue { ptr, i8 } %810, 1
-  %811 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract2543, i8 %.fca.1.extract2544)
-  %.fca.0.extract2539 = extractvalue { ptr, i8 } %811, 0
+  %.fca.0.extract2544 = extractvalue { ptr, i8 } %810, 0
+  %.fca.1.extract2545 = extractvalue { ptr, i8 } %810, 1
+  %811 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract2544, i8 %.fca.1.extract2545)
+  %.fca.0.extract2540 = extractvalue { ptr, i8 } %811, 0
   br label %1329
 
 812:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %813, label %1329
+  br i1 %spec.select, label %813, label %1329
 
 813:                                              ; preds = %812
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27) #15
@@ -12200,111 +12200,111 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %815 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %27)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27) #15
   %816 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %815, i8 51)
-  %.fca.0.extract2521 = extractvalue { ptr, i8 } %816, 0
-  %.fca.1.extract2522 = extractvalue { ptr, i8 } %816, 1
+  %.fca.0.extract2522 = extractvalue { ptr, i8 } %816, 0
+  %.fca.1.extract2523 = extractvalue { ptr, i8 } %816, 1
   %817 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2509 = extractvalue { ptr, i8 } %817, 0
-  %.fca.1.extract2510 = extractvalue { ptr, i8 } %817, 1
-  %818 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2521, i8 %.fca.1.extract2522, ptr %.fca.0.extract2509, i8 %.fca.1.extract2510)
-  %.fca.0.extract2505 = extractvalue { ptr, i8 } %818, 0
+  %.fca.0.extract2510 = extractvalue { ptr, i8 } %817, 0
+  %.fca.1.extract2511 = extractvalue { ptr, i8 } %817, 1
+  %818 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2522, i8 %.fca.1.extract2523, ptr %.fca.0.extract2510, i8 %.fca.1.extract2511)
+  %.fca.0.extract2506 = extractvalue { ptr, i8 } %818, 0
   br label %1329
 
 819:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %820, label %1329
+  br i1 %spec.select, label %820, label %1329
 
 820:                                              ; preds = %819
   %821 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2491 = extractvalue { ptr, i8 } %821, 0
-  %.fca.1.extract2492 = extractvalue { ptr, i8 } %821, 1
+  %.fca.0.extract2492 = extractvalue { ptr, i8 } %821, 0
+  %.fca.1.extract2493 = extractvalue { ptr, i8 } %821, 1
   %822 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2479 = extractvalue { ptr, i8 } %822, 0
-  %.fca.1.extract2480 = extractvalue { ptr, i8 } %822, 1
-  %823 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2491, i8 %.fca.1.extract2492, ptr %.fca.0.extract2479, i8 %.fca.1.extract2480)
-  %.fca.0.extract2475 = extractvalue { ptr, i8 } %823, 0
-  %.fca.1.extract2476 = extractvalue { ptr, i8 } %823, 1
-  %824 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2475, i8 %.fca.1.extract2476, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2468 = extractvalue { ptr, i8 } %824, 0
+  %.fca.0.extract2480 = extractvalue { ptr, i8 } %822, 0
+  %.fca.1.extract2481 = extractvalue { ptr, i8 } %822, 1
+  %823 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2492, i8 %.fca.1.extract2493, ptr %.fca.0.extract2480, i8 %.fca.1.extract2481)
+  %.fca.0.extract2476 = extractvalue { ptr, i8 } %823, 0
+  %.fca.1.extract2477 = extractvalue { ptr, i8 } %823, 1
+  %824 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2476, i8 %.fca.1.extract2477, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2469 = extractvalue { ptr, i8 } %824, 0
   br label %1329
 
 825:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %826, label %1329
+  br i1 %spec.select, label %826, label %1329
 
 826:                                              ; preds = %825
   %827 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2456 = extractvalue { ptr, i8 } %827, 0
-  %.fca.1.extract2457 = extractvalue { ptr, i8 } %827, 1
-  %828 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2456, i8 %.fca.1.extract2457, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2449 = extractvalue { ptr, i8 } %828, 0
+  %.fca.0.extract2457 = extractvalue { ptr, i8 } %827, 0
+  %.fca.1.extract2458 = extractvalue { ptr, i8 } %827, 1
+  %828 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2457, i8 %.fca.1.extract2458, ptr nonnull %89, i8 -52)
+  %.fca.0.extract2450 = extractvalue { ptr, i8 } %828, 0
   br label %1329
 
 829:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %830, label %1329
+  br i1 %spec.select, label %830, label %1329
 
 830:                                              ; preds = %829
   %831 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2437 = extractvalue { ptr, i8 } %831, 0
-  %.fca.1.extract2438 = extractvalue { ptr, i8 } %831, 1
+  %.fca.0.extract2438 = extractvalue { ptr, i8 } %831, 0
+  %.fca.1.extract2439 = extractvalue { ptr, i8 } %831, 1
   %832 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2423 = extractvalue { ptr, i8 } %832, 0
-  %.fca.1.extract2424 = extractvalue { ptr, i8 } %832, 1
-  %833 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2423, i8 %.fca.1.extract2424, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2416 = extractvalue { ptr, i8 } %833, 0
-  %.fca.1.extract2417 = extractvalue { ptr, i8 } %833, 1
-  %834 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2437, i8 %.fca.1.extract2438, ptr %.fca.0.extract2416, i8 %.fca.1.extract2417)
-  %.fca.0.extract2412 = extractvalue { ptr, i8 } %834, 0
+  %.fca.0.extract2424 = extractvalue { ptr, i8 } %832, 0
+  %.fca.1.extract2425 = extractvalue { ptr, i8 } %832, 1
+  %833 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2424, i8 %.fca.1.extract2425, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2417 = extractvalue { ptr, i8 } %833, 0
+  %.fca.1.extract2418 = extractvalue { ptr, i8 } %833, 1
+  %834 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2438, i8 %.fca.1.extract2439, ptr %.fca.0.extract2417, i8 %.fca.1.extract2418)
+  %.fca.0.extract2413 = extractvalue { ptr, i8 } %834, 0
   br label %1329
 
 835:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %836, label %1329
+  br i1 %spec.select, label %836, label %1329
 
 836:                                              ; preds = %835
   %837 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2400 = extractvalue { ptr, i8 } %837, 0
-  %.fca.1.extract2401 = extractvalue { ptr, i8 } %837, 1
-  %838 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2400, i8 %.fca.1.extract2401, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2393 = extractvalue { ptr, i8 } %838, 0
+  %.fca.0.extract2401 = extractvalue { ptr, i8 } %837, 0
+  %.fca.1.extract2402 = extractvalue { ptr, i8 } %837, 1
+  %838 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2401, i8 %.fca.1.extract2402, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2394 = extractvalue { ptr, i8 } %838, 0
   br label %1329
 
 839:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %840, label %1329
+  br i1 %spec.select, label %840, label %1329
 
 840:                                              ; preds = %839
   %841 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2381 = extractvalue { ptr, i8 } %841, 0
-  %.fca.1.extract2382 = extractvalue { ptr, i8 } %841, 1
-  %842 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2381, i8 %.fca.1.extract2382, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2374 = extractvalue { ptr, i8 } %842, 0
+  %.fca.0.extract2382 = extractvalue { ptr, i8 } %841, 0
+  %.fca.1.extract2383 = extractvalue { ptr, i8 } %841, 1
+  %842 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2382, i8 %.fca.1.extract2383, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2375 = extractvalue { ptr, i8 } %842, 0
   br label %1329
 
 843:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %844, label %1329
+  br i1 %spec.select, label %844, label %1329
 
 844:                                              ; preds = %843
   %845 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2362 = extractvalue { ptr, i8 } %845, 0
-  %.fca.1.extract2363 = extractvalue { ptr, i8 } %845, 1
+  %.fca.0.extract2363 = extractvalue { ptr, i8 } %845, 0
+  %.fca.1.extract2364 = extractvalue { ptr, i8 } %845, 1
   %846 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2348 = extractvalue { ptr, i8 } %846, 0
-  %.fca.1.extract2349 = extractvalue { ptr, i8 } %846, 1
-  %847 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2348, i8 %.fca.1.extract2349, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2341 = extractvalue { ptr, i8 } %847, 0
-  %.fca.1.extract2342 = extractvalue { ptr, i8 } %847, 1
-  %848 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2362, i8 %.fca.1.extract2363, ptr %.fca.0.extract2341, i8 %.fca.1.extract2342)
-  %.fca.0.extract2337 = extractvalue { ptr, i8 } %848, 0
+  %.fca.0.extract2349 = extractvalue { ptr, i8 } %846, 0
+  %.fca.1.extract2350 = extractvalue { ptr, i8 } %846, 1
+  %847 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2349, i8 %.fca.1.extract2350, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2342 = extractvalue { ptr, i8 } %847, 0
+  %.fca.1.extract2343 = extractvalue { ptr, i8 } %847, 1
+  %848 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2363, i8 %.fca.1.extract2364, ptr %.fca.0.extract2342, i8 %.fca.1.extract2343)
+  %.fca.0.extract2338 = extractvalue { ptr, i8 } %848, 0
   br label %1329
 
 849:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %850, label %1329
+  br i1 %spec.select, label %850, label %1329
 
 850:                                              ; preds = %849
   %851 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2325 = extractvalue { ptr, i8 } %851, 0
-  %.fca.1.extract2326 = extractvalue { ptr, i8 } %851, 1
+  %.fca.0.extract2326 = extractvalue { ptr, i8 } %851, 0
+  %.fca.1.extract2327 = extractvalue { ptr, i8 } %851, 1
   %852 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2313 = extractvalue { ptr, i8 } %852, 0
-  %.fca.1.extract2314 = extractvalue { ptr, i8 } %852, 1
-  %853 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2325, i8 %.fca.1.extract2326, ptr %.fca.0.extract2313, i8 %.fca.1.extract2314)
-  %.fca.0.extract2309 = extractvalue { ptr, i8 } %853, 0
+  %.fca.0.extract2314 = extractvalue { ptr, i8 } %852, 0
+  %.fca.1.extract2315 = extractvalue { ptr, i8 } %852, 1
+  %853 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2326, i8 %.fca.1.extract2327, ptr %.fca.0.extract2314, i8 %.fca.1.extract2315)
+  %.fca.0.extract2310 = extractvalue { ptr, i8 } %853, 0
   br label %1329
 
 854:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -12312,11 +12312,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
 
 855:                                              ; preds = %854
   %856 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2299 = extractvalue { ptr, i8 } %856, 0
+  %.fca.0.extract2300 = extractvalue { ptr, i8 } %856, 0
   br label %1329
 
 857:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %858, label %1329
+  br i1 %spec.select, label %858, label %1329
 
 858:                                              ; preds = %857
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #15
@@ -12325,28 +12325,28 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %860 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %26)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #15
   %861 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %860, i8 15)
-  %.fca.0.extract2281 = extractvalue { ptr, i8 } %861, 0
-  %.fca.1.extract2282 = extractvalue { ptr, i8 } %861, 1
-  %862 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2281, i8 %.fca.1.extract2282, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2274 = extractvalue { ptr, i8 } %862, 0
+  %.fca.0.extract2282 = extractvalue { ptr, i8 } %861, 0
+  %.fca.1.extract2283 = extractvalue { ptr, i8 } %861, 1
+  %862 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2282, i8 %.fca.1.extract2283, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2275 = extractvalue { ptr, i8 } %862, 0
   br label %1329
 
 863:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %864, label %1329
+  br i1 %spec.select, label %864, label %1329
 
 864:                                              ; preds = %863
   %865 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2262 = extractvalue { ptr, i8 } %865, 0
-  %.fca.1.extract2263 = extractvalue { ptr, i8 } %865, 1
+  %.fca.0.extract2263 = extractvalue { ptr, i8 } %865, 0
+  %.fca.1.extract2264 = extractvalue { ptr, i8 } %865, 1
   %866 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2250 = extractvalue { ptr, i8 } %866, 0
-  %.fca.1.extract2251 = extractvalue { ptr, i8 } %866, 1
-  %867 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2262, i8 %.fca.1.extract2263, ptr %.fca.0.extract2250, i8 %.fca.1.extract2251)
-  %.fca.0.extract2246 = extractvalue { ptr, i8 } %867, 0
+  %.fca.0.extract2251 = extractvalue { ptr, i8 } %866, 0
+  %.fca.1.extract2252 = extractvalue { ptr, i8 } %866, 1
+  %867 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2263, i8 %.fca.1.extract2264, ptr %.fca.0.extract2251, i8 %.fca.1.extract2252)
+  %.fca.0.extract2247 = extractvalue { ptr, i8 } %867, 0
   br label %1329
 
 868:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %869, label %1329
+  br i1 %spec.select, label %869, label %1329
 
 869:                                              ; preds = %868
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25) #15
@@ -12355,61 +12355,61 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %871 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %25)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #15
   %872 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %871, i8 15)
-  %.fca.0.extract2225 = extractvalue { ptr, i8 } %872, 0
-  %.fca.1.extract2226 = extractvalue { ptr, i8 } %872, 1
-  %873 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract2225, i8 %.fca.1.extract2226)
-  %.fca.0.extract2221 = extractvalue { ptr, i8 } %873, 0
+  %.fca.0.extract2226 = extractvalue { ptr, i8 } %872, 0
+  %.fca.1.extract2227 = extractvalue { ptr, i8 } %872, 1
+  %873 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract2226, i8 %.fca.1.extract2227)
+  %.fca.0.extract2222 = extractvalue { ptr, i8 } %873, 0
   br label %1329
 
 874:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %875, label %1329
+  br i1 %spec.select, label %875, label %1329
 
 875:                                              ; preds = %874
   %876 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2209 = extractvalue { ptr, i8 } %876, 0
-  %.fca.1.extract2210 = extractvalue { ptr, i8 } %876, 1
+  %.fca.0.extract2210 = extractvalue { ptr, i8 } %876, 0
+  %.fca.1.extract2211 = extractvalue { ptr, i8 } %876, 1
   %877 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2197 = extractvalue { ptr, i8 } %877, 0
-  %.fca.1.extract2198 = extractvalue { ptr, i8 } %877, 1
-  %878 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2209, i8 %.fca.1.extract2210, ptr %.fca.0.extract2197, i8 %.fca.1.extract2198)
-  %.fca.0.extract2193 = extractvalue { ptr, i8 } %878, 0
+  %.fca.0.extract2198 = extractvalue { ptr, i8 } %877, 0
+  %.fca.1.extract2199 = extractvalue { ptr, i8 } %877, 1
+  %878 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2210, i8 %.fca.1.extract2211, ptr %.fca.0.extract2198, i8 %.fca.1.extract2199)
+  %.fca.0.extract2194 = extractvalue { ptr, i8 } %878, 0
   br label %1329
 
 879:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %880, label %1329
+  br i1 %spec.select, label %880, label %1329
 
 880:                                              ; preds = %879
   %881 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2179 = extractvalue { ptr, i8 } %881, 0
-  %.fca.1.extract2180 = extractvalue { ptr, i8 } %881, 1
+  %.fca.0.extract2180 = extractvalue { ptr, i8 } %881, 0
+  %.fca.1.extract2181 = extractvalue { ptr, i8 } %881, 1
   %882 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2167 = extractvalue { ptr, i8 } %882, 0
-  %.fca.1.extract2168 = extractvalue { ptr, i8 } %882, 1
-  %883 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2179, i8 %.fca.1.extract2180, ptr %.fca.0.extract2167, i8 %.fca.1.extract2168)
-  %.fca.0.extract2163 = extractvalue { ptr, i8 } %883, 0
-  %.fca.1.extract2164 = extractvalue { ptr, i8 } %883, 1
-  %884 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2163, i8 %.fca.1.extract2164, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2156 = extractvalue { ptr, i8 } %884, 0
+  %.fca.0.extract2168 = extractvalue { ptr, i8 } %882, 0
+  %.fca.1.extract2169 = extractvalue { ptr, i8 } %882, 1
+  %883 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2180, i8 %.fca.1.extract2181, ptr %.fca.0.extract2168, i8 %.fca.1.extract2169)
+  %.fca.0.extract2164 = extractvalue { ptr, i8 } %883, 0
+  %.fca.1.extract2165 = extractvalue { ptr, i8 } %883, 1
+  %884 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2164, i8 %.fca.1.extract2165, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2157 = extractvalue { ptr, i8 } %884, 0
   br label %1329
 
 885:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %886, label %1329
+  br i1 %spec.select, label %886, label %1329
 
 886:                                              ; preds = %885
   %887 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2141 = extractvalue { ptr, i8 } %887, 0
-  %.fca.1.extract2142 = extractvalue { ptr, i8 } %887, 1
-  %888 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract2141, i8 %.fca.1.extract2142)
-  %.fca.0.extract2137 = extractvalue { ptr, i8 } %888, 0
+  %.fca.0.extract2142 = extractvalue { ptr, i8 } %887, 0
+  %.fca.1.extract2143 = extractvalue { ptr, i8 } %887, 1
+  %888 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract2142, i8 %.fca.1.extract2143)
+  %.fca.0.extract2138 = extractvalue { ptr, i8 } %888, 0
   br label %1329
 
 889:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
   %890 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2127 = extractvalue { ptr, i8 } %890, 0
+  %.fca.0.extract2128 = extractvalue { ptr, i8 } %890, 0
   br label %1329
 
 891:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %892, label %1329
+  br i1 %spec.select, label %892, label %1329
 
 892:                                              ; preds = %891
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #15
@@ -12418,17 +12418,17 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %894 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %24)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #15
   %895 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %894, i8 51)
-  %.fca.0.extract2104 = extractvalue { ptr, i8 } %895, 0
-  %.fca.1.extract2105 = extractvalue { ptr, i8 } %895, 1
-  %896 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2104, i8 %.fca.1.extract2105, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2097 = extractvalue { ptr, i8 } %896, 0
-  %.fca.1.extract2098 = extractvalue { ptr, i8 } %896, 1
-  %897 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract2097, i8 %.fca.1.extract2098)
-  %.fca.0.extract2093 = extractvalue { ptr, i8 } %897, 0
+  %.fca.0.extract2105 = extractvalue { ptr, i8 } %895, 0
+  %.fca.1.extract2106 = extractvalue { ptr, i8 } %895, 1
+  %896 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2105, i8 %.fca.1.extract2106, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2098 = extractvalue { ptr, i8 } %896, 0
+  %.fca.1.extract2099 = extractvalue { ptr, i8 } %896, 1
+  %897 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract2098, i8 %.fca.1.extract2099)
+  %.fca.0.extract2094 = extractvalue { ptr, i8 } %897, 0
   br label %1329
 
 898:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %899, label %1329
+  br i1 %spec.select, label %899, label %1329
 
 899:                                              ; preds = %898
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23) #15
@@ -12437,38 +12437,38 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %901 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %23)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #15
   %902 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %901, i8 51)
-  %.fca.0.extract2075 = extractvalue { ptr, i8 } %902, 0
-  %.fca.1.extract2076 = extractvalue { ptr, i8 } %902, 1
-  %903 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2075, i8 %.fca.1.extract2076, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2068 = extractvalue { ptr, i8 } %903, 0
+  %.fca.0.extract2076 = extractvalue { ptr, i8 } %902, 0
+  %.fca.1.extract2077 = extractvalue { ptr, i8 } %902, 1
+  %903 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2076, i8 %.fca.1.extract2077, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2069 = extractvalue { ptr, i8 } %903, 0
   br label %1329
 
 904:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %905, label %1329
+  br i1 %spec.select, label %905, label %1329
 
 905:                                              ; preds = %904
   %906 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2054 = extractvalue { ptr, i8 } %906, 0
-  %.fca.1.extract2055 = extractvalue { ptr, i8 } %906, 1
-  %907 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2054, i8 %.fca.1.extract2055, ptr nonnull %87, i8 -16)
-  %.fca.0.extract2047 = extractvalue { ptr, i8 } %907, 0
-  %.fca.1.extract2048 = extractvalue { ptr, i8 } %907, 1
-  %908 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2047, i8 %.fca.1.extract2048, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2040 = extractvalue { ptr, i8 } %908, 0
+  %.fca.0.extract2055 = extractvalue { ptr, i8 } %906, 0
+  %.fca.1.extract2056 = extractvalue { ptr, i8 } %906, 1
+  %907 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2055, i8 %.fca.1.extract2056, ptr nonnull %87, i8 -16)
+  %.fca.0.extract2048 = extractvalue { ptr, i8 } %907, 0
+  %.fca.1.extract2049 = extractvalue { ptr, i8 } %907, 1
+  %908 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract2048, i8 %.fca.1.extract2049, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2041 = extractvalue { ptr, i8 } %908, 0
   br label %1329
 
 909:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %910, label %1329
+  br i1 %spec.select, label %910, label %1329
 
 910:                                              ; preds = %909
   %911 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract2023 = extractvalue { ptr, i8 } %911, 0
-  %.fca.1.extract2024 = extractvalue { ptr, i8 } %911, 1
-  %912 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2023, i8 %.fca.1.extract2024, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2016 = extractvalue { ptr, i8 } %912, 0
-  %.fca.1.extract2017 = extractvalue { ptr, i8 } %912, 1
-  %913 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract2016, i8 %.fca.1.extract2017)
-  %.fca.0.extract2012 = extractvalue { ptr, i8 } %913, 0
+  %.fca.0.extract2024 = extractvalue { ptr, i8 } %911, 0
+  %.fca.1.extract2025 = extractvalue { ptr, i8 } %911, 1
+  %912 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract2024, i8 %.fca.1.extract2025, ptr nonnull %91, i8 -86)
+  %.fca.0.extract2017 = extractvalue { ptr, i8 } %912, 0
+  %.fca.1.extract2018 = extractvalue { ptr, i8 } %912, 1
+  %913 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract2017, i8 %.fca.1.extract2018)
+  %.fca.0.extract2013 = extractvalue { ptr, i8 } %913, 0
   br label %1329
 
 914:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -12476,11 +12476,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
 
 915:                                              ; preds = %914
   %916 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract2002 = extractvalue { ptr, i8 } %916, 0
+  %.fca.0.extract2003 = extractvalue { ptr, i8 } %916, 0
   br label %1329
 
 917:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %918, label %1329
+  br i1 %spec.select, label %918, label %1329
 
 918:                                              ; preds = %917
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #15
@@ -12489,89 +12489,89 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %920 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %22)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #15
   %921 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %920, i8 51)
-  %.fca.0.extract1984 = extractvalue { ptr, i8 } %921, 0
-  %.fca.1.extract1985 = extractvalue { ptr, i8 } %921, 1
-  %922 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1984, i8 %.fca.1.extract1985, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1977 = extractvalue { ptr, i8 } %922, 0
+  %.fca.0.extract1985 = extractvalue { ptr, i8 } %921, 0
+  %.fca.1.extract1986 = extractvalue { ptr, i8 } %921, 1
+  %922 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1985, i8 %.fca.1.extract1986, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1978 = extractvalue { ptr, i8 } %922, 0
   br label %1329
 
 923:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %924, label %1329
+  br i1 %spec.select, label %924, label %1329
 
 924:                                              ; preds = %923
   %925 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1965 = extractvalue { ptr, i8 } %925, 0
-  %.fca.1.extract1966 = extractvalue { ptr, i8 } %925, 1
+  %.fca.0.extract1966 = extractvalue { ptr, i8 } %925, 0
+  %.fca.1.extract1967 = extractvalue { ptr, i8 } %925, 1
   %926 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1953 = extractvalue { ptr, i8 } %926, 0
-  %.fca.1.extract1954 = extractvalue { ptr, i8 } %926, 1
-  %927 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1965, i8 %.fca.1.extract1966, ptr %.fca.0.extract1953, i8 %.fca.1.extract1954)
-  %.fca.0.extract1949 = extractvalue { ptr, i8 } %927, 0
+  %.fca.0.extract1954 = extractvalue { ptr, i8 } %926, 0
+  %.fca.1.extract1955 = extractvalue { ptr, i8 } %926, 1
+  %927 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1966, i8 %.fca.1.extract1967, ptr %.fca.0.extract1954, i8 %.fca.1.extract1955)
+  %.fca.0.extract1950 = extractvalue { ptr, i8 } %927, 0
   br label %1329
 
 928:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %929, label %1329
+  br i1 %spec.select, label %929, label %1329
 
 929:                                              ; preds = %928
   %930 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1937 = extractvalue { ptr, i8 } %930, 0
-  %.fca.1.extract1938 = extractvalue { ptr, i8 } %930, 1
-  %931 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1937, i8 %.fca.1.extract1938, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1930 = extractvalue { ptr, i8 } %931, 0
+  %.fca.0.extract1938 = extractvalue { ptr, i8 } %930, 0
+  %.fca.1.extract1939 = extractvalue { ptr, i8 } %930, 1
+  %931 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1938, i8 %.fca.1.extract1939, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1931 = extractvalue { ptr, i8 } %931, 0
   br label %1329
 
 932:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %933, label %1329
+  br i1 %spec.select, label %933, label %1329
 
 933:                                              ; preds = %932
   %934 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1918 = extractvalue { ptr, i8 } %934, 0
-  %.fca.1.extract1919 = extractvalue { ptr, i8 } %934, 1
-  %935 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1918, i8 %.fca.1.extract1919, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1911 = extractvalue { ptr, i8 } %935, 0
+  %.fca.0.extract1919 = extractvalue { ptr, i8 } %934, 0
+  %.fca.1.extract1920 = extractvalue { ptr, i8 } %934, 1
+  %935 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1919, i8 %.fca.1.extract1920, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1912 = extractvalue { ptr, i8 } %935, 0
   br label %1329
 
 936:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %937, label %1329
+  br i1 %spec.select, label %937, label %1329
 
 937:                                              ; preds = %936
   %938 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1899 = extractvalue { ptr, i8 } %938, 0
-  %.fca.1.extract1900 = extractvalue { ptr, i8 } %938, 1
-  %939 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1899, i8 %.fca.1.extract1900, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1892 = extractvalue { ptr, i8 } %939, 0
+  %.fca.0.extract1900 = extractvalue { ptr, i8 } %938, 0
+  %.fca.1.extract1901 = extractvalue { ptr, i8 } %938, 1
+  %939 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1900, i8 %.fca.1.extract1901, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1893 = extractvalue { ptr, i8 } %939, 0
   br label %1329
 
 940:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %941, label %1329
+  br i1 %spec.select, label %941, label %1329
 
 941:                                              ; preds = %940
   %942 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1878 = extractvalue { ptr, i8 } %942, 0
-  %.fca.1.extract1879 = extractvalue { ptr, i8 } %942, 1
-  %943 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1878, i8 %.fca.1.extract1879, ptr nonnull %87, i8 -16)
-  %.fca.0.extract1871 = extractvalue { ptr, i8 } %943, 0
-  %.fca.1.extract1872 = extractvalue { ptr, i8 } %943, 1
-  %944 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1871, i8 %.fca.1.extract1872, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1864 = extractvalue { ptr, i8 } %944, 0
+  %.fca.0.extract1879 = extractvalue { ptr, i8 } %942, 0
+  %.fca.1.extract1880 = extractvalue { ptr, i8 } %942, 1
+  %943 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1879, i8 %.fca.1.extract1880, ptr nonnull %87, i8 -16)
+  %.fca.0.extract1872 = extractvalue { ptr, i8 } %943, 0
+  %.fca.1.extract1873 = extractvalue { ptr, i8 } %943, 1
+  %944 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1872, i8 %.fca.1.extract1873, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1865 = extractvalue { ptr, i8 } %944, 0
   br label %1329
 
 945:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %946, label %1329
+  br i1 %spec.select, label %946, label %1329
 
 946:                                              ; preds = %945
   %947 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1852 = extractvalue { ptr, i8 } %947, 0
-  %.fca.1.extract1853 = extractvalue { ptr, i8 } %947, 1
+  %.fca.0.extract1853 = extractvalue { ptr, i8 } %947, 0
+  %.fca.1.extract1854 = extractvalue { ptr, i8 } %947, 1
   %948 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1840 = extractvalue { ptr, i8 } %948, 0
-  %.fca.1.extract1841 = extractvalue { ptr, i8 } %948, 1
-  %949 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1852, i8 %.fca.1.extract1853, ptr %.fca.0.extract1840, i8 %.fca.1.extract1841)
-  %.fca.0.extract1836 = extractvalue { ptr, i8 } %949, 0
+  %.fca.0.extract1841 = extractvalue { ptr, i8 } %948, 0
+  %.fca.1.extract1842 = extractvalue { ptr, i8 } %948, 1
+  %949 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1853, i8 %.fca.1.extract1854, ptr %.fca.0.extract1841, i8 %.fca.1.extract1842)
+  %.fca.0.extract1837 = extractvalue { ptr, i8 } %949, 0
   br label %1329
 
 950:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %951, label %1329
+  br i1 %spec.select, label %951, label %1329
 
 951:                                              ; preds = %950
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21) #15
@@ -12580,10 +12580,10 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %953 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %21)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #15
   %954 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %953, i8 51)
-  %.fca.0.extract1818 = extractvalue { ptr, i8 } %954, 0
-  %.fca.1.extract1819 = extractvalue { ptr, i8 } %954, 1
-  %955 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1818, i8 %.fca.1.extract1819, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1811 = extractvalue { ptr, i8 } %955, 0
+  %.fca.0.extract1819 = extractvalue { ptr, i8 } %954, 0
+  %.fca.1.extract1820 = extractvalue { ptr, i8 } %954, 1
+  %955 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1819, i8 %.fca.1.extract1820, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1812 = extractvalue { ptr, i8 } %955, 0
   br label %1329
 
 956:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -12596,11 +12596,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %959 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %20)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #15
   %960 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %959, i8 15)
-  %.fca.0.extract1795 = extractvalue { ptr, i8 } %960, 0
+  %.fca.0.extract1796 = extractvalue { ptr, i8 } %960, 0
   br label %1329
 
 961:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %962, label %1329
+  br i1 %spec.select, label %962, label %1329
 
 962:                                              ; preds = %961
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19) #15
@@ -12609,56 +12609,56 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %964 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %19)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #15
   %965 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %964, i8 85)
-  %.fca.0.extract1774 = extractvalue { ptr, i8 } %965, 0
-  %.fca.1.extract1775 = extractvalue { ptr, i8 } %965, 1
-  %966 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1774, i8 %.fca.1.extract1775)
-  %.fca.0.extract1770 = extractvalue { ptr, i8 } %966, 0
+  %.fca.0.extract1775 = extractvalue { ptr, i8 } %965, 0
+  %.fca.1.extract1776 = extractvalue { ptr, i8 } %965, 1
+  %966 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1775, i8 %.fca.1.extract1776)
+  %.fca.0.extract1771 = extractvalue { ptr, i8 } %966, 0
   br label %1329
 
 967:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %968, label %1329
+  br i1 %spec.select, label %968, label %1329
 
 968:                                              ; preds = %967
   %969 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1753 = extractvalue { ptr, i8 } %969, 0
-  %.fca.1.extract1754 = extractvalue { ptr, i8 } %969, 1
-  %970 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1753, i8 %.fca.1.extract1754, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1746 = extractvalue { ptr, i8 } %970, 0
-  %.fca.1.extract1747 = extractvalue { ptr, i8 } %970, 1
-  %971 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1746, i8 %.fca.1.extract1747)
-  %.fca.0.extract1742 = extractvalue { ptr, i8 } %971, 0
+  %.fca.0.extract1754 = extractvalue { ptr, i8 } %969, 0
+  %.fca.1.extract1755 = extractvalue { ptr, i8 } %969, 1
+  %970 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1754, i8 %.fca.1.extract1755, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1747 = extractvalue { ptr, i8 } %970, 0
+  %.fca.1.extract1748 = extractvalue { ptr, i8 } %970, 1
+  %971 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1747, i8 %.fca.1.extract1748)
+  %.fca.0.extract1743 = extractvalue { ptr, i8 } %971, 0
   br label %1329
 
 972:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %973, label %1329
+  br i1 %spec.select, label %973, label %1329
 
 973:                                              ; preds = %972
   %974 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1728 = extractvalue { ptr, i8 } %974, 0
-  %.fca.1.extract1729 = extractvalue { ptr, i8 } %974, 1
+  %.fca.0.extract1729 = extractvalue { ptr, i8 } %974, 0
+  %.fca.1.extract1730 = extractvalue { ptr, i8 } %974, 1
   %975 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1716 = extractvalue { ptr, i8 } %975, 0
-  %.fca.1.extract1717 = extractvalue { ptr, i8 } %975, 1
-  %976 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1728, i8 %.fca.1.extract1729, ptr %.fca.0.extract1716, i8 %.fca.1.extract1717)
-  %.fca.0.extract1712 = extractvalue { ptr, i8 } %976, 0
-  %.fca.1.extract1713 = extractvalue { ptr, i8 } %976, 1
-  %977 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1712, i8 %.fca.1.extract1713, ptr nonnull %87, i8 -16)
-  %.fca.0.extract1705 = extractvalue { ptr, i8 } %977, 0
+  %.fca.0.extract1717 = extractvalue { ptr, i8 } %975, 0
+  %.fca.1.extract1718 = extractvalue { ptr, i8 } %975, 1
+  %976 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1729, i8 %.fca.1.extract1730, ptr %.fca.0.extract1717, i8 %.fca.1.extract1718)
+  %.fca.0.extract1713 = extractvalue { ptr, i8 } %976, 0
+  %.fca.1.extract1714 = extractvalue { ptr, i8 } %976, 1
+  %977 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1713, i8 %.fca.1.extract1714, ptr nonnull %87, i8 -16)
+  %.fca.0.extract1706 = extractvalue { ptr, i8 } %977, 0
   br label %1329
 
 978:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %979, label %1329
+  br i1 %spec.select, label %979, label %1329
 
 979:                                              ; preds = %978
   %980 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1693 = extractvalue { ptr, i8 } %980, 0
-  %.fca.1.extract1694 = extractvalue { ptr, i8 } %980, 1
-  %981 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1693, i8 %.fca.1.extract1694, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1686 = extractvalue { ptr, i8 } %981, 0
+  %.fca.0.extract1694 = extractvalue { ptr, i8 } %980, 0
+  %.fca.1.extract1695 = extractvalue { ptr, i8 } %980, 1
+  %981 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1694, i8 %.fca.1.extract1695, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1687 = extractvalue { ptr, i8 } %981, 0
   br label %1329
 
 982:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %983, label %1329
+  br i1 %spec.select, label %983, label %1329
 
 983:                                              ; preds = %982
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #15
@@ -12667,84 +12667,84 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %985 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %18)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #15
   %986 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %985, i8 51)
-  %.fca.0.extract1665 = extractvalue { ptr, i8 } %986, 0
-  %.fca.1.extract1666 = extractvalue { ptr, i8 } %986, 1
-  %987 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1665, i8 %.fca.1.extract1666)
-  %.fca.0.extract1661 = extractvalue { ptr, i8 } %987, 0
+  %.fca.0.extract1666 = extractvalue { ptr, i8 } %986, 0
+  %.fca.1.extract1667 = extractvalue { ptr, i8 } %986, 1
+  %987 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1666, i8 %.fca.1.extract1667)
+  %.fca.0.extract1662 = extractvalue { ptr, i8 } %987, 0
   br label %1329
 
 988:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %989, label %1329
+  br i1 %spec.select, label %989, label %1329
 
 989:                                              ; preds = %988
   %990 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1649 = extractvalue { ptr, i8 } %990, 0
-  %.fca.1.extract1650 = extractvalue { ptr, i8 } %990, 1
+  %.fca.0.extract1650 = extractvalue { ptr, i8 } %990, 0
+  %.fca.1.extract1651 = extractvalue { ptr, i8 } %990, 1
   %991 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1637 = extractvalue { ptr, i8 } %991, 0
-  %.fca.1.extract1638 = extractvalue { ptr, i8 } %991, 1
-  %992 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1649, i8 %.fca.1.extract1650, ptr %.fca.0.extract1637, i8 %.fca.1.extract1638)
-  %.fca.0.extract1633 = extractvalue { ptr, i8 } %992, 0
+  %.fca.0.extract1638 = extractvalue { ptr, i8 } %991, 0
+  %.fca.1.extract1639 = extractvalue { ptr, i8 } %991, 1
+  %992 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1650, i8 %.fca.1.extract1651, ptr %.fca.0.extract1638, i8 %.fca.1.extract1639)
+  %.fca.0.extract1634 = extractvalue { ptr, i8 } %992, 0
   br label %1329
 
 993:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %994, label %1329
+  br i1 %spec.select, label %994, label %1329
 
 994:                                              ; preds = %993
   %995 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1619 = extractvalue { ptr, i8 } %995, 0
-  %.fca.1.extract1620 = extractvalue { ptr, i8 } %995, 1
+  %.fca.0.extract1620 = extractvalue { ptr, i8 } %995, 0
+  %.fca.1.extract1621 = extractvalue { ptr, i8 } %995, 1
   %996 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1607 = extractvalue { ptr, i8 } %996, 0
-  %.fca.1.extract1608 = extractvalue { ptr, i8 } %996, 1
-  %997 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1619, i8 %.fca.1.extract1620, ptr %.fca.0.extract1607, i8 %.fca.1.extract1608)
-  %.fca.0.extract1603 = extractvalue { ptr, i8 } %997, 0
-  %.fca.1.extract1604 = extractvalue { ptr, i8 } %997, 1
-  %998 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1603, i8 %.fca.1.extract1604, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1596 = extractvalue { ptr, i8 } %998, 0
+  %.fca.0.extract1608 = extractvalue { ptr, i8 } %996, 0
+  %.fca.1.extract1609 = extractvalue { ptr, i8 } %996, 1
+  %997 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1620, i8 %.fca.1.extract1621, ptr %.fca.0.extract1608, i8 %.fca.1.extract1609)
+  %.fca.0.extract1604 = extractvalue { ptr, i8 } %997, 0
+  %.fca.1.extract1605 = extractvalue { ptr, i8 } %997, 1
+  %998 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1604, i8 %.fca.1.extract1605, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1597 = extractvalue { ptr, i8 } %998, 0
   br label %1329
 
 999:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1000, label %1329
+  br i1 %spec.select, label %1000, label %1329
 
 1000:                                             ; preds = %999
   %1001 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1584 = extractvalue { ptr, i8 } %1001, 0
-  %.fca.1.extract1585 = extractvalue { ptr, i8 } %1001, 1
-  %1002 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1584, i8 %.fca.1.extract1585, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1577 = extractvalue { ptr, i8 } %1002, 0
+  %.fca.0.extract1585 = extractvalue { ptr, i8 } %1001, 0
+  %.fca.1.extract1586 = extractvalue { ptr, i8 } %1001, 1
+  %1002 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1585, i8 %.fca.1.extract1586, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1578 = extractvalue { ptr, i8 } %1002, 0
   br label %1329
 
 1003:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1004, label %1329
+  br i1 %spec.select, label %1004, label %1329
 
 1004:                                             ; preds = %1003
   %1005 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1563 = extractvalue { ptr, i8 } %1005, 0
-  %.fca.1.extract1564 = extractvalue { ptr, i8 } %1005, 1
-  %1006 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1563, i8 %.fca.1.extract1564, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1556 = extractvalue { ptr, i8 } %1006, 0
-  %.fca.1.extract1557 = extractvalue { ptr, i8 } %1006, 1
-  %1007 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1556, i8 %.fca.1.extract1557, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1549 = extractvalue { ptr, i8 } %1007, 0
+  %.fca.0.extract1564 = extractvalue { ptr, i8 } %1005, 0
+  %.fca.1.extract1565 = extractvalue { ptr, i8 } %1005, 1
+  %1006 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1564, i8 %.fca.1.extract1565, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1557 = extractvalue { ptr, i8 } %1006, 0
+  %.fca.1.extract1558 = extractvalue { ptr, i8 } %1006, 1
+  %1007 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1557, i8 %.fca.1.extract1558, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1550 = extractvalue { ptr, i8 } %1007, 0
   br label %1329
 
 1008:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1009, label %1329
+  br i1 %spec.select, label %1009, label %1329
 
 1009:                                             ; preds = %1008
   %1010 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1535 = extractvalue { ptr, i8 } %1010, 0
-  %.fca.1.extract1536 = extractvalue { ptr, i8 } %1010, 1
-  %1011 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1535, i8 %.fca.1.extract1536, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1528 = extractvalue { ptr, i8 } %1011, 0
-  %.fca.1.extract1529 = extractvalue { ptr, i8 } %1011, 1
-  %1012 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1528, i8 %.fca.1.extract1529, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1521 = extractvalue { ptr, i8 } %1012, 0
+  %.fca.0.extract1536 = extractvalue { ptr, i8 } %1010, 0
+  %.fca.1.extract1537 = extractvalue { ptr, i8 } %1010, 1
+  %1011 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1536, i8 %.fca.1.extract1537, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1529 = extractvalue { ptr, i8 } %1011, 0
+  %.fca.1.extract1530 = extractvalue { ptr, i8 } %1011, 1
+  %1012 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1529, i8 %.fca.1.extract1530, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1522 = extractvalue { ptr, i8 } %1012, 0
   br label %1329
 
 1013:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1014, label %1329
+  br i1 %spec.select, label %1014, label %1329
 
 1014:                                             ; preds = %1013
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #15
@@ -12753,10 +12753,10 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1016 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %17)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #15
   %1017 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %1016, i8 15)
-  %.fca.0.extract1503 = extractvalue { ptr, i8 } %1017, 0
-  %.fca.1.extract1504 = extractvalue { ptr, i8 } %1017, 1
-  %1018 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1503, i8 %.fca.1.extract1504, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1496 = extractvalue { ptr, i8 } %1018, 0
+  %.fca.0.extract1504 = extractvalue { ptr, i8 } %1017, 0
+  %.fca.1.extract1505 = extractvalue { ptr, i8 } %1017, 1
+  %1018 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1504, i8 %.fca.1.extract1505, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1497 = extractvalue { ptr, i8 } %1018, 0
   br label %1329
 
 1019:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -12769,66 +12769,66 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1022 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #15
   %1023 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %1022, i8 51)
-  %.fca.0.extract1480 = extractvalue { ptr, i8 } %1023, 0
+  %.fca.0.extract1481 = extractvalue { ptr, i8 } %1023, 0
   br label %1329
 
 1024:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1025, label %1329
+  br i1 %spec.select, label %1025, label %1329
 
 1025:                                             ; preds = %1024
   %1026 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1463 = extractvalue { ptr, i8 } %1026, 0
-  %.fca.1.extract1464 = extractvalue { ptr, i8 } %1026, 1
-  %1027 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1463, i8 %.fca.1.extract1464, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1456 = extractvalue { ptr, i8 } %1027, 0
-  %.fca.1.extract1457 = extractvalue { ptr, i8 } %1027, 1
-  %1028 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1456, i8 %.fca.1.extract1457)
-  %.fca.0.extract1452 = extractvalue { ptr, i8 } %1028, 0
+  %.fca.0.extract1464 = extractvalue { ptr, i8 } %1026, 0
+  %.fca.1.extract1465 = extractvalue { ptr, i8 } %1026, 1
+  %1027 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1464, i8 %.fca.1.extract1465, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1457 = extractvalue { ptr, i8 } %1027, 0
+  %.fca.1.extract1458 = extractvalue { ptr, i8 } %1027, 1
+  %1028 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1457, i8 %.fca.1.extract1458)
+  %.fca.0.extract1453 = extractvalue { ptr, i8 } %1028, 0
   br label %1329
 
 1029:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1030, label %1329
+  br i1 %spec.select, label %1030, label %1329
 
 1030:                                             ; preds = %1029
   %1031 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1440 = extractvalue { ptr, i8 } %1031, 0
-  %.fca.1.extract1441 = extractvalue { ptr, i8 } %1031, 1
+  %.fca.0.extract1441 = extractvalue { ptr, i8 } %1031, 0
+  %.fca.1.extract1442 = extractvalue { ptr, i8 } %1031, 1
   %1032 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1428 = extractvalue { ptr, i8 } %1032, 0
-  %.fca.1.extract1429 = extractvalue { ptr, i8 } %1032, 1
-  %1033 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1440, i8 %.fca.1.extract1441, ptr %.fca.0.extract1428, i8 %.fca.1.extract1429)
-  %.fca.0.extract1424 = extractvalue { ptr, i8 } %1033, 0
+  %.fca.0.extract1429 = extractvalue { ptr, i8 } %1032, 0
+  %.fca.1.extract1430 = extractvalue { ptr, i8 } %1032, 1
+  %1033 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1441, i8 %.fca.1.extract1442, ptr %.fca.0.extract1429, i8 %.fca.1.extract1430)
+  %.fca.0.extract1425 = extractvalue { ptr, i8 } %1033, 0
   br label %1329
 
 1034:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1035, label %1329
+  br i1 %spec.select, label %1035, label %1329
 
 1035:                                             ; preds = %1034
   %1036 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1412 = extractvalue { ptr, i8 } %1036, 0
-  %.fca.1.extract1413 = extractvalue { ptr, i8 } %1036, 1
-  %1037 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1412, i8 %.fca.1.extract1413, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1405 = extractvalue { ptr, i8 } %1037, 0
+  %.fca.0.extract1413 = extractvalue { ptr, i8 } %1036, 0
+  %.fca.1.extract1414 = extractvalue { ptr, i8 } %1036, 1
+  %1037 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1413, i8 %.fca.1.extract1414, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1406 = extractvalue { ptr, i8 } %1037, 0
   br label %1329
 
 1038:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1039, label %1329
+  br i1 %spec.select, label %1039, label %1329
 
 1039:                                             ; preds = %1038
   %1040 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1393 = extractvalue { ptr, i8 } %1040, 0
-  %.fca.1.extract1394 = extractvalue { ptr, i8 } %1040, 1
-  %1041 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1393, i8 %.fca.1.extract1394, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1386 = extractvalue { ptr, i8 } %1041, 0
+  %.fca.0.extract1394 = extractvalue { ptr, i8 } %1040, 0
+  %.fca.1.extract1395 = extractvalue { ptr, i8 } %1040, 1
+  %1041 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1394, i8 %.fca.1.extract1395, ptr nonnull %91, i8 -86)
+  %.fca.0.extract1387 = extractvalue { ptr, i8 } %1041, 0
   br label %1329
 
 1042:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
   %1043 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1376 = extractvalue { ptr, i8 } %1043, 0
+  %.fca.0.extract1377 = extractvalue { ptr, i8 } %1043, 0
   br label %1329
 
 1044:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1045, label %1329
+  br i1 %spec.select, label %1045, label %1329
 
 1045:                                             ; preds = %1044
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #15
@@ -12837,27 +12837,27 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1047 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %15)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #15
   %1048 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %1047, i8 85)
-  %.fca.0.extract1353 = extractvalue { ptr, i8 } %1048, 0
-  %.fca.1.extract1354 = extractvalue { ptr, i8 } %1048, 1
-  %1049 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1353, i8 %.fca.1.extract1354, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1346 = extractvalue { ptr, i8 } %1049, 0
-  %.fca.1.extract1347 = extractvalue { ptr, i8 } %1049, 1
-  %1050 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1346, i8 %.fca.1.extract1347)
-  %.fca.0.extract1342 = extractvalue { ptr, i8 } %1050, 0
+  %.fca.0.extract1354 = extractvalue { ptr, i8 } %1048, 0
+  %.fca.1.extract1355 = extractvalue { ptr, i8 } %1048, 1
+  %1049 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1354, i8 %.fca.1.extract1355, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1347 = extractvalue { ptr, i8 } %1049, 0
+  %.fca.1.extract1348 = extractvalue { ptr, i8 } %1049, 1
+  %1050 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1347, i8 %.fca.1.extract1348)
+  %.fca.0.extract1343 = extractvalue { ptr, i8 } %1050, 0
   br label %1329
 
 1051:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1052, label %1329
+  br i1 %spec.select, label %1052, label %1329
 
 1052:                                             ; preds = %1051
   %1053 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1325 = extractvalue { ptr, i8 } %1053, 0
-  %.fca.1.extract1326 = extractvalue { ptr, i8 } %1053, 1
-  %1054 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1325, i8 %.fca.1.extract1326, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1318 = extractvalue { ptr, i8 } %1054, 0
-  %.fca.1.extract1319 = extractvalue { ptr, i8 } %1054, 1
-  %1055 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1318, i8 %.fca.1.extract1319)
-  %.fca.0.extract1314 = extractvalue { ptr, i8 } %1055, 0
+  %.fca.0.extract1326 = extractvalue { ptr, i8 } %1053, 0
+  %.fca.1.extract1327 = extractvalue { ptr, i8 } %1053, 1
+  %1054 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1326, i8 %.fca.1.extract1327, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1319 = extractvalue { ptr, i8 } %1054, 0
+  %.fca.1.extract1320 = extractvalue { ptr, i8 } %1054, 1
+  %1055 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1319, i8 %.fca.1.extract1320)
+  %.fca.0.extract1315 = extractvalue { ptr, i8 } %1055, 0
   br label %1329
 
 1056:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -12865,11 +12865,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
 
 1057:                                             ; preds = %1056
   %1058 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1304 = extractvalue { ptr, i8 } %1058, 0
+  %.fca.0.extract1305 = extractvalue { ptr, i8 } %1058, 0
   br label %1329
 
 1059:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1060, label %1329
+  br i1 %spec.select, label %1060, label %1329
 
 1060:                                             ; preds = %1059
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #15
@@ -12878,28 +12878,28 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1062 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %14)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #15
   %1063 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %1062, i8 85)
-  %.fca.0.extract1286 = extractvalue { ptr, i8 } %1063, 0
-  %.fca.1.extract1287 = extractvalue { ptr, i8 } %1063, 1
-  %1064 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1286, i8 %.fca.1.extract1287, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1279 = extractvalue { ptr, i8 } %1064, 0
+  %.fca.0.extract1287 = extractvalue { ptr, i8 } %1063, 0
+  %.fca.1.extract1288 = extractvalue { ptr, i8 } %1063, 1
+  %1064 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1287, i8 %.fca.1.extract1288, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1280 = extractvalue { ptr, i8 } %1064, 0
   br label %1329
 
 1065:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1066, label %1329
+  br i1 %spec.select, label %1066, label %1329
 
 1066:                                             ; preds = %1065
   %1067 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1259 = extractvalue { ptr, i8 } %1067, 0
-  %.fca.1.extract1260 = extractvalue { ptr, i8 } %1067, 1
-  %1068 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1259, i8 %.fca.1.extract1260)
-  %.fca.0.extract1255 = extractvalue { ptr, i8 } %1068, 0
-  %.fca.1.extract1256 = extractvalue { ptr, i8 } %1068, 1
-  %1069 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract1255, i8 %.fca.1.extract1256)
-  %.fca.0.extract1251 = extractvalue { ptr, i8 } %1069, 0
+  %.fca.0.extract1260 = extractvalue { ptr, i8 } %1067, 0
+  %.fca.1.extract1261 = extractvalue { ptr, i8 } %1067, 1
+  %1068 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1260, i8 %.fca.1.extract1261)
+  %.fca.0.extract1256 = extractvalue { ptr, i8 } %1068, 0
+  %.fca.1.extract1257 = extractvalue { ptr, i8 } %1068, 1
+  %1069 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract1256, i8 %.fca.1.extract1257)
+  %.fca.0.extract1252 = extractvalue { ptr, i8 } %1069, 0
   br label %1329
 
 1070:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1071, label %1329
+  br i1 %spec.select, label %1071, label %1329
 
 1071:                                             ; preds = %1070
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #15
@@ -12908,92 +12908,92 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1073 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #15
   %1074 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %1073, i8 85)
-  %.fca.0.extract1233 = extractvalue { ptr, i8 } %1074, 0
-  %.fca.1.extract1234 = extractvalue { ptr, i8 } %1074, 1
-  %1075 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1233, i8 %.fca.1.extract1234, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1226 = extractvalue { ptr, i8 } %1075, 0
+  %.fca.0.extract1234 = extractvalue { ptr, i8 } %1074, 0
+  %.fca.1.extract1235 = extractvalue { ptr, i8 } %1074, 1
+  %1075 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1234, i8 %.fca.1.extract1235, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1227 = extractvalue { ptr, i8 } %1075, 0
   br label %1329
 
 1076:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1077, label %1329
+  br i1 %spec.select, label %1077, label %1329
 
 1077:                                             ; preds = %1076
   %1078 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1214 = extractvalue { ptr, i8 } %1078, 0
-  %.fca.1.extract1215 = extractvalue { ptr, i8 } %1078, 1
+  %.fca.0.extract1215 = extractvalue { ptr, i8 } %1078, 0
+  %.fca.1.extract1216 = extractvalue { ptr, i8 } %1078, 1
   %1079 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1202 = extractvalue { ptr, i8 } %1079, 0
-  %.fca.1.extract1203 = extractvalue { ptr, i8 } %1079, 1
-  %1080 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1214, i8 %.fca.1.extract1215, ptr %.fca.0.extract1202, i8 %.fca.1.extract1203)
-  %.fca.0.extract1198 = extractvalue { ptr, i8 } %1080, 0
+  %.fca.0.extract1203 = extractvalue { ptr, i8 } %1079, 0
+  %.fca.1.extract1204 = extractvalue { ptr, i8 } %1079, 1
+  %1080 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1215, i8 %.fca.1.extract1216, ptr %.fca.0.extract1203, i8 %.fca.1.extract1204)
+  %.fca.0.extract1199 = extractvalue { ptr, i8 } %1080, 0
   br label %1329
 
 1081:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1082, label %1329
+  br i1 %spec.select, label %1082, label %1329
 
 1082:                                             ; preds = %1081
   %1083 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1186 = extractvalue { ptr, i8 } %1083, 0
-  %.fca.1.extract1187 = extractvalue { ptr, i8 } %1083, 1
-  %1084 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1186, i8 %.fca.1.extract1187, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1179 = extractvalue { ptr, i8 } %1084, 0
+  %.fca.0.extract1187 = extractvalue { ptr, i8 } %1083, 0
+  %.fca.1.extract1188 = extractvalue { ptr, i8 } %1083, 1
+  %1084 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1187, i8 %.fca.1.extract1188, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1180 = extractvalue { ptr, i8 } %1084, 0
   br label %1329
 
 1085:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1086, label %1329
+  br i1 %spec.select, label %1086, label %1329
 
 1086:                                             ; preds = %1085
   %1087 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1167 = extractvalue { ptr, i8 } %1087, 0
-  %.fca.1.extract1168 = extractvalue { ptr, i8 } %1087, 1
-  %1088 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1167, i8 %.fca.1.extract1168, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1160 = extractvalue { ptr, i8 } %1088, 0
+  %.fca.0.extract1168 = extractvalue { ptr, i8 } %1087, 0
+  %.fca.1.extract1169 = extractvalue { ptr, i8 } %1087, 1
+  %1088 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1168, i8 %.fca.1.extract1169, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1161 = extractvalue { ptr, i8 } %1088, 0
   br label %1329
 
 1089:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1090, label %1329
+  br i1 %spec.select, label %1090, label %1329
 
 1090:                                             ; preds = %1089
   %1091 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1140 = extractvalue { ptr, i8 } %1091, 0
-  %.fca.1.extract1141 = extractvalue { ptr, i8 } %1091, 1
-  %1092 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1140, i8 %.fca.1.extract1141)
-  %.fca.0.extract1136 = extractvalue { ptr, i8 } %1092, 0
-  %.fca.1.extract1137 = extractvalue { ptr, i8 } %1092, 1
-  %1093 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract1136, i8 %.fca.1.extract1137)
-  %.fca.0.extract1132 = extractvalue { ptr, i8 } %1093, 0
+  %.fca.0.extract1141 = extractvalue { ptr, i8 } %1091, 0
+  %.fca.1.extract1142 = extractvalue { ptr, i8 } %1091, 1
+  %1092 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1141, i8 %.fca.1.extract1142)
+  %.fca.0.extract1137 = extractvalue { ptr, i8 } %1092, 0
+  %.fca.1.extract1138 = extractvalue { ptr, i8 } %1092, 1
+  %1093 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract1137, i8 %.fca.1.extract1138)
+  %.fca.0.extract1133 = extractvalue { ptr, i8 } %1093, 0
   br label %1329
 
 1094:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1095, label %1329
+  br i1 %spec.select, label %1095, label %1329
 
 1095:                                             ; preds = %1094
   %1096 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1120 = extractvalue { ptr, i8 } %1096, 0
-  %.fca.1.extract1121 = extractvalue { ptr, i8 } %1096, 1
+  %.fca.0.extract1121 = extractvalue { ptr, i8 } %1096, 0
+  %.fca.1.extract1122 = extractvalue { ptr, i8 } %1096, 1
   %1097 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1108 = extractvalue { ptr, i8 } %1097, 0
-  %.fca.1.extract1109 = extractvalue { ptr, i8 } %1097, 1
-  %1098 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1120, i8 %.fca.1.extract1121, ptr %.fca.0.extract1108, i8 %.fca.1.extract1109)
-  %.fca.0.extract1104 = extractvalue { ptr, i8 } %1098, 0
+  %.fca.0.extract1109 = extractvalue { ptr, i8 } %1097, 0
+  %.fca.1.extract1110 = extractvalue { ptr, i8 } %1097, 1
+  %1098 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1121, i8 %.fca.1.extract1122, ptr %.fca.0.extract1109, i8 %.fca.1.extract1110)
+  %.fca.0.extract1105 = extractvalue { ptr, i8 } %1098, 0
   br label %1329
 
 1099:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
   br label %1329
 
 1100:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1101, label %1329
+  br i1 %spec.select, label %1101, label %1329
 
 1101:                                             ; preds = %1100
   %1102 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1092 = extractvalue { ptr, i8 } %1102, 0
-  %.fca.1.extract1093 = extractvalue { ptr, i8 } %1102, 1
-  %1103 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1092, i8 %.fca.1.extract1093, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1085 = extractvalue { ptr, i8 } %1103, 0
+  %.fca.0.extract1093 = extractvalue { ptr, i8 } %1102, 0
+  %.fca.1.extract1094 = extractvalue { ptr, i8 } %1102, 1
+  %1103 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1093, i8 %.fca.1.extract1094, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1086 = extractvalue { ptr, i8 } %1103, 0
   br label %1329
 
 1104:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1105, label %1329
+  br i1 %spec.select, label %1105, label %1329
 
 1105:                                             ; preds = %1104
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #15
@@ -13002,10 +13002,10 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1107 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #15
   %1108 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %1107, i8 85)
-  %.fca.0.extract1067 = extractvalue { ptr, i8 } %1108, 0
-  %.fca.1.extract1068 = extractvalue { ptr, i8 } %1108, 1
-  %1109 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1067, i8 %.fca.1.extract1068, ptr nonnull %89, i8 -52)
-  %.fca.0.extract1060 = extractvalue { ptr, i8 } %1109, 0
+  %.fca.0.extract1068 = extractvalue { ptr, i8 } %1108, 0
+  %.fca.1.extract1069 = extractvalue { ptr, i8 } %1108, 1
+  %1109 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract1068, i8 %.fca.1.extract1069, ptr nonnull %89, i8 -52)
+  %.fca.0.extract1061 = extractvalue { ptr, i8 } %1109, 0
   br label %1329
 
 1110:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -13018,11 +13018,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1113 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #15
   %1114 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %1113, i8 15)
-  %.fca.0.extract1044 = extractvalue { ptr, i8 } %1114, 0
+  %.fca.0.extract1045 = extractvalue { ptr, i8 } %1114, 0
   br label %1329
 
 1115:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1116, label %1329
+  br i1 %spec.select, label %1116, label %1329
 
 1116:                                             ; preds = %1115
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #15
@@ -13031,28 +13031,28 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1118 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #15
   %1119 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %1118, i8 85)
-  %.fca.0.extract1023 = extractvalue { ptr, i8 } %1119, 0
-  %.fca.1.extract1024 = extractvalue { ptr, i8 } %1119, 1
-  %1120 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1023, i8 %.fca.1.extract1024)
-  %.fca.0.extract1019 = extractvalue { ptr, i8 } %1120, 0
+  %.fca.0.extract1024 = extractvalue { ptr, i8 } %1119, 0
+  %.fca.1.extract1025 = extractvalue { ptr, i8 } %1119, 1
+  %1120 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract1024, i8 %.fca.1.extract1025)
+  %.fca.0.extract1020 = extractvalue { ptr, i8 } %1120, 0
   br label %1329
 
 1121:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1122, label %1329
+  br i1 %spec.select, label %1122, label %1329
 
 1122:                                             ; preds = %1121
   %1123 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract1002 = extractvalue { ptr, i8 } %1123, 0
-  %.fca.1.extract1003 = extractvalue { ptr, i8 } %1123, 1
-  %1124 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1002, i8 %.fca.1.extract1003, ptr nonnull %89, i8 -52)
-  %.fca.0.extract995 = extractvalue { ptr, i8 } %1124, 0
-  %.fca.1.extract996 = extractvalue { ptr, i8 } %1124, 1
-  %1125 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract995, i8 %.fca.1.extract996)
-  %.fca.0.extract991 = extractvalue { ptr, i8 } %1125, 0
+  %.fca.0.extract1003 = extractvalue { ptr, i8 } %1123, 0
+  %.fca.1.extract1004 = extractvalue { ptr, i8 } %1123, 1
+  %1124 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract1003, i8 %.fca.1.extract1004, ptr nonnull %89, i8 -52)
+  %.fca.0.extract996 = extractvalue { ptr, i8 } %1124, 0
+  %.fca.1.extract997 = extractvalue { ptr, i8 } %1124, 1
+  %1125 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract996, i8 %.fca.1.extract997)
+  %.fca.0.extract992 = extractvalue { ptr, i8 } %1125, 0
   br label %1329
 
 1126:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1127, label %1329
+  br i1 %spec.select, label %1127, label %1329
 
 1127:                                             ; preds = %1126
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #15
@@ -13061,140 +13061,140 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1129 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #15
   %1130 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %1129, i8 85)
-  %.fca.0.extract970 = extractvalue { ptr, i8 } %1130, 0
-  %.fca.1.extract971 = extractvalue { ptr, i8 } %1130, 1
-  %1131 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract970, i8 %.fca.1.extract971)
-  %.fca.0.extract966 = extractvalue { ptr, i8 } %1131, 0
+  %.fca.0.extract971 = extractvalue { ptr, i8 } %1130, 0
+  %.fca.1.extract972 = extractvalue { ptr, i8 } %1130, 1
+  %1131 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract971, i8 %.fca.1.extract972)
+  %.fca.0.extract967 = extractvalue { ptr, i8 } %1131, 0
   br label %1329
 
 1132:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1133, label %1329
+  br i1 %spec.select, label %1133, label %1329
 
 1133:                                             ; preds = %1132
   %1134 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract954 = extractvalue { ptr, i8 } %1134, 0
-  %.fca.1.extract955 = extractvalue { ptr, i8 } %1134, 1
+  %.fca.0.extract955 = extractvalue { ptr, i8 } %1134, 0
+  %.fca.1.extract956 = extractvalue { ptr, i8 } %1134, 1
   %1135 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract942 = extractvalue { ptr, i8 } %1135, 0
-  %.fca.1.extract943 = extractvalue { ptr, i8 } %1135, 1
-  %1136 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract954, i8 %.fca.1.extract955, ptr %.fca.0.extract942, i8 %.fca.1.extract943)
-  %.fca.0.extract938 = extractvalue { ptr, i8 } %1136, 0
+  %.fca.0.extract943 = extractvalue { ptr, i8 } %1135, 0
+  %.fca.1.extract944 = extractvalue { ptr, i8 } %1135, 1
+  %1136 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract955, i8 %.fca.1.extract956, ptr %.fca.0.extract943, i8 %.fca.1.extract944)
+  %.fca.0.extract939 = extractvalue { ptr, i8 } %1136, 0
   br label %1329
 
 1137:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1138, label %1329
+  br i1 %spec.select, label %1138, label %1329
 
 1138:                                             ; preds = %1137
   %1139 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract924 = extractvalue { ptr, i8 } %1139, 0
-  %.fca.1.extract925 = extractvalue { ptr, i8 } %1139, 1
+  %.fca.0.extract925 = extractvalue { ptr, i8 } %1139, 0
+  %.fca.1.extract926 = extractvalue { ptr, i8 } %1139, 1
   %1140 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract912 = extractvalue { ptr, i8 } %1140, 0
-  %.fca.1.extract913 = extractvalue { ptr, i8 } %1140, 1
-  %1141 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract924, i8 %.fca.1.extract925, ptr %.fca.0.extract912, i8 %.fca.1.extract913)
-  %.fca.0.extract908 = extractvalue { ptr, i8 } %1141, 0
-  %.fca.1.extract909 = extractvalue { ptr, i8 } %1141, 1
-  %1142 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract908, i8 %.fca.1.extract909, ptr nonnull %87, i8 -16)
-  %.fca.0.extract901 = extractvalue { ptr, i8 } %1142, 0
+  %.fca.0.extract913 = extractvalue { ptr, i8 } %1140, 0
+  %.fca.1.extract914 = extractvalue { ptr, i8 } %1140, 1
+  %1141 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract925, i8 %.fca.1.extract926, ptr %.fca.0.extract913, i8 %.fca.1.extract914)
+  %.fca.0.extract909 = extractvalue { ptr, i8 } %1141, 0
+  %.fca.1.extract910 = extractvalue { ptr, i8 } %1141, 1
+  %1142 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract909, i8 %.fca.1.extract910, ptr nonnull %87, i8 -16)
+  %.fca.0.extract902 = extractvalue { ptr, i8 } %1142, 0
   br label %1329
 
 1143:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1144, label %1329
+  br i1 %spec.select, label %1144, label %1329
 
 1144:                                             ; preds = %1143
   %1145 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract889 = extractvalue { ptr, i8 } %1145, 0
-  %.fca.1.extract890 = extractvalue { ptr, i8 } %1145, 1
-  %1146 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract889, i8 %.fca.1.extract890, ptr nonnull %91, i8 -86)
-  %.fca.0.extract882 = extractvalue { ptr, i8 } %1146, 0
+  %.fca.0.extract890 = extractvalue { ptr, i8 } %1145, 0
+  %.fca.1.extract891 = extractvalue { ptr, i8 } %1145, 1
+  %1146 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract890, i8 %.fca.1.extract891, ptr nonnull %91, i8 -86)
+  %.fca.0.extract883 = extractvalue { ptr, i8 } %1146, 0
   br label %1329
 
 1147:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1148, label %1329
+  br i1 %spec.select, label %1148, label %1329
 
 1148:                                             ; preds = %1147
   %1149 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract870 = extractvalue { ptr, i8 } %1149, 0
-  %.fca.1.extract871 = extractvalue { ptr, i8 } %1149, 1
+  %.fca.0.extract871 = extractvalue { ptr, i8 } %1149, 0
+  %.fca.1.extract872 = extractvalue { ptr, i8 } %1149, 1
   %1150 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract856 = extractvalue { ptr, i8 } %1150, 0
-  %.fca.1.extract857 = extractvalue { ptr, i8 } %1150, 1
-  %1151 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract856, i8 %.fca.1.extract857, ptr nonnull %91, i8 -86)
-  %.fca.0.extract849 = extractvalue { ptr, i8 } %1151, 0
-  %.fca.1.extract850 = extractvalue { ptr, i8 } %1151, 1
-  %1152 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract870, i8 %.fca.1.extract871, ptr %.fca.0.extract849, i8 %.fca.1.extract850)
-  %.fca.0.extract845 = extractvalue { ptr, i8 } %1152, 0
+  %.fca.0.extract857 = extractvalue { ptr, i8 } %1150, 0
+  %.fca.1.extract858 = extractvalue { ptr, i8 } %1150, 1
+  %1151 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract857, i8 %.fca.1.extract858, ptr nonnull %91, i8 -86)
+  %.fca.0.extract850 = extractvalue { ptr, i8 } %1151, 0
+  %.fca.1.extract851 = extractvalue { ptr, i8 } %1151, 1
+  %1152 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract871, i8 %.fca.1.extract872, ptr %.fca.0.extract850, i8 %.fca.1.extract851)
+  %.fca.0.extract846 = extractvalue { ptr, i8 } %1152, 0
   br label %1329
 
 1153:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1154, label %1329
+  br i1 %spec.select, label %1154, label %1329
 
 1154:                                             ; preds = %1153
   %1155 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract833 = extractvalue { ptr, i8 } %1155, 0
-  %.fca.1.extract834 = extractvalue { ptr, i8 } %1155, 1
-  %1156 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract833, i8 %.fca.1.extract834, ptr nonnull %91, i8 -86)
-  %.fca.0.extract826 = extractvalue { ptr, i8 } %1156, 0
+  %.fca.0.extract834 = extractvalue { ptr, i8 } %1155, 0
+  %.fca.1.extract835 = extractvalue { ptr, i8 } %1155, 1
+  %1156 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract834, i8 %.fca.1.extract835, ptr nonnull %91, i8 -86)
+  %.fca.0.extract827 = extractvalue { ptr, i8 } %1156, 0
   br label %1329
 
 1157:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1158, label %1329
+  br i1 %spec.select, label %1158, label %1329
 
 1158:                                             ; preds = %1157
   %1159 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract812 = extractvalue { ptr, i8 } %1159, 0
-  %.fca.1.extract813 = extractvalue { ptr, i8 } %1159, 1
-  %1160 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract812, i8 %.fca.1.extract813, ptr nonnull %91, i8 -86)
-  %.fca.0.extract805 = extractvalue { ptr, i8 } %1160, 0
-  %.fca.1.extract806 = extractvalue { ptr, i8 } %1160, 1
-  %1161 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract805, i8 %.fca.1.extract806, ptr nonnull %89, i8 -52)
-  %.fca.0.extract798 = extractvalue { ptr, i8 } %1161, 0
+  %.fca.0.extract813 = extractvalue { ptr, i8 } %1159, 0
+  %.fca.1.extract814 = extractvalue { ptr, i8 } %1159, 1
+  %1160 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract813, i8 %.fca.1.extract814, ptr nonnull %91, i8 -86)
+  %.fca.0.extract806 = extractvalue { ptr, i8 } %1160, 0
+  %.fca.1.extract807 = extractvalue { ptr, i8 } %1160, 1
+  %1161 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract806, i8 %.fca.1.extract807, ptr nonnull %89, i8 -52)
+  %.fca.0.extract799 = extractvalue { ptr, i8 } %1161, 0
   br label %1329
 
 1162:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1163, label %1329
+  br i1 %spec.select, label %1163, label %1329
 
 1163:                                             ; preds = %1162
   %1164 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract786 = extractvalue { ptr, i8 } %1164, 0
-  %.fca.1.extract787 = extractvalue { ptr, i8 } %1164, 1
+  %.fca.0.extract787 = extractvalue { ptr, i8 } %1164, 0
+  %.fca.1.extract788 = extractvalue { ptr, i8 } %1164, 1
   %1165 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract774 = extractvalue { ptr, i8 } %1165, 0
-  %.fca.1.extract775 = extractvalue { ptr, i8 } %1165, 1
-  %1166 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract786, i8 %.fca.1.extract787, ptr %.fca.0.extract774, i8 %.fca.1.extract775)
-  %.fca.0.extract770 = extractvalue { ptr, i8 } %1166, 0
+  %.fca.0.extract775 = extractvalue { ptr, i8 } %1165, 0
+  %.fca.1.extract776 = extractvalue { ptr, i8 } %1165, 1
+  %1166 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract787, i8 %.fca.1.extract788, ptr %.fca.0.extract775, i8 %.fca.1.extract776)
+  %.fca.0.extract771 = extractvalue { ptr, i8 } %1166, 0
   br label %1329
 
 1167:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1168, label %1329
+  br i1 %spec.select, label %1168, label %1329
 
 1168:                                             ; preds = %1167
   %1169 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract753 = extractvalue { ptr, i8 } %1169, 0
-  %.fca.1.extract754 = extractvalue { ptr, i8 } %1169, 1
-  %1170 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract753, i8 %.fca.1.extract754, ptr nonnull %91, i8 -86)
-  %.fca.0.extract746 = extractvalue { ptr, i8 } %1170, 0
-  %.fca.1.extract747 = extractvalue { ptr, i8 } %1170, 1
-  %1171 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract746, i8 %.fca.1.extract747)
-  %.fca.0.extract742 = extractvalue { ptr, i8 } %1171, 0
+  %.fca.0.extract754 = extractvalue { ptr, i8 } %1169, 0
+  %.fca.1.extract755 = extractvalue { ptr, i8 } %1169, 1
+  %1170 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract754, i8 %.fca.1.extract755, ptr nonnull %91, i8 -86)
+  %.fca.0.extract747 = extractvalue { ptr, i8 } %1170, 0
+  %.fca.1.extract748 = extractvalue { ptr, i8 } %1170, 1
+  %1171 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract747, i8 %.fca.1.extract748)
+  %.fca.0.extract743 = extractvalue { ptr, i8 } %1171, 0
   br label %1329
 
 1172:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1173, label %1329
+  br i1 %spec.select, label %1173, label %1329
 
 1173:                                             ; preds = %1172
   %1174 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract730 = extractvalue { ptr, i8 } %1174, 0
-  %.fca.1.extract731 = extractvalue { ptr, i8 } %1174, 1
+  %.fca.0.extract731 = extractvalue { ptr, i8 } %1174, 0
+  %.fca.1.extract732 = extractvalue { ptr, i8 } %1174, 1
   %1175 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract718 = extractvalue { ptr, i8 } %1175, 0
-  %.fca.1.extract719 = extractvalue { ptr, i8 } %1175, 1
-  %1176 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract730, i8 %.fca.1.extract731, ptr %.fca.0.extract718, i8 %.fca.1.extract719)
-  %.fca.0.extract714 = extractvalue { ptr, i8 } %1176, 0
+  %.fca.0.extract719 = extractvalue { ptr, i8 } %1175, 0
+  %.fca.1.extract720 = extractvalue { ptr, i8 } %1175, 1
+  %1176 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract731, i8 %.fca.1.extract732, ptr %.fca.0.extract719, i8 %.fca.1.extract720)
+  %.fca.0.extract715 = extractvalue { ptr, i8 } %1176, 0
   br label %1329
 
 1177:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1178, label %1329
+  br i1 %spec.select, label %1178, label %1329
 
 1178:                                             ; preds = %1177
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #15
@@ -13203,10 +13203,10 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1180 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %87, ptr noundef nonnull align 8 dereferenceable(34) %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #15
   %1181 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %1180, i8 15)
-  %.fca.0.extract693 = extractvalue { ptr, i8 } %1181, 0
-  %.fca.1.extract694 = extractvalue { ptr, i8 } %1181, 1
-  %1182 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract693, i8 %.fca.1.extract694)
-  %.fca.0.extract689 = extractvalue { ptr, i8 } %1182, 0
+  %.fca.0.extract694 = extractvalue { ptr, i8 } %1181, 0
+  %.fca.1.extract695 = extractvalue { ptr, i8 } %1181, 1
+  %1182 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %.fca.0.extract694, i8 %.fca.1.extract695)
+  %.fca.0.extract690 = extractvalue { ptr, i8 } %1182, 0
   br label %1329
 
 1183:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -13219,247 +13219,247 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1186 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %7)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #15
   %1187 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %1186, i8 85)
-  %.fca.0.extract673 = extractvalue { ptr, i8 } %1187, 0
+  %.fca.0.extract674 = extractvalue { ptr, i8 } %1187, 0
   br label %1329
 
 1188:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1189, label %1329
+  br i1 %spec.select, label %1189, label %1329
 
 1189:                                             ; preds = %1188
   %1190 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract661 = extractvalue { ptr, i8 } %1190, 0
-  %.fca.1.extract662 = extractvalue { ptr, i8 } %1190, 1
-  %1191 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract661, i8 %.fca.1.extract662, ptr nonnull %89, i8 -52)
-  %.fca.0.extract654 = extractvalue { ptr, i8 } %1191, 0
+  %.fca.0.extract662 = extractvalue { ptr, i8 } %1190, 0
+  %.fca.1.extract663 = extractvalue { ptr, i8 } %1190, 1
+  %1191 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract662, i8 %.fca.1.extract663, ptr nonnull %89, i8 -52)
+  %.fca.0.extract655 = extractvalue { ptr, i8 } %1191, 0
   br label %1329
 
 1192:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1193, label %1329
+  br i1 %spec.select, label %1193, label %1329
 
 1193:                                             ; preds = %1192
   %1194 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract642 = extractvalue { ptr, i8 } %1194, 0
-  %.fca.1.extract643 = extractvalue { ptr, i8 } %1194, 1
-  %1195 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract642, i8 %.fca.1.extract643, ptr nonnull %89, i8 -52)
-  %.fca.0.extract635 = extractvalue { ptr, i8 } %1195, 0
+  %.fca.0.extract643 = extractvalue { ptr, i8 } %1194, 0
+  %.fca.1.extract644 = extractvalue { ptr, i8 } %1194, 1
+  %1195 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract643, i8 %.fca.1.extract644, ptr nonnull %89, i8 -52)
+  %.fca.0.extract636 = extractvalue { ptr, i8 } %1195, 0
   br label %1329
 
 1196:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1197, label %1329
+  br i1 %spec.select, label %1197, label %1329
 
 1197:                                             ; preds = %1196
   %1198 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract620 = extractvalue { ptr, i8 } %1198, 0
-  %.fca.1.extract621 = extractvalue { ptr, i8 } %1198, 1
-  %1199 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract620, i8 %.fca.1.extract621)
-  %.fca.0.extract616 = extractvalue { ptr, i8 } %1199, 0
+  %.fca.0.extract621 = extractvalue { ptr, i8 } %1198, 0
+  %.fca.1.extract622 = extractvalue { ptr, i8 } %1198, 1
+  %1199 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract621, i8 %.fca.1.extract622)
+  %.fca.0.extract617 = extractvalue { ptr, i8 } %1199, 0
   br label %1329
 
 1200:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1201, label %1329
+  br i1 %spec.select, label %1201, label %1329
 
 1201:                                             ; preds = %1200
   %1202 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract601 = extractvalue { ptr, i8 } %1202, 0
-  %.fca.1.extract602 = extractvalue { ptr, i8 } %1202, 1
-  %1203 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract601, i8 %.fca.1.extract602)
-  %.fca.0.extract597 = extractvalue { ptr, i8 } %1203, 0
+  %.fca.0.extract602 = extractvalue { ptr, i8 } %1202, 0
+  %.fca.1.extract603 = extractvalue { ptr, i8 } %1202, 1
+  %1203 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract602, i8 %.fca.1.extract603)
+  %.fca.0.extract598 = extractvalue { ptr, i8 } %1203, 0
   br label %1329
 
 1204:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1205, label %1329
+  br i1 %spec.select, label %1205, label %1329
 
 1205:                                             ; preds = %1204
   %1206 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract580 = extractvalue { ptr, i8 } %1206, 0
-  %.fca.1.extract581 = extractvalue { ptr, i8 } %1206, 1
-  %1207 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract580, i8 %.fca.1.extract581, ptr nonnull %89, i8 -52)
-  %.fca.0.extract573 = extractvalue { ptr, i8 } %1207, 0
-  %.fca.1.extract574 = extractvalue { ptr, i8 } %1207, 1
-  %1208 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract573, i8 %.fca.1.extract574)
-  %.fca.0.extract569 = extractvalue { ptr, i8 } %1208, 0
+  %.fca.0.extract581 = extractvalue { ptr, i8 } %1206, 0
+  %.fca.1.extract582 = extractvalue { ptr, i8 } %1206, 1
+  %1207 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract581, i8 %.fca.1.extract582, ptr nonnull %89, i8 -52)
+  %.fca.0.extract574 = extractvalue { ptr, i8 } %1207, 0
+  %.fca.1.extract575 = extractvalue { ptr, i8 } %1207, 1
+  %1208 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract574, i8 %.fca.1.extract575)
+  %.fca.0.extract570 = extractvalue { ptr, i8 } %1208, 0
   br label %1329
 
 1209:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1210, label %1329
+  br i1 %spec.select, label %1210, label %1329
 
 1210:                                             ; preds = %1209
   %1211 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract552 = extractvalue { ptr, i8 } %1211, 0
-  %.fca.1.extract553 = extractvalue { ptr, i8 } %1211, 1
-  %1212 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract552, i8 %.fca.1.extract553, ptr nonnull %89, i8 -52)
-  %.fca.0.extract545 = extractvalue { ptr, i8 } %1212, 0
-  %.fca.1.extract546 = extractvalue { ptr, i8 } %1212, 1
-  %1213 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract545, i8 %.fca.1.extract546)
-  %.fca.0.extract541 = extractvalue { ptr, i8 } %1213, 0
+  %.fca.0.extract553 = extractvalue { ptr, i8 } %1211, 0
+  %.fca.1.extract554 = extractvalue { ptr, i8 } %1211, 1
+  %1212 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract553, i8 %.fca.1.extract554, ptr nonnull %89, i8 -52)
+  %.fca.0.extract546 = extractvalue { ptr, i8 } %1212, 0
+  %.fca.1.extract547 = extractvalue { ptr, i8 } %1212, 1
+  %1213 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract546, i8 %.fca.1.extract547)
+  %.fca.0.extract542 = extractvalue { ptr, i8 } %1213, 0
   br label %1329
 
 1214:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1215, label %1329
+  br i1 %spec.select, label %1215, label %1329
 
 1215:                                             ; preds = %1214
   %1216 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract524 = extractvalue { ptr, i8 } %1216, 0
-  %.fca.1.extract525 = extractvalue { ptr, i8 } %1216, 1
-  %1217 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract524, i8 %.fca.1.extract525, ptr nonnull %91, i8 -86)
-  %.fca.0.extract517 = extractvalue { ptr, i8 } %1217, 0
-  %.fca.1.extract518 = extractvalue { ptr, i8 } %1217, 1
-  %1218 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract517, i8 %.fca.1.extract518)
-  %.fca.0.extract513 = extractvalue { ptr, i8 } %1218, 0
+  %.fca.0.extract525 = extractvalue { ptr, i8 } %1216, 0
+  %.fca.1.extract526 = extractvalue { ptr, i8 } %1216, 1
+  %1217 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract525, i8 %.fca.1.extract526, ptr nonnull %91, i8 -86)
+  %.fca.0.extract518 = extractvalue { ptr, i8 } %1217, 0
+  %.fca.1.extract519 = extractvalue { ptr, i8 } %1217, 1
+  %1218 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract518, i8 %.fca.1.extract519)
+  %.fca.0.extract514 = extractvalue { ptr, i8 } %1218, 0
   br label %1329
 
 1219:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1220, label %1329
+  br i1 %spec.select, label %1220, label %1329
 
 1220:                                             ; preds = %1219
   %1221 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract496 = extractvalue { ptr, i8 } %1221, 0
-  %.fca.1.extract497 = extractvalue { ptr, i8 } %1221, 1
-  %1222 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract496, i8 %.fca.1.extract497, ptr nonnull %91, i8 -86)
-  %.fca.0.extract489 = extractvalue { ptr, i8 } %1222, 0
-  %.fca.1.extract490 = extractvalue { ptr, i8 } %1222, 1
-  %1223 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract489, i8 %.fca.1.extract490)
-  %.fca.0.extract485 = extractvalue { ptr, i8 } %1223, 0
+  %.fca.0.extract497 = extractvalue { ptr, i8 } %1221, 0
+  %.fca.1.extract498 = extractvalue { ptr, i8 } %1221, 1
+  %1222 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract497, i8 %.fca.1.extract498, ptr nonnull %91, i8 -86)
+  %.fca.0.extract490 = extractvalue { ptr, i8 } %1222, 0
+  %.fca.1.extract491 = extractvalue { ptr, i8 } %1222, 1
+  %1223 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract490, i8 %.fca.1.extract491)
+  %.fca.0.extract486 = extractvalue { ptr, i8 } %1223, 0
   br label %1329
 
 1224:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1225, label %1329
+  br i1 %spec.select, label %1225, label %1329
 
 1225:                                             ; preds = %1224
   %1226 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract473 = extractvalue { ptr, i8 } %1226, 0
-  %.fca.1.extract474 = extractvalue { ptr, i8 } %1226, 1
+  %.fca.0.extract474 = extractvalue { ptr, i8 } %1226, 0
+  %.fca.1.extract475 = extractvalue { ptr, i8 } %1226, 1
   %1227 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract461 = extractvalue { ptr, i8 } %1227, 0
-  %.fca.1.extract462 = extractvalue { ptr, i8 } %1227, 1
-  %1228 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract473, i8 %.fca.1.extract474, ptr %.fca.0.extract461, i8 %.fca.1.extract462)
-  %.fca.0.extract457 = extractvalue { ptr, i8 } %1228, 0
+  %.fca.0.extract462 = extractvalue { ptr, i8 } %1227, 0
+  %.fca.1.extract463 = extractvalue { ptr, i8 } %1227, 1
+  %1228 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract474, i8 %.fca.1.extract475, ptr %.fca.0.extract462, i8 %.fca.1.extract463)
+  %.fca.0.extract458 = extractvalue { ptr, i8 } %1228, 0
   br label %1329
 
 1229:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1230, label %1329
+  br i1 %spec.select, label %1230, label %1329
 
 1230:                                             ; preds = %1229
   %1231 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract445 = extractvalue { ptr, i8 } %1231, 0
-  %.fca.1.extract446 = extractvalue { ptr, i8 } %1231, 1
+  %.fca.0.extract446 = extractvalue { ptr, i8 } %1231, 0
+  %.fca.1.extract447 = extractvalue { ptr, i8 } %1231, 1
   %1232 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract433 = extractvalue { ptr, i8 } %1232, 0
-  %.fca.1.extract434 = extractvalue { ptr, i8 } %1232, 1
-  %1233 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract445, i8 %.fca.1.extract446, ptr %.fca.0.extract433, i8 %.fca.1.extract434)
-  %.fca.0.extract429 = extractvalue { ptr, i8 } %1233, 0
+  %.fca.0.extract434 = extractvalue { ptr, i8 } %1232, 0
+  %.fca.1.extract435 = extractvalue { ptr, i8 } %1232, 1
+  %1233 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract446, i8 %.fca.1.extract447, ptr %.fca.0.extract434, i8 %.fca.1.extract435)
+  %.fca.0.extract430 = extractvalue { ptr, i8 } %1233, 0
   br label %1329
 
 1234:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1235, label %1329
+  br i1 %spec.select, label %1235, label %1329
 
 1235:                                             ; preds = %1234
   %1236 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract417 = extractvalue { ptr, i8 } %1236, 0
-  %.fca.1.extract418 = extractvalue { ptr, i8 } %1236, 1
+  %.fca.0.extract418 = extractvalue { ptr, i8 } %1236, 0
+  %.fca.1.extract419 = extractvalue { ptr, i8 } %1236, 1
   %1237 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract403 = extractvalue { ptr, i8 } %1237, 0
-  %.fca.1.extract404 = extractvalue { ptr, i8 } %1237, 1
-  %1238 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract403, i8 %.fca.1.extract404, ptr nonnull %91, i8 -86)
-  %.fca.0.extract396 = extractvalue { ptr, i8 } %1238, 0
-  %.fca.1.extract397 = extractvalue { ptr, i8 } %1238, 1
-  %1239 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract417, i8 %.fca.1.extract418, ptr %.fca.0.extract396, i8 %.fca.1.extract397)
-  %.fca.0.extract392 = extractvalue { ptr, i8 } %1239, 0
+  %.fca.0.extract404 = extractvalue { ptr, i8 } %1237, 0
+  %.fca.1.extract405 = extractvalue { ptr, i8 } %1237, 1
+  %1238 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract404, i8 %.fca.1.extract405, ptr nonnull %91, i8 -86)
+  %.fca.0.extract397 = extractvalue { ptr, i8 } %1238, 0
+  %.fca.1.extract398 = extractvalue { ptr, i8 } %1238, 1
+  %1239 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract418, i8 %.fca.1.extract419, ptr %.fca.0.extract397, i8 %.fca.1.extract398)
+  %.fca.0.extract393 = extractvalue { ptr, i8 } %1239, 0
   br label %1329
 
 1240:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1241, label %1329
+  br i1 %spec.select, label %1241, label %1329
 
 1241:                                             ; preds = %1240
   %1242 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract380 = extractvalue { ptr, i8 } %1242, 0
-  %.fca.1.extract381 = extractvalue { ptr, i8 } %1242, 1
+  %.fca.0.extract381 = extractvalue { ptr, i8 } %1242, 0
+  %.fca.1.extract382 = extractvalue { ptr, i8 } %1242, 1
   %1243 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract366 = extractvalue { ptr, i8 } %1243, 0
-  %.fca.1.extract367 = extractvalue { ptr, i8 } %1243, 1
-  %1244 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract366, i8 %.fca.1.extract367, ptr nonnull %91, i8 -86)
-  %.fca.0.extract359 = extractvalue { ptr, i8 } %1244, 0
-  %.fca.1.extract360 = extractvalue { ptr, i8 } %1244, 1
-  %1245 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract380, i8 %.fca.1.extract381, ptr %.fca.0.extract359, i8 %.fca.1.extract360)
-  %.fca.0.extract355 = extractvalue { ptr, i8 } %1245, 0
+  %.fca.0.extract367 = extractvalue { ptr, i8 } %1243, 0
+  %.fca.1.extract368 = extractvalue { ptr, i8 } %1243, 1
+  %1244 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract367, i8 %.fca.1.extract368, ptr nonnull %91, i8 -86)
+  %.fca.0.extract360 = extractvalue { ptr, i8 } %1244, 0
+  %.fca.1.extract361 = extractvalue { ptr, i8 } %1244, 1
+  %1245 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract381, i8 %.fca.1.extract382, ptr %.fca.0.extract360, i8 %.fca.1.extract361)
+  %.fca.0.extract356 = extractvalue { ptr, i8 } %1245, 0
   br label %1329
 
 1246:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1247, label %1329
+  br i1 %spec.select, label %1247, label %1329
 
 1247:                                             ; preds = %1246
   %1248 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract343 = extractvalue { ptr, i8 } %1248, 0
-  %.fca.1.extract344 = extractvalue { ptr, i8 } %1248, 1
-  %1249 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract343, i8 %.fca.1.extract344, ptr nonnull %91, i8 -86)
-  %.fca.0.extract336 = extractvalue { ptr, i8 } %1249, 0
+  %.fca.0.extract344 = extractvalue { ptr, i8 } %1248, 0
+  %.fca.1.extract345 = extractvalue { ptr, i8 } %1248, 1
+  %1249 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract344, i8 %.fca.1.extract345, ptr nonnull %91, i8 -86)
+  %.fca.0.extract337 = extractvalue { ptr, i8 } %1249, 0
   br label %1329
 
 1250:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1251, label %1329
+  br i1 %spec.select, label %1251, label %1329
 
 1251:                                             ; preds = %1250
   %1252 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract324 = extractvalue { ptr, i8 } %1252, 0
-  %.fca.1.extract325 = extractvalue { ptr, i8 } %1252, 1
-  %1253 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract324, i8 %.fca.1.extract325, ptr nonnull %91, i8 -86)
-  %.fca.0.extract317 = extractvalue { ptr, i8 } %1253, 0
+  %.fca.0.extract325 = extractvalue { ptr, i8 } %1252, 0
+  %.fca.1.extract326 = extractvalue { ptr, i8 } %1252, 1
+  %1253 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract325, i8 %.fca.1.extract326, ptr nonnull %91, i8 -86)
+  %.fca.0.extract318 = extractvalue { ptr, i8 } %1253, 0
   br label %1329
 
 1254:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1255, label %1329
+  br i1 %spec.select, label %1255, label %1329
 
 1255:                                             ; preds = %1254
   %1256 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract305 = extractvalue { ptr, i8 } %1256, 0
-  %.fca.1.extract306 = extractvalue { ptr, i8 } %1256, 1
-  %1257 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract305, i8 %.fca.1.extract306, ptr nonnull %89, i8 -52)
-  %.fca.0.extract298 = extractvalue { ptr, i8 } %1257, 0
+  %.fca.0.extract306 = extractvalue { ptr, i8 } %1256, 0
+  %.fca.1.extract307 = extractvalue { ptr, i8 } %1256, 1
+  %1257 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract306, i8 %.fca.1.extract307, ptr nonnull %89, i8 -52)
+  %.fca.0.extract299 = extractvalue { ptr, i8 } %1257, 0
   br label %1329
 
 1258:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1259, label %1329
+  br i1 %spec.select, label %1259, label %1329
 
 1259:                                             ; preds = %1258
   %1260 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract286 = extractvalue { ptr, i8 } %1260, 0
-  %.fca.1.extract287 = extractvalue { ptr, i8 } %1260, 1
-  %1261 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract286, i8 %.fca.1.extract287, ptr nonnull %89, i8 -52)
-  %.fca.0.extract279 = extractvalue { ptr, i8 } %1261, 0
+  %.fca.0.extract287 = extractvalue { ptr, i8 } %1260, 0
+  %.fca.1.extract288 = extractvalue { ptr, i8 } %1260, 1
+  %1261 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract287, i8 %.fca.1.extract288, ptr nonnull %89, i8 -52)
+  %.fca.0.extract280 = extractvalue { ptr, i8 } %1261, 0
   br label %1329
 
 1262:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
   %1263 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract269 = extractvalue { ptr, i8 } %1263, 0
+  %.fca.0.extract270 = extractvalue { ptr, i8 } %1263, 0
   br label %1329
 
 1264:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1265, label %1329
+  br i1 %spec.select, label %1265, label %1329
 
 1265:                                             ; preds = %1264
   %1266 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract254 = extractvalue { ptr, i8 } %1266, 0
-  %.fca.1.extract255 = extractvalue { ptr, i8 } %1266, 1
-  %1267 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract254, i8 %.fca.1.extract255)
-  %.fca.0.extract250 = extractvalue { ptr, i8 } %1267, 0
+  %.fca.0.extract255 = extractvalue { ptr, i8 } %1266, 0
+  %.fca.1.extract256 = extractvalue { ptr, i8 } %1266, 1
+  %1267 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract255, i8 %.fca.1.extract256)
+  %.fca.0.extract251 = extractvalue { ptr, i8 } %1267, 0
   br label %1329
 
 1268:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
   br label %1329
 
 1269:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1270, label %1329
+  br i1 %spec.select, label %1270, label %1329
 
 1270:                                             ; preds = %1269
   %1271 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract235 = extractvalue { ptr, i8 } %1271, 0
-  %.fca.1.extract236 = extractvalue { ptr, i8 } %1271, 1
-  %1272 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract235, i8 %.fca.1.extract236)
-  %.fca.0.extract231 = extractvalue { ptr, i8 } %1272, 0
+  %.fca.0.extract236 = extractvalue { ptr, i8 } %1271, 0
+  %.fca.1.extract237 = extractvalue { ptr, i8 } %1271, 1
+  %1272 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract236, i8 %.fca.1.extract237)
+  %.fca.0.extract232 = extractvalue { ptr, i8 } %1272, 0
   br label %1329
 
 1273:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1274, label %1329
+  br i1 %spec.select, label %1274, label %1329
 
 1274:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #15
@@ -13468,10 +13468,10 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1276 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #15
   %1277 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr %1276, i8 85)
-  %.fca.0.extract210 = extractvalue { ptr, i8 } %1277, 0
-  %.fca.1.extract211 = extractvalue { ptr, i8 } %1277, 1
-  %1278 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract210, i8 %.fca.1.extract211)
-  %.fca.0.extract206 = extractvalue { ptr, i8 } %1278, 0
+  %.fca.0.extract211 = extractvalue { ptr, i8 } %1277, 0
+  %.fca.1.extract212 = extractvalue { ptr, i8 } %1277, 1
+  %1278 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract211, i8 %.fca.1.extract212)
+  %.fca.0.extract207 = extractvalue { ptr, i8 } %1278, 0
   br label %1329
 
 1279:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -13484,11 +13484,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1282 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #15
   %1283 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %1282, i8 51)
-  %.fca.0.extract190 = extractvalue { ptr, i8 } %1283, 0
+  %.fca.0.extract191 = extractvalue { ptr, i8 } %1283, 0
   br label %1329
 
 1284:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1285, label %1329
+  br i1 %spec.select, label %1285, label %1329
 
 1285:                                             ; preds = %1284
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #15
@@ -13497,10 +13497,10 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1287 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %89, ptr noundef nonnull align 8 dereferenceable(34) %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #15
   %1288 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %91, i8 -86, ptr %1287, i8 51)
-  %.fca.0.extract169 = extractvalue { ptr, i8 } %1288, 0
-  %.fca.1.extract170 = extractvalue { ptr, i8 } %1288, 1
-  %1289 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract169, i8 %.fca.1.extract170)
-  %.fca.0.extract165 = extractvalue { ptr, i8 } %1289, 0
+  %.fca.0.extract170 = extractvalue { ptr, i8 } %1288, 0
+  %.fca.1.extract171 = extractvalue { ptr, i8 } %1288, 1
+  %1289 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract170, i8 %.fca.1.extract171)
+  %.fca.0.extract166 = extractvalue { ptr, i8 } %1289, 0
   br label %1329
 
 1290:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
@@ -13513,93 +13513,93 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_match
   %1293 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateNotEPNS_5ValueERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %91, ptr noundef nonnull align 8 dereferenceable(34) %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
   %1294 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %1293, i8 85)
-  %.fca.0.extract149 = extractvalue { ptr, i8 } %1294, 0
+  %.fca.0.extract150 = extractvalue { ptr, i8 } %1294, 0
   br label %1329
 
 1295:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1296, label %1329
+  br i1 %spec.select, label %1296, label %1329
 
 1296:                                             ; preds = %1295
   %1297 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_5clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract134 = extractvalue { ptr, i8 } %1297, 0
-  %.fca.1.extract135 = extractvalue { ptr, i8 } %1297, 1
-  %1298 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract134, i8 %.fca.1.extract135)
-  %.fca.0.extract130 = extractvalue { ptr, i8 } %1298, 0
+  %.fca.0.extract135 = extractvalue { ptr, i8 } %1297, 0
+  %.fca.1.extract136 = extractvalue { ptr, i8 } %1297, 1
+  %1298 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract135, i8 %.fca.1.extract136)
+  %.fca.0.extract131 = extractvalue { ptr, i8 } %1298, 0
   br label %1329
 
 1299:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1300, label %1329
+  br i1 %spec.select, label %1300, label %1329
 
 1300:                                             ; preds = %1299
   %1301 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract115 = extractvalue { ptr, i8 } %1301, 0
-  %.fca.1.extract116 = extractvalue { ptr, i8 } %1301, 1
-  %1302 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract115, i8 %.fca.1.extract116)
-  %.fca.0.extract111 = extractvalue { ptr, i8 } %1302, 0
+  %.fca.0.extract116 = extractvalue { ptr, i8 } %1301, 0
+  %.fca.1.extract117 = extractvalue { ptr, i8 } %1301, 1
+  %1302 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract116, i8 %.fca.1.extract117)
+  %.fca.0.extract112 = extractvalue { ptr, i8 } %1302, 0
   br label %1329
 
 1303:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1304, label %1329
+  br i1 %spec.select, label %1304, label %1329
 
 1304:                                             ; preds = %1303
   %1305 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_3clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract96 = extractvalue { ptr, i8 } %1305, 0
-  %.fca.1.extract97 = extractvalue { ptr, i8 } %1305, 1
-  %1306 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract96, i8 %.fca.1.extract97)
-  %.fca.0.extract92 = extractvalue { ptr, i8 } %1306, 0
+  %.fca.0.extract97 = extractvalue { ptr, i8 } %1305, 0
+  %.fca.1.extract98 = extractvalue { ptr, i8 } %1305, 1
+  %1306 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract97, i8 %.fca.1.extract98)
+  %.fca.0.extract93 = extractvalue { ptr, i8 } %1306, 0
   br label %1329
 
 1307:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1308, label %1329
+  br i1 %spec.select, label %1308, label %1329
 
 1308:                                             ; preds = %1307
   %1309 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_4clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %89, i8 -52, ptr nonnull %91, i8 -86)
-  %.fca.0.extract77 = extractvalue { ptr, i8 } %1309, 0
-  %.fca.1.extract78 = extractvalue { ptr, i8 } %1309, 1
-  %1310 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract77, i8 %.fca.1.extract78)
-  %.fca.0.extract73 = extractvalue { ptr, i8 } %1310, 0
+  %.fca.0.extract78 = extractvalue { ptr, i8 } %1309, 0
+  %.fca.1.extract79 = extractvalue { ptr, i8 } %1309, 1
+  %1310 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr %.fca.0.extract78, i8 %.fca.1.extract79)
+  %.fca.0.extract74 = extractvalue { ptr, i8 } %1310, 0
   br label %1329
 
 1311:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
   %1312 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract63 = extractvalue { ptr, i8 } %1312, 0
+  %.fca.0.extract64 = extractvalue { ptr, i8 } %1312, 0
   br label %1329
 
 1313:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1314, label %1329
+  br i1 %spec.select, label %1314, label %1329
 
 1314:                                             ; preds = %1313
   %1315 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %91, i8 -86)
-  %.fca.0.extract51 = extractvalue { ptr, i8 } %1315, 0
-  %.fca.1.extract52 = extractvalue { ptr, i8 } %1315, 1
-  %1316 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract51, i8 %.fca.1.extract52, ptr nonnull %89, i8 -52)
-  %.fca.0.extract44 = extractvalue { ptr, i8 } %1316, 0
+  %.fca.0.extract52 = extractvalue { ptr, i8 } %1315, 0
+  %.fca.1.extract53 = extractvalue { ptr, i8 } %1315, 1
+  %1316 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract52, i8 %.fca.1.extract53, ptr nonnull %89, i8 -52)
+  %.fca.0.extract45 = extractvalue { ptr, i8 } %1316, 0
   br label %1329
 
 1317:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
   %1318 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract34 = extractvalue { ptr, i8 } %1318, 0
+  %.fca.0.extract35 = extractvalue { ptr, i8 } %1318, 0
   br label %1329
 
 1319:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1320, label %1329
+  br i1 %spec.select, label %1320, label %1329
 
 1320:                                             ; preds = %1319
   %1321 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_1clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract22 = extractvalue { ptr, i8 } %1321, 0
-  %.fca.1.extract23 = extractvalue { ptr, i8 } %1321, 1
-  %1322 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract22, i8 %.fca.1.extract23, ptr nonnull %91, i8 -86)
-  %.fca.0.extract15 = extractvalue { ptr, i8 } %1322, 0
+  %.fca.0.extract23 = extractvalue { ptr, i8 } %1321, 0
+  %.fca.1.extract24 = extractvalue { ptr, i8 } %1321, 1
+  %1322 = call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_6clISt4pairIPNS_5ValueEhESD_EEDaT_T0_"(ptr nonnull %66, ptr nonnull %1, ptr %.fca.0.extract23, i8 %.fca.1.extract24, ptr nonnull %91, i8 -86)
+  %.fca.0.extract16 = extractvalue { ptr, i8 } %1322, 0
   br label %1329
 
 1323:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172
-  br i1 %spec.select6234, label %1324, label %1329
+  br i1 %spec.select, label %1324, label %1329
 
 1324:                                             ; preds = %1323
   %1325 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr nonnull %87, i8 -16, ptr nonnull %89, i8 -52)
-  %.fca.0.extract3 = extractvalue { ptr, i8 } %1325, 0
-  %.fca.1.extract4 = extractvalue { ptr, i8 } %1325, 1
-  %1326 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract3, i8 %.fca.1.extract4, ptr nonnull %91, i8 -86)
+  %.fca.0.extract4 = extractvalue { ptr, i8 } %1325, 0
+  %.fca.1.extract5 = extractvalue { ptr, i8 } %1325, 1
+  %1326 = tail call fastcc { ptr, i8 } @"_ZZL20simplifyTernarylogicRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEEENK3$_0clISt4pairIPNS_5ValueEhESD_EESD_T_T0_"(ptr nonnull %1, ptr %.fca.0.extract4, i8 %.fca.1.extract5, ptr nonnull %91, i8 -86)
   %.fca.0.extract = extractvalue { ptr, i8 } %1326, 0
   br label %1329
 
@@ -13611,7 +13611,7 @@ default.unreachable:                              ; preds = %_ZN4llvm12PatternMa
   unreachable
 
 1329:                                             ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172, %1323, %1324, %1319, %1320, %1313, %1314, %1307, %1308, %1303, %1304, %1299, %1300, %1295, %1296, %1290, %1291, %1284, %1285, %1279, %1280, %1273, %1274, %1269, %1270, %1264, %1265, %1258, %1259, %1254, %1255, %1250, %1251, %1246, %1247, %1240, %1241, %1234, %1235, %1229, %1230, %1224, %1225, %1219, %1220, %1214, %1215, %1209, %1210, %1204, %1205, %1200, %1201, %1196, %1197, %1192, %1193, %1188, %1189, %1183, %1184, %1177, %1178, %1172, %1173, %1167, %1168, %1162, %1163, %1157, %1158, %1153, %1154, %1147, %1148, %1143, %1144, %1137, %1138, %1132, %1133, %1126, %1127, %1121, %1122, %1115, %1116, %1110, %1111, %1104, %1105, %1100, %1101, %1094, %1095, %1089, %1090, %1085, %1086, %1081, %1082, %1076, %1077, %1070, %1071, %1065, %1066, %1059, %1060, %1056, %1057, %1051, %1052, %1044, %1045, %1038, %1039, %1034, %1035, %1029, %1030, %1024, %1025, %1019, %1020, %1013, %1014, %1008, %1009, %1003, %1004, %999, %1000, %993, %994, %988, %989, %982, %983, %978, %979, %972, %973, %967, %968, %961, %962, %956, %957, %950, %951, %945, %946, %940, %941, %936, %937, %932, %933, %928, %929, %923, %924, %917, %918, %914, %915, %909, %910, %904, %905, %898, %899, %891, %892, %885, %886, %879, %880, %874, %875, %868, %869, %863, %864, %857, %858, %854, %855, %849, %850, %843, %844, %839, %840, %835, %836, %829, %830, %825, %826, %819, %820, %812, %813, %808, %809, %804, %805, %798, %799, %793, %794, %787, %788, %782, %783, %776, %777, %769, %770, %763, %764, %757, %758, %750, %751, %746, %747, %739, %740, %735, %736, %730, %731, %726, %727, %722, %723, %717, %718, %713, %714, %706, %707, %702, %703, %695, %696, %689, %690, %685, %686, %682, %683, %675, %676, %669, %670, %664, %665, %658, %659, %653, %654, %647, %648, %643, %644, %639, %640, %632, %633, %626, %627, %622, %623, %616, %617, %612, %613, %608, %609, %602, %603, %597, %598, %589, %590, %584, %585, %578, %579, %573, %574, %567, %568, %563, %564, %560, %561, %553, %554, %547, %548, %542, %543, %537, %538, %529, %530, %524, %525, %520, %521, %516, %517, %509, %510, %504, %505, %499, %500, %493, %494, %488, %489, %482, %483, %477, %478, %471, %472, %467, %468, %461, %462, %456, %457, %450, %451, %446, %447, %441, %442, %436, %437, %430, %431, %425, %426, %420, %421, %415, %416, %411, %412, %407, %408, %404, %405, %397, %398, %392, %393, %384, %385, %379, %380, %373, %374, %368, %369, %364, %365, %360, %361, %355, %356, %350, %351, %343, %344, %337, %338, %332, %333, %326, %327, %321, %322, %315, %316, %310, %311, %304, %305, %300, %301, %294, %295, %290, %291, %285, %286, %280, %281, %275, %276, %270, %271, %264, %265, %259, %260, %255, %256, %251, %252, %247, %248, %243, %244, %238, %239, %233, %234, %228, %229, %223, %224, %218, %219, %213, %214, %207, %208, %201, %202, %197, %198, %193, %194, %189, %190, %185, %186, %182, %183, %178, %179, %171, %172, %165, %166, %160, %161, %154, %155, %149, %150, %145, %146, %141, %142, %137, %138, %133, %134, %130, %131, %126, %127, %123, %124, %119, %120, %115, %116, %1327, %1317, %1311, %1268, %1262, %1099, %1042, %889, %767, %595, %535, %513, %390, %347, %175, %113
-  %.sroa.08056.0 = phi ptr [ %1328, %1327 ], [ %.fca.0.extract, %1324 ], [ null, %1323 ], [ %.fca.0.extract15, %1320 ], [ null, %1319 ], [ %.fca.0.extract34, %1317 ], [ %.fca.0.extract44, %1314 ], [ null, %1313 ], [ %.fca.0.extract63, %1311 ], [ %.fca.0.extract73, %1308 ], [ null, %1307 ], [ %.fca.0.extract92, %1304 ], [ null, %1303 ], [ %.fca.0.extract111, %1300 ], [ null, %1299 ], [ %.fca.0.extract130, %1296 ], [ null, %1295 ], [ %.fca.0.extract149, %1291 ], [ null, %1290 ], [ %.fca.0.extract165, %1285 ], [ null, %1284 ], [ %.fca.0.extract190, %1280 ], [ null, %1279 ], [ %.fca.0.extract206, %1274 ], [ null, %1273 ], [ %.fca.0.extract231, %1270 ], [ null, %1269 ], [ %87, %1268 ], [ %.fca.0.extract250, %1265 ], [ null, %1264 ], [ %.fca.0.extract269, %1262 ], [ %.fca.0.extract279, %1259 ], [ null, %1258 ], [ %.fca.0.extract298, %1255 ], [ null, %1254 ], [ %.fca.0.extract317, %1251 ], [ null, %1250 ], [ %.fca.0.extract336, %1247 ], [ null, %1246 ], [ %.fca.0.extract355, %1241 ], [ null, %1240 ], [ %.fca.0.extract392, %1235 ], [ null, %1234 ], [ %.fca.0.extract429, %1230 ], [ null, %1229 ], [ %.fca.0.extract457, %1225 ], [ null, %1224 ], [ %.fca.0.extract485, %1220 ], [ null, %1219 ], [ %.fca.0.extract513, %1215 ], [ null, %1214 ], [ %.fca.0.extract541, %1210 ], [ null, %1209 ], [ %.fca.0.extract569, %1205 ], [ null, %1204 ], [ %.fca.0.extract597, %1201 ], [ null, %1200 ], [ %.fca.0.extract616, %1197 ], [ null, %1196 ], [ %.fca.0.extract635, %1193 ], [ null, %1192 ], [ %.fca.0.extract654, %1189 ], [ null, %1188 ], [ %.fca.0.extract673, %1184 ], [ null, %1183 ], [ %.fca.0.extract689, %1178 ], [ null, %1177 ], [ %.fca.0.extract714, %1173 ], [ null, %1172 ], [ %.fca.0.extract742, %1168 ], [ null, %1167 ], [ %.fca.0.extract770, %1163 ], [ null, %1162 ], [ %.fca.0.extract798, %1158 ], [ null, %1157 ], [ %.fca.0.extract826, %1154 ], [ null, %1153 ], [ %.fca.0.extract845, %1148 ], [ null, %1147 ], [ %.fca.0.extract882, %1144 ], [ null, %1143 ], [ %.fca.0.extract901, %1138 ], [ null, %1137 ], [ %.fca.0.extract938, %1133 ], [ null, %1132 ], [ %.fca.0.extract966, %1127 ], [ null, %1126 ], [ %.fca.0.extract991, %1122 ], [ null, %1121 ], [ %.fca.0.extract1019, %1116 ], [ null, %1115 ], [ %.fca.0.extract1044, %1111 ], [ null, %1110 ], [ %.fca.0.extract1060, %1105 ], [ null, %1104 ], [ %.fca.0.extract1085, %1101 ], [ null, %1100 ], [ %89, %1099 ], [ %.fca.0.extract1104, %1095 ], [ null, %1094 ], [ %.fca.0.extract1132, %1090 ], [ null, %1089 ], [ %.fca.0.extract1160, %1086 ], [ null, %1085 ], [ %.fca.0.extract1179, %1082 ], [ null, %1081 ], [ %.fca.0.extract1198, %1077 ], [ null, %1076 ], [ %.fca.0.extract1226, %1071 ], [ null, %1070 ], [ %.fca.0.extract1251, %1066 ], [ null, %1065 ], [ %.fca.0.extract1279, %1060 ], [ null, %1059 ], [ %.fca.0.extract1304, %1057 ], [ null, %1056 ], [ %.fca.0.extract1314, %1052 ], [ null, %1051 ], [ %.fca.0.extract1342, %1045 ], [ null, %1044 ], [ %.fca.0.extract1376, %1042 ], [ %.fca.0.extract1386, %1039 ], [ null, %1038 ], [ %.fca.0.extract1405, %1035 ], [ null, %1034 ], [ %.fca.0.extract1424, %1030 ], [ null, %1029 ], [ %.fca.0.extract1452, %1025 ], [ null, %1024 ], [ %.fca.0.extract1480, %1020 ], [ null, %1019 ], [ %.fca.0.extract1496, %1014 ], [ null, %1013 ], [ %.fca.0.extract1521, %1009 ], [ null, %1008 ], [ %.fca.0.extract1549, %1004 ], [ null, %1003 ], [ %.fca.0.extract1577, %1000 ], [ null, %999 ], [ %.fca.0.extract1596, %994 ], [ null, %993 ], [ %.fca.0.extract1633, %989 ], [ null, %988 ], [ %.fca.0.extract1661, %983 ], [ null, %982 ], [ %.fca.0.extract1686, %979 ], [ null, %978 ], [ %.fca.0.extract1705, %973 ], [ null, %972 ], [ %.fca.0.extract1742, %968 ], [ null, %967 ], [ %.fca.0.extract1770, %962 ], [ null, %961 ], [ %.fca.0.extract1795, %957 ], [ null, %956 ], [ %.fca.0.extract1811, %951 ], [ null, %950 ], [ %.fca.0.extract1836, %946 ], [ null, %945 ], [ %.fca.0.extract1864, %941 ], [ null, %940 ], [ %.fca.0.extract1892, %937 ], [ null, %936 ], [ %.fca.0.extract1911, %933 ], [ null, %932 ], [ %.fca.0.extract1930, %929 ], [ null, %928 ], [ %.fca.0.extract1949, %924 ], [ null, %923 ], [ %.fca.0.extract1977, %918 ], [ null, %917 ], [ %.fca.0.extract2002, %915 ], [ null, %914 ], [ %.fca.0.extract2012, %910 ], [ null, %909 ], [ %.fca.0.extract2040, %905 ], [ null, %904 ], [ %.fca.0.extract2068, %899 ], [ null, %898 ], [ %.fca.0.extract2093, %892 ], [ null, %891 ], [ %.fca.0.extract2127, %889 ], [ %.fca.0.extract2137, %886 ], [ null, %885 ], [ %.fca.0.extract2156, %880 ], [ null, %879 ], [ %.fca.0.extract2193, %875 ], [ null, %874 ], [ %.fca.0.extract2221, %869 ], [ null, %868 ], [ %.fca.0.extract2246, %864 ], [ null, %863 ], [ %.fca.0.extract2274, %858 ], [ null, %857 ], [ %.fca.0.extract2299, %855 ], [ null, %854 ], [ %.fca.0.extract2309, %850 ], [ null, %849 ], [ %.fca.0.extract2337, %844 ], [ null, %843 ], [ %.fca.0.extract2374, %840 ], [ null, %839 ], [ %.fca.0.extract2393, %836 ], [ null, %835 ], [ %.fca.0.extract2412, %830 ], [ null, %829 ], [ %.fca.0.extract2449, %826 ], [ null, %825 ], [ %.fca.0.extract2468, %820 ], [ null, %819 ], [ %.fca.0.extract2505, %813 ], [ null, %812 ], [ %.fca.0.extract2539, %809 ], [ null, %808 ], [ %.fca.0.extract2558, %805 ], [ null, %804 ], [ %.fca.0.extract2577, %799 ], [ null, %798 ], [ %.fca.0.extract2614, %794 ], [ null, %793 ], [ %.fca.0.extract2642, %788 ], [ null, %787 ], [ %.fca.0.extract2667, %783 ], [ null, %782 ], [ %.fca.0.extract2695, %777 ], [ null, %776 ], [ %.fca.0.extract2720, %770 ], [ null, %769 ], [ %.fca.0.extract2754, %767 ], [ %.fca.0.extract2764, %764 ], [ null, %763 ], [ %.fca.0.extract2783, %758 ], [ null, %757 ], [ %.fca.0.extract2820, %751 ], [ null, %750 ], [ %.fca.0.extract2854, %747 ], [ null, %746 ], [ %.fca.0.extract2873, %740 ], [ null, %739 ], [ %.fca.0.extract2907, %736 ], [ null, %735 ], [ %.fca.0.extract2926, %731 ], [ null, %730 ], [ %.fca.0.extract2954, %727 ], [ null, %726 ], [ %.fca.0.extract2973, %723 ], [ null, %722 ], [ %.fca.0.extract2992, %718 ], [ null, %717 ], [ %.fca.0.extract3020, %714 ], [ null, %713 ], [ %.fca.0.extract3039, %707 ], [ null, %706 ], [ %.fca.0.extract3073, %703 ], [ null, %702 ], [ %.fca.0.extract3092, %696 ], [ null, %695 ], [ %.fca.0.extract3126, %690 ], [ null, %689 ], [ %.fca.0.extract3163, %686 ], [ null, %685 ], [ %.fca.0.extract3182, %683 ], [ null, %682 ], [ %.fca.0.extract3192, %676 ], [ null, %675 ], [ %.fca.0.extract3226, %670 ], [ null, %669 ], [ %.fca.0.extract3251, %665 ], [ null, %664 ], [ %.fca.0.extract3279, %659 ], [ null, %658 ], [ %.fca.0.extract3304, %654 ], [ null, %653 ], [ %.fca.0.extract3332, %648 ], [ null, %647 ], [ %.fca.0.extract3369, %644 ], [ null, %643 ], [ %.fca.0.extract3388, %640 ], [ null, %639 ], [ %.fca.0.extract3407, %633 ], [ null, %632 ], [ %.fca.0.extract3441, %627 ], [ null, %626 ], [ %.fca.0.extract3478, %623 ], [ null, %622 ], [ %.fca.0.extract3497, %617 ], [ null, %616 ], [ %.fca.0.extract3534, %613 ], [ null, %612 ], [ %.fca.0.extract3553, %609 ], [ null, %608 ], [ %.fca.0.extract3572, %603 ], [ null, %602 ], [ %.fca.0.extract3609, %598 ], [ null, %597 ], [ %.fca.0.extract3637, %595 ], [ %.fca.0.extract3647, %590 ], [ null, %589 ], [ %.fca.0.extract3672, %585 ], [ null, %584 ], [ %.fca.0.extract3700, %579 ], [ null, %578 ], [ %.fca.0.extract3725, %574 ], [ null, %573 ], [ %.fca.0.extract3753, %568 ], [ null, %567 ], [ %.fca.0.extract3790, %564 ], [ null, %563 ], [ %.fca.0.extract3809, %561 ], [ null, %560 ], [ %.fca.0.extract3819, %554 ], [ null, %553 ], [ %.fca.0.extract3853, %548 ], [ null, %547 ], [ %.fca.0.extract3878, %543 ], [ null, %542 ], [ %.fca.0.extract3906, %538 ], [ null, %537 ], [ %.fca.0.extract3934, %535 ], [ %.fca.0.extract3944, %530 ], [ null, %529 ], [ %.fca.0.extract3969, %525 ], [ null, %524 ], [ %.fca.0.extract3997, %521 ], [ null, %520 ], [ %.fca.0.extract4016, %517 ], [ null, %516 ], [ %515, %513 ], [ %.fca.0.extract4042, %510 ], [ null, %509 ], [ %.fca.0.extract4061, %505 ], [ null, %504 ], [ %.fca.0.extract4089, %500 ], [ null, %499 ], [ %.fca.0.extract4117, %494 ], [ null, %493 ], [ %.fca.0.extract4142, %489 ], [ null, %488 ], [ %.fca.0.extract4158, %483 ], [ null, %482 ], [ %.fca.0.extract4183, %478 ], [ null, %477 ], [ %.fca.0.extract4211, %472 ], [ null, %471 ], [ %.fca.0.extract4248, %468 ], [ null, %467 ], [ %.fca.0.extract4267, %462 ], [ null, %461 ], [ %.fca.0.extract4292, %457 ], [ null, %456 ], [ %.fca.0.extract4320, %451 ], [ null, %450 ], [ %.fca.0.extract4357, %447 ], [ null, %446 ], [ %.fca.0.extract4376, %442 ], [ null, %441 ], [ %.fca.0.extract4404, %437 ], [ null, %436 ], [ %.fca.0.extract4432, %431 ], [ null, %430 ], [ %.fca.0.extract4457, %426 ], [ null, %425 ], [ %.fca.0.extract4473, %421 ], [ null, %420 ], [ %.fca.0.extract4501, %416 ], [ null, %415 ], [ %.fca.0.extract4529, %412 ], [ null, %411 ], [ %.fca.0.extract4548, %408 ], [ null, %407 ], [ %.fca.0.extract4567, %405 ], [ null, %404 ], [ %.fca.0.extract4577, %398 ], [ null, %397 ], [ %.fca.0.extract4611, %393 ], [ null, %392 ], [ %.fca.0.extract4639, %390 ], [ %.fca.0.extract4649, %385 ], [ null, %384 ], [ %.fca.0.extract4674, %380 ], [ null, %379 ], [ %.fca.0.extract4702, %374 ], [ null, %373 ], [ %.fca.0.extract4727, %369 ], [ null, %368 ], [ %.fca.0.extract4755, %365 ], [ null, %364 ], [ %.fca.0.extract4774, %361 ], [ null, %360 ], [ %.fca.0.extract4793, %356 ], [ null, %355 ], [ %.fca.0.extract4821, %351 ], [ null, %350 ], [ %349, %347 ], [ %.fca.0.extract4856, %344 ], [ null, %343 ], [ %.fca.0.extract4875, %338 ], [ null, %337 ], [ %.fca.0.extract4900, %333 ], [ null, %332 ], [ %.fca.0.extract4916, %327 ], [ null, %326 ], [ %.fca.0.extract4941, %322 ], [ null, %321 ], [ %.fca.0.extract4969, %316 ], [ null, %315 ], [ %.fca.0.extract4994, %311 ], [ null, %310 ], [ %.fca.0.extract5022, %305 ], [ null, %304 ], [ %.fca.0.extract5059, %301 ], [ null, %300 ], [ %.fca.0.extract5078, %295 ], [ null, %294 ], [ %.fca.0.extract5115, %291 ], [ null, %290 ], [ %.fca.0.extract5134, %286 ], [ null, %285 ], [ %.fca.0.extract5162, %281 ], [ null, %280 ], [ %.fca.0.extract5190, %276 ], [ null, %275 ], [ %.fca.0.extract5218, %271 ], [ null, %270 ], [ %.fca.0.extract5246, %265 ], [ null, %264 ], [ %.fca.0.extract5271, %260 ], [ null, %259 ], [ %.fca.0.extract5287, %256 ], [ null, %255 ], [ %.fca.0.extract5306, %252 ], [ null, %251 ], [ %.fca.0.extract5325, %248 ], [ null, %247 ], [ %.fca.0.extract5344, %244 ], [ null, %243 ], [ %.fca.0.extract5363, %239 ], [ null, %238 ], [ %.fca.0.extract5391, %234 ], [ null, %233 ], [ %.fca.0.extract5419, %229 ], [ null, %228 ], [ %.fca.0.extract5447, %224 ], [ null, %223 ], [ %.fca.0.extract5475, %219 ], [ null, %218 ], [ %.fca.0.extract5503, %214 ], [ null, %213 ], [ %.fca.0.extract5531, %208 ], [ null, %207 ], [ %.fca.0.extract5568, %202 ], [ null, %201 ], [ %.fca.0.extract5605, %198 ], [ null, %197 ], [ %.fca.0.extract5624, %194 ], [ null, %193 ], [ %.fca.0.extract5643, %190 ], [ null, %189 ], [ %.fca.0.extract5662, %186 ], [ null, %185 ], [ %.fca.0.extract5681, %183 ], [ null, %182 ], [ %.fca.0.extract5691, %179 ], [ null, %178 ], [ %177, %175 ], [ %.fca.0.extract5717, %172 ], [ null, %171 ], [ %.fca.0.extract5736, %166 ], [ null, %165 ], [ %.fca.0.extract5761, %161 ], [ null, %160 ], [ %.fca.0.extract5777, %155 ], [ null, %154 ], [ %.fca.0.extract5802, %150 ], [ null, %149 ], [ %.fca.0.extract5818, %146 ], [ null, %145 ], [ %.fca.0.extract5837, %142 ], [ null, %141 ], [ %.fca.0.extract5856, %138 ], [ null, %137 ], [ %.fca.0.extract5875, %134 ], [ null, %133 ], [ %.fca.0.extract5894, %131 ], [ null, %130 ], [ %.fca.0.extract5904, %127 ], [ null, %126 ], [ %.fca.0.extract5923, %124 ], [ null, %123 ], [ %.fca.0.extract5933, %120 ], [ null, %119 ], [ %.fca.0.extract5952, %116 ], [ null, %115 ], [ %114, %113 ], [ %91, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172 ]
+  %.sroa.08056.0 = phi ptr [ %1328, %1327 ], [ %.fca.0.extract, %1324 ], [ null, %1323 ], [ %.fca.0.extract16, %1320 ], [ null, %1319 ], [ %.fca.0.extract35, %1317 ], [ %.fca.0.extract45, %1314 ], [ null, %1313 ], [ %.fca.0.extract64, %1311 ], [ %.fca.0.extract74, %1308 ], [ null, %1307 ], [ %.fca.0.extract93, %1304 ], [ null, %1303 ], [ %.fca.0.extract112, %1300 ], [ null, %1299 ], [ %.fca.0.extract131, %1296 ], [ null, %1295 ], [ %.fca.0.extract150, %1291 ], [ null, %1290 ], [ %.fca.0.extract166, %1285 ], [ null, %1284 ], [ %.fca.0.extract191, %1280 ], [ null, %1279 ], [ %.fca.0.extract207, %1274 ], [ null, %1273 ], [ %.fca.0.extract232, %1270 ], [ null, %1269 ], [ %87, %1268 ], [ %.fca.0.extract251, %1265 ], [ null, %1264 ], [ %.fca.0.extract270, %1262 ], [ %.fca.0.extract280, %1259 ], [ null, %1258 ], [ %.fca.0.extract299, %1255 ], [ null, %1254 ], [ %.fca.0.extract318, %1251 ], [ null, %1250 ], [ %.fca.0.extract337, %1247 ], [ null, %1246 ], [ %.fca.0.extract356, %1241 ], [ null, %1240 ], [ %.fca.0.extract393, %1235 ], [ null, %1234 ], [ %.fca.0.extract430, %1230 ], [ null, %1229 ], [ %.fca.0.extract458, %1225 ], [ null, %1224 ], [ %.fca.0.extract486, %1220 ], [ null, %1219 ], [ %.fca.0.extract514, %1215 ], [ null, %1214 ], [ %.fca.0.extract542, %1210 ], [ null, %1209 ], [ %.fca.0.extract570, %1205 ], [ null, %1204 ], [ %.fca.0.extract598, %1201 ], [ null, %1200 ], [ %.fca.0.extract617, %1197 ], [ null, %1196 ], [ %.fca.0.extract636, %1193 ], [ null, %1192 ], [ %.fca.0.extract655, %1189 ], [ null, %1188 ], [ %.fca.0.extract674, %1184 ], [ null, %1183 ], [ %.fca.0.extract690, %1178 ], [ null, %1177 ], [ %.fca.0.extract715, %1173 ], [ null, %1172 ], [ %.fca.0.extract743, %1168 ], [ null, %1167 ], [ %.fca.0.extract771, %1163 ], [ null, %1162 ], [ %.fca.0.extract799, %1158 ], [ null, %1157 ], [ %.fca.0.extract827, %1154 ], [ null, %1153 ], [ %.fca.0.extract846, %1148 ], [ null, %1147 ], [ %.fca.0.extract883, %1144 ], [ null, %1143 ], [ %.fca.0.extract902, %1138 ], [ null, %1137 ], [ %.fca.0.extract939, %1133 ], [ null, %1132 ], [ %.fca.0.extract967, %1127 ], [ null, %1126 ], [ %.fca.0.extract992, %1122 ], [ null, %1121 ], [ %.fca.0.extract1020, %1116 ], [ null, %1115 ], [ %.fca.0.extract1045, %1111 ], [ null, %1110 ], [ %.fca.0.extract1061, %1105 ], [ null, %1104 ], [ %.fca.0.extract1086, %1101 ], [ null, %1100 ], [ %89, %1099 ], [ %.fca.0.extract1105, %1095 ], [ null, %1094 ], [ %.fca.0.extract1133, %1090 ], [ null, %1089 ], [ %.fca.0.extract1161, %1086 ], [ null, %1085 ], [ %.fca.0.extract1180, %1082 ], [ null, %1081 ], [ %.fca.0.extract1199, %1077 ], [ null, %1076 ], [ %.fca.0.extract1227, %1071 ], [ null, %1070 ], [ %.fca.0.extract1252, %1066 ], [ null, %1065 ], [ %.fca.0.extract1280, %1060 ], [ null, %1059 ], [ %.fca.0.extract1305, %1057 ], [ null, %1056 ], [ %.fca.0.extract1315, %1052 ], [ null, %1051 ], [ %.fca.0.extract1343, %1045 ], [ null, %1044 ], [ %.fca.0.extract1377, %1042 ], [ %.fca.0.extract1387, %1039 ], [ null, %1038 ], [ %.fca.0.extract1406, %1035 ], [ null, %1034 ], [ %.fca.0.extract1425, %1030 ], [ null, %1029 ], [ %.fca.0.extract1453, %1025 ], [ null, %1024 ], [ %.fca.0.extract1481, %1020 ], [ null, %1019 ], [ %.fca.0.extract1497, %1014 ], [ null, %1013 ], [ %.fca.0.extract1522, %1009 ], [ null, %1008 ], [ %.fca.0.extract1550, %1004 ], [ null, %1003 ], [ %.fca.0.extract1578, %1000 ], [ null, %999 ], [ %.fca.0.extract1597, %994 ], [ null, %993 ], [ %.fca.0.extract1634, %989 ], [ null, %988 ], [ %.fca.0.extract1662, %983 ], [ null, %982 ], [ %.fca.0.extract1687, %979 ], [ null, %978 ], [ %.fca.0.extract1706, %973 ], [ null, %972 ], [ %.fca.0.extract1743, %968 ], [ null, %967 ], [ %.fca.0.extract1771, %962 ], [ null, %961 ], [ %.fca.0.extract1796, %957 ], [ null, %956 ], [ %.fca.0.extract1812, %951 ], [ null, %950 ], [ %.fca.0.extract1837, %946 ], [ null, %945 ], [ %.fca.0.extract1865, %941 ], [ null, %940 ], [ %.fca.0.extract1893, %937 ], [ null, %936 ], [ %.fca.0.extract1912, %933 ], [ null, %932 ], [ %.fca.0.extract1931, %929 ], [ null, %928 ], [ %.fca.0.extract1950, %924 ], [ null, %923 ], [ %.fca.0.extract1978, %918 ], [ null, %917 ], [ %.fca.0.extract2003, %915 ], [ null, %914 ], [ %.fca.0.extract2013, %910 ], [ null, %909 ], [ %.fca.0.extract2041, %905 ], [ null, %904 ], [ %.fca.0.extract2069, %899 ], [ null, %898 ], [ %.fca.0.extract2094, %892 ], [ null, %891 ], [ %.fca.0.extract2128, %889 ], [ %.fca.0.extract2138, %886 ], [ null, %885 ], [ %.fca.0.extract2157, %880 ], [ null, %879 ], [ %.fca.0.extract2194, %875 ], [ null, %874 ], [ %.fca.0.extract2222, %869 ], [ null, %868 ], [ %.fca.0.extract2247, %864 ], [ null, %863 ], [ %.fca.0.extract2275, %858 ], [ null, %857 ], [ %.fca.0.extract2300, %855 ], [ null, %854 ], [ %.fca.0.extract2310, %850 ], [ null, %849 ], [ %.fca.0.extract2338, %844 ], [ null, %843 ], [ %.fca.0.extract2375, %840 ], [ null, %839 ], [ %.fca.0.extract2394, %836 ], [ null, %835 ], [ %.fca.0.extract2413, %830 ], [ null, %829 ], [ %.fca.0.extract2450, %826 ], [ null, %825 ], [ %.fca.0.extract2469, %820 ], [ null, %819 ], [ %.fca.0.extract2506, %813 ], [ null, %812 ], [ %.fca.0.extract2540, %809 ], [ null, %808 ], [ %.fca.0.extract2559, %805 ], [ null, %804 ], [ %.fca.0.extract2578, %799 ], [ null, %798 ], [ %.fca.0.extract2615, %794 ], [ null, %793 ], [ %.fca.0.extract2643, %788 ], [ null, %787 ], [ %.fca.0.extract2668, %783 ], [ null, %782 ], [ %.fca.0.extract2696, %777 ], [ null, %776 ], [ %.fca.0.extract2721, %770 ], [ null, %769 ], [ %.fca.0.extract2755, %767 ], [ %.fca.0.extract2765, %764 ], [ null, %763 ], [ %.fca.0.extract2784, %758 ], [ null, %757 ], [ %.fca.0.extract2821, %751 ], [ null, %750 ], [ %.fca.0.extract2855, %747 ], [ null, %746 ], [ %.fca.0.extract2874, %740 ], [ null, %739 ], [ %.fca.0.extract2908, %736 ], [ null, %735 ], [ %.fca.0.extract2927, %731 ], [ null, %730 ], [ %.fca.0.extract2955, %727 ], [ null, %726 ], [ %.fca.0.extract2974, %723 ], [ null, %722 ], [ %.fca.0.extract2993, %718 ], [ null, %717 ], [ %.fca.0.extract3021, %714 ], [ null, %713 ], [ %.fca.0.extract3040, %707 ], [ null, %706 ], [ %.fca.0.extract3074, %703 ], [ null, %702 ], [ %.fca.0.extract3093, %696 ], [ null, %695 ], [ %.fca.0.extract3127, %690 ], [ null, %689 ], [ %.fca.0.extract3164, %686 ], [ null, %685 ], [ %.fca.0.extract3183, %683 ], [ null, %682 ], [ %.fca.0.extract3193, %676 ], [ null, %675 ], [ %.fca.0.extract3227, %670 ], [ null, %669 ], [ %.fca.0.extract3252, %665 ], [ null, %664 ], [ %.fca.0.extract3280, %659 ], [ null, %658 ], [ %.fca.0.extract3305, %654 ], [ null, %653 ], [ %.fca.0.extract3333, %648 ], [ null, %647 ], [ %.fca.0.extract3370, %644 ], [ null, %643 ], [ %.fca.0.extract3389, %640 ], [ null, %639 ], [ %.fca.0.extract3408, %633 ], [ null, %632 ], [ %.fca.0.extract3442, %627 ], [ null, %626 ], [ %.fca.0.extract3479, %623 ], [ null, %622 ], [ %.fca.0.extract3498, %617 ], [ null, %616 ], [ %.fca.0.extract3535, %613 ], [ null, %612 ], [ %.fca.0.extract3554, %609 ], [ null, %608 ], [ %.fca.0.extract3573, %603 ], [ null, %602 ], [ %.fca.0.extract3610, %598 ], [ null, %597 ], [ %.fca.0.extract3638, %595 ], [ %.fca.0.extract3648, %590 ], [ null, %589 ], [ %.fca.0.extract3673, %585 ], [ null, %584 ], [ %.fca.0.extract3701, %579 ], [ null, %578 ], [ %.fca.0.extract3726, %574 ], [ null, %573 ], [ %.fca.0.extract3754, %568 ], [ null, %567 ], [ %.fca.0.extract3791, %564 ], [ null, %563 ], [ %.fca.0.extract3810, %561 ], [ null, %560 ], [ %.fca.0.extract3820, %554 ], [ null, %553 ], [ %.fca.0.extract3854, %548 ], [ null, %547 ], [ %.fca.0.extract3879, %543 ], [ null, %542 ], [ %.fca.0.extract3907, %538 ], [ null, %537 ], [ %.fca.0.extract3935, %535 ], [ %.fca.0.extract3945, %530 ], [ null, %529 ], [ %.fca.0.extract3970, %525 ], [ null, %524 ], [ %.fca.0.extract3998, %521 ], [ null, %520 ], [ %.fca.0.extract4017, %517 ], [ null, %516 ], [ %515, %513 ], [ %.fca.0.extract4043, %510 ], [ null, %509 ], [ %.fca.0.extract4062, %505 ], [ null, %504 ], [ %.fca.0.extract4090, %500 ], [ null, %499 ], [ %.fca.0.extract4118, %494 ], [ null, %493 ], [ %.fca.0.extract4143, %489 ], [ null, %488 ], [ %.fca.0.extract4159, %483 ], [ null, %482 ], [ %.fca.0.extract4184, %478 ], [ null, %477 ], [ %.fca.0.extract4212, %472 ], [ null, %471 ], [ %.fca.0.extract4249, %468 ], [ null, %467 ], [ %.fca.0.extract4268, %462 ], [ null, %461 ], [ %.fca.0.extract4293, %457 ], [ null, %456 ], [ %.fca.0.extract4321, %451 ], [ null, %450 ], [ %.fca.0.extract4358, %447 ], [ null, %446 ], [ %.fca.0.extract4377, %442 ], [ null, %441 ], [ %.fca.0.extract4405, %437 ], [ null, %436 ], [ %.fca.0.extract4433, %431 ], [ null, %430 ], [ %.fca.0.extract4458, %426 ], [ null, %425 ], [ %.fca.0.extract4474, %421 ], [ null, %420 ], [ %.fca.0.extract4502, %416 ], [ null, %415 ], [ %.fca.0.extract4530, %412 ], [ null, %411 ], [ %.fca.0.extract4549, %408 ], [ null, %407 ], [ %.fca.0.extract4568, %405 ], [ null, %404 ], [ %.fca.0.extract4578, %398 ], [ null, %397 ], [ %.fca.0.extract4612, %393 ], [ null, %392 ], [ %.fca.0.extract4640, %390 ], [ %.fca.0.extract4650, %385 ], [ null, %384 ], [ %.fca.0.extract4675, %380 ], [ null, %379 ], [ %.fca.0.extract4703, %374 ], [ null, %373 ], [ %.fca.0.extract4728, %369 ], [ null, %368 ], [ %.fca.0.extract4756, %365 ], [ null, %364 ], [ %.fca.0.extract4775, %361 ], [ null, %360 ], [ %.fca.0.extract4794, %356 ], [ null, %355 ], [ %.fca.0.extract4822, %351 ], [ null, %350 ], [ %349, %347 ], [ %.fca.0.extract4857, %344 ], [ null, %343 ], [ %.fca.0.extract4876, %338 ], [ null, %337 ], [ %.fca.0.extract4901, %333 ], [ null, %332 ], [ %.fca.0.extract4917, %327 ], [ null, %326 ], [ %.fca.0.extract4942, %322 ], [ null, %321 ], [ %.fca.0.extract4970, %316 ], [ null, %315 ], [ %.fca.0.extract4995, %311 ], [ null, %310 ], [ %.fca.0.extract5023, %305 ], [ null, %304 ], [ %.fca.0.extract5060, %301 ], [ null, %300 ], [ %.fca.0.extract5079, %295 ], [ null, %294 ], [ %.fca.0.extract5116, %291 ], [ null, %290 ], [ %.fca.0.extract5135, %286 ], [ null, %285 ], [ %.fca.0.extract5163, %281 ], [ null, %280 ], [ %.fca.0.extract5191, %276 ], [ null, %275 ], [ %.fca.0.extract5219, %271 ], [ null, %270 ], [ %.fca.0.extract5247, %265 ], [ null, %264 ], [ %.fca.0.extract5272, %260 ], [ null, %259 ], [ %.fca.0.extract5288, %256 ], [ null, %255 ], [ %.fca.0.extract5307, %252 ], [ null, %251 ], [ %.fca.0.extract5326, %248 ], [ null, %247 ], [ %.fca.0.extract5345, %244 ], [ null, %243 ], [ %.fca.0.extract5364, %239 ], [ null, %238 ], [ %.fca.0.extract5392, %234 ], [ null, %233 ], [ %.fca.0.extract5420, %229 ], [ null, %228 ], [ %.fca.0.extract5448, %224 ], [ null, %223 ], [ %.fca.0.extract5476, %219 ], [ null, %218 ], [ %.fca.0.extract5504, %214 ], [ null, %213 ], [ %.fca.0.extract5532, %208 ], [ null, %207 ], [ %.fca.0.extract5569, %202 ], [ null, %201 ], [ %.fca.0.extract5606, %198 ], [ null, %197 ], [ %.fca.0.extract5625, %194 ], [ null, %193 ], [ %.fca.0.extract5644, %190 ], [ null, %189 ], [ %.fca.0.extract5663, %186 ], [ null, %185 ], [ %.fca.0.extract5682, %183 ], [ null, %182 ], [ %.fca.0.extract5692, %179 ], [ null, %178 ], [ %177, %175 ], [ %.fca.0.extract5718, %172 ], [ null, %171 ], [ %.fca.0.extract5737, %166 ], [ null, %165 ], [ %.fca.0.extract5762, %161 ], [ null, %160 ], [ %.fca.0.extract5778, %155 ], [ null, %154 ], [ %.fca.0.extract5803, %150 ], [ null, %149 ], [ %.fca.0.extract5819, %146 ], [ null, %145 ], [ %.fca.0.extract5838, %142 ], [ null, %141 ], [ %.fca.0.extract5857, %138 ], [ null, %137 ], [ %.fca.0.extract5876, %134 ], [ null, %133 ], [ %.fca.0.extract5895, %131 ], [ null, %130 ], [ %.fca.0.extract5905, %127 ], [ null, %126 ], [ %.fca.0.extract5924, %124 ], [ null, %123 ], [ %.fca.0.extract5934, %120 ], [ null, %119 ], [ %.fca.0.extract5953, %116 ], [ null, %115 ], [ %114, %113 ], [ %91, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_17match_combine_andINS0_11class_matchINS_8ConstantEEENS0_12match_unlessINS0_18constantexpr_matchEEEEEEEbPT_RKT0_.exit7172 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #15
   br label %_ZNK4llvm5APInt3ugeEm.exit.thread
 
@@ -13841,74 +13841,74 @@ define dso_local { ptr, i8 } @_ZNK4llvm10X86TTIImpl35simplifyDemandedVectorEltsI
     i32 14418, label %156
     i32 14500, label %254
     i32 14499, label %254
-    i32 13565, label %328
-    i32 13627, label %328
-    i32 13684, label %328
-    i32 13848, label %328
-    i32 13680, label %328
-    i32 13682, label %328
-    i32 13564, label %328
-    i32 13626, label %328
-    i32 13683, label %328
-    i32 13847, label %328
-    i32 13679, label %328
-    i32 13681, label %328
-    i32 14476, label %448
-    i32 14477, label %448
-    i32 12998, label %448
-    i32 12999, label %448
-    i32 13445, label %577
-    i32 13446, label %577
-    i32 13447, label %577
-    i32 13448, label %577
-    i32 13461, label %577
-    i32 13462, label %577
-    i32 13463, label %577
-    i32 13464, label %577
-    i32 13453, label %577
-    i32 13454, label %577
-    i32 14451, label %619
-    i32 13432, label %619
-    i32 13888, label %619
-    i32 14452, label %619
-    i32 13433, label %619
-    i32 13889, label %619
-    i32 14541, label %619
-    i32 13431, label %619
-    i32 13887, label %619
-    i32 14443, label %653
-    i32 14444, label %653
-    i32 14445, label %653
-    i32 14491, label %653
-    i32 13413, label %653
-    i32 13414, label %653
-    i32 13415, label %653
-    i32 13416, label %653
-    i32 13867, label %653
-    i32 13868, label %653
-    i32 13869, label %653
-    i32 13870, label %653
-    i32 14449, label %843
-    i32 13429, label %843
-    i32 13886, label %843
-    i32 14539, label %843
-    i32 13428, label %843
-    i32 13885, label %843
-    i32 14543, label %911
-    i32 13435, label %911
-    i32 13894, label %911
-    i32 13038, label %911
-    i32 13039, label %911
-    i32 14039, label %911
-    i32 13036, label %911
-    i32 13037, label %911
-    i32 14038, label %911
-    i32 13420, label %911
-    i32 13421, label %911
-    i32 14519, label %930
-    i32 14520, label %930
-    i32 14521, label %930
-    i32 14522, label %930
+    i32 13565, label %327
+    i32 13627, label %327
+    i32 13684, label %327
+    i32 13848, label %327
+    i32 13680, label %327
+    i32 13682, label %327
+    i32 13564, label %327
+    i32 13626, label %327
+    i32 13683, label %327
+    i32 13847, label %327
+    i32 13679, label %327
+    i32 13681, label %327
+    i32 14476, label %447
+    i32 14477, label %447
+    i32 12998, label %447
+    i32 12999, label %447
+    i32 13445, label %564
+    i32 13446, label %564
+    i32 13447, label %564
+    i32 13448, label %564
+    i32 13461, label %564
+    i32 13462, label %564
+    i32 13463, label %564
+    i32 13464, label %564
+    i32 13453, label %564
+    i32 13454, label %564
+    i32 14451, label %606
+    i32 13432, label %606
+    i32 13888, label %606
+    i32 14452, label %606
+    i32 13433, label %606
+    i32 13889, label %606
+    i32 14541, label %606
+    i32 13431, label %606
+    i32 13887, label %606
+    i32 14443, label %640
+    i32 14444, label %640
+    i32 14445, label %640
+    i32 14491, label %640
+    i32 13413, label %640
+    i32 13414, label %640
+    i32 13415, label %640
+    i32 13416, label %640
+    i32 13867, label %640
+    i32 13868, label %640
+    i32 13869, label %640
+    i32 13870, label %640
+    i32 14449, label %830
+    i32 13429, label %830
+    i32 13886, label %830
+    i32 14539, label %830
+    i32 13428, label %830
+    i32 13885, label %830
+    i32 14543, label %898
+    i32 13435, label %898
+    i32 13894, label %898
+    i32 13038, label %898
+    i32 13039, label %898
+    i32 14039, label %898
+    i32 13036, label %898
+    i32 13037, label %898
+    i32 14038, label %898
+    i32 13420, label %898
+    i32 13421, label %898
+    i32 14519, label %917
+    i32 14520, label %917
+    i32 14521, label %917
+    i32 14522, label %917
   ]
 
 93:                                               ; preds = %8, %8
@@ -13919,14 +13919,14 @@ define dso_local { ptr, i8 } @_ZNK4llvm10X86TTIImpl35simplifyDemandedVectorEltsI
   %.in.i.i = select i1 %96, ptr %3, ptr %97
   %98 = load i64, ptr %.in.i.i, align 8, !tbaa !25
   %99 = and i64 %98, 1
-  %.not272 = icmp eq i64 %99, 0
-  br i1 %.not272, label %100, label %103
+  %.not276 = icmp eq i64 %99, 0
+  br i1 %.not276, label %100, label %103
 
 100:                                              ; preds = %93
   tail call void @_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1081) %1, ptr noundef nonnull %2)
   %101 = load ptr, ptr %83, align 8, !tbaa !26
   %102 = tail call noundef ptr @_ZN4llvm21ConstantAggregateZero3getEPNS_4TypeE(ptr noundef %101) #15
-  br label %_ZN4llvm5APInt8clearBitEj.exit
+  br label %935
 
 103:                                              ; preds = %93
   %104 = tail call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntaSEm(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef 1)
@@ -13965,8 +13965,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2ERK
   %118 = load i32, ptr %117, align 8, !tbaa !23
   %119 = icmp ult i32 %118, 65
   %120 = load ptr, ptr %4, align 8
-  %.in.i.i136 = select i1 %119, ptr %4, ptr %120
-  %121 = load i64, ptr %.in.i.i136, align 8, !tbaa !25
+  %.in.i.i137 = select i1 %119, ptr %4, ptr %120
+  %121 = load i64, ptr %.in.i.i137, align 8, !tbaa !25
   %122 = and i64 %121, 1
   %123 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntaSEm(ptr noundef nonnull align 8 dereferenceable(12) %4, i64 noundef %122)
   br label %_ZN4llvm5APInt8clearBitEj.exit
@@ -13982,13 +13982,13 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2ERK
 129:                                              ; preds = %124
   %130 = load i64, ptr %3, align 8, !tbaa !25
   store i64 %130, ptr %49, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit137
+  br label %_ZN4llvm5APIntC2ERKS0_.exit138
 
 131:                                              ; preds = %124
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit137
+  br label %_ZN4llvm5APIntC2ERKS0_.exit138
 
-_ZN4llvm5APIntC2ERKS0_.exit137:                   ; preds = %129, %131
+_ZN4llvm5APIntC2ERKS0_.exit138:                   ; preds = %129, %131
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47)
   store ptr %2, ptr %46, align 8, !tbaa !76
@@ -13998,11 +13998,11 @@ _ZN4llvm5APIntC2ERKS0_.exit137:                   ; preds = %129, %131
   %.not.i.i = icmp eq ptr %133, null
   br i1 %.not.i.i, label %134, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit
 
-134:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit137
+134:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit138
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit137
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit138
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %136 = load ptr, ptr %135, align 8, !tbaa !266
   call void %136(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 4 dereferenceable(4) %47, ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
@@ -14010,28 +14010,28 @@ _ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit: ; p
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
   %137 = load i32, ptr %125, align 8, !tbaa !23
   %138 = icmp ugt i32 %137, 64
-  br i1 %138, label %139, label %_ZN4llvm5APIntD2Ev.exit138
+  br i1 %138, label %139, label %_ZN4llvm5APIntD2Ev.exit139
 
 139:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit
   %140 = load ptr, ptr %49, align 8, !tbaa !25
   %141 = icmp eq ptr %140, null
-  br i1 %141, label %_ZN4llvm5APIntD2Ev.exit138, label %142
+  br i1 %141, label %_ZN4llvm5APIntD2Ev.exit139, label %142
 
 142:                                              ; preds = %139
   call void @_ZdaPv(ptr noundef nonnull %140) #17
-  br label %_ZN4llvm5APIntD2Ev.exit138
+  br label %_ZN4llvm5APIntD2Ev.exit139
 
-_ZN4llvm5APIntD2Ev.exit138:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit, %139, %142
+_ZN4llvm5APIntD2Ev.exit139:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit, %139, %142
   %143 = load i32, ptr %126, align 8, !tbaa !23
   %144 = icmp ult i32 %143, 65
   %145 = load ptr, ptr %3, align 8
-  %.in.i.i139 = select i1 %144, ptr %3, ptr %145
-  %146 = load i64, ptr %.in.i.i139, align 8, !tbaa !25
+  %.in.i.i140 = select i1 %144, ptr %3, ptr %145
+  %146 = load i64, ptr %.in.i.i140, align 8, !tbaa !25
   %147 = and i64 %146, 1
-  %.not271 = icmp eq i64 %147, 0
-  br i1 %.not271, label %148, label %_ZN4llvm5APInt8clearBitEj.exit
+  %.not275 = icmp eq i64 %147, 0
+  br i1 %.not275, label %148, label %_ZN4llvm5APInt8clearBitEj.exit
 
-148:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit138
+148:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit139
   call void @_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1081) %1, ptr noundef nonnull %2)
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %150 = load i32, ptr %149, align 4
@@ -14040,7 +14040,7 @@ _ZN4llvm5APIntD2Ev.exit138:                       ; preds = %_ZNKSt8functionIFvP
   %153 = sub nsw i64 0, %152
   %154 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !3
-  br label %_ZN4llvm5APInt8clearBitEj.exit
+  br label %935
 
 156:                                              ; preds = %8, %8, %8, %8, %8, %8
   %157 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -14053,27 +14053,27 @@ _ZN4llvm5APIntD2Ev.exit138:                       ; preds = %_ZNKSt8functionIFvP
 161:                                              ; preds = %156
   %162 = load i64, ptr %3, align 8, !tbaa !25
   store i64 %162, ptr %50, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit140
+  br label %_ZN4llvm5APIntC2ERKS0_.exit141
 
 163:                                              ; preds = %156
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit140
+  br label %_ZN4llvm5APIntC2ERKS0_.exit141
 
-_ZN4llvm5APIntC2ERKS0_.exit140:                   ; preds = %161, %163
+_ZN4llvm5APIntC2ERKS0_.exit141:                   ; preds = %161, %163
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45)
   store ptr %2, ptr %44, align 8, !tbaa !76
   store i32 0, ptr %45, align 4, !tbaa !62
   %164 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %165 = load ptr, ptr %164, align 8, !tbaa !264
-  %.not.i.i141 = icmp eq ptr %165, null
-  br i1 %.not.i.i141, label %166, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit142
+  %.not.i.i142 = icmp eq ptr %165, null
+  br i1 %.not.i.i142, label %166, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit143
 
-166:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit140
+166:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit141
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit142: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit140
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit143: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit141
   %167 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %168 = load ptr, ptr %167, align 8, !tbaa !266
   call void %168(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
@@ -14081,28 +14081,28 @@ _ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit142: 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45)
   %169 = load i32, ptr %157, align 8, !tbaa !23
   %170 = icmp ugt i32 %169, 64
-  br i1 %170, label %171, label %_ZN4llvm5APIntD2Ev.exit143
+  br i1 %170, label %171, label %_ZN4llvm5APIntD2Ev.exit144
 
-171:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit142
+171:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit143
   %172 = load ptr, ptr %50, align 8, !tbaa !25
   %173 = icmp eq ptr %172, null
-  br i1 %173, label %_ZN4llvm5APIntD2Ev.exit143, label %174
+  br i1 %173, label %_ZN4llvm5APIntD2Ev.exit144, label %174
 
 174:                                              ; preds = %171
   call void @_ZdaPv(ptr noundef nonnull %172) #17
-  br label %_ZN4llvm5APIntD2Ev.exit143
+  br label %_ZN4llvm5APIntD2Ev.exit144
 
-_ZN4llvm5APIntD2Ev.exit143:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit142, %171, %174
+_ZN4llvm5APIntD2Ev.exit144:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit143, %171, %174
   %175 = load i32, ptr %158, align 8, !tbaa !23
   %176 = icmp ult i32 %175, 65
   %177 = load ptr, ptr %3, align 8
-  %.in.i.i144 = select i1 %176, ptr %3, ptr %177
-  %178 = load i64, ptr %.in.i.i144, align 8, !tbaa !25
+  %.in.i.i145 = select i1 %176, ptr %3, ptr %177
+  %178 = load i64, ptr %.in.i.i145, align 8, !tbaa !25
   %179 = and i64 %178, 1
-  %.not269 = icmp eq i64 %179, 0
-  br i1 %.not269, label %180, label %212
+  %.not273 = icmp eq i64 %179, 0
+  br i1 %.not273, label %180, label %212
 
-180:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit143
+180:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit144
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %182 = load ptr, ptr %181, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42) #15
@@ -14156,9 +14156,9 @@ _ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit: ; preds = %180, %
   %209 = sub nsw i64 0, %208
   %210 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %209
   %211 = load ptr, ptr %210, align 8, !tbaa !3
-  br label %_ZN4llvm5APInt8clearBitEj.exit
+  br label %935
 
-212:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit143
+212:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit144
   br i1 %176, label %_ZN4llvm5APIntaSEm.exit.thread, label %_ZN4llvm5APIntaSEm.exit
 
 _ZN4llvm5APIntaSEm.exit.thread:                   ; preds = %212
@@ -14179,66 +14179,66 @@ _ZN4llvm5APIntaSEm.exit:                          ; preds = %212
   %219 = add nuw nsw i64 %sh.diff.i, 4294967288
   %220 = and i64 %219, 4294967288
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %216, i8 0, i64 %220, i1 false)
-  %.pre289 = load i32, ptr %158, align 8, !tbaa !23
+  %.pre293 = load i32, ptr %158, align 8, !tbaa !23
   %221 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i32 %.pre289, ptr %221, align 8, !tbaa !23
-  %222 = icmp ult i32 %.pre289, 65
+  store i32 %.pre293, ptr %221, align 8, !tbaa !23
+  %222 = icmp ult i32 %.pre293, 65
   br i1 %222, label %223, label %226
 
 223:                                              ; preds = %_ZN4llvm5APIntaSEm.exit.thread, %_ZN4llvm5APIntaSEm.exit
   %224 = phi ptr [ %214, %_ZN4llvm5APIntaSEm.exit.thread ], [ %221, %_ZN4llvm5APIntaSEm.exit ]
   %225 = load i64, ptr %3, align 8, !tbaa !25
   store i64 %225, ptr %51, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit145
+  br label %_ZN4llvm5APIntC2ERKS0_.exit146
 
 226:                                              ; preds = %_ZN4llvm5APIntaSEm.exit
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit145
+  br label %_ZN4llvm5APIntC2ERKS0_.exit146
 
-_ZN4llvm5APIntC2ERKS0_.exit145:                   ; preds = %223, %226
+_ZN4llvm5APIntC2ERKS0_.exit146:                   ; preds = %223, %226
   %227 = phi ptr [ %224, %223 ], [ %221, %226 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41)
   store ptr %2, ptr %40, align 8, !tbaa !76
   store i32 1, ptr %41, align 4, !tbaa !62
   %228 = load ptr, ptr %164, align 8, !tbaa !264
-  %.not.i.i146 = icmp eq ptr %228, null
-  br i1 %.not.i.i146, label %229, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit147
+  %.not.i.i147 = icmp eq ptr %228, null
+  br i1 %.not.i.i147, label %229, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit148
 
-229:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit145
+229:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit146
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit147: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit145
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit148: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit146
   %230 = load ptr, ptr %167, align 8, !tbaa !266
   call void %230(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 4 dereferenceable(4) %41, ptr noundef nonnull align 8 dereferenceable(12) %51, ptr noundef nonnull align 8 dereferenceable(12) %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
   %231 = load i32, ptr %227, align 8, !tbaa !23
   %232 = icmp ugt i32 %231, 64
-  br i1 %232, label %233, label %_ZN4llvm5APIntD2Ev.exit148
+  br i1 %232, label %233, label %_ZN4llvm5APIntD2Ev.exit149
 
-233:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit147
+233:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit148
   %234 = load ptr, ptr %51, align 8, !tbaa !25
   %235 = icmp eq ptr %234, null
-  br i1 %235, label %_ZN4llvm5APIntD2Ev.exit148, label %236
+  br i1 %235, label %_ZN4llvm5APIntD2Ev.exit149, label %236
 
 236:                                              ; preds = %233
   call void @_ZdaPv(ptr noundef nonnull %234) #17
-  br label %_ZN4llvm5APIntD2Ev.exit148
+  br label %_ZN4llvm5APIntD2Ev.exit149
 
-_ZN4llvm5APIntD2Ev.exit148:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit147, %233, %236
+_ZN4llvm5APIntD2Ev.exit149:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit148, %233, %236
   %237 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %238 = load i32, ptr %237, align 8, !tbaa !23
   %239 = icmp ult i32 %238, 65
   %240 = load ptr, ptr %5, align 8
-  %.in.i.i149 = select i1 %239, ptr %5, ptr %240
-  %241 = load i64, ptr %.in.i.i149, align 8, !tbaa !25
+  %.in.i.i150 = select i1 %239, ptr %5, ptr %240
+  %241 = load i64, ptr %.in.i.i150, align 8, !tbaa !25
   %242 = and i64 %241, 1
-  %.not270 = icmp eq i64 %242, 0
-  br i1 %.not270, label %243, label %_ZN4llvm5APInt8clearBitEj.exit
+  %.not274 = icmp eq i64 %242, 0
+  br i1 %.not274, label %243, label %_ZN4llvm5APInt8clearBitEj.exit
 
-243:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit148
+243:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit149
   %244 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %245 = load i32, ptr %244, align 8, !tbaa !23
   %246 = icmp ult i32 %245, 65
@@ -14264,26 +14264,26 @@ _ZN4llvm5APIntD2Ev.exit148:                       ; preds = %_ZNKSt8functionIFvP
   %257 = load i32, ptr %256, align 8, !tbaa !23
   store i32 %257, ptr %255, align 8, !tbaa !23
   %258 = icmp ult i32 %257, 65
-  br i1 %258, label %_ZN4llvm5APInt8clearBitEj.exit151.thread255, label %_ZN4llvm5APIntC2ERKS0_.exit150
+  br i1 %258, label %_ZN4llvm5APInt8clearBitEj.exit152.thread254, label %_ZN4llvm5APIntC2ERKS0_.exit151
 
-_ZN4llvm5APIntC2ERKS0_.exit150:                   ; preds = %254
+_ZN4llvm5APIntC2ERKS0_.exit151:                   ; preds = %254
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %52, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
   %.pr = load i32, ptr %255, align 8, !tbaa !23
   %259 = icmp ult i32 %.pr, 65
-  br i1 %259, label %_ZN4llvm5APInt8clearBitEj.exit151.thread255, label %263
+  br i1 %259, label %_ZN4llvm5APInt8clearBitEj.exit152.thread254, label %263
 
-_ZN4llvm5APInt8clearBitEj.exit151.thread255:      ; preds = %254, %_ZN4llvm5APIntC2ERKS0_.exit150
-  %.sink296 = phi ptr [ %52, %_ZN4llvm5APIntC2ERKS0_.exit150 ], [ %3, %254 ]
-  %.sink = phi i32 [ %.pr, %_ZN4llvm5APIntC2ERKS0_.exit150 ], [ %257, %254 ]
-  %260 = load i64, ptr %.sink296, align 8, !tbaa !25
+_ZN4llvm5APInt8clearBitEj.exit152.thread254:      ; preds = %254, %_ZN4llvm5APIntC2ERKS0_.exit151
+  %.sink300 = phi ptr [ %52, %_ZN4llvm5APIntC2ERKS0_.exit151 ], [ %3, %254 ]
+  %.sink = phi i32 [ %.pr, %_ZN4llvm5APIntC2ERKS0_.exit151 ], [ %257, %254 ]
+  %260 = load i64, ptr %.sink300, align 8, !tbaa !25
   %261 = and i64 %260, -2
   store i64 %261, ptr %52, align 8, !tbaa !25
   %262 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 %.sink, ptr %262, align 8, !tbaa !23
   store i64 %261, ptr %53, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit152
+  br label %_ZN4llvm5APIntC2ERKS0_.exit153
 
-263:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit150
+263:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit151
   %264 = load ptr, ptr %52, align 8, !tbaa !25
   %265 = load i64, ptr %264, align 8, !tbaa !169
   %266 = and i64 %265, -2
@@ -14291,24 +14291,24 @@ _ZN4llvm5APInt8clearBitEj.exit151.thread255:      ; preds = %254, %_ZN4llvm5APIn
   %267 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 %.pr, ptr %267, align 8, !tbaa !23
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %53, ptr noundef nonnull align 8 dereferenceable(12) %52) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit152
+  br label %_ZN4llvm5APIntC2ERKS0_.exit153
 
-_ZN4llvm5APIntC2ERKS0_.exit152:                   ; preds = %_ZN4llvm5APInt8clearBitEj.exit151.thread255, %263
-  %268 = phi ptr [ %262, %_ZN4llvm5APInt8clearBitEj.exit151.thread255 ], [ %267, %263 ]
+_ZN4llvm5APIntC2ERKS0_.exit153:                   ; preds = %_ZN4llvm5APInt8clearBitEj.exit152.thread254, %263
+  %268 = phi ptr [ %262, %_ZN4llvm5APInt8clearBitEj.exit152.thread254 ], [ %267, %263 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39)
   store ptr %2, ptr %38, align 8, !tbaa !76
   store i32 0, ptr %39, align 4, !tbaa !62
   %269 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %270 = load ptr, ptr %269, align 8, !tbaa !264
-  %.not.i.i153 = icmp eq ptr %270, null
-  br i1 %.not.i.i153, label %271, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit154
+  %.not.i.i154 = icmp eq ptr %270, null
+  br i1 %.not.i.i154, label %271, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit155
 
-271:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit152
+271:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit153
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit154: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit152
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit155: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit153
   %272 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %273 = load ptr, ptr %272, align 8, !tbaa !266
   call void %273(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 4 dereferenceable(4) %39, ptr noundef nonnull align 8 dereferenceable(12) %53, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
@@ -14316,28 +14316,28 @@ _ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit154: 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39)
   %274 = load i32, ptr %268, align 8, !tbaa !23
   %275 = icmp ugt i32 %274, 64
-  br i1 %275, label %276, label %_ZN4llvm5APIntD2Ev.exit155
+  br i1 %275, label %276, label %_ZN4llvm5APIntD2Ev.exit156
 
-276:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit154
+276:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit155
   %277 = load ptr, ptr %53, align 8, !tbaa !25
   %278 = icmp eq ptr %277, null
-  br i1 %278, label %_ZN4llvm5APIntD2Ev.exit155, label %279
+  br i1 %278, label %_ZN4llvm5APIntD2Ev.exit156, label %279
 
 279:                                              ; preds = %276
   call void @_ZdaPv(ptr noundef nonnull %277) #17
-  br label %_ZN4llvm5APIntD2Ev.exit155
+  br label %_ZN4llvm5APIntD2Ev.exit156
 
-_ZN4llvm5APIntD2Ev.exit155:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit154, %276, %279
+_ZN4llvm5APIntD2Ev.exit156:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit155, %276, %279
   %280 = load i32, ptr %256, align 8, !tbaa !23
   %281 = icmp ult i32 %280, 65
   %282 = load ptr, ptr %3, align 8
-  %.in.i.i156 = select i1 %281, ptr %3, ptr %282
-  %283 = load i64, ptr %.in.i.i156, align 8, !tbaa !25
+  %.in.i.i157 = select i1 %281, ptr %3, ptr %282
+  %283 = load i64, ptr %.in.i.i157, align 8, !tbaa !25
   %284 = and i64 %283, 1
-  %.not268 = icmp eq i64 %284, 0
-  br i1 %.not268, label %285, label %293
+  %.not272 = icmp eq i64 %284, 0
+  br i1 %.not272, label %285, label %293
 
-285:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit155
+285:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit156
   call void @_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1081) %1, ptr noundef nonnull %2)
   %286 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %287 = load i32, ptr %286, align 4
@@ -14348,7 +14348,7 @@ _ZN4llvm5APIntD2Ev.exit155:                       ; preds = %_ZNKSt8functionIFvP
   %292 = load ptr, ptr %291, align 8, !tbaa !3
   br label %320
 
-293:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit155
+293:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit156
   %294 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntaSEm(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef 1)
   %295 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %296 = load i32, ptr %256, align 8, !tbaa !23
@@ -14359,411 +14359,407 @@ _ZN4llvm5APIntD2Ev.exit155:                       ; preds = %_ZNKSt8functionIFvP
 298:                                              ; preds = %293
   %299 = load i64, ptr %3, align 8, !tbaa !25
   store i64 %299, ptr %54, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit157
+  br label %_ZN4llvm5APIntC2ERKS0_.exit158
 
 300:                                              ; preds = %293
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %54, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit157
+  br label %_ZN4llvm5APIntC2ERKS0_.exit158
 
-_ZN4llvm5APIntC2ERKS0_.exit157:                   ; preds = %298, %300
+_ZN4llvm5APIntC2ERKS0_.exit158:                   ; preds = %298, %300
   call void @_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(12) %5)
   %301 = load i32, ptr %295, align 8, !tbaa !23
   %302 = icmp ugt i32 %301, 64
-  br i1 %302, label %303, label %_ZN4llvm5APIntD2Ev.exit158
+  br i1 %302, label %303, label %_ZN4llvm5APIntD2Ev.exit159
 
-303:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit157
+303:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit158
   %304 = load ptr, ptr %54, align 8, !tbaa !25
   %305 = icmp eq ptr %304, null
-  br i1 %305, label %_ZN4llvm5APIntD2Ev.exit158, label %306
+  br i1 %305, label %_ZN4llvm5APIntD2Ev.exit159, label %306
 
 306:                                              ; preds = %303
   call void @_ZdaPv(ptr noundef nonnull %304) #17
-  br label %_ZN4llvm5APIntD2Ev.exit158
+  br label %_ZN4llvm5APIntD2Ev.exit159
 
-_ZN4llvm5APIntD2Ev.exit158:                       ; preds = %_ZN4llvm5APIntC2ERKS0_.exit157, %303, %306
+_ZN4llvm5APIntD2Ev.exit159:                       ; preds = %_ZN4llvm5APIntC2ERKS0_.exit158, %303, %306
   %307 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %308 = load i32, ptr %307, align 8, !tbaa !23
   %309 = icmp ult i32 %308, 65
   %310 = load ptr, ptr %4, align 8
-  %.sink300 = select i1 %309, ptr %4, ptr %310
-  %311 = load i64, ptr %.sink300, align 8, !tbaa !25
+  %.sink304 = select i1 %309, ptr %4, ptr %310
+  %311 = load i64, ptr %.sink304, align 8, !tbaa !25
   %312 = and i64 %311, -2
-  store i64 %312, ptr %.sink300, align 8, !tbaa !25
+  store i64 %312, ptr %.sink304, align 8, !tbaa !25
   %313 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %314 = load i32, ptr %313, align 8, !tbaa !23
   %315 = icmp ult i32 %314, 65
   %316 = load ptr, ptr %5, align 8
-  %.in.i.i160 = select i1 %315, ptr %5, ptr %316
-  %317 = load i64, ptr %.in.i.i160, align 8, !tbaa !25
+  %.in.i.i161 = select i1 %315, ptr %5, ptr %316
+  %317 = load i64, ptr %.in.i.i161, align 8, !tbaa !25
   %318 = and i64 %317, 1
   %319 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntoREm(ptr noundef nonnull align 8 dereferenceable(12) %4, i64 noundef %318)
   br label %320
 
-320:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit158, %285
-  %.sroa.0.2 = phi ptr [ undef, %_ZN4llvm5APIntD2Ev.exit158 ], [ %292, %285 ]
+320:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit159, %285
+  %.sroa.0.2 = phi ptr [ undef, %_ZN4llvm5APIntD2Ev.exit159 ], [ %292, %285 ]
   %321 = load i32, ptr %255, align 8, !tbaa !23
   %322 = icmp ugt i32 %321, 64
-  br i1 %322, label %323, label %_ZN4llvm5APIntD2Ev.exit161
+  br i1 %322, label %323, label %_ZN4llvm5APIntD2Ev.exit162
 
 323:                                              ; preds = %320
   %324 = load ptr, ptr %52, align 8, !tbaa !25
   %325 = icmp eq ptr %324, null
-  br i1 %325, label %_ZN4llvm5APIntD2Ev.exit161, label %326
+  br i1 %325, label %_ZN4llvm5APIntD2Ev.exit162, label %326
 
 326:                                              ; preds = %323
   call void @_ZdaPv(ptr noundef nonnull %324) #17
-  br label %_ZN4llvm5APIntD2Ev.exit161
+  br label %_ZN4llvm5APIntD2Ev.exit162
 
-_ZN4llvm5APIntD2Ev.exit161:                       ; preds = %320, %323, %326
+_ZN4llvm5APIntD2Ev.exit162:                       ; preds = %320, %323, %326
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #15
-  %327 = trunc nuw nsw i64 %284 to i8
-  %spec.select = xor i8 %327, 1
-  br label %_ZN4llvm5APInt8clearBitEj.exit
+  br i1 %.not272, label %935, label %_ZN4llvm5APInt8clearBitEj.exit
 
-328:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
-  %329 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %330 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %331 = load i32, ptr %330, align 8, !tbaa !23
-  store i32 %331, ptr %329, align 8, !tbaa !23
-  %332 = icmp ult i32 %331, 65
-  br i1 %332, label %333, label %335
+327:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
+  %328 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %330 = load i32, ptr %329, align 8, !tbaa !23
+  store i32 %330, ptr %328, align 8, !tbaa !23
+  %331 = icmp ult i32 %330, 65
+  br i1 %331, label %332, label %334
 
-333:                                              ; preds = %328
-  %334 = load i64, ptr %3, align 8, !tbaa !25
-  store i64 %334, ptr %55, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit162
+332:                                              ; preds = %327
+  %333 = load i64, ptr %3, align 8, !tbaa !25
+  store i64 %333, ptr %55, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit163
 
-335:                                              ; preds = %328
+334:                                              ; preds = %327
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %55, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit162
+  br label %_ZN4llvm5APIntC2ERKS0_.exit163
 
-_ZN4llvm5APIntC2ERKS0_.exit162:                   ; preds = %333, %335
+_ZN4llvm5APIntC2ERKS0_.exit163:                   ; preds = %332, %334
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37)
   store ptr %2, ptr %36, align 8, !tbaa !76
   store i32 0, ptr %37, align 4, !tbaa !62
-  %336 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %337 = load ptr, ptr %336, align 8, !tbaa !264
-  %.not.i.i163 = icmp eq ptr %337, null
-  br i1 %.not.i.i163, label %338, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit164
+  %335 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %336 = load ptr, ptr %335, align 8, !tbaa !264
+  %.not.i.i164 = icmp eq ptr %336, null
+  br i1 %.not.i.i164, label %337, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit165
 
-338:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit162
+337:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit163
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit164: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit162
-  %339 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %340 = load ptr, ptr %339, align 8, !tbaa !266
-  call void %340(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 8 dereferenceable(12) %55, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit165: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit163
+  %338 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %339 = load ptr, ptr %338, align 8, !tbaa !266
+  call void %339(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 8 dereferenceable(12) %55, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37)
-  %341 = load i32, ptr %329, align 8, !tbaa !23
-  %342 = icmp ugt i32 %341, 64
-  br i1 %342, label %343, label %_ZN4llvm5APIntD2Ev.exit165
+  %340 = load i32, ptr %328, align 8, !tbaa !23
+  %341 = icmp ugt i32 %340, 64
+  br i1 %341, label %342, label %_ZN4llvm5APIntD2Ev.exit166
 
-343:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit164
-  %344 = load ptr, ptr %55, align 8, !tbaa !25
-  %345 = icmp eq ptr %344, null
-  br i1 %345, label %_ZN4llvm5APIntD2Ev.exit165, label %346
+342:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit165
+  %343 = load ptr, ptr %55, align 8, !tbaa !25
+  %344 = icmp eq ptr %343, null
+  br i1 %344, label %_ZN4llvm5APIntD2Ev.exit166, label %345
 
-346:                                              ; preds = %343
-  call void @_ZdaPv(ptr noundef nonnull %344) #17
-  br label %_ZN4llvm5APIntD2Ev.exit165
+345:                                              ; preds = %342
+  call void @_ZdaPv(ptr noundef nonnull %343) #17
+  br label %_ZN4llvm5APIntD2Ev.exit166
 
-_ZN4llvm5APIntD2Ev.exit165:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit164, %343, %346
-  %347 = load i32, ptr %330, align 8, !tbaa !23
-  %348 = icmp ult i32 %347, 65
-  %349 = load ptr, ptr %3, align 8
-  %.in.i.i166 = select i1 %348, ptr %3, ptr %349
-  %350 = load i64, ptr %.in.i.i166, align 8, !tbaa !25
-  %351 = and i64 %350, 1
-  %.not265 = icmp eq i64 %351, 0
-  br i1 %.not265, label %352, label %384
+_ZN4llvm5APIntD2Ev.exit166:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit165, %342, %345
+  %346 = load i32, ptr %329, align 8, !tbaa !23
+  %347 = icmp ult i32 %346, 65
+  %348 = load ptr, ptr %3, align 8
+  %.in.i.i167 = select i1 %347, ptr %3, ptr %348
+  %349 = load i64, ptr %.in.i.i167, align 8, !tbaa !25
+  %350 = and i64 %349, 1
+  %.not269 = icmp eq i64 %350, 0
+  br i1 %.not269, label %351, label %383
 
-352:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit165
-  %353 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %354 = load ptr, ptr %353, align 8, !tbaa !75
+351:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit166
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %353 = load ptr, ptr %352, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34) #15
-  %355 = getelementptr inbounds nuw i8, ptr %354, i64 2064
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 2064
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #15
-  %356 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  %357 = load i32, ptr %356, align 8, !tbaa !117
+  %355 = getelementptr inbounds nuw i8, ptr %353, i64 8
+  %356 = load i32, ptr %355, align 8, !tbaa !117
   store ptr %2, ptr %35, align 8, !tbaa !156
-  %358 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i32 %357, ptr %358, align 8, !tbaa !158
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbEOS3_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %34, ptr noundef nonnull align 1 dereferenceable(1) %355, ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 4 dereferenceable(4) %358)
-  %359 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %360 = load i8, ptr %359, align 8, !tbaa !159, !range !163, !noundef !12
-  %361 = trunc nuw i8 %360 to i1
+  %357 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i32 %356, ptr %357, align 8, !tbaa !158
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbEOS3_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %34, ptr noundef nonnull align 1 dereferenceable(1) %354, ptr noundef nonnull align 8 dereferenceable(12) %35, ptr noundef nonnull align 4 dereferenceable(4) %357)
+  %358 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %359 = load i8, ptr %358, align 8, !tbaa !159, !range !163, !noundef !12
+  %360 = trunc nuw i8 %359 to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34) #15
-  br i1 %361, label %362, label %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit170
+  br i1 %360, label %361, label %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit171
 
-362:                                              ; preds = %352
-  %363 = load i32, ptr %356, align 8, !tbaa !117
-  %364 = getelementptr inbounds nuw i8, ptr %354, i64 12
-  %365 = load i32, ptr %364, align 4, !tbaa !121
-  %.not.i.i.not.i.i.i167 = icmp ult i32 %363, %365
-  br i1 %.not.i.i.not.i.i.i167, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i.i169, label %366, !prof !122
+361:                                              ; preds = %351
+  %362 = load i32, ptr %355, align 8, !tbaa !117
+  %363 = getelementptr inbounds nuw i8, ptr %353, i64 12
+  %364 = load i32, ptr %363, align 4, !tbaa !121
+  %.not.i.i.not.i.i.i168 = icmp ult i32 %362, %364
+  br i1 %.not.i.i.not.i.i.i168, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i.i170, label %365, !prof !122
 
-366:                                              ; preds = %362
-  %367 = zext i32 %363 to i64
-  %368 = add nuw nsw i64 %367, 1
-  %369 = getelementptr inbounds nuw i8, ptr %354, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(2256) %354, ptr noundef nonnull %369, i64 noundef %368, i64 noundef 8) #15
-  %.pre.i.i.i168 = load i32, ptr %356, align 8, !tbaa !117
-  br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i.i169
+365:                                              ; preds = %361
+  %366 = zext i32 %362 to i64
+  %367 = add nuw nsw i64 %366, 1
+  %368 = getelementptr inbounds nuw i8, ptr %353, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(2256) %353, ptr noundef nonnull %368, i64 noundef %367, i64 noundef 8) #15
+  %.pre.i.i.i169 = load i32, ptr %355, align 8, !tbaa !117
+  br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i.i170
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i.i169: ; preds = %366, %362
-  %370 = phi i32 [ %363, %362 ], [ %.pre.i.i.i168, %366 ]
-  %371 = load ptr, ptr %354, align 8, !tbaa !116
-  %372 = zext i32 %370 to i64
-  %373 = getelementptr inbounds nuw ptr, ptr %371, i64 %372
-  %374 = ptrtoint ptr %2 to i64
-  store i64 %374, ptr %373, align 1
-  %375 = load i32, ptr %356, align 8, !tbaa !117
-  %376 = add i32 %375, 1
-  store i32 %376, ptr %356, align 8, !tbaa !117
-  br label %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit170
+_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i.i170: ; preds = %365, %361
+  %369 = phi i32 [ %362, %361 ], [ %.pre.i.i.i169, %365 ]
+  %370 = load ptr, ptr %353, align 8, !tbaa !116
+  %371 = zext i32 %369 to i64
+  %372 = getelementptr inbounds nuw ptr, ptr %370, i64 %371
+  %373 = ptrtoint ptr %2 to i64
+  store i64 %373, ptr %372, align 1
+  %374 = load i32, ptr %355, align 8, !tbaa !117
+  %375 = add i32 %374, 1
+  store i32 %375, ptr %355, align 8, !tbaa !117
+  br label %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit171
 
-_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit170: ; preds = %352, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i.i169
-  %377 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %378 = load i32, ptr %377, align 4
-  %379 = and i32 %378, 134217727
-  %380 = zext nneg i32 %379 to i64
-  %381 = sub nsw i64 0, %380
-  %382 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %381
-  %383 = load ptr, ptr %382, align 8, !tbaa !3
-  br label %_ZN4llvm5APInt8clearBitEj.exit
+_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit171: ; preds = %351, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i.i170
+  %376 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %377 = load i32, ptr %376, align 4
+  %378 = and i32 %377, 134217727
+  %379 = zext nneg i32 %378 to i64
+  %380 = sub nsw i64 0, %379
+  %381 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %380
+  %382 = load ptr, ptr %381, align 8, !tbaa !3
+  br label %935
 
-384:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit165
-  br i1 %348, label %_ZN4llvm5APIntaSEm.exit174.thread, label %_ZN4llvm5APIntaSEm.exit174
+383:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit166
+  br i1 %347, label %_ZN4llvm5APIntaSEm.exit175.thread, label %_ZN4llvm5APIntaSEm.exit175
 
-_ZN4llvm5APIntaSEm.exit174.thread:                ; preds = %384
-  %385 = icmp ne i32 %347, 0
-  %spec.select.i173 = zext i1 %385 to i64
-  store i64 %spec.select.i173, ptr %3, align 8, !tbaa !25
-  %386 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i32 %347, ptr %386, align 8, !tbaa !23
-  br label %395
+_ZN4llvm5APIntaSEm.exit175.thread:                ; preds = %383
+  %384 = icmp ne i32 %346, 0
+  %spec.select.i174 = zext i1 %384 to i64
+  store i64 %spec.select.i174, ptr %3, align 8, !tbaa !25
+  %385 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store i32 %346, ptr %385, align 8, !tbaa !23
+  br label %394
 
-_ZN4llvm5APIntaSEm.exit174:                       ; preds = %384
-  store i64 1, ptr %349, align 8, !tbaa !169
-  %387 = load ptr, ptr %3, align 8, !tbaa !25
-  %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
-  %389 = zext i32 %347 to i64
-  %390 = add nuw nsw i64 %389, 63
-  %sh.diff.i171 = lshr i64 %390, 3
-  %391 = add nuw nsw i64 %sh.diff.i171, 4294967288
-  %392 = and i64 %391, 4294967288
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %388, i8 0, i64 %392, i1 false)
-  %.pre = load i32, ptr %330, align 8, !tbaa !23
-  %393 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i32 %.pre, ptr %393, align 8, !tbaa !23
-  %394 = icmp ult i32 %.pre, 65
-  br i1 %394, label %395, label %398
+_ZN4llvm5APIntaSEm.exit175:                       ; preds = %383
+  store i64 1, ptr %348, align 8, !tbaa !169
+  %386 = load ptr, ptr %3, align 8, !tbaa !25
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
+  %388 = zext i32 %346 to i64
+  %389 = add nuw nsw i64 %388, 63
+  %sh.diff.i172 = lshr i64 %389, 3
+  %390 = add nuw nsw i64 %sh.diff.i172, 4294967288
+  %391 = and i64 %390, 4294967288
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %387, i8 0, i64 %391, i1 false)
+  %.pre = load i32, ptr %329, align 8, !tbaa !23
+  %392 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store i32 %.pre, ptr %392, align 8, !tbaa !23
+  %393 = icmp ult i32 %.pre, 65
+  br i1 %393, label %394, label %397
 
-395:                                              ; preds = %_ZN4llvm5APIntaSEm.exit174.thread, %_ZN4llvm5APIntaSEm.exit174
-  %396 = phi ptr [ %386, %_ZN4llvm5APIntaSEm.exit174.thread ], [ %393, %_ZN4llvm5APIntaSEm.exit174 ]
-  %397 = load i64, ptr %3, align 8, !tbaa !25
-  store i64 %397, ptr %56, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit175
+394:                                              ; preds = %_ZN4llvm5APIntaSEm.exit175.thread, %_ZN4llvm5APIntaSEm.exit175
+  %395 = phi ptr [ %385, %_ZN4llvm5APIntaSEm.exit175.thread ], [ %392, %_ZN4llvm5APIntaSEm.exit175 ]
+  %396 = load i64, ptr %3, align 8, !tbaa !25
+  store i64 %396, ptr %56, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit176
 
-398:                                              ; preds = %_ZN4llvm5APIntaSEm.exit174
+397:                                              ; preds = %_ZN4llvm5APIntaSEm.exit175
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %56, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit175
+  br label %_ZN4llvm5APIntC2ERKS0_.exit176
 
-_ZN4llvm5APIntC2ERKS0_.exit175:                   ; preds = %395, %398
-  %399 = phi ptr [ %396, %395 ], [ %393, %398 ]
+_ZN4llvm5APIntC2ERKS0_.exit176:                   ; preds = %394, %397
+  %398 = phi ptr [ %395, %394 ], [ %392, %397 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
   store ptr %2, ptr %32, align 8, !tbaa !76
   store i32 1, ptr %33, align 4, !tbaa !62
-  %400 = load ptr, ptr %336, align 8, !tbaa !264
-  %.not.i.i176 = icmp eq ptr %400, null
-  br i1 %.not.i.i176, label %401, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit177
+  %399 = load ptr, ptr %335, align 8, !tbaa !264
+  %.not.i.i177 = icmp eq ptr %399, null
+  br i1 %.not.i.i177, label %400, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit178
 
-401:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit175
+400:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit176
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit177: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit175
-  %402 = load ptr, ptr %339, align 8, !tbaa !266
-  call void %402(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 4 dereferenceable(4) %33, ptr noundef nonnull align 8 dereferenceable(12) %56, ptr noundef nonnull align 8 dereferenceable(12) %5) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit178: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit176
+  %401 = load ptr, ptr %338, align 8, !tbaa !266
+  call void %401(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 4 dereferenceable(4) %33, ptr noundef nonnull align 8 dereferenceable(12) %56, ptr noundef nonnull align 8 dereferenceable(12) %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
-  %403 = load i32, ptr %399, align 8, !tbaa !23
-  %404 = icmp ugt i32 %403, 64
-  br i1 %404, label %405, label %_ZN4llvm5APIntD2Ev.exit178
+  %402 = load i32, ptr %398, align 8, !tbaa !23
+  %403 = icmp ugt i32 %402, 64
+  br i1 %403, label %404, label %_ZN4llvm5APIntD2Ev.exit179
 
-405:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit177
-  %406 = load ptr, ptr %56, align 8, !tbaa !25
-  %407 = icmp eq ptr %406, null
-  br i1 %407, label %_ZN4llvm5APIntD2Ev.exit178, label %408
+404:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit178
+  %405 = load ptr, ptr %56, align 8, !tbaa !25
+  %406 = icmp eq ptr %405, null
+  br i1 %406, label %_ZN4llvm5APIntD2Ev.exit179, label %407
 
-408:                                              ; preds = %405
-  call void @_ZdaPv(ptr noundef nonnull %406) #17
-  br label %_ZN4llvm5APIntD2Ev.exit178
+407:                                              ; preds = %404
+  call void @_ZdaPv(ptr noundef nonnull %405) #17
+  br label %_ZN4llvm5APIntD2Ev.exit179
 
-_ZN4llvm5APIntD2Ev.exit178:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit177, %405, %408
-  %409 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %410 = load i32, ptr %330, align 8, !tbaa !23
-  store i32 %410, ptr %409, align 8, !tbaa !23
-  %411 = icmp ult i32 %410, 65
-  br i1 %411, label %412, label %414
+_ZN4llvm5APIntD2Ev.exit179:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit178, %404, %407
+  %408 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %409 = load i32, ptr %329, align 8, !tbaa !23
+  store i32 %409, ptr %408, align 8, !tbaa !23
+  %410 = icmp ult i32 %409, 65
+  br i1 %410, label %411, label %413
 
-412:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit178
-  %413 = load i64, ptr %3, align 8, !tbaa !25
-  store i64 %413, ptr %57, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit179
+411:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit179
+  %412 = load i64, ptr %3, align 8, !tbaa !25
+  store i64 %412, ptr %57, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit180
 
-414:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit178
+413:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit179
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %57, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit179
+  br label %_ZN4llvm5APIntC2ERKS0_.exit180
 
-_ZN4llvm5APIntC2ERKS0_.exit179:                   ; preds = %412, %414
+_ZN4llvm5APIntC2ERKS0_.exit180:                   ; preds = %411, %413
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
   store ptr %2, ptr %30, align 8, !tbaa !76
   store i32 2, ptr %31, align 4, !tbaa !62
-  %415 = load ptr, ptr %336, align 8, !tbaa !264
-  %.not.i.i180 = icmp eq ptr %415, null
-  br i1 %.not.i.i180, label %416, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit181
+  %414 = load ptr, ptr %335, align 8, !tbaa !264
+  %.not.i.i181 = icmp eq ptr %414, null
+  br i1 %.not.i.i181, label %415, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit182
 
-416:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit179
+415:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit180
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit181: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit179
-  %417 = load ptr, ptr %339, align 8, !tbaa !266
-  call void %417(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 8 dereferenceable(12) %57, ptr noundef nonnull align 8 dereferenceable(12) %6) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit182: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit180
+  %416 = load ptr, ptr %338, align 8, !tbaa !266
+  call void %416(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 8 dereferenceable(12) %57, ptr noundef nonnull align 8 dereferenceable(12) %6) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  %418 = load i32, ptr %409, align 8, !tbaa !23
-  %419 = icmp ugt i32 %418, 64
-  br i1 %419, label %420, label %_ZN4llvm5APIntD2Ev.exit182
+  %417 = load i32, ptr %408, align 8, !tbaa !23
+  %418 = icmp ugt i32 %417, 64
+  br i1 %418, label %419, label %_ZN4llvm5APIntD2Ev.exit183
 
-420:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit181
-  %421 = load ptr, ptr %57, align 8, !tbaa !25
-  %422 = icmp eq ptr %421, null
-  br i1 %422, label %_ZN4llvm5APIntD2Ev.exit182, label %423
+419:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit182
+  %420 = load ptr, ptr %57, align 8, !tbaa !25
+  %421 = icmp eq ptr %420, null
+  br i1 %421, label %_ZN4llvm5APIntD2Ev.exit183, label %422
 
-423:                                              ; preds = %420
-  call void @_ZdaPv(ptr noundef nonnull %421) #17
-  br label %_ZN4llvm5APIntD2Ev.exit182
+422:                                              ; preds = %419
+  call void @_ZdaPv(ptr noundef nonnull %420) #17
+  br label %_ZN4llvm5APIntD2Ev.exit183
 
-_ZN4llvm5APIntD2Ev.exit182:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit181, %420, %423
-  %424 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %425 = load i32, ptr %424, align 8, !tbaa !23
-  %426 = icmp ult i32 %425, 65
-  %427 = load ptr, ptr %5, align 8
-  %.in.i.i183 = select i1 %426, ptr %5, ptr %427
-  %428 = load i64, ptr %.in.i.i183, align 8, !tbaa !25
-  %429 = and i64 %428, 1
-  %.not266 = icmp eq i64 %429, 0
-  br i1 %.not266, label %437, label %430
+_ZN4llvm5APIntD2Ev.exit183:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit182, %419, %422
+  %423 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %424 = load i32, ptr %423, align 8, !tbaa !23
+  %425 = icmp ult i32 %424, 65
+  %426 = load ptr, ptr %5, align 8
+  %.in.i.i184 = select i1 %425, ptr %5, ptr %426
+  %427 = load i64, ptr %.in.i.i184, align 8, !tbaa !25
+  %428 = and i64 %427, 1
+  %.not270 = icmp eq i64 %428, 0
+  br i1 %.not270, label %436, label %429
 
-430:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit182
-  %431 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %432 = load i32, ptr %431, align 8, !tbaa !23
-  %433 = icmp ult i32 %432, 65
-  %434 = load ptr, ptr %6, align 8
-  %.in.i.i184 = select i1 %433, ptr %6, ptr %434
-  %435 = load i64, ptr %.in.i.i184, align 8, !tbaa !25
-  %436 = and i64 %435, 1
-  %.not267 = icmp eq i64 %436, 0
-  br i1 %.not267, label %437, label %_ZN4llvm5APInt8clearBitEj.exit
+429:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit183
+  %430 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %431 = load i32, ptr %430, align 8, !tbaa !23
+  %432 = icmp ult i32 %431, 65
+  %433 = load ptr, ptr %6, align 8
+  %.in.i.i185 = select i1 %432, ptr %6, ptr %433
+  %434 = load i64, ptr %.in.i.i185, align 8, !tbaa !25
+  %435 = and i64 %434, 1
+  %.not271 = icmp eq i64 %435, 0
+  br i1 %.not271, label %436, label %_ZN4llvm5APInt8clearBitEj.exit
 
-437:                                              ; preds = %430, %_ZN4llvm5APIntD2Ev.exit182
-  %438 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %439 = load i32, ptr %438, align 8, !tbaa !23
-  %440 = icmp ult i32 %439, 65
-  br i1 %440, label %441, label %444
+436:                                              ; preds = %429, %_ZN4llvm5APIntD2Ev.exit183
+  %437 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %438 = load i32, ptr %437, align 8, !tbaa !23
+  %439 = icmp ult i32 %438, 65
+  br i1 %439, label %440, label %443
 
-441:                                              ; preds = %437
-  %442 = load i64, ptr %4, align 8, !tbaa !25
-  %443 = and i64 %442, -2
-  store i64 %443, ptr %4, align 8, !tbaa !25
+440:                                              ; preds = %436
+  %441 = load i64, ptr %4, align 8, !tbaa !25
+  %442 = and i64 %441, -2
+  store i64 %442, ptr %4, align 8, !tbaa !25
   br label %_ZN4llvm5APInt8clearBitEj.exit
 
-444:                                              ; preds = %437
-  %445 = load ptr, ptr %4, align 8, !tbaa !25
-  %446 = load i64, ptr %445, align 8, !tbaa !169
-  %447 = and i64 %446, -2
-  store i64 %447, ptr %445, align 8, !tbaa !169
+443:                                              ; preds = %436
+  %444 = load ptr, ptr %4, align 8, !tbaa !25
+  %445 = load i64, ptr %444, align 8, !tbaa !169
+  %446 = and i64 %445, -2
+  store i64 %446, ptr %444, align 8, !tbaa !169
   br label %_ZN4llvm5APInt8clearBitEj.exit
 
-448:                                              ; preds = %8, %8, %8, %8
+447:                                              ; preds = %8, %8, %8, %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59) #15
-  %449 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 2, ptr %449, align 8, !tbaa !23
+  %448 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store i32 2, ptr %448, align 8, !tbaa !23
   store i64 1, ptr %59, align 8, !tbaa !25
   call void @_ZN4llvm5APInt8getSplatEjRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %58, i32 noundef %86, ptr noundef nonnull align 8 dereferenceable(12) %59) #15
-  %450 = load i32, ptr %449, align 8, !tbaa !23
-  %451 = icmp ugt i32 %450, 64
-  br i1 %451, label %452, label %_ZN4llvm5APIntD2Ev.exit186
+  %449 = load i32, ptr %448, align 8, !tbaa !23
+  %450 = icmp ugt i32 %449, 64
+  br i1 %450, label %451, label %_ZN4llvm5APIntD2Ev.exit187
 
-452:                                              ; preds = %448
-  %453 = load ptr, ptr %59, align 8, !tbaa !25
-  %454 = icmp eq ptr %453, null
-  br i1 %454, label %_ZN4llvm5APIntD2Ev.exit186, label %455
+451:                                              ; preds = %447
+  %452 = load ptr, ptr %59, align 8, !tbaa !25
+  %453 = icmp eq ptr %452, null
+  br i1 %453, label %_ZN4llvm5APIntD2Ev.exit187, label %454
 
-455:                                              ; preds = %452
-  call void @_ZdaPv(ptr noundef nonnull %453) #17
-  br label %_ZN4llvm5APIntD2Ev.exit186
+454:                                              ; preds = %451
+  call void @_ZdaPv(ptr noundef nonnull %452) #17
+  br label %_ZN4llvm5APIntD2Ev.exit187
 
-_ZN4llvm5APIntD2Ev.exit186:                       ; preds = %448, %452, %455
+_ZN4llvm5APIntD2Ev.exit187:                       ; preds = %447, %451, %454
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61) #15
-  %456 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i32 2, ptr %456, align 8, !tbaa !23
+  %455 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store i32 2, ptr %455, align 8, !tbaa !23
   store i64 2, ptr %61, align 8, !tbaa !25
   call void @_ZN4llvm5APInt8getSplatEjRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %60, i32 noundef %86, ptr noundef nonnull align 8 dereferenceable(12) %61) #15
-  %457 = load i32, ptr %456, align 8, !tbaa !23
-  %458 = icmp ugt i32 %457, 64
-  br i1 %458, label %459, label %_ZN4llvm5APIntD2Ev.exit187
+  %456 = load i32, ptr %455, align 8, !tbaa !23
+  %457 = icmp ugt i32 %456, 64
+  br i1 %457, label %458, label %_ZN4llvm5APIntD2Ev.exit188
 
-459:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit186
-  %460 = load ptr, ptr %61, align 8, !tbaa !25
-  %461 = icmp eq ptr %460, null
-  br i1 %461, label %_ZN4llvm5APIntD2Ev.exit187, label %462
+458:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit187
+  %459 = load ptr, ptr %61, align 8, !tbaa !25
+  %460 = icmp eq ptr %459, null
+  br i1 %460, label %_ZN4llvm5APIntD2Ev.exit188, label %461
 
-462:                                              ; preds = %459
-  call void @_ZdaPv(ptr noundef nonnull %460) #17
-  br label %_ZN4llvm5APIntD2Ev.exit187
+461:                                              ; preds = %458
+  call void @_ZdaPv(ptr noundef nonnull %459) #17
+  br label %_ZN4llvm5APIntD2Ev.exit188
 
-_ZN4llvm5APIntD2Ev.exit187:                       ; preds = %_ZN4llvm5APIntD2Ev.exit186, %459, %462
+_ZN4llvm5APIntD2Ev.exit188:                       ; preds = %_ZN4llvm5APIntD2Ev.exit187, %458, %461
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61) #15
-  %463 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %464 = load i32, ptr %463, align 8, !tbaa !23
-  %465 = icmp ult i32 %464, 65
-  br i1 %465, label %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit189, label %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit189.thread
+  %462 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %463 = load i32, ptr %462, align 8, !tbaa !23
+  %464 = icmp ult i32 %463, 65
+  br i1 %464, label %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit190, label %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit190.thread
 
-_ZNK4llvm5APInt10isSubsetOfERKS0_.exit189:        ; preds = %_ZN4llvm5APIntD2Ev.exit187
-  %466 = load i64, ptr %3, align 8, !tbaa !25
-  %467 = load i64, ptr %58, align 8, !tbaa !25
-  %468 = xor i64 %467, -1
-  %469 = and i64 %466, %468
-  %470 = icmp eq i64 %469, 0
-  %471 = load i64, ptr %60, align 8, !tbaa !25
-  %472 = xor i64 %471, -1
-  %473 = and i64 %466, %472
-  %474 = icmp eq i64 %473, 0
-  %brmerge = or i1 %470, %474
-  %.mux = select i1 %470, i32 16, i32 14
-  br i1 %brmerge, label %.critedge, label %524
+_ZNK4llvm5APInt10isSubsetOfERKS0_.exit190:        ; preds = %_ZN4llvm5APIntD2Ev.exit188
+  %465 = load i64, ptr %3, align 8, !tbaa !25
+  %466 = load i64, ptr %58, align 8, !tbaa !25
+  %467 = xor i64 %466, -1
+  %468 = and i64 %465, %467
+  %469 = icmp eq i64 %468, 0
+  %470 = load i64, ptr %60, align 8, !tbaa !25
+  %471 = xor i64 %470, -1
+  %472 = and i64 %465, %471
+  %473 = icmp eq i64 %472, 0
+  %or.cond = or i1 %469, %473
+  br i1 %or.cond, label %476, label %511
 
-_ZNK4llvm5APInt10isSubsetOfERKS0_.exit189.thread: ; preds = %_ZN4llvm5APIntD2Ev.exit187
-  %475 = call noundef zeroext i1 @_ZNK4llvm5APInt18isSubsetOfSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %58) #16
-  %476 = call noundef zeroext i1 @_ZNK4llvm5APInt18isSubsetOfSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %60) #16
-  %brmerge261 = or i1 %475, %476
-  %.mux262 = select i1 %475, i32 16, i32 14
-  br i1 %brmerge261, label %.critedge, label %526
+_ZNK4llvm5APInt10isSubsetOfERKS0_.exit190.thread: ; preds = %_ZN4llvm5APIntD2Ev.exit188
+  %474 = call noundef zeroext i1 @_ZNK4llvm5APInt18isSubsetOfSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %58) #16
+  %475 = call noundef zeroext i1 @_ZNK4llvm5APInt18isSubsetOfSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %60) #16
+  %or.cond260 = or i1 %474, %475
+  br i1 %or.cond260, label %476, label %513
 
-.critedge:                                        ; preds = %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit189.thread, %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit189
-  %.mux263 = phi i32 [ %.mux262, %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit189.thread ], [ %.mux, %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit189 ]
+476:                                              ; preds = %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit190.thread, %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit190
+  %.0.i256261 = phi i1 [ %474, %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit190.thread ], [ %469, %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit190 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %62) #15
   %477 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %478 = load ptr, ptr %477, align 8, !tbaa !27
@@ -14800,13 +14796,13 @@ _ZNK4llvm5APInt10isSubsetOfERKS0_.exit189.thread: ; preds = %_ZN4llvm5APIntD2Ev.
   %.not.i.i.i.i.i = icmp eq ptr %492, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i, label %493
 
-493:                                              ; preds = %.critedge
+493:                                              ; preds = %476
   %494 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 4 dereferenceable(8) %492, i64 1) #15
   %.pre.i = load ptr, ptr %29, align 8, !tbaa !275
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit.i
 
-_ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %493, %.critedge
-  %495 = phi ptr [ null, %.critedge ], [ %.pre.i, %493 ]
+_ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %493, %476
+  %495 = phi ptr [ null, %476 ], [ %.pre.i, %493 ]
   call void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %485, i32 noundef 0, ptr noundef %495)
   %496 = load ptr, ptr %29, align 8, !tbaa !275
   %.not.i.i.i.i5.i = icmp eq ptr %496, null
@@ -14828,1091 +14824,1066 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit: ; preds = %_ZN4
   %505 = getelementptr inbounds nuw i8, ptr %503, i64 32
   %506 = load ptr, ptr %505, align 8, !tbaa !3
   %507 = load ptr, ptr %477, align 8, !tbaa !27
+  %508 = select i1 %.0.i256261, i32 16, i32 14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %63) #15
-  %508 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  store i16 257, ptr %508, align 8
-  %509 = call noundef ptr @_ZN4llvm13IRBuilderBase14CreateBinOpFMFENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_9FMFSourceERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %507, i32 noundef %.mux263, ptr noundef %504, ptr noundef %506, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %63, ptr noundef null)
+  %509 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  store i16 257, ptr %509, align 8
+  %510 = call noundef ptr @_ZN4llvm13IRBuilderBase14CreateBinOpFMFENS_11Instruction9BinaryOpsEPNS_5ValueES4_NS_9FMFSourceERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %507, i32 noundef %508, ptr noundef %504, ptr noundef %506, i64 0, ptr noundef nonnull align 8 dereferenceable(34) %63, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63) #15
   call void @_ZN4llvm13IRBuilderBase16InsertPointGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %62) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %62) #15
-  %510 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %511 = load i32, ptr %510, align 8, !tbaa !23
-  %512 = icmp ugt i32 %511, 64
-  br i1 %512, label %513, label %_ZN4llvm5APIntD2Ev.exit190
+  br label %_ZN4llvm5APIntaNERKS0_.exit
 
-513:                                              ; preds = %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit
-  %514 = load ptr, ptr %60, align 8, !tbaa !25
-  %515 = icmp eq ptr %514, null
-  br i1 %515, label %_ZN4llvm5APIntD2Ev.exit190, label %516
+511:                                              ; preds = %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit190
+  %512 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store i32 %463, ptr %512, align 8, !tbaa !23
+  store i64 %465, ptr %64, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit191
 
-516:                                              ; preds = %513
-  call void @_ZdaPv(ptr noundef nonnull %514) #17
-  br label %_ZN4llvm5APIntD2Ev.exit190
-
-_ZN4llvm5APIntD2Ev.exit190:                       ; preds = %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit, %513, %516
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #15
-  %517 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %518 = load i32, ptr %517, align 8, !tbaa !23
-  %519 = icmp ugt i32 %518, 64
-  br i1 %519, label %520, label %_ZN4llvm5APIntD2Ev.exit191
-
-520:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit190
-  %521 = load ptr, ptr %58, align 8, !tbaa !25
-  %522 = icmp eq ptr %521, null
-  br i1 %522, label %_ZN4llvm5APIntD2Ev.exit191, label %523
-
-523:                                              ; preds = %520
-  call void @_ZdaPv(ptr noundef nonnull %521) #17
-  br label %_ZN4llvm5APIntD2Ev.exit191
-
-_ZN4llvm5APIntD2Ev.exit191:                       ; preds = %_ZN4llvm5APIntD2Ev.exit190, %520, %523
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #15
-  br label %_ZN4llvm5APInt8clearBitEj.exit
-
-524:                                              ; preds = %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit189
-  %525 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store i32 %464, ptr %525, align 8, !tbaa !23
-  store i64 %466, ptr %64, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit192
-
-526:                                              ; preds = %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit189.thread
-  %527 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store i32 %464, ptr %527, align 8, !tbaa !23
+513:                                              ; preds = %_ZNK4llvm5APInt10isSubsetOfERKS0_.exit190.thread
+  %514 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store i32 %463, ptr %514, align 8, !tbaa !23
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %64, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit192
+  br label %_ZN4llvm5APIntC2ERKS0_.exit191
 
-_ZN4llvm5APIntC2ERKS0_.exit192:                   ; preds = %524, %526
-  %528 = phi ptr [ %525, %524 ], [ %527, %526 ]
+_ZN4llvm5APIntC2ERKS0_.exit191:                   ; preds = %511, %513
+  %515 = phi ptr [ %512, %511 ], [ %514, %513 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   store ptr %2, ptr %27, align 8, !tbaa !76
   store i32 0, ptr %28, align 4, !tbaa !62
-  %529 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %530 = load ptr, ptr %529, align 8, !tbaa !264
-  %.not.i.i193 = icmp eq ptr %530, null
-  br i1 %.not.i.i193, label %531, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit194
+  %516 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %517 = load ptr, ptr %516, align 8, !tbaa !264
+  %.not.i.i192 = icmp eq ptr %517, null
+  br i1 %.not.i.i192, label %518, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit193
 
-531:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit192
+518:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit191
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit194: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit192
-  %532 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %533 = load ptr, ptr %532, align 8, !tbaa !266
-  call void %533(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 8 dereferenceable(12) %64, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit193: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit191
+  %519 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %520 = load ptr, ptr %519, align 8, !tbaa !266
+  call void %520(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 8 dereferenceable(12) %64, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
-  %534 = load i32, ptr %528, align 8, !tbaa !23
-  %535 = icmp ugt i32 %534, 64
-  br i1 %535, label %536, label %_ZN4llvm5APIntD2Ev.exit195
+  %521 = load i32, ptr %515, align 8, !tbaa !23
+  %522 = icmp ugt i32 %521, 64
+  br i1 %522, label %523, label %_ZN4llvm5APIntD2Ev.exit194
 
-536:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit194
-  %537 = load ptr, ptr %64, align 8, !tbaa !25
-  %538 = icmp eq ptr %537, null
-  br i1 %538, label %_ZN4llvm5APIntD2Ev.exit195, label %539
+523:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit193
+  %524 = load ptr, ptr %64, align 8, !tbaa !25
+  %525 = icmp eq ptr %524, null
+  br i1 %525, label %_ZN4llvm5APIntD2Ev.exit194, label %526
 
-539:                                              ; preds = %536
-  call void @_ZdaPv(ptr noundef nonnull %537) #17
-  br label %_ZN4llvm5APIntD2Ev.exit195
+526:                                              ; preds = %523
+  call void @_ZdaPv(ptr noundef nonnull %524) #17
+  br label %_ZN4llvm5APIntD2Ev.exit194
 
-_ZN4llvm5APIntD2Ev.exit195:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit194, %536, %539
-  %540 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %541 = load i32, ptr %463, align 8, !tbaa !23
-  store i32 %541, ptr %540, align 8, !tbaa !23
-  %542 = icmp ult i32 %541, 65
-  br i1 %542, label %543, label %545
+_ZN4llvm5APIntD2Ev.exit194:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit193, %523, %526
+  %527 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %528 = load i32, ptr %462, align 8, !tbaa !23
+  store i32 %528, ptr %527, align 8, !tbaa !23
+  %529 = icmp ult i32 %528, 65
+  br i1 %529, label %530, label %532
 
-543:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit195
-  %544 = load i64, ptr %3, align 8, !tbaa !25
-  store i64 %544, ptr %65, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit196
+530:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit194
+  %531 = load i64, ptr %3, align 8, !tbaa !25
+  store i64 %531, ptr %65, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit195
 
-545:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit195
+532:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit194
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %65, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit196
+  br label %_ZN4llvm5APIntC2ERKS0_.exit195
 
-_ZN4llvm5APIntC2ERKS0_.exit196:                   ; preds = %543, %545
+_ZN4llvm5APIntC2ERKS0_.exit195:                   ; preds = %530, %532
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
   store ptr %2, ptr %25, align 8, !tbaa !76
   store i32 1, ptr %26, align 4, !tbaa !62
-  %546 = load ptr, ptr %529, align 8, !tbaa !264
-  %.not.i.i197 = icmp eq ptr %546, null
-  br i1 %.not.i.i197, label %547, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit198
+  %533 = load ptr, ptr %516, align 8, !tbaa !264
+  %.not.i.i196 = icmp eq ptr %533, null
+  br i1 %.not.i.i196, label %534, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit197
 
-547:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit196
+534:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit195
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit198: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit196
-  %548 = load ptr, ptr %532, align 8, !tbaa !266
-  call void %548(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 8 dereferenceable(12) %65, ptr noundef nonnull align 8 dereferenceable(12) %5) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit197: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit195
+  %535 = load ptr, ptr %519, align 8, !tbaa !266
+  call void %535(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 8 dereferenceable(12) %65, ptr noundef nonnull align 8 dereferenceable(12) %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  %549 = load i32, ptr %540, align 8, !tbaa !23
-  %550 = icmp ugt i32 %549, 64
-  br i1 %550, label %551, label %_ZN4llvm5APIntD2Ev.exit199
+  %536 = load i32, ptr %527, align 8, !tbaa !23
+  %537 = icmp ugt i32 %536, 64
+  br i1 %537, label %538, label %_ZN4llvm5APIntD2Ev.exit198
 
-551:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit198
-  %552 = load ptr, ptr %65, align 8, !tbaa !25
-  %553 = icmp eq ptr %552, null
-  br i1 %553, label %_ZN4llvm5APIntD2Ev.exit199, label %554
+538:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit197
+  %539 = load ptr, ptr %65, align 8, !tbaa !25
+  %540 = icmp eq ptr %539, null
+  br i1 %540, label %_ZN4llvm5APIntD2Ev.exit198, label %541
 
-554:                                              ; preds = %551
-  call void @_ZdaPv(ptr noundef nonnull %552) #17
-  br label %_ZN4llvm5APIntD2Ev.exit199
+541:                                              ; preds = %538
+  call void @_ZdaPv(ptr noundef nonnull %539) #17
+  br label %_ZN4llvm5APIntD2Ev.exit198
 
-_ZN4llvm5APIntD2Ev.exit199:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit198, %551, %554
-  %555 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %556 = load i32, ptr %555, align 8, !tbaa !23
-  %557 = icmp ult i32 %556, 65
-  br i1 %557, label %558, label %562
+_ZN4llvm5APIntD2Ev.exit198:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit197, %538, %541
+  %542 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %543 = load i32, ptr %542, align 8, !tbaa !23
+  %544 = icmp ult i32 %543, 65
+  br i1 %544, label %545, label %549
 
-558:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit199
-  %559 = load i64, ptr %5, align 8, !tbaa !25
-  %560 = load i64, ptr %4, align 8, !tbaa !25
-  %561 = and i64 %560, %559
-  store i64 %561, ptr %4, align 8, !tbaa !25
+545:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit198
+  %546 = load i64, ptr %5, align 8, !tbaa !25
+  %547 = load i64, ptr %4, align 8, !tbaa !25
+  %548 = and i64 %547, %546
+  store i64 %548, ptr %4, align 8, !tbaa !25
   br label %_ZN4llvm5APIntaNERKS0_.exit
 
-562:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit199
+549:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit198
   call void @_ZN4llvm5APInt17andAssignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5) #15
   br label %_ZN4llvm5APIntaNERKS0_.exit
 
-_ZN4llvm5APIntaNERKS0_.exit:                      ; preds = %558, %562
-  %563 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %564 = load i32, ptr %563, align 8, !tbaa !23
-  %565 = icmp ugt i32 %564, 64
-  br i1 %565, label %566, label %_ZN4llvm5APIntD2Ev.exit200
+_ZN4llvm5APIntaNERKS0_.exit:                      ; preds = %549, %545, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit
+  %or.cond262 = phi i1 [ true, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit ], [ false, %545 ], [ false, %549 ]
+  %.sroa.0.3 = phi ptr [ %510, %_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit ], [ undef, %545 ], [ undef, %549 ]
+  %550 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %551 = load i32, ptr %550, align 8, !tbaa !23
+  %552 = icmp ugt i32 %551, 64
+  br i1 %552, label %553, label %_ZN4llvm5APIntD2Ev.exit199
 
-566:                                              ; preds = %_ZN4llvm5APIntaNERKS0_.exit
-  %567 = load ptr, ptr %60, align 8, !tbaa !25
-  %568 = icmp eq ptr %567, null
-  br i1 %568, label %_ZN4llvm5APIntD2Ev.exit200, label %569
+553:                                              ; preds = %_ZN4llvm5APIntaNERKS0_.exit
+  %554 = load ptr, ptr %60, align 8, !tbaa !25
+  %555 = icmp eq ptr %554, null
+  br i1 %555, label %_ZN4llvm5APIntD2Ev.exit199, label %556
 
-569:                                              ; preds = %566
-  call void @_ZdaPv(ptr noundef nonnull %567) #17
+556:                                              ; preds = %553
+  call void @_ZdaPv(ptr noundef nonnull %554) #17
+  br label %_ZN4llvm5APIntD2Ev.exit199
+
+_ZN4llvm5APIntD2Ev.exit199:                       ; preds = %_ZN4llvm5APIntaNERKS0_.exit, %553, %556
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #15
+  %557 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %558 = load i32, ptr %557, align 8, !tbaa !23
+  %559 = icmp ugt i32 %558, 64
+  br i1 %559, label %560, label %_ZN4llvm5APIntD2Ev.exit200
+
+560:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit199
+  %561 = load ptr, ptr %58, align 8, !tbaa !25
+  %562 = icmp eq ptr %561, null
+  br i1 %562, label %_ZN4llvm5APIntD2Ev.exit200, label %563
+
+563:                                              ; preds = %560
+  call void @_ZdaPv(ptr noundef nonnull %561) #17
   br label %_ZN4llvm5APIntD2Ev.exit200
 
-_ZN4llvm5APIntD2Ev.exit200:                       ; preds = %_ZN4llvm5APIntaNERKS0_.exit, %566, %569
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #15
-  %570 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %571 = load i32, ptr %570, align 8, !tbaa !23
-  %572 = icmp ugt i32 %571, 64
-  br i1 %572, label %573, label %_ZN4llvm5APIntD2Ev.exit201
-
-573:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit200
-  %574 = load ptr, ptr %58, align 8, !tbaa !25
-  %575 = icmp eq ptr %574, null
-  br i1 %575, label %_ZN4llvm5APIntD2Ev.exit201, label %576
-
-576:                                              ; preds = %573
-  call void @_ZdaPv(ptr noundef nonnull %574) #17
-  br label %_ZN4llvm5APIntD2Ev.exit201
-
-_ZN4llvm5APIntD2Ev.exit201:                       ; preds = %_ZN4llvm5APIntD2Ev.exit200, %573, %576
+_ZN4llvm5APIntD2Ev.exit200:                       ; preds = %_ZN4llvm5APIntD2Ev.exit199, %560, %563
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #15
-  br label %_ZN4llvm5APInt8clearBitEj.exit
+  br i1 %or.cond262, label %935, label %_ZN4llvm5APInt8clearBitEj.exit
 
-577:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
-  %578 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %579 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %580 = load i32, ptr %579, align 8, !tbaa !23
-  store i32 %580, ptr %578, align 8, !tbaa !23
-  %581 = icmp ult i32 %580, 65
-  br i1 %581, label %582, label %584
+564:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
+  %565 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %566 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %567 = load i32, ptr %566, align 8, !tbaa !23
+  store i32 %567, ptr %565, align 8, !tbaa !23
+  %568 = icmp ult i32 %567, 65
+  br i1 %568, label %569, label %571
 
-582:                                              ; preds = %577
-  %583 = load i64, ptr %3, align 8, !tbaa !25
-  store i64 %583, ptr %66, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit202
+569:                                              ; preds = %564
+  %570 = load i64, ptr %3, align 8, !tbaa !25
+  store i64 %570, ptr %66, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit201
 
-584:                                              ; preds = %577
+571:                                              ; preds = %564
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %66, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit202
+  br label %_ZN4llvm5APIntC2ERKS0_.exit201
 
-_ZN4llvm5APIntC2ERKS0_.exit202:                   ; preds = %582, %584
+_ZN4llvm5APIntC2ERKS0_.exit201:                   ; preds = %569, %571
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
   store ptr %2, ptr %23, align 8, !tbaa !76
   store i32 0, ptr %24, align 4, !tbaa !62
-  %585 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %586 = load ptr, ptr %585, align 8, !tbaa !264
-  %.not.i.i203 = icmp eq ptr %586, null
-  br i1 %.not.i.i203, label %587, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit204
+  %572 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %573 = load ptr, ptr %572, align 8, !tbaa !264
+  %.not.i.i202 = icmp eq ptr %573, null
+  br i1 %.not.i.i202, label %574, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit203
 
-587:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit202
+574:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit201
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit204: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit202
-  %588 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %589 = load ptr, ptr %588, align 8, !tbaa !266
-  call void %589(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 8 dereferenceable(12) %66, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit203: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit201
+  %575 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %576 = load ptr, ptr %575, align 8, !tbaa !266
+  call void %576(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 8 dereferenceable(12) %66, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
-  %590 = load i32, ptr %578, align 8, !tbaa !23
-  %591 = icmp ugt i32 %590, 64
-  br i1 %591, label %592, label %_ZN4llvm5APIntD2Ev.exit205
+  %577 = load i32, ptr %565, align 8, !tbaa !23
+  %578 = icmp ugt i32 %577, 64
+  br i1 %578, label %579, label %_ZN4llvm5APIntD2Ev.exit204
 
-592:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit204
-  %593 = load ptr, ptr %66, align 8, !tbaa !25
-  %594 = icmp eq ptr %593, null
-  br i1 %594, label %_ZN4llvm5APIntD2Ev.exit205, label %595
+579:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit203
+  %580 = load ptr, ptr %66, align 8, !tbaa !25
+  %581 = icmp eq ptr %580, null
+  br i1 %581, label %_ZN4llvm5APIntD2Ev.exit204, label %582
 
-595:                                              ; preds = %592
-  call void @_ZdaPv(ptr noundef nonnull %593) #17
-  br label %_ZN4llvm5APIntD2Ev.exit205
+582:                                              ; preds = %579
+  call void @_ZdaPv(ptr noundef nonnull %580) #17
+  br label %_ZN4llvm5APIntD2Ev.exit204
 
-_ZN4llvm5APIntD2Ev.exit205:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit204, %592, %595
-  %596 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %597 = load i32, ptr %579, align 8, !tbaa !23
-  store i32 %597, ptr %596, align 8, !tbaa !23
-  %598 = icmp ult i32 %597, 65
-  br i1 %598, label %599, label %601
+_ZN4llvm5APIntD2Ev.exit204:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit203, %579, %582
+  %583 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %584 = load i32, ptr %566, align 8, !tbaa !23
+  store i32 %584, ptr %583, align 8, !tbaa !23
+  %585 = icmp ult i32 %584, 65
+  br i1 %585, label %586, label %588
 
-599:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit205
-  %600 = load i64, ptr %3, align 8, !tbaa !25
-  store i64 %600, ptr %67, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit206
+586:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit204
+  %587 = load i64, ptr %3, align 8, !tbaa !25
+  store i64 %587, ptr %67, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit205
 
-601:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit205
+588:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit204
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %67, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit206
+  br label %_ZN4llvm5APIntC2ERKS0_.exit205
 
-_ZN4llvm5APIntC2ERKS0_.exit206:                   ; preds = %599, %601
+_ZN4llvm5APIntC2ERKS0_.exit205:                   ; preds = %586, %588
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
   store ptr %2, ptr %21, align 8, !tbaa !76
   store i32 1, ptr %22, align 4, !tbaa !62
-  %602 = load ptr, ptr %585, align 8, !tbaa !264
-  %.not.i.i207 = icmp eq ptr %602, null
-  br i1 %.not.i.i207, label %603, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit208
+  %589 = load ptr, ptr %572, align 8, !tbaa !264
+  %.not.i.i206 = icmp eq ptr %589, null
+  br i1 %.not.i.i206, label %590, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit207
 
-603:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit206
+590:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit205
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit208: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit206
-  %604 = load ptr, ptr %588, align 8, !tbaa !266
-  call void %604(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 8 dereferenceable(12) %67, ptr noundef nonnull align 8 dereferenceable(12) %5) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit207: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit205
+  %591 = load ptr, ptr %575, align 8, !tbaa !266
+  call void %591(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 8 dereferenceable(12) %67, ptr noundef nonnull align 8 dereferenceable(12) %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  %605 = load i32, ptr %596, align 8, !tbaa !23
-  %606 = icmp ugt i32 %605, 64
-  br i1 %606, label %607, label %_ZN4llvm5APIntD2Ev.exit209
+  %592 = load i32, ptr %583, align 8, !tbaa !23
+  %593 = icmp ugt i32 %592, 64
+  br i1 %593, label %594, label %_ZN4llvm5APIntD2Ev.exit208
 
-607:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit208
-  %608 = load ptr, ptr %67, align 8, !tbaa !25
-  %609 = icmp eq ptr %608, null
-  br i1 %609, label %_ZN4llvm5APIntD2Ev.exit209, label %610
+594:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit207
+  %595 = load ptr, ptr %67, align 8, !tbaa !25
+  %596 = icmp eq ptr %595, null
+  br i1 %596, label %_ZN4llvm5APIntD2Ev.exit208, label %597
 
-610:                                              ; preds = %607
-  call void @_ZdaPv(ptr noundef nonnull %608) #17
-  br label %_ZN4llvm5APIntD2Ev.exit209
+597:                                              ; preds = %594
+  call void @_ZdaPv(ptr noundef nonnull %595) #17
+  br label %_ZN4llvm5APIntD2Ev.exit208
 
-_ZN4llvm5APIntD2Ev.exit209:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit208, %607, %610
-  %611 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %612 = load i32, ptr %611, align 8, !tbaa !23
-  %613 = icmp ult i32 %612, 65
-  br i1 %613, label %614, label %618
+_ZN4llvm5APIntD2Ev.exit208:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit207, %594, %597
+  %598 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %599 = load i32, ptr %598, align 8, !tbaa !23
+  %600 = icmp ult i32 %599, 65
+  br i1 %600, label %601, label %605
 
-614:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit209
-  %615 = load i64, ptr %5, align 8, !tbaa !25
-  %616 = load i64, ptr %4, align 8, !tbaa !25
-  %617 = and i64 %616, %615
-  store i64 %617, ptr %4, align 8, !tbaa !25
+601:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit208
+  %602 = load i64, ptr %5, align 8, !tbaa !25
+  %603 = load i64, ptr %4, align 8, !tbaa !25
+  %604 = and i64 %603, %602
+  store i64 %604, ptr %4, align 8, !tbaa !25
   br label %_ZN4llvm5APInt8clearBitEj.exit
 
-618:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit209
+605:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit208
   call void @_ZN4llvm5APInt17andAssignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %5) #15
   br label %_ZN4llvm5APInt8clearBitEj.exit
 
-619:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8
-  %620 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %621 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %622 = load i32, ptr %621, align 8, !tbaa !23
-  store i32 %622, ptr %620, align 8, !tbaa !23
-  %623 = icmp ult i32 %622, 65
-  br i1 %623, label %624, label %626
+606:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8
+  %607 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %608 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %609 = load i32, ptr %608, align 8, !tbaa !23
+  store i32 %609, ptr %607, align 8, !tbaa !23
+  %610 = icmp ult i32 %609, 65
+  br i1 %610, label %611, label %613
 
-624:                                              ; preds = %619
-  %625 = load i64, ptr %3, align 8, !tbaa !25
-  store i64 %625, ptr %68, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit211
+611:                                              ; preds = %606
+  %612 = load i64, ptr %3, align 8, !tbaa !25
+  store i64 %612, ptr %68, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit210
 
-626:                                              ; preds = %619
+613:                                              ; preds = %606
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %68, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit211
+  br label %_ZN4llvm5APIntC2ERKS0_.exit210
 
-_ZN4llvm5APIntC2ERKS0_.exit211:                   ; preds = %624, %626
+_ZN4llvm5APIntC2ERKS0_.exit210:                   ; preds = %611, %613
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
   store ptr %2, ptr %19, align 8, !tbaa !76
   store i32 0, ptr %20, align 4, !tbaa !62
-  %627 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %628 = load ptr, ptr %627, align 8, !tbaa !264
-  %.not.i.i212 = icmp eq ptr %628, null
-  br i1 %.not.i.i212, label %629, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit213
+  %614 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %615 = load ptr, ptr %614, align 8, !tbaa !264
+  %.not.i.i211 = icmp eq ptr %615, null
+  br i1 %.not.i.i211, label %616, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit212
 
-629:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit211
+616:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit210
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit213: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit211
-  %630 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %631 = load ptr, ptr %630, align 8, !tbaa !266
-  call void %631(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(12) %68, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit212: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit210
+  %617 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %618 = load ptr, ptr %617, align 8, !tbaa !266
+  call void %618(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(12) %68, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
-  %632 = load i32, ptr %620, align 8, !tbaa !23
-  %633 = icmp ugt i32 %632, 64
-  br i1 %633, label %634, label %_ZN4llvm5APIntD2Ev.exit214
+  %619 = load i32, ptr %607, align 8, !tbaa !23
+  %620 = icmp ugt i32 %619, 64
+  br i1 %620, label %621, label %_ZN4llvm5APIntD2Ev.exit213
 
-634:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit213
-  %635 = load ptr, ptr %68, align 8, !tbaa !25
-  %636 = icmp eq ptr %635, null
-  br i1 %636, label %_ZN4llvm5APIntD2Ev.exit214, label %637
+621:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit212
+  %622 = load ptr, ptr %68, align 8, !tbaa !25
+  %623 = icmp eq ptr %622, null
+  br i1 %623, label %_ZN4llvm5APIntD2Ev.exit213, label %624
 
-637:                                              ; preds = %634
-  call void @_ZdaPv(ptr noundef nonnull %635) #17
-  br label %_ZN4llvm5APIntD2Ev.exit214
+624:                                              ; preds = %621
+  call void @_ZdaPv(ptr noundef nonnull %622) #17
+  br label %_ZN4llvm5APIntD2Ev.exit213
 
-_ZN4llvm5APIntD2Ev.exit214:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit213, %634, %637
-  %638 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %639 = load i32, ptr %621, align 8, !tbaa !23
-  store i32 %639, ptr %638, align 8, !tbaa !23
-  %640 = icmp ult i32 %639, 65
-  br i1 %640, label %641, label %643
+_ZN4llvm5APIntD2Ev.exit213:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit212, %621, %624
+  %625 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %626 = load i32, ptr %608, align 8, !tbaa !23
+  store i32 %626, ptr %625, align 8, !tbaa !23
+  %627 = icmp ult i32 %626, 65
+  br i1 %627, label %628, label %630
 
-641:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit214
-  %642 = load i64, ptr %3, align 8, !tbaa !25
-  store i64 %642, ptr %69, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit215
+628:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit213
+  %629 = load i64, ptr %3, align 8, !tbaa !25
+  store i64 %629, ptr %69, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit214
 
-643:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit214
+630:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit213
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %69, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit215
+  br label %_ZN4llvm5APIntC2ERKS0_.exit214
 
-_ZN4llvm5APIntC2ERKS0_.exit215:                   ; preds = %641, %643
+_ZN4llvm5APIntC2ERKS0_.exit214:                   ; preds = %628, %630
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   store ptr %2, ptr %17, align 8, !tbaa !76
   store i32 1, ptr %18, align 4, !tbaa !62
-  %644 = load ptr, ptr %627, align 8, !tbaa !264
-  %.not.i.i216 = icmp eq ptr %644, null
-  br i1 %.not.i.i216, label %645, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit217
+  %631 = load ptr, ptr %614, align 8, !tbaa !264
+  %.not.i.i215 = icmp eq ptr %631, null
+  br i1 %.not.i.i215, label %632, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit216
 
-645:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit215
+632:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit214
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit217: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit215
-  %646 = load ptr, ptr %630, align 8, !tbaa !266
-  call void %646(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(12) %69, ptr noundef nonnull align 8 dereferenceable(12) %5) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit216: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit214
+  %633 = load ptr, ptr %617, align 8, !tbaa !266
+  call void %633(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 8 dereferenceable(12) %69, ptr noundef nonnull align 8 dereferenceable(12) %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
-  %647 = load i32, ptr %638, align 8, !tbaa !23
-  %648 = icmp ugt i32 %647, 64
-  br i1 %648, label %649, label %_ZN4llvm5APInt8clearBitEj.exit
+  %634 = load i32, ptr %625, align 8, !tbaa !23
+  %635 = icmp ugt i32 %634, 64
+  br i1 %635, label %636, label %_ZN4llvm5APInt8clearBitEj.exit
 
-649:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit217
-  %650 = load ptr, ptr %69, align 8, !tbaa !25
-  %651 = icmp eq ptr %650, null
-  br i1 %651, label %_ZN4llvm5APInt8clearBitEj.exit, label %652
+636:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit216
+  %637 = load ptr, ptr %69, align 8, !tbaa !25
+  %638 = icmp eq ptr %637, null
+  br i1 %638, label %_ZN4llvm5APInt8clearBitEj.exit, label %639
 
-652:                                              ; preds = %649
-  call void @_ZdaPv(ptr noundef nonnull %650) #17
+639:                                              ; preds = %636
+  call void @_ZdaPv(ptr noundef nonnull %637) #17
   br label %_ZN4llvm5APInt8clearBitEj.exit
 
-653:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
-  %654 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %655 = load i32, ptr %654, align 4
-  %656 = and i32 %655, 134217727
-  %657 = zext nneg i32 %656 to i64
-  %658 = sub nsw i64 0, %657
-  %659 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %658
-  %660 = load ptr, ptr %659, align 8, !tbaa !3
-  %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
-  %662 = load ptr, ptr %661, align 8, !tbaa !26
-  %663 = getelementptr inbounds nuw i8, ptr %662, i64 32
-  %664 = load i32, ptr %663, align 8, !tbaa !66
+640:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
+  %641 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %642 = load i32, ptr %641, align 4
+  %643 = and i32 %642, 134217727
+  %644 = zext nneg i32 %643 to i64
+  %645 = sub nsw i64 0, %644
+  %646 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %645
+  %647 = load ptr, ptr %646, align 8, !tbaa !3
+  %648 = getelementptr inbounds nuw i8, ptr %647, i64 8
+  %649 = load ptr, ptr %648, align 8, !tbaa !26
+  %650 = getelementptr inbounds nuw i8, ptr %649, i64 32
+  %651 = load i32, ptr %650, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70) #15
-  %665 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %662) #16
-  %.fca.0.extract = extractvalue { i64, i8 } %665, 0
-  %.fca.1.extract = extractvalue { i64, i8 } %665, 1
+  %652 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %649) #16
+  %.fca.0.extract = extractvalue { i64, i8 } %652, 0
+  %.fca.1.extract = extractvalue { i64, i8 } %652, 1
   store i64 %.fca.0.extract, ptr %70, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
-  %666 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %70) #15
-  %667 = lshr i64 %666, 7
-  %668 = trunc i64 %667 to i32
+  %653 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %70) #15
+  %654 = lshr i64 %653, 7
+  %655 = trunc i64 %654 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70) #15
-  %669 = udiv i32 %86, %668
-  %670 = udiv i32 %664, %668
-  %671 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %672 = icmp ult i32 %664, 65
-  %.not135273 = icmp ult i32 %664, %668
-  %673 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %674 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %675 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %676 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %677 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %678 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %679 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %680 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %681 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %682
+  %656 = udiv i32 %86, %655
+  %657 = udiv i32 %651, %655
+  %658 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %659 = icmp ult i32 %651, 65
+  %.not136277 = icmp ult i32 %651, %655
+  %660 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %661 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %662 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %663 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %664 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %665 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %666 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %667 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %668 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %669
 
-682:                                              ; preds = %653, %_ZN4llvm5APIntD2Ev.exit227
-  %.0127282 = phi i32 [ 0, %653 ], [ %790, %_ZN4llvm5APIntD2Ev.exit227 ]
+669:                                              ; preds = %640, %_ZN4llvm5APIntD2Ev.exit226
+  %.0128286 = phi i32 [ 0, %640 ], [ %777, %_ZN4llvm5APIntD2Ev.exit226 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71) #15
-  store i32 %664, ptr %671, align 8, !tbaa !23
-  br i1 %672, label %683, label %684
+  store i32 %651, ptr %658, align 8, !tbaa !23
+  br i1 %659, label %670, label %671
 
-683:                                              ; preds = %682
+670:                                              ; preds = %669
   store i64 0, ptr %71, align 8, !tbaa !25
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
-684:                                              ; preds = %682
+671:                                              ; preds = %669
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %71, i64 noundef 0, i1 noundef zeroext false) #15
   br label %_ZN4llvm5APIntC2Ejmbb.exit
 
-_ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %683, %684
-  %685 = mul nuw nsw i32 %.0127282, %670
-  br i1 %.not135273, label %.split.us, label %_ZN4llvm5APIntC2Ejmbb.exit.split
+_ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %670, %671
+  %672 = mul nuw nsw i32 %.0128286, %657
+  br i1 %.not136277, label %.split.us, label %_ZN4llvm5APIntC2Ejmbb.exit.split
 
 _ZN4llvm5APIntC2Ejmbb.exit.split:                 ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
-  %686 = load i32, ptr %673, align 8, !tbaa !23
-  %.fr283 = freeze i32 %686
-  %687 = icmp ult i32 %.fr283, 65
+  %673 = load i32, ptr %660, align 8, !tbaa !23
+  %.fr287 = freeze i32 %673
+  %674 = icmp ult i32 %.fr287, 65
   br label %.lr.ph
 
 .split.us:                                        ; preds = %._crit_edge, %_ZN4llvm5APIntC2Ejmbb.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72) #15
-  store i32 %664, ptr %674, align 8, !tbaa !23
-  br i1 %672, label %688, label %689
+  store i32 %651, ptr %661, align 8, !tbaa !23
+  br i1 %659, label %675, label %676
 
-688:                                              ; preds = %.split.us
+675:                                              ; preds = %.split.us
   store i64 0, ptr %72, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2Ejmbb.exit219
+  br label %_ZN4llvm5APIntC2Ejmbb.exit218
 
-689:                                              ; preds = %.split.us
+676:                                              ; preds = %.split.us
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %72, i64 noundef 0, i1 noundef zeroext false) #15
-  br label %_ZN4llvm5APIntC2Ejmbb.exit219
+  br label %_ZN4llvm5APIntC2Ejmbb.exit218
 
-_ZN4llvm5APIntC2Ejmbb.exit219:                    ; preds = %688, %689
-  %690 = load i32, ptr %671, align 8, !tbaa !23
-  store i32 %690, ptr %675, align 8, !tbaa !23
-  %691 = icmp ult i32 %690, 65
-  br i1 %691, label %692, label %694
+_ZN4llvm5APIntC2Ejmbb.exit218:                    ; preds = %675, %676
+  %677 = load i32, ptr %658, align 8, !tbaa !23
+  store i32 %677, ptr %662, align 8, !tbaa !23
+  %678 = icmp ult i32 %677, 65
+  br i1 %678, label %679, label %681
 
-692:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit219
-  %693 = load i64, ptr %71, align 8, !tbaa !25
-  store i64 %693, ptr %73, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit220
+679:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit218
+  %680 = load i64, ptr %71, align 8, !tbaa !25
+  store i64 %680, ptr %73, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit219
 
-694:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit219
+681:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit218
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %73, ptr noundef nonnull align 8 dereferenceable(12) %71) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit220
+  br label %_ZN4llvm5APIntC2ERKS0_.exit219
 
-_ZN4llvm5APIntC2ERKS0_.exit220:                   ; preds = %692, %694
+_ZN4llvm5APIntC2ERKS0_.exit219:                   ; preds = %679, %681
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   store ptr %2, ptr %15, align 8, !tbaa !76
-  store i32 %.0127282, ptr %16, align 4, !tbaa !62
-  %695 = load ptr, ptr %676, align 8, !tbaa !264
-  %.not.i.i221 = icmp eq ptr %695, null
-  br i1 %.not.i.i221, label %696, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit222
+  store i32 %.0128286, ptr %16, align 4, !tbaa !62
+  %682 = load ptr, ptr %663, align 8, !tbaa !264
+  %.not.i.i220 = icmp eq ptr %682, null
+  br i1 %.not.i.i220, label %683, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit221
 
-696:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit220
+683:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit219
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit222: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit220
-  %697 = load ptr, ptr %677, align 8, !tbaa !266
-  call void %697(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(12) %73, ptr noundef nonnull align 8 dereferenceable(12) %72) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit221: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit219
+  %684 = load ptr, ptr %664, align 8, !tbaa !266
+  call void %684(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(12) %73, ptr noundef nonnull align 8 dereferenceable(12) %72) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  %698 = load i32, ptr %675, align 8, !tbaa !23
-  %699 = icmp ugt i32 %698, 64
-  br i1 %699, label %700, label %_ZN4llvm5APIntD2Ev.exit223
+  %685 = load i32, ptr %662, align 8, !tbaa !23
+  %686 = icmp ugt i32 %685, 64
+  br i1 %686, label %687, label %_ZN4llvm5APIntD2Ev.exit222
 
-700:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit222
-  %701 = load ptr, ptr %73, align 8, !tbaa !25
-  %702 = icmp eq ptr %701, null
-  br i1 %702, label %_ZN4llvm5APIntD2Ev.exit223, label %703
+687:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit221
+  %688 = load ptr, ptr %73, align 8, !tbaa !25
+  %689 = icmp eq ptr %688, null
+  br i1 %689, label %_ZN4llvm5APIntD2Ev.exit222, label %690
 
-703:                                              ; preds = %700
-  call void @_ZdaPv(ptr noundef nonnull %701) #17
-  br label %_ZN4llvm5APIntD2Ev.exit223
+690:                                              ; preds = %687
+  call void @_ZdaPv(ptr noundef nonnull %688) #17
+  br label %_ZN4llvm5APIntD2Ev.exit222
 
-_ZN4llvm5APIntD2Ev.exit223:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit222, %700, %703
+_ZN4llvm5APIntD2Ev.exit222:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit221, %687, %690
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74) #15
   call void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %74, ptr noundef nonnull align 8 dereferenceable(12) %72, i32 noundef %86) #15
-  %704 = load i32, ptr %674, align 8, !tbaa !23
-  %705 = icmp ult i32 %704, 65
-  br i1 %705, label %_ZN4llvm5APIntD2Ev.exit224, label %706
+  %691 = load i32, ptr %661, align 8, !tbaa !23
+  %692 = icmp ult i32 %691, 65
+  br i1 %692, label %_ZN4llvm5APIntD2Ev.exit223, label %693
 
-706:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit223
-  %707 = load ptr, ptr %72, align 8, !tbaa !25
-  %708 = icmp eq ptr %707, null
-  br i1 %708, label %_ZN4llvm5APIntD2Ev.exit224, label %709
+693:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit222
+  %694 = load ptr, ptr %72, align 8, !tbaa !25
+  %695 = icmp eq ptr %694, null
+  br i1 %695, label %_ZN4llvm5APIntD2Ev.exit223, label %696
 
-709:                                              ; preds = %706
-  call void @_ZdaPv(ptr noundef nonnull %707) #17
-  br label %_ZN4llvm5APIntD2Ev.exit224
+696:                                              ; preds = %693
+  call void @_ZdaPv(ptr noundef nonnull %694) #17
+  br label %_ZN4llvm5APIntD2Ev.exit223
 
-_ZN4llvm5APIntD2Ev.exit224:                       ; preds = %709, %706, %_ZN4llvm5APIntD2Ev.exit223
-  %710 = load i64, ptr %74, align 8
-  store i64 %710, ptr %72, align 8
-  %711 = load i32, ptr %678, align 8, !tbaa !23
-  store i32 %711, ptr %674, align 8, !tbaa !23
+_ZN4llvm5APIntD2Ev.exit223:                       ; preds = %696, %693, %_ZN4llvm5APIntD2Ev.exit222
+  %697 = load i64, ptr %74, align 8
+  store i64 %697, ptr %72, align 8
+  %698 = load i32, ptr %665, align 8, !tbaa !23
+  store i32 %698, ptr %661, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #15
   br label %thread-pre-split
 
 .lr.ph:                                           ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.split, %._crit_edge
-  %.0129280 = phi i32 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit.split ], [ %755, %._crit_edge ]
-  %712 = mul i32 %.0129280, %669
-  %713 = add i32 %712, %685
-  %714 = mul i32 %.0129280, %670
-  %715 = load i32, ptr %671, align 8
-  %.fr284 = freeze i32 %715
-  %716 = icmp ult i32 %.fr284, 65
-  br i1 %716, label %.lr.ph.split.us, label %.lr.ph.split
+  %.0130284 = phi i32 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit.split ], [ %742, %._crit_edge ]
+  %699 = mul i32 %.0130284, %656
+  %700 = add i32 %699, %672
+  %701 = mul i32 %.0130284, %657
+  %702 = load i32, ptr %658, align 8
+  %.fr288 = freeze i32 %702
+  %703 = icmp ult i32 %.fr288, 65
+  br i1 %703, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %717 = load ptr, ptr %3, align 8
+  %704 = load ptr, ptr %3, align 8
   %.promoted = load i64, ptr %71, align 8
-  br label %718
+  br label %705
 
-718:                                              ; preds = %_ZN4llvm5APInt6setBitEj.exit.us, %.lr.ph.split.us
-  %719 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %735, %_ZN4llvm5APInt6setBitEj.exit.us ]
-  %.0130274.us = phi i32 [ 0, %.lr.ph.split.us ], [ %736, %_ZN4llvm5APInt6setBitEj.exit.us ]
-  %720 = add i32 %713, %.0130274.us
-  %721 = and i32 %720, 63
-  %722 = zext nneg i32 %721 to i64
-  %723 = shl nuw i64 1, %722
-  %724 = lshr i32 %720, 6
-  %725 = zext nneg i32 %724 to i64
-  %726 = getelementptr inbounds nuw i64, ptr %717, i64 %725
-  %.in.i.i225.us = select i1 %687, ptr %3, ptr %726
-  %727 = load i64, ptr %.in.i.i225.us, align 8, !tbaa !25
-  %728 = and i64 %727, %723
-  %.not264.us = icmp eq i64 %728, 0
-  br i1 %.not264.us, label %_ZN4llvm5APInt6setBitEj.exit.us, label %729
+705:                                              ; preds = %_ZN4llvm5APInt6setBitEj.exit.us, %.lr.ph.split.us
+  %706 = phi i64 [ %.promoted, %.lr.ph.split.us ], [ %722, %_ZN4llvm5APInt6setBitEj.exit.us ]
+  %.0131278.us = phi i32 [ 0, %.lr.ph.split.us ], [ %723, %_ZN4llvm5APInt6setBitEj.exit.us ]
+  %707 = add i32 %700, %.0131278.us
+  %708 = and i32 %707, 63
+  %709 = zext nneg i32 %708 to i64
+  %710 = shl nuw i64 1, %709
+  %711 = lshr i32 %707, 6
+  %712 = zext nneg i32 %711 to i64
+  %713 = getelementptr inbounds nuw i64, ptr %704, i64 %712
+  %.in.i.i224.us = select i1 %674, ptr %3, ptr %713
+  %714 = load i64, ptr %.in.i.i224.us, align 8, !tbaa !25
+  %715 = and i64 %714, %710
+  %.not268.us = icmp eq i64 %715, 0
+  br i1 %.not268.us, label %_ZN4llvm5APInt6setBitEj.exit.us, label %716
 
-729:                                              ; preds = %718
-  %730 = add i32 %.0130274.us, %714
-  %731 = and i32 %730, 63
-  %732 = zext nneg i32 %731 to i64
-  %733 = shl nuw i64 1, %732
-  %734 = or i64 %719, %733
-  store i64 %734, ptr %71, align 8, !tbaa !25
+716:                                              ; preds = %705
+  %717 = add i32 %.0131278.us, %701
+  %718 = and i32 %717, 63
+  %719 = zext nneg i32 %718 to i64
+  %720 = shl nuw i64 1, %719
+  %721 = or i64 %706, %720
+  store i64 %721, ptr %71, align 8, !tbaa !25
   br label %_ZN4llvm5APInt6setBitEj.exit.us
 
-_ZN4llvm5APInt6setBitEj.exit.us:                  ; preds = %729, %718
-  %735 = phi i64 [ %734, %729 ], [ %719, %718 ]
-  %736 = add i32 %.0130274.us, 1
-  %.not135.us = icmp eq i32 %736, %670
-  br i1 %.not135.us, label %._crit_edge, label %718, !llvm.loop !278
+_ZN4llvm5APInt6setBitEj.exit.us:                  ; preds = %716, %705
+  %722 = phi i64 [ %721, %716 ], [ %706, %705 ]
+  %723 = add i32 %.0131278.us, 1
+  %.not136.us = icmp eq i32 %723, %657
+  br i1 %.not136.us, label %._crit_edge, label %705, !llvm.loop !278
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %687, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %674, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN4llvm5APInt6setBitEj.exit.us276
-  %.0130274.us275 = phi i32 [ %754, %_ZN4llvm5APInt6setBitEj.exit.us276 ], [ 0, %.lr.ph.split ]
-  %737 = add i32 %713, %.0130274.us275
-  %738 = and i32 %737, 63
-  %739 = zext nneg i32 %738 to i64
-  %740 = shl nuw i64 1, %739
-  %741 = load i64, ptr %3, align 8, !tbaa !25
-  %742 = and i64 %741, %740
-  %.not264.us278 = icmp eq i64 %742, 0
-  br i1 %.not264.us278, label %_ZN4llvm5APInt6setBitEj.exit.us276, label %743
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN4llvm5APInt6setBitEj.exit.us280
+  %.0131278.us279 = phi i32 [ %741, %_ZN4llvm5APInt6setBitEj.exit.us280 ], [ 0, %.lr.ph.split ]
+  %724 = add i32 %700, %.0131278.us279
+  %725 = and i32 %724, 63
+  %726 = zext nneg i32 %725 to i64
+  %727 = shl nuw i64 1, %726
+  %728 = load i64, ptr %3, align 8, !tbaa !25
+  %729 = and i64 %728, %727
+  %.not268.us282 = icmp eq i64 %729, 0
+  br i1 %.not268.us282, label %_ZN4llvm5APInt6setBitEj.exit.us280, label %730
 
-743:                                              ; preds = %.lr.ph.split.split.us
-  %744 = add i32 %.0130274.us275, %714
-  %745 = and i32 %744, 63
-  %746 = zext nneg i32 %745 to i64
-  %747 = shl nuw i64 1, %746
-  %748 = load ptr, ptr %71, align 8, !tbaa !25
-  %749 = lshr i32 %744, 6
-  %750 = zext nneg i32 %749 to i64
-  %751 = getelementptr inbounds nuw i64, ptr %748, i64 %750
-  %752 = load i64, ptr %751, align 8, !tbaa !169
-  %753 = or i64 %752, %747
-  store i64 %753, ptr %751, align 8, !tbaa !169
-  br label %_ZN4llvm5APInt6setBitEj.exit.us276
+730:                                              ; preds = %.lr.ph.split.split.us
+  %731 = add i32 %.0131278.us279, %701
+  %732 = and i32 %731, 63
+  %733 = zext nneg i32 %732 to i64
+  %734 = shl nuw i64 1, %733
+  %735 = load ptr, ptr %71, align 8, !tbaa !25
+  %736 = lshr i32 %731, 6
+  %737 = zext nneg i32 %736 to i64
+  %738 = getelementptr inbounds nuw i64, ptr %735, i64 %737
+  %739 = load i64, ptr %738, align 8, !tbaa !169
+  %740 = or i64 %739, %734
+  store i64 %740, ptr %738, align 8, !tbaa !169
+  br label %_ZN4llvm5APInt6setBitEj.exit.us280
 
-_ZN4llvm5APInt6setBitEj.exit.us276:               ; preds = %.lr.ph.split.split.us, %743
-  %754 = add i32 %.0130274.us275, 1
-  %.not135.us277 = icmp eq i32 %754, %670
-  br i1 %.not135.us277, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !278
+_ZN4llvm5APInt6setBitEj.exit.us280:               ; preds = %.lr.ph.split.split.us, %730
+  %741 = add i32 %.0131278.us279, 1
+  %.not136.us281 = icmp eq i32 %741, %657
+  br i1 %.not136.us281, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !278
 
-._crit_edge:                                      ; preds = %_ZN4llvm5APInt6setBitEj.exit, %_ZN4llvm5APInt6setBitEj.exit.us276, %_ZN4llvm5APInt6setBitEj.exit.us
-  %755 = add i32 %.0129280, 1
-  %.not133 = icmp eq i32 %755, %668
-  br i1 %.not133, label %.split.us, label %.lr.ph, !llvm.loop !279
+._crit_edge:                                      ; preds = %_ZN4llvm5APInt6setBitEj.exit, %_ZN4llvm5APInt6setBitEj.exit.us280, %_ZN4llvm5APInt6setBitEj.exit.us
+  %742 = add i32 %.0130284, 1
+  %.not134 = icmp eq i32 %742, %655
+  br i1 %.not134, label %.split.us, label %.lr.ph, !llvm.loop !279
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN4llvm5APInt6setBitEj.exit
-  %.0130274 = phi i32 [ %777, %_ZN4llvm5APInt6setBitEj.exit ], [ 0, %.lr.ph.split ]
-  %756 = add i32 %713, %.0130274
-  %757 = and i32 %756, 63
-  %758 = zext nneg i32 %757 to i64
-  %759 = shl nuw i64 1, %758
-  %760 = load ptr, ptr %3, align 8
-  %761 = lshr i32 %756, 6
-  %762 = zext nneg i32 %761 to i64
-  %763 = getelementptr inbounds nuw i64, ptr %760, i64 %762
-  %764 = load i64, ptr %763, align 8, !tbaa !25
-  %765 = and i64 %764, %759
-  %.not264 = icmp eq i64 %765, 0
-  br i1 %.not264, label %_ZN4llvm5APInt6setBitEj.exit, label %766
+  %.0131278 = phi i32 [ %764, %_ZN4llvm5APInt6setBitEj.exit ], [ 0, %.lr.ph.split ]
+  %743 = add i32 %700, %.0131278
+  %744 = and i32 %743, 63
+  %745 = zext nneg i32 %744 to i64
+  %746 = shl nuw i64 1, %745
+  %747 = load ptr, ptr %3, align 8
+  %748 = lshr i32 %743, 6
+  %749 = zext nneg i32 %748 to i64
+  %750 = getelementptr inbounds nuw i64, ptr %747, i64 %749
+  %751 = load i64, ptr %750, align 8, !tbaa !25
+  %752 = and i64 %751, %746
+  %.not268 = icmp eq i64 %752, 0
+  br i1 %.not268, label %_ZN4llvm5APInt6setBitEj.exit, label %753
 
-766:                                              ; preds = %.lr.ph.split.split
-  %767 = add i32 %.0130274, %714
-  %768 = and i32 %767, 63
-  %769 = zext nneg i32 %768 to i64
-  %770 = shl nuw i64 1, %769
-  %771 = load ptr, ptr %71, align 8, !tbaa !25
-  %772 = lshr i32 %767, 6
-  %773 = zext nneg i32 %772 to i64
-  %774 = getelementptr inbounds nuw i64, ptr %771, i64 %773
-  %775 = load i64, ptr %774, align 8, !tbaa !169
-  %776 = or i64 %775, %770
-  store i64 %776, ptr %774, align 8, !tbaa !169
+753:                                              ; preds = %.lr.ph.split.split
+  %754 = add i32 %.0131278, %701
+  %755 = and i32 %754, 63
+  %756 = zext nneg i32 %755 to i64
+  %757 = shl nuw i64 1, %756
+  %758 = load ptr, ptr %71, align 8, !tbaa !25
+  %759 = lshr i32 %754, 6
+  %760 = zext nneg i32 %759 to i64
+  %761 = getelementptr inbounds nuw i64, ptr %758, i64 %760
+  %762 = load i64, ptr %761, align 8, !tbaa !169
+  %763 = or i64 %762, %757
+  store i64 %763, ptr %761, align 8, !tbaa !169
   br label %_ZN4llvm5APInt6setBitEj.exit
 
-_ZN4llvm5APInt6setBitEj.exit:                     ; preds = %766, %.lr.ph.split.split
-  %777 = add i32 %.0130274, 1
-  %.not135 = icmp eq i32 %777, %670
-  br i1 %.not135, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !278
+_ZN4llvm5APInt6setBitEj.exit:                     ; preds = %753, %.lr.ph.split.split
+  %764 = add i32 %.0131278, 1
+  %.not136 = icmp eq i32 %764, %657
+  br i1 %.not136, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !278
 
-778:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit232
-  %779 = icmp ugt i32 %842, 64
-  br i1 %779, label %780, label %_ZN4llvm5APIntD2Ev.exit226
+765:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit231
+  %766 = icmp ugt i32 %829, 64
+  br i1 %766, label %767, label %_ZN4llvm5APIntD2Ev.exit225
 
-780:                                              ; preds = %778
-  %781 = load ptr, ptr %72, align 8, !tbaa !25
-  %782 = icmp eq ptr %781, null
-  br i1 %782, label %_ZN4llvm5APIntD2Ev.exit226, label %783
+767:                                              ; preds = %765
+  %768 = load ptr, ptr %72, align 8, !tbaa !25
+  %769 = icmp eq ptr %768, null
+  br i1 %769, label %_ZN4llvm5APIntD2Ev.exit225, label %770
 
-783:                                              ; preds = %780
-  call void @_ZdaPv(ptr noundef nonnull %781) #17
+770:                                              ; preds = %767
+  call void @_ZdaPv(ptr noundef nonnull %768) #17
+  br label %_ZN4llvm5APIntD2Ev.exit225
+
+_ZN4llvm5APIntD2Ev.exit225:                       ; preds = %765, %767, %770
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #15
+  %771 = load i32, ptr %658, align 8, !tbaa !23
+  %772 = icmp ugt i32 %771, 64
+  br i1 %772, label %773, label %_ZN4llvm5APIntD2Ev.exit226
+
+773:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit225
+  %774 = load ptr, ptr %71, align 8, !tbaa !25
+  %775 = icmp eq ptr %774, null
+  br i1 %775, label %_ZN4llvm5APIntD2Ev.exit226, label %776
+
+776:                                              ; preds = %773
+  call void @_ZdaPv(ptr noundef nonnull %774) #17
   br label %_ZN4llvm5APIntD2Ev.exit226
 
-_ZN4llvm5APIntD2Ev.exit226:                       ; preds = %778, %780, %783
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #15
-  %784 = load i32, ptr %671, align 8, !tbaa !23
-  %785 = icmp ugt i32 %784, 64
-  br i1 %785, label %786, label %_ZN4llvm5APIntD2Ev.exit227
-
-786:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit226
-  %787 = load ptr, ptr %71, align 8, !tbaa !25
-  %788 = icmp eq ptr %787, null
-  br i1 %788, label %_ZN4llvm5APIntD2Ev.exit227, label %789
-
-789:                                              ; preds = %786
-  call void @_ZdaPv(ptr noundef nonnull %787) #17
-  br label %_ZN4llvm5APIntD2Ev.exit227
-
-_ZN4llvm5APIntD2Ev.exit227:                       ; preds = %_ZN4llvm5APIntD2Ev.exit226, %786, %789
+_ZN4llvm5APIntD2Ev.exit226:                       ; preds = %_ZN4llvm5APIntD2Ev.exit225, %773, %776
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71) #15
-  %790 = add nuw nsw i32 %.0127282, 1
-  %.not = icmp eq i32 %790, 2
-  br i1 %.not, label %_ZN4llvm5APInt8clearBitEj.exit, label %682, !llvm.loop !280
+  %777 = add nuw nsw i32 %.0128286, 1
+  %.not = icmp eq i32 %777, 2
+  br i1 %.not, label %_ZN4llvm5APInt8clearBitEj.exit, label %669, !llvm.loop !280
 
-thread-pre-split:                                 ; preds = %_ZN4llvm5APIntD2Ev.exit232, %_ZN4llvm5APIntD2Ev.exit224
-  %791 = phi i32 [ %711, %_ZN4llvm5APIntD2Ev.exit224 ], [ %842, %_ZN4llvm5APIntD2Ev.exit232 ]
-  %indvars.iv = phi i64 [ 0, %_ZN4llvm5APIntD2Ev.exit224 ], [ %indvars.iv.next, %_ZN4llvm5APIntD2Ev.exit232 ]
+thread-pre-split:                                 ; preds = %_ZN4llvm5APIntD2Ev.exit231, %_ZN4llvm5APIntD2Ev.exit223
+  %778 = phi i32 [ %698, %_ZN4llvm5APIntD2Ev.exit223 ], [ %829, %_ZN4llvm5APIntD2Ev.exit231 ]
+  %indvars.iv = phi i64 [ 0, %_ZN4llvm5APIntD2Ev.exit223 ], [ %indvars.iv.next, %_ZN4llvm5APIntD2Ev.exit231 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %75) #15
-  %792 = trunc nuw i64 %indvars.iv to i32
-  %793 = mul i32 %670, %792
+  %779 = trunc nuw i64 %indvars.iv to i32
+  %780 = mul i32 %657, %779
   call void @llvm.experimental.noalias.scope.decl(metadata !281)
-  store i32 %791, ptr %679, align 8, !tbaa !23, !alias.scope !281
-  %794 = icmp ult i32 %791, 65
-  br i1 %794, label %_ZN4llvm5APIntC2ERKS0_.exit.thread.i, label %_ZN4llvm5APIntC2ERKS0_.exit.i
+  store i32 %778, ptr %666, align 8, !tbaa !23, !alias.scope !281
+  %781 = icmp ult i32 %778, 65
+  br i1 %781, label %_ZN4llvm5APIntC2ERKS0_.exit.thread.i, label %_ZN4llvm5APIntC2ERKS0_.exit.i
 
 _ZN4llvm5APIntC2ERKS0_.exit.thread.i:             ; preds = %thread-pre-split
-  %795 = load i64, ptr %72, align 8, !tbaa !25, !noalias !281
-  store i64 %795, ptr %75, align 8, !tbaa !25, !alias.scope !281
-  br label %797
+  %782 = load i64, ptr %72, align 8, !tbaa !25, !noalias !281
+  store i64 %782, ptr %75, align 8, !tbaa !25, !alias.scope !281
+  br label %784
 
 _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %thread-pre-split
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %75, ptr noundef nonnull align 8 dereferenceable(12) %72) #15
-  %.pr.i = load i32, ptr %679, align 8, !tbaa !23, !alias.scope !281
-  %796 = icmp ult i32 %.pr.i, 65
-  br i1 %796, label %797, label %805
+  %.pr.i = load i32, ptr %666, align 8, !tbaa !23, !alias.scope !281
+  %783 = icmp ult i32 %.pr.i, 65
+  br i1 %783, label %784, label %792
 
-797:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i, %_ZN4llvm5APIntC2ERKS0_.exit.thread.i
-  %798 = phi i32 [ %791, %_ZN4llvm5APIntC2ERKS0_.exit.thread.i ], [ %.pr.i, %_ZN4llvm5APIntC2ERKS0_.exit.i ]
-  %799 = icmp eq i32 %793, %798
-  br i1 %799, label %800, label %801
+784:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i, %_ZN4llvm5APIntC2ERKS0_.exit.thread.i
+  %785 = phi i32 [ %778, %_ZN4llvm5APIntC2ERKS0_.exit.thread.i ], [ %.pr.i, %_ZN4llvm5APIntC2ERKS0_.exit.i ]
+  %786 = icmp eq i32 %780, %785
+  br i1 %786, label %787, label %788
 
-800:                                              ; preds = %797
+787:                                              ; preds = %784
   store i64 0, ptr %75, align 8, !tbaa !25, !alias.scope !281
   br label %_ZNK4llvm5APInt4lshrEj.exit
 
-801:                                              ; preds = %797
-  %802 = load i64, ptr %75, align 8, !tbaa !25, !alias.scope !281
-  %803 = zext nneg i32 %793 to i64
-  %804 = lshr i64 %802, %803
-  store i64 %804, ptr %75, align 8, !tbaa !25, !alias.scope !281
+788:                                              ; preds = %784
+  %789 = load i64, ptr %75, align 8, !tbaa !25, !alias.scope !281
+  %790 = zext nneg i32 %780 to i64
+  %791 = lshr i64 %789, %790
+  store i64 %791, ptr %75, align 8, !tbaa !25, !alias.scope !281
   br label %_ZNK4llvm5APInt4lshrEj.exit
 
-805:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i
-  call void @_ZN4llvm5APInt12lshrSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %75, i32 noundef %793) #15
+792:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit.i
+  call void @_ZN4llvm5APInt12lshrSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %75, i32 noundef %780) #15
   br label %_ZNK4llvm5APInt4lshrEj.exit
 
-_ZNK4llvm5APInt4lshrEj.exit:                      ; preds = %800, %801, %805
+_ZNK4llvm5APInt4lshrEj.exit:                      ; preds = %787, %788, %792
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %76) #15
-  call void @_ZNK4llvm5APInt9getLoBitsEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %76, ptr noundef nonnull align 8 dereferenceable(12) %75, i32 noundef %670) #15
-  %806 = load i32, ptr %679, align 8, !tbaa !23
-  %807 = icmp ult i32 %806, 65
-  br i1 %807, label %_ZN4llvm5APIntD2Ev.exit229, label %808
+  call void @_ZNK4llvm5APInt9getLoBitsEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %76, ptr noundef nonnull align 8 dereferenceable(12) %75, i32 noundef %657) #15
+  %793 = load i32, ptr %666, align 8, !tbaa !23
+  %794 = icmp ult i32 %793, 65
+  br i1 %794, label %_ZN4llvm5APIntD2Ev.exit228, label %795
 
-808:                                              ; preds = %_ZNK4llvm5APInt4lshrEj.exit
-  %809 = load ptr, ptr %75, align 8, !tbaa !25
-  %810 = icmp eq ptr %809, null
-  br i1 %810, label %_ZN4llvm5APIntD2Ev.exit229, label %811
+795:                                              ; preds = %_ZNK4llvm5APInt4lshrEj.exit
+  %796 = load ptr, ptr %75, align 8, !tbaa !25
+  %797 = icmp eq ptr %796, null
+  br i1 %797, label %_ZN4llvm5APIntD2Ev.exit228, label %798
 
-811:                                              ; preds = %808
-  call void @_ZdaPv(ptr noundef nonnull %809) #17
-  br label %_ZN4llvm5APIntD2Ev.exit229
+798:                                              ; preds = %795
+  call void @_ZdaPv(ptr noundef nonnull %796) #17
+  br label %_ZN4llvm5APIntD2Ev.exit228
 
-_ZN4llvm5APIntD2Ev.exit229:                       ; preds = %811, %808, %_ZNK4llvm5APInt4lshrEj.exit
-  %812 = load i64, ptr %76, align 8
-  store i64 %812, ptr %75, align 8
-  %813 = load i32, ptr %680, align 8, !tbaa !23
-  store i32 %813, ptr %679, align 8, !tbaa !23
+_ZN4llvm5APIntD2Ev.exit228:                       ; preds = %798, %795, %_ZNK4llvm5APInt4lshrEj.exit
+  %799 = load i64, ptr %76, align 8
+  store i64 %799, ptr %75, align 8
+  %800 = load i32, ptr %667, align 8, !tbaa !23
+  store i32 %800, ptr %666, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76) #15
-  %814 = shl i32 %792, 1
-  %815 = add i32 %814, %.0127282
-  %816 = mul i32 %815, %670
-  %817 = icmp ult i32 %813, 65
-  br i1 %817, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i230, label %828
+  %801 = shl i32 %779, 1
+  %802 = add i32 %801, %.0128286
+  %803 = mul i32 %802, %657
+  %804 = icmp ult i32 %800, 65
+  br i1 %804, label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i229, label %815
 
-_ZN4llvm5APInt15clearUnusedBitsEv.exit.i230:      ; preds = %_ZN4llvm5APIntD2Ev.exit229
-  %818 = icmp eq i32 %816, %813
-  %819 = zext nneg i32 %816 to i64
-  %820 = shl i64 %812, %819
-  %storemerge.i = select i1 %818, i64 0, i64 %820
-  %821 = add nuw nsw i32 %813, 63
-  %822 = and i32 %821, 63
-  %823 = xor i32 %822, 63
-  %824 = zext nneg i32 %823 to i64
-  %825 = lshr i64 -1, %824
-  %826 = icmp eq i32 %813, 0
-  %spec.select.i231 = select i1 %826, i64 0, i64 %825, !prof !107
-  %827 = and i64 %storemerge.i, %spec.select.i231
-  store i64 %827, ptr %75, align 8, !tbaa !25
+_ZN4llvm5APInt15clearUnusedBitsEv.exit.i229:      ; preds = %_ZN4llvm5APIntD2Ev.exit228
+  %805 = icmp eq i32 %803, %800
+  %806 = zext nneg i32 %803 to i64
+  %807 = shl i64 %799, %806
+  %storemerge.i = select i1 %805, i64 0, i64 %807
+  %808 = add nuw nsw i32 %800, 63
+  %809 = and i32 %808, 63
+  %810 = xor i32 %809, 63
+  %811 = zext nneg i32 %810 to i64
+  %812 = lshr i64 -1, %811
+  %813 = icmp eq i32 %800, 0
+  %spec.select.i230 = select i1 %813, i64 0, i64 %812, !prof !107
+  %814 = and i64 %storemerge.i, %spec.select.i230
+  store i64 %814, ptr %75, align 8, !tbaa !25
   br label %_ZN4llvm5APIntlSEj.exit
 
-828:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit229
-  call void @_ZN4llvm5APInt11shlSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %75, i32 noundef %816) #15
+815:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit228
+  call void @_ZN4llvm5APInt11shlSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12) %75, i32 noundef %803) #15
   br label %_ZN4llvm5APIntlSEj.exit
 
-_ZN4llvm5APIntlSEj.exit:                          ; preds = %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i230, %828
-  %829 = load i32, ptr %681, align 8, !tbaa !23
-  %830 = icmp ult i32 %829, 65
-  br i1 %830, label %831, label %835
+_ZN4llvm5APIntlSEj.exit:                          ; preds = %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i229, %815
+  %816 = load i32, ptr %668, align 8, !tbaa !23
+  %817 = icmp ult i32 %816, 65
+  br i1 %817, label %818, label %822
 
-831:                                              ; preds = %_ZN4llvm5APIntlSEj.exit
-  %832 = load i64, ptr %75, align 8, !tbaa !25
-  %833 = load i64, ptr %4, align 8, !tbaa !25
-  %834 = or i64 %833, %832
-  store i64 %834, ptr %4, align 8, !tbaa !25
+818:                                              ; preds = %_ZN4llvm5APIntlSEj.exit
+  %819 = load i64, ptr %75, align 8, !tbaa !25
+  %820 = load i64, ptr %4, align 8, !tbaa !25
+  %821 = or i64 %820, %819
+  store i64 %821, ptr %4, align 8, !tbaa !25
   br label %_ZN4llvm5APIntoRERKS0_.exit
 
-835:                                              ; preds = %_ZN4llvm5APIntlSEj.exit
+822:                                              ; preds = %_ZN4llvm5APIntlSEj.exit
   call void @_ZN4llvm5APInt16orAssignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %75) #15
   br label %_ZN4llvm5APIntoRERKS0_.exit
 
-_ZN4llvm5APIntoRERKS0_.exit:                      ; preds = %831, %835
-  %836 = load i32, ptr %679, align 8, !tbaa !23
-  %837 = icmp ugt i32 %836, 64
-  br i1 %837, label %838, label %_ZN4llvm5APIntD2Ev.exit232
+_ZN4llvm5APIntoRERKS0_.exit:                      ; preds = %818, %822
+  %823 = load i32, ptr %666, align 8, !tbaa !23
+  %824 = icmp ugt i32 %823, 64
+  br i1 %824, label %825, label %_ZN4llvm5APIntD2Ev.exit231
 
-838:                                              ; preds = %_ZN4llvm5APIntoRERKS0_.exit
-  %839 = load ptr, ptr %75, align 8, !tbaa !25
-  %840 = icmp eq ptr %839, null
-  br i1 %840, label %_ZN4llvm5APIntD2Ev.exit232, label %841
+825:                                              ; preds = %_ZN4llvm5APIntoRERKS0_.exit
+  %826 = load ptr, ptr %75, align 8, !tbaa !25
+  %827 = icmp eq ptr %826, null
+  br i1 %827, label %_ZN4llvm5APIntD2Ev.exit231, label %828
 
-841:                                              ; preds = %838
-  call void @_ZdaPv(ptr noundef nonnull %839) #17
-  br label %_ZN4llvm5APIntD2Ev.exit232
+828:                                              ; preds = %825
+  call void @_ZdaPv(ptr noundef nonnull %826) #17
+  br label %_ZN4llvm5APIntD2Ev.exit231
 
-_ZN4llvm5APIntD2Ev.exit232:                       ; preds = %_ZN4llvm5APIntoRERKS0_.exit, %838, %841
+_ZN4llvm5APIntD2Ev.exit231:                       ; preds = %_ZN4llvm5APIntoRERKS0_.exit, %825, %828
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond = icmp eq i32 %lftr.wideiv, %668
-  %842 = load i32, ptr %674, align 8, !tbaa !23
-  br i1 %exitcond, label %778, label %thread-pre-split, !llvm.loop !284
+  %exitcond = icmp eq i32 %lftr.wideiv, %655
+  %829 = load i32, ptr %661, align 8, !tbaa !23
+  br i1 %exitcond, label %765, label %thread-pre-split, !llvm.loop !284
 
-843:                                              ; preds = %8, %8, %8, %8, %8, %8
-  %844 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %845 = load i32, ptr %844, align 4
-  %846 = and i32 %845, 134217727
-  %847 = zext nneg i32 %846 to i64
-  %848 = sub nsw i64 0, %847
-  %849 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %848
-  %850 = load ptr, ptr %849, align 8, !tbaa !3
-  %851 = getelementptr inbounds nuw i8, ptr %850, i64 8
-  %852 = load ptr, ptr %851, align 8, !tbaa !26
-  %853 = getelementptr inbounds nuw i8, ptr %852, i64 32
-  %854 = load i32, ptr %853, align 8, !tbaa !66
+830:                                              ; preds = %8, %8, %8, %8, %8, %8
+  %831 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %832 = load i32, ptr %831, align 4
+  %833 = and i32 %832, 134217727
+  %834 = zext nneg i32 %833 to i64
+  %835 = sub nsw i64 0, %834
+  %836 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %835
+  %837 = load ptr, ptr %836, align 8, !tbaa !3
+  %838 = getelementptr inbounds nuw i8, ptr %837, i64 8
+  %839 = load ptr, ptr %838, align 8, !tbaa !26
+  %840 = getelementptr inbounds nuw i8, ptr %839, i64 32
+  %841 = load i32, ptr %840, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %77) #15
-  call void @_ZN4llvm8APIntOps12ScaleBitMaskERKNS_5APIntEjb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %77, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %854, i1 noundef zeroext false) #15
+  call void @_ZN4llvm8APIntOps12ScaleBitMaskERKNS_5APIntEjb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %77, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %841, i1 noundef zeroext false) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78) #15
-  %855 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i32 %854, ptr %855, align 8, !tbaa !23
-  %856 = icmp ult i32 %854, 65
-  %857 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  br i1 %856, label %858, label %859
+  %842 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  store i32 %841, ptr %842, align 8, !tbaa !23
+  %843 = icmp ult i32 %841, 65
+  %844 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  br i1 %843, label %845, label %846
 
-858:                                              ; preds = %843
+845:                                              ; preds = %830
   store i64 0, ptr %78, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %79) #15
-  store i32 %854, ptr %857, align 8, !tbaa !23
+  store i32 %841, ptr %844, align 8, !tbaa !23
   store i64 0, ptr %79, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2Ejmbb.exit234
+  br label %_ZN4llvm5APIntC2Ejmbb.exit233
 
-859:                                              ; preds = %843
+846:                                              ; preds = %830
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %78, i64 noundef 0, i1 noundef zeroext false) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %79) #15
-  store i32 %854, ptr %857, align 8, !tbaa !23
+  store i32 %841, ptr %844, align 8, !tbaa !23
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %79, i64 noundef 0, i1 noundef zeroext false) #15
-  br label %_ZN4llvm5APIntC2Ejmbb.exit234
+  br label %_ZN4llvm5APIntC2Ejmbb.exit233
 
-_ZN4llvm5APIntC2Ejmbb.exit234:                    ; preds = %858, %859
-  %860 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %861 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %862 = load i32, ptr %861, align 8, !tbaa !23
-  store i32 %862, ptr %860, align 8, !tbaa !23
-  %863 = icmp ult i32 %862, 65
-  br i1 %863, label %864, label %866
+_ZN4llvm5APIntC2Ejmbb.exit233:                    ; preds = %845, %846
+  %847 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %848 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %849 = load i32, ptr %848, align 8, !tbaa !23
+  store i32 %849, ptr %847, align 8, !tbaa !23
+  %850 = icmp ult i32 %849, 65
+  br i1 %850, label %851, label %853
 
-864:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit234
-  %865 = load i64, ptr %77, align 8, !tbaa !25
-  store i64 %865, ptr %80, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit235
+851:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit233
+  %852 = load i64, ptr %77, align 8, !tbaa !25
+  store i64 %852, ptr %80, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit234
 
-866:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit234
+853:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit233
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %80, ptr noundef nonnull align 8 dereferenceable(12) %77) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit235
+  br label %_ZN4llvm5APIntC2ERKS0_.exit234
 
-_ZN4llvm5APIntC2ERKS0_.exit235:                   ; preds = %864, %866
+_ZN4llvm5APIntC2ERKS0_.exit234:                   ; preds = %851, %853
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   store ptr %2, ptr %13, align 8, !tbaa !76
   store i32 0, ptr %14, align 4, !tbaa !62
-  %867 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %868 = load ptr, ptr %867, align 8, !tbaa !264
-  %.not.i.i236 = icmp eq ptr %868, null
-  br i1 %.not.i.i236, label %869, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit237
+  %854 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %855 = load ptr, ptr %854, align 8, !tbaa !264
+  %.not.i.i235 = icmp eq ptr %855, null
+  br i1 %.not.i.i235, label %856, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit236
 
-869:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit235
+856:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit234
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit237: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit235
-  %870 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %871 = load ptr, ptr %870, align 8, !tbaa !266
-  call void %871(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(12) %80, ptr noundef nonnull align 8 dereferenceable(12) %78) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit236: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit234
+  %857 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %858 = load ptr, ptr %857, align 8, !tbaa !266
+  call void %858(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(12) %80, ptr noundef nonnull align 8 dereferenceable(12) %78) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  %872 = load i32, ptr %860, align 8, !tbaa !23
-  %873 = icmp ugt i32 %872, 64
-  br i1 %873, label %874, label %_ZN4llvm5APIntD2Ev.exit238
+  %859 = load i32, ptr %847, align 8, !tbaa !23
+  %860 = icmp ugt i32 %859, 64
+  br i1 %860, label %861, label %_ZN4llvm5APIntD2Ev.exit237
 
-874:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit237
-  %875 = load ptr, ptr %80, align 8, !tbaa !25
-  %876 = icmp eq ptr %875, null
-  br i1 %876, label %_ZN4llvm5APIntD2Ev.exit238, label %877
+861:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit236
+  %862 = load ptr, ptr %80, align 8, !tbaa !25
+  %863 = icmp eq ptr %862, null
+  br i1 %863, label %_ZN4llvm5APIntD2Ev.exit237, label %864
 
-877:                                              ; preds = %874
-  call void @_ZdaPv(ptr noundef nonnull %875) #17
-  br label %_ZN4llvm5APIntD2Ev.exit238
+864:                                              ; preds = %861
+  call void @_ZdaPv(ptr noundef nonnull %862) #17
+  br label %_ZN4llvm5APIntD2Ev.exit237
 
-_ZN4llvm5APIntD2Ev.exit238:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit237, %874, %877
-  %878 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %879 = load i32, ptr %861, align 8, !tbaa !23
-  store i32 %879, ptr %878, align 8, !tbaa !23
-  %880 = icmp ult i32 %879, 65
-  br i1 %880, label %881, label %883
+_ZN4llvm5APIntD2Ev.exit237:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit236, %861, %864
+  %865 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %866 = load i32, ptr %848, align 8, !tbaa !23
+  store i32 %866, ptr %865, align 8, !tbaa !23
+  %867 = icmp ult i32 %866, 65
+  br i1 %867, label %868, label %870
 
-881:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit238
-  %882 = load i64, ptr %77, align 8, !tbaa !25
-  store i64 %882, ptr %81, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit239
+868:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit237
+  %869 = load i64, ptr %77, align 8, !tbaa !25
+  store i64 %869, ptr %81, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit238
 
-883:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit238
+870:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit237
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %81, ptr noundef nonnull align 8 dereferenceable(12) %77) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit239
+  br label %_ZN4llvm5APIntC2ERKS0_.exit238
 
-_ZN4llvm5APIntC2ERKS0_.exit239:                   ; preds = %881, %883
+_ZN4llvm5APIntC2ERKS0_.exit238:                   ; preds = %868, %870
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store ptr %2, ptr %11, align 8, !tbaa !76
   store i32 1, ptr %12, align 4, !tbaa !62
-  %884 = load ptr, ptr %867, align 8, !tbaa !264
-  %.not.i.i240 = icmp eq ptr %884, null
-  br i1 %.not.i.i240, label %885, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit241
+  %871 = load ptr, ptr %854, align 8, !tbaa !264
+  %.not.i.i239 = icmp eq ptr %871, null
+  br i1 %.not.i.i239, label %872, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit240
 
-885:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit239
+872:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit238
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit241: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit239
-  %886 = load ptr, ptr %870, align 8, !tbaa !266
-  call void %886(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(12) %81, ptr noundef nonnull align 8 dereferenceable(12) %79) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit240: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit238
+  %873 = load ptr, ptr %857, align 8, !tbaa !266
+  call void %873(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 8 dereferenceable(12) %81, ptr noundef nonnull align 8 dereferenceable(12) %79) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  %887 = load i32, ptr %878, align 8, !tbaa !23
-  %888 = icmp ugt i32 %887, 64
-  br i1 %888, label %889, label %_ZN4llvm5APIntD2Ev.exit242
+  %874 = load i32, ptr %865, align 8, !tbaa !23
+  %875 = icmp ugt i32 %874, 64
+  br i1 %875, label %876, label %_ZN4llvm5APIntD2Ev.exit241
 
-889:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit241
-  %890 = load ptr, ptr %81, align 8, !tbaa !25
-  %891 = icmp eq ptr %890, null
-  br i1 %891, label %_ZN4llvm5APIntD2Ev.exit242, label %892
+876:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit240
+  %877 = load ptr, ptr %81, align 8, !tbaa !25
+  %878 = icmp eq ptr %877, null
+  br i1 %878, label %_ZN4llvm5APIntD2Ev.exit241, label %879
 
-892:                                              ; preds = %889
-  call void @_ZdaPv(ptr noundef nonnull %890) #17
+879:                                              ; preds = %876
+  call void @_ZdaPv(ptr noundef nonnull %877) #17
+  br label %_ZN4llvm5APIntD2Ev.exit241
+
+_ZN4llvm5APIntD2Ev.exit241:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit240, %876, %879
+  %880 = load i32, ptr %844, align 8, !tbaa !23
+  %881 = icmp ugt i32 %880, 64
+  br i1 %881, label %882, label %_ZN4llvm5APIntD2Ev.exit242
+
+882:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit241
+  %883 = load ptr, ptr %79, align 8, !tbaa !25
+  %884 = icmp eq ptr %883, null
+  br i1 %884, label %_ZN4llvm5APIntD2Ev.exit242, label %885
+
+885:                                              ; preds = %882
+  call void @_ZdaPv(ptr noundef nonnull %883) #17
   br label %_ZN4llvm5APIntD2Ev.exit242
 
-_ZN4llvm5APIntD2Ev.exit242:                       ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit241, %889, %892
-  %893 = load i32, ptr %857, align 8, !tbaa !23
-  %894 = icmp ugt i32 %893, 64
-  br i1 %894, label %895, label %_ZN4llvm5APIntD2Ev.exit243
+_ZN4llvm5APIntD2Ev.exit242:                       ; preds = %_ZN4llvm5APIntD2Ev.exit241, %882, %885
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79) #15
+  %886 = load i32, ptr %842, align 8, !tbaa !23
+  %887 = icmp ugt i32 %886, 64
+  br i1 %887, label %888, label %_ZN4llvm5APIntD2Ev.exit243
 
-895:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit242
-  %896 = load ptr, ptr %79, align 8, !tbaa !25
-  %897 = icmp eq ptr %896, null
-  br i1 %897, label %_ZN4llvm5APIntD2Ev.exit243, label %898
+888:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit242
+  %889 = load ptr, ptr %78, align 8, !tbaa !25
+  %890 = icmp eq ptr %889, null
+  br i1 %890, label %_ZN4llvm5APIntD2Ev.exit243, label %891
 
-898:                                              ; preds = %895
-  call void @_ZdaPv(ptr noundef nonnull %896) #17
+891:                                              ; preds = %888
+  call void @_ZdaPv(ptr noundef nonnull %889) #17
   br label %_ZN4llvm5APIntD2Ev.exit243
 
-_ZN4llvm5APIntD2Ev.exit243:                       ; preds = %_ZN4llvm5APIntD2Ev.exit242, %895, %898
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79) #15
-  %899 = load i32, ptr %855, align 8, !tbaa !23
-  %900 = icmp ugt i32 %899, 64
-  br i1 %900, label %901, label %_ZN4llvm5APIntD2Ev.exit244
+_ZN4llvm5APIntD2Ev.exit243:                       ; preds = %_ZN4llvm5APIntD2Ev.exit242, %888, %891
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78) #15
+  %892 = load i32, ptr %848, align 8, !tbaa !23
+  %893 = icmp ugt i32 %892, 64
+  br i1 %893, label %894, label %_ZN4llvm5APIntD2Ev.exit244
 
-901:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit243
-  %902 = load ptr, ptr %78, align 8, !tbaa !25
-  %903 = icmp eq ptr %902, null
-  br i1 %903, label %_ZN4llvm5APIntD2Ev.exit244, label %904
+894:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit243
+  %895 = load ptr, ptr %77, align 8, !tbaa !25
+  %896 = icmp eq ptr %895, null
+  br i1 %896, label %_ZN4llvm5APIntD2Ev.exit244, label %897
 
-904:                                              ; preds = %901
-  call void @_ZdaPv(ptr noundef nonnull %902) #17
+897:                                              ; preds = %894
+  call void @_ZdaPv(ptr noundef nonnull %895) #17
   br label %_ZN4llvm5APIntD2Ev.exit244
 
-_ZN4llvm5APIntD2Ev.exit244:                       ; preds = %_ZN4llvm5APIntD2Ev.exit243, %901, %904
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78) #15
-  %905 = load i32, ptr %861, align 8, !tbaa !23
-  %906 = icmp ugt i32 %905, 64
-  br i1 %906, label %907, label %_ZN4llvm5APIntD2Ev.exit245
-
-907:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit244
-  %908 = load ptr, ptr %77, align 8, !tbaa !25
-  %909 = icmp eq ptr %908, null
-  br i1 %909, label %_ZN4llvm5APIntD2Ev.exit245, label %910
-
-910:                                              ; preds = %907
-  call void @_ZdaPv(ptr noundef nonnull %908) #17
-  br label %_ZN4llvm5APIntD2Ev.exit245
-
-_ZN4llvm5APIntD2Ev.exit245:                       ; preds = %_ZN4llvm5APIntD2Ev.exit244, %907, %910
+_ZN4llvm5APIntD2Ev.exit244:                       ; preds = %_ZN4llvm5APIntD2Ev.exit243, %894, %897
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77) #15
   br label %_ZN4llvm5APInt8clearBitEj.exit
 
-911:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
-  %912 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %913 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %914 = load i32, ptr %913, align 8, !tbaa !23
-  store i32 %914, ptr %912, align 8, !tbaa !23
-  %915 = icmp ult i32 %914, 65
-  br i1 %915, label %916, label %918
+898:                                              ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
+  %899 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %900 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %901 = load i32, ptr %900, align 8, !tbaa !23
+  store i32 %901, ptr %899, align 8, !tbaa !23
+  %902 = icmp ult i32 %901, 65
+  br i1 %902, label %903, label %905
 
-916:                                              ; preds = %911
-  %917 = load i64, ptr %3, align 8, !tbaa !25
-  store i64 %917, ptr %82, align 8, !tbaa !25
-  br label %_ZN4llvm5APIntC2ERKS0_.exit246
+903:                                              ; preds = %898
+  %904 = load i64, ptr %3, align 8, !tbaa !25
+  store i64 %904, ptr %82, align 8, !tbaa !25
+  br label %_ZN4llvm5APIntC2ERKS0_.exit245
 
-918:                                              ; preds = %911
+905:                                              ; preds = %898
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %82, ptr noundef nonnull align 8 dereferenceable(12) %3) #15
-  br label %_ZN4llvm5APIntC2ERKS0_.exit246
+  br label %_ZN4llvm5APIntC2ERKS0_.exit245
 
-_ZN4llvm5APIntC2ERKS0_.exit246:                   ; preds = %916, %918
+_ZN4llvm5APIntC2ERKS0_.exit245:                   ; preds = %903, %905
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr %2, ptr %9, align 8, !tbaa !76
   store i32 1, ptr %10, align 4, !tbaa !62
-  %919 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %920 = load ptr, ptr %919, align 8, !tbaa !264
-  %.not.i.i247 = icmp eq ptr %920, null
-  br i1 %.not.i.i247, label %921, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit248
+  %906 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %907 = load ptr, ptr %906, align 8, !tbaa !264
+  %.not.i.i246 = icmp eq ptr %907, null
+  br i1 %.not.i.i246, label %908, label %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit247
 
-921:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit246
+908:                                              ; preds = %_ZN4llvm5APIntC2ERKS0_.exit245
   call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
-_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit248: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit246
-  %922 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %923 = load ptr, ptr %922, align 8, !tbaa !266
-  call void %923(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(12) %82, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
+_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit247: ; preds = %_ZN4llvm5APIntC2ERKS0_.exit245
+  %909 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %910 = load ptr, ptr %909, align 8, !tbaa !266
+  call void %910(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(12) %82, ptr noundef nonnull align 8 dereferenceable(12) %4) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %924 = load i32, ptr %912, align 8, !tbaa !23
-  %925 = icmp ugt i32 %924, 64
-  br i1 %925, label %926, label %_ZN4llvm5APInt8clearBitEj.exit
+  %911 = load i32, ptr %899, align 8, !tbaa !23
+  %912 = icmp ugt i32 %911, 64
+  br i1 %912, label %913, label %_ZN4llvm5APInt8clearBitEj.exit
 
-926:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit248
-  %927 = load ptr, ptr %82, align 8, !tbaa !25
-  %928 = icmp eq ptr %927, null
-  br i1 %928, label %_ZN4llvm5APInt8clearBitEj.exit, label %929
+913:                                              ; preds = %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit247
+  %914 = load ptr, ptr %82, align 8, !tbaa !25
+  %915 = icmp eq ptr %914, null
+  br i1 %915, label %_ZN4llvm5APInt8clearBitEj.exit, label %916
 
-929:                                              ; preds = %926
-  call void @_ZdaPv(ptr noundef nonnull %927) #17
+916:                                              ; preds = %913
+  call void @_ZdaPv(ptr noundef nonnull %914) #17
   br label %_ZN4llvm5APInt8clearBitEj.exit
 
-930:                                              ; preds = %8, %8, %8, %8
-  %931 = lshr i32 %86, 1
-  %932 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %933 = load i32, ptr %932, align 8, !tbaa !23
-  %934 = sub i32 %933, %931
-  %935 = icmp ult i32 %86, 2
-  br i1 %935, label %_ZN4llvm5APInt8clearBitEj.exit, label %936
+917:                                              ; preds = %8, %8, %8, %8
+  %918 = lshr i32 %86, 1
+  %919 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %920 = load i32, ptr %919, align 8, !tbaa !23
+  %921 = sub i32 %920, %918
+  %922 = icmp ult i32 %86, 2
+  br i1 %922, label %_ZN4llvm5APInt8clearBitEj.exit, label %923
 
-936:                                              ; preds = %930
-  %937 = icmp ult i32 %934, 64
-  %938 = icmp ult i32 %933, 65
-  %or.cond.i.i = and i1 %938, %937
-  br i1 %or.cond.i.i, label %939, label %947
+923:                                              ; preds = %917
+  %924 = icmp ult i32 %921, 64
+  %925 = icmp ult i32 %920, 65
+  %or.cond.i.i = and i1 %925, %924
+  br i1 %or.cond.i.i, label %926, label %934
 
-939:                                              ; preds = %936
-  %940 = sub nsw i32 64, %931
-  %941 = zext nneg i32 %940 to i64
-  %942 = lshr i64 -1, %941
-  %943 = zext nneg i32 %934 to i64
-  %944 = shl i64 %942, %943
-  %945 = load i64, ptr %4, align 8, !tbaa !25
-  %946 = or i64 %945, %944
-  store i64 %946, ptr %4, align 8, !tbaa !25
+926:                                              ; preds = %923
+  %927 = sub nsw i32 64, %918
+  %928 = zext nneg i32 %927 to i64
+  %929 = lshr i64 -1, %928
+  %930 = zext nneg i32 %921 to i64
+  %931 = shl i64 %929, %930
+  %932 = load i64, ptr %4, align 8, !tbaa !25
+  %933 = or i64 %932, %931
+  store i64 %933, ptr %4, align 8, !tbaa !25
   br label %_ZN4llvm5APInt8clearBitEj.exit
 
-947:                                              ; preds = %936
-  tail call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %934, i32 noundef %933) #15
+934:                                              ; preds = %923
+  tail call void @_ZN4llvm5APInt15setBitsSlowCaseEjj(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef %921, i32 noundef %920) #15
   br label %_ZN4llvm5APInt8clearBitEj.exit
 
-_ZN4llvm5APInt8clearBitEj.exit:                   ; preds = %_ZN4llvm5APIntD2Ev.exit227, %_ZN4llvm5APIntD2Ev.exit161, %_ZN4llvm5APIntD2Ev.exit, %_ZN4llvm5APIntD2Ev.exit245, %8, %_ZN4llvm5APIntD2Ev.exit138, %_ZN4llvm5APIntD2Ev.exit148, %430, %_ZN4llvm5APIntD2Ev.exit201, %247, %250, %441, %444, %614, %618, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit217, %649, %652, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit248, %926, %929, %930, %939, %947, %_ZN4llvm5APIntD2Ev.exit191, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit170, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit, %148, %100
-  %.sroa.0.1 = phi ptr [ %509, %_ZN4llvm5APIntD2Ev.exit191 ], [ %383, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit170 ], [ %211, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit ], [ %155, %148 ], [ %102, %100 ], [ undef, %8 ], [ undef, %_ZN4llvm5APIntD2Ev.exit245 ], [ undef, %_ZN4llvm5APIntD2Ev.exit201 ], [ undef, %430 ], [ undef, %_ZN4llvm5APIntD2Ev.exit148 ], [ undef, %_ZN4llvm5APIntD2Ev.exit138 ], [ undef, %_ZN4llvm5APIntD2Ev.exit ], [ undef, %247 ], [ undef, %250 ], [ undef, %441 ], [ undef, %444 ], [ undef, %614 ], [ undef, %618 ], [ undef, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit217 ], [ undef, %649 ], [ undef, %652 ], [ undef, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit248 ], [ undef, %926 ], [ undef, %929 ], [ undef, %930 ], [ undef, %939 ], [ undef, %947 ], [ %.sroa.0.2, %_ZN4llvm5APIntD2Ev.exit161 ], [ undef, %_ZN4llvm5APIntD2Ev.exit227 ]
-  %.sroa.7.0 = phi i8 [ 1, %_ZN4llvm5APIntD2Ev.exit191 ], [ 1, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit170 ], [ 1, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit ], [ 1, %148 ], [ 1, %100 ], [ 0, %8 ], [ 0, %_ZN4llvm5APIntD2Ev.exit245 ], [ 0, %_ZN4llvm5APIntD2Ev.exit201 ], [ 0, %430 ], [ 0, %_ZN4llvm5APIntD2Ev.exit148 ], [ 0, %_ZN4llvm5APIntD2Ev.exit138 ], [ 0, %_ZN4llvm5APIntD2Ev.exit ], [ 0, %247 ], [ 0, %250 ], [ 0, %441 ], [ 0, %444 ], [ 0, %614 ], [ 0, %618 ], [ 0, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit217 ], [ 0, %649 ], [ 0, %652 ], [ 0, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit248 ], [ 0, %926 ], [ 0, %929 ], [ 0, %930 ], [ 0, %939 ], [ 0, %947 ], [ %spec.select, %_ZN4llvm5APIntD2Ev.exit161 ], [ 0, %_ZN4llvm5APIntD2Ev.exit227 ]
+_ZN4llvm5APInt8clearBitEj.exit:                   ; preds = %_ZN4llvm5APIntD2Ev.exit226, %934, %926, %917, %916, %913, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit247, %639, %636, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit216, %605, %601, %443, %440, %250, %247, %429, %_ZN4llvm5APIntD2Ev.exit149, %_ZN4llvm5APIntD2Ev.exit139, %8, %_ZN4llvm5APIntD2Ev.exit162, %_ZN4llvm5APIntD2Ev.exit200, %_ZN4llvm5APIntD2Ev.exit244, %_ZN4llvm5APIntD2Ev.exit
+  %.sroa.0.0 = phi ptr [ undef, %8 ], [ undef, %_ZN4llvm5APIntD2Ev.exit244 ], [ %.sroa.0.3, %_ZN4llvm5APIntD2Ev.exit200 ], [ undef, %429 ], [ %.sroa.0.2, %_ZN4llvm5APIntD2Ev.exit162 ], [ undef, %_ZN4llvm5APIntD2Ev.exit149 ], [ undef, %_ZN4llvm5APIntD2Ev.exit139 ], [ undef, %_ZN4llvm5APIntD2Ev.exit ], [ undef, %247 ], [ undef, %250 ], [ undef, %440 ], [ undef, %443 ], [ undef, %601 ], [ undef, %605 ], [ undef, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit216 ], [ undef, %636 ], [ undef, %639 ], [ undef, %_ZNKSt8functionIFvPN4llvm11InstructionEjNS0_5APIntERS3_EEclES2_jS3_S4_.exit247 ], [ undef, %913 ], [ undef, %916 ], [ undef, %917 ], [ undef, %926 ], [ undef, %934 ], [ undef, %_ZN4llvm5APIntD2Ev.exit226 ]
+  br label %935
+
+935:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit162, %_ZN4llvm5APIntD2Ev.exit200, %_ZN4llvm5APInt8clearBitEj.exit, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit171, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit, %148, %100
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %_ZN4llvm5APInt8clearBitEj.exit ], [ %.sroa.0.3, %_ZN4llvm5APIntD2Ev.exit200 ], [ %382, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit171 ], [ %.sroa.0.2, %_ZN4llvm5APIntD2Ev.exit162 ], [ %211, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit ], [ %155, %148 ], [ %102, %100 ]
+  %.sroa.7.0 = phi i8 [ 0, %_ZN4llvm5APInt8clearBitEj.exit ], [ 1, %_ZN4llvm5APIntD2Ev.exit200 ], [ 1, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit171 ], [ 1, %_ZN4llvm5APIntD2Ev.exit162 ], [ 1, %_ZN4llvm12InstCombiner13addToWorklistEPNS_11InstructionE.exit ], [ 1, %148 ], [ 1, %100 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.7.0, 1
   ret { ptr, i8 } %.fca.1.insert
@@ -17897,7 +17868,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14FPMathOperator7classofE
   br i1 %3, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %4
 
 4:                                                ; preds = %1
-  switch i8 %2, label %42 [
+  switch i8 %2, label %43 [
     i8 41, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
     i8 43, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
     i8 45, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
@@ -17934,95 +17905,86 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %16 = phi i32 [ %.pre.i.i, %12 ], [ %9, %5 ]
   %trunc.i.i.i.i = trunc i32 %16 to i8
   %17 = icmp ult i8 %trunc.i.i.i.i, 6
-  br i1 %17, label %switch.hole_check, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i
+  %switch.shifted = lshr i8 47, %trunc.i.i.i.i
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %17, i1 %switch.lobit, i1 false
+  %18 = and i32 %16, 253
+  %spec.select.i.i.i = icmp eq i32 %18, 4
+  %or.cond25 = or i1 %or.cond, %spec.select.i.i.i
+  br i1 %or.cond25, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %19
 
-_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i:        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %.old = and i32 %16, 253
-  %spec.select.i.i.i.old = icmp eq i32 %.old, 4
-  br i1 %spec.select.i.i.i.old, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %18
-
-18:                                               ; preds = %switch.hole_check, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i
+19:                                               ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
   %trunc.i = trunc i32 %9 to i8
   switch i8 %trunc.i, label %.loopexit.i.i [
-    i8 15, label %19
+    i8 15, label %20
     i8 16, label %.preheader.i.i
   ]
 
-19:                                               ; preds = %18
-  %20 = and i32 %9, 1024
-  %.not27.i.i = icmp eq i32 %20, 0
-  br i1 %.not27.i.i, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %21
+20:                                               ; preds = %19
+  %21 = and i32 %9, 1024
+  %.not27.i.i = icmp eq i32 %21, 0
+  br i1 %.not27.i.i, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %22
 
-21:                                               ; preds = %19
-  %22 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
-  br i1 %22, label %23, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+22:                                               ; preds = %20
+  %23 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
+  br i1 %23, label %24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !254
-  %26 = load ptr, ptr %25, align 8, !tbaa !255
-  %.phi.trans.insert.i2.i = getelementptr inbounds nuw i8, ptr %26, i64 8
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !254
+  %27 = load ptr, ptr %26, align 8, !tbaa !255
+  %.phi.trans.insert.i2.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.pre.i3.i = load i32, ptr %.phi.trans.insert.i2.i, align 8
   %.pre30.i.i = and i32 %.pre.i3.i, 255
   br label %.loopexit.i.i
 
-.preheader.i.i:                                   ; preds = %18, %.preheader.i.i
-  %.0.i.i = phi ptr [ %28, %.preheader.i.i ], [ %7, %18 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !321
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i32, ptr %29, align 8
-  %31 = and i32 %30, 255
-  %32 = icmp ne i32 %31, 16
-  %.not1829.i.i = icmp eq ptr %28, null
-  %.not18.i.i = or i1 %.not1829.i.i, %32
+.preheader.i.i:                                   ; preds = %19, %.preheader.i.i
+  %.0.i.i = phi ptr [ %29, %.preheader.i.i ], [ %7, %19 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !321
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i32, ptr %30, align 8
+  %32 = and i32 %31, 255
+  %33 = icmp ne i32 %32, 16
+  %.not1829.i.i = icmp eq ptr %29, null
+  %.not18.i.i = or i1 %.not1829.i.i, %33
   br i1 %.not18.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !323
 
-.loopexit.i.i:                                    ; preds = %.preheader.i.i, %23, %18
-  %.pre-phi.i.i = phi i32 [ %.pre30.i.i, %23 ], [ %10, %18 ], [ %31, %.preheader.i.i ]
-  %33 = phi i32 [ %.pre.i3.i, %23 ], [ %9, %18 ], [ %30, %.preheader.i.i ]
-  %.013.ph.i.i = phi ptr [ %26, %23 ], [ %7, %18 ], [ %28, %.preheader.i.i ]
-  %34 = add nsw i32 %.pre-phi.i.i, -17
-  %spec.select.i.i.i.i.i = icmp ult i32 %34, 2
-  br i1 %spec.select.i.i.i.i.i, label %35, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
+.loopexit.i.i:                                    ; preds = %.preheader.i.i, %24, %19
+  %.pre-phi.i.i = phi i32 [ %.pre30.i.i, %24 ], [ %10, %19 ], [ %32, %.preheader.i.i ]
+  %34 = phi i32 [ %.pre.i3.i, %24 ], [ %9, %19 ], [ %31, %.preheader.i.i ]
+  %.013.ph.i.i = phi ptr [ %27, %24 ], [ %7, %19 ], [ %29, %.preheader.i.i ]
+  %35 = add nsw i32 %.pre-phi.i.i, -17
+  %spec.select.i.i.i.i.i = icmp ult i32 %35, 2
+  br i1 %spec.select.i.i.i.i.i, label %36, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
 
-35:                                               ; preds = %.loopexit.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %.013.ph.i.i, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !254
-  %38 = load ptr, ptr %37, align 8, !tbaa !255
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
+36:                                               ; preds = %.loopexit.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %.013.ph.i.i, i64 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !254
+  %39 = load ptr, ptr %38, align 8, !tbaa !255
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
 
-_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i:       ; preds = %35, %.loopexit.i.i
-  %39 = phi i32 [ %.pre.i.i.i, %35 ], [ %33, %.loopexit.i.i ]
-  %trunc.i.i.i.i.i = trunc i32 %39 to i8
-  %40 = icmp ult i8 %trunc.i.i.i.i.i, 6
-  br i1 %40, label %switch.hole_check20, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
-
-_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %switch.hole_check20, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
-  %41 = and i32 %39, 253
-  %spec.select.i.i21.i.i = icmp eq i32 %41, 4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-
-42:                                               ; preds = %4
-  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
-
-switch.hole_check:                                ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i
-  %switch.shifted = lshr i8 47, %trunc.i.i.i.i
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %43 = and i32 %16, 5
-  %spec.select.i.i.i = icmp eq i32 %43, 4
-  %or.cond = or i1 %spec.select.i.i.i, %switch.lobit
-  br i1 %or.cond, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %18
-
-switch.hole_check20:                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
+_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i:       ; preds = %36, %.loopexit.i.i
+  %40 = phi i32 [ %.pre.i.i.i, %36 ], [ %34, %.loopexit.i.i ]
+  %trunc.i.i.i.i.i = trunc i32 %40 to i8
+  %41 = icmp ult i8 %trunc.i.i.i.i.i, 6
   %switch.shifted22 = lshr i8 47, %trunc.i.i.i.i.i
   %switch.lobit23 = trunc i8 %switch.shifted22 to i1
-  br i1 %switch.lobit23, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
+  %or.cond24 = select i1 %41, i1 %switch.lobit23, i1 false
+  br i1 %or.cond24, label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i
 
-_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit: ; preds = %switch.hole_check20, %switch.hole_check, %1, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %21, %19, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i, %4, %4, %4, %4, %4, %4, %4, %4, %4, %42
-  %.1 = phi i1 [ false, %42 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.i ], [ false, %19 ], [ false, %21 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ false, %1 ], [ true, %switch.hole_check ], [ true, %switch.hole_check20 ]
+_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i:    ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i
+  %42 = and i32 %40, 253
+  %spec.select.i.i21.i.i = icmp eq i32 %42, 4
+  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+
+43:                                               ; preds = %4
+  br label %_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit
+
+_ZN4llvm14FPMathOperator28isSupportedFloatingPointTypeEPNS_4TypeE.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %1, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i, %22, %20, %4, %4, %4, %4, %4, %4, %4, %4, %4, %43
+  %.1 = phi i1 [ false, %43 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ true, %4 ], [ false, %20 ], [ false, %22 ], [ %spec.select.i.i21.i.i, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i.i.i ], [ false, %1 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i ]
   ret i1 %.1
 }
 

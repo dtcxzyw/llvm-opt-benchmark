@@ -128,6 +128,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 $_ZN4node14MakeBaseObjectINS_10contextify17ContextifyContextEJRPNS_11EnvironmentERN2v85LocalINS6_6ObjectEEERNS7_INS6_7ContextEEERPNS1_14ContextOptionsEEEENS_17BaseObjectPtrImplIT_Lb0EEEDpOT0_ = comdat any
 
+$_ZN4node38THROW_ERR_SCRIPT_EXECUTION_INTERRUPTEDEPNS_11EnvironmentE = comdat any
+
 $_ZN4node20ERR_MODULE_NOT_FOUNDIJRPKcEEEN2v85LocalINS4_5ValueEEEPNS4_7IsolateES2_DpOT_ = comdat any
 
 $_ZNK4node10contextify17ContextifyContext14MemoryInfoNameEv = comdat any
@@ -1116,17 +1118,17 @@ _ZN4node10contextify17ContextifyContext19IsStillInitializingEPKS1_.exit: ; preds
   %context_.i = getelementptr inbounds nuw i8, ptr %10, i64 32
   %11 = load ptr, ptr %context_.i, align 8
   %cmp.i.i = icmp eq ptr %11, null
-  br i1 %cmp.i.i, label %if.end201, label %if.end.i.i.i35
+  br i1 %cmp.i.i, label %if.end201, label %if.end.i.i.i34
 
-if.end.i.i.i35:                                   ; preds = %_ZN4node10contextify17ContextifyContext19IsStillInitializingEPKS1_.exit
+if.end.i.i.i34:                                   ; preds = %_ZN4node10contextify17ContextifyContext19IsStillInitializingEPKS1_.exit
   %realm_.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 11
   %12 = load i8, ptr %add.ptr.i.i.i, align 1
   %13 = and i8 %12, 3
-  %cmp.i.i.i36 = icmp eq i8 %13, 2
-  br i1 %cmp.i.i.i36, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i, label %_ZNK4node10contextify17ContextifyContext7contextEv.exit
+  %cmp.i.i.i35 = icmp eq i8 %13, 2
+  br i1 %cmp.i.i.i35, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i, label %_ZNK4node10contextify17ContextifyContext7contextEv.exit
 
-_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i: ; preds = %if.end.i.i.i35
+_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i: ; preds = %if.end.i.i.i34
   %14 = load ptr, ptr %realm_.i.i, align 8
   %env_.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 176
   %15 = load ptr, ptr %env_.i.i.i, align 8
@@ -1136,16 +1138,16 @@ _ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKN
   %call.i.i.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %16, i64 noundef %17) #22
   %.pre = load ptr, ptr %context_.i, align 8
   %add.ptr.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 11
-  %.pre96 = load i8, ptr %add.ptr.i.i.i.i.phi.trans.insert, align 1
+  %.pre95 = load i8, ptr %add.ptr.i.i.i.i.phi.trans.insert, align 1
   br label %_ZNK4node10contextify17ContextifyContext7contextEv.exit
 
-_ZNK4node10contextify17ContextifyContext7contextEv.exit: ; preds = %if.end.i.i.i35, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i
-  %18 = phi i8 [ %.pre96, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ %12, %if.end.i.i.i35 ]
-  %19 = phi ptr [ %.pre, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ %11, %if.end.i.i.i35 ]
-  %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ %11, %if.end.i.i.i35 ]
+_ZNK4node10contextify17ContextifyContext7contextEv.exit: ; preds = %if.end.i.i.i34, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i
+  %18 = phi i8 [ %.pre95, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ %12, %if.end.i.i.i34 ]
+  %19 = phi ptr [ %.pre, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ %11, %if.end.i.i.i34 ]
+  %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ %11, %if.end.i.i.i34 ]
   %20 = and i8 %18, 3
-  %cmp.i.i.i.i37 = icmp eq i8 %20, 2
-  br i1 %cmp.i.i.i.i37, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i, label %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit
+  %cmp.i.i.i.i36 = icmp eq i8 %20, 2
+  br i1 %cmp.i.i.i.i36, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i, label %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit
 
 _ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i: ; preds = %_ZNK4node10contextify17ContextifyContext7contextEv.exit
   %21 = load ptr, ptr %realm_.i.i, align 8
@@ -1162,31 +1164,31 @@ _ZNK4node10contextify17ContextifyContext12global_proxyEv.exit: ; preds = %_ZNK4n
   %call5.i = tail call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i) #22
   %call24 = tail call i64 @_ZN2v86Object30GetRealNamedPropertyAttributesENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call5.i, ptr %retval.sroa.0.0.i.i, ptr %property.coerce) #22
   %tobool.i399 = trunc i64 %call24 to i1
-  %ref.tmp.sroa.323.0.extract.shift = lshr i64 %call24, 32
-  %ref.tmp.sroa.323.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.323.0.extract.shift to i32
-  %attributes.0 = select i1 %tobool.i399, i32 %ref.tmp.sroa.323.0.extract.trunc, i32 0
+  %ref.tmp.sroa.324.0.extract.shift = lshr i64 %call24, 32
+  %ref.tmp.sroa.324.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.324.0.extract.shift to i32
+  %attributes.0 = select i1 %tobool.i399, i32 %ref.tmp.sroa.324.0.extract.trunc, i32 0
   %and = and i32 %attributes.0, 1
   %tobool = icmp ne i32 %and, 0
   %25 = load ptr, ptr %context_.i, align 8, !nonnull !5, !noundef !5
-  %add.ptr.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %25, i64 11
-  %26 = load i8, ptr %add.ptr.i.i.i.i39, align 1
+  %add.ptr.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %25, i64 11
+  %26 = load i8, ptr %add.ptr.i.i.i.i38, align 1
   %27 = and i8 %26, 3
-  %cmp.i.i.i.i40 = icmp eq i8 %27, 2
-  br i1 %cmp.i.i.i.i40, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i42, label %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit
+  %cmp.i.i.i.i39 = icmp eq i8 %27, 2
+  br i1 %cmp.i.i.i.i39, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i41, label %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit
 
-_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i42: ; preds = %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit
+_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i41: ; preds = %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit
   %28 = load ptr, ptr %realm_.i.i, align 8
-  %env_.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %28, i64 176
-  %29 = load ptr, ptr %env_.i.i.i.i44, align 8
-  %isolate_.i.i.i45 = getelementptr inbounds nuw i8, ptr %29, i64 88
-  %30 = load ptr, ptr %isolate_.i.i.i45, align 8
+  %env_.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %28, i64 176
+  %29 = load ptr, ptr %env_.i.i.i.i43, align 8
+  %isolate_.i.i.i44 = getelementptr inbounds nuw i8, ptr %29, i64 88
+  %30 = load ptr, ptr %isolate_.i.i.i44, align 8
   %31 = load i64, ptr %25, align 8
-  %call.i.i.i.i.i46 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %30, i64 noundef %31) #22
+  %call.i.i.i.i.i45 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %30, i64 noundef %31) #22
   br label %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit
 
-_ZNK4node10contextify17ContextifyContext7sandboxEv.exit: ; preds = %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i42
-  %retval.sroa.0.0.i.i.i41 = phi ptr [ %call.i.i.i.i.i46, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i42 ], [ %25, %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit ]
-  %32 = load i64, ptr %retval.sroa.0.0.i.i.i41, align 8
+_ZNK4node10contextify17ContextifyContext7sandboxEv.exit: ; preds = %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i41
+  %retval.sroa.0.0.i.i.i40 = phi ptr [ %call.i.i.i.i.i45, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i41 ], [ %25, %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit ]
+  %32 = load i64, ptr %retval.sroa.0.0.i.i.i40, align 8
   %sub.i.i.i = add i64 %32, 47
   %33 = inttoptr i64 %sub.i.i.i to ptr
   %34 = load i64, ptr %33, align 8
@@ -1197,9 +1199,9 @@ _ZNK4node10contextify17ContextifyContext7sandboxEv.exit: ; preds = %_ZNK4node10c
   %call.i28.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %call4.i.i, i64 noundef %36) #22
   %call42 = tail call i64 @_ZN2v86Object30GetRealNamedPropertyAttributesENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i28.i, ptr %retval.sroa.0.0.i.i, ptr %property.coerce) #22
   %tobool.i405 = trunc i64 %call42 to i1
-  %ref.tmp27.sroa.325.0.extract.shift = lshr i64 %call42, 32
-  %ref.tmp27.sroa.325.0.extract.trunc = trunc nuw i64 %ref.tmp27.sroa.325.0.extract.shift to i32
-  %attributes.1 = select i1 %tobool.i405, i32 %ref.tmp27.sroa.325.0.extract.trunc, i32 %attributes.0
+  %ref.tmp27.sroa.326.0.extract.shift = lshr i64 %call42, 32
+  %ref.tmp27.sroa.326.0.extract.trunc = trunc nuw i64 %ref.tmp27.sroa.326.0.extract.shift to i32
+  %attributes.1 = select i1 %tobool.i405, i32 %ref.tmp27.sroa.326.0.extract.trunc, i32 %attributes.0
   %and46 = and i32 %attributes.1, 1
   %tobool47 = icmp ne i32 %and46, 0
   %37 = select i1 %tobool, i1 true, i1 %tobool47
@@ -1207,38 +1209,38 @@ _ZNK4node10contextify17ContextifyContext7sandboxEv.exit: ; preds = %_ZNK4node10c
 
 if.end51:                                         ; preds = %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit
   %38 = load ptr, ptr %context_.i, align 8, !nonnull !5, !noundef !5
-  %add.ptr.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %38, i64 11
-  %39 = load i8, ptr %add.ptr.i.i.i.i48, align 1
+  %add.ptr.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %38, i64 11
+  %39 = load i8, ptr %add.ptr.i.i.i.i47, align 1
   %40 = and i8 %39, 3
-  %cmp.i.i.i.i49 = icmp eq i8 %40, 2
-  br i1 %cmp.i.i.i.i49, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i52, label %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit57
+  %cmp.i.i.i.i48 = icmp eq i8 %40, 2
+  br i1 %cmp.i.i.i.i48, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i51, label %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit56
 
-_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i52: ; preds = %if.end51
+_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i51: ; preds = %if.end51
   %41 = load ptr, ptr %realm_.i.i, align 8
-  %env_.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %41, i64 176
-  %42 = load ptr, ptr %env_.i.i.i.i54, align 8
-  %isolate_.i.i.i55 = getelementptr inbounds nuw i8, ptr %42, i64 88
-  %43 = load ptr, ptr %isolate_.i.i.i55, align 8
+  %env_.i.i.i.i53 = getelementptr inbounds nuw i8, ptr %41, i64 176
+  %42 = load ptr, ptr %env_.i.i.i.i53, align 8
+  %isolate_.i.i.i54 = getelementptr inbounds nuw i8, ptr %42, i64 88
+  %43 = load ptr, ptr %isolate_.i.i.i54, align 8
   %44 = load i64, ptr %38, align 8
-  %call.i.i.i.i.i56 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %43, i64 noundef %44) #22
-  br label %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit57
+  %call.i.i.i.i.i55 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %43, i64 noundef %44) #22
+  br label %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit56
 
-_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit57: ; preds = %if.end51, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i52
-  %retval.sroa.0.0.i.i.i50 = phi ptr [ %call.i.i.i.i.i56, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i52 ], [ %38, %if.end51 ]
-  %call5.i51 = tail call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i50) #22
-  %cmp.i12.i = icmp eq ptr %call5.i51, null
+_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit56: ; preds = %if.end51, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i51
+  %retval.sroa.0.0.i.i.i49 = phi ptr [ %call.i.i.i.i.i55, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i51 ], [ %38, %if.end51 ]
+  %call5.i50 = tail call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i49) #22
+  %cmp.i12.i = icmp eq ptr %call5.i50, null
   br i1 %cmp.i12.i, label %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_6ObjectEEES5_EEbRKT_RKT0_.exit, label %if.end4.i
 
-if.end4.i:                                        ; preds = %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit57
+if.end4.i:                                        ; preds = %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit56
   %45 = load ptr, ptr %args, align 8
   %arrayidx.i284 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %46 = load i64, ptr %call5.i51, align 8
+  %46 = load i64, ptr %call5.i50, align 8
   %47 = load i64, ptr %arrayidx.i284, align 8
-  %cmp.i424 = icmp eq i64 %46, %47
+  %cmp.i424 = icmp ne i64 %46, %47
   br label %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_6ObjectEEES5_EEbRKT_RKT0_.exit
 
-_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_6ObjectEEES5_EEbRKT_RKT0_.exit: ; preds = %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit57, %if.end4.i
-  %retval.i420.0 = phi i1 [ %cmp.i424, %if.end4.i ], [ false, %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit57 ]
+_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_6ObjectEEES5_EEbRKT_RKT0_.exit: ; preds = %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit56, %if.end4.i
+  %retval.i420.0 = phi i1 [ %cmp.i424, %if.end4.i ], [ true, %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit56 ]
   %call65 = tail call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce) #22
   %48 = or i64 %call42, %call24
   %49 = and i64 %48, 1
@@ -1263,10 +1265,10 @@ if.end.i:                                         ; preds = %land.lhs.true
 
 _ZNK2v820PropertyCallbackInfoINS_5ValueEE18ShouldThrowOnErrorEv.exit: ; preds = %if.end.i, %if.then.i291
   %retval.i286.0 = phi i1 [ %cmp5.i, %if.then.i291 ], [ %call7.i, %if.end.i ]
-  %retval.i286.0.not = xor i1 %retval.i286.0, true
-  %brmerge = select i1 %retval.i286.0.not, i1 true, i1 %retval.i420.0
-  %brmerge31 = or i1 %call65, %brmerge
-  br i1 %brmerge31, label %land.lhs.true81, label %if.end201
+  %or.cond = select i1 %retval.i286.0, i1 %retval.i420.0, i1 false
+  %or.cond.not = xor i1 %or.cond, true
+  %or.cond1 = or i1 %call65, %or.cond.not
+  br i1 %or.cond1, label %land.lhs.true81, label %if.end201
 
 land.lhs.true81:                                  ; preds = %_ZNK2v820PropertyCallbackInfoINS_5ValueEE18ShouldThrowOnErrorEv.exit
   %call83 = tail call noundef zeroext i1 @_ZNK2v85Value8IsSymbolEv(ptr noundef nonnull align 1 dereferenceable(1) %property.coerce) #22
@@ -1274,72 +1276,72 @@ land.lhs.true81:                                  ; preds = %_ZNK2v820PropertyCa
 
 if.end85:                                         ; preds = %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_6ObjectEEES5_EEbRKT_RKT0_.exit, %land.lhs.true81
   %53 = load ptr, ptr %context_.i, align 8, !nonnull !5, !noundef !5
-  %add.ptr.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %53, i64 11
-  %54 = load i8, ptr %add.ptr.i.i.i.i59, align 1
+  %add.ptr.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %53, i64 11
+  %54 = load i8, ptr %add.ptr.i.i.i.i58, align 1
   %55 = and i8 %54, 3
-  %cmp.i.i.i.i60 = icmp eq i8 %55, 2
-  br i1 %cmp.i.i.i.i60, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i66, label %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit71
+  %cmp.i.i.i.i59 = icmp eq i8 %55, 2
+  br i1 %cmp.i.i.i.i59, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i65, label %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit70
 
-_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i66: ; preds = %if.end85
+_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i65: ; preds = %if.end85
   %56 = load ptr, ptr %realm_.i.i, align 8
-  %env_.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %56, i64 176
-  %57 = load ptr, ptr %env_.i.i.i.i68, align 8
-  %isolate_.i.i.i69 = getelementptr inbounds nuw i8, ptr %57, i64 88
-  %58 = load ptr, ptr %isolate_.i.i.i69, align 8
+  %env_.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %56, i64 176
+  %57 = load ptr, ptr %env_.i.i.i.i67, align 8
+  %isolate_.i.i.i68 = getelementptr inbounds nuw i8, ptr %57, i64 88
+  %58 = load ptr, ptr %isolate_.i.i.i68, align 8
   %59 = load i64, ptr %53, align 8
-  %call.i.i.i.i.i70 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %58, i64 noundef %59) #22
-  br label %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit71
+  %call.i.i.i.i.i69 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %58, i64 noundef %59) #22
+  br label %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit70
 
-_ZNK4node10contextify17ContextifyContext7sandboxEv.exit71: ; preds = %if.end85, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i66
-  %retval.sroa.0.0.i.i.i61 = phi ptr [ %call.i.i.i.i.i70, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i66 ], [ %53, %if.end85 ]
-  %60 = load i64, ptr %retval.sroa.0.0.i.i.i61, align 8
-  %sub.i.i.i62 = add i64 %60, 47
-  %61 = inttoptr i64 %sub.i.i.i62 to ptr
+_ZNK4node10contextify17ContextifyContext7sandboxEv.exit70: ; preds = %if.end85, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i65
+  %retval.sroa.0.0.i.i.i60 = phi ptr [ %call.i.i.i.i.i69, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i65 ], [ %53, %if.end85 ]
+  %60 = load i64, ptr %retval.sroa.0.0.i.i.i60, align 8
+  %sub.i.i.i61 = add i64 %60, 47
+  %61 = inttoptr i64 %sub.i.i.i61 to ptr
   %62 = load i64, ptr %61, align 8
-  %sub.i18.i.i63 = add i64 %62, 279
-  %63 = inttoptr i64 %sub.i18.i.i63 to ptr
+  %sub.i18.i.i62 = add i64 %62, 279
+  %63 = inttoptr i64 %sub.i18.i.i62 to ptr
   %64 = load i64, ptr %63, align 8
-  %call4.i.i64 = tail call noundef ptr @_ZN2v88internal35IsolateFromNeverReadOnlySpaceObjectEm(i64 noundef %60) #22
-  %call.i28.i65 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %call4.i.i64, i64 noundef %64) #22
-  %call109 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call.i28.i65, ptr %retval.sroa.0.0.i.i, ptr %property.coerce, ptr nonnull %value.coerce) #22
+  %call4.i.i63 = tail call noundef ptr @_ZN2v88internal35IsolateFromNeverReadOnlySpaceObjectEm(i64 noundef %60) #22
+  %call.i28.i64 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %call4.i.i63, i64 noundef %64) #22
+  %call109 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call.i28.i64, ptr %retval.sroa.0.0.i.i, ptr %property.coerce, ptr nonnull %value.coerce) #22
   %tobool.i = trunc i16 %call109 to i1
   %65 = select i1 %tobool.i, i1 %tobool.i405, i1 false
   br i1 %65, label %land.lhs.true114, label %if.end201
 
-land.lhs.true114:                                 ; preds = %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit71
+land.lhs.true114:                                 ; preds = %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit70
   %66 = load ptr, ptr %context_.i, align 8, !nonnull !5, !noundef !5
-  %add.ptr.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %66, i64 11
-  %67 = load i8, ptr %add.ptr.i.i.i.i73, align 1
+  %add.ptr.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %66, i64 11
+  %67 = load i8, ptr %add.ptr.i.i.i.i72, align 1
   %68 = and i8 %67, 3
-  %cmp.i.i.i.i74 = icmp eq i8 %68, 2
-  br i1 %cmp.i.i.i.i74, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i80, label %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit85
+  %cmp.i.i.i.i73 = icmp eq i8 %68, 2
+  br i1 %cmp.i.i.i.i73, label %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i79, label %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit84
 
-_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i80: ; preds = %land.lhs.true114
+_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i79: ; preds = %land.lhs.true114
   %69 = load ptr, ptr %realm_.i.i, align 8
-  %env_.i.i.i.i82 = getelementptr inbounds nuw i8, ptr %69, i64 176
-  %70 = load ptr, ptr %env_.i.i.i.i82, align 8
-  %isolate_.i.i.i83 = getelementptr inbounds nuw i8, ptr %70, i64 88
-  %71 = load ptr, ptr %isolate_.i.i.i83, align 8
+  %env_.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %69, i64 176
+  %70 = load ptr, ptr %env_.i.i.i.i81, align 8
+  %isolate_.i.i.i82 = getelementptr inbounds nuw i8, ptr %70, i64 88
+  %71 = load ptr, ptr %isolate_.i.i.i82, align 8
   %72 = load i64, ptr %66, align 8
-  %call.i.i.i.i.i84 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %71, i64 noundef %72) #22
-  br label %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit85
+  %call.i.i.i.i.i83 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %71, i64 noundef %72) #22
+  br label %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit84
 
-_ZNK4node10contextify17ContextifyContext7sandboxEv.exit85: ; preds = %land.lhs.true114, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i80
-  %retval.sroa.0.0.i.i.i75 = phi ptr [ %call.i.i.i.i.i84, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i80 ], [ %66, %land.lhs.true114 ]
-  %73 = load i64, ptr %retval.sroa.0.0.i.i.i75, align 8
-  %sub.i.i.i76 = add i64 %73, 47
-  %74 = inttoptr i64 %sub.i.i.i76 to ptr
+_ZNK4node10contextify17ContextifyContext7sandboxEv.exit84: ; preds = %land.lhs.true114, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i79
+  %retval.sroa.0.0.i.i.i74 = phi ptr [ %call.i.i.i.i.i83, %_ZN4node17PersistentToLocal4WeakIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i.i79 ], [ %66, %land.lhs.true114 ]
+  %73 = load i64, ptr %retval.sroa.0.0.i.i.i74, align 8
+  %sub.i.i.i75 = add i64 %73, 47
+  %74 = inttoptr i64 %sub.i.i.i75 to ptr
   %75 = load i64, ptr %74, align 8
-  %sub.i18.i.i77 = add i64 %75, 279
-  %76 = inttoptr i64 %sub.i18.i.i77 to ptr
+  %sub.i18.i.i76 = add i64 %75, 279
+  %76 = inttoptr i64 %sub.i18.i.i76 to ptr
   %77 = load i64, ptr %76, align 8
-  %call4.i.i78 = tail call noundef ptr @_ZN2v88internal35IsolateFromNeverReadOnlySpaceObjectEm(i64 noundef %73) #22
-  %call.i28.i79 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %call4.i.i78, i64 noundef %77) #22
-  %call130 = tail call ptr @_ZN2v86Object24GetOwnPropertyDescriptorENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i28.i79, ptr %retval.sroa.0.0.i.i, ptr %property.coerce) #22
+  %call4.i.i77 = tail call noundef ptr @_ZN2v88internal35IsolateFromNeverReadOnlySpaceObjectEm(i64 noundef %73) #22
+  %call.i28.i78 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %call4.i.i77, i64 noundef %77) #22
+  %call130 = tail call ptr @_ZN2v86Object24GetOwnPropertyDescriptorENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call.i28.i78, ptr %retval.sroa.0.0.i.i, ptr %property.coerce) #22
   %cmp.i.i.not = icmp eq ptr %call130, null
   br i1 %cmp.i.i.not, label %if.end201, label %land.rhs
 
-land.rhs:                                         ; preds = %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit85
+land.rhs:                                         ; preds = %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit84
   %78 = load i64, ptr %call130, align 8
   %and.i.i = and i64 %78, 3
   %cmp.i.i310 = icmp eq i64 %and.i.i, 1
@@ -1364,34 +1366,34 @@ if.end5.i:                                        ; preds = %if.end.i312
   br i1 %cmp7.i.not, label %if.end201, label %if.then138
 
 if.then138:                                       ; preds = %land.rhs, %if.end.i312, %if.end5.i
-  %cmp.i.i.i86 = icmp eq ptr %retval.sroa.0.0.i.i, null
-  br i1 %cmp.i.i.i86, label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit, label %if.end.i.i
+  %cmp.i.i.i85 = icmp eq ptr %retval.sroa.0.0.i.i, null
+  br i1 %cmp.i.i.i85, label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then138
   %call5.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i) #22
-  %cmp.i.i87 = icmp ult i32 %call5.i.i, 40
-  br i1 %cmp.i.i87, label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i
+  %cmp.i.i86 = icmp ult i32 %call5.i.i, 40
+  br i1 %cmp.i.i86, label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i
 
 _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i: ; preds = %if.end.i.i
   %85 = load i64, ptr %retval.sroa.0.0.i.i, align 8
   %sub.i.i2.i = add i64 %85, 47
   %86 = inttoptr i64 %sub.i.i2.i to ptr
   %87 = load i64, ptr %86, align 8
-  %sub.i.i.i.i88 = add i64 %87, 327
-  %88 = inttoptr i64 %sub.i.i.i.i88 to ptr
+  %sub.i.i.i.i87 = add i64 %87, 327
+  %88 = inttoptr i64 %sub.i.i.i.i87 to ptr
   %89 = load i64, ptr %88, align 8
   %cmp12.not.i.i = icmp eq i64 %5, %89
-  br i1 %cmp12.not.i.i, label %if.end.i89, label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
+  br i1 %cmp12.not.i.i, label %if.end.i88, label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
 
-if.end.i89:                                       ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i
-  %sub.i.i.i90 = add i64 %87, 271
-  %90 = inttoptr i64 %sub.i.i.i90 to ptr
+if.end.i88:                                       ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i
+  %sub.i.i.i89 = add i64 %87, 271
+  %90 = inttoptr i64 %sub.i.i.i89 to ptr
   %91 = load i64, ptr %90, align 8
   %92 = inttoptr i64 %91 to ptr
   br label %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit
 
-_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %if.then138, %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %if.end.i89
-  %retval.0.i = phi ptr [ %92, %if.end.i89 ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %if.then138 ], [ null, %if.end.i.i ]
+_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %if.then138, %if.end.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i, %if.end.i88
+  %retval.0.i = phi ptr [ %92, %if.end.i88 ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %if.then138 ], [ null, %if.end.i.i ]
   %isolate_data_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 96
   %93 = load ptr, ptr %isolate_data_.i.i, align 8
   %get_string_.i.i = getelementptr inbounds nuw i8, ptr %93, i64 1032
@@ -1417,7 +1419,7 @@ if.else.i:                                        ; preds = %lor.rhs169, %_ZN4no
   store i64 %101, ptr %arrayidx.i, align 8
   br label %if.end201
 
-if.end201:                                        ; preds = %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %entry, %_ZN4node10contextify17ContextifyContext3GetIN2v85ValueEEEPS1_RKNS3_20PropertyCallbackInfoIT_EE.exit, %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit71, %_ZNK2v820PropertyCallbackInfoINS_5ValueEE18ShouldThrowOnErrorEv.exit, %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit85, %lor.rhs169, %if.else.i, %land.lhs.true81, %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit, %_ZN4node10contextify17ContextifyContext19IsStillInitializingEPKS1_.exit, %if.end5.i
+if.end201:                                        ; preds = %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %entry, %_ZN4node10contextify17ContextifyContext3GetIN2v85ValueEEEPS1_RKNS3_20PropertyCallbackInfoIT_EE.exit, %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit70, %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit84, %lor.rhs169, %if.else.i, %land.lhs.true81, %_ZNK2v820PropertyCallbackInfoINS_5ValueEE18ShouldThrowOnErrorEv.exit, %_ZNK4node10contextify17ContextifyContext7sandboxEv.exit, %_ZN4node10contextify17ContextifyContext19IsStillInitializingEPKS1_.exit, %if.end5.i
   ret void
 }
 
@@ -1850,8 +1852,8 @@ _ZNK4node10contextify17ContextifyContext12global_proxyEv.exit: ; preds = %_ZNK4n
   %call5.i = tail call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.i.i.i) #22
   %call23 = tail call i64 @_ZN2v86Object30GetRealNamedPropertyAttributesENS_5LocalINS_7ContextEEENS1_INS_4NameEEE(ptr noundef nonnull align 1 dereferenceable(1) %call5.i, ptr nonnull %agg.tmp.sroa.0.0.copyload, ptr %property.coerce) #22
   %25 = and i64 %call23, 4294967297
-  %brmerge.not = icmp eq i64 %25, 4294967297
-  br i1 %brmerge.not, label %if.end108, label %if.end29
+  %attributes.0 = icmp eq i64 %25, 4294967297
+  br i1 %attributes.0, label %if.end108, label %if.end29
 
 if.end29:                                         ; preds = %_ZNK4node10contextify17ContextifyContext12global_proxyEv.exit
   %26 = load ptr, ptr %context_.i, align 8, !nonnull !5, !noundef !5
@@ -8653,8 +8655,8 @@ if.then17:                                        ; preds = %if.end, %_ZN4node10
   br label %cleanup138
 
 if.end18:                                         ; preds = %_ZN4node10contextify16ContextifyScript10InstanceOfEPNS_11EnvironmentERKN2v85LocalINS4_5ValueEEE.exit
-  %isolate_.i.i14 = getelementptr inbounds nuw i8, ptr %.pre55, i64 88
-  %6 = load ptr, ptr %isolate_.i.i14, align 8
+  %isolate_.i.i17 = getelementptr inbounds nuw i8, ptr %.pre55, i64 88
+  %6 = load ptr, ptr %isolate_.i.i17, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(60) %try_catch, ptr noundef %6) #22
   %env_.i = getelementptr inbounds nuw i8, ptr %try_catch, i64 48
   store ptr %.pre55, ptr %env_.i, align 8
@@ -8672,10 +8674,10 @@ if.end18:                                         ; preds = %_ZN4node10contextif
   %sub.i.i.i = add i64 %12, 11
   %13 = inttoptr i64 %sub.i.i.i to ptr
   %14 = load i16, ptr %13, align 2
-  %cmp.i.i15 = icmp eq i16 %14, 1040
+  %cmp.i.i18 = icmp eq i16 %14, 1040
   %15 = add i16 %14, -1057
   %cmp1.i.i = icmp ult i16 %15, 1002
-  %16 = or i1 %cmp.i.i15, %cmp1.i.i
+  %16 = or i1 %cmp.i.i18, %cmp1.i.i
   br i1 %16, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.end18
@@ -8700,13 +8702,13 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 11
   %21 = load i8, ptr %add.ptr.i.i.i, align 1
   %22 = and i8 %21, 3
-  %cmp.i.i19 = icmp eq i8 %22, 2
-  br i1 %cmp.i.i19, label %_ZN4node17PersistentToLocal4WeakIN2v813UnboundScriptEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i, label %_ZN4node17PersistentToLocal7DefaultIN2v813UnboundScriptEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit
+  %cmp.i.i22 = icmp eq i8 %22, 2
+  br i1 %cmp.i.i22, label %_ZN4node17PersistentToLocal4WeakIN2v813UnboundScriptEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i, label %_ZN4node17PersistentToLocal7DefaultIN2v813UnboundScriptEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit
 
 _ZN4node17PersistentToLocal4WeakIN2v813UnboundScriptEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i: ; preds = %do.end
   %23 = load ptr, ptr %env.addr, align 8
-  %isolate_.i16 = getelementptr inbounds nuw i8, ptr %23, i64 88
-  %24 = load ptr, ptr %isolate_.i16, align 8
+  %isolate_.i19 = getelementptr inbounds nuw i8, ptr %23, i64 88
+  %24 = load ptr, ptr %isolate_.i19, align 8
   %25 = load i64, ptr %20, align 8
   %call.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %24, i64 noundef %25) #22
   br label %_ZN4node17PersistentToLocal7DefaultIN2v813UnboundScriptEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit
@@ -8746,18 +8748,18 @@ if.end49:                                         ; preds = %if.then45, %_ZN4nod
 
 if.then52:                                        ; preds = %if.end49
   %31 = load ptr, ptr %env.addr, align 8
-  %isolate_.i21 = getelementptr inbounds nuw i8, ptr %31, i64 88
-  %32 = load ptr, ptr %isolate_.i21, align 8
+  %isolate_.i24 = getelementptr inbounds nuw i8, ptr %31, i64 88
+  %32 = load ptr, ptr %isolate_.i24, align 8
   call void @_ZN4node8WatchdogC1EPN2v87IsolateEmPb(ptr noundef nonnull align 8 dereferenceable(1152) %wd, ptr noundef %32, i64 noundef %timeout, ptr noundef nonnull %timed_out) #22
   %33 = load ptr, ptr %env.addr, align 8
-  %isolate_.i22 = getelementptr inbounds nuw i8, ptr %33, i64 88
-  %34 = load ptr, ptr %isolate_.i22, align 8
+  %isolate_.i25 = getelementptr inbounds nuw i8, ptr %33, i64 88
+  %34 = load ptr, ptr %isolate_.i25, align 8
   call void @_ZN4node14SigintWatchdogC1EPN2v87IsolateEPb(ptr noundef nonnull align 8 dereferenceable(24) %swd, ptr noundef %34, ptr noundef nonnull %received_signal) #22
   %35 = load ptr, ptr %script, align 8
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %context, align 8
   %call4.i = call ptr @_ZN2v86Script3RunENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr %agg.tmp.sroa.0.0.copyload.i) #22
-  %cmp.i.i.i23 = icmp eq ptr %call4.i, null
-  br i1 %cmp.i.i.i23, label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit", label %land.lhs.true.i
+  %cmp.i.i.i26 = icmp eq ptr %call4.i, null
+  br i1 %cmp.i.i.i26, label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit", label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then52
   %36 = load ptr, ptr %mtask_queue.addr, align 8
@@ -8766,8 +8768,8 @@ land.lhs.true.i:                                  ; preds = %if.then52
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %37 = load ptr, ptr %env.addr, align 8
-  %isolate_.i.i24 = getelementptr inbounds nuw i8, ptr %37, i64 88
-  %38 = load ptr, ptr %isolate_.i.i24, align 8
+  %isolate_.i.i27 = getelementptr inbounds nuw i8, ptr %37, i64 88
+  %38 = load ptr, ptr %isolate_.i.i27, align 8
   %vtable.i = load ptr, ptr %36, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 48
   %39 = load ptr, ptr %vfn.i, align 8
@@ -8784,31 +8786,31 @@ if.else:                                          ; preds = %if.end49
 
 if.then62:                                        ; preds = %if.else
   %40 = load ptr, ptr %env.addr, align 8
-  %isolate_.i25 = getelementptr inbounds nuw i8, ptr %40, i64 88
-  %41 = load ptr, ptr %isolate_.i25, align 8
+  %isolate_.i28 = getelementptr inbounds nuw i8, ptr %40, i64 88
+  %41 = load ptr, ptr %isolate_.i28, align 8
   call void @_ZN4node14SigintWatchdogC1EPN2v87IsolateEPb(ptr noundef nonnull align 8 dereferenceable(24) %swd63, ptr noundef %41, ptr noundef nonnull %received_signal) #22
   %42 = load ptr, ptr %script, align 8
-  %agg.tmp.sroa.0.0.copyload.i26 = load ptr, ptr %context, align 8
-  %call4.i27 = call ptr @_ZN2v86Script3RunENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr %agg.tmp.sroa.0.0.copyload.i26) #22
-  %cmp.i.i.i28 = icmp eq ptr %call4.i27, null
-  br i1 %cmp.i.i.i28, label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit35", label %land.lhs.true.i29
+  %agg.tmp.sroa.0.0.copyload.i29 = load ptr, ptr %context, align 8
+  %call4.i30 = call ptr @_ZN2v86Script3RunENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr %agg.tmp.sroa.0.0.copyload.i29) #22
+  %cmp.i.i.i31 = icmp eq ptr %call4.i30, null
+  br i1 %cmp.i.i.i31, label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit38", label %land.lhs.true.i32
 
-land.lhs.true.i29:                                ; preds = %if.then62
+land.lhs.true.i32:                                ; preds = %if.then62
   %43 = load ptr, ptr %mtask_queue.addr, align 8
-  %cmp.not.i30 = icmp eq ptr %43, null
-  br i1 %cmp.not.i30, label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit35", label %if.then.i31
+  %cmp.not.i33 = icmp eq ptr %43, null
+  br i1 %cmp.not.i33, label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit38", label %if.then.i34
 
-if.then.i31:                                      ; preds = %land.lhs.true.i29
+if.then.i34:                                      ; preds = %land.lhs.true.i32
   %44 = load ptr, ptr %env.addr, align 8
-  %isolate_.i.i32 = getelementptr inbounds nuw i8, ptr %44, i64 88
-  %45 = load ptr, ptr %isolate_.i.i32, align 8
-  %vtable.i33 = load ptr, ptr %43, align 8
-  %vfn.i34 = getelementptr inbounds nuw i8, ptr %vtable.i33, i64 48
-  %46 = load ptr, ptr %vfn.i34, align 8
+  %isolate_.i.i35 = getelementptr inbounds nuw i8, ptr %44, i64 88
+  %45 = load ptr, ptr %isolate_.i.i35, align 8
+  %vtable.i36 = load ptr, ptr %43, align 8
+  %vfn.i37 = getelementptr inbounds nuw i8, ptr %vtable.i36, i64 48
+  %46 = load ptr, ptr %vfn.i37, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef %45) #22
-  br label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit35"
+  br label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit38"
 
-"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit35": ; preds = %if.then62, %land.lhs.true.i29, %if.then.i31
+"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit38": ; preds = %if.then62, %land.lhs.true.i32, %if.then.i34
   call void @_ZN4node14SigintWatchdogD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %swd63) #22
   br label %if.end91
 
@@ -8817,31 +8819,31 @@ if.else71:                                        ; preds = %if.else
 
 if.then73:                                        ; preds = %if.else71
   %47 = load ptr, ptr %env.addr, align 8
-  %isolate_.i36 = getelementptr inbounds nuw i8, ptr %47, i64 88
-  %48 = load ptr, ptr %isolate_.i36, align 8
+  %isolate_.i39 = getelementptr inbounds nuw i8, ptr %47, i64 88
+  %48 = load ptr, ptr %isolate_.i39, align 8
   call void @_ZN4node8WatchdogC1EPN2v87IsolateEmPb(ptr noundef nonnull align 8 dereferenceable(1152) %wd74, ptr noundef %48, i64 noundef %timeout, ptr noundef nonnull %timed_out) #22
   %49 = load ptr, ptr %script, align 8
-  %agg.tmp.sroa.0.0.copyload.i37 = load ptr, ptr %context, align 8
-  %call4.i38 = call ptr @_ZN2v86Script3RunENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr %agg.tmp.sroa.0.0.copyload.i37) #22
-  %cmp.i.i.i39 = icmp eq ptr %call4.i38, null
-  br i1 %cmp.i.i.i39, label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit46", label %land.lhs.true.i40
+  %agg.tmp.sroa.0.0.copyload.i40 = load ptr, ptr %context, align 8
+  %call4.i41 = call ptr @_ZN2v86Script3RunENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr %agg.tmp.sroa.0.0.copyload.i40) #22
+  %cmp.i.i.i42 = icmp eq ptr %call4.i41, null
+  br i1 %cmp.i.i.i42, label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit49", label %land.lhs.true.i43
 
-land.lhs.true.i40:                                ; preds = %if.then73
+land.lhs.true.i43:                                ; preds = %if.then73
   %50 = load ptr, ptr %mtask_queue.addr, align 8
-  %cmp.not.i41 = icmp eq ptr %50, null
-  br i1 %cmp.not.i41, label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit46", label %if.then.i42
+  %cmp.not.i44 = icmp eq ptr %50, null
+  br i1 %cmp.not.i44, label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit49", label %if.then.i45
 
-if.then.i42:                                      ; preds = %land.lhs.true.i40
+if.then.i45:                                      ; preds = %land.lhs.true.i43
   %51 = load ptr, ptr %env.addr, align 8
-  %isolate_.i.i43 = getelementptr inbounds nuw i8, ptr %51, i64 88
-  %52 = load ptr, ptr %isolate_.i.i43, align 8
-  %vtable.i44 = load ptr, ptr %50, align 8
-  %vfn.i45 = getelementptr inbounds nuw i8, ptr %vtable.i44, i64 48
-  %53 = load ptr, ptr %vfn.i45, align 8
+  %isolate_.i.i46 = getelementptr inbounds nuw i8, ptr %51, i64 88
+  %52 = load ptr, ptr %isolate_.i.i46, align 8
+  %vtable.i47 = load ptr, ptr %50, align 8
+  %vfn.i48 = getelementptr inbounds nuw i8, ptr %vtable.i47, i64 48
+  %53 = load ptr, ptr %vfn.i48, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef %52) #22
-  br label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit46"
+  br label %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit49"
 
-"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit46": ; preds = %if.then73, %land.lhs.true.i40, %if.then.i42
+"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit49": ; preds = %if.then73, %land.lhs.true.i43, %if.then.i45
   call void @_ZN4node8WatchdogD1Ev(ptr noundef nonnull align 8 dereferenceable(1152) %wd74) #22
   br label %if.end91
 
@@ -8849,21 +8851,19 @@ if.else82:                                        ; preds = %if.else71
   %call84 = call fastcc ptr @"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(32) %run)
   br label %if.end91
 
-if.end91:                                         ; preds = %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit35", %if.else82, %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit46", %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit"
-  %result.sroa.0.0 = phi ptr [ %call4.i, %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit" ], [ %call4.i27, %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit35" ], [ %call4.i38, %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit46" ], [ %call84, %if.else82 ]
+if.end91:                                         ; preds = %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit38", %if.else82, %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit49", %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit"
+  %result.sroa.0.0 = phi ptr [ %call4.i, %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit" ], [ %call4.i30, %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit38" ], [ %call4.i41, %"_ZZN4node10contextify16ContextifyScript11EvalMachineEN2v85LocalINS2_7ContextEEEPNS_11EnvironmentElbbbPNS2_14MicrotaskQueueERKNS2_20FunctionCallbackInfoINS2_5ValueEEEENK3$_0clEv.exit49" ], [ %call84, %if.else82 ]
   %54 = load i8, ptr %timed_out, align 1
   %tobool92 = trunc i8 %54 to i1
-  br i1 %tobool92, label %if.then94, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end91
   %55 = load i8, ptr %received_signal, align 1
   %tobool93 = trunc i8 %55 to i1
-  br i1 %tobool93, label %if.then94, label %if.end108
+  %or.cond1 = select i1 %tobool92, i1 true, i1 %tobool93
+  br i1 %or.cond1, label %if.then94, label %if.end108
 
-if.then94:                                        ; preds = %lor.lhs.false, %if.end91
+if.then94:                                        ; preds = %if.end91
   %56 = load ptr, ptr %env.addr, align 8
-  %isolate_data_.i.i.i47 = getelementptr inbounds nuw i8, ptr %56, i64 96
-  %57 = load ptr, ptr %isolate_data_.i.i.i47, align 8
+  %isolate_data_.i.i.i50 = getelementptr inbounds nuw i8, ptr %56, i64 96
+  %57 = load ptr, ptr %isolate_data_.i.i.i50, align 8
   %worker_context_.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 4176
   %58 = load ptr, ptr %worker_context_.i.i.i, align 8
   %cmp.i = icmp eq ptr %58, null
@@ -8872,8 +8872,8 @@ if.then94:                                        ; preds = %lor.lhs.false, %if.
 land.lhs.true96:                                  ; preds = %if.then94
   %is_stopping_.i = getelementptr inbounds nuw i8, ptr %56, i64 872
   %59 = load atomic i8, ptr %is_stopping_.i seq_cst, align 1
-  %tobool.i.i.i48 = trunc i8 %59 to i1
-  br i1 %tobool.i.i.i48, label %cleanup, label %land.lhs.true96.if.end99_crit_edge
+  %tobool.i.i.i51 = trunc i8 %59 to i1
+  br i1 %tobool.i.i.i51, label %cleanup, label %land.lhs.true96.if.end99_crit_edge
 
 land.lhs.true96.if.end99_crit_edge:               ; preds = %land.lhs.true96
   %.pre = load ptr, ptr %env.addr, align 8
@@ -8881,8 +8881,8 @@ land.lhs.true96.if.end99_crit_edge:               ; preds = %land.lhs.true96
 
 if.end99:                                         ; preds = %land.lhs.true96.if.end99_crit_edge, %if.then94
   %60 = phi ptr [ %.pre, %land.lhs.true96.if.end99_crit_edge ], [ %56, %if.then94 ]
-  %isolate_.i49 = getelementptr inbounds nuw i8, ptr %60, i64 88
-  %61 = load ptr, ptr %isolate_.i49, align 8
+  %isolate_.i52 = getelementptr inbounds nuw i8, ptr %60, i64 88
+  %61 = load ptr, ptr %isolate_.i52, align 8
   call void @_ZN2v87Isolate24CancelTerminateExecutionEv(ptr noundef nonnull align 1 dereferenceable(1) %61) #22
   %62 = load i8, ptr %timed_out, align 1
   %tobool101 = trunc i8 %62 to i1
@@ -8893,15 +8893,15 @@ if.then102:                                       ; preds = %if.end99
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %message.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %message.i) #22
-  %call.i50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %message.i, ptr noundef nonnull @.str.108) #22
+  %call.i53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %message.i, ptr noundef nonnull @.str.108) #22
   %call1.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %message.i, i64 noundef %timeout) #22
   %call2.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1.i, ptr noundef nonnull @.str.109) #22
   call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(112) %message.i) #22
   %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #22
   %isolate_.i.i.i = getelementptr inbounds nuw i8, ptr %63, i64 88
   %64 = load ptr, ptr %isolate_.i.i.i, align 8
-  %call.i.i.i51 = call ptr @_ZN4node28ERR_SCRIPT_EXECUTION_TIMEOUTIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %64, ptr noundef %call3.i)
-  %call6.i.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr %call.i.i.i51) #22
+  %call.i.i.i54 = call ptr @_ZN4node28ERR_SCRIPT_EXECUTION_TIMEOUTIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %64, ptr noundef %call3.i)
+  %call6.i.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr %call.i.i.i54) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #22
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %message.i) #22
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %message.i)
@@ -8915,34 +8915,29 @@ if.else103:                                       ; preds = %if.end99
 
 if.then105:                                       ; preds = %if.else103
   %66 = load ptr, ptr %env.addr, align 8
-  %isolate_.i.i52 = getelementptr inbounds nuw i8, ptr %66, i64 88
-  %67 = load ptr, ptr %isolate_.i.i52, align 8
-  %call.i.i53 = call ptr @_ZN4node32ERR_SCRIPT_EXECUTION_INTERRUPTEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %67, ptr noundef nonnull @.str.115)
-  %call6.i.i54 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr %call.i.i53) #22
+  call void @_ZN4node38THROW_ERR_SCRIPT_EXECUTION_INTERRUPTEDEPNS_11EnvironmentE(ptr noundef %66)
   br label %if.end108
 
-if.end108:                                        ; preds = %if.then102, %if.then105, %if.else103, %lor.lhs.false
+if.end108:                                        ; preds = %if.then102, %if.then105, %if.else103, %if.end91
   %call109 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #22
   br i1 %call109, label %if.then110, label %if.end125
 
 if.then110:                                       ; preds = %if.end108
-  %68 = load i8, ptr %timed_out, align 1
-  %tobool111 = trunc i8 %68 to i1
-  br i1 %tobool111, label %if.end117, label %land.lhs.true112
+  %67 = load i8, ptr %timed_out, align 1
+  %tobool111 = trunc i8 %67 to i1
+  %68 = load i8, ptr %received_signal, align 1
+  %tobool113 = trunc i8 %68 to i1
+  %or.cond2 = select i1 %tobool111, i1 true, i1 %tobool113
+  %or.cond2.not = xor i1 %or.cond2, true
+  %or.cond3 = and i1 %display_errors, %or.cond2.not
+  br i1 %or.cond3, label %if.then116, label %if.end117
 
-land.lhs.true112:                                 ; preds = %if.then110
-  %69 = load i8, ptr %received_signal, align 1
-  %tobool113 = trunc i8 %69 to i1
-  %display_errors.not = xor i1 %display_errors, true
-  %brmerge = or i1 %display_errors.not, %tobool113
-  br i1 %brmerge, label %if.end117, label %if.then116
-
-if.then116:                                       ; preds = %land.lhs.true112
-  %70 = load ptr, ptr %env.addr, align 8
-  call void @_ZN4node6errors18DecorateErrorStackEPNS_11EnvironmentERKNS0_13TryCatchScopeE(ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(60) %try_catch) #22
+if.then116:                                       ; preds = %if.then110
+  %69 = load ptr, ptr %env.addr, align 8
+  call void @_ZN4node6errors18DecorateErrorStackEPNS_11EnvironmentERKNS0_13TryCatchScopeE(ptr noundef %69, ptr noundef nonnull align 8 dereferenceable(60) %try_catch) #22
   br label %if.end117
 
-if.end117:                                        ; preds = %land.lhs.true112, %if.then116, %if.then110
+if.end117:                                        ; preds = %if.then116, %if.then110
   %call118 = call noundef zeroext i1 @_ZNK2v88TryCatch13HasTerminatedEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #22
   br i1 %call118, label %cleanup, label %if.then119
 
@@ -8951,22 +8946,22 @@ if.then119:                                       ; preds = %if.end117
   br label %cleanup
 
 if.end125:                                        ; preds = %if.end108
-  %71 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %70 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %70, i64 24
   %cmp.i.i.i = icmp eq ptr %result.sroa.0.0, null
   br i1 %cmp.i.i.i, label %if.then.i174, label %_ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit
 
 if.then.i174:                                     ; preds = %if.end125
   call void @_ZN2v812api_internal12ToLocalEmptyEv() #22
-  %arrayidx.i186 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %72 = load ptr, ptr %arrayidx.i186, align 8
-  %73 = ptrtoint ptr %72 to i64
-  %add1.i.i = add i64 %73, 616
-  %74 = inttoptr i64 %add1.i.i to ptr
+  %arrayidx.i186 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %71 = load ptr, ptr %arrayidx.i186, align 8
+  %72 = ptrtoint ptr %71 to i64
+  %add1.i.i = add i64 %72, 616
+  %73 = inttoptr i64 %add1.i.i to ptr
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit
 
 _ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit: ; preds = %if.end125, %if.then.i174
-  %storemerge.in = phi ptr [ %74, %if.then.i174 ], [ %result.sroa.0.0, %if.end125 ]
+  %storemerge.in = phi ptr [ %73, %if.then.i174 ], [ %result.sroa.0.0, %if.end125 ]
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %arrayidx.i, align 8
   br label %cleanup
@@ -9035,6 +9030,16 @@ declare void @_ZN4node14SigintWatchdogD1Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN4node8WatchdogD1Ev(ptr noundef nonnull align 8 dereferenceable(1152)) unnamed_addr #1
 
 declare void @_ZN2v87Isolate24CancelTerminateExecutionEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN4node38THROW_ERR_SCRIPT_EXECUTION_INTERRUPTEDEPNS_11EnvironmentE(ptr noundef %env) local_unnamed_addr #3 comdat {
+entry:
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %env, i64 88
+  %0 = load ptr, ptr %isolate_.i, align 8
+  %call.i = tail call ptr @_ZN4node32ERR_SCRIPT_EXECUTION_INTERRUPTEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %0, ptr noundef nonnull @.str.115)
+  %call6.i = tail call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %call.i) #22
+  ret void
+}
 
 ; Function Attrs: nounwind
 declare void @_ZN2v87Isolate23SafeForTerminationScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #1

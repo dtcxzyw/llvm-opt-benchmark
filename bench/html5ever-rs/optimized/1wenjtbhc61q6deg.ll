@@ -1012,8 +1012,8 @@ define internal fastcc { ptr, i64 } @_ZN17markup5ever_rcdom20get_parent_and_inde
   %6 = getelementptr inbounds nuw i8, ptr %.0.val, i64 96
   %7 = load ptr, ptr %6, align 8, !noundef !4
   store ptr null, ptr %6, align 8
-  %.not.not = icmp eq ptr %7, null
-  br i1 %.not.not, label %57, label %8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %57, label %8
 
 8:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -2118,8 +2118,8 @@ _ZN17markup5ever_rcdom4Node3new17hb0c791d1ce2875dcE.exit: ; preds = %.noexc.i.i
 define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$6append17hf338e68b49e50de4E"(ptr noalias readnone align 8 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, i64, { { i8, [79 x i8] }, ptr, { i64, { { { i64, ptr }, i64 } } } } }, align 8
   %5 = load i64, ptr %2, align 8, !range !8, !noundef !4
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %55, label %6
+  %.not.not = icmp eq i64 %5, 0
+  br i1 %.not.not, label %55, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
@@ -2128,14 +2128,15 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   %10 = icmp ult i64 %9, 9223372036854775807
   br i1 %10, label %14, label %18
 
-.body:                                            ; preds = %11, %42
-  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %13, %11 ]
-  %.1 = phi i1 [ false, %42 ], [ %12, %11 ]
-  %brmerge = or i1 %.1, %.not
-  br i1 %brmerge, label %.body.thread, label %73
+.body:                                            ; preds = %12, %42
+  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %13, %12 ]
+  %.1 = phi i1 [ true, %42 ], [ %.013, %12 ]
+  %11 = icmp ne i64 %5, 0
+  %or.cond = and i1 %.1, %11
+  br i1 %or.cond, label %73, label %.body.thread
 
-11:                                               ; preds = %71, %18
-  %12 = phi i1 [ false, %18 ], [ %trunc35, %71 ]
+12:                                               ; preds = %71, %18
+  %.013 = phi i1 [ true, %18 ], [ %.not.not, %71 ]
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -2145,12 +2146,12 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   store i64 %15, ptr %8, align 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %17 = load i64, ptr %16, align 8, !noundef !4
-  %.not14 = icmp eq i64 %17, 0
-  br i1 %.not14, label %58, label %19
+  %.not15 = icmp eq i64 %17, 0
+  br i1 %.not15, label %58, label %19
 
 18:                                               ; preds = %6
   invoke void @_ZN4core4cell30panic_already_mutably_borrowed17hbc333334528bd302E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca33c84f5f46cddb79da9f4933f043aa.71) #24
-          to label %54 unwind label %11
+          to label %54 unwind label %12
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 120
@@ -2196,9 +2197,9 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
 
 46:                                               ; preds = %40, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i", %19
   %.sroa.4.0.i = phi i64 [ %25, %40 ], [ %38, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i" ], [ 0, %19 ]
-  %.sroa.0.0.i17 = phi ptr [ %41, %40 ], [ %39, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i" ], [ @anon.ca33c84f5f46cddb79da9f4933f043aa.4, %19 ]
+  %.sroa.0.0.i18 = phi ptr [ %41, %40 ], [ %39, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i" ], [ @anon.ca33c84f5f46cddb79da9f4933f043aa.4, %19 ]
   %.0.val = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
-  %47 = invoke fastcc noundef zeroext i1 @_ZN17markup5ever_rcdom23append_to_existing_text17h58e0abfc8a4f61ecE(ptr nonnull %.0.val, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i17, i64 noundef %.sroa.4.0.i)
+  %47 = invoke fastcc noundef zeroext i1 @_ZN17markup5ever_rcdom23append_to_existing_text17h58e0abfc8a4f61ecE(ptr nonnull %.0.val, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i18, i64 noundef %.sroa.4.0.i)
           to label %48 unwind label %42
 
 48:                                               ; preds = %46
@@ -2238,8 +2239,8 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 2, ptr %62, align 8
-  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %.sroa.423.0..sroa_idx, align 8
+  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 0, ptr %.sroa.424.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %4, i64 96
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx6.i, i8 0, i64 24, i1 false), !noalias !325
@@ -2277,19 +2278,18 @@ define void @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interfa
   unreachable
 
 71:                                               ; preds = %72, %55
-  %.011 = phi ptr [ %.fca.0.extract.i.i.i, %72 ], [ %57, %55 ]
-  %trunc35 = xor i1 %.not, true
+  %.012 = phi ptr [ %.fca.0.extract.i.i.i, %72 ], [ %57, %55 ]
   %.val = load ptr, ptr %1, align 8, !alias.scope !118, !nonnull !4, !noundef !4
-  invoke fastcc void @_ZN17markup5ever_rcdom6append17hd86a3d77d6a1619bE(ptr nonnull %.val, ptr noundef nonnull %.011)
-          to label %49 unwind label %11
+  invoke fastcc void @_ZN17markup5ever_rcdom6append17hd86a3d77d6a1619bE(ptr nonnull %.val, ptr noundef nonnull %.012)
+          to label %49 unwind label %12
 
 72:                                               ; preds = %.noexc.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.fca.0.extract.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %4, i64 136, i1 false), !noalias !320
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4), !noalias !320
   br label %71
 
-.body.thread:                                     ; preds = %67, %.body, %73
-  %.pn33 = phi { ptr, i32 } [ %.pn, %.body ], [ %.pn, %73 ], [ %68, %67 ]
+.body.thread:                                     ; preds = %67, %73, %.body
+  %.pn33 = phi { ptr, i32 } [ %.pn, %73 ], [ %.pn, %.body ], [ %68, %67 ]
   resume { ptr, i32 } %.pn33
 
 73:                                               ; preds = %.body

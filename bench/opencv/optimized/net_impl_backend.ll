@@ -1790,9 +1790,13 @@ define void @_ZN2cv3dnn14dnn4_v202412233Net4Impl19setPreferableTargetEi(ptr noun
 
 switch.early.test:                                ; preds = %2
   %10 = icmp ult i32 %1, 10
-  br i1 %10, label %switch.hole_check, label %11
+  %switch.maskindex = trunc i32 %1 to i16
+  %switch.shifted = lshr i16 519, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %10, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %11
 
-11:                                               ; preds = %switch.hole_check, %switch.early.test
+11:                                               ; preds = %switch.early.test
   %12 = tail call noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
@@ -1970,13 +1974,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #20
   br label %175
 
-switch.hole_check:                                ; preds = %switch.early.test
-  %switch.maskindex = trunc nuw i32 %1 to i16
-  %switch.shifted = lshr i16 519, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %11
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %switch.early.test
   %83 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN2cv3dnn14dnn4_v202412233Net4Impl19setPreferableTargetEi, i64 0, i64 %83
   %switch.load = load i32, ptr %switch.gep, align 4

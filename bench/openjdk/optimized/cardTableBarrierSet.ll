@@ -127,30 +127,29 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i: ; preds = %1
   %11 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   %12 = icmp eq i32 %11, 1
   %13 = or i1 %spec.select.i.i.i.i, %12
-  br i1 %13, label %_ZN19CardTableBarrierSet38initialize_deferred_card_mark_barriersEv.exit, label %14
+  %spec.select.i.i = xor i1 %13, true
+  %14 = load i8, ptr @ReduceInitialCardMarks, align 1
+  %15 = trunc i8 %14 to i1
+  %or.cond.i = select i1 %spec.select.i.i, i1 %15, i1 false
+  br i1 %or.cond.i, label %16, label %_ZN19CardTableBarrierSet38initialize_deferred_card_mark_barriersEv.exit
 
-14:                                               ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i
-  %15 = load i8, ptr @ReduceInitialCardMarks, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %_ZN19CardTableBarrierSet38initialize_deferred_card_mark_barriersEv.exit
+16:                                               ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i
+  %17 = load i8, ptr @DeferInitialCardMark, align 1
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %_ZN19CardTableBarrierSet38initialize_deferred_card_mark_barriersEv.exit, label %19
 
-17:                                               ; preds = %14
-  %18 = load i8, ptr @DeferInitialCardMark, align 1
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %_ZN19CardTableBarrierSet38initialize_deferred_card_mark_barriersEv.exit, label %20
-
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(80) %0) #6
-  %25 = zext i1 %24 to i8
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(80) %0) #6
+  %24 = zext i1 %23 to i8
   br label %_ZN19CardTableBarrierSet38initialize_deferred_card_mark_barriersEv.exit
 
-_ZN19CardTableBarrierSet38initialize_deferred_card_mark_barriersEv.exit: ; preds = %1, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i, %14, %17, %20
-  %26 = phi i8 [ 0, %14 ], [ 0, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i ], [ 1, %17 ], [ %25, %20 ], [ 0, %1 ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %26, ptr %27, align 8
+_ZN19CardTableBarrierSet38initialize_deferred_card_mark_barriersEv.exit: ; preds = %1, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i, %16, %19
+  %25 = phi i8 [ 0, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i ], [ 1, %16 ], [ %24, %19 ], [ 0, %1 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i8 %25, ptr %26, align 8
   ret void
 }
 
@@ -172,30 +171,29 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit: ; preds = %1
   %11 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   %12 = icmp eq i32 %11, 1
   %13 = or i1 %spec.select.i.i.i, %12
-  br i1 %13, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread, label %14
+  %spec.select.i = xor i1 %13, true
+  %14 = load i8, ptr @ReduceInitialCardMarks, align 1
+  %15 = trunc i8 %14 to i1
+  %or.cond = select i1 %spec.select.i, i1 %15, i1 false
+  br i1 %or.cond, label %16, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread
 
-14:                                               ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
-  %15 = load i8, ptr @ReduceInitialCardMarks, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread
+16:                                               ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
+  %17 = load i8, ptr @DeferInitialCardMark, align 1
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread, label %19
 
-17:                                               ; preds = %14
-  %18 = load i8, ptr @DeferInitialCardMark, align 1
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread, label %20
-
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(80) %0) #6
-  %25 = zext i1 %24 to i8
+19:                                               ; preds = %16
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(80) %0) #6
+  %24 = zext i1 %23 to i8
   br label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread
 
-_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %1, %17, %20, %14, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
-  %26 = phi i8 [ 0, %14 ], [ 0, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit ], [ 1, %17 ], [ %25, %20 ], [ 0, %1 ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %26, ptr %27, align 8
+_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread: ; preds = %1, %16, %19, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
+  %25 = phi i8 [ 0, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit ], [ 1, %16 ], [ %24, %19 ], [ 0, %1 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i8 %25, ptr %26, align 8
   ret void
 }
 

@@ -15310,7 +15310,7 @@ entry:
   %limit_.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   %idx.ext.i = and i64 %map_info.sroa.7145.0.extract.shift, 65535
   %5 = and i64 %0, 262144
-  %tobool82.not = icmp eq i64 %5, 0
+  %tobool82 = icmp ne i64 %5, 0
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -15395,8 +15395,8 @@ if.end:                                           ; preds = %if.then21
   %cmp25 = icmp eq i32 %inner_tag.1, 0
   %and = and i32 %inner_tag.1, 7
   %cmp26 = icmp eq i32 %and, 4
-  %or.cond = or i1 %cmp25, %cmp26
-  br i1 %or.cond, label %if.then27, label %if.end28
+  %or.cond65 = or i1 %cmp25, %cmp26
+  br i1 %or.cond65, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %if.end
   %sub.i77 = add i32 %inner_tag.1, -1
@@ -15650,9 +15650,9 @@ _ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112b
 if.end81:                                         ; preds = %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %retval.0.i115197 = phi ptr [ %add.ptr4.i, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ], [ %call5.i, %_ZN6google8protobuf8internal18EpsCopyInputStream10ReadStringEPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %41 = and i8 %type_card.sroa.0.0, 64
-  %tobool.i.i117.not = icmp eq i8 %41, 0
-  %or.cond65 = select i1 %tobool.i.i117.not, i1 true, i1 %tobool82.not
-  br i1 %or.cond65, label %while.cond.backedge, label %land.lhs.true86
+  %tobool.i.i117 = icmp ne i8 %41, 0
+  %or.cond = select i1 %tobool.i.i117, i1 %tobool82, i1 false
+  br i1 %or.cond, label %land.lhs.true86, label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end81, %land.lhs.true86, %sw.bb52, %sw.bb53, %sw.bb59, %sw.bb64, %sw.bb66, %if.end28, %while.end110
   %ptr.addr.0.be = phi ptr [ %call29, %if.end28 ], [ %call111, %while.end110 ], [ %add.ptr.i102, %sw.bb66 ], [ %add.ptr.i100, %sw.bb64 ], [ %retval.i.0.ph, %sw.bb59 ], [ %retval.i.0.ph, %sw.bb53 ], [ %retval.i.0.ph, %sw.bb52 ], [ %retval.0.i115197, %land.lhs.true86 ], [ %retval.0.i115197, %if.end81 ]

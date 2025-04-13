@@ -521,10 +521,10 @@ define dso_local i64 @window_lag(ptr noundef captures(none) %0) local_unnamed_ad
   br label %leadlag_common.exit
 
 leadlag_common.exit:                              ; preds = %1, %.sink.split.i
-  %.016.i = phi i64 [ %6, %1 ], [ 0, %.sink.split.i ]
+  %.017.i = phi i64 [ %6, %1 ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
-  ret i64 %.016.i
+  ret i64 %.017.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -556,10 +556,10 @@ define dso_local i64 @window_lag_with_offset(ptr noundef captures(none) %0) loca
   br label %leadlag_common.exit
 
 leadlag_common.exit:                              ; preds = %9, %.sink.split.i
-  %.016.i = phi i64 [ %14, %9 ], [ 0, %.sink.split.i ]
+  %.017.i = phi i64 [ %14, %9 ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
-  ret i64 %.016.i
+  ret i64 %.017.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -601,10 +601,10 @@ define dso_local i64 @window_lag_with_offset_and_default(ptr noundef captures(no
   br label %leadlag_common.exit
 
 leadlag_common.exit:                              ; preds = %19, %.sink.split.i
-  %.016.i = phi i64 [ %.0.i, %19 ], [ 0, %.sink.split.i ]
+  %.017.i = phi i64 [ %.0.i, %19 ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
-  ret i64 %.016.i
+  ret i64 %.017.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -626,10 +626,10 @@ define dso_local i64 @window_lead(ptr noundef captures(none) %0) local_unnamed_a
   br label %leadlag_common.exit
 
 leadlag_common.exit:                              ; preds = %1, %.sink.split.i
-  %.016.i = phi i64 [ %6, %1 ], [ 0, %.sink.split.i ]
+  %.017.i = phi i64 [ %6, %1 ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
-  ret i64 %.016.i
+  ret i64 %.017.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -660,10 +660,10 @@ define dso_local i64 @window_lead_with_offset(ptr noundef captures(none) %0) loc
   br label %leadlag_common.exit
 
 leadlag_common.exit:                              ; preds = %9, %.sink.split.i
-  %.016.i = phi i64 [ %13, %9 ], [ 0, %.sink.split.i ]
+  %.017.i = phi i64 [ %13, %9 ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
-  ret i64 %.016.i
+  ret i64 %.017.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -704,10 +704,10 @@ define dso_local i64 @window_lead_with_offset_and_default(ptr noundef captures(n
   br label %leadlag_common.exit
 
 leadlag_common.exit:                              ; preds = %18, %.sink.split.i
-  %.016.i = phi i64 [ %.0.i, %18 ], [ 0, %.sink.split.i ]
+  %.017.i = phi i64 [ %.0.i, %18 ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
-  ret i64 %.016.i
+  ret i64 %.017.i
 }
 
 ; Function Attrs: nounwind uwtable

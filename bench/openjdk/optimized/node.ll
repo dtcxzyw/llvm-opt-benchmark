@@ -6452,34 +6452,34 @@ define hidden noundef zeroext i1 @_ZN4Node9dominatesEPS_R9Node_List(ptr noundef 
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 3
   tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %11, i1 false)
-  %.not97 = icmp eq ptr %1, null
-  br i1 %.not97, label %.loopexit85, label %.lr.ph102.preheader
+  %.not100 = icmp eq ptr %1, null
+  br i1 %.not100, label %.loopexit88, label %.lr.ph105.preheader
 
-.lr.ph102.preheader:                              ; preds = %3
+.lr.ph105.preheader:                              ; preds = %3
   %12 = trunc i64 %4 to i32
-  br label %.lr.ph102
+  br label %.lr.ph105
 
-.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %176
-  %.064100 = phi ptr [ %.071, %176 ], [ %1, %.lr.ph102.preheader ]
-  %.06599 = phi i32 [ %177, %176 ], [ %12, %.lr.ph102.preheader ]
-  %.06798 = phi i8 [ %.168, %176 ], [ 0, %.lr.ph102.preheader ]
-  %13 = getelementptr inbounds nuw i8, ptr %.064100, i64 16
+.lr.ph105:                                        ; preds = %.critedge81, %.lr.ph105.preheader
+  %.065103 = phi ptr [ %1, %.lr.ph105.preheader ], [ %.072, %.critedge81 ]
+  %.066102 = phi i32 [ %12, %.lr.ph105.preheader ], [ %173, %.critedge81 ]
+  %.068101 = phi i8 [ 0, %.lr.ph105.preheader ], [ %.169, %.critedge81 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.065103, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit85, label %16
+  br i1 %15, label %.loopexit88, label %16
 
-16:                                               ; preds = %.lr.ph102
-  %17 = icmp eq ptr %.064100, %0
+16:                                               ; preds = %.lr.ph105
+  %17 = icmp eq ptr %.065103, %0
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %16
   %19 = load i32, ptr %5, align 8
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.loopexit85, label %21
+  br i1 %20, label %.loopexit88, label %21
 
 21:                                               ; preds = %18
-  %22 = trunc nuw i8 %.06798 to i1
-  br i1 %22, label %.loopexit85, label %23
+  %22 = trunc nuw i8 %.068101 to i1
+  br i1 %22, label %.loopexit88, label %23
 
 23:                                               ; preds = %21
   %24 = load i64, ptr @DominatorSearchLimit, align 8
@@ -6487,23 +6487,23 @@ define hidden noundef zeroext i1 @_ZN4Node9dominatesEPS_R9Node_List(ptr noundef 
   br label %26
 
 26:                                               ; preds = %23, %16
-  %.168 = phi i8 [ 1, %23 ], [ %.06798, %16 ]
-  %.166 = phi i32 [ %25, %23 ], [ %.06599, %16 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.064100, i64 44
+  %.169 = phi i8 [ 1, %23 ], [ %.068101, %16 ]
+  %.167 = phi i32 [ %25, %23 ], [ %.066102, %16 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.065103, i64 44
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 15
   %30 = icmp eq i32 %29, 9
   %31 = and i32 %28, 255
   %32 = icmp eq i32 %31, 224
-  %or.cond84 = or i1 %30, %32
-  br i1 %or.cond84, label %33, label %35
+  %or.cond87 = or i1 %30, %32
+  br i1 %or.cond87, label %33, label %35
 
 33:                                               ; preds = %26
-  %34 = trunc nuw i8 %.168 to i1
-  br label %.loopexit85
+  %34 = trunc nuw i8 %.169 to i1
+  br label %.loopexit88
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds nuw i8, ptr %.064100, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.065103, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
@@ -6515,7 +6515,7 @@ define hidden noundef zeroext i1 @_ZN4Node9dominatesEPS_R9Node_List(ptr noundef 
   br i1 %42, label %_ZNK10RegionNode7is_copyEv.exit.i, label %_ZN4Node18find_exact_controlEPS_.exit
 
 _ZNK10RegionNode7is_copyEv.exit.i:                ; preds = %40
-  %43 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(60) %.064100) #15
+  %43 = tail call noundef ptr @_ZNK4Node11nonnull_reqEv(ptr noundef nonnull align 8 dereferenceable(60) %.065103) #15
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %_ZN4Node18find_exact_controlEPS_.exit, label %_ZNK10RegionNode7is_copyEv.exit.thread19.i
 
@@ -6570,8 +6570,8 @@ _ZNK10RegionNode7is_copyEv.exit.thread19.i:       ; preds = %_ZNK10RegionNode7is
 
 _ZN4Node18find_exact_controlEPS_.exit:            ; preds = %40, %_ZNK10RegionNode7is_copyEv.exit.i, %52, %59, %.thread30.i, %67
   %.3.i = phi ptr [ %70, %67 ], [ %.133.i, %.thread30.i ], [ null, %59 ], [ null, %52 ], [ null, %_ZNK10RegionNode7is_copyEv.exit.i ], [ null, %40 ]
-  %71 = icmp eq ptr %.064100, %.3.i
-  br i1 %71, label %72, label %.critedge80
+  %71 = icmp eq ptr %.065103, %.3.i
+  br i1 %71, label %72, label %.critedge81
 
 72:                                               ; preds = %_ZN4Node18find_exact_controlEPS_.exit
   %73 = load i32, ptr %27, align 4
@@ -6583,15 +6583,15 @@ _ZN4Node18find_exact_controlEPS_.exit:            ; preds = %40, %_ZNK10RegionNo
   %77 = load ptr, ptr %36, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
-  br label %.critedge80
+  br label %.critedge81
 
 80:                                               ; preds = %72
   %81 = and i32 %73, 63
   %82 = icmp eq i32 %81, 32
-  br i1 %82, label %83, label %.critedge80
+  br i1 %82, label %83, label %.critedge81
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %.064100, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %.065103, i64 24
   %85 = load i32, ptr %84, align 8
   %86 = icmp eq i32 %85, 2
   br i1 %86, label %87, label %91
@@ -6600,7 +6600,7 @@ _ZN4Node18find_exact_controlEPS_.exit:            ; preds = %40, %_ZNK10RegionNo
   %88 = load ptr, ptr %36, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
-  br label %.critedge80
+  br label %.critedge81
 
 91:                                               ; preds = %83
   %92 = load i64, ptr @DominatorSearchLimit, align 8
@@ -6624,15 +6624,15 @@ _ZN4Node18find_exact_controlEPS_.exit:            ; preds = %40, %_ZNK10RegionNo
   %104 = ptrtoint ptr %103 to i64
   %105 = and i64 %104, -2
   %106 = inttoptr i64 %105 to ptr
-  %107 = icmp eq ptr %.064100, %106
+  %107 = icmp eq ptr %.065103, %106
   br i1 %107, label %108, label %97, !llvm.loop !34
 
 108:                                              ; preds = %100
   %109 = getelementptr inbounds nuw ptr, ptr %95, i64 %101
   %110 = trunc nuw i64 %indvars.iv to i32
   %111 = and i64 %104, 1
-  %.not77 = icmp eq i64 %111, 0
-  br i1 %.not77, label %112, label %.loopexit85
+  %.not78 = icmp eq i64 %111, 0
+  br i1 %.not78, label %112, label %.loopexit88
 
 112:                                              ; preds = %108
   %113 = load i32, ptr %8, align 8
@@ -6673,12 +6673,12 @@ _ZN9Node_List6removeEj.exit:                      ; preds = %112, %_ZN4Copy23con
   %127 = load i32, ptr %5, align 8
   %128 = add i32 %127, -1
   store i32 %128, ptr %5, align 8
-  %.pre126 = load i32, ptr %84, align 8
+  %.pre125 = load i32, ptr %84, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %97, %_ZN9Node_List6removeEj.exit
   %129 = phi i32 [ %128, %_ZN9Node_List6removeEj.exit ], [ %94, %97 ]
-  %130 = phi i32 [ %.pre126, %_ZN9Node_List6removeEj.exit ], [ %85, %97 ]
+  %130 = phi i32 [ %.pre125, %_ZN9Node_List6removeEj.exit ], [ %85, %97 ]
   %131 = icmp ugt i32 %130, 1
   br i1 %131, label %.lr.ph, label %._crit_edge
 
@@ -6689,34 +6689,34 @@ _ZN9Node_List6removeEj.exit:                      ; preds = %112, %_ZN4Copy23con
   br label %134
 
 134:                                              ; preds = %.lr.ph, %143
-  %indvars.iv122 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next123, %143 ]
-  %.06393 = phi i32 [ %132, %.lr.ph ], [ %.1, %143 ]
-  %135 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv122
+  %indvars.iv121 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next122, %143 ]
+  %.06496 = phi i32 [ %132, %.lr.ph ], [ %.1, %143 ]
+  %135 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv121
   %136 = load ptr, ptr %135, align 8
-  %.not78 = icmp eq ptr %136, null
-  br i1 %.not78, label %143, label %137
+  %.not79 = icmp eq ptr %136, null
+  br i1 %.not79, label %143, label %137
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %139 = load ptr, ptr %138, align 8
   %140 = icmp eq ptr %139, null
-  %.not79 = icmp eq ptr %136, %.064100
-  %or.cond = or i1 %.not79, %140
-  br i1 %or.cond, label %143, label %141
+  %.not80 = icmp eq ptr %136, %.065103
+  %or.cond82 = or i1 %.not80, %140
+  br i1 %or.cond82, label %143, label %141
 
 141:                                              ; preds = %137
-  %142 = icmp eq i32 %.06393, 0
+  %142 = icmp eq i32 %.06496, 0
   br i1 %142, label %._crit_edge, label %143
 
 143:                                              ; preds = %141, %134, %137
-  %.1 = phi i32 [ %.06393, %137 ], [ %.06393, %134 ], [ 0, %141 ]
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count
+  %.1 = phi i32 [ %.06496, %137 ], [ %.06496, %134 ], [ 0, %141 ]
+  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %134, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %143, %141, %.loopexit
-  %.172 = phi ptr [ %.3.i, %.loopexit ], [ %136, %141 ], [ %.3.i, %143 ]
-  %144 = ptrtoint ptr %.064100 to i64
+  %.173 = phi ptr [ %.3.i, %.loopexit ], [ %136, %141 ], [ %.3.i, %143 ]
+  %144 = ptrtoint ptr %.065103 to i64
   %.lobit = lshr exact i64 %98, 31
   %145 = xor i64 %.lobit, 1
   %146 = add nsw i64 %145, %144
@@ -6725,7 +6725,7 @@ _ZN9Node_List6removeEj.exit:                      ; preds = %112, %_ZN4Copy23con
   store i32 %148, ptr %5, align 8
   %149 = load i32, ptr %8, align 8
   %.not.i.i = icmp ult i32 %129, %149
-  %.pre128 = load ptr, ptr %6, align 8
+  %.pre127 = load ptr, ptr %6, align 8
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %150
 
 150:                                              ; preds = %._crit_edge
@@ -6741,7 +6741,7 @@ _ZN9Node_List6removeEj.exit:                      ; preds = %112, %_ZN4Copy23con
   %157 = shl nuw nsw i64 %156, 3
   %158 = zext i32 %.0.i.i.i.i.i to i64
   %159 = shl nuw nsw i64 %158, 3
-  %160 = tail call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %155, ptr noundef %.pre128, i64 noundef %157, i64 noundef %159, i32 noundef 0) #15
+  %160 = tail call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %155, ptr noundef %.pre127, i64 noundef %157, i64 noundef %159, i32 noundef 0) #15
   store ptr %160, ptr %6, align 8
   %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %156
   %162 = load i32, ptr %8, align 8
@@ -6749,43 +6749,33 @@ _ZN9Node_List6removeEj.exit:                      ; preds = %112, %_ZN4Copy23con
   %164 = zext i32 %163 to i64
   %165 = shl nuw nsw i64 %164, 3
   tail call void @llvm.memset.p0.i64(ptr align 1 %161, i8 0, i64 %165, i1 false)
-  %.pre127 = load ptr, ptr %6, align 8
+  %.pre126 = load ptr, ptr %6, align 8
   br label %_ZN9Node_List4pushEP4Node.exit
 
 _ZN9Node_List4pushEP4Node.exit:                   ; preds = %._crit_edge, %150
-  %166 = phi ptr [ %.pre128, %._crit_edge ], [ %.pre127, %150 ]
+  %166 = phi ptr [ %.pre127, %._crit_edge ], [ %.pre126, %150 ]
   %167 = zext i32 %129 to i64
   %168 = getelementptr inbounds nuw ptr, ptr %166, i64 %167
   store ptr %147, ptr %168, align 8
-  br label %.critedge80
+  br label %.critedge81
 
-.critedge80:                                      ; preds = %80, %_ZN4Node18find_exact_controlEPS_.exit, %87, %_ZN9Node_List4pushEP4Node.exit, %76
-  %.071 = phi ptr [ %79, %76 ], [ %90, %87 ], [ %.172, %_ZN9Node_List4pushEP4Node.exit ], [ %.3.i, %_ZN4Node18find_exact_controlEPS_.exit ], [ %.3.i, %80 ]
-  %.2 = phi i32 [ %.166, %76 ], [ %.166, %87 ], [ %93, %_ZN9Node_List4pushEP4Node.exit ], [ %.166, %_ZN4Node18find_exact_controlEPS_.exit ], [ %.166, %80 ]
-  %169 = icmp eq ptr %.071, %.064100
-  br i1 %169, label %.loopexit85, label %170
+.critedge81:                                      ; preds = %80, %_ZN4Node18find_exact_controlEPS_.exit, %87, %_ZN9Node_List4pushEP4Node.exit, %76
+  %.072 = phi ptr [ %79, %76 ], [ %90, %87 ], [ %.173, %_ZN9Node_List4pushEP4Node.exit ], [ %.3.i, %_ZN4Node18find_exact_controlEPS_.exit ], [ %.3.i, %80 ]
+  %.2 = phi i32 [ %.167, %76 ], [ %.167, %87 ], [ %93, %_ZN9Node_List4pushEP4Node.exit ], [ %.167, %_ZN4Node18find_exact_controlEPS_.exit ], [ %.167, %80 ]
+  %169 = icmp eq ptr %.072, %.065103
+  %170 = icmp eq ptr %.072, %1
+  %171 = trunc nuw i8 %.169 to i1
+  %or.cond = select i1 %170, i1 %171, i1 false
+  %or.cond84 = select i1 %169, i1 true, i1 %or.cond
+  %172 = icmp slt i32 %.2, 1
+  %or.cond85 = select i1 %or.cond84, i1 true, i1 %172
+  %173 = add nsw i32 %.2, -1
+  %.not = icmp eq ptr %.072, null
+  %or.cond135 = or i1 %or.cond85, %.not
+  br i1 %or.cond135, label %.loopexit88, label %.lr.ph105, !llvm.loop !36
 
-170:                                              ; preds = %.critedge80
-  %171 = icmp eq ptr %.071, %1
-  br i1 %171, label %172, label %175
-
-172:                                              ; preds = %170
-  %173 = trunc nuw i8 %.168 to i1
-  %174 = icmp slt i32 %.2, 1
-  %or.cond81 = select i1 %173, i1 true, i1 %174
-  br i1 %or.cond81, label %.loopexit85, label %176
-
-175:                                              ; preds = %170
-  %.old = icmp slt i32 %.2, 1
-  br i1 %.old, label %.loopexit85, label %176
-
-176:                                              ; preds = %172, %175
-  %177 = add nsw i32 %.2, -1
-  %.not = icmp eq ptr %.071, null
-  br i1 %.not, label %.loopexit85, label %.lr.ph102, !llvm.loop !36
-
-.loopexit85:                                      ; preds = %18, %108, %175, %172, %.critedge80, %21, %.lr.ph102, %176, %3, %33
-  %.0 = phi i1 [ %34, %33 ], [ false, %3 ], [ true, %18 ], [ false, %108 ], [ false, %175 ], [ false, %172 ], [ false, %.critedge80 ], [ false, %21 ], [ false, %.lr.ph102 ], [ false, %176 ]
+.loopexit88:                                      ; preds = %18, %108, %.critedge81, %21, %.lr.ph105, %3, %33
+  %.0 = phi i1 [ %34, %33 ], [ false, %3 ], [ true, %18 ], [ false, %108 ], [ false, %.critedge81 ], [ false, %21 ], [ false, %.lr.ph105 ]
   ret i1 %.0
 }
 

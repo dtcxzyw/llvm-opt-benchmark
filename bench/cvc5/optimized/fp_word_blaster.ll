@@ -29853,177 +29853,177 @@ _ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13ex
   br i1 %54, label %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread, label %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread.thread
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit
-  %.not = icmp ugt i32 %.0.i, %45
-  %.not39 = icmp ugt i32 %31, %47
-  br i1 %.not, label %78, label %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit61
+  %.not81 = icmp ugt i32 %.0.i, %45
+  %55 = icmp ule i32 %31, %47
+  br i1 %.not81, label %83, label %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit61
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread: ; preds = %49
   %.1.i53 = add i32 %45, 1
-  %.not75 = icmp ugt i32 %.0.i, %.1.i53
-  %.not3976 = icmp ugt i32 %31, %47
-  br i1 %.not75, label %78, label %64
+  %.not = icmp ugt i32 %.0.i, %.1.i53
+  %56 = icmp ule i32 %31, %47
+  br i1 %.not, label %83, label %67
 
 _ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread.thread: ; preds = %49
-  %55 = shl nuw i32 1, %53
-  %56 = add i32 %50, %55
-  %.not6.i12.i50 = icmp eq i32 %56, 0
-  %57 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %56, i1 true)
-  %58 = sub nuw nsw i32 33, %57
-  %.1.i53100 = select i1 %.not6.i12.i50, i32 1, i32 %58
-  %.not75101 = icmp ugt i32 %.0.i, %.1.i53100
-  %.not3976102 = icmp ugt i32 %31, %47
-  br i1 %.not75101, label %78, label %59
+  %57 = shl nuw i32 1, %53
+  %58 = add i32 %50, %57
+  %.not6.i12.i50 = icmp eq i32 %58, 0
+  %59 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %58, i1 true)
+  %60 = sub nuw nsw i32 33, %59
+  %.1.i5383 = select i1 %.not6.i12.i50, i32 1, i32 %60
+  %.not84 = icmp ugt i32 %.0.i, %.1.i5383
+  %61 = icmp ule i32 %31, %47
+  br i1 %.not84, label %83, label %62
 
-59:                                               ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread.thread
-  %60 = shl nuw i32 1, %53
-  %61 = add i32 %50, %60
-  %.not6.i12.i56 = icmp eq i32 %61, 0
-  %62 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %61, i1 true)
-  %63 = sub nuw nsw i32 32, %62
-  %.05.lcssa.i13.i57 = select i1 %.not6.i12.i56, i32 0, i32 %63
-  br label %64
+62:                                               ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread.thread
+  %63 = shl nuw i32 1, %53
+  %64 = add i32 %50, %63
+  %.not6.i12.i56 = icmp eq i32 %64, 0
+  %65 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %64, i1 true)
+  %66 = sub nuw nsw i32 32, %65
+  %.05.lcssa.i13.i57 = select i1 %.not6.i12.i56, i32 0, i32 %66
+  br label %67
 
-64:                                               ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread, %59
-  %.not3976103106 = phi i1 [ %.not3976102, %59 ], [ %.not3976, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread ]
-  %.1.in.i58 = phi i32 [ %.05.lcssa.i13.i57, %59 ], [ %45, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread ]
+67:                                               ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread, %62
+  %68 = phi i1 [ %61, %62 ], [ %56, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread ]
+  %.1.in.i58 = phi i32 [ %.05.lcssa.i13.i57, %62 ], [ %45, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread ]
   %.1.i59 = add i32 %.1.in.i58, 1
   br label %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit61
 
-_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit61: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55, %64
-  %.not397984 = phi i1 [ %.not3976103106, %64 ], [ %.not39, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55 ]
-  %.0.i60 = phi i32 [ %.1.i59, %64 ], [ %45, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55 ]
-  br i1 %32, label %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit67, label %65
+_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit61: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55, %67
+  %69 = phi i1 [ %68, %67 ], [ %55, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55 ]
+  %.0.i60 = phi i32 [ %.1.i59, %67 ], [ %45, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55 ]
+  br i1 %32, label %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit67, label %70
 
-65:                                               ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit61
-  %66 = add i32 %31, -3
-  %67 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %66, i1 true)
-  %68 = sub nuw nsw i32 32, %67
-  %69 = add i32 %29, -1
-  %70 = icmp ult i32 %68, %69
-  br i1 %70, label %76, label %71
+70:                                               ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit61
+  %71 = add i32 %31, -3
+  %72 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %71, i1 true)
+  %73 = sub nuw nsw i32 32, %72
+  %74 = add i32 %29, -1
+  %75 = icmp ult i32 %73, %74
+  br i1 %75, label %81, label %76
 
-71:                                               ; preds = %65
-  %72 = shl nuw i32 1, %69
-  %73 = add i32 %66, %72
-  %.not6.i12.i62 = icmp eq i32 %73, 0
-  %74 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %73, i1 true)
-  %75 = sub nuw nsw i32 32, %74
-  %.05.lcssa.i13.i63 = select i1 %.not6.i12.i62, i32 0, i32 %75
-  br label %76
+76:                                               ; preds = %70
+  %77 = shl nuw i32 1, %74
+  %78 = add i32 %71, %77
+  %.not6.i12.i62 = icmp eq i32 %78, 0
+  %79 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %78, i1 true)
+  %80 = sub nuw nsw i32 32, %79
+  %.05.lcssa.i13.i63 = select i1 %.not6.i12.i62, i32 0, i32 %80
+  br label %81
 
-76:                                               ; preds = %71, %65
-  %.1.in.i64 = phi i32 [ %.05.lcssa.i13.i63, %71 ], [ %29, %65 ]
+81:                                               ; preds = %76, %70
+  %.1.in.i64 = phi i32 [ %.05.lcssa.i13.i63, %76 ], [ %29, %70 ]
   %.1.i65 = add i32 %.1.in.i64, 1
   br label %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit67
 
-_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit67: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit61, %76
-  %.0.i66 = phi i32 [ %.1.i65, %76 ], [ %29, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit61 ]
-  %77 = sub i32 %.0.i60, %.0.i66
-  br i1 %.not397984, label %.thread91, label %80
+_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit67: ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit61, %81
+  %.0.i66 = phi i32 [ %.1.i65, %81 ], [ %29, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit61 ]
+  %82 = sub i32 %.0.i60, %.0.i66
+  br i1 %69, label %86, label %.thread77
 
-78:                                               ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread.thread, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55
-  %.not3980 = phi i1 [ %.not39, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55 ], [ %.not3976, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread ], [ %.not3976102, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread.thread ]
-  br i1 %.not3980, label %.thread91, label %.thread95
+83:                                               ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread.thread, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55
+  %84 = phi i1 [ %55, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55 ], [ %56, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread ], [ %61, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit55.thread.thread ]
+  br i1 %84, label %.thread79, label %.thread77
 
-.thread95:                                        ; preds = %78
-  %79 = sub i32 %47, %31
+.thread79:                                        ; preds = %83
+  %85 = sub i32 %47, %31
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #23
-  call void @_ZNK6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE6extendEjj(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 0, i32 noundef %79)
-  br label %100
+  call void @_ZNK6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE6extendEjj(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 0, i32 noundef %85)
+  br label %106
 
-.thread91:                                        ; preds = %78, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit67
-  %.ph = phi i32 [ %77, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit67 ], [ 0, %78 ]
+.thread77:                                        ; preds = %83, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit67
+  %.ph = phi i32 [ %82, %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit67 ], [ 0, %83 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #23
   call void @_ZNK6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE6extendEjj(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %.ph, i32 noundef 0)
-  br label %100
+  br label %106
 
-80:                                               ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit67
-  %81 = sub i32 %47, %31
+86:                                               ; preds = %_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE13exponentWidthERKNS5_21floatingPointTypeInfoE.exit67
+  %87 = sub i32 %47, %31
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #23
-  call void @_ZNK6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE6extendEjj(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %77, i32 noundef %81)
+  call void @_ZNK6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE6extendEjj(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %82, i32 noundef %87)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
   invoke void @_ZNK6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE5validERKNS5_21floatingPointTypeInfoE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %82 unwind label %96
+          to label %88 unwind label %102
 
-82:                                               ; preds = %80
-  %83 = load ptr, ptr %8, align 8, !tbaa !22
-  %84 = load i64, ptr %83, align 8
-  %85 = and i64 %84, 1152920405095219200
-  %.not.i.i68 = icmp eq i64 %85, 1152920405095219200
-  br i1 %.not.i.i68, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69, label %86, !prof !9
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %8, align 8, !tbaa !22
+  %90 = load i64, ptr %89, align 8
+  %91 = and i64 %90, 1152920405095219200
+  %.not.i.i68 = icmp eq i64 %91, 1152920405095219200
+  br i1 %.not.i.i68, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69, label %92, !prof !9
 
-86:                                               ; preds = %82
-  %87 = add i64 %84, 1152920405095219200
-  %88 = and i64 %87, 1152920405095219200
-  %89 = and i64 %84, -1152920405095219201
-  %90 = or disjoint i64 %88, %89
-  store i64 %90, ptr %83, align 8
-  %91 = icmp eq i64 %88, 0
-  br i1 %91, label %92, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69, !prof !9
+92:                                               ; preds = %88
+  %93 = add i64 %90, 1152920405095219200
+  %94 = and i64 %93, 1152920405095219200
+  %95 = and i64 %90, -1152920405095219201
+  %96 = or disjoint i64 %94, %95
+  store i64 %96, ptr %89, align 8
+  %97 = icmp eq i64 %94, 0
+  br i1 %97, label %98, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69, !prof !9
 
-92:                                               ; preds = %86
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %83)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69 unwind label %93
+98:                                               ; preds = %92
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %89)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69 unwind label %99
 
-93:                                               ; preds = %92
-  %94 = landingpad { ptr, i32 }
+99:                                               ; preds = %98
+  %100 = landingpad { ptr, i32 }
           catch ptr null
-  %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #24
+  %101 = extractvalue { ptr, i32 } %100, 0
+  call void @__clang_call_terminate(ptr %101) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69: ; preds = %82, %86, %92
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69: ; preds = %88, %92, %98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
   invoke void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %7)
-          to label %145 unwind label %98
+          to label %151 unwind label %104
 
-96:                                               ; preds = %80
-  %97 = landingpad { ptr, i32 }
+102:                                              ; preds = %86
+  %103 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
-  br label %146
+  br label %152
 
-98:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69
-  %99 = landingpad { ptr, i32 }
+104:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69
+  %105 = landingpad { ptr, i32 }
           cleanup
-  br label %146
+  br label %152
 
-100:                                              ; preds = %.thread95, %.thread91
+106:                                              ; preds = %.thread79, %.thread77
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #23
   invoke void @_ZN6symfpu7rounderIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEEENS_13unpackedFloatIT_EERKNS8_3fptERKNS8_2rmERKS9_(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %9, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(48) %7)
-          to label %101 unwind label %122
+          to label %107 unwind label %128
 
-101:                                              ; preds = %100
+107:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #23
   invoke void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE7makeNaNERKNS5_21floatingPointTypeInfoE(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %10, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %102 unwind label %124
+          to label %108 unwind label %130
 
-102:                                              ; preds = %101
+108:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #23
-  %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #23
-  %104 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  invoke void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE7makeInfERKNS5_21floatingPointTypeInfoERKNS5_19symbolicPropositionE(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %12, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %104)
-          to label %105 unwind label %126
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  invoke void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE7makeInfERKNS5_21floatingPointTypeInfoERKNS5_19symbolicPropositionE(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %12, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %110)
+          to label %111 unwind label %132
 
-105:                                              ; preds = %102
+111:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #23
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14) #23
-  invoke void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE8makeZeroERKNS5_21floatingPointTypeInfoERKNS5_19symbolicPropositionE(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %14, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %104)
-          to label %106 unwind label %128
+  invoke void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE8makeZeroERKNS5_21floatingPointTypeInfoERKNS5_19symbolicPropositionE(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %14, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %110)
+          to label %112 unwind label %134
 
-106:                                              ; preds = %105
-  %107 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  invoke void @_ZN6symfpu3iteIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEE5iteOpERKS6_RKS9_SE_(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit unwind label %130
+112:                                              ; preds = %111
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  invoke void @_ZN6symfpu3iteIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEE5iteOpERKS6_RKS9_SE_(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %9)
+          to label %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit unwind label %136
 
-_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit: ; preds = %106
-  invoke void @_ZN6symfpu3iteIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEE5iteOpERKS6_RKS9_SE_(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %13)
-          to label %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit70 unwind label %132
+_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit: ; preds = %112
+  invoke void @_ZN6symfpu3iteIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEE5iteOpERKS6_RKS9_SE_(ptr dead_on_unwind nonnull writable sret(%"class.symfpu::unpackedFloat") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %13)
+          to label %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit70 unwind label %138
 
 _ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit70: ; preds = %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit
   invoke void @_ZN6symfpu3iteIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEE5iteOpERKS6_RKS9_SE_(ptr dead_on_unwind writable sret(%"class.symfpu::unpackedFloat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit71 unwind label %134
+          to label %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit71 unwind label %140
 
 _ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit71: ; preds = %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit70
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #23
@@ -30038,130 +30038,130 @@ _ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #23
   invoke void @_ZNK6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEE5validERKNS5_21floatingPointTypeInfoE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %108 unwind label %141
+          to label %114 unwind label %147
 
-108:                                              ; preds = %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit71
-  %109 = load ptr, ptr %15, align 8, !tbaa !22
-  %110 = load i64, ptr %109, align 8
-  %111 = and i64 %110, 1152920405095219200
-  %.not.i.i72 = icmp eq i64 %111, 1152920405095219200
-  br i1 %.not.i.i72, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73, label %112, !prof !9
+114:                                              ; preds = %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit71
+  %115 = load ptr, ptr %15, align 8, !tbaa !22
+  %116 = load i64, ptr %115, align 8
+  %117 = and i64 %116, 1152920405095219200
+  %.not.i.i72 = icmp eq i64 %117, 1152920405095219200
+  br i1 %.not.i.i72, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73, label %118, !prof !9
 
-112:                                              ; preds = %108
-  %113 = add i64 %110, 1152920405095219200
-  %114 = and i64 %113, 1152920405095219200
-  %115 = and i64 %110, -1152920405095219201
-  %116 = or disjoint i64 %114, %115
-  store i64 %116, ptr %109, align 8
-  %117 = icmp eq i64 %114, 0
-  br i1 %117, label %118, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73, !prof !9
+118:                                              ; preds = %114
+  %119 = add i64 %116, 1152920405095219200
+  %120 = and i64 %119, 1152920405095219200
+  %121 = and i64 %116, -1152920405095219201
+  %122 = or disjoint i64 %120, %121
+  store i64 %122, ptr %115, align 8
+  %123 = icmp eq i64 %120, 0
+  br i1 %123, label %124, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73, !prof !9
 
-118:                                              ; preds = %112
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %109)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73 unwind label %119
+124:                                              ; preds = %118
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %115)
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73 unwind label %125
 
-119:                                              ; preds = %118
-  %120 = landingpad { ptr, i32 }
+125:                                              ; preds = %124
+  %126 = landingpad { ptr, i32 }
           catch ptr null
-  %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #24
+  %127 = extractvalue { ptr, i32 } %126, 0
+  call void @__clang_call_terminate(ptr %127) #24
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73: ; preds = %108, %112, %118
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73: ; preds = %114, %118, %124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #23
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #23
+  br label %151
+
+128:                                              ; preds = %106
+  %129 = landingpad { ptr, i32 }
+          cleanup
+  br label %150
+
+130:                                              ; preds = %107
+  %131 = landingpad { ptr, i32 }
+          cleanup
+  br label %146
+
+132:                                              ; preds = %108
+  %133 = landingpad { ptr, i32 }
+          cleanup
   br label %145
 
-122:                                              ; preds = %100
-  %123 = landingpad { ptr, i32 }
+134:                                              ; preds = %111
+  %135 = landingpad { ptr, i32 }
           cleanup
   br label %144
 
-124:                                              ; preds = %101
-  %125 = landingpad { ptr, i32 }
+136:                                              ; preds = %112
+  %137 = landingpad { ptr, i32 }
           cleanup
-  br label %140
+  br label %143
 
-126:                                              ; preds = %102
-  %127 = landingpad { ptr, i32 }
+138:                                              ; preds = %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit
+  %139 = landingpad { ptr, i32 }
           cleanup
-  br label %139
+  br label %142
 
-128:                                              ; preds = %105
-  %129 = landingpad { ptr, i32 }
-          cleanup
-  br label %138
-
-130:                                              ; preds = %106
-  %131 = landingpad { ptr, i32 }
-          cleanup
-  br label %137
-
-132:                                              ; preds = %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit
-  %133 = landingpad { ptr, i32 }
-          cleanup
-  br label %136
-
-134:                                              ; preds = %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit70
-  %135 = landingpad { ptr, i32 }
+140:                                              ; preds = %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit70
+  %141 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #23
-  br label %136
+  br label %142
 
-136:                                              ; preds = %134, %132
-  %.pn = phi { ptr, i32 } [ %135, %134 ], [ %133, %132 ]
+142:                                              ; preds = %140, %138
+  %.pn = phi { ptr, i32 } [ %141, %140 ], [ %139, %138 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #23
-  br label %137
+  br label %143
 
-137:                                              ; preds = %136, %130
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %136 ], [ %131, %130 ]
+143:                                              ; preds = %142, %136
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %142 ], [ %137, %136 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #23
-  br label %138
+  br label %144
 
-138:                                              ; preds = %137, %128
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %137 ], [ %129, %128 ]
+144:                                              ; preds = %143, %134
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %143 ], [ %135, %134 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #23
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #23
-  br label %139
+  br label %145
 
-139:                                              ; preds = %138, %126
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %138 ], [ %127, %126 ]
+145:                                              ; preds = %144, %132
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %144 ], [ %133, %132 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #23
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #23
-  br label %140
+  br label %146
 
-140:                                              ; preds = %139, %124
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %139 ], [ %125, %124 ]
+146:                                              ; preds = %145, %130
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %145 ], [ %131, %130 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #23
-  br label %143
+  br label %149
 
-141:                                              ; preds = %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit71
-  %142 = landingpad { ptr, i32 }
+147:                                              ; preds = %_ZN6symfpu3ITEIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS_13unpackedFloatINS5_6traitsEEEEEKT0_RKT_RSB_SF_.exit71
+  %148 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #23
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #23
-  br label %143
+  br label %149
 
-143:                                              ; preds = %141, %140
-  %.pn45 = phi { ptr, i32 } [ %142, %141 ], [ %.pn.pn.pn.pn.pn, %140 ]
+149:                                              ; preds = %147, %146
+  %.pn45 = phi { ptr, i32 } [ %148, %147 ], [ %.pn.pn.pn.pn.pn, %146 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #23
-  br label %144
+  br label %150
 
-144:                                              ; preds = %143, %122
-  %.pn45.pn = phi { ptr, i32 } [ %.pn45, %143 ], [ %123, %122 ]
+150:                                              ; preds = %149, %128
+  %.pn45.pn = phi { ptr, i32 } [ %.pn45, %149 ], [ %129, %128 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #23
-  br label %146
+  br label %152
 
-145:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73
+151:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit73
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #23
   ret void
 
-146:                                              ; preds = %144, %98, %96
-  %.pn48 = phi { ptr, i32 } [ %99, %98 ], [ %97, %96 ], [ %.pn45.pn, %144 ]
+152:                                              ; preds = %150, %104, %102
+  %.pn48 = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ], [ %.pn45.pn, %150 ]
   call void @_ZN6symfpu13unpackedFloatIN4cvc58internal6theory2fp14symfpuSymbolic6traitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #23
   resume { ptr, i32 } %.pn48

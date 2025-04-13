@@ -1384,8 +1384,8 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dnp3_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %6 = icmp slt i32 %5, 10
-  br i1 %6, label %.thread.i, label %7
+  %6 = icmp sgt i32 %5, 9
+  br i1 %6, label %7, label %.thread.i
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i16 @crc16_0x3D65_tvb_offset_seed(ptr noundef %0, i32 noundef 0, i32 noundef 8, i16 noundef zeroext 0)
@@ -1395,7 +1395,7 @@ define internal i32 @dissect_dnp3_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.thread.i
 
 .thread.i:                                        ; preds = %4, %7
-  %brmerge.i = phi i1 [ %11, %7 ], [ true, %4 ]
+  %.01420.i = phi i1 [ %11, %7 ], [ false, %4 ]
   %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %.not.i = icmp eq i8 %12, 5
   br i1 %.not.i, label %13, label %check_dnp3_header.exit.thread
@@ -1406,17 +1406,19 @@ define internal i32 @dissect_dnp3_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 
 15:                                               ; preds = %13
   %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %.not14.i = icmp eq i8 %16, 100
-  %or.cond.i = select i1 %.not14.i, i1 %brmerge.i, i1 false
-  br i1 %or.cond.i, label %check_dnp3_header.exit, label %check_dnp3_header.exit.thread
+  %.not15.i = icmp eq i8 %16, 100
+  %17 = icmp samesign ult i32 %5, 10
+  %or.cond.i = select i1 %17, i1 true, i1 %.01420.i
+  %or.cond17.i = select i1 %.not15.i, i1 %or.cond.i, i1 false
+  br i1 %or.cond17.i, label %check_dnp3_header.exit, label %check_dnp3_header.exit.thread
 
 check_dnp3_header.exit:                           ; preds = %15, %13
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 10, ptr noundef nonnull @get_dnp3_message_len, ptr noundef nonnull @dissect_dnp3_message, ptr noundef %3)
-  %17 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %18 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %check_dnp3_header.exit.thread
 
 check_dnp3_header.exit.thread:                    ; preds = %15, %.thread.i, %check_dnp3_header.exit
-  %.0 = phi i32 [ %17, %check_dnp3_header.exit ], [ 0, %.thread.i ], [ 0, %15 ]
+  %.0 = phi i32 [ %18, %check_dnp3_header.exit ], [ 0, %.thread.i ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -1557,8 +1559,8 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @dissect_dnp3_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %6 = icmp slt i32 %5, 10
-  br i1 %6, label %check_dnp3_header.exit.thread, label %7
+  %6 = icmp sgt i32 %5, 9
+  br i1 %6, label %7, label %check_dnp3_header.exit.thread
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i16 @crc16_0x3D65_tvb_offset_seed(ptr noundef %0, i32 noundef 0, i32 noundef 8, i16 noundef zeroext 0)
@@ -1569,8 +1571,8 @@ define internal noundef zeroext i1 @dissect_dnp3_tcp_heur(ptr noundef %0, ptr no
 
 12:                                               ; preds = %7
   %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
-  %.not15.i = icmp eq i16 %13, 1380
-  br i1 %.not15.i, label %check_dnp3_header.exit, label %check_dnp3_header.exit.thread
+  %.not16.i = icmp eq i16 %13, 1380
+  br i1 %.not16.i, label %check_dnp3_header.exit, label %check_dnp3_header.exit.thread
 
 check_dnp3_header.exit:                           ; preds = %12
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 10, ptr noundef nonnull @get_dnp3_message_len, ptr noundef nonnull @dissect_dnp3_message, ptr noundef %3)
@@ -5163,8 +5165,8 @@ declare i32 @udp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @dnp3_udp_check_header(ptr readnone captures(none) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %1)
-  %6 = icmp slt i32 %5, 10
-  br i1 %6, label %.thread.i, label %7
+  %6 = icmp sgt i32 %5, 9
+  br i1 %6, label %7, label %.thread.i
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i16 @crc16_0x3D65_tvb_offset_seed(ptr noundef %1, i32 noundef 0, i32 noundef 8, i16 noundef zeroext 0)
@@ -5174,26 +5176,28 @@ define internal noundef zeroext i1 @dnp3_udp_check_header(ptr readnone captures(
   br label %.thread.i
 
 .thread.i:                                        ; preds = %4, %7
-  %brmerge.i = phi i1 [ %11, %7 ], [ true, %4 ]
+  %.01420.i = phi i1 [ %11, %7 ], [ false, %4 ]
   %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 0)
   %.not.i = icmp eq i8 %12, 5
   br i1 %.not.i, label %13, label %check_dnp3_header.exit
 
 13:                                               ; preds = %.thread.i
   %14 = icmp sgt i32 %5, 1
-  br i1 %14, label %15, label %17
+  br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
   %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 1)
-  %.not14.i = icmp eq i8 %16, 100
-  %or.cond.i = select i1 %.not14.i, i1 %brmerge.i, i1 false
-  br i1 %or.cond.i, label %17, label %check_dnp3_header.exit
+  %.not15.i = icmp eq i8 %16, 100
+  %17 = icmp samesign ult i32 %5, 10
+  %or.cond.i = select i1 %17, i1 true, i1 %.01420.i
+  %or.cond17.i = select i1 %.not15.i, i1 %or.cond.i, i1 false
+  br i1 %or.cond17.i, label %18, label %check_dnp3_header.exit
 
-17:                                               ; preds = %15, %13
+18:                                               ; preds = %15, %13
   br label %check_dnp3_header.exit
 
-check_dnp3_header.exit:                           ; preds = %.thread.i, %15, %17
-  %.0.i = phi i1 [ true, %17 ], [ false, %.thread.i ], [ false, %15 ]
+check_dnp3_header.exit:                           ; preds = %.thread.i, %15, %18
+  %.0.i = phi i1 [ true, %18 ], [ false, %.thread.i ], [ false, %15 ]
   ret i1 %.0.i
 }
 
@@ -5269,8 +5273,8 @@ switch.lookup:                                    ; preds = %2
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @dnp3_udp_check_header_heur(ptr readnone captures(none) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %1)
-  %6 = icmp slt i32 %5, 10
-  br i1 %6, label %check_dnp3_header.exit, label %7
+  %6 = icmp sgt i32 %5, 9
+  br i1 %6, label %7, label %check_dnp3_header.exit
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i16 @crc16_0x3D65_tvb_offset_seed(ptr noundef %1, i32 noundef 0, i32 noundef 8, i16 noundef zeroext 0)
@@ -5281,11 +5285,11 @@ define internal zeroext i1 @dnp3_udp_check_header_heur(ptr readnone captures(non
 
 12:                                               ; preds = %7
   %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 0)
-  %.not15.i = icmp eq i16 %13, 1380
+  %.not16.i = icmp eq i16 %13, 1380
   br label %check_dnp3_header.exit
 
 check_dnp3_header.exit:                           ; preds = %12, %4, %7
-  %.0.i = phi i1 [ false, %7 ], [ false, %4 ], [ %.not15.i, %12 ]
+  %.0.i = phi i1 [ false, %7 ], [ false, %4 ], [ %.not16.i, %12 ]
   ret i1 %.0.i
 }
 

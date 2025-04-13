@@ -30,18 +30,16 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef nonnull ptr @ecpg_type_name(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 32
-  br i1 %2, label %switch.hole_check, label %3
+  %switch.shifted = lshr i32 -1559248897, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %3
 
-3:                                                ; preds = %switch.hole_check, %1
+3:                                                ; preds = %1
   tail call void @abort() #3
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.shifted = lshr i32 -1559248897, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [32 x ptr], ptr @switch.table.ecpg_type_name, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8

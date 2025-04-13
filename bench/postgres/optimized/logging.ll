@@ -47,109 +47,109 @@ define dso_local void @pg_logging_init(ptr noundef %0) local_unnamed_addr #0 {
   %4 = load ptr, ptr @stderr, align 8
   %5 = tail call i32 @fileno(ptr noundef %4) #13
   %6 = tail call i32 @isatty(i32 noundef %5) #13
-  %.not = icmp eq i32 %6, 0
-  %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i32 @setvbuf(ptr noundef %7, ptr noundef null, i32 noundef 2, i64 noundef 0) #13
-  %9 = tail call ptr @get_progname(ptr noundef %0) #13
-  store ptr %9, ptr @progname, align 8
+  %7 = icmp ne i32 %6, 0
+  %8 = load ptr, ptr @stderr, align 8
+  %9 = tail call i32 @setvbuf(ptr noundef %8, ptr noundef null, i32 noundef 2, i64 noundef 0) #13
+  %10 = tail call ptr @get_progname(ptr noundef %0) #13
+  store ptr %10, ptr @progname, align 8
   store i32 2, ptr @__pg_log_level, align 4
-  %.not28 = icmp eq ptr %3, null
-  br i1 %.not28, label %47, label %10
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %48, label %11
 
-10:                                               ; preds = %1
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.1) #14
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.critedge, label %13
+11:                                               ; preds = %1
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.1) #14
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %.critedge, label %14
 
-13:                                               ; preds = %10
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(5) @.str.2) #14
-  %15 = icmp ne i32 %14, 0
-  %brmerge = select i1 %15, i1 true, i1 %.not
-  br i1 %brmerge, label %47, label %.critedge
+14:                                               ; preds = %11
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(5) @.str.2) #14
+  %16 = icmp eq i32 %15, 0
+  %or.cond = select i1 %16, i1 %7, i1 false
+  br i1 %or.cond, label %.critedge, label %48
 
-.critedge:                                        ; preds = %13, %10
-  %16 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #13
-  %.not29 = icmp eq ptr %16, null
-  br i1 %.not29, label %46, label %17
+.critedge:                                        ; preds = %14, %11
+  %17 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #13
+  %.not29 = icmp eq ptr %17, null
+  br i1 %.not29, label %47, label %18
 
-17:                                               ; preds = %.critedge
-  %18 = tail call noalias ptr @strdup(ptr noundef nonnull %16) #13
-  %.not30 = icmp eq ptr %18, null
-  br i1 %.not30, label %47, label %19
+18:                                               ; preds = %.critedge
+  %19 = tail call noalias ptr @strdup(ptr noundef nonnull %17) #13
+  %.not30 = icmp eq ptr %19, null
+  br i1 %.not30, label %48, label %20
 
-19:                                               ; preds = %17
+20:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
-  store ptr %18, ptr %2, align 8
-  %20 = call ptr @strsep(ptr noundef nonnull %2, ptr noundef nonnull @.str.4) #13
-  %.not3134 = icmp eq ptr %20, null
-  br i1 %.not3134, label %._crit_edge, label %.lr.ph
+  store ptr %19, ptr %2, align 8
+  %21 = call ptr @strsep(ptr noundef nonnull %2, ptr noundef nonnull @.str.4) #13
+  %.not3133 = icmp eq ptr %21, null
+  br i1 %.not3133, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %19, %44
-  %21 = phi ptr [ %45, %44 ], [ %20, %19 ]
-  %22 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %21, i32 noundef 61) #14
-  %.not32 = icmp eq ptr %22, null
-  br i1 %.not32, label %44, label %23
+.lr.ph:                                           ; preds = %20, %45
+  %22 = phi ptr [ %46, %45 ], [ %21, %20 ]
+  %23 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 61) #14
+  %.not32 = icmp eq ptr %23, null
+  br i1 %.not32, label %45, label %24
 
-23:                                               ; preds = %.lr.ph
-  store i8 0, ptr %22, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(6) @.str.5) #14
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %29
+24:                                               ; preds = %.lr.ph
+  store i8 0, ptr %23, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(6) @.str.5) #14
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %23
-  %28 = call noalias ptr @strdup(ptr noundef nonnull %24) #13
-  store ptr %28, ptr @sgr_error, align 8
-  br label %29
+28:                                               ; preds = %24
+  %29 = call noalias ptr @strdup(ptr noundef nonnull %25) #13
+  store ptr %29, ptr @sgr_error, align 8
+  br label %30
 
-29:                                               ; preds = %27, %23
-  %30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(8) @.str.6) #14
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %34
+30:                                               ; preds = %28, %24
+  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(8) @.str.6) #14
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %29
-  %33 = call noalias ptr @strdup(ptr noundef nonnull %24) #13
-  store ptr %33, ptr @sgr_warning, align 8
-  br label %34
+33:                                               ; preds = %30
+  %34 = call noalias ptr @strdup(ptr noundef nonnull %25) #13
+  store ptr %34, ptr @sgr_warning, align 8
+  br label %35
 
-34:                                               ; preds = %32, %29
-  %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(5) @.str.7) #14
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %39
+35:                                               ; preds = %33, %30
+  %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(5) @.str.7) #14
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %40
 
-37:                                               ; preds = %34
-  %38 = call noalias ptr @strdup(ptr noundef nonnull %24) #13
-  store ptr %38, ptr @sgr_note, align 8
-  br label %39
+38:                                               ; preds = %35
+  %39 = call noalias ptr @strdup(ptr noundef nonnull %25) #13
+  store ptr %39, ptr @sgr_note, align 8
+  br label %40
 
-39:                                               ; preds = %37, %34
-  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(6) @.str.8) #14
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %44
+40:                                               ; preds = %38, %35
+  %41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(6) @.str.8) #14
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %39
-  %43 = call noalias ptr @strdup(ptr noundef nonnull %24) #13
-  store ptr %43, ptr @sgr_locus, align 8
-  br label %44
+43:                                               ; preds = %40
+  %44 = call noalias ptr @strdup(ptr noundef nonnull %25) #13
+  store ptr %44, ptr @sgr_locus, align 8
+  br label %45
 
-44:                                               ; preds = %39, %42, %.lr.ph
-  %45 = call ptr @strsep(ptr noundef nonnull %2, ptr noundef nonnull @.str.4) #13
-  %.not31 = icmp eq ptr %45, null
+45:                                               ; preds = %40, %43, %.lr.ph
+  %46 = call ptr @strsep(ptr noundef nonnull %2, ptr noundef nonnull @.str.4) #13
+  %.not31 = icmp eq ptr %46, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %44, %19
-  call void @free(ptr noundef %18) #13
+._crit_edge:                                      ; preds = %45, %20
+  call void @free(ptr noundef %19) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
-  br label %47
+  br label %48
 
-46:                                               ; preds = %.critedge
+47:                                               ; preds = %.critedge
   store ptr @.str.9, ptr @sgr_error, align 8
   store ptr @.str.10, ptr @sgr_warning, align 8
   store ptr @.str.11, ptr @sgr_note, align 8
   store ptr @.str.12, ptr @sgr_locus, align 8
-  br label %47
+  br label %48
 
-47:                                               ; preds = %46, %._crit_edge, %17, %1, %13
+48:                                               ; preds = %47, %._crit_edge, %18, %1, %14
   ret void
 }
 

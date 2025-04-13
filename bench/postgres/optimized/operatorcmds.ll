@@ -650,8 +650,8 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   %8 = tail call ptr @table_open(i32 noundef 2617, i32 noundef 3) #7
   %9 = zext i32 %7 to i64
   %10 = tail call ptr @SearchSysCacheCopy(i32 noundef 40, i64 noundef %9, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %11, label %14
+  %.not141 = icmp eq ptr %10, null
+  br i1 %.not141, label %11, label %14
 
 11:                                               ; preds = %1
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -669,57 +669,57 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %.not136 = icmp eq ptr %21, null
-  br i1 %.not136, label %._crit_edge, label %.lr.ph
+  %.not142 = icmp eq ptr %21, null
+  br i1 %.not142, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load i32, ptr %22, align 4
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph233, label %._crit_edge
+  br i1 %25, label %.lr.ph241, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %89, %.lr.ph, %14
-  %.0129.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1130, %89 ]
-  %.0126.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1127, %89 ]
-  %.0123.lcssa = phi i8 [ 0, %14 ], [ 0, %.lr.ph ], [ %.1124, %89 ]
-  %.0121.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1122, %89 ]
-  %.0119.lcssa = phi i8 [ 0, %14 ], [ 0, %.lr.ph ], [ %.1120, %89 ]
-  %.0117.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1118, %89 ]
-  %.0114.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1115, %89 ]
-  %.0112.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1113, %89 ]
-  %.0108.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1109, %89 ]
-  %.0107.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1, %89 ]
+  %.0134.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1135, %89 ]
+  %.0131.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1132, %89 ]
+  %.0128.lcssa = phi i8 [ 0, %14 ], [ 0, %.lr.ph ], [ %.1129, %89 ]
+  %.0126.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1127, %89 ]
+  %.0124.lcssa = phi i8 [ 0, %14 ], [ 0, %.lr.ph ], [ %.1125, %89 ]
+  %.0122.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1123, %89 ]
+  %.0119.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1120, %89 ]
+  %.0117.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1118, %89 ]
+  %.0113.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1114, %89 ]
+  %.0112.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1, %89 ]
   %26 = tail call i32 @GetUserId() #7
   %27 = tail call zeroext i1 @object_ownercheck(i32 noundef 2617, i32 noundef %7, i32 noundef %26) #7
   br i1 %27, label %95, label %93
 
-.lr.ph233:                                        ; preds = %.lr.ph, %89
-  %.0129163232 = phi ptr [ %.1130, %89 ], [ null, %.lr.ph ]
-  %.0126164231 = phi ptr [ %.1127, %89 ], [ null, %.lr.ph ]
-  %.0123165230 = phi i8 [ %.1124, %89 ], [ 0, %.lr.ph ]
-  %.0121166229 = phi i1 [ %.1122, %89 ], [ false, %.lr.ph ]
-  %.0119167228 = phi i8 [ %.1120, %89 ], [ 0, %.lr.ph ]
-  %.0117168227 = phi i1 [ %.1118, %89 ], [ false, %.lr.ph ]
-  %.0114170226 = phi i1 [ %.1115, %89 ], [ false, %.lr.ph ]
-  %.0112171225 = phi ptr [ %.1113, %89 ], [ null, %.lr.ph ]
-  %.0108172224 = phi i1 [ %.1109, %89 ], [ false, %.lr.ph ]
-  %.0107173223 = phi ptr [ %.1, %89 ], [ null, %.lr.ph ]
-  %indvars.iv222 = phi i64 [ %indvars.iv.next, %89 ], [ 0, %.lr.ph ]
+.lr.ph241:                                        ; preds = %.lr.ph, %89
+  %.0134170240 = phi ptr [ %.1135, %89 ], [ null, %.lr.ph ]
+  %.0131171239 = phi ptr [ %.1132, %89 ], [ null, %.lr.ph ]
+  %.0128172238 = phi i8 [ %.1129, %89 ], [ 0, %.lr.ph ]
+  %.0126173237 = phi i1 [ %.1127, %89 ], [ false, %.lr.ph ]
+  %.0124174236 = phi i8 [ %.1125, %89 ], [ 0, %.lr.ph ]
+  %.0122175235 = phi i1 [ %.1123, %89 ], [ false, %.lr.ph ]
+  %.0119177234 = phi i1 [ %.1120, %89 ], [ false, %.lr.ph ]
+  %.0117178233 = phi ptr [ %.1118, %89 ], [ null, %.lr.ph ]
+  %.0113179232 = phi i1 [ %.1114, %89 ], [ false, %.lr.ph ]
+  %.0112180231 = phi ptr [ %.1, %89 ], [ null, %.lr.ph ]
+  %indvars.iv230 = phi i64 [ %indvars.iv.next, %89 ], [ 0, %.lr.ph ]
   %28 = load ptr, ptr %23, align 8
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv222
+  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv230
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %36, label %34
 
-34:                                               ; preds = %.lr.ph233
+34:                                               ; preds = %.lr.ph241
   %35 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %30) #7
   br label %36
 
-36:                                               ; preds = %.lr.ph233, %34
-  %.0111 = phi ptr [ %35, %34 ], [ null, %.lr.ph233 ]
+36:                                               ; preds = %.lr.ph241, %34
+  %.0116 = phi ptr [ %35, %34 ], [ null, %.lr.ph241 ]
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(9) @.str.8) #8
@@ -809,21 +809,21 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   unreachable
 
 89:                                               ; preds = %41, %36, %52, %63, %57, %47
-  %.1130 = phi ptr [ %48, %47 ], [ %.0129163232, %52 ], [ %.0129163232, %57 ], [ %.0129163232, %63 ], [ %.0129163232, %36 ], [ %.0129163232, %41 ]
-  %.1127 = phi ptr [ %.0126164231, %47 ], [ %53, %52 ], [ %.0126164231, %57 ], [ %.0126164231, %63 ], [ %.0126164231, %36 ], [ %.0126164231, %41 ]
-  %.1124 = phi i8 [ %.0123165230, %47 ], [ %.0123165230, %52 ], [ %59, %57 ], [ %.0123165230, %63 ], [ %.0123165230, %36 ], [ %.0123165230, %41 ]
-  %.1122 = phi i1 [ %.0121166229, %47 ], [ %.0121166229, %52 ], [ true, %57 ], [ %.0121166229, %63 ], [ %.0121166229, %36 ], [ %.0121166229, %41 ]
-  %.1120 = phi i8 [ %.0119167228, %47 ], [ %.0119167228, %52 ], [ %.0119167228, %57 ], [ %65, %63 ], [ %.0119167228, %36 ], [ %.0119167228, %41 ]
-  %.1118 = phi i1 [ %.0117168227, %47 ], [ %.0117168227, %52 ], [ %.0117168227, %57 ], [ true, %63 ], [ %.0117168227, %36 ], [ %.0117168227, %41 ]
-  %.1115 = phi i1 [ %.0114170226, %47 ], [ %.0114170226, %52 ], [ %.0114170226, %57 ], [ %.0114170226, %63 ], [ %.0114170226, %36 ], [ true, %41 ]
-  %.1113 = phi ptr [ %.0112171225, %47 ], [ %.0112171225, %52 ], [ %.0112171225, %57 ], [ %.0112171225, %63 ], [ %.0112171225, %36 ], [ %.0111, %41 ]
-  %.1109 = phi i1 [ %.0108172224, %47 ], [ %.0108172224, %52 ], [ %.0108172224, %57 ], [ %.0108172224, %63 ], [ true, %36 ], [ %.0108172224, %41 ]
-  %.1 = phi ptr [ %.0107173223, %47 ], [ %.0107173223, %52 ], [ %.0107173223, %57 ], [ %.0107173223, %63 ], [ %.0111, %36 ], [ %.0107173223, %41 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv222, 1
+  %.1135 = phi ptr [ %48, %47 ], [ %.0134170240, %52 ], [ %.0134170240, %57 ], [ %.0134170240, %63 ], [ %.0134170240, %36 ], [ %.0134170240, %41 ]
+  %.1132 = phi ptr [ %.0131171239, %47 ], [ %53, %52 ], [ %.0131171239, %57 ], [ %.0131171239, %63 ], [ %.0131171239, %36 ], [ %.0131171239, %41 ]
+  %.1129 = phi i8 [ %.0128172238, %47 ], [ %.0128172238, %52 ], [ %59, %57 ], [ %.0128172238, %63 ], [ %.0128172238, %36 ], [ %.0128172238, %41 ]
+  %.1127 = phi i1 [ %.0126173237, %47 ], [ %.0126173237, %52 ], [ true, %57 ], [ %.0126173237, %63 ], [ %.0126173237, %36 ], [ %.0126173237, %41 ]
+  %.1125 = phi i8 [ %.0124174236, %47 ], [ %.0124174236, %52 ], [ %.0124174236, %57 ], [ %65, %63 ], [ %.0124174236, %36 ], [ %.0124174236, %41 ]
+  %.1123 = phi i1 [ %.0122175235, %47 ], [ %.0122175235, %52 ], [ %.0122175235, %57 ], [ true, %63 ], [ %.0122175235, %36 ], [ %.0122175235, %41 ]
+  %.1120 = phi i1 [ %.0119177234, %47 ], [ %.0119177234, %52 ], [ %.0119177234, %57 ], [ %.0119177234, %63 ], [ %.0119177234, %36 ], [ true, %41 ]
+  %.1118 = phi ptr [ %.0117178233, %47 ], [ %.0117178233, %52 ], [ %.0117178233, %57 ], [ %.0117178233, %63 ], [ %.0117178233, %36 ], [ %.0116, %41 ]
+  %.1114 = phi i1 [ %.0113179232, %47 ], [ %.0113179232, %52 ], [ %.0113179232, %57 ], [ %.0113179232, %63 ], [ true, %36 ], [ %.0113179232, %41 ]
+  %.1 = phi ptr [ %.0112180231, %47 ], [ %.0112180231, %52 ], [ %.0112180231, %57 ], [ %.0112180231, %63 ], [ %.0116, %36 ], [ %.0112180231, %41 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv230, 1
   %90 = load i32, ptr %22, align 4
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %.lr.ph233, label %._crit_edge
+  br i1 %92, label %.lr.ph241, label %._crit_edge
 
 93:                                               ; preds = %._crit_edge
   %94 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -831,46 +831,46 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   br label %95
 
 95:                                               ; preds = %93, %._crit_edge
-  %.not138 = icmp eq ptr %.0107.lcssa, null
-  br i1 %.not138, label %98, label %96
+  %.not144 = icmp eq ptr %.0112.lcssa, null
+  br i1 %.not144, label %98, label %96
 
 96:                                               ; preds = %95
-  %97 = tail call fastcc i32 @ValidateRestrictionEstimator(ptr noundef %.0107.lcssa)
+  %97 = tail call fastcc i32 @ValidateRestrictionEstimator(ptr noundef %.0112.lcssa)
   br label %98
 
 98:                                               ; preds = %95, %96
-  %.0110 = phi i32 [ %97, %96 ], [ 0, %95 ]
-  %.not139 = icmp eq ptr %.0112.lcssa, null
-  br i1 %.not139, label %101, label %99
+  %.0115 = phi i32 [ %97, %96 ], [ 0, %95 ]
+  %.not145 = icmp eq ptr %.0117.lcssa, null
+  br i1 %.not145, label %101, label %99
 
 99:                                               ; preds = %98
-  %100 = tail call fastcc i32 @ValidateJoinEstimator(ptr noundef %.0112.lcssa)
+  %100 = tail call fastcc i32 @ValidateJoinEstimator(ptr noundef %.0117.lcssa)
   br label %101
 
 101:                                              ; preds = %98, %99
-  %.0116 = phi i32 [ %100, %99 ], [ 0, %98 ]
-  %.not140 = icmp eq ptr %.0129.lcssa, null
-  br i1 %.not140, label %108, label %102
+  %.0121 = phi i32 [ %100, %99 ], [ 0, %98 ]
+  %.not146 = icmp eq ptr %.0134.lcssa, null
+  br i1 %.not146, label %108, label %102
 
 102:                                              ; preds = %101
   %103 = getelementptr inbounds nuw i8, ptr %19, i64 84
   %104 = load i32, ptr %103, align 4
   %105 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %106 = load i32, ptr %105, align 4
-  %107 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef %.0129.lcssa, i32 noundef %104, i32 noundef %106)
+  %107 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef %.0134.lcssa, i32 noundef %104, i32 noundef %106)
   br label %108
 
 108:                                              ; preds = %101, %102
-  %.0128 = phi i32 [ %107, %102 ], [ 0, %101 ]
-  %.not141 = icmp eq ptr %.0126.lcssa, null
-  br i1 %.not141, label %121, label %109
+  %.0133 = phi i32 [ %107, %102 ], [ 0, %101 ]
+  %.not147 = icmp eq ptr %.0131.lcssa, null
+  br i1 %.not147, label %121, label %109
 
 109:                                              ; preds = %108
   %110 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %111 = load i32, ptr %110, align 4
   %112 = getelementptr inbounds nuw i8, ptr %19, i64 84
   %113 = load i32, ptr %112, align 4
-  %114 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef %.0126.lcssa, i32 noundef %111, i32 noundef %113)
+  %114 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef %.0131.lcssa, i32 noundef %111, i32 noundef %113)
   %115 = load i32, ptr %19, align 4
   %116 = icmp eq i32 %114, %115
   br i1 %116, label %117, label %121
@@ -884,17 +884,17 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   unreachable
 
 121:                                              ; preds = %108, %109
-  %.0125 = phi i32 [ %114, %109 ], [ 0, %108 ]
-  %122 = icmp ne i32 %.0128, 0
+  %.0130 = phi i32 [ %114, %109 ], [ 0, %108 ]
+  %122 = icmp ne i32 %.0133, 0
   br i1 %122, label %123, label %130
 
 123:                                              ; preds = %121
   %124 = getelementptr inbounds nuw i8, ptr %19, i64 92
   %125 = load i32, ptr %124, align 4
-  %.not142 = icmp eq i32 %125, 0
-  %.not143 = icmp eq i32 %.0128, %125
-  %or.cond = select i1 %.not142, i1 true, i1 %.not143
-  br i1 %or.cond, label %130, label %126
+  %.not148 = icmp eq i32 %125, 0
+  %.not149 = icmp eq i32 %.0133, %125
+  %or.cond153 = select i1 %.not148, i1 true, i1 %.not149
+  br i1 %or.cond153, label %130, label %126
 
 126:                                              ; preds = %123
   %127 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -905,16 +905,16 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   unreachable
 
 130:                                              ; preds = %123, %121
-  %131 = icmp ne i32 %.0125, 0
+  %131 = icmp ne i32 %.0130, 0
   br i1 %131, label %132, label %139
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %134 = load i32, ptr %133, align 4
-  %.not144 = icmp eq i32 %134, 0
-  %.not145 = icmp eq i32 %.0125, %134
-  %or.cond147 = or i1 %.not144, %.not145
-  br i1 %or.cond147, label %139, label %135
+  %.not150 = icmp eq i32 %134, 0
+  %.not151 = icmp eq i32 %.0130, %134
+  %or.cond154 = or i1 %.not150, %.not151
+  br i1 %or.cond154, label %139, label %135
 
 135:                                              ; preds = %132
   %136 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -925,159 +925,161 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   unreachable
 
 139:                                              ; preds = %132, %130
-  br i1 %.0121.lcssa, label %140, label %150
+  br i1 %.0126.lcssa, label %140, label %149
 
 140:                                              ; preds = %139
   %141 = getelementptr inbounds nuw i8, ptr %19, i64 77
   %142 = load i8, ptr %141, align 1, !range !4, !noundef !5
   %143 = trunc nuw i8 %142 to i1
-  br i1 %143, label %144, label %150
+  %.not = xor i1 %143, true
+  %144 = trunc nuw i8 %.0128.lcssa to i1
+  %or.cond = select i1 %.not, i1 true, i1 %144
+  br i1 %or.cond, label %149, label %145
 
-144:                                              ; preds = %140
-  %145 = trunc nuw i8 %.0123.lcssa to i1
-  br i1 %145, label %150, label %146
-
-146:                                              ; preds = %144
-  %147 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %147)
-  %148 = tail call i32 @errcode(i32 noundef 50724996) #7
-  %149 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.11) #7
+145:                                              ; preds = %140
+  %146 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %146)
+  %147 = tail call i32 @errcode(i32 noundef 50724996) #7
+  %148 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.11) #7
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 629, ptr noundef nonnull @__func__.AlterOperator) #7
   unreachable
 
-150:                                              ; preds = %144, %140, %139
-  br i1 %.0117.lcssa, label %151, label %161
+149:                                              ; preds = %140, %139
+  br i1 %.0122.lcssa, label %150, label %._crit_edge206
 
-151:                                              ; preds = %150
-  %152 = getelementptr inbounds nuw i8, ptr %19, i64 78
-  %153 = load i8, ptr %152, align 2, !range !4, !noundef !5
-  %154 = trunc nuw i8 %153 to i1
-  br i1 %154, label %155, label %161
+._crit_edge206:                                   ; preds = %149
+  %.pre = trunc nuw i8 %.0124.lcssa to i1
+  br label %159
 
-155:                                              ; preds = %151
-  %156 = trunc nuw i8 %.0119.lcssa to i1
-  br i1 %156, label %161, label %157
+150:                                              ; preds = %149
+  %151 = getelementptr inbounds nuw i8, ptr %19, i64 78
+  %152 = load i8, ptr %151, align 2, !range !4, !noundef !5
+  %153 = trunc nuw i8 %152 to i1
+  %.not2 = xor i1 %153, true
+  %154 = trunc nuw i8 %.0124.lcssa to i1
+  %or.cond4 = select i1 %.not2, i1 true, i1 %154
+  br i1 %or.cond4, label %159, label %155
 
-157:                                              ; preds = %155
-  %158 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %158)
-  %159 = tail call i32 @errcode(i32 noundef 50724996) #7
-  %160 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.10) #7
+155:                                              ; preds = %150
+  %156 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %156)
+  %157 = tail call i32 @errcode(i32 noundef 50724996) #7
+  %158 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.10) #7
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 635, ptr noundef nonnull @__func__.AlterOperator) #7
   unreachable
 
-161:                                              ; preds = %155, %151, %150
-  %162 = getelementptr inbounds nuw i8, ptr %19, i64 80
+159:                                              ; preds = %._crit_edge206, %150
+  %.pre-phi = phi i1 [ %.pre, %._crit_edge206 ], [ %154, %150 ]
+  %160 = getelementptr inbounds nuw i8, ptr %19, i64 80
+  %161 = load i32, ptr %160, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %19, i64 84
   %163 = load i32, ptr %162, align 4
-  %164 = getelementptr inbounds nuw i8, ptr %19, i64 84
+  %164 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds nuw i8, ptr %19, i64 88
-  %167 = load i32, ptr %166, align 4
-  %168 = icmp ne i32 %.0110, 0
-  %169 = icmp ne i32 %.0116, 0
-  %170 = trunc nuw i8 %.0123.lcssa to i1
-  %171 = trunc nuw i8 %.0119.lcssa to i1
-  tail call void @OperatorValidateParams(i32 noundef %163, i32 noundef %165, i32 noundef %167, i1 noundef zeroext %122, i1 noundef zeroext %131, i1 noundef zeroext %168, i1 noundef zeroext %169, i1 noundef zeroext %170, i1 noundef zeroext %171) #7
+  %166 = icmp ne i32 %.0115, 0
+  %167 = icmp ne i32 %.0121, 0
+  %168 = trunc nuw i8 %.0128.lcssa to i1
+  tail call void @OperatorValidateParams(i32 noundef %161, i32 noundef %163, i32 noundef %165, i1 noundef zeroext %122, i1 noundef zeroext %131, i1 noundef zeroext %166, i1 noundef zeroext %167, i1 noundef zeroext %168, i1 noundef zeroext %.pre-phi) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %2, i8 0, i64 120, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %4, i8 0, i64 15, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %3, i8 0, i64 15, i1 false)
-  br i1 %.0108.lcssa, label %172, label %176
+  br i1 %.0113.lcssa, label %169, label %173
 
-172:                                              ; preds = %161
-  %173 = getelementptr inbounds nuw i8, ptr %4, i64 13
-  store i8 1, ptr %173, align 1
-  %174 = zext i32 %.0110 to i64
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store i64 %174, ptr %175, align 8
-  br label %176
+169:                                              ; preds = %159
+  %170 = getelementptr inbounds nuw i8, ptr %4, i64 13
+  store i8 1, ptr %170, align 1
+  %171 = zext i32 %.0115 to i64
+  %172 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  store i64 %171, ptr %172, align 8
+  br label %173
 
-176:                                              ; preds = %172, %161
-  br i1 %.0114.lcssa, label %177, label %181
+173:                                              ; preds = %169, %159
+  br i1 %.0119.lcssa, label %174, label %178
 
-177:                                              ; preds = %176
-  %178 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  store i8 1, ptr %178, align 1
-  %179 = zext i32 %.0116 to i64
-  %180 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store i64 %179, ptr %180, align 16
-  br label %181
+174:                                              ; preds = %173
+  %175 = getelementptr inbounds nuw i8, ptr %4, i64 14
+  store i8 1, ptr %175, align 1
+  %176 = zext i32 %.0121 to i64
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store i64 %176, ptr %177, align 16
+  br label %178
 
-181:                                              ; preds = %177, %176
-  br i1 %122, label %182, label %186
+178:                                              ; preds = %174, %173
+  br i1 %122, label %179, label %183
 
-182:                                              ; preds = %181
-  %183 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i8 1, ptr %183, align 1
-  %184 = zext i32 %.0128 to i64
-  %185 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i64 %184, ptr %185, align 16
-  br label %186
+179:                                              ; preds = %178
+  %180 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  store i8 1, ptr %180, align 1
+  %181 = zext i32 %.0133 to i64
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i64 %181, ptr %182, align 16
+  br label %183
 
-186:                                              ; preds = %182, %181
-  br i1 %131, label %187, label %191
+183:                                              ; preds = %179, %178
+  br i1 %131, label %184, label %188
 
-187:                                              ; preds = %186
-  %188 = getelementptr inbounds nuw i8, ptr %4, i64 11
-  store i8 1, ptr %188, align 1
-  %189 = zext i32 %.0125 to i64
-  %190 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store i64 %189, ptr %190, align 8
-  br label %191
+184:                                              ; preds = %183
+  %185 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  store i8 1, ptr %185, align 1
+  %186 = zext i32 %.0130 to i64
+  %187 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store i64 %186, ptr %187, align 8
+  br label %188
 
-191:                                              ; preds = %187, %186
-  br i1 %.0121.lcssa, label %192, label %196
+188:                                              ; preds = %184, %183
+  br i1 %.0126.lcssa, label %189, label %193
 
-192:                                              ; preds = %191
-  %193 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  store i8 1, ptr %193, align 1
-  %.mask = and i8 %.0123.lcssa, 1
-  %194 = zext nneg i8 %.mask to i64
-  %195 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i64 %194, ptr %195, align 8
-  br label %196
+189:                                              ; preds = %188
+  %190 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  store i8 1, ptr %190, align 1
+  %.mask = and i8 %.0128.lcssa, 1
+  %191 = zext nneg i8 %.mask to i64
+  %192 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i64 %191, ptr %192, align 8
+  br label %193
 
-196:                                              ; preds = %192, %191
-  br i1 %.0117.lcssa, label %197, label %201
+193:                                              ; preds = %189, %188
+  br i1 %.0122.lcssa, label %194, label %198
 
-197:                                              ; preds = %196
-  %198 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  store i8 1, ptr %198, align 1
-  %.mask150 = and i8 %.0119.lcssa, 1
-  %199 = zext nneg i8 %.mask150 to i64
-  %200 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i64 %199, ptr %200, align 16
-  br label %201
+194:                                              ; preds = %193
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  store i8 1, ptr %195, align 1
+  %.mask157 = and i8 %.0124.lcssa, 1
+  %196 = zext nneg i8 %.mask157 to i64
+  %197 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store i64 %196, ptr %197, align 16
+  br label %198
 
-201:                                              ; preds = %197, %196
-  %202 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %203 = load ptr, ptr %202, align 8
-  %204 = call ptr @heap_modify_tuple(ptr noundef nonnull %10, ptr noundef %203, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %8, ptr noundef nonnull %205, ptr noundef %204) #7
-  %206 = call { i64, i32 } @makeOperatorDependencies(ptr noundef %204, i1 noundef zeroext false, i1 noundef zeroext true) #7
-  %207 = or i32 %.0125, %.0128
-  %or.cond.not = icmp eq i32 %207, 0
-  br i1 %or.cond.not, label %209, label %208
+198:                                              ; preds = %194, %193
+  %199 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %200 = load ptr, ptr %199, align 8
+  %201 = call ptr @heap_modify_tuple(ptr noundef nonnull %10, ptr noundef %200, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 4
+  call void @CatalogTupleUpdate(ptr noundef %8, ptr noundef nonnull %202, ptr noundef %201) #7
+  %203 = call { i64, i32 } @makeOperatorDependencies(ptr noundef %201, i1 noundef zeroext false, i1 noundef zeroext true) #7
+  %204 = or i32 %.0130, %.0133
+  %or.cond6.not = icmp eq i32 %204, 0
+  br i1 %or.cond6.not, label %206, label %205
 
-208:                                              ; preds = %201
-  call void @OperatorUpd(i32 noundef %7, i32 noundef %.0128, i32 noundef %.0125, i1 noundef zeroext false) #7
+205:                                              ; preds = %198
+  call void @OperatorUpd(i32 noundef %7, i32 noundef %.0133, i32 noundef %.0130, i1 noundef zeroext false) #7
+  br label %206
+
+206:                                              ; preds = %205, %198
+  %207 = load ptr, ptr @object_access_hook, align 8
+  %.not152 = icmp eq ptr %207, null
+  br i1 %.not152, label %209, label %208
+
+208:                                              ; preds = %206
+  call void @RunObjectPostAlterHook(i32 noundef 2617, i32 noundef %7, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #7
   br label %209
 
-209:                                              ; preds = %208, %201
-  %210 = load ptr, ptr @object_access_hook, align 8
-  %.not146 = icmp eq ptr %210, null
-  br i1 %.not146, label %212, label %211
-
-211:                                              ; preds = %209
-  call void @RunObjectPostAlterHook(i32 noundef 2617, i32 noundef %7, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #7
-  br label %212
-
-212:                                              ; preds = %211, %209
+209:                                              ; preds = %208, %206
   call void @table_close(ptr noundef nonnull %8, i32 noundef 0) #7
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #7
-  ret { i64, i32 } %206
+  ret { i64, i32 } %203
 }
 
 declare i32 @LookupOperWithArgs(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2

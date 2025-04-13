@@ -677,10 +677,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %117 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 1, ptr %117, align 8, !alias.scope !50, !noalias !53
   store ptr %14, ptr %15, align 8
-  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %13, ptr %.sroa.418.0..sroa_idx, align 8
-  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr @anon.1b34b9d042b36c680139a5e07cfc9ed0.25, ptr %.sroa.519.0..sroa_idx, align 8
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %13, ptr %.sroa.419.0..sroa_idx, align 8
+  %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store ptr @anon.1b34b9d042b36c680139a5e07cfc9ed0.25, ptr %.sroa.520.0..sroa_idx, align 8
   store ptr %15, ptr %16, align 8
   %118 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 1, ptr %118, align 8
@@ -724,10 +724,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %125 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 1, ptr %125, align 8, !alias.scope !55, !noalias !58
   store ptr %21, ptr %22, align 8
-  %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %20, ptr %.sroa.47.0..sroa_idx, align 8
-  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr @anon.1b34b9d042b36c680139a5e07cfc9ed0.25, ptr %.sroa.58.0..sroa_idx, align 8
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr %20, ptr %.sroa.48.0..sroa_idx, align 8
+  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr @anon.1b34b9d042b36c680139a5e07cfc9ed0.25, ptr %.sroa.59.0..sroa_idx, align 8
   store ptr %22, ptr %23, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8

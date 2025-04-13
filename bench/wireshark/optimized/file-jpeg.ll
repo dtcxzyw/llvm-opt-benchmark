@@ -1235,8 +1235,8 @@ define internal fastcc void @process_tiff_ifd_chain(ptr noundef %0, ptr noundef 
   store i32 %4, ptr %8, align 4
   br label %17
 
-17:                                               ; preds = %130, %7
-  %.0123 = phi i32 [ 0, %7 ], [ %133, %130 ]
+17:                                               ; preds = %129, %7
+  %.0123 = phi i32 [ 0, %7 ], [ %132, %129 ]
   %18 = load i32, ptr %8, align 4
   %19 = call zeroext i16 @tvb_get_uint16(ptr noundef %1, i32 noundef %18, i32 noundef %3)
   %20 = zext i16 %19 to i32
@@ -1252,7 +1252,7 @@ define internal fastcc void @process_tiff_ifd_chain(ptr noundef %0, ptr noundef 
 
 .lr.ph166:                                        ; preds = %17, %.loopexit
   %.in = phi i32 [ %28, %.loopexit ], [ %20, %17 ]
-  %.0126165 = phi i32 [ %120, %.loopexit ], [ %27, %17 ]
+  %.0126165 = phi i32 [ %119, %.loopexit ], [ %27, %17 ]
   %28 = add nsw i32 %.in, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
@@ -1268,15 +1268,13 @@ define internal fastcc void @process_tiff_ifd_chain(ptr noundef %0, ptr noundef 
   %37 = load i32, ptr %10, align 4
   %switch.tableidx = add i32 %37, -1
   %38 = icmp ult i32 %switch.tableidx, 10
-  br i1 %38, label %switch.hole_check, label %45
-
-switch.hole_check:                                ; preds = %.lr.ph166
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 863, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %45
+  %or.cond187 = select i1 %38, i1 %switch.lobit, i1 false
+  br i1 %or.cond187, label %switch.lookup, label %45
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.lr.ph166
   %39 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.process_tiff_ifd_chain, i64 0, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -1288,162 +1286,161 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %42 = lshr i32 4, %41
   %43 = load i32, ptr %11, align 4
   %44 = icmp ult i32 %42, %43
-  br i1 %44, label %45, label %58
+  br i1 %44, label %45, label %57
 
-45:                                               ; preds = %switch.hole_check, %.lr.ph166, %switch.lookup
-  %.0128148 = phi i32 [ %switch.load186, %switch.lookup ], [ 0, %.lr.ph166 ], [ 0, %switch.hole_check ]
-  %46 = phi i1 [ true, %switch.lookup ], [ false, %.lr.ph166 ], [ false, %switch.hole_check ]
-  %.0129145 = phi i32 [ %.0129.ph, %switch.lookup ], [ -1, %.lr.ph166 ], [ -1, %switch.hole_check ]
+45:                                               ; preds = %.lr.ph166, %switch.lookup
+  %.0128148 = phi i32 [ %switch.load186, %switch.lookup ], [ 0, %.lr.ph166 ]
+  %.0129145 = phi i32 [ %.0129.ph, %switch.lookup ], [ -1, %.lr.ph166 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #5
-  %47 = load i32, ptr @hf_ifd_offset, align 4
-  %48 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %24, i32 noundef %47, ptr noundef %1, i32 noundef %36, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %12)
-  %49 = load i32, ptr %12, align 4
-  %50 = call i32 @tvb_reported_length(ptr noundef %1)
-  %51 = icmp ult i32 %49, %50
-  br i1 %51, label %52, label %54
+  %46 = load i32, ptr @hf_ifd_offset, align 4
+  %47 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %24, i32 noundef %46, ptr noundef %1, i32 noundef %36, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %12)
+  %48 = load i32, ptr %12, align 4
+  %49 = call i32 @tvb_reported_length(ptr noundef %1)
+  %50 = icmp ult i32 %48, %49
+  br i1 %50, label %51, label %53
 
-52:                                               ; preds = %45
-  %53 = load i32, ptr %12, align 4
-  br label %57
+51:                                               ; preds = %45
+  %52 = load i32, ptr %12, align 4
+  br label %56
 
-54:                                               ; preds = %45
-  %55 = call i32 @tvb_reported_length(ptr noundef %1)
-  %56 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %48, ptr noundef nonnull @ei_ifd_value_offset, ptr noundef nonnull @.str.411, i32 noundef %55)
-  br label %57
+53:                                               ; preds = %45
+  %54 = call i32 @tvb_reported_length(ptr noundef %1)
+  %55 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %47, ptr noundef nonnull @ei_ifd_value_offset, ptr noundef nonnull @.str.411, i32 noundef %54)
+  br label %56
 
-57:                                               ; preds = %54, %52
-  %.0131 = phi i32 [ %53, %52 ], [ -1, %54 ]
+56:                                               ; preds = %53, %51
+  %.0131 = phi i32 [ %52, %51 ], [ -1, %53 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #5
-  br label %58
+  br label %57
 
-58:                                               ; preds = %switch.lookup, %57
-  %.0128147 = phi i32 [ %.0128148, %57 ], [ %switch.load186, %switch.lookup ]
-  %.not167 = phi i1 [ %46, %57 ], [ true, %switch.lookup ]
-  %.0129144 = phi i32 [ %.0129145, %57 ], [ %.0129.ph, %switch.lookup ]
-  %.0132 = phi ptr [ %0, %57 ], [ %24, %switch.lookup ]
-  %.1 = phi i32 [ %.0131, %57 ], [ %36, %switch.lookup ]
-  %59 = icmp sgt i32 %.1, -1
-  br i1 %59, label %60, label %.loopexit
+57:                                               ; preds = %switch.lookup, %56
+  %.0128147 = phi i32 [ %.0128148, %56 ], [ %switch.load186, %switch.lookup ]
+  %.not167 = phi i1 [ %or.cond187, %56 ], [ true, %switch.lookup ]
+  %.0129144 = phi i32 [ %.0129145, %56 ], [ %.0129.ph, %switch.lookup ]
+  %.0132 = phi ptr [ %0, %56 ], [ %24, %switch.lookup ]
+  %.1 = phi i32 [ %.0131, %56 ], [ %36, %switch.lookup ]
+  %58 = icmp sgt i32 %.1, -1
+  br i1 %58, label %59, label %.loopexit
 
-60:                                               ; preds = %58
-  %61 = load i32, ptr @hf_ifd_value_ascii, align 4
-  %62 = icmp eq i32 %.0129144, %61
-  %63 = load i32, ptr @hf_ifd_value_undefined, align 4
-  %64 = icmp eq i32 %.0129144, %63
-  %or.cond139 = select i1 %62, i1 true, i1 %64
-  %65 = load i32, ptr %11, align 4
-  br i1 %or.cond139, label %66, label %68
+59:                                               ; preds = %57
+  %60 = load i32, ptr @hf_ifd_value_ascii, align 4
+  %61 = icmp eq i32 %.0129144, %60
+  %62 = load i32, ptr @hf_ifd_value_undefined, align 4
+  %63 = icmp eq i32 %.0129144, %62
+  %or.cond139 = select i1 %61, i1 true, i1 %63
+  %64 = load i32, ptr %11, align 4
+  br i1 %or.cond139, label %65, label %67
 
-66:                                               ; preds = %60
-  %67 = call ptr @proto_tree_add_item(ptr noundef %.0132, i32 noundef %.0129144, ptr noundef %1, i32 noundef %.1, i32 noundef %65, i32 noundef 0)
+65:                                               ; preds = %59
+  %66 = call ptr @proto_tree_add_item(ptr noundef %.0132, i32 noundef %.0129144, ptr noundef %1, i32 noundef %.1, i32 noundef %64, i32 noundef 0)
   br label %.loopexit
 
-68:                                               ; preds = %60
-  %69 = icmp ne i32 %65, 0
-  %or.cond169 = select i1 %.not167, i1 %69, i1 false
+67:                                               ; preds = %59
+  %68 = icmp ne i32 %64, 0
+  %or.cond169 = select i1 %.not167, i1 %68, i1 false
   br i1 %or.cond169, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %68, %115
-  %.0130163 = phi i32 [ %117, %115 ], [ 0, %68 ]
-  %.2162 = phi i32 [ %116, %115 ], [ %.1, %68 ]
-  %70 = call ptr @proto_tree_add_item(ptr noundef %.0132, i32 noundef %.0129144, ptr noundef %1, i32 noundef %.2162, i32 noundef %.0128147, i32 noundef %3)
-  %71 = load i32, ptr @hf_ifd_value_rational, align 4
-  %72 = icmp eq i32 %.0129144, %71
-  br i1 %72, label %73, label %83
+.lr.ph:                                           ; preds = %67, %114
+  %.0130163 = phi i32 [ %116, %114 ], [ 0, %67 ]
+  %.2162 = phi i32 [ %115, %114 ], [ %.1, %67 ]
+  %69 = call ptr @proto_tree_add_item(ptr noundef %.0132, i32 noundef %.0129144, ptr noundef %1, i32 noundef %.2162, i32 noundef %.0128147, i32 noundef %3)
+  %70 = load i32, ptr @hf_ifd_value_rational, align 4
+  %71 = icmp eq i32 %.0129144, %70
+  br i1 %71, label %72, label %82
 
-73:                                               ; preds = %.lr.ph
-  %74 = load i32, ptr @ett_rational, align 4
-  %75 = call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %74)
+72:                                               ; preds = %.lr.ph
+  %73 = load i32, ptr @ett_rational, align 4
+  %74 = call ptr @proto_item_add_subtree(ptr noundef %69, i32 noundef %73)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #5
-  %76 = load i32, ptr @hf_ifd_value_rational_numerator, align 4
-  %77 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %75, i32 noundef %76, ptr noundef %1, i32 noundef %.2162, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %13)
-  %78 = load i32, ptr @hf_ifd_value_rational_denominator, align 4
-  %79 = add i32 %.2162, 4
-  %80 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %75, i32 noundef %78, ptr noundef %1, i32 noundef %79, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %14)
-  %81 = load i32, ptr %13, align 4
-  %82 = load i32, ptr %14, align 4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %70, ptr noundef nonnull @.str.412, i32 noundef %81, i32 noundef %82)
+  %75 = load i32, ptr @hf_ifd_value_rational_numerator, align 4
+  %76 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %74, i32 noundef %75, ptr noundef %1, i32 noundef %.2162, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %13)
+  %77 = load i32, ptr @hf_ifd_value_rational_denominator, align 4
+  %78 = add i32 %.2162, 4
+  %79 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %74, i32 noundef %77, ptr noundef %1, i32 noundef %78, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %14)
+  %80 = load i32, ptr %13, align 4
+  %81 = load i32, ptr %14, align 4
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %69, ptr noundef nonnull @.str.412, i32 noundef %80, i32 noundef %81)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #5
-  br label %115
+  br label %114
 
-83:                                               ; preds = %.lr.ph
-  %84 = load i32, ptr @hf_ifd_value_srational, align 4
-  %85 = icmp eq i32 %.0129144, %84
-  br i1 %85, label %86, label %96
+82:                                               ; preds = %.lr.ph
+  %83 = load i32, ptr @hf_ifd_value_srational, align 4
+  %84 = icmp eq i32 %.0129144, %83
+  br i1 %84, label %85, label %95
 
-86:                                               ; preds = %83
-  %87 = load i32, ptr @ett_srational, align 4
-  %88 = call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %87)
+85:                                               ; preds = %82
+  %86 = load i32, ptr @ett_srational, align 4
+  %87 = call ptr @proto_item_add_subtree(ptr noundef %69, i32 noundef %86)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #5
-  %89 = load i32, ptr @hf_ifd_value_srational_numerator, align 4
-  %90 = call ptr @proto_tree_add_item_ret_int(ptr noundef %88, i32 noundef %89, ptr noundef %1, i32 noundef %.2162, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %15)
-  %91 = load i32, ptr @hf_ifd_value_srational_denominator, align 4
-  %92 = add i32 %.2162, 4
-  %93 = call ptr @proto_tree_add_item_ret_int(ptr noundef %88, i32 noundef %91, ptr noundef %1, i32 noundef %92, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %16)
-  %94 = load i32, ptr %15, align 4
-  %95 = load i32, ptr %16, align 4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %70, ptr noundef nonnull @.str.413, i32 noundef %94, i32 noundef %95)
+  %88 = load i32, ptr @hf_ifd_value_srational_numerator, align 4
+  %89 = call ptr @proto_tree_add_item_ret_int(ptr noundef %87, i32 noundef %88, ptr noundef %1, i32 noundef %.2162, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %15)
+  %90 = load i32, ptr @hf_ifd_value_srational_denominator, align 4
+  %91 = add i32 %.2162, 4
+  %92 = call ptr @proto_tree_add_item_ret_int(ptr noundef %87, i32 noundef %90, ptr noundef %1, i32 noundef %91, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %16)
+  %93 = load i32, ptr %15, align 4
+  %94 = load i32, ptr %16, align 4
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %69, ptr noundef nonnull @.str.413, i32 noundef %93, i32 noundef %94)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #5
-  br label %115
+  br label %114
 
-96:                                               ; preds = %83
-  %97 = load i32, ptr @hf_ifd_value_long, align 4
-  %98 = icmp eq i32 %.0129144, %97
-  %99 = load i32, ptr %11, align 4
-  %100 = icmp eq i32 %99, 1
-  %or.cond = select i1 %98, i1 %100, i1 false
-  %101 = load i32, ptr @hf_ifd_tag, align 4
-  %102 = icmp eq i32 %5, %101
-  %or.cond141 = select i1 %or.cond, i1 %102, i1 false
-  br i1 %or.cond141, label %103, label %115
+95:                                               ; preds = %82
+  %96 = load i32, ptr @hf_ifd_value_long, align 4
+  %97 = icmp eq i32 %.0129144, %96
+  %98 = load i32, ptr %11, align 4
+  %99 = icmp eq i32 %98, 1
+  %or.cond = select i1 %97, i1 %99, i1 false
+  %100 = load i32, ptr @hf_ifd_tag, align 4
+  %101 = icmp eq i32 %5, %100
+  %or.cond141 = select i1 %or.cond, i1 %101, i1 false
+  br i1 %or.cond141, label %102, label %114
 
-103:                                              ; preds = %96
-  %104 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %.2162, i32 noundef %3)
-  %105 = load i32, ptr %9, align 4
-  switch i32 %105, label %115 [
-    i32 34665, label %108
-    i32 34853, label %106
-    i32 40965, label %107
+102:                                              ; preds = %95
+  %103 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %.2162, i32 noundef %3)
+  %104 = load i32, ptr %9, align 4
+  switch i32 %104, label %114 [
+    i32 34665, label %107
+    i32 34853, label %105
+    i32 40965, label %106
   ]
 
-106:                                              ; preds = %103
-  br label %108
+105:                                              ; preds = %102
+  br label %107
 
-107:                                              ; preds = %103
-  br label %108
+106:                                              ; preds = %102
+  br label %107
 
-108:                                              ; preds = %103, %107, %106
-  %.0125.ph.in = phi ptr [ @hf_ifd_tag_gps, %106 ], [ @hf_ifd_tag_interop, %107 ], [ @hf_ifd_tag_exif, %103 ]
-  %.0124.ph = phi ptr [ @.str.415, %106 ], [ @.str.416, %107 ], [ @.str.414, %103 ]
+107:                                              ; preds = %102, %106, %105
+  %.0125.ph.in = phi ptr [ @hf_ifd_tag_gps, %105 ], [ @hf_ifd_tag_interop, %106 ], [ @hf_ifd_tag_exif, %102 ]
+  %.0124.ph = phi ptr [ @.str.415, %105 ], [ @.str.416, %106 ], [ @.str.414, %102 ]
   %.0125.ph = load i32, ptr %.0125.ph.in, align 4
-  %109 = call i32 @tvb_reported_length(ptr noundef %1)
-  %110 = icmp ult i32 %104, %109
-  br i1 %110, label %111, label %112
+  %108 = call i32 @tvb_reported_length(ptr noundef %1)
+  %109 = icmp ult i32 %103, %108
+  br i1 %109, label %110, label %111
 
-111:                                              ; preds = %108
+110:                                              ; preds = %107
   call void @increment_dissection_depth(ptr noundef %2)
-  call fastcc void @process_tiff_ifd_chain(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %104, i32 noundef %.0125.ph, ptr noundef nonnull %.0124.ph)
+  call fastcc void @process_tiff_ifd_chain(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %103, i32 noundef %.0125.ph, ptr noundef nonnull %.0124.ph)
   call void @decrement_dissection_depth(ptr noundef %2)
-  br label %115
+  br label %114
 
-112:                                              ; preds = %108
-  %113 = call i32 @tvb_reported_length(ptr noundef %1)
-  %114 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %70, ptr noundef nonnull @ei_start_ifd_offset, ptr noundef nonnull @.str.411, i32 noundef %113)
-  br label %115
+111:                                              ; preds = %107
+  %112 = call i32 @tvb_reported_length(ptr noundef %1)
+  %113 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %69, ptr noundef nonnull @ei_start_ifd_offset, ptr noundef nonnull @.str.411, i32 noundef %112)
+  br label %114
 
-115:                                              ; preds = %103, %112, %111, %86, %96, %73
-  %116 = add i32 %.2162, %.0128147
-  %117 = add nuw i32 %.0130163, 1
-  %118 = load i32, ptr %11, align 4
-  %119 = icmp ult i32 %117, %118
-  br i1 %119, label %.lr.ph, label %.loopexit, !llvm.loop !10
+114:                                              ; preds = %102, %111, %110, %85, %95, %72
+  %115 = add i32 %.2162, %.0128147
+  %116 = add nuw i32 %.0130163, 1
+  %117 = load i32, ptr %11, align 4
+  %118 = icmp ult i32 %116, %117
+  br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %115, %66, %68, %58
-  %120 = add i32 %.0126165, 12
+.loopexit:                                        ; preds = %114, %65, %67, %57
+  %119 = add i32 %.0126165, 12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
@@ -1451,34 +1448,34 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not, label %._crit_edge, label %.lr.ph166, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit, %17
-  %.0126.lcssa = phi i32 [ %27, %17 ], [ %120, %.loopexit ]
-  %121 = load i32, ptr @hf_next_ifd_offset, align 4
-  %122 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %24, i32 noundef %121, ptr noundef %1, i32 noundef %.0126.lcssa, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %8)
-  %123 = load i32, ptr %8, align 4
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %.critedge, label %125
+  %.0126.lcssa = phi i32 [ %27, %17 ], [ %119, %.loopexit ]
+  %120 = load i32, ptr @hf_next_ifd_offset, align 4
+  %121 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %24, i32 noundef %120, ptr noundef %1, i32 noundef %.0126.lcssa, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %8)
+  %122 = load i32, ptr %8, align 4
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %.critedge, label %124
 
-125:                                              ; preds = %._crit_edge
-  %126 = add i32 %.0126.lcssa, 4
-  %127 = icmp ult i32 %123, %126
-  br i1 %127, label %128, label %130
+124:                                              ; preds = %._crit_edge
+  %125 = add i32 %.0126.lcssa, 4
+  %126 = icmp ult i32 %122, %125
+  br i1 %126, label %127, label %129
 
-128:                                              ; preds = %125
-  %129 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_next_ifd_offset, ptr noundef nonnull @.str.408, i32 noundef %126)
+127:                                              ; preds = %124
+  %128 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %121, ptr noundef nonnull @ei_next_ifd_offset, ptr noundef nonnull @.str.408, i32 noundef %125)
   br label %.critedge
 
-130:                                              ; preds = %125
-  %131 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %123)
-  %132 = icmp slt i32 %131, 6
-  %133 = add i32 %.0123, 1
-  br i1 %132, label %134, label %17
+129:                                              ; preds = %124
+  %130 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %122)
+  %131 = icmp slt i32 %130, 6
+  %132 = add i32 %.0123, 1
+  br i1 %131, label %133, label %17
 
-134:                                              ; preds = %130
-  %135 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef 6)
-  %136 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_next_ifd_offset, ptr noundef nonnull @.str.417, i32 noundef %135)
+133:                                              ; preds = %129
+  %134 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef 6)
+  %135 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %121, ptr noundef nonnull @ei_next_ifd_offset, ptr noundef nonnull @.str.417, i32 noundef %134)
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge, %128, %134
+.critedge:                                        ; preds = %._crit_edge, %127, %133
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
   ret void
 }

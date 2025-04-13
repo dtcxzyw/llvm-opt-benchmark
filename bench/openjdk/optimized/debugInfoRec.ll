@@ -1714,66 +1714,64 @@ define hidden void @_ZN24DebugInformationRecorder10end_scopesEib(ptr noundef non
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 1
-  br i1 %6, label %7, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i8, ptr %7, align 8
+  %9 = trunc i8 %8 to i1
+  %or.cond = select i1 %6, i1 %9, i1 false
+  br i1 %or.cond, label %_ZN24DebugInformationRecorder7prev_pcEv.exit, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i8, ptr %8, align 8
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %_ZN24DebugInformationRecorder7prev_pcEv.exit, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
+_ZN24DebugInformationRecorder7prev_pcEv.exit:     ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = load ptr, ptr %10, align 8
+  %12 = zext nneg i32 %5 to i64
+  %13 = getelementptr %class.PcDesc, ptr %11, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 -32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %16 = load i32, ptr %15, align 8
+  %17 = load i32, ptr %14, align 4
+  %18 = icmp slt i32 %16, %17
+  br i1 %18, label %19, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
 
-_ZN24DebugInformationRecorder7prev_pcEv.exit:     ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = load ptr, ptr %11, align 8
-  %13 = zext nneg i32 %5 to i64
-  %14 = getelementptr %class.PcDesc, ptr %12, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 -32
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %17 = load i32, ptr %16, align 8
-  %18 = load i32, ptr %15, align 4
-  %19 = icmp slt i32 %17, %18
-  br i1 %19, label %20, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
+19:                                               ; preds = %_ZN24DebugInformationRecorder7prev_pcEv.exit
+  %20 = getelementptr i8, ptr %13, i64 -28
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr i8, ptr %13, i64 -12
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp eq i32 %21, %23
+  br i1 %24, label %25, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
 
-20:                                               ; preds = %_ZN24DebugInformationRecorder7prev_pcEv.exit
-  %21 = getelementptr i8, ptr %14, i64 -28
-  %22 = load i32, ptr %21, align 4
-  %23 = getelementptr i8, ptr %14, i64 -12
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp eq i32 %22, %24
-  br i1 %25, label %26, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
+25:                                               ; preds = %19
+  %26 = getelementptr i8, ptr %13, i64 -24
+  %27 = load i32, ptr %26, align 4
+  %28 = getelementptr i8, ptr %13, i64 -8
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp eq i32 %27, %29
+  br i1 %30, label %_ZN6PcDesc12is_same_infoEPKS_.exit, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
 
-26:                                               ; preds = %20
-  %27 = getelementptr i8, ptr %14, i64 -24
-  %28 = load i32, ptr %27, align 4
-  %29 = getelementptr i8, ptr %14, i64 -8
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp eq i32 %28, %30
-  br i1 %31, label %_ZN6PcDesc12is_same_infoEPKS_.exit, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
+_ZN6PcDesc12is_same_infoEPKS_.exit:               ; preds = %25
+  %31 = getelementptr i8, ptr %13, i64 -20
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr i8, ptr %13, i64 -4
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp eq i32 %32, %34
+  br i1 %35, label %36, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
 
-_ZN6PcDesc12is_same_infoEPKS_.exit:               ; preds = %26
-  %32 = getelementptr i8, ptr %14, i64 -20
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr i8, ptr %14, i64 -4
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %33, %35
-  br i1 %36, label %37, label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
-
-37:                                               ; preds = %_ZN6PcDesc12is_same_infoEPKS_.exit
-  store i32 %1, ptr %15, align 4
-  %38 = load i32, ptr %4, align 4
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %4, align 4
+36:                                               ; preds = %_ZN6PcDesc12is_same_infoEPKS_.exit
+  store i32 %1, ptr %14, align 4
+  %37 = load i32, ptr %4, align 4
+  %38 = add nsw i32 %37, -1
+  store i32 %38, ptr %4, align 4
   br label %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
 
-_ZN6PcDesc12is_same_infoEPKS_.exit.thread:        ; preds = %20, %26, %_ZN24DebugInformationRecorder7prev_pcEv.exit, %_ZN6PcDesc12is_same_infoEPKS_.exit, %37, %7, %3
-  br i1 %2, label %40, label %42
+_ZN6PcDesc12is_same_infoEPKS_.exit.thread:        ; preds = %19, %25, %_ZN24DebugInformationRecorder7prev_pcEv.exit, %_ZN6PcDesc12is_same_infoEPKS_.exit, %36, %3
+  br i1 %2, label %39, label %41
 
-40:                                               ; preds = %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %1, ptr %41, align 8
-  br label %42
+39:                                               ; preds = %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %1, ptr %40, align 8
+  br label %41
 
-42:                                               ; preds = %40, %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
+41:                                               ; preds = %39, %_ZN6PcDesc12is_same_infoEPKS_.exit.thread
   ret void
 }
 

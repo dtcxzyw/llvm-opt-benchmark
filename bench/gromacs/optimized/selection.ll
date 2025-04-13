@@ -1777,37 +1777,35 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t(ptr noundef nonnull align 8 captures(none) dereferenceable(294) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %15, label %3
+  %.not = icmp ne ptr %1, null
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %4 = load i8, ptr %3, align 4, !range !119
+  %5 = trunc nuw i8 %4 to i1
+  %or.cond = select i1 %.not, i1 %5, i1 false
+  br i1 %or.cond, label %6, label %14
 
-3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %5 = load i8, ptr %4, align 4, !tbaa !37, !range !119, !noundef !120
-  %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %15
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %8 = load i64, ptr %7, align 8, !tbaa !120
+  %9 = and i64 %8, 8
+  %.not5 = icmp eq i64 %9, 0
+  br i1 %.not5, label %10, label %14
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %9 = load i64, ptr %8, align 8, !tbaa !121
-  %10 = and i64 %9, 8
-  %.not3 = icmp eq i64 %10, 0
-  br i1 %.not3, label %11, label %15
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  tail call fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(148) %11, ptr noundef %12, ptr noundef %13)
+  br label %14
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(148) %12, ptr noundef %13, ptr noundef %14)
-  br label %15
-
-15:                                               ; preds = %11, %7, %3, %2
+14:                                               ; preds = %10, %6, %2
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx8internal13SelectionData29updateCoveredFractionForFrameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(294) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 293
-  %3 = load i8, ptr %2, align 1, !tbaa !38, !range !119, !noundef !120
+  %3 = load i8, ptr %2, align 1, !tbaa !38, !range !119, !noundef !121
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %13
 
@@ -1832,7 +1830,7 @@ declare noundef float @_Z31_gmx_selelem_estimate_coverfracRKN3gmx20SelectionTree
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx8internal13SelectionData29computeAverageCoveredFractionEi(ptr noundef nonnull align 8 captures(none) dereferenceable(294) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 293
-  %4 = load i8, ptr %3, align 1, !tbaa !38, !range !119, !noundef !120
+  %4 = load i8, ptr %3, align 1, !tbaa !38, !range !119, !noundef !121
   %5 = trunc nuw i8 %4 to i1
   %6 = icmp sgt i32 %1, 0
   %or.cond = and i1 %6, %5
@@ -1853,7 +1851,7 @@ define void @_ZN3gmx8internal13SelectionData29computeAverageCoveredFractionEi(pt
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx8internal13SelectionData24restoreOriginalPositionsEPK10gmx_mtop_t(ptr noundef nonnull align 8 dereferenceable(294) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %4 = load i8, ptr %3, align 4, !tbaa !37, !range !119, !noundef !120
+  %4 = load i8, ptr %3, align 4, !tbaa !37, !range !119, !noundef !121
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit
 
@@ -1864,32 +1862,30 @@ define void @_ZN3gmx8internal13SelectionData24restoreOriginalPositionsEPK10gmx_m
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %13 = load i64, ptr %12, align 8, !tbaa !121
+  %13 = load i64, ptr %12, align 8, !tbaa !120
   %14 = and i64 %13, 8
   %15 = icmp ne i64 %14, 0
   tail call void @_Z23gmx_ana_indexmap_updateP18gmx_ana_indexmap_tP15gmx_ana_index_tb(ptr noundef nonnull %7, ptr noundef %11, i1 noundef zeroext %15)
-  %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit, label %16
+  %.not.i = icmp ne ptr %1, null
+  %16 = load i8, ptr %3, align 4, !range !119
+  %17 = trunc nuw i8 %16 to i1
+  %or.cond.i = select i1 %.not.i, i1 %17, i1 false
+  br i1 %or.cond.i, label %18, label %_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit
 
-16:                                               ; preds = %6
-  %17 = load i8, ptr %3, align 4, !tbaa !37, !range !119, !noundef !120
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit
+18:                                               ; preds = %6
+  %19 = load i64, ptr %12, align 8, !tbaa !120
+  %20 = and i64 %19, 8
+  %.not5.i = icmp eq i64 %20, 0
+  br i1 %.not5.i, label %21, label %_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit
 
-19:                                               ; preds = %16
-  %20 = load i64, ptr %12, align 8, !tbaa !121
-  %21 = and i64 %20, 8
-  %.not3.i = icmp eq i64 %21, 0
-  br i1 %.not3.i, label %22, label %_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit
-
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  tail call fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(148) %23, ptr noundef %24, ptr noundef %25)
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  tail call fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(148) %22, ptr noundef %23, ptr noundef %24)
   br label %_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit
 
-_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit: ; preds = %22, %19, %16, %6, %2
+_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit: ; preds = %21, %18, %6, %2
   ret void
 }
 
@@ -2359,7 +2355,7 @@ define void @_ZNK3gmx9Selection9printInfoEP8_IO_FILE(ptr noundef nonnull readonl
   %11 = icmp eq i32 %10, 1
   %12 = select i1 %11, ptr @.str.9, ptr @.str.10
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 292
-  %14 = load i8, ptr %13, align 4, !tbaa !37, !range !119, !noundef !120
+  %14 = load i8, ptr %13, align 4, !tbaa !37, !range !119, !noundef !121
   %15 = trunc nuw i8 %14 to i1
   %16 = select i1 %15, ptr @.str.11, ptr @.str.9
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef %4, i32 noundef %6, ptr noundef nonnull %8, i32 noundef %10, ptr noundef nonnull %12, ptr noundef nonnull %16) #26
@@ -2387,7 +2383,7 @@ define void @_ZNK3gmx9Selection14printDebugInfoEP8_IO_FILEi(ptr noundef nonnull 
   %16 = icmp eq i32 %15, 1
   %17 = select i1 %16, ptr @.str.9, ptr @.str.10
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 292
-  %19 = load i8, ptr %18, align 4, !tbaa !37, !range !119, !noundef !120
+  %19 = load i8, ptr %18, align 4, !tbaa !37, !range !119, !noundef !121
   %20 = trunc nuw i8 %19 to i1
   %21 = select i1 %20, ptr @.str.11, ptr @.str.9
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef %9, i32 noundef %11, ptr noundef nonnull %13, i32 noundef %15, ptr noundef nonnull %17, ptr noundef nonnull %21) #26
@@ -2772,8 +2768,8 @@ attributes #30 = { builtin allocsize(0) }
 !117 = distinct !{!117, !62}
 !118 = distinct !{!118, !62}
 !119 = !{i8 0, i8 2}
-!120 = !{}
-!121 = !{!32, !12, i64 0}
+!120 = !{!32, !12, i64 0}
+!121 = !{}
 !122 = !{!123, !124, i64 0}
 !123 = !{!"_ZTSN3gmx9SelectionE", !124, i64 0}
 !124 = !{!"p1 _ZTSN3gmx8internal13SelectionDataE", !7, i64 0}

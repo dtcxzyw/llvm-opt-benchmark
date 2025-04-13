@@ -9279,8 +9279,8 @@ define hidden void @_ZN13StubGenerator23generate_compiler_stubsEv(ptr noundef no
   store ptr %46, ptr @_ZN12StubRoutines3x8636_vector_reverse_byte_perm_mask_shortE, align 8
   %47 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %48 = and i64 %47, 8590458880
-  %or.cond.not = icmp eq i64 %48, 524288
-  br i1 %or.cond.not, label %49, label %69
+  %or.cond77.not = icmp eq i64 %48, 524288
+  br i1 %or.cond77.not, label %49, label %69
 
 49:                                               ; preds = %1
   %50 = call noundef ptr @_ZN13StubGenerator28generate_compress_perm_tableEPKci(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.92, i32 noundef 32)
@@ -9336,8 +9336,8 @@ _ZN13StubGenerator26generate_expand_perm_tableEPKci.exit: ; preds = %66
 69:                                               ; preds = %_ZN13StubGenerator26generate_expand_perm_tableEPKci.exit, %1
   %70 = phi i64 [ %.pre, %_ZN13StubGenerator26generate_expand_perm_tableEPKci.exit ], [ %47, %1 ]
   %71 = and i64 %70, 137439477760
-  %or.cond76.not = icmp eq i64 %71, 524288
-  br i1 %or.cond76.not, label %72, label %74
+  %or.cond79.not = icmp eq i64 %71, 524288
+  br i1 %or.cond79.not, label %72, label %74
 
 72:                                               ; preds = %69
   %73 = call noundef ptr @_ZN13StubGenerator25generate_popcount_avx_lutEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.96)
@@ -9350,512 +9350,510 @@ _ZN13StubGenerator26generate_expand_perm_tableEPKci.exit: ; preds = %66
   call void @_ZN13StubGenerator21generate_chacha_stubsEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
   %75 = load i32, ptr @UseAVX, align 4
   %76 = icmp eq i32 %75, 2
-  br i1 %76, label %77, label %81
+  %77 = load i8, ptr @EnableX86ECoreOpts, align 1
+  %78 = trunc i8 %77 to i1
+  %or.cond = select i1 %76, i1 %78, i1 false
+  br i1 %or.cond, label %79, label %80
 
-77:                                               ; preds = %74
-  %78 = load i8, ptr @EnableX86ECoreOpts, align 1
-  %79 = trunc i8 %78 to i1
-  br i1 %79, label %80, label %81
-
-80:                                               ; preds = %77
+79:                                               ; preds = %74
   call void @_ZN13StubGenerator23generate_string_indexofEPPh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @_ZN12StubRoutines21_string_indexof_arrayE) #12
-  br label %81
+  br label %80
 
-81:                                               ; preds = %80, %77, %74
-  %82 = load i8, ptr @UseAdler32Intrinsics, align 1
-  %83 = trunc i8 %82 to i1
-  br i1 %83, label %84, label %86
+80:                                               ; preds = %79, %74
+  %81 = load i8, ptr @UseAdler32Intrinsics, align 1
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %85
 
-84:                                               ; preds = %81
-  %85 = call noundef ptr @_ZN13StubGenerator27generate_updateBytesAdler32Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  store ptr %85, ptr @_ZN12StubRoutines19_updateBytesAdler32E, align 8
-  br label %86
+83:                                               ; preds = %80
+  %84 = call noundef ptr @_ZN13StubGenerator27generate_updateBytesAdler32Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  store ptr %84, ptr @_ZN12StubRoutines19_updateBytesAdler32E, align 8
+  br label %85
 
-86:                                               ; preds = %84, %81
-  %87 = load i8, ptr @UsePoly1305Intrinsics, align 1
-  %88 = trunc i8 %87 to i1
-  br i1 %88, label %89, label %91
+85:                                               ; preds = %83, %80
+  %86 = load i8, ptr @UsePoly1305Intrinsics, align 1
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %88, label %90
 
-89:                                               ; preds = %86
-  %90 = call noundef ptr @_ZN13StubGenerator31generate_poly1305_processBlocksEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  store ptr %90, ptr @_ZN12StubRoutines23_poly1305_processBlocksE, align 8
-  br label %91
+88:                                               ; preds = %85
+  %89 = call noundef ptr @_ZN13StubGenerator31generate_poly1305_processBlocksEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  store ptr %89, ptr @_ZN12StubRoutines23_poly1305_processBlocksE, align 8
+  br label %90
 
-91:                                               ; preds = %89, %86
-  %92 = load i8, ptr @UseIntPolyIntrinsics, align 1
-  %93 = trunc i8 %92 to i1
-  br i1 %93, label %94, label %97
+90:                                               ; preds = %88, %85
+  %91 = load i8, ptr @UseIntPolyIntrinsics, align 1
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %96
 
-94:                                               ; preds = %91
-  %95 = call noundef ptr @_ZN13StubGenerator36generate_intpoly_montgomeryMult_P256Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  store ptr %95, ptr @_ZN12StubRoutines28_intpoly_montgomeryMult_P256E, align 8
-  %96 = call noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
-  store ptr %96, ptr @_ZN12StubRoutines15_intpoly_assignE, align 8
-  br label %97
+93:                                               ; preds = %90
+  %94 = call noundef ptr @_ZN13StubGenerator36generate_intpoly_montgomeryMult_P256Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  store ptr %94, ptr @_ZN12StubRoutines28_intpoly_montgomeryMult_P256E, align 8
+  %95 = call noundef ptr @_ZN13StubGenerator23generate_intpoly_assignEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  store ptr %95, ptr @_ZN12StubRoutines15_intpoly_assignE, align 8
+  br label %96
 
-97:                                               ; preds = %94, %91
-  %98 = load i8, ptr @UseMD5Intrinsics, align 1
-  %99 = trunc i8 %98 to i1
-  br i1 %99, label %100, label %103
+96:                                               ; preds = %93, %90
+  %97 = load i8, ptr @UseMD5Intrinsics, align 1
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %99, label %102
 
-100:                                              ; preds = %97
-  %101 = call noundef ptr @_ZN13StubGenerator25generate_md5_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, ptr noundef nonnull @.str.97)
-  store ptr %101, ptr @_ZN12StubRoutines17_md5_implCompressE, align 8
-  %102 = call noundef ptr @_ZN13StubGenerator25generate_md5_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext true, ptr noundef nonnull @.str.98)
-  store ptr %102, ptr @_ZN12StubRoutines19_md5_implCompressMBE, align 8
-  br label %103
+99:                                               ; preds = %96
+  %100 = call noundef ptr @_ZN13StubGenerator25generate_md5_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, ptr noundef nonnull @.str.97)
+  store ptr %100, ptr @_ZN12StubRoutines17_md5_implCompressE, align 8
+  %101 = call noundef ptr @_ZN13StubGenerator25generate_md5_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext true, ptr noundef nonnull @.str.98)
+  store ptr %101, ptr @_ZN12StubRoutines19_md5_implCompressMBE, align 8
+  br label %102
 
-103:                                              ; preds = %100, %97
-  %104 = load i8, ptr @UseSHA1Intrinsics, align 1
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %106, label %123
+102:                                              ; preds = %99, %96
+  %103 = load i8, ptr @UseSHA1Intrinsics, align 1
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %105, label %122
 
-106:                                              ; preds = %103
+105:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %107 = load ptr, ptr %26, align 8
-  call void @_ZN14MacroAssembler7align64Ev(ptr noundef nonnull align 8 dereferenceable(40) %107) #12
+  %106 = load ptr, ptr %26, align 8
+  call void @_ZN14MacroAssembler7align64Ev(ptr noundef nonnull align 8 dereferenceable(40) %106) #12
   call void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.20) #12
-  %108 = load ptr, ptr %26, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %112 = load ptr, ptr %111, align 8
-  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %108, i64 noundef 0, i32 noundef 0, i32 noundef 0) #12
-  %113 = load ptr, ptr %26, align 8
-  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %113, i64 noundef -4294967296, i32 noundef 0, i32 noundef 0) #12
+  %107 = load ptr, ptr %26, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %111 = load ptr, ptr %110, align 8
+  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %107, i64 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  %112 = load ptr, ptr %26, align 8
+  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %112, i64 noundef -4294967296, i32 noundef 0, i32 noundef 0) #12
   call void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  store ptr %112, ptr @_ZN12StubRoutines3x8621_upper_word_mask_addrE, align 8
+  store ptr %111, ptr @_ZN12StubRoutines3x8621_upper_word_mask_addrE, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %114 = load ptr, ptr %26, align 8
-  call void @_ZN14MacroAssembler7align64Ev(ptr noundef nonnull align 8 dereferenceable(40) %114) #12
+  %113 = load ptr, ptr %26, align 8
+  call void @_ZN14MacroAssembler7align64Ev(ptr noundef nonnull align 8 dereferenceable(40) %113) #12
   call void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21) #12
-  %115 = load ptr, ptr %26, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %119 = load ptr, ptr %118, align 8
-  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %115, i64 noundef 579005069656919567, i32 noundef 0, i32 noundef 0) #12
-  %120 = load ptr, ptr %26, align 8
-  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %120, i64 noundef 283686952306183, i32 noundef 0, i32 noundef 0) #12
+  %114 = load ptr, ptr %26, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %118 = load ptr, ptr %117, align 8
+  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %114, i64 noundef 579005069656919567, i32 noundef 0, i32 noundef 0) #12
+  %119 = load ptr, ptr %26, align 8
+  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %119, i64 noundef 283686952306183, i32 noundef 0, i32 noundef 0) #12
   call void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  store ptr %119, ptr @_ZN12StubRoutines3x8628_shuffle_byte_flip_mask_addrE, align 8
-  %121 = call noundef ptr @_ZN13StubGenerator26generate_sha1_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, ptr noundef nonnull @.str.99)
-  store ptr %121, ptr @_ZN12StubRoutines18_sha1_implCompressE, align 8
-  %122 = call noundef ptr @_ZN13StubGenerator26generate_sha1_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext true, ptr noundef nonnull @.str.100)
-  store ptr %122, ptr @_ZN12StubRoutines20_sha1_implCompressMBE, align 8
-  br label %123
+  store ptr %118, ptr @_ZN12StubRoutines3x8628_shuffle_byte_flip_mask_addrE, align 8
+  %120 = call noundef ptr @_ZN13StubGenerator26generate_sha1_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, ptr noundef nonnull @.str.99)
+  store ptr %120, ptr @_ZN12StubRoutines18_sha1_implCompressE, align 8
+  %121 = call noundef ptr @_ZN13StubGenerator26generate_sha1_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext true, ptr noundef nonnull @.str.100)
+  store ptr %121, ptr @_ZN12StubRoutines20_sha1_implCompressMBE, align 8
+  br label %122
 
-123:                                              ; preds = %106, %103
-  %124 = load i8, ptr @UseSHA256Intrinsics, align 1
-  %125 = trunc i8 %124 to i1
-  br i1 %125, label %126, label %137
+122:                                              ; preds = %105, %102
+  %123 = load i8, ptr @UseSHA256Intrinsics, align 1
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %125, label %136
 
-126:                                              ; preds = %123
+125:                                              ; preds = %122
   store ptr @_ZN12StubRoutines3x865_k256E, ptr @_ZN12StubRoutines3x869_k256_adrE, align 8
-  br label %127
+  br label %126
 
-127:                                              ; preds = %126, %127
-  %indvars.iv = phi i64 [ 0, %126 ], [ %indvars.iv.next, %127 ]
-  %128 = shl nuw nsw i64 %indvars.iv, 5
-  %129 = getelementptr inbounds nuw i8, ptr @_ZN12StubRoutines3x867_k256_WE, i64 %128
-  %130 = shl nuw nsw i64 %indvars.iv, 4
-  %131 = getelementptr inbounds nuw i8, ptr @_ZN12StubRoutines3x865_k256E, i64 %130
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %129, ptr noundef nonnull align 4 dereferenceable(16) %131, i64 16, i1 false)
-  %132 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %132, ptr noundef nonnull align 4 dereferenceable(16) %131, i64 16, i1 false)
+126:                                              ; preds = %125, %126
+  %indvars.iv = phi i64 [ 0, %125 ], [ %indvars.iv.next, %126 ]
+  %127 = shl nuw nsw i64 %indvars.iv, 5
+  %128 = getelementptr inbounds nuw i8, ptr @_ZN12StubRoutines3x867_k256_WE, i64 %127
+  %129 = shl nuw nsw i64 %indvars.iv, 4
+  %130 = getelementptr inbounds nuw i8, ptr @_ZN12StubRoutines3x865_k256E, i64 %129
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %128, ptr noundef nonnull align 4 dereferenceable(16) %130, i64 16, i1 false)
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %131, ptr noundef nonnull align 4 dereferenceable(16) %130, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %133, label %127, !llvm.loop !17
+  br i1 %exitcond.not, label %132, label %126, !llvm.loop !17
 
-133:                                              ; preds = %127
+132:                                              ; preds = %126
   store ptr @_ZN12StubRoutines3x867_k256_WE, ptr @_ZN12StubRoutines3x8611_k256_W_adrE, align 8
-  %134 = call noundef ptr @_ZN13StubGenerator32generate_pshuffle_byte_flip_maskEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %134, ptr @_ZN12StubRoutines3x8629_pshuffle_byte_flip_mask_addrE, align 8
-  %135 = call noundef ptr @_ZN13StubGenerator28generate_sha256_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, ptr noundef nonnull @.str.101)
-  store ptr %135, ptr @_ZN12StubRoutines20_sha256_implCompressE, align 8
-  %136 = call noundef ptr @_ZN13StubGenerator28generate_sha256_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext true, ptr noundef nonnull @.str.102)
-  store ptr %136, ptr @_ZN12StubRoutines22_sha256_implCompressMBE, align 8
-  br label %137
+  %133 = call noundef ptr @_ZN13StubGenerator32generate_pshuffle_byte_flip_maskEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %133, ptr @_ZN12StubRoutines3x8629_pshuffle_byte_flip_mask_addrE, align 8
+  %134 = call noundef ptr @_ZN13StubGenerator28generate_sha256_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, ptr noundef nonnull @.str.101)
+  store ptr %134, ptr @_ZN12StubRoutines20_sha256_implCompressE, align 8
+  %135 = call noundef ptr @_ZN13StubGenerator28generate_sha256_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext true, ptr noundef nonnull @.str.102)
+  store ptr %135, ptr @_ZN12StubRoutines22_sha256_implCompressMBE, align 8
+  br label %136
 
-137:                                              ; preds = %133, %123
-  %138 = load i8, ptr @UseSHA512Intrinsics, align 1
-  %139 = trunc i8 %138 to i1
-  br i1 %139, label %140, label %144
+136:                                              ; preds = %132, %122
+  %137 = load i8, ptr @UseSHA512Intrinsics, align 1
+  %138 = trunc i8 %137 to i1
+  br i1 %138, label %139, label %143
 
-140:                                              ; preds = %137
+139:                                              ; preds = %136
   store ptr @_ZN12StubRoutines3x867_k512_WE, ptr @_ZN12StubRoutines3x8612_k512_W_addrE, align 8
-  %141 = call noundef ptr @_ZN13StubGenerator39generate_pshuffle_byte_flip_mask_sha512Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %141, ptr @_ZN12StubRoutines3x8636_pshuffle_byte_flip_mask_addr_sha512E, align 8
-  %142 = call noundef ptr @_ZN13StubGenerator28generate_sha512_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, ptr noundef nonnull @.str.103)
-  store ptr %142, ptr @_ZN12StubRoutines20_sha512_implCompressE, align 8
-  %143 = call noundef ptr @_ZN13StubGenerator28generate_sha512_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext true, ptr noundef nonnull @.str.104)
-  store ptr %143, ptr @_ZN12StubRoutines22_sha512_implCompressMBE, align 8
-  br label %144
+  %140 = call noundef ptr @_ZN13StubGenerator39generate_pshuffle_byte_flip_mask_sha512Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %140, ptr @_ZN12StubRoutines3x8636_pshuffle_byte_flip_mask_addr_sha512E, align 8
+  %141 = call noundef ptr @_ZN13StubGenerator28generate_sha512_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, ptr noundef nonnull @.str.103)
+  store ptr %141, ptr @_ZN12StubRoutines20_sha512_implCompressE, align 8
+  %142 = call noundef ptr @_ZN13StubGenerator28generate_sha512_implCompressEbPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext true, ptr noundef nonnull @.str.104)
+  store ptr %142, ptr @_ZN12StubRoutines22_sha512_implCompressMBE, align 8
+  br label %143
 
-144:                                              ; preds = %140, %137
-  %145 = load i8, ptr @UseBASE64Intrinsics, align 1
-  %146 = trunc i8 %145 to i1
-  br i1 %146, label %147, label %190
+143:                                              ; preds = %139, %136
+  %144 = load i8, ptr @UseBASE64Intrinsics, align 1
+  %145 = trunc i8 %144 to i1
+  br i1 %145, label %146, label %189
 
-147:                                              ; preds = %144
-  %148 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %149 = and i64 %148, 524288
-  %.not79 = icmp eq i64 %149, 0
-  br i1 %.not79, label %172, label %150
+146:                                              ; preds = %143
+  %147 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %148 = and i64 %147, 524288
+  %.not82 = icmp eq i64 %148, 0
+  br i1 %.not82, label %171, label %149
 
-150:                                              ; preds = %147
+149:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %151 = load ptr, ptr %26, align 8
-  call void @_ZN14MacroAssembler7align32Ev(ptr noundef nonnull align 8 dereferenceable(40) %151) #12
+  %150 = load ptr, ptr %26, align 8
+  call void @_ZN14MacroAssembler7align32Ev(ptr noundef nonnull align 8 dereferenceable(40) %150) #12
   call void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.25) #12
-  %152 = load ptr, ptr %26, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  %156 = load ptr, ptr %155, align 8
-  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %152, i64 noundef 579001758119232517, i32 noundef 0, i32 noundef 0) #12
+  %151 = load ptr, ptr %26, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  %155 = load ptr, ptr %154, align 8
+  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %151, i64 noundef 579001758119232517, i32 noundef 0, i32 noundef 0) #12
+  %156 = load ptr, ptr %26, align 8
+  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %156, i64 noundef 1013042795147692555, i32 noundef 0, i32 noundef 0) #12
   %157 = load ptr, ptr %26, align 8
-  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %157, i64 noundef 1013042795147692555, i32 noundef 0, i32 noundef 0) #12
+  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %157, i64 noundef 289641066766925825, i32 noundef 0, i32 noundef 0) #12
   %158 = load ptr, ptr %26, align 8
-  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %158, i64 noundef 289641066766925825, i32 noundef 0, i32 noundef 0) #12
-  %159 = load ptr, ptr %26, align 8
-  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %159, i64 noundef 723682103795385863, i32 noundef 0, i32 noundef 0) #12
+  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %158, i64 noundef 723682103795385863, i32 noundef 0, i32 noundef 0) #12
   call void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  store ptr %156, ptr @_ZN12StubRoutines3x8620_avx2_shuffle_base64E, align 8
+  store ptr %155, ptr @_ZN12StubRoutines3x8620_avx2_shuffle_base64E, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %160 = load ptr, ptr %26, align 8
-  call void @_ZN14MacroAssembler7align32Ev(ptr noundef nonnull align 8 dereferenceable(40) %160) #12
+  %159 = load ptr, ptr %26, align 8
+  call void @_ZN14MacroAssembler7align32Ev(ptr noundef nonnull align 8 dereferenceable(40) %159) #12
   call void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.26) #12
-  %161 = load ptr, ptr %26, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  %165 = load ptr, ptr %164, align 8
-  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %161, i64 noundef -9223372036854775808, i32 noundef 0, i32 noundef 0) #12
+  %160 = load ptr, ptr %26, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  %164 = load ptr, ptr %163, align 8
+  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %160, i64 noundef -9223372036854775808, i32 noundef 0, i32 noundef 0) #12
+  %165 = load ptr, ptr %26, align 8
+  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %165, i64 noundef -9223372034707292160, i32 noundef 0, i32 noundef 0) #12
   %166 = load ptr, ptr %26, align 8
   call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %166, i64 noundef -9223372034707292160, i32 noundef 0, i32 noundef 0) #12
   %167 = load ptr, ptr %26, align 8
   call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %167, i64 noundef -9223372034707292160, i32 noundef 0, i32 noundef 0) #12
-  %168 = load ptr, ptr %26, align 8
-  call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %168, i64 noundef -9223372034707292160, i32 noundef 0, i32 noundef 0) #12
   call void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  store ptr %165, ptr @_ZN12StubRoutines3x8623_avx2_input_mask_base64E, align 8
-  %169 = call noundef ptr @_ZN13StubGenerator20base64_avx2_lut_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %169, ptr @_ZN12StubRoutines3x8616_avx2_lut_base64E, align 8
-  %170 = call noundef ptr @_ZN13StubGenerator30base64_AVX2_decode_tables_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %170, ptr @_ZN12StubRoutines3x8626_avx2_decode_tables_base64E, align 8
-  %171 = call noundef ptr @_ZN13StubGenerator34base64_AVX2_decode_LUT_tables_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %171, ptr @_ZN12StubRoutines3x8630_avx2_decode_lut_tables_base64E, align 8
-  br label %172
+  store ptr %164, ptr @_ZN12StubRoutines3x8623_avx2_input_mask_base64E, align 8
+  %168 = call noundef ptr @_ZN13StubGenerator20base64_avx2_lut_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %168, ptr @_ZN12StubRoutines3x8616_avx2_lut_base64E, align 8
+  %169 = call noundef ptr @_ZN13StubGenerator30base64_AVX2_decode_tables_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %169, ptr @_ZN12StubRoutines3x8626_avx2_decode_tables_base64E, align 8
+  %170 = call noundef ptr @_ZN13StubGenerator34base64_AVX2_decode_LUT_tables_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %170, ptr @_ZN12StubRoutines3x8630_avx2_decode_lut_tables_base64E, align 8
+  br label %171
 
-172:                                              ; preds = %150, %147
-  %173 = call noundef ptr @_ZN13StubGenerator26base64_encoding_table_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %173, ptr @_ZN12StubRoutines3x8622_encoding_table_base64E, align 8
-  %174 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %175 = and i64 %174, 35184372088832
-  %.not80 = icmp eq i64 %175, 0
-  br i1 %.not80, label %186, label %176
+171:                                              ; preds = %149, %146
+  %172 = call noundef ptr @_ZN13StubGenerator26base64_encoding_table_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %172, ptr @_ZN12StubRoutines3x8622_encoding_table_base64E, align 8
+  %173 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %174 = and i64 %173, 35184372088832
+  %.not83 = icmp eq i64 %174, 0
+  br i1 %.not83, label %185, label %175
 
-176:                                              ; preds = %172
-  %177 = call noundef ptr @_ZN13StubGenerator19base64_shuffle_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %177, ptr @_ZN12StubRoutines3x8615_shuffle_base64E, align 8
-  %178 = call noundef ptr @_ZN13StubGenerator26base64_vbmi_lookup_lo_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %178, ptr @_ZN12StubRoutines3x8617_lookup_lo_base64E, align 8
-  %179 = call noundef ptr @_ZN13StubGenerator26base64_vbmi_lookup_hi_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %179, ptr @_ZN12StubRoutines3x8617_lookup_hi_base64E, align 8
-  %180 = call noundef ptr @_ZN13StubGenerator30base64_vbmi_lookup_lo_url_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %180, ptr @_ZN12StubRoutines3x8620_lookup_lo_base64urlE, align 8
-  %181 = call noundef ptr @_ZN13StubGenerator30base64_vbmi_lookup_hi_url_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %181, ptr @_ZN12StubRoutines3x8620_lookup_hi_base64urlE, align 8
-  %182 = call noundef ptr @_ZN13StubGenerator25base64_vbmi_pack_vec_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %182, ptr @_ZN12StubRoutines3x8616_pack_vec_base64E, align 8
-  %183 = call noundef ptr @_ZN13StubGenerator25base64_vbmi_join_0_1_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %183, ptr @_ZN12StubRoutines3x8616_join_0_1_base64E, align 8
-  %184 = call noundef ptr @_ZN13StubGenerator25base64_vbmi_join_1_2_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %184, ptr @_ZN12StubRoutines3x8616_join_1_2_base64E, align 8
-  %185 = call noundef ptr @_ZN13StubGenerator25base64_vbmi_join_2_3_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %185, ptr @_ZN12StubRoutines3x8616_join_2_3_base64E, align 8
-  br label %186
+175:                                              ; preds = %171
+  %176 = call noundef ptr @_ZN13StubGenerator19base64_shuffle_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %176, ptr @_ZN12StubRoutines3x8615_shuffle_base64E, align 8
+  %177 = call noundef ptr @_ZN13StubGenerator26base64_vbmi_lookup_lo_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %177, ptr @_ZN12StubRoutines3x8617_lookup_lo_base64E, align 8
+  %178 = call noundef ptr @_ZN13StubGenerator26base64_vbmi_lookup_hi_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %178, ptr @_ZN12StubRoutines3x8617_lookup_hi_base64E, align 8
+  %179 = call noundef ptr @_ZN13StubGenerator30base64_vbmi_lookup_lo_url_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %179, ptr @_ZN12StubRoutines3x8620_lookup_lo_base64urlE, align 8
+  %180 = call noundef ptr @_ZN13StubGenerator30base64_vbmi_lookup_hi_url_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %180, ptr @_ZN12StubRoutines3x8620_lookup_hi_base64urlE, align 8
+  %181 = call noundef ptr @_ZN13StubGenerator25base64_vbmi_pack_vec_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %181, ptr @_ZN12StubRoutines3x8616_pack_vec_base64E, align 8
+  %182 = call noundef ptr @_ZN13StubGenerator25base64_vbmi_join_0_1_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %182, ptr @_ZN12StubRoutines3x8616_join_0_1_base64E, align 8
+  %183 = call noundef ptr @_ZN13StubGenerator25base64_vbmi_join_1_2_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %183, ptr @_ZN12StubRoutines3x8616_join_1_2_base64E, align 8
+  %184 = call noundef ptr @_ZN13StubGenerator25base64_vbmi_join_2_3_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %184, ptr @_ZN12StubRoutines3x8616_join_2_3_base64E, align 8
+  br label %185
 
-186:                                              ; preds = %176, %172
-  %187 = call noundef ptr @_ZN13StubGenerator26base64_decoding_table_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %187, ptr @_ZN12StubRoutines3x8622_decoding_table_base64E, align 8
-  %188 = call noundef ptr @_ZN13StubGenerator27generate_base64_encodeBlockEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %188, ptr @_ZN12StubRoutines19_base64_encodeBlockE, align 8
-  %189 = call noundef ptr @_ZN13StubGenerator27generate_base64_decodeBlockEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %189, ptr @_ZN12StubRoutines19_base64_decodeBlockE, align 8
-  br label %190
+185:                                              ; preds = %175, %171
+  %186 = call noundef ptr @_ZN13StubGenerator26base64_decoding_table_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %186, ptr @_ZN12StubRoutines3x8622_decoding_table_base64E, align 8
+  %187 = call noundef ptr @_ZN13StubGenerator27generate_base64_encodeBlockEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %187, ptr @_ZN12StubRoutines19_base64_encodeBlockE, align 8
+  %188 = call noundef ptr @_ZN13StubGenerator27generate_base64_decodeBlockEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %188, ptr @_ZN12StubRoutines19_base64_decodeBlockE, align 8
+  br label %189
 
-190:                                              ; preds = %186, %144
-  %191 = load i8, ptr @UseMultiplyToLenIntrinsic, align 1
-  %192 = trunc i8 %191 to i1
-  br i1 %192, label %193, label %195
+189:                                              ; preds = %185, %143
+  %190 = load i8, ptr @UseMultiplyToLenIntrinsic, align 1
+  %191 = trunc i8 %190 to i1
+  br i1 %191, label %192, label %194
 
-193:                                              ; preds = %190
-  %194 = call noundef ptr @_ZN13StubGenerator22generate_multiplyToLenEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %194, ptr @_ZN12StubRoutines14_multiplyToLenE, align 8
-  br label %195
+192:                                              ; preds = %189
+  %193 = call noundef ptr @_ZN13StubGenerator22generate_multiplyToLenEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %193, ptr @_ZN12StubRoutines14_multiplyToLenE, align 8
+  br label %194
 
-195:                                              ; preds = %193, %190
-  %196 = load i8, ptr @UseSquareToLenIntrinsic, align 1
-  %197 = trunc i8 %196 to i1
-  br i1 %197, label %198, label %200
+194:                                              ; preds = %192, %189
+  %195 = load i8, ptr @UseSquareToLenIntrinsic, align 1
+  %196 = trunc i8 %195 to i1
+  br i1 %196, label %197, label %199
 
-198:                                              ; preds = %195
-  %199 = call noundef ptr @_ZN13StubGenerator20generate_squareToLenEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %199, ptr @_ZN12StubRoutines12_squareToLenE, align 8
-  br label %200
+197:                                              ; preds = %194
+  %198 = call noundef ptr @_ZN13StubGenerator20generate_squareToLenEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %198, ptr @_ZN12StubRoutines12_squareToLenE, align 8
+  br label %199
 
-200:                                              ; preds = %198, %195
-  %201 = load i8, ptr @UseMulAddIntrinsic, align 1
-  %202 = trunc i8 %201 to i1
-  br i1 %202, label %203, label %205
+199:                                              ; preds = %197, %194
+  %200 = load i8, ptr @UseMulAddIntrinsic, align 1
+  %201 = trunc i8 %200 to i1
+  br i1 %201, label %202, label %204
 
-203:                                              ; preds = %200
-  %204 = call noundef ptr @_ZN13StubGenerator15generate_mulAddEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %204, ptr @_ZN12StubRoutines7_mulAddE, align 8
-  br label %205
+202:                                              ; preds = %199
+  %203 = call noundef ptr @_ZN13StubGenerator15generate_mulAddEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %203, ptr @_ZN12StubRoutines7_mulAddE, align 8
+  br label %204
 
-205:                                              ; preds = %203, %200
-  %206 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %207 = and i64 %206, 17592186044416
-  %.not81 = icmp eq i64 %207, 0
-  br i1 %.not81, label %211, label %208
+204:                                              ; preds = %202, %199
+  %205 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %206 = and i64 %205, 17592186044416
+  %.not84 = icmp eq i64 %206, 0
+  br i1 %.not84, label %210, label %207
 
-208:                                              ; preds = %205
-  %209 = call noundef ptr @_ZN13StubGenerator29generate_bigIntegerRightShiftEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %209, ptr @_ZN12StubRoutines27_bigIntegerRightShiftWorkerE, align 8
-  %210 = call noundef ptr @_ZN13StubGenerator28generate_bigIntegerLeftShiftEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %210, ptr @_ZN12StubRoutines26_bigIntegerLeftShiftWorkerE, align 8
-  br label %211
+207:                                              ; preds = %204
+  %208 = call noundef ptr @_ZN13StubGenerator29generate_bigIntegerRightShiftEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %208, ptr @_ZN12StubRoutines27_bigIntegerRightShiftWorkerE, align 8
+  %209 = call noundef ptr @_ZN13StubGenerator28generate_bigIntegerLeftShiftEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %209, ptr @_ZN12StubRoutines26_bigIntegerLeftShiftWorkerE, align 8
+  br label %210
 
-211:                                              ; preds = %208, %205
-  %212 = load i8, ptr @UseSecondarySupersTable, align 1
-  %213 = trunc i8 %212 to i1
-  br i1 %213, label %214, label %.loopexit88
+210:                                              ; preds = %207, %204
+  %211 = load i8, ptr @UseSecondarySupersTable, align 1
+  %212 = trunc i8 %211 to i1
+  br i1 %212, label %213, label %.loopexit91
 
-214:                                              ; preds = %211
-  %215 = call noundef ptr @_ZN13StubGenerator53generate_lookup_secondary_supers_table_slow_path_stubEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr %215, ptr @_ZN12StubRoutines45_lookup_secondary_supers_table_slow_path_stubE, align 8
-  %216 = load i8, ptr @InlineSecondarySupersTest, align 1
-  %217 = trunc i8 %216 to i1
-  br i1 %217, label %.loopexit88, label %.preheader87
+213:                                              ; preds = %210
+  %214 = call noundef ptr @_ZN13StubGenerator53generate_lookup_secondary_supers_table_slow_path_stubEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store ptr %214, ptr @_ZN12StubRoutines45_lookup_secondary_supers_table_slow_path_stubE, align 8
+  %215 = load i8, ptr @InlineSecondarySupersTest, align 1
+  %216 = trunc i8 %215 to i1
+  br i1 %216, label %.loopexit91, label %.preheader90
 
-.preheader87:                                     ; preds = %214, %.preheader87
-  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %.preheader87 ], [ 0, %214 ]
-  %218 = trunc i64 %indvars.iv94 to i8
+.preheader90:                                     ; preds = %213, %.preheader90
+  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.preheader90 ], [ 0, %213 ]
+  %217 = trunc i64 %indvars.iv97 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.59) #12
-  %219 = load ptr, ptr %26, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
-  %223 = load ptr, ptr %222, align 8
-  call void @_ZN14MacroAssembler29lookup_secondary_supers_tableE8RegisterS0_S0_S0_S0_S0_S0_h(ptr noundef nonnull align 8 dereferenceable(40) %219, i32 6, i32 0, i32 2, i32 1, i32 3, i32 11, i32 7, i8 noundef zeroext %218) #12
-  %224 = load ptr, ptr %26, align 8
-  call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %224, i32 noundef 0) #12
+  %218 = load ptr, ptr %26, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
+  %222 = load ptr, ptr %221, align 8
+  call void @_ZN14MacroAssembler29lookup_secondary_supers_tableE8RegisterS0_S0_S0_S0_S0_S0_h(ptr noundef nonnull align 8 dereferenceable(40) %218, i32 6, i32 0, i32 2, i32 1, i32 3, i32 11, i32 7, i8 noundef zeroext %217) #12
+  %223 = load ptr, ptr %26, align 8
+  call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %223, i32 noundef 0) #12
   call void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %225 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12StubRoutines36_lookup_secondary_supers_table_stubsE, i64 0, i64 %indvars.iv94
-  store ptr %223, ptr %225, align 8
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %exitcond97.not = icmp eq i64 %indvars.iv.next95, 64
-  br i1 %exitcond97.not, label %.loopexit88, label %.preheader87, !llvm.loop !18
+  %224 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12StubRoutines36_lookup_secondary_supers_table_stubsE, i64 0, i64 %indvars.iv97
+  store ptr %222, ptr %224, align 8
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 64
+  br i1 %exitcond100.not, label %.loopexit91, label %.preheader90, !llvm.loop !18
 
-.loopexit88:                                      ; preds = %.preheader87, %214, %211
-  %226 = load i8, ptr @UseMontgomeryMultiplyIntrinsic, align 1
-  %227 = trunc i8 %226 to i1
-  br i1 %227, label %228, label %229
+.loopexit91:                                      ; preds = %.preheader90, %213, %210
+  %225 = load i8, ptr @UseMontgomeryMultiplyIntrinsic, align 1
+  %226 = trunc i8 %225 to i1
+  br i1 %226, label %227, label %228
 
-228:                                              ; preds = %.loopexit88
+227:                                              ; preds = %.loopexit91
   store ptr @_ZN13SharedRuntime19montgomery_multiplyEPiS0_S0_ilS0_, ptr @_ZN12StubRoutines19_montgomeryMultiplyE, align 8
-  br label %229
+  br label %228
 
-229:                                              ; preds = %228, %.loopexit88
-  %230 = load i8, ptr @UseMontgomerySquareIntrinsic, align 1
-  %231 = trunc i8 %230 to i1
-  br i1 %231, label %232, label %233
+228:                                              ; preds = %227, %.loopexit91
+  %229 = load i8, ptr @UseMontgomerySquareIntrinsic, align 1
+  %230 = trunc i8 %229 to i1
+  br i1 %230, label %231, label %232
 
-232:                                              ; preds = %229
+231:                                              ; preds = %228
   store ptr @_ZN13SharedRuntime17montgomery_squareEPiS0_ilS0_, ptr @_ZN12StubRoutines17_montgomerySquareE, align 8
-  br label %233
+  br label %232
 
-233:                                              ; preds = %232, %229
-  %234 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
-  %235 = icmp eq i32 %234, 1970169159
-  br i1 %235, label %236, label %.thread
+232:                                              ; preds = %231, %228
+  %233 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
+  %234 = icmp eq i32 %233, 1970169159
+  br i1 %234, label %235, label %.thread
 
-236:                                              ; preds = %233
-  %237 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %238 = and i64 %237, 268959744
-  %or.cond78.not = icmp eq i64 %238, 0
-  br i1 %or.cond78.not, label %.thread, label %239
+235:                                              ; preds = %232
+  %236 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %237 = and i64 %236, 268959744
+  %or.cond81.not = icmp eq i64 %237, 0
+  br i1 %or.cond81.not, label %.thread, label %238
 
-239:                                              ; preds = %236
-  %240 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
-  %241 = load ptr, ptr %240, align 8
-  %242 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %10, i64 noundef 4097, ptr noundef %241, ptr noundef nonnull @.str.105) #12
-  br i1 %242, label %243, label %.thread
+238:                                              ; preds = %235
+  %239 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
+  %240 = load ptr, ptr %239, align 8
+  %241 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %10, i64 noundef 4097, ptr noundef %240, ptr noundef nonnull @.str.105) #12
+  br i1 %241, label %242, label %.thread
 
-243:                                              ; preds = %239
-  %244 = call noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 1024) #12
-  %.not = icmp eq ptr %244, null
-  br i1 %.not, label %.thread, label %245
+242:                                              ; preds = %238
+  %243 = call noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 1024) #12
+  %.not = icmp eq ptr %243, null
+  br i1 %.not, label %.thread, label %244
 
-245:                                              ; preds = %243
-  %246 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE71ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not82 = icmp eq ptr %246, null
-  br i1 %.not82, label %249, label %247
+244:                                              ; preds = %242
+  %245 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE71ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not85 = icmp eq ptr %245, null
+  br i1 %.not85, label %248, label %246
 
-247:                                              ; preds = %245
-  %248 = ptrtoint ptr %244 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE71ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, i64 noundef %248)
-  br label %249
+246:                                              ; preds = %244
+  %247 = ptrtoint ptr %243 to i64
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE71ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, i64 noundef %247)
+  br label %248
 
-249:                                              ; preds = %245, %247
-  %250 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %251 = and i64 %250, 268435456
-  %.not83 = icmp eq i64 %251, 0
-  %252 = select i1 %.not83, ptr @.str.109, ptr @.str.108
-  %253 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 1024, ptr noundef nonnull %252) #12
-  %254 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %244, ptr noundef nonnull %9) #12
-  store ptr %254, ptr @_ZN12StubRoutines11_array_sortE, align 8
-  %255 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %256 = and i64 %255, 268435456
-  %.not84 = icmp eq i64 %256, 0
-  %257 = select i1 %.not84, ptr @.str.111, ptr @.str.110
-  %258 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 1024, ptr noundef nonnull %257) #12
-  %259 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %244, ptr noundef nonnull %9) #12
-  store ptr %259, ptr @_ZN12StubRoutines16_array_partitionE, align 8
+248:                                              ; preds = %244, %246
+  %249 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %250 = and i64 %249, 268435456
+  %.not86 = icmp eq i64 %250, 0
+  %251 = select i1 %.not86, ptr @.str.109, ptr @.str.108
+  %252 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 1024, ptr noundef nonnull %251) #12
+  %253 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %243, ptr noundef nonnull %9) #12
+  store ptr %253, ptr @_ZN12StubRoutines11_array_sortE, align 8
+  %254 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %255 = and i64 %254, 268435456
+  %.not87 = icmp eq i64 %255, 0
+  %256 = select i1 %.not87, ptr @.str.111, ptr @.str.110
+  %257 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 1024, ptr noundef nonnull %256) #12
+  %258 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %243, ptr noundef nonnull %9) #12
+  store ptr %258, ptr @_ZN12StubRoutines16_array_partitionE, align 8
   br label %.thread
 
-.thread:                                          ; preds = %236, %239, %243, %249, %233
-  %260 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
-  %261 = load ptr, ptr %260, align 8
-  %262 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %12, i64 noundef 4097, ptr noundef %261, ptr noundef nonnull @.str.112) #12
-  br i1 %262, label %263, label %.thread71
+.thread:                                          ; preds = %235, %238, %242, %248, %232
+  %259 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
+  %260 = load ptr, ptr %259, align 8
+  %261 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %12, i64 noundef 4097, ptr noundef %260, ptr noundef nonnull @.str.112) #12
+  br i1 %261, label %262, label %.thread73
 
-263:                                              ; preds = %.thread
-  %264 = call noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef nonnull %12, ptr noundef nonnull %11, i32 noundef 1024) #12
-  %.not68 = icmp eq ptr %264, null
-  br i1 %.not68, label %.thread71, label %265
+262:                                              ; preds = %.thread
+  %263 = call noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef nonnull %12, ptr noundef nonnull %11, i32 noundef 1024) #12
+  %.not70 = icmp eq ptr %263, null
+  br i1 %.not70, label %.thread73, label %264
 
-265:                                              ; preds = %263
-  %266 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE71ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not85 = icmp eq ptr %266, null
-  br i1 %.not85, label %269, label %267
+264:                                              ; preds = %262
+  %265 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE71ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not88 = icmp eq ptr %265, null
+  br i1 %.not88, label %268, label %266
 
-267:                                              ; preds = %265
-  %268 = ptrtoint ptr %264 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE71ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.113, i64 noundef %268)
-  br label %269
+266:                                              ; preds = %264
+  %267 = ptrtoint ptr %263 to i64
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE71ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.113, i64 noundef %267)
+  br label %268
 
-269:                                              ; preds = %265, %267
-  %270 = load i32, ptr @UseAVX, align 4
-  %271 = icmp sgt i32 %270, 2
-  br i1 %271, label %.preheader.preheader, label %.loopexit
+268:                                              ; preds = %264, %266
+  %269 = load i32, ptr @UseAVX, align 4
+  %270 = icmp sgt i32 %269, 2
+  br i1 %270, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %269
-  %.pre107 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+.preheader.preheader:                             ; preds = %268
+  %.pre110 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %286
-  %272 = phi i64 [ %.pre107, %.preheader.preheader ], [ %287, %286 ]
-  %indvars.iv98 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next99, %286 ]
-  %273 = and i64 %272, 268435456
-  %.not86 = icmp eq i64 %273, 0
-  br i1 %.not86, label %274, label %276
+.preheader:                                       ; preds = %.preheader.preheader, %285
+  %271 = phi i64 [ %.pre110, %.preheader.preheader ], [ %286, %285 ]
+  %indvars.iv101 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next102, %285 ]
+  %272 = and i64 %271, 268435456
+  %.not89 = icmp eq i64 %272, 0
+  br i1 %.not89, label %273, label %275
 
-274:                                              ; preds = %.preheader
-  %275 = trunc nuw nsw i64 %indvars.iv98 to i32
-  switch i32 %275, label %276 [
-    i32 14, label %286
-    i32 12, label %286
-    i32 11, label %286
+273:                                              ; preds = %.preheader
+  %274 = trunc nuw nsw i64 %indvars.iv101 to i32
+  switch i32 %274, label %275 [
+    i32 14, label %285
+    i32 12, label %285
+    i32 11, label %285
   ]
 
-276:                                              ; preds = %274, %.preheader
-  %277 = getelementptr inbounds nuw [18 x ptr], ptr @_ZN13VectorSupport8svmlnameE, i64 0, i64 %indvars.iv98
-  %278 = load ptr, ptr %277, align 8
-  %279 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.114, ptr noundef %278) #12
-  %280 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %264, ptr noundef nonnull %11) #12
-  %281 = getelementptr inbounds nuw [18 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 432), i64 0, i64 %indvars.iv98
-  store ptr %280, ptr %281, align 8
-  %282 = load ptr, ptr %277, align 8
-  %283 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.115, ptr noundef %282) #12
-  %284 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %264, ptr noundef nonnull %11) #12
-  %285 = getelementptr inbounds nuw [18 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 432), i64 0, i64 %indvars.iv98
-  store ptr %284, ptr %285, align 8
-  %.pre106 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  br label %286
+275:                                              ; preds = %273, %.preheader
+  %276 = getelementptr inbounds nuw [18 x ptr], ptr @_ZN13VectorSupport8svmlnameE, i64 0, i64 %indvars.iv101
+  %277 = load ptr, ptr %276, align 8
+  %278 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.114, ptr noundef %277) #12
+  %279 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
+  %280 = getelementptr inbounds nuw [18 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 432), i64 0, i64 %indvars.iv101
+  store ptr %279, ptr %280, align 8
+  %281 = load ptr, ptr %276, align 8
+  %282 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.115, ptr noundef %281) #12
+  %283 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
+  %284 = getelementptr inbounds nuw [18 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 432), i64 0, i64 %indvars.iv101
+  store ptr %283, ptr %284, align 8
+  %.pre109 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  br label %285
 
-286:                                              ; preds = %274, %274, %274, %276
-  %287 = phi i64 [ %272, %274 ], [ %272, %274 ], [ %272, %274 ], [ %.pre106, %276 ]
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %exitcond101.not = icmp eq i64 %indvars.iv.next99, 18
-  br i1 %exitcond101.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !19
+285:                                              ; preds = %273, %273, %273, %275
+  %286 = phi i64 [ %271, %273 ], [ %271, %273 ], [ %271, %273 ], [ %.pre109, %275 ]
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %exitcond104.not = icmp eq i64 %indvars.iv.next102, 18
+  br i1 %exitcond104.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !19
 
-.loopexit.loopexit:                               ; preds = %286
-  %.pre108 = load i32, ptr @UseAVX, align 4
+.loopexit.loopexit:                               ; preds = %285
+  %.pre111 = load i32, ptr @UseAVX, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %269
-  %288 = phi i32 [ %.pre108, %.loopexit.loopexit ], [ %270, %269 ]
-  %289 = icmp sgt i32 %288, 1
-  %290 = icmp eq i32 %288, 1
-  %.str.117..str.118 = select i1 %290, ptr @.str.117, ptr @.str.118
-  %291 = select i1 %289, ptr @.str.116, ptr %.str.117..str.118
-  br label %292
+.loopexit:                                        ; preds = %.loopexit.loopexit, %268
+  %287 = phi i32 [ %.pre111, %.loopexit.loopexit ], [ %269, %268 ]
+  %288 = icmp sgt i32 %287, 1
+  %289 = icmp eq i32 %287, 1
+  %.str.117..str.118 = select i1 %289, ptr @.str.117, ptr @.str.118
+  %290 = select i1 %288, ptr @.str.116, ptr %.str.117..str.118
+  br label %291
 
-292:                                              ; preds = %.loopexit, %320
-  %indvars.iv102 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next103, %320 ]
-  %293 = icmp eq i64 %indvars.iv102, 14
-  br i1 %293, label %320, label %294
+291:                                              ; preds = %.loopexit, %319
+  %indvars.iv105 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next106, %319 ]
+  %292 = icmp eq i64 %indvars.iv105, 14
+  br i1 %292, label %319, label %293
 
-294:                                              ; preds = %292
-  %295 = getelementptr inbounds nuw [18 x ptr], ptr @_ZN13VectorSupport8svmlnameE, i64 0, i64 %indvars.iv102
-  %296 = load ptr, ptr %295, align 8
-  %297 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.119, ptr noundef %296, ptr noundef nonnull %291) #12
-  %298 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %264, ptr noundef nonnull %11) #12
-  %299 = getelementptr inbounds nuw [18 x ptr], ptr @_ZN12StubRoutines14_vector_f_mathE, i64 0, i64 %indvars.iv102
-  store ptr %298, ptr %299, align 8
-  %300 = load ptr, ptr %295, align 8
-  %301 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.119, ptr noundef %300, ptr noundef nonnull %291) #12
-  %302 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %264, ptr noundef nonnull %11) #12
-  %303 = getelementptr inbounds nuw [18 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 144), i64 0, i64 %indvars.iv102
-  store ptr %302, ptr %303, align 8
-  %304 = load ptr, ptr %295, align 8
-  %305 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %304, ptr noundef nonnull %291) #12
-  %306 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %264, ptr noundef nonnull %11) #12
-  %307 = getelementptr inbounds nuw [18 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 288), i64 0, i64 %indvars.iv102
-  store ptr %306, ptr %307, align 8
-  %308 = load ptr, ptr %295, align 8
-  %309 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.121, ptr noundef %308, ptr noundef nonnull %291) #12
-  %310 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %264, ptr noundef nonnull %11) #12
-  %311 = getelementptr inbounds nuw [18 x ptr], ptr @_ZN12StubRoutines14_vector_d_mathE, i64 0, i64 %indvars.iv102
-  store ptr %310, ptr %311, align 8
-  %312 = load ptr, ptr %295, align 8
-  %313 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.122, ptr noundef %312, ptr noundef nonnull %291) #12
-  %314 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %264, ptr noundef nonnull %11) #12
-  %315 = getelementptr inbounds nuw [18 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 144), i64 0, i64 %indvars.iv102
-  store ptr %314, ptr %315, align 8
-  %316 = load ptr, ptr %295, align 8
-  %317 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.123, ptr noundef %316, ptr noundef nonnull %291) #12
-  %318 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %264, ptr noundef nonnull %11) #12
-  %319 = getelementptr inbounds nuw [18 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 288), i64 0, i64 %indvars.iv102
-  store ptr %318, ptr %319, align 8
-  br label %320
+293:                                              ; preds = %291
+  %294 = getelementptr inbounds nuw [18 x ptr], ptr @_ZN13VectorSupport8svmlnameE, i64 0, i64 %indvars.iv105
+  %295 = load ptr, ptr %294, align 8
+  %296 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.119, ptr noundef %295, ptr noundef nonnull %290) #12
+  %297 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
+  %298 = getelementptr inbounds nuw [18 x ptr], ptr @_ZN12StubRoutines14_vector_f_mathE, i64 0, i64 %indvars.iv105
+  store ptr %297, ptr %298, align 8
+  %299 = load ptr, ptr %294, align 8
+  %300 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.119, ptr noundef %299, ptr noundef nonnull %290) #12
+  %301 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
+  %302 = getelementptr inbounds nuw [18 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 144), i64 0, i64 %indvars.iv105
+  store ptr %301, ptr %302, align 8
+  %303 = load ptr, ptr %294, align 8
+  %304 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %303, ptr noundef nonnull %290) #12
+  %305 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
+  %306 = getelementptr inbounds nuw [18 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_f_mathE, i64 288), i64 0, i64 %indvars.iv105
+  store ptr %305, ptr %306, align 8
+  %307 = load ptr, ptr %294, align 8
+  %308 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.121, ptr noundef %307, ptr noundef nonnull %290) #12
+  %309 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
+  %310 = getelementptr inbounds nuw [18 x ptr], ptr @_ZN12StubRoutines14_vector_d_mathE, i64 0, i64 %indvars.iv105
+  store ptr %309, ptr %310, align 8
+  %311 = load ptr, ptr %294, align 8
+  %312 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.122, ptr noundef %311, ptr noundef nonnull %290) #12
+  %313 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
+  %314 = getelementptr inbounds nuw [18 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 144), i64 0, i64 %indvars.iv105
+  store ptr %313, ptr %314, align 8
+  %315 = load ptr, ptr %294, align 8
+  %316 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 1024, ptr noundef nonnull @.str.123, ptr noundef %315, ptr noundef nonnull %290) #12
+  %317 = call noundef ptr @_ZN2os10dll_lookupEPvPKc(ptr noundef nonnull %263, ptr noundef nonnull %11) #12
+  %318 = getelementptr inbounds nuw [18 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN12StubRoutines14_vector_d_mathE, i64 288), i64 0, i64 %indvars.iv105
+  store ptr %317, ptr %318, align 8
+  br label %319
 
-320:                                              ; preds = %292, %294
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next103, 18
-  br i1 %exitcond105.not, label %.thread71, label %292, !llvm.loop !20
+319:                                              ; preds = %291, %293
+  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
+  %exitcond108.not = icmp eq i64 %indvars.iv.next106, 18
+  br i1 %exitcond108.not, label %.thread73, label %291, !llvm.loop !20
 
-.thread71:                                        ; preds = %320, %.thread, %263
+.thread73:                                        ; preds = %319, %.thread, %262
   ret void
 }
 

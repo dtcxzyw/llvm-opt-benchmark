@@ -173,8 +173,8 @@ define noundef zeroext i1 @lv_obj_refr_size(ptr noundef %0) local_unnamed_addr #
 15:                                               ; preds = %12
   %16 = load i16, ptr %9, align 2
   %17 = and i16 %16, 2048
-  %.not102 = icmp eq i16 %17, 0
-  br i1 %.not102, label %lv_obj_get_content_width.exit, label %lv_obj_get_width.exit
+  %.not103 = icmp eq i16 %17, 0
+  br i1 %.not103, label %lv_obj_get_content_width.exit, label %lv_obj_get_width.exit
 
 lv_obj_get_width.exit:                            ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -221,8 +221,8 @@ lv_obj_get_content_width.exit:                    ; preds = %15
   %47 = tail call i32 @lv_obj_get_scroll_x(ptr noundef nonnull %0) #8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !6
-  %.not.i106 = icmp eq ptr %49, null
-  br i1 %.not.i106, label %52, label %50
+  %.not.i107 = icmp eq ptr %49, null
+  br i1 %.not.i107, label %52, label %50
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 48
@@ -232,16 +232,16 @@ lv_obj_get_content_width.exit:                    ; preds = %15
 52:                                               ; preds = %50, %46
   %53 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 19) #8
   %54 = ptrtoint ptr %53 to i64
-  %.sroa.0.0.extract.trunc.i.i.i107 = trunc i64 %54 to i32
+  %.sroa.0.0.extract.trunc.i.i.i108 = trunc i64 %54 to i32
   %55 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 48) #8
   %56 = ptrtoint ptr %55 to i64
-  %.sroa.0.0.extract.trunc.i9.i.i108 = trunc i64 %56 to i32
+  %.sroa.0.0.extract.trunc.i9.i.i109 = trunc i64 %56 to i32
   %57 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 52) #8
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 8
-  %.not.i.i109 = icmp eq i64 %59, 0
-  %60 = select i1 %.not.i.i109, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i.i108
-  %61 = add nsw i32 %60, %.sroa.0.0.extract.trunc.i.i.i107
+  %.not.i.i110 = icmp eq i64 %59, 0
+  %60 = select i1 %.not.i.i110, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i.i109
+  %61 = add nsw i32 %60, %.sroa.0.0.extract.trunc.i.i.i108
   %62 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 18) #8
   %63 = ptrtoint ptr %62 to i64
   %.sroa.0.0.extract.trunc.i.i86.i = trunc i64 %63 to i32
@@ -265,7 +265,7 @@ lv_obj_get_content_width.exit:                    ; preds = %15
   %76 = and i64 %75, 4294967295
   %77 = icmp eq i64 %76, 1
   %.not117.i = icmp eq i32 %73, 0
-  br i1 %77, label %.preheader.i110, label %.preheader108.i
+  br i1 %77, label %.preheader.i111, label %.preheader108.i
 
 .preheader108.i:                                  ; preds = %52
   br i1 %.not117.i, label %._crit_edge.thread.i, label %.lr.ph.i
@@ -275,10 +275,10 @@ lv_obj_get_content_width.exit:                    ; preds = %15
   %wide.trip.count.i = zext i32 %73 to i64
   br label %132
 
-.preheader.i110:                                  ; preds = %52
+.preheader.i111:                                  ; preds = %52
   br i1 %.not117.i, label %._crit_edge114.thread.i, label %.lr.ph113.i
 
-.lr.ph113.i:                                      ; preds = %.preheader.i110
+.lr.ph113.i:                                      ; preds = %.preheader.i111
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %wide.trip.count122.i = zext i32 %73 to i64
   br label %80
@@ -381,7 +381,7 @@ lv_obj_is_layout_positioned.exit.thread.i:        ; preds = %lv_obj_is_layout_po
   %131 = add nsw i32 %.1.i, %70
   br i1 %.not83.i, label %._crit_edge114.thread.i, label %184
 
-._crit_edge114.thread.i:                          ; preds = %._crit_edge114.i, %.preheader.i110
+._crit_edge114.thread.i:                          ; preds = %._crit_edge114.i, %.preheader.i111
   br label %184
 
 132:                                              ; preds = %182, %.lr.ph.i
@@ -540,30 +540,30 @@ calc_content_width.exit:                          ; preds = %184, %186
   %217 = sdiv i32 %216, 100
   %218 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 26) #8
   %219 = ptrtoint ptr %218 to i64
-  %.sroa.0.0.extract.trunc.i112 = trunc i64 %219 to i32
+  %.sroa.0.0.extract.trunc.i113 = trunc i64 %219 to i32
   %220 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 27) #8
   %221 = ptrtoint ptr %220 to i64
-  %.sroa.0.0.extract.trunc.i113 = trunc i64 %221 to i32
-  %222 = add i32 %.sroa.0.0.extract.trunc.i112, %.sroa.0.0.extract.trunc.i113
+  %.sroa.0.0.extract.trunc.i114 = trunc i64 %221 to i32
+  %222 = add i32 %.sroa.0.0.extract.trunc.i113, %.sroa.0.0.extract.trunc.i114
   %223 = sub i32 %217, %222
   br label %224
 
 224:                                              ; preds = %193, %212, %208, %calc_content_width.exit
-  %.190 = phi i32 [ %.0.i, %calc_content_width.exit ], [ %211, %208 ], [ %223, %212 ], [ %.sroa.0.0.extract.trunc.i, %193 ]
+  %.191 = phi i32 [ %.0.i, %calc_content_width.exit ], [ %211, %208 ], [ %223, %212 ], [ %.sroa.0.0.extract.trunc.i, %193 ]
   %225 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 4) #8
   %226 = ptrtoint ptr %225 to i64
-  %.sroa.0.0.extract.trunc.i114 = trunc i64 %226 to i32
+  %.sroa.0.0.extract.trunc.i115 = trunc i64 %226 to i32
   %227 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 5) #8
   %228 = ptrtoint ptr %227 to i64
-  %.sroa.0.0.extract.trunc.i115 = trunc i64 %228 to i32
-  %229 = and i32 %.sroa.0.0.extract.trunc.i114, 1610612736
+  %.sroa.0.0.extract.trunc.i116 = trunc i64 %228 to i32
+  %229 = and i32 %.sroa.0.0.extract.trunc.i115, 1610612736
   %230 = icmp eq i32 %229, 536870912
   br i1 %230, label %231, label %239
 
 231:                                              ; preds = %224
-  %232 = and i32 %.sroa.0.0.extract.trunc.i114, -1610612737
-  %.not.i117 = icmp eq i32 %232, 536870911
-  br i1 %.not.i117, label %239, label %233
+  %232 = and i32 %.sroa.0.0.extract.trunc.i115, -1610612737
+  %.not.i118 = icmp eq i32 %232, 536870911
+  br i1 %.not.i118, label %239, label %233
 
 233:                                              ; preds = %231
   %234 = icmp sgt i32 %232, 268435455
@@ -574,13 +574,13 @@ calc_content_width.exit:                          ; preds = %184, %186
   br label %239
 
 239:                                              ; preds = %233, %231, %224
-  %.0.i116 = phi i32 [ %238, %233 ], [ %.sroa.0.0.extract.trunc.i114, %231 ], [ %.sroa.0.0.extract.trunc.i114, %224 ]
-  %240 = and i32 %.sroa.0.0.extract.trunc.i115, 1610612736
+  %.0.i117 = phi i32 [ %238, %233 ], [ %.sroa.0.0.extract.trunc.i115, %231 ], [ %.sroa.0.0.extract.trunc.i115, %224 ]
+  %240 = and i32 %.sroa.0.0.extract.trunc.i116, 1610612736
   %241 = icmp eq i32 %240, 536870912
   br i1 %241, label %242, label %lv_clamp_width.exit
 
 242:                                              ; preds = %239
-  %243 = and i32 %.sroa.0.0.extract.trunc.i115, -1610612737
+  %243 = and i32 %.sroa.0.0.extract.trunc.i116, -1610612737
   %.not26.i = icmp eq i32 %243, 536870911
   br i1 %.not26.i, label %lv_clamp_width.exit, label %244
 
@@ -593,54 +593,54 @@ calc_content_width.exit:                          ; preds = %184, %186
   br label %lv_clamp_width.exit
 
 lv_clamp_width.exit:                              ; preds = %239, %242, %244
-  %.022.i = phi i32 [ %249, %244 ], [ %.sroa.0.0.extract.trunc.i115, %242 ], [ %.sroa.0.0.extract.trunc.i115, %239 ]
-  %250 = call i32 @llvm.smin.i32(i32 %.190, i32 %.022.i)
-  %.0..i = call i32 @llvm.smax.i32(i32 %.0.i116, i32 %250)
+  %.022.i = phi i32 [ %249, %244 ], [ %.sroa.0.0.extract.trunc.i116, %242 ], [ %.sroa.0.0.extract.trunc.i116, %239 ]
+  %250 = call i32 @llvm.smin.i32(i32 %.191, i32 %.022.i)
+  %.0..i = call i32 @llvm.smax.i32(i32 %.0.i117, i32 %250)
   br label %251
 
 251:                                              ; preds = %lv_clamp_width.exit, %lv_obj_get_width.exit
-  %.089 = phi i32 [ %19, %lv_obj_get_width.exit ], [ %.0..i, %lv_clamp_width.exit ]
+  %.090 = phi i32 [ %19, %lv_obj_get_width.exit ], [ %.0..i, %lv_clamp_width.exit ]
   %252 = load i16, ptr %9, align 2
   %253 = and i16 %252, 1024
-  %.not103 = icmp eq i16 %253, 0
-  br i1 %.not103, label %lv_obj_get_content_height.exit, label %lv_obj_get_height.exit
+  %.not104 = icmp eq i16 %253, 0
+  br i1 %.not104, label %lv_obj_get_content_height.exit, label %lv_obj_get_height.exit
 
 lv_obj_get_height.exit:                           ; preds = %251
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %255 = call i32 @lv_area_get_height(ptr noundef nonnull %254) #8
-  br label %lv_obj_get_width.exit155
+  br label %lv_obj_get_width.exit156
 
 lv_obj_get_content_height.exit:                   ; preds = %251
   %256 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 2) #8
   %257 = ptrtoint ptr %256 to i64
-  %.sroa.0.0.extract.trunc.i120 = trunc i64 %257 to i32
-  %258 = icmp eq i32 %.sroa.0.0.extract.trunc.i120, 1073741823
-  %259 = and i32 %.sroa.0.0.extract.trunc.i120, -1610612737
+  %.sroa.0.0.extract.trunc.i121 = trunc i64 %257 to i32
+  %258 = icmp eq i32 %.sroa.0.0.extract.trunc.i121, 1073741823
+  %259 = and i32 %.sroa.0.0.extract.trunc.i121, -1610612737
   %260 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 16) #8
   %261 = ptrtoint ptr %260 to i64
-  %.sroa.0.0.extract.trunc.i.i.i122 = trunc i64 %261 to i32
+  %.sroa.0.0.extract.trunc.i.i.i123 = trunc i64 %261 to i32
   %262 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 48) #8
   %263 = ptrtoint ptr %262 to i64
-  %.sroa.0.0.extract.trunc.i9.i.i123 = trunc i64 %263 to i32
+  %.sroa.0.0.extract.trunc.i9.i.i124 = trunc i64 %263 to i32
   %264 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 52) #8
   %265 = ptrtoint ptr %264 to i64
   %266 = and i64 %265, 2
-  %.not.i.i124 = icmp eq i64 %266, 0
-  %267 = select i1 %.not.i.i124, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i.i123
+  %.not.i.i125 = icmp eq i64 %266, 0
+  %267 = select i1 %.not.i.i125, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i.i124
   %268 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 17) #8
   %269 = ptrtoint ptr %268 to i64
-  %.sroa.0.0.extract.trunc.i.i5.i125 = trunc i64 %269 to i32
+  %.sroa.0.0.extract.trunc.i.i5.i126 = trunc i64 %269 to i32
   %270 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 48) #8
   %271 = ptrtoint ptr %270 to i64
-  %.sroa.0.0.extract.trunc.i9.i6.i126 = trunc i64 %271 to i32
+  %.sroa.0.0.extract.trunc.i9.i6.i127 = trunc i64 %271 to i32
   %272 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %13, i32 noundef 0, i8 noundef zeroext 52) #8
   %273 = ptrtoint ptr %272 to i64
   %274 = and i64 %273, 1
-  %.not.i7.i127 = icmp eq i64 %274, 0
-  %275 = select i1 %.not.i7.i127, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i6.i126
+  %.not.i7.i128 = icmp eq i64 %274, 0
+  %275 = select i1 %.not.i7.i128, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i6.i127
   %276 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %277 = call i32 @lv_area_get_height(ptr noundef nonnull %276) #8
-  %278 = add i32 %.sroa.0.0.extract.trunc.i.i5.i125, %.sroa.0.0.extract.trunc.i.i.i122
+  %278 = add i32 %.sroa.0.0.extract.trunc.i.i5.i126, %.sroa.0.0.extract.trunc.i.i.i123
   %279 = add i32 %278, %267
   %280 = add i32 %279, %275
   %281 = sub i32 %277, %280
@@ -650,8 +650,8 @@ lv_obj_get_content_height.exit:                   ; preds = %251
   %283 = call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %0) #8
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %285 = load ptr, ptr %284, align 8, !tbaa !6
-  %.not.i129 = icmp eq ptr %285, null
-  br i1 %.not.i129, label %288, label %286
+  %.not.i130 = icmp eq ptr %285, null
+  br i1 %.not.i130, label %288, label %286
 
 286:                                              ; preds = %282
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 52
@@ -661,16 +661,16 @@ lv_obj_get_content_height.exit:                   ; preds = %251
 288:                                              ; preds = %286, %282
   %289 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 16) #8
   %290 = ptrtoint ptr %289 to i64
-  %.sroa.0.0.extract.trunc.i.i.i130 = trunc i64 %290 to i32
+  %.sroa.0.0.extract.trunc.i.i.i131 = trunc i64 %290 to i32
   %291 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 48) #8
   %292 = ptrtoint ptr %291 to i64
-  %.sroa.0.0.extract.trunc.i9.i.i131 = trunc i64 %292 to i32
+  %.sroa.0.0.extract.trunc.i9.i.i132 = trunc i64 %292 to i32
   %293 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 52) #8
   %294 = ptrtoint ptr %293 to i64
   %295 = and i64 %294, 2
-  %.not.i.i132 = icmp eq i64 %295, 0
-  %296 = select i1 %.not.i.i132, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i.i131
-  %297 = add nsw i32 %296, %.sroa.0.0.extract.trunc.i.i.i130
+  %.not.i.i133 = icmp eq i64 %295, 0
+  %296 = select i1 %.not.i.i133, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i.i132
+  %297 = add nsw i32 %296, %.sroa.0.0.extract.trunc.i.i.i131
   %298 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 17) #8
   %299 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 48) #8
   %300 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 52) #8
@@ -682,47 +682,47 @@ lv_obj_get_content_height.exit:                   ; preds = %251
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   %304 = call i32 @lv_obj_get_child_count(ptr noundef nonnull %0) #8
   %.not63.i = icmp eq i32 %304, 0
-  br i1 %.not63.i, label %._crit_edge.i140, label %.lr.ph.i133
+  br i1 %.not63.i, label %._crit_edge.i141, label %.lr.ph.i134
 
-.lr.ph.i133:                                      ; preds = %288
+.lr.ph.i134:                                      ; preds = %288
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %wide.trip.count.i134 = zext i32 %304 to i64
+  %wide.trip.count.i135 = zext i32 %304 to i64
   br label %306
 
-306:                                              ; preds = %356, %.lr.ph.i133
-  %indvars.iv.i135 = phi i64 [ 0, %.lr.ph.i133 ], [ %indvars.iv.next.i138, %356 ]
-  %.04462.i = phi i32 [ -536870911, %.lr.ph.i133 ], [ %.1.i137, %356 ]
+306:                                              ; preds = %356, %.lr.ph.i134
+  %indvars.iv.i136 = phi i64 [ 0, %.lr.ph.i134 ], [ %indvars.iv.next.i139, %356 ]
+  %.04462.i = phi i32 [ -536870911, %.lr.ph.i134 ], [ %.1.i138, %356 ]
   %307 = load ptr, ptr %284, align 8, !tbaa !6
   %308 = load ptr, ptr %307, align 8, !tbaa !26
-  %309 = getelementptr inbounds nuw ptr, ptr %308, i64 %indvars.iv.i135
+  %309 = getelementptr inbounds nuw ptr, ptr %308, i64 %indvars.iv.i136
   %310 = load ptr, ptr %309, align 8, !tbaa !27
   %311 = call zeroext i1 @lv_obj_has_flag_any(ptr noundef %310, i32 noundef 262145) #8
   br i1 %311, label %356, label %312
 
 312:                                              ; preds = %306
   %313 = call zeroext i1 @lv_obj_has_flag_any(ptr noundef %310, i32 noundef 393217) #8
-  br i1 %313, label %lv_obj_is_layout_positioned.exit.thread.i142, label %314
+  br i1 %313, label %lv_obj_is_layout_positioned.exit.thread.i143, label %314
 
 314:                                              ; preds = %312
   %315 = call ptr @lv_obj_get_parent(ptr noundef %310) #8
   %316 = icmp eq ptr %315, null
-  br i1 %316, label %lv_obj_is_layout_positioned.exit.thread.i142, label %lv_obj_is_layout_positioned.exit.i136
+  br i1 %316, label %lv_obj_is_layout_positioned.exit.thread.i143, label %lv_obj_is_layout_positioned.exit.i137
 
-lv_obj_is_layout_positioned.exit.i136:            ; preds = %314
+lv_obj_is_layout_positioned.exit.i137:            ; preds = %314
   %317 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %315, i32 noundef 0, i8 noundef zeroext 22) #8
   %318 = ptrtoint ptr %317 to i64
   %319 = and i64 %318, 65535
   %.not.i54.not.i = icmp eq i64 %319, 0
-  br i1 %.not.i54.not.i, label %lv_obj_is_layout_positioned.exit.thread.i142, label %341
+  br i1 %.not.i54.not.i, label %lv_obj_is_layout_positioned.exit.thread.i143, label %341
 
-lv_obj_is_layout_positioned.exit.thread.i142:     ; preds = %lv_obj_is_layout_positioned.exit.i136, %314, %312
+lv_obj_is_layout_positioned.exit.thread.i143:     ; preds = %lv_obj_is_layout_positioned.exit.i137, %314, %312
   %320 = call ptr @lv_obj_get_style_prop(ptr noundef %310, i32 noundef 0, i8 noundef zeroext 10) #8
   %321 = ptrtoint ptr %320 to i64
   %322 = and i64 %321, 4294967292
   %switch.i = icmp eq i64 %322, 0
   br i1 %switch.i, label %323, label %329
 
-323:                                              ; preds = %lv_obj_is_layout_positioned.exit.thread.i142
+323:                                              ; preds = %lv_obj_is_layout_positioned.exit.thread.i143
   %324 = getelementptr inbounds nuw i8, ptr %310, i64 52
   %325 = load i32, ptr %324, align 4, !tbaa !35
   %326 = load i32, ptr %305, align 4, !tbaa !36
@@ -730,7 +730,7 @@ lv_obj_is_layout_positioned.exit.thread.i142:     ; preds = %lv_obj_is_layout_po
   %328 = sub i32 %327, %326
   br label %347
 
-329:                                              ; preds = %lv_obj_is_layout_positioned.exit.thread.i142
+329:                                              ; preds = %lv_obj_is_layout_positioned.exit.thread.i143
   %330 = call ptr @lv_obj_get_style_prop(ptr noundef %310, i32 noundef 0, i8 noundef zeroext 9) #8
   %331 = ptrtoint ptr %330 to i64
   %332 = and i64 %331, 4294967295
@@ -747,7 +747,7 @@ lv_obj_is_layout_positioned.exit.thread.i142:     ; preds = %lv_obj_is_layout_po
   %340 = add nsw i32 %337, %.sroa.0.0.extract.trunc.i56.i
   br label %347
 
-341:                                              ; preds = %lv_obj_is_layout_positioned.exit.i136
+341:                                              ; preds = %lv_obj_is_layout_positioned.exit.i137
   %342 = getelementptr inbounds nuw i8, ptr %310, i64 52
   %343 = load i32, ptr %342, align 4, !tbaa !35
   %344 = load i32, ptr %305, align 4, !tbaa !36
@@ -772,24 +772,24 @@ lv_obj_is_layout_positioned.exit.thread.i142:     ; preds = %lv_obj_is_layout_po
   br label %356
 
 356:                                              ; preds = %352, %347, %306
-  %.1.i137 = phi i32 [ %.04462.i, %306 ], [ %355, %352 ], [ %.04462.i, %347 ]
-  %indvars.iv.next.i138 = add nuw nsw i64 %indvars.iv.i135, 1
-  %exitcond.not.i139 = icmp eq i64 %indvars.iv.next.i138, %wide.trip.count.i134
-  br i1 %exitcond.not.i139, label %._crit_edge.i140, label %306, !llvm.loop !37
+  %.1.i138 = phi i32 [ %.04462.i, %306 ], [ %355, %352 ], [ %.04462.i, %347 ]
+  %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i136, 1
+  %exitcond.not.i140 = icmp eq i64 %indvars.iv.next.i139, %wide.trip.count.i135
+  br i1 %exitcond.not.i140, label %._crit_edge.i141, label %306, !llvm.loop !37
 
-._crit_edge.i140:                                 ; preds = %356, %288
-  %.044.lcssa.i = phi i32 [ -536870911, %288 ], [ %.1.i137, %356 ]
+._crit_edge.i141:                                 ; preds = %356, %288
+  %.044.lcssa.i = phi i32 [ -536870911, %288 ], [ %.1.i138, %356 ]
   %357 = load ptr, ptr %284, align 8, !tbaa !6
   %.not50.i = icmp eq ptr %357, null
   br i1 %.not50.i, label %calc_content_height.exit, label %358
 
-358:                                              ; preds = %._crit_edge.i140
+358:                                              ; preds = %._crit_edge.i141
   %359 = sub nsw i32 0, %283
   %360 = getelementptr inbounds nuw i8, ptr %357, i64 52
   store i32 %359, ptr %360, align 4, !tbaa !33
   br label %calc_content_height.exit
 
-calc_content_height.exit:                         ; preds = %._crit_edge.i140, %358
+calc_content_height.exit:                         ; preds = %._crit_edge.i141, %358
   %361 = add nsw i32 %303, %297
   %362 = ptrtoint ptr %300 to i64
   %363 = and i64 %362, 1
@@ -804,11 +804,11 @@ calc_content_height.exit:                         ; preds = %._crit_edge.i140, %
   %369 = icmp eq i32 %.044.lcssa.i, -536870911
   %370 = add nsw i32 %.044.lcssa.i, %367
   %371 = call i32 @llvm.smax.i32(i32 %368, i32 %370)
-  %.0.i141 = select i1 %369, i32 %368, i32 %371
+  %.0.i142 = select i1 %369, i32 %368, i32 %371
   br label %403
 
 372:                                              ; preds = %lv_obj_get_content_height.exit
-  %373 = and i32 %.sroa.0.0.extract.trunc.i120, 1610612736
+  %373 = and i32 %.sroa.0.0.extract.trunc.i121, 1610612736
   %374 = icmp eq i32 %373, 536870912
   %375 = icmp ne i32 %259, 536870911
   %376 = and i1 %374, %375
@@ -842,30 +842,30 @@ calc_content_height.exit:                         ; preds = %._crit_edge.i140, %
   %396 = sdiv i32 %395, 100
   %397 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 24) #8
   %398 = ptrtoint ptr %397 to i64
-  %.sroa.0.0.extract.trunc.i144 = trunc i64 %398 to i32
+  %.sroa.0.0.extract.trunc.i145 = trunc i64 %398 to i32
   %399 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 25) #8
   %400 = ptrtoint ptr %399 to i64
-  %.sroa.0.0.extract.trunc.i145 = trunc i64 %400 to i32
-  %401 = add i32 %.sroa.0.0.extract.trunc.i144, %.sroa.0.0.extract.trunc.i145
+  %.sroa.0.0.extract.trunc.i146 = trunc i64 %400 to i32
+  %401 = add i32 %.sroa.0.0.extract.trunc.i145, %.sroa.0.0.extract.trunc.i146
   %402 = sub i32 %396, %401
   br label %403
 
 403:                                              ; preds = %372, %391, %387, %calc_content_height.exit
-  %.192 = phi i32 [ %.0.i141, %calc_content_height.exit ], [ %390, %387 ], [ %402, %391 ], [ %.sroa.0.0.extract.trunc.i120, %372 ]
+  %.193 = phi i32 [ %.0.i142, %calc_content_height.exit ], [ %390, %387 ], [ %402, %391 ], [ %.sroa.0.0.extract.trunc.i121, %372 ]
   %404 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 6) #8
   %405 = ptrtoint ptr %404 to i64
-  %.sroa.0.0.extract.trunc.i146 = trunc i64 %405 to i32
+  %.sroa.0.0.extract.trunc.i147 = trunc i64 %405 to i32
   %406 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 7) #8
   %407 = ptrtoint ptr %406 to i64
-  %.sroa.0.0.extract.trunc.i147 = trunc i64 %407 to i32
-  %408 = and i32 %.sroa.0.0.extract.trunc.i146, 1610612736
+  %.sroa.0.0.extract.trunc.i148 = trunc i64 %407 to i32
+  %408 = and i32 %.sroa.0.0.extract.trunc.i147, 1610612736
   %409 = icmp eq i32 %408, 536870912
   br i1 %409, label %410, label %418
 
 410:                                              ; preds = %403
-  %411 = and i32 %.sroa.0.0.extract.trunc.i146, -1610612737
-  %.not.i152 = icmp eq i32 %411, 536870911
-  br i1 %.not.i152, label %418, label %412
+  %411 = and i32 %.sroa.0.0.extract.trunc.i147, -1610612737
+  %.not.i153 = icmp eq i32 %411, 536870911
+  br i1 %.not.i153, label %418, label %412
 
 412:                                              ; preds = %410
   %413 = icmp sgt i32 %411, 268435455
@@ -876,15 +876,15 @@ calc_content_height.exit:                         ; preds = %._crit_edge.i140, %
   br label %418
 
 418:                                              ; preds = %412, %410, %403
-  %.0.i148 = phi i32 [ %417, %412 ], [ %.sroa.0.0.extract.trunc.i146, %410 ], [ %.sroa.0.0.extract.trunc.i146, %403 ]
-  %419 = and i32 %.sroa.0.0.extract.trunc.i147, 1610612736
+  %.0.i149 = phi i32 [ %417, %412 ], [ %.sroa.0.0.extract.trunc.i147, %410 ], [ %.sroa.0.0.extract.trunc.i147, %403 ]
+  %419 = and i32 %.sroa.0.0.extract.trunc.i148, 1610612736
   %420 = icmp eq i32 %419, 536870912
   br i1 %420, label %421, label %lv_clamp_height.exit
 
 421:                                              ; preds = %418
-  %422 = and i32 %.sroa.0.0.extract.trunc.i147, -1610612737
-  %.not26.i151 = icmp eq i32 %422, 536870911
-  br i1 %.not26.i151, label %lv_clamp_height.exit, label %423
+  %422 = and i32 %.sroa.0.0.extract.trunc.i148, -1610612737
+  %.not26.i152 = icmp eq i32 %422, 536870911
+  br i1 %.not26.i152, label %lv_clamp_height.exit, label %423
 
 423:                                              ; preds = %421
   %424 = icmp sgt i32 %422, 268435455
@@ -895,24 +895,24 @@ calc_content_height.exit:                         ; preds = %._crit_edge.i140, %
   br label %lv_clamp_height.exit
 
 lv_clamp_height.exit:                             ; preds = %418, %421, %423
-  %.022.i149 = phi i32 [ %428, %423 ], [ %.sroa.0.0.extract.trunc.i147, %421 ], [ %.sroa.0.0.extract.trunc.i147, %418 ]
-  %429 = call i32 @llvm.smin.i32(i32 %.192, i32 %.022.i149)
-  %.0..i150 = call i32 @llvm.smax.i32(i32 %.0.i148, i32 %429)
-  br label %lv_obj_get_width.exit155
+  %.022.i150 = phi i32 [ %428, %423 ], [ %.sroa.0.0.extract.trunc.i148, %421 ], [ %.sroa.0.0.extract.trunc.i148, %418 ]
+  %429 = call i32 @llvm.smin.i32(i32 %.193, i32 %.022.i150)
+  %.0..i151 = call i32 @llvm.smax.i32(i32 %.0.i149, i32 %429)
+  br label %lv_obj_get_width.exit156
 
-lv_obj_get_width.exit155:                         ; preds = %lv_obj_get_height.exit, %lv_clamp_height.exit
-  %.091 = phi i32 [ %255, %lv_obj_get_height.exit ], [ %.0..i150, %lv_clamp_height.exit ]
+lv_obj_get_width.exit156:                         ; preds = %lv_obj_get_height.exit, %lv_clamp_height.exit
+  %.092 = phi i32 [ %255, %lv_obj_get_height.exit ], [ %.0..i151, %lv_clamp_height.exit ]
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %431 = call i32 @lv_area_get_width(ptr noundef nonnull %430) #8
-  %432 = icmp eq i32 %431, %.089
-  br i1 %432, label %lv_obj_get_height.exit158, label %lv_obj_get_coords.exit
+  %432 = icmp eq i32 %431, %.090
+  br i1 %432, label %lv_obj_get_height.exit159, label %lv_obj_get_coords.exit
 
-lv_obj_get_height.exit158:                        ; preds = %lv_obj_get_width.exit155
+lv_obj_get_height.exit159:                        ; preds = %lv_obj_get_width.exit156
   %433 = call i32 @lv_area_get_height(ptr noundef nonnull %430) #8
-  %434 = icmp eq i32 %433, %.091
+  %434 = icmp eq i32 %433, %.092
   br i1 %434, label %493, label %lv_obj_get_coords.exit
 
-lv_obj_get_coords.exit:                           ; preds = %lv_obj_get_height.exit158, %lv_obj_get_width.exit155
+lv_obj_get_coords.exit:                           ; preds = %lv_obj_get_height.exit159, %lv_obj_get_width.exit156
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   %435 = call i32 @lv_obj_get_ext_draw_size(ptr noundef nonnull %0) #8
   %436 = load i32, ptr %430, align 4, !tbaa !38
@@ -958,7 +958,7 @@ lv_obj_get_coords.exit:                           ; preds = %lv_obj_get_height.e
 
 459:                                              ; preds = %458, %lv_obj_get_coords.exit
   %460 = load i32, ptr %437, align 4, !tbaa !36
-  %461 = add i32 %.091, -1
+  %461 = add i32 %.092, -1
   %462 = add i32 %461, %460
   store i32 %462, ptr %443, align 4, !tbaa !35
   %463 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 39) #8
@@ -969,19 +969,19 @@ lv_obj_get_coords.exit:                           ; preds = %lv_obj_get_height.e
 
 467:                                              ; preds = %459
   %468 = load i32, ptr %440, align 8, !tbaa !28
-  %reass.sub = sub i32 %468, %.089
+  %reass.sub = sub i32 %468, %.090
   %469 = add i32 %reass.sub, 1
   store i32 %469, ptr %430, align 8, !tbaa !29
-  br label %lv_obj_invalidate.exit166
+  br label %lv_obj_invalidate.exit167
 
 470:                                              ; preds = %459
   %471 = load i32, ptr %430, align 8, !tbaa !29
-  %472 = add i32 %.089, -1
+  %472 = add i32 %.090, -1
   %473 = add i32 %472, %471
   store i32 %473, ptr %440, align 8, !tbaa !28
-  br label %lv_obj_invalidate.exit166
+  br label %lv_obj_invalidate.exit167
 
-lv_obj_invalidate.exit166:                        ; preds = %467, %470
+lv_obj_invalidate.exit167:                        ; preds = %467, %470
   %474 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 49, ptr noundef nonnull %6) #8
   %475 = call i32 @lv_obj_send_event(ptr noundef nonnull %13, i32 noundef 42, ptr noundef nonnull %0) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
@@ -1010,18 +1010,18 @@ lv_obj_invalidate.exit166:                        ; preds = %467, %470
   %brmerge = select i1 %457, i1 true, i1 %490
   br i1 %brmerge, label %491, label %492
 
-491:                                              ; preds = %lv_obj_invalidate.exit166
+491:                                              ; preds = %lv_obj_invalidate.exit167
   call void @lv_obj_scrollbar_invalidate(ptr noundef nonnull %13) #8
   br label %492
 
-492:                                              ; preds = %lv_obj_invalidate.exit166, %491
+492:                                              ; preds = %lv_obj_invalidate.exit167, %491
   call void @lv_obj_refresh_ext_draw_size(ptr noundef nonnull %0) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
   br label %493
 
-493:                                              ; preds = %12, %lv_obj_get_height.exit158, %492, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %12 ], [ true, %492 ], [ false, %lv_obj_get_height.exit158 ]
+493:                                              ; preds = %12, %lv_obj_get_height.exit159, %492, %8
+  %.0 = phi i1 [ false, %8 ], [ false, %12 ], [ true, %492 ], [ false, %lv_obj_get_height.exit159 ]
   ret i1 %.0
 }
 
@@ -2937,7 +2937,7 @@ define void @lv_obj_move_to(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 
 25:                                               ; preds = %18, %15
   %.pn = phi i32 [ %17, %15 ], [ %24, %18 ]
-  %.pn54 = phi i32 [ %14, %15 ], [ %20, %18 ]
+  %.pn56 = phi i32 [ %14, %15 ], [ %20, %18 ]
   %26 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %10, i32 noundef 0, i8 noundef zeroext 18) #8
   %27 = ptrtoint ptr %26 to i64
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %27 to i32
@@ -2949,36 +2949,36 @@ define void @lv_obj_move_to(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %32 = and i64 %31, 4
   %.not.i = icmp eq i64 %32, 0
   %33 = select i1 %.not.i, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i
-  %34 = add i32 %.pn54, %1
+  %34 = add i32 %.pn56, %1
   %.1 = add i32 %34, %.sroa.0.0.extract.trunc.i.i
   %35 = add i32 %.1, %33
   %36 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %10, i32 noundef 0, i8 noundef zeroext 16) #8
   %37 = ptrtoint ptr %36 to i64
-  %.sroa.0.0.extract.trunc.i.i55 = trunc i64 %37 to i32
+  %.sroa.0.0.extract.trunc.i.i57 = trunc i64 %37 to i32
   %38 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %10, i32 noundef 0, i8 noundef zeroext 48) #8
   %39 = ptrtoint ptr %38 to i64
-  %.sroa.0.0.extract.trunc.i9.i56 = trunc i64 %39 to i32
+  %.sroa.0.0.extract.trunc.i9.i58 = trunc i64 %39 to i32
   %40 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %10, i32 noundef 0, i8 noundef zeroext 52) #8
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %41, 2
-  %.not.i57 = icmp eq i64 %42, 0
-  %43 = select i1 %.not.i57, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i56
+  %.not.i59 = icmp eq i64 %42, 0
+  %43 = select i1 %.not.i59, i32 0, i32 %.sroa.0.0.extract.trunc.i9.i58
   %44 = add i32 %.pn, %2
-  %.151 = add i32 %44, %.sroa.0.0.extract.trunc.i.i55
-  %45 = add i32 %.151, %43
+  %.153 = add i32 %44, %.sroa.0.0.extract.trunc.i.i57
+  %45 = add i32 %.153, %43
   br label %46
 
 46:                                               ; preds = %25, %3
-  %.050 = phi i32 [ %45, %25 ], [ %2, %3 ]
+  %.052 = phi i32 [ %45, %25 ], [ %2, %3 ]
   %.0 = phi i32 [ %35, %25 ], [ %1, %3 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8, !tbaa !29
   %49 = sub nsw i32 %.0, %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %51 = load i32, ptr %50, align 4, !tbaa !36
-  %52 = sub nsw i32 %.050, %51
+  %52 = sub nsw i32 %.052, %51
   %53 = icmp eq i32 %.0, %48
-  %54 = icmp eq i32 %.050, %51
+  %54 = icmp eq i32 %.052, %51
   %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %116, label %lv_obj_get_coords.exit
 
@@ -3029,7 +3029,7 @@ lv_obj_get_coords.exit:                           ; preds = %46
   br label %79
 
 79:                                               ; preds = %76, %78, %lv_obj_get_coords.exit
-  %.049.shrunk = phi i1 [ true, %76 ], [ false, %78 ], [ false, %lv_obj_get_coords.exit ]
+  %.051.shrunk = phi i1 [ true, %76 ], [ false, %78 ], [ false, %lv_obj_get_coords.exit ]
   %80 = load i32, ptr %47, align 8, !tbaa !29
   %81 = add nsw i32 %80, %49
   store i32 %81, ptr %47, align 8, !tbaa !29
@@ -3043,9 +3043,9 @@ lv_obj_get_coords.exit:                           ; preds = %46
   %87 = add nsw i32 %86, %52
   store i32 %87, ptr %62, align 4, !tbaa !35
   call void @lv_obj_move_children_by(ptr noundef nonnull %0, i32 noundef %49, i32 noundef %52, i1 noundef zeroext false)
-  br i1 %.not, label %lv_obj_invalidate.exit66, label %lv_obj_invalidate.exit63
+  br i1 %.not, label %lv_obj_invalidate.exit68, label %lv_obj_invalidate.exit65
 
-lv_obj_invalidate.exit63:                         ; preds = %79
+lv_obj_invalidate.exit65:                         ; preds = %79
   %88 = call i32 @lv_obj_send_event(ptr noundef nonnull %10, i32 noundef 42, ptr noundef nonnull %0) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
   %89 = call i32 @lv_obj_get_ext_draw_size(ptr noundef nonnull %0) #8
@@ -3067,14 +3067,14 @@ lv_obj_invalidate.exit63:                         ; preds = %79
   call void @lv_obj_invalidate_area(ptr noundef nonnull %0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   %101 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %47, ptr noundef nonnull %8, i32 noundef 0) #8
-  %brmerge = select i1 %.049.shrunk, i1 true, i1 %101
+  %brmerge = select i1 %.051.shrunk, i1 true, i1 %101
   br i1 %brmerge, label %102, label %115
 
-102:                                              ; preds = %lv_obj_invalidate.exit63
+102:                                              ; preds = %lv_obj_invalidate.exit65
   call void @lv_obj_scrollbar_invalidate(ptr noundef nonnull %10) #8
   br label %115
 
-lv_obj_invalidate.exit66:                         ; preds = %79
+lv_obj_invalidate.exit68:                         ; preds = %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   %103 = call i32 @lv_obj_get_ext_draw_size(ptr noundef nonnull %0) #8
   %104 = load i32, ptr %47, align 4, !tbaa !38
@@ -3096,7 +3096,7 @@ lv_obj_invalidate.exit66:                         ; preds = %79
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
   br label %115
 
-115:                                              ; preds = %102, %lv_obj_invalidate.exit63, %lv_obj_invalidate.exit66
+115:                                              ; preds = %102, %lv_obj_invalidate.exit65, %lv_obj_invalidate.exit68
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
   br label %116

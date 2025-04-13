@@ -2625,20 +2625,18 @@ define void @_ZN9grpc_core22SubchannelStreamClient12OnRetryTimerEv(ptr noundef n
   tail call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !78
-  %.not13 = icmp eq ptr %6, null
-  br i1 %.not13, label %33, label %7
-
-7:                                                ; preds = %1
+  %7 = icmp ne ptr %6, null
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %9 = load i8, ptr %8, align 8, !tbaa !83, !range !105, !noundef !106
+  %9 = load i8, ptr %8, align 8, !range !105
   %10 = trunc nuw i8 %9 to i1
+  %or.cond = select i1 %7, i1 %10, i1 false
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
-  %or.cond = select i1 %10, i1 %.not.i, i1 false
-  br i1 %or.cond, label %13, label %33
+  %or.cond16 = select i1 %or.cond, i1 %.not.i, i1 false
+  br i1 %or.cond16, label %13, label %33
 
-13:                                               ; preds = %7
+13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !52
   %.not = icmp eq ptr %15, null
@@ -2697,54 +2695,57 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi54EEERS2_RAT__Kc.exit: ; pr
 29:                                               ; preds = %28, %22
   %.pn.pn = phi { ptr, i32 } [ %.pn, %28 ], [ %23, %22 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #31
-  br label %41
+  br label %40
 
 30:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi54EEERS2_RAT__Kc.exit, %13
   invoke void @_ZN9grpc_core22SubchannelStreamClient15StartCallLockedEv(ptr noundef nonnull align 8 dereferenceable(440) %0)
-          to label %33 unwind label %31
+          to label %._crit_edge unwind label %31
+
+._crit_edge:                                      ; preds = %30
+  %.pre = load i8, ptr %8, align 8, !tbaa !83, !range !105
+  br label %33
 
 31:                                               ; preds = %30
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %41
+  br label %40
 
-33:                                               ; preds = %30, %7, %1
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %35 = load i8, ptr %34, align 8, !tbaa !83, !range !105, !noundef !106
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit
+33:                                               ; preds = %._crit_edge, %1
+  %34 = phi i8 [ %.pre, %._crit_edge ], [ %9, %1 ]
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit
 
-37:                                               ; preds = %33
-  store i8 0, ptr %34, align 8, !tbaa !83
+36:                                               ; preds = %33
+  store i8 0, ptr %8, align 8, !tbaa !83
   br label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit
 
-_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit: ; preds = %33, %37
+_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit: ; preds = %33, %36
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %38
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %37
 
-38:                                               ; preds = %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #35
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #35
   unreachable
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit
   ret void
 
-41:                                               ; preds = %31, %29
+40:                                               ; preds = %31, %29
   %.pn7 = phi { ptr, i32 } [ %32, %31 ], [ %.pn.pn, %29 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit9 unwind label %42
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit9 unwind label %41
 
-42:                                               ; preds = %41
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %40
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #35
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #35
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit9:       ; preds = %41
+_ZN4absl12lts_202407229MutexLockD2Ev.exit9:       ; preds = %40
   resume { ptr, i32 } %.pn7
 }
 

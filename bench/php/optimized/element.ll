@@ -1271,6 +1271,24 @@ declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 declare void @node_list_unlink(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: nounwind uwtable
+define internal fastcc void @dom_create_attribute(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+  %4 = tail call i32 @xmlStrEqual(ptr noundef %1, ptr noundef nonnull @.str.4) #10
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %7, label %5
+
+5:                                                ; preds = %3
+  %6 = tail call ptr @xmlNewNs(ptr noundef %0, ptr noundef %2, ptr noundef null) #10
+  br label %9
+
+7:                                                ; preds = %3
+  %8 = tail call ptr @xmlSetProp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
+  br label %9
+
+9:                                                ; preds = %7, %5
+  ret void
+}
+
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare zeroext i1 @php_dom_create_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -5008,7 +5026,7 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr noundef readonly captures
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !14
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
-  br label %106
+  br label %100
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5028,21 +5046,21 @@ define hidden void @zim_DOMElement_toggleAttribute(ptr noundef readonly captures
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !14
   %28 = icmp ne ptr %27, null
   call void @llvm.assume(i1 %28)
-  br label %106
+  br label %100
 
 29:                                               ; preds = %15
   %30 = load ptr, ptr %19, align 8, !tbaa !86
   %31 = load ptr, ptr %3, align 8, !tbaa !4
   %32 = call i32 @xmlValidateName(ptr noundef %31, i32 noundef 0) #10
-  %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %36, label %33
+  %.not37 = icmp eq i32 %32, 0
+  br i1 %.not37, label %36, label %33
 
 33:                                               ; preds = %29
   call void @php_dom_throw_error(i32 noundef 5, i1 noundef zeroext true) #10
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !14
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
-  br label %106
+  br label %100
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds i8, ptr %17, i64 -16
@@ -5061,8 +5079,8 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %36, %39
   %44 = phi i1 [ false, %36 ], [ %43, %39 ]
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %46 = load ptr, ptr %45, align 8, !tbaa !91
-  %.not34 = icmp eq ptr %46, null
-  br i1 %.not34, label %62, label %47
+  %.not38 = icmp eq ptr %46, null
+  br i1 %.not38, label %62, label %47
 
 47:                                               ; preds = %php_dom_follow_spec_doc_ref.exit
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -5073,28 +5091,28 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %36, %39
 51:                                               ; preds = %47
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %30, i64 72
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !115
-  %.not35 = icmp eq ptr %.pre, null
+  %.not39 = icmp eq ptr %.pre, null
   br i1 %44, label %53, label %52
 
 52:                                               ; preds = %51
-  br i1 %.not35, label %57, label %.thread
+  br i1 %.not39, label %57, label %.thread
 
 53:                                               ; preds = %51
-  br i1 %.not35, label %62, label %.thread
+  br i1 %.not39, label %62, label %.thread
 
 .thread:                                          ; preds = %52, %53
   %54 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !93
   %56 = call i32 @xmlStrEqual(ptr noundef %55, ptr noundef nonnull @.str.17) #10
-  %.not36 = icmp eq i32 %56, 0
-  br i1 %.not36, label %62, label %57
+  %.not40 = icmp eq i32 %56, 0
+  br i1 %.not40, label %62, label %57
 
 57:                                               ; preds = %.thread, %52
   %58 = load ptr, ptr %3, align 8, !tbaa !4
   %59 = load i64, ptr %4, align 8, !tbaa !11
   %60 = call ptr @zend_str_tolower_dup_ex(ptr noundef %58, i64 noundef %59) #10
-  %.not37 = icmp eq ptr %60, null
-  br i1 %.not37, label %62, label %61
+  %.not41 = icmp eq ptr %60, null
+  br i1 %.not41, label %62, label %61
 
 61:                                               ; preds = %57
   store ptr %60, ptr %3, align 8, !tbaa !4
@@ -5108,91 +5126,79 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %36, %39
   %66 = icmp eq ptr %65, null
   %67 = load i8, ptr %6, align 1, !tbaa !125, !range !126, !noundef !127
   %68 = trunc nuw i8 %67 to i1
-  br i1 %66, label %69, label %97
+  br i1 %66, label %69, label %92
 
 69:                                               ; preds = %62
-  br i1 %68, label %73, label %70
+  %70 = load i8, ptr %5, align 1, !range !126
+  %71 = trunc nuw i8 %70 to i1
+  %or.cond = select i1 %68, i1 true, i1 %71
+  br i1 %or.cond, label %72, label %96
 
-70:                                               ; preds = %69
-  %71 = load i8, ptr %5, align 1, !tbaa !125, !range !126, !noundef !127
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %73, label %102
+72:                                               ; preds = %69
+  br i1 %44, label %73, label %76
 
-73:                                               ; preds = %70, %69
-  br i1 %44, label %74, label %77
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %3, align 8, !tbaa !4
+  %75 = call ptr @xmlSetNsProp(ptr noundef nonnull %30, ptr noundef null, ptr noundef %74, ptr noundef null) #10
+  br label %96
 
-74:                                               ; preds = %73
-  %75 = load ptr, ptr %3, align 8, !tbaa !4
-  %76 = call ptr @xmlSetNsProp(ptr noundef nonnull %30, ptr noundef null, ptr noundef %75, ptr noundef null) #10
-  br label %102
-
-77:                                               ; preds = %73
+76:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
-  %78 = load ptr, ptr %3, align 8, !tbaa !4
-  %79 = call ptr @xmlSplitQName3(ptr noundef %78, ptr noundef nonnull %7) #10
-  %80 = icmp eq ptr %79, null
-  %.pre41 = load ptr, ptr %3, align 8, !tbaa !4
-  br i1 %80, label %86, label %81
+  %77 = load ptr, ptr %3, align 8, !tbaa !4
+  %78 = call ptr @xmlSplitQName3(ptr noundef %77, ptr noundef nonnull %7) #10
+  %79 = icmp eq ptr %78, null
+  %.pre44 = load ptr, ptr %3, align 8, !tbaa !4
+  br i1 %79, label %85, label %80
 
-81:                                               ; preds = %77
-  %82 = load i32, ptr %7, align 4, !tbaa !9
-  %83 = add nsw i32 %82, 1
-  %84 = sext i32 %83 to i64
-  %85 = call i32 @strncmp(ptr noundef %.pre41, ptr noundef nonnull @.str.18, i64 noundef %84) #11
-  %.not38 = icmp eq i32 %85, 0
-  br i1 %.not38, label %92, label %86
+80:                                               ; preds = %76
+  %81 = load i32, ptr %7, align 4, !tbaa !9
+  %82 = add nsw i32 %81, 1
+  %83 = sext i32 %82 to i64
+  %84 = call i32 @strncmp(ptr noundef %.pre44, ptr noundef nonnull @.str.18, i64 noundef %83) #11
+  %.not42 = icmp eq i32 %84, 0
+  br i1 %.not42, label %86, label %85
 
-86:                                               ; preds = %81, %77
-  %87 = call i32 @xmlStrEqual(ptr noundef %.pre41, ptr noundef nonnull @.str.4) #10
-  %.not.i40 = icmp eq i32 %87, 0
-  br i1 %.not.i40, label %90, label %88
+85:                                               ; preds = %80, %76
+  call fastcc void @dom_create_attribute(ptr noundef nonnull %30, ptr noundef %.pre44, ptr noundef nonnull @.str.19)
+  br label %91
 
-88:                                               ; preds = %86
-  %89 = call ptr @xmlNewNs(ptr noundef nonnull %30, ptr noundef nonnull @.str.19, ptr noundef null) #10
-  br label %dom_create_attribute.exit
+86:                                               ; preds = %80
+  %87 = sext i32 %81 to i64
+  %88 = getelementptr inbounds i8, ptr %.pre44, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
+  %90 = call ptr @xmlNewNs(ptr noundef nonnull %30, ptr noundef nonnull @.str.19, ptr noundef nonnull %89) #10
+  br label %91
 
-90:                                               ; preds = %86
-  %91 = call ptr @xmlSetProp(ptr noundef nonnull %30, ptr noundef %.pre41, ptr noundef nonnull @.str.19) #10
-  br label %dom_create_attribute.exit
-
-92:                                               ; preds = %81
-  %93 = sext i32 %82 to i64
-  %94 = getelementptr inbounds i8, ptr %.pre41, i64 %93
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  %96 = call ptr @xmlNewNs(ptr noundef nonnull %30, ptr noundef nonnull @.str.19, ptr noundef nonnull %95) #10
-  br label %dom_create_attribute.exit
-
-dom_create_attribute.exit:                        ; preds = %90, %88, %92
+91:                                               ; preds = %86, %85
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  br label %102
+  br label %96
 
-97:                                               ; preds = %62
-  br i1 %68, label %101, label %98
+92:                                               ; preds = %62
+  %.not = xor i1 %68, true
+  %93 = load i8, ptr %5, align 1, !range !126
+  %94 = trunc nuw i8 %93 to i1
+  %or.cond3 = select i1 %.not, i1 %94, i1 false
+  br i1 %or.cond3, label %96, label %95
 
-98:                                               ; preds = %97
-  %99 = load i8, ptr %5, align 1, !tbaa !125, !range !126, !noundef !127
-  %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %102, label %101
-
-101:                                              ; preds = %98, %97
+95:                                               ; preds = %92
   call fastcc void @dom_remove_attribute(ptr noundef nonnull %30, ptr noundef %65)
-  br label %102
+  br label %96
 
-102:                                              ; preds = %98, %70, %74, %dom_create_attribute.exit, %101
-  %.028 = phi i32 [ 2, %101 ], [ 3, %dom_create_attribute.exit ], [ 3, %74 ], [ 2, %70 ], [ 3, %98 ]
-  %.not39 = icmp eq ptr %.0, null
-  br i1 %.not39, label %104, label %103
+96:                                               ; preds = %92, %69, %73, %91, %95
+  %.031 = phi i32 [ 2, %95 ], [ 3, %91 ], [ 3, %73 ], [ 2, %69 ], [ 3, %92 ]
+  %.not43 = icmp eq ptr %.0, null
+  br i1 %.not43, label %98, label %97
 
-103:                                              ; preds = %102
+97:                                               ; preds = %96
   call void @_efree(ptr noundef nonnull %.0) #10
-  br label %104
+  br label %98
 
-104:                                              ; preds = %103, %102
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.028, ptr %105, align 8, !tbaa !13
-  br label %106
+98:                                               ; preds = %97, %96
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %.031, ptr %99, align 8, !tbaa !13
+  br label %100
 
-106:                                              ; preds = %104, %33, %21, %12
+100:                                              ; preds = %98, %33, %21, %12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10

@@ -779,7 +779,10 @@ proto_item_set_hidden.exit209.i.i:                ; preds = %231, %227, %224, %2
 
 254:                                              ; preds = %243
   %255 = icmp ult i8 %93, 8
-  br i1 %255, label %switch.hole_check, label %proto_item_set_hidden.exit212.i.i
+  %switch.shifted = lshr i8 -61, %93
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %255, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %proto_item_set_hidden.exit212.i.i
 
 256:                                              ; preds = %243
   switch i8 %93, label %proto_item_set_hidden.exit212.i.i [
@@ -794,12 +797,7 @@ proto_item_set_hidden.exit209.i.i:                ; preds = %231, %227, %224, %2
 258:                                              ; preds = %256
   br label %260
 
-switch.hole_check:                                ; preds = %254
-  %switch.shifted = lshr i8 -61, %93
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %proto_item_set_hidden.exit212.i.i
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %254
   %259 = zext nneg i8 %93 to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.dissect_someip_sd_pdu, i64 0, i64 %259
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -825,7 +823,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %269, ptr %267, align 4
   br label %proto_item_set_hidden.exit212.i.i
 
-proto_item_set_hidden.exit212.i.i:                ; preds = %switch.hole_check, %254, %266, %263, %260, %256
+proto_item_set_hidden.exit212.i.i:                ; preds = %254, %266, %263, %260, %256
   %270 = load i32, ptr %12, align 4
   %271 = icmp ne i32 %270, 0
   %272 = load i32, ptr %13, align 4
@@ -1210,14 +1208,12 @@ define internal noundef i32 @someipsd_entries_stats_tree_packet(ptr noundef %0, 
 
 32:                                               ; preds = %7
   %33 = icmp ult i8 %28, 8
-  br i1 %33, label %switch.hole_check, label %39
-
-switch.hole_check:                                ; preds = %32
   %switch.shifted = lshr i8 -61, %28
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %39
+  %or.cond = select i1 %33, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %39
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %32
   %34 = zext nneg i8 %28 to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.someipsd_entries_stats_tree_packet, i64 0, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -1232,7 +1228,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %38 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @someipsd_entries_stats_tree_packet.tmp_str, i32 noundef %37, i1 noundef zeroext false, i32 noundef 1)
   br label %39
 
-39:                                               ; preds = %switch.hole_check, %32, %.sink.split, %29
+39:                                               ; preds = %32, %.sink.split, %29
   ret i32 1
 }
 

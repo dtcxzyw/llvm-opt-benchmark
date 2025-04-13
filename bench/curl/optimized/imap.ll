@@ -576,36 +576,36 @@ imap_parse_url_path.exit:                         ; preds = %165
   store i8 0, ptr %1, align 1, !tbaa !8
   %197 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %198 = load ptr, ptr %197, align 8, !tbaa !81
-  %.not52.i.i = icmp eq ptr %198, null
-  br i1 %.not52.i.i, label %213, label %199
+  %.not57.i.i = icmp eq ptr %198, null
+  br i1 %.not57.i.i, label %213, label %199
 
 199:                                              ; preds = %196
   %200 = getelementptr inbounds nuw i8, ptr %190, i64 1312
   %201 = load ptr, ptr %200, align 8, !tbaa !100
-  %.not53.i.i = icmp eq ptr %201, null
-  br i1 %.not53.i.i, label %213, label %202
+  %.not58.i.i = icmp eq ptr %201, null
+  br i1 %.not58.i.i, label %213, label %202
 
 202:                                              ; preds = %199
   %203 = call i32 @curl_strequal(ptr noundef nonnull %198, ptr noundef nonnull %201) #7
-  %.not54.i.i = icmp eq i32 %203, 0
-  br i1 %.not54.i.i, label %213, label %204
+  %.not59.i.i = icmp eq i32 %203, 0
+  br i1 %.not59.i.i, label %213, label %204
 
 204:                                              ; preds = %202
   %205 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %206 = load ptr, ptr %205, align 8, !tbaa !86
-  %.not55.i.i = icmp eq ptr %206, null
-  br i1 %.not55.i.i, label %212, label %207
+  %.not60.i.i = icmp eq ptr %206, null
+  br i1 %.not60.i.i, label %212, label %207
 
 207:                                              ; preds = %204
   %208 = getelementptr inbounds nuw i8, ptr %190, i64 1320
   %209 = load ptr, ptr %208, align 8, !tbaa !105
-  %.not56.i.i = icmp eq ptr %209, null
-  br i1 %.not56.i.i, label %212, label %210
+  %.not61.i.i = icmp eq ptr %209, null
+  br i1 %.not61.i.i, label %212, label %210
 
 210:                                              ; preds = %207
   %211 = call i32 @curl_strequal(ptr noundef nonnull %206, ptr noundef nonnull %209) #7
-  %.not57.i.i = icmp eq i32 %211, 0
-  br i1 %.not57.i.i, label %213, label %212
+  %.not62.i.i = icmp eq i32 %211, 0
+  br i1 %.not62.i.i, label %213, label %212
 
 212:                                              ; preds = %210, %207, %204
   br label %213
@@ -615,14 +615,14 @@ imap_parse_url_path.exit:                         ; preds = %165
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 5036
   %215 = load i32, ptr %214, align 4
   %216 = and i32 %215, 524288
-  %.not58.i.i = icmp eq i32 %216, 0
-  br i1 %.not58.i.i, label %217, label %220
+  %.not63.i.i = icmp eq i32 %216, 0
+  br i1 %.not63.i.i, label %217, label %220
 
 217:                                              ; preds = %213
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %219 = load i32, ptr %218, align 8, !tbaa !106
-  %.not59.i.i = icmp eq i32 %219, 0
-  br i1 %.not59.i.i, label %264, label %220
+  %.not64.i.i = icmp eq i32 %219, 0
+  br i1 %.not64.i.i, label %264, label %220
 
 220:                                              ; preds = %217, %213
   %221 = load ptr, ptr %7, align 8, !tbaa !7
@@ -715,28 +715,28 @@ imap_parse_url_path.exit:                         ; preds = %165
   %.val.i.i.i = load ptr, ptr %189, align 8, !tbaa !98
   %263 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 1328
   store i32 11, ptr %263, align 8, !tbaa !110
-  br label %imap_perform_append.exit.thread108.i.i
+  br label %imap_perform_append.exit.thread104.i.i
 
 264:                                              ; preds = %217
   %265 = getelementptr inbounds nuw i8, ptr %191, i64 64
   %266 = load ptr, ptr %265, align 8, !tbaa !94
-  %.not60.i.i = icmp eq ptr %266, null
-  br i1 %.not60.i.i, label %294, label %267
+  %.not65.i.i = icmp eq ptr %266, null
+  br i1 %.not65.i.i, label %294, label %267
 
 267:                                              ; preds = %264
   br i1 %.0.i.i, label %270, label %268
 
 268:                                              ; preds = %267
   %269 = load ptr, ptr %197, align 8, !tbaa !81
-  %.not61.i.i = icmp eq ptr %269, null
-  br i1 %.not61.i.i, label %270, label %.thread113.i.i
+  %.not66.i.i = icmp eq ptr %269, null
+  br i1 %.not66.i.i, label %270, label %.thread108.i.i
 
 270:                                              ; preds = %268, %267
   %271 = load ptr, ptr %7, align 8, !tbaa !7
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 64
   %273 = load ptr, ptr %272, align 8, !tbaa !94
-  %.not.i76.i.i = icmp eq ptr %273, null
-  br i1 %.not.i76.i.i, label %278, label %274
+  %.not.i75.i.i = icmp eq ptr %273, null
+  br i1 %.not.i75.i.i, label %278, label %274
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %271, i64 72
@@ -778,25 +778,25 @@ imap_parse_url_path.exit:                         ; preds = %165
   br i1 %.not26.i.i.i, label %292, label %imap_parse_custom_request.exit
 
 292:                                              ; preds = %291
-  %.val.i78.i.i = load ptr, ptr %189, align 8, !tbaa !98
-  %293 = getelementptr inbounds nuw i8, ptr %.val.i78.i.i, i64 1328
+  %.val.i77.i.i = load ptr, ptr %189, align 8, !tbaa !98
+  %293 = getelementptr inbounds nuw i8, ptr %.val.i77.i.i, i64 1328
   store i32 7, ptr %293, align 8, !tbaa !110
-  br label %imap_perform_append.exit.thread108.i.i
+  br label %imap_perform_append.exit.thread104.i.i
 
 294:                                              ; preds = %264
-  br i1 %.0.i.i, label %295, label %.thread99.i.i
+  br i1 %.0.i.i, label %295, label %.thread96.i.i
 
 295:                                              ; preds = %294
   %296 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %297 = load ptr, ptr %296, align 8, !tbaa !88
-  %.not63.i.i = icmp eq ptr %297, null
-  br i1 %.not63.i.i, label %298, label %301
+  %.not67.i.i = icmp eq ptr %297, null
+  br i1 %.not67.i.i, label %298, label %301
 
 298:                                              ; preds = %295
   %299 = getelementptr inbounds nuw i8, ptr %191, i64 32
   %300 = load ptr, ptr %299, align 8, !tbaa !89
-  %.not64.i.i = icmp eq ptr %300, null
-  br i1 %.not64.i.i, label %303, label %301
+  %.not68.i.i = icmp eq ptr %300, null
+  br i1 %.not68.i.i, label %303, label %301
 
 301:                                              ; preds = %298, %295
   %302 = call fastcc i32 @imap_perform_fetch(ptr noundef nonnull %0)
@@ -805,187 +805,178 @@ imap_parse_url_path.exit:                         ; preds = %165
 303:                                              ; preds = %298
   %304 = getelementptr inbounds nuw i8, ptr %191, i64 56
   %305 = load ptr, ptr %304, align 8, !tbaa !111
-  %.not66.i.i = icmp eq ptr %305, null
-  br i1 %.not66.i.i, label %.thread101.i.i, label %306
+  %.not69.i.i = icmp eq ptr %305, null
+  br i1 %.not69.i.i, label %.thread98.i.i, label %306
 
 306:                                              ; preds = %303
   %307 = call fastcc i32 @imap_perform_search(ptr noundef nonnull %0)
   br label %imap_perform_append.exit.i.i
 
-.thread99.i.i:                                    ; preds = %294
+.thread96.i.i:                                    ; preds = %294
   %308 = load ptr, ptr %197, align 8, !tbaa !81
-  %.not67.i.i = icmp eq ptr %308, null
-  br i1 %.not67.i.i, label %.thread101.i.i, label %.thread104.i.i
+  %309 = icmp eq ptr %308, null
+  br i1 %309, label %.thread98.i.i, label %.thread100.i.i
 
-.thread104.i.i:                                   ; preds = %.thread99.i.i
-  %309 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  %310 = load ptr, ptr %309, align 8, !tbaa !88
-  %.not69.i.i = icmp eq ptr %310, null
-  br i1 %.not69.i.i, label %311, label %.thread113.i.i
+.thread100.i.i:                                   ; preds = %.thread96.i.i
+  %310 = getelementptr inbounds nuw i8, ptr %191, i64 24
+  %311 = load ptr, ptr %310, align 8, !tbaa !88
+  %.not71.i.i = icmp eq ptr %311, null
+  br i1 %.not71.i.i, label %312, label %.thread108.i.i
 
-311:                                              ; preds = %.thread104.i.i
-  %312 = getelementptr inbounds nuw i8, ptr %191, i64 32
-  %313 = load ptr, ptr %312, align 8, !tbaa !89
-  %.not70.i.i = icmp eq ptr %313, null
-  br i1 %.not70.i.i, label %314, label %.thread113.i.i
+312:                                              ; preds = %.thread100.i.i
+  %313 = getelementptr inbounds nuw i8, ptr %191, i64 32
+  %314 = load ptr, ptr %313, align 8, !tbaa !89
+  %.not72.i.i = icmp eq ptr %314, null
+  br i1 %.not72.i.i, label %315, label %.thread108.i.i
 
-314:                                              ; preds = %311
-  %315 = getelementptr inbounds nuw i8, ptr %191, i64 56
-  %316 = load ptr, ptr %315, align 8, !tbaa !111
-  %.not71.i.i = icmp eq ptr %316, null
-  br i1 %.not71.i.i, label %.thread101.i.i, label %.thread113.i.i
+315:                                              ; preds = %312
+  %316 = getelementptr inbounds nuw i8, ptr %191, i64 56
+  %317 = load ptr, ptr %316, align 8, !tbaa !111
+  %.not73.i.i = icmp eq ptr %317, null
+  br i1 %.not73.i.i, label %.thread98.i.i, label %.thread108.i.i
 
-.thread113.i.i:                                   ; preds = %314, %311, %.thread104.i.i, %268
-  %317 = load ptr, ptr %189, align 8, !tbaa !98
-  %318 = load ptr, ptr %7, align 8, !tbaa !7
-  %319 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %320 = getelementptr inbounds nuw i8, ptr %317, i64 1312
-  %321 = load ptr, ptr %320, align 8, !tbaa !100
-  call void %319(ptr noundef %321) #7
-  store ptr null, ptr %320, align 8, !tbaa !100
-  %322 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %323 = getelementptr inbounds nuw i8, ptr %317, i64 1320
-  %324 = load ptr, ptr %323, align 8, !tbaa !105
-  call void %322(ptr noundef %324) #7
-  store ptr null, ptr %323, align 8, !tbaa !105
-  %325 = getelementptr inbounds nuw i8, ptr %318, i64 8
-  %326 = load ptr, ptr %325, align 8, !tbaa !81
-  %.not.i79.i.i = icmp eq ptr %326, null
-  br i1 %.not.i79.i.i, label %327, label %328
+.thread108.i.i:                                   ; preds = %315, %312, %.thread100.i.i, %268
+  %318 = load ptr, ptr %189, align 8, !tbaa !98
+  %319 = load ptr, ptr %7, align 8, !tbaa !7
+  %320 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
+  %321 = getelementptr inbounds nuw i8, ptr %318, i64 1312
+  %322 = load ptr, ptr %321, align 8, !tbaa !100
+  call void %320(ptr noundef %322) #7
+  store ptr null, ptr %321, align 8, !tbaa !100
+  %323 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
+  %324 = getelementptr inbounds nuw i8, ptr %318, i64 1320
+  %325 = load ptr, ptr %324, align 8, !tbaa !105
+  call void %323(ptr noundef %325) #7
+  store ptr null, ptr %324, align 8, !tbaa !105
+  %326 = getelementptr inbounds nuw i8, ptr %319, i64 8
+  %327 = load ptr, ptr %326, align 8, !tbaa !81
+  %.not.i78.i.i = icmp eq ptr %327, null
+  br i1 %.not.i78.i.i, label %328, label %329
 
-327:                                              ; preds = %.thread113.i.i
+328:                                              ; preds = %.thread108.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.67) #7
   br label %imap_parse_custom_request.exit
 
-328:                                              ; preds = %.thread113.i.i
-  %329 = call fastcc ptr @imap_atom(ptr noundef nonnull %326, i1 noundef zeroext false)
-  %.not19.i.i.i = icmp eq ptr %329, null
-  br i1 %.not19.i.i.i, label %imap_parse_custom_request.exit, label %330
+329:                                              ; preds = %.thread108.i.i
+  %330 = call fastcc ptr @imap_atom(ptr noundef nonnull %327, i1 noundef zeroext false)
+  %.not19.i.i.i = icmp eq ptr %330, null
+  br i1 %.not19.i.i.i, label %imap_parse_custom_request.exit, label %331
 
-330:                                              ; preds = %328
-  %331 = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %0, ptr noundef nonnull @.str.68, ptr noundef nonnull %329)
-  %332 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  call void %332(ptr noundef nonnull %329) #7
-  %.not20.i.i.i = icmp eq i32 %331, 0
-  br i1 %.not20.i.i.i, label %333, label %imap_parse_custom_request.exit
+331:                                              ; preds = %329
+  %332 = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %0, ptr noundef nonnull @.str.68, ptr noundef nonnull %330)
+  %333 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
+  call void %333(ptr noundef nonnull %330) #7
+  %.not20.i.i.i = icmp eq i32 %332, 0
+  br i1 %.not20.i.i.i, label %334, label %imap_parse_custom_request.exit
 
-333:                                              ; preds = %330
-  %.val.i81.i.i = load ptr, ptr %189, align 8, !tbaa !98
-  %334 = getelementptr inbounds nuw i8, ptr %.val.i81.i.i, i64 1328
-  store i32 8, ptr %334, align 8, !tbaa !110
-  br label %imap_perform_append.exit.thread108.i.i
+334:                                              ; preds = %331
+  %.val.i80.i.i = load ptr, ptr %189, align 8, !tbaa !98
+  %335 = getelementptr inbounds nuw i8, ptr %.val.i80.i.i, i64 1328
+  store i32 8, ptr %335, align 8, !tbaa !110
+  br label %imap_perform_append.exit.thread104.i.i
 
-.thread101.i.i:                                   ; preds = %314, %.thread99.i.i, %303
-  %335 = load ptr, ptr %7, align 8, !tbaa !7
-  %336 = getelementptr inbounds nuw i8, ptr %335, i64 64
-  %337 = load ptr, ptr %336, align 8, !tbaa !94
-  %.not.i82.i.i = icmp eq ptr %337, null
-  br i1 %.not.i82.i.i, label %342, label %338
+.thread98.i.i:                                    ; preds = %315, %.thread96.i.i, %303
+  %336 = load ptr, ptr %7, align 8, !tbaa !7
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 64
+  %338 = load ptr, ptr %337, align 8, !tbaa !94
+  %.not.i81.i.i = icmp eq ptr %338, null
+  br i1 %.not.i81.i.i, label %343, label %339
 
-338:                                              ; preds = %.thread101.i.i
-  %339 = getelementptr inbounds nuw i8, ptr %335, i64 72
-  %340 = load ptr, ptr %339, align 8, !tbaa !96
-  %.not25.i83.i.i = icmp eq ptr %340, null
-  %spec.select.i84.i.i = select i1 %.not25.i83.i.i, ptr @.str.15, ptr %340
-  %341 = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %337, ptr noundef nonnull %spec.select.i84.i.i)
-  br label %355
+339:                                              ; preds = %.thread98.i.i
+  %340 = getelementptr inbounds nuw i8, ptr %336, i64 72
+  %341 = load ptr, ptr %340, align 8, !tbaa !96
+  %.not25.i82.i.i = icmp eq ptr %341, null
+  %spec.select.i83.i.i = select i1 %.not25.i82.i.i, ptr @.str.15, ptr %341
+  %342 = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull %338, ptr noundef nonnull %spec.select.i83.i.i)
+  br label %356
 
-342:                                              ; preds = %.thread101.i.i
-  %343 = getelementptr inbounds nuw i8, ptr %335, i64 8
-  %344 = load ptr, ptr %343, align 8, !tbaa !81
-  %.not23.i90.i.i = icmp eq ptr %344, null
-  br i1 %.not23.i90.i.i, label %347, label %345
+343:                                              ; preds = %.thread98.i.i
+  %344 = getelementptr inbounds nuw i8, ptr %336, i64 8
+  %345 = load ptr, ptr %344, align 8, !tbaa !81
+  %.not23.i89.i.i = icmp eq ptr %345, null
+  br i1 %.not23.i89.i.i, label %348, label %346
 
-345:                                              ; preds = %342
-  %346 = call fastcc ptr @imap_atom(ptr noundef nonnull %344, i1 noundef zeroext true)
-  br label %350
+346:                                              ; preds = %343
+  %347 = call fastcc ptr @imap_atom(ptr noundef nonnull %345, i1 noundef zeroext true)
+  br label %351
 
-347:                                              ; preds = %342
-  %348 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !3
-  %349 = call ptr %348(ptr noundef nonnull @.str.15) #7
-  br label %350
+348:                                              ; preds = %343
+  %349 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !3
+  %350 = call ptr %349(ptr noundef nonnull @.str.15) #7
+  br label %351
 
-350:                                              ; preds = %347, %345
-  %351 = phi ptr [ %346, %345 ], [ %349, %347 ]
-  %.not24.not.i91.i.i = icmp eq ptr %351, null
-  br i1 %.not24.not.i91.i.i, label %imap_parse_custom_request.exit, label %352
+351:                                              ; preds = %348, %346
+  %352 = phi ptr [ %347, %346 ], [ %350, %348 ]
+  %.not24.not.i90.i.i = icmp eq ptr %352, null
+  br i1 %.not24.not.i90.i.i, label %imap_parse_custom_request.exit, label %353
 
-352:                                              ; preds = %350
-  %353 = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %351)
-  %354 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  call void %354(ptr noundef nonnull %351) #7
-  br label %355
+353:                                              ; preds = %351
+  %354 = call i32 (ptr, ptr, ...) @imap_sendf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %352)
+  %355 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
+  call void %355(ptr noundef nonnull %352) #7
+  br label %356
 
-355:                                              ; preds = %352, %338
-  %.017.i85.i.i = phi i32 [ %341, %338 ], [ %353, %352 ]
-  %.not26.i86.i.i = icmp eq i32 %.017.i85.i.i, 0
-  br i1 %.not26.i86.i.i, label %356, label %imap_parse_custom_request.exit
+356:                                              ; preds = %353, %339
+  %.017.i84.i.i = phi i32 [ %342, %339 ], [ %354, %353 ]
+  %.not26.i85.i.i = icmp eq i32 %.017.i84.i.i, 0
+  br i1 %.not26.i85.i.i, label %357, label %imap_parse_custom_request.exit
 
-356:                                              ; preds = %355
-  %.val.i89.i.i = load ptr, ptr %189, align 8, !tbaa !98
-  %357 = getelementptr inbounds nuw i8, ptr %.val.i89.i.i, i64 1328
-  store i32 7, ptr %357, align 8, !tbaa !110
-  br label %imap_perform_append.exit.thread108.i.i
+357:                                              ; preds = %356
+  %.val.i88.i.i = load ptr, ptr %189, align 8, !tbaa !98
+  %358 = getelementptr inbounds nuw i8, ptr %.val.i88.i.i, i64 1328
+  store i32 7, ptr %358, align 8, !tbaa !110
+  br label %imap_perform_append.exit.thread104.i.i
 
 imap_perform_append.exit.i.i:                     ; preds = %306, %301
-  %.047.i.i = phi i32 [ %307, %306 ], [ %302, %301 ]
-  %.not72.i.i = icmp eq i32 %.047.i.i, 0
-  br i1 %.not72.i.i, label %imap_perform_append.exit.imap_perform_append.exit.thread108_crit_edge.i.i, label %imap_parse_custom_request.exit
+  %.052.i.i = phi i32 [ %302, %301 ], [ %307, %306 ]
+  %.not74.i.i = icmp eq i32 %.052.i.i, 0
+  br i1 %.not74.i.i, label %imap_perform_append.exit.imap_perform_append.exit.thread104_crit_edge.i.i, label %imap_parse_custom_request.exit
 
-imap_perform_append.exit.imap_perform_append.exit.thread108_crit_edge.i.i: ; preds = %imap_perform_append.exit.i.i
+imap_perform_append.exit.imap_perform_append.exit.thread104_crit_edge.i.i: ; preds = %imap_perform_append.exit.i.i
   %.pre.i.i = load ptr, ptr %189, align 8, !tbaa !98
-  br label %imap_perform_append.exit.thread108.i.i
+  br label %imap_perform_append.exit.thread104.i.i
 
-imap_perform_append.exit.thread108.i.i:           ; preds = %imap_perform_append.exit.imap_perform_append.exit.thread108_crit_edge.i.i, %356, %333, %292, %262
-  %358 = phi ptr [ %.pre.i.i, %imap_perform_append.exit.imap_perform_append.exit.thread108_crit_edge.i.i ], [ %.val.i89.i.i, %356 ], [ %.val.i81.i.i, %333 ], [ %.val.i78.i.i, %292 ], [ %.val.i.i.i, %262 ]
-  %359 = getelementptr inbounds nuw i8, ptr %358, i64 1088
-  %360 = call zeroext i1 @Curl_conn_is_ssl(ptr noundef %358, i32 noundef 0) #7
-  br i1 %360, label %361, label %374
+imap_perform_append.exit.thread104.i.i:           ; preds = %imap_perform_append.exit.imap_perform_append.exit.thread104_crit_edge.i.i, %357, %334, %292, %262
+  %359 = phi ptr [ %.pre.i.i, %imap_perform_append.exit.imap_perform_append.exit.thread104_crit_edge.i.i ], [ %.val.i88.i.i, %357 ], [ %.val.i80.i.i, %334 ], [ %.val.i77.i.i, %292 ], [ %.val.i.i.i, %262 ]
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 1088
+  %361 = call zeroext i1 @Curl_conn_is_ssl(ptr noundef %359, i32 noundef 0) #7
+  br i1 %361, label %362, label %374
 
-361:                                              ; preds = %imap_perform_append.exit.thread108.i.i
-  %362 = getelementptr inbounds nuw i8, ptr %358, i64 1339
-  %363 = load i8, ptr %362, align 1
-  %364 = and i8 %363, 1
-  %.not.i94.i.i = icmp eq i8 %364, 0
-  br i1 %.not.i94.i.i, label %365, label %374
+362:                                              ; preds = %imap_perform_append.exit.thread104.i.i
+  %363 = getelementptr inbounds nuw i8, ptr %359, i64 1339
+  %364 = load i8, ptr %363, align 1
+  %365 = and i8 %364, 1
+  %.not.i93.i.i = icmp eq i8 %365, 0
+  br i1 %.not.i93.i.i, label %366, label %374
 
-365:                                              ; preds = %361
+366:                                              ; preds = %362
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   store i8 0, ptr %3, align 1, !tbaa !8
-  %366 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #7
-  %367 = load i8, ptr %3, align 1, !tbaa !8, !range !112, !noundef !113
-  %368 = load i8, ptr %362, align 1
-  %369 = and i8 %368, -2
-  %370 = or disjoint i8 %369, %367
-  store i8 %370, ptr %362, align 1
-  %.not15.i.i.i = icmp eq i32 %366, 0
-  br i1 %.not15.i.i.i, label %371, label %373
-
-371:                                              ; preds = %365
-  %372 = trunc nuw i8 %367 to i1
-  br i1 %372, label %.critedge.i.i.i, label %373
-
-.critedge.i.i.i:                                  ; preds = %371
+  %367 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #7
+  %368 = load i8, ptr %3, align 1, !tbaa !8, !range !112, !noundef !113
+  %369 = load i8, ptr %363, align 1
+  %370 = and i8 %369, -2
+  %371 = or disjoint i8 %370, %368
+  store i8 %371, ptr %363, align 1
+  %372 = icmp eq i32 %367, 0
+  %373 = trunc nuw i8 %368 to i1
+  %or.cond.i.i.i = select i1 %372, i1 %373, i1 false
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
-  br label %374
+  br i1 %or.cond.i.i.i, label %374, label %imap_perform.exit.i
 
-373:                                              ; preds = %371, %365
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
-  br label %imap_perform.exit.i
-
-374:                                              ; preds = %.critedge.i.i.i, %361, %imap_perform_append.exit.thread108.i.i
-  %375 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %359, i1 noundef zeroext false, i1 noundef zeroext false) #7
-  %376 = getelementptr inbounds nuw i8, ptr %358, i64 1328
+374:                                              ; preds = %366, %362, %imap_perform_append.exit.thread104.i.i
+  %375 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %360, i1 noundef zeroext false, i1 noundef zeroext false) #7
+  %376 = getelementptr inbounds nuw i8, ptr %359, i64 1328
   %377 = load i32, ptr %376, align 8, !tbaa !110
   %378 = icmp eq i32 %377, 0
   %379 = zext i1 %378 to i8
   store i8 %379, ptr %1, align 1, !tbaa !8
   br label %imap_perform.exit.i
 
-imap_perform.exit.i:                              ; preds = %374, %373
-  %.1.i93.i.i = phi i32 [ %375, %374 ], [ %366, %373 ]
+imap_perform.exit.i:                              ; preds = %374, %366
+  %.1.i92.i.i = phi i32 [ %375, %374 ], [ %367, %366 ]
   %380 = call zeroext i1 @Curl_conn_is_connected(ptr noundef %190, i32 noundef 0) #7
-  %.not.i17 = icmp eq i32 %.1.i93.i.i, 0
+  %.not.i17 = icmp eq i32 %.1.i92.i.i, 0
   br i1 %.not.i17, label %381, label %imap_parse_custom_request.exit
 
 381:                                              ; preds = %imap_perform.exit.i
@@ -1003,8 +994,8 @@ imap_perform.exit.i:                              ; preds = %374, %373
   call void @Curl_xfer_setup_nop(ptr noundef nonnull %0) #7
   br label %imap_parse_custom_request.exit
 
-imap_parse_custom_request.exit:                   ; preds = %177, %.thread.i, %165, %19, %387, %384, %381, %imap_perform.exit.i, %imap_perform_append.exit.i.i, %355, %350, %330, %328, %327, %291, %286, %258, %255, %254, %246, %.thread.i.i.i, %239, %229, %224, %168
-  %.0 = phi i32 [ %170, %168 ], [ %.1.i93.i.i, %imap_perform.exit.i ], [ 0, %381 ], [ 0, %384 ], [ 0, %387 ], [ 25, %254 ], [ 3, %224 ], [ %242, %.thread.i.i.i ], [ %249, %246 ], [ 27, %255 ], [ %260, %258 ], [ %241, %239 ], [ %236, %229 ], [ %.017.i.i.i, %291 ], [ 27, %286 ], [ 3, %327 ], [ 27, %328 ], [ %331, %330 ], [ %.017.i85.i.i, %355 ], [ 27, %350 ], [ %.047.i.i, %imap_perform_append.exit.i.i ], [ %.464.ph.i, %.thread.i ], [ 3, %165 ], [ %27, %19 ], [ 27, %177 ]
+imap_parse_custom_request.exit:                   ; preds = %177, %.thread.i, %165, %19, %387, %384, %381, %imap_perform.exit.i, %imap_perform_append.exit.i.i, %356, %351, %331, %329, %328, %291, %286, %258, %255, %254, %246, %.thread.i.i.i, %239, %229, %224, %168
+  %.0 = phi i32 [ %170, %168 ], [ %.1.i92.i.i, %imap_perform.exit.i ], [ 0, %381 ], [ 0, %384 ], [ 0, %387 ], [ 25, %254 ], [ 3, %224 ], [ %242, %.thread.i.i.i ], [ %249, %246 ], [ 27, %255 ], [ %260, %258 ], [ %241, %239 ], [ %236, %229 ], [ %.017.i.i.i, %291 ], [ 27, %286 ], [ 3, %328 ], [ 27, %329 ], [ %332, %331 ], [ %.017.i84.i.i, %356 ], [ 27, %351 ], [ %.052.i.i, %imap_perform_append.exit.i.i ], [ %.464.ph.i, %.thread.i ], [ 3, %165 ], [ %27, %19 ], [ 27, %177 ]
   ret i32 %.0
 }
 
@@ -1178,8 +1169,8 @@ define internal i32 @imap_connect(ptr noundef %0, ptr noundef writeonly captures
 .lr.ph.i:                                         ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 1274
   %16 = load i8, ptr %14, align 1, !tbaa !7
-  %.not.i25 = icmp eq i8 %16, 0
-  br i1 %.not.i25, label %.critedge.thread.i, label %.preheader.i.preheader
+  %.not.i24 = icmp eq i8 %16, 0
+  br i1 %.not.i24, label %.critedge.thread.i, label %.preheader.i.preheader
 
 17:                                               ; preds = %.thread, %33
   %18 = load i8, ptr %.2.i, align 1, !tbaa !7
@@ -1192,12 +1183,12 @@ define internal i32 @imap_connect(ptr noundef %0, ptr noundef writeonly captures
 
 .preheader.i.preheader:                           ; preds = %.lr.ph.i, %17
   %21 = phi i8 [ %20, %17 ], [ %16, %.lr.ph.i ]
-  %.03345.i26 = phi ptr [ %spec.select.i, %17 ], [ %14, %.lr.ph.i ]
+  %.03345.i25 = phi ptr [ %spec.select.i, %17 ], [ %14, %.lr.ph.i ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %23
   %22 = phi i8 [ %.pr.i, %23 ], [ %21, %.preheader.i.preheader ]
-  %.134.i = phi ptr [ %24, %23 ], [ %.03345.i26, %.preheader.i.preheader ]
+  %.134.i = phi ptr [ %24, %23 ], [ %.03345.i25, %.preheader.i.preheader ]
   switch i8 %22, label %23 [
     i8 0, label %.critedge3.i
     i8 61, label %.critedge3.i
@@ -1226,16 +1217,16 @@ define internal i32 @imap_connect(ptr noundef %0, ptr noundef writeonly captures
   br label %26, !llvm.loop !129
 
 .critedge5.i:                                     ; preds = %26, %26
-  %30 = tail call i32 @curl_strnequal(ptr noundef nonnull %.03345.i26, ptr noundef nonnull @.str.57, i64 noundef 11) #7
-  %.not46 = icmp eq i32 %30, 0
-  br i1 %.not46, label %31, label %.thread
+  %30 = tail call i32 @curl_strnequal(ptr noundef nonnull %.03345.i25, ptr noundef nonnull @.str.57, i64 noundef 11) #7
+  %.not45 = icmp eq i32 %30, 0
+  br i1 %.not45, label %31, label %.thread
 
 .thread:                                          ; preds = %.critedge5.i
   store i16 0, ptr %15, align 2, !tbaa !130
   br label %17
 
 31:                                               ; preds = %.critedge5.i
-  %32 = tail call i32 @curl_strnequal(ptr noundef nonnull %.03345.i26, ptr noundef nonnull @.str.11, i64 noundef 5) #7
+  %32 = tail call i32 @curl_strnequal(ptr noundef nonnull %.03345.i25, ptr noundef nonnull @.str.11, i64 noundef 5) #7
   %.not43.i = icmp eq i32 %32, 0
   br i1 %.not43.i, label %.critedge.thread.i, label %33
 
@@ -1251,7 +1242,7 @@ define internal i32 @imap_connect(ptr noundef %0, ptr noundef writeonly captures
   br label %.critedge.thread.i, !llvm.loop !127
 
 .critedge.i:                                      ; preds = %17
-  br i1 %.not46, label %.critedge.thread.i, label %imap_parse_url_options.exit.thread
+  br i1 %.not45, label %.critedge.thread.i, label %imap_parse_url_options.exit.thread
 
 imap_parse_url_options.exit.thread:               ; preds = %.critedge.i
   store i8 1, ptr %10, align 1, !tbaa !117
@@ -1263,9 +1254,9 @@ imap_parse_url_options.exit.thread:               ; preds = %.critedge.i
   %40 = load i16, ptr %39, align 2, !tbaa !130
   %switch.selectcmp = icmp eq i16 %40, -33
   %switch.select = select i1 %switch.selectcmp, i8 3, i8 2
-  %switch.selectcmp44 = icmp eq i16 %40, 0
-  %switch.select45 = select i1 %switch.selectcmp44, i8 0, i8 %switch.select
-  store i8 %switch.select45, ptr %10, align 1, !tbaa !117
+  %switch.selectcmp43 = icmp eq i16 %40, 0
+  %switch.select44 = select i1 %switch.selectcmp43, i8 0, i8 %switch.select
+  store i8 %switch.select44, ptr %10, align 1, !tbaa !117
   %.not = icmp eq i32 %.0.lcssa58.i, 0
   br i1 %.not, label %41, label %imap_multi_statemach.exit
 
@@ -1278,14 +1269,14 @@ imap_parse_url_options.exit.thread:               ; preds = %.critedge.i
   %44 = load ptr, ptr %4, align 8, !tbaa !98
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1088
   %46 = tail call zeroext i1 @Curl_conn_is_ssl(ptr noundef %44, i32 noundef 0) #7
-  br i1 %46, label %47, label %60
+  br i1 %46, label %47, label %59
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 1339
   %49 = load i8, ptr %48, align 1
   %50 = and i8 %49, 1
   %.not.i23 = icmp eq i8 %50, 0
-  br i1 %.not.i23, label %51, label %60
+  br i1 %.not.i23, label %51, label %59
 
 51:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
@@ -1296,32 +1287,23 @@ imap_parse_url_options.exit.thread:               ; preds = %.critedge.i
   %55 = and i8 %54, -2
   %56 = or disjoint i8 %55, %53
   store i8 %56, ptr %48, align 1
-  %.not15.i = icmp eq i32 %52, 0
-  br i1 %.not15.i, label %57, label %59
-
-57:                                               ; preds = %51
+  %57 = icmp eq i32 %52, 0
   %58 = trunc nuw i8 %53 to i1
-  br i1 %58, label %.critedge.i24, label %59
-
-.critedge.i24:                                    ; preds = %57
+  %or.cond.i = select i1 %57, i1 %58, i1 false
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
-  br label %60
+  br i1 %or.cond.i, label %59, label %imap_multi_statemach.exit
 
-59:                                               ; preds = %57, %51
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
+59:                                               ; preds = %51, %47, %41
+  %60 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %45, i1 noundef zeroext false, i1 noundef zeroext false) #7
+  %61 = getelementptr inbounds nuw i8, ptr %44, i64 1328
+  %62 = load i32, ptr %61, align 8, !tbaa !110
+  %63 = icmp eq i32 %62, 0
+  %64 = zext i1 %63 to i8
+  store i8 %64, ptr %1, align 1, !tbaa !8
   br label %imap_multi_statemach.exit
 
-60:                                               ; preds = %.critedge.i24, %47, %41
-  %61 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %45, i1 noundef zeroext false, i1 noundef zeroext false) #7
-  %62 = getelementptr inbounds nuw i8, ptr %44, i64 1328
-  %63 = load i32, ptr %62, align 8, !tbaa !110
-  %64 = icmp eq i32 %63, 0
-  %65 = zext i1 %64 to i8
-  store i8 %65, ptr %1, align 1, !tbaa !8
-  br label %imap_multi_statemach.exit
-
-imap_multi_statemach.exit:                        ; preds = %60, %59, %.critedge.thread.i
-  %.0 = phi i32 [ %.0.lcssa58.i, %.critedge.thread.i ], [ %61, %60 ], [ %52, %59 ]
+imap_multi_statemach.exit:                        ; preds = %59, %51, %.critedge.thread.i
+  %.0 = phi i32 [ %.0.lcssa58.i, %.critedge.thread.i ], [ %60, %59 ], [ %52, %51 ]
   ret i32 %.0
 }
 
@@ -1332,14 +1314,14 @@ define internal i32 @imap_multi_statemach(ptr noundef %0, ptr noundef writeonly 
   %5 = load ptr, ptr %4, align 8, !tbaa !98
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1088
   %7 = tail call zeroext i1 @Curl_conn_is_ssl(ptr noundef %5, i32 noundef 0) #7
-  br i1 %7, label %8, label %21
+  br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 1339
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 1
   %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %21
+  br i1 %.not, label %12, label %20
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
@@ -1350,32 +1332,23 @@ define internal i32 @imap_multi_statemach(ptr noundef %0, ptr noundef writeonly 
   %16 = and i8 %15, -2
   %17 = or disjoint i8 %16, %14
   store i8 %17, ptr %9, align 1
-  %.not15 = icmp eq i32 %13, 0
-  br i1 %.not15, label %18, label %20
-
-18:                                               ; preds = %12
+  %18 = icmp eq i32 %13, 0
   %19 = trunc nuw i8 %14 to i1
-  br i1 %19, label %.critedge, label %20
-
-.critedge:                                        ; preds = %18
+  %or.cond = select i1 %18, i1 %19, i1 false
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
-  br label %21
+  br i1 %or.cond, label %20, label %26
 
-20:                                               ; preds = %12, %18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
-  br label %27
+20:                                               ; preds = %12, %8, %2
+  %21 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext false) #7
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 1328
+  %23 = load i32, ptr %22, align 8, !tbaa !110
+  %24 = icmp eq i32 %23, 0
+  %25 = zext i1 %24 to i8
+  store i8 %25, ptr %1, align 1, !tbaa !8
+  br label %26
 
-21:                                               ; preds = %.critedge, %8, %2
-  %22 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext false) #7
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 1328
-  %24 = load i32, ptr %23, align 8, !tbaa !110
-  %25 = icmp eq i32 %24, 0
-  %26 = zext i1 %25 to i8
-  store i8 %26, ptr %1, align 1, !tbaa !8
-  br label %27
-
-27:                                               ; preds = %20, %21
-  %.1 = phi i32 [ %22, %21 ], [ %13, %20 ]
+26:                                               ; preds = %12, %20
+  %.1 = phi i32 [ %21, %20 ], [ %13, %12 ]
   ret i32 %.1
 }
 
@@ -1386,14 +1359,14 @@ define internal i32 @imap_doing(ptr noundef %0, ptr noundef captures(none) %1) #
   %5 = load ptr, ptr %4, align 8, !tbaa !98
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1088
   %7 = tail call zeroext i1 @Curl_conn_is_ssl(ptr noundef %5, i32 noundef 0) #7
-  br i1 %7, label %8, label %21
+  br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 1339
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 1
   %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %12, label %21
+  br i1 %.not.i, label %12, label %20
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
@@ -1404,52 +1377,43 @@ define internal i32 @imap_doing(ptr noundef %0, ptr noundef captures(none) %1) #
   %16 = and i8 %15, -2
   %17 = or disjoint i8 %16, %14
   store i8 %17, ptr %9, align 1
-  %.not15.i = icmp eq i32 %13, 0
-  br i1 %.not15.i, label %18, label %20
-
-18:                                               ; preds = %12
+  %18 = icmp eq i32 %13, 0
   %19 = trunc nuw i8 %14 to i1
-  br i1 %19, label %.critedge.i, label %20
-
-.critedge.i:                                      ; preds = %18
+  %or.cond.i = select i1 %18, i1 %19, i1 false
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
-  br label %21
+  br i1 %or.cond.i, label %20, label %imap_multi_statemach.exit
 
-20:                                               ; preds = %18, %12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
+20:                                               ; preds = %12, %8, %2
+  %21 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext false) #7
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 1328
+  %23 = load i32, ptr %22, align 8, !tbaa !110
+  %24 = icmp eq i32 %23, 0
+  %25 = zext i1 %24 to i8
+  store i8 %25, ptr %1, align 1, !tbaa !8
   br label %imap_multi_statemach.exit
 
-21:                                               ; preds = %.critedge.i, %8, %2
-  %22 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext false) #7
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 1328
-  %24 = load i32, ptr %23, align 8, !tbaa !110
-  %25 = icmp eq i32 %24, 0
-  %26 = zext i1 %25 to i8
-  store i8 %26, ptr %1, align 1, !tbaa !8
-  br label %imap_multi_statemach.exit
-
-imap_multi_statemach.exit:                        ; preds = %20, %21
-  %.1.i = phi i32 [ %22, %21 ], [ %13, %20 ]
+imap_multi_statemach.exit:                        ; preds = %12, %20
+  %.1.i = phi i32 [ %21, %20 ], [ %13, %12 ]
   %.not = icmp eq i32 %.1.i, 0
-  br i1 %.not, label %27, label %imap_dophase_done.exit
+  br i1 %.not, label %26, label %imap_dophase_done.exit
 
-27:                                               ; preds = %imap_multi_statemach.exit
-  %28 = load i8, ptr %1, align 1, !tbaa !8, !range !112, !noundef !113
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %imap_dophase_done.exit
+26:                                               ; preds = %imap_multi_statemach.exit
+  %27 = load i8, ptr %1, align 1, !tbaa !8, !range !112, !noundef !113
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %28, label %29, label %imap_dophase_done.exit
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %32 = load ptr, ptr %31, align 8, !tbaa !7
-  %33 = load i32, ptr %32, align 8, !tbaa !99
-  %.not.i6 = icmp eq i32 %33, 0
-  br i1 %.not.i6, label %imap_dophase_done.exit, label %34
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %31 = load ptr, ptr %30, align 8, !tbaa !7
+  %32 = load i32, ptr %31, align 8, !tbaa !99
+  %.not.i6 = icmp eq i32 %32, 0
+  br i1 %.not.i6, label %imap_dophase_done.exit, label %33
 
-34:                                               ; preds = %30
+33:                                               ; preds = %29
   call void @Curl_xfer_setup_nop(ptr noundef nonnull %0) #7
   br label %imap_dophase_done.exit
 
-imap_dophase_done.exit:                           ; preds = %34, %30, %27, %imap_multi_statemach.exit
+imap_dophase_done.exit:                           ; preds = %33, %29, %26, %imap_multi_statemach.exit
   ret i32 %.1.i
 }
 

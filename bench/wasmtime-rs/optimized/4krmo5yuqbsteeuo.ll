@@ -2036,7 +2036,7 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
   br label %47
 
 19:                                               ; preds = %22
-  resume { ptr, i32 } %.pn18
+  resume { ptr, i32 } %.pn20
 
 20:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -2047,7 +2047,7 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
           to label %"_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17hda4c258163a7362bE.exit" unwind label %23
 
 22:                                               ; preds = %34, %25, %23
-  %.pn18 = phi { ptr, i32 } [ %24, %23 ], [ %35, %34 ], [ %26, %25 ]
+  %.pn20 = phi { ptr, i32 } [ %24, %23 ], [ %35, %34 ], [ %26, %25 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #30
           to label %19 unwind label %41
 
@@ -2068,20 +2068,20 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
 
 27:                                               ; preds = %"_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17hda4c258163a7362bE.exit"
   %28 = load i64, ptr %8, align 8, !range !213, !noundef !4
-  %.not15 = icmp eq i64 %28, 0
-  br i1 %.not15, label %.critedge27, label %29
+  %.not18 = icmp eq i64 %28, 0
+  br i1 %.not18, label %.critedge28, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, -4294967293
-  %or.cond70 = icmp eq i64 %33, 124554051586
-  br i1 %or.cond70, label %36, label %.critedge27
+  %or.cond69 = icmp eq i64 %33, 124554051586
+  br i1 %or.cond69, label %36, label %.critedge28
 
-.critedge27:                                      ; preds = %29, %27
+.critedge28:                                      ; preds = %29, %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  br label %.noexc41
+  br label %.noexc40
 
 34:                                               ; preds = %38, %36
   %35 = landingpad { ptr, i32 }
@@ -2106,7 +2106,7 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
 
 40:                                               ; preds = %.noexc, %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !214
-  br label %.noexc41
+  br label %.noexc40
 
 41:                                               ; preds = %22
   %42 = landingpad { ptr, i32 }
@@ -2114,21 +2114,21 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-.noexc41:                                         ; preds = %.critedge27, %40
+.noexc40:                                         ; preds = %.critedge28, %40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !224
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h818a02e413cc4ce9E.llvm.1938814379164664089(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %16)
   %43 = load i8, ptr %5, align 8, !range !35, !alias.scope !231, !noalias !224, !noundef !4
-  %switch.not.i.i.i.i40 = icmp eq i8 %43, 3
-  br i1 %switch.not.i.i.i.i40, label %44, label %46
+  %switch.not.i.i.i.i39 = icmp eq i8 %43, 3
+  br i1 %switch.not.i.i.i.i39, label %44, label %46
 
-44:                                               ; preds = %.noexc41
+44:                                               ; preds = %.noexc40
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h199981c1485e3b22E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45)
   br label %46
 
-46:                                               ; preds = %44, %.noexc41
+46:                                               ; preds = %44, %.noexc40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !224
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %47
@@ -2170,7 +2170,7 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
   br label %47
 
 19:                                               ; preds = %22
-  resume { ptr, i32 } %.pn18
+  resume { ptr, i32 } %.pn20
 
 20:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -2181,7 +2181,7 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
           to label %"_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17h6cb415f2f957a08fE.exit" unwind label %23
 
 22:                                               ; preds = %34, %25, %23
-  %.pn18 = phi { ptr, i32 } [ %24, %23 ], [ %35, %34 ], [ %26, %25 ]
+  %.pn20 = phi { ptr, i32 } [ %24, %23 ], [ %35, %34 ], [ %26, %25 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #30
           to label %19 unwind label %41
 
@@ -2202,20 +2202,20 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
 
 27:                                               ; preds = %"_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17h6cb415f2f957a08fE.exit"
   %28 = load i64, ptr %8, align 8, !range !213, !noundef !4
-  %.not15 = icmp eq i64 %28, 0
-  br i1 %.not15, label %.critedge27, label %29
+  %.not18 = icmp eq i64 %28, 0
+  br i1 %.not18, label %.critedge28, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, -4294967293
-  %or.cond70 = icmp eq i64 %33, 124554051586
-  br i1 %or.cond70, label %36, label %.critedge27
+  %or.cond69 = icmp eq i64 %33, 124554051586
+  br i1 %or.cond69, label %36, label %.critedge28
 
-.critedge27:                                      ; preds = %29, %27
+.critedge28:                                      ; preds = %29, %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  br label %.noexc41
+  br label %.noexc40
 
 34:                                               ; preds = %38, %36
   %35 = landingpad { ptr, i32 }
@@ -2240,7 +2240,7 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
 
 40:                                               ; preds = %.noexc, %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !234
-  br label %.noexc41
+  br label %.noexc40
 
 41:                                               ; preds = %22
   %42 = landingpad { ptr, i32 }
@@ -2248,21 +2248,21 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-.noexc41:                                         ; preds = %.critedge27, %40
+.noexc40:                                         ; preds = %.critedge28, %40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !244
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h818a02e413cc4ce9E.llvm.1938814379164664089(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %16)
   %43 = load i8, ptr %5, align 8, !range !35, !alias.scope !251, !noalias !244, !noundef !4
-  %switch.not.i.i.i.i40 = icmp eq i8 %43, 3
-  br i1 %switch.not.i.i.i.i40, label %44, label %46
+  %switch.not.i.i.i.i39 = icmp eq i8 %43, 3
+  br i1 %switch.not.i.i.i.i39, label %44, label %46
 
-44:                                               ; preds = %.noexc41
+44:                                               ; preds = %.noexc40
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h199981c1485e3b22E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45)
   br label %46
 
-46:                                               ; preds = %44, %.noexc41
+46:                                               ; preds = %44, %.noexc40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !244
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %47

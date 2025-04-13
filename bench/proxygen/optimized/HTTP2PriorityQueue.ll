@@ -1634,20 +1634,18 @@ _ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14defaul
   %parent_ = getelementptr inbounds nuw i8, ptr %node, i64 80
   store ptr null, ptr %parent_, align 8
   %11 = load ptr, ptr %children_, align 8
-  %cmp.i = icmp eq ptr %11, %children_
+  %cmp.i = icmp ne ptr %11, %children_
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %12 = load ptr, ptr %txn_, align 8
-  %tobool.not = icmp eq ptr %12, null
-  %or.cond = select i1 %cmp.i, i1 %tobool.not, i1 false
-  br i1 %or.cond, label %land.lhs.true17, label %nrvo.skipdtor
-
-land.lhs.true17:                                  ; preds = %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5eraseESt20_List_const_iteratorIS7_E.exit
+  %tobool.not = icmp ne ptr %12, null
+  %or.cond.not6 = select i1 %cmp.i, i1 true, i1 %tobool.not
   %isPermanent_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %13 = load i8, ptr %isPermanent_, align 8
   %tobool18 = trunc i8 %13 to i1
-  br i1 %tobool18, label %nrvo.skipdtor, label %if.then
+  %or.cond5 = select i1 %or.cond.not6, i1 true, i1 %tobool18
+  br i1 %or.cond5, label %nrvo.skipdtor, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true17
+if.then:                                          ; preds = %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5eraseESt20_List_const_iteratorIS7_E.exit
   %queue_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %14 = load ptr, ptr %queue_, align 8
   invoke void @_ZN8proxygen18HTTP2PriorityQueue22scheduleNodeExpirationEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(312) %14, ptr noundef nonnull %this)
@@ -1670,7 +1668,7 @@ _ZNSt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS2_EED2
   store ptr null, ptr %agg.result, align 8
   resume { ptr, i32 } %15
 
-nrvo.skipdtor:                                    ; preds = %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5eraseESt20_List_const_iteratorIS7_E.exit, %land.lhs.true17, %if.then
+nrvo.skipdtor:                                    ; preds = %_ZNSt7__cxx114listISt10unique_ptrIN8proxygen18HTTP2PriorityQueue4NodeESt14default_deleteIS4_EESaIS7_EE5eraseESt20_List_const_iteratorIS7_E.exit, %if.then
   ret void
 }
 
@@ -1914,16 +1912,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %txn_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %9 = load ptr, ptr %txn_.i, align 8
-  %tobool.not.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i, label %land.lhs.true.i, label %_ZN8proxygen18HTTP2PriorityQueue4Node14refreshTimeoutEv.exit
-
-land.lhs.true.i:                                  ; preds = %if.end
+  %tobool.not.i = icmp ne ptr %9, null
   %isPermanent_.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %10 = load i8, ptr %isPermanent_.i, align 8
   %tobool2.i = trunc i8 %10 to i1
-  br i1 %tobool2.i, label %_ZN8proxygen18HTTP2PriorityQueue4Node14refreshTimeoutEv.exit, label %land.lhs.true3.i
+  %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %tobool2.i
+  br i1 %or.cond.i, label %_ZN8proxygen18HTTP2PriorityQueue4Node14refreshTimeoutEv.exit, label %land.lhs.true3.i
 
-land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
+land.lhs.true3.i:                                 ; preds = %if.end
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i3 = tail call noundef zeroext i1 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback11isScheduledEv(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i)
   br i1 %call.i3, label %if.then.i, label %_ZN8proxygen18HTTP2PriorityQueue4Node14refreshTimeoutEv.exit
@@ -1934,7 +1930,7 @@ if.then.i:                                        ; preds = %land.lhs.true3.i
   tail call void @_ZN8proxygen18HTTP2PriorityQueue22scheduleNodeExpirationEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(312) %11, ptr noundef nonnull align 8 dereferenceable(200) %this)
   br label %_ZN8proxygen18HTTP2PriorityQueue4Node14refreshTimeoutEv.exit
 
-_ZN8proxygen18HTTP2PriorityQueue4Node14refreshTimeoutEv.exit: ; preds = %if.end, %land.lhs.true.i, %land.lhs.true3.i, %if.then.i
+_ZN8proxygen18HTTP2PriorityQueue4Node14refreshTimeoutEv.exit: ; preds = %if.end, %land.lhs.true3.i, %if.then.i
   ret void
 }
 
@@ -2069,16 +2065,14 @@ if.then.i:                                        ; preds = %while.end
 if.end.i:                                         ; preds = %if.then.i, %while.end
   %txn_.i.i = getelementptr inbounds nuw i8, ptr %9, i64 104
   %18 = load ptr, ptr %txn_.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit
-
-land.lhs.true.i.i:                                ; preds = %if.end.i
+  %tobool.not.i.i = icmp ne ptr %18, null
   %isPermanent_.i.i = getelementptr inbounds nuw i8, ptr %9, i64 112
   %19 = load i8, ptr %isPermanent_.i.i, align 8
   %tobool2.i.i = trunc i8 %19 to i1
-  br i1 %tobool2.i.i, label %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit, label %land.lhs.true3.i.i
+  %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %tobool2.i.i
+  br i1 %or.cond.i.i, label %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit, label %land.lhs.true3.i.i
 
-land.lhs.true3.i.i:                               ; preds = %land.lhs.true.i.i
+land.lhs.true3.i.i:                               ; preds = %if.end.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %call.i3.i = call noundef zeroext i1 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback11isScheduledEv(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i)
   br i1 %call.i3.i, label %if.then.i.i, label %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit
@@ -2089,7 +2083,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true3.i.i
   call void @_ZN8proxygen18HTTP2PriorityQueue22scheduleNodeExpirationEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(312) %20, ptr noundef nonnull align 8 dereferenceable(200) %9)
   br label %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit
 
-_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit: ; preds = %if.end.i, %land.lhs.true.i.i, %land.lhs.true3.i.i, %if.then.i.i
+_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit: ; preds = %if.end.i, %land.lhs.true3.i.i, %if.then.i.i
   %21 = load ptr, ptr %__begin2.sroa.0.022, align 8
   %cmp.i4.not = icmp eq ptr %21, %children_
   br i1 %cmp.i4.not, label %if.end, label %for.body
@@ -2502,20 +2496,18 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body, %entry
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %3 = load ptr, ptr %txn_, align 8
-  %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %for.end
+  %tobool.not = icmp ne ptr %3, null
   %isPermanent_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %4 = load i8, ptr %isPermanent_, align 8
   %tobool11 = trunc i8 %4 to i1
-  br i1 %tobool11, label %if.end, label %if.then
+  %or.cond = select i1 %tobool.not, i1 true, i1 %tobool11
+  br i1 %or.cond, label %if.end, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %for.end
   tail call void @_ZN8proxygen18HTTP2PriorityQueue4Node14removeFromTreeEv(ptr noundef nonnull align 8 dereferenceable(200) %this)
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %for.end
+if.end:                                           ; preds = %if.then, %for.end
   ret void
 }
 
@@ -2660,20 +2652,20 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %1 = phi ptr [ %3, %while.body ], [ %0, %entry ]
   %cur.08 = phi ptr [ %1, %while.body ], [ %this, %entry ]
-  %depth.07 = phi i64 [ %depth.1, %while.body ], [ 0, %entry ]
+  %depth.07 = phi i64 [ %spec.select, %while.body ], [ 0, %entry ]
   %txn_ = getelementptr inbounds nuw i8, ptr %cur.08, i64 104
   %2 = load ptr, ptr %txn_, align 8
-  %tobool.not = icmp ne ptr %2, null
-  %brmerge = or i1 %includeVirtual, %tobool.not
-  %add = zext i1 %brmerge to i64
-  %depth.1 = add i64 %depth.07, %add
+  %tobool = icmp ne ptr %2, null
+  %or.cond = or i1 %includeVirtual, %tobool
+  %add = zext i1 %or.cond to i64
+  %spec.select = add i64 %depth.07, %add
   %parent_.i = getelementptr inbounds nuw i8, ptr %1, i64 80
   %3 = load ptr, ptr %parent_.i, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !23
 
 while.end:                                        ; preds = %while.body, %entry
-  %depth.0.lcssa = phi i64 [ 0, %entry ], [ %depth.1, %while.body ]
+  %depth.0.lcssa = phi i64 [ 0, %entry ], [ %spec.select, %while.body ]
   ret i64 %depth.0.lcssa
 }
 
@@ -4080,16 +4072,14 @@ if.then.i:                                        ; preds = %cleanup.done
 if.end.i:                                         ; preds = %if.then.i, %cleanup.done
   %txn_.i.i = getelementptr inbounds nuw i8, ptr %handle, i64 104
   %13 = load ptr, ptr %txn_.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit
-
-land.lhs.true.i.i:                                ; preds = %if.end.i
+  %tobool.not.i.i = icmp ne ptr %13, null
   %isPermanent_.i.i = getelementptr inbounds nuw i8, ptr %handle, i64 112
   %14 = load i8, ptr %isPermanent_.i.i, align 8
   %tobool2.i.i = trunc i8 %14 to i1
-  br i1 %tobool2.i.i, label %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit, label %land.lhs.true3.i.i
+  %or.cond.i.i = select i1 %tobool.not.i.i, i1 true, i1 %tobool2.i.i
+  br i1 %or.cond.i.i, label %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit, label %land.lhs.true3.i.i
 
-land.lhs.true3.i.i:                               ; preds = %land.lhs.true.i.i
+land.lhs.true3.i.i:                               ; preds = %if.end.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %call.i3.i = call noundef zeroext i1 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback11isScheduledEv(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i)
   br i1 %call.i3.i, label %if.then.i.i, label %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit
@@ -4100,7 +4090,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true3.i.i
   call void @_ZN8proxygen18HTTP2PriorityQueue22scheduleNodeExpirationEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(312) %15, ptr noundef nonnull align 8 dereferenceable(200) %handle)
   br label %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit
 
-_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit: ; preds = %if.end.i, %land.lhs.true.i.i, %land.lhs.true3.i.i, %if.then.i.i
+_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit: ; preds = %if.end.i, %land.lhs.true3.i.i, %if.then.i.i
   %id_.i31 = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %16 = load i64, ptr %id_.i31, align 8
   %cmp.not.i = icmp eq i64 %pri.coerce0, %16
@@ -4176,18 +4166,16 @@ while.end:                                        ; preds = %_ZN8proxygen18HTTP2
   %rootNodeId_.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %retval.0.in.i = select i1 %tobool.not.i, ptr %rootNodeId_.i.i, ptr %id_.i33
   %retval.0.i34 = load i64, ptr %retval.0.in.i, align 8
-  %cmp45 = icmp eq i64 %pri.coerce0, %retval.0.i34
-  br i1 %cmp45, label %land.lhs.true, label %if.end50
-
-land.lhs.true:                                    ; preds = %while.end
+  %cmp45 = icmp ne i64 %pri.coerce0, %retval.0.i34
   %tobool46 = trunc i64 %pri.coerce1 to i1
-  br i1 %tobool46, label %if.end50, label %if.then
+  %or.cond = select i1 %cmp45, i1 true, i1 %tobool46
+  br i1 %or.cond, label %if.end50, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %while.end
   %tobool47.not = icmp eq ptr %depth, null
   br i1 %tobool47.not, label %return, label %return.sink.split
 
-if.end50:                                         ; preds = %land.lhs.true, %while.end
+if.end50:                                         ; preds = %while.end
   %rootNodeId_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %23 = load i64, ptr %rootNodeId_.i, align 8
   %cmp.i35 = icmp eq i64 %pri.coerce0, %23
@@ -4362,8 +4350,7 @@ if.then112:                                       ; preds = %while.body.i
   br label %if.end115
 
 if.end115:                                        ; preds = %while.cond.i, %if.then112
-  %tobool117 = trunc i64 %pri.coerce1 to i1
-  %call118 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull align 8 dereferenceable(200) %handle, ptr noundef nonnull %newParent.0, i1 noundef zeroext %tobool117)
+  %call118 = call noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4Node8reparentEPS1_b(ptr noundef nonnull align 8 dereferenceable(200) %handle, ptr noundef nonnull %newParent.0, i1 noundef zeroext %tobool46)
   %tobool119.not = icmp eq ptr %depth, null
   br i1 %tobool119.not, label %return, label %return.sink.split
 

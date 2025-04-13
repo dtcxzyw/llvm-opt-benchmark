@@ -10879,7 +10879,7 @@ define void @_ZN24inline_completion_button22InlineCompletionButton28build_langua
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = load ptr, ptr %35, align 8, !noundef !30
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17hc5a65a77a5420e21E.llvm.1961593388339247133.exit37", label %39
+  br i1 %37, label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17hc5a65a77a5420e21E.llvm.1961593388339247133.exit38", label %39
 
 38:                                               ; preds = %4
   tail call void @llvm.trap()
@@ -10954,12 +10954,12 @@ define void @_ZN24inline_completion_button22InlineCompletionButton28build_langua
   %66 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %65, ptr %66, align 8
   store ptr %18, ptr %19, align 8
-  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h1d8dfadfe5e0845fE", ptr %.sroa.412.0..sroa_idx, align 8
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h1d8dfadfe5e0845fE", ptr %.sroa.413.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %17, ptr %67, align 8
-  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr @"_ZN80_$LT$language..language_registry..LanguageName$u20$as$u20$core..fmt..Display$GT$3fmt17h98a3a11a34a74701E", ptr %.sroa.416.0..sroa_idx, align 8
+  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store ptr @"_ZN80_$LT$language..language_registry..LanguageName$u20$as$u20$core..fmt..Display$GT$3fmt17h98a3a11a34a74701E", ptr %.sroa.417.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !1950
   store ptr @anon.14564f5bfcf95492bdc011eefaf31569.134, ptr %6, align 8, !noalias !1957
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -10997,12 +10997,12 @@ define void @_ZN24inline_completion_button22InlineCompletionButton28build_langua
   %75 = load ptr, ptr %17, align 8, !alias.scope !1977, !nonnull !30, !noundef !30
   %76 = atomicrmw sub ptr %75, i64 1 release, align 8, !noalias !1977
   %77 = icmp eq i64 %76, 1
-  br i1 %77, label %78, label %"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h9615ab5afbb45f78E.exit33"
+  br i1 %77, label %78, label %"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h9615ab5afbb45f78E.exit34"
 
 78:                                               ; preds = %74
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7ca05b627c05e09eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
-          to label %"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h9615ab5afbb45f78E.exit33" unwind label %79
+          to label %"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h9615ab5afbb45f78E.exit34" unwind label %79
 
 79:                                               ; preds = %78
   %80 = landingpad { ptr, i32 }
@@ -11010,7 +11010,7 @@ define void @_ZN24inline_completion_button22InlineCompletionButton28build_langua
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8e05cdea97731973E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #33
           to label %.thread62 unwind label %86
 
-"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h9615ab5afbb45f78E.exit33": ; preds = %74, %78
+"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h9615ab5afbb45f78E.exit34": ; preds = %74, %78
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
@@ -11026,16 +11026,16 @@ define void @_ZN24inline_completion_button22InlineCompletionButton28build_langua
   %85 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %83, ptr %85, align 8
   invoke void @_ZN2ui10components12context_menu11ContextMenu5entry17hb96084019ff2fa83E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %21, ptr noundef align 1 null, ptr undef, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16)
-          to label %.thread50 unwind label %88
+          to label %.thread51 unwind label %88
 
-.thread50:                                        ; preds = %"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h9615ab5afbb45f78E.exit33"
+.thread51:                                        ; preds = %"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h9615ab5afbb45f78E.exit34"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %23, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17hc5a65a77a5420e21E.llvm.1961593388339247133.exit37"
+  br label %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17hc5a65a77a5420e21E.llvm.1961593388339247133.exit38"
 
 86:                                               ; preds = %156, %149, %98, %94, %73, %158, %144, %.thread62, %79
   %87 = landingpad { ptr, i32 }
@@ -11052,7 +11052,7 @@ define void @_ZN24inline_completion_button22InlineCompletionButton28build_langua
   %.pre = load ptr, ptr %24, align 8, !alias.scope !1978
   br label %90
 
-88:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h9615ab5afbb45f78E.exit33"
+88:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h9615ab5afbb45f78E.exit34"
   %89 = landingpad { ptr, i32 }
           cleanup
   br label %.thread75
@@ -11060,7 +11060,7 @@ define void @_ZN24inline_completion_button22InlineCompletionButton28build_langua
 90:                                               ; preds = %.thread62._crit_edge, %50
   %91 = phi ptr [ %28, %50 ], [ %.pre, %.thread62._crit_edge ]
   %.pn.pn.ph = phi { ptr, i32 } [ %51, %50 ], [ %.pn65, %.thread62._crit_edge ]
-  %.sroa.09.1.ph = phi i1 [ true, %50 ], [ false, %.thread62._crit_edge ]
+  %.sroa.010.1.ph = phi i1 [ true, %50 ], [ false, %.thread62._crit_edge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1983)
   call void @llvm.experimental.noalias.scope.decl(metadata !1984)
   %92 = atomicrmw sub ptr %91, i64 1 release, align 8, !noalias !1978
@@ -11072,7 +11072,7 @@ define void @_ZN24inline_completion_button22InlineCompletionButton28build_langua
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h609f885b332105b5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24)
           to label %.thread69 unwind label %86
 
-.thread84:                                        ; preds = %120, %108, %102, %100, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17hc5a65a77a5420e21E.llvm.1961593388339247133.exit37"
+.thread84:                                        ; preds = %120, %108, %102, %100, %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17hc5a65a77a5420e21E.llvm.1961593388339247133.exit38"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread75
@@ -11090,11 +11090,11 @@ define void @_ZN24inline_completion_button22InlineCompletionButton28build_langua
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h45aa4d7131764a08E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %25)
           to label %.thread75 unwind label %86
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17hc5a65a77a5420e21E.llvm.1961593388339247133.exit37": ; preds = %33, %.thread50
+"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17hc5a65a77a5420e21E.llvm.1961593388339247133.exit38": ; preds = %33, %.thread51
   %99 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
           to label %100 unwind label %.thread84
 
-100:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17hc5a65a77a5420e21E.llvm.1961593388339247133.exit37"
+100:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$17hc5a65a77a5420e21E.llvm.1961593388339247133.exit38"
   %101 = invoke noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17hff921b8315af85b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %99, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.14564f5bfcf95492bdc011eefaf31569.135)
           to label %102 unwind label %.thread84
 
@@ -11166,18 +11166,18 @@ define void @_ZN24inline_completion_button22InlineCompletionButton28build_langua
   %136 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 4, ptr %136, align 8
   store ptr %10, ptr %11, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h1d8dfadfe5e0845fE", ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h1d8dfadfe5e0845fE", ptr %.sroa.421.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1992
   store ptr @anon.14564f5bfcf95492bdc011eefaf31569.137, ptr %5, align 8, !noalias !1999
-  %.sroa.444.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 2, ptr %.sroa.444.0..sroa_idx, align 8, !noalias !1999
-  %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %11, ptr %.sroa.545.0..sroa_idx, align 8, !noalias !1999
-  %.sroa.646.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 1, ptr %.sroa.646.0..sroa_idx, align 8, !noalias !1999
-  %.sroa.747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %.sroa.747.0..sroa_idx, align 8, !noalias !1999
+  %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 2, ptr %.sroa.445.0..sroa_idx, align 8, !noalias !1999
+  %.sroa.546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %11, ptr %.sroa.546.0..sroa_idx, align 8, !noalias !1999
+  %.sroa.647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 1, ptr %.sroa.647.0..sroa_idx, align 8, !noalias !1999
+  %.sroa.748.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %.sroa.748.0..sroa_idx, align 8, !noalias !1999
   invoke void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
           to label %139 unwind label %144
 
@@ -11215,8 +11215,8 @@ define void @_ZN24inline_completion_button22InlineCompletionButton28build_langua
           to label %146 unwind label %86
 
 146:                                              ; preds = %144, %133
-  %.pn28.ph = phi { ptr, i32 } [ %134, %133 ], [ %145, %144 ]
-  %.sroa.09.5.ph = phi i1 [ true, %133 ], [ false, %144 ]
+  %.pn29.ph = phi { ptr, i32 } [ %134, %133 ], [ %145, %144 ]
+  %.sroa.010.5.ph = phi i1 [ true, %133 ], [ false, %144 ]
   %147 = atomicrmw sub ptr %123, i64 1 release, align 8, !noalias !2000
   %148 = icmp eq i64 %147, 1
   br i1 %148, label %149, label %.thread75
@@ -11237,28 +11237,28 @@ define void @_ZN24inline_completion_button22InlineCompletionButton28build_langua
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
   ret void
 
-.noexc41:                                         ; preds = %156, %.thread75
-  br i1 %.sroa.09.282, label %158, label %157
+.noexc42:                                         ; preds = %156, %.thread75
+  br i1 %.sroa.010.282, label %158, label %157
 
 .thread75:                                        ; preds = %146, %149, %137, %.thread69, %98, %88, %.thread84
-  %.sroa.09.282 = phi i1 [ true, %.thread84 ], [ false, %88 ], [ %.sroa.09.1.ph, %98 ], [ %.sroa.09.1.ph, %.thread69 ], [ false, %137 ], [ %.sroa.09.5.ph, %149 ], [ %.sroa.09.5.ph, %146 ]
-  %.pn3080 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread84 ], [ %89, %88 ], [ %.pn.pn.ph, %98 ], [ %.pn.pn.ph, %.thread69 ], [ %138, %137 ], [ %.pn28.ph, %149 ], [ %.pn28.ph, %146 ]
+  %.sroa.010.282 = phi i1 [ true, %.thread84 ], [ false, %88 ], [ %.sroa.010.1.ph, %98 ], [ %.sroa.010.1.ph, %.thread69 ], [ false, %137 ], [ %.sroa.010.5.ph, %149 ], [ %.sroa.010.5.ph, %146 ]
+  %.pn3180 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread84 ], [ %89, %88 ], [ %.pn.pn.ph, %98 ], [ %.pn.pn.ph, %.thread69 ], [ %138, %137 ], [ %.pn29.ph, %149 ], [ %.pn29.ph, %146 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2005)
   call void @llvm.experimental.noalias.scope.decl(metadata !2008)
   %153 = load ptr, ptr %26, align 8, !alias.scope !2011, !nonnull !30, !noundef !30
   %154 = atomicrmw sub ptr %153, i64 1 release, align 8, !noalias !2011
   %155 = icmp eq i64 %154, 1
-  br i1 %155, label %156, label %.noexc41
+  br i1 %155, label %156, label %.noexc42
 
 156:                                              ; preds = %.thread75
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h609f885b332105b5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %.noexc41 unwind label %86
+          to label %.noexc42 unwind label %86
 
-157:                                              ; preds = %158, %.noexc41
-  resume { ptr, i32 } %.pn3080
+157:                                              ; preds = %158, %.noexc42
+  resume { ptr, i32 } %.pn3180
 
-158:                                              ; preds = %.noexc41
+158:                                              ; preds = %.noexc42
   invoke void @"_ZN4core3ptr62drop_in_place$LT$ui..components..context_menu..ContextMenu$GT$17h9955526f64ed6ba6E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %2) #33
           to label %157 unwind label %86
 }
@@ -11770,9 +11770,9 @@ define void @"_ZN106_$LT$inline_completion_button..InlineCompletionButton$u20$as
   call void @_ZN4gpui4view7AnyView8downcast17h5ee657e81391d6adE(ptr noalias noundef nonnull sret([608 x i8]) align 8 captures(none) dereferenceable(608) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(608) %6), !noalias !2095
   %21 = load i64, ptr %5, align 8, !range !866, !noalias !2092, !noundef !30
   %22 = icmp eq i64 %21, 3
-  br i1 %22, label %23, label %.thread43
+  br i1 %22, label %23, label %.thread41
 
-.thread43:                                        ; preds = %20
+.thread41:                                        ; preds = %20
   store i32 0, ptr %11, align 8, !alias.scope !2087, !noalias !2096
   call void @"_ZN4core3ptr40drop_in_place$LT$gpui..view..AnyView$GT$17h85a201e2728d3713E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %5), !noalias !2095
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5), !noalias !2092
@@ -11802,7 +11802,7 @@ define void @"_ZN106_$LT$inline_completion_button..InlineCompletionButton$u20$as
           cleanup
   br label %.thread26
 
-29:                                               ; preds = %.thread43, %.thread24, %.thread, %23
+29:                                               ; preds = %.thread41, %.thread24, %.thread, %23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !2097)
   %31 = load ptr, ptr %30, align 8, !alias.scope !2097, !noundef !30
@@ -11817,7 +11817,7 @@ define void @"_ZN106_$LT$inline_completion_button..InlineCompletionButton$u20$as
 36:                                               ; preds = %33
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h45aa4d7131764a08E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$$GT$17h3a0b3011c1833e97E.exit" unwind label %58
+          to label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$$GT$17h3a0b3011c1833e97E.exit" unwind label %57
 
 37:                                               ; preds = %26
   %38 = extractvalue { ptr, ptr } %27, 0
@@ -11835,7 +11835,7 @@ define void @"_ZN106_$LT$inline_completion_button..InlineCompletionButton$u20$as
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$gpui..subscription..Subscription$GT$17hccd7c938a4cbb1e5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #33
-          to label %.thread26 unwind label %54
+          to label %.thread26 unwind label %53
 
 47:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -11856,100 +11856,100 @@ define void @"_ZN106_$LT$inline_completion_button..InlineCompletionButton$u20$as
 
 .thread32:                                        ; preds = %47
   store i64 1, ptr %0, align 8
-  %.sroa.5.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %38, ptr %.sroa.5.0..sroa_idx4, align 8
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx4.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %39, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx4.sroa_idx, align 8
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx4.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %44, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx4.sroa_idx, align 8
+  %.sroa.5.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %38, ptr %.sroa.5.0..sroa_idx7, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx7.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %39, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx7.sroa_idx, align 8
+  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx7.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %44, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx7.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @_ZN24inline_completion_button22InlineCompletionButton14update_enabled17h527413c409385073E(ptr noalias noundef nonnull align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  br label %62
+  br label %61
 
 50:                                               ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$$GT$17h3a0b3011c1833e97E.exit"
   store i64 0, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 2, ptr %51, align 8
   %52 = load i32, ptr %11, align 8, !noundef !30
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %62, label %68
+  %.not39 = icmp eq i32 %52, 0
+  br i1 %.not39, label %61, label %67
 
-54:                                               ; preds = %75, %.thread26, %45
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %74, %.thread26, %45
+  %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
-56:                                               ; preds = %60, %58
-  %.pn19 = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
-  %57 = load i32, ptr %11, align 8, !noundef !30
-  %.not = icmp eq i32 %57, 0
-  br i1 %.not, label %common.resume, label %75
+55:                                               ; preds = %59, %57
+  %.pn22 = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ]
+  %56 = load i32, ptr %11, align 8, !noundef !30
+  %.not = icmp eq i32 %56, 0
+  br i1 %.not, label %common.resume, label %74
 
 .thread26:                                        ; preds = %45, %48, %.thread30
   %.pn29 = phi { ptr, i32 } [ %28, %.thread30 ], [ %46, %45 ], [ %49, %48 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17h231227082327360aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #33
-          to label %common.resume unwind label %54
+          to label %common.resume unwind label %53
 
-58:                                               ; preds = %36
-  %59 = landingpad { ptr, i32 }
+57:                                               ; preds = %36
+  %58 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %30, align 8
-  br label %56
+  br label %55
 
 "_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$$GT$17h3a0b3011c1833e97E.exit": ; preds = %33, %29, %36
   store ptr null, ptr %30, align 8
   invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$$LP$gpui..subscription..Subscription$C$usize$RP$$GT$$GT$17hba0e2fa7e8f56e69E"(ptr noalias noundef align 8 dereferenceable(32) %0)
-          to label %50 unwind label %60
+          to label %50 unwind label %59
 
-60:                                               ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$$GT$17h3a0b3011c1833e97E.exit"
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$language..Language$GT$$GT$$GT$17h3a0b3011c1833e97E.exit"
+  %60 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %0, align 8
-  br label %56
+  br label %55
 
-62:                                               ; preds = %.thread32, %50, %"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17h231227082327360aE.exit"
+61:                                               ; preds = %.thread32, %50, %"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17h231227082327360aE.exit"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %64 = load ptr, ptr %63, align 8, !nonnull !30, !align !52, !noundef !30
-  %65 = load i32, ptr %64, align 8, !range !231, !noundef !30
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %67 = load i32, ptr %66, align 4, !noundef !30
-  call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %65, i32 noundef %67)
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %63 = load ptr, ptr %62, align 8, !nonnull !30, !align !52, !noundef !30
+  %64 = load i32, ptr %63, align 8, !range !231, !noundef !30
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %66 = load i32, ptr %65, align 4, !noundef !30
+  call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %64, i32 noundef %66)
   ret void
 
-68:                                               ; preds = %50
+67:                                               ; preds = %50
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
-          to label %"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17h231227082327360aE.exit" unwind label %69
+          to label %"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17h231227082327360aE.exit" unwind label %68
 
-69:                                               ; preds = %68
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %67
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %71 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4ee47a2348b1a061E.llvm.1265738202809708361"(ptr noalias noundef nonnull align 8 dereferenceable(8) %71)
-          to label %common.resume unwind label %72
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4ee47a2348b1a061E.llvm.1265738202809708361"(ptr noalias noundef nonnull align 8 dereferenceable(8) %70)
+          to label %common.resume unwind label %71
 
-72:                                               ; preds = %69
-  %73 = landingpad { ptr, i32 }
+71:                                               ; preds = %68
+  %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #35
   unreachable
 
-common.resume:                                    ; preds = %75, %56, %.thread26, %69
-  %common.resume.op = phi { ptr, i32 } [ %70, %69 ], [ %.pn19, %56 ], [ %.pn19, %75 ], [ %.pn29, %.thread26 ]
+common.resume:                                    ; preds = %55, %74, %.thread26, %68
+  %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %.pn22, %74 ], [ %.pn22, %55 ], [ %.pn29, %.thread26 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17h231227082327360aE.exit": ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4ee47a2348b1a061E.llvm.1265738202809708361"(ptr noalias noundef nonnull align 8 dereferenceable(8) %74)
-  br label %62
+"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17h231227082327360aE.exit": ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4ee47a2348b1a061E.llvm.1265738202809708361"(ptr noalias noundef nonnull align 8 dereferenceable(8) %73)
+  br label %61
 
-75:                                               ; preds = %56
+74:                                               ; preds = %55
   invoke void @"_ZN4core3ptr59drop_in_place$LT$gpui..view..View$LT$editor..Editor$GT$$GT$17h231227082327360aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #33
-          to label %common.resume unwind label %54
+          to label %common.resume unwind label %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

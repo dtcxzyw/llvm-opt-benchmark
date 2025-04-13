@@ -1247,13 +1247,13 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   %15 = load i8, ptr %14, align 1, !range !4, !noundef !5
   %16 = trunc nuw i8 %15 to i1
   %.not = xor i1 %16, true
-  %brmerge = or i1 %1, %.not
-  br i1 %brmerge, label %18, label %128
+  %or.cond = or i1 %1, %.not
+  br i1 %or.cond, label %18, label %128
 
 17:                                               ; preds = %9
   br i1 %1, label %18, label %128
 
-18:                                               ; preds = %13, %17, %2
+18:                                               ; preds = %17, %13, %2
   %19 = icmp eq i32 %5, 0
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %21 = load i32, ptr %20, align 8
@@ -1261,9 +1261,9 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
 
 22:                                               ; preds = %18
   %23 = icmp sgt i32 %21, 0
-  br i1 %23, label %128, label %.thread43
+  br i1 %23, label %128, label %.thread45
 
-.thread43:                                        ; preds = %22
+.thread45:                                        ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %selectnewtape.exit
 
@@ -1311,7 +1311,7 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 4
-  %.pre42 = load i32, ptr %26, align 8
+  %.pre44 = load i32, ptr %26, align 8
   br label %selectnewtape.exit
 
 55:                                               ; preds = %34
@@ -1329,9 +1329,9 @@ define internal fastcc void @dumptuples(ptr noundef %0, i1 noundef zeroext %1) u
   store i32 %65, ptr %58, align 4
   br label %selectnewtape.exit
 
-selectnewtape.exit:                               ; preds = %.thread43, %55, %40, %32
-  %66 = phi ptr [ %26, %55 ], [ %26, %40 ], [ %26, %32 ], [ %24, %.thread43 ]
-  %67 = phi i32 [ %21, %55 ], [ %.pre42, %40 ], [ %21, %32 ], [ %21, %.thread43 ]
+selectnewtape.exit:                               ; preds = %.thread45, %55, %40, %32
+  %66 = phi ptr [ %26, %55 ], [ %26, %40 ], [ %26, %32 ], [ %24, %.thread45 ]
+  %67 = phi i32 [ %21, %55 ], [ %.pre44, %40 ], [ %21, %32 ], [ %21, %.thread45 ]
   %68 = add i32 %67, 1
   store i32 %68, ptr %66, align 8
   %69 = load i8, ptr @trace_sort, align 1, !range !4, !noundef !5
@@ -2998,8 +2998,8 @@ define internal fastcc i32 @getlen(ptr noundef %0, i1 noundef zeroext %1) unname
 8:                                                ; preds = %2
   %9 = load i32, ptr %3, align 4
   %10 = icmp ne i32 %9, 0
-  %brmerge = or i1 %1, %10
-  br i1 %brmerge, label %14, label %11
+  %or.cond = or i1 %1, %10
+  br i1 %or.cond, label %14, label %11
 
 11:                                               ; preds = %8
   %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12

@@ -2623,137 +2623,137 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit: ; preds = %14, %_ZNSt8_R
   %30 = fpext float %2 to double
   tail call void @glScaled(double noundef %29, double noundef %30, double noundef %30)
   %31 = tail call zeroext i8 @glIsList(i32 noundef %.0102)
-  %.not35 = icmp ne i8 %31, 0
-  %brmerge44.not = and i1 %3, %.not35
-  br i1 %brmerge44.not, label %72, label %.preheader107.preheader
+  %32 = icmp ne i8 %31, 0
+  %or.cond3 = and i1 %3, %32
+  br i1 %or.cond3, label %73, label %.preheader106.preheader
 
-.preheader107.preheader:                          ; preds = %28
+.preheader106.preheader:                          ; preds = %28
   tail call void @glScaled(double noundef %29, double noundef %30, double noundef %30)
-  br i1 %3, label %32, label %34
+  br i1 %3, label %33, label %35
 
-32:                                               ; preds = %.preheader107.preheader
-  %33 = tail call i32 @glGenLists(i32 noundef 1)
-  tail call void @glNewList(i32 noundef %33, i32 noundef 4864)
-  br label %34
+33:                                               ; preds = %.preheader106.preheader
+  %34 = tail call i32 @glGenLists(i32 noundef 1)
+  tail call void @glNewList(i32 noundef %34, i32 noundef 4864)
+  br label %35
 
-34:                                               ; preds = %32, %.preheader107.preheader
-  %.2 = phi i32 [ %33, %32 ], [ %.0102, %.preheader107.preheader ]
+35:                                               ; preds = %33, %.preheader106.preheader
+  %.2 = phi i32 [ %34, %33 ], [ %.0102, %.preheader106.preheader ]
   %.sroa.270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.not41108 = icmp slt i32 %0, 1
-  %35 = sitofp i32 %0 to float
+  %.not44107 = icmp slt i32 %0, 1
+  %36 = sitofp i32 %0 to float
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %.not41108, label %.split.us, label %.split
+  br i1 %.not44107, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %34
+.split.us:                                        ; preds = %35
   store float 0.000000e+00, ptr %.sroa.270.0..sroa_idx, align 4
   store float 0.000000e+00, ptr %.sroa.371.0..sroa_idx, align 4
   store float 0.000000e+00, ptr %5, align 4
-  br label %.split116
+  br label %.split115
 
-.split:                                           ; preds = %34, %._crit_edge
-  %36 = phi i1 [ false, %._crit_edge ], [ true, %34 ]
+.split:                                           ; preds = %35, %._crit_edge
+  %37 = phi i1 [ false, %._crit_edge ], [ true, %35 ]
   store float 0.000000e+00, ptr %5, align 4
   store float 0.000000e+00, ptr %.sroa.270.0..sroa_idx, align 4
   store float 0.000000e+00, ptr %.sroa.371.0..sroa_idx, align 4
-  br i1 %36, label %37, label %.lr.ph.preheader
+  br i1 %37, label %38, label %.lr.ph.preheader
 
-37:                                               ; preds = %.split
+38:                                               ; preds = %.split
   store float 1.000000e+00, ptr %5, align 4
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %37, %.split
+.lr.ph.preheader:                                 ; preds = %38, %.split
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3vcg6Point3IfE9NormalizeEv.exit
-  %.033113 = phi i32 [ %71, %_ZN3vcg6Point3IfE9NormalizeEv.exit ], [ 1, %.lr.ph.preheader ]
-  %.sroa.077.sroa.8.0112 = phi float [ %45, %_ZN3vcg6Point3IfE9NormalizeEv.exit ], [ 1.000000e+00, %.lr.ph.preheader ]
-  %.sroa.077.sroa.4.0111 = phi float [ %44, %_ZN3vcg6Point3IfE9NormalizeEv.exit ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.sroa.072.sroa.6.0110 = phi float [ %43, %_ZN3vcg6Point3IfE9NormalizeEv.exit ], [ 1.000000e+00, %.lr.ph.preheader ]
-  %.sroa.072.sroa.3.0109 = phi float [ %42, %_ZN3vcg6Point3IfE9NormalizeEv.exit ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %38 = uitofp nneg i32 %.033113 to float
-  %39 = fmul float %38, 0xC0191EB860000000
-  %40 = fdiv float %39, %35
-  %41 = icmp eq i32 %.033113, %0
-  %spec.store.select = select i1 %41, float 0.000000e+00, float %40
-  %42 = call float @sinf(float noundef %spec.store.select) #26
-  %43 = call float @cosf(float noundef %spec.store.select) #26
-  %44 = call float @sinf(float noundef %spec.store.select) #26
-  %45 = call float @cosf(float noundef %spec.store.select) #26
+  %.036112 = phi i32 [ %72, %_ZN3vcg6Point3IfE9NormalizeEv.exit ], [ 1, %.lr.ph.preheader ]
+  %.sroa.077.sroa.8.0111 = phi float [ %46, %_ZN3vcg6Point3IfE9NormalizeEv.exit ], [ 1.000000e+00, %.lr.ph.preheader ]
+  %.sroa.077.sroa.4.0110 = phi float [ %45, %_ZN3vcg6Point3IfE9NormalizeEv.exit ], [ 0.000000e+00, %.lr.ph.preheader ]
+  %.sroa.072.sroa.6.0109 = phi float [ %44, %_ZN3vcg6Point3IfE9NormalizeEv.exit ], [ 1.000000e+00, %.lr.ph.preheader ]
+  %.sroa.072.sroa.3.0108 = phi float [ %43, %_ZN3vcg6Point3IfE9NormalizeEv.exit ], [ 0.000000e+00, %.lr.ph.preheader ]
+  %39 = uitofp nneg i32 %.036112 to float
+  %40 = fmul float %39, 0xC0191EB860000000
+  %41 = fdiv float %40, %36
+  %42 = icmp eq i32 %.036112, %0
+  %spec.store.select = select i1 %42, float 0.000000e+00, float %41
+  %43 = call float @sinf(float noundef %spec.store.select) #26
+  %44 = call float @cosf(float noundef %spec.store.select) #26
+  %45 = call float @sinf(float noundef %spec.store.select) #26
+  %46 = call float @cosf(float noundef %spec.store.select) #26
   call void @glBegin(i32 noundef 4)
-  %46 = load float, ptr %5, align 4
-  %47 = fsub float 0.000000e+00, %46
-  %48 = load float, ptr %.sroa.270.0..sroa_idx, align 4
-  %49 = fsub float %.sroa.077.sroa.4.0111, %48
-  %50 = load float, ptr %.sroa.371.0..sroa_idx, align 4
-  %51 = fsub float %.sroa.077.sroa.8.0112, %50
-  %52 = fsub float %44, %48
-  %53 = fsub float %45, %50
-  %54 = fneg float %52
-  %55 = fmul float %51, %54
-  %56 = call float @llvm.fmuladd.f32(float %49, float %53, float %55)
-  %57 = fneg float %53
-  %58 = fmul float %47, %57
-  %59 = call float @llvm.fmuladd.f32(float %51, float %47, float %58)
-  %60 = fneg float %47
-  %61 = fmul float %49, %60
-  %62 = call float @llvm.fmuladd.f32(float %47, float %52, float %61)
-  %.sroa.0.0.vec.insert.i49 = insertelement <2 x float> poison, float %56, i64 0
-  %.sroa.0.4.vec.insert.i50 = insertelement <2 x float> %.sroa.0.0.vec.insert.i49, float %59, i64 1
-  %63 = fmul float %59, %59
-  %64 = call float @llvm.fmuladd.f32(float %56, float %56, float %63)
-  %65 = call float @llvm.fmuladd.f32(float %62, float %62, float %64)
-  %66 = fcmp ogt float %65, 0.000000e+00
-  br i1 %66, label %67, label %_ZN3vcg6Point3IfE9NormalizeEv.exit
+  %47 = load float, ptr %5, align 4
+  %48 = fsub float 0.000000e+00, %47
+  %49 = load float, ptr %.sroa.270.0..sroa_idx, align 4
+  %50 = fsub float %.sroa.077.sroa.4.0110, %49
+  %51 = load float, ptr %.sroa.371.0..sroa_idx, align 4
+  %52 = fsub float %.sroa.077.sroa.8.0111, %51
+  %53 = fsub float %45, %49
+  %54 = fsub float %46, %51
+  %55 = fneg float %53
+  %56 = fmul float %52, %55
+  %57 = call float @llvm.fmuladd.f32(float %50, float %54, float %56)
+  %58 = fneg float %54
+  %59 = fmul float %48, %58
+  %60 = call float @llvm.fmuladd.f32(float %52, float %48, float %59)
+  %61 = fneg float %48
+  %62 = fmul float %50, %61
+  %63 = call float @llvm.fmuladd.f32(float %48, float %53, float %62)
+  %.sroa.0.0.vec.insert.i49 = insertelement <2 x float> poison, float %57, i64 0
+  %.sroa.0.4.vec.insert.i50 = insertelement <2 x float> %.sroa.0.0.vec.insert.i49, float %60, i64 1
+  %64 = fmul float %60, %60
+  %65 = call float @llvm.fmuladd.f32(float %57, float %57, float %64)
+  %66 = call float @llvm.fmuladd.f32(float %63, float %63, float %65)
+  %67 = fcmp ogt float %66, 0.000000e+00
+  br i1 %67, label %68, label %_ZN3vcg6Point3IfE9NormalizeEv.exit
 
-67:                                               ; preds = %.lr.ph
-  %sqrt.i = call float @llvm.sqrt.f32(float %65)
-  %68 = fdiv float %56, %sqrt.i
-  %.sroa.055.0.vec.insert = insertelement <2 x float> poison, float %68, i64 0
-  %69 = fdiv float %59, %sqrt.i
-  %.sroa.055.4.vec.insert = insertelement <2 x float> %.sroa.055.0.vec.insert, float %69, i64 1
-  %70 = fdiv float %62, %sqrt.i
+68:                                               ; preds = %.lr.ph
+  %sqrt.i = call float @llvm.sqrt.f32(float %66)
+  %69 = fdiv float %57, %sqrt.i
+  %.sroa.055.0.vec.insert = insertelement <2 x float> poison, float %69, i64 0
+  %70 = fdiv float %60, %sqrt.i
+  %.sroa.055.4.vec.insert = insertelement <2 x float> %.sroa.055.0.vec.insert, float %70, i64 1
+  %71 = fdiv float %63, %sqrt.i
   br label %_ZN3vcg6Point3IfE9NormalizeEv.exit
 
-_ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %.lr.ph, %67
-  %.sroa.6.0 = phi float [ %70, %67 ], [ %62, %.lr.ph ]
-  %.sroa.055.0 = phi <2 x float> [ %.sroa.055.4.vec.insert, %67 ], [ %.sroa.0.4.vec.insert.i50, %.lr.ph ]
+_ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %.lr.ph, %68
+  %.sroa.6.0 = phi float [ %71, %68 ], [ %63, %.lr.ph ]
+  %.sroa.055.0 = phi <2 x float> [ %.sroa.055.4.vec.insert, %68 ], [ %.sroa.0.4.vec.insert.i50, %.lr.ph ]
   store <2 x float> %.sroa.055.0, ptr %6, align 8
   store float %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %6)
   call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %5)
-  call void @glNormal3f(float noundef 1.000000e+00, float noundef %.sroa.072.sroa.3.0109, float noundef %.sroa.072.sroa.6.0110)
-  call void @glVertex3f(float noundef 0.000000e+00, float noundef %.sroa.077.sroa.4.0111, float noundef %.sroa.077.sroa.8.0112)
-  call void @glNormal3f(float noundef 1.000000e+00, float noundef %42, float noundef %43)
-  call void @glVertex3f(float noundef 0.000000e+00, float noundef %44, float noundef %45)
+  call void @glNormal3f(float noundef 1.000000e+00, float noundef %.sroa.072.sroa.3.0108, float noundef %.sroa.072.sroa.6.0109)
+  call void @glVertex3f(float noundef 0.000000e+00, float noundef %.sroa.077.sroa.4.0110, float noundef %.sroa.077.sroa.8.0111)
+  call void @glNormal3f(float noundef 1.000000e+00, float noundef %43, float noundef %44)
+  call void @glVertex3f(float noundef 0.000000e+00, float noundef %45, float noundef %46)
   call void @glEnd()
-  %71 = add nuw i32 %.033113, 1
-  %exitcond.not = icmp eq i32 %.033113, %0
+  %72 = add nuw i32 %.036112, 1
+  %exitcond.not = icmp eq i32 %.036112, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %_ZN3vcg6Point3IfE9NormalizeEv.exit
-  br i1 %36, label %.split, label %.split116, !llvm.loop !60
+  br i1 %37, label %.split, label %.split115, !llvm.loop !60
 
-.split116:                                        ; preds = %._crit_edge, %.split.us
+.split115:                                        ; preds = %._crit_edge, %.split.us
   br i1 %3, label %.thread, label %.critedge
 
-.thread:                                          ; preds = %.split116
+.thread:                                          ; preds = %.split115
   call void @glEndList()
-  br label %72
+  br label %73
 
-72:                                               ; preds = %28, %.thread
+73:                                               ; preds = %28, %.thread
   %.1104 = phi i32 [ %.2, %.thread ], [ %.0102, %28 ]
   call void @glCallList(i32 noundef %.1104)
-  br i1 %.0, label %73, label %.critedge
+  br i1 %.0, label %74, label %.critedge
 
-73:                                               ; preds = %72
+74:                                               ; preds = %73
   store i32 %0, ptr %7, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %.1104, ptr %74, align 4
-  %75 = call { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE17_M_emplace_uniqueIJS0_IiiEEEES0_ISt17_Rb_tree_iteratorIS2_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN3vcg7Add_Ons4ConeEiffbE12Disp_listMap, ptr noundef nonnull align 4 dereferenceable(8) %7)
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %.1104, ptr %75, align 4
+  %76 = call { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE17_M_emplace_uniqueIJS0_IiiEEEES0_ISt17_Rb_tree_iteratorIS2_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) @_ZZN3vcg7Add_Ons4ConeEiffbE12Disp_listMap, ptr noundef nonnull align 4 dereferenceable(8) %7)
   br label %.critedge
 
-.critedge:                                        ; preds = %.split116, %72, %73
+.critedge:                                        ; preds = %.split115, %73, %74
   ret void
 }
 

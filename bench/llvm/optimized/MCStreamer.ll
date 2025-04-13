@@ -7415,8 +7415,8 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit.thread.i: ; preds = %_ZNK4llvm9MCAsmI
 _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit: ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %31 = load ptr, ptr %30, align 8, !tbaa !501
-  %.not13 = icmp eq ptr %31, null
-  br i1 %.not13, label %35, label %32
+  %.not14 = icmp eq ptr %31, null
+  br i1 %.not14, label %35, label %32
 
 32:                                               ; preds = %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #25
@@ -7432,8 +7432,8 @@ _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit: ; preds = %24
 35:                                               ; preds = %_ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %1, ptr %36, align 8, !tbaa !513
-  %brmerge = or i1 %2, %3
-  br i1 %brmerge, label %40, label %37
+  %or.cond = or i1 %2, %3
+  br i1 %or.cond, label %40, label %37
 
 37:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #25
@@ -7446,7 +7446,7 @@ _ZN4llvm10MCStreamer23EnsureValidWinFrameInfoENS_5SMLocE.exit: ; preds = %24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #25
   br label %40
 
-40:                                               ; preds = %35, %37
+40:                                               ; preds = %37, %35
   br i1 %2, label %41, label %43
 
 41:                                               ; preds = %40

@@ -7,86 +7,83 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i64 @softfloat_roundMToI64(i1 noundef zeroext %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
-  %.not39 = icmp eq i8 %2, 0
-  %5 = load i32, ptr %1, align 4, !tbaa !3
-  switch i8 %2, label %6 [
-    i8 4, label %20
-    i8 0, label %20
-  ]
+  %5 = icmp eq i8 %2, 0
+  %6 = load i32, ptr %1, align 4, !tbaa !3
+  %7 = icmp ne i8 %2, 4
+  %or.cond = xor i1 %5, %7
+  br i1 %or.cond, label %8, label %22
 
-6:                                                ; preds = %4
-  %7 = zext i8 %2 to i32
-  %8 = select i1 %0, i32 2, i32 3
-  %9 = icmp eq i32 %8, %7
-  %10 = icmp ne i32 %5, 0
-  %11 = select i1 %9, i1 %10, i1 false
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i32, ptr %12, align 4, !tbaa !3
-  %14 = zext i32 %13 to i64
-  %15 = shl nuw i64 %14, 32
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %17 = load i32, ptr %16, align 4, !tbaa !3
-  %18 = zext i32 %17 to i64
-  %19 = or disjoint i64 %15, %18
-  br i1 %11, label %30, label %37
+8:                                                ; preds = %4
+  %9 = zext i8 %2 to i32
+  %10 = select i1 %0, i32 2, i32 3
+  %11 = icmp eq i32 %10, %9
+  %12 = icmp ne i32 %6, 0
+  %13 = select i1 %11, i1 %12, i1 false
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = load i32, ptr %14, align 4, !tbaa !3
+  %16 = zext i32 %15 to i64
+  %17 = shl nuw i64 %16, 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %19 = load i32, ptr %18, align 4, !tbaa !3
+  %20 = zext i32 %19 to i64
+  %21 = or disjoint i64 %17, %20
+  br i1 %13, label %32, label %39
 
-20:                                               ; preds = %4, %4
-  %21 = icmp slt i32 %5, 0
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load i32, ptr %22, align 4, !tbaa !3
-  %24 = zext i32 %23 to i64
-  %25 = shl nuw i64 %24, 32
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !3
-  %28 = zext i32 %27 to i64
-  %29 = or disjoint i64 %25, %28
-  br i1 %21, label %30, label %37
+22:                                               ; preds = %4
+  %23 = icmp slt i32 %6, 0
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load i32, ptr %24, align 4, !tbaa !3
+  %26 = zext i32 %25 to i64
+  %27 = shl nuw i64 %26, 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !3
+  %30 = zext i32 %29 to i64
+  %31 = or disjoint i64 %27, %30
+  br i1 %23, label %32, label %39
 
-30:                                               ; preds = %6, %20
-  %31 = phi i64 [ %19, %6 ], [ %29, %20 ]
-  %32 = add i64 %31, 1
-  %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %47, label %33
+32:                                               ; preds = %8, %22
+  %33 = phi i64 [ %21, %8 ], [ %31, %22 ]
+  %34 = add i64 %33, 1
+  %.not = icmp eq i64 %34, 0
+  br i1 %.not, label %49, label %35
 
-33:                                               ; preds = %30
-  %34 = and i32 %5, 2147483647
-  %.not35 = icmp eq i32 %34, 0
-  br i1 %.not35, label %35, label %37
+35:                                               ; preds = %32
+  %36 = and i32 %6, 2147483647
+  %37 = icmp eq i32 %36, 0
+  %or.cond4 = and i1 %5, %37
+  %38 = and i64 %34, -2
+  %spec.select = select i1 %or.cond4, i64 %38, i64 %34
+  br label %39
 
-35:                                               ; preds = %33
-  %36 = and i64 %32, -2
-  %spec.select = select i1 %.not39, i64 %36, i64 %32
-  br label %37
+39:                                               ; preds = %8, %35, %22
+  %.033 = phi i64 [ %31, %22 ], [ %spec.select, %35 ], [ %21, %8 ]
+  %40 = sub i64 0, %.033
+  %41 = select i1 %0, i64 %40, i64 %.033
+  %.not37 = icmp eq i64 %.033, 0
+  %42 = icmp sgt i64 %41, -1
+  %.not3839 = xor i1 %0, %42
+  %or.cond40 = or i1 %.not37, %.not3839
+  br i1 %or.cond40, label %43, label %49
 
-37:                                               ; preds = %6, %35, %33, %20
-  %.031 = phi i64 [ %32, %33 ], [ %29, %20 ], [ %spec.select, %35 ], [ %19, %6 ]
-  %38 = sub i64 0, %.031
-  %39 = select i1 %0, i64 %38, i64 %.031
-  %.not36 = icmp eq i64 %.031, 0
-  %40 = icmp sgt i64 %39, -1
-  %.not3738 = xor i1 %0, %40
-  %or.cond = or i1 %.not36, %.not3738
-  br i1 %or.cond, label %41, label %47
+43:                                               ; preds = %39
+  %44 = icmp ne i32 %6, 0
+  %or.cond6 = select i1 %3, i1 %44, i1 false
+  br i1 %or.cond6, label %45, label %51
 
-41:                                               ; preds = %37
-  %42 = icmp ne i32 %5, 0
-  %or.cond4 = select i1 %3, i1 %42, i1 false
-  br i1 %or.cond4, label %43, label %49
+45:                                               ; preds = %43
+  %46 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  %47 = load i8, ptr %46, align 1, !tbaa !7
+  %48 = or i8 %47, 1
+  store i8 %48, ptr %46, align 1, !tbaa !7
+  br label %51
 
-43:                                               ; preds = %41
-  %44 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  %45 = load i8, ptr %44, align 1, !tbaa !7
-  %46 = or i8 %45, 1
-  store i8 %46, ptr %44, align 1, !tbaa !7
-  br label %49
-
-47:                                               ; preds = %37, %30
+49:                                               ; preds = %39, %32
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  %48 = select i1 %0, i64 -9223372036854775808, i64 9223372036854775807
-  br label %49
+  %50 = select i1 %0, i64 -9223372036854775808, i64 9223372036854775807
+  br label %51
 
-49:                                               ; preds = %41, %43, %47
-  %.0 = phi i64 [ %48, %47 ], [ %39, %43 ], [ %39, %41 ]
+51:                                               ; preds = %43, %45, %49
+  %.0 = phi i64 [ %50, %49 ], [ %41, %45 ], [ %41, %43 ]
   ret i64 %.0
 }
 

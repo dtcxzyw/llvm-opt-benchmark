@@ -2463,25 +2463,23 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   store i8 1, ptr %10, align 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
-  %.not56 = icmp eq ptr %12, null
-  br i1 %.not56, label %33, label %13
-
-13:                                               ; preds = %3
-  %14 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6, !noundef !7
+  %13 = icmp eq ptr %12, null
+  %14 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %33, label %16
+  %or.cond = select i1 %13, i1 true, i1 %15
+  br i1 %or.cond, label %33, label %16
 
-16:                                               ; preds = %13
+16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %18 = load ptr, ptr %17, align 8
-  %.not57 = icmp eq ptr %18, null
-  br i1 %.not57, label %.sink.split, label %19
+  %.not63 = icmp eq ptr %18, null
+  br i1 %.not63, label %.sink.split, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %21 = load ptr, ptr %20, align 8
-  %.not58 = icmp eq ptr %21, null
-  br i1 %.not58, label %33, label %22
+  %.not64 = icmp eq ptr %21, null
+  br i1 %.not64, label %33, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -2497,34 +2495,32 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %16, %22
-  %.sink69 = phi ptr [ %30, %22 ], [ %12, %16 ]
+  %.sink72 = phi ptr [ %30, %22 ], [ %12, %16 ]
   %.sink = load ptr, ptr @tcaphash_end, align 8
-  %31 = load ptr, ptr %.sink69, align 8
+  %31 = load ptr, ptr %.sink72, align 8
   %32 = tail call ptr @wmem_map_remove(ptr noundef %.sink, ptr noundef %31)
   br label %33
 
-33:                                               ; preds = %.sink.split, %19, %13, %3
+33:                                               ; preds = %.sink.split, %19, %3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = load ptr, ptr %34, align 8
-  %.not59 = icmp eq ptr %35, null
-  br i1 %.not59, label %56, label %36
-
-36:                                               ; preds = %33
-  %37 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6, !noundef !7
+  %36 = icmp eq ptr %35, null
+  %37 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6
   %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %56, label %39
+  %or.cond3 = select i1 %36, i1 true, i1 %38
+  br i1 %or.cond3, label %56, label %39
 
-39:                                               ; preds = %36
+39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %41 = load ptr, ptr %40, align 8
-  %.not60 = icmp eq ptr %41, null
-  br i1 %.not60, label %.sink.split70, label %42
+  %.not65 = icmp eq ptr %41, null
+  br i1 %.not65, label %.sink.split73, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %44 = load ptr, ptr %43, align 8
-  %.not61 = icmp eq ptr %44, null
-  br i1 %.not61, label %56, label %45
+  %.not66 = icmp eq ptr %44, null
+  br i1 %.not66, label %56, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
@@ -2537,37 +2533,35 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr %49, ptr %52, align 8
   %53 = load ptr, ptr %34, align 8
-  br label %.sink.split70
+  br label %.sink.split73
 
-.sink.split70:                                    ; preds = %39, %45
-  %.sink73 = phi ptr [ %53, %45 ], [ %35, %39 ]
-  %.sink71 = load ptr, ptr @tcaphash_cont, align 8
-  %54 = load ptr, ptr %.sink73, align 8
-  %55 = tail call ptr @wmem_map_remove(ptr noundef %.sink71, ptr noundef %54)
+.sink.split73:                                    ; preds = %39, %45
+  %.sink76 = phi ptr [ %53, %45 ], [ %35, %39 ]
+  %.sink74 = load ptr, ptr @tcaphash_cont, align 8
+  %54 = load ptr, ptr %.sink76, align 8
+  %55 = tail call ptr @wmem_map_remove(ptr noundef %.sink74, ptr noundef %54)
   br label %56
 
-56:                                               ; preds = %.sink.split70, %42, %36, %33
+56:                                               ; preds = %.sink.split73, %42, %33
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %58 = load ptr, ptr %57, align 8
-  %.not62 = icmp eq ptr %58, null
-  br i1 %.not62, label %79, label %59
-
-59:                                               ; preds = %56
-  %60 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6, !noundef !7
+  %59 = icmp eq ptr %58, null
+  %60 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6
   %61 = trunc nuw i8 %60 to i1
-  br i1 %61, label %79, label %62
+  %or.cond5 = select i1 %59, i1 true, i1 %61
+  br i1 %or.cond5, label %79, label %62
 
-62:                                               ; preds = %59
+62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %64 = load ptr, ptr %63, align 8
-  %.not63 = icmp eq ptr %64, null
-  br i1 %.not63, label %.sink.split74, label %65
+  %.not67 = icmp eq ptr %64, null
+  br i1 %.not67, label %.sink.split77, label %65
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %67 = load ptr, ptr %66, align 8
-  %.not64 = icmp eq ptr %67, null
-  br i1 %.not64, label %79, label %68
+  %.not68 = icmp eq ptr %67, null
+  br i1 %.not68, label %79, label %68
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 24
@@ -2580,37 +2574,35 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
   store ptr %72, ptr %75, align 8
   %76 = load ptr, ptr %57, align 8
-  br label %.sink.split74
+  br label %.sink.split77
 
-.sink.split74:                                    ; preds = %62, %68
-  %.sink77 = phi ptr [ %76, %68 ], [ %58, %62 ]
-  %.sink75 = load ptr, ptr @tcaphash_begin, align 8
-  %77 = load ptr, ptr %.sink77, align 8
-  %78 = tail call ptr @wmem_map_remove(ptr noundef %.sink75, ptr noundef %77)
+.sink.split77:                                    ; preds = %62, %68
+  %.sink80 = phi ptr [ %76, %68 ], [ %58, %62 ]
+  %.sink78 = load ptr, ptr @tcaphash_begin, align 8
+  %77 = load ptr, ptr %.sink80, align 8
+  %78 = tail call ptr @wmem_map_remove(ptr noundef %.sink78, ptr noundef %77)
   br label %79
 
-79:                                               ; preds = %.sink.split74, %65, %59, %56
+79:                                               ; preds = %.sink.split77, %65, %56
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %81 = load ptr, ptr %80, align 8
-  %.not65 = icmp eq ptr %81, null
-  br i1 %.not65, label %102, label %82
-
-82:                                               ; preds = %79
-  %83 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6, !noundef !7
+  %82 = icmp eq ptr %81, null
+  %83 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6
   %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %102, label %85
+  %or.cond7 = select i1 %82, i1 true, i1 %84
+  br i1 %or.cond7, label %102, label %85
 
-85:                                               ; preds = %82
+85:                                               ; preds = %79
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %87 = load ptr, ptr %86, align 8
-  %.not66 = icmp eq ptr %87, null
-  br i1 %.not66, label %.sink.split78, label %88
+  %.not69 = icmp eq ptr %87, null
+  br i1 %.not69, label %.sink.split81, label %88
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %90 = load ptr, ptr %89, align 8
-  %.not67 = icmp eq ptr %90, null
-  br i1 %.not67, label %102, label %91
+  %.not70 = icmp eq ptr %90, null
+  br i1 %.not70, label %102, label %91
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 24
@@ -2623,16 +2615,16 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
   store ptr %95, ptr %98, align 8
   %99 = load ptr, ptr %80, align 8
-  br label %.sink.split78
+  br label %.sink.split81
 
-.sink.split78:                                    ; preds = %85, %91
-  %.sink81 = phi ptr [ %99, %91 ], [ %81, %85 ]
-  %.sink79 = load ptr, ptr @tcaphash_ansi, align 8
-  %100 = load ptr, ptr %.sink81, align 8
-  %101 = tail call ptr @wmem_map_remove(ptr noundef %.sink79, ptr noundef %100)
+.sink.split81:                                    ; preds = %85, %91
+  %.sink84 = phi ptr [ %99, %91 ], [ %81, %85 ]
+  %.sink82 = load ptr, ptr @tcaphash_ansi, align 8
+  %100 = load ptr, ptr %.sink84, align 8
+  %101 = tail call ptr @wmem_map_remove(ptr noundef %.sink82, ptr noundef %100)
   br label %102
 
-102:                                              ; preds = %.sink.split78, %88, %82, %79
+102:                                              ; preds = %.sink.split81, %88, %79
   %103 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6, !noundef !7
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %109, label %105

@@ -3972,13 +3972,11 @@ define dso_local i64 @_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 568
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(70) %3, i1 noundef zeroext false) #27
-  %.not = xor i1 %8, true
-  %.not34 = xor i1 %12, true
-  %brmerge = or i1 %.not, %.not34
+  %or.cond = and i1 %8, %12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %14 = load i16, ptr %13, align 4, !tbaa !350
   %15 = zext i16 %14 to i32
-  br i1 %brmerge, label %16, label %32
+  br i1 %or.cond, label %32, label %16
 
 16:                                               ; preds = %4
   %17 = load ptr, ptr %0, align 8, !tbaa !3
@@ -3988,7 +3986,8 @@ define dso_local i64 @_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_
   %.sroa.0.0.extract.trunc = trunc i64 %20 to i32
   %21 = select i1 %8, i32 %15, i32 %.sroa.0.0.extract.trunc
   %22 = select i1 %8, i32 %.sroa.0.0.extract.trunc, i32 %15
-  %brmerge36 = or i1 %8, %.not34
+  %.not = xor i1 %8, true
+  %or.cond3 = and i1 %12, %.not
   switch i32 %1, label %23 [
     i32 0, label %24
     i32 2, label %26
@@ -4000,47 +3999,47 @@ define dso_local i64 @_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_
   unreachable
 
 24:                                               ; preds = %16
-  br i1 %brmerge36, label %25, label %32
+  br i1 %or.cond3, label %32, label %25
 
 25:                                               ; preds = %24
   %spec.select = select i1 %12, i32 %15, i32 %22
-  %spec.select81 = select i1 %8, i32 %spec.select, i32 %.sroa.0.0.extract.trunc
+  %spec.select96 = select i1 %8, i32 %spec.select, i32 %.sroa.0.0.extract.trunc
   br label %32
 
 26:                                               ; preds = %16
-  br i1 %brmerge36, label %27, label %32
+  br i1 %or.cond3, label %32, label %27
 
 27:                                               ; preds = %26
-  %spec.select80 = select i1 %12, i32 %.sroa.0.0.extract.trunc, i32 %21
-  %spec.select82 = select i1 %8, i32 %spec.select80, i32 %15
+  %spec.select95 = select i1 %12, i32 %.sroa.0.0.extract.trunc, i32 %21
+  %spec.select97 = select i1 %8, i32 %spec.select95, i32 %15
   br label %32
 
 28:                                               ; preds = %16
-  br i1 %brmerge36, label %29, label %32
+  br i1 %or.cond3, label %32, label %29
 
 29:                                               ; preds = %28
-  %brmerge46 = or i1 %12, %.not
-  %spec.select83 = select i1 %brmerge46, i32 %22, i32 %21
-  %spec.select84 = select i1 %brmerge46, i32 %21, i32 %22
+  %or.cond22 = or i1 %12, %.not
+  %spec.select98 = select i1 %or.cond22, i32 %22, i32 %21
+  %spec.select99 = select i1 %or.cond22, i32 %21, i32 %22
   br label %32
 
 30:                                               ; preds = %16
-  br i1 %brmerge36, label %31, label %32
+  br i1 %or.cond3, label %32, label %31
 
 31:                                               ; preds = %30
-  %brmerge50 = or i1 %12, %.not
-  %spec.select85 = select i1 %brmerge50, i32 %21, i32 %22
-  %spec.select86 = select i1 %brmerge50, i32 %22, i32 %21
+  %or.cond30 = or i1 %12, %.not
+  %spec.select100 = select i1 %or.cond30, i32 %21, i32 %22
+  %spec.select101 = select i1 %or.cond30, i32 %22, i32 %21
   br label %32
 
 32:                                               ; preds = %4, %31, %29, %27, %25, %24, %26, %28, %30
-  %.sroa.078.0 = phi i32 [ %21, %24 ], [ %21, %26 ], [ %22, %28 ], [ %22, %30 ], [ %22, %25 ], [ %22, %27 ], [ %spec.select83, %29 ], [ %spec.select85, %31 ], [ %15, %4 ]
-  %.sroa.14.0 = phi i32 [ %22, %24 ], [ %22, %26 ], [ %22, %28 ], [ %22, %30 ], [ %spec.select81, %25 ], [ %spec.select82, %27 ], [ %spec.select84, %29 ], [ %spec.select86, %31 ], [ %15, %4 ]
+  %.sroa.093.0 = phi i32 [ %21, %24 ], [ %21, %26 ], [ %22, %28 ], [ %22, %30 ], [ %22, %25 ], [ %22, %27 ], [ %spec.select98, %29 ], [ %spec.select100, %31 ], [ %15, %4 ]
+  %.sroa.14.0 = phi i32 [ %22, %24 ], [ %22, %26 ], [ %22, %28 ], [ %22, %30 ], [ %spec.select96, %25 ], [ %spec.select97, %27 ], [ %spec.select99, %29 ], [ %spec.select101, %31 ], [ %15, %4 ]
   %.sroa.14.0.insert.ext = zext i32 %.sroa.14.0 to i64
   %.sroa.14.0.insert.shift = shl nuw i64 %.sroa.14.0.insert.ext, 32
-  %.sroa.078.0.insert.ext = zext i32 %.sroa.078.0 to i64
-  %.sroa.078.0.insert.insert = or disjoint i64 %.sroa.14.0.insert.shift, %.sroa.078.0.insert.ext
-  ret i64 %.sroa.078.0.insert.insert
+  %.sroa.093.0.insert.ext = zext i32 %.sroa.093.0 to i64
+  %.sroa.093.0.insert.insert = or disjoint i64 %.sroa.14.0.insert.shift, %.sroa.093.0.insert.ext
+  ret i64 %.sroa.093.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -4191,13 +4190,11 @@ define dso_local void @_ZNK4llvm15TargetInstrInfo14reassociateOpsERNS_12MachineI
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 568
   %94 = load ptr, ptr %93, align 8
   %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(70) %2, i1 noundef zeroext false) #27
-  %.not.i = xor i1 %91, true
-  %.not34.i = xor i1 %95, true
-  %brmerge.i = or i1 %.not.i, %.not34.i
+  %or.cond.i = and i1 %91, %95
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %97 = load i16, ptr %96, align 4, !tbaa !350
   %98 = zext i16 %97 to i32
-  br i1 %brmerge.i, label %99, label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit
+  br i1 %or.cond.i, label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit, label %99
 
 99:                                               ; preds = %85
   %100 = load ptr, ptr %0, align 8, !tbaa !3
@@ -4207,7 +4204,8 @@ define dso_local void @_ZNK4llvm15TargetInstrInfo14reassociateOpsERNS_12MachineI
   %.sroa.0.0.extract.trunc.i = trunc i64 %103 to i32
   %104 = select i1 %91, i32 %98, i32 %.sroa.0.0.extract.trunc.i
   %105 = select i1 %91, i32 %.sroa.0.0.extract.trunc.i, i32 %98
-  %brmerge36.i = or i1 %91, %.not34.i
+  %.not.i = xor i1 %91, true
+  %or.cond3.i = and i1 %95, %.not.i
   switch i32 %3, label %106 [
     i32 0, label %107
     i32 2, label %109
@@ -4219,42 +4217,42 @@ define dso_local void @_ZNK4llvm15TargetInstrInfo14reassociateOpsERNS_12MachineI
   unreachable
 
 107:                                              ; preds = %99
-  br i1 %brmerge36.i, label %108, label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit
+  br i1 %or.cond3.i, label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit, label %108
 
 108:                                              ; preds = %107
   %spec.select.i = select i1 %95, i32 %98, i32 %105
-  %spec.select81.i = select i1 %91, i32 %spec.select.i, i32 %.sroa.0.0.extract.trunc.i
+  %spec.select96.i = select i1 %91, i32 %spec.select.i, i32 %.sroa.0.0.extract.trunc.i
   br label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit
 
 109:                                              ; preds = %99
-  br i1 %brmerge36.i, label %110, label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit
+  br i1 %or.cond3.i, label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit, label %110
 
 110:                                              ; preds = %109
-  %spec.select80.i = select i1 %95, i32 %.sroa.0.0.extract.trunc.i, i32 %104
-  %spec.select82.i = select i1 %91, i32 %spec.select80.i, i32 %98
+  %spec.select95.i = select i1 %95, i32 %.sroa.0.0.extract.trunc.i, i32 %104
+  %spec.select97.i = select i1 %91, i32 %spec.select95.i, i32 %98
   br label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit
 
 111:                                              ; preds = %99
-  br i1 %brmerge36.i, label %112, label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit
+  br i1 %or.cond3.i, label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit, label %112
 
 112:                                              ; preds = %111
-  %brmerge46.i = or i1 %95, %.not.i
-  %spec.select83.i = select i1 %brmerge46.i, i32 %105, i32 %104
-  %spec.select84.i = select i1 %brmerge46.i, i32 %104, i32 %105
+  %or.cond22.i = or i1 %95, %.not.i
+  %spec.select98.i = select i1 %or.cond22.i, i32 %105, i32 %104
+  %spec.select99.i = select i1 %or.cond22.i, i32 %104, i32 %105
   br label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit
 
 113:                                              ; preds = %99
-  br i1 %brmerge36.i, label %114, label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit
+  br i1 %or.cond3.i, label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit, label %114
 
 114:                                              ; preds = %113
-  %brmerge50.i = or i1 %95, %.not.i
-  %spec.select85.i = select i1 %brmerge50.i, i32 %104, i32 %105
-  %spec.select86.i = select i1 %brmerge50.i, i32 %105, i32 %104
+  %or.cond30.i = or i1 %95, %.not.i
+  %spec.select100.i = select i1 %or.cond30.i, i32 %104, i32 %105
+  %spec.select101.i = select i1 %or.cond30.i, i32 %105, i32 %104
   br label %_ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit
 
 _ZNK4llvm15TargetInstrInfo23getReassociationOpcodesEjRKNS_12MachineInstrES3_.exit: ; preds = %85, %107, %108, %109, %110, %111, %112, %113, %114
-  %.sroa.078.0.i = phi i32 [ %104, %107 ], [ %104, %109 ], [ %105, %111 ], [ %105, %113 ], [ %105, %108 ], [ %105, %110 ], [ %spec.select83.i, %112 ], [ %spec.select85.i, %114 ], [ %98, %85 ]
-  %.sroa.14.0.i = phi i32 [ %105, %107 ], [ %105, %109 ], [ %105, %111 ], [ %105, %113 ], [ %spec.select81.i, %108 ], [ %spec.select82.i, %110 ], [ %spec.select84.i, %112 ], [ %spec.select86.i, %114 ], [ %98, %85 ]
+  %.sroa.093.0.i = phi i32 [ %104, %107 ], [ %104, %109 ], [ %105, %111 ], [ %105, %113 ], [ %105, %108 ], [ %105, %110 ], [ %spec.select98.i, %112 ], [ %spec.select100.i, %114 ], [ %98, %85 ]
+  %.sroa.14.0.i = phi i32 [ %105, %107 ], [ %105, %109 ], [ %105, %111 ], [ %105, %113 ], [ %spec.select96.i, %108 ], [ %spec.select97.i, %110 ], [ %spec.select99.i, %112 ], [ %spec.select101.i, %114 ], [ %98, %85 ]
   %.sroa.14.0.insert.ext.i = zext i32 %.sroa.14.0.i to i64
   %115 = load i32, ptr %42, align 8
   %116 = lshr i32 %115, 26
@@ -4569,7 +4567,7 @@ _ZN4llvm10MIMetadataC2ERKNS_12MachineInstrE.exit136: ; preds = %_ZN4llvm8DebugLo
   %248 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr null, ptr %248, align 8, !tbaa !421
   %249 = load ptr, ptr %171, align 8, !tbaa !388
-  %250 = zext i32 %.sroa.078.0.i to i64
+  %250 = zext i32 %.sroa.093.0.i to i64
   %251 = sub nsw i64 0, %250
   %252 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %249, i64 %251
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
@@ -5424,19 +5422,19 @@ _ZN4llvm11SmallVectorIPKNS_14MachineOperandELj4EED2Ev.exit: ; preds = %19, %21
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm15TargetInstrInfo17getOperandLatencyEPKNS_18InstrItineraryDataEPNS_6SDNodeEjS5_j(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #16 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %107, label %7
+  br i1 %.not, label %108, label %7
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %9 = load ptr, ptr %8, align 8, !tbaa !460
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %107, label %11
+  br i1 %10, label %108, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !468
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %15, label %107
+  br i1 %14, label %15, label %108
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5529,65 +5527,63 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm15TargetInstrInfo17getOp
 
 _ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i: ; preds = %77, %67
   %.sroa.0.0.insert.insert.i11.i = phi i64 [ %84, %77 ], [ 0, %67 ]
-  %85 = and i64 %.sroa.0.0.insert.insert.i.i, 4294967296
-  %.not47.i = icmp eq i64 %85, 0
-  br i1 %.not47.i, label %_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit, label %86
-
-86:                                               ; preds = %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i
   %.sroa.024.0.extract.trunc.i = trunc i64 %.sroa.0.0.insert.insert.i11.i to i32
+  %85 = and i64 %.sroa.0.0.insert.insert.i.i, 4294967296
+  %86 = icmp eq i64 %85, 0
   %87 = and i64 %.sroa.0.0.insert.insert.i11.i, 4294967296
-  %.not48.i = icmp eq i64 %87, 0
-  %88 = add i32 %.sroa.041.0.extract.trunc.i, 1
-  %89 = icmp ult i32 %88, %.sroa.024.0.extract.trunc.i
-  %or.cond.i = select i1 %.not48.i, i1 true, i1 %89
-  br i1 %or.cond.i, label %_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit, label %90
+  %88 = icmp eq i64 %87, 0
+  %or.cond.not49.i = select i1 %86, i1 true, i1 %88
+  %89 = add i32 %.sroa.041.0.extract.trunc.i, 1
+  %90 = icmp ult i32 %89, %.sroa.024.0.extract.trunc.i
+  %or.cond47.i = select i1 %or.cond.not49.i, i1 true, i1 %90
+  br i1 %or.cond47.i, label %_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit, label %91
 
-90:                                               ; preds = %86
-  %91 = sub nsw i64 %.sroa.0.0.insert.insert.i.i, %.sroa.0.0.insert.insert.i11.i
-  %92 = trunc i64 %91 to i32
-  %.sroa.024.0.extract.trunc28.i = add i32 %92, 1
+91:                                               ; preds = %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i
+  %92 = sub nsw i64 %.sroa.0.0.insert.insert.i.i, %.sroa.0.0.insert.insert.i11.i
+  %93 = trunc i64 %92 to i32
+  %.sroa.024.0.extract.trunc28.i = add i32 %93, 1
   %.not.i14 = icmp eq i32 %.sroa.024.0.extract.trunc28.i, 0
   %brmerge.i = or i1 %.not.i.i, %.not.i14
-  br i1 %brmerge.i, label %.critedge.i, label %93
+  br i1 %brmerge.i, label %.critedge.i, label %94
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %95 = load ptr, ptr %94, align 8, !tbaa !481
-  %96 = zext nneg i32 %58 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %95, i64 %96
-  %98 = load i32, ptr %97, align 4, !tbaa !181
-  %99 = icmp eq i32 %98, 0
-  %brmerge49.i = or i1 %.not.i8.i, %99
-  br i1 %brmerge49.i, label %.critedge.i, label %_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %96 = load ptr, ptr %95, align 8, !tbaa !481
+  %97 = zext nneg i32 %58 to i64
+  %98 = getelementptr inbounds nuw i32, ptr %96, i64 %97
+  %99 = load i32, ptr %98, align 4, !tbaa !181
+  %100 = icmp eq i32 %99, 0
+  %brmerge50.i = or i1 %.not.i8.i, %100
+  br i1 %brmerge50.i, label %.critedge.i, label %_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i
 
-_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i: ; preds = %93
-  %100 = zext nneg i32 %76 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %95, i64 %100
-  %102 = load i32, ptr %101, align 4, !tbaa !181
-  %103 = icmp eq i32 %98, %102
-  %spec.select.i = select i1 %103, i32 %92, i32 %.sroa.024.0.extract.trunc28.i
+_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i: ; preds = %94
+  %101 = zext nneg i32 %76 to i64
+  %102 = getelementptr inbounds nuw i32, ptr %96, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !181
+  %104 = icmp eq i32 %99, %103
+  %spec.select.i = select i1 %104, i32 %93, i32 %.sroa.024.0.extract.trunc28.i
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i, %93, %90
-  %.sroa.024.0.i = phi i32 [ %.sroa.024.0.extract.trunc28.i, %90 ], [ %.sroa.024.0.extract.trunc28.i, %93 ], [ %spec.select.i, %_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i ]
-  %104 = zext i32 %.sroa.024.0.i to i64
+.critedge.i:                                      ; preds = %_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i, %94, %91
+  %.sroa.024.0.i = phi i32 [ %.sroa.024.0.extract.trunc28.i, %91 ], [ %.sroa.024.0.extract.trunc28.i, %94 ], [ %spec.select.i, %_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i ]
+  %105 = zext i32 %.sroa.024.0.i to i64
   br label %_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit
 
-_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit: ; preds = %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i, %86, %.critedge.i
-  %.sroa.043.0.i = phi i64 [ %104, %.critedge.i ], [ 0, %86 ], [ 0, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i ]
-  %.sroa.2.0.i15 = phi i64 [ 4294967296, %.critedge.i ], [ 0, %86 ], [ 0, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i ]
+_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit: ; preds = %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i, %.critedge.i
+  %.sroa.043.0.i = phi i64 [ %105, %.critedge.i ], [ 0, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i ]
+  %.sroa.2.0.i15 = phi i64 [ 4294967296, %.critedge.i ], [ 0, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i ]
   %.sroa.043.0.insert.insert.i = or disjoint i64 %.sroa.2.0.i15, %.sroa.043.0.i
   br label %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit
 
 _ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit: ; preds = %36, %26, %_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit
   %storemerge = phi i64 [ %.sroa.043.0.insert.insert.i, %_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit ], [ %43, %36 ], [ 0, %26 ]
-  %105 = and i64 %storemerge, 1095216660480
-  %106 = and i64 %storemerge, 4294967295
-  br label %107
+  %106 = and i64 %storemerge, 1095216660480
+  %107 = and i64 %storemerge, 4294967295
+  br label %108
 
-107:                                              ; preds = %11, %6, %7, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit
-  %.sroa.2.0 = phi i64 [ %105, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit ], [ 0, %7 ], [ 0, %6 ], [ 0, %11 ]
-  %.sroa.0.0 = phi i64 [ %106, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit ], [ 0, %7 ], [ 0, %6 ], [ 0, %11 ]
+108:                                              ; preds = %11, %6, %7, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit
+  %.sroa.2.0 = phi i64 [ %106, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit ], [ 0, %7 ], [ 0, %6 ], [ 0, %11 ]
+  %.sroa.0.0 = phi i64 [ %107, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit ], [ 0, %7 ], [ 0, %6 ], [ 0, %11 ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0, %.sroa.2.0
   ret i64 %.sroa.0.0.insert.insert
 }
@@ -6478,53 +6474,51 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm15TargetInstrInfo17getOp
 
 _ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i: ; preds = %46, %36
   %.sroa.0.0.insert.insert.i11.i = phi i64 [ %53, %46 ], [ 0, %36 ]
-  %54 = and i64 %.sroa.0.0.insert.insert.i.i, 4294967296
-  %.not47.i = icmp eq i64 %54, 0
-  br i1 %.not47.i, label %_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit, label %55
-
-55:                                               ; preds = %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i
   %.sroa.024.0.extract.trunc.i = trunc i64 %.sroa.0.0.insert.insert.i11.i to i32
+  %54 = and i64 %.sroa.0.0.insert.insert.i.i, 4294967296
+  %55 = icmp eq i64 %54, 0
   %56 = and i64 %.sroa.0.0.insert.insert.i11.i, 4294967296
-  %.not48.i = icmp eq i64 %56, 0
-  %57 = add i32 %.sroa.041.0.extract.trunc.i, 1
-  %58 = icmp ult i32 %57, %.sroa.024.0.extract.trunc.i
-  %or.cond.i = select i1 %.not48.i, i1 true, i1 %58
-  br i1 %or.cond.i, label %_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit, label %59
+  %57 = icmp eq i64 %56, 0
+  %or.cond.not49.i = select i1 %55, i1 true, i1 %57
+  %58 = add i32 %.sroa.041.0.extract.trunc.i, 1
+  %59 = icmp ult i32 %58, %.sroa.024.0.extract.trunc.i
+  %or.cond47.i = select i1 %or.cond.not49.i, i1 true, i1 %59
+  br i1 %or.cond47.i, label %_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit, label %60
 
-59:                                               ; preds = %55
-  %60 = sub nsw i64 %.sroa.0.0.insert.insert.i.i, %.sroa.0.0.insert.insert.i11.i
-  %61 = trunc i64 %60 to i32
-  %.sroa.024.0.extract.trunc28.i = add i32 %61, 1
+60:                                               ; preds = %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i
+  %61 = sub nsw i64 %.sroa.0.0.insert.insert.i.i, %.sroa.0.0.insert.insert.i11.i
+  %62 = trunc i64 %61 to i32
+  %.sroa.024.0.extract.trunc28.i = add i32 %62, 1
   %.not.i = icmp eq i32 %.sroa.024.0.extract.trunc28.i, 0
   %brmerge.i = or i1 %.not.i.i, %.not.i
-  br i1 %brmerge.i, label %.critedge.i, label %62
+  br i1 %brmerge.i, label %.critedge.i, label %63
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %64 = load ptr, ptr %63, align 8, !tbaa !481
-  %65 = zext nneg i32 %27 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !181
-  %68 = icmp eq i32 %67, 0
-  %brmerge49.i = or i1 %.not.i8.i, %68
-  br i1 %brmerge49.i, label %.critedge.i, label %_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %65 = load ptr, ptr %64, align 8, !tbaa !481
+  %66 = zext nneg i32 %27 to i64
+  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %68 = load i32, ptr %67, align 4, !tbaa !181
+  %69 = icmp eq i32 %68, 0
+  %brmerge50.i = or i1 %.not.i8.i, %69
+  br i1 %brmerge50.i, label %.critedge.i, label %_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i
 
-_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i: ; preds = %62
-  %69 = zext nneg i32 %45 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !181
-  %72 = icmp eq i32 %67, %71
-  %spec.select.i = select i1 %72, i32 %61, i32 %.sroa.024.0.extract.trunc28.i
+_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i: ; preds = %63
+  %70 = zext nneg i32 %45 to i64
+  %71 = getelementptr inbounds nuw i32, ptr %65, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !181
+  %73 = icmp eq i32 %68, %72
+  %spec.select.i = select i1 %73, i32 %62, i32 %.sroa.024.0.extract.trunc28.i
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i, %62, %59
-  %.sroa.024.0.i = phi i32 [ %.sroa.024.0.extract.trunc28.i, %59 ], [ %.sroa.024.0.extract.trunc28.i, %62 ], [ %spec.select.i, %_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i ]
-  %73 = zext i32 %.sroa.024.0.i to i64
+.critedge.i:                                      ; preds = %_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i, %63, %60
+  %.sroa.024.0.i = phi i32 [ %.sroa.024.0.extract.trunc28.i, %60 ], [ %.sroa.024.0.extract.trunc28.i, %63 ], [ %spec.select.i, %_ZNK4llvm18InstrItineraryData21hasPipelineForwardingEjjjj.exit.i ]
+  %74 = zext i32 %.sroa.024.0.i to i64
   br label %_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit
 
-_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit: ; preds = %6, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i, %55, %.critedge.i
-  %.sroa.043.0.i = phi i64 [ 0, %6 ], [ %73, %.critedge.i ], [ 0, %55 ], [ 0, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i ]
-  %.sroa.2.0.i = phi i64 [ 0, %6 ], [ 4294967296, %.critedge.i ], [ 0, %55 ], [ 0, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i ]
+_ZNK4llvm18InstrItineraryData17getOperandLatencyEjjjj.exit: ; preds = %6, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i, %.critedge.i
+  %.sroa.043.0.i = phi i64 [ 0, %6 ], [ %74, %.critedge.i ], [ 0, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i ]
+  %.sroa.2.0.i = phi i64 [ 0, %6 ], [ 4294967296, %.critedge.i ], [ 0, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit12.i ]
   %.sroa.043.0.insert.insert.i = or disjoint i64 %.sroa.2.0.i, %.sroa.043.0.i
   ret i64 %.sroa.043.0.insert.insert.i
 }
@@ -7838,9 +7832,12 @@ define dso_local noundef i32 @_ZNK4llvm15TargetInstrInfo16getOutliningTypeERKNS_
   %trunc = trunc i32 %29 to i8
   %switch.tableidx = add i8 %trunc, -4
   %30 = icmp ult i8 %switch.tableidx, 8
-  br i1 %30, label %switch.hole_check, label %.critedge
+  %switch.shifted = lshr i8 -107, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %30, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %switch.hole_check, %.lr.ph
+.critedge:                                        ; preds = %.lr.ph
   %31 = getelementptr inbounds nuw i8, ptr %.03238, i64 32
   %.not = icmp eq ptr %31, %28
   br i1 %.not, label %.loopexit.sink.split, label %.lr.ph
@@ -7852,13 +7849,8 @@ define dso_local noundef i32 @_ZNK4llvm15TargetInstrInfo16getOutliningTypeERKNS_
   %35 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) #27
   br label %.loopexit
 
-switch.hole_check:                                ; preds = %.lr.ph
-  %switch.shifted = lshr i8 -107, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %.loopexit, label %.critedge
-
-.loopexit:                                        ; preds = %switch.hole_check, %.loopexit.sink.split, %4, %4, %4, %4, %4, %17, %12, %9, %9, %9, %9, %8
-  %.0 = phi i32 [ 3, %8 ], [ 3, %9 ], [ 3, %9 ], [ 3, %9 ], [ 3, %9 ], [ 2, %12 ], [ 2, %17 ], [ 2, %4 ], [ 2, %4 ], [ 2, %4 ], [ 2, %4 ], [ 2, %4 ], [ %35, %.loopexit.sink.split ], [ 2, %switch.hole_check ]
+.loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %4, %4, %4, %4, %4, %17, %12, %9, %9, %9, %9, %8
+  %.0 = phi i32 [ 3, %8 ], [ 3, %9 ], [ 3, %9 ], [ 3, %9 ], [ 3, %9 ], [ 2, %12 ], [ 2, %17 ], [ 2, %4 ], [ 2, %4 ], [ 2, %4 ], [ 2, %4 ], [ 2, %4 ], [ %35, %.loopexit.sink.split ], [ 2, %.lr.ph ]
   ret i32 %.0
 }
 

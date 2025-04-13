@@ -140,7 +140,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_16DoHostIchEEvPKT_RKNS_9Compone
   store i32 0, ptr %2, align 4, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 -4294967296, ptr %10, align 4
-  br label %83
+  br label %85
 
 .lr.ph.preheader.i:                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
@@ -178,178 +178,176 @@ _ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds
   %22 = load i32, ptr %21, align 4, !tbaa !18
   %23 = load i8, ptr %4, align 1, !tbaa !13, !range !22, !noundef !23
   %24 = trunc nuw i8 %23 to i1
-  %.0..0..0.1.pre = load i8, ptr %5, align 1, !tbaa !13, !range !22
-  %.pre4 = trunc nuw i8 %.0..0..0.1.pre to i1
-  %brmerge = select i1 %24, i1 true, i1 %.pre4
-  %25 = getelementptr inbounds i8, ptr %0, i64 %12
-  br i1 %brmerge, label %_ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit._crit_edge, label %27
-
-_ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit._crit_edge: ; preds = %_ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit
-  %not. = xor i1 %24, true
-  %.pre4.mux = select i1 %not., i1 true, i1 %.pre4
-  %26 = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostEPKcibbPNS_12CanonOutputTIcEE(ptr noundef %25, i32 noundef %.4.val, i1 noundef zeroext %.pre4.mux, ptr noundef nonnull %1)
-  br i1 %26, label %30, label %29
+  %.0..0..0. = load i8, ptr %5, align 1, !range !22
+  %25 = trunc nuw i8 %.0..0..0. to i1
+  %or.cond = select i1 %24, i1 true, i1 %25
+  %26 = getelementptr inbounds i8, ptr %0, i64 %12
+  br i1 %or.cond, label %27, label %29
 
 27:                                               ; preds = %_ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit
-  %28 = call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIccEEbPKT_iPNS_12CanonOutputTIT0_EEPb(ptr noundef %25, i32 noundef %.4.val, ptr noundef nonnull %1, ptr noundef %4)
-  br i1 %28, label %30, label %29
+  %28 = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostEPKcibbPNS_12CanonOutputTIcEE(ptr noundef %26, i32 noundef %.4.val, i1 noundef zeroext %25, ptr noundef nonnull %1)
+  br i1 %28, label %32, label %31
 
-29:                                               ; preds = %_ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit._crit_edge, %27
+29:                                               ; preds = %_ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit
+  %30 = call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIccEEbPKT_iPNS_12CanonOutputTIT0_EEPb(ptr noundef %26, i32 noundef %.4.val, ptr noundef nonnull %1, ptr noundef %4)
+  br i1 %30, label %32, label %31
+
+31:                                               ; preds = %27, %29
   store i32 1, ptr %2, align 4, !tbaa !3
-  %.pre3 = zext i32 %22 to i64
-  br label %79
+  %.pre2 = zext i32 %22 to i64
+  br label %81
 
-30:                                               ; preds = %27, %_ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit._crit_edge
+32:                                               ; preds = %29, %27
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #10
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 64, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %33, ptr %31, align 8, !tbaa !24
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 64, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %35, ptr %33, align 8, !tbaa !24
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url14RawCanonOutputILi64EEE, i64 16), ptr %6, align 8, !tbaa !25
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  %36 = load i32, ptr %21, align 4, !tbaa !18
-  %37 = sub nsw i32 %36, %22
-  %.sroa.2.0.insert.ext.i = zext i32 %37 to i64
+  %38 = load i32, ptr %21, align 4, !tbaa !18
+  %39 = sub nsw i32 %38, %22
+  %.sroa.2.0.insert.ext.i = zext i32 %39 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %22 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %7, align 8
-  invoke void @_ZN3url21CanonicalizeIPAddressEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %35, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull %6, ptr noundef %2)
-          to label %38 unwind label %70
+  invoke void @_ZN3url21CanonicalizeIPAddressEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %37, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull %6, ptr noundef %2)
+          to label %40 unwind label %72
 
-38:                                               ; preds = %30
+40:                                               ; preds = %32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  %39 = load i32, ptr %2, align 4, !tbaa !3
-  %40 = and i32 %39, -2
-  %spec.select.i = icmp eq i32 %40, 2
-  %.pre2 = load ptr, ptr %31, align 8, !tbaa !24
-  br i1 %spec.select.i, label %41, label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
+  %41 = load i32, ptr %2, align 4, !tbaa !3
+  %42 = and i32 %41, -2
+  %spec.select.i = icmp eq i32 %42, 2
+  %.pre1 = load ptr, ptr %33, align 8, !tbaa !24
+  br i1 %spec.select.i, label %43, label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
 
-41:                                               ; preds = %38
+43:                                               ; preds = %40
   store i32 %22, ptr %21, align 4, !tbaa !18
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %43 = load i32, ptr %42, align 4, !tbaa !18
-  %44 = add nsw i32 %43, %22
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %46 = load i32, ptr %45, align 8, !tbaa !27
-  %47 = icmp sgt i32 %44, %46
-  br i1 %47, label %select.unfold.i.preheader.i, label %.noexc
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %45 = load i32, ptr %44, align 4, !tbaa !18
+  %46 = add nsw i32 %45, %22
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %48 = load i32, ptr %47, align 8, !tbaa !27
+  %49 = icmp sgt i32 %46, %48
+  br i1 %49, label %select.unfold.i.preheader.i, label %.noexc
 
-select.unfold.i.preheader.i:                      ; preds = %41
-  %48 = icmp eq i32 %46, 0
-  %spec.select = select i1 %48, i32 16, i32 %46
+select.unfold.i.preheader.i:                      ; preds = %43
+  %50 = icmp eq i32 %48, 0
+  %spec.select = select i1 %50, i32 16, i32 %48
   br label %select.unfold.i.i
 
-select.unfold.i.i:                                ; preds = %select.unfold.i.preheader.i, %50
-  %.0.i.i = phi i32 [ %51, %50 ], [ %spec.select, %select.unfold.i.preheader.i ]
-  %49 = icmp slt i32 %.0.i.i, 1073741824
-  br i1 %49, label %50, label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
+select.unfold.i.i:                                ; preds = %select.unfold.i.preheader.i, %52
+  %.0.i.i = phi i32 [ %53, %52 ], [ %spec.select, %select.unfold.i.preheader.i ]
+  %51 = icmp slt i32 %.0.i.i, 1073741824
+  br i1 %51, label %52, label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
 
-50:                                               ; preds = %select.unfold.i.i
-  %51 = shl nsw i32 %.0.i.i, 1
-  %52 = icmp slt i32 %51, %44
-  br i1 %52, label %select.unfold.i.i, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, !llvm.loop !28
+52:                                               ; preds = %select.unfold.i.i
+  %53 = shl nsw i32 %.0.i.i, 1
+  %54 = icmp slt i32 %53, %46
+  br i1 %54, label %select.unfold.i.i, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, !llvm.loop !28
 
-_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %50
-  %53 = load ptr, ptr %1, align 8, !tbaa !25
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8
-  invoke void %55(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %51)
-          to label %.noexc unwind label %68
+_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %52
+  %55 = load ptr, ptr %1, align 8, !tbaa !25
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %57 = load ptr, ptr %56, align 8
+  invoke void %57(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %53)
+          to label %.noexc unwind label %70
 
-.noexc:                                           ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, %41
-  %56 = icmp sgt i32 %43, 0
-  br i1 %56, label %.lr.ph.i32, label %._crit_edge.i
+.noexc:                                           ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, %43
+  %58 = icmp sgt i32 %45, 0
+  br i1 %58, label %.lr.ph.i33, label %._crit_edge.i
 
-.lr.ph.i32:                                       ; preds = %.noexc
-  %wide.trip.count.i = zext nneg i32 %43 to i64
-  br label %59
+.lr.ph.i33:                                       ; preds = %.noexc
+  %wide.trip.count.i = zext nneg i32 %45 to i64
+  br label %61
 
-._crit_edge.i:                                    ; preds = %59, %.noexc
-  %57 = load i32, ptr %21, align 4, !tbaa !18
-  %58 = add nsw i32 %57, %43
-  store i32 %58, ptr %21, align 4, !tbaa !18
-  %.pre = load ptr, ptr %31, align 8, !tbaa !24
+._crit_edge.i:                                    ; preds = %61, %.noexc
+  %59 = load i32, ptr %21, align 4, !tbaa !18
+  %60 = add nsw i32 %59, %45
+  store i32 %60, ptr %21, align 4, !tbaa !18
+  %.pre = load ptr, ptr %33, align 8, !tbaa !24
   br label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
 
-59:                                               ; preds = %59, %.lr.ph.i32
-  %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.i32 ], [ %indvars.iv.next.i34, %59 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.pre2, i64 %indvars.iv.i33
-  %61 = load i8, ptr %60, align 1, !tbaa !15
-  %62 = load ptr, ptr %34, align 8, !tbaa !24
-  %63 = load i32, ptr %21, align 4, !tbaa !18
-  %64 = trunc nuw nsw i64 %indvars.iv.i33 to i32
-  %65 = add nsw i32 %63, %64
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %62, i64 %66
-  store i8 %61, ptr %67, align 1, !tbaa !15
-  %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %59, !llvm.loop !29
+61:                                               ; preds = %61, %.lr.ph.i33
+  %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i35, %61 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.pre1, i64 %indvars.iv.i34
+  %63 = load i8, ptr %62, align 1, !tbaa !15
+  %64 = load ptr, ptr %36, align 8, !tbaa !24
+  %65 = load i32, ptr %21, align 4, !tbaa !18
+  %66 = trunc nuw nsw i64 %indvars.iv.i34 to i32
+  %67 = add nsw i32 %65, %66
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i8, ptr %64, i64 %68
+  store i8 %63, ptr %69, align 1, !tbaa !15
+  %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %61, !llvm.loop !29
 
-68:                                               ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  br label %75
-
-70:                                               ; preds = %30
+70:                                               ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i
   %71 = landingpad { ptr, i32 }
           cleanup
+  br label %77
+
+72:                                               ; preds = %32
+  %73 = landingpad { ptr, i32 }
+          cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  br label %75
+  br label %77
 
-_ZN3url12CanonOutputTIcE6AppendEPKci.exit:        ; preds = %select.unfold.i.i, %._crit_edge.i, %38
-  %72 = phi ptr [ %.pre, %._crit_edge.i ], [ %.pre2, %38 ], [ %.pre2, %select.unfold.i.i ]
+_ZN3url12CanonOutputTIcE6AppendEPKci.exit:        ; preds = %select.unfold.i.i, %._crit_edge.i, %40
+  %74 = phi ptr [ %.pre, %._crit_edge.i ], [ %.pre1, %40 ], [ %.pre1, %select.unfold.i.i ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %6, align 8, !tbaa !25
-  %.not.i = icmp eq ptr %72, %33
-  %73 = icmp eq ptr %72, null
-  %or.cond.i = or i1 %.not.i, %73
-  br i1 %or.cond.i, label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit, label %74
+  %.not.i = icmp eq ptr %74, %35
+  %75 = icmp eq ptr %74, null
+  %or.cond.i = or i1 %.not.i, %75
+  br i1 %or.cond.i, label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit, label %76
 
-74:                                               ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
-  call void @_ZdaPv(ptr noundef nonnull %72) #11
+76:                                               ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
+  call void @_ZdaPv(ptr noundef nonnull %74) #11
   br label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit
 
-_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit:        ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit, %74
+_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit:        ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit, %76
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #10
-  br label %79
+  br label %81
 
-75:                                               ; preds = %70, %68
-  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %71, %70 ]
+77:                                               ; preds = %72, %70
+  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %73, %72 ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %6, align 8, !tbaa !25
-  %76 = load ptr, ptr %31, align 8, !tbaa !24
-  %.not.i36 = icmp eq ptr %76, %33
-  %77 = icmp eq ptr %76, null
-  %or.cond.i37 = or i1 %.not.i36, %77
-  br i1 %or.cond.i37, label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit38, label %78
+  %78 = load ptr, ptr %33, align 8, !tbaa !24
+  %.not.i37 = icmp eq ptr %78, %35
+  %79 = icmp eq ptr %78, null
+  %or.cond.i38 = or i1 %.not.i37, %79
+  br i1 %or.cond.i38, label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit39, label %80
 
-78:                                               ; preds = %75
-  call void @_ZdaPv(ptr noundef nonnull %76) #11
-  br label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit38
+80:                                               ; preds = %77
+  call void @_ZdaPv(ptr noundef nonnull %78) #11
+  br label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit39
 
-_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit38:      ; preds = %75, %78
+_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit39:      ; preds = %77, %80
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
   resume { ptr, i32 } %.pn
 
-79:                                               ; preds = %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit, %29
-  %.sroa.0.0.insert.ext.i41.pre-phi = phi i64 [ %.sroa.0.0.insert.ext.i, %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit ], [ %.pre3, %29 ]
-  %80 = load i32, ptr %21, align 4, !tbaa !18
-  %81 = sub nsw i32 %80, %22
-  %.sroa.2.0.insert.ext.i39 = zext i32 %81 to i64
-  %.sroa.2.0.insert.shift.i40 = shl nuw i64 %.sroa.2.0.insert.ext.i39, 32
-  %.sroa.0.0.insert.insert.i42 = or disjoint i64 %.sroa.2.0.insert.shift.i40, %.sroa.0.0.insert.ext.i41.pre-phi
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %.sroa.0.0.insert.insert.i42, ptr %82, align 4
+81:                                               ; preds = %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit, %31
+  %.sroa.0.0.insert.ext.i42.pre-phi = phi i64 [ %.sroa.0.0.insert.ext.i, %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit ], [ %.pre2, %31 ]
+  %82 = load i32, ptr %21, align 4, !tbaa !18
+  %83 = sub nsw i32 %82, %22
+  %.sroa.2.0.insert.ext.i40 = zext i32 %83 to i64
+  %.sroa.2.0.insert.shift.i41 = shl nuw i64 %.sroa.2.0.insert.ext.i40, 32
+  %.sroa.0.0.insert.insert.i43 = or disjoint i64 %.sroa.2.0.insert.shift.i41, %.sroa.0.0.insert.ext.i42.pre-phi
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %.sroa.0.0.insert.insert.i43, ptr %84, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
-  br label %83
+  br label %85
 
-83:                                               ; preds = %79, %9
+85:                                               ; preds = %81, %9
   ret void
 }
 
@@ -396,7 +394,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_16DoHostIttEEvPKT_RKNS_9Compone
   store i32 0, ptr %2, align 4, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 -4294967296, ptr %11, align 4
-  br label %241
+  br label %242
 
 .lr.ph.preheader.i:                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -432,28 +430,26 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_16DoHostIttEEvPKT_RKNS_9Compone
 _ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %23 = load i32, ptr %22, align 4, !tbaa !18
-  %.0..0..0.2 = load i8, ptr %5, align 1, !tbaa !13, !range !22, !noundef !23
-  %24 = trunc nuw i8 %.0..0..0.2 to i1
-  %.0..0..0.1.pre = load i8, ptr %6, align 1, !tbaa !13, !range !22
-  %.pre34 = trunc nuw i8 %.0..0..0.1.pre to i1
-  %25 = getelementptr inbounds i16, ptr %0, i64 %13
-  br i1 %24, label %167, label %26
+  %.0..0..0.1 = load i8, ptr %5, align 1, !tbaa !13, !range !22, !noundef !23
+  %24 = trunc nuw i8 %.0..0..0.1 to i1
+  %.0..0..0. = load i8, ptr %6, align 1, !range !22
+  %25 = trunc nuw i8 %.0..0..0. to i1
+  %or.cond = select i1 %24, i1 true, i1 %25
+  %26 = getelementptr inbounds i16, ptr %0, i64 %13
+  br i1 %or.cond, label %167, label %.lr.ph.i33
 
-26:                                               ; preds = %_ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit
-  br i1 %.pre34, label %.thread, label %.lr.ph.i32
-
-.lr.ph.i32:                                       ; preds = %26
+.lr.ph.i33:                                       ; preds = %_ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sink3.in.i27.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN3url14kHexCharLookupE, i64 2), align 2
   %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN3url14kHexCharLookupE, i64 5), align 1
   br label %30
 
-30:                                               ; preds = %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i, %.lr.ph.i32
-  %.053.i = phi i1 [ true, %.lr.ph.i32 ], [ %.1.i, %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i ]
-  %storemerge52.i = phi i32 [ 0, %.lr.ph.i32 ], [ %165, %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i ]
+30:                                               ; preds = %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i, %.lr.ph.i33
+  %.053.i = phi i1 [ true, %.lr.ph.i33 ], [ %.1.i, %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i ]
+  %storemerge52.i = phi i32 [ 0, %.lr.ph.i33 ], [ %165, %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i ]
   %31 = sext i32 %storemerge52.i to i64
-  %32 = getelementptr inbounds i16, ptr %25, i64 %31
+  %32 = getelementptr inbounds i16, ptr %26, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !30
   %.sroa.0.0.extract.trunc.i = trunc i16 %33 to i8
   %34 = and i16 %33, -256
@@ -560,11 +556,11 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i.i:    ; preds = %select.unfold.i.i.i
 
 select.unfold.i.preheader.i4.i.i:                 ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i.i
   %92 = icmp eq i32 %89, 0
-  %spec.select48 = select i1 %92, i32 16, i32 %89
+  %spec.select44 = select i1 %92, i32 16, i32 %89
   br label %select.unfold.i.i6.i.i
 
 select.unfold.i.i6.i.i:                           ; preds = %select.unfold.i.preheader.i4.i.i, %94
-  %.0.i.i7.i.i = phi i32 [ %95, %94 ], [ %spec.select48, %select.unfold.i.preheader.i4.i.i ]
+  %.0.i.i7.i.i = phi i32 [ %95, %94 ], [ %spec.select44, %select.unfold.i.preheader.i4.i.i ]
   %93 = icmp slt i32 %.0.i.i7.i.i, 1073741824
   br i1 %93, label %94, label %_ZN3url12CanonOutputTIcE9push_backEc.exit13.i.i
 
@@ -601,11 +597,11 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit13.i.i:  ; preds = %select.unfold.i.i6.
 
 select.unfold.i.preheader.i14.i.i:                ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit13.i.i
   %108 = icmp eq i32 %105, 0
-  %spec.select49 = select i1 %108, i32 16, i32 %105
+  %spec.select45 = select i1 %108, i32 16, i32 %105
   br label %select.unfold.i.i16.i.i
 
 select.unfold.i.i16.i.i:                          ; preds = %select.unfold.i.preheader.i14.i.i, %110
-  %.0.i.i17.i.i = phi i32 [ %111, %110 ], [ %spec.select49, %select.unfold.i.preheader.i14.i.i ]
+  %.0.i.i17.i.i = phi i32 [ %111, %110 ], [ %spec.select45, %select.unfold.i.preheader.i14.i.i ]
   %109 = icmp slt i32 %.0.i.i17.i.i, 1073741824
   br i1 %109, label %110, label %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i
 
@@ -667,11 +663,11 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19.i.i: ; preds = %112, %_ZN3ur
 
 select.unfold.i.preheader.i.i:                    ; preds = %131
   %135 = icmp eq i32 %133, 0
-  %spec.select50 = select i1 %135, i32 16, i32 %133
+  %spec.select46 = select i1 %135, i32 16, i32 %133
   br label %select.unfold.i.i.i
 
 select.unfold.i.i.i:                              ; preds = %select.unfold.i.preheader.i.i, %137
-  %.0.i.i.i = phi i32 [ %138, %137 ], [ %spec.select50, %select.unfold.i.preheader.i.i ]
+  %.0.i.i.i = phi i32 [ %138, %137 ], [ %spec.select46, %select.unfold.i.preheader.i.i ]
   %136 = icmp slt i32 %.0.i.i.i, 1073741824
   br i1 %136, label %137, label %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i
 
@@ -707,11 +703,11 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i: ; preds = %139, %131
 
 select.unfold.i.preheader.i20.i:                  ; preds = %148
   %152 = icmp eq i32 %150, 0
-  %spec.select51 = select i1 %152, i32 16, i32 %150
+  %spec.select47 = select i1 %152, i32 16, i32 %150
   br label %select.unfold.i.i22.i
 
 select.unfold.i.i22.i:                            ; preds = %select.unfold.i.preheader.i20.i, %154
-  %.0.i.i23.i = phi i32 [ %155, %154 ], [ %spec.select51, %select.unfold.i.preheader.i20.i ]
+  %.0.i.i23.i = phi i32 [ %155, %154 ], [ %spec.select47, %select.unfold.i.preheader.i20.i ]
   %153 = icmp slt i32 %.0.i.i23.i, 1073741824
   br i1 %153, label %154, label %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i
 
@@ -747,235 +743,235 @@ _ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i: ; preds = %se
   br i1 %166, label %30, label %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit, !llvm.loop !33
 
 167:                                              ; preds = %_ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit
-  br i1 %.pre34, label %.thread, label %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread9
+  br i1 %25, label %168, label %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread7
 
-.thread:                                          ; preds = %26, %167
+168:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %4) #10
-  %168 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %169 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 1024, ptr %169, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 1024, ptr %170, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %4, align 8, !tbaa !25
-  %170 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %170, ptr %168, align 8, !tbaa !24
-  %171 = invoke noundef zeroext i1 @_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE(ptr noundef %25, i32 noundef %.4.val, ptr noundef nonnull %4)
-          to label %172 unwind label %174
+  %171 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %171, ptr %169, align 8, !tbaa !24
+  %172 = invoke noundef zeroext i1 @_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE(ptr noundef %26, i32 noundef %.4.val, ptr noundef nonnull %4)
+          to label %173 unwind label %175
 
-172:                                              ; preds = %.thread
-  br i1 %171, label %179, label %173
+173:                                              ; preds = %168
+  br i1 %172, label %180, label %174
 
-173:                                              ; preds = %172
-  invoke void @_ZN3url25AppendInvalidNarrowStringEPKtiiPNS_12CanonOutputTIcEE(ptr noundef %25, i32 noundef 0, i32 noundef %.4.val, ptr noundef nonnull %1)
-          to label %184 unwind label %174
+174:                                              ; preds = %173
+  invoke void @_ZN3url25AppendInvalidNarrowStringEPKtiiPNS_12CanonOutputTIcEE(ptr noundef %26, i32 noundef 0, i32 noundef %.4.val, ptr noundef nonnull %1)
+          to label %185 unwind label %175
 
-174:                                              ; preds = %179, %173, %.thread
-  %175 = landingpad { ptr, i32 }
+175:                                              ; preds = %180, %174, %168
+  %176 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %4, align 8, !tbaa !25
-  %176 = load ptr, ptr %168, align 8, !tbaa !24
-  %.not.i.i34 = icmp eq ptr %176, %170
-  %177 = icmp eq ptr %176, null
-  %or.cond.i.i = or i1 %.not.i.i34, %177
-  br i1 %or.cond.i.i, label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i, label %178
+  %177 = load ptr, ptr %169, align 8, !tbaa !24
+  %.not.i.i35 = icmp eq ptr %177, %171
+  %178 = icmp eq ptr %177, null
+  %or.cond.i.i = or i1 %.not.i.i35, %178
+  br i1 %or.cond.i.i, label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i, label %179
 
-178:                                              ; preds = %174
-  call void @_ZdaPv(ptr noundef nonnull %176) #11
+179:                                              ; preds = %175
+  call void @_ZdaPv(ptr noundef nonnull %177) #11
   br label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i
 
-common.resume:                                    ; preds = %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit43, %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %175, %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i ], [ %.pn, %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit43 ]
+common.resume:                                    ; preds = %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit44, %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i
+  %common.resume.op = phi { ptr, i32 } [ %176, %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i ], [ %.pn, %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit44 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i:    ; preds = %178, %174
+_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i:    ; preds = %179, %175
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %4) #10
   br label %common.resume
 
-179:                                              ; preds = %172
-  %180 = load ptr, ptr %168, align 8, !tbaa !24
-  %181 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %182 = load i32, ptr %181, align 4, !tbaa !18
-  %183 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostEPKcibbPNS_12CanonOutputTIcEE(ptr noundef %180, i32 noundef %182, i1 noundef zeroext true, ptr noundef nonnull %1)
-          to label %184 unwind label %174
+180:                                              ; preds = %173
+  %181 = load ptr, ptr %169, align 8, !tbaa !24
+  %182 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %183 = load i32, ptr %182, align 4, !tbaa !18
+  %184 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostEPKcibbPNS_12CanonOutputTIcEE(ptr noundef %181, i32 noundef %183, i1 noundef zeroext true, ptr noundef nonnull %1)
+          to label %185 unwind label %175
 
-184:                                              ; preds = %179, %173
-  %.0.i = phi i1 [ false, %173 ], [ %183, %179 ]
+185:                                              ; preds = %180, %174
+  %.0.i = phi i1 [ false, %174 ], [ %184, %180 ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %4, align 8, !tbaa !25
-  %185 = load ptr, ptr %168, align 8, !tbaa !24
-  %.not.i15.i = icmp eq ptr %185, %170
-  %186 = icmp eq ptr %185, null
-  %or.cond.i16.i = or i1 %.not.i15.i, %186
-  br i1 %or.cond.i16.i, label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit17.i, label %187
+  %186 = load ptr, ptr %169, align 8, !tbaa !24
+  %.not.i15.i = icmp eq ptr %186, %171
+  %187 = icmp eq ptr %186, null
+  %or.cond.i16.i = or i1 %.not.i15.i, %187
+  br i1 %or.cond.i16.i, label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit17.i, label %188
 
-187:                                              ; preds = %184
-  call void @_ZdaPv(ptr noundef nonnull %185) #11
+188:                                              ; preds = %185
+  call void @_ZdaPv(ptr noundef nonnull %186) #11
   br label %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit17.i
 
-_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit17.i:  ; preds = %187, %184
+_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit17.i:  ; preds = %188, %185
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %4) #10
-  br i1 %.0.i, label %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread, label %188
+  br i1 %.0.i, label %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread, label %189
 
-_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread9: ; preds = %167
-  tail call fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutputTIcEE(ptr noundef %25, i32 noundef %.4.val, ptr noundef nonnull %1)
-  br label %188
+_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread7: ; preds = %167
+  tail call fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutputTIcEE(ptr noundef %26, i32 noundef %.4.val, ptr noundef nonnull %1)
+  br label %189
 
 _ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit: ; preds = %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i
-  br i1 %.1.i, label %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread, label %188
+  br i1 %.1.i, label %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread, label %189
 
-188:                                              ; preds = %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit17.i, %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread9, %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit
+189:                                              ; preds = %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit17.i, %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread7, %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit
   store i32 1, ptr %2, align 4, !tbaa !3
-  %.pre33 = zext i32 %23 to i64
-  br label %237
+  %.pre31 = zext i32 %23 to i64
+  br label %238
 
 _ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread: ; preds = %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit, %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit17.i
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #10
-  %189 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %190 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 64, ptr %190, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %191, ptr %189, align 8, !tbaa !24
+  %190 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 64, ptr %191, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %192, ptr %190, align 8, !tbaa !24
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url14RawCanonOutputILi64EEE, i64 16), ptr %7, align 8, !tbaa !25
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %193 = load ptr, ptr %192, align 8, !tbaa !24
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %194 = load ptr, ptr %193, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  %194 = load i32, ptr %22, align 4, !tbaa !18
-  %195 = sub nsw i32 %194, %23
-  %.sroa.2.0.insert.ext.i = zext i32 %195 to i64
+  %195 = load i32, ptr %22, align 4, !tbaa !18
+  %196 = sub nsw i32 %195, %23
+  %.sroa.2.0.insert.ext.i = zext i32 %196 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %23 to i64
-  %.sroa.0.0.insert.insert.i35 = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.0.insert.insert.i35, ptr %8, align 8
-  invoke void @_ZN3url21CanonicalizeIPAddressEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %193, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull %7, ptr noundef %2)
-          to label %196 unwind label %226
+  %.sroa.0.0.insert.insert.i36 = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
+  store i64 %.sroa.0.0.insert.insert.i36, ptr %8, align 8
+  invoke void @_ZN3url21CanonicalizeIPAddressEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %194, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull %7, ptr noundef %2)
+          to label %197 unwind label %227
 
-196:                                              ; preds = %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread
+197:                                              ; preds = %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  %197 = load i32, ptr %2, align 4, !tbaa !3
-  %198 = and i32 %197, -2
-  %spec.select.i36 = icmp eq i32 %198, 2
-  %.pre32 = load ptr, ptr %189, align 8, !tbaa !24
-  br i1 %spec.select.i36, label %199, label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
+  %198 = load i32, ptr %2, align 4, !tbaa !3
+  %199 = and i32 %198, -2
+  %spec.select.i37 = icmp eq i32 %199, 2
+  %.pre30 = load ptr, ptr %190, align 8, !tbaa !24
+  br i1 %spec.select.i37, label %200, label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
 
-199:                                              ; preds = %196
+200:                                              ; preds = %197
   store i32 %23, ptr %22, align 4, !tbaa !18
-  %200 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %201 = load i32, ptr %200, align 4, !tbaa !18
-  %202 = add nsw i32 %201, %23
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %204 = load i32, ptr %203, align 8, !tbaa !27
-  %205 = icmp sgt i32 %202, %204
-  br i1 %205, label %select.unfold.i.preheader.i, label %.noexc
+  %201 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %202 = load i32, ptr %201, align 4, !tbaa !18
+  %203 = add nsw i32 %202, %23
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %205 = load i32, ptr %204, align 8, !tbaa !27
+  %206 = icmp sgt i32 %203, %205
+  br i1 %206, label %select.unfold.i.preheader.i, label %.noexc
 
-select.unfold.i.preheader.i:                      ; preds = %199
-  %206 = icmp eq i32 %204, 0
-  %spec.select52 = select i1 %206, i32 16, i32 %204
+select.unfold.i.preheader.i:                      ; preds = %200
+  %207 = icmp eq i32 %205, 0
+  %spec.select48 = select i1 %207, i32 16, i32 %205
   br label %select.unfold.i.i
 
-select.unfold.i.i:                                ; preds = %select.unfold.i.preheader.i, %208
-  %.0.i.i = phi i32 [ %209, %208 ], [ %spec.select52, %select.unfold.i.preheader.i ]
-  %207 = icmp slt i32 %.0.i.i, 1073741824
-  br i1 %207, label %208, label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
+select.unfold.i.i:                                ; preds = %select.unfold.i.preheader.i, %209
+  %.0.i.i = phi i32 [ %210, %209 ], [ %spec.select48, %select.unfold.i.preheader.i ]
+  %208 = icmp slt i32 %.0.i.i, 1073741824
+  br i1 %208, label %209, label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
 
-208:                                              ; preds = %select.unfold.i.i
-  %209 = shl nsw i32 %.0.i.i, 1
-  %210 = icmp slt i32 %209, %202
-  br i1 %210, label %select.unfold.i.i, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, !llvm.loop !28
+209:                                              ; preds = %select.unfold.i.i
+  %210 = shl nsw i32 %.0.i.i, 1
+  %211 = icmp slt i32 %210, %203
+  br i1 %211, label %select.unfold.i.i, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, !llvm.loop !28
 
-_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %208
-  %211 = load ptr, ptr %1, align 8, !tbaa !25
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
-  %213 = load ptr, ptr %212, align 8
-  invoke void %213(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %209)
-          to label %.noexc unwind label %228
+_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %209
+  %212 = load ptr, ptr %1, align 8, !tbaa !25
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
+  %214 = load ptr, ptr %213, align 8
+  invoke void %214(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %210)
+          to label %.noexc unwind label %229
 
-.noexc:                                           ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, %199
-  %214 = icmp sgt i32 %201, 0
-  br i1 %214, label %.lr.ph.i37, label %._crit_edge.i
+.noexc:                                           ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, %200
+  %215 = icmp sgt i32 %202, 0
+  br i1 %215, label %.lr.ph.i38, label %._crit_edge.i
 
-.lr.ph.i37:                                       ; preds = %.noexc
-  %wide.trip.count.i = zext nneg i32 %201 to i64
-  br label %217
+.lr.ph.i38:                                       ; preds = %.noexc
+  %wide.trip.count.i = zext nneg i32 %202 to i64
+  br label %218
 
-._crit_edge.i:                                    ; preds = %217, %.noexc
-  %215 = load i32, ptr %22, align 4, !tbaa !18
-  %216 = add nsw i32 %215, %201
-  store i32 %216, ptr %22, align 4, !tbaa !18
-  %.pre = load ptr, ptr %189, align 8, !tbaa !24
+._crit_edge.i:                                    ; preds = %218, %.noexc
+  %216 = load i32, ptr %22, align 4, !tbaa !18
+  %217 = add nsw i32 %216, %202
+  store i32 %217, ptr %22, align 4, !tbaa !18
+  %.pre = load ptr, ptr %190, align 8, !tbaa !24
   br label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
 
-217:                                              ; preds = %217, %.lr.ph.i37
-  %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.i37 ], [ %indvars.iv.next.i39, %217 ]
-  %218 = getelementptr inbounds nuw i8, ptr %.pre32, i64 %indvars.iv.i38
-  %219 = load i8, ptr %218, align 1, !tbaa !15
-  %220 = load ptr, ptr %192, align 8, !tbaa !24
-  %221 = load i32, ptr %22, align 4, !tbaa !18
-  %222 = trunc nuw nsw i64 %indvars.iv.i38 to i32
-  %223 = add nsw i32 %221, %222
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds i8, ptr %220, i64 %224
-  store i8 %219, ptr %225, align 1, !tbaa !15
-  %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %217, !llvm.loop !29
+218:                                              ; preds = %218, %.lr.ph.i38
+  %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.i38 ], [ %indvars.iv.next.i40, %218 ]
+  %219 = getelementptr inbounds nuw i8, ptr %.pre30, i64 %indvars.iv.i39
+  %220 = load i8, ptr %219, align 1, !tbaa !15
+  %221 = load ptr, ptr %193, align 8, !tbaa !24
+  %222 = load i32, ptr %22, align 4, !tbaa !18
+  %223 = trunc nuw nsw i64 %indvars.iv.i39 to i32
+  %224 = add nsw i32 %222, %223
+  %225 = sext i32 %224 to i64
+  %226 = getelementptr inbounds i8, ptr %221, i64 %225
+  store i8 %220, ptr %226, align 1, !tbaa !15
+  %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %218, !llvm.loop !29
 
-226:                                              ; preds = %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread
-  %227 = landingpad { ptr, i32 }
+227:                                              ; preds = %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread
+  %228 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  br label %233
+  br label %234
 
-228:                                              ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i
-  %229 = landingpad { ptr, i32 }
+229:                                              ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i
+  %230 = landingpad { ptr, i32 }
           cleanup
-  br label %233
+  br label %234
 
-_ZN3url12CanonOutputTIcE6AppendEPKci.exit:        ; preds = %select.unfold.i.i, %._crit_edge.i, %196
-  %230 = phi ptr [ %.pre, %._crit_edge.i ], [ %.pre32, %196 ], [ %.pre32, %select.unfold.i.i ]
+_ZN3url12CanonOutputTIcE6AppendEPKci.exit:        ; preds = %select.unfold.i.i, %._crit_edge.i, %197
+  %231 = phi ptr [ %.pre, %._crit_edge.i ], [ %.pre30, %197 ], [ %.pre30, %select.unfold.i.i ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %7, align 8, !tbaa !25
-  %.not.i = icmp eq ptr %230, %191
-  %231 = icmp eq ptr %230, null
-  %or.cond.i = or i1 %.not.i, %231
-  br i1 %or.cond.i, label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit, label %232
+  %.not.i = icmp eq ptr %231, %192
+  %232 = icmp eq ptr %231, null
+  %or.cond.i = or i1 %.not.i, %232
+  br i1 %or.cond.i, label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit, label %233
 
-232:                                              ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
-  call void @_ZdaPv(ptr noundef nonnull %230) #11
+233:                                              ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
+  call void @_ZdaPv(ptr noundef nonnull %231) #11
   br label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit
 
-_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit:        ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit, %232
+_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit:        ; preds = %_ZN3url12CanonOutputTIcE6AppendEPKci.exit, %233
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #10
-  br label %237
+  br label %238
 
-233:                                              ; preds = %228, %226
-  %.pn = phi { ptr, i32 } [ %229, %228 ], [ %227, %226 ]
+234:                                              ; preds = %229, %227
+  %.pn = phi { ptr, i32 } [ %230, %229 ], [ %228, %227 ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %7, align 8, !tbaa !25
-  %234 = load ptr, ptr %189, align 8, !tbaa !24
-  %.not.i41 = icmp eq ptr %234, %191
-  %235 = icmp eq ptr %234, null
-  %or.cond.i42 = or i1 %.not.i41, %235
-  br i1 %or.cond.i42, label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit43, label %236
+  %235 = load ptr, ptr %190, align 8, !tbaa !24
+  %.not.i42 = icmp eq ptr %235, %192
+  %236 = icmp eq ptr %235, null
+  %or.cond.i43 = or i1 %.not.i42, %236
+  br i1 %or.cond.i43, label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit44, label %237
 
-236:                                              ; preds = %233
-  call void @_ZdaPv(ptr noundef nonnull %234) #11
-  br label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit43
+237:                                              ; preds = %234
+  call void @_ZdaPv(ptr noundef nonnull %235) #11
+  br label %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit44
 
-_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit43:      ; preds = %233, %236
+_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit44:      ; preds = %234, %237
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br label %common.resume
 
-237:                                              ; preds = %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit, %188
-  %.sroa.0.0.insert.ext.i46.pre-phi = phi i64 [ %.sroa.0.0.insert.ext.i, %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit ], [ %.pre33, %188 ]
-  %238 = load i32, ptr %22, align 4, !tbaa !18
-  %239 = sub nsw i32 %238, %23
-  %.sroa.2.0.insert.ext.i44 = zext i32 %239 to i64
-  %.sroa.2.0.insert.shift.i45 = shl nuw i64 %.sroa.2.0.insert.ext.i44, 32
-  %.sroa.0.0.insert.insert.i47 = or disjoint i64 %.sroa.2.0.insert.shift.i45, %.sroa.0.0.insert.ext.i46.pre-phi
-  %240 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %.sroa.0.0.insert.insert.i47, ptr %240, align 4
+238:                                              ; preds = %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit, %189
+  %.sroa.0.0.insert.ext.i47.pre-phi = phi i64 [ %.sroa.0.0.insert.ext.i, %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit ], [ %.pre31, %189 ]
+  %239 = load i32, ptr %22, align 4, !tbaa !18
+  %240 = sub nsw i32 %239, %23
+  %.sroa.2.0.insert.ext.i45 = zext i32 %240 to i64
+  %.sroa.2.0.insert.shift.i46 = shl nuw i64 %.sroa.2.0.insert.ext.i45, 32
+  %.sroa.0.0.insert.insert.i48 = or disjoint i64 %.sroa.2.0.insert.shift.i46, %.sroa.0.0.insert.ext.i47.pre-phi
+  %241 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %.sroa.0.0.insert.insert.i48, ptr %241, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  br label %241
+  br label %242
 
-241:                                              ; preds = %237, %10
+242:                                              ; preds = %238, %10
   ret void
 }
 

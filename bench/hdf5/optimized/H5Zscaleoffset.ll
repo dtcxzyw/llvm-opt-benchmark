@@ -890,9 +890,13 @@ define internal fastcc range(i32 0, 13) i32 @H5Z__scaleoffset_get_type(i32 nound
 12:                                               ; preds = %11
   %switch.tableidx = add i32 %1, -1
   %13 = icmp ult i32 %switch.tableidx, 8
-  br i1 %13, label %switch.hole_check, label %14
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %14
 
-14:                                               ; preds = %switch.hole_check, %12
+14:                                               ; preds = %12
   %15 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %16 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %17 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 825, i64 noundef %15, i64 noundef %16, ptr noundef nonnull @.str.18) #13
@@ -901,9 +905,13 @@ define internal fastcc range(i32 0, 13) i32 @H5Z__scaleoffset_get_type(i32 nound
 18:                                               ; preds = %11
   %switch.tableidx28 = add i32 %1, -1
   %19 = icmp ult i32 %switch.tableidx28, 8
-  br i1 %19, label %switch.hole_check29, label %20
+  %switch.maskindex31 = trunc i32 %switch.tableidx28 to i8
+  %switch.shifted32 = lshr i8 -117, %switch.maskindex31
+  %switch.lobit33 = trunc i8 %switch.shifted32 to i1
+  %or.cond36 = select i1 %19, i1 %switch.lobit33, i1 false
+  br i1 %or.cond36, label %switch.lookup30, label %20
 
-20:                                               ; preds = %switch.hole_check29, %18
+20:                                               ; preds = %18
   %21 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %22 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
   %23 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 842, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.18) #13
@@ -924,25 +932,13 @@ define internal fastcc range(i32 0, 13) i32 @H5Z__scaleoffset_get_type(i32 nound
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__scaleoffset_get_type, i32 noundef 852, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.18) #13
   br label %.thread25
 
-switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %14
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %12
   %30 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.H5Z__scaleoffset_get_type, i64 0, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread25
 
-switch.hole_check29:                              ; preds = %18
-  %switch.maskindex31 = trunc nuw i32 %switch.tableidx28 to i8
-  %switch.shifted32 = lshr i8 -117, %switch.maskindex31
-  %switch.lobit33 = trunc i8 %switch.shifted32 to i1
-  br i1 %switch.lobit33, label %switch.lookup30, label %20
-
-switch.lookup30:                                  ; preds = %switch.hole_check29
+switch.lookup30:                                  ; preds = %18
   %31 = zext nneg i32 %switch.tableidx28 to i64
   %switch.gep34 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.H5Z__scaleoffset_get_type.3, i64 0, i64 %31
   %switch.load35 = load i32, ptr %switch.gep34, align 4

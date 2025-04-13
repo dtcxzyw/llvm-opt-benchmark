@@ -370,34 +370,31 @@ _ZN11btRigidBody12setMassPropsEfRK9btVector3.exit: ; preds = %55, %50
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !15
-  %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %9, label %4
+  %.not.i.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = load i8, ptr %4, align 8, !range !46
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i = select i1 %.not.i.i, i1 %6, i1 false
+  br i1 %or.cond.i, label %7, label %8
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !7, !range !46, !noundef !47
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
-          to label %9 unwind label %13
+          to label %8 unwind label %11
 
-9:                                                ; preds = %4, %1, %8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %11, align 8, !tbaa !7
+8:                                                ; preds = %1, %7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 1, ptr %4, align 8, !tbaa !7
   store ptr null, ptr %2, align 8, !tbaa !15
-  store i32 0, ptr %10, align 4, !tbaa !16
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %12, align 8, !tbaa !17
+  store i32 0, ptr %9, align 4, !tbaa !16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %10, align 8, !tbaa !17
   ret void
 
-13:                                               ; preds = %8
-  %14 = landingpad { ptr, i32 }
+11:                                               ; preds = %7
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #25
+  %13 = extractvalue { ptr, i32 } %12, 0
+  tail call void @__clang_call_terminate(ptr %13) #25
   unreachable
 }
 
@@ -2316,16 +2313,20 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE8allocateEi.exit.i.i: ; preds = %
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i, label %31, !llvm.loop !94
 
 _ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE8allocateEi.exit.i.i
-  %.not.i5.i.i = icmp eq ptr %30, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i
-
-_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i: ; preds = %31, %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.i.i
+  %.not.i5.i.i = icmp ne ptr %30, null
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %36 = load i8, ptr %35, align 8, !tbaa !7, !range !46, !noundef !47
+  %36 = load i8, ptr %35, align 8, !range !46
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i
+  %or.cond.i = select i1 %.not.i5.i.i, i1 %37, i1 false
+  br i1 %or.cond.i, label %38, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i
 
-38:                                               ; preds = %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i
+_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i: ; preds = %31
+  %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !7, !range !46, !noundef !47
+  %.old6.i = trunc nuw i8 %.old5.i to i1
+  br i1 %.old6.i, label %38, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i
+
+38:                                               ; preds = %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %30)
   %.pre2.pre.pre.i = load i32, ptr %3, align 4, !tbaa !16
   br label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i
@@ -2403,16 +2404,20 @@ _ZN20btAlignedObjectArrayIPK17btCollisionObjectE8allocateEi.exit.i.i.i: ; preds 
   br i1 %exitcond.not.i.i.i.i, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i, label %70, !llvm.loop !106
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i: ; preds = %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE8allocateEi.exit.i.i.i
-  %.not.i5.i.i.i = icmp eq ptr %69, null
-  br i1 %.not.i5.i.i.i, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i
-
-_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i: ; preds = %70, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i
+  %.not.i5.i.i.i = icmp ne ptr %69, null
   %74 = getelementptr inbounds nuw i8, ptr %47, i64 344
-  %75 = load i8, ptr %74, align 8, !tbaa !107, !range !46, !noundef !47
+  %75 = load i8, ptr %74, align 8, !range !46
   %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %77, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i
+  %or.cond.i.i = select i1 %.not.i5.i.i.i, i1 %76, i1 false
+  br i1 %or.cond.i.i, label %77, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i
 
-77:                                               ; preds = %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i
+_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i: ; preds = %70
+  %.old.i.i = getelementptr inbounds nuw i8, ptr %47, i64 344
+  %.old5.i.i = load i8, ptr %.old.i.i, align 8, !tbaa !107, !range !46, !noundef !47
+  %.old6.i.i = trunc nuw i8 %.old5.i.i to i1
+  br i1 %.old6.i.i, label %77, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i
+
+77:                                               ; preds = %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %69)
   %.pre2.pre.pre.i.i = load i32, ptr %52, align 4, !tbaa !101
   br label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i
@@ -2442,14 +2447,14 @@ _ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit: ; preds = %51, %57, 
   %88 = getelementptr inbounds nuw i8, ptr %49, i64 328
   %89 = load i32, ptr %88, align 8, !tbaa !102
   %90 = icmp eq i32 %87, %89
-  br i1 %90, label %91, label %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit23
+  br i1 %90, label %91, label %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit27
 
 91:                                               ; preds = %85
   %.not.i.i.i7 = icmp eq i32 %87, 0
   %92 = shl nsw i32 %87, 1
   %93 = select i1 %.not.i.i.i7, i32 1, i32 %92
   %94 = icmp slt i32 %87, %93
-  br i1 %94, label %95, label %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit23
+  br i1 %94, label %95, label %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit27
 
 95:                                               ; preds = %91
   %.not.i.i.i.i8 = icmp eq i32 %93, 0
@@ -2482,32 +2487,36 @@ _ZN20btAlignedObjectArrayIPK17btCollisionObjectE8allocateEi.exit.i.i.i10: ; pred
   store ptr %107, ptr %105, align 8, !tbaa !104
   %indvars.iv.next.i.i.i.i21 = add nuw nsw i64 %indvars.iv.i.i.i.i20, 1
   %exitcond.not.i.i.i.i22 = icmp eq i64 %indvars.iv.next.i.i.i.i21, %wide.trip.count.i.i.i.i19
-  br i1 %exitcond.not.i.i.i.i22, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i14, label %104, !llvm.loop !106
+  br i1 %exitcond.not.i.i.i.i22, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i23, label %104, !llvm.loop !106
 
 _ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i12: ; preds = %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE8allocateEi.exit.i.i.i10
-  %.not.i5.i.i.i13 = icmp eq ptr %103, null
-  br i1 %.not.i5.i.i.i13, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i15, label %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i14
-
-_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i14: ; preds = %104, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i12
+  %.not.i5.i.i.i13 = icmp ne ptr %103, null
   %108 = getelementptr inbounds nuw i8, ptr %49, i64 344
-  %109 = load i8, ptr %108, align 8, !tbaa !107, !range !46, !noundef !47
+  %109 = load i8, ptr %108, align 8, !range !46
   %110 = trunc nuw i8 %109 to i1
-  br i1 %110, label %111, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i15
+  %or.cond.i.i14 = select i1 %.not.i5.i.i.i13, i1 %110, i1 false
+  br i1 %or.cond.i.i14, label %111, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i15
 
-111:                                              ; preds = %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i14
+_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i23: ; preds = %104
+  %.old.i.i24 = getelementptr inbounds nuw i8, ptr %49, i64 344
+  %.old5.i.i25 = load i8, ptr %.old.i.i24, align 8, !tbaa !107, !range !46, !noundef !47
+  %.old6.i.i26 = trunc nuw i8 %.old5.i.i25 to i1
+  br i1 %.old6.i.i26, label %111, label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i15
+
+111:                                              ; preds = %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i23, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i12
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %103)
   %.pre2.pre.pre.i.i17 = load i32, ptr %86, align 4, !tbaa !101
   br label %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i15
 
-_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i15: ; preds = %111, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i14, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i12
-  %.pre2.i.i16 = phi i32 [ %100, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i12 ], [ %.pre2.pre.pre.i.i17, %111 ], [ %100, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i14 ]
+_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i15: ; preds = %111, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i23, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i12
+  %.pre2.i.i16 = phi i32 [ %100, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.i.i.i12 ], [ %.pre2.pre.pre.i.i17, %111 ], [ %100, %_ZNK20btAlignedObjectArrayIPK17btCollisionObjectE4copyEiiPS2_.exit.thread.i.i.i23 ]
   %112 = getelementptr inbounds nuw i8, ptr %49, i64 344
   store i8 1, ptr %112, align 8, !tbaa !107
   store ptr %.0.i.i.i.i11, ptr %102, align 8, !tbaa !103
   store i32 %93, ptr %88, align 8, !tbaa !102
-  br label %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit23
+  br label %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit27
 
-_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit23: ; preds = %85, %91, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i15
+_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit27: ; preds = %85, %91, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i15
   %113 = phi i32 [ %.pre2.i.i16, %_ZN20btAlignedObjectArrayIPK17btCollisionObjectE10deallocateEv.exit.i.i.i15 ], [ %87, %91 ], [ %87, %85 ]
   %114 = getelementptr inbounds nuw i8, ptr %49, i64 336
   %115 = load ptr, ptr %114, align 8, !tbaa !103
@@ -2518,12 +2527,12 @@ _ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit23: ; preds = %85, %91
   store i32 %118, ptr %86, align 4, !tbaa !101
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit23, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit
-  %.sink = phi i32 [ %79, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit ], [ %113, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit23 ]
-  %.sink32 = phi ptr [ %47, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit ], [ %49, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit23 ]
+.sink.split:                                      ; preds = %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit27, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit
+  %.sink = phi i32 [ %79, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit ], [ %113, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit27 ]
+  %.sink36 = phi ptr [ %47, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit ], [ %49, %_ZN17btCollisionObject23setIgnoreCollisionCheckEPKS_b.exit27 ]
   %119 = icmp sgt i32 %.sink, -1
   %120 = zext i1 %119 to i32
-  %121 = getelementptr inbounds nuw i8, ptr %.sink32, i64 312
+  %121 = getelementptr inbounds nuw i8, ptr %.sink36, i64 312
   store i32 %120, ptr %121, align 8, !tbaa !108
   br label %122
 
@@ -2944,34 +2953,31 @@ define linkonce_odr dso_local void @_ZN11btRigidBodyD2Ev(ptr noundef nonnull ali
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV11btRigidBody, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8, !tbaa !15
-  %.not.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit, label %4
+  %.not.i.i.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %5 = load i8, ptr %4, align 8, !range !46
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 %6, i1 false
+  br i1 %or.cond.i.i, label %7, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %6 = load i8, ptr %5, align 8, !tbaa !7, !range !46, !noundef !47
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
-          to label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit unwind label %9
+          to label %_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit unwind label %8
 
-9:                                                ; preds = %8
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %7
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #25
   unreachable
 
-_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit: ; preds = %1, %4, %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 604
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i8 1, ptr %13, align 8, !tbaa !7
+_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev.exit: ; preds = %1, %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 604
+  store i8 1, ptr %4, align 8, !tbaa !7
   store ptr null, ptr %2, align 8, !tbaa !15
-  store i32 0, ptr %12, align 4, !tbaa !16
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store i32 0, ptr %14, align 8, !tbaa !17
+  store i32 0, ptr %11, align 4, !tbaa !16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  store i32 0, ptr %12, align 8, !tbaa !17
   tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %0) #24
   ret void
 }
@@ -2981,43 +2987,40 @@ define linkonce_odr dso_local void @_ZN11btRigidBodyD0Ev(ptr noundef nonnull ali
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV11btRigidBody, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8, !tbaa !15
-  %.not.i.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i.i, label %_ZN11btRigidBodyD2Ev.exit, label %4
+  %.not.i.i.i.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %5 = load i8, ptr %4, align 8, !range !46
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i.i.i = select i1 %.not.i.i.i.i, i1 %6, i1 false
+  br i1 %or.cond.i.i.i, label %7, label %_ZN11btRigidBodyD2Ev.exit
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %6 = load i8, ptr %5, align 8, !tbaa !7, !range !46, !noundef !47
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %_ZN11btRigidBodyD2Ev.exit
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
-          to label %_ZN11btRigidBodyD2Ev.exit unwind label %9
+          to label %_ZN11btRigidBodyD2Ev.exit unwind label %8
 
-9:                                                ; preds = %8
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %7
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #25
   unreachable
 
-_ZN11btRigidBodyD2Ev.exit:                        ; preds = %1, %4, %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 604
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i8 1, ptr %13, align 8, !tbaa !7
+_ZN11btRigidBodyD2Ev.exit:                        ; preds = %1, %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 604
+  store i8 1, ptr %4, align 8, !tbaa !7
   store ptr null, ptr %2, align 8, !tbaa !15
-  store i32 0, ptr %12, align 4, !tbaa !16
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store i32 0, ptr %14, align 8, !tbaa !17
+  store i32 0, ptr %11, align 4, !tbaa !16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  store i32 0, ptr %12, align 8, !tbaa !17
   tail call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(744) %0) #24
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
-          to label %_ZN17btCollisionObjectdlEPv.exit unwind label %15
+          to label %_ZN17btCollisionObjectdlEPv.exit unwind label %13
 
-15:                                               ; preds = %_ZN11btRigidBodyD2Ev.exit
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %_ZN11btRigidBodyD2Ev.exit
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #25
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #25
   unreachable
 
 _ZN17btCollisionObjectdlEPv.exit:                 ; preds = %_ZN11btRigidBodyD2Ev.exit

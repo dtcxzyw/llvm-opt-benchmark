@@ -3021,8 +3021,8 @@ define hidden noundef i64 @_ZNK2cv9BitStream6getPosEv(ptr noundef nonnull readon
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = icmp slt i64 %10, 0
-  br i1 %11, label %12, label %_ZN2cv13safe_int_castImlEET_T0_PKc.exit
+  %11 = icmp sgt i64 %10, -1
+  br i1 %11, label %_ZN2cv13safe_int_castImlEET_T0_PKc.exit, label %12
 
 12:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28
@@ -4645,8 +4645,8 @@ _ZN2cv9BitStream6putIntEj.exit28:                 ; preds = %_ZN2cv9BitStream6pu
   %258 = ptrtoint ptr %255 to i64
   %259 = ptrtoint ptr %257 to i64
   %260 = sub i64 %258, %259
-  %261 = icmp slt i64 %260, 0
-  br i1 %261, label %262, label %_ZNK2cv9BitStream6getPosEv.exit
+  %261 = icmp sgt i64 %260, -1
+  br i1 %261, label %_ZNK2cv9BitStream6getPosEv.exit, label %262
 
 262:                                              ; preds = %_ZN2cv9BitStream6putIntEj.exit28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
@@ -5348,8 +5348,8 @@ _ZN2cv9BitStream6putIntEj.exit:                   ; preds = %20, %_ZN2cv9BitStre
   %60 = ptrtoint ptr %57 to i64
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
-  %63 = icmp slt i64 %62, 0
-  br i1 %63, label %64, label %_ZNK2cv9BitStream6getPosEv.exit
+  %63 = icmp sgt i64 %62, -1
+  br i1 %63, label %_ZNK2cv9BitStream6getPosEv.exit, label %64
 
 64:                                               ; preds = %_ZN2cv9BitStream6putIntEj.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
@@ -6065,8 +6065,8 @@ _ZN2cv9BitStream6putIntEj.exit44:                 ; preds = %_ZN2cv9BitStream6pu
   %346 = ptrtoint ptr %343 to i64
   %347 = ptrtoint ptr %345 to i64
   %348 = sub i64 %346, %347
-  %349 = icmp slt i64 %348, 0
-  br i1 %349, label %350, label %_ZNK2cv9BitStream6getPosEv.exit
+  %349 = icmp sgt i64 %348, -1
+  br i1 %349, label %_ZNK2cv9BitStream6getPosEv.exit, label %350
 
 350:                                              ; preds = %_ZN2cv9BitStream6putIntEj.exit44
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #28
@@ -7119,8 +7119,8 @@ _ZN2cv9BitStream6putIntEj.exit123:                ; preds = %_ZN2cv9BitStream6pu
   %954 = ptrtoint ptr %951 to i64
   %955 = ptrtoint ptr %953 to i64
   %956 = sub i64 %954, %955
-  %957 = icmp slt i64 %956, 0
-  br i1 %957, label %958, label %_ZNK2cv9BitStream6getPosEv.exit127
+  %957 = icmp sgt i64 %956, -1
+  br i1 %957, label %_ZNK2cv9BitStream6getPosEv.exit127, label %958
 
 958:                                              ; preds = %_ZN2cv9BitStream6putIntEj.exit123
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #28
@@ -7327,8 +7327,8 @@ _ZN2cv9BitStream6putIntEj.exit143:                ; preds = %_ZN2cv9BitStream6pu
   %1053 = ptrtoint ptr %1050 to i64
   %1054 = ptrtoint ptr %1052 to i64
   %1055 = sub i64 %1053, %1054
-  %1056 = icmp slt i64 %1055, 0
-  br i1 %1056, label %1057, label %_ZNK2cv9BitStream6getPosEv.exit147
+  %1056 = icmp sgt i64 %1055, -1
+  br i1 %1056, label %_ZNK2cv9BitStream6getPosEv.exit147, label %1057
 
 1057:                                             ; preds = %_ZN2cv9BitStream6putIntEj.exit143
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #28
@@ -7434,8 +7434,8 @@ _ZN2cv9BitStream6putIntEj.exit151:                ; preds = %.lr.ph, %_ZN2cv9Bit
   %1105 = ptrtoint ptr %1102 to i64
   %1106 = ptrtoint ptr %1104 to i64
   %1107 = sub i64 %1105, %1106
-  %1108 = icmp slt i64 %1107, 0
-  br i1 %1108, label %1109, label %_ZNK2cv9BitStream6getPosEv.exit155
+  %1108 = icmp sgt i64 %1107, -1
+  br i1 %1108, label %_ZNK2cv9BitStream6getPosEv.exit155, label %1109
 
 1109:                                             ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
@@ -7554,8 +7554,8 @@ define void @_ZN2cv17AVIWriteContainer13endWriteChunkEv(ptr noundef nonnull alig
   %21 = ptrtoint ptr %18 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
-  %24 = icmp slt i64 %23, 0
-  br i1 %24, label %25, label %_ZNK2cv9BitStream6getPosEv.exit
+  %24 = icmp sgt i64 %23, -1
+  br i1 %24, label %_ZNK2cv9BitStream6getPosEv.exit, label %25
 
 25:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
@@ -7698,8 +7698,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
 
 69:                                               ; preds = %52
   %70 = sub nuw i64 %53, %55
-  %71 = icmp ugt i64 %70, 4294967295
-  br i1 %71, label %72, label %_ZN2cv13safe_int_castIjmEET_T0_PKc.exit
+  %71 = icmp ult i64 %70, 4294967296
+  br i1 %71, label %_ZN2cv13safe_int_castIjmEET_T0_PKc.exit, label %72
 
 72:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28
@@ -8045,8 +8045,8 @@ define void @_ZN2cv17AVIWriteContainer14finishWriteAVIEv(ptr noundef nonnull ali
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
-  %12 = icmp ugt i64 %11, 4294967295
-  br i1 %12, label %13, label %_ZN2cv13safe_int_castIjmEET_T0_PKc.exit
+  %12 = icmp ult i64 %11, 4294967296
+  br i1 %12, label %_ZN2cv13safe_int_castIjmEET_T0_PKc.exit, label %13
 
 13:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28
@@ -8128,8 +8128,8 @@ define noundef i64 @_ZNK2cv17AVIWriteContainer12getStreamPosEv(ptr noundef nonnu
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = icmp slt i64 %11, 0
-  br i1 %12, label %13, label %_ZNK2cv9BitStream6getPosEv.exit
+  %12 = icmp sgt i64 %11, -1
+  br i1 %12, label %_ZNK2cv9BitStream6getPosEv.exit, label %13
 
 13:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28

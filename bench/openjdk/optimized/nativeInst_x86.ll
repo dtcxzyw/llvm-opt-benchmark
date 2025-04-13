@@ -243,24 +243,24 @@ define hidden void @_ZN17NativeMovConstReg6verifyEv(ptr noundef nonnull align 1 
 
 switch.edge:                                      ; preds = %4, %1, %10, %7, %7, %7
   %.sink = phi i64 [ 2, %7 ], [ 2, %7 ], [ 2, %7 ], [ 2, %10 ], [ 1, %1 ], [ 1, %4 ]
-  %.not4 = phi i1 [ true, %7 ], [ true, %7 ], [ true, %7 ], [ false, %10 ], [ false, %1 ], [ false, %4 ]
-  %11 = phi i1 [ false, %7 ], [ false, %7 ], [ false, %7 ], [ false, %10 ], [ true, %1 ], [ %5, %4 ]
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %13 = load i8, ptr %12, align 1
-  %brmerge.not = and i1 %.not4, %11
-  %14 = and i8 %13, -8
-  %.not = icmp eq i8 %14, -72
-  %or.cond = or i1 %brmerge.not, %.not
-  br i1 %or.cond, label %17, label %15
+  %11 = phi i1 [ true, %7 ], [ true, %7 ], [ true, %7 ], [ false, %10 ], [ false, %1 ], [ false, %4 ]
+  %12 = phi i1 [ false, %7 ], [ false, %7 ], [ false, %7 ], [ false, %10 ], [ true, %1 ], [ %5, %4 ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %14 = load i8, ptr %13, align 1
+  %or.cond = and i1 %11, %12
+  %15 = and i8 %14, -8
+  %.not = icmp eq i8 %15, -72
+  %or.cond4 = or i1 %or.cond, %.not
+  br i1 %or.cond4, label %18, label %16
 
-15:                                               ; preds = %switch.edge
+16:                                               ; preds = %switch.edge
   tail call void @_ZN17NativeMovConstReg5printEv(ptr noundef nonnull align 1 dereferenceable(1) %0)
-  %16 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %16, align 1
+  %17 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %17, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 171, ptr noundef nonnull @.str.13) #8
   unreachable
 
-17:                                               ; preds = %switch.edge
+18:                                               ; preds = %switch.edge
   ret void
 }
 

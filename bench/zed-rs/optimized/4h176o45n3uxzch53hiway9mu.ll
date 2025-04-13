@@ -4455,8 +4455,8 @@ define hidden noundef align 8 dereferenceable_or_null(3928) ptr @"_ZN4core6optio
   br label %9
 
 9:                                                ; preds = %4, %2
-  %.sroa.03.0 = phi ptr [ null, %2 ], [ %spec.select, %4 ]
-  ret ptr %.sroa.03.0
+  %.sroa.05.0 = phi ptr [ null, %2 ], [ %spec.select, %4 ]
+  ret ptr %.sroa.05.0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
@@ -20010,8 +20010,8 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$18confirm_completion17hf82ea8015
 
 23:                                               ; preds = %22
   %24 = load i64, ptr %7, align 8, !range !41, !noundef !14
-  %.not10.not = icmp eq i64 %24, -9223372036854775808
-  br i1 %.not10.not, label %"_ZN6picker15Picker$LT$D$GT$9set_query17h894d168d82d3e96dE.llvm.3696297339762714545.exit", label %25
+  %.not8.not = icmp eq i64 %24, -9223372036854775808
+  br i1 %.not8.not, label %"_ZN6picker15Picker$LT$D$GT$9set_query17h894d168d82d3e96dE.llvm.3696297339762714545.exit", label %25
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2920
@@ -20036,7 +20036,7 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$18confirm_completion17hf82ea8015
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2920
   br label %"_ZN6picker15Picker$LT$D$GT$9set_query17h894d168d82d3e96dE.llvm.3696297339762714545.exit"
 
-35:                                               ; preds = %20, %36
+35:                                               ; preds = %36, %20
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
 36:                                               ; preds = %20
@@ -23803,8 +23803,8 @@ define hidden noundef align 8 dereferenceable_or_null(3920) ptr @"_ZN7slotmap5ba
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h0da348aee99c9169E.llvm.3696297339762714545.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17h0da348aee99c9169E.llvm.3696297339762714545.exit": ; preds = %3, %11
-  %.sroa.03.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %11 ]
-  ret ptr %.sroa.03.0.i
+  %.sroa.05.0.i = phi ptr [ null, %3 ], [ %spec.select.i, %11 ]
+  ret ptr %.sroa.05.0.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable

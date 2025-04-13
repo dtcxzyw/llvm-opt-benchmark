@@ -5553,9 +5553,12 @@ define void @_ZNK6casadi15KinsolInterface12kinsol_errorERKNSt7__cxx1112basic_str
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %switch.tableidx = add i32 %2, 15
   %19 = icmp ult i32 %switch.tableidx, 18
-  br i1 %19, label %switch.hole_check, label %20
+  %switch.shifted = lshr i32 260095, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %19, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %20
 
-20:                                               ; preds = %switch.hole_check, %4
+20:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -5596,12 +5599,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
           cleanup
   br label %316
 
-switch.hole_check:                                ; preds = %4
-  %switch.shifted = lshr i32 260095, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %20
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
   %37 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [18 x ptr], ptr @switch.table._ZNK6casadi15KinsolInterface12kinsol_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib, i64 0, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8

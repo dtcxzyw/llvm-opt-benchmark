@@ -11810,21 +11810,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h0c025cdd7b8d
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %118
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %113
+          to label %27 unwind label %114
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %113
+          to label %34 unwind label %114
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -11839,25 +11839,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h0c025cdd7b8d
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %113
+          to label %39 unwind label %114
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %113
+          to label %37 unwind label %114
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %109 unwind label %113
+          to label %110 unwind label %114
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %113
+          to label %41 unwind label %114
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -12015,11 +12015,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h0c025cdd7b8d
   %.pn23.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %58 ], [ %93, %100 ], [ %93, %97 ]
   %89 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !1856
   %90 = extractvalue { i8, i1 } %89, 1
-  br i1 %90, label %.thread31, label %91
+  br i1 %90, label %.thread32, label %91
 
 91:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %87, !noalias !1856
+          to label %.thread32 unwind label %87, !noalias !1856
 
 92:                                               ; preds = %41
   %93 = landingpad { ptr, i32 }
@@ -12048,80 +12048,80 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h0c025cdd7b8d
   store ptr %.sroa.5.0.copyload, ptr %102, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %105 unwind label %103
+          to label %106 unwind label %103
 
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %71, 2
-  br i1 %.not, label %110, label %.thread31
+  %105 = icmp eq i64 %71, 2
+  br i1 %105, label %111, label %.thread32
 
-105:                                              ; preds = %101
+106:                                              ; preds = %101
   switch i64 %71, label %default.unreachable [
-    i64 0, label %106
-    i64 1, label %107
-    i64 2, label %108
+    i64 0, label %107
+    i64 1, label %108
+    i64 2, label %109
   ]
 
-default.unreachable:                              ; preds = %105
+default.unreachable:                              ; preds = %106
   unreachable
 
-106:                                              ; preds = %105
+107:                                              ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-107:                                              ; preds = %105
+108:                                              ; preds = %106
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-108:                                              ; preds = %105
+109:                                              ; preds = %106
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-109:                                              ; preds = %38
+110:                                              ; preds = %38
   unreachable
 
-110:                                              ; preds = %103
+111:                                              ; preds = %103
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102) #39
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 
-111:                                              ; preds = %124, %116, %110
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %125, %117, %111
+  %113 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-113:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+114:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %114 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %115 = extractvalue { i8, i1 } %114, 1
-  br i1 %115, label %117, label %116
+  %115 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %116 = extractvalue { i8, i1 } %115, 1
+  br i1 %116, label %118, label %117
 
-116:                                              ; preds = %113
+117:                                              ; preds = %114
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %117 unwind label %111
+          to label %118 unwind label %112
 
-.thread31:                                        ; preds = %103, %110, %121, %124, %91, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %124 ], [ %.pn.pn.ph, %121 ], [ %104, %103 ], [ %104, %110 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %103, %111, %122, %125, %91, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %125 ], [ %.pn.pn.ph, %122 ], [ %104, %103 ], [ %104, %111 ]
+  resume { ptr, i32 } %.pn.pn26
 
-117:                                              ; preds = %21, %116, %113
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %116 ], [ %lpad.thr_comm, %113 ]
-  %118 = load atomic i64, ptr %5 monotonic, align 8, !noalias !1916
-  %119 = and i64 %118, 1
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %121, label %124
+118:                                              ; preds = %21, %117, %114
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %117 ], [ %lpad.thr_comm, %114 ]
+  %119 = load atomic i64, ptr %5 monotonic, align 8, !noalias !1916
+  %120 = and i64 %119, 1
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %122, label %125
 
-121:                                              ; preds = %117
-  %122 = add i64 %118, -20
-  %123 = cmpxchg weak ptr %5, i64 %118, i64 %122 release monotonic, align 8, !noalias !1916
-  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %123, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread31, label %124
+122:                                              ; preds = %118
+  %123 = add i64 %119, -20
+  %124 = cmpxchg weak ptr %5, i64 %119, i64 %123 release monotonic, align 8, !noalias !1916
+  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %124, 1
+  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread32, label %125
 
-124:                                              ; preds = %121, %117
+125:                                              ; preds = %122, %118
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12149,21 +12149,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3dcf7063e944
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %112
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %107
+          to label %27 unwind label %108
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %107
+          to label %34 unwind label %108
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -12178,25 +12178,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3dcf7063e944
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %107
+          to label %39 unwind label %108
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %107
+          to label %37 unwind label %108
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %103 unwind label %107
+          to label %104 unwind label %108
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %107
+          to label %41 unwind label %108
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -12348,11 +12348,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3dcf7063e944
   %.pn22.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %51 ], [ %lpad.phi.i, %55 ], [ %90, %94 ], [ %90, %89 ]
   %86 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !1921
   %87 = extractvalue { i8, i1 } %86, 1
-  br i1 %87, label %.thread31, label %88
+  br i1 %87, label %.thread32, label %88
 
 88:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %84, !noalias !1921
+          to label %.thread32 unwind label %84, !noalias !1921
 
 89:                                               ; preds = %41
   %90 = landingpad { ptr, i32 }
@@ -12375,74 +12375,74 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3dcf7063e944
   store ptr %.sroa.5.0.copyload, ptr %96, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %99 unwind label %97
+          to label %100 unwind label %97
 
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %68, 2
-  br i1 %.not, label %104, label %.thread31
+  %99 = icmp eq i64 %68, 2
+  br i1 %99, label %105, label %.thread32
 
-99:                                               ; preds = %95
+100:                                              ; preds = %95
   switch i64 %68, label %default.unreachable [
-    i64 0, label %100
-    i64 1, label %101
-    i64 2, label %102
+    i64 0, label %101
+    i64 1, label %102
+    i64 2, label %103
   ]
 
-default.unreachable:                              ; preds = %99
+default.unreachable:                              ; preds = %100
   unreachable
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-101:                                              ; preds = %99
+102:                                              ; preds = %100
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-103:                                              ; preds = %38
+104:                                              ; preds = %38
   unreachable
 
-104:                                              ; preds = %97
+105:                                              ; preds = %97
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %96) #39
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 
-105:                                              ; preds = %115, %110, %104
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %116, %111, %105
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-107:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+108:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %108 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %109 = extractvalue { i8, i1 } %108, 1
-  br i1 %109, label %111, label %110
+  %109 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %110 = extractvalue { i8, i1 } %109, 1
+  br i1 %110, label %112, label %111
 
-110:                                              ; preds = %107
+111:                                              ; preds = %108
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %111 unwind label %105
+          to label %112 unwind label %106
 
-.thread31:                                        ; preds = %97, %104, %111, %115, %88, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %115 ], [ %.pn.pn.ph, %111 ], [ %98, %97 ], [ %98, %104 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %97, %105, %112, %116, %88, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %116 ], [ %.pn.pn.ph, %112 ], [ %98, %97 ], [ %98, %105 ]
+  resume { ptr, i32 } %.pn.pn26
 
-111:                                              ; preds = %21, %110, %107
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %110 ], [ %lpad.thr_comm, %107 ]
-  %112 = atomicrmw sub ptr %5, i64 16 release, align 8
-  %113 = and i64 %112, -14
-  %114 = icmp eq i64 %113, 18
-  br i1 %114, label %115, label %.thread31
+112:                                              ; preds = %21, %111, %108
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %111 ], [ %lpad.thr_comm, %108 ]
+  %113 = atomicrmw sub ptr %5, i64 16 release, align 8
+  %114 = and i64 %113, -14
+  %115 = icmp eq i64 %114, 18
+  br i1 %115, label %116, label %.thread32
 
-115:                                              ; preds = %111
+116:                                              ; preds = %112
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12470,21 +12470,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h42abd0373f43
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %118
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %113
+          to label %27 unwind label %114
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %113
+          to label %34 unwind label %114
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -12499,25 +12499,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h42abd0373f43
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %113
+          to label %39 unwind label %114
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %113
+          to label %37 unwind label %114
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %109 unwind label %113
+          to label %110 unwind label %114
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %113
+          to label %41 unwind label %114
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -12675,11 +12675,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h42abd0373f43
   %.pn23.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %58 ], [ %93, %100 ], [ %93, %97 ]
   %89 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !1971
   %90 = extractvalue { i8, i1 } %89, 1
-  br i1 %90, label %.thread31, label %91
+  br i1 %90, label %.thread32, label %91
 
 91:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %87, !noalias !1971
+          to label %.thread32 unwind label %87, !noalias !1971
 
 92:                                               ; preds = %41
   %93 = landingpad { ptr, i32 }
@@ -12708,80 +12708,80 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h42abd0373f43
   store ptr %.sroa.5.0.copyload, ptr %102, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %105 unwind label %103
+          to label %106 unwind label %103
 
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %71, 2
-  br i1 %.not, label %110, label %.thread31
+  %105 = icmp eq i64 %71, 2
+  br i1 %105, label %111, label %.thread32
 
-105:                                              ; preds = %101
+106:                                              ; preds = %101
   switch i64 %71, label %default.unreachable [
-    i64 0, label %106
-    i64 1, label %107
-    i64 2, label %108
+    i64 0, label %107
+    i64 1, label %108
+    i64 2, label %109
   ]
 
-default.unreachable:                              ; preds = %105
+default.unreachable:                              ; preds = %106
   unreachable
 
-106:                                              ; preds = %105
+107:                                              ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-107:                                              ; preds = %105
+108:                                              ; preds = %106
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-108:                                              ; preds = %105
+109:                                              ; preds = %106
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-109:                                              ; preds = %38
+110:                                              ; preds = %38
   unreachable
 
-110:                                              ; preds = %103
+111:                                              ; preds = %103
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102) #39
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 
-111:                                              ; preds = %124, %116, %110
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %125, %117, %111
+  %113 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-113:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+114:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %114 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %115 = extractvalue { i8, i1 } %114, 1
-  br i1 %115, label %117, label %116
+  %115 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %116 = extractvalue { i8, i1 } %115, 1
+  br i1 %116, label %118, label %117
 
-116:                                              ; preds = %113
+117:                                              ; preds = %114
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %117 unwind label %111
+          to label %118 unwind label %112
 
-.thread31:                                        ; preds = %103, %110, %121, %124, %91, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %124 ], [ %.pn.pn.ph, %121 ], [ %104, %103 ], [ %104, %110 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %103, %111, %122, %125, %91, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %125 ], [ %.pn.pn.ph, %122 ], [ %104, %103 ], [ %104, %111 ]
+  resume { ptr, i32 } %.pn.pn26
 
-117:                                              ; preds = %21, %116, %113
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %116 ], [ %lpad.thr_comm, %113 ]
-  %118 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2031
-  %119 = and i64 %118, 1
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %121, label %124
+118:                                              ; preds = %21, %117, %114
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %117 ], [ %lpad.thr_comm, %114 ]
+  %119 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2031
+  %120 = and i64 %119, 1
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %122, label %125
 
-121:                                              ; preds = %117
-  %122 = add i64 %118, -20
-  %123 = cmpxchg weak ptr %5, i64 %118, i64 %122 release monotonic, align 8, !noalias !2031
-  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %123, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread31, label %124
+122:                                              ; preds = %118
+  %123 = add i64 %119, -20
+  %124 = cmpxchg weak ptr %5, i64 %119, i64 %123 release monotonic, align 8, !noalias !2031
+  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %124, 1
+  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread32, label %125
 
-124:                                              ; preds = %121, %117
+125:                                              ; preds = %122, %118
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12809,21 +12809,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h556c36e1661a
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %118
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %113
+          to label %27 unwind label %114
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %113
+          to label %34 unwind label %114
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -12838,25 +12838,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h556c36e1661a
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %113
+          to label %39 unwind label %114
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %113
+          to label %37 unwind label %114
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %109 unwind label %113
+          to label %110 unwind label %114
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %113
+          to label %41 unwind label %114
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -13014,11 +13014,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h556c36e1661a
   %.pn23.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %58 ], [ %93, %100 ], [ %93, %97 ]
   %89 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2036
   %90 = extractvalue { i8, i1 } %89, 1
-  br i1 %90, label %.thread31, label %91
+  br i1 %90, label %.thread32, label %91
 
 91:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %87, !noalias !2036
+          to label %.thread32 unwind label %87, !noalias !2036
 
 92:                                               ; preds = %41
   %93 = landingpad { ptr, i32 }
@@ -13047,80 +13047,80 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h556c36e1661a
   store ptr %.sroa.5.0.copyload, ptr %102, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %105 unwind label %103
+          to label %106 unwind label %103
 
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %71, 2
-  br i1 %.not, label %110, label %.thread31
+  %105 = icmp eq i64 %71, 2
+  br i1 %105, label %111, label %.thread32
 
-105:                                              ; preds = %101
+106:                                              ; preds = %101
   switch i64 %71, label %default.unreachable [
-    i64 0, label %106
-    i64 1, label %107
-    i64 2, label %108
+    i64 0, label %107
+    i64 1, label %108
+    i64 2, label %109
   ]
 
-default.unreachable:                              ; preds = %105
+default.unreachable:                              ; preds = %106
   unreachable
 
-106:                                              ; preds = %105
+107:                                              ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-107:                                              ; preds = %105
+108:                                              ; preds = %106
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-108:                                              ; preds = %105
+109:                                              ; preds = %106
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-109:                                              ; preds = %38
+110:                                              ; preds = %38
   unreachable
 
-110:                                              ; preds = %103
+111:                                              ; preds = %103
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102) #39
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 
-111:                                              ; preds = %124, %116, %110
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %125, %117, %111
+  %113 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-113:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+114:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %114 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %115 = extractvalue { i8, i1 } %114, 1
-  br i1 %115, label %117, label %116
+  %115 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %116 = extractvalue { i8, i1 } %115, 1
+  br i1 %116, label %118, label %117
 
-116:                                              ; preds = %113
+117:                                              ; preds = %114
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %117 unwind label %111
+          to label %118 unwind label %112
 
-.thread31:                                        ; preds = %103, %110, %121, %124, %91, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %124 ], [ %.pn.pn.ph, %121 ], [ %104, %103 ], [ %104, %110 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %103, %111, %122, %125, %91, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %125 ], [ %.pn.pn.ph, %122 ], [ %104, %103 ], [ %104, %111 ]
+  resume { ptr, i32 } %.pn.pn26
 
-117:                                              ; preds = %21, %116, %113
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %116 ], [ %lpad.thr_comm, %113 ]
-  %118 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2096
-  %119 = and i64 %118, 1
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %121, label %124
+118:                                              ; preds = %21, %117, %114
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %117 ], [ %lpad.thr_comm, %114 ]
+  %119 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2096
+  %120 = and i64 %119, 1
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %122, label %125
 
-121:                                              ; preds = %117
-  %122 = add i64 %118, -20
-  %123 = cmpxchg weak ptr %5, i64 %118, i64 %122 release monotonic, align 8, !noalias !2096
-  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %123, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread31, label %124
+122:                                              ; preds = %118
+  %123 = add i64 %119, -20
+  %124 = cmpxchg weak ptr %5, i64 %119, i64 %123 release monotonic, align 8, !noalias !2096
+  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %124, 1
+  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread32, label %125
 
-124:                                              ; preds = %121, %117
+125:                                              ; preds = %122, %118
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -13148,21 +13148,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h584c1b56aaea
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %112
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %107
+          to label %27 unwind label %108
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %107
+          to label %34 unwind label %108
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -13177,25 +13177,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h584c1b56aaea
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %107
+          to label %39 unwind label %108
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %107
+          to label %37 unwind label %108
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %103 unwind label %107
+          to label %104 unwind label %108
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %107
+          to label %41 unwind label %108
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -13347,11 +13347,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h584c1b56aaea
   %.pn22.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %51 ], [ %lpad.phi.i, %55 ], [ %90, %94 ], [ %90, %89 ]
   %86 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2101
   %87 = extractvalue { i8, i1 } %86, 1
-  br i1 %87, label %.thread31, label %88
+  br i1 %87, label %.thread32, label %88
 
 88:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %84, !noalias !2101
+          to label %.thread32 unwind label %84, !noalias !2101
 
 89:                                               ; preds = %41
   %90 = landingpad { ptr, i32 }
@@ -13374,74 +13374,74 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h584c1b56aaea
   store ptr %.sroa.5.0.copyload, ptr %96, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %99 unwind label %97
+          to label %100 unwind label %97
 
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %68, 2
-  br i1 %.not, label %104, label %.thread31
+  %99 = icmp eq i64 %68, 2
+  br i1 %99, label %105, label %.thread32
 
-99:                                               ; preds = %95
+100:                                              ; preds = %95
   switch i64 %68, label %default.unreachable [
-    i64 0, label %100
-    i64 1, label %101
-    i64 2, label %102
+    i64 0, label %101
+    i64 1, label %102
+    i64 2, label %103
   ]
 
-default.unreachable:                              ; preds = %99
+default.unreachable:                              ; preds = %100
   unreachable
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-101:                                              ; preds = %99
+102:                                              ; preds = %100
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-103:                                              ; preds = %38
+104:                                              ; preds = %38
   unreachable
 
-104:                                              ; preds = %97
+105:                                              ; preds = %97
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %96) #39
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 
-105:                                              ; preds = %115, %110, %104
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %116, %111, %105
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-107:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+108:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %108 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %109 = extractvalue { i8, i1 } %108, 1
-  br i1 %109, label %111, label %110
+  %109 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %110 = extractvalue { i8, i1 } %109, 1
+  br i1 %110, label %112, label %111
 
-110:                                              ; preds = %107
+111:                                              ; preds = %108
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %111 unwind label %105
+          to label %112 unwind label %106
 
-.thread31:                                        ; preds = %97, %104, %111, %115, %88, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %115 ], [ %.pn.pn.ph, %111 ], [ %98, %97 ], [ %98, %104 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %97, %105, %112, %116, %88, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %116 ], [ %.pn.pn.ph, %112 ], [ %98, %97 ], [ %98, %105 ]
+  resume { ptr, i32 } %.pn.pn26
 
-111:                                              ; preds = %21, %110, %107
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %110 ], [ %lpad.thr_comm, %107 ]
-  %112 = atomicrmw sub ptr %5, i64 16 release, align 8
-  %113 = and i64 %112, -14
-  %114 = icmp eq i64 %113, 18
-  br i1 %114, label %115, label %.thread31
+112:                                              ; preds = %21, %111, %108
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %111 ], [ %lpad.thr_comm, %108 ]
+  %113 = atomicrmw sub ptr %5, i64 16 release, align 8
+  %114 = and i64 %113, -14
+  %115 = icmp eq i64 %114, 18
+  br i1 %115, label %116, label %.thread32
 
-115:                                              ; preds = %111
+116:                                              ; preds = %112
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -13469,21 +13469,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h70900e792cfb
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %118
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %113
+          to label %27 unwind label %114
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %113
+          to label %34 unwind label %114
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -13498,25 +13498,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h70900e792cfb
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %113
+          to label %39 unwind label %114
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %113
+          to label %37 unwind label %114
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %109 unwind label %113
+          to label %110 unwind label %114
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %113
+          to label %41 unwind label %114
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -13674,11 +13674,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h70900e792cfb
   %.pn23.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %58 ], [ %93, %100 ], [ %93, %97 ]
   %89 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2151
   %90 = extractvalue { i8, i1 } %89, 1
-  br i1 %90, label %.thread31, label %91
+  br i1 %90, label %.thread32, label %91
 
 91:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %87, !noalias !2151
+          to label %.thread32 unwind label %87, !noalias !2151
 
 92:                                               ; preds = %41
   %93 = landingpad { ptr, i32 }
@@ -13707,80 +13707,80 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h70900e792cfb
   store ptr %.sroa.5.0.copyload, ptr %102, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %105 unwind label %103
+          to label %106 unwind label %103
 
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %71, 2
-  br i1 %.not, label %110, label %.thread31
+  %105 = icmp eq i64 %71, 2
+  br i1 %105, label %111, label %.thread32
 
-105:                                              ; preds = %101
+106:                                              ; preds = %101
   switch i64 %71, label %default.unreachable [
-    i64 0, label %106
-    i64 1, label %107
-    i64 2, label %108
+    i64 0, label %107
+    i64 1, label %108
+    i64 2, label %109
   ]
 
-default.unreachable:                              ; preds = %105
+default.unreachable:                              ; preds = %106
   unreachable
 
-106:                                              ; preds = %105
+107:                                              ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-107:                                              ; preds = %105
+108:                                              ; preds = %106
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-108:                                              ; preds = %105
+109:                                              ; preds = %106
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-109:                                              ; preds = %38
+110:                                              ; preds = %38
   unreachable
 
-110:                                              ; preds = %103
+111:                                              ; preds = %103
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102) #39
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 
-111:                                              ; preds = %124, %116, %110
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %125, %117, %111
+  %113 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-113:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+114:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %114 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %115 = extractvalue { i8, i1 } %114, 1
-  br i1 %115, label %117, label %116
+  %115 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %116 = extractvalue { i8, i1 } %115, 1
+  br i1 %116, label %118, label %117
 
-116:                                              ; preds = %113
+117:                                              ; preds = %114
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %117 unwind label %111
+          to label %118 unwind label %112
 
-.thread31:                                        ; preds = %103, %110, %121, %124, %91, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %124 ], [ %.pn.pn.ph, %121 ], [ %104, %103 ], [ %104, %110 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %103, %111, %122, %125, %91, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %125 ], [ %.pn.pn.ph, %122 ], [ %104, %103 ], [ %104, %111 ]
+  resume { ptr, i32 } %.pn.pn26
 
-117:                                              ; preds = %21, %116, %113
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %116 ], [ %lpad.thr_comm, %113 ]
-  %118 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2211
-  %119 = and i64 %118, 1
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %121, label %124
+118:                                              ; preds = %21, %117, %114
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %117 ], [ %lpad.thr_comm, %114 ]
+  %119 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2211
+  %120 = and i64 %119, 1
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %122, label %125
 
-121:                                              ; preds = %117
-  %122 = add i64 %118, -20
-  %123 = cmpxchg weak ptr %5, i64 %118, i64 %122 release monotonic, align 8, !noalias !2211
-  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %123, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread31, label %124
+122:                                              ; preds = %118
+  %123 = add i64 %119, -20
+  %124 = cmpxchg weak ptr %5, i64 %119, i64 %123 release monotonic, align 8, !noalias !2211
+  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %124, 1
+  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread32, label %125
 
-124:                                              ; preds = %121, %117
+125:                                              ; preds = %122, %118
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -13808,21 +13808,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7a22d35ccb76
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %118
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %113
+          to label %27 unwind label %114
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %113
+          to label %34 unwind label %114
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -13837,25 +13837,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7a22d35ccb76
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %113
+          to label %39 unwind label %114
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %113
+          to label %37 unwind label %114
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %109 unwind label %113
+          to label %110 unwind label %114
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %113
+          to label %41 unwind label %114
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -14013,11 +14013,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7a22d35ccb76
   %.pn23.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %58 ], [ %93, %100 ], [ %93, %97 ]
   %89 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2216
   %90 = extractvalue { i8, i1 } %89, 1
-  br i1 %90, label %.thread31, label %91
+  br i1 %90, label %.thread32, label %91
 
 91:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %87, !noalias !2216
+          to label %.thread32 unwind label %87, !noalias !2216
 
 92:                                               ; preds = %41
   %93 = landingpad { ptr, i32 }
@@ -14046,80 +14046,80 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7a22d35ccb76
   store ptr %.sroa.5.0.copyload, ptr %102, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %105 unwind label %103
+          to label %106 unwind label %103
 
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %71, 2
-  br i1 %.not, label %110, label %.thread31
+  %105 = icmp eq i64 %71, 2
+  br i1 %105, label %111, label %.thread32
 
-105:                                              ; preds = %101
+106:                                              ; preds = %101
   switch i64 %71, label %default.unreachable [
-    i64 0, label %106
-    i64 1, label %107
-    i64 2, label %108
+    i64 0, label %107
+    i64 1, label %108
+    i64 2, label %109
   ]
 
-default.unreachable:                              ; preds = %105
+default.unreachable:                              ; preds = %106
   unreachable
 
-106:                                              ; preds = %105
+107:                                              ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-107:                                              ; preds = %105
+108:                                              ; preds = %106
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-108:                                              ; preds = %105
+109:                                              ; preds = %106
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-109:                                              ; preds = %38
+110:                                              ; preds = %38
   unreachable
 
-110:                                              ; preds = %103
+111:                                              ; preds = %103
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102) #39
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 
-111:                                              ; preds = %124, %116, %110
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %125, %117, %111
+  %113 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-113:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+114:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %114 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %115 = extractvalue { i8, i1 } %114, 1
-  br i1 %115, label %117, label %116
+  %115 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %116 = extractvalue { i8, i1 } %115, 1
+  br i1 %116, label %118, label %117
 
-116:                                              ; preds = %113
+117:                                              ; preds = %114
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %117 unwind label %111
+          to label %118 unwind label %112
 
-.thread31:                                        ; preds = %103, %110, %121, %124, %91, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %124 ], [ %.pn.pn.ph, %121 ], [ %104, %103 ], [ %104, %110 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %103, %111, %122, %125, %91, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %125 ], [ %.pn.pn.ph, %122 ], [ %104, %103 ], [ %104, %111 ]
+  resume { ptr, i32 } %.pn.pn26
 
-117:                                              ; preds = %21, %116, %113
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %116 ], [ %lpad.thr_comm, %113 ]
-  %118 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2276
-  %119 = and i64 %118, 1
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %121, label %124
+118:                                              ; preds = %21, %117, %114
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %117 ], [ %lpad.thr_comm, %114 ]
+  %119 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2276
+  %120 = and i64 %119, 1
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %122, label %125
 
-121:                                              ; preds = %117
-  %122 = add i64 %118, -20
-  %123 = cmpxchg weak ptr %5, i64 %118, i64 %122 release monotonic, align 8, !noalias !2276
-  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %123, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread31, label %124
+122:                                              ; preds = %118
+  %123 = add i64 %119, -20
+  %124 = cmpxchg weak ptr %5, i64 %119, i64 %123 release monotonic, align 8, !noalias !2276
+  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %124, 1
+  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread32, label %125
 
-124:                                              ; preds = %121, %117
+125:                                              ; preds = %122, %118
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14147,21 +14147,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h8885bb85f347
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %112
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %107
+          to label %27 unwind label %108
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %107
+          to label %34 unwind label %108
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -14176,25 +14176,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h8885bb85f347
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %107
+          to label %39 unwind label %108
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %107
+          to label %37 unwind label %108
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %103 unwind label %107
+          to label %104 unwind label %108
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %107
+          to label %41 unwind label %108
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -14346,11 +14346,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h8885bb85f347
   %.pn22.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %51 ], [ %lpad.phi.i, %55 ], [ %90, %94 ], [ %90, %89 ]
   %86 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2281
   %87 = extractvalue { i8, i1 } %86, 1
-  br i1 %87, label %.thread31, label %88
+  br i1 %87, label %.thread32, label %88
 
 88:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %84, !noalias !2281
+          to label %.thread32 unwind label %84, !noalias !2281
 
 89:                                               ; preds = %41
   %90 = landingpad { ptr, i32 }
@@ -14373,74 +14373,74 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h8885bb85f347
   store ptr %.sroa.5.0.copyload, ptr %96, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %99 unwind label %97
+          to label %100 unwind label %97
 
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %68, 2
-  br i1 %.not, label %104, label %.thread31
+  %99 = icmp eq i64 %68, 2
+  br i1 %99, label %105, label %.thread32
 
-99:                                               ; preds = %95
+100:                                              ; preds = %95
   switch i64 %68, label %default.unreachable [
-    i64 0, label %100
-    i64 1, label %101
-    i64 2, label %102
+    i64 0, label %101
+    i64 1, label %102
+    i64 2, label %103
   ]
 
-default.unreachable:                              ; preds = %99
+default.unreachable:                              ; preds = %100
   unreachable
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-101:                                              ; preds = %99
+102:                                              ; preds = %100
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-103:                                              ; preds = %38
+104:                                              ; preds = %38
   unreachable
 
-104:                                              ; preds = %97
+105:                                              ; preds = %97
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %96) #39
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 
-105:                                              ; preds = %115, %110, %104
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %116, %111, %105
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-107:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+108:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %108 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %109 = extractvalue { i8, i1 } %108, 1
-  br i1 %109, label %111, label %110
+  %109 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %110 = extractvalue { i8, i1 } %109, 1
+  br i1 %110, label %112, label %111
 
-110:                                              ; preds = %107
+111:                                              ; preds = %108
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %111 unwind label %105
+          to label %112 unwind label %106
 
-.thread31:                                        ; preds = %97, %104, %111, %115, %88, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %115 ], [ %.pn.pn.ph, %111 ], [ %98, %97 ], [ %98, %104 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %97, %105, %112, %116, %88, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %116 ], [ %.pn.pn.ph, %112 ], [ %98, %97 ], [ %98, %105 ]
+  resume { ptr, i32 } %.pn.pn26
 
-111:                                              ; preds = %21, %110, %107
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %110 ], [ %lpad.thr_comm, %107 ]
-  %112 = atomicrmw sub ptr %5, i64 16 release, align 8
-  %113 = and i64 %112, -14
-  %114 = icmp eq i64 %113, 18
-  br i1 %114, label %115, label %.thread31
+112:                                              ; preds = %21, %111, %108
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %111 ], [ %lpad.thr_comm, %108 ]
+  %113 = atomicrmw sub ptr %5, i64 16 release, align 8
+  %114 = and i64 %113, -14
+  %115 = icmp eq i64 %114, 18
+  br i1 %115, label %116, label %.thread32
 
-115:                                              ; preds = %111
+116:                                              ; preds = %112
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14468,21 +14468,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h999cfc067718
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %112
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %107
+          to label %27 unwind label %108
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %107
+          to label %34 unwind label %108
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -14497,25 +14497,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h999cfc067718
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %107
+          to label %39 unwind label %108
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %107
+          to label %37 unwind label %108
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %103 unwind label %107
+          to label %104 unwind label %108
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %107
+          to label %41 unwind label %108
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -14667,11 +14667,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h999cfc067718
   %.pn22.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %51 ], [ %lpad.phi.i, %55 ], [ %90, %94 ], [ %90, %89 ]
   %86 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2331
   %87 = extractvalue { i8, i1 } %86, 1
-  br i1 %87, label %.thread31, label %88
+  br i1 %87, label %.thread32, label %88
 
 88:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %84, !noalias !2331
+          to label %.thread32 unwind label %84, !noalias !2331
 
 89:                                               ; preds = %41
   %90 = landingpad { ptr, i32 }
@@ -14694,74 +14694,74 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h999cfc067718
   store ptr %.sroa.5.0.copyload, ptr %96, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %99 unwind label %97
+          to label %100 unwind label %97
 
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %68, 2
-  br i1 %.not, label %104, label %.thread31
+  %99 = icmp eq i64 %68, 2
+  br i1 %99, label %105, label %.thread32
 
-99:                                               ; preds = %95
+100:                                              ; preds = %95
   switch i64 %68, label %default.unreachable [
-    i64 0, label %100
-    i64 1, label %101
-    i64 2, label %102
+    i64 0, label %101
+    i64 1, label %102
+    i64 2, label %103
   ]
 
-default.unreachable:                              ; preds = %99
+default.unreachable:                              ; preds = %100
   unreachable
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-101:                                              ; preds = %99
+102:                                              ; preds = %100
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-103:                                              ; preds = %38
+104:                                              ; preds = %38
   unreachable
 
-104:                                              ; preds = %97
+105:                                              ; preds = %97
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %96) #39
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 
-105:                                              ; preds = %115, %110, %104
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %116, %111, %105
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-107:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+108:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %108 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %109 = extractvalue { i8, i1 } %108, 1
-  br i1 %109, label %111, label %110
+  %109 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %110 = extractvalue { i8, i1 } %109, 1
+  br i1 %110, label %112, label %111
 
-110:                                              ; preds = %107
+111:                                              ; preds = %108
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %111 unwind label %105
+          to label %112 unwind label %106
 
-.thread31:                                        ; preds = %97, %104, %111, %115, %88, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %115 ], [ %.pn.pn.ph, %111 ], [ %98, %97 ], [ %98, %104 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %97, %105, %112, %116, %88, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %116 ], [ %.pn.pn.ph, %112 ], [ %98, %97 ], [ %98, %105 ]
+  resume { ptr, i32 } %.pn.pn26
 
-111:                                              ; preds = %21, %110, %107
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %110 ], [ %lpad.thr_comm, %107 ]
-  %112 = atomicrmw sub ptr %5, i64 16 release, align 8
-  %113 = and i64 %112, -14
-  %114 = icmp eq i64 %113, 18
-  br i1 %114, label %115, label %.thread31
+112:                                              ; preds = %21, %111, %108
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %111 ], [ %lpad.thr_comm, %108 ]
+  %113 = atomicrmw sub ptr %5, i64 16 release, align 8
+  %114 = and i64 %113, -14
+  %115 = icmp eq i64 %114, 18
+  br i1 %115, label %116, label %.thread32
 
-115:                                              ; preds = %111
+116:                                              ; preds = %112
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14789,21 +14789,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9a6cd662a465
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %118
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %113
+          to label %27 unwind label %114
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %113
+          to label %34 unwind label %114
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -14818,25 +14818,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9a6cd662a465
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %113
+          to label %39 unwind label %114
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %113
+          to label %37 unwind label %114
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %109 unwind label %113
+          to label %110 unwind label %114
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %113
+          to label %41 unwind label %114
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -14994,11 +14994,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9a6cd662a465
   %.pn23.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %58 ], [ %93, %100 ], [ %93, %97 ]
   %89 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2381
   %90 = extractvalue { i8, i1 } %89, 1
-  br i1 %90, label %.thread31, label %91
+  br i1 %90, label %.thread32, label %91
 
 91:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %87, !noalias !2381
+          to label %.thread32 unwind label %87, !noalias !2381
 
 92:                                               ; preds = %41
   %93 = landingpad { ptr, i32 }
@@ -15027,80 +15027,80 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9a6cd662a465
   store ptr %.sroa.5.0.copyload, ptr %102, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %105 unwind label %103
+          to label %106 unwind label %103
 
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %71, 2
-  br i1 %.not, label %110, label %.thread31
+  %105 = icmp eq i64 %71, 2
+  br i1 %105, label %111, label %.thread32
 
-105:                                              ; preds = %101
+106:                                              ; preds = %101
   switch i64 %71, label %default.unreachable [
-    i64 0, label %106
-    i64 1, label %107
-    i64 2, label %108
+    i64 0, label %107
+    i64 1, label %108
+    i64 2, label %109
   ]
 
-default.unreachable:                              ; preds = %105
+default.unreachable:                              ; preds = %106
   unreachable
 
-106:                                              ; preds = %105
+107:                                              ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-107:                                              ; preds = %105
+108:                                              ; preds = %106
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-108:                                              ; preds = %105
+109:                                              ; preds = %106
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-109:                                              ; preds = %38
+110:                                              ; preds = %38
   unreachable
 
-110:                                              ; preds = %103
+111:                                              ; preds = %103
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102) #39
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 
-111:                                              ; preds = %124, %116, %110
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %125, %117, %111
+  %113 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-113:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+114:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %114 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %115 = extractvalue { i8, i1 } %114, 1
-  br i1 %115, label %117, label %116
+  %115 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %116 = extractvalue { i8, i1 } %115, 1
+  br i1 %116, label %118, label %117
 
-116:                                              ; preds = %113
+117:                                              ; preds = %114
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %117 unwind label %111
+          to label %118 unwind label %112
 
-.thread31:                                        ; preds = %103, %110, %121, %124, %91, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %124 ], [ %.pn.pn.ph, %121 ], [ %104, %103 ], [ %104, %110 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %103, %111, %122, %125, %91, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %125 ], [ %.pn.pn.ph, %122 ], [ %104, %103 ], [ %104, %111 ]
+  resume { ptr, i32 } %.pn.pn26
 
-117:                                              ; preds = %21, %116, %113
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %116 ], [ %lpad.thr_comm, %113 ]
-  %118 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2441
-  %119 = and i64 %118, 1
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %121, label %124
+118:                                              ; preds = %21, %117, %114
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %117 ], [ %lpad.thr_comm, %114 ]
+  %119 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2441
+  %120 = and i64 %119, 1
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %122, label %125
 
-121:                                              ; preds = %117
-  %122 = add i64 %118, -20
-  %123 = cmpxchg weak ptr %5, i64 %118, i64 %122 release monotonic, align 8, !noalias !2441
-  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %123, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread31, label %124
+122:                                              ; preds = %118
+  %123 = add i64 %119, -20
+  %124 = cmpxchg weak ptr %5, i64 %119, i64 %123 release monotonic, align 8, !noalias !2441
+  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %124, 1
+  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread32, label %125
 
-124:                                              ; preds = %121, %117
+125:                                              ; preds = %122, %118
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -15128,21 +15128,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9be75cfd63ad
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %118
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %113
+          to label %27 unwind label %114
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %113
+          to label %34 unwind label %114
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -15157,25 +15157,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9be75cfd63ad
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %113
+          to label %39 unwind label %114
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %113
+          to label %37 unwind label %114
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %109 unwind label %113
+          to label %110 unwind label %114
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %113
+          to label %41 unwind label %114
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -15333,11 +15333,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9be75cfd63ad
   %.pn23.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %58 ], [ %93, %100 ], [ %93, %97 ]
   %89 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2446
   %90 = extractvalue { i8, i1 } %89, 1
-  br i1 %90, label %.thread31, label %91
+  br i1 %90, label %.thread32, label %91
 
 91:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %87, !noalias !2446
+          to label %.thread32 unwind label %87, !noalias !2446
 
 92:                                               ; preds = %41
   %93 = landingpad { ptr, i32 }
@@ -15366,80 +15366,80 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9be75cfd63ad
   store ptr %.sroa.5.0.copyload, ptr %102, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %105 unwind label %103
+          to label %106 unwind label %103
 
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %71, 2
-  br i1 %.not, label %110, label %.thread31
+  %105 = icmp eq i64 %71, 2
+  br i1 %105, label %111, label %.thread32
 
-105:                                              ; preds = %101
+106:                                              ; preds = %101
   switch i64 %71, label %default.unreachable [
-    i64 0, label %106
-    i64 1, label %107
-    i64 2, label %108
+    i64 0, label %107
+    i64 1, label %108
+    i64 2, label %109
   ]
 
-default.unreachable:                              ; preds = %105
+default.unreachable:                              ; preds = %106
   unreachable
 
-106:                                              ; preds = %105
+107:                                              ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-107:                                              ; preds = %105
+108:                                              ; preds = %106
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-108:                                              ; preds = %105
+109:                                              ; preds = %106
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-109:                                              ; preds = %38
+110:                                              ; preds = %38
   unreachable
 
-110:                                              ; preds = %103
+111:                                              ; preds = %103
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102) #39
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 
-111:                                              ; preds = %124, %116, %110
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %125, %117, %111
+  %113 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-113:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+114:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %114 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %115 = extractvalue { i8, i1 } %114, 1
-  br i1 %115, label %117, label %116
+  %115 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %116 = extractvalue { i8, i1 } %115, 1
+  br i1 %116, label %118, label %117
 
-116:                                              ; preds = %113
+117:                                              ; preds = %114
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %117 unwind label %111
+          to label %118 unwind label %112
 
-.thread31:                                        ; preds = %103, %110, %121, %124, %91, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %124 ], [ %.pn.pn.ph, %121 ], [ %104, %103 ], [ %104, %110 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %103, %111, %122, %125, %91, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %125 ], [ %.pn.pn.ph, %122 ], [ %104, %103 ], [ %104, %111 ]
+  resume { ptr, i32 } %.pn.pn26
 
-117:                                              ; preds = %21, %116, %113
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %116 ], [ %lpad.thr_comm, %113 ]
-  %118 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2506
-  %119 = and i64 %118, 1
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %121, label %124
+118:                                              ; preds = %21, %117, %114
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %117 ], [ %lpad.thr_comm, %114 ]
+  %119 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2506
+  %120 = and i64 %119, 1
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %122, label %125
 
-121:                                              ; preds = %117
-  %122 = add i64 %118, -20
-  %123 = cmpxchg weak ptr %5, i64 %118, i64 %122 release monotonic, align 8, !noalias !2506
-  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %123, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread31, label %124
+122:                                              ; preds = %118
+  %123 = add i64 %119, -20
+  %124 = cmpxchg weak ptr %5, i64 %119, i64 %123 release monotonic, align 8, !noalias !2506
+  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %124, 1
+  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread32, label %125
 
-124:                                              ; preds = %121, %117
+125:                                              ; preds = %122, %118
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -15467,21 +15467,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9e1fd6636c3b
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %112
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %107
+          to label %27 unwind label %108
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %107
+          to label %34 unwind label %108
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -15496,25 +15496,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9e1fd6636c3b
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %107
+          to label %39 unwind label %108
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %107
+          to label %37 unwind label %108
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %103 unwind label %107
+          to label %104 unwind label %108
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %107
+          to label %41 unwind label %108
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -15666,11 +15666,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9e1fd6636c3b
   %.pn22.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %51 ], [ %lpad.phi.i, %55 ], [ %90, %94 ], [ %90, %89 ]
   %86 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2511
   %87 = extractvalue { i8, i1 } %86, 1
-  br i1 %87, label %.thread31, label %88
+  br i1 %87, label %.thread32, label %88
 
 88:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %84, !noalias !2511
+          to label %.thread32 unwind label %84, !noalias !2511
 
 89:                                               ; preds = %41
   %90 = landingpad { ptr, i32 }
@@ -15693,74 +15693,74 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9e1fd6636c3b
   store ptr %.sroa.5.0.copyload, ptr %96, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %99 unwind label %97
+          to label %100 unwind label %97
 
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %68, 2
-  br i1 %.not, label %104, label %.thread31
+  %99 = icmp eq i64 %68, 2
+  br i1 %99, label %105, label %.thread32
 
-99:                                               ; preds = %95
+100:                                              ; preds = %95
   switch i64 %68, label %default.unreachable [
-    i64 0, label %100
-    i64 1, label %101
-    i64 2, label %102
+    i64 0, label %101
+    i64 1, label %102
+    i64 2, label %103
   ]
 
-default.unreachable:                              ; preds = %99
+default.unreachable:                              ; preds = %100
   unreachable
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-101:                                              ; preds = %99
+102:                                              ; preds = %100
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-103:                                              ; preds = %38
+104:                                              ; preds = %38
   unreachable
 
-104:                                              ; preds = %97
+105:                                              ; preds = %97
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %96) #39
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 
-105:                                              ; preds = %115, %110, %104
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %116, %111, %105
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-107:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+108:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %108 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %109 = extractvalue { i8, i1 } %108, 1
-  br i1 %109, label %111, label %110
+  %109 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %110 = extractvalue { i8, i1 } %109, 1
+  br i1 %110, label %112, label %111
 
-110:                                              ; preds = %107
+111:                                              ; preds = %108
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %111 unwind label %105
+          to label %112 unwind label %106
 
-.thread31:                                        ; preds = %97, %104, %111, %115, %88, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %115 ], [ %.pn.pn.ph, %111 ], [ %98, %97 ], [ %98, %104 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %97, %105, %112, %116, %88, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %116 ], [ %.pn.pn.ph, %112 ], [ %98, %97 ], [ %98, %105 ]
+  resume { ptr, i32 } %.pn.pn26
 
-111:                                              ; preds = %21, %110, %107
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %110 ], [ %lpad.thr_comm, %107 ]
-  %112 = atomicrmw sub ptr %5, i64 16 release, align 8
-  %113 = and i64 %112, -14
-  %114 = icmp eq i64 %113, 18
-  br i1 %114, label %115, label %.thread31
+112:                                              ; preds = %21, %111, %108
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %111 ], [ %lpad.thr_comm, %108 ]
+  %113 = atomicrmw sub ptr %5, i64 16 release, align 8
+  %114 = and i64 %113, -14
+  %115 = icmp eq i64 %114, 18
+  br i1 %115, label %116, label %.thread32
 
-115:                                              ; preds = %111
+116:                                              ; preds = %112
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -15788,21 +15788,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc790b344d7cf
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %112
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %107
+          to label %27 unwind label %108
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %107
+          to label %34 unwind label %108
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -15817,25 +15817,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc790b344d7cf
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %107
+          to label %39 unwind label %108
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %107
+          to label %37 unwind label %108
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %103 unwind label %107
+          to label %104 unwind label %108
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %107
+          to label %41 unwind label %108
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -15987,11 +15987,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc790b344d7cf
   %.pn22.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %51 ], [ %lpad.phi.i, %55 ], [ %90, %94 ], [ %90, %89 ]
   %86 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2561
   %87 = extractvalue { i8, i1 } %86, 1
-  br i1 %87, label %.thread31, label %88
+  br i1 %87, label %.thread32, label %88
 
 88:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %84, !noalias !2561
+          to label %.thread32 unwind label %84, !noalias !2561
 
 89:                                               ; preds = %41
   %90 = landingpad { ptr, i32 }
@@ -16014,74 +16014,74 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc790b344d7cf
   store ptr %.sroa.5.0.copyload, ptr %96, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %99 unwind label %97
+          to label %100 unwind label %97
 
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %68, 2
-  br i1 %.not, label %104, label %.thread31
+  %99 = icmp eq i64 %68, 2
+  br i1 %99, label %105, label %.thread32
 
-99:                                               ; preds = %95
+100:                                              ; preds = %95
   switch i64 %68, label %default.unreachable [
-    i64 0, label %100
-    i64 1, label %101
-    i64 2, label %102
+    i64 0, label %101
+    i64 1, label %102
+    i64 2, label %103
   ]
 
-default.unreachable:                              ; preds = %99
+default.unreachable:                              ; preds = %100
   unreachable
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-101:                                              ; preds = %99
+102:                                              ; preds = %100
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-103:                                              ; preds = %38
+104:                                              ; preds = %38
   unreachable
 
-104:                                              ; preds = %97
+105:                                              ; preds = %97
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %96) #39
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 
-105:                                              ; preds = %115, %110, %104
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %116, %111, %105
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-107:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+108:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %108 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %109 = extractvalue { i8, i1 } %108, 1
-  br i1 %109, label %111, label %110
+  %109 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %110 = extractvalue { i8, i1 } %109, 1
+  br i1 %110, label %112, label %111
 
-110:                                              ; preds = %107
+111:                                              ; preds = %108
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %111 unwind label %105
+          to label %112 unwind label %106
 
-.thread31:                                        ; preds = %97, %104, %111, %115, %88, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %115 ], [ %.pn.pn.ph, %111 ], [ %98, %97 ], [ %98, %104 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %97, %105, %112, %116, %88, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %116 ], [ %.pn.pn.ph, %112 ], [ %98, %97 ], [ %98, %105 ]
+  resume { ptr, i32 } %.pn.pn26
 
-111:                                              ; preds = %21, %110, %107
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %110 ], [ %lpad.thr_comm, %107 ]
-  %112 = atomicrmw sub ptr %5, i64 16 release, align 8
-  %113 = and i64 %112, -14
-  %114 = icmp eq i64 %113, 18
-  br i1 %114, label %115, label %.thread31
+112:                                              ; preds = %21, %111, %108
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %111 ], [ %lpad.thr_comm, %108 ]
+  %113 = atomicrmw sub ptr %5, i64 16 release, align 8
+  %114 = and i64 %113, -14
+  %115 = icmp eq i64 %114, 18
+  br i1 %115, label %116, label %.thread32
 
-115:                                              ; preds = %111
+116:                                              ; preds = %112
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -16109,21 +16109,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd221fdf362b0
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %112
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %107
+          to label %27 unwind label %108
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %107
+          to label %34 unwind label %108
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -16138,25 +16138,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd221fdf362b0
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %107
+          to label %39 unwind label %108
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %107
+          to label %37 unwind label %108
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %103 unwind label %107
+          to label %104 unwind label %108
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %107
+          to label %41 unwind label %108
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -16308,11 +16308,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd221fdf362b0
   %.pn22.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %51 ], [ %lpad.phi.i, %55 ], [ %90, %94 ], [ %90, %89 ]
   %86 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2611
   %87 = extractvalue { i8, i1 } %86, 1
-  br i1 %87, label %.thread31, label %88
+  br i1 %87, label %.thread32, label %88
 
 88:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %84, !noalias !2611
+          to label %.thread32 unwind label %84, !noalias !2611
 
 89:                                               ; preds = %41
   %90 = landingpad { ptr, i32 }
@@ -16335,74 +16335,74 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd221fdf362b0
   store ptr %.sroa.5.0.copyload, ptr %96, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %99 unwind label %97
+          to label %100 unwind label %97
 
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %68, 2
-  br i1 %.not, label %104, label %.thread31
+  %99 = icmp eq i64 %68, 2
+  br i1 %99, label %105, label %.thread32
 
-99:                                               ; preds = %95
+100:                                              ; preds = %95
   switch i64 %68, label %default.unreachable [
-    i64 0, label %100
-    i64 1, label %101
-    i64 2, label %102
+    i64 0, label %101
+    i64 1, label %102
+    i64 2, label %103
   ]
 
-default.unreachable:                              ; preds = %99
+default.unreachable:                              ; preds = %100
   unreachable
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-101:                                              ; preds = %99
+102:                                              ; preds = %100
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-103:                                              ; preds = %38
+104:                                              ; preds = %38
   unreachable
 
-104:                                              ; preds = %97
+105:                                              ; preds = %97
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %96) #39
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 
-105:                                              ; preds = %115, %110, %104
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %116, %111, %105
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-107:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+108:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %108 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %109 = extractvalue { i8, i1 } %108, 1
-  br i1 %109, label %111, label %110
+  %109 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %110 = extractvalue { i8, i1 } %109, 1
+  br i1 %110, label %112, label %111
 
-110:                                              ; preds = %107
+111:                                              ; preds = %108
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %111 unwind label %105
+          to label %112 unwind label %106
 
-.thread31:                                        ; preds = %97, %104, %111, %115, %88, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %115 ], [ %.pn.pn.ph, %111 ], [ %98, %97 ], [ %98, %104 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %97, %105, %112, %116, %88, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %116 ], [ %.pn.pn.ph, %112 ], [ %98, %97 ], [ %98, %105 ]
+  resume { ptr, i32 } %.pn.pn26
 
-111:                                              ; preds = %21, %110, %107
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %110 ], [ %lpad.thr_comm, %107 ]
-  %112 = atomicrmw sub ptr %5, i64 16 release, align 8
-  %113 = and i64 %112, -14
-  %114 = icmp eq i64 %113, 18
-  br i1 %114, label %115, label %.thread31
+112:                                              ; preds = %21, %111, %108
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %111 ], [ %lpad.thr_comm, %108 ]
+  %113 = atomicrmw sub ptr %5, i64 16 release, align 8
+  %114 = and i64 %113, -14
+  %115 = icmp eq i64 %114, 18
+  br i1 %115, label %116, label %.thread32
 
-115:                                              ; preds = %111
+116:                                              ; preds = %112
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -16430,21 +16430,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf10f86069546
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %111
+  br label %112
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %107
+          to label %27 unwind label %108
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %107
+          to label %34 unwind label %108
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -16459,25 +16459,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf10f86069546
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %107
+          to label %39 unwind label %108
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %107
+          to label %37 unwind label %108
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %103 unwind label %107
+          to label %104 unwind label %108
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %107
+          to label %41 unwind label %108
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -16629,11 +16629,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf10f86069546
   %.pn22.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %51 ], [ %lpad.phi.i, %55 ], [ %90, %94 ], [ %90, %89 ]
   %86 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2661
   %87 = extractvalue { i8, i1 } %86, 1
-  br i1 %87, label %.thread31, label %88
+  br i1 %87, label %.thread32, label %88
 
 88:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %84, !noalias !2661
+          to label %.thread32 unwind label %84, !noalias !2661
 
 89:                                               ; preds = %41
   %90 = landingpad { ptr, i32 }
@@ -16656,74 +16656,74 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf10f86069546
   store ptr %.sroa.5.0.copyload, ptr %96, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %99 unwind label %97
+          to label %100 unwind label %97
 
 97:                                               ; preds = %95
   %98 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %68, 2
-  br i1 %.not, label %104, label %.thread31
+  %99 = icmp eq i64 %68, 2
+  br i1 %99, label %105, label %.thread32
 
-99:                                               ; preds = %95
+100:                                              ; preds = %95
   switch i64 %68, label %default.unreachable [
-    i64 0, label %100
-    i64 1, label %101
-    i64 2, label %102
+    i64 0, label %101
+    i64 1, label %102
+    i64 2, label %103
   ]
 
-default.unreachable:                              ; preds = %99
+default.unreachable:                              ; preds = %100
   unreachable
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-101:                                              ; preds = %99
+102:                                              ; preds = %100
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-103:                                              ; preds = %38
+104:                                              ; preds = %38
   unreachable
 
-104:                                              ; preds = %97
+105:                                              ; preds = %97
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %96) #39
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 
-105:                                              ; preds = %115, %110, %104
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %116, %111, %105
+  %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-107:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+108:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %108 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %109 = extractvalue { i8, i1 } %108, 1
-  br i1 %109, label %111, label %110
+  %109 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %110 = extractvalue { i8, i1 } %109, 1
+  br i1 %110, label %112, label %111
 
-110:                                              ; preds = %107
+111:                                              ; preds = %108
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %111 unwind label %105
+          to label %112 unwind label %106
 
-.thread31:                                        ; preds = %97, %104, %111, %115, %88, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %115 ], [ %.pn.pn.ph, %111 ], [ %98, %97 ], [ %98, %104 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %97, %105, %112, %116, %88, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn22.i, %.thread.i ], [ %.pn22.i, %88 ], [ %.pn.pn.ph, %116 ], [ %.pn.pn.ph, %112 ], [ %98, %97 ], [ %98, %105 ]
+  resume { ptr, i32 } %.pn.pn26
 
-111:                                              ; preds = %21, %110, %107
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %110 ], [ %lpad.thr_comm, %107 ]
-  %112 = atomicrmw sub ptr %5, i64 16 release, align 8
-  %113 = and i64 %112, -14
-  %114 = icmp eq i64 %113, 18
-  br i1 %114, label %115, label %.thread31
+112:                                              ; preds = %21, %111, %108
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %111 ], [ %lpad.thr_comm, %108 ]
+  %113 = atomicrmw sub ptr %5, i64 16 release, align 8
+  %114 = and i64 %113, -14
+  %115 = icmp eq i64 %114, 18
+  br i1 %115, label %116, label %.thread32
 
-115:                                              ; preds = %111
+116:                                              ; preds = %112
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %.thread31 unwind label %105
+          to label %.thread32 unwind label %106
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -16751,21 +16751,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf731b3b87d93
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %117
+  br label %118
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %19
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8, !noundef !29
   %26 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %25)
-          to label %27 unwind label %113
+          to label %27 unwind label %114
 
 27:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %26, label %28, label %29
 
 28:                                               ; preds = %27
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i64 %3, i32 noundef %4)
-          to label %34 unwind label %113
+          to label %34 unwind label %114
 
 29:                                               ; preds = %37, %27
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14)
@@ -16780,25 +16780,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf731b3b87d93
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load ptr, ptr %32, align 8, !invariant.load !29, !nonnull !29
   invoke void %33(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
-          to label %39 unwind label %113
+          to label %39 unwind label %114
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %24, align 8, !noundef !29
   %36 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %23, i32 noundef %4, i32 noundef %35)
-          to label %37 unwind label %113
+          to label %37 unwind label %114
 
 37:                                               ; preds = %34
   br i1 %36, label %38, label %29
 
 38:                                               ; preds = %37
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.abbbfbd372369fe53cd7f13c4fbb532e.92, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.abbbfbd372369fe53cd7f13c4fbb532e.94) #38
-          to label %109 unwind label %113
+          to label %110 unwind label %114
 
 39:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %40)
-          to label %41 unwind label %113
+          to label %41 unwind label %114
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -16956,11 +16956,11 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf731b3b87d93
   %.pn23.i = phi { ptr, i32 } [ %45, %44 ], [ %lpad.phi.i, %54 ], [ %lpad.phi.i, %58 ], [ %93, %100 ], [ %93, %97 ]
   %89 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1, !noalias !2711
   %90 = extractvalue { i8, i1 } %89, 1
-  br i1 %90, label %.thread31, label %91
+  br i1 %90, label %.thread32, label %91
 
 91:                                               ; preds = %.thread.i
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 8 %16, i1 noundef zeroext false)
-          to label %.thread31 unwind label %87, !noalias !2711
+          to label %.thread32 unwind label %87, !noalias !2711
 
 92:                                               ; preds = %41
   %93 = landingpad { ptr, i32 }
@@ -16989,80 +16989,80 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf731b3b87d93
   store ptr %.sroa.5.0.copyload, ptr %102, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %105 unwind label %103
+          to label %106 unwind label %103
 
 103:                                              ; preds = %101
   %104 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %71, 2
-  br i1 %.not, label %110, label %.thread31
+  %105 = icmp eq i64 %71, 2
+  br i1 %105, label %111, label %.thread32
 
-105:                                              ; preds = %101
+106:                                              ; preds = %101
   switch i64 %71, label %default.unreachable [
-    i64 0, label %106
-    i64 1, label %107
-    i64 2, label %108
+    i64 0, label %107
+    i64 1, label %108
+    i64 2, label %109
   ]
 
-default.unreachable:                              ; preds = %105
+default.unreachable:                              ; preds = %106
   unreachable
 
-106:                                              ; preds = %105
+107:                                              ; preds = %106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   ret void
 
-107:                                              ; preds = %105
+108:                                              ; preds = %106
   call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #38
   unreachable
 
-108:                                              ; preds = %105
+109:                                              ; preds = %106
   call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %.sroa.5.0.copyload) #38
   unreachable
 
-109:                                              ; preds = %38
+110:                                              ; preds = %38
   unreachable
 
-110:                                              ; preds = %103
+111:                                              ; preds = %103
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h6221867a6fcff674E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %102) #39
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 
-111:                                              ; preds = %124, %116, %110
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %125, %117, %111
+  %113 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-113:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+114:                                              ; preds = %38, %39, %29, %34, %28, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %114 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
-  %115 = extractvalue { i8, i1 } %114, 1
-  br i1 %115, label %117, label %116
+  %115 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
+  %116 = extractvalue { i8, i1 } %115, 1
+  br i1 %116, label %118, label %117
 
-116:                                              ; preds = %113
+117:                                              ; preds = %114
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %16, i1 noundef zeroext false)
-          to label %117 unwind label %111
+          to label %118 unwind label %112
 
-.thread31:                                        ; preds = %103, %110, %121, %124, %91, %.thread.i
-  %.pn.pn25 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %124 ], [ %.pn.pn.ph, %121 ], [ %104, %103 ], [ %104, %110 ]
-  resume { ptr, i32 } %.pn.pn25
+.thread32:                                        ; preds = %103, %111, %122, %125, %91, %.thread.i
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn23.i, %.thread.i ], [ %.pn23.i, %91 ], [ %.pn.pn.ph, %125 ], [ %.pn.pn.ph, %122 ], [ %104, %103 ], [ %104, %111 ]
+  resume { ptr, i32 } %.pn.pn26
 
-117:                                              ; preds = %21, %116, %113
-  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %116 ], [ %lpad.thr_comm, %113 ]
-  %118 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2771
-  %119 = and i64 %118, 1
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %121, label %124
+118:                                              ; preds = %21, %117, %114
+  %.pn.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm, %117 ], [ %lpad.thr_comm, %114 ]
+  %119 = load atomic i64, ptr %5 monotonic, align 8, !noalias !2771
+  %120 = and i64 %119, 1
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %122, label %125
 
-121:                                              ; preds = %117
-  %122 = add i64 %118, -20
-  %123 = cmpxchg weak ptr %5, i64 %118, i64 %122 release monotonic, align 8, !noalias !2771
-  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %123, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread31, label %124
+122:                                              ; preds = %118
+  %123 = add i64 %119, -20
+  %124 = cmpxchg weak ptr %5, i64 %119, i64 %123 release monotonic, align 8, !noalias !2771
+  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %124, 1
+  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread32, label %125
 
-124:                                              ; preds = %121, %117
+125:                                              ; preds = %122, %118
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %.thread31 unwind label %111
+          to label %.thread32 unwind label %112
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

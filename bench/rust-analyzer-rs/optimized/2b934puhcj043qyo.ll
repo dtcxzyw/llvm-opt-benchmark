@@ -1161,14 +1161,14 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$3pop17h2ef3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !273, !noalias !276, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds { i64, { i32, i16, i16 }, {} }, ptr %11, i64 %7
-  %.sroa.44.8.copyload = load i64, ptr %12, align 8, !noalias !273
+  %.sroa.45.8.copyload = load i64, ptr %12, align 8, !noalias !273
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.6.8.copyload = load i64, ptr %.sroa.6.8..sroa_idx, align 8, !noalias !273
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !284)
-  %14 = lshr i64 %.sroa.44.8.copyload, 57
+  %14 = lshr i64 %.sroa.45.8.copyload, 57
   %15 = trunc nuw nsw i64 %14 to i8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i64, ptr %16, align 8, !alias.scope !287, !noalias !288, !noundef !4
@@ -1180,7 +1180,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$3pop17h2ef3
 
 19:                                               ; preds = %37, %6
   %.sroa.9.0.i.i.i = phi i64 [ 0, %6 ], [ %38, %37 ]
-  %.pn.i.i.i = phi i64 [ %.sroa.44.8.copyload, %6 ], [ %39, %37 ]
+  %.pn.i.i.i = phi i64 [ %.sroa.45.8.copyload, %6 ], [ %39, %37 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %17
   %20 = getelementptr inbounds i8, ptr %18, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i31.i.i = load <16 x i8>, ptr %20, align 1, !noalias !290

@@ -1963,7 +1963,7 @@ define void @_ZN4AAHD14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 ca
 
 18:                                               ; preds = %.lr.ph, %.thread.thread
   %indvars.iv = phi i64 [ %17, %.lr.ph ], [ %indvars.iv.next, %.thread.thread ]
-  %.03545 = phi i32 [ %2, %.lr.ph ], [ %83, %.thread.thread ]
+  %.03950 = phi i32 [ %2, %.lr.ph ], [ %83, %.thread.thread ]
   %19 = load ptr, ptr %16, align 8, !tbaa !81
   %20 = load i32, ptr %9, align 4, !tbaa !76
   %21 = sext i32 %20 to i64
@@ -2003,13 +2003,13 @@ define void @_ZN4AAHD14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 ca
 
 53:                                               ; preds = %18
   %54 = and i8 %24, 4
-  %.not37 = icmp eq i8 %54, 0
-  br i1 %.not37, label %60, label %.thread.thread
+  %.not41 = icmp eq i8 %54, 0
+  br i1 %.not41, label %60, label %.thread.thread
 
 55:                                               ; preds = %18
   %56 = and i8 %35, 2
-  %.not36 = icmp eq i8 %56, 0
-  br i1 %.not36, label %57, label %.thread.thread
+  %.not40 = icmp eq i8 %56, 0
+  br i1 %.not40, label %57, label %.thread.thread
 
 57:                                               ; preds = %55
   %58 = and i8 %40, 2
@@ -2020,8 +2020,8 @@ define void @_ZN4AAHD14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 ca
   %61 = and i8 %29, 4
   %62 = icmp ne i8 %61, 0
   %63 = icmp samesign ult i32 %50, 5
-  %brmerge = select i1 %63, i1 true, i1 %62
-  br i1 %brmerge, label %.thread, label %64
+  %or.cond3 = select i1 %63, i1 true, i1 %62
+  br i1 %or.cond3, label %.thread, label %64
 
 64:                                               ; preds = %60
   %65 = and i8 %51, -5
@@ -2033,19 +2033,19 @@ define void @_ZN4AAHD14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 ca
   store i8 %69, ptr %67, align 1, !tbaa !104
   %.pre = load ptr, ptr %16, align 8, !tbaa !81
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 %indvars.iv
-  %.pre48 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !104
+  %.pre53 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !104
   br label %.thread
 
-.thread:                                          ; preds = %57, %60, %64
-  %70 = phi i8 [ %51, %60 ], [ %.pre48, %64 ], [ %51, %57 ]
-  %71 = phi ptr [ %19, %60 ], [ %.pre, %64 ], [ %19, %57 ]
-  %72 = phi i1 [ %62, %60 ], [ false, %64 ], [ %59, %57 ]
+.thread:                                          ; preds = %57, %64, %60
+  %70 = phi i8 [ %.pre53, %64 ], [ %51, %60 ], [ %51, %57 ]
+  %71 = phi ptr [ %.pre, %64 ], [ %19, %60 ], [ %19, %57 ]
+  %72 = phi i1 [ false, %64 ], [ %62, %60 ], [ %59, %57 ]
   %73 = and i8 %70, 2
   %74 = icmp eq i8 %73, 0
   %75 = icmp samesign ult i32 %43, 9
-  %or.cond3.not44 = select i1 %74, i1 true, i1 %75
-  %brmerge38 = select i1 %or.cond3.not44, i1 true, i1 %72
-  br i1 %brmerge38, label %.thread.thread, label %76
+  %or.cond5.not47 = select i1 %74, i1 true, i1 %75
+  %or.cond7 = select i1 %or.cond5.not47, i1 true, i1 %72
+  br i1 %or.cond7, label %.thread.thread, label %76
 
 76:                                               ; preds = %.thread
   %77 = getelementptr inbounds i8, ptr %71, i64 %indvars.iv
@@ -2058,8 +2058,8 @@ define void @_ZN4AAHD14refine_hv_dirsEii(ptr noundef nonnull readonly align 8 ca
   store i8 %82, ptr %80, align 1, !tbaa !104
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %53, %55, %.thread, %76
-  %83 = add nsw i32 %.03545, 2
+.thread.thread:                                   ; preds = %53, %55, %76, %.thread
+  %83 = add nsw i32 %.03950, 2
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
   %84 = icmp slt i32 %83, %8
   br i1 %84, label %18, label %._crit_edge, !llvm.loop !130

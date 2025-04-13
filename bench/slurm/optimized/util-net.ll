@@ -331,9 +331,9 @@ define dso_local ptr @xgetaddrinfo_port(ptr noundef %0, i16 noundef zeroext %1) 
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 268), align 4
   %8 = zext i32 %7 to i64
   %9 = and i64 %8, 64
-  %.not.not.i = icmp eq i64 %9, 0
+  %.not17.i = icmp eq i64 %9, 0
   %10 = and i64 %8, 128
-  %.not13.i = icmp eq i64 %10, 0
+  %.not.i = icmp eq i64 %10, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   %11 = trunc i32 %7 to i8
   %trunc.i = and i8 %11, -64
@@ -353,29 +353,29 @@ define dso_local ptr @xgetaddrinfo_port(ptr noundef %0, i16 noundef zeroext %1) 
 
 14:                                               ; preds = %.sink.split.i, %2
   %15 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.4, ptr noundef %0) #14
-  %.not14.i = icmp eq i32 %15, 0
-  %..str.6.i = select i1 %.not.not.i, ptr null, ptr @.str.6
-  %spec.select18.i = select i1 %.not13.i, ptr %..str.6.i, ptr @.str.5
-  %.0.i = select i1 %.not14.i, ptr %spec.select18.i, ptr %0
-  br i1 %.not13.i, label %18, label %16
+  %.not18.i = icmp eq i32 %15, 0
+  %..str.6.i = select i1 %.not17.i, ptr null, ptr @.str.6
+  %spec.select21.i = select i1 %.not.i, ptr %..str.6.i, ptr @.str.5
+  %.0.i = select i1 %.not18.i, ptr %spec.select21.i, ptr %0
+  br i1 %.not.i, label %18, label %16
 
 16:                                               ; preds = %14
   %17 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.7, ptr noundef %.0.i) #14
-  %.not15.i = icmp eq i32 %17, 0
-  br i1 %.not15.i, label %xgetaddrinfo.exit, label %18
+  %.not19.i = icmp eq i32 %17, 0
+  br i1 %.not19.i, label %xgetaddrinfo.exit, label %18
 
 18:                                               ; preds = %16, %14
-  %.not16.i = icmp eq ptr %.0.i, null
-  %spec.select = select i1 %.not16.i, i32 1057, i32 1059
+  %.not20.i = icmp eq ptr %.0.i, null
+  %spec.select = select i1 %.not20.i, i32 1057, i32 1059
   br label %xgetaddrinfo.exit
 
 xgetaddrinfo.exit:                                ; preds = %18, %16
   %storemerge.i = phi i32 [ 1059, %16 ], [ %spec.select, %18 ]
-  %.sink24.i = phi ptr [ @.str.8, %16 ], [ %.0.i, %18 ]
+  %.sink26.i = phi ptr [ @.str.8, %16 ], [ %.0.i, %18 ]
   store i32 %storemerge.i, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %19, align 8
-  %20 = call fastcc ptr @_xgetaddrinfo(ptr noundef %.sink24.i, ptr noundef nonnull %4, ptr noundef %3)
+  %20 = call fastcc ptr @_xgetaddrinfo(ptr noundef %.sink26.i, ptr noundef nonnull %4, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4) #14
   ret ptr %20
@@ -391,9 +391,9 @@ define dso_local ptr @xgetaddrinfo(ptr noundef %0, ptr noundef %1) local_unnamed
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 268), align 4
   %5 = zext i32 %4 to i64
   %6 = and i64 %5, 64
-  %.not.not = icmp eq i64 %6, 0
+  %.not17 = icmp eq i64 %6, 0
   %7 = and i64 %5, 128
-  %.not13 = icmp eq i64 %7, 0
+  %.not = icmp eq i64 %7, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   %8 = trunc i32 %4 to i8
   %trunc = and i8 %8, -64
@@ -413,29 +413,29 @@ define dso_local ptr @xgetaddrinfo(ptr noundef %0, ptr noundef %1) local_unnamed
 
 11:                                               ; preds = %.sink.split, %2
   %12 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.4, ptr noundef %0) #14
-  %.not14 = icmp eq i32 %12, 0
-  %..str.6 = select i1 %.not.not, ptr null, ptr @.str.6
-  %spec.select18 = select i1 %.not13, ptr %..str.6, ptr @.str.5
-  %.0 = select i1 %.not14, ptr %spec.select18, ptr %0
-  br i1 %.not13, label %15, label %13
+  %.not18 = icmp eq i32 %12, 0
+  %..str.6 = select i1 %.not17, ptr null, ptr @.str.6
+  %spec.select21 = select i1 %.not, ptr %..str.6, ptr @.str.5
+  %.0 = select i1 %.not18, ptr %spec.select21, ptr %0
+  br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %11
   %14 = tail call i32 @xstrcmp(ptr noundef nonnull @.str.7, ptr noundef %.0) #14
-  %.not15 = icmp eq i32 %14, 0
-  br i1 %.not15, label %.split, label %15
+  %.not19 = icmp eq i32 %14, 0
+  br i1 %.not19, label %.split, label %15
 
 15:                                               ; preds = %13, %11
-  %.not16 = icmp eq ptr %.0, null
-  %spec.select = select i1 %.not16, i32 1057, i32 1059
+  %.not20 = icmp eq ptr %.0, null
+  %spec.select = select i1 %.not20, i32 1057, i32 1059
   br label %.split
 
 .split:                                           ; preds = %15, %13
   %storemerge = phi i32 [ 1059, %13 ], [ %spec.select, %15 ]
-  %.sink24 = phi ptr [ @.str.8, %13 ], [ %.0, %15 ]
+  %.sink26 = phi ptr [ @.str.8, %13 ], [ %.0, %15 ]
   store i32 %storemerge, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %16, align 8
-  %17 = call fastcc ptr @_xgetaddrinfo(ptr noundef %.sink24, ptr noundef %1, ptr noundef %3)
+  %17 = call fastcc ptr @_xgetaddrinfo(ptr noundef %.sink26, ptr noundef %1, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #14
   ret ptr %17
 }

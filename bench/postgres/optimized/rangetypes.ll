@@ -1458,25 +1458,23 @@ range_get_typcache.exit:                          ; preds = %15, %25
   call void @range_deserialize(ptr noundef nonnull %.0.i, ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %28 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %34, label %30
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %31 = load i8, ptr %30, align 8, !range !7
+  %32 = trunc nuw i8 %31 to i1
+  %or.cond = select i1 %29, i1 true, i1 %32
+  br i1 %or.cond, label %33, label %35
 
-30:                                               ; preds = %range_get_typcache.exit
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %32 = load i8, ptr %31, align 8, !range !7, !noundef !8
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %36
+33:                                               ; preds = %range_get_typcache.exit
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %34, align 4
+  br label %37
 
-34:                                               ; preds = %range_get_typcache.exit, %30
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %35, align 4
-  br label %38
+35:                                               ; preds = %range_get_typcache.exit
+  %36 = load i64, ptr %2, align 8
+  br label %37
 
-36:                                               ; preds = %30
-  %37 = load i64, ptr %2, align 8
-  br label %38
-
-38:                                               ; preds = %36, %34
-  %.0 = phi i64 [ 0, %34 ], [ %37, %36 ]
+37:                                               ; preds = %35, %33
+  %.0 = phi i64 [ 0, %33 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
@@ -1533,25 +1531,23 @@ range_get_typcache.exit:                          ; preds = %15, %25
   call void @range_deserialize(ptr noundef nonnull %.0.i, ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %28 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %34, label %30
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %31 = load i8, ptr %30, align 8, !range !7
+  %32 = trunc nuw i8 %31 to i1
+  %or.cond = select i1 %29, i1 true, i1 %32
+  br i1 %or.cond, label %33, label %35
 
-30:                                               ; preds = %range_get_typcache.exit
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %32 = load i8, ptr %31, align 8, !range !7, !noundef !8
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %36
+33:                                               ; preds = %range_get_typcache.exit
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %34, align 4
+  br label %37
 
-34:                                               ; preds = %range_get_typcache.exit, %30
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %35, align 4
-  br label %38
+35:                                               ; preds = %range_get_typcache.exit
+  %36 = load i64, ptr %3, align 8
+  br label %37
 
-36:                                               ; preds = %30
-  %37 = load i64, ptr %3, align 8
-  br label %38
-
-38:                                               ; preds = %36, %34
-  %.0 = phi i64 [ 0, %34 ], [ %37, %36 ]
+37:                                               ; preds = %35, %33
+  %.0 = phi i64 [ 0, %33 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
@@ -1705,7 +1701,7 @@ range_get_typcache.exit:                          ; preds = %17, %27
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i8, ptr %33, align 8, !range !7, !noundef !8
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %50, label %36
+  br i1 %35, label %49, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 296
@@ -1718,46 +1714,42 @@ range_get_typcache.exit:                          ; preds = %17, %27
   br i1 %43, label %range_contains_elem_internal.exit, label %44
 
 44:                                               ; preds = %36
-  %45 = icmp eq i32 %42, 0
-  br i1 %45, label %46, label %50
+  %45 = icmp ne i32 %42, 0
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %47 = load i8, ptr %46, align 1, !range !7
+  %48 = trunc nuw i8 %47 to i1
+  %or.cond.i = select i1 %45, i1 true, i1 %48
+  br i1 %or.cond.i, label %49, label %range_contains_elem_internal.exit
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %48 = load i8, ptr %47, align 1, !range !7, !noundef !8
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %50, label %range_contains_elem_internal.exit
+49:                                               ; preds = %44, %32
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %51 = load i8, ptr %50, align 8, !range !7, !noundef !8
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %66, label %53
 
-50:                                               ; preds = %46, %44, %32
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %52 = load i8, ptr %51, align 8, !range !7, !noundef !8
-  %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %68, label %54
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i, i64 296
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 292
+  %56 = load i32, ptr %55, align 4
+  %57 = load i64, ptr %3, align 8
+  %58 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %54, i32 noundef %56, i64 noundef %57, i64 noundef %10) #14
+  %59 = trunc i64 %58 to i32
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %range_contains_elem_internal.exit, label %61
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 296
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i, i64 292
-  %57 = load i32, ptr %56, align 4
-  %58 = load i64, ptr %3, align 8
-  %59 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %55, i32 noundef %57, i64 noundef %58, i64 noundef %10) #14
-  %60 = trunc i64 %59 to i32
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %range_contains_elem_internal.exit, label %62
+61:                                               ; preds = %53
+  %62 = icmp ne i32 %59, 0
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %64 = load i8, ptr %63, align 1, !range !7
+  %65 = trunc nuw i8 %64 to i1
+  %or.cond5.i = select i1 %62, i1 true, i1 %65
+  br i1 %or.cond5.i, label %66, label %range_contains_elem_internal.exit
 
-62:                                               ; preds = %54
-  %63 = icmp eq i32 %60, 0
-  br i1 %63, label %64, label %68
-
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %66 = load i8, ptr %65, align 1, !range !7, !noundef !8
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %68, label %range_contains_elem_internal.exit
-
-68:                                               ; preds = %64, %62, %50
+66:                                               ; preds = %61, %49
   br label %range_contains_elem_internal.exit
 
-range_contains_elem_internal.exit:                ; preds = %range_get_typcache.exit, %36, %46, %54, %64, %68
-  %.0.i6 = phi i64 [ 1, %68 ], [ 0, %range_get_typcache.exit ], [ 0, %36 ], [ 0, %46 ], [ 0, %54 ], [ 0, %64 ]
+range_contains_elem_internal.exit:                ; preds = %range_get_typcache.exit, %36, %44, %53, %61, %66
+  %.0.i6 = phi i64 [ 1, %66 ], [ 0, %range_get_typcache.exit ], [ 0, %36 ], [ 0, %44 ], [ 0, %53 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
@@ -1775,13 +1767,13 @@ define dso_local noundef zeroext i1 @range_contains_elem_internal(ptr noundef %0
   call void @range_deserialize(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %7 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %46, label %9
+  br i1 %8, label %44, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i8, ptr %10, align 8, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %27, label %13
+  br i1 %12, label %26, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -1791,49 +1783,45 @@ define dso_local noundef zeroext i1 @range_contains_elem_internal(ptr noundef %0
   %18 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %14, i32 noundef %16, i64 noundef %17, i64 noundef %2) #14
   %19 = trunc i64 %18 to i32
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %46, label %21
+  br i1 %20, label %44, label %21
 
 21:                                               ; preds = %13
-  %22 = icmp eq i32 %19, 0
-  br i1 %22, label %23, label %27
+  %22 = icmp ne i32 %19, 0
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %24 = load i8, ptr %23, align 1, !range !7
+  %25 = trunc nuw i8 %24 to i1
+  %or.cond = select i1 %22, i1 true, i1 %25
+  br i1 %or.cond, label %26, label %44
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %25 = load i8, ptr %24, align 1, !range !7, !noundef !8
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %27, label %46
+26:                                               ; preds = %21, %9
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %28 = load i8, ptr %27, align 8, !range !7, !noundef !8
+  %29 = trunc nuw i8 %28 to i1
+  br i1 %29, label %43, label %30
 
-27:                                               ; preds = %21, %23, %9
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %29 = load i8, ptr %28, align 8, !range !7, !noundef !8
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %45, label %31
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %33 = load i32, ptr %32, align 4
+  %34 = load i64, ptr %5, align 8
+  %35 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %31, i32 noundef %33, i64 noundef %34, i64 noundef %2) #14
+  %36 = trunc i64 %35 to i32
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %44, label %38
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %34 = load i32, ptr %33, align 4
-  %35 = load i64, ptr %5, align 8
-  %36 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %32, i32 noundef %34, i64 noundef %35, i64 noundef %2) #14
-  %37 = trunc i64 %36 to i32
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %46, label %39
+38:                                               ; preds = %30
+  %39 = icmp ne i32 %36, 0
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %41 = load i8, ptr %40, align 1, !range !7
+  %42 = trunc nuw i8 %41 to i1
+  %or.cond5 = select i1 %39, i1 true, i1 %42
+  br i1 %or.cond5, label %43, label %44
 
-39:                                               ; preds = %31
-  %40 = icmp eq i32 %37, 0
-  br i1 %40, label %41, label %45
+43:                                               ; preds = %38, %26
+  br label %44
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %43 = load i8, ptr %42, align 1, !range !7, !noundef !8
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %45, label %46
-
-45:                                               ; preds = %39, %41, %27
-  br label %46
-
-46:                                               ; preds = %41, %31, %23, %13, %3, %45
-  %.0 = phi i1 [ true, %45 ], [ false, %3 ], [ false, %13 ], [ false, %23 ], [ false, %31 ], [ false, %41 ]
+44:                                               ; preds = %38, %30, %21, %13, %3, %43
+  %.0 = phi i1 [ true, %43 ], [ false, %3 ], [ false, %13 ], [ false, %21 ], [ false, %30 ], [ false, %38 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
@@ -1898,7 +1886,7 @@ range_get_typcache.exit:                          ; preds = %17, %27
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i8, ptr %33, align 8, !range !7, !noundef !8
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %50, label %36
+  br i1 %35, label %49, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 296
@@ -1911,46 +1899,42 @@ range_get_typcache.exit:                          ; preds = %17, %27
   br i1 %43, label %range_contains_elem_internal.exit, label %44
 
 44:                                               ; preds = %36
-  %45 = icmp eq i32 %42, 0
-  br i1 %45, label %46, label %50
+  %45 = icmp ne i32 %42, 0
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %47 = load i8, ptr %46, align 1, !range !7
+  %48 = trunc nuw i8 %47 to i1
+  %or.cond.i = select i1 %45, i1 true, i1 %48
+  br i1 %or.cond.i, label %49, label %range_contains_elem_internal.exit
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %48 = load i8, ptr %47, align 1, !range !7, !noundef !8
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %50, label %range_contains_elem_internal.exit
+49:                                               ; preds = %44, %32
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %51 = load i8, ptr %50, align 8, !range !7, !noundef !8
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %66, label %53
 
-50:                                               ; preds = %46, %44, %32
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %52 = load i8, ptr %51, align 8, !range !7, !noundef !8
-  %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %68, label %54
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i, i64 296
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 292
+  %56 = load i32, ptr %55, align 4
+  %57 = load i64, ptr %3, align 8
+  %58 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %54, i32 noundef %56, i64 noundef %57, i64 noundef %6) #14
+  %59 = trunc i64 %58 to i32
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %range_contains_elem_internal.exit, label %61
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 296
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i, i64 292
-  %57 = load i32, ptr %56, align 4
-  %58 = load i64, ptr %3, align 8
-  %59 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %55, i32 noundef %57, i64 noundef %58, i64 noundef %6) #14
-  %60 = trunc i64 %59 to i32
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %range_contains_elem_internal.exit, label %62
+61:                                               ; preds = %53
+  %62 = icmp ne i32 %59, 0
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %64 = load i8, ptr %63, align 1, !range !7
+  %65 = trunc nuw i8 %64 to i1
+  %or.cond5.i = select i1 %62, i1 true, i1 %65
+  br i1 %or.cond5.i, label %66, label %range_contains_elem_internal.exit
 
-62:                                               ; preds = %54
-  %63 = icmp eq i32 %60, 0
-  br i1 %63, label %64, label %68
-
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %66 = load i8, ptr %65, align 1, !range !7, !noundef !8
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %68, label %range_contains_elem_internal.exit
-
-68:                                               ; preds = %64, %62, %50
+66:                                               ; preds = %61, %49
   br label %range_contains_elem_internal.exit
 
-range_contains_elem_internal.exit:                ; preds = %range_get_typcache.exit, %36, %46, %54, %64, %68
-  %.0.i6 = phi i64 [ 1, %68 ], [ 0, %range_get_typcache.exit ], [ 0, %36 ], [ 0, %46 ], [ 0, %54 ], [ 0, %64 ]
+range_contains_elem_internal.exit:                ; preds = %range_get_typcache.exit, %36, %44, %53, %61, %66
+  %.0.i6 = phi i64 [ 1, %66 ], [ 0, %range_get_typcache.exit ], [ 0, %36 ], [ 0, %44 ], [ 0, %53 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
@@ -1990,16 +1974,14 @@ define dso_local noundef zeroext i1 @range_eq_internal(ptr noundef %0, ptr nound
   call void @range_deserialize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %18 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %19 = trunc nuw i8 %18 to i1
-  %.pre = load i8, ptr %9, align 1, !range !7
-  br i1 %19, label %20, label %22
+  %20 = load i8, ptr %9, align 1, !range !7
+  %21 = trunc nuw i8 %20 to i1
+  %or.cond = select i1 %19, i1 %21, i1 false
+  br i1 %or.cond, label %range_cmp_bounds.exit.thread, label %22
 
-20:                                               ; preds = %17
-  %21 = trunc nuw i8 %.pre to i1
-  br i1 %21, label %range_cmp_bounds.exit.thread, label %22
-
-22:                                               ; preds = %20, %17
-  %.not9 = icmp eq i8 %18, %.pre
-  br i1 %.not9, label %23, label %range_cmp_bounds.exit.thread
+22:                                               ; preds = %17
+  %.not10 = icmp eq i8 %18, %20
+  br i1 %.not10, label %23, label %range_cmp_bounds.exit.thread
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2016,8 +1998,8 @@ define dso_local noundef zeroext i1 @range_eq_internal(ptr noundef %0, ptr nound
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %34 = load i8, ptr %33, align 2, !range !7
   %35 = icmp eq i8 %32, %34
-  %or.cond = select i1 %29, i1 %35, i1 false
-  br i1 %or.cond, label %range_cmp_bounds.exit, label %range_cmp_bounds.exit.thread
+  %or.cond19 = select i1 %29, i1 %35, i1 false
+  br i1 %or.cond19, label %range_cmp_bounds.exit, label %range_cmp_bounds.exit.thread
 
 36:                                               ; preds = %23
   br i1 %29, label %range_cmp_bounds.exit.thread, label %37
@@ -2048,8 +2030,8 @@ define dso_local noundef zeroext i1 @range_eq_internal(ptr noundef %0, ptr nound
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %57 = load i8, ptr %56, align 2, !range !7
   %58 = icmp ne i8 %55, %57
-  %or.cond21.not = select i1 %52, i1 true, i1 %58
-  br i1 %or.cond21.not, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit
+  %or.cond23.not = select i1 %52, i1 true, i1 %58
+  br i1 %or.cond23.not, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit
 
 59:                                               ; preds = %46
   br i1 %52, label %range_cmp_bounds.exit, label %range_cmp_bounds.exit.thread
@@ -2107,8 +2089,8 @@ range_cmp_bounds.exit:                            ; preds = %53, %30, %59
   %95 = icmp eq i8 %92, %94
   br label %range_cmp_bounds.exit.thread
 
-range_cmp_bounds.exit.thread:                     ; preds = %83, %90, %67, %74, %66, %73, %59, %53, %36, %30, %37, %22, %20
-  %.0 = phi i1 [ true, %20 ], [ false, %22 ], [ false, %37 ], [ false, %30 ], [ false, %36 ], [ false, %53 ], [ false, %59 ], [ false, %74 ], [ %72, %67 ], [ false, %66 ], [ false, %73 ], [ %95, %90 ], [ %.mux, %83 ]
+range_cmp_bounds.exit.thread:                     ; preds = %83, %90, %67, %74, %66, %73, %59, %53, %36, %30, %37, %22, %17
+  %.0 = phi i1 [ true, %17 ], [ false, %22 ], [ false, %37 ], [ false, %30 ], [ false, %36 ], [ false, %53 ], [ false, %59 ], [ false, %74 ], [ %72, %67 ], [ false, %66 ], [ false, %73 ], [ %95, %90 ], [ %.mux, %83 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
@@ -2422,183 +2404,172 @@ define dso_local noundef zeroext i1 @range_contains_internal(ptr noundef %0, ptr
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %28 = load i8, ptr %27, align 8, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
-  br i1 %26, label %30, label %41
+  br i1 %26, label %30, label %40
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %32 = load i8, ptr %31, align 2, !range !7, !noundef !8
-  br i1 %29, label %33, label %39
+  br i1 %29, label %33, label %38
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %35 = load i8, ptr %34, align 2, !range !7, !noundef !8
   %36 = icmp eq i8 %32, %35
-  br i1 %36, label %range_cmp_bounds.exit.thread, label %37
+  %37 = trunc nuw i8 %32 to i1
+  %or.cond = select i1 %36, i1 true, i1 %37
+  br i1 %or.cond, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread18
 
-37:                                               ; preds = %33
-  %38 = trunc nuw i8 %32 to i1
-  br i1 %38, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread18
+38:                                               ; preds = %30
+  %39 = trunc nuw i8 %32 to i1
+  br i1 %39, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread18
 
-39:                                               ; preds = %30
-  %40 = trunc nuw i8 %32 to i1
-  br i1 %40, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread18
+40:                                               ; preds = %23
+  br i1 %29, label %41, label %45
 
-41:                                               ; preds = %23
-  br i1 %29, label %42, label %46
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %43 = load i8, ptr %42, align 2, !range !7, !noundef !8
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit.thread
 
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %44 = load i8, ptr %43, align 2, !range !7, !noundef !8
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit.thread
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %48 = load i32, ptr %47, align 4
+  %49 = load i64, ptr %4, align 8
+  %50 = load i64, ptr %7, align 8
+  %51 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %46, i32 noundef %48, i64 noundef %49, i64 noundef %50) #14
+  %52 = trunc i64 %51 to i32
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %range_cmp_bounds.exit
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %49 = load i32, ptr %48, align 4
-  %50 = load i64, ptr %4, align 8
-  %51 = load i64, ptr %7, align 8
-  %52 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %47, i32 noundef %49, i64 noundef %50, i64 noundef %51) #14
-  %53 = trunc i64 %52 to i32
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %range_cmp_bounds.exit
+54:                                               ; preds = %45
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %56 = load i8, ptr %55, align 1, !range !7, !noundef !8
+  %57 = trunc nuw i8 %56 to i1
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %59 = load i8, ptr %58, align 1, !range !7, !noundef !8
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %57, label %71, label %61
 
-55:                                               ; preds = %46
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %57 = load i8, ptr %56, align 1, !range !7, !noundef !8
-  %58 = trunc nuw i8 %57 to i1
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %60 = load i8, ptr %59, align 1, !range !7, !noundef !8
-  %61 = trunc nuw i8 %60 to i1
-  br i1 %58, label %73, label %62
+61:                                               ; preds = %54
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %63 = load i8, ptr %62, align 2, !range !7, !noundef !8
+  br i1 %60, label %69, label %64
 
-62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %64 = load i8, ptr %63, align 2, !range !7, !noundef !8
-  br i1 %61, label %71, label %65
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %66 = load i8, ptr %65, align 2, !range !7, !noundef !8
+  %67 = icmp ne i8 %63, %66
+  %68 = trunc nuw i8 %63 to i1
+  %or.cond32 = select i1 %67, i1 %68, i1 false
+  br i1 %or.cond32, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit.thread
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %67 = load i8, ptr %66, align 2, !range !7, !noundef !8
-  %68 = icmp eq i8 %64, %67
-  br i1 %68, label %range_cmp_bounds.exit.thread, label %69
-
-69:                                               ; preds = %65
-  %70 = trunc nuw i8 %64 to i1
+69:                                               ; preds = %61
+  %70 = trunc nuw i8 %63 to i1
   br i1 %70, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit.thread
 
-71:                                               ; preds = %62
-  %72 = trunc nuw i8 %64 to i1
-  br i1 %72, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit.thread
+71:                                               ; preds = %54
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %73 = load i8, ptr %72, align 2, !range !7
+  %74 = trunc nuw i8 %73 to i1
+  %or.cond35 = select i1 %60, i1 true, i1 %74
+  br i1 %or.cond35, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread18
 
-73:                                               ; preds = %55
-  br i1 %61, label %range_cmp_bounds.exit.thread, label %74
+range_cmp_bounds.exit:                            ; preds = %45
+  %75 = icmp sgt i32 %52, 0
+  br i1 %75, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit.thread
 
-74:                                               ; preds = %73
-  %75 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %76 = load i8, ptr %75, align 2, !range !7, !noundef !8
-  %77 = trunc nuw i8 %76 to i1
-  br i1 %77, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread18
-
-range_cmp_bounds.exit:                            ; preds = %46
-  %78 = icmp sgt i32 %53, 0
-  br i1 %78, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit.thread
-
-range_cmp_bounds.exit.thread:                     ; preds = %74, %39, %37, %73, %65, %33, %69, %71, %42, %range_cmp_bounds.exit
-  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
+range_cmp_bounds.exit.thread:                     ; preds = %38, %71, %64, %33, %69, %41, %range_cmp_bounds.exit
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %77 = load i8, ptr %76, align 8, !range !7, !noundef !8
+  %78 = trunc nuw i8 %77 to i1
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %80 = load i8, ptr %79, align 8, !range !7, !noundef !8
   %81 = trunc nuw i8 %80 to i1
-  %82 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %83 = load i8, ptr %82, align 8, !range !7, !noundef !8
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %81, label %85, label %96
+  br i1 %78, label %82, label %92
 
-85:                                               ; preds = %range_cmp_bounds.exit.thread
-  %86 = getelementptr inbounds nuw i8, ptr %5, i64 10
+82:                                               ; preds = %range_cmp_bounds.exit.thread
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %84 = load i8, ptr %83, align 2, !range !7, !noundef !8
+  br i1 %81, label %85, label %90
+
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %87 = load i8, ptr %86, align 2, !range !7, !noundef !8
-  br i1 %84, label %88, label %94
+  %88 = icmp ne i8 %84, %87
+  %89 = trunc nuw i8 %84 to i1
+  %or.cond36 = select i1 %88, i1 %89, i1 false
+  br i1 %or.cond36, label %range_cmp_bounds.exit10.thread29, label %range_cmp_bounds.exit.thread18
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %90 = load i8, ptr %89, align 2, !range !7, !noundef !8
-  %91 = icmp eq i8 %87, %90
-  br i1 %91, label %range_cmp_bounds.exit.thread18, label %92
+90:                                               ; preds = %82
+  %91 = trunc nuw i8 %84 to i1
+  br i1 %91, label %range_cmp_bounds.exit10.thread29, label %range_cmp_bounds.exit.thread18
 
-92:                                               ; preds = %88
-  %93 = trunc nuw i8 %87 to i1
-  br i1 %93, label %range_cmp_bounds.exit10.thread29, label %range_cmp_bounds.exit.thread18
+92:                                               ; preds = %range_cmp_bounds.exit.thread
+  br i1 %81, label %93, label %97
 
-94:                                               ; preds = %85
-  %95 = trunc nuw i8 %87 to i1
-  br i1 %95, label %range_cmp_bounds.exit10.thread29, label %range_cmp_bounds.exit.thread18
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %95 = load i8, ptr %94, align 2, !range !7, !noundef !8
+  %96 = trunc nuw i8 %95 to i1
+  br i1 %96, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit10.thread29
 
-96:                                               ; preds = %range_cmp_bounds.exit.thread
-  br i1 %84, label %97, label %101
+97:                                               ; preds = %92
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %100 = load i32, ptr %99, align 4
+  %101 = load i64, ptr %5, align 8
+  %102 = load i64, ptr %8, align 8
+  %103 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %98, i32 noundef %100, i64 noundef %101, i64 noundef %102) #14
+  %.fr42 = freeze i64 %103
+  %104 = trunc i64 %.fr42 to i32
+  %105 = icmp eq i32 %104, 0
+  br i1 %105, label %106, label %range_cmp_bounds.exit10
 
-97:                                               ; preds = %96
-  %98 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %99 = load i8, ptr %98, align 2, !range !7, !noundef !8
-  %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit10.thread29
+106:                                              ; preds = %97
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %108 = load i8, ptr %107, align 1, !range !7, !noundef !8
+  %109 = trunc nuw i8 %108 to i1
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %111 = load i8, ptr %110, align 1, !range !7, !noundef !8
+  %112 = trunc nuw i8 %111 to i1
+  br i1 %109, label %123, label %113
 
-101:                                              ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %104 = load i32, ptr %103, align 4
-  %105 = load i64, ptr %5, align 8
-  %106 = load i64, ptr %8, align 8
-  %107 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %102, i32 noundef %104, i64 noundef %105, i64 noundef %106) #14
-  %.fr32 = freeze i64 %107
-  %108 = trunc i64 %.fr32 to i32
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %range_cmp_bounds.exit10
+113:                                              ; preds = %106
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %115 = load i8, ptr %114, align 2, !range !7, !noundef !8
+  br i1 %112, label %121, label %116
 
-110:                                              ; preds = %101
-  %111 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %112 = load i8, ptr %111, align 1, !range !7, !noundef !8
-  %113 = trunc nuw i8 %112 to i1
-  %114 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %115 = load i8, ptr %114, align 1, !range !7, !noundef !8
-  %116 = trunc nuw i8 %115 to i1
-  br i1 %113, label %128, label %117
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %118 = load i8, ptr %117, align 2, !range !7, !noundef !8
+  %119 = icmp eq i8 %115, %118
+  %120 = trunc nuw i8 %115 to i1
+  %or.cond37 = select i1 %119, i1 true, i1 %120
+  br i1 %or.cond37, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit10.thread29
 
-117:                                              ; preds = %110
-  %118 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %119 = load i8, ptr %118, align 2, !range !7, !noundef !8
-  br i1 %116, label %126, label %120
+121:                                              ; preds = %113
+  %122 = trunc nuw i8 %115 to i1
+  br i1 %122, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit10.thread29
 
-120:                                              ; preds = %117
-  %121 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %122 = load i8, ptr %121, align 2, !range !7, !noundef !8
-  %123 = icmp eq i8 %119, %122
-  br i1 %123, label %range_cmp_bounds.exit.thread18, label %124
+123:                                              ; preds = %106
+  %.not38 = xor i1 %112, true
+  %124 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %125 = load i8, ptr %124, align 2, !range !7
+  %126 = trunc nuw i8 %125 to i1
+  %or.cond41 = select i1 %.not38, i1 %126, i1 false
+  br i1 %or.cond41, label %range_cmp_bounds.exit10.thread29, label %range_cmp_bounds.exit.thread18
 
-124:                                              ; preds = %120
-  %125 = trunc nuw i8 %119 to i1
-  br i1 %125, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit10.thread29
+range_cmp_bounds.exit10:                          ; preds = %97
+  %127 = icmp slt i32 %104, 0
+  br i1 %127, label %range_cmp_bounds.exit10.thread29, label %range_cmp_bounds.exit.thread18
 
-126:                                              ; preds = %117
-  %127 = trunc nuw i8 %119 to i1
-  br i1 %127, label %range_cmp_bounds.exit.thread18, label %range_cmp_bounds.exit10.thread29
-
-128:                                              ; preds = %110
-  br i1 %116, label %range_cmp_bounds.exit.thread18, label %129
-
-129:                                              ; preds = %128
-  %130 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %131 = load i8, ptr %130, align 2, !range !7, !noundef !8
-  %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %range_cmp_bounds.exit10.thread29, label %range_cmp_bounds.exit.thread18
-
-range_cmp_bounds.exit10:                          ; preds = %101
-  %133 = icmp slt i32 %108, 0
-  br i1 %133, label %range_cmp_bounds.exit10.thread29, label %range_cmp_bounds.exit.thread18
-
-range_cmp_bounds.exit10.thread29:                 ; preds = %129, %94, %92, %124, %126, %97, %range_cmp_bounds.exit10
+range_cmp_bounds.exit10.thread29:                 ; preds = %123, %116, %85, %90, %121, %93, %range_cmp_bounds.exit10
   br label %range_cmp_bounds.exit.thread18
 
-range_cmp_bounds.exit.thread18:                   ; preds = %124, %126, %97, %128, %120, %88, %129, %94, %92, %69, %71, %42, %74, %39, %37, %range_cmp_bounds.exit10.thread29, %range_cmp_bounds.exit10, %range_cmp_bounds.exit, %20, %17
-  %.0 = phi i1 [ true, %17 ], [ false, %20 ], [ false, %range_cmp_bounds.exit ], [ false, %range_cmp_bounds.exit10.thread29 ], [ true, %range_cmp_bounds.exit10 ], [ false, %37 ], [ false, %39 ], [ false, %74 ], [ false, %42 ], [ false, %71 ], [ false, %69 ], [ true, %92 ], [ true, %94 ], [ true, %129 ], [ true, %88 ], [ true, %120 ], [ true, %128 ], [ true, %97 ], [ true, %126 ], [ true, %124 ]
+range_cmp_bounds.exit.thread18:                   ; preds = %71, %64, %33, %121, %93, %123, %116, %85, %90, %69, %41, %38, %range_cmp_bounds.exit10.thread29, %range_cmp_bounds.exit10, %range_cmp_bounds.exit, %20, %17
+  %.0 = phi i1 [ true, %17 ], [ false, %20 ], [ false, %range_cmp_bounds.exit ], [ false, %range_cmp_bounds.exit10.thread29 ], [ true, %range_cmp_bounds.exit10 ], [ false, %38 ], [ false, %41 ], [ false, %69 ], [ true, %90 ], [ true, %85 ], [ true, %116 ], [ true, %123 ], [ true, %93 ], [ true, %121 ], [ false, %33 ], [ false, %64 ], [ false, %71 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
@@ -2697,111 +2668,109 @@ define dso_local zeroext i1 @range_before_internal(ptr noundef %0, ptr noundef %
   call void @range_deserialize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %18 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %85, label %20
+  %20 = load i8, ptr %9, align 1, !range !7
+  %21 = trunc nuw i8 %20 to i1
+  %or.cond = select i1 %19, i1 true, i1 %21
+  br i1 %or.cond, label %84, label %22
 
-20:                                               ; preds = %17
-  %21 = load i8, ptr %9, align 1, !range !7, !noundef !8
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %85, label %23
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %24 = load i8, ptr %23, align 8, !range !7, !noundef !8
+  %25 = trunc nuw i8 %24 to i1
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %27 = load i8, ptr %26, align 8, !range !7, !noundef !8
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %25, label %29, label %42
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %25 = load i8, ptr %24, align 8, !range !7, !noundef !8
-  %26 = trunc nuw i8 %25 to i1
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %28 = load i8, ptr %27, align 8, !range !7, !noundef !8
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %26, label %30, label %43
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %31 = load i8, ptr %30, align 2, !range !7, !noundef !8
+  br i1 %28, label %32, label %39
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %32 = load i8, ptr %31, align 2, !range !7, !noundef !8
-  br i1 %29, label %33, label %40
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %34 = load i8, ptr %33, align 2, !range !7, !noundef !8
+  %35 = icmp eq i8 %31, %34
+  br i1 %35, label %range_cmp_bounds.exit, label %36
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %35 = load i8, ptr %34, align 2, !range !7, !noundef !8
-  %36 = icmp eq i8 %32, %35
-  br i1 %36, label %range_cmp_bounds.exit, label %37
-
-37:                                               ; preds = %33
-  %38 = trunc nuw i8 %32 to i1
-  %39 = select i1 %38, i32 -1, i32 1
+36:                                               ; preds = %32
+  %37 = trunc nuw i8 %31 to i1
+  %38 = select i1 %37, i32 -1, i32 1
   br label %range_cmp_bounds.exit
 
-40:                                               ; preds = %30
-  %41 = trunc nuw i8 %32 to i1
-  %42 = select i1 %41, i32 -1, i32 1
+39:                                               ; preds = %29
+  %40 = trunc nuw i8 %31 to i1
+  %41 = select i1 %40, i32 -1, i32 1
   br label %range_cmp_bounds.exit
 
-43:                                               ; preds = %23
-  br i1 %29, label %44, label %49
+42:                                               ; preds = %22
+  br i1 %28, label %43, label %48
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %46 = load i8, ptr %45, align 2, !range !7, !noundef !8
-  %47 = trunc nuw i8 %46 to i1
-  %48 = select i1 %47, i32 1, i32 -1
+43:                                               ; preds = %42
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %45 = load i8, ptr %44, align 2, !range !7, !noundef !8
+  %46 = trunc nuw i8 %45 to i1
+  %47 = select i1 %46, i32 1, i32 -1
   br label %range_cmp_bounds.exit
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %52 = load i32, ptr %51, align 4
-  %53 = load i64, ptr %6, align 8
-  %54 = load i64, ptr %5, align 8
-  %55 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %50, i32 noundef %52, i64 noundef %53, i64 noundef %54) #14
-  %56 = trunc i64 %55 to i32
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %range_cmp_bounds.exit
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %51 = load i32, ptr %50, align 4
+  %52 = load i64, ptr %6, align 8
+  %53 = load i64, ptr %5, align 8
+  %54 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %49, i32 noundef %51, i64 noundef %52, i64 noundef %53) #14
+  %55 = trunc i64 %54 to i32
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %range_cmp_bounds.exit
 
-58:                                               ; preds = %49
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %60 = load i8, ptr %59, align 1, !range !7, !noundef !8
-  %61 = trunc nuw i8 %60 to i1
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %63 = load i8, ptr %62, align 1, !range !7, !noundef !8
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %61, label %78, label %65
+57:                                               ; preds = %48
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %59 = load i8, ptr %58, align 1, !range !7, !noundef !8
+  %60 = trunc nuw i8 %59 to i1
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %62 = load i8, ptr %61, align 1, !range !7, !noundef !8
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %60, label %77, label %64
 
-65:                                               ; preds = %58
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %67 = load i8, ptr %66, align 2, !range !7, !noundef !8
-  br i1 %64, label %75, label %68
+64:                                               ; preds = %57
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %66 = load i8, ptr %65, align 2, !range !7, !noundef !8
+  br i1 %63, label %74, label %67
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %70 = load i8, ptr %69, align 2, !range !7, !noundef !8
-  %71 = icmp eq i8 %67, %70
-  br i1 %71, label %range_cmp_bounds.exit, label %72
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %69 = load i8, ptr %68, align 2, !range !7, !noundef !8
+  %70 = icmp eq i8 %66, %69
+  br i1 %70, label %range_cmp_bounds.exit, label %71
 
-72:                                               ; preds = %68
-  %73 = trunc nuw i8 %67 to i1
-  %74 = select i1 %73, i32 1, i32 -1
+71:                                               ; preds = %67
+  %72 = trunc nuw i8 %66 to i1
+  %73 = select i1 %72, i32 1, i32 -1
   br label %range_cmp_bounds.exit
 
-75:                                               ; preds = %65
-  %76 = trunc nuw i8 %67 to i1
-  %77 = select i1 %76, i32 1, i32 -1
+74:                                               ; preds = %64
+  %75 = trunc nuw i8 %66 to i1
+  %76 = select i1 %75, i32 1, i32 -1
   br label %range_cmp_bounds.exit
 
-78:                                               ; preds = %58
-  br i1 %64, label %range_cmp_bounds.exit, label %79
+77:                                               ; preds = %57
+  br i1 %63, label %range_cmp_bounds.exit, label %78
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %81 = load i8, ptr %80, align 2, !range !7, !noundef !8
-  %82 = trunc nuw i8 %81 to i1
-  %83 = select i1 %82, i32 -1, i32 1
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %80 = load i8, ptr %79, align 2, !range !7, !noundef !8
+  %81 = trunc nuw i8 %80 to i1
+  %82 = select i1 %81, i32 -1, i32 1
   br label %range_cmp_bounds.exit
 
-range_cmp_bounds.exit:                            ; preds = %33, %37, %40, %44, %49, %68, %72, %75, %78, %79
-  %.0.i = phi i32 [ %39, %37 ], [ %42, %40 ], [ %48, %44 ], [ %83, %79 ], [ %77, %75 ], [ %74, %72 ], [ 0, %33 ], [ 0, %68 ], [ 0, %78 ], [ %56, %49 ]
-  %84 = icmp slt i32 %.0.i, 0
-  br label %85
+range_cmp_bounds.exit:                            ; preds = %32, %36, %39, %43, %48, %67, %71, %74, %77, %78
+  %.0.i = phi i32 [ %38, %36 ], [ %41, %39 ], [ %47, %43 ], [ %82, %78 ], [ %76, %74 ], [ %73, %71 ], [ 0, %32 ], [ 0, %67 ], [ 0, %77 ], [ %55, %48 ]
+  %83 = icmp slt i32 %.0.i, 0
+  br label %84
 
-85:                                               ; preds = %17, %20, %range_cmp_bounds.exit
-  %.0 = phi i1 [ %84, %range_cmp_bounds.exit ], [ false, %20 ], [ false, %17 ]
+84:                                               ; preds = %17, %range_cmp_bounds.exit
+  %.0 = phi i1 [ %83, %range_cmp_bounds.exit ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
@@ -2894,111 +2863,109 @@ define dso_local zeroext i1 @range_after_internal(ptr noundef %0, ptr noundef %1
   call void @range_deserialize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %18 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %85, label %20
+  %20 = load i8, ptr %9, align 1, !range !7
+  %21 = trunc nuw i8 %20 to i1
+  %or.cond = select i1 %19, i1 true, i1 %21
+  br i1 %or.cond, label %84, label %22
 
-20:                                               ; preds = %17
-  %21 = load i8, ptr %9, align 1, !range !7, !noundef !8
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %85, label %23
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %24 = load i8, ptr %23, align 8, !range !7, !noundef !8
+  %25 = trunc nuw i8 %24 to i1
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %27 = load i8, ptr %26, align 8, !range !7, !noundef !8
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %25, label %29, label %42
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %25 = load i8, ptr %24, align 8, !range !7, !noundef !8
-  %26 = trunc nuw i8 %25 to i1
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %28 = load i8, ptr %27, align 8, !range !7, !noundef !8
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %26, label %30, label %43
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %31 = load i8, ptr %30, align 2, !range !7, !noundef !8
+  br i1 %28, label %32, label %39
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %32 = load i8, ptr %31, align 2, !range !7, !noundef !8
-  br i1 %29, label %33, label %40
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %34 = load i8, ptr %33, align 2, !range !7, !noundef !8
+  %35 = icmp eq i8 %31, %34
+  br i1 %35, label %range_cmp_bounds.exit, label %36
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %35 = load i8, ptr %34, align 2, !range !7, !noundef !8
-  %36 = icmp eq i8 %32, %35
-  br i1 %36, label %range_cmp_bounds.exit, label %37
-
-37:                                               ; preds = %33
-  %38 = trunc nuw i8 %32 to i1
-  %39 = select i1 %38, i32 -1, i32 1
+36:                                               ; preds = %32
+  %37 = trunc nuw i8 %31 to i1
+  %38 = select i1 %37, i32 -1, i32 1
   br label %range_cmp_bounds.exit
 
-40:                                               ; preds = %30
-  %41 = trunc nuw i8 %32 to i1
-  %42 = select i1 %41, i32 -1, i32 1
+39:                                               ; preds = %29
+  %40 = trunc nuw i8 %31 to i1
+  %41 = select i1 %40, i32 -1, i32 1
   br label %range_cmp_bounds.exit
 
-43:                                               ; preds = %23
-  br i1 %29, label %44, label %49
+42:                                               ; preds = %22
+  br i1 %28, label %43, label %48
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %46 = load i8, ptr %45, align 2, !range !7, !noundef !8
-  %47 = trunc nuw i8 %46 to i1
-  %48 = select i1 %47, i32 1, i32 -1
+43:                                               ; preds = %42
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %45 = load i8, ptr %44, align 2, !range !7, !noundef !8
+  %46 = trunc nuw i8 %45 to i1
+  %47 = select i1 %46, i32 1, i32 -1
   br label %range_cmp_bounds.exit
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %52 = load i32, ptr %51, align 4
-  %53 = load i64, ptr %4, align 8
-  %54 = load i64, ptr %7, align 8
-  %55 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %50, i32 noundef %52, i64 noundef %53, i64 noundef %54) #14
-  %56 = trunc i64 %55 to i32
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %range_cmp_bounds.exit
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %51 = load i32, ptr %50, align 4
+  %52 = load i64, ptr %4, align 8
+  %53 = load i64, ptr %7, align 8
+  %54 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %49, i32 noundef %51, i64 noundef %52, i64 noundef %53) #14
+  %55 = trunc i64 %54 to i32
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %range_cmp_bounds.exit
 
-58:                                               ; preds = %49
-  %59 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %60 = load i8, ptr %59, align 1, !range !7, !noundef !8
-  %61 = trunc nuw i8 %60 to i1
-  %62 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %63 = load i8, ptr %62, align 1, !range !7, !noundef !8
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %61, label %78, label %65
+57:                                               ; preds = %48
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %59 = load i8, ptr %58, align 1, !range !7, !noundef !8
+  %60 = trunc nuw i8 %59 to i1
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %62 = load i8, ptr %61, align 1, !range !7, !noundef !8
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %60, label %77, label %64
 
-65:                                               ; preds = %58
-  %66 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %67 = load i8, ptr %66, align 2, !range !7, !noundef !8
-  br i1 %64, label %75, label %68
+64:                                               ; preds = %57
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %66 = load i8, ptr %65, align 2, !range !7, !noundef !8
+  br i1 %63, label %74, label %67
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %70 = load i8, ptr %69, align 2, !range !7, !noundef !8
-  %71 = icmp eq i8 %67, %70
-  br i1 %71, label %range_cmp_bounds.exit, label %72
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %69 = load i8, ptr %68, align 2, !range !7, !noundef !8
+  %70 = icmp eq i8 %66, %69
+  br i1 %70, label %range_cmp_bounds.exit, label %71
 
-72:                                               ; preds = %68
-  %73 = trunc nuw i8 %67 to i1
-  %74 = select i1 %73, i32 1, i32 -1
+71:                                               ; preds = %67
+  %72 = trunc nuw i8 %66 to i1
+  %73 = select i1 %72, i32 1, i32 -1
   br label %range_cmp_bounds.exit
 
-75:                                               ; preds = %65
-  %76 = trunc nuw i8 %67 to i1
-  %77 = select i1 %76, i32 1, i32 -1
+74:                                               ; preds = %64
+  %75 = trunc nuw i8 %66 to i1
+  %76 = select i1 %75, i32 1, i32 -1
   br label %range_cmp_bounds.exit
 
-78:                                               ; preds = %58
-  br i1 %64, label %range_cmp_bounds.exit, label %79
+77:                                               ; preds = %57
+  br i1 %63, label %range_cmp_bounds.exit, label %78
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %81 = load i8, ptr %80, align 2, !range !7, !noundef !8
-  %82 = trunc nuw i8 %81 to i1
-  %83 = select i1 %82, i32 -1, i32 1
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %80 = load i8, ptr %79, align 2, !range !7, !noundef !8
+  %81 = trunc nuw i8 %80 to i1
+  %82 = select i1 %81, i32 -1, i32 1
   br label %range_cmp_bounds.exit
 
-range_cmp_bounds.exit:                            ; preds = %33, %37, %40, %44, %49, %68, %72, %75, %78, %79
-  %.0.i = phi i32 [ %39, %37 ], [ %42, %40 ], [ %48, %44 ], [ %83, %79 ], [ %77, %75 ], [ %74, %72 ], [ 0, %33 ], [ 0, %68 ], [ 0, %78 ], [ %56, %49 ]
-  %84 = icmp sgt i32 %.0.i, 0
-  br label %85
+range_cmp_bounds.exit:                            ; preds = %32, %36, %39, %43, %48, %67, %71, %74, %77, %78
+  %.0.i = phi i32 [ %38, %36 ], [ %41, %39 ], [ %47, %43 ], [ %82, %78 ], [ %76, %74 ], [ %73, %71 ], [ 0, %32 ], [ 0, %67 ], [ 0, %77 ], [ %55, %48 ]
+  %83 = icmp sgt i32 %.0.i, 0
+  br label %84
 
-85:                                               ; preds = %17, %20, %range_cmp_bounds.exit
-  %.0 = phi i1 [ %84, %range_cmp_bounds.exit ], [ false, %20 ], [ false, %17 ]
+84:                                               ; preds = %17, %range_cmp_bounds.exit
+  %.0 = phi i1 [ %83, %range_cmp_bounds.exit ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
@@ -3245,218 +3212,216 @@ define dso_local zeroext i1 @range_adjacent_internal(ptr noundef %0, ptr noundef
   call void @range_deserialize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %13)
   %22 = load i8, ptr %12, align 1, !range !7, !noundef !8
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %134, label %24
+  %24 = load i8, ptr %13, align 1, !range !7
+  %25 = trunc nuw i8 %24 to i1
+  %or.cond = select i1 %23, i1 true, i1 %25
+  br i1 %or.cond, label %133, label %26
 
-24:                                               ; preds = %21
-  %25 = load i8, ptr %13, align 1, !range !7, !noundef !8
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %134, label %27
-
-27:                                               ; preds = %24
-  %28 = load i64, ptr %10, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = load i64, ptr %9, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %33 = load i64, ptr %32, align 8
+26:                                               ; preds = %21
+  %27 = load i64, ptr %10, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = load i64, ptr %9, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %32 = load i64, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  store i64 %28, ptr %6, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %30, ptr %34, align 8
-  store i64 %31, ptr %7, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %33, ptr %35, align 8
-  %36 = trunc i64 %30 to i1
-  %37 = trunc i64 %33 to i1
-  %38 = lshr i64 %33, 16
-  %39 = trunc i64 %38 to i8
-  %40 = lshr i64 %30, 16
-  %41 = trunc i64 %40 to i8
-  %42 = lshr i64 %30, 8
-  %43 = trunc i64 %42 to i8
-  %44 = lshr i64 %33, 8
-  %45 = trunc i64 %44 to i8
-  br i1 %36, label %46, label %53
+  store i64 %27, ptr %6, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %29, ptr %33, align 8
+  store i64 %30, ptr %7, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %32, ptr %34, align 8
+  %35 = trunc i64 %29 to i1
+  %36 = trunc i64 %32 to i1
+  %37 = lshr i64 %32, 16
+  %38 = trunc i64 %37 to i8
+  %39 = lshr i64 %29, 16
+  %40 = trunc i64 %39 to i8
+  %41 = lshr i64 %29, 8
+  %42 = trunc i64 %41 to i8
+  %43 = lshr i64 %32, 8
+  %44 = trunc i64 %43 to i8
+  br i1 %35, label %45, label %52
 
-46:                                               ; preds = %27
-  br i1 %37, label %47, label %51
+45:                                               ; preds = %26
+  br i1 %36, label %46, label %50
 
-47:                                               ; preds = %46
-  %48 = icmp eq i8 %41, %39
-  br i1 %48, label %range_cmp_bound_values.exit.thread.thread15.i, label %49
+46:                                               ; preds = %45
+  %47 = icmp eq i8 %40, %38
+  br i1 %47, label %range_cmp_bound_values.exit.thread.thread15.i, label %48
 
-49:                                               ; preds = %47
-  %50 = trunc i64 %40 to i1
-  br i1 %50, label %range_cmp_bound_values.exit.thread12.i, label %bounds_adjacent.exit.thread
+48:                                               ; preds = %46
+  %49 = trunc i64 %39 to i1
+  br i1 %49, label %range_cmp_bound_values.exit.thread12.i, label %bounds_adjacent.exit.thread
 
-51:                                               ; preds = %46
-  %52 = trunc i64 %40 to i1
-  br i1 %52, label %range_cmp_bound_values.exit.thread12.i, label %bounds_adjacent.exit.thread
+50:                                               ; preds = %45
+  %51 = trunc i64 %39 to i1
+  br i1 %51, label %range_cmp_bound_values.exit.thread12.i, label %bounds_adjacent.exit.thread
 
-53:                                               ; preds = %27
-  br i1 %37, label %54, label %range_cmp_bound_values.exit.i
+52:                                               ; preds = %26
+  br i1 %36, label %53, label %range_cmp_bound_values.exit.i
 
-54:                                               ; preds = %53
-  %55 = trunc i64 %38 to i1
-  br i1 %55, label %bounds_adjacent.exit.thread, label %range_cmp_bound_values.exit.thread12.i
+53:                                               ; preds = %52
+  %54 = trunc i64 %37 to i1
+  br i1 %54, label %bounds_adjacent.exit.thread, label %range_cmp_bound_values.exit.thread12.i
 
-range_cmp_bound_values.exit.i:                    ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %58 = load i32, ptr %57, align 4
-  %59 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %56, i32 noundef %58, i64 noundef %28, i64 noundef %31) #14
-  %60 = trunc i64 %59 to i32
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %range_cmp_bound_values.exit.thread12.i, label %range_cmp_bound_values.exit.thread.i
+range_cmp_bound_values.exit.i:                    ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %57 = load i32, ptr %56, align 4
+  %58 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %55, i32 noundef %57, i64 noundef %27, i64 noundef %30) #14
+  %59 = trunc i64 %58 to i32
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %range_cmp_bound_values.exit.thread12.i, label %range_cmp_bound_values.exit.thread.i
 
-range_cmp_bound_values.exit.thread12.i:           ; preds = %range_cmp_bound_values.exit.i, %54, %51, %49
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %63 = load i32, ptr %62, align 8
-  %.not.i = icmp eq i32 %63, 0
+range_cmp_bound_values.exit.thread12.i:           ; preds = %range_cmp_bound_values.exit.i, %53, %50, %48
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %62 = load i32, ptr %61, align 8
+  %.not.i = icmp eq i32 %62, 0
   br i1 %.not.i, label %bounds_adjacent.exit.thread, label %bounds_adjacent.exit
 
 range_cmp_bound_values.exit.thread.i:             ; preds = %range_cmp_bound_values.exit.i
-  %64 = icmp eq i32 %60, 0
-  br i1 %64, label %range_cmp_bound_values.exit.thread.thread15.i, label %bounds_adjacent.exit.thread
+  %63 = icmp eq i32 %59, 0
+  br i1 %63, label %range_cmp_bound_values.exit.thread.thread15.i, label %bounds_adjacent.exit.thread
 
-range_cmp_bound_values.exit.thread.thread15.i:    ; preds = %range_cmp_bound_values.exit.thread.i, %47
-  %.not18 = icmp eq i8 %43, %45
+range_cmp_bound_values.exit.thread.thread15.i:    ; preds = %range_cmp_bound_values.exit.thread.i, %46
+  %.not19 = icmp eq i8 %42, %44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br i1 %.not18, label %79, label %134
+  br i1 %.not19, label %78, label %133
 
-bounds_adjacent.exit.thread:                      ; preds = %range_cmp_bound_values.exit.thread12.i, %range_cmp_bound_values.exit.thread.i, %51, %49, %54
+bounds_adjacent.exit.thread:                      ; preds = %range_cmp_bound_values.exit.thread12.i, %range_cmp_bound_values.exit.thread.i, %50, %48, %53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %79
+  br label %78
 
 bounds_adjacent.exit:                             ; preds = %range_cmp_bound_values.exit.thread12.i
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %66 = xor i8 %43, 1
-  store i8 %66, ptr %65, align 1
-  %67 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %68 = xor i8 %45, 1
-  store i8 %68, ptr %67, align 1
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i8 1, ptr %69, align 2
-  %70 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  store i8 0, ptr %70, align 2
-  %71 = call ptr @make_range(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false, ptr noundef null)
-  %72 = load i32, ptr %71, align 4
-  %73 = lshr i32 %72, 2
-  %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 %74
-  %76 = getelementptr inbounds i8, ptr %75, i64 -1
-  %77 = load i8, ptr %76, align 1
-  %78 = and i8 %77, 1
-  %.not17 = icmp eq i8 %78, 0
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %65 = xor i8 %42, 1
+  store i8 %65, ptr %64, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %67 = xor i8 %44, 1
+  store i8 %67, ptr %66, align 1
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i8 1, ptr %68, align 2
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  store i8 0, ptr %69, align 2
+  %70 = call ptr @make_range(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false, ptr noundef null)
+  %71 = load i32, ptr %70, align 4
+  %72 = lshr i32 %71, 2
+  %73 = zext nneg i32 %72 to i64
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 %73
+  %75 = getelementptr inbounds i8, ptr %74, i64 -1
+  %76 = load i8, ptr %75, align 1
+  %77 = and i8 %76, 1
+  %.not18 = icmp eq i8 %77, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br i1 %.not17, label %79, label %134
+  br i1 %.not18, label %78, label %133
 
-79:                                               ; preds = %range_cmp_bound_values.exit.thread.thread15.i, %bounds_adjacent.exit.thread, %bounds_adjacent.exit
-  %80 = load i64, ptr %11, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %82 = load i64, ptr %81, align 8
-  %83 = load i64, ptr %8, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %85 = load i64, ptr %84, align 8
+78:                                               ; preds = %range_cmp_bound_values.exit.thread.thread15.i, %bounds_adjacent.exit.thread, %bounds_adjacent.exit
+  %79 = load i64, ptr %11, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %81 = load i64, ptr %80, align 8
+  %82 = load i64, ptr %8, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %84 = load i64, ptr %83, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  store i64 %80, ptr %4, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %82, ptr %86, align 8
-  store i64 %83, ptr %5, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %85, ptr %87, align 8
-  %88 = trunc i64 %82 to i1
-  %89 = trunc i64 %85 to i1
-  %90 = lshr i64 %85, 16
-  %91 = trunc i64 %90 to i8
-  %92 = lshr i64 %82, 16
-  %93 = trunc i64 %92 to i8
-  %94 = lshr i64 %82, 8
-  %95 = trunc i64 %94 to i8
-  %96 = lshr i64 %85, 8
-  %97 = trunc i64 %96 to i8
-  br i1 %88, label %98, label %105
+  store i64 %79, ptr %4, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %81, ptr %85, align 8
+  store i64 %82, ptr %5, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %84, ptr %86, align 8
+  %87 = trunc i64 %81 to i1
+  %88 = trunc i64 %84 to i1
+  %89 = lshr i64 %84, 16
+  %90 = trunc i64 %89 to i8
+  %91 = lshr i64 %81, 16
+  %92 = trunc i64 %91 to i8
+  %93 = lshr i64 %81, 8
+  %94 = trunc i64 %93 to i8
+  %95 = lshr i64 %84, 8
+  %96 = trunc i64 %95 to i8
+  br i1 %87, label %97, label %104
 
-98:                                               ; preds = %79
-  br i1 %89, label %99, label %103
+97:                                               ; preds = %78
+  br i1 %88, label %98, label %102
 
-99:                                               ; preds = %98
-  %100 = icmp eq i8 %93, %91
-  br i1 %100, label %range_cmp_bound_values.exit.thread.thread15.i12, label %101
+98:                                               ; preds = %97
+  %99 = icmp eq i8 %92, %90
+  br i1 %99, label %range_cmp_bound_values.exit.thread.thread15.i13, label %100
 
-101:                                              ; preds = %99
-  %102 = trunc i64 %92 to i1
-  br i1 %102, label %range_cmp_bound_values.exit.thread12.i13, label %bounds_adjacent.exit15
+100:                                              ; preds = %98
+  %101 = trunc i64 %91 to i1
+  br i1 %101, label %range_cmp_bound_values.exit.thread12.i14, label %bounds_adjacent.exit16
 
-103:                                              ; preds = %98
-  %104 = trunc i64 %92 to i1
-  br i1 %104, label %range_cmp_bound_values.exit.thread12.i13, label %bounds_adjacent.exit15
+102:                                              ; preds = %97
+  %103 = trunc i64 %91 to i1
+  br i1 %103, label %range_cmp_bound_values.exit.thread12.i14, label %bounds_adjacent.exit16
 
-105:                                              ; preds = %79
-  br i1 %89, label %106, label %range_cmp_bound_values.exit.i9
+104:                                              ; preds = %78
+  br i1 %88, label %105, label %range_cmp_bound_values.exit.i10
 
-106:                                              ; preds = %105
-  %107 = trunc i64 %90 to i1
-  br i1 %107, label %bounds_adjacent.exit15, label %range_cmp_bound_values.exit.thread12.i13
+105:                                              ; preds = %104
+  %106 = trunc i64 %89 to i1
+  br i1 %106, label %bounds_adjacent.exit16, label %range_cmp_bound_values.exit.thread12.i14
 
-range_cmp_bound_values.exit.i9:                   ; preds = %105
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %110 = load i32, ptr %109, align 4
-  %111 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %108, i32 noundef %110, i64 noundef %80, i64 noundef %83) #14
-  %112 = trunc i64 %111 to i32
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %range_cmp_bound_values.exit.thread12.i13, label %range_cmp_bound_values.exit.thread.i10
+range_cmp_bound_values.exit.i10:                  ; preds = %104
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %109 = load i32, ptr %108, align 4
+  %110 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %107, i32 noundef %109, i64 noundef %79, i64 noundef %82) #14
+  %111 = trunc i64 %110 to i32
+  %112 = icmp slt i32 %111, 0
+  br i1 %112, label %range_cmp_bound_values.exit.thread12.i14, label %range_cmp_bound_values.exit.thread.i11
 
-range_cmp_bound_values.exit.thread12.i13:         ; preds = %range_cmp_bound_values.exit.i9, %106, %103, %101
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %115 = load i32, ptr %114, align 8
-  %.not.i14 = icmp eq i32 %115, 0
-  br i1 %.not.i14, label %bounds_adjacent.exit15, label %116
+range_cmp_bound_values.exit.thread12.i14:         ; preds = %range_cmp_bound_values.exit.i10, %105, %102, %100
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %114 = load i32, ptr %113, align 8
+  %.not.i15 = icmp eq i32 %114, 0
+  br i1 %.not.i15, label %bounds_adjacent.exit16, label %115
 
-116:                                              ; preds = %range_cmp_bound_values.exit.thread12.i13
-  %117 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %118 = xor i8 %95, 1
-  store i8 %118, ptr %117, align 1
-  %119 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %120 = xor i8 %97, 1
-  store i8 %120, ptr %119, align 1
-  %121 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i8 1, ptr %121, align 2
-  %122 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i8 0, ptr %122, align 2
-  %123 = call ptr @make_range(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef null)
-  %124 = load i32, ptr %123, align 4
-  %125 = lshr i32 %124, 2
-  %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 %126
-  %128 = getelementptr inbounds i8, ptr %127, i64 -1
-  %129 = load i8, ptr %128, align 1
-  %130 = and i8 %129, 1
-  %131 = icmp ne i8 %130, 0
-  br label %bounds_adjacent.exit15
+115:                                              ; preds = %range_cmp_bound_values.exit.thread12.i14
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %117 = xor i8 %94, 1
+  store i8 %117, ptr %116, align 1
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %119 = xor i8 %96, 1
+  store i8 %119, ptr %118, align 1
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  store i8 1, ptr %120, align 2
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  store i8 0, ptr %121, align 2
+  %122 = call ptr @make_range(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef null)
+  %123 = load i32, ptr %122, align 4
+  %124 = lshr i32 %123, 2
+  %125 = zext nneg i32 %124 to i64
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 %125
+  %127 = getelementptr inbounds i8, ptr %126, i64 -1
+  %128 = load i8, ptr %127, align 1
+  %129 = and i8 %128, 1
+  %130 = icmp ne i8 %129, 0
+  br label %bounds_adjacent.exit16
 
-range_cmp_bound_values.exit.thread.i10:           ; preds = %range_cmp_bound_values.exit.i9
-  %132 = icmp eq i32 %112, 0
-  br i1 %132, label %range_cmp_bound_values.exit.thread.thread15.i12, label %bounds_adjacent.exit15
+range_cmp_bound_values.exit.thread.i11:           ; preds = %range_cmp_bound_values.exit.i10
+  %131 = icmp eq i32 %111, 0
+  br i1 %131, label %range_cmp_bound_values.exit.thread.thread15.i13, label %bounds_adjacent.exit16
 
-range_cmp_bound_values.exit.thread.thread15.i12:  ; preds = %range_cmp_bound_values.exit.thread.i10, %99
-  %133 = icmp ne i8 %95, %97
-  br label %bounds_adjacent.exit15
+range_cmp_bound_values.exit.thread.thread15.i13:  ; preds = %range_cmp_bound_values.exit.thread.i11, %98
+  %132 = icmp ne i8 %94, %96
+  br label %bounds_adjacent.exit16
 
-bounds_adjacent.exit15:                           ; preds = %101, %103, %106, %range_cmp_bound_values.exit.thread12.i13, %116, %range_cmp_bound_values.exit.thread.i10, %range_cmp_bound_values.exit.thread.thread15.i12
-  %.1.i11 = phi i1 [ %133, %range_cmp_bound_values.exit.thread.thread15.i12 ], [ %131, %116 ], [ false, %range_cmp_bound_values.exit.thread12.i13 ], [ false, %range_cmp_bound_values.exit.thread.i10 ], [ false, %103 ], [ false, %101 ], [ false, %106 ]
+bounds_adjacent.exit16:                           ; preds = %100, %102, %105, %range_cmp_bound_values.exit.thread12.i14, %115, %range_cmp_bound_values.exit.thread.i11, %range_cmp_bound_values.exit.thread.thread15.i13
+  %.1.i12 = phi i1 [ %132, %range_cmp_bound_values.exit.thread.thread15.i13 ], [ %130, %115 ], [ false, %range_cmp_bound_values.exit.thread12.i14 ], [ false, %range_cmp_bound_values.exit.thread.i11 ], [ false, %102 ], [ false, %100 ], [ false, %105 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %134
+  br label %133
 
-134:                                              ; preds = %range_cmp_bound_values.exit.thread.thread15.i, %bounds_adjacent.exit, %bounds_adjacent.exit15, %21, %24
-  %.0 = phi i1 [ false, %24 ], [ false, %21 ], [ true, %bounds_adjacent.exit ], [ %.1.i11, %bounds_adjacent.exit15 ], [ true, %range_cmp_bound_values.exit.thread.thread15.i ]
+133:                                              ; preds = %range_cmp_bound_values.exit.thread.thread15.i, %bounds_adjacent.exit, %bounds_adjacent.exit16, %21
+  %.0 = phi i1 [ false, %21 ], [ true, %bounds_adjacent.exit ], [ %.1.i12, %bounds_adjacent.exit16 ], [ true, %range_cmp_bound_values.exit.thread.thread15.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #14
@@ -3549,397 +3514,373 @@ define dso_local noundef zeroext i1 @range_overlaps_internal(ptr noundef %0, ptr
   call void @range_deserialize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %18 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %range_cmp_bounds.exit12.thread, label %20
+  %20 = load i8, ptr %9, align 1, !range !7
+  %21 = trunc nuw i8 %20 to i1
+  %or.cond = select i1 %19, i1 true, i1 %21
+  br i1 %or.cond, label %range_cmp_bounds.exit13.thread, label %22
 
-20:                                               ; preds = %17
-  %21 = load i8, ptr %9, align 1, !range !7, !noundef !8
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %range_cmp_bounds.exit12.thread, label %23
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %24 = load i8, ptr %23, align 8, !range !7, !noundef !8
+  %25 = trunc nuw i8 %24 to i1
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %27 = load i8, ptr %26, align 8, !range !7, !noundef !8
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %25, label %29, label %39
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %25 = load i8, ptr %24, align 8, !range !7, !noundef !8
-  %26 = trunc nuw i8 %25 to i1
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %28 = load i8, ptr %27, align 8, !range !7, !noundef !8
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %26, label %30, label %41
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %31 = load i8, ptr %30, align 2, !range !7, !noundef !8
+  br i1 %28, label %32, label %37
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %32 = load i8, ptr %31, align 2, !range !7, !noundef !8
-  br i1 %29, label %33, label %39
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %34 = load i8, ptr %33, align 2, !range !7, !noundef !8
+  %35 = icmp ne i8 %31, %34
+  %36 = trunc nuw i8 %31 to i1
+  %or.cond70 = select i1 %35, i1 %36, i1 false
+  br i1 %or.cond70, label %range_cmp_bounds.exit.thread25.thread67.thread, label %78
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %35 = load i8, ptr %34, align 2, !range !7, !noundef !8
-  %36 = icmp eq i8 %32, %35
-  br i1 %36, label %82, label %37
+37:                                               ; preds = %29
+  %38 = trunc nuw i8 %31 to i1
+  br i1 %38, label %select.unfold45, label %78
 
-37:                                               ; preds = %33
-  %38 = trunc nuw i8 %32 to i1
-  br i1 %38, label %range_cmp_bounds.exit.thread24.thread66.thread, label %82
+39:                                               ; preds = %22
+  br i1 %28, label %40, label %44
 
-39:                                               ; preds = %30
-  %40 = trunc nuw i8 %32 to i1
-  br i1 %40, label %select.unfold44, label %82
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %42 = load i8, ptr %41, align 2, !range !7, !noundef !8
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %select.unfold19, label %range_cmp_bounds.exit.thread25.thread67.thread68.thread
 
-41:                                               ; preds = %23
-  br i1 %29, label %42, label %46
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %47 = load i32, ptr %46, align 4
+  %48 = load i64, ptr %4, align 8
+  %49 = load i64, ptr %5, align 8
+  %50 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %45, i32 noundef %47, i64 noundef %48, i64 noundef %49) #14
+  %51 = trunc i64 %50 to i32
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %range_cmp_bounds.exit
 
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %44 = load i8, ptr %43, align 2, !range !7, !noundef !8
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %select.unfold18, label %range_cmp_bounds.exit.thread24.thread66.thread67.thread
+53:                                               ; preds = %44
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %55 = load i8, ptr %54, align 1, !range !7, !noundef !8
+  %56 = trunc nuw i8 %55 to i1
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %58 = load i8, ptr %57, align 1, !range !7, !noundef !8
+  %59 = trunc nuw i8 %58 to i1
+  br i1 %56, label %70, label %60
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %49 = load i32, ptr %48, align 4
-  %50 = load i64, ptr %4, align 8
-  %51 = load i64, ptr %5, align 8
-  %52 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %47, i32 noundef %49, i64 noundef %50, i64 noundef %51) #14
-  %53 = trunc i64 %52 to i32
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %range_cmp_bounds.exit
+60:                                               ; preds = %53
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %62 = load i8, ptr %61, align 2, !range !7, !noundef !8
+  br i1 %59, label %68, label %63
 
-55:                                               ; preds = %46
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %57 = load i8, ptr %56, align 1, !range !7, !noundef !8
-  %58 = trunc nuw i8 %57 to i1
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %60 = load i8, ptr %59, align 1, !range !7, !noundef !8
-  %61 = trunc nuw i8 %60 to i1
-  br i1 %58, label %73, label %62
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %65 = load i8, ptr %64, align 2, !range !7, !noundef !8
+  %66 = icmp eq i8 %62, %65
+  %67 = trunc nuw i8 %62 to i1
+  %or.cond71 = select i1 %66, i1 true, i1 %67
+  br i1 %or.cond71, label %select.unfold19, label %.thread42
 
-62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %64 = load i8, ptr %63, align 2, !range !7, !noundef !8
-  br i1 %61, label %71, label %65
+68:                                               ; preds = %60
+  %69 = trunc nuw i8 %62 to i1
+  br i1 %69, label %select.unfold19, label %.thread42
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %67 = load i8, ptr %66, align 2, !range !7, !noundef !8
-  %68 = icmp eq i8 %64, %67
-  br i1 %68, label %select.unfold18, label %69
+70:                                               ; preds = %53
+  %.not72 = xor i1 %59, true
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %72 = load i8, ptr %71, align 2, !range !7
+  %73 = trunc nuw i8 %72 to i1
+  %or.cond75 = select i1 %.not72, i1 %73, i1 false
+  br i1 %or.cond75, label %.thread42, label %select.unfold19
 
-69:                                               ; preds = %65
-  %70 = trunc nuw i8 %64 to i1
-  br i1 %70, label %select.unfold18, label %.thread41
-
-71:                                               ; preds = %62
-  %72 = trunc nuw i8 %64 to i1
-  br i1 %72, label %select.unfold18, label %.thread41
-
-73:                                               ; preds = %55
-  br i1 %61, label %select.unfold18, label %74
-
-74:                                               ; preds = %73
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %76 = load i8, ptr %75, align 2, !range !7, !noundef !8
-  %77 = trunc nuw i8 %76 to i1
-  br i1 %77, label %.thread41, label %select.unfold18
-
-range_cmp_bounds.exit:                            ; preds = %46
-  %78 = icmp sgt i32 %53, -1
-  br i1 %78, label %.thread, label %.thread41
+range_cmp_bounds.exit:                            ; preds = %44
+  %74 = icmp sgt i32 %51, -1
+  br i1 %74, label %.thread, label %.thread42
 
 .thread:                                          ; preds = %range_cmp_bounds.exit
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %76 = load i8, ptr %75, align 8, !range !7, !noundef !8
+  %77 = trunc nuw i8 %76 to i1
+  br i1 %77, label %92, label %96
+
+78:                                               ; preds = %32, %37
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %80 = load i8, ptr %79, align 8, !range !7, !noundef !8
   %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %97, label %101
+  br i1 %81, label %82, label %87
 
-82:                                               ; preds = %33, %39, %37
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %84 = load i8, ptr %83, align 8, !range !7, !noundef !8
-  %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %92
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %84 = load i8, ptr %83, align 2, !range !7, !noundef !8
+  %85 = icmp eq i8 %31, %84
+  %86 = trunc nuw i8 %31 to i1
+  %or.cond76 = select i1 %85, i1 true, i1 %86
+  br i1 %or.cond76, label %range_cmp_bounds.exit13.thread, label %range_cmp_bounds.exit.thread25
 
-86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %88 = load i8, ptr %87, align 2, !range !7, !noundef !8
-  %89 = icmp eq i8 %32, %88
-  br i1 %89, label %range_cmp_bounds.exit12.thread, label %90
+87:                                               ; preds = %78
+  %88 = trunc nuw i8 %31 to i1
+  br i1 %88, label %range_cmp_bounds.exit13.thread, label %range_cmp_bounds.exit.thread25
 
-90:                                               ; preds = %86
-  %91 = trunc nuw i8 %32 to i1
-  br i1 %91, label %range_cmp_bounds.exit12.thread, label %range_cmp_bounds.exit.thread24
+select.unfold19:                                  ; preds = %68, %40, %63, %70
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %90 = load i8, ptr %89, align 8, !range !7, !noundef !8
+  %91 = trunc nuw i8 %90 to i1
+  br i1 %91, label %92, label %select.unfold19._crit_edge
 
-92:                                               ; preds = %82
-  %93 = trunc nuw i8 %32 to i1
-  br i1 %93, label %range_cmp_bounds.exit12.thread, label %range_cmp_bounds.exit.thread24
-
-select.unfold18:                                  ; preds = %69, %71, %42, %74, %65, %73
-  %94 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %95 = load i8, ptr %94, align 8, !range !7, !noundef !8
-  %96 = trunc nuw i8 %95 to i1
-  br i1 %96, label %97, label %select.unfold18._crit_edge
-
-select.unfold18._crit_edge:                       ; preds = %select.unfold18
+select.unfold19._crit_edge:                       ; preds = %select.unfold19
   %.pre = load i64, ptr %4, align 8
-  br label %101
+  br label %96
 
-97:                                               ; preds = %.thread, %select.unfold18
-  %98 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %99 = load i8, ptr %98, align 2, !range !7, !noundef !8
-  %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %range_cmp_bounds.exit.thread24, label %range_cmp_bounds.exit12.thread
+92:                                               ; preds = %.thread, %select.unfold19
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %94 = load i8, ptr %93, align 2, !range !7, !noundef !8
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %range_cmp_bounds.exit.thread25, label %range_cmp_bounds.exit13.thread
 
-101:                                              ; preds = %select.unfold18._crit_edge, %.thread
-  %102 = phi i64 [ %.pre, %select.unfold18._crit_edge ], [ %50, %.thread ]
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %105 = load i32, ptr %104, align 4
-  %106 = load i64, ptr %7, align 8
-  %107 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %103, i32 noundef %105, i64 noundef %102, i64 noundef %106) #14
-  %108 = trunc i64 %107 to i32
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %range_cmp_bounds.exit12
+96:                                               ; preds = %select.unfold19._crit_edge, %.thread
+  %97 = phi i64 [ %.pre, %select.unfold19._crit_edge ], [ %48, %.thread ]
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %100 = load i32, ptr %99, align 4
+  %101 = load i64, ptr %7, align 8
+  %102 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %98, i32 noundef %100, i64 noundef %97, i64 noundef %101) #14
+  %103 = trunc i64 %102 to i32
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %105, label %range_cmp_bounds.exit13
 
-110:                                              ; preds = %101
-  %111 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %112 = load i8, ptr %111, align 1, !range !7, !noundef !8
-  %113 = trunc nuw i8 %112 to i1
-  %114 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %115 = load i8, ptr %114, align 1, !range !7, !noundef !8
-  %116 = trunc nuw i8 %115 to i1
-  br i1 %113, label %128, label %117
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %107 = load i8, ptr %106, align 1, !range !7, !noundef !8
+  %108 = trunc nuw i8 %107 to i1
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %110 = load i8, ptr %109, align 1, !range !7, !noundef !8
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %108, label %122, label %112
 
-117:                                              ; preds = %110
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %119 = load i8, ptr %118, align 2, !range !7, !noundef !8
-  br i1 %116, label %126, label %120
+112:                                              ; preds = %105
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %114 = load i8, ptr %113, align 2, !range !7, !noundef !8
+  br i1 %111, label %120, label %115
 
-120:                                              ; preds = %117
-  %121 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %122 = load i8, ptr %121, align 2, !range !7, !noundef !8
-  %123 = icmp eq i8 %119, %122
-  br i1 %123, label %range_cmp_bounds.exit12.thread, label %124
+115:                                              ; preds = %112
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %117 = load i8, ptr %116, align 2, !range !7, !noundef !8
+  %118 = icmp ne i8 %114, %117
+  %119 = trunc nuw i8 %114 to i1
+  %or.cond77 = select i1 %118, i1 %119, i1 false
+  br i1 %or.cond77, label %range_cmp_bounds.exit.thread25, label %range_cmp_bounds.exit13.thread
 
-124:                                              ; preds = %120
-  %125 = trunc nuw i8 %119 to i1
-  br i1 %125, label %range_cmp_bounds.exit.thread24, label %range_cmp_bounds.exit12.thread
+120:                                              ; preds = %112
+  %121 = trunc nuw i8 %114 to i1
+  br i1 %121, label %range_cmp_bounds.exit.thread25, label %range_cmp_bounds.exit13.thread
 
-126:                                              ; preds = %117
-  %127 = trunc nuw i8 %119 to i1
-  br i1 %127, label %range_cmp_bounds.exit.thread24, label %range_cmp_bounds.exit12.thread
+122:                                              ; preds = %105
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %124 = load i8, ptr %123, align 2, !range !7
+  %125 = trunc nuw i8 %124 to i1
+  %or.cond80 = select i1 %111, i1 true, i1 %125
+  br i1 %or.cond80, label %range_cmp_bounds.exit13.thread, label %range_cmp_bounds.exit.thread25
 
-128:                                              ; preds = %110
-  br i1 %116, label %range_cmp_bounds.exit12.thread, label %129
+range_cmp_bounds.exit13:                          ; preds = %96
+  %126 = icmp slt i32 %103, 1
+  br i1 %126, label %range_cmp_bounds.exit13.thread, label %.thread39
 
-129:                                              ; preds = %128
-  %130 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %131 = load i8, ptr %130, align 2, !range !7, !noundef !8
-  %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %range_cmp_bounds.exit12.thread, label %range_cmp_bounds.exit.thread24
+range_cmp_bounds.exit.thread25:                   ; preds = %122, %115, %82, %120, %92, %87
+  br i1 %28, label %range_cmp_bounds.exit.thread25.thread67, label %range_cmp_bounds.exit.thread25.thread
 
-range_cmp_bounds.exit12:                          ; preds = %101
-  %133 = icmp slt i32 %108, 1
-  br i1 %133, label %range_cmp_bounds.exit12.thread, label %.thread38
+.thread39:                                        ; preds = %range_cmp_bounds.exit13
+  br i1 %28, label %.thread40, label %.thread42
 
-range_cmp_bounds.exit.thread24:                   ; preds = %124, %126, %97, %129, %92, %90
-  br i1 %29, label %range_cmp_bounds.exit.thread24.thread66, label %range_cmp_bounds.exit.thread24.thread
+.thread40:                                        ; preds = %.thread39
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %128 = load i8, ptr %127, align 2, !range !7, !noundef !8
+  br label %range_cmp_bounds.exit.thread25.thread67.thread68
 
-.thread38:                                        ; preds = %range_cmp_bounds.exit12
-  br i1 %29, label %.thread39, label %.thread41
+range_cmp_bounds.exit.thread25.thread67:          ; preds = %range_cmp_bounds.exit.thread25
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %130 = load i8, ptr %129, align 2, !range !7, !noundef !8
+  br i1 %25, label %range_cmp_bounds.exit.thread25.thread67._crit_edge, label %range_cmp_bounds.exit.thread25.thread67.thread68
 
-.thread39:                                        ; preds = %.thread38
-  %134 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %135 = load i8, ptr %134, align 2, !range !7, !noundef !8
-  br label %range_cmp_bounds.exit.thread24.thread66.thread67
+range_cmp_bounds.exit.thread25.thread67._crit_edge: ; preds = %range_cmp_bounds.exit.thread25.thread67
+  %.phi.trans.insert95 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %.pre96 = load i8, ptr %.phi.trans.insert95, align 2, !range !7
+  br label %range_cmp_bounds.exit.thread25.thread67.thread
 
-range_cmp_bounds.exit.thread24.thread66:          ; preds = %range_cmp_bounds.exit.thread24
-  %136 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %137 = load i8, ptr %136, align 2, !range !7, !noundef !8
-  br i1 %26, label %range_cmp_bounds.exit.thread24.thread66._crit_edge, label %range_cmp_bounds.exit.thread24.thread66.thread67
+range_cmp_bounds.exit.thread25.thread67.thread:   ; preds = %32, %range_cmp_bounds.exit.thread25.thread67._crit_edge
+  %131 = phi i8 [ %.pre96, %range_cmp_bounds.exit.thread25.thread67._crit_edge ], [ 1, %32 ]
+  %132 = phi i8 [ %130, %range_cmp_bounds.exit.thread25.thread67._crit_edge ], [ %34, %32 ]
+  %133 = icmp ne i8 %132, %131
+  %134 = trunc nuw i8 %132 to i1
+  %or.cond81 = select i1 %133, i1 %134, i1 false
+  br i1 %or.cond81, label %range_cmp_bounds.exit15.thread51, label %range_cmp_bounds.exit.thread25.thread67.thread68.thread
 
-range_cmp_bounds.exit.thread24.thread66._crit_edge: ; preds = %range_cmp_bounds.exit.thread24.thread66
-  %.phi.trans.insert72 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %.pre73 = load i8, ptr %.phi.trans.insert72, align 2, !range !7
-  br label %range_cmp_bounds.exit.thread24.thread66.thread
+range_cmp_bounds.exit.thread25.thread67.thread68: ; preds = %.thread40, %range_cmp_bounds.exit.thread25.thread67
+  %135 = phi i8 [ %128, %.thread40 ], [ %130, %range_cmp_bounds.exit.thread25.thread67 ]
+  %136 = trunc nuw i8 %135 to i1
+  br i1 %136, label %range_cmp_bounds.exit15.thread51, label %range_cmp_bounds.exit.thread25.thread67.thread68.thread
 
-range_cmp_bounds.exit.thread24.thread66.thread:   ; preds = %37, %range_cmp_bounds.exit.thread24.thread66._crit_edge
-  %138 = phi i8 [ %.pre73, %range_cmp_bounds.exit.thread24.thread66._crit_edge ], [ 1, %37 ]
-  %139 = phi i8 [ %137, %range_cmp_bounds.exit.thread24.thread66._crit_edge ], [ %35, %37 ]
-  %140 = icmp eq i8 %139, %138
-  br i1 %140, label %range_cmp_bounds.exit.thread24.thread66.thread67.thread, label %141
+range_cmp_bounds.exit.thread25.thread:            ; preds = %range_cmp_bounds.exit.thread25
+  br i1 %25, label %range_cmp_bounds.exit.thread25.thread.thread69, label %range_cmp_bounds.exit.thread25.thread..thread42_crit_edge
 
-141:                                              ; preds = %range_cmp_bounds.exit.thread24.thread66.thread
-  %142 = trunc nuw i8 %139 to i1
-  br i1 %142, label %range_cmp_bounds.exit14.thread50, label %range_cmp_bounds.exit.thread24.thread66.thread67.thread
+range_cmp_bounds.exit.thread25.thread..thread42_crit_edge: ; preds = %range_cmp_bounds.exit.thread25.thread
+  %.pre92 = load i64, ptr %4, align 8
+  br label %.thread42
 
-range_cmp_bounds.exit.thread24.thread66.thread67: ; preds = %.thread39, %range_cmp_bounds.exit.thread24.thread66
-  %143 = phi i8 [ %135, %.thread39 ], [ %137, %range_cmp_bounds.exit.thread24.thread66 ]
-  %144 = trunc nuw i8 %143 to i1
-  br i1 %144, label %range_cmp_bounds.exit14.thread50, label %range_cmp_bounds.exit.thread24.thread66.thread67.thread
-
-range_cmp_bounds.exit.thread24.thread:            ; preds = %range_cmp_bounds.exit.thread24
-  br i1 %26, label %range_cmp_bounds.exit.thread24.thread.thread68, label %range_cmp_bounds.exit.thread24.thread..thread41_crit_edge
-
-range_cmp_bounds.exit.thread24.thread..thread41_crit_edge: ; preds = %range_cmp_bounds.exit.thread24.thread
-  %.pre69 = load i64, ptr %4, align 8
-  br label %.thread41
-
-range_cmp_bounds.exit.thread24.thread.thread68:   ; preds = %range_cmp_bounds.exit.thread24.thread
+range_cmp_bounds.exit.thread25.thread.thread69:   ; preds = %range_cmp_bounds.exit.thread25.thread
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %.pre70 = load i8, ptr %.phi.trans.insert, align 2, !range !7
-  %.pre74 = trunc nuw i8 %.pre70 to i1
-  br i1 %.pre74, label %select.unfold44, label %range_cmp_bounds.exit14.thread50
+  %.pre93 = load i8, ptr %.phi.trans.insert, align 2, !range !7
+  %.pre97 = trunc nuw i8 %.pre93 to i1
+  br i1 %.pre97, label %select.unfold45, label %range_cmp_bounds.exit15.thread51
 
-.thread41:                                        ; preds = %range_cmp_bounds.exit.thread24.thread..thread41_crit_edge, %74, %69, %71, %range_cmp_bounds.exit, %.thread38
-  %145 = phi i64 [ %.pre69, %range_cmp_bounds.exit.thread24.thread..thread41_crit_edge ], [ %50, %74 ], [ %50, %69 ], [ %50, %71 ], [ %50, %range_cmp_bounds.exit ], [ %102, %.thread38 ]
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %148 = load i32, ptr %147, align 4
-  %149 = load i64, ptr %5, align 8
-  %150 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %146, i32 noundef %148, i64 noundef %149, i64 noundef %145) #14
-  %151 = trunc i64 %150 to i32
-  %152 = icmp eq i32 %151, 0
-  br i1 %152, label %153, label %range_cmp_bounds.exit14
+.thread42:                                        ; preds = %range_cmp_bounds.exit.thread25.thread..thread42_crit_edge, %70, %63, %68, %range_cmp_bounds.exit, %.thread39
+  %137 = phi i64 [ %.pre92, %range_cmp_bounds.exit.thread25.thread..thread42_crit_edge ], [ %48, %70 ], [ %48, %63 ], [ %48, %68 ], [ %48, %range_cmp_bounds.exit ], [ %97, %.thread39 ]
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %140 = load i32, ptr %139, align 4
+  %141 = load i64, ptr %5, align 8
+  %142 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %138, i32 noundef %140, i64 noundef %141, i64 noundef %137) #14
+  %143 = trunc i64 %142 to i32
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %145, label %range_cmp_bounds.exit15
 
-153:                                              ; preds = %.thread41
-  %154 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %155 = load i8, ptr %154, align 1, !range !7, !noundef !8
-  %156 = trunc nuw i8 %155 to i1
-  %157 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %158 = load i8, ptr %157, align 1, !range !7, !noundef !8
-  %159 = trunc nuw i8 %158 to i1
-  br i1 %156, label %171, label %160
+145:                                              ; preds = %.thread42
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %147 = load i8, ptr %146, align 1, !range !7, !noundef !8
+  %148 = trunc nuw i8 %147 to i1
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %150 = load i8, ptr %149, align 1, !range !7, !noundef !8
+  %151 = trunc nuw i8 %150 to i1
+  br i1 %148, label %162, label %152
 
-160:                                              ; preds = %153
-  %161 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %162 = load i8, ptr %161, align 2, !range !7, !noundef !8
-  br i1 %159, label %169, label %163
+152:                                              ; preds = %145
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %154 = load i8, ptr %153, align 2, !range !7, !noundef !8
+  br i1 %151, label %160, label %155
 
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %165 = load i8, ptr %164, align 2, !range !7, !noundef !8
-  %166 = icmp eq i8 %162, %165
-  br i1 %166, label %select.unfold44, label %167
+155:                                              ; preds = %152
+  %156 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %157 = load i8, ptr %156, align 2, !range !7, !noundef !8
+  %158 = icmp eq i8 %154, %157
+  %159 = trunc nuw i8 %154 to i1
+  %or.cond82 = select i1 %158, i1 true, i1 %159
+  br i1 %or.cond82, label %select.unfold45, label %range_cmp_bounds.exit15.thread51
 
-167:                                              ; preds = %163
-  %168 = trunc nuw i8 %162 to i1
-  br i1 %168, label %select.unfold44, label %range_cmp_bounds.exit14.thread50
+160:                                              ; preds = %152
+  %161 = trunc nuw i8 %154 to i1
+  br i1 %161, label %select.unfold45, label %range_cmp_bounds.exit15.thread51
 
-169:                                              ; preds = %160
-  %170 = trunc nuw i8 %162 to i1
-  br i1 %170, label %select.unfold44, label %range_cmp_bounds.exit14.thread50
+162:                                              ; preds = %145
+  %.not83 = xor i1 %151, true
+  %163 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %164 = load i8, ptr %163, align 2, !range !7
+  %165 = trunc nuw i8 %164 to i1
+  %or.cond86 = select i1 %.not83, i1 %165, i1 false
+  br i1 %or.cond86, label %range_cmp_bounds.exit15.thread51, label %select.unfold45
 
-171:                                              ; preds = %153
-  br i1 %159, label %select.unfold44, label %172
+range_cmp_bounds.exit15:                          ; preds = %.thread42
+  %166 = icmp sgt i32 %143, -1
+  br i1 %166, label %.thread53, label %range_cmp_bounds.exit15.thread51
 
-172:                                              ; preds = %171
-  %173 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %174 = load i8, ptr %173, align 2, !range !7, !noundef !8
-  %175 = trunc nuw i8 %174 to i1
-  br i1 %175, label %range_cmp_bounds.exit14.thread50, label %select.unfold44
+.thread53:                                        ; preds = %range_cmp_bounds.exit15
+  %167 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %168 = load i8, ptr %167, align 8, !range !7, !noundef !8
+  %169 = trunc nuw i8 %168 to i1
+  br i1 %169, label %184, label %188
 
-range_cmp_bounds.exit14:                          ; preds = %.thread41
-  %176 = icmp sgt i32 %151, -1
-  br i1 %176, label %.thread52, label %range_cmp_bounds.exit14.thread50
+range_cmp_bounds.exit.thread25.thread67.thread68.thread: ; preds = %40, %range_cmp_bounds.exit.thread25.thread67.thread, %range_cmp_bounds.exit.thread25.thread67.thread68
+  %170 = phi i8 [ %132, %range_cmp_bounds.exit.thread25.thread67.thread ], [ 0, %range_cmp_bounds.exit.thread25.thread67.thread68 ], [ 0, %40 ]
+  %171 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %172 = load i8, ptr %171, align 8, !range !7, !noundef !8
+  %173 = trunc nuw i8 %172 to i1
+  br i1 %173, label %174, label %179
 
-.thread52:                                        ; preds = %range_cmp_bounds.exit14
-  %177 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %178 = load i8, ptr %177, align 8, !range !7, !noundef !8
-  %179 = trunc nuw i8 %178 to i1
-  br i1 %179, label %195, label %199
+174:                                              ; preds = %range_cmp_bounds.exit.thread25.thread67.thread68.thread
+  %175 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %176 = load i8, ptr %175, align 2, !range !7, !noundef !8
+  %177 = icmp eq i8 %170, %176
+  %178 = trunc nuw i8 %170 to i1
+  %or.cond87 = select i1 %177, i1 true, i1 %178
+  br i1 %or.cond87, label %range_cmp_bounds.exit13.thread, label %range_cmp_bounds.exit15.thread51
 
-range_cmp_bounds.exit.thread24.thread66.thread67.thread: ; preds = %42, %range_cmp_bounds.exit.thread24.thread66.thread, %range_cmp_bounds.exit.thread24.thread66.thread67, %141
-  %180 = phi i8 [ %138, %range_cmp_bounds.exit.thread24.thread66.thread ], [ 0, %range_cmp_bounds.exit.thread24.thread66.thread67 ], [ 0, %141 ], [ 0, %42 ]
+179:                                              ; preds = %range_cmp_bounds.exit.thread25.thread67.thread68.thread
+  %180 = trunc nuw i8 %170 to i1
+  br i1 %180, label %range_cmp_bounds.exit13.thread, label %range_cmp_bounds.exit15.thread51
+
+select.unfold45:                                  ; preds = %37, %160, %range_cmp_bounds.exit.thread25.thread.thread69, %155, %162
   %181 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %182 = load i8, ptr %181, align 8, !range !7, !noundef !8
   %183 = trunc nuw i8 %182 to i1
-  br i1 %183, label %184, label %190
+  br i1 %183, label %184, label %select.unfold45._crit_edge
 
-184:                                              ; preds = %range_cmp_bounds.exit.thread24.thread66.thread67.thread
+select.unfold45._crit_edge:                       ; preds = %select.unfold45
+  %.pre94 = load i64, ptr %5, align 8
+  br label %188
+
+184:                                              ; preds = %.thread53, %select.unfold45
   %185 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %186 = load i8, ptr %185, align 2, !range !7, !noundef !8
-  %187 = icmp eq i8 %180, %186
-  br i1 %187, label %range_cmp_bounds.exit12.thread, label %188
+  %187 = trunc nuw i8 %186 to i1
+  br i1 %187, label %range_cmp_bounds.exit15.thread51, label %range_cmp_bounds.exit13.thread
 
-188:                                              ; preds = %184
-  %189 = trunc nuw i8 %180 to i1
-  br i1 %189, label %range_cmp_bounds.exit12.thread, label %range_cmp_bounds.exit14.thread50
+188:                                              ; preds = %select.unfold45._crit_edge, %.thread53
+  %189 = phi i64 [ %.pre94, %select.unfold45._crit_edge ], [ %141, %.thread53 ]
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %192 = load i32, ptr %191, align 4
+  %193 = load i64, ptr %6, align 8
+  %194 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %190, i32 noundef %192, i64 noundef %189, i64 noundef %193) #14
+  %195 = trunc i64 %194 to i32
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %197, label %range_cmp_bounds.exit17
 
-190:                                              ; preds = %range_cmp_bounds.exit.thread24.thread66.thread67.thread
-  %191 = trunc nuw i8 %180 to i1
-  br i1 %191, label %range_cmp_bounds.exit12.thread, label %range_cmp_bounds.exit14.thread50
+197:                                              ; preds = %188
+  %198 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %199 = load i8, ptr %198, align 1, !range !7, !noundef !8
+  %200 = trunc nuw i8 %199 to i1
+  %201 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %202 = load i8, ptr %201, align 1, !range !7, !noundef !8
+  %203 = trunc nuw i8 %202 to i1
+  br i1 %200, label %214, label %204
 
-select.unfold44:                                  ; preds = %39, %167, %169, %range_cmp_bounds.exit.thread24.thread.thread68, %172, %163, %171
-  %192 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %193 = load i8, ptr %192, align 8, !range !7, !noundef !8
-  %194 = trunc nuw i8 %193 to i1
-  br i1 %194, label %195, label %select.unfold44._crit_edge
+204:                                              ; preds = %197
+  %205 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %206 = load i8, ptr %205, align 2, !range !7, !noundef !8
+  br i1 %203, label %212, label %207
 
-select.unfold44._crit_edge:                       ; preds = %select.unfold44
-  %.pre71 = load i64, ptr %5, align 8
-  br label %199
+207:                                              ; preds = %204
+  %208 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %209 = load i8, ptr %208, align 2, !range !7, !noundef !8
+  %210 = icmp ne i8 %206, %209
+  %211 = trunc nuw i8 %206 to i1
+  %or.cond88 = select i1 %210, i1 %211, i1 false
+  br i1 %or.cond88, label %range_cmp_bounds.exit15.thread51, label %range_cmp_bounds.exit13.thread
 
-195:                                              ; preds = %.thread52, %select.unfold44
-  %196 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %197 = load i8, ptr %196, align 2, !range !7, !noundef !8
-  %198 = trunc nuw i8 %197 to i1
-  br i1 %198, label %range_cmp_bounds.exit14.thread50, label %range_cmp_bounds.exit12.thread
+212:                                              ; preds = %204
+  %213 = trunc nuw i8 %206 to i1
+  br i1 %213, label %range_cmp_bounds.exit15.thread51, label %range_cmp_bounds.exit13.thread
 
-199:                                              ; preds = %select.unfold44._crit_edge, %.thread52
-  %200 = phi i64 [ %.pre71, %select.unfold44._crit_edge ], [ %149, %.thread52 ]
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %203 = load i32, ptr %202, align 4
-  %204 = load i64, ptr %6, align 8
-  %205 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %201, i32 noundef %203, i64 noundef %200, i64 noundef %204) #14
-  %206 = trunc i64 %205 to i32
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %208, label %range_cmp_bounds.exit16
+214:                                              ; preds = %197
+  %215 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %216 = load i8, ptr %215, align 2, !range !7
+  %217 = trunc nuw i8 %216 to i1
+  %or.cond91 = select i1 %203, i1 true, i1 %217
+  br i1 %or.cond91, label %range_cmp_bounds.exit13.thread, label %range_cmp_bounds.exit15.thread51
 
-208:                                              ; preds = %199
-  %209 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %210 = load i8, ptr %209, align 1, !range !7, !noundef !8
-  %211 = trunc nuw i8 %210 to i1
-  %212 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %213 = load i8, ptr %212, align 1, !range !7, !noundef !8
-  %214 = trunc nuw i8 %213 to i1
-  br i1 %211, label %226, label %215
+range_cmp_bounds.exit17:                          ; preds = %188
+  %218 = icmp slt i32 %195, 1
+  br i1 %218, label %range_cmp_bounds.exit13.thread, label %range_cmp_bounds.exit15.thread51
 
-215:                                              ; preds = %208
-  %216 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %217 = load i8, ptr %216, align 2, !range !7, !noundef !8
-  br i1 %214, label %224, label %218
+range_cmp_bounds.exit15.thread51:                 ; preds = %214, %207, %174, %162, %155, %range_cmp_bounds.exit.thread25.thread67.thread, %212, %184, %179, %range_cmp_bounds.exit.thread25.thread67.thread68, %160, %range_cmp_bounds.exit.thread25.thread.thread69, %range_cmp_bounds.exit17, %range_cmp_bounds.exit15
+  br label %range_cmp_bounds.exit13.thread
 
-218:                                              ; preds = %215
-  %219 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %220 = load i8, ptr %219, align 2, !range !7, !noundef !8
-  %221 = icmp eq i8 %217, %220
-  br i1 %221, label %range_cmp_bounds.exit12.thread, label %222
-
-222:                                              ; preds = %218
-  %223 = trunc nuw i8 %217 to i1
-  br i1 %223, label %range_cmp_bounds.exit14.thread50, label %range_cmp_bounds.exit12.thread
-
-224:                                              ; preds = %215
-  %225 = trunc nuw i8 %217 to i1
-  br i1 %225, label %range_cmp_bounds.exit14.thread50, label %range_cmp_bounds.exit12.thread
-
-226:                                              ; preds = %208
-  br i1 %214, label %range_cmp_bounds.exit12.thread, label %227
-
-227:                                              ; preds = %226
-  %228 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %229 = load i8, ptr %228, align 2, !range !7, !noundef !8
-  %230 = trunc nuw i8 %229 to i1
-  br i1 %230, label %range_cmp_bounds.exit12.thread, label %range_cmp_bounds.exit14.thread50
-
-range_cmp_bounds.exit16:                          ; preds = %199
-  %231 = icmp slt i32 %206, 1
-  br i1 %231, label %range_cmp_bounds.exit12.thread, label %range_cmp_bounds.exit14.thread50
-
-range_cmp_bounds.exit14.thread50:                 ; preds = %222, %224, %195, %227, %190, %188, %172, %range_cmp_bounds.exit.thread24.thread66.thread67, %141, %167, %169, %range_cmp_bounds.exit.thread24.thread.thread68, %range_cmp_bounds.exit16, %range_cmp_bounds.exit14
-  br label %range_cmp_bounds.exit12.thread
-
-range_cmp_bounds.exit12.thread:                   ; preds = %227, %190, %188, %226, %218, %184, %222, %224, %195, %129, %92, %90, %128, %120, %86, %124, %126, %97, %range_cmp_bounds.exit16, %range_cmp_bounds.exit12, %17, %20, %range_cmp_bounds.exit14.thread50
-  %.0 = phi i1 [ false, %range_cmp_bounds.exit14.thread50 ], [ false, %20 ], [ false, %17 ], [ true, %range_cmp_bounds.exit12 ], [ true, %range_cmp_bounds.exit16 ], [ true, %97 ], [ true, %126 ], [ true, %124 ], [ true, %86 ], [ true, %120 ], [ true, %128 ], [ true, %90 ], [ true, %92 ], [ true, %129 ], [ true, %195 ], [ true, %224 ], [ true, %222 ], [ true, %184 ], [ true, %218 ], [ true, %226 ], [ true, %188 ], [ true, %190 ], [ true, %227 ]
+range_cmp_bounds.exit13.thread:                   ; preds = %179, %214, %207, %174, %212, %184, %87, %122, %115, %82, %120, %92, %range_cmp_bounds.exit17, %range_cmp_bounds.exit13, %17, %range_cmp_bounds.exit15.thread51
+  %.0 = phi i1 [ false, %range_cmp_bounds.exit15.thread51 ], [ false, %17 ], [ true, %range_cmp_bounds.exit13 ], [ true, %range_cmp_bounds.exit17 ], [ true, %92 ], [ true, %120 ], [ true, %82 ], [ true, %115 ], [ true, %122 ], [ true, %87 ], [ true, %184 ], [ true, %212 ], [ true, %174 ], [ true, %207 ], [ true, %214 ], [ true, %179 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
@@ -4032,111 +3973,109 @@ define dso_local zeroext i1 @range_overleft_internal(ptr noundef %0, ptr noundef
   call void @range_deserialize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %18 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %85, label %20
+  %20 = load i8, ptr %9, align 1, !range !7
+  %21 = trunc nuw i8 %20 to i1
+  %or.cond = select i1 %19, i1 true, i1 %21
+  br i1 %or.cond, label %84, label %22
 
-20:                                               ; preds = %17
-  %21 = load i8, ptr %9, align 1, !range !7, !noundef !8
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %85, label %23
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %24 = load i8, ptr %23, align 8, !range !7, !noundef !8
+  %25 = trunc nuw i8 %24 to i1
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %27 = load i8, ptr %26, align 8, !range !7, !noundef !8
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %25, label %29, label %42
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %25 = load i8, ptr %24, align 8, !range !7, !noundef !8
-  %26 = trunc nuw i8 %25 to i1
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %28 = load i8, ptr %27, align 8, !range !7, !noundef !8
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %26, label %30, label %43
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %31 = load i8, ptr %30, align 2, !range !7, !noundef !8
+  br i1 %28, label %32, label %39
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %32 = load i8, ptr %31, align 2, !range !7, !noundef !8
-  br i1 %29, label %33, label %40
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %34 = load i8, ptr %33, align 2, !range !7, !noundef !8
+  %35 = icmp eq i8 %31, %34
+  br i1 %35, label %range_cmp_bounds.exit, label %36
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %35 = load i8, ptr %34, align 2, !range !7, !noundef !8
-  %36 = icmp eq i8 %32, %35
-  br i1 %36, label %range_cmp_bounds.exit, label %37
-
-37:                                               ; preds = %33
-  %38 = trunc nuw i8 %32 to i1
-  %39 = select i1 %38, i32 -1, i32 1
+36:                                               ; preds = %32
+  %37 = trunc nuw i8 %31 to i1
+  %38 = select i1 %37, i32 -1, i32 1
   br label %range_cmp_bounds.exit
 
-40:                                               ; preds = %30
-  %41 = trunc nuw i8 %32 to i1
-  %42 = select i1 %41, i32 -1, i32 1
+39:                                               ; preds = %29
+  %40 = trunc nuw i8 %31 to i1
+  %41 = select i1 %40, i32 -1, i32 1
   br label %range_cmp_bounds.exit
 
-43:                                               ; preds = %23
-  br i1 %29, label %44, label %49
+42:                                               ; preds = %22
+  br i1 %28, label %43, label %48
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %46 = load i8, ptr %45, align 2, !range !7, !noundef !8
-  %47 = trunc nuw i8 %46 to i1
-  %48 = select i1 %47, i32 1, i32 -1
+43:                                               ; preds = %42
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %45 = load i8, ptr %44, align 2, !range !7, !noundef !8
+  %46 = trunc nuw i8 %45 to i1
+  %47 = select i1 %46, i32 1, i32 -1
   br label %range_cmp_bounds.exit
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %52 = load i32, ptr %51, align 4
-  %53 = load i64, ptr %6, align 8
-  %54 = load i64, ptr %7, align 8
-  %55 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %50, i32 noundef %52, i64 noundef %53, i64 noundef %54) #14
-  %56 = trunc i64 %55 to i32
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %range_cmp_bounds.exit
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %51 = load i32, ptr %50, align 4
+  %52 = load i64, ptr %6, align 8
+  %53 = load i64, ptr %7, align 8
+  %54 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %49, i32 noundef %51, i64 noundef %52, i64 noundef %53) #14
+  %55 = trunc i64 %54 to i32
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %range_cmp_bounds.exit
 
-58:                                               ; preds = %49
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %60 = load i8, ptr %59, align 1, !range !7, !noundef !8
-  %61 = trunc nuw i8 %60 to i1
-  %62 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %63 = load i8, ptr %62, align 1, !range !7, !noundef !8
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %61, label %78, label %65
+57:                                               ; preds = %48
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %59 = load i8, ptr %58, align 1, !range !7, !noundef !8
+  %60 = trunc nuw i8 %59 to i1
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %62 = load i8, ptr %61, align 1, !range !7, !noundef !8
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %60, label %77, label %64
 
-65:                                               ; preds = %58
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %67 = load i8, ptr %66, align 2, !range !7, !noundef !8
-  br i1 %64, label %75, label %68
+64:                                               ; preds = %57
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %66 = load i8, ptr %65, align 2, !range !7, !noundef !8
+  br i1 %63, label %74, label %67
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %70 = load i8, ptr %69, align 2, !range !7, !noundef !8
-  %71 = icmp eq i8 %67, %70
-  br i1 %71, label %range_cmp_bounds.exit, label %72
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %69 = load i8, ptr %68, align 2, !range !7, !noundef !8
+  %70 = icmp eq i8 %66, %69
+  br i1 %70, label %range_cmp_bounds.exit, label %71
 
-72:                                               ; preds = %68
-  %73 = trunc nuw i8 %67 to i1
-  %74 = select i1 %73, i32 1, i32 -1
+71:                                               ; preds = %67
+  %72 = trunc nuw i8 %66 to i1
+  %73 = select i1 %72, i32 1, i32 -1
   br label %range_cmp_bounds.exit
 
-75:                                               ; preds = %65
-  %76 = trunc nuw i8 %67 to i1
-  %77 = select i1 %76, i32 1, i32 -1
+74:                                               ; preds = %64
+  %75 = trunc nuw i8 %66 to i1
+  %76 = select i1 %75, i32 1, i32 -1
   br label %range_cmp_bounds.exit
 
-78:                                               ; preds = %58
-  br i1 %64, label %range_cmp_bounds.exit, label %79
+77:                                               ; preds = %57
+  br i1 %63, label %range_cmp_bounds.exit, label %78
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %81 = load i8, ptr %80, align 2, !range !7, !noundef !8
-  %82 = trunc nuw i8 %81 to i1
-  %83 = select i1 %82, i32 -1, i32 1
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %80 = load i8, ptr %79, align 2, !range !7, !noundef !8
+  %81 = trunc nuw i8 %80 to i1
+  %82 = select i1 %81, i32 -1, i32 1
   br label %range_cmp_bounds.exit
 
-range_cmp_bounds.exit:                            ; preds = %33, %37, %40, %44, %49, %68, %72, %75, %78, %79
-  %.0.i = phi i32 [ %39, %37 ], [ %42, %40 ], [ %48, %44 ], [ %83, %79 ], [ %77, %75 ], [ %74, %72 ], [ 0, %33 ], [ 0, %68 ], [ 0, %78 ], [ %56, %49 ]
-  %84 = icmp slt i32 %.0.i, 1
-  br label %85
+range_cmp_bounds.exit:                            ; preds = %32, %36, %39, %43, %48, %67, %71, %74, %77, %78
+  %.0.i = phi i32 [ %38, %36 ], [ %41, %39 ], [ %47, %43 ], [ %82, %78 ], [ %76, %74 ], [ %73, %71 ], [ 0, %32 ], [ 0, %67 ], [ 0, %77 ], [ %55, %48 ]
+  %83 = icmp slt i32 %.0.i, 1
+  br label %84
 
-85:                                               ; preds = %range_cmp_bounds.exit, %17, %20
-  %.0 = phi i1 [ false, %20 ], [ false, %17 ], [ %84, %range_cmp_bounds.exit ]
+84:                                               ; preds = %range_cmp_bounds.exit, %17
+  %.0 = phi i1 [ false, %17 ], [ %83, %range_cmp_bounds.exit ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
@@ -4229,111 +4168,109 @@ define dso_local zeroext i1 @range_overright_internal(ptr noundef %0, ptr nounde
   call void @range_deserialize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %18 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %85, label %20
+  %20 = load i8, ptr %9, align 1, !range !7
+  %21 = trunc nuw i8 %20 to i1
+  %or.cond = select i1 %19, i1 true, i1 %21
+  br i1 %or.cond, label %84, label %22
 
-20:                                               ; preds = %17
-  %21 = load i8, ptr %9, align 1, !range !7, !noundef !8
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %85, label %23
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %24 = load i8, ptr %23, align 8, !range !7, !noundef !8
+  %25 = trunc nuw i8 %24 to i1
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %27 = load i8, ptr %26, align 8, !range !7, !noundef !8
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %25, label %29, label %42
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %25 = load i8, ptr %24, align 8, !range !7, !noundef !8
-  %26 = trunc nuw i8 %25 to i1
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %28 = load i8, ptr %27, align 8, !range !7, !noundef !8
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %26, label %30, label %43
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %31 = load i8, ptr %30, align 2, !range !7, !noundef !8
+  br i1 %28, label %32, label %39
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %32 = load i8, ptr %31, align 2, !range !7, !noundef !8
-  br i1 %29, label %33, label %40
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %34 = load i8, ptr %33, align 2, !range !7, !noundef !8
+  %35 = icmp eq i8 %31, %34
+  br i1 %35, label %range_cmp_bounds.exit, label %36
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %35 = load i8, ptr %34, align 2, !range !7, !noundef !8
-  %36 = icmp eq i8 %32, %35
-  br i1 %36, label %range_cmp_bounds.exit, label %37
-
-37:                                               ; preds = %33
-  %38 = trunc nuw i8 %32 to i1
-  %39 = select i1 %38, i32 -1, i32 1
+36:                                               ; preds = %32
+  %37 = trunc nuw i8 %31 to i1
+  %38 = select i1 %37, i32 -1, i32 1
   br label %range_cmp_bounds.exit
 
-40:                                               ; preds = %30
-  %41 = trunc nuw i8 %32 to i1
-  %42 = select i1 %41, i32 -1, i32 1
+39:                                               ; preds = %29
+  %40 = trunc nuw i8 %31 to i1
+  %41 = select i1 %40, i32 -1, i32 1
   br label %range_cmp_bounds.exit
 
-43:                                               ; preds = %23
-  br i1 %29, label %44, label %49
+42:                                               ; preds = %22
+  br i1 %28, label %43, label %48
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %46 = load i8, ptr %45, align 2, !range !7, !noundef !8
-  %47 = trunc nuw i8 %46 to i1
-  %48 = select i1 %47, i32 1, i32 -1
+43:                                               ; preds = %42
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %45 = load i8, ptr %44, align 2, !range !7, !noundef !8
+  %46 = trunc nuw i8 %45 to i1
+  %47 = select i1 %46, i32 1, i32 -1
   br label %range_cmp_bounds.exit
 
-49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %52 = load i32, ptr %51, align 4
-  %53 = load i64, ptr %4, align 8
-  %54 = load i64, ptr %5, align 8
-  %55 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %50, i32 noundef %52, i64 noundef %53, i64 noundef %54) #14
-  %56 = trunc i64 %55 to i32
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %range_cmp_bounds.exit
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %51 = load i32, ptr %50, align 4
+  %52 = load i64, ptr %4, align 8
+  %53 = load i64, ptr %5, align 8
+  %54 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %49, i32 noundef %51, i64 noundef %52, i64 noundef %53) #14
+  %55 = trunc i64 %54 to i32
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %range_cmp_bounds.exit
 
-58:                                               ; preds = %49
-  %59 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %60 = load i8, ptr %59, align 1, !range !7, !noundef !8
-  %61 = trunc nuw i8 %60 to i1
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %63 = load i8, ptr %62, align 1, !range !7, !noundef !8
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %61, label %78, label %65
+57:                                               ; preds = %48
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %59 = load i8, ptr %58, align 1, !range !7, !noundef !8
+  %60 = trunc nuw i8 %59 to i1
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %62 = load i8, ptr %61, align 1, !range !7, !noundef !8
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %60, label %77, label %64
 
-65:                                               ; preds = %58
-  %66 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %67 = load i8, ptr %66, align 2, !range !7, !noundef !8
-  br i1 %64, label %75, label %68
+64:                                               ; preds = %57
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %66 = load i8, ptr %65, align 2, !range !7, !noundef !8
+  br i1 %63, label %74, label %67
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %70 = load i8, ptr %69, align 2, !range !7, !noundef !8
-  %71 = icmp eq i8 %67, %70
-  br i1 %71, label %range_cmp_bounds.exit, label %72
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %69 = load i8, ptr %68, align 2, !range !7, !noundef !8
+  %70 = icmp eq i8 %66, %69
+  br i1 %70, label %range_cmp_bounds.exit, label %71
 
-72:                                               ; preds = %68
-  %73 = trunc nuw i8 %67 to i1
-  %74 = select i1 %73, i32 1, i32 -1
+71:                                               ; preds = %67
+  %72 = trunc nuw i8 %66 to i1
+  %73 = select i1 %72, i32 1, i32 -1
   br label %range_cmp_bounds.exit
 
-75:                                               ; preds = %65
-  %76 = trunc nuw i8 %67 to i1
-  %77 = select i1 %76, i32 1, i32 -1
+74:                                               ; preds = %64
+  %75 = trunc nuw i8 %66 to i1
+  %76 = select i1 %75, i32 1, i32 -1
   br label %range_cmp_bounds.exit
 
-78:                                               ; preds = %58
-  br i1 %64, label %range_cmp_bounds.exit, label %79
+77:                                               ; preds = %57
+  br i1 %63, label %range_cmp_bounds.exit, label %78
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %81 = load i8, ptr %80, align 2, !range !7, !noundef !8
-  %82 = trunc nuw i8 %81 to i1
-  %83 = select i1 %82, i32 -1, i32 1
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %80 = load i8, ptr %79, align 2, !range !7, !noundef !8
+  %81 = trunc nuw i8 %80 to i1
+  %82 = select i1 %81, i32 -1, i32 1
   br label %range_cmp_bounds.exit
 
-range_cmp_bounds.exit:                            ; preds = %33, %37, %40, %44, %49, %68, %72, %75, %78, %79
-  %.0.i = phi i32 [ %39, %37 ], [ %42, %40 ], [ %48, %44 ], [ %83, %79 ], [ %77, %75 ], [ %74, %72 ], [ 0, %33 ], [ 0, %68 ], [ 0, %78 ], [ %56, %49 ]
-  %84 = icmp sgt i32 %.0.i, -1
-  br label %85
+range_cmp_bounds.exit:                            ; preds = %32, %36, %39, %43, %48, %67, %71, %74, %77, %78
+  %.0.i = phi i32 [ %38, %36 ], [ %41, %39 ], [ %47, %43 ], [ %82, %78 ], [ %76, %74 ], [ %73, %71 ], [ 0, %32 ], [ 0, %67 ], [ 0, %77 ], [ %55, %48 ]
+  %83 = icmp sgt i32 %.0.i, -1
+  br label %84
 
-85:                                               ; preds = %range_cmp_bounds.exit, %17, %20
-  %.0 = phi i1 [ false, %20 ], [ false, %17 ], [ %84, %range_cmp_bounds.exit ]
+84:                                               ; preds = %range_cmp_bounds.exit, %17
+  %.0 = phi i1 [ false, %17 ], [ %83, %range_cmp_bounds.exit ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
@@ -4489,450 +4426,448 @@ define dso_local ptr @range_minus_internal(ptr noundef %0, ptr noundef %1, ptr n
   call void @range_deserialize(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %11)
   %12 = load i8, ptr %10, align 1, !range !7, !noundef !8
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %280, label %14
+  %14 = load i8, ptr %11, align 1, !range !7
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond = select i1 %13, i1 true, i1 %15
+  br i1 %or.cond, label %279, label %16
 
-14:                                               ; preds = %3
-  %15 = load i8, ptr %11, align 1, !range !7, !noundef !8
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %280, label %17
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %18 = load i8, ptr %17, align 8, !range !7, !noundef !8
+  %19 = trunc nuw i8 %18 to i1
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %21 = load i8, ptr %20, align 8, !range !7, !noundef !8
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %19, label %23, label %36
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %19 = load i8, ptr %18, align 8, !range !7, !noundef !8
-  %20 = trunc nuw i8 %19 to i1
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %22 = load i8, ptr %21, align 8, !range !7, !noundef !8
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %20, label %24, label %37
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %25 = load i8, ptr %24, align 2, !range !7, !noundef !8
+  br i1 %22, label %26, label %33
 
-24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %26 = load i8, ptr %25, align 2, !range !7, !noundef !8
-  br i1 %23, label %27, label %34
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %28 = load i8, ptr %27, align 2, !range !7, !noundef !8
+  %29 = icmp eq i8 %25, %28
+  br i1 %29, label %77, label %30
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %29 = load i8, ptr %28, align 2, !range !7, !noundef !8
-  %30 = icmp eq i8 %26, %29
-  br i1 %30, label %78, label %31
+30:                                               ; preds = %26
+  %31 = trunc nuw i8 %25 to i1
+  %32 = select i1 %31, i32 -1, i32 1
+  br label %77
 
-31:                                               ; preds = %27
-  %32 = trunc nuw i8 %26 to i1
-  %33 = select i1 %32, i32 -1, i32 1
-  br label %78
+33:                                               ; preds = %23
+  %34 = trunc nuw i8 %25 to i1
+  %35 = select i1 %34, i32 -1, i32 1
+  br label %77
 
-34:                                               ; preds = %24
-  %35 = trunc nuw i8 %26 to i1
-  %36 = select i1 %35, i32 -1, i32 1
-  br label %78
+36:                                               ; preds = %16
+  br i1 %22, label %37, label %42
 
-37:                                               ; preds = %17
-  br i1 %23, label %38, label %43
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %39 = load i8, ptr %38, align 2, !range !7, !noundef !8
+  %40 = trunc nuw i8 %39 to i1
+  %41 = select i1 %40, i32 1, i32 -1
+  br label %91
 
-38:                                               ; preds = %37
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %40 = load i8, ptr %39, align 2, !range !7, !noundef !8
-  %41 = trunc nuw i8 %40 to i1
-  %42 = select i1 %41, i32 1, i32 -1
-  br label %92
+42:                                               ; preds = %36
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %45 = load i32, ptr %44, align 4
+  %46 = load i64, ptr %6, align 8
+  %47 = load i64, ptr %7, align 8
+  %48 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %43, i32 noundef %45, i64 noundef %46, i64 noundef %47) #14
+  %49 = trunc i64 %48 to i32
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %91
 
-43:                                               ; preds = %37
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %46 = load i32, ptr %45, align 4
-  %47 = load i64, ptr %6, align 8
-  %48 = load i64, ptr %7, align 8
-  %49 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %44, i32 noundef %46, i64 noundef %47, i64 noundef %48) #14
-  %50 = trunc i64 %49 to i32
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %92
+51:                                               ; preds = %42
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %53 = load i8, ptr %52, align 1, !range !7, !noundef !8
+  %54 = trunc nuw i8 %53 to i1
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %56 = load i8, ptr %55, align 1, !range !7, !noundef !8
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %54, label %71, label %58
 
-52:                                               ; preds = %43
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %54 = load i8, ptr %53, align 1, !range !7, !noundef !8
-  %55 = trunc nuw i8 %54 to i1
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %57 = load i8, ptr %56, align 1, !range !7, !noundef !8
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %55, label %72, label %59
+58:                                               ; preds = %51
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %60 = load i8, ptr %59, align 2, !range !7, !noundef !8
+  br i1 %57, label %68, label %61
 
-59:                                               ; preds = %52
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %61 = load i8, ptr %60, align 2, !range !7, !noundef !8
-  br i1 %58, label %69, label %62
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %63 = load i8, ptr %62, align 2, !range !7, !noundef !8
+  %64 = icmp eq i8 %60, %63
+  br i1 %64, label %91, label %65
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %64 = load i8, ptr %63, align 2, !range !7, !noundef !8
-  %65 = icmp eq i8 %61, %64
-  br i1 %65, label %92, label %66
+65:                                               ; preds = %61
+  %66 = trunc nuw i8 %60 to i1
+  %67 = select i1 %66, i32 1, i32 -1
+  br label %91
 
-66:                                               ; preds = %62
-  %67 = trunc nuw i8 %61 to i1
-  %68 = select i1 %67, i32 1, i32 -1
-  br label %92
+68:                                               ; preds = %58
+  %69 = trunc nuw i8 %60 to i1
+  %70 = select i1 %69, i32 1, i32 -1
+  br label %91
 
-69:                                               ; preds = %59
-  %70 = trunc nuw i8 %61 to i1
-  %71 = select i1 %70, i32 1, i32 -1
-  br label %92
+71:                                               ; preds = %51
+  br i1 %57, label %91, label %72
 
-72:                                               ; preds = %52
-  br i1 %58, label %92, label %73
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %74 = load i8, ptr %73, align 2, !range !7, !noundef !8
+  %75 = trunc nuw i8 %74 to i1
+  %76 = select i1 %75, i32 -1, i32 1
+  br label %91
 
-73:                                               ; preds = %72
-  %74 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %75 = load i8, ptr %74, align 2, !range !7, !noundef !8
-  %76 = trunc nuw i8 %75 to i1
-  %77 = select i1 %76, i32 -1, i32 1
-  br label %92
+77:                                               ; preds = %33, %30, %26
+  %.0.i = phi i32 [ %32, %30 ], [ %35, %33 ], [ 0, %26 ]
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %79 = load i8, ptr %78, align 8, !range !7, !noundef !8
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %81, label %88
 
-78:                                               ; preds = %34, %31, %27
-  %.0.i = phi i32 [ %33, %31 ], [ %36, %34 ], [ 0, %27 ]
-  %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %80 = load i8, ptr %79, align 8, !range !7, !noundef !8
-  %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %82, label %89
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %83 = load i8, ptr %82, align 2, !range !7, !noundef !8
+  %84 = icmp eq i8 %25, %83
+  br i1 %84, label %range_cmp_bounds.exit43, label %85
 
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %84 = load i8, ptr %83, align 2, !range !7, !noundef !8
-  %85 = icmp eq i8 %26, %84
-  br i1 %85, label %range_cmp_bounds.exit41, label %86
-
-86:                                               ; preds = %82
-  %87 = trunc nuw i8 %26 to i1
-  %88 = select i1 %87, i32 -1, i32 1
-  br label %range_cmp_bounds.exit41
-
-89:                                               ; preds = %78
-  %90 = trunc nuw i8 %26 to i1
-  %91 = select i1 %90, i32 -1, i32 1
-  br label %range_cmp_bounds.exit41
-
-92:                                               ; preds = %38, %43, %62, %66, %69, %72, %73
-  %.0.i.ph = phi i32 [ %50, %43 ], [ 0, %72 ], [ 0, %62 ], [ %68, %66 ], [ %71, %69 ], [ %77, %73 ], [ %42, %38 ]
-  %93 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %94 = load i8, ptr %93, align 8, !range !7, !noundef !8
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %101
-
-96:                                               ; preds = %92
-  %97 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %98 = load i8, ptr %97, align 2, !range !7, !noundef !8
-  %99 = trunc nuw i8 %98 to i1
-  %100 = select i1 %99, i32 1, i32 -1
-  br label %range_cmp_bounds.exit41
-
-101:                                              ; preds = %92
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %104 = load i32, ptr %103, align 4
-  %105 = load i64, ptr %6, align 8
-  %106 = load i64, ptr %9, align 8
-  %107 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %102, i32 noundef %104, i64 noundef %105, i64 noundef %106) #14
-  %108 = trunc i64 %107 to i32
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %range_cmp_bounds.exit41
-
-110:                                              ; preds = %101
-  %111 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %112 = load i8, ptr %111, align 1, !range !7, !noundef !8
-  %113 = trunc nuw i8 %112 to i1
-  %114 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %115 = load i8, ptr %114, align 1, !range !7, !noundef !8
-  %116 = trunc nuw i8 %115 to i1
-  br i1 %113, label %130, label %117
-
-117:                                              ; preds = %110
-  %118 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %119 = load i8, ptr %118, align 2, !range !7, !noundef !8
-  br i1 %116, label %127, label %120
-
-120:                                              ; preds = %117
-  %121 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %122 = load i8, ptr %121, align 2, !range !7, !noundef !8
-  %123 = icmp eq i8 %119, %122
-  br i1 %123, label %range_cmp_bounds.exit41, label %124
-
-124:                                              ; preds = %120
-  %125 = trunc nuw i8 %119 to i1
-  %126 = select i1 %125, i32 1, i32 -1
-  br label %range_cmp_bounds.exit41
-
-127:                                              ; preds = %117
-  %128 = trunc nuw i8 %119 to i1
-  %129 = select i1 %128, i32 1, i32 -1
-  br label %range_cmp_bounds.exit41
-
-130:                                              ; preds = %110
-  br i1 %116, label %range_cmp_bounds.exit41, label %131
-
-131:                                              ; preds = %130
-  %132 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %133 = load i8, ptr %132, align 2, !range !7, !noundef !8
-  %134 = trunc nuw i8 %133 to i1
-  %135 = select i1 %134, i32 -1, i32 1
-  br label %range_cmp_bounds.exit41
-
-range_cmp_bounds.exit41:                          ; preds = %82, %86, %89, %96, %101, %120, %124, %127, %130, %131
-  %136 = phi i1 [ true, %86 ], [ false, %89 ], [ true, %96 ], [ false, %131 ], [ false, %127 ], [ false, %124 ], [ true, %82 ], [ false, %120 ], [ false, %130 ], [ false, %101 ]
-  %.0.i47 = phi i32 [ %.0.i, %86 ], [ %.0.i, %89 ], [ %.0.i.ph, %96 ], [ %.0.i.ph, %131 ], [ %.0.i.ph, %127 ], [ %.0.i.ph, %124 ], [ %.0.i, %82 ], [ %.0.i.ph, %120 ], [ %.0.i.ph, %130 ], [ %.0.i.ph, %101 ]
-  %.0.i40 = phi i32 [ %88, %86 ], [ %91, %89 ], [ %100, %96 ], [ %135, %131 ], [ %129, %127 ], [ %126, %124 ], [ 0, %82 ], [ 0, %120 ], [ 0, %130 ], [ %108, %101 ]
-  %137 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %138 = load i8, ptr %137, align 8, !range !7, !noundef !8
-  %139 = trunc nuw i8 %138 to i1
-  br i1 %139, label %140, label %153
-
-140:                                              ; preds = %range_cmp_bounds.exit41
-  %141 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %142 = load i8, ptr %141, align 2, !range !7, !noundef !8
-  br i1 %23, label %143, label %150
-
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %145 = load i8, ptr %144, align 2, !range !7, !noundef !8
-  %146 = icmp eq i8 %142, %145
-  br i1 %146, label %range_cmp_bounds.exit43, label %147
-
-147:                                              ; preds = %143
-  %148 = trunc nuw i8 %142 to i1
-  %149 = select i1 %148, i32 -1, i32 1
+85:                                               ; preds = %81
+  %86 = trunc nuw i8 %25 to i1
+  %87 = select i1 %86, i32 -1, i32 1
   br label %range_cmp_bounds.exit43
 
-150:                                              ; preds = %140
-  %151 = trunc nuw i8 %142 to i1
-  %152 = select i1 %151, i32 -1, i32 1
+88:                                               ; preds = %77
+  %89 = trunc nuw i8 %25 to i1
+  %90 = select i1 %89, i32 -1, i32 1
   br label %range_cmp_bounds.exit43
 
-153:                                              ; preds = %range_cmp_bounds.exit41
-  br i1 %23, label %154, label %159
+91:                                               ; preds = %37, %42, %61, %65, %68, %71, %72
+  %.0.i.ph = phi i32 [ %49, %42 ], [ 0, %71 ], [ 0, %61 ], [ %67, %65 ], [ %70, %68 ], [ %76, %72 ], [ %41, %37 ]
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %93 = load i8, ptr %92, align 8, !range !7, !noundef !8
+  %94 = trunc nuw i8 %93 to i1
+  br i1 %94, label %95, label %100
 
-154:                                              ; preds = %153
-  %155 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %156 = load i8, ptr %155, align 2, !range !7, !noundef !8
-  %157 = trunc nuw i8 %156 to i1
-  %158 = select i1 %157, i32 1, i32 -1
-  br label %204
+95:                                               ; preds = %91
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %97 = load i8, ptr %96, align 2, !range !7, !noundef !8
+  %98 = trunc nuw i8 %97 to i1
+  %99 = select i1 %98, i32 1, i32 -1
+  br label %range_cmp_bounds.exit43
 
-159:                                              ; preds = %153
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %162 = load i32, ptr %161, align 4
-  %163 = load i64, ptr %8, align 8
-  %164 = load i64, ptr %7, align 8
-  %165 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %160, i32 noundef %162, i64 noundef %163, i64 noundef %164) #14
-  %166 = trunc i64 %165 to i32
-  %167 = icmp eq i32 %166, 0
-  br i1 %167, label %168, label %204
+100:                                              ; preds = %91
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %103 = load i32, ptr %102, align 4
+  %104 = load i64, ptr %6, align 8
+  %105 = load i64, ptr %9, align 8
+  %106 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %101, i32 noundef %103, i64 noundef %104, i64 noundef %105) #14
+  %107 = trunc i64 %106 to i32
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %109, label %range_cmp_bounds.exit43
 
-168:                                              ; preds = %159
-  %169 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %170 = load i8, ptr %169, align 1, !range !7, !noundef !8
-  %171 = trunc nuw i8 %170 to i1
-  %172 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %173 = load i8, ptr %172, align 1, !range !7, !noundef !8
-  %174 = trunc nuw i8 %173 to i1
-  br i1 %171, label %188, label %175
+109:                                              ; preds = %100
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %111 = load i8, ptr %110, align 1, !range !7, !noundef !8
+  %112 = trunc nuw i8 %111 to i1
+  %113 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %114 = load i8, ptr %113, align 1, !range !7, !noundef !8
+  %115 = trunc nuw i8 %114 to i1
+  br i1 %112, label %129, label %116
 
-175:                                              ; preds = %168
-  %176 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %177 = load i8, ptr %176, align 2, !range !7, !noundef !8
-  br i1 %174, label %185, label %178
+116:                                              ; preds = %109
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %118 = load i8, ptr %117, align 2, !range !7, !noundef !8
+  br i1 %115, label %126, label %119
 
-178:                                              ; preds = %175
-  %179 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %180 = load i8, ptr %179, align 2, !range !7, !noundef !8
-  %181 = icmp eq i8 %177, %180
-  br i1 %181, label %204, label %182
+119:                                              ; preds = %116
+  %120 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %121 = load i8, ptr %120, align 2, !range !7, !noundef !8
+  %122 = icmp eq i8 %118, %121
+  br i1 %122, label %range_cmp_bounds.exit43, label %123
 
-182:                                              ; preds = %178
-  %183 = trunc nuw i8 %177 to i1
-  %184 = select i1 %183, i32 1, i32 -1
-  br label %204
+123:                                              ; preds = %119
+  %124 = trunc nuw i8 %118 to i1
+  %125 = select i1 %124, i32 1, i32 -1
+  br label %range_cmp_bounds.exit43
 
-185:                                              ; preds = %175
-  %186 = trunc nuw i8 %177 to i1
-  %187 = select i1 %186, i32 1, i32 -1
-  br label %204
+126:                                              ; preds = %116
+  %127 = trunc nuw i8 %118 to i1
+  %128 = select i1 %127, i32 1, i32 -1
+  br label %range_cmp_bounds.exit43
 
-188:                                              ; preds = %168
-  br i1 %174, label %204, label %189
+129:                                              ; preds = %109
+  br i1 %115, label %range_cmp_bounds.exit43, label %130
 
-189:                                              ; preds = %188
-  %190 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %191 = load i8, ptr %190, align 2, !range !7, !noundef !8
-  %192 = trunc nuw i8 %191 to i1
-  %193 = select i1 %192, i32 -1, i32 1
-  br label %204
+130:                                              ; preds = %129
+  %131 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %132 = load i8, ptr %131, align 2, !range !7, !noundef !8
+  %133 = trunc nuw i8 %132 to i1
+  %134 = select i1 %133, i32 -1, i32 1
+  br label %range_cmp_bounds.exit43
 
-range_cmp_bounds.exit43:                          ; preds = %150, %147, %143
-  %.0.i42 = phi i32 [ %149, %147 ], [ %152, %150 ], [ 0, %143 ]
-  br i1 %136, label %194, label %201
+range_cmp_bounds.exit43:                          ; preds = %81, %85, %88, %95, %100, %119, %123, %126, %129, %130
+  %135 = phi i1 [ true, %85 ], [ false, %88 ], [ true, %95 ], [ false, %130 ], [ false, %126 ], [ false, %123 ], [ true, %81 ], [ false, %119 ], [ false, %129 ], [ false, %100 ]
+  %.0.i49 = phi i32 [ %.0.i, %85 ], [ %.0.i, %88 ], [ %.0.i.ph, %95 ], [ %.0.i.ph, %130 ], [ %.0.i.ph, %126 ], [ %.0.i.ph, %123 ], [ %.0.i, %81 ], [ %.0.i.ph, %119 ], [ %.0.i.ph, %129 ], [ %.0.i.ph, %100 ]
+  %.0.i42 = phi i32 [ %87, %85 ], [ %90, %88 ], [ %99, %95 ], [ %134, %130 ], [ %128, %126 ], [ %125, %123 ], [ 0, %81 ], [ 0, %119 ], [ 0, %129 ], [ %107, %100 ]
+  %136 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %137 = load i8, ptr %136, align 8, !range !7, !noundef !8
+  %138 = trunc nuw i8 %137 to i1
+  br i1 %138, label %139, label %152
 
-194:                                              ; preds = %range_cmp_bounds.exit43
-  %195 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %196 = load i8, ptr %195, align 2, !range !7, !noundef !8
-  %197 = icmp eq i8 %142, %196
-  br i1 %197, label %range_cmp_bounds.exit45.thread, label %198
+139:                                              ; preds = %range_cmp_bounds.exit43
+  %140 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %141 = load i8, ptr %140, align 2, !range !7, !noundef !8
+  br i1 %22, label %142, label %149
 
-198:                                              ; preds = %194
-  %199 = trunc nuw i8 %142 to i1
-  %200 = select i1 %199, i32 -1, i32 1
+142:                                              ; preds = %139
+  %143 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %144 = load i8, ptr %143, align 2, !range !7, !noundef !8
+  %145 = icmp eq i8 %141, %144
+  br i1 %145, label %range_cmp_bounds.exit45, label %146
+
+146:                                              ; preds = %142
+  %147 = trunc nuw i8 %141 to i1
+  %148 = select i1 %147, i32 -1, i32 1
   br label %range_cmp_bounds.exit45
 
-201:                                              ; preds = %range_cmp_bounds.exit43
-  %202 = trunc nuw i8 %142 to i1
-  %203 = select i1 %202, i32 -1, i32 1
+149:                                              ; preds = %139
+  %150 = trunc nuw i8 %141 to i1
+  %151 = select i1 %150, i32 -1, i32 1
   br label %range_cmp_bounds.exit45
 
-204:                                              ; preds = %154, %159, %178, %182, %185, %188, %189
-  %.0.i42.ph = phi i32 [ %166, %159 ], [ 0, %188 ], [ 0, %178 ], [ %184, %182 ], [ %187, %185 ], [ %193, %189 ], [ %158, %154 ]
-  br i1 %136, label %205, label %210
+152:                                              ; preds = %range_cmp_bounds.exit43
+  br i1 %22, label %153, label %158
 
-205:                                              ; preds = %204
-  %206 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %207 = load i8, ptr %206, align 2, !range !7, !noundef !8
-  %208 = trunc nuw i8 %207 to i1
-  %209 = select i1 %208, i32 1, i32 -1
-  br label %range_cmp_bounds.exit45
+153:                                              ; preds = %152
+  %154 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %155 = load i8, ptr %154, align 2, !range !7, !noundef !8
+  %156 = trunc nuw i8 %155 to i1
+  %157 = select i1 %156, i32 1, i32 -1
+  br label %203
 
-210:                                              ; preds = %204
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %213 = load i32, ptr %212, align 4
-  %214 = load i64, ptr %8, align 8
-  %215 = load i64, ptr %9, align 8
-  %216 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %211, i32 noundef %213, i64 noundef %214, i64 noundef %215) #14
-  %217 = trunc i64 %216 to i32
-  %218 = icmp eq i32 %217, 0
-  br i1 %218, label %219, label %range_cmp_bounds.exit45
+158:                                              ; preds = %152
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %161 = load i32, ptr %160, align 4
+  %162 = load i64, ptr %8, align 8
+  %163 = load i64, ptr %7, align 8
+  %164 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %159, i32 noundef %161, i64 noundef %162, i64 noundef %163) #14
+  %165 = trunc i64 %164 to i32
+  %166 = icmp eq i32 %165, 0
+  br i1 %166, label %167, label %203
 
-219:                                              ; preds = %210
-  %220 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %221 = load i8, ptr %220, align 1, !range !7, !noundef !8
-  %222 = trunc nuw i8 %221 to i1
-  %223 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %224 = load i8, ptr %223, align 1, !range !7, !noundef !8
-  %225 = trunc nuw i8 %224 to i1
-  br i1 %222, label %239, label %226
+167:                                              ; preds = %158
+  %168 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %169 = load i8, ptr %168, align 1, !range !7, !noundef !8
+  %170 = trunc nuw i8 %169 to i1
+  %171 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %172 = load i8, ptr %171, align 1, !range !7, !noundef !8
+  %173 = trunc nuw i8 %172 to i1
+  br i1 %170, label %187, label %174
 
-226:                                              ; preds = %219
-  %227 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %228 = load i8, ptr %227, align 2, !range !7, !noundef !8
-  br i1 %225, label %236, label %229
+174:                                              ; preds = %167
+  %175 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %176 = load i8, ptr %175, align 2, !range !7, !noundef !8
+  br i1 %173, label %184, label %177
 
-229:                                              ; preds = %226
-  %230 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %231 = load i8, ptr %230, align 2, !range !7, !noundef !8
-  %232 = icmp eq i8 %228, %231
-  br i1 %232, label %range_cmp_bounds.exit45.thread, label %233
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %179 = load i8, ptr %178, align 2, !range !7, !noundef !8
+  %180 = icmp eq i8 %176, %179
+  br i1 %180, label %203, label %181
 
-233:                                              ; preds = %229
-  %234 = trunc nuw i8 %228 to i1
-  %235 = select i1 %234, i32 1, i32 -1
-  br label %range_cmp_bounds.exit45
+181:                                              ; preds = %177
+  %182 = trunc nuw i8 %176 to i1
+  %183 = select i1 %182, i32 1, i32 -1
+  br label %203
 
-236:                                              ; preds = %226
-  %237 = trunc nuw i8 %228 to i1
-  %238 = select i1 %237, i32 1, i32 -1
-  br label %range_cmp_bounds.exit45
+184:                                              ; preds = %174
+  %185 = trunc nuw i8 %176 to i1
+  %186 = select i1 %185, i32 1, i32 -1
+  br label %203
 
-239:                                              ; preds = %219
-  br i1 %225, label %range_cmp_bounds.exit45.thread, label %240
+187:                                              ; preds = %167
+  br i1 %173, label %203, label %188
 
-240:                                              ; preds = %239
-  %241 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %242 = load i8, ptr %241, align 2, !range !7, !noundef !8
-  %243 = trunc nuw i8 %242 to i1
-  %244 = select i1 %243, i32 -1, i32 1
-  br label %range_cmp_bounds.exit45
+188:                                              ; preds = %187
+  %189 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %190 = load i8, ptr %189, align 2, !range !7, !noundef !8
+  %191 = trunc nuw i8 %190 to i1
+  %192 = select i1 %191, i32 -1, i32 1
+  br label %203
 
-range_cmp_bounds.exit45:                          ; preds = %198, %201, %205, %210, %233, %236, %240
-  %.0.i4250 = phi i32 [ %.0.i42, %198 ], [ %.0.i42, %201 ], [ %.0.i42.ph, %205 ], [ %.0.i42.ph, %240 ], [ %.0.i42.ph, %236 ], [ %.0.i42.ph, %233 ], [ %.0.i42.ph, %210 ]
-  %.0.i44 = phi i32 [ %200, %198 ], [ %203, %201 ], [ %209, %205 ], [ %244, %240 ], [ %238, %236 ], [ %235, %233 ], [ %217, %210 ]
-  %245 = icmp slt i32 %.0.i47, 0
-  %246 = icmp sgt i32 %.0.i44, 0
-  %or.cond = select i1 %245, i1 %246, i1 false
-  br i1 %or.cond, label %247, label %range_cmp_bounds.exit45.thread
+range_cmp_bounds.exit45:                          ; preds = %149, %146, %142
+  %.0.i44 = phi i32 [ %148, %146 ], [ %151, %149 ], [ 0, %142 ]
+  br i1 %135, label %193, label %200
 
-247:                                              ; preds = %range_cmp_bounds.exit45
-  %248 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %248)
-  %249 = tail call i32 @errcode(i32 noundef 130) #14
-  %250 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #14
+193:                                              ; preds = %range_cmp_bounds.exit45
+  %194 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %195 = load i8, ptr %194, align 2, !range !7, !noundef !8
+  %196 = icmp eq i8 %141, %195
+  br i1 %196, label %range_cmp_bounds.exit47.thread, label %197
+
+197:                                              ; preds = %193
+  %198 = trunc nuw i8 %141 to i1
+  %199 = select i1 %198, i32 -1, i32 1
+  br label %range_cmp_bounds.exit47
+
+200:                                              ; preds = %range_cmp_bounds.exit45
+  %201 = trunc nuw i8 %141 to i1
+  %202 = select i1 %201, i32 -1, i32 1
+  br label %range_cmp_bounds.exit47
+
+203:                                              ; preds = %153, %158, %177, %181, %184, %187, %188
+  %.0.i44.ph = phi i32 [ %165, %158 ], [ 0, %187 ], [ 0, %177 ], [ %183, %181 ], [ %186, %184 ], [ %192, %188 ], [ %157, %153 ]
+  br i1 %135, label %204, label %209
+
+204:                                              ; preds = %203
+  %205 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %206 = load i8, ptr %205, align 2, !range !7, !noundef !8
+  %207 = trunc nuw i8 %206 to i1
+  %208 = select i1 %207, i32 1, i32 -1
+  br label %range_cmp_bounds.exit47
+
+209:                                              ; preds = %203
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %212 = load i32, ptr %211, align 4
+  %213 = load i64, ptr %8, align 8
+  %214 = load i64, ptr %9, align 8
+  %215 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %210, i32 noundef %212, i64 noundef %213, i64 noundef %214) #14
+  %216 = trunc i64 %215 to i32
+  %217 = icmp eq i32 %216, 0
+  br i1 %217, label %218, label %range_cmp_bounds.exit47
+
+218:                                              ; preds = %209
+  %219 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %220 = load i8, ptr %219, align 1, !range !7, !noundef !8
+  %221 = trunc nuw i8 %220 to i1
+  %222 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %223 = load i8, ptr %222, align 1, !range !7, !noundef !8
+  %224 = trunc nuw i8 %223 to i1
+  br i1 %221, label %238, label %225
+
+225:                                              ; preds = %218
+  %226 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %227 = load i8, ptr %226, align 2, !range !7, !noundef !8
+  br i1 %224, label %235, label %228
+
+228:                                              ; preds = %225
+  %229 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %230 = load i8, ptr %229, align 2, !range !7, !noundef !8
+  %231 = icmp eq i8 %227, %230
+  br i1 %231, label %range_cmp_bounds.exit47.thread, label %232
+
+232:                                              ; preds = %228
+  %233 = trunc nuw i8 %227 to i1
+  %234 = select i1 %233, i32 1, i32 -1
+  br label %range_cmp_bounds.exit47
+
+235:                                              ; preds = %225
+  %236 = trunc nuw i8 %227 to i1
+  %237 = select i1 %236, i32 1, i32 -1
+  br label %range_cmp_bounds.exit47
+
+238:                                              ; preds = %218
+  br i1 %224, label %range_cmp_bounds.exit47.thread, label %239
+
+239:                                              ; preds = %238
+  %240 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %241 = load i8, ptr %240, align 2, !range !7, !noundef !8
+  %242 = trunc nuw i8 %241 to i1
+  %243 = select i1 %242, i32 -1, i32 1
+  br label %range_cmp_bounds.exit47
+
+range_cmp_bounds.exit47:                          ; preds = %197, %200, %204, %209, %232, %235, %239
+  %.0.i4452 = phi i32 [ %.0.i44, %197 ], [ %.0.i44, %200 ], [ %.0.i44.ph, %204 ], [ %.0.i44.ph, %239 ], [ %.0.i44.ph, %235 ], [ %.0.i44.ph, %232 ], [ %.0.i44.ph, %209 ]
+  %.0.i46 = phi i32 [ %199, %197 ], [ %202, %200 ], [ %208, %204 ], [ %243, %239 ], [ %237, %235 ], [ %234, %232 ], [ %216, %209 ]
+  %244 = icmp slt i32 %.0.i49, 0
+  %245 = icmp sgt i32 %.0.i46, 0
+  %or.cond3 = select i1 %244, i1 %245, i1 false
+  br i1 %or.cond3, label %246, label %range_cmp_bounds.exit47.thread
+
+246:                                              ; preds = %range_cmp_bounds.exit47
+  %247 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %247)
+  %248 = tail call i32 @errcode(i32 noundef 130) #14
+  %249 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1021, ptr noundef nonnull @__func__.range_minus_internal) #14
   unreachable
 
-range_cmp_bounds.exit45.thread:                   ; preds = %239, %229, %194, %range_cmp_bounds.exit45
-  %.0.i4456 = phi i32 [ %.0.i44, %range_cmp_bounds.exit45 ], [ 0, %194 ], [ 0, %229 ], [ 0, %239 ]
-  %.0.i425055 = phi i32 [ %.0.i4250, %range_cmp_bounds.exit45 ], [ %.0.i42, %194 ], [ %.0.i42.ph, %229 ], [ %.0.i42.ph, %239 ]
-  %251 = icmp sgt i32 %.0.i40, 0
-  %252 = icmp slt i32 %.0.i425055, 0
-  %or.cond3 = select i1 %251, i1 true, i1 %252
-  br i1 %or.cond3, label %280, label %253
+range_cmp_bounds.exit47.thread:                   ; preds = %238, %228, %193, %range_cmp_bounds.exit47
+  %.0.i4658 = phi i32 [ %.0.i46, %range_cmp_bounds.exit47 ], [ 0, %193 ], [ 0, %228 ], [ 0, %238 ]
+  %.0.i445257 = phi i32 [ %.0.i4452, %range_cmp_bounds.exit47 ], [ %.0.i44, %193 ], [ %.0.i44.ph, %228 ], [ %.0.i44.ph, %238 ]
+  %250 = icmp sgt i32 %.0.i42, 0
+  %251 = icmp slt i32 %.0.i445257, 0
+  %or.cond5 = select i1 %250, i1 true, i1 %251
+  br i1 %or.cond5, label %279, label %252
 
-253:                                              ; preds = %range_cmp_bounds.exit45.thread
-  %254 = icmp sgt i32 %.0.i47, -1
-  %255 = icmp slt i32 %.0.i4456, 1
-  %or.cond5 = select i1 %254, i1 %255, i1 false
-  br i1 %or.cond5, label %256, label %261
+252:                                              ; preds = %range_cmp_bounds.exit47.thread
+  %253 = icmp sgt i32 %.0.i49, -1
+  %254 = icmp slt i32 %.0.i4658, 1
+  %or.cond7 = select i1 %253, i1 %254, i1 false
+  br i1 %or.cond7, label %255, label %260
 
-256:                                              ; preds = %253
+255:                                              ; preds = %252
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   store i64 0, ptr %4, align 8
-  %257 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 0, ptr %257, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 0, ptr %258, align 1
-  %259 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i8 1, ptr %259, align 2
+  %256 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 0, ptr %256, align 8
+  %257 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  store i8 0, ptr %257, align 1
+  %258 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  store i8 1, ptr %258, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %5, i8 0, i64 11, i1 false)
-  %260 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef null)
+  %259 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
-  br label %280
+  br label %279
 
-261:                                              ; preds = %253
-  %262 = icmp slt i32 %.0.i47, 1
-  %or.cond9 = select i1 %262, i1 %255, i1 false
-  br i1 %or.cond9, label %263, label %269
+260:                                              ; preds = %252
+  %261 = icmp slt i32 %.0.i49, 1
+  %or.cond11 = select i1 %261, i1 %254, i1 false
+  br i1 %or.cond11, label %262, label %268
 
-263:                                              ; preds = %261
-  %264 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %265 = load i8, ptr %264, align 1, !range !7, !noundef !8
-  %266 = xor i8 %265, 1
-  store i8 %266, ptr %264, align 1
-  %267 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  store i8 0, ptr %267, align 2
-  %268 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false, ptr noundef null)
-  br label %280
+262:                                              ; preds = %260
+  %263 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %264 = load i8, ptr %263, align 1, !range !7, !noundef !8
+  %265 = xor i8 %264, 1
+  store i8 %265, ptr %263, align 1
+  %266 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  store i8 0, ptr %266, align 2
+  %267 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false, ptr noundef null)
+  br label %279
 
-269:                                              ; preds = %261
-  %270 = icmp sgt i32 %.0.i4456, -1
-  %or.cond11 = select i1 %254, i1 %270, i1 false
-  br i1 %or.cond11, label %271, label %277
+268:                                              ; preds = %260
+  %269 = icmp sgt i32 %.0.i4658, -1
+  %or.cond13 = select i1 %253, i1 %269, i1 false
+  br i1 %or.cond13, label %270, label %276
 
-271:                                              ; preds = %269
-  %272 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %273 = load i8, ptr %272, align 1, !range !7, !noundef !8
-  %274 = xor i8 %273, 1
-  store i8 %274, ptr %272, align 1
-  %275 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i8 1, ptr %275, align 2
-  %276 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef null)
-  br label %280
+270:                                              ; preds = %268
+  %271 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %272 = load i8, ptr %271, align 1, !range !7, !noundef !8
+  %273 = xor i8 %272, 1
+  store i8 %273, ptr %271, align 1
+  %274 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  store i8 1, ptr %274, align 2
+  %275 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef null)
+  br label %279
 
-277:                                              ; preds = %269
-  %278 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %278)
-  %279 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
+276:                                              ; preds = %268
+  %277 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %277)
+  %278 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1043, ptr noundef nonnull @__func__.range_minus_internal) #14
   unreachable
 
-280:                                              ; preds = %range_cmp_bounds.exit45.thread, %3, %14, %271, %263, %256
-  %.0 = phi ptr [ %260, %256 ], [ %268, %263 ], [ %276, %271 ], [ %1, %14 ], [ %1, %3 ], [ %1, %range_cmp_bounds.exit45.thread ]
+279:                                              ; preds = %range_cmp_bounds.exit47.thread, %3, %270, %262, %255
+  %.0 = phi ptr [ %259, %255 ], [ %267, %262 ], [ %275, %270 ], [ %1, %3 ], [ %1, %range_cmp_bounds.exit47.thread ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
@@ -4995,12 +4930,12 @@ define dso_local ptr @range_union_internal(ptr noundef %0, ptr noundef %1, ptr n
   call void @range_deserialize(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %10)
   %19 = load i8, ptr %9, align 1, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %147, label %21
+  br i1 %20, label %141, label %21
 
 21:                                               ; preds = %18
   %22 = load i8, ptr %10, align 1, !range !7, !noundef !8
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %147, label %24
+  br i1 %23, label %141, label %24
 
 24:                                               ; preds = %21
   br i1 %3, label %25, label %33
@@ -5028,193 +4963,182 @@ define dso_local ptr @range_union_internal(ptr noundef %0, ptr noundef %1, ptr n
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %38 = load i8, ptr %37, align 8, !range !7, !noundef !8
   %39 = trunc nuw i8 %38 to i1
-  br i1 %36, label %40, label %51
+  br i1 %36, label %40, label %50
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %42 = load i8, ptr %41, align 2, !range !7, !noundef !8
-  br i1 %39, label %43, label %49
+  br i1 %39, label %43, label %48
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %45 = load i8, ptr %44, align 2, !range !7, !noundef !8
-  %46 = icmp eq i8 %42, %45
-  br i1 %46, label %range_cmp_bounds.exit.thread, label %47
+  %46 = icmp ne i8 %42, %45
+  %47 = trunc nuw i8 %42 to i1
+  %or.cond = select i1 %46, i1 %47, i1 false
+  br i1 %or.cond, label %range_cmp_bounds.exit.thread32, label %range_cmp_bounds.exit.thread
 
-47:                                               ; preds = %43
-  %48 = trunc nuw i8 %42 to i1
-  br i1 %48, label %range_cmp_bounds.exit.thread32, label %range_cmp_bounds.exit.thread
+48:                                               ; preds = %40
+  %49 = trunc nuw i8 %42 to i1
+  br i1 %49, label %range_cmp_bounds.exit.thread32, label %range_cmp_bounds.exit.thread
 
-49:                                               ; preds = %40
-  %50 = trunc nuw i8 %42 to i1
-  br i1 %50, label %range_cmp_bounds.exit.thread32, label %range_cmp_bounds.exit.thread
+50:                                               ; preds = %33
+  br i1 %39, label %51, label %55
 
-51:                                               ; preds = %33
-  br i1 %39, label %52, label %56
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %53 = load i8, ptr %52, align 2, !range !7, !noundef !8
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread32
 
-52:                                               ; preds = %51
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %54 = load i8, ptr %53, align 2, !range !7, !noundef !8
-  %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread32
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %58 = load i32, ptr %57, align 4
+  %59 = load i64, ptr %5, align 8
+  %60 = load i64, ptr %6, align 8
+  %61 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %56, i32 noundef %58, i64 noundef %59, i64 noundef %60) #14
+  %.fr58 = freeze i64 %61
+  %62 = trunc i64 %.fr58 to i32
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %range_cmp_bounds.exit
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %59 = load i32, ptr %58, align 4
-  %60 = load i64, ptr %5, align 8
-  %61 = load i64, ptr %6, align 8
-  %62 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %57, i32 noundef %59, i64 noundef %60, i64 noundef %61) #14
-  %.fr48 = freeze i64 %62
-  %63 = trunc i64 %.fr48 to i32
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %range_cmp_bounds.exit
+64:                                               ; preds = %55
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %66 = load i8, ptr %65, align 1, !range !7, !noundef !8
+  %67 = trunc nuw i8 %66 to i1
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %69 = load i8, ptr %68, align 1, !range !7, !noundef !8
+  %70 = trunc nuw i8 %69 to i1
+  br i1 %67, label %81, label %71
 
-65:                                               ; preds = %56
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %67 = load i8, ptr %66, align 1, !range !7, !noundef !8
-  %68 = trunc nuw i8 %67 to i1
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %70 = load i8, ptr %69, align 1, !range !7, !noundef !8
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %68, label %83, label %72
+71:                                               ; preds = %64
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %73 = load i8, ptr %72, align 2, !range !7, !noundef !8
+  br i1 %70, label %79, label %74
 
-72:                                               ; preds = %65
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %74 = load i8, ptr %73, align 2, !range !7, !noundef !8
-  br i1 %71, label %81, label %75
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %76 = load i8, ptr %75, align 2, !range !7, !noundef !8
+  %77 = icmp eq i8 %73, %76
+  %78 = trunc nuw i8 %73 to i1
+  %or.cond48 = select i1 %77, i1 true, i1 %78
+  br i1 %or.cond48, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread32
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %77 = load i8, ptr %76, align 2, !range !7, !noundef !8
-  %78 = icmp eq i8 %74, %77
-  br i1 %78, label %range_cmp_bounds.exit.thread, label %79
-
-79:                                               ; preds = %75
-  %80 = trunc nuw i8 %74 to i1
+79:                                               ; preds = %71
+  %80 = trunc nuw i8 %73 to i1
   br i1 %80, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread32
 
-81:                                               ; preds = %72
-  %82 = trunc nuw i8 %74 to i1
-  br i1 %82, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread32
+81:                                               ; preds = %64
+  %.not49 = xor i1 %70, true
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %83 = load i8, ptr %82, align 2, !range !7
+  %84 = trunc nuw i8 %83 to i1
+  %or.cond52 = select i1 %.not49, i1 %84, i1 false
+  br i1 %or.cond52, label %range_cmp_bounds.exit.thread32, label %range_cmp_bounds.exit.thread
 
-83:                                               ; preds = %65
-  br i1 %71, label %range_cmp_bounds.exit.thread, label %84
+range_cmp_bounds.exit:                            ; preds = %55
+  %85 = icmp slt i32 %62, 0
+  br i1 %85, label %range_cmp_bounds.exit.thread32, label %range_cmp_bounds.exit.thread
 
-84:                                               ; preds = %83
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %86 = load i8, ptr %85, align 2, !range !7, !noundef !8
-  %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %range_cmp_bounds.exit.thread32, label %range_cmp_bounds.exit.thread
-
-range_cmp_bounds.exit:                            ; preds = %56
-  %88 = icmp slt i32 %63, 0
-  br i1 %88, label %range_cmp_bounds.exit.thread32, label %range_cmp_bounds.exit.thread
-
-range_cmp_bounds.exit.thread32:                   ; preds = %84, %49, %47, %79, %81, %52, %range_cmp_bounds.exit
+range_cmp_bounds.exit.thread32:                   ; preds = %81, %74, %43, %48, %79, %51, %range_cmp_bounds.exit
   br label %range_cmp_bounds.exit.thread
 
-range_cmp_bounds.exit.thread:                     ; preds = %79, %81, %52, %83, %75, %43, %84, %49, %47, %range_cmp_bounds.exit, %range_cmp_bounds.exit.thread32
-  %89 = phi ptr [ %5, %range_cmp_bounds.exit.thread32 ], [ %6, %range_cmp_bounds.exit ], [ %6, %47 ], [ %6, %49 ], [ %6, %84 ], [ %6, %43 ], [ %6, %75 ], [ %6, %83 ], [ %6, %52 ], [ %6, %81 ], [ %6, %79 ]
-  %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
+range_cmp_bounds.exit.thread:                     ; preds = %79, %51, %81, %74, %43, %48, %range_cmp_bounds.exit, %range_cmp_bounds.exit.thread32
+  %86 = phi ptr [ %5, %range_cmp_bounds.exit.thread32 ], [ %6, %range_cmp_bounds.exit ], [ %6, %48 ], [ %6, %43 ], [ %6, %74 ], [ %6, %81 ], [ %6, %51 ], [ %6, %79 ]
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %88 = load i8, ptr %87, align 8, !range !7, !noundef !8
+  %89 = trunc nuw i8 %88 to i1
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %91 = load i8, ptr %90, align 8, !range !7, !noundef !8
   %92 = trunc nuw i8 %91 to i1
-  %93 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %94 = load i8, ptr %93, align 8, !range !7, !noundef !8
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %92, label %96, label %107
+  br i1 %89, label %93, label %103
 
-96:                                               ; preds = %range_cmp_bounds.exit.thread
-  %97 = getelementptr inbounds nuw i8, ptr %7, i64 10
+93:                                               ; preds = %range_cmp_bounds.exit.thread
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %95 = load i8, ptr %94, align 2, !range !7, !noundef !8
+  br i1 %92, label %96, label %101
+
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %98 = load i8, ptr %97, align 2, !range !7, !noundef !8
-  br i1 %95, label %99, label %105
+  %99 = icmp eq i8 %95, %98
+  %100 = trunc nuw i8 %95 to i1
+  %or.cond53 = select i1 %99, i1 true, i1 %100
+  br i1 %or.cond53, label %range_cmp_bounds.exit23.thread, label %range_cmp_bounds.exit23.thread45
 
-99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %101 = load i8, ptr %100, align 2, !range !7, !noundef !8
-  %102 = icmp eq i8 %98, %101
-  br i1 %102, label %range_cmp_bounds.exit23.thread, label %103
+101:                                              ; preds = %93
+  %102 = trunc nuw i8 %95 to i1
+  br i1 %102, label %range_cmp_bounds.exit23.thread, label %range_cmp_bounds.exit23.thread45
 
-103:                                              ; preds = %99
-  %104 = trunc nuw i8 %98 to i1
-  br i1 %104, label %range_cmp_bounds.exit23.thread, label %range_cmp_bounds.exit23.thread45
+103:                                              ; preds = %range_cmp_bounds.exit.thread
+  br i1 %92, label %104, label %108
 
-105:                                              ; preds = %96
-  %106 = trunc nuw i8 %98 to i1
-  br i1 %106, label %range_cmp_bounds.exit23.thread, label %range_cmp_bounds.exit23.thread45
+104:                                              ; preds = %103
+  %105 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %106 = load i8, ptr %105, align 2, !range !7, !noundef !8
+  %107 = trunc nuw i8 %106 to i1
+  br i1 %107, label %range_cmp_bounds.exit23.thread45, label %range_cmp_bounds.exit23.thread
 
-107:                                              ; preds = %range_cmp_bounds.exit.thread
-  br i1 %95, label %108, label %112
+108:                                              ; preds = %103
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %111 = load i32, ptr %110, align 4
+  %112 = load i64, ptr %7, align 8
+  %113 = load i64, ptr %8, align 8
+  %114 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %109, i32 noundef %111, i64 noundef %112, i64 noundef %113) #14
+  %.fr59 = freeze i64 %114
+  %115 = trunc i64 %.fr59 to i32
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %range_cmp_bounds.exit23
 
-108:                                              ; preds = %107
-  %109 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %110 = load i8, ptr %109, align 2, !range !7, !noundef !8
-  %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %range_cmp_bounds.exit23.thread45, label %range_cmp_bounds.exit23.thread
+117:                                              ; preds = %108
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %119 = load i8, ptr %118, align 1, !range !7, !noundef !8
+  %120 = trunc nuw i8 %119 to i1
+  %121 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %122 = load i8, ptr %121, align 1, !range !7, !noundef !8
+  %123 = trunc nuw i8 %122 to i1
+  br i1 %120, label %134, label %124
 
-112:                                              ; preds = %107
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %115 = load i32, ptr %114, align 4
-  %116 = load i64, ptr %7, align 8
-  %117 = load i64, ptr %8, align 8
-  %118 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %113, i32 noundef %115, i64 noundef %116, i64 noundef %117) #14
-  %.fr49 = freeze i64 %118
-  %119 = trunc i64 %.fr49 to i32
-  %120 = icmp eq i32 %119, 0
-  br i1 %120, label %121, label %range_cmp_bounds.exit23
+124:                                              ; preds = %117
+  %125 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %126 = load i8, ptr %125, align 2, !range !7, !noundef !8
+  br i1 %123, label %132, label %127
 
-121:                                              ; preds = %112
-  %122 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %123 = load i8, ptr %122, align 1, !range !7, !noundef !8
-  %124 = trunc nuw i8 %123 to i1
-  %125 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %126 = load i8, ptr %125, align 1, !range !7, !noundef !8
-  %127 = trunc nuw i8 %126 to i1
-  br i1 %124, label %139, label %128
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %129 = load i8, ptr %128, align 2, !range !7, !noundef !8
+  %130 = icmp ne i8 %126, %129
+  %131 = trunc nuw i8 %126 to i1
+  %or.cond54 = select i1 %130, i1 %131, i1 false
+  br i1 %or.cond54, label %range_cmp_bounds.exit23.thread45, label %range_cmp_bounds.exit23.thread
 
-128:                                              ; preds = %121
-  %129 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %130 = load i8, ptr %129, align 2, !range !7, !noundef !8
-  br i1 %127, label %137, label %131
+132:                                              ; preds = %124
+  %133 = trunc nuw i8 %126 to i1
+  br i1 %133, label %range_cmp_bounds.exit23.thread45, label %range_cmp_bounds.exit23.thread
 
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %133 = load i8, ptr %132, align 2, !range !7, !noundef !8
-  %134 = icmp eq i8 %130, %133
-  br i1 %134, label %range_cmp_bounds.exit23.thread, label %135
+134:                                              ; preds = %117
+  %135 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %136 = load i8, ptr %135, align 2, !range !7
+  %137 = trunc nuw i8 %136 to i1
+  %or.cond57 = select i1 %123, i1 true, i1 %137
+  br i1 %or.cond57, label %range_cmp_bounds.exit23.thread, label %range_cmp_bounds.exit23.thread45
 
-135:                                              ; preds = %131
-  %136 = trunc nuw i8 %130 to i1
-  br i1 %136, label %range_cmp_bounds.exit23.thread45, label %range_cmp_bounds.exit23.thread
-
-137:                                              ; preds = %128
-  %138 = trunc nuw i8 %130 to i1
+range_cmp_bounds.exit23:                          ; preds = %108
+  %138 = icmp sgt i32 %115, 0
   br i1 %138, label %range_cmp_bounds.exit23.thread45, label %range_cmp_bounds.exit23.thread
 
-139:                                              ; preds = %121
-  br i1 %127, label %range_cmp_bounds.exit23.thread, label %140
-
-140:                                              ; preds = %139
-  %141 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %142 = load i8, ptr %141, align 2, !range !7, !noundef !8
-  %143 = trunc nuw i8 %142 to i1
-  br i1 %143, label %range_cmp_bounds.exit23.thread, label %range_cmp_bounds.exit23.thread45
-
-range_cmp_bounds.exit23:                          ; preds = %112
-  %144 = icmp sgt i32 %119, 0
-  br i1 %144, label %range_cmp_bounds.exit23.thread45, label %range_cmp_bounds.exit23.thread
-
-range_cmp_bounds.exit23.thread45:                 ; preds = %135, %137, %108, %140, %105, %103, %range_cmp_bounds.exit23
+range_cmp_bounds.exit23.thread45:                 ; preds = %134, %127, %96, %132, %104, %101, %range_cmp_bounds.exit23
   br label %range_cmp_bounds.exit23.thread
 
-range_cmp_bounds.exit23.thread:                   ; preds = %140, %105, %103, %139, %131, %99, %135, %137, %108, %range_cmp_bounds.exit23, %range_cmp_bounds.exit23.thread45
-  %145 = phi ptr [ %7, %range_cmp_bounds.exit23.thread45 ], [ %8, %range_cmp_bounds.exit23 ], [ %8, %108 ], [ %8, %137 ], [ %8, %135 ], [ %8, %99 ], [ %8, %131 ], [ %8, %139 ], [ %8, %103 ], [ %8, %105 ], [ %8, %140 ]
-  %146 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %89, ptr noundef nonnull %145, i1 noundef zeroext false, ptr noundef null)
-  br label %147
+range_cmp_bounds.exit23.thread:                   ; preds = %101, %134, %127, %96, %132, %104, %range_cmp_bounds.exit23, %range_cmp_bounds.exit23.thread45
+  %139 = phi ptr [ %7, %range_cmp_bounds.exit23.thread45 ], [ %8, %range_cmp_bounds.exit23 ], [ %8, %104 ], [ %8, %132 ], [ %8, %96 ], [ %8, %127 ], [ %8, %134 ], [ %8, %101 ]
+  %140 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %86, ptr noundef nonnull %139, i1 noundef zeroext false, ptr noundef null)
+  br label %141
 
-147:                                              ; preds = %21, %18, %range_cmp_bounds.exit23.thread
-  %.021 = phi ptr [ %146, %range_cmp_bounds.exit23.thread ], [ %2, %18 ], [ %1, %21 ]
+141:                                              ; preds = %21, %18, %range_cmp_bounds.exit23.thread
+  %.021 = phi ptr [ %140, %range_cmp_bounds.exit23.thread ], [ %2, %18 ], [ %1, %21 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
@@ -5407,234 +5331,221 @@ define dso_local ptr @range_intersect_internal(ptr noundef %0, ptr noundef %1, p
   call void @range_deserialize(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %11)
   %12 = load i8, ptr %10, align 1, !range !7, !noundef !8
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %19, label %14
+  %14 = load i8, ptr %11, align 1, !range !7
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond = select i1 %13, i1 true, i1 %15
+  br i1 %or.cond, label %18, label %16
 
-14:                                               ; preds = %3
-  %15 = load i8, ptr %11, align 1, !range !7, !noundef !8
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %19, label %17
+16:                                               ; preds = %3
+  %17 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br i1 %17, label %23, label %18
 
-17:                                               ; preds = %14
-  %18 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br i1 %18, label %24, label %19
-
-19:                                               ; preds = %17, %14, %3
+18:                                               ; preds = %16, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   store i64 0, ptr %4, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i8 1, ptr %22, align 2
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 0, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  store i8 0, ptr %20, align 1
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  store i8 1, ptr %21, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %5, i8 0, i64 11, i1 false)
-  %23 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef null)
+  %22 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
-  br label %138
+  br label %131
 
-24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %26 = load i8, ptr %25, align 8, !range !7, !noundef !8
-  %27 = trunc nuw i8 %26 to i1
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %29 = load i8, ptr %28, align 8, !range !7, !noundef !8
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %27, label %31, label %42
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %25 = load i8, ptr %24, align 8, !range !7, !noundef !8
+  %26 = trunc nuw i8 %25 to i1
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %28 = load i8, ptr %27, align 8, !range !7, !noundef !8
+  %29 = trunc nuw i8 %28 to i1
+  br i1 %26, label %30, label %40
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %33 = load i8, ptr %32, align 2, !range !7, !noundef !8
-  br i1 %30, label %34, label %40
+30:                                               ; preds = %23
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %32 = load i8, ptr %31, align 2, !range !7, !noundef !8
+  br i1 %29, label %33, label %38
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %36 = load i8, ptr %35, align 2, !range !7, !noundef !8
-  %37 = icmp eq i8 %33, %36
-  br i1 %37, label %range_cmp_bounds.exit.thread, label %38
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %35 = load i8, ptr %34, align 2, !range !7, !noundef !8
+  %36 = icmp ne i8 %32, %35
+  %37 = trunc nuw i8 %32 to i1
+  %or.cond43 = select i1 %36, i1 %37, i1 false
+  br i1 %or.cond43, label %range_cmp_bounds.exit.thread27, label %range_cmp_bounds.exit.thread
 
-38:                                               ; preds = %34
-  %39 = trunc nuw i8 %33 to i1
-  br i1 %39, label %range_cmp_bounds.exit.thread26, label %range_cmp_bounds.exit.thread
+38:                                               ; preds = %30
+  %39 = trunc nuw i8 %32 to i1
+  br i1 %39, label %range_cmp_bounds.exit.thread27, label %range_cmp_bounds.exit.thread
 
-40:                                               ; preds = %31
-  %41 = trunc nuw i8 %33 to i1
-  br i1 %41, label %range_cmp_bounds.exit.thread26, label %range_cmp_bounds.exit.thread
+40:                                               ; preds = %23
+  br i1 %29, label %41, label %45
 
-42:                                               ; preds = %24
-  br i1 %30, label %43, label %47
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %43 = load i8, ptr %42, align 2, !range !7, !noundef !8
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread27
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %45 = load i8, ptr %44, align 2, !range !7, !noundef !8
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread26
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %48 = load i32, ptr %47, align 4
+  %49 = load i64, ptr %6, align 8
+  %50 = load i64, ptr %7, align 8
+  %51 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %46, i32 noundef %48, i64 noundef %49, i64 noundef %50) #14
+  %.fr53 = freeze i64 %51
+  %52 = trunc i64 %.fr53 to i32
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %range_cmp_bounds.exit
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %50 = load i32, ptr %49, align 4
-  %51 = load i64, ptr %6, align 8
-  %52 = load i64, ptr %7, align 8
-  %53 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %48, i32 noundef %50, i64 noundef %51, i64 noundef %52) #14
-  %.fr42 = freeze i64 %53
-  %54 = trunc i64 %.fr42 to i32
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %range_cmp_bounds.exit
+54:                                               ; preds = %45
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %56 = load i8, ptr %55, align 1, !range !7, !noundef !8
+  %57 = trunc nuw i8 %56 to i1
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %59 = load i8, ptr %58, align 1, !range !7, !noundef !8
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %57, label %71, label %61
 
-56:                                               ; preds = %47
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %58 = load i8, ptr %57, align 1, !range !7, !noundef !8
-  %59 = trunc nuw i8 %58 to i1
-  %60 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %61 = load i8, ptr %60, align 1, !range !7, !noundef !8
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %59, label %74, label %63
+61:                                               ; preds = %54
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %63 = load i8, ptr %62, align 2, !range !7, !noundef !8
+  br i1 %60, label %69, label %64
 
-63:                                               ; preds = %56
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %65 = load i8, ptr %64, align 2, !range !7, !noundef !8
-  br i1 %62, label %72, label %66
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %66 = load i8, ptr %65, align 2, !range !7, !noundef !8
+  %67 = icmp eq i8 %63, %66
+  %68 = trunc nuw i8 %63 to i1
+  %or.cond44 = select i1 %67, i1 true, i1 %68
+  br i1 %or.cond44, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread27
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %68 = load i8, ptr %67, align 2, !range !7, !noundef !8
-  %69 = icmp eq i8 %65, %68
-  br i1 %69, label %range_cmp_bounds.exit.thread, label %70
+69:                                               ; preds = %61
+  %70 = trunc nuw i8 %63 to i1
+  br i1 %70, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread27
 
-70:                                               ; preds = %66
-  %71 = trunc nuw i8 %65 to i1
-  br i1 %71, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread26
+71:                                               ; preds = %54
+  %.not = xor i1 %60, true
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %73 = load i8, ptr %72, align 2, !range !7
+  %74 = trunc nuw i8 %73 to i1
+  %or.cond47 = select i1 %.not, i1 %74, i1 false
+  br i1 %or.cond47, label %range_cmp_bounds.exit.thread27, label %range_cmp_bounds.exit.thread
 
-72:                                               ; preds = %63
-  %73 = trunc nuw i8 %65 to i1
-  br i1 %73, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread26
+range_cmp_bounds.exit:                            ; preds = %45
+  %75 = icmp sgt i32 %52, -1
+  br i1 %75, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread27
 
-74:                                               ; preds = %56
-  br i1 %62, label %range_cmp_bounds.exit.thread, label %75
+range_cmp_bounds.exit.thread:                     ; preds = %69, %41, %71, %64, %33, %38, %range_cmp_bounds.exit
+  br label %range_cmp_bounds.exit.thread27
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %77 = load i8, ptr %76, align 2, !range !7, !noundef !8
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %range_cmp_bounds.exit.thread26, label %range_cmp_bounds.exit.thread
+range_cmp_bounds.exit.thread27:                   ; preds = %71, %64, %33, %38, %69, %41, %range_cmp_bounds.exit, %range_cmp_bounds.exit.thread
+  %76 = phi ptr [ %6, %range_cmp_bounds.exit.thread ], [ %7, %range_cmp_bounds.exit ], [ %7, %41 ], [ %7, %69 ], [ %7, %38 ], [ %7, %33 ], [ %7, %64 ], [ %7, %71 ]
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %78 = load i8, ptr %77, align 8, !range !7, !noundef !8
+  %79 = trunc nuw i8 %78 to i1
+  %80 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %81 = load i8, ptr %80, align 8, !range !7, !noundef !8
+  %82 = trunc nuw i8 %81 to i1
+  br i1 %79, label %83, label %93
 
-range_cmp_bounds.exit:                            ; preds = %47
-  %79 = icmp sgt i32 %54, -1
-  br i1 %79, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread26
+83:                                               ; preds = %range_cmp_bounds.exit.thread27
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %85 = load i8, ptr %84, align 2, !range !7, !noundef !8
+  br i1 %82, label %86, label %91
 
-range_cmp_bounds.exit.thread:                     ; preds = %70, %72, %43, %74, %66, %34, %75, %40, %38, %range_cmp_bounds.exit
-  br label %range_cmp_bounds.exit.thread26
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %88 = load i8, ptr %87, align 2, !range !7, !noundef !8
+  %89 = icmp eq i8 %85, %88
+  %90 = trunc nuw i8 %85 to i1
+  %or.cond48 = select i1 %89, i1 true, i1 %90
+  br i1 %or.cond48, label %range_cmp_bounds.exit18.thread, label %range_cmp_bounds.exit18.thread40
 
-range_cmp_bounds.exit.thread26:                   ; preds = %75, %40, %38, %70, %72, %43, %range_cmp_bounds.exit, %range_cmp_bounds.exit.thread
-  %80 = phi ptr [ %6, %range_cmp_bounds.exit.thread ], [ %7, %range_cmp_bounds.exit ], [ %7, %43 ], [ %7, %72 ], [ %7, %70 ], [ %7, %38 ], [ %7, %40 ], [ %7, %75 ]
-  %81 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %82 = load i8, ptr %81, align 8, !range !7, !noundef !8
-  %83 = trunc nuw i8 %82 to i1
-  %84 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %85 = load i8, ptr %84, align 8, !range !7, !noundef !8
-  %86 = trunc nuw i8 %85 to i1
-  br i1 %83, label %87, label %98
+91:                                               ; preds = %83
+  %92 = trunc nuw i8 %85 to i1
+  br i1 %92, label %range_cmp_bounds.exit18.thread, label %range_cmp_bounds.exit18.thread40
 
-87:                                               ; preds = %range_cmp_bounds.exit.thread26
-  %88 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %89 = load i8, ptr %88, align 2, !range !7, !noundef !8
-  br i1 %86, label %90, label %96
+93:                                               ; preds = %range_cmp_bounds.exit.thread27
+  br i1 %82, label %94, label %98
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %92 = load i8, ptr %91, align 2, !range !7, !noundef !8
-  %93 = icmp eq i8 %89, %92
-  br i1 %93, label %range_cmp_bounds.exit17.thread, label %94
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %96 = load i8, ptr %95, align 2, !range !7, !noundef !8
+  %97 = trunc nuw i8 %96 to i1
+  br i1 %97, label %range_cmp_bounds.exit18.thread40, label %range_cmp_bounds.exit18.thread
 
-94:                                               ; preds = %90
-  %95 = trunc nuw i8 %89 to i1
-  br i1 %95, label %range_cmp_bounds.exit17.thread, label %range_cmp_bounds.exit17.thread39
+98:                                               ; preds = %93
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %101 = load i32, ptr %100, align 4
+  %102 = load i64, ptr %8, align 8
+  %103 = load i64, ptr %9, align 8
+  %104 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %99, i32 noundef %101, i64 noundef %102, i64 noundef %103) #14
+  %.fr54 = freeze i64 %104
+  %105 = trunc i64 %.fr54 to i32
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %range_cmp_bounds.exit18
 
-96:                                               ; preds = %87
-  %97 = trunc nuw i8 %89 to i1
-  br i1 %97, label %range_cmp_bounds.exit17.thread, label %range_cmp_bounds.exit17.thread39
+107:                                              ; preds = %98
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %109 = load i8, ptr %108, align 1, !range !7, !noundef !8
+  %110 = trunc nuw i8 %109 to i1
+  %111 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %112 = load i8, ptr %111, align 1, !range !7, !noundef !8
+  %113 = trunc nuw i8 %112 to i1
+  br i1 %110, label %124, label %114
 
-98:                                               ; preds = %range_cmp_bounds.exit.thread26
-  br i1 %86, label %99, label %103
+114:                                              ; preds = %107
+  %115 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %116 = load i8, ptr %115, align 2, !range !7, !noundef !8
+  br i1 %113, label %122, label %117
 
-99:                                               ; preds = %98
-  %100 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %101 = load i8, ptr %100, align 2, !range !7, !noundef !8
-  %102 = trunc nuw i8 %101 to i1
-  br i1 %102, label %range_cmp_bounds.exit17.thread39, label %range_cmp_bounds.exit17.thread
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %119 = load i8, ptr %118, align 2, !range !7, !noundef !8
+  %120 = icmp ne i8 %116, %119
+  %121 = trunc nuw i8 %116 to i1
+  %or.cond49 = select i1 %120, i1 %121, i1 false
+  br i1 %or.cond49, label %range_cmp_bounds.exit18.thread40, label %range_cmp_bounds.exit18.thread
 
-103:                                              ; preds = %98
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %106 = load i32, ptr %105, align 4
-  %107 = load i64, ptr %8, align 8
-  %108 = load i64, ptr %9, align 8
-  %109 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %104, i32 noundef %106, i64 noundef %107, i64 noundef %108) #14
-  %.fr43 = freeze i64 %109
-  %110 = trunc i64 %.fr43 to i32
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %range_cmp_bounds.exit17
+122:                                              ; preds = %114
+  %123 = trunc nuw i8 %116 to i1
+  br i1 %123, label %range_cmp_bounds.exit18.thread40, label %range_cmp_bounds.exit18.thread
 
-112:                                              ; preds = %103
-  %113 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %114 = load i8, ptr %113, align 1, !range !7, !noundef !8
-  %115 = trunc nuw i8 %114 to i1
-  %116 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %117 = load i8, ptr %116, align 1, !range !7, !noundef !8
-  %118 = trunc nuw i8 %117 to i1
-  br i1 %115, label %130, label %119
+124:                                              ; preds = %107
+  %125 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %126 = load i8, ptr %125, align 2, !range !7
+  %127 = trunc nuw i8 %126 to i1
+  %or.cond52 = select i1 %113, i1 true, i1 %127
+  br i1 %or.cond52, label %range_cmp_bounds.exit18.thread, label %range_cmp_bounds.exit18.thread40
 
-119:                                              ; preds = %112
-  %120 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %121 = load i8, ptr %120, align 2, !range !7, !noundef !8
-  br i1 %118, label %128, label %122
+range_cmp_bounds.exit18:                          ; preds = %98
+  %128 = icmp slt i32 %105, 1
+  br i1 %128, label %range_cmp_bounds.exit18.thread, label %range_cmp_bounds.exit18.thread40
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %124 = load i8, ptr %123, align 2, !range !7, !noundef !8
-  %125 = icmp eq i8 %121, %124
-  br i1 %125, label %range_cmp_bounds.exit17.thread, label %126
+range_cmp_bounds.exit18.thread:                   ; preds = %91, %124, %117, %86, %122, %94, %range_cmp_bounds.exit18
+  br label %range_cmp_bounds.exit18.thread40
 
-126:                                              ; preds = %122
-  %127 = trunc nuw i8 %121 to i1
-  br i1 %127, label %range_cmp_bounds.exit17.thread39, label %range_cmp_bounds.exit17.thread
+range_cmp_bounds.exit18.thread40:                 ; preds = %124, %117, %86, %122, %94, %91, %range_cmp_bounds.exit18, %range_cmp_bounds.exit18.thread
+  %129 = phi ptr [ %8, %range_cmp_bounds.exit18.thread ], [ %9, %range_cmp_bounds.exit18 ], [ %9, %91 ], [ %9, %94 ], [ %9, %122 ], [ %9, %86 ], [ %9, %117 ], [ %9, %124 ]
+  %130 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %76, ptr noundef nonnull %129, i1 noundef zeroext false, ptr noundef null)
+  br label %131
 
-128:                                              ; preds = %119
-  %129 = trunc nuw i8 %121 to i1
-  br i1 %129, label %range_cmp_bounds.exit17.thread39, label %range_cmp_bounds.exit17.thread
-
-130:                                              ; preds = %112
-  br i1 %118, label %range_cmp_bounds.exit17.thread, label %131
-
-131:                                              ; preds = %130
-  %132 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %133 = load i8, ptr %132, align 2, !range !7, !noundef !8
-  %134 = trunc nuw i8 %133 to i1
-  br i1 %134, label %range_cmp_bounds.exit17.thread, label %range_cmp_bounds.exit17.thread39
-
-range_cmp_bounds.exit17:                          ; preds = %103
-  %135 = icmp slt i32 %110, 1
-  br i1 %135, label %range_cmp_bounds.exit17.thread, label %range_cmp_bounds.exit17.thread39
-
-range_cmp_bounds.exit17.thread:                   ; preds = %131, %96, %94, %130, %122, %90, %126, %128, %99, %range_cmp_bounds.exit17
-  br label %range_cmp_bounds.exit17.thread39
-
-range_cmp_bounds.exit17.thread39:                 ; preds = %126, %128, %99, %131, %96, %94, %range_cmp_bounds.exit17, %range_cmp_bounds.exit17.thread
-  %136 = phi ptr [ %8, %range_cmp_bounds.exit17.thread ], [ %9, %range_cmp_bounds.exit17 ], [ %9, %94 ], [ %9, %96 ], [ %9, %131 ], [ %9, %99 ], [ %9, %128 ], [ %9, %126 ]
-  %137 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %80, ptr noundef nonnull %136, i1 noundef zeroext false, ptr noundef null)
-  br label %138
-
-138:                                              ; preds = %range_cmp_bounds.exit17.thread39, %19
-  %.015 = phi ptr [ %23, %19 ], [ %137, %range_cmp_bounds.exit17.thread39 ]
+131:                                              ; preds = %range_cmp_bounds.exit18.thread40, %18
+  %.016 = phi ptr [ %22, %18 ], [ %130, %range_cmp_bounds.exit18.thread40 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
-  ret ptr %.015
+  ret ptr %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5659,198 +5570,187 @@ define dso_local noundef zeroext i1 @range_split_internal(ptr noundef %0, ptr no
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = load i8, ptr %15, align 8, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1
-  br i1 %14, label %18, label %29
+  br i1 %14, label %18, label %28
 
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %20 = load i8, ptr %19, align 2, !range !7, !noundef !8
-  br i1 %17, label %21, label %27
+  br i1 %17, label %21, label %26
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %23 = load i8, ptr %22, align 2, !range !7, !noundef !8
-  %24 = icmp eq i8 %20, %23
-  br i1 %24, label %range_cmp_bounds.exit.thread, label %25
+  %24 = icmp ne i8 %20, %23
+  %25 = trunc nuw i8 %20 to i1
+  %or.cond = select i1 %24, i1 %25, i1 false
+  br i1 %or.cond, label %range_cmp_bounds.exit.thread20, label %range_cmp_bounds.exit.thread
 
-25:                                               ; preds = %21
-  %26 = trunc nuw i8 %20 to i1
-  br i1 %26, label %range_cmp_bounds.exit.thread20, label %range_cmp_bounds.exit.thread
+26:                                               ; preds = %18
+  %27 = trunc nuw i8 %20 to i1
+  br i1 %27, label %range_cmp_bounds.exit.thread20, label %range_cmp_bounds.exit.thread
 
-27:                                               ; preds = %18
-  %28 = trunc nuw i8 %20 to i1
-  br i1 %28, label %range_cmp_bounds.exit.thread20, label %range_cmp_bounds.exit.thread
+28:                                               ; preds = %5
+  br i1 %17, label %29, label %33
 
-29:                                               ; preds = %5
-  br i1 %17, label %30, label %34
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %31 = load i8, ptr %30, align 2, !range !7, !noundef !8
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread20
 
-30:                                               ; preds = %29
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %32 = load i8, ptr %31, align 2, !range !7, !noundef !8
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread20
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %36 = load i32, ptr %35, align 4
+  %37 = load i64, ptr %6, align 8
+  %38 = load i64, ptr %7, align 8
+  %39 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %34, i32 noundef %36, i64 noundef %37, i64 noundef %38) #14
+  %40 = trunc i64 %39 to i32
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %range_cmp_bounds.exit
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %37 = load i32, ptr %36, align 4
-  %38 = load i64, ptr %6, align 8
-  %39 = load i64, ptr %7, align 8
-  %40 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %35, i32 noundef %37, i64 noundef %38, i64 noundef %39) #14
-  %41 = trunc i64 %40 to i32
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %range_cmp_bounds.exit
+42:                                               ; preds = %33
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %44 = load i8, ptr %43, align 1, !range !7, !noundef !8
+  %45 = trunc nuw i8 %44 to i1
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %47 = load i8, ptr %46, align 1, !range !7, !noundef !8
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %45, label %59, label %49
 
-43:                                               ; preds = %34
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %45 = load i8, ptr %44, align 1, !range !7, !noundef !8
-  %46 = trunc nuw i8 %45 to i1
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %48 = load i8, ptr %47, align 1, !range !7, !noundef !8
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %46, label %61, label %50
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %51 = load i8, ptr %50, align 2, !range !7, !noundef !8
+  br i1 %48, label %57, label %52
 
-50:                                               ; preds = %43
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %52 = load i8, ptr %51, align 2, !range !7, !noundef !8
-  br i1 %49, label %59, label %53
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %54 = load i8, ptr %53, align 2, !range !7, !noundef !8
+  %55 = icmp eq i8 %51, %54
+  %56 = trunc nuw i8 %51 to i1
+  %or.cond32 = select i1 %55, i1 true, i1 %56
+  br i1 %or.cond32, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread20
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %55 = load i8, ptr %54, align 2, !range !7, !noundef !8
-  %56 = icmp eq i8 %52, %55
-  br i1 %56, label %range_cmp_bounds.exit.thread, label %57
-
-57:                                               ; preds = %53
-  %58 = trunc nuw i8 %52 to i1
+57:                                               ; preds = %49
+  %58 = trunc nuw i8 %51 to i1
   br i1 %58, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread20
 
-59:                                               ; preds = %50
-  %60 = trunc nuw i8 %52 to i1
-  br i1 %60, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit.thread20
+59:                                               ; preds = %42
+  %.not = xor i1 %48, true
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %61 = load i8, ptr %60, align 2, !range !7
+  %62 = trunc nuw i8 %61 to i1
+  %or.cond35 = select i1 %.not, i1 %62, i1 false
+  br i1 %or.cond35, label %range_cmp_bounds.exit.thread20, label %range_cmp_bounds.exit.thread
 
-61:                                               ; preds = %43
-  br i1 %49, label %range_cmp_bounds.exit.thread, label %62
+range_cmp_bounds.exit:                            ; preds = %33
+  %63 = icmp slt i32 %40, 0
+  br i1 %63, label %range_cmp_bounds.exit.thread20, label %range_cmp_bounds.exit.thread
 
-62:                                               ; preds = %61
-  %63 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %64 = load i8, ptr %63, align 2, !range !7, !noundef !8
-  %65 = trunc nuw i8 %64 to i1
-  br i1 %65, label %range_cmp_bounds.exit.thread20, label %range_cmp_bounds.exit.thread
-
-range_cmp_bounds.exit:                            ; preds = %34
-  %66 = icmp slt i32 %41, 0
-  br i1 %66, label %range_cmp_bounds.exit.thread20, label %range_cmp_bounds.exit.thread
-
-range_cmp_bounds.exit.thread20:                   ; preds = %62, %27, %25, %57, %59, %30, %range_cmp_bounds.exit
-  %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
+range_cmp_bounds.exit.thread20:                   ; preds = %59, %52, %21, %26, %57, %29, %range_cmp_bounds.exit
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %65 = load i8, ptr %64, align 8, !range !7, !noundef !8
+  %66 = trunc nuw i8 %65 to i1
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %68 = load i8, ptr %67, align 8, !range !7, !noundef !8
   %69 = trunc nuw i8 %68 to i1
-  %70 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %71 = load i8, ptr %70, align 8, !range !7, !noundef !8
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %69, label %73, label %84
+  br i1 %66, label %70, label %80
 
-73:                                               ; preds = %range_cmp_bounds.exit.thread20
-  %74 = getelementptr inbounds nuw i8, ptr %8, i64 10
+70:                                               ; preds = %range_cmp_bounds.exit.thread20
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %72 = load i8, ptr %71, align 2, !range !7, !noundef !8
+  br i1 %69, label %73, label %78
+
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %75 = load i8, ptr %74, align 2, !range !7, !noundef !8
-  br i1 %72, label %76, label %82
+  %76 = icmp eq i8 %72, %75
+  %77 = trunc nuw i8 %72 to i1
+  %or.cond36 = select i1 %76, i1 true, i1 %77
+  br i1 %or.cond36, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit12.thread30
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %78 = load i8, ptr %77, align 2, !range !7, !noundef !8
-  %79 = icmp eq i8 %75, %78
-  br i1 %79, label %range_cmp_bounds.exit.thread, label %80
+78:                                               ; preds = %70
+  %79 = trunc nuw i8 %72 to i1
+  br i1 %79, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit12.thread30
 
-80:                                               ; preds = %76
-  %81 = trunc nuw i8 %75 to i1
-  br i1 %81, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit12.thread30
+80:                                               ; preds = %range_cmp_bounds.exit.thread20
+  br i1 %69, label %81, label %85
 
-82:                                               ; preds = %73
-  %83 = trunc nuw i8 %75 to i1
-  br i1 %83, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit12.thread30
+81:                                               ; preds = %80
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %83 = load i8, ptr %82, align 2, !range !7, !noundef !8
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %range_cmp_bounds.exit12.thread30, label %range_cmp_bounds.exit.thread
 
-84:                                               ; preds = %range_cmp_bounds.exit.thread20
-  br i1 %72, label %85, label %89
+85:                                               ; preds = %80
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %88 = load i32, ptr %87, align 4
+  %89 = load i64, ptr %8, align 8
+  %90 = load i64, ptr %9, align 8
+  %91 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %88, i64 noundef %89, i64 noundef %90) #14
+  %92 = trunc i64 %91 to i32
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %range_cmp_bounds.exit12
 
-85:                                               ; preds = %84
-  %86 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %87 = load i8, ptr %86, align 2, !range !7, !noundef !8
-  %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %range_cmp_bounds.exit12.thread30, label %range_cmp_bounds.exit.thread
+94:                                               ; preds = %85
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %96 = load i8, ptr %95, align 1, !range !7, !noundef !8
+  %97 = trunc nuw i8 %96 to i1
+  %98 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %99 = load i8, ptr %98, align 1, !range !7, !noundef !8
+  %100 = trunc nuw i8 %99 to i1
+  br i1 %97, label %111, label %101
 
-89:                                               ; preds = %84
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %92 = load i32, ptr %91, align 4
-  %93 = load i64, ptr %8, align 8
-  %94 = load i64, ptr %9, align 8
-  %95 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %90, i32 noundef %92, i64 noundef %93, i64 noundef %94) #14
-  %96 = trunc i64 %95 to i32
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %range_cmp_bounds.exit12
+101:                                              ; preds = %94
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %103 = load i8, ptr %102, align 2, !range !7, !noundef !8
+  br i1 %100, label %109, label %104
 
-98:                                               ; preds = %89
-  %99 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %100 = load i8, ptr %99, align 1, !range !7, !noundef !8
-  %101 = trunc nuw i8 %100 to i1
-  %102 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %103 = load i8, ptr %102, align 1, !range !7, !noundef !8
-  %104 = trunc nuw i8 %103 to i1
-  br i1 %101, label %116, label %105
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %106 = load i8, ptr %105, align 2, !range !7, !noundef !8
+  %107 = icmp ne i8 %103, %106
+  %108 = trunc nuw i8 %103 to i1
+  %or.cond37 = select i1 %107, i1 %108, i1 false
+  br i1 %or.cond37, label %range_cmp_bounds.exit12.thread30, label %range_cmp_bounds.exit.thread
 
-105:                                              ; preds = %98
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %107 = load i8, ptr %106, align 2, !range !7, !noundef !8
-  br i1 %104, label %114, label %108
+109:                                              ; preds = %101
+  %110 = trunc nuw i8 %103 to i1
+  br i1 %110, label %range_cmp_bounds.exit12.thread30, label %range_cmp_bounds.exit.thread
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %110 = load i8, ptr %109, align 2, !range !7, !noundef !8
-  %111 = icmp eq i8 %107, %110
-  br i1 %111, label %range_cmp_bounds.exit.thread, label %112
+111:                                              ; preds = %94
+  %112 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %113 = load i8, ptr %112, align 2, !range !7
+  %114 = trunc nuw i8 %113 to i1
+  %or.cond40 = select i1 %100, i1 true, i1 %114
+  br i1 %or.cond40, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit12.thread30
 
-112:                                              ; preds = %108
-  %113 = trunc nuw i8 %107 to i1
-  br i1 %113, label %range_cmp_bounds.exit12.thread30, label %range_cmp_bounds.exit.thread
-
-114:                                              ; preds = %105
-  %115 = trunc nuw i8 %107 to i1
+range_cmp_bounds.exit12:                          ; preds = %85
+  %115 = icmp sgt i32 %92, 0
   br i1 %115, label %range_cmp_bounds.exit12.thread30, label %range_cmp_bounds.exit.thread
 
-116:                                              ; preds = %98
-  br i1 %104, label %range_cmp_bounds.exit.thread, label %117
-
-117:                                              ; preds = %116
-  %118 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %119 = load i8, ptr %118, align 2, !range !7, !noundef !8
-  %120 = trunc nuw i8 %119 to i1
-  br i1 %120, label %range_cmp_bounds.exit.thread, label %range_cmp_bounds.exit12.thread30
-
-range_cmp_bounds.exit12:                          ; preds = %89
-  %121 = icmp sgt i32 %96, 0
-  br i1 %121, label %range_cmp_bounds.exit12.thread30, label %range_cmp_bounds.exit.thread
-
-range_cmp_bounds.exit12.thread30:                 ; preds = %112, %114, %85, %117, %82, %80, %range_cmp_bounds.exit12
-  %122 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %123 = load i8, ptr %122, align 1, !range !7, !noundef !8
-  %124 = xor i8 %123, 1
-  store i8 %124, ptr %122, align 1
-  %125 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  store i8 0, ptr %125, align 2
-  %126 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %127 = load i8, ptr %126, align 1, !range !7, !noundef !8
-  %128 = xor i8 %127, 1
-  store i8 %128, ptr %126, align 1
-  %129 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i8 1, ptr %129, align 2
-  %130 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false, ptr noundef null)
-  store ptr %130, ptr %3, align 8
-  %131 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef null)
-  store ptr %131, ptr %4, align 8
+range_cmp_bounds.exit12.thread30:                 ; preds = %111, %104, %73, %109, %81, %78, %range_cmp_bounds.exit12
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %117 = load i8, ptr %116, align 1, !range !7, !noundef !8
+  %118 = xor i8 %117, 1
+  store i8 %118, ptr %116, align 1
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  store i8 0, ptr %119, align 2
+  %120 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %121 = load i8, ptr %120, align 1, !range !7, !noundef !8
+  %122 = xor i8 %121, 1
+  store i8 %122, ptr %120, align 1
+  %123 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  store i8 1, ptr %123, align 2
+  %124 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false, ptr noundef null)
+  store ptr %124, ptr %3, align 8
+  %125 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef null)
+  store ptr %125, ptr %4, align 8
   br label %range_cmp_bounds.exit.thread
 
-range_cmp_bounds.exit.thread:                     ; preds = %117, %82, %80, %116, %108, %76, %112, %114, %85, %57, %59, %30, %61, %53, %21, %62, %27, %25, %range_cmp_bounds.exit, %range_cmp_bounds.exit12, %range_cmp_bounds.exit12.thread30
-  %.0 = phi i1 [ true, %range_cmp_bounds.exit12.thread30 ], [ false, %range_cmp_bounds.exit12 ], [ false, %range_cmp_bounds.exit ], [ false, %25 ], [ false, %27 ], [ false, %62 ], [ false, %21 ], [ false, %53 ], [ false, %61 ], [ false, %30 ], [ false, %59 ], [ false, %57 ], [ false, %85 ], [ false, %114 ], [ false, %112 ], [ false, %76 ], [ false, %108 ], [ false, %116 ], [ false, %80 ], [ false, %82 ], [ false, %117 ]
+range_cmp_bounds.exit.thread:                     ; preds = %78, %111, %104, %73, %109, %81, %57, %29, %59, %52, %21, %26, %range_cmp_bounds.exit, %range_cmp_bounds.exit12, %range_cmp_bounds.exit12.thread30
+  %.0 = phi i1 [ true, %range_cmp_bounds.exit12.thread30 ], [ false, %range_cmp_bounds.exit12 ], [ false, %range_cmp_bounds.exit ], [ false, %26 ], [ false, %21 ], [ false, %52 ], [ false, %59 ], [ false, %29 ], [ false, %57 ], [ false, %81 ], [ false, %109 ], [ false, %73 ], [ false, %104 ], [ false, %111 ], [ false, %78 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
@@ -6017,232 +5917,228 @@ range_get_typcache.exit:                          ; preds = %28, %38
   call void @range_deserialize(ptr noundef nonnull %.0.i, ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %41 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %42 = trunc nuw i8 %41 to i1
-  %43 = load i8, ptr %7, align 1, !range !7, !noundef !8
-  br i1 %42, label %44, label %47
+  %43 = load i8, ptr %7, align 1, !range !7
+  %44 = trunc nuw i8 %43 to i1
+  %or.cond = select i1 %42, i1 %44, i1 false
+  %not.or.cond = xor i1 %or.cond, true
+  %.mux = sext i1 %not.or.cond to i64
+  %brmerge26 = select i1 %42, i1 true, i1 %44
+  %.mux.mux = select i1 %42, i64 %.mux, i64 1
+  br i1 %brmerge26, label %range_cmp_bounds.exit29, label %45
 
-44:                                               ; preds = %range_get_typcache.exit
-  %45 = xor i8 %43, 1
-  %46 = zext nneg i8 %45 to i64
-  %spec.select = sub nsw i64 0, %46
-  br label %range_cmp_bounds.exit27
+45:                                               ; preds = %range_get_typcache.exit
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %47 = load i8, ptr %46, align 8, !range !7, !noundef !8
+  %48 = trunc nuw i8 %47 to i1
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %50 = load i8, ptr %49, align 8, !range !7, !noundef !8
+  %51 = trunc nuw i8 %50 to i1
+  br i1 %48, label %52, label %65
 
-47:                                               ; preds = %range_get_typcache.exit
-  %48 = trunc nuw i8 %43 to i1
-  br i1 %48, label %range_cmp_bounds.exit27, label %49
+52:                                               ; preds = %45
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %54 = load i8, ptr %53, align 2, !range !7, !noundef !8
+  br i1 %51, label %55, label %62
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %51 = load i8, ptr %50, align 8, !range !7, !noundef !8
-  %52 = trunc nuw i8 %51 to i1
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %54 = load i8, ptr %53, align 8, !range !7, !noundef !8
-  %55 = trunc nuw i8 %54 to i1
-  br i1 %52, label %56, label %69
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %57 = load i8, ptr %56, align 2, !range !7, !noundef !8
+  %58 = icmp eq i8 %54, %57
+  br i1 %58, label %range_cmp_bounds.exit, label %59
 
-56:                                               ; preds = %49
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %58 = load i8, ptr %57, align 2, !range !7, !noundef !8
-  br i1 %55, label %59, label %66
+59:                                               ; preds = %55
+  %60 = trunc nuw i8 %54 to i1
+  %61 = select i1 %60, i64 -1, i64 1
+  br label %range_cmp_bounds.exit29
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %61 = load i8, ptr %60, align 2, !range !7, !noundef !8
-  %62 = icmp eq i8 %58, %61
-  br i1 %62, label %range_cmp_bounds.exit, label %63
+62:                                               ; preds = %52
+  %63 = trunc nuw i8 %54 to i1
+  %64 = select i1 %63, i64 -1, i64 1
+  br label %range_cmp_bounds.exit29
 
-63:                                               ; preds = %59
-  %64 = trunc nuw i8 %58 to i1
-  %65 = select i1 %64, i64 -1, i64 1
-  br label %range_cmp_bounds.exit27
+65:                                               ; preds = %45
+  br i1 %51, label %66, label %71
 
-66:                                               ; preds = %56
-  %67 = trunc nuw i8 %58 to i1
-  %68 = select i1 %67, i64 -1, i64 1
-  br label %range_cmp_bounds.exit27
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %68 = load i8, ptr %67, align 2, !range !7, !noundef !8
+  %69 = trunc nuw i8 %68 to i1
+  %70 = select i1 %69, i64 1, i64 -1
+  br label %range_cmp_bounds.exit29
 
-69:                                               ; preds = %49
-  br i1 %55, label %70, label %75
+71:                                               ; preds = %65
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i, i64 296
+  %73 = getelementptr inbounds nuw i8, ptr %.0.i, i64 292
+  %74 = load i32, ptr %73, align 4
+  %75 = load i64, ptr %2, align 8
+  %76 = load i64, ptr %3, align 8
+  %77 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %72, i32 noundef %74, i64 noundef %75, i64 noundef %76) #14
+  %78 = and i64 %77, 4294967295
+  %79 = icmp eq i64 %78, 0
+  br i1 %79, label %80, label %range_cmp_bounds.exit29
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %72 = load i8, ptr %71, align 2, !range !7, !noundef !8
-  %73 = trunc nuw i8 %72 to i1
-  %74 = select i1 %73, i64 1, i64 -1
-  br label %range_cmp_bounds.exit27
+80:                                               ; preds = %71
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %82 = load i8, ptr %81, align 1, !range !7, !noundef !8
+  %83 = trunc nuw i8 %82 to i1
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %85 = load i8, ptr %84, align 1, !range !7, !noundef !8
+  %86 = trunc nuw i8 %85 to i1
+  br i1 %83, label %100, label %87
 
-75:                                               ; preds = %69
-  %76 = getelementptr inbounds nuw i8, ptr %.0.i, i64 296
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i, i64 292
-  %78 = load i32, ptr %77, align 4
-  %79 = load i64, ptr %2, align 8
-  %80 = load i64, ptr %3, align 8
-  %81 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %76, i32 noundef %78, i64 noundef %79, i64 noundef %80) #14
-  %82 = and i64 %81, 4294967295
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %84, label %range_cmp_bounds.exit27
+87:                                               ; preds = %80
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %89 = load i8, ptr %88, align 2, !range !7, !noundef !8
+  br i1 %86, label %97, label %90
 
-84:                                               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %86 = load i8, ptr %85, align 1, !range !7, !noundef !8
-  %87 = trunc nuw i8 %86 to i1
-  %88 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %89 = load i8, ptr %88, align 1, !range !7, !noundef !8
-  %90 = trunc nuw i8 %89 to i1
-  br i1 %87, label %104, label %91
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %92 = load i8, ptr %91, align 2, !range !7, !noundef !8
+  %93 = icmp eq i8 %89, %92
+  br i1 %93, label %range_cmp_bounds.exit, label %94
 
-91:                                               ; preds = %84
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %93 = load i8, ptr %92, align 2, !range !7, !noundef !8
-  br i1 %90, label %101, label %94
+94:                                               ; preds = %90
+  %95 = trunc nuw i8 %89 to i1
+  %96 = select i1 %95, i64 1, i64 -1
+  br label %range_cmp_bounds.exit29
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %96 = load i8, ptr %95, align 2, !range !7, !noundef !8
-  %97 = icmp eq i8 %93, %96
-  br i1 %97, label %range_cmp_bounds.exit, label %98
+97:                                               ; preds = %87
+  %98 = trunc nuw i8 %89 to i1
+  %99 = select i1 %98, i64 1, i64 -1
+  br label %range_cmp_bounds.exit29
 
-98:                                               ; preds = %94
-  %99 = trunc nuw i8 %93 to i1
-  %100 = select i1 %99, i64 1, i64 -1
-  br label %range_cmp_bounds.exit27
+100:                                              ; preds = %80
+  br i1 %86, label %range_cmp_bounds.exit, label %101
 
-101:                                              ; preds = %91
-  %102 = trunc nuw i8 %93 to i1
-  %103 = select i1 %102, i64 1, i64 -1
-  br label %range_cmp_bounds.exit27
+101:                                              ; preds = %100
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %103 = load i8, ptr %102, align 2, !range !7, !noundef !8
+  %104 = trunc nuw i8 %103 to i1
+  %105 = select i1 %104, i64 -1, i64 1
+  br label %range_cmp_bounds.exit29
 
-104:                                              ; preds = %84
-  br i1 %90, label %range_cmp_bounds.exit, label %105
-
-105:                                              ; preds = %104
-  %106 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %107 = load i8, ptr %106, align 2, !range !7, !noundef !8
+range_cmp_bounds.exit:                            ; preds = %100, %90, %55
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %107 = load i8, ptr %106, align 8, !range !7, !noundef !8
   %108 = trunc nuw i8 %107 to i1
-  %109 = select i1 %108, i64 -1, i64 1
-  br label %range_cmp_bounds.exit27
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %110 = load i8, ptr %109, align 8, !range !7, !noundef !8
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %108, label %112, label %125
 
-range_cmp_bounds.exit:                            ; preds = %104, %94, %59
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %111 = load i8, ptr %110, align 8, !range !7, !noundef !8
-  %112 = trunc nuw i8 %111 to i1
-  %113 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %114 = load i8, ptr %113, align 8, !range !7, !noundef !8
-  %115 = trunc nuw i8 %114 to i1
-  br i1 %112, label %116, label %129
+112:                                              ; preds = %range_cmp_bounds.exit
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %114 = load i8, ptr %113, align 2, !range !7, !noundef !8
+  br i1 %111, label %115, label %122
 
-116:                                              ; preds = %range_cmp_bounds.exit
-  %117 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %118 = load i8, ptr %117, align 2, !range !7, !noundef !8
-  br i1 %115, label %119, label %126
+115:                                              ; preds = %112
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %117 = load i8, ptr %116, align 2, !range !7, !noundef !8
+  %118 = icmp eq i8 %114, %117
+  br i1 %118, label %range_cmp_bounds.exit29, label %119
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %121 = load i8, ptr %120, align 2, !range !7, !noundef !8
-  %122 = icmp eq i8 %118, %121
-  br i1 %122, label %range_cmp_bounds.exit27, label %123
+119:                                              ; preds = %115
+  %120 = trunc nuw i8 %114 to i1
+  %121 = select i1 %120, i64 -1, i64 1
+  br label %range_cmp_bounds.exit29
 
-123:                                              ; preds = %119
-  %124 = trunc nuw i8 %118 to i1
-  %125 = select i1 %124, i64 -1, i64 1
-  br label %range_cmp_bounds.exit27
+122:                                              ; preds = %112
+  %123 = trunc nuw i8 %114 to i1
+  %124 = select i1 %123, i64 -1, i64 1
+  br label %range_cmp_bounds.exit29
 
-126:                                              ; preds = %116
-  %127 = trunc nuw i8 %118 to i1
-  %128 = select i1 %127, i64 -1, i64 1
-  br label %range_cmp_bounds.exit27
+125:                                              ; preds = %range_cmp_bounds.exit
+  br i1 %111, label %126, label %131
 
-129:                                              ; preds = %range_cmp_bounds.exit
-  br i1 %115, label %130, label %135
+126:                                              ; preds = %125
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %128 = load i8, ptr %127, align 2, !range !7, !noundef !8
+  %129 = trunc nuw i8 %128 to i1
+  %130 = select i1 %129, i64 1, i64 -1
+  br label %range_cmp_bounds.exit29
 
-130:                                              ; preds = %129
-  %131 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %132 = load i8, ptr %131, align 2, !range !7, !noundef !8
-  %133 = trunc nuw i8 %132 to i1
-  %134 = select i1 %133, i64 1, i64 -1
-  br label %range_cmp_bounds.exit27
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw i8, ptr %.0.i, i64 296
+  %133 = getelementptr inbounds nuw i8, ptr %.0.i, i64 292
+  %134 = load i32, ptr %133, align 4
+  %135 = load i64, ptr %4, align 8
+  %136 = load i64, ptr %5, align 8
+  %137 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %132, i32 noundef %134, i64 noundef %135, i64 noundef %136) #14
+  %138 = and i64 %137, 4294967295
+  %139 = icmp eq i64 %138, 0
+  br i1 %139, label %140, label %range_cmp_bounds.exit29
 
-135:                                              ; preds = %129
-  %136 = getelementptr inbounds nuw i8, ptr %.0.i, i64 296
-  %137 = getelementptr inbounds nuw i8, ptr %.0.i, i64 292
-  %138 = load i32, ptr %137, align 4
-  %139 = load i64, ptr %4, align 8
-  %140 = load i64, ptr %5, align 8
-  %141 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %136, i32 noundef %138, i64 noundef %139, i64 noundef %140) #14
-  %142 = and i64 %141, 4294967295
-  %143 = icmp eq i64 %142, 0
-  br i1 %143, label %144, label %range_cmp_bounds.exit27
+140:                                              ; preds = %131
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %142 = load i8, ptr %141, align 1, !range !7, !noundef !8
+  %143 = trunc nuw i8 %142 to i1
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %145 = load i8, ptr %144, align 1, !range !7, !noundef !8
+  %146 = trunc nuw i8 %145 to i1
+  br i1 %143, label %160, label %147
 
-144:                                              ; preds = %135
-  %145 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %146 = load i8, ptr %145, align 1, !range !7, !noundef !8
-  %147 = trunc nuw i8 %146 to i1
-  %148 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %149 = load i8, ptr %148, align 1, !range !7, !noundef !8
-  %150 = trunc nuw i8 %149 to i1
-  br i1 %147, label %164, label %151
+147:                                              ; preds = %140
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %149 = load i8, ptr %148, align 2, !range !7, !noundef !8
+  br i1 %146, label %157, label %150
 
-151:                                              ; preds = %144
-  %152 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %153 = load i8, ptr %152, align 2, !range !7, !noundef !8
-  br i1 %150, label %161, label %154
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %152 = load i8, ptr %151, align 2, !range !7, !noundef !8
+  %153 = icmp eq i8 %149, %152
+  br i1 %153, label %range_cmp_bounds.exit29, label %154
 
-154:                                              ; preds = %151
-  %155 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %156 = load i8, ptr %155, align 2, !range !7, !noundef !8
-  %157 = icmp eq i8 %153, %156
-  br i1 %157, label %range_cmp_bounds.exit27, label %158
+154:                                              ; preds = %150
+  %155 = trunc nuw i8 %149 to i1
+  %156 = select i1 %155, i64 1, i64 -1
+  br label %range_cmp_bounds.exit29
 
-158:                                              ; preds = %154
-  %159 = trunc nuw i8 %153 to i1
-  %160 = select i1 %159, i64 1, i64 -1
-  br label %range_cmp_bounds.exit27
+157:                                              ; preds = %147
+  %158 = trunc nuw i8 %149 to i1
+  %159 = select i1 %158, i64 1, i64 -1
+  br label %range_cmp_bounds.exit29
 
-161:                                              ; preds = %151
-  %162 = trunc nuw i8 %153 to i1
-  %163 = select i1 %162, i64 1, i64 -1
-  br label %range_cmp_bounds.exit27
+160:                                              ; preds = %140
+  br i1 %146, label %range_cmp_bounds.exit29, label %161
 
-164:                                              ; preds = %144
-  br i1 %150, label %range_cmp_bounds.exit27, label %165
+161:                                              ; preds = %160
+  %162 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %163 = load i8, ptr %162, align 2, !range !7, !noundef !8
+  %164 = trunc nuw i8 %163 to i1
+  %165 = select i1 %164, i64 -1, i64 1
+  br label %range_cmp_bounds.exit29
 
-165:                                              ; preds = %164
-  %166 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %167 = load i8, ptr %166, align 2, !range !7, !noundef !8
-  %168 = trunc nuw i8 %167 to i1
-  %169 = select i1 %168, i64 -1, i64 1
-  br label %range_cmp_bounds.exit27
+range_cmp_bounds.exit29:                          ; preds = %71, %94, %97, %101, %66, %62, %59, %161, %160, %157, %154, %150, %131, %126, %122, %119, %115, %range_get_typcache.exit
+  %.0 = phi i64 [ %.mux.mux, %range_get_typcache.exit ], [ %121, %119 ], [ %124, %122 ], [ %130, %126 ], [ %165, %161 ], [ %159, %157 ], [ %156, %154 ], [ 0, %115 ], [ 0, %150 ], [ 0, %160 ], [ %137, %131 ], [ %77, %71 ], [ %96, %94 ], [ %99, %97 ], [ %105, %101 ], [ %70, %66 ], [ %64, %62 ], [ %61, %59 ]
+  %166 = load i64, ptr %8, align 8
+  %167 = inttoptr i64 %166 to ptr
+  %.not24 = icmp eq ptr %11, %167
+  br i1 %.not24, label %169, label %168
 
-range_cmp_bounds.exit27:                          ; preds = %44, %75, %98, %101, %105, %70, %66, %63, %165, %164, %161, %158, %154, %135, %130, %126, %123, %119, %47
-  %.0 = phi i64 [ 1, %47 ], [ %125, %123 ], [ %128, %126 ], [ %134, %130 ], [ %169, %165 ], [ %163, %161 ], [ %160, %158 ], [ 0, %119 ], [ 0, %154 ], [ 0, %164 ], [ %141, %135 ], [ %81, %75 ], [ %100, %98 ], [ %103, %101 ], [ %109, %105 ], [ %74, %70 ], [ %68, %66 ], [ %65, %63 ], [ %spec.select, %44 ]
-  %170 = load i64, ptr %8, align 8
-  %171 = inttoptr i64 %170 to ptr
-  %.not23 = icmp eq ptr %11, %171
-  br i1 %.not23, label %173, label %172
-
-172:                                              ; preds = %range_cmp_bounds.exit27
+168:                                              ; preds = %range_cmp_bounds.exit29
   tail call void @pfree(ptr noundef nonnull %11) #14
+  br label %169
+
+169:                                              ; preds = %range_cmp_bounds.exit29, %168
+  %170 = load i64, ptr %12, align 8
+  %171 = inttoptr i64 %170 to ptr
+  %.not25 = icmp eq ptr %15, %171
+  br i1 %.not25, label %173, label %172
+
+172:                                              ; preds = %169
+  tail call void @pfree(ptr noundef nonnull %15) #14
   br label %173
 
-173:                                              ; preds = %range_cmp_bounds.exit27, %172
-  %174 = load i64, ptr %12, align 8
-  %175 = inttoptr i64 %174 to ptr
-  %.not24 = icmp eq ptr %15, %175
-  br i1 %.not24, label %177, label %176
-
-176:                                              ; preds = %173
-  tail call void @pfree(ptr noundef nonnull %15) #14
-  br label %177
-
-177:                                              ; preds = %176, %173
+173:                                              ; preds = %172, %169
   %sext = shl i64 %.0, 32
-  %178 = ashr exact i64 %sext, 32
+  %174 = ashr exact i64 %sext, 32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
-  ret i64 %178
+  ret i64 %174
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6597,81 +6493,78 @@ range_get_typcache.exit:                          ; preds = %17, %27
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load i8, ptr %35, align 8, !range !7, !noundef !8
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %53, label %38
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %39 = load i8, ptr %38, align 1, !range !7
+  %40 = trunc nuw i8 %39 to i1
+  %or.cond = select i1 %37, i1 true, i1 %40
+  br i1 %or.cond, label %52, label %41
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %40 = load i8, ptr %39, align 1, !range !7, !noundef !8
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %53, label %42
+41:                                               ; preds = %34
+  %42 = load i64, ptr %2, align 8
+  %43 = and i64 %42, 4294967295
+  %.not31 = icmp eq i64 %43, 2147483647
+  br i1 %.not31, label %44, label %49, !prof !19
 
-42:                                               ; preds = %38
-  %43 = load i64, ptr %2, align 8
-  %44 = and i64 %43, 4294967295
-  %.not = icmp eq i64 %44, 2147483647
-  br i1 %.not, label %45, label %50, !prof !19
+44:                                               ; preds = %41
+  %45 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #14
+  br i1 %45, label %46, label %.thread
 
-45:                                               ; preds = %42
-  %46 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #14
-  br i1 %46, label %47, label %.thread
-
-47:                                               ; preds = %45
-  %48 = tail call i32 @errcode(i32 noundef 50331778) #14
-  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #14
+46:                                               ; preds = %44
+  %47 = tail call i32 @errcode(i32 noundef 50331778) #14
+  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #14
   tail call void @errsave_finish(ptr noundef %10, ptr noundef nonnull @.str.1, i32 noundef 1488, ptr noundef nonnull @__func__.int4range_canonical) #14
   br label %.thread
 
-50:                                               ; preds = %42
-  %51 = shl i64 %43, 32
-  %sext = add i64 %51, 4294967296
-  %52 = ashr exact i64 %sext, 32
-  store i64 %52, ptr %2, align 8
-  store i8 1, ptr %39, align 1
-  br label %53
+49:                                               ; preds = %41
+  %50 = shl i64 %42, 32
+  %sext = add i64 %50, 4294967296
+  %51 = ashr exact i64 %sext, 32
+  store i64 %51, ptr %2, align 8
+  store i8 1, ptr %38, align 1
+  br label %52
 
-53:                                               ; preds = %50, %38, %34
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %55 = load i8, ptr %54, align 8, !range !7, !noundef !8
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %72, label %57
+52:                                               ; preds = %49, %34
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %54 = load i8, ptr %53, align 8, !range !7, !noundef !8
+  %55 = trunc nuw i8 %54 to i1
+  %.not = xor i1 %55, true
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %57 = load i8, ptr %56, align 1, !range !7
+  %58 = trunc nuw i8 %57 to i1
+  %or.cond6 = select i1 %.not, i1 %58, i1 false
+  br i1 %or.cond6, label %59, label %70
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %59 = load i8, ptr %58, align 1, !range !7, !noundef !8
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %72
+59:                                               ; preds = %52
+  %60 = load i64, ptr %3, align 8
+  %61 = and i64 %60, 4294967295
+  %.not32 = icmp eq i64 %61, 2147483647
+  br i1 %.not32, label %62, label %67, !prof !19
 
-61:                                               ; preds = %57
-  %62 = load i64, ptr %3, align 8
-  %63 = and i64 %62, 4294967295
-  %.not26 = icmp eq i64 %63, 2147483647
-  br i1 %.not26, label %64, label %69, !prof !19
+62:                                               ; preds = %59
+  %63 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #14
+  br i1 %63, label %64, label %.thread
 
-64:                                               ; preds = %61
-  %65 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #14
-  br i1 %65, label %66, label %.thread
-
-66:                                               ; preds = %64
-  %67 = tail call i32 @errcode(i32 noundef 50331778) #14
-  %68 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #14
+64:                                               ; preds = %62
+  %65 = tail call i32 @errcode(i32 noundef 50331778) #14
+  %66 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #14
   tail call void @errsave_finish(ptr noundef %10, ptr noundef nonnull @.str.1, i32 noundef 1501, ptr noundef nonnull @__func__.int4range_canonical) #14
   br label %.thread
 
-69:                                               ; preds = %61
-  %70 = shl i64 %62, 32
-  %sext29 = add i64 %70, 4294967296
-  %71 = ashr exact i64 %sext29, 32
-  store i64 %71, ptr %3, align 8
-  store i8 0, ptr %58, align 1
-  br label %72
+67:                                               ; preds = %59
+  %68 = shl i64 %60, 32
+  %sext35 = add i64 %68, 4294967296
+  %69 = ashr exact i64 %sext35, 32
+  store i64 %69, ptr %3, align 8
+  store i8 0, ptr %56, align 1
+  br label %70
 
-72:                                               ; preds = %69, %57, %53
-  %73 = call ptr @range_serialize(ptr noundef nonnull %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef %10)
-  %74 = ptrtoint ptr %73 to i64
+70:                                               ; preds = %67, %52
+  %71 = call ptr @range_serialize(ptr noundef nonnull %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef %10)
+  %72 = ptrtoint ptr %71 to i64
   br label %.thread
 
-.thread:                                          ; preds = %66, %64, %47, %45, %72, %32
-  %.0 = phi i64 [ %33, %32 ], [ %74, %72 ], [ 0, %45 ], [ 0, %47 ], [ 0, %64 ], [ 0, %66 ]
+.thread:                                          ; preds = %64, %62, %46, %44, %70, %32
+  %.0 = phi i64 [ %33, %32 ], [ %72, %70 ], [ 0, %44 ], [ 0, %46 ], [ 0, %62 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
@@ -7143,75 +7036,72 @@ range_get_typcache.exit:                          ; preds = %17, %27
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load i8, ptr %35, align 8, !range !7, !noundef !8
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %51, label %38
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %39 = load i8, ptr %38, align 1, !range !7
+  %40 = trunc nuw i8 %39 to i1
+  %or.cond = select i1 %37, i1 true, i1 %40
+  br i1 %or.cond, label %50, label %41
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %40 = load i8, ptr %39, align 1, !range !7, !noundef !8
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %51, label %42
+41:                                               ; preds = %34
+  %42 = load i64, ptr %2, align 8
+  %.not31 = icmp eq i64 %42, 9223372036854775807
+  br i1 %.not31, label %43, label %48, !prof !19
 
-42:                                               ; preds = %38
-  %43 = load i64, ptr %2, align 8
-  %.not = icmp eq i64 %43, 9223372036854775807
-  br i1 %.not, label %44, label %49, !prof !19
+43:                                               ; preds = %41
+  %44 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #14
+  br i1 %44, label %45, label %.thread
 
-44:                                               ; preds = %42
-  %45 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #14
-  br i1 %45, label %46, label %.thread
-
-46:                                               ; preds = %44
-  %47 = tail call i32 @errcode(i32 noundef 50331778) #14
-  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #14
+45:                                               ; preds = %43
+  %46 = tail call i32 @errcode(i32 noundef 50331778) #14
+  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #14
   tail call void @errsave_finish(ptr noundef %10, ptr noundef nonnull @.str.1, i32 noundef 1535, ptr noundef nonnull @__func__.int8range_canonical) #14
   br label %.thread
 
-49:                                               ; preds = %42
-  %50 = add nsw i64 %43, 1
-  store i64 %50, ptr %2, align 8
-  store i8 1, ptr %39, align 1
-  br label %51
+48:                                               ; preds = %41
+  %49 = add nsw i64 %42, 1
+  store i64 %49, ptr %2, align 8
+  store i8 1, ptr %38, align 1
+  br label %50
 
-51:                                               ; preds = %49, %38, %34
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %53 = load i8, ptr %52, align 8, !range !7, !noundef !8
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %68, label %55
+50:                                               ; preds = %48, %34
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %52 = load i8, ptr %51, align 8, !range !7, !noundef !8
+  %53 = trunc nuw i8 %52 to i1
+  %.not = xor i1 %53, true
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %55 = load i8, ptr %54, align 1, !range !7
+  %56 = trunc nuw i8 %55 to i1
+  %or.cond6 = select i1 %.not, i1 %56, i1 false
+  br i1 %or.cond6, label %57, label %66
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %57 = load i8, ptr %56, align 1, !range !7, !noundef !8
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %59, label %68
+57:                                               ; preds = %50
+  %58 = load i64, ptr %3, align 8
+  %.not32 = icmp eq i64 %58, 9223372036854775807
+  br i1 %.not32, label %59, label %64, !prof !19
 
-59:                                               ; preds = %55
-  %60 = load i64, ptr %3, align 8
-  %.not26 = icmp eq i64 %60, 9223372036854775807
-  br i1 %.not26, label %61, label %66, !prof !19
+59:                                               ; preds = %57
+  %60 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #14
+  br i1 %60, label %61, label %.thread
 
 61:                                               ; preds = %59
-  %62 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #14
-  br i1 %62, label %63, label %.thread
-
-63:                                               ; preds = %61
-  %64 = tail call i32 @errcode(i32 noundef 50331778) #14
-  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #14
+  %62 = tail call i32 @errcode(i32 noundef 50331778) #14
+  %63 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #14
   tail call void @errsave_finish(ptr noundef %10, ptr noundef nonnull @.str.1, i32 noundef 1548, ptr noundef nonnull @__func__.int8range_canonical) #14
   br label %.thread
 
-66:                                               ; preds = %59
-  %67 = add nsw i64 %60, 1
-  store i64 %67, ptr %3, align 8
-  store i8 0, ptr %56, align 1
-  br label %68
+64:                                               ; preds = %57
+  %65 = add nsw i64 %58, 1
+  store i64 %65, ptr %3, align 8
+  store i8 0, ptr %54, align 1
+  br label %66
 
-68:                                               ; preds = %66, %55, %51
-  %69 = call ptr @range_serialize(ptr noundef nonnull %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef %10)
-  %70 = ptrtoint ptr %69 to i64
+66:                                               ; preds = %64, %50
+  %67 = call ptr @range_serialize(ptr noundef nonnull %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef %10)
+  %68 = ptrtoint ptr %67 to i64
   br label %.thread
 
-.thread:                                          ; preds = %63, %61, %46, %44, %68, %32
-  %.0 = phi i64 [ %33, %32 ], [ %70, %68 ], [ 0, %44 ], [ 0, %46 ], [ 0, %61 ], [ 0, %63 ]
+.thread:                                          ; preds = %61, %59, %45, %43, %66, %32
+  %.0 = phi i64 [ %33, %32 ], [ %68, %66 ], [ 0, %43 ], [ 0, %45 ], [ 0, %59 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
@@ -7280,93 +7170,95 @@ range_get_typcache.exit:                          ; preds = %17, %27
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load i8, ptr %35, align 8, !range !7, !noundef !8
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %56, label %38
+  br i1 %37, label %58, label %38
 
 38:                                               ; preds = %34
   %39 = load i64, ptr %2, align 8
   %40 = trunc i64 %39 to i32
-  %.off = add i32 %40, -2147483647
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %56, label %41
+  %41 = icmp eq i32 %40, -2147483648
+  br i1 %41, label %58, label %42
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %43 = load i8, ptr %42, align 1, !range !7, !noundef !8
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %56, label %45
+42:                                               ; preds = %38
+  %43 = icmp eq i32 %40, 2147483647
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %45 = load i8, ptr %44, align 1, !range !7
+  %46 = trunc nuw i8 %45 to i1
+  %or.cond = select i1 %43, i1 true, i1 %46
+  br i1 %or.cond, label %58, label %47
 
-45:                                               ; preds = %41
-  %46 = add i32 %40, 2451546
-  %47 = icmp ult i32 %46, 2147483494
-  br i1 %47, label %53, label %48, !prof !20
+47:                                               ; preds = %42
+  %48 = add i32 %40, 2451546
+  %49 = icmp ult i32 %48, 2147483494
+  br i1 %49, label %55, label %50, !prof !20
 
-48:                                               ; preds = %45
-  %49 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #14
-  br i1 %49, label %50, label %.thread
+50:                                               ; preds = %47
+  %51 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #14
+  br i1 %51, label %52, label %.thread
 
-50:                                               ; preds = %48
-  %51 = tail call i32 @errcode(i32 noundef 134217858) #14
-  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #14
+52:                                               ; preds = %50
+  %53 = tail call i32 @errcode(i32 noundef 134217858) #14
+  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #14
   tail call void @errsave_finish(ptr noundef %10, ptr noundef nonnull @.str.1, i32 noundef 1584, ptr noundef nonnull @__func__.daterange_canonical) #14
   br label %.thread
 
-53:                                               ; preds = %45
-  %54 = shl i64 %39, 32
-  %sext = add i64 %54, 4294967296
-  %55 = ashr exact i64 %sext, 32
-  store i64 %55, ptr %2, align 8
-  store i8 1, ptr %42, align 1
-  br label %56
+55:                                               ; preds = %47
+  %56 = shl i64 %39, 32
+  %sext = add i64 %56, 4294967296
+  %57 = ashr exact i64 %sext, 32
+  store i64 %57, ptr %2, align 8
+  store i8 1, ptr %44, align 1
+  br label %58
 
-56:                                               ; preds = %38, %53, %41, %34
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %58 = load i8, ptr %57, align 8, !range !7, !noundef !8
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %78, label %60
+58:                                               ; preds = %55, %42, %38, %34
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %60 = load i8, ptr %59, align 8, !range !7, !noundef !8
+  %61 = trunc nuw i8 %60 to i1
+  br i1 %61, label %82, label %62
 
-60:                                               ; preds = %56
-  %61 = load i64, ptr %3, align 8
-  %62 = trunc i64 %61 to i32
-  %.off30 = add i32 %62, -2147483647
-  %switch31 = icmp ult i32 %.off30, 2
-  br i1 %switch31, label %78, label %63
+62:                                               ; preds = %58
+  %63 = load i64, ptr %3, align 8
+  %64 = trunc i64 %63 to i32
+  %65 = icmp eq i32 %64, -2147483648
+  br i1 %65, label %82, label %66
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %65 = load i8, ptr %64, align 1, !range !7, !noundef !8
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %67, label %78
+66:                                               ; preds = %62
+  %67 = icmp ne i32 %64, 2147483647
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %69 = load i8, ptr %68, align 1, !range !7
+  %70 = trunc nuw i8 %69 to i1
+  %or.cond6 = select i1 %67, i1 %70, i1 false
+  br i1 %or.cond6, label %71, label %82
 
-67:                                               ; preds = %63
-  %68 = add i32 %62, 2451546
-  %69 = icmp ult i32 %68, 2147483494
-  br i1 %69, label %75, label %70, !prof !20
+71:                                               ; preds = %66
+  %72 = add i32 %64, 2451546
+  %73 = icmp ult i32 %72, 2147483494
+  br i1 %73, label %79, label %74, !prof !20
 
-70:                                               ; preds = %67
-  %71 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #14
-  br i1 %71, label %72, label %.thread
+74:                                               ; preds = %71
+  %75 = tail call zeroext i1 @errsave_start(ptr noundef %10, ptr noundef null) #14
+  br i1 %75, label %76, label %.thread
 
-72:                                               ; preds = %70
-  %73 = tail call i32 @errcode(i32 noundef 134217858) #14
-  %74 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #14
+76:                                               ; preds = %74
+  %77 = tail call i32 @errcode(i32 noundef 134217858) #14
+  %78 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #14
   tail call void @errsave_finish(ptr noundef %10, ptr noundef nonnull @.str.1, i32 noundef 1599, ptr noundef nonnull @__func__.daterange_canonical) #14
   br label %.thread
 
-75:                                               ; preds = %67
-  %76 = shl i64 %61, 32
-  %sext32 = add i64 %76, 4294967296
-  %77 = ashr exact i64 %sext32, 32
-  store i64 %77, ptr %3, align 8
-  store i8 0, ptr %64, align 1
-  br label %78
+79:                                               ; preds = %71
+  %80 = shl i64 %63, 32
+  %sext35 = add i64 %80, 4294967296
+  %81 = ashr exact i64 %sext35, 32
+  store i64 %81, ptr %3, align 8
+  store i8 0, ptr %68, align 1
+  br label %82
 
-78:                                               ; preds = %60, %75, %63, %56
-  %79 = call ptr @range_serialize(ptr noundef nonnull %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef %10)
-  %80 = ptrtoint ptr %79 to i64
+82:                                               ; preds = %79, %66, %62, %58
+  %83 = call ptr @range_serialize(ptr noundef nonnull %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef %10)
+  %84 = ptrtoint ptr %83 to i64
   br label %.thread
 
-.thread:                                          ; preds = %72, %70, %50, %48, %78, %32
-  %.0 = phi i64 [ %33, %32 ], [ %80, %78 ], [ 0, %48 ], [ 0, %50 ], [ 0, %70 ], [ 0, %72 ]
+.thread:                                          ; preds = %76, %74, %52, %50, %82, %32
+  %.0 = phi i64 [ %33, %32 ], [ %84, %82 ], [ 0, %50 ], [ 0, %52 ], [ 0, %74 ], [ 0, %76 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
@@ -7703,203 +7595,199 @@ define dso_local i32 @range_compare(ptr noundef readonly captures(none) %0, ptr 
   call void @range_deserialize(ptr noundef %2, ptr noundef %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %12 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %13 = trunc nuw i8 %12 to i1
-  %14 = load i8, ptr %9, align 1, !range !7, !noundef !8
-  br i1 %13, label %15, label %18
+  %14 = load i8, ptr %9, align 1, !range !7
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond = select i1 %13, i1 %15, i1 false
+  %not.or.cond = xor i1 %or.cond, true
+  %.mux = sext i1 %not.or.cond to i32
+  %brmerge12 = select i1 %13, i1 true, i1 %15
+  %.mux.mux = select i1 %13, i32 %.mux, i32 1
+  br i1 %brmerge12, label %range_cmp_bounds.exit14, label %16
 
-15:                                               ; preds = %3
-  %16 = xor i8 %14, 1
-  %17 = zext nneg i8 %16 to i32
-  %spec.select = sub nsw i32 0, %17
-  br label %range_cmp_bounds.exit12
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %18 = load i8, ptr %17, align 8, !range !7, !noundef !8
+  %19 = trunc nuw i8 %18 to i1
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %21 = load i8, ptr %20, align 8, !range !7, !noundef !8
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %19, label %23, label %36
 
-18:                                               ; preds = %3
-  %19 = trunc nuw i8 %14 to i1
-  br i1 %19, label %range_cmp_bounds.exit12, label %20
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %25 = load i8, ptr %24, align 2, !range !7, !noundef !8
+  br i1 %22, label %26, label %33
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = load i8, ptr %21, align 8, !range !7, !noundef !8
-  %23 = trunc nuw i8 %22 to i1
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %25 = load i8, ptr %24, align 8, !range !7, !noundef !8
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %23, label %27, label %40
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %28 = load i8, ptr %27, align 2, !range !7, !noundef !8
+  %29 = icmp eq i8 %25, %28
+  br i1 %29, label %range_cmp_bounds.exit, label %30
 
-27:                                               ; preds = %20
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %29 = load i8, ptr %28, align 2, !range !7, !noundef !8
-  br i1 %26, label %30, label %37
+30:                                               ; preds = %26
+  %31 = trunc nuw i8 %25 to i1
+  %32 = select i1 %31, i32 -1, i32 1
+  br label %range_cmp_bounds.exit14
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %32 = load i8, ptr %31, align 2, !range !7, !noundef !8
-  %33 = icmp eq i8 %29, %32
-  br i1 %33, label %range_cmp_bounds.exit, label %34
+33:                                               ; preds = %23
+  %34 = trunc nuw i8 %25 to i1
+  %35 = select i1 %34, i32 -1, i32 1
+  br label %range_cmp_bounds.exit14
 
-34:                                               ; preds = %30
-  %35 = trunc nuw i8 %29 to i1
-  %36 = select i1 %35, i32 -1, i32 1
-  br label %range_cmp_bounds.exit12
+36:                                               ; preds = %16
+  br i1 %22, label %37, label %42
 
-37:                                               ; preds = %27
-  %38 = trunc nuw i8 %29 to i1
-  %39 = select i1 %38, i32 -1, i32 1
-  br label %range_cmp_bounds.exit12
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %39 = load i8, ptr %38, align 2, !range !7, !noundef !8
+  %40 = trunc nuw i8 %39 to i1
+  %41 = select i1 %40, i32 1, i32 -1
+  br label %range_cmp_bounds.exit14
 
-40:                                               ; preds = %20
-  br i1 %26, label %41, label %46
+42:                                               ; preds = %36
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 296
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 292
+  %45 = load i32, ptr %44, align 4
+  %46 = load i64, ptr %4, align 8
+  %47 = load i64, ptr %6, align 8
+  %48 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %43, i32 noundef %45, i64 noundef %46, i64 noundef %47) #14
+  %49 = trunc i64 %48 to i32
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %range_cmp_bounds.exit14
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %43 = load i8, ptr %42, align 2, !range !7, !noundef !8
-  %44 = trunc nuw i8 %43 to i1
-  %45 = select i1 %44, i32 1, i32 -1
-  br label %range_cmp_bounds.exit12
+51:                                               ; preds = %42
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %53 = load i8, ptr %52, align 1, !range !7, !noundef !8
+  %54 = trunc nuw i8 %53 to i1
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %56 = load i8, ptr %55, align 1, !range !7, !noundef !8
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %54, label %71, label %58
 
-46:                                               ; preds = %40
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 292
-  %49 = load i32, ptr %48, align 4
-  %50 = load i64, ptr %4, align 8
-  %51 = load i64, ptr %6, align 8
-  %52 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %47, i32 noundef %49, i64 noundef %50, i64 noundef %51) #14
-  %53 = trunc i64 %52 to i32
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %range_cmp_bounds.exit12
+58:                                               ; preds = %51
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %60 = load i8, ptr %59, align 2, !range !7, !noundef !8
+  br i1 %57, label %68, label %61
 
-55:                                               ; preds = %46
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %57 = load i8, ptr %56, align 1, !range !7, !noundef !8
-  %58 = trunc nuw i8 %57 to i1
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %60 = load i8, ptr %59, align 1, !range !7, !noundef !8
-  %61 = trunc nuw i8 %60 to i1
-  br i1 %58, label %75, label %62
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %63 = load i8, ptr %62, align 2, !range !7, !noundef !8
+  %64 = icmp eq i8 %60, %63
+  br i1 %64, label %range_cmp_bounds.exit, label %65
 
-62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %64 = load i8, ptr %63, align 2, !range !7, !noundef !8
-  br i1 %61, label %72, label %65
+65:                                               ; preds = %61
+  %66 = trunc nuw i8 %60 to i1
+  %67 = select i1 %66, i32 1, i32 -1
+  br label %range_cmp_bounds.exit14
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %67 = load i8, ptr %66, align 2, !range !7, !noundef !8
-  %68 = icmp eq i8 %64, %67
-  br i1 %68, label %range_cmp_bounds.exit, label %69
+68:                                               ; preds = %58
+  %69 = trunc nuw i8 %60 to i1
+  %70 = select i1 %69, i32 1, i32 -1
+  br label %range_cmp_bounds.exit14
 
-69:                                               ; preds = %65
-  %70 = trunc nuw i8 %64 to i1
-  %71 = select i1 %70, i32 1, i32 -1
-  br label %range_cmp_bounds.exit12
+71:                                               ; preds = %51
+  br i1 %57, label %range_cmp_bounds.exit, label %72
 
-72:                                               ; preds = %62
-  %73 = trunc nuw i8 %64 to i1
-  %74 = select i1 %73, i32 1, i32 -1
-  br label %range_cmp_bounds.exit12
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %74 = load i8, ptr %73, align 2, !range !7, !noundef !8
+  %75 = trunc nuw i8 %74 to i1
+  %76 = select i1 %75, i32 -1, i32 1
+  br label %range_cmp_bounds.exit14
 
-75:                                               ; preds = %55
-  br i1 %61, label %range_cmp_bounds.exit, label %76
-
-76:                                               ; preds = %75
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %78 = load i8, ptr %77, align 2, !range !7, !noundef !8
+range_cmp_bounds.exit:                            ; preds = %71, %61, %26
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %78 = load i8, ptr %77, align 8, !range !7, !noundef !8
   %79 = trunc nuw i8 %78 to i1
-  %80 = select i1 %79, i32 -1, i32 1
-  br label %range_cmp_bounds.exit12
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %81 = load i8, ptr %80, align 8, !range !7, !noundef !8
+  %82 = trunc nuw i8 %81 to i1
+  br i1 %79, label %83, label %96
 
-range_cmp_bounds.exit:                            ; preds = %75, %65, %30
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %82 = load i8, ptr %81, align 8, !range !7, !noundef !8
-  %83 = trunc nuw i8 %82 to i1
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %85 = load i8, ptr %84, align 8, !range !7, !noundef !8
-  %86 = trunc nuw i8 %85 to i1
-  br i1 %83, label %87, label %100
+83:                                               ; preds = %range_cmp_bounds.exit
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %85 = load i8, ptr %84, align 2, !range !7, !noundef !8
+  br i1 %82, label %86, label %93
 
-87:                                               ; preds = %range_cmp_bounds.exit
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %89 = load i8, ptr %88, align 2, !range !7, !noundef !8
-  br i1 %86, label %90, label %97
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %88 = load i8, ptr %87, align 2, !range !7, !noundef !8
+  %89 = icmp eq i8 %85, %88
+  br i1 %89, label %range_cmp_bounds.exit14, label %90
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %92 = load i8, ptr %91, align 2, !range !7, !noundef !8
-  %93 = icmp eq i8 %89, %92
-  br i1 %93, label %range_cmp_bounds.exit12, label %94
+90:                                               ; preds = %86
+  %91 = trunc nuw i8 %85 to i1
+  %92 = select i1 %91, i32 -1, i32 1
+  br label %range_cmp_bounds.exit14
 
-94:                                               ; preds = %90
-  %95 = trunc nuw i8 %89 to i1
-  %96 = select i1 %95, i32 -1, i32 1
-  br label %range_cmp_bounds.exit12
+93:                                               ; preds = %83
+  %94 = trunc nuw i8 %85 to i1
+  %95 = select i1 %94, i32 -1, i32 1
+  br label %range_cmp_bounds.exit14
 
-97:                                               ; preds = %87
-  %98 = trunc nuw i8 %89 to i1
-  %99 = select i1 %98, i32 -1, i32 1
-  br label %range_cmp_bounds.exit12
+96:                                               ; preds = %range_cmp_bounds.exit
+  br i1 %82, label %97, label %102
 
-100:                                              ; preds = %range_cmp_bounds.exit
-  br i1 %86, label %101, label %106
+97:                                               ; preds = %96
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %99 = load i8, ptr %98, align 2, !range !7, !noundef !8
+  %100 = trunc nuw i8 %99 to i1
+  %101 = select i1 %100, i32 1, i32 -1
+  br label %range_cmp_bounds.exit14
 
-101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %103 = load i8, ptr %102, align 2, !range !7, !noundef !8
-  %104 = trunc nuw i8 %103 to i1
-  %105 = select i1 %104, i32 1, i32 -1
-  br label %range_cmp_bounds.exit12
+102:                                              ; preds = %96
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 296
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 292
+  %105 = load i32, ptr %104, align 4
+  %106 = load i64, ptr %5, align 8
+  %107 = load i64, ptr %7, align 8
+  %108 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %103, i32 noundef %105, i64 noundef %106, i64 noundef %107) #14
+  %109 = trunc i64 %108 to i32
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %111, label %range_cmp_bounds.exit14
 
-106:                                              ; preds = %100
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 292
-  %109 = load i32, ptr %108, align 4
-  %110 = load i64, ptr %5, align 8
-  %111 = load i64, ptr %7, align 8
-  %112 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %107, i32 noundef %109, i64 noundef %110, i64 noundef %111) #14
-  %113 = trunc i64 %112 to i32
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %range_cmp_bounds.exit12
+111:                                              ; preds = %102
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %113 = load i8, ptr %112, align 1, !range !7, !noundef !8
+  %114 = trunc nuw i8 %113 to i1
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %116 = load i8, ptr %115, align 1, !range !7, !noundef !8
+  %117 = trunc nuw i8 %116 to i1
+  br i1 %114, label %131, label %118
 
-115:                                              ; preds = %106
-  %116 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %117 = load i8, ptr %116, align 1, !range !7, !noundef !8
-  %118 = trunc nuw i8 %117 to i1
-  %119 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %120 = load i8, ptr %119, align 1, !range !7, !noundef !8
-  %121 = trunc nuw i8 %120 to i1
-  br i1 %118, label %135, label %122
+118:                                              ; preds = %111
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %120 = load i8, ptr %119, align 2, !range !7, !noundef !8
+  br i1 %117, label %128, label %121
 
-122:                                              ; preds = %115
-  %123 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %124 = load i8, ptr %123, align 2, !range !7, !noundef !8
-  br i1 %121, label %132, label %125
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %123 = load i8, ptr %122, align 2, !range !7, !noundef !8
+  %124 = icmp eq i8 %120, %123
+  br i1 %124, label %range_cmp_bounds.exit14, label %125
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %127 = load i8, ptr %126, align 2, !range !7, !noundef !8
-  %128 = icmp eq i8 %124, %127
-  br i1 %128, label %range_cmp_bounds.exit12, label %129
+125:                                              ; preds = %121
+  %126 = trunc nuw i8 %120 to i1
+  %127 = select i1 %126, i32 1, i32 -1
+  br label %range_cmp_bounds.exit14
 
-129:                                              ; preds = %125
-  %130 = trunc nuw i8 %124 to i1
-  %131 = select i1 %130, i32 1, i32 -1
-  br label %range_cmp_bounds.exit12
+128:                                              ; preds = %118
+  %129 = trunc nuw i8 %120 to i1
+  %130 = select i1 %129, i32 1, i32 -1
+  br label %range_cmp_bounds.exit14
 
-132:                                              ; preds = %122
-  %133 = trunc nuw i8 %124 to i1
-  %134 = select i1 %133, i32 1, i32 -1
-  br label %range_cmp_bounds.exit12
+131:                                              ; preds = %111
+  br i1 %117, label %range_cmp_bounds.exit14, label %132
 
-135:                                              ; preds = %115
-  br i1 %121, label %range_cmp_bounds.exit12, label %136
+132:                                              ; preds = %131
+  %133 = getelementptr inbounds nuw i8, ptr %7, i64 10
+  %134 = load i8, ptr %133, align 2, !range !7, !noundef !8
+  %135 = trunc nuw i8 %134 to i1
+  %136 = select i1 %135, i32 -1, i32 1
+  br label %range_cmp_bounds.exit14
 
-136:                                              ; preds = %135
-  %137 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %138 = load i8, ptr %137, align 2, !range !7, !noundef !8
-  %139 = trunc nuw i8 %138 to i1
-  %140 = select i1 %139, i32 -1, i32 1
-  br label %range_cmp_bounds.exit12
-
-range_cmp_bounds.exit12:                          ; preds = %15, %46, %69, %72, %76, %41, %37, %34, %136, %135, %132, %129, %125, %106, %101, %97, %94, %90, %18
-  %.0 = phi i32 [ 1, %18 ], [ %96, %94 ], [ %99, %97 ], [ %105, %101 ], [ %140, %136 ], [ %134, %132 ], [ %131, %129 ], [ 0, %90 ], [ 0, %125 ], [ 0, %135 ], [ %113, %106 ], [ %53, %46 ], [ %71, %69 ], [ %74, %72 ], [ %80, %76 ], [ %45, %41 ], [ %39, %37 ], [ %36, %34 ], [ %spec.select, %15 ]
+range_cmp_bounds.exit14:                          ; preds = %42, %65, %68, %72, %37, %33, %30, %132, %131, %128, %125, %121, %102, %97, %93, %90, %86, %3
+  %.0 = phi i32 [ %.mux.mux, %3 ], [ %92, %90 ], [ %95, %93 ], [ %101, %97 ], [ %136, %132 ], [ %130, %128 ], [ %127, %125 ], [ 0, %86 ], [ 0, %121 ], [ 0, %131 ], [ %109, %102 ], [ %49, %42 ], [ %67, %65 ], [ %70, %68 ], [ %76, %72 ], [ %41, %37 ], [ %35, %33 ], [ %32, %30 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
@@ -7950,13 +7838,13 @@ define internal fastcc ptr @find_simplified_clause(ptr noundef %0, ptr noundef r
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #14
   %8 = load i32, ptr %1, align 4
   %9 = icmp eq i32 %8, 7
-  br i1 %9, label %10, label %build_bound_expr.exit.thread
+  br i1 %9, label %10, label %.thread57
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i8, ptr %11, align 8, !range !7, !noundef !8
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %build_bound_expr.exit.thread, label %14
+  br i1 %13, label %.thread57, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7987,139 +7875,98 @@ define internal fastcc ptr @find_simplified_clause(ptr noundef %0, ptr noundef r
 
 32:                                               ; preds = %29
   %33 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext false) #14
-  br label %build_bound_expr.exit.thread
+  br label %.thread57
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load i8, ptr %35, align 8, !range !7, !noundef !8
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %44
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %39 = load i8, ptr %38, align 8, !range !7
+  %40 = trunc nuw i8 %39 to i1
+  %or.cond = select i1 %37, i1 %40, i1 false
+  br i1 %or.cond, label %41, label %43
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %40 = load i8, ptr %39, align 8, !range !7, !noundef !8
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %42, label %84
+41:                                               ; preds = %34
+  %42 = tail call ptr @makeBoolConst(i1 noundef zeroext true, i1 noundef zeroext false) #14
+  br label %.thread57
 
-42:                                               ; preds = %38
-  %43 = tail call ptr @makeBoolConst(i1 noundef zeroext true, i1 noundef zeroext false) #14
-  br label %build_bound_expr.exit.thread
+43:                                               ; preds = %34
+  %44 = load ptr, ptr %22, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %21, i64 288
+  %46 = load i32, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %21, i64 292
+  %48 = load i32, ptr %47, align 4
+  %or.cond5 = select i1 %37, i1 true, i1 %40
+  br i1 %or.cond5, label %61, label %49
 
-44:                                               ; preds = %34
-  %45 = load ptr, ptr %22, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %21, i64 288
-  %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %21, i64 292
-  %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %51 = load i8, ptr %50, align 8, !range !7, !noundef !8
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %65, label %53
-
-53:                                               ; preds = %44
+49:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
-  %54 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %2) #14
-  br i1 %54, label %.critedge, label %55
+  %50 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %2) #14
+  br i1 %50, label %.critedge, label %51
 
-55:                                               ; preds = %53
-  %56 = tail call zeroext i1 @contain_subplans(ptr noundef %2) #14
-  br i1 %56, label %.critedge, label %57
+51:                                               ; preds = %49
+  %52 = tail call zeroext i1 @contain_subplans(ptr noundef %2) #14
+  br i1 %52, label %.critedge, label %53
 
-57:                                               ; preds = %55
+53:                                               ; preds = %51
   call void @cost_qual_eval_node(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %0) #14
-  %58 = load double, ptr %7, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %60 = load double, ptr %59, align 8
-  %61 = fadd double %58, %60
-  %62 = load double, ptr @cpu_operator_cost, align 8
-  %63 = fmul double %62, 1.000000e+01
-  %64 = fcmp ule double %61, %63
+  %54 = load double, ptr %7, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %56 = load double, ptr %55, align 8
+  %57 = fadd double %54, %56
+  %58 = load double, ptr @cpu_operator_cost, align 8
+  %59 = fmul double %58, 1.000000e+01
+  %60 = fcmp ule double %57, %59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
-  br i1 %64, label %65, label %build_bound_expr.exit.thread
+  br i1 %60, label %.thread, label %.thread57
 
-65:                                               ; preds = %57, %44
-  %66 = load i64, ptr %4, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %68 = load i8, ptr %67, align 1, !range !7, !noundef !8
-  %69 = trunc nuw i8 %68 to i1
-  %70 = load i32, ptr %45, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %72 = load i16, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %45, i64 10
-  %74 = load i8, ptr %73, align 2, !range !7, !noundef !8
-  %75 = getelementptr inbounds nuw i8, ptr %45, i64 28
-  %76 = load i32, ptr %75, align 4
-  %77 = select i1 %69, i16 4, i16 5
-  %78 = call i32 @get_opfamily_member(i32 noundef %47, i32 noundef %70, i32 noundef %70, i16 noundef signext %77) #14
-  %.not.i = icmp eq i32 %78, 0
-  br i1 %.not.i, label %build_bound_expr.exit.thread, label %build_bound_expr.exit
+61:                                               ; preds = %43
+  br i1 %37, label %68, label %.thread
 
-build_bound_expr.exit:                            ; preds = %65
-  %79 = trunc nuw i8 %74 to i1
-  %80 = sext i16 %72 to i32
-  %81 = call ptr @makeConst(i32 noundef %70, i32 noundef -1, i32 noundef %76, i32 noundef %80, i64 noundef %66, i1 noundef zeroext false, i1 noundef zeroext %79) #14
-  %82 = call ptr @make_opclause(i32 noundef %78, i32 noundef 16, i1 noundef zeroext false, ptr noundef %2, ptr noundef %81, i32 noundef 0, i32 noundef %49) #14
-  %83 = icmp eq ptr %82, null
-  %brmerge = or i1 %83, %52
-  br i1 %brmerge, label %build_bound_expr.exit.thread, label %.thread52
+.thread:                                          ; preds = %53, %61
+  %62 = load i64, ptr %4, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %64 = load i8, ptr %63, align 1, !range !7, !noundef !8
+  %65 = trunc nuw i8 %64 to i1
+  %66 = call fastcc ptr @build_bound_expr(ptr noundef %2, i64 noundef %62, i1 noundef zeroext true, i1 noundef zeroext %65, ptr noundef %44, i32 noundef %46, i32 noundef %48)
+  %67 = icmp eq ptr %66, null
+  %brmerge = select i1 %67, i1 true, i1 %40
+  br i1 %brmerge, label %.thread57, label %69
 
-84:                                               ; preds = %38
-  %85 = load ptr, ptr %22, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %21, i64 288
-  %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %21, i64 292
-  %89 = load i32, ptr %88, align 4
-  br label %91
+68:                                               ; preds = %61
+  br i1 %40, label %.thread57, label %71
 
-.thread52:                                        ; preds = %build_bound_expr.exit
-  %90 = call ptr @copyObjectImpl(ptr noundef %2) #14
-  br label %91
+69:                                               ; preds = %.thread
+  %70 = call ptr @copyObjectImpl(ptr noundef %2) #14
+  br label %71
 
-91:                                               ; preds = %84, %.thread52
-  %92 = phi ptr [ %45, %.thread52 ], [ %85, %84 ]
-  %93 = phi i32 [ %47, %.thread52 ], [ %87, %84 ]
-  %94 = phi i32 [ %49, %.thread52 ], [ %89, %84 ]
-  %.0395055 = phi ptr [ %82, %.thread52 ], [ null, %84 ]
-  %.037 = phi ptr [ %90, %.thread52 ], [ %2, %84 ]
-  %95 = load i64, ptr %5, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %97 = load i8, ptr %96, align 1, !range !7, !noundef !8
-  %98 = trunc nuw i8 %97 to i1
-  %99 = load i32, ptr %92, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %101 = load i16, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %92, i64 10
-  %103 = load i8, ptr %102, align 2, !range !7, !noundef !8
-  %104 = getelementptr inbounds nuw i8, ptr %92, i64 28
-  %105 = load i32, ptr %104, align 4
-  %106 = select i1 %98, i16 2, i16 1
-  %107 = call i32 @get_opfamily_member(i32 noundef %93, i32 noundef %99, i32 noundef %99, i16 noundef signext %106) #14
-  %.not.i43 = icmp eq i32 %107, 0
-  br i1 %.not.i43, label %build_bound_expr.exit.thread, label %build_bound_expr.exit45
+71:                                               ; preds = %68, %69
+  %.0455156 = phi ptr [ %66, %69 ], [ null, %68 ]
+  %.043 = phi ptr [ %70, %69 ], [ %2, %68 ]
+  %72 = load i64, ptr %5, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %74 = load i8, ptr %73, align 1, !range !7, !noundef !8
+  %75 = trunc nuw i8 %74 to i1
+  %76 = call fastcc ptr @build_bound_expr(ptr noundef %.043, i64 noundef %72, i1 noundef zeroext false, i1 noundef zeroext %75, ptr noundef %44, i32 noundef %46, i32 noundef %48)
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %.thread57, label %78
 
-build_bound_expr.exit45:                          ; preds = %91
-  %108 = trunc nuw i8 %103 to i1
-  %109 = sext i16 %101 to i32
-  %110 = call ptr @makeConst(i32 noundef %99, i32 noundef -1, i32 noundef %105, i32 noundef %109, i64 noundef %95, i1 noundef zeroext false, i1 noundef zeroext %108) #14
-  %111 = call ptr @make_opclause(i32 noundef %107, i32 noundef 16, i1 noundef zeroext false, ptr noundef %.037, ptr noundef %110, i32 noundef 0, i32 noundef %94) #14
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %build_bound_expr.exit.thread, label %113
+78:                                               ; preds = %71
+  %.not = icmp eq ptr %.0455156, null
+  br i1 %.not, label %.thread57, label %79
 
-113:                                              ; preds = %build_bound_expr.exit45
-  %.not = icmp eq ptr %.0395055, null
-  br i1 %.not, label %build_bound_expr.exit.thread, label %114
+79:                                               ; preds = %78
+  %80 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %.0455156, ptr nonnull %76) #14
+  %81 = call ptr @make_andclause(ptr noundef %80) #14
+  br label %.thread57
 
-114:                                              ; preds = %113
-  %115 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %.0395055, ptr nonnull %111) #14
-  %116 = call ptr @make_andclause(ptr noundef %115) #14
-  br label %build_bound_expr.exit.thread
-
-.critedge:                                        ; preds = %55, %53
+.critedge:                                        ; preds = %51, %49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
-  br label %build_bound_expr.exit.thread
+  br label %.thread57
 
-build_bound_expr.exit.thread:                     ; preds = %build_bound_expr.exit, %113, %91, %65, %114, %57, %.critedge, %build_bound_expr.exit45, %3, %10, %42, %32
-  %.0 = phi ptr [ %33, %32 ], [ %43, %42 ], [ null, %10 ], [ null, %3 ], [ %116, %114 ], [ null, %57 ], [ null, %.critedge ], [ %82, %build_bound_expr.exit ], [ null, %build_bound_expr.exit45 ], [ null, %65 ], [ null, %91 ], [ %111, %113 ]
+.thread57:                                        ; preds = %.thread, %78, %68, %79, %53, %.critedge, %71, %3, %10, %41, %32
+  %.0 = phi ptr [ %33, %32 ], [ %42, %41 ], [ null, %10 ], [ null, %3 ], [ %81, %79 ], [ null, %53 ], [ null, %.critedge ], [ %66, %.thread ], [ null, %71 ], [ %76, %78 ], [ null, %68 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
@@ -8386,6 +8233,34 @@ declare zeroext i1 @contain_volatile_functions(ptr noundef) local_unnamed_addr #
 declare zeroext i1 @contain_subplans(ptr noundef) local_unnamed_addr #2
 
 declare void @cost_qual_eval_node(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define internal fastcc ptr @build_bound_expr(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+  %8 = load i32, ptr %4, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = load i16, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %12 = load i8, ptr %11, align 2, !range !7, !noundef !8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %14 = load i32, ptr %13, align 4
+  %15 = select i1 %3, i16 4, i16 5
+  %16 = select i1 %3, i16 2, i16 1
+  %.021 = select i1 %2, i16 %15, i16 %16
+  %17 = tail call i32 @get_opfamily_member(i32 noundef %5, i32 noundef %8, i32 noundef %8, i16 noundef signext %.021) #14
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %23, label %18
+
+18:                                               ; preds = %7
+  %19 = trunc nuw i8 %12 to i1
+  %20 = sext i16 %10 to i32
+  %21 = tail call ptr @makeConst(i32 noundef %8, i32 noundef -1, i32 noundef %14, i32 noundef %20, i64 noundef %1, i1 noundef zeroext false, i1 noundef zeroext %19) #14
+  %22 = tail call ptr @make_opclause(i32 noundef %17, i32 noundef 16, i1 noundef zeroext false, ptr noundef %0, ptr noundef %21, i32 noundef 0, i32 noundef %6) #14
+  br label %23
+
+23:                                               ; preds = %7, %18
+  %.0 = phi ptr [ %22, %18 ], [ null, %7 ]
+  ret ptr %.0
+}
 
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #2
 

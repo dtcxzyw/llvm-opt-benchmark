@@ -53,14 +53,14 @@ define dso_local void @_ZN4absl24synchronization_internal12PerThreadSem4TickEPNS
   %10 = add nsw i32 %3, 1
   %11 = sub i32 %10, %5
   %12 = icmp slt i32 %11, 61
-  %brmerge = or i1 %12, %9
-  br i1 %brmerge, label %14, label %13
+  %or.cond = or i1 %12, %9
+  br i1 %or.cond, label %14, label %13
 
 13:                                               ; preds = %8
   tail call void @AbslInternalPerThreadSemPoke(ptr noundef nonnull %0)
   br label %14
 
-14:                                               ; preds = %8, %13, %1
+14:                                               ; preds = %13, %8, %1
   ret void
 }
 

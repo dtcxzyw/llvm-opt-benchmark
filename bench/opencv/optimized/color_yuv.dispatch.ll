@@ -1515,9 +1515,13 @@ define hidden void @_ZN2cv3hal12cpu_baseline21cvtThreePlaneYUVtoBGREPKhmPhmiiibi
   %35 = add i32 %34, %32
   %36 = lshr exact i32 %35, 1
   %37 = icmp ult i32 %35, 14
-  br i1 %37, label %switch.hole_check, label %38
+  %switch.maskindex = trunc i32 %36 to i8
+  %switch.shifted = lshr i8 99, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %37, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %38
 
-38:                                               ; preds = %switch.hole_check, %31
+38:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #15
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %12)
@@ -1560,13 +1564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #15
   br label %61
 
-switch.hole_check:                                ; preds = %31
-  %switch.maskindex = trunc nuw i32 %36 to i8
-  %switch.shifted = lshr i8 99, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %38
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %31
   %51 = zext nneg i32 %36 to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN2cv3hal12cpu_baseline21cvtThreePlaneYUVtoBGREPKhmPhmiiibi, i64 0, i64 %51
   %switch.load = load ptr, ptr %switch.gep, align 8

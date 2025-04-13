@@ -3461,7 +3461,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EEC2Ev.exit.p
 
 .preheader.outer:                                 ; preds = %29, %.thread
   %indvars.iv30.ph = phi i64 [ %indvars.iv.next3138, %.thread ], [ 12, %29 ]
-  %.01721.ph = phi i1 [ false, %.thread ], [ true, %29 ]
+  %.01821.ph = phi i1 [ false, %.thread ], [ true, %29 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.outer, %47
@@ -3519,7 +3519,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EED2Ev.exit: 
   br i1 %.not3639, label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EEC2Ev.exit, label %.preheader.outer, !llvm.loop !29
 
 48:                                               ; preds = %47
-  br i1 %.01721.ph, label %49, label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EEC2Ev.exit
+  br i1 %.01821.ph, label %49, label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EEC2Ev.exit
 
 49:                                               ; preds = %48
   store ptr @.str.9, ptr %5, align 8

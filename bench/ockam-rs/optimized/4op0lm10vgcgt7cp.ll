@@ -57,8 +57,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %3 = alloca { [3 x { [4 x i64] }], { i64, i64 } }, align 8
   %4 = alloca { [1 x { [4 x i64] }], { i64, i64 } }, align 8
   %5 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %.not.not = icmp eq i64 %5, 0
-  br i1 %.not.not, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6bb458cc1d66dbf2E.exit", label %6
+  %.not = icmp eq i64 %5, 0
+  br i1 %.not, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6bb458cc1d66dbf2E.exit", label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -82,10 +82,10 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %14 = shl i64 %.pre.i.i.i, 5
   %scevgep = getelementptr i8, ptr %13, i64 %14
   %15 = shl i64 %.promoted.i.i.i, 5
-  %scevgep38 = getelementptr i8, ptr %4, i64 %15
+  %scevgep40 = getelementptr i8, ptr %4, i64 %15
   %16 = sub i64 %10, %.promoted.i.i.i
   %17 = shl i64 %16, 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep38, i64 %17, i1 false), !noalias !34
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep40, i64 %17, i1 false), !noalias !34
   %18 = add i64 %10, %.pre.i.i.i
   %19 = sub i64 %18, %.promoted.i.i.i
   store i64 %19, ptr %12, align 8, !alias.scope !24, !noalias !29
@@ -94,8 +94,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6bb458cc1d66dbf2E.exit": ; preds = %.lr.ph.i.i.i, %6, %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load i64, ptr %20, align 8, !range !4, !noundef !5
-  %.not12.not = icmp eq i64 %21, 0
-  br i1 %.not12.not, label %34, label %22
+  %.not21 = icmp eq i64 %21, 0
+  br i1 %.not21, label %34, label %22
 
 22:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6bb458cc1d66dbf2E.exit"
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -111,33 +111,33 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %26 = load i64, ptr %25, align 8, !alias.scope !44, !noalias !47, !noundef !5
-  %.promoted.i.i.i24 = load i64, ptr %24, align 8, !alias.scope !44, !noalias !47
-  %.not.i4.i.i.i25 = icmp eq i64 %26, %.promoted.i.i.i24
-  br i1 %.not.i4.i.i.i25, label %32, label %.lr.ph.i.i.i26
+  %.promoted.i.i.i28 = load i64, ptr %24, align 8, !alias.scope !44, !noalias !47
+  %.not.i4.i.i.i29 = icmp eq i64 %26, %.promoted.i.i.i28
+  br i1 %.not.i4.i.i.i29, label %32, label %.lr.ph.i.i.i30
 
-.lr.ph.i.i.i26:                                   ; preds = %22
+.lr.ph.i.i.i30:                                   ; preds = %22
   %27 = shl i64 %.sroa.4.0.copyload, 5
   %scevgep.i.i = getelementptr i8, ptr %.sroa.7.0.copyload, i64 %27
-  %28 = shl i64 %.promoted.i.i.i24, 5
+  %28 = shl i64 %.promoted.i.i.i28, 5
   %scevgep3.i.i = getelementptr i8, ptr %3, i64 %28
-  %29 = sub i64 %26, %.promoted.i.i.i24
+  %29 = sub i64 %26, %.promoted.i.i.i28
   %30 = shl i64 %29, 5
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep.i.i, ptr readonly align 8 %scevgep3.i.i, i64 %30, i1 false), !noalias !53
   %31 = add i64 %29, %.sroa.4.0.copyload
   br label %32
 
-32:                                               ; preds = %.lr.ph.i.i.i26, %22
-  %.val3.i = phi i64 [ %31, %.lr.ph.i.i.i26 ], [ %.sroa.4.0.copyload, %22 ]
+32:                                               ; preds = %.lr.ph.i.i.i30, %22
+  %.val3.i = phi i64 [ %31, %.lr.ph.i.i.i30 ], [ %.sroa.4.0.copyload, %22 ]
   %33 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %33)
   store i64 %.val3.i, ptr %.sroa.0.0.copyload, align 8, !noalias !54
   br label %"_ZN4core3ptr88drop_in_place$LT$core..array..iter..IntoIter$LT$ockam_abac..expr..Expr$C$3_usize$GT$$GT$17h472e868a73c0a2adE.exit"
 
 34:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6bb458cc1d66dbf2E.exit"
-  %.val22 = load ptr, ptr %1, align 8, !nonnull !5, !align !55, !noundef !5
+  %.val26 = load ptr, ptr %1, align 8, !nonnull !5, !align !55, !noundef !5
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val23 = load i64, ptr %35, align 8, !noundef !5
-  store i64 %.val23, ptr %.val22, align 8
+  %.val27 = load i64, ptr %35, align 8, !noundef !5
+  store i64 %.val27, ptr %.val26, align 8
   br label %"_ZN4core3ptr88drop_in_place$LT$core..array..iter..IntoIter$LT$ockam_abac..expr..Expr$C$3_usize$GT$$GT$17h472e868a73c0a2adE.exit"
 
 "_ZN4core3ptr88drop_in_place$LT$core..array..iter..IntoIter$LT$ockam_abac..expr..Expr$C$3_usize$GT$$GT$17h472e868a73c0a2adE.exit": ; preds = %32, %34

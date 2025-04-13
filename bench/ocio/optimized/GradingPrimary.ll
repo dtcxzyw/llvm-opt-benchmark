@@ -696,35 +696,33 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %9 = load double, ptr %8, align 8
   %10 = fcmp oeq double %9, 0xFFEFFFFFFFFFFFFF
-  %or.cond = select i1 %7, i1 %10, i1 false
+  %or.cond204 = select i1 %7, i1 %10, i1 false
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %12 = load double, ptr %11, align 8
   %13 = fcmp oeq double %12, 0x7FEFFFFFFFFFFFFF
-  %narrow = select i1 %or.cond, i1 %13, i1 false
+  %narrow = select i1 %or.cond204, i1 %13, i1 false
   %14 = zext i1 %narrow to i8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 81
   store i8 %14, ptr %15, align 1, !tbaa !28
-  switch i32 %1, label %536 [
+  switch i32 %1, label %541 [
     i32 0, label %16
-    i32 1, label %175
-    i32 2, label %325
+    i32 1, label %181
+    i32 2, label %330
   ]
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  switch i32 %2, label %._crit_edge252 [
+  switch i32 %2, label %._crit_edge258 [
     i32 0, label %19
     i32 1, label %76
   ]
 
-._crit_edge252:                                   ; preds = %16
-  %.phi.trans.insert253 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre254 = load float, ptr %.phi.trans.insert253, align 8, !tbaa !32
-  %.phi.trans.insert255 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %.pre256 = load float, ptr %.phi.trans.insert255, align 4
-  %.phi.trans.insert257 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre258 = load float, ptr %.phi.trans.insert257, align 8
+._crit_edge258:                                   ; preds = %16
+  %.phi.trans.insert259 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre260 = load float, ptr %.phi.trans.insert259, align 8, !tbaa !32
+  %.phi.trans.insert261 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %.pre262 = load float, ptr %.phi.trans.insert261, align 4
   br label %142
 
 19:                                               ; preds = %16
@@ -872,536 +870,545 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   store float %140, ptr %141, align 8, !tbaa !32
   br label %142
 
-142:                                              ; preds = %._crit_edge252, %76, %19
-  %143 = phi float [ %.pre258, %._crit_edge252 ], [ %140, %76 ], [ %74, %19 ]
-  %144 = phi float [ %.pre256, %._crit_edge252 ], [ %135, %76 ], [ %68, %19 ]
-  %145 = phi float [ %.pre254, %._crit_edge252 ], [ %130, %76 ], [ %62, %19 ]
-  %146 = fcmp oeq float %145, 1.000000e+00
-  %147 = fcmp oeq float %144, 1.000000e+00
-  %or.cond200 = select i1 %146, i1 %147, i1 false
-  %148 = fcmp oeq float %143, 1.000000e+00
-  %narrow242 = select i1 %or.cond200, i1 %148, i1 false
-  %149 = zext i1 %narrow242 to i8
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 %149, ptr %150, align 8, !tbaa !34
-  %151 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %152 = load double, ptr %151, align 8, !tbaa !11
-  %153 = tail call double @llvm.fmuladd.f64(double %152, double 5.000000e-01, double 5.000000e-01)
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store double %153, ptr %154, align 8, !tbaa !35
-  br i1 %narrow, label %155, label %.sink.split
+142:                                              ; preds = %._crit_edge258, %76, %19
+  %143 = phi float [ %.pre262, %._crit_edge258 ], [ %135, %76 ], [ %68, %19 ]
+  %144 = phi float [ %.pre260, %._crit_edge258 ], [ %130, %76 ], [ %62, %19 ]
+  %145 = fcmp oeq float %144, 1.000000e+00
+  %146 = fcmp oeq float %143, 1.000000e+00
+  %or.cond207 = select i1 %145, i1 %146, i1 false
+  br i1 %or.cond207, label %152, label %.thread
 
-155:                                              ; preds = %142
-  %156 = load float, ptr %0, align 8
-  %157 = fcmp oeq float %156, 0.000000e+00
-  %or.cond202 = select i1 %narrow242, i1 %157, i1 false
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %159 = load float, ptr %158, align 4
-  %160 = fcmp oeq float %159, 0.000000e+00
-  %or.cond205 = select i1 %or.cond202, i1 %160, i1 false
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %162 = load float, ptr %161, align 8
-  %163 = fcmp oeq float %162, 0.000000e+00
-  %or.cond208 = select i1 %or.cond205, i1 %163, i1 false
-  br i1 %or.cond208, label %164, label %.sink.split
-
-164:                                              ; preds = %155
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %166 = load float, ptr %165, align 4, !tbaa !32
-  %167 = fcmp oeq float %166, 1.000000e+00
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %169 = load float, ptr %168, align 8
-  %170 = fcmp oeq float %169, 1.000000e+00
-  %or.cond211 = select i1 %167, i1 %170, i1 false
-  br i1 %or.cond211, label %171, label %.sink.split
-
-171:                                              ; preds = %164
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %173 = load float, ptr %172, align 4, !tbaa !32
-  %174 = fcmp oeq float %173, 1.000000e+00
+.thread:                                          ; preds = %142
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i8 0, ptr %147, align 8, !tbaa !34
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 232
+  %149 = load double, ptr %148, align 8, !tbaa !11
+  %150 = tail call double @llvm.fmuladd.f64(double %149, double 5.000000e-01, double 5.000000e-01)
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store double %150, ptr %151, align 8, !tbaa !35
   br label %.sink.split
 
-175:                                              ; preds = %4
-  %176 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %177 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %178 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  switch i32 %2, label %._crit_edge245 [
-    i32 0, label %179
-    i32 1, label %228
+152:                                              ; preds = %142
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %154 = load float, ptr %153, align 8, !tbaa !32
+  %155 = fcmp oeq float %154, 1.000000e+00
+  %156 = zext i1 %155 to i8
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i8 %156, ptr %157, align 8, !tbaa !34
+  %158 = getelementptr inbounds nuw i8, ptr %3, i64 232
+  %159 = load double, ptr %158, align 8, !tbaa !11
+  %160 = tail call double @llvm.fmuladd.f64(double %159, double 5.000000e-01, double 5.000000e-01)
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store double %160, ptr %161, align 8, !tbaa !35
+  %or.cond = select i1 %narrow, i1 %155, i1 false
+  %162 = load float, ptr %0, align 8
+  %163 = fcmp oeq float %162, 0.000000e+00
+  %or.cond209 = select i1 %or.cond, i1 %163, i1 false
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %165 = load float, ptr %164, align 4
+  %166 = fcmp oeq float %165, 0.000000e+00
+  %or.cond212 = select i1 %or.cond209, i1 %166, i1 false
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %168 = load float, ptr %167, align 8
+  %169 = fcmp oeq float %168, 0.000000e+00
+  %or.cond215 = select i1 %or.cond212, i1 %169, i1 false
+  br i1 %or.cond215, label %170, label %.sink.split
+
+170:                                              ; preds = %152
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %172 = load float, ptr %171, align 4, !tbaa !32
+  %173 = fcmp oeq float %172, 1.000000e+00
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %175 = load float, ptr %174, align 8
+  %176 = fcmp oeq float %175, 1.000000e+00
+  %or.cond218 = select i1 %173, i1 %176, i1 false
+  br i1 %or.cond218, label %177, label %.sink.split
+
+177:                                              ; preds = %170
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %179 = load float, ptr %178, align 4, !tbaa !32
+  %180 = fcmp oeq float %179, 1.000000e+00
+  br label %.sink.split
+
+181:                                              ; preds = %4
+  %182 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %183 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %184 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  switch i32 %2, label %._crit_edge251 [
+    i32 0, label %185
+    i32 1, label %234
   ]
 
-._crit_edge245:                                   ; preds = %175
-  %.phi.trans.insert246 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre247 = load float, ptr %.phi.trans.insert246, align 4, !tbaa !32
-  %.phi.trans.insert248 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre249 = load float, ptr %.phi.trans.insert248, align 8
-  %.phi.trans.insert250 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.pre251 = load float, ptr %.phi.trans.insert250, align 4
-  br label %286
+._crit_edge251:                                   ; preds = %181
+  %.phi.trans.insert252 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.pre253 = load float, ptr %.phi.trans.insert252, align 4, !tbaa !32
+  %.phi.trans.insert254 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.pre255 = load float, ptr %.phi.trans.insert254, align 8
+  %.phi.trans.insert256 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.pre257 = load float, ptr %.phi.trans.insert256, align 4
+  br label %292
 
-179:                                              ; preds = %175
-  %180 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %181 = load double, ptr %180, align 8, !tbaa !10
-  %182 = load double, ptr %176, align 8, !tbaa !3
-  %183 = fadd double %181, %182
-  %184 = fptrunc double %183 to float
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %184, ptr %185, align 8, !tbaa !32
-  %186 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %187 = load double, ptr %186, align 8, !tbaa !8
-  %188 = fadd double %181, %187
-  %189 = fptrunc double %188 to float
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %189, ptr %190, align 4, !tbaa !32
-  %191 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %192 = load double, ptr %191, align 8, !tbaa !9
-  %193 = fadd double %181, %192
-  %194 = fptrunc double %193 to float
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %194, ptr %195, align 8, !tbaa !32
-  %196 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  %197 = load double, ptr %196, align 8, !tbaa !10
-  %198 = load double, ptr %177, align 8, !tbaa !3
-  %199 = fadd double %197, %198
+185:                                              ; preds = %181
+  %186 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %187 = load double, ptr %186, align 8, !tbaa !10
+  %188 = load double, ptr %182, align 8, !tbaa !3
+  %189 = fadd double %187, %188
+  %190 = fptrunc double %189 to float
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store float %190, ptr %191, align 8, !tbaa !32
+  %192 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %193 = load double, ptr %192, align 8, !tbaa !8
+  %194 = fadd double %187, %193
+  %195 = fptrunc double %194 to float
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store float %195, ptr %196, align 4, !tbaa !32
+  %197 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %198 = load double, ptr %197, align 8, !tbaa !9
+  %199 = fadd double %187, %198
   %200 = fptrunc double %199 to float
-  %exp2f238 = tail call float @exp2f(float %200) #11
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %exp2f238, ptr %201, align 4, !tbaa !32
-  %202 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  %203 = load double, ptr %202, align 8, !tbaa !8
-  %204 = fadd double %197, %203
-  %205 = fptrunc double %204 to float
-  %exp2f239 = tail call float @exp2f(float %205) #11
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %exp2f239, ptr %206, align 8, !tbaa !32
-  %207 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %208 = load double, ptr %207, align 8, !tbaa !9
-  %209 = fadd double %197, %208
-  %210 = fptrunc double %209 to float
-  %exp2f240 = tail call float @exp2f(float %210) #11
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %exp2f240, ptr %211, align 4, !tbaa !32
-  %212 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %213 = load double, ptr %212, align 8, !tbaa !10
-  %214 = load double, ptr %178, align 8, !tbaa !3
-  %215 = fmul double %213, %214
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store float %200, ptr %201, align 8, !tbaa !32
+  %202 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %203 = load double, ptr %202, align 8, !tbaa !10
+  %204 = load double, ptr %183, align 8, !tbaa !3
+  %205 = fadd double %203, %204
+  %206 = fptrunc double %205 to float
+  %exp2f245 = tail call float @exp2f(float %206) #11
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store float %exp2f245, ptr %207, align 4, !tbaa !32
+  %208 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  %209 = load double, ptr %208, align 8, !tbaa !8
+  %210 = fadd double %203, %209
+  %211 = fptrunc double %210 to float
+  %exp2f246 = tail call float @exp2f(float %211) #11
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store float %exp2f246, ptr %212, align 8, !tbaa !32
+  %213 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %214 = load double, ptr %213, align 8, !tbaa !9
+  %215 = fadd double %203, %214
   %216 = fptrunc double %215 to float
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %216, ptr %217, align 4, !tbaa !32
-  %218 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %219 = load double, ptr %218, align 8, !tbaa !8
-  %220 = fmul double %213, %219
-  %221 = fptrunc double %220 to float
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %221, ptr %222, align 8, !tbaa !32
-  %223 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %224 = load double, ptr %223, align 8, !tbaa !9
-  %225 = fmul double %213, %224
-  %226 = fptrunc double %225 to float
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %226, ptr %227, align 4, !tbaa !32
-  br label %286
+  %exp2f247 = tail call float @exp2f(float %216) #11
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store float %exp2f247, ptr %217, align 4, !tbaa !32
+  %218 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %219 = load double, ptr %218, align 8, !tbaa !10
+  %220 = load double, ptr %184, align 8, !tbaa !3
+  %221 = fmul double %219, %220
+  %222 = fptrunc double %221 to float
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %222, ptr %223, align 4, !tbaa !32
+  %224 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %225 = load double, ptr %224, align 8, !tbaa !8
+  %226 = fmul double %219, %225
+  %227 = fptrunc double %226 to float
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %227, ptr %228, align 8, !tbaa !32
+  %229 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %230 = load double, ptr %229, align 8, !tbaa !9
+  %231 = fmul double %219, %230
+  %232 = fptrunc double %231 to float
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %232, ptr %233, align 4, !tbaa !32
+  br label %292
 
-228:                                              ; preds = %175
-  %229 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %230 = load double, ptr %229, align 8, !tbaa !10
-  %231 = load double, ptr %176, align 8, !tbaa !3
-  %232 = fadd double %230, %231
-  %233 = fptrunc double %232 to float
-  %234 = fneg float %233
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %234, ptr %235, align 8, !tbaa !32
-  %236 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %237 = load double, ptr %236, align 8, !tbaa !8
-  %238 = fadd double %230, %237
+234:                                              ; preds = %181
+  %235 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %236 = load double, ptr %235, align 8, !tbaa !10
+  %237 = load double, ptr %182, align 8, !tbaa !3
+  %238 = fadd double %236, %237
   %239 = fptrunc double %238 to float
   %240 = fneg float %239
-  %241 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %240, ptr %241, align 4, !tbaa !32
-  %242 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %243 = load double, ptr %242, align 8, !tbaa !9
-  %244 = fadd double %230, %243
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store float %240, ptr %241, align 8, !tbaa !32
+  %242 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %243 = load double, ptr %242, align 8, !tbaa !8
+  %244 = fadd double %236, %243
   %245 = fptrunc double %244 to float
   %246 = fneg float %245
-  %247 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %246, ptr %247, align 8, !tbaa !32
-  %248 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  %249 = load double, ptr %248, align 8, !tbaa !10
-  %250 = load double, ptr %177, align 8, !tbaa !3
-  %251 = fadd double %249, %250
-  %252 = fptrunc double %251 to float
-  %exp2f = tail call float @exp2f(float %252) #11
-  %253 = fdiv float 1.000000e+00, %exp2f
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %253, ptr %254, align 4, !tbaa !32
-  %255 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  %256 = load double, ptr %255, align 8, !tbaa !8
-  %257 = fadd double %249, %256
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store float %246, ptr %247, align 4, !tbaa !32
+  %248 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %249 = load double, ptr %248, align 8, !tbaa !9
+  %250 = fadd double %236, %249
+  %251 = fptrunc double %250 to float
+  %252 = fneg float %251
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store float %252, ptr %253, align 8, !tbaa !32
+  %254 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %255 = load double, ptr %254, align 8, !tbaa !10
+  %256 = load double, ptr %183, align 8, !tbaa !3
+  %257 = fadd double %255, %256
   %258 = fptrunc double %257 to float
-  %exp2f236 = tail call float @exp2f(float %258) #11
-  %259 = fdiv float 1.000000e+00, %exp2f236
-  %260 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %259, ptr %260, align 8, !tbaa !32
-  %261 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %262 = load double, ptr %261, align 8, !tbaa !9
-  %263 = fadd double %249, %262
+  %exp2f = tail call float @exp2f(float %258) #11
+  %259 = fdiv float 1.000000e+00, %exp2f
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store float %259, ptr %260, align 4, !tbaa !32
+  %261 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  %262 = load double, ptr %261, align 8, !tbaa !8
+  %263 = fadd double %255, %262
   %264 = fptrunc double %263 to float
-  %exp2f237 = tail call float @exp2f(float %264) #11
-  %265 = fdiv float 1.000000e+00, %exp2f237
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %265, ptr %266, align 4, !tbaa !32
-  %267 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %268 = load double, ptr %267, align 8, !tbaa !10
-  %269 = load double, ptr %178, align 8, !tbaa !3
-  %270 = fmul double %268, %269
-  %271 = fdiv double 1.000000e+00, %270
-  %272 = fptrunc double %271 to float
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %272, ptr %273, align 4, !tbaa !32
-  %274 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %275 = load double, ptr %274, align 8, !tbaa !8
-  %276 = fmul double %268, %275
+  %exp2f243 = tail call float @exp2f(float %264) #11
+  %265 = fdiv float 1.000000e+00, %exp2f243
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store float %265, ptr %266, align 8, !tbaa !32
+  %267 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %268 = load double, ptr %267, align 8, !tbaa !9
+  %269 = fadd double %255, %268
+  %270 = fptrunc double %269 to float
+  %exp2f244 = tail call float @exp2f(float %270) #11
+  %271 = fdiv float 1.000000e+00, %exp2f244
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store float %271, ptr %272, align 4, !tbaa !32
+  %273 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %274 = load double, ptr %273, align 8, !tbaa !10
+  %275 = load double, ptr %184, align 8, !tbaa !3
+  %276 = fmul double %274, %275
   %277 = fdiv double 1.000000e+00, %276
   %278 = fptrunc double %277 to float
-  %279 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %278, ptr %279, align 8, !tbaa !32
-  %280 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %281 = load double, ptr %280, align 8, !tbaa !9
-  %282 = fmul double %268, %281
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %278, ptr %279, align 4, !tbaa !32
+  %280 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %281 = load double, ptr %280, align 8, !tbaa !8
+  %282 = fmul double %274, %281
   %283 = fdiv double 1.000000e+00, %282
   %284 = fptrunc double %283 to float
-  %285 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %284, ptr %285, align 4, !tbaa !32
-  br label %286
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %284, ptr %285, align 8, !tbaa !32
+  %286 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %287 = load double, ptr %286, align 8, !tbaa !9
+  %288 = fmul double %274, %287
+  %289 = fdiv double 1.000000e+00, %288
+  %290 = fptrunc double %289 to float
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %290, ptr %291, align 4, !tbaa !32
+  br label %292
 
-286:                                              ; preds = %._crit_edge245, %228, %179
-  %287 = phi float [ %.pre251, %._crit_edge245 ], [ %284, %228 ], [ %226, %179 ]
-  %288 = phi float [ %.pre249, %._crit_edge245 ], [ %278, %228 ], [ %221, %179 ]
-  %289 = phi float [ %.pre247, %._crit_edge245 ], [ %272, %228 ], [ %216, %179 ]
-  %290 = fcmp oeq float %289, 1.000000e+00
-  %291 = fcmp oeq float %288, 1.000000e+00
-  %or.cond214 = select i1 %290, i1 %291, i1 false
-  %292 = fcmp oeq float %287, 1.000000e+00
-  %narrow241 = select i1 %or.cond214, i1 %292, i1 false
-  %293 = zext i1 %narrow241 to i8
-  %294 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 %293, ptr %294, align 8, !tbaa !34
-  %295 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %296 = load double, ptr %295, align 8, !tbaa !11
-  %exp2 = tail call double @exp2(double %296) #11
-  %297 = fmul double %exp2, 1.800000e-01
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store double %297, ptr %298, align 8, !tbaa !35
-  %299 = load i8, ptr %15, align 1, !tbaa !28, !range !36, !noundef !37
-  %300 = trunc nuw i8 %299 to i1
-  br i1 %300, label %301, label %.sink.split
+292:                                              ; preds = %._crit_edge251, %234, %185
+  %293 = phi float [ %.pre257, %._crit_edge251 ], [ %290, %234 ], [ %232, %185 ]
+  %294 = phi float [ %.pre255, %._crit_edge251 ], [ %284, %234 ], [ %227, %185 ]
+  %295 = phi float [ %.pre253, %._crit_edge251 ], [ %278, %234 ], [ %222, %185 ]
+  %296 = fcmp oeq float %295, 1.000000e+00
+  %297 = fcmp oeq float %294, 1.000000e+00
+  %or.cond221 = select i1 %296, i1 %297, i1 false
+  %298 = fcmp oeq float %293, 1.000000e+00
+  %narrow248 = select i1 %or.cond221, i1 %298, i1 false
+  %299 = zext i1 %narrow248 to i8
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i8 %299, ptr %300, align 8, !tbaa !34
+  %301 = getelementptr inbounds nuw i8, ptr %3, i64 232
+  %302 = load double, ptr %301, align 8, !tbaa !11
+  %exp2 = tail call double @exp2(double %302) #11
+  %303 = fmul double %exp2, 1.800000e-01
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store double %303, ptr %304, align 8, !tbaa !35
+  %305 = load i8, ptr %15, align 1, !tbaa !28, !range !36, !noundef !37
+  %306 = trunc nuw i8 %305 to i1
+  %307 = load i8, ptr %300, align 8, !range !36
+  %308 = trunc nuw i8 %307 to i1
+  %or.cond194 = select i1 %306, i1 %308, i1 false
+  br i1 %or.cond194, label %309, label %.sink.split
 
-301:                                              ; preds = %286
-  %302 = load i8, ptr %294, align 8, !tbaa !34, !range !36, !noundef !37
-  %303 = trunc nuw i8 %302 to i1
-  br i1 %303, label %304, label %.sink.split
+309:                                              ; preds = %292
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %311 = load float, ptr %310, align 4, !tbaa !32
+  %312 = fcmp oeq float %311, 1.000000e+00
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %314 = load float, ptr %313, align 8
+  %315 = fcmp oeq float %314, 1.000000e+00
+  %or.cond224 = select i1 %312, i1 %315, i1 false
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %317 = load float, ptr %316, align 4
+  %318 = fcmp oeq float %317, 1.000000e+00
+  %or.cond227 = select i1 %or.cond224, i1 %318, i1 false
+  br i1 %or.cond227, label %319, label %.sink.split
 
-304:                                              ; preds = %301
-  %305 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %306 = load float, ptr %305, align 4, !tbaa !32
-  %307 = fcmp oeq float %306, 1.000000e+00
-  %308 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %309 = load float, ptr %308, align 8
-  %310 = fcmp oeq float %309, 1.000000e+00
-  %or.cond217 = select i1 %307, i1 %310, i1 false
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %312 = load float, ptr %311, align 4
-  %313 = fcmp oeq float %312, 1.000000e+00
-  %or.cond220 = select i1 %or.cond217, i1 %313, i1 false
-  br i1 %or.cond220, label %314, label %.sink.split
+319:                                              ; preds = %309
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %321 = load float, ptr %320, align 8, !tbaa !32
+  %322 = fcmp oeq float %321, 0.000000e+00
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %324 = load float, ptr %323, align 4
+  %325 = fcmp oeq float %324, 0.000000e+00
+  %or.cond230 = select i1 %322, i1 %325, i1 false
+  br i1 %or.cond230, label %326, label %.sink.split
 
-314:                                              ; preds = %304
-  %315 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %316 = load float, ptr %315, align 8, !tbaa !32
-  %317 = fcmp oeq float %316, 0.000000e+00
-  %318 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %319 = load float, ptr %318, align 4
-  %320 = fcmp oeq float %319, 0.000000e+00
-  %or.cond223 = select i1 %317, i1 %320, i1 false
-  br i1 %or.cond223, label %321, label %.sink.split
-
-321:                                              ; preds = %314
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %323 = load float, ptr %322, align 8, !tbaa !32
-  %324 = fcmp oeq float %323, 0.000000e+00
+326:                                              ; preds = %319
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %328 = load float, ptr %327, align 8, !tbaa !32
+  %329 = fcmp oeq float %328, 0.000000e+00
   br label %.sink.split
 
-325:                                              ; preds = %4
-  %326 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %327 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %328 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %329 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  %330 = load double, ptr %329, align 8, !tbaa !38
-  %331 = load double, ptr %328, align 8, !tbaa !39
-  %332 = fmul double %330, %331
-  %333 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %334 = load double, ptr %333, align 8, !tbaa !40
-  %335 = fmul double %330, %334
-  %336 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  %337 = load double, ptr %336, align 8, !tbaa !41
-  %338 = fmul double %330, %337
-  %339 = fcmp oeq double %332, 0.000000e+00
-  %340 = select i1 %339, double 1.000000e+00, double %332
-  %341 = fcmp oeq double %335, 0.000000e+00
-  %342 = select i1 %341, double 1.000000e+00, double %335
-  %343 = fcmp oeq double %338, 0.000000e+00
-  %344 = select i1 %343, double 1.000000e+00, double %338
-  %345 = getelementptr inbounds nuw i8, ptr %3, i64 64
+330:                                              ; preds = %4
+  %331 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %332 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %333 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  %334 = getelementptr inbounds nuw i8, ptr %3, i64 216
+  %335 = load double, ptr %334, align 8, !tbaa !38
+  %336 = load double, ptr %333, align 8, !tbaa !39
+  %337 = fmul double %335, %336
+  %338 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %339 = load double, ptr %338, align 8, !tbaa !40
+  %340 = fmul double %335, %339
+  %341 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  %342 = load double, ptr %341, align 8, !tbaa !41
+  %343 = fmul double %335, %342
+  %344 = fcmp oeq double %337, 0.000000e+00
+  %345 = select i1 %344, double 1.000000e+00, double %337
+  %346 = fcmp oeq double %340, 0.000000e+00
+  %347 = select i1 %346, double 1.000000e+00, double %340
+  %348 = fcmp oeq double %343, 0.000000e+00
+  %349 = select i1 %348, double 1.000000e+00, double %343
+  %350 = getelementptr inbounds nuw i8, ptr %3, i64 64
   switch i32 %2, label %._crit_edge [
-    i32 0, label %346
-    i32 1, label %427
+    i32 0, label %351
+    i32 1, label %432
   ]
 
-._crit_edge:                                      ; preds = %325
+._crit_edge:                                      ; preds = %330
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load float, ptr %.phi.trans.insert, align 8, !tbaa !32
-  %.phi.trans.insert243 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %.pre244 = load float, ptr %.phi.trans.insert243, align 4
-  br label %502
+  %.phi.trans.insert249 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %.pre250 = load float, ptr %.phi.trans.insert249, align 4
+  br label %507
 
-346:                                              ; preds = %325
-  %347 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %348 = load double, ptr %347, align 8, !tbaa !10
-  %349 = load double, ptr %326, align 8, !tbaa !3
-  %350 = fadd double %348, %349
-  %351 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  %352 = load double, ptr %351, align 8, !tbaa !10
-  %353 = fadd double %350, %352
-  %354 = load double, ptr %327, align 8, !tbaa !3
+351:                                              ; preds = %330
+  %352 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %353 = load double, ptr %352, align 8, !tbaa !10
+  %354 = load double, ptr %331, align 8, !tbaa !3
   %355 = fadd double %353, %354
-  %356 = fptrunc double %355 to float
-  %357 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %356, ptr %357, align 8, !tbaa !32
-  %358 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %359 = load double, ptr %358, align 8, !tbaa !8
-  %360 = fadd double %348, %359
-  %361 = fadd double %352, %360
-  %362 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %363 = load double, ptr %362, align 8, !tbaa !8
-  %364 = fadd double %363, %361
-  %365 = fptrunc double %364 to float
-  %366 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %365, ptr %366, align 4, !tbaa !32
-  %367 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %368 = load double, ptr %367, align 8, !tbaa !9
-  %369 = fadd double %348, %368
-  %370 = fadd double %352, %369
-  %371 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %372 = load double, ptr %371, align 8, !tbaa !9
-  %373 = fadd double %372, %370
-  %374 = fptrunc double %373 to float
-  %375 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %374, ptr %375, align 8, !tbaa !32
-  %376 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  %377 = load double, ptr %376, align 8, !tbaa !16
-  %378 = fdiv double %377, %340
-  %379 = fadd double %352, %378
-  %380 = fadd double %354, %379
-  %381 = getelementptr inbounds nuw i8, ptr %3, i64 240
-  %382 = load double, ptr %381, align 8, !tbaa !17
-  %383 = fsub double %380, %382
-  %384 = fdiv double %377, %342
-  %385 = fadd double %352, %384
-  %386 = fadd double %363, %385
-  %387 = fsub double %386, %382
-  %388 = fdiv double %377, %344
-  %389 = fadd double %352, %388
-  %390 = fadd double %372, %389
-  %391 = fsub double %390, %382
-  %392 = fsub double %377, %382
-  %393 = fcmp oeq double %383, 0.000000e+00
-  %394 = select i1 %393, double 1.000000e+00, double %383
-  %395 = fdiv double %392, %394
-  %396 = fptrunc double %395 to float
-  %397 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float %396, ptr %397, align 4, !tbaa !32
-  %398 = fcmp oeq double %387, 0.000000e+00
-  %399 = select i1 %398, double 1.000000e+00, double %387
-  %400 = fdiv double %392, %399
+  %356 = getelementptr inbounds nuw i8, ptr %3, i64 184
+  %357 = load double, ptr %356, align 8, !tbaa !10
+  %358 = fadd double %355, %357
+  %359 = load double, ptr %332, align 8, !tbaa !3
+  %360 = fadd double %358, %359
+  %361 = fptrunc double %360 to float
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store float %361, ptr %362, align 8, !tbaa !32
+  %363 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %364 = load double, ptr %363, align 8, !tbaa !8
+  %365 = fadd double %353, %364
+  %366 = fadd double %357, %365
+  %367 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  %368 = load double, ptr %367, align 8, !tbaa !8
+  %369 = fadd double %368, %366
+  %370 = fptrunc double %369 to float
+  %371 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store float %370, ptr %371, align 4, !tbaa !32
+  %372 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %373 = load double, ptr %372, align 8, !tbaa !9
+  %374 = fadd double %353, %373
+  %375 = fadd double %357, %374
+  %376 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %377 = load double, ptr %376, align 8, !tbaa !9
+  %378 = fadd double %377, %375
+  %379 = fptrunc double %378 to float
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store float %379, ptr %380, align 8, !tbaa !32
+  %381 = getelementptr inbounds nuw i8, ptr %3, i64 248
+  %382 = load double, ptr %381, align 8, !tbaa !16
+  %383 = fdiv double %382, %345
+  %384 = fadd double %357, %383
+  %385 = fadd double %359, %384
+  %386 = getelementptr inbounds nuw i8, ptr %3, i64 240
+  %387 = load double, ptr %386, align 8, !tbaa !17
+  %388 = fsub double %385, %387
+  %389 = fdiv double %382, %347
+  %390 = fadd double %357, %389
+  %391 = fadd double %368, %390
+  %392 = fsub double %391, %387
+  %393 = fdiv double %382, %349
+  %394 = fadd double %357, %393
+  %395 = fadd double %377, %394
+  %396 = fsub double %395, %387
+  %397 = fsub double %382, %387
+  %398 = fcmp oeq double %388, 0.000000e+00
+  %399 = select i1 %398, double 1.000000e+00, double %388
+  %400 = fdiv double %397, %399
   %401 = fptrunc double %400 to float
-  %402 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %401, ptr %402, align 8, !tbaa !32
-  %403 = fcmp oeq double %391, 0.000000e+00
-  %404 = select i1 %403, double 1.000000e+00, double %391
-  %405 = fdiv double %392, %404
+  %402 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store float %401, ptr %402, align 4, !tbaa !32
+  %403 = fcmp oeq double %392, 0.000000e+00
+  %404 = select i1 %403, double 1.000000e+00, double %392
+  %405 = fdiv double %397, %404
   %406 = fptrunc double %405 to float
-  %407 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float %406, ptr %407, align 4, !tbaa !32
-  %408 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %409 = load double, ptr %408, align 8, !tbaa !10
-  %410 = load double, ptr %345, align 8, !tbaa !3
-  %411 = fmul double %409, %410
-  %412 = fdiv double 1.000000e+00, %411
-  %413 = fptrunc double %412 to float
-  %414 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %413, ptr %414, align 8, !tbaa !32
-  %415 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %416 = load double, ptr %415, align 8, !tbaa !8
-  %417 = fmul double %409, %416
-  %418 = fdiv double 1.000000e+00, %417
-  %419 = fptrunc double %418 to float
-  %420 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %419, ptr %420, align 4, !tbaa !32
-  %421 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %422 = load double, ptr %421, align 8, !tbaa !9
-  %423 = fmul double %409, %422
-  %424 = fdiv double 1.000000e+00, %423
-  %425 = fptrunc double %424 to float
-  %426 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %425, ptr %426, align 8, !tbaa !32
-  br label %502
+  %407 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store float %406, ptr %407, align 8, !tbaa !32
+  %408 = fcmp oeq double %396, 0.000000e+00
+  %409 = select i1 %408, double 1.000000e+00, double %396
+  %410 = fdiv double %397, %409
+  %411 = fptrunc double %410 to float
+  %412 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store float %411, ptr %412, align 4, !tbaa !32
+  %413 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %414 = load double, ptr %413, align 8, !tbaa !10
+  %415 = load double, ptr %350, align 8, !tbaa !3
+  %416 = fmul double %414, %415
+  %417 = fdiv double 1.000000e+00, %416
+  %418 = fptrunc double %417 to float
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %418, ptr %419, align 8, !tbaa !32
+  %420 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %421 = load double, ptr %420, align 8, !tbaa !8
+  %422 = fmul double %414, %421
+  %423 = fdiv double 1.000000e+00, %422
+  %424 = fptrunc double %423 to float
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %424, ptr %425, align 4, !tbaa !32
+  %426 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %427 = load double, ptr %426, align 8, !tbaa !9
+  %428 = fmul double %414, %427
+  %429 = fdiv double 1.000000e+00, %428
+  %430 = fptrunc double %429 to float
+  %431 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %430, ptr %431, align 8, !tbaa !32
+  br label %507
 
-427:                                              ; preds = %325
-  %428 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %429 = load double, ptr %428, align 8, !tbaa !10
-  %430 = load double, ptr %326, align 8, !tbaa !3
-  %431 = fadd double %429, %430
-  %432 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  %433 = load double, ptr %432, align 8, !tbaa !10
-  %434 = fadd double %431, %433
-  %435 = load double, ptr %327, align 8, !tbaa !3
+432:                                              ; preds = %330
+  %433 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %434 = load double, ptr %433, align 8, !tbaa !10
+  %435 = load double, ptr %331, align 8, !tbaa !3
   %436 = fadd double %434, %435
-  %437 = fptrunc double %436 to float
-  %438 = fneg float %437
-  %439 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %438, ptr %439, align 8, !tbaa !32
-  %440 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %441 = load double, ptr %440, align 8, !tbaa !8
-  %442 = fadd double %429, %441
-  %443 = fadd double %433, %442
-  %444 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %445 = load double, ptr %444, align 8, !tbaa !8
-  %446 = fadd double %445, %443
-  %447 = fptrunc double %446 to float
-  %448 = fneg float %447
-  %449 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %448, ptr %449, align 4, !tbaa !32
-  %450 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %451 = load double, ptr %450, align 8, !tbaa !9
-  %452 = fadd double %429, %451
-  %453 = fadd double %433, %452
-  %454 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %455 = load double, ptr %454, align 8, !tbaa !9
-  %456 = fadd double %455, %453
-  %457 = fptrunc double %456 to float
-  %458 = fneg float %457
-  %459 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %458, ptr %459, align 8, !tbaa !32
-  %460 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  %461 = load double, ptr %460, align 8, !tbaa !16
-  %462 = fdiv double %461, %340
-  %463 = fadd double %433, %435
-  %464 = getelementptr inbounds nuw i8, ptr %3, i64 240
-  %465 = load double, ptr %464, align 8, !tbaa !17
-  %466 = fsub double %463, %465
-  %467 = fadd double %462, %466
-  %468 = fsub double %461, %465
-  %469 = fdiv double %467, %468
-  %470 = fptrunc double %469 to float
-  %471 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float %470, ptr %471, align 4, !tbaa !32
-  %472 = fdiv double %461, %342
-  %473 = fadd double %433, %445
-  %474 = fsub double %473, %465
-  %475 = fadd double %472, %474
-  %476 = fdiv double %475, %468
-  %477 = fptrunc double %476 to float
-  %478 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %477, ptr %478, align 8, !tbaa !32
-  %479 = fdiv double %461, %344
-  %480 = fadd double %433, %455
-  %481 = fsub double %480, %465
-  %482 = fadd double %479, %481
-  %483 = fdiv double %482, %468
-  %484 = fptrunc double %483 to float
-  %485 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float %484, ptr %485, align 4, !tbaa !32
-  %486 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %487 = load double, ptr %486, align 8, !tbaa !10
-  %488 = load double, ptr %345, align 8, !tbaa !3
-  %489 = fmul double %487, %488
-  %490 = fptrunc double %489 to float
-  %491 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %490, ptr %491, align 8, !tbaa !32
-  %492 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %493 = load double, ptr %492, align 8, !tbaa !8
-  %494 = fmul double %487, %493
+  %437 = getelementptr inbounds nuw i8, ptr %3, i64 184
+  %438 = load double, ptr %437, align 8, !tbaa !10
+  %439 = fadd double %436, %438
+  %440 = load double, ptr %332, align 8, !tbaa !3
+  %441 = fadd double %439, %440
+  %442 = fptrunc double %441 to float
+  %443 = fneg float %442
+  %444 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store float %443, ptr %444, align 8, !tbaa !32
+  %445 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %446 = load double, ptr %445, align 8, !tbaa !8
+  %447 = fadd double %434, %446
+  %448 = fadd double %438, %447
+  %449 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  %450 = load double, ptr %449, align 8, !tbaa !8
+  %451 = fadd double %450, %448
+  %452 = fptrunc double %451 to float
+  %453 = fneg float %452
+  %454 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store float %453, ptr %454, align 4, !tbaa !32
+  %455 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %456 = load double, ptr %455, align 8, !tbaa !9
+  %457 = fadd double %434, %456
+  %458 = fadd double %438, %457
+  %459 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %460 = load double, ptr %459, align 8, !tbaa !9
+  %461 = fadd double %460, %458
+  %462 = fptrunc double %461 to float
+  %463 = fneg float %462
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store float %463, ptr %464, align 8, !tbaa !32
+  %465 = getelementptr inbounds nuw i8, ptr %3, i64 248
+  %466 = load double, ptr %465, align 8, !tbaa !16
+  %467 = fdiv double %466, %345
+  %468 = fadd double %438, %440
+  %469 = getelementptr inbounds nuw i8, ptr %3, i64 240
+  %470 = load double, ptr %469, align 8, !tbaa !17
+  %471 = fsub double %468, %470
+  %472 = fadd double %467, %471
+  %473 = fsub double %466, %470
+  %474 = fdiv double %472, %473
+  %475 = fptrunc double %474 to float
+  %476 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store float %475, ptr %476, align 4, !tbaa !32
+  %477 = fdiv double %466, %347
+  %478 = fadd double %438, %450
+  %479 = fsub double %478, %470
+  %480 = fadd double %477, %479
+  %481 = fdiv double %480, %473
+  %482 = fptrunc double %481 to float
+  %483 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store float %482, ptr %483, align 8, !tbaa !32
+  %484 = fdiv double %466, %349
+  %485 = fadd double %438, %460
+  %486 = fsub double %485, %470
+  %487 = fadd double %484, %486
+  %488 = fdiv double %487, %473
+  %489 = fptrunc double %488 to float
+  %490 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store float %489, ptr %490, align 4, !tbaa !32
+  %491 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %492 = load double, ptr %491, align 8, !tbaa !10
+  %493 = load double, ptr %350, align 8, !tbaa !3
+  %494 = fmul double %492, %493
   %495 = fptrunc double %494 to float
-  %496 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %495, ptr %496, align 4, !tbaa !32
-  %497 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %498 = load double, ptr %497, align 8, !tbaa !9
-  %499 = fmul double %487, %498
+  %496 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %495, ptr %496, align 8, !tbaa !32
+  %497 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %498 = load double, ptr %497, align 8, !tbaa !8
+  %499 = fmul double %492, %498
   %500 = fptrunc double %499 to float
-  %501 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %500, ptr %501, align 8, !tbaa !32
-  br label %502
+  %501 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %500, ptr %501, align 4, !tbaa !32
+  %502 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %503 = load double, ptr %502, align 8, !tbaa !9
+  %504 = fmul double %492, %503
+  %505 = fptrunc double %504 to float
+  %506 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %505, ptr %506, align 8, !tbaa !32
+  br label %507
 
-502:                                              ; preds = %._crit_edge, %427, %346
-  %503 = phi float [ %.pre244, %._crit_edge ], [ %495, %427 ], [ %419, %346 ]
-  %504 = phi float [ %.pre, %._crit_edge ], [ %490, %427 ], [ %413, %346 ]
-  %505 = fcmp oeq float %504, 1.000000e+00
-  %506 = fcmp oeq float %503, 1.000000e+00
-  %or.cond226 = select i1 %505, i1 %506, i1 false
-  br i1 %or.cond226, label %508, label %.thread
+507:                                              ; preds = %._crit_edge, %432, %351
+  %508 = phi float [ %.pre250, %._crit_edge ], [ %500, %432 ], [ %424, %351 ]
+  %509 = phi float [ %.pre, %._crit_edge ], [ %495, %432 ], [ %418, %351 ]
+  %510 = fcmp oeq float %509, 1.000000e+00
+  %511 = fcmp oeq float %508, 1.000000e+00
+  %or.cond233 = select i1 %510, i1 %511, i1 false
+  br i1 %or.cond233, label %513, label %.thread198
 
-.thread:                                          ; preds = %502
-  %507 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 0, ptr %507, align 8, !tbaa !34
-  br label %.sink.split
-
-508:                                              ; preds = %502
-  %509 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %510 = load float, ptr %509, align 8, !tbaa !32
-  %511 = fcmp oeq float %510, 1.000000e+00
+.thread198:                                       ; preds = %507
   %512 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %513 = zext i1 %511 to i8
-  store i8 %513, ptr %512, align 8, !tbaa !34
-  %514 = select i1 %narrow, i1 %511, i1 false
-  br i1 %514, label %515, label %.sink.split
-
-515:                                              ; preds = %508
-  %516 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %517 = load float, ptr %516, align 4, !tbaa !32
-  %518 = fcmp oeq float %517, 1.000000e+00
-  %519 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %520 = load float, ptr %519, align 8
-  %521 = fcmp oeq float %520, 1.000000e+00
-  %or.cond229 = select i1 %518, i1 %521, i1 false
-  %522 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %523 = load float, ptr %522, align 4
-  %524 = fcmp oeq float %523, 1.000000e+00
-  %or.cond232 = select i1 %or.cond229, i1 %524, i1 false
-  br i1 %or.cond232, label %525, label %.sink.split
-
-525:                                              ; preds = %515
-  %526 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %527 = load float, ptr %526, align 8, !tbaa !32
-  %528 = fcmp oeq float %527, 0.000000e+00
-  %529 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %530 = load float, ptr %529, align 4
-  %531 = fcmp oeq float %530, 0.000000e+00
-  %or.cond235 = select i1 %528, i1 %531, i1 false
-  br i1 %or.cond235, label %532, label %.sink.split
-
-532:                                              ; preds = %525
-  %533 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %534 = load float, ptr %533, align 8, !tbaa !32
-  %535 = fcmp oeq float %534, 0.000000e+00
+  store i8 0, ptr %512, align 8, !tbaa !34
   br label %.sink.split
 
-.sink.split:                                      ; preds = %515, %525, %532, %508, %.thread, %286, %301, %304, %314, %321, %142, %155, %164, %171
-  %.sink.shrunk = phi i1 [ false, %164 ], [ false, %155 ], [ false, %142 ], [ %174, %171 ], [ false, %314 ], [ false, %304 ], [ false, %301 ], [ false, %286 ], [ %324, %321 ], [ false, %525 ], [ false, %515 ], [ false, %508 ], [ %535, %532 ], [ false, %.thread ]
+513:                                              ; preds = %507
+  %514 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %515 = load float, ptr %514, align 8, !tbaa !32
+  %516 = fcmp oeq float %515, 1.000000e+00
+  %517 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %518 = zext i1 %516 to i8
+  store i8 %518, ptr %517, align 8, !tbaa !34
+  %519 = select i1 %narrow, i1 %516, i1 false
+  br i1 %519, label %520, label %.sink.split
+
+520:                                              ; preds = %513
+  %521 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %522 = load float, ptr %521, align 4, !tbaa !32
+  %523 = fcmp oeq float %522, 1.000000e+00
+  %524 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %525 = load float, ptr %524, align 8
+  %526 = fcmp oeq float %525, 1.000000e+00
+  %or.cond236 = select i1 %523, i1 %526, i1 false
+  %527 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %528 = load float, ptr %527, align 4
+  %529 = fcmp oeq float %528, 1.000000e+00
+  %or.cond239 = select i1 %or.cond236, i1 %529, i1 false
+  br i1 %or.cond239, label %530, label %.sink.split
+
+530:                                              ; preds = %520
+  %531 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %532 = load float, ptr %531, align 8, !tbaa !32
+  %533 = fcmp oeq float %532, 0.000000e+00
+  %534 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %535 = load float, ptr %534, align 4
+  %536 = fcmp oeq float %535, 0.000000e+00
+  %or.cond242 = select i1 %533, i1 %536, i1 false
+  br i1 %or.cond242, label %537, label %.sink.split
+
+537:                                              ; preds = %530
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %539 = load float, ptr %538, align 8, !tbaa !32
+  %540 = fcmp oeq float %539, 0.000000e+00
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %520, %530, %537, %513, %.thread198, %292, %309, %319, %326, %152, %170, %177, %.thread
+  %.sink.shrunk = phi i1 [ false, %170 ], [ false, %152 ], [ %180, %177 ], [ false, %.thread ], [ false, %319 ], [ false, %309 ], [ false, %292 ], [ %329, %326 ], [ false, %530 ], [ false, %520 ], [ false, %513 ], [ %540, %537 ], [ false, %.thread198 ]
   %.sink = zext i1 %.sink.shrunk to i8
   store i8 %.sink, ptr %15, align 1, !tbaa !28
-  br label %536
+  br label %541
 
-536:                                              ; preds = %.sink.split, %4
+541:                                              ; preds = %.sink.split, %4
   ret void
 }
 

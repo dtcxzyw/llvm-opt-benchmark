@@ -1704,13 +1704,13 @@ define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 no
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %16
 
-16:                                               ; preds = %.lr.ph, %110
-  %.060131 = phi i64 [ 0, %.lr.ph ], [ %111, %110 ]
-  %.062129 = phi ptr [ %1, %.lr.ph ], [ %112, %110 ]
-  %.064127 = phi i64 [ %2, %.lr.ph ], [ %113, %110 ]
+16:                                               ; preds = %.lr.ph, %111
+  %.060131 = phi i64 [ 0, %.lr.ph ], [ %112, %111 ]
+  %.062129 = phi ptr [ %1, %.lr.ph ], [ %113, %111 ]
+  %.064127 = phi i64 [ %2, %.lr.ph ], [ %114, %111 ]
   %17 = load ptr, ptr %6, align 8, !tbaa !61
   %18 = load i32, ptr %5, align 8, !tbaa !25
-  switch i32 %18, label %110 [
+  switch i32 %18, label %111 [
     i32 0, label %19
     i32 2, label %24
     i32 1, label %35
@@ -1729,7 +1729,7 @@ define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 no
   store i32 %22, ptr %5, align 8, !tbaa !40
   store ptr %23, ptr %6, align 8, !tbaa !62
   store i64 0, ptr %12, align 8, !tbaa !63
-  br label %110
+  br label %111
 
 24:                                               ; preds = %16
   %.not77 = icmp eq ptr %17, null
@@ -1738,7 +1738,7 @@ define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 no
 25:                                               ; preds = %24
   store i32 3, ptr %5, align 8, !tbaa !40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %110
+  br label %111
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %17, align 8, !tbaa !64
@@ -1759,7 +1759,7 @@ define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 no
   store i32 2, ptr %5, align 8, !tbaa !40
   store ptr %34, ptr %6, align 8, !tbaa !62
   store i64 0, ptr %12, align 8, !tbaa !63
-  br label %110
+  br label %111
 
 35:                                               ; preds = %16
   %.not79 = icmp eq ptr %17, null
@@ -1774,7 +1774,7 @@ define internal fastcc i64 @readback_part(ptr noundef %0, ptr noundef %1, i64 no
   store i32 2, ptr %5, align 8, !tbaa !40
   store ptr %37, ptr %6, align 8, !tbaa !62
   store i64 0, ptr %12, align 8, !tbaa !63
-  br label %110
+  br label %111
 
 .thread:                                          ; preds = %..thread_crit_edge, %29, %26
   %38 = phi ptr [ %.pre147, %..thread_crit_edge ], [ %.pre148, %29 ], [ %.pre148, %26 ]
@@ -1808,14 +1808,14 @@ readback_bytes.exit:                              ; preds = %43, %48
   %52 = add i64 %51, %spec.select.i
   store i64 %52, ptr %12, align 8, !tbaa !63
   %.not80 = icmp eq i64 %.024.i, 0
-  br i1 %.not80, label %readback_bytes.exit.thread, label %110
+  br i1 %.not80, label %readback_bytes.exit.thread, label %111
 
 readback_bytes.exit.thread:                       ; preds = %46, %readback_bytes.exit
   %53 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !67
   store ptr %54, ptr %6, align 8, !tbaa !62
   store i64 0, ptr %12, align 8, !tbaa !63
-  br label %110
+  br label %111
 
 55:                                               ; preds = %16
   %56 = load i64, ptr %12, align 8, !tbaa !63
@@ -1831,177 +1831,174 @@ readback_bytes.exit89:                            ; preds = %55
   %61 = load i64, ptr %12, align 8, !tbaa !63
   %62 = add i64 %61, %spec.select.i88
   store i64 %62, ptr %12, align 8, !tbaa !63
-  br label %110
+  br label %111
 
 readback_bytes.exit89.thread:                     ; preds = %55
   store i32 4, ptr %5, align 8, !tbaa !40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %110
+  br label %111
 
 63:                                               ; preds = %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   store i32 7, ptr %5, align 8, !tbaa !40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %110
+  br label %111
 
 64:                                               ; preds = %16
   %65 = load ptr, ptr %7, align 8, !tbaa !45
   %.not73 = icmp eq ptr %65, null
-  br i1 %.not73, label %98, label %.outer
+  br i1 %.not73, label %99, label %.outer
 
-.outer:                                           ; preds = %64, %76
-  %.049.i.ph = phi i64 [ %79, %76 ], [ %.064127, %64 ]
-  %.048.i.ph = phi ptr [ %78, %76 ], [ %.062129, %64 ]
-  %.047.i.ph = phi i64 [ %77, %76 ], [ 0, %64 ]
-  %.046.i.ph = phi i8 [ %.046.i, %76 ], [ 0, %64 ]
+.outer:                                           ; preds = %64, %77
+  %.050.i.ph = phi i64 [ %80, %77 ], [ %.064127, %64 ]
+  %.049.i.ph = phi ptr [ %79, %77 ], [ %.062129, %64 ]
+  %.048.i.ph = phi i64 [ %78, %77 ], [ 0, %64 ]
+  %.047.i.ph = phi i1 [ %.047.i, %77 ], [ false, %64 ]
   br label %66
 
 66:                                               ; preds = %.backedge, %.outer
-  %.046.i = phi i8 [ %.046.i.ph, %.outer ], [ %.046.i.be, %.backedge ]
+  %.047.i = phi i1 [ %.047.i.ph, %.outer ], [ %.047.i.be, %.backedge ]
   %67 = load i64, ptr %8, align 8, !tbaa !68
   %68 = load i64, ptr %9, align 8, !tbaa !69
   %69 = icmp ult i64 %67, %68
-  %.pre150 = trunc nuw i8 %.046.i to i1
-  %brmerge = select i1 %69, i1 true, i1 %.pre150
-  %not. = xor i1 %69, true
-  %.pre150.mux = select i1 %not., i1 true, i1 %.pre150
-  br i1 %brmerge, label %._crit_edge149, label %80
+  %or.cond.i = select i1 %69, i1 true, i1 %.047.i
+  br i1 %or.cond.i, label %70, label %81
 
-._crit_edge149:                                   ; preds = %66
-  %70 = load ptr, ptr %7, align 8, !tbaa !45
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !70
-  %73 = tail call i64 %72(ptr noundef %.048.i.ph, i64 noundef %.049.i.ph, i1 noundef zeroext %.pre150.mux, ptr noundef nonnull %0) #18
-  switch i64 %73, label %76 [
-    i64 0, label %74
-    i64 -1, label %75
-    i64 -2, label %75
+70:                                               ; preds = %66
+  %71 = load ptr, ptr %7, align 8, !tbaa !45
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !70
+  %74 = tail call i64 %73(ptr noundef %.049.i.ph, i64 noundef %.050.i.ph, i1 noundef zeroext %.047.i, ptr noundef nonnull %0) #18
+  switch i64 %74, label %77 [
+    i64 0, label %75
+    i64 -1, label %76
+    i64 -2, label %76
   ]
 
-74:                                               ; preds = %._crit_edge149
-  br i1 %.pre150.mux, label %read_encoded_part_content.exit, label %._crit_edge
+75:                                               ; preds = %70
+  br i1 %.047.i, label %read_encoded_part_content.exit, label %._crit_edge
 
-._crit_edge:                                      ; preds = %74
+._crit_edge:                                      ; preds = %75
   %.pre = load i64, ptr %8, align 8, !tbaa !68
-  br label %80
+  br label %81
 
-75:                                               ; preds = %._crit_edge149, %._crit_edge149
-  %.not.i92 = icmp eq i64 %.047.i.ph, 0
-  %spec.select = select i1 %.not.i92, i64 %73, i64 %.047.i.ph
+76:                                               ; preds = %70, %70
+  %.not.i92 = icmp eq i64 %.048.i.ph, 0
+  %spec.select = select i1 %.not.i92, i64 %74, i64 %.048.i.ph
   br label %read_encoded_part_content.exit
 
-76:                                               ; preds = %._crit_edge149
-  %77 = add i64 %73, %.047.i.ph
-  %78 = getelementptr inbounds nuw i8, ptr %.048.i.ph, i64 %73
-  %79 = sub i64 %.049.i.ph, %73
+77:                                               ; preds = %70
+  %78 = add i64 %74, %.048.i.ph
+  %79 = getelementptr inbounds nuw i8, ptr %.049.i.ph, i64 %74
+  %80 = sub i64 %.050.i.ph, %74
   br label %.outer
 
-80:                                               ; preds = %66, %._crit_edge
-  %81 = phi i64 [ %.pre, %._crit_edge ], [ %67, %66 ]
-  %.not53.i = icmp eq i64 %81, 0
+81:                                               ; preds = %._crit_edge, %66
+  %82 = phi i64 [ %.pre, %._crit_edge ], [ %67, %66 ]
+  %.not54.i = icmp eq i64 %82, 0
   %.pr = load i64, ptr %9, align 8, !tbaa !69
-  br i1 %.not53.i, label %thread-pre-split, label %82
+  br i1 %.not54.i, label %thread-pre-split, label %83
 
-82:                                               ; preds = %80
-  %83 = sub i64 %.pr, %81
-  %.not54.i = icmp eq i64 %.pr, %81
-  br i1 %.not54.i, label %86, label %84
+83:                                               ; preds = %81
+  %84 = sub i64 %.pr, %82
+  %.not55.i = icmp eq i64 %.pr, %82
+  br i1 %.not55.i, label %87, label %85
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i8, ptr %10, i64 %81
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 1 %85, i64 %83, i1 false)
-  br label %86
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 %82
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 1 %86, i64 %84, i1 false)
+  br label %87
 
-86:                                               ; preds = %84, %82
+87:                                               ; preds = %85, %83
   store i64 0, ptr %8, align 8, !tbaa !68
-  store i64 %83, ptr %9, align 8, !tbaa !69
+  store i64 %84, ptr %9, align 8, !tbaa !69
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %80, %86
-  %87 = phi i64 [ %83, %86 ], [ %.pr, %80 ]
-  %88 = icmp ugt i64 %87, 255
-  br i1 %88, label %89, label %90
-
-89:                                               ; preds = %thread-pre-split
-  %.not56.i = icmp eq i64 %.047.i.ph, 0
-  br i1 %.not56.i, label %read_encoded_part_content.exit.thread, label %read_encoded_part_content.exit
+thread-pre-split:                                 ; preds = %81, %87
+  %88 = phi i64 [ %84, %87 ], [ %.pr, %81 ]
+  %89 = icmp ugt i64 %88, 255
+  br i1 %89, label %90, label %91
 
 90:                                               ; preds = %thread-pre-split
-  %91 = getelementptr inbounds nuw i8, ptr %10, i64 %87
-  %92 = sub nuw nsw i64 256, %87
-  %93 = tail call fastcc i64 @read_part_content(ptr noundef nonnull %0, ptr noundef nonnull %91, i64 noundef %92, ptr noundef nonnull %3)
-  switch i64 %93, label %95 [
+  %.not57.i = icmp eq i64 %.048.i.ph, 0
+  br i1 %.not57.i, label %read_encoded_part_content.exit.thread, label %read_encoded_part_content.exit
+
+91:                                               ; preds = %thread-pre-split
+  %92 = getelementptr inbounds nuw i8, ptr %10, i64 %88
+  %93 = sub nuw nsw i64 256, %88
+  %94 = tail call fastcc i64 @read_part_content(ptr noundef nonnull %0, ptr noundef nonnull %92, i64 noundef %93, ptr noundef nonnull %3)
+  switch i64 %94, label %96 [
     i64 0, label %.backedge
-    i64 268435456, label %94
-    i64 268435457, label %94
-    i64 -1, label %94
-    i64 -2, label %94
+    i64 268435456, label %95
+    i64 268435457, label %95
+    i64 -1, label %95
+    i64 -2, label %95
   ]
 
-94:                                               ; preds = %90, %90, %90, %90
-  %.not55.i = icmp eq i64 %.047.i.ph, 0
-  %spec.select165 = select i1 %.not55.i, i64 %93, i64 %.047.i.ph
+95:                                               ; preds = %91, %91, %91, %91
+  %.not56.i = icmp eq i64 %.048.i.ph, 0
+  %spec.select163 = select i1 %.not56.i, i64 %94, i64 %.048.i.ph
   br label %read_encoded_part_content.exit
 
-95:                                               ; preds = %90
-  %96 = load i64, ptr %9, align 8, !tbaa !69
-  %97 = add i64 %96, %93
-  store i64 %97, ptr %9, align 8, !tbaa !69
+96:                                               ; preds = %91
+  %97 = load i64, ptr %9, align 8, !tbaa !69
+  %98 = add i64 %97, %94
+  store i64 %98, ptr %9, align 8, !tbaa !69
   br label %.backedge
 
-.backedge:                                        ; preds = %95, %90
-  %.046.i.be = phi i8 [ 0, %95 ], [ 1, %90 ]
+.backedge:                                        ; preds = %96, %91
+  %.047.i.be = phi i1 [ false, %96 ], [ true, %91 ]
   br label %66
 
-98:                                               ; preds = %64
-  %99 = tail call fastcc i64 @read_part_content(ptr noundef nonnull %0, ptr noundef %.062129, i64 noundef %.064127, ptr noundef %3)
+99:                                               ; preds = %64
+  %100 = tail call fastcc i64 @read_part_content(ptr noundef nonnull %0, ptr noundef %.062129, i64 noundef %.064127, ptr noundef %3)
   br label %read_encoded_part_content.exit
 
-read_encoded_part_content.exit:                   ; preds = %74, %94, %75, %89, %98
-  %.159 = phi i64 [ %99, %98 ], [ %.047.i.ph, %89 ], [ %spec.select, %75 ], [ %spec.select165, %94 ], [ %.047.i.ph, %74 ]
-  switch i64 %.159, label %110 [
-    i64 0, label %100
+read_encoded_part_content.exit:                   ; preds = %75, %95, %76, %90, %99
+  %.159 = phi i64 [ %100, %99 ], [ %.048.i.ph, %90 ], [ %spec.select, %76 ], [ %spec.select163, %95 ], [ %.048.i.ph, %75 ]
+  switch i64 %.159, label %111 [
+    i64 0, label %101
     i64 268435456, label %read_encoded_part_content.exit.thread
     i64 268435457, label %read_encoded_part_content.exit.thread
     i64 -1, label %read_encoded_part_content.exit.thread
     i64 -2, label %read_encoded_part_content.exit.thread
   ]
 
-100:                                              ; preds = %read_encoded_part_content.exit
+101:                                              ; preds = %read_encoded_part_content.exit
   store i32 8, ptr %5, align 8, !tbaa !40
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %102 = load i32, ptr %101, align 8, !tbaa !22
-  %103 = icmp eq i32 %102, 2
-  br i1 %103, label %104, label %read_encoded_part_content.exit.thread
+  %103 = load i32, ptr %102, align 8, !tbaa !22
+  %104 = icmp eq i32 %103, 2
+  br i1 %104, label %105, label %read_encoded_part_content.exit.thread
 
-104:                                              ; preds = %100
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %106 = load ptr, ptr %105, align 8, !tbaa !20
-  %.not74 = icmp eq ptr %106, null
-  br i1 %.not74, label %read_encoded_part_content.exit.thread, label %107
+105:                                              ; preds = %101
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %107 = load ptr, ptr %106, align 8, !tbaa !20
+  %.not74 = icmp eq ptr %107, null
+  br i1 %.not74, label %read_encoded_part_content.exit.thread, label %108
 
-107:                                              ; preds = %104
-  %108 = tail call i32 @fclose(ptr noundef nonnull %106)
-  store ptr null, ptr %105, align 8, !tbaa !20
+108:                                              ; preds = %105
+  %109 = tail call i32 @fclose(ptr noundef nonnull %107)
+  store ptr null, ptr %106, align 8, !tbaa !20
   br label %read_encoded_part_content.exit.thread
 
-read_encoded_part_content.exit.thread:            ; preds = %89, %read_encoded_part_content.exit, %read_encoded_part_content.exit, %read_encoded_part_content.exit, %read_encoded_part_content.exit, %100, %104, %107
-  %.159103 = phi i64 [ 0, %100 ], [ 0, %104 ], [ 0, %107 ], [ -1, %89 ], [ %.159, %read_encoded_part_content.exit ], [ %.159, %read_encoded_part_content.exit ], [ %.159, %read_encoded_part_content.exit ], [ %.159, %read_encoded_part_content.exit ]
+read_encoded_part_content.exit.thread:            ; preds = %90, %read_encoded_part_content.exit, %read_encoded_part_content.exit, %read_encoded_part_content.exit, %read_encoded_part_content.exit, %101, %105, %108
+  %.159103 = phi i64 [ 0, %101 ], [ 0, %105 ], [ 0, %108 ], [ -1, %90 ], [ %.159, %read_encoded_part_content.exit ], [ %.159, %read_encoded_part_content.exit ], [ %.159, %read_encoded_part_content.exit ], [ %.159, %read_encoded_part_content.exit ]
   %.not75 = icmp eq i64 %.060131, 0
-  %109 = select i1 %.not75, i64 %.159103, i64 %.060131
+  %110 = select i1 %.not75, i64 %.159103, i64 %.060131
   br label %.thread104
 
-110:                                              ; preds = %readback_bytes.exit89, %19, %25, %.preheader.i.preheader, %63, %readback_bytes.exit, %readback_bytes.exit.thread, %36, %readback_bytes.exit89.thread, %read_encoded_part_content.exit, %16
+111:                                              ; preds = %readback_bytes.exit89, %19, %25, %.preheader.i.preheader, %63, %readback_bytes.exit, %readback_bytes.exit.thread, %36, %readback_bytes.exit89.thread, %read_encoded_part_content.exit, %16
   %.058 = phi i64 [ 0, %16 ], [ %.159, %read_encoded_part_content.exit ], [ 0, %63 ], [ %spec.select.i88, %readback_bytes.exit89 ], [ 0, %readback_bytes.exit89.thread ], [ %spec.select.i, %readback_bytes.exit ], [ 0, %readback_bytes.exit.thread ], [ 0, %36 ], [ 0, %.preheader.i.preheader ], [ 0, %25 ], [ 0, %19 ]
-  %111 = add i64 %.058, %.060131
-  %112 = getelementptr inbounds nuw i8, ptr %.062129, i64 %.058
-  %113 = sub i64 %.064127, %.058
-  %.not = icmp eq i64 %113, 0
+  %112 = add i64 %.058, %.060131
+  %113 = getelementptr inbounds nuw i8, ptr %.062129, i64 %.058
+  %114 = sub i64 %.064127, %.058
+  %.not = icmp eq i64 %114, 0
   br i1 %.not, label %.thread104, label %16, !llvm.loop !71
 
-.thread104:                                       ; preds = %110, %16, %4, %read_encoded_part_content.exit.thread
-  %.2 = phi i64 [ %109, %read_encoded_part_content.exit.thread ], [ 0, %4 ], [ %111, %110 ], [ %.060131, %16 ]
+.thread104:                                       ; preds = %111, %16, %4, %read_encoded_part_content.exit.thread
+  %.2 = phi i64 [ %110, %read_encoded_part_content.exit.thread ], [ 0, %4 ], [ %112, %111 ], [ %.060131, %16 ]
   ret i64 %.2
 }
 

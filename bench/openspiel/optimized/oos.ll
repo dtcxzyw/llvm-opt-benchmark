@@ -4831,90 +4831,84 @@ define noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm9IterationEPNS_5
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 128
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(60) %1)
-  br i1 %54, label %55, label %84
+  br i1 %54, label %55, label %82
+
+common.ret28:                                     ; preds = %87, %35, %55
+  %common.ret28.op = phi double [ %81, %55 ], [ %48, %35 ], [ %88, %87 ]
+  ret double %common.ret28.op
 
 55:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %57 = load i8, ptr %56, align 8
   %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit
-
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %61 = load i8, ptr %60, align 1
-  %62 = trunc i8 %61 to i1
-  %63 = fcmp ogt double %4, 0.000000e+00
-  %not..i = xor i1 %62, true
-  %spec.select.i = and i1 %63, %not..i
-  br label %_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit
-
-common.ret28:                                     ; preds = %89, %35, %_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit
-  %common.ret28.op = phi double [ %83, %_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit ], [ %48, %35 ], [ %90, %89 ]
-  ret double %common.ret28.op
-
-_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit: ; preds = %55, %59
-  %64 = phi i1 [ false, %55 ], [ %spec.select.i, %59 ]
-  call void @_ZN10open_spiel10algorithms12OOSAlgorithm12SelectActionEPNS_5StateEb(ptr dead_on_unwind nonnull writable sret(%"struct.open_spiel::algorithms::TakeAction") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, i1 noundef zeroext %64)
-  %65 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %60 = load i8, ptr %59, align 1
+  %61 = trunc i8 %60 to i1
+  %62 = fcmp ogt double %4, 0.000000e+00
+  %.not4.i = xor i1 %61, true
+  %not.or.cond.i = select i1 %58, i1 %.not4.i, i1 false
+  %spec.select.i = and i1 %62, %not.or.cond.i
+  call void @_ZN10open_spiel10algorithms12OOSAlgorithm12SelectActionEPNS_5StateEb(ptr dead_on_unwind nonnull writable sret(%"struct.open_spiel::algorithms::TakeAction") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, i1 noundef zeroext %spec.select.i)
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %64 = load double, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %66 = load double, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %68 = load double, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %70 = load double, ptr %69, align 8
-  %71 = fsub double 1.000000e+00, %70
-  %72 = fmul double %68, %71
-  %73 = tail call noundef double @llvm.fmuladd.f64(double %70, double %66, double %72)
-  %74 = load i64, ptr %9, align 8
-  %75 = load ptr, ptr %1, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load ptr, ptr %76, align 8
-  tail call void %77(ptr noundef nonnull align 8 dereferenceable(60) %1, i64 noundef %74)
-  %78 = fmul double %4, %66
-  %79 = fmul double %5, %68
-  %80 = fmul double %6, %68
-  %81 = tail call noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm9IterationEPNS_5StateEdddddi(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, double noundef %2, double noundef %3, double noundef %78, double noundef %79, double noundef %80, i32 noundef %7)
-  %82 = fmul double %68, %81
-  %83 = fdiv double %82, %73
+  %69 = fsub double 1.000000e+00, %68
+  %70 = fmul double %66, %69
+  %71 = tail call noundef double @llvm.fmuladd.f64(double %68, double %64, double %70)
+  %72 = load i64, ptr %9, align 8
+  %73 = load ptr, ptr %1, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %75 = load ptr, ptr %74, align 8
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(60) %1, i64 noundef %72)
+  %76 = fmul double %4, %64
+  %77 = fmul double %5, %66
+  %78 = fmul double %6, %66
+  %79 = tail call noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm9IterationEPNS_5StateEdddddi(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, double noundef %2, double noundef %3, double noundef %76, double noundef %77, double noundef %78, i32 noundef %7)
+  %80 = fmul double %66, %79
+  %81 = fdiv double %80, %71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %common.ret28
 
-84:                                               ; preds = %50
-  %85 = load ptr, ptr %1, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 144
-  %87 = load ptr, ptr %86, align 8
-  %88 = tail call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(60) %1)
-  br i1 %88, label %89, label %91
+82:                                               ; preds = %50
+  %83 = load ptr, ptr %1, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 144
+  %85 = load ptr, ptr %84, align 8
+  %86 = tail call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(60) %1)
+  br i1 %86, label %87, label %89
 
-89:                                               ; preds = %84
-  %90 = tail call noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm19IterationPlayerNodeEPNS_5StateEdddddi(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7)
+87:                                               ; preds = %82
+  %88 = tail call noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm19IterationPlayerNodeEPNS_5StateEdddddi(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7)
   br label %common.ret28
 
-91:                                               ; preds = %84
+89:                                               ; preds = %82
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.59, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %92 unwind label %94
+          to label %90 unwind label %92
 
-92:                                               ; preds = %91
+90:                                               ; preds = %89
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %10) #26
-          to label %93 unwind label %96
+          to label %91 unwind label %94
 
-93:                                               ; preds = %92
+91:                                               ; preds = %90
   unreachable
 
-94:                                               ; preds = %91
+92:                                               ; preds = %89
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  br label %96
+
+94:                                               ; preds = %90
   %95 = landingpad { ptr, i32 }
           cleanup
-  br label %98
-
-96:                                               ; preds = %92
-  %97 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
-  br label %98
+  br label %96
 
-98:                                               ; preds = %96, %94
-  %.pn = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
+96:                                               ; preds = %94, %92
+  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %93, %92 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #25
   resume { ptr, i32 } %.pn
 }
@@ -4943,41 +4937,35 @@ define noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm19IterationChanc
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit
-
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %15 = load i8, ptr %14, align 1
-  %16 = trunc i8 %15 to i1
-  %17 = fcmp ogt double %4, 0.000000e+00
-  %not..i = xor i1 %16, true
-  %spec.select.i = and i1 %17, %not..i
-  br label %_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit
-
-_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit: ; preds = %8, %13
-  %18 = phi i1 [ false, %8 ], [ %spec.select.i, %13 ]
-  call void @_ZN10open_spiel10algorithms12OOSAlgorithm12SelectActionEPNS_5StateEb(ptr dead_on_unwind nonnull writable sret(%"struct.open_spiel::algorithms::TakeAction") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, i1 noundef zeroext %18)
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %14 = load i8, ptr %13, align 1
+  %15 = trunc i8 %14 to i1
+  %16 = fcmp ogt double %4, 0.000000e+00
+  %.not4.i = xor i1 %15, true
+  %not.or.cond.i = select i1 %12, i1 %.not4.i, i1 false
+  %spec.select.i = and i1 %16, %not.or.cond.i
+  call void @_ZN10open_spiel10algorithms12OOSAlgorithm12SelectActionEPNS_5StateEb(ptr dead_on_unwind nonnull writable sret(%"struct.open_spiel::algorithms::TakeAction") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, i1 noundef zeroext %spec.select.i)
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %18 = load double, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load double, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load double, ptr %23, align 8
-  %25 = fsub double 1.000000e+00, %24
-  %26 = fmul double %22, %25
-  %27 = tail call noundef double @llvm.fmuladd.f64(double %24, double %20, double %26)
-  %28 = load i64, ptr %9, align 8
-  %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(60) %1, i64 noundef %28)
-  %32 = fmul double %4, %20
-  %33 = fmul double %5, %22
-  %34 = fmul double %6, %22
-  %35 = tail call noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm9IterationEPNS_5StateEdddddi(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, double noundef %2, double noundef %3, double noundef %32, double noundef %33, double noundef %34, i32 noundef %7)
-  %36 = fmul double %22, %35
-  %37 = fdiv double %36, %27
-  ret double %37
+  %23 = fsub double 1.000000e+00, %22
+  %24 = fmul double %20, %23
+  %25 = tail call noundef double @llvm.fmuladd.f64(double %22, double %18, double %24)
+  %26 = load i64, ptr %9, align 8
+  %27 = load ptr, ptr %1, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(60) %1, i64 noundef %26)
+  %30 = fmul double %4, %18
+  %31 = fmul double %5, %20
+  %32 = fmul double %6, %20
+  %33 = tail call noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm9IterationEPNS_5StateEdddddi(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, double noundef %2, double noundef %3, double noundef %30, double noundef %31, double noundef %32, i32 noundef %7)
+  %34 = fmul double %20, %33
+  %35 = fdiv double %34, %25
+  ret double %35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5006,7 +4994,7 @@ define noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm19IterationPlaye
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel10algorithms18CFRInfoStateValuesEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms18CFRInfoStateValuesESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE4findERSE_.exit unwind label %113
+          to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms18CFRInfoStateValuesESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE4findERSE_.exit unwind label %111
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms18CFRInfoStateValuesESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE4findERSE_.exit: ; preds = %8
   %32 = icmp eq ptr %31, null
@@ -5014,7 +5002,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open
 
 33:                                               ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms18CFRInfoStateValuesESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE4findERSE_.exit
   invoke void @_ZN10open_spiel10algorithms12OOSAlgorithm22IncrementallyBuildTreeEPNS_5StateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdi(ptr dead_on_unwind nonnull writable sret(%"struct.open_spiel::algorithms::PlayerNodeOutcome") align 8 %11, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %10, double noundef %28, i32 noundef %7)
-          to label %81 unwind label %113
+          to label %79 unwind label %111
 
 34:                                               ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms18CFRInfoStateValuesESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE4findERSE_.exit
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -5024,174 +5012,168 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !noalias !35
   %39 = invoke noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(60) %1)
-          to label %.noexc unwind label %113
+          to label %.noexc unwind label %111
 
 .noexc:                                           ; preds = %34
   %40 = icmp eq i32 %39, %7
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %42 = load i8, ptr %41, align 8, !noalias !35
   %43 = trunc i8 %42 to i1
-  br i1 %43, label %44, label %_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %45 = load i8, ptr %44, align 1, !noalias !35
+  %46 = trunc i8 %45 to i1
+  %47 = fcmp ogt double %4, 0.000000e+00
+  %.not4.i = xor i1 %46, true
+  %not.or.cond.i = select i1 %43, i1 %.not4.i, i1 false
+  %spec.select.i = and i1 %47, %not.or.cond.i
+  invoke void @_ZN10open_spiel10algorithms12OOSAlgorithm12SelectActionEPNS_5StateEb(ptr dead_on_unwind nonnull writable sret(%"struct.open_spiel::algorithms::TakeAction") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, i1 noundef zeroext %spec.select.i)
+          to label %.noexc24 unwind label %111
 
-44:                                               ; preds = %.noexc
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %46 = load i8, ptr %45, align 1, !noalias !35
-  %47 = trunc i8 %46 to i1
-  %48 = fcmp ogt double %4, 0.000000e+00
-  %not..i = xor i1 %47, true
-  %spec.select.i = and i1 %48, %not..i
-  br label %_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit
-
-_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit: ; preds = %.noexc, %44
-  %49 = phi i1 [ false, %.noexc ], [ %spec.select.i, %44 ]
-  invoke void @_ZN10open_spiel10algorithms12OOSAlgorithm12SelectActionEPNS_5StateEb(ptr dead_on_unwind nonnull writable sret(%"struct.open_spiel::algorithms::TakeAction") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, i1 noundef zeroext %49)
-          to label %.noexc24 unwind label %113
-
-.noexc24:                                         ; preds = %_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit
-  %50 = load i64, ptr %9, align 8, !noalias !35
-  %51 = invoke noundef i32 @_ZN10open_spiel10algorithms18CFRInfoStateValues14GetActionIndexEl(ptr noundef nonnull align 8 dereferenceable(96) %35, i64 noundef %50)
-          to label %.noexc25 unwind label %113
+.noexc24:                                         ; preds = %.noexc
+  %48 = load i64, ptr %9, align 8, !noalias !35
+  %49 = invoke noundef i32 @_ZN10open_spiel10algorithms18CFRInfoStateValues14GetActionIndexEl(ptr noundef nonnull align 8 dereferenceable(96) %35, i64 noundef %48)
+          to label %.noexc25 unwind label %111
 
 .noexc25:                                         ; preds = %.noexc24
-  %52 = getelementptr inbounds nuw i8, ptr %31, i64 112
-  %53 = sext i32 %51 to i64
-  %54 = load ptr, ptr %52, align 8, !noalias !35
-  %55 = getelementptr inbounds double, ptr %54, i64 %53
+  %50 = getelementptr inbounds nuw i8, ptr %31, i64 112
+  %51 = sext i32 %49 to i64
+  %52 = load ptr, ptr %50, align 8, !noalias !35
+  %53 = getelementptr inbounds double, ptr %52, i64 %51
+  %54 = load double, ptr %53, align 8, !noalias !35
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %56 = load double, ptr %55, align 8, !noalias !35
-  %57 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %58 = load double, ptr %57, align 8, !noalias !35
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %60 = load double, ptr %59, align 8, !noalias !35
-  %61 = load double, ptr %24, align 8, !noalias !35
-  %62 = fsub double 1.000000e+00, %61
-  %63 = fmul double %60, %62
-  %64 = call noundef double @llvm.fmuladd.f64(double %61, double %58, double %63)
-  %65 = load ptr, ptr %1, align 8, !noalias !35
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %67 = load ptr, ptr %66, align 8, !noalias !35
-  invoke void %67(ptr noundef nonnull align 8 dereferenceable(60) %1, i64 noundef %50)
-          to label %.noexc26 unwind label %113
+  %59 = load double, ptr %24, align 8, !noalias !35
+  %60 = fsub double 1.000000e+00, %59
+  %61 = fmul double %58, %60
+  %62 = call noundef double @llvm.fmuladd.f64(double %59, double %56, double %61)
+  %63 = load ptr, ptr %1, align 8, !noalias !35
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %65 = load ptr, ptr %64, align 8, !noalias !35
+  invoke void %65(ptr noundef nonnull align 8 dereferenceable(60) %1, i64 noundef %48)
+          to label %.noexc26 unwind label %111
 
 .noexc26:                                         ; preds = %.noexc25
-  %68 = fmul double %2, %56
-  %69 = select i1 %40, double %68, double %2
-  %70 = fmul double %3, %56
-  %71 = select i1 %40, double %3, double %70
-  %72 = fmul double %4, %58
-  %73 = fmul double %5, %60
-  %74 = invoke noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm9IterationEPNS_5StateEdddddi(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, double noundef %69, double noundef %71, double noundef %72, double noundef %73, double noundef %6, i32 noundef %7)
-          to label %_ZN10open_spiel10algorithms12OOSAlgorithm18SampleExistingTreeEPNS_5StateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_18CFRInfoStateValuesEdddddi.exit unwind label %113
+  %66 = fmul double %2, %54
+  %67 = select i1 %40, double %66, double %2
+  %68 = fmul double %3, %54
+  %69 = select i1 %40, double %3, double %68
+  %70 = fmul double %4, %56
+  %71 = fmul double %5, %58
+  %72 = invoke noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm9IterationEPNS_5StateEdddddi(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, double noundef %67, double noundef %69, double noundef %70, double noundef %71, double noundef %6, i32 noundef %7)
+          to label %_ZN10open_spiel10algorithms12OOSAlgorithm18SampleExistingTreeEPNS_5StateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_18CFRInfoStateValuesEdddddi.exit unwind label %111
 
 _ZN10open_spiel10algorithms12OOSAlgorithm18SampleExistingTreeEPNS_5StateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_18CFRInfoStateValuesEdddddi.exit: ; preds = %.noexc26
-  %75 = fmul double %56, %74
-  %76 = fdiv double %75, %64
-  store i64 %50, ptr %11, align 8, !alias.scope !35
-  %77 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store double %76, ptr %77, align 8, !alias.scope !35
-  %78 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %79 = fdiv double %74, %64
-  store double %79, ptr %78, align 8, !alias.scope !35
-  %80 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr %35, ptr %80, align 8, !alias.scope !35
+  %73 = fmul double %54, %72
+  %74 = fdiv double %73, %62
+  store i64 %48, ptr %11, align 8, !alias.scope !35
+  %75 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store double %74, ptr %75, align 8, !alias.scope !35
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %77 = fdiv double %72, %62
+  store double %77, ptr %76, align 8, !alias.scope !35
+  %78 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store ptr %35, ptr %78, align 8, !alias.scope !35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  br label %81
+  br label %79
 
-81:                                               ; preds = %_ZN10open_spiel10algorithms12OOSAlgorithm18SampleExistingTreeEPNS_5StateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_18CFRInfoStateValuesEdddddi.exit, %33
-  %82 = fmul double %3, %6
-  %83 = fdiv double %82, %28
-  %84 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %85 = load ptr, ptr %84, align 8
-  br i1 %16, label %86, label %115
+79:                                               ; preds = %_ZN10open_spiel10algorithms12OOSAlgorithm18SampleExistingTreeEPNS_5StateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_18CFRInfoStateValuesEdddddi.exit, %33
+  %80 = fmul double %3, %6
+  %81 = fdiv double %80, %28
+  %82 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %83 = load ptr, ptr %82, align 8
+  br i1 %16, label %84, label %113
 
-86:                                               ; preds = %81
-  %87 = load i64, ptr %11, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %11, i64 24
+84:                                               ; preds = %79
+  %85 = load i64, ptr %11, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %87 = load double, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %89 = load double, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %91 = load double, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %93 = invoke noundef i32 @_ZN10open_spiel10algorithms18CFRInfoStateValues14GetActionIndexEl(ptr noundef nonnull align 8 dereferenceable(96) %85, i64 noundef %87)
-          to label %.noexc28 unwind label %113
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %91 = invoke noundef i32 @_ZN10open_spiel10algorithms18CFRInfoStateValues14GetActionIndexEl(ptr noundef nonnull align 8 dereferenceable(96) %83, i64 noundef %85)
+          to label %.noexc28 unwind label %111
 
-.noexc28:                                         ; preds = %86
-  %94 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %92, align 8
-  %.not.i = icmp eq ptr %95, %96
+.noexc28:                                         ; preds = %84
+  %92 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %90, align 8
+  %.not.i = icmp eq ptr %93, %94
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc28
-  %97 = fneg double %91
-  %98 = fsub double %89, %91
-  %99 = zext i32 %93 to i64
-  br label %100
+  %95 = fneg double %89
+  %96 = fsub double %87, %89
+  %97 = zext i32 %91 to i64
+  br label %98
 
-100:                                              ; preds = %100, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %100 ]
-  %101 = phi ptr [ %96, %.lr.ph.i ], [ %107, %100 ]
-  %102 = icmp eq i64 %indvars.iv.i, %99
-  %..i = select i1 %102, double %98, double %97
-  %103 = getelementptr inbounds nuw double, ptr %101, i64 %indvars.iv.i
-  %104 = load double, ptr %103, align 8
-  %105 = call double @llvm.fmuladd.f64(double %..i, double %83, double %104)
-  store double %105, ptr %103, align 8
+98:                                               ; preds = %98, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %98 ]
+  %99 = phi ptr [ %94, %.lr.ph.i ], [ %105, %98 ]
+  %100 = icmp eq i64 %indvars.iv.i, %97
+  %..i = select i1 %100, double %96, double %95
+  %101 = getelementptr inbounds nuw double, ptr %99, i64 %indvars.iv.i
+  %102 = load double, ptr %101, align 8
+  %103 = call double @llvm.fmuladd.f64(double %..i, double %81, double %102)
+  store double %103, ptr %101, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %106 = load ptr, ptr %94, align 8
-  %107 = load ptr, ptr %92, align 8
-  %108 = ptrtoint ptr %106 to i64
-  %109 = ptrtoint ptr %107 to i64
-  %110 = sub i64 %108, %109
-  %111 = ashr exact i64 %110, 3
-  %112 = icmp ugt i64 %111, %indvars.iv.next.i
-  br i1 %112, label %100, label %._crit_edge.i, !llvm.loop !38
+  %104 = load ptr, ptr %92, align 8
+  %105 = load ptr, ptr %90, align 8
+  %106 = ptrtoint ptr %104 to i64
+  %107 = ptrtoint ptr %105 to i64
+  %108 = sub i64 %106, %107
+  %109 = ashr exact i64 %108, 3
+  %110 = icmp ugt i64 %109, %indvars.iv.next.i
+  br i1 %110, label %98, label %._crit_edge.i, !llvm.loop !38
 
-._crit_edge.i:                                    ; preds = %100, %.noexc28
-  invoke void @_ZN10open_spiel10algorithms18CFRInfoStateValues19ApplyRegretMatchingEv(ptr noundef nonnull align 8 dereferenceable(96) %85)
-          to label %_ZN10open_spiel10algorithms12OOSAlgorithm32UpdateInfoStateCumulativeRegretsEPNS0_18CFRInfoStateValuesElddd.exit unwind label %113
+._crit_edge.i:                                    ; preds = %98, %.noexc28
+  invoke void @_ZN10open_spiel10algorithms18CFRInfoStateValues19ApplyRegretMatchingEv(ptr noundef nonnull align 8 dereferenceable(96) %83)
+          to label %_ZN10open_spiel10algorithms12OOSAlgorithm32UpdateInfoStateCumulativeRegretsEPNS0_18CFRInfoStateValuesElddd.exit unwind label %111
 
-113:                                              ; preds = %._crit_edge.i, %86, %.noexc26, %.noexc25, %.noexc24, %_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit, %34, %8, %33
-  %114 = landingpad { ptr, i32 }
+111:                                              ; preds = %._crit_edge.i, %84, %.noexc26, %.noexc25, %.noexc24, %.noexc, %34, %8, %33
+  %112 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
-  resume { ptr, i32 } %114
+  resume { ptr, i32 } %112
 
-115:                                              ; preds = %81
-  %116 = getelementptr inbounds nuw i8, ptr %85, i64 48
-  %117 = getelementptr inbounds nuw i8, ptr %85, i64 56
-  %118 = load ptr, ptr %117, align 8
-  %119 = load ptr, ptr %116, align 8
-  %.not.i30 = icmp eq ptr %118, %119
+113:                                              ; preds = %79
+  %114 = getelementptr inbounds nuw i8, ptr %83, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %83, i64 56
+  %116 = load ptr, ptr %115, align 8
+  %117 = load ptr, ptr %114, align 8
+  %.not.i30 = icmp eq ptr %116, %117
   br i1 %.not.i30, label %_ZN10open_spiel10algorithms12OOSAlgorithm32UpdateInfoStateCumulativeRegretsEPNS0_18CFRInfoStateValuesElddd.exit, label %.lr.ph.i31
 
-.lr.ph.i31:                                       ; preds = %115
-  %120 = getelementptr inbounds nuw i8, ptr %85, i64 72
-  br label %121
+.lr.ph.i31:                                       ; preds = %113
+  %118 = getelementptr inbounds nuw i8, ptr %83, i64 72
+  br label %119
 
-121:                                              ; preds = %121, %.lr.ph.i31
-  %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.i31 ], [ %indvars.iv.next.i33, %121 ]
-  %122 = phi ptr [ %119, %.lr.ph.i31 ], [ %130, %121 ]
-  %123 = load ptr, ptr %120, align 8
-  %124 = getelementptr inbounds nuw double, ptr %123, i64 %indvars.iv.i32
+119:                                              ; preds = %119, %.lr.ph.i31
+  %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.i31 ], [ %indvars.iv.next.i33, %119 ]
+  %120 = phi ptr [ %117, %.lr.ph.i31 ], [ %128, %119 ]
+  %121 = load ptr, ptr %118, align 8
+  %122 = getelementptr inbounds nuw double, ptr %121, i64 %indvars.iv.i32
+  %123 = load double, ptr %122, align 8
+  %124 = getelementptr inbounds nuw double, ptr %120, i64 %indvars.iv.i32
   %125 = load double, ptr %124, align 8
-  %126 = getelementptr inbounds nuw double, ptr %122, i64 %indvars.iv.i32
-  %127 = load double, ptr %126, align 8
-  %128 = call double @llvm.fmuladd.f64(double %83, double %125, double %127)
-  store double %128, ptr %126, align 8
+  %126 = call double @llvm.fmuladd.f64(double %81, double %123, double %125)
+  store double %126, ptr %124, align 8
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
-  %129 = load ptr, ptr %117, align 8
-  %130 = load ptr, ptr %116, align 8
-  %131 = ptrtoint ptr %129 to i64
-  %132 = ptrtoint ptr %130 to i64
-  %133 = sub i64 %131, %132
-  %134 = ashr exact i64 %133, 3
-  %135 = icmp ugt i64 %134, %indvars.iv.next.i33
-  br i1 %135, label %121, label %_ZN10open_spiel10algorithms12OOSAlgorithm32UpdateInfoStateCumulativeRegretsEPNS0_18CFRInfoStateValuesElddd.exit, !llvm.loop !39
+  %127 = load ptr, ptr %115, align 8
+  %128 = load ptr, ptr %114, align 8
+  %129 = ptrtoint ptr %127 to i64
+  %130 = ptrtoint ptr %128 to i64
+  %131 = sub i64 %129, %130
+  %132 = ashr exact i64 %131, 3
+  %133 = icmp ugt i64 %132, %indvars.iv.next.i33
+  br i1 %133, label %119, label %_ZN10open_spiel10algorithms12OOSAlgorithm32UpdateInfoStateCumulativeRegretsEPNS0_18CFRInfoStateValuesElddd.exit, !llvm.loop !39
 
-_ZN10open_spiel10algorithms12OOSAlgorithm32UpdateInfoStateCumulativeRegretsEPNS0_18CFRInfoStateValuesElddd.exit: ; preds = %121, %115, %._crit_edge.i
-  %136 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %137 = load double, ptr %136, align 8
+_ZN10open_spiel10algorithms12OOSAlgorithm32UpdateInfoStateCumulativeRegretsEPNS0_18CFRInfoStateValuesElddd.exit: ; preds = %119, %113, %._crit_edge.i
+  %134 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %135 = load double, ptr %134, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
-  ret double %137
+  ret double %135
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5315,20 +5297,14 @@ define noundef zeroext i1 @_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingA
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %11
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %8 = load i8, ptr %7, align 1
-  %9 = trunc i8 %8 to i1
-  %10 = fcmp ogt double %1, 0.000000e+00
-  %not. = xor i1 %9, true
-  %spec.select = and i1 %10, %not.
-  br label %11
-
-11:                                               ; preds = %6, %2
-  %12 = phi i1 [ false, %2 ], [ %spec.select, %6 ]
-  ret i1 %12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %7 = load i8, ptr %6, align 1
+  %8 = trunc i8 %7 to i1
+  %9 = fcmp ogt double %1, 0.000000e+00
+  %.not4 = xor i1 %8, true
+  %not.or.cond = select i1 %5, i1 %.not4, i1 false
+  %spec.select = and i1 %9, %not.or.cond
+  ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5787,63 +5763,57 @@ define void @_ZN10open_spiel10algorithms12OOSAlgorithm18SampleExistingTreeEPNS_5
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(60) %2)
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %18 = load i8, ptr %17, align 8
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit
-
-20:                                               ; preds = %11
+  %17 = icmp eq i32 %16, %10
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %19 = load i8, ptr %18, align 8
+  %20 = trunc i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %22 = load i8, ptr %21, align 1
   %23 = trunc i8 %22 to i1
   %24 = fcmp ogt double %7, 0.000000e+00
-  %not..i = xor i1 %23, true
-  %spec.select.i = and i1 %24, %not..i
-  br label %_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit
-
-_ZN10open_spiel10algorithms12OOSAlgorithm19IsBiasingApplicableEd.exit: ; preds = %11, %20
-  %25 = phi i1 [ false, %11 ], [ %spec.select.i, %20 ]
-  %26 = icmp eq i32 %16, %10
-  call void @_ZN10open_spiel10algorithms12OOSAlgorithm12SelectActionEPNS_5StateEb(ptr dead_on_unwind nonnull writable sret(%"struct.open_spiel::algorithms::TakeAction") align 8 %12, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %2, i1 noundef zeroext %25)
-  %27 = load i64, ptr %12, align 8
-  %28 = tail call noundef i32 @_ZN10open_spiel10algorithms18CFRInfoStateValues14GetActionIndexEl(ptr noundef nonnull align 8 dereferenceable(96) %4, i64 noundef %27)
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %30 = sext i32 %28 to i64
-  %31 = load ptr, ptr %29, align 8
-  %32 = getelementptr inbounds double, ptr %31, i64 %30
+  %.not4.i = xor i1 %23, true
+  %not.or.cond.i = select i1 %20, i1 %.not4.i, i1 false
+  %spec.select.i = and i1 %24, %not.or.cond.i
+  call void @_ZN10open_spiel10algorithms12OOSAlgorithm12SelectActionEPNS_5StateEb(ptr dead_on_unwind nonnull writable sret(%"struct.open_spiel::algorithms::TakeAction") align 8 %12, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %2, i1 noundef zeroext %spec.select.i)
+  %25 = load i64, ptr %12, align 8
+  %26 = tail call noundef i32 @_ZN10open_spiel10algorithms18CFRInfoStateValues14GetActionIndexEl(ptr noundef nonnull align 8 dereferenceable(96) %4, i64 noundef %25)
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %28 = sext i32 %26 to i64
+  %29 = load ptr, ptr %27, align 8
+  %30 = getelementptr inbounds double, ptr %29, i64 %28
+  %31 = load double, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %35 = load double, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %37 = load double, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %39 = load double, ptr %38, align 8
-  %40 = fsub double 1.000000e+00, %39
-  %41 = fmul double %37, %40
-  %42 = tail call noundef double @llvm.fmuladd.f64(double %39, double %35, double %41)
-  %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(60) %2, i64 noundef %27)
-  %46 = fmul double %5, %33
-  %47 = select i1 %26, double %46, double %5
-  %48 = fmul double %6, %33
-  %49 = select i1 %26, double %6, double %48
-  %50 = fmul double %7, %35
-  %51 = fmul double %8, %37
-  %52 = tail call noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm9IterationEPNS_5StateEdddddi(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %2, double noundef %47, double noundef %49, double noundef %50, double noundef %51, double noundef %9, i32 noundef %10)
-  %53 = fmul double %33, %52
-  %54 = fdiv double %53, %42
-  store i64 %27, ptr %0, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %33, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %54, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = fdiv double %52, %42
-  store double %58, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %4, ptr %59, align 8
+  %38 = fsub double 1.000000e+00, %37
+  %39 = fmul double %35, %38
+  %40 = tail call noundef double @llvm.fmuladd.f64(double %37, double %33, double %39)
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(60) %2, i64 noundef %25)
+  %44 = fmul double %5, %31
+  %45 = select i1 %17, double %44, double %5
+  %46 = fmul double %6, %31
+  %47 = select i1 %17, double %6, double %46
+  %48 = fmul double %7, %33
+  %49 = fmul double %8, %35
+  %50 = tail call noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm9IterationEPNS_5StateEdddddi(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %2, double noundef %45, double noundef %47, double noundef %48, double noundef %49, double noundef %9, i32 noundef %10)
+  %51 = fmul double %31, %50
+  %52 = fdiv double %51, %40
+  store i64 %25, ptr %0, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %31, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %52, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %56 = fdiv double %50, %40
+  store double %56, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %4, ptr %57, align 8
   ret void
 }
 

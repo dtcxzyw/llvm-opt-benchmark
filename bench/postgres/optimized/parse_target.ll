@@ -104,8 +104,8 @@ define dso_local ptr @transformTargetEntry(ptr noundef %0, ptr noundef %1, ptr n
 16:                                               ; preds = %11, %14, %6
   %.0 = phi ptr [ %15, %14 ], [ %2, %6 ], [ %1, %11 ]
   %17 = icmp ne ptr %4, null
-  %brmerge = or i1 %17, %5
-  br i1 %brmerge, label %21, label %18
+  %or.cond = or i1 %17, %5
+  br i1 %or.cond, label %21, label %18
 
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
@@ -117,14 +117,14 @@ define dso_local ptr @transformTargetEntry(ptr noundef %0, ptr noundef %1, ptr n
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   br label %21
 
-21:                                               ; preds = %16, %18
-  %.013 = phi ptr [ %.str.15..i, %18 ], [ %4, %16 ]
+21:                                               ; preds = %18, %16
+  %.014 = phi ptr [ %4, %16 ], [ %.str.15..i, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 4
   %25 = trunc i32 %23 to i16
-  %26 = call ptr @makeTargetEntry(ptr noundef %.0, i16 noundef signext %25, ptr noundef %.013, i1 noundef zeroext %5) #8
+  %26 = call ptr @makeTargetEntry(ptr noundef %.0, i16 noundef signext %25, ptr noundef %.014, i1 noundef zeroext %5) #8
   ret ptr %26
 }
 
@@ -200,12 +200,12 @@ define dso_local ptr @transformTargetList(ptr noundef %0, ptr noundef readonly c
   br label %transformTargetEntry.exit.us
 
 transformTargetEntry.exit.us:                     ; preds = %22, %21
-  %.013.i.us = phi ptr [ %.str.15..i.i.us, %22 ], [ %16, %21 ]
+  %.014.i.us = phi ptr [ %16, %21 ], [ %.str.15..i.i.us, %22 ]
   %25 = load i32, ptr %7, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %7, align 4
   %27 = trunc i32 %25 to i16
-  %28 = call ptr @makeTargetEntry(ptr noundef %.0.i.us, i16 noundef signext %27, ptr noundef nonnull %.013.i.us, i1 noundef zeroext false) #8
+  %28 = call ptr @makeTargetEntry(ptr noundef %.0.i.us, i16 noundef signext %27, ptr noundef nonnull %.014.i.us, i1 noundef zeroext false) #8
   %29 = call ptr @lappend(ptr noundef %.062.us68, ptr noundef %28) #8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %30 = load i32, ptr %5, align 4
@@ -309,12 +309,12 @@ transformTargetEntry.exit.us:                     ; preds = %22, %21
   br label %transformTargetEntry.exit
 
 transformTargetEntry.exit:                        ; preds = %.thread56, %79
-  %.013.i = phi ptr [ %.str.15..i.i, %79 ], [ %77, %.thread56 ]
+  %.014.i = phi ptr [ %77, %.thread56 ], [ %.str.15..i.i, %79 ]
   %82 = load i32, ptr %7, align 4
   %83 = add i32 %82, 1
   store i32 %83, ptr %7, align 4
   %84 = trunc i32 %82 to i16
-  %85 = call ptr @makeTargetEntry(ptr noundef %78, i16 noundef signext %84, ptr noundef nonnull %.013.i, i1 noundef zeroext false) #8
+  %85 = call ptr @makeTargetEntry(ptr noundef %78, i16 noundef signext %84, ptr noundef nonnull %.014.i, i1 noundef zeroext false) #8
   %86 = call ptr @lappend(ptr noundef %.06280, ptr noundef %85) #8
   br label %.lr.ph.split
 

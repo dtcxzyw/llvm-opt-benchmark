@@ -14504,26 +14504,26 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingDrawModeAdapter21
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
-  %.sroa.019.0.copyload = load double, ptr %2, align 8
-  %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.220.0.copyload = load double, ptr %.sroa.220.0..sroa_idx, align 8
-  %.sroa.321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.321.0.copyload = load double, ptr %.sroa.321.0..sroa_idx, align 8
+  %.sroa.023.0.copyload = load double, ptr %2, align 8
+  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.224.0.copyload = load double, ptr %.sroa.224.0..sroa_idx, align 8
+  %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.325.0.copyload = load double, ptr %.sroa.325.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0.0.copyload = load double, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
-  %9 = fcmp oeq double %.sroa.019.0.copyload, %.sroa.0.0.copyload
-  %10 = fcmp oeq double %.sroa.220.0.copyload, %.sroa.2.0.copyload
-  %11 = fcmp oeq double %.sroa.321.0.copyload, %.sroa.3.0.copyload
+  %9 = fcmp oeq double %.sroa.023.0.copyload, %.sroa.0.0.copyload
+  %10 = fcmp oeq double %.sroa.224.0.copyload, %.sroa.2.0.copyload
+  %11 = fcmp oeq double %.sroa.325.0.copyload, %.sroa.3.0.copyload
   %12 = zext i8 %3 to i32
   %13 = and i32 %12, 9
   %.not = icmp ne i32 %13, 0
-  %brmerge = select i1 %10, i1 true, i1 %11
-  %or.cond = select i1 %.not, i1 %brmerge, i1 false
-  br i1 %or.cond, label %14, label %20
+  %or.cond = select i1 %10, i1 true, i1 %11
+  %or.cond20 = select i1 %.not, i1 %or.cond, i1 false
+  br i1 %or.cond20, label %14, label %20
 
 14:                                               ; preds = %4
   store ptr @.str.3, ptr %5, align 8
@@ -14541,10 +14541,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingDrawModeAdapter21
 
 20:                                               ; preds = %14, %4
   %21 = and i32 %12, 18
-  %.not13 = icmp ne i32 %21, 0
-  %brmerge15 = select i1 %9, i1 true, i1 %11
-  %or.cond17 = select i1 %.not13, i1 %brmerge15, i1 false
-  br i1 %or.cond17, label %22, label %28
+  %.not18 = icmp ne i32 %21, 0
+  %or.cond3 = select i1 %9, i1 true, i1 %11
+  %or.cond21 = select i1 %.not18, i1 %or.cond3, i1 false
+  br i1 %or.cond21, label %22, label %28
 
 22:                                               ; preds = %20
   store ptr @.str.3, ptr %6, align 8
@@ -14562,10 +14562,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingDrawModeAdapter21
 
 28:                                               ; preds = %22, %20
   %29 = and i32 %12, 36
-  %.not14 = icmp ne i32 %29, 0
-  %brmerge16 = select i1 %9, i1 true, i1 %10
-  %or.cond18 = select i1 %.not14, i1 %brmerge16, i1 false
-  br i1 %or.cond18, label %30, label %36
+  %.not19 = icmp ne i32 %29, 0
+  %or.cond5 = select i1 %9, i1 true, i1 %10
+  %or.cond22 = select i1 %.not19, i1 %or.cond5, i1 false
+  br i1 %or.cond22, label %30, label %36
 
 30:                                               ; preds = %28
   store ptr @.str.3, ptr %7, align 8

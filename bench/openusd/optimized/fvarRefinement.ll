@@ -1419,25 +1419,25 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %63 = sext i32 %60 to i64
   %64 = load ptr, ptr %62, align 8
   %65 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %64, i64 %63
-  %.sroa.063.0.copyload = load i16, ptr %65, align 2
-  %66 = and i16 %.sroa.063.0.copyload, 96
-  %or.cond = icmp eq i16 %66, 0
-  br i1 %or.cond, label %.loopexit167, label %67
+  %.sroa.064.0.copyload = load i16, ptr %65, align 2
+  %66 = and i16 %.sroa.064.0.copyload, 96
+  %or.cond115 = icmp eq i16 %66, 0
+  br i1 %or.cond115, label %.loopexit167, label %67
 
 67:                                               ; preds = %56
   %68 = load ptr, ptr %8, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 432
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %70, i64 %indvars.iv209
-  %.sroa.059.0.copyload = load i16, ptr %71, align 2
-  %72 = and i16 %.sroa.059.0.copyload, 48
-  %or.cond114 = icmp eq i16 %72, 0
-  br i1 %or.cond114, label %73, label %.loopexit167
+  %.sroa.060.0.copyload = load i16, ptr %71, align 2
+  %72 = and i16 %.sroa.060.0.copyload, 48
+  %or.cond116 = icmp eq i16 %72, 0
+  br i1 %or.cond116, label %73, label %.loopexit167
 
 73:                                               ; preds = %67
-  %74 = and i16 %.sroa.059.0.copyload, 64
-  %.not99 = icmp eq i16 %74, 0
-  br i1 %.not99, label %.preheader166, label %82
+  %74 = and i16 %.sroa.060.0.copyload, 64
+  %.not100 = icmp eq i16 %74, 0
+  br i1 %.not100, label %.preheader166, label %82
 
 .preheader166:                                    ; preds = %73
   %.not187 = icmp eq i16 %38, 0
@@ -1452,8 +1452,8 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %75 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueTag", ptr %46, i64 %indvars.iv204
   %76 = load i8, ptr %75, align 1
   %77 = and i8 %76, 16
-  %.not100 = icmp eq i8 %77, 0
-  br i1 %.not100, label %81, label %78
+  %.not101 = icmp eq i8 %77, 0
+  br i1 %.not101, label %81, label %78
 
 78:                                               ; preds = %.lr.ph181
   %79 = and i8 %76, -57
@@ -1478,8 +1478,8 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %91 = ptrtoint ptr %89 to i64
   %92 = sub i64 %90, %91
   %93 = and i64 %92, 17179869180
-  %.not101 = icmp eq i64 %93, 0
-  br i1 %.not101, label %105, label %94
+  %.not102 = icmp eq i64 %93, 0
+  br i1 %.not102, label %105, label %94
 
 94:                                               ; preds = %82
   %95 = getelementptr inbounds nuw i8, ptr %68, i64 336
@@ -1592,16 +1592,16 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %162 = lshr i8 %161, 3
   %163 = trunc i8 %162 to i1
   %164 = icmp samesign uge i64 %indvars.iv.next197, %155
-  %.not112 = select i1 %163, i1 true, i1 %164
-  br i1 %.not112, label %.loopexit, label %156, !llvm.loop !33
+  %.not113 = select i1 %163, i1 true, i1 %164
+  br i1 %.not113, label %.loopexit, label %156, !llvm.loop !33
 
 165:                                              ; preds = %144
   %166 = icmp ugt i16 %146, %148
   br i1 %166, label %.preheader165, label %.thread
 
 .preheader165:                                    ; preds = %165
-  %.085169 = add nuw nsw i32 %149, 1
-  %.not186 = icmp slt i32 %.085169, %.sroa.6.0
+  %.086169 = add nuw nsw i32 %149, 1
+  %.not186 = icmp slt i32 %.086169, %.sroa.6.0
   br i1 %.not186, label %.lr.ph171, label %.lr.ph173
 
 .lr.ph171:                                        ; preds = %.preheader165
@@ -1648,8 +1648,8 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %192 = trunc i8 %191 to i1
   %193 = icmp samesign uge i64 %indvars.iv193, %176
-  %.not109 = select i1 %192, i1 true, i1 %193
-  br i1 %.not109, label %.loopexit, label %.critedge, !llvm.loop !35
+  %.not110 = select i1 %192, i1 true, i1 %193
+  br i1 %.not110, label %.loopexit, label %.critedge, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.critedge, %156, %.critedge.preheader
   %.1 = phi i8 [ %183, %.critedge.preheader ], [ %162, %156 ], [ %191, %.critedge ]
@@ -1669,18 +1669,18 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
 
 ._crit_edge179:                                   ; preds = %197
   %198 = icmp eq i16 %38, 2
-  %brmerge.not = select i1 %198, i1 %7, i1 false
-  br i1 %brmerge.not, label %199, label %.loopexit167
+  %or.cond = select i1 %198, i1 %7, i1 false
+  br i1 %or.cond, label %199, label %.loopexit167
 
 199:                                              ; preds = %._crit_edge179
   %200 = load i8, ptr %46, align 1
   %201 = and i8 %200, 32
-  %.not102 = icmp ne i8 %201, 0
+  %.not103 = icmp ne i8 %201, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %46, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %202 = and i8 %.pre, 16
-  %.not103 = icmp eq i8 %202, 0
-  %or.cond219 = select i1 %.not102, i1 %.not103, i1 false
+  %.not104 = icmp eq i8 %202, 0
+  %or.cond219 = select i1 %.not103, i1 %.not104, i1 false
   br i1 %or.cond219, label %203, label %._crit_edge212
 
 203:                                              ; preds = %199
@@ -1690,10 +1690,10 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
 
 ._crit_edge212:                                   ; preds = %199
   %205 = and i8 %.pre, 32
-  %.not104 = icmp ne i8 %205, 0
+  %.not105 = icmp ne i8 %205, 0
   %206 = and i8 %200, 16
-  %.not105 = icmp eq i8 %206, 0
-  %or.cond162 = and i1 %.not105, %.not104
+  %.not106 = icmp eq i8 %206, 0
+  %or.cond162 = and i1 %.not106, %.not105
   br i1 %or.cond162, label %207, label %.loopexit167
 
 207:                                              ; preds = %._crit_edge212
@@ -1702,7 +1702,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   store i8 %209, ptr %208, align 1
   br label %.loopexit167
 
-.loopexit167:                                     ; preds = %81, %140, %.preheader166, %._crit_edge179, %56, %._crit_edge212, %207, %203, %67, %49, %33
+.loopexit167:                                     ; preds = %81, %140, %.preheader166, %56, %._crit_edge179, %._crit_edge212, %207, %203, %67, %49, %33
   %indvars.iv.next210 = add nsw i64 %indvars.iv209, 1
   %210 = icmp slt i64 %indvars.iv.next210, %32
   br i1 %210, label %33, label %._crit_edge185.loopexit, !llvm.loop !37

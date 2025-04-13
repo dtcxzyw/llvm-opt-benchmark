@@ -5093,19 +5093,17 @@ _ZN7cap_std2fs3dir3Dir12dir_metadata17he7c1e82851f2c565E.exit: ; preds = %11
 
 25:                                               ; preds = %21
   %26 = icmp ult i8 %.sroa.1076.sroa.17.0.copyload, 5
-  br i1 %26, label %switch.hole_check, label %27
+  %switch.shifted = lshr i8 23, %.sroa.1076.sroa.17.0.copyload
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %26, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %27
 
-27:                                               ; preds = %switch.hole_check, %25
+27:                                               ; preds = %25
   %28 = icmp eq i8 %23, 1
   %.5.i = select i1 %28, i8 4, i8 0
   br label %_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit
 
-switch.hole_check:                                ; preds = %25
-  %switch.shifted = lshr i8 23, %.sroa.1076.sroa.17.0.copyload
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %27
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %25
   %29 = shl nuw nsw i8 %.sroa.1076.sroa.17.0.copyload, 3
   %switch.shiftamt = zext nneg i8 %29 to i40
   %switch.downshift = lshr i40 25769935111, %switch.shiftamt
@@ -5477,19 +5475,17 @@ _ZN7cap_std2fs3dir3Dir8metadata17h4bcd290672b9d225E.exit: ; preds = %36
 
 49:                                               ; preds = %46
   %50 = icmp ult i8 %.sroa.17103.0, 5
-  br i1 %50, label %switch.hole_check, label %51
+  %switch.shifted = lshr i8 23, %.sroa.17103.0
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %50, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %51
 
-51:                                               ; preds = %switch.hole_check, %49
+51:                                               ; preds = %49
   %52 = icmp eq i8 %47, 1
   %.5.i = select i1 %52, i8 4, i8 0
   br label %_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit
 
-switch.hole_check:                                ; preds = %49
-  %switch.shifted = lshr i8 23, %.sroa.17103.0
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %51
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %49
   %53 = shl nuw nsw i8 %.sroa.17103.0, 3
   %switch.shiftamt = zext nneg i8 %53 to i40
   %switch.downshift = lshr i40 25769935111, %switch.shiftamt

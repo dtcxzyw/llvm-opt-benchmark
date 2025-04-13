@@ -2067,7 +2067,7 @@ define internal noundef zeroext i1 @dissect_rdp_cr_heur(ptr noundef %0, ptr noun
   br i1 %26, label %.thread.i, label %dissect_rdp_cr.exit
 
 .thread.i:                                        ; preds = %24, %16, %13, %4
-  %.0424.i = phi i1 [ false, %24 ], [ true, %16 ], [ true, %13 ], [ true, %4 ]
+  %.0434.i = phi i1 [ false, %24 ], [ true, %16 ], [ true, %13 ], [ true, %4 ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 35, ptr noundef nonnull @.str.700)
@@ -2077,7 +2077,7 @@ define internal noundef zeroext i1 @dissect_rdp_cr_heur(ptr noundef %0, ptr noun
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %32 = load i32, ptr @ett_rdp, align 4
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
-  br i1 %.0424.i, label %34, label %52
+  br i1 %.0434.i, label %34, label %52
 
 34:                                               ; preds = %.thread.i
   %35 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %9, i1 noundef zeroext true)
@@ -2107,9 +2107,9 @@ define internal noundef zeroext i1 @dissect_rdp_cr_heur(ptr noundef %0, ptr noun
   br label %52
 
 52:                                               ; preds = %45, %.thread.i
-  %.041.i = phi i32 [ %46, %45 ], [ 0, %.thread.i ]
+  %.042.i = phi i32 [ %46, %45 ], [ 0, %.thread.i ]
   %.0.i = phi ptr [ @.str.1007, %45 ], [ @.str.1003, %.thread.i ]
-  %53 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.041.i)
+  %53 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.042.i)
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %55, label %dissect_rdp_cr.exit
 
@@ -2121,15 +2121,15 @@ define internal noundef zeroext i1 @dissect_rdp_cr_heur(ptr noundef %0, ptr noun
   %57 = load ptr, ptr %27, align 8
   call void @col_append_str(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.1008)
   %58 = load i32, ptr @hf_rdp_neg_type, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %58, ptr noundef %0, i32 noundef %.041.i, i32 noundef 1, i32 noundef 0)
-  %60 = add i32 %.041.i, 1
+  %59 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %58, ptr noundef %0, i32 noundef %.042.i, i32 noundef 1, i32 noundef 0)
+  %60 = add i32 %.042.i, 1
   %61 = load i32, ptr @hf_rdp_negReq_flags, align 4
   %62 = load i32, ptr @ett_negReq_flags, align 4
   %63 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %33, ptr noundef %0, i32 noundef %60, i32 noundef %61, i32 noundef %62, ptr noundef nonnull @dissect_rdpNegReq.flag_bits, i32 noundef -2147483648, ptr noundef nonnull %7)
-  %64 = add i32 %.041.i, 2
+  %64 = add i32 %.042.i, 2
   %65 = load i32, ptr @hf_rdp_neg_length, align 4
   %66 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %33, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %8)
-  %67 = add i32 %.041.i, 4
+  %67 = add i32 %.042.i, 4
   %68 = load i32, ptr %8, align 4
   %.not.i.i = icmp eq i32 %68, 8
   br i1 %.not.i.i, label %71, label %69
@@ -2142,7 +2142,7 @@ define internal noundef zeroext i1 @dissect_rdp_cr_heur(ptr noundef %0, ptr noun
   %72 = load i32, ptr @hf_rdp_requestedProtocols, align 4
   %73 = load i32, ptr @ett_requestedProtocols, align 4
   %74 = call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %0, i32 noundef %67, i32 noundef %72, i32 noundef %73, ptr noundef nonnull @dissect_rdpNegReq.requestedProtocols_bits, i32 noundef -2147483648)
-  %75 = add i32 %.041.i, 8
+  %75 = add i32 %.042.i, 8
   %76 = load i64, ptr %7, align 8
   %77 = and i64 %76, 8
   %.not27.i.i = icmp eq i64 %77, 0
@@ -2153,7 +2153,7 @@ define internal noundef zeroext i1 @dissect_rdp_cr_heur(ptr noundef %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
   %79 = load i32, ptr @hf_rdp_neg_type, align 4
   %80 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %33, i32 noundef %79, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
-  %81 = add i32 %.041.i, 9
+  %81 = add i32 %.042.i, 9
   %82 = load i32, ptr %5, align 4
   %.not.i.i.i = icmp eq i32 %82, 6
   br i1 %.not.i.i.i, label %85, label %83
@@ -2165,10 +2165,10 @@ define internal noundef zeroext i1 @dissect_rdp_cr_heur(ptr noundef %0, ptr noun
 85:                                               ; preds = %78
   %86 = load i32, ptr @hf_rdp_correlationInfo_flags, align 4
   %87 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %86, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef 0)
-  %88 = add i32 %.041.i, 10
+  %88 = add i32 %.042.i, 10
   %89 = load i32, ptr @hf_rdp_neg_length, align 4
   %90 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %33, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %6)
-  %91 = add i32 %.041.i, 12
+  %91 = add i32 %.042.i, 12
   %92 = load i32, ptr %6, align 4
   %.not28.i.i.i = icmp eq i32 %92, 36
   br i1 %.not28.i.i.i, label %95, label %93
@@ -2180,10 +2180,10 @@ define internal noundef zeroext i1 @dissect_rdp_cr_heur(ptr noundef %0, ptr noun
 95:                                               ; preds = %85
   %96 = load i32, ptr @hf_rdp_correlationId, align 4
   %97 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %96, ptr noundef %0, i32 noundef %91, i32 noundef 16, i32 noundef 0)
-  %98 = add i32 %.041.i, 28
+  %98 = add i32 %.042.i, 28
   %99 = load i32, ptr @hf_rdp_correlationInfo_reserved, align 4
   %100 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %99, ptr noundef %0, i32 noundef %98, i32 noundef 16, i32 noundef 0)
-  %101 = add i32 %.041.i, 44
+  %101 = add i32 %.042.i, 44
   br label %dissect_rdpCorrelationInfo.exit.i.i
 
 dissect_rdpCorrelationInfo.exit.i.i:              ; preds = %95, %93, %83
@@ -2199,10 +2199,10 @@ dissect_rdpNegReq.exit.i:                         ; preds = %dissect_rdpCorrelat
   br label %dissect_rdp_cr.exit
 
 dissect_rdp_cr.exit:                              ; preds = %19, %21, %24, %52, %dissect_rdpNegReq.exit.i
-  %.040.i = phi i32 [ 0, %24 ], [ %.0.i.i, %dissect_rdpNegReq.exit.i ], [ %.041.i, %52 ], [ 0, %19 ], [ 0, %21 ]
+  %.041.i = phi i32 [ 0, %24 ], [ %.0.i.i, %dissect_rdpNegReq.exit.i ], [ %.042.i, %52 ], [ 0, %19 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
-  %102 = icmp sgt i32 %.040.i, 0
+  %102 = icmp sgt i32 %.041.i, 0
   ret i1 %102
 }
 

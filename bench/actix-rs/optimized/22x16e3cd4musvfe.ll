@@ -9229,8 +9229,8 @@ define hidden void @"_ZN108_$LT$actix_web..service..ServiceFactoryWrapper$LT$T$G
 
 .thread:                                          ; preds = %2
   store i64 %.sroa.0.0.copyload, ptr %3, align 8
-  %.sroa.5.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.5.0..sroa_idx6, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.5, i64 160, i1 false)
+  %.sroa.5.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.5.0..sroa_idx5, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.5, i64 160, i1 false)
   call void @"_ZN97_$LT$actix_web..resource..Resource$LT$T$GT$$u20$as$u20$actix_web..service..HttpServiceFactory$GT$8register17hd826e7ea29bd7968E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(168) %3, ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
   br label %4
 

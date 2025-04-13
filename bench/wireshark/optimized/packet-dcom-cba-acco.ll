@@ -861,8 +861,8 @@ define internal noalias ptr @cba_build_filter(ptr noundef %0, ptr readnone captu
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 2
-  %brmerge.not = select i1 %16, i1 %5, i1 false
-  br i1 %brmerge.not, label %17, label %32
+  %or.cond = select i1 %16, i1 %5, i1 false
+  br i1 %or.cond, label %17, label %32
 
 17:                                               ; preds = %13
   %18 = ptrtoint ptr %9 to i64

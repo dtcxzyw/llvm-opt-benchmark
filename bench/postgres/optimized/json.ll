@@ -3042,7 +3042,7 @@ define dso_local noundef zeroext i1 @json_validate(ptr noundef %0, i1 noundef ze
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #10
   %8 = call ptr @makeJsonLexContext(ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext %1) #10
-  br i1 %1, label %9, label %.thread
+  br i1 %1, label %9, label %24
 
 9:                                                ; preds = %3
   store ptr %5, ptr %7, align 8
@@ -3076,30 +3076,31 @@ define dso_local noundef zeroext i1 @json_validate(ptr noundef %0, i1 noundef ze
   store ptr @json_unique_object_field_start, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @json_unique_object_end, ptr %23, align 8
-  %24 = call i32 @pg_parse_json(ptr noundef nonnull %5, ptr noundef nonnull %6) #10
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %29, label %26
+  br label %24
 
-.thread:                                          ; preds = %3
-  %25 = call i32 @pg_parse_json(ptr noundef nonnull %5, ptr noundef nonnull @nullSemAction) #10
-  %.not12 = icmp eq i32 %25, 0
-  br i1 %.not12, label %.critedge, label %26
+24:                                               ; preds = %9, %3
+  %.nullSemAction = phi ptr [ %6, %9 ], [ @nullSemAction, %3 ]
+  %25 = call i32 @pg_parse_json(ptr noundef nonnull %5, ptr noundef nonnull %.nullSemAction) #10
+  %.not13 = icmp eq i32 %25, 0
+  br i1 %.not13, label %28, label %26
 
-26:                                               ; preds = %.thread, %9
-  %27 = phi i32 [ %25, %.thread ], [ %24, %9 ]
-  br i1 %2, label %28, label %.critedge
+26:                                               ; preds = %24
+  br i1 %2, label %27, label %39
 
-28:                                               ; preds = %26
-  call void @json_errsave_error(i32 noundef %27, ptr noundef nonnull %5, ptr noundef null) #10
-  br label %.critedge
+27:                                               ; preds = %26
+  call void @json_errsave_error(i32 noundef %25, ptr noundef nonnull %5, ptr noundef null) #10
+  br label %39
 
-29:                                               ; preds = %9
-  %30 = load i8, ptr %12, align 4, !range !4, !noundef !5
+28:                                               ; preds = %24
+  %.not = xor i1 %1, true
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %30 = load i8, ptr %29, align 4, !range !4
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %37, label %32
+  %or.cond = select i1 %.not, i1 true, i1 %31
+  br i1 %or.cond, label %37, label %32
 
-32:                                               ; preds = %29
-  br i1 %2, label %33, label %.critedge
+32:                                               ; preds = %28
+  br i1 %2, label %33, label %39
 
 33:                                               ; preds = %32
   %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -3109,12 +3110,15 @@ define dso_local noundef zeroext i1 @json_validate(ptr noundef %0, i1 noundef ze
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1850, ptr noundef nonnull @__func__.json_validate) #10
   unreachable
 
-37:                                               ; preds = %29
-  call void @freeJsonLexContext(ptr noundef nonnull %5) #10
-  br label %.critedge
+37:                                               ; preds = %28
+  br i1 %1, label %38, label %39
 
-.critedge:                                        ; preds = %.thread, %37, %32, %26, %28
-  %.0 = phi i1 [ false, %28 ], [ false, %26 ], [ false, %32 ], [ true, %37 ], [ true, %.thread ]
+38:                                               ; preds = %37
+  call void @freeJsonLexContext(ptr noundef nonnull %5) #10
+  br label %39
+
+39:                                               ; preds = %37, %38, %32, %26, %27
+  %.0 = phi i1 [ false, %27 ], [ false, %26 ], [ false, %32 ], [ true, %38 ], [ true, %37 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #10
@@ -3247,9 +3251,13 @@ define dso_local i64 @json_typeof(ptr noundef readonly captures(none) %0) local_
   %12 = load i32, ptr %11, align 4
   %switch.tableidx = add i32 %12, -1
   %13 = icmp ult i32 %switch.tableidx, 11
-  br i1 %13, label %switch.hole_check, label %14
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 1815, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %14
 
-14:                                               ; preds = %switch.hole_check, %10
+14:                                               ; preds = %10
   %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %15)
   %16 = load i32, ptr %11, align 4
@@ -3257,13 +3265,7 @@ define dso_local i64 @json_typeof(ptr noundef readonly captures(none) %0) local_
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1909, ptr noundef nonnull @__func__.json_typeof) #10
   unreachable
 
-switch.hole_check:                                ; preds = %10
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 1815, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %14
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %10
   %18 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.json_typeof, i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8

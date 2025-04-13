@@ -25543,9 +25543,9 @@ define void @_ZN14ockam_identity14secure_channel9handshake23handshake_state_mach
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN14ockam_identity14secure_channel9handshake23handshake_state_machine18CommonStateMachine22make_handshake_results17h784fb2e902f2f90eE(ptr noalias noundef writeonly sret({ [24 x i8], i8, [247 x i8] }) align 8 captures(none) dereferenceable(272) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(432) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, [7 x i8] }, align 8
-  %.sroa.02 = alloca [24 x i8], align 8
-  %.sroa.55.sroa.0 = alloca [71 x i8], align 1
-  %.sroa.55.sroa.8 = alloca [64 x i8], align 1
+  %.sroa.03 = alloca [24 x i8], align 8
+  %.sroa.56.sroa.0 = alloca [71 x i8], align 1
+  %.sroa.56.sroa.8 = alloca [64 x i8], align 1
   %5 = alloca { { { { { { ptr, i64 }, i64 } } } }, { { { { { ptr, i64 }, i64 } } } } }, align 8
   %6 = alloca { { i8, [32 x i8] }, [7 x i8], { ptr, [5 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6)
@@ -25562,8 +25562,8 @@ define hidden void @_ZN14ockam_identity14secure_channel9handshake23handshake_sta
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %12 = load ptr, ptr %11, align 8
   %.not = icmp ne ptr %12, null
-  %or.cond.not = select i1 %trunc, i1 %.not, i1 false
-  br i1 %or.cond.not, label %13, label %46
+  %or.cond17.not = select i1 %trunc, i1 %.not, i1 false
+  br i1 %or.cond17.not, label %13, label %46
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -25622,10 +25622,10 @@ define hidden void @_ZN14ockam_identity14secure_channel9handshake23handshake_sta
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %39 = load i8, ptr %38, align 8, !range !375, !alias.scope !3578, !noalias !3592, !noundef !10
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 217
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.sroa.55.sroa.8, ptr noundef nonnull readonly align 1 dereferenceable(64) %40, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.sroa.56.sroa.8, ptr noundef nonnull readonly align 1 dereferenceable(64) %40, i64 64, i1 false)
   %41 = extractvalue { ptr, i64 } %32, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.02, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(71) %.sroa.55.sroa.0, ptr noundef nonnull align 1 dereferenceable(71) %.sroa.5.0..sroa_idx.i, i64 71, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(71) %.sroa.56.sroa.0, ptr noundef nonnull align 1 dereferenceable(71) %.sroa.5.0..sroa_idx.i, i64 71, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !3581
   br label %.thread
 
@@ -25636,26 +25636,26 @@ define hidden void @_ZN14ockam_identity14secure_channel9handshake23handshake_sta
   unreachable
 
 .thread:                                          ; preds = %35, %13
-  %.sroa.55.sroa.4.0 = phi ptr [ undef, %13 ], [ %36, %35 ]
-  %.sroa.55.sroa.5.0 = phi i64 [ undef, %13 ], [ %41, %35 ]
-  %.sroa.55.sroa.6.0 = phi i64 [ undef, %13 ], [ %31, %35 ]
-  %.sroa.55.sroa.7.0 = phi i8 [ undef, %13 ], [ %39, %35 ]
+  %.sroa.56.sroa.4.0 = phi ptr [ undef, %13 ], [ %36, %35 ]
+  %.sroa.56.sroa.5.0 = phi i64 [ undef, %13 ], [ %41, %35 ]
+  %.sroa.56.sroa.6.0 = phi i64 [ undef, %13 ], [ %31, %35 ]
+  %.sroa.56.sroa.7.0 = phi i8 [ undef, %13 ], [ %39, %35 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.02, i64 24, i1 false)
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %15, ptr %.sroa.48.0..sroa_idx, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(71) %.sroa.59.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(71) %.sroa.55.sroa.0, i64 71, i1 false)
-  %.sroa.59.sroa.4.0..sroa.59.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %.sroa.55.sroa.4.0, ptr %.sroa.59.sroa.4.0..sroa.59.0..sroa_idx.sroa_idx, align 8
-  %.sroa.59.sroa.5.0..sroa.59.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %.sroa.55.sroa.5.0, ptr %.sroa.59.sroa.5.0..sroa.59.0..sroa_idx.sroa_idx, align 8
-  %.sroa.59.sroa.6.0..sroa.59.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %.sroa.55.sroa.6.0, ptr %.sroa.59.sroa.6.0..sroa.59.0..sroa_idx.sroa_idx, align 8
-  %.sroa.59.sroa.7.0..sroa.59.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i8 %.sroa.55.sroa.7.0, ptr %.sroa.59.sroa.7.0..sroa.59.0..sroa_idx.sroa_idx, align 8
-  %.sroa.59.sroa.8.0..sroa.59.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 121
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.sroa.59.sroa.8.0..sroa.59.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(64) %.sroa.55.sroa.8, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03, i64 24, i1 false)
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 %15, ptr %.sroa.49.0..sroa_idx, align 8
+  %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(71) %.sroa.510.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(71) %.sroa.56.sroa.0, i64 71, i1 false)
+  %.sroa.510.sroa.4.0..sroa.510.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %.sroa.56.sroa.4.0, ptr %.sroa.510.sroa.4.0..sroa.510.0..sroa_idx.sroa_idx, align 8
+  %.sroa.510.sroa.5.0..sroa.510.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 %.sroa.56.sroa.5.0, ptr %.sroa.510.sroa.5.0..sroa.510.0..sroa_idx.sroa_idx, align 8
+  %.sroa.510.sroa.6.0..sroa.510.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %.sroa.56.sroa.6.0, ptr %.sroa.510.sroa.6.0..sroa.510.0..sroa_idx.sroa_idx, align 8
+  %.sroa.510.sroa.7.0..sroa.510.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i8 %.sroa.56.sroa.7.0, ptr %.sroa.510.sroa.7.0..sroa.510.0..sroa_idx.sroa_idx, align 8
+  %.sroa.510.sroa.8.0..sroa.510.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.sroa.510.sroa.8.0..sroa.510.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(64) %.sroa.56.sroa.8, i64 64, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -25675,8 +25675,8 @@ define hidden void @_ZN14ockam_identity14secure_channel9handshake23handshake_sta
 46:                                               ; preds = %3
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 3, ptr %47, align 8
-  %.not15 = icmp eq ptr %12, null
-  br i1 %.not15, label %51, label %52
+  %.not24 = icmp eq ptr %12, null
+  br i1 %.not24, label %51, label %52
 
 48:                                               ; preds = %.body
   %49 = landingpad { ptr, i32 }
@@ -25687,7 +25687,7 @@ define hidden void @_ZN14ockam_identity14secure_channel9handshake23handshake_sta
 50:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 
-51:                                               ; preds = %.thread, %46, %52
+51:                                               ; preds = %.thread, %52, %46
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6)
   ret void
 

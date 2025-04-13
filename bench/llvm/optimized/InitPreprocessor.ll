@@ -15605,22 +15605,22 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %4, %11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
   %18 = load i64, ptr %0, align 8
   %19 = and i64 %18, 8
-  %.not = icmp eq i64 %19, 0
-  %brmerge = or i1 %15, %.not
-  br i1 %brmerge, label %21, label %20
+  %20 = icmp eq i64 %19, 0
+  %or.cond = or i1 %15, %20
+  br i1 %or.cond, label %22, label %21
 
-20:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
+21:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   store ptr %3, ptr %8, align 8, !tbaa !562
-  %.sroa.5.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %1, ptr %.sroa.5.0..sroa_idx3, align 8, !tbaa !639
-  %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %5, ptr %.sroa.6.0..sroa_idx5, align 8, !tbaa !641
+  %.sroa.5.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %1, ptr %.sroa.5.0..sroa_idx4, align 8, !tbaa !639
+  %.sroa.6.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %5, ptr %.sroa.6.0..sroa_idx6, align 8, !tbaa !641
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #16
   call fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_"(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull @.str.456, i64 2, ptr noundef nonnull byval(%class.anon.361) align 8 %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #16
-  br label %21
+  br label %22
 
-21:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %20
+22:                                               ; preds = %21, %_ZN4llvm9StringRefC2EPKc.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   ret void
 }

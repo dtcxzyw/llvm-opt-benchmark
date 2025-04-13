@@ -3536,21 +3536,19 @@ zend_vspprintf.exit:                              ; preds = %smart_string_0.exit
   %.0 = phi ptr [ %14, %smart_string_0.exit.thread.i ], [ %.pr.i, %smart_string_0.exit.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #33
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !141
-  %.not4 = icmp eq ptr %15, null
-  br i1 %.not4, label %21, label %16
-
-16:                                               ; preds = %zend_vspprintf.exit
-  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1, !tbaa !139, !range !150, !noundef !43
+  %16 = icmp eq ptr %15, null
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1, !range !150
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %21, label %19
+  %or.cond = select i1 %16, i1 true, i1 %18
+  br i1 %or.cond, label %21, label %19
 
-19:                                               ; preds = %16
+19:                                               ; preds = %zend_vspprintf.exit
   %20 = call ptr @zend_throw_exception(ptr noundef %spec.select, ptr noundef %.0, i64 noundef 0) #33
   call void @_efree(ptr noundef %.0) #33
   call void @llvm.va_end.p0(ptr nonnull %4)
   br label %22
 
-21:                                               ; preds = %16, %zend_vspprintf.exit
+21:                                               ; preds = %zend_vspprintf.exit
   call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, ptr noundef %.0) #40
   unreachable
 
@@ -4192,19 +4190,17 @@ define dso_local void @zend_alloc_ce_cache(ptr noundef %0) local_unnamed_addr #0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !13
   %4 = and i32 %3, 96
-  %or.cond.not = icmp eq i32 %4, 64
-  br i1 %or.cond.not, label %5, label %64
+  %or.cond21.not = icmp eq i32 %4, 64
+  br i1 %or.cond21.not, label %5, label %64
 
 5:                                                ; preds = %1
   %6 = and i32 %3, 256
-  %.not17 = icmp eq i32 %6, 0
-  br i1 %.not17, label %8, label %7
-
-7:                                                ; preds = %5
+  %7 = icmp ne i32 %6, 0
   %.b18 = load i1, ptr @startup_done, align 1
-  br i1 %.b18, label %64, label %8
+  %or.cond = select i1 %7, i1 %.b18, i1 false
+  br i1 %or.cond, label %64, label %8
 
-8:                                                ; preds = %7, %5
+8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !19
   %11 = load ptr, ptr @zend_known_strings, align 8, !tbaa !174
@@ -4224,11 +4220,11 @@ define dso_local void @zend_alloc_ce_cache(ptr noundef %0) local_unnamed_addr #0
 
 ._crit_edge:                                      ; preds = %17
   %.pre = load i64, ptr %9, align 8, !tbaa !19
-  %.pre21 = load ptr, ptr @zend_known_strings, align 8, !tbaa !174
+  %.pre22 = load ptr, ptr @zend_known_strings, align 8, !tbaa !174
   br label %21
 
 21:                                               ; preds = %._crit_edge, %8
-  %22 = phi ptr [ %.pre21, %._crit_edge ], [ %11, %8 ]
+  %22 = phi ptr [ %.pre22, %._crit_edge ], [ %11, %8 ]
   %23 = phi i64 [ %.pre, %._crit_edge ], [ %10, %8 ]
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 496
   %25 = load ptr, ptr %24, align 8, !tbaa !18
@@ -4245,15 +4241,15 @@ define dso_local void @zend_alloc_ce_cache(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not20, label %64, label %33
 
 33:                                               ; preds = %29, %21
-  %.pre22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 528), align 8, !tbaa !126
-  %.pre24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 520), align 8, !tbaa !129
+  %.pre23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 528), align 8, !tbaa !126
+  %.pre25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 520), align 8, !tbaa !129
   %.pre2.i.pre = load i64, ptr @zend_map_ptr_static_size, align 8, !tbaa !120
   br label %34
 
 34:                                               ; preds = %zend_map_ptr_new.exit, %33
-  %.pre2.i = phi i64 [ %.pre2.i25, %zend_map_ptr_new.exit ], [ %.pre2.i.pre, %33 ]
-  %35 = phi i64 [ %49, %zend_map_ptr_new.exit ], [ %.pre24, %33 ]
-  %36 = phi i64 [ %54, %zend_map_ptr_new.exit ], [ %.pre22, %33 ]
+  %.pre2.i = phi i64 [ %.pre2.i26, %zend_map_ptr_new.exit ], [ %.pre2.i.pre, %33 ]
+  %35 = phi i64 [ %49, %zend_map_ptr_new.exit ], [ %.pre25, %33 ]
+  %36 = phi i64 [ %54, %zend_map_ptr_new.exit ], [ %.pre23, %33 ]
   %.not.i = icmp ult i64 %36, %35
   %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8, !tbaa !119
   br i1 %.not.i, label %zend_map_ptr_new.exit, label %37
@@ -4274,15 +4270,15 @@ define dso_local void @zend_alloc_ce_cache(ptr noundef %0) local_unnamed_addr #0
   %48 = inttoptr i64 %47 to ptr
   store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 512), align 8, !tbaa !121
   %.pre3.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 528), align 8, !tbaa !126
-  %.pre23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 520), align 8, !tbaa !129
+  %.pre24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 520), align 8, !tbaa !129
   br label %zend_map_ptr_new.exit
 
 zend_map_ptr_new.exit:                            ; preds = %34, %37
-  %.pre2.i25 = phi i64 [ %44, %37 ], [ %.pre2.i, %34 ]
-  %49 = phi i64 [ %.pre23, %37 ], [ %35, %34 ]
+  %.pre2.i26 = phi i64 [ %44, %37 ], [ %.pre2.i, %34 ]
+  %49 = phi i64 [ %.pre24, %37 ], [ %35, %34 ]
   %50 = phi i64 [ %.pre3.i, %37 ], [ %36, %34 ]
   %51 = phi ptr [ %42, %37 ], [ %.pre.i, %34 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.pre2.i25
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.pre2.i26
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %50
   store ptr null, ptr %53, align 8, !tbaa !4
   %54 = add i64 %50, 1
@@ -4302,7 +4298,7 @@ zend_map_ptr_new.exit:                            ; preds = %34, %37
   store i32 %59, ptr %0, align 4, !tbaa !24
   br label %64
 
-64:                                               ; preds = %17, %29, %7, %1, %61
+64:                                               ; preds = %17, %29, %5, %1, %61
   ret void
 }
 

@@ -3736,8 +3736,8 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN
 20:                                               ; preds = %.lr.ph
   br i1 %14, label %.invoke, label %22
 
-.invoke:                                          ; preds = %switch.hole_check, %33, %32, %20
-  %21 = phi i8 [ 34, %20 ], [ %12, %33 ], [ %12, %32 ], [ %12, %switch.hole_check ]
+.invoke:                                          ; preds = %33, %32, %20
+  %21 = phi i8 [ 34, %20 ], [ %12, %33 ], [ %12, %32 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 noundef signext %21)
           to label %39 unwind label %.loopexit
 
@@ -3770,15 +3770,13 @@ _ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i: ; preds = %_ZN
   %34 = add nsw i32 %13, -98
   %35 = call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 31)
   %36 = icmp ult i32 %35, 10
-  br i1 %36, label %switch.hole_check, label %.invoke
-
-switch.hole_check:                                ; preds = %33
-  %switch.maskindex = trunc nuw i32 %35 to i16
+  %switch.maskindex = trunc i32 %35 to i16
   %switch.shifted = lshr i16 837, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.invoke
+  %or.cond = select i1 %36, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %.invoke
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %33
   %37 = zext nneg i32 %35 to i64
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE, i64 0, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8

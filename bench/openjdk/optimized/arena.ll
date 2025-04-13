@@ -645,145 +645,143 @@ define hidden noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(
   %7 = load i8, ptr %0, align 8
   %8 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %9 = icmp sgt i32 %8, 1
-  br i1 %9, label %10, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+  %10 = load i8, ptr @_ZN18MallocLimitHandler11_have_limitE, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond.i = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond.i, label %12, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-10:                                               ; preds = %3
-  %11 = load i8, ptr @_ZN18MallocLimitHandler11_have_limitE, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %13, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+12:                                               ; preds = %3
+  %13 = load i64, ptr @_ZN18MallocLimitHandler7_limitsE, align 8
+  %.not.i.i.i = icmp eq i64 %13, 0
+  br i1 %.not.i.i.i, label %26, label %14
 
-13:                                               ; preds = %10
-  %14 = load i64, ptr @_ZN18MallocLimitHandler7_limitsE, align 8
-  %.not.i.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i.i, label %27, label %15
+14:                                               ; preds = %12
+  %15 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1800), align 8
+  %16 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1792), align 8
+  %17 = shl i64 %16, 4
+  %18 = add i64 %17, %15
+  %19 = tail call noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(1824) @_ZN19MallocMemorySummary9_snapshotE) #11
+  %20 = add i64 %18, %19
+  %21 = add i64 %20, %1
+  %22 = load i64, ptr @_ZN18MallocLimitHandler7_limitsE, align 8
+  %23 = icmp ugt i64 %21, %22
+  br i1 %23, label %24, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-15:                                               ; preds = %13
-  %16 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1800), align 8
-  %17 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 1792), align 8
-  %18 = shl i64 %17, 4
-  %19 = add i64 %18, %16
-  %20 = tail call noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(1824) @_ZN19MallocMemorySummary9_snapshotE) #11
-  %21 = add i64 %19, %20
-  %22 = add i64 %21, %1
-  %23 = load i64, ptr @_ZN18MallocLimitHandler7_limitsE, align 8
-  %24 = icmp ugt i64 %22, %23
-  br i1 %24, label %25, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+24:                                               ; preds = %14
+  %25 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary19total_limit_reachedEmmPK11malloclimit(i64 noundef %1, i64 noundef %20, ptr noundef nonnull @_ZN18MallocLimitHandler7_limitsE) #11
+  br i1 %25, label %86, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-25:                                               ; preds = %15
-  %26 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary19total_limit_reachedEmmPK11malloclimit(i64 noundef %1, i64 noundef %21, ptr noundef nonnull @_ZN18MallocLimitHandler7_limitsE) #11
-  br i1 %26, label %87, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+26:                                               ; preds = %12
+  %27 = zext i8 %7 to i64
+  %28 = getelementptr inbounds nuw [28 x %struct.malloclimit], ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 0, i64 %27
+  %29 = load i64, ptr %28, align 8
+  %.not19.i.i.i = icmp eq i64 %29, 0
+  br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, label %30
 
-27:                                               ; preds = %13
-  %28 = zext i8 %7 to i64
-  %29 = getelementptr inbounds nuw [28 x %struct.malloclimit], ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 0, i64 %28
-  %30 = load i64, ptr %29, align 8
-  %.not19.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, label %31
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %27
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load volatile i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %35 = load volatile i64, ptr %34, align 8
+  %36 = add i64 %35, %33
+  %37 = add i64 %36, %1
+  %38 = icmp ugt i64 %37, %29
+  br i1 %38, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %28
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load volatile i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %36 = load volatile i64, ptr %35, align 8
-  %37 = add i64 %36, %34
-  %38 = add i64 %37, %1
-  %39 = icmp ugt i64 %38, %30
-  br i1 %39, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit: ; preds = %30
+  %39 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary22category_limit_reachedE8MEMFLAGSmmPK11malloclimit(i8 noundef zeroext %7, i64 noundef %1, i64 noundef %36, ptr noundef nonnull %28) #11
+  br i1 %39, label %86, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit: ; preds = %31
-  %40 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary22category_limit_reachedE8MEMFLAGSmmPK11malloclimit(i8 noundef zeroext %7, i64 noundef %1, i64 noundef %37, ptr noundef nonnull %29) #11
-  br i1 %40, label %87, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread: ; preds = %26, %30, %14, %3, %24, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call noundef ptr @_ZN9ChunkPool14allocate_chunkEmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %6, i32 noundef %2)
+  store ptr %42, ptr %40, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %45
 
-_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread: ; preds = %10, %27, %31, %15, %3, %25, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef ptr @_ZN9ChunkPool14allocate_chunkEmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %6, i32 noundef %2)
-  store ptr %43, ptr %41, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %46
+44:                                               ; preds = %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+  store ptr %41, ptr %40, align 8
+  br label %86
 
 45:                                               ; preds = %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
+  %.not = icmp eq ptr %41, null
+  br i1 %.not, label %47, label %46
+
+46:                                               ; preds = %45
   store ptr %42, ptr %41, align 8
-  br label %87
+  %.pre = load ptr, ptr %40, align 8
+  br label %49
 
-46:                                               ; preds = %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
-  %.not = icmp eq ptr %42, null
-  br i1 %.not, label %48, label %47
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %42, ptr %48, align 8
+  br label %49
 
-47:                                               ; preds = %46
-  store ptr %43, ptr %42, align 8
-  %.pre = load ptr, ptr %41, align 8
-  br label %50
+49:                                               ; preds = %46, %47
+  %50 = phi ptr [ %.pre, %46 ], [ %42, %47 ]
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %51, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %54 = load i64, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %55, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = add i64 %58, %6
+  store i64 %59, ptr %57, align 8
+  %60 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
+  %61 = icmp slt i32 %60, 2
+  br i1 %61, label %_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i, label %62
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %43, ptr %49, align 8
-  br label %50
-
-50:                                               ; preds = %47, %48
-  %51 = phi ptr [ %.pre, %47 ], [ %43, %48 ]
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 %55
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %59 = load i64, ptr %58, align 8
-  %60 = add i64 %59, %6
-  store i64 %60, ptr %58, align 8
-  %61 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
-  %62 = icmp slt i32 %61, 2
-  br i1 %62, label %_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i, label %63
-
-63:                                               ; preds = %50
-  %64 = load i8, ptr %0, align 8
-  %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %65
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %69 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr nonnull %68) #11, !srcloc !9
-  %70 = add i64 %69, %6
-  %71 = load volatile i64, ptr %67, align 8
-  tail call void @_ZN13MemoryCounter11update_peakEmm(ptr noundef nonnull align 8 dereferenceable(32) %67, i64 noundef %70, i64 noundef %71) #11
+62:                                               ; preds = %49
+  %63 = load i8, ptr %0, align 8
+  %64 = zext i8 %63 to i64
+  %65 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 40
+  %68 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr nonnull %67) #11, !srcloc !9
+  %69 = add i64 %68, %6
+  %70 = load volatile i64, ptr %66, align 8
+  tail call void @_ZN13MemoryCounter11update_peakEmm(ptr noundef nonnull align 8 dereferenceable(32) %66, i64 noundef %69, i64 noundef %70) #11
   br label %_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i
 
-_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i: ; preds = %63, %50
-  %72 = load i8, ptr @_ZN26CompilationMemoryStatistic8_enabledE, align 1
-  %73 = trunc i8 %72 to i1
-  %74 = load i8, ptr %0, align 8
-  %75 = icmp eq i8 %74, 7
-  %or.cond.i = select i1 %73, i1 %75, i1 false
-  br i1 %or.cond.i, label %76, label %_ZN5Arena17set_size_in_bytesEm.exit
+_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i: ; preds = %62, %49
+  %71 = load i8, ptr @_ZN26CompilationMemoryStatistic8_enabledE, align 1
+  %72 = trunc i8 %71 to i1
+  %73 = load i8, ptr %0, align 8
+  %74 = icmp eq i8 %73, 7
+  %or.cond.i13 = select i1 %72, i1 %74, i1 false
+  br i1 %or.cond.i13, label %75, label %_ZN5Arena17set_size_in_bytesEm.exit
 
-76:                                               ; preds = %_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i
-  %77 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %78 = load ptr, ptr %77, align 8
-  %.not8.i = icmp eq ptr %78, null
-  br i1 %.not8.i, label %_ZN5Arena17set_size_in_bytesEm.exit, label %79
+75:                                               ; preds = %_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i
+  %76 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %77 = load ptr, ptr %76, align 8
+  %.not8.i = icmp eq ptr %77, null
+  br i1 %.not8.i, label %_ZN5Arena17set_size_in_bytesEm.exit, label %78
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %78, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 64
-  %82 = load ptr, ptr %81, align 8
-  %83 = tail call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(888) %78) #11
-  br i1 %83, label %84, label %_ZN5Arena17set_size_in_bytesEm.exit
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %77, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
+  %81 = load ptr, ptr %80, align 8
+  %82 = tail call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(888) %77) #11
+  br i1 %82, label %83, label %_ZN5Arena17set_size_in_bytesEm.exit
 
-84:                                               ; preds = %79
+83:                                               ; preds = %78
   tail call void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(48) %0) #11
   br label %_ZN5Arena17set_size_in_bytesEm.exit
 
-_ZN5Arena17set_size_in_bytesEm.exit:              ; preds = %_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i, %76, %79, %84
-  %85 = load ptr, ptr %53, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 %1
-  store ptr %86, ptr %53, align 8
-  br label %87
+_ZN5Arena17set_size_in_bytesEm.exit:              ; preds = %_ZN10MemTracker24record_arena_size_changeEl8MEMFLAGS.exit.i, %75, %78, %83
+  %84 = load ptr, ptr %52, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 %1
+  store ptr %85, ptr %52, align 8
+  br label %86
 
-87:                                               ; preds = %25, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %_ZN5Arena17set_size_in_bytesEm.exit, %45
-  %.0 = phi ptr [ null, %45 ], [ %85, %_ZN5Arena17set_size_in_bytesEm.exit ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %25 ]
+86:                                               ; preds = %24, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %_ZN5Arena17set_size_in_bytesEm.exit, %44
+  %.0 = phi ptr [ null, %44 ], [ %84, %_ZN5Arena17set_size_in_bytesEm.exit ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %24 ]
   ret ptr %.0
 }
 

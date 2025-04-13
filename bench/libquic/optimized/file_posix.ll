@@ -1268,9 +1268,12 @@ define noundef range(i32 -16, 0) i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 no
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %switch.tableidx = add i32 %0, -1
   %4 = icmp ult i32 %switch.tableidx, 30
-  br i1 %4, label %switch.hole_check, label %.noexc.i
+  %switch.shifted = lshr i32 714709011, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %4, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %.noexc.i
 
-.noexc.i:                                         ; preds = %switch.hole_check, %1
+.noexc.i:                                         ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %3, align 8, !tbaa !59
@@ -1334,12 +1337,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
   resume { ptr, i32 } %21
 
-switch.hole_check:                                ; preds = %1
-  %switch.shifted = lshr i32 714709011, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.noexc.i
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %26 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [30 x i32], ptr @switch.table._ZN4base4File18OSErrorToFileErrorEi, i64 0, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4

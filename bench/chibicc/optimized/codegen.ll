@@ -857,9 +857,13 @@ store_fp.exit.i:                                  ; preds = %238, %236
   %241 = add nsw i32 %.078121.i, 1
   %switch.tableidx = add i32 %spec.select.i21, -1
   %242 = icmp ult i32 %switch.tableidx, 8
-  br i1 %242, label %switch.hole_check, label %.preheader.i.i
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %242, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %switch.hole_check, %240
+.preheader.i.i:                                   ; preds = %240
   %243 = icmp sgt i32 %235, 0
   br i1 %243, label %.lr.ph.i.i, label %store_gp.exit.i
 
@@ -880,13 +884,7 @@ store_fp.exit.i:                                  ; preds = %238, %236
   %exitcond.not.i.i = icmp eq i32 %251, %spec.select.i21
   br i1 %exitcond.not.i.i, label %store_gp.exit.i, label %248, !llvm.loop !64
 
-switch.hole_check:                                ; preds = %240
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.preheader.i.i
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %240
   %252 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %252
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -932,9 +930,13 @@ store_fp.exit95.i:                                ; preds = %264, %262
   %267 = add nsw i32 %.280.i, 1
   %switch.tableidx30 = add nsw i32 %256, -9
   %268 = icmp ult i32 %switch.tableidx30, 8
-  br i1 %268, label %switch.hole_check31, label %.lr.ph.i99.i
+  %switch.maskindex32 = trunc i32 %switch.tableidx30 to i8
+  %switch.shifted33 = lshr i8 -117, %switch.maskindex32
+  %switch.lobit34 = trunc i8 %switch.shifted33 to i1
+  %or.cond37 = select i1 %268, i1 %switch.lobit34, i1 false
+  br i1 %or.cond37, label %switch.lookup31, label %.lr.ph.i99.i
 
-.lr.ph.i99.i:                                     ; preds = %switch.hole_check31, %266
+.lr.ph.i99.i:                                     ; preds = %266
   %269 = sext i32 %.280.i to i64
   %270 = getelementptr inbounds [6 x ptr], ptr @argreg8, i64 0, i64 %269
   %271 = load ptr, ptr %270, align 8, !tbaa !53
@@ -952,18 +954,12 @@ store_fp.exit95.i:                                ; preds = %264, %262
   %exitcond.not.i101.i = icmp eq i32 %.016.i100.i, %273
   br i1 %exitcond.not.i101.i, label %store_gp.exit102.i, label %274, !llvm.loop !64
 
-switch.hole_check31:                              ; preds = %266
-  %switch.maskindex33 = trunc nuw i32 %switch.tableidx30 to i8
-  %switch.shifted34 = lshr i8 -117, %switch.maskindex33
-  %switch.lobit35 = trunc i8 %switch.shifted34 to i1
-  br i1 %switch.lobit35, label %switch.lookup32, label %.lr.ph.i99.i
-
-switch.lookup32:                                  ; preds = %switch.hole_check31
+switch.lookup31:                                  ; preds = %266
   %278 = zext nneg i32 %switch.tableidx30 to i64
-  %switch.gep36 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %278
-  %switch.load37 = load ptr, ptr %switch.gep36, align 8
+  %switch.gep35 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %278
+  %switch.load36 = load ptr, ptr %switch.gep35, align 8
   %279 = sext i32 %.280.i to i64
-  %280 = getelementptr inbounds [6 x ptr], ptr %switch.load37, i64 0, i64 %279
+  %280 = getelementptr inbounds [6 x ptr], ptr %switch.load36, i64 0, i64 %279
   %281 = load ptr, ptr %280, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.50, ptr noundef %281, i32 noundef %261)
   br label %store_gp.exit102.i
@@ -995,9 +991,13 @@ store_fp.exit104.i:                               ; preds = %286, %282
   %291 = load i32, ptr %290, align 4, !tbaa !32
   %switch.tableidx39 = add i32 %291, -1
   %292 = icmp ult i32 %switch.tableidx39, 8
-  br i1 %292, label %switch.hole_check40, label %.preheader.i107.i
+  %switch.maskindex41 = trunc i32 %switch.tableidx39 to i8
+  %switch.shifted42 = lshr i8 -117, %switch.maskindex41
+  %switch.lobit43 = trunc i8 %switch.shifted42 to i1
+  %or.cond46 = select i1 %292, i1 %switch.lobit43, i1 false
+  br i1 %or.cond46, label %switch.lookup40, label %.preheader.i107.i
 
-.preheader.i107.i:                                ; preds = %switch.hole_check40, %288
+.preheader.i107.i:                                ; preds = %288
   %293 = icmp sgt i32 %291, 0
   br i1 %293, label %.lr.ph.i108.i, label %store_gp.exit102.i
 
@@ -1018,25 +1018,19 @@ store_fp.exit104.i:                               ; preds = %286, %282
   %exitcond.not.i110.i = icmp eq i32 %301, %291
   br i1 %exitcond.not.i110.i, label %store_gp.exit102.i, label %298, !llvm.loop !64
 
-switch.hole_check40:                              ; preds = %288
-  %switch.maskindex42 = trunc nuw i32 %switch.tableidx39 to i8
-  %switch.shifted43 = lshr i8 -117, %switch.maskindex42
-  %switch.lobit44 = trunc i8 %switch.shifted43 to i1
-  br i1 %switch.lobit44, label %switch.lookup41, label %.preheader.i107.i
-
-switch.lookup41:                                  ; preds = %switch.hole_check40
+switch.lookup40:                                  ; preds = %288
   %302 = zext nneg i32 %switch.tableidx39 to i64
-  %switch.gep45 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %302
-  %switch.load46 = load ptr, ptr %switch.gep45, align 8
+  %switch.gep44 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.codegen.2, i64 0, i64 %302
+  %switch.load45 = load ptr, ptr %switch.gep44, align 8
   %303 = sext i32 %.078121.i to i64
-  %304 = getelementptr inbounds [6 x ptr], ptr %switch.load46, i64 0, i64 %303
+  %304 = getelementptr inbounds [6 x ptr], ptr %switch.load45, i64 0, i64 %303
   %305 = load ptr, ptr %304, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.50, ptr noundef %305, i32 noundef %226)
   br label %store_gp.exit102.i
 
-store_gp.exit102.i:                               ; preds = %274, %298, %switch.lookup41, %.preheader.i107.i, %store_fp.exit104.i, %switch.lookup32, %store_fp.exit95.i, %store_gp.exit.i, %.lr.ph125.i
-  %.179.i = phi i32 [ %.078121.i, %.lr.ph125.i ], [ %.078121.i, %store_fp.exit104.i ], [ %.280.i, %store_fp.exit95.i ], [ %.280.i, %store_gp.exit.i ], [ %267, %switch.lookup32 ], [ %289, %.preheader.i107.i ], [ %289, %switch.lookup41 ], [ %289, %298 ], [ %267, %274 ]
-  %.1.i20 = phi i32 [ %.077122.i, %.lr.ph125.i ], [ %283, %store_fp.exit104.i ], [ %263, %store_fp.exit95.i ], [ %.2.i, %store_gp.exit.i ], [ %.2.i, %switch.lookup32 ], [ %.077122.i, %.preheader.i107.i ], [ %.077122.i, %switch.lookup41 ], [ %.077122.i, %298 ], [ %.2.i, %274 ]
+store_gp.exit102.i:                               ; preds = %274, %298, %switch.lookup40, %.preheader.i107.i, %store_fp.exit104.i, %switch.lookup31, %store_fp.exit95.i, %store_gp.exit.i, %.lr.ph125.i
+  %.179.i = phi i32 [ %.078121.i, %.lr.ph125.i ], [ %.078121.i, %store_fp.exit104.i ], [ %.280.i, %store_fp.exit95.i ], [ %.280.i, %store_gp.exit.i ], [ %267, %switch.lookup31 ], [ %289, %.preheader.i107.i ], [ %289, %switch.lookup40 ], [ %289, %298 ], [ %267, %274 ]
+  %.1.i20 = phi i32 [ %.077122.i, %.lr.ph125.i ], [ %283, %store_fp.exit104.i ], [ %263, %store_fp.exit95.i ], [ %.2.i, %store_gp.exit.i ], [ %.2.i, %switch.lookup31 ], [ %.077122.i, %.preheader.i107.i ], [ %.077122.i, %switch.lookup40 ], [ %.077122.i, %298 ], [ %.2.i, %274 ]
   %.076.i = load ptr, ptr %.076123.i, align 8, !tbaa !27
   %.not92.i = icmp eq ptr %.076.i, null
   br i1 %.not92.i, label %._crit_edge126.i, label %.lr.ph125.i, !llvm.loop !65
@@ -1767,7 +1761,7 @@ tailrecurse:                                      ; preds = %122, %1
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.115, i32 noundef %68)
   br label %common.ret437
 
-common.ret437:                                    ; preds = %198, %getTypeId.exit10.i, %cmp_zero.exit.i, %127, %643, %644, %645, %661, %662, %663, %681, %682, %660, %657, %691, %690, %597, %598, %599, %600, %606, %499, %505, %504, %511, %510, %518, %514, %512, %47, %70, %69, %621, %616, %615, %614, %613, %switch.lookup386, %switch.lookup, %522, %cmp_zero.exit221, %cmp_zero.exit217, %cmp_zero.exit213, %199, %116, %95, %76, %44, %43, %42, %41, %40, %31, %26, %21, %16, %119, %.lr.ph295, %tailrecurse, %333, %249, %cmp_zero.exit, %71
+common.ret437:                                    ; preds = %198, %getTypeId.exit10.i, %cmp_zero.exit.i, %127, %643, %644, %645, %661, %662, %663, %681, %682, %660, %657, %691, %690, %597, %598, %599, %600, %606, %499, %505, %504, %511, %510, %518, %514, %512, %47, %70, %69, %621, %616, %615, %614, %613, %switch.lookup385, %switch.lookup, %522, %cmp_zero.exit221, %cmp_zero.exit217, %cmp_zero.exit213, %199, %116, %95, %76, %44, %43, %42, %41, %40, %31, %26, %21, %16, %119, %.lr.ph295, %tailrecurse, %333, %249, %cmp_zero.exit, %71
   ret void
 
 71:                                               ; preds = %tailrecurse
@@ -2814,19 +2808,17 @@ push_args.exit:                                   ; preds = %405, %409, %415
   %551 = load i32, ptr %550, align 4, !tbaa !32
   %switch.tableidx = add i32 %551, -1
   %552 = icmp ult i32 %switch.tableidx, 8
-  br i1 %552, label %switch.hole_check, label %553
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %552, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %553
 
-553:                                              ; preds = %switch.hole_check, %525
+553:                                              ; preds = %525
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 66) #15
   unreachable
 
-switch.hole_check:                                ; preds = %525
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %553
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %525
   %554 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.gen_expr, i64 0, i64 %554
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2865,23 +2857,21 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %571 = load i32, ptr %570, align 4, !tbaa !32
   %switch.tableidx384 = add i32 %571, -1
   %572 = icmp ult i32 %switch.tableidx384, 8
-  br i1 %572, label %switch.hole_check385, label %573
+  %switch.maskindex386 = trunc i32 %switch.tableidx384 to i8
+  %switch.shifted387 = lshr i8 -117, %switch.maskindex386
+  %switch.lobit388 = trunc i8 %switch.shifted387 to i1
+  %or.cond391 = select i1 %572, i1 %switch.lobit388, i1 false
+  br i1 %or.cond391, label %switch.lookup385, label %573
 
-573:                                              ; preds = %switch.hole_check385, %556
+573:                                              ; preds = %556
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 76) #15
   unreachable
 
-switch.hole_check385:                             ; preds = %556
-  %switch.maskindex387 = trunc nuw i32 %switch.tableidx384 to i8
-  %switch.shifted388 = lshr i8 -117, %switch.maskindex387
-  %switch.lobit389 = trunc i8 %switch.shifted388 to i1
-  br i1 %switch.lobit389, label %switch.lookup386, label %573
-
-switch.lookup386:                                 ; preds = %switch.hole_check385
+switch.lookup385:                                 ; preds = %556
   %574 = zext nneg i32 %switch.tableidx384 to i64
-  %switch.gep390 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.gen_expr.4, i64 0, i64 %574
-  %switch.load391 = load ptr, ptr %switch.gep390, align 8
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.155, ptr noundef nonnull %switch.load391)
+  %switch.gep389 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.gen_expr.4, i64 0, i64 %574
+  %switch.load390 = load ptr, ptr %switch.gep389, align 8
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.155, ptr noundef nonnull %switch.load390)
   br label %common.ret437
 
 575:                                              ; preds = %tailrecurse

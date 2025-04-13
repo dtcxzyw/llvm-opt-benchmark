@@ -121,21 +121,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @jobacctinfo_pack(ptr noundef readonly captures(address_is_null) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) #0 {
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %10, label %5
+  %5 = load i32, ptr @plugin_inited, align 4
+  %6 = icmp eq i32 %5, 1
+  %7 = icmp ne i16 %2, 1
+  %8 = and i1 %7, %6
+  %9 = icmp eq ptr %0, null
+  %or.cond = select i1 %9, i1 true, i1 %8
+  br i1 %or.cond, label %10, label %11
 
-5:                                                ; preds = %4
-  %6 = load i32, ptr @plugin_inited, align 4
-  %7 = icmp eq i32 %6, 1
-  %8 = icmp ne i16 %2, 1
-  %9 = and i1 %8, %7
-  br i1 %9, label %10, label %11
-
-10:                                               ; preds = %5, %4
+10:                                               ; preds = %4
   tail call void @pack8(i8 noundef zeroext 0, ptr noundef %3) #10
   br label %80
 
-11:                                               ; preds = %5
+11:                                               ; preds = %4
   tail call void @pack8(i8 noundef zeroext 1, ptr noundef %3) #10
   %12 = zext i16 %1 to i32
   %13 = icmp ugt i16 %1, 10239

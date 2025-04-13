@@ -1198,15 +1198,13 @@ define hidden noundef ptr @_ZN10CMoveFNode5IdealEP8PhaseGVNb(ptr noundef nonnull
   %16 = load i32, ptr %15, align 4
   %switch.tableidx = add i32 %16, -1
   %17 = icmp ult i32 %switch.tableidx, 7
-  br i1 %17, label %switch.hole_check, label %98
-
-switch.hole_check:                                ; preds = %14
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 85, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %98
+  %or.cond = select i1 %17, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %98
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %14
   %18 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb, i64 0, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1329,8 +1327,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8SubFNode, i64 16), ptr %88, align 8
   br label %98
 
-98:                                               ; preds = %switch.hole_check, %14, %86, %90, %87, %59, %65, %70, %55, %48, %switch.lookup, %5, %3
-  %.033 = phi ptr [ %4, %3 ], [ null, %5 ], [ null, %14 ], [ null, %switch.lookup ], [ null, %48 ], [ null, %55 ], [ null, %70 ], [ null, %65 ], [ null, %59 ], [ %83, %86 ], [ %88, %90 ], [ null, %87 ], [ null, %switch.hole_check ]
+98:                                               ; preds = %14, %86, %90, %87, %59, %65, %70, %55, %48, %switch.lookup, %5, %3
+  %.033 = phi ptr [ %4, %3 ], [ null, %5 ], [ null, %14 ], [ null, %switch.lookup ], [ null, %48 ], [ null, %55 ], [ null, %70 ], [ null, %65 ], [ null, %59 ], [ %83, %86 ], [ %88, %90 ], [ null, %87 ]
   ret ptr %.033
 }
 
@@ -1356,15 +1354,13 @@ define hidden noundef ptr @_ZN10CMoveDNode5IdealEP8PhaseGVNb(ptr noundef nonnull
   %16 = load i32, ptr %15, align 4
   %switch.tableidx = add i32 %16, -1
   %17 = icmp ult i32 %switch.tableidx, 7
-  br i1 %17, label %switch.hole_check, label %98
-
-switch.hole_check:                                ; preds = %14
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 85, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %98
+  %or.cond = select i1 %17, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %98
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %14
   %18 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN10CMoveDNode5IdealEP8PhaseGVNb, i64 0, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1487,8 +1483,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8SubDNode, i64 16), ptr %88, align 8
   br label %98
 
-98:                                               ; preds = %switch.hole_check, %14, %86, %90, %87, %59, %65, %70, %55, %48, %switch.lookup, %5, %3
-  %.033 = phi ptr [ %4, %3 ], [ null, %5 ], [ null, %14 ], [ null, %switch.lookup ], [ null, %48 ], [ null, %55 ], [ null, %70 ], [ null, %65 ], [ null, %59 ], [ %83, %86 ], [ %88, %90 ], [ null, %87 ], [ null, %switch.hole_check ]
+98:                                               ; preds = %14, %86, %90, %87, %59, %65, %70, %55, %48, %switch.lookup, %5, %3
+  %.033 = phi ptr [ %4, %3 ], [ null, %5 ], [ null, %14 ], [ null, %switch.lookup ], [ null, %48 ], [ null, %55 ], [ null, %70 ], [ null, %65 ], [ null, %59 ], [ %83, %86 ], [ %88, %90 ], [ null, %87 ]
   ret ptr %.033
 }
 

@@ -406,57 +406,57 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @type_homogenous_aggregate_small_enough(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
-  switch i32 %3, label %20 [
+  switch i32 %3, label %23 [
     i32 8, label %4
-    i32 1, label %18
-    i32 2, label %18
-    i32 3, label %18
-    i32 4, label %18
-    i32 6, label %18
-    i32 0, label %21
-    i32 5, label %21
-    i32 7, label %21
-    i32 9, label %21
+    i32 1, label %21
+    i32 2, label %21
+    i32 3, label %21
+    i32 4, label %21
+    i32 6, label %21
+    i32 0, label %24
+    i32 5, label %24
+    i32 7, label %24
+    i32 9, label %24
   ]
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 8
-  switch i32 %5, label %.thread [
-    i32 17, label %6
-    i32 37, label %11
-  ]
-
-6:                                                ; preds = %4
+  %6 = icmp eq i32 %5, 17
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 275), align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %.thread
+  %or.cond = select i1 %6, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %11
 
-9:                                                ; preds = %6
+9:                                                ; preds = %4
   %10 = icmp ult i32 %1, 9
-  br label %21
+  br label %24
 
 11:                                               ; preds = %4
-  %12 = icmp ult i32 %1, 9
-  br label %21
+  %12 = icmp eq i32 %5, 37
+  br i1 %12, label %13, label %15
 
-.thread:                                          ; preds = %4, %6
-  %13 = tail call i32 @type_size(ptr noundef nonnull %0) #4
-  %14 = add i32 %13, 7
-  %15 = lshr i32 %14, 3
-  %16 = mul i32 %15, %1
-  %17 = icmp ult i32 %16, 9
-  br label %21
+13:                                               ; preds = %11
+  %14 = icmp ult i32 %1, 9
+  br label %24
 
-18:                                               ; preds = %2, %2, %2, %2, %2
-  %19 = icmp ult i32 %1, 5
-  br label %21
+15:                                               ; preds = %11
+  %16 = tail call i32 @type_size(ptr noundef nonnull %0) #4
+  %17 = add i32 %16, 7
+  %18 = lshr i32 %17, 3
+  %19 = mul i32 %18, %1
+  %20 = icmp ult i32 %19, 9
+  br label %24
 
-20:                                               ; preds = %2
+21:                                               ; preds = %2, %2, %2, %2, %2
+  %22 = icmp ult i32 %1, 5
+  br label %24
+
+23:                                               ; preds = %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.type_homogenous_aggregate_small_enough, ptr noundef nonnull @.str.6, i32 noundef 156) #5
   unreachable
 
-21:                                               ; preds = %2, %2, %2, %2, %18, %.thread, %11, %9
-  %.0 = phi i1 [ %19, %18 ], [ %10, %9 ], [ %12, %11 ], [ %17, %.thread ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
+24:                                               ; preds = %2, %2, %2, %2, %21, %15, %13, %9
+  %.0 = phi i1 [ %22, %21 ], [ %10, %9 ], [ %14, %13 ], [ %20, %15 ], [ false, %2 ], [ false, %2 ], [ false, %2 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -689,13 +689,13 @@ thread-pre-split:                                 ; preds = %49, %98
 
 104:                                              ; preds = %101
   %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
-  switch i32 %105, label %122 [
+  switch i32 %105, label %125 [
     i32 8, label %106
-    i32 1, label %120
-    i32 2, label %120
-    i32 3, label %120
-    i32 4, label %120
-    i32 6, label %120
+    i32 1, label %123
+    i32 2, label %123
+    i32 3, label %123
+    i32 4, label %123
+    i32 6, label %123
     i32 0, label %type_homogenous_aggregate_small_enough.exit
     i32 5, label %type_homogenous_aggregate_small_enough.exit
     i32 7, label %type_homogenous_aggregate_small_enough.exit
@@ -704,42 +704,42 @@ thread-pre-split:                                 ; preds = %49, %98
 
 106:                                              ; preds = %104
   %107 = load i32, ptr %.1, align 8
-  switch i32 %107, label %.thread.i [
-    i32 17, label %108
-    i32 37, label %113
-  ]
-
-108:                                              ; preds = %106
+  %108 = icmp eq i32 %107, 17
   %109 = load i8, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 275), align 1
   %110 = trunc i8 %109 to i1
-  br i1 %110, label %111, label %.thread.i
+  %or.cond.i = select i1 %108, i1 %110, i1 false
+  br i1 %or.cond.i, label %111, label %113
 
-111:                                              ; preds = %108
+111:                                              ; preds = %106
   %112 = icmp ult i32 %102, 9
   br label %type_homogenous_aggregate_small_enough.exit
 
 113:                                              ; preds = %106
-  %114 = icmp ult i32 %102, 9
+  %114 = icmp eq i32 %107, 37
+  br i1 %114, label %115, label %117
+
+115:                                              ; preds = %113
+  %116 = icmp ult i32 %102, 9
   br label %type_homogenous_aggregate_small_enough.exit
 
-.thread.i:                                        ; preds = %108, %106
-  %115 = tail call i32 @type_size(ptr noundef nonnull %.1) #4
-  %116 = add i32 %115, 7
-  %117 = lshr i32 %116, 3
-  %118 = mul i32 %117, %102
-  %119 = icmp ult i32 %118, 9
+117:                                              ; preds = %113
+  %118 = tail call i32 @type_size(ptr noundef nonnull %.1) #4
+  %119 = add i32 %118, 7
+  %120 = lshr i32 %119, 3
+  %121 = mul i32 %120, %102
+  %122 = icmp ult i32 %121, 9
   br label %type_homogenous_aggregate_small_enough.exit
 
-120:                                              ; preds = %104, %104, %104, %104, %104
-  %121 = icmp ult i32 %102, 5
+123:                                              ; preds = %104, %104, %104, %104, %104
+  %124 = icmp ult i32 %102, 5
   br label %type_homogenous_aggregate_small_enough.exit
 
-122:                                              ; preds = %104
+125:                                              ; preds = %104
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.type_homogenous_aggregate_small_enough, ptr noundef nonnull @.str.6, i32 noundef 156) #5
   unreachable
 
-type_homogenous_aggregate_small_enough.exit:      ; preds = %._crit_edge, %120, %.thread.i, %113, %111, %104, %104, %104, %104, %101, %98, %92, %77, %58, %54, %49, %._crit_edge82, %11, %3, %3, %3, %3, %7
-  %.062 = phi i1 [ true, %7 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %11 ], [ false, %._crit_edge82 ], [ false, %49 ], [ false, %54 ], [ false, %58 ], [ false, %77 ], [ false, %92 ], [ false, %98 ], [ false, %101 ], [ %121, %120 ], [ %112, %111 ], [ %114, %113 ], [ %119, %.thread.i ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %._crit_edge ]
+type_homogenous_aggregate_small_enough.exit:      ; preds = %._crit_edge, %123, %117, %115, %111, %104, %104, %104, %104, %101, %98, %92, %77, %58, %54, %49, %._crit_edge82, %11, %3, %3, %3, %3, %7
+  %.062 = phi i1 [ true, %7 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %11 ], [ false, %._crit_edge82 ], [ false, %49 ], [ false, %54 ], [ false, %58 ], [ false, %77 ], [ false, %92 ], [ false, %98 ], [ false, %101 ], [ %124, %123 ], [ %112, %111 ], [ %116, %115 ], [ %122, %117 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %._crit_edge ]
   ret i1 %.062
 }
 

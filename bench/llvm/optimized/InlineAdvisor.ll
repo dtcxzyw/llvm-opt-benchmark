@@ -2441,7 +2441,7 @@ _ZNK4llvm15AnalysisManagerINS_6ModuleEJEE16isPassRegisteredINS_27PluginInlineAdv
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %51, i64 32
   store i8 1, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL19AnnotateInlinePhase, i64 120), align 8, !tbaa !34, !range !48, !noundef !49
+  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL19AnnotateInlinePhase, i64 120), align 8, !range !48
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %.critedge.critedge.i.i, label %._crit_edge.i.i.i.i
 
@@ -5930,46 +5930,44 @@ define dso_local void @_ZN4llvm13InlineAdvisorC2ERNS_6ModuleERNS_15AnalysisManag
   store i8 %4, ptr %.sroa.3.0..sroa_idx, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = trunc nuw i8 %4 to i1
-  br i1 %10, label %11, label %._crit_edge.i.i
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL19AnnotateInlinePhase, i64 120), align 8, !range !48
+  %12 = trunc nuw i8 %11 to i1
+  %or.cond = select i1 %10, i1 %12, i1 false
+  br i1 %or.cond, label %.critedge.critedge, label %._crit_edge.i.i
 
-11:                                               ; preds = %5
-  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL19AnnotateInlinePhase, i64 120), align 8, !tbaa !34, !range !48, !noundef !49
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %.critedge.critedge, label %._crit_edge.i.i
-
-.critedge.critedge:                               ; preds = %11
+.critedge.critedge:                               ; preds = %5
   tail call void @_ZN4llvm22AnnotateInlinePassNameB5cxx11ENS_13InlineContextE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, i64 %3)
   br label %.critedge
 
-._crit_edge.i.i:                                  ; preds = %11, %5
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %14, ptr %9, align 8, !tbaa !88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %14, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 6, ptr %15, align 8, !tbaa !93
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  store i8 0, ptr %16, align 2, !tbaa !92
+._crit_edge.i.i:                                  ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %13, ptr %9, align 8, !tbaa !88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %13, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 6, ptr %14, align 8, !tbaa !93
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 62
+  store i8 0, ptr %15, align 2, !tbaa !92
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.critedge, %._crit_edge.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr null, ptr %17, align 8, !tbaa !274
-  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm26InlinerFunctionImportStatsE, i64 120), align 8, !tbaa !275
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %22, label %_ZNSt10unique_ptrIN4llvm35ImportedFunctionsInliningStatisticsESt14default_deleteIS1_EED2Ev.exit
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr null, ptr %16, align 8, !tbaa !274
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm26InlinerFunctionImportStatsE, i64 120), align 8, !tbaa !275
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %21, label %_ZNSt10unique_ptrIN4llvm35ImportedFunctionsInliningStatisticsESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm35ImportedFunctionsInliningStatisticsESt14default_deleteIS1_EED2Ev.exit: ; preds = %.critedge
-  %19 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22, !noalias !434
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false), !noalias !434
-  store i32 16, ptr %20, align 4, !tbaa !284, !noalias !434
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false), !noalias !434
-  store ptr %19, ptr %17, align 8, !tbaa !248
-  tail call void @_ZN4llvm35ImportedFunctionsInliningStatistics13setModuleInfoERKNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(841) %1) #19
-  br label %22
+  %18 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22, !noalias !434
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false), !noalias !434
+  store i32 16, ptr %19, align 4, !tbaa !284, !noalias !434
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false), !noalias !434
+  store ptr %18, ptr %16, align 8, !tbaa !248
+  tail call void @_ZN4llvm35ImportedFunctionsInliningStatistics13setModuleInfoERKNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(841) %1) #19
+  br label %21
 
-22:                                               ; preds = %_ZNSt10unique_ptrIN4llvm35ImportedFunctionsInliningStatisticsESt14default_deleteIS1_EED2Ev.exit, %.critedge
+21:                                               ; preds = %_ZNSt10unique_ptrIN4llvm35ImportedFunctionsInliningStatisticsESt14default_deleteIS1_EED2Ev.exit, %.critedge
   ret void
 }
 

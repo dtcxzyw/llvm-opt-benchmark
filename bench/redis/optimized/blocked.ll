@@ -1296,15 +1296,13 @@ define internal fastcc void @signalKeyAsReadyLogic(ptr noundef %0, ptr noundef %
   %5 = alloca ptr, align 8
   %switch.tableidx = add i32 %2, -1
   %6 = icmp ult i32 %switch.tableidx, 6
-  br i1 %6, label %switch.hole_check, label %getBlockedTypeByType.exit
-
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 53, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %getBlockedTypeByType.exit
+  %or.cond21 = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond21, label %switch.lookup, label %getBlockedTypeByType.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table.signalKeyAsReadyLogic, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1357,7 +1355,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   br label %getBlockedTypeByType.exit
 
-getBlockedTypeByType.exit:                        ; preds = %switch.hole_check, %4, %19, %14, %switch.lookup, %33
+getBlockedTypeByType.exit:                        ; preds = %4, %19, %14, %switch.lookup, %33
   ret void
 }
 

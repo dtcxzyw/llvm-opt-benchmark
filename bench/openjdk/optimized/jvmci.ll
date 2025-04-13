@@ -278,96 +278,96 @@ define hidden noundef ptr @_ZN5JVMCI18get_shared_libraryERPcb(ptr noundef nonnul
   %3 = alloca [4097 x i8], align 16
   %4 = alloca [1024 x i8], align 16
   %5 = load ptr, ptr @_ZN5JVMCI22_shared_library_handleE, align 8
-  %.not = icmp eq ptr %5, null
-  %brmerge.not = and i1 %1, %.not
-  br i1 %brmerge.not, label %8, label %6
+  %6 = icmp eq ptr %5, null
+  %or.cond = and i1 %1, %6
+  br i1 %or.cond, label %9, label %7
 
-6:                                                ; preds = %2
-  %7 = load ptr, ptr @_ZN5JVMCI20_shared_library_pathE, align 8
-  store ptr %7, ptr %0, align 8
+7:                                                ; preds = %2
+  %8 = load ptr, ptr @_ZN5JVMCI20_shared_library_pathE, align 8
+  store ptr %8, ptr %0, align 8
   br label %_ZN11MutexLockerD2Ev.exit
 
-8:                                                ; preds = %2
-  %9 = load ptr, ptr @JVMCI_lock, align 8
-  %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %10
+9:                                                ; preds = %2
+  %10 = load ptr, ptr @JVMCI_lock, align 8
+  %.not.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %11
 
-10:                                               ; preds = %8
-  tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #13
+11:                                               ; preds = %9
+  tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #13
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %8, %10
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %9, %11
   store ptr null, ptr %0, align 8
-  %11 = load ptr, ptr @_ZN5JVMCI22_shared_library_handleE, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %37
+  %12 = load ptr, ptr @_ZN5JVMCI22_shared_library_handleE, align 8
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %38
 
-13:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %14 = load ptr, ptr @JVMCILibPath, align 8
-  %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %20, label %15
+14:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %15 = load ptr, ptr @JVMCILibPath, align 8
+  %.not.i = icmp eq ptr %15, null
+  br i1 %.not.i, label %21, label %16
 
-15:                                               ; preds = %13
-  %16 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %3, i64 noundef 4097, ptr noundef nonnull %14, ptr noundef nonnull @.str) #13
-  br i1 %16, label %_ZN5JVMCI23get_shared_library_pathEPcmb.exit, label %17
+16:                                               ; preds = %14
+  %17 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %3, i64 noundef 4097, ptr noundef nonnull %15, ptr noundef nonnull @.str) #13
+  br i1 %17, label %_ZN5JVMCI23get_shared_library_pathEPcmb.exit, label %18
 
-17:                                               ; preds = %15
-  %18 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %18, align 1
-  %19 = load ptr, ptr @JVMCILibPath, align 8
-  call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 105, ptr noundef nonnull @.str.5, ptr noundef %19) #14
+18:                                               ; preds = %16
+  %19 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %19, align 1
+  %20 = load ptr, ptr @JVMCILibPath, align 8
+  call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 105, ptr noundef nonnull @.str.5, ptr noundef %20) #14
   unreachable
 
-20:                                               ; preds = %13
-  %21 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %3, i64 noundef 4097, ptr noundef %22, ptr noundef nonnull @.str) #13
-  br i1 %23, label %_ZN5JVMCI23get_shared_library_pathEPcmb.exit, label %24
+21:                                               ; preds = %14
+  %22 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = call noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef nonnull %3, i64 noundef 4097, ptr noundef %23, ptr noundef nonnull @.str) #13
+  br i1 %24, label %_ZN5JVMCI23get_shared_library_pathEPcmb.exit, label %25
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %25, align 1
+25:                                               ; preds = %21
+  %26 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %26, align 1
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 112, ptr noundef nonnull @.str.6) #14
   unreachable
 
-_ZN5JVMCI23get_shared_library_pathEPcmb.exit:     ; preds = %15, %20
-  %26 = call noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1024) #13
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %30
+_ZN5JVMCI23get_shared_library_pathEPcmb.exit:     ; preds = %16, %21
+  %27 = call noundef ptr @_ZN2os8dll_loadEPKcPci(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1024) #13
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %31
 
-28:                                               ; preds = %_ZN5JVMCI23get_shared_library_pathEPcmb.exit
-  %29 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %29, align 1
+29:                                               ; preds = %_ZN5JVMCI23get_shared_library_pathEPcmb.exit
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 141, ptr noundef nonnull @.str.7, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
   unreachable
 
-30:                                               ; preds = %_ZN5JVMCI23get_shared_library_pathEPcmb.exit
-  store ptr %26, ptr @_ZN5JVMCI22_shared_library_handleE, align 8
-  %31 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %3, i8 noundef zeroext 9) #13
-  store ptr %31, ptr @_ZN5JVMCI20_shared_library_pathE, align 8
-  %32 = load i64, ptr @JVMCITraceLevel, align 8
-  %33 = icmp slt i64 %32, 1
-  %34 = load i64, ptr @JVMCIEventLogLevel, align 8
-  %35 = icmp slt i64 %34, 1
-  %or.cond = select i1 %33, i1 %35, i1 false
-  br i1 %or.cond, label %37, label %36
+31:                                               ; preds = %_ZN5JVMCI23get_shared_library_pathEPcmb.exit
+  store ptr %27, ptr @_ZN5JVMCI22_shared_library_handleE, align 8
+  %32 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %3, i8 noundef zeroext 9) #13
+  store ptr %32, ptr @_ZN5JVMCI20_shared_library_pathE, align 8
+  %33 = load i64, ptr @JVMCITraceLevel, align 8
+  %34 = icmp slt i64 %33, 1
+  %35 = load i64, ptr @JVMCIEventLogLevel, align 8
+  %36 = icmp slt i64 %35, 1
+  %or.cond3 = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond3, label %38, label %37
 
-36:                                               ; preds = %30
+37:                                               ; preds = %31
   call void (ptr, ...) @_ZN5JVMCI6event1EPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull %3)
-  br label %37
+  br label %38
 
-37:                                               ; preds = %36, %30, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %38 = load ptr, ptr @_ZN5JVMCI20_shared_library_pathE, align 8
-  store ptr %38, ptr %0, align 8
-  %39 = load ptr, ptr @_ZN5JVMCI22_shared_library_handleE, align 8
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %40
+38:                                               ; preds = %37, %31, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %39 = load ptr, ptr @_ZN5JVMCI20_shared_library_pathE, align 8
+  store ptr %39, ptr %0, align 8
+  %40 = load ptr, ptr @_ZN5JVMCI22_shared_library_handleE, align 8
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %41
 
-40:                                               ; preds = %37
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %9) #13
+41:                                               ; preds = %38
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #13
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %40, %37, %6
-  %.0 = phi ptr [ %5, %6 ], [ %39, %37 ], [ %39, %40 ]
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %41, %38, %7
+  %.0 = phi ptr [ %5, %7 ], [ %40, %38 ], [ %40, %41 ]
   ret ptr %.0
 }
 
@@ -435,14 +435,14 @@ define hidden noundef ptr @_ZN5JVMCI16compiler_runtimeEP10JavaThreadb(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  %brmerge.not = and i1 %1, %5
-  br i1 %brmerge.not, label %6, label %8
+  %or.cond = and i1 %1, %5
+  br i1 %or.cond, label %6, label %8
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN12JVMCIRuntime10for_threadEP10JavaThread(ptr noundef nonnull %0) #13
   br label %8
 
-8:                                                ; preds = %2, %6
+8:                                                ; preds = %6, %2
   %.0 = phi ptr [ %7, %6 ], [ %4, %2 ]
   ret ptr %.0
 }

@@ -46572,8 +46572,8 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$18confirm_completion17h13a5f03e0
 
 23:                                               ; preds = %22
   %24 = load i64, ptr %7, align 8, !range !86, !noundef !5
-  %.not10.not = icmp eq i64 %24, -9223372036854775808
-  br i1 %.not10.not, label %"_ZN6picker15Picker$LT$D$GT$9set_query17h5981ccaada71d64fE.exit", label %25
+  %.not8.not = icmp eq i64 %24, -9223372036854775808
+  br i1 %.not8.not, label %"_ZN6picker15Picker$LT$D$GT$9set_query17h5981ccaada71d64fE.exit", label %25
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !11165
@@ -46598,7 +46598,7 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$18confirm_completion17h13a5f03e0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !11165
   br label %"_ZN6picker15Picker$LT$D$GT$9set_query17h5981ccaada71d64fE.exit"
 
-35:                                               ; preds = %20, %36
+35:                                               ; preds = %36, %20
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
 36:                                               ; preds = %20
@@ -46665,8 +46665,8 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$18confirm_completion17hb9d5aeddb
 
 23:                                               ; preds = %22
   %24 = load i64, ptr %7, align 8, !range !86, !noundef !5
-  %.not10.not = icmp eq i64 %24, -9223372036854775808
-  br i1 %.not10.not, label %"_ZN6picker15Picker$LT$D$GT$9set_query17h27d11b4feb1c1e45E.llvm.15892403711533435760.exit", label %25
+  %.not8.not = icmp eq i64 %24, -9223372036854775808
+  br i1 %.not8.not, label %"_ZN6picker15Picker$LT$D$GT$9set_query17h27d11b4feb1c1e45E.llvm.15892403711533435760.exit", label %25
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !11188
@@ -46691,7 +46691,7 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$18confirm_completion17hb9d5aeddb
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !11188
   br label %"_ZN6picker15Picker$LT$D$GT$9set_query17h27d11b4feb1c1e45E.llvm.15892403711533435760.exit"
 
-35:                                               ; preds = %20, %36
+35:                                               ; preds = %36, %20
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
 36:                                               ; preds = %20
@@ -53681,8 +53681,8 @@ define hidden void @"_ZN93_$LT$ui..components..popover_menu..PopoverMenu$LT$M$GT
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store ptr %.sroa.0.0.copyload, ptr %8, align 8
-  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
+  %.sroa.5.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
   invoke void @_ZN4gpui7element10AnyElement5paint17hae99cd28a71b672eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
           to label %14 unwind label %12
 
@@ -53722,9 +53722,9 @@ define hidden void @"_ZN93_$LT$ui..components..popover_menu..PopoverMenu$LT$M$GT
 
 25:                                               ; preds = %6, %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h58f804ce519329b7E.exit"
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.011.0.copyload = load ptr, ptr %26, align 8
+  %.sroa.012.0.copyload = load ptr, ptr %26, align 8
   store ptr null, ptr %26, align 8
-  %27 = icmp eq ptr %.sroa.011.0.copyload, null
+  %27 = icmp eq ptr %.sroa.012.0.copyload, null
   br i1 %27, label %56, label %31
 
 28:                                               ; preds = %32, %12
@@ -53740,9 +53740,9 @@ define hidden void @"_ZN93_$LT$ui..components..popover_menu..PopoverMenu$LT$M$GT
 31:                                               ; preds = %25
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  store ptr %.sroa.011.0.copyload, ptr %7, align 8
-  %.sroa.7.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, i64 16, i1 false)
+  store ptr %.sroa.012.0.copyload, ptr %7, align 8
+  %.sroa.7.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx16, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, i64 16, i1 false)
   invoke void @_ZN4gpui7element10AnyElement5paint17hae99cd28a71b672eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
           to label %34 unwind label %32
 
@@ -53784,7 +53784,7 @@ define hidden void @"_ZN93_$LT$ui..components..popover_menu..PopoverMenu$LT$M$GT
   %48 = add i64 %47, -1
   store i64 %48, ptr %46, align 8, !noalias !12540
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h58f804ce519329b7E.exit7"
+  br i1 %49, label %50, label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h58f804ce519329b7E.exit8"
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -53792,13 +53792,13 @@ define hidden void @"_ZN93_$LT$ui..components..popover_menu..PopoverMenu$LT$M$GT
   %53 = add i64 %52, -1
   store i64 %53, ptr %51, align 8, !noalias !12540
   %54 = icmp eq i64 %53, 0
-  br i1 %54, label %55, label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h58f804ce519329b7E.exit7"
+  br i1 %54, label %55, label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h58f804ce519329b7E.exit8"
 
 55:                                               ; preds = %50
   call void @__rust_dealloc(ptr noundef nonnull %46, i64 noundef 24, i64 noundef 8) #50, !noalias !12540
-  br label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h58f804ce519329b7E.exit7"
+  br label %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h58f804ce519329b7E.exit8"
 
-"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h58f804ce519329b7E.exit7": ; preds = %45, %50, %55
+"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h58f804ce519329b7E.exit8": ; preds = %45, %50, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %56
 
@@ -53806,7 +53806,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h65b66a32830e5f25E.exit: ; preds = %36
   invoke void @_ZN4gpui6window13WindowContext14on_mouse_event17hb8bd38ef9c517650E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %40, i64 noundef %38)
           to label %45 unwind label %32
 
-56:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h58f804ce519329b7E.exit7", %25
+56:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h58f804ce519329b7E.exit8", %25
   ret void
 }
 

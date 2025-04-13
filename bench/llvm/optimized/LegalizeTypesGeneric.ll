@@ -671,9 +671,12 @@ _ZNK4llvm3EVT9isIntegerEv.exit.thread:            ; preds = %222, %226
   %.sroa.2151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   %switch.tableidx = add i16 %.sroa.0149.0.copyload, -2
   %228 = icmp ult i16 %switch.tableidx, 12
-  br i1 %228, label %switch.hole_check, label %_ZN4llvm3MVT11getVectorVTES0_j.exit
+  %switch.shifted = lshr i16 3961, %switch.tableidx
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond559 = select i1 %228, i1 %switch.lobit, i1 false
+  br i1 %or.cond559, label %switch.lookup, label %_ZN4llvm3MVT11getVectorVTES0_j.exit
 
-_ZN4llvm3MVT11getVectorVTES0_j.exit:              ; preds = %switch.hole_check, %_ZNK4llvm3EVT9isIntegerEv.exit.thread
+_ZN4llvm3MVT11getVectorVTES0_j.exit:              ; preds = %_ZNK4llvm3EVT9isIntegerEv.exit.thread
   %.sroa.2151.0.copyload = load ptr, ptr %.sroa.2151.0..sroa_idx, align 8, !tbaa !25
   %229 = load ptr, ptr %48, align 8, !tbaa !46
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 64
@@ -683,12 +686,7 @@ _ZN4llvm3MVT11getVectorVTES0_j.exit:              ; preds = %switch.hole_check, 
   %234 = extractvalue { i16, ptr } %232, 1
   br label %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb.exit
 
-switch.hole_check:                                ; preds = %_ZNK4llvm3EVT9isIntegerEv.exit.thread
-  %switch.shifted = lshr i16 3961, %switch.tableidx
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN4llvm3MVT11getVectorVTES0_j.exit
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZNK4llvm3EVT9isIntegerEv.exit.thread
   %235 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i16], ptr @switch.table._ZN4llvm16DAGTypeLegalizer16ExpandOp_BITCASTEPNS_6SDNodeE, i64 0, i64 %235
   %switch.load = load i16, ptr %switch.gep, align 2
@@ -2520,21 +2518,19 @@ _ZNK4llvm3EVT9isIntegerEv.exit:                   ; preds = %37
   %59 = extractvalue { i16, ptr } %58, 0
   %switch.tableidx = add i16 %59, -2
   %60 = icmp ult i16 %switch.tableidx, 12
-  br i1 %60, label %switch.hole_check, label %_ZN4llvm3MVT11getVectorVTES0_j.exit
+  %switch.shifted = lshr i16 3961, %switch.tableidx
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %60, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %_ZN4llvm3MVT11getVectorVTES0_j.exit
 
-_ZN4llvm3MVT11getVectorVTES0_j.exit:              ; preds = %switch.hole_check, %43
+_ZN4llvm3MVT11getVectorVTES0_j.exit:              ; preds = %43
   %61 = extractvalue { i16, ptr } %58, 1
   %62 = call { i16, ptr } @_ZN4llvm3EVT19getExtendedVectorVTERNS_11LLVMContextES0_jb(ptr noundef nonnull align 8 dereferenceable(8) %53, i16 %59, ptr %61, i32 noundef 2, i1 noundef zeroext false) #12
   %63 = extractvalue { i16, ptr } %62, 0
   %64 = extractvalue { i16, ptr } %62, 1
   br label %_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb.exit
 
-switch.hole_check:                                ; preds = %43
-  %switch.shifted = lshr i16 3961, %switch.tableidx
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN4llvm3MVT11getVectorVTES0_j.exit
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %43
   %65 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i16], ptr @switch.table._ZN4llvm16DAGTypeLegalizer16ExpandOp_BITCASTEPNS_6SDNodeE, i64 0, i64 %65
   %switch.load = load i16, ptr %switch.gep, align 2

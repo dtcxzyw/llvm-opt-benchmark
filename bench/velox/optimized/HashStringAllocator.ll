@@ -1093,8 +1093,8 @@ entry:
   %ref.tmp2.i.i.i = alloca %"class.std::tuple.75", align 1
   %ptr.i = alloca ptr, align 8
   %cmp = icmp sgt i32 %size, 3072
-  %brmerge.not = and i1 %cmp, %exactSize
-  br i1 %brmerge.not, label %if.then, label %if.end4
+  %or.cond = and i1 %cmp, %exactSize
+  br i1 %or.cond, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
   %cmp2 = icmp samesign ugt i32 %size, 536870911

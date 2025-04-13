@@ -1088,15 +1088,13 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
   %191 = getelementptr inbounds nuw i8, ptr %.0398.lcssa, i64 48
   %switch.tableidx = add i32 %188, -4
   %192 = icmp ult i32 %switch.tableidx, 22
-  br i1 %192, label %switch.hole_check, label %301
-
-switch.hole_check:                                ; preds = %.lr.ph485
   %switch.shifted = lshr i32 2949119, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %301
+  %or.cond533 = select i1 %192, i1 %switch.lobit, i1 false
+  br i1 %or.cond533, label %switch.lookup, label %301
 
-switch.lookup:                                    ; preds = %switch.hole_check, %302
-  %indvars.iv506 = phi i64 [ %indvars.iv.next507, %302 ], [ 0, %switch.hole_check ]
+switch.lookup:                                    ; preds = %.lr.ph485, %302
+  %indvars.iv506 = phi i64 [ %indvars.iv.next507, %302 ], [ 0, %.lr.ph485 ]
   switch i32 %188, label %281 [
     i32 4, label %193
     i32 5, label %193
@@ -1282,7 +1280,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   store i64 %293, ptr %191, align 8
   br label %302
 
-301:                                              ; preds = %switch.hole_check, %.lr.ph485
+301:                                              ; preds = %.lr.ph485
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.13, i32 noundef 7, ptr noundef nonnull @.str.28, i64 noundef 274, ptr noundef nonnull @__func__.iostat_packet, ptr noundef nonnull @.str.29) #22
   unreachable
 
@@ -1318,17 +1316,15 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 .lr.ph482:                                        ; preds = %314
   %323 = getelementptr inbounds nuw i8, ptr %.0398.lcssa, i64 48
-  %switch.tableidx534 = add i32 %320, -4
-  %324 = icmp ult i32 %switch.tableidx534, 22
-  br i1 %324, label %switch.hole_check535, label %405
-
-switch.hole_check535:                             ; preds = %.lr.ph482
-  %switch.shifted537 = lshr i32 2949119, %switch.tableidx534
+  %switch.tableidx535 = add i32 %320, -4
+  %324 = icmp ult i32 %switch.tableidx535, 22
+  %switch.shifted537 = lshr i32 2949119, %switch.tableidx535
   %switch.lobit538 = trunc i32 %switch.shifted537 to i1
-  br i1 %switch.lobit538, label %switch.lookup536, label %405
+  %or.cond539 = select i1 %324, i1 %switch.lobit538, i1 false
+  br i1 %or.cond539, label %switch.lookup536, label %405
 
-switch.lookup536:                                 ; preds = %switch.hole_check535, %406
-  %indvars.iv503 = phi i64 [ %indvars.iv.next504, %406 ], [ 0, %switch.hole_check535 ]
+switch.lookup536:                                 ; preds = %.lr.ph482, %406
+  %indvars.iv503 = phi i64 [ %indvars.iv.next504, %406 ], [ 0, %.lr.ph482 ]
   switch i32 %320, label %389 [
     i32 4, label %325
     i32 5, label %325
@@ -1465,7 +1461,7 @@ switch.lookup536:                                 ; preds = %switch.hole_check53
   store i64 %401, ptr %323, align 8
   br label %406
 
-405:                                              ; preds = %switch.hole_check535, %.lr.ph482
+405:                                              ; preds = %.lr.ph482
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.13, i32 noundef 7, ptr noundef nonnull @.str.28, i64 noundef 343, ptr noundef nonnull @__func__.iostat_packet, ptr noundef nonnull @.str.29) #22
   unreachable
 
@@ -2702,15 +2698,13 @@ magnitude.exit656:                                ; preds = %201, %204
   %.0569 = phi ptr [ %377, %374 ], [ null, %._crit_edge730 ]
   %380 = tail call i32 @timestamp_get_type()
   %381 = icmp ult i32 %380, 11
-  br i1 %381, label %switch.hole_check, label %385
-
-switch.hole_check:                                ; preds = %379
-  %switch.maskindex = trunc nuw i32 %380 to i16
+  %switch.maskindex = trunc i32 %380 to i16
   %switch.shifted = lshr i16 1807, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %385
+  %or.cond = select i1 %381, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %385
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %379
   %382 = zext nneg i32 %380 to i64
   %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.iostat_draw, i64 0, i64 %382
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2720,8 +2714,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %384 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull %switch.load)
   br label %385
 
-385:                                              ; preds = %switch.hole_check, %379, %switch.lookup
-  %.0552.neg.neg766 = phi i32 [ 11, %379 ], [ %switch.load849, %switch.lookup ], [ 11, %switch.hole_check ]
+385:                                              ; preds = %379, %switch.lookup
+  %.0552.neg.neg766 = phi i32 [ 11, %379 ], [ %switch.load849, %switch.lookup ]
   %386 = add i32 %reass.sub, %.0552.neg.neg766
   %387 = zext i32 %386 to i64
   %388 = getelementptr i8, ptr %247, i64 %387

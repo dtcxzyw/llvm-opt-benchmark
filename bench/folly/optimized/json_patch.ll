@@ -4277,15 +4277,15 @@ _ZN5folly3f146detail19NodeContainerPolicyINS_7dynamicES3_NS_6detail13DynamicHash
   %27 = getelementptr inbounds i8, ptr %1, i64 -16
   %.neg.i.i.i.i = mul i64 %2, -8
   %28 = getelementptr inbounds i8, ptr %27, i64 %.neg.i.i.i.i
-  %.not.i4.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i4.i.i, label %.critedge.i.i.i.preheader, label %thread-pre-split.i.i
+  %.not19.i4.i.i = icmp eq i64 %2, 0
+  br i1 %.not19.i4.i.i, label %.critedge.i.i.i.preheader, label %thread-pre-split.i.i
 
 .critedge.i.i.i.preheader:                        ; preds = %29, %26
   br label %.critedge.i.i.i
 
 29:                                               ; preds = %thread-pre-split.i.i
-  %.not.i.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i.i, label %.critedge.i.i.i.preheader, label %thread-pre-split.i.i
+  %.not19.i.i.i = icmp eq i64 %32, 0
+  br i1 %.not19.i.i.i, label %.critedge.i.i.i.preheader, label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %26, %29
   %30 = phi i64 [ %32, %29 ], [ %2, %26 ]
@@ -4298,8 +4298,8 @@ thread-pre-split.i.i:                             ; preds = %26, %29
   br i1 %.not.i.i, label %29, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKNS_7dynamicES5_EEEE17precheckedAdvanceEv.exit.i, !prof !67, !llvm.loop !193
 
 .critedge.i.i.i:                                  ; preds = %.critedge.i.i.i.preheader, %.critedge.i.i.i
-  %.016.i.i.i = phi ptr [ %36, %.critedge.i.i.i ], [ %28, %.critedge.i.i.i.preheader ]
-  %36 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 -128
+  %.017.i.i.i = phi ptr [ %36, %.critedge.i.i.i ], [ %28, %.critedge.i.i.i.preheader ]
+  %36 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -128
   %37 = load <16 x i8>, ptr %36, align 16, !tbaa !42
   %38 = icmp slt <16 x i8> %37, zeroinitializer
   %39 = bitcast <16 x i1> %38 to i16
@@ -4314,7 +4314,7 @@ thread-pre-split.i.i:                             ; preds = %26, %29
   %45 = zext nneg i32 %44 to i64
   %46 = icmp ne ptr %36, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   tail call void @llvm.assume(i1 %46)
-  %47 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 -112
+  %47 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 -112
   %48 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %47, i64 0, i64 %45
   br label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKNS_7dynamicES5_EEEE17precheckedAdvanceEv.exit.i
 

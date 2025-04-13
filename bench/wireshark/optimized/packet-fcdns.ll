@@ -1625,53 +1625,53 @@ dissect_fc4features_and_type.exit:                ; preds = %13, %16
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_fcdns_rpnid(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
-  %.not = icmp ne ptr %1, null
-  %brmerge.not = and i1 %.not, %2
-  br i1 %brmerge.not, label %4, label %9
+  %4 = icmp ne ptr %1, null
+  %or.cond = and i1 %4, %2
+  br i1 %or.cond, label %5, label %10
 
-4:                                                ; preds = %3
-  %5 = load i32, ptr @hf_fcdns_req_portid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %5, ptr noundef %0, i32 noundef 17, i32 noundef 3, i32 noundef 0)
-  %7 = load i32, ptr @hf_fcdns_req_pname, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %7, ptr noundef %0, i32 noundef 20, i32 noundef 8, i32 noundef 0)
-  br label %9
+5:                                                ; preds = %3
+  %6 = load i32, ptr @hf_fcdns_req_portid, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %6, ptr noundef %0, i32 noundef 17, i32 noundef 3, i32 noundef 0)
+  %8 = load i32, ptr @hf_fcdns_req_pname, align 4
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %8, ptr noundef %0, i32 noundef 20, i32 noundef 8, i32 noundef 0)
+  br label %10
 
-9:                                                ; preds = %3, %4
+10:                                               ; preds = %5, %3
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_fcdns_rnnid(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
-  %.not = icmp ne ptr %1, null
-  %brmerge.not = and i1 %.not, %2
-  br i1 %brmerge.not, label %4, label %9
+  %4 = icmp ne ptr %1, null
+  %or.cond = and i1 %4, %2
+  br i1 %or.cond, label %5, label %10
 
-4:                                                ; preds = %3
-  %5 = load i32, ptr @hf_fcdns_req_portid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %5, ptr noundef %0, i32 noundef 17, i32 noundef 3, i32 noundef 0)
-  %7 = load i32, ptr @hf_fcdns_req_nname, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %7, ptr noundef %0, i32 noundef 20, i32 noundef 8, i32 noundef 0)
-  br label %9
+5:                                                ; preds = %3
+  %6 = load i32, ptr @hf_fcdns_req_portid, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %6, ptr noundef %0, i32 noundef 17, i32 noundef 3, i32 noundef 0)
+  %8 = load i32, ptr @hf_fcdns_req_nname, align 4
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %8, ptr noundef %0, i32 noundef 20, i32 noundef 8, i32 noundef 0)
+  br label %10
 
-9:                                                ; preds = %3, %4
+10:                                               ; preds = %5, %3
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_fcdns_rcsid(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
-  %.not = icmp ne ptr %1, null
-  %brmerge.not = and i1 %.not, %2
-  br i1 %brmerge.not, label %4, label %10
+  %4 = icmp ne ptr %1, null
+  %or.cond = and i1 %4, %2
+  br i1 %or.cond, label %5, label %11
 
-4:                                                ; preds = %3
-  %5 = load i32, ptr @hf_fcdns_req_portid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %5, ptr noundef %0, i32 noundef 17, i32 noundef 3, i32 noundef 0)
-  %7 = load i32, ptr @hf_fcdns_req_cos, align 4
-  %8 = load i32, ptr @ett_cos_flags, align 4
-  %9 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef nonnull %1, ptr noundef %0, i32 noundef 20, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_cos_flags.flags, i32 noundef 0, i32 noundef 12)
-  br label %10
+5:                                                ; preds = %3
+  %6 = load i32, ptr @hf_fcdns_req_portid, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %6, ptr noundef %0, i32 noundef 17, i32 noundef 3, i32 noundef 0)
+  %8 = load i32, ptr @hf_fcdns_req_cos, align 4
+  %9 = load i32, ptr @ett_cos_flags, align 4
+  %10 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef nonnull %1, ptr noundef %0, i32 noundef 20, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @dissect_cos_flags.flags, i32 noundef 0, i32 noundef 12)
+  br label %11
 
-10:                                               ; preds = %3, %4
+11:                                               ; preds = %5, %3
   ret void
 }
 
@@ -1707,22 +1707,22 @@ define internal fastcc void @dissect_fcdns_rftid(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_fcdns_rspnid(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
-  %.not = icmp ne ptr %1, null
-  %brmerge.not = and i1 %.not, %2
-  br i1 %brmerge.not, label %4, label %13
+  %4 = icmp ne ptr %1, null
+  %or.cond = and i1 %4, %2
+  br i1 %or.cond, label %5, label %14
 
-4:                                                ; preds = %3
-  %5 = load i32, ptr @hf_fcdns_req_portid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %5, ptr noundef %0, i32 noundef 17, i32 noundef 3, i32 noundef 0)
-  %7 = load i32, ptr @hf_fcdns_req_spnamelen, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %7, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
-  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 20)
-  %10 = load i32, ptr @hf_fcdns_req_spname, align 4
-  %11 = zext i8 %9 to i32
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %10, ptr noundef %0, i32 noundef 21, i32 noundef %11, i32 noundef 0)
-  br label %13
+5:                                                ; preds = %3
+  %6 = load i32, ptr @hf_fcdns_req_portid, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %6, ptr noundef %0, i32 noundef 17, i32 noundef 3, i32 noundef 0)
+  %8 = load i32, ptr @hf_fcdns_req_spnamelen, align 4
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %8, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 20)
+  %11 = load i32, ptr @hf_fcdns_req_spname, align 4
+  %12 = zext i8 %10 to i32
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %11, ptr noundef %0, i32 noundef 21, i32 noundef %12, i32 noundef 0)
+  br label %14
 
-13:                                               ; preds = %3, %4
+14:                                               ; preds = %5, %3
   ret void
 }
 

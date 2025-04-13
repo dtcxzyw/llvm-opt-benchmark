@@ -1000,8 +1000,8 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
 
 49:                                               ; preds = %60, %52, %37
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val144 = load i64, ptr %50, align 8, !noundef !4
-  %51 = icmp ugt i64 %.val144, %28
+  %.val146 = load i64, ptr %50, align 8, !noundef !4
+  %51 = icmp ugt i64 %.val146, %28
   br i1 %51, label %85, label %84, !prof !5
 
 52:                                               ; preds = %44
@@ -1068,7 +1068,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   ret i1 %.1
 
 84:                                               ; preds = %49
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %28, i64 noundef %.val144, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.36) #16
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %28, i64 noundef %.val146, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.36) #16
   unreachable
 
 85:                                               ; preds = %49
@@ -1087,8 +1087,8 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
 94:                                               ; preds = %85
   %95 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %92
   %96 = load i8, ptr %95, align 1, !noundef !4
-  %.not142 = icmp eq i8 %34, %96
-  br i1 %.not142, label %98, label %83
+  %.not144 = icmp eq i8 %34, %96
+  br i1 %.not144, label %98, label %83
 
 97:                                               ; preds = %85
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %92, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.38) #16
@@ -1124,8 +1124,8 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br label %83
 
 112:                                              ; preds = %104
-  %.not143 = icmp eq ptr %1, null
-  br i1 %.not143, label %137, label %113
+  %.not145 = icmp eq ptr %1, null
+  br i1 %.not145, label %137, label %113
 
 113:                                              ; preds = %112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
@@ -1250,15 +1250,15 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br i1 %50, label %63, label %67, !prof !5
 
 51:                                               ; preds = %71, %84, %63, %39
-  %.094 = phi i64 [ %17, %71 ], [ %74, %84 ], [ %17, %63 ], [ %17, %39 ]
-  %.091.in = phi i8 [ %35, %71 ], [ %86, %84 ], [ %35, %63 ], [ %35, %39 ]
-  %.088 = phi i64 [ %37, %71 ], [ %80, %84 ], [ %37, %63 ], [ %37, %39 ]
+  %.096 = phi i64 [ %17, %71 ], [ %74, %84 ], [ %17, %63 ], [ %17, %39 ]
+  %.093.in = phi i8 [ %35, %71 ], [ %86, %84 ], [ %35, %63 ], [ %35, %39 ]
+  %.090 = phi i64 [ %37, %71 ], [ %80, %84 ], [ %37, %63 ], [ %37, %39 ]
   %.0 = phi i8 [ 0, %71 ], [ 1, %84 ], [ 0, %63 ], [ 0, %39 ]
-  %.091 = zext i8 %.091.in to i32
+  %.093 = zext i8 %.093.in to i32
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !align !33, !noundef !4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val144 = load i64, ptr %52, align 8, !noundef !4
-  %.not.i.i = icmp ugt i64 %29, %.val144
+  %.val146 = load i64, ptr %52, align 8, !noundef !4
+  %.not.i.i = icmp ugt i64 %29, %.val146
   br i1 %.not.i.i, label %53, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17ha665da4865a4defdE.exit"
 
 53:                                               ; preds = %51
@@ -1276,7 +1276,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17ha665da4865a4defdE.exit": ; preds = %51
-  %58 = sub nuw i64 %.val144, %29
+  %58 = sub nuw i64 %.val146, %29
   %59 = icmp ult i64 %58, 4
   br i1 %59, label %60, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit"
 
@@ -1344,25 +1344,25 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   %89 = zext i32 %88 to i64
   %90 = sub i64 %7, %89
   %91 = and i64 %4, %89
-  %92 = add i64 %91, %.195.ph20
+  %92 = add i64 %91, %.197.ph20
   %93 = icmp ult i64 %92, %3
   br i1 %93, label %129, label %133, !prof !5
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread": ; preds = %.outer, %157
   %.2.ph.lcssa14 = phi i8 [ %.2.ph23, %157 ], [ %.5, %.outer ]
-  %.not143 = icmp eq ptr %1, null
-  br i1 %.not143, label %_ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit, label %94
+  %.not145 = icmp eq ptr %1, null
+  br i1 %.not145, label %_ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit, label %94
 
 94:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread"
   %95 = trunc nuw i8 %.2.ph.lcssa14 to i1
   br i1 %95, label %_ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit, label %100
 
-_ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit: ; preds = %122, %118, %112, %100, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread", %94
+_ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit: ; preds = %122, %118, %112, %100, %94, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread"
   %.4 = phi i8 [ 1, %94 ], [ %.2.ph.lcssa14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread" ], [ 0, %100 ], [ 0, %112 ], [ 0, %118 ], [ 1, %122 ]
   %96 = lshr i64 %7, 3
   %97 = and i64 %96, 3
   %98 = add nuw nsw i64 %29, %97
-  %99 = icmp ult i64 %98, %.val144
+  %99 = icmp ult i64 %98, %.val146
   br i1 %99, label %124, label %128, !prof !5
 
 100:                                              ; preds = %94
@@ -1413,15 +1413,15 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7b
   ret i1 %127
 
 128:                                              ; preds = %_ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %98, i64 noundef %.val144, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.46) #16
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %98, i64 noundef %.val146, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.46) #16
   unreachable
 
 129:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit"
   %130 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %92
   %131 = load i8, ptr %130, align 1, !noundef !4
   %132 = zext i8 %131 to i32
-  %.not142 = icmp eq i32 %.192.ph21, %132
-  br i1 %.not142, label %134, label %157
+  %.not144 = icmp eq i32 %.194.ph21, %132
+  br i1 %.not144, label %134, label %157
 
 133:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit"
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %92, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.47) #16
@@ -1430,8 +1430,8 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7b
 134:                                              ; preds = %129
   %135 = icmp eq i64 %7, %89
   %136 = icmp ugt i64 %90, %9
-  %or.cond1 = or i1 %135, %136
-  br i1 %or.cond1, label %157, label %137
+  %or.cond3 = or i1 %135, %136
+  br i1 %or.cond3, label %157, label %137
 
 137:                                              ; preds = %134
   %138 = icmp ugt i64 %91, %3
@@ -1449,9 +1449,9 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7b
   br i1 %144, label %.outer, label %146
 
 .outer:                                           ; preds = %152, %146, %140
-  %.296 = phi i64 [ %.195.ph20, %140 ], [ %143, %152 ], [ %.195.ph20, %146 ]
-  %.293 = phi i32 [ %.192.ph21, %140 ], [ %155, %152 ], [ %.192.ph21, %146 ]
-  %.290 = phi i64 [ %.189.ph22, %140 ], [ %147, %152 ], [ %.189.ph22, %146 ]
+  %.298 = phi i64 [ %.197.ph20, %140 ], [ %143, %152 ], [ %.197.ph20, %146 ]
+  %.295 = phi i32 [ %.194.ph21, %140 ], [ %155, %152 ], [ %.194.ph21, %146 ]
+  %.292 = phi i64 [ %.191.ph22, %140 ], [ %147, %152 ], [ %.191.ph22, %146 ]
   %.5 = phi i8 [ %.2.ph23, %140 ], [ 1, %152 ], [ %.2.ph23, %146 ]
   %.sroa.01.0.ptr15 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.01.0.add
   %145 = icmp eq i64 %.sroa.01.0.add, 16
@@ -1460,15 +1460,15 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7b
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.lr.ph": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit", %.outer
   %.sroa.01.0.ptr1524 = phi ptr [ %61, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.sroa.01.0.ptr15, %.outer ]
   %.2.ph23 = phi i8 [ %.0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.5, %.outer ]
-  %.189.ph22 = phi i64 [ %.088, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.290, %.outer ]
-  %.192.ph21 = phi i32 [ %.091, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.293, %.outer ]
-  %.195.ph20 = phi i64 [ %.094, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.296, %.outer ]
+  %.191.ph22 = phi i64 [ %.090, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.292, %.outer ]
+  %.194.ph21 = phi i32 [ %.093, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.295, %.outer ]
+  %.197.ph20 = phi i64 [ %.096, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.298, %.outer ]
   %.sroa.01.0.idx.ph19 = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.sroa.01.0.add, %.outer ]
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit"
 
 146:                                              ; preds = %140
   %147 = tail call noundef i64 @_ZN6brotli3enc19backward_references22BackwardReferenceScore17h2f57a01de361eb83E(i64 noundef %143, i64 noundef %90, i32 noundef %16)
-  %148 = icmp ult i64 %.189.ph22, %147
+  %148 = icmp ult i64 %.191.ph22, %147
   br i1 %148, label %149, label %.outer
 
 149:                                              ; preds = %146
@@ -1572,15 +1572,15 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br i1 %48, label %61, label %65, !prof !5
 
 49:                                               ; preds = %69, %82, %61, %37
-  %.094 = phi i64 [ %15, %69 ], [ %72, %82 ], [ %15, %61 ], [ %15, %37 ]
-  %.091.in = phi i8 [ %33, %69 ], [ %84, %82 ], [ %33, %61 ], [ %33, %37 ]
-  %.088 = phi i64 [ %35, %69 ], [ %78, %82 ], [ %35, %61 ], [ %35, %37 ]
+  %.096 = phi i64 [ %15, %69 ], [ %72, %82 ], [ %15, %61 ], [ %15, %37 ]
+  %.093.in = phi i8 [ %33, %69 ], [ %84, %82 ], [ %33, %61 ], [ %33, %37 ]
+  %.090 = phi i64 [ %35, %69 ], [ %78, %82 ], [ %35, %61 ], [ %35, %37 ]
   %.0 = phi i1 [ false, %69 ], [ true, %82 ], [ false, %61 ], [ false, %37 ]
-  %.091 = zext i8 %.091.in to i32
+  %.093 = zext i8 %.093.in to i32
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !align !33, !noundef !4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val144 = load i64, ptr %50, align 8, !noundef !4
-  %.not.i.i = icmp ugt i64 %27, %.val144
+  %.val146 = load i64, ptr %50, align 8, !noundef !4
+  %.not.i.i = icmp ugt i64 %27, %.val146
   br i1 %.not.i.i, label %51, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17ha665da4865a4defdE.exit"
 
 51:                                               ; preds = %49
@@ -1598,7 +1598,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17ha665da4865a4defdE.exit": ; preds = %49
-  %56 = sub nuw i64 %.val144, %27
+  %56 = sub nuw i64 %.val146, %27
   %57 = icmp ult i64 %56, 2
   br i1 %57, label %58, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit"
 
@@ -1666,7 +1666,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   %87 = zext i32 %86 to i64
   %88 = sub i64 %6, %87
   %89 = and i64 %3, %87
-  %90 = add i64 %89, %.195.ph20
+  %90 = add i64 %89, %.197.ph20
   %91 = icmp ult i64 %90, %2
   br i1 %91, label %100, label %104, !prof !5
 
@@ -1675,7 +1675,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   %92 = lshr i64 %6, 3
   %93 = and i64 %92, 1
   %94 = add nuw nsw i64 %27, %93
-  %95 = icmp ult i64 %94, %.val144
+  %95 = icmp ult i64 %94, %.val146
   br i1 %95, label %96, label %99, !prof !5
 
 96:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread"
@@ -1685,15 +1685,15 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   ret i1 %.2.ph.lcssa14
 
 99:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %94, i64 noundef %.val144, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.46) #16
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %94, i64 noundef %.val146, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.46) #16
   unreachable
 
 100:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit"
   %101 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %90
   %102 = load i8, ptr %101, align 1, !noundef !4
   %103 = zext i8 %102 to i32
-  %.not142 = icmp eq i32 %.192.ph21, %103
-  br i1 %.not142, label %105, label %128
+  %.not144 = icmp eq i32 %.194.ph21, %103
+  br i1 %.not144, label %105, label %128
 
 104:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit"
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %90, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.47) #16
@@ -1702,8 +1702,8 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
 105:                                              ; preds = %100
   %106 = icmp eq i64 %6, %87
   %107 = icmp ugt i64 %88, %8
-  %or.cond1 = or i1 %106, %107
-  br i1 %or.cond1, label %128, label %108
+  %or.cond3 = or i1 %106, %107
+  br i1 %or.cond3, label %128, label %108
 
 108:                                              ; preds = %105
   %109 = icmp ugt i64 %89, %2
@@ -1721,9 +1721,9 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br i1 %115, label %.outer, label %117
 
 .outer:                                           ; preds = %123, %117, %111
-  %.296 = phi i64 [ %.195.ph20, %111 ], [ %114, %123 ], [ %.195.ph20, %117 ]
-  %.293 = phi i32 [ %.192.ph21, %111 ], [ %126, %123 ], [ %.192.ph21, %117 ]
-  %.290 = phi i64 [ %.189.ph22, %111 ], [ %118, %123 ], [ %.189.ph22, %117 ]
+  %.298 = phi i64 [ %.197.ph20, %111 ], [ %114, %123 ], [ %.197.ph20, %117 ]
+  %.295 = phi i32 [ %.194.ph21, %111 ], [ %126, %123 ], [ %.194.ph21, %117 ]
+  %.292 = phi i64 [ %.191.ph22, %111 ], [ %118, %123 ], [ %.191.ph22, %117 ]
   %.5 = phi i1 [ %.2.ph23, %111 ], [ true, %123 ], [ %.2.ph23, %117 ]
   %.sroa.01.0.ptr15 = getelementptr inbounds nuw i8, ptr %59, i64 %.sroa.01.0.add
   %116 = icmp eq i64 %.sroa.01.0.add, 8
@@ -1732,15 +1732,15 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.lr.ph": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit", %.outer
   %.sroa.01.0.ptr1524 = phi ptr [ %59, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.sroa.01.0.ptr15, %.outer ]
   %.2.ph23 = phi i1 [ %.0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.5, %.outer ]
-  %.189.ph22 = phi i64 [ %.088, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.290, %.outer ]
-  %.192.ph21 = phi i32 [ %.091, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.293, %.outer ]
-  %.195.ph20 = phi i64 [ %.094, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.296, %.outer ]
+  %.191.ph22 = phi i64 [ %.090, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.292, %.outer ]
+  %.194.ph21 = phi i32 [ %.093, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.295, %.outer ]
+  %.197.ph20 = phi i64 [ %.096, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.298, %.outer ]
   %.sroa.01.0.idx.ph19 = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.sroa.01.0.add, %.outer ]
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit"
 
 117:                                              ; preds = %111
   %118 = tail call noundef i64 @_ZN6brotli3enc19backward_references22BackwardReferenceScore17h2f57a01de361eb83E(i64 noundef %114, i64 noundef %88, i32 noundef %14)
-  %119 = icmp ult i64 %.189.ph22, %118
+  %119 = icmp ult i64 %.191.ph22, %118
   br i1 %119, label %120, label %.outer
 
 120:                                              ; preds = %117
@@ -1844,15 +1844,15 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br i1 %48, label %61, label %65, !prof !5
 
 49:                                               ; preds = %69, %82, %61, %37
-  %.094 = phi i64 [ %15, %69 ], [ %72, %82 ], [ %15, %61 ], [ %15, %37 ]
-  %.091.in = phi i8 [ %33, %69 ], [ %84, %82 ], [ %33, %61 ], [ %33, %37 ]
-  %.088 = phi i64 [ %35, %69 ], [ %78, %82 ], [ %35, %61 ], [ %35, %37 ]
+  %.096 = phi i64 [ %15, %69 ], [ %72, %82 ], [ %15, %61 ], [ %15, %37 ]
+  %.093.in = phi i8 [ %33, %69 ], [ %84, %82 ], [ %33, %61 ], [ %33, %37 ]
+  %.090 = phi i64 [ %35, %69 ], [ %78, %82 ], [ %35, %61 ], [ %35, %37 ]
   %.0 = phi i1 [ false, %69 ], [ true, %82 ], [ false, %61 ], [ false, %37 ]
-  %.091 = zext i8 %.091.in to i32
+  %.093 = zext i8 %.093.in to i32
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !align !33, !noundef !4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val144 = load i64, ptr %50, align 8, !noundef !4
-  %.not.i.i = icmp ugt i64 %27, %.val144
+  %.val146 = load i64, ptr %50, align 8, !noundef !4
+  %.not.i.i = icmp ugt i64 %27, %.val146
   br i1 %.not.i.i, label %51, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17ha665da4865a4defdE.exit"
 
 51:                                               ; preds = %49
@@ -1870,7 +1870,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17ha665da4865a4defdE.exit": ; preds = %49
-  %56 = sub nuw i64 %.val144, %27
+  %56 = sub nuw i64 %.val146, %27
   %57 = icmp ult i64 %56, 4
   br i1 %57, label %58, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit"
 
@@ -1938,7 +1938,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   %87 = zext i32 %86 to i64
   %88 = sub i64 %6, %87
   %89 = and i64 %3, %87
-  %90 = add i64 %89, %.195.ph20
+  %90 = add i64 %89, %.197.ph20
   %91 = icmp ult i64 %90, %2
   br i1 %91, label %100, label %104, !prof !5
 
@@ -1947,7 +1947,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   %92 = lshr i64 %6, 3
   %93 = and i64 %92, 3
   %94 = add nuw nsw i64 %27, %93
-  %95 = icmp ult i64 %94, %.val144
+  %95 = icmp ult i64 %94, %.val146
   br i1 %95, label %96, label %99, !prof !5
 
 96:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread"
@@ -1957,15 +1957,15 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   ret i1 %.2.ph.lcssa14
 
 99:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread"
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %94, i64 noundef %.val144, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.46) #16
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %94, i64 noundef %.val146, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.46) #16
   unreachable
 
 100:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit"
   %101 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %90
   %102 = load i8, ptr %101, align 1, !noundef !4
   %103 = zext i8 %102 to i32
-  %.not142 = icmp eq i32 %.192.ph21, %103
-  br i1 %.not142, label %105, label %128
+  %.not144 = icmp eq i32 %.194.ph21, %103
+  br i1 %.not144, label %105, label %128
 
 104:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit"
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %90, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.47) #16
@@ -1974,8 +1974,8 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
 105:                                              ; preds = %100
   %106 = icmp eq i64 %6, %87
   %107 = icmp ugt i64 %88, %8
-  %or.cond1 = or i1 %106, %107
-  br i1 %or.cond1, label %128, label %108
+  %or.cond3 = or i1 %106, %107
+  br i1 %or.cond3, label %128, label %108
 
 108:                                              ; preds = %105
   %109 = icmp ugt i64 %89, %2
@@ -1993,9 +1993,9 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br i1 %115, label %.outer, label %117
 
 .outer:                                           ; preds = %123, %117, %111
-  %.296 = phi i64 [ %.195.ph20, %111 ], [ %114, %123 ], [ %.195.ph20, %117 ]
-  %.293 = phi i32 [ %.192.ph21, %111 ], [ %126, %123 ], [ %.192.ph21, %117 ]
-  %.290 = phi i64 [ %.189.ph22, %111 ], [ %118, %123 ], [ %.189.ph22, %117 ]
+  %.298 = phi i64 [ %.197.ph20, %111 ], [ %114, %123 ], [ %.197.ph20, %117 ]
+  %.295 = phi i32 [ %.194.ph21, %111 ], [ %126, %123 ], [ %.194.ph21, %117 ]
+  %.292 = phi i64 [ %.191.ph22, %111 ], [ %118, %123 ], [ %.191.ph22, %117 ]
   %.5 = phi i1 [ %.2.ph23, %111 ], [ true, %123 ], [ %.2.ph23, %117 ]
   %.sroa.01.0.ptr15 = getelementptr inbounds nuw i8, ptr %59, i64 %.sroa.01.0.add
   %116 = icmp eq i64 %.sroa.01.0.add, 16
@@ -2004,15 +2004,15 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.lr.ph": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit", %.outer
   %.sroa.01.0.ptr1524 = phi ptr [ %59, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.sroa.01.0.ptr15, %.outer ]
   %.2.ph23 = phi i1 [ %.0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.5, %.outer ]
-  %.189.ph22 = phi i64 [ %.088, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.290, %.outer ]
-  %.192.ph21 = phi i32 [ %.091, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.293, %.outer ]
-  %.195.ph20 = phi i64 [ %.094, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.296, %.outer ]
+  %.191.ph22 = phi i64 [ %.090, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.292, %.outer ]
+  %.194.ph21 = phi i32 [ %.093, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.295, %.outer ]
+  %.197.ph20 = phi i64 [ %.096, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.298, %.outer ]
   %.sroa.01.0.idx.ph19 = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit" ], [ %.sroa.01.0.add, %.outer ]
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit"
 
 117:                                              ; preds = %111
   %118 = tail call noundef i64 @_ZN6brotli3enc19backward_references22BackwardReferenceScore17h2f57a01de361eb83E(i64 noundef %114, i64 noundef %88, i32 noundef %14)
-  %119 = icmp ult i64 %.189.ph22, %118
+  %119 = icmp ult i64 %.191.ph22, %118
   br i1 %119, label %120, label %.outer
 
 120:                                              ; preds = %117

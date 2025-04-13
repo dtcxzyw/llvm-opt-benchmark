@@ -859,15 +859,13 @@ define dso_local i32 @cmd_send_pack(i32 noundef %0, ptr noundef %1, ptr noundef 
   %380 = getelementptr inbounds nuw i8, ptr %.02452.i, i64 148
   %381 = load i32, ptr %380, align 4, !tbaa !9
   %382 = icmp ult i32 %381, 13
-  br i1 %382, label %switch.hole_check, label %436
-
-switch.hole_check:                                ; preds = %379
-  %switch.maskindex = trunc nuw i32 %381 to i16
+  %switch.maskindex = trunc i32 %381 to i16
   %switch.shifted = lshr i16 7935, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %436
+  %or.cond93 = select i1 %382, i1 %switch.lobit, i1 false
+  br i1 %or.cond93, label %switch.lookup, label %436
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %379
   %383 = zext nneg i32 %381 to i64
   %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.cmd_send_pack, i64 0, i64 %383
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -1027,7 +1025,7 @@ strbuf_addch.exit46.i:                            ; preds = %strbuf_avail.exit.t
   call void @write_or_die(i32 noundef 1, ptr noundef %434, i64 noundef %435) #10
   br label %436
 
-436:                                              ; preds = %switch.hole_check, %379, %.loopexit.i
+436:                                              ; preds = %379, %.loopexit.i
   %437 = load ptr, ptr %.02452.i, align 8, !tbaa !41
   %.not.i = icmp eq ptr %437, null
   br i1 %.not.i, label %print_helper_status.exit, label %379, !llvm.loop !54

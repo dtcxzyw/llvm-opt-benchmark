@@ -1490,7 +1490,7 @@ _ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.ex
   br label %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit
 
 _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit: ; preds = %_ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.exit.i, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i, %246, %_ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.exit.i144, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i143, %214, %_ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.exit.i163, %.noexc168
-  %.038.i = phi i16 [ 220, %.noexc168 ], [ 220, %_ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.exit.i163 ], [ 220, %214 ], [ 220, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i143 ], [ 220, %_ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.exit.i144 ], [ 221, %246 ], [ 221, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i ], [ 221, %_ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.exit.i ]
+  %.041.i = phi i16 [ 220, %.noexc168 ], [ 220, %_ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.exit.i163 ], [ 220, %214 ], [ 220, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i143 ], [ 220, %_ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.exit.i144 ], [ 221, %246 ], [ 221, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit.i ], [ 221, %_ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.exit.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %30), !noalias !185
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29), !noalias !185
   store i64 -9223372036854775807, ptr %29, align 8, !noalias !185
@@ -1583,7 +1583,7 @@ _ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.ex
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %30), !noalias !185
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28), !noalias !185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %36, i64 40, i1 false), !noalias !185
-  %268 = invoke { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %28, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i16 noundef %.038.i)
+  %268 = invoke { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %28, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i16 noundef %.041.i)
           to label %269 unwind label %.body123.thread260.loopexit.split-lp, !noalias !189
 
 269:                                              ; preds = %267
@@ -1613,9 +1613,9 @@ _ZN6parser6parser6Parser7do_bump17h7d8f0bfaf2addffbE.llvm.6580822817679657170.ex
   %280 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %281 = load i16, ptr %280, align 4, !range !16, !noalias !185, !noundef !4
   %282 = icmp eq i16 %281, 273
-  %.sroa.030.0.copyload.i = load i32, ptr %31, align 4, !noalias !185
-  %.sroa.633.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sroa.633.0.copyload.i = load i8, ptr %.sroa.633.0..sroa_idx.i, align 4, !noalias !185
+  %.sroa.033.0.copyload.i = load i32, ptr %31, align 4, !noalias !185
+  %.sroa.636.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sroa.636.0.copyload.i = load i8, ptr %.sroa.636.0..sroa_idx.i, align 4, !noalias !185
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %31), !noalias !185
   br i1 %282, label %_ZN6parser7grammar11expressions3lhs17hc0aea540ef482b8fE.exit.thread, label %283
 
@@ -1630,7 +1630,7 @@ _ZN6parser7grammar11expressions3lhs17hc0aea540ef482b8fE.exit.thread: ; preds = %
   br i1 %285, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %283
-  %286 = trunc i8 %.sroa.633.0.copyload.i to i1
+  %286 = trunc i8 %.sroa.636.0.copyload.i to i1
   %287 = xor i1 %286, true
   %not. = xor i1 %4, true
   %spec.select = select i1 %not., i1 true, i1 %286
@@ -1642,7 +1642,7 @@ _ZN6parser7grammar11expressions3lhs17hc0aea540ef482b8fE.exit.thread: ; preds = %
 
 292:                                              ; preds = %.lr.ph, %340
   %293 = phi i32 [ %284, %.lr.ph ], [ %341, %340 ]
-  %.sroa.0.0.i115367 = phi i32 [ %.sroa.030.0.copyload.i, %.lr.ph ], [ %.sroa.012.0.i, %340 ]
+  %.sroa.0.0.i115367 = phi i32 [ %.sroa.033.0.copyload.i, %.lr.ph ], [ %.sroa.012.0.i, %340 ]
   %.sroa.8.0.i366 = phi i16 [ %281, %.lr.ph ], [ %.sroa.5.0.i, %340 ]
   %.0.i114365 = phi i1 [ %287, %.lr.ph ], [ false, %340 ]
   %.013.i364 = phi i1 [ %spec.select, %.lr.ph ], [ true, %340 ]
@@ -2060,7 +2060,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit102: ; preds = %397
           to label %406 unwind label %.thread252, !noalias !189
 
 406:                                              ; preds = %404, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit102
-  %.040.i = phi i1 [ false, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit102 ], [ %405, %404 ]
+  %.043.i = phi i1 [ false, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit102 ], [ %405, %404 ]
   br i1 %3, label %407, label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit100
 
 407:                                              ; preds = %406
@@ -2068,7 +2068,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit102: ; preds = %397
           to label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit100 unwind label %.thread252
 
 _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit100: ; preds = %407, %406
-  %.041.i = phi i1 [ false, %406 ], [ %408, %407 ]
+  %.044.i = phi i1 [ false, %406 ], [ %408, %407 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
   %409 = load i32, ptr %71, align 8, !noalias !411, !noundef !4
   %410 = icmp ult i32 %409, 15000001
@@ -2128,9 +2128,9 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.i95: ; preds = %411
   %436 = load i64, ptr %435, align 8, !alias.scope !416, !noalias !189, !noundef !4
   %437 = and i64 %434, %436
   %.not284 = icmp eq i64 %437, 0
-  %brmerge.i = or i1 %.040.i, %.not284
-  %brmerge45.i = or i1 %.041.i, %brmerge.i
-  br i1 %brmerge45.i, label %438, label %440
+  %or.cond.i = or i1 %.043.i, %.not284
+  %or.cond3.i = or i1 %.044.i, %or.cond.i
+  br i1 %or.cond3.i, label %438, label %440
 
 438:                                              ; preds = %441, %430
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %32), !noalias !185

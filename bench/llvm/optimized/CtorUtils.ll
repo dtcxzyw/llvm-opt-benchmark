@@ -61,9 +61,13 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i.i.i: ; preds = %9
   %17 = and i32 %16, 15
   %switch.tableidx = add nsw i32 %17, -2
   %18 = icmp ult i32 %switch.tableidx, 9
-  br i1 %18, label %switch.hole_check, label %_ZNK4llvm14GlobalVariable20hasUniqueInitializerEv.exit.i
+  %switch.maskindex = trunc nsw i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 399, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %18, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZL15findGlobalCtorsRN4llvm6ModuleE.exit.thread, label %_ZNK4llvm14GlobalVariable20hasUniqueInitializerEv.exit.i
 
-_ZNK4llvm14GlobalVariable20hasUniqueInitializerEv.exit.i: ; preds = %switch.hole_check, %15
+_ZNK4llvm14GlobalVariable20hasUniqueInitializerEv.exit.i: ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, 2
@@ -643,14 +647,8 @@ _ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EED2Ev.exit: ; preds = %_ZL16parse
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
   br label %_ZL15findGlobalCtorsRN4llvm6ModuleE.exit.thread
 
-switch.hole_check:                                ; preds = %15
-  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 399, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZL15findGlobalCtorsRN4llvm6ModuleE.exit.thread, label %_ZNK4llvm14GlobalVariable20hasUniqueInitializerEv.exit.i
-
-_ZL15findGlobalCtorsRN4llvm6ModuleE.exit.thread:  ; preds = %53, %43, %switch.hole_check, %9, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i.i.i, %22, %_ZNK4llvm14GlobalVariable20hasUniqueInitializerEv.exit.i, %3, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EED2Ev.exit
-  %.0 = phi i1 [ %.1, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EED2Ev.exit ], [ false, %3 ], [ false, %_ZNK4llvm14GlobalVariable20hasUniqueInitializerEv.exit.i ], [ false, %22 ], [ false, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i.i.i ], [ false, %9 ], [ false, %switch.hole_check ], [ false, %43 ], [ false, %53 ]
+_ZL15findGlobalCtorsRN4llvm6ModuleE.exit.thread:  ; preds = %53, %43, %15, %9, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i.i.i, %22, %_ZNK4llvm14GlobalVariable20hasUniqueInitializerEv.exit.i, %3, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EED2Ev.exit
+  %.0 = phi i1 [ %.1, %_ZNSt6vectorISt4pairIjPN4llvm8FunctionEESaIS4_EED2Ev.exit ], [ false, %3 ], [ false, %_ZNK4llvm14GlobalVariable20hasUniqueInitializerEv.exit.i ], [ false, %22 ], [ false, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i.i.i ], [ false, %9 ], [ false, %15 ], [ false, %43 ], [ false, %53 ]
   ret i1 %.0
 }
 

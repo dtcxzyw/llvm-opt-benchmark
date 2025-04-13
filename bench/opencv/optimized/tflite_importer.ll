@@ -1267,7 +1267,11 @@ _ZNK13opencv_tflite6Tensor4typeEv.exit:           ; preds = %_ZNK11flatbuffers5T
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !52
   %119 = icmp ult i8 %118, 10
-  br i1 %119, label %switch.hole_check, label %_ZNK13opencv_tflite6Tensor4typeEv.exit65
+  %switch.maskindex = zext nneg i8 %118 to i16
+  %switch.shifted = lshr i16 519, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %119, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %_ZNK13opencv_tflite6Tensor4typeEv.exit65
 
 120:                                              ; preds = %141
   %121 = landingpad { ptr, i32 }
@@ -1275,7 +1279,7 @@ _ZNK13opencv_tflite6Tensor4typeEv.exit:           ; preds = %_ZNK11flatbuffers5T
   %.pre82 = load ptr, ptr %6, align 8, !tbaa !24
   br label %145
 
-_ZNK13opencv_tflite6Tensor4typeEv.exit65:         ; preds = %switch.hole_check, %_ZNK13opencv_tflite6Tensor4typeEv.exit
+_ZNK13opencv_tflite6Tensor4typeEv.exit65:         ; preds = %_ZNK13opencv_tflite6Tensor4typeEv.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #26
   %122 = icmp ugt i8 %118, 17
   br i1 %122, label %_ZN13opencv_tflite18EnumNameTensorTypeENS_10TensorTypeE.exit, label %_ZNK13opencv_tflite6Tensor4typeEv.exit65.thread
@@ -1327,13 +1331,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #26
   br label %145
 
-switch.hole_check:                                ; preds = %_ZNK13opencv_tflite6Tensor4typeEv.exit
-  %switch.maskindex = zext nneg i8 %118 to i16
-  %switch.shifted = lshr i16 519, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZNK13opencv_tflite6Tensor4typeEv.exit65
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZNK13opencv_tflite6Tensor4typeEv.exit
   %138 = zext nneg i8 %118 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN2cv3dnn14dnn4_v2024122314TFLiteImporter11parseTensorERKN13opencv_tflite6TensorE, i64 0, i64 %138
   %switch.load = load i32, ptr %switch.gep, align 4

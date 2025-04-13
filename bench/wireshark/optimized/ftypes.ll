@@ -253,40 +253,36 @@ define hidden void @ftype_register(i32 noundef %0, ptr noundef %1) local_unnamed
 define hidden noundef zeroext i1 @ftype_similar_types(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %switch.tableidx = add i32 %0, -3
   %3 = icmp ult i32 %switch.tableidx, 43
-  br i1 %3, label %switch.hole_check, label %same_ftype.exit
-
-switch.hole_check:                                ; preds = %2
   %switch.maskindex = zext nneg i32 %switch.tableidx to i64
   %switch.shifted = lshr i64 8785885790207, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %same_ftype.exit
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %same_ftype.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [43 x i32], ptr @switch.table.ftype_similar_types.1, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %same_ftype.exit
 
-same_ftype.exit:                                  ; preds = %2, %switch.hole_check, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %0, %switch.hole_check ], [ %0, %2 ]
+same_ftype.exit:                                  ; preds = %2, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %0, %2 ]
   %switch.tableidx5 = add i32 %1, -3
   %5 = icmp ult i32 %switch.tableidx5, 43
-  br i1 %5, label %switch.hole_check6, label %same_ftype.exit3
+  %switch.maskindex7 = zext nneg i32 %switch.tableidx5 to i64
+  %switch.shifted8 = lshr i64 8785885790207, %switch.maskindex7
+  %switch.lobit9 = trunc i64 %switch.shifted8 to i1
+  %or.cond12 = select i1 %5, i1 %switch.lobit9, i1 false
+  br i1 %or.cond12, label %switch.lookup6, label %same_ftype.exit3
 
-switch.hole_check6:                               ; preds = %same_ftype.exit
-  %switch.maskindex8 = zext nneg i32 %switch.tableidx5 to i64
-  %switch.shifted9 = lshr i64 8785885790207, %switch.maskindex8
-  %switch.lobit10 = trunc i64 %switch.shifted9 to i1
-  br i1 %switch.lobit10, label %switch.lookup7, label %same_ftype.exit3
-
-switch.lookup7:                                   ; preds = %switch.hole_check6
+switch.lookup6:                                   ; preds = %same_ftype.exit
   %6 = zext nneg i32 %switch.tableidx5 to i64
-  %switch.gep11 = getelementptr inbounds nuw [43 x i32], ptr @switch.table.ftype_similar_types.1, i64 0, i64 %6
-  %switch.load12 = load i32, ptr %switch.gep11, align 4
+  %switch.gep10 = getelementptr inbounds nuw [43 x i32], ptr @switch.table.ftype_similar_types.1, i64 0, i64 %6
+  %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %same_ftype.exit3
 
-same_ftype.exit3:                                 ; preds = %same_ftype.exit, %switch.hole_check6, %switch.lookup7
-  %.0.i2 = phi i32 [ %switch.load12, %switch.lookup7 ], [ %1, %switch.hole_check6 ], [ %1, %same_ftype.exit ]
+same_ftype.exit3:                                 ; preds = %same_ftype.exit, %switch.lookup6
+  %.0.i2 = phi i32 [ %switch.load11, %switch.lookup6 ], [ %1, %same_ftype.exit ]
   %7 = icmp eq i32 %.0.i, %.0.i2
   ret i1 %7
 }

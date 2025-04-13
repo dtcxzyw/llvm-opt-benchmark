@@ -4828,8 +4828,8 @@ _ZNK20eliminate_predicates6clause4sizeEv.exit:    ; preds = %101
   %115 = load ptr, ptr %110, align 8, !tbaa !25
   %116 = load i8, ptr %111, align 1, !tbaa !21, !range !23, !noundef !24
   %117 = trunc nuw i8 %116 to i1
-  %.val9.i = load ptr, ptr %26, align 8, !tbaa !150
-  %.val10.i = load ptr, ptr %97, align 8
+  %.val10.i = load ptr, ptr %26, align 8, !tbaa !150
+  %.val11.i = load ptr, ptr %97, align 8
   %118 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %119, 65535
@@ -4845,23 +4845,23 @@ _ZNK20eliminate_predicates6clause4sizeEv.exit:    ; preds = %101
   br i1 %126, label %127, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clERNS_6clauseEPS7_bSJ_b.exit"
 
 127:                                              ; preds = %122
-  %128 = icmp eq ptr %.val10.i, null
+  %128 = icmp eq ptr %.val11.i, null
   br i1 %128, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.i", label %129
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds i8, ptr %.val10.i, i64 -4
+  %130 = getelementptr inbounds i8, ptr %.val11.i, i64 -4
   %131 = load i32, ptr %130, align 4, !tbaa !14
   br label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.i"
 
 "_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.i": ; preds = %129, %127
   %.0.i.i.i = phi i32 [ %131, %129 ], [ 0, %127 ]
-  %132 = invoke noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %.val9.i, ptr noundef nonnull %112, i32 noundef %.0.i.i.i)
+  %132 = invoke noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %.val10.i, ptr noundef nonnull %112, i32 noundef %.0.i.i.i)
           to label %.noexc87 unwind label %192
 
 .noexc87:                                         ; preds = %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.i"
   %.not.i = xor i1 %132, true
-  %brmerge.i = or i1 %114, %.not.i
-  br i1 %brmerge.i, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clERNS_6clauseEPS7_bSJ_b.exit", label %133
+  %or.cond.i = or i1 %114, %.not.i
+  br i1 %or.cond.i, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clERNS_6clauseEPS7_bSJ_b.exit", label %133
 
 133:                                              ; preds = %.noexc87
   %134 = load i32, ptr %115, align 4, !tbaa !79
@@ -4874,19 +4874,19 @@ _ZNK20eliminate_predicates6clause4sizeEv.exit:    ; preds = %101
 
 137:                                              ; preds = %133
   %138 = load i32, ptr %19, align 8, !tbaa !166
-  %.not.i.i.i11.i = icmp ult i32 %134, %138
-  br i1 %.not.i.i.i11.i, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.sink.split.i
+  %.not.i.i.i12.i = icmp ult i32 %134, %138
+  br i1 %.not.i.i.i12.i, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.sink.split.i
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.sink.split.i: ; preds = %137, %135
   %.sink.i = phi ptr [ %20, %135 ], [ %19, %137 ]
-  %.sink21.ph.i = phi ptr [ %10, %135 ], [ %9, %137 ]
+  %.sink22.ph.i = phi ptr [ %10, %135 ], [ %9, %137 ]
   %139 = add i32 %134, 1
   invoke void @_ZN10bit_vector6resizeEjb(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i, i32 noundef %139, i1 noundef zeroext false)
           to label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i unwind label %192
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i: ; preds = %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.sink.split.i, %137, %135
-  %.sink21.i = phi ptr [ %10, %135 ], [ %9, %137 ], [ %.sink21.ph.i, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.sink.split.i ]
-  %140 = getelementptr inbounds nuw i8, ptr %.sink21.i, i64 16
+  %.sink22.i = phi ptr [ %10, %135 ], [ %9, %137 ], [ %.sink22.ph.i, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.sink.split.i ]
+  %140 = getelementptr inbounds nuw i8, ptr %.sink22.i, i64 16
   %141 = load ptr, ptr %140, align 8, !tbaa !52
   %142 = lshr i32 %134, 5
   %143 = zext nneg i32 %142 to i64
@@ -4898,8 +4898,8 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i: ; preds 
   store i32 %148, ptr %144, align 4, !tbaa !14
   %149 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %150 = load ptr, ptr %149, align 8, !tbaa !130
-  %.not15.i = icmp eq ptr %150, null
-  br i1 %.not15.i, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clERNS_6clauseEPS7_bSJ_b.exit", label %151
+  %.not16.i = icmp eq ptr %150, null
+  br i1 %.not16.i, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clERNS_6clauseEPS7_bSJ_b.exit", label %151
 
 151:                                              ; preds = %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #23
@@ -4919,8 +4919,8 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i: ; preds 
   %155 = load ptr, ptr %103, align 8, !tbaa !25
   %156 = load i8, ptr %109, align 1, !tbaa !21, !range !23, !noundef !24
   %157 = trunc nuw i8 %156 to i1
-  %.val9.i90 = load ptr, ptr %26, align 8, !tbaa !150
-  %.val10.i91 = load ptr, ptr %97, align 8
+  %.val10.i90 = load ptr, ptr %26, align 8, !tbaa !150
+  %.val11.i91 = load ptr, ptr %97, align 8
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = and i32 %159, 65535
@@ -4936,23 +4936,23 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i: ; preds 
   br i1 %166, label %167, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clERNS_6clauseEPS7_bSJ_b.exit108"
 
 167:                                              ; preds = %162
-  %168 = icmp eq ptr %.val10.i91, null
+  %168 = icmp eq ptr %.val11.i91, null
   br i1 %168, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.i93", label %169
 
 169:                                              ; preds = %167
-  %170 = getelementptr inbounds i8, ptr %.val10.i91, i64 -4
+  %170 = getelementptr inbounds i8, ptr %.val11.i91, i64 -4
   %171 = load i32, ptr %170, align 4, !tbaa !14
   br label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.i93"
 
 "_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.i93": ; preds = %169, %167
   %.0.i.i.i94 = phi i32 [ %171, %169 ], [ 0, %167 ]
-  %172 = invoke noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %.val9.i90, ptr noundef nonnull %152, i32 noundef %.0.i.i.i94)
+  %172 = invoke noundef zeroext i1 @_ZN20eliminate_predicates17can_be_macro_headEP4exprj(ptr noundef nonnull align 8 dereferenceable(400) %.val10.i90, ptr noundef nonnull %152, i32 noundef %.0.i.i.i94)
           to label %.noexc105 unwind label %192
 
 .noexc105:                                        ; preds = %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_0clERNS_6clauseEPS7_.exit.i93"
   %.not.i95 = xor i1 %172, true
-  %brmerge.i96 = or i1 %154, %.not.i95
-  br i1 %brmerge.i96, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clERNS_6clauseEPS7_bSJ_b.exit108", label %173
+  %or.cond.i96 = or i1 %154, %.not.i95
+  br i1 %or.cond.i96, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clERNS_6clauseEPS7_bSJ_b.exit108", label %173
 
 173:                                              ; preds = %.noexc105
   %174 = load i32, ptr %155, align 4, !tbaa !79
@@ -4965,19 +4965,19 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i: ; preds 
 
 177:                                              ; preds = %173
   %178 = load i32, ptr %19, align 8, !tbaa !166
-  %.not.i.i.i11.i97 = icmp ult i32 %174, %178
-  br i1 %.not.i.i.i11.i97, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i101, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.sink.split.i98
+  %.not.i.i.i12.i97 = icmp ult i32 %174, %178
+  br i1 %.not.i.i.i12.i97, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i101, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.sink.split.i98
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.sink.split.i98: ; preds = %177, %175
   %.sink.i99 = phi ptr [ %20, %175 ], [ %19, %177 ]
-  %.sink21.ph.i100 = phi ptr [ %10, %175 ], [ %9, %177 ]
+  %.sink22.ph.i100 = phi ptr [ %10, %175 ], [ %9, %177 ]
   %179 = add i32 %174, 1
   invoke void @_ZN10bit_vector6resizeEjb(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i99, i32 noundef %179, i1 noundef zeroext false)
           to label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i101 unwind label %192
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i101: ; preds = %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.sink.split.i98, %177, %175
-  %.sink21.i102 = phi ptr [ %10, %175 ], [ %9, %177 ], [ %.sink21.ph.i100, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.sink.split.i98 ]
-  %180 = getelementptr inbounds nuw i8, ptr %.sink21.i102, i64 16
+  %.sink22.i102 = phi ptr [ %10, %175 ], [ %9, %177 ], [ %.sink22.ph.i100, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.sink.split.i98 ]
+  %180 = getelementptr inbounds nuw i8, ptr %.sink22.i102, i64 16
   %181 = load ptr, ptr %180, align 8, !tbaa !52
   %182 = lshr i32 %174, 5
   %183 = zext nneg i32 %182 to i64
@@ -4989,8 +4989,8 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i101: ; pre
   store i32 %188, ptr %184, align 4, !tbaa !14
   %189 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %190 = load ptr, ptr %189, align 8, !tbaa !130
-  %.not15.i103 = icmp eq ptr %190, null
-  br i1 %.not15.i103, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clERNS_6clauseEPS7_bSJ_b.exit108", label %191
+  %.not16.i103 = icmp eq ptr %190, null
+  br i1 %.not16.i103, label %"_ZZN20eliminate_predicates26try_find_binary_definitionEP9func_declR7obj_refI3app11ast_managerERS2_I4exprS4_ERS2_IN18dependency_managerINS4_22expr_dependency_configEE10dependencyES4_EENK3$_1clERNS_6clauseEPS7_bSJ_b.exit108", label %191
 
 191:                                              ; preds = %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i101
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #23

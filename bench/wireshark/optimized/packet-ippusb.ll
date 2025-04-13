@@ -221,7 +221,7 @@ get_ippusb_conversation_data.exit:                ; preds = %.thread, %29
   br label %45
 
 45:                                               ; preds = %42, %get_ippusb_conversation_data.exit
-  %.0228 = phi i1 [ %44, %42 ], [ false, %get_ippusb_conversation_data.exit ]
+  %.0230 = phi i1 [ %44, %42 ], [ false, %get_ippusb_conversation_data.exit ]
   %46 = icmp ugt i32 %36, 4
   br i1 %46, label %47, label %is_http_header.exit.thread
 
@@ -272,8 +272,8 @@ is_http_header.exit:                              ; preds = %47, %52, %57
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 57
   %73 = load i16, ptr %72, align 1
   %74 = and i16 %73, 8
-  %.not253 = icmp eq i16 %74, 0
-  br i1 %.not253, label %75, label %76
+  %.not255 = icmp eq i16 %74, 0
+  br i1 %.not255, label %75, label %76
 
 75:                                               ; preds = %69
   store i32 -1, ptr @ippusb_last_pdu, align 4
@@ -288,7 +288,7 @@ is_http_header.exit:                              ; preds = %47, %52, %57
   %80 = phi i8 [ %60, %is_http_header.exit.thread ], [ %62, %is_http_header.exit ]
   %81 = load i8, ptr @global_ippusb_reassemble, align 1, !range !6, !noundef !7
   %82 = trunc nuw i8 %81 to i1
-  br i1 %82, label %83, label %.thread269
+  br i1 %82, label %83, label %.thread271
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -296,16 +296,16 @@ is_http_header.exit:                              ; preds = %47, %52, %57
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 57
   %87 = load i16, ptr %86, align 1
   %88 = and i16 %87, 8
-  %.not240 = icmp eq i16 %88, 0
+  %.not242 = icmp eq i16 %88, 0
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %90 = load i8, ptr %89, align 8, !range !6, !noundef !7
   store i8 1, ptr %89, align 8
-  br i1 %.not240, label %91, label %210
+  br i1 %.not242, label %91, label %210
 
 91:                                               ; preds = %83
   %92 = load i32, ptr @proto_ippusb, align 4
   %93 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %92, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  br i1 %46, label %94, label %is_http_header.exit259
+  br i1 %46, label %94, label %is_http_header.exit261
 
 94:                                               ; preds = %91
   %95 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(6) @.str.44, i64 noundef 5) #9
@@ -314,7 +314,7 @@ is_http_header.exit:                              ; preds = %47, %52, %57
 
 97:                                               ; preds = %94
   %98 = icmp ugt i32 %36, 8
-  br i1 %98, label %99, label %is_http_header.exit259
+  br i1 %98, label %99, label %is_http_header.exit261
 
 99:                                               ; preds = %97
   %100 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(10) @.str.45, i64 noundef 9) #9
@@ -323,12 +323,12 @@ is_http_header.exit:                              ; preds = %47, %52, %57
 
 102:                                              ; preds = %99
   %103 = icmp ugt i32 %36, 10
-  br i1 %103, label %104, label %is_http_header.exit259
+  br i1 %103, label %104, label %is_http_header.exit261
 
 104:                                              ; preds = %102
   %105 = call i32 @strncmp(ptr noundef readonly %37, ptr noundef nonnull dereferenceable(12) @.str.46, i64 noundef 11) #9
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %is_http_header.exit259
+  br i1 %106, label %107, label %is_http_header.exit261
 
 107:                                              ; preds = %104, %99, %94
   %108 = load ptr, ptr %.0.i, align 8
@@ -360,14 +360,14 @@ is_http_header.exit:                              ; preds = %47, %52, %57
   store i32 %125, ptr @ippusb_last_pdu, align 4
   br label %209
 
-is_http_header.exit259:                           ; preds = %104, %102, %97, %91
+is_http_header.exit261:                           ; preds = %104, %102, %97, %91
   %126 = load ptr, ptr %.0.i, align 8
   %127 = load i32, ptr @ippusb_last_pdu, align 4
   %128 = call ptr @wmem_tree_lookup32_le(ptr noundef %126, i32 noundef %127)
-  %.not242 = icmp eq ptr %128, null
-  br i1 %.not242, label %209, label %129
+  %.not244 = icmp eq ptr %128, null
+  br i1 %.not244, label %209, label %129
 
-129:                                              ; preds = %is_http_header.exit259
+129:                                              ; preds = %is_http_header.exit261
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %131 = load i32, ptr %130, align 4
   store i32 %131, ptr %128, align 4
@@ -413,8 +413,8 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
 
 158:                                              ; preds = %156
   %159 = call i32 @strncmp(ptr noundef %37, ptr noundef nonnull dereferenceable(30) @.str.39, i64 noundef 29) #9
-  %.not243 = icmp eq i32 %159, 0
-  br i1 %.not243, label %161, label %160
+  %.not245 = icmp eq i32 %159, 0
+  br i1 %.not245, label %161, label %160
 
 160:                                              ; preds = %158, %156
   store i8 0, ptr %144, align 2
@@ -431,7 +431,7 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
   br label %165
 
 165:                                              ; preds = %161, %162
-  br i1 %.0228, label %197, label %166
+  br i1 %.0230, label %197, label %166
 
 166:                                              ; preds = %165
   %167 = icmp slt i32 %7, %6
@@ -440,8 +440,8 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
 168:                                              ; preds = %166
   %169 = load i32, ptr %145, align 4
   %170 = and i32 %169, 1
-  %.not244 = icmp eq i32 %170, 0
-  br i1 %.not244, label %180, label %171
+  %.not246 = icmp eq i32 %170, 0
+  br i1 %.not246, label %180, label %171
 
 171:                                              ; preds = %168
   %172 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %7)
@@ -463,8 +463,8 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
   br label %185
 
 185:                                              ; preds = %180, %171
-  %.not245 = icmp eq i8 %39, 10
-  br i1 %.not245, label %195, label %186
+  %.not247 = icmp eq i8 %39, 10
+  br i1 %.not247, label %195, label %186
 
 186:                                              ; preds = %185
   %187 = load ptr, ptr @return_newline_tvb, align 8
@@ -494,8 +494,8 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
   store i8 1, ptr %143, align 1
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 328
   store i16 0, ptr %203, align 8
-  %.not246 = icmp eq ptr %202, null
-  br i1 %.not246, label %209, label %204
+  %.not248 = icmp eq ptr %202, null
+  br i1 %.not248, label %209, label %204
 
 204:                                              ; preds = %197
   %205 = load ptr, ptr @ippusb_dissector_table, align 8
@@ -505,8 +505,8 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
   call void @col_append_str(ptr noundef %208, i32 noundef 25, ptr noundef nonnull @.str.41)
   br label %209
 
-209:                                              ; preds = %197, %204, %is_http_header.exit259, %195, %107
-  %.1223 = phi i32 [ 0, %107 ], [ 0, %195 ], [ 0, %is_http_header.exit259 ], [ %206, %204 ], [ 0, %197 ]
+209:                                              ; preds = %197, %204, %is_http_header.exit261, %195, %107
+  %.1225 = phi i32 [ 0, %107 ], [ 0, %195 ], [ 0, %is_http_header.exit261 ], [ %206, %204 ], [ 0, %197 ]
   store i8 %90, ptr %89, align 8
   br label %299
 
@@ -515,14 +515,14 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %213 = load i32, ptr %212, align 4
   %214 = call ptr @wmem_tree_lookup32_le(ptr noundef %211, i32 noundef %213)
-  %.not247 = icmp eq ptr %214, null
-  br i1 %.not247, label %.thread266, label %215
+  %.not252 = icmp eq ptr %214, null
+  br i1 %.not252, label %.thread268, label %215
 
 215:                                              ; preds = %210
   %216 = getelementptr inbounds nuw i8, ptr %214, i64 14
   %217 = load i8, ptr %216, align 2, !range !6, !noundef !7
   %218 = trunc nuw i8 %217 to i1
-  br i1 %218, label %219, label %.thread269
+  br i1 %218, label %219, label %.thread271
 
 219:                                              ; preds = %215
   %220 = getelementptr inbounds nuw i8, ptr %214, i64 12
@@ -556,8 +556,8 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
   %239 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %240 = load i32, ptr %239, align 4
   %241 = and i32 %240, 1
-  %.not248 = icmp eq i32 %241, 0
-  br i1 %.not248, label %254, label %242
+  %.not249 = icmp eq i32 %241, 0
+  br i1 %.not249, label %254, label %242
 
 242:                                              ; preds = %238
   %243 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %7)
@@ -586,7 +586,7 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
   br label %263
 
 263:                                              ; preds = %254, %242
-  %.0225 = phi ptr [ %251, %242 ], [ %262, %254 ]
+  %.0227 = phi ptr [ %251, %242 ], [ %262, %254 ]
   %264 = load ptr, ptr %84, align 8
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 57
   %266 = load i16, ptr %265, align 1
@@ -602,10 +602,10 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
   br label %272
 
 272:                                              ; preds = %268, %263
-  %.1226 = phi ptr [ %271, %268 ], [ %.0225, %263 ]
-  %273 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef nonnull @.str.42, ptr noundef %.1226, ptr noundef nonnull @ippusb_frag_items, ptr noundef null, ptr noundef %2)
-  %.not249 = icmp eq ptr %273, null
-  br i1 %.not249, label %.thread266, label %274
+  %.1228 = phi ptr [ %271, %268 ], [ %.0227, %263 ]
+  %273 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef nonnull @.str.42, ptr noundef %.1228, ptr noundef nonnull @ippusb_frag_items, ptr noundef null, ptr noundef %2)
+  %.not250 = icmp eq ptr %273, null
+  br i1 %.not250, label %.thread268, label %274
 
 274:                                              ; preds = %272
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -615,15 +615,15 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
   %278 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %279 = load i32, ptr %278, align 4
   %280 = and i32 %279, 2
-  %.not250 = icmp eq i32 %280, 0
-  br i1 %.not250, label %.thread266, label %281
+  %.not251 = icmp eq i32 %280, 0
+  br i1 %.not251, label %.thread268, label %281
 
 281:                                              ; preds = %274
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.thread266.sink.split
+  br label %.thread268.sink.split
 
 .critedge:                                        ; preds = %223, %219
-  br i1 %.0228, label %283, label %.thread266
+  br i1 %.0230, label %283, label %.thread268
 
 283:                                              ; preds = %.critedge
   %284 = load i32, ptr @proto_ippusb, align 4
@@ -632,8 +632,8 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
   %287 = load i32, ptr %286, align 4
   %288 = call ptr @fragment_get_reassembled_id(ptr noundef nonnull @ippusb_reassembly_table, ptr noundef %1, i32 noundef %287)
   %289 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef nonnull @.str.42, ptr noundef %288, ptr noundef nonnull @ippusb_frag_items, ptr noundef null, ptr noundef %2)
-  %.not251 = icmp eq ptr %289, null
-  br i1 %.not251, label %.thread266, label %290
+  %.not253 = icmp eq ptr %289, null
+  br i1 %.not253, label %.thread268, label %290
 
 290:                                              ; preds = %283
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -646,31 +646,31 @@ is_http_header.exit259:                           ; preds = %104, %102, %97, %91
   %296 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %297 = load i32, ptr %296, align 4
   %298 = and i32 %297, 2
-  %.not252 = icmp eq i32 %298, 0
-  br i1 %.not252, label %.thread266, label %.thread266.sink.split
+  %.not254 = icmp eq i32 %298, 0
+  br i1 %.not254, label %.thread268, label %.thread268.sink.split
 
-.thread266.sink.split:                            ; preds = %290, %281
+.thread268.sink.split:                            ; preds = %290, %281
   %.sink.in = phi ptr [ %282, %281 ], [ %294, %290 ]
   %.5.ph = phi i32 [ %277, %281 ], [ %293, %290 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   call void @col_append_str(ptr noundef %.sink, i32 noundef 25, ptr noundef nonnull @.str.43)
-  br label %.thread266
+  br label %.thread268
 
-.thread266:                                       ; preds = %.thread266.sink.split, %274, %272, %.critedge, %290, %283, %210
-  %.5 = phi i32 [ 0, %.critedge ], [ %277, %274 ], [ 0, %272 ], [ %293, %290 ], [ 0, %283 ], [ 0, %210 ], [ %.5.ph, %.thread266.sink.split ]
+.thread268:                                       ; preds = %.thread268.sink.split, %.critedge, %274, %272, %290, %283, %210
+  %.5 = phi i32 [ 0, %.critedge ], [ %277, %274 ], [ 0, %272 ], [ %293, %290 ], [ 0, %283 ], [ 0, %210 ], [ %.5.ph, %.thread268.sink.split ]
   store i8 %90, ptr %89, align 8
   br label %299
 
-299:                                              ; preds = %.thread266, %209, %76
-  %.0222 = phi i32 [ %78, %76 ], [ %.1223, %209 ], [ %.5, %.thread266 ]
-  %.not254 = icmp eq i32 %.0222, 0
-  br i1 %.not254, label %.thread269, label %300
+299:                                              ; preds = %.thread268, %209, %76
+  %.0224 = phi i32 [ %78, %76 ], [ %.1225, %209 ], [ %.5, %.thread268 ]
+  %.not256 = icmp eq i32 %.0224, 0
+  br i1 %.not256, label %.thread271, label %300
 
 300:                                              ; preds = %299
   %301 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %.thread269
+  br label %.thread271
 
-.thread269:                                       ; preds = %79, %215, %299, %300
+.thread271:                                       ; preds = %79, %215, %299, %300
   %.1 = phi i32 [ %301, %300 ], [ 0, %299 ], [ %7, %215 ], [ 0, %79 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   ret i32 %.1

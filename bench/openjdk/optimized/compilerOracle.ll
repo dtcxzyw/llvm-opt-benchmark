@@ -912,7 +912,7 @@ _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit9: ; preds = %25, %
 define internal fastcc noundef zeroext i1 @_ZL15check_predicate18CompileCommandEnumRK12methodHandle(i32 noundef range(i32 2, 10) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 {
   %3 = and i32 %0, 14
   %or.cond = icmp eq i32 %3, 4
-  br i1 %or.cond, label %4, label %55
+  br i1 %or.cond, label %4, label %53
 
 4:                                                ; preds = %2
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 4), align 4
@@ -942,138 +942,134 @@ define internal fastcc noundef zeroext i1 @_ZL15check_predicate18CompileCommandE
 _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i.i: ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48
   %17 = load i8, ptr %16, align 8
+  %18 = trunc i8 %17 to i1
   br label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i
 
 _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i: ; preds = %13, %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i.i, %4
-  %.035.i = phi i8 [ %17, %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i.i ], [ 0, %4 ], [ 0, %13 ]
+  %.035.i = phi i1 [ %18, %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i.i ], [ false, %4 ], [ false, %13 ]
   %.0.i.i = phi i1 [ true, %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i.i ], [ false, %4 ], [ false, %13 ]
-  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 5), align 1
-  %19 = trunc i8 %18 to i1
-  %20 = load ptr, ptr @_ZL11option_list, align 8
-  %.not.i21.i = icmp ne ptr %20, null
-  %or.cond.not.i22.i = select i1 %19, i1 %.not.i21.i, i1 false
-  br i1 %or.cond.not.i22.i, label %.preheader.i24.i, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.thread.i
+  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 5), align 1
+  %20 = trunc i8 %19 to i1
+  %21 = load ptr, ptr @_ZL11option_list, align 8
+  %.not.i23.i = icmp ne ptr %21, null
+  %or.cond.not.i24.i = select i1 %20, i1 %.not.i23.i, i1 false
+  br i1 %or.cond.not.i24.i, label %.preheader.i26.i, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit30.thread.i
 
-.preheader.i24.i:                                 ; preds = %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i, %26
-  %.09.i.i25.i = phi ptr [ %28, %26 ], [ %20, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i ]
-  %21 = getelementptr inbounds nuw i8, ptr %.09.i.i25.i, i64 40
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp eq i32 %22, 5
-  br i1 %23, label %24, label %26
+.preheader.i26.i:                                 ; preds = %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i, %27
+  %.09.i.i27.i = phi ptr [ %29, %27 ], [ %21, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %.09.i.i27.i, i64 40
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp eq i32 %23, 5
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %.preheader.i24.i
-  %25 = tail call noundef zeroext i1 @_ZNK13MethodMatcher7matchesERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(32) %.09.i.i25.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
-  br i1 %25, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.i, label %26
+25:                                               ; preds = %.preheader.i26.i
+  %26 = tail call noundef zeroext i1 @_ZNK13MethodMatcher7matchesERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(32) %.09.i.i27.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
+  br i1 %26, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit30.i, label %27
 
-26:                                               ; preds = %24, %.preheader.i24.i
-  %27 = getelementptr inbounds nuw i8, ptr %.09.i.i25.i, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %.not.i.i26.i = icmp eq ptr %28, null
-  br i1 %.not.i.i26.i, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.thread.i, label %.preheader.i24.i, !llvm.loop !6
+27:                                               ; preds = %25, %.preheader.i26.i
+  %28 = getelementptr inbounds nuw i8, ptr %.09.i.i27.i, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %.not.i.i28.i = icmp eq ptr %29, null
+  br i1 %.not.i.i28.i, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit30.thread.i, label %.preheader.i26.i, !llvm.loop !6
 
-_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.i: ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %.09.i.i25.i, i64 48
-  %30 = load i8, ptr %29, align 8
-  br i1 %.0.i.i, label %31, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.thread.i
+_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit30.i: ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %.09.i.i27.i, i64 48
+  %31 = load i8, ptr %30, align 8
+  br i1 %.0.i.i, label %32, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit30.thread.i
 
-31:                                               ; preds = %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.i
-  %32 = trunc i8 %.035.i to i1
-  br i1 %32, label %33, label %45
+32:                                               ; preds = %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit30.i
+  %33 = trunc i8 %31 to i1
+  %or.cond3.i = select i1 %.035.i, i1 %33, i1 false
+  br i1 %or.cond3.i, label %.preheader.i, label %44
 
-33:                                               ; preds = %31
-  %34 = trunc i8 %30 to i1
-  br i1 %34, label %.preheader.i, label %45
+.preheader.i:                                     ; preds = %32
+  %.043.i = load ptr, ptr @_ZL11option_list, align 8
+  %.not44.i = icmp eq ptr %.043.i, null
+  br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %33
-  %.045.i = load ptr, ptr @_ZL11option_list, align 8
-  %.not46.i = icmp eq ptr %.045.i, null
-  br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %41
+  %.045.i = phi ptr [ %.0.i, %41 ], [ %.043.i, %.preheader.i ]
+  %34 = getelementptr inbounds nuw i8, ptr %.045.i, i64 40
+  %35 = load i32, ptr %34, align 8
+  %36 = and i32 %35, -2
+  %or.cond5.i = icmp eq i32 %36, 4
+  br i1 %or.cond5.i, label %37, label %41
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %42
-  %.047.i = phi ptr [ %.0.i, %42 ], [ %.045.i, %.preheader.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %.047.i, i64 40
-  %36 = load i32, ptr %35, align 8
-  %37 = and i32 %36, -2
-  %or.cond.i = icmp eq i32 %37, 4
-  br i1 %or.cond.i, label %38, label %42
+37:                                               ; preds = %.lr.ph.i
+  %38 = tail call noundef zeroext i1 @_ZNK13MethodMatcher7matchesERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(32) %.045.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %.lr.ph.i
-  %39 = tail call noundef zeroext i1 @_ZNK13MethodMatcher7matchesERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(32) %.047.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
-  br i1 %39, label %40, label %42
-
-40:                                               ; preds = %38
-  %41 = icmp eq i32 %36, %0
+39:                                               ; preds = %37
+  %40 = icmp eq i32 %35, %0
   br label %_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit
 
-42:                                               ; preds = %38, %.lr.ph.i
-  %43 = getelementptr inbounds nuw i8, ptr %.047.i, i64 32
-  %.0.i = load ptr, ptr %43, align 8
+41:                                               ; preds = %37, %.lr.ph.i
+  %42 = getelementptr inbounds nuw i8, ptr %.045.i, i64 32
+  %.0.i = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %42, %.preheader.i
-  %44 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %44, align 1
+._crit_edge.i:                                    ; preds = %41, %.preheader.i
+  %43 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %43, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.10, i32 noundef 391) #20
   unreachable
 
-45:                                               ; preds = %33, %31
-  %46 = icmp eq i32 %0, 4
-  %.v.i = select i1 %46, i8 %.035.i, i8 %30
-  %47 = trunc i8 %.v.i to i1
+44:                                               ; preds = %32
+  %45 = icmp eq i32 %0, 4
+  %46 = select i1 %45, i1 %.035.i, i1 %33
   br label %_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit
 
-_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.thread.i: ; preds = %26, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.i, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i
-  %.0.i2342.i = phi i1 [ true, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.i ], [ false, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i ], [ false, %26 ]
-  %.03441.i = phi i8 [ %30, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.i ], [ 0, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i ], [ 0, %26 ]
-  %48 = icmp eq i32 %0, 4
-  br i1 %48, label %49, label %52
+_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit30.thread.i: ; preds = %27, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit30.i, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i
+  %.0.i2540.i = phi i1 [ true, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit30.i ], [ false, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i ], [ false, %27 ]
+  %.03439.i = phi i8 [ %31, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit30.i ], [ 0, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i ], [ 0, %27 ]
+  %47 = icmp eq i32 %0, 4
+  br i1 %47, label %48, label %50
 
-49:                                               ; preds = %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.thread.i
-  %50 = trunc i8 %.035.i to i1
-  %51 = select i1 %.0.i.i, i1 %50, i1 false
+48:                                               ; preds = %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit30.thread.i
+  %49 = select i1 %.0.i.i, i1 %.035.i, i1 false
   br label %_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit
 
-52:                                               ; preds = %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.thread.i
-  %53 = trunc i8 %.03441.i to i1
-  %54 = select i1 %.0.i2342.i, i1 %53, i1 false
+50:                                               ; preds = %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit30.thread.i
+  %51 = trunc i8 %.03439.i to i1
+  %52 = select i1 %.0.i2540.i, i1 %51, i1 false
   br label %_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit
 
-55:                                               ; preds = %2
-  %56 = zext nneg i32 %0 to i64
-  %57 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %56
-  %58 = load i8, ptr %57, align 1
-  %59 = trunc i8 %58 to i1
-  %60 = load ptr, ptr @_ZL11option_list, align 8
-  %.not.i8 = icmp ne ptr %60, null
-  %or.cond.not.i = select i1 %59, i1 %.not.i8, i1 false
+53:                                               ; preds = %2
+  %54 = zext nneg i32 %0 to i64
+  %55 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %54
+  %56 = load i8, ptr %55, align 1
+  %57 = trunc i8 %56 to i1
+  %58 = load ptr, ptr @_ZL11option_list, align 8
+  %.not.i8 = icmp ne ptr %58, null
+  %or.cond.not.i = select i1 %57, i1 %.not.i8, i1 false
   br i1 %or.cond.not.i, label %.preheader.i10, label %_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit
 
-.preheader.i10:                                   ; preds = %55, %66
-  %.09.i.i = phi ptr [ %68, %66 ], [ %60, %55 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 40
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp eq i32 %62, %0
-  br i1 %63, label %64, label %66
+.preheader.i10:                                   ; preds = %53, %64
+  %.09.i.i = phi ptr [ %66, %64 ], [ %58, %53 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 40
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp eq i32 %60, %0
+  br i1 %61, label %62, label %64
 
-64:                                               ; preds = %.preheader.i10
-  %65 = tail call noundef zeroext i1 @_ZNK13MethodMatcher7matchesERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(32) %.09.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
-  br i1 %65, label %69, label %66
+62:                                               ; preds = %.preheader.i10
+  %63 = tail call noundef zeroext i1 @_ZNK13MethodMatcher7matchesERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(32) %.09.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1) #19
+  br i1 %63, label %67, label %64
 
-66:                                               ; preds = %64, %.preheader.i10
-  %67 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 32
-  %68 = load ptr, ptr %67, align 8
-  %.not.i.i11 = icmp eq ptr %68, null
+64:                                               ; preds = %62, %.preheader.i10
+  %65 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 32
+  %66 = load ptr, ptr %65, align 8
+  %.not.i.i11 = icmp eq ptr %66, null
   br i1 %.not.i.i11, label %_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit, label %.preheader.i10, !llvm.loop !6
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 48
-  %71 = load i8, ptr %70, align 8
-  %72 = trunc i8 %71 to i1
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 48
+  %69 = load i8, ptr %68, align 8
+  %70 = trunc i8 %69 to i1
   br label %_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit
 
-_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %66, %55, %52, %49, %45, %40, %69
-  %.0 = phi i1 [ %72, %69 ], [ %41, %40 ], [ %47, %45 ], [ %51, %49 ], [ %54, %52 ], [ false, %55 ], [ false, %66 ]
+_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %64, %53, %50, %48, %44, %39, %67
+  %.0 = phi i1 [ %70, %67 ], [ %40, %39 ], [ %46, %44 ], [ %49, %48 ], [ %52, %50 ], [ false, %53 ], [ false, %64 ]
   ret i1 %.0
 }
 
@@ -2149,238 +2145,197 @@ declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %0, i32 noundef range(i32 41, 40) %1, i1 noundef zeroext %2) unnamed_addr #2 {
-  switch i32 %1, label %.split [
-    i32 2, label %4
-    i32 6, label %24
-  ]
-
-4:                                                ; preds = %3
+  %4 = icmp ne i32 %1, 2
   %5 = load i8, ptr @LogCompilation, align 1
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %.split.thread, label %7
+  %or.cond = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond, label %14, label %.thread14
 
-7:                                                ; preds = %4
+.thread14:                                        ; preds = %3
+  %7 = load ptr, ptr @tty, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.134) #19
   %8 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.134) #19
-  %9 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.135) #19
-  br label %.split.thread
-
-.split.thread:                                    ; preds = %4, %7
-  %10 = load ptr, ptr @_ZL11option_list, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 2, ptr %12, align 8
-  %13 = zext i1 %2 to i8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %13, ptr %14, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.135) #19
+  %9 = load ptr, ptr @_ZL11option_list, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 2, ptr %11, align 8
+  %12 = zext i1 %2 to i8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 %12, ptr %13, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   br label %_ZL21command_set_in_filter18CompileCommandEnum.exit
 
-.split:                                           ; preds = %3
-  %15 = load ptr, ptr @_ZL11option_list, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %1, ptr %17, align 8
-  %18 = zext i1 %2 to i8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %18, ptr %19, align 8
-  store ptr %0, ptr @_ZL11option_list, align 8
-  %20 = and i32 %1, -2
-  %switch = icmp eq i32 %20, 4
-  br i1 %switch, label %_ZL21command_set_in_filter18CompileCommandEnum.exit, label %21
+14:                                               ; preds = %3
+  %15 = icmp ne i32 %1, 6
+  %16 = load i8, ptr @UnlockExperimentalVMOptions, align 1
+  %17 = trunc i8 %16 to i1
+  %or.cond3 = select i1 %15, i1 true, i1 %17
+  br i1 %or.cond3, label %30, label %18
 
-21:                                               ; preds = %.split
-  store i1 true, ptr @_ZL7any_set, align 1
-  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit
-
-_ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.thread, %21
-  %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %22
-  store i8 1, ptr %23, align 1
-  br label %44
-
-24:                                               ; preds = %3
-  %25 = load i8, ptr @UnlockExperimentalVMOptions, align 1
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %.split10, label %32
-
-.split10:                                         ; preds = %24
-  %27 = load ptr, ptr @_ZL11option_list, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 6, ptr %29, align 8
-  %30 = zext i1 %2 to i8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %30, ptr %31, align 8
-  store ptr %0, ptr @_ZL11option_list, align 8
-  store i1 true, ptr @_ZL7any_set, align 1
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 6), align 2
-  br label %44
-
-32:                                               ; preds = %24
+18:                                               ; preds = %14
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.136) #19
-  %33 = icmp eq ptr %0, null
-  br i1 %33, label %53, label %34
+  %19 = icmp eq ptr %0, null
+  br i1 %19, label %46, label %20
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load i32, ptr %35, align 8
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %37
-  %39 = load i32, ptr %38, align 4
-  %40 = add i32 %39, -3
-  %or.cond.i = icmp ult i32 %40, 2
-  br i1 %or.cond.i, label %41, label %_ZN24TypedMethodOptionMatcherD2Ev.exit
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load i32, ptr %21, align 8
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %23
+  %25 = load i32, ptr %24, align 4
+  %26 = add i32 %25, -3
+  %or.cond.i = icmp ult i32 %26, 2
+  br i1 %or.cond.i, label %27, label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
-41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %43 = load ptr, ptr %42, align 8
-  tail call void @_ZN2os4freeEPv(ptr noundef %43) #19
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %29 = load ptr, ptr %28, align 8
+  tail call void @_ZN2os4freeEPv(ptr noundef %29) #19
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
-_ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %34, %41
+_ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %20, %27
   tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #19
-  br label %53
+  br label %46
 
-44:                                               ; preds = %.split10, %_ZL21command_set_in_filter18CompileCommandEnum.exit
-  %45 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %53, label %47
+30:                                               ; preds = %14
+  %31 = load ptr, ptr @_ZL11option_list, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %31, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %1, ptr %33, align 8
+  %34 = zext i1 %2 to i8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 %34, ptr %35, align 8
+  store ptr %0, ptr @_ZL11option_list, align 8
+  switch i32 %1, label %36 [
+    i32 5, label %_ZL21command_set_in_filter18CompileCommandEnum.exit
+    i32 4, label %_ZL21command_set_in_filter18CompileCommandEnum.exit
+    i32 2, label %_ZL21command_set_in_filter18CompileCommandEnum.exit
+  ]
 
-47:                                               ; preds = %44
-  %48 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
-  %49 = load ptr, ptr @tty, align 8
-  %50 = sext i32 %1 to i64
-  %51 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull @.str.137, ptr noundef %52) #19
+36:                                               ; preds = %30
+  store i1 true, ptr @_ZL7any_set, align 1
+  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit
+
+_ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.thread14, %30, %30, %30, %36
+  %37 = sext i32 %1 to i64
+  %38 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %37
+  store i8 1, ptr %38, align 1
+  %39 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %46, label %41
+
+41:                                               ; preds = %_ZL21command_set_in_filter18CompileCommandEnum.exit
+  %42 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
+  %43 = load ptr, ptr @tty, align 8
+  %44 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %37
+  %45 = load ptr, ptr %44, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %43, ptr noundef nonnull @.str.137, ptr noundef %45) #19
   tail call void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  tail call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %48) #19
-  br label %53
+  tail call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %42) #19
+  br label %46
 
-53:                                               ; preds = %44, %47, %32, %_ZN24TypedMethodOptionMatcherD2Ev.exit
+46:                                               ; preds = %_ZL21command_set_in_filter18CompileCommandEnum.exit, %41, %18, %_ZN24TypedMethodOptionMatcherD2Ev.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL16register_commandImEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %0, i32 noundef range(i32 41, 40) %1, i64 noundef %2) unnamed_addr #2 {
-  switch i32 %1, label %.split [
-    i32 2, label %4
-    i32 6, label %22
-  ]
-
-4:                                                ; preds = %3
+  %4 = icmp ne i32 %1, 2
   %5 = load i8, ptr @LogCompilation, align 1
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %.split.thread, label %7
+  %or.cond = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond, label %13, label %.thread14
 
-7:                                                ; preds = %4
+.thread14:                                        ; preds = %3
+  %7 = load ptr, ptr @tty, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.134) #19
   %8 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.134) #19
-  %9 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.135) #19
-  br label %.split.thread
-
-.split.thread:                                    ; preds = %4, %7
-  %10 = load ptr, ptr @_ZL11option_list, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 2, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %2, ptr %13, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.135) #19
+  %9 = load ptr, ptr @_ZL11option_list, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 2, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %2, ptr %12, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   br label %_ZL21command_set_in_filter18CompileCommandEnum.exit
 
-.split:                                           ; preds = %3
-  %14 = load ptr, ptr @_ZL11option_list, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %1, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %2, ptr %17, align 8
-  store ptr %0, ptr @_ZL11option_list, align 8
-  %18 = and i32 %1, -2
-  %switch = icmp eq i32 %18, 4
-  br i1 %switch, label %_ZL21command_set_in_filter18CompileCommandEnum.exit, label %19
+13:                                               ; preds = %3
+  %14 = icmp ne i32 %1, 6
+  %15 = load i8, ptr @UnlockExperimentalVMOptions, align 1
+  %16 = trunc i8 %15 to i1
+  %or.cond3 = select i1 %14, i1 true, i1 %16
+  br i1 %or.cond3, label %29, label %17
 
-19:                                               ; preds = %.split
-  store i1 true, ptr @_ZL7any_set, align 1
-  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit
-
-_ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.thread, %19
-  %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %20
-  store i8 1, ptr %21, align 1
-  br label %41
-
-22:                                               ; preds = %3
-  %23 = load i8, ptr @UnlockExperimentalVMOptions, align 1
-  %24 = trunc i8 %23 to i1
-  br i1 %24, label %.split10, label %29
-
-.split10:                                         ; preds = %22
-  %25 = load ptr, ptr @_ZL11option_list, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 6, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %2, ptr %28, align 8
-  store ptr %0, ptr @_ZL11option_list, align 8
-  store i1 true, ptr @_ZL7any_set, align 1
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 6), align 2
-  br label %41
-
-29:                                               ; preds = %22
+17:                                               ; preds = %13
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.136) #19
-  %30 = icmp eq ptr %0, null
-  br i1 %30, label %50, label %31
+  %18 = icmp eq ptr %0, null
+  br i1 %18, label %44, label %19
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = load i32, ptr %32, align 8
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %34
-  %36 = load i32, ptr %35, align 4
-  %37 = add i32 %36, -3
-  %or.cond.i = icmp ult i32 %37, 2
-  br i1 %or.cond.i, label %38, label %_ZN24TypedMethodOptionMatcherD2Ev.exit
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %21 = load i32, ptr %20, align 8
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %22
+  %24 = load i32, ptr %23, align 4
+  %25 = add i32 %24, -3
+  %or.cond.i = icmp ult i32 %25, 2
+  br i1 %or.cond.i, label %26, label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
-38:                                               ; preds = %31
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %40 = load ptr, ptr %39, align 8
-  tail call void @_ZN2os4freeEPv(ptr noundef %40) #19
+26:                                               ; preds = %19
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %28 = load ptr, ptr %27, align 8
+  tail call void @_ZN2os4freeEPv(ptr noundef %28) #19
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
-_ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %31, %38
+_ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %19, %26
   tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #19
-  br label %50
+  br label %44
 
-41:                                               ; preds = %.split10, %_ZL21command_set_in_filter18CompileCommandEnum.exit
-  %42 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
-  %43 = trunc i8 %42 to i1
-  br i1 %43, label %50, label %44
+29:                                               ; preds = %13
+  %30 = load ptr, ptr @_ZL11option_list, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %30, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %1, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %2, ptr %33, align 8
+  store ptr %0, ptr @_ZL11option_list, align 8
+  switch i32 %1, label %34 [
+    i32 5, label %_ZL21command_set_in_filter18CompileCommandEnum.exit
+    i32 4, label %_ZL21command_set_in_filter18CompileCommandEnum.exit
+    i32 2, label %_ZL21command_set_in_filter18CompileCommandEnum.exit
+  ]
 
-44:                                               ; preds = %41
-  %45 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
-  %46 = load ptr, ptr @tty, align 8
-  %47 = sext i32 %1 to i64
-  %48 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef nonnull @.str.137, ptr noundef %49) #19
+34:                                               ; preds = %29
+  store i1 true, ptr @_ZL7any_set, align 1
+  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit
+
+_ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.thread14, %29, %29, %29, %34
+  %35 = sext i32 %1 to i64
+  %36 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %35
+  store i8 1, ptr %36, align 1
+  %37 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %44, label %39
+
+39:                                               ; preds = %_ZL21command_set_in_filter18CompileCommandEnum.exit
+  %40 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
+  %41 = load ptr, ptr @tty, align 8
+  %42 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %35
+  %43 = load ptr, ptr %42, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %41, ptr noundef nonnull @.str.137, ptr noundef %43) #19
   tail call void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  tail call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %45) #19
-  br label %50
+  tail call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %40) #19
+  br label %44
 
-50:                                               ; preds = %41, %44, %29, %_ZN24TypedMethodOptionMatcherD2Ev.exit
+44:                                               ; preds = %_ZL21command_set_in_filter18CompileCommandEnum.exit, %39, %17, %_ZN24TypedMethodOptionMatcherD2Ev.exit
   ret void
 }
 
@@ -2412,13 +2367,13 @@ define internal fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOption
   %26 = load i32, ptr %2, align 4
   %27 = add nsw i32 %26, %23
   store i32 %27, ptr %2, align 4
-  switch i32 %0, label %319 [
+  switch i32 %0, label %310 [
     i32 0, label %28
-    i32 1, label %131
-    i32 3, label %150
-    i32 4, label %180
-    i32 2, label %240
-    i32 5, label %265
+    i32 1, label %127
+    i32 3, label %146
+    i32 4, label %176
+    i32 2, label %236
+    i32 5, label %261
   ]
 
 28:                                               ; preds = %6
@@ -2529,7 +2484,7 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i.i:      ; preds = %54
   store i32 %65, ptr %9, align 4
   %66 = load i8, ptr %.014.i, align 1
   %.not.i = icmp eq i8 %66, 0
-  br i1 %.not.i, label %.thread, label %67
+  br i1 %.not.i, label %.thread155, label %67
 
 67:                                               ; preds = %61
   %68 = call i32 @strncasecmp(ptr noundef nonnull %.014.i, ptr noundef nonnull @.str.131, i64 noundef 6) #21
@@ -2550,538 +2505,507 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i.i:      ; preds = %54
   %.0.ph.i = phi i64 [ %71, %70 ], [ %.015.i, %72 ]
   %75 = add nsw i32 %.sink19.i, %65
   store i32 %75, ptr %9, align 4
-  br label %.thread
+  br label %.thread155
 
-.thread:                                          ; preds = %.sink.split.i, %61
+.thread155:                                       ; preds = %.sink.split.i, %61
   %76 = phi i32 [ %65, %61 ], [ %75, %.sink.split.i ]
   %.0.i = phi i64 [ %.015.i, %61 ], [ %.0.ph.i, %.sink.split.i ]
   store i64 %.0.i, ptr %10, align 8
   %77 = load i32, ptr %2, align 4
   %78 = add nsw i32 %77, %76
   store i32 %78, ptr %2, align 4
-  br label %.split.i
+  %79 = load ptr, ptr @_ZL11option_list, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %79, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i32 %4, ptr %81, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 %.0.i, ptr %82, align 8
+  store ptr %3, ptr @_ZL11option_list, align 8
+  br label %118
 
 _ZL13parseMemLimitPKcRlRiPci.exit:                ; preds = %28
-  %79 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %25, ptr noundef nonnull @.str.119, ptr noundef nonnull %10, ptr noundef nonnull %9) #19
-  %80 = icmp eq i32 %79, 1
-  br i1 %80, label %81, label %_ZL13parseMemLimitPKcRlRiPci.exit.thread
+  %83 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %25, ptr noundef nonnull @.str.119, ptr noundef nonnull %10, ptr noundef nonnull %9) #19
+  %84 = icmp eq i32 %83, 1
+  br i1 %84, label %85, label %_ZL13parseMemLimitPKcRlRiPci.exit.thread
 
-81:                                               ; preds = %_ZL13parseMemLimitPKcRlRiPci.exit
-  %82 = load i32, ptr %9, align 4
-  %83 = load i32, ptr %2, align 4
-  %84 = add nsw i32 %83, %82
-  store i32 %84, ptr %2, align 4
-  %85 = load i64, ptr %10, align 8
-  switch i32 %4, label %.split.i [
-    i32 2, label %86
-    i32 6, label %104
-  ]
+85:                                               ; preds = %_ZL13parseMemLimitPKcRlRiPci.exit
+  %.pre150 = load i32, ptr %9, align 4
+  %.pre151 = load i64, ptr %10, align 8
+  %86 = load i32, ptr %2, align 4
+  %87 = add nsw i32 %86, %.pre150
+  store i32 %87, ptr %2, align 4
+  %88 = icmp ne i32 %4, 2
+  %89 = load i8, ptr @LogCompilation, align 1
+  %90 = trunc i8 %89 to i1
+  %or.cond.i = select i1 %88, i1 true, i1 %90
+  br i1 %or.cond.i, label %97, label %.thread14.i
 
-86:                                               ; preds = %81
-  %87 = load i8, ptr @LogCompilation, align 1
-  %88 = trunc i8 %87 to i1
-  br i1 %88, label %.split.thread.i, label %89
-
-89:                                               ; preds = %86
-  %90 = load ptr, ptr @tty, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %90, ptr noundef nonnull @.str.134) #19
+.thread14.i:                                      ; preds = %85
   %91 = load ptr, ptr @tty, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %91, ptr noundef nonnull @.str.135) #19
-  br label %.split.thread.i
-
-.split.thread.i:                                  ; preds = %89, %86
-  %92 = load ptr, ptr @_ZL11option_list, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %92, ptr %93, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 2, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i64 %85, ptr %95, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %91, ptr noundef nonnull @.str.134) #19
+  %92 = load ptr, ptr @tty, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %92, ptr noundef nonnull @.str.135) #19
+  %93 = load ptr, ptr @_ZL11option_list, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %93, ptr %94, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i32 2, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 %.pre151, ptr %96, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
   br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
 
-.split.i:                                         ; preds = %.thread, %81
-  %96 = phi i64 [ %.0.i, %.thread ], [ %85, %81 ]
-  %97 = load ptr, ptr @_ZL11option_list, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %97, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 %4, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i64 %96, ptr %100, align 8
-  store ptr %3, ptr @_ZL11option_list, align 8
-  %101 = and i32 %4, -2
-  %switch.i = icmp eq i32 %101, 4
-  br i1 %switch.i, label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i, label %102
+97:                                               ; preds = %85
+  %98 = icmp ne i32 %4, 6
+  %99 = load i8, ptr @UnlockExperimentalVMOptions, align 1
+  %100 = trunc i8 %99 to i1
+  %or.cond3.i = select i1 %98, i1 true, i1 %100
+  br i1 %or.cond3.i, label %113, label %101
 
-102:                                              ; preds = %.split.i
-  store i1 true, ptr @_ZL7any_set, align 1
-  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
-
-_ZL21command_set_in_filter18CompileCommandEnum.exit.i: ; preds = %102, %.split.i, %.split.thread.i
-  %103 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %16
-  store i8 1, ptr %103, align 1
-  br label %123
-
-104:                                              ; preds = %81
-  %105 = load i8, ptr @UnlockExperimentalVMOptions, align 1
-  %106 = trunc i8 %105 to i1
-  br i1 %106, label %.split10.i, label %111
-
-.split10.i:                                       ; preds = %104
-  %107 = load ptr, ptr @_ZL11option_list, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %107, ptr %108, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 6, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i64 %85, ptr %110, align 8
-  store ptr %3, ptr @_ZL11option_list, align 8
-  store i1 true, ptr @_ZL7any_set, align 1
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 6), align 2
-  br label %123
-
-111:                                              ; preds = %104
+101:                                              ; preds = %97
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.136) #19
-  %112 = icmp eq ptr %3, null
-  br i1 %112, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %113
+  %102 = icmp eq ptr %3, null
+  br i1 %102, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %103
 
-113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %115 = load i32, ptr %114, align 8
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %116
-  %118 = load i32, ptr %117, align 4
-  %119 = add i32 %118, -3
-  %or.cond.i.i95 = icmp ult i32 %119, 2
-  br i1 %or.cond.i.i95, label %120, label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i
+103:                                              ; preds = %101
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %105 = load i32, ptr %104, align 8
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %106
+  %108 = load i32, ptr %107, align 4
+  %109 = add i32 %108, -3
+  %or.cond.i.i95 = icmp ult i32 %109, 2
+  br i1 %or.cond.i.i95, label %110, label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i
 
-120:                                              ; preds = %113
-  %121 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %122 = load ptr, ptr %121, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %122) #19
+110:                                              ; preds = %103
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %112 = load ptr, ptr %111, align 8
+  call void @_ZN2os4freeEPv(ptr noundef %112) #19
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i
 
-_ZN24TypedMethodOptionMatcherD2Ev.exit.i:         ; preds = %120, %113
+_ZN24TypedMethodOptionMatcherD2Ev.exit.i:         ; preds = %110, %103
   call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #19
   call void @_Z8FreeHeapPv(ptr noundef nonnull %3) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-123:                                              ; preds = %.split10.i, %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
-  %124 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
-  %125 = trunc i8 %124 to i1
-  br i1 %125, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %126
+113:                                              ; preds = %97
+  %114 = load ptr, ptr @_ZL11option_list, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %114, ptr %115, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i32 %4, ptr %116, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 %.pre151, ptr %117, align 8
+  store ptr %3, ptr @_ZL11option_list, align 8
+  switch i32 %4, label %118 [
+    i32 5, label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
+    i32 4, label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
+    i32 2, label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
+  ]
 
-126:                                              ; preds = %123
-  %127 = call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
-  %128 = load ptr, ptr @tty, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %128, ptr noundef nonnull @.str.137, ptr noundef %18) #19
+118:                                              ; preds = %.thread155, %113
+  store i1 true, ptr @_ZL7any_set, align 1
+  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
+
+_ZL21command_set_in_filter18CompileCommandEnum.exit.i: ; preds = %118, %113, %113, %113, %.thread14.i
+  %119 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %16
+  store i8 1, ptr %119, align 1
+  %120 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
+  %121 = trunc i8 %120 to i1
+  br i1 %121, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %122
+
+122:                                              ; preds = %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
+  %123 = call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
+  %124 = load ptr, ptr @tty, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %124, ptr noundef nonnull @.str.137, ptr noundef %18) #19
   call void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %127) #19
+  call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %123) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
 _ZL13parseMemLimitPKcRlRiPci.exit.thread.sink.split: ; preds = %72, %60
   %.str.130.sink = phi ptr [ @.str.130, %60 ], [ @.str.133, %72 ]
-  %129 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull %.str.130.sink) #19
+  %125 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull %.str.130.sink) #19
   br label %_ZL13parseMemLimitPKcRlRiPci.exit.thread
 
 _ZL13parseMemLimitPKcRlRiPci.exit.thread:         ; preds = %_ZL13parseMemLimitPKcRlRiPci.exit.thread.sink.split, %_ZL13parseMemLimitPKcRlRiPci.exit
-  %130 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+  %126 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-131:                                              ; preds = %6
-  %132 = icmp eq i32 %4, 13
-  br i1 %132, label %133, label %_ZL12parseMemStatPKcRmRiPci.exit
+127:                                              ; preds = %6
+  %128 = icmp eq i32 %4, 13
+  br i1 %128, label %129, label %_ZL12parseMemStatPKcRmRiPci.exit
 
-133:                                              ; preds = %131
-  %134 = call i32 @strncasecmp(ptr noundef readonly %25, ptr noundef nonnull @.str.138, i64 noundef 7) #21
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %136, label %137
+129:                                              ; preds = %127
+  %130 = call i32 @strncasecmp(ptr noundef readonly %25, ptr noundef nonnull @.str.138, i64 noundef 7) #21
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %132, label %133
 
-136:                                              ; preds = %133
+132:                                              ; preds = %129
   store i32 7, ptr %9, align 4
   store i64 1, ptr %11, align 8
   br label %_ZL12parseMemStatPKcRmRiPci.exit.thread
 
-137:                                              ; preds = %133
-  %138 = call i32 @strncasecmp(ptr noundef readonly %25, ptr noundef nonnull @.str.32, i64 noundef 5) #21
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %140, label %_ZL12parseMemStatPKcRmRiPci.exit.thread144
+133:                                              ; preds = %129
+  %134 = call i32 @strncasecmp(ptr noundef readonly %25, ptr noundef nonnull @.str.32, i64 noundef 5) #21
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %136, label %_ZL12parseMemStatPKcRmRiPci.exit.thread143
 
-140:                                              ; preds = %137
+136:                                              ; preds = %133
   store i32 5, ptr %9, align 4
   store i64 2, ptr %11, align 8
   store i1 true, ptr @_ZL26print_final_memstat_report, align 1
   br label %_ZL12parseMemStatPKcRmRiPci.exit.thread
 
-_ZL12parseMemStatPKcRmRiPci.exit.thread144:       ; preds = %137
-  %141 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.139) #19
-  br label %148
+_ZL12parseMemStatPKcRmRiPci.exit.thread143:       ; preds = %133
+  %137 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.139) #19
+  br label %144
 
-_ZL12parseMemStatPKcRmRiPci.exit:                 ; preds = %131
-  %142 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %25, ptr noundef nonnull @.str.121, ptr noundef nonnull %11, ptr noundef nonnull %9) #19
-  %143 = icmp eq i32 %142, 1
-  br i1 %143, label %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge, label %148
+_ZL12parseMemStatPKcRmRiPci.exit:                 ; preds = %127
+  %138 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %25, ptr noundef nonnull @.str.121, ptr noundef nonnull %11, ptr noundef nonnull %9) #19
+  %139 = icmp eq i32 %138, 1
+  br i1 %139, label %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge, label %144
 
 _ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge: ; preds = %_ZL12parseMemStatPKcRmRiPci.exit
   %.pre = load i32, ptr %9, align 4
-  %.pre149 = load i32, ptr %2, align 4
-  %.pre150 = load i64, ptr %11, align 8
+  %.pre148 = load i32, ptr %2, align 4
+  %.pre149 = load i64, ptr %11, align 8
   br label %_ZL12parseMemStatPKcRmRiPci.exit.thread
 
-_ZL12parseMemStatPKcRmRiPci.exit.thread:          ; preds = %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge, %140, %136
-  %144 = phi i64 [ %.pre150, %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge ], [ 2, %140 ], [ 1, %136 ]
-  %145 = phi i32 [ %.pre149, %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge ], [ %27, %140 ], [ %27, %136 ]
-  %146 = phi i32 [ %.pre, %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge ], [ 5, %140 ], [ 7, %136 ]
-  %147 = add nsw i32 %145, %146
-  store i32 %147, ptr %2, align 4
-  call fastcc void @_ZL16register_commandImEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %3, i32 noundef %4, i64 noundef %144)
+_ZL12parseMemStatPKcRmRiPci.exit.thread:          ; preds = %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge, %136, %132
+  %140 = phi i64 [ %.pre149, %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge ], [ 2, %136 ], [ 1, %132 ]
+  %141 = phi i32 [ %.pre148, %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge ], [ %27, %136 ], [ %27, %132 ]
+  %142 = phi i32 [ %.pre, %_ZL12parseMemStatPKcRmRiPci.exit._ZL12parseMemStatPKcRmRiPci.exit.thread_crit_edge ], [ 5, %136 ], [ 7, %132 ]
+  %143 = add nsw i32 %141, %142
+  store i32 %143, ptr %2, align 4
+  call fastcc void @_ZL16register_commandImEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %3, i32 noundef %4, i64 noundef %140)
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-148:                                              ; preds = %_ZL12parseMemStatPKcRmRiPci.exit.thread144, %_ZL12parseMemStatPKcRmRiPci.exit
-  %149 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+144:                                              ; preds = %_ZL12parseMemStatPKcRmRiPci.exit.thread143, %_ZL12parseMemStatPKcRmRiPci.exit
+  %145 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-150:                                              ; preds = %6
-  %151 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+146:                                              ; preds = %6
+  %147 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %148 = load ptr, ptr %147, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 800
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 800
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %154, i64 32
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %162 = load i64, ptr %161, align 8
-  %163 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #21
-  %164 = add i64 %163, 1
-  %165 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %164, i32 noundef 0) #19
-  %166 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %25, ptr noundef nonnull @.str.122, ptr noundef %165, ptr noundef nonnull %9) #19
-  %167 = icmp eq i32 %166, 1
-  br i1 %167, label %168, label %172
+  %157 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %158 = load i64, ptr %157, align 8
+  %159 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #21
+  %160 = add i64 %159, 1
+  %161 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %160, i32 noundef 0) #19
+  %162 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %25, ptr noundef nonnull @.str.122, ptr noundef %161, ptr noundef nonnull %9) #19
+  %163 = icmp eq i32 %162, 1
+  br i1 %163, label %164, label %168
 
-168:                                              ; preds = %150
-  %169 = load i32, ptr %9, align 4
-  %170 = load i32, ptr %2, align 4
-  %171 = add nsw i32 %170, %169
-  store i32 %171, ptr %2, align 4
-  call fastcc void @_ZL16register_commandIPKcEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %3, i32 noundef %4, ptr noundef %165)
-  br label %174
+164:                                              ; preds = %146
+  %165 = load i32, ptr %9, align 4
+  %166 = load i32, ptr %2, align 4
+  %167 = add nsw i32 %166, %165
+  store i32 %167, ptr %2, align 4
+  call fastcc void @_ZL16register_commandIPKcEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %3, i32 noundef %4, ptr noundef %161)
+  br label %170
 
-172:                                              ; preds = %150
-  %173 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
-  br label %174
+168:                                              ; preds = %146
+  %169 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+  br label %170
 
-174:                                              ; preds = %172, %168
-  %175 = load ptr, ptr %156, align 8
-  %.not.i.i.i.i = icmp eq ptr %175, null
-  br i1 %.not.i.i.i.i, label %177, label %176
+170:                                              ; preds = %168, %164
+  %171 = load ptr, ptr %152, align 8
+  %.not.i.i.i.i = icmp eq ptr %171, null
+  br i1 %.not.i.i.i.i, label %173, label %172
 
-176:                                              ; preds = %174
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %154, i64 noundef %162) #19
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %156) #19
-  br label %177
+172:                                              ; preds = %170
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %150, i64 noundef %158) #19
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %152) #19
+  br label %173
 
-177:                                              ; preds = %176, %174
-  %178 = load ptr, ptr %157, align 8
-  %.not8.i.i.i.i = icmp eq ptr %178, %158
-  br i1 %.not8.i.i.i.i, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %179
+173:                                              ; preds = %172, %170
+  %174 = load ptr, ptr %153, align 8
+  %.not8.i.i.i.i = icmp eq ptr %174, %154
+  br i1 %.not8.i.i.i.i, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %175
 
-179:                                              ; preds = %177
+175:                                              ; preds = %173
+  store ptr %152, ptr %151, align 8
+  store ptr %154, ptr %153, align 8
   store ptr %156, ptr %155, align 8
-  store ptr %158, ptr %157, align 8
-  store ptr %160, ptr %159, align 8
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-180:                                              ; preds = %6
-  %181 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+176:                                              ; preds = %6
+  %177 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 800
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 800
+  %183 = getelementptr inbounds nuw i8, ptr %180, i64 32
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %180, i64 40
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %184, i64 32
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %184, i64 40
-  %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %192 = load i64, ptr %191, align 8
-  %193 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #21
-  %194 = add i64 %193, 1
-  %195 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %194, i32 noundef 0) #19
-  %196 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %25, ptr noundef nonnull @.str.123, ptr noundef %195, ptr noundef nonnull %9) #19
-  %197 = icmp eq i32 %196, 1
-  br i1 %197, label %198, label %232
+  %187 = getelementptr inbounds nuw i8, ptr %180, i64 8
+  %188 = load i64, ptr %187, align 8
+  %189 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #21
+  %190 = add i64 %189, 1
+  %191 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %190, i32 noundef 0) #19
+  %192 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %25, ptr noundef nonnull @.str.123, ptr noundef %191, ptr noundef nonnull %9) #19
+  %193 = icmp eq i32 %192, 1
+  br i1 %193, label %194, label %228
 
-198:                                              ; preds = %180
-  %199 = load i32, ptr %9, align 4
-  %200 = load i32, ptr %2, align 4
-  %201 = add nsw i32 %200, %199
-  store i32 %201, ptr %2, align 4
-  %202 = sext i32 %199 to i64
-  %203 = getelementptr inbounds i8, ptr %25, i64 %202
-  %204 = getelementptr i8, ptr %195, i64 %202
-  %205 = getelementptr i8, ptr %204, i64 1
-  %206 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %203, ptr noundef nonnull @.str.124, ptr noundef %205, ptr noundef nonnull %9) #19
-  %207 = icmp eq i32 %206, 1
-  br i1 %207, label %.lr.ph, label %._crit_edge
+194:                                              ; preds = %176
+  %195 = load i32, ptr %9, align 4
+  %196 = load i32, ptr %2, align 4
+  %197 = add nsw i32 %196, %195
+  store i32 %197, ptr %2, align 4
+  %198 = sext i32 %195 to i64
+  %199 = getelementptr inbounds i8, ptr %25, i64 %198
+  %200 = getelementptr i8, ptr %191, i64 %198
+  %201 = getelementptr i8, ptr %200, i64 1
+  %202 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %199, ptr noundef nonnull @.str.124, ptr noundef %201, ptr noundef nonnull %9) #19
+  %203 = icmp eq i32 %202, 1
+  br i1 %203, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %198, %.lr.ph
-  %.0148 = phi ptr [ %216, %.lr.ph ], [ %204, %198 ]
-  %.091147 = phi ptr [ %215, %.lr.ph ], [ %205, %198 ]
-  %.0139146 = phi ptr [ %212, %.lr.ph ], [ %203, %198 ]
-  %208 = load i32, ptr %9, align 4
-  %209 = load i32, ptr %2, align 4
-  %210 = add nsw i32 %209, %208
-  store i32 %210, ptr %2, align 4
-  %211 = sext i32 %208 to i64
-  %212 = getelementptr inbounds i8, ptr %.0139146, i64 %211
-  store i8 32, ptr %.0148, align 1
-  %213 = load i32, ptr %9, align 4
-  %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds i8, ptr %.091147, i64 %214
-  %216 = getelementptr inbounds i8, ptr %215, i64 -1
-  %217 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %212, ptr noundef nonnull @.str.124, ptr noundef %215, ptr noundef nonnull %9) #19
-  %218 = icmp eq i32 %217, 1
-  br i1 %218, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+.lr.ph:                                           ; preds = %194, %.lr.ph
+  %.0147 = phi ptr [ %212, %.lr.ph ], [ %200, %194 ]
+  %.091146 = phi ptr [ %211, %.lr.ph ], [ %201, %194 ]
+  %.0138145 = phi ptr [ %208, %.lr.ph ], [ %199, %194 ]
+  %204 = load i32, ptr %9, align 4
+  %205 = load i32, ptr %2, align 4
+  %206 = add nsw i32 %205, %204
+  store i32 %206, ptr %2, align 4
+  %207 = sext i32 %204 to i64
+  %208 = getelementptr inbounds i8, ptr %.0138145, i64 %207
+  store i8 32, ptr %.0147, align 1
+  %209 = load i32, ptr %9, align 4
+  %210 = sext i32 %209 to i64
+  %211 = getelementptr inbounds i8, ptr %.091146, i64 %210
+  %212 = getelementptr inbounds i8, ptr %211, i64 -1
+  %213 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %208, ptr noundef nonnull @.str.124, ptr noundef %211, ptr noundef nonnull %9) #19
+  %214 = icmp eq i32 %213, 1
+  br i1 %214, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph, %198
-  %219 = add i32 %4, -29
-  %or.cond = icmp ult i32 %219, 2
-  br i1 %or.cond, label %220, label %_ZN25ControlIntrinsicValidatorD2Ev.exit
+._crit_edge:                                      ; preds = %.lr.ph, %194
+  %215 = add i32 %4, -29
+  %or.cond = icmp ult i32 %215, 2
+  br i1 %or.cond, label %216, label %_ZN25ControlIntrinsicValidatorD2Ev.exit
 
-220:                                              ; preds = %._crit_edge
-  %221 = icmp eq i32 %4, 30
-  call void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %195, i1 noundef zeroext %221)
-  %222 = load i8, ptr %12, align 8
-  %223 = trunc i8 %222 to i1
-  br i1 %223, label %228, label %224
+216:                                              ; preds = %._crit_edge
+  %217 = icmp eq i32 %4, 30
+  call void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %191, i1 noundef zeroext %217)
+  %218 = load i8, ptr %12, align 8
+  %219 = trunc i8 %218 to i1
+  br i1 %219, label %224, label %220
 
-224:                                              ; preds = %220
+220:                                              ; preds = %216
+  %221 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %222 = load ptr, ptr %221, align 8
+  %223 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.125, ptr noundef %18, ptr noundef %222) #19
+  br label %224
+
+224:                                              ; preds = %220, %216
   %225 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %226 = load ptr, ptr %225, align 8
-  %227 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.125, ptr noundef %18, ptr noundef %226) #19
-  br label %228
+  %.not.i97 = icmp eq ptr %226, null
+  br i1 %.not.i97, label %_ZN25ControlIntrinsicValidatorD2Ev.exit, label %227
 
-228:                                              ; preds = %224, %220
-  %229 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %230 = load ptr, ptr %229, align 8
-  %.not.i97 = icmp eq ptr %230, null
-  br i1 %.not.i97, label %_ZN25ControlIntrinsicValidatorD2Ev.exit, label %231
-
-231:                                              ; preds = %228
-  call void @_Z8FreeHeapPv(ptr noundef nonnull %230) #19
+227:                                              ; preds = %224
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %226) #19
   br label %_ZN25ControlIntrinsicValidatorD2Ev.exit
 
-_ZN25ControlIntrinsicValidatorD2Ev.exit:          ; preds = %231, %228, %._crit_edge
-  call fastcc void @_ZL16register_commandIPKcEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %3, i32 noundef %4, ptr noundef %195)
-  br label %234
+_ZN25ControlIntrinsicValidatorD2Ev.exit:          ; preds = %227, %224, %._crit_edge
+  call fastcc void @_ZL16register_commandIPKcEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %3, i32 noundef %4, ptr noundef %191)
+  br label %230
 
-232:                                              ; preds = %180
-  %233 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
-  br label %234
+228:                                              ; preds = %176
+  %229 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+  br label %230
 
-234:                                              ; preds = %232, %_ZN25ControlIntrinsicValidatorD2Ev.exit
-  %235 = load ptr, ptr %186, align 8
-  %.not.i.i.i.i98 = icmp eq ptr %235, null
-  br i1 %.not.i.i.i.i98, label %237, label %236
+230:                                              ; preds = %228, %_ZN25ControlIntrinsicValidatorD2Ev.exit
+  %231 = load ptr, ptr %182, align 8
+  %.not.i.i.i.i98 = icmp eq ptr %231, null
+  br i1 %.not.i.i.i.i98, label %233, label %232
 
-236:                                              ; preds = %234
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %184, i64 noundef %192) #19
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %186) #19
-  br label %237
+232:                                              ; preds = %230
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %180, i64 noundef %188) #19
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %182) #19
+  br label %233
 
-237:                                              ; preds = %236, %234
-  %238 = load ptr, ptr %187, align 8
-  %.not8.i.i.i.i99 = icmp eq ptr %238, %188
-  br i1 %.not8.i.i.i.i99, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %239
+233:                                              ; preds = %232, %230
+  %234 = load ptr, ptr %183, align 8
+  %.not8.i.i.i.i99 = icmp eq ptr %234, %184
+  br i1 %.not8.i.i.i.i99, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %235
 
-239:                                              ; preds = %237
+235:                                              ; preds = %233
+  store ptr %182, ptr %181, align 8
+  store ptr %184, ptr %183, align 8
   store ptr %186, ptr %185, align 8
-  store ptr %188, ptr %187, align 8
-  store ptr %190, ptr %189, align 8
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-240:                                              ; preds = %6
-  %241 = load i8, ptr %25, align 1
-  %242 = icmp eq i8 %241, 0
-  br i1 %242, label %243, label %244
+236:                                              ; preds = %6
+  %237 = load i8, ptr %25, align 1
+  %238 = icmp eq i8 %237, 0
+  br i1 %238, label %239, label %240
+
+239:                                              ; preds = %236
+  call fastcc void @_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %3, i32 noundef %4, i1 noundef zeroext true)
+  br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
+
+240:                                              ; preds = %236
+  %241 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %25, ptr noundef nonnull @.str.126, ptr noundef nonnull %13, ptr noundef nonnull %9) #19
+  %242 = icmp eq i32 %241, 1
+  br i1 %242, label %243, label %259
 
 243:                                              ; preds = %240
+  %244 = call i32 @strcasecmp(ptr noundef nonnull %13, ptr noundef nonnull @.str.6) #21
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %246, label %250
+
+246:                                              ; preds = %243
+  %247 = load i32, ptr %9, align 4
+  %248 = load i32, ptr %2, align 4
+  %249 = add nsw i32 %248, %247
+  store i32 %249, ptr %2, align 4
   call fastcc void @_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %3, i32 noundef %4, i1 noundef zeroext true)
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-244:                                              ; preds = %240
-  %245 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %25, ptr noundef nonnull @.str.126, ptr noundef nonnull %13, ptr noundef nonnull %9) #19
-  %246 = icmp eq i32 %245, 1
-  br i1 %246, label %247, label %263
+250:                                              ; preds = %243
+  %251 = call i32 @strcasecmp(ptr noundef nonnull %13, ptr noundef nonnull @.str.7) #21
+  %252 = icmp eq i32 %251, 0
+  br i1 %252, label %253, label %257
 
-247:                                              ; preds = %244
-  %248 = call i32 @strcasecmp(ptr noundef nonnull %13, ptr noundef nonnull @.str.6) #21
-  %249 = icmp eq i32 %248, 0
-  br i1 %249, label %250, label %254
-
-250:                                              ; preds = %247
-  %251 = load i32, ptr %9, align 4
-  %252 = load i32, ptr %2, align 4
-  %253 = add nsw i32 %252, %251
-  store i32 %253, ptr %2, align 4
-  call fastcc void @_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %3, i32 noundef %4, i1 noundef zeroext true)
-  br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
-
-254:                                              ; preds = %247
-  %255 = call i32 @strcasecmp(ptr noundef nonnull %13, ptr noundef nonnull @.str.7) #21
-  %256 = icmp eq i32 %255, 0
-  br i1 %256, label %257, label %261
-
-257:                                              ; preds = %254
-  %258 = load i32, ptr %9, align 4
-  %259 = load i32, ptr %2, align 4
-  %260 = add nsw i32 %259, %258
-  store i32 %260, ptr %2, align 4
+253:                                              ; preds = %250
+  %254 = load i32, ptr %9, align 4
+  %255 = load i32, ptr %2, align 4
+  %256 = add nsw i32 %255, %254
+  store i32 %256, ptr %2, align 4
   call fastcc void @_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %3, i32 noundef %4, i1 noundef zeroext false)
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-261:                                              ; preds = %254
-  %262 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+257:                                              ; preds = %250
+  %258 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-263:                                              ; preds = %244
-  %264 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+259:                                              ; preds = %240
+  %260 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-265:                                              ; preds = %6
-  %266 = getelementptr inbounds nuw i8, ptr %14, i64 256
-  %267 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %25, ptr noundef nonnull @.str.127, ptr noundef nonnull %14, ptr noundef nonnull %266, ptr noundef nonnull %9) #19
-  %268 = icmp eq i32 %267, 2
-  br i1 %268, label %269, label %317
+261:                                              ; preds = %6
+  %262 = getelementptr inbounds nuw i8, ptr %14, i64 256
+  %263 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %25, ptr noundef nonnull @.str.127, ptr noundef nonnull %14, ptr noundef nonnull %262, ptr noundef nonnull %9) #19
+  %264 = icmp eq i32 %263, 2
+  br i1 %264, label %265, label %308
 
-269:                                              ; preds = %265
+265:                                              ; preds = %261
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %15, i8 0, i64 512, i1 false)
-  %270 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %15, i64 noundef 512, ptr noundef nonnull @.str.128, ptr noundef nonnull %14, ptr noundef nonnull %266) #19
-  %271 = load i32, ptr %9, align 4
-  %272 = load i32, ptr %2, align 4
-  %273 = add nsw i32 %272, %271
-  store i32 %273, ptr %2, align 4
-  %274 = call double @atof(ptr noundef nonnull %15) #21
-  switch i32 %4, label %.split.i106 [
-    i32 2, label %275
-    i32 6, label %292
-  ]
+  %266 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %15, i64 noundef 512, ptr noundef nonnull @.str.128, ptr noundef nonnull %14, ptr noundef nonnull %262) #19
+  %267 = load i32, ptr %9, align 4
+  %268 = load i32, ptr %2, align 4
+  %269 = add nsw i32 %268, %267
+  store i32 %269, ptr %2, align 4
+  %270 = call double @atof(ptr noundef nonnull %15) #21
+  %271 = icmp ne i32 %4, 2
+  %272 = load i8, ptr @LogCompilation, align 1
+  %273 = trunc i8 %272 to i1
+  %or.cond.i101 = select i1 %271, i1 true, i1 %273
+  br i1 %or.cond.i101, label %280, label %.thread14.i102
 
-275:                                              ; preds = %269
-  %276 = load i8, ptr @LogCompilation, align 1
-  %277 = trunc i8 %276 to i1
-  br i1 %277, label %.split.thread.i104, label %278
-
-278:                                              ; preds = %275
-  %279 = load ptr, ptr @tty, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %279, ptr noundef nonnull @.str.134) #19
-  %280 = load ptr, ptr @tty, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %280, ptr noundef nonnull @.str.135) #19
-  br label %.split.thread.i104
-
-.split.thread.i104:                               ; preds = %278, %275
-  %281 = load ptr, ptr @_ZL11option_list, align 8
-  %282 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %281, ptr %282, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 2, ptr %283, align 8
-  %284 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double %274, ptr %284, align 8
+.thread14.i102:                                   ; preds = %265
+  %274 = load ptr, ptr @tty, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %274, ptr noundef nonnull @.str.134) #19
+  %275 = load ptr, ptr @tty, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %275, ptr noundef nonnull @.str.135) #19
+  %276 = load ptr, ptr @_ZL11option_list, align 8
+  %277 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %276, ptr %277, align 8
+  %278 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i32 2, ptr %278, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store double %270, ptr %279, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
-  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i105
+  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i103
 
-.split.i106:                                      ; preds = %269
-  %285 = load ptr, ptr @_ZL11option_list, align 8
-  %286 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %285, ptr %286, align 8
-  %287 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 %4, ptr %287, align 8
-  %288 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double %274, ptr %288, align 8
-  store ptr %3, ptr @_ZL11option_list, align 8
-  %289 = and i32 %4, -2
-  %switch.i107 = icmp eq i32 %289, 4
-  br i1 %switch.i107, label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i105, label %290
+280:                                              ; preds = %265
+  %281 = icmp ne i32 %4, 6
+  %282 = load i8, ptr @UnlockExperimentalVMOptions, align 1
+  %283 = trunc i8 %282 to i1
+  %or.cond3.i104 = select i1 %281, i1 true, i1 %283
+  br i1 %or.cond3.i104, label %296, label %284
 
-290:                                              ; preds = %.split.i106
-  store i1 true, ptr @_ZL7any_set, align 1
-  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i105
-
-_ZL21command_set_in_filter18CompileCommandEnum.exit.i105: ; preds = %290, %.split.i106, %.split.thread.i104
-  %291 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %16
-  store i8 1, ptr %291, align 1
-  br label %311
-
-292:                                              ; preds = %269
-  %293 = load i8, ptr @UnlockExperimentalVMOptions, align 1
-  %294 = trunc i8 %293 to i1
-  br i1 %294, label %.split10.i103, label %299
-
-.split10.i103:                                    ; preds = %292
-  %295 = load ptr, ptr @_ZL11option_list, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %295, ptr %296, align 8
-  %297 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 6, ptr %297, align 8
-  %298 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double %274, ptr %298, align 8
-  store ptr %3, ptr @_ZL11option_list, align 8
-  store i1 true, ptr @_ZL7any_set, align 1
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 6), align 2
-  br label %311
-
-299:                                              ; preds = %292
+284:                                              ; preds = %280
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.136) #19
-  %300 = icmp eq ptr %3, null
-  br i1 %300, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %301
+  %285 = icmp eq ptr %3, null
+  br i1 %285, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %286
 
-301:                                              ; preds = %299
-  %302 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %303 = load i32, ptr %302, align 8
-  %304 = sext i32 %303 to i64
-  %305 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %304
-  %306 = load i32, ptr %305, align 4
-  %307 = add i32 %306, -3
-  %or.cond.i.i101 = icmp ult i32 %307, 2
-  br i1 %or.cond.i.i101, label %308, label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i102
+286:                                              ; preds = %284
+  %287 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %288 = load i32, ptr %287, align 8
+  %289 = sext i32 %288 to i64
+  %290 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %289
+  %291 = load i32, ptr %290, align 4
+  %292 = add i32 %291, -3
+  %or.cond.i.i105 = icmp ult i32 %292, 2
+  br i1 %or.cond.i.i105, label %293, label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i106
 
-308:                                              ; preds = %301
-  %309 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %310 = load ptr, ptr %309, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %310) #19
-  br label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i102
+293:                                              ; preds = %286
+  %294 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %295 = load ptr, ptr %294, align 8
+  call void @_ZN2os4freeEPv(ptr noundef %295) #19
+  br label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i106
 
-_ZN24TypedMethodOptionMatcherD2Ev.exit.i102:      ; preds = %308, %301
+_ZN24TypedMethodOptionMatcherD2Ev.exit.i106:      ; preds = %293, %286
   call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #19
   call void @_Z8FreeHeapPv(ptr noundef nonnull %3) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-311:                                              ; preds = %.split10.i103, %_ZL21command_set_in_filter18CompileCommandEnum.exit.i105
-  %312 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
-  %313 = trunc i8 %312 to i1
-  br i1 %313, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %314
+296:                                              ; preds = %280
+  %297 = load ptr, ptr @_ZL11option_list, align 8
+  %298 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %297, ptr %298, align 8
+  %299 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i32 %4, ptr %299, align 8
+  %300 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store double %270, ptr %300, align 8
+  store ptr %3, ptr @_ZL11option_list, align 8
+  switch i32 %4, label %301 [
+    i32 5, label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i103
+    i32 4, label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i103
+    i32 2, label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i103
+  ]
 
-314:                                              ; preds = %311
-  %315 = call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
-  %316 = load ptr, ptr @tty, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %316, ptr noundef nonnull @.str.137, ptr noundef %18) #19
+301:                                              ; preds = %296
+  store i1 true, ptr @_ZL7any_set, align 1
+  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i103
+
+_ZL21command_set_in_filter18CompileCommandEnum.exit.i103: ; preds = %301, %296, %296, %296, %.thread14.i102
+  %302 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %16
+  store i8 1, ptr %302, align 1
+  %303 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
+  %304 = trunc i8 %303 to i1
+  br i1 %304, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %305
+
+305:                                              ; preds = %_ZL21command_set_in_filter18CompileCommandEnum.exit.i103
+  %306 = call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
+  %307 = load ptr, ptr @tty, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %307, ptr noundef nonnull @.str.137, ptr noundef %18) #19
   call void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %315) #19
+  call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %306) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-317:                                              ; preds = %265
-  %318 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+308:                                              ; preds = %261
+  %309 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-319:                                              ; preds = %6
-  %320 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.129, ptr noundef %21) #19
+310:                                              ; preds = %6
+  %311 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.129, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
-_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit: ; preds = %314, %311, %_ZN24TypedMethodOptionMatcherD2Ev.exit.i102, %299, %239, %237, %179, %177, %126, %123, %_ZN24TypedMethodOptionMatcherD2Ev.exit.i, %111, %148, %_ZL12parseMemStatPKcRmRiPci.exit.thread, %317, %319, %261, %263, %257, %250, %243, %_ZL13parseMemLimitPKcRlRiPci.exit.thread
+_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit: ; preds = %305, %_ZL21command_set_in_filter18CompileCommandEnum.exit.i103, %_ZN24TypedMethodOptionMatcherD2Ev.exit.i106, %284, %235, %233, %175, %173, %122, %_ZL21command_set_in_filter18CompileCommandEnum.exit.i, %_ZN24TypedMethodOptionMatcherD2Ev.exit.i, %101, %144, %_ZL12parseMemStatPKcRmRiPci.exit.thread, %308, %310, %257, %259, %253, %246, %239, %_ZL13parseMemLimitPKcRlRiPci.exit.thread
   ret void
 }
 
@@ -3300,18 +3224,16 @@ _ZN14CompilerOracle15parse_from_fileEv.exit:      ; preds = %18
   %.3.shrunk = phi i1 [ %narrow, %30 ], [ %narrow, %27 ], [ %narrow, %26 ], [ false, %_ZN14CompilerOracle15parse_from_fileEv.exit ]
   %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 3), align 1
   %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %38
+  %34 = load i8, ptr @PrintAssembly, align 1
+  %35 = trunc i8 %34 to i1
+  %or.cond = select i1 %33, i1 %35, i1 false
+  br i1 %or.cond, label %36, label %37
 
-34:                                               ; preds = %31
-  %35 = load i8, ptr @PrintAssembly, align 1
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %34
+36:                                               ; preds = %31
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.141) #19
-  br label %38
+  br label %37
 
-38:                                               ; preds = %34, %37, %31
+37:                                               ; preds = %36, %31
   ret i1 %.3.shrunk
 }
 
@@ -3506,121 +3428,100 @@ declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFail
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL16register_commandIPKcEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %0, i32 noundef range(i32 41, 40) %1, ptr noundef %2) unnamed_addr #2 {
-  switch i32 %1, label %.split [
-    i32 2, label %4
-    i32 6, label %24
-  ]
-
-4:                                                ; preds = %3
+  %4 = icmp ne i32 %1, 2
   %5 = load i8, ptr @LogCompilation, align 1
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %.split.thread, label %7
+  %or.cond = select i1 %4, i1 true, i1 %6
+  br i1 %or.cond, label %14, label %.thread14
 
-7:                                                ; preds = %4
+.thread14:                                        ; preds = %3
+  %7 = load ptr, ptr @tty, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.134) #19
   %8 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.134) #19
-  %9 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.135) #19
-  br label %.split.thread
-
-.split.thread:                                    ; preds = %4, %7
-  %10 = load ptr, ptr @_ZL11option_list, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 2, ptr %12, align 8
-  %13 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %2, i8 noundef zeroext 9) #19
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %13, ptr %14, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.135) #19
+  %9 = load ptr, ptr @_ZL11option_list, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 2, ptr %11, align 8
+  %12 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %2, i8 noundef zeroext 9) #19
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %12, ptr %13, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   br label %_ZL21command_set_in_filter18CompileCommandEnum.exit
 
-.split:                                           ; preds = %3
-  %15 = load ptr, ptr @_ZL11option_list, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %1, ptr %17, align 8
-  %18 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %2, i8 noundef zeroext 9) #19
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %18, ptr %19, align 8
-  store ptr %0, ptr @_ZL11option_list, align 8
-  %20 = and i32 %1, -2
-  %switch = icmp eq i32 %20, 4
-  br i1 %switch, label %_ZL21command_set_in_filter18CompileCommandEnum.exit, label %21
+14:                                               ; preds = %3
+  %15 = icmp ne i32 %1, 6
+  %16 = load i8, ptr @UnlockExperimentalVMOptions, align 1
+  %17 = trunc i8 %16 to i1
+  %or.cond3 = select i1 %15, i1 true, i1 %17
+  br i1 %or.cond3, label %30, label %18
 
-21:                                               ; preds = %.split
-  store i1 true, ptr @_ZL7any_set, align 1
-  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit
-
-_ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.thread, %21
-  %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %22
-  store i8 1, ptr %23, align 1
-  br label %44
-
-24:                                               ; preds = %3
-  %25 = load i8, ptr @UnlockExperimentalVMOptions, align 1
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %.split10, label %32
-
-.split10:                                         ; preds = %24
-  %27 = load ptr, ptr @_ZL11option_list, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 6, ptr %29, align 8
-  %30 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %2, i8 noundef zeroext 9) #19
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %30, ptr %31, align 8
-  store ptr %0, ptr @_ZL11option_list, align 8
-  store i1 true, ptr @_ZL7any_set, align 1
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 6), align 2
-  br label %44
-
-32:                                               ; preds = %24
+18:                                               ; preds = %14
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.136) #19
-  %33 = icmp eq ptr %0, null
-  br i1 %33, label %53, label %34
+  %19 = icmp eq ptr %0, null
+  br i1 %19, label %46, label %20
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load i32, ptr %35, align 8
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %37
-  %39 = load i32, ptr %38, align 4
-  %40 = add i32 %39, -3
-  %or.cond.i = icmp ult i32 %40, 2
-  br i1 %or.cond.i, label %41, label %_ZN24TypedMethodOptionMatcherD2Ev.exit
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load i32, ptr %21, align 8
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %23
+  %25 = load i32, ptr %24, align 4
+  %26 = add i32 %25, -3
+  %or.cond.i = icmp ult i32 %26, 2
+  br i1 %or.cond.i, label %27, label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
-41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %43 = load ptr, ptr %42, align 8
-  tail call void @_ZN2os4freeEPv(ptr noundef %43) #19
+27:                                               ; preds = %20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %29 = load ptr, ptr %28, align 8
+  tail call void @_ZN2os4freeEPv(ptr noundef %29) #19
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
-_ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %34, %41
+_ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %20, %27
   tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #19
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #19
-  br label %53
+  br label %46
 
-44:                                               ; preds = %.split10, %_ZL21command_set_in_filter18CompileCommandEnum.exit
-  %45 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %53, label %47
+30:                                               ; preds = %14
+  %31 = load ptr, ptr @_ZL11option_list, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %31, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %1, ptr %33, align 8
+  %34 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %2, i8 noundef zeroext 9) #19
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %34, ptr %35, align 8
+  store ptr %0, ptr @_ZL11option_list, align 8
+  switch i32 %1, label %36 [
+    i32 5, label %_ZL21command_set_in_filter18CompileCommandEnum.exit
+    i32 4, label %_ZL21command_set_in_filter18CompileCommandEnum.exit
+    i32 2, label %_ZL21command_set_in_filter18CompileCommandEnum.exit
+  ]
 
-47:                                               ; preds = %44
-  %48 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
-  %49 = load ptr, ptr @tty, align 8
-  %50 = sext i32 %1 to i64
-  %51 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull @.str.137, ptr noundef %52) #19
+36:                                               ; preds = %30
+  store i1 true, ptr @_ZL7any_set, align 1
+  br label %_ZL21command_set_in_filter18CompileCommandEnum.exit
+
+_ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.thread14, %30, %30, %30, %36
+  %37 = sext i32 %1 to i64
+  %38 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %37
+  store i8 1, ptr %38, align 1
+  %39 = load i8, ptr @_ZN14CompilerOracle6_quietE, align 1
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %46, label %41
+
+41:                                               ; preds = %_ZL21command_set_in_filter18CompileCommandEnum.exit
+  %42 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
+  %43 = load ptr, ptr @tty, align 8
+  %44 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %37
+  %45 = load ptr, ptr %44, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %43, ptr noundef nonnull @.str.137, ptr noundef %45) #19
   tail call void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  tail call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %48) #19
-  br label %53
+  tail call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %42) #19
+  br label %46
 
-53:                                               ; preds = %44, %47, %32, %_ZN24TypedMethodOptionMatcherD2Ev.exit
+46:                                               ; preds = %_ZL21command_set_in_filter18CompileCommandEnum.exit, %41, %18, %_ZN24TypedMethodOptionMatcherD2Ev.exit
   ret void
 }
 
@@ -3633,41 +3534,42 @@ define linkonce_odr hidden void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr nound
   call void @_ZN20ControlIntrinsicIterC1EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef %1, i1 noundef zeroext %2) #19
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not4 = icmp eq ptr %7, null
-  br i1 %.not4, label %.critedge, label %.lr.ph
+  %.not5 = icmp ne ptr %7, null
+  %8 = load i8, ptr %0, align 8
+  %9 = trunc i8 %8 to i1
+  %or.cond6 = select i1 %.not5, i1 %9, i1 false
+  br i1 %or.cond6, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %3, %22
-  %8 = phi ptr [ %24, %22 ], [ %7, %3 ]
-  %9 = load i8, ptr %0, align 8
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %.critedge
-
-.critedge:                                        ; preds = %.lr.ph, %22, %3
+.critedge:                                        ; preds = %21, %3
   call void @_ZN20ControlIntrinsicIterD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #19
   ret void
 
-11:                                               ; preds = %.lr.ph
-  %12 = call noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef nonnull %8) #19
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %22
+.lr.ph:                                           ; preds = %3, %21
+  %10 = phi ptr [ %23, %21 ], [ %7, %3 ]
+  %11 = call noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef nonnull %10) #19
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %21
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %6, align 8
-  %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #21
-  %17 = call noundef i64 @llvm.umin.i64(i64 %16, i64 63)
-  %18 = add nuw nsw i64 %17, 1
-  %19 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %18, i8 noundef zeroext 7, i32 noundef 0) #19
-  store ptr %19, ptr %5, align 8
-  %20 = load ptr, ptr %6, align 8
-  %21 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %20, i64 noundef %18) #19
+13:                                               ; preds = %.lr.ph
+  %14 = load ptr, ptr %6, align 8
+  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #21
+  %16 = call noundef i64 @llvm.umin.i64(i64 %15, i64 63)
+  %17 = add nuw nsw i64 %16, 1
+  %18 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %17, i8 noundef zeroext 7, i32 noundef 0) #19
+  store ptr %18, ptr %5, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %19, i64 noundef %17) #19
   store i8 0, ptr %0, align 8
-  br label %22
+  br label %21
 
-22:                                               ; preds = %11, %14
-  %23 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIterppEv(ptr noundef nonnull align 8 dereferenceable(33) %4) #19
-  %24 = load ptr, ptr %6, align 8
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !16
+21:                                               ; preds = %.lr.ph, %13
+  %22 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIterppEv(ptr noundef nonnull align 8 dereferenceable(33) %4) #19
+  %23 = load ptr, ptr %6, align 8
+  %.not = icmp ne ptr %23, null
+  %24 = load i8, ptr %0, align 8
+  %25 = trunc i8 %24 to i1
+  %or.cond = select i1 %.not, i1 %25, i1 false
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)

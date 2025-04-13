@@ -1039,194 +1039,194 @@ define noundef i32 @_ZN6icu_7714LocaleDistance27getRegionPartitionsDistanceERNS_
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %9 = load i8, ptr %3, align 1, !tbaa !54
   %10 = load i8, ptr %8, align 1, !tbaa !54
-  %.not = icmp ne i8 %10, 0
-  %11 = load i8, ptr %6, align 1, !tbaa !54
-  %12 = icmp ne i8 %11, 0
-  %brmerge = select i1 %12, i1 true, i1 %.not
-  br i1 %brmerge, label %.preheader, label %20
+  %11 = icmp ne i8 %10, 0
+  %12 = load i8, ptr %6, align 1, !tbaa !54
+  %13 = icmp ne i8 %12, 0
+  %or.cond = select i1 %13, i1 true, i1 %11
+  br i1 %or.cond, label %.preheader, label %21
 
 .preheader:                                       ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = lshr i64 %1, 59
-  %17 = trunc nuw nsw i64 %16 to i32
-  %18 = add nsw i32 %17, -2
-  %19 = and i64 %1, 576460752303423487
-  br label %43
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = lshr i64 %1, 59
+  %18 = trunc nuw nsw i64 %17 to i32
+  %19 = add nsw i32 %18, -2
+  %20 = and i64 %1, 576460752303423487
+  br label %44
 
-20:                                               ; preds = %5
-  %21 = sext i8 %7 to i32
-  %22 = or i32 %21, 128
-  %23 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %22)
-  %24 = and i32 %23, 1
-  %.not91 = icmp eq i32 %24, 0
-  br i1 %.not91, label %32, label %25
+21:                                               ; preds = %5
+  %22 = sext i8 %7 to i32
+  %23 = or i32 %22, 128
+  %24 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %23)
+  %25 = and i32 %24, 1
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %33, label %26
 
-25:                                               ; preds = %20
-  %26 = sext i8 %9 to i32
-  %27 = or i32 %26, 128
-  %28 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %27)
-  %29 = icmp sgt i32 %28, 1
-  br i1 %29, label %30, label %32
+26:                                               ; preds = %21
+  %27 = sext i8 %9 to i32
+  %28 = or i32 %27, 128
+  %29 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %28)
+  %30 = icmp sgt i32 %29, 1
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %.thread124.sink.split
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %.thread123.sink.split
 
-32:                                               ; preds = %25, %20
-  %33 = lshr i64 %1, 59
-  %34 = trunc nuw nsw i64 %33 to i32
-  %35 = add nsw i32 %34, -2
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %35, ptr %36, align 8, !tbaa !31
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !29
-  %39 = and i64 %1, 576460752303423487
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %40, ptr %41, align 8, !tbaa !30
-  %42 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 42)
-  br label %.thread124.sink.split
+33:                                               ; preds = %26, %21
+  %34 = lshr i64 %1, 59
+  %35 = trunc nuw nsw i64 %34 to i32
+  %36 = add nsw i32 %35, -2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %36, ptr %37, align 8, !tbaa !31
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !29
+  %40 = and i64 %1, 576460752303423487
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %41, ptr %42, align 8, !tbaa !30
+  %43 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 42)
+  br label %.thread123.sink.split
 
-43:                                               ; preds = %.preheader, %104
-  %.084 = phi i8 [ %108, %104 ], [ %9, %.preheader ]
-  %.082 = phi i8 [ %103, %104 ], [ %7, %.preheader ]
-  %.065 = phi i32 [ %.570, %104 ], [ 0, %.preheader ]
-  %.059 = phi i8 [ %.463, %104 ], [ 0, %.preheader ]
-  %.057 = phi ptr [ %105, %104 ], [ %6, %.preheader ]
-  %44 = sext i8 %.082 to i32
-  %45 = or i32 %44, 128
-  %46 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %45)
-  %47 = and i32 %46, 1
-  %.not92 = icmp eq i32 %47, 0
-  br i1 %.not92, label %91, label %48
+44:                                               ; preds = %.preheader, %105
+  %.085 = phi i8 [ %109, %105 ], [ %9, %.preheader ]
+  %.083 = phi i8 [ %104, %105 ], [ %7, %.preheader ]
+  %.066 = phi i32 [ %.571, %105 ], [ 0, %.preheader ]
+  %.060 = phi i8 [ %.464, %105 ], [ 0, %.preheader ]
+  %.058 = phi ptr [ %106, %105 ], [ %6, %.preheader ]
+  %45 = sext i8 %.083 to i32
+  %46 = or i32 %45, 128
+  %47 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %46)
+  %48 = and i32 %47, 1
+  %.not92 = icmp eq i32 %48, 0
+  br i1 %.not92, label %92, label %49
 
-48:                                               ; preds = %43
-  br i1 %.not, label %49, label %60
+49:                                               ; preds = %44
+  br i1 %11, label %50, label %61
 
-49:                                               ; preds = %48
-  %50 = load i32, ptr %13, align 8, !tbaa !31
-  %51 = add nsw i32 %50, 2
-  %52 = zext i32 %51 to i64
-  %53 = shl i64 %52, 59
-  %54 = load ptr, ptr %14, align 8, !tbaa !30
-  %55 = load ptr, ptr %15, align 8, !tbaa !29
-  %56 = ptrtoint ptr %54 to i64
+50:                                               ; preds = %49
+  %51 = load i32, ptr %14, align 8, !tbaa !31
+  %52 = add nsw i32 %51, 2
+  %53 = zext i32 %52 to i64
+  %54 = shl i64 %53, 59
+  %55 = load ptr, ptr %15, align 8, !tbaa !30
+  %56 = load ptr, ptr %16, align 8, !tbaa !29
   %57 = ptrtoint ptr %55 to i64
-  %58 = sub i64 %56, %57
-  %59 = or i64 %58, %53
-  br label %60
+  %58 = ptrtoint ptr %56 to i64
+  %59 = sub i64 %57, %58
+  %60 = or i64 %59, %54
+  br label %61
 
-60:                                               ; preds = %48, %49
-  %61 = phi i64 [ %59, %49 ], [ 0, %48 ]
-  %62 = lshr i64 %61, 59
-  %63 = trunc nuw nsw i64 %62 to i32
-  %64 = add nsw i32 %63, -2
-  %65 = and i64 %61, 576460752303423487
-  br label %66
+61:                                               ; preds = %49, %50
+  %62 = phi i64 [ %60, %50 ], [ 0, %49 ]
+  %63 = lshr i64 %62, 59
+  %64 = trunc nuw nsw i64 %63 to i32
+  %65 = add nsw i32 %64, -2
+  %66 = and i64 %62, 576460752303423487
+  br label %67
 
-66:                                               ; preds = %87, %60
-  %.185 = phi i8 [ %.084, %60 ], [ %86, %87 ]
-  %.174 = phi ptr [ %8, %60 ], [ %88, %87 ]
-  %.166 = phi i32 [ %.065, %60 ], [ %spec.select, %87 ]
-  %.160 = phi i8 [ %.059, %60 ], [ %.261, %87 ]
-  %67 = sext i8 %.185 to i32
-  %68 = or i32 %67, 128
-  %69 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %68)
-  %70 = icmp sgt i32 %69, 1
-  br i1 %70, label %.sink.split, label %71
+67:                                               ; preds = %88, %61
+  %.186 = phi i8 [ %.085, %61 ], [ %87, %88 ]
+  %.175 = phi ptr [ %8, %61 ], [ %89, %88 ]
+  %.167 = phi i32 [ %.066, %61 ], [ %spec.select, %88 ]
+  %.161 = phi i8 [ %.060, %61 ], [ %.262, %88 ]
+  %68 = sext i8 %.186 to i32
+  %69 = or i32 %68, 128
+  %70 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %69)
+  %71 = icmp sgt i32 %70, 1
+  br i1 %71, label %.sink.split, label %72
 
-71:                                               ; preds = %66
-  %72 = trunc nuw i8 %.160 to i1
-  br i1 %72, label %83, label %73
+72:                                               ; preds = %67
+  %73 = trunc nuw i8 %.161 to i1
+  br i1 %73, label %84, label %74
 
-73:                                               ; preds = %71
-  store i32 %18, ptr %13, align 8, !tbaa !31
-  %74 = load ptr, ptr %15, align 8, !tbaa !29
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %19
-  store ptr %75, ptr %14, align 8, !tbaa !30
-  %76 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 42)
+74:                                               ; preds = %72
+  store i32 %19, ptr %14, align 8, !tbaa !31
+  %75 = load ptr, ptr %16, align 8, !tbaa !29
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %20
+  store ptr %76, ptr %15, align 8, !tbaa !30
+  %77 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 42)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %66, %73
-  %.261.ph = phi i8 [ 1, %73 ], [ %.160, %66 ]
-  %77 = load ptr, ptr %14, align 8, !tbaa !30
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
-  %79 = load i8, ptr %77, align 1, !tbaa !54
-  %80 = lshr i8 %79, 1
-  %81 = zext nneg i8 %80 to i32
-  %82 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %78, i32 noundef %81)
-  br label %83
+.sink.split:                                      ; preds = %67, %74
+  %.262.ph = phi i8 [ 1, %74 ], [ %.161, %67 ]
+  %78 = load ptr, ptr %15, align 8, !tbaa !30
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1
+  %80 = load i8, ptr %78, align 1, !tbaa !54
+  %81 = lshr i8 %80, 1
+  %82 = zext nneg i8 %81 to i32
+  %83 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %79, i32 noundef %82)
+  br label %84
 
-83:                                               ; preds = %.sink.split, %71
-  %.261 = phi i8 [ 1, %71 ], [ %.261.ph, %.sink.split ]
-  %.056 = phi i32 [ 0, %71 ], [ %82, %.sink.split ]
-  %84 = icmp sgt i32 %.056, %4
-  br i1 %84, label %.thread124, label %85
+84:                                               ; preds = %.sink.split, %72
+  %.262 = phi i8 [ 1, %72 ], [ %.262.ph, %.sink.split ]
+  %.057 = phi i32 [ 0, %72 ], [ %83, %.sink.split ]
+  %85 = icmp sgt i32 %.057, %4
+  br i1 %85, label %.thread123, label %86
 
-85:                                               ; preds = %83
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.166, i32 %.056)
-  %86 = load i8, ptr %.174, align 1, !tbaa !54
-  %.not94 = icmp eq i8 %86, 0
-  br i1 %.not94, label %.thread117, label %87
+86:                                               ; preds = %84
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.167, i32 %.057)
+  %87 = load i8, ptr %.175, align 1, !tbaa !54
+  %.not94 = icmp eq i8 %87, 0
+  br i1 %.not94, label %.thread116, label %88
 
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds nuw i8, ptr %.174, i64 1
-  store i32 %64, ptr %13, align 8, !tbaa !31
-  %89 = load ptr, ptr %15, align 8, !tbaa !29
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %65
-  store ptr %90, ptr %14, align 8, !tbaa !30
-  br label %66
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %.175, i64 1
+  store i32 %65, ptr %14, align 8, !tbaa !31
+  %90 = load ptr, ptr %16, align 8, !tbaa !29
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %66
+  store ptr %91, ptr %15, align 8, !tbaa !30
+  br label %67
 
-91:                                               ; preds = %43
-  %92 = trunc nuw i8 %.059 to i1
-  br i1 %92, label %.thread117, label %93
+92:                                               ; preds = %44
+  %93 = trunc nuw i8 %.060 to i1
+  br i1 %93, label %.thread116, label %94
 
-93:                                               ; preds = %91
-  store i32 %18, ptr %13, align 8, !tbaa !31
-  %94 = load ptr, ptr %15, align 8, !tbaa !29
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %19
-  store ptr %95, ptr %14, align 8, !tbaa !30
-  %96 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 42)
-  %97 = load ptr, ptr %14, align 8, !tbaa !30
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
-  %99 = load i8, ptr %97, align 1, !tbaa !54
-  %100 = lshr i8 %99, 1
-  %101 = zext nneg i8 %100 to i32
-  %102 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %98, i32 noundef %101)
-  %.not93 = icmp sgt i32 %102, %4
-  %spec.select97 = tail call i32 @llvm.smax.i32(i32 %.065, i32 %102)
-  br i1 %.not93, label %.thread124, label %.thread117
+94:                                               ; preds = %92
+  store i32 %19, ptr %14, align 8, !tbaa !31
+  %95 = load ptr, ptr %16, align 8, !tbaa !29
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %20
+  store ptr %96, ptr %15, align 8, !tbaa !30
+  %97 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 42)
+  %98 = load ptr, ptr %15, align 8, !tbaa !30
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
+  %100 = load i8, ptr %98, align 1, !tbaa !54
+  %101 = lshr i8 %100, 1
+  %102 = zext nneg i8 %101 to i32
+  %103 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %99, i32 noundef %102)
+  %.not93 = icmp sgt i32 %103, %4
+  %spec.select96 = tail call i32 @llvm.smax.i32(i32 %.066, i32 %103)
+  br i1 %.not93, label %.thread123, label %.thread116
 
-.thread117:                                       ; preds = %85, %91, %93
-  %.570 = phi i32 [ %.065, %91 ], [ %spec.select97, %93 ], [ %spec.select, %85 ]
-  %.463 = phi i8 [ 1, %91 ], [ 1, %93 ], [ %.261, %85 ]
-  %103 = load i8, ptr %.057, align 1, !tbaa !54
-  %.not95 = icmp eq i8 %103, 0
-  br i1 %.not95, label %.thread124, label %104
+.thread116:                                       ; preds = %86, %92, %94
+  %.571 = phi i32 [ %.066, %92 ], [ %spec.select96, %94 ], [ %spec.select, %86 ]
+  %.464 = phi i8 [ 1, %92 ], [ 1, %94 ], [ %.262, %86 ]
+  %104 = load i8, ptr %.058, align 1, !tbaa !54
+  %.not95 = icmp eq i8 %104, 0
+  br i1 %.not95, label %.thread123, label %105
 
-104:                                              ; preds = %.thread117
-  %105 = getelementptr inbounds nuw i8, ptr %.057, i64 1
-  store i32 %18, ptr %13, align 8, !tbaa !31
-  %106 = load ptr, ptr %15, align 8, !tbaa !29
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %19
-  store ptr %107, ptr %14, align 8, !tbaa !30
-  %108 = load i8, ptr %3, align 1, !tbaa !54
-  br label %43
+105:                                              ; preds = %.thread116
+  %106 = getelementptr inbounds nuw i8, ptr %.058, i64 1
+  store i32 %19, ptr %14, align 8, !tbaa !31
+  %107 = load ptr, ptr %16, align 8, !tbaa !29
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 %20
+  store ptr %108, ptr %15, align 8, !tbaa !30
+  %109 = load i8, ptr %3, align 1, !tbaa !54
+  br label %44
 
-.thread124.sink.split:                            ; preds = %32, %30
-  %.sink161.in = phi ptr [ %31, %30 ], [ %41, %32 ]
-  %.sink161 = load ptr, ptr %.sink161.in, align 8, !tbaa !30
-  %109 = getelementptr inbounds nuw i8, ptr %.sink161, i64 1
-  %110 = load i8, ptr %.sink161, align 1, !tbaa !54
-  %111 = lshr i8 %110, 1
-  %112 = zext nneg i8 %111 to i32
-  %113 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %109, i32 noundef %112)
-  br label %.thread124
+.thread123.sink.split:                            ; preds = %33, %31
+  %.sink160.in = phi ptr [ %32, %31 ], [ %42, %33 ]
+  %.sink160 = load ptr, ptr %.sink160.in, align 8, !tbaa !30
+  %110 = getelementptr inbounds nuw i8, ptr %.sink160, i64 1
+  %111 = load i8, ptr %.sink160, align 1, !tbaa !54
+  %112 = lshr i8 %111, 1
+  %113 = zext nneg i8 %112 to i32
+  %114 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %110, i32 noundef %113)
+  br label %.thread123
 
-.thread124:                                       ; preds = %93, %.thread117, %83, %.thread124.sink.split
-  %.1 = phi i32 [ %113, %.thread124.sink.split ], [ %.056, %83 ], [ %102, %93 ], [ %.570, %.thread117 ]
+.thread123:                                       ; preds = %94, %.thread116, %84, %.thread123.sink.split
+  %.1 = phi i32 [ %114, %.thread123.sink.split ], [ %.057, %84 ], [ %103, %94 ], [ %.571, %.thread116 ]
   ret i32 %.1
 }
 

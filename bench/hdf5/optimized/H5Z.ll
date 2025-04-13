@@ -369,7 +369,7 @@ define range(i32 0, 2) i32 @H5Z_term_package() local_unnamed_addr #0 {
   store i8 0, ptr @H5Z_init_g, align 1, !tbaa !3
   br label %7
 
-7:                                                ; preds = %5, %0, %.critedge
+7:                                                ; preds = %5, %.critedge, %0
   %.0 = phi i32 [ 0, %.critedge ], [ 1, %5 ], [ 0, %0 ]
   ret i32 %.0
 }

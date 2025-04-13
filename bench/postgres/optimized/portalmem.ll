@@ -815,107 +815,105 @@ define dso_local void @AtAbort_Portals() local_unnamed_addr #0 {
   %2 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %2) #8
   %3 = call ptr @hash_seq_search(ptr noundef nonnull %1) #8
-  %.not21 = icmp eq ptr %3, null
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not22 = icmp eq ptr %3, null
+  br i1 %.not22, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %0, %42
-  %4 = phi ptr [ %43, %42 ], [ %3, %0 ]
+.lr.ph:                                           ; preds = %0, %41
+  %4 = phi ptr [ %42, %41 ], [ %3, %0 ]
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 3
-  br i1 %9, label %10, label %MarkPortalFailed.exit
+  %10 = load i8, ptr @shmem_exit_inprogress, align 1, !range !4
+  %11 = trunc nuw i8 %10 to i1
+  %or.cond = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond, label %12, label %MarkPortalFailed.exit
 
-10:                                               ; preds = %.lr.ph
-  %11 = load i8, ptr @shmem_exit_inprogress, align 1, !range !4, !noundef !5
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %MarkPortalFailed.exit
-
-13:                                               ; preds = %10
+12:                                               ; preds = %.lr.ph
   store i32 5, ptr %7, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %15 = load ptr, ptr %14, align 8
-  %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %MarkPortalFailed.exit, label %16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %14 = load ptr, ptr %13, align 8
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %MarkPortalFailed.exit, label %15
 
-16:                                               ; preds = %13
-  call void %15(ptr noundef nonnull %6) #8
-  store ptr null, ptr %14, align 8
+15:                                               ; preds = %12
+  call void %14(ptr noundef nonnull %6) #8
+  store ptr null, ptr %13, align 8
   br label %MarkPortalFailed.exit
 
-MarkPortalFailed.exit:                            ; preds = %16, %13, %10, %.lr.ph
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %42, label %20, !llvm.loop !9
+MarkPortalFailed.exit:                            ; preds = %15, %12, %.lr.ph
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %41, label %19, !llvm.loop !9
 
-20:                                               ; preds = %MarkPortalFailed.exit
-  %21 = getelementptr inbounds nuw i8, ptr %6, i64 133
-  %22 = load i8, ptr %21, align 1, !range !4, !noundef !5
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %42, label %24, !llvm.loop !9
+19:                                               ; preds = %MarkPortalFailed.exit
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 133
+  %21 = load i8, ptr %20, align 1, !range !4, !noundef !5
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %41, label %23, !llvm.loop !9
 
-24:                                               ; preds = %20
-  %25 = load i32, ptr %7, align 8
-  %26 = icmp eq i32 %25, 2
-  br i1 %26, label %27, label %MarkPortalFailed.exit19
+23:                                               ; preds = %19
+  %24 = load i32, ptr %7, align 8
+  %25 = icmp eq i32 %24, 2
+  br i1 %25, label %26, label %MarkPortalFailed.exit20
 
-27:                                               ; preds = %24
+26:                                               ; preds = %23
   store i32 5, ptr %7, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %29 = load ptr, ptr %28, align 8
-  %.not.i18 = icmp eq ptr %29, null
-  br i1 %.not.i18, label %MarkPortalFailed.exit19.thread, label %30
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %28 = load ptr, ptr %27, align 8
+  %.not.i19 = icmp eq ptr %28, null
+  br i1 %.not.i19, label %MarkPortalFailed.exit20.thread, label %29
 
-30:                                               ; preds = %27
-  call void %29(ptr noundef nonnull %6) #8
-  store ptr null, ptr %28, align 8
-  br label %MarkPortalFailed.exit19.thread
+29:                                               ; preds = %26
+  call void %28(ptr noundef nonnull %6) #8
+  store ptr null, ptr %27, align 8
+  br label %MarkPortalFailed.exit20.thread
 
-MarkPortalFailed.exit19:                          ; preds = %24
+MarkPortalFailed.exit20:                          ; preds = %23
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.not16 = icmp eq ptr %.pre, null
-  br i1 %.not16, label %MarkPortalFailed.exit19.thread, label %31
+  %.not17 = icmp eq ptr %.pre, null
+  br i1 %.not17, label %MarkPortalFailed.exit20.thread, label %30
 
-31:                                               ; preds = %MarkPortalFailed.exit19
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 32
+30:                                               ; preds = %MarkPortalFailed.exit20
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void %.pre(ptr noundef nonnull %6) #8
-  store ptr null, ptr %32, align 8
-  br label %MarkPortalFailed.exit19.thread
+  store ptr null, ptr %31, align 8
+  br label %MarkPortalFailed.exit20.thread
 
-MarkPortalFailed.exit19.thread:                   ; preds = %27, %30, %31, %MarkPortalFailed.exit19
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %34 = load ptr, ptr %33, align 8
-  %.not.i20 = icmp eq ptr %34, null
-  br i1 %.not.i20, label %PortalReleaseCachedPlan.exit, label %35
+MarkPortalFailed.exit20.thread:                   ; preds = %26, %29, %30, %MarkPortalFailed.exit20
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %33 = load ptr, ptr %32, align 8
+  %.not.i21 = icmp eq ptr %33, null
+  br i1 %.not.i21, label %PortalReleaseCachedPlan.exit, label %34
 
-35:                                               ; preds = %MarkPortalFailed.exit19.thread
-  call void @ReleaseCachedPlan(ptr noundef nonnull %34, ptr noundef null) #8
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
+34:                                               ; preds = %MarkPortalFailed.exit20.thread
+  call void @ReleaseCachedPlan(ptr noundef nonnull %33, ptr noundef null) #8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   br label %PortalReleaseCachedPlan.exit
 
-PortalReleaseCachedPlan.exit:                     ; preds = %MarkPortalFailed.exit19.thread, %35
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr null, ptr %37, align 8
-  %38 = load i32, ptr %7, align 8
-  %.not17 = icmp eq i32 %38, 3
-  br i1 %.not17, label %42, label %39
+PortalReleaseCachedPlan.exit:                     ; preds = %MarkPortalFailed.exit20.thread, %34
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr null, ptr %36, align 8
+  %37 = load i32, ptr %7, align 8
+  %.not18 = icmp eq i32 %37, 3
+  br i1 %.not18, label %41, label %38
 
-39:                                               ; preds = %PortalReleaseCachedPlan.exit
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %41 = load ptr, ptr %40, align 8
-  call void @MemoryContextDeleteChildren(ptr noundef %41) #8
-  br label %42
+38:                                               ; preds = %PortalReleaseCachedPlan.exit
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %40 = load ptr, ptr %39, align 8
+  call void @MemoryContextDeleteChildren(ptr noundef %40) #8
+  br label %41
 
-42:                                               ; preds = %PortalReleaseCachedPlan.exit, %39, %20, %MarkPortalFailed.exit
-  %43 = call ptr @hash_seq_search(ptr noundef nonnull %1) #8
-  %.not = icmp eq ptr %43, null
+41:                                               ; preds = %PortalReleaseCachedPlan.exit, %38, %19, %MarkPortalFailed.exit
+  %42 = call ptr @hash_seq_search(ptr noundef nonnull %1) #8
+  %.not = icmp eq ptr %42, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %42, %0
+._crit_edge:                                      ; preds = %41, %0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #8
   ret void
 }

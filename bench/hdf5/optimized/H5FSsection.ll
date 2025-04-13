@@ -1668,8 +1668,8 @@ H5VM_log2_gen.exit.i:                             ; preds = %69, %63, %57, %51, 
   br i1 %143, label %.sink.split.i, label %147
 
 .sink.split.i:                                    ; preds = %136, %128
-  %.sink70.i = phi i64 [ 288, %128 ], [ 280, %136 ]
-  %144 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink70.i
+  %.sink71.i = phi i64 [ 288, %128 ], [ 280, %136 ]
+  %144 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink71.i
   %145 = load i64, ptr %144, align 8, !tbaa !10
   %146 = add i64 %145, 1
   store i64 %146, ptr %144, align 8, !tbaa !10
@@ -1708,7 +1708,7 @@ H5VM_log2_gen.exit.i:                             ; preds = %69, %63, %57, %51, 
   %166 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FS_node_t_reg_free_list, ptr noundef nonnull %90) #5
   br label %167
 
-167:                                              ; preds = %165, %152, %92, %83
+167:                                              ; preds = %165, %92, %83, %152
   %168 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !10
   %169 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %170 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5FS__sect_link, i32 noundef 1075, i64 noundef %168, i64 noundef %169, ptr noundef nonnull @.str.47) #5

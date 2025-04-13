@@ -437,15 +437,13 @@ define hidden noundef ptr @_ZN22SystemDictionaryShared36load_shared_class_for_bu
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 188
   %8 = load i16, ptr %7, align 4
   %9 = and i16 %8, 32
-  %.not6.i = icmp eq i16 %9, 0
-  br i1 %.not6.i, label %_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol.exit, label %10
-
-10:                                               ; preds = %5
+  %10 = icmp ne i16 %9, 0
   %11 = load i8, ptr @_ZN11JvmtiExport33_should_post_class_file_load_hookE, align 1
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %_ZN22SharedClassLoadingMarkD2Ev.exit, label %_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol.exit
+  %or.cond.i = select i1 %10, i1 %12, i1 false
+  br i1 %or.cond.i, label %_ZN22SharedClassLoadingMarkD2Ev.exit, label %_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol.exit
 
-_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol.exit: ; preds = %10, %5
+_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol.exit: ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 308
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 64
@@ -516,8 +514,8 @@ _ZNK6HandleclEv.exit21:                           ; preds = %25, %26
   store i16 %44, ptr %13, align 2
   br label %_ZN22SharedClassLoadingMarkD2Ev.exit
 
-_ZN22SharedClassLoadingMarkD2Ev.exit:             ; preds = %3, %10, %42, %.thread, %38, %_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol.exit, %30, %_ZNK6HandleclEv.exit21
-  %.1 = phi ptr [ null, %_ZNK6HandleclEv.exit21 ], [ null, %30 ], [ null, %_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol.exit ], [ %39, %38 ], [ %.029, %.thread ], [ %.029, %42 ], [ null, %10 ], [ null, %3 ]
+_ZN22SharedClassLoadingMarkD2Ev.exit:             ; preds = %5, %3, %42, %.thread, %38, %_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol.exit, %30, %_ZNK6HandleclEv.exit21
+  %.1 = phi ptr [ null, %_ZNK6HandleclEv.exit21 ], [ null, %30 ], [ null, %_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol.exit ], [ %39, %38 ], [ %.029, %.thread ], [ %.029, %42 ], [ null, %3 ], [ null, %5 ]
   ret ptr %.1
 }
 
@@ -525,26 +523,22 @@ _ZN22SharedClassLoadingMarkD2Ev.exit:             ; preds = %3, %10, %42, %.thre
 define hidden noundef ptr @_ZN22SystemDictionaryShared18find_builtin_classEP6Symbol(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN22SystemDictionaryShared11find_recordEP23RunTimeSharedDictionaryS1_P6Symbol(ptr noundef nonnull @_ZN22SystemDictionaryShared15_static_archiveE, ptr noundef nonnull @_ZN22SystemDictionaryShared16_dynamic_archiveE, ptr noundef %0)
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %12, label %3
+  br i1 %.not, label %11, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 188
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 32
-  %.not6 = icmp eq i16 %7, 0
-  br i1 %.not6, label %11, label %8
-
-8:                                                ; preds = %3
+  %8 = icmp ne i16 %7, 0
   %9 = load i8, ptr @_ZN11JvmtiExport33_should_post_class_file_load_hookE, align 1
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %12, label %11
+  %or.cond = select i1 %8, i1 %10, i1 false
+  %spec.select = select i1 %or.cond, ptr null, ptr %4
+  br label %11
 
-11:                                               ; preds = %8, %3
-  br label %12
-
-12:                                               ; preds = %1, %8, %11
-  %.0 = phi ptr [ %4, %11 ], [ null, %8 ], [ null, %1 ]
+11:                                               ; preds = %3, %1
+  %.0 = phi ptr [ null, %1 ], [ %spec.select, %3 ]
   ret ptr %.0
 }
 

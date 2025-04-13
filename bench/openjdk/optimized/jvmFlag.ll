@@ -2671,46 +2671,44 @@ define hidden noundef range(i32 0, 4) i32 @_ZNK7JVMFlag18get_locked_messageEPci(
 _ZNK7JVMFlag11is_unlockedEv.exit:                 ; preds = %3
   %7 = load i8, ptr @UnlockDiagnosticVMOptions, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %22, label %9
+  br i1 %8, label %23, label %9
 
 9:                                                ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit
   %10 = sext i32 %2 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %1, i64 noundef %10, ptr noundef nonnull @.str.5, ptr noundef %12, ptr noundef %12) #13
-  br label %29
+  br label %30
 
 .thread:                                          ; preds = %3
   %14 = and i32 %5, 128
-  %.not14 = icmp eq i32 %14, 0
-  br i1 %.not14, label %22, label %_ZNK7JVMFlag11is_unlockedEv.exit11
+  %15 = icmp eq i32 %14, 0
+  %16 = load i8, ptr @UnlockExperimentalVMOptions, align 1
+  %17 = trunc i8 %16 to i1
+  %or.cond = select i1 %15, i1 true, i1 %17
+  br i1 %or.cond, label %23, label %18
 
-_ZNK7JVMFlag11is_unlockedEv.exit11:               ; preds = %.thread
-  %15 = load i8, ptr @UnlockExperimentalVMOptions, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %22, label %17
+18:                                               ; preds = %.thread
+  %19 = sext i32 %2 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %1, i64 noundef %19, ptr noundef nonnull @.str.6, ptr noundef %21, ptr noundef %21) #13
+  br label %30
 
-17:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit11
-  %18 = sext i32 %2 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %1, i64 noundef %18, ptr noundef nonnull @.str.6, ptr noundef %20, ptr noundef %20) #13
-  br label %29
+23:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit, %.thread
+  %24 = and i32 %5, 256
+  %.not16 = icmp eq i32 %24, 0
+  br i1 %.not16, label %30, label %25
 
-22:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit, %.thread, %_ZNK7JVMFlag11is_unlockedEv.exit11
-  %23 = and i32 %5, 256
-  %.not16 = icmp eq i32 %23, 0
-  br i1 %.not16, label %29, label %24
+25:                                               ; preds = %23
+  %26 = sext i32 %2 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %1, i64 noundef %26, ptr noundef nonnull @.str.7, ptr noundef %28) #13
+  br label %30
 
-24:                                               ; preds = %22
-  %25 = sext i32 %2 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %1, i64 noundef %25, ptr noundef nonnull @.str.7, ptr noundef %27) #13
-  br label %29
-
-29:                                               ; preds = %22, %24, %17, %9
-  %.0 = phi i32 [ 3, %24 ], [ 2, %17 ], [ 1, %9 ], [ 0, %22 ]
+30:                                               ; preds = %23, %25, %18, %9
+  %.0 = phi i32 [ 3, %25 ], [ 2, %18 ], [ 1, %9 ], [ 0, %23 ]
   ret i32 %.0
 }
 
@@ -3441,8 +3439,8 @@ define hidden noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noun
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 256
-  %.not13 = icmp eq i32 %9, 0
-  br i1 %.not13, label %12, label %10
+  %.not16 = icmp eq i32 %9, 0
+  br i1 %.not16, label %12, label %10
 
 10:                                               ; preds = %6
   %11 = select i1 %3, ptr %5, ptr null
@@ -3461,14 +3459,12 @@ define hidden noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noun
 17:                                               ; preds = %12
   %18 = and i32 %8, 128
   %.not2.i = icmp eq i32 %18, 0
-  br i1 %.not2.i, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %_ZNK7JVMFlag11is_unlockedEv.exit
-
-_ZNK7JVMFlag11is_unlockedEv.exit:                 ; preds = %17
   %19 = load i8, ptr @UnlockExperimentalVMOptions, align 1
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %21
+  %or.cond15 = select i1 %.not2.i, i1 true, i1 %20
+  br i1 %or.cond15, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %21
 
-21:                                               ; preds = %14, %_ZNK7JVMFlag11is_unlockedEv.exit
+21:                                               ; preds = %17, %14
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(26) @.str) #12
@@ -3478,10 +3474,10 @@ _ZNK7JVMFlag11is_unlockedEv.exit:                 ; preds = %17
 _ZNK7JVMFlag11is_unlockerEv.exit:                 ; preds = %21
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(28) @.str.4) #12
   %27 = icmp eq i32 %26, 0
-  %brmerge = or i1 %2, %27
-  br i1 %brmerge, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %28
+  %or.cond = or i1 %2, %27
+  br i1 %or.cond, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %28
 
-_ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %21, %17, %14, %_ZNK7JVMFlag11is_unlockerEv.exit, %_ZNK7JVMFlag11is_unlockedEv.exit
+_ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %21, %17, %14, %_ZNK7JVMFlag11is_unlockerEv.exit
   br label %28
 
 28:                                               ; preds = %4, %_ZNK7JVMFlag11is_unlockerEv.exit, %_ZNK7JVMFlag11is_unlockedEv.exit.thread, %10
@@ -3494,33 +3490,33 @@ declare noundef ptr @_ZN13JVMFlagLookup4findEPKcm(ptr noundef, i64 noundef) loca
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN7JVMFlag11fuzzy_matchEPKcmb(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL9flagTable, i64 8), align 8
-  %.not25 = icmp eq ptr %4, null
-  br i1 %.not25, label %._crit_edge.thread, label %.lr.ph
+  %.not28 = icmp eq ptr %4, null
+  br i1 %.not28, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %5 = phi ptr [ %11, %.lr.ph ], [ %4, %3 ]
-  %.028 = phi ptr [ %9, %.lr.ph ], [ @_ZL9flagTable, %3 ]
-  %.01727 = phi double [ %.1, %.lr.ph ], [ -1.000000e+00, %3 ]
-  %.01926 = phi ptr [ %.120, %.lr.ph ], [ null, %3 ]
+  %.031 = phi ptr [ %9, %.lr.ph ], [ @_ZL9flagTable, %3 ]
+  %.01830 = phi double [ %.1, %.lr.ph ], [ -1.000000e+00, %3 ]
+  %.02029 = phi ptr [ %.121, %.lr.ph ], [ null, %3 ]
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
   %7 = tail call noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef nonnull %5, i64 noundef %6, ptr noundef %0, i64 noundef %1) #13
-  %8 = fcmp ogt double %7, %.01727
-  %.120 = select i1 %8, ptr %.028, ptr %.01926
-  %.1 = select i1 %8, double %7, double %.01727
-  %9 = getelementptr inbounds nuw i8, ptr %.028, i64 24
-  %10 = getelementptr inbounds nuw i8, ptr %.028, i64 32
+  %8 = fcmp ogt double %7, %.01830
+  %.121 = select i1 %8, ptr %.031, ptr %.02029
+  %.1 = select i1 %8, double %7, double %.01830
+  %9 = getelementptr inbounds nuw i8, ptr %.031, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %12 = fcmp olt double %.1, 0x3FE6666666666666
-  %13 = select i1 %12, ptr null, ptr %.120
-  %14 = icmp eq ptr %.120, null
+  %13 = select i1 %12, ptr null, ptr %.121
+  %14 = icmp eq ptr %.121, null
   br i1 %14, label %._crit_edge.thread, label %15
 
 15:                                               ; preds = %._crit_edge
-  %16 = getelementptr inbounds nuw i8, ptr %.120, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.121, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 64
   %.not.i = icmp eq i32 %18, 0
@@ -3534,15 +3530,13 @@ define hidden noundef ptr @_ZN7JVMFlag11fuzzy_matchEPKcmb(ptr noundef %0, i64 no
 22:                                               ; preds = %15
   %23 = and i32 %17, 128
   %.not2.i = icmp eq i32 %23, 0
-  br i1 %.not2.i, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %_ZNK7JVMFlag11is_unlockedEv.exit
-
-_ZNK7JVMFlag11is_unlockedEv.exit:                 ; preds = %22
   %24 = load i8, ptr @UnlockExperimentalVMOptions, align 1
   %25 = trunc i8 %24 to i1
-  br i1 %25, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %26
+  %or.cond27 = select i1 %.not2.i, i1 true, i1 %25
+  br i1 %or.cond27, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %26
 
-26:                                               ; preds = %19, %_ZNK7JVMFlag11is_unlockedEv.exit
-  %27 = getelementptr inbounds nuw i8, ptr %.120, i64 8
+26:                                               ; preds = %22, %19
+  %27 = getelementptr inbounds nuw i8, ptr %.121, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(26) @.str) #12
   %30 = icmp eq i32 %29, 0
@@ -3551,15 +3545,15 @@ _ZNK7JVMFlag11is_unlockedEv.exit:                 ; preds = %22
 _ZNK7JVMFlag11is_unlockerEv.exit:                 ; preds = %26
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(28) @.str.4) #12
   %32 = icmp eq i32 %31, 0
-  %brmerge = or i1 %2, %32
-  br i1 %brmerge, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %._crit_edge.thread
+  %or.cond = or i1 %2, %32
+  br i1 %or.cond, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %._crit_edge.thread
 
-_ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %26, %22, %19, %_ZNK7JVMFlag11is_unlockerEv.exit, %_ZNK7JVMFlag11is_unlockedEv.exit
+_ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %26, %22, %19, %_ZNK7JVMFlag11is_unlockerEv.exit
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3, %_ZNK7JVMFlag11is_unlockedEv.exit.thread, %_ZNK7JVMFlag11is_unlockerEv.exit, %._crit_edge
-  %.018 = phi ptr [ null, %._crit_edge ], [ null, %_ZNK7JVMFlag11is_unlockerEv.exit ], [ %13, %_ZNK7JVMFlag11is_unlockedEv.exit.thread ], [ null, %3 ]
-  ret ptr %.018
+  %.019 = phi ptr [ null, %._crit_edge ], [ null, %_ZNK7JVMFlag11is_unlockerEv.exit ], [ %13, %_ZNK7JVMFlag11is_unlockedEv.exit.thread ], [ null, %3 ]
+  ret ptr %.019
 }
 
 declare noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
@@ -3699,35 +3693,35 @@ define hidden void @_ZN7JVMFlag10printFlagsEP12outputStreambbb(ptr noundef nonnu
   %7 = shl i64 %6, 3
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %7, i8 noundef zeroext 19, i32 noundef 1) #13
   %.not = icmp eq ptr %8, null
-  %.not59 = icmp eq i64 %6, 0
-  br i1 %.not, label %.preheader, label %.preheader49
+  %.not63 = icmp eq i64 %6, 0
+  br i1 %.not, label %.preheader, label %.preheader53
 
-.preheader49:                                     ; preds = %4
-  br i1 %.not59, label %._crit_edge.thread, label %.lr.ph
+.preheader53:                                     ; preds = %4
+  br i1 %.not63, label %._crit_edge.thread, label %.lr.ph
 
-._crit_edge.thread:                               ; preds = %.preheader49
+._crit_edge.thread:                               ; preds = %.preheader53
   tail call void @qsort(ptr noundef nonnull %8, i64 noundef %6, i64 noundef 8, ptr noundef nonnull @_ZL13compare_flagsPKvS0_) #13
-  br label %._crit_edge54
+  br label %._crit_edge58
 
 .preheader:                                       ; preds = %4
-  br i1 %.not59, label %.loopexit, label %.lr.ph56
+  br i1 %.not63, label %.loopexit, label %.lr.ph60
 
-.lr.ph:                                           ; preds = %.preheader49, %.lr.ph
-  %.03750 = phi i64 [ %11, %.lr.ph ], [ 0, %.preheader49 ]
-  %9 = getelementptr inbounds [1224 x %class.JVMFlag], ptr @_ZL9flagTable, i64 0, i64 %.03750
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %.03750
+.lr.ph:                                           ; preds = %.preheader53, %.lr.ph
+  %.03754 = phi i64 [ %11, %.lr.ph ], [ 0, %.preheader53 ]
+  %9 = getelementptr inbounds [1224 x %class.JVMFlag], ptr @_ZL9flagTable, i64 0, i64 %.03754
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %.03754
   store ptr %9, ptr %10, align 8
-  %11 = add nuw i64 %.03750, 1
+  %11 = add nuw i64 %.03754, 1
   %exitcond.not = icmp eq i64 %11, %6
-  br i1 %exitcond.not, label %.lr.ph53, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph57, label %.lr.ph, !llvm.loop !13
 
-.lr.ph53:                                         ; preds = %.lr.ph
+.lr.ph57:                                         ; preds = %.lr.ph
   tail call void @qsort(ptr noundef nonnull %8, i64 noundef %6, i64 noundef 8, ptr noundef nonnull @_ZL13compare_flagsPKvS0_) #13
-  br i1 %3, label %.lr.ph53.split, label %.lr.ph53.split.us
+  br i1 %3, label %.lr.ph57.split, label %.lr.ph57.split.us
 
-.lr.ph53.split.us:                                ; preds = %.lr.ph53, %24
-  %.03651.us = phi i64 [ %25, %24 ], [ 0, %.lr.ph53 ]
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %.03651.us
+.lr.ph57.split.us:                                ; preds = %.lr.ph57, %24
+  %.03655.us = phi i64 [ %25, %24 ], [ 0, %.lr.ph57 ]
+  %12 = getelementptr inbounds ptr, ptr %8, i64 %.03655.us
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
@@ -3735,33 +3729,31 @@ define hidden void @_ZN7JVMFlag10printFlagsEP12outputStreambbb(ptr noundef nonnu
   %.not.i.us = icmp eq i32 %16, 0
   br i1 %.not.i.us, label %20, label %17
 
-17:                                               ; preds = %.lr.ph53.split.us
+17:                                               ; preds = %.lr.ph57.split.us
   %18 = load i8, ptr @UnlockDiagnosticVMOptions, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread.us, label %24
 
-20:                                               ; preds = %.lr.ph53.split.us
+20:                                               ; preds = %.lr.ph57.split.us
   %21 = and i32 %15, 128
   %.not2.i.us = icmp eq i32 %21, 0
-  br i1 %.not2.i.us, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread.us, label %_ZNK7JVMFlag11is_unlockedEv.exit.us
-
-_ZNK7JVMFlag11is_unlockedEv.exit.us:              ; preds = %20
   %22 = load i8, ptr @UnlockExperimentalVMOptions, align 1
   %23 = trunc i8 %22 to i1
-  br i1 %23, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread.us, label %24
+  %or.cond.us = select i1 %.not2.i.us, i1 true, i1 %23
+  br i1 %or.cond.us, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread.us, label %24
 
-_ZNK7JVMFlag11is_unlockedEv.exit.thread.us:       ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit.us, %20, %17
+_ZNK7JVMFlag11is_unlockedEv.exit.thread.us:       ; preds = %20, %17
   tail call void @_ZNK7JVMFlag8print_onEP12outputStreambb(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull %0, i1 zeroext poison, i1 noundef zeroext %2)
   br label %24
 
-24:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit.thread.us, %_ZNK7JVMFlag11is_unlockedEv.exit.us, %17
-  %25 = add nuw i64 %.03651.us, 1
-  %exitcond61.not = icmp eq i64 %25, %6
-  br i1 %exitcond61.not, label %._crit_edge54, label %.lr.ph53.split.us, !llvm.loop !14
+24:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit.thread.us, %20, %17
+  %25 = add nuw i64 %.03655.us, 1
+  %exitcond65.not = icmp eq i64 %25, %6
+  br i1 %exitcond65.not, label %._crit_edge58, label %.lr.ph57.split.us, !llvm.loop !14
 
-.lr.ph53.split:                                   ; preds = %.lr.ph53, %41
-  %.03651 = phi i64 [ %42, %41 ], [ 0, %.lr.ph53 ]
-  %26 = getelementptr inbounds ptr, ptr %8, i64 %.03651
+.lr.ph57.split:                                   ; preds = %.lr.ph57, %41
+  %.03655 = phi i64 [ %42, %41 ], [ 0, %.lr.ph57 ]
+  %26 = getelementptr inbounds ptr, ptr %8, i64 %.03655
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8
@@ -3769,22 +3761,20 @@ _ZNK7JVMFlag11is_unlockedEv.exit.thread.us:       ; preds = %_ZNK7JVMFlag11is_un
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %34, label %31
 
-31:                                               ; preds = %.lr.ph53.split
+31:                                               ; preds = %.lr.ph57.split
   %32 = load i8, ptr @UnlockDiagnosticVMOptions, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %41
 
-34:                                               ; preds = %.lr.ph53.split
+34:                                               ; preds = %.lr.ph57.split
   %35 = and i32 %29, 128
   %.not2.i = icmp eq i32 %35, 0
-  br i1 %.not2.i, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %_ZNK7JVMFlag11is_unlockedEv.exit
-
-_ZNK7JVMFlag11is_unlockedEv.exit:                 ; preds = %34
   %36 = load i8, ptr @UnlockExperimentalVMOptions, align 1
   %37 = trunc i8 %36 to i1
-  br i1 %37, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %41
+  %or.cond = select i1 %.not2.i, i1 true, i1 %37
+  br i1 %or.cond, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %41
 
-_ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %34, %31, %_ZNK7JVMFlag11is_unlockedEv.exit
+_ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %34, %31
   %38 = and i32 %29, 15
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %41, label %40
@@ -3793,55 +3783,53 @@ _ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %34, %31, %_ZNK7JVMF
   tail call void @_ZNK7JVMFlag8print_onEP12outputStreambb(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull %0, i1 zeroext poison, i1 noundef zeroext %2)
   br label %41
 
-41:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit.thread, %31, %_ZNK7JVMFlag11is_unlockedEv.exit, %40
-  %42 = add nuw i64 %.03651, 1
-  %exitcond62.not = icmp eq i64 %42, %6
-  br i1 %exitcond62.not, label %._crit_edge54, label %.lr.ph53.split, !llvm.loop !14
+41:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit.thread, %34, %31, %40
+  %42 = add nuw i64 %.03655, 1
+  %exitcond66.not = icmp eq i64 %42, %6
+  br i1 %exitcond66.not, label %._crit_edge58, label %.lr.ph57.split, !llvm.loop !14
 
-._crit_edge54:                                    ; preds = %24, %41, %._crit_edge.thread
+._crit_edge58:                                    ; preds = %24, %41, %._crit_edge.thread
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %8) #13
   br label %.loopexit
 
-.lr.ph56:                                         ; preds = %.preheader, %57
-  %.055 = phi i64 [ %58, %57 ], [ 0, %.preheader ]
-  %43 = getelementptr inbounds [1224 x %class.JVMFlag], ptr @_ZL9flagTable, i64 0, i64 %.055
+.lr.ph60:                                         ; preds = %.preheader, %57
+  %.059 = phi i64 [ %58, %57 ], [ 0, %.preheader ]
+  %43 = getelementptr inbounds [1224 x %class.JVMFlag], ptr @_ZL9flagTable, i64 0, i64 %.059
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 64
   %.not.i40 = icmp eq i32 %46, 0
   br i1 %.not.i40, label %50, label %47
 
-47:                                               ; preds = %.lr.ph56
+47:                                               ; preds = %.lr.ph60
   %48 = load i8, ptr @UnlockDiagnosticVMOptions, align 1
   %49 = trunc i8 %48 to i1
   br i1 %49, label %_ZNK7JVMFlag11is_unlockedEv.exit43.thread, label %57
 
-50:                                               ; preds = %.lr.ph56
+50:                                               ; preds = %.lr.ph60
   %51 = and i32 %45, 128
   %.not2.i42 = icmp eq i32 %51, 0
-  br i1 %.not2.i42, label %_ZNK7JVMFlag11is_unlockedEv.exit43.thread, label %_ZNK7JVMFlag11is_unlockedEv.exit43
-
-_ZNK7JVMFlag11is_unlockedEv.exit43:               ; preds = %50
   %52 = load i8, ptr @UnlockExperimentalVMOptions, align 1
   %53 = trunc i8 %52 to i1
-  br i1 %53, label %_ZNK7JVMFlag11is_unlockedEv.exit43.thread, label %57
+  %or.cond50 = select i1 %.not2.i42, i1 true, i1 %53
+  br i1 %or.cond50, label %_ZNK7JVMFlag11is_unlockedEv.exit43.thread, label %57
 
-_ZNK7JVMFlag11is_unlockedEv.exit43.thread:        ; preds = %50, %47, %_ZNK7JVMFlag11is_unlockedEv.exit43
+_ZNK7JVMFlag11is_unlockedEv.exit43.thread:        ; preds = %50, %47
   %54 = and i32 %45, 15
   %55 = icmp eq i32 %54, 0
-  %or.cond48 = and i1 %3, %55
-  br i1 %or.cond48, label %57, label %56
+  %or.cond52 = and i1 %3, %55
+  br i1 %or.cond52, label %57, label %56
 
 56:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit43.thread
   tail call void @_ZNK7JVMFlag8print_onEP12outputStreambb(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull %0, i1 zeroext poison, i1 noundef zeroext %2)
   br label %57
 
-57:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit43.thread, %47, %_ZNK7JVMFlag11is_unlockedEv.exit43, %56
-  %58 = add nuw i64 %.055, 1
-  %exitcond63.not = icmp eq i64 %58, %6
-  br i1 %exitcond63.not, label %.loopexit, label %.lr.ph56, !llvm.loop !15
+57:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit43.thread, %50, %47, %56
+  %58 = add nuw i64 %.059, 1
+  %exitcond67.not = icmp eq i64 %58, %6
+  br i1 %exitcond67.not, label %.loopexit, label %.lr.ph60, !llvm.loop !15
 
-.loopexit:                                        ; preds = %57, %.preheader, %._crit_edge54
+.loopexit:                                        ; preds = %57, %.preheader, %._crit_edge58
   ret void
 }
 

@@ -4469,8 +4469,8 @@ define void @_ZN3gmx15NoseHooverGroup26updateReferenceTemperatureEf(ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
   %6 = fcmp ogt float %5, 0.000000e+00
-  %or.cond = select i1 %3, i1 %6, i1 false
-  br i1 %or.cond, label %7, label %.thread22
+  %or.cond16 = select i1 %3, i1 %6, i1 false
+  br i1 %or.cond16, label %7, label %.thread21
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4480,20 +4480,20 @@ define void @_ZN3gmx15NoseHooverGroup26updateReferenceTemperatureEf(ptr noundef 
   %12 = fcmp ogt float %11, 0.000000e+00
   br i1 %12, label %19, label %._crit_edge
 
-.thread22:                                        ; preds = %2
+.thread21:                                        ; preds = %2
   %13 = load float, ptr %0, align 8, !tbaa !46
   %14 = fcmp ogt float %13, 0.000000e+00
-  %or.cond1723 = select i1 %14, i1 %6, i1 false
+  %or.cond1922 = select i1 %14, i1 %6, i1 false
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load float, ptr %15, align 8
   %17 = fcmp ogt float %16, 0.000000e+00
-  %or.cond30 = select i1 %or.cond1723, i1 %17, i1 false
-  br i1 %or.cond30, label %18, label %.thread
+  %or.cond27 = select i1 %or.cond1922, i1 %17, i1 false
+  br i1 %or.cond27, label %18, label %.thread
 
 ._crit_edge:                                      ; preds = %7
   br i1 %10, label %18, label %.thread
 
-18:                                               ; preds = %.thread22, %._crit_edge
+18:                                               ; preds = %.thread21, %._crit_edge
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx15NoseHooverGroup26updateReferenceTemperatureEfENK3$_0clEv", ptr noundef nonnull @.str.7, i32 noundef 353) #32
   unreachable
 
@@ -4532,7 +4532,7 @@ define void @_ZN3gmx15NoseHooverGroup26updateReferenceTemperatureEf(ptr noundef 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %30, !llvm.loop !337
 
-.thread:                                          ; preds = %30, %20, %.thread22, %._crit_edge, %19
+.thread:                                          ; preds = %30, %20, %.thread21, %._crit_edge, %19
   store float %1, ptr %0, align 8, !tbaa !46
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %40 = load float, ptr %39, align 8, !tbaa !50

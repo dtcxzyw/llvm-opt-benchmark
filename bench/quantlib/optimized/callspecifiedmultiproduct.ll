@@ -3033,30 +3033,29 @@ entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %2, i64 %1
   %3 = load i8, ptr %arrayidx.i, align 1, !tbaa !108, !range !109, !noundef !110
   %loadedv = trunc nuw i8 %3 to i1
-  %_M_data.i16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %_M_data.i16, align 8, !tbaa !102
-  %arrayidx.i17 = getelementptr inbounds nuw i8, ptr %4, i64 %1
-  %5 = load i8, ptr %arrayidx.i17, align 1, !tbaa !108, !range !109, !noundef !110
+  %_M_data.i18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = load ptr, ptr %_M_data.i18, align 8, !tbaa !102
+  %arrayidx.i19 = getelementptr inbounds nuw i8, ptr %4, i64 %1
+  %5 = load i8, ptr %arrayidx.i19, align 1, !tbaa !108, !range !109, !noundef !110
   %loadedv7 = trunc nuw i8 %5 to i1
-  %_M_data.i19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %_M_data.i19, align 8, !tbaa !102
-  %arrayidx.i20 = getelementptr inbounds nuw i8, ptr %6, i64 %1
-  %7 = load i8, ptr %arrayidx.i20, align 1, !tbaa !108, !range !109, !noundef !110
+  %_M_data.i21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = load ptr, ptr %_M_data.i21, align 8, !tbaa !102
+  %arrayidx.i22 = getelementptr inbounds nuw i8, ptr %6, i64 %1
+  %7 = load i8, ptr %arrayidx.i22, align 1, !tbaa !108, !range !109, !noundef !110
   %loadedv13 = trunc nuw i8 %7 to i1
+  %_M_data.i24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = load ptr, ptr %_M_data.i24, align 8, !tbaa !102
+  %arrayidx.i25 = getelementptr inbounds nuw i8, ptr %8, i64 %1
+  %9 = load i8, ptr %arrayidx.i25, align 1, !tbaa !108, !range !109, !noundef !110
+  %loadedv19 = trunc nuw i8 %9 to i1
   %wasCalled_ = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %8 = load i8, ptr %wasCalled_, align 8, !tbaa !107, !range !109, !noundef !110
-  %loadedv21 = trunc nuw i8 %8 to i1
-  br i1 %loadedv21, label %if.then41, label %land.lhs.true
+  %10 = load i8, ptr %wasCalled_, align 8, !tbaa !107, !range !109, !noundef !110
+  %loadedv21 = trunc nuw i8 %10 to i1
+  %loadedv21.not = xor i1 %loadedv21, true
+  %or.cond = select i1 %loadedv21.not, i1 %loadedv19, i1 false
+  br i1 %or.cond, label %if.then, label %if.end
 
-land.lhs.true:                                    ; preds = %entry
-  %_M_data.i22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = load ptr, ptr %_M_data.i22, align 8, !tbaa !102
-  %arrayidx.i23 = getelementptr inbounds nuw i8, ptr %9, i64 %1
-  %10 = load i8, ptr %arrayidx.i23, align 1, !tbaa !108, !range !109, !noundef !110
-  %loadedv19 = trunc nuw i8 %10 to i1
-  br i1 %loadedv19, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %entry
   %strategy_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load ptr, ptr %strategy_, align 8, !tbaa !6
   %vtable = load ptr, ptr %11, align 8, !tbaa !3
@@ -3064,22 +3063,21 @@ if.then:                                          ; preds = %land.lhs.true
   %12 = load ptr, ptr %vfn, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 %currentState)
   %.pre = load i8, ptr %wasCalled_, align 8, !tbaa !107, !range !109
+  %.pre42 = trunc nuw i8 %.pre to i1
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %land.lhs.true
-  %13 = phi i8 [ %.pre, %if.then ], [ 0, %land.lhs.true ]
-  %loadedv25 = trunc nuw i8 %13 to i1
-  %loadedv7.not = xor i1 %loadedv7, true
-  %brmerge = select i1 %loadedv25, i1 true, i1 %loadedv7.not
-  br i1 %brmerge, label %if.end38, label %land.lhs.true28
-
-land.lhs.true28:                                  ; preds = %if.end
+if.end:                                           ; preds = %if.then, %entry
+  %loadedv25.pre-phi = phi i1 [ %.pre42, %if.then ], [ %loadedv21, %entry ]
+  %13 = phi i8 [ %.pre, %if.then ], [ %10, %entry ]
+  %loadedv25.not = xor i1 %loadedv25.pre-phi, true
+  %or.cond1 = select i1 %loadedv25.not, i1 %loadedv7, i1 false
   %callable_ = getelementptr inbounds nuw i8, ptr %this, i64 280
-  %14 = load i8, ptr %callable_, align 8, !tbaa !11, !range !109, !noundef !110
+  %14 = load i8, ptr %callable_, align 8, !range !109
   %loadedv29 = trunc nuw i8 %14 to i1
-  br i1 %loadedv29, label %if.then30, label %if.else
+  %or.cond17 = select i1 %or.cond1, i1 %loadedv29, i1 false
+  br i1 %or.cond17, label %if.then30, label %if.end38
 
-if.then30:                                        ; preds = %land.lhs.true28
+if.then30:                                        ; preds = %if.end
   %strategy_31 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %15 = load ptr, ptr %strategy_31, align 8, !tbaa !6
   %vtable33 = load ptr, ptr %15, align 8, !tbaa !3
@@ -3090,12 +3088,12 @@ if.then30:                                        ; preds = %land.lhs.true28
   store i8 %storedv37, ptr %wasCalled_, align 8, !tbaa !107
   br label %if.end38
 
-if.end38:                                         ; preds = %if.end, %if.then30
-  %17 = phi i8 [ %13, %if.end ], [ %storedv37, %if.then30 ]
+if.end38:                                         ; preds = %if.then30, %if.end
+  %17 = phi i8 [ %storedv37, %if.then30 ], [ %13, %if.end ]
   %loadedv40 = trunc nuw i8 %17 to i1
   br i1 %loadedv40, label %if.then41, label %if.else
 
-if.then41:                                        ; preds = %entry, %if.end38
+if.then41:                                        ; preds = %if.end38
   br i1 %loadedv13, label %if.then43, label %if.end77.thread
 
 if.then43:                                        ; preds = %if.then41
@@ -3108,8 +3106,8 @@ if.then43:                                        ; preds = %if.then41
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %numberCashFlowsThisStep, i64 8
   %20 = load ptr, ptr %_M_finish.i, align 8, !tbaa !81
   %21 = load ptr, ptr %numberCashFlowsThisStep, align 8, !tbaa !61
-  %cmp38.not = icmp eq ptr %20, %21
-  br i1 %cmp38.not, label %if.end77, label %for.cond50.preheader.lr.ph
+  %cmp40.not = icmp eq ptr %20, %21
+  br i1 %cmp40.not, label %if.end77, label %for.cond50.preheader.lr.ph
 
 for.cond50.preheader.lr.ph:                       ; preds = %if.then43
   %sub.ptr.lhs.cast.i = ptrtoint ptr %20 to i64
@@ -3123,34 +3121,34 @@ for.cond50.preheader.lr.ph:                       ; preds = %if.then43
   br label %for.cond50.preheader
 
 for.cond50.preheader:                             ; preds = %for.cond50.preheader.lr.ph, %for.cond.cleanup53
-  %i.039 = phi i64 [ 0, %for.cond50.preheader.lr.ph ], [ %inc58, %for.cond.cleanup53 ]
-  %add.ptr.i24 = getelementptr inbounds nuw i64, ptr %21, i64 %i.039
-  %24 = load i64, ptr %add.ptr.i24, align 8, !tbaa !80
-  %cmp5236.not = icmp eq i64 %24, 0
-  br i1 %cmp5236.not, label %for.cond.cleanup53, label %for.body54.lr.ph
+  %i.041 = phi i64 [ 0, %for.cond50.preheader.lr.ph ], [ %inc58, %for.cond.cleanup53 ]
+  %add.ptr.i26 = getelementptr inbounds nuw i64, ptr %21, i64 %i.041
+  %24 = load i64, ptr %add.ptr.i26, align 8, !tbaa !80
+  %cmp5238.not = icmp eq i64 %24, 0
+  br i1 %cmp5238.not, label %for.cond.cleanup53, label %for.body54.lr.ph
 
 for.body54.lr.ph:                                 ; preds = %for.cond50.preheader
-  %add.ptr.i25 = getelementptr inbounds nuw %"class.std::vector.48", ptr %23, i64 %i.039
-  %25 = load ptr, ptr %add.ptr.i25, align 8, !tbaa !82
+  %add.ptr.i27 = getelementptr inbounds nuw %"class.std::vector.48", ptr %23, i64 %i.041
+  %25 = load ptr, ptr %add.ptr.i27, align 8, !tbaa !82
   br label %for.body54
 
 for.cond.cleanup53:                               ; preds = %for.body54, %for.cond50.preheader
-  %inc58 = add nuw i64 %i.039, 1
+  %inc58 = add nuw i64 %i.041, 1
   %exitcond.not = icmp eq i64 %inc58, %umax
   br i1 %exitcond.not, label %if.end77, label %for.cond50.preheader, !llvm.loop !111
 
 for.body54:                                       ; preds = %for.body54.lr.ph, %for.body54
-  %j.037 = phi i64 [ 0, %for.body54.lr.ph ], [ %inc, %for.body54 ]
-  %add.ptr.i26 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %25, i64 %j.037
-  %26 = load i64, ptr %add.ptr.i26, align 8, !tbaa !112
+  %j.039 = phi i64 [ 0, %for.body54.lr.ph ], [ %inc, %for.body54 ]
+  %add.ptr.i28 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %25, i64 %j.039
+  %26 = load i64, ptr %add.ptr.i28, align 8, !tbaa !112
   %add = add i64 %26, %22
-  store i64 %add, ptr %add.ptr.i26, align 8, !tbaa !112
-  %inc = add nuw i64 %j.037, 1
-  %27 = load i64, ptr %add.ptr.i24, align 8, !tbaa !80
+  store i64 %add, ptr %add.ptr.i28, align 8, !tbaa !112
+  %inc = add nuw i64 %j.039, 1
+  %27 = load i64, ptr %add.ptr.i26, align 8, !tbaa !80
   %cmp52 = icmp ult i64 %inc, %27
   br i1 %cmp52, label %for.body54, label %for.cond.cleanup53, !llvm.loop !114
 
-if.else:                                          ; preds = %land.lhs.true28, %if.end38
+if.else:                                          ; preds = %if.end38
   br i1 %loadedv13, label %if.then62, label %if.end68
 
 if.then62:                                        ; preds = %if.else
@@ -3175,14 +3173,14 @@ if.then70:                                        ; preds = %if.end68
   %31 = load ptr, ptr %vfn73, align 8
   %call74 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 1 %currentState, ptr noundef nonnull align 8 dereferenceable(24) %numberCashFlowsThisStep, ptr noundef nonnull align 8 dereferenceable(24) %cashFlowsGenerated)
   %32 = load i64, ptr %currentIndex_, align 8, !tbaa !106
-  %inc7935 = add i64 %32, 1
-  store i64 %inc7935, ptr %currentIndex_, align 8, !tbaa !106
+  %inc7937 = add i64 %32, 1
+  store i64 %inc7937, ptr %currentIndex_, align 8, !tbaa !106
   br i1 %call74, label %lor.end, label %lor.rhs
 
 if.end77.thread:                                  ; preds = %if.then41, %if.end68
   %33 = load i64, ptr %currentIndex_, align 8, !tbaa !106
-  %inc7933 = add i64 %33, 1
-  store i64 %inc7933, ptr %currentIndex_, align 8, !tbaa !106
+  %inc7935 = add i64 %33, 1
+  store i64 %inc7935, ptr %currentIndex_, align 8, !tbaa !106
   br label %lor.rhs
 
 if.end77:                                         ; preds = %for.cond.cleanup53, %if.then43
@@ -3192,17 +3190,17 @@ if.end77:                                         ; preds = %for.cond.cleanup53,
   br i1 %call47, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.then70, %if.end77.thread, %if.end77
-  %inc7934 = phi i64 [ %inc7933, %if.end77.thread ], [ %inc79, %if.end77 ], [ %inc7935, %if.then70 ]
+  %inc7936 = phi i64 [ %inc7935, %if.end77.thread ], [ %inc79, %if.end77 ], [ %inc7937, %if.then70 ]
   %evolution_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call82 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib20EvolutionDescription14evolutionTimesEv(ptr noundef nonnull align 8 dereferenceable(128) %evolution_)
-  %_M_finish.i27 = getelementptr inbounds nuw i8, ptr %call82, i64 8
-  %35 = load ptr, ptr %_M_finish.i27, align 8, !tbaa !50
+  %_M_finish.i29 = getelementptr inbounds nuw i8, ptr %call82, i64 8
+  %35 = load ptr, ptr %_M_finish.i29, align 8, !tbaa !50
   %36 = load ptr, ptr %call82, align 8, !tbaa !51
-  %sub.ptr.lhs.cast.i28 = ptrtoint ptr %35 to i64
-  %sub.ptr.rhs.cast.i29 = ptrtoint ptr %36 to i64
-  %sub.ptr.sub.i30 = sub i64 %sub.ptr.lhs.cast.i28, %sub.ptr.rhs.cast.i29
-  %sub.ptr.div.i31 = ashr exact i64 %sub.ptr.sub.i30, 3
-  %cmp84 = icmp eq i64 %inc7934, %sub.ptr.div.i31
+  %sub.ptr.lhs.cast.i30 = ptrtoint ptr %35 to i64
+  %sub.ptr.rhs.cast.i31 = ptrtoint ptr %36 to i64
+  %sub.ptr.sub.i32 = sub i64 %sub.ptr.lhs.cast.i30, %sub.ptr.rhs.cast.i31
+  %sub.ptr.div.i33 = ashr exact i64 %sub.ptr.sub.i32, 3
+  %cmp84 = icmp eq i64 %inc7936, %sub.ptr.div.i33
   br label %lor.end
 
 lor.end:                                          ; preds = %if.then70, %lor.rhs, %if.end77

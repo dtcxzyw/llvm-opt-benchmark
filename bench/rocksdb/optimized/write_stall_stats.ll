@@ -489,7 +489,11 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb29WriteStallC
 
 38:                                               ; preds = %36, %33, %30
   %39 = icmp ult i32 %0, 5
-  br i1 %39, label %switch.hole_check, label %48
+  %switch.maskindex = trunc i32 %0 to i8
+  %switch.shifted = lshr i8 23, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %39, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %48
 
 40:                                               ; preds = %11
   %41 = landingpad { ptr, i32 }
@@ -515,7 +519,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb29WriteStallC
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
   br label %common.resume
 
-48:                                               ; preds = %switch.hole_check, %38
+48:                                               ; preds = %38
   %49 = load atomic i8, ptr @_ZGVZN7rocksdb29InvalidWriteStallHyphenStringB5cxx11EvE30kInvalidWriteStallHyphenStringB5cxx11 acquire, align 8
   %50 = icmp eq i8 %49, 0
   br i1 %50, label %51, label %_ZN7rocksdb29InvalidWriteStallHyphenStringB5cxx11Ev.exit, !prof !20
@@ -548,13 +552,7 @@ common.resume:                                    ; preds = %40, %42, %44, %46, 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
   br label %common.resume
 
-switch.hole_check:                                ; preds = %38
-  %switch.maskindex = trunc nuw i32 %0 to i8
-  %switch.shifted = lshr i8 23, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %48
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %38
   %58 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN7rocksdb29WriteStallCauseToHyphenStringB5cxx11ENS_15WriteStallCauseE, i64 0, i64 %58
   %switch.load = load ptr, ptr %switch.gep, align 8

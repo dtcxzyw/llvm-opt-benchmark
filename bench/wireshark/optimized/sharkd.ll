@@ -428,8 +428,8 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %28
   %30 = call zeroext i1 @wtap_read(ptr noundef %29, ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br i1 %30, label %process_packet.exit.thread.us.i, label %.loopexit.i, !llvm.loop !7
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %77
-  %.04.i = phi i32 [ %.1.i, %77 ], [ 0, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %75
+  %.04.i = phi i32 [ %.1.i, %75 ], [ 0, %.lr.ph.i ]
   %31 = load i64, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %1) #7
   %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
@@ -438,150 +438,146 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %28
   call void @frame_data_init(ptr noundef nonnull %1, i32 noundef %33, ptr noundef nonnull %5, i64 noundef %31, i32 noundef %34)
   %35 = load i8, ptr @gbl_resolv_flags, align 1, !range !9, !noundef !10
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %43, label %37
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 1), align 1, !range !9
+  %38 = trunc nuw i8 %37 to i1
+  %or.cond.i.i = select i1 %36, i1 true, i1 %38
+  %39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 2), align 1, !range !9
+  %40 = trunc nuw i8 %39 to i1
+  %or.cond3.i.i = select i1 %or.cond.i.i, i1 true, i1 %40
+  br i1 %or.cond3.i.i, label %41, label %43
 
-37:                                               ; preds = %.lr.ph.split.i
-  %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 1), align 1, !range !9, !noundef !10
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %43, label %40
+41:                                               ; preds = %.lr.ph.split.i
+  %42 = call zeroext i1 @host_name_lookup_process()
+  br label %43
 
-40:                                               ; preds = %37
-  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 2), align 1, !range !9, !noundef !10
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %43, label %45
+43:                                               ; preds = %41, %.lr.ph.split.i
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 136), align 8
+  %.not46.i.i = icmp eq ptr %44, null
+  br i1 %.not46.i.i, label %46, label %45
 
-43:                                               ; preds = %40, %37, %.lr.ph.split.i
-  %44 = call zeroext i1 @host_name_lookup_process()
-  br label %45
+45:                                               ; preds = %43
+  call void @epan_dissect_prime_with_dfilter(ptr noundef nonnull %.fr.i, ptr noundef nonnull %44)
+  br label %46
 
-45:                                               ; preds = %43, %40
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 136), align 8
-  %.not43.i.i = icmp eq ptr %46, null
-  br i1 %.not43.i.i, label %48, label %47
+46:                                               ; preds = %45, %43
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 144), align 8
+  %.not47.i.i = icmp eq ptr %47, null
+  br i1 %.not47.i.i, label %49, label %48
 
-47:                                               ; preds = %45
-  call void @epan_dissect_prime_with_dfilter(ptr noundef nonnull %.fr.i, ptr noundef nonnull %46)
-  br label %48
+48:                                               ; preds = %46
+  call void @epan_dissect_prime_with_dfilter(ptr noundef nonnull %.fr.i, ptr noundef nonnull %47)
+  br label %49
 
-48:                                               ; preds = %47, %45
-  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 144), align 8
-  %.not44.i.i = icmp eq ptr %49, null
-  br i1 %.not44.i.i, label %51, label %50
-
-50:                                               ; preds = %48
-  call void @epan_dissect_prime_with_dfilter(ptr noundef nonnull %.fr.i, ptr noundef nonnull %49)
-  br label %51
-
-51:                                               ; preds = %50, %48
+49:                                               ; preds = %48, %46
   call void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef nonnull %.fr.i)
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 240), align 8
-  call void @frame_data_set_before_dissect(ptr noundef nonnull %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfile, i64 112), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfile, i64 232), ptr noundef %52)
-  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 232), align 8
-  %54 = icmp eq ptr %53, %1
-  br i1 %54, label %55, label %56
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 240), align 8
+  call void @frame_data_set_before_dissect(ptr noundef nonnull %1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfile, i64 112), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @cfile, i64 232), ptr noundef %50)
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 232), align 8
+  %52 = icmp eq ptr %51, %1
+  br i1 %52, label %53, label %54
 
-55:                                               ; preds = %51
+53:                                               ; preds = %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) @ref_frame, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   store ptr @ref_frame, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 232), align 8
-  br label %56
+  br label %54
 
-56:                                               ; preds = %55, %51
-  %57 = load i16, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 48), align 8
-  %58 = zext i16 %57 to i32
-  call void @epan_dissect_run(ptr noundef nonnull %.fr.i, i32 noundef %58, ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef null)
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 136), align 8
-  %.not45.i.i = icmp eq ptr %59, null
-  br i1 %.not45.i.i, label %.thread.i.i, label %60
+54:                                               ; preds = %53, %49
+  %55 = load i16, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 48), align 8
+  %56 = zext i16 %55 to i32
+  call void @epan_dissect_run(ptr noundef nonnull %.fr.i, i32 noundef %56, ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef null)
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 136), align 8
+  %.not48.i.i = icmp eq ptr %57, null
+  br i1 %.not48.i.i, label %.thread.i.i, label %58
 
-60:                                               ; preds = %56
-  %61 = call zeroext i1 @dfilter_apply_edt(ptr noundef nonnull %59, ptr noundef nonnull %.fr.i)
-  br i1 %61, label %.thread.i.i, label %process_packet.exit.i
+58:                                               ; preds = %54
+  %59 = call zeroext i1 @dfilter_apply_edt(ptr noundef nonnull %57, ptr noundef nonnull %.fr.i)
+  br i1 %59, label %.thread.i.i, label %process_packet.exit.i
 
-.thread.i.i:                                      ; preds = %60, %56
+.thread.i.i:                                      ; preds = %58, %54
   call void @frame_data_set_after_dissect(ptr noundef nonnull %1, ptr noundef nonnull @cum_bytes)
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 256), align 8
-  %63 = call ptr @frame_data_sequence_add(ptr noundef %62, ptr noundef nonnull %1)
-  store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 240), align 8
-  store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 248), align 8
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 144), align 8
-  %.not46.i.i = icmp eq ptr %64, null
-  br i1 %.not46.i.i, label %process_packet.exit.thread2.i, label %65
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 256), align 8
+  %61 = call ptr @frame_data_sequence_add(ptr noundef %60, ptr noundef nonnull %1)
+  store ptr %61, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 240), align 8
+  store ptr %61, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 248), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 144), align 8
+  %.not49.i.i = icmp eq ptr %62, null
+  br i1 %.not49.i.i, label %process_packet.exit.thread2.i, label %63
 
-65:                                               ; preds = %.thread.i.i
-  %66 = call zeroext i1 @dfilter_apply_edt(ptr noundef nonnull %64, ptr noundef nonnull %.fr.i)
-  br i1 %66, label %67, label %process_packet.exit.thread2.i
+63:                                               ; preds = %.thread.i.i
+  %64 = call zeroext i1 @dfilter_apply_edt(ptr noundef nonnull %62, ptr noundef nonnull %.fr.i)
+  br i1 %64, label %65, label %process_packet.exit.thread2.i
 
-67:                                               ; preds = %65
-  %68 = load ptr, ptr %17, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %70 = load ptr, ptr %69, align 8
-  %.not47.i.i = icmp eq ptr %70, null
-  br i1 %.not47.i.i, label %process_packet.exit.thread2.i, label %71
+65:                                               ; preds = %63
+  %66 = load ptr, ptr %17, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  %68 = load ptr, ptr %67, align 8
+  %.not50.i.i = icmp eq ptr %68, null
+  br i1 %.not50.i.i, label %process_packet.exit.thread2.i, label %69
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 256), align 8
-  call void @g_hash_table_foreach(ptr noundef nonnull %70, ptr noundef nonnull @find_and_mark_frame_depended_upon, ptr noundef %72)
+69:                                               ; preds = %65
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 256), align 8
+  call void @g_hash_table_foreach(ptr noundef nonnull %68, ptr noundef nonnull @find_and_mark_frame_depended_upon, ptr noundef %70)
   br label %process_packet.exit.thread2.i
 
-process_packet.exit.thread2.i:                    ; preds = %71, %67, %65, %.thread.i.i
-  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
-  %74 = add i32 %73, 1
-  store i32 %74, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
+process_packet.exit.thread2.i:                    ; preds = %69, %65, %63, %.thread.i.i
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
+  %72 = add i32 %71, 1
+  store i32 %72, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   call void @epan_dissect_reset(ptr noundef nonnull %.fr.i)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %1) #7
   call void @wtap_rec_reset(ptr noundef nonnull %5)
-  %75 = add i32 %.04.i, -1
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %.split.us.i, label %77
+  %73 = add i32 %.04.i, -1
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %.split.us.i, label %75
 
-process_packet.exit.i:                            ; preds = %60
+process_packet.exit.i:                            ; preds = %58
   call void @frame_data_destroy(ptr noundef nonnull %1)
   call void @epan_dissect_reset(ptr noundef nonnull %.fr.i)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %1) #7
-  br label %77
+  br label %75
 
 .split.us.i:                                      ; preds = %process_packet.exit.thread2.i, %process_packet.exit.thread.us.i
   store i32 0, ptr %2, align 4
   br label %.loopexit.i
 
-77:                                               ; preds = %process_packet.exit.i, %process_packet.exit.thread2.i
-  %.1.i = phi i32 [ %.04.i, %process_packet.exit.i ], [ %75, %process_packet.exit.thread2.i ]
-  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8
-  %79 = call zeroext i1 @wtap_read(ptr noundef %78, ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  br i1 %79, label %.lr.ph.split.i, label %.loopexit.i, !llvm.loop !7
+75:                                               ; preds = %process_packet.exit.i, %process_packet.exit.thread2.i
+  %.1.i = phi i32 [ %.04.i, %process_packet.exit.i ], [ %73, %process_packet.exit.thread2.i ]
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8
+  %77 = call zeroext i1 @wtap_read(ptr noundef %76, ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  br i1 %77, label %.lr.ph.split.i, label %.loopexit.i, !llvm.loop !7
 
-.loopexit.i:                                      ; preds = %77, %28, %.split.us.i, %11
+.loopexit.i:                                      ; preds = %75, %28, %.split.us.i, %11
   %.not21.i = icmp eq ptr %.fr.i, null
-  br i1 %.not21.i, label %81, label %80
+  br i1 %.not21.i, label %79, label %78
 
-80:                                               ; preds = %.loopexit.i
+78:                                               ; preds = %.loopexit.i
   call void @epan_dissect_free(ptr noundef nonnull %.fr.i)
-  br label %81
+  br label %79
 
-81:                                               ; preds = %80, %.loopexit.i
+79:                                               ; preds = %78, %.loopexit.i
   call void @wtap_rec_cleanup(ptr noundef nonnull %5)
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8
-  call void @wtap_sequential_close(ptr noundef %82)
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8
+  call void @wtap_sequential_close(ptr noundef %80)
   call void @postseq_cleanup_all_protocols()
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @cfile, i64 240), i8 0, i64 16, i1 false)
-  %83 = load i32, ptr %2, align 4
-  %.not22.i = icmp eq i32 %83, 0
-  br i1 %.not22.i, label %load_cap_file.exit, label %84
+  %81 = load i32, ptr %2, align 4
+  %.not22.i = icmp eq i32 %81, 0
+  br i1 %.not22.i, label %load_cap_file.exit, label %82
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 16), align 8
-  %86 = load ptr, ptr %3, align 8
-  call void @cfile_read_failure_message(ptr noundef %85, i32 noundef %83, ptr noundef %86)
+82:                                               ; preds = %79
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 16), align 8
+  %84 = load ptr, ptr %3, align 8
+  call void @cfile_read_failure_message(ptr noundef %83, i32 noundef %81, ptr noundef %84)
   %.pre.i = load i32, ptr %2, align 4
   br label %load_cap_file.exit
 
-load_cap_file.exit:                               ; preds = %81, %84
-  %87 = phi i32 [ %.pre.i, %84 ], [ 0, %81 ]
+load_cap_file.exit:                               ; preds = %79, %82
+  %85 = phi i32 [ %.pre.i, %82 ], [ 0, %79 ]
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
-  ret i32 %87
+  ret i32 %85
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

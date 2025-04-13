@@ -2500,8 +2500,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_14HdMate
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i, i64 48
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  %brmerge.i.i.i.i.i.i.i.i = or i1 %38, %41
-  br i1 %brmerge.i.i.i.i.i.i.i.i, label %42, label %44
+  %or.cond.i.i.i.i.i.i.i.i = or i1 %38, %41
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %42, label %44
 
 42:                                               ; preds = %33
   %43 = xor i1 %38, %41
@@ -2917,8 +2917,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_15HdMate
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i.i.i, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
-  %brmerge.i.i.i.i.i.i.i.i = or i1 %34, %37
-  br i1 %brmerge.i.i.i.i.i.i.i.i, label %38, label %40
+  %or.cond.i.i.i.i.i.i.i.i = or i1 %34, %37
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %38, label %40
 
 38:                                               ; preds = %29
   %39 = xor i1 %34, %37

@@ -894,21 +894,19 @@ define internal fastcc ptr @process_non_polling_request(ptr noundef nonnull %0, 
 22:                                               ; preds = %20
   %23 = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef nonnull %1) #3
   %24 = icmp ult i32 %23, 8
-  br i1 %24, label %switch.hole_check, label %25
+  %switch.maskindex = trunc i32 %23 to i8
+  %switch.shifted = lshr i8 -107, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond34 = select i1 %24, i1 %switch.lobit, i1 false
+  br i1 %or.cond34, label %switch.lookup, label %25
 
-25:                                               ; preds = %switch.hole_check, %22
+25:                                               ; preds = %22
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 241, ptr noundef nonnull @__func__.process_cert_request) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 133, ptr noundef null) #3
   br label %process_cert_request.exit
 
-switch.hole_check:                                ; preds = %22
-  %switch.maskindex = trunc nuw i32 %23 to i8
-  %switch.shifted = lshr i8 -107, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %25
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %22
   %26 = zext nneg i32 %23 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.process_non_polling_request, i64 0, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4

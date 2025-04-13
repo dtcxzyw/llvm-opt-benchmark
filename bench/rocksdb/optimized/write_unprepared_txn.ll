@@ -11251,88 +11251,86 @@ define linkonce_odr void @_ZN7rocksdb44WriteUnpreparedCommitEntryPreReleaseCallb
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.not22 = icmp eq ptr %19, %20
-  br i1 %.not22, label %._crit_edge26, label %.lr.ph25
+  %.not24 = icmp eq ptr %19, %20
+  br i1 %.not24, label %._crit_edge28, label %.lr.ph27
 
-.lr.ph25:                                         ; preds = %14
+.lr.ph27:                                         ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %28
 
-._crit_edge26.loopexit:                           ; preds = %._crit_edge
+._crit_edge28.loopexit:                           ; preds = %._crit_edge
   %.pre = load i64, ptr %8, align 8
-  br label %._crit_edge26
+  br label %._crit_edge28
 
-._crit_edge26:                                    ; preds = %._crit_edge26.loopexit, %14
-  %22 = phi i64 [ %.pre, %._crit_edge26.loopexit ], [ %9, %14 ]
+._crit_edge28:                                    ; preds = %._crit_edge28.loopexit, %14
+  %22 = phi i64 [ %.pre, %._crit_edge28.loopexit ], [ %9, %14 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load i8, ptr %23, align 8, !tbaa !450, !range !37, !noundef !38
   %25 = trunc nuw i8 %24 to i1
   %26 = icmp ne i64 %22, 0
-  %or.cond = select i1 %25, i1 %26, i1 false
-  br i1 %or.cond, label %.lr.ph28, label %.loopexit
+  %or.cond32 = select i1 %25, i1 %26, i1 false
+  br i1 %or.cond32, label %.lr.ph30, label %.loopexit
 
-.lr.ph28:                                         ; preds = %._crit_edge26
+.lr.ph30:                                         ; preds = %._crit_edge28
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %39
 
-28:                                               ; preds = %.lr.ph25, %._crit_edge
-  %.sroa.018.023 = phi ptr [ %19, %.lr.ph25 ], [ %32, %._crit_edge ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.018.023, i64 32
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.018.023, i64 40
+28:                                               ; preds = %.lr.ph27, %._crit_edge
+  %.sroa.020.025 = phi ptr [ %19, %.lr.ph27 ], [ %32, %._crit_edge ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.020.025, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.020.025, i64 40
   %31 = load i64, ptr %30, align 8, !tbaa !32
-  %.not30 = icmp eq i64 %31, 0
-  br i1 %.not30, label %._crit_edge, label %.lr.ph
+  %.not33 = icmp eq i64 %31, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
-  %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.018.023) #27
+  %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.020.025) #27
   %.not = icmp eq ptr %32, %20
-  br i1 %.not, label %._crit_edge26.loopexit, label %28
+  br i1 %.not, label %._crit_edge28.loopexit, label %28
 
 .lr.ph:                                           ; preds = %28, %.lr.ph
-  %.01621 = phi i64 [ %36, %.lr.ph ], [ 0, %28 ]
+  %.01623 = phi i64 [ %36, %.lr.ph ], [ 0, %28 ]
   %33 = load ptr, ptr %21, align 8, !tbaa !445
   %34 = load i64, ptr %29, align 8, !tbaa !30
-  %35 = add i64 %34, %.01621
+  %35 = add i64 %34, %.01623
   tail call void @_ZN7rocksdb18WritePreparedTxnDB12AddCommittedEmmh(ptr noundef nonnull align 8 dereferenceable(1392) %33, i64 noundef %35, i64 noundef %15, i8 noundef zeroext 0)
-  %36 = add nuw i64 %.01621, 1
+  %36 = add nuw i64 %.01623, 1
   %37 = load i64, ptr %30, align 8, !tbaa !32
   %38 = icmp ult i64 %36, %37
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !699
 
-39:                                               ; preds = %.lr.ph28, %39
-  %.027 = phi i64 [ 0, %.lr.ph28 ], [ %42, %39 ]
+39:                                               ; preds = %.lr.ph30, %39
+  %.029 = phi i64 [ 0, %.lr.ph30 ], [ %42, %39 ]
   %40 = load ptr, ptr %27, align 8, !tbaa !445
-  %41 = add i64 %.027, %2
+  %41 = add i64 %.029, %2
   tail call void @_ZN7rocksdb18WritePreparedTxnDB12AddCommittedEmmh(ptr noundef nonnull align 8 dereferenceable(1392) %40, i64 noundef %41, i64 noundef %15, i8 noundef zeroext 0)
-  %42 = add nuw i64 %.027, 1
+  %42 = add nuw i64 %.029, 1
   %43 = load i64, ptr %8, align 8, !tbaa !449
   %44 = icmp ult i64 %42, %43
   br i1 %44, label %39, label %.loopexit, !llvm.loop !700
 
-.loopexit:                                        ; preds = %39, %._crit_edge26
+.loopexit:                                        ; preds = %39, %._crit_edge28
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !447
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1268
   %48 = load i8, ptr %47, align 4, !tbaa !384, !range !37, !noundef !38
   %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %50, label %58
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 41
+  %51 = load i8, ptr %50, align 1, !range !37
+  %52 = trunc nuw i8 %51 to i1
+  %or.cond = select i1 %49, i1 %52, i1 false
+  br i1 %or.cond, label %53, label %57
 
-50:                                               ; preds = %.loopexit
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %52 = load i8, ptr %51, align 1, !tbaa !451, !range !37, !noundef !38
-  %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %54, label %58
+53:                                               ; preds = %.loopexit
+  %54 = load ptr, ptr %46, align 64, !tbaa !155
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1288
+  %56 = load ptr, ptr %55, align 8
+  tail call void %56(ptr noundef nonnull align 64 dereferenceable(6868) %46, i64 noundef %15)
+  br label %57
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %46, align 64, !tbaa !155
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1288
-  %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef nonnull align 64 dereferenceable(6868) %46, i64 noundef %15)
-  br label %58
-
-58:                                               ; preds = %54, %50, %.loopexit
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %59, align 8, !tbaa !306, !alias.scope !701
+57:                                               ; preds = %53, %.loopexit
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %58, align 8, !tbaa !306, !alias.scope !701
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !701
   ret void
 }

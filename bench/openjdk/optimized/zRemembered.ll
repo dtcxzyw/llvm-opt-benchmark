@@ -1916,13 +1916,13 @@ _ZN32ZRememberedScanForwardingContextC2Ev.exit:   ; preds = %4
 
 12:                                               ; preds = %.preheader, %_ZN20SuspendibleThreadSet5yieldEv.exit
   %13 = call noundef zeroext i1 @_ZN20ZRemsetTableIterator4nextEP17ZRemsetTableEntry(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %3)
-  br i1 %13, label %14, label %85
+  br i1 %13, label %14, label %84
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %10, align 8
   %16 = load ptr, ptr %3, align 8
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %25, label %17
+  %.not15 = icmp eq ptr %15, null
+  br i1 %.not15, label %25, label %17
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %11, align 8
@@ -1939,8 +1939,8 @@ _ZN32ZRememberedScanForwardingContextC2Ev.exit:   ; preds = %4
 
 25:                                               ; preds = %17, %20, %14
   %.0 = phi i8 [ %24, %20 ], [ 0, %17 ], [ 0, %14 ]
-  %.not14 = icmp eq ptr %16, null
-  br i1 %.not14, label %_ZN11ZRemembered18register_found_oldEP5ZPage.exit, label %26
+  %.not16 = icmp eq ptr %16, null
+  br i1 %.not16, label %_ZN11ZRemembered18register_found_oldEP5ZPage.exit, label %26
 
 26:                                               ; preds = %25
   %27 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1967,8 +1967,8 @@ _ZN32ZRememberedScanForwardingContextC2Ev.exit:   ; preds = %4
 _ZNK11ZRemembered16should_scan_pageEP5ZPage.exit: ; preds = %31
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 141
   %45 = load volatile i8, ptr %44, align 1
-  %.not16 = icmp eq i8 %45, 2
-  br i1 %.not16, label %59, label %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit.thread
+  %.not18 = icmp eq i8 %45, 2
+  br i1 %.not18, label %58, label %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit.thread
 
 _ZNK11ZRemembered16should_scan_pageEP5ZPage.exit.thread: ; preds = %31, %26, %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit
   %46 = load ptr, ptr %11, align 8
@@ -1983,86 +1983,85 @@ _ZNK11ZRemembered16should_scan_pageEP5ZPage.exit.thread: ; preds = %31, %26, %_Z
 
 51:                                               ; preds = %50, %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit.thread
   call void @_ZN5ZPage21clear_remset_previousEv(ptr noundef nonnull align 8 dereferenceable(192) %16) #14
-  br i1 %47, label %52, label %59
+  %.not = xor i1 %47, true
+  %52 = trunc nuw i8 %.0 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %52
+  br i1 %or.cond, label %58, label %53
 
-52:                                               ; preds = %51
-  %53 = trunc nuw i8 %.0 to i1
-  br i1 %53, label %59, label %54
+53:                                               ; preds = %51
+  %54 = load ptr, ptr %6, align 8
+  %55 = call noundef zeroext i1 @_ZN5ZMark19follow_work_partialEv(ptr noundef nonnull align 64 dereferenceable(2652) %54) #14
+  %56 = xor i1 %55, true
+  %57 = zext i1 %56 to i8
+  br label %58
 
-54:                                               ; preds = %52
-  %55 = load ptr, ptr %6, align 8
-  %56 = call noundef zeroext i1 @_ZN5ZMark19follow_work_partialEv(ptr noundef nonnull align 64 dereferenceable(2652) %55) #14
-  %57 = xor i1 %56, true
-  %58 = zext i1 %57 to i8
-  br label %59
+58:                                               ; preds = %51, %53, %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit
+  %.2 = phi i8 [ %.0, %51 ], [ %57, %53 ], [ %.0, %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit ]
+  %59 = load ptr, ptr %11, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 88
+  %62 = load i32, ptr %61, align 8
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds [2 x ptr], ptr %60, i64 0, i64 %63
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %67 = load i64, ptr %66, align 8
+  %68 = lshr i64 %67, 21
+  %69 = load ptr, ptr %65, align 8
+  %70 = lshr i64 %67, 27
+  %71 = getelementptr inbounds nuw i64, ptr %69, i64 %70
+  %72 = and i64 %68, 63
+  %73 = shl nuw i64 1, %72
+  %74 = load volatile i64, ptr %71, align 8
+  br label %75
 
-59:                                               ; preds = %51, %52, %54, %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit
-  %.2 = phi i8 [ 1, %52 ], [ %58, %54 ], [ %.0, %51 ], [ %.0, %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit ]
-  %60 = load ptr, ptr %11, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 72
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 88
-  %63 = load i32, ptr %62, align 8
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [2 x ptr], ptr %61, i64 0, i64 %64
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %68 = load i64, ptr %67, align 8
-  %69 = lshr i64 %68, 21
-  %70 = load ptr, ptr %66, align 8
-  %71 = lshr i64 %68, 27
-  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %71
-  %73 = and i64 %69, 63
-  %74 = shl nuw i64 1, %73
-  %75 = load volatile i64, ptr %72, align 8
-  br label %76
+75:                                               ; preds = %77, %58
+  %.017.i.i.i = phi i64 [ %74, %58 ], [ %78, %77 ]
+  %76 = or i64 %.017.i.i.i, %73
+  %.not.not.not.i.not.i.i = icmp eq i64 %76, %.017.i.i.i
+  br i1 %.not.not.not.i.not.i.i, label %_ZN11ZRemembered18register_found_oldEP5ZPage.exit, label %77
 
-76:                                               ; preds = %78, %59
-  %.017.i.i.i = phi i64 [ %75, %59 ], [ %79, %78 ]
-  %77 = or i64 %.017.i.i.i, %74
-  %.not.not.not.i.not.i.i = icmp eq i64 %77, %.017.i.i.i
-  br i1 %.not.not.not.i.not.i.i, label %_ZN11ZRemembered18register_found_oldEP5ZPage.exit, label %78
+77:                                               ; preds = %75
+  %78 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %76, i64 %.017.i.i.i, ptr nonnull %71) #14, !srcloc !8
+  %79 = icmp eq i64 %78, %.017.i.i.i
+  br i1 %79, label %_ZN11ZRemembered18register_found_oldEP5ZPage.exit, label %75, !llvm.loop !9
 
-78:                                               ; preds = %76
-  %79 = call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %77, i64 %.017.i.i.i, ptr nonnull %72) #14, !srcloc !8
-  %80 = icmp eq i64 %79, %.017.i.i.i
-  br i1 %80, label %_ZN11ZRemembered18register_found_oldEP5ZPage.exit, label %76, !llvm.loop !9
+_ZN11ZRemembered18register_found_oldEP5ZPage.exit: ; preds = %77, %75, %25
+  %.1 = phi i8 [ %.0, %25 ], [ %.2, %75 ], [ %.2, %77 ]
+  %80 = load volatile i8, ptr @_ZN20SuspendibleThreadSet12_suspend_allE, align 1
+  %81 = trunc i8 %80 to i1
+  br i1 %81, label %82, label %_ZN20SuspendibleThreadSet5yieldEv.exit
 
-_ZN11ZRemembered18register_found_oldEP5ZPage.exit: ; preds = %78, %76, %25
-  %.1 = phi i8 [ %.0, %25 ], [ %.2, %76 ], [ %.2, %78 ]
-  %81 = load volatile i8, ptr @_ZN20SuspendibleThreadSet12_suspend_allE, align 1
-  %82 = trunc i8 %81 to i1
-  br i1 %82, label %83, label %_ZN20SuspendibleThreadSet5yieldEv.exit
-
-83:                                               ; preds = %_ZN11ZRemembered18register_found_oldEP5ZPage.exit
+82:                                               ; preds = %_ZN11ZRemembered18register_found_oldEP5ZPage.exit
   call void @_ZN20SuspendibleThreadSet10yield_slowEv() #14
   br label %_ZN20SuspendibleThreadSet5yieldEv.exit
 
-_ZN20SuspendibleThreadSet5yieldEv.exit:           ; preds = %_ZN11ZRemembered18register_found_oldEP5ZPage.exit, %83
-  %84 = trunc nuw i8 %.1 to i1
-  br i1 %84, label %.loopexit, label %12, !llvm.loop !20
+_ZN20SuspendibleThreadSet5yieldEv.exit:           ; preds = %_ZN11ZRemembered18register_found_oldEP5ZPage.exit, %82
+  %83 = trunc nuw i8 %.1 to i1
+  br i1 %83, label %.loopexit, label %12, !llvm.loop !20
 
-85:                                               ; preds = %12
-  %86 = load ptr, ptr %6, align 8
-  call void @_ZN5ZMark20follow_work_completeEv(ptr noundef nonnull align 64 dereferenceable(2652) %86) #14
+84:                                               ; preds = %12
+  %85 = load ptr, ptr %6, align 8
+  call void @_ZN5ZMark20follow_work_completeEv(ptr noundef nonnull align 64 dereferenceable(2652) %85) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN20SuspendibleThreadSet5yieldEv.exit, %_ZN32ZRememberedScanForwardingContextC2Ev.exit, %85
+.loopexit:                                        ; preds = %_ZN20SuspendibleThreadSet5yieldEv.exit, %_ZN32ZRememberedScanForwardingContextC2Ev.exit, %84
   call void @_ZN32ZRememberedScanForwardingContext5printEv(ptr noundef nonnull align 8 dereferenceable(400) %2)
   store i32 0, ptr %2, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %88 = load i32, ptr %87, align 4
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %_ZN32ZRememberedScanForwardingContextD2Ev.exit, label %.loopexit.i.i.i.i
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %_ZN32ZRememberedScanForwardingContextD2Ev.exit, label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %.loopexit
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %91 = load ptr, ptr %90, align 8
-  store i32 0, ptr %87, align 4
-  %.not.i.i.i.i = icmp eq ptr %91, null
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %90 = load ptr, ptr %89, align 8
+  store i32 0, ptr %86, align 4
+  %.not.i.i.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i.i.i, label %_ZN32ZRememberedScanForwardingContextD2Ev.exit, label %.loopexit.thread.i.i.i.i
 
 .loopexit.thread.i.i.i.i:                         ; preds = %.loopexit.i.i.i.i
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %91) #14
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %90) #14
   br label %_ZN32ZRememberedScanForwardingContextD2Ev.exit
 
 _ZN32ZRememberedScanForwardingContextD2Ev.exit:   ; preds = %.loopexit.i.i.i.i, %.loopexit.thread.i.i.i.i, %.loopexit

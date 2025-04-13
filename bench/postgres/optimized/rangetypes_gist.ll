@@ -948,8 +948,8 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %26 = load i32, ptr %25, align 4
-  %.not = icmp eq i32 %24, %26
-  br i1 %.not, label %30, label %27
+  %.not82 = icmp eq i32 %24, %26
+  br i1 %.not82, label %30, label %27
 
 27:                                               ; preds = %1
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -962,12 +962,12 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %31 = tail call ptr @range_get_typcache(ptr noundef nonnull %0, i32 noundef %24) #10
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 400
   %33 = load i32, ptr %32, align 8
-  %.not55 = icmp eq i32 %33, 0
+  %.not83 = icmp eq i32 %33, 0
   call void @range_deserialize(ptr noundef %31, ptr noundef nonnull %19, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %6) #10
   call void @range_deserialize(ptr noundef %31, ptr noundef nonnull %22, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7) #10
   %34 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %51
+  br i1 %35, label %36, label %50
 
 36:                                               ; preds = %30
   %37 = load i8, ptr %6, align 1, !range !4, !noundef !5
@@ -977,219 +977,200 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 39:                                               ; preds = %36
   %40 = call signext i8 @range_get_flags(ptr noundef nonnull %19) #10
   %41 = and i8 %40, -127
-  %.not57 = icmp eq i8 %41, 0
-  br i1 %.not57, label %42, label %.sink.split
+  %.not85 = icmp eq i8 %41, 0
+  br i1 %.not85, label %42, label %.sink.split
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load i8, ptr %43, align 8, !range !4, !noundef !5
   %45 = trunc nuw i8 %44 to i1
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %47 = load i8, ptr %46, align 8, !range !4, !noundef !5
+  %47 = load i8, ptr %46, align 8, !range !4
   %48 = trunc nuw i8 %47 to i1
-  br i1 %45, label %49, label %50
+  %or.cond = select i1 %45, i1 %48, i1 false
+  br i1 %or.cond, label %.sink.split, label %49
 
 49:                                               ; preds = %42
-  br i1 %48, label %.sink.split, label %.thread
-
-50:                                               ; preds = %42
-  br i1 %48, label %.thread, label %.sink.split
-
-.thread:                                          ; preds = %49, %50
+  %or.cond5 = select i1 %45, i1 true, i1 %48
+  %. = select i1 %or.cond5, float 3.000000e+00, float 4.000000e+00
   br label %.sink.split
 
-51:                                               ; preds = %30
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %53 = load i8, ptr %52, align 8, !range !4, !noundef !5
-  %54 = trunc nuw i8 %53 to i1
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %56 = load i8, ptr %55, align 8, !range !4, !noundef !5
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %54, label %58, label %97
+50:                                               ; preds = %30
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %52 = load i8, ptr %51, align 8, !range !4, !noundef !5
+  %53 = trunc nuw i8 %52 to i1
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %55 = load i8, ptr %54, align 8, !range !4
+  %56 = trunc nuw i8 %55 to i1
+  %or.cond8 = select i1 %53, i1 %56, i1 false
+  br i1 %or.cond8, label %57, label %69
 
-58:                                               ; preds = %51
-  br i1 %57, label %59, label %74
-
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %61 = load i8, ptr %60, align 8, !range !4, !noundef !5
-  %62 = trunc nuw i8 %61 to i1
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %64 = load i8, ptr %63, align 8, !range !4, !noundef !5
-  %65 = trunc nuw i8 %64 to i1
-  br i1 %62, label %66, label %67
-
-66:                                               ; preds = %59
-  br i1 %65, label %68, label %.thread65
-
-67:                                               ; preds = %59
-  br i1 %65, label %.thread65, label %68
-
-.thread65:                                        ; preds = %66, %67
-  br label %68
-
-68:                                               ; preds = %67, %66, %.thread65
-  %.sink = phi float [ 2.000000e+00, %.thread65 ], [ 0.000000e+00, %66 ], [ 4.000000e+00, %67 ]
+57:                                               ; preds = %50
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %59 = load i8, ptr %58, align 8, !range !4, !noundef !5
+  %60 = trunc nuw i8 %59 to i1
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %62 = load i8, ptr %61, align 8, !range !4
+  %63 = trunc nuw i8 %62 to i1
+  %or.cond11 = select i1 %60, i1 %63, i1 false
+  %or.cond14 = select i1 %60, i1 true, i1 %63
+  %.94 = select i1 %or.cond14, float 2.000000e+00, float 4.000000e+00
+  %.sink = select i1 %or.cond11, float 0.000000e+00, float %.94
   store float %.sink, ptr %16, align 4
-  %69 = call signext i8 @range_get_flags(ptr noundef nonnull %19) #10
-  %70 = and i8 %69, -127
-  %.not56 = icmp eq i8 %70, 0
-  br i1 %.not56, label %159, label %71
+  %64 = call signext i8 @range_get_flags(ptr noundef nonnull %19) #10
+  %65 = and i8 %64, -127
+  %.not84 = icmp eq i8 %65, 0
+  br i1 %.not84, label %149, label %66
 
-71:                                               ; preds = %68
-  %72 = load float, ptr %16, align 4
-  %73 = fadd float %72, 1.000000e+00
+66:                                               ; preds = %57
+  %67 = load float, ptr %16, align 4
+  %68 = fadd float %67, 1.000000e+00
   br label %.sink.split
 
-74:                                               ; preds = %58
-  %75 = load i8, ptr %6, align 1, !range !4, !noundef !5
-  %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %.sink.split, label %77
+69:                                               ; preds = %50
+  %70 = load i8, ptr %6, align 1, !range !4, !noundef !5
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %53, label %72, label %92
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %79 = load i8, ptr %78, align 8, !range !4, !noundef !5
-  %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %81, label %.sink.split
+72:                                               ; preds = %69
+  %.not = xor i1 %71, true
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %74 = load i8, ptr %73, align 8, !range !4
+  %75 = trunc nuw i8 %74 to i1
+  %or.cond17 = select i1 %.not, i1 %75, i1 false
+  br i1 %or.cond17, label %76, label %.sink.split
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %83 = load i8, ptr %82, align 8, !range !4, !noundef !5
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %.sink.split, label %85
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %78 = load i8, ptr %77, align 8, !range !4, !noundef !5
+  %79 = trunc nuw i8 %78 to i1
+  br i1 %79, label %.sink.split, label %80
 
-85:                                               ; preds = %81
-  %86 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
-  %87 = icmp slt i32 %86, 1
-  %brmerge69 = select i1 %87, i1 true, i1 %.not55
-  %.mux70 = select i1 %87, float 0.000000e+00, float 1.000000e+00
-  br i1 %brmerge69, label %.sink.split, label %88
+80:                                               ; preds = %76
+  %81 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
+  %82 = icmp slt i32 %81, 1
+  %brmerge96 = select i1 %82, i1 true, i1 %.not83
+  %.mux97 = select i1 %82, float 0.000000e+00, float 1.000000e+00
+  br i1 %brmerge96, label %.sink.split, label %83
 
-88:                                               ; preds = %85
-  %89 = load i64, ptr %5, align 8
-  %90 = load i64, ptr %4, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %31, i64 392
-  %92 = getelementptr inbounds nuw i8, ptr %31, i64 292
-  %93 = load i32, ptr %92, align 4
-  %94 = call i64 @FunctionCall2Coll(ptr noundef nonnull %91, i32 noundef %93, i64 noundef %89, i64 noundef %90) #10
-  %95 = bitcast i64 %94 to double
-  %.inv.i = fcmp oge double %95, 0.000000e+00
-  %..i = select i1 %.inv.i, double %95, double 0.000000e+00
-  %96 = fptrunc double %..i to float
+83:                                               ; preds = %80
+  %84 = load i64, ptr %5, align 8
+  %85 = load i64, ptr %4, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %31, i64 392
+  %87 = getelementptr inbounds nuw i8, ptr %31, i64 292
+  %88 = load i32, ptr %87, align 4
+  %89 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %88, i64 noundef %84, i64 noundef %85) #10
+  %90 = bitcast i64 %89 to double
+  %.inv.i = fcmp oge double %90, 0.000000e+00
+  %..i = select i1 %.inv.i, double %90, double 0.000000e+00
+  %91 = fptrunc double %..i to float
   br label %.sink.split
 
-97:                                               ; preds = %51
-  %98 = load i8, ptr %6, align 1, !range !4, !noundef !5
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %57, label %100, label %121
+92:                                               ; preds = %69
+  br i1 %56, label %93, label %113
 
-100:                                              ; preds = %97
-  br i1 %99, label %.sink.split, label %101
+93:                                               ; preds = %92
+  %.not18 = xor i1 %71, true
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %95 = load i8, ptr %94, align 8, !range !4
+  %96 = trunc nuw i8 %95 to i1
+  %or.cond21 = select i1 %.not18, i1 %96, i1 false
+  br i1 %or.cond21, label %97, label %.sink.split
 
-101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %103 = load i8, ptr %102, align 8, !range !4, !noundef !5
-  %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %105, label %.sink.split
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %99 = load i8, ptr %98, align 8, !range !4, !noundef !5
+  %100 = trunc nuw i8 %99 to i1
+  br i1 %100, label %.sink.split, label %101
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %107 = load i8, ptr %106, align 8, !range !4, !noundef !5
-  %108 = trunc nuw i8 %107 to i1
-  br i1 %108, label %.sink.split, label %109
+101:                                              ; preds = %97
+  %102 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %2) #10
+  %103 = icmp sgt i32 %102, -1
+  %brmerge99 = select i1 %103, i1 true, i1 %.not83
+  %.mux100 = select i1 %103, float 0.000000e+00, float 1.000000e+00
+  br i1 %brmerge99, label %.sink.split, label %104
 
-109:                                              ; preds = %105
-  %110 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %2) #10
-  %111 = icmp sgt i32 %110, -1
-  %brmerge72 = select i1 %111, i1 true, i1 %.not55
-  %.mux73 = select i1 %111, float 0.000000e+00, float 1.000000e+00
-  br i1 %brmerge72, label %.sink.split, label %112
-
-112:                                              ; preds = %109
-  %113 = load i64, ptr %2, align 8
-  %114 = load i64, ptr %3, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %31, i64 392
-  %116 = getelementptr inbounds nuw i8, ptr %31, i64 292
-  %117 = load i32, ptr %116, align 4
-  %118 = call i64 @FunctionCall2Coll(ptr noundef nonnull %115, i32 noundef %117, i64 noundef %113, i64 noundef %114) #10
-  %119 = bitcast i64 %118 to double
-  %.inv.i59 = fcmp oge double %119, 0.000000e+00
-  %..i60 = select i1 %.inv.i59, double %119, double 0.000000e+00
-  %120 = fptrunc double %..i60 to float
+104:                                              ; preds = %101
+  %105 = load i64, ptr %2, align 8
+  %106 = load i64, ptr %3, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %31, i64 392
+  %108 = getelementptr inbounds nuw i8, ptr %31, i64 292
+  %109 = load i32, ptr %108, align 4
+  %110 = call i64 @FunctionCall2Coll(ptr noundef nonnull %107, i32 noundef %109, i64 noundef %105, i64 noundef %106) #10
+  %111 = bitcast i64 %110 to double
+  %.inv.i87 = fcmp oge double %111, 0.000000e+00
+  %..i88 = select i1 %.inv.i87, double %111, double 0.000000e+00
+  %112 = fptrunc double %..i88 to float
   br label %.sink.split
 
-121:                                              ; preds = %97
-  br i1 %99, label %.sink.split, label %122
+113:                                              ; preds = %92
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %115 = load i8, ptr %114, align 8, !range !4
+  %116 = trunc nuw i8 %115 to i1
+  %or.cond24 = select i1 %71, i1 true, i1 %116
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %118 = load i8, ptr %117, align 8, !range !4
+  %119 = trunc nuw i8 %118 to i1
+  %or.cond27 = select i1 %or.cond24, i1 true, i1 %119
+  br i1 %or.cond27, label %.sink.split, label %120
 
-122:                                              ; preds = %121
-  %123 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %124 = load i8, ptr %123, align 8, !range !4, !noundef !5
-  %125 = trunc nuw i8 %124 to i1
-  br i1 %125, label %.sink.split, label %126
+120:                                              ; preds = %113
+  %121 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %2) #10
+  %122 = icmp sgt i32 %121, -1
+  %brmerge = select i1 %122, i1 true, i1 %.not83
+  %.mux = select i1 %122, double 0.000000e+00, double 1.000000e+00
+  br i1 %brmerge, label %132, label %123
 
-126:                                              ; preds = %122
-  %127 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %128 = load i8, ptr %127, align 8, !range !4, !noundef !5
-  %129 = trunc nuw i8 %128 to i1
-  br i1 %129, label %.sink.split, label %130
+123:                                              ; preds = %120
+  %124 = load i64, ptr %2, align 8
+  %125 = load i64, ptr %3, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %31, i64 392
+  %127 = getelementptr inbounds nuw i8, ptr %31, i64 292
+  %128 = load i32, ptr %127, align 4
+  %129 = call i64 @FunctionCall2Coll(ptr noundef nonnull %126, i32 noundef %128, i64 noundef %124, i64 noundef %125) #10
+  %130 = bitcast i64 %129 to double
+  %.inv.i89 = fcmp oge double %130, 0.000000e+00
+  %..i90 = select i1 %.inv.i89, double %130, double 0.000000e+00
+  %131 = fadd double %..i90, 0.000000e+00
+  br label %132
 
-130:                                              ; preds = %126
-  %131 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %2) #10
-  %132 = icmp sgt i32 %131, -1
-  %brmerge = select i1 %132, i1 true, i1 %.not55
-  %.mux = select i1 %132, double 0.000000e+00, double 1.000000e+00
-  br i1 %brmerge, label %142, label %133
+132:                                              ; preds = %120, %123
+  %.0 = phi double [ %131, %123 ], [ %.mux, %120 ]
+  %133 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
+  %134 = icmp sgt i32 %133, 0
+  br i1 %134, label %135, label %147
 
-133:                                              ; preds = %130
-  %134 = load i64, ptr %2, align 8
-  %135 = load i64, ptr %3, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %31, i64 392
-  %137 = getelementptr inbounds nuw i8, ptr %31, i64 292
-  %138 = load i32, ptr %137, align 4
-  %139 = call i64 @FunctionCall2Coll(ptr noundef nonnull %136, i32 noundef %138, i64 noundef %134, i64 noundef %135) #10
-  %140 = bitcast i64 %139 to double
-  %.inv.i61 = fcmp oge double %140, 0.000000e+00
-  %..i62 = select i1 %.inv.i61, double %140, double 0.000000e+00
-  %141 = fadd double %..i62, 0.000000e+00
-  br label %142
+135:                                              ; preds = %132
+  br i1 %.not83, label %145, label %136
 
-142:                                              ; preds = %130, %133
-  %.0 = phi double [ %141, %133 ], [ %.mux, %130 ]
-  %143 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
-  %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %145, label %157
+136:                                              ; preds = %135
+  %137 = load i64, ptr %5, align 8
+  %138 = load i64, ptr %4, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %31, i64 392
+  %140 = getelementptr inbounds nuw i8, ptr %31, i64 292
+  %141 = load i32, ptr %140, align 4
+  %142 = call i64 @FunctionCall2Coll(ptr noundef nonnull %139, i32 noundef %141, i64 noundef %137, i64 noundef %138) #10
+  %143 = bitcast i64 %142 to double
+  %.inv.i91 = fcmp oge double %143, 0.000000e+00
+  %..i92 = select i1 %.inv.i91, double %143, double 0.000000e+00
+  %144 = fadd double %.0, %..i92
+  br label %147
 
-145:                                              ; preds = %142
-  br i1 %.not55, label %155, label %146
+145:                                              ; preds = %135
+  %146 = fadd double %.0, 1.000000e+00
+  br label %147
 
-146:                                              ; preds = %145
-  %147 = load i64, ptr %5, align 8
-  %148 = load i64, ptr %4, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %31, i64 392
-  %150 = getelementptr inbounds nuw i8, ptr %31, i64 292
-  %151 = load i32, ptr %150, align 4
-  %152 = call i64 @FunctionCall2Coll(ptr noundef nonnull %149, i32 noundef %151, i64 noundef %147, i64 noundef %148) #10
-  %153 = bitcast i64 %152 to double
-  %.inv.i63 = fcmp oge double %153, 0.000000e+00
-  %..i64 = select i1 %.inv.i63, double %153, double 0.000000e+00
-  %154 = fadd double %.0, %..i64
-  br label %157
-
-155:                                              ; preds = %145
-  %156 = fadd double %.0, 1.000000e+00
-  br label %157
-
-157:                                              ; preds = %146, %155, %142
-  %.1 = phi double [ %154, %146 ], [ %156, %155 ], [ %.0, %142 ]
-  %158 = fptrunc double %.1 to float
+147:                                              ; preds = %136, %145, %132
+  %.1 = phi double [ %144, %136 ], [ %146, %145 ], [ %.0, %132 ]
+  %148 = fptrunc double %.1 to float
   br label %.sink.split
 
-.sink.split:                                      ; preds = %109, %85, %121, %122, %126, %100, %101, %105, %74, %77, %81, %50, %49, %39, %36, %.thread, %88, %157, %112, %71
-  %.sink67 = phi float [ %73, %71 ], [ %120, %112 ], [ %158, %157 ], [ %96, %88 ], [ 3.000000e+00, %.thread ], [ 0.000000e+00, %36 ], [ 1.000000e+00, %39 ], [ 2.000000e+00, %49 ], [ 4.000000e+00, %50 ], [ 0.000000e+00, %81 ], [ %.mux70, %85 ], [ 0x7FF0000000000000, %77 ], [ 0x7FF0000000000000, %74 ], [ 0.000000e+00, %105 ], [ %.mux73, %109 ], [ 0x7FF0000000000000, %101 ], [ 0x7FF0000000000000, %100 ], [ 0x7FF0000000000000, %126 ], [ 0x7FF0000000000000, %122 ], [ 0x7FF0000000000000, %121 ]
-  store float %.sink67, ptr %16, align 4
-  br label %159
+.sink.split:                                      ; preds = %101, %80, %113, %93, %97, %72, %76, %49, %42, %39, %36, %83, %147, %104, %66
+  %.sink93 = phi float [ %68, %66 ], [ %112, %104 ], [ %148, %147 ], [ %91, %83 ], [ 0.000000e+00, %36 ], [ 1.000000e+00, %39 ], [ 2.000000e+00, %42 ], [ %., %49 ], [ 0.000000e+00, %76 ], [ %.mux97, %80 ], [ 0x7FF0000000000000, %72 ], [ 0.000000e+00, %97 ], [ %.mux100, %101 ], [ 0x7FF0000000000000, %93 ], [ 0x7FF0000000000000, %113 ]
+  store float %.sink93, ptr %16, align 4
+  br label %149
 
-159:                                              ; preds = %.sink.split, %68
+149:                                              ; preds = %.sink.split, %57
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10

@@ -814,16 +814,16 @@ _ZN5ZXing6Pdf417L21AdjustRowNumbersByRowERSt6vectorINS_8NullableINS0_21Detection
   %240 = sdiv exact i64 %239, 160
   %241 = trunc i64 %240 to i32
   %242 = icmp sgt i32 %241, 2
-  br i1 %242, label %.lr.ph34.i, label %_ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit
+  br i1 %242, label %.lr.ph36.i, label %_ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit
 
-.lr.ph34.i:                                       ; preds = %.preheader.i
+.lr.ph36.i:                                       ; preds = %.preheader.i
   %243 = add nsw i64 %240, 4294967295
-  %wide.trip.count41.i = and i64 %243, 4294967295
+  %wide.trip.count43.i = and i64 %243, 4294967295
   br label %244
 
-244:                                              ; preds = %.loopexit.i, %.lr.ph34.i
-  %indvars.iv38.i = phi i64 [ 1, %.lr.ph34.i ], [ %indvars.iv.next39.i, %.loopexit.i ]
-  %245 = getelementptr %"class.ZXing::Nullable.1", ptr %236, i64 %indvars.iv38.i
+244:                                              ; preds = %.loopexit.i, %.lr.ph36.i
+  %indvars.iv40.i = phi i64 [ 1, %.lr.ph36.i ], [ %indvars.iv.next41.i, %.loopexit.i ]
+  %245 = getelementptr %"class.ZXing::Nullable.1", ptr %236, i64 %indvars.iv40.i
   %246 = load i8, ptr %245, align 8, !tbaa !24, !range !39, !noundef !40
   %247 = trunc nuw i8 %246 to i1
   br i1 %247, label %248, label %.loopexit.i
@@ -848,8 +848,8 @@ _ZN5ZXing6Pdf417L21AdjustRowNumbersByRowERSt6vectorINS_8NullableINS0_21Detection
   %262 = shl i64 %256, 32
   %sext.i = add nsw i64 %262, -8589934592
   %263 = ashr exact i64 %sext.i, 32
-  %sext43.i = add nsw i64 %262, -4294967296
-  %264 = ashr exact i64 %sext43.i, 32
+  %sext45.i = add nsw i64 %262, -4294967296
+  %264 = ashr exact i64 %sext45.i, 32
   %wide.trip.count.i = and i64 %256, 2147483647
   br label %265
 
@@ -940,7 +940,7 @@ _ZNSt5arrayIN5ZXing8NullableINS0_6Pdf4178CodewordEEELm14EEC2Ev.exit.i.i: ; preds
 
 304:                                              ; preds = %299, %.thread.i.i
   %305 = icmp slt i64 %indvars.iv.i, %263
-  br i1 %305, label %306, label %.split.us.i.preheader.i
+  br i1 %305, label %306, label %.split.i.preheader.i
 
 306:                                              ; preds = %304
   %307 = add nuw nsw i64 %indvars.iv.i, 2
@@ -950,44 +950,44 @@ _ZNSt5arrayIN5ZXing8NullableINS0_6Pdf4178CodewordEEELm14EEC2Ev.exit.i.i: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %27, ptr noundef nonnull align 4 dereferenceable(24) %309, i64 24, i1 false), !tbaa.struct !53
   %310 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %286, i64 %307
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %28, ptr noundef nonnull align 4 dereferenceable(24) %310, i64 24, i1 false), !tbaa.struct !53
-  br label %.split.us.i.preheader.i
+  br label %.split.i.preheader.i
 
-.split.us.i.preheader.i:                          ; preds = %306, %304
+.split.i.preheader.i:                             ; preds = %306, %304
   %311 = getelementptr inbounds nuw i8, ptr %266, i64 12
-  br label %.split.us.i.i
+  br label %.split.i.i
 
-.split.us.i.i:                                    ; preds = %324, %.split.us.i.preheader.i
-  %.0.idx5.us.i.i = phi i64 [ %.0.add.us.i.i, %324 ], [ 0, %.split.us.i.preheader.i ]
-  %.0.ptr6.us.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx5.us.i.i
-  %312 = load i8, ptr %.0.ptr6.us.i.i, align 4, !tbaa !42, !range !39, !noundef !40
+.split.i.i:                                       ; preds = %324, %.split.i.preheader.i
+  %.0.idx5.i.i = phi i64 [ %.0.add.i.i, %324 ], [ 0, %.split.i.preheader.i ]
+  %.0.ptr6.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx5.i.i
+  %312 = load i8, ptr %.0.ptr6.i.i, align 4, !range !39
   %313 = trunc nuw i8 %312 to i1
   br i1 %313, label %314, label %324
 
-314:                                              ; preds = %.split.us.i.i
-  %315 = getelementptr inbounds nuw i8, ptr %.0.ptr6.us.i.i, i64 20
+314:                                              ; preds = %.split.i.i
+  %315 = getelementptr inbounds nuw i8, ptr %.0.ptr6.i.i, i64 20
   %316 = load i32, ptr %315, align 4, !tbaa !45
-  %.not.i.i.i.us.i.i = icmp eq i32 %316, -1
-  br i1 %.not.i.i.i.us.i.i, label %324, label %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i.i
+  %.not.i.i.i.i27.i = icmp eq i32 %316, -1
+  br i1 %.not.i.i.i.i27.i, label %324, label %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.i28.i
 
-_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i.i: ; preds = %314
-  %317 = getelementptr inbounds nuw i8, ptr %.0.ptr6.us.i.i, i64 12
+_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.i28.i: ; preds = %314
+  %317 = getelementptr inbounds nuw i8, ptr %.0.ptr6.i.i, i64 12
   %318 = load i32, ptr %317, align 4, !tbaa !46
   %319 = srem i32 %316, 3
   %320 = mul nsw i32 %319, 3
   %321 = icmp eq i32 %318, %320
   %322 = load i32, ptr %311, align 4
   %323 = icmp eq i32 %318, %322
-  %or.cond.i.us.i.i = select i1 %321, i1 %323, i1 false
-  br i1 %or.cond.i.us.i.i, label %_ZN5ZXing6Pdf417L15AdjustRowNumberERNS_8NullableINS0_8CodewordEEERKS3_.exit.i.i, label %324
+  %or.cond11.i.i.i = select i1 %321, i1 %323, i1 false
+  br i1 %or.cond11.i.i.i, label %_ZN5ZXing6Pdf417L15AdjustRowNumberERNS_8NullableINS0_8CodewordEEERKS3_.exit.i.i, label %324
 
-324:                                              ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i.i, %314, %.split.us.i.i
-  %.0.add.us.i.i = add nuw nsw i64 %.0.idx5.us.i.i, 24
-  %.not.us.i.i = icmp eq i64 %.0.add.us.i.i, 336
-  br i1 %.not.us.i.i, label %_ZN5ZXing6Pdf417L16AdjustRowNumbersERKSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EEiiRS1_INS2_INS0_8CodewordEEESaISA_EE.exit.i, label %.split.us.i.i
-
-_ZN5ZXing6Pdf417L15AdjustRowNumberERNS_8NullableINS0_8CodewordEEERKS3_.exit.i.i: ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i.i
+_ZN5ZXing6Pdf417L15AdjustRowNumberERNS_8NullableINS0_8CodewordEEERKS3_.exit.i.i: ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.i28.i
   store i32 %316, ptr %270, align 4, !tbaa !45
   br label %_ZN5ZXing6Pdf417L16AdjustRowNumbersERKSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EEiiRS1_INS2_INS0_8CodewordEEESaISA_EE.exit.i
+
+324:                                              ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.i28.i, %314, %.split.i.i
+  %.0.add.i.i = add nuw nsw i64 %.0.idx5.i.i, 24
+  %.not.i.i = icmp eq i64 %.0.add.i.i, 336
+  br i1 %.not.i.i, label %_ZN5ZXing6Pdf417L16AdjustRowNumbersERKSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EEiiRS1_INS2_INS0_8CodewordEEESaISA_EE.exit.i, label %.split.i.i
 
 _ZN5ZXing6Pdf417L16AdjustRowNumbersERKSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EEiiRS1_INS2_INS0_8CodewordEEESaISA_EE.exit.i: ; preds = %324, %_ZN5ZXing6Pdf417L15AdjustRowNumberERNS_8NullableINS0_8CodewordEEERKS3_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %2) #14
@@ -999,9 +999,9 @@ _ZN5ZXing6Pdf417L16AdjustRowNumbersERKSt6vectorINS_8NullableINS0_21DetectionResu
   br i1 %exitcond.not.i, label %.loopexit.i, label %265, !llvm.loop !55
 
 .loopexit.i:                                      ; preds = %325, %248, %244
-  %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count41.i
-  br i1 %exitcond42.not.i, label %_ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit, label %244, !llvm.loop !56
+  %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
+  br i1 %exitcond44.not.i, label %_ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit, label %244, !llvm.loop !56
 
 _ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit: ; preds = %.loopexit.i, %.preheader.i
   %326 = icmp sgt i32 %233, 0

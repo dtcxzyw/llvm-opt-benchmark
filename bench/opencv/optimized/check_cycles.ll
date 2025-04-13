@@ -1083,8 +1083,8 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit:               ; preds = %286, %_ZN9__gnu_cxx
   %301 = load ptr, ptr %5, align 8, !tbaa !109
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
   store ptr %302, ptr %5, align 8, !tbaa !109
-  %.val4.i.i = load ptr, ptr %.sroa.673.0..sroa_idx, align 8, !tbaa !110
-  %303 = icmp eq ptr %302, %.val4.i.i
+  %.val6.i.i = load ptr, ptr %.sroa.673.0..sroa_idx, align 8, !tbaa !110
+  %303 = icmp eq ptr %302, %.val6.i.i
   br i1 %303, label %._crit_edge, label %"_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEEZNS_6passesL5visitERSt13unordered_mapIPSF_NSI_13TraverseStateESt4hashISK_ESt8equal_toISK_ESaISt4pairIKSK_SL_EEERKNS_6HandleISF_EEE3$_0EEE8iteratorneERKS13_.exit"
 
 304:                                              ; preds = %284, %277

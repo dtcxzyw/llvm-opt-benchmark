@@ -447,9 +447,9 @@ define internal i32 @dissect_flexray(ptr noundef %0, ptr noundef %1, ptr noundef
   %33 = call ptr @val_to_str(i32 noundef %32, ptr noundef nonnull @flexray_type_names, ptr noundef nonnull @.str.88)
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %33)
   %34 = load i32, ptr %7, align 4
-  switch i32 %34, label %172 [
+  switch i32 %34, label %171 [
     i32 1, label %35
-    i32 2, label %166
+    i32 2, label %165
   ]
 
 35:                                               ; preds = %4
@@ -460,8 +460,8 @@ define internal i32 @dissect_flexray(ptr noundef %0, ptr noundef %1, ptr noundef
   %40 = call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39)
   %41 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %42 = and i8 %41, 31
-  %.not = icmp eq i8 %42, 0
-  br i1 %.not, label %45, label %43
+  %.not98 = icmp eq i8 %42, 0
+  br i1 %.not98, label %45, label %43
 
 43:                                               ; preds = %35
   %44 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_flexray_error_flag)
@@ -488,196 +488,195 @@ define internal i32 @dissect_flexray(ptr noundef %0, ptr noundef %1, ptr noundef
   %60 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %50, i32 noundef %59, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10)
   %61 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %63, label %68
+  %.not = xor i1 %62, true
+  %63 = load i8, ptr %9, align 1, !range !6
+  %64 = trunc nuw i8 %63 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %64
+  br i1 %or.cond, label %67, label %65
 
-63:                                               ; preds = %45
-  %64 = load i8, ptr %9, align 1, !range !6, !noundef !7
-  %65 = trunc nuw i8 %64 to i1
-  br i1 %65, label %68, label %66
+65:                                               ; preds = %45
+  %66 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_flexray_stfi_flag)
+  br label %67
 
-66:                                               ; preds = %63
-  %67 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_flexray_stfi_flag)
-  br label %68
-
-68:                                               ; preds = %66, %63, %45
-  %.1 = phi i1 [ %.not, %63 ], [ false, %66 ], [ %.not, %45 ]
+67:                                               ; preds = %65, %45
+  %.1 = phi i1 [ %.not98, %45 ], [ false, %65 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
-  %69 = load i32, ptr @hf_flexray_fid, align 4
-  %70 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %50, i32 noundef %69, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11)
-  %71 = load ptr, ptr %16, align 8
+  %68 = load i32, ptr @hf_flexray_fid, align 4
+  %69 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %50, i32 noundef %68, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11)
+  %70 = load ptr, ptr %16, align 8
+  %71 = load i32, ptr %11, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %70, i32 noundef 25, ptr noundef nonnull @.str.89, i32 noundef %71)
   %72 = load i32, ptr %11, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %71, i32 noundef 25, ptr noundef nonnull @.str.89, i32 noundef %72)
-  %73 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
-  %74 = load i32, ptr @hf_flexray_pl, align 4
-  %75 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %50, i32 noundef %74, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12)
-  %76 = load i32, ptr %12, align 4
-  %77 = shl i32 %76, 1
-  %78 = add i32 %46, -7
-  %79 = icmp sgt i32 %77, %78
-  %80 = icmp slt i32 %77, %78
-  %81 = call i32 @llvm.smax.i32(i32 %77, i32 0)
-  %.091 = select i1 %80, i32 %81, i32 %78
-  %82 = load i32, ptr @hf_flexray_hcrc, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %82, ptr noundef %0, i32 noundef 4, i32 noundef 3, i32 noundef 0)
+  %73 = load i32, ptr @hf_flexray_pl, align 4
+  %74 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %50, i32 noundef %73, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12)
+  %75 = load i32, ptr %12, align 4
+  %76 = shl i32 %75, 1
+  %77 = add i32 %46, -7
+  %78 = icmp sgt i32 %76, %77
+  %79 = icmp slt i32 %76, %77
+  %80 = call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %.093 = select i1 %79, i32 %80, i32 %77
+  %81 = load i32, ptr @hf_flexray_hcrc, align 4
+  %82 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %81, ptr noundef %0, i32 noundef 4, i32 noundef 3, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #9
-  %84 = load i32, ptr @hf_flexray_cc, align 4
-  %85 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %50, i32 noundef %84, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13)
-  %86 = load ptr, ptr %16, align 8
-  %87 = load i32, ptr %13, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.90, i32 noundef %87)
-  %88 = load i8, ptr %8, align 1, !range !6, !noundef !7
-  %89 = trunc nuw i8 %88 to i1
-  br i1 %89, label %90, label %102
+  %83 = load i32, ptr @hf_flexray_cc, align 4
+  %84 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %50, i32 noundef %83, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13)
+  %85 = load ptr, ptr %16, align 8
+  %86 = load i32, ptr %13, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %85, i32 noundef 25, ptr noundef nonnull @.str.90, i32 noundef %86)
+  %87 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %88 = trunc nuw i8 %87 to i1
+  br i1 %88, label %89, label %101
 
-90:                                               ; preds = %68
-  %91 = icmp ne i32 %73, 0
-  %spec.select = and i1 %91, %.1
-  br i1 %79, label %92, label %94
+89:                                               ; preds = %67
+  %90 = icmp ne i32 %72, 0
+  %spec.select = and i1 %90, %.1
+  br i1 %78, label %91, label %93
 
-92:                                               ; preds = %90
-  %93 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_flexray_frame_payload_truncated)
-  br label %94
+91:                                               ; preds = %89
+  %92 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_flexray_frame_payload_truncated)
+  br label %93
 
-94:                                               ; preds = %92, %90
-  %.3 = phi i1 [ false, %92 ], [ %spec.select, %90 ]
-  %95 = icmp ne ptr %0, null
-  %96 = icmp sgt i32 %.091, 0
-  %or.cond = and i1 %95, %96
-  br i1 %or.cond, label %97, label %107
+93:                                               ; preds = %91, %89
+  %.3 = phi i1 [ false, %91 ], [ %spec.select, %89 ]
+  %94 = icmp ne ptr %0, null
+  %95 = icmp sgt i32 %.093, 0
+  %or.cond3 = and i1 %94, %95
+  br i1 %or.cond3, label %96, label %106
 
-97:                                               ; preds = %94
-  %98 = load ptr, ptr %16, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %100 = load ptr, ptr %99, align 8
-  %101 = call ptr @tvb_bytes_to_str_punct(ptr noundef %100, ptr noundef nonnull %0, i32 noundef 7, i32 noundef %.091, i8 noundef signext 32)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.91, ptr noundef %101)
-  br label %107
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %16, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %99 = load ptr, ptr %98, align 8
+  %100 = call ptr @tvb_bytes_to_str_punct(ptr noundef %99, ptr noundef nonnull %0, i32 noundef 7, i32 noundef %.093, i8 noundef signext 32)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %97, i32 noundef 25, ptr noundef nonnull @.str.91, ptr noundef %100)
+  br label %106
 
-102:                                              ; preds = %68
-  %103 = load ptr, ptr %16, align 8
-  call void @col_append_str(ptr noundef %103, i32 noundef 25, ptr noundef nonnull @.str.92)
-  %104 = icmp ne i32 %.091, 0
-  %or.cond3 = and i1 %79, %104
-  br i1 %or.cond3, label %105, label %107
+101:                                              ; preds = %67
+  %102 = load ptr, ptr %16, align 8
+  call void @col_append_str(ptr noundef %102, i32 noundef 25, ptr noundef nonnull @.str.92)
+  %103 = icmp ne i32 %.093, 0
+  %or.cond5 = and i1 %78, %103
+  br i1 %or.cond5, label %104, label %106
 
-105:                                              ; preds = %102
-  %106 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_flexray_frame_payload_truncated)
-  br label %107
+104:                                              ; preds = %101
+  %105 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_flexray_frame_payload_truncated)
+  br label %106
 
-107:                                              ; preds = %102, %105, %94, %97
-  %.4 = phi i1 [ %.3, %97 ], [ %.3, %94 ], [ false, %105 ], [ false, %102 ]
+106:                                              ; preds = %101, %104, %93, %96
+  %.4 = phi i1 [ %.3, %96 ], [ %.3, %93 ], [ false, %104 ], [ false, %101 ]
   call void @proto_item_set_end(ptr noundef %48, ptr noundef %0, i32 noundef 7)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %14) #9
-  %108 = load i32, ptr %11, align 4
-  %109 = trunc i32 %108 to i16
-  store i16 %109, ptr %14, align 4
-  %110 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  %111 = load i32, ptr %13, align 4
-  %112 = trunc i32 %111 to i8
-  store i8 %112, ptr %110, align 2
-  %113 = getelementptr inbounds nuw i8, ptr %14, i64 3
-  %114 = load i8, ptr %6, align 1, !range !6, !noundef !7
-  store i8 %114, ptr %113, align 1
-  %115 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i16 0, ptr %115, align 4
-  %116 = load i32, ptr @hf_flexray_flexray_id, align 4
-  %117 = zext nneg i8 %114 to i32
-  %118 = shl nuw nsw i32 %117, 24
-  %119 = shl i32 %108, 8
-  %120 = and i32 %119, 16776960
-  %121 = or disjoint i32 %118, %120
-  %122 = and i32 %111, 255
-  %123 = or disjoint i32 %121, %122
-  %124 = call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %116, ptr noundef %0, i32 noundef 0, i32 noundef 7, i32 noundef %123)
-  %.not.i = icmp eq ptr %124, null
-  br i1 %.not.i, label %proto_item_set_hidden.exit, label %125
+  %107 = load i32, ptr %11, align 4
+  %108 = trunc i32 %107 to i16
+  store i16 %108, ptr %14, align 4
+  %109 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  %110 = load i32, ptr %13, align 4
+  %111 = trunc i32 %110 to i8
+  store i8 %111, ptr %109, align 2
+  %112 = getelementptr inbounds nuw i8, ptr %14, i64 3
+  %113 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  store i8 %113, ptr %112, align 1
+  %114 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i16 0, ptr %114, align 4
+  %115 = load i32, ptr @hf_flexray_flexray_id, align 4
+  %116 = zext nneg i8 %113 to i32
+  %117 = shl nuw nsw i32 %116, 24
+  %118 = shl i32 %107, 8
+  %119 = and i32 %118, 16776960
+  %120 = or disjoint i32 %117, %119
+  %121 = and i32 %110, 255
+  %122 = or disjoint i32 %120, %121
+  %123 = call ptr @proto_tree_add_uint(ptr noundef %50, i32 noundef %115, ptr noundef %0, i32 noundef 0, i32 noundef 7, i32 noundef %122)
+  %.not.i = icmp eq ptr %123, null
+  br i1 %.not.i, label %proto_item_set_hidden.exit, label %124
 
-125:                                              ; preds = %107
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 40
-  %127 = load ptr, ptr %126, align 8
-  %.not5.i = icmp eq ptr %127, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %128
+124:                                              ; preds = %106
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 40
+  %126 = load ptr, ptr %125, align 8
+  %.not5.i = icmp eq ptr %126, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %127
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds nuw i8, ptr %127, i64 28
-  %130 = load i32, ptr %129, align 4
-  %131 = or i32 %130, 1
-  store i32 %131, ptr %129, align 4
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 28
+  %129 = load i32, ptr %128, align 4
+  %130 = or i32 %129, 1
+  store i32 %130, ptr %128, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %107, %125, %128
+proto_item_set_hidden.exit:                       ; preds = %106, %124, %127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  %132 = load ptr, ptr @sender_receiver_configs, align 8
-  %133 = icmp eq ptr %132, null
-  %134 = load ptr, ptr @data_sender_receiver, align 8
-  %135 = icmp eq ptr %134, null
-  %or.cond.i.i = select i1 %133, i1 true, i1 %135
-  br i1 %or.cond.i.i, label %ht_lookup_sender_receiver_config.exit.thread19.i, label %136
+  %131 = load ptr, ptr @sender_receiver_configs, align 8
+  %132 = icmp eq ptr %131, null
+  %133 = load ptr, ptr @data_sender_receiver, align 8
+  %134 = icmp eq ptr %133, null
+  %or.cond.i.i = select i1 %132, i1 true, i1 %134
+  br i1 %or.cond.i.i, label %ht_lookup_sender_receiver_config.exit.thread19.i, label %135
 
 ht_lookup_sender_receiver_config.exit.thread19.i: ; preds = %proto_item_set_hidden.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   br label %flexray_set_source_and_destination_columns.exit
 
-136:                                              ; preds = %proto_item_set_hidden.exit
-  %137 = load i32, ptr %110, align 2
-  %138 = zext i32 %137 to i64
-  %139 = shl nuw nsw i64 %138, 16
-  %.mask = and i32 %108, 65535
-  %140 = zext nneg i32 %.mask to i64
-  %141 = or disjoint i64 %139, %140
-  store i64 %141, ptr %5, align 8
-  %142 = call ptr @g_hash_table_lookup(ptr noundef nonnull %134, ptr noundef nonnull %5)
-  %143 = icmp eq ptr %142, null
-  br i1 %143, label %ht_lookup_sender_receiver_config.exit.i, label %ht_lookup_sender_receiver_config.exit.thread.i
+135:                                              ; preds = %proto_item_set_hidden.exit
+  %136 = load i32, ptr %109, align 2
+  %137 = zext i32 %136 to i64
+  %138 = shl nuw nsw i64 %137, 16
+  %.mask = and i32 %107, 65535
+  %139 = zext nneg i32 %.mask to i64
+  %140 = or disjoint i64 %138, %139
+  store i64 %140, ptr %5, align 8
+  %141 = call ptr @g_hash_table_lookup(ptr noundef nonnull %133, ptr noundef nonnull %5)
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %ht_lookup_sender_receiver_config.exit.i, label %ht_lookup_sender_receiver_config.exit.thread.i
 
-ht_lookup_sender_receiver_config.exit.thread.i:   ; preds = %136
+ht_lookup_sender_receiver_config.exit.thread.i:   ; preds = %135
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  br label %148
+  br label %147
 
-ht_lookup_sender_receiver_config.exit.i:          ; preds = %136
-  %144 = load i32, ptr %14, align 4
-  %145 = zext i32 %144 to i64
-  store i64 %145, ptr %5, align 8
-  %146 = load ptr, ptr @data_sender_receiver, align 8
-  %147 = call ptr @g_hash_table_lookup(ptr noundef %146, ptr noundef nonnull %5)
+ht_lookup_sender_receiver_config.exit.i:          ; preds = %135
+  %143 = load i32, ptr %14, align 4
+  %144 = zext i32 %143 to i64
+  store i64 %144, ptr %5, align 8
+  %145 = load ptr, ptr @data_sender_receiver, align 8
+  %146 = call ptr @g_hash_table_lookup(ptr noundef %145, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  %.not.not.i = icmp eq ptr %147, null
-  br i1 %.not.not.i, label %flexray_set_source_and_destination_columns.exit, label %148
+  %.not.not.i = icmp eq ptr %146, null
+  br i1 %.not.not.i, label %flexray_set_source_and_destination_columns.exit, label %147
 
-148:                                              ; preds = %ht_lookup_sender_receiver_config.exit.i, %ht_lookup_sender_receiver_config.exit.thread.i
-  %.011.i16.i = phi ptr [ %142, %ht_lookup_sender_receiver_config.exit.thread.i ], [ %147, %ht_lookup_sender_receiver_config.exit.i ]
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %149, i8 0, i64 144, i1 false)
-  %150 = load ptr, ptr %16, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %.011.i16.i, i64 16
-  %152 = load ptr, ptr %151, align 8
-  call void @col_add_str(ptr noundef %150, i32 noundef 37, ptr noundef %152)
-  %153 = load ptr, ptr %16, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %.011.i16.i, i64 24
-  %155 = load ptr, ptr %154, align 8
-  call void @col_add_str(ptr noundef %153, i32 noundef 11, ptr noundef %155)
+147:                                              ; preds = %ht_lookup_sender_receiver_config.exit.i, %ht_lookup_sender_receiver_config.exit.thread.i
+  %.011.i16.i = phi ptr [ %141, %ht_lookup_sender_receiver_config.exit.thread.i ], [ %146, %ht_lookup_sender_receiver_config.exit.i ]
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %148, i8 0, i64 144, i1 false)
+  %149 = load ptr, ptr %16, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %.011.i16.i, i64 16
+  %151 = load ptr, ptr %150, align 8
+  call void @col_add_str(ptr noundef %149, i32 noundef 37, ptr noundef %151)
+  %152 = load ptr, ptr %16, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %.011.i16.i, i64 24
+  %154 = load ptr, ptr %153, align 8
+  call void @col_add_str(ptr noundef %152, i32 noundef 11, ptr noundef %154)
   br label %flexray_set_source_and_destination_columns.exit
 
-flexray_set_source_and_destination_columns.exit:  ; preds = %ht_lookup_sender_receiver_config.exit.thread19.i, %ht_lookup_sender_receiver_config.exit.i, %148
-  %156 = icmp sgt i32 %.091, 0
-  br i1 %156, label %157, label %165
+flexray_set_source_and_destination_columns.exit:  ; preds = %ht_lookup_sender_receiver_config.exit.thread19.i, %ht_lookup_sender_receiver_config.exit.i, %147
+  %155 = icmp sgt i32 %.093, 0
+  br i1 %155, label %156, label %164
 
-157:                                              ; preds = %flexray_set_source_and_destination_columns.exit
-  %158 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 7, i32 noundef %.091)
-  br i1 %.4, label %159, label %163
+156:                                              ; preds = %flexray_set_source_and_destination_columns.exit
+  %157 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 7, i32 noundef %.093)
+  br i1 %.4, label %158, label %162
 
-159:                                              ; preds = %157
-  %160 = load i8, ptr @prefvar_try_heuristic_first, align 1, !range !6, !noundef !7
-  %161 = trunc nuw i8 %160 to i1
-  %162 = call zeroext i1 @flexray_call_subdissectors(ptr noundef %158, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %14, i1 noundef zeroext %161)
-  br i1 %162, label %165, label %163
+158:                                              ; preds = %156
+  %159 = load i8, ptr @prefvar_try_heuristic_first, align 1, !range !6, !noundef !7
+  %160 = trunc nuw i8 %159 to i1
+  %161 = call zeroext i1 @flexray_call_subdissectors(ptr noundef %157, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %14, i1 noundef zeroext %160)
+  br i1 %161, label %164, label %162
 
-163:                                              ; preds = %159, %157
-  %164 = call i32 @call_data_dissector(ptr noundef %158, ptr noundef %1, ptr noundef %2)
-  br label %165
+162:                                              ; preds = %158, %156
+  %163 = call i32 @call_data_dissector(ptr noundef %157, ptr noundef %1, ptr noundef %2)
+  br label %164
 
-165:                                              ; preds = %159, %163, %flexray_set_source_and_destination_columns.exit
+164:                                              ; preds = %158, %162, %flexray_set_source_and_destination_columns.exit
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
@@ -685,24 +684,24 @@ flexray_set_source_and_destination_columns.exit:  ; preds = %ht_lookup_sender_re
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
-  br label %172
+  br label %171
 
-166:                                              ; preds = %4
-  %167 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_flexray_symbol_frame)
+165:                                              ; preds = %4
+  %166 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_flexray_symbol_frame)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #9
-  %168 = load i32, ptr @hf_flexray_sl, align 4
-  %169 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %168, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15)
-  %170 = load ptr, ptr %16, align 8
-  %171 = load i32, ptr %15, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %170, i32 noundef 25, ptr noundef nonnull @.str.93, i32 noundef %171)
+  %167 = load i32, ptr @hf_flexray_sl, align 4
+  %168 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %167, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15)
+  %169 = load ptr, ptr %16, align 8
+  %170 = load i32, ptr %15, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %169, i32 noundef 25, ptr noundef nonnull @.str.93, i32 noundef %170)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #9
-  br label %172
+  br label %171
 
-172:                                              ; preds = %4, %166, %165
-  %173 = call i32 @tvb_captured_length(ptr noundef %0)
+171:                                              ; preds = %4, %165, %164
+  %172 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #9
-  ret i32 %173
+  ret i32 %172
 }
 
 ; Function Attrs: null_pointer_is_valid

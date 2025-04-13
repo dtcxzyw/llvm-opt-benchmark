@@ -3268,7 +3268,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit705: ; preds = %_Z
 1101:                                             ; preds = %1096
   %switch.tableidx = add nsw i32 %.0219, -1
   %1102 = icmp ult i32 %switch.tableidx, 5
-  br i1 %1102, label %switch.hole_check, label %1114
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 27, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond818 = select i1 %1102, i1 %switch.lobit, i1 false
+  br i1 %or.cond818, label %switch.lookup, label %1114
 
 1103:                                             ; preds = %1042, %1037, %1032, %1027, %1022, %1017, %1012, %1007, %1002, %997, %992, %987
   %1104 = landingpad { ptr, i32 }
@@ -3285,13 +3289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit705: ; preds = %_Z
           cleanup
   br label %1381
 
-switch.hole_check:                                ; preds = %1101
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 27, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %1114
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1101
   %1109 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.main, i64 0, i64 %1109
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -3302,7 +3300,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   invoke void %1113(ptr noundef nonnull align 8 dereferenceable(8) %1110, i32 noundef %switch.load)
           to label %1114 unwind label %1107
 
-1114:                                             ; preds = %switch.hole_check, %1101, %switch.lookup
+1114:                                             ; preds = %1101, %switch.lookup
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %112) #19
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %112) #19
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %113) #19

@@ -1601,20 +1601,13 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC216load_at_resolvedER8C2AccessPK4T
   %15 = and i64 %5, 131072
   %.not = icmp eq i64 %15, 0
   %16 = and i64 %5, 64
-  %.not72 = icmp eq i64 %16, 0
   %17 = and i64 %5, 4096
-  %.not73 = icmp eq i64 %17, 0
-  br i1 %.not72, label %21, label %18
-
-18:                                               ; preds = %3
-  %19 = and i64 %5, 786432
-  %20 = icmp ne i64 %19, 0
-  %not. = xor i1 %14, true
-  %spec.select = and i1 %20, %not.
-  br label %21
-
-21:                                               ; preds = %18, %3
-  %22 = phi i1 [ false, %3 ], [ %spec.select, %18 ]
+  %18 = icmp ne i64 %17, 0
+  %19 = and i64 %5, 2147483712
+  %or.cond.not = icmp eq i64 %19, 64
+  %20 = and i64 %5, 786432
+  %21 = icmp ne i64 %20, 0
+  %22 = and i1 %or.cond.not, %21
   %23 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1808
@@ -1629,86 +1622,87 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC216load_at_resolvedER8C2AccessPK4T
   %34 = icmp eq i32 %33, 512
   br i1 %34, label %35, label %40
 
-35:                                               ; preds = %21
+35:                                               ; preds = %3
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   br label %40
 
-40:                                               ; preds = %21, %35
-  %41 = phi ptr [ %39, %35 ], [ %30, %21 ]
+40:                                               ; preds = %3, %35
+  %41 = phi ptr [ %39, %35 ], [ %30, %3 ]
   %42 = and i64 %5, 98304
-  %brmerge.not85 = icmp ne i64 %42, 0
-  %brmerge75.not86 = and i1 %brmerge.not85, %.not73
-  %43 = and i64 %5, 393216
-  %44 = icmp ne i64 %43, 393216
-  %brmerge77 = or i1 %44, %brmerge75.not86
-  br i1 %brmerge77, label %47, label %45
+  %or.cond3.not81 = icmp eq i64 %42, 0
+  %or.cond5 = or i1 %or.cond3.not81, %18
+  br i1 %or.cond5, label %43, label %46
 
-45:                                               ; preds = %40
-  %.not74 = icmp ne ptr %41, %30
-  %46 = icmp ne ptr %10, %30
-  %spec.select78 = select i1 %.not74, i1 %46, i1 false
-  br label %47
+43:                                               ; preds = %40
+  %44 = and i64 %5, 393216
+  %or.cond7 = icmp eq i64 %44, 393216
+  %.not82 = icmp ne ptr %41, %30
+  %or.cond.not83 = and i1 %or.cond7, %.not82
+  %45 = icmp ne ptr %10, %30
+  %spec.select = select i1 %or.cond.not83, i1 %45, i1 false
+  br label %46
 
-47:                                               ; preds = %45, %40
-  %48 = phi i1 [ %brmerge75.not86, %40 ], [ %spec.select78, %45 ]
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %50 = load i8, ptr %49, align 8
-  %51 = and i8 %50, -2
-  %or.cond.i.i = icmp eq i8 %51, 12
-  %brmerge81.not = and i1 %48, %or.cond.i.i
-  br i1 %brmerge81.not, label %54, label %52
+46:                                               ; preds = %43, %40
+  %47 = phi i1 [ true, %40 ], [ %spec.select, %43 ]
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %49 = load i8, ptr %48, align 8
+  %50 = and i8 %49, -2
+  %or.cond.i.i = icmp eq i8 %50, 12
+  %or.cond9 = and i1 %47, %or.cond.i.i
+  br i1 %or.cond9, label %53, label %51
 
-52:                                               ; preds = %47
-  %53 = tail call noundef ptr @_ZNK12BarrierSetC216load_at_resolvedER8C2AccessPK4Type(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef %2) #6
+51:                                               ; preds = %46
+  %52 = tail call noundef ptr @_ZNK12BarrierSetC216load_at_resolvedER8C2AccessPK4Type(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef %2) #6
   br label %86
 
-54:                                               ; preds = %47
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+53:                                               ; preds = %46
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef i32 @_ZNK8C2Access11mem_node_moEv(ptr noundef nonnull align 8 dereferenceable(49) %1) #6
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call noundef i32 @_ZNK8C2Access11mem_node_moEv(ptr noundef nonnull align 8 dereferenceable(49) %1) #6
+  %64 = icmp eq i64 %16, 0
   %65 = and i64 %5, 4294967296
   %66 = icmp ne i64 %65, 0
-  %67 = load i8, ptr %49, align 8
+  %67 = load i8, ptr %48, align 8
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %69 = load i8, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call noundef ptr @_ZN7Compile15find_alias_typeEPK7TypePtrbP7ciField(ptr noundef nonnull align 8 dereferenceable(2316) %71, ptr noundef %63, i1 noundef zeroext false, ptr noundef null) #6
+  %72 = tail call noundef ptr @_ZN7Compile15find_alias_typeEPK7TypePtrbP7ciField(ptr noundef nonnull align 8 dereferenceable(2316) %71, ptr noundef %62, i1 noundef zeroext false, ptr noundef null) #6
   %73 = load i32, ptr %72, align 8
-  %74 = tail call noundef ptr @_ZN8GraphKit9make_loadEP4NodeS1_PK4Type9BasicTypeiN7MemNode6MemOrdEN8LoadNode17ControlDependencyEbbbbh(ptr noundef nonnull align 8 dereferenceable(84) %56, ptr noundef %61, ptr noundef nonnull %8, ptr noundef %2, i8 noundef zeroext %67, i32 noundef %73, i32 noundef %64, i32 noundef 0, i1 noundef zeroext %.not72, i1 noundef zeroext %66, i1 noundef zeroext %14, i1 noundef zeroext %12, i8 noundef zeroext %69) #6
-  br i1 %brmerge.not85, label %75, label %84
+  %74 = tail call noundef ptr @_ZN8GraphKit9make_loadEP4NodeS1_PK4Type9BasicTypeiN7MemNode6MemOrdEN8LoadNode17ControlDependencyEbbbbh(ptr noundef nonnull align 8 dereferenceable(84) %55, ptr noundef %60, ptr noundef nonnull %8, ptr noundef %2, i8 noundef zeroext %67, i32 noundef %73, i32 noundef %63, i32 noundef 0, i1 noundef zeroext %64, i1 noundef zeroext %66, i1 noundef zeroext %14, i1 noundef zeroext %12, i8 noundef zeroext %69) #6
+  br i1 %or.cond3.not81, label %84, label %75
 
-75:                                               ; preds = %54
-  %76 = load ptr, ptr %57, align 8
+75:                                               ; preds = %53
+  %76 = load ptr, ptr %56, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %0, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 352
   %82 = load ptr, ptr %81, align 8
-  tail call void %82(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %56, i1 noundef zeroext false, ptr noundef %79, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef %74, i8 noundef zeroext 12) #6
-  %83 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %56, i32 noundef 216, ptr noundef null) #6
+  tail call void %82(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %55, i1 noundef zeroext false, ptr noundef %79, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef %74, i8 noundef zeroext 12) #6
+  %83 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %55, i32 noundef 216, ptr noundef null) #6
   br label %86
 
-84:                                               ; preds = %54
+84:                                               ; preds = %53
   br i1 %.not, label %86, label %85
 
 85:                                               ; preds = %84
-  tail call void @_ZNK14G1BarrierSetC218insert_pre_barrierEP8GraphKitP4NodeS3_S3_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %56, ptr noundef %10, ptr noundef %41, ptr noundef %74, i1 noundef zeroext %22)
+  tail call void @_ZNK14G1BarrierSetC218insert_pre_barrierEP8GraphKitP4NodeS3_S3_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %55, ptr noundef %10, ptr noundef %41, ptr noundef %74, i1 noundef zeroext %22)
   br label %86
 
-86:                                               ; preds = %75, %85, %84, %52
-  %.0 = phi ptr [ %53, %52 ], [ %74, %84 ], [ %74, %85 ], [ %74, %75 ]
+86:                                               ; preds = %75, %85, %84, %51
+  %.0 = phi ptr [ %52, %51 ], [ %74, %84 ], [ %74, %85 ], [ %74, %75 ]
   ret ptr %.0
 }
 

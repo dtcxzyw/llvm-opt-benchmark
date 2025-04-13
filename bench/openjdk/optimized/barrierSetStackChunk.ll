@@ -106,22 +106,20 @@ define hidden void @_ZN20BarrierSetStackChunk14decode_gc_modeEP17stackChunkOopDe
   %9 = inttoptr i64 %8 to ptr
   %10 = load volatile i8, ptr %9, align 1
   %11 = and i8 %10, 16
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %18, label %12
-
-12:                                               ; preds = %3
+  %12 = icmp ne i8 %11, 0
   %13 = load i8, ptr @UseCompressedOops, align 1
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %18
+  %or.cond = select i1 %12, i1 %14, i1 false
+  br i1 %or.cond, label %15, label %18
 
-15:                                               ; preds = %12
+15:                                               ; preds = %3
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV24UncompressOopsOopClosure, i64 16), ptr %4, align 8
   %16 = load ptr, ptr %2, align 8
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %4) #6
   br label %18
 
-18:                                               ; preds = %15, %12, %3
+18:                                               ; preds = %15, %3
   ret void
 }
 

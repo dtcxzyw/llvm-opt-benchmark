@@ -16680,8 +16680,8 @@ _ZN6hermes3hbc7HBCISel11encodeValueEPNS_5ValueE.exit21: ; preds = %if.then.i18, 
   %tobool.i.i = trunc i8 %8 to i1
   %9 = load i8, ptr %call.i22, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %9, 114
-  %brmerge.not = and i1 %cmp.i.i.i.i.i.i.i, %tobool.i.i
-  br i1 %brmerge.not, label %if.then, label %if.end23
+  %or.cond = and i1 %cmp.i.i.i.i.i.i.i, %tobool.i.i
+  br i1 %or.cond, label %if.then, label %if.end23
 
 if.then:                                          ; preds = %_ZN6hermes3hbc7HBCISel11encodeValueEPNS_5ValueE.exit21
   %value.i = getelementptr inbounds nuw i8, ptr %call.i22, i64 48
@@ -16710,7 +16710,7 @@ if.else:                                          ; preds = %if.then11
   %call21 = tail call noundef i32 @_ZN6hermes3hbc28BytecodeInstructionGenerator18emitPutOwnByIndexLElll(ptr noundef nonnull align 8 dereferenceable(25) %11, i64 noundef %conv, i64 noundef %conv14, i64 noundef %conv15)
   br label %return
 
-if.end23:                                         ; preds = %_ZN6hermes3hbc7HBCISel11encodeValueEPNS_5ValueE.exit21, %if.then
+if.end23:                                         ; preds = %if.then, %_ZN6hermes3hbc7HBCISel11encodeValueEPNS_5ValueE.exit21
   %call.i24 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, i32 noundef 2) #19
   %12 = load i8, ptr %call.i24, align 8
   %13 = add i8 %12, -2
@@ -38710,11 +38710,11 @@ entry:
   %3 = load ptr, ptr %scopeDesc_.i, align 8
   %call5 = tail call i64 @_ZN6hermes21FunctionScopeAnalysis13getScopeDepthEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %3) #19
   %4 = and i64 %call2, 4294967296
-  %tobool.i.not = icmp eq i64 %4, 0
+  %tobool.i = icmp ne i64 %4, 0
   %5 = and i64 %call5, 4294967296
-  %tobool.i5.not = icmp eq i64 %5, 0
-  %or.cond = select i1 %tobool.i.not, i1 true, i1 %tobool.i5.not
-  br i1 %or.cond, label %return, label %if.end
+  %tobool.i5 = icmp ne i64 %5, 0
+  %or.cond = select i1 %tobool.i, i1 %tobool.i5, i1 false
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %curScopeDepth.sroa.0.0.extract.trunc = trunc i64 %call5 to i32

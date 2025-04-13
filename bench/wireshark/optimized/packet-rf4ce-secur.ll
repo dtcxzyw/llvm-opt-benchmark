@@ -45,19 +45,19 @@ define hidden void @keypair_context_update_seed(ptr noundef readonly captures(no
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 257), align 1
   %6 = zext i8 %5 to i32
   %7 = add nsw i32 %6, -1
-  %8 = icmp ne i32 %7, %4
+  %8 = icmp eq i32 %7, %4
   %9 = add nuw nsw i32 %4, 1
   %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @keypair_context, i64 256), align 1
   %11 = zext i8 %10 to i32
-  %12 = icmp ne i32 %9, %11
-  %brmerge = select i1 %8, i1 true, i1 %12
-  br i1 %brmerge, label %14, label %13
+  %12 = icmp eq i32 %9, %11
+  %or.cond = select i1 %8, i1 %12, i1 false
+  br i1 %or.cond, label %13, label %14
 
 13:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 160), ptr noundef nonnull align 1 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @keypair_context, i64 80), i64 noundef 80, i1 noundef false) #17
   br label %14
 
-14:                                               ; preds = %2, %13
+14:                                               ; preds = %13, %2
   %15 = icmp eq i8 %1, 0
   br i1 %15, label %16, label %17
 
@@ -67,11 +67,11 @@ define hidden void @keypair_context_update_seed(ptr noundef readonly captures(no
   br label %93
 
 17:                                               ; preds = %14
-  br i1 %8, label %19, label %18
+  br i1 %8, label %18, label %19
 
 18:                                               ; preds = %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) @keypair_context, ptr noundef align 1 dereferenceable(80) %0, i64 noundef 80, i1 noundef false) #17
-  br i1 %12, label %93, label %19
+  br i1 %12, label %19, label %93
 
 19:                                               ; preds = %18, %17
   %20 = icmp eq i8 %1, %5
@@ -97,7 +97,7 @@ define hidden void @keypair_context_update_seed(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %21, label %.preheader, !llvm.loop !6
 
 29:                                               ; preds = %21, %19
-  br i1 %12, label %93, label %30
+  br i1 %12, label %30, label %93
 
 30:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17

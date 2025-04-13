@@ -404,20 +404,20 @@ define dso_local void @output_statement(ptr noundef %0, i32 noundef %1, i32 noun
   %10 = load i8, ptr @questionmarks, align 1, !range !7, !noundef !8
   %11 = zext nneg i8 %10 to i32
   %12 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %4, ptr noundef nonnull @.str.7, i32 noundef %5, i32 noundef %7, ptr noundef nonnull %9, i32 noundef %11) #7
-  %13 = icmp eq i32 %2, 3
+  %13 = icmp ne i32 %2, 3
   %14 = load i8, ptr @auto_prepare, align 1, !range !7
   %15 = trunc nuw i8 %14 to i1
-  %spec.select = select i1 %15, i32 3, i32 0
-  %.0 = select i1 %13, i32 %spec.select, i32 %2
+  %or.cond = select i1 %13, i1 true, i1 %15
+  %spec.store.select = select i1 %or.cond, i32 %2, i32 0
   %16 = load ptr, ptr @base_yyout, align 8
-  %17 = zext i32 %.0 to i64
+  %17 = zext i32 %spec.store.select to i64
   %18 = getelementptr inbounds nuw [6 x ptr], ptr @ecpg_statement_type_name, i64 0, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %16, ptr noundef nonnull @.str.9, ptr noundef %19) #7
-  %21 = add i32 %.0, -1
-  %or.cond = icmp ult i32 %21, 2
+  %21 = add i32 %spec.store.select, -1
+  %or.cond3 = icmp ult i32 %21, 2
   %22 = load ptr, ptr @base_yyout, align 8
-  br i1 %or.cond, label %23, label %25
+  br i1 %or.cond3, label %23, label %25
 
 23:                                               ; preds = %3
   %24 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %22, ptr noundef nonnull @.str.9, ptr noundef %0) #7

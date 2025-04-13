@@ -8666,21 +8666,19 @@ define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull r
 98:                                               ; preds = %88
   %switch.tableidx = add i8 %22, -40
   %99 = icmp ult i8 %switch.tableidx, 8
-  br i1 %99, label %switch.hole_check, label %100
+  %switch.shifted = lshr i8 -81, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond128 = select i1 %99, i1 %switch.lobit, i1 false
+  br i1 %or.cond128, label %switch.lookup, label %100
 
-100:                                              ; preds = %switch.hole_check, %98
+100:                                              ; preds = %98
   store i32 0, ptr %9, align 8, !tbaa !213
   %101 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !10
   %102 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
   %103 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__get_token, i32 noundef 475, i64 noundef %101, i64 noundef %102, ptr noundef nonnull @.str.26) #12
   br label %110
 
-switch.hole_check:                                ; preds = %98
-  %switch.shifted = lshr i8 -81, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %100
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %98
   %104 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.H5Z__get_token, i64 0, i64 %104
   %switch.load = load i32, ptr %switch.gep, align 4

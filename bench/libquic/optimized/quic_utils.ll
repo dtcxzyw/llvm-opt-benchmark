@@ -1103,8 +1103,8 @@ define noundef range(i32 0, 7) i32 @_ZN3net9QuicUtils26DetermineAddressChangeTyp
   %11 = tail call noundef zeroext i1 @_ZNK3net9IPAddress6IsIPv4Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %12 = tail call noundef zeroext i1 @_ZNK3net9IPAddress6IsIPv4Ev(ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.not = xor i1 %11, true
-  %brmerge = or i1 %12, %.not
-  br i1 %brmerge, label %13, label %18
+  %or.cond = or i1 %12, %.not
+  br i1 %or.cond, label %13, label %18
 
 13:                                               ; preds = %10
   br i1 %11, label %16, label %14

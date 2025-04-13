@@ -50,7 +50,7 @@ sub_1:                                            ; preds = %sub_0
 
 19:                                               ; preds = %2, %.tail
   %.sink = phi i64 [ 16, %.tail ], [ 8, %2 ]
-  %.09 = phi i1 [ true, %.tail ], [ false, %2 ]
+  %.010 = phi i1 [ true, %.tail ], [ false, %2 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %.0 = load ptr, ptr %20, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
@@ -58,8 +58,8 @@ sub_1:                                            ; preds = %sub_0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   %21 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %3) #6
   %22 = load i32, ptr %3, align 4, !tbaa !11
-  %.not11 = icmp eq i32 %22, 0
-  br i1 %.not11, label %26, label %23
+  %.not12 = icmp eq i32 %22, 0
+  br i1 %.not12, label %26, label %23
 
 23:                                               ; preds = %19
   %24 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
@@ -74,10 +74,10 @@ sub_1:                                            ; preds = %sub_0
 29:                                               ; preds = %26, %23
   %30 = call i32 @H5Fdelete(ptr noundef %.0, i64 noundef 0) #6
   %31 = load i32, ptr %3, align 4, !tbaa !11
-  %.not12 = icmp eq i32 %31, 0
+  %.not13 = icmp eq i32 %31, 0
   %32 = load ptr, ptr %4, align 8, !tbaa !13
   %33 = load ptr, ptr %5, align 8, !tbaa !14
-  br i1 %.not12, label %36, label %34
+  br i1 %.not13, label %36, label %34
 
 34:                                               ; preds = %29
   %35 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %32, ptr noundef %33) #6
@@ -92,21 +92,21 @@ sub_1:                                            ; preds = %sub_0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
   %39 = icmp sgt i32 %30, -1
-  %brmerge = or i1 %.09, %39
-  br i1 %brmerge, label %43, label %40
+  %or.cond = or i1 %.010, %39
+  br i1 %or.cond, label %43, label %40
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr @stderr, align 8, !tbaa !9
   %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.1, ptr noundef %.0) #7
   br label %43
 
-43:                                               ; preds = %38, %40
+43:                                               ; preds = %40, %38
   %.lobit = lshr i32 %30, 31
   br label %44
 
 44:                                               ; preds = %43, %16, %.tail.thread
-  %.010 = phi i32 [ 1, %16 ], [ %.lobit, %43 ], [ 1, %.tail.thread ]
-  ret i32 %.010
+  %.011 = phi i32 [ 1, %16 ], [ %.lobit, %43 ], [ 1, %.tail.thread ]
+  ret i32 %.011
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

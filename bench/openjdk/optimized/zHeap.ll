@@ -1105,8 +1105,8 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 _Z8is_valid8zpointerb.exit:                       ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i
   %47 = and i64 %2, 15
   %.not32.i = icmp eq i64 %47, 0
-  %brmerge.not = and i1 %.not32.i, %.0.i.ph
-  br i1 %brmerge.not, label %53, label %48
+  %or.cond = and i1 %.not32.i, %.0.i.ph
+  br i1 %or.cond, label %53, label %48
 
 48:                                               ; preds = %_Z8is_valid8zpointerb.exit
   br i1 %.not32.i, label %49, label %51

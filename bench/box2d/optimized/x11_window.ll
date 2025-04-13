@@ -6048,19 +6048,17 @@ switch.lookup:                                    ; preds = %8
 26:                                               ; preds = %23
   %switch.tableidx27 = add i32 %1, -221185
   %27 = icmp ult i32 %switch.tableidx27, 9
-  br i1 %27, label %switch.hole_check, label %28
+  %switch.maskindex = trunc i32 %switch.tableidx27 to i16
+  %switch.shifted = lshr i16 319, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %27, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup28, label %28
 
-28:                                               ; preds = %switch.hole_check, %26
+28:                                               ; preds = %26
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65547, ptr noundef nonnull @.str.18) #17
   br label %.thread
 
-switch.hole_check:                                ; preds = %26
-  %switch.maskindex = trunc nuw i32 %switch.tableidx27 to i16
-  %switch.shifted = lshr i16 319, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup28, label %28
-
-switch.lookup28:                                  ; preds = %switch.hole_check
+switch.lookup28:                                  ; preds = %26
   %29 = zext nneg i32 %switch.tableidx27 to i64
   %switch.gep29 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._glfwCreateStandardCursorX11.6, i64 0, i64 %29
   %switch.load30 = load i32, ptr %switch.gep29, align 4

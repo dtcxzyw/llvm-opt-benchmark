@@ -605,15 +605,13 @@ define range(i32 -1, 1) i32 @H5SM__get_index(ptr noundef readonly captures(none)
 10:                                               ; preds = %3
   %switch.tableidx = add i32 %1, -1
   %11 = icmp ult i32 %switch.tableidx, 12
-  br i1 %11, label %switch.hole_check, label %19
-
-switch.hole_check:                                ; preds = %10
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 3101, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %19
+  %or.cond = select i1 %11, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %19
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %10
   %12 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.H5SM_get_refcount, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -629,7 +627,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   br label %26
 
-19:                                               ; preds = %switch.hole_check, %10
+19:                                               ; preds = %10
   %20 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !7
   %21 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !7
   %22 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM__type_to_flag, i32 noundef 281, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.90) #11
@@ -679,9 +677,13 @@ define range(i32 -1, 2) i32 @H5SM_type_shared(ptr noundef %0, i32 noundef %1) lo
 11:                                               ; preds = %2
   %switch.tableidx = add i32 %1, -1
   %12 = icmp ult i32 %switch.tableidx, 12
-  br i1 %12, label %switch.hole_check, label %13
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 3101, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %12, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %13
 
-13:                                               ; preds = %switch.hole_check, %11
+13:                                               ; preds = %11
   %14 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !7
   %15 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !7
   %16 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM__type_to_flag, i32 noundef 281, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.90) #11
@@ -690,13 +692,7 @@ define range(i32 -1, 2) i32 @H5SM_type_shared(ptr noundef %0, i32 noundef %1) lo
   %19 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM_type_shared, i32 noundef 351, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.20) #11
   br label %.thread30
 
-switch.hole_check:                                ; preds = %11
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 3101, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %13
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %11
   %20 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.H5SM_get_refcount, i64 0, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -825,15 +821,13 @@ define range(i32 -1, 1) i32 @H5SM_get_fheap_addr(ptr noundef %0, i32 noundef %1,
 28:                                               ; preds = %21
   %switch.tableidx = add i32 %1, -1
   %29 = icmp ult i32 %switch.tableidx, 12
-  br i1 %29, label %switch.hole_check, label %46
-
-switch.hole_check:                                ; preds = %28
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 3101, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %46
+  %or.cond = select i1 %29, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %46
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %28
   %30 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.H5SM_get_refcount, i64 0, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -868,7 +862,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %exitcond.not.i = icmp eq i64 %45, %34
   br i1 %exitcond.not.i, label %59, label %40, !llvm.loop !42
 
-46:                                               ; preds = %switch.hole_check, %28
+46:                                               ; preds = %28
   %47 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !7
   %48 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !7
   %49 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM__type_to_flag, i32 noundef 281, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.90) #11
@@ -998,15 +992,13 @@ define range(i32 -1, 2) i32 @H5SM_can_share(ptr noundef %0, ptr noundef %1, ptr 
 46:                                               ; preds = %39
   %switch.tableidx = add i32 %3, -1
   %47 = icmp ult i32 %switch.tableidx, 12
-  br i1 %47, label %switch.hole_check, label %61
-
-switch.hole_check:                                ; preds = %46
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 3101, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %61
+  %or.cond = select i1 %47, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %61
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %46
   %48 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.H5SM_get_refcount, i64 0, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -1035,7 +1027,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %exitcond.not.i = icmp eq i64 %60, %52
   br i1 %exitcond.not.i, label %.thread55, label %55, !llvm.loop !42
 
-61:                                               ; preds = %switch.hole_check, %46
+61:                                               ; preds = %46
   %62 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !7
   %63 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !7
   %64 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM__type_to_flag, i32 noundef 281, i64 noundef %62, i64 noundef %63, ptr noundef nonnull @.str.90) #11
@@ -2131,15 +2123,13 @@ define range(i32 -1, 1) i32 @H5SM_delete(ptr noundef %0, ptr noundef %1, ptr nou
 37:                                               ; preds = %30
   %switch.tableidx = add i32 %22, -1
   %38 = icmp ult i32 %switch.tableidx, 12
-  br i1 %38, label %switch.hole_check, label %52
-
-switch.hole_check:                                ; preds = %37
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 3101, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %52
+  %or.cond = select i1 %38, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %52
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %37
   %39 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.H5SM_get_refcount, i64 0, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -2168,7 +2158,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %exitcond.not.i = icmp eq i64 %51, %43
   br i1 %exitcond.not.i, label %.loopexit134, label %46, !llvm.loop !42
 
-52:                                               ; preds = %switch.hole_check, %37
+52:                                               ; preds = %37
   %53 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !7
   %54 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !7
   %55 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM__type_to_flag, i32 noundef 281, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.90) #11
@@ -3081,15 +3071,13 @@ define range(i32 -1, 1) i32 @H5SM_get_refcount(ptr noundef %0, i32 noundef %1, p
 34:                                               ; preds = %27
   %switch.tableidx = add i32 %1, -1
   %35 = icmp ult i32 %switch.tableidx, 12
-  br i1 %35, label %switch.hole_check, label %49
-
-switch.hole_check:                                ; preds = %34
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 3101, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %49
+  %or.cond = select i1 %35, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %49
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %34
   %36 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table.H5SM_get_refcount, i64 0, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -3118,7 +3106,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %exitcond.not.i = icmp eq i64 %48, %40
   br i1 %exitcond.not.i, label %.loopexit136, label %43, !llvm.loop !42
 
-49:                                               ; preds = %switch.hole_check, %34
+49:                                               ; preds = %34
   %50 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !7
   %51 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !7
   %52 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM__type_to_flag, i32 noundef 281, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.90) #11

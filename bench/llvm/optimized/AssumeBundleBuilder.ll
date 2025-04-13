@@ -1856,9 +1856,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118AssumeBuilderState
   %16 = tail call noundef ptr @_ZN4llvm19getUnderlyingObjectEPKNS_5ValueEj(ptr noundef nonnull %7, i32 noundef 6) #20
   %17 = load i8, ptr %16, align 8, !tbaa !84
   %18 = icmp ult i8 %17, 61
-  br i1 %18, label %switch.hole_check, label %19
+  %switch.maskindex = zext nneg i8 %17 to i64
+  %switch.shifted = lshr i64 1152921504606846991, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond = select i1 %18, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.thread, label %19
 
-19:                                               ; preds = %switch.hole_check, %15, %8
+19:                                               ; preds = %15, %8
   %20 = load i8, ptr %7, align 8, !tbaa !84
   %21 = icmp eq i8 %20, 22
   br i1 %21, label %22, label %33
@@ -1924,14 +1928,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118AssumeBuilderState
 49:                                               ; preds = %41, %43
   br label %.thread
 
-switch.hole_check:                                ; preds = %15
-  %switch.maskindex = zext nneg i8 %17 to i64
-  %switch.shifted = lshr i64 1152921504606846991, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %.thread, label %19
-
-.thread:                                          ; preds = %switch.hole_check, %37, %35, %33, %43, %49, %32, %.critedge2, %27, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ false, %27 ], [ false, %.critedge2 ], [ true, %32 ], [ false, %37 ], [ true, %35 ], [ true, %33 ], [ true, %49 ], [ false, %43 ], [ false, %switch.hole_check ]
+.thread:                                          ; preds = %15, %37, %35, %33, %43, %49, %32, %.critedge2, %27, %5, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ false, %27 ], [ false, %.critedge2 ], [ true, %32 ], [ false, %37 ], [ true, %35 ], [ true, %33 ], [ true, %49 ], [ false, %43 ], [ false, %15 ]
   ret i1 %.0
 }
 

@@ -1068,8 +1068,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h265d
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %7, align 8
-  %.not15 = icmp eq ptr %8, null
-  br i1 %.not15, label %18, label %11
+  %.not20 = icmp eq ptr %8, null
+  br i1 %.not20, label %18, label %11
 
 11:                                               ; preds = %6
   invoke void @_ZN4core4sync6atomic12atomic_store17hd2f59a80c1b60221E.llvm.8848114157358331746(ptr noundef nonnull %4, i8 noundef 0, i8 noundef 4)
@@ -1094,8 +1094,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h265d
   unreachable
 
 .thread42:                                        ; preds = %14, %32
-  %.pn20 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
-  resume { ptr, i32 } %.pn20
+  %.pn23 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
+  resume { ptr, i32 } %.pn23
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1105,8 +1105,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h265d
 20:                                               ; preds = %18, %"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h162784ade9a7768dE.exit", %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %22 = atomicrmw xchg ptr %21, i8 1 seq_cst, align 1
-  %.not47 = icmp eq i8 %22, 0
-  br i1 %.not47, label %23, label %35
+  %.not46 = icmp eq i8 %22, 0
+  br i1 %.not46, label %23, label %35
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1156,8 +1156,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h29d3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   store ptr null, ptr %0, align 8
-  %.not15 = icmp eq ptr %7, null
-  br i1 %.not15, label %17, label %10
+  %.not20 = icmp eq ptr %7, null
+  br i1 %.not20, label %17, label %10
 
 10:                                               ; preds = %6
   invoke void @_ZN4core4sync6atomic12atomic_store17hd2f59a80c1b60221E.llvm.8848114157358331746(ptr noundef nonnull %4, i8 noundef 0, i8 noundef 4)
@@ -1182,8 +1182,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h29d3
   unreachable
 
 .thread42:                                        ; preds = %13, %30
-  %.pn20 = phi { ptr, i32 } [ %31, %30 ], [ %14, %13 ]
-  resume { ptr, i32 } %.pn20
+  %.pn23 = phi { ptr, i32 } [ %31, %30 ], [ %14, %13 ]
+  resume { ptr, i32 } %.pn23
 
 17:                                               ; preds = %6
   tail call void @_ZN4core4sync6atomic12atomic_store17hd2f59a80c1b60221E.llvm.8848114157358331746(ptr noundef nonnull %4, i8 noundef 0, i8 noundef 4), !noalias !115
@@ -1192,8 +1192,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h29d3
 18:                                               ; preds = %17, %"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h162784ade9a7768dE.exit", %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = atomicrmw xchg ptr %19, i8 1 seq_cst, align 1
-  %.not47 = icmp eq i8 %20, 0
-  br i1 %.not47, label %21, label %33
+  %.not46 = icmp eq i8 %20, 0
+  br i1 %.not46, label %21, label %33
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1244,8 +1244,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h5291
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %7, align 8
-  %.not15 = icmp eq ptr %8, null
-  br i1 %.not15, label %18, label %11
+  %.not20 = icmp eq ptr %8, null
+  br i1 %.not20, label %18, label %11
 
 11:                                               ; preds = %6
   invoke void @_ZN4core4sync6atomic12atomic_store17hd2f59a80c1b60221E.llvm.8848114157358331746(ptr noundef nonnull %4, i8 noundef 0, i8 noundef 4)
@@ -1270,8 +1270,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h5291
   unreachable
 
 .thread42:                                        ; preds = %14, %32
-  %.pn20 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
-  resume { ptr, i32 } %.pn20
+  %.pn23 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
+  resume { ptr, i32 } %.pn23
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1281,8 +1281,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17h5291
 20:                                               ; preds = %18, %"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h162784ade9a7768dE.exit", %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = atomicrmw xchg ptr %21, i8 1 seq_cst, align 1
-  %.not47 = icmp eq i8 %22, 0
-  br i1 %.not47, label %23, label %35
+  %.not46 = icmp eq i8 %22, 0
+  br i1 %.not46, label %23, label %35
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1333,8 +1333,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hf96b
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %7, align 8
-  %.not15 = icmp eq ptr %8, null
-  br i1 %.not15, label %18, label %11
+  %.not20 = icmp eq ptr %8, null
+  br i1 %.not20, label %18, label %11
 
 11:                                               ; preds = %6
   invoke void @_ZN4core4sync6atomic12atomic_store17hd2f59a80c1b60221E.llvm.8848114157358331746(ptr noundef nonnull %4, i8 noundef 0, i8 noundef 4)
@@ -1359,8 +1359,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hf96b
   unreachable
 
 .thread42:                                        ; preds = %14, %32
-  %.pn20 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
-  resume { ptr, i32 } %.pn20
+  %.pn23 = phi { ptr, i32 } [ %33, %32 ], [ %15, %14 ]
+  resume { ptr, i32 } %.pn23
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1370,8 +1370,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$7drop_tx17hf96b
 20:                                               ; preds = %18, %"_ZN4core3ptr110drop_in_place$LT$futures_channel..lock..TryLock$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$GT$17h162784ade9a7768dE.exit", %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = atomicrmw xchg ptr %21, i8 1 seq_cst, align 1
-  %.not47 = icmp eq i8 %22, 0
-  br i1 %.not47, label %23, label %35
+  %.not46 = icmp eq i8 %22, 0
+  br i1 %.not46, label %23, label %35
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -8604,8 +8604,8 @@ define hidden void @"_ZN5flume5async16RecvFut$LT$T$GT$10reset_hook17h3083ff10733
   %.0.i.i.i.i = phi i8 [ %22, %.noexc13 ], [ 0, %.noexc ]
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %27 = load atomic i8, ptr %26 monotonic, align 1, !noalias !1054
-  %.not24 = icmp eq i8 %27, 0
-  br i1 %.not24, label %35, label %28
+  %.not22 = icmp eq i8 %27, 0
+  br i1 %.not22, label %35, label %28
 
 28:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1057

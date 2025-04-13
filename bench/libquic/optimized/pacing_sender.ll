@@ -67,8 +67,8 @@ define noundef zeroext i1 @_ZN3net12PacingSender12OnPacketSentENS_8QuicTimeEmmmN
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5)
-  %.not = icmp eq i8 %5, 1
-  br i1 %.not, label %14, label %74
+  %.not47 = icmp eq i8 %5, 1
+  br i1 %.not47, label %14, label %74
 
 14:                                               ; preds = %6
   %15 = icmp eq i64 %2, 0
@@ -90,16 +90,16 @@ define noundef zeroext i1 @_ZN3net12PacingSender12OnPacketSentENS_8QuicTimeEmmmN
   %27 = tail call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %23)
   %28 = udiv i64 %27, 1460
   %29 = trunc i64 %28 to i32
-  %.sroa.speculated52 = tail call i32 @llvm.umin.i32(i32 %29, i32 10)
+  %.sroa.speculated53 = tail call i32 @llvm.umin.i32(i32 %29, i32 10)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.speculated52, ptr %30, align 8, !tbaa !14
+  store i32 %.sroa.speculated53, ptr %30, align 8, !tbaa !14
   br label %31
 
 31:                                               ; preds = %22, %16, %14
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 8, !tbaa !14
-  %.not46 = icmp eq i32 %33, 0
-  br i1 %.not46, label %37, label %34
+  %.not48 = icmp eq i32 %33, 0
+  br i1 %.not48, label %37, label %34
 
 34:                                               ; preds = %31
   %35 = add i32 %33, -1
@@ -148,11 +148,11 @@ _ZNK3net12PacingSender10PacingRateEm.exit:        ; preds = %41, %50
   %59 = load i8, ptr %58, align 8, !tbaa !19, !range !20, !noundef !21
   %60 = trunc nuw i8 %59 to i1
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.016.0.copyload = load i64, ptr %61, align 8, !tbaa !22
+  %.sroa.017.0.copyload = load i64, ptr %61, align 8, !tbaa !22
   br i1 %60, label %62, label %72
 
 62:                                               ; preds = %_ZNK3net12PacingSender10PacingRateEm.exit
-  %63 = add nsw i64 %.sroa.016.0.copyload, %57
+  %63 = add nsw i64 %.sroa.017.0.copyload, %57
   store i64 %63, ptr %61, align 8, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = load i64, ptr %64, align 8, !tbaa !23
@@ -160,9 +160,9 @@ _ZNK3net12PacingSender10PacingRateEm.exit:        ; preds = %41, %50
   %67 = add nsw i64 %65, %57
   %68 = icmp slt i64 %67, %1
   %69 = select i1 %66, i1 %68, i1 false
-  %.not54 = icmp slt i64 %1, %63
-  %brmerge = or i1 %.not54, %69
-  br i1 %brmerge, label %70, label %71
+  %.not55 = icmp slt i64 %1, %63
+  %or.cond = or i1 %.not55, %69
+  br i1 %or.cond, label %70, label %71
 
 70:                                               ; preds = %62
   store i8 0, ptr %58, align 8, !tbaa !19
@@ -174,7 +174,7 @@ _ZNK3net12PacingSender10PacingRateEm.exit:        ; preds = %41, %50
   br label %74
 
 72:                                               ; preds = %_ZNK3net12PacingSender10PacingRateEm.exit
-  %73 = call i64 @llvm.smax.i64(i64 %.sroa.016.0.copyload, i64 %1)
+  %73 = call i64 @llvm.smax.i64(i64 %.sroa.017.0.copyload, i64 %1)
   %.sroa.speculated = add nsw i64 %73, %57
   store i64 %.sroa.speculated, ptr %61, align 8, !tbaa !22
   br label %74

@@ -240,8 +240,8 @@ define dso_local void @BufFileDeleteFileSet(ptr noundef %0, ptr noundef %1, i1 n
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %10
-  %.067 = phi i32 [ %7, %10 ], [ 0, %3 ]
-  %7 = add i32 %.067, 1
+  %.078 = phi i32 [ %7, %10 ], [ 0, %3 ]
+  %7 = add i32 %.078, 1
   %8 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9, !prof !4
@@ -256,8 +256,8 @@ define dso_local void @BufFileDeleteFileSet(ptr noundef %0, ptr noundef %1, i1 n
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %3
-  %brmerge = or i1 %2, %6
-  br i1 %brmerge, label %16, label %13
+  %or.cond = or i1 %2, %6
+  br i1 %or.cond, label %16, label %13
 
 13:                                               ; preds = %._crit_edge
   %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -373,12 +373,12 @@ BufFileFlush.exit:                                ; preds = %5, %12
 
 22:                                               ; preds = %.lr.ph, %76
   %23 = phi i32 [ %.pre, %.lr.ph ], [ %85, %76 ]
-  %.03958 = phi i64 [ 0, %.lr.ph ], [ %88, %76 ]
-  %.04057 = phi ptr [ %1, %.lr.ph ], [ %86, %76 ]
-  %.04156 = phi i64 [ %2, %.lr.ph ], [ %87, %76 ]
+  %.04058 = phi i64 [ 0, %.lr.ph ], [ %88, %76 ]
+  %.04157 = phi ptr [ %1, %.lr.ph ], [ %86, %76 ]
+  %.04256 = phi i64 [ %2, %.lr.ph ], [ %87, %76 ]
   %24 = load i32, ptr %14, align 4
-  %.not46 = icmp slt i32 %23, %24
-  br i1 %.not46, label %76, label %25
+  %.not47 = icmp slt i32 %23, %24
+  br i1 %.not47, label %76, label %25
 
 25:                                               ; preds = %22
   %26 = sext i32 %23 to i64
@@ -489,29 +489,29 @@ BufFileLoadBuffer.exit._crit_edge61:              ; preds = %BufFileLoadBuffer.e
   %78 = phi i32 [ %.pre60, %BufFileLoadBuffer.exit._crit_edge61 ], [ %24, %22 ]
   %79 = sub i32 %78, %77
   %80 = sext i32 %79 to i64
-  %spec.select = call i64 @llvm.umin.i64(i64 %.04156, i64 %80)
+  %spec.select = call i64 @llvm.umin.i64(i64 %.04256, i64 %80)
   %81 = sext i32 %77 to i64
   %82 = getelementptr inbounds i8, ptr %19, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04057, ptr nonnull align 1 %82, i64 %spec.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04157, ptr nonnull align 1 %82, i64 %spec.select, i1 false)
   %83 = load i32, ptr %13, align 8
   %84 = trunc i64 %spec.select to i32
   %85 = add i32 %83, %84
   store i32 %85, ptr %13, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %.04057, i64 %spec.select
-  %87 = sub i64 %.04156, %spec.select
-  %88 = add i64 %spec.select, %.03958
+  %86 = getelementptr inbounds nuw i8, ptr %.04157, i64 %spec.select
+  %87 = sub i64 %.04256, %spec.select
+  %88 = add i64 %spec.select, %.04058
   %.not = icmp eq i64 %87, 0
   br i1 %.not, label %BufFileLoadBuffer.exit._crit_edge, label %22, !llvm.loop !9
 
 BufFileLoadBuffer.exit._crit_edge:                ; preds = %70, %76, %BufFileLoadBuffer.exit, %BufFileFlush.exit
-  %.039.lcssa = phi i64 [ 0, %BufFileFlush.exit ], [ %.03958, %70 ], [ %.03958, %BufFileLoadBuffer.exit ], [ %88, %76 ]
-  %.not47 = icmp eq i64 %.039.lcssa, %2
-  %not. = xor i1 %3, true
-  %89 = icmp eq i64 %.039.lcssa, 0
-  %brmerge.not = and i1 %4, %89
-  %90 = or i1 %.not47, %brmerge.not
-  %or.cond = select i1 %not., i1 true, i1 %90
-  br i1 %or.cond, label %101, label %91
+  %.040.lcssa = phi i64 [ 0, %BufFileFlush.exit ], [ %.04058, %70 ], [ %.04058, %BufFileLoadBuffer.exit ], [ %88, %76 ]
+  %.not50 = xor i1 %3, true
+  %.not48 = icmp eq i64 %.040.lcssa, %2
+  %89 = icmp eq i64 %.040.lcssa, 0
+  %or.cond = and i1 %4, %89
+  %90 = or i1 %.not48, %or.cond
+  %or.cond52 = select i1 %.not50, i1 true, i1 %90
+  br i1 %or.cond52, label %101, label %91
 
 91:                                               ; preds = %BufFileLoadBuffer.exit._crit_edge
   %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -519,15 +519,15 @@ BufFileLoadBuffer.exit._crit_edge:                ; preds = %70, %76, %BufFileLo
   %93 = call i32 @errcode_for_file_access() #10
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %95 = load ptr, ptr %94, align 8
-  %.not48 = icmp eq ptr %95, null
-  br i1 %.not48, label %98, label %96
+  %.not49 = icmp eq ptr %95, null
+  br i1 %.not49, label %98, label %96
 
 96:                                               ; preds = %91
-  %97 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %95, i64 noundef %.039.lcssa, i64 noundef %2) #10
+  %97 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %95, i64 noundef %.040.lcssa, i64 noundef %2) #10
   br label %100
 
 98:                                               ; preds = %91
-  %99 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i64 noundef %.039.lcssa, i64 noundef %2) #10
+  %99 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i64 noundef %.040.lcssa, i64 noundef %2) #10
   br label %100
 
 100:                                              ; preds = %98, %96
@@ -535,7 +535,7 @@ BufFileLoadBuffer.exit._crit_edge:                ; preds = %70, %76, %BufFileLo
   unreachable
 
 101:                                              ; preds = %BufFileLoadBuffer.exit._crit_edge
-  ret i64 %.039.lcssa
+  ret i64 %.040.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

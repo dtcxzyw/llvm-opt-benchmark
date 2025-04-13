@@ -683,8 +683,8 @@ zend_string_copy.exit:                            ; preds = %106, %111
   %122 = load ptr, ptr %16, align 8, !tbaa !24
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
   %124 = load ptr, ptr %123, align 8, !tbaa !91
-  %.not28.i = icmp eq ptr %124, null
-  br i1 %.not28.i, label %dispatch_param_event.exit.thread, label %125
+  %.not29.i = icmp eq ptr %124, null
+  br i1 %.not29.i, label %dispatch_param_event.exit.thread, label %125
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds i8, ptr %15, i64 -136
@@ -692,22 +692,22 @@ zend_string_copy.exit:                            ; preds = %106, %111
   br label %128
 
 128:                                              ; preds = %.loopexit.i, %125
-  %.027.not.i = phi i1 [ false, %125 ], [ true, %.loopexit.i ]
-  %.026.in.i = phi ptr [ %126, %125 ], [ %127, %.loopexit.i ]
-  %.026.i = load ptr, ptr %.026.in.i, align 8, !tbaa !92
-  %.not29.i = icmp eq ptr %.026.i, null
-  br i1 %.not29.i, label %.loopexit.i, label %129
+  %.028.i = phi i1 [ true, %125 ], [ false, %.loopexit.i ]
+  %.027.in.i = phi ptr [ %126, %125 ], [ %127, %.loopexit.i ]
+  %.027.i = load ptr, ptr %.027.in.i, align 8, !tbaa !92
+  %.not30.i = icmp eq ptr %.027.i, null
+  br i1 %.not30.i, label %.loopexit.i, label %129
 
 129:                                              ; preds = %128
-  %130 = getelementptr inbounds nuw i8, ptr %.026.i, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %.027.i, i64 24
   %131 = load i32, ptr %130, align 8, !tbaa !83
-  %.not3038.i = icmp eq i32 %131, 0
-  br i1 %.not3038.i, label %.loopexit.i, label %.lr.ph.i
+  %.not3136.i = icmp eq i32 %131, 0
+  br i1 %.not3136.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %129
-  %132 = getelementptr inbounds nuw i8, ptr %.026.i, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %.027.i, i64 16
   %133 = load ptr, ptr %132, align 8, !tbaa !37
-  %134 = getelementptr inbounds nuw i8, ptr %.026.i, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
   %135 = load i32, ptr %134, align 8, !tbaa !37
   %136 = shl i32 %135, 2
   %137 = and i32 %136, 16
@@ -716,31 +716,31 @@ zend_string_copy.exit:                            ; preds = %106, %111
   br label %140
 
 140:                                              ; preds = %150, %.lr.ph.i
-  %.040.i = phi ptr [ %133, %.lr.ph.i ], [ %152, %150 ]
-  %.02439.i = phi i32 [ %131, %.lr.ph.i ], [ %153, %150 ]
-  %141 = getelementptr inbounds nuw i8, ptr %.040.i, i64 8
+  %.038.i = phi ptr [ %133, %.lr.ph.i ], [ %152, %150 ]
+  %.02537.i = phi i32 [ %131, %.lr.ph.i ], [ %153, %150 ]
+  %141 = getelementptr inbounds nuw i8, ptr %.038.i, i64 8
   %142 = load i8, ptr %141, align 8, !tbaa !37
   %143 = icmp eq i8 %142, 0
   br i1 %143, label %150, label %144, !prof !43
 
 144:                                              ; preds = %140
-  %145 = load ptr, ptr %.040.i, align 8, !tbaa !37
+  %145 = load ptr, ptr %.038.i, align 8, !tbaa !37
   %146 = load ptr, ptr %16, align 8, !tbaa !24
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 40
   %148 = load ptr, ptr %147, align 8, !tbaa !91
   %149 = call i32 %148(ptr noundef nonnull %16, ptr noundef %145, i32 noundef 2) #17
-  %.not31.i = icmp eq i32 %149, 0
-  br i1 %.not31.i, label %dispatch_param_event.exit, label %150
+  %.not32.i = icmp eq i32 %149, 0
+  br i1 %.not32.i, label %dispatch_param_event.exit, label %150
 
 150:                                              ; preds = %144, %140
-  %151 = getelementptr inbounds nuw i8, ptr %.040.i, i64 %139
+  %151 = getelementptr inbounds nuw i8, ptr %.038.i, i64 %139
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %153 = add i32 %.02439.i, -1
-  %.not30.i = icmp eq i32 %153, 0
-  br i1 %.not30.i, label %.loopexit.i, label %140
+  %153 = add i32 %.02537.i, -1
+  %.not31.i = icmp eq i32 %153, 0
+  br i1 %.not31.i, label %.loopexit.i, label %140
 
 .loopexit.i:                                      ; preds = %150, %129, %128
-  br i1 %.027.not.i, label %dispatch_param_event.exit.thread, label %128
+  br i1 %.028.i, label %128, label %dispatch_param_event.exit.thread
 
 dispatch_param_event.exit:                        ; preds = %144
   %154 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(6) @.str.1) #18
@@ -813,8 +813,8 @@ dispatch_param_event.exit.thread:                 ; preds = %.loopexit.i, %121, 
   %183 = load ptr, ptr %16, align 8, !tbaa !24
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 40
   %185 = load ptr, ptr %184, align 8, !tbaa !91
-  %.not28.i159 = icmp eq ptr %185, null
-  br i1 %.not28.i159, label %dispatch_param_event.exit171.thread, label %186
+  %.not29.i159 = icmp eq ptr %185, null
+  br i1 %.not29.i159, label %dispatch_param_event.exit171.thread, label %186
 
 186:                                              ; preds = %182
   %187 = getelementptr inbounds i8, ptr %15, i64 -136
@@ -822,22 +822,22 @@ dispatch_param_event.exit.thread:                 ; preds = %.loopexit.i, %121, 
   br label %189
 
 189:                                              ; preds = %.loopexit.i170, %186
-  %.027.not.i160 = phi i1 [ false, %186 ], [ true, %.loopexit.i170 ]
-  %.026.in.i161 = phi ptr [ %187, %186 ], [ %188, %.loopexit.i170 ]
-  %.026.i162 = load ptr, ptr %.026.in.i161, align 8, !tbaa !92
-  %.not29.i163 = icmp eq ptr %.026.i162, null
-  br i1 %.not29.i163, label %.loopexit.i170, label %190
+  %.028.i160 = phi i1 [ true, %186 ], [ false, %.loopexit.i170 ]
+  %.027.in.i161 = phi ptr [ %187, %186 ], [ %188, %.loopexit.i170 ]
+  %.027.i162 = load ptr, ptr %.027.in.i161, align 8, !tbaa !92
+  %.not30.i163 = icmp eq ptr %.027.i162, null
+  br i1 %.not30.i163, label %.loopexit.i170, label %190
 
 190:                                              ; preds = %189
-  %191 = getelementptr inbounds nuw i8, ptr %.026.i162, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %.027.i162, i64 24
   %192 = load i32, ptr %191, align 8, !tbaa !83
-  %.not3038.i164 = icmp eq i32 %192, 0
-  br i1 %.not3038.i164, label %.loopexit.i170, label %.lr.ph.i165
+  %.not3136.i164 = icmp eq i32 %192, 0
+  br i1 %.not3136.i164, label %.loopexit.i170, label %.lr.ph.i165
 
 .lr.ph.i165:                                      ; preds = %190
-  %193 = getelementptr inbounds nuw i8, ptr %.026.i162, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %.027.i162, i64 16
   %194 = load ptr, ptr %193, align 8, !tbaa !37
-  %195 = getelementptr inbounds nuw i8, ptr %.026.i162, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %.027.i162, i64 8
   %196 = load i32, ptr %195, align 8, !tbaa !37
   %197 = shl i32 %196, 2
   %198 = and i32 %197, 16
@@ -846,31 +846,31 @@ dispatch_param_event.exit.thread:                 ; preds = %.loopexit.i, %121, 
   br label %201
 
 201:                                              ; preds = %211, %.lr.ph.i165
-  %.040.i166 = phi ptr [ %194, %.lr.ph.i165 ], [ %213, %211 ]
-  %.02439.i167 = phi i32 [ %192, %.lr.ph.i165 ], [ %214, %211 ]
-  %202 = getelementptr inbounds nuw i8, ptr %.040.i166, i64 8
+  %.038.i166 = phi ptr [ %194, %.lr.ph.i165 ], [ %213, %211 ]
+  %.02537.i167 = phi i32 [ %192, %.lr.ph.i165 ], [ %214, %211 ]
+  %202 = getelementptr inbounds nuw i8, ptr %.038.i166, i64 8
   %203 = load i8, ptr %202, align 8, !tbaa !37
   %204 = icmp eq i8 %203, 0
   br i1 %204, label %211, label %205, !prof !43
 
 205:                                              ; preds = %201
-  %206 = load ptr, ptr %.040.i166, align 8, !tbaa !37
+  %206 = load ptr, ptr %.038.i166, align 8, !tbaa !37
   %207 = load ptr, ptr %16, align 8, !tbaa !24
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 40
   %209 = load ptr, ptr %208, align 8, !tbaa !91
   %210 = call i32 %209(ptr noundef nonnull %16, ptr noundef %206, i32 noundef 3) #17
-  %.not31.i168 = icmp eq i32 %210, 0
-  br i1 %.not31.i168, label %dispatch_param_event.exit171, label %211
+  %.not32.i168 = icmp eq i32 %210, 0
+  br i1 %.not32.i168, label %dispatch_param_event.exit171, label %211
 
 211:                                              ; preds = %205, %201
-  %212 = getelementptr inbounds nuw i8, ptr %.040.i166, i64 %200
+  %212 = getelementptr inbounds nuw i8, ptr %.038.i166, i64 %200
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  %214 = add i32 %.02439.i167, -1
-  %.not30.i169 = icmp eq i32 %214, 0
-  br i1 %.not30.i169, label %.loopexit.i170, label %201
+  %214 = add i32 %.02537.i167, -1
+  %.not31.i169 = icmp eq i32 %214, 0
+  br i1 %.not31.i169, label %.loopexit.i170, label %201
 
 .loopexit.i170:                                   ; preds = %211, %190, %189
-  br i1 %.027.not.i160, label %dispatch_param_event.exit171.thread, label %189
+  br i1 %.028.i160, label %189, label %dispatch_param_event.exit171.thread
 
 dispatch_param_event.exit171:                     ; preds = %205
   %215 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(6) @.str.1) #18
@@ -2828,8 +2828,8 @@ define internal fastcc noundef zeroext i1 @do_fetch_common(ptr noundef %0, i32 n
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %.pre59, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !91
-  %.not28.i = icmp eq ptr %15, null
-  br i1 %.not28.i, label %.loopexit53, label %16
+  %.not29.i = icmp eq ptr %15, null
+  br i1 %.not29.i, label %.loopexit53, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2837,22 +2837,22 @@ define internal fastcc noundef zeroext i1 @do_fetch_common(ptr noundef %0, i32 n
   br label %19
 
 19:                                               ; preds = %.loopexit.i, %16
-  %.027.not.i = phi i1 [ false, %16 ], [ true, %.loopexit.i ]
-  %.026.in.i = phi ptr [ %17, %16 ], [ %18, %.loopexit.i ]
-  %.026.i = load ptr, ptr %.026.in.i, align 8, !tbaa !92
-  %.not29.i = icmp eq ptr %.026.i, null
-  br i1 %.not29.i, label %.loopexit.i, label %20
+  %.028.i = phi i1 [ true, %16 ], [ false, %.loopexit.i ]
+  %.027.in.i = phi ptr [ %17, %16 ], [ %18, %.loopexit.i ]
+  %.027.i = load ptr, ptr %.027.in.i, align 8, !tbaa !92
+  %.not30.i = icmp eq ptr %.027.i, null
+  br i1 %.not30.i, label %.loopexit.i, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.027.i, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !83
-  %.not3038.i = icmp eq i32 %22, 0
-  br i1 %.not3038.i, label %.loopexit.i, label %.lr.ph.i
+  %.not3136.i = icmp eq i32 %22, 0
+  br i1 %.not3136.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %.026.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.027.i, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !37
-  %25 = getelementptr inbounds nuw i8, ptr %.026.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !37
   %27 = shl i32 %26, 2
   %28 = and i32 %27, 16
@@ -2861,31 +2861,31 @@ define internal fastcc noundef zeroext i1 @do_fetch_common(ptr noundef %0, i32 n
   br label %31
 
 31:                                               ; preds = %41, %.lr.ph.i
-  %.040.i = phi ptr [ %24, %.lr.ph.i ], [ %43, %41 ]
-  %.02439.i = phi i32 [ %22, %.lr.ph.i ], [ %44, %41 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.040.i, i64 8
+  %.038.i = phi ptr [ %24, %.lr.ph.i ], [ %43, %41 ]
+  %.02537.i = phi i32 [ %22, %.lr.ph.i ], [ %44, %41 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.038.i, i64 8
   %33 = load i8, ptr %32, align 8, !tbaa !37
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %41, label %35, !prof !43
 
 35:                                               ; preds = %31
-  %36 = load ptr, ptr %.040.i, align 8, !tbaa !37
+  %36 = load ptr, ptr %.038.i, align 8, !tbaa !37
   %37 = load ptr, ptr %0, align 8, !tbaa !24
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !91
   %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef %36, i32 noundef 4) #17
-  %.not31.i = icmp eq i32 %40, 0
-  br i1 %.not31.i, label %dispatch_param_event.exit, label %41
+  %.not32.i = icmp eq i32 %40, 0
+  br i1 %.not32.i, label %dispatch_param_event.exit, label %41
 
 41:                                               ; preds = %35, %31
-  %42 = getelementptr inbounds nuw i8, ptr %.040.i, i64 %30
+  %42 = getelementptr inbounds nuw i8, ptr %.038.i, i64 %30
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = add i32 %.02439.i, -1
-  %.not30.i = icmp eq i32 %44, 0
-  br i1 %.not30.i, label %.loopexit.i, label %31
+  %44 = add i32 %.02537.i, -1
+  %.not31.i = icmp eq i32 %44, 0
+  br i1 %.not31.i, label %.loopexit.i, label %31
 
 .loopexit.i:                                      ; preds = %41, %20, %19
-  br i1 %.027.not.i, label %.loopexit53.loopexit, label %19
+  br i1 %.028.i, label %19, label %.loopexit53.loopexit
 
 .loopexit53.loopexit:                             ; preds = %.loopexit.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !24
@@ -2921,8 +2921,8 @@ define internal fastcc noundef zeroext i1 @do_fetch_common(ptr noundef %0, i32 n
   %60 = load ptr, ptr %0, align 8, !tbaa !24
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %62 = load ptr, ptr %61, align 8, !tbaa !91
-  %.not28.i36 = icmp eq ptr %62, null
-  br i1 %.not28.i36, label %.loopexit, label %63
+  %.not29.i36 = icmp eq ptr %62, null
+  br i1 %.not29.i36, label %.loopexit, label %63
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2930,22 +2930,22 @@ define internal fastcc noundef zeroext i1 @do_fetch_common(ptr noundef %0, i32 n
   br label %66
 
 66:                                               ; preds = %.loopexit.i47, %63
-  %.027.not.i37 = phi i1 [ false, %63 ], [ true, %.loopexit.i47 ]
-  %.026.in.i38 = phi ptr [ %64, %63 ], [ %65, %.loopexit.i47 ]
-  %.026.i39 = load ptr, ptr %.026.in.i38, align 8, !tbaa !92
-  %.not29.i40 = icmp eq ptr %.026.i39, null
-  br i1 %.not29.i40, label %.loopexit.i47, label %67
+  %.028.i37 = phi i1 [ true, %63 ], [ false, %.loopexit.i47 ]
+  %.027.in.i38 = phi ptr [ %64, %63 ], [ %65, %.loopexit.i47 ]
+  %.027.i39 = load ptr, ptr %.027.in.i38, align 8, !tbaa !92
+  %.not30.i40 = icmp eq ptr %.027.i39, null
+  br i1 %.not30.i40, label %.loopexit.i47, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds nuw i8, ptr %.026.i39, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %.027.i39, i64 24
   %69 = load i32, ptr %68, align 8, !tbaa !83
-  %.not3038.i41 = icmp eq i32 %69, 0
-  br i1 %.not3038.i41, label %.loopexit.i47, label %.lr.ph.i42
+  %.not3136.i41 = icmp eq i32 %69, 0
+  br i1 %.not3136.i41, label %.loopexit.i47, label %.lr.ph.i42
 
 .lr.ph.i42:                                       ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %.026.i39, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.027.i39, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !37
-  %72 = getelementptr inbounds nuw i8, ptr %.026.i39, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.027.i39, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !37
   %74 = shl i32 %73, 2
   %75 = and i32 %74, 16
@@ -2954,31 +2954,31 @@ define internal fastcc noundef zeroext i1 @do_fetch_common(ptr noundef %0, i32 n
   br label %78
 
 78:                                               ; preds = %88, %.lr.ph.i42
-  %.040.i43 = phi ptr [ %71, %.lr.ph.i42 ], [ %90, %88 ]
-  %.02439.i44 = phi i32 [ %69, %.lr.ph.i42 ], [ %91, %88 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.040.i43, i64 8
+  %.038.i43 = phi ptr [ %71, %.lr.ph.i42 ], [ %90, %88 ]
+  %.02537.i44 = phi i32 [ %69, %.lr.ph.i42 ], [ %91, %88 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.038.i43, i64 8
   %80 = load i8, ptr %79, align 8, !tbaa !37
   %81 = icmp eq i8 %80, 0
   br i1 %81, label %88, label %82, !prof !43
 
 82:                                               ; preds = %78
-  %83 = load ptr, ptr %.040.i43, align 8, !tbaa !37
+  %83 = load ptr, ptr %.038.i43, align 8, !tbaa !37
   %84 = load ptr, ptr %0, align 8, !tbaa !24
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !91
   %87 = tail call i32 %86(ptr noundef nonnull %0, ptr noundef %83, i32 noundef 5) #17
-  %.not31.i45 = icmp eq i32 %87, 0
-  br i1 %.not31.i45, label %dispatch_param_event.exit, label %88
+  %.not32.i45 = icmp eq i32 %87, 0
+  br i1 %.not32.i45, label %dispatch_param_event.exit, label %88
 
 88:                                               ; preds = %82, %78
-  %89 = getelementptr inbounds nuw i8, ptr %.040.i43, i64 %77
+  %89 = getelementptr inbounds nuw i8, ptr %.038.i43, i64 %77
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %91 = add i32 %.02439.i44, -1
-  %.not30.i46 = icmp eq i32 %91, 0
-  br i1 %.not30.i46, label %.loopexit.i47, label %78
+  %91 = add i32 %.02537.i44, -1
+  %.not31.i46 = icmp eq i32 %91, 0
+  br i1 %.not31.i46, label %.loopexit.i47, label %78
 
 .loopexit.i47:                                    ; preds = %88, %67, %66
-  br i1 %.027.not.i37, label %.loopexit, label %66
+  br i1 %.028.i37, label %66, label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.i47, %54, %59
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 40

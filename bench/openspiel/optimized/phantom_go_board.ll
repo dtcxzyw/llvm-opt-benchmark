@@ -5116,8 +5116,8 @@ define noundef float @_ZN10open_spiel10phantom_go16TrompTaylorScoreERKNS0_14Phan
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
-  %.not31 = icmp eq ptr %14, %16
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not3335 = icmp eq ptr %14, %16
+  br i1 %.not3335, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -5127,15 +5127,15 @@ define noundef float @_ZN10open_spiel10phantom_go16TrompTaylorScoreERKNS0_14Phan
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %22
 
-22:                                               ; preds = %.lr.ph, %.thread
-  %.02333 = phi i32 [ 0, %.lr.ph ], [ %.1, %.thread ]
-  %.sroa.026.032 = phi ptr [ %14, %.lr.ph ], [ %56, %.thread ]
-  %23 = load i16, ptr %.sroa.026.032, align 2
+22:                                               ; preds = %.lr.ph, %56
+  %.02737 = phi i32 [ 0, %.lr.ph ], [ %.1, %56 ]
+  %.sroa.030.036 = phi ptr [ %14, %.lr.ph ], [ %57, %56 ]
+  %23 = load i16, ptr %.sroa.030.036, align 2
   %24 = zext i16 %23 to i64
   %.idx.i = mul nuw nsw i64 %24, 6
   %25 = getelementptr i8, ptr %17, i64 %.idx.i
   %26 = load i8, ptr %25, align 2
-  switch i8 %26, label %.thread [
+  switch i8 %26, label %56 [
     i8 0, label %27
     i8 1, label %29
     i8 2, label %31
@@ -5143,18 +5143,18 @@ define noundef float @_ZN10open_spiel10phantom_go16TrompTaylorScoreERKNS0_14Phan
   ]
 
 27:                                               ; preds = %22
-  %28 = add nsw i32 %.02333, 1
-  br label %.thread
+  %28 = add nsw i32 %.02737, 1
+  br label %56
 
 29:                                               ; preds = %22
-  %30 = add nsw i32 %.02333, -1
-  br label %.thread
+  %30 = add nsw i32 %.02737, -1
+  br label %56
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw [441 x i8], ptr %6, i64 0, i64 %24
   %33 = load i8, ptr %32, align 1
   %34 = trunc i8 %33 to i1
-  br i1 %34, label %.thread, label %_ZN10open_spiel10phantom_go19NumSurroundedPointsERKNS0_14PhantomGoBoardEtPSt5arrayIbLm441EEPbS7_.exit
+  br i1 %34, label %56, label %_ZN10open_spiel10phantom_go19NumSurroundedPointsERKNS0_14PhantomGoBoardEtPSt5arrayIbLm441EEPbS7_.exit
 
 _ZN10open_spiel10phantom_go19NumSurroundedPointsERKNS0_14PhantomGoBoardEtPSt5arrayIbLm441EEPbS7_.exit: ; preds = %31
   store i8 0, ptr %7, align 1
@@ -5181,19 +5181,21 @@ _ZN10open_spiel10phantom_go19NumSurroundedPointsERKNS0_14PhantomGoBoardEtPSt5arr
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %40 = load i8, ptr %7, align 1
   %41 = trunc i8 %40 to i1
+  %.not = xor i1 %41, true
   %42 = load i8, ptr %8, align 1
   %43 = trunc i8 %42 to i1
-  br i1 %41, label %44, label %46
+  %or.cond = select i1 %.not, i1 true, i1 %43
+  br i1 %or.cond, label %46, label %44
 
 44:                                               ; preds = %_ZN10open_spiel10phantom_go19NumSurroundedPointsERKNS0_14PhantomGoBoardEtPSt5arrayIbLm441EEPbS7_.exit
-  %45 = select i1 %43, i32 0, i32 %39
-  %spec.select29 = add nsw i32 %45, %.02333
-  br label %.thread
+  %45 = add nsw i32 %39, %.02737
+  br label %56
 
 46:                                               ; preds = %_ZN10open_spiel10phantom_go19NumSurroundedPointsERKNS0_14PhantomGoBoardEtPSt5arrayIbLm441EEPbS7_.exit
-  %47 = select i1 %43, i32 %39, i32 0
-  %spec.select = sub nsw i32 %.02333, %47
-  br label %.thread
+  %or.cond4 = select i1 %.not, i1 %43, i1 false
+  %47 = select i1 %or.cond4, i32 %39, i32 0
+  %spec.select = sub nsw i32 %.02737, %47
+  br label %56
 
 48:                                               ; preds = %22
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #27
@@ -5223,23 +5225,23 @@ _ZN10open_spiel10phantom_go19NumSurroundedPointsERKNS0_14PhantomGoBoardEtPSt5arr
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #27
   resume { ptr, i32 } %.pn
 
-.thread:                                          ; preds = %44, %46, %22, %27, %29, %31
-  %.1 = phi i32 [ %.02333, %22 ], [ %.02333, %31 ], [ %30, %29 ], [ %28, %27 ], [ %spec.select, %46 ], [ %spec.select29, %44 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.026.032, i64 2
-  %.not = icmp eq ptr %56, %16
-  br i1 %.not, label %._crit_edge.loopexit, label %22
+56:                                               ; preds = %46, %22, %27, %29, %44, %31
+  %.1 = phi i32 [ %.02737, %22 ], [ %.02737, %31 ], [ %45, %44 ], [ %30, %29 ], [ %28, %27 ], [ %spec.select, %46 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.030.036, i64 2
+  %.not33 = icmp eq ptr %57, %16
+  br i1 %.not33, label %._crit_edge.loopexit, label %22
 
-._crit_edge.loopexit:                             ; preds = %.thread
-  %57 = sitofp i32 %.1 to float
+._crit_edge.loopexit:                             ; preds = %56
+  %58 = sitofp i32 %.1 to float
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.023.lcssa = phi float [ 0.000000e+00, %3 ], [ %57, %._crit_edge.loopexit ]
-  %58 = fsub float %.023.lcssa, %1
-  %59 = icmp sgt i32 %2, 1
-  %60 = uitofp nneg i32 %2 to float
-  %61 = fsub float %58, %60
-  %.0 = select i1 %59, float %61, float %58
+  %.027.lcssa = phi float [ 0.000000e+00, %3 ], [ %58, %._crit_edge.loopexit ]
+  %59 = fsub float %.027.lcssa, %1
+  %60 = icmp sgt i32 %2, 1
+  %61 = uitofp nneg i32 %2 to float
+  %62 = fsub float %59, %61
+  %.0 = select i1 %60, float %62, float %59
   ret float %.0
 }
 

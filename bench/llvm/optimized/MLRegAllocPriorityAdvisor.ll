@@ -1110,14 +1110,14 @@ _ZN4llvm13MLModelRunnerC2ERNS_11LLVMContextENS0_4KindEm.exit: ; preds = %_ZNSt12
   store ptr %42, ptr %44, align 8, !tbaa !298
   %45 = call noundef i32 @_ZN4llvm10TensorSpec11getDataTypeImEENS_10TensorTypeEv() #18, !noalias !299
   call void @_ZN4llvm10TensorSpecC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10TensorTypeEmRKSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 0, i32 noundef %45, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(24) %11) #18
-  %.sroa.010.0.copyload = load ptr, ptr %5, align 8, !tbaa !48
-  %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.211.0.copyload = load i64, ptr %.sroa.211.0..sroa_idx, align 8, !tbaa !49
+  %.sroa.011.0.copyload = load ptr, ptr %5, align 8, !tbaa !48
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #18
-  store ptr %.sroa.010.0.copyload, ptr %8, align 8, !alias.scope !302
+  store ptr %.sroa.011.0.copyload, ptr %8, align 8, !alias.scope !302
   %.sroa.23.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.sroa.211.0.copyload, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !tbaa !38, !alias.scope !302
+  store i64 %.sroa.212.0.copyload, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !tbaa !38, !alias.scope !302
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %9, ptr %46, align 8, !alias.scope !302
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 32

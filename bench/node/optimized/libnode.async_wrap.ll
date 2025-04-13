@@ -11894,8 +11894,8 @@ entry:
   %persistent_handle_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %persistent_handle_.i, align 8
   %cmp.i = icmp eq ptr %3, null
-  %brmerge = or i1 %from_gc, %cmp.i
-  br i1 %brmerge, label %if.end, label %if.then
+  %or.cond = or i1 %from_gc, %cmp.i
+  br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %realm_.i, align 8
@@ -11968,7 +11968,7 @@ _ZNK4node10BaseObject6objectEv.exit19:            ; preds = %_ZNK4node10BaseObje
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #19
   br label %if.end
 
-if.end:                                           ; preds = %entry, %_ZNK4node10BaseObject6objectEv.exit19
+if.end:                                           ; preds = %_ZNK4node10BaseObject6objectEv.exit19, %entry
   ret void
 }
 

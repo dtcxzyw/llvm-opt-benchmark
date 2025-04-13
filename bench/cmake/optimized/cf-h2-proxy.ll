@@ -1394,18 +1394,18 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %10 = load i8, ptr %9, align 4
   %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %30
+  %.not76 = icmp eq i8 %11, 0
+  br i1 %.not76, label %12, label %30
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %7, align 8, !tbaa !15
-  %.not70 = icmp eq ptr %13, null
-  br i1 %.not70, label %30, label %14
+  %.not77 = icmp eq ptr %13, null
+  br i1 %.not77, label %30, label %14
 
 14:                                               ; preds = %12
   %15 = tail call i32 @nghttp2_session_want_write(ptr noundef nonnull %13) #7
-  %.not71 = icmp eq i32 %15, 0
-  br i1 %.not71, label %16, label %24
+  %.not78 = icmp eq i32 %15, 0
+  br i1 %.not78, label %16, label %24
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -1435,203 +1435,196 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
 
 31:                                               ; preds = %30, %24
   %32 = load ptr, ptr %7, align 8, !tbaa !15
-  %.not72 = icmp eq ptr %32, null
-  br i1 %.not72, label %90, label %33
+  %.not79 = icmp eq ptr %32, null
+  br i1 %.not79, label %86, label %33
 
 33:                                               ; preds = %31
   %34 = load i8, ptr %4, align 1, !tbaa !29, !range !32, !noundef !33
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %39, label %36
+  %36 = load i8, ptr %5, align 1, !range !32
+  %37 = trunc nuw i8 %36 to i1
+  %or.cond = select i1 %35, i1 true, i1 %37
+  br i1 %or.cond, label %38, label %86
 
-36:                                               ; preds = %33
-  %37 = load i8, ptr %5, align 1, !tbaa !29, !range !32, !noundef !33
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %90
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %6, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %.sroa.0.0.copyload = load ptr, ptr %40, align 8, !tbaa !13
+  store ptr %1, ptr %40, align 8, !tbaa !34
+  %41 = call i32 @nghttp2_session_get_remote_window_size(ptr noundef nonnull %32) #7
+  %.not86 = icmp eq i32 %41, 0
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 288
+  %43 = load i32, ptr %42, align 8, !tbaa !133
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %45, label %48
 
-39:                                               ; preds = %36, %33
-  %40 = load ptr, ptr %6, align 8, !tbaa !4
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %41, align 8, !tbaa !13
-  store ptr %1, ptr %41, align 8, !tbaa !34
-  %42 = call i32 @nghttp2_session_get_remote_window_size(ptr noundef nonnull %32) #7
-  %.not79 = icmp eq i32 %42, 0
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  %44 = load i32, ptr %43, align 8, !tbaa !133
-  %45 = icmp sgt i32 %44, -1
-  br i1 %45, label %46, label %.critedge
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %7, align 8, !tbaa !15
+  %47 = call i32 @nghttp2_session_get_stream_remote_window_size(ptr noundef %46, i32 noundef %43) #7
+  %.not87 = icmp eq i32 %47, 0
+  br label %48
 
-46:                                               ; preds = %39
-  %47 = load ptr, ptr %7, align 8, !tbaa !15
-  %48 = call i32 @nghttp2_session_get_stream_remote_window_size(ptr noundef %47, i32 noundef %44) #7
-  %.not80 = icmp eq i32 %48, 0
-  %49 = load i8, ptr %4, align 1, !tbaa !29, !range !32, !noundef !33
-  %50 = trunc nuw i8 %49 to i1
-  %narrow85 = or i1 %.not79, %.not80
-  %narrow86 = select i1 %50, i1 true, i1 %narrow85
-  %51 = zext i1 %narrow86 to i8
-  store i8 %51, ptr %4, align 1, !tbaa !29
-  br i1 %.not80, label %58, label %55
-
-.critedge:                                        ; preds = %39
-  %52 = load i8, ptr %4, align 1, !tbaa !29, !range !32, !noundef !33
+48:                                               ; preds = %45, %38
+  %49 = phi i1 [ false, %38 ], [ %.not87, %45 ]
+  %50 = load i8, ptr %4, align 1, !tbaa !29, !range !32, !noundef !33
+  %51 = trunc nuw i8 %50 to i1
+  %or.cond3 = select i1 %51, i1 true, i1 %.not86
+  %narrow = or i1 %49, %or.cond3
+  %spec.select = zext i1 %narrow to i8
+  store i8 %spec.select, ptr %4, align 1, !tbaa !29
+  %.not = xor i1 %49, true
+  %52 = load i8, ptr %5, align 1, !range !32
   %53 = trunc nuw i8 %52 to i1
-  %narrow = select i1 %53, i1 true, i1 %.not79
-  %54 = zext i1 %narrow to i8
-  store i8 %54, ptr %4, align 1, !tbaa !29
-  br label %55
+  %or.cond5 = select i1 %.not, i1 %53, i1 false
+  br i1 %or.cond5, label %65, label %54
 
-55:                                               ; preds = %.critedge, %46
-  %56 = load i8, ptr %5, align 1, !tbaa !29, !range !32, !noundef !33
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %69, label %58
+54:                                               ; preds = %48
+  br i1 %.not86, label %58, label %55
 
-58:                                               ; preds = %55, %46
-  br i1 %.not79, label %62, label %59
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %7, align 8, !tbaa !15
+  %57 = call i32 @nghttp2_session_want_write(ptr noundef %56) #7
+  %.not88 = icmp eq i32 %57, 0
+  br i1 %.not88, label %58, label %65
 
-59:                                               ; preds = %58
-  %60 = load ptr, ptr %7, align 8, !tbaa !15
-  %61 = call i32 @nghttp2_session_want_write(ptr noundef %60) #7
-  %.not81 = icmp eq i32 %61, 0
-  br i1 %.not81, label %62, label %69
+58:                                               ; preds = %55, %54
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %60 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %59) #7
+  br i1 %60, label %61, label %65
 
-62:                                               ; preds = %59, %58
-  %63 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %64 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %63) #7
-  br i1 %64, label %65, label %69
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 216
+  %63 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %62) #7
+  %64 = xor i1 %63, true
+  br label %65
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 216
-  %67 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %66) #7
-  %68 = xor i1 %67, true
-  br label %69
+65:                                               ; preds = %48, %61, %58, %55
+  %66 = phi i1 [ true, %58 ], [ true, %55 ], [ %64, %61 ], [ true, %48 ]
+  %67 = zext i1 %66 to i8
+  store i8 %67, ptr %5, align 1, !tbaa !29
+  %68 = load i8, ptr %4, align 1, !tbaa !29, !range !32, !noundef !33
+  %69 = trunc nuw i8 %68 to i1
+  call void @Curl_pollset_set(ptr noundef %1, ptr noundef %2, i32 noundef %8, i1 noundef zeroext %69, i1 noundef zeroext %66) #7
+  %.not89 = icmp eq ptr %1, null
+  br i1 %.not89, label %.sink.split, label %70
 
-69:                                               ; preds = %65, %62, %59, %55
-  %70 = phi i1 [ true, %62 ], [ true, %59 ], [ true, %55 ], [ %68, %65 ]
-  %71 = zext i1 %70 to i8
-  store i8 %71, ptr %5, align 1, !tbaa !29
-  %72 = load i8, ptr %4, align 1, !tbaa !29, !range !32, !noundef !33
-  %73 = trunc nuw i8 %72 to i1
-  call void @Curl_pollset_set(ptr noundef %1, ptr noundef %2, i32 noundef %8, i1 noundef zeroext %73, i1 noundef zeroext %70) #7
-  %.not82 = icmp eq ptr %1, null
-  br i1 %.not82, label %.sink.split, label %74
+70:                                               ; preds = %65
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 2562
+  %72 = load i64, ptr %71, align 2
+  %73 = and i64 %72, 134217728
+  %.not90 = icmp eq i64 %73, 0
+  br i1 %.not90, label %.sink.split, label %74
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 2562
-  %76 = load i64, ptr %75, align 2
-  %77 = and i64 %76, 134217728
-  %.not83 = icmp eq i64 %77, 0
-  br i1 %.not83, label %.sink.split, label %78
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 4712
+  %76 = load ptr, ptr %75, align 8, !tbaa !108
+  %.not91 = icmp eq ptr %76, null
+  br i1 %.not91, label %81, label %77
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 4712
-  %80 = load ptr, ptr %79, align 8, !tbaa !108
-  %.not84 = icmp eq ptr %80, null
-  br i1 %.not84, label %85, label %81
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %79 = load i32, ptr %78, align 8, !tbaa !109
+  %80 = icmp sgt i32 %79, 0
+  br i1 %80, label %81, label %.sink.split
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %83 = load i32, ptr %82, align 8, !tbaa !109
-  %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %85, label %.sink.split
+81:                                               ; preds = %74, %77
+  %82 = load ptr, ptr %0, align 8, !tbaa !111
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 12
+  %84 = load i32, ptr %83, align 4, !tbaa !112
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %.sink.split.sink.split, label %.sink.split
 
-85:                                               ; preds = %78, %81
-  %86 = load ptr, ptr %0, align 8, !tbaa !111
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
-  %88 = load i32, ptr %87, align 4, !tbaa !112
-  %89 = icmp sgt i32 %88, 0
-  br i1 %89, label %.sink.split.sink.split, label %.sink.split
+86:                                               ; preds = %33, %31
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 312
+  %88 = load i8, ptr %87, align 8
+  %89 = and i8 %88, 4
+  %.not80 = icmp eq i8 %89, 0
+  br i1 %.not80, label %135, label %90
 
-90:                                               ; preds = %36, %31
-  %91 = getelementptr inbounds nuw i8, ptr %7, i64 312
-  %92 = load i8, ptr %91, align 8
-  %93 = and i8 %92, 4
-  %.not73 = icmp eq i8 %93, 0
-  br i1 %.not73, label %139, label %94
+90:                                               ; preds = %86
+  %91 = load i8, ptr %9, align 4
+  %92 = and i8 %91, 2
+  %.not81 = icmp eq i8 %92, 0
+  br i1 %.not81, label %93, label %135
 
-94:                                               ; preds = %90
-  %95 = load i8, ptr %9, align 4
-  %96 = and i8 %95, 2
-  %.not74 = icmp eq i8 %96, 0
-  br i1 %.not74, label %97, label %139
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %6, align 8, !tbaa !4
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %.sroa.0.0.copyload18 = load ptr, ptr %95, align 8, !tbaa !13
+  store ptr %1, ptr %95, align 8, !tbaa !34
+  %96 = call i32 @nghttp2_session_want_write(ptr noundef %32) #7
+  %.not82 = icmp eq i32 %96, 0
+  br i1 %.not82, label %97, label %105
 
-97:                                               ; preds = %94
-  %98 = load ptr, ptr %6, align 8, !tbaa !4
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %.sroa.0.0.copyload12 = load ptr, ptr %99, align 8, !tbaa !13
-  store ptr %1, ptr %99, align 8, !tbaa !34
-  %100 = call i32 @nghttp2_session_want_write(ptr noundef %32) #7
-  %.not75 = icmp eq i32 %100, 0
-  br i1 %.not75, label %101, label %109
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %99 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %98) #7
+  br i1 %99, label %100, label %105
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %103 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %102) #7
-  br i1 %103, label %104, label %109
+100:                                              ; preds = %97
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 216
+  %102 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %101) #7
+  %103 = xor i1 %102, true
+  %104 = zext i1 %103 to i8
+  br label %105
 
-104:                                              ; preds = %101
-  %105 = getelementptr inbounds nuw i8, ptr %7, i64 216
-  %106 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %105) #7
-  %107 = xor i1 %106, true
-  %108 = zext i1 %107 to i8
-  br label %109
+105:                                              ; preds = %100, %97, %93
+  %106 = phi i8 [ 1, %97 ], [ 1, %93 ], [ %104, %100 ]
+  store i8 %106, ptr %5, align 1, !tbaa !29
+  %107 = load ptr, ptr %7, align 8, !tbaa !15
+  %108 = call i32 @nghttp2_session_want_read(ptr noundef %107) #7
+  %109 = icmp ne i32 %108, 0
+  %110 = zext i1 %109 to i8
+  store i8 %110, ptr %4, align 1, !tbaa !29
+  %111 = load i8, ptr %5, align 1, !tbaa !29, !range !32, !noundef !33
+  %112 = trunc nuw i8 %111 to i1
+  call void @Curl_pollset_set(ptr noundef %1, ptr noundef %2, i32 noundef %8, i1 noundef zeroext %109, i1 noundef zeroext %112) #7
+  %.not83 = icmp eq ptr %1, null
+  br i1 %.not83, label %.sink.split, label %113
 
-109:                                              ; preds = %104, %101, %97
-  %110 = phi i8 [ 1, %101 ], [ 1, %97 ], [ %108, %104 ]
-  store i8 %110, ptr %5, align 1, !tbaa !29
-  %111 = load ptr, ptr %7, align 8, !tbaa !15
-  %112 = call i32 @nghttp2_session_want_read(ptr noundef %111) #7
-  %113 = icmp ne i32 %112, 0
-  %114 = zext i1 %113 to i8
-  store i8 %114, ptr %4, align 1, !tbaa !29
-  %115 = load i8, ptr %5, align 1, !tbaa !29, !range !32, !noundef !33
-  %116 = trunc nuw i8 %115 to i1
-  call void @Curl_pollset_set(ptr noundef %1, ptr noundef %2, i32 noundef %8, i1 noundef zeroext %113, i1 noundef zeroext %116) #7
-  %.not76 = icmp eq ptr %1, null
-  br i1 %.not76, label %.sink.split, label %117
+113:                                              ; preds = %105
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 2562
+  %115 = load i64, ptr %114, align 2
+  %116 = and i64 %115, 134217728
+  %.not84 = icmp eq i64 %116, 0
+  br i1 %.not84, label %.sink.split, label %117
 
-117:                                              ; preds = %109
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 2562
-  %119 = load i64, ptr %118, align 2
-  %120 = and i64 %119, 134217728
-  %.not77 = icmp eq i64 %120, 0
-  br i1 %.not77, label %.sink.split, label %121
+117:                                              ; preds = %113
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 4712
+  %119 = load ptr, ptr %118, align 8, !tbaa !108
+  %.not85 = icmp eq ptr %119, null
+  br i1 %.not85, label %124, label %120
 
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 4712
-  %123 = load ptr, ptr %122, align 8, !tbaa !108
-  %.not78 = icmp eq ptr %123, null
-  br i1 %.not78, label %128, label %124
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %122 = load i32, ptr %121, align 8, !tbaa !109
+  %123 = icmp sgt i32 %122, 0
+  br i1 %123, label %124, label %.sink.split
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %126 = load i32, ptr %125, align 8, !tbaa !109
-  %127 = icmp sgt i32 %126, 0
-  br i1 %127, label %128, label %.sink.split
+124:                                              ; preds = %117, %120
+  %125 = load ptr, ptr %0, align 8, !tbaa !111
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 12
+  %127 = load i32, ptr %126, align 4, !tbaa !112
+  %128 = icmp sgt i32 %127, 0
+  br i1 %128, label %.sink.split.sink.split, label %.sink.split
 
-128:                                              ; preds = %121, %124
-  %129 = load ptr, ptr %0, align 8, !tbaa !111
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 12
-  %131 = load i32, ptr %130, align 4, !tbaa !112
-  %132 = icmp sgt i32 %131, 0
-  br i1 %132, label %.sink.split.sink.split, label %.sink.split
-
-.sink.split.sink.split:                           ; preds = %128, %85
-  %.sroa.0.0.copyload12.sink.ph = phi ptr [ %.sroa.0.0.copyload, %85 ], [ %.sroa.0.0.copyload12, %128 ]
-  %133 = load i8, ptr %4, align 1, !tbaa !29, !range !32, !noundef !33
-  %134 = zext nneg i8 %133 to i32
-  %135 = load i8, ptr %5, align 1, !tbaa !29, !range !32, !noundef !33
-  %136 = zext nneg i8 %135 to i32
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.63, i32 noundef %134, i32 noundef %136) #7
+.sink.split.sink.split:                           ; preds = %124, %81
+  %.sroa.0.0.copyload18.sink.ph = phi ptr [ %.sroa.0.0.copyload, %81 ], [ %.sroa.0.0.copyload18, %124 ]
+  %129 = load i8, ptr %4, align 1, !tbaa !29, !range !32, !noundef !33
+  %130 = zext nneg i8 %129 to i32
+  %131 = load i8, ptr %5, align 1, !tbaa !29, !range !32, !noundef !33
+  %132 = zext nneg i8 %131 to i32
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.63, i32 noundef %130, i32 noundef %132) #7
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %128, %124, %117, %109, %85, %81, %74, %69
-  %.sroa.0.0.copyload12.sink = phi ptr [ %.sroa.0.0.copyload, %69 ], [ %.sroa.0.0.copyload, %74 ], [ %.sroa.0.0.copyload, %81 ], [ %.sroa.0.0.copyload, %85 ], [ %.sroa.0.0.copyload12, %109 ], [ %.sroa.0.0.copyload12, %117 ], [ %.sroa.0.0.copyload12, %124 ], [ %.sroa.0.0.copyload12, %128 ], [ %.sroa.0.0.copyload12.sink.ph, %.sink.split.sink.split ]
-  %137 = load ptr, ptr %6, align 8, !tbaa !4
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store ptr %.sroa.0.0.copyload12.sink, ptr %138, align 8, !tbaa !13
-  br label %139
+.sink.split:                                      ; preds = %.sink.split.sink.split, %124, %120, %113, %105, %81, %77, %70, %65
+  %.sroa.0.0.copyload18.sink = phi ptr [ %.sroa.0.0.copyload, %65 ], [ %.sroa.0.0.copyload, %70 ], [ %.sroa.0.0.copyload, %77 ], [ %.sroa.0.0.copyload, %81 ], [ %.sroa.0.0.copyload18, %105 ], [ %.sroa.0.0.copyload18, %113 ], [ %.sroa.0.0.copyload18, %120 ], [ %.sroa.0.0.copyload18, %124 ], [ %.sroa.0.0.copyload18.sink.ph, %.sink.split.sink.split ]
+  %133 = load ptr, ptr %6, align 8, !tbaa !4
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  store ptr %.sroa.0.0.copyload18.sink, ptr %134, align 8, !tbaa !13
+  br label %135
 
-139:                                              ; preds = %.sink.split, %90, %94
+135:                                              ; preds = %.sink.split, %86, %90
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
   ret void

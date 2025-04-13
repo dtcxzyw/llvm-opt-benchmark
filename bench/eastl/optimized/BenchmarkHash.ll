@@ -9283,37 +9283,37 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKj10TestObjectELb0EE
   %11 = load i64, ptr %_M_element_count, align 8
   %dec = add i64 %11, -1
   store i64 %dec, ptr %_M_element_count, align 8
-  %tobool.not.not.not.not.not = icmp ne ptr %6, null
-  br i1 %tobool.not.not.not.not.not, label %if.end11, label %do.end
+  %tobool.not.not.not.not.not.not = icmp ne ptr %6, null
+  br i1 %tobool.not.not.not.not.not.not, label %if.end11, label %do.end
 
 if.end11:                                         ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKj10TestObjectELb0EEEEE18_M_deallocate_nodeEPS6_.exit
   %add.ptr12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %_M_bucket_count.i, align 8
   %13 = load i32, ptr %add.ptr12, align 4
-  %conv.i.i.i.i30 = zext i32 %13 to i64
-  %rem.i.i.i31 = urem i64 %conv.i.i.i.i30, %12
+  %conv.i.i.i.i31 = zext i32 %13 to i64
+  %rem.i.i.i32 = urem i64 %conv.i.i.i.i31, %12
   %cmp14 = icmp ne ptr %6, %__last.coerce
-  %cmp15 = icmp eq i64 %rem.i.i.i31, %__n_bkt.0
+  %cmp15 = icmp eq i64 %rem.i.i.i32, %__n_bkt.0
   %14 = select i1 %cmp14, i1 %cmp15, i1 false
   br i1 %14, label %do.body, label %do.end, !llvm.loop !164
 
 do.end:                                           ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKj10TestObjectELb0EEEEE18_M_deallocate_nodeEPS6_.exit, %if.end11
-  %__n_bkt.2 = phi i64 [ %__n_bkt.0, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKj10TestObjectELb0EEEEE18_M_deallocate_nodeEPS6_.exit ], [ %rem.i.i.i31, %if.end11 ]
+  %__n_bkt.2 = phi i64 [ %__n_bkt.0, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKj10TestObjectELb0EEEEE18_M_deallocate_nodeEPS6_.exit ], [ %rem.i.i.i32, %if.end11 ]
   br i1 %__is_bucket_begin.0, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %do.end
-  %tobool.not.i32 = icmp ne ptr %6, null
-  %cmp.not.i33 = icmp eq i64 %__n_bkt.2, %__n_bkt.0
-  %or.cond.i = and i1 %tobool.not.i32, %cmp.not.i33
+  %tobool.not.i33 = icmp ne ptr %6, null
+  %cmp.not.i34 = icmp eq i64 %__n_bkt.2, %__n_bkt.0
+  %or.cond.i = and i1 %tobool.not.i33, %cmp.not.i34
   br i1 %or.cond.i, label %if.end18, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then17
-  br i1 %tobool.not.i32, label %if.then3.i, label %if.end.i
+  br i1 %tobool.not.i33, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %15 = load ptr, ptr %this, align 8
-  %arrayidx.i34 = getelementptr inbounds nuw ptr, ptr %15, i64 %__n_bkt.0
-  %16 = load ptr, ptr %arrayidx.i34, align 8
+  %arrayidx.i35 = getelementptr inbounds nuw ptr, ptr %15, i64 %__n_bkt.0
+  %16 = load ptr, ptr %arrayidx.i35, align 8
   %arrayidx5.i = getelementptr inbounds nuw ptr, ptr %15, i64 %__n_bkt.2
   store ptr %16, ptr %arrayidx5.i, align 8
   br label %if.end.i
@@ -9338,10 +9338,10 @@ if.end18:                                         ; preds = %if.end11.i, %if.the
   br i1 %cmp19, label %for.end, label %for.cond, !llvm.loop !165
 
 for.end:                                          ; preds = %if.end18
-  %cmp23.not = icmp ne i64 %__n_bkt.2, %__n_bkt.0
-  %brmerge = or i1 %__is_bucket_begin.0, %cmp23.not
-  %or.cond = select i1 %tobool.not.not.not.not.not, i1 %brmerge, i1 false
-  br i1 %or.cond, label %if.then25, label %if.end26
+  %cmp23 = icmp ne i64 %__n_bkt.2, %__n_bkt.0
+  %or.cond = or i1 %__is_bucket_begin.0, %cmp23
+  %or.cond28 = select i1 %tobool.not.not.not.not.not.not, i1 %or.cond, i1 false
+  br i1 %or.cond28, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %for.end
   %19 = load ptr, ptr %this, align 8
@@ -9401,14 +9401,14 @@ for.cond:                                         ; preds = %if.end18, %_ZNKSt10
   %__n_bkt.0 = phi i64 [ %rem.i.i.i, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_E11HashString8IS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_bucket_beginEm.exit ], [ %__n_bkt.2, %if.end18 ]
   %__n.0 = phi ptr [ %__first.coerce, %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_E11HashString8IS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_bucket_beginEm.exit ], [ %.lcssa, %if.end18 ]
   %6 = load ptr, ptr %__n.0, align 8
-  %add.ptr.i35 = getelementptr inbounds nuw i8, ptr %__n.0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %add.ptr.i35) #12
+  %add.ptr.i36 = getelementptr inbounds nuw i8, ptr %__n.0, i64 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(36) %add.ptr.i36) #12
   tail call void @_ZdlPv(ptr noundef nonnull %__n.0) #17
   %7 = load i64, ptr %_M_element_count, align 8
-  %dec36 = add i64 %7, -1
-  store i64 %dec36, ptr %_M_element_count, align 8
-  %tobool.not37 = icmp eq ptr %6, null
-  br i1 %tobool.not37, label %do.end, label %if.end11
+  %dec37 = add i64 %7, -1
+  store i64 %dec37, ptr %_M_element_count, align 8
+  %tobool.not38.not = icmp eq ptr %6, null
+  br i1 %tobool.not38.not, label %do.end, label %if.end11
 
 do.body:                                          ; preds = %if.end11
   %8 = load ptr, ptr %10, align 8
@@ -9418,17 +9418,17 @@ do.body:                                          ; preds = %if.end11
   %9 = load i64, ptr %_M_element_count, align 8
   %dec = add i64 %9, -1
   store i64 %dec, ptr %_M_element_count, align 8
-  %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %do.end, label %if.end11, !llvm.loop !166
+  %tobool.not.not = icmp eq ptr %8, null
+  br i1 %tobool.not.not, label %do.end, label %if.end11, !llvm.loop !166
 
 if.end11:                                         ; preds = %for.cond, %do.body
   %10 = phi ptr [ %8, %do.body ], [ %6, %for.cond ]
   %11 = load i64, ptr %_M_bucket_count.i, align 8
-  %add.ptr.i.i30 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %12 = load i64, ptr %add.ptr.i.i30, align 8
-  %rem.i.i.i31 = urem i64 %12, %11
+  %add.ptr.i.i31 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %12 = load i64, ptr %add.ptr.i.i31, align 8
+  %rem.i.i.i32 = urem i64 %12, %11
   %cmp14 = icmp ne ptr %10, %__last.coerce
-  %cmp15 = icmp eq i64 %rem.i.i.i31, %__n_bkt.0
+  %cmp15 = icmp eq i64 %rem.i.i.i32, %__n_bkt.0
   %13 = select i1 %cmp14, i1 %cmp15, i1 false
   br i1 %13, label %do.body, label %if.end11.do.end_crit_edge, !llvm.loop !166
 
@@ -9437,23 +9437,23 @@ if.end11.do.end_crit_edge:                        ; preds = %if.end11
 
 do.end:                                           ; preds = %do.body, %if.end11.do.end_crit_edge, %for.cond
   %.lcssa = phi ptr [ %10, %if.end11.do.end_crit_edge ], [ null, %for.cond ], [ null, %do.body ]
-  %tobool.not.not = phi i1 [ true, %if.end11.do.end_crit_edge ], [ false, %for.cond ], [ false, %do.body ]
-  %__n_bkt.2 = phi i64 [ %rem.i.i.i31, %if.end11.do.end_crit_edge ], [ %__n_bkt.0, %for.cond ], [ %__n_bkt.0, %do.body ]
+  %tobool.not.lcssa = phi i1 [ true, %if.end11.do.end_crit_edge ], [ false, %for.cond ], [ false, %do.body ]
+  %__n_bkt.2 = phi i64 [ %rem.i.i.i32, %if.end11.do.end_crit_edge ], [ %__n_bkt.0, %for.cond ], [ %__n_bkt.0, %do.body ]
   br i1 %__is_bucket_begin.0, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %do.end
-  %tobool.not.i32 = icmp ne ptr %.lcssa, null
-  %cmp.not.i33 = icmp eq i64 %__n_bkt.2, %__n_bkt.0
-  %or.cond.i = and i1 %tobool.not.i32, %cmp.not.i33
+  %tobool.not.i33 = icmp ne ptr %.lcssa, null
+  %cmp.not.i34 = icmp eq i64 %__n_bkt.2, %__n_bkt.0
+  %or.cond.i = and i1 %tobool.not.i33, %cmp.not.i34
   br i1 %or.cond.i, label %if.end18, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then17
-  br i1 %tobool.not.i32, label %if.then3.i, label %if.end.i
+  br i1 %tobool.not.i33, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %14 = load ptr, ptr %this, align 8
-  %arrayidx.i34 = getelementptr inbounds ptr, ptr %14, i64 %__n_bkt.0
-  %15 = load ptr, ptr %arrayidx.i34, align 8
+  %arrayidx.i35 = getelementptr inbounds ptr, ptr %14, i64 %__n_bkt.0
+  %15 = load ptr, ptr %arrayidx.i35, align 8
   %arrayidx5.i = getelementptr inbounds ptr, ptr %14, i64 %__n_bkt.2
   store ptr %15, ptr %arrayidx5.i, align 8
   br label %if.end.i
@@ -9478,10 +9478,10 @@ if.end18:                                         ; preds = %if.end11.i, %if.the
   br i1 %cmp19, label %for.end, label %for.cond, !llvm.loop !167
 
 for.end:                                          ; preds = %if.end18
-  %cmp23.not = icmp ne i64 %__n_bkt.2, %__n_bkt.0
-  %brmerge = or i1 %__is_bucket_begin.0, %cmp23.not
-  %or.cond = select i1 %tobool.not.not, i1 %brmerge, i1 false
-  br i1 %or.cond, label %if.then25, label %if.end26
+  %cmp23 = icmp ne i64 %__n_bkt.2, %__n_bkt.0
+  %or.cond = or i1 %__is_bucket_begin.0, %cmp23
+  %or.cond28 = select i1 %tobool.not.lcssa, i1 %or.cond, i1 false
+  br i1 %or.cond28, label %if.then25, label %if.end26
 
 if.then25:                                        ; preds = %for.end
   %18 = load ptr, ptr %this, align 8

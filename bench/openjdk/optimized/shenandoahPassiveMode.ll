@@ -72,181 +72,167 @@ define hidden void @_ZNK21ShenandoahPassiveMode16initialize_flagsEv(ptr nonnull 
   store i8 0, ptr @ExplicitGCInvokesConcurrent, align 1
   store i8 0, ptr @ShenandoahImplicitGCInvokesConcurrent, align 1
   %2 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1033) #4
-  br i1 %2, label %3, label %10
+  %3 = load i8, ptr @ShenandoahPacing, align 1
+  %4 = trunc i8 %3 to i1
+  %or.cond = select i1 %2, i1 %4, i1 false
+  br i1 %or.cond, label %5, label %9
 
-3:                                                ; preds = %1
-  %4 = load i8, ptr @ShenandoahPacing, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %10
+5:                                                ; preds = %1
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %8, label %7
 
-6:                                                ; preds = %3
-  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %9, label %8
-
-8:                                                ; preds = %6
+7:                                                ; preds = %5
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str)
+  br label %8
+
+8:                                                ; preds = %5, %7
+  store i8 0, ptr @ShenandoahPacing, align 1
   br label %9
 
-9:                                                ; preds = %6, %8
-  store i8 0, ptr @ShenandoahPacing, align 1
-  br label %10
+9:                                                ; preds = %1, %8
+  %10 = load i8, ptr @ShenandoahDegeneratedGC, align 1
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %18, label %12
 
-10:                                               ; preds = %1, %3, %9
-  %11 = load i8, ptr @ShenandoahDegeneratedGC, align 1
-  %12 = trunc i8 %11 to i1
-  br i1 %12, label %19, label %13
+12:                                               ; preds = %9
+  %13 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1030) #4
+  br i1 %13, label %14, label %18
 
-13:                                               ; preds = %10
-  %14 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1030) #4
-  br i1 %14, label %15, label %19
+14:                                               ; preds = %12
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not14 = icmp eq ptr %15, null
+  br i1 %.not14, label %17, label %16
 
-15:                                               ; preds = %13
-  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not1 = icmp eq ptr %16, null
-  br i1 %.not1, label %18, label %17
-
-17:                                               ; preds = %15
+16:                                               ; preds = %14
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.4)
+  br label %17
+
+17:                                               ; preds = %14, %16
+  store i64 0, ptr @ShenandoahEvacReserve, align 8
   br label %18
 
-18:                                               ; preds = %15, %17
-  store i64 0, ptr @ShenandoahEvacReserve, align 8
-  br label %19
+18:                                               ; preds = %9, %12, %17
+  %19 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1055) #4
+  %20 = load i8, ptr @ShenandoahLoadRefBarrier, align 1
+  %21 = trunc i8 %20 to i1
+  %or.cond3 = select i1 %19, i1 %21, i1 false
+  br i1 %or.cond3, label %22, label %26
 
-19:                                               ; preds = %10, %13, %18
-  %20 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1055) #4
-  br i1 %20, label %21, label %28
+22:                                               ; preds = %18
+  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not15 = icmp eq ptr %23, null
+  br i1 %.not15, label %25, label %24
 
-21:                                               ; preds = %19
-  %22 = load i8, ptr @ShenandoahLoadRefBarrier, align 1
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %24, label %28
-
-24:                                               ; preds = %21
-  %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not2 = icmp eq ptr %25, null
-  br i1 %.not2, label %27, label %26
-
-26:                                               ; preds = %24
+24:                                               ; preds = %22
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.5)
-  br label %27
+  br label %25
 
-27:                                               ; preds = %24, %26
+25:                                               ; preds = %22, %24
   store i8 0, ptr @ShenandoahLoadRefBarrier, align 1
-  br label %28
+  br label %26
 
-28:                                               ; preds = %27, %21, %19
-  %29 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1051) #4
-  br i1 %29, label %30, label %37
+26:                                               ; preds = %25, %18
+  %27 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1051) #4
+  %28 = load i8, ptr @ShenandoahSATBBarrier, align 1
+  %29 = trunc i8 %28 to i1
+  %or.cond5 = select i1 %27, i1 %29, i1 false
+  br i1 %or.cond5, label %30, label %34
 
-30:                                               ; preds = %28
-  %31 = load i8, ptr @ShenandoahSATBBarrier, align 1
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %37
+30:                                               ; preds = %26
+  %31 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not16 = icmp eq ptr %31, null
+  br i1 %.not16, label %33, label %32
 
-33:                                               ; preds = %30
-  %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not3 = icmp eq ptr %34, null
-  br i1 %.not3, label %36, label %35
-
-35:                                               ; preds = %33
+32:                                               ; preds = %30
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.6)
-  br label %36
+  br label %33
 
-36:                                               ; preds = %33, %35
+33:                                               ; preds = %30, %32
   store i8 0, ptr @ShenandoahSATBBarrier, align 1
-  br label %37
+  br label %34
 
-37:                                               ; preds = %36, %30, %28
-  %38 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1052) #4
-  br i1 %38, label %39, label %46
+34:                                               ; preds = %33, %26
+  %35 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1052) #4
+  %36 = load i8, ptr @ShenandoahIUBarrier, align 1
+  %37 = trunc i8 %36 to i1
+  %or.cond7 = select i1 %35, i1 %37, i1 false
+  br i1 %or.cond7, label %38, label %42
 
-39:                                               ; preds = %37
-  %40 = load i8, ptr @ShenandoahIUBarrier, align 1
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %42, label %46
+38:                                               ; preds = %34
+  %39 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not17 = icmp eq ptr %39, null
+  br i1 %.not17, label %41, label %40
 
-42:                                               ; preds = %39
-  %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not4 = icmp eq ptr %43, null
-  br i1 %.not4, label %45, label %44
-
-44:                                               ; preds = %42
+40:                                               ; preds = %38
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.7)
-  br label %45
+  br label %41
 
-45:                                               ; preds = %42, %44
+41:                                               ; preds = %38, %40
   store i8 0, ptr @ShenandoahIUBarrier, align 1
-  br label %46
+  br label %42
 
-46:                                               ; preds = %45, %39, %37
-  %47 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1053) #4
-  br i1 %47, label %48, label %55
+42:                                               ; preds = %41, %34
+  %43 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1053) #4
+  %44 = load i8, ptr @ShenandoahCASBarrier, align 1
+  %45 = trunc i8 %44 to i1
+  %or.cond9 = select i1 %43, i1 %45, i1 false
+  br i1 %or.cond9, label %46, label %50
+
+46:                                               ; preds = %42
+  %47 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not18 = icmp eq ptr %47, null
+  br i1 %.not18, label %49, label %48
 
 48:                                               ; preds = %46
-  %49 = load i8, ptr @ShenandoahCASBarrier, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %51, label %55
-
-51:                                               ; preds = %48
-  %52 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not5 = icmp eq ptr %52, null
-  br i1 %.not5, label %54, label %53
-
-53:                                               ; preds = %51
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8)
-  br label %54
+  br label %49
 
-54:                                               ; preds = %51, %53
+49:                                               ; preds = %46, %48
   store i8 0, ptr @ShenandoahCASBarrier, align 1
-  br label %55
+  br label %50
 
-55:                                               ; preds = %54, %48, %46
-  %56 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1054) #4
-  br i1 %56, label %57, label %64
+50:                                               ; preds = %49, %42
+  %51 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1054) #4
+  %52 = load i8, ptr @ShenandoahCloneBarrier, align 1
+  %53 = trunc i8 %52 to i1
+  %or.cond11 = select i1 %51, i1 %53, i1 false
+  br i1 %or.cond11, label %54, label %58
 
-57:                                               ; preds = %55
-  %58 = load i8, ptr @ShenandoahCloneBarrier, align 1
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %60, label %64
+54:                                               ; preds = %50
+  %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not19 = icmp eq ptr %55, null
+  br i1 %.not19, label %57, label %56
 
-60:                                               ; preds = %57
-  %61 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not6 = icmp eq ptr %61, null
-  br i1 %.not6, label %63, label %62
-
-62:                                               ; preds = %60
+56:                                               ; preds = %54
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.9)
-  br label %63
+  br label %57
 
-63:                                               ; preds = %60, %62
+57:                                               ; preds = %54, %56
   store i8 0, ptr @ShenandoahCloneBarrier, align 1
-  br label %64
+  br label %58
 
-64:                                               ; preds = %63, %57, %55
-  %65 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1056) #4
-  br i1 %65, label %66, label %73
+58:                                               ; preds = %57, %50
+  %59 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1056) #4
+  %60 = load i8, ptr @ShenandoahStackWatermarkBarrier, align 1
+  %61 = trunc i8 %60 to i1
+  %or.cond13 = select i1 %59, i1 %61, i1 false
+  br i1 %or.cond13, label %62, label %66
 
-66:                                               ; preds = %64
-  %67 = load i8, ptr @ShenandoahStackWatermarkBarrier, align 1
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %73
+62:                                               ; preds = %58
+  %63 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not20 = icmp eq ptr %63, null
+  br i1 %.not20, label %65, label %64
 
-69:                                               ; preds = %66
-  %70 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not7 = icmp eq ptr %70, null
-  br i1 %.not7, label %72, label %71
-
-71:                                               ; preds = %69
+64:                                               ; preds = %62
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.10)
-  br label %72
+  br label %65
 
-72:                                               ; preds = %69, %71
+65:                                               ; preds = %62, %64
   store i8 0, ptr @ShenandoahStackWatermarkBarrier, align 1
-  br label %73
+  br label %66
 
-73:                                               ; preds = %64, %66, %72
+66:                                               ; preds = %58, %65
   ret void
 }
 

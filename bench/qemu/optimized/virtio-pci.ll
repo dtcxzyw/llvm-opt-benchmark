@@ -857,7 +857,7 @@ virtio_bus_get_device.exit:                       ; preds = %3, %5
 18:                                               ; preds = %virtio_bus_get_device.exit
   %19 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %103, label %20
+  br i1 %.not, label %105, label %20
 
 20:                                               ; preds = %18
   %21 = icmp eq i32 %16, %19
@@ -871,221 +871,221 @@ virtio_bus_get_device.exit:                       ; preds = %3, %5
   store i32 %16, ptr %17, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 34064
   %24 = load ptr, ptr %23, align 16
-  %.not84 = icmp eq ptr %24, null
-  br i1 %.not84, label %27, label %47
+  %.not89 = icmp eq ptr %24, null
+  br i1 %.not89, label %27, label %48
 
 .critedge.thread:                                 ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 34064
   %26 = load ptr, ptr %25, align 16
-  %.not8498 = icmp eq ptr %26, null
-  br i1 %.not8498, label %27, label %.thread
+  %.not8999 = icmp eq ptr %26, null
+  br i1 %.not8999, label %27, label %.thread
 
 27:                                               ; preds = %.critedge.thread, %.critedge
   %28 = phi ptr [ %25, %.critedge.thread ], [ %23, %.critedge ]
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 457
   %30 = load i8, ptr %29, align 1, !range !7, !noundef !6
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %47
+  br i1 %31, label %32, label %48
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 296
   %34 = load ptr, ptr %33, align 8
-  %.not85 = icmp eq ptr %34, null
-  %brmerge = or i1 %2, %.not85
-  br i1 %brmerge, label %47, label %.thread
+  %35 = icmp eq ptr %34, null
+  %or.cond = or i1 %2, %35
+  br i1 %or.cond, label %48, label %.thread
 
 .thread:                                          ; preds = %.critedge.thread, %32
-  %35 = phi ptr [ %28, %32 ], [ %25, %.critedge.thread ]
+  %36 = phi ptr [ %28, %32 ], [ %25, %.critedge.thread ]
   tail call void @msix_unset_vector_notifiers(ptr noundef nonnull %0) #15
-  %36 = load ptr, ptr %35, align 16
-  %.not86 = icmp eq ptr %36, null
-  br i1 %.not86, label %47, label %37
+  %37 = load ptr, ptr %36, align 16
+  %.not90 = icmp eq ptr %37, null
+  br i1 %.not90, label %48, label %38
 
-37:                                               ; preds = %.thread
+38:                                               ; preds = %.thread
   %.val.i = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %virtio_bus_get_device.exit.i, label %38
+  br i1 %.not.i.i, label %virtio_bus_get_device.exit.i, label %39
 
-38:                                               ; preds = %37
-  %39 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  %40 = load ptr, ptr %39, align 8
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
+  %41 = load ptr, ptr %40, align 8
   br label %virtio_bus_get_device.exit.i
 
-virtio_bus_get_device.exit.i:                     ; preds = %38, %37
-  %41 = phi ptr [ %40, %38 ], [ null, %37 ]
-  %42 = icmp sgt i32 %1, 0
-  br i1 %42, label %.lr.ph.i, label %kvm_virtio_pci_vector_vq_release.exit
+virtio_bus_get_device.exit.i:                     ; preds = %39, %38
+  %42 = phi ptr [ %41, %39 ], [ null, %38 ]
+  %43 = icmp sgt i32 %1, 0
+  br i1 %43, label %.lr.ph.i, label %kvm_virtio_pci_vector_vq_release.exit
 
-.lr.ph.i:                                         ; preds = %virtio_bus_get_device.exit.i, %44
-  %.07.i = phi i32 [ %45, %44 ], [ 0, %virtio_bus_get_device.exit.i ]
-  %43 = tail call i32 @virtio_queue_get_num(ptr noundef %41, i32 noundef %.07.i) #15
-  %.not.i91 = icmp eq i32 %43, 0
-  br i1 %.not.i91, label %kvm_virtio_pci_vector_vq_release.exit, label %44
+.lr.ph.i:                                         ; preds = %virtio_bus_get_device.exit.i, %45
+  %.07.i = phi i32 [ %46, %45 ], [ 0, %virtio_bus_get_device.exit.i ]
+  %44 = tail call i32 @virtio_queue_get_num(ptr noundef %42, i32 noundef %.07.i) #15
+  %.not.i92 = icmp eq i32 %44, 0
+  br i1 %.not.i92, label %kvm_virtio_pci_vector_vq_release.exit, label %45
 
-44:                                               ; preds = %.lr.ph.i
+45:                                               ; preds = %.lr.ph.i
   tail call fastcc void @kvm_virtio_pci_vector_release_one(ptr noundef nonnull %0, i32 noundef %.07.i)
-  %45 = add nuw nsw i32 %.07.i, 1
-  %exitcond.not.i = icmp eq i32 %45, %16
+  %46 = add nuw nsw i32 %.07.i, 1
+  %exitcond.not.i = icmp eq i32 %46, %16
   br i1 %exitcond.not.i, label %kvm_virtio_pci_vector_vq_release.exit, label %.lr.ph.i, !llvm.loop !8
 
-kvm_virtio_pci_vector_vq_release.exit:            ; preds = %.lr.ph.i, %44, %virtio_bus_get_device.exit.i
+kvm_virtio_pci_vector_vq_release.exit:            ; preds = %.lr.ph.i, %45, %virtio_bus_get_device.exit.i
   tail call fastcc void @kvm_virtio_pci_vector_release_one(ptr noundef nonnull %0, i32 noundef -1)
-  %46 = load ptr, ptr %35, align 16
-  tail call void @g_free(ptr noundef %46) #15
-  store ptr null, ptr %35, align 16
-  br label %47
+  %47 = load ptr, ptr %36, align 16
+  tail call void @g_free(ptr noundef %47) #15
+  store ptr null, ptr %36, align 16
+  br label %48
 
-47:                                               ; preds = %.critedge, %32, %.thread, %kvm_virtio_pci_vector_vq_release.exit, %27
-  %48 = phi ptr [ %28, %32 ], [ %35, %.thread ], [ %35, %kvm_virtio_pci_vector_vq_release.exit ], [ %28, %27 ], [ %23, %.critedge ]
-  %49 = icmp sgt i32 %1, 0
-  br i1 %49, label %.lr.ph, label %._crit_edge
+48:                                               ; preds = %.critedge, %.thread, %kvm_virtio_pci_vector_vq_release.exit, %32, %27
+  %49 = phi ptr [ %36, %.thread ], [ %36, %kvm_virtio_pci_vector_vq_release.exit ], [ %28, %32 ], [ %28, %27 ], [ %23, %.critedge ]
+  %50 = icmp sgt i32 %1, 0
+  br i1 %50, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %47, %54
-  %.075118 = phi i32 [ %55, %54 ], [ 0, %47 ]
-  %50 = tail call i32 @virtio_queue_get_num(ptr noundef %8, i32 noundef %.075118) #15
-  %.not87 = icmp eq i32 %50, 0
-  br i1 %.not87, label %._crit_edge, label %51
+.lr.ph:                                           ; preds = %48, %55
+  %.081120 = phi i32 [ %56, %55 ], [ 0, %48 ]
+  %51 = tail call i32 @virtio_queue_get_num(ptr noundef %8, i32 noundef %.081120) #15
+  %.not91 = icmp eq i32 %51, 0
+  br i1 %.not91, label %._crit_edge, label %52
 
-51:                                               ; preds = %.lr.ph
-  %52 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef nonnull %0, i32 noundef %.075118, i1 noundef zeroext %2, i1 noundef zeroext %15)
-  %53 = icmp slt i32 %52, 0
-  br i1 %53, label %.loopexit, label %54
+52:                                               ; preds = %.lr.ph
+  %53 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef nonnull %0, i32 noundef %.081120, i1 noundef zeroext %2, i1 noundef zeroext %15)
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %.loopexit, label %55
 
-54:                                               ; preds = %51
-  %55 = add nuw nsw i32 %.075118, 1
-  %exitcond.not = icmp eq i32 %55, %16
+55:                                               ; preds = %52
+  %56 = add nuw nsw i32 %.081120, 1
+  %exitcond.not = icmp eq i32 %56, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %54, %.lr.ph, %47
-  %.075.lcssa = phi i32 [ 0, %47 ], [ %.075118, %.lr.ph ], [ %16, %54 ]
-  %56 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef nonnull %0, i32 noundef -1, i1 noundef zeroext %2, i1 noundef zeroext %15)
-  %57 = icmp slt i32 %56, 0
-  br i1 %57, label %kvm_virtio_pci_vector_vq_use.exit.thread, label %58
+._crit_edge:                                      ; preds = %55, %.lr.ph, %48
+  %.081.lcssa = phi i32 [ 0, %48 ], [ %.081120, %.lr.ph ], [ %16, %55 ]
+  %57 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef nonnull %0, i32 noundef -1, i1 noundef zeroext %2, i1 noundef zeroext %15)
+  %58 = icmp slt i32 %57, 0
+  br i1 %58, label %kvm_virtio_pci_vector_vq_use.exit.thread, label %59
 
-58:                                               ; preds = %._crit_edge
-  br i1 %15, label %66, label %59
+59:                                               ; preds = %._crit_edge
+  br i1 %15, label %68, label %60
 
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %8, i64 457
-  %61 = load i8, ptr %60, align 1, !range !7, !noundef !6
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %63, label %103
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 457
+  %62 = load i8, ptr %61, align 1, !range !7, !noundef !6
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %64, label %105
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %10, i64 296
-  %65 = load ptr, ptr %64, align 8
-  %.not88 = icmp ne ptr %65, null
-  %brmerge90.not = and i1 %2, %.not88
-  br i1 %brmerge90.not, label %.thread103, label %103
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 296
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp ne ptr %66, null
+  %or.cond4 = and i1 %2, %67
+  br i1 %or.cond4, label %.thread104, label %105
 
-66:                                               ; preds = %58
-  br i1 %2, label %67, label %103
+68:                                               ; preds = %59
+  br i1 %2, label %69, label %105
 
-67:                                               ; preds = %66
-  %68 = tail call i32 @msix_nr_vectors_allocated(ptr noundef nonnull %0) #15
-  %69 = zext i32 %68 to i64
-  %70 = mul nuw nsw i64 %69, 24
-  %71 = tail call noalias ptr @g_malloc0(i64 noundef %70) #17
-  store ptr %71, ptr %48, align 16
-  %.val.i92 = load ptr, ptr %4, align 8
-  %.not.i.i93 = icmp eq ptr %.val.i92, null
-  br i1 %.not.i.i93, label %virtio_bus_get_device.exit.i94, label %72
+69:                                               ; preds = %68
+  %70 = tail call i32 @msix_nr_vectors_allocated(ptr noundef nonnull %0) #15
+  %71 = zext i32 %70 to i64
+  %72 = mul nuw nsw i64 %71, 24
+  %73 = tail call noalias ptr @g_malloc0(i64 noundef %72) #17
+  store ptr %73, ptr %49, align 16
+  %.val.i93 = load ptr, ptr %4, align 8
+  %.not.i.i94 = icmp eq ptr %.val.i93, null
+  br i1 %.not.i.i94, label %virtio_bus_get_device.exit.i95, label %74
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %.val.i92, i64 16
-  %74 = load ptr, ptr %73, align 8
-  br label %virtio_bus_get_device.exit.i94
+74:                                               ; preds = %69
+  %75 = getelementptr inbounds nuw i8, ptr %.val.i93, i64 16
+  %76 = load ptr, ptr %75, align 8
+  br label %virtio_bus_get_device.exit.i95
 
-virtio_bus_get_device.exit.i94:                   ; preds = %72, %67
-  %75 = phi ptr [ %74, %72 ], [ null, %67 ]
-  br i1 %49, label %.lr.ph.i95, label %.thread110
+virtio_bus_get_device.exit.i95:                   ; preds = %74, %69
+  %77 = phi ptr [ %76, %74 ], [ null, %69 ]
+  br i1 %50, label %.lr.ph.i96, label %.thread111
 
-.lr.ph.i95:                                       ; preds = %virtio_bus_get_device.exit.i94, %77
-  %.01011.i = phi i32 [ %79, %77 ], [ 0, %virtio_bus_get_device.exit.i94 ]
-  %76 = tail call i32 @virtio_queue_get_num(ptr noundef %75, i32 noundef %.01011.i) #15
-  %.not.i96 = icmp eq i32 %76, 0
-  br i1 %.not.i96, label %kvm_virtio_pci_vector_vq_use.exit.thread, label %77
+.lr.ph.i96:                                       ; preds = %virtio_bus_get_device.exit.i95, %79
+  %.01011.i = phi i32 [ %81, %79 ], [ 0, %virtio_bus_get_device.exit.i95 ]
+  %78 = tail call i32 @virtio_queue_get_num(ptr noundef %77, i32 noundef %.01011.i) #15
+  %.not.i97 = icmp eq i32 %78, 0
+  br i1 %.not.i97, label %kvm_virtio_pci_vector_vq_use.exit.thread, label %79
 
-77:                                               ; preds = %.lr.ph.i95
-  %78 = tail call fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef nonnull %0, i32 noundef %.01011.i)
-  %79 = add nuw nsw i32 %.01011.i, 1
-  %exitcond.not.i97 = icmp eq i32 %79, %16
-  br i1 %exitcond.not.i97, label %kvm_virtio_pci_vector_vq_use.exit, label %.lr.ph.i95, !llvm.loop !10
+79:                                               ; preds = %.lr.ph.i96
+  %80 = tail call fastcc i32 @kvm_virtio_pci_vector_use_one(ptr noundef nonnull %0, i32 noundef %.01011.i)
+  %81 = add nuw nsw i32 %.01011.i, 1
+  %exitcond.not.i98 = icmp eq i32 %81, %16
+  br i1 %exitcond.not.i98, label %kvm_virtio_pci_vector_vq_use.exit, label %.lr.ph.i96, !llvm.loop !10
 
-kvm_virtio_pci_vector_vq_use.exit:                ; preds = %77
-  %80 = icmp slt i32 %78, 0
-  br i1 %80, label %kvm_virtio_pci_vector_vq_use.exit.thread, label %81
+kvm_virtio_pci_vector_vq_use.exit:                ; preds = %79
+  %82 = icmp slt i32 %80, 0
+  br i1 %82, label %kvm_virtio_pci_vector_vq_use.exit.thread, label %83
 
-81:                                               ; preds = %kvm_virtio_pci_vector_vq_use.exit
-  %82 = tail call fastcc range(i32 -2147483648, 1) i32 @kvm_virtio_pci_vector_use_one(ptr noundef nonnull %0, i32 noundef -1)
-  %83 = icmp slt i32 %82, 0
-  br i1 %83, label %.thread111, label %86
-
-.thread110:                                       ; preds = %virtio_bus_get_device.exit.i94
+83:                                               ; preds = %kvm_virtio_pci_vector_vq_use.exit
   %84 = tail call fastcc range(i32 -2147483648, 1) i32 @kvm_virtio_pci_vector_use_one(ptr noundef nonnull %0, i32 noundef -1)
   %85 = icmp slt i32 %84, 0
-  br i1 %85, label %.thread111, label %.thread113
+  br i1 %85, label %.thread112, label %88
 
-86:                                               ; preds = %81
-  %87 = tail call i32 @msix_set_vector_notifiers(ptr noundef nonnull %0, ptr noundef nonnull @virtio_pci_vector_unmask, ptr noundef nonnull @virtio_pci_vector_mask, ptr noundef nonnull @virtio_pci_vector_poll) #15
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %.thread107, label %103
+.thread111:                                       ; preds = %virtio_bus_get_device.exit.i95
+  %86 = tail call fastcc range(i32 -2147483648, 1) i32 @kvm_virtio_pci_vector_use_one(ptr noundef nonnull %0, i32 noundef -1)
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %.thread112, label %.thread114
 
-.thread113:                                       ; preds = %.thread110
+88:                                               ; preds = %83
   %89 = tail call i32 @msix_set_vector_notifiers(ptr noundef nonnull %0, ptr noundef nonnull @virtio_pci_vector_unmask, ptr noundef nonnull @virtio_pci_vector_mask, ptr noundef nonnull @virtio_pci_vector_poll) #15
   %90 = icmp slt i32 %89, 0
-  br i1 %90, label %.thread107, label %103
+  br i1 %90, label %.thread108, label %105
 
-.thread103:                                       ; preds = %63
+.thread114:                                       ; preds = %.thread111
   %91 = tail call i32 @msix_set_vector_notifiers(ptr noundef nonnull %0, ptr noundef nonnull @virtio_pci_vector_unmask, ptr noundef nonnull @virtio_pci_vector_mask, ptr noundef nonnull @virtio_pci_vector_poll) #15
   %92 = icmp slt i32 %91, 0
-  br i1 %92, label %kvm_virtio_pci_vector_vq_use.exit.thread, label %103
+  br i1 %92, label %.thread108, label %105
 
-.thread107:                                       ; preds = %86, %.thread113
-  %93 = phi i32 [ %89, %.thread113 ], [ %87, %86 ]
+.thread104:                                       ; preds = %64
+  %93 = tail call i32 @msix_set_vector_notifiers(ptr noundef nonnull %0, ptr noundef nonnull @virtio_pci_vector_unmask, ptr noundef nonnull @virtio_pci_vector_mask, ptr noundef nonnull @virtio_pci_vector_poll) #15
+  %94 = icmp slt i32 %93, 0
+  br i1 %94, label %kvm_virtio_pci_vector_vq_use.exit.thread, label %105
+
+.thread108:                                       ; preds = %88, %.thread114
+  %95 = phi i32 [ %91, %.thread114 ], [ %89, %88 ]
   tail call fastcc void @kvm_virtio_pci_vector_vq_release(ptr noundef nonnull %0, i32 noundef %16)
-  br label %.thread111
+  br label %.thread112
 
-.thread111:                                       ; preds = %81, %.thread110, %.thread107
-  %.2109 = phi i32 [ %93, %.thread107 ], [ %84, %.thread110 ], [ %82, %81 ]
+.thread112:                                       ; preds = %83, %.thread111, %.thread108
+  %.2110 = phi i32 [ %95, %.thread108 ], [ %86, %.thread111 ], [ %84, %83 ]
   tail call fastcc void @kvm_virtio_pci_vector_release_one(ptr noundef nonnull %0, i32 noundef -1)
   br label %kvm_virtio_pci_vector_vq_use.exit.thread
 
-kvm_virtio_pci_vector_vq_use.exit.thread:         ; preds = %.lr.ph.i95, %.thread103, %.thread111, %kvm_virtio_pci_vector_vq_use.exit, %._crit_edge
-  %.1 = phi i32 [ %56, %._crit_edge ], [ %78, %kvm_virtio_pci_vector_vq_use.exit ], [ %.2109, %.thread111 ], [ %91, %.thread103 ], [ -1, %.lr.ph.i95 ]
-  %94 = xor i1 %2, true
-  %95 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef nonnull %0, i32 noundef -1, i1 noundef zeroext %94, i1 noundef zeroext %15)
+kvm_virtio_pci_vector_vq_use.exit.thread:         ; preds = %.lr.ph.i96, %.thread104, %.thread112, %kvm_virtio_pci_vector_vq_use.exit, %._crit_edge
+  %.1 = phi i32 [ %57, %._crit_edge ], [ %80, %kvm_virtio_pci_vector_vq_use.exit ], [ %.2110, %.thread112 ], [ %93, %.thread104 ], [ -1, %.lr.ph.i96 ]
+  %96 = xor i1 %2, true
+  %97 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef nonnull %0, i32 noundef -1, i1 noundef zeroext %96, i1 noundef zeroext %15)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %51, %kvm_virtio_pci_vector_vq_use.exit.thread
-  %.075116 = phi i32 [ %.075.lcssa, %kvm_virtio_pci_vector_vq_use.exit.thread ], [ %.075118, %51 ]
-  %.074 = phi i32 [ %.1, %kvm_virtio_pci_vector_vq_use.exit.thread ], [ %52, %51 ]
-  br i1 %2, label %.preheader, label %98
+.loopexit:                                        ; preds = %52, %kvm_virtio_pci_vector_vq_use.exit.thread
+  %.081118 = phi i32 [ %.081.lcssa, %kvm_virtio_pci_vector_vq_use.exit.thread ], [ %.081120, %52 ]
+  %.080 = phi i32 [ %.1, %kvm_virtio_pci_vector_vq_use.exit.thread ], [ %53, %52 ]
+  br i1 %2, label %.preheader, label %100
 
 .preheader:                                       ; preds = %.loopexit
-  %96 = add i32 %.075116, -1
-  %97 = icmp sgt i32 %96, -1
-  br i1 %97, label %.lr.ph121, label %._crit_edge122
+  %98 = add i32 %.081118, -1
+  %99 = icmp sgt i32 %98, -1
+  br i1 %99, label %.lr.ph123, label %._crit_edge124
 
-98:                                               ; preds = %.loopexit
+100:                                              ; preds = %.loopexit
   tail call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.5, i32 noundef 1314, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_pci_set_guest_notifiers) #16
   unreachable
 
-.lr.ph121:                                        ; preds = %.preheader, %.lr.ph121
-  %99 = phi i32 [ %101, %.lr.ph121 ], [ %96, %.preheader ]
-  %100 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef nonnull %0, i32 noundef %99, i1 noundef zeroext false, i1 noundef zeroext %15)
-  %101 = add nsw i32 %99, -1
-  %.not127 = icmp eq i32 %99, 0
-  br i1 %.not127, label %._crit_edge122, label %.lr.ph121, !llvm.loop !11
+.lr.ph123:                                        ; preds = %.preheader, %.lr.ph123
+  %101 = phi i32 [ %103, %.lr.ph123 ], [ %98, %.preheader ]
+  %102 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef nonnull %0, i32 noundef %101, i1 noundef zeroext false, i1 noundef zeroext %15)
+  %103 = add nsw i32 %101, -1
+  %.not129 = icmp eq i32 %101, 0
+  br i1 %.not129, label %._crit_edge124, label %.lr.ph123, !llvm.loop !11
 
-._crit_edge122:                                   ; preds = %.lr.ph121, %.preheader
-  %102 = load ptr, ptr %48, align 16
-  tail call void @g_free(ptr noundef %102) #15
-  store ptr null, ptr %48, align 16
-  br label %103
+._crit_edge124:                                   ; preds = %.lr.ph123, %.preheader
+  %104 = load ptr, ptr %49, align 16
+  tail call void @g_free(ptr noundef %104) #15
+  store ptr null, ptr %49, align 16
+  br label %105
 
-103:                                              ; preds = %.thread113, %.thread103, %59, %66, %86, %63, %18, %._crit_edge122
-  %.0 = phi i32 [ %.074, %._crit_edge122 ], [ 0, %18 ], [ 0, %63 ], [ 0, %86 ], [ 0, %66 ], [ 0, %59 ], [ 0, %.thread103 ], [ 0, %.thread113 ]
+105:                                              ; preds = %.thread114, %.thread104, %60, %64, %68, %88, %18, %._crit_edge124
+  %.0 = phi i32 [ %.080, %._crit_edge124 ], [ 0, %18 ], [ 0, %88 ], [ 0, %68 ], [ 0, %64 ], [ 0, %60 ], [ 0, %.thread104 ], [ 0, %.thread114 ]
   ret i32 %.0
 }
 
@@ -5135,46 +5135,46 @@ define internal void @virtio_pci_exit(ptr noundef %0) #0 {
   %9 = tail call ptr @qdev_get_parent_bus(ptr noundef %8) #15
   %10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #15
   %11 = getelementptr i8, ptr %10, i64 120
-  %.val14 = load i32, ptr %11, align 8
-  %12 = and i32 %.val14, 1
-  %.not15 = icmp ne i32 %12, 0
+  %.val13 = load i32, ptr %11, align 8
+  %12 = and i32 %.val13, 1
+  %.not14 = icmp eq i32 %12, 0
   br label %13
 
 13:                                               ; preds = %7, %1
-  %.not13 = phi i1 [ true, %1 ], [ %.not15, %7 ]
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 5348
-  %15 = load i32, ptr %14, align 4
-  %16 = and i32 %15, 8
-  %.not = icmp eq i32 %16, 0
+  %14 = phi i1 [ false, %1 ], [ %.not14, %7 ]
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 5348
+  %16 = load i32, ptr %15, align 4
+  %17 = and i32 %16, 8
+  %.not = icmp eq i32 %17, 0
   tail call void @msix_uninit_exclusive_bar(ptr noundef %0) #15
-  %17 = load i32, ptr %14, align 4
-  %18 = and i32 %17, 2048
-  %.not11 = icmp eq i32 %18, 0
-  %brmerge = select i1 %.not11, i1 true, i1 %.not13
-  br i1 %brmerge, label %23, label %19
+  %18 = load i32, ptr %15, align 4
+  %19 = and i32 %18, 2048
+  %20 = icmp ne i32 %19, 0
+  %or.cond = select i1 %20, i1 %14, i1 false
+  br i1 %or.cond, label %21, label %25
 
-19:                                               ; preds = %13
-  %20 = getelementptr i8, ptr %0, i64 1324
-  %.val = load i32, ptr %20, align 4
-  %21 = and i32 %.val, 4
-  %.not12 = icmp eq i32 %21, 0
-  br i1 %.not12, label %23, label %22
+21:                                               ; preds = %13
+  %22 = getelementptr i8, ptr %0, i64 1324
+  %.val = load i32, ptr %22, align 4
+  %23 = and i32 %.val, 4
+  %.not12 = icmp eq i32 %23, 0
+  br i1 %.not12, label %25, label %24
 
-22:                                               ; preds = %19
+24:                                               ; preds = %21
   tail call void @pcie_aer_exit(ptr noundef nonnull %0) #15
-  br label %23
+  br label %25
 
-23:                                               ; preds = %13, %22, %19
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 5008
-  tail call void @address_space_destroy(ptr noundef nonnull %24) #15
-  br i1 %.not, label %27, label %25
-
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 5168
+25:                                               ; preds = %24, %21, %13
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 5008
   tail call void @address_space_destroy(ptr noundef nonnull %26) #15
-  br label %27
+  br i1 %.not, label %29, label %27
 
-27:                                               ; preds = %25, %23
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 5168
+  tail call void @address_space_destroy(ptr noundef nonnull %28) #15
+  br label %29
+
+29:                                               ; preds = %27, %25
   ret void
 }
 

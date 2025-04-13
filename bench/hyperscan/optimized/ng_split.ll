@@ -449,7 +449,11 @@ _ZN3ue217renumber_verticesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5v
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %116 = load i32, ptr %115, align 8
   %117 = icmp ult i32 %116, 7
-  br i1 %117, label %switch.hole_check, label %445
+  %switch.maskindex = trunc i32 %116 to i8
+  %switch.shifted = lshr i8 79, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %117, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %445
 
 118:                                              ; preds = %.lr.ph188, %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S8_EEEixERSE_.exit46
   %.sroa.0132.0187 = phi ptr [ %74, %.lr.ph188 ], [ %178, %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S8_EEEixERSE_.exit46 ]
@@ -1279,13 +1283,7 @@ _ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE
   %.not135 = icmp eq ptr %442, %120
   br i1 %.not135, label %._crit_edge, label %.lr.ph
 
-switch.hole_check:                                ; preds = %_ZN3ue217renumber_verticesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeERS3_.exit
-  %switch.maskindex = trunc nuw i32 %116 to i8
-  %switch.shifted = lshr i8 79, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %445
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZN3ue217renumber_verticesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeERS3_.exit
   %443 = zext nneg i32 %116 to i64
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN3ue2L8splitLHSERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISA_EESE_PS0_PSt13unordered_mapISA_SA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEE, i64 0, i64 %443
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -1293,7 +1291,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %switch.load, ptr %444, align 8
   br label %445
 
-445:                                              ; preds = %switch.hole_check, %_ZN3ue217renumber_verticesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeERS3_.exit, %switch.lookup
+445:                                              ; preds = %_ZN3ue217renumber_verticesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeERS3_.exit, %switch.lookup
   ret void
 }
 
@@ -1544,7 +1542,11 @@ _ZN3ue217renumber_verticesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5v
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %102 = load i32, ptr %101, align 8
   %103 = icmp ult i32 %102, 7
-  br i1 %103, label %switch.hole_check, label %138
+  %switch.maskindex = trunc i32 %102 to i8
+  %switch.shifted = lshr i8 79, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %103, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %138
 
 104:                                              ; preds = %.lr.ph, %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S8_EEEixERSE_.exit
   %.sroa.058.072 = phi ptr [ %66, %.lr.ph ], [ %135, %_ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_S8_EEEixERSE_.exit ]
@@ -1635,13 +1637,7 @@ _ZNSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8
   %.not = icmp eq ptr %135, %68
   br i1 %.not, label %._crit_edge, label %104
 
-switch.hole_check:                                ; preds = %_ZN3ue217renumber_verticesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeERS3_.exit
-  %switch.maskindex = trunc nuw i32 %102 to i8
-  %switch.shifted = lshr i8 79, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %138
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZN3ue217renumber_verticesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeERS3_.exit
   %136 = zext nneg i32 %102 to i64
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN3ue28splitRHSERKNS_8NGHolderERKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISA_EEPS0_PSt13unordered_mapISA_SA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEE, i64 0, i64 %136
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -1649,7 +1645,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %switch.load, ptr %137, align 8
   br label %138
 
-138:                                              ; preds = %switch.hole_check, %_ZN3ue217renumber_verticesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeERS3_.exit, %switch.lookup
+138:                                              ; preds = %_ZN3ue217renumber_verticesINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueEvE4typeERS3_.exit, %switch.lookup
   ret void
 }
 

@@ -399,12 +399,12 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %88
 
 118:                                              ; preds = %115
   %.mask.i = and i64 %116, -4294967296
-  %switch15.i = icmp eq i64 %.mask.i, 150323855360
-  br i1 %switch15.i, label %125, label %133
+  %switch13.i = icmp eq i64 %.mask.i, 150323855360
+  br i1 %switch13.i, label %125, label %133
 
 119:                                              ; preds = %115
-  %.mask16.i = and i64 %116, -4294967296
-  %cond.i = icmp eq i64 %.mask16.i, 17179869184
+  %.mask14.i = and i64 %116, -4294967296
+  %cond.i = icmp eq i64 %.mask14.i, 17179869184
   br i1 %cond.i, label %125, label %133
 
 120:                                              ; preds = %115
@@ -560,12 +560,12 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i: ; preds = %120, %115
 
 171:                                              ; preds = %168
   %.mask.i208 = and i64 %169, -4294967296
-  %switch15.i209 = icmp eq i64 %.mask.i208, 150323855360
-  br i1 %switch15.i209, label %178, label %186
+  %switch13.i209 = icmp eq i64 %.mask.i208, 150323855360
+  br i1 %switch13.i209, label %178, label %186
 
 172:                                              ; preds = %168
-  %.mask16.i210 = and i64 %169, -4294967296
-  %cond.i211 = icmp eq i64 %.mask16.i210, 17179869184
+  %.mask14.i210 = and i64 %169, -4294967296
+  %cond.i211 = icmp eq i64 %.mask14.i210, 17179869184
   br i1 %cond.i211, label %178, label %186
 
 173:                                              ; preds = %168
@@ -664,12 +664,12 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i202: ; preds = %173, %168
 
 205:                                              ; preds = %202
   %.mask.i224 = and i64 %203, -4294967296
-  %switch15.i225 = icmp eq i64 %.mask.i224, 150323855360
-  br i1 %switch15.i225, label %212, label %222
+  %switch13.i225 = icmp eq i64 %.mask.i224, 150323855360
+  br i1 %switch13.i225, label %212, label %222
 
 206:                                              ; preds = %202
-  %.mask16.i226 = and i64 %203, -4294967296
-  %cond.i227 = icmp eq i64 %.mask16.i226, 17179869184
+  %.mask14.i226 = and i64 %203, -4294967296
+  %cond.i227 = icmp eq i64 %.mask14.i226, 17179869184
   br i1 %cond.i227, label %212, label %222
 
 207:                                              ; preds = %202
@@ -871,12 +871,12 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i218: ; preds = %207, %202
 
 278:                                              ; preds = %275
   %.mask.i247 = and i64 %276, -4294967296
-  %switch15.i248 = icmp eq i64 %.mask.i247, 150323855360
-  br i1 %switch15.i248, label %285, label %293
+  %switch13.i248 = icmp eq i64 %.mask.i247, 150323855360
+  br i1 %switch13.i248, label %285, label %293
 
 279:                                              ; preds = %275
-  %.mask16.i249 = and i64 %276, -4294967296
-  %cond.i250 = icmp eq i64 %.mask16.i249, 17179869184
+  %.mask14.i249 = and i64 %276, -4294967296
+  %cond.i250 = icmp eq i64 %.mask14.i249, 17179869184
   br i1 %cond.i250, label %285, label %293
 
 280:                                              ; preds = %275
@@ -963,12 +963,12 @@ default.unreachable:                              ; preds = %13
 
 16:                                               ; preds = %13
   %.mask = and i64 %14, -4294967296
-  %switch15 = icmp eq i64 %.mask, 150323855360
-  br i1 %switch15, label %26, label %.thread
+  %switch13 = icmp eq i64 %.mask, 150323855360
+  br i1 %switch13, label %26, label %.thread
 
 17:                                               ; preds = %13
-  %.mask16 = and i64 %14, -4294967296
-  %cond = icmp eq i64 %.mask16, 17179869184
+  %.mask14 = and i64 %14, -4294967296
+  %cond = icmp eq i64 %.mask14, 17179869184
   br i1 %cond, label %26, label %.thread
 
 18:                                               ; preds = %13
@@ -980,12 +980,12 @@ default.unreachable:                              ; preds = %13
 21:                                               ; preds = %9
   store ptr inttoptr (i64 158913789955 to ptr), ptr %12, align 8
   store i64 1, ptr %0, align 8
-  br label %.thread17
+  br label %.thread15
 
 22:                                               ; preds = %9
   store i64 %10, ptr %12, align 8
   store i64 0, ptr %0, align 8
-  br label %.thread17
+  br label %.thread15
 
 _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %13, %18
   %.sink = phi i64 [ 15, %18 ], [ 16, %13 ]
@@ -998,9 +998,9 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %13, %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val, ptr %25, align 8
   store i64 1, ptr %0, align 8
-  br label %.thread17
+  br label %.thread15
 
-.thread17:                                        ; preds = %21, %22, %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee124a95d3aa0f9eE.exit"
+.thread15:                                        ; preds = %21, %22, %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee124a95d3aa0f9eE.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
 
@@ -1019,7 +1019,7 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %13, %18
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee124a95d3aa0f9eE.exit": ; preds = %26, %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !119
-  br label %.thread17
+  br label %.thread15
 }
 
 ; Function Attrs: nonlazybind uwtable

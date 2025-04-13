@@ -2144,8 +2144,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d14Or
   %42 = fcmp oeq double %41, 1.000000e+00
   %43 = call double @llvm.fabs.f64(double %41)
   %44 = fcmp olt double %43, 1.000000e-10
-  %or.cond = or i1 %42, %44
-  br i1 %or.cond, label %55, label %45
+  %or.cond5 = or i1 %42, %44
+  br i1 %or.cond5, label %55, label %45
 
 45:                                               ; preds = %2
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2164,9 +2164,9 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d14Or
   br label %55
 
 55:                                               ; preds = %45, %2
-  %.not = xor i1 %1, true
-  %brmerge = or i1 %30, %.not
-  br i1 %brmerge, label %61, label %56
+  %.not = xor i1 %30, true
+  %or.cond = and i1 %1, %.not
+  br i1 %or.cond, label %56, label %61
 
 56:                                               ; preds = %55
   store ptr @.str.6, ptr %6, align 8
@@ -2181,7 +2181,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d14Or
   call void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13TfCallContextEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %6, ptr noundef nonnull @.str.7)
   br label %61
 
-61:                                               ; preds = %55, %56
+61:                                               ; preds = %56, %55
   ret i1 %30
 }
 
@@ -4507,8 +4507,8 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d16RemoveScaleShea
   %51 = fcmp oeq double %50, 1.000000e+00
   %52 = call double @llvm.fabs.f64(double %50)
   %53 = fcmp olt double %52, 1.000000e-10
-  %or.cond.i = or i1 %51, %53
-  br i1 %or.cond.i, label %64, label %54
+  %or.cond5.i = or i1 %51, %53
+  br i1 %or.cond5.i, label %64, label %54
 
 54:                                               ; preds = %15
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 96

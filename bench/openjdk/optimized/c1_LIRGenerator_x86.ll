@@ -2663,19 +2663,19 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %15
   store ptr %0, ptr %23, align 8
   store ptr %19, ptr %4, align 8
   store i64 %17, ptr %20, align 8
-  %.not.i.i42 = icmp eq ptr %19, null
-  br i1 %.not.i.i42, label %_ZN7LIRItem11is_registerEv.exit, label %24
+  %.not.i.i43 = icmp eq ptr %19, null
+  br i1 %.not.i.i43, label %_ZN7LIRItem11is_registerEv.exit, label %24
 
 24:                                               ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
   tail call void @_ZN12LIRGenerator4walkEP11Instruction(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %19) #9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %.sroa.0.0.copyload.i.i.i43 = load i64, ptr %25, align 8
-  store i64 %.sroa.0.0.copyload.i.i.i43, ptr %20, align 8
-  %.pre.i.i44 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  %.sroa.0.0.copyload.i.i.i44 = load i64, ptr %25, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i44, ptr %20, align 8
+  %.pre.i.i45 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   br label %_ZN7LIRItem11is_registerEv.exit
 
 _ZN7LIRItem11is_registerEv.exit:                  ; preds = %24, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
-  %26 = phi i64 [ %.pre.i.i44, %24 ], [ %17, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ]
+  %26 = phi i64 [ %.pre.i.i45, %24 ], [ %17, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ]
   store i64 %26, ptr %21, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %28 = load i32, ptr %27, align 8
@@ -2711,12 +2711,12 @@ _ZN7LIRItem11is_registerEv.exit:                  ; preds = %24, %_ZN7LIRItemC2E
 .thread:                                          ; preds = %30, %39
   %42 = load i8, ptr %22, align 8
   %43 = trunc i8 %42 to i1
-  br i1 %43, label %44, label %_ZN7LIRItem11is_registerEv.exit50
+  br i1 %43, label %44, label %_ZN7LIRItem11is_registerEv.exit51
 
 44:                                               ; preds = %.thread
   %45 = load i64, ptr %20, align 8
   %46 = and i64 %45, 7
-  switch i64 %46, label %_ZN7LIRItem11is_registerEv.exit50 [
+  switch i64 %46, label %_ZN7LIRItem11is_registerEv.exit51 [
     i64 5, label %47
     i64 3, label %47
   ]
@@ -2725,7 +2725,7 @@ _ZN7LIRItem11is_registerEv.exit:                  ; preds = %24, %_ZN7LIRItemC2E
   %48 = load i64, ptr %21, align 8
   %49 = and i64 %48, 7
   %50 = icmp eq i64 %49, 7
-  br i1 %50, label %51, label %_ZN7LIRItem11is_registerEv.exit50
+  br i1 %50, label %51, label %_ZN7LIRItem11is_registerEv.exit51
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %23, align 8
@@ -2738,26 +2738,26 @@ _ZN7LIRItem11is_registerEv.exit:                  ; preds = %24, %_ZN7LIRItemC2E
   %58 = load ptr, ptr %23, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 144
   %60 = load ptr, ptr %59, align 8
-  %.sroa.01.0.copyload.i.i49 = load i64, ptr %20, align 8
-  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %60, i64 %.sroa.01.0.copyload.i.i49, i64 %57, ptr noundef null)
-  br label %_ZN7LIRItem11is_registerEv.exit50
+  %.sroa.01.0.copyload.i.i50 = load i64, ptr %20, align 8
+  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %60, i64 %.sroa.01.0.copyload.i.i50, i64 %57, ptr noundef null)
+  br label %_ZN7LIRItem11is_registerEv.exit51
 
-_ZN7LIRItem11is_registerEv.exit50:                ; preds = %.thread, %44, %47, %51
-  %.sroa.03.0.in.i.i46 = phi ptr [ %21, %51 ], [ %21, %47 ], [ %20, %44 ], [ %20, %.thread ]
-  %.sroa.03.0.i.i47 = load i64, ptr %.sroa.03.0.in.i.i46, align 8
-  %61 = and i64 %.sroa.03.0.i.i47, 7
+_ZN7LIRItem11is_registerEv.exit51:                ; preds = %.thread, %44, %47, %51
+  %.sroa.03.0.in.i.i47 = phi ptr [ %21, %51 ], [ %21, %47 ], [ %20, %44 ], [ %20, %.thread ]
+  %.sroa.03.0.i.i48 = load i64, ptr %.sroa.03.0.in.i.i47, align 8
+  %61 = and i64 %.sroa.03.0.i.i48, 7
   switch i64 %61, label %62 [
     i64 5, label %.sink.split
     i64 3, label %.sink.split
   ]
 
-.sink.split:                                      ; preds = %_ZN7LIRItem11is_registerEv.exit50, %_ZN7LIRItem11is_registerEv.exit50, %41
+.sink.split:                                      ; preds = %_ZN7LIRItem11is_registerEv.exit51, %_ZN7LIRItem11is_registerEv.exit51, %41
   call void @_ZN7LIRItem9load_itemEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #9
   br label %62
 
-62:                                               ; preds = %.sink.split, %_ZN7LIRItem11is_registerEv.exit50
+62:                                               ; preds = %.sink.split, %_ZN7LIRItem11is_registerEv.exit51
   %63 = call i64 @_ZN12LIRGenerator5rlockEP11Instruction(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %1) #9
-  %.sroa.019.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  %.sroa.020.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   %64 = load i32, ptr %27, align 8
   switch i32 %64, label %67 [
     i32 107, label %65
@@ -2771,10 +2771,10 @@ _ZN7LIRItem11is_registerEv.exit50:                ; preds = %.thread, %44, %47, 
 
 67:                                               ; preds = %62, %65
   %68 = phi i32 [ %.pr, %65 ], [ %64, %62 ]
-  %.sroa.019.0 = phi i64 [ %66, %65 ], [ %.sroa.019.0.copyload, %62 ]
+  %.sroa.020.0 = phi i64 [ %66, %65 ], [ %.sroa.020.0.copyload, %62 ]
   %69 = and i32 %68, -2
-  %switch98 = icmp eq i32 %69, 114
-  br i1 %switch98, label %70, label %131
+  %switch99 = icmp eq i32 %69, 114
+  br i1 %switch99, label %70, label %131
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %8, align 8
@@ -2787,19 +2787,19 @@ _ZN7LIRItem11is_registerEv.exit50:                ; preds = %.thread, %44, %47, 
   store ptr %71, ptr %5, align 8
   %76 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   store i64 %76, ptr %72, align 8
-  %.not.i.i51 = icmp eq ptr %71, null
-  br i1 %.not.i.i51, label %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit54, label %77
+  %.not.i.i52 = icmp eq ptr %71, null
+  br i1 %.not.i.i52, label %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit55, label %77
 
 77:                                               ; preds = %70
   call void @_ZN12LIRGenerator4walkEP11Instruction(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %71) #9
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  %.sroa.0.0.copyload.i.i.i52 = load i64, ptr %78, align 8
-  store i64 %.sroa.0.0.copyload.i.i.i52, ptr %72, align 8
-  %.pre.i.i53 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
-  br label %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit54
+  %.sroa.0.0.copyload.i.i.i53 = load i64, ptr %78, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i53, ptr %72, align 8
+  %.pre.i.i54 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  br label %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit55
 
-_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit54: ; preds = %70, %77
-  %79 = phi i64 [ %.pre.i.i53, %77 ], [ %76, %70 ]
+_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit55: ; preds = %70, %77
+  %79 = phi i64 [ %.pre.i.i54, %77 ], [ %76, %70 ]
   store i64 %79, ptr %73, align 8
   %80 = load ptr, ptr %18, align 8
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2810,19 +2810,19 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit54: ; preds = %70, %77
   store ptr %0, ptr %84, align 8
   store ptr %80, ptr %6, align 8
   store i64 %79, ptr %81, align 8
-  %.not.i.i55 = icmp eq ptr %80, null
-  br i1 %.not.i.i55, label %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit62, label %85
+  %.not.i.i56 = icmp eq ptr %80, null
+  br i1 %.not.i.i56, label %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit63, label %85
 
-85:                                               ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit54
+85:                                               ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit55
   call void @_ZN12LIRGenerator4walkEP11Instruction(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %80) #9
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  %.sroa.0.0.copyload.i.i.i56 = load i64, ptr %86, align 8
-  store i64 %.sroa.0.0.copyload.i.i.i56, ptr %81, align 8
-  %.pre.i.i57 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
-  br label %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit62
+  %.sroa.0.0.copyload.i.i.i57 = load i64, ptr %86, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i57, ptr %81, align 8
+  %.pre.i.i58 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  br label %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit63
 
-_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit62: ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit54, %85
-  %87 = phi i64 [ %.pre.i.i57, %85 ], [ %79, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit54 ]
+_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit63: ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit55, %85
+  %87 = phi i64 [ %.pre.i.i58, %85 ], [ %79, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit55 ]
   store i64 %87, ptr %82, align 8
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %89 = load ptr, ptr %88, align 8
@@ -2849,13 +2849,13 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
   %104 = icmp ult i32 %103, 5
   br i1 %104, label %switch.lookup, label %105
 
-105:                                              ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit62
+105:                                              ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit63
   %106 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %106, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 104) #10
   unreachable
 
-switch.lookup:                                    ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit62
+switch.lookup:                                    ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit63
   %107 = zext nneg i32 %103 to i64
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN12LIRGenerator16do_NewMultiArrayEP13NewMultiArray, i64 0, i64 %107
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2869,8 +2869,8 @@ switch.lookup:                                    ; preds = %_ZN26GrowableArrayW
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %.sroa.0.0.copyload.i63 = load i64, ptr %114, align 8
-  call void @_ZN7LIRItem15load_item_forceE7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(40) %6, i64 %.sroa.0.0.copyload.i63) #9
+  %.sroa.0.0.copyload.i64 = load i64, ptr %114, align 8
+  call void @_ZN7LIRItem15load_item_forceE7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(40) %6, i64 %.sroa.0.0.copyload.i64) #9
   %115 = load i32, ptr %27, align 8
   switch i32 %115, label %117 [
     i32 114, label %119
@@ -2891,9 +2891,9 @@ switch.lookup:                                    ; preds = %_ZN26GrowableArrayW
   %120 = call i64 @_ZN12LIRGenerator12rlock_resultEP11Instruction(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %1) #9
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %122 = load ptr, ptr %121, align 8
-  %.sroa.0.0.copyload.i64 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  %.sroa.0.0.copyload.i65 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   %123 = load ptr, ptr %100, align 8
-  call void @_ZN8LIR_List17call_runtime_leafEPh7LIR_OprS1_P13GrowableArrayIS1_E(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull %.0, i64 %.sroa.0.0.copyload.i64, i64 %.sroa.0.0.i, ptr noundef %123)
+  call void @_ZN8LIR_List17call_runtime_leafEPh7LIR_OprS1_P13GrowableArrayIS1_E(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull %.0, i64 %.sroa.0.0.copyload.i65, i64 %.sroa.0.0.i, ptr noundef %123)
   %124 = load ptr, ptr %121, align 8
   call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %124, i64 %.sroa.0.0.i, i64 %120, ptr noundef null)
   %125 = load i64, ptr %94, align 8
@@ -2910,8 +2910,8 @@ switch.lookup:                                    ; preds = %_ZN26GrowableArrayW
 .loopexit.i:                                      ; preds = %127
   %130 = load ptr, ptr %93, align 8
   store i32 0, ptr %92, align 4
-  %.not.i88 = icmp eq ptr %130, null
-  br i1 %.not.i88, label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit, label %.loopexit.thread.i
+  %.not.i89 = icmp eq ptr %130, null
+  br i1 %.not.i89, label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %130) #9
@@ -2956,12 +2956,12 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %131, %134, %137, %1
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
   %151 = load i8, ptr %22, align 8
   %152 = trunc i8 %151 to i1
-  br i1 %152, label %153, label %_ZN7LIRItem6resultEv.exit68
+  br i1 %152, label %153, label %_ZN7LIRItem6resultEv.exit69
 
 153:                                              ; preds = %_ZN7LIRItem6resultEv.exit
   %154 = load i64, ptr %20, align 8
   %155 = and i64 %154, 7
-  switch i64 %155, label %_ZN7LIRItem6resultEv.exit68 [
+  switch i64 %155, label %_ZN7LIRItem6resultEv.exit69 [
     i64 5, label %156
     i64 3, label %156
   ]
@@ -2970,7 +2970,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %131, %134, %137, %1
   %157 = load i64, ptr %21, align 8
   %158 = and i64 %157, 7
   %159 = icmp eq i64 %158, 7
-  br i1 %159, label %160, label %_ZN7LIRItem6resultEv.exit68
+  br i1 %159, label %160, label %_ZN7LIRItem6resultEv.exit69
 
 160:                                              ; preds = %156
   %161 = load ptr, ptr %23, align 8
@@ -2983,20 +2983,20 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %131, %134, %137, %1
   %167 = load ptr, ptr %23, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 144
   %169 = load ptr, ptr %168, align 8
-  %.sroa.01.0.copyload.i67 = load i64, ptr %20, align 8
-  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %169, i64 %.sroa.01.0.copyload.i67, i64 %166, ptr noundef null)
-  br label %_ZN7LIRItem6resultEv.exit68
+  %.sroa.01.0.copyload.i68 = load i64, ptr %20, align 8
+  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %169, i64 %.sroa.01.0.copyload.i68, i64 %166, ptr noundef null)
+  br label %_ZN7LIRItem6resultEv.exit69
 
-_ZN7LIRItem6resultEv.exit68:                      ; preds = %_ZN7LIRItem6resultEv.exit, %153, %156, %160
-  %.sroa.03.0.in.i65 = phi ptr [ %21, %160 ], [ %21, %156 ], [ %20, %153 ], [ %20, %_ZN7LIRItem6resultEv.exit ]
-  %.sroa.03.0.i66 = load i64, ptr %.sroa.03.0.in.i65, align 8
-  call void @_ZN12LIRGenerator17arithmetic_op_fpuEN9Bytecodes4CodeE7LIR_OprS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %68, i64 %63, i64 %.sroa.03.0.i, i64 %.sroa.03.0.i66, i64 %.sroa.019.0) #9
+_ZN7LIRItem6resultEv.exit69:                      ; preds = %_ZN7LIRItem6resultEv.exit, %153, %156, %160
+  %.sroa.03.0.in.i66 = phi ptr [ %21, %160 ], [ %21, %156 ], [ %20, %153 ], [ %20, %_ZN7LIRItem6resultEv.exit ]
+  %.sroa.03.0.i67 = load i64, ptr %.sroa.03.0.in.i66, align 8
+  call void @_ZN12LIRGenerator17arithmetic_op_fpuEN9Bytecodes4CodeE7LIR_OprS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %68, i64 %63, i64 %.sroa.03.0.i, i64 %.sroa.03.0.i67, i64 %.sroa.020.0) #9
   %170 = call i64 @_ZN12LIRGenerator10round_itemE7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %63) #9
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %170, ptr %171, align 8
   br label %_ZN13GrowableArrayI9BasicTypeED2Ev.exit
 
-_ZN13GrowableArrayI9BasicTypeED2Ev.exit:          ; preds = %.loopexit.i, %.loopexit.thread.i, %119, %127, %_ZN7LIRItem6resultEv.exit68
+_ZN13GrowableArrayI9BasicTypeED2Ev.exit:          ; preds = %.loopexit.i, %.loopexit.thread.i, %119, %127, %_ZN7LIRItem6resultEv.exit69
   ret void
 }
 
@@ -10982,8 +10982,8 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %_ZN7LIRItemC2EP11In
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 8192
-  %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %72, label %40
+  %.not49 = icmp eq i32 %39, 0
+  br i1 %.not49, label %72, label %40
 
 40:                                               ; preds = %35
   %41 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -11018,7 +11018,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %55, %57
   br i1 %59, label %171, label %60
 
 60:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit
-  %.sroa.09.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  %.sroa.010.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i32 -1, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 28
@@ -11037,7 +11037,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %55, %57
   store i8 0, ptr %68, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV19SimpleExceptionStub, i64 16), ptr %.0.i.i.i, align 8
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
-  store i64 %.sroa.09.0.copyload, ptr %69, align 8
+  store i64 %.sroa.010.0.copyload, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
   store i32 19, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 104
@@ -11046,7 +11046,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %55, %57
 
 72:                                               ; preds = %35
   %73 = and i32 %38, 16384
-  %.not48 = icmp eq i32 %73, 0
+  %.not50 = icmp eq i32 %73, 0
   %74 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 1808
@@ -11061,44 +11061,44 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %55, %57
   %85 = ptrtoint ptr %82 to i64
   %86 = ptrtoint ptr %84 to i64
   %87 = sub i64 %85, %86
-  br i1 %.not48, label %124, label %88
+  br i1 %.not50, label %124, label %88
 
 88:                                               ; preds = %72
-  %.not.i.i.i36 = icmp ult i64 %87, 104
-  br i1 %.not.i.i.i36, label %91, label %89
+  %.not.i.i.i37 = icmp ult i64 %87, 104
+  br i1 %.not.i.i.i37, label %91, label %89
 
 89:                                               ; preds = %88
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 104
   store ptr %90, ptr %83, align 8
-  br label %_ZN22CompilationResourceObjnwEm.exit38
+  br label %_ZN22CompilationResourceObjnwEm.exit39
 
 91:                                               ; preds = %88
   %92 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %80, i64 noundef 104, i32 noundef 0) #9
-  br label %_ZN22CompilationResourceObjnwEm.exit38
+  br label %_ZN22CompilationResourceObjnwEm.exit39
 
-_ZN22CompilationResourceObjnwEm.exit38:           ; preds = %89, %91
-  %.0.i.i.i37 = phi ptr [ %84, %89 ], [ %92, %91 ]
-  %93 = icmp eq ptr %.0.i.i.i37, null
+_ZN22CompilationResourceObjnwEm.exit39:           ; preds = %89, %91
+  %.0.i.i.i38 = phi ptr [ %84, %89 ], [ %92, %91 ]
+  %93 = icmp eq ptr %.0.i.i.i38, null
   br i1 %93, label %171, label %94
 
-94:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit38
-  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 8
+94:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit39
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38, i64 8
   store i32 -1, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 28
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38, i64 28
   store i32 0, ptr %96, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38, i64 32
   store ptr null, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38, i64 40
   store i8 0, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38, i64 48
   store i32 -1, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 68
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38, i64 68
   store i32 0, ptr %100, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38, i64 72
   store ptr null, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38, i64 80
   store i8 0, ptr %102, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV14DeoptimizeStub, i64 16), ptr %.0.i.i.i37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV14DeoptimizeStub, i64 16), ptr %.0.i.i.i38, align 8
   %103 = load ptr, ptr %74, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 1808
   %105 = load ptr, ptr %104, align 8
@@ -11134,31 +11134,31 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %118, %116
   br label %_ZN14DeoptimizeStubC2EP12CodeEmitInfoN14Deoptimization11DeoptReasonENS2_11DeoptActionE.exit
 
 _ZN14DeoptimizeStubC2EP12CodeEmitInfoN14Deoptimization11DeoptReasonENS2_11DeoptActionE.exit: ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %121
-  %122 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 88
+  %122 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38, i64 88
   store ptr %.0.i.i.i.i, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %.0.i.i.i37, i64 96
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38, i64 96
   store i32 -33, ptr %123, align 8
   br label %.sink.split
 
 124:                                              ; preds = %72
-  %.not.i.i.i39 = icmp ult i64 %87, 112
-  br i1 %.not.i.i.i39, label %127, label %125
+  %.not.i.i.i40 = icmp ult i64 %87, 112
+  br i1 %.not.i.i.i40, label %127, label %125
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds nuw i8, ptr %84, i64 112
   store ptr %126, ptr %83, align 8
-  br label %_ZN22CompilationResourceObjnwEm.exit41
+  br label %_ZN22CompilationResourceObjnwEm.exit42
 
 127:                                              ; preds = %124
   %128 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %80, i64 noundef 112, i32 noundef 0) #9
-  br label %_ZN22CompilationResourceObjnwEm.exit41
+  br label %_ZN22CompilationResourceObjnwEm.exit42
 
-_ZN22CompilationResourceObjnwEm.exit41:           ; preds = %125, %127
-  %.0.i.i.i40 = phi ptr [ %84, %125 ], [ %128, %127 ]
-  %129 = icmp eq ptr %.0.i.i.i40, null
+_ZN22CompilationResourceObjnwEm.exit42:           ; preds = %125, %127
+  %.0.i.i.i41 = phi ptr [ %84, %125 ], [ %128, %127 ]
+  %129 = icmp eq ptr %.0.i.i.i41, null
   br i1 %129, label %171, label %130
 
-130:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit41
+130:                                              ; preds = %_ZN22CompilationResourceObjnwEm.exit42
   %131 = load i8, ptr %8, align 8
   %132 = trunc i8 %131 to i1
   br i1 %132, label %133, label %_ZN7LIRItem6resultEv.exit
@@ -11195,34 +11195,34 @@ _ZN22CompilationResourceObjnwEm.exit41:           ; preds = %125, %127
 _ZN7LIRItem6resultEv.exit:                        ; preds = %130, %133, %136, %140
   %.sroa.03.0.in.i = phi ptr [ %7, %140 ], [ %7, %136 ], [ %6, %133 ], [ %6, %130 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %.0.i.i.i41, i64 8
   store i32 -1, ptr %150, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 28
+  %151 = getelementptr inbounds nuw i8, ptr %.0.i.i.i41, i64 28
   store i32 0, ptr %151, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %.0.i.i.i41, i64 32
   store ptr null, ptr %152, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 40
+  %153 = getelementptr inbounds nuw i8, ptr %.0.i.i.i41, i64 40
   store i8 0, ptr %153, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 48
+  %154 = getelementptr inbounds nuw i8, ptr %.0.i.i.i41, i64 48
   store i32 -1, ptr %154, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 68
+  %155 = getelementptr inbounds nuw i8, ptr %.0.i.i.i41, i64 68
   store i32 0, ptr %155, align 4
-  %156 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 72
+  %156 = getelementptr inbounds nuw i8, ptr %.0.i.i.i41, i64 72
   store ptr null, ptr %156, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 80
+  %157 = getelementptr inbounds nuw i8, ptr %.0.i.i.i41, i64 80
   store i8 0, ptr %157, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV19SimpleExceptionStub, i64 16), ptr %.0.i.i.i40, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 88
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV19SimpleExceptionStub, i64 16), ptr %.0.i.i.i41, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %.0.i.i.i41, i64 88
   store i64 %.sroa.03.0.i, ptr %158, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 96
+  %159 = getelementptr inbounds nuw i8, ptr %.0.i.i.i41, i64 96
   store i32 18, ptr %159, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 104
+  %160 = getelementptr inbounds nuw i8, ptr %.0.i.i.i41, i64 104
   store ptr %36, ptr %160, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %60, %_ZN14DeoptimizeStubC2EP12CodeEmitInfoN14Deoptimization11DeoptReasonENS2_11DeoptActionE.exit, %_ZN7LIRItem6resultEv.exit
   %.sink = phi ptr [ %74, %_ZN7LIRItem6resultEv.exit ], [ %74, %_ZN14DeoptimizeStubC2EP12CodeEmitInfoN14Deoptimization11DeoptReasonENS2_11DeoptActionE.exit ], [ %41, %60 ]
-  %.032.ph = phi ptr [ %.0.i.i.i40, %_ZN7LIRItem6resultEv.exit ], [ %.0.i.i.i37, %_ZN14DeoptimizeStubC2EP12CodeEmitInfoN14Deoptimization11DeoptReasonENS2_11DeoptActionE.exit ], [ %.0.i.i.i, %60 ]
+  %.033.ph = phi ptr [ %.0.i.i.i41, %_ZN7LIRItem6resultEv.exit ], [ %.0.i.i.i38, %_ZN14DeoptimizeStubC2EP12CodeEmitInfoN14Deoptimization11DeoptReasonENS2_11DeoptActionE.exit ], [ %.0.i.i.i, %60 ]
   %161 = load ptr, ptr %.sink, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 1808
   %163 = load ptr, ptr %162, align 8
@@ -11236,89 +11236,92 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %130, %133, %136, %1
   store i32 %170, ptr %168, align 8
   br label %171
 
-171:                                              ; preds = %.sink.split, %_ZN22CompilationResourceObjnwEm.exit41, %_ZN22CompilationResourceObjnwEm.exit38, %_ZN22CompilationResourceObjnwEm.exit
-  %.032 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ null, %_ZN22CompilationResourceObjnwEm.exit38 ], [ null, %_ZN22CompilationResourceObjnwEm.exit41 ], [ %.032.ph, %.sink.split ]
+171:                                              ; preds = %.sink.split, %_ZN22CompilationResourceObjnwEm.exit42, %_ZN22CompilationResourceObjnwEm.exit39, %_ZN22CompilationResourceObjnwEm.exit
+  %.033 = phi ptr [ null, %_ZN22CompilationResourceObjnwEm.exit ], [ null, %_ZN22CompilationResourceObjnwEm.exit39 ], [ null, %_ZN22CompilationResourceObjnwEm.exit42 ], [ %.033.ph, %.sink.split ]
   %172 = call i64 @_ZN12LIRGenerator12rlock_resultEP11Instruction(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %1) #9
-  %.sroa.06.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  %.sroa.07.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   %173 = load ptr, ptr %14, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %175 = load ptr, ptr %174, align 8
-  %.not.i42 = icmp eq ptr %175, null
-  br i1 %.not.i42, label %_ZNK10ciMetadata9is_loadedEv.exit43, label %_ZNK10ciMetadata9is_loadedEv.exit43.thread
+  %.not.i43 = icmp eq ptr %175, null
+  br i1 %.not.i43, label %176, label %_ZNK10ciMetadata9is_loadedEv.exit44
 
-_ZNK10ciMetadata9is_loadedEv.exit43:              ; preds = %171
-  %176 = load ptr, ptr %173, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 32
-  %178 = load ptr, ptr %177, align 8
-  %179 = call noundef zeroext i1 %178(ptr noundef nonnull align 8 dereferenceable(24) %173) #9
-  br i1 %179, label %_ZNK10ciMetadata9is_loadedEv.exit43.thread, label %182
+176:                                              ; preds = %171
+  %177 = load ptr, ptr %173, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 32
+  %179 = load ptr, ptr %178, align 8
+  %180 = call noundef zeroext i1 %179(ptr noundef nonnull align 8 dereferenceable(24) %173) #9
+  %181 = xor i1 %180, true
+  br label %_ZNK10ciMetadata9is_loadedEv.exit44
 
-_ZNK10ciMetadata9is_loadedEv.exit43.thread:       ; preds = %171, %_ZNK10ciMetadata9is_loadedEv.exit43
-  %180 = load i8, ptr @UseCompressedClassPointers, align 1
-  %181 = trunc i8 %180 to i1
-  br i1 %181, label %182, label %186
+_ZNK10ciMetadata9is_loadedEv.exit44:              ; preds = %171, %176
+  %.not = phi i1 [ false, %171 ], [ %181, %176 ]
+  %182 = load i8, ptr @UseCompressedClassPointers, align 1
+  %183 = trunc i8 %182 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %183
+  br i1 %or.cond, label %184, label %188
 
-182:                                              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit43.thread, %_ZNK10ciMetadata9is_loadedEv.exit43
-  %183 = load ptr, ptr @objectType, align 8
-  %184 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %183) #9
-  %185 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %184) #9
-  br label %186
+184:                                              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit44
+  %185 = load ptr, ptr @objectType, align 8
+  %186 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %185) #9
+  %187 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %186) #9
+  br label %188
 
-186:                                              ; preds = %182, %_ZNK10ciMetadata9is_loadedEv.exit43.thread
-  %.sroa.06.0 = phi i64 [ %185, %182 ], [ %.sroa.06.0.copyload, %_ZNK10ciMetadata9is_loadedEv.exit43.thread ]
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %188 = load ptr, ptr %187, align 8
-  %189 = load i8, ptr %8, align 8
-  %190 = trunc i8 %189 to i1
-  br i1 %190, label %191, label %_ZN7LIRItem6resultEv.exit47
+188:                                              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit44, %184
+  %.sroa.07.0 = phi i64 [ %187, %184 ], [ %.sroa.07.0.copyload, %_ZNK10ciMetadata9is_loadedEv.exit44 ]
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %190 = load ptr, ptr %189, align 8
+  %191 = load i8, ptr %8, align 8
+  %192 = trunc i8 %191 to i1
+  br i1 %192, label %193, label %_ZN7LIRItem6resultEv.exit48
 
-191:                                              ; preds = %186
-  %192 = load i64, ptr %6, align 8
-  %193 = and i64 %192, 7
-  switch i64 %193, label %_ZN7LIRItem6resultEv.exit47 [
-    i64 5, label %194
-    i64 3, label %194
+193:                                              ; preds = %188
+  %194 = load i64, ptr %6, align 8
+  %195 = and i64 %194, 7
+  switch i64 %195, label %_ZN7LIRItem6resultEv.exit48 [
+    i64 5, label %196
+    i64 3, label %196
   ]
 
-194:                                              ; preds = %191, %191
-  %195 = load i64, ptr %7, align 8
-  %196 = and i64 %195, 7
-  %197 = icmp eq i64 %196, 7
-  br i1 %197, label %198, label %_ZN7LIRItem6resultEv.exit47
+196:                                              ; preds = %193, %193
+  %197 = load i64, ptr %7, align 8
+  %198 = and i64 %197, 7
+  %199 = icmp eq i64 %198, 7
+  br i1 %199, label %200, label %_ZN7LIRItem6resultEv.exit48
 
-198:                                              ; preds = %194
-  %199 = load ptr, ptr %9, align 8
-  %200 = load ptr, ptr %3, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 24
-  %202 = load ptr, ptr %201, align 8
-  %203 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %202) #9
-  %204 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %199, i8 noundef zeroext %203) #9
-  store i64 %204, ptr %7, align 8
-  %205 = load ptr, ptr %9, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 144
-  %207 = load ptr, ptr %206, align 8
-  %.sroa.01.0.copyload.i46 = load i64, ptr %6, align 8
-  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %207, i64 %.sroa.01.0.copyload.i46, i64 %204, ptr noundef null)
-  br label %_ZN7LIRItem6resultEv.exit47
+200:                                              ; preds = %196
+  %201 = load ptr, ptr %9, align 8
+  %202 = load ptr, ptr %3, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
+  %204 = load ptr, ptr %203, align 8
+  %205 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %204) #9
+  %206 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %201, i8 noundef zeroext %205) #9
+  store i64 %206, ptr %7, align 8
+  %207 = load ptr, ptr %9, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 144
+  %209 = load ptr, ptr %208, align 8
+  %.sroa.01.0.copyload.i47 = load i64, ptr %6, align 8
+  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %209, i64 %.sroa.01.0.copyload.i47, i64 %206, ptr noundef null)
+  br label %_ZN7LIRItem6resultEv.exit48
 
-_ZN7LIRItem6resultEv.exit47:                      ; preds = %186, %191, %194, %198
-  %.sroa.03.0.in.i44 = phi ptr [ %7, %198 ], [ %7, %194 ], [ %6, %191 ], [ %6, %186 ]
-  %.sroa.03.0.i45 = load i64, ptr %.sroa.03.0.in.i44, align 8
-  %208 = load ptr, ptr %14, align 8
-  %209 = load ptr, ptr @objectType, align 8
-  %210 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %209) #9
-  %211 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %210) #9
-  %212 = load ptr, ptr @objectType, align 8
-  %213 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %212) #9
-  %214 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %213) #9
-  %215 = load i32, ptr %37, align 8
-  %216 = and i32 %215, 4
-  %217 = icmp ne i32 %216, 0
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %221 = load i32, ptr %220, align 8
-  call void @_ZN8LIR_List9checkcastE7LIR_OprS0_P7ciKlassS0_S0_S0_bP12CodeEmitInfoS4_P8CodeStubP8ciMethodi(ptr noundef nonnull align 8 dereferenceable(32) %188, i64 %172, i64 %.sroa.03.0.i45, ptr noundef %208, i64 %211, i64 %214, i64 %.sroa.06.0, i1 noundef zeroext %217, ptr noundef %36, ptr noundef %.0, ptr noundef %.032, ptr noundef %219, i32 noundef %221) #9
+_ZN7LIRItem6resultEv.exit48:                      ; preds = %188, %193, %196, %200
+  %.sroa.03.0.in.i45 = phi ptr [ %7, %200 ], [ %7, %196 ], [ %6, %193 ], [ %6, %188 ]
+  %.sroa.03.0.i46 = load i64, ptr %.sroa.03.0.in.i45, align 8
+  %210 = load ptr, ptr %14, align 8
+  %211 = load ptr, ptr @objectType, align 8
+  %212 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %211) #9
+  %213 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %212) #9
+  %214 = load ptr, ptr @objectType, align 8
+  %215 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %214) #9
+  %216 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %215) #9
+  %217 = load i32, ptr %37, align 8
+  %218 = and i32 %217, 4
+  %219 = icmp ne i32 %218, 0
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %223 = load i32, ptr %222, align 8
+  call void @_ZN8LIR_List9checkcastE7LIR_OprS0_P7ciKlassS0_S0_S0_bP12CodeEmitInfoS4_P8CodeStubP8ciMethodi(ptr noundef nonnull align 8 dereferenceable(32) %190, i64 %172, i64 %.sroa.03.0.i46, ptr noundef %210, i64 %213, i64 %216, i64 %.sroa.07.0, i1 noundef zeroext %219, ptr noundef %36, ptr noundef %.0, ptr noundef %.033, ptr noundef %221, i32 noundef %223) #9
   ret void
 }
 
@@ -11376,87 +11379,90 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %_ZN7LIRItemC2EP11In
 _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit, %23, %_ZNK10ciMetadata9is_loadedEv.exit
   %.0 = phi ptr [ null, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %26, %23 ], [ null, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ]
   call void @_ZN7LIRItem9load_itemEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
-  %.sroa.06.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
+  %.sroa.07.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   %27 = load ptr, ptr %15, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
-  %.not.i19 = icmp eq ptr %29, null
-  br i1 %.not.i19, label %_ZNK10ciMetadata9is_loadedEv.exit20, label %_ZNK10ciMetadata9is_loadedEv.exit20.thread
+  %.not.i20 = icmp eq ptr %29, null
+  br i1 %.not.i20, label %30, label %_ZNK10ciMetadata9is_loadedEv.exit21
 
-_ZNK10ciMetadata9is_loadedEv.exit20:              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread
-  %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(24) %27) #9
-  br i1 %33, label %_ZNK10ciMetadata9is_loadedEv.exit20.thread, label %36
+30:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread
+  %31 = load ptr, ptr %27, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %33 = load ptr, ptr %32, align 8
+  %34 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(24) %27) #9
+  %35 = xor i1 %34, true
+  br label %_ZNK10ciMetadata9is_loadedEv.exit21
 
-_ZNK10ciMetadata9is_loadedEv.exit20.thread:       ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread, %_ZNK10ciMetadata9is_loadedEv.exit20
-  %34 = load i8, ptr @UseCompressedClassPointers, align 1
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %40
+_ZNK10ciMetadata9is_loadedEv.exit21:              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread, %30
+  %.not = phi i1 [ false, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %35, %30 ]
+  %36 = load i8, ptr @UseCompressedClassPointers, align 1
+  %37 = trunc i8 %36 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %37
+  br i1 %or.cond, label %38, label %42
 
-36:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit20.thread, %_ZNK10ciMetadata9is_loadedEv.exit20
-  %37 = load ptr, ptr @objectType, align 8
-  %38 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %37) #9
-  %39 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %38) #9
-  br label %40
+38:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit21
+  %39 = load ptr, ptr @objectType, align 8
+  %40 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %39) #9
+  %41 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %40) #9
+  br label %42
 
-40:                                               ; preds = %36, %_ZNK10ciMetadata9is_loadedEv.exit20.thread
-  %.sroa.06.0 = phi i64 [ %39, %36 ], [ %.sroa.06.0.copyload, %_ZNK10ciMetadata9is_loadedEv.exit20.thread ]
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %42 = load ptr, ptr %41, align 8
-  %43 = load i8, ptr %8, align 8
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %_ZN7LIRItem6resultEv.exit
+42:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit21, %38
+  %.sroa.07.0 = phi i64 [ %41, %38 ], [ %.sroa.07.0.copyload, %_ZNK10ciMetadata9is_loadedEv.exit21 ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %44 = load ptr, ptr %43, align 8
+  %45 = load i8, ptr %8, align 8
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %47, label %_ZN7LIRItem6resultEv.exit
 
-45:                                               ; preds = %40
-  %46 = load i64, ptr %6, align 8
-  %47 = and i64 %46, 7
-  switch i64 %47, label %_ZN7LIRItem6resultEv.exit [
-    i64 5, label %48
-    i64 3, label %48
+47:                                               ; preds = %42
+  %48 = load i64, ptr %6, align 8
+  %49 = and i64 %48, 7
+  switch i64 %49, label %_ZN7LIRItem6resultEv.exit [
+    i64 5, label %50
+    i64 3, label %50
   ]
 
-48:                                               ; preds = %45, %45
-  %49 = load i64, ptr %7, align 8
-  %50 = and i64 %49, 7
-  %51 = icmp eq i64 %50, 7
-  br i1 %51, label %52, label %_ZN7LIRItem6resultEv.exit
+50:                                               ; preds = %47, %47
+  %51 = load i64, ptr %7, align 8
+  %52 = and i64 %51, 7
+  %53 = icmp eq i64 %52, 7
+  br i1 %53, label %54, label %_ZN7LIRItem6resultEv.exit
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %9, align 8
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %56 = load ptr, ptr %55, align 8
-  %57 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %56) #9
-  %58 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %53, i8 noundef zeroext %57) #9
-  store i64 %58, ptr %7, align 8
-  %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 144
-  %61 = load ptr, ptr %60, align 8
+54:                                               ; preds = %50
+  %55 = load ptr, ptr %9, align 8
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %59 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %58) #9
+  %60 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %55, i8 noundef zeroext %59) #9
+  store i64 %60, ptr %7, align 8
+  %61 = load ptr, ptr %9, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 144
+  %63 = load ptr, ptr %62, align 8
   %.sroa.01.0.copyload.i = load i64, ptr %6, align 8
-  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %61, i64 %.sroa.01.0.copyload.i, i64 %58, ptr noundef null)
+  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %63, i64 %.sroa.01.0.copyload.i, i64 %60, ptr noundef null)
   br label %_ZN7LIRItem6resultEv.exit
 
-_ZN7LIRItem6resultEv.exit:                        ; preds = %40, %45, %48, %52
-  %.sroa.03.0.in.i = phi ptr [ %7, %52 ], [ %7, %48 ], [ %6, %45 ], [ %6, %40 ]
+_ZN7LIRItem6resultEv.exit:                        ; preds = %42, %47, %50, %54
+  %.sroa.03.0.in.i = phi ptr [ %7, %54 ], [ %7, %50 ], [ %6, %47 ], [ %6, %42 ]
   %.sroa.03.0.i = load i64, ptr %.sroa.03.0.in.i, align 8
-  %62 = load ptr, ptr %15, align 8
-  %63 = load ptr, ptr @objectType, align 8
-  %64 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %63) #9
-  %65 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %64) #9
-  %66 = load ptr, ptr @objectType, align 8
-  %67 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %66) #9
-  %68 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %67) #9
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %70 = load i32, ptr %69, align 8
-  %71 = and i32 %70, 4
-  %72 = icmp ne i32 %71, 0
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %76 = load i32, ptr %75, align 8
-  call void @_ZN8LIR_List10instanceofE7LIR_OprS0_P7ciKlassS0_S0_S0_bP12CodeEmitInfoP8ciMethodi(ptr noundef nonnull align 8 dereferenceable(32) %42, i64 %14, i64 %.sroa.03.0.i, ptr noundef %62, i64 %65, i64 %68, i64 %.sroa.06.0, i1 noundef zeroext %72, ptr noundef %.0, ptr noundef %74, i32 noundef %76) #9
+  %64 = load ptr, ptr %15, align 8
+  %65 = load ptr, ptr @objectType, align 8
+  %66 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %65) #9
+  %67 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %66) #9
+  %68 = load ptr, ptr @objectType, align 8
+  %69 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %68) #9
+  %70 = call i64 @_ZN12LIRGenerator12new_registerE9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext %69) #9
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %72 = load i32, ptr %71, align 8
+  %73 = and i32 %72, 4
+  %74 = icmp ne i32 %73, 0
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %78 = load i32, ptr %77, align 8
+  call void @_ZN8LIR_List10instanceofE7LIR_OprS0_P7ciKlassS0_S0_S0_bP12CodeEmitInfoP8ciMethodi(ptr noundef nonnull align 8 dereferenceable(32) %44, i64 %14, i64 %.sroa.03.0.i, ptr noundef %64, i64 %67, i64 %70, i64 %.sroa.07.0, i1 noundef zeroext %74, ptr noundef %.0, ptr noundef %76, i32 noundef %78) #9
   ret void
 }
 

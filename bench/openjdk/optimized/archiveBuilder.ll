@@ -5696,8 +5696,8 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %41, %44, %51, %71
 98:                                               ; preds = %95
   %99 = load i8, ptr @UseCompressedOops, align 1
   %100 = trunc i8 %99 to i1
-  %.0.i = select i1 %100, i32 4, i32 8
-  call void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr noundef nonnull %2, ptr noundef %.032, ptr noundef %96, i32 noundef %.0.i, i1 noundef zeroext true, i32 noundef 32, ptr noundef %18) #19
+  %spec.store.select.i = select i1 %100, i32 4, i32 8
+  call void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr noundef nonnull %2, ptr noundef %.032, ptr noundef %96, i32 noundef %spec.store.select.i, i1 noundef zeroext true, i32 noundef 32, ptr noundef %18) #19
   br label %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit: ; preds = %95, %98
@@ -5837,7 +5837,7 @@ define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger21log_metaspac
 19:                                               ; preds = %.lr.ph, %_ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit ]
   %20 = phi ptr [ %11, %.lr.ph ], [ %184, %_ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit ]
-  %.0117 = phi ptr [ %7, %.lr.ph ], [ %28, %_ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit ]
+  %.0115 = phi ptr [ %7, %.lr.ph ], [ %28, %_ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
@@ -5861,8 +5861,8 @@ define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger21log_metaspac
   br i1 %.not.i, label %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit, label %33
 
 33:                                               ; preds = %19
-  %34 = getelementptr inbounds i8, ptr %.0117, i64 %31
-  call void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr noundef nonnull %5, ptr noundef %.0117, ptr noundef %28, i32 noundef 8, i1 noundef zeroext true, i32 noundef 32, ptr noundef %34) #19
+  %34 = getelementptr inbounds i8, ptr %.0115, i64 %31
+  call void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr noundef nonnull %5, ptr noundef %.0115, ptr noundef %28, i32 noundef 8, i1 noundef zeroext true, i32 noundef 32, ptr noundef %34) #19
   br label %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit: ; preds = %19, %33
@@ -6151,8 +6151,8 @@ _ZN12MetaspaceObj9type_nameENS_4TypeE.exit:       ; preds = %_ZN14ArchiveBuilder
   %168 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %169 = load i64, ptr %168, align 8
   %170 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not113 = icmp eq ptr %170, null
-  br i1 %.not113, label %174, label %171
+  %.not111 = icmp eq ptr %170, null
+  br i1 %.not111, label %174, label %171
 
 171:                                              ; preds = %_ZN12MetaspaceObj9type_nameENS_4TypeE.exit
   %172 = ptrtoint ptr %38 to i64
@@ -6184,8 +6184,8 @@ _ZN12MetaspaceObj9type_nameENS_4TypeE.exit:       ; preds = %_ZN14ArchiveBuilder
 180:                                              ; preds = %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit, %43, %44, %45, %46, %47, %48, %49, %50, %51
   %.0.i.ph = phi ptr [ @.str.78, %43 ], [ @.str.79, %44 ], [ @.str.80, %45 ], [ @.str.81, %46 ], [ @.str.84, %47 ], [ @.str.87, %48 ], [ @.str.88, %49 ], [ @.str.89, %50 ], [ @.str.90, %51 ], [ @.str.77, %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit ]
   %181 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not112 = icmp eq ptr %181, null
-  br i1 %.not112, label %_ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit, label %182
+  %.not110 = icmp eq ptr %181, null
+  br i1 %.not110, label %_ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit, label %182
 
 182:                                              ; preds = %180
   %183 = ptrtoint ptr %38 to i64
@@ -6223,20 +6223,20 @@ _ZN14ArchiveBuilder12CDSMapLogger9log_klassEP5KlassPhPKciP6Thread.exit: ; preds 
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE14ELS3_78ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %4, align 8
   %196 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i85 = icmp eq ptr %196, null
-  br i1 %.not.i85, label %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit87, label %197
+  br i1 %.not.i85, label %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit86, label %197
 
 197:                                              ; preds = %190
   %198 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %193
   call void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr noundef nonnull %4, ptr noundef %.0.lcssa, ptr noundef %.065.lcssa, i32 noundef 8, i1 noundef zeroext true, i32 noundef 32, ptr noundef %198) #19
-  br label %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit87
+  br label %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit86
 
-_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit87: ; preds = %190, %197
+_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit86: ; preds = %190, %197
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #19
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
   %199 = icmp ult ptr %.065.lcssa, %9
   br i1 %199, label %200, label %220
 
-200:                                              ; preds = %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit87
+200:                                              ; preds = %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit86
   %201 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %201, null
   br i1 %.not, label %211, label %202
@@ -6264,24 +6264,24 @@ _ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit87: ; preds = %190, 
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %215) #19
   %216 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 1, ptr %216, align 8
-  %.sroa.21.0..sroa_idx.i.i.i.i88 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i.i88, align 8
+  %.sroa.21.0..sroa_idx.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i.i87, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE14ELS3_78ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %3, align 8
   %217 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i89 = icmp eq ptr %217, null
-  br i1 %.not.i89, label %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit91, label %218
+  %.not.i88 = icmp eq ptr %217, null
+  br i1 %.not.i88, label %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit89, label %218
 
 218:                                              ; preds = %211
   %219 = getelementptr inbounds i8, ptr %.065.lcssa, i64 %214
   call void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr noundef nonnull %3, ptr noundef %.065.lcssa, ptr noundef nonnull %9, i32 noundef 8, i1 noundef zeroext true, i32 noundef 32, ptr noundef %219) #19
-  br label %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit91
+  br label %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit89
 
-_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit91: ; preds = %211, %218
+_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit89: ; preds = %211, %218
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #19
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
   br label %220
 
-220:                                              ; preds = %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit91, %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit87
+220:                                              ; preds = %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit89, %_ZN14ArchiveBuilder12CDSMapLogger10log_as_hexEPhS1_S1_b.exit86
   ret void
 }
 

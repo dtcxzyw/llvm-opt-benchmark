@@ -17064,9 +17064,9 @@ _ZN4core4iter6traits8iterator8Iterator4last17h6d905ba00d9882e5E.exit: ; preds = 
 
 _ZN6syntax3ted6remove17hb36b40afab057348E.exit:   ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i.i30", %140, %146
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %.thread70
+  br label %.thread68
 
-.thread70:                                        ; preds = %158, %_ZN6syntax3ted6remove17hb36b40afab057348E.exit
+.thread68:                                        ; preds = %158, %_ZN6syntax3ted6remove17hb36b40afab057348E.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h2a225c395288df48E.llvm.13346703328537446882.exit"
 
@@ -17106,7 +17106,7 @@ _ZN6syntax3ted6remove17hb36b40afab057348E.exit:   ; preds = %"_ZN4core3ptr84drop
   call void @_ZN6syntax3ted11replace_all17h2efdeb5fab65e311E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !7281
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  br label %.thread70
+  br label %.thread68
 
 167:                                              ; preds = %.body, %.thread56
   %168 = landingpad { ptr, i32 }
@@ -17152,13 +17152,13 @@ _ZN6syntax3ted6remove17hb36b40afab057348E.exit:   ; preds = %"_ZN4core3ptr84drop
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val19)
   br label %"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h2a225c395288df48E.llvm.13346703328537446882.exit"
 
-"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h2a225c395288df48E.llvm.13346703328537446882.exit": ; preds = %.critedge, %170, %176, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.llvm.13346703328537446882.exit.sink.split.i.i.i.i.i.i", %.thread70
+"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h2a225c395288df48E.llvm.13346703328537446882.exit": ; preds = %.critedge, %170, %176, %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h8533055aa7c5dee5E.llvm.13346703328537446882.exit.sink.split.i.i.i.i.i.i", %.thread68
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   ret void
 
 .thread60.thread:                                 ; preds = %136, %.thread56, %.body
-  %.pn13.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %137, %136 ], [ %eh.lpad-body2859, %.thread56 ]
-  resume { ptr, i32 } %.pn13.pn
+  %.pn16.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %137, %136 ], [ %eh.lpad-body2859, %.thread56 ]
+  resume { ptr, i32 } %.pn16.pn
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -17483,8 +17483,8 @@ _ZN6syntax3ted6remove17hb36b40afab057348E.exit:   ; preds = %"_ZN4core3ptr84drop
   ret void
 
 .thread35:                                        ; preds = %.thread31, %68, %11
-  %.pn13.pn = phi { ptr, i32 } [ %12, %11 ], [ %eh.lpad-body34, %.thread31 ], [ %69, %68 ]
-  resume { ptr, i32 } %.pn13.pn
+  %.pn16.pn = phi { ptr, i32 } [ %12, %11 ], [ %eh.lpad-body34, %.thread31 ], [ %69, %68 ]
+  resume { ptr, i32 } %.pn16.pn
 }
 
 ; Function Attrs: nonlazybind uwtable

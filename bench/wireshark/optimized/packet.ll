@@ -2585,8 +2585,8 @@ find_uint_dtbl_entry.exit:                        ; preds = %7, %7, %7, %7, %7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @call_dissector_work(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %12, label %7
+  %.not59 = icmp eq ptr %3, null
+  br i1 %.not59, label %12, label %7
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2601,8 +2601,8 @@ define internal fastcc i32 @call_dissector_work(ptr noundef readonly captures(no
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
-  %.not58 = icmp eq ptr %17, null
-  br i1 %.not58, label %20, label %18
+  %.not60 = icmp eq ptr %17, null
+  br i1 %.not60, label %20, label %18
 
 18:                                               ; preds = %12
   %19 = tail call zeroext i1 @proto_is_protocol_enabled(ptr noundef nonnull %17)
@@ -2631,8 +2631,8 @@ define internal fastcc i32 @call_dissector_work(ptr noundef readonly captures(no
   %33 = add i16 %23, %.neg
   store i16 %33, ptr %22, align 8
   %34 = load ptr, ptr %16, align 8
-  %.not59 = icmp eq ptr %34, null
-  br i1 %.not59, label %43, label %35
+  %.not61 = icmp eq ptr %34, null
+  br i1 %.not61, label %43, label %35
 
 35:                                               ; preds = %30
   %36 = tail call zeroext i1 @proto_is_pino(ptr noundef nonnull %34)
@@ -2654,8 +2654,8 @@ define internal fastcc i32 @call_dissector_work(ptr noundef readonly captures(no
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 276
   %45 = load i8, ptr %44, align 4
   %46 = and i8 %45, 1
-  %.not60 = icmp eq i8 %46, 0
-  br i1 %.not60, label %49, label %47
+  %.not62 = icmp eq i8 %46, 0
+  br i1 %.not62, label %49, label %47
 
 47:                                               ; preds = %43
   %48 = tail call fastcc i32 @call_dissector_work_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
@@ -2709,14 +2709,14 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
   br label %71
 
 71:                                               ; preds = %call_dissector_through_handle.exit, %47
-  %.052 = phi i32 [ %48, %47 ], [ %.0.i, %call_dissector_through_handle.exit ]
-  %72 = icmp eq i32 %.052, 0
+  %.053 = phi i32 [ %48, %47 ], [ %.0.i, %call_dissector_through_handle.exit ]
+  %72 = icmp eq i32 %.053, 0
   br i1 %72, label %79, label %73
 
 73:                                               ; preds = %71
   %74 = load i32, ptr %14, align 8
-  %.not61 = icmp eq i32 %74, %15
-  br i1 %.not61, label %79, label %75
+  %.not63 = icmp eq i32 %74, %15
+  br i1 %.not63, label %79, label %75
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 332
@@ -2727,20 +2727,20 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
 79:                                               ; preds = %73, %75, %71
   %80 = phi i1 [ true, %71 ], [ false, %73 ], [ %78, %75 ]
   %81 = load ptr, ptr %16, align 8
-  %.not62 = icmp eq ptr %81, null
-  br i1 %.not62, label %.loopexit, label %82
+  %.not64 = icmp eq ptr %81, null
+  br i1 %.not64, label %.loopexit, label %82
 
 82:                                               ; preds = %79
   %83 = tail call zeroext i1 @proto_is_pino(ptr noundef nonnull %81)
-  %.not63 = xor i1 %4, true
-  %brmerge = or i1 %83, %.not63
-  br i1 %brmerge, label %.loopexit, label %84
+  %.not = xor i1 %83, true
+  %or.cond = and i1 %4, %.not
+  br i1 %or.cond, label %84, label %.loopexit
 
 84:                                               ; preds = %82
   br i1 %80, label %92, label %85
 
 85:                                               ; preds = %84
-  br i1 %.not, label %.loopexit, label %86
+  br i1 %.not59, label %.loopexit, label %86
 
 86:                                               ; preds = %85
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2763,13 +2763,13 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
   %98 = icmp ugt i32 %97, %26
   br i1 %98, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %.lr.ph, %92, %82, %86, %85, %79
+.loopexit:                                        ; preds = %.lr.ph, %92, %86, %85, %82, %79
   store ptr %21, ptr %2, align 8
   store i16 %23, ptr %22, align 8
   br label %99
 
 99:                                               ; preds = %18, %.loopexit
-  %.0 = phi i32 [ %.052, %.loopexit ], [ 0, %18 ]
+  %.0 = phi i32 [ %.053, %.loopexit ], [ 0, %18 ]
   ret i32 %.0
 }
 

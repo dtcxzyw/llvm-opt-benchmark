@@ -3583,14 +3583,14 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner4park17h
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = cmpxchg ptr %14, i64 3, i64 0 seq_cst seq_cst, align 8
   %16 = extractvalue { i64, i1 } %15, 1
-  %.sink38.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink38.sroa.gep39 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink38.sroa.gep41 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink38.sroa.gep42 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sink38.sroa.gep44 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink38.sroa.gep45 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink38.sroa.gep47 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink38.sroa.gep48 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink33.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink33.sroa.gep34 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink33.sroa.gep36 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink33.sroa.gep37 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink33.sroa.gep39 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink33.sroa.gep40 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink33.sroa.gep42 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink33.sroa.gep43 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %16, label %"_ZN4core3ptr91drop_in_place$LT$tokio..util..try_lock..LockGuard$LT$tokio..runtime..driver..Driver$GT$$GT$17h52e47e2267de0a8bE.exit14", label %17
 
 17:                                               ; preds = %2
@@ -3600,8 +3600,8 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner4park17h
   %21 = tail call { i8, i8 } @_ZN4core4sync6atomic23atomic_compare_exchange17h5ccce900420b99d6E.llvm.7600499188078001995(ptr noundef nonnull align 1 %20, i8 noundef 0, i8 noundef 1, i8 noundef 4, i8 noundef 4)
   %.fca.0.extract.i.i = extractvalue { i8, i8 } %21, 0
   %22 = and i8 %.fca.0.extract.i.i, 1
-  %.not.i.not = icmp eq i8 %22, 0
-  br i1 %.not.i.not, label %23, label %39
+  %.not.i = icmp eq i8 %22, 0
+  br i1 %.not.i, label %23, label %39
 
 "_ZN4core3ptr91drop_in_place$LT$tokio..util..try_lock..LockGuard$LT$tokio..runtime..driver..Driver$GT$$GT$17h52e47e2267de0a8bE.exit14": ; preds = %_ZN5tokio7runtime9scheduler12multi_thread4park5Inner11park_driver17h6a3fb185863637faE.exit, %_ZN5tokio7runtime9scheduler12multi_thread4park5Inner12park_condvar17h024205bff8f38d13E.exit, %2
   ret void
@@ -3653,18 +3653,18 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner4park17h
   br label %.invoke
 
 .invoke:                                          ; preds = %32, %36
-  %.sink38.sroa.phi = phi ptr [ %.sink38.sroa.gep, %32 ], [ %.sink38.sroa.gep39, %36 ]
-  %.sink38.sroa.phi40 = phi ptr [ %.sink38.sroa.gep41, %32 ], [ %.sink38.sroa.gep42, %36 ]
-  %.sink38.sroa.phi43 = phi ptr [ %.sink38.sroa.gep44, %32 ], [ %.sink38.sroa.gep45, %36 ]
-  %.sink38.sroa.phi46 = phi ptr [ %.sink38.sroa.gep47, %32 ], [ %.sink38.sroa.gep48, %36 ]
-  %.sink38 = phi ptr [ %9, %32 ], [ %12, %36 ]
+  %.sink33.sroa.phi = phi ptr [ %.sink33.sroa.gep, %32 ], [ %.sink33.sroa.gep34, %36 ]
+  %.sink33.sroa.phi35 = phi ptr [ %.sink33.sroa.gep36, %32 ], [ %.sink33.sroa.gep37, %36 ]
+  %.sink33.sroa.phi38 = phi ptr [ %.sink33.sroa.gep39, %32 ], [ %.sink33.sroa.gep40, %36 ]
+  %.sink33.sroa.phi41 = phi ptr [ %.sink33.sroa.gep42, %32 ], [ %.sink33.sroa.gep43, %36 ]
+  %.sink33 = phi ptr [ %9, %32 ], [ %12, %36 ]
   %.sink = phi ptr [ %8, %32 ], [ %11, %36 ]
   %38 = phi ptr [ @anon.ba4985a049956e0df762c1765696dc31.72, %32 ], [ @anon.ba4985a049956e0df762c1765696dc31.73, %36 ]
-  store i64 1, ptr %.sink38.sroa.phi, align 8, !noalias !525
-  store ptr null, ptr %.sink38.sroa.phi40, align 8, !noalias !525
-  store ptr %.sink, ptr %.sink38.sroa.phi43, align 8, !noalias !525
-  store i64 1, ptr %.sink38.sroa.phi46, align 8, !noalias !525
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink38, ptr noalias noundef readonly align 8 dereferenceable(24) %38) #27
+  store i64 1, ptr %.sink33.sroa.phi, align 8, !noalias !525
+  store ptr null, ptr %.sink33.sroa.phi35, align 8, !noalias !525
+  store ptr %.sink, ptr %.sink33.sroa.phi38, align 8, !noalias !525
+  store i64 1, ptr %.sink33.sroa.phi41, align 8, !noalias !525
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink33, ptr noalias noundef readonly align 8 dereferenceable(24) %38) #27
           to label %.cont unwind label %78
 
 .cont:                                            ; preds = %.invoke
@@ -3793,9 +3793,9 @@ _ZN5tokio7runtime9scheduler12multi_thread4park5Inner11park_driver17h6a3fb1858636
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #29
   unreachable
 
-"_ZN4core3ptr91drop_in_place$LT$tokio..util..try_lock..LockGuard$LT$tokio..runtime..driver..Driver$GT$$GT$17h52e47e2267de0a8bE.exit16": ; preds = %53, %78, %74
-  %.pn27 = phi { ptr, i32 } [ %75, %74 ], [ %79, %78 ], [ %54, %53 ]
-  resume { ptr, i32 } %.pn27
+"_ZN4core3ptr91drop_in_place$LT$tokio..util..try_lock..LockGuard$LT$tokio..runtime..driver..Driver$GT$$GT$17h52e47e2267de0a8bE.exit16": ; preds = %53, %74, %78
+  %.pn26 = phi { ptr, i32 } [ %79, %78 ], [ %75, %74 ], [ %54, %53 ]
+  resume { ptr, i32 } %.pn26
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4684,12 +4684,12 @@ default.unreachable:                              ; preds = %66
 69:                                               ; preds = %66
   %.mask = and i64 %67, -4294967296
   %switch = icmp eq i64 %.mask, 150323855360
-  br i1 %switch, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread29, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread
+  br i1 %switch, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread27, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread
 
 70:                                               ; preds = %66
-  %.mask31 = and i64 %67, -4294967296
-  %cond = icmp eq i64 %.mask31, 17179869184
-  br i1 %cond, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread29, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread
+  %.mask29 = and i64 %67, -4294967296
+  %cond = icmp eq i64 %.mask29, 17179869184
+  br i1 %cond, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread27, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread
 
 71:                                               ; preds = %66
   %72 = getelementptr i8, ptr %64, i64 -1
@@ -4702,21 +4702,21 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit: ; preds = %66, %71
   %74 = getelementptr i8, ptr %64, i64 %.sink
   %.0.i = load i8, ptr %74, align 8, !range !6, !noundef !5
   %75 = icmp eq i8 %.0.i, 35
-  br i1 %75, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread29, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread
+  br i1 %75, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread27, label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread
 
-_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread29: ; preds = %69, %70, %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
+_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread27: ; preds = %69, %70, %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !702
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h235ed700ede80697E.llvm.700930863383756518(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %64), !noalias !702
   %76 = load i8, ptr %5, align 8, !range !14, !alias.scope !709, !noalias !702, !noundef !5
   %switch.not.i.i.i.i = icmp eq i8 %76, 3
   br i1 %switch.not.i.i.i.i, label %77, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit"
 
-77:                                               ; preds = %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread29
+77:                                               ; preds = %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread27
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h07ef12dd56401839E.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(8) %78), !noalias !702
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit": ; preds = %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread29, %77
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE.exit": ; preds = %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread27, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !702
   br label %.thread
 
@@ -9007,8 +9007,8 @@ _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit: ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load ptr, ptr %31, align 8
   store ptr null, ptr %29, align 64
-  %.not18 = icmp eq ptr %30, null
-  br i1 %.not18, label %33, label %35
+  %.not22 = icmp eq ptr %30, null
+  br i1 %.not22, label %33, label %35
 
 33:                                               ; preds = %28, %_ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit29, %26
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9152,9 +9152,9 @@ _ZN5tokio4util9wake_list8WakeList8wake_all17hf305bd504b00dfdfE.exit: ; preds = %
   %88 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %89 = load ptr, ptr %88, align 8
   store ptr null, ptr %86, align 8
-  %.not20 = icmp eq ptr %87, null
+  %.not23 = icmp eq ptr %87, null
   %.pre = load i64, ptr %5, align 8
-  br i1 %.not20, label %108, label %100
+  br i1 %.not23, label %108, label %100
 
 "_ZN4core3ptr111drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..io..scheduled_io..Waiters$GT$$GT$17h29516fd59305b170E.exit45": ; preds = %.noexc43, %84
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1595)

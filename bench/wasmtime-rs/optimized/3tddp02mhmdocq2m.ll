@@ -994,8 +994,8 @@ define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr w
 181:                                              ; preds = %178
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.078.0.copyload, ptr %182, align 8
-  %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.235.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.479, i64 64, i1 false)
+  %.sroa.236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.236.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.479, i64 64, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr50drop_in_place$LT$cranelift_isle..sema..TypeEnv$GT$17h15076797d719f66eE"(ptr nonnull align 8 %70)
   br label %183
@@ -1624,8 +1624,8 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
-  %.not43.not = icmp eq i64 %.sroa.0.0, -9223372036854775807
-  br i1 %.not43.not, label %.backedge93.backedge, label %344
+  %.not44 = icmp eq i64 %.sroa.0.0, -9223372036854775807
+  br i1 %.not44, label %.backedge93.backedge, label %344
 
 344:                                              ; preds = %.noexc57
   store i64 %.sroa.0.0, ptr %51, align 8

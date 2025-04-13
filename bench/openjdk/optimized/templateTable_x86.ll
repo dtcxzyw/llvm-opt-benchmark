@@ -9941,27 +9941,27 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit: ; preds = %
   %42 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %43 = load i8, ptr @PrintInterpreter, align 1
   %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit80
+  br i1 %44, label %45, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit81
 
 45:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2133, ptr noundef %42) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit80
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit81
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit80: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit, %45
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit81: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit, %45
   call void @_ZN25InterpreterMacroAssembler20profile_taken_branchE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(48) %42, i32 0, i32 3) #8
   %46 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %47 = load i8, ptr @PrintInterpreter, align 1
   %48 = trunc i8 %47 to i1
   br i1 %1, label %49, label %59
 
-49:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit80
-  br i1 %48, label %50, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit81
+49:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit81
+  br i1 %48, label %50, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit82
 
 50:                                               ; preds = %49
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2143, ptr noundef %46) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit81
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit82
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit81: ; preds = %49, %50
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit82: ; preds = %49, %50
   store i32 13, ptr %6, align 8, !alias.scope !276
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 -1, ptr %51, align 4, !alias.scope !276
@@ -9982,14 +9982,14 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit81: ; preds =
   call void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %46, i32 2, ptr noundef nonnull %6) #8
   br label %70
 
-59:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit80
-  br i1 %48, label %60, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit82
+59:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit81
+  br i1 %48, label %60, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit83
 
 60:                                               ; preds = %59
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2145, ptr noundef %46) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit82
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit83
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit82: ; preds = %59, %60
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit83: ; preds = %59, %60
   store i32 13, ptr %7, align 8, !alias.scope !279
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 -1, ptr %61, align 4, !alias.scope !279
@@ -10010,59 +10010,59 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit82: ; preds =
   %69 = call noundef i32 @_ZN14MacroAssembler17load_signed_shortE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %46, i32 2, ptr noundef nonnull %7) #8
   br label %70
 
-70:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit82, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit81
+70:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit83, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit82
   %71 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %72 = load i8, ptr @PrintInterpreter, align 1
   %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit83
+  br i1 %73, label %74, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit84
 
 74:                                               ; preds = %70
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2147, ptr noundef %71) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit83
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit84
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit83: ; preds = %70, %74
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit84: ; preds = %70, %74
   call void @_ZN9Assembler6bswaplE8Register(ptr noundef nonnull align 8 dereferenceable(40) %71, i32 2) #8
   br i1 %1, label %80, label %75
 
-75:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit83
+75:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit84
   %76 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %77 = load i8, ptr @PrintInterpreter, align 1
   %78 = trunc i8 %77 to i1
-  br i1 %78, label %79, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit84
+  br i1 %78, label %79, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit85
 
 79:                                               ; preds = %75
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2150, ptr noundef %76) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit84
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit85
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit84: ; preds = %75, %79
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit85: ; preds = %75, %79
   call void @_ZN9Assembler4sarlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %76, i32 2, i32 noundef 16) #8
   br label %80
 
-80:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit84, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit83
+80:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit85, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit84
   %81 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %82 = load i8, ptr @PrintInterpreter, align 1
   %83 = trunc i8 %82 to i1
-  br i1 %83, label %84, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit85
+  br i1 %83, label %84, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit86
 
 84:                                               ; preds = %80
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2152, ptr noundef %81) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit85
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit86
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit85: ; preds = %80, %84
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit86: ; preds = %80, %84
   call void @_ZN9Assembler6movslqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %81, i32 2, i32 2) #8
   %85 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %86 = load i8, ptr @PrintInterpreter, align 1
   %87 = trunc i8 %86 to i1
   br i1 %0, label %88, label %137
 
-88:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit85
-  br i1 %87, label %89, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit86
+88:                                               ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit86
+  br i1 %87, label %89, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87
 
 89:                                               ; preds = %88
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2159, ptr noundef %85) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit86
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit86: ; preds = %88, %89
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87: ; preds = %88, %89
   store i32 13, ptr %8, align 8
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 2, ptr %90, align 4
@@ -10080,13 +10080,13 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit86: ; preds =
   %97 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %98 = load i8, ptr @PrintInterpreter, align 1
   %99 = trunc i8 %98 to i1
-  br i1 %99, label %100, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87
+  br i1 %99, label %100, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit88
 
-100:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit86
+100:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2162, ptr noundef %97) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit88
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit86, %100
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit88: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87, %100
   %101 = select i1 %1, i32 -51, i32 -53
   store i32 13, ptr %9, align 8, !alias.scope !282
   %102 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -10115,13 +10115,13 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87: ; preds =
   %112 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %113 = load i8, ptr @PrintInterpreter, align 1
   %114 = trunc i8 %113 to i1
-  br i1 %114, label %115, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit88
+  br i1 %114, label %115, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit89
 
-115:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87
+115:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit88
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2164, ptr noundef %112) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit88
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit89
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit88: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit87, %115
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit89: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit88, %115
   store i32 1, ptr %10, align 8
   %116 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 -1, ptr %116, align 4
@@ -10148,46 +10148,46 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit88: ; preds =
   %125 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %126 = load i8, ptr @PrintInterpreter, align 1
   %127 = trunc i8 %126 to i1
-  br i1 %127, label %128, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit89
+  br i1 %127, label %128, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit90
 
-128:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit88
+128:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit89
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2166, ptr noundef %125) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit89
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit90
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit89: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit88, %128
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit90: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit89, %128
   call void @_ZN14MacroAssembler6addptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %125, i32 13, i32 2) #8
   %129 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %130 = load i8, ptr @PrintInterpreter, align 1
   %131 = trunc i8 %130 to i1
-  br i1 %131, label %132, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit90
+  br i1 %131, label %132, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit91
 
-132:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit89
+132:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit90
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2168, ptr noundef %129) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit90
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit91
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit90: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit89, %132
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit91: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit90, %132
   call void @_ZN25InterpreterMacroAssembler6push_iE8Register(ptr noundef nonnull align 8 dereferenceable(48) %129, i32 0) #8
   %133 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %134 = load i8, ptr @PrintInterpreter, align 1
   %135 = trunc i8 %134 to i1
-  br i1 %135, label %136, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit91
+  br i1 %135, label %136, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit92
 
-136:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit90
+136:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit91
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2169, ptr noundef %133) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit91
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit92
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit91: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit90, %136
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit92: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit91, %136
   call void @_ZN25InterpreterMacroAssembler13dispatch_onlyE8TosStateb(ptr noundef nonnull align 8 dereferenceable(48) %133, i32 noundef 9, i1 noundef zeroext true) #8
-  br label %446
+  br label %445
 
-137:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit85
-  br i1 %87, label %138, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit92
+137:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit86
+  br i1 %87, label %138, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit93
 
 138:                                              ; preds = %137
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2176, ptr noundef %85) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit92
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit93
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit92: ; preds = %137, %138
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit93: ; preds = %137, %138
   call void @_ZN14MacroAssembler6addptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %85, i32 13, i32 2) #8
   store i32 -1, ptr %11, align 8
   %139 = getelementptr inbounds nuw i8, ptr %11, i64 20
@@ -10207,28 +10207,28 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit92: ; preds =
   %146 = trunc i8 %145 to i1
   br i1 %146, label %147, label %330
 
-147:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit92
+147:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit93
   %148 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %149 = load i8, ptr @PrintInterpreter, align 1
   %150 = trunc i8 %149 to i1
-  br i1 %150, label %151, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit93
+  br i1 %150, label %151, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit94
 
 151:                                              ; preds = %147
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2190, ptr noundef %148) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit93
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit94
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit93: ; preds = %147, %151
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit94: ; preds = %147, %151
   call void @_ZN9Assembler5testlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %148, i32 2, i32 2) #8
   %152 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %153 = load i8, ptr @PrintInterpreter, align 1
   %154 = trunc i8 %153 to i1
-  br i1 %154, label %155, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit94
+  br i1 %154, label %155, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit95
 
-155:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit93
+155:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit94
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2191, ptr noundef %152) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit94
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit95
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit94: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit93, %155
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit95: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit94, %155
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %152, i32 noundef 9, ptr noundef nonnull align 8 dereferenceable(33) %12, i1 noundef zeroext true) #8
   store i32 -1, ptr %13, align 8
   %156 = getelementptr inbounds nuw i8, ptr %13, i64 20
@@ -10240,13 +10240,13 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit94: ; preds =
   %159 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %160 = load i8, ptr @PrintInterpreter, align 1
   %161 = trunc i8 %160 to i1
-  br i1 %161, label %162, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit95
+  br i1 %161, label %162, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit96
 
-162:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit94
+162:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit95
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2195, ptr noundef %159) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit95
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit96
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit95: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit94, %162
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit96: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit95, %162
   store i32 1, ptr %14, align 8
   %163 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 -1, ptr %163, align 4
@@ -10268,90 +10268,90 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit95: ; preds =
   %171 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %172 = load i8, ptr @PrintInterpreter, align 1
   %173 = trunc i8 %172 to i1
-  br i1 %173, label %174, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit96
+  br i1 %173, label %174, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit97
 
-174:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit95
+174:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit96
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2196, ptr noundef %171) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit96
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit97
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit96: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit95, %174
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit97: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit96, %174
   call void @_ZN14MacroAssembler7testptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %171, i32 0, i32 0) #8
   %175 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %176 = load i8, ptr @PrintInterpreter, align 1
   %177 = trunc i8 %176 to i1
-  br i1 %177, label %178, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit97
+  br i1 %177, label %178, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit98
 
-178:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit96
+178:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit97
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2197, ptr noundef %175) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit97
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit98
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit97: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit96, %178
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit98: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit97, %178
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %175, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %13, i1 noundef zeroext true) #8
   %179 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %180 = load i8, ptr @PrintInterpreter, align 1
   %181 = trunc i8 %180 to i1
-  br i1 %181, label %182, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit98
+  br i1 %181, label %182, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit99
 
-182:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit97
+182:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit98
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2198, ptr noundef %179) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit98
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit99
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit98: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit97, %182
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit99: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit98, %182
   call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(48) %179, i32 2) #8
   %183 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %184 = load i8, ptr @PrintInterpreter, align 1
   %185 = trunc i8 %184 to i1
-  br i1 %185, label %186, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit99
+  br i1 %185, label %186, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit100
 
-186:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit98
+186:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit99
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2199, ptr noundef %183) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit99
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit100
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit99: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit98, %186
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit100: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit99, %186
   call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(48) %183, i32 1) #8
   %187 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %188 = load i8, ptr @PrintInterpreter, align 1
   %189 = trunc i8 %188 to i1
-  br i1 %189, label %190, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit100
+  br i1 %189, label %190, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit101
 
-190:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit99
+190:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit100
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2200, ptr noundef %187) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit100
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit101
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit100: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit99, %190
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit101: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit100, %190
   call void @_ZN14MacroAssembler7call_VME8RegisterPhS0_b(ptr noundef nonnull align 8 dereferenceable(40) %187, i32 -1, ptr noundef nonnull @_ZN18InterpreterRuntime21build_method_countersEP10JavaThreadP6Method, i32 1, i1 noundef zeroext true) #8
   %191 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %192 = load i8, ptr @PrintInterpreter, align 1
   %193 = trunc i8 %192 to i1
-  br i1 %193, label %194, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit101
+  br i1 %193, label %194, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit102
 
-194:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit100
+194:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit101
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2202, ptr noundef %191) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit101
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit102
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit101: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit100, %194
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit102: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit101, %194
   call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(48) %191, i32 1) #8
   %195 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %196 = load i8, ptr @PrintInterpreter, align 1
   %197 = trunc i8 %196 to i1
-  br i1 %197, label %198, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit102
+  br i1 %197, label %198, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit103
 
-198:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit101
+198:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit102
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2203, ptr noundef %195) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit102
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit103
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit102: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit101, %198
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit103: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit102, %198
   call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(48) %195, i32 2) #8
   %199 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %200 = load i8, ptr @PrintInterpreter, align 1
   %201 = trunc i8 %200 to i1
-  br i1 %201, label %202, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit103
+  br i1 %201, label %202, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit104
 
-202:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit102
+202:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit103
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2204, ptr noundef %199) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit103
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit104
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit103: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit102, %202
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit104: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit103, %202
   store i32 1, ptr %15, align 8
   %203 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 -1, ptr %203, align 4
@@ -10373,35 +10373,35 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit103: ; preds 
   %211 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %212 = load i8, ptr @PrintInterpreter, align 1
   %213 = trunc i8 %212 to i1
-  br i1 %213, label %214, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit104
+  br i1 %213, label %214, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit105
 
-214:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit103
+214:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit104
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2205, ptr noundef %211) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit104
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit105
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit104: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit103, %214
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit105: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit104, %214
   call void @_ZN14MacroAssembler7testptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %211, i32 0, i32 0) #8
   %215 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %216 = load i8, ptr @PrintInterpreter, align 1
   %217 = trunc i8 %216 to i1
-  br i1 %217, label %218, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit105
+  br i1 %217, label %218, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit106
 
-218:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit104
+218:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit105
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2206, ptr noundef %215) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit105
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit106
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit105: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit104, %218
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit106: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit105, %218
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %215, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %12, i1 noundef zeroext true) #8
   %219 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %220 = load i8, ptr @PrintInterpreter, align 1
   %221 = trunc i8 %220 to i1
-  br i1 %221, label %222, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit106
+  br i1 %221, label %222, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit107
 
-222:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit105
+222:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit106
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2207, ptr noundef %219) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit106
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit107
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit106: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit105, %222
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit107: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit106, %222
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %219, ptr noundef nonnull align 8 dereferenceable(33) %13) #8
   store i32 -1, ptr %16, align 8
   %223 = getelementptr inbounds nuw i8, ptr %16, i64 20
@@ -10414,17 +10414,17 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit106: ; preds 
   %227 = trunc i8 %226 to i1
   br i1 %227, label %228, label %283
 
-228:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit106
+228:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit107
   %229 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %230 = load i8, ptr @PrintInterpreter, align 1
   %231 = trunc i8 %230 to i1
-  br i1 %231, label %232, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit107
+  br i1 %231, label %232, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit108
 
 232:                                              ; preds = %228
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2212, ptr noundef %229) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit107
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit108
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit107: ; preds = %228, %232
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit108: ; preds = %228, %232
   store i32 1, ptr %17, align 8
   %233 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 -1, ptr %233, align 4
@@ -10446,24 +10446,24 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit107: ; preds 
   %241 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %242 = load i8, ptr @PrintInterpreter, align 1
   %243 = trunc i8 %242 to i1
-  br i1 %243, label %244, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit108
+  br i1 %243, label %244, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit109
 
-244:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit107
+244:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit108
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2213, ptr noundef %241) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit108
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit109
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit108: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit107, %244
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit109: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit108, %244
   call void @_ZN14MacroAssembler7testptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %241, i32 3, i32 3) #8
   %245 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %246 = load i8, ptr @PrintInterpreter, align 1
   %247 = trunc i8 %246 to i1
-  br i1 %247, label %248, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit109
+  br i1 %247, label %248, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit110
 
-248:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit108
+248:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit109
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2214, ptr noundef %245) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit109
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit110
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit109: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit108, %248
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit110: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit109, %248
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %245, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %16, ptr noundef nonnull @.str, i32 noundef 2214) #8
   store i32 3, ptr %18, align 8
   %249 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -10502,15 +10502,15 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit109: ; preds 
   %265 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %266 = load i8, ptr @PrintInterpreter, align 1
   %267 = trunc i8 %266 to i1
-  br i1 %267, label %268, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit110
+  br i1 %267, label %268, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit111
 
-268:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit109
+268:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit110
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2219, ptr noundef %265) #8
   %.pre = load ptr, ptr %254, align 8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit110
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit111
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit110: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit109, %268
-  %269 = phi ptr [ getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit109 ], [ %.pre, %268 ]
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit111: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit110, %268
+  %269 = phi ptr [ getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit110 ], [ %.pre, %268 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 21, i1 false)
   %270 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %271 = getelementptr inbounds nuw i8, ptr %269, i64 16
@@ -10529,38 +10529,38 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit110: ; preds 
   %279 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %280 = load i8, ptr @PrintInterpreter, align 1
   %281 = trunc i8 %280 to i1
-  br i1 %281, label %282, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit111
+  br i1 %281, label %282, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit112
 
-282:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit110
+282:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit111
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2221, ptr noundef %279) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit111
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit112
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit111: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit110, %282
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit112: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit111, %282
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %279, ptr noundef nonnull align 8 dereferenceable(33) %12, i1 noundef zeroext true) #8
   br label %283
 
-283:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit111, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit106
+283:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit112, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit107
   %284 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %285 = load i8, ptr @PrintInterpreter, align 1
   %286 = trunc i8 %285 to i1
-  br i1 %286, label %287, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit112
+  br i1 %286, label %287, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit113
 
 287:                                              ; preds = %283
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2223, ptr noundef %284) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit112
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit113
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit112: ; preds = %283, %287
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit113: ; preds = %283, %287
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %284, ptr noundef nonnull align 8 dereferenceable(33) %16) #8
   %288 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %289 = load i8, ptr @PrintInterpreter, align 1
   %290 = trunc i8 %289 to i1
-  br i1 %290, label %291, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit113
+  br i1 %290, label %291, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit114
 
-291:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit112
+291:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit113
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2225, ptr noundef %288) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit113
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit114
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit113: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit112, %291
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit114: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit113, %291
   store i32 1, ptr %22, align 8
   %292 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 -1, ptr %292, align 4
@@ -10599,15 +10599,15 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit113: ; preds 
   %308 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %309 = load i8, ptr @PrintInterpreter, align 1
   %310 = trunc i8 %309 to i1
-  br i1 %310, label %311, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit114
+  br i1 %310, label %311, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit115
 
-311:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit113
+311:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit114
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2227, ptr noundef %308) #8
-  %.pre135 = load ptr, ptr %305, align 8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit114
+  %.pre136 = load ptr, ptr %305, align 8
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit115
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit114: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit113, %311
-  %312 = phi ptr [ getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit113 ], [ %.pre135, %311 ]
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit115: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit114, %311
+  %312 = phi ptr [ getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit114 ], [ %.pre136, %311 ]
   store i32 1, ptr %24, align 8
   %313 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 -1, ptr %313, align 4
@@ -10637,27 +10637,27 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit114: ; preds 
   %326 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %327 = load i8, ptr @PrintInterpreter, align 1
   %328 = trunc i8 %327 to i1
-  br i1 %328, label %329, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit115
+  br i1 %328, label %329, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit116
 
-329:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit114
+329:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit115
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2229, ptr noundef %326) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit115
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit116
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit115: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit114, %329
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit116: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit115, %329
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %326, ptr noundef nonnull align 8 dereferenceable(33) %12) #8
   br label %330
 
-330:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit115, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit92
+330:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit116, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit93
   %331 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %332 = load i8, ptr @PrintInterpreter, align 1
   %333 = trunc i8 %332 to i1
-  br i1 %333, label %334, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit116
+  br i1 %333, label %334, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit117
 
 334:                                              ; preds = %330
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2233, ptr noundef %331) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit116
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit117
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit116: ; preds = %330, %334
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit117: ; preds = %330, %334
   store i32 13, ptr %26, align 8
   %335 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 -1, ptr %335, align 4
@@ -10679,266 +10679,264 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit116: ; preds 
   %344 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
   %345 = load i8, ptr @PrintInterpreter, align 1
   %346 = trunc i8 %345 to i1
-  br i1 %346, label %347, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit117
+  br i1 %346, label %347, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit118
 
-347:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit116
+347:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit117
   call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2239, ptr noundef %344) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit117
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit118
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit117: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit116, %347
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit118: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit117, %347
   call void @_ZN25InterpreterMacroAssembler13dispatch_onlyE8TosStateb(ptr noundef nonnull align 8 dereferenceable(48) %344, i32 noundef 9, i1 noundef zeroext true) #8
   %348 = load i8, ptr @UseLoopCounter, align 1
   %349 = trunc i8 %348 to i1
-  br i1 %349, label %350, label %446
+  %350 = load i8, ptr @UseOnStackReplacement, align 1
+  %351 = trunc i8 %350 to i1
+  %or.cond = select i1 %349, i1 %351, i1 false
+  br i1 %or.cond, label %352, label %445
 
-350:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit117
-  %351 = load i8, ptr @UseOnStackReplacement, align 1
-  %352 = trunc i8 %351 to i1
-  br i1 %352, label %353, label %446
+352:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit118
+  %353 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %354 = load i8, ptr @PrintInterpreter, align 1
+  %355 = trunc i8 %354 to i1
+  br i1 %355, label %356, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit119
 
-353:                                              ; preds = %350
-  %354 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %355 = load i8, ptr @PrintInterpreter, align 1
-  %356 = trunc i8 %355 to i1
-  br i1 %356, label %357, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit118
-
-357:                                              ; preds = %353
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2245, ptr noundef %354) #8
-  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit118
-
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit118: ; preds = %353, %357
-  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %354, ptr noundef nonnull align 8 dereferenceable(33) %11) #8
-  %358 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %359 = load i8, ptr @PrintInterpreter, align 1
-  %360 = trunc i8 %359 to i1
-  br i1 %360, label %361, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit119
-
-361:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit118
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2246, ptr noundef %358) #8
+356:                                              ; preds = %352
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2245, ptr noundef %353) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit119
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit119: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit118, %361
-  call void @_ZN9Assembler4negqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %358, i32 2) #8
-  %362 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %363 = load i8, ptr @PrintInterpreter, align 1
-  %364 = trunc i8 %363 to i1
-  br i1 %364, label %365, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit120
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit119: ; preds = %352, %356
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %353, ptr noundef nonnull align 8 dereferenceable(33) %11) #8
+  %357 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %358 = load i8, ptr @PrintInterpreter, align 1
+  %359 = trunc i8 %358 to i1
+  br i1 %359, label %360, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit120
 
-365:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit119
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2247, ptr noundef %362) #8
+360:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit119
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2246, ptr noundef %357) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit120
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit120: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit119, %365
-  call void @_ZN14MacroAssembler6addptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %362, i32 2, i32 13) #8
-  %366 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %367 = load i8, ptr @PrintInterpreter, align 1
-  %368 = trunc i8 %367 to i1
-  br i1 %368, label %369, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit121
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit120: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit119, %360
+  call void @_ZN9Assembler4negqE8Register(ptr noundef nonnull align 8 dereferenceable(40) %357, i32 2) #8
+  %361 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %362 = load i8, ptr @PrintInterpreter, align 1
+  %363 = trunc i8 %362 to i1
+  br i1 %363, label %364, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit121
 
-369:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit120
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2249, ptr noundef %366) #8
+364:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit120
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2247, ptr noundef %361) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit121
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit121: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit120, %369
-  call void @_ZN14MacroAssembler7call_VME8RegisterPhS0_b(ptr noundef nonnull align 8 dereferenceable(40) %366, i32 -1, ptr noundef nonnull @_ZN18InterpreterRuntime26frequency_counter_overflowEP10JavaThreadPh, i32 2, i1 noundef zeroext true) #8
-  %370 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %371 = load i8, ptr @PrintInterpreter, align 1
-  %372 = trunc i8 %371 to i1
-  br i1 %372, label %373, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit122
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit121: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit120, %364
+  call void @_ZN14MacroAssembler6addptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %361, i32 2, i32 13) #8
+  %365 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %366 = load i8, ptr @PrintInterpreter, align 1
+  %367 = trunc i8 %366 to i1
+  br i1 %367, label %368, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit122
 
-373:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit121
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2258, ptr noundef %370) #8
+368:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit121
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2249, ptr noundef %365) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit122
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit122: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit121, %373
-  call void @_ZN14MacroAssembler7testptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %370, i32 0, i32 0) #8
-  %374 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %375 = load i8, ptr @PrintInterpreter, align 1
-  %376 = trunc i8 %375 to i1
-  br i1 %376, label %377, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit123
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit122: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit121, %368
+  call void @_ZN14MacroAssembler7call_VME8RegisterPhS0_b(ptr noundef nonnull align 8 dereferenceable(40) %365, i32 -1, ptr noundef nonnull @_ZN18InterpreterRuntime26frequency_counter_overflowEP10JavaThreadPh, i32 2, i1 noundef zeroext true) #8
+  %369 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %370 = load i8, ptr @PrintInterpreter, align 1
+  %371 = trunc i8 %370 to i1
+  br i1 %371, label %372, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit123
 
-377:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit122
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2259, ptr noundef %374) #8
+372:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit122
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2258, ptr noundef %369) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit123
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit123: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit122, %377
-  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %374, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %12, i1 noundef zeroext true) #8
-  %378 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %379 = load i8, ptr @PrintInterpreter, align 1
-  %380 = trunc i8 %379 to i1
-  br i1 %380, label %381, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit124
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit123: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit122, %372
+  call void @_ZN14MacroAssembler7testptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %369, i32 0, i32 0) #8
+  %373 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %374 = load i8, ptr @PrintInterpreter, align 1
+  %375 = trunc i8 %374 to i1
+  br i1 %375, label %376, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit124
 
-381:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit123
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2261, ptr noundef %378) #8
+376:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit123
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2259, ptr noundef %373) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit124
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit124: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit123, %381
-  store i32 0, ptr %27, align 8
-  %382 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 -1, ptr %382, align 4
-  %383 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 -1, ptr %383, align 8
-  %384 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  store i32 -1, ptr %384, align 4
-  %385 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i32 211, ptr %385, align 8
-  %386 = getelementptr inbounds nuw i8, ptr %27, i64 20
-  store i8 0, ptr %386, align 4
-  %387 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %387, align 8
-  %388 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store ptr null, ptr %388, align 8
-  %389 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store i32 0, ptr %389, align 8
-  call void @_ZN9Assembler4cmpbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %378, ptr noundef nonnull %27, i32 noundef 0) #8
-  %390 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %391 = load i8, ptr @PrintInterpreter, align 1
-  %392 = trunc i8 %391 to i1
-  br i1 %392, label %393, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit125
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit124: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit123, %376
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %373, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %12, i1 noundef zeroext true) #8
+  %377 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %378 = load i8, ptr @PrintInterpreter, align 1
+  %379 = trunc i8 %378 to i1
+  br i1 %379, label %380, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit125
 
-393:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit124
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2262, ptr noundef %390) #8
+380:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit124
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2261, ptr noundef %377) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit125
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit125: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit124, %393
-  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %390, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %12, i1 noundef zeroext true) #8
-  %394 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %395 = load i8, ptr @PrintInterpreter, align 1
-  %396 = trunc i8 %395 to i1
-  br i1 %396, label %397, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit126
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit125: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit124, %380
+  store i32 0, ptr %27, align 8
+  %381 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  store i32 -1, ptr %381, align 4
+  %382 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i32 -1, ptr %382, align 8
+  %383 = getelementptr inbounds nuw i8, ptr %27, i64 12
+  store i32 -1, ptr %383, align 4
+  %384 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store i32 211, ptr %384, align 8
+  %385 = getelementptr inbounds nuw i8, ptr %27, i64 20
+  store i8 0, ptr %385, align 4
+  %386 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %386, align 8
+  %387 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store ptr null, ptr %387, align 8
+  %388 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  store i32 0, ptr %388, align 8
+  call void @_ZN9Assembler4cmpbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %377, ptr noundef nonnull %27, i32 noundef 0) #8
+  %389 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %390 = load i8, ptr @PrintInterpreter, align 1
+  %391 = trunc i8 %390 to i1
+  br i1 %391, label %392, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit126
 
-397:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit125
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2269, ptr noundef %394) #8
+392:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit125
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2262, ptr noundef %389) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit126
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit126: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit125, %397
-  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %394, i32 3, i32 0) #8
-  call void @_ZN13TemplateTable7call_VME8RegisterPh(i32 -1, ptr noundef nonnull @_ZN13SharedRuntime19OSR_migration_beginEP10JavaThread) #8
-  %398 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %399 = load i8, ptr @PrintInterpreter, align 1
-  %400 = trunc i8 %399 to i1
-  br i1 %400, label %401, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit127
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit126: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit125, %392
+  call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %389, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %12, i1 noundef zeroext true) #8
+  %393 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %394 = load i8, ptr @PrintInterpreter, align 1
+  %395 = trunc i8 %394 to i1
+  br i1 %395, label %396, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit127
 
-401:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit126
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2276, ptr noundef %398) #8
+396:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit126
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2269, ptr noundef %393) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit127
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit127: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit126, %401
-  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %398, i32 6, i32 0) #8
-  %402 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %403 = load i8, ptr @PrintInterpreter, align 1
-  %404 = trunc i8 %403 to i1
-  br i1 %404, label %405, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit128
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit127: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit126, %396
+  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %393, i32 3, i32 0) #8
+  call void @_ZN13TemplateTable7call_VME8RegisterPh(i32 -1, ptr noundef nonnull @_ZN13SharedRuntime19OSR_migration_beginEP10JavaThread) #8
+  %397 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %398 = load i8, ptr @PrintInterpreter, align 1
+  %399 = trunc i8 %398 to i1
+  br i1 %399, label %400, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit128
 
-405:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit127
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2286, ptr noundef %402) #8
+400:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit127
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2276, ptr noundef %397) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit128
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit128: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit127, %405
-  store i32 5, ptr %28, align 8
-  %406 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  store i32 -1, ptr %406, align 4
-  %407 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i32 -1, ptr %407, align 8
-  %408 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  store i32 -1, ptr %408, align 4
-  %409 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i32 -8, ptr %409, align 8
-  %410 = getelementptr inbounds nuw i8, ptr %28, i64 20
-  store i8 0, ptr %410, align 4
-  %411 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %411, align 8
-  %412 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr null, ptr %412, align 8
-  %413 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  store i32 0, ptr %413, align 8
-  call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %402, i32 2, ptr noundef nonnull %28) #8
-  %414 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %415 = load i8, ptr @PrintInterpreter, align 1
-  %416 = trunc i8 %415 to i1
-  br i1 %416, label %417, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit129
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit128: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit127, %400
+  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %397, i32 6, i32 0) #8
+  %401 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %402 = load i8, ptr @PrintInterpreter, align 1
+  %403 = trunc i8 %402 to i1
+  br i1 %403, label %404, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit129
 
-417:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit128
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2287, ptr noundef %414) #8
+404:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit128
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2286, ptr noundef %401) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit129
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit129: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit128, %417
-  call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %414) #8
-  %418 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %419 = load i8, ptr @PrintInterpreter, align 1
-  %420 = trunc i8 %419 to i1
-  br i1 %420, label %421, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit130
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit129: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit128, %404
+  store i32 5, ptr %28, align 8
+  %405 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  store i32 -1, ptr %405, align 4
+  %406 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i32 -1, ptr %406, align 8
+  %407 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  store i32 -1, ptr %407, align 4
+  %408 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store i32 -8, ptr %408, align 8
+  %409 = getelementptr inbounds nuw i8, ptr %28, i64 20
+  store i8 0, ptr %409, align 4
+  %410 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %410, align 8
+  %411 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store ptr null, ptr %411, align 8
+  %412 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store i32 0, ptr %412, align 8
+  call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %401, i32 2, ptr noundef nonnull %28) #8
+  %413 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %414 = load i8, ptr @PrintInterpreter, align 1
+  %415 = trunc i8 %414 to i1
+  br i1 %415, label %416, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit130
 
-421:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit129
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2288, ptr noundef %418) #8
+416:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit129
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2287, ptr noundef %413) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit130
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit130: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit129, %421
-  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(48) %418, i32 1) #8
-  %422 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %423 = load i8, ptr @PrintInterpreter, align 1
-  %424 = trunc i8 %423 to i1
-  br i1 %424, label %425, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit131
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit130: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit129, %416
+  call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %413) #8
+  %417 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %418 = load i8, ptr @PrintInterpreter, align 1
+  %419 = trunc i8 %418 to i1
+  br i1 %419, label %420, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit131
 
-425:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit130
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2289, ptr noundef %422) #8
+420:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit130
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2288, ptr noundef %417) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit131
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit131: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit130, %425
-  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %422, i32 4, i32 2) #8
-  %426 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %427 = load i8, ptr @PrintInterpreter, align 1
-  %428 = trunc i8 %427 to i1
-  br i1 %428, label %429, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit132
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit131: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit130, %420
+  call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(48) %417, i32 1) #8
+  %421 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %422 = load i8, ptr @PrintInterpreter, align 1
+  %423 = trunc i8 %422 to i1
+  br i1 %423, label %424, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit132
 
-429:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit131
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2291, ptr noundef %426) #8
+424:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit131
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2289, ptr noundef %421) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit132
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit132: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit131, %429
-  call void @_ZN14MacroAssembler6andptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %426, i32 4, i32 noundef -16) #8
-  %430 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %431 = load i8, ptr @PrintInterpreter, align 1
-  %432 = trunc i8 %431 to i1
-  br i1 %432, label %433, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit133
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit132: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit131, %424
+  call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %421, i32 4, i32 2) #8
+  %425 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %426 = load i8, ptr @PrintInterpreter, align 1
+  %427 = trunc i8 %426 to i1
+  br i1 %427, label %428, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit133
 
-433:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit132
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2297, ptr noundef %430) #8
+428:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit132
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2291, ptr noundef %425) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit133
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit133: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit132, %433
-  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(48) %430, i32 1) #8
-  %434 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
-  %435 = load i8, ptr @PrintInterpreter, align 1
-  %436 = trunc i8 %435 to i1
-  br i1 %436, label %437, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit134
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit133: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit132, %428
+  call void @_ZN14MacroAssembler6andptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %425, i32 4, i32 noundef -16) #8
+  %429 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %430 = load i8, ptr @PrintInterpreter, align 1
+  %431 = trunc i8 %430 to i1
+  br i1 %431, label %432, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit134
 
-437:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit133
-  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2300, ptr noundef %434) #8
+432:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit133
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2297, ptr noundef %429) #8
   br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit134
 
-_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit134: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit133, %437
-  store i32 3, ptr %29, align 8
-  %438 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i32 -1, ptr %438, align 4
-  %439 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i32 -1, ptr %439, align 8
-  %440 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  store i32 -1, ptr %440, align 4
-  %441 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i32 136, ptr %441, align 8
-  %442 = getelementptr inbounds nuw i8, ptr %29, i64 20
-  store i8 0, ptr %442, align 4
-  %443 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %443, align 8
-  %444 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  store ptr null, ptr %444, align 8
-  %445 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  store i32 0, ptr %445, align 8
-  call void @_ZN9Assembler3jmpE7Address(ptr noundef nonnull align 8 dereferenceable(40) %434, ptr noundef nonnull %29) #8
-  br label %446
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit134: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit133, %432
+  call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(48) %429, i32 1) #8
+  %433 = load ptr, ptr @_ZN13TemplateTable5_masmE, align 8
+  %434 = load i8, ptr @PrintInterpreter, align 1
+  %435 = trunc i8 %434 to i1
+  br i1 %435, label %436, label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit135
 
-446:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit117, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit134, %350, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit91
+436:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit134
+  call void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef nonnull @.str, i32 noundef 2300, ptr noundef %433) #8
+  br label %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit135
+
+_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit135: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit134, %436
+  store i32 3, ptr %29, align 8
+  %437 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store i32 -1, ptr %437, align 4
+  %438 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i32 -1, ptr %438, align 8
+  %439 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  store i32 -1, ptr %439, align 4
+  %440 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store i32 136, ptr %440, align 8
+  %441 = getelementptr inbounds nuw i8, ptr %29, i64 20
+  store i8 0, ptr %441, align 4
+  %442 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %442, align 8
+  %443 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  store ptr null, ptr %443, align 8
+  %444 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  store i32 0, ptr %444, align 8
+  call void @_ZN9Assembler3jmpE7Address(ptr noundef nonnull align 8 dereferenceable(40) %433, ptr noundef nonnull %29) #8
+  br label %445
+
+445:                                              ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit118, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit135, %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit92
   ret void
 }
 

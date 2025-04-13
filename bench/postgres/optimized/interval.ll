@@ -696,10 +696,10 @@ define void @EncodeInterval(ptr noundef readonly captures(none) %0, i32 noundef 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %0, align 8
-  switch i32 %2, label %193 [
+  switch i32 %2, label %204 [
     i32 2, label %16
-    i32 3, label %83
-    i32 0, label %134
+    i32 3, label %94
+    i32 0, label %145
   ]
 
 16:                                               ; preds = %4
@@ -727,7 +727,7 @@ define void @EncodeInterval(ptr noundef readonly captures(none) %0, i32 noundef 
   %29 = icmp sgt i32 %15, 0
   %or.cond19 = select i1 %or.cond17, i1 true, i1 %29
   %30 = icmp sgt i32 %1, 0
-  %spec.select259 = or i1 %30, %or.cond19
+  %spec.select264 = or i1 %30, %or.cond19
   %31 = icmp ne i32 %6, 0
   %32 = icmp ne i32 %8, 0
   %33 = select i1 %31, i1 true, i1 %32
@@ -737,553 +737,560 @@ define void @EncodeInterval(ptr noundef readonly captures(none) %0, i32 noundef 
   %36 = icmp ne i32 %14, 0
   %or.cond23 = select i1 %or.cond21, i1 true, i1 %36
   %37 = icmp ne i32 %22, 0
-  %spec.select256 = select i1 %or.cond23, i1 true, i1 %37
-  %38 = and i1 %33, %spec.select256
-  br i1 %spec.select, label %39, label %49
+  %spec.select262 = select i1 %or.cond23, i1 true, i1 %37
+  %or.cond27 = and i1 %spec.select, %spec.select264
+  %38 = and i1 %33, %spec.select262
+  %39 = select i1 %or.cond27, i1 true, i1 %38
+  %not.spec.select = xor i1 %spec.select, true
+  %40 = select i1 %not.spec.select, i1 true, i1 %39
+  br i1 %40, label %50, label %41
 
-39:                                               ; preds = %16
-  %40 = select i1 %spec.select259, i1 true, i1 %38
-  br i1 %40, label %.thread.thread382, label %.thread.thread
-
-.thread.thread:                                   ; preds = %39
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 1
+41:                                               ; preds = %16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 45, ptr %3, align 1
-  %42 = sub i32 0, %6
-  %43 = sub i32 0, %8
-  %44 = sub i32 0, %10
-  %45 = sub i32 0, %12
-  %46 = sub i32 0, %14
-  %47 = sub i32 0, %15
-  %48 = sub i32 0, %1
-  br label %71
+  %43 = sub i32 0, %6
+  %44 = sub i32 0, %8
+  %45 = sub i32 0, %10
+  %46 = sub i32 0, %12
+  %47 = sub i32 0, %14
+  %48 = sub i32 0, %15
+  %49 = sub i32 0, %1
+  br label %50
 
-49:                                               ; preds = %16
-  br i1 %spec.select259, label %.thread, label %50
+50:                                               ; preds = %41, %16
+  %.0258 = phi i32 [ %48, %41 ], [ %15, %16 ]
+  %.0257 = phi i32 [ %47, %41 ], [ %14, %16 ]
+  %.0256 = phi i32 [ %46, %41 ], [ %12, %16 ]
+  %.0255 = phi i32 [ %45, %41 ], [ %10, %16 ]
+  %.0254 = phi i32 [ %44, %41 ], [ %8, %16 ]
+  %.0253 = phi i32 [ %43, %41 ], [ %6, %16 ]
+  %.0252 = phi ptr [ %42, %41 ], [ %3, %16 ]
+  %.0 = phi i32 [ %49, %41 ], [ %1, %16 ]
+  %or.cond31 = or i1 %spec.select, %spec.select264
+  br i1 %or.cond31, label %53, label %51
 
-50:                                               ; preds = %49
-  %51 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %3, ptr noundef nonnull @.str) #13
+51:                                               ; preds = %50
+  %52 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0252, ptr noundef nonnull @.str) #13
   br label %AppendSeconds.exit
 
-.thread:                                          ; preds = %49
-  br i1 %38, label %.thread.thread382, label %71
+53:                                               ; preds = %50
+  br i1 %39, label %54, label %82
 
-.thread.thread382:                                ; preds = %39, %.thread
-  %or.cond27 = select i1 %20, i1 true, i1 %21
-  %52 = select i1 %or.cond27, i1 true, i1 %23
-  %53 = select i1 %52, i32 45, i32 43
-  %54 = select i1 %or.cond, i32 45, i32 43
-  %55 = tail call i32 @llvm.abs.i32(i32 %6, i1 false)
-  %56 = tail call i32 @llvm.abs.i32(i32 %8, i1 false)
-  %57 = select i1 %19, i32 45, i32 43
-  %58 = tail call i32 @llvm.abs.i32(i32 %10, i1 false)
-  %59 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
-  %60 = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
-  %61 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef %54, i32 noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef %58, i32 noundef %53, i32 noundef %59, i32 noundef %60) #13
-  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %62
-  %64 = icmp eq i32 %1, 0
-  %65 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
-  br i1 %64, label %66, label %68
+54:                                               ; preds = %53
+  %55 = icmp slt i32 %.0253, 0
+  %56 = icmp slt i32 %.0254, 0
+  %57 = select i1 %55, i1 true, i1 %56
+  %58 = icmp slt i32 %.0255, 0
+  %59 = icmp slt i32 %.0256, 0
+  %60 = icmp slt i32 %.0257, 0
+  %or.cond33 = select i1 %59, i1 true, i1 %60
+  %61 = or i32 %.0, %.0258
+  %62 = icmp slt i32 %61, 0
+  %63 = select i1 %or.cond33, i1 true, i1 %62
+  %64 = select i1 %63, i32 45, i32 43
+  %65 = select i1 %57, i32 45, i32 43
+  %66 = tail call i32 @llvm.abs.i32(i32 %.0253, i1 false)
+  %67 = tail call i32 @llvm.abs.i32(i32 %.0254, i1 false)
+  %68 = select i1 %58, i32 45, i32 43
+  %69 = tail call i32 @llvm.abs.i32(i32 %.0255, i1 false)
+  %70 = tail call i32 @llvm.abs.i32(i32 %.0256, i1 false)
+  %71 = tail call i32 @llvm.abs.i32(i32 %.0257, i1 false)
+  %72 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0252, ptr noundef nonnull @.str.1, i32 noundef %65, i32 noundef %66, i32 noundef %67, i32 noundef %68, i32 noundef %69, i32 noundef %64, i32 noundef %70, i32 noundef %71) #13
+  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0252) #14
+  %74 = getelementptr inbounds nuw i8, ptr %.0252, i64 %73
+  %75 = icmp eq i32 %.0, 0
+  %76 = tail call i32 @llvm.abs.i32(i32 %.0258, i1 false)
+  br i1 %75, label %77, label %79
 
-66:                                               ; preds = %.thread.thread382
-  %67 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %63, ptr noundef nonnull @.str.21, i32 noundef %65) #13
+77:                                               ; preds = %54
+  %78 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %74, ptr noundef nonnull @.str.21, i32 noundef %76) #13
   br label %AppendSeconds.exit
 
-68:                                               ; preds = %.thread.thread382
-  %69 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %70 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %63, ptr noundef nonnull @.str.23, i32 noundef %65, i32 noundef 6, i32 noundef %69) #13
-  tail call void @TrimTrailingZeros(ptr noundef nonnull %63) #13
+79:                                               ; preds = %54
+  %80 = tail call i32 @llvm.abs.i32(i32 %.0, i1 false)
+  %81 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %74, ptr noundef nonnull @.str.23, i32 noundef %76, i32 noundef 6, i32 noundef %80) #13
+  tail call void @TrimTrailingZeros(ptr noundef nonnull %74) #13
   br label %AppendSeconds.exit
 
-71:                                               ; preds = %.thread.thread, %.thread
-  %.0252348381 = phi i32 [ %47, %.thread.thread ], [ %15, %.thread ]
-  %.0251349380 = phi i32 [ %46, %.thread.thread ], [ %14, %.thread ]
-  %.0250350379 = phi i32 [ %45, %.thread.thread ], [ %12, %.thread ]
-  %.0249351378 = phi i32 [ %44, %.thread.thread ], [ %10, %.thread ]
-  %.0248352377 = phi i32 [ %43, %.thread.thread ], [ %8, %.thread ]
-  %.0247353376 = phi i32 [ %42, %.thread.thread ], [ %6, %.thread ]
-  %.0246354375 = phi ptr [ %41, %.thread.thread ], [ %3, %.thread ]
-  %.0355374 = phi i32 [ %48, %.thread.thread ], [ %1, %.thread ]
-  br i1 %33, label %72, label %74
+82:                                               ; preds = %53
+  br i1 %33, label %83, label %85
 
-72:                                               ; preds = %71
-  %73 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.2, i32 noundef %.0247353376, i32 noundef %.0248352377) #13
+83:                                               ; preds = %82
+  %84 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0252, ptr noundef nonnull @.str.2, i32 noundef %.0253, i32 noundef %.0254) #13
   br label %AppendSeconds.exit
 
-74:                                               ; preds = %71
-  br i1 %34, label %75, label %79
+85:                                               ; preds = %82
+  br i1 %34, label %86, label %90
 
-75:                                               ; preds = %74
-  %76 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.3, i32 noundef %.0249351378, i32 noundef %.0250350379, i32 noundef %.0251349380) #13
-  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0246354375) #14
-  %78 = getelementptr inbounds nuw i8, ptr %.0246354375, i64 %77
-  tail call fastcc void @AppendSeconds(ptr noundef nonnull %78, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
+86:                                               ; preds = %85
+  %87 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0252, ptr noundef nonnull @.str.3, i32 noundef %.0255, i32 noundef %.0256, i32 noundef %.0257) #13
+  %88 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0252) #14
+  %89 = getelementptr inbounds nuw i8, ptr %.0252, i64 %88
+  tail call fastcc void @AppendSeconds(ptr noundef nonnull %89, i32 noundef %.0258, i32 noundef %.0, i1 noundef zeroext true)
   br label %AppendSeconds.exit
 
-79:                                               ; preds = %74
-  %80 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.4, i32 noundef %.0250350379, i32 noundef %.0251349380) #13
-  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0246354375) #14
-  %82 = getelementptr inbounds nuw i8, ptr %.0246354375, i64 %81
-  tail call fastcc void @AppendSeconds(ptr noundef nonnull %82, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
+90:                                               ; preds = %85
+  %91 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0252, ptr noundef nonnull @.str.4, i32 noundef %.0256, i32 noundef %.0257) #13
+  %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0252) #14
+  %93 = getelementptr inbounds nuw i8, ptr %.0252, i64 %92
+  tail call fastcc void @AppendSeconds(ptr noundef nonnull %93, i32 noundef %.0258, i32 noundef %.0, i1 noundef zeroext true)
   br label %AppendSeconds.exit
 
-83:                                               ; preds = %4
-  %84 = icmp eq i32 %6, 0
-  %85 = icmp eq i32 %8, 0
-  %or.cond31 = select i1 %84, i1 %85, i1 false
-  %86 = icmp eq i32 %10, 0
-  %or.cond33 = select i1 %or.cond31, i1 %86, i1 false
-  %87 = icmp eq i32 %12, 0
-  %or.cond35 = select i1 %or.cond33, i1 %87, i1 false
-  %88 = icmp eq i32 %14, 0
-  %or.cond37 = select i1 %or.cond35, i1 %88, i1 false
-  %89 = or i32 %15, %1
-  %90 = icmp eq i32 %89, 0
-  %or.cond41 = select i1 %or.cond37, i1 %90, i1 false
-  br i1 %or.cond41, label %91, label %93
+94:                                               ; preds = %4
+  %95 = icmp eq i32 %6, 0
+  %96 = icmp eq i32 %8, 0
+  %or.cond37 = select i1 %95, i1 %96, i1 false
+  %97 = icmp eq i32 %10, 0
+  %or.cond39 = select i1 %or.cond37, i1 %97, i1 false
+  %98 = icmp eq i32 %12, 0
+  %or.cond41 = select i1 %or.cond39, i1 %98, i1 false
+  %99 = icmp eq i32 %14, 0
+  %or.cond43 = select i1 %or.cond41, i1 %99, i1 false
+  %100 = or i32 %15, %1
+  %101 = icmp eq i32 %100, 0
+  %or.cond47 = select i1 %or.cond43, i1 %101, i1 false
+  br i1 %or.cond47, label %102, label %104
 
-91:                                               ; preds = %83
-  %92 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %3, ptr noundef nonnull @.str.5) #13
+102:                                              ; preds = %94
+  %103 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %3, ptr noundef nonnull @.str.5) #13
   br label %AppendSeconds.exit
 
-93:                                               ; preds = %83
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 1
+104:                                              ; preds = %94
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 80, ptr %3, align 1
-  br i1 %84, label %AddISO8601IntPart.exit, label %95
+  br i1 %95, label %AddISO8601IntPart.exit, label %106
 
-95:                                               ; preds = %93
-  %96 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %94, ptr noundef nonnull @.str.25, i32 noundef %6, i32 noundef 89) #13
-  %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #14
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 %97
+106:                                              ; preds = %104
+  %107 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %105, ptr noundef nonnull @.str.25, i32 noundef %6, i32 noundef 89) #13
+  %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #14
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 %108
   br label %AddISO8601IntPart.exit
 
-AddISO8601IntPart.exit:                           ; preds = %93, %95
-  %.0.i = phi ptr [ %98, %95 ], [ %94, %93 ]
-  br i1 %85, label %AddISO8601IntPart.exit261, label %99
+AddISO8601IntPart.exit:                           ; preds = %104, %106
+  %.0.i = phi ptr [ %109, %106 ], [ %105, %104 ]
+  br i1 %96, label %AddISO8601IntPart.exit266, label %110
 
-99:                                               ; preds = %AddISO8601IntPart.exit
-  %100 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.25, i32 noundef %8, i32 noundef 77) #13
-  %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #14
-  %102 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %101
-  br label %AddISO8601IntPart.exit261
+110:                                              ; preds = %AddISO8601IntPart.exit
+  %111 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.25, i32 noundef %8, i32 noundef 77) #13
+  %112 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #14
+  %113 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %112
+  br label %AddISO8601IntPart.exit266
 
-AddISO8601IntPart.exit261:                        ; preds = %AddISO8601IntPart.exit, %99
-  %.0.i260 = phi ptr [ %102, %99 ], [ %.0.i, %AddISO8601IntPart.exit ]
-  br i1 %86, label %AddISO8601IntPart.exit263, label %103
+AddISO8601IntPart.exit266:                        ; preds = %AddISO8601IntPart.exit, %110
+  %.0.i265 = phi ptr [ %113, %110 ], [ %.0.i, %AddISO8601IntPart.exit ]
+  br i1 %97, label %AddISO8601IntPart.exit268, label %114
 
-103:                                              ; preds = %AddISO8601IntPart.exit261
-  %104 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i260, ptr noundef nonnull @.str.25, i32 noundef %10, i32 noundef 68) #13
-  %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i260) #14
-  %106 = getelementptr inbounds nuw i8, ptr %.0.i260, i64 %105
-  br label %AddISO8601IntPart.exit263
+114:                                              ; preds = %AddISO8601IntPart.exit266
+  %115 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i265, ptr noundef nonnull @.str.25, i32 noundef %10, i32 noundef 68) #13
+  %116 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i265) #14
+  %117 = getelementptr inbounds nuw i8, ptr %.0.i265, i64 %116
+  br label %AddISO8601IntPart.exit268
 
-AddISO8601IntPart.exit263:                        ; preds = %AddISO8601IntPart.exit261, %103
-  %.0.i262 = phi ptr [ %106, %103 ], [ %.0.i260, %AddISO8601IntPart.exit261 ]
-  %107 = icmp ne i32 %12, 0
-  %108 = icmp ne i32 %14, 0
-  %or.cond43 = select i1 %107, i1 true, i1 %108
-  %109 = icmp ne i32 %89, 0
-  %or.cond47 = select i1 %or.cond43, i1 true, i1 %109
-  br i1 %or.cond47, label %110, label %AppendSeconds.exit
+AddISO8601IntPart.exit268:                        ; preds = %AddISO8601IntPart.exit266, %114
+  %.0.i267 = phi ptr [ %117, %114 ], [ %.0.i265, %AddISO8601IntPart.exit266 ]
+  %118 = icmp ne i32 %12, 0
+  %119 = icmp ne i32 %14, 0
+  %or.cond49 = select i1 %118, i1 true, i1 %119
+  %120 = icmp ne i32 %100, 0
+  %or.cond53 = select i1 %or.cond49, i1 true, i1 %120
+  br i1 %or.cond53, label %121, label %AppendSeconds.exit
 
-110:                                              ; preds = %AddISO8601IntPart.exit263
-  %111 = getelementptr inbounds nuw i8, ptr %.0.i262, i64 1
-  store i8 84, ptr %.0.i262, align 1
-  br i1 %87, label %AddISO8601IntPart.exit265, label %112
+121:                                              ; preds = %AddISO8601IntPart.exit268
+  %122 = getelementptr inbounds nuw i8, ptr %.0.i267, i64 1
+  store i8 84, ptr %.0.i267, align 1
+  br i1 %98, label %AddISO8601IntPart.exit270, label %123
 
-112:                                              ; preds = %110
-  %113 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %111, ptr noundef nonnull @.str.25, i32 noundef %12, i32 noundef 72) #13
-  %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #14
-  %115 = getelementptr inbounds nuw i8, ptr %111, i64 %114
-  br label %AddISO8601IntPart.exit265
+123:                                              ; preds = %121
+  %124 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %122, ptr noundef nonnull @.str.25, i32 noundef %12, i32 noundef 72) #13
+  %125 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %122) #14
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 %125
+  br label %AddISO8601IntPart.exit270
 
-AddISO8601IntPart.exit265:                        ; preds = %110, %112
-  %.0.i264 = phi ptr [ %115, %112 ], [ %111, %110 ]
-  br i1 %88, label %AddISO8601IntPart.exit267, label %116
+AddISO8601IntPart.exit270:                        ; preds = %121, %123
+  %.0.i269 = phi ptr [ %126, %123 ], [ %122, %121 ]
+  br i1 %99, label %AddISO8601IntPart.exit272, label %127
 
-116:                                              ; preds = %AddISO8601IntPart.exit265
-  %117 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i264, ptr noundef nonnull @.str.25, i32 noundef %14, i32 noundef 77) #13
-  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i264) #14
-  %119 = getelementptr inbounds nuw i8, ptr %.0.i264, i64 %118
-  br label %AddISO8601IntPart.exit267
+127:                                              ; preds = %AddISO8601IntPart.exit270
+  %128 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i269, ptr noundef nonnull @.str.25, i32 noundef %14, i32 noundef 77) #13
+  %129 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i269) #14
+  %130 = getelementptr inbounds nuw i8, ptr %.0.i269, i64 %129
+  br label %AddISO8601IntPart.exit272
 
-AddISO8601IntPart.exit267:                        ; preds = %AddISO8601IntPart.exit265, %116
-  %.0.i266 = phi ptr [ %119, %116 ], [ %.0.i264, %AddISO8601IntPart.exit265 ]
-  br i1 %90, label %AppendSeconds.exit, label %120
+AddISO8601IntPart.exit272:                        ; preds = %AddISO8601IntPart.exit270, %127
+  %.0.i271 = phi ptr [ %130, %127 ], [ %.0.i269, %AddISO8601IntPart.exit270 ]
+  br i1 %101, label %AppendSeconds.exit, label %131
 
-120:                                              ; preds = %AddISO8601IntPart.exit267
-  %or.cond51.not = icmp sgt i32 %89, -1
-  br i1 %or.cond51.not, label %123, label %121
+131:                                              ; preds = %AddISO8601IntPart.exit272
+  %or.cond57.not = icmp sgt i32 %100, -1
+  br i1 %or.cond57.not, label %134, label %132
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds nuw i8, ptr %.0.i266, i64 1
-  store i8 45, ptr %.0.i266, align 1
-  br label %123
+132:                                              ; preds = %131
+  %133 = getelementptr inbounds nuw i8, ptr %.0.i271, i64 1
+  store i8 45, ptr %.0.i271, align 1
+  br label %134
 
-123:                                              ; preds = %120, %121
-  %.2 = phi ptr [ %122, %121 ], [ %.0.i266, %120 ]
-  %124 = icmp eq i32 %1, 0
-  %125 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
-  br i1 %124, label %126, label %128
+134:                                              ; preds = %131, %132
+  %.2 = phi ptr [ %133, %132 ], [ %.0.i271, %131 ]
+  %135 = icmp eq i32 %1, 0
+  %136 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
+  br i1 %135, label %137, label %139
 
-126:                                              ; preds = %123
-  %127 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.2, ptr noundef nonnull @.str.22, i32 noundef %125) #13
-  br label %AppendSeconds.exit268
+137:                                              ; preds = %134
+  %138 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.2, ptr noundef nonnull @.str.22, i32 noundef %136) #13
+  br label %AppendSeconds.exit273
 
-128:                                              ; preds = %123
-  %129 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %130 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.2, ptr noundef nonnull @.str.24, i32 noundef %125, i32 noundef 6, i32 noundef %129) #13
+139:                                              ; preds = %134
+  %140 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
+  %141 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.2, ptr noundef nonnull @.str.24, i32 noundef %136, i32 noundef 6, i32 noundef %140) #13
   tail call void @TrimTrailingZeros(ptr noundef nonnull %.2) #13
-  br label %AppendSeconds.exit268
+  br label %AppendSeconds.exit273
 
-AppendSeconds.exit268:                            ; preds = %126, %128
-  %131 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #14
-  %132 = getelementptr inbounds nuw i8, ptr %.2, i64 %131
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 1
-  store i8 83, ptr %132, align 1
-  store i8 0, ptr %133, align 1
+AppendSeconds.exit273:                            ; preds = %137, %139
+  %142 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #14
+  %143 = getelementptr inbounds nuw i8, ptr %.2, i64 %142
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 1
+  store i8 83, ptr %143, align 1
+  store i8 0, ptr %144, align 1
   br label %AppendSeconds.exit
 
-134:                                              ; preds = %4
-  %135 = icmp eq i32 %6, 0
-  br i1 %135, label %AddPostgresIntPart.exit, label %136
+145:                                              ; preds = %4
+  %146 = icmp eq i32 %6, 0
+  br i1 %146, label %AddPostgresIntPart.exit, label %147
 
-136:                                              ; preds = %134
+147:                                              ; preds = %145
   %.not.i = icmp eq i32 %6, 1
-  %137 = select i1 %.not.i, ptr @.str.10, ptr @.str.18
-  %138 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.10, i32 noundef %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %137) #13
+  %148 = select i1 %.not.i, ptr @.str.10, ptr @.str.18
+  %149 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.10, i32 noundef %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %148) #13
   %.lobit.i = lshr i32 %6, 31
-  %139 = trunc nuw nsw i32 %.lobit.i to i8
-  %140 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
-  %141 = getelementptr inbounds nuw i8, ptr %3, i64 %140
+  %150 = trunc nuw nsw i32 %.lobit.i to i8
+  %151 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 %151
   br label %AddPostgresIntPart.exit
 
-AddPostgresIntPart.exit:                          ; preds = %134, %136
-  %.2332 = phi i8 [ 0, %134 ], [ %139, %136 ]
-  %.1326 = phi i8 [ 1, %134 ], [ 0, %136 ]
-  %.0.i269 = phi ptr [ %3, %134 ], [ %141, %136 ]
-  %142 = icmp eq i32 %8, 0
-  br i1 %142, label %AddPostgresIntPart.exit273, label %143
+AddPostgresIntPart.exit:                          ; preds = %145, %147
+  %.2337 = phi i8 [ 0, %145 ], [ %150, %147 ]
+  %.1331 = phi i8 [ 1, %145 ], [ 0, %147 ]
+  %.0.i274 = phi ptr [ %3, %145 ], [ %152, %147 ]
+  %153 = icmp eq i32 %8, 0
+  br i1 %153, label %AddPostgresIntPart.exit278, label %154
 
-143:                                              ; preds = %AddPostgresIntPart.exit
-  %144 = trunc nuw i8 %.1326 to i1
-  %145 = select i1 %144, ptr @.str.10, ptr @.str.11
-  %146 = trunc nuw i8 %.2332 to i1
-  %147 = icmp sgt i32 %8, 0
-  %148 = and i1 %147, %146
-  %149 = select i1 %148, ptr @.str.13, ptr @.str.10
-  %.not.i270 = icmp eq i32 %8, 1
-  %150 = select i1 %.not.i270, ptr @.str.10, ptr @.str.18
-  %151 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i269, ptr noundef nonnull @.str.26, ptr noundef nonnull %145, ptr noundef nonnull %149, i32 noundef %8, ptr noundef nonnull @.str.7, ptr noundef nonnull %150) #13
-  %.lobit.i271 = lshr i32 %8, 31
-  %152 = trunc nuw nsw i32 %.lobit.i271 to i8
-  %153 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i269) #14
-  %154 = getelementptr inbounds nuw i8, ptr %.0.i269, i64 %153
-  br label %AddPostgresIntPart.exit273
+154:                                              ; preds = %AddPostgresIntPart.exit
+  %155 = trunc nuw i8 %.1331 to i1
+  %156 = select i1 %155, ptr @.str.10, ptr @.str.11
+  %157 = trunc nuw i8 %.2337 to i1
+  %158 = icmp sgt i32 %8, 0
+  %159 = and i1 %158, %157
+  %160 = select i1 %159, ptr @.str.13, ptr @.str.10
+  %.not.i275 = icmp eq i32 %8, 1
+  %161 = select i1 %.not.i275, ptr @.str.10, ptr @.str.18
+  %162 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i274, ptr noundef nonnull @.str.26, ptr noundef nonnull %156, ptr noundef nonnull %160, i32 noundef %8, ptr noundef nonnull @.str.7, ptr noundef nonnull %161) #13
+  %.lobit.i276 = lshr i32 %8, 31
+  %163 = trunc nuw nsw i32 %.lobit.i276 to i8
+  %164 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i274) #14
+  %165 = getelementptr inbounds nuw i8, ptr %.0.i274, i64 %164
+  br label %AddPostgresIntPart.exit278
 
-AddPostgresIntPart.exit273:                       ; preds = %AddPostgresIntPart.exit, %143
-  %.3333 = phi i8 [ %.2332, %AddPostgresIntPart.exit ], [ %152, %143 ]
-  %.2327 = phi i8 [ %.1326, %AddPostgresIntPart.exit ], [ 0, %143 ]
-  %.0.i272 = phi ptr [ %.0.i269, %AddPostgresIntPart.exit ], [ %154, %143 ]
-  %155 = icmp eq i32 %10, 0
-  br i1 %155, label %AddPostgresIntPart.exit277, label %156
+AddPostgresIntPart.exit278:                       ; preds = %AddPostgresIntPart.exit, %154
+  %.3338 = phi i8 [ %.2337, %AddPostgresIntPart.exit ], [ %163, %154 ]
+  %.2332 = phi i8 [ %.1331, %AddPostgresIntPart.exit ], [ 0, %154 ]
+  %.0.i277 = phi ptr [ %.0.i274, %AddPostgresIntPart.exit ], [ %165, %154 ]
+  %166 = icmp eq i32 %10, 0
+  br i1 %166, label %AddPostgresIntPart.exit282, label %167
 
-156:                                              ; preds = %AddPostgresIntPart.exit273
-  %157 = trunc nuw i8 %.2327 to i1
-  %158 = select i1 %157, ptr @.str.10, ptr @.str.11
-  %159 = trunc nuw i8 %.3333 to i1
-  %160 = icmp sgt i32 %10, 0
-  %161 = and i1 %160, %159
-  %162 = select i1 %161, ptr @.str.13, ptr @.str.10
-  %.not.i274 = icmp eq i32 %10, 1
-  %163 = select i1 %.not.i274, ptr @.str.10, ptr @.str.18
-  %164 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i272, ptr noundef nonnull @.str.26, ptr noundef nonnull %158, ptr noundef nonnull %162, i32 noundef %10, ptr noundef nonnull @.str.8, ptr noundef nonnull %163) #13
-  %.lobit.i275 = lshr i32 %10, 31
-  %165 = trunc nuw nsw i32 %.lobit.i275 to i8
-  %166 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i272) #14
-  %167 = getelementptr inbounds nuw i8, ptr %.0.i272, i64 %166
-  br label %AddPostgresIntPart.exit277
+167:                                              ; preds = %AddPostgresIntPart.exit278
+  %168 = trunc nuw i8 %.2332 to i1
+  %169 = select i1 %168, ptr @.str.10, ptr @.str.11
+  %170 = trunc nuw i8 %.3338 to i1
+  %171 = icmp sgt i32 %10, 0
+  %172 = and i1 %171, %170
+  %173 = select i1 %172, ptr @.str.13, ptr @.str.10
+  %.not.i279 = icmp eq i32 %10, 1
+  %174 = select i1 %.not.i279, ptr @.str.10, ptr @.str.18
+  %175 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i277, ptr noundef nonnull @.str.26, ptr noundef nonnull %169, ptr noundef nonnull %173, i32 noundef %10, ptr noundef nonnull @.str.8, ptr noundef nonnull %174) #13
+  %.lobit.i280 = lshr i32 %10, 31
+  %176 = trunc nuw nsw i32 %.lobit.i280 to i8
+  %177 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i277) #14
+  %178 = getelementptr inbounds nuw i8, ptr %.0.i277, i64 %177
+  br label %AddPostgresIntPart.exit282
 
-AddPostgresIntPart.exit277:                       ; preds = %AddPostgresIntPart.exit273, %156
-  %.4334 = phi i8 [ %.3333, %AddPostgresIntPart.exit273 ], [ %165, %156 ]
-  %.3328 = phi i8 [ %.2327, %AddPostgresIntPart.exit273 ], [ 0, %156 ]
-  %.0.i276 = phi ptr [ %.0.i272, %AddPostgresIntPart.exit273 ], [ %167, %156 ]
-  %168 = trunc nuw i8 %.3328 to i1
-  %169 = icmp ne i32 %12, 0
-  %or.cond53 = select i1 %168, i1 true, i1 %169
-  %170 = icmp ne i32 %14, 0
-  %or.cond55 = select i1 %or.cond53, i1 true, i1 %170
-  %171 = or i32 %15, %1
-  %172 = icmp ne i32 %171, 0
-  %or.cond59 = select i1 %or.cond55, i1 true, i1 %172
-  br i1 %or.cond59, label %173, label %AppendSeconds.exit
+AddPostgresIntPart.exit282:                       ; preds = %AddPostgresIntPart.exit278, %167
+  %.4339 = phi i8 [ %.3338, %AddPostgresIntPart.exit278 ], [ %176, %167 ]
+  %.3333 = phi i8 [ %.2332, %AddPostgresIntPart.exit278 ], [ 0, %167 ]
+  %.0.i281 = phi ptr [ %.0.i277, %AddPostgresIntPart.exit278 ], [ %178, %167 ]
+  %179 = trunc nuw i8 %.3333 to i1
+  %180 = icmp ne i32 %12, 0
+  %or.cond59 = select i1 %179, i1 true, i1 %180
+  %181 = icmp ne i32 %14, 0
+  %or.cond61 = select i1 %or.cond59, i1 true, i1 %181
+  %182 = or i32 %15, %1
+  %183 = icmp ne i32 %182, 0
+  %or.cond65 = select i1 %or.cond61, i1 true, i1 %183
+  br i1 %or.cond65, label %184, label %AppendSeconds.exit
 
-173:                                              ; preds = %AddPostgresIntPart.exit277
-  %174 = icmp slt i32 %12, 0
-  %175 = icmp slt i32 %14, 0
-  %or.cond61 = select i1 %174, i1 true, i1 %175
-  %176 = icmp slt i32 %171, 0
-  %spec.select258 = select i1 %or.cond61, i1 true, i1 %176
-  %177 = select i1 %168, ptr @.str.10, ptr @.str.11
-  %178 = trunc nuw i8 %.4334 to i1
-  %179 = select i1 %178, ptr @.str.13, ptr @.str.10
-  %180 = select i1 %spec.select258, ptr @.str.12, ptr %179
-  %181 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
-  %182 = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
-  %183 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i276, ptr noundef nonnull @.str.9, ptr noundef nonnull %177, ptr noundef nonnull %180, i32 noundef %181, i32 noundef %182) #13
-  %184 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i276) #14
-  %185 = getelementptr inbounds nuw i8, ptr %.0.i276, i64 %184
-  %186 = icmp eq i32 %1, 0
-  %187 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
-  br i1 %186, label %188, label %190
+184:                                              ; preds = %AddPostgresIntPart.exit282
+  %185 = icmp slt i32 %12, 0
+  %186 = icmp slt i32 %14, 0
+  %or.cond67 = select i1 %185, i1 true, i1 %186
+  %187 = icmp slt i32 %182, 0
+  %spec.select263 = select i1 %or.cond67, i1 true, i1 %187
+  %188 = select i1 %179, ptr @.str.10, ptr @.str.11
+  %189 = trunc nuw i8 %.4339 to i1
+  %190 = select i1 %189, ptr @.str.13, ptr @.str.10
+  %191 = select i1 %spec.select263, ptr @.str.12, ptr %190
+  %192 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
+  %193 = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
+  %194 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0.i281, ptr noundef nonnull @.str.9, ptr noundef nonnull %188, ptr noundef nonnull %191, i32 noundef %192, i32 noundef %193) #13
+  %195 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i281) #14
+  %196 = getelementptr inbounds nuw i8, ptr %.0.i281, i64 %195
+  %197 = icmp eq i32 %1, 0
+  %198 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
+  br i1 %197, label %199, label %201
 
-188:                                              ; preds = %173
-  %189 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %185, ptr noundef nonnull @.str.21, i32 noundef %187) #13
+199:                                              ; preds = %184
+  %200 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %196, ptr noundef nonnull @.str.21, i32 noundef %198) #13
   br label %AppendSeconds.exit
 
-190:                                              ; preds = %173
-  %191 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %192 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %185, ptr noundef nonnull @.str.23, i32 noundef %187, i32 noundef 6, i32 noundef %191) #13
-  tail call void @TrimTrailingZeros(ptr noundef nonnull %185) #13
+201:                                              ; preds = %184
+  %202 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
+  %203 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %196, ptr noundef nonnull @.str.23, i32 noundef %198, i32 noundef 6, i32 noundef %202) #13
+  tail call void @TrimTrailingZeros(ptr noundef nonnull %196) #13
   br label %AppendSeconds.exit
 
-193:                                              ; preds = %4
+204:                                              ; preds = %4
   store i16 64, ptr %3, align 1
-  %194 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %195 = icmp eq i32 %6, 0
-  br i1 %195, label %AddVerboseIntPart.exit, label %196
+  %205 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %206 = icmp eq i32 %6, 0
+  br i1 %206, label %AddVerboseIntPart.exit, label %207
 
-196:                                              ; preds = %193
-  %.lobit.i280 = lshr i32 %6, 31
-  %197 = trunc nuw nsw i32 %.lobit.i280 to i8
-  %198 = tail call i32 @llvm.abs.i32(i32 %6, i1 false)
-  %199 = icmp eq i32 %198, 1
-  %200 = select i1 %199, ptr @.str.10, ptr @.str.18
-  %201 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %194, ptr noundef nonnull @.str.27, i32 noundef %198, ptr noundef nonnull @.str.6, ptr noundef nonnull %200) #13
-  %202 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %194) #14
-  %203 = getelementptr inbounds nuw i8, ptr %194, i64 %202
+207:                                              ; preds = %204
+  %.lobit.i285 = lshr i32 %6, 31
+  %208 = trunc nuw nsw i32 %.lobit.i285 to i8
+  %209 = tail call i32 @llvm.abs.i32(i32 %6, i1 false)
+  %210 = icmp eq i32 %209, 1
+  %211 = select i1 %210, ptr @.str.10, ptr @.str.18
+  %212 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %205, ptr noundef nonnull @.str.27, i32 noundef %209, ptr noundef nonnull @.str.6, ptr noundef nonnull %211) #13
+  %213 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %205) #14
+  %214 = getelementptr inbounds nuw i8, ptr %205, i64 %213
   br label %AddVerboseIntPart.exit
 
-AddVerboseIntPart.exit:                           ; preds = %193, %196
-  %.6336 = phi i8 [ 0, %193 ], [ %197, %196 ]
-  %.4329 = phi i8 [ 1, %193 ], [ 0, %196 ]
-  %.0.i279 = phi ptr [ %194, %193 ], [ %203, %196 ]
-  %204 = icmp eq i32 %8, 0
-  br i1 %204, label %AddVerboseIntPart.exit285, label %205
+AddVerboseIntPart.exit:                           ; preds = %204, %207
+  %.6341 = phi i8 [ 0, %204 ], [ %208, %207 ]
+  %.4334 = phi i8 [ 1, %204 ], [ 0, %207 ]
+  %.0.i284 = phi ptr [ %205, %204 ], [ %214, %207 ]
+  %215 = icmp eq i32 %8, 0
+  br i1 %215, label %AddVerboseIntPart.exit290, label %216
 
-205:                                              ; preds = %AddVerboseIntPart.exit
-  %206 = trunc nuw i8 %.4329 to i1
-  br i1 %206, label %207, label %210
+216:                                              ; preds = %AddVerboseIntPart.exit
+  %217 = trunc nuw i8 %.4334 to i1
+  br i1 %217, label %218, label %221
 
-207:                                              ; preds = %205
-  %.lobit.i284 = lshr i32 %8, 31
-  %208 = trunc nuw nsw i32 %.lobit.i284 to i8
-  %209 = tail call i32 @llvm.abs.i32(i32 %8, i1 false)
-  br label %213
+218:                                              ; preds = %216
+  %.lobit.i289 = lshr i32 %8, 31
+  %219 = trunc nuw nsw i32 %.lobit.i289 to i8
+  %220 = tail call i32 @llvm.abs.i32(i32 %8, i1 false)
+  br label %224
 
-210:                                              ; preds = %205
-  %211 = trunc nuw i8 %.6336 to i1
-  %212 = sub i32 0, %8
-  %spec.select.i281 = select i1 %211, i32 %212, i32 %8
-  br label %213
+221:                                              ; preds = %216
+  %222 = trunc nuw i8 %.6341 to i1
+  %223 = sub i32 0, %8
+  %spec.select.i286 = select i1 %222, i32 %223, i32 %8
+  br label %224
 
-213:                                              ; preds = %210, %207
-  %.7337 = phi i8 [ %208, %207 ], [ %.6336, %210 ]
-  %.015.i282 = phi i32 [ %209, %207 ], [ %spec.select.i281, %210 ]
-  %214 = icmp eq i32 %.015.i282, 1
-  %215 = select i1 %214, ptr @.str.10, ptr @.str.18
-  %216 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i279, ptr noundef nonnull @.str.27, i32 noundef %.015.i282, ptr noundef nonnull @.str.7, ptr noundef nonnull %215) #13
-  %217 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i279) #14
-  %218 = getelementptr inbounds nuw i8, ptr %.0.i279, i64 %217
-  br label %AddVerboseIntPart.exit285
-
-AddVerboseIntPart.exit285:                        ; preds = %AddVerboseIntPart.exit, %213
-  %.8338 = phi i8 [ %.6336, %AddVerboseIntPart.exit ], [ %.7337, %213 ]
-  %.5 = phi i8 [ %.4329, %AddVerboseIntPart.exit ], [ 0, %213 ]
-  %.0.i283 = phi ptr [ %.0.i279, %AddVerboseIntPart.exit ], [ %218, %213 ]
-  %219 = icmp eq i32 %10, 0
-  br i1 %219, label %AddVerboseIntPart.exit290, label %220
-
-220:                                              ; preds = %AddVerboseIntPart.exit285
-  %221 = trunc nuw i8 %.5 to i1
-  br i1 %221, label %222, label %225
-
-222:                                              ; preds = %220
-  %.lobit.i289 = lshr i32 %10, 31
-  %223 = trunc nuw nsw i32 %.lobit.i289 to i8
-  %224 = tail call i32 @llvm.abs.i32(i32 %10, i1 false)
-  br label %228
-
-225:                                              ; preds = %220
-  %226 = trunc nuw i8 %.8338 to i1
-  %227 = sub i32 0, %10
-  %spec.select.i286 = select i1 %226, i32 %227, i32 %10
-  br label %228
-
-228:                                              ; preds = %225, %222
-  %.9 = phi i8 [ %223, %222 ], [ %.8338, %225 ]
-  %.015.i287 = phi i32 [ %224, %222 ], [ %spec.select.i286, %225 ]
-  %229 = icmp eq i32 %.015.i287, 1
-  %230 = select i1 %229, ptr @.str.10, ptr @.str.18
-  %231 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i283, ptr noundef nonnull @.str.27, i32 noundef %.015.i287, ptr noundef nonnull @.str.8, ptr noundef nonnull %230) #13
-  %232 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i283) #14
-  %233 = getelementptr inbounds nuw i8, ptr %.0.i283, i64 %232
+224:                                              ; preds = %221, %218
+  %.7342 = phi i8 [ %219, %218 ], [ %.6341, %221 ]
+  %.015.i287 = phi i32 [ %220, %218 ], [ %spec.select.i286, %221 ]
+  %225 = icmp eq i32 %.015.i287, 1
+  %226 = select i1 %225, ptr @.str.10, ptr @.str.18
+  %227 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i284, ptr noundef nonnull @.str.27, i32 noundef %.015.i287, ptr noundef nonnull @.str.7, ptr noundef nonnull %226) #13
+  %228 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i284) #14
+  %229 = getelementptr inbounds nuw i8, ptr %.0.i284, i64 %228
   br label %AddVerboseIntPart.exit290
 
-AddVerboseIntPart.exit290:                        ; preds = %AddVerboseIntPart.exit285, %228
-  %.10 = phi i8 [ %.8338, %AddVerboseIntPart.exit285 ], [ %.9, %228 ]
-  %.6 = phi i8 [ %.5, %AddVerboseIntPart.exit285 ], [ 0, %228 ]
-  %.0.i288 = phi ptr [ %.0.i283, %AddVerboseIntPart.exit285 ], [ %233, %228 ]
-  %234 = icmp eq i32 %12, 0
-  br i1 %234, label %AddVerboseIntPart.exit295, label %235
+AddVerboseIntPart.exit290:                        ; preds = %AddVerboseIntPart.exit, %224
+  %.8343 = phi i8 [ %.6341, %AddVerboseIntPart.exit ], [ %.7342, %224 ]
+  %.5 = phi i8 [ %.4334, %AddVerboseIntPart.exit ], [ 0, %224 ]
+  %.0.i288 = phi ptr [ %.0.i284, %AddVerboseIntPart.exit ], [ %229, %224 ]
+  %230 = icmp eq i32 %10, 0
+  br i1 %230, label %AddVerboseIntPart.exit295, label %231
 
-235:                                              ; preds = %AddVerboseIntPart.exit290
-  %236 = trunc nuw i8 %.6 to i1
-  br i1 %236, label %237, label %240
+231:                                              ; preds = %AddVerboseIntPart.exit290
+  %232 = trunc nuw i8 %.5 to i1
+  br i1 %232, label %233, label %236
 
-237:                                              ; preds = %235
-  %.lobit.i294 = lshr i32 %12, 31
-  %238 = trunc nuw nsw i32 %.lobit.i294 to i8
-  %239 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
-  br label %243
+233:                                              ; preds = %231
+  %.lobit.i294 = lshr i32 %10, 31
+  %234 = trunc nuw nsw i32 %.lobit.i294 to i8
+  %235 = tail call i32 @llvm.abs.i32(i32 %10, i1 false)
+  br label %239
 
-240:                                              ; preds = %235
-  %241 = trunc nuw i8 %.10 to i1
-  %242 = sub i32 0, %12
-  %spec.select.i291 = select i1 %241, i32 %242, i32 %12
-  br label %243
+236:                                              ; preds = %231
+  %237 = trunc nuw i8 %.8343 to i1
+  %238 = sub i32 0, %10
+  %spec.select.i291 = select i1 %237, i32 %238, i32 %10
+  br label %239
 
-243:                                              ; preds = %240, %237
-  %.11 = phi i8 [ %238, %237 ], [ %.10, %240 ]
-  %.015.i292 = phi i32 [ %239, %237 ], [ %spec.select.i291, %240 ]
-  %244 = icmp eq i32 %.015.i292, 1
-  %245 = select i1 %244, ptr @.str.10, ptr @.str.18
-  %246 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i288, ptr noundef nonnull @.str.27, i32 noundef %.015.i292, ptr noundef nonnull @.str.15, ptr noundef nonnull %245) #13
-  %247 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i288) #14
-  %248 = getelementptr inbounds nuw i8, ptr %.0.i288, i64 %247
+239:                                              ; preds = %236, %233
+  %.9 = phi i8 [ %234, %233 ], [ %.8343, %236 ]
+  %.015.i292 = phi i32 [ %235, %233 ], [ %spec.select.i291, %236 ]
+  %240 = icmp eq i32 %.015.i292, 1
+  %241 = select i1 %240, ptr @.str.10, ptr @.str.18
+  %242 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i288, ptr noundef nonnull @.str.27, i32 noundef %.015.i292, ptr noundef nonnull @.str.8, ptr noundef nonnull %241) #13
+  %243 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i288) #14
+  %244 = getelementptr inbounds nuw i8, ptr %.0.i288, i64 %243
   br label %AddVerboseIntPart.exit295
 
-AddVerboseIntPart.exit295:                        ; preds = %AddVerboseIntPart.exit290, %243
-  %.12 = phi i8 [ %.10, %AddVerboseIntPart.exit290 ], [ %.11, %243 ]
-  %.7 = phi i8 [ %.6, %AddVerboseIntPart.exit290 ], [ 0, %243 ]
-  %.0.i293 = phi ptr [ %.0.i288, %AddVerboseIntPart.exit290 ], [ %248, %243 ]
-  %249 = icmp eq i32 %14, 0
-  br i1 %249, label %AddVerboseIntPart.exit300, label %250
+AddVerboseIntPart.exit295:                        ; preds = %AddVerboseIntPart.exit290, %239
+  %.10 = phi i8 [ %.8343, %AddVerboseIntPart.exit290 ], [ %.9, %239 ]
+  %.6 = phi i8 [ %.5, %AddVerboseIntPart.exit290 ], [ 0, %239 ]
+  %.0.i293 = phi ptr [ %.0.i288, %AddVerboseIntPart.exit290 ], [ %244, %239 ]
+  %245 = icmp eq i32 %12, 0
+  br i1 %245, label %AddVerboseIntPart.exit300, label %246
 
-250:                                              ; preds = %AddVerboseIntPart.exit295
-  %251 = trunc nuw i8 %.7 to i1
-  br i1 %251, label %252, label %255
+246:                                              ; preds = %AddVerboseIntPart.exit295
+  %247 = trunc nuw i8 %.6 to i1
+  br i1 %247, label %248, label %251
 
-252:                                              ; preds = %250
-  %.lobit.i299 = lshr i32 %14, 31
-  %253 = trunc nuw nsw i32 %.lobit.i299 to i8
-  %254 = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
-  br label %258
+248:                                              ; preds = %246
+  %.lobit.i299 = lshr i32 %12, 31
+  %249 = trunc nuw nsw i32 %.lobit.i299 to i8
+  %250 = tail call i32 @llvm.abs.i32(i32 %12, i1 false)
+  br label %254
 
-255:                                              ; preds = %250
-  %256 = trunc nuw i8 %.12 to i1
-  %257 = sub i32 0, %14
-  %spec.select.i296 = select i1 %256, i32 %257, i32 %14
-  br label %258
+251:                                              ; preds = %246
+  %252 = trunc nuw i8 %.10 to i1
+  %253 = sub i32 0, %12
+  %spec.select.i296 = select i1 %252, i32 %253, i32 %12
+  br label %254
 
-258:                                              ; preds = %255, %252
-  %.13 = phi i8 [ %253, %252 ], [ %.12, %255 ]
-  %.015.i297 = phi i32 [ %254, %252 ], [ %spec.select.i296, %255 ]
-  %259 = icmp eq i32 %.015.i297, 1
-  %260 = select i1 %259, ptr @.str.10, ptr @.str.18
-  %261 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i293, ptr noundef nonnull @.str.27, i32 noundef %.015.i297, ptr noundef nonnull @.str.16, ptr noundef nonnull %260) #13
-  %262 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i293) #14
-  %263 = getelementptr inbounds nuw i8, ptr %.0.i293, i64 %262
+254:                                              ; preds = %251, %248
+  %.11 = phi i8 [ %249, %248 ], [ %.10, %251 ]
+  %.015.i297 = phi i32 [ %250, %248 ], [ %spec.select.i296, %251 ]
+  %255 = icmp eq i32 %.015.i297, 1
+  %256 = select i1 %255, ptr @.str.10, ptr @.str.18
+  %257 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i293, ptr noundef nonnull @.str.27, i32 noundef %.015.i297, ptr noundef nonnull @.str.15, ptr noundef nonnull %256) #13
+  %258 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i293) #14
+  %259 = getelementptr inbounds nuw i8, ptr %.0.i293, i64 %258
   br label %AddVerboseIntPart.exit300
 
-AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.exit295, %258
-  %.14 = phi i8 [ %.12, %AddVerboseIntPart.exit295 ], [ %.13, %258 ]
-  %.8 = phi i8 [ %.7, %AddVerboseIntPart.exit295 ], [ 0, %258 ]
-  %.0.i298 = phi ptr [ %.0.i293, %AddVerboseIntPart.exit295 ], [ %263, %258 ]
-  %264 = icmp ne i32 %1, 0
-  %265 = or i32 %15, %1
-  %or.cond65.not = icmp eq i32 %265, 0
-  br i1 %or.cond65.not, label %293, label %266
+AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.exit295, %254
+  %.12 = phi i8 [ %.10, %AddVerboseIntPart.exit295 ], [ %.11, %254 ]
+  %.7 = phi i8 [ %.6, %AddVerboseIntPart.exit295 ], [ 0, %254 ]
+  %.0.i298 = phi ptr [ %.0.i293, %AddVerboseIntPart.exit295 ], [ %259, %254 ]
+  %260 = icmp eq i32 %14, 0
+  br i1 %260, label %AddVerboseIntPart.exit305, label %261
 
-266:                                              ; preds = %AddVerboseIntPart.exit300
-  %267 = getelementptr inbounds nuw i8, ptr %.0.i298, i64 1
-  store i8 32, ptr %.0.i298, align 1
-  %268 = icmp slt i32 %15, 0
-  br i1 %268, label %272, label %269
+261:                                              ; preds = %AddVerboseIntPart.exit300
+  %262 = trunc nuw i8 %.7 to i1
+  br i1 %262, label %263, label %266
 
-269:                                              ; preds = %266
-  %270 = icmp eq i32 %15, 0
-  %271 = icmp slt i32 %1, 0
-  %or.cond67 = and i1 %271, %270
-  br i1 %or.cond67, label %272, label %276
+263:                                              ; preds = %261
+  %.lobit.i304 = lshr i32 %14, 31
+  %264 = trunc nuw nsw i32 %.lobit.i304 to i8
+  %265 = tail call i32 @llvm.abs.i32(i32 %14, i1 false)
+  br label %269
 
-272:                                              ; preds = %269, %266
-  %273 = trunc nuw i8 %.8 to i1
-  br i1 %273, label %279, label %274
+266:                                              ; preds = %261
+  %267 = trunc nuw i8 %.12 to i1
+  %268 = sub i32 0, %14
+  %spec.select.i301 = select i1 %267, i32 %268, i32 %14
+  br label %269
 
-274:                                              ; preds = %272
-  %275 = trunc nuw i8 %.14 to i1
-  br i1 %275, label %279, label %.sink.split
+269:                                              ; preds = %266, %263
+  %.13 = phi i8 [ %264, %263 ], [ %.12, %266 ]
+  %.015.i302 = phi i32 [ %265, %263 ], [ %spec.select.i301, %266 ]
+  %270 = icmp eq i32 %.015.i302, 1
+  %271 = select i1 %270, ptr @.str.10, ptr @.str.18
+  %272 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.0.i298, ptr noundef nonnull @.str.27, i32 noundef %.015.i302, ptr noundef nonnull @.str.16, ptr noundef nonnull %271) #13
+  %273 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i298) #14
+  %274 = getelementptr inbounds nuw i8, ptr %.0.i298, i64 %273
+  br label %AddVerboseIntPart.exit305
 
-276:                                              ; preds = %269
-  %277 = trunc nuw i8 %.14 to i1
-  br i1 %277, label %.sink.split, label %279
+AddVerboseIntPart.exit305:                        ; preds = %AddVerboseIntPart.exit300, %269
+  %.14 = phi i8 [ %.12, %AddVerboseIntPart.exit300 ], [ %.13, %269 ]
+  %.8 = phi i8 [ %.7, %AddVerboseIntPart.exit300 ], [ 0, %269 ]
+  %.0.i303 = phi ptr [ %.0.i298, %AddVerboseIntPart.exit300 ], [ %274, %269 ]
+  %275 = icmp ne i32 %1, 0
+  %276 = or i32 %15, %1
+  %or.cond71.not = icmp eq i32 %276, 0
+  br i1 %or.cond71.not, label %303, label %277
 
-.sink.split:                                      ; preds = %276, %274
-  %.1331.ph = phi i8 [ 0, %274 ], [ 1, %276 ]
-  %278 = getelementptr inbounds nuw i8, ptr %.0.i298, i64 2
-  store i8 45, ptr %267, align 1
-  br label %279
+277:                                              ; preds = %AddVerboseIntPart.exit305
+  %278 = getelementptr inbounds nuw i8, ptr %.0.i303, i64 1
+  store i8 32, ptr %.0.i303, align 1
+  %279 = icmp slt i32 %15, 0
+  br i1 %279, label %283, label %280
 
-279:                                              ; preds = %.sink.split, %272, %276, %274
-  %.1331 = phi i8 [ 1, %274 ], [ 0, %276 ], [ 1, %272 ], [ %.1331.ph, %.sink.split ]
-  %.4 = phi ptr [ %267, %274 ], [ %267, %276 ], [ %267, %272 ], [ %278, %.sink.split ]
-  %280 = icmp eq i32 %1, 0
-  %281 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
-  br i1 %280, label %282, label %284
+280:                                              ; preds = %277
+  %281 = icmp eq i32 %15, 0
+  %282 = icmp slt i32 %1, 0
+  %or.cond73 = and i1 %282, %281
+  br i1 %or.cond73, label %283, label %286
 
-282:                                              ; preds = %279
-  %283 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.4, ptr noundef nonnull @.str.22, i32 noundef %281) #13
-  br label %.thread360
+283:                                              ; preds = %280, %277
+  %284 = trunc nuw i8 %.8 to i1
+  %285 = trunc nuw i8 %.14 to i1
+  %or.cond353 = select i1 %284, i1 true, i1 %285
+  br i1 %or.cond353, label %289, label %.sink.split
 
-284:                                              ; preds = %279
-  %285 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  %286 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.4, ptr noundef nonnull @.str.24, i32 noundef %281, i32 noundef 6, i32 noundef %285) #13
+286:                                              ; preds = %280
+  %287 = trunc nuw i8 %.14 to i1
+  br i1 %287, label %.sink.split, label %289
+
+.sink.split:                                      ; preds = %286, %283
+  %.1336.ph = phi i8 [ 0, %283 ], [ 1, %286 ]
+  %288 = getelementptr inbounds nuw i8, ptr %.0.i303, i64 2
+  store i8 45, ptr %278, align 1
+  br label %289
+
+289:                                              ; preds = %.sink.split, %283, %286
+  %.1336 = phi i8 [ 0, %286 ], [ 1, %283 ], [ %.1336.ph, %.sink.split ]
+  %.4 = phi ptr [ %278, %286 ], [ %278, %283 ], [ %288, %.sink.split ]
+  %290 = icmp eq i32 %1, 0
+  %291 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
+  br i1 %290, label %292, label %294
+
+292:                                              ; preds = %289
+  %293 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.4, ptr noundef nonnull @.str.22, i32 noundef %291) #13
+  br label %.thread347
+
+294:                                              ; preds = %289
+  %295 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
+  %296 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %.4, ptr noundef nonnull @.str.24, i32 noundef %291, i32 noundef 6, i32 noundef %295) #13
   tail call void @TrimTrailingZeros(ptr noundef nonnull %.4) #13
-  br label %.thread360
+  br label %.thread347
 
-.thread360:                                       ; preds = %284, %282
-  %287 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #14
-  %288 = getelementptr inbounds nuw i8, ptr %.4, i64 %287
-  %289 = icmp ne i32 %281, 1
-  %290 = or i1 %264, %289
-  %291 = select i1 %290, ptr @.str.18, ptr @.str.10
-  %292 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %288, ptr noundef nonnull @.str.17, ptr noundef nonnull %291) #13
-  br label %296
+.thread347:                                       ; preds = %294, %292
+  %297 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #14
+  %298 = getelementptr inbounds nuw i8, ptr %.4, i64 %297
+  %299 = icmp ne i32 %291, 1
+  %300 = or i1 %275, %299
+  %301 = select i1 %300, ptr @.str.18, ptr @.str.10
+  %302 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %298, ptr noundef nonnull @.str.17, ptr noundef nonnull %301) #13
+  br label %306
 
-293:                                              ; preds = %AddVerboseIntPart.exit300
-  %294 = trunc nuw i8 %.8 to i1
-  br i1 %294, label %295, label %296
+303:                                              ; preds = %AddVerboseIntPart.exit305
+  %304 = trunc nuw i8 %.8 to i1
+  br i1 %304, label %305, label %306
 
-295:                                              ; preds = %293
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.0.i298)
-  %endptr = getelementptr inbounds i8, ptr %.0.i298, i64 %strlen
+305:                                              ; preds = %303
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.0.i303)
+  %endptr = getelementptr inbounds i8, ptr %.0.i303, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr, ptr noundef nonnull align 1 dereferenceable(3) @.str.19, i64 3, i1 false)
-  br label %296
+  br label %306
 
-296:                                              ; preds = %.thread360, %295, %293
-  %.3365 = phi ptr [ %288, %.thread360 ], [ %.0.i298, %295 ], [ %.0.i298, %293 ]
-  %.0330364 = phi i8 [ %.1331, %.thread360 ], [ %.14, %295 ], [ %.14, %293 ]
-  %297 = trunc nuw i8 %.0330364 to i1
-  br i1 %297, label %298, label %AppendSeconds.exit
+306:                                              ; preds = %.thread347, %305, %303
+  %.3352 = phi ptr [ %298, %.thread347 ], [ %.0.i303, %305 ], [ %.0.i303, %303 ]
+  %.0335351 = phi i8 [ %.1336, %.thread347 ], [ %.14, %305 ], [ %.14, %303 ]
+  %307 = trunc nuw i8 %.0335351 to i1
+  br i1 %307, label %308, label %AppendSeconds.exit
 
-298:                                              ; preds = %296
-  %strlen254 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.3365)
-  %endptr255 = getelementptr inbounds i8, ptr %.3365, i64 %strlen254
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr255, ptr noundef nonnull align 1 dereferenceable(5) @.str.20, i64 5, i1 false)
+308:                                              ; preds = %306
+  %strlen260 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.3352)
+  %endptr261 = getelementptr inbounds i8, ptr %.3352, i64 %strlen260
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr261, ptr noundef nonnull align 1 dereferenceable(5) @.str.20, i64 5, i1 false)
   br label %AppendSeconds.exit
 
-AppendSeconds.exit:                               ; preds = %AddISO8601IntPart.exit263, %190, %188, %68, %66, %50, %72, %79, %75, %296, %298, %AddPostgresIntPart.exit277, %AppendSeconds.exit268, %AddISO8601IntPart.exit267, %91
+AppendSeconds.exit:                               ; preds = %AddISO8601IntPart.exit268, %201, %199, %79, %77, %51, %83, %90, %86, %306, %308, %AddPostgresIntPart.exit282, %AppendSeconds.exit273, %AddISO8601IntPart.exit272, %102
   ret void
 }
 
@@ -1375,20 +1382,20 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
 21:                                               ; preds = %2
   %22 = tail call ptr @__errno_location() #15
   store i32 330, ptr %22, align 4
-  br label %457
+  br label %461
 
 23:                                               ; preds = %2
   %.not = icmp eq ptr %1, null
   %24 = select i1 %.not, ptr %13, ptr %1
   %25 = call i32 @ParseDateTime(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %24) #13
   %.not22 = icmp eq i32 %25, 0
-  br i1 %.not22, label %26, label %416
+  br i1 %.not22, label %26, label %420
 
 26:                                               ; preds = %23
   %27 = load i32, ptr %9, align 4
   %28 = call i32 @DecodeInterval(ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %27, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %.not23 = icmp eq i32 %28, 0
-  br i1 %.not23, label %418, label %29
+  br i1 %.not23, label %422, label %29
 
 29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -1408,14 +1415,14 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store ptr %35, ptr %3, align 8
   %36 = load i8, ptr %35, align 1
-  %.not88167.i = icmp eq i8 %36, 0
-  br i1 %.not88167.i, label %.sink.split162, label %.lr.ph.i
+  %.not91169.i = icmp eq i8 %36, 0
+  br i1 %.not91169.i, label %.sink.split160, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34, %AdjustFractDays.exit.i
-  %37 = phi i8 [ %413, %AdjustFractDays.exit.i ], [ %36, %34 ]
-  %38 = phi ptr [ %412, %AdjustFractDays.exit.i ], [ %35, %34 ]
-  %.074169.i = phi i1 [ %.175.i, %AdjustFractDays.exit.i ], [ true, %34 ]
-  %.077168.i = phi i8 [ %.178.i, %AdjustFractDays.exit.i ], [ 0, %34 ]
+  %37 = phi i8 [ %417, %AdjustFractDays.exit.i ], [ %36, %34 ]
+  %38 = phi ptr [ %416, %AdjustFractDays.exit.i ], [ %35, %34 ]
+  %.077171.i = phi i1 [ %.178.i, %AdjustFractDays.exit.i ], [ true, %34 ]
+  %.080170.i = phi i8 [ %.181.i, %AdjustFractDays.exit.i ], [ 0, %34 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   %39 = icmp eq i8 %37, 84
@@ -1483,680 +1490,695 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
   %70 = getelementptr inbounds nuw i8, ptr %52, i64 1
   store ptr %70, ptr %3, align 8
   %71 = load i8, ptr %52, align 1
-  br i1 %.074169.i, label %72, label %248
+  br i1 %.077171.i, label %72, label %254
 
 72:                                               ; preds = %67
   switch i8 %71, label %.sink.split.sink.split [
-    i8 89, label %73
-    i8 77, label %82
-    i8 87, label %107
-    i8 68, label %132
-    i8 84, label %149
-    i8 0, label %149
-    i8 45, label %183
+    i8 89, label %81
+    i8 77, label %90
+    i8 87, label %115
+    i8 68, label %140
+    i8 84, label %157
+    i8 0, label %157
+    i8 45, label %._crit_edge.i
   ]
 
-73:                                               ; preds = %72
-  %74 = load i32, ptr %14, align 4
-  %75 = add i32 %74, %storemerge.i.i
-  store i32 %75, ptr %14, align 4
-  %76 = fmul double %69, 1.200000e+01
-  %77 = call double @llvm.rint.f64(double %76)
-  %78 = load i32, ptr %15, align 8
-  %79 = sitofp i32 %78 to double
-  %80 = fadd double %77, %79
-  %81 = fptosi double %80 to i32
-  store i32 %81, ptr %15, align 8
+._crit_edge.i:                                    ; preds = %72
+  %.pre192.i = trunc nuw i8 %.080170.i to i1
+  br i1 %.pre192.i, label %.sink.split.sink.split, label %.thread.i
+
+.thread.i:                                        ; preds = %._crit_edge.i
+  %73 = load i32, ptr %14, align 4
+  %74 = add i32 %73, %storemerge.i.i
+  store i32 %74, ptr %14, align 4
+  %75 = fmul double %69, 1.200000e+01
+  %76 = call double @llvm.rint.f64(double %75)
+  %77 = load i32, ptr %15, align 8
+  %78 = sitofp i32 %77 to double
+  %79 = fadd double %76, %78
+  %80 = fptosi double %79 to i32
+  store i32 %80, ptr %15, align 8
+  br label %200
+
+81:                                               ; preds = %72
+  %82 = load i32, ptr %14, align 4
+  %83 = add i32 %82, %storemerge.i.i
+  store i32 %83, ptr %14, align 4
+  %84 = fmul double %69, 1.200000e+01
+  %85 = call double @llvm.rint.f64(double %84)
+  %86 = load i32, ptr %15, align 8
+  %87 = sitofp i32 %86 to double
+  %88 = fadd double %85, %87
+  %89 = fptosi double %88 to i32
+  store i32 %89, ptr %15, align 8
   br label %AdjustFractDays.exit.i
 
-82:                                               ; preds = %72
-  %83 = load i32, ptr %15, align 8
-  %84 = add i32 %83, %storemerge.i.i
-  store i32 %84, ptr %15, align 8
-  %85 = fcmp oeq double %69, 0.000000e+00
-  br i1 %85, label %AdjustFractDays.exit.i, label %86
-
-86:                                               ; preds = %82
-  %87 = fmul double %69, 3.000000e+01
-  %88 = fptosi double %87 to i32
-  %89 = load i32, ptr %16, align 4
-  %90 = add i32 %89, %88
-  store i32 %90, ptr %16, align 4
-  %91 = sitofp i32 %88 to double
-  %92 = fsub double %87, %91
-  %93 = fcmp oeq double %92, 0.000000e+00
+90:                                               ; preds = %72
+  %91 = load i32, ptr %15, align 8
+  %92 = add i32 %91, %storemerge.i.i
+  store i32 %92, ptr %15, align 8
+  %93 = fcmp oeq double %69, 0.000000e+00
   br i1 %93, label %AdjustFractDays.exit.i, label %94
 
-94:                                               ; preds = %86
-  %95 = fmul double %92, 8.640000e+04
+94:                                               ; preds = %90
+  %95 = fmul double %69, 3.000000e+01
   %96 = fptosi double %95 to i32
-  %97 = load i32, ptr %7, align 8
+  %97 = load i32, ptr %16, align 4
   %98 = add i32 %97, %96
-  store i32 %98, ptr %7, align 8
+  store i32 %98, ptr %16, align 4
   %99 = sitofp i32 %96 to double
   %100 = fsub double %95, %99
-  %101 = fmul double %100, 1.000000e+06
-  %102 = call double @llvm.rint.f64(double %101)
-  %103 = load i32, ptr %6, align 4
-  %104 = sitofp i32 %103 to double
-  %105 = fadd double %102, %104
-  %106 = fptosi double %105 to i32
-  store i32 %106, ptr %6, align 4
-  br label %AdjustFractDays.exit.i
+  %101 = fcmp oeq double %100, 0.000000e+00
+  br i1 %101, label %AdjustFractDays.exit.i, label %102
 
-107:                                              ; preds = %72
-  %108 = mul i32 %storemerge.i.i, 7
-  %109 = load i32, ptr %16, align 4
-  %110 = add i32 %109, %108
-  store i32 %110, ptr %16, align 4
-  %111 = fcmp oeq double %69, 0.000000e+00
-  br i1 %111, label %AdjustFractDays.exit.i, label %112
-
-112:                                              ; preds = %107
-  %113 = fmul double %69, 7.000000e+00
+102:                                              ; preds = %94
+  %103 = fmul double %100, 8.640000e+04
+  %104 = fptosi double %103 to i32
+  %105 = load i32, ptr %7, align 8
+  %106 = add i32 %105, %104
+  store i32 %106, ptr %7, align 8
+  %107 = sitofp i32 %104 to double
+  %108 = fsub double %103, %107
+  %109 = fmul double %108, 1.000000e+06
+  %110 = call double @llvm.rint.f64(double %109)
+  %111 = load i32, ptr %6, align 4
+  %112 = sitofp i32 %111 to double
+  %113 = fadd double %110, %112
   %114 = fptosi double %113 to i32
-  %115 = add i32 %110, %114
-  store i32 %115, ptr %16, align 4
-  %116 = sitofp i32 %114 to double
-  %117 = fsub double %113, %116
-  %118 = fcmp oeq double %117, 0.000000e+00
-  br i1 %118, label %AdjustFractDays.exit.i, label %119
-
-119:                                              ; preds = %112
-  %120 = fmul double %117, 8.640000e+04
-  %121 = fptosi double %120 to i32
-  %122 = load i32, ptr %7, align 8
-  %123 = add i32 %122, %121
-  store i32 %123, ptr %7, align 8
-  %124 = sitofp i32 %121 to double
-  %125 = fsub double %120, %124
-  %126 = fmul double %125, 1.000000e+06
-  %127 = call double @llvm.rint.f64(double %126)
-  %128 = load i32, ptr %6, align 4
-  %129 = sitofp i32 %128 to double
-  %130 = fadd double %127, %129
-  %131 = fptosi double %130 to i32
-  store i32 %131, ptr %6, align 4
+  store i32 %114, ptr %6, align 4
   br label %AdjustFractDays.exit.i
 
-132:                                              ; preds = %72
-  %133 = load i32, ptr %16, align 4
-  %134 = add i32 %133, %storemerge.i.i
-  store i32 %134, ptr %16, align 4
-  %135 = fcmp oeq double %69, 0.000000e+00
-  br i1 %135, label %AdjustFractDays.exit.i, label %136
+115:                                              ; preds = %72
+  %116 = mul i32 %storemerge.i.i, 7
+  %117 = load i32, ptr %16, align 4
+  %118 = add i32 %117, %116
+  store i32 %118, ptr %16, align 4
+  %119 = fcmp oeq double %69, 0.000000e+00
+  br i1 %119, label %AdjustFractDays.exit.i, label %120
 
-136:                                              ; preds = %132
-  %137 = fmul double %69, 8.640000e+04
-  %138 = fptosi double %137 to i32
-  %139 = load i32, ptr %7, align 8
-  %140 = add i32 %139, %138
-  store i32 %140, ptr %7, align 8
-  %141 = sitofp i32 %138 to double
-  %142 = fsub double %137, %141
-  %143 = fmul double %142, 1.000000e+06
-  %144 = call double @llvm.rint.f64(double %143)
-  %145 = load i32, ptr %6, align 4
-  %146 = sitofp i32 %145 to double
-  %147 = fadd double %144, %146
-  %148 = fptosi double %147 to i32
-  store i32 %148, ptr %6, align 4
+120:                                              ; preds = %115
+  %121 = fmul double %69, 7.000000e+00
+  %122 = fptosi double %121 to i32
+  %123 = add i32 %118, %122
+  store i32 %123, ptr %16, align 4
+  %124 = sitofp i32 %122 to double
+  %125 = fsub double %121, %124
+  %126 = fcmp oeq double %125, 0.000000e+00
+  br i1 %126, label %AdjustFractDays.exit.i, label %127
+
+127:                                              ; preds = %120
+  %128 = fmul double %125, 8.640000e+04
+  %129 = fptosi double %128 to i32
+  %130 = load i32, ptr %7, align 8
+  %131 = add i32 %130, %129
+  store i32 %131, ptr %7, align 8
+  %132 = sitofp i32 %129 to double
+  %133 = fsub double %128, %132
+  %134 = fmul double %133, 1.000000e+06
+  %135 = call double @llvm.rint.f64(double %134)
+  %136 = load i32, ptr %6, align 4
+  %137 = sitofp i32 %136 to double
+  %138 = fadd double %135, %137
+  %139 = fptosi double %138 to i32
+  store i32 %139, ptr %6, align 4
   br label %AdjustFractDays.exit.i
 
-149:                                              ; preds = %72, %72
-  %150 = load i8, ptr %38, align 1
-  %151 = icmp eq i8 %150, 45
-  %spec.select.idx.i.i = zext i1 %151 to i64
+140:                                              ; preds = %72
+  %141 = load i32, ptr %16, align 4
+  %142 = add i32 %141, %storemerge.i.i
+  store i32 %142, ptr %16, align 4
+  %143 = fcmp oeq double %69, 0.000000e+00
+  br i1 %143, label %AdjustFractDays.exit.i, label %144
+
+144:                                              ; preds = %140
+  %145 = fmul double %69, 8.640000e+04
+  %146 = fptosi double %145 to i32
+  %147 = load i32, ptr %7, align 8
+  %148 = add i32 %147, %146
+  store i32 %148, ptr %7, align 8
+  %149 = sitofp i32 %146 to double
+  %150 = fsub double %145, %149
+  %151 = fmul double %150, 1.000000e+06
+  %152 = call double @llvm.rint.f64(double %151)
+  %153 = load i32, ptr %6, align 4
+  %154 = sitofp i32 %153 to double
+  %155 = fadd double %152, %154
+  %156 = fptosi double %155 to i32
+  store i32 %156, ptr %6, align 4
+  br label %AdjustFractDays.exit.i
+
+157:                                              ; preds = %72, %72
+  %158 = load i8, ptr %38, align 1
+  %159 = icmp eq i8 %158, 45
+  %spec.select.idx.i.i = zext i1 %159 to i64
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %38, i64 %spec.select.idx.i.i
-  %152 = call i64 @strspn(ptr noundef nonnull readonly %spec.select.i.i, ptr noundef nonnull @.str.28) #14
-  %153 = and i64 %152, 4294967295
-  %154 = icmp eq i64 %153, 8
-  br i1 %154, label %155, label %183
+  %160 = call i64 @strspn(ptr noundef nonnull readonly %spec.select.i.i, ptr noundef nonnull @.str.28) #14
+  %161 = and i64 %160, 4294967295
+  %162 = icmp ne i64 %161, 8
+  %163 = trunc nuw i8 %.080170.i to i1
+  %or.cond.i = select i1 %162, i1 true, i1 %163
+  br i1 %or.cond.i, label %190, label %164
 
-155:                                              ; preds = %149
-  %156 = trunc nuw i8 %.077168.i to i1
-  br i1 %156, label %.sink.split.sink.split, label %157
-
-157:                                              ; preds = %155
-  %158 = sdiv i32 %storemerge.i.i, 10000
-  %159 = load i32, ptr %14, align 4
-  %160 = add i32 %159, %158
-  store i32 %160, ptr %14, align 4
-  %161 = sdiv i32 %storemerge.i.i, 100
-  %162 = srem i32 %161, 100
-  %163 = load i32, ptr %15, align 8
-  %164 = add i32 %163, %162
-  store i32 %164, ptr %15, align 8
-  %165 = srem i32 %storemerge.i.i, 100
-  %166 = load i32, ptr %16, align 4
+164:                                              ; preds = %157
+  %165 = sdiv i32 %storemerge.i.i, 10000
+  %166 = load i32, ptr %14, align 4
   %167 = add i32 %166, %165
-  store i32 %167, ptr %16, align 4
-  %168 = fcmp oeq double %69, 0.000000e+00
-  br i1 %168, label %AdjustFractSeconds.exit98.i, label %169
+  store i32 %167, ptr %14, align 4
+  %168 = sdiv i32 %storemerge.i.i, 100
+  %169 = srem i32 %168, 100
+  %170 = load i32, ptr %15, align 8
+  %171 = add i32 %170, %169
+  store i32 %171, ptr %15, align 8
+  %172 = srem i32 %storemerge.i.i, 100
+  %173 = load i32, ptr %16, align 4
+  %174 = add i32 %173, %172
+  store i32 %174, ptr %16, align 4
+  %175 = fcmp oeq double %69, 0.000000e+00
+  br i1 %175, label %AdjustFractSeconds.exit101.i, label %176
 
-169:                                              ; preds = %157
-  %170 = fmul double %69, 8.640000e+04
-  %171 = fptosi double %170 to i32
-  %172 = load i32, ptr %7, align 8
-  %173 = add i32 %172, %171
-  store i32 %173, ptr %7, align 8
-  %174 = sitofp i32 %171 to double
-  %175 = fsub double %170, %174
-  %176 = fmul double %175, 1.000000e+06
-  %177 = call double @llvm.rint.f64(double %176)
-  %178 = load i32, ptr %6, align 4
-  %179 = sitofp i32 %178 to double
-  %180 = fadd double %177, %179
-  %181 = fptosi double %180 to i32
-  store i32 %181, ptr %6, align 4
-  br label %AdjustFractSeconds.exit98.i
+176:                                              ; preds = %164
+  %177 = fmul double %69, 8.640000e+04
+  %178 = fptosi double %177 to i32
+  %179 = load i32, ptr %7, align 8
+  %180 = add i32 %179, %178
+  store i32 %180, ptr %7, align 8
+  %181 = sitofp i32 %178 to double
+  %182 = fsub double %177, %181
+  %183 = fmul double %182, 1.000000e+06
+  %184 = call double @llvm.rint.f64(double %183)
+  %185 = load i32, ptr %6, align 4
+  %186 = sitofp i32 %185 to double
+  %187 = fadd double %184, %186
+  %188 = fptosi double %187 to i32
+  store i32 %188, ptr %6, align 4
+  br label %AdjustFractSeconds.exit101.i
 
-AdjustFractSeconds.exit98.i:                      ; preds = %169, %157
-  %182 = icmp eq i8 %71, 0
-  br i1 %182, label %.sink.split162.sink.split, label %AdjustFractDays.exit.i
+AdjustFractSeconds.exit101.i:                     ; preds = %176, %164
+  %189 = icmp eq i8 %71, 0
+  br i1 %189, label %.sink.split160.sink.split, label %AdjustFractDays.exit.i
 
-183:                                              ; preds = %149, %72
-  %184 = trunc nuw i8 %.077168.i to i1
-  br i1 %184, label %.sink.split.sink.split, label %185
+190:                                              ; preds = %157
+  br i1 %163, label %.sink.split.sink.split, label %191
 
-185:                                              ; preds = %183
-  %186 = load i32, ptr %14, align 4
-  %187 = add i32 %186, %storemerge.i.i
-  store i32 %187, ptr %14, align 4
-  %188 = fmul double %69, 1.200000e+01
-  %189 = call double @llvm.rint.f64(double %188)
-  %190 = load i32, ptr %15, align 8
-  %191 = sitofp i32 %190 to double
-  %192 = fadd double %189, %191
-  %193 = fptosi double %192 to i32
-  store i32 %193, ptr %15, align 8
-  switch i8 %71, label %194 [
-    i8 0, label %.sink.split162.sink.split
+191:                                              ; preds = %190
+  %192 = load i32, ptr %14, align 4
+  %193 = add i32 %192, %storemerge.i.i
+  store i32 %193, ptr %14, align 4
+  %194 = fmul double %69, 1.200000e+01
+  %195 = call double @llvm.rint.f64(double %194)
+  %196 = load i32, ptr %15, align 8
+  %197 = sitofp i32 %196 to double
+  %198 = fadd double %195, %197
+  %199 = fptosi double %198 to i32
+  store i32 %199, ptr %15, align 8
+  switch i8 %71, label %200 [
+    i8 0, label %.sink.split160.sink.split
     i8 84, label %AdjustFractDays.exit.i
   ], !llvm.loop !5
 
-194:                                              ; preds = %185
-  %195 = load ptr, ptr %43, align 8
-  %196 = load i8, ptr %70, align 1
-  %197 = zext i8 %196 to i64
-  %198 = getelementptr inbounds nuw i16, ptr %195, i64 %197
-  %199 = load i16, ptr %198, align 2
-  %.fr24.i99.i = freeze i16 %199
-  %200 = and i16 %.fr24.i99.i, 2048
-  %.not.i100.i = icmp ne i16 %200, 0
-  %.off.i101.i = add i8 %196, -45
-  %switch.i102.i = icmp ult i8 %.off.i101.i, 2
-  %or.cond23.i103.i = or i1 %switch.i102.i, %.not.i100.i
-  br i1 %or.cond23.i103.i, label %201, label %.sink.split.sink.split
+200:                                              ; preds = %191, %.thread.i
+  %201 = load ptr, ptr %43, align 8
+  %202 = load i8, ptr %70, align 1
+  %203 = zext i8 %202 to i64
+  %204 = getelementptr inbounds nuw i16, ptr %201, i64 %203
+  %205 = load i16, ptr %204, align 2
+  %.fr24.i102.i = freeze i16 %205
+  %206 = and i16 %.fr24.i102.i, 2048
+  %.not.i103.i = icmp ne i16 %206, 0
+  %.off.i104.i = add i8 %202, -45
+  %switch.i105.i = icmp ult i8 %.off.i104.i, 2
+  %or.cond23.i106.i = or i1 %switch.i105.i, %.not.i103.i
+  br i1 %or.cond23.i106.i, label %207, label %.sink.split.sink.split
 
-201:                                              ; preds = %194
+207:                                              ; preds = %200
   store i32 0, ptr %50, align 4
-  %202 = call double @strtod(ptr noundef nonnull %70, ptr noundef nonnull %3) #13
-  %203 = load ptr, ptr %3, align 8
-  %204 = icmp eq ptr %203, %70
-  br i1 %204, label %.sink.split.sink.split, label %205
+  %208 = call double @strtod(ptr noundef nonnull %70, ptr noundef nonnull %3) #13
+  %209 = load ptr, ptr %3, align 8
+  %210 = icmp eq ptr %209, %70
+  br i1 %210, label %.sink.split.sink.split, label %211
 
-205:                                              ; preds = %201
-  %206 = load i32, ptr %50, align 4
-  %.not20.i105.i = icmp eq i32 %206, 0
-  br i1 %.not20.i105.i, label %207, label %.sink.split.sink.split
+211:                                              ; preds = %207
+  %212 = load i32, ptr %50, align 4
+  %.not20.i108.i = icmp eq i32 %212, 0
+  br i1 %.not20.i108.i, label %213, label %.sink.split.sink.split
 
-207:                                              ; preds = %205
-  %208 = fcmp olt double %202, 0xC1E0000000000000
-  %209 = fcmp ogt double %202, 0x41DFFFFFFFC00000
-  %or.cond.i106.i = or i1 %208, %209
-  br i1 %or.cond.i106.i, label %.sink.split.sink.split, label %210
+213:                                              ; preds = %211
+  %214 = fcmp olt double %208, 0xC1E0000000000000
+  %215 = fcmp ogt double %208, 0x41DFFFFFFFC00000
+  %or.cond.i109.i = or i1 %214, %215
+  br i1 %or.cond.i109.i, label %.sink.split.sink.split, label %216
 
-210:                                              ; preds = %207
-  %211 = fcmp ult double %202, 0.000000e+00
-  br i1 %211, label %214, label %212
+216:                                              ; preds = %213
+  %217 = fcmp ult double %208, 0.000000e+00
+  br i1 %217, label %220, label %218
 
-212:                                              ; preds = %210
-  %213 = call double @llvm.floor.f64(double %202)
-  br label %218
+218:                                              ; preds = %216
+  %219 = call double @llvm.floor.f64(double %208)
+  br label %224
 
-214:                                              ; preds = %210
-  %215 = fneg double %202
-  %216 = call double @llvm.floor.f64(double %215)
-  %217 = fneg double %216
-  br label %218
+220:                                              ; preds = %216
+  %221 = fneg double %208
+  %222 = call double @llvm.floor.f64(double %221)
+  %223 = fneg double %222
+  br label %224
 
-218:                                              ; preds = %214, %212
-  %storemerge.in.i107.i = phi double [ %217, %214 ], [ %213, %212 ]
-  %storemerge.i108.i = fptosi double %storemerge.in.i107.i to i32
-  store i32 %storemerge.i108.i, ptr %4, align 4
-  %219 = sitofp i32 %storemerge.i108.i to double
-  %220 = fsub double %202, %219
-  store double %220, ptr %5, align 8
-  %221 = load i32, ptr %15, align 8
-  %222 = add i32 %221, %storemerge.i108.i
-  store i32 %222, ptr %15, align 8
-  call fastcc void @AdjustFractDays(double noundef %220, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 30)
-  %223 = load i8, ptr %203, align 1
-  switch i8 %223, label %.sink.split.sink.split [
-    i8 0, label %.sink.split162.sink.split
+224:                                              ; preds = %220, %218
+  %storemerge.in.i110.i = phi double [ %223, %220 ], [ %219, %218 ]
+  %storemerge.i111.i = fptosi double %storemerge.in.i110.i to i32
+  store i32 %storemerge.i111.i, ptr %4, align 4
+  %225 = sitofp i32 %storemerge.i111.i to double
+  %226 = fsub double %208, %225
+  store double %226, ptr %5, align 8
+  %227 = load i32, ptr %15, align 8
+  %228 = add i32 %227, %storemerge.i111.i
+  store i32 %228, ptr %15, align 8
+  call fastcc void @AdjustFractDays(double noundef %226, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 30)
+  %229 = load i8, ptr %209, align 1
+  switch i8 %229, label %.sink.split.sink.split [
+    i8 0, label %.sink.split160.sink.split
     i8 84, label %AdjustFractDays.exit.i
-    i8 45, label %224
+    i8 45, label %230
   ], !llvm.loop !5
 
-224:                                              ; preds = %218
-  %225 = getelementptr inbounds nuw i8, ptr %203, i64 1
-  store ptr %225, ptr %3, align 8
-  %226 = call fastcc i32 @ParseISO8601Number(ptr noundef nonnull %225, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %.not95.i = icmp eq i32 %226, 0
-  br i1 %.not95.i, label %227, label %.sink.split.sink.split
+230:                                              ; preds = %224
+  %231 = getelementptr inbounds nuw i8, ptr %209, i64 1
+  store ptr %231, ptr %3, align 8
+  %232 = call fastcc i32 @ParseISO8601Number(ptr noundef nonnull %231, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %.not98.i = icmp eq i32 %232, 0
+  br i1 %.not98.i, label %233, label %.sink.split.sink.split
 
-227:                                              ; preds = %224
-  %228 = load i32, ptr %4, align 4
-  %229 = load i32, ptr %16, align 4
-  %230 = add i32 %229, %228
-  store i32 %230, ptr %16, align 4
-  %231 = load double, ptr %5, align 8
-  %232 = fcmp oeq double %231, 0.000000e+00
-  br i1 %232, label %AdjustFractSeconds.exit110.i, label %233
+233:                                              ; preds = %230
+  %234 = load i32, ptr %4, align 4
+  %235 = load i32, ptr %16, align 4
+  %236 = add i32 %235, %234
+  store i32 %236, ptr %16, align 4
+  %237 = load double, ptr %5, align 8
+  %238 = fcmp oeq double %237, 0.000000e+00
+  br i1 %238, label %AdjustFractSeconds.exit113.i, label %239
 
-233:                                              ; preds = %227
-  %234 = fmul double %231, 8.640000e+04
-  %235 = fptosi double %234 to i32
-  %236 = load i32, ptr %7, align 8
-  %237 = add i32 %236, %235
-  store i32 %237, ptr %7, align 8
-  %238 = sitofp i32 %235 to double
-  %239 = fsub double %234, %238
-  %240 = fmul double %239, 1.000000e+06
-  %241 = call double @llvm.rint.f64(double %240)
-  %242 = load i32, ptr %6, align 4
-  %243 = sitofp i32 %242 to double
-  %244 = fadd double %241, %243
-  %245 = fptosi double %244 to i32
-  store i32 %245, ptr %6, align 4
-  br label %AdjustFractSeconds.exit110.i
+239:                                              ; preds = %233
+  %240 = fmul double %237, 8.640000e+04
+  %241 = fptosi double %240 to i32
+  %242 = load i32, ptr %7, align 8
+  %243 = add i32 %242, %241
+  store i32 %243, ptr %7, align 8
+  %244 = sitofp i32 %241 to double
+  %245 = fsub double %240, %244
+  %246 = fmul double %245, 1.000000e+06
+  %247 = call double @llvm.rint.f64(double %246)
+  %248 = load i32, ptr %6, align 4
+  %249 = sitofp i32 %248 to double
+  %250 = fadd double %247, %249
+  %251 = fptosi double %250 to i32
+  store i32 %251, ptr %6, align 4
+  br label %AdjustFractSeconds.exit113.i
 
-AdjustFractSeconds.exit110.i:                     ; preds = %233, %227
-  %246 = load ptr, ptr %3, align 8
-  %247 = load i8, ptr %246, align 1
-  switch i8 %247, label %.sink.split.sink.split [
-    i8 0, label %.sink.split162.sink.split
+AdjustFractSeconds.exit113.i:                     ; preds = %239, %233
+  %252 = load ptr, ptr %3, align 8
+  %253 = load i8, ptr %252, align 1
+  switch i8 %253, label %.sink.split.sink.split [
+    i8 0, label %.sink.split160.sink.split
     i8 84, label %AdjustFractDays.exit.i
   ], !llvm.loop !5
 
-248:                                              ; preds = %67
+254:                                              ; preds = %67
   switch i8 %71, label %.sink.split.sink.split [
-    i8 72, label %249
-    i8 77, label %266
-    i8 83, label %283
-    i8 0, label %298
-    i8 58, label %.loopexit142.i
+    i8 72, label %255
+    i8 77, label %272
+    i8 83, label %289
+    i8 0, label %304
+    i8 58, label %.loopexit144.loopexit.i
   ]
 
-249:                                              ; preds = %248
-  %250 = load i32, ptr %17, align 8
-  %251 = add i32 %250, %storemerge.i.i
-  store i32 %251, ptr %17, align 8
-  %252 = fcmp oeq double %69, 0.000000e+00
-  br i1 %252, label %AdjustFractDays.exit.i, label %253
+255:                                              ; preds = %254
+  %256 = load i32, ptr %17, align 8
+  %257 = add i32 %256, %storemerge.i.i
+  store i32 %257, ptr %17, align 8
+  %258 = fcmp oeq double %69, 0.000000e+00
+  br i1 %258, label %AdjustFractDays.exit.i, label %259
 
-253:                                              ; preds = %249
-  %254 = fmul double %69, 3.600000e+03
-  %255 = fptosi double %254 to i32
-  %256 = load i32, ptr %7, align 8
-  %257 = add i32 %256, %255
-  store i32 %257, ptr %7, align 8
-  %258 = sitofp i32 %255 to double
-  %259 = fsub double %254, %258
-  %260 = fmul double %259, 1.000000e+06
-  %261 = call double @llvm.rint.f64(double %260)
-  %262 = load i32, ptr %6, align 4
-  %263 = sitofp i32 %262 to double
-  %264 = fadd double %261, %263
-  %265 = fptosi double %264 to i32
-  store i32 %265, ptr %6, align 4
+259:                                              ; preds = %255
+  %260 = fmul double %69, 3.600000e+03
+  %261 = fptosi double %260 to i32
+  %262 = load i32, ptr %7, align 8
+  %263 = add i32 %262, %261
+  store i32 %263, ptr %7, align 8
+  %264 = sitofp i32 %261 to double
+  %265 = fsub double %260, %264
+  %266 = fmul double %265, 1.000000e+06
+  %267 = call double @llvm.rint.f64(double %266)
+  %268 = load i32, ptr %6, align 4
+  %269 = sitofp i32 %268 to double
+  %270 = fadd double %267, %269
+  %271 = fptosi double %270 to i32
+  store i32 %271, ptr %6, align 4
   br label %AdjustFractDays.exit.i
 
-266:                                              ; preds = %248
-  %267 = load i32, ptr %18, align 4
-  %268 = add i32 %267, %storemerge.i.i
-  store i32 %268, ptr %18, align 4
-  %269 = fcmp oeq double %69, 0.000000e+00
-  br i1 %269, label %AdjustFractDays.exit.i, label %270
+272:                                              ; preds = %254
+  %273 = load i32, ptr %18, align 4
+  %274 = add i32 %273, %storemerge.i.i
+  store i32 %274, ptr %18, align 4
+  %275 = fcmp oeq double %69, 0.000000e+00
+  br i1 %275, label %AdjustFractDays.exit.i, label %276
 
-270:                                              ; preds = %266
-  %271 = fmul double %69, 6.000000e+01
-  %272 = fptosi double %271 to i32
-  %273 = load i32, ptr %7, align 8
-  %274 = add i32 %273, %272
-  store i32 %274, ptr %7, align 8
-  %275 = sitofp i32 %272 to double
-  %276 = fsub double %271, %275
-  %277 = fmul double %276, 1.000000e+06
-  %278 = call double @llvm.rint.f64(double %277)
-  %279 = load i32, ptr %6, align 4
-  %280 = sitofp i32 %279 to double
-  %281 = fadd double %278, %280
-  %282 = fptosi double %281 to i32
-  store i32 %282, ptr %6, align 4
+276:                                              ; preds = %272
+  %277 = fmul double %69, 6.000000e+01
+  %278 = fptosi double %277 to i32
+  %279 = load i32, ptr %7, align 8
+  %280 = add i32 %279, %278
+  store i32 %280, ptr %7, align 8
+  %281 = sitofp i32 %278 to double
+  %282 = fsub double %277, %281
+  %283 = fmul double %282, 1.000000e+06
+  %284 = call double @llvm.rint.f64(double %283)
+  %285 = load i32, ptr %6, align 4
+  %286 = sitofp i32 %285 to double
+  %287 = fadd double %284, %286
+  %288 = fptosi double %287 to i32
+  store i32 %288, ptr %6, align 4
   br label %AdjustFractDays.exit.i
 
-283:                                              ; preds = %248
-  %284 = load i32, ptr %7, align 8
-  %285 = add i32 %284, %storemerge.i.i
-  store i32 %285, ptr %7, align 8
-  %286 = fcmp oeq double %69, 0.000000e+00
-  br i1 %286, label %AdjustFractDays.exit.i, label %287
+289:                                              ; preds = %254
+  %290 = load i32, ptr %7, align 8
+  %291 = add i32 %290, %storemerge.i.i
+  store i32 %291, ptr %7, align 8
+  %292 = fcmp oeq double %69, 0.000000e+00
+  br i1 %292, label %AdjustFractDays.exit.i, label %293
 
-287:                                              ; preds = %283
-  %288 = fptosi double %69 to i32
-  %289 = add i32 %285, %288
-  store i32 %289, ptr %7, align 8
-  %290 = sitofp i32 %288 to double
-  %291 = fsub double %69, %290
-  %292 = fmul double %291, 1.000000e+06
-  %293 = call double @llvm.rint.f64(double %292)
-  %294 = load i32, ptr %6, align 4
-  %295 = sitofp i32 %294 to double
-  %296 = fadd double %293, %295
-  %297 = fptosi double %296 to i32
-  store i32 %297, ptr %6, align 4
+293:                                              ; preds = %289
+  %294 = fptosi double %69 to i32
+  %295 = add i32 %291, %294
+  store i32 %295, ptr %7, align 8
+  %296 = sitofp i32 %294 to double
+  %297 = fsub double %69, %296
+  %298 = fmul double %297, 1.000000e+06
+  %299 = call double @llvm.rint.f64(double %298)
+  %300 = load i32, ptr %6, align 4
+  %301 = sitofp i32 %300 to double
+  %302 = fadd double %299, %301
+  %303 = fptosi double %302 to i32
+  store i32 %303, ptr %6, align 4
   br label %AdjustFractDays.exit.i
 
-298:                                              ; preds = %248
-  %299 = load i8, ptr %38, align 1
-  %300 = icmp eq i8 %299, 45
-  %spec.select.idx.i114.i = zext i1 %300 to i64
-  %spec.select.i115.i = getelementptr inbounds nuw i8, ptr %38, i64 %spec.select.idx.i114.i
-  %301 = call i64 @strspn(ptr noundef nonnull readonly %spec.select.i115.i, ptr noundef nonnull @.str.28) #14
-  %302 = and i64 %301, 4294967295
-  %303 = icmp eq i64 %302, 6
-  br i1 %303, label %304, label %.loopexit142.i
+304:                                              ; preds = %254
+  %305 = load i8, ptr %38, align 1
+  %306 = icmp eq i8 %305, 45
+  %spec.select.idx.i117.i = zext i1 %306 to i64
+  %spec.select.i118.i = getelementptr inbounds nuw i8, ptr %38, i64 %spec.select.idx.i117.i
+  %307 = call i64 @strspn(ptr noundef nonnull readonly %spec.select.i118.i, ptr noundef nonnull @.str.28) #14
+  %308 = and i64 %307, 4294967295
+  %309 = icmp ne i64 %308, 6
+  %310 = trunc nuw i8 %.080170.i to i1
+  %or.cond3.i = select i1 %309, i1 true, i1 %310
+  br i1 %or.cond3.i, label %.loopexit144.i, label %311
 
-304:                                              ; preds = %298
-  %305 = trunc nuw i8 %.077168.i to i1
-  br i1 %305, label %.sink.split.sink.split, label %306
+311:                                              ; preds = %304
+  %312 = sdiv i32 %storemerge.i.i, 10000
+  %313 = load i32, ptr %17, align 8
+  %314 = add i32 %313, %312
+  store i32 %314, ptr %17, align 8
+  %315 = sdiv i32 %storemerge.i.i, 100
+  %316 = srem i32 %315, 100
+  %317 = load i32, ptr %18, align 4
+  %318 = add i32 %317, %316
+  store i32 %318, ptr %18, align 4
+  %319 = srem i32 %storemerge.i.i, 100
+  %320 = load i32, ptr %7, align 8
+  %321 = add i32 %320, %319
+  store i32 %321, ptr %7, align 8
+  %322 = fcmp oeq double %69, 0.000000e+00
+  br i1 %322, label %.sink.split160.sink.split, label %323
 
-306:                                              ; preds = %304
-  %307 = sdiv i32 %storemerge.i.i, 10000
-  %308 = load i32, ptr %17, align 8
-  %309 = add i32 %308, %307
-  store i32 %309, ptr %17, align 8
-  %310 = sdiv i32 %storemerge.i.i, 100
-  %311 = srem i32 %310, 100
-  %312 = load i32, ptr %18, align 4
-  %313 = add i32 %312, %311
-  store i32 %313, ptr %18, align 4
-  %314 = srem i32 %storemerge.i.i, 100
-  %315 = load i32, ptr %7, align 8
-  %316 = add i32 %315, %314
-  store i32 %316, ptr %7, align 8
-  %317 = fcmp oeq double %69, 0.000000e+00
-  br i1 %317, label %.sink.split162.sink.split, label %318
+323:                                              ; preds = %311
+  %324 = fptosi double %69 to i32
+  %325 = add i32 %321, %324
+  store i32 %325, ptr %7, align 8
+  %326 = sitofp i32 %324 to double
+  %327 = fsub double %69, %326
+  %328 = fmul double %327, 1.000000e+06
+  %329 = call double @llvm.rint.f64(double %328)
+  %330 = load i32, ptr %6, align 4
+  %331 = sitofp i32 %330 to double
+  %332 = fadd double %329, %331
+  %333 = fptosi double %332 to i32
+  store i32 %333, ptr %6, align 4
+  br label %.sink.split160.sink.split
 
-318:                                              ; preds = %306
-  %319 = fptosi double %69 to i32
-  %320 = add i32 %316, %319
-  store i32 %320, ptr %7, align 8
-  %321 = sitofp i32 %319 to double
-  %322 = fsub double %69, %321
-  %323 = fmul double %322, 1.000000e+06
-  %324 = call double @llvm.rint.f64(double %323)
-  %325 = load i32, ptr %6, align 4
-  %326 = sitofp i32 %325 to double
-  %327 = fadd double %324, %326
-  %328 = fptosi double %327 to i32
-  store i32 %328, ptr %6, align 4
-  br label %.sink.split162.sink.split
+.loopexit144.loopexit.i:                          ; preds = %254
+  %.pre.i = trunc nuw i8 %.080170.i to i1
+  br i1 %.pre.i, label %.sink.split.sink.split, label %334
 
-.loopexit142.i:                                   ; preds = %248, %298
-  %329 = trunc nuw i8 %.077168.i to i1
-  br i1 %329, label %.sink.split.sink.split, label %330
+.loopexit144.i:                                   ; preds = %304
+  br i1 %310, label %.sink.split.sink.split, label %334
 
-330:                                              ; preds = %.loopexit142.i
-  %331 = load i32, ptr %17, align 8
-  %332 = add i32 %331, %storemerge.i.i
-  store i32 %332, ptr %17, align 8
-  %333 = fcmp oeq double %69, 0.000000e+00
-  br i1 %333, label %AdjustFractSeconds.exit117.i, label %334
+334:                                              ; preds = %.loopexit144.i, %.loopexit144.loopexit.i
+  %335 = load i32, ptr %17, align 8
+  %336 = add i32 %335, %storemerge.i.i
+  store i32 %336, ptr %17, align 8
+  %337 = fcmp oeq double %69, 0.000000e+00
+  br i1 %337, label %AdjustFractSeconds.exit120.i, label %338
 
-334:                                              ; preds = %330
-  %335 = fmul double %69, 3.600000e+03
-  %336 = fptosi double %335 to i32
-  %337 = load i32, ptr %7, align 8
-  %338 = add i32 %337, %336
-  store i32 %338, ptr %7, align 8
-  %339 = sitofp i32 %336 to double
-  %340 = fsub double %335, %339
-  %341 = fmul double %340, 1.000000e+06
-  %342 = call double @llvm.rint.f64(double %341)
-  %343 = load i32, ptr %6, align 4
-  %344 = sitofp i32 %343 to double
-  %345 = fadd double %342, %344
-  %346 = fptosi double %345 to i32
-  store i32 %346, ptr %6, align 4
-  br label %AdjustFractSeconds.exit117.i
+338:                                              ; preds = %334
+  %339 = fmul double %69, 3.600000e+03
+  %340 = fptosi double %339 to i32
+  %341 = load i32, ptr %7, align 8
+  %342 = add i32 %341, %340
+  store i32 %342, ptr %7, align 8
+  %343 = sitofp i32 %340 to double
+  %344 = fsub double %339, %343
+  %345 = fmul double %344, 1.000000e+06
+  %346 = call double @llvm.rint.f64(double %345)
+  %347 = load i32, ptr %6, align 4
+  %348 = sitofp i32 %347 to double
+  %349 = fadd double %346, %348
+  %350 = fptosi double %349 to i32
+  store i32 %350, ptr %6, align 4
+  br label %AdjustFractSeconds.exit120.i
 
-AdjustFractSeconds.exit117.i:                     ; preds = %334, %330
-  %347 = icmp eq i8 %71, 0
-  br i1 %347, label %.sink.split162.sink.split, label %348
+AdjustFractSeconds.exit120.i:                     ; preds = %338, %334
+  %351 = icmp eq i8 %71, 0
+  br i1 %351, label %.sink.split160.sink.split, label %352
 
-348:                                              ; preds = %AdjustFractSeconds.exit117.i
-  %349 = load ptr, ptr %43, align 8
-  %350 = load i8, ptr %70, align 1
-  %351 = zext i8 %350 to i64
-  %352 = getelementptr inbounds nuw i16, ptr %349, i64 %351
-  %353 = load i16, ptr %352, align 2
-  %.fr24.i118.i = freeze i16 %353
-  %354 = and i16 %.fr24.i118.i, 2048
-  %.not.i119.i = icmp ne i16 %354, 0
-  %.off.i120.i = add i8 %350, -45
-  %switch.i121.i = icmp ult i8 %.off.i120.i, 2
-  %or.cond23.i122.i = or i1 %switch.i121.i, %.not.i119.i
-  br i1 %or.cond23.i122.i, label %355, label %.sink.split.sink.split
+352:                                              ; preds = %AdjustFractSeconds.exit120.i
+  %353 = load ptr, ptr %43, align 8
+  %354 = load i8, ptr %70, align 1
+  %355 = zext i8 %354 to i64
+  %356 = getelementptr inbounds nuw i16, ptr %353, i64 %355
+  %357 = load i16, ptr %356, align 2
+  %.fr24.i121.i = freeze i16 %357
+  %358 = and i16 %.fr24.i121.i, 2048
+  %.not.i122.i = icmp ne i16 %358, 0
+  %.off.i123.i = add i8 %354, -45
+  %switch.i124.i = icmp ult i8 %.off.i123.i, 2
+  %or.cond23.i125.i = or i1 %switch.i124.i, %.not.i122.i
+  br i1 %or.cond23.i125.i, label %359, label %.sink.split.sink.split
 
-355:                                              ; preds = %348
+359:                                              ; preds = %352
   store i32 0, ptr %50, align 4
-  %356 = call double @strtod(ptr noundef nonnull %70, ptr noundef nonnull %3) #13
-  %357 = load ptr, ptr %3, align 8
-  %358 = icmp eq ptr %357, %70
-  br i1 %358, label %.sink.split.sink.split, label %359
+  %360 = call double @strtod(ptr noundef nonnull %70, ptr noundef nonnull %3) #13
+  %361 = load ptr, ptr %3, align 8
+  %362 = icmp eq ptr %361, %70
+  br i1 %362, label %.sink.split.sink.split, label %363
 
-359:                                              ; preds = %355
-  %360 = load i32, ptr %50, align 4
-  %.not20.i124.i = icmp eq i32 %360, 0
-  br i1 %.not20.i124.i, label %361, label %.sink.split.sink.split
+363:                                              ; preds = %359
+  %364 = load i32, ptr %50, align 4
+  %.not20.i127.i = icmp eq i32 %364, 0
+  br i1 %.not20.i127.i, label %365, label %.sink.split.sink.split
 
-361:                                              ; preds = %359
-  %362 = fcmp olt double %356, 0xC1E0000000000000
-  %363 = fcmp ogt double %356, 0x41DFFFFFFFC00000
-  %or.cond.i125.i = or i1 %362, %363
-  br i1 %or.cond.i125.i, label %.sink.split.sink.split, label %364
+365:                                              ; preds = %363
+  %366 = fcmp olt double %360, 0xC1E0000000000000
+  %367 = fcmp ogt double %360, 0x41DFFFFFFFC00000
+  %or.cond.i128.i = or i1 %366, %367
+  br i1 %or.cond.i128.i, label %.sink.split.sink.split, label %368
 
-364:                                              ; preds = %361
-  %365 = fcmp ult double %356, 0.000000e+00
-  br i1 %365, label %368, label %366
+368:                                              ; preds = %365
+  %369 = fcmp ult double %360, 0.000000e+00
+  br i1 %369, label %372, label %370
 
-366:                                              ; preds = %364
-  %367 = call double @llvm.floor.f64(double %356)
-  br label %372
+370:                                              ; preds = %368
+  %371 = call double @llvm.floor.f64(double %360)
+  br label %376
 
-368:                                              ; preds = %364
-  %369 = fneg double %356
-  %370 = call double @llvm.floor.f64(double %369)
-  %371 = fneg double %370
-  br label %372
+372:                                              ; preds = %368
+  %373 = fneg double %360
+  %374 = call double @llvm.floor.f64(double %373)
+  %375 = fneg double %374
+  br label %376
 
-372:                                              ; preds = %368, %366
-  %storemerge.in.i126.i = phi double [ %371, %368 ], [ %367, %366 ]
-  %storemerge.i127.i = fptosi double %storemerge.in.i126.i to i32
-  store i32 %storemerge.i127.i, ptr %4, align 4
-  %373 = sitofp i32 %storemerge.i127.i to double
-  %374 = fsub double %356, %373
-  store double %374, ptr %5, align 8
-  %375 = load i32, ptr %18, align 4
-  %376 = add i32 %375, %storemerge.i127.i
-  store i32 %376, ptr %18, align 4
-  %377 = fcmp oeq double %374, 0.000000e+00
-  br i1 %377, label %AdjustFractSeconds.exit129.i, label %378
+376:                                              ; preds = %372, %370
+  %storemerge.in.i129.i = phi double [ %375, %372 ], [ %371, %370 ]
+  %storemerge.i130.i = fptosi double %storemerge.in.i129.i to i32
+  store i32 %storemerge.i130.i, ptr %4, align 4
+  %377 = sitofp i32 %storemerge.i130.i to double
+  %378 = fsub double %360, %377
+  store double %378, ptr %5, align 8
+  %379 = load i32, ptr %18, align 4
+  %380 = add i32 %379, %storemerge.i130.i
+  store i32 %380, ptr %18, align 4
+  %381 = fcmp oeq double %378, 0.000000e+00
+  br i1 %381, label %AdjustFractSeconds.exit132.i, label %382
 
-378:                                              ; preds = %372
-  %379 = fmul double %374, 6.000000e+01
-  %380 = fptosi double %379 to i32
-  %381 = load i32, ptr %7, align 8
-  %382 = add i32 %381, %380
-  store i32 %382, ptr %7, align 8
-  %383 = sitofp i32 %380 to double
-  %384 = fsub double %379, %383
-  %385 = fmul double %384, 1.000000e+06
-  %386 = call double @llvm.rint.f64(double %385)
-  %387 = load i32, ptr %6, align 4
-  %388 = sitofp i32 %387 to double
-  %389 = fadd double %386, %388
-  %390 = fptosi double %389 to i32
-  store i32 %390, ptr %6, align 4
-  br label %AdjustFractSeconds.exit129.i
+382:                                              ; preds = %376
+  %383 = fmul double %378, 6.000000e+01
+  %384 = fptosi double %383 to i32
+  %385 = load i32, ptr %7, align 8
+  %386 = add i32 %385, %384
+  store i32 %386, ptr %7, align 8
+  %387 = sitofp i32 %384 to double
+  %388 = fsub double %383, %387
+  %389 = fmul double %388, 1.000000e+06
+  %390 = call double @llvm.rint.f64(double %389)
+  %391 = load i32, ptr %6, align 4
+  %392 = sitofp i32 %391 to double
+  %393 = fadd double %390, %392
+  %394 = fptosi double %393 to i32
+  store i32 %394, ptr %6, align 4
+  br label %AdjustFractSeconds.exit132.i
 
-AdjustFractSeconds.exit129.i:                     ; preds = %378, %372
-  %391 = load i8, ptr %357, align 1
-  switch i8 %391, label %.sink.split.sink.split [
-    i8 0, label %.sink.split162.sink.split
-    i8 58, label %392
+AdjustFractSeconds.exit132.i:                     ; preds = %382, %376
+  %395 = load i8, ptr %361, align 1
+  switch i8 %395, label %.sink.split.sink.split [
+    i8 0, label %.sink.split160.sink.split
+    i8 58, label %396
   ]
 
-392:                                              ; preds = %AdjustFractSeconds.exit129.i
-  %393 = getelementptr inbounds nuw i8, ptr %357, i64 1
-  store ptr %393, ptr %3, align 8
-  %394 = call fastcc i32 @ParseISO8601Number(ptr noundef nonnull %393, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %.not92.i = icmp eq i32 %394, 0
-  br i1 %.not92.i, label %395, label %.sink.split.sink.split
+396:                                              ; preds = %AdjustFractSeconds.exit132.i
+  %397 = getelementptr inbounds nuw i8, ptr %361, i64 1
+  store ptr %397, ptr %3, align 8
+  %398 = call fastcc i32 @ParseISO8601Number(ptr noundef nonnull %397, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %.not95.i = icmp eq i32 %398, 0
+  br i1 %.not95.i, label %399, label %.sink.split.sink.split
 
-395:                                              ; preds = %392
-  %396 = load i32, ptr %4, align 4
-  %397 = load i32, ptr %7, align 8
-  %398 = add i32 %397, %396
-  store i32 %398, ptr %7, align 8
-  %399 = load double, ptr %5, align 8
-  %400 = fcmp oeq double %399, 0.000000e+00
-  br i1 %400, label %DecodeISO8601Interval.exit, label %401
+399:                                              ; preds = %396
+  %400 = load i32, ptr %4, align 4
+  %401 = load i32, ptr %7, align 8
+  %402 = add i32 %401, %400
+  store i32 %402, ptr %7, align 8
+  %403 = load double, ptr %5, align 8
+  %404 = fcmp oeq double %403, 0.000000e+00
+  br i1 %404, label %DecodeISO8601Interval.exit, label %405
 
-401:                                              ; preds = %395
-  %402 = fptosi double %399 to i32
-  %403 = add i32 %398, %402
-  store i32 %403, ptr %7, align 8
-  %404 = sitofp i32 %402 to double
-  %405 = fsub double %399, %404
-  %406 = fmul double %405, 1.000000e+06
-  %407 = call double @llvm.rint.f64(double %406)
-  %408 = load i32, ptr %6, align 4
-  %409 = sitofp i32 %408 to double
-  %410 = fadd double %407, %409
-  %411 = fptosi double %410 to i32
-  store i32 %411, ptr %6, align 4
+405:                                              ; preds = %399
+  %406 = fptosi double %403 to i32
+  %407 = add i32 %402, %406
+  store i32 %407, ptr %7, align 8
+  %408 = sitofp i32 %406 to double
+  %409 = fsub double %403, %408
+  %410 = fmul double %409, 1.000000e+06
+  %411 = call double @llvm.rint.f64(double %410)
+  %412 = load i32, ptr %6, align 4
+  %413 = sitofp i32 %412 to double
+  %414 = fadd double %411, %413
+  %415 = fptosi double %414 to i32
+  store i32 %415, ptr %6, align 4
   br label %DecodeISO8601Interval.exit
 
-AdjustFractDays.exit.i:                           ; preds = %287, %283, %270, %266, %253, %249, %AdjustFractSeconds.exit110.i, %218, %185, %AdjustFractSeconds.exit98.i, %136, %132, %119, %112, %107, %94, %86, %82, %73, %40
-  %412 = phi ptr [ %41, %40 ], [ %70, %AdjustFractSeconds.exit98.i ], [ %70, %73 ], [ %70, %82 ], [ %70, %86 ], [ %70, %94 ], [ %70, %107 ], [ %70, %112 ], [ %70, %119 ], [ %70, %132 ], [ %70, %136 ], [ %70, %249 ], [ %70, %253 ], [ %70, %266 ], [ %70, %270 ], [ %70, %283 ], [ %70, %287 ], [ %70, %185 ], [ %203, %218 ], [ %246, %AdjustFractSeconds.exit110.i ]
-  %.178.i = phi i8 [ 0, %40 ], [ 0, %AdjustFractSeconds.exit98.i ], [ 1, %73 ], [ 1, %82 ], [ 1, %86 ], [ 1, %94 ], [ 1, %107 ], [ 1, %112 ], [ 1, %119 ], [ 1, %132 ], [ 1, %136 ], [ 1, %249 ], [ 1, %253 ], [ 1, %266 ], [ 1, %270 ], [ 1, %283 ], [ 1, %287 ], [ 0, %185 ], [ 0, %218 ], [ 0, %AdjustFractSeconds.exit110.i ]
-  %.175.i = phi i1 [ false, %40 ], [ false, %AdjustFractSeconds.exit98.i ], [ true, %73 ], [ true, %82 ], [ true, %86 ], [ true, %94 ], [ true, %107 ], [ true, %112 ], [ true, %119 ], [ true, %132 ], [ true, %136 ], [ false, %249 ], [ false, %253 ], [ false, %266 ], [ false, %270 ], [ false, %283 ], [ false, %287 ], [ false, %185 ], [ false, %218 ], [ false, %AdjustFractSeconds.exit110.i ]
+AdjustFractDays.exit.i:                           ; preds = %293, %289, %276, %272, %259, %255, %AdjustFractSeconds.exit113.i, %224, %191, %AdjustFractSeconds.exit101.i, %144, %140, %127, %120, %115, %102, %94, %90, %81, %40
+  %416 = phi ptr [ %41, %40 ], [ %70, %AdjustFractSeconds.exit101.i ], [ %70, %81 ], [ %70, %90 ], [ %70, %94 ], [ %70, %102 ], [ %70, %115 ], [ %70, %120 ], [ %70, %127 ], [ %70, %140 ], [ %70, %144 ], [ %70, %255 ], [ %70, %259 ], [ %70, %272 ], [ %70, %276 ], [ %70, %289 ], [ %70, %293 ], [ %70, %191 ], [ %209, %224 ], [ %252, %AdjustFractSeconds.exit113.i ]
+  %.181.i = phi i8 [ 0, %40 ], [ 0, %AdjustFractSeconds.exit101.i ], [ 1, %81 ], [ 1, %90 ], [ 1, %94 ], [ 1, %102 ], [ 1, %115 ], [ 1, %120 ], [ 1, %127 ], [ 1, %140 ], [ 1, %144 ], [ 1, %255 ], [ 1, %259 ], [ 1, %272 ], [ 1, %276 ], [ 1, %289 ], [ 1, %293 ], [ 0, %191 ], [ 0, %224 ], [ 0, %AdjustFractSeconds.exit113.i ]
+  %.178.i = phi i1 [ false, %40 ], [ false, %AdjustFractSeconds.exit101.i ], [ true, %81 ], [ true, %90 ], [ true, %94 ], [ true, %102 ], [ true, %115 ], [ true, %120 ], [ true, %127 ], [ true, %140 ], [ true, %144 ], [ false, %255 ], [ false, %259 ], [ false, %272 ], [ false, %276 ], [ false, %289 ], [ false, %293 ], [ false, %191 ], [ false, %224 ], [ false, %AdjustFractSeconds.exit113.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  %413 = load i8, ptr %412, align 1
-  %.not88.i = icmp eq i8 %413, 0
-  br i1 %.not88.i, label %.sink.split162, label %.lr.ph.i
+  %417 = load i8, ptr %416, align 1
+  %.not91.i = icmp eq i8 %417, 0
+  br i1 %.not91.i, label %.sink.split160, label %.lr.ph.i
 
-DecodeISO8601Interval.exit:                       ; preds = %395, %401
-  %414 = load ptr, ptr %3, align 8
-  %415 = load i8, ptr %414, align 1
-  %.not53 = icmp eq i8 %415, 0
+DecodeISO8601Interval.exit:                       ; preds = %399, %405
+  %418 = load ptr, ptr %3, align 8
+  %419 = load i8, ptr %418, align 1
+  %.not54 = icmp eq i8 %419, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 %.not53, label %418, label %416
+  br i1 %.not54, label %422, label %420
 
-.sink.split.sink.split:                           ; preds = %205, %201, %207, %194, %155, %54, %49, %56, %42, %183, %224, %72, %248, %AdjustFractSeconds.exit110.i, %218, %AdjustFractSeconds.exit129.i, %359, %355, %361, %348, %304, %.loopexit142.i, %392
+.sink.split.sink.split:                           ; preds = %211, %207, %213, %200, %54, %49, %56, %42, %190, %230, %72, %254, %._crit_edge.i, %AdjustFractSeconds.exit113.i, %224, %AdjustFractSeconds.exit132.i, %.loopexit144.loopexit.i, %363, %359, %365, %352, %.loopexit144.i, %396
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %29, %32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %416
+  br label %420
 
-416:                                              ; preds = %.sink.split, %DecodeISO8601Interval.exit, %23
-  %417 = tail call ptr @__errno_location() #15
-  store i32 330, ptr %417, align 4
-  br label %457
+420:                                              ; preds = %.sink.split, %DecodeISO8601Interval.exit, %23
+  %421 = tail call ptr @__errno_location() #15
+  store i32 330, ptr %421, align 4
+  br label %461
 
-.sink.split162.sink.split:                        ; preds = %AdjustFractSeconds.exit98.i, %185, %218, %AdjustFractSeconds.exit110.i, %AdjustFractSeconds.exit117.i, %AdjustFractSeconds.exit129.i, %306, %318
+.sink.split160.sink.split:                        ; preds = %AdjustFractSeconds.exit101.i, %191, %224, %AdjustFractSeconds.exit113.i, %AdjustFractSeconds.exit120.i, %AdjustFractSeconds.exit132.i, %311, %323
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  br label %.sink.split162
+  br label %.sink.split160
 
-.sink.split162:                                   ; preds = %AdjustFractDays.exit.i, %.sink.split162.sink.split, %34
+.sink.split160:                                   ; preds = %AdjustFractDays.exit.i, %.sink.split160.sink.split, %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %418
+  br label %422
 
-418:                                              ; preds = %.sink.split162, %DecodeISO8601Interval.exit, %26
-  %419 = call ptr @pgtypes_alloc(i64 noundef 16) #13
-  %.not25 = icmp eq ptr %419, null
-  br i1 %.not25, label %457, label %420
+422:                                              ; preds = %.sink.split160, %DecodeISO8601Interval.exit, %26
+  %423 = call ptr @pgtypes_alloc(i64 noundef 16) #13
+  %.not25 = icmp eq ptr %423, null
+  br i1 %.not25, label %461, label %424
 
-420:                                              ; preds = %418
-  %421 = load i32, ptr %8, align 4
-  %.not26 = icmp eq i32 %421, 17
-  br i1 %.not26, label %424, label %422
+424:                                              ; preds = %422
+  %425 = load i32, ptr %8, align 4
+  %.not26 = icmp eq i32 %425, 17
+  br i1 %.not26, label %428, label %426
 
-422:                                              ; preds = %420
-  %423 = tail call ptr @__errno_location() #15
-  store i32 330, ptr %423, align 4
-  call void @free(ptr noundef nonnull %419) #13
-  br label %457
+426:                                              ; preds = %424
+  %427 = tail call ptr @__errno_location() #15
+  store i32 330, ptr %427, align 4
+  call void @free(ptr noundef nonnull %423) #13
+  br label %461
 
-424:                                              ; preds = %420
-  %425 = load i32, ptr %14, align 4
-  %426 = sitofp i32 %425 to double
-  %427 = load i32, ptr %15, align 8
-  %428 = sitofp i32 %427 to double
-  %429 = call double @llvm.fmuladd.f64(double %426, double 1.200000e+01, double %428)
-  %430 = fcmp ogt double %429, 0x41DFFFFFFFC00000
-  %431 = fcmp olt double %429, 0xC1E0000000000000
-  %or.cond.i = or i1 %430, %431
-  br i1 %or.cond.i, label %tm2interval.exit, label %433
+428:                                              ; preds = %424
+  %429 = load i32, ptr %14, align 4
+  %430 = sitofp i32 %429 to double
+  %431 = load i32, ptr %15, align 8
+  %432 = sitofp i32 %431 to double
+  %433 = call double @llvm.fmuladd.f64(double %430, double 1.200000e+01, double %432)
+  %434 = fcmp ogt double %433, 0x41DFFFFFFFC00000
+  %435 = fcmp olt double %433, 0xC1E0000000000000
+  %or.cond.i28 = or i1 %434, %435
+  br i1 %or.cond.i28, label %tm2interval.exit, label %437
 
-tm2interval.exit:                                 ; preds = %424
-  %432 = tail call ptr @__errno_location() #15
-  store i32 330, ptr %432, align 4
-  call void @free(ptr noundef nonnull %419) #13
-  br label %457
+tm2interval.exit:                                 ; preds = %428
+  %436 = tail call ptr @__errno_location() #15
+  store i32 330, ptr %436, align 4
+  call void @free(ptr noundef nonnull %423) #13
+  br label %461
 
-433:                                              ; preds = %424
-  %434 = load i32, ptr %6, align 4
-  %435 = mul i32 %425, 12
-  %436 = add i32 %435, %427
-  %437 = sext i32 %436 to i64
-  %438 = getelementptr inbounds nuw i8, ptr %419, i64 8
-  store i64 %437, ptr %438, align 8
-  %439 = load i32, ptr %16, align 4
-  %440 = sext i32 %439 to i64
-  %441 = mul nsw i64 %440, 24
-  %442 = load i32, ptr %17, align 8
-  %443 = sext i32 %442 to i64
-  %444 = add nsw i64 %441, %443
-  %445 = mul nsw i64 %444, 60
-  %446 = load i32, ptr %18, align 4
+437:                                              ; preds = %428
+  %438 = load i32, ptr %6, align 4
+  %439 = mul i32 %429, 12
+  %440 = add i32 %439, %431
+  %441 = sext i32 %440 to i64
+  %442 = getelementptr inbounds nuw i8, ptr %423, i64 8
+  store i64 %441, ptr %442, align 8
+  %443 = load i32, ptr %16, align 4
+  %444 = sext i32 %443 to i64
+  %445 = mul nsw i64 %444, 24
+  %446 = load i32, ptr %17, align 8
   %447 = sext i32 %446 to i64
   %448 = add nsw i64 %445, %447
   %449 = mul nsw i64 %448, 60
-  %450 = load i32, ptr %7, align 8
+  %450 = load i32, ptr %18, align 4
   %451 = sext i32 %450 to i64
   %452 = add nsw i64 %449, %451
-  %453 = mul i64 %452, 1000000
-  %454 = sext i32 %434 to i64
-  %455 = add i64 %453, %454
-  store i64 %455, ptr %419, align 8
-  %456 = tail call ptr @__errno_location() #15
-  store i32 0, ptr %456, align 4
-  br label %457
+  %453 = mul nsw i64 %452, 60
+  %454 = load i32, ptr %7, align 8
+  %455 = sext i32 %454 to i64
+  %456 = add nsw i64 %453, %455
+  %457 = mul i64 %456, 1000000
+  %458 = sext i32 %438 to i64
+  %459 = add i64 %457, %458
+  store i64 %459, ptr %423, align 8
+  %460 = tail call ptr @__errno_location() #15
+  store i32 0, ptr %460, align 4
+  br label %461
 
-457:                                              ; preds = %418, %433, %tm2interval.exit, %422, %416, %21
-  %.0 = phi ptr [ null, %21 ], [ null, %416 ], [ null, %422 ], [ null, %tm2interval.exit ], [ %419, %433 ], [ null, %418 ]
+461:                                              ; preds = %422, %437, %tm2interval.exit, %426, %420, %21
+  %.0 = phi ptr [ null, %21 ], [ null, %420 ], [ null, %426 ], [ null, %tm2interval.exit ], [ %423, %437 ], [ null, %422 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 153, ptr nonnull %12) #13
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %11) #13

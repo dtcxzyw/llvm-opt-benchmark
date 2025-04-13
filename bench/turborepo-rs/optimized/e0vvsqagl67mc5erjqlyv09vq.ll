@@ -612,8 +612,8 @@ _RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepEN
   br i1 %42, label %_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBb_4iter6traits8iterator8Iterator4foldjNCINvNvXs_NtNtB1E_8adapters9enumerateINtB2t_9EnumeratepEB1y_4fold9enumerateRBQ_jNCNvMNtBU_4gridNtB3G_4Grid18size_with_contents0E0EBU_.exit, label %26
 
 _RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBb_4iter6traits8iterator8Iterator4foldjNCINvNvXs_NtNtB1E_8adapters9enumerateINtB2t_9EnumeratepEB1y_4fold9enumerateRBQ_jNCNvMNtBU_4gridNtB3G_4Grid18size_with_contents0E0EBU_.exit: ; preds = %_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateRNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowjNCNvMNtB26_4gridNtB2P_4Grid18size_with_contents0E0B26_.llvm.2317615445369004925.exit.i, %16, %12
-  %.sroa.04.0 = phi i64 [ %.sroa.0.0, %12 ], [ %.sroa.0.0, %16 ], [ %spec.select.i.i.i, %_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateRNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowjNCNvMNtB26_4gridNtB2P_4Grid18size_with_contents0E0B26_.llvm.2317615445369004925.exit.i ]
-  ret i64 %.sroa.04.0
+  %.sroa.011.0 = phi i64 [ %.sroa.0.0, %12 ], [ %.sroa.0.0, %16 ], [ %spec.select.i.i.i, %_RNCINvNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB9_9EnumeratepENtNtNtBd_6traits8iterator8Iterator4fold9enumerateRNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowjNCNvMNtB26_4gridNtB2P_4Grid18size_with_contents0E0B26_.llvm.2317615445369004925.exit.i ]
+  ret i64 %.sroa.011.0
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable

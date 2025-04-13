@@ -1833,57 +1833,57 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %.body, %24
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20GraphRemoveRedundant13vertexIterateEP13V3GraphVertex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.043.050 = load ptr, ptr %3, align 8, !tbaa !18
-  %.not4851 = icmp eq ptr %.sroa.043.050, null
-  br i1 %.not4851, label %._crit_edge57, label %.lr.ph
+  %.sroa.045.052 = load ptr, ptr %3, align 8, !tbaa !18
+  %.not5053 = icmp eq ptr %.sroa.045.052, null
+  br i1 %.not5053, label %._crit_edge59, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre = load ptr, ptr %3, align 8, !tbaa !111
-  %.not.i35 = icmp eq ptr %.pre, null
-  br i1 %.not.i35, label %._crit_edge57, label %.lr.ph56
+  %.not.i37 = icmp eq ptr %.pre, null
+  br i1 %.not.i37, label %._crit_edge59, label %.lr.ph58
 
-.lr.ph56:                                         ; preds = %._crit_edge
+.lr.ph58:                                         ; preds = %._crit_edge
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %12
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.043.052 = phi ptr [ %.sroa.043.0, %.lr.ph ], [ %.sroa.043.050, %2 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.043.052, i64 8
+  %.sroa.045.054 = phi ptr [ %.sroa.045.0, %.lr.ph ], [ %.sroa.045.052, %2 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.045.054, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !20
-  %.not.i34 = icmp eq ptr %7, null
-  %8 = select i1 %.not.i34, ptr %.sroa.043.052, ptr %7
+  %.not.i36 = icmp eq ptr %7, null
+  %8 = select i1 %.not.i36, ptr %.sroa.045.054, ptr %7
   tail call void @llvm.prefetch.p0(ptr nonnull %8, i32 1, i32 3, i32 1)
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.043.052, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.045.054, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !100
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr null, ptr %11, align 8, !tbaa !40
-  %.sroa.043.0 = load ptr, ptr %6, align 8, !tbaa !18
-  %.not48 = icmp eq ptr %.sroa.043.0, null
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.sroa.045.0 = load ptr, ptr %6, align 8, !tbaa !18
+  %.not50 = icmp eq ptr %.sroa.045.0, null
+  br i1 %.not50, label %._crit_edge, label %.lr.ph
 
-._crit_edge57:                                    ; preds = %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread, %2, %._crit_edge
+._crit_edge59:                                    ; preds = %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread, %2, %._crit_edge
   ret void
 
-12:                                               ; preds = %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread, %.lr.ph56
-  %.sroa.037.054 = phi ptr [ %.pre, %.lr.ph56 ], [ %.sroa.7.055, %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread ]
-  %.sroa.7.055.in = getelementptr inbounds nuw i8, ptr %.sroa.037.054, i64 8
-  %.sroa.7.055 = load ptr, ptr %.sroa.7.055.in, align 8, !tbaa !20
-  %.not.i33 = icmp eq ptr %.sroa.7.055, null
-  %13 = select i1 %.not.i33, ptr %.sroa.037.054, ptr %.sroa.7.055
+12:                                               ; preds = %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread, %.lr.ph58
+  %.sroa.039.056 = phi ptr [ %.pre, %.lr.ph58 ], [ %.sroa.7.057, %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread ]
+  %.sroa.7.057.in = getelementptr inbounds nuw i8, ptr %.sroa.039.056, i64 8
+  %.sroa.7.057 = load ptr, ptr %.sroa.7.057.in, align 8, !tbaa !20
+  %.not.i35 = icmp eq ptr %.sroa.7.057, null
+  %13 = select i1 %.not.i35, ptr %.sroa.039.056, ptr %.sroa.7.057
   tail call void @llvm.prefetch.p0(ptr nonnull %13, i32 1, i32 3, i32 1)
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.037.054, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.039.056, i64 56
   %15 = load i32, ptr %14, align 8, !tbaa !98
-  %.not.i36 = icmp eq i32 %15, 0
-  br i1 %.not.i36, label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread, label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit
+  %.not.i38 = icmp eq i32 %15, 0
+  br i1 %.not.i38, label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread, label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit
 
 _ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit: ; preds = %12
   %16 = load ptr, ptr %4, align 8, !tbaa !10
-  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull %.sroa.037.054)
+  %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull %.sroa.039.056)
   br i1 %17, label %18, label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread
 
 18:                                               ; preds = %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.037.054, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.039.056, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !100
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %22 = load ptr, ptr %21, align 8, !tbaa !40
@@ -1891,77 +1891,75 @@ _ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit: ; preds = %12
   br i1 %.not, label %23, label %24
 
 23:                                               ; preds = %18
-  store ptr %.sroa.037.054, ptr %21, align 8, !tbaa !40
+  store ptr %.sroa.039.056, ptr %21, align 8, !tbaa !40
   br label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 60
   %26 = load i8, ptr %25, align 4, !tbaa !112, !range !93, !noundef !94
   %27 = trunc nuw i8 %26 to i1
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.037.054, i64 60
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.039.056, i64 60
   %29 = load i8, ptr %28, align 4, !tbaa !112, !range !93, !noundef !94
   %30 = trunc nuw i8 %29 to i1
+  %.old33 = load i8, ptr %5, align 8, !range !93
+  %.old34 = trunc nuw i8 %.old33 to i1
   br i1 %27, label %31, label %32
 
 31:                                               ; preds = %24
-  br i1 %30, label %.thread, label %46
+  br i1 %30, label %33, label %45
 
 32:                                               ; preds = %24
-  br i1 %30, label %.critedge, label %.thread
+  %or.cond = select i1 %30, i1 true, i1 %.old34
+  br i1 %or.cond, label %.critedge, label %34
 
-.thread:                                          ; preds = %31, %32
-  %33 = load i8, ptr %5, align 8, !tbaa !11, !range !93, !noundef !94
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %.critedge.thread63, label %35
+33:                                               ; preds = %31
+  br i1 %.old34, label %.critedge.thread65, label %34
 
-35:                                               ; preds = %.thread
-  %36 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %37 = load i32, ptr %36, align 8, !tbaa !98
-  %38 = load i32, ptr %14, align 8, !tbaa !98
-  %39 = icmp slt i32 %37, %38
-  br i1 %39, label %40, label %.critedge.thread
+34:                                               ; preds = %32, %33
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %36 = load i32, ptr %35, align 8, !tbaa !98
+  %37 = load i32, ptr %14, align 8, !tbaa !98
+  %38 = icmp slt i32 %36, %37
+  br i1 %38, label %39, label %.critedge.thread
 
-40:                                               ; preds = %35
-  store i32 %38, ptr %36, align 8, !tbaa !98
+39:                                               ; preds = %34
+  store i32 %37, ptr %35, align 8, !tbaa !98
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %32
-  %.pre58 = load i8, ptr %5, align 8, !tbaa !11, !range !93
-  %41 = trunc nuw i8 %.pre58 to i1
-  br i1 %41, label %.critedge.thread63, label %.critedge.thread
+  %40 = trunc nuw i8 %.old33 to i1
+  br i1 %40, label %.critedge.thread65, label %.critedge.thread
 
-.critedge.thread63:                               ; preds = %.thread, %.critedge
-  %42 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %43 = load i32, ptr %42, align 8, !tbaa !98
-  %44 = load i32, ptr %14, align 8, !tbaa !98
-  %45 = add nsw i32 %44, %43
-  store i32 %45, ptr %42, align 8, !tbaa !98
+.critedge.thread65:                               ; preds = %33, %.critedge
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %42 = load i32, ptr %41, align 8, !tbaa !98
+  %43 = load i32, ptr %14, align 8, !tbaa !98
+  %44 = add nsw i32 %43, %42
+  store i32 %44, ptr %41, align 8, !tbaa !98
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %40, %35, %.critedge.thread63, %.critedge
-  tail call void @_ZN11V3GraphEdge12unlinkDeleteEv(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.037.054)
+.critedge.thread:                                 ; preds = %39, %34, %.critedge.thread65, %.critedge
+  tail call void @_ZN11V3GraphEdge12unlinkDeleteEv(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.039.056)
   br label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread
 
-46:                                               ; preds = %31
-  %47 = load i8, ptr %5, align 8, !tbaa !11, !range !93, !noundef !94
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %54
+45:                                               ; preds = %31
+  br i1 %.old34, label %46, label %51
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %51 = load i32, ptr %50, align 8, !tbaa !98
-  %52 = load i32, ptr %14, align 8, !tbaa !98
-  %53 = add nsw i32 %52, %51
-  store i32 %53, ptr %14, align 8, !tbaa !98
-  br label %54
+46:                                               ; preds = %45
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %48 = load i32, ptr %47, align 8, !tbaa !98
+  %49 = load i32, ptr %14, align 8, !tbaa !98
+  %50 = add nsw i32 %49, %48
+  store i32 %50, ptr %14, align 8, !tbaa !98
+  br label %51
 
-54:                                               ; preds = %49, %46
+51:                                               ; preds = %46, %45
   tail call void @_ZN11V3GraphEdge12unlinkDeleteEv(ptr noundef nonnull align 8 dereferenceable(72) %22)
-  store ptr %.sroa.037.054, ptr %21, align 8, !tbaa !40
+  store ptr %.sroa.039.056, ptr %21, align 8, !tbaa !40
   br label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread
 
-_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread: ; preds = %12, %23, %54, %.critedge.thread, %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit
-  br i1 %.not.i33, label %._crit_edge57, label %12
+_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread: ; preds = %12, %23, %51, %.critedge.thread, %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit
+  br i1 %.not.i35, label %._crit_edge59, label %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

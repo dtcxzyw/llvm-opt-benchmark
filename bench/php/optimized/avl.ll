@@ -1137,143 +1137,143 @@ define hidden noundef ptr @lexbor_avl_search(ptr noundef readnone captures(none)
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %.loopexit95, label %6
+  br i1 %5, label %.loopexit94, label %6
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %1, align 8, !tbaa !16
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit95, label %.preheader96
+  br i1 %8, label %.loopexit94, label %.preheader95
 
-.preheader96:                                     ; preds = %6, %.preheader96
-  %.053 = phi ptr [ %10, %.preheader96 ], [ %7, %6 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.053, i64 24
+.preheader95:                                     ; preds = %6, %.preheader95
+  %.054 = phi ptr [ %10, %.preheader95 ], [ %7, %6 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.054, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.preheader94, label %.preheader96
+  br i1 %.not, label %.preheader93, label %.preheader95
 
-.preheader94:                                     ; preds = %.preheader96
+.preheader93:                                     ; preds = %.preheader95
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.loopexit.outer
 
-.loopexit.outer:                                  ; preds = %.loopexit.outer.backedge, %.preheader94
-  %.056.ph = phi i1 [ false, %.preheader94 ], [ %.056.ph.be, %.loopexit.outer.backedge ]
-  %.154.ph = phi ptr [ %.053, %.preheader94 ], [ %.154.ph.be, %.loopexit.outer.backedge ]
-  %.0.ph = phi ptr [ %7, %.preheader94 ], [ %.0.ph.be, %.loopexit.outer.backedge ]
+.loopexit.outer:                                  ; preds = %.loopexit.outer.backedge, %.preheader93
+  %.057.ph = phi i1 [ false, %.preheader93 ], [ %.057.ph.be, %.loopexit.outer.backedge ]
+  %.155.ph = phi ptr [ %.054, %.preheader93 ], [ %.155.ph.be, %.loopexit.outer.backedge ]
+  %.0.ph = phi ptr [ %7, %.preheader93 ], [ %.0.ph.be, %.loopexit.outer.backedge ]
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %.loopexit.outer
-  %.056 = phi i1 [ %.056.ph, %.loopexit.outer ], [ false, %.loopexit.backedge ]
-  %.154 = phi ptr [ %.154.ph, %.loopexit.outer ], [ %.154.be, %.loopexit.backedge ]
-  %12 = getelementptr inbounds nuw i8, ptr %.154, i64 40
+  %.057 = phi i1 [ %.057.ph, %.loopexit.outer ], [ false, %.loopexit.backedge ]
+  %.155 = phi ptr [ %.155.ph, %.loopexit.outer ], [ %.155.be, %.loopexit.backedge ]
+  %12 = getelementptr inbounds nuw i8, ptr %.155, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !19
-  br i1 %.056, label %.thread86, label %14
+  br i1 %.057, label %.thread86, label %14
 
 14:                                               ; preds = %.loopexit
-  %15 = icmp eq ptr %.154, %.0.ph
+  %15 = icmp eq ptr %.155, %.0.ph
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !17
-  %.not93 = icmp eq ptr %18, %.154
-  %19 = tail call i32 %2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.154, ptr noundef %3) #7
-  %.not70 = icmp eq i32 %19, 0
-  br i1 %.not70, label %28, label %.loopexit95
+  %.not92 = icmp eq ptr %18, %.155
+  %19 = tail call i32 %2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.155, ptr noundef %3) #7
+  %.not71 = icmp eq i32 %19, 0
+  br i1 %.not71, label %28, label %.loopexit94
 
 .thread:                                          ; preds = %14
-  %20 = tail call i32 %2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.154, ptr noundef %3) #7
-  %.not7082 = icmp eq i32 %20, 0
-  br i1 %.not7082, label %21, label %.loopexit95
+  %20 = tail call i32 %2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.155, ptr noundef %3) #7
+  %.not7182 = icmp eq i32 %20, 0
+  br i1 %.not7182, label %21, label %.loopexit94
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %1, align 8, !tbaa !16
-  %.not78 = icmp eq ptr %22, %.154
-  br i1 %.not78, label %.loopexit97, label %23
+  %.not79 = icmp eq ptr %22, %.155
+  br i1 %.not79, label %.loopexit96, label %23
 
 23:                                               ; preds = %21
   %24 = icmp eq ptr %22, null
-  br i1 %24, label %.loopexit95, label %25
+  br i1 %24, label %.loopexit94, label %25
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %11, align 8, !tbaa !4
   %27 = icmp eq ptr %26, %22
-  br i1 %27, label %.loopexit97, label %.loopexit.outer.backedge
+  br i1 %27, label %.loopexit96, label %.loopexit.outer.backedge
 
 28:                                               ; preds = %16
   %29 = load ptr, ptr %17, align 8, !tbaa !17
-  %.not71 = icmp eq ptr %29, %.154
-  br i1 %.not71, label %.loopexit97, label %30
+  %.not72 = icmp eq ptr %29, %.155
+  br i1 %.not72, label %.loopexit96, label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !18
-  %.not72 = icmp eq ptr %32, %.154
-  br i1 %.not72, label %.loopexit97, label %33
+  %.not73 = icmp eq ptr %32, %.155
+  br i1 %.not73, label %.loopexit96, label %33
 
 33:                                               ; preds = %30
-  br i1 %.not93, label %34, label %38
+  br i1 %.not92, label %34, label %38
 
 34:                                               ; preds = %33
-  %.not76 = icmp eq ptr %29, null
-  br i1 %.not76, label %.loopexit.backedge, label %35
+  %.not77 = icmp eq ptr %29, null
+  br i1 %.not77, label %.loopexit.backedge, label %35
 
 .loopexit.backedge:                               ; preds = %34, %35, %39
-  %.154.be = phi ptr [ %32, %39 ], [ %13, %35 ], [ %13, %34 ]
+  %.155.be = phi ptr [ %32, %39 ], [ %13, %35 ], [ %13, %34 ]
   br label %.loopexit
 
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !18
-  %.not77 = icmp eq ptr %37, null
-  br i1 %.not77, label %.loopexit.backedge, label %.loopexit97
+  %.not78 = icmp eq ptr %37, null
+  br i1 %.not78, label %.loopexit.backedge, label %.loopexit96
 
 38:                                               ; preds = %33
-  %.not74 = icmp eq ptr %32, null
-  br i1 %.not74, label %.loopexit97, label %39
+  %.not75 = icmp eq ptr %32, null
+  br i1 %.not75, label %.loopexit96, label %39
 
 39:                                               ; preds = %38
   %40 = load ptr, ptr %11, align 8, !tbaa !4
-  %.not75 = icmp eq ptr %32, %40
-  br i1 %.not75, label %.loopexit97, label %.loopexit.backedge
+  %.not76 = icmp eq ptr %32, %40
+  br i1 %.not76, label %.loopexit96, label %.loopexit.backedge
 
-.loopexit97:                                      ; preds = %38, %35, %39, %30, %28, %25, %21
-  %.255 = phi ptr [ %.154, %21 ], [ %22, %25 ], [ %13, %38 ], [ %29, %35 ], [ %.154, %28 ], [ %.154, %30 ], [ %32, %39 ]
+.loopexit96:                                      ; preds = %38, %35, %39, %30, %28, %25, %21
+  %.256 = phi ptr [ %.155, %21 ], [ %22, %25 ], [ %13, %38 ], [ %29, %35 ], [ %.155, %28 ], [ %.155, %30 ], [ %32, %39 ]
   %.1 = phi ptr [ %.0.ph, %21 ], [ %22, %25 ], [ %.0.ph, %28 ], [ %.0.ph, %30 ], [ %.0.ph, %39 ], [ %.0.ph, %35 ], [ %.0.ph, %38 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.255, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.256, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !18
-  %.not79 = icmp eq ptr %42, null
-  br i1 %.not79, label %.thread86, label %.preheader
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %.thread86, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit97, %.preheader
-  %.4 = phi ptr [ %44, %.preheader ], [ %42, %.loopexit97 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.4, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !17
-  %.not80 = icmp eq ptr %44, null
+.preheader:                                       ; preds = %.loopexit96, %.preheader
+  %.4 = phi ptr [ %45, %.preheader ], [ %42, %.loopexit96 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.4, i64 24
+  %45 = load ptr, ptr %44, align 8, !tbaa !17
+  %.not80 = icmp eq ptr %45, null
   br i1 %.not80, label %.loopexit.outer.backedge, label %.preheader
 
-.thread86:                                        ; preds = %.loopexit, %.loopexit97
-  %.192 = phi ptr [ %.1, %.loopexit97 ], [ %.0.ph, %.loopexit ]
-  %.25591 = phi ptr [ %.255, %.loopexit97 ], [ %.154, %.loopexit ]
-  %45 = getelementptr inbounds nuw i8, ptr %.192, i64 40
-  %46 = load ptr, ptr %45, align 8, !tbaa !19
-  %47 = icmp eq ptr %13, %46
-  br i1 %47, label %.loopexit95, label %48
+.thread86:                                        ; preds = %.loopexit, %.loopexit96
+  %.191 = phi ptr [ %.1, %.loopexit96 ], [ %.0.ph, %.loopexit ]
+  %.25690 = phi ptr [ %.256, %.loopexit96 ], [ %.155, %.loopexit ]
+  %46 = getelementptr inbounds nuw i8, ptr %.191, i64 40
+  %47 = load ptr, ptr %46, align 8, !tbaa !19
+  %48 = icmp eq ptr %13, %47
+  br i1 %48, label %.loopexit94, label %49
 
-48:                                               ; preds = %.thread86
-  %49 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !17
-  %51 = icmp ne ptr %.25591, %50
+49:                                               ; preds = %.thread86
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %51 = load ptr, ptr %50, align 8, !tbaa !17
+  %52 = icmp ne ptr %.25690, %51
   br label %.loopexit.outer.backedge
 
-.loopexit.outer.backedge:                         ; preds = %.preheader, %48, %25
-  %.056.ph.be = phi i1 [ false, %25 ], [ %51, %48 ], [ false, %.preheader ]
-  %.154.ph.be = phi ptr [ %22, %25 ], [ %13, %48 ], [ %.4, %.preheader ]
-  %.0.ph.be = phi ptr [ %22, %25 ], [ %.192, %48 ], [ %.1, %.preheader ]
+.loopexit.outer.backedge:                         ; preds = %.preheader, %49, %25
+  %.057.ph.be = phi i1 [ false, %25 ], [ %52, %49 ], [ false, %.preheader ]
+  %.155.ph.be = phi ptr [ %22, %25 ], [ %13, %49 ], [ %.4, %.preheader ]
+  %.0.ph.be = phi ptr [ %22, %25 ], [ %.191, %49 ], [ %.1, %.preheader ]
   br label %.loopexit.outer
 
-.loopexit95:                                      ; preds = %16, %.thread, %.thread86, %23, %4, %6
-  %.052 = phi i32 [ 9, %6 ], [ 9, %4 ], [ %19, %16 ], [ 0, %23 ], [ 0, %.thread86 ], [ %20, %.thread ]
-  ret i32 %.052
+.loopexit94:                                      ; preds = %16, %.thread, %.thread86, %23, %4, %6
+  %.053 = phi i32 [ 9, %6 ], [ 9, %4 ], [ %19, %16 ], [ 0, %23 ], [ 0, %.thread86 ], [ %20, %.thread ]
+  ret i32 %.053
 }
 
 ; Function Attrs: nounwind uwtable

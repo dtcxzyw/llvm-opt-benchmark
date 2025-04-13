@@ -192,7 +192,7 @@ define hidden void @"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u
 
 11:                                               ; preds = %3
   invoke void @_ZN3std2fs8DirEntry9file_name17hf8bafe289494e64bE(ptr nonnull sret({ { { { i64, ptr }, i64 } } }) align 8 %7, ptr nonnull align 8 %2)
-          to label %20 unwind label %17
+          to label %20 unwind label %18
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -202,16 +202,16 @@ define hidden void @"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u
   store ptr %14, ptr %.sroa.2.0..sroa_idx, align 8
   br label %48
 
-15:                                               ; preds = %25, %17
-  %.1 = phi i1 [ %18, %17 ], [ false, %25 ]
-  %.pn7 = phi { ptr, i32 } [ %19, %17 ], [ %.pn, %25 ]
+15:                                               ; preds = %25, %18
+  %.1 = phi i1 [ %.0, %18 ], [ true, %25 ]
+  %.pn8 = phi { ptr, i32 } [ %19, %18 ], [ %.pn, %25 ]
   %16 = load ptr, ptr %2, align 8, !noundef !3
-  %.not9 = icmp eq ptr %16, null
-  %brmerge = or i1 %.1, %.not9
-  br i1 %brmerge, label %.thread, label %54
+  %17 = icmp ne ptr %16, null
+  %or.cond = and i1 %.1, %17
+  br i1 %or.cond, label %54, label %.thread
 
-17:                                               ; preds = %.invoke, %51, %43, %11
-  %18 = phi i1 [ false, %51 ], [ false, %43 ], [ false, %11 ], [ true, %.invoke ]
+18:                                               ; preds = %.invoke, %51, %43, %11
+  %.0 = phi i1 [ true, %51 ], [ true, %43 ], [ true, %11 ], [ false, %.invoke ]
   %19 = landingpad { ptr, i32 }
           cleanup
   br label %15
@@ -270,7 +270,7 @@ define hidden void @"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u
 
 43:                                               ; preds = %41
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h7c5b4f9b3c1f0223E"(ptr nonnull align 8 %7)
-          to label %44 unwind label %17
+          to label %44 unwind label %18
 
 44:                                               ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
@@ -298,7 +298,7 @@ define hidden void @"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u
 
 51:                                               ; preds = %42
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h7c5b4f9b3c1f0223E"(ptr nonnull align 8 %7)
-          to label %52 unwind label %17
+          to label %52 unwind label %18
 
 52:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
@@ -308,11 +308,11 @@ define hidden void @"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u
 .invoke:                                          ; preds = %47, %52
   %53 = phi ptr [ %9, %52 ], [ %6, %47 ]
   invoke void @"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17h6ec7983df0c846bcE"(ptr nonnull align 8 %53)
-          to label %48 unwind label %17
+          to label %48 unwind label %18
 
-.thread:                                          ; preds = %45, %15, %54
-  %.pn715 = phi { ptr, i32 } [ %.pn7, %15 ], [ %.pn7, %54 ], [ %46, %45 ]
-  resume { ptr, i32 } %.pn715
+.thread:                                          ; preds = %45, %54, %15
+  %.pn813 = phi { ptr, i32 } [ %.pn8, %54 ], [ %.pn8, %15 ], [ %46, %45 ]
+  resume { ptr, i32 } %.pn813
 
 54:                                               ; preds = %15
   invoke void @"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17h6ec7983df0c846bcE"(ptr nonnull align 8 %2) #8

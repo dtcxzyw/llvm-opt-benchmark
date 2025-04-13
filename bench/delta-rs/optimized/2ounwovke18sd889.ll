@@ -1555,8 +1555,8 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1195
   %.0.i.i.i.i = phi i8 [ %81, %.noexc5.i ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.11953678010571242332.exit.i ]
   %83 = getelementptr inbounds nuw i8, ptr %64, i64 20
   %84 = load atomic i8, ptr %83 monotonic, align 1, !noalias !281
-  %.not10.i = icmp eq i8 %84, 0
-  br i1 %.not10.i, label %92, label %85
+  %.not8.i = icmp eq i8 %84, 0
+  br i1 %.not8.i, label %92, label %85
 
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !284

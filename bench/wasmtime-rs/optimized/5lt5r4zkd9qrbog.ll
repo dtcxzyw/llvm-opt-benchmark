@@ -4119,7 +4119,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
   ret void
 
 31:                                               ; preds = %.lr.ph, %.backedge
-  %32 = phi ptr [ %23, %.lr.ph ], [ %75, %.backedge ]
+  %32 = phi ptr [ %23, %.lr.ph ], [ %74, %.backedge ]
   %.038 = phi i1 [ true, %.lr.ph ], [ false, %.backedge ]
   store ptr %32, ptr %15, align 8
   %33 = load ptr, ptr %32, align 8, !nonnull !3, !noundef !3
@@ -4137,84 +4137,80 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !noundef !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 216
   %40 = load i8, ptr %39, align 8, !range !14, !noundef !3
-  %.not = icmp eq i8 %40, 2
-  br i1 %.not, label %43, label %41
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %46, label %42
 
-41:                                               ; preds = %31
-  %42 = trunc nuw i8 %40 to i1
-  br i1 %42, label %47, label %43
+42:                                               ; preds = %68, %31
+  %43 = load ptr, ptr %15, align 8, !nonnull !3, !align !4, !noundef !3
+  %44 = load ptr, ptr %43, align 8, !nonnull !3, !noundef !3
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  br i1 %.038, label %76, label %73
 
-43:                                               ; preds = %69, %41, %31
-  %44 = load ptr, ptr %15, align 8, !nonnull !3, !align !4, !noundef !3
-  %45 = load ptr, ptr %44, align 8, !nonnull !3, !noundef !3
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  br i1 %.038, label %77, label %74
+46:                                               ; preds = %31
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 224
+  %48 = load ptr, ptr %47, align 8, !nonnull !3, !noundef !3
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %50 = load i64, ptr %49, align 8, !range !5, !noundef !3
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %52 = load i64, ptr %51, align 8
+  %53 = icmp eq i64 %50, 0
+  br i1 %53, label %54, label %55
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %38, i64 224
-  %49 = load ptr, ptr %48, align 8, !nonnull !3, !noundef !3
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i64, ptr %50, align 8, !range !5, !noundef !3
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %53 = load i64, ptr %52, align 8
-  %54 = icmp eq i64 %51, 0
-  br i1 %54, label %55, label %56
-
-55:                                               ; preds = %47
+54:                                               ; preds = %46
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.154) #15
   unreachable
 
-56:                                               ; preds = %47
-  %57 = getelementptr inbounds nuw i8, ptr %38, i64 152
-  %58 = load i64, ptr %57, align 8, !noundef !3
-  %59 = icmp ult i64 %53, %58
-  br i1 %59, label %60, label %68, !prof !15
+55:                                               ; preds = %46
+  %56 = getelementptr inbounds nuw i8, ptr %38, i64 152
+  %57 = load i64, ptr %56, align 8, !noundef !3
+  %58 = icmp ult i64 %52, %57
+  br i1 %58, label %59, label %67, !prof !15
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %38, i64 144
-  %62 = load ptr, ptr %61, align 8, !nonnull !3, !noundef !3
-  %63 = getelementptr inbounds [0 x i64], ptr %62, i64 0, i64 %53
-  %64 = load i64, ptr %63, align 8, !noundef !3
-  %65 = getelementptr inbounds nuw i8, ptr %38, i64 104
-  %66 = load i64, ptr %65, align 8, !noundef !3
-  %67 = icmp ult i64 %64, %66
-  br i1 %67, label %69, label %73, !prof !15
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %38, i64 144
+  %61 = load ptr, ptr %60, align 8, !nonnull !3, !noundef !3
+  %62 = getelementptr inbounds [0 x i64], ptr %61, i64 0, i64 %52
+  %63 = load i64, ptr %62, align 8, !noundef !3
+  %64 = getelementptr inbounds nuw i8, ptr %38, i64 104
+  %65 = load i64, ptr %64, align 8, !noundef !3
+  %66 = icmp ult i64 %63, %65
+  br i1 %66, label %68, label %72, !prof !15
 
-68:                                               ; preds = %56
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %53, i64 %58, ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.155) #15
+67:                                               ; preds = %55
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %52, i64 %57, ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.155) #15
   unreachable
 
-69:                                               ; preds = %60
-  %70 = getelementptr inbounds nuw i8, ptr %38, i64 96
-  %71 = load ptr, ptr %70, align 8, !nonnull !3, !noundef !3
-  %72 = getelementptr inbounds [0 x { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }], ptr %71, i64 0, i64 %64, i32 1
-  store ptr %72, ptr %9, align 8
+68:                                               ; preds = %59
+  %69 = getelementptr inbounds nuw i8, ptr %38, i64 96
+  %70 = load ptr, ptr %69, align 8, !nonnull !3, !noundef !3
+  %71 = getelementptr inbounds [0 x { { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }], ptr %70, i64 0, i64 %63, i32 1
+  store ptr %71, ptr %9, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hb00593a18ac4215eE", ptr %28, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %10, ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.158, i64 2, ptr nonnull align 8 %9, i64 1)
   call void @_ZN5alloc3fmt6format17h8d9274f217220247E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %11, ptr nonnull align 8 %10)
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter11doc_comment17h3a19ef604ded0df6E(ptr align 8 %1, ptr nonnull align 8 %11)
-  br label %43
+  br label %42
 
-73:                                               ; preds = %60
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %64, i64 %66, ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.159) #15
+72:                                               ; preds = %59
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %63, i64 %65, ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.159) #15
   unreachable
 
-74:                                               ; preds = %43
-  store ptr %46, ptr %3, align 8
+73:                                               ; preds = %42
+  store ptr %45, ptr %3, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h22e89fe6e0e94365E", ptr %29, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %4, ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.4, i64 2, ptr nonnull align 8 %3, i64 1)
   call void @_ZN5alloc3fmt6format17h8d9274f217220247E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %5, ptr nonnull align 8 %4)
   br label %.backedge
 
-.backedge:                                        ; preds = %74, %77
-  %.sink = phi ptr [ %5, %74 ], [ %8, %77 ]
+.backedge:                                        ; preds = %73, %76
+  %.sink = phi ptr [ %5, %73 ], [ %8, %76 ]
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %.sink)
-  %75 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13656b1b241f2b12E"(ptr nonnull align 8 %16)
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %._crit_edge, label %31
+  %74 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h13656b1b241f2b12E"(ptr nonnull align 8 %16)
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %._crit_edge, label %31
 
-77:                                               ; preds = %43
-  store ptr %46, ptr %6, align 8
+76:                                               ; preds = %42
+  store ptr %45, ptr %6, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h22e89fe6e0e94365E", ptr %30, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %7, ptr nonnull align 8 @anon.3a4e41e0094de0b8ba6604e391603d5d.161, i64 2, ptr nonnull align 8 %6, i64 1)
   call void @_ZN5alloc3fmt6format17h8d9274f217220247E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %8, ptr nonnull align 8 %7)

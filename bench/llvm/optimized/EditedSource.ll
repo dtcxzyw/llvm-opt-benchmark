@@ -2313,10 +2313,10 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %3, %.loopexit, %66
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL12applyRewriteRN5clang4edit13EditsReceiverEN4llvm9StringRefENS0_10FileOffsetEjRKNS_13SourceManagerERKNS_11LangOptionsEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2, i64 %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(696) %5, ptr noundef nonnull align 8 dereferenceable(849) %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
-  %.sroa.040.0.extract.trunc = trunc i64 %3 to i32
+  %.sroa.039.0.extract.trunc = trunc i64 %3 to i32
   %.sroa.3.0.extract.shift = lshr i64 %3, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
-  %10 = tail call noundef ptr @_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(696) %5, i32 %.sroa.040.0.extract.trunc)
+  %10 = tail call noundef ptr @_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(696) %5, i32 %.sroa.039.0.extract.trunc)
   %.not.not.i = icmp eq ptr %10, null
   br i1 %.not.not.i, label %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit, label %11
 
@@ -2329,8 +2329,8 @@ _ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit: ; preds = %8, 
   %.sroa.0.1.i = phi i32 [ %13, %11 ], [ 0, %8 ]
   %14 = add i32 %.sroa.0.1.i, %.sroa.3.0.extract.trunc
   %15 = icmp eq i64 %2, 0
-  %brmerge.not = and i1 %15, %7
-  br i1 %brmerge.not, label %16, label %_ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit
+  %or.cond = and i1 %15, %7
+  br i1 %or.cond, label %16, label %_ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit
 
 16:                                               ; preds = %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit
   %17 = tail call i32 @_ZN5clang5Lexer19GetBeginningOfTokenENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE(i32 %14, ptr noundef nonnull align 8 dereferenceable(696) %5, ptr noundef nonnull align 8 dereferenceable(849) %6) #17
@@ -2339,16 +2339,16 @@ _ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit: ; preds = %8, 
 
 _ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit.thread: ; preds = %16
   %18 = add i32 %14, %4
-  %.sroa.2.0.insert.ext.i48 = zext i32 %18 to i64
-  %.sroa.2.0.insert.shift.i49 = shl nuw i64 %.sroa.2.0.insert.ext.i48, 32
-  %.sroa.0.0.insert.ext.i50 = zext i32 %14 to i64
-  %.sroa.0.0.insert.insert.i51 = or disjoint i64 %.sroa.2.0.insert.shift.i49, %.sroa.0.0.insert.ext.i50
+  %.sroa.2.0.insert.ext.i47 = zext i32 %18 to i64
+  %.sroa.2.0.insert.shift.i48 = shl nuw i64 %.sroa.2.0.insert.ext.i47, 32
+  %.sroa.0.0.insert.ext.i49 = zext i32 %14 to i64
+  %.sroa.0.0.insert.insert.i50 = or disjoint i64 %.sroa.2.0.insert.shift.i48, %.sroa.0.0.insert.ext.i49
   br label %71
 
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #17
   store i8 0, ptr %9, align 1, !tbaa !122
-  %20 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %5, i32 %.sroa.040.0.extract.trunc, ptr noundef nonnull %9) #17
+  %20 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %5, i32 %.sroa.039.0.extract.trunc, ptr noundef nonnull %9) #17
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = load i8, ptr %9, align 1, !tbaa !122, !range !124, !noundef !125
   %23 = trunc nuw i8 %22 to i1
@@ -2430,19 +2430,19 @@ _ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i: ; preds = %61
 
 _ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i: ; preds = %66
   %68 = call noundef zeroext i1 @_ZN5clang5Lexer29isAsciiIdentifierContinueCharEcRKNS_11LangOptionsE(i8 noundef signext %32, ptr noundef nonnull align 8 dereferenceable(849) %6) #17
-  %spec.select55 = select i1 %68, ptr @.str, ptr %1
-  %spec.select56 = zext i1 %68 to i64
+  %spec.select54 = select i1 %68, ptr @.str, ptr %1
+  %spec.select55 = zext i1 %68 to i64
   br label %_ZL19canRemoveWhitespacecccRKN5clang11LangOptionsE.exit.i
 
 _ZL19canRemoveWhitespacecccRKN5clang11LangOptionsE.exit.i: ; preds = %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i, %34, %66, %64, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i, %61, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i, %24, %19
-  %.sroa.041.1 = phi ptr [ %1, %19 ], [ %1, %24 ], [ %1, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i ], [ %1, %64 ], [ %1, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i ], [ %1, %61 ], [ %1, %66 ], [ %1, %34 ], [ %spec.select55, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i ]
-  %.sroa.4.1 = phi i64 [ 0, %19 ], [ 0, %24 ], [ 0, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i ], [ 0, %64 ], [ 0, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i ], [ 0, %61 ], [ 0, %66 ], [ 0, %34 ], [ %spec.select56, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i ]
+  %.sroa.040.1 = phi ptr [ %1, %19 ], [ %1, %24 ], [ %1, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i ], [ %1, %64 ], [ %1, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i ], [ %1, %61 ], [ %1, %66 ], [ %1, %34 ], [ %spec.select54, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i ]
+  %.sroa.4.1 = phi i64 [ 0, %19 ], [ 0, %24 ], [ 0, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i ], [ 0, %64 ], [ 0, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i ], [ 0, %61 ], [ 0, %66 ], [ 0, %34 ], [ %spec.select55, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i ]
   %.1 = phi i32 [ %4, %19 ], [ %4, %24 ], [ %4, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i.i ], [ %65, %64 ], [ %4, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit8.i.i ], [ %4, %61 ], [ %4, %66 ], [ %spec.select, %34 ], [ %4, %_ZL11canBeJoinedccRKN5clang11LangOptionsE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #17
   br label %_ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit
 
 _ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit: ; preds = %_ZL19canRemoveWhitespacecccRKN5clang11LangOptionsE.exit.i, %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit
-  %.sroa.041.0 = phi ptr [ %1, %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit ], [ %.sroa.041.1, %_ZL19canRemoveWhitespacecccRKN5clang11LangOptionsE.exit.i ]
+  %.sroa.040.0 = phi ptr [ %1, %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit ], [ %.sroa.040.1, %_ZL19canRemoveWhitespacecccRKN5clang11LangOptionsE.exit.i ]
   %.sroa.4.0 = phi i64 [ %2, %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit ], [ %.sroa.4.1, %_ZL19canRemoveWhitespacecccRKN5clang11LangOptionsE.exit.i ]
   %.0 = phi i32 [ %4, %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit ], [ %.1, %_ZL19canRemoveWhitespacecccRKN5clang11LangOptionsE.exit.i ]
   %69 = add i32 %.0, %14
@@ -2454,11 +2454,11 @@ _ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocatio
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %_ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit.thread, %_ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit
-  %.sroa.0.0.insert.insert.i54 = phi i64 [ %.sroa.0.0.insert.insert.i51, %_ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit.thread ], [ %.sroa.0.0.insert.insert.i, %_ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit ]
+  %.sroa.0.0.insert.insert.i53 = phi i64 [ %.sroa.0.0.insert.insert.i50, %_ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit.thread ], [ %.sroa.0.0.insert.insert.i, %_ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit ]
   %72 = load ptr, ptr %0, align 8, !tbaa !3
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8
-  call void %74(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %.sroa.0.0.insert.insert.i54, i8 0) #17
+  call void %74(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %.sroa.0.0.insert.insert.i53, i8 0) #17
   br label %83
 
 75:                                               ; preds = %_ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocationENS_4edit10FileOffsetERjRN4llvm9StringRefE.exit
@@ -2469,13 +2469,13 @@ _ZL13adjustRemovalRKN5clang13SourceManagerERKNS_11LangOptionsENS_14SourceLocatio
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %79 = load ptr, ptr %78, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %.sroa.0.0.insert.insert.i, i8 0, ptr %.sroa.041.0, i64 %.sroa.4.0) #17
+  call void %79(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %.sroa.0.0.insert.insert.i, i8 0, ptr %.sroa.040.0, i64 %.sroa.4.0) #17
   br label %83
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %82 = load ptr, ptr %81, align 8
-  call void %82(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %14, ptr %.sroa.041.0, i64 %.sroa.4.0) #17
+  call void %82(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %14, ptr %.sroa.040.0, i64 %.sroa.4.0) #17
   br label %83
 
 83:                                               ; preds = %77, %80, %71

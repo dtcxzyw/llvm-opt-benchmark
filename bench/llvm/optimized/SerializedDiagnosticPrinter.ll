@@ -4954,8 +4954,8 @@ _ZNK4llvm15BitstreamWriter12GetWordIndexEv.exit:  ; preds = %_ZN4llvm15Bitstream
   %82 = trunc i64 %81 to i8
   tail call void @_ZN4llvm15BitstreamWriter13BackpatchByteEmh(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %80, i8 noundef zeroext %82)
   %83 = or disjoint i64 %75, 24
-  %sum.shift.i8 = lshr i64 %74, 24
-  %84 = trunc i64 %sum.shift.i8 to i8
+  %sum.shift.i10 = lshr i64 %74, 24
+  %84 = trunc i64 %sum.shift.i10 to i8
   tail call void @_ZN4llvm15BitstreamWriter13BackpatchByteEmh(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %83, i8 noundef zeroext %84)
   %85 = load i32, ptr %4, align 8, !tbaa !313
   store i32 %85, ptr %5, align 8, !tbaa !50
@@ -5056,37 +5056,35 @@ _ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE8pop_backEv.exit: ; preds = %
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load i64, ptr %129, align 8, !tbaa !46
   %.not.i.i7 = icmp eq i64 %130, 0
-  br i1 %.not.i.i7, label %_ZN4llvm15BitstreamWriter11FlushToFileEb.exit, label %131
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %132 = load i8, ptr %131, align 8, !range !137
+  %133 = trunc nuw i8 %132 to i1
+  %or.cond = select i1 %.not.i.i7, i1 true, i1 %133
+  br i1 %or.cond, label %_ZN4llvm15BitstreamWriter11FlushToFileEb.exit, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit.i
 
-131:                                              ; preds = %127
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %133 = load i8, ptr %132, align 8, !tbaa !76, !range !137, !noundef !138
-  %134 = trunc nuw i8 %133 to i1
-  br i1 %134, label %_ZN4llvm15BitstreamWriter11FlushToFileEb.exit, label %_ZN4llvm15BitstreamWriter8fdStreamEv.exit.i
+_ZN4llvm15BitstreamWriter8fdStreamEv.exit.i:      ; preds = %127
+  %134 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %126) #20
+  br i1 %134, label %135, label %_ZN4llvm15BitstreamWriter11FlushToFileEb.exit
 
-_ZN4llvm15BitstreamWriter8fdStreamEv.exit.i:      ; preds = %131
-  %135 = tail call noundef zeroext i1 @_ZN4llvm13raw_fd_stream7classofEPKNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %126) #20
-  br i1 %135, label %136, label %_ZN4llvm15BitstreamWriter11FlushToFileEb.exit
+135:                                              ; preds = %_ZN4llvm15BitstreamWriter8fdStreamEv.exit.i
+  %136 = load ptr, ptr %45, align 8, !tbaa !145
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %138 = load i64, ptr %137, align 8, !tbaa !46
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %140 = load i64, ptr %139, align 8, !tbaa !314
+  %141 = icmp ugt i64 %138, %140
+  br i1 %141, label %142, label %_ZN4llvm15BitstreamWriter11FlushToFileEb.exit
 
-136:                                              ; preds = %_ZN4llvm15BitstreamWriter8fdStreamEv.exit.i
-  %137 = load ptr, ptr %45, align 8, !tbaa !145
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load i64, ptr %138, align 8, !tbaa !46
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %141 = load i64, ptr %140, align 8, !tbaa !314
-  %142 = icmp ugt i64 %139, %141
-  br i1 %142, label %143, label %_ZN4llvm15BitstreamWriter11FlushToFileEb.exit
-
-143:                                              ; preds = %136
-  %144 = load ptr, ptr %49, align 8, !tbaa !278
-  %145 = load ptr, ptr %137, align 8, !tbaa !43
-  %146 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %144, ptr noundef %145, i64 noundef %139) #20
-  %147 = load ptr, ptr %45, align 8, !tbaa !145
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store i64 0, ptr %148, align 8, !tbaa !46
+142:                                              ; preds = %135
+  %143 = load ptr, ptr %49, align 8, !tbaa !278
+  %144 = load ptr, ptr %136, align 8, !tbaa !43
+  %145 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %143, ptr noundef %144, i64 noundef %138) #20
+  %146 = load ptr, ptr %45, align 8, !tbaa !145
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  store i64 0, ptr %147, align 8, !tbaa !46
   br label %_ZN4llvm15BitstreamWriter11FlushToFileEb.exit
 
-_ZN4llvm15BitstreamWriter11FlushToFileEb.exit:    ; preds = %_ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE8pop_backEv.exit, %127, %131, %_ZN4llvm15BitstreamWriter8fdStreamEv.exit.i, %136, %143
+_ZN4llvm15BitstreamWriter11FlushToFileEb.exit:    ; preds = %_ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE8pop_backEv.exit, %127, %_ZN4llvm15BitstreamWriter8fdStreamEv.exit.i, %135, %142
   ret void
 }
 

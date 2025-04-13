@@ -2719,27 +2719,27 @@ define hidden void @_ZN10LinearScan24compute_global_live_setsEv(ptr noundef nonn
   %12 = icmp sgt i32 %6, 0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br i1 %12, label %.lr.ph53.us.preheader, label %.split58.us
+  br i1 %12, label %.lr.ph55.us.preheader, label %.split60.us
 
-.lr.ph53.us.preheader:                            ; preds = %1
+.lr.ph55.us.preheader:                            ; preds = %1
   %15 = zext nneg i32 %6 to i64
-  br label %.lr.ph53.us
+  br label %.lr.ph55.us
 
-.lr.ph53.us:                                      ; preds = %.lr.ph53.us.preheader, %17
-  %.037.us = phi i32 [ %18, %17 ], [ 0, %.lr.ph53.us.preheader ]
-  %16 = icmp eq i32 %.037.us, 0
+.lr.ph55.us:                                      ; preds = %.lr.ph55.us.preheader, %17
+  %.039.us = phi i32 [ %18, %17 ], [ 0, %.lr.ph55.us.preheader ]
+  %16 = icmp eq i32 %.039.us, 0
   br label %19
 
-17:                                               ; preds = %._crit_edge54.us
-  %18 = add nuw nsw i32 %.037.us, 1
-  br i1 %.144.us, label %.lr.ph53.us, label %.split58.us, !llvm.loop !25
+17:                                               ; preds = %._crit_edge56.us
+  %18 = add nuw nsw i32 %.039.us, 1
+  br i1 %.146.us, label %.lr.ph55.us, label %.split60.us, !llvm.loop !25
 
-19:                                               ; preds = %.lr.ph53.us, %66
-  %indvars.iv65 = phi i64 [ %15, %.lr.ph53.us ], [ %indvars.iv.next66, %66 ]
-  %.03550.us = phi i1 [ false, %.lr.ph53.us ], [ %.144.us, %66 ]
-  %indvars.iv.next66 = add nsw i64 %indvars.iv65, -1
+19:                                               ; preds = %.lr.ph55.us, %66
+  %indvars.iv67 = phi i64 [ %15, %.lr.ph55.us ], [ %indvars.iv.next68, %66 ]
+  %.03752.us = phi i1 [ false, %.lr.ph55.us ], [ %.146.us, %66 ]
+  %indvars.iv.next68 = add nsw i64 %indvars.iv67, -1
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.next66
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.next68
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 216
   %24 = load ptr, ptr %23, align 8
@@ -2811,14 +2811,14 @@ _ZNK10BlockBegin13number_of_suxEv.exit.thread.us: ; preds = %19
 _ZN6BitMap5clearEv.exit.us:                       ; preds = %.lr.ph.us, %34, %.lr.ph.preheader.i.i.i.us, %.thread.us
   %56 = phi i32 [ %50, %.thread.us ], [ %50, %.lr.ph.preheader.i.i.i.us ], [ %29, %34 ], [ %29, %.lr.ph.us ]
   %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph48.us, label %._crit_edge.us
+  br i1 %57, label %.lr.ph50.us, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %68, %_ZN6BitMap5clearEv.exit.us
   %58 = getelementptr inbounds nuw i8, ptr %22, i64 328
   %59 = call noundef zeroext i1 @_ZNK6BitMap7is_sameERKS_(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %2) #22
-  br i1 %59, label %60, label %.thread40.us
+  br i1 %59, label %60, label %.thread42.us
 
-.thread40.us:                                     ; preds = %._crit_edge.us
+.thread42.us:                                     ; preds = %._crit_edge.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false)
@@ -2827,8 +2827,8 @@ _ZN6BitMap5clearEv.exit.us:                       ; preds = %.lr.ph.us, %34, %.l
 60:                                               ; preds = %._crit_edge.us, %_ZNK10BlockBegin13number_of_suxEv.exit.thread.us, %_ZNK10BlockBegin13number_of_suxEv.exit.us
   br i1 %16, label %61, label %66
 
-61:                                               ; preds = %60, %.thread40.us
-  %.145.us = phi i1 [ true, %.thread40.us ], [ %.03550.us, %60 ]
+61:                                               ; preds = %60, %.thread42.us
+  %.147.us = phi i1 [ true, %.thread42.us ], [ %.03752.us, %60 ]
   %62 = getelementptr inbounds nuw i8, ptr %22, i64 312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %22, i64 328
@@ -2840,32 +2840,32 @@ _ZN6BitMap5clearEv.exit.us:                       ; preds = %.lr.ph.us, %34, %.l
   br label %66
 
 66:                                               ; preds = %61, %60
-  %.144.us = phi i1 [ %.03550.us, %60 ], [ %.145.us, %61 ]
-  %67 = icmp sgt i64 %indvars.iv65, 1
-  br i1 %67, label %19, label %._crit_edge54.us, !llvm.loop !27
+  %.146.us = phi i1 [ %.147.us, %61 ], [ %.03752.us, %60 ]
+  %67 = icmp sgt i64 %indvars.iv67, 1
+  br i1 %67, label %19, label %._crit_edge56.us, !llvm.loop !27
 
-68:                                               ; preds = %.lr.ph48.us, %68
-  %indvars.iv60 = phi i64 [ 0, %.lr.ph48.us ], [ %indvars.iv.next61, %68 ]
+68:                                               ; preds = %.lr.ph50.us, %68
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph50.us ], [ %indvars.iv.next63, %68 ]
   %69 = load ptr, ptr %73, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv60
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv62
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 312
   call void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %72) #22
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
-  br i1 %exitcond64.not, label %._crit_edge.us, label %68, !llvm.loop !28
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
+  br i1 %exitcond66.not, label %._crit_edge.us, label %68, !llvm.loop !28
 
-.lr.ph48.us:                                      ; preds = %_ZN6BitMap5clearEv.exit.us
+.lr.ph50.us:                                      ; preds = %_ZN6BitMap5clearEv.exit.us
   %73 = getelementptr inbounds nuw i8, ptr %22, i64 232
-  %wide.trip.count63 = zext nneg i32 %56 to i64
+  %wide.trip.count65 = zext nneg i32 %56 to i64
   br label %68
 
-._crit_edge54.us:                                 ; preds = %66
-  %74 = icmp samesign ugt i32 %.037.us, 49
-  %or.cond.us = select i1 %.144.us, i1 %74, i1 false
-  br i1 %or.cond.us, label %.sink.split, label %17
+._crit_edge56.us:                                 ; preds = %66
+  %74 = icmp samesign ugt i32 %.039.us, 49
+  %or.cond3.us = select i1 %.146.us, i1 %74, i1 false
+  br i1 %or.cond3.us, label %.sink.split, label %17
 
-.split58.us:                                      ; preds = %17, %1
+.split60.us:                                      ; preds = %17, %1
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -2884,13 +2884,13 @@ _ZN6BitMap5clearEv.exit.us:                       ; preds = %.lr.ph.us, %34, %.l
   %89 = call noundef zeroext i1 @_ZNK6BitMap7is_sameERKS_(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %4) #22
   br i1 %89, label %91, label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge54.us, %.split58.us
-  %.str.7.sink = phi ptr [ @.str.7, %.split58.us ], [ @.str.6, %._crit_edge54.us ]
+.sink.split:                                      ; preds = %._crit_edge56.us, %.split60.us
+  %.str.7.sink = phi ptr [ @.str.7, %.split60.us ], [ @.str.6, %._crit_edge56.us ]
   %90 = load ptr, ptr %0, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %90, ptr noundef nonnull %.str.7.sink) #22
   br label %91
 
-91:                                               ; preds = %.sink.split, %.split58.us
+91:                                               ; preds = %.sink.split, %.split60.us
   ret void
 }
 

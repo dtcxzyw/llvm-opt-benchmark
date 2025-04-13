@@ -2131,10 +2131,10 @@ define dso_local void @_ZN4llvm17ScheduleDAGInstrs18addPhysRegDataDepsEPNS_5SUni
   %26 = load ptr, ptr %25, align 8, !tbaa !347
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %28 = load ptr, ptr %27, align 8, !tbaa !348, !noalias !412
-  %.not7386 = icmp eq ptr %28, null
-  br i1 %.not7386, label %._crit_edge, label %.lr.ph89
+  %.not7487 = icmp eq ptr %28, null
+  br i1 %.not7487, label %._crit_edge, label %.lr.ph90
 
-.lr.ph89:                                         ; preds = %23
+.lr.ph90:                                         ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !365, !noalias !412
   %31 = zext i32 %10 to i64
@@ -2159,11 +2159,11 @@ define dso_local void @_ZN4llvm17ScheduleDAGInstrs18addPhysRegDataDepsEPNS_5SUni
 ._crit_edge:                                      ; preds = %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit, %23
   ret void
 
-47:                                               ; preds = %.lr.ph89, %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit
-  %.sroa.564.088 = phi ptr [ %36, %.lr.ph89 ], [ %74, %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit ]
-  %.sroa.062.087 = phi i32 [ %37, %.lr.ph89 ], [ %77, %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit ]
+47:                                               ; preds = %.lr.ph90, %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit
+  %.sroa.565.089 = phi ptr [ %36, %.lr.ph90 ], [ %74, %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit ]
+  %.sroa.063.088 = phi i32 [ %37, %.lr.ph90 ], [ %77, %_ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit ]
   %48 = load ptr, ptr %39, align 8, !tbaa !287
-  %49 = zext i32 %.sroa.062.087 to i64
+  %49 = zext i32 %.sroa.063.088 to i64
   %50 = getelementptr inbounds nuw i16, ptr %48, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !345
   %52 = zext i16 %51 to i32
@@ -2181,7 +2181,7 @@ define dso_local void @_ZN4llvm17ScheduleDAGInstrs18addPhysRegDataDepsEPNS_5SUni
   %57 = getelementptr inbounds nuw %"struct.llvm::SparseMultiSet<llvm::PhysRegSUOper, llvm::identity<unsigned int>, unsigned short>::SMSNode", ptr %54, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 12
   %59 = load i32, ptr %58, align 4, !tbaa !371
-  %60 = icmp eq i32 %.sroa.062.087, %59
+  %60 = icmp eq i32 %.sroa.063.088, %59
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %55
@@ -2216,17 +2216,17 @@ _ZN4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE4findERKj.exit: ; 
   br label %.lr.ph
 
 _ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIPS4_EneERKS7_.exit: ; preds = %167, %..critedge.loopexit.i_crit_edge.i, %47, %_ZN4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE4findERKj.exit
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.564.088, i64 2
-  %75 = load i16, ptr %.sroa.564.088, align 2, !tbaa !345
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.565.089, i64 2
+  %75 = load i16, ptr %.sroa.565.089, align 2, !tbaa !345
   %76 = sext i16 %75 to i32
-  %77 = add i32 %.sroa.062.087, %76
-  %.not.i.i41 = icmp eq i16 %75, 0
-  br i1 %.not.i.i41, label %._crit_edge, label %47
+  %77 = add i32 %.sroa.063.088, %76
+  %.not.i.i42 = icmp eq i16 %75, 0
+  br i1 %.not.i.i42, label %._crit_edge, label %47
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %167
   %78 = phi ptr [ %168, %167 ], [ %.pre, %.lr.ph.preheader ]
-  %.sroa.7.085 = phi i64 [ %.sroa.7.8.insert.ext, %167 ], [ %73, %.lr.ph.preheader ]
-  %79 = and i64 %.sroa.7.085, 4294967295
+  %.sroa.7.086 = phi i64 [ %.sroa.7.8.insert.ext, %167 ], [ %73, %.lr.ph.preheader ]
+  %79 = and i64 %.sroa.7.086, 4294967295
   %80 = getelementptr inbounds nuw %"struct.llvm::SparseMultiSet<llvm::PhysRegSUOper, llvm::identity<unsigned int>, unsigned short>::SMSNode", ptr %78, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !368
   %82 = icmp eq ptr %81, %1
@@ -2256,8 +2256,8 @@ _ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIP
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 2
   %99 = load i16, ptr %98, align 2, !tbaa !340
   %100 = zext i16 %99 to i32
-  %.not40 = icmp samesign ult i32 %85, %100
-  br i1 %.not40, label %158, label %101
+  %.not41 = icmp samesign ult i32 %85, %100
+  br i1 %.not41, label %158, label %101
 
 101:                                              ; preds = %87
   %102 = load i16, ptr %97, align 8, !tbaa !342
@@ -2273,8 +2273,8 @@ _ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIP
   %112 = zext i8 %111 to i64
   %.idx4.i.i = shl nuw nsw i64 %112, 1
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 %.idx4.i.i
-  %.not.i.i42 = icmp ult i8 %111, 4
-  br i1 %.not.i.i42, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
+  %.not.i.i43 = icmp ult i8 %111, 4
+  br i1 %.not.i.i43, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %101
   %114 = lshr i64 %112, 2
@@ -2302,14 +2302,14 @@ _ZNK4llvm14SparseMultiSetINS_13PhysRegSUOperENS_8identityIjEEtE13iterator_baseIP
   %127 = load i16, ptr %126, align 2, !tbaa !345
   %128 = zext i16 %127 to i32
   %129 = icmp eq i32 %95, %128
-  br i1 %129, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit100, label %130
+  br i1 %129, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit101, label %130
 
 130:                                              ; preds = %125
   %131 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 6
   %132 = load i16, ptr %131, align 2, !tbaa !345
   %133 = zext i16 %132 to i32
   %134 = icmp eq i32 %95, %133
-  br i1 %134, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit102, label %135
+  br i1 %134, label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit103, label %135
 
 135:                                              ; preds = %130
   %136 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
@@ -2369,30 +2369,30 @@ _ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.s
   %155 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   br label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit
 
-_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit100: ; preds = %125
+_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit101: ; preds = %125
   %156 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   br label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit
 
-_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit102: ; preds = %130
+_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit103: ; preds = %130
   %157 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 6
   br label %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit
 
-_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit: ; preds = %116, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit100, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit102, %140, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %154
-  %.028.i.i.i.i.i = phi ptr [ %113, %154 ], [ %.029.lcssa.i.i.i.i.i, %140 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %155, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit ], [ %156, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit100 ], [ %157, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit102 ], [ %.02946.i.i.i.i.i, %116 ]
-  %.not74 = icmp eq ptr %.028.i.i.i.i.i, %113
+_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit: ; preds = %116, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit101, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit103, %140, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %154
+  %.028.i.i.i.i.i = phi ptr [ %113, %154 ], [ %.029.lcssa.i.i.i.i.i, %140 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %155, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit ], [ %156, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit101 ], [ %157, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit.loopexit.split.loop.exit103 ], [ %.02946.i.i.i.i.i, %116 ]
+  %.not75 = icmp eq ptr %.028.i.i.i.i.i, %113
   br label %158
 
 158:                                              ; preds = %87, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit, %83
-  %storemerge97 = phi i64 [ %45, %83 ], [ %44, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ %44, %87 ]
-  %storemerge96 = phi i32 [ 3, %83 ], [ %95, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ %95, %87 ]
+  %storemerge98 = phi i64 [ %45, %83 ], [ %44, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ %44, %87 ]
+  %storemerge97 = phi i32 [ 3, %83 ], [ %95, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ %95, %87 ]
   %storemerge = phi i32 [ 0, %83 ], [ 1, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ 1, %87 ]
-  %.036 = phi i1 [ false, %83 ], [ %.not74, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ false, %87 ]
+  %.037 = phi i1 [ false, %83 ], [ %.not75, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ false, %87 ]
   %.0 = phi ptr [ null, %83 ], [ %90, %_ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit ], [ %90, %87 ]
-  store i64 %storemerge97, ptr %4, align 8, !tbaa !309
-  store i32 %storemerge96, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !309
+  store i64 %storemerge98, ptr %4, align 8, !tbaa !309
+  store i32 %storemerge97, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !309
   store i32 %storemerge, ptr %41, align 4, !tbaa !66
-  %brmerge = or i1 %24, %.036
-  br i1 %brmerge, label %162, label %159
+  %or.cond = or i1 %24, %.037
+  br i1 %or.cond, label %162, label %159
 
 159:                                              ; preds = %158
   %160 = load ptr, ptr %1, align 8, !tbaa !309
@@ -2400,19 +2400,19 @@ _ZNK4llvm11MCInstrDesc23hasImplicitUseOfPhysRegENS_10MCRegisterE.exit: ; preds =
   br label %162
 
 162:                                              ; preds = %158, %159
-  %storemerge75 = phi i32 [ %161, %159 ], [ 0, %158 ]
-  store i32 %storemerge75, ptr %41, align 4, !tbaa !407
+  %storemerge76 = phi i32 [ %161, %159 ], [ 0, %158 ]
+  store i32 %storemerge76, ptr %41, align 4, !tbaa !407
   %163 = load ptr, ptr %14, align 8, !tbaa !3
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 344
   %165 = load ptr, ptr %164, align 8
   call void %165(ptr noundef nonnull align 8 dereferenceable(304) %14, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %81, i32 noundef %85, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %46) #25
   %166 = call noundef zeroext i1 @_ZN4llvm5SUnit7addPredERKNS_4SDepEb(ptr noundef nonnull align 8 dereferenceable(255) %81, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext true) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  %.pre95 = load ptr, ptr %38, align 8, !tbaa !25
+  %.pre96 = load ptr, ptr %38, align 8, !tbaa !25
   br label %167
 
 167:                                              ; preds = %.lr.ph, %162
-  %168 = phi ptr [ %78, %.lr.ph ], [ %.pre95, %162 ]
+  %168 = phi ptr [ %78, %.lr.ph ], [ %.pre96, %162 ]
   %169 = getelementptr inbounds nuw %"struct.llvm::SparseMultiSet<llvm::PhysRegSUOper, llvm::identity<unsigned int>, unsigned short>::SMSNode", ptr %168, i64 %79, i32 2
   %170 = load i32, ptr %169, align 4, !tbaa !374
   %.sroa.7.8.insert.ext = zext i32 %170 to i64

@@ -93,153 +93,153 @@ define hidden noundef zeroext i1 @_ZNK6Assimp23ComputeUVMappingProcess8IsActiveE
 define hidden void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %.not92 = icmp eq i32 %4, 0
-  br i1 %.not92, label %._crit_edge, label %.lr.ph86
+  %.not97 = icmp eq i32 %4, 0
+  br i1 %.not97, label %._crit_edge, label %.lr.ph96
 
-.lr.ph86:                                         ; preds = %2
+.lr.ph96:                                         ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   br label %6
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   ret void
 
-6:                                                ; preds = %.lr.ph86, %.loopexit
-  %indvars.iv101 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next102, %.loopexit ]
+6:                                                ; preds = %.lr.ph96, %.loopexit
+  %indvars.iv106 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next107, %.loopexit ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw %struct.aiFace, ptr %7, i64 %indvars.iv101
+  %8 = getelementptr inbounds nuw %struct.aiFace, ptr %7, i64 %indvars.iv106
   %9 = load i32, ptr %8, align 8
   %10 = icmp ult i32 %9, 3
-  br i1 %10, label %.loopexit, label %.preheader77
+  br i1 %10, label %.loopexit, label %.preheader87
 
-.preheader77:                                     ; preds = %6
+.preheader87:                                     ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8
   %wide.trip.count = zext i32 %9 to i64
-  br label %32
+  br label %31
 
 13:                                               ; preds = %46
-  %.not = icmp eq i32 %.170, %9
-  %.not76 = icmp eq i32 %.168, %9
-  %or.cond = select i1 %.not, i1 true, i1 %.not76
-  br i1 %or.cond, label %.loopexit, label %.lr.ph
+  %.not = icmp eq i32 %.175, %9
+  %.not81 = icmp eq i32 %.173, %9
+  %or.cond82 = select i1 %.not, i1 true, i1 %.not81
+  br i1 %or.cond82, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %14 = trunc i8 %.166.fr to i1
-  %15 = trunc nuw i8 %.164 to i1
-  br i1 %14, label %.lr.ph.split.us.preheader, label %.lr.ph.split
+  %or.cond5 = select i1 %.169, i1 %.171, i1 false
+  %or.cond5.fr = freeze i1 %or.cond5
+  br i1 %or.cond5.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.lr.ph, %28
-  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %28 ], [ 0, %.lr.ph ]
-  %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv98
-  %18 = load i32, ptr %17, align 4
-  %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %19
-  %21 = load float, ptr %20, align 4
-  %22 = fcmp olt float %21, 0x3FB99999A0000000
-  br i1 %22, label %24, label %23
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %27
+  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %27 ], [ 0, %.lr.ph ]
+  %14 = load ptr, ptr %11, align 8
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv103
+  %16 = load i32, ptr %15, align 4
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %17
+  %19 = load float, ptr %18, align 4
+  %20 = fcmp ule float %19, 0x3FECCCCCC0000000
+  %or.cond.us = select i1 %20, i1 true, i1 %.171
+  br i1 %or.cond.us, label %21, label %.sink.split
 
-23:                                               ; preds = %.lr.ph.split.us.preheader
-  br i1 %15, label %.thread.us, label %28
+21:                                               ; preds = %.lr.ph.split.us
+  %22 = fcmp uge float %19, 0x3FB99999A0000000
+  %or.cond3.us = select i1 %22, i1 true, i1 %.169
+  br i1 %or.cond3.us, label %23, label %.sink.split
 
-24:                                               ; preds = %.lr.ph.split.us.preheader
-  br i1 %15, label %.thread.us, label %.sink.split
+23:                                               ; preds = %21
+  %24 = fcmp oge float %19, 0x3FEFAE1480000000
+  %or.cond84.not.us = and i1 %.1, %24
+  br i1 %or.cond84.not.us, label %.sink.split, label %25
 
-.thread.us:                                       ; preds = %24, %23
-  br i1 %.1, label %26, label %.critedge.us
+25:                                               ; preds = %23
+  %26 = fcmp ugt float %19, 0x3F847AE140000000
+  %or.cond85.us = or i1 %.1, %26
+  br i1 %or.cond85.us, label %27, label %.sink.split
 
-.critedge.us:                                     ; preds = %.thread.us
-  %25 = fcmp ugt float %21, 0x3F847AE140000000
-  br i1 %25, label %28, label %.sink.split
+.sink.split:                                      ; preds = %23, %25, %21, %.lr.ph.split.us
+  %.sink = phi float [ 0.000000e+00, %.lr.ph.split.us ], [ 1.000000e+00, %21 ], [ 1.000000e+00, %25 ], [ 0.000000e+00, %23 ]
+  store float %.sink, ptr %18, align 4
+  br label %27
 
-26:                                               ; preds = %.thread.us
-  %27 = fcmp ult float %21, 0x3FEFAE1480000000
-  br i1 %27, label %28, label %.sink.split
+27:                                               ; preds = %.sink.split, %25
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %28 = load i32, ptr %8, align 8
+  %29 = zext i32 %28 to i64
+  %30 = icmp samesign ult i64 %indvars.iv.next104, %29
+  br i1 %30, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !3
 
-.sink.split:                                      ; preds = %26, %.critedge.us, %24
-  %.sink = phi float [ 1.000000e+00, %24 ], [ 1.000000e+00, %.critedge.us ], [ 0.000000e+00, %26 ]
-  store float %.sink, ptr %20, align 4
-  br label %28
-
-28:                                               ; preds = %.sink.split, %26, %.critedge.us, %23
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %29 = load i32, ptr %8, align 8
-  %30 = zext i32 %29 to i64
-  %31 = icmp samesign ult i64 %indvars.iv.next99, %30
-  br i1 %31, label %.lr.ph.split.us.preheader, label %.loopexit, !llvm.loop !3
-
-32:                                               ; preds = %.preheader77, %46
-  %indvars.iv = phi i64 [ 0, %.preheader77 ], [ %indvars.iv.next, %46 ]
-  %.06282 = phi i1 [ false, %.preheader77 ], [ %.1, %46 ]
-  %.06381 = phi i8 [ 0, %.preheader77 ], [ %.164, %46 ]
-  %.06580 = phi i8 [ 0, %.preheader77 ], [ %.166.fr, %46 ]
-  %.06779 = phi i32 [ %9, %.preheader77 ], [ %.168, %46 ]
-  %.06978 = phi i32 [ %9, %.preheader77 ], [ %.170, %46 ]
-  %33 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %34 = load i32, ptr %33, align 4
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %35
-  %37 = load float, ptr %36, align 4
-  %38 = fcmp olt float %37, 0x3FB99999A0000000
-  %39 = fcmp ugt float %37, 0x3F847AE140000000
-  %.065. = select i1 %39, i8 %.06580, i8 1
-  %40 = trunc nuw i64 %indvars.iv to i32
-  %.170 = select i1 %38, i32 %40, i32 %.06978
-  %.166 = select i1 %38, i8 %.065., i8 %.06580
-  %.166.fr = freeze i8 %.166
-  %41 = and i1 %38, %39
-  %.1 = select i1 %41, i1 true, i1 %.06282
-  %42 = fcmp ogt float %37, 0x3FECCCCCC0000000
+31:                                               ; preds = %.preheader87, %46
+  %indvars.iv = phi i64 [ 0, %.preheader87 ], [ %indvars.iv.next, %46 ]
+  %.06792 = phi i1 [ false, %.preheader87 ], [ %.1, %46 ]
+  %.06891 = phi i1 [ false, %.preheader87 ], [ %.169, %46 ]
+  %.07090 = phi i1 [ false, %.preheader87 ], [ %.171, %46 ]
+  %.07289 = phi i32 [ %9, %.preheader87 ], [ %.173, %46 ]
+  %.07488 = phi i32 [ %9, %.preheader87 ], [ %.175, %46 ]
+  %32 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %33 = load i32, ptr %32, align 4
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %34
+  %36 = load float, ptr %35, align 4
+  %37 = fcmp olt float %36, 0x3FB99999A0000000
+  %38 = fcmp ugt float %36, 0x3F847AE140000000
+  %not. = xor i1 %38, true
+  %39 = trunc nuw i64 %indvars.iv to i32
+  %.175 = select i1 %37, i32 %39, i32 %.07488
+  %40 = and i1 %37, %not.
+  %.171 = select i1 %40, i1 true, i1 %.07090
+  %41 = and i1 %37, %38
+  %.1 = select i1 %41, i1 true, i1 %.06792
+  %42 = fcmp ogt float %36, 0x3FECCCCCC0000000
   br i1 %42, label %43, label %46
 
-43:                                               ; preds = %32
-  %44 = fcmp ult float %37, 0x3FEFAE1480000000
+43:                                               ; preds = %31
+  %44 = fcmp ult float %36, 0x3FEFAE1480000000
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %43
   br label %46
 
-46:                                               ; preds = %32, %45, %43
-  %.168 = phi i32 [ %40, %45 ], [ %40, %43 ], [ %.06779, %32 ]
-  %.164 = phi i8 [ 1, %45 ], [ %.06381, %43 ], [ %.06381, %32 ]
+46:                                               ; preds = %31, %45, %43
+  %.173 = phi i32 [ %39, %45 ], [ %39, %43 ], [ %.07289, %31 ]
+  %.169 = phi i1 [ true, %45 ], [ %.06891, %43 ], [ %.06891, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %13, label %32, !llvm.loop !5
+  br i1 %exitcond.not, label %13, label %31, !llvm.loop !5
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.thread ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %56
+  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %56 ], [ 0, %.lr.ph ]
   %47 = load ptr, ptr %11, align 8
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv95
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv100
   %49 = load i32, ptr %48, align 4
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %50
   %52 = load float, ptr %51, align 4
   %53 = fcmp ule float %52, 0x3FECCCCCC0000000
-  br i1 %53, label %54, label %.thread.sink.split
+  %or.cond = select i1 %53, i1 true, i1 %.171
+  br i1 %or.cond, label %54, label %.sink.split110
 
 54:                                               ; preds = %.lr.ph.split
   %55 = fcmp uge float %52, 0x3FB99999A0000000
-  %brmerge91 = select i1 %55, i1 true, i1 %15
-  br i1 %brmerge91, label %.thread, label %.thread.sink.split
+  %or.cond3 = select i1 %55, i1 true, i1 %.169
+  br i1 %or.cond3, label %56, label %.sink.split110
 
-.thread.sink.split:                               ; preds = %54, %.lr.ph.split
-  %.sink105 = phi float [ 0.000000e+00, %.lr.ph.split ], [ 1.000000e+00, %54 ]
-  store float %.sink105, ptr %51, align 4
-  br label %.thread
+.sink.split110:                                   ; preds = %54, %.lr.ph.split
+  %.sink111 = phi float [ 0.000000e+00, %.lr.ph.split ], [ 1.000000e+00, %54 ]
+  store float %.sink111, ptr %51, align 4
+  br label %56
 
-.thread:                                          ; preds = %.thread.sink.split, %54
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %56 = load i32, ptr %8, align 8
-  %57 = zext i32 %56 to i64
-  %58 = icmp samesign ult i64 %indvars.iv.next96, %57
-  br i1 %58, label %.lr.ph.split, label %.loopexit, !llvm.loop !3
+56:                                               ; preds = %.sink.split110, %54
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
+  %57 = load i32, ptr %8, align 8
+  %58 = zext i32 %57 to i64
+  %59 = icmp samesign ult i64 %indvars.iv.next101, %58
+  br i1 %59, label %.lr.ph.split, label %.loopexit, !llvm.loop !3
 
-.loopexit:                                        ; preds = %.thread, %28, %13, %6
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %59 = load i32, ptr %3, align 8
-  %60 = zext i32 %59 to i64
-  %61 = icmp samesign ult i64 %indvars.iv.next102, %60
-  br i1 %61, label %6, label %._crit_edge, !llvm.loop !6
+.loopexit:                                        ; preds = %56, %27, %13, %6
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+  %60 = load i32, ptr %3, align 8
+  %61 = zext i32 %60 to i64
+  %62 = icmp samesign ult i64 %indvars.iv.next107, %61
+  br i1 %62, label %6, label %._crit_edge, !llvm.loop !6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

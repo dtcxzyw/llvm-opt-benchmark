@@ -151,12 +151,12 @@ define hidden void @_ZN2cv13wechat_qrcode10SuperScale17processImageScaleERKNS_3M
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !36
   %18 = fcmp oeq float %3, 2.000000e+00
-  br i1 %18, label %19, label %45
+  br i1 %18, label %19, label %44
 
 19:                                               ; preds = %13
   %20 = load i8, ptr %4, align 1, !tbaa !37, !range !38, !noundef !39
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %36
+  br i1 %21, label %22, label %35
 
 22:                                               ; preds = %19
   %23 = mul nsw i32 %17, %15
@@ -164,93 +164,91 @@ define hidden void @_ZN2cv13wechat_qrcode10SuperScale17processImageScaleERKNS_3M
   %25 = tail call double @sqrt(double noundef %24) #9, !tbaa !13
   %26 = fptosi double %25 to i32
   %27 = icmp sgt i32 %5, %26
-  br i1 %27, label %28, label %36
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %29 = load i8, ptr %28, align 8, !range !38
+  %30 = trunc nuw i8 %29 to i1
+  %or.cond = select i1 %27, i1 %30, i1 false
+  br i1 %or.cond, label %31, label %35
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load i8, ptr %29, align 8, !tbaa !21, !range !38, !noundef !39
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %36
+31:                                               ; preds = %22
+  %32 = invoke noundef i32 @_ZN2cv13wechat_qrcode10SuperScale19superResoutionScaleERKNS_3MatERS2_(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %0)
+          to label %.critedge unwind label %33
 
-32:                                               ; preds = %28
-  %33 = invoke noundef i32 @_ZN2cv13wechat_qrcode10SuperScale19superResoutionScaleERKNS_3MatERS2_(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %0)
-          to label %.critedge unwind label %34
-
-34:                                               ; preds = %32
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %55
 
-36:                                               ; preds = %28, %22, %19
+35:                                               ; preds = %22, %19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #9
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %37, align 8, !tbaa !40
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 0, ptr %38, align 4, !tbaa !42
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 0, ptr %36, align 8, !tbaa !40
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 0, ptr %37, align 4, !tbaa !42
   store i32 16842752, ptr %7, align 8, !tbaa !43
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %2, ptr %39, align 8, !tbaa !45
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %2, ptr %38, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #9
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %41, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 0, ptr %40, align 8
   store i32 33619968, ptr %8, align 8, !tbaa !43
-  store ptr %0, ptr %40, align 8, !tbaa !45
+  store ptr %0, ptr %39, align 8, !tbaa !45
   invoke void @_ZN2cv6resizeERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEddi(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 0, double noundef %11, double noundef %11, i32 noundef 2)
-          to label %42 unwind label %43
+          to label %41 unwind label %42
 
-42:                                               ; preds = %36
+41:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
   br label %.critedge
 
-43:                                               ; preds = %36
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %35
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
-  br label %56
+  br label %55
 
-45:                                               ; preds = %13
-  %46 = fcmp olt float %3, 1.000000e+00
-  br i1 %46, label %47, label %.critedge
+44:                                               ; preds = %13
+  %45 = fcmp olt float %3, 1.000000e+00
+  br i1 %45, label %46, label %.critedge
 
-47:                                               ; preds = %45
+46:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #9
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %48, align 8, !tbaa !40
-  %49 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 0, ptr %49, align 4, !tbaa !42
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i32 0, ptr %47, align 8, !tbaa !40
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  store i32 0, ptr %48, align 4, !tbaa !42
   store i32 16842752, ptr %9, align 8, !tbaa !43
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %2, ptr %50, align 8, !tbaa !45
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %2, ptr %49, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #9
-  %51 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %52 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 0, ptr %52, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i64 0, ptr %51, align 8
   store i32 33619968, ptr %10, align 8, !tbaa !43
-  store ptr %0, ptr %51, align 8, !tbaa !45
+  store ptr %0, ptr %50, align 8, !tbaa !45
   invoke void @_ZN2cv6resizeERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEddi(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 0, double noundef %11, double noundef %11, i32 noundef 3)
-          to label %53 unwind label %54
+          to label %52 unwind label %53
 
-53:                                               ; preds = %47
+52:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #9
   br label %.critedge
 
-54:                                               ; preds = %47
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %46
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #9
-  br label %56
+  br label %55
 
-56:                                               ; preds = %34, %43, %54
-  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %44, %43 ], [ %35, %34 ]
+55:                                               ; preds = %33, %42, %53
+  %.pn41.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %43, %42 ], [ %34, %33 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #9
   resume { ptr, i32 } %.pn41.pn.pn.pn
 
-.critedge:                                        ; preds = %42, %32, %53, %45, %6
+.critedge:                                        ; preds = %41, %31, %52, %44, %6
   ret void
 }
 

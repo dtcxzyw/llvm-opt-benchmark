@@ -1061,134 +1061,133 @@ declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define dso_local void @RegisterBackgroundWorker(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %3 = trunc nuw i8 %2 to i1
-  br i1 %3, label %7, label %4
+  %.not = xor i1 %3, true
+  %4 = load i8, ptr @IsPostmasterEnvironment, align 1, !range !4
+  %5 = trunc nuw i8 %4 to i1
+  %or.cond = select i1 %.not, i1 %5, i1 false
+  br i1 %or.cond, label %14, label %6
 
-4:                                                ; preds = %1
-  %5 = load i8, ptr @IsPostmasterEnvironment, align 1, !range !4, !noundef !5
-  %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %15, label %7
+6:                                                ; preds = %1
+  %7 = load i8, ptr @process_shared_preload_libraries_in_progress, align 1, !range !4, !noundef !5
+  %8 = trunc nuw i8 %7 to i1
+  br i1 %8, label %66, label %9
 
-7:                                                ; preds = %4, %1
-  %8 = load i8, ptr @process_shared_preload_libraries_in_progress, align 1, !range !4, !noundef !5
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %67, label %10
+9:                                                ; preds = %6
+  %10 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  br i1 %10, label %11, label %66
 
-10:                                               ; preds = %7
-  %11 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
-  br i1 %11, label %12, label %67
-
-12:                                               ; preds = %10
-  %13 = tail call i32 @errcode(i32 noundef 1088) #14
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %0) #14
+11:                                               ; preds = %9
+  %12 = tail call i32 @errcode(i32 noundef 1088) #14
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %0) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 966, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #14
-  br label %67
+  br label %66
 
-15:                                               ; preds = %4
-  %16 = load ptr, ptr @BackgroundWorkerData, align 8
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %20, label %17
+14:                                               ; preds = %1
+  %15 = load ptr, ptr @BackgroundWorkerData, align 8
+  %.not14 = icmp eq ptr %15, null
+  br i1 %.not14, label %19, label %16
 
-17:                                               ; preds = %15
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %0) #14
+16:                                               ; preds = %14
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %17)
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %0) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 976, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #14
   unreachable
 
-20:                                               ; preds = %15
-  %21 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
-  br i1 %21, label %22, label %24
+19:                                               ; preds = %14
+  %20 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  br i1 %20, label %21, label %23
 
-22:                                               ; preds = %20
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %0) #14
+21:                                               ; preds = %19
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %0) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 979, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #14
-  br label %24
+  br label %23
 
-24:                                               ; preds = %22, %20
-  %25 = tail call fastcc zeroext i1 @SanityCheckBackgroundWorker(ptr noundef %0, i32 noundef 15)
-  br i1 %25, label %26, label %67
+23:                                               ; preds = %21, %19
+  %24 = tail call fastcc zeroext i1 @SanityCheckBackgroundWorker(ptr noundef %0, i32 noundef 15)
+  br i1 %24, label %25, label %66
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1464
-  %28 = load i32, ptr %27, align 8
-  %.not13 = icmp eq i32 %28, 0
-  br i1 %.not13, label %34, label %29
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1464
+  %27 = load i32, ptr %26, align 8
+  %.not15 = icmp eq i32 %27, 0
+  br i1 %.not15, label %33, label %28
 
-29:                                               ; preds = %26
-  %30 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
-  br i1 %30, label %31, label %67
+28:                                               ; preds = %25
+  %29 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  br i1 %29, label %30, label %66
 
-31:                                               ; preds = %29
-  %32 = tail call i32 @errcode(i32 noundef 1088) #14
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %0) #14
+30:                                               ; preds = %28
+  %31 = tail call i32 @errcode(i32 noundef 1088) #14
+  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %0) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 989, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #14
-  br label %67
+  br label %66
 
-34:                                               ; preds = %26
-  %35 = load i32, ptr @RegisterBackgroundWorker.numworkers, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr @RegisterBackgroundWorker.numworkers, align 4
-  %37 = load i32, ptr @max_worker_processes, align 4
-  %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %39, label %48
+33:                                               ; preds = %25
+  %34 = load i32, ptr @RegisterBackgroundWorker.numworkers, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr @RegisterBackgroundWorker.numworkers, align 4
+  %36 = load i32, ptr @max_worker_processes, align 4
+  %37 = icmp sgt i32 %35, %36
+  br i1 %37, label %38, label %47
 
-39:                                               ; preds = %34
-  %40 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
-  br i1 %40, label %41, label %67
+38:                                               ; preds = %33
+  %39 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  br i1 %39, label %40, label %66
 
-41:                                               ; preds = %39
-  %42 = tail call i32 @errcode(i32 noundef 16581) #14
-  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #14
-  %44 = load i32, ptr @max_worker_processes, align 4
-  %45 = sext i32 %44 to i64
-  %46 = tail call i32 (ptr, ptr, i64, ...) @errdetail_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %45, i32 noundef %44) #14
-  %47 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #14
+40:                                               ; preds = %38
+  %41 = tail call i32 @errcode(i32 noundef 16581) #14
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #14
+  %43 = load i32, ptr @max_worker_processes, align 4
+  %44 = sext i32 %43 to i64
+  %45 = tail call i32 (ptr, ptr, i64, ...) @errdetail_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %44, i32 noundef %43) #14
+  %46 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1008, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #14
-  br label %67
+  br label %66
 
-48:                                               ; preds = %34
-  %49 = load ptr, ptr @PostmasterContext, align 8
-  %50 = tail call ptr @MemoryContextAllocExtended(ptr noundef %49, i64 noundef 1512, i32 noundef 2) #14
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %57
+47:                                               ; preds = %33
+  %48 = load ptr, ptr @PostmasterContext, align 8
+  %49 = tail call ptr @MemoryContextAllocExtended(ptr noundef %48, i64 noundef 1512, i32 noundef 2) #14
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %56
 
-52:                                               ; preds = %48
-  %53 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
-  br i1 %53, label %54, label %67
+51:                                               ; preds = %47
+  %52 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  br i1 %52, label %53, label %66
 
-54:                                               ; preds = %52
-  %55 = tail call i32 @errcode(i32 noundef 8389) #14
-  %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #14
+53:                                               ; preds = %51
+  %54 = tail call i32 @errcode(i32 noundef 8389) #14
+  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1022, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #14
-  br label %67
+  br label %66
 
-57:                                               ; preds = %48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1472) %50, ptr noundef nonnull align 8 dereferenceable(1472) %0, i64 1472, i1 false)
-  %58 = getelementptr inbounds nuw i8, ptr %50, i64 1472
-  store i32 0, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %50, i64 1480
-  store i64 0, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %50, i64 1492
-  store i8 0, ptr %60, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %50, i64 1496
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %dlist_push_head.exit
+56:                                               ; preds = %47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1472) %49, ptr noundef nonnull align 8 dereferenceable(1472) %0, i64 1472, i1 false)
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 1472
+  store i32 0, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 1480
+  store i64 0, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %49, i64 1492
+  store i8 0, ptr %59, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 1496
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %63, label %dlist_push_head.exit
 
-64:                                               ; preds = %57
+63:                                               ; preds = %56
   store ptr @BackgroundWorkerList, ptr @BackgroundWorkerList, align 8
   br label %dlist_push_head.exit
 
-dlist_push_head.exit:                             ; preds = %57, %64
-  %65 = phi ptr [ @BackgroundWorkerList, %64 ], [ %62, %57 ]
-  %66 = getelementptr inbounds nuw i8, ptr %50, i64 1504
-  store ptr %65, ptr %66, align 8
-  store ptr @BackgroundWorkerList, ptr %61, align 8
-  store ptr %61, ptr %65, align 8
-  store ptr %61, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
-  br label %67
+dlist_push_head.exit:                             ; preds = %56, %63
+  %64 = phi ptr [ @BackgroundWorkerList, %63 ], [ %61, %56 ]
+  %65 = getelementptr inbounds nuw i8, ptr %49, i64 1504
+  store ptr %64, ptr %65, align 8
+  store ptr @BackgroundWorkerList, ptr %60, align 8
+  store ptr %60, ptr %64, align 8
+  store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
+  br label %66
 
-67:                                               ; preds = %52, %54, %39, %41, %29, %31, %24, %10, %12, %7, %dlist_push_head.exit
+66:                                               ; preds = %51, %53, %38, %40, %28, %30, %23, %9, %11, %6, %dlist_push_head.exit
   ret void
 }
 

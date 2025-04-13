@@ -790,9 +790,13 @@ define dso_local range(i32 0, 2) i32 @rb_execarg_addopt(i64 noundef %0, i64 noun
 22:                                               ; preds = %3
   %23 = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 62)
   %24 = icmp ult i64 %23, 10
-  br i1 %24, label %switch.hole_check, label %25
+  %switch.maskindex = trunc i64 %23 to i16
+  %switch.shifted = lshr i16 547, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %24, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %rb_type.exit.thread, label %25
 
-25:                                               ; preds = %switch.hole_check, %22
+25:                                               ; preds = %22
   %26 = and i64 %1, 1
   %.not.i = icmp eq i64 %26, 0
   br i1 %.not.i, label %27, label %rb_type.exit.thread72
@@ -1679,14 +1683,8 @@ rb_type.exit.thread.sink.split:                   ; preds = %452, %rb_execarg_ad
   %454 = load volatile i64, ptr %.sink87, align 8, !tbaa !43
   br label %rb_type.exit.thread
 
-switch.hole_check:                                ; preds = %22
-  %switch.maskindex = trunc nuw i64 %23 to i16
-  %switch.shifted = lshr i16 547, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %rb_type.exit.thread, label %25
-
-rb_type.exit.thread:                              ; preds = %switch.hole_check, %rb_type.exit.thread.sink.split, %27, %rb_type.exit, %236, %.critedge
-  %.1 = phi i32 [ 1, %.critedge ], [ 1, %236 ], [ 1, %rb_type.exit ], [ 1, %27 ], [ 0, %rb_type.exit.thread.sink.split ], [ 1, %switch.hole_check ]
+rb_type.exit.thread:                              ; preds = %22, %rb_type.exit.thread.sink.split, %27, %rb_type.exit, %236, %.critedge
+  %.1 = phi i32 [ 1, %.critedge ], [ 1, %236 ], [ 1, %rb_type.exit ], [ 1, %27 ], [ 0, %rb_type.exit.thread.sink.split ], [ 1, %22 ]
   ret i32 %.1
 }
 

@@ -1864,170 +1864,86 @@ define hidden noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN12ciMethodData11bci_to_dataEiP8ciMethod(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0, i32 noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i8, align 1
-  %5 = alloca i8, align 1
-  %6 = icmp eq ptr %2, null
-  br i1 %6, label %7, label %.thread
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %tailrecurse
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i32, ptr %8, align 8
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %select.unfold._crit_edge, label %_ZN12ciMethodData18data_layout_beforeEi.exit
+tailrecurse:                                      ; preds = %46, %3
+  %.tr23 = phi ptr [ %2, %3 ], [ null, %46 ]
+  %8 = icmp eq ptr %.tr23, null
+  %9 = load i32, ptr %5, align 8
+  %10 = icmp ne i32 %9, 0
+  %or.cond34.not = select i1 %8, i1 %10, i1 false
+  br i1 %or.cond34.not, label %_ZN12ciMethodData18data_layout_beforeEi.exit, label %.loopexit
 
-_ZN12ciMethodData18data_layout_beforeEi.exit:     ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = sext i32 %12 to i64
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %18 = load i16, ptr %17, align 2
-  %19 = zext i16 %18 to i32
-  %.not.i = icmp slt i32 %1, %19
-  %spec.select.i = select i1 %.not.i, ptr %14, ptr %16
-  %.not2934 = icmp eq ptr %spec.select.i, null
-  br i1 %.not2934, label %select.unfold._crit_edge, label %.lr.ph36
+_ZN12ciMethodData18data_layout_beforeEi.exit:     ; preds = %tailrecurse
+  %11 = load i32, ptr %6, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = sext i32 %11 to i64
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  %16 = load i16, ptr %15, align 2
+  %17 = zext i16 %16 to i32
+  %.not.i = icmp slt i32 %1, %17
+  %spec.select.i = select i1 %.not.i, ptr %12, ptr %14
+  %.not2126 = icmp eq ptr %spec.select.i, null
+  br i1 %.not2126, label %.loopexit, label %.lr.ph
 
-.lr.ph36:                                         ; preds = %_ZN12ciMethodData18data_layout_beforeEi.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %21
+.lr.ph:                                           ; preds = %_ZN12ciMethodData18data_layout_beforeEi.exit, %select.unfold
+  %.01827 = phi ptr [ %44, %select.unfold ], [ %spec.select.i, %_ZN12ciMethodData18data_layout_beforeEi.exit ]
+  %18 = getelementptr inbounds nuw i8, ptr %.01827, i64 2
+  %19 = load i16, ptr %18, align 2
+  %20 = zext i16 %19 to i32
+  %21 = icmp eq i32 %1, %20
+  br i1 %21, label %22, label %29
 
-21:                                               ; preds = %.lr.ph36, %select.unfold
-  %.01735 = phi ptr [ %spec.select.i, %.lr.ph36 ], [ %49, %select.unfold ]
-  %22 = getelementptr inbounds nuw i8, ptr %.01735, i64 2
-  %23 = load i16, ptr %22, align 2
-  %24 = zext i16 %23 to i32
-  %25 = icmp eq i32 %1, %24
-  br i1 %25, label %26, label %34
+22:                                               ; preds = %.lr.ph
+  %23 = load ptr, ptr %7, align 8
+  %24 = ptrtoint ptr %.01827 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = trunc i64 %26 to i32
+  store i32 %27, ptr %6, align 8
+  %28 = tail call noundef ptr @_ZN12ciMethodData9data_fromEP10DataLayout(ptr nonnull align 8 poison, ptr noundef nonnull %.01827)
+  br label %.loopexit24
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %20, align 8
-  %28 = ptrtoint ptr %.01735 to i64
-  %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  %31 = trunc i64 %30 to i32
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %31, ptr %32, align 8
-  %33 = tail call noundef ptr @_ZN12ciMethodData9data_fromEP10DataLayout(ptr nonnull align 8 poison, ptr noundef nonnull %.01735)
-  br label %98
+29:                                               ; preds = %.lr.ph
+  %30 = icmp slt i32 %1, %20
+  br i1 %30, label %.loopexit, label %select.unfold
 
-34:                                               ; preds = %21
-  %35 = icmp slt i32 %1, %24
-  br i1 %35, label %select.unfold._crit_edge, label %select.unfold
+select.unfold:                                    ; preds = %29
+  %31 = load ptr, ptr %7, align 8
+  %32 = ptrtoint ptr %.01827 to i64
+  %33 = ptrtoint ptr %31 to i64
+  %34 = sub i64 %32, %33
+  %35 = trunc i64 %34 to i32
+  %36 = tail call noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull align 8 dereferenceable(16) %.01827) #13
+  %37 = shl nsw i32 %36, 3
+  %38 = add nsw i32 %37, 8
+  %39 = add nsw i32 %38, %35
+  %40 = load i32, ptr %5, align 8
+  %41 = icmp sge i32 %39, %40
+  %42 = load ptr, ptr %7, align 8
+  %43 = sext i32 %39 to i64
+  %44 = getelementptr inbounds i8, ptr %42, i64 %43
+  %.not2136 = icmp eq ptr %42, null
+  %.not21 = select i1 %41, i1 true, i1 %.not2136
+  br i1 %.not21, label %.loopexit, label %.lr.ph
 
-select.unfold:                                    ; preds = %34
-  %36 = load ptr, ptr %20, align 8
-  %37 = ptrtoint ptr %.01735 to i64
-  %38 = ptrtoint ptr %36 to i64
-  %39 = sub i64 %37, %38
-  %40 = trunc i64 %39 to i32
-  %41 = tail call noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull align 8 dereferenceable(16) %.01735) #13
-  %42 = shl nsw i32 %41, 3
-  %43 = add nsw i32 %42, 8
-  %44 = add nsw i32 %43, %40
-  %45 = load i32, ptr %8, align 8
-  %46 = icmp sge i32 %44, %45
-  %47 = load ptr, ptr %20, align 8
-  %48 = sext i32 %44 to i64
-  %49 = getelementptr inbounds i8, ptr %47, i64 %48
-  %.not2947 = icmp eq ptr %47, null
-  %.not29 = select i1 %46, i1 true, i1 %.not2947
-  br i1 %.not29, label %select.unfold._crit_edge, label %21
+.loopexit:                                        ; preds = %29, %select.unfold, %_ZN12ciMethodData18data_layout_beforeEi.exit, %tailrecurse
+  %45 = call noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef %.tr23, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %.not = icmp eq ptr %45, null
+  br i1 %.not, label %46, label %.loopexit24
 
-select.unfold._crit_edge:                         ; preds = %34, %select.unfold, %7, %_ZN12ciMethodData18data_layout_beforeEi.exit
-  %50 = call noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  br label %98
+46:                                               ; preds = %.loopexit
+  %47 = load i8, ptr %4, align 1
+  %48 = trunc i8 %47 to i1
+  %or.cond = select i1 %8, i1 true, i1 %48
+  br i1 %or.cond, label %.loopexit24, label %tailrecurse
 
-.thread:                                          ; preds = %3
-  %51 = call noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  %.not24 = icmp eq ptr %51, null
-  br i1 %.not24, label %.thread25, label %98
-
-.thread25:                                        ; preds = %.thread
-  %52 = load i8, ptr %5, align 1
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %98, label %54
-
-54:                                               ; preds = %.thread25
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %._crit_edge, label %_ZN12ciMethodData18data_layout_beforeEi.exit.i
-
-_ZN12ciMethodData18data_layout_beforeEi.exit.i:   ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load ptr, ptr %60, align 8
-  %62 = sext i32 %59 to i64
-  %63 = getelementptr inbounds i8, ptr %61, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
-  %65 = load i16, ptr %64, align 2
-  %66 = zext i16 %65 to i32
-  %.not.i.i = icmp slt i32 %1, %66
-  %spec.select.i.i = select i1 %.not.i.i, ptr %61, ptr %63
-  %.not32 = icmp eq ptr %spec.select.i.i, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %_ZN12ciMethodData18data_layout_beforeEi.exit.i
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %68
-
-68:                                               ; preds = %.lr.ph, %select.unfold26
-  %.017.i33 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %96, %select.unfold26 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.017.i33, i64 2
-  %70 = load i16, ptr %69, align 2
-  %71 = zext i16 %70 to i32
-  %72 = icmp eq i32 %1, %71
-  br i1 %72, label %73, label %81
-
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %67, align 8
-  %75 = ptrtoint ptr %.017.i33 to i64
-  %76 = ptrtoint ptr %74 to i64
-  %77 = sub i64 %75, %76
-  %78 = trunc i64 %77 to i32
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %78, ptr %79, align 8
-  %80 = tail call noundef ptr @_ZN12ciMethodData9data_fromEP10DataLayout(ptr nonnull align 8 poison, ptr noundef nonnull %.017.i33)
-  br label %_ZN12ciMethodData11bci_to_dataEiP8ciMethod.exit
-
-81:                                               ; preds = %68
-  %82 = icmp slt i32 %1, %71
-  br i1 %82, label %._crit_edge, label %select.unfold26
-
-select.unfold26:                                  ; preds = %81
-  %83 = load ptr, ptr %67, align 8
-  %84 = ptrtoint ptr %.017.i33 to i64
-  %85 = ptrtoint ptr %83 to i64
-  %86 = sub i64 %84, %85
-  %87 = trunc i64 %86 to i32
-  %88 = tail call noundef i32 @_ZN10DataLayout10cell_countEv(ptr noundef nonnull align 8 dereferenceable(16) %.017.i33) #13
-  %89 = shl nsw i32 %88, 3
-  %90 = add nsw i32 %89, 8
-  %91 = add nsw i32 %90, %87
-  %92 = load i32, ptr %55, align 8
-  %93 = icmp sge i32 %91, %92
-  %94 = load ptr, ptr %67, align 8
-  %95 = sext i32 %91 to i64
-  %96 = getelementptr inbounds i8, ptr %94, i64 %95
-  %.not46 = icmp eq ptr %94, null
-  %.not = select i1 %93, i1 true, i1 %.not46
-  br i1 %.not, label %._crit_edge, label %68
-
-._crit_edge:                                      ; preds = %select.unfold26, %81, %54, %_ZN12ciMethodData18data_layout_beforeEi.exit.i
-  %97 = call noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  br label %_ZN12ciMethodData11bci_to_dataEiP8ciMethod.exit
-
-_ZN12ciMethodData11bci_to_dataEiP8ciMethod.exit:  ; preds = %._crit_edge, %73
-  %.0.i23 = phi ptr [ %80, %73 ], [ %97, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %98
-
-98:                                               ; preds = %select.unfold._crit_edge, %.thread, %.thread25, %_ZN12ciMethodData11bci_to_dataEiP8ciMethod.exit, %26
-  %.0 = phi ptr [ %33, %26 ], [ %.0.i23, %_ZN12ciMethodData11bci_to_dataEiP8ciMethod.exit ], [ %50, %select.unfold._crit_edge ], [ null, %.thread25 ], [ %51, %.thread ]
+.loopexit24:                                      ; preds = %46, %.loopexit, %22
+  %.0 = phi ptr [ %28, %22 ], [ null, %46 ], [ %45, %.loopexit ]
   ret ptr %.0
 }
 
@@ -2105,15 +2021,13 @@ define hidden noundef i32 @_ZN12ciMethodData11has_trap_atEP11ProfileDatai(ptr no
 6:                                                ; preds = %3
   %switch.tableidx = add i32 %2, -15
   %7 = icmp ult i32 %switch.tableidx, 9
-  br i1 %7, label %switch.hole_check, label %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.thread
-
-switch.hole_check:                                ; preds = %6
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 497, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.thread
+  %or.cond = select i1 %7, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %6
   %8 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN12ciMethodData11has_trap_atEP11ProfileDatai, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -2128,7 +2042,7 @@ _ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit:
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %.thread, label %19
 
-_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.thread: ; preds = %switch.hole_check, %6
+_ZN14Deoptimization35reason_recorded_per_bytecode_if_anyENS_11DeoptReasonE.exit.thread: ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = sext i32 %2 to i64
   %16 = getelementptr inbounds [60 x i8], ptr %14, i64 0, i64 %15

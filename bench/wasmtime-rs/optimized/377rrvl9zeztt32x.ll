@@ -854,28 +854,26 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$$LP$wasmtime_environ..fact..trampoline..Source$C$$RF$wasmtime_environ..component..types..InterfaceType$RP$$GT$17he77c0653c25f234fE"(i64 %.0.val, i8 %.32.val) unnamed_addr #1 {
   %1 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %2 = icmp eq i64 %.0.val, 0
-  br i1 %2, label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.exit", label %3
+  %2 = icmp ne i64 %.0.val, 0
+  %3 = trunc nuw i8 %.32.val to i1
+  %or.cond.i = select i1 %2, i1 %3, i1 false
+  br i1 %or.cond.i, label %4, label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.exit"
 
-3:                                                ; preds = %0
-  %4 = trunc nuw i8 %.32.val to i1
-  br i1 %4, label %5, label %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.exit"
-
-5:                                                ; preds = %3
+4:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1), !noalias !324
   store ptr @anon.b13fcdb982b8bd2cd8551d7c15ddb64e.27.llvm.11357125133562502446, ptr %1, align 8, !noalias !324
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 1, ptr %6, align 8, !noalias !324
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr null, ptr %7, align 8, !noalias !324
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr @anon.b13fcdb982b8bd2cd8551d7c15ddb64e.13.llvm.11357125133562502446, ptr %8, align 8, !noalias !324
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 0, ptr %9, align 8, !noalias !324
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 1, ptr %5, align 8, !noalias !324
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr null, ptr %6, align 8, !noalias !324
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr @anon.b13fcdb982b8bd2cd8551d7c15ddb64e.13.llvm.11357125133562502446, ptr %7, align 8, !noalias !324
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 0, ptr %8, align 8, !noalias !324
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b13fcdb982b8bd2cd8551d7c15ddb64e.29.llvm.11357125133562502446) #31, !noalias !324
   unreachable
 
-"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.exit": ; preds = %0, %3
+"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..fact..trampoline..Source$GT$17h28fa98ed49c4cc68E.exit": ; preds = %0
   ret void
 }
 

@@ -1378,50 +1378,48 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CodeGeneratorImpl24HandlingTopLe
   %6 = add i32 %5, -1
   store i32 %6, ptr %4, align 8, !tbaa !59
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %_ZN12_GLOBAL__N_117CodeGeneratorImpl17EmitDeferredDeclsEv.exit
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i8, ptr %8, align 8, !range !430
+  %10 = trunc nuw i8 %9 to i1
+  %or.cond = select i1 %7, i1 %10, i1 false
+  br i1 %or.cond, label %11, label %_ZN12_GLOBAL__N_117CodeGeneratorImpl17EmitDeferredDeclsEv.exit
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i8, ptr %9, align 8, !tbaa !485, !range !430, !noundef !431
-  %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %_ZN12_GLOBAL__N_117CodeGeneratorImpl17EmitDeferredDeclsEv.exit
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %14 = load i32, ptr %13, align 8, !tbaa !63
+  %.not.i3 = icmp eq i32 %14, 0
+  br i1 %.not.i3, label %_ZN12_GLOBAL__N_117CodeGeneratorImpl17EmitDeferredDeclsEv.exit, label %.lr.ph
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %15 = load i32, ptr %14, align 8, !tbaa !63
-  %.not.i1 = icmp eq i32 %15, 0
-  br i1 %.not.i1, label %_ZN12_GLOBAL__N_117CodeGeneratorImpl17EmitDeferredDeclsEv.exit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %12
+.lr.ph:                                           ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
   store ptr %3, ptr %2, align 8, !tbaa !483
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i8 1, ptr %16, align 8, !tbaa !485
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i8 1, ptr %15, align 8, !tbaa !485
   store i32 %5, ptr %4, align 8, !tbaa !59
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  br label %18
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  br label %17
 
-._crit_edge:                                      ; preds = %18
-  store i32 0, ptr %14, align 8, !tbaa !63
+._crit_edge:                                      ; preds = %17
+  store i32 0, ptr %13, align 8, !tbaa !63
   call fastcc void @_ZN12_GLOBAL__N_117CodeGeneratorImpl24HandlingTopLevelDeclRAIID2Ev(ptr noundef nonnull align 8 dereferenceable(9) %2) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   br label %_ZN12_GLOBAL__N_117CodeGeneratorImpl17EmitDeferredDeclsEv.exit
 
-18:                                               ; preds = %.lr.ph, %18
-  %.0.i3 = phi i32 [ 0, %.lr.ph ], [ %24, %18 ]
-  %19 = zext i32 %.0.i3 to i64
-  %20 = load ptr, ptr %17, align 8, !tbaa !3
-  %21 = load ptr, ptr %13, align 8, !tbaa !62
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %19
-  %23 = load ptr, ptr %22, align 8, !tbaa !19
-  tail call void @_ZN5clang7CodeGen13CodeGenModule16EmitTopLevelDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(3608) %20, ptr noundef %23) #16
-  %24 = add i32 %.0.i3, 1
-  %25 = load i32, ptr %14, align 8, !tbaa !63
-  %.not.i = icmp eq i32 %25, %24
-  br i1 %.not.i, label %._crit_edge, label %18, !llvm.loop !505
+17:                                               ; preds = %.lr.ph, %17
+  %.0.i5 = phi i32 [ 0, %.lr.ph ], [ %23, %17 ]
+  %18 = zext i32 %.0.i5 to i64
+  %19 = load ptr, ptr %16, align 8, !tbaa !3
+  %20 = load ptr, ptr %12, align 8, !tbaa !62
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %18
+  %22 = load ptr, ptr %21, align 8, !tbaa !19
+  tail call void @_ZN5clang7CodeGen13CodeGenModule16EmitTopLevelDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(3608) %19, ptr noundef %22) #16
+  %23 = add i32 %.0.i5, 1
+  %24 = load i32, ptr %13, align 8, !tbaa !63
+  %.not.i = icmp eq i32 %24, %23
+  br i1 %.not.i, label %._crit_edge, label %17, !llvm.loop !505
 
-_ZN12_GLOBAL__N_117CodeGeneratorImpl17EmitDeferredDeclsEv.exit: ; preds = %._crit_edge, %12, %8, %1
+_ZN12_GLOBAL__N_117CodeGeneratorImpl17EmitDeferredDeclsEv.exit: ; preds = %._crit_edge, %11, %1
   ret void
 }
 

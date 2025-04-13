@@ -711,460 +711,458 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit.i.i: ; preds =
 
 100:                                              ; preds = %_ZL26ensure_valid_maximum_sizesv.exit
   %101 = trunc i8 %42 to i1
-  br i1 %101, label %102, label %_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit
+  %102 = trunc i8 %50 to i1
+  %or.cond.i = select i1 %101, i1 %102, i1 false
+  br i1 %or.cond.i, label %103, label %_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit
 
-102:                                              ; preds = %100
-  %103 = trunc i8 %50 to i1
-  br i1 %103, label %104, label %_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit
+103:                                              ; preds = %100
+  %104 = tail call fastcc noundef zeroext i1 @_ZL24ensure_first_gteq_secondI12DCmdArgumentI18MemorySizeArgumentEEbRT_S4_(ptr noundef nonnull align 8 dereferenceable(80) @_ZL16_dcmd_memorysize, ptr noundef nonnull align 8 dereferenceable(80) @_ZL22_dcmd_threadbuffersize)
+  br i1 %104, label %_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit, label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
-104:                                              ; preds = %102
-  %105 = tail call fastcc noundef zeroext i1 @_ZL24ensure_first_gteq_secondI12DCmdArgumentI18MemorySizeArgumentEEbRT_S4_(ptr noundef nonnull align 8 dereferenceable(80) @_ZL16_dcmd_memorysize, ptr noundef nonnull align 8 dereferenceable(80) @_ZL22_dcmd_threadbuffersize)
-  br i1 %105, label %_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit, label %_ZL26ensure_valid_minimum_sizesv.exit.thread
+_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit: ; preds = %103, %100, %72, %70
+  %105 = call noundef zeroext i1 @_ZN14JfrMemorySizer14adjust_optionsEP16JfrMemoryOptions(ptr noundef nonnull %1) #18
+  br i1 %105, label %182, label %106
 
-_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit: ; preds = %104, %102, %100, %72, %70
-  %106 = call noundef zeroext i1 @_ZN14JfrMemorySizer14adjust_optionsEP16JfrMemoryOptions(ptr noundef nonnull %1) #18
-  br i1 %106, label %183, label %107
+106:                                              ; preds = %_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit
+  %107 = load i64, ptr %47, align 8
+  %108 = load i64, ptr @MIN_BUFFER_COUNT, align 8
+  %109 = icmp ult i64 %107, %108
+  br i1 %109, label %114, label %110
 
-107:                                              ; preds = %_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit
-  %108 = load i64, ptr %47, align 8
-  %109 = load i64, ptr @MIN_BUFFER_COUNT, align 8
-  %110 = icmp ult i64 %108, %109
-  br i1 %110, label %115, label %111
+110:                                              ; preds = %106
+  %111 = load i64, ptr %45, align 8
+  %112 = load i64, ptr %49, align 8
+  %113 = icmp ult i64 %111, %112
+  br i1 %113, label %114, label %180
 
-111:                                              ; preds = %107
-  %112 = load i64, ptr %45, align 8
-  %113 = load i64, ptr %49, align 8
-  %114 = icmp ult i64 %112, %113
-  br i1 %114, label %115, label %181
-
-115:                                              ; preds = %111, %107
+114:                                              ; preds = %110, %106
   %.sroa.018.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
   %.sroa.116.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
   %.not.i6 = icmp eq i64 %.sroa.018.0.copyload.i, %.sroa.116.0.copyload.i
-  %116 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not21.i = icmp eq ptr %116, null
-  br i1 %.not.i6, label %124, label %117
+  %115 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not21.i = icmp eq ptr %115, null
+  br i1 %.not.i6, label %123, label %116
 
-117:                                              ; preds = %115
-  br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %118
+116:                                              ; preds = %114
+  br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %117
 
-118:                                              ; preds = %117
-  %119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
-  %120 = trunc i8 %119 to i1
-  %121 = select i1 %120, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
+117:                                              ; preds = %116
+  %118 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  %119 = trunc i8 %118 to i1
+  %120 = select i1 %119, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
   %.sroa.110.0.copyload.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 72), align 8
-  %123 = sext i8 %.sroa.110.0.copyload.i to i32
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.98, ptr noundef nonnull %121, ptr noundef %122, i64 noundef %.sroa.116.0.copyload.i, i32 noundef %123)
+  %122 = sext i8 %.sroa.110.0.copyload.i to i32
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.98, ptr noundef nonnull %120, ptr noundef %121, i64 noundef %.sroa.116.0.copyload.i, i32 noundef %122)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
 
-124:                                              ; preds = %115
-  br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %125
+123:                                              ; preds = %114
+  br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %124
 
-125:                                              ; preds = %124
-  %126 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
-  %127 = trunc i8 %126 to i1
-  %128 = select i1 %127, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %128, ptr noundef %129, i64 noundef %.sroa.018.0.copyload.i)
+124:                                              ; preds = %123
+  %125 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  %126 = trunc i8 %125 to i1
+  %127 = select i1 %126, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
+  %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %127, ptr noundef %128, i64 noundef %.sroa.018.0.copyload.i)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
 
-_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %117, %118, %124, %125
+_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %116, %117, %123, %124
   %.sroa.018.0.copyload.i7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
   %.sroa.116.0.copyload.i8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
   %.not.i9 = icmp eq i64 %.sroa.018.0.copyload.i7, %.sroa.116.0.copyload.i8
-  %130 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not21.i10 = icmp eq ptr %130, null
-  br i1 %.not.i9, label %138, label %131
+  %129 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not21.i10 = icmp eq ptr %129, null
+  br i1 %.not.i9, label %137, label %130
 
-131:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
-  br i1 %.not21.i10, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12, label %132
+130:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
+  br i1 %.not21.i10, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12, label %131
 
-132:                                              ; preds = %131
-  %133 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
-  %134 = trunc i8 %133 to i1
-  %135 = select i1 %134, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
+131:                                              ; preds = %130
+  %132 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %133 = trunc i8 %132 to i1
+  %134 = select i1 %133, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
   %.sroa.110.0.copyload.i11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 72), align 8
-  %137 = sext i8 %.sroa.110.0.copyload.i11 to i32
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.98, ptr noundef nonnull %135, ptr noundef %136, i64 noundef %.sroa.116.0.copyload.i8, i32 noundef %137)
+  %136 = sext i8 %.sroa.110.0.copyload.i11 to i32
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.98, ptr noundef nonnull %134, ptr noundef %135, i64 noundef %.sroa.116.0.copyload.i8, i32 noundef %136)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12
 
-138:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
-  br i1 %.not21.i10, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12, label %139
+137:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
+  br i1 %.not21.i10, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12, label %138
 
-139:                                              ; preds = %138
-  %140 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
-  %141 = trunc i8 %140 to i1
-  %142 = select i1 %141, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %142, ptr noundef %143, i64 noundef %.sroa.018.0.copyload.i7)
+138:                                              ; preds = %137
+  %139 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %140 = trunc i8 %139 to i1
+  %141 = select i1 %140, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %141, ptr noundef %142, i64 noundef %.sroa.018.0.copyload.i7)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12
 
-_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12: ; preds = %131, %132, %138, %139
-  %144 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not = icmp eq ptr %144, null
-  br i1 %.not, label %151, label %145
+_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12: ; preds = %130, %131, %137, %138
+  %143 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not = icmp eq ptr %143, null
+  br i1 %.not, label %150, label %144
 
-145:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12
-  %146 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
-  %147 = trunc i8 %146 to i1
-  %148 = select i1 %147, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
-  %150 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.54, ptr noundef nonnull %148, ptr noundef %149, i64 noundef %150)
-  br label %151
+144:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12
+  %145 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
+  %146 = trunc i8 %145 to i1
+  %147 = select i1 %146, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
+  %149 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.54, ptr noundef nonnull %147, ptr noundef %148, i64 noundef %149)
+  br label %150
 
-151:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12, %145
+150:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12, %144
   %.sroa.018.0.copyload.i13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
   %.sroa.116.0.copyload.i14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 64), align 8
   %.not.i15 = icmp eq i64 %.sroa.018.0.copyload.i13, %.sroa.116.0.copyload.i14
-  %152 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not21.i16 = icmp eq ptr %152, null
-  br i1 %.not.i15, label %160, label %153
+  %151 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not21.i16 = icmp eq ptr %151, null
+  br i1 %.not.i15, label %159, label %152
 
-153:                                              ; preds = %151
-  br i1 %.not21.i16, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18, label %154
+152:                                              ; preds = %150
+  br i1 %.not21.i16, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18, label %153
 
-154:                                              ; preds = %153
-  %155 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
-  %156 = trunc i8 %155 to i1
-  %157 = select i1 %156, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 16), align 8
+153:                                              ; preds = %152
+  %154 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
+  %155 = trunc i8 %154 to i1
+  %156 = select i1 %155, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
+  %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 16), align 8
   %.sroa.110.0.copyload.i17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 72), align 8
-  %159 = sext i8 %.sroa.110.0.copyload.i17 to i32
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.98, ptr noundef nonnull %157, ptr noundef %158, i64 noundef %.sroa.116.0.copyload.i14, i32 noundef %159)
+  %158 = sext i8 %.sroa.110.0.copyload.i17 to i32
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.98, ptr noundef nonnull %156, ptr noundef %157, i64 noundef %.sroa.116.0.copyload.i14, i32 noundef %158)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18
 
-160:                                              ; preds = %151
-  br i1 %.not21.i16, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18, label %161
+159:                                              ; preds = %150
+  br i1 %.not21.i16, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18, label %160
 
-161:                                              ; preds = %160
-  %162 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
-  %163 = trunc i8 %162 to i1
-  %164 = select i1 %163, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 16), align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %164, ptr noundef %165, i64 noundef %.sroa.018.0.copyload.i13)
+160:                                              ; preds = %159
+  %161 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
+  %162 = trunc i8 %161 to i1
+  %163 = select i1 %162, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
+  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 16), align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %163, ptr noundef %164, i64 noundef %.sroa.018.0.copyload.i13)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18
 
-_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18: ; preds = %153, %154, %160, %161
-  %166 = load i64, ptr %47, align 8
-  %167 = icmp ult i64 %166, %109
-  %168 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not26 = icmp eq ptr %168, null
-  br i1 %167, label %169, label %174
+_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18: ; preds = %152, %153, %159, %160
+  %165 = load i64, ptr %47, align 8
+  %166 = icmp ult i64 %165, %108
+  %167 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not26 = icmp eq ptr %167, null
+  br i1 %166, label %168, label %173
 
-169:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18
-  br i1 %.not26, label %171, label %170
+168:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18
+  br i1 %.not26, label %170, label %169
 
-170:                                              ; preds = %169
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.55, i64 noundef %166, i64 noundef %109)
-  br label %171
+169:                                              ; preds = %168
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.55, i64 noundef %165, i64 noundef %108)
+  br label %170
 
-171:                                              ; preds = %169, %170
-  %172 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not27 = icmp eq ptr %172, null
-  br i1 %.not27, label %_ZL26ensure_valid_minimum_sizesv.exit.thread, label %173
+170:                                              ; preds = %168, %169
+  %171 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not27 = icmp eq ptr %171, null
+  br i1 %.not27, label %_ZL26ensure_valid_minimum_sizesv.exit.thread, label %172
 
-173:                                              ; preds = %171
+172:                                              ; preds = %170
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.56)
   br label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
-174:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18
-  br i1 %.not26, label %178, label %175
+173:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18
+  br i1 %.not26, label %177, label %174
 
-175:                                              ; preds = %174
-  %176 = load i64, ptr %45, align 8
-  %177 = load i64, ptr %49, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.57, i64 noundef %176, i64 noundef %177)
-  br label %178
+174:                                              ; preds = %173
+  %175 = load i64, ptr %45, align 8
+  %176 = load i64, ptr %49, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.57, i64 noundef %175, i64 noundef %176)
+  br label %177
 
-178:                                              ; preds = %174, %175
-  %179 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not25 = icmp eq ptr %179, null
-  br i1 %.not25, label %_ZL26ensure_valid_minimum_sizesv.exit.thread, label %180
+177:                                              ; preds = %173, %174
+  %178 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %.not25 = icmp eq ptr %178, null
+  br i1 %.not25, label %_ZL26ensure_valid_minimum_sizesv.exit.thread, label %179
 
-180:                                              ; preds = %178
+179:                                              ; preds = %177
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.58)
   br label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
-181:                                              ; preds = %111
-  %182 = call fastcc noundef zeroext i1 @_ZL19check_for_ambiguityI12DCmdArgumentI18MemorySizeArgumentES0_IlEEbRT_S5_RT0_()
-  br i1 %182, label %183, label %_ZL26ensure_valid_minimum_sizesv.exit.thread
+180:                                              ; preds = %110
+  %181 = call fastcc noundef zeroext i1 @_ZL19check_for_ambiguityI12DCmdArgumentI18MemorySizeArgumentES0_IlEEbRT_S5_RT0_()
+  br i1 %181, label %182, label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
-183:                                              ; preds = %181, %_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit
-  %184 = load i64, ptr %1, align 8
-  %185 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not25.i.i = icmp eq ptr %185, null
-  br i1 %.not25.i.i, label %190, label %186
+182:                                              ; preds = %180, %_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit
+  %183 = load i64, ptr %1, align 8
+  %184 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not25.i.i = icmp eq ptr %184, null
+  br i1 %.not25.i.i, label %189, label %185
 
-186:                                              ; preds = %183
+185:                                              ; preds = %182
   %.sroa.023.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
-  %187 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
-  %188 = trunc i8 %187 to i1
-  %189 = select i1 %188, ptr @.str.41, ptr @.str.52
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.87, i64 noundef %.sroa.023.0.copyload.i.i, ptr noundef nonnull %189)
-  br label %190
+  %186 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  %187 = trunc i8 %186 to i1
+  %188 = select i1 %187, ptr @.str.41, ptr @.str.52
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.87, i64 noundef %.sroa.023.0.copyload.i.i, ptr noundef nonnull %188)
+  br label %189
 
-190:                                              ; preds = %186, %183
-  %191 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not26.i.i = icmp eq ptr %191, null
-  br i1 %.not26.i.i, label %194, label %192
+189:                                              ; preds = %185, %182
+  %190 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not26.i.i = icmp eq ptr %190, null
+  br i1 %.not26.i.i, label %193, label %191
 
-192:                                              ; preds = %190
+191:                                              ; preds = %189
   %.sroa.021.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
-  %.not.i.i19 = icmp eq i64 %.sroa.021.0.copyload.i.i, %184
-  %193 = select i1 %.not.i.i19, ptr @.str.52, ptr @.str.41
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.87, i64 noundef %184, ptr noundef nonnull %193)
-  br label %194
+  %.not.i.i19 = icmp eq i64 %.sroa.021.0.copyload.i.i, %183
+  %192 = select i1 %.not.i.i19, ptr @.str.52, ptr @.str.41
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.87, i64 noundef %183, ptr noundef nonnull %192)
+  br label %193
 
-194:                                              ; preds = %192, %190
-  %195 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not27.i.i = icmp eq ptr %195, null
-  br i1 %.not27.i.i, label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i, label %196
+193:                                              ; preds = %191, %189
+  %194 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not27.i.i = icmp eq ptr %194, null
+  br i1 %.not27.i.i, label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i, label %195
 
-196:                                              ; preds = %194
+195:                                              ; preds = %193
   %.sroa.019.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
-  %197 = icmp ult i64 %184, %.sroa.019.0.copyload.i.i
-  %.str.97..str.93.i.i = select i1 %197, ptr @.str.97, ptr @.str.93
-  %198 = sub nuw i64 %.sroa.019.0.copyload.i.i, %184
-  %199 = sub nuw i64 %184, %.sroa.019.0.copyload.i.i
-  %200 = select i1 %197, i64 %198, i64 %199
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.87, ptr noundef nonnull %.str.97..str.93.i.i, i64 noundef %200)
+  %196 = icmp ult i64 %183, %.sroa.019.0.copyload.i.i
+  %.str.97..str.93.i.i = select i1 %196, ptr @.str.97, ptr @.str.93
+  %197 = sub nuw i64 %.sroa.019.0.copyload.i.i, %183
+  %198 = sub nuw i64 %183, %.sroa.019.0.copyload.i.i
+  %199 = select i1 %196, i64 %197, i64 %198
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.87, ptr noundef nonnull %.str.97..str.93.i.i, i64 noundef %199)
   br label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i
 
-_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i: ; preds = %196, %194
-  %201 = load i64, ptr %45, align 8
-  %202 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not25.i22.i = icmp eq ptr %202, null
-  br i1 %.not25.i22.i, label %207, label %203
+_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i: ; preds = %195, %193
+  %200 = load i64, ptr %45, align 8
+  %201 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not25.i22.i = icmp eq ptr %201, null
+  br i1 %.not25.i22.i, label %206, label %202
 
-203:                                              ; preds = %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i
+202:                                              ; preds = %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i
   %.sroa.023.0.copyload.i23.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
-  %204 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
-  %205 = trunc i8 %204 to i1
-  %206 = select i1 %205, ptr @.str.41, ptr @.str.52
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, i64 noundef %.sroa.023.0.copyload.i23.i, ptr noundef nonnull %206)
-  br label %207
+  %203 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %204 = trunc i8 %203 to i1
+  %205 = select i1 %204, ptr @.str.41, ptr @.str.52
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, i64 noundef %.sroa.023.0.copyload.i23.i, ptr noundef nonnull %205)
+  br label %206
 
-207:                                              ; preds = %203, %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i
-  %208 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not26.i24.i = icmp eq ptr %208, null
-  br i1 %.not26.i24.i, label %211, label %209
+206:                                              ; preds = %202, %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i
+  %207 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not26.i24.i = icmp eq ptr %207, null
+  br i1 %.not26.i24.i, label %210, label %208
 
-209:                                              ; preds = %207
+208:                                              ; preds = %206
   %.sroa.021.0.copyload.i25.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
-  %.not.i26.i = icmp eq i64 %.sroa.021.0.copyload.i25.i, %201
-  %210 = select i1 %.not.i26.i, ptr @.str.52, ptr @.str.41
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.88, i64 noundef %201, ptr noundef nonnull %210)
-  br label %211
+  %.not.i26.i = icmp eq i64 %.sroa.021.0.copyload.i25.i, %200
+  %209 = select i1 %.not.i26.i, ptr @.str.52, ptr @.str.41
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.88, i64 noundef %200, ptr noundef nonnull %209)
+  br label %210
 
-211:                                              ; preds = %209, %207
-  %212 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not27.i27.i = icmp eq ptr %212, null
-  br i1 %.not27.i27.i, label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i, label %213
+210:                                              ; preds = %208, %206
+  %211 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not27.i27.i = icmp eq ptr %211, null
+  br i1 %.not27.i27.i, label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i, label %212
 
-213:                                              ; preds = %211
+212:                                              ; preds = %210
   %.sroa.019.0.copyload.i28.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
-  %214 = icmp ult i64 %201, %.sroa.019.0.copyload.i28.i
-  %.str.97..str.93.i29.i = select i1 %214, ptr @.str.97, ptr @.str.93
-  %215 = sub nuw i64 %.sroa.019.0.copyload.i28.i, %201
-  %216 = sub nuw i64 %201, %.sroa.019.0.copyload.i28.i
-  %217 = select i1 %214, i64 %215, i64 %216
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.88, ptr noundef nonnull %.str.97..str.93.i29.i, i64 noundef %217)
+  %213 = icmp ult i64 %200, %.sroa.019.0.copyload.i28.i
+  %.str.97..str.93.i29.i = select i1 %213, ptr @.str.97, ptr @.str.93
+  %214 = sub nuw i64 %.sroa.019.0.copyload.i28.i, %200
+  %215 = sub nuw i64 %200, %.sroa.019.0.copyload.i28.i
+  %216 = select i1 %213, i64 %214, i64 %215
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.88, ptr noundef nonnull %.str.97..str.93.i29.i, i64 noundef %216)
   br label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i
 
-_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i: ; preds = %213, %211
-  %218 = load i64, ptr %49, align 8
-  %219 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not25.i31.i = icmp eq ptr %219, null
-  br i1 %.not25.i31.i, label %224, label %220
+_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i: ; preds = %212, %210
+  %217 = load i64, ptr %49, align 8
+  %218 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not25.i31.i = icmp eq ptr %218, null
+  br i1 %.not25.i31.i, label %223, label %219
 
-220:                                              ; preds = %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i
+219:                                              ; preds = %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i
   %.sroa.023.0.copyload.i32.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
-  %221 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
-  %222 = trunc i8 %221 to i1
-  %223 = select i1 %222, ptr @.str.41, ptr @.str.52
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.89, i64 noundef %.sroa.023.0.copyload.i32.i, ptr noundef nonnull %223)
-  br label %224
+  %220 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
+  %221 = trunc i8 %220 to i1
+  %222 = select i1 %221, ptr @.str.41, ptr @.str.52
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.89, i64 noundef %.sroa.023.0.copyload.i32.i, ptr noundef nonnull %222)
+  br label %223
 
-224:                                              ; preds = %220, %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i
-  %225 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not26.i33.i = icmp eq ptr %225, null
-  br i1 %.not26.i33.i, label %228, label %226
+223:                                              ; preds = %219, %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i
+  %224 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not26.i33.i = icmp eq ptr %224, null
+  br i1 %.not26.i33.i, label %227, label %225
 
-226:                                              ; preds = %224
+225:                                              ; preds = %223
   %.sroa.021.0.copyload.i34.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
-  %.not.i35.i = icmp eq i64 %.sroa.021.0.copyload.i34.i, %218
-  %227 = select i1 %.not.i35.i, ptr @.str.52, ptr @.str.41
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.89, i64 noundef %218, ptr noundef nonnull %227)
-  br label %228
+  %.not.i35.i = icmp eq i64 %.sroa.021.0.copyload.i34.i, %217
+  %226 = select i1 %.not.i35.i, ptr @.str.52, ptr @.str.41
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.89, i64 noundef %217, ptr noundef nonnull %226)
+  br label %227
 
-228:                                              ; preds = %226, %224
-  %229 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not27.i36.i = icmp eq ptr %229, null
-  br i1 %.not27.i36.i, label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i, label %230
+227:                                              ; preds = %225, %223
+  %228 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not27.i36.i = icmp eq ptr %228, null
+  br i1 %.not27.i36.i, label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i, label %229
 
-230:                                              ; preds = %228
+229:                                              ; preds = %227
   %.sroa.019.0.copyload.i37.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
-  %231 = icmp ult i64 %218, %.sroa.019.0.copyload.i37.i
-  %.str.97..str.93.i38.i = select i1 %231, ptr @.str.97, ptr @.str.93
-  %232 = sub nuw i64 %.sroa.019.0.copyload.i37.i, %218
-  %233 = sub nuw i64 %218, %.sroa.019.0.copyload.i37.i
-  %234 = select i1 %231, i64 %232, i64 %233
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.89, ptr noundef nonnull %.str.97..str.93.i38.i, i64 noundef %234)
+  %230 = icmp ult i64 %217, %.sroa.019.0.copyload.i37.i
+  %.str.97..str.93.i38.i = select i1 %230, ptr @.str.97, ptr @.str.93
+  %231 = sub nuw i64 %.sroa.019.0.copyload.i37.i, %217
+  %232 = sub nuw i64 %217, %.sroa.019.0.copyload.i37.i
+  %233 = select i1 %230, i64 %231, i64 %232
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.89, ptr noundef nonnull %.str.97..str.93.i38.i, i64 noundef %233)
   br label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i
 
-_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i: ; preds = %230, %228
-  %235 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not81.i = icmp eq ptr %235, null
-  br i1 %.not81.i, label %241, label %236
+_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i: ; preds = %229, %227
+  %234 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not81.i = icmp eq ptr %234, null
+  br i1 %.not81.i, label %240, label %235
 
-236:                                              ; preds = %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i
-  %237 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
-  %238 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
-  %239 = trunc i8 %238 to i1
-  %240 = select i1 %239, ptr @.str.41, ptr @.str.52
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.90, i64 noundef %237, ptr noundef nonnull %240)
-  br label %241
+235:                                              ; preds = %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i
+  %236 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %237 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
+  %238 = trunc i8 %237 to i1
+  %239 = select i1 %238, ptr @.str.41, ptr @.str.52
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.90, i64 noundef %236, ptr noundef nonnull %239)
+  br label %240
 
-241:                                              ; preds = %236, %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i
-  %242 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not82.i = icmp eq ptr %242, null
-  br i1 %.not82.i, label %247, label %243
+240:                                              ; preds = %235, %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i
+  %241 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not82.i = icmp eq ptr %241, null
+  br i1 %.not82.i, label %246, label %242
 
-243:                                              ; preds = %241
-  %244 = load i64, ptr %47, align 8
-  %245 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
-  %.not.i20 = icmp eq i64 %245, %244
-  %246 = select i1 %.not.i20, ptr @.str.52, ptr @.str.41
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.91, i64 noundef %244, ptr noundef nonnull %246)
-  br label %247
+242:                                              ; preds = %240
+  %243 = load i64, ptr %47, align 8
+  %244 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %.not.i20 = icmp eq i64 %244, %243
+  %245 = select i1 %.not.i20, ptr @.str.52, ptr @.str.41
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.91, i64 noundef %243, ptr noundef nonnull %245)
+  br label %246
 
-247:                                              ; preds = %243, %241
-  %248 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not83.i = icmp eq ptr %248, null
-  br i1 %.not83.i, label %255, label %249
+246:                                              ; preds = %242, %240
+  %247 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not83.i = icmp eq ptr %247, null
+  br i1 %.not83.i, label %254, label %248
 
-249:                                              ; preds = %247
-  %250 = load i64, ptr %47, align 8
-  %251 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
-  %252 = icmp slt i64 %250, %251
-  %253 = select i1 %252, ptr @.str.64, ptr @.str.93
-  %254 = sub nsw i64 %250, %251
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.92, ptr noundef nonnull %253, i64 noundef %254)
-  br label %255
+248:                                              ; preds = %246
+  %249 = load i64, ptr %47, align 8
+  %250 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %251 = icmp slt i64 %249, %250
+  %252 = select i1 %251, ptr @.str.64, ptr @.str.93
+  %253 = sub nsw i64 %249, %250
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.92, ptr noundef nonnull %252, i64 noundef %253)
+  br label %254
 
-255:                                              ; preds = %249, %247
-  %256 = load i64, ptr %1, align 8
+254:                                              ; preds = %248, %246
+  %255 = load i64, ptr %1, align 8
   %.sroa.010.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
   %.sroa.18.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
   %.not.i40.i = icmp eq i64 %.sroa.010.0.copyload.i.i, %.sroa.18.0.copyload.i.i
-  br i1 %.not.i40.i, label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i, label %257
+  br i1 %.not.i40.i, label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i, label %256
 
-257:                                              ; preds = %255
+256:                                              ; preds = %254
   %.sroa.1.0.copyload.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 72), align 8
   switch i8 %.sroa.1.0.copyload.i.i, label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i [
-    i8 107, label %258
-    i8 75, label %258
-    i8 109, label %260
-    i8 77, label %260
-    i8 103, label %262
-    i8 71, label %262
+    i8 107, label %257
+    i8 75, label %257
+    i8 109, label %259
+    i8 77, label %259
+    i8 103, label %261
+    i8 71, label %261
   ]
 
-258:                                              ; preds = %257, %257
-  %259 = lshr i64 %256, 10
+257:                                              ; preds = %256, %256
+  %258 = lshr i64 %255, 10
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
 
-260:                                              ; preds = %257, %257
-  %261 = lshr i64 %256, 20
+259:                                              ; preds = %256, %256
+  %260 = lshr i64 %255, 20
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
 
-262:                                              ; preds = %257, %257
-  %263 = lshr i64 %256, 30
+261:                                              ; preds = %256, %256
+  %262 = lshr i64 %255, 30
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
 
-_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i: ; preds = %262, %260, %258, %257, %255
-  %.0.i.i = phi i64 [ %263, %262 ], [ %261, %260 ], [ %259, %258 ], [ %256, %257 ], [ %256, %255 ]
-  %264 = load i64, ptr %45, align 8
+_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i: ; preds = %261, %259, %257, %256, %254
+  %.0.i.i = phi i64 [ %262, %261 ], [ %260, %259 ], [ %258, %257 ], [ %255, %256 ], [ %255, %254 ]
+  %263 = load i64, ptr %45, align 8
   %.sroa.010.0.copyload.i41.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
   %.sroa.18.0.copyload.i42.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
   %.not.i43.i = icmp eq i64 %.sroa.010.0.copyload.i41.i, %.sroa.18.0.copyload.i42.i
-  br i1 %.not.i43.i, label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i, label %265
+  br i1 %.not.i43.i, label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i, label %264
 
-265:                                              ; preds = %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
+264:                                              ; preds = %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
   %.sroa.1.0.copyload.i44.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 72), align 8
   switch i8 %.sroa.1.0.copyload.i44.i, label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i [
-    i8 107, label %266
-    i8 75, label %266
-    i8 109, label %268
-    i8 77, label %268
-    i8 103, label %270
-    i8 71, label %270
+    i8 107, label %265
+    i8 75, label %265
+    i8 109, label %267
+    i8 77, label %267
+    i8 103, label %269
+    i8 71, label %269
   ]
 
-266:                                              ; preds = %265, %265
-  %267 = lshr i64 %264, 10
+265:                                              ; preds = %264, %264
+  %266 = lshr i64 %263, 10
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i
 
-268:                                              ; preds = %265, %265
-  %269 = lshr i64 %264, 20
+267:                                              ; preds = %264, %264
+  %268 = lshr i64 %263, 20
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i
 
-270:                                              ; preds = %265, %265
-  %271 = lshr i64 %264, 30
+269:                                              ; preds = %264, %264
+  %270 = lshr i64 %263, 30
   br label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i
 
-_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i: ; preds = %270, %268, %266, %265, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
-  %.0.i45.i = phi i64 [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %264, %265 ], [ %264, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i ]
-  %272 = load i64, ptr %49, align 8
+_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i: ; preds = %269, %267, %265, %264, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
+  %.0.i45.i = phi i64 [ %270, %269 ], [ %268, %267 ], [ %266, %265 ], [ %263, %264 ], [ %263, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i ]
+  %271 = load i64, ptr %49, align 8
   %.sroa.010.0.copyload.i47.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
   %.sroa.18.0.copyload.i48.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 64), align 8
   %.not.i49.i = icmp eq i64 %.sroa.010.0.copyload.i47.i, %.sroa.18.0.copyload.i48.i
-  br i1 %.not.i49.i, label %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit, label %273
+  br i1 %.not.i49.i, label %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit, label %272
 
-273:                                              ; preds = %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i
+272:                                              ; preds = %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i
   %.sroa.1.0.copyload.i50.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 72), align 8
   switch i8 %.sroa.1.0.copyload.i50.i, label %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit [
-    i8 107, label %274
-    i8 75, label %274
-    i8 109, label %276
-    i8 77, label %276
-    i8 103, label %278
-    i8 71, label %278
+    i8 107, label %273
+    i8 75, label %273
+    i8 109, label %275
+    i8 77, label %275
+    i8 103, label %277
+    i8 71, label %277
   ]
 
-274:                                              ; preds = %273, %273
-  %275 = lshr i64 %272, 10
+273:                                              ; preds = %272, %272
+  %274 = lshr i64 %271, 10
   br label %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit
 
-276:                                              ; preds = %273, %273
-  %277 = lshr i64 %272, 20
+275:                                              ; preds = %272, %272
+  %276 = lshr i64 %271, 20
   br label %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit
 
-278:                                              ; preds = %273, %273
-  %279 = lshr i64 %272, 30
+277:                                              ; preds = %272, %272
+  %278 = lshr i64 %271, 30
   br label %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit
 
-_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit: ; preds = %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i, %273, %274, %276, %278
-  %.0.i51.i = phi i64 [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %272, %273 ], [ %272, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i ]
-  store i64 %256, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
+_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit: ; preds = %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i, %272, %273, %275, %277
+  %.0.i51.i = phi i64 [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %271, %272 ], [ %271, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i ]
+  store i64 %255, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
   store i64 %.0.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
-  store i64 %264, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
+  store i64 %263, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
   store i64 %.0.i45.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
-  %280 = load i64, ptr %47, align 8
-  store i64 %280, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %279 = load i64, ptr %47, align 8
+  store i64 %279, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
-  store i64 %272, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
+  store i64 %271, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
   store i64 %.0.i51.i, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 64), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   br label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
-_ZL26ensure_valid_minimum_sizesv.exit.thread:     ; preds = %97, %95, %104, %68, %64, %39, %33, %25, %23, %28, %10, %4, %181, %171, %173, %178, %180, %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit
-  %.0 = phi i1 [ true, %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit ], [ false, %180 ], [ false, %178 ], [ false, %173 ], [ false, %171 ], [ false, %181 ], [ false, %4 ], [ false, %10 ], [ false, %28 ], [ false, %23 ], [ false, %25 ], [ false, %33 ], [ false, %39 ], [ false, %64 ], [ false, %68 ], [ false, %104 ], [ false, %95 ], [ false, %97 ]
+_ZL26ensure_valid_minimum_sizesv.exit.thread:     ; preds = %97, %95, %103, %68, %64, %39, %33, %25, %23, %28, %10, %4, %180, %170, %172, %177, %179, %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit
+  %.0 = phi i1 [ true, %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit ], [ false, %179 ], [ false, %177 ], [ false, %172 ], [ false, %170 ], [ false, %180 ], [ false, %4 ], [ false, %10 ], [ false, %28 ], [ false, %23 ], [ false, %25 ], [ false, %33 ], [ false, %39 ], [ false, %64 ], [ false, %68 ], [ false, %103 ], [ false, %95 ], [ false, %97 ]
   ret i1 %.0
 }
 

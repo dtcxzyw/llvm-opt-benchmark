@@ -1268,8 +1268,8 @@ _ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit: ; preds = %_ZN
   %107 = getelementptr inbounds i8, ptr %97, i64 -352
   call void @_ZN21tree_sitter_highlight11Highlighter9highlight17h070055a7420d5b15E(ptr noalias noundef nonnull sret({ i64, [18 x i64] }) align 8 captures(none) dereferenceable(152) %14, ptr noalias noundef nonnull align 8 dereferenceable(32) %106, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %107, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef range(i64 0, 4294967296) %46, ptr noundef align 8 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %47)
   %108 = load i64, ptr %14, align 8, !range !297, !noalias !296, !noundef !4
-  %.not16.i = icmp eq i64 %108, 2
-  br i1 %.not16.i, label %120, label %109
+  %.not17.i = icmp eq i64 %108, 2
+  br i1 %.not17.i, label %120, label %109
 
 109:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %13), !noalias !296
@@ -1315,12 +1315,12 @@ common.resume.i:                                  ; preds = %116
   unreachable
 
 120:                                              ; preds = %switch.lookup, %105
-  %.127.i = phi i32 [ %switch.load, %switch.lookup ], [ 2, %105 ]
+  %.125.i = phi i32 [ %switch.load, %switch.lookup ], [ 2, %105 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %14), !noalias !296
   br label %_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight17h63455ff77e84d646E.exit
 
 _ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight17h63455ff77e84d646E.exit: ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6713a1b158a55348E.exit._crit_edge.i.i.i.i", %_ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit, %120
-  %.0.i = phi i32 [ %.127.i, %120 ], [ 1, %_ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6713a1b158a55348E.exit._crit_edge.i.i.i.i" ]
+  %.0.i = phi i32 [ %.125.i, %120 ], [ 1, %_ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6713a1b158a55348E.exit._crit_edge.i.i.i.i" ]
   ret i32 %.0.i
 }
 

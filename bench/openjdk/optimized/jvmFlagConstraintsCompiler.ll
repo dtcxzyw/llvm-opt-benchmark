@@ -582,41 +582,42 @@ define linkonce_odr hidden void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr nound
   call void @_ZN20ControlIntrinsicIterC1EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef %1, i1 noundef zeroext %2) #6
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
-  %.not4 = icmp eq ptr %7, null
-  br i1 %.not4, label %.critedge, label %.lr.ph
+  %.not5 = icmp ne ptr %7, null
+  %8 = load i8, ptr %0, align 8
+  %9 = trunc i8 %8 to i1
+  %or.cond6 = select i1 %.not5, i1 %9, i1 false
+  br i1 %or.cond6, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %3, %22
-  %8 = phi ptr [ %24, %22 ], [ %7, %3 ]
-  %9 = load i8, ptr %0, align 8
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %.critedge
-
-.critedge:                                        ; preds = %.lr.ph, %22, %3
+.critedge:                                        ; preds = %21, %3
   call void @_ZN20ControlIntrinsicIterD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #6
   ret void
 
-11:                                               ; preds = %.lr.ph
-  %12 = call noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef nonnull %8) #6
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %22
+.lr.ph:                                           ; preds = %3, %21
+  %10 = phi ptr [ %23, %21 ], [ %7, %3 ]
+  %11 = call noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef nonnull %10) #6
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %21
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %6, align 8
-  %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #7
-  %17 = call noundef i64 @llvm.umin.i64(i64 %16, i64 63)
-  %18 = add nuw nsw i64 %17, 1
-  %19 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %18, i8 noundef zeroext 7, i32 noundef 0) #6
-  store ptr %19, ptr %5, align 8
-  %20 = load ptr, ptr %6, align 8
-  %21 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %20, i64 noundef %18) #6
+13:                                               ; preds = %.lr.ph
+  %14 = load ptr, ptr %6, align 8
+  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #7
+  %16 = call noundef i64 @llvm.umin.i64(i64 %15, i64 63)
+  %17 = add nuw nsw i64 %16, 1
+  %18 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %17, i8 noundef zeroext 7, i32 noundef 0) #6
+  store ptr %18, ptr %5, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %19, i64 noundef %17) #6
   store i8 0, ptr %0, align 8
-  br label %22
+  br label %21
 
-22:                                               ; preds = %11, %14
-  %23 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIterppEv(ptr noundef nonnull align 8 dereferenceable(33) %4) #6
-  %24 = load ptr, ptr %6, align 8
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
+21:                                               ; preds = %.lr.ph, %13
+  %22 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIterppEv(ptr noundef nonnull align 8 dereferenceable(33) %4) #6
+  %23 = load ptr, ptr %6, align 8
+  %.not = icmp ne ptr %23, null
+  %24 = load i8, ptr %0, align 8
+  %25 = trunc i8 %24 to i1
+  %or.cond = select i1 %.not, i1 %25, i1 false
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

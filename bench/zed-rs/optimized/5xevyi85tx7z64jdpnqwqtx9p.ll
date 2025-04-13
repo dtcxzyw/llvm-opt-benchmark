@@ -15187,20 +15187,20 @@ define hidden { ptr, ptr } @_ZN9workspace4pane4Pane9open_item17h5c16deee928bf108
 .loopexit:                                        ; preds = %32, %39, %44, %48, %61, %64
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %.thread107
+  br label %.thread105
 
 .loopexit.split-lp:                               ; preds = %"_ZN4core3ptr92drop_in_place$LT$smallvec..SmallVec$LT$$u5b$worktree..ProjectEntryId$u3b$$u20$3$u5d$$GT$$GT$17h7bcb6e11cf85897eE.exit56", %136, %68, %74
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread107
+  br label %.thread105
 
 32:                                               ; preds = %.lr.ph, %46
-  %.sroa.7.0143 = phi i64 [ 0, %.lr.ph ], [ %34, %46 ]
-  %.sroa.075.0142 = phi ptr [ %17, %.lr.ph ], [ %33, %46 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.075.0142, i64 16
-  %34 = add nuw nsw i64 %.sroa.7.0143, 1
-  %35 = load ptr, ptr %.sroa.075.0142, align 8, !nonnull !4, !align !812, !noundef !4
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.075.0142, i64 8
+  %.sroa.7.0140 = phi i64 [ 0, %.lr.ph ], [ %34, %46 ]
+  %.sroa.075.0139 = phi ptr [ %17, %.lr.ph ], [ %33, %46 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.075.0139, i64 16
+  %34 = add nuw nsw i64 %.sroa.7.0140, 1
+  %35 = load ptr, ptr %.sroa.075.0139, align 8, !nonnull !4, !align !812, !noundef !4
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.075.0139, i64 8
   %37 = load ptr, ptr %36, align 8, !nonnull !4, !align !810, !noundef !4
   %38 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
           to label %39 unwind label %.loopexit
@@ -15322,7 +15322,7 @@ define hidden { ptr, ptr } @_ZN9workspace4pane4Pane9open_item17h5c16deee928bf108
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   br label %46
 
-81:                                               ; preds = %.thread107, %103, %172
+81:                                               ; preds = %.thread105, %103, %172
   %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #30
@@ -15343,16 +15343,16 @@ define hidden { ptr, ptr } @_ZN9workspace4pane4Pane9open_item17h5c16deee928bf108
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %90 = load i32, ptr %89, align 4, !noundef !4
   %91 = load i64, ptr %18, align 8, !noundef !4
-  %92 = icmp ult i64 %.sroa.7.0143, %91
+  %92 = icmp ult i64 %.sroa.7.0140, %91
   br i1 %92, label %94, label %93
 
 93:                                               ; preds = %88, %108, %105, %114, %83
-  invoke void @_ZN9workspace4pane4Pane13activate_item17h6c551fa8f1d0d317E(ptr noalias noundef nonnull align 8 dereferenceable(432) %0, i64 noundef %.sroa.7.0143, i1 noundef zeroext %3, i1 noundef zeroext %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+  invoke void @_ZN9workspace4pane4Pane13activate_item17h6c551fa8f1d0d317E(ptr noalias noundef nonnull align 8 dereferenceable(432) %0, i64 noundef %.sroa.7.0140, i1 noundef zeroext %3, i1 noundef zeroext %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %189 unwind label %103
 
 94:                                               ; preds = %88
   %95 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
-  %96 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %95, i64 %.sroa.7.0143
+  %96 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %95, i64 %.sroa.7.0140
   %97 = load ptr, ptr %96, align 8, !nonnull !4, !align !812, !noundef !4
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %99 = load ptr, ptr %98, align 8, !nonnull !4, !align !810, !noundef !4
@@ -15365,7 +15365,7 @@ define hidden { ptr, ptr } @_ZN9workspace4pane4Pane9open_item17h5c16deee928bf108
   %104 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$17h12ed4b654b4acdf8E"(ptr nonnull %29, ptr nonnull %30) #32
-          to label %.thread107 unwind label %81
+          to label %.thread105 unwind label %81
 
 105:                                              ; preds = %94
   %106 = extractvalue { i32, i32 } %102, 1
@@ -15439,8 +15439,8 @@ define hidden { ptr, ptr } @_ZN9workspace4pane4Pane9open_item17h5c16deee928bf108
   br label %141
 
 141:                                              ; preds = %177, %"_ZN90_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnOnce$LT$Args$GT$$GT$9call_once17h80126e82a9593606E.exit"
-  %.sroa.024.0 = phi i64 [ 0, %"_ZN90_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnOnce$LT$Args$GT$$GT$9call_once17h80126e82a9593606E.exit" ], [ %144, %177 ]
-  %.sroa.325.0 = phi i64 [ undef, %"_ZN90_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnOnce$LT$Args$GT$$GT$9call_once17h80126e82a9593606E.exit" ], [ %145, %177 ]
+  %.sroa.027.0 = phi i64 [ 0, %"_ZN90_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnOnce$LT$Args$GT$$GT$9call_once17h80126e82a9593606E.exit" ], [ %144, %177 ]
+  %.sroa.328.0 = phi i64 [ undef, %"_ZN90_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnOnce$LT$Args$GT$$GT$9call_once17h80126e82a9593606E.exit" ], [ %145, %177 ]
   %142 = invoke { ptr, ptr } @"_ZN9workspace4item109_$LT$impl$u20$core..clone..Clone$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$5clone17h7974e4f1910db8a4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13)
           to label %180 unwind label %172
 
@@ -15517,7 +15517,7 @@ define hidden { ptr, ptr } @_ZN9workspace4pane4Pane9open_item17h5c16deee928bf108
 180:                                              ; preds = %141
   %181 = extractvalue { ptr, ptr } %142, 0
   %182 = extractvalue { ptr, ptr } %142, 1
-  invoke void @_ZN9workspace4pane4Pane8add_item17ha873e2aee10335dbE(ptr noalias noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 1 %181, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %182, i1 noundef zeroext true, i1 noundef zeroext %3, i64 noundef %.sroa.024.0, i64 %.sroa.325.0, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+  invoke void @_ZN9workspace4pane4Pane8add_item17ha873e2aee10335dbE(ptr noalias noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 1 %181, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %182, i1 noundef zeroext true, i1 noundef zeroext %3, i64 noundef %.sroa.027.0, i64 %.sroa.328.0, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %183 unwind label %172
 
 183:                                              ; preds = %180
@@ -15572,12 +15572,12 @@ define hidden { ptr, ptr } @_ZN9workspace4pane4Pane9open_item17h5c16deee928bf108
   call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef range(i64 1, -9223372036854775808) %203, i64 noundef range(i64 1, -9223372036854775807) %205) #31
   br label %common.resume
 
-common.resume:                                    ; preds = %.thread107, %172, %127, %119, %157, %149, %200, %208
-  %common.resume.op = phi { ptr, i32 } [ %201, %208 ], [ %201, %200 ], [ %.pn33111, %.thread107 ], [ %150, %149 ], [ %150, %157 ], [ %120, %119 ], [ %120, %127 ], [ %173, %172 ]
+common.resume:                                    ; preds = %.thread105, %172, %127, %119, %157, %149, %200, %208
+  %common.resume.op = phi { ptr, i32 } [ %201, %208 ], [ %201, %200 ], [ %.pn36109, %.thread105 ], [ %150, %149 ], [ %150, %157 ], [ %120, %119 ], [ %120, %127 ], [ %173, %172 ]
   resume { ptr, i32 } %common.resume.op
 
-.thread107:                                       ; preds = %.loopexit, %.loopexit.split-lp, %103
-  %.pn33111 = phi { ptr, i32 } [ %104, %103 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.thread105:                                       ; preds = %.loopexit, %.loopexit.split-lp, %103
+  %.pn36109 = phi { ptr, i32 } [ %104, %103 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr252drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$mut$u20$gpui..window..ViewContext$LT$workspace..pane..Pane$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$$GT$17h7f1c9d72cd21edbfE"(ptr nonnull %6, ptr nonnull %7) #32
           to label %common.resume unwind label %81
 }

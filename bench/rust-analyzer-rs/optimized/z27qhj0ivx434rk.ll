@@ -697,8 +697,8 @@ default.unreachable173:                           ; preds = %2
   %26 = tail call { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4cf7bab6eeb63bf7E.llvm.7396764210926536793"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23)
   %27 = extractvalue { ptr, ptr } %26, 0
   %28 = extractvalue { ptr, ptr } %26, 1
-  %.not.not.i = icmp eq ptr %27, null
-  br i1 %.not.not.i, label %130, label %29
+  %.not.i = icmp eq ptr %27, null
+  br i1 %.not.i, label %130, label %29
 
 29:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17ha3040a8577006e7aE.llvm.7396764210926536793.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
@@ -7569,8 +7569,8 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h2ceb3defd0011277E"(p
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %4
-  %.not6 = icmp eq i64 %2, 36
-  br i1 %.not6, label %9, label %.thread
+  %.not11 = icmp eq i64 %2, 36
+  br i1 %.not11, label %9, label %.thread
 
 .thread:                                          ; preds = %8
   store ptr %1, ptr %0, align 8
@@ -7578,7 +7578,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h2ceb3defd0011277E"(p
   store i64 %2, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %.thread19
+  br label %.thread17
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7588,25 +7588,25 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h2ceb3defd0011277E"(p
   %13 = add i32 %12, -1
   store i32 %13, ptr %11, align 4, !noalias !2400
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %17, label %.thread19
+  br i1 %14, label %17, label %.thread17
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 36, ptr %16, align 8
-  %.not9 = icmp eq i64 %2, 36
-  br i1 %.not9, label %.thread19, label %18
+  %.not20 = icmp eq i64 %2, 36
+  br i1 %.not20, label %.thread17, label %18
 
 17:                                               ; preds = %9
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %1)
-  br label %.thread19
+  br label %.thread17
 
-.thread19:                                        ; preds = %17, %9, %.thread, %15, %18
+.thread17:                                        ; preds = %17, %9, %.thread, %18, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 
 18:                                               ; preds = %15
   call void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h9acda0f48ec8f535E.llvm.6948074339591148053"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-  br label %.thread19
+  br label %.thread17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7622,8 +7622,8 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17hf10601631405ce9bE"(p
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %4
-  %.not6 = icmp eq i64 %2, 16
-  br i1 %.not6, label %9, label %.thread
+  %.not11 = icmp eq i64 %2, 16
+  br i1 %.not11, label %9, label %.thread
 
 .thread:                                          ; preds = %8
   store ptr %1, ptr %0, align 8
@@ -7631,7 +7631,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17hf10601631405ce9bE"(p
   store i64 %2, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %.thread19
+  br label %.thread17
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7641,40 +7641,40 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17hf10601631405ce9bE"(p
   %13 = add i32 %12, -1
   store i32 %13, ptr %11, align 4, !noalias !2409
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %17, label %.thread19
+  br i1 %14, label %17, label %.thread17
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 16, ptr %16, align 8
-  %.not9 = icmp eq i64 %2, 16
-  br i1 %.not9, label %.thread19, label %18
+  %.not20 = icmp eq i64 %2, 16
+  br i1 %.not20, label %.thread17, label %18
 
 17:                                               ; preds = %9
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %1)
-  br label %.thread19
+  br label %.thread17
 
-.thread19:                                        ; preds = %17, %9, %.thread, %15, %18
+.thread17:                                        ; preds = %17, %9, %.thread, %18, %15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 
 18:                                               ; preds = %15
   call void @"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h22815c7dfbeee85dE.llvm.6948074339591148053"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-  br label %.thread19
+  br label %.thread17
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17hf8357079ad1e16b3E"(ptr noalias noundef writeonly sret({ [1 x i64], ptr }) align 8 captures(none) dereferenceable(16) initializes((8, 16)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1, ptr noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
   %.not = icmp eq i32 %.sroa.0.0.copyload, 0
-  %.not1 = icmp eq ptr %2, null
-  %or.cond = or i1 %.not1, %.not
+  %.not4 = icmp eq ptr %2, null
+  %or.cond = or i1 %.not4, %.not
   br i1 %or.cond, label %4, label %.thread
 
 .thread:                                          ; preds = %3
-  %.sroa.5.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx4, align 4
-  %.sroa.4.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx3, align 4
+  %.sroa.5.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx6, align 4
+  %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx5, align 4
   store i32 %.sroa.4.0.copyload, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.5.0.copyload, ptr %.sroa.4.0..sroa_idx, align 4
@@ -7685,7 +7685,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17hf8357079ad1e16b3E"(p
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
-  br i1 %.not1, label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h9504be4250b3ee31E.exit", label %6
+  br i1 %.not4, label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h9504be4250b3ee31E.exit", label %6
 
 "_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h9504be4250b3ee31E.exit": ; preds = %11, %6, %.thread, %4
   ret void

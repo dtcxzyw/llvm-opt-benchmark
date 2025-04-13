@@ -961,17 +961,17 @@ define dso_local void @gistMakeUnionKey(ptr noundef %0, i32 noundef %1, ptr noun
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #11
   store i32 2, ptr %9, align 8
-  %brmerge.demorgan = and i1 %3, %5
-  br i1 %brmerge.demorgan, label %11, label %12
+  %or.cond = and i1 %3, %5
+  br i1 %or.cond, label %11, label %12
 
 11:                                               ; preds = %8
   store i8 1, ptr %7, align 1
   br label %30
 
 12:                                               ; preds = %8
-  %brmerge27 = or i1 %3, %5
+  %brmerge = or i1 %3, %5
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br i1 %brmerge27, label %16, label %14
+  br i1 %brmerge, label %16, label %14
 
 14:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
@@ -1345,8 +1345,8 @@ gistDeCompressAtt.exit40:                         ; preds = %gistdentryinit.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
   store i32 2, ptr %8, align 8
   %122 = and i8 %119, %116
-  %brmerge.demorgan.i.not = icmp eq i8 %122, 0
-  br i1 %brmerge.demorgan.i.not, label %124, label %123
+  %or.cond.i.not = icmp eq i8 %122, 0
+  br i1 %or.cond.i.not, label %124, label %123
 
 123:                                              ; preds = %113
   store i8 1, ptr %121, align 1
@@ -1355,10 +1355,10 @@ gistDeCompressAtt.exit40:                         ; preds = %gistdentryinit.exit
 124:                                              ; preds = %113
   %125 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %11, i64 %indvars.iv
   %126 = or i8 %119, %116
-  %brmerge27.i.not = icmp eq i8 %126, 0
+  %brmerge.i.not = icmp eq i8 %126, 0
   %. = select i1 %117, ptr %125, ptr %114
-  %.sink54 = select i1 %brmerge27.i.not, ptr %114, ptr %.
-  %.sink = select i1 %brmerge27.i.not, ptr %125, ptr %.
+  %.sink54 = select i1 %brmerge.i.not, ptr %114, ptr %.
+  %.sink = select i1 %brmerge.i.not, ptr %125, ptr %.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull readonly align 16 dereferenceable(32) %.sink54, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull readonly align 16 dereferenceable(32) %.sink, i64 32, i1 false)
   store i8 0, ptr %121, align 1
@@ -1817,15 +1817,15 @@ gistdentryinit.exit:                              ; preds = %137, %141, %.sink.s
   %170 = ptrtoint ptr %167 to i64
   %171 = call i64 @FunctionCall3Coll(ptr noundef nonnull %162, i32 noundef %169, i64 noundef %70, i64 noundef %170, i64 noundef %72) #11
   %172 = load float, ptr %5, align 4
-  %or.cond.i = fcmp ult float %172, 0.000000e+00
-  br i1 %or.cond.i, label %173, label %gistpenalty.exit
+  %or.cond12.i = fcmp ult float %172, 0.000000e+00
+  br i1 %or.cond12.i, label %173, label %gistpenalty.exit
 
 173:                                              ; preds = %166
   br label %gistpenalty.exit
 
 174:                                              ; preds = %gistdentryinit.exit
-  %brmerge12.demorgan.i = and i1 %158, %161
-  %..i = select i1 %brmerge12.demorgan.i, float 0.000000e+00, float 0x7FF0000000000000
+  %or.cond.i = and i1 %158, %161
+  %..i = select i1 %or.cond.i, float 0.000000e+00, float 0x7FF0000000000000
   br label %gistpenalty.exit
 
 gistpenalty.exit:                                 ; preds = %166, %173, %174
@@ -1968,15 +1968,15 @@ define dso_local float @gistpenalty(ptr noundef %0, i32 noundef %1, ptr noundef 
   %20 = ptrtoint ptr %7 to i64
   %21 = call i64 @FunctionCall3Coll(ptr noundef nonnull %10, i32 noundef %17, i64 noundef %18, i64 noundef %19, i64 noundef %20) #11
   %22 = load float, ptr %7, align 4
-  %or.cond = fcmp ult float %22, 0.000000e+00
-  br i1 %or.cond, label %23, label %25
+  %or.cond12 = fcmp ult float %22, 0.000000e+00
+  br i1 %or.cond12, label %23, label %25
 
 23:                                               ; preds = %14
   br label %25
 
 24:                                               ; preds = %6
-  %brmerge12.demorgan = and i1 %3, %5
-  %. = select i1 %brmerge12.demorgan, float 0.000000e+00, float 0x7FF0000000000000
+  %or.cond = and i1 %3, %5
+  %. = select i1 %or.cond, float 0.000000e+00, float 0x7FF0000000000000
   br label %25
 
 25:                                               ; preds = %24, %14, %23

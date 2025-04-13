@@ -166,57 +166,62 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() local_unna
 define hidden void @_ZN9CDSConfig10initializeEv() local_unnamed_addr #2 align 2 {
   %1 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
   %2 = trunc i8 %1 to i1
-  br i1 %2, label %3, label %._crit_edge
+  br i1 %2, label %4, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %0
   %.pre2 = load i8, ptr @UseSharedSpaces, align 1
-  %.not = icmp eq i8 %.pre2, 0
-  br i1 %.not, label %8, label %7
+  %3 = icmp ne i8 %.pre2, 0
+  br label %9
 
-3:                                                ; preds = %0
-  %4 = load i8, ptr @RequireSharedSpaces, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %.thread
+4:                                                ; preds = %0
+  %5 = load i8, ptr @RequireSharedSpaces, align 1
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %8
 
-.thread:                                          ; preds = %3
-  store i8 0, ptr @UseSharedSpaces, align 1
-  br label %7
-
-6:                                                ; preds = %3
+7:                                                ; preds = %4
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str) #9
   %.pre.pre = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
-  %.pre6 = trunc i8 %.pre.pre to i1
-  store i8 0, ptr @UseSharedSpaces, align 1
-  br i1 %.pre6, label %7, label %8
-
-7:                                                ; preds = %.thread, %._crit_edge, %6
-  tail call void @_ZN9CDSConfig25init_shared_archive_pathsEv()
-  %.pre3 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
+  %.pre8 = trunc i8 %.pre.pre to i1
   br label %8
 
-8:                                                ; preds = %._crit_edge, %6, %7
-  %9 = phi i8 [ %.pre.pre, %6 ], [ %.pre3, %7 ], [ %1, %._crit_edge ]
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %_ZN9CDSConfig15is_dumping_heapEv.exit.thread
+8:                                                ; preds = %7, %4
+  %.pre5.pre-phi = phi i1 [ %.pre8, %7 ], [ true, %4 ]
+  store i8 0, ptr @UseSharedSpaces, align 1
+  br label %9
 
-11:                                               ; preds = %8
-  %12 = load i8, ptr @_ZN10HeapShared16_disable_writingE, align 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %_ZN9CDSConfig15is_dumping_heapEv.exit.thread, label %_ZN9CDSConfig15is_dumping_heapEv.exit
+9:                                                ; preds = %._crit_edge, %8
+  %.pre-phi = phi i1 [ false, %._crit_edge ], [ %.pre5.pre-phi, %8 ]
+  %10 = phi i1 [ %3, %._crit_edge ], [ false, %8 ]
+  %or.cond = select i1 %.pre-phi, i1 true, i1 %10
+  br i1 %or.cond, label %11, label %12
 
-_ZN9CDSConfig15is_dumping_heapEv.exit:            ; preds = %11
-  %14 = load i8, ptr @UseG1GC, align 1
-  %15 = trunc i8 %14 to i1
-  %16 = load i8, ptr @UseCompressedClassPointers, align 1
-  %17 = trunc i8 %16 to i1
-  %18 = select i1 %15, i1 %17, i1 false
-  br i1 %18, label %19, label %_ZN9CDSConfig15is_dumping_heapEv.exit.thread
+11:                                               ; preds = %9
+  tail call void @_ZN9CDSConfig25init_shared_archive_pathsEv()
+  %.pre3 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
+  %.pre6 = trunc i8 %.pre3 to i1
+  br label %12
 
-_ZN9CDSConfig15is_dumping_heapEv.exit.thread:     ; preds = %11, %8, %_ZN9CDSConfig15is_dumping_heapEv.exit
+12:                                               ; preds = %9, %11
+  %.pre-phi7 = phi i1 [ %.pre-phi, %9 ], [ %.pre6, %11 ]
+  %.not.i = xor i1 %.pre-phi7, true
+  %13 = load i8, ptr @_ZN10HeapShared16_disable_writingE, align 1
+  %14 = trunc i8 %13 to i1
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %14
+  br i1 %or.cond.i, label %_ZN9CDSConfig15is_dumping_heapEv.exit.thread, label %_ZN9CDSConfig15is_dumping_heapEv.exit
+
+_ZN9CDSConfig15is_dumping_heapEv.exit:            ; preds = %12
+  %15 = load i8, ptr @UseG1GC, align 1
+  %16 = trunc i8 %15 to i1
+  %17 = load i8, ptr @UseCompressedClassPointers, align 1
+  %18 = trunc i8 %17 to i1
+  %19 = select i1 %16, i1 %18, i1 false
+  br i1 %19, label %20, label %_ZN9CDSConfig15is_dumping_heapEv.exit.thread
+
+_ZN9CDSConfig15is_dumping_heapEv.exit.thread:     ; preds = %12, %_ZN9CDSConfig15is_dumping_heapEv.exit
   store i8 0, ptr @_ZN9CDSConfig29_is_dumping_full_module_graphE, align 1
-  br label %19
+  br label %20
 
-19:                                               ; preds = %_ZN9CDSConfig15is_dumping_heapEv.exit.thread, %_ZN9CDSConfig15is_dumping_heapEv.exit
+20:                                               ; preds = %_ZN9CDSConfig15is_dumping_heapEv.exit.thread, %_ZN9CDSConfig15is_dumping_heapEv.exit
   ret void
 }
 
@@ -495,24 +500,23 @@ thread-pre-split:                                 ; preds = %80, %68, %75, %86, 
 define hidden noundef zeroext i1 @_ZN9CDSConfig15is_dumping_heapEv() local_unnamed_addr #1 align 2 {
   %1 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
   %2 = trunc i8 %1 to i1
-  br i1 %2, label %3, label %_ZN10HeapShared9can_writeEv.exit
+  %.not = xor i1 %2, true
+  %3 = load i8, ptr @_ZN10HeapShared16_disable_writingE, align 1
+  %4 = trunc i8 %3 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %4
+  br i1 %or.cond, label %_ZN10HeapShared9can_writeEv.exit, label %5
 
-3:                                                ; preds = %0
-  %4 = load i8, ptr @_ZN10HeapShared16_disable_writingE, align 1
-  %5 = trunc i8 %4 to i1
-  br i1 %5, label %_ZN10HeapShared9can_writeEv.exit, label %6
-
-6:                                                ; preds = %3
-  %7 = load i8, ptr @UseG1GC, align 1
-  %8 = trunc i8 %7 to i1
-  %9 = load i8, ptr @UseCompressedClassPointers, align 1
-  %10 = trunc i8 %9 to i1
-  %11 = select i1 %8, i1 %10, i1 false
+5:                                                ; preds = %0
+  %6 = load i8, ptr @UseG1GC, align 1
+  %7 = trunc i8 %6 to i1
+  %8 = load i8, ptr @UseCompressedClassPointers, align 1
+  %9 = trunc i8 %8 to i1
+  %10 = select i1 %7, i1 %9, i1 false
   br label %_ZN10HeapShared9can_writeEv.exit
 
-_ZN10HeapShared9can_writeEv.exit:                 ; preds = %6, %3, %0
-  %12 = phi i1 [ false, %0 ], [ %11, %6 ], [ false, %3 ]
-  ret i1 %12
+_ZN10HeapShared9can_writeEv.exit:                 ; preds = %5, %0
+  %11 = phi i1 [ false, %0 ], [ %10, %5 ]
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -926,8 +930,8 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1
 
 9:                                                ; preds = %6
   %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not6 = icmp eq ptr %10, null
-  br i1 %.not6, label %.sink.split, label %11
+  %.not11 = icmp eq ptr %10, null
+  br i1 %.not11, label %.sink.split, label %11
 
 11:                                               ; preds = %9
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.25)
@@ -944,77 +948,71 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1
 
 13:                                               ; preds = %12, %2
   %14 = load ptr, ptr @ArchiveClassesAtExit, align 8
-  %.not = icmp eq ptr %14, null
-  %15 = load i8, ptr @RecordDynamicDumpInfo, align 1
-  %16 = trunc i8 %15 to i1
-  br i1 %.not, label %25, label %17
+  %15 = icmp ne ptr %14, null
+  %16 = load i8, ptr @RecordDynamicDumpInfo, align 1
+  %17 = trunc i8 %16 to i1
+  %or.cond = select i1 %15, i1 %17, i1 false
+  br i1 %or.cond, label %18, label %25
 
-17:                                               ; preds = %13
-  br i1 %16, label %18, label %26
-
-18:                                               ; preds = %17
+18:                                               ; preds = %13
   %19 = load i8, ptr @DisplayVMOutputToStderr, align 1
   %20 = trunc i8 %19 to i1
   %21 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %22 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
   %23 = select i1 %20, ptr %21, ptr %22
   %24 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %23, ptr noundef nonnull @.str.26) #9
-  br label %77
+  br label %76
 
 25:                                               ; preds = %13
-  br i1 %16, label %26, label %27
+  %26 = and i8 %16, 1
+  %. = select i1 %15, i8 1, i8 %26
+  store i8 %., ptr @_ZN9CDSConfig27_is_dumping_dynamic_archiveE, align 1
+  %27 = load i8, ptr @AutoCreateSharedArchive, align 1
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %39
 
-26:                                               ; preds = %17, %25
-  br label %27
+29:                                               ; preds = %25
+  %30 = load ptr, ptr @SharedArchiveFile, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %35
 
-27:                                               ; preds = %25, %26
-  %storemerge = phi i8 [ 1, %26 ], [ 0, %25 ]
-  store i8 %storemerge, ptr @_ZN9CDSConfig27_is_dumping_dynamic_archiveE, align 1
-  %28 = load i8, ptr @AutoCreateSharedArchive, align 1
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %40
+32:                                               ; preds = %29
+  %33 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not15 = icmp eq ptr %33, null
+  br i1 %.not15, label %76, label %34
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr @SharedArchiveFile, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %36
-
-33:                                               ; preds = %30
-  %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not11 = icmp eq ptr %34, null
-  br i1 %.not11, label %77, label %35
-
-35:                                               ; preds = %33
+34:                                               ; preds = %32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.27)
-  br label %77
+  br label %76
 
-36:                                               ; preds = %30
-  br i1 %.not, label %40, label %37
+35:                                               ; preds = %29
+  %.not9 = icmp eq ptr %14, null
+  br i1 %.not9, label %39, label %36
 
-37:                                               ; preds = %36
-  %38 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not7 = icmp eq ptr %38, null
-  br i1 %.not7, label %77, label %39
+36:                                               ; preds = %35
+  %37 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %.not12 = icmp eq ptr %37, null
+  br i1 %.not12, label %76, label %38
 
-39:                                               ; preds = %37
+38:                                               ; preds = %36
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.28)
-  br label %77
+  br label %76
 
-40:                                               ; preds = %36, %27
-  %41 = load i8, ptr @UseSharedSpaces, align 1
-  %.not8 = icmp ne i8 %41, 0
-  %brmerge.not = and i1 %0, %.not8
-  br i1 %brmerge.not, label %42, label %43
+39:                                               ; preds = %35, %25
+  %40 = load i8, ptr @UseSharedSpaces, align 1
+  %41 = icmp ne i8 %40, 0
+  %or.cond5 = and i1 %0, %41
+  br i1 %or.cond5, label %42, label %43
 
-42:                                               ; preds = %40
+42:                                               ; preds = %39
   tail call void @_ZN9Arguments16no_shared_spacesEPKc(ptr noundef nonnull @.str.29) #9
   %.pr = load i8, ptr @UseSharedSpaces, align 1
   br label %43
 
-43:                                               ; preds = %40, %42
-  %44 = phi i8 [ %41, %40 ], [ %.pr, %42 ]
-  %.not9 = icmp eq i8 %44, 0
-  br i1 %.not9, label %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit, label %45
+43:                                               ; preds = %42, %39
+  %44 = phi i8 [ %.pr, %42 ], [ %40, %39 ]
+  %.not13 = icmp eq i8 %44, 0
+  br i1 %.not13, label %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit, label %45
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr @ArchiveClassesAtExit, align 8
@@ -1079,25 +1077,24 @@ _ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit: ; preds = %55, %45
   %68 = load i8, ptr @_ZN9CDSConfig27_is_dumping_dynamic_archiveE, align 1
   %69 = trunc i8 %68 to i1
   %70 = select i1 %67, i1 true, i1 %69
-  br i1 %70, label %71, label %77
+  %.not = xor i1 %70, true
+  %71 = load i8, ptr @BytecodeVerificationRemote, align 1
+  %72 = trunc i8 %71 to i1
+  %or.cond7 = select i1 %.not, i1 true, i1 %72
+  br i1 %or.cond7, label %76, label %73
 
-71:                                               ; preds = %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit
-  %72 = load i8, ptr @BytecodeVerificationRemote, align 1
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %77, label %74
-
-74:                                               ; preds = %71
+73:                                               ; preds = %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit
   store i8 1, ptr @BytecodeVerificationRemote, align 1
-  %75 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not10 = icmp eq ptr %75, null
-  br i1 %.not10, label %77, label %76
+  %74 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not14 = icmp eq ptr %74, null
+  br i1 %.not14, label %76, label %75
 
-76:                                               ; preds = %74
+75:                                               ; preds = %73
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.30)
-  br label %77
+  br label %76
 
-77:                                               ; preds = %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit, %76, %74, %71, %39, %37, %35, %33, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %33 ], [ false, %35 ], [ false, %37 ], [ false, %39 ], [ true, %71 ], [ true, %74 ], [ true, %76 ], [ true, %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit ]
+76:                                               ; preds = %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit, %75, %73, %38, %36, %34, %32, %18
+  %.0 = phi i1 [ false, %18 ], [ false, %32 ], [ false, %34 ], [ false, %36 ], [ false, %38 ], [ true, %73 ], [ true, %75 ], [ true, %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit ]
   ret i1 %.0
 }
 

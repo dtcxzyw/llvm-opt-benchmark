@@ -3967,46 +3967,18 @@ declare void @_ZN7rocksdb10EnvOptionsC1Ev(ptr noundef nonnull align 8 dereferenc
 define void @_ZN7rocksdb12DeleteDBFileEPKNS_18ImmutableDBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bb(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !226
-  %.not = icmp eq ptr %8, null
-  %brmerge = or i1 %5, %.not
-  br i1 %brmerge, label %13, label %9
+  %9 = icmp eq ptr %8, null
+  %or.cond = or i1 %5, %9
+  br i1 %or.cond, label %14, label %10
 
-9:                                                ; preds = %6
-  %10 = load ptr, ptr %8, align 8, !tbaa !54
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(856) %8, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4)
-  br label %19
-
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !229
-  %16 = load ptr, ptr %15, align 8, !tbaa !54
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 256
-  %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  br label %19
-
-19:                                               ; preds = %13, %9
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23DeleteUnaccountedDBFileEPKNS_18ImmutableDBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bbSt8optionalIiE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i64 %6) local_unnamed_addr #4 {
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !226
-  %.not = icmp eq ptr %9, null
-  %brmerge = or i1 %5, %.not
-  br i1 %brmerge, label %14, label %10
-
-10:                                               ; preds = %7
-  %11 = load ptr, ptr %9, align 8, !tbaa !54
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %8, align 8, !tbaa !54
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, i64 %6)
+  tail call void %13(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(856) %8, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4)
   br label %20
 
-14:                                               ; preds = %7
+14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !229
   %17 = load ptr, ptr %16, align 8, !tbaa !54
@@ -4016,6 +3988,34 @@ define void @_ZN7rocksdb23DeleteUnaccountedDBFileEPKNS_18ImmutableDBOptionsERKNS
   br label %20
 
 20:                                               ; preds = %14, %10
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN7rocksdb23DeleteUnaccountedDBFileEPKNS_18ImmutableDBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bbSt8optionalIiE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i64 %6) local_unnamed_addr #4 {
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %9 = load ptr, ptr %8, align 8, !tbaa !226
+  %10 = icmp eq ptr %9, null
+  %or.cond = or i1 %5, %10
+  br i1 %or.cond, label %15, label %11
+
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %9, align 8, !tbaa !54
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
+  %14 = load ptr, ptr %13, align 8
+  tail call void %14(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(856) %9, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, i64 %6)
+  br label %21
+
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !229
+  %18 = load ptr, ptr %17, align 8, !tbaa !54
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 256
+  %20 = load ptr, ptr %19, align 8
+  tail call void %20(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  br label %21
+
+21:                                               ; preds = %15, %11
   ret void
 }
 

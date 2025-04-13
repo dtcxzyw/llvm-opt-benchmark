@@ -449,8 +449,8 @@ define hidden noundef i32 @_ZN7scanner7read_idEc(ptr noundef nonnull align 8 der
 _ZN6vectorIcLb1EjE5resetEv.exit:                  ; preds = %2, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %8 = load ptr, ptr %7, align 8, !tbaa !44
-  %.not.i20 = icmp eq ptr %8, null
-  br i1 %.not.i20, label %_ZN6vectorI9parameterLb1EjE5resetEv.exit, label %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit.i.i
+  %.not.i24 = icmp eq ptr %8, null
+  br i1 %.not.i24, label %_ZN6vectorI9parameterLb1EjE5resetEv.exit, label %_ZNK6vectorI9parameterLb1EjE4sizeEv.exit.i.i
 
 _ZNK6vectorI9parameterLb1EjE4sizeEv.exit.i.i:     ; preds = %_ZN6vectorIcLb1EjE5resetEv.exit
   %9 = getelementptr inbounds i8, ptr %8, i64 -4
@@ -494,14 +494,14 @@ _ZN6vectorI9parameterLb1EjE5resetEv.exit:         ; preds = %_ZN6vectorIcLb1EjE5
 
 23:                                               ; preds = %17, %_ZN6vectorI9parameterLb1EjE5resetEv.exit
   tail call void @_ZN6vectorIcLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.pre.i21 = load ptr, ptr %3, align 8, !tbaa !39
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i21, i64 -4
+  %.pre.i25 = load ptr, ptr %3, align 8, !tbaa !39
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i25, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !40
   br label %_ZN6vectorIcLb1EjE9push_backERKc.exit
 
 _ZN6vectorIcLb1EjE9push_backERKc.exit:            ; preds = %17, %23
   %24 = phi i32 [ %.pre2.i, %23 ], [ %19, %17 ]
-  %25 = phi ptr [ %.pre.i21, %23 ], [ %15, %17 ]
+  %25 = phi ptr [ %.pre.i25, %23 ], [ %15, %17 ]
   %26 = zext i32 %24 to i64
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
   store i8 %1, ptr %27, align 1, !tbaa !32
@@ -536,8 +536,8 @@ _ZN6vectorIcLb1EjE9push_backERKc.exit:            ; preds = %17, %23
   %50 = load i32, ptr %49, align 8, !tbaa !28
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %52 = load i32, ptr %51, align 4, !tbaa !29
-  %.not.i22 = icmp ult i32 %50, %52
-  br i1 %.not.i22, label %76, label %53
+  %.not.i26 = icmp ult i32 %50, %52
+  br i1 %.not.i26, label %76, label %53
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -600,12 +600,12 @@ _ZN7scanner9read_charEv.exit:                     ; preds = %41, %83, %91
   %94 = load i8, ptr %93, align 2, !tbaa !38, !range !24, !noundef !25
   %95 = trunc nuw i8 %94 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %.pre54 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !3
-  %.pre56 = add i32 %.pre54, -12
+  %.pre58 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !3
+  %.pre60 = add i32 %.pre58, -12
   br i1 %95, label %_ZN7scanner9read_charEv.exit._crit_edge, label %96
 
 96:                                               ; preds = %_ZN7scanner9read_charEv.exit
-  %spec.select.i = icmp ult i32 %.pre56, -2
+  %spec.select.i = icmp ult i32 %.pre60, -2
   %97 = icmp eq i8 %1, 45
   %or.cond = and i1 %97, %spec.select.i
   br i1 %or.cond, label %98, label %_ZN7scanner9read_charEv.exit._crit_edge
@@ -624,13 +624,13 @@ _ZN7scanner9read_charEv.exit:                     ; preds = %41, %83, %91
   br label %_ZN7scanner11unread_charEv.exit
 
 _ZN7scanner9read_charEv.exit._crit_edge:          ; preds = %_ZN7scanner9read_charEv.exit, %96
-  %spec.select.i23 = icmp ult i32 %.pre56, -2
+  %spec.select.i27 = icmp ult i32 %.pre60, -2
   %106 = icmp eq i8 %1, 124
-  %or.cond5 = and i1 %106, %spec.select.i23
+  %or.cond5 = and i1 %106, %spec.select.i27
   br i1 %or.cond5, label %115, label %.preheader
 
 .preheader:                                       ; preds = %_ZN7scanner9read_charEv.exit._crit_edge
-  br i1 %spec.select.i23, label %.lr.ph, label %_ZN7scanner11unread_charEv.exit
+  br i1 %spec.select.i27, label %.lr.ph, label %_ZN7scanner11unread_charEv.exit
 
 .lr.ph:                                           ; preds = %98, %.preheader
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -647,11 +647,11 @@ _ZN7scanner9read_charEv.exit._crit_edge:          ; preds = %_ZN7scanner9read_ch
   %116 = tail call noundef i32 @_ZN7scanner11read_symbolEi(ptr noundef nonnull align 8 dereferenceable(388) %0, i32 noundef %.0.i)
   br label %_ZN7scanner11unread_charEv.exit
 
-117:                                              ; preds = %.lr.ph, %_ZN7scanner9read_charEv.exit38
-  %.01853 = phi i32 [ %.0.i, %.lr.ph ], [ %.0.i37, %_ZN7scanner9read_charEv.exit38 ]
-  %118 = trunc i32 %.01853 to i8
-  %.mask19 = and i32 %.01853, 255
-  %119 = zext nneg i32 %.mask19 to i64
+117:                                              ; preds = %.lr.ph, %_ZN7scanner9read_charEv.exit42
+  %.02157 = phi i32 [ %.0.i, %.lr.ph ], [ %.0.i41, %_ZN7scanner9read_charEv.exit42 ]
+  %118 = trunc i32 %.02157 to i8
+  %.mask23 = and i32 %.02157, 255
+  %119 = zext nneg i32 %.mask23 to i64
   %120 = getelementptr inbounds nuw [256 x i8], ptr %32, i64 0, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !32
   switch i8 %121, label %216 [
@@ -680,7 +680,7 @@ _ZN7scanner9read_charEv.exit._crit_edge:          ; preds = %_ZN7scanner9read_ch
   br i1 %131, label %_ZN6vectorIcLb1EjE9push_backEOc.exit.sink.split, label %_ZN6vectorIcLb1EjE9push_backEOc.exit
 
 132:                                              ; preds = %122
-  %133 = icmp ne i32 %.01853, 45
+  %133 = icmp ne i32 %.02157, 45
   %or.cond7 = or i1 %37, %133
   br i1 %or.cond7, label %216, label %135
 
@@ -711,18 +711,18 @@ _ZN7scanner9read_charEv.exit._crit_edge:          ; preds = %_ZN7scanner9read_ch
   %150 = getelementptr inbounds i8, ptr %145, i64 -8
   %151 = load i32, ptr %150, align 4, !tbaa !40
   %152 = icmp eq i32 %149, %151
-  br i1 %152, label %153, label %_ZN6vectorIcLb1EjE9push_backEOc.exit35
+  br i1 %152, label %153, label %_ZN6vectorIcLb1EjE9push_backEOc.exit39
 
 153:                                              ; preds = %147, %144
   tail call void @_ZN6vectorIcLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.pre.i32 = load ptr, ptr %3, align 8, !tbaa !39
-  %.phi.trans.insert.i33 = getelementptr inbounds i8, ptr %.pre.i32, i64 -4
-  %.pre2.i34 = load i32, ptr %.phi.trans.insert.i33, align 4, !tbaa !40
-  br label %_ZN6vectorIcLb1EjE9push_backEOc.exit35
+  %.pre.i36 = load ptr, ptr %3, align 8, !tbaa !39
+  %.phi.trans.insert.i37 = getelementptr inbounds i8, ptr %.pre.i36, i64 -4
+  %.pre2.i38 = load i32, ptr %.phi.trans.insert.i37, align 4, !tbaa !40
+  br label %_ZN6vectorIcLb1EjE9push_backEOc.exit39
 
-_ZN6vectorIcLb1EjE9push_backEOc.exit35:           ; preds = %147, %153
-  %154 = phi i32 [ %.pre2.i34, %153 ], [ %149, %147 ]
-  %155 = phi ptr [ %.pre.i32, %153 ], [ %145, %147 ]
+_ZN6vectorIcLb1EjE9push_backEOc.exit39:           ; preds = %147, %153
+  %154 = phi i32 [ %.pre2.i38, %153 ], [ %149, %147 ]
+  %155 = phi ptr [ %.pre.i36, %153 ], [ %145, %147 ]
   %156 = zext i32 %154 to i64
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 %156
   store i8 0, ptr %157, align 1, !tbaa !32
@@ -740,16 +740,16 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit35:           ; preds = %147, %153
 
 _ZN6vectorIcLb1EjE9push_backEOc.exit.sink.split:  ; preds = %135, %138, %123, %126
   tail call void @_ZN6vectorIcLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.pre.i28 = load ptr, ptr %3, align 8, !tbaa !39
-  %.phi.trans.insert.i29 = getelementptr inbounds i8, ptr %.pre.i28, i64 -4
-  %.pre2.i30 = load i32, ptr %.phi.trans.insert.i29, align 4, !tbaa !40
+  %.pre.i32 = load ptr, ptr %3, align 8, !tbaa !39
+  %.phi.trans.insert.i33 = getelementptr inbounds i8, ptr %.pre.i32, i64 -4
+  %.pre2.i34 = load i32, ptr %.phi.trans.insert.i33, align 4, !tbaa !40
   br label %_ZN6vectorIcLb1EjE9push_backEOc.exit
 
 _ZN6vectorIcLb1EjE9push_backEOc.exit:             ; preds = %_ZN6vectorIcLb1EjE9push_backEOc.exit.sink.split, %138, %126
-  %.sink = phi i32 [ %128, %126 ], [ %140, %138 ], [ %.pre2.i30, %_ZN6vectorIcLb1EjE9push_backEOc.exit.sink.split ]
-  %.sink64 = phi ptr [ %124, %126 ], [ %136, %138 ], [ %.pre.i28, %_ZN6vectorIcLb1EjE9push_backEOc.exit.sink.split ]
+  %.sink = phi i32 [ %128, %126 ], [ %140, %138 ], [ %.pre2.i34, %_ZN6vectorIcLb1EjE9push_backEOc.exit.sink.split ]
+  %.sink68 = phi ptr [ %124, %126 ], [ %136, %138 ], [ %.pre.i32, %_ZN6vectorIcLb1EjE9push_backEOc.exit.sink.split ]
   %166 = zext i32 %.sink to i64
-  %167 = getelementptr inbounds nuw i8, ptr %.sink64, i64 %166
+  %167 = getelementptr inbounds nuw i8, ptr %.sink68, i64 %166
   store i8 %118, ptr %167, align 1, !tbaa !32
   %168 = load ptr, ptr %3, align 8, !tbaa !39
   %169 = getelementptr inbounds i8, ptr %168, i64 -4
@@ -766,13 +766,13 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit:             ; preds = %_ZN6vectorIcLb1EjE9
   store i32 %176, ptr %114, align 4, !tbaa !26
   %177 = load ptr, ptr %112, align 8, !tbaa !27
   %178 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %177)
-  br label %_ZN7scanner9read_charEv.exit38
+  br label %_ZN7scanner9read_charEv.exit42
 
 179:                                              ; preds = %_ZN6vectorIcLb1EjE9push_backEOc.exit
   %180 = load i32, ptr %108, align 8, !tbaa !28
   %181 = load i32, ptr %109, align 4, !tbaa !29
-  %.not.i36 = icmp ult i32 %180, %181
-  br i1 %.not.i36, label %201, label %182
+  %.not.i40 = icmp ult i32 %180, %181
+  br i1 %.not.i40, label %201, label %182
 
 182:                                              ; preds = %179
   %183 = load i8, ptr %110, align 8, !tbaa !30
@@ -808,7 +808,7 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit:             ; preds = %_ZN6vectorIcLb1EjE9
   %206 = icmp ult i32 %203, %202
   %207 = add nuw i32 %203, 1
   store i32 %207, ptr %108, align 8, !tbaa !28
-  br i1 %206, label %208, label %_ZN7scanner9read_charEv.exit38
+  br i1 %206, label %208, label %_ZN7scanner9read_charEv.exit42
 
 208:                                              ; preds = %201
   %209 = load ptr, ptr %111, align 8, !tbaa !31
@@ -816,16 +816,16 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit:             ; preds = %_ZN6vectorIcLb1EjE9
   %211 = getelementptr inbounds nuw i8, ptr %209, i64 %210
   %212 = load i8, ptr %211, align 1, !tbaa !32
   %213 = sext i8 %212 to i32
-  br label %_ZN7scanner9read_charEv.exit38
+  br label %_ZN7scanner9read_charEv.exit42
 
-_ZN7scanner9read_charEv.exit38:                   ; preds = %201, %174, %208
-  %.0.i37 = phi i32 [ %178, %174 ], [ %213, %208 ], [ -1, %201 ]
+_ZN7scanner9read_charEv.exit42:                   ; preds = %201, %174, %208
+  %.0.i41 = phi i32 [ %178, %174 ], [ %213, %208 ], [ -1, %201 ]
   %214 = load i32, ptr %107, align 4, !tbaa !3
   %215 = add i32 %214, -12
-  %spec.select.i24 = icmp ult i32 %215, -2
-  br i1 %spec.select.i24, label %117, label %_ZN7scanner11unread_charEv.exit, !llvm.loop !46
+  %spec.select.i28 = icmp ult i32 %215, -2
+  br i1 %spec.select.i28, label %117, label %_ZN7scanner11unread_charEv.exit, !llvm.loop !46
 
-216:                                              ; preds = %132, %117, %134
+216:                                              ; preds = %117, %134, %132
   %217 = load ptr, ptr %3, align 8, !tbaa !39
   %218 = icmp eq ptr %217, null
   br i1 %218, label %225, label %219
@@ -836,18 +836,18 @@ _ZN7scanner9read_charEv.exit38:                   ; preds = %201, %174, %208
   %222 = getelementptr inbounds i8, ptr %217, i64 -8
   %223 = load i32, ptr %222, align 4, !tbaa !40
   %224 = icmp eq i32 %221, %223
-  br i1 %224, label %225, label %_ZN6vectorIcLb1EjE9push_backEOc.exit42
+  br i1 %224, label %225, label %_ZN6vectorIcLb1EjE9push_backEOc.exit46
 
 225:                                              ; preds = %219, %216
   tail call void @_ZN6vectorIcLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.pre.i39 = load ptr, ptr %3, align 8, !tbaa !39
-  %.phi.trans.insert.i40 = getelementptr inbounds i8, ptr %.pre.i39, i64 -4
-  %.pre2.i41 = load i32, ptr %.phi.trans.insert.i40, align 4, !tbaa !40
-  br label %_ZN6vectorIcLb1EjE9push_backEOc.exit42
+  %.pre.i43 = load ptr, ptr %3, align 8, !tbaa !39
+  %.phi.trans.insert.i44 = getelementptr inbounds i8, ptr %.pre.i43, i64 -4
+  %.pre2.i45 = load i32, ptr %.phi.trans.insert.i44, align 4, !tbaa !40
+  br label %_ZN6vectorIcLb1EjE9push_backEOc.exit46
 
-_ZN6vectorIcLb1EjE9push_backEOc.exit42:           ; preds = %219, %225
-  %226 = phi i32 [ %.pre2.i41, %225 ], [ %221, %219 ]
-  %227 = phi ptr [ %.pre.i39, %225 ], [ %217, %219 ]
+_ZN6vectorIcLb1EjE9push_backEOc.exit46:           ; preds = %219, %225
+  %226 = phi i32 [ %.pre2.i45, %225 ], [ %221, %219 ]
+  %227 = phi ptr [ %.pre.i43, %225 ], [ %217, %219 ]
   %228 = zext i32 %226 to i64
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 %228
   store i8 0, ptr %229, align 1, !tbaa !32
@@ -865,19 +865,19 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit42:           ; preds = %219, %225
   %239 = trunc nuw i8 %238 to i1
   br i1 %239, label %240, label %243
 
-240:                                              ; preds = %_ZN6vectorIcLb1EjE9push_backEOc.exit42
+240:                                              ; preds = %_ZN6vectorIcLb1EjE9push_backEOc.exit46
   %241 = load ptr, ptr %112, align 8, !tbaa !27
   %242 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi5ungetEv(ptr noundef nonnull align 8 dereferenceable(16) %241)
   br label %_ZN7scanner11unread_charEv.exit
 
-243:                                              ; preds = %_ZN6vectorIcLb1EjE9push_backEOc.exit42
+243:                                              ; preds = %_ZN6vectorIcLb1EjE9push_backEOc.exit46
   %244 = load i32, ptr %108, align 8, !tbaa !28
   %245 = add i32 %244, -1
   store i32 %245, ptr %108, align 8, !tbaa !28
   br label %_ZN7scanner11unread_charEv.exit
 
-_ZN7scanner11unread_charEv.exit:                  ; preds = %_ZN7scanner9read_charEv.exit38, %.preheader, %_ZN6vectorIcLb1EjE9push_backEOc.exit35, %243, %240, %115, %103
-  %.0 = phi i32 [ %116, %115 ], [ %105, %103 ], [ 4, %240 ], [ 4, %243 ], [ %spec.select, %_ZN6vectorIcLb1EjE9push_backEOc.exit35 ], [ %.pre54, %.preheader ], [ %214, %_ZN7scanner9read_charEv.exit38 ]
+_ZN7scanner11unread_charEv.exit:                  ; preds = %_ZN7scanner9read_charEv.exit42, %.preheader, %_ZN6vectorIcLb1EjE9push_backEOc.exit39, %243, %240, %115, %103
+  %.0 = phi i32 [ %116, %115 ], [ %105, %103 ], [ 4, %240 ], [ 4, %243 ], [ %spec.select, %_ZN6vectorIcLb1EjE9push_backEOc.exit39 ], [ %.pre58, %.preheader ], [ %214, %_ZN7scanner9read_charEv.exit42 ]
   ret i32 %.0
 }
 

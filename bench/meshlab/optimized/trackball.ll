@@ -2627,15 +2627,15 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_
 _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i
   %21 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %22 = load i32, ptr %21, align 4
-  %.not37 = icmp slt i32 %10, %22
-  br i1 %.not37, label %.critedge, label %23
+  %.not38 = icmp slt i32 %10, %22
+  br i1 %.not38, label %.critedge, label %23
 
 23:                                               ; preds = %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit
   store i32 %10, ptr %4, align 4
   %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %25 = load ptr, ptr %24, align 8
-  %.not12 = icmp eq ptr %25, null
-  br i1 %.not12, label %.critedge, label %26
+  %.not13 = icmp eq ptr %25, null
+  br i1 %.not13, label %.critedge, label %26
 
 26:                                               ; preds = %23
   store i32 %10, ptr %5, align 4
@@ -2648,45 +2648,45 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit: ; pr
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit, %26, %23
-  %.011.ph = phi i1 [ false, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ false, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit ], [ false, %23 ], [ %32, %26 ]
+  %.012.ph = phi i1 [ false, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ false, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit ], [ false, %23 ], [ %32, %26 ]
   %.pr = load ptr, ptr %12, align 8
   %33 = xor i32 %1, -1
   %34 = load i32, ptr %8, align 4
   %35 = and i32 %34, %33
   store i32 %35, ptr %8, align 4
   %36 = and i32 %35, 255
-  %.not10.i.i.i15 = icmp eq ptr %.pr, null
-  br i1 %.not10.i.i.i15, label %.critedge2, label %.lr.ph.i.i.i16
+  %.not10.i.i.i16 = icmp eq ptr %.pr, null
+  br i1 %.not10.i.i.i16, label %.critedge2, label %.lr.ph.i.i.i17
 
-.lr.ph.i.i.i16:                                   ; preds = %.critedge, %.lr.ph.i.i.i16
-  %.012.i.i.i17 = phi ptr [ %.1.i.i.i22, %.lr.ph.i.i.i16 ], [ %.pr, %.critedge ]
-  %.0811.i.i.i18 = phi ptr [ %.19.i.i.i19, %.lr.ph.i.i.i16 ], [ %14, %.critedge ]
-  %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 32
+.lr.ph.i.i.i17:                                   ; preds = %.critedge, %.lr.ph.i.i.i17
+  %.012.i.i.i18 = phi ptr [ %.1.i.i.i23, %.lr.ph.i.i.i17 ], [ %.pr, %.critedge ]
+  %.0811.i.i.i19 = phi ptr [ %.19.i.i.i20, %.lr.ph.i.i.i17 ], [ %14, %.critedge ]
+  %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %38, %36
-  %.19.i.i.i19 = select i1 %39, ptr %.0811.i.i.i18, ptr %.012.i.i.i17
-  %.1.in.v.i.i.i20 = select i1 %39, i64 24, i64 16
-  %.1.in.i.i.i21 = getelementptr inbounds nuw i8, ptr %.012.i.i.i17, i64 %.1.in.v.i.i.i20
-  %.1.i.i.i22 = load ptr, ptr %.1.in.i.i.i21, align 8
-  %.not.i.i.i23 = icmp eq ptr %.1.i.i.i22, null
-  br i1 %.not.i.i.i23, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i24, label %.lr.ph.i.i.i16, !llvm.loop !57
+  %.19.i.i.i20 = select i1 %39, ptr %.0811.i.i.i19, ptr %.012.i.i.i18
+  %.1.in.v.i.i.i21 = select i1 %39, i64 24, i64 16
+  %.1.in.i.i.i22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 %.1.in.v.i.i.i21
+  %.1.i.i.i23 = load ptr, ptr %.1.in.i.i.i22, align 8
+  %.not.i.i.i24 = icmp eq ptr %.1.i.i.i23, null
+  br i1 %.not.i.i.i24, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25, label %.lr.ph.i.i.i17, !llvm.loop !57
 
-_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i24: ; preds = %.lr.ph.i.i.i16
-  %40 = icmp eq ptr %.19.i.i.i19, %14
-  br i1 %40, label %.critedge2, label %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit27
+_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25: ; preds = %.lr.ph.i.i.i17
+  %40 = icmp eq ptr %.19.i.i.i20, %14
+  br i1 %40, label %.critedge2, label %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28
 
-_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit27: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i24
-  %41 = getelementptr inbounds nuw i8, ptr %.19.i.i.i19, i64 32
+_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25
+  %41 = getelementptr inbounds nuw i8, ptr %.19.i.i.i20, i64 32
   %42 = load i32, ptr %41, align 4
   %.not = icmp slt i32 %36, %42
   br i1 %.not, label %.critedge2, label %43
 
-43:                                               ; preds = %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit27
+43:                                               ; preds = %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28
   store i32 %36, ptr %6, align 4
   %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %45 = load ptr, ptr %44, align 8
-  %.not14 = icmp eq ptr %45, null
-  br i1 %.not14, label %.critedge2, label %46
+  %.not15 = icmp eq ptr %45, null
+  br i1 %.not15, label %.critedge2, label %46
 
 46:                                               ; preds = %43
   store i32 %36, ptr %7, align 4
@@ -2698,11 +2698,11 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit27: ; 
   %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(8) %48)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge.thread, %.critedge, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i24, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit27, %46, %43
-  %.01135 = phi i1 [ %.011.ph, %46 ], [ %.011.ph, %43 ], [ %.011.ph, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit27 ], [ false, %.critedge.thread ], [ %.011.ph, %.critedge ], [ %.011.ph, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i24 ]
-  %.0 = phi i1 [ %52, %46 ], [ false, %43 ], [ false, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit27 ], [ false, %.critedge.thread ], [ false, %.critedge ], [ false, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i24 ]
-  %brmerge = or i1 %.01135, %.0
-  br i1 %brmerge, label %74, label %53
+.critedge2:                                       ; preds = %.critedge.thread, %.critedge, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28, %46, %43
+  %.01236 = phi i1 [ %.012.ph, %46 ], [ %.012.ph, %43 ], [ %.012.ph, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28 ], [ false, %.critedge.thread ], [ %.012.ph, %.critedge ], [ %.012.ph, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25 ]
+  %.0 = phi i1 [ %52, %46 ], [ false, %43 ], [ false, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28 ], [ false, %.critedge.thread ], [ false, %.critedge ], [ false, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25 ]
+  %or.cond = or i1 %.01236, %.0
+  br i1 %or.cond, label %74, label %53
 
 53:                                               ; preds = %.critedge2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -2768,7 +2768,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %_ZNKSt3mapIiPN3vcg9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %74
 
-74:                                               ; preds = %.critedge2, %_ZN3vcg9Trackball16SetCurrentActionEv.exit
+74:                                               ; preds = %_ZN3vcg9Trackball16SetCurrentActionEv.exit, %.critedge2
   ret void
 }
 
@@ -3180,15 +3180,15 @@ _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_
 _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i
   %41 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %42 = load i32, ptr %41, align 4
-  %.not38 = icmp slt i32 %31, %42
-  br i1 %.not38, label %.critedge, label %43
+  %.not39 = icmp slt i32 %31, %42
+  br i1 %.not39, label %.critedge, label %43
 
 43:                                               ; preds = %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit
   store i32 %31, ptr %5, align 4
   %44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %45 = load ptr, ptr %44, align 8
-  %.not13 = icmp eq ptr %45, null
-  br i1 %.not13, label %.critedge, label %46
+  %.not14 = icmp eq ptr %45, null
+  br i1 %.not14, label %.critedge, label %46
 
 46:                                               ; preds = %43
   store i32 %31, ptr %6, align 4
@@ -3201,44 +3201,44 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit: ; pr
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit, %46, %43
-  %.012.ph = phi i1 [ false, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ false, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit ], [ false, %43 ], [ %52, %46 ]
+  %.013.ph = phi i1 [ false, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ false, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit ], [ false, %43 ], [ %52, %46 ]
   %.pr = load ptr, ptr %33, align 8
   %53 = load i32, ptr %29, align 4
   %54 = or i32 %53, %1
   store i32 %54, ptr %29, align 4
   %55 = and i32 %54, 255
-  %.not10.i.i.i16 = icmp eq ptr %.pr, null
-  br i1 %.not10.i.i.i16, label %.critedge2, label %.lr.ph.i.i.i17
+  %.not10.i.i.i17 = icmp eq ptr %.pr, null
+  br i1 %.not10.i.i.i17, label %.critedge2, label %.lr.ph.i.i.i18
 
-.lr.ph.i.i.i17:                                   ; preds = %.critedge, %.lr.ph.i.i.i17
-  %.012.i.i.i18 = phi ptr [ %.1.i.i.i23, %.lr.ph.i.i.i17 ], [ %.pr, %.critedge ]
-  %.0811.i.i.i19 = phi ptr [ %.19.i.i.i20, %.lr.ph.i.i.i17 ], [ %35, %.critedge ]
-  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
+.lr.ph.i.i.i18:                                   ; preds = %.critedge, %.lr.ph.i.i.i18
+  %.012.i.i.i19 = phi ptr [ %.1.i.i.i24, %.lr.ph.i.i.i18 ], [ %.pr, %.critedge ]
+  %.0811.i.i.i20 = phi ptr [ %.19.i.i.i21, %.lr.ph.i.i.i18 ], [ %35, %.critedge ]
+  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i19, i64 32
   %57 = load i32, ptr %56, align 4
   %58 = icmp slt i32 %57, %55
-  %.19.i.i.i20 = select i1 %58, ptr %.0811.i.i.i19, ptr %.012.i.i.i18
-  %.1.in.v.i.i.i21 = select i1 %58, i64 24, i64 16
-  %.1.in.i.i.i22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 %.1.in.v.i.i.i21
-  %.1.i.i.i23 = load ptr, ptr %.1.in.i.i.i22, align 8
-  %.not.i.i.i24 = icmp eq ptr %.1.i.i.i23, null
-  br i1 %.not.i.i.i24, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25, label %.lr.ph.i.i.i17, !llvm.loop !57
+  %.19.i.i.i21 = select i1 %58, ptr %.0811.i.i.i20, ptr %.012.i.i.i19
+  %.1.in.v.i.i.i22 = select i1 %58, i64 24, i64 16
+  %.1.in.i.i.i23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i19, i64 %.1.in.v.i.i.i22
+  %.1.i.i.i24 = load ptr, ptr %.1.in.i.i.i23, align 8
+  %.not.i.i.i25 = icmp eq ptr %.1.i.i.i24, null
+  br i1 %.not.i.i.i25, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i26, label %.lr.ph.i.i.i18, !llvm.loop !57
 
-_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25: ; preds = %.lr.ph.i.i.i17
-  %59 = icmp eq ptr %.19.i.i.i20, %35
-  br i1 %59, label %.critedge2, label %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28
+_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i26: ; preds = %.lr.ph.i.i.i18
+  %59 = icmp eq ptr %.19.i.i.i21, %35
+  br i1 %59, label %.critedge2, label %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit29
 
-_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25
-  %60 = getelementptr inbounds nuw i8, ptr %.19.i.i.i20, i64 32
+_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit29: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i26
+  %60 = getelementptr inbounds nuw i8, ptr %.19.i.i.i21, i64 32
   %61 = load i32, ptr %60, align 4
   %.not = icmp slt i32 %55, %61
   br i1 %.not, label %.critedge2, label %62
 
-62:                                               ; preds = %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28
+62:                                               ; preds = %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit29
   store i32 %55, ptr %7, align 4
   %63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %64 = load ptr, ptr %63, align 8
-  %.not15 = icmp eq ptr %64, null
-  br i1 %.not15, label %.critedge2, label %65
+  %.not16 = icmp eq ptr %64, null
+  br i1 %.not16, label %.critedge2, label %65
 
 65:                                               ; preds = %62
   store i32 %55, ptr %8, align 4
@@ -3250,11 +3250,11 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28: ; 
   %71 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(8) %67)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge.thread, %.critedge, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28, %65, %62
-  %.01236 = phi i1 [ %.012.ph, %65 ], [ %.012.ph, %62 ], [ %.012.ph, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28 ], [ false, %.critedge.thread ], [ %.012.ph, %.critedge ], [ %.012.ph, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25 ]
-  %.0 = phi i1 [ %71, %65 ], [ false, %62 ], [ false, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28 ], [ false, %.critedge.thread ], [ false, %.critedge ], [ false, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25 ]
-  %brmerge = or i1 %.01236, %.0
-  br i1 %brmerge, label %93, label %72
+.critedge2:                                       ; preds = %.critedge.thread, %.critedge, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i26, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit29, %65, %62
+  %.01337 = phi i1 [ %.013.ph, %65 ], [ %.013.ph, %62 ], [ %.013.ph, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit29 ], [ false, %.critedge.thread ], [ %.013.ph, %.critedge ], [ %.013.ph, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i26 ]
+  %.0 = phi i1 [ %71, %65 ], [ false, %62 ], [ false, %_ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit29 ], [ false, %.critedge.thread ], [ false, %.critedge ], [ false, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i26 ]
+  %or.cond = or i1 %.01337, %.0
+  br i1 %or.cond, label %93, label %72
 
 72:                                               ; preds = %.critedge2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -3320,7 +3320,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %_ZNKSt3mapIiPN3vcg9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %93
 
-93:                                               ; preds = %.critedge2, %_ZN3vcg9Trackball16SetCurrentActionEv.exit
+93:                                               ; preds = %_ZN3vcg9Trackball16SetCurrentActionEv.exit, %.critedge2
   ret void
 }
 

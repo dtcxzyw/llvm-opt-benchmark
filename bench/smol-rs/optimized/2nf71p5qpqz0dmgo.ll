@@ -715,8 +715,8 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i.i.i.i.
           to label %.noexc10.i.i.i.i unwind label %237
 
 .noexc10.i.i.i.i:                                 ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h1774aaa6362465c8E.exit.i.i.i.i.i"
-  %.not35.i.i.i.i.i = icmp eq i8 %257, 0
-  br i1 %.not35.i.i.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00d3d7638698e9ffE.exit.i.i.i.i.i", label %258
+  %.not33.i.i.i.i.i = icmp eq i8 %257, 0
+  br i1 %.not33.i.i.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00d3d7638698e9ffE.exit.i.i.i.i.i", label %258
 
 258:                                              ; preds = %.noexc10.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !93
@@ -753,8 +753,8 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit.i.i.i.i.
           to label %.body.i.i.i.i unwind label %288
 
 269:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00d3d7638698e9ffE.exit.i.i.i.i.i"
-  %.fca.0.extract1.i.i.i.i.i = extractvalue { ptr, ptr } %266, 0
-  %.fca.1.extract2.i.i.i.i.i = extractvalue { ptr, ptr } %266, 1
+  %.fca.0.extract4.i.i.i.i.i = extractvalue { ptr, ptr } %266, 0
+  %.fca.1.extract5.i.i.i.i.i = extractvalue { ptr, ptr } %266, 1
   %270 = trunc nuw i8 %.0.i.i.i.i3.i.i.i.i to i1
   br i1 %270, label %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i, label %271
 
@@ -787,23 +787,23 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i: ; preds = 
 280:                                              ; preds = %279, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i.i.i.i.i.i
   %281 = landingpad { ptr, i32 }
           cleanup
-  %.not10.i.i.i.i.i = icmp eq ptr %.fca.0.extract1.i.i.i.i.i, null
-  br i1 %.not10.i.i.i.i.i, label %.body.i.i.i.i, label %285
+  %.not34.i.i.i.i.i = icmp eq ptr %.fca.0.extract4.i.i.i.i.i, null
+  br i1 %.not34.i.i.i.i.i, label %.body.i.i.i.i, label %285
 
 "_ZN4core3ptr81drop_in_place$LT$std..sync..mutex..MutexGuard$LT$async_executor..Sleepers$GT$$GT$17heb022e5d62b48961E.exit.i.i.i.i.i": ; preds = %279, %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i
-  %.not.i7.i.i.i.i = icmp eq ptr %.fca.0.extract1.i.i.i.i.i, null
+  %.not.i7.i.i.i.i = icmp eq ptr %.fca.0.extract4.i.i.i.i.i, null
   br i1 %.not.i7.i.i.i.i, label %294, label %282
 
 282:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$std..sync..mutex..MutexGuard$LT$async_executor..Sleepers$GT$$GT$17heb022e5d62b48961E.exit.i.i.i.i.i"
-  %283 = getelementptr inbounds nuw i8, ptr %.fca.0.extract1.i.i.i.i.i, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %.fca.0.extract4.i.i.i.i.i, i64 8
   %284 = load ptr, ptr %283, align 8, !nonnull !5, !noundef !5
-  invoke void %284(ptr noundef %.fca.1.extract2.i.i.i.i.i)
+  invoke void %284(ptr noundef %.fca.1.extract5.i.i.i.i.i)
           to label %294 unwind label %237
 
 285:                                              ; preds = %280
-  %286 = getelementptr inbounds nuw i8, ptr %.fca.0.extract1.i.i.i.i.i, i64 24
+  %286 = getelementptr inbounds nuw i8, ptr %.fca.0.extract4.i.i.i.i.i, i64 24
   %287 = load ptr, ptr %286, align 8, !nonnull !5, !noundef !5
-  invoke void %287(ptr noundef %.fca.1.extract2.i.i.i.i.i)
+  invoke void %287(ptr noundef %.fca.1.extract5.i.i.i.i.i)
           to label %.body.i.i.i.i unwind label %288
 
 288:                                              ; preds = %285, %267

@@ -1110,8 +1110,8 @@ define dso_local void @_ZN4llvm16computePeelCountEPNS_4LoopEjRNS_19TargetTransfo
 
 32:                                               ; preds = %26, %22
   %33 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL20UnrollForcePeelCount, i64 8), align 8, !tbaa !6
-  %.not87 = icmp eq i16 %33, 0
-  br i1 %.not87, label %37, label %34
+  %.not90 = icmp eq i16 %33, 0
+  br i1 %.not90, label %37, label %34
 
 34:                                               ; preds = %32
   %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL20UnrollForcePeelCount, i64 120), align 8, !tbaa !34
@@ -1131,10 +1131,10 @@ define dso_local void @_ZN4llvm16computePeelCountEPNS_4LoopEjRNS_19TargetTransfo
 
 43:                                               ; preds = %37
   %44 = tail call i64 @_ZN4llvm27getOptionalIntLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef nonnull %0, ptr nonnull @.str.25, i64 22) #17
-  %.sroa.079.0.extract.trunc = trunc i64 %44 to i32
+  %.sroa.082.0.extract.trunc = trunc i64 %44 to i32
   %45 = and i64 %44, 4294967296
-  %.not89 = icmp eq i64 %45, 0
-  %spec.select = select i1 %.not89, i32 0, i32 %.sroa.079.0.extract.trunc
+  %.not92 = icmp eq i64 %45, 0
+  %spec.select = select i1 %.not92, i32 0, i32 %.sroa.082.0.extract.trunc
   %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL18UnrollPeelMaxCount, i64 120), align 8, !tbaa !34
   %.not = icmp ult i32 %spec.select, %46
   br i1 %.not, label %47, label %.critedge
@@ -1142,8 +1142,8 @@ define dso_local void @_ZN4llvm16computePeelCountEPNS_4LoopEjRNS_19TargetTransfo
 47:                                               ; preds = %43
   %48 = udiv i32 %7, %1
   %49 = add i32 %48, -1
-  %.sroa.speculated68 = tail call i32 @llvm.umin.i32(i32 %49, i32 %46)
-  %50 = icmp ugt i32 %.sroa.speculated68, %20
+  %.sroa.speculated71 = tail call i32 @llvm.umin.i32(i32 %49, i32 %46)
+  %50 = icmp ugt i32 %.sroa.speculated71, %20
   br i1 %50, label %51, label %68
 
 51:                                               ; preds = %47
@@ -1153,7 +1153,7 @@ define dso_local void @_ZN4llvm16computePeelCountEPNS_4LoopEjRNS_19TargetTransfo
   %53 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %0, ptr %53, align 8, !tbaa !82
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i32 %.sroa.speculated68, ptr %54, align 8, !tbaa !84
+  store i32 %.sroa.speculated71, ptr %54, align 8, !tbaa !84
   %55 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i32 1, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -1170,7 +1170,7 @@ define dso_local void @_ZN4llvm16computePeelCountEPNS_4LoopEjRNS_19TargetTransfo
 
 _ZN12_GLOBAL__N_111PhiAnalyzerC2ERKN4llvm4LoopEj.exit: ; preds = %.lr.ph.i.i.i.i
   %57 = call fastcc i64 @_ZN12_GLOBAL__N_111PhiAnalyzer25calculateIterationsToPeelEv(ptr noundef nonnull align 8 dereferenceable(96) %19)
-  %.sroa.049.0.extract.trunc = trunc i64 %57 to i32
+  %.sroa.052.0.extract.trunc = trunc i64 %57 to i32
   %58 = load i32, ptr %55, align 8
   %59 = and i32 %58, 1
   %.not.i.i.i = icmp eq i32 %59, 0
@@ -1188,17 +1188,17 @@ _ZN12_GLOBAL__N_111PhiAnalyzerC2ERKN4llvm4LoopEj.exit: ; preds = %.lr.ph.i.i.i.i
 
 _ZN12_GLOBAL__N_111PhiAnalyzerD2Ev.exit:          ; preds = %_ZN12_GLOBAL__N_111PhiAnalyzerC2ERKN4llvm4LoopEj.exit, %60
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19) #17
-  %.not90 = icmp samesign ult i64 %57, 4294967296
-  br i1 %.not90, label %68, label %67
+  %.not93 = icmp samesign ult i64 %57, 4294967296
+  br i1 %.not93, label %68, label %67
 
 67:                                               ; preds = %_ZN12_GLOBAL__N_111PhiAnalyzerD2Ev.exit
-  %.sroa.speculated51 = call i32 @llvm.umax.i32(i32 %20, i32 %.sroa.049.0.extract.trunc)
+  %.sroa.speculated54 = call i32 @llvm.umax.i32(i32 %20, i32 %.sroa.052.0.extract.trunc)
   br label %68
 
 68:                                               ; preds = %_ZN12_GLOBAL__N_111PhiAnalyzerD2Ev.exit, %67, %47
-  %.0 = phi i32 [ %20, %47 ], [ %.sroa.speculated51, %67 ], [ %20, %_ZN12_GLOBAL__N_111PhiAnalyzerD2Ev.exit ]
+  %.0 = phi i32 [ %20, %47 ], [ %.sroa.speculated54, %67 ], [ %20, %_ZN12_GLOBAL__N_111PhiAnalyzerD2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  store i32 %.sroa.speculated68, ptr %15, align 4, !tbaa !66
+  store i32 %.sroa.speculated71, ptr %15, align 4, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #17
   store i32 0, ptr %16, align 4, !tbaa !66
   %69 = call noundef ptr @_ZN4llvm15ScalarEvolution21getBackedgeTakenCountEPKNS_4LoopENS0_13ExitCountKindE(ptr noundef nonnull align 8 dereferenceable(1344) %5, ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 1) #17
@@ -1234,7 +1234,7 @@ _ZNK4llvm5APInt3ugtEm.exit.i.i:                   ; preds = %_ZNK4llvm5APInt13ge
 
 _ZNK4llvm5APInt15getLimitedValueEm.exit.i:        ; preds = %_ZNK4llvm5APInt3ugtEm.exit.i.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i
   %86 = phi i32 [ -2, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i ], [ %85, %_ZNK4llvm5APInt3ugtEm.exit.i.i ]
-  %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %.sroa.speculated68, i32 %86)
+  %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %.sroa.speculated71, i32 %86)
   store i32 %.sroa.speculated.i, ptr %15, align 4, !tbaa !66
   br label %87
 
@@ -1322,8 +1322,8 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i:     ; preds = %"_ZZL24countToElimi
   store ptr %115, ptr %13, align 8, !tbaa !92
   store i32 0, ptr %14, align 4, !tbaa !66
   %116 = load ptr, ptr %89, align 8, !tbaa !43
-  %.not.i.i.i43 = icmp eq ptr %116, null
-  br i1 %.not.i.i.i43, label %117, label %_ZNKSt8functionIFvPN4llvm5ValueEjEEclES2_j.exit.i
+  %.not.i.i.i46 = icmp eq ptr %116, null
+  br i1 %.not.i.i.i46, label %117, label %_ZNKSt8functionIFvPN4llvm5ValueEjEEclES2_j.exit.i
 
 117:                                              ; preds = %113
   call void @_ZSt25__throw_bad_function_callv() #20
@@ -1613,63 +1613,61 @@ _ZL24countToEliminateComparesRN4llvm4LoopEjRNS_15ScalarEvolutionE.exit: ; preds 
   br i1 %.not35, label %251, label %.thread
 
 .thread:                                          ; preds = %_ZL24countToEliminateComparesRN4llvm4LoopEjRNS_15ScalarEvolutionE.exit, %245
-  %.283 = phi i32 [ 1, %245 ], [ %.sroa.speculated, %_ZL24countToEliminateComparesRN4llvm4LoopEjRNS_15ScalarEvolutionE.exit ]
-  %.sroa.speculated58 = call i32 @llvm.umin.i32(i32 %.sroa.speculated68, i32 %.283)
-  %247 = add i32 %.sroa.speculated58, %spec.select
+  %.286 = phi i32 [ 1, %245 ], [ %.sroa.speculated, %_ZL24countToEliminateComparesRN4llvm4LoopEjRNS_15ScalarEvolutionE.exit ]
+  %.sroa.speculated61 = call i32 @llvm.umin.i32(i32 %.sroa.speculated71, i32 %.286)
+  %247 = add i32 %.sroa.speculated61, %spec.select
   %248 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL18UnrollPeelMaxCount, i64 120), align 8, !tbaa !34
   %.not36 = icmp ugt i32 %247, %248
   br i1 %.not36, label %251, label %249
 
 249:                                              ; preds = %.thread
-  store i32 %.sroa.speculated58, ptr %2, align 4, !tbaa !73
+  store i32 %.sroa.speculated61, ptr %2, align 4, !tbaa !73
   %250 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i8 0, ptr %250, align 2, !tbaa !78
   br label %.critedge
 
 251:                                              ; preds = %.thread, %245
   %.not37 = icmp eq i32 %3, 0
-  br i1 %.not37, label %252, label %.critedge
+  %252 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %253 = load i8, ptr %252, align 2, !range !48
+  %254 = trunc nuw i8 %253 to i1
+  %or.cond44 = select i1 %.not37, i1 %254, i1 false
+  br i1 %or.cond44, label %255, label %.critedge
 
-252:                                              ; preds = %251
-  %253 = getelementptr inbounds nuw i8, ptr %2, i64 6
-  %254 = load i8, ptr %253, align 2, !tbaa !78, !range !48, !noundef !49
-  %255 = trunc nuw i8 %254 to i1
-  br i1 %255, label %256, label %.critedge
-
-256:                                              ; preds = %252
-  %257 = load ptr, ptr %93, align 8, !tbaa !118
-  %258 = load ptr, ptr %257, align 8, !tbaa !69
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 72
-  %260 = load ptr, ptr %259, align 8, !tbaa !170
+255:                                              ; preds = %251
+  %256 = load ptr, ptr %93, align 8, !tbaa !118
+  %257 = load ptr, ptr %256, align 8, !tbaa !69
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 72
+  %259 = load ptr, ptr %258, align 8, !tbaa !170
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #17
-  call void @_ZNK4llvm8Function13getEntryCountEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.294") align 8 %9, ptr noundef nonnull align 8 dereferenceable(136) %260, i1 noundef zeroext false) #17
-  %261 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %262 = load i8, ptr %261, align 8, !tbaa !183, !range !48, !noundef !49
-  %263 = trunc nuw i8 %262 to i1
+  call void @_ZNK4llvm8Function13getEntryCountEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.294") align 8 %9, ptr noundef nonnull align 8 dereferenceable(136) %259, i1 noundef zeroext false) #17
+  %260 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %261 = load i8, ptr %260, align 8, !tbaa !183, !range !48, !noundef !49
+  %262 = trunc nuw i8 %261 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #17
-  br i1 %263, label %264, label %.critedge
+  br i1 %262, label %263, label %.critedge
 
-264:                                              ; preds = %256
-  %265 = call fastcc noundef zeroext i1 @_ZL32violatesLegacyMultiExitLoopCheckPN4llvm4LoopE(ptr noundef nonnull %0)
-  br i1 %265, label %.critedge, label %266
+263:                                              ; preds = %255
+  %264 = call fastcc noundef zeroext i1 @_ZL32violatesLegacyMultiExitLoopCheckPN4llvm4LoopE(ptr noundef nonnull %0)
+  br i1 %264, label %.critedge, label %265
 
-266:                                              ; preds = %264
-  %267 = call i64 @_ZN4llvm25getLoopEstimatedTripCountEPNS_4LoopEPj(ptr noundef nonnull %0, ptr noundef null) #17
-  %.sroa.0.0.extract.trunc = trunc i64 %267 to i32
-  %268 = and i64 %267, 4294967296
-  %.not91 = icmp eq i64 %268, 0
+265:                                              ; preds = %263
+  %266 = call i64 @_ZN4llvm25getLoopEstimatedTripCountEPNS_4LoopEPj(ptr noundef nonnull %0, ptr noundef null) #17
+  %.sroa.0.0.extract.trunc = trunc i64 %266 to i32
+  %267 = and i64 %266, 4294967296
+  %.not94 = icmp eq i64 %267, 0
   %.not38 = icmp eq i32 %.sroa.0.0.extract.trunc, 0
-  %or.cond85 = or i1 %.not91, %.not38
-  %269 = add i32 %spec.select, %.sroa.0.0.extract.trunc
-  %.not39 = icmp ugt i32 %269, %.sroa.speculated68
-  %or.cond86 = or i1 %or.cond85, %.not39
-  br i1 %or.cond86, label %.critedge, label %270
+  %or.cond88 = or i1 %.not94, %.not38
+  %268 = add i32 %spec.select, %.sroa.0.0.extract.trunc
+  %.not39 = icmp ugt i32 %268, %.sroa.speculated71
+  %or.cond89 = or i1 %or.cond88, %.not39
+  br i1 %or.cond89, label %.critedge, label %269
 
-270:                                              ; preds = %266
+269:                                              ; preds = %265
   store i32 %.sroa.0.0.extract.trunc, ptr %2, align 4, !tbaa !73
   br label %.critedge
 
-.critedge:                                        ; preds = %249, %251, %252, %264, %256, %266, %270, %34, %37, %43, %26, %8
+.critedge:                                        ; preds = %249, %251, %263, %255, %265, %269, %34, %37, %43, %26, %8
   ret void
 }
 

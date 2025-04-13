@@ -1176,78 +1176,83 @@ declare void @_ZN2cv3dnn14dnn4_v202412235Layer9tryAttachERKNS_3PtrINS1_11Backend
 define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn12MVNLayerImpl13setActivationERKNS_3PtrINS0_14dnn4_v2024122315ActivationLayerEEE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !80
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %.thread, label %5
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 332
+  %6 = load i8, ptr %5, align 4, !range !69
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %4, i1 true, i1 %7
+  br i1 %or.cond, label %25, label %8
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  %7 = load i8, ptr %6, align 4, !tbaa !64, !range !69, !noundef !70
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %26, label %9
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %10 = load i8, ptr %9, align 8, !tbaa !51, !range !69, !noundef !70
+  %11 = trunc nuw i8 %10 to i1
+  br i1 %11, label %25, label %12
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %11 = load i8, ptr %10, align 8, !tbaa !51, !range !69, !noundef !70
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %26, label %13
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %15 = load ptr, ptr %3, align 8, !tbaa !16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 216
+  %17 = load ptr, ptr %16, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(100) %3, ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %14)
+  %18 = tail call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %13)
+  br i1 %18, label %19, label %22
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %16 = load ptr, ptr %3, align 8, !tbaa !16
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 216
-  %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(100) %3, ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %15)
-  %19 = tail call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %14)
-  br i1 %19, label %20, label %23
+19:                                               ; preds = %12
+  %20 = tail call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %14)
+  %21 = xor i1 %20, true
+  br label %22
 
-20:                                               ; preds = %13
-  %21 = tail call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %15)
-  %22 = xor i1 %21, true
-  br label %23
+22:                                               ; preds = %19, %12
+  %23 = phi i1 [ true, %12 ], [ %21, %19 ]
+  %24 = zext i1 %23 to i8
+  store i8 %24, ptr %9, align 8, !tbaa !51
+  br label %107
 
-23:                                               ; preds = %20, %13
-  %24 = phi i1 [ true, %13 ], [ %22, %20 ]
-  %25 = zext i1 %24 to i8
-  store i8 %25, ptr %10, align 8, !tbaa !51
-  br label %109
+25:                                               ; preds = %8, %2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp ne i32 %27, 1
+  %or.cond10.not = select i1 %4, i1 true, i1 %28
+  br i1 %or.cond10.not, label %._crit_edge, label %30
 
-26:                                               ; preds = %9, %5
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, 1
-  br i1 %29, label %30, label %.thread
+._crit_edge:                                      ; preds = %25
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !83
+  %29 = icmp ne ptr %.pre, null
+  br label %104
 
-30:                                               ; preds = %26
-  %31 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ActivationLayerE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v202412239ReLULayerE, i64 0) #24, !noalias !83
+30:                                               ; preds = %25
+  %31 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN2cv3dnn14dnn4_v2024122315ActivationLayerE, ptr nonnull @_ZTIN2cv3dnn14dnn4_v202412239ReLULayerE, i64 0) #24, !noalias !84
   %.not.not.i.i = icmp eq ptr %31, null
   br i1 %.not.not.i.i, label %_ZNK2cv3PtrINS_3dnn14dnn4_v2024122315ActivationLayerEE11dynamicCastINS2_9ReLULayerEEENS0_IT_EEv.exit, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !11, !noalias !83
+  %34 = load ptr, ptr %33, align 8, !tbaa !11, !noalias !84
   %.not.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i, label %_ZNK2cv3PtrINS_3dnn14dnn4_v2024122315ActivationLayerEE11dynamicCastINS2_9ReLULayerEEENS0_IT_EEv.exit, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %37 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28, !noalias !83
+  %37 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28, !noalias !84
   %.not.i.i.i.i.i.i = icmp eq i8 %37, 0
   br i1 %.not.i.i.i.i.i.i, label %41, label %38
 
 38:                                               ; preds = %35
-  %39 = load i32, ptr %36, align 4, !tbaa !67, !noalias !83
+  %39 = load i32, ptr %36, align 4, !tbaa !67, !noalias !84
   %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %36, align 4, !tbaa !67, !noalias !83
+  store i32 %40, ptr %36, align 4, !tbaa !67, !noalias !84
   br label %_ZNK2cv3PtrINS_3dnn14dnn4_v2024122315ActivationLayerEE11dynamicCastINS2_9ReLULayerEEENS0_IT_EEv.exit
 
 41:                                               ; preds = %35
-  %42 = atomicrmw volatile add ptr %36, i32 1 acq_rel, align 4, !noalias !83
+  %42 = atomicrmw volatile add ptr %36, i32 1 acq_rel, align 4, !noalias !84
   br label %_ZNK2cv3PtrINS_3dnn14dnn4_v2024122315ActivationLayerEE11dynamicCastINS2_9ReLULayerEEENS0_IT_EEv.exit
 
 _ZNK2cv3PtrINS_3dnn14dnn4_v2024122315ActivationLayerEE11dynamicCastINS2_9ReLULayerEEENS0_IT_EEv.exit: ; preds = %30, %32, %38, %41
   %.sroa.6.0.i = phi ptr [ null, %32 ], [ %34, %41 ], [ %34, %38 ], [ null, %30 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store ptr %31, ptr %43, align 8, !tbaa !88
+  store ptr %31, ptr %43, align 8, !tbaa !83
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %45 = load ptr, ptr %44, align 8, !tbaa !11
   %.not.i.i.i.i = icmp eq ptr %.sroa.6.0.i, %45
@@ -1260,8 +1265,8 @@ _ZNK2cv3PtrINS_3dnn14dnn4_v2024122315ActivationLayerEE11dynamicCastINS2_9ReLULay
 47:                                               ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.i, i64 8
   %49 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %.not.i.i.i.i.i8 = icmp eq i8 %49, 0
-  br i1 %.not.i.i.i.i.i8, label %53, label %50
+  %.not.i.i.i.i.i11 = icmp eq i8 %49, 0
+  br i1 %.not.i.i.i.i.i11, label %53, label %50
 
 50:                                               ; preds = %47
   %51 = load i32, ptr %48, align 4, !tbaa !67
@@ -1376,28 +1381,25 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %94, %92
   br label %_ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412239ReLULayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412239ReLULayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN2cv3PtrINS_3dnn14dnn4_v202412239ReLULayerEEaSERKS4_.exit, %82, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %97
-  %98 = load ptr, ptr %43, align 8, !tbaa !88
+  %98 = load ptr, ptr %43, align 8, !tbaa !83
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %.thread, label %100
+  br i1 %99, label %104, label %100
 
 100:                                              ; preds = %_ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412239ReLULayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 100
   %102 = load float, ptr %101, align 4, !tbaa !89
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store float %102, ptr %103, align 8, !tbaa !65
-  br label %.thread
+  br label %104
 
-.thread:                                          ; preds = %2, %_ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412239ReLULayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %100, %26
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %105 = load ptr, ptr %104, align 8, !tbaa !88
-  %106 = icmp ne ptr %105, null
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  %108 = zext i1 %106 to i8
-  store i8 %108, ptr %107, align 4, !tbaa !64
-  br label %109
+104:                                              ; preds = %._crit_edge, %_ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412239ReLULayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %100
+  %105 = phi i1 [ %29, %._crit_edge ], [ false, %_ZNSt12__shared_ptrIN2cv3dnn14dnn4_v202412239ReLULayerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ true, %100 ]
+  %106 = zext i1 %105 to i8
+  store i8 %106, ptr %5, align 4, !tbaa !64
+  br label %107
 
-109:                                              ; preds = %.thread, %23
-  %.0 = phi i1 [ %106, %.thread ], [ %24, %23 ]
+107:                                              ; preds = %104, %22
+  %.0 = phi i1 [ %105, %104 ], [ %23, %22 ]
   ret i1 %.0
 }
 
@@ -2508,12 +2510,12 @@ attributes #27 = { noreturn nounwind }
 !80 = !{!81, !82, i64 0}
 !81 = !{!"_ZTSSt12__shared_ptrIN2cv3dnn14dnn4_v2024122315ActivationLayerELN9__gnu_cxx12_Lock_policyE2EE", !82, i64 0, !9, i64 8}
 !82 = !{!"p1 _ZTSN2cv3dnn14dnn4_v2024122315ActivationLayerE", !6, i64 0}
-!83 = !{!84, !86}
-!84 = distinct !{!84, !85, !"_ZSt20dynamic_pointer_castIN2cv3dnn14dnn4_v202412239ReLULayerENS2_15ActivationLayerEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!85 = distinct !{!85, !"_ZSt20dynamic_pointer_castIN2cv3dnn14dnn4_v202412239ReLULayerENS2_15ActivationLayerEESt10shared_ptrIT_ERKS5_IT0_E"}
-!86 = distinct !{!86, !87, !"_ZNK2cv3PtrINS_3dnn14dnn4_v2024122315ActivationLayerEE11dynamicCastINS2_9ReLULayerEEENS0_IT_EEv: argument 0"}
-!87 = distinct !{!87, !"_ZNK2cv3PtrINS_3dnn14dnn4_v2024122315ActivationLayerEE11dynamicCastINS2_9ReLULayerEEENS0_IT_EEv"}
-!88 = !{!62, !63, i64 0}
+!83 = !{!62, !63, i64 0}
+!84 = !{!85, !87}
+!85 = distinct !{!85, !86, !"_ZSt20dynamic_pointer_castIN2cv3dnn14dnn4_v202412239ReLULayerENS2_15ActivationLayerEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!86 = distinct !{!86, !"_ZSt20dynamic_pointer_castIN2cv3dnn14dnn4_v202412239ReLULayerENS2_15ActivationLayerEESt10shared_ptrIT_ERKS5_IT0_E"}
+!87 = distinct !{!87, !88, !"_ZNK2cv3PtrINS_3dnn14dnn4_v2024122315ActivationLayerEE11dynamicCastINS2_9ReLULayerEEENS0_IT_EEv: argument 0"}
+!88 = distinct !{!88, !"_ZNK2cv3PtrINS_3dnn14dnn4_v2024122315ActivationLayerEE11dynamicCastINS2_9ReLULayerEEENS0_IT_EEv"}
 !89 = !{!90, !47, i64 100}
 !90 = !{!"_ZTSN2cv3dnn14dnn4_v202412239ReLULayerE", !91, i64 0, !47, i64 100}
 !91 = !{!"_ZTSN2cv3dnn14dnn4_v2024122315ActivationLayerE", !40, i64 0}

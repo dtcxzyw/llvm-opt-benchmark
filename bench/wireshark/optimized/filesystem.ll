@@ -1716,15 +1716,13 @@ define range(i32 -1, 1) i32 @copy_persconffile_profile(ptr noundef %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
   %12 = tail call ptr @get_profile_dir(ptr noundef %1, i1 noundef zeroext %2)
   %13 = load ptr, ptr @profile_files, align 8
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %17, label %14
-
-14:                                               ; preds = %6
-  %15 = load i8, ptr @do_store_persconffiles, align 1, !range !13, !noundef !14
+  %14 = icmp eq ptr %13, null
+  %15 = load i8, ptr @do_store_persconffiles, align 1, !range !13
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %36
+  %or.cond = select i1 %14, i1 true, i1 %16
+  br i1 %or.cond, label %17, label %36
 
-17:                                               ; preds = %14, %6
+17:                                               ; preds = %6
   %18 = tail call ptr @g_dir_open(ptr noundef %12, i32 noundef 0, ptr noundef null)
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %copy_directory.exit.thread, label %.preheader.i
@@ -1775,11 +1773,11 @@ test_for_directory.exit.thread.i:                 ; preds = %34, %test_for_direc
   %.not18.i = icmp eq ptr %35, null
   br i1 %.not18.i, label %copy_directory.exit.thread41, label %21, !llvm.loop !17
 
-36:                                               ; preds = %14
+36:                                               ; preds = %6
   call void @g_hash_table_iter_init(ptr noundef nonnull %9, ptr noundef nonnull %13)
   %37 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null)
-  %.not2751 = icmp eq i32 %37, 0
-  br i1 %.not2751, label %copy_directory.exit.thread, label %.lr.ph
+  %.not51 = icmp eq i32 %37, 0
+  br i1 %.not51, label %copy_directory.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -1824,8 +1822,8 @@ copy_directory.exit.thread36:                     ; preds = %48
   call void @g_free(ptr noundef %42)
   call void @g_free(ptr noundef %41)
   %52 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null)
-  %.not27 = icmp eq i32 %52, 0
-  br i1 %.not27, label %copy_directory.exit.thread, label %39, !llvm.loop !18
+  %.not = icmp eq i32 %52, 0
+  br i1 %.not, label %copy_directory.exit.thread, label %39, !llvm.loop !18
 
 copy_directory.exit.thread41:                     ; preds = %test_for_directory.exit.thread.i, %.preheader.i
   tail call void @g_dir_close(ptr noundef nonnull %18)

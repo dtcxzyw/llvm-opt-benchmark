@@ -1308,9 +1308,9 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
 
 762:                                              ; preds = %741
   %763 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val58.i.i.i.i, i64 %425
-  %.val27.i.i.i.i.i = load float, ptr %763, align 4, !tbaa !24
+  %.val28.i.i.i.i.i = load float, ptr %763, align 4, !tbaa !24
   %764 = fpext float %751 to double
-  %765 = fpext float %.val27.i.i.i.i.i to double
+  %765 = fpext float %.val28.i.i.i.i.i to double
   %766 = fsub double %764, %765
   %767 = call noundef double @llvm.fabs.f64(double %766)
   %768 = call noundef double @llvm.fabs.f64(double %764)
@@ -1321,13 +1321,13 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
   %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %771, double %769, double %.sroa.speculated2.i.i.i.i.i80.i.i.i
   %772 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i, 1.000000e-05
   %773 = fcmp ugt double %767, %772
-  br i1 %773, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.i.i.i.i.i, label %774
+  br i1 %773, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i, label %774
 
 774:                                              ; preds = %762
   %775 = getelementptr i8, ptr %763, i64 4
-  %.val28.i.i.i.i.i = load float, ptr %775, align 4
+  %.val29.i.i.i.i.i = load float, ptr %775, align 4
   %776 = fpext float %753 to double
-  %777 = fpext float %.val28.i.i.i.i.i to double
+  %777 = fpext float %.val29.i.i.i.i.i to double
   %778 = fsub double %776, %777
   %779 = call noundef double @llvm.fabs.f64(double %778)
   %780 = call noundef double @llvm.fabs.f64(double %776)
@@ -1338,7 +1338,7 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
   %.sroa.speculated.i.i5.i.i.i.i.i.i = select i1 %783, double %781, double %.sroa.speculated2.i.i4.i.i.i.i.i.i
   %784 = fmul double %.sroa.speculated.i.i5.i.i.i.i.i.i, 1.000000e-05
   %785 = fcmp ole double %779, %784
-  br label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.i.i.i.i.i
+  br label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i
 
 _ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i.i: ; preds = %741
   %786 = fsub float %751, %.sroa.0147.0.i.i.i
@@ -1366,49 +1366,49 @@ _ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i.i: 
   %805 = call noundef double @llvm.fabs.f64(double %802)
   %806 = call noundef double @llvm.fabs.f64(double %sqrt.i21.i.i.i.i.i.i)
   %807 = fcmp ogt double %805, 1.000000e+00
-  %.sroa.speculated2.i.i.i63.i.i.i.i.i = select i1 %807, double %805, double 1.000000e+00
-  %808 = fcmp olt double %.sroa.speculated2.i.i.i63.i.i.i.i.i, %806
-  %.sroa.speculated.i.i.i64.i.i.i.i.i = select i1 %808, double %806, double %.sroa.speculated2.i.i.i63.i.i.i.i.i
-  %809 = fmul double %.sroa.speculated.i.i.i64.i.i.i.i.i, 1.000000e-05
+  %.sroa.speculated2.i.i.i64.i.i.i.i.i = select i1 %807, double %805, double 1.000000e+00
+  %808 = fcmp olt double %.sroa.speculated2.i.i.i64.i.i.i.i.i, %806
+  %.sroa.speculated.i.i.i65.i.i.i.i.i = select i1 %808, double %806, double %.sroa.speculated2.i.i.i64.i.i.i.i.i
+  %809 = fmul double %.sroa.speculated.i.i.i65.i.i.i.i.i, 1.000000e-05
   %810 = fcmp ole double %804, %809
-  br i1 %679, label %811, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.i.i.i.i.i
+  br i1 %679, label %811, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i
 
 811:                                              ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i.i
   %812 = zext i32 %.0..0..i.i.i to i64
   %813 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val58.i.i.i.i, i64 %812
-  %.val23.i.i78.i.i.i = load float, ptr %813, align 4, !tbaa !24
+  %.val24.i.i.i.i.i = load float, ptr %813, align 4, !tbaa !24
   %814 = fpext float %755 to double
-  %815 = fpext float %.val23.i.i78.i.i.i to double
+  %815 = fpext float %.val24.i.i.i.i.i to double
   %816 = fsub double %814, %815
   %817 = call noundef double @llvm.fabs.f64(double %816)
   %818 = call noundef double @llvm.fabs.f64(double %814)
   %819 = call noundef double @llvm.fabs.f64(double %815)
   %820 = fcmp ogt double %818, 1.000000e+00
-  %.sroa.speculated2.i.i.i65.i.i.i.i.i = select i1 %820, double %818, double 1.000000e+00
-  %821 = fcmp olt double %.sroa.speculated2.i.i.i65.i.i.i.i.i, %819
-  %.sroa.speculated.i.i.i66.i.i.i.i.i = select i1 %821, double %819, double %.sroa.speculated2.i.i.i65.i.i.i.i.i
-  %822 = fmul double %.sroa.speculated.i.i.i66.i.i.i.i.i, 1.000000e-05
+  %.sroa.speculated2.i.i.i66.i.i.i.i.i = select i1 %820, double %818, double 1.000000e+00
+  %821 = fcmp olt double %.sroa.speculated2.i.i.i66.i.i.i.i.i, %819
+  %.sroa.speculated.i.i.i67.i.i.i.i.i = select i1 %821, double %819, double %.sroa.speculated2.i.i.i66.i.i.i.i.i
+  %822 = fmul double %.sroa.speculated.i.i.i67.i.i.i.i.i, 1.000000e-05
   %823 = fcmp ugt double %817, %822
-  br i1 %823, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.thread.i.i.i.i.i, label %824
+  br i1 %823, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.thread.i.i.i.i.i, label %824
 
 824:                                              ; preds = %811
   %825 = getelementptr i8, ptr %813, i64 4
-  %.val24.i.i.i.i.i = load float, ptr %825, align 4
+  %.val25.i.i78.i.i.i = load float, ptr %825, align 4
   %826 = fpext float %757 to double
-  %827 = fpext float %.val24.i.i.i.i.i to double
+  %827 = fpext float %.val25.i.i78.i.i.i to double
   %828 = fsub double %826, %827
   %829 = call noundef double @llvm.fabs.f64(double %828)
   %830 = call noundef double @llvm.fabs.f64(double %826)
   %831 = call noundef double @llvm.fabs.f64(double %827)
   %832 = fcmp ogt double %830, 1.000000e+00
-  %.sroa.speculated2.i.i4.i67.i.i.i.i.i = select i1 %832, double %830, double 1.000000e+00
-  %833 = fcmp olt double %.sroa.speculated2.i.i4.i67.i.i.i.i.i, %831
-  %.sroa.speculated.i.i5.i68.i.i.i.i.i = select i1 %833, double %831, double %.sroa.speculated2.i.i4.i67.i.i.i.i.i
-  %834 = fmul double %.sroa.speculated.i.i5.i68.i.i.i.i.i, 1.000000e-05
+  %.sroa.speculated2.i.i4.i68.i.i.i.i.i = select i1 %832, double %830, double 1.000000e+00
+  %833 = fcmp olt double %.sroa.speculated2.i.i4.i68.i.i.i.i.i, %831
+  %.sroa.speculated.i.i5.i69.i.i.i.i.i = select i1 %833, double %831, double %.sroa.speculated2.i.i4.i68.i.i.i.i.i
+  %834 = fmul double %.sroa.speculated.i.i5.i69.i.i.i.i.i, 1.000000e-05
   %835 = fcmp ole double %829, %834
-  br label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.thread.i.i.i.i.i
+  br label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.thread.i.i.i.i.i
 
-_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.i.i.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i.i, %774, %762
+_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i.i, %774, %762
   %836 = phi i1 [ %810, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i.i ], [ %785, %774 ], [ false, %762 ]
   %837 = fsub float %755, %.val32.i.i.i.i
   %838 = fpext float %837 to double
@@ -1416,74 +1416,73 @@ _ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.i.i.i.i.i
   %840 = fpext float %839 to double
   %841 = fmul double %840, %840
   %842 = call double @llvm.fmuladd.f64(double %838, double %838, double %841)
-  %sqrt.i.i70.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %842)
+  %sqrt.i.i71.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %842)
   %843 = fsub float %755, %.val34.i.i.i.i
   %844 = fpext float %843 to double
   %845 = fsub float %757, %.val35.i65.i.i.i
   %846 = fpext float %845 to double
   %847 = fmul double %846, %846
   %848 = call double @llvm.fmuladd.f64(double %844, double %844, double %847)
-  %sqrt.i20.i71.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %848)
+  %sqrt.i20.i72.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %848)
   %849 = fsub float %.val33.i.i.i.i, %.val35.i65.i.i.i
   %850 = fpext float %849 to double
   %851 = fmul double %850, %850
   %852 = call double @llvm.fmuladd.f64(double %.pre-phi266.i.i.i, double %.pre-phi266.i.i.i, double %851)
-  %sqrt.i21.i72.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %852)
-  %853 = fadd double %sqrt.i.i70.i.i.i.i.i, %sqrt.i20.i71.i.i.i.i.i
-  %854 = fsub double %853, %sqrt.i21.i72.i.i.i.i.i
+  %sqrt.i21.i73.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %852)
+  %853 = fadd double %sqrt.i.i71.i.i.i.i.i, %sqrt.i20.i72.i.i.i.i.i
+  %854 = fsub double %853, %sqrt.i21.i73.i.i.i.i.i
   %855 = call noundef double @llvm.fabs.f64(double %854)
   %856 = call noundef double @llvm.fabs.f64(double %853)
-  %857 = call noundef double @llvm.fabs.f64(double %sqrt.i21.i72.i.i.i.i.i)
+  %857 = call noundef double @llvm.fabs.f64(double %sqrt.i21.i73.i.i.i.i.i)
   %858 = fcmp ogt double %856, 1.000000e+00
-  %.sroa.speculated2.i.i.i73.i.i.i.i.i = select i1 %858, double %856, double 1.000000e+00
-  %859 = fcmp olt double %.sroa.speculated2.i.i.i73.i.i.i.i.i, %857
-  %.sroa.speculated.i.i.i74.i.i.i.i.i = select i1 %859, double %857, double %.sroa.speculated2.i.i.i73.i.i.i.i.i
-  %860 = fmul double %.sroa.speculated.i.i.i74.i.i.i.i.i, 1.000000e-05
+  %.sroa.speculated2.i.i.i74.i.i.i.i.i = select i1 %858, double %856, double 1.000000e+00
+  %859 = fcmp olt double %.sroa.speculated2.i.i.i74.i.i.i.i.i, %857
+  %.sroa.speculated.i.i.i75.i.i.i.i.i = select i1 %859, double %857, double %.sroa.speculated2.i.i.i74.i.i.i.i.i
+  %860 = fmul double %.sroa.speculated.i.i.i75.i.i.i.i.i, 1.000000e-05
   %861 = fcmp ole double %855, %860
-  br i1 %680, label %889, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.thread.i.i.i.i.i
+  br i1 %680, label %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.thread.i.i.i.i.i
 
-_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.thread.i.i.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.i.i.i.i.i, %824, %811
-  %862 = phi i1 [ %861, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.i.i.i.i.i ], [ %835, %824 ], [ false, %811 ]
-  %863 = phi i1 [ %836, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.i.i.i.i.i ], [ %810, %824 ], [ %810, %811 ]
+_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.thread.i.i.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i, %824, %811
+  %862 = phi i1 [ %861, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i ], [ %835, %824 ], [ false, %811 ]
+  %863 = phi i1 [ %836, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i ], [ %810, %824 ], [ %810, %811 ]
   %864 = fsub float %759, %433
   %865 = fpext float %864 to double
   %866 = fsub float %761, %436
   %867 = fpext float %866 to double
   %868 = fmul double %867, %867
   %869 = call double @llvm.fmuladd.f64(double %865, double %865, double %868)
-  %sqrt.i.i75.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %869)
+  %sqrt.i.i76.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %869)
   %870 = fsub float %759, %438
   %871 = fpext float %870 to double
   %872 = fsub float %761, %441
   %873 = fpext float %872 to double
   %874 = fmul double %873, %873
   %875 = call double @llvm.fmuladd.f64(double %871, double %871, double %874)
-  %sqrt.i20.i76.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %875)
+  %sqrt.i20.i77.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %875)
   %876 = fsub float %436, %441
   %877 = fpext float %876 to double
   %878 = fmul double %877, %877
   %879 = call double @llvm.fmuladd.f64(double %713, double %713, double %878)
-  %sqrt.i21.i77.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %879)
-  %880 = fadd double %sqrt.i.i75.i.i.i.i.i, %sqrt.i20.i76.i.i.i.i.i
-  %881 = fsub double %880, %sqrt.i21.i77.i.i.i.i.i
+  %sqrt.i21.i78.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %879)
+  %880 = fadd double %sqrt.i.i76.i.i.i.i.i, %sqrt.i20.i77.i.i.i.i.i
+  %881 = fsub double %880, %sqrt.i21.i78.i.i.i.i.i
   %882 = call noundef double @llvm.fabs.f64(double %881)
   %883 = call noundef double @llvm.fabs.f64(double %880)
-  %884 = call noundef double @llvm.fabs.f64(double %sqrt.i21.i77.i.i.i.i.i)
+  %884 = call noundef double @llvm.fabs.f64(double %sqrt.i21.i78.i.i.i.i.i)
   %885 = fcmp ogt double %883, 1.000000e+00
-  %.sroa.speculated2.i.i.i78.i.i.i.i.i = select i1 %885, double %883, double 1.000000e+00
-  %886 = fcmp olt double %.sroa.speculated2.i.i.i78.i.i.i.i.i, %884
-  %.sroa.speculated.i.i.i79.i.i.i.i.i = select i1 %886, double %884, double %.sroa.speculated2.i.i.i78.i.i.i.i.i
-  %887 = fmul double %.sroa.speculated.i.i.i79.i.i.i.i.i, 1.000000e-05
+  %.sroa.speculated2.i.i.i79.i.i.i.i.i = select i1 %885, double %883, double 1.000000e+00
+  %886 = fcmp olt double %.sroa.speculated2.i.i.i79.i.i.i.i.i, %884
+  %.sroa.speculated.i.i.i80.i.i.i.i.i = select i1 %886, double %884, double %.sroa.speculated2.i.i.i79.i.i.i.i.i
+  %887 = fmul double %.sroa.speculated.i.i.i80.i.i.i.i.i, 1.000000e-05
   %888 = fcmp ole double %882, %887
-  br i1 %863, label %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i, label %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i
+  br label %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i
 
-889:                                              ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.i.i.i.i.i
-  br i1 %836, label %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i, label %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i
-
-_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i: ; preds = %889, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.thread.i.i.i.i.i
-  %890 = phi i1 [ %888, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.thread.i.i.i.i.i ], [ true, %889 ]
-  %891 = phi i1 [ %862, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.thread.i.i.i.i.i ], [ %861, %889 ]
-  %spec.select.i.i.i.i.i = and i1 %890, %891
+_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.thread.i.i.i.i.i, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i
+  %889 = phi i1 [ %861, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i ], [ %862, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.thread.i.i.i.i.i ]
+  %890 = phi i1 [ %836, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i ], [ %863, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.thread.i.i.i.i.i ]
+  %891 = phi i1 [ true, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i ], [ %888, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.thread.i.i.i.i.i ]
+  %or.cond.i.i.i.i.i = and i1 %889, %890
+  %spec.select.i.i.i.i.i = and i1 %or.cond.i.i.i.i.i, %891
   br i1 %spec.select.i.i.i.i.i, label %892, label %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i
 
 892:                                              ; preds = %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i
@@ -1668,11 +1667,11 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i: ; preds = %
   %.sroa.17.9.i = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i43.i.i.i.pn.i, i64 8
   br label %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i
 
-_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i, %892, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i, %889, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.thread.i.i.i.i.i, %720, %692, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i
-  %.2 = phi double [ %903, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i ], [ %.1, %892 ], [ %.1, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i ], [ %.1, %889 ], [ %.1, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.thread.i.i.i.i.i ], [ %.1, %720 ], [ %.1, %692 ], [ %.1, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i ]
-  %.sroa.0.6.i = phi ptr [ %.sroa.0.10.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i ], [ %.sroa.0.5.i, %892 ], [ %.sroa.0.5.i, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i ], [ %.sroa.0.5.i, %889 ], [ %.sroa.0.5.i, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.thread.i.i.i.i.i ], [ %.sroa.0.5.i, %720 ], [ %.sroa.0.5.i, %692 ], [ %.sroa.0.5.i, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i ]
-  %.sroa.17.4.i = phi ptr [ %.sroa.17.9.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i ], [ %.sroa.17.3.i, %892 ], [ %.sroa.17.3.i, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i ], [ %.sroa.17.3.i, %889 ], [ %.sroa.17.3.i, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.thread.i.i.i.i.i ], [ %.sroa.17.3.i, %720 ], [ %.sroa.17.3.i, %692 ], [ %.sroa.17.3.i, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i ]
-  %.sroa.34.3.i = phi ptr [ %.sroa.34.6.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i ], [ %.sroa.34.2.i, %892 ], [ %.sroa.34.2.i, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i ], [ %.sroa.34.2.i, %889 ], [ %.sroa.34.2.i, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit69.thread.i.i.i.i.i ], [ %.sroa.34.2.i, %720 ], [ %.sroa.34.2.i, %692 ], [ %.sroa.34.2.i, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i ]
+_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i, %892, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i, %720, %692, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i
+  %.2 = phi double [ %903, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i ], [ %.1, %892 ], [ %.1, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i ], [ %.1, %720 ], [ %.1, %692 ], [ %.1, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i ]
+  %.sroa.0.6.i = phi ptr [ %.sroa.0.10.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i ], [ %.sroa.0.5.i, %892 ], [ %.sroa.0.5.i, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i ], [ %.sroa.0.5.i, %720 ], [ %.sroa.0.5.i, %692 ], [ %.sroa.0.5.i, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i ]
+  %.sroa.17.4.i = phi ptr [ %.sroa.17.9.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i ], [ %.sroa.17.3.i, %892 ], [ %.sroa.17.3.i, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i ], [ %.sroa.17.3.i, %720 ], [ %.sroa.17.3.i, %692 ], [ %.sroa.17.3.i, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i ]
+  %.sroa.34.3.i = phi ptr [ %.sroa.34.6.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i ], [ %.sroa.34.2.i, %892 ], [ %.sroa.34.2.i, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i ], [ %.sroa.34.2.i, %720 ], [ %.sroa.34.2.i, %692 ], [ %.sroa.34.2.i, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i ]
   br i1 %134, label %_ZN20minEnclosingTriangleL32findMinimumAreaEnclosingTriangleERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_Rd.exit.i.i, label %79, !llvm.loop !45
 
 _ZN20minEnclosingTriangleL32findMinimumAreaEnclosingTriangleERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_Rd.exit.i.i: ; preds = %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i, %65

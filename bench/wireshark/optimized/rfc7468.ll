@@ -155,8 +155,8 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 131, ptr nonnull %5) #6
   %8 = call ptr @file_getsp(ptr noundef nonnull %5, i32 noundef 131, ptr noundef %0)
-  %.not.i44 = icmp eq ptr %8, null
-  br i1 %.not.i44, label %._crit_edge, label %.lr.ph
+  %.not.i45 = icmp eq ptr %8, null
+  br i1 %.not.i45, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %9 = ptrtoint ptr %5 to i64
@@ -164,14 +164,14 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
   br label %12
 
 ._crit_edge:                                      ; preds = %47, %4
-  %.019.lcssa = phi i8 [ 0, %4 ], [ %.1, %47 ]
+  %.020.lcssa = phi i8 [ 0, %4 ], [ %.1, %47 ]
   %11 = call i32 @file_error(ptr noundef %0, ptr noundef %3)
   store i32 %11, ptr %2, align 4
   br label %35
 
 12:                                               ; preds = %.lr.ph, %47
   %13 = phi ptr [ %8, %.lr.ph ], [ %48, %47 ]
-  %.01945 = phi i8 [ 0, %.lr.ph ], [ %.1, %47 ]
+  %.02046 = phi i8 [ 0, %.lr.ph ], [ %.1, %47 ]
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %5, ptr noundef nonnull dereferenceable(11) @PREEB_BEGIN, i64 11)
   %14 = icmp eq i32 %bcmp.i, 0
   br i1 %14, label %17, label %15
@@ -201,7 +201,7 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
   store i32 -13, ptr %2, align 4
   %24 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.2, i32 noundef 2147483647)
   store ptr %24, ptr %3, align 8
-  %.pr = load i32, ptr %2, align 4
+  %.pre = load i32, ptr %2, align 4
   br label %35
 
 25:                                               ; preds = %18
@@ -227,17 +227,15 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
   br label %35
 
 35:                                               ; preds = %._crit_edge, %23, %33
-  %.01943 = phi i8 [ %.019.lcssa, %._crit_edge ], [ %.01945, %23 ], [ %.01945, %33 ]
-  %36 = phi i32 [ %11, %._crit_edge ], [ %.pr, %23 ], [ %34, %33 ]
+  %36 = phi i32 [ %11, %._crit_edge ], [ %.pre, %23 ], [ %34, %33 ]
+  %.02044 = phi i8 [ %.020.lcssa, %._crit_edge ], [ %.02046, %23 ], [ %.02046, %33 ]
   call void @llvm.lifetime.end.p0(i64 131, ptr nonnull %5) #6
-  %.not = icmp eq i32 %36, 0
-  br i1 %.not, label %37, label %.thread
+  %37 = icmp eq i32 %36, 0
+  %38 = trunc nuw i8 %.02044 to i1
+  %or.cond = select i1 %37, i1 %38, i1 false
+  br i1 %or.cond, label %39, label %.thread
 
-37:                                               ; preds = %35
-  %38 = trunc nuw i8 %.01943 to i1
-  br i1 %38, label %39, label %.thread
-
-39:                                               ; preds = %37
+39:                                               ; preds = %35
   store i32 -13, ptr %2, align 4
   %40 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.1)
   store ptr %40, ptr %3, align 8
@@ -245,7 +243,7 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
 
 41:                                               ; preds = %29, %25
   call void @llvm.lifetime.end.p0(i64 131, ptr nonnull %5) #6
-  %42 = trunc nuw i8 %.01945 to i1
+  %42 = trunc nuw i8 %.02046 to i1
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
@@ -254,7 +252,7 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
 
 45:                                               ; preds = %41
   %46 = icmp eq i32 %.sink.i, 0
-  %spec.select = select i1 %46, i8 1, i8 %.01945
+  %spec.select = select i1 %46, i8 1, i8 %.02046
   br label %47
 
 47:                                               ; preds = %43, %45
@@ -273,8 +271,8 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %52, align 8
   %.val = load i64, ptr %7, align 8
-  %.val24 = load i64, ptr %10, align 8
-  %53 = sub i64 %.val24, %.val
+  %.val25 = load i64, ptr %10, align 8
+  %53 = sub i64 %.val25, %.val
   %54 = trunc i64 %53 to i32
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %54, ptr %55, align 8
@@ -282,9 +280,9 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
   store i32 %54, ptr %56, align 4
   br label %.thread
 
-.thread:                                          ; preds = %35, %37, %39, %49
-  %.222 = phi i1 [ true, %49 ], [ false, %39 ], [ false, %37 ], [ false, %35 ]
-  ret i1 %.222
+.thread:                                          ; preds = %35, %39, %49
+  %.223 = phi i1 [ true, %49 ], [ false, %39 ], [ false, %35 ]
+  ret i1 %.223
 }
 
 ; Function Attrs: null_pointer_is_valid

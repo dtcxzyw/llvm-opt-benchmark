@@ -627,7 +627,7 @@ define void @lv_obj_refresh_style(ptr noundef %0, i32 noundef %1, i8 noundef zer
 6:                                                ; preds = %3
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 72), align 8, !tbaa !59, !range !60, !noundef !61
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %89
+  br i1 %8, label %9, label %86
 
 9:                                                ; preds = %6
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #9
@@ -640,10 +640,10 @@ define void @lv_obj_refresh_style(ptr noundef %0, i32 noundef %1, i8 noundef zer
   %16 = icmp ne i8 %15, 0
   %17 = tail call zeroext i8 @lv_style_prop_lookup_flags(i8 noundef zeroext %2) #9
   %18 = and i8 %17, 1
-  %.not61 = icmp eq i8 %18, 0
+  %.not68 = icmp eq i8 %18, 0
   %19 = tail call zeroext i8 @lv_style_prop_lookup_flags(i8 noundef zeroext %2) #9
   %20 = and i8 %19, 16
-  %.not62 = icmp eq i8 %20, 0
+  %.not69 = icmp eq i8 %20, 0
   br i1 %13, label %21, label %71
 
 21:                                               ; preds = %9
@@ -731,68 +731,68 @@ lv_obj_get_style_height.exit:                     ; preds = %get_selector_style_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   store i64 0, ptr %4, align 8
   %49 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %48, i8 noundef zeroext 1, ptr noundef nonnull %4)
-  %.not54.i.i45 = icmp eq i32 %49, 0
-  br i1 %.not54.i.i45, label %50, label %get_selector_style_prop.exit.i46
+  %.not54.i.i52 = icmp eq i32 %49, 0
+  br i1 %.not54.i.i52, label %50, label %get_selector_style_prop.exit.i53
 
 50:                                               ; preds = %46
-  %.037.in.i.i50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_style_builtin_prop_flag_lookup_table, i64 1), align 1, !tbaa !37
-  %51 = trunc i8 %.037.in.i.i50 to i1
-  br i1 %51, label %52, label %.thread.i.i51
+  %.037.in.i.i57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_style_builtin_prop_flag_lookup_table, i64 1), align 1, !tbaa !37
+  %51 = trunc i8 %.037.in.i.i57 to i1
+  br i1 %51, label %52, label %.thread.i.i58
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !63
-  %.not5261.i.i56 = icmp eq ptr %54, null
-  br i1 %.not5261.i.i56, label %.loopexit.i55, label %.lr.ph63.i.i57
+  %.not5261.i.i63 = icmp eq ptr %54, null
+  br i1 %.not5261.i.i63, label %.loopexit.i62, label %.lr.ph63.i.i64
 
-.lr.ph63.i.i57:                                   ; preds = %52, %59
-  %.14262.i.i58 = phi ptr [ %61, %59 ], [ %54, %52 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.14262.i.i58, i64 60
+.lr.ph63.i.i64:                                   ; preds = %52, %59
+  %.14262.i.i65 = phi ptr [ %61, %59 ], [ %54, %52 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.14262.i.i65, i64 60
   %56 = load i16, ptr %55, align 4, !tbaa !62
   %57 = zext i16 %56 to i32
-  %58 = call fastcc i32 @get_prop_core(ptr noundef %.14262.i.i58, i32 noundef %57, i8 noundef zeroext 1, ptr noundef nonnull %4)
-  %.not55.i.i59 = icmp eq i32 %58, 0
-  br i1 %.not55.i.i59, label %59, label %get_selector_style_prop.exit.i46
+  %58 = call fastcc i32 @get_prop_core(ptr noundef %.14262.i.i65, i32 noundef %57, i8 noundef zeroext 1, ptr noundef nonnull %4)
+  %.not55.i.i66 = icmp eq i32 %58, 0
+  br i1 %.not55.i.i66, label %59, label %get_selector_style_prop.exit.i53
 
-59:                                               ; preds = %.lr.ph63.i.i57
-  %60 = getelementptr inbounds nuw i8, ptr %.14262.i.i58, i64 8
+59:                                               ; preds = %.lr.ph63.i.i64
+  %60 = getelementptr inbounds nuw i8, ptr %.14262.i.i65, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !63
-  %.not52.i.i60 = icmp eq ptr %61, null
-  br i1 %.not52.i.i60, label %.loopexit.i55, label %.lr.ph63.i.i57, !llvm.loop !64
+  %.not52.i.i67 = icmp eq ptr %61, null
+  br i1 %.not52.i.i67, label %.loopexit.i62, label %.lr.ph63.i.i64, !llvm.loop !64
 
-.thread.i.i51:                                    ; preds = %50
-  %.058.i.i52 = load ptr, ptr %0, align 8, !tbaa !65
-  %.not4859.i.i53 = icmp eq ptr %.058.i.i52, null
-  br i1 %.not4859.i.i53, label %.loopexit.i55, label %.lr.ph.split.us.i.i
+.thread.i.i58:                                    ; preds = %50
+  %.058.i.i59 = load ptr, ptr %0, align 8, !tbaa !65
+  %.not4859.i.i60 = icmp eq ptr %.058.i.i59, null
+  br i1 %.not4859.i.i60, label %.loopexit.i62, label %.lr.ph.split.us.i.i
 
-.lr.ph.split.us.i.i:                              ; preds = %.thread.i.i51, %64
-  %.060.us.i.i = phi ptr [ %.0.us.i.i, %64 ], [ %.058.i.i52, %.thread.i.i51 ]
+.lr.ph.split.us.i.i:                              ; preds = %.thread.i.i58, %64
+  %.060.us.i.i = phi ptr [ %.0.us.i.i, %64 ], [ %.058.i.i59, %.thread.i.i58 ]
   %62 = getelementptr inbounds nuw i8, ptr %.060.us.i.i, i64 48
   %63 = load i32, ptr %62, align 8, !tbaa !69
   %.not50.us.i.i = icmp eq i32 %63, 0
-  br i1 %.not50.us.i.i, label %64, label %.critedge.sink.split.i.i54
+  br i1 %.not50.us.i.i, label %64, label %.critedge.sink.split.i.i61
 
 64:                                               ; preds = %.lr.ph.split.us.i.i
   %.0.us.i.i = load ptr, ptr %.060.us.i.i, align 8, !tbaa !65
   %.not48.us.i.i = icmp eq ptr %.0.us.i.i, null
-  br i1 %.not48.us.i.i, label %.loopexit.i55, label %.lr.ph.split.us.i.i, !llvm.loop !68
+  br i1 %.not48.us.i.i, label %.loopexit.i62, label %.lr.ph.split.us.i.i, !llvm.loop !68
 
-.critedge.sink.split.i.i54:                       ; preds = %.lr.ph.split.us.i.i
+.critedge.sink.split.i.i61:                       ; preds = %.lr.ph.split.us.i.i
   store i32 %63, ptr %4, align 8, !tbaa !37
-  br label %get_selector_style_prop.exit.i46
+  br label %get_selector_style_prop.exit.i53
 
-get_selector_style_prop.exit.i46:                 ; preds = %.lr.ph63.i.i57, %.critedge.sink.split.i.i54, %46
-  %.sroa.0.0.copyload.i.i47 = load ptr, ptr %4, align 8, !tbaa !37
+get_selector_style_prop.exit.i53:                 ; preds = %.lr.ph63.i.i64, %.critedge.sink.split.i.i61, %46
+  %.sroa.0.0.copyload.i.i54 = load ptr, ptr %4, align 8, !tbaa !37
   br label %lv_obj_get_style_width.exit
 
-.loopexit.i55:                                    ; preds = %64, %59, %.thread.i.i51, %52
+.loopexit.i62:                                    ; preds = %64, %59, %.thread.i.i58, %52
   %65 = tail call ptr @lv_style_prop_get_default(i8 noundef zeroext 1) #9
   br label %lv_obj_get_style_width.exit
 
-lv_obj_get_style_width.exit:                      ; preds = %get_selector_style_prop.exit.i46, %.loopexit.i55
-  %.sroa.0.0.i.i48 = phi ptr [ %.sroa.0.0.copyload.i.i47, %get_selector_style_prop.exit.i46 ], [ %65, %.loopexit.i55 ]
+lv_obj_get_style_width.exit:                      ; preds = %get_selector_style_prop.exit.i53, %.loopexit.i62
+  %.sroa.0.0.i.i55 = phi ptr [ %.sroa.0.0.copyload.i.i54, %get_selector_style_prop.exit.i53 ], [ %65, %.loopexit.i62 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  %66 = ptrtoint ptr %.sroa.0.0.i.i48 to i64
+  %66 = ptrtoint ptr %.sroa.0.0.i.i55 to i64
   %67 = and i64 %66, 4294967295
   %68 = icmp eq i64 %67, 1073741823
   br i1 %68, label %69, label %71
@@ -803,72 +803,64 @@ lv_obj_get_style_width.exit:                      ; preds = %get_selector_style_
   br label %71
 
 71:                                               ; preds = %lv_obj_get_style_width.exit, %69, %9
-  switch i32 %10, label %80 [
+  switch i32 %10, label %.critedge [
     i32 983040, label %72
     i32 0, label %72
   ]
 
 72:                                               ; preds = %71, %71
   %73 = icmp eq i8 %2, -1
-  %brmerge = select i1 %73, i1 true, i1 %13
-  br i1 %brmerge, label %74, label %77
+  %or.cond5 = select i1 %73, i1 true, i1 %13
+  br i1 %or.cond5, label %74, label %77
 
 74:                                               ; preds = %72
   %75 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %0) #9
-  %.not43 = icmp eq ptr %75, null
-  br i1 %.not43, label %77, label %76
+  %.not51 = icmp eq ptr %75, null
+  br i1 %.not51, label %77, label %76
 
 76:                                               ; preds = %74
   tail call void @lv_obj_mark_layout_as_dirty(ptr noundef nonnull %75) #9
   br label %77
 
 77:                                               ; preds = %74, %76, %72
-  switch i32 %10, label %80 [
-    i32 983040, label %78
-    i32 0, label %78
-  ]
+  br i1 %.not69, label %.critedge, label %78
 
-78:                                               ; preds = %77, %77
-  br i1 %.not62, label %80, label %79
-
-79:                                               ; preds = %78
+78:                                               ; preds = %77
   tail call void @lv_obj_update_layer_type(ptr noundef nonnull %0)
-  br label %80
+  br label %.critedge
 
-80:                                               ; preds = %71, %77, %79, %78
-  %81 = icmp eq i8 %2, -1
-  %brmerge44 = select i1 %81, i1 true, i1 %16
-  br i1 %brmerge44, label %82, label %.thread
+.critedge:                                        ; preds = %71, %77, %78
+  %79 = icmp eq i8 %2, -1
+  %or.cond11 = select i1 %79, i1 true, i1 %16
+  br i1 %or.cond11, label %80, label %.thread
 
-.thread:                                          ; preds = %80
+.thread:                                          ; preds = %.critedge
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #9
-  br label %83
+  br label %81
 
-82:                                               ; preds = %80
+80:                                               ; preds = %.critedge
   tail call void @lv_obj_refresh_ext_draw_size(ptr noundef nonnull %0) #9
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #9
-  br i1 %81, label %87, label %83
+  br i1 %79, label %84, label %81
 
-83:                                               ; preds = %.thread, %82
-  br i1 %.not61, label %89, label %84
+81:                                               ; preds = %.thread, %80
+  br i1 %.not68, label %86, label %82
 
-84:                                               ; preds = %83
-  br i1 %16, label %87, label %85
+82:                                               ; preds = %81
+  %or.cond13 = select i1 %16, i1 true, i1 %13
+  %83 = icmp ne i32 %10, 65536
+  %or.cond15 = and i1 %83, %or.cond13
+  br i1 %or.cond15, label %85, label %86
 
-85:                                               ; preds = %84
-  %86 = icmp ne i32 %10, 65536
-  %or.cond7 = and i1 %86, %13
-  br i1 %or.cond7, label %88, label %89
+84:                                               ; preds = %80
+  %.old14.not = icmp eq i32 %10, 65536
+  br i1 %.old14.not, label %86, label %85
 
-87:                                               ; preds = %84, %82
-  %.old6.not = icmp eq i32 %10, 65536
-  br i1 %.old6.not, label %89, label %88
-
-88:                                               ; preds = %85, %87
+85:                                               ; preds = %82, %84
   tail call fastcc void @refresh_children_style(ptr noundef nonnull %0)
-  br label %89
+  br label %86
 
-89:                                               ; preds = %83, %85, %88, %87, %6
+86:                                               ; preds = %81, %82, %85, %84, %6
   ret void
 }
 

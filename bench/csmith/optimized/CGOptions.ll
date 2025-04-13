@@ -4032,7 +4032,7 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions26resolve_exhaustive_optionsEv
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load i8, ptr @_ZN9CGOptions15dfs_exhaustive_E, align 1, !tbaa !17, !range !19, !noundef !20
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %93
+  br i1 %6, label %7, label %91
 
 7:                                                ; preds = %0
   %8 = load i8, ptr @_ZN9CGOptions17compatible_check_E, align 1, !tbaa !17, !range !19, !noundef !20
@@ -4177,7 +4177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 56:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
   %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
   %58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %57, ptr noundef nonnull @.str.27, i64 noundef 29)
-  br label %93
+  br label %91
 
 59:                                               ; preds = %_ZN9CGOptions14partial_expandB5cxx11Ev.exit5
   %60 = landingpad { ptr, i32 }
@@ -4210,49 +4210,44 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZN
 70:                                               ; preds = %67
   %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
   %72 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %71, ptr noundef nonnull @.str.28, i64 noundef 39)
-  br label %93
+  br label %91
 
 73:                                               ; preds = %67
   %74 = load i8, ptr @_ZN9CGOptions11use_struct_E, align 1, !tbaa !17, !range !19, !noundef !20
   %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %82, label %76
+  %.not = xor i1 %75, true
+  %76 = load i8, ptr @_ZN9CGOptions14expand_struct_E, align 1, !range !19
+  %77 = trunc nuw i8 %76 to i1
+  %or.cond = select i1 %.not, i1 %77, i1 false
+  br i1 %or.cond, label %78, label %81
 
-76:                                               ; preds = %73
-  %77 = load i8, ptr @_ZN9CGOptions14expand_struct_E, align 1, !tbaa !17, !range !19, !noundef !20
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %79, label %82
+78:                                               ; preds = %73
+  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
+  %80 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %79, ptr noundef nonnull @.str.29, i64 noundef 45)
+  br label %91
 
-79:                                               ; preds = %76
-  %80 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
-  %81 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %80, ptr noundef nonnull @.str.29, i64 noundef 45)
-  br label %93
-
-82:                                               ; preds = %76, %73
-  %83 = load i8, ptr @_ZN9CGOptions5klee_E, align 1, !tbaa !17, !range !19, !noundef !20
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %85
-
-85:                                               ; preds = %82
-  %86 = load i8, ptr @_ZN9CGOptions6crest_E, align 1, !tbaa !17, !range !19, !noundef !20
+81:                                               ; preds = %73
+  %82 = load i8, ptr @_ZN9CGOptions5klee_E, align 1, !tbaa !17, !range !19, !noundef !20
+  %83 = trunc nuw i8 %82 to i1
+  %84 = load i8, ptr @_ZN9CGOptions6crest_E, align 1, !range !19
+  %85 = trunc nuw i8 %84 to i1
+  %or.cond.i = select i1 %83, i1 true, i1 %85
+  %86 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1, !range !19
   %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %_ZN9CGOptions21has_extension_supportEv.exit
+  %or.cond14 = select i1 %or.cond.i, i1 true, i1 %87
+  br i1 %or.cond14, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %90
 
-_ZN9CGOptions21has_extension_supportEv.exit:      ; preds = %85
-  %88 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1, !tbaa !17, !range !19, !noundef !20
-  %89 = trunc nuw i8 %88 to i1
-  br i1 %89, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %92
+_ZN9CGOptions21has_extension_supportEv.exit.thread: ; preds = %81
+  %88 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
+  %89 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %88, ptr noundef nonnull @.str.30, i64 noundef 66)
+  br label %91
 
-_ZN9CGOptions21has_extension_supportEv.exit.thread: ; preds = %82, %85, %_ZN9CGOptions21has_extension_supportEv.exit
-  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
-  %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %90, ptr noundef nonnull @.str.30, i64 noundef 66)
-  br label %93
-
-92:                                               ; preds = %_ZN9CGOptions21has_extension_supportEv.exit
+90:                                               ; preds = %81
   store i8 1, ptr @_ZN9CGOptions20fixed_struct_fields_E, align 1, !tbaa !17
-  br label %93
+  br label %91
 
-93:                                               ; preds = %56, %70, %79, %_ZN9CGOptions21has_extension_supportEv.exit.thread, %92, %0
-  %.0 = phi i1 [ false, %0 ], [ true, %56 ], [ true, %70 ], [ true, %_ZN9CGOptions21has_extension_supportEv.exit.thread ], [ false, %92 ], [ true, %79 ]
+91:                                               ; preds = %56, %70, %78, %_ZN9CGOptions21has_extension_supportEv.exit.thread, %90, %0
+  %.0 = phi i1 [ false, %0 ], [ true, %56 ], [ true, %70 ], [ true, %_ZN9CGOptions21has_extension_supportEv.exit.thread ], [ false, %90 ], [ true, %78 ]
   ret i1 %.0
 }
 
@@ -4264,21 +4259,19 @@ declare noundef zeroext i1 @_ZN15PartialExpander21init_partial_expanderERKNSt7__
 define dso_local noundef zeroext i1 @_ZN9CGOptions21has_extension_supportEv() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions5klee_E, align 1, !tbaa !17, !range !19, !noundef !20
   %2 = trunc nuw i8 %1 to i1
-  br i1 %2, label %9, label %3
+  %3 = load i8, ptr @_ZN9CGOptions6crest_E, align 1, !range !19
+  %4 = trunc nuw i8 %3 to i1
+  %or.cond = select i1 %2, i1 true, i1 %4
+  br i1 %or.cond, label %8, label %5
 
-3:                                                ; preds = %0
-  %4 = load i8, ptr @_ZN9CGOptions6crest_E, align 1, !tbaa !17, !range !19, !noundef !20
-  %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %9, label %6
+5:                                                ; preds = %0
+  %6 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1, !tbaa !17, !range !19, !noundef !20
+  %7 = trunc nuw i8 %6 to i1
+  br label %8
 
-6:                                                ; preds = %3
-  %7 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1, !tbaa !17, !range !19, !noundef !20
-  %8 = trunc nuw i8 %7 to i1
-  br label %9
-
-9:                                                ; preds = %6, %3, %0
-  %10 = phi i1 [ true, %3 ], [ true, %0 ], [ %8, %6 ]
-  ret i1 %10
+8:                                                ; preds = %5, %0
+  %9 = phi i1 [ true, %0 ], [ %7, %5 ]
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4478,31 +4471,26 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions22has_extension_conflictEv() l
 define dso_local noundef zeroext i1 @_ZN9CGOptions11allow_int64Ev() local_unnamed_addr #4 align 2 {
   %1 = load i8, ptr @_ZN9CGOptions5klee_E, align 1, !tbaa !17, !range !19, !noundef !20
   %2 = trunc nuw i8 %1 to i1
-  br i1 %2, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %3
+  %3 = load i8, ptr @_ZN9CGOptions6crest_E, align 1, !range !19
+  %4 = trunc nuw i8 %3 to i1
+  %or.cond.i = select i1 %2, i1 true, i1 %4
+  %5 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1, !range !19
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond = select i1 %or.cond.i, i1 true, i1 %6
+  %or.cond.not = xor i1 %or.cond, true
+  %7 = load i8, ptr @_ZN9CGOptions7math64_E, align 1, !range !19
+  %8 = trunc nuw i8 %7 to i1
+  %or.cond3 = select i1 %or.cond.not, i1 %8, i1 false
+  br i1 %or.cond3, label %9, label %_ZN9CGOptions21has_extension_supportEv.exit.thread
 
-3:                                                ; preds = %0
-  %4 = load i8, ptr @_ZN9CGOptions6crest_E, align 1, !tbaa !17, !range !19, !noundef !20
-  %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %_ZN9CGOptions21has_extension_supportEv.exit
-
-_ZN9CGOptions21has_extension_supportEv.exit:      ; preds = %3
-  %6 = load i8, ptr @_ZN9CGOptions14coverage_test_E, align 1, !tbaa !17, !range !19, !noundef !20
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %_ZN9CGOptions21has_extension_supportEv.exit.thread, label %8
-
-8:                                                ; preds = %_ZN9CGOptions21has_extension_supportEv.exit
-  %9 = load i8, ptr @_ZN9CGOptions7math64_E, align 1, !tbaa !17, !range !19, !noundef !20
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %_ZN9CGOptions21has_extension_supportEv.exit.thread
-
-11:                                               ; preds = %8
-  %12 = load i8, ptr @_ZN9CGOptions9longlong_E, align 1, !tbaa !17, !range !19, !noundef !20
-  %13 = trunc nuw i8 %12 to i1
+9:                                                ; preds = %0
+  %10 = load i8, ptr @_ZN9CGOptions9longlong_E, align 1, !tbaa !17, !range !19, !noundef !20
+  %11 = trunc nuw i8 %10 to i1
   br label %_ZN9CGOptions21has_extension_supportEv.exit.thread
 
-_ZN9CGOptions21has_extension_supportEv.exit.thread: ; preds = %0, %3, %11, %8, %_ZN9CGOptions21has_extension_supportEv.exit
-  %14 = phi i1 [ false, %8 ], [ false, %_ZN9CGOptions21has_extension_supportEv.exit ], [ %13, %11 ], [ false, %3 ], [ false, %0 ]
-  ret i1 %14
+_ZN9CGOptions21has_extension_supportEv.exit.thread: ; preds = %0, %9
+  %12 = phi i1 [ %11, %9 ], [ false, %0 ]
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4513,11 +4501,11 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions12has_conflictEv() local_unnam
   %4 = alloca %"class.std::allocator.3", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noundef zeroext i1 @_ZN9CGOptions25has_random_based_conflictEv()
-  br i1 %6, label %121, label %7
+  br i1 %6, label %120, label %7
 
 7:                                                ; preds = %0
   %8 = tail call noundef zeroext i1 @_ZN9CGOptions26resolve_exhaustive_optionsEv()
-  br i1 %8, label %121, label %9
+  br i1 %8, label %120, label %9
 
 9:                                                ; preds = %7
   %10 = load i8, ptr @_ZN9CGOptions5klee_E, align 1, !tbaa !17, !range !19, !noundef !20
@@ -4531,11 +4519,11 @@ define dso_local noundef zeroext i1 @_ZN9CGOptions12has_conflictEv() local_unnam
 _ZN9CGOptions22has_extension_conflictEv.exit.thread: ; preds = %9
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
   %15 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %14, ptr noundef nonnull @.str.32, i64 noundef 59)
-  br label %121
+  br label %120
 
 _ZN9CGOptions22has_extension_conflictEv.exit:     ; preds = %9
   %16 = tail call noundef zeroext i1 @_ZN9CGOptions18has_delta_conflictEv()
-  br i1 %16, label %121, label %17
+  br i1 %16, label %120, label %17
 
 17:                                               ; preds = %_ZN9CGOptions22has_extension_conflictEv.exit
   %18 = load i32, ptr @_ZN9CGOptions21inline_function_prob_E, align 4, !tbaa !21
@@ -4545,7 +4533,7 @@ _ZN9CGOptions22has_extension_conflictEv.exit:     ; preds = %9
 19:                                               ; preds = %17
   %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 8), align 8, !tbaa !28
   %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, i64 noundef 0, i64 noundef %20, ptr noundef nonnull @.str.33, i64 noundef 47)
-  br label %121
+  br label %120
 
 22:                                               ; preds = %17
   %23 = load i32, ptr @_ZN9CGOptions22builtin_function_prob_E, align 4, !tbaa !21
@@ -4554,7 +4542,7 @@ _ZN9CGOptions22has_extension_conflictEv.exit:     ; preds = %9
 
 24:                                               ; preds = %22
   %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.34)
-  br label %121
+  br label %120
 
 26:                                               ; preds = %22
   %27 = load i32, ptr @_ZN9CGOptions15array_oob_prob_E, align 4, !tbaa !21
@@ -4563,7 +4551,7 @@ _ZN9CGOptions22has_extension_conflictEv.exit:     ; preds = %9
 
 28:                                               ; preds = %26
   %29 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.35)
-  br label %121
+  br label %120
 
 30:                                               ; preds = %26
   %31 = load i32, ptr @_ZN9CGOptions10max_funcs_E, align 4, !tbaa !21
@@ -4572,7 +4560,7 @@ _ZN9CGOptions22has_extension_conflictEv.exit:     ; preds = %9
 
 33:                                               ; preds = %30
   %34 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.36)
-  br label %121
+  br label %120
 
 35:                                               ; preds = %30
   %36 = load i32, ptr @_ZN9CGOptions14max_blk_depth_E, align 4, !tbaa !21
@@ -4581,7 +4569,7 @@ _ZN9CGOptions22has_extension_conflictEv.exit:     ; preds = %9
 
 38:                                               ; preds = %35
   %39 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.37)
-  br label %121
+  br label %120
 
 40:                                               ; preds = %35
   %41 = load i32, ptr @_ZN9CGOptions17func1_max_params_E, align 4, !tbaa !21
@@ -4591,7 +4579,7 @@ _ZN9CGOptions22has_extension_conflictEv.exit:     ; preds = %9
 
 44:                                               ; preds = %40
   %45 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.38)
-  br label %121
+  br label %120
 
 46:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #29
@@ -4735,7 +4723,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN
 
 101:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
   %102 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.40)
-  br label %121
+  br label %120
 
 103:                                              ; preds = %90
   %104 = landingpad { ptr, i32 }
@@ -4761,19 +4749,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
 113:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19, %87
   %114 = load i8, ptr @_ZN9CGOptions9lang_cpp_E, align 1, !tbaa !17, !range !19, !noundef !20
   %115 = trunc nuw i8 %114 to i1
-  br i1 %115, label %121, label %116
+  %.not = xor i1 %115, true
+  %116 = load i8, ptr @_ZN9CGOptions6cpp11_E, align 1, !range !19
+  %117 = trunc nuw i8 %116 to i1
+  %or.cond26 = select i1 %.not, i1 %117, i1 false
+  br i1 %or.cond26, label %118, label %120
 
-116:                                              ; preds = %113
-  %117 = load i8, ptr @_ZN9CGOptions6cpp11_E, align 1, !tbaa !17, !range !19, !noundef !20
-  %118 = trunc nuw i8 %117 to i1
-  br i1 %118, label %119, label %121
+118:                                              ; preds = %113
+  %119 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.41)
+  br label %120
 
-119:                                              ; preds = %116
-  %120 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZN9CGOptions13conflict_msg_B5cxx11E, ptr noundef nonnull @.str.41)
-  br label %121
-
-121:                                              ; preds = %_ZN9CGOptions22has_extension_conflictEv.exit.thread, %113, %116, %_ZN9CGOptions22has_extension_conflictEv.exit, %7, %0, %119, %101, %44, %38, %33, %28, %24, %19
-  %.04 = phi i1 [ true, %19 ], [ true, %24 ], [ true, %28 ], [ true, %33 ], [ true, %38 ], [ true, %44 ], [ true, %101 ], [ true, %119 ], [ true, %0 ], [ true, %7 ], [ true, %_ZN9CGOptions22has_extension_conflictEv.exit ], [ false, %116 ], [ false, %113 ], [ true, %_ZN9CGOptions22has_extension_conflictEv.exit.thread ]
+120:                                              ; preds = %_ZN9CGOptions22has_extension_conflictEv.exit.thread, %113, %_ZN9CGOptions22has_extension_conflictEv.exit, %7, %0, %118, %101, %44, %38, %33, %28, %24, %19
+  %.04 = phi i1 [ true, %19 ], [ true, %24 ], [ true, %28 ], [ true, %33 ], [ true, %38 ], [ true, %44 ], [ true, %101 ], [ true, %118 ], [ true, %0 ], [ true, %7 ], [ true, %_ZN9CGOptions22has_extension_conflictEv.exit ], [ false, %113 ], [ true, %_ZN9CGOptions22has_extension_conflictEv.exit.thread ]
   ret i1 %.04
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16

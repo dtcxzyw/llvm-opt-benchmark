@@ -434,9 +434,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
 
 16:                                               ; preds = %2
   %17 = icmp ult i32 %1, 14
-  br i1 %17, label %switch.hole_check, label %18
+  %switch.maskindex = trunc i32 %1 to i16
+  %switch.shifted = lshr i16 16377, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %17, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup41, label %18
 
-18:                                               ; preds = %switch.hole_check, %16
+18:                                               ; preds = %16
   %19 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %19, label %20, label %.critedge29
 
@@ -496,13 +500,7 @@ switch.lookup:                                    ; preds = %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge29
 
-switch.hole_check:                                ; preds = %16
-  %switch.maskindex = trunc nuw i32 %1 to i16
-  %switch.shifted = lshr i16 16377, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup41, label %18
-
-switch.lookup41:                                  ; preds = %switch.hole_check
+switch.lookup41:                                  ; preds = %16
   %35 = zext nneg i32 %1 to i64
   %switch.gep42 = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE.1, i64 0, i64 %35
   %switch.load43 = load i32, ptr %switch.gep42, align 4
@@ -528,13 +526,17 @@ define noundef range(i32 0, 14) i32 @_ZN3net13SpdyConstants14ParseFrameTypeENS_1
 4:                                                ; preds = %2
   %switch.tableidx = add i32 %1, -1
   %5 = icmp ult i32 %switch.tableidx, 9
-  br i1 %5, label %switch.hole_check, label %8
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 495, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %8
 
 6:                                                ; preds = %2
   %7 = icmp ult i32 %1, 12
   br i1 %7, label %switch.lookup13, label %8
 
-8:                                                ; preds = %6, %switch.hole_check, %4, %2
+8:                                                ; preds = %6, %4, %2
   %9 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %9, label %10, label %.critedge12
 
@@ -561,13 +563,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #22
   resume { ptr, i32 } %15
 
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 495, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %8
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
   %16 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi, i64 0, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -742,9 +738,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
 16:                                               ; preds = %2
   %switch.tableidx41 = add i32 %1, -4
   %17 = icmp ult i32 %switch.tableidx41, 8
-  br i1 %17, label %switch.hole_check, label %18
+  %switch.maskindex = trunc i32 %switch.tableidx41 to i8
+  %switch.shifted = lshr i8 -7, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %17, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup42, label %18
 
-18:                                               ; preds = %switch.hole_check, %16
+18:                                               ; preds = %16
   %19 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %19, label %20, label %.critedge29
 
@@ -798,13 +798,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %28
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5) #22
   br label %35
 
-switch.hole_check:                                ; preds = %16
-  %switch.maskindex = trunc nuw i32 %switch.tableidx41 to i8
-  %switch.shifted = lshr i8 -7, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup42, label %18
-
-switch.lookup42:                                  ; preds = %switch.hole_check
+switch.lookup42:                                  ; preds = %16
   %34 = zext nneg i32 %switch.tableidx41 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE, i64 0, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -938,9 +932,13 @@ define noundef range(i32 -1, 14) i32 @_ZN3net13SpdyConstants24SerializeRstStream
 6:                                                ; preds = %2
   %switch.tableidx = add i32 %1, -1
   %7 = icmp ult i32 %switch.tableidx, 11
-  br i1 %7, label %switch.hole_check, label %8
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 1535, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %7, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %8
 
-8:                                                ; preds = %switch.hole_check, %6
+8:                                                ; preds = %6
   %9 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %9, label %10, label %.critedge29
 
@@ -970,9 +968,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
 16:                                               ; preds = %2
   %switch.tableidx41 = add i32 %1, -1
   %17 = icmp ult i32 %switch.tableidx41, 16
-  br i1 %17, label %switch.hole_check42, label %18
+  %switch.maskindex44 = trunc i32 %switch.tableidx41 to i16
+  %switch.shifted45 = lshr i16 -2953, %switch.maskindex44
+  %switch.lobit46 = trunc i16 %switch.shifted45 to i1
+  %or.cond49 = select i1 %17, i1 %switch.lobit46, i1 false
+  br i1 %or.cond49, label %switch.lookup43, label %18
 
-18:                                               ; preds = %switch.hole_check42, %16
+18:                                               ; preds = %16
   %19 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %19, label %20, label %.critedge29
 
@@ -1026,25 +1028,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %28
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5) #22
   br label %36
 
-switch.hole_check:                                ; preds = %6
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 1535, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %8
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %6
   %34 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 0, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge29
 
-switch.hole_check42:                              ; preds = %16
-  %switch.maskindex44 = trunc nuw i32 %switch.tableidx41 to i16
-  %switch.shifted45 = lshr i16 -2953, %switch.maskindex44
-  %switch.lobit46 = trunc i16 %switch.shifted45 to i1
-  br i1 %switch.lobit46, label %switch.lookup43, label %18
-
-switch.lookup43:                                  ; preds = %switch.hole_check42
+switch.lookup43:                                  ; preds = %16
   %35 = zext nneg i32 %switch.tableidx41 to i64
   %switch.gep47 = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE.3, i64 0, i64 %35
   %switch.load48 = load i32, ptr %switch.gep47, align 4
@@ -1070,14 +1060,22 @@ define noundef range(i32 1, 17) i32 @_ZN3net13SpdyConstants20ParseRstStreamStatu
 4:                                                ; preds = %2
   %switch.tableidx = add i32 %1, -1
   %5 = icmp ult i32 %switch.tableidx, 11
-  br i1 %5, label %switch.hole_check, label %8
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 1535, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %8
 
 6:                                                ; preds = %2
   %switch.tableidx14 = add i32 %1, -1
   %7 = icmp ult i32 %switch.tableidx14, 13
-  br i1 %7, label %switch.hole_check15, label %8
+  %switch.maskindex17 = trunc i32 %switch.tableidx14 to i16
+  %switch.shifted18 = lshr i16 7927, %switch.maskindex17
+  %switch.lobit19 = trunc i16 %switch.shifted18 to i1
+  %or.cond22 = select i1 %7, i1 %switch.lobit19, i1 false
+  br i1 %or.cond22, label %switch.lookup16, label %8
 
-8:                                                ; preds = %switch.hole_check15, %6, %switch.hole_check, %4, %2
+8:                                                ; preds = %6, %4, %2
   %9 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
   br i1 %9, label %10, label %.critedge12
 
@@ -1104,25 +1102,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %3) #22
   resume { ptr, i32 } %15
 
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 1535, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %8
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
   %16 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 0, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge12
 
-switch.hole_check15:                              ; preds = %6
-  %switch.maskindex17 = trunc nuw i32 %switch.tableidx14 to i16
-  %switch.shifted18 = lshr i16 7927, %switch.maskindex17
-  %switch.lobit19 = trunc i16 %switch.shifted18 to i1
-  br i1 %switch.lobit19, label %switch.lookup16, label %8
-
-switch.lookup16:                                  ; preds = %switch.hole_check15
+switch.lookup16:                                  ; preds = %6
   %17 = zext nneg i32 %switch.tableidx14 to i64
   %switch.gep20 = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi.4, i64 0, i64 %17
   %switch.load21 = load i32, ptr %switch.gep20, align 4

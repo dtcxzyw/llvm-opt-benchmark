@@ -287,24 +287,24 @@ define hidden void @"_ZN17pyo3_build_config3get28_$u7b$$u7b$closure$u7d$$u7d$17h
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
   invoke void @_ZN3std2fs8metadata17he509d751613e4e39E(ptr nonnull sret([176 x i8]) align 8 %2, ptr align 1 %12, i64 %13)
-          to label %.noexc20 unwind label %15
+          to label %.noexc22 unwind label %15
 
-.noexc20:                                         ; preds = %.noexc
+.noexc22:                                         ; preds = %.noexc
   %14 = load i64, ptr %2, align 8
   %.not.i.not = icmp eq i64 %14, 2
   invoke void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..Metadata$C$std..io..error..Error$GT$$GT$17h6ecf49fad7d6a2b9E"(ptr nonnull align 8 %2)
           to label %23 unwind label %15
 
-15:                                               ; preds = %.noexc20, %.noexc, %10, %23, %9
+15:                                               ; preds = %.noexc22, %.noexc, %10, %23, %9
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7046176a8b9c8737E"(ptr nonnull align 8 %6) #8
-          to label %48 unwind label %46
+          to label %49 unwind label %47
 
 17:                                               ; preds = %9
   %18 = load i64, ptr %5, align 8
-  %.not15 = icmp eq i64 %18, -9223372036854775807
-  br i1 %.not15, label %20, label %19
+  %.not18 = icmp eq i64 %18, -9223372036854775807
+  br i1 %.not18, label %20, label %19
 
 19:                                               ; preds = %24, %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(160) %5, i64 160, i1 false)
@@ -318,9 +318,9 @@ define hidden void @"_ZN17pyo3_build_config3get28_$u7b$$u7b$closure$u7d$$u7d$17h
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %22, align 8
   invoke void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02580bdb8d5f2eE(ptr nonnull sret([160 x i8]) align 8 %4, ptr nonnull align 8 %3)
-          to label %38 unwind label %27
+          to label %39 unwind label %27
 
-23:                                               ; preds = %.noexc20
+23:                                               ; preds = %.noexc22
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %2)
   invoke void @_ZN17pyo3_build_config5impl_17InterpreterConfig18from_cargo_dep_env17ha1be7e4bab438489E(ptr nonnull sret([160 x i8]) align 8 %5)
           to label %24 unwind label %15
@@ -331,82 +331,82 @@ define hidden void @"_ZN17pyo3_build_config3get28_$u7b$$u7b$closure$u7d$$u7d$17h
   br i1 %.not, label %26, label %19
 
 26:                                               ; preds = %24
-  br i1 %.not.i.not, label %20, label %35
+  br i1 %.not.i.not, label %20, label %36
 
-27:                                               ; preds = %40, %39, %38, %20, %19
-  %.sroa.08.1 = phi i1 [ false, %19 ], [ true, %38 ], [ true, %20 ], [ true, %39 ], [ true, %40 ]
+27:                                               ; preds = %41, %40, %39, %20, %19
+  %.sroa.011.1 = phi i1 [ false, %19 ], [ true, %39 ], [ true, %20 ], [ true, %40 ], [ true, %41 ]
   %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7046176a8b9c8737E"(ptr nonnull align 8 %6) #8
-          to label %30 unwind label %46
+          to label %30 unwind label %47
 
 29:                                               ; preds = %19
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7046176a8b9c8737E"(ptr nonnull align 8 %6)
-          to label %34 unwind label %32
+          to label %35 unwind label %33
 
-30:                                               ; preds = %32, %27
-  %.sroa.08.2 = phi i1 [ %.sroa.08.3, %32 ], [ %.sroa.08.1, %27 ]
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %28, %27 ]
+30:                                               ; preds = %33, %27
+  %.sroa.011.2 = phi i1 [ %.sroa.011.3, %33 ], [ %.sroa.011.1, %27 ]
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %28, %27 ]
   %31 = load i64, ptr %5, align 8
-  %.not18 = icmp ne i64 %31, -9223372036854775807
-  %brmerge.not = and i1 %.sroa.08.2, %.not18
-  br i1 %brmerge.not, label %49, label %48
+  %32 = icmp ne i64 %31, -9223372036854775807
+  %or.cond3 = and i1 %.sroa.011.2, %32
+  br i1 %or.cond3, label %50, label %49
 
-32:                                               ; preds = %42, %29
-  %.sroa.08.3 = phi i1 [ false, %29 ], [ true, %42 ]
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %43, %29
+  %.sroa.011.3 = phi i1 [ false, %29 ], [ true, %43 ]
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-34:                                               ; preds = %29, %45, %43
+35:                                               ; preds = %29, %46, %44
   ret void
 
-35:                                               ; preds = %26
-  %36 = load i64, ptr %6, align 8
-  %37 = icmp eq i64 %36, -9223372036854775808
-  br i1 %37, label %39, label %40
+36:                                               ; preds = %26
+  %37 = load i64, ptr %6, align 8
+  %38 = icmp eq i64 %37, -9223372036854775808
+  br i1 %38, label %40, label %41
 
-38:                                               ; preds = %40, %20
+39:                                               ; preds = %41, %20
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfc1200373b18d93cE"(ptr sret([160 x i8]) align 8 %0, ptr nonnull align 8 %4, ptr nonnull align 1 @anon.965bca594b54ec786d317de168aead3f.20, i64 27, ptr nonnull align 8 @anon.965bca594b54ec786d317de168aead3f.21)
+          to label %43 unwind label %27
+
+40:                                               ; preds = %36
+  invoke void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr nonnull align 8 @anon.965bca594b54ec786d317de168aead3f.23) #7
           to label %42 unwind label %27
 
-39:                                               ; preds = %35
-  invoke void @_ZN4core6option13unwrap_failed17h4b4353bf890a85dfE(ptr nonnull align 8 @anon.965bca594b54ec786d317de168aead3f.23) #7
-          to label %41 unwind label %27
-
-40:                                               ; preds = %35
+41:                                               ; preds = %36
   invoke void @_ZN17pyo3_build_config5impl_17InterpreterConfig9from_path17hecf7394f227e7289E(ptr nonnull sret([160 x i8]) align 8 %4, ptr nonnull align 8 %6)
-          to label %38 unwind label %27
+          to label %39 unwind label %27
 
-41:                                               ; preds = %39
+42:                                               ; preds = %40
   unreachable
 
-42:                                               ; preds = %38
+43:                                               ; preds = %39
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h7046176a8b9c8737E"(ptr nonnull align 8 %6)
-          to label %43 unwind label %32
+          to label %44 unwind label %33
 
-43:                                               ; preds = %42
-  %44 = load i64, ptr %5, align 8
-  %.not16 = icmp eq i64 %44, -9223372036854775807
-  br i1 %.not16, label %34, label %45
+44:                                               ; preds = %43
+  %45 = load i64, ptr %5, align 8
+  %.not19 = icmp eq i64 %45, -9223372036854775807
+  br i1 %.not19, label %35, label %46
 
-45:                                               ; preds = %43
+46:                                               ; preds = %44
   call void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$pyo3_build_config..impl_..InterpreterConfig$C$pyo3_build_config..errors..Error$GT$$GT$17hc678867d01398400E"(ptr nonnull align 8 %5)
-  br label %34
+  br label %35
 
-46:                                               ; preds = %49, %27, %15
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %50, %27, %15
+  %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #9
   unreachable
 
-48:                                               ; preds = %30, %49, %15
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %49 ], [ %.pn, %30 ], [ %16, %15 ]
+49:                                               ; preds = %50, %30, %15
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %50 ], [ %.pn, %30 ], [ %16, %15 ]
   resume { ptr, i32 } %.pn.pn
 
-49:                                               ; preds = %30
+50:                                               ; preds = %30
   invoke void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$pyo3_build_config..impl_..InterpreterConfig$C$pyo3_build_config..errors..Error$GT$$GT$17hc678867d01398400E"(ptr nonnull align 8 %5) #8
-          to label %48 unwind label %46
+          to label %49 unwind label %47
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -552,8 +552,8 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 3) i32 @_ZN3g2o30OptimizationAlgorithmLevenberg5solveEib(ptr noundef nonnull align 8 captures(none) dereferenceable(152) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 {
   %4 = icmp ne i32 %1, 0
-  %brmerge = or i1 %4, %2
-  br i1 %brmerge, label %12, label %5
+  %or.cond = or i1 %4, %2
+  br i1 %or.cond, label %12, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -562,7 +562,7 @@ define noundef range(i32 -1, 3) i32 @_ZN3g2o30OptimizationAlgorithmLevenberg5sol
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(64) %7, i1 noundef zeroext false)
-  br i1 %11, label %12, label %209
+  br i1 %11, label %12, label %210
 
 12:                                               ; preds = %5, %3
   %13 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
@@ -582,7 +582,7 @@ define noundef range(i32 -1, 3) i32 @_ZN3g2o30OptimizationAlgorithmLevenberg5sol
   br label %22
 
 22:                                               ; preds = %17, %12
-  %.043 = phi double [ %21, %17 ], [ %13, %12 ]
+  %.047 = phi double [ %21, %17 ], [ %13, %12 ]
   %23 = load ptr, ptr %14, align 8, !tbaa !67
   %24 = tail call noundef double @_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev(ptr noundef nonnull align 8 dereferenceable(409) %23)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -595,320 +595,321 @@ define noundef range(i32 -1, 3) i32 @_ZN3g2o30OptimizationAlgorithmLevenberg5sol
 
 31:                                               ; preds = %22
   %32 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
-  %33 = fsub double %32, %.043
+  %33 = fsub double %32, %.047
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store double %33, ptr %34, align 8, !tbaa !72
   br label %35
 
 35:                                               ; preds = %31, %22
-  br i1 %4, label %78, label %36
+  %36 = icmp eq i32 %1, 0
+  br i1 %36, label %37, label %79
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %38 = load ptr, ptr %37, align 8, !tbaa !49
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %40 = load double, ptr %39, align 8, !tbaa !48
-  %41 = fcmp ogt double %40, 0.000000e+00
-  br i1 %41, label %_ZNK3g2o30OptimizationAlgorithmLevenberg17computeLambdaInitEv.exit, label %.preheader.i
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %39 = load ptr, ptr %38, align 8, !tbaa !49
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  %41 = load double, ptr %40, align 8, !tbaa !48
+  %42 = fcmp ogt double %41, 0.000000e+00
+  br i1 %42, label %_ZNK3g2o30OptimizationAlgorithmLevenberg17computeLambdaInitEv.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %36
-  %42 = load ptr, ptr %14, align 8, !tbaa !67
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 304
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 312
-  %45 = load ptr, ptr %44, align 8, !tbaa !73
-  %46 = load ptr, ptr %43, align 8, !tbaa !76
-  %.not.i = icmp eq ptr %45, %46
+.preheader.i:                                     ; preds = %37
+  %43 = load ptr, ptr %14, align 8, !tbaa !67
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 304
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 312
+  %46 = load ptr, ptr %45, align 8, !tbaa !73
+  %47 = load ptr, ptr %44, align 8, !tbaa !76
+  %.not.i = icmp eq ptr %46, %47
   br i1 %.not.i, label %._crit_edge20.i, label %.lr.ph19.i
 
 ._crit_edge20.i:                                  ; preds = %._crit_edge.i, %.preheader.i
   %.014.lcssa.i = phi double [ 0.000000e+00, %.preheader.i ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %48 = load double, ptr %47, align 8, !tbaa !37
-  %49 = fmul double %.014.lcssa.i, %48
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %49 = load double, ptr %48, align 8, !tbaa !37
+  %50 = fmul double %.014.lcssa.i, %49
   br label %_ZNK3g2o30OptimizationAlgorithmLevenberg17computeLambdaInitEv.exit
 
 .lr.ph19.i:                                       ; preds = %.preheader.i, %._crit_edge.i
-  %50 = phi ptr [ %57, %._crit_edge.i ], [ %42, %.preheader.i ]
-  %51 = phi ptr [ %62, %._crit_edge.i ], [ %46, %.preheader.i ]
-  %.01218.i = phi i64 [ %58, %._crit_edge.i ], [ 0, %.preheader.i ]
+  %51 = phi ptr [ %58, %._crit_edge.i ], [ %43, %.preheader.i ]
+  %52 = phi ptr [ %63, %._crit_edge.i ], [ %47, %.preheader.i ]
+  %.01218.i = phi i64 [ %59, %._crit_edge.i ], [ 0, %.preheader.i ]
   %.01417.i = phi double [ %.1.lcssa.i, %._crit_edge.i ], [ 0.000000e+00, %.preheader.i ]
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.01218.i
-  %53 = load ptr, ptr %52, align 8, !tbaa !77
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 104
-  %55 = load i32, ptr %54, align 8, !tbaa !79
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph.i, label %._crit_edge.i
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %.01218.i
+  %54 = load ptr, ptr %53, align 8, !tbaa !77
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 104
+  %56 = load i32, ptr %55, align 8, !tbaa !79
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %14, align 8, !tbaa !67
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph19.i
-  %57 = phi ptr [ %50, %.lr.ph19.i ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %58 = phi ptr [ %51, %.lr.ph19.i ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi double [ %.01417.i, %.lr.ph19.i ], [ %.sroa.speculated.i, %._crit_edge.loopexit.i ]
-  %58 = add nuw i64 %.01218.i, 1
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 304
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 312
-  %61 = load ptr, ptr %60, align 8, !tbaa !73
-  %62 = load ptr, ptr %59, align 8, !tbaa !76
-  %63 = ptrtoint ptr %61 to i64
+  %59 = add nuw i64 %.01218.i, 1
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 304
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 312
+  %62 = load ptr, ptr %61, align 8, !tbaa !73
+  %63 = load ptr, ptr %60, align 8, !tbaa !76
   %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %63, %64
-  %66 = ashr exact i64 %65, 3
-  %67 = icmp ult i64 %58, %66
-  br i1 %67, label %.lr.ph19.i, label %._crit_edge20.i, !llvm.loop !94
+  %65 = ptrtoint ptr %63 to i64
+  %66 = sub i64 %64, %65
+  %67 = ashr exact i64 %66, 3
+  %68 = icmp ult i64 %59, %67
+  br i1 %68, label %.lr.ph19.i, label %._crit_edge20.i, !llvm.loop !94
 
 .lr.ph.i:                                         ; preds = %.lr.ph19.i, %.lr.ph.i
-  %.016.i = phi i32 [ %75, %.lr.ph.i ], [ 0, %.lr.ph19.i ]
+  %.016.i = phi i32 [ %76, %.lr.ph.i ], [ 0, %.lr.ph19.i ]
   %.115.i = phi double [ %.sroa.speculated.i, %.lr.ph.i ], [ %.01417.i, %.lr.ph19.i ]
-  %68 = load ptr, ptr %53, align 8, !tbaa !8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %70 = load ptr, ptr %69, align 8
-  %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr %70(ptr noundef nonnull align 8 dereferenceable(128) %53, i32 noundef %.016.i, i32 noundef %.016.i)
-  %72 = load double, ptr %71, align 8, !tbaa !48
-  %73 = tail call double @llvm.fabs.f64(double %72)
-  %74 = fcmp olt double %73, %.115.i
-  %.sroa.speculated.i = select i1 %74, double %.115.i, double %73
-  %75 = add nuw nsw i32 %.016.i, 1
-  %exitcond.not.i = icmp eq i32 %75, %55
+  %69 = load ptr, ptr %54, align 8, !tbaa !8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  %71 = load ptr, ptr %70, align 8
+  %72 = tail call noundef nonnull align 8 dereferenceable(8) ptr %71(ptr noundef nonnull align 8 dereferenceable(128) %54, i32 noundef %.016.i, i32 noundef %.016.i)
+  %73 = load double, ptr %72, align 8, !tbaa !48
+  %74 = tail call double @llvm.fabs.f64(double %73)
+  %75 = fcmp olt double %74, %.115.i
+  %.sroa.speculated.i = select i1 %75, double %.115.i, double %74
+  %76 = add nuw nsw i32 %.016.i, 1
+  %exitcond.not.i = icmp eq i32 %76, %56
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !95
 
-_ZNK3g2o30OptimizationAlgorithmLevenberg17computeLambdaInitEv.exit: ; preds = %36, %._crit_edge20.i
-  %.011.i = phi double [ %49, %._crit_edge20.i ], [ %40, %36 ]
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store double %.011.i, ptr %76, align 8, !tbaa !10
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store double 2.000000e+00, ptr %77, align 8, !tbaa !40
-  br label %78
+_ZNK3g2o30OptimizationAlgorithmLevenberg17computeLambdaInitEv.exit: ; preds = %37, %._crit_edge20.i
+  %.011.i = phi double [ %50, %._crit_edge20.i ], [ %41, %37 ]
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store double %.011.i, ptr %77, align 8, !tbaa !10
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store double 2.000000e+00, ptr %78, align 8, !tbaa !40
+  br label %79
 
-78:                                               ; preds = %_ZNK3g2o30OptimizationAlgorithmLevenberg17computeLambdaInitEv.exit, %35
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 0, ptr %79, align 8, !tbaa !52
-  %80 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %82 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  %83 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 80
+79:                                               ; preds = %_ZNK3g2o30OptimizationAlgorithmLevenberg17computeLambdaInitEv.exit, %35
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 0, ptr %80, align 8, !tbaa !52
+  %81 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %83 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  %84 = getelementptr inbounds nuw i8, ptr %16, i64 104
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre = load ptr, ptr %14, align 8, !tbaa !67
   br label %_ZN3g2o15SparseOptimizer9terminateEv.exit
 
-_ZN3g2o15SparseOptimizer9terminateEv.exit:        ; preds = %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge, %78
-  %88 = phi ptr [ %.pre, %78 ], [ %193, %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge ]
-  %.046 = phi double [ %24, %78 ], [ %.147, %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge ]
-  %.144 = phi double [ %.043, %78 ], [ %.3, %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge ]
-  %89 = load ptr, ptr %88, align 8, !tbaa !8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 120
-  %91 = load ptr, ptr %90, align 8
-  tail call void %91(ptr noundef nonnull align 8 dereferenceable(409) %88)
-  br i1 %.not, label %96, label %92
+_ZN3g2o15SparseOptimizer9terminateEv.exit:        ; preds = %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge, %79
+  %89 = phi ptr [ %.pre, %79 ], [ %194, %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge ]
+  %.050 = phi double [ %24, %79 ], [ %.151, %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge ]
+  %.148 = phi double [ %.047, %79 ], [ %.3, %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge ]
+  %90 = load ptr, ptr %89, align 8, !tbaa !8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 120
+  %92 = load ptr, ptr %91, align 8
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(409) %89)
+  br i1 %.not, label %97, label %93
 
-92:                                               ; preds = %_ZN3g2o15SparseOptimizer9terminateEv.exit
-  %93 = load i32, ptr %80, align 8, !tbaa !96
-  %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %80, align 8, !tbaa !96
-  %95 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
-  br label %96
+93:                                               ; preds = %_ZN3g2o15SparseOptimizer9terminateEv.exit
+  %94 = load i32, ptr %81, align 8, !tbaa !96
+  %95 = add nsw i32 %94, 1
+  store i32 %95, ptr %81, align 8, !tbaa !96
+  %96 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
+  br label %97
 
-96:                                               ; preds = %92, %_ZN3g2o15SparseOptimizer9terminateEv.exit
-  %.245 = phi double [ %95, %92 ], [ %.144, %_ZN3g2o15SparseOptimizer9terminateEv.exit ]
-  %97 = load ptr, ptr %25, align 8, !tbaa !66
-  %98 = load double, ptr %81, align 8, !tbaa !10
-  %99 = load ptr, ptr %97, align 8, !tbaa !8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 64
-  %101 = load ptr, ptr %100, align 8
-  %102 = tail call noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(64) %97, double noundef %98, i1 noundef zeroext true)
-  %103 = load ptr, ptr %25, align 8, !tbaa !66
-  %104 = load ptr, ptr %103, align 8, !tbaa !8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 48
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(64) %103)
-  br i1 %.not, label %114, label %108
+97:                                               ; preds = %93, %_ZN3g2o15SparseOptimizer9terminateEv.exit
+  %.249 = phi double [ %96, %93 ], [ %.148, %_ZN3g2o15SparseOptimizer9terminateEv.exit ]
+  %98 = load ptr, ptr %25, align 8, !tbaa !66
+  %99 = load double, ptr %82, align 8, !tbaa !10
+  %100 = load ptr, ptr %98, align 8, !tbaa !8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 64
+  %102 = load ptr, ptr %101, align 8
+  %103 = tail call noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(64) %98, double noundef %99, i1 noundef zeroext true)
+  %104 = load ptr, ptr %25, align 8, !tbaa !66
+  %105 = load ptr, ptr %104, align 8, !tbaa !8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(64) %104)
+  br i1 %.not, label %115, label %109
 
-108:                                              ; preds = %96
-  %109 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
-  %110 = fsub double %109, %.245
-  %111 = load double, ptr %82, align 8, !tbaa !97
-  %112 = fadd double %111, %110
-  store double %112, ptr %82, align 8, !tbaa !97
-  %113 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
-  br label %114
+109:                                              ; preds = %97
+  %110 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
+  %111 = fsub double %110, %.249
+  %112 = load double, ptr %83, align 8, !tbaa !97
+  %113 = fadd double %112, %111
+  store double %113, ptr %83, align 8, !tbaa !97
+  %114 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
+  br label %115
 
-114:                                              ; preds = %108, %96
-  %.3 = phi double [ %113, %108 ], [ %.245, %96 ]
-  %115 = load ptr, ptr %14, align 8, !tbaa !67
-  %116 = load ptr, ptr %25, align 8, !tbaa !66
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %118 = load ptr, ptr %117, align 8, !tbaa !98
-  tail call void @_ZN3g2o15SparseOptimizer6updateEPKd(ptr noundef nonnull align 8 dereferenceable(409) %115, ptr noundef %118)
-  br i1 %.not, label %122, label %119
+115:                                              ; preds = %109, %97
+  %.3 = phi double [ %114, %109 ], [ %.249, %97 ]
+  %116 = load ptr, ptr %14, align 8, !tbaa !67
+  %117 = load ptr, ptr %25, align 8, !tbaa !66
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %119 = load ptr, ptr %118, align 8, !tbaa !98
+  tail call void @_ZN3g2o15SparseOptimizer6updateEPKd(ptr noundef nonnull align 8 dereferenceable(409) %116, ptr noundef %119)
+  br i1 %.not, label %123, label %120
 
-119:                                              ; preds = %114
-  %120 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
-  %121 = fsub double %120, %.3
-  store double %121, ptr %83, align 8, !tbaa !101
-  br label %122
+120:                                              ; preds = %115
+  %121 = tail call noundef double @_ZN3g2o18get_monotonic_timeEv()
+  %122 = fsub double %121, %.3
+  store double %122, ptr %84, align 8, !tbaa !101
+  br label %123
 
-122:                                              ; preds = %119, %114
-  %123 = load ptr, ptr %25, align 8, !tbaa !66
-  %124 = load ptr, ptr %123, align 8, !tbaa !8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 72
-  %126 = load ptr, ptr %125, align 8
-  tail call void %126(ptr noundef nonnull align 8 dereferenceable(64) %123)
-  %127 = load ptr, ptr %14, align 8, !tbaa !67
-  tail call void @_ZN3g2o15SparseOptimizer19computeActiveErrorsEv(ptr noundef nonnull align 8 dereferenceable(409) %127)
+123:                                              ; preds = %120, %115
+  %124 = load ptr, ptr %25, align 8, !tbaa !66
+  %125 = load ptr, ptr %124, align 8, !tbaa !8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 72
+  %127 = load ptr, ptr %126, align 8
+  tail call void %127(ptr noundef nonnull align 8 dereferenceable(64) %124)
   %128 = load ptr, ptr %14, align 8, !tbaa !67
-  %129 = tail call noundef double @_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev(ptr noundef nonnull align 8 dereferenceable(409) %128)
-  br i1 %107, label %132, label %130
+  tail call void @_ZN3g2o15SparseOptimizer19computeActiveErrorsEv(ptr noundef nonnull align 8 dereferenceable(409) %128)
+  %129 = load ptr, ptr %14, align 8, !tbaa !67
+  %130 = tail call noundef double @_ZNK3g2o15SparseOptimizer16activeRobustChi2Ev(ptr noundef nonnull align 8 dereferenceable(409) %129)
+  br i1 %108, label %133, label %131
 
-130:                                              ; preds = %122
-  %131 = fadd double %.046, 0xFFEFFFFFFFFFFFFF
+131:                                              ; preds = %123
+  %132 = fadd double %.050, 0xFFEFFFFFFFFFFFFF
   br label %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit
 
-132:                                              ; preds = %122
-  %133 = fsub double %.046, %129
-  %134 = load ptr, ptr %25, align 8, !tbaa !66
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
-  %136 = load i64, ptr %135, align 8, !tbaa !102
-  %.not.i59 = icmp eq i64 %136, 0
+133:                                              ; preds = %123
+  %134 = fsub double %.050, %130
+  %135 = load ptr, ptr %25, align 8, !tbaa !66
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
+  %137 = load i64, ptr %136, align 8, !tbaa !102
+  %.not.i59 = icmp eq i64 %137, 0
   br i1 %.not.i59, label %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit, label %.lr.ph.i60
 
-.lr.ph.i60:                                       ; preds = %132
-  %137 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %138 = load ptr, ptr %137, align 8, !tbaa !98
-  %139 = load double, ptr %81, align 8, !tbaa !10
-  %140 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %141 = load ptr, ptr %140, align 8, !tbaa !103
-  br label %142
+.lr.ph.i60:                                       ; preds = %133
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  %139 = load ptr, ptr %138, align 8, !tbaa !98
+  %140 = load double, ptr %82, align 8, !tbaa !10
+  %141 = getelementptr inbounds nuw i8, ptr %135, i64 24
+  %142 = load ptr, ptr %141, align 8, !tbaa !103
+  br label %143
 
-142:                                              ; preds = %142, %.lr.ph.i60
-  %.09.i = phi i64 [ 0, %.lr.ph.i60 ], [ %149, %142 ]
-  %.078.i = phi double [ 0.000000e+00, %.lr.ph.i60 ], [ %148, %142 ]
-  %143 = getelementptr inbounds nuw double, ptr %138, i64 %.09.i
-  %144 = load double, ptr %143, align 8, !tbaa !48
-  %145 = getelementptr inbounds nuw double, ptr %141, i64 %.09.i
-  %146 = load double, ptr %145, align 8, !tbaa !48
-  %147 = tail call double @llvm.fmuladd.f64(double %139, double %144, double %146)
-  %148 = tail call double @llvm.fmuladd.f64(double %144, double %147, double %.078.i)
-  %149 = add nuw i64 %.09.i, 1
-  %exitcond.not.i61 = icmp eq i64 %149, %136
-  br i1 %exitcond.not.i61, label %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit, label %142, !llvm.loop !104
+143:                                              ; preds = %143, %.lr.ph.i60
+  %.09.i = phi i64 [ 0, %.lr.ph.i60 ], [ %150, %143 ]
+  %.078.i = phi double [ 0.000000e+00, %.lr.ph.i60 ], [ %149, %143 ]
+  %144 = getelementptr inbounds nuw double, ptr %139, i64 %.09.i
+  %145 = load double, ptr %144, align 8, !tbaa !48
+  %146 = getelementptr inbounds nuw double, ptr %142, i64 %.09.i
+  %147 = load double, ptr %146, align 8, !tbaa !48
+  %148 = tail call double @llvm.fmuladd.f64(double %140, double %145, double %147)
+  %149 = tail call double @llvm.fmuladd.f64(double %145, double %148, double %.078.i)
+  %150 = add nuw i64 %.09.i, 1
+  %exitcond.not.i61 = icmp eq i64 %150, %137
+  br i1 %exitcond.not.i61, label %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit, label %143, !llvm.loop !104
 
-_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit: ; preds = %142
-  %150 = fadd double %148, 1.000000e-03
+_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit: ; preds = %143
+  %151 = fadd double %149, 1.000000e-03
   br label %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit
 
-_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit: ; preds = %132, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit, %130
-  %151 = phi double [ %131, %130 ], [ %133, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit ], [ %133, %132 ]
-  %.04270 = phi double [ 0x7FEFFFFFFFFFFFFF, %130 ], [ %129, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit ], [ %129, %132 ]
-  %152 = phi double [ 1.000000e+00, %130 ], [ %150, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit ], [ 1.000000e-03, %132 ]
-  %153 = fdiv double %151, %152
-  %154 = fcmp ogt double %153, 0.000000e+00
-  br i1 %154, label %155, label %._crit_edge
+_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit: ; preds = %133, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit, %131
+  %152 = phi double [ %132, %131 ], [ %134, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit ], [ %134, %133 ]
+  %.04670 = phi double [ 0x7FEFFFFFFFFFFFFF, %131 ], [ %130, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit ], [ %130, %133 ]
+  %153 = phi double [ 1.000000e+00, %131 ], [ %151, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit ], [ 1.000000e-03, %133 ]
+  %154 = fdiv double %152, %153
+  %155 = fcmp ogt double %154, 0.000000e+00
+  br i1 %155, label %156, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit
-  %.pre81 = load double, ptr %81, align 8, !tbaa !10
-  br label %171
+  %.pre80 = load double, ptr %82, align 8, !tbaa !10
+  br label %172
 
-155:                                              ; preds = %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit
-  %156 = tail call double @llvm.fabs.f64(double %.04270)
-  %157 = fcmp one double %156, 0x7FF0000000000000
-  %brmerge56.not = and i1 %107, %157
-  %.pre82 = load double, ptr %81, align 8, !tbaa !10
-  br i1 %brmerge56.not, label %158, label %171
+156:                                              ; preds = %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit
+  %157 = tail call double @llvm.fabs.f64(double %.04670)
+  %158 = fcmp one double %157, 0x7FF0000000000000
+  %or.cond3 = and i1 %108, %158
+  %.pre81 = load double, ptr %82, align 8, !tbaa !10
+  br i1 %or.cond3, label %159, label %172
 
-158:                                              ; preds = %155
-  %159 = tail call double @llvm.fmuladd.f64(double %153, double 2.000000e+00, double -1.000000e+00)
-  %160 = tail call noundef double @pow(double noundef %159, double noundef 3.000000e+00) #20, !tbaa !52
-  %161 = fsub double 1.000000e+00, %160
-  %162 = load double, ptr %85, align 8, !tbaa !48
-  %163 = fcmp olt double %162, %161
-  %.sroa.speculated68 = select i1 %163, double %162, double %161
-  %164 = load double, ptr %86, align 8, !tbaa !48
-  %165 = fcmp olt double %164, %.sroa.speculated68
-  %.sroa.speculated = select i1 %165, double %.sroa.speculated68, double %164
-  %166 = fmul double %.pre82, %.sroa.speculated
-  store double %166, ptr %81, align 8, !tbaa !10
-  store double 2.000000e+00, ptr %84, align 8, !tbaa !40
-  %167 = load ptr, ptr %14, align 8, !tbaa !67
-  %168 = load ptr, ptr %167, align 8, !tbaa !8
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 136
-  %170 = load ptr, ptr %169, align 8
-  tail call void %170(ptr noundef nonnull align 8 dereferenceable(409) %167)
-  br label %183
+159:                                              ; preds = %156
+  %160 = tail call double @llvm.fmuladd.f64(double %154, double 2.000000e+00, double -1.000000e+00)
+  %161 = tail call noundef double @pow(double noundef %160, double noundef 3.000000e+00) #20, !tbaa !52
+  %162 = fsub double 1.000000e+00, %161
+  %163 = load double, ptr %86, align 8, !tbaa !48
+  %164 = fcmp olt double %163, %162
+  %.sroa.speculated68 = select i1 %164, double %163, double %162
+  %165 = load double, ptr %87, align 8, !tbaa !48
+  %166 = fcmp olt double %165, %.sroa.speculated68
+  %.sroa.speculated = select i1 %166, double %.sroa.speculated68, double %165
+  %167 = fmul double %.pre81, %.sroa.speculated
+  store double %167, ptr %82, align 8, !tbaa !10
+  store double 2.000000e+00, ptr %85, align 8, !tbaa !40
+  %168 = load ptr, ptr %14, align 8, !tbaa !67
+  %169 = load ptr, ptr %168, align 8, !tbaa !8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 136
+  %171 = load ptr, ptr %170, align 8
+  tail call void %171(ptr noundef nonnull align 8 dereferenceable(409) %168)
+  br label %184
 
-171:                                              ; preds = %._crit_edge, %155
-  %172 = phi double [ %.pre81, %._crit_edge ], [ %.pre82, %155 ]
-  %173 = load double, ptr %84, align 8, !tbaa !40
-  %174 = fmul double %173, %172
-  store double %174, ptr %81, align 8, !tbaa !10
-  %175 = fmul double %173, 2.000000e+00
-  store double %175, ptr %84, align 8, !tbaa !40
-  %176 = load ptr, ptr %14, align 8, !tbaa !67
-  %177 = load ptr, ptr %176, align 8, !tbaa !8
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 128
-  %179 = load ptr, ptr %178, align 8
-  tail call void %179(ptr noundef nonnull align 8 dereferenceable(409) %176)
-  %180 = load double, ptr %81, align 8, !tbaa !10
-  %181 = tail call double @llvm.fabs.f64(double %180)
-  %182 = fcmp ueq double %181, 0x7FF0000000000000
-  br i1 %182, label %..critedge_crit_edge, label %183
+172:                                              ; preds = %._crit_edge, %156
+  %173 = phi double [ %.pre80, %._crit_edge ], [ %.pre81, %156 ]
+  %174 = load double, ptr %85, align 8, !tbaa !40
+  %175 = fmul double %174, %173
+  store double %175, ptr %82, align 8, !tbaa !10
+  %176 = fmul double %174, 2.000000e+00
+  store double %176, ptr %85, align 8, !tbaa !40
+  %177 = load ptr, ptr %14, align 8, !tbaa !67
+  %178 = load ptr, ptr %177, align 8, !tbaa !8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 128
+  %180 = load ptr, ptr %179, align 8
+  tail call void %180(ptr noundef nonnull align 8 dereferenceable(409) %177)
+  %181 = load double, ptr %82, align 8, !tbaa !10
+  %182 = tail call double @llvm.fabs.f64(double %181)
+  %183 = fcmp ueq double %182, 0x7FF0000000000000
+  br i1 %183, label %..critedge_crit_edge, label %184
 
-..critedge_crit_edge:                             ; preds = %171
-  %.pre83 = load i32, ptr %79, align 8, !tbaa !52
+..critedge_crit_edge:                             ; preds = %172
+  %.pre82 = load i32, ptr %80, align 8, !tbaa !52
   br label %.critedge
 
-183:                                              ; preds = %158, %171
-  %.147 = phi double [ %.04270, %158 ], [ %.046, %171 ]
-  %184 = load i32, ptr %79, align 8, !tbaa !52
-  %185 = add nsw i32 %184, 1
-  store i32 %185, ptr %79, align 8, !tbaa !52
-  %186 = fcmp olt double %153, 0.000000e+00
-  br i1 %186, label %187, label %.critedge
+184:                                              ; preds = %159, %172
+  %.151 = phi double [ %.04670, %159 ], [ %.050, %172 ]
+  %185 = load i32, ptr %80, align 8, !tbaa !52
+  %186 = add nsw i32 %185, 1
+  store i32 %186, ptr %80, align 8, !tbaa !52
+  %187 = fcmp olt double %154, 0.000000e+00
+  br i1 %187, label %188, label %.critedge
 
-187:                                              ; preds = %183
-  %188 = load ptr, ptr %87, align 8, !tbaa !53
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 40
-  %190 = load i32, ptr %189, align 4, !tbaa !52
-  %191 = icmp slt i32 %185, %190
-  br i1 %191, label %192, label %.critedge
+188:                                              ; preds = %184
+  %189 = load ptr, ptr %88, align 8, !tbaa !53
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 40
+  %191 = load i32, ptr %190, align 4, !tbaa !52
+  %192 = icmp slt i32 %186, %191
+  br i1 %192, label %193, label %.critedge
 
-192:                                              ; preds = %187
-  %193 = load ptr, ptr %14, align 8, !tbaa !67
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 288
-  %195 = load ptr, ptr %194, align 8, !tbaa !105
-  %.not.i64 = icmp eq ptr %195, null
-  br i1 %.not.i64, label %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge, label %196
+193:                                              ; preds = %188
+  %194 = load ptr, ptr %14, align 8, !tbaa !67
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 288
+  %196 = load ptr, ptr %195, align 8, !tbaa !105
+  %.not.i64 = icmp eq ptr %196, null
+  br i1 %.not.i64, label %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge, label %197
 
-196:                                              ; preds = %192
-  %197 = load i8, ptr %195, align 1, !tbaa !151, !range !152, !noundef !153
-  %198 = trunc nuw i8 %197 to i1
-  br i1 %198, label %.critedge, label %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge
+197:                                              ; preds = %193
+  %198 = load i8, ptr %196, align 1, !tbaa !151, !range !152, !noundef !153
+  %199 = trunc nuw i8 %198 to i1
+  br i1 %199, label %.critedge, label %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge
 
-_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge: ; preds = %196, %192
+_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge: ; preds = %197, %193
   br label %_ZN3g2o15SparseOptimizer9terminateEv.exit, !llvm.loop !154
 
-.critedge:                                        ; preds = %196, %183, %187, %..critedge_crit_edge
-  %199 = phi i32 [ %.pre83, %..critedge_crit_edge ], [ %185, %187 ], [ %185, %183 ], [ %185, %196 ]
-  %200 = load ptr, ptr %87, align 8, !tbaa !53
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 40
-  %202 = load i32, ptr %201, align 4, !tbaa !52
-  %203 = icmp eq i32 %199, %202
-  %204 = fcmp oeq double %153, 0.000000e+00
-  %or.cond = or i1 %204, %203
-  br i1 %or.cond, label %209, label %205
+.critedge:                                        ; preds = %197, %184, %188, %..critedge_crit_edge
+  %200 = phi i32 [ %.pre82, %..critedge_crit_edge ], [ %186, %188 ], [ %186, %184 ], [ %186, %197 ]
+  %201 = load ptr, ptr %88, align 8, !tbaa !53
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 40
+  %203 = load i32, ptr %202, align 4, !tbaa !52
+  %204 = icmp eq i32 %200, %203
+  %205 = fcmp oeq double %154, 0.000000e+00
+  %or.cond5 = or i1 %205, %204
+  br i1 %or.cond5, label %210, label %206
 
-205:                                              ; preds = %.critedge
-  %206 = load double, ptr %81, align 8, !tbaa !10
-  %207 = tail call double @llvm.fabs.f64(double %206)
-  %208 = fcmp one double %207, 0x7FF0000000000000
-  %spec.select = select i1 %208, i32 1, i32 2
-  br label %209
+206:                                              ; preds = %.critedge
+  %207 = load double, ptr %82, align 8, !tbaa !10
+  %208 = tail call double @llvm.fabs.f64(double %207)
+  %209 = fcmp one double %208, 0x7FF0000000000000
+  %spec.select = select i1 %209, i32 1, i32 2
+  br label %210
 
-209:                                              ; preds = %205, %5, %.critedge
-  %.1 = phi i32 [ -1, %5 ], [ 2, %.critedge ], [ %spec.select, %205 ]
+210:                                              ; preds = %206, %5, %.critedge
+  %.1 = phi i32 [ -1, %5 ], [ 2, %.critedge ], [ %spec.select, %206 ]
   ret i32 %.1
 }
 

@@ -1974,49 +1974,47 @@ define hidden void @_ZN14ShenandoahHeap21initialize_heuristicsEv(ptr noundef non
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(193) %9) #26
-  br i1 %14, label %15, label %25
+  %.not = xor i1 %14, true
+  %15 = load i8, ptr @UnlockDiagnosticVMOptions, align 1
+  %16 = trunc i8 %15 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %16
+  br i1 %or.cond, label %24, label %17
 
-15:                                               ; preds = %1
-  %16 = load i8, ptr @UnlockDiagnosticVMOptions, align 1
-  %17 = trunc i8 %16 to i1
-  br i1 %17, label %25, label %18
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(193) %18) #26
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str.32, ptr noundef %22)
+  %23 = load ptr, ptr %2, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %23, ptr noundef null) #26
+  br label %24
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %10, align 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 120
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(193) %19) #26
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str.32, ptr noundef %23)
-  %24 = load ptr, ptr %2, align 8
-  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %24, ptr noundef null) #26
-  br label %25
+24:                                               ; preds = %17, %1
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
+  %28 = load ptr, ptr %27, align 8
+  %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(193) %25) #26
+  %.not2 = xor i1 %29, true
+  %30 = load i8, ptr @UnlockExperimentalVMOptions, align 1
+  %31 = trunc i8 %30 to i1
+  %or.cond4 = select i1 %.not2, i1 true, i1 %31
+  br i1 %or.cond4, label %39, label %32
 
-25:                                               ; preds = %18, %15, %1
-  %26 = load ptr, ptr %10, align 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 136
-  %29 = load ptr, ptr %28, align 8
-  %30 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(193) %26) #26
-  br i1 %30, label %31, label %41
-
-31:                                               ; preds = %25
-  %32 = load i8, ptr @UnlockExperimentalVMOptions, align 1
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %41, label %34
-
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %10, align 8
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 120
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 120
-  %38 = load ptr, ptr %37, align 8
-  %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(193) %35) #26
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull @.str.33, ptr noundef %39)
-  %40 = load ptr, ptr %3, align 8
-  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %40, ptr noundef null) #26
-  br label %41
+  %37 = call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(193) %33) #26
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull @.str.33, ptr noundef %37)
+  %38 = load ptr, ptr %3, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %38, ptr noundef null) #26
+  br label %39
 
-41:                                               ; preds = %34, %31, %25
+39:                                               ; preds = %32, %24
   ret void
 }
 
@@ -2108,8 +2106,8 @@ define hidden void @_ZN14ShenandoahHeap15initialize_modeEv(ptr noundef nonnull a
   %2 = alloca %class.FormatBuffer.3, align 8
   %3 = alloca %class.FormatBuffer.3, align 8
   %4 = load ptr, ptr @ShenandoahGCMode, align 8
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %26, label %5
+  %.not13 = icmp eq ptr %4, null
+  br i1 %.not13, label %26, label %5
 
 5:                                                ; preds = %1
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(5) @.str.25) #28
@@ -2125,14 +2123,14 @@ define hidden void @_ZN14ShenandoahHeap15initialize_modeEv(ptr noundef nonnull a
 
 sub_0:                                            ; preds = %5
   %11 = load i8, ptr %4, align 1
-  %.not9 = icmp eq i8 %11, 105
-  br i1 %.not9, label %sub_1, label %.tail.thread
+  %.not14 = icmp eq i8 %11, 105
+  br i1 %.not14, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %13 = load i8, ptr %12, align 1
-  %.not10 = icmp eq i8 %13, 117
-  br i1 %.not10, label %.tail, label %.tail.thread
+  %.not15 = icmp eq i8 %13, 117
+  br i1 %.not15, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -2178,49 +2176,47 @@ sub_1:                                            ; preds = %sub_0
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(8) %32) #26
-  br i1 %36, label %37, label %47
+  %.not = xor i1 %36, true
+  %37 = load i8, ptr @UnlockDiagnosticVMOptions, align 1
+  %38 = trunc i8 %37 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %38
+  br i1 %or.cond, label %46, label %39
 
-37:                                               ; preds = %27
-  %38 = load i8, ptr @UnlockDiagnosticVMOptions, align 1
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %47, label %40
+39:                                               ; preds = %27
+  %40 = load ptr, ptr %28, align 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(8) %40) #26
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str.30, ptr noundef %44)
+  %45 = load ptr, ptr %2, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %45, ptr noundef null) #26
+  br label %46
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %28, align 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(8) %41) #26
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str.30, ptr noundef %45)
-  %46 = load ptr, ptr %2, align 8
-  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %46, ptr noundef null) #26
-  br label %47
+46:                                               ; preds = %39, %27
+  %47 = load ptr, ptr %28, align 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %50 = load ptr, ptr %49, align 8
+  %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(8) %47) #26
+  %.not2 = xor i1 %51, true
+  %52 = load i8, ptr @UnlockExperimentalVMOptions, align 1
+  %53 = trunc i8 %52 to i1
+  %or.cond4 = select i1 %.not2, i1 true, i1 %53
+  br i1 %or.cond4, label %61, label %54
 
-47:                                               ; preds = %40, %37, %27
-  %48 = load ptr, ptr %28, align 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %51 = load ptr, ptr %50, align 8
-  %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(8) %48) #26
-  br i1 %52, label %53, label %63
-
-53:                                               ; preds = %47
-  %54 = load i8, ptr @UnlockExperimentalVMOptions, align 1
-  %55 = trunc i8 %54 to i1
-  br i1 %55, label %63, label %56
-
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %28, align 8
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %28, align 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = call noundef ptr %60(ptr noundef nonnull align 8 dereferenceable(8) %57) #26
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull @.str.31, ptr noundef %61)
-  %62 = load ptr, ptr %3, align 8
-  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %62, ptr noundef null) #26
-  br label %63
+  %59 = call noundef ptr %58(ptr noundef nonnull align 8 dereferenceable(8) %55) #26
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull @.str.31, ptr noundef %59)
+  %60 = load ptr, ptr %3, align 8
+  call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef %60, ptr noundef null) #26
+  br label %61
 
-63:                                               ; preds = %56, %53, %47
+61:                                               ; preds = %54, %46
   ret void
 }
 
@@ -5079,18 +5075,16 @@ _ZN20BlockLocationPrinterI14ShenandoahHeapE16base_oop_or_nullEPv.exit.thread: ; 
 define hidden void @_ZN14ShenandoahHeap18prepare_for_verifyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) unnamed_addr #1 align 2 {
   %2 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %3 = icmp eq i32 %2, 2
-  br i1 %3, label %4, label %8
+  %4 = load i8, ptr @UseTLAB, align 1
+  %5 = trunc i8 %4 to i1
+  %or.cond = select i1 %3, i1 %5, i1 false
+  br i1 %or.cond, label %6, label %7
 
-4:                                                ; preds = %1
-  %5 = load i8, ptr @UseTLAB, align 1
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %4
+6:                                                ; preds = %1
   tail call void @_ZN14ShenandoahHeap18labs_make_parsableEv(ptr noundef nonnull align 8 dereferenceable(2657) %0)
-  br label %8
+  br label %7
 
-8:                                                ; preds = %7, %4, %1
+7:                                                ; preds = %6, %1
   ret void
 }
 
@@ -5226,34 +5220,36 @@ define hidden void @_ZN14ShenandoahHeap6verifyE12VerifyOption(ptr noundef nonnul
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(888) %7) #26
-  br i1 %16, label %17, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread2
+  br i1 %16, label %17, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr @_ZN8VMThread17_cur_vm_operationE, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit
+  br i1 %19, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread, label %20
 
-_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit: ; preds = %17
-  %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(16) %18) #26
-  %.off.i = add i32 %23, -53
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %18, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(16) %18) #26
+  %.off.i = add i32 %24, -53
   %switch.i = icmp ult i32 %.off.i, 7
-  br i1 %switch.i, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread2, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread
+  br label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit
 
-_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread2: ; preds = %12, %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit
-  %24 = load i8, ptr @ShenandoahVerify, align 1
-  %25 = trunc i8 %24 to i1
-  br i1 %25, label %_ZN14ShenandoahHeap8verifierEv.exit, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread
+_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit: ; preds = %12, %20
+  %.0.i = phi i1 [ true, %12 ], [ %switch.i, %20 ]
+  %25 = load i8, ptr @ShenandoahVerify, align 1
+  %26 = trunc i8 %25 to i1
+  %or.cond = select i1 %.0.i, i1 %26, i1 false
+  br i1 %or.cond, label %_ZN14ShenandoahHeap8verifierEv.exit, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread
 
-_ZN14ShenandoahHeap8verifierEv.exit:              ; preds = %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread2
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1672
-  %27 = load ptr, ptr %26, align 8
-  tail call void @_ZN18ShenandoahVerifier14verify_genericE12VerifyOption(ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef %1) #26
+_ZN14ShenandoahHeap8verifierEv.exit:              ; preds = %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  %28 = load ptr, ptr %27, align 8
+  tail call void @_ZN18ShenandoahVerifier14verify_genericE12VerifyOption(ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef %1) #26
   br label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread
 
-_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread: ; preds = %17, %5, %2, %_ZN14ShenandoahHeap8verifierEv.exit, %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread2, %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit
+_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread: ; preds = %17, %5, %2, %_ZN14ShenandoahHeap8verifierEv.exit, %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit
   ret void
 }
 

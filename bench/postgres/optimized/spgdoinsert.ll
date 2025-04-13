@@ -267,8 +267,8 @@ define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1,
 25:                                               ; preds = %5
   %26 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 2) #10
   %27 = tail call i32 @index_getprocid(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 6) #10
-  %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %35, label %28
+  %.not143 = icmp eq i32 %27, 0
+  br i1 %.not143, label %35, label %28
 
 28:                                               ; preds = %25
   %29 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 6) #10
@@ -294,7 +294,7 @@ define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1,
 
 44:                                               ; preds = %5, %35, %28, %40
   %.sink = phi i64 [ %34, %28 ], [ %43, %40 ], [ %39, %35 ], [ 0, %5 ]
-  %.0123418 = phi ptr [ %26, %28 ], [ %26, %40 ], [ %26, %35 ], [ null, %5 ]
+  %.0125420 = phi ptr [ %26, %28 ], [ %26, %40 ], [ %26, %35 ], [ null, %5 ]
   store i64 %.sink, ptr %17, align 16
   %45 = load i32, ptr %22, align 8
   %46 = icmp sgt i32 %45, 1
@@ -380,8 +380,8 @@ define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1,
 91:                                               ; preds = %77, %._crit_edge
   %92 = select i1 %24, i32 2, i32 1
   %93 = load volatile i32, ptr @InterruptPending, align 4
-  %.not141 = icmp eq i32 %93, 0
-  br i1 %.not141, label %95, label %94, !prof !10
+  %.not144 = icmp eq i32 %93, 0
+  br i1 %.not144, label %95, label %94, !prof !10
 
 94:                                               ; preds = %91
   call void @ProcessInterrupts() #10
@@ -391,10 +391,10 @@ define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #10
   store i8 0, ptr %18, align 1
   %96 = load volatile i32, ptr @InterruptPending, align 4
-  %.not1421020 = icmp eq i32 %96, 0
-  br i1 %.not1421020, label %.lr.ph1036, label %.thread472, !prof !11
+  %.not1451022 = icmp eq i32 %96, 0
+  br i1 %.not1451022, label %.lr.ph1038, label %.thread474, !prof !11
 
-.lr.ph1036:                                       ; preds = %95
+.lr.ph1038:                                       ; preds = %95
   %97 = select i1 %24, i32 7, i32 3
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -460,59 +460,59 @@ define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1,
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 21
   br label %160
 
-.thread472:                                       ; preds = %.thread430, %95
-  %.sroa.8.0.lcssa = phi i32 [ 0, %95 ], [ %.sroa.29.4.ph4871010, %.thread430 ]
+.thread474:                                       ; preds = %.thread432, %95
+  %.sroa.8.0.lcssa = phi i32 [ 0, %95 ], [ %.sroa.29.4.ph4891012, %.thread432 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #10
   br label %1916
 
-160:                                              ; preds = %.lr.ph1036, %.thread430
-  %.01151034 = phi i32 [ 0, %.lr.ph1036 ], [ %1429, %.thread430 ]
-  %.01201033 = phi i32 [ %50, %.lr.ph1036 ], [ %.2122, %.thread430 ]
-  %.01241032 = phi i32 [ 0, %.lr.ph1036 ], [ %.1125, %.thread430 ]
-  %.01271031 = phi i32 [ %50, %.lr.ph1036 ], [ %.1128, %.thread430 ]
-  %.sroa.116.01030 = phi i16 [ 1, %.lr.ph1036 ], [ %1421, %.thread430 ]
-  %.sroa.0.01029 = phi i32 [ -1, %.lr.ph1036 ], [ %.sroa.0304.4.ph4881011, %.thread430 ]
-  %.sroa.8.01028 = phi i32 [ 0, %.lr.ph1036 ], [ %.sroa.29.4.ph4871010, %.thread430 ]
-  %.sroa.34.01025 = phi ptr [ null, %.lr.ph1036 ], [ %.sroa.67.1.ph4891012, %.thread430 ]
-  %.sroa.48.01023 = phi i16 [ 0, %.lr.ph1036 ], [ %.sroa.116.3.ph4901013, %.thread430 ]
-  %.sroa.57297.01022 = phi i32 [ -1, %.lr.ph1036 ], [ %1396, %.thread430 ]
-  %.sroa.0304.01021 = phi i32 [ %92, %.lr.ph1036 ], [ %.sroa.0304.6, %.thread430 ]
-  %161 = icmp eq i32 %.sroa.0304.01021, -1
+160:                                              ; preds = %.lr.ph1038, %.thread432
+  %.01171036 = phi i32 [ 0, %.lr.ph1038 ], [ %1429, %.thread432 ]
+  %.01221035 = phi i32 [ %50, %.lr.ph1038 ], [ %.2124, %.thread432 ]
+  %.01261034 = phi i32 [ 0, %.lr.ph1038 ], [ %.1127, %.thread432 ]
+  %.01291033 = phi i32 [ %50, %.lr.ph1038 ], [ %.1130, %.thread432 ]
+  %.sroa.116.01032 = phi i16 [ 1, %.lr.ph1038 ], [ %1421, %.thread432 ]
+  %.sroa.0.01031 = phi i32 [ -1, %.lr.ph1038 ], [ %.sroa.0306.4.ph4901013, %.thread432 ]
+  %.sroa.8.01030 = phi i32 [ 0, %.lr.ph1038 ], [ %.sroa.29.4.ph4891012, %.thread432 ]
+  %.sroa.34.01027 = phi ptr [ null, %.lr.ph1038 ], [ %.sroa.67.1.ph4911014, %.thread432 ]
+  %.sroa.48.01025 = phi i16 [ 0, %.lr.ph1038 ], [ %.sroa.116.3.ph4921015, %.thread432 ]
+  %.sroa.57299.01024 = phi i32 [ -1, %.lr.ph1038 ], [ %1396, %.thread432 ]
+  %.sroa.0306.01023 = phi i32 [ %92, %.lr.ph1038 ], [ %.sroa.0306.6, %.thread432 ]
+  %161 = icmp eq i32 %.sroa.0306.01023, -1
   br i1 %161, label %162, label %166
 
 162:                                              ; preds = %160
-  %163 = call i32 @llvm.umin.i32(i32 %.01201033, i32 8160)
+  %163 = call i32 @llvm.umin.i32(i32 %.01221035, i32 8160)
   %164 = call i32 @SpGistGetBuffer(ptr noundef %0, i32 noundef %97, i32 noundef %163, ptr noundef nonnull %18) #10
   %165 = call i32 @BufferGetBlockNumber(i32 noundef %164) #10
   br label %174
 
 166:                                              ; preds = %160
-  %167 = icmp eq i32 %.sroa.8.01028, 0
+  %167 = icmp eq i32 %.sroa.8.01030, 0
   br i1 %167, label %168, label %170
 
 168:                                              ; preds = %166
-  %169 = call i32 @ReadBuffer(ptr noundef %0, i32 noundef %.sroa.0304.01021) #10
+  %169 = call i32 @ReadBuffer(ptr noundef %0, i32 noundef %.sroa.0306.01023) #10
   call void @LockBuffer(i32 noundef %169, i32 noundef 2) #10
   br label %174
 
 170:                                              ; preds = %166
-  %.not143 = icmp eq i32 %.sroa.0304.01021, %.sroa.0.01029
-  br i1 %.not143, label %174, label %171
+  %.not146 = icmp eq i32 %.sroa.0306.01023, %.sroa.0.01031
+  br i1 %.not146, label %174, label %171
 
 171:                                              ; preds = %170
-  %172 = call i32 @ReadBuffer(ptr noundef %0, i32 noundef %.sroa.0304.01021) #10
+  %172 = call i32 @ReadBuffer(ptr noundef %0, i32 noundef %.sroa.0306.01023) #10
   %173 = call zeroext i1 @ConditionalLockBuffer(i32 noundef %172) #10
-  br i1 %173, label %174, label %.thread457
+  br i1 %173, label %174, label %.thread459
 
-.thread457:                                       ; preds = %171
+.thread459:                                       ; preds = %171
   call void @ReleaseBuffer(i32 noundef %172) #10
-  call void @UnlockReleaseBuffer(i32 noundef %.sroa.8.01028) #10
+  call void @UnlockReleaseBuffer(i32 noundef %.sroa.8.01030) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #10
   br label %1921
 
 174:                                              ; preds = %170, %168, %171, %162
-  %.sroa.29.2 = phi i32 [ %164, %162 ], [ %169, %168 ], [ %172, %171 ], [ %.sroa.8.01028, %170 ]
-  %.sroa.0304.2 = phi i32 [ %165, %162 ], [ %.sroa.0304.01021, %168 ], [ %.sroa.0304.01021, %171 ], [ %.sroa.0.01029, %170 ]
+  %.sroa.29.2 = phi i32 [ %164, %162 ], [ %169, %168 ], [ %172, %171 ], [ %.sroa.8.01030, %170 ]
+  %.sroa.0306.2 = phi i32 [ %165, %162 ], [ %.sroa.0306.01023, %168 ], [ %.sroa.0306.01023, %171 ], [ %.sroa.0.01031, %170 ]
   %175 = icmp slt i32 %.sroa.29.2, 0
   br i1 %175, label %176, label %182
 
@@ -540,22 +540,22 @@ BufferGetPage.exit:                               ; preds = %176, %182
   %191 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %190
   %192 = load i16, ptr %191, align 2
   %193 = and i16 %192, 8
-  %.not145 = icmp eq i16 %193, 0
-  %194 = xor i1 %.not145, %24
+  %.not148 = icmp eq i16 %193, 0
+  %194 = xor i1 %.not148, %24
   br i1 %194, label %198, label %195
 
 195:                                              ; preds = %BufferGetPage.exit
   %196 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %196)
-  %197 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %.sroa.0304.2) #10
+  %197 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %.sroa.0306.2) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2105, ptr noundef nonnull @__func__.spgdoinsert) #10
   unreachable
 
 198:                                              ; preds = %BufferGetPage.exit
   %199 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %200 = and i16 %192, 4
-  %.not146 = icmp eq i16 %200, 0
-  br i1 %.not146, label %.preheader, label %201
+  %.not149 = icmp eq i16 %200, 0
+  br i1 %.not149, label %.preheader, label %201
 
 201:                                              ; preds = %198
   %202 = call ptr @spgFormLeafTuple(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %17, ptr noundef nonnull %4) #10
@@ -572,8 +572,8 @@ BufferGetPage.exit:                               ; preds = %176, %182
   %212 = icmp eq i16 %211, 0
   %spec.select = select i1 %212, i64 0, i64 20
   %213 = add i64 %spec.select, %206
-  %.not147 = icmp ult i64 %213, %205
-  br i1 %.not147, label %346, label %214
+  %.not150 = icmp ult i64 %213, %205
+  br i1 %.not150, label %346, label %214
 
 214:                                              ; preds = %201
   %215 = load i8, ptr %18, align 1, !range !7, !noundef !8
@@ -589,11 +589,11 @@ BufferGetPage.exit:                               ; preds = %176, %182
   %221 = load volatile i32, ptr @CritSectionCount, align 4
   %222 = add i32 %221, 1
   store volatile i32 %222, ptr @CritSectionCount, align 4
-  %223 = icmp eq i16 %.sroa.116.01030, 0
-  %.off.i = add i32 %.sroa.0304.2, -1
+  %223 = icmp eq i16 %.sroa.116.01032, 0
+  %.off.i = add i32 %.sroa.0306.2, -1
   %switch.i = icmp ult i32 %.off.i, 2
-  %or.cond478 = select i1 %223, i1 true, i1 %switch.i
-  br i1 %or.cond478, label %224, label %262
+  %or.cond480 = select i1 %223, i1 true, i1 %switch.i
+  br i1 %or.cond480, label %224, label %262
 
 224:                                              ; preds = %214
   %225 = getelementptr inbounds nuw i8, ptr %202, i64 4
@@ -605,21 +605,21 @@ BufferGetPage.exit:                               ; preds = %176, %182
   %230 = zext nneg i32 %229 to i64
   %231 = call zeroext i16 @SpGistPageAddNewItem(ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %202, i64 noundef %230, ptr noundef null, i1 noundef zeroext false) #10
   store i16 %231, ptr %217, align 2
-  %.not70.i = icmp eq i32 %.sroa.8.01028, 0
+  %.not70.i = icmp eq i32 %.sroa.8.01030, 0
   br i1 %.not70.i, label %311, label %232
 
 232:                                              ; preds = %224
-  store i16 %.sroa.48.01023, ptr %219, align 2
-  %233 = trunc nsw i32 %.sroa.57297.01022 to i16
+  store i16 %.sroa.48.01025, ptr %219, align 2
+  %233 = trunc nsw i32 %.sroa.57299.01024 to i16
   store i16 %233, ptr %220, align 2
-  %234 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 24
-  %235 = zext i16 %.sroa.48.01023 to i64
+  %234 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 24
+  %235 = zext i16 %.sroa.48.01025 to i64
   %236 = add nsw i64 %235, -1
   %237 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %234, i64 0, i64 %236
   %.val.i.i = load i32, ptr %237, align 4
   %238 = and i32 %.val.i.i, 32767
   %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 %239
+  %240 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 %239
   %241 = load i32, ptr %240, align 4
   %242 = lshr i32 %241, 3
   %243 = and i32 %242, 8191
@@ -636,7 +636,7 @@ BufferGetPage.exit:                               ; preds = %176, %182
 .lr.ph.i.i.i:                                     ; preds = %249, %.lr.ph.preheader.i.i.i
   %.015.i.i.i = phi i32 [ %250, %249 ], [ 0, %.lr.ph.preheader.i.i.i ]
   %.01214.i.i.i = phi ptr [ %254, %249 ], [ %247, %.lr.ph.preheader.i.i.i ]
-  %248 = icmp eq i32 %.015.i.i.i, %.sroa.57297.01022
+  %248 = icmp eq i32 %.015.i.i.i, %.sroa.57299.01024
   br i1 %248, label %saveNodeLink.exit.i, label %249
 
 249:                                              ; preds = %.lr.ph.i.i.i
@@ -652,25 +652,25 @@ BufferGetPage.exit:                               ; preds = %176, %182
 ._crit_edge.i.i.i:                                ; preds = %249, %232
   %255 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %255)
-  %256 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.sroa.57297.01022) #10
+  %256 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.sroa.57299.01024) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.spgUpdateNodeLink) #10
   unreachable
 
 saveNodeLink.exit.i:                              ; preds = %.lr.ph.i.i.i
-  %257 = lshr i32 %.sroa.0304.2, 16
+  %257 = lshr i32 %.sroa.0306.2, 16
   %258 = trunc nuw i32 %257 to i16
   store i16 %258, ptr %.01214.i.i.i, align 2
-  %259 = trunc i32 %.sroa.0304.2 to i16
+  %259 = trunc i32 %.sroa.0306.2 to i16
   %260 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i, i64 2
   store i16 %259, ptr %260, align 2
   %261 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i, i64 4
   store i16 %231, ptr %261, align 2
-  call void @MarkBufferDirty(i32 noundef %.sroa.8.01028) #10
+  call void @MarkBufferDirty(i32 noundef %.sroa.8.01030) #10
   br label %311
 
 262:                                              ; preds = %214
   %263 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %264 = zext i16 %.sroa.116.01030 to i64
+  %264 = zext i16 %.sroa.116.01032 to i64
   %265 = add nsw i64 %264, -1
   %266 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %263, i64 0, i64 %265
   %.val.i = load i32, ptr %266, align 4
@@ -714,12 +714,12 @@ saveNodeLink.exit.i:                              ; preds = %.lr.ph.i.i.i
   %294 = load i16, ptr %293, align 4
   %295 = and i16 %294, -16384
   store i16 %295, ptr %293, align 4
-  call void @PageIndexTupleDelete(ptr noundef nonnull %.0.i.i, i16 noundef zeroext %.sroa.116.01030) #10
+  call void @PageIndexTupleDelete(ptr noundef nonnull %.0.i.i, i16 noundef zeroext %.sroa.116.01032) #10
   %296 = load i32, ptr %202, align 4
   %297 = lshr i32 %296, 2
   %298 = zext nneg i32 %297 to i64
-  %299 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %202, i64 noundef %298, i16 noundef zeroext %.sroa.116.01030, i32 noundef 0) #10
-  %.not.i = icmp eq i16 %299, %.sroa.116.01030
+  %299 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %202, i64 noundef %298, i16 noundef zeroext %.sroa.116.01032, i32 noundef 0) #10
+  %.not.i = icmp eq i16 %299, %.sroa.116.01032
   br i1 %.not.i, label %310, label %300
 
 300:                                              ; preds = %292
@@ -741,9 +741,9 @@ saveNodeLink.exit.i:                              ; preds = %.lr.ph.i.i.i
   unreachable
 
 310:                                              ; preds = %292, %272
-  %storemerge69.i = phi i16 [ %283, %272 ], [ %.sroa.116.01030, %292 ]
+  %storemerge69.i = phi i16 [ %283, %272 ], [ %.sroa.116.01032, %292 ]
   store i16 %storemerge69.i, ptr %217, align 2
-  store i16 %.sroa.116.01030, ptr %218, align 2
+  store i16 %.sroa.116.01032, ptr %218, align 2
   br label %311
 
 311:                                              ; preds = %310, %saveNodeLink.exit.i, %224
@@ -789,7 +789,7 @@ saveNodeLink.exit.i:                              ; preds = %.lr.ph.i.i.i
   br i1 %.not71.i, label %335, label %334
 
 334:                                              ; preds = %328
-  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %.sroa.8.01028, i8 noundef zeroext 8) #10
+  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %.sroa.8.01030, i8 noundef zeroext 8) #10
   br label %335
 
 335:                                              ; preds = %334, %328
@@ -805,8 +805,8 @@ saveNodeLink.exit.i:                              ; preds = %.lr.ph.i.i.i
   br i1 %.not72.i, label %addLeafTuple.exit, label %342
 
 342:                                              ; preds = %335
-  store i32 %338, ptr %.sroa.34.01025, align 4
-  %343 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 4
+  store i32 %338, ptr %.sroa.34.01027, align 4
+  %343 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 4
   store i32 %339, ptr %343, align 4
   br label %addLeafTuple.exit
 
@@ -815,15 +815,15 @@ addLeafTuple.exit:                                ; preds = %311, %319, %322, %3
   %345 = add i32 %344, -1
   store volatile i32 %345, ptr @CritSectionCount, align 4
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %16) #10
-  br label %.thread423
+  br label %.thread425
 
 346:                                              ; preds = %201
-  %.off.i158 = add i32 %.sroa.0304.2, -1
-  %switch.i159 = icmp ult i32 %.off.i158, 2
-  br i1 %switch.i159, label %checkSplitConditions.exit.thread, label %347
+  %.off.i160 = add i32 %.sroa.0306.2, -1
+  %switch.i161 = icmp ult i32 %.off.i160, 2
+  br i1 %switch.i161, label %checkSplitConditions.exit.thread, label %347
 
 347:                                              ; preds = %346
-  %.not3.i = icmp eq i16 %.sroa.116.01030, 0
+  %.not3.i = icmp eq i16 %.sroa.116.01032, 0
   br i1 %.not3.i, label %checkSplitConditions.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %347
@@ -833,12 +833,12 @@ addLeafTuple.exit:                                ; preds = %311, %319, %322, %3
 349:                                              ; preds = %367, %.lr.ph.i
   %.0186.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %367 ]
   %.0195.i = phi i32 [ 0, %.lr.ph.i ], [ %.120.i, %367 ]
-  %.021.in4.i = phi i16 [ %.sroa.116.01030, %.lr.ph.i ], [ %370, %367 ]
+  %.021.in4.i = phi i16 [ %.sroa.116.01032, %.lr.ph.i ], [ %370, %367 ]
   %350 = zext i16 %.021.in4.i to i64
   %351 = add nsw i64 %350, -1
   %352 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %348, i64 0, i64 %351
-  %.val.i160 = load i32, ptr %352, align 4
-  %353 = and i32 %.val.i160, 32767
+  %.val.i162 = load i32, ptr %352, align 4
+  %353 = and i32 %.val.i162, 32767
   %354 = zext nneg i32 %353 to i64
   %355 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %354
   %356 = load i32, ptr %355, align 4
@@ -870,26 +870,26 @@ addLeafTuple.exit:                                ; preds = %311, %319, %322, %3
   %368 = getelementptr inbounds nuw i8, ptr %355, i64 4
   %369 = load i16, ptr %368, align 4
   %370 = and i16 %369, 16383
-  %.not.i161 = icmp eq i16 %370, 0
-  br i1 %.not.i161, label %checkSplitConditions.exit.loopexit, label %349, !llvm.loop !12
+  %.not.i163 = icmp eq i16 %370, 0
+  br i1 %.not.i163, label %checkSplitConditions.exit.loopexit, label %349, !llvm.loop !12
 
 checkSplitConditions.exit.loopexit:               ; preds = %367
   %371 = icmp slt i32 %.120.i, 64
   br label %checkSplitConditions.exit
 
 checkSplitConditions.exit:                        ; preds = %checkSplitConditions.exit.loopexit, %347
-  %storemerge.i162 = phi i1 [ true, %347 ], [ %371, %checkSplitConditions.exit.loopexit ]
+  %storemerge.i164 = phi i1 [ true, %347 ], [ %371, %checkSplitConditions.exit.loopexit ]
   %.0.i = phi i32 [ 0, %347 ], [ %.1.i, %checkSplitConditions.exit.loopexit ]
   %372 = icmp ult i32 %.0.i, 4080
-  %or.cond = select i1 %372, i1 %storemerge.i162, i1 false
+  %or.cond = select i1 %372, i1 %storemerge.i164, i1 false
   br i1 %or.cond, label %373, label %checkSplitConditions.exit.thread
 
 373:                                              ; preds = %checkSplitConditions.exit
   %374 = load i32, ptr %202, align 4
   %375 = lshr i32 %374, 2
-  %narrow148 = add nuw nsw i32 %.0.i, 4
-  %narrow482 = add nuw nsw i32 %narrow148, %375
-  %376 = icmp samesign ult i32 %narrow482, 8161
+  %narrow151 = add nuw nsw i32 %.0.i, 4
+  %narrow484 = add nuw nsw i32 %narrow151, %375
+  %376 = icmp samesign ult i32 %narrow484, 8161
   br i1 %376, label %377, label %checkSplitConditions.exit.thread
 
 377:                                              ; preds = %373
@@ -913,22 +913,22 @@ checkSplitConditions.exit:                        ; preds = %checkSplitCondition
   %389 = load i32, ptr %202, align 4
   %390 = lshr i32 %389, 2
   %narrow124.i = add nuw nsw i32 %390, 4
-  br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i163.preheader
+  br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i165.preheader
 
-.lr.ph.i163.preheader:                            ; preds = %377
+.lr.ph.i165.preheader:                            ; preds = %377
   %391 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  br label %.lr.ph.i163
+  br label %.lr.ph.i165
 
-.lr.ph.i163:                                      ; preds = %.lr.ph.i163.preheader, %414
-  %.0.in136.i = phi i16 [ %417, %414 ], [ %.sroa.116.01030, %.lr.ph.i163.preheader ]
-  %.0111135.i = phi i32 [ %.1112.i, %414 ], [ 0, %.lr.ph.i163.preheader ]
-  %.0117134.i = phi i32 [ %.1118.i, %414 ], [ %narrow124.i, %.lr.ph.i163.preheader ]
-  %.0121133.i = phi i8 [ %.1122.i, %414 ], [ 0, %.lr.ph.i163.preheader ]
+.lr.ph.i165:                                      ; preds = %.lr.ph.i165.preheader, %414
+  %.0.in136.i = phi i16 [ %417, %414 ], [ %.sroa.116.01032, %.lr.ph.i165.preheader ]
+  %.0111135.i = phi i32 [ %.1112.i, %414 ], [ 0, %.lr.ph.i165.preheader ]
+  %.0117134.i = phi i32 [ %.1118.i, %414 ], [ %narrow124.i, %.lr.ph.i165.preheader ]
+  %.0121133.i = phi i8 [ %.1122.i, %414 ], [ 0, %.lr.ph.i165.preheader ]
   %392 = zext i16 %.0.in136.i to i64
   %393 = add nsw i64 %392, -1
   %394 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %391, i64 0, i64 %393
-  %.val.i164 = load i32, ptr %394, align 4
-  %395 = and i32 %.val.i164, 32767
+  %.val.i166 = load i32, ptr %394, align 4
+  %395 = and i32 %.val.i166, 32767
   %396 = zext nneg i32 %395 to i64
   %397 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %396
   %398 = load i32, ptr %397, align 4
@@ -938,7 +938,7 @@ checkSplitConditions.exit:                        ; preds = %checkSplitCondition
     i32 2, label %406
   ]
 
-400:                                              ; preds = %.lr.ph.i163
+400:                                              ; preds = %.lr.ph.i165
   %401 = sext i32 %.0111135.i to i64
   %402 = getelementptr inbounds i16, ptr %385, i64 %401
   store i16 %.0.in136.i, ptr %402, align 2
@@ -948,13 +948,13 @@ checkSplitConditions.exit:                        ; preds = %checkSplitCondition
   %405 = add i32 %narrow125.i, %404
   br label %414
 
-406:                                              ; preds = %.lr.ph.i163
+406:                                              ; preds = %.lr.ph.i165
   %407 = sext i32 %.0111135.i to i64
   %408 = getelementptr inbounds i16, ptr %385, i64 %407
   store i16 %.0.in136.i, ptr %408, align 2
   br label %414
 
-409:                                              ; preds = %.lr.ph.i163
+409:                                              ; preds = %.lr.ph.i165
   %410 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %410)
   %411 = load i32, ptr %397, align 4
@@ -970,8 +970,8 @@ checkSplitConditions.exit:                        ; preds = %checkSplitCondition
   %415 = getelementptr inbounds nuw i8, ptr %397, i64 4
   %416 = load i16, ptr %415, align 4
   %417 = and i16 %416, 16383
-  %.not.i165 = icmp eq i16 %417, 0
-  br i1 %.not.i165, label %._crit_edge.i, label %.lr.ph.i163, !llvm.loop !13
+  %.not.i167 = icmp eq i16 %417, 0
+  br i1 %.not.i167, label %._crit_edge.i, label %.lr.ph.i165, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %414, %377
   %.0121.lcssa.i = phi i8 [ 0, %377 ], [ %.1122.i, %414 ]
@@ -1085,60 +1085,60 @@ BufferGetPage.exit.i:                             ; preds = %427, %421
   %485 = trunc nuw i8 %484 to i1
   %486 = select i1 %485, i32 3, i32 1
   call void @spgPageIndexMultiDelete(ptr noundef %1, ptr noundef nonnull %.0.i.i, ptr noundef %385, i32 noundef %.0111.lcssa.i, i32 noundef %486, i32 noundef 3, i32 noundef %433, i16 noundef zeroext %474)
-  %487 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 24
-  %488 = zext i16 %.sroa.48.01023 to i64
+  %487 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 24
+  %488 = zext i16 %.sroa.48.01025 to i64
   %489 = add nsw i64 %488, -1
   %490 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %487, i64 0, i64 %489
-  %.val.i.i166 = load i32, ptr %490, align 4
-  %491 = and i32 %.val.i.i166, 32767
+  %.val.i.i168 = load i32, ptr %490, align 4
+  %491 = and i32 %.val.i.i168, 32767
   %492 = zext nneg i32 %491 to i64
-  %493 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 %492
+  %493 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 %492
   %494 = load i32, ptr %493, align 4
   %495 = lshr i32 %494, 3
   %496 = and i32 %495, 8191
-  %.not.i.i.i167 = icmp eq i32 %496, 0
-  br i1 %.not.i.i.i167, label %._crit_edge.i.i.i174, label %.lr.ph.preheader.i.i.i168
+  %.not.i.i.i169 = icmp eq i32 %496, 0
+  br i1 %.not.i.i.i169, label %._crit_edge.i.i.i176, label %.lr.ph.preheader.i.i.i170
 
-.lr.ph.preheader.i.i.i168:                        ; preds = %.loopexit.i
+.lr.ph.preheader.i.i.i170:                        ; preds = %.loopexit.i
   %497 = getelementptr inbounds nuw i8, ptr %493, i64 8
   %498 = lshr i32 %494, 16
   %499 = zext nneg i32 %498 to i64
   %500 = getelementptr inbounds nuw i8, ptr %497, i64 %499
-  br label %.lr.ph.i.i.i169
+  br label %.lr.ph.i.i.i171
 
-.lr.ph.i.i.i169:                                  ; preds = %502, %.lr.ph.preheader.i.i.i168
-  %.015.i.i.i170 = phi i32 [ %503, %502 ], [ 0, %.lr.ph.preheader.i.i.i168 ]
-  %.01214.i.i.i171 = phi ptr [ %507, %502 ], [ %500, %.lr.ph.preheader.i.i.i168 ]
-  %501 = icmp eq i32 %.015.i.i.i170, %.sroa.57297.01022
-  br i1 %501, label %saveNodeLink.exit.i175, label %502
+.lr.ph.i.i.i171:                                  ; preds = %502, %.lr.ph.preheader.i.i.i170
+  %.015.i.i.i172 = phi i32 [ %503, %502 ], [ 0, %.lr.ph.preheader.i.i.i170 ]
+  %.01214.i.i.i173 = phi ptr [ %507, %502 ], [ %500, %.lr.ph.preheader.i.i.i170 ]
+  %501 = icmp eq i32 %.015.i.i.i172, %.sroa.57299.01024
+  br i1 %501, label %saveNodeLink.exit.i177, label %502
 
-502:                                              ; preds = %.lr.ph.i.i.i169
-  %503 = add nuw nsw i32 %.015.i.i.i170, 1
-  %504 = getelementptr i8, ptr %.01214.i.i.i171, i64 6
-  %.012.val.i.i.i172 = load i16, ptr %504, align 2
-  %505 = and i16 %.012.val.i.i.i172, 8191
+502:                                              ; preds = %.lr.ph.i.i.i171
+  %503 = add nuw nsw i32 %.015.i.i.i172, 1
+  %504 = getelementptr i8, ptr %.01214.i.i.i173, i64 6
+  %.012.val.i.i.i174 = load i16, ptr %504, align 2
+  %505 = and i16 %.012.val.i.i.i174, 8191
   %506 = zext nneg i16 %505 to i64
-  %507 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i171, i64 %506
-  %exitcond.not.i.i.i173 = icmp eq i32 %503, %496
-  br i1 %exitcond.not.i.i.i173, label %._crit_edge.i.i.i174, label %.lr.ph.i.i.i169, !llvm.loop !4
+  %507 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i173, i64 %506
+  %exitcond.not.i.i.i175 = icmp eq i32 %503, %496
+  br i1 %exitcond.not.i.i.i175, label %._crit_edge.i.i.i176, label %.lr.ph.i.i.i171, !llvm.loop !4
 
-._crit_edge.i.i.i174:                             ; preds = %502, %.loopexit.i
+._crit_edge.i.i.i176:                             ; preds = %502, %.loopexit.i
   %508 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %508)
-  %509 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.sroa.57297.01022) #10
+  %509 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.sroa.57299.01024) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.spgUpdateNodeLink) #10
   unreachable
 
-saveNodeLink.exit.i175:                           ; preds = %.lr.ph.i.i.i169
+saveNodeLink.exit.i177:                           ; preds = %.lr.ph.i.i.i171
   %510 = lshr i32 %433, 16
   %511 = trunc nuw i32 %510 to i16
-  store i16 %511, ptr %.01214.i.i.i171, align 2
+  store i16 %511, ptr %.01214.i.i.i173, align 2
   %512 = trunc i32 %433 to i16
-  %513 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i171, i64 2
+  %513 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i173, i64 2
   store i16 %512, ptr %513, align 2
-  %514 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i171, i64 4
+  %514 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i173, i64 4
   store i16 %474, ptr %514, align 2
-  call void @MarkBufferDirty(i32 noundef %.sroa.8.01028) #10
+  call void @MarkBufferDirty(i32 noundef %.sroa.8.01030) #10
   call void @MarkBufferDirty(i32 noundef %.sroa.29.2) #10
   call void @MarkBufferDirty(i32 noundef %419) #10
   %515 = load ptr, ptr %127, align 8
@@ -1147,7 +1147,7 @@ saveNodeLink.exit.i175:                           ; preds = %.lr.ph.i.i.i169
   %518 = icmp eq i8 %517, 112
   br i1 %518, label %519, label %moveLeafs.exit
 
-519:                                              ; preds = %saveNodeLink.exit.i175
+519:                                              ; preds = %saveNodeLink.exit.i177
   %520 = load i32, ptr @wal_level, align 4
   %521 = icmp sgt i32 %520, 0
   br i1 %521, label %528, label %522
@@ -1180,8 +1180,8 @@ saveNodeLink.exit.i175:                           ; preds = %.lr.ph.i.i.i169
   %537 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i8 %23, ptr %537, align 4
   %538 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  store i16 %.sroa.48.01023, ptr %538, align 2
-  %539 = trunc i32 %.sroa.57297.01022 to i16
+  store i16 %.sroa.48.01025, ptr %538, align 2
+  %539 = trunc i32 %.sroa.57299.01024 to i16
   %540 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i16 %539, ptr %540, align 4
   call void @XLogBeginInsert() #10
@@ -1201,7 +1201,7 @@ saveNodeLink.exit.i175:                           ; preds = %.lr.ph.i.i.i169
   %549 = trunc nuw i8 %548 to i1
   %550 = select i1 %549, i8 14, i8 8
   call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %419, i8 noundef zeroext %550) #10
-  call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %.sroa.8.01028, i8 noundef zeroext 8) #10
+  call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %.sroa.8.01030, i8 noundef zeroext 8) #10
   %551 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 32) #10
   %552 = lshr i64 %551, 32
   %553 = trunc nuw i64 %552 to i32
@@ -1212,12 +1212,12 @@ saveNodeLink.exit.i175:                           ; preds = %.lr.ph.i.i.i169
   store i32 %553, ptr %.0.i.i.i, align 4
   %556 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   store i32 %554, ptr %556, align 4
-  store i32 %553, ptr %.sroa.34.01025, align 4
-  %557 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 4
+  store i32 %553, ptr %.sroa.34.01027, align 4
+  %557 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 4
   store i32 %554, ptr %557, align 4
   br label %moveLeafs.exit
 
-moveLeafs.exit:                                   ; preds = %saveNodeLink.exit.i175, %522, %525, %528, %531
+moveLeafs.exit:                                   ; preds = %saveNodeLink.exit.i177, %522, %525, %528, %531
   %558 = load volatile i32, ptr @CritSectionCount, align 4
   %559 = add i32 %558, -1
   store volatile i32 %559, ptr @CritSectionCount, align 4
@@ -1225,7 +1225,7 @@ moveLeafs.exit:                                   ; preds = %saveNodeLink.exit.i
   call void @UnlockReleaseBuffer(i32 noundef %419) #10
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #10
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #10
-  br label %.thread423
+  br label %.thread425
 
 checkSplitConditions.exit.thread:                 ; preds = %346, %373, %checkSplitConditions.exit
   %560 = load i8, ptr %18, align 1, !range !7, !noundef !8
@@ -1236,7 +1236,7 @@ checkSplitConditions.exit.thread:                 ; preds = %346, %373, %checkSp
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #10
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %13) #10
-  store i32 %.01151034, ptr %98, align 8
+  store i32 %.01171036, ptr %98, align 8
   %562 = getelementptr i8, ptr %.0.i.i, i64 12
   %.val501.i = load i16, ptr %562, align 4
   %563 = icmp ult i16 %.val501.i, 25
@@ -1260,19 +1260,19 @@ checkSplitConditions.exit.thread:                 ; preds = %346, %373, %checkSp
   store i32 %579, ptr %101, align 4
   %580 = load i8, ptr %102, align 4, !range !7, !noundef !8
   store i8 %580, ptr %103, align 4
-  br i1 %switch.i159, label %.preheader563.i, label %631
+  br i1 %switch.i161, label %.preheader563.i, label %631
 
 .preheader563.i:                                  ; preds = %checkSplitConditions.exit.thread
   %.not464595.i = icmp eq i32 %568, 0
   br i1 %.not464595.i, label %.loopexit564.i, label %.lr.ph600.i
 
 .lr.ph600.i:                                      ; preds = %.preheader563.i
-  %wide.trip.count.i198 = zext nneg i32 %568 to i64
+  %wide.trip.count.i200 = zext nneg i32 %568 to i64
   %581 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   br label %582
 
 582:                                              ; preds = %fetch_att.exit.i, %.lr.ph600.i
-  %indvars.iv.i199 = phi i64 [ 0, %.lr.ph600.i ], [ %indvars.iv.next.i201, %fetch_att.exit.i ]
+  %indvars.iv.i201 = phi i64 [ 0, %.lr.ph600.i ], [ %indvars.iv.next.i203, %fetch_att.exit.i ]
   %.0408599.i = phi i32 [ 1, %.lr.ph600.i ], [ %625, %fetch_att.exit.i ]
   %.0419598.i = phi i32 [ 0, %.lr.ph600.i ], [ %624, %fetch_att.exit.i ]
   %583 = trunc i32 %.0408599.i to i16
@@ -1280,8 +1280,8 @@ checkSplitConditions.exit.thread:                 ; preds = %346, %373, %checkSp
   %584 = zext nneg i32 %.mask.i to i64
   %585 = add nsw i64 %584, -1
   %586 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %581, i64 0, i64 %585
-  %.val.i200 = load i32, ptr %586, align 4
-  %587 = and i32 %.val.i200, 32767
+  %.val.i202 = load i32, ptr %586, align 4
+  %587 = and i32 %.val.i202, 32767
   %588 = zext nneg i32 %587 to i64
   %589 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %588
   %590 = load i32, ptr %589, align 4
@@ -1341,20 +1341,20 @@ checkSplitConditions.exit.thread:                 ; preds = %346, %373, %checkSp
 fetch_att.exit.i:                                 ; preds = %615, %609, %606, %603, %600, %593
   %617 = phi i64 [ 0, %593 ], [ %610, %609 ], [ %608, %606 ], [ %605, %603 ], [ %602, %600 ], [ %616, %615 ]
   %618 = load ptr, ptr %99, align 8
-  %619 = getelementptr inbounds nuw i64, ptr %618, i64 %indvars.iv.i199
+  %619 = getelementptr inbounds nuw i64, ptr %618, i64 %indvars.iv.i201
   store i64 %617, ptr %619, align 8
-  %620 = getelementptr inbounds nuw ptr, ptr %576, i64 %indvars.iv.i199
+  %620 = getelementptr inbounds nuw ptr, ptr %576, i64 %indvars.iv.i201
   store ptr %589, ptr %620, align 8
-  %indvars.iv.next.i201 = add nuw nsw i64 %indvars.iv.i199, 1
-  %621 = getelementptr inbounds nuw i16, ptr %574, i64 %indvars.iv.i199
+  %indvars.iv.next.i203 = add nuw nsw i64 %indvars.iv.i201, 1
+  %621 = getelementptr inbounds nuw i16, ptr %574, i64 %indvars.iv.i201
   store i16 %583, ptr %621, align 2
   %622 = load i32, ptr %589, align 4
   %623 = lshr i32 %622, 2
   %narrow487.i = add i32 %.0419598.i, 4
   %624 = add i32 %narrow487.i, %623
   %625 = add nuw nsw i32 %.0408599.i, 1
-  %exitcond.not.i202 = icmp eq i64 %indvars.iv.next.i201, %wide.trip.count.i198
-  br i1 %exitcond.not.i202, label %.loopexit564.i, label %582, !llvm.loop !15
+  %exitcond.not.i204 = icmp eq i64 %indvars.iv.next.i203, %wide.trip.count.i200
+  br i1 %exitcond.not.i204, label %.loopexit564.i, label %582, !llvm.loop !15
 
 626:                                              ; preds = %582
   %627 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -1366,18 +1366,18 @@ fetch_att.exit.i:                                 ; preds = %615, %609, %606, %6
   unreachable
 
 631:                                              ; preds = %checkSplitConditions.exit.thread
-  %.not588.i = icmp eq i16 %.sroa.116.01030, 0
-  br i1 %.not588.i, label %.loopexit564.i, label %.lr.ph.i178
+  %.not588.i = icmp eq i16 %.sroa.116.01032, 0
+  br i1 %.not588.i, label %.loopexit564.i, label %.lr.ph.i180
 
-.lr.ph.i178:                                      ; preds = %631
+.lr.ph.i180:                                      ; preds = %631
   %632 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   br label %633
 
-633:                                              ; preds = %686, %.lr.ph.i178
-  %.1409.in592.i = phi i16 [ %.sroa.116.01030, %.lr.ph.i178 ], [ %689, %686 ]
-  %.2421591.i = phi i32 [ 0, %.lr.ph.i178 ], [ %.3422.i, %686 ]
-  %.2440590.i = phi i32 [ 0, %.lr.ph.i178 ], [ %.3441.i, %686 ]
-  %.2445589.i = phi i32 [ 0, %.lr.ph.i178 ], [ %.3446.i, %686 ]
+633:                                              ; preds = %686, %.lr.ph.i180
+  %.1409.in592.i = phi i16 [ %.sroa.116.01032, %.lr.ph.i180 ], [ %689, %686 ]
+  %.2421591.i = phi i32 [ 0, %.lr.ph.i180 ], [ %.3422.i, %686 ]
+  %.2440590.i = phi i32 [ 0, %.lr.ph.i180 ], [ %.3441.i, %686 ]
+  %.2445589.i = phi i32 [ 0, %.lr.ph.i180 ], [ %.3446.i, %686 ]
   %634 = zext i16 %.1409.in592.i to i64
   %635 = add nsw i64 %634, -1
   %636 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %632, i64 0, i64 %635
@@ -1481,8 +1481,8 @@ fetch_att.exit508.i:                              ; preds = %664, %658, %655, %6
   %687 = getelementptr inbounds nuw i8, ptr %639, i64 4
   %688 = load i16, ptr %687, align 4
   %689 = and i16 %688, 16383
-  %.not.i179 = icmp eq i16 %689, 0
-  br i1 %.not.i179, label %.loopexit564.i, label %633, !llvm.loop !16
+  %.not.i181 = icmp eq i16 %689, 0
+  br i1 %.not.i181, label %.loopexit564.i, label %633, !llvm.loop !16
 
 .loopexit564.i:                                   ; preds = %686, %fetch_att.exit.i, %631, %.preheader563.i
   %.1444.i = phi i32 [ 0, %.preheader563.i ], [ 0, %631 ], [ %568, %fetch_att.exit.i ], [ %.3446.i, %686 ]
@@ -1589,8 +1589,8 @@ fetch_att.exit510.i:                              ; preds = %711, %705, %702, %6
   store ptr %741, ptr %742, align 8
   %743 = load i32, ptr %741, align 4
   %744 = lshr i32 %743, 2
-  %narrow.i196 = add i32 %.0432604.i, 4
-  %745 = add i32 %narrow.i196, %744
+  %narrow.i198 = add i32 %.0432604.i, 4
+  %745 = add i32 %narrow.i198, %744
   %indvars.iv.next677.i = add nuw nsw i64 %indvars.iv676.i, 1
   %746 = load i32, ptr %8, align 8
   %747 = sext i32 %746 to i64
@@ -1681,7 +1681,7 @@ fetch_att.exit510.i:                              ; preds = %711, %705, %702, %6
   br label %788
 
 788:                                              ; preds = %784, %._crit_edge.i.i
-  %.0.i197 = phi i1 [ true, %._crit_edge.i.i ], [ %.not.i.i, %784 ]
+  %.0.i199 = phi i1 [ true, %._crit_edge.i.i ], [ %.not.i.i, %784 ]
   store i32 8, ptr %110, align 8
   br label %.lr.ph45.i.i
 
@@ -1730,7 +1730,7 @@ fetch_att.exit510.i:                              ; preds = %711, %705, %702, %6
 
 checkAllTheSame.exit.i:                           ; preds = %.lr.ph49.i.i, %798, %._crit_edge46.i.i
   %.pre.i = load i32, ptr %8, align 8
-  br i1 %.0.i197, label %checkAllTheSame.exit.thread.i, label %813
+  br i1 %.0.i199, label %checkAllTheSame.exit.thread.i, label %813
 
 813:                                              ; preds = %checkAllTheSame.exit.i
   %814 = add i32 %.pre.i, -1
@@ -1758,7 +1758,7 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
   %829 = call ptr @palloc0(i64 noundef %828) #10
   %830 = load i32, ptr %110, align 8
   %831 = icmp sgt i32 %830, 0
-  br i1 %831, label %.lr.ph615.i, label %._crit_edge.i180
+  br i1 %831, label %.lr.ph615.i, label %._crit_edge.i182
 
 .lr.ph615.i:                                      ; preds = %checkAllTheSame.exit.thread.i, %837
   %indvars.iv682.i = phi i64 [ %indvars.iv.next683.i, %837 ], [ 0, %checkAllTheSame.exit.thread.i ]
@@ -1780,9 +1780,9 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
   %840 = load i32, ptr %110, align 8
   %841 = sext i32 %840 to i64
   %842 = icmp slt i64 %indvars.iv.next683.i, %841
-  br i1 %842, label %.lr.ph615.i, label %._crit_edge.i180, !llvm.loop !22
+  br i1 %842, label %.lr.ph615.i, label %._crit_edge.i182, !llvm.loop !22
 
-._crit_edge.i180:                                 ; preds = %837, %checkAllTheSame.exit.thread.i
+._crit_edge.i182:                                 ; preds = %837, %checkAllTheSame.exit.thread.i
   %.lcssa.i = phi i32 [ %830, %checkAllTheSame.exit.thread.i ], [ %840, %837 ]
   %843 = load i8, ptr %9, align 8, !range !7, !noundef !8
   %844 = trunc nuw i8 %843 to i1
@@ -1796,14 +1796,14 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
   %.not650.i = icmp eq i32 %850, 0
   br i1 %.not650.i, label %.preheader.i, label %.lr.ph620.preheader.i
 
-.lr.ph620.preheader.i:                            ; preds = %._crit_edge.i180
+.lr.ph620.preheader.i:                            ; preds = %._crit_edge.i182
   %851 = getelementptr inbounds nuw i8, ptr %846, i64 8
   %852 = lshr i32 %847, 16
   %853 = zext nneg i32 %852 to i64
   %854 = getelementptr inbounds nuw i8, ptr %851, i64 %853
   br label %.lr.ph620.i
 
-.preheader.i:                                     ; preds = %.lr.ph620.i, %._crit_edge.i180
+.preheader.i:                                     ; preds = %.lr.ph620.i, %._crit_edge.i182
   %855 = icmp sgt i32 %.0442.i, 0
   br i1 %855, label %.lr.ph622.i, label %._crit_edge623.i
 
@@ -1864,25 +1864,25 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
 
 ._crit_edge623.i:                                 ; preds = %875, %.preheader.i
   store i8 0, ptr %114, align 2
-  %.not466.i = icmp eq i32 %.sroa.8.01028, 0
+  %.not466.i = icmp eq i32 %.sroa.8.01030, 0
   br i1 %.not466.i, label %.thread.i, label %884
 
 884:                                              ; preds = %._crit_edge623.i
-  %.off494.i = add i32 %.sroa.0.01029, -1
+  %.off494.i = add i32 %.sroa.0.01031, -1
   %switch495.i = icmp ult i32 %.off494.i, 2
   br i1 %switch495.i, label %..thread722.i_crit_edge, label %885
 
 ..thread722.i_crit_edge:                          ; preds = %884
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %846, i64 4
-  %.pre1555 = load i16, ptr %.phi.trans.insert, align 4
+  %.pre1557 = load i16, ptr %.phi.trans.insert, align 4
   br label %.thread722.i
 
 885:                                              ; preds = %884
-  %886 = call i64 @PageGetExactFreeSpace(ptr noundef %.sroa.34.01025) #10
-  %887 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 16
+  %886 = call i64 @PageGetExactFreeSpace(ptr noundef %.sroa.34.01027) #10
+  %887 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 16
   %888 = load i16, ptr %887, align 4
   %889 = zext i16 %888 to i64
-  %890 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 %889
+  %890 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 %889
   %891 = getelementptr inbounds nuw i8, ptr %890, i64 4
   %892 = load i16, ptr %891, align 2
   %893 = icmp eq i16 %892, 0
@@ -1896,8 +1896,8 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
   br i1 %.not467.i, label %.thread722.i, label %.thread.i
 
 .thread722.i:                                     ; preds = %..thread722.i_crit_edge, %885
-  %899 = phi i16 [ %.pre1555, %..thread722.i_crit_edge ], [ %896, %885 ]
-  %900 = add i32 %.sroa.0.01029, 1
+  %899 = phi i16 [ %.pre1557, %..thread722.i_crit_edge ], [ %896, %885 ]
+  %900 = add i32 %.sroa.0.01031, 1
   %901 = urem i32 %900, 3
   %902 = or disjoint i32 %901, %115
   %903 = zext i16 %899 to i32
@@ -1906,8 +1906,8 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread722.i, %885, %._crit_edge623.i
-  %.0415.i = phi i32 [ %905, %.thread722.i ], [ 0, %._crit_edge623.i ], [ %.sroa.8.01028, %885 ]
-  br i1 %switch.i159, label %910, label %906
+  %.0415.i = phi i32 [ %905, %.thread722.i ], [ 0, %._crit_edge623.i ], [ %.sroa.8.01030, %885 ]
+  br i1 %switch.i161, label %910, label %906
 
 906:                                              ; preds = %.thread.i
   %907 = call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i) #10
@@ -1923,21 +1923,21 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
 
 911:                                              ; preds = %910
   %912 = zext i1 %821 to i32
-  %spec.select.i181 = add i32 %.1444.i, %912
-  %913 = icmp sgt i32 %spec.select.i181, 0
-  br i1 %913, label %.lr.ph626.preheader.i, label %.loopexit.i182
+  %spec.select.i183 = add i32 %.1444.i, %912
+  %913 = icmp sgt i32 %spec.select.i183, 0
+  br i1 %913, label %.lr.ph626.preheader.i, label %.loopexit.i184
 
 .lr.ph626.preheader.i:                            ; preds = %911
-  %914 = zext nneg i32 %spec.select.i181 to i64
+  %914 = zext nneg i32 %spec.select.i183 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %578, i8 0, i64 %914, i1 false)
-  br label %.loopexit.i182
+  br label %.loopexit.i184
 
 915:                                              ; preds = %910
   %916 = load i32, ptr %8, align 8
   %917 = icmp eq i32 %916, 1
   %918 = icmp ugt i32 %.3435.i, 8160
   %or.cond.i = select i1 %917, i1 %918, i1 false
-  br i1 %or.cond.i, label %.loopexit.i182, label %919
+  br i1 %or.cond.i, label %.loopexit.i184, label %919
 
 919:                                              ; preds = %915
   %920 = call i32 @llvm.umin.i32(i32 %.3435.i, i32 8160)
@@ -1954,7 +1954,7 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
   %929 = zext nneg i32 %928 to i64
   %930 = getelementptr inbounds nuw ptr, ptr %927, i64 %929
   %931 = load ptr, ptr %930, align 8
-  br label %BufferGetPage.exit.i194
+  br label %BufferGetPage.exit.i196
 
 932:                                              ; preds = %919
   %933 = load ptr, ptr @BufferBlocks, align 8
@@ -1962,20 +1962,20 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
   %935 = sext i32 %934 to i64
   %936 = shl nsw i64 %935, 13
   %937 = getelementptr inbounds nuw i8, ptr %933, i64 %936
-  br label %BufferGetPage.exit.i194
+  br label %BufferGetPage.exit.i196
 
-BufferGetPage.exit.i194:                          ; preds = %932, %926
-  %.0.i.i.i195 = phi ptr [ %931, %926 ], [ %937, %932 ]
-  %938 = call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i.i195) #10
+BufferGetPage.exit.i196:                          ; preds = %932, %926
+  %.0.i.i.i197 = phi ptr [ %931, %926 ], [ %937, %932 ]
+  %938 = call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i.i197) #10
   %939 = trunc i64 %938 to i32
   %940 = load i32, ptr %110, align 8
   %941 = icmp sgt i32 %940, 0
   br i1 %941, label %.lr.ph630.i, label %._crit_edge631.i
 
-.lr.ph630.i:                                      ; preds = %BufferGetPage.exit.i194, %951
-  %indvars.iv696.i = phi i64 [ %indvars.iv.next697.i, %951 ], [ 0, %BufferGetPage.exit.i194 ]
-  %.0423628.i = phi i32 [ %.1424.i, %951 ], [ %939, %BufferGetPage.exit.i194 ]
-  %.0427627.i = phi i32 [ %.1428.i, %951 ], [ %.0431.i, %BufferGetPage.exit.i194 ]
+.lr.ph630.i:                                      ; preds = %BufferGetPage.exit.i196, %951
+  %indvars.iv696.i = phi i64 [ %indvars.iv.next697.i, %951 ], [ 0, %BufferGetPage.exit.i196 ]
+  %.0423628.i = phi i32 [ %.1424.i, %951 ], [ %939, %BufferGetPage.exit.i196 ]
+  %.0427627.i = phi i32 [ %.1428.i, %951 ], [ %.0431.i, %BufferGetPage.exit.i196 ]
   %942 = getelementptr inbounds nuw i32, ptr %829, i64 %indvars.iv696.i
   %943 = load i32, ptr %942, align 4
   %.not472.i = icmp sgt i32 %943, %.0427627.i
@@ -2003,9 +2003,9 @@ BufferGetPage.exit.i194:                          ; preds = %932, %926
   %954 = icmp slt i64 %indvars.iv.next697.i, %953
   br i1 %954, label %.lr.ph630.i, label %._crit_edge631.i, !llvm.loop !25
 
-._crit_edge631.i:                                 ; preds = %951, %BufferGetPage.exit.i194
-  %.0427.lcssa.i = phi i32 [ %.0431.i, %BufferGetPage.exit.i194 ], [ %.1428.i, %951 ]
-  %.0423.lcssa.i = phi i32 [ %939, %BufferGetPage.exit.i194 ], [ %.1424.i, %951 ]
+._crit_edge631.i:                                 ; preds = %951, %BufferGetPage.exit.i196
+  %.0427.lcssa.i = phi i32 [ %.0431.i, %BufferGetPage.exit.i196 ], [ %.1428.i, %951 ]
+  %.0423.lcssa.i = phi i32 [ %939, %BufferGetPage.exit.i196 ], [ %.1424.i, %951 ]
   %955 = icmp sgt i32 %.0427.lcssa.i, -1
   %956 = icmp sgt i32 %.0423.lcssa.i, -1
   %or.cond4.i = select i1 %955, i1 %956, i1 false
@@ -2119,7 +2119,7 @@ BufferGetPage.exit513.i:                          ; preds = %981, %975
   %.6449.i = phi i32 [ %spec.select489.i, %957 ], [ %.1444.i, %._crit_edge638.i ]
   %.2.i = phi i1 [ %821, %957 ], [ false, %._crit_edge638.i ]
   %1013 = icmp sgt i32 %.6449.i, 0
-  br i1 %1013, label %.lr.ph643.i, label %.loopexit.i182
+  br i1 %1013, label %.lr.ph643.i, label %.loopexit.i184
 
 .lr.ph643.i:                                      ; preds = %1012
   %wide.trip.count705.i = zext nneg i32 %.6449.i to i64
@@ -2137,25 +2137,25 @@ BufferGetPage.exit513.i:                          ; preds = %981, %975
   store i8 %1019, ptr %1020, align 1
   %indvars.iv.next703.i = add nuw nsw i64 %indvars.iv702.i, 1
   %exitcond706.not.i = icmp eq i64 %indvars.iv.next703.i, %wide.trip.count705.i
-  br i1 %exitcond706.not.i, label %.loopexit.i182, label %1014, !llvm.loop !27
+  br i1 %exitcond706.not.i, label %.loopexit.i184, label %1014, !llvm.loop !27
 
-.loopexit.i182:                                   ; preds = %1014, %1012, %915, %.lr.ph626.preheader.i, %911
-  %.5448.i = phi i32 [ %.1444.i, %915 ], [ %.6449.i, %1012 ], [ %spec.select.i181, %911 ], [ %spec.select.i181, %.lr.ph626.preheader.i ], [ %.6449.i, %1014 ]
+.loopexit.i184:                                   ; preds = %1014, %1012, %915, %.lr.ph626.preheader.i, %911
+  %.5448.i = phi i32 [ %.1444.i, %915 ], [ %.6449.i, %1012 ], [ %spec.select.i183, %911 ], [ %spec.select.i183, %.lr.ph626.preheader.i ], [ %.6449.i, %1014 ]
   %.0416.i = phi i32 [ 0, %915 ], [ %921, %1012 ], [ 0, %911 ], [ 0, %.lr.ph626.preheader.i ], [ %921, %1014 ]
-  %.1.i183 = phi i1 [ false, %915 ], [ %.2.i, %1012 ], [ %821, %911 ], [ %821, %.lr.ph626.preheader.i ], [ %.2.i, %1014 ]
+  %.1.i185 = phi i1 [ false, %915 ], [ %.2.i, %1012 ], [ %821, %911 ], [ %821, %.lr.ph626.preheader.i ], [ %.2.i, %1014 ]
   store i16 0, ptr %117, align 2
   store i8 %560, ptr %118, align 2
   store i8 %23, ptr %119, align 1
-  %1021 = zext i1 %switch.i159 to i8
+  %1021 = zext i1 %switch.i161 to i8
   store i8 %1021, ptr %13, align 4
   %1022 = sext i32 %.3435.i to i64
   %1023 = call ptr @palloc(i64 noundef %1022) #10
   %1024 = load volatile i32, ptr @CritSectionCount, align 4
   %1025 = add i32 %1024, 1
   store volatile i32 %1025, ptr @CritSectionCount, align 4
-  br i1 %switch.i159, label %1054, label %1026
+  br i1 %switch.i161, label %1054, label %1026
 
-1026:                                             ; preds = %.loopexit.i182
+1026:                                             ; preds = %.loopexit.i184
   %1027 = load i8, ptr %102, align 4, !range !7, !noundef !8
   %1028 = trunc nuw i8 %1027 to i1
   br i1 %1028, label %1029, label %.thread551.i
@@ -2210,8 +2210,8 @@ BufferGetPage.exit513.i:                          ; preds = %981, %975
   call void @spgPageIndexMultiDelete(ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i, ptr noundef %574, i32 noundef %.1439.i, i32 noundef 3, i32 noundef 3, i32 noundef -1, i16 noundef zeroext 0)
   br label %1054
 
-1054:                                             ; preds = %1052, %1051, %.thread551.i, %1045, %1044, %.loopexit.i182
-  %.0417.i = phi i16 [ 0, %1044 ], [ 0, %1045 ], [ 0, %1052 ], [ %.1418.i, %1051 ], [ 0, %.loopexit.i182 ], [ 0, %.thread551.i ]
+1054:                                             ; preds = %1052, %1051, %.thread551.i, %1045, %1044, %.loopexit.i184
+  %.0417.i = phi i16 [ 0, %1044 ], [ 0, %1045 ], [ 0, %1052 ], [ %.1418.i, %1051 ], [ 0, %.loopexit.i184 ], [ 0, %.thread551.i ]
   store i16 0, ptr %121, align 2
   store i16 0, ptr %10, align 2
   %1055 = icmp sgt i32 %.5448.i, 0
@@ -2229,8 +2229,8 @@ BufferGetPage.exit513.i:                          ; preds = %981, %975
   %1059 = getelementptr inbounds nuw i8, ptr %578, i64 %indvars.iv707.i
   %1060 = load i8, ptr %1059, align 1
   %.not483.i = icmp eq i8 %1060, 0
-  %spec.select479 = select i1 %.not483.i, i32 %.sroa.29.2, i32 %.0416.i
-  %1061 = call i32 @BufferGetBlockNumber(i32 noundef %spec.select479) #10
+  %spec.select481 = select i1 %.not483.i, i32 %.sroa.29.2, i32 %.0416.i
+  %1061 = call i32 @BufferGetBlockNumber(i32 noundef %spec.select481) #10
   %1062 = load ptr, ptr %111, align 8
   %1063 = getelementptr inbounds nuw i32, ptr %1062, i64 %indvars.iv707.i
   %1064 = load i32, ptr %1063, align 4
@@ -2263,12 +2263,12 @@ ItemPointerIsValid.exit.thread.i:                 ; preds = %ItemPointerIsValid.
   br label %1079
 
 1079:                                             ; preds = %ItemPointerIsValid.exit.thread.i, %1070
-  %1080 = icmp slt i32 %spec.select479, 0
+  %1080 = icmp slt i32 %spec.select481, 0
   br i1 %1080, label %1081, label %1087
 
 1081:                                             ; preds = %1079
   %1082 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %1083 = xor i32 %spec.select479, -1
+  %1083 = xor i32 %spec.select481, -1
   %1084 = zext nneg i32 %1083 to i64
   %1085 = getelementptr inbounds nuw ptr, ptr %1082, i64 %1084
   %1086 = load ptr, ptr %1085, align 8
@@ -2276,7 +2276,7 @@ ItemPointerIsValid.exit.thread.i:                 ; preds = %ItemPointerIsValid.
 
 1087:                                             ; preds = %1079
   %1088 = load ptr, ptr @BufferBlocks, align 8
-  %1089 = add nsw i32 %spec.select479, -1
+  %1089 = add nsw i32 %spec.select481, -1
   %1090 = sext i32 %1089 to i64
   %1091 = shl nsw i64 %1090, 13
   %1092 = getelementptr inbounds nuw i8, ptr %1088, i64 %1091
@@ -2326,7 +2326,7 @@ BufferGetPage.exit517.i:                          ; preds = %1087, %1081
   br label %1117
 
 1117:                                             ; preds = %1116, %._crit_edge648.i
-  %1118 = icmp eq i32 %.0415.i, %.sroa.8.01028
+  %1118 = icmp eq i32 %.0415.i, %.sroa.8.01030
   %1119 = icmp ne i32 %.0415.i, 0
   %or.cond8.i = and i1 %1119, %1118
   br i1 %or.cond8.i, label %1120, label %1165
@@ -2335,70 +2335,70 @@ BufferGetPage.exit517.i:                          ; preds = %1087, %1081
   %1121 = getelementptr inbounds nuw i8, ptr %846, i64 4
   %1122 = load i16, ptr %1121, align 4
   %1123 = zext i16 %1122 to i64
-  %1124 = call zeroext i16 @SpGistPageAddNewItem(ptr noundef %1, ptr noundef %.sroa.34.01025, ptr noundef nonnull %846, i64 noundef %1123, ptr noundef null, i1 noundef zeroext false) #10
+  %1124 = call zeroext i16 @SpGistPageAddNewItem(ptr noundef %1, ptr noundef %.sroa.34.01027, ptr noundef nonnull %846, i64 noundef %1123, ptr noundef null, i1 noundef zeroext false) #10
   store i16 %1124, ptr %122, align 4
   store i8 1, ptr %123, align 4
-  store i16 %.sroa.48.01023, ptr %124, align 2
-  %1125 = trunc i32 %.sroa.57297.01022 to i16
+  store i16 %.sroa.48.01025, ptr %124, align 2
+  %1125 = trunc i32 %.sroa.57299.01024 to i16
   store i16 %1125, ptr %125, align 4
-  %1126 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 24
-  %1127 = zext i16 %.sroa.48.01023 to i64
+  %1126 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 24
+  %1127 = zext i16 %.sroa.48.01025 to i64
   %1128 = add nsw i64 %1127, -1
   %1129 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %1126, i64 0, i64 %1128
-  %.val.i.i184 = load i32, ptr %1129, align 4
-  %1130 = and i32 %.val.i.i184, 32767
+  %.val.i.i186 = load i32, ptr %1129, align 4
+  %1130 = and i32 %.val.i.i186, 32767
   %1131 = zext nneg i32 %1130 to i64
-  %1132 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 %1131
+  %1132 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 %1131
   %1133 = load i32, ptr %1132, align 4
   %1134 = lshr i32 %1133, 3
   %1135 = and i32 %1134, 8191
-  %.not.i.i.i185 = icmp eq i32 %1135, 0
-  br i1 %.not.i.i.i185, label %._crit_edge.i.i.i192, label %.lr.ph.preheader.i.i.i186
+  %.not.i.i.i187 = icmp eq i32 %1135, 0
+  br i1 %.not.i.i.i187, label %._crit_edge.i.i.i194, label %.lr.ph.preheader.i.i.i188
 
-.lr.ph.preheader.i.i.i186:                        ; preds = %1120
+.lr.ph.preheader.i.i.i188:                        ; preds = %1120
   %1136 = getelementptr inbounds nuw i8, ptr %1132, i64 8
   %1137 = lshr i32 %1133, 16
   %1138 = zext nneg i32 %1137 to i64
   %1139 = getelementptr inbounds nuw i8, ptr %1136, i64 %1138
-  br label %.lr.ph.i.i.i187
+  br label %.lr.ph.i.i.i189
 
-.lr.ph.i.i.i187:                                  ; preds = %1141, %.lr.ph.preheader.i.i.i186
-  %.015.i.i.i188 = phi i32 [ %1142, %1141 ], [ 0, %.lr.ph.preheader.i.i.i186 ]
-  %.01214.i.i.i189 = phi ptr [ %1146, %1141 ], [ %1139, %.lr.ph.preheader.i.i.i186 ]
-  %1140 = icmp eq i32 %.015.i.i.i188, %.sroa.57297.01022
-  br i1 %1140, label %saveNodeLink.exit.i193, label %1141
+.lr.ph.i.i.i189:                                  ; preds = %1141, %.lr.ph.preheader.i.i.i188
+  %.015.i.i.i190 = phi i32 [ %1142, %1141 ], [ 0, %.lr.ph.preheader.i.i.i188 ]
+  %.01214.i.i.i191 = phi ptr [ %1146, %1141 ], [ %1139, %.lr.ph.preheader.i.i.i188 ]
+  %1140 = icmp eq i32 %.015.i.i.i190, %.sroa.57299.01024
+  br i1 %1140, label %saveNodeLink.exit.i195, label %1141
 
-1141:                                             ; preds = %.lr.ph.i.i.i187
-  %1142 = add nuw nsw i32 %.015.i.i.i188, 1
-  %1143 = getelementptr i8, ptr %.01214.i.i.i189, i64 6
-  %.012.val.i.i.i190 = load i16, ptr %1143, align 2
-  %1144 = and i16 %.012.val.i.i.i190, 8191
+1141:                                             ; preds = %.lr.ph.i.i.i189
+  %1142 = add nuw nsw i32 %.015.i.i.i190, 1
+  %1143 = getelementptr i8, ptr %.01214.i.i.i191, i64 6
+  %.012.val.i.i.i192 = load i16, ptr %1143, align 2
+  %1144 = and i16 %.012.val.i.i.i192, 8191
   %1145 = zext nneg i16 %1144 to i64
-  %1146 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i189, i64 %1145
-  %exitcond.not.i.i.i191 = icmp eq i32 %1142, %1135
-  br i1 %exitcond.not.i.i.i191, label %._crit_edge.i.i.i192, label %.lr.ph.i.i.i187, !llvm.loop !4
+  %1146 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i191, i64 %1145
+  %exitcond.not.i.i.i193 = icmp eq i32 %1142, %1135
+  br i1 %exitcond.not.i.i.i193, label %._crit_edge.i.i.i194, label %.lr.ph.i.i.i189, !llvm.loop !4
 
-._crit_edge.i.i.i192:                             ; preds = %1120, %1141
+._crit_edge.i.i.i194:                             ; preds = %1120, %1141
   %1147 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %1147)
-  %1148 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.sroa.57297.01022) #10
+  %1148 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.sroa.57299.01024) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.spgUpdateNodeLink) #10
   unreachable
 
-saveNodeLink.exit.i193:                           ; preds = %.lr.ph.i.i.i187
-  %1149 = lshr i32 %.sroa.0.01029, 16
+saveNodeLink.exit.i195:                           ; preds = %.lr.ph.i.i.i189
+  %1149 = lshr i32 %.sroa.0.01031, 16
   %1150 = trunc nuw i32 %1149 to i16
-  store i16 %1150, ptr %.01214.i.i.i189, align 2
-  %1151 = trunc i32 %.sroa.0.01029 to i16
-  %1152 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i189, i64 2
+  store i16 %1150, ptr %.01214.i.i.i191, align 2
+  %1151 = trunc i32 %.sroa.0.01031 to i16
+  %1152 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i191, i64 2
   store i16 %1151, ptr %1152, align 2
-  %1153 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i189, i64 4
+  %1153 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i191, i64 4
   store i16 %1124, ptr %1153, align 2
-  call void @MarkBufferDirty(i32 noundef %.sroa.8.01028) #10
+  call void @MarkBufferDirty(i32 noundef %.sroa.8.01030) #10
   %.not477.i = icmp eq i16 %.0417.i, 0
   br i1 %.not477.i, label %1238, label %1154
 
-1154:                                             ; preds = %saveNodeLink.exit.i193
+1154:                                             ; preds = %saveNodeLink.exit.i195
   %1155 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %1156 = zext i16 %.0417.i to i64
   %1157 = add nsw i64 %1156, -1
@@ -2449,17 +2449,17 @@ BufferGetPage.exit520.i:                          ; preds = %1175, %1169
   call void @MarkBufferDirty(i32 noundef %.0415.i) #10
   %1185 = zext i1 %1118 to i8
   store i8 %1185, ptr %123, align 4
-  store i16 %.sroa.48.01023, ptr %124, align 2
-  %1186 = trunc i32 %.sroa.57297.01022 to i16
+  store i16 %.sroa.48.01025, ptr %124, align 2
+  %1186 = trunc i32 %.sroa.57299.01024 to i16
   store i16 %1186, ptr %125, align 4
-  %1187 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 24
-  %1188 = zext i16 %.sroa.48.01023 to i64
+  %1187 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 24
+  %1188 = zext i16 %.sroa.48.01025 to i64
   %1189 = add nsw i64 %1188, -1
   %1190 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %1187, i64 0, i64 %1189
   %.val.i521.i = load i32, ptr %1190, align 4
   %1191 = and i32 %.val.i521.i, 32767
   %1192 = zext nneg i32 %1191 to i64
-  %1193 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 %1192
+  %1193 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 %1192
   %1194 = load i32, ptr %1193, align 4
   %1195 = lshr i32 %1194, 3
   %1196 = and i32 %1195, 8191
@@ -2476,7 +2476,7 @@ BufferGetPage.exit520.i:                          ; preds = %1175, %1169
 .lr.ph.i.i524.i:                                  ; preds = %1202, %.lr.ph.preheader.i.i523.i
   %.015.i.i525.i = phi i32 [ %1203, %1202 ], [ 0, %.lr.ph.preheader.i.i523.i ]
   %.01214.i.i526.i = phi ptr [ %1207, %1202 ], [ %1200, %.lr.ph.preheader.i.i523.i ]
-  %1201 = icmp eq i32 %.015.i.i525.i, %.sroa.57297.01022
+  %1201 = icmp eq i32 %.015.i.i525.i, %.sroa.57299.01024
   br i1 %1201, label %saveNodeLink.exit530.i, label %1202
 
 1202:                                             ; preds = %.lr.ph.i.i524.i
@@ -2492,7 +2492,7 @@ BufferGetPage.exit520.i:                          ; preds = %1175, %1169
 ._crit_edge.i.i529.i:                             ; preds = %BufferGetPage.exit520.i, %1202
   %1208 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %1208)
-  %1209 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.sroa.57297.01022) #10
+  %1209 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.sroa.57299.01024) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.spgUpdateNodeLink) #10
   unreachable
 
@@ -2505,7 +2505,7 @@ saveNodeLink.exit530.i:                           ; preds = %.lr.ph.i.i524.i
   store i16 %1212, ptr %1213, align 2
   %1214 = getelementptr inbounds nuw i8, ptr %.01214.i.i526.i, i64 4
   store i16 %1184, ptr %1214, align 2
-  call void @MarkBufferDirty(i32 noundef %.sroa.8.01028) #10
+  call void @MarkBufferDirty(i32 noundef %.sroa.8.01030) #10
   %.not476.i = icmp eq i16 %.0417.i, 0
   br i1 %.not476.i, label %1238, label %1215
 
@@ -2553,12 +2553,12 @@ saveNodeLink.exit530.i:                           ; preds = %.lr.ph.i.i524.i
   store i16 0, ptr %125, align 4
   br label %1238
 
-1238:                                             ; preds = %1237, %1215, %saveNodeLink.exit530.i, %1154, %saveNodeLink.exit.i193
-  %.sroa.29.5 = phi i32 [ %.sroa.8.01028, %saveNodeLink.exit.i193 ], [ %.sroa.8.01028, %1154 ], [ %.sroa.29.2, %1237 ], [ %.0415.i, %saveNodeLink.exit530.i ], [ %.0415.i, %1215 ]
-  %.sroa.0304.5 = phi i32 [ %.sroa.0.01029, %saveNodeLink.exit.i193 ], [ %.sroa.0.01029, %1154 ], [ %.sroa.0304.2, %1237 ], [ %1167, %saveNodeLink.exit530.i ], [ %1167, %1215 ]
-  %.sroa.67.2 = phi ptr [ %.sroa.34.01025, %saveNodeLink.exit.i193 ], [ %.sroa.34.01025, %1154 ], [ %.0.i.i, %1237 ], [ %.0.i.i519.i, %saveNodeLink.exit530.i ], [ %.0.i.i519.i, %1215 ]
-  %.sroa.116.5 = phi i16 [ %1124, %saveNodeLink.exit.i193 ], [ %1124, %1154 ], [ 1, %1237 ], [ %1184, %saveNodeLink.exit530.i ], [ %1184, %1215 ]
-  %.sroa.3.0.i = phi i32 [ %.sroa.29.2, %saveNodeLink.exit.i193 ], [ %.sroa.29.2, %1154 ], [ 0, %1237 ], [ %.sroa.29.2, %saveNodeLink.exit530.i ], [ %.sroa.29.2, %1215 ]
+1238:                                             ; preds = %1237, %1215, %saveNodeLink.exit530.i, %1154, %saveNodeLink.exit.i195
+  %.sroa.29.5 = phi i32 [ %.sroa.8.01030, %saveNodeLink.exit.i195 ], [ %.sroa.8.01030, %1154 ], [ %.sroa.29.2, %1237 ], [ %.0415.i, %saveNodeLink.exit530.i ], [ %.0415.i, %1215 ]
+  %.sroa.0306.5 = phi i32 [ %.sroa.0.01031, %saveNodeLink.exit.i195 ], [ %.sroa.0.01031, %1154 ], [ %.sroa.0306.2, %1237 ], [ %1167, %saveNodeLink.exit530.i ], [ %1167, %1215 ]
+  %.sroa.67.2 = phi ptr [ %.sroa.34.01027, %saveNodeLink.exit.i195 ], [ %.sroa.34.01027, %1154 ], [ %.0.i.i, %1237 ], [ %.0.i.i519.i, %saveNodeLink.exit530.i ], [ %.0.i.i519.i, %1215 ]
+  %.sroa.116.5 = phi i16 [ %1124, %saveNodeLink.exit.i195 ], [ %1124, %1154 ], [ 1, %1237 ], [ %1184, %saveNodeLink.exit530.i ], [ %1184, %1215 ]
+  %.sroa.3.0.i = phi i32 [ %.sroa.29.2, %saveNodeLink.exit.i195 ], [ %.sroa.29.2, %1154 ], [ 0, %1237 ], [ %.sroa.29.2, %saveNodeLink.exit530.i ], [ %.sroa.29.2, %1215 ]
   call void @MarkBufferDirty(i32 noundef %.sroa.29.2) #10
   %1239 = load ptr, ptr %127, align 8
   %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 114
@@ -2636,12 +2636,12 @@ saveNodeLink.exit530.i:                           ; preds = %.lr.ph.i.i524.i
   %1281 = trunc nuw i8 %1280 to i1
   %spec.select493.i = select i1 %1281, i8 14, i8 8
   call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %.sroa.29.5, i8 noundef zeroext %spec.select493.i) #10
-  %.not479.i = icmp eq i32 %.sroa.8.01028, %.sroa.29.5
-  %or.cond480 = select i1 %.not466.i, i1 true, i1 %.not479.i
-  br i1 %or.cond480, label %1283, label %1282
+  %.not479.i = icmp eq i32 %.sroa.8.01030, %.sroa.29.5
+  %or.cond482 = select i1 %.not466.i, i1 true, i1 %.not479.i
+  br i1 %or.cond482, label %1283, label %1282
 
 1282:                                             ; preds = %1279
-  call void @XLogRegisterBuffer(i8 noundef zeroext 3, i32 noundef %.sroa.8.01028, i8 noundef zeroext 8) #10
+  call void @XLogRegisterBuffer(i8 noundef zeroext 3, i32 noundef %.sroa.8.01030, i8 noundef zeroext 8) #10
   br label %1283
 
 1283:                                             ; preds = %1282, %1279
@@ -2726,8 +2726,8 @@ BufferGetPage.exit535.i:                          ; preds = %1312, %1306
   br i1 %.not466.i, label %1326, label %1324
 
 1324:                                             ; preds = %1322
-  store i32 %.pre-phi717.i, ptr %.sroa.34.01025, align 4
-  %1325 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 4
+  store i32 %.pre-phi717.i, ptr %.sroa.34.01027, align 4
+  %1325 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 4
   store i32 %.pre-phi719.i, ptr %1325, align 4
   br label %1326
 
@@ -2758,7 +2758,7 @@ doPickSplit.exit:                                 ; preds = %1330, %1331
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
-  br i1 %.1.i183, label %.thread423, label %1332
+  br i1 %.1.i185, label %.thread425, label %1332
 
 1332:                                             ; preds = %doPickSplit.exit
   call void @pfree(ptr noundef nonnull %202) #10
@@ -2766,49 +2766,49 @@ doPickSplit.exit:                                 ; preds = %1330, %1331
 
 .preheader:                                       ; preds = %198, %1332
   %.sroa.29.4.ph = phi i32 [ %.sroa.29.5, %1332 ], [ %.sroa.29.2, %198 ]
-  %.sroa.0304.4.ph = phi i32 [ %.sroa.0304.5, %1332 ], [ %.sroa.0304.2, %198 ]
+  %.sroa.0306.4.ph = phi i32 [ %.sroa.0306.5, %1332 ], [ %.sroa.0306.2, %198 ]
   %.sroa.67.1.ph = phi ptr [ %.sroa.67.2, %1332 ], [ %.0.i.i, %198 ]
-  %.sroa.116.3.ph = phi i16 [ %.sroa.116.5, %1332 ], [ %.sroa.116.01030, %198 ]
+  %.sroa.116.3.ph = phi i16 [ %.sroa.116.5, %1332 ], [ %.sroa.116.01032, %198 ]
   %1333 = load volatile i32, ptr @InterruptPending, align 4
-  %.not14910031009 = icmp eq i32 %1333, 0
-  br i1 %.not14910031009, label %.lr.ph1004.lr.ph, label %.thread423, !prof !11
+  %.not15210051011 = icmp eq i32 %1333, 0
+  br i1 %.not15210051011, label %.lr.ph1006.lr.ph, label %.thread425, !prof !11
 
-.lr.ph1004.lr.ph:                                 ; preds = %.preheader
-  %1334 = trunc i32 %.sroa.57297.01022 to i16
-  %1335 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 24
-  %1336 = zext i16 %.sroa.48.01023 to i64
+.lr.ph1006.lr.ph:                                 ; preds = %.preheader
+  %1334 = trunc i32 %.sroa.57299.01024 to i16
+  %1335 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 24
+  %1336 = zext i16 %.sroa.48.01025 to i64
   %1337 = add nsw i64 %1336, -1
   %1338 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %1335, i64 0, i64 %1337
-  %1339 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 4
-  br label %.lr.ph1004
+  %1339 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 4
+  br label %.lr.ph1006
 
-.lr.ph1004:                                       ; preds = %.lr.ph1004.lr.ph, %spgAddNodeAction.exit
-  %.sroa.116.3.ph4901013 = phi i16 [ %.sroa.116.3.ph, %.lr.ph1004.lr.ph ], [ %.sroa.116.6, %spgAddNodeAction.exit ]
-  %.sroa.67.1.ph4891012 = phi ptr [ %.sroa.67.1.ph, %.lr.ph1004.lr.ph ], [ %.sroa.67.3, %spgAddNodeAction.exit ]
-  %.sroa.0304.4.ph4881011 = phi i32 [ %.sroa.0304.4.ph, %.lr.ph1004.lr.ph ], [ %.sroa.0304.7, %spgAddNodeAction.exit ]
-  %.sroa.29.4.ph4871010 = phi i32 [ %.sroa.29.4.ph, %.lr.ph1004.lr.ph ], [ %.sroa.29.6, %spgAddNodeAction.exit ]
-  %invariant.gep1014 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4891012, i64 4
-  %1340 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4891012, i64 24
-  %1341 = zext i16 %.sroa.116.3.ph4901013 to i64
+.lr.ph1006:                                       ; preds = %.lr.ph1006.lr.ph, %spgAddNodeAction.exit
+  %.sroa.116.3.ph4921015 = phi i16 [ %.sroa.116.3.ph, %.lr.ph1006.lr.ph ], [ %.sroa.116.6, %spgAddNodeAction.exit ]
+  %.sroa.67.1.ph4911014 = phi ptr [ %.sroa.67.1.ph, %.lr.ph1006.lr.ph ], [ %.sroa.67.3, %spgAddNodeAction.exit ]
+  %.sroa.0306.4.ph4901013 = phi i32 [ %.sroa.0306.4.ph, %.lr.ph1006.lr.ph ], [ %.sroa.0306.7, %spgAddNodeAction.exit ]
+  %.sroa.29.4.ph4891012 = phi i32 [ %.sroa.29.4.ph, %.lr.ph1006.lr.ph ], [ %.sroa.29.6, %spgAddNodeAction.exit ]
+  %invariant.gep1016 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4911014, i64 4
+  %1340 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4911014, i64 24
+  %1341 = zext i16 %.sroa.116.3.ph4921015 to i64
   %1342 = add nsw i64 %1341, -1
   %1343 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %1340, i64 0, i64 %1342
-  %.off.i236 = add i32 %.sroa.0304.4.ph4881011, -1
-  %switch.i237 = icmp ult i32 %.off.i236, 2
-  %1344 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4891012, i64 16
-  %1345 = add i32 %.sroa.0304.4.ph4881011, 1
+  %.off.i238 = add i32 %.sroa.0306.4.ph4901013, -1
+  %switch.i239 = icmp ult i32 %.off.i238, 2
+  %1344 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4911014, i64 16
+  %1345 = add i32 %.sroa.0306.4.ph4901013, 1
   %1346 = urem i32 %1345, 3
   br label %1347
 
-1347:                                             ; preds = %.lr.ph1004, %spgSplitNodeAction.exit
+1347:                                             ; preds = %.lr.ph1006, %spgSplitNodeAction.exit
   %.val = load i32, ptr %1343, align 4
   %1348 = and i32 %.val, 32767
   %1349 = zext nneg i32 %1348 to i64
-  %1350 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4891012, i64 %1349
+  %1350 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4911014, i64 %1349
   %1351 = load i64, ptr %3, align 8
   store i64 %1351, ptr %19, align 8
   %1352 = load i64, ptr %17, align 16
   store i64 %1352, ptr %131, align 8
-  store i32 %.01151034, ptr %132, align 8
+  store i32 %.01171036, ptr %132, align 8
   %1353 = load i32, ptr %1350, align 4
   %1354 = trunc i32 %1353 to i8
   %1355 = lshr i8 %1354, 2
@@ -2819,8 +2819,8 @@ doPickSplit.exit:                                 ; preds = %1330, %1331
   %1359 = zext i1 %1358 to i8
   store i8 %1359, ptr %134, align 1
   %1360 = load i32, ptr %1350, align 4
-  %.not150 = icmp ult i32 %1360, 65536
-  br i1 %.not150, label %1369, label %1361
+  %.not153 = icmp ult i32 %1360, 65536
+  br i1 %.not153, label %1369, label %1361
 
 1361:                                             ; preds = %1347
   %1362 = load i8, ptr %135, align 2, !range !7, !noundef !8
@@ -2851,8 +2851,8 @@ doPickSplit.exit:                                 ; preds = %1330, %1331
 1375:                                             ; preds = %1369
   %1376 = load ptr, ptr %106, align 8
   %1377 = load i32, ptr %1376, align 4
-  %1378 = call i64 @FunctionCall2Coll(ptr noundef %.0123418, i32 noundef %1377, i64 noundef %139, i64 noundef %140) #10
-  %.pr.pre1556.pre = load i32, ptr %20, align 8
+  %1378 = call i64 @FunctionCall2Coll(ptr noundef %.0125420, i32 noundef %1377, i64 noundef %139, i64 noundef %140) #10
+  %.pr.pre1558.pre = load i32, ptr %20, align 8
   br label %1380
 
 1379:                                             ; preds = %1369
@@ -2860,14 +2860,14 @@ doPickSplit.exit:                                 ; preds = %1330, %1331
   br label %1380
 
 1380:                                             ; preds = %1379, %1375
-  %.pr.pre1556 = phi i32 [ 1, %1379 ], [ %.pr.pre1556.pre, %1375 ]
+  %.pr.pre1558 = phi i32 [ 1, %1379 ], [ %.pr.pre1558.pre, %1375 ]
   %1381 = load i32, ptr %1350, align 4
   %1382 = and i32 %1381, 4
-  %.not151 = icmp eq i32 %1382, 0
-  br i1 %.not151, label %thread-pre-split, label %1383
+  %.not154 = icmp eq i32 %1382, 0
+  br i1 %.not154, label %thread-pre-split, label %1383
 
 1383:                                             ; preds = %1380
-  switch i32 %.pr.pre1556, label %thread-pre-split [
+  switch i32 %.pr.pre1558, label %thread-pre-split [
     i32 2, label %1384
     i32 1, label %1387
   ]
@@ -2891,7 +2891,7 @@ doPickSplit.exit:                                 ; preds = %1330, %1331
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %1387, %1380, %1383
-  %1394 = phi i32 [ %.pr.pre1556, %1383 ], [ %.pr.pre1556, %1380 ], [ %.pr.pre, %1387 ]
+  %1394 = phi i32 [ %.pr.pre1558, %1383 ], [ %.pr.pre1558, %1380 ], [ %.pr.pre, %1387 ]
   switch i32 %1394, label %1910 [
     i32 1, label %1395
     i32 2, label %1453
@@ -2900,14 +2900,14 @@ thread-pre-split:                                 ; preds = %1387, %1380, %1383
 
 1395:                                             ; preds = %thread-pre-split
   %1396 = load i32, ptr %141, align 8
-  %.not.i203 = icmp eq i32 %.sroa.8.01028, 0
-  %.not39.i = icmp eq i32 %.sroa.8.01028, %.sroa.29.4.ph4871010
-  %or.cond481 = select i1 %.not.i203, i1 true, i1 %.not39.i
-  br i1 %or.cond481, label %1398, label %1397
+  %.not.i205 = icmp eq i32 %.sroa.8.01030, 0
+  %.not39.i = icmp eq i32 %.sroa.8.01030, %.sroa.29.4.ph4891012
+  %or.cond483 = select i1 %.not.i205, i1 true, i1 %.not39.i
+  br i1 %or.cond483, label %1398, label %1397
 
 1397:                                             ; preds = %1395
-  call void @SpGistSetLastUsedPage(ptr noundef %0, i32 noundef %.sroa.8.01028) #10
-  call void @UnlockReleaseBuffer(i32 noundef %.sroa.8.01028) #10
+  call void @SpGistSetLastUsedPage(ptr noundef %0, i32 noundef %.sroa.8.01030) #10
+  call void @UnlockReleaseBuffer(i32 noundef %.sroa.8.01030) #10
   br label %1398
 
 1398:                                             ; preds = %1397, %1395
@@ -2921,17 +2921,17 @@ thread-pre-split:                                 ; preds = %1387, %1380, %1383
   %1406 = icmp eq i32 %1405, 0
   %1407 = icmp eq i32 %1396, 0
   %or.cond2.i = or i1 %1407, %1406
-  br i1 %or.cond2.i, label %._crit_edge.i207, label %.lr.ph.preheader.i
+  br i1 %or.cond2.i, label %._crit_edge.i209, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %1398
   %1408 = add i32 %1396, -1
   %1409 = add nsw i32 %1405, -1
   %umin.i = call i32 @llvm.umin.i32(i32 %1408, i32 %1409)
-  br label %.lr.ph.i204
+  br label %.lr.ph.i206
 
-.lr.ph.i204:                                      ; preds = %.lr.ph.i204, %.lr.ph.preheader.i
-  %.04.i = phi ptr [ %1414, %.lr.ph.i204 ], [ %1403, %.lr.ph.preheader.i ]
-  %.0363.i = phi i32 [ %1410, %.lr.ph.i204 ], [ 0, %.lr.ph.preheader.i ]
+.lr.ph.i206:                                      ; preds = %.lr.ph.i206, %.lr.ph.preheader.i
+  %.04.i = phi ptr [ %1414, %.lr.ph.i206 ], [ %1403, %.lr.ph.preheader.i ]
+  %.0363.i = phi i32 [ %1410, %.lr.ph.i206 ], [ 0, %.lr.ph.preheader.i ]
   %1410 = add nuw nsw i32 %.0363.i, 1
   %1411 = getelementptr i8, ptr %.04.i, i64 6
   %.0.val.i = load i16, ptr %1411, align 2
@@ -2939,31 +2939,31 @@ thread-pre-split:                                 ; preds = %1387, %1380, %1383
   %1413 = zext nneg i16 %1412 to i64
   %1414 = getelementptr inbounds nuw i8, ptr %.04.i, i64 %1413
   %exitcond.i = icmp eq i32 %.0363.i, %umin.i
-  br i1 %exitcond.i, label %._crit_edge.loopexit.i, label %.lr.ph.i204, !llvm.loop !29
+  br i1 %exitcond.i, label %._crit_edge.loopexit.i, label %.lr.ph.i206, !llvm.loop !29
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i204
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i206
   %1415 = add nuw nsw i32 %umin.i, 1
   %1416 = icmp eq i32 %1415, %1396
-  br i1 %1416, label %ItemPointerIsValid.exit.i205, label %1417
+  br i1 %1416, label %ItemPointerIsValid.exit.i207, label %1417
 
-._crit_edge.i207:                                 ; preds = %1398
-  br i1 %1407, label %ItemPointerIsValid.exit.i205, label %1417
+._crit_edge.i209:                                 ; preds = %1398
+  br i1 %1407, label %ItemPointerIsValid.exit.i207, label %1417
 
-1417:                                             ; preds = %._crit_edge.i207, %._crit_edge.loopexit.i
+1417:                                             ; preds = %._crit_edge.i209, %._crit_edge.loopexit.i
   %1418 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %1418)
   %1419 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1396) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1490, ptr noundef nonnull @__func__.spgMatchNodeAction) #10
   unreachable
 
-ItemPointerIsValid.exit.i205:                     ; preds = %._crit_edge.i207, %._crit_edge.loopexit.i
-  %.0.lcssa8.i = phi ptr [ %1414, %._crit_edge.loopexit.i ], [ %1403, %._crit_edge.i207 ]
+ItemPointerIsValid.exit.i207:                     ; preds = %._crit_edge.i209, %._crit_edge.loopexit.i
+  %.0.lcssa8.i = phi ptr [ %1414, %._crit_edge.loopexit.i ], [ %1403, %._crit_edge.i209 ]
   %1420 = getelementptr i8, ptr %.0.lcssa8.i, i64 4
   %1421 = load i16, ptr %1420, align 2
   %.not1.i = icmp eq i16 %1421, 0
   br i1 %.not1.i, label %spgMatchNodeAction.exit, label %1422
 
-1422:                                             ; preds = %ItemPointerIsValid.exit.i205
+1422:                                             ; preds = %ItemPointerIsValid.exit.i207
   %.0.val42.i = load i16, ptr %.0.lcssa8.i, align 2
   %1423 = getelementptr i8, ptr %.0.lcssa8.i, i64 2
   %.0.val43.i = load i16, ptr %1423, align 2
@@ -2973,10 +2973,10 @@ ItemPointerIsValid.exit.i205:                     ; preds = %._crit_edge.i207, %
   %1427 = or disjoint i32 %1425, %1426
   br label %spgMatchNodeAction.exit
 
-spgMatchNodeAction.exit:                          ; preds = %ItemPointerIsValid.exit.i205, %1422
-  %.sroa.0304.6 = phi i32 [ %1427, %1422 ], [ -1, %ItemPointerIsValid.exit.i205 ]
+spgMatchNodeAction.exit:                          ; preds = %ItemPointerIsValid.exit.i207, %1422
+  %.sroa.0306.6 = phi i32 [ %1427, %1422 ], [ -1, %ItemPointerIsValid.exit.i207 ]
   %1428 = load i32, ptr %158, align 4
-  %1429 = add i32 %1428, %.01151034
+  %1429 = add i32 %1428, %.01171036
   br i1 %24, label %1435, label %1430
 
 1430:                                             ; preds = %spgMatchNodeAction.exit
@@ -2988,28 +2988,28 @@ spgMatchNodeAction.exit:                          ; preds = %ItemPointerIsValid.
   br label %1435
 
 1435:                                             ; preds = %1430, %spgMatchNodeAction.exit
-  %.2122 = phi i32 [ %.01201033, %spgMatchNodeAction.exit ], [ %1434, %1430 ]
-  %1436 = icmp ugt i32 %.2122, 8160
-  br i1 %1436, label %1437, label %.thread430
+  %.2124 = phi i32 [ %.01221035, %spgMatchNodeAction.exit ], [ %1434, %1430 ]
+  %1436 = icmp ugt i32 %.2124, 8160
+  br i1 %1436, label %1437, label %.thread432
 
 1437:                                             ; preds = %1435
   %1438 = load i8, ptr %159, align 1, !range !7, !noundef !8
   %1439 = trunc nuw i8 %1438 to i1
-  %.not156 = xor i1 %1439, true
-  %brmerge = or i1 %24, %.not156
-  br i1 %brmerge, label %.thread434, label %1440
+  %.not = xor i1 %1439, true
+  %or.cond3 = or i1 %24, %.not
+  br i1 %or.cond3, label %.thread436, label %1440
 
 1440:                                             ; preds = %1437
-  %1441 = icmp slt i32 %.2122, %.01271031
-  br i1 %1441, label %.thread430, label %1442
+  %1441 = icmp slt i32 %.2124, %.01291033
+  br i1 %1441, label %.thread432, label %1442
 
 1442:                                             ; preds = %1440
-  %1443 = add i32 %.01241032, 1
+  %1443 = add i32 %.01261034, 1
   %1444 = icmp slt i32 %1443, 10
-  br i1 %1444, label %.thread430, label %.thread434
+  br i1 %1444, label %.thread432, label %.thread436
 
-.thread434:                                       ; preds = %1437, %1442
-  %1445 = sext i32 %.2122 to i64
+.thread436:                                       ; preds = %1437, %1442
+  %1445 = sext i32 %.2124 to i64
   %1446 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %1446)
   %1447 = call i32 @errcode(i32 noundef 261) #10
@@ -3064,28 +3064,28 @@ spgMatchNodeAction.exit:                          ; preds = %ItemPointerIsValid.
   %1477 = load i32, ptr %1350, align 4
   %1478 = and i32 %1477, 65528
   %.not36.i.i = icmp eq i32 %1478, 0
-  br i1 %.not36.i.i, label %.._crit_edge.i_crit_edge.i, label %.lr.ph.preheader.i.i208
+  br i1 %.not36.i.i, label %.._crit_edge.i_crit_edge.i, label %.lr.ph.preheader.i.i210
 
 .._crit_edge.i_crit_edge.i:                       ; preds = %1471
-  %.pre.i231 = zext nneg i32 %.031.i.i to i64
-  br label %._crit_edge.i.i212
+  %.pre.i233 = zext nneg i32 %.031.i.i to i64
+  br label %._crit_edge.i.i214
 
-.lr.ph.preheader.i.i208:                          ; preds = %1471
+.lr.ph.preheader.i.i210:                          ; preds = %1471
   %1479 = lshr i32 %1477, 16
   %1480 = zext nneg i32 %1479 to i64
   %1481 = getelementptr inbounds nuw i8, ptr %1476, i64 %1480
   %1482 = zext nneg i32 %.031.i.i to i64
-  br label %.lr.ph.i.i209
+  br label %.lr.ph.i.i211
 
-.lr.ph.i.i209:                                    ; preds = %.lr.ph.i.i209, %.lr.ph.preheader.i.i208
-  %indvars.iv.i.i210 = phi i64 [ 0, %.lr.ph.preheader.i.i208 ], [ %indvars.iv.next.i.i211, %.lr.ph.i.i209 ]
-  %.03234.i.i = phi ptr [ %1481, %.lr.ph.preheader.i.i208 ], [ %1488, %.lr.ph.i.i209 ]
-  %1483 = icmp samesign ult i64 %indvars.iv.i.i210, %1482
+.lr.ph.i.i211:                                    ; preds = %.lr.ph.i.i211, %.lr.ph.preheader.i.i210
+  %indvars.iv.i.i212 = phi i64 [ 0, %.lr.ph.preheader.i.i210 ], [ %indvars.iv.next.i.i213, %.lr.ph.i.i211 ]
+  %.03234.i.i = phi ptr [ %1481, %.lr.ph.preheader.i.i210 ], [ %1488, %.lr.ph.i.i211 ]
+  %1483 = icmp samesign ult i64 %indvars.iv.i.i212, %1482
   %.invariant.gep.idx.i.i = select i1 %1483, i64 0, i64 8
   %.invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %1475, i64 %.invariant.gep.idx.i.i
-  %1484 = getelementptr inbounds nuw ptr, ptr %.invariant.gep.i.i, i64 %indvars.iv.i.i210
+  %1484 = getelementptr inbounds nuw ptr, ptr %.invariant.gep.i.i, i64 %indvars.iv.i.i212
   store ptr %.03234.i.i, ptr %1484, align 8
-  %indvars.iv.next.i.i211 = add nuw nsw i64 %indvars.iv.i.i210, 1
+  %indvars.iv.next.i.i213 = add nuw nsw i64 %indvars.iv.i.i212, 1
   %1485 = getelementptr i8, ptr %.03234.i.i, i64 6
   %.032.val.i.i = load i16, ptr %1485, align 2
   %1486 = and i16 %.032.val.i.i, 8191
@@ -3095,19 +3095,19 @@ spgMatchNodeAction.exit:                          ; preds = %ItemPointerIsValid.
   %1490 = lshr i32 %1489, 3
   %1491 = and i32 %1490, 8191
   %1492 = zext nneg i32 %1491 to i64
-  %1493 = icmp samesign ult i64 %indvars.iv.next.i.i211, %1492
-  br i1 %1493, label %.lr.ph.i.i209, label %._crit_edge.i.i212, !llvm.loop !30
+  %1493 = icmp samesign ult i64 %indvars.iv.next.i.i213, %1492
+  br i1 %1493, label %.lr.ph.i.i211, label %._crit_edge.i.i214, !llvm.loop !30
 
-._crit_edge.i.i212:                               ; preds = %.lr.ph.i.i209, %.._crit_edge.i_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre.i231, %.._crit_edge.i_crit_edge.i ], [ %1482, %.lr.ph.i.i209 ]
+._crit_edge.i.i214:                               ; preds = %.lr.ph.i.i211, %.._crit_edge.i_crit_edge.i
+  %.pre-phi.i = phi i64 [ %.pre.i233, %.._crit_edge.i_crit_edge.i ], [ %1482, %.lr.ph.i.i211 ]
   %1494 = call ptr @spgFormNodeTuple(ptr noundef %1, i64 noundef %1461, i1 noundef zeroext false) #10
   %1495 = getelementptr inbounds nuw ptr, ptr %1475, i64 %.pre-phi.i
   store ptr %1494, ptr %1495, align 8
   %1496 = load i32, ptr %1350, align 4
-  %.not.i.i213 = icmp ult i32 %1496, 65536
-  br i1 %.not.i.i213, label %addNode.exit.i, label %1497
+  %.not.i.i215 = icmp ult i32 %1496, 65536
+  br i1 %.not.i.i215, label %addNode.exit.i, label %1497
 
-1497:                                             ; preds = %._crit_edge.i.i212
+1497:                                             ; preds = %._crit_edge.i.i214
   %1498 = load i8, ptr %135, align 2, !range !7, !noundef !8
   %1499 = trunc nuw i8 %1498 to i1
   br i1 %1499, label %1500, label %1502
@@ -3120,8 +3120,8 @@ spgMatchNodeAction.exit:                          ; preds = %ItemPointerIsValid.
   %1503 = ptrtoint ptr %1476 to i64
   br label %addNode.exit.i
 
-addNode.exit.i:                                   ; preds = %1502, %1500, %._crit_edge.i.i212
-  %1504 = phi i64 [ %1501, %1500 ], [ %1503, %1502 ], [ 0, %._crit_edge.i.i212 ]
+addNode.exit.i:                                   ; preds = %1502, %1500, %._crit_edge.i.i214
+  %1504 = phi i64 [ %1501, %1500 ], [ %1503, %1502 ], [ 0, %._crit_edge.i.i214 ]
   %1505 = icmp ugt i32 %1496, 65535
   %1506 = lshr i32 %1496, 3
   %1507 = and i32 %1506, 8191
@@ -3131,13 +3131,13 @@ addNode.exit.i:                                   ; preds = %1502, %1500, %._cri
   store i32 %1510, ptr %151, align 4
   %1511 = load i8, ptr %102, align 4, !range !7, !noundef !8
   store i8 %1511, ptr %152, align 4
-  store i16 %.sroa.116.3.ph4901013, ptr %7, align 4
+  store i16 %.sroa.116.3.ph4921015, ptr %7, align 4
   store i8 -1, ptr %153, align 1
   store i16 0, ptr %154, align 2
   store i16 0, ptr %155, align 4
   store i16 0, ptr %156, align 2
   store i8 0, ptr %157, align 4
-  %1512 = call i64 @PageGetExactFreeSpace(ptr noundef nonnull %.sroa.67.1.ph4891012) #10
+  %1512 = call i64 @PageGetExactFreeSpace(ptr noundef nonnull %.sroa.67.1.ph4911014) #10
   %1513 = getelementptr inbounds nuw i8, ptr %1509, i64 4
   %1514 = load i16, ptr %1513, align 4
   %1515 = zext i16 %1514 to i64
@@ -3145,18 +3145,18 @@ addNode.exit.i:                                   ; preds = %1502, %1500, %._cri
   %1517 = load i16, ptr %1516, align 4
   %1518 = zext i16 %1517 to i64
   %1519 = sub nsw i64 %1515, %1518
-  %.not.i214 = icmp ult i64 %1512, %1519
-  br i1 %.not.i214, label %1558, label %1520
+  %.not.i216 = icmp ult i64 %1512, %1519
+  br i1 %.not.i216, label %1558, label %1520
 
 1520:                                             ; preds = %addNode.exit.i
   %1521 = load volatile i32, ptr @CritSectionCount, align 4
   %1522 = add i32 %1521, 1
   store volatile i32 %1522, ptr @CritSectionCount, align 4
-  call void @PageIndexTupleDelete(ptr noundef nonnull %.sroa.67.1.ph4891012, i16 noundef zeroext %.sroa.116.3.ph4901013) #10
+  call void @PageIndexTupleDelete(ptr noundef nonnull %.sroa.67.1.ph4911014, i16 noundef zeroext %.sroa.116.3.ph4921015) #10
   %1523 = load i16, ptr %1513, align 4
   %1524 = zext i16 %1523 to i64
-  %1525 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.sroa.67.1.ph4891012, ptr noundef nonnull %1509, i64 noundef %1524, i16 noundef zeroext %.sroa.116.3.ph4901013, i32 noundef 0) #10
-  %.not103.i = icmp eq i16 %1525, %.sroa.116.3.ph4901013
+  %1525 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.sroa.67.1.ph4911014, ptr noundef nonnull %1509, i64 noundef %1524, i16 noundef zeroext %.sroa.116.3.ph4921015, i32 noundef 0) #10
+  %.not103.i = icmp eq i16 %1525, %.sroa.116.3.ph4921015
   br i1 %.not103.i, label %1531, label %1526
 
 1526:                                             ; preds = %1520
@@ -3169,7 +3169,7 @@ addNode.exit.i:                                   ; preds = %1502, %1500, %._cri
   unreachable
 
 1531:                                             ; preds = %1520
-  call void @MarkBufferDirty(i32 noundef %.sroa.29.4.ph4871010) #10
+  call void @MarkBufferDirty(i32 noundef %.sroa.29.4.ph4891012) #10
   %1532 = load ptr, ptr %127, align 8
   %1533 = getelementptr inbounds nuw i8, ptr %1532, i64 114
   %1534 = load i8, ptr %1533, align 2
@@ -3202,13 +3202,13 @@ addNode.exit.i:                                   ; preds = %1502, %1500, %._cri
   %1549 = load i16, ptr %1513, align 4
   %1550 = zext i16 %1549 to i32
   call void @XLogRegisterData(ptr noundef nonnull %1509, i32 noundef %1550) #10
-  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.sroa.29.4.ph4871010, i8 noundef zeroext 8) #10
+  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.sroa.29.4.ph4891012, i8 noundef zeroext 8) #10
   %1551 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 48) #10
   %1552 = lshr i64 %1551, 32
   %1553 = trunc nuw i64 %1552 to i32
-  store i32 %1553, ptr %.sroa.67.1.ph4891012, align 4
+  store i32 %1553, ptr %.sroa.67.1.ph4911014, align 4
   %1554 = trunc i64 %1551 to i32
-  store i32 %1554, ptr %invariant.gep1014, align 4
+  store i32 %1554, ptr %invariant.gep1016, align 4
   br label %1555
 
 1555:                                             ; preds = %1548, %1545, %1542, %1539, %1531
@@ -3218,7 +3218,7 @@ addNode.exit.i:                                   ; preds = %1502, %1500, %._cri
   br label %spgAddNodeAction.exit
 
 1558:                                             ; preds = %addNode.exit.i
-  br i1 %switch.i237, label %1559, label %1562
+  br i1 %switch.i239, label %1559, label %1562
 
 1559:                                             ; preds = %1558
   %1560 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3228,9 +3228,9 @@ addNode.exit.i:                                   ; preds = %1502, %1500, %._cri
   unreachable
 
 1562:                                             ; preds = %1558
-  store i16 %.sroa.48.01023, ptr %154, align 2
+  store i16 %.sroa.48.01025, ptr %154, align 2
   store i16 %1334, ptr %155, align 4
-  %1563 = urem i32 %.sroa.0304.4.ph4881011, 3
+  %1563 = urem i32 %.sroa.0306.4.ph4901013, 3
   %1564 = load i16, ptr %1513, align 4
   %1565 = zext i16 %1564 to i32
   %1566 = add nuw nsw i32 %1565, 4
@@ -3245,7 +3245,7 @@ addNode.exit.i:                                   ; preds = %1502, %1500, %._cri
   %1573 = zext nneg i32 %1572 to i64
   %1574 = getelementptr inbounds nuw ptr, ptr %1571, i64 %1573
   %1575 = load ptr, ptr %1574, align 8
-  br label %BufferGetPage.exit.i218
+  br label %BufferGetPage.exit.i220
 
 1576:                                             ; preds = %1562
   %1577 = load ptr, ptr @BufferBlocks, align 8
@@ -3253,23 +3253,23 @@ addNode.exit.i:                                   ; preds = %1502, %1500, %._cri
   %1579 = sext i32 %1578 to i64
   %1580 = shl nsw i64 %1579, 13
   %1581 = getelementptr inbounds nuw i8, ptr %1577, i64 %1580
-  br label %BufferGetPage.exit.i218
+  br label %BufferGetPage.exit.i220
 
-BufferGetPage.exit.i218:                          ; preds = %1576, %1570
-  %.0.i.i.i219 = phi ptr [ %1575, %1570 ], [ %1581, %1576 ]
-  %1582 = icmp eq i32 %1568, %.sroa.0304.4.ph4881011
+BufferGetPage.exit.i220:                          ; preds = %1576, %1570
+  %.0.i.i.i221 = phi ptr [ %1575, %1570 ], [ %1581, %1576 ]
+  %1582 = icmp eq i32 %1568, %.sroa.0306.4.ph4901013
   br i1 %1582, label %1583, label %1586
 
-1583:                                             ; preds = %BufferGetPage.exit.i218
+1583:                                             ; preds = %BufferGetPage.exit.i220
   %1584 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %1584)
   %1585 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1616, ptr noundef nonnull @__func__.spgAddNodeAction) #10
   unreachable
 
-1586:                                             ; preds = %BufferGetPage.exit.i218
-  %1587 = icmp eq i32 %.sroa.8.01028, %.sroa.29.4.ph4871010
-  %1588 = icmp eq i32 %.sroa.8.01028, %1567
+1586:                                             ; preds = %BufferGetPage.exit.i220
+  %1587 = icmp eq i32 %.sroa.8.01030, %.sroa.29.4.ph4891012
+  %1588 = icmp eq i32 %.sroa.8.01030, %1567
   %..i = select i1 %1588, i8 1, i8 2
   %.sink.i = select i1 %1587, i8 0, i8 %..i
   store i8 %.sink.i, ptr %153, align 1
@@ -3278,79 +3278,79 @@ BufferGetPage.exit.i218:                          ; preds = %1576, %1570
   store volatile i32 %1590, ptr @CritSectionCount, align 4
   %1591 = load i16, ptr %1513, align 4
   %1592 = zext i16 %1591 to i64
-  %1593 = call zeroext i16 @SpGistPageAddNewItem(ptr noundef nonnull %1, ptr noundef %.0.i.i.i219, ptr noundef nonnull %1509, i64 noundef %1592, ptr noundef null, i1 noundef zeroext false) #10
+  %1593 = call zeroext i16 @SpGistPageAddNewItem(ptr noundef nonnull %1, ptr noundef %.0.i.i.i221, ptr noundef nonnull %1509, i64 noundef %1592, ptr noundef null, i1 noundef zeroext false) #10
   store i16 %1593, ptr %156, align 2
   call void @MarkBufferDirty(i32 noundef %1567) #10
-  %.val.i.i220 = load i32, ptr %1338, align 4
-  %1594 = and i32 %.val.i.i220, 32767
+  %.val.i.i222 = load i32, ptr %1338, align 4
+  %1594 = and i32 %.val.i.i222, 32767
   %1595 = zext nneg i32 %1594 to i64
-  %1596 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 %1595
+  %1596 = getelementptr inbounds nuw i8, ptr %.sroa.34.01027, i64 %1595
   %1597 = load i32, ptr %1596, align 4
   %1598 = lshr i32 %1597, 3
   %1599 = and i32 %1598, 8191
-  %.not.i.i.i221 = icmp eq i32 %1599, 0
-  br i1 %.not.i.i.i221, label %._crit_edge.i.i.i228, label %.lr.ph.preheader.i.i.i222
+  %.not.i.i.i223 = icmp eq i32 %1599, 0
+  br i1 %.not.i.i.i223, label %._crit_edge.i.i.i230, label %.lr.ph.preheader.i.i.i224
 
-.lr.ph.preheader.i.i.i222:                        ; preds = %1586
+.lr.ph.preheader.i.i.i224:                        ; preds = %1586
   %1600 = getelementptr inbounds nuw i8, ptr %1596, i64 8
   %1601 = lshr i32 %1597, 16
   %1602 = zext nneg i32 %1601 to i64
   %1603 = getelementptr inbounds nuw i8, ptr %1600, i64 %1602
-  br label %.lr.ph.i.i.i223
+  br label %.lr.ph.i.i.i225
 
-.lr.ph.i.i.i223:                                  ; preds = %1605, %.lr.ph.preheader.i.i.i222
-  %.015.i.i.i224 = phi i32 [ %1606, %1605 ], [ 0, %.lr.ph.preheader.i.i.i222 ]
-  %.01214.i.i.i225 = phi ptr [ %1610, %1605 ], [ %1603, %.lr.ph.preheader.i.i.i222 ]
-  %1604 = icmp eq i32 %.015.i.i.i224, %.sroa.57297.01022
-  br i1 %1604, label %saveNodeLink.exit.i229, label %1605
+.lr.ph.i.i.i225:                                  ; preds = %1605, %.lr.ph.preheader.i.i.i224
+  %.015.i.i.i226 = phi i32 [ %1606, %1605 ], [ 0, %.lr.ph.preheader.i.i.i224 ]
+  %.01214.i.i.i227 = phi ptr [ %1610, %1605 ], [ %1603, %.lr.ph.preheader.i.i.i224 ]
+  %1604 = icmp eq i32 %.015.i.i.i226, %.sroa.57299.01024
+  br i1 %1604, label %saveNodeLink.exit.i231, label %1605
 
-1605:                                             ; preds = %.lr.ph.i.i.i223
-  %1606 = add nuw nsw i32 %.015.i.i.i224, 1
-  %1607 = getelementptr i8, ptr %.01214.i.i.i225, i64 6
-  %.012.val.i.i.i226 = load i16, ptr %1607, align 2
-  %1608 = and i16 %.012.val.i.i.i226, 8191
+1605:                                             ; preds = %.lr.ph.i.i.i225
+  %1606 = add nuw nsw i32 %.015.i.i.i226, 1
+  %1607 = getelementptr i8, ptr %.01214.i.i.i227, i64 6
+  %.012.val.i.i.i228 = load i16, ptr %1607, align 2
+  %1608 = and i16 %.012.val.i.i.i228, 8191
   %1609 = zext nneg i16 %1608 to i64
-  %1610 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i225, i64 %1609
-  %exitcond.not.i.i.i227 = icmp eq i32 %1606, %1599
-  br i1 %exitcond.not.i.i.i227, label %._crit_edge.i.i.i228, label %.lr.ph.i.i.i223, !llvm.loop !4
+  %1610 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i227, i64 %1609
+  %exitcond.not.i.i.i229 = icmp eq i32 %1606, %1599
+  br i1 %exitcond.not.i.i.i229, label %._crit_edge.i.i.i230, label %.lr.ph.i.i.i225, !llvm.loop !4
 
-._crit_edge.i.i.i228:                             ; preds = %1586, %1605
+._crit_edge.i.i.i230:                             ; preds = %1586, %1605
   %1611 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %1611)
-  %1612 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.sroa.57297.01022) #10
+  %1612 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.sroa.57299.01024) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.spgUpdateNodeLink) #10
   unreachable
 
-saveNodeLink.exit.i229:                           ; preds = %.lr.ph.i.i.i223
+saveNodeLink.exit.i231:                           ; preds = %.lr.ph.i.i.i225
   %1613 = lshr i32 %1568, 16
   %1614 = trunc nuw i32 %1613 to i16
-  store i16 %1614, ptr %.01214.i.i.i225, align 2
+  store i16 %1614, ptr %.01214.i.i.i227, align 2
   %1615 = trunc i32 %1568 to i16
-  %1616 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i225, i64 2
+  %1616 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i227, i64 2
   store i16 %1615, ptr %1616, align 2
-  %1617 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i225, i64 4
+  %1617 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i227, i64 4
   store i16 %1593, ptr %1617, align 2
-  call void @MarkBufferDirty(i32 noundef %.sroa.8.01028) #10
+  call void @MarkBufferDirty(i32 noundef %.sroa.8.01030) #10
   %1618 = load i8, ptr %102, align 4, !range !7, !noundef !8
   %1619 = trunc nuw i8 %1618 to i1
   br i1 %1619, label %1620, label %1622
 
-1620:                                             ; preds = %saveNodeLink.exit.i229
+1620:                                             ; preds = %saveNodeLink.exit.i231
   %1621 = call ptr @spgFormDeadTuple(ptr noundef nonnull %1, i32 noundef 3, i32 noundef -1, i16 noundef zeroext 0) #10
   br label %1624
 
-1622:                                             ; preds = %saveNodeLink.exit.i229
+1622:                                             ; preds = %saveNodeLink.exit.i231
   %1623 = call ptr @spgFormDeadTuple(ptr noundef nonnull %1, i32 noundef 1, i32 noundef %1568, i16 noundef zeroext %1593) #10
   br label %1624
 
 1624:                                             ; preds = %1622, %1620
   %.097.i = phi ptr [ %1621, %1620 ], [ %1623, %1622 ]
-  call void @PageIndexTupleDelete(ptr noundef nonnull %.sroa.67.1.ph4891012, i16 noundef zeroext %.sroa.116.3.ph4901013) #10
+  call void @PageIndexTupleDelete(ptr noundef nonnull %.sroa.67.1.ph4911014, i16 noundef zeroext %.sroa.116.3.ph4921015) #10
   %1625 = load i32, ptr %.097.i, align 4
   %1626 = lshr i32 %1625, 2
   %1627 = zext nneg i32 %1626 to i64
-  %1628 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.sroa.67.1.ph4891012, ptr noundef nonnull %.097.i, i64 noundef %1627, i16 noundef zeroext %.sroa.116.3.ph4901013, i32 noundef 0) #10
-  %.not100.i = icmp eq i16 %1628, %.sroa.116.3.ph4901013
+  %1628 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.sroa.67.1.ph4911014, ptr noundef nonnull %.097.i, i64 noundef %1627, i16 noundef zeroext %.sroa.116.3.ph4921015, i32 noundef 0) #10
+  %.not100.i = icmp eq i16 %1628, %.sroa.116.3.ph4921015
   br i1 %.not100.i, label %1634, label %1629
 
 1629:                                             ; preds = %1624
@@ -3367,13 +3367,13 @@ saveNodeLink.exit.i229:                           ; preds = %.lr.ph.i.i.i223
   %1636 = trunc nuw i8 %1635 to i1
   %1637 = load i16, ptr %1344, align 4
   %1638 = zext i16 %1637 to i64
-  %1639 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4891012, i64 %1638
+  %1639 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4911014, i64 %1638
   %.112.i = select i1 %1636, i64 4, i64 2
   %1640 = getelementptr inbounds nuw i8, ptr %1639, i64 %.112.i
   %1641 = load i16, ptr %1640, align 2
   %1642 = add i16 %1641, 1
   store i16 %1642, ptr %1640, align 2
-  call void @MarkBufferDirty(i32 noundef %.sroa.29.4.ph4871010) #10
+  call void @MarkBufferDirty(i32 noundef %.sroa.29.4.ph4891012) #10
   %1643 = load ptr, ptr %127, align 8
   %1644 = getelementptr inbounds nuw i8, ptr %1643, i64 114
   %1645 = load i8, ptr %1644, align 2
@@ -3402,17 +3402,17 @@ saveNodeLink.exit.i229:                           ; preds = %.lr.ph.i.i.i223
 
 1659:                                             ; preds = %1656
   call void @XLogBeginInsert() #10
-  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.sroa.29.4.ph4871010, i8 noundef zeroext 8) #10
+  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.sroa.29.4.ph4891012, i8 noundef zeroext 8) #10
   %1660 = load i8, ptr %157, align 4, !range !7, !noundef !8
   %1661 = trunc nuw i8 %1660 to i1
-  %spec.select.i230 = select i1 %1661, i8 14, i8 8
-  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %1567, i8 noundef zeroext %spec.select.i230) #10
+  %spec.select.i232 = select i1 %1661, i8 14, i8 8
+  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %1567, i8 noundef zeroext %spec.select.i232) #10
   %1662 = load i8, ptr %153, align 1
   %1663 = icmp eq i8 %1662, 2
   br i1 %1663, label %1664, label %1665
 
 1664:                                             ; preds = %1659
-  call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %.sroa.8.01028, i8 noundef zeroext 8) #10
+  call void @XLogRegisterBuffer(i8 noundef zeroext 2, i32 noundef %.sroa.8.01030, i8 noundef zeroext 8) #10
   br label %1665
 
 1665:                                             ; preds = %1664, %1659
@@ -3423,47 +3423,47 @@ saveNodeLink.exit.i229:                           ; preds = %.lr.ph.i.i.i223
   %1668 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 48) #10
   %1669 = lshr i64 %1668, 32
   %1670 = trunc nuw i64 %1669 to i32
-  store i32 %1670, ptr %.0.i.i.i219, align 4
+  store i32 %1670, ptr %.0.i.i.i221, align 4
   %1671 = trunc i64 %1668 to i32
-  %1672 = getelementptr inbounds nuw i8, ptr %.0.i.i.i219, i64 4
+  %1672 = getelementptr inbounds nuw i8, ptr %.0.i.i.i221, i64 4
   store i32 %1671, ptr %1672, align 4
-  store i32 %1670, ptr %.sroa.34.01025, align 4
+  store i32 %1670, ptr %.sroa.34.01027, align 4
   store i32 %1671, ptr %1339, align 4
-  store i32 %1670, ptr %.sroa.67.1.ph4891012, align 4
-  store i32 %1671, ptr %invariant.gep1014, align 4
+  store i32 %1670, ptr %.sroa.67.1.ph4911014, align 4
+  store i32 %1671, ptr %invariant.gep1016, align 4
   br label %1673
 
 1673:                                             ; preds = %1665, %1656, %1653, %1650, %1634
   %1674 = load volatile i32, ptr @CritSectionCount, align 4
   %1675 = add i32 %1674, -1
   store volatile i32 %1675, ptr @CritSectionCount, align 4
-  %.not101.i = icmp eq i32 %.sroa.29.4.ph4871010, %1567
+  %.not101.i = icmp eq i32 %.sroa.29.4.ph4891012, %1567
   br i1 %.not101.i, label %spgAddNodeAction.exit, label %1676
 
 1676:                                             ; preds = %1673
   br i1 %1587, label %spgAddNodeAction.exit, label %1677
 
 1677:                                             ; preds = %1676
-  call void @SpGistSetLastUsedPage(ptr noundef nonnull %0, i32 noundef %.sroa.29.4.ph4871010) #10
-  call void @UnlockReleaseBuffer(i32 noundef %.sroa.29.4.ph4871010) #10
+  call void @SpGistSetLastUsedPage(ptr noundef nonnull %0, i32 noundef %.sroa.29.4.ph4891012) #10
+  call void @UnlockReleaseBuffer(i32 noundef %.sroa.29.4.ph4891012) #10
   br label %spgAddNodeAction.exit
 
 spgAddNodeAction.exit:                            ; preds = %1555, %1673, %1676, %1677
-  %.sroa.29.6 = phi i32 [ %.sroa.29.4.ph4871010, %1673 ], [ %1567, %1676 ], [ %1567, %1677 ], [ %.sroa.29.4.ph4871010, %1555 ]
-  %.sroa.0304.7 = phi i32 [ %1568, %1673 ], [ %1568, %1676 ], [ %1568, %1677 ], [ %.sroa.0304.4.ph4881011, %1555 ]
-  %.sroa.67.3 = phi ptr [ %.0.i.i.i219, %1673 ], [ %.0.i.i.i219, %1676 ], [ %.0.i.i.i219, %1677 ], [ %.sroa.67.1.ph4891012, %1555 ]
-  %.sroa.116.6 = phi i16 [ %1593, %1673 ], [ %1593, %1676 ], [ %1593, %1677 ], [ %.sroa.116.3.ph4901013, %1555 ]
+  %.sroa.29.6 = phi i32 [ %.sroa.29.4.ph4891012, %1673 ], [ %1567, %1676 ], [ %1567, %1677 ], [ %.sroa.29.4.ph4891012, %1555 ]
+  %.sroa.0306.7 = phi i32 [ %1568, %1673 ], [ %1568, %1676 ], [ %1568, %1677 ], [ %.sroa.0306.4.ph4901013, %1555 ]
+  %.sroa.67.3 = phi ptr [ %.0.i.i.i221, %1673 ], [ %.0.i.i.i221, %1676 ], [ %.0.i.i.i221, %1677 ], [ %.sroa.67.1.ph4911014, %1555 ]
+  %.sroa.116.6 = phi i16 [ %1593, %1673 ], [ %1593, %1676 ], [ %1593, %1677 ], [ %.sroa.116.3.ph4921015, %1555 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #10
   %1678 = load volatile i32, ptr @InterruptPending, align 4
-  %.not1491003 = icmp eq i32 %1678, 0
-  br i1 %.not1491003, label %.lr.ph1004, label %.thread423, !prof !31
+  %.not1521005 = icmp eq i32 %1678, 0
+  br i1 %.not1521005, label %.lr.ph1006, label %.thread425, !prof !31
 
 1679:                                             ; preds = %thread-pre-split
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #10
   %1680 = load i32, ptr %142, align 8
   %1681 = add i32 %1680, -8192
-  %or.cond.i232 = icmp ult i32 %1681, -8191
-  br i1 %or.cond.i232, label %1682, label %1686
+  %or.cond.i234 = icmp ult i32 %1681, -8191
+  br i1 %or.cond.i234, label %1682, label %1686
 
 1682:                                             ; preds = %1679
   %1683 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3492,31 +3492,31 @@ spgAddNodeAction.exit:                            ; preds = %1555, %1673, %1676,
   %1695 = call ptr @palloc(i64 noundef %1694) #10
   %1696 = load i32, ptr %142, align 8
   %1697 = icmp sgt i32 %1696, 0
-  br i1 %1697, label %.lr.ph.i251, label %._crit_edge.i233
+  br i1 %1697, label %.lr.ph.i253, label %._crit_edge.i235
 
-.lr.ph.i251:                                      ; preds = %1692, %1703
-  %indvars.iv.i252 = phi i64 [ %indvars.iv.next.i253, %1703 ], [ 0, %1692 ]
+.lr.ph.i253:                                      ; preds = %1692, %1703
+  %indvars.iv.i254 = phi i64 [ %indvars.iv.next.i255, %1703 ], [ 0, %1692 ]
   %1698 = load ptr, ptr %144, align 8
   %1699 = icmp eq ptr %1698, null
   br i1 %1699, label %1703, label %1700
 
-1700:                                             ; preds = %.lr.ph.i251
-  %1701 = getelementptr inbounds nuw i64, ptr %1698, i64 %indvars.iv.i252
+1700:                                             ; preds = %.lr.ph.i253
+  %1701 = getelementptr inbounds nuw i64, ptr %1698, i64 %indvars.iv.i254
   %1702 = load i64, ptr %1701, align 8
   br label %1703
 
-1703:                                             ; preds = %1700, %.lr.ph.i251
-  %.0114.i = phi i64 [ 0, %.lr.ph.i251 ], [ %1702, %1700 ]
+1703:                                             ; preds = %1700, %.lr.ph.i253
+  %.0114.i = phi i64 [ 0, %.lr.ph.i253 ], [ %1702, %1700 ]
   %1704 = call ptr @spgFormNodeTuple(ptr noundef %1, i64 noundef %.0114.i, i1 noundef zeroext %1699) #10
-  %1705 = getelementptr inbounds nuw ptr, ptr %1695, i64 %indvars.iv.i252
+  %1705 = getelementptr inbounds nuw ptr, ptr %1695, i64 %indvars.iv.i254
   store ptr %1704, ptr %1705, align 8
-  %indvars.iv.next.i253 = add nuw nsw i64 %indvars.iv.i252, 1
+  %indvars.iv.next.i255 = add nuw nsw i64 %indvars.iv.i254, 1
   %1706 = load i32, ptr %142, align 8
   %1707 = sext i32 %1706 to i64
-  %1708 = icmp slt i64 %indvars.iv.next.i253, %1707
-  br i1 %1708, label %.lr.ph.i251, label %._crit_edge.i233, !llvm.loop !32
+  %1708 = icmp slt i64 %indvars.iv.next.i255, %1707
+  br i1 %1708, label %.lr.ph.i253, label %._crit_edge.i235, !llvm.loop !32
 
-._crit_edge.i233:                                 ; preds = %1703, %1692
+._crit_edge.i235:                                 ; preds = %1703, %1692
   %.lcssa144.i = phi i32 [ %1696, %1692 ], [ %1706, %1703 ]
   %1709 = load i8, ptr %141, align 8, !range !7, !noundef !8
   %1710 = trunc nuw i8 %1709 to i1
@@ -3529,22 +3529,22 @@ spgAddNodeAction.exit:                            ; preds = %1555, %1673, %1676,
   %1717 = icmp ugt i16 %1714, %1716
   br i1 %1717, label %1718, label %1721
 
-1718:                                             ; preds = %._crit_edge.i233
+1718:                                             ; preds = %._crit_edge.i235
   %1719 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %1719)
   %1720 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1769, ptr noundef nonnull @__func__.spgSplitNodeAction) #10
   unreachable
 
-1721:                                             ; preds = %._crit_edge.i233
+1721:                                             ; preds = %._crit_edge.i235
   %1722 = load i32, ptr %1350, align 4
   %1723 = and i32 %1722, 65528
   %1724 = zext nneg i32 %1723 to i64
   %1725 = call ptr @palloc(i64 noundef %1724) #10
   %1726 = load i32, ptr %1350, align 4
   %1727 = and i32 %1726, 65528
-  %.not.i234 = icmp eq i32 %1727, 0
-  br i1 %.not.i234, label %._crit_edge150.i, label %.lr.ph149.preheader.i
+  %.not.i236 = icmp eq i32 %1727, 0
+  br i1 %.not.i236, label %._crit_edge150.i, label %.lr.ph149.preheader.i
 
 .lr.ph149.preheader.i:                            ; preds = %1721
   %1728 = getelementptr inbounds nuw i8, ptr %1350, i64 8
@@ -3572,11 +3572,11 @@ spgAddNodeAction.exit:                            ; preds = %1555, %1673, %1676,
   br i1 %1741, label %.lr.ph149.i, label %._crit_edge150.i, !llvm.loop !33
 
 ._crit_edge150.i:                                 ; preds = %.lr.ph149.i, %1721
-  %.lcssa.i235 = phi i32 [ 0, %1721 ], [ %1739, %.lr.ph149.i ]
+  %.lcssa.i237 = phi i32 [ 0, %1721 ], [ %1739, %.lr.ph149.i ]
   %1742 = load i8, ptr %146, align 4, !range !7, !noundef !8
   %1743 = trunc nuw i8 %1742 to i1
   %1744 = load i64, ptr %147, align 8
-  %1745 = call ptr @spgFormInnerTuple(ptr noundef %1, i1 noundef zeroext %1743, i64 noundef %1744, i32 noundef %.lcssa.i235, ptr noundef %1725) #10
+  %1745 = call ptr @spgFormInnerTuple(ptr noundef %1, i1 noundef zeroext %1743, i64 noundef %1744, i32 noundef %.lcssa.i237, ptr noundef %1725) #10
   %1746 = load i32, ptr %1350, align 4
   %1747 = and i32 %1746, 4
   %1748 = load i32, ptr %1745, align 4
@@ -3584,7 +3584,7 @@ spgAddNodeAction.exit:                            ; preds = %1555, %1673, %1676,
   %1750 = or disjoint i32 %1749, %1747
   store i32 %1750, ptr %1745, align 4
   store i8 0, ptr %148, align 2
-  br i1 %switch.i237, label %._crit_edge150._crit_edge.i, label %1751
+  br i1 %switch.i239, label %._crit_edge150._crit_edge.i, label %1751
 
 ._crit_edge150._crit_edge.i:                      ; preds = %._crit_edge150.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1745, i64 4
@@ -3592,10 +3592,10 @@ spgAddNodeAction.exit:                            ; preds = %1555, %1673, %1676,
   br label %._crit_edge160.i
 
 1751:                                             ; preds = %._crit_edge150.i
-  %1752 = call i64 @PageGetExactFreeSpace(ptr noundef nonnull %.sroa.67.1.ph4891012) #10
+  %1752 = call i64 @PageGetExactFreeSpace(ptr noundef nonnull %.sroa.67.1.ph4911014) #10
   %1753 = load i16, ptr %1344, align 4
   %1754 = zext i16 %1753 to i64
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep1014, i64 %1754
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep1016, i64 %1754
   %1755 = load i16, ptr %gep, align 2
   %1756 = icmp eq i16 %1755, 0
   %spec.select141.i = select i1 %1756, i64 0, i64 20
@@ -3621,16 +3621,16 @@ spgAddNodeAction.exit:                            ; preds = %1555, %1673, %1676,
   br label %1773
 
 1773:                                             ; preds = %._crit_edge160.i, %1751
-  %.0115.i238 = phi i32 [ %1772, %._crit_edge160.i ], [ 0, %1751 ]
+  %.0115.i240 = phi i32 [ %1772, %._crit_edge160.i ], [ 0, %1751 ]
   %1774 = load volatile i32, ptr @CritSectionCount, align 4
   %1775 = add i32 %1774, 1
   store volatile i32 %1775, ptr @CritSectionCount, align 4
-  call void @PageIndexTupleDelete(ptr noundef nonnull %.sroa.67.1.ph4891012, i16 noundef zeroext %.sroa.116.3.ph4901013) #10
+  call void @PageIndexTupleDelete(ptr noundef nonnull %.sroa.67.1.ph4911014, i16 noundef zeroext %.sroa.116.3.ph4921015) #10
   %1776 = load i16, ptr %1713, align 4
   %1777 = zext i16 %1776 to i64
-  %1778 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.sroa.67.1.ph4891012, ptr noundef nonnull %1712, i64 noundef %1777, i16 noundef zeroext %.sroa.116.3.ph4901013, i32 noundef 0) #10
+  %1778 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.sroa.67.1.ph4911014, ptr noundef nonnull %1712, i64 noundef %1777, i16 noundef zeroext %.sroa.116.3.ph4921015, i32 noundef 0) #10
   store i16 %1778, ptr %6, align 2
-  %.not125.i = icmp eq i16 %1778, %.sroa.116.3.ph4901013
+  %.not125.i = icmp eq i16 %1778, %.sroa.116.3.ph4921015
   br i1 %.not125.i, label %1784, label %1779
 
 1779:                                             ; preds = %1773
@@ -3643,91 +3643,91 @@ spgAddNodeAction.exit:                            ; preds = %1555, %1673, %1676,
   unreachable
 
 1784:                                             ; preds = %1773
-  %1785 = icmp eq i32 %.0115.i238, 0
+  %1785 = icmp eq i32 %.0115.i240, 0
   br i1 %1785, label %1786, label %1791
 
 1786:                                             ; preds = %1784
   %1787 = getelementptr inbounds nuw i8, ptr %1745, i64 4
   %1788 = load i16, ptr %1787, align 4
   %1789 = zext i16 %1788 to i64
-  %1790 = call zeroext i16 @SpGistPageAddNewItem(ptr noundef %1, ptr noundef nonnull %.sroa.67.1.ph4891012, ptr noundef nonnull %1745, i64 noundef %1789, ptr noundef null, i1 noundef zeroext false) #10
+  %1790 = call zeroext i16 @SpGistPageAddNewItem(ptr noundef %1, ptr noundef nonnull %.sroa.67.1.ph4911014, ptr noundef nonnull %1745, i64 noundef %1789, ptr noundef null, i1 noundef zeroext false) #10
   store i16 %1790, ptr %149, align 2
   br label %1810
 
 1791:                                             ; preds = %1784
-  %1792 = call i32 @BufferGetBlockNumber(i32 noundef %.0115.i238) #10
-  %1793 = icmp slt i32 %.0115.i238, 0
+  %1792 = call i32 @BufferGetBlockNumber(i32 noundef %.0115.i240) #10
+  %1793 = icmp slt i32 %.0115.i240, 0
   br i1 %1793, label %1794, label %1800
 
 1794:                                             ; preds = %1791
   %1795 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %1796 = xor i32 %.0115.i238, -1
+  %1796 = xor i32 %.0115.i240, -1
   %1797 = zext nneg i32 %1796 to i64
   %1798 = getelementptr inbounds nuw ptr, ptr %1795, i64 %1797
   %1799 = load ptr, ptr %1798, align 8
-  br label %BufferGetPage.exit.i239
+  br label %BufferGetPage.exit.i241
 
 1800:                                             ; preds = %1791
   %1801 = load ptr, ptr @BufferBlocks, align 8
-  %1802 = add nsw i32 %.0115.i238, -1
+  %1802 = add nsw i32 %.0115.i240, -1
   %1803 = zext nneg i32 %1802 to i64
   %1804 = shl nuw nsw i64 %1803, 13
   %1805 = getelementptr inbounds nuw i8, ptr %1801, i64 %1804
-  br label %BufferGetPage.exit.i239
+  br label %BufferGetPage.exit.i241
 
-BufferGetPage.exit.i239:                          ; preds = %1800, %1794
-  %.0.i.i.i240 = phi ptr [ %1799, %1794 ], [ %1805, %1800 ]
+BufferGetPage.exit.i241:                          ; preds = %1800, %1794
+  %.0.i.i.i242 = phi ptr [ %1799, %1794 ], [ %1805, %1800 ]
   %1806 = getelementptr inbounds nuw i8, ptr %1745, i64 4
   %1807 = load i16, ptr %1806, align 4
   %1808 = zext i16 %1807 to i64
-  %1809 = call zeroext i16 @SpGistPageAddNewItem(ptr noundef %1, ptr noundef %.0.i.i.i240, ptr noundef nonnull %1745, i64 noundef %1808, ptr noundef null, i1 noundef zeroext false) #10
+  %1809 = call zeroext i16 @SpGistPageAddNewItem(ptr noundef %1, ptr noundef %.0.i.i.i242, ptr noundef nonnull %1745, i64 noundef %1808, ptr noundef null, i1 noundef zeroext false) #10
   store i16 %1809, ptr %149, align 2
-  call void @MarkBufferDirty(i32 noundef %.0115.i238) #10
+  call void @MarkBufferDirty(i32 noundef %.0115.i240) #10
   br label %1810
 
-1810:                                             ; preds = %BufferGetPage.exit.i239, %1786
-  %.sink.i241 = phi i8 [ 0, %BufferGetPage.exit.i239 ], [ 1, %1786 ]
-  %.0118.i = phi i32 [ %1792, %BufferGetPage.exit.i239 ], [ %.sroa.0304.4.ph4881011, %1786 ]
-  %.0117.i = phi i16 [ %1809, %BufferGetPage.exit.i239 ], [ %1790, %1786 ]
-  store i8 %.sink.i241, ptr %150, align 1
+1810:                                             ; preds = %BufferGetPage.exit.i241, %1786
+  %.sink.i243 = phi i8 [ 0, %BufferGetPage.exit.i241 ], [ 1, %1786 ]
+  %.0118.i = phi i32 [ %1792, %BufferGetPage.exit.i241 ], [ %.sroa.0306.4.ph4901013, %1786 ]
+  %.0117.i = phi i16 [ %1809, %BufferGetPage.exit.i241 ], [ %1790, %1786 ]
+  store i8 %.sink.i243, ptr %150, align 1
   %1811 = load i32, ptr %143, align 8
   %1812 = load i32, ptr %1712, align 4
   %1813 = lshr i32 %1812, 3
   %1814 = and i32 %1813, 8191
-  %.not.i.i242 = icmp eq i32 %1814, 0
-  br i1 %.not.i.i242, label %._crit_edge.i.i246, label %.lr.ph.preheader.i.i243
+  %.not.i.i244 = icmp eq i32 %1814, 0
+  br i1 %.not.i.i244, label %._crit_edge.i.i248, label %.lr.ph.preheader.i.i245
 
-.lr.ph.preheader.i.i243:                          ; preds = %1810
+.lr.ph.preheader.i.i245:                          ; preds = %1810
   %1815 = getelementptr inbounds nuw i8, ptr %1712, i64 8
   %1816 = lshr i32 %1812, 16
   %1817 = zext nneg i32 %1816 to i64
   %1818 = getelementptr inbounds nuw i8, ptr %1815, i64 %1817
-  br label %.lr.ph.i.i244
+  br label %.lr.ph.i.i246
 
-.lr.ph.i.i244:                                    ; preds = %1820, %.lr.ph.preheader.i.i243
-  %.015.i.i = phi i32 [ %1821, %1820 ], [ 0, %.lr.ph.preheader.i.i243 ]
-  %.01214.i.i = phi ptr [ %1825, %1820 ], [ %1818, %.lr.ph.preheader.i.i243 ]
+.lr.ph.i.i246:                                    ; preds = %1820, %.lr.ph.preheader.i.i245
+  %.015.i.i = phi i32 [ %1821, %1820 ], [ 0, %.lr.ph.preheader.i.i245 ]
+  %.01214.i.i = phi ptr [ %1825, %1820 ], [ %1818, %.lr.ph.preheader.i.i245 ]
   %1819 = icmp eq i32 %.015.i.i, %1811
   br i1 %1819, label %spgUpdateNodeLink.exit.i, label %1820
 
-1820:                                             ; preds = %.lr.ph.i.i244
+1820:                                             ; preds = %.lr.ph.i.i246
   %1821 = add nuw nsw i32 %.015.i.i, 1
   %1822 = getelementptr i8, ptr %.01214.i.i, i64 6
   %.012.val.i.i = load i16, ptr %1822, align 2
   %1823 = and i16 %.012.val.i.i, 8191
   %1824 = zext nneg i16 %1823 to i64
   %1825 = getelementptr inbounds nuw i8, ptr %.01214.i.i, i64 %1824
-  %exitcond.not.i.i245 = icmp eq i32 %1821, %1814
-  br i1 %exitcond.not.i.i245, label %._crit_edge.i.i246, label %.lr.ph.i.i244, !llvm.loop !4
+  %exitcond.not.i.i247 = icmp eq i32 %1821, %1814
+  br i1 %exitcond.not.i.i247, label %._crit_edge.i.i248, label %.lr.ph.i.i246, !llvm.loop !4
 
-._crit_edge.i.i246:                               ; preds = %1810, %1820
+._crit_edge.i.i248:                               ; preds = %1810, %1820
   %1826 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %1826)
   %1827 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1811) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.spgUpdateNodeLink) #10
   unreachable
 
-spgUpdateNodeLink.exit.i:                         ; preds = %.lr.ph.i.i244
+spgUpdateNodeLink.exit.i:                         ; preds = %.lr.ph.i.i246
   %1828 = lshr i32 %.0118.i, 16
   %1829 = trunc nuw i32 %1828 to i16
   store i16 %1829, ptr %.01214.i.i, align 2
@@ -3736,10 +3736,10 @@ spgUpdateNodeLink.exit.i:                         ; preds = %.lr.ph.i.i244
   store i16 %1830, ptr %1831, align 2
   %1832 = getelementptr inbounds nuw i8, ptr %.01214.i.i, i64 4
   store i16 %.0117.i, ptr %1832, align 2
-  %.val.i247 = load i32, ptr %1343, align 4
-  %1833 = and i32 %.val.i247, 32767
+  %.val.i249 = load i32, ptr %1343, align 4
+  %1833 = and i32 %.val.i249, 32767
   %1834 = zext nneg i32 %1833 to i64
-  %1835 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4891012, i64 %1834
+  %1835 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4911014, i64 %1834
   %1836 = load i32, ptr %143, align 8
   %1837 = load i32, ptr %1835, align 4
   %1838 = lshr i32 %1837, 3
@@ -3783,7 +3783,7 @@ spgUpdateNodeLink.exit137.i:                      ; preds = %.lr.ph.i131.i
   store i16 %1830, ptr %1853, align 2
   %1854 = getelementptr inbounds nuw i8, ptr %.01214.i133.i, i64 4
   store i16 %.0117.i, ptr %1854, align 2
-  call void @MarkBufferDirty(i32 noundef %.sroa.29.4.ph4871010) #10
+  call void @MarkBufferDirty(i32 noundef %.sroa.29.4.ph4891012) #10
   %1855 = load ptr, ptr %127, align 8
   %1856 = getelementptr inbounds nuw i8, ptr %1855, i64 114
   %1857 = load i8, ptr %1856, align 2
@@ -3821,38 +3821,38 @@ spgUpdateNodeLink.exit137.i:                      ; preds = %.lr.ph.i131.i
   %1876 = load i16, ptr %1875, align 4
   %1877 = zext i16 %1876 to i32
   call void @XLogRegisterData(ptr noundef nonnull %1745, i32 noundef %1877) #10
-  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.sroa.29.4.ph4871010, i8 noundef zeroext 8) #10
+  call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %.sroa.29.4.ph4891012, i8 noundef zeroext 8) #10
   br i1 %1785, label %1881, label %1878
 
 1878:                                             ; preds = %1871
   %1879 = load i8, ptr %148, align 2, !range !7, !noundef !8
   %1880 = trunc nuw i8 %1879 to i1
-  %spec.select.i248 = select i1 %1880, i8 14, i8 8
-  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %.0115.i238, i8 noundef zeroext %spec.select.i248) #10
+  %spec.select.i250 = select i1 %1880, i8 14, i8 8
+  call void @XLogRegisterBuffer(i8 noundef zeroext 1, i32 noundef %.0115.i240, i8 noundef zeroext %spec.select.i250) #10
   br label %1881
 
 1881:                                             ; preds = %1878, %1871
   %1882 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 64) #10
   %1883 = lshr i64 %1882, 32
   %1884 = trunc nuw i64 %1883 to i32
-  store i32 %1884, ptr %.sroa.67.1.ph4891012, align 4
+  store i32 %1884, ptr %.sroa.67.1.ph4911014, align 4
   %1885 = trunc i64 %1882 to i32
-  store i32 %1885, ptr %invariant.gep1014, align 4
-  br i1 %1785, label %.thread.i249, label %1888
+  store i32 %1885, ptr %invariant.gep1016, align 4
+  br i1 %1785, label %.thread.i251, label %1888
 
-.thread.i249:                                     ; preds = %1881
+.thread.i251:                                     ; preds = %1881
   %1886 = load volatile i32, ptr @CritSectionCount, align 4
   %1887 = add i32 %1886, -1
   store volatile i32 %1887, ptr @CritSectionCount, align 4
   br label %spgSplitNodeAction.exit
 
 1888:                                             ; preds = %1881
-  %1889 = icmp slt i32 %.0115.i238, 0
+  %1889 = icmp slt i32 %.0115.i240, 0
   br i1 %1889, label %1890, label %1896
 
 1890:                                             ; preds = %1888
   %1891 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %1892 = xor i32 %.0115.i238, -1
+  %1892 = xor i32 %.0115.i240, -1
   %1893 = zext nneg i32 %1892 to i64
   %1894 = getelementptr inbounds nuw ptr, ptr %1891, i64 %1893
   %1895 = load ptr, ptr %1894, align 8
@@ -3860,7 +3860,7 @@ spgUpdateNodeLink.exit137.i:                      ; preds = %.lr.ph.i131.i
 
 1896:                                             ; preds = %1888
   %1897 = load ptr, ptr @BufferBlocks, align 8
-  %1898 = add nsw i32 %.0115.i238, -1
+  %1898 = add nsw i32 %.0115.i240, -1
   %1899 = zext nneg i32 %1898 to i64
   %1900 = shl nuw nsw i64 %1899, 13
   %1901 = getelementptr inbounds nuw i8, ptr %1897, i64 %1900
@@ -3883,15 +3883,15 @@ spgUpdateNodeLink.exit137.i:                      ; preds = %.lr.ph.i131.i
   br i1 %1785, label %spgSplitNodeAction.exit, label %1908
 
 1908:                                             ; preds = %1905, %.thread140.i
-  call void @SpGistSetLastUsedPage(ptr noundef nonnull %0, i32 noundef %.0115.i238) #10
-  call void @UnlockReleaseBuffer(i32 noundef %.0115.i238) #10
+  call void @SpGistSetLastUsedPage(ptr noundef nonnull %0, i32 noundef %.0115.i240) #10
+  call void @UnlockReleaseBuffer(i32 noundef %.0115.i240) #10
   br label %spgSplitNodeAction.exit
 
-spgSplitNodeAction.exit:                          ; preds = %.thread.i249, %1905, %1908
+spgSplitNodeAction.exit:                          ; preds = %.thread.i251, %1905, %1908
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #10
   %1909 = load volatile i32, ptr @InterruptPending, align 4
-  %.not149 = icmp eq i32 %1909, 0
-  br i1 %.not149, label %1347, label %.thread423, !prof !34
+  %.not152 = icmp eq i32 %1909, 0
+  br i1 %.not152, label %1347, label %.thread425, !prof !34
 
 1910:                                             ; preds = %thread-pre-split
   %1911 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3901,53 +3901,53 @@ spgSplitNodeAction.exit:                          ; preds = %.thread.i249, %1905
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2318, ptr noundef nonnull @__func__.spgdoinsert) #10
   unreachable
 
-.thread430:                                       ; preds = %1440, %1435, %1442
-  %.1128 = phi i32 [ %.01271031, %1435 ], [ %.01271031, %1442 ], [ %.2122, %1440 ]
-  %.1125 = phi i32 [ %.01241032, %1435 ], [ %1443, %1442 ], [ 0, %1440 ]
+.thread432:                                       ; preds = %1440, %1435, %1442
+  %.1130 = phi i32 [ %.01291033, %1435 ], [ %.01291033, %1442 ], [ %.2124, %1440 ]
+  %.1127 = phi i32 [ %.01261034, %1435 ], [ %1443, %1442 ], [ 0, %1440 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #10
   store i8 0, ptr %18, align 1
   %1914 = load volatile i32, ptr @InterruptPending, align 4
-  %.not142 = icmp eq i32 %1914, 0
-  br i1 %.not142, label %160, label %.thread472, !prof !34
+  %.not145 = icmp eq i32 %1914, 0
+  br i1 %.not145, label %160, label %.thread474, !prof !34
 
-.thread423:                                       ; preds = %doPickSplit.exit, %.preheader, %spgAddNodeAction.exit, %spgSplitNodeAction.exit, %moveLeafs.exit, %addLeafTuple.exit
-  %.sroa.29.1.ph = phi i32 [ %.sroa.29.2, %addLeafTuple.exit ], [ %.sroa.29.2, %moveLeafs.exit ], [ %.sroa.29.4.ph4871010, %spgSplitNodeAction.exit ], [ %.sroa.29.6, %spgAddNodeAction.exit ], [ %.sroa.29.4.ph, %.preheader ], [ %.sroa.29.5, %doPickSplit.exit ]
-  %.1114.ph = phi i1 [ true, %addLeafTuple.exit ], [ true, %moveLeafs.exit ], [ false, %spgSplitNodeAction.exit ], [ false, %spgAddNodeAction.exit ], [ false, %.preheader ], [ true, %doPickSplit.exit ]
+.thread425:                                       ; preds = %doPickSplit.exit, %.preheader, %spgAddNodeAction.exit, %spgSplitNodeAction.exit, %moveLeafs.exit, %addLeafTuple.exit
+  %.sroa.29.1.ph = phi i32 [ %.sroa.29.2, %addLeafTuple.exit ], [ %.sroa.29.2, %moveLeafs.exit ], [ %.sroa.29.4.ph4891012, %spgSplitNodeAction.exit ], [ %.sroa.29.6, %spgAddNodeAction.exit ], [ %.sroa.29.4.ph, %.preheader ], [ %.sroa.29.5, %doPickSplit.exit ]
+  %.1116.ph = phi i1 [ true, %addLeafTuple.exit ], [ true, %moveLeafs.exit ], [ false, %spgSplitNodeAction.exit ], [ false, %spgAddNodeAction.exit ], [ false, %.preheader ], [ true, %doPickSplit.exit ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #10
-  %.not152 = icmp eq i32 %.sroa.29.1.ph, 0
-  br i1 %.not152, label %1916, label %1915
+  %.not155 = icmp eq i32 %.sroa.29.1.ph, 0
+  br i1 %.not155, label %1916, label %1915
 
-1915:                                             ; preds = %.thread423
+1915:                                             ; preds = %.thread425
   call void @SpGistSetLastUsedPage(ptr noundef %0, i32 noundef %.sroa.29.1.ph) #10
   call void @UnlockReleaseBuffer(i32 noundef %.sroa.29.1.ph) #10
   br label %1916
 
-1916:                                             ; preds = %.thread472, %1915, %.thread423
-  %.sroa.8.0760 = phi i32 [ %.sroa.8.0.lcssa, %.thread472 ], [ %.sroa.8.01028, %1915 ], [ %.sroa.8.01028, %.thread423 ]
-  %.1114.ph477 = phi i1 [ false, %.thread472 ], [ %.1114.ph, %1915 ], [ %.1114.ph, %.thread423 ]
-  %.sroa.29.1.ph476 = phi i32 [ 0, %.thread472 ], [ %.sroa.29.1.ph, %1915 ], [ 0, %.thread423 ]
-  %.not153 = icmp eq i32 %.sroa.8.0760, 0
-  %.not154 = icmp eq i32 %.sroa.8.0760, %.sroa.29.1.ph476
-  %or.cond157 = or i1 %.not153, %.not154
-  br i1 %or.cond157, label %1918, label %1917
+1916:                                             ; preds = %.thread474, %1915, %.thread425
+  %.sroa.8.0762 = phi i32 [ %.sroa.8.0.lcssa, %.thread474 ], [ %.sroa.8.01030, %1915 ], [ %.sroa.8.01030, %.thread425 ]
+  %.1116.ph479 = phi i1 [ false, %.thread474 ], [ %.1116.ph, %1915 ], [ %.1116.ph, %.thread425 ]
+  %.sroa.29.1.ph478 = phi i32 [ 0, %.thread474 ], [ %.sroa.29.1.ph, %1915 ], [ 0, %.thread425 ]
+  %.not156 = icmp eq i32 %.sroa.8.0762, 0
+  %.not157 = icmp eq i32 %.sroa.8.0762, %.sroa.29.1.ph478
+  %or.cond159 = or i1 %.not156, %.not157
+  br i1 %or.cond159, label %1918, label %1917
 
 1917:                                             ; preds = %1916
-  call void @SpGistSetLastUsedPage(ptr noundef %0, i32 noundef %.sroa.8.0760) #10
-  call void @UnlockReleaseBuffer(i32 noundef %.sroa.8.0760) #10
+  call void @SpGistSetLastUsedPage(ptr noundef %0, i32 noundef %.sroa.8.0762) #10
+  call void @UnlockReleaseBuffer(i32 noundef %.sroa.8.0762) #10
   br label %1918
 
 1918:                                             ; preds = %1916, %1917
   %1919 = load volatile i32, ptr @InterruptPending, align 4
-  %.not155 = icmp eq i32 %1919, 0
-  br i1 %.not155, label %1921, label %1920, !prof !10
+  %.not158 = icmp eq i32 %1919, 0
+  br i1 %.not158, label %1921, label %1920, !prof !10
 
 1920:                                             ; preds = %1918
   call void @ProcessInterrupts() #10
   br label %1921
 
-1921:                                             ; preds = %1918, %1920, %.thread457
-  %.2 = phi i1 [ false, %.thread457 ], [ %.1114.ph477, %1920 ], [ %.1114.ph477, %1918 ]
+1921:                                             ; preds = %1918, %1920, %.thread459
+  %.2 = phi i1 [ false, %.thread459 ], [ %.1116.ph479, %1920 ], [ %.1116.ph479, %1918 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %17) #10
   ret i1 %.2
 }

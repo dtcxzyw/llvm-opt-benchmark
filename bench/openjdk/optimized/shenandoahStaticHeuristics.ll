@@ -66,49 +66,47 @@ define hidden void @_ZN26ShenandoahStaticHeuristicsC2EP19ShenandoahSpaceInfo(ptr
   tail call void @_ZN20ShenandoahHeuristicsC2EP19ShenandoahSpaceInfo(ptr noundef nonnull align 8 dereferenceable(193) %0, ptr noundef %1) #6
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV26ShenandoahStaticHeuristics, i64 16), ptr %0, align 8
   %3 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1099) #6
-  br i1 %3, label %4, label %11
+  %.not = xor i1 %3, true
+  %4 = load i8, ptr @ExplicitGCInvokesConcurrent, align 1
+  %5 = trunc i8 %4 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %5
+  br i1 %or.cond, label %10, label %6
 
-4:                                                ; preds = %2
-  %5 = load i8, ptr @ExplicitGCInvokesConcurrent, align 1
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %11, label %7
+6:                                                ; preds = %2
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not6 = icmp eq ptr %7, null
+  br i1 %.not6, label %9, label %8
 
-7:                                                ; preds = %4
-  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %10, label %9
-
-9:                                                ; preds = %7
+8:                                                ; preds = %6
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str)
+  br label %9
+
+9:                                                ; preds = %6, %8
+  store i8 1, ptr @ExplicitGCInvokesConcurrent, align 1
   br label %10
 
-10:                                               ; preds = %7, %9
-  store i8 1, ptr @ExplicitGCInvokesConcurrent, align 1
-  br label %11
+10:                                               ; preds = %9, %2
+  %11 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1042) #6
+  %.not2 = xor i1 %11, true
+  %12 = load i8, ptr @ShenandoahImplicitGCInvokesConcurrent, align 1
+  %13 = trunc i8 %12 to i1
+  %or.cond4 = select i1 %.not2, i1 true, i1 %13
+  br i1 %or.cond4, label %18, label %14
 
-11:                                               ; preds = %10, %4, %2
-  %12 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1042) #6
-  br i1 %12, label %13, label %20
+14:                                               ; preds = %10
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not7 = icmp eq ptr %15, null
+  br i1 %.not7, label %17, label %16
 
-13:                                               ; preds = %11
-  %14 = load i8, ptr @ShenandoahImplicitGCInvokesConcurrent, align 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %20, label %16
-
-16:                                               ; preds = %13
-  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not2 = icmp eq ptr %17, null
-  br i1 %.not2, label %19, label %18
-
-18:                                               ; preds = %16
+16:                                               ; preds = %14
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.4)
-  br label %19
+  br label %17
 
-19:                                               ; preds = %16, %18
+17:                                               ; preds = %14, %16
   store i8 1, ptr @ShenandoahImplicitGCInvokesConcurrent, align 1
-  br label %20
+  br label %18
 
-20:                                               ; preds = %11, %13, %19
+18:                                               ; preds = %10, %17
   ret void
 }
 

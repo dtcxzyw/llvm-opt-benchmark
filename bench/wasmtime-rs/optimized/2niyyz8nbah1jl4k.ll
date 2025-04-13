@@ -9778,19 +9778,17 @@ _ZN14cap_primitives2fs9dir_entry8DirEntry8metadata17h273772043d1436a4E.exit: ; p
 
 29:                                               ; preds = %26
   %30 = icmp ult i8 %.sroa.849.0.copyload, 5
-  br i1 %30, label %switch.hole_check, label %31
+  %switch.shifted = lshr i8 23, %.sroa.849.0.copyload
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %30, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %31
 
-31:                                               ; preds = %switch.hole_check, %29
+31:                                               ; preds = %29
   %32 = icmp eq i8 %27, 1
   %.5.i = select i1 %32, i8 4, i8 0
   br label %_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit
 
-switch.hole_check:                                ; preds = %29
-  %switch.shifted = lshr i8 23, %.sroa.849.0.copyload
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %31
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %29
   %33 = shl nuw nsw i8 %.sroa.849.0.copyload, 3
   %switch.shiftamt = zext nneg i8 %33 to i40
   %switch.downshift = lshr i40 25769935111, %switch.shiftamt

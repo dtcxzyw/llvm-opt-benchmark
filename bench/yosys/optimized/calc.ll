@@ -163,8 +163,8 @@ define internal fastcc void @_ZN5YosysL9extend_u0ERNS_5RTLIL5ConstEib(ptr nounde
   %4 = alloca %"class.Yosys::RTLIL::Const::const_iterator", align 8
   %5 = tail call noundef i32 @_ZNK5Yosys5RTLIL5Const4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %6 = icmp sgt i32 %5, 0
-  %brmerge.not = and i1 %2, %6
-  br i1 %brmerge.not, label %7, label %13
+  %or.cond = and i1 %2, %6
+  br i1 %or.cond, label %7, label %13
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
@@ -178,8 +178,8 @@ define internal fastcc void @_ZN5YosysL9extend_u0ERNS_5RTLIL5ConstEib(ptr nounde
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
   br label %13
 
-13:                                               ; preds = %3, %7
-  %.0 = phi i8 [ 0, %3 ], [ %12, %7 ]
+13:                                               ; preds = %7, %3
+  %.0 = phi i8 [ %12, %7 ], [ 0, %3 ]
   %14 = call noundef i32 @_ZNK5Yosys5RTLIL5Const4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %15 = icmp slt i32 %14, %1
   br i1 %15, label %.lr.ph, label %._crit_edge

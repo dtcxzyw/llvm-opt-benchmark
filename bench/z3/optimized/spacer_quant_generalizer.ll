@@ -9562,8 +9562,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113index_lt_procclEP3
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #23
-  %brmerge.demorgan = and i1 %20, %22
-  br i1 %brmerge.demorgan, label %24, label %58
+  %or.cond = and i1 %20, %22
+  br i1 %or.cond, label %24, label %58
 
 24:                                               ; preds = %23
   %25 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !157
@@ -9639,20 +9639,20 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113index_lt_procclEP3
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %67 = load i32, ptr %66, align 8, !tbaa !120
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %._crit_edge64.thread, label %.lr.ph63
+  br i1 %68, label %._crit_edge65.thread, label %.lr.ph64
 
 ._crit_edge.thread:                               ; preds = %60
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %70 = load i32, ptr %69, align 8, !tbaa !120
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %._crit_edge64.thread.thread, label %.lr.ph63
+  br i1 %71, label %._crit_edge65.thread.thread, label %.lr.ph64
 
-._crit_edge64.thread:                             ; preds = %._crit_edge
-  br i1 %80, label %_ZltRK8rationalS1_.exit, label %._crit_edge64.thread.thread
+._crit_edge65.thread:                             ; preds = %._crit_edge
+  br i1 %80, label %_ZltRK8rationalS1_.exit, label %._crit_edge65.thread.thread
 
-.lr.ph63:                                         ; preds = %._crit_edge.thread, %._crit_edge
+.lr.ph64:                                         ; preds = %._crit_edge.thread, %._crit_edge
   %72 = phi i32 [ %70, %._crit_edge.thread ], [ %67, %._crit_edge ]
-  %.035.lcssa75 = phi i1 [ false, %._crit_edge.thread ], [ %80, %._crit_edge ]
+  %.038.lcssa76 = phi i1 [ false, %._crit_edge.thread ], [ %80, %._crit_edge ]
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %74 = zext i32 %72 to i64
   br label %85
@@ -9674,21 +9674,21 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113index_lt_procclEP3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %82 = icmp samesign uge i64 %indvars.iv.next, %65
-  %.not39 = select i1 %80, i1 true, i1 %82
-  br i1 %.not39, label %._crit_edge, label %77, !llvm.loop !272
+  %.not42 = select i1 %80, i1 true, i1 %82
+  br i1 %.not42, label %._crit_edge, label %77, !llvm.loop !272
 
-._crit_edge64:                                    ; preds = %89
-  %brmerge45.demorgan = and i1 %.035.lcssa75, %88
-  br i1 %brmerge45.demorgan, label %91, label %123
+._crit_edge65:                                    ; preds = %89
+  %or.cond3 = and i1 %.038.lcssa76, %88
+  br i1 %or.cond3, label %91, label %123
 
 83:                                               ; preds = %85
   %84 = landingpad { ptr, i32 }
           cleanup
   br label %136
 
-85:                                               ; preds = %.lr.ph63, %89
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next69, %89 ]
-  %86 = getelementptr inbounds nuw [0 x ptr], ptr %73, i64 0, i64 %indvars.iv68
+85:                                               ; preds = %.lr.ph64, %89
+  %indvars.iv69 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next70, %89 ]
+  %86 = getelementptr inbounds nuw [0 x ptr], ptr %73, i64 0, i64 %indvars.iv69
   %87 = load ptr, ptr %86, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #23
   %88 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %87, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -9696,12 +9696,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113index_lt_procclEP3
 
 89:                                               ; preds = %85
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #23
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %90 = icmp samesign uge i64 %indvars.iv.next69, %74
-  %.not40 = select i1 %88, i1 true, i1 %90
-  br i1 %.not40, label %._crit_edge64, label %85, !llvm.loop !273
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %90 = icmp samesign uge i64 %indvars.iv.next70, %74
+  %.not43 = select i1 %88, i1 true, i1 %90
+  br i1 %.not43, label %._crit_edge65, label %85, !llvm.loop !273
 
-91:                                               ; preds = %._crit_edge64
+91:                                               ; preds = %._crit_edge65
   %92 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !157
   %93 = load i8, ptr %13, align 4
   %94 = and i8 %93, 1
@@ -9740,9 +9740,9 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113index_lt_procclEP3
 
 118:                                              ; preds = %110, %106
   %119 = invoke noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %92, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %.noexc53 unwind label %56
+          to label %.noexc54 unwind label %56
 
-.noexc53:                                         ; preds = %118
+.noexc54:                                         ; preds = %118
   %120 = icmp slt i32 %119, 0
   br label %_ZltRK8rationalS1_.exit
 
@@ -9751,18 +9751,18 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113index_lt_procclEP3
   %122 = invoke noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %121, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %_ZltRK8rationalS1_.exit unwind label %56
 
-123:                                              ; preds = %._crit_edge64
-  %124 = xor i1 %.035.lcssa75, %88
-  br i1 %124, label %_ZltRK8rationalS1_.exit, label %._crit_edge64.thread.thread
+123:                                              ; preds = %._crit_edge65
+  %124 = xor i1 %.038.lcssa76, %88
+  br i1 %124, label %_ZltRK8rationalS1_.exit, label %._crit_edge65.thread.thread
 
-._crit_edge64.thread.thread:                      ; preds = %._crit_edge.thread, %._crit_edge64.thread, %123
+._crit_edge65.thread.thread:                      ; preds = %._crit_edge.thread, %._crit_edge65.thread, %123
   %125 = load i32, ptr %1, align 4, !tbaa !274
   %126 = load i32, ptr %2, align 4, !tbaa !274
   %127 = icmp ult i32 %125, %126
   br label %_ZltRK8rationalS1_.exit
 
-_ZltRK8rationalS1_.exit:                          ; preds = %.invoke, %._crit_edge64.thread, %.noexc53, %114, %.noexc, %47, %123, %58, %._crit_edge64.thread.thread
-  %.0 = phi i1 [ %127, %._crit_edge64.thread.thread ], [ %20, %58 ], [ %.035.lcssa75, %123 ], [ %50, %47 ], [ %53, %.noexc ], [ %117, %114 ], [ %120, %.noexc53 ], [ true, %._crit_edge64.thread ], [ %122, %.invoke ]
+_ZltRK8rationalS1_.exit:                          ; preds = %.invoke, %._crit_edge65.thread, %.noexc54, %114, %.noexc, %47, %123, %58, %._crit_edge65.thread.thread
+  %.0 = phi i1 [ %127, %._crit_edge65.thread.thread ], [ %20, %58 ], [ %.038.lcssa76, %123 ], [ %50, %47 ], [ %53, %.noexc ], [ %117, %114 ], [ %120, %.noexc54 ], [ true, %._crit_edge65.thread ], [ %122, %.invoke ]
   %128 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !157
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %128, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.noexc.i unwind label %129
@@ -9782,20 +9782,20 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
   %132 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !157
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %132, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %.noexc.i56 unwind label %133
+          to label %.noexc.i57 unwind label %133
 
-.noexc.i56:                                       ; preds = %_ZN8rationalD2Ev.exit
+.noexc.i57:                                       ; preds = %_ZN8rationalD2Ev.exit
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %132, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %_ZN8rationalD2Ev.exit57 unwind label %133
+          to label %_ZN8rationalD2Ev.exit58 unwind label %133
 
-133:                                              ; preds = %.noexc.i56, %_ZN8rationalD2Ev.exit
+133:                                              ; preds = %.noexc.i57, %_ZN8rationalD2Ev.exit
   %134 = landingpad { ptr, i32 }
           catch ptr null
   %135 = extractvalue { ptr, i32 } %134, 0
   call void @__clang_call_terminate(ptr %135) #24
   unreachable
 
-_ZN8rationalD2Ev.exit57:                          ; preds = %.noexc.i56
+_ZN8rationalD2Ev.exit58:                          ; preds = %.noexc.i57
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
   ret i1 %.0
 

@@ -3492,19 +3492,18 @@ define noundef range(i16 4, 0) i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags1
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @_ZN17cranelift_codegen2ir8memflags8MemFlags6notrap17h3ac65a08c4ea450dE(i16 noundef %0) unnamed_addr #2 {
-switch.hole_check:
-  %1 = lshr i16 %0, 7
-  %2 = and i16 %1, 15
-  %switch.shifted = lshr i16 -24577, %2
+  %2 = lshr i16 %0, 7
+  %3 = and i16 %2, 15
+  %switch.shifted = lshr i16 -24577, %3
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
+  br i1 %switch.lobit, label %switch.lookup, label %4
 
-3:                                                ; preds = %switch.hole_check
+4:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.cce7e70c2f474c62efac044d17224bb4.35.llvm.1715581770924364745, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.99.llvm.1715581770924364745) #32
   unreachable
 
-switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.downshift = lshr exact i16 -32768, %2
+switch.lookup:                                    ; preds = %1
+  %switch.downshift = lshr exact i16 -32768, %3
   %switch.masked = trunc i16 %switch.downshift to i1
   ret i1 %switch.masked
 }
@@ -3588,24 +3587,23 @@ define noundef range(i16 16, 0) i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags
 
 ; Function Attrs: nonlazybind uwtable
 define { i16, i16 } @_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E(i16 noundef %0) unnamed_addr #2 {
-switch.hole_check:
-  %1 = lshr i16 %0, 7
-  %2 = and i16 %1, 15
-  %switch.shifted = lshr i16 -24577, %2
+  %2 = lshr i16 %0, 7
+  %3 = and i16 %2, 15
+  %switch.shifted = lshr i16 -24577, %3
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
+  br i1 %switch.lobit, label %switch.lookup, label %4
 
-3:                                                ; preds = %switch.hole_check
+4:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.cce7e70c2f474c62efac044d17224bb4.35.llvm.1715581770924364745, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cce7e70c2f474c62efac044d17224bb4.99.llvm.1715581770924364745) #32
   unreachable
 
-switch.lookup:                                    ; preds = %switch.hole_check
-  %4 = zext nneg i16 %2 to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i16], ptr @switch.table._ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E, i64 0, i64 %4
+switch.lookup:                                    ; preds = %1
+  %5 = zext nneg i16 %3 to i64
+  %switch.gep = getelementptr inbounds nuw [16 x i16], ptr @switch.table._ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E, i64 0, i64 %5
   %switch.load = load i16, ptr %switch.gep, align 2
-  %5 = insertvalue { i16, i16 } poison, i16 %switch.load, 0
-  %6 = insertvalue { i16, i16 } %5, i16 undef, 1
-  ret { i16, i16 } %6
+  %6 = insertvalue { i16, i16 } poison, i16 %switch.load, 0
+  %7 = insertvalue { i16, i16 } %6, i16 undef, 1
+  ret { i16, i16 } %7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -15386,10 +15384,10 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.sroa.2.0.insert.ext.i.i7514 = zext i32 %.sroa.594.0.copyload to i64
   %.sroa.2.0.insert.shift.i.i7515 = shl nuw i64 %.sroa.2.0.insert.ext.i.i7514, 32
   %4372 = icmp samesign ugt i16 %.0.i.i.i.i7533, 117
-  %narrow23454 = add nuw nsw i16 %.0.i.i.i.i7533, 138
-  %switch.tableidx22990 = zext nneg i16 %narrow23454 to i64
-  %sext23453 = shl i64 %switch.tableidx22990, 56
-  %4373 = ashr exact i64 %sext23453, 56
+  %narrow23455 = add nuw nsw i16 %.0.i.i.i.i7533, 138
+  %switch.tableidx22990 = zext nneg i16 %narrow23455 to i64
+  %sext23454 = shl i64 %switch.tableidx22990, 56
+  %4373 = ashr exact i64 %sext23454, 56
   %switch.gep22991 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %4373
   br label %4374
 
@@ -18412,10 +18410,10 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %narrow.i = select i1 %.0.i.i7926, i1 %switch.i.i7927, i1 false
   %.sroa.0.0.insert.ext.i.i7846 = zext i32 %.sroa.55514349.0.copyload to i64
   %5135 = icmp samesign ugt i16 %.0.i.i.i.i8032, 117
-  %narrow23452 = add nuw nsw i16 %.0.i.i.i.i8032, 138
-  %switch.tableidx23028 = zext nneg i16 %narrow23452 to i64
-  %sext23451 = shl i64 %switch.tableidx23028, 56
-  %5136 = ashr exact i64 %sext23451, 56
+  %narrow23453 = add nuw nsw i16 %.0.i.i.i.i8032, 138
+  %switch.tableidx23028 = zext nneg i16 %narrow23453 to i64
+  %sext23452 = shl i64 %switch.tableidx23028, 56
+  %5136 = ashr exact i64 %sext23452, 56
   %switch.gep23029 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %5136
   br label %5137
 
@@ -18882,9 +18880,9 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1483, ptr noundef nonnull align 8 dereferenceable(40) %1484, i64 40, i1 false)
   %.sroa.22.16.extract.trunc = trunc i64 %.sroa.22.0.copyload to i32
   %5238 = sext i8 %.sroa.1714566.0.copyload to i64
-  %switch.gep23424 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.194, i64 0, i64 %5238
+  %switch.gep23425 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.194, i64 0, i64 %5238
   %5239 = sext i8 %.sroa.1714566.0.copyload to i64
-  %switch.gep23427 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.195, i64 0, i64 %5239
+  %switch.gep23428 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.195, i64 0, i64 %5239
   br label %5240
 
 5240:                                             ; preds = %5249, %5237
@@ -18927,8 +18925,8 @@ switch.lookup23013:                               ; preds = %5245
   %5250 = sext i8 %.sroa.714596.0.copyload to i64
   %switch.gep23014 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.194, i64 0, i64 %5250
   %switch.load23015 = load i64, ptr %switch.gep23014, align 8
-  %switch.load23425 = load i64, ptr %switch.gep23424, align 8
-  %5251 = and i64 %switch.load23425, %switch.load23015
+  %switch.load23426 = load i64, ptr %switch.gep23425, align 8
+  %5251 = and i64 %switch.load23426, %switch.load23015
   %5252 = icmp eq i64 %5251, 0
   br i1 %5252, label %5249, label %5253
 
@@ -18947,8 +18945,8 @@ switch.lookup23016:                               ; preds = %5256
   %5259 = sext i8 %.sroa.714596.0.copyload to i64
   %switch.gep23017 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.195, i64 0, i64 %5259
   %switch.load23018 = load i64, ptr %switch.gep23017, align 8
-  %switch.load23428 = load i64, ptr %switch.gep23427, align 8
-  %5260 = and i64 %switch.load23428, %switch.load23018
+  %switch.load23429 = load i64, ptr %switch.gep23428, align 8
+  %5260 = and i64 %switch.load23429, %switch.load23018
   %5261 = invoke fastcc noundef i32 @_ZN17cranelift_codegen4opts14generated_code24constructor_compose_icmp17h33998071516d4894E(ptr noalias noundef align 8 dereferenceable(8) %0, i16 noundef %5233, i64 noundef %5260, i1 noundef zeroext %5254, i32 noundef %.sroa.1914567.0.copyload, i32 noundef %.sroa.22.16.extract.trunc)
           to label %5262 unwind label %5241
 
@@ -20489,10 +20487,10 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.sroa.2.0.insert.ext.i.i8233 = zext i32 %.sroa.55514349.0.copyload to i64
   %.sroa.2.0.insert.shift.i.i8234 = shl nuw i64 %.sroa.2.0.insert.ext.i.i8233, 32
   %5737 = icmp samesign ugt i16 %.0.i.i.i.i8837, 117
-  %narrow23450 = add nuw nsw i16 %.0.i.i.i.i8837, 138
-  %switch.tableidx23050 = zext nneg i16 %narrow23450 to i64
-  %sext23449 = shl i64 %switch.tableidx23050, 56
-  %5738 = ashr exact i64 %sext23449, 56
+  %narrow23451 = add nuw nsw i16 %.0.i.i.i.i8837, 138
+  %switch.tableidx23050 = zext nneg i16 %narrow23451 to i64
+  %sext23450 = shl i64 %switch.tableidx23050, 56
+  %5738 = ashr exact i64 %sext23450, 56
   %switch.gep23051 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %5738
   %switch.tableidx23040 = add nsw i16 %.sroa.013804.0.copyload.fr, -118
   %5739 = icmp ult i16 %switch.tableidx23040, 10
@@ -25823,9 +25821,9 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i872
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1285, ptr noundef nonnull align 8 dereferenceable(40) %1286, i64 40, i1 false)
   %.sroa.39.16.extract.trunc = trunc i64 %.sroa.39.0.copyload to i32
   %6810 = sext i8 %.sroa.30.0.copyload to i64
-  %switch.gep23430 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.194, i64 0, i64 %6810
+  %switch.gep23431 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.194, i64 0, i64 %6810
   %6811 = sext i8 %.sroa.30.0.copyload to i64
-  %switch.gep23433 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.195, i64 0, i64 %6811
+  %switch.gep23434 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.195, i64 0, i64 %6811
   br label %6812
 
 6812:                                             ; preds = %6821, %6809
@@ -25868,8 +25866,8 @@ switch.lookup23043:                               ; preds = %6817
   %6822 = sext i8 %.sroa.714972.0.copyload to i64
   %switch.gep23044 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.194, i64 0, i64 %6822
   %switch.load23045 = load i64, ptr %switch.gep23044, align 8
-  %switch.load23431 = load i64, ptr %switch.gep23430, align 8
-  %6823 = and i64 %switch.load23431, %switch.load23045
+  %switch.load23432 = load i64, ptr %switch.gep23431, align 8
+  %6823 = and i64 %switch.load23432, %switch.load23045
   %6824 = icmp eq i64 %6823, 0
   br i1 %6824, label %6821, label %6825
 
@@ -25888,8 +25886,8 @@ switch.lookup23046:                               ; preds = %6828
   %6831 = sext i8 %.sroa.714972.0.copyload to i64
   %switch.gep23047 = getelementptr inbounds [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.195, i64 0, i64 %6831
   %switch.load23048 = load i64, ptr %switch.gep23047, align 8
-  %switch.load23434 = load i64, ptr %switch.gep23433, align 8
-  %6832 = or i64 %switch.load23434, %switch.load23048
+  %switch.load23435 = load i64, ptr %switch.gep23434, align 8
+  %6832 = or i64 %switch.load23435, %switch.load23048
   %6833 = invoke fastcc noundef i32 @_ZN17cranelift_codegen4opts14generated_code24constructor_compose_icmp17h33998071516d4894E(ptr noalias noundef align 8 dereferenceable(8) %0, i16 noundef %6805, i64 noundef %6832, i1 noundef zeroext %6826, i32 noundef %.sroa.3214677.0.copyload, i32 noundef %.sroa.39.16.extract.trunc)
           to label %6834 unwind label %6813
 
@@ -30951,9 +30949,9 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.sroa.2.0.insert.shift.i.i9626 = shl nuw i64 %.sroa.2.0.insert.ext.i.i9625, 32
   %.sroa.0.0.insert.ext.i.i9697 = zext i32 %.sroa.55514349.0.copyload to i64
   %8248 = icmp samesign ugt i16 %.0.i.i.i.i9681, 117
-  %switch.tableidx23103 = add nsw i8 %trunc20037, -118
-  %8249 = sext i8 %switch.tableidx23103 to i64
-  %switch.gep23104 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8249
+  %switch.tableidx23104 = add nsw i8 %trunc20037, -118
+  %8249 = sext i8 %switch.tableidx23104 to i64
+  %switch.gep23105 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8249
   %8250 = icmp samesign ugt i16 %.0.i.i.i.i9681, 117
   %switch.tableidx23086 = add nsw i8 %trunc20037, -118
   %8251 = sext i8 %switch.tableidx23086 to i64
@@ -30966,16 +30964,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %8254 = icmp ult i16 %switch.tableidx23090, 10
   %switch.shifted = lshr i16 895, %switch.tableidx23090
   %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond23094 = select i1 %8254, i1 %switch.lobit, i1 false
   %8255 = zext nneg i16 %switch.tableidx23090 to i64
   %switch.gep23092 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.130, i64 0, i64 %8255
-  %switch.tableidx23095 = add nsw i16 %.0.i.i.i.i9681, -118
-  %8256 = icmp ult i16 %switch.tableidx23095, 10
-  %8257 = zext nneg i16 %switch.tableidx23095 to i64
-  %switch.gep23096 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.131, i64 0, i64 %8257
+  %switch.tableidx23096 = add nsw i16 %.0.i.i.i.i9681, -118
+  %8256 = icmp ult i16 %switch.tableidx23096, 10
+  %8257 = zext nneg i16 %switch.tableidx23096 to i64
+  %switch.gep23097 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.131, i64 0, i64 %8257
   %8258 = icmp samesign ugt i16 %.0.i.i.i.i9681, 117
-  %switch.tableidx23099 = add nsw i8 %trunc20037, -118
-  %8259 = sext i8 %switch.tableidx23099 to i64
-  %switch.gep23100 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8259
+  %switch.tableidx23100 = add nsw i8 %trunc20037, -118
+  %8259 = sext i8 %switch.tableidx23100 to i64
+  %switch.gep23101 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8259
   br label %8260
 
 8260:                                             ; preds = %8266, %8239
@@ -31337,10 +31336,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9583: ; pred
   br label %8343
 
 8352:                                             ; preds = %8348
-  %.not23967 = xor i1 %8254, true
-  %switch.lobit.not = xor i1 %switch.lobit, true
-  %brmerge = select i1 %.not23967, i1 true, i1 %switch.lobit.not
-  br i1 %brmerge, label %8356, label %switch.lookup23091
+  br i1 %or.cond23094, label %switch.lookup23091, label %8356
 
 switch.lookup23091:                               ; preds = %8352
   %switch.load23093 = load i64, ptr %switch.gep23092, align 8
@@ -31355,14 +31351,14 @@ switch.lookup23091:                               ; preds = %8352
 
 8358:                                             ; preds = %8356, %switch.lookup23091
   %8359 = phi i64 [ %8355, %switch.lookup23091 ], [ %8357, %8356 ]
-  br i1 %8256, label %switch.lookup23094, label %8360
+  br i1 %8256, label %switch.lookup23095, label %8360
 
-switch.lookup23094:                               ; preds = %8358
-  %switch.load23097 = load i64, ptr %switch.gep23096, align 8
+switch.lookup23095:                               ; preds = %8358
+  %switch.load23098 = load i64, ptr %switch.gep23097, align 8
   br label %8360
 
-8360:                                             ; preds = %switch.lookup23094, %8358
-  %.0.i.i.i9597 = phi i64 [ 0, %8358 ], [ %switch.load23097, %switch.lookup23094 ]
+8360:                                             ; preds = %switch.lookup23095, %8358
+  %.0.i.i.i9597 = phi i64 [ 0, %8358 ], [ %switch.load23098, %switch.lookup23095 ]
   %8361 = icmp ult i64 %8359, %.0.i.i.i9597
   br i1 %8361, label %8363, label %.thread18016
 
@@ -31370,7 +31366,7 @@ switch.lookup23094:                               ; preds = %8358
   br i1 %8247, label %.thread18018, label %8362
 
 8362:                                             ; preds = %.thread18016
-  br i1 %8258, label %switch.lookup23098, label %8374
+  br i1 %8258, label %switch.lookup23099, label %8374
 
 8363:                                             ; preds = %8360
   %8364 = invoke fastcc noundef i32 @_ZN17cranelift_codegen4opts14generated_code20constructor_iconst_u17h615e622f7bfbaba3E(ptr noalias noundef align 8 dereferenceable(8) %0, i16 noundef %.sroa.01855.0.copyload, i64 noundef %8359)
@@ -31400,12 +31396,12 @@ switch.lookup23094:                               ; preds = %8358
   %8373 = select i1 %8370, i1 %8372, i1 false
   br i1 %8373, label %8401, label %.thread18016
 
-switch.lookup23098:                               ; preds = %8362
-  %switch.load23101 = load i32, ptr %switch.gep23100, align 4
+switch.lookup23099:                               ; preds = %8362
+  %switch.load23102 = load i32, ptr %switch.gep23101, align 4
   br label %8374
 
-8374:                                             ; preds = %switch.lookup23098, %8362
-  %.0.i.i.i9603 = phi i32 [ 0, %8362 ], [ %switch.load23101, %switch.lookup23098 ]
+8374:                                             ; preds = %switch.lookup23099, %8362
+  %.0.i.i.i9603 = phi i32 [ 0, %8362 ], [ %switch.load23102, %switch.lookup23099 ]
   %8375 = shl nuw nsw i32 %.0.i.i.i9603, %8246
   %8376 = zext nneg i32 %8375 to i64
   %.not20041 = icmp ult i64 %8359, %8376
@@ -31842,14 +31838,14 @@ switch.lookup23098:                               ; preds = %8362
           to label %.thread18003 unwind label %3333
 
 8483:                                             ; preds = %8327
-  br i1 %8248, label %switch.lookup23102, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9682
+  br i1 %8248, label %switch.lookup23103, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9682
 
-switch.lookup23102:                               ; preds = %8483
-  %switch.load23105 = load i32, ptr %switch.gep23104, align 4
+switch.lookup23103:                               ; preds = %8483
+  %switch.load23106 = load i32, ptr %switch.gep23105, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9682
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9682: ; preds = %switch.lookup23102, %8483
-  %.0.i.i.i9683 = phi i32 [ 0, %8483 ], [ %switch.load23105, %switch.lookup23102 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9682: ; preds = %switch.lookup23103, %8483
+  %.0.i.i.i9683 = phi i32 [ 0, %8483 ], [ %switch.load23106, %switch.lookup23103 ]
   %8484 = shl nuw nsw i32 %.0.i.i.i9683, %8246
   %8485 = icmp samesign ult i32 %8484, 65
   %8486 = icmp eq i16 %.sroa.015169.0.copyload, %.sroa.013804.0.copyload.fr
@@ -32202,45 +32198,47 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.sroa.0.0.insert.ext.i.i9953 = zext i32 %.sroa.55514349.0.copyload to i64
   %8589 = icmp samesign ult i16 %8588, 128
   %8590 = icmp samesign ugt i16 %.0.i.i.i.i9928, 117
-  %switch.tableidx23143 = add nsw i8 %trunc20030, -118
-  %8591 = sext i8 %switch.tableidx23143 to i64
-  %switch.gep23144 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8591
+  %switch.tableidx23144 = add nsw i8 %trunc20030, -118
+  %8591 = sext i8 %switch.tableidx23144 to i64
+  %switch.gep23145 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8591
   %8592 = icmp samesign ugt i16 %.0.i.i.i.i9928, 117
-  %switch.tableidx23147 = add nsw i8 %trunc20030, -118
-  %8593 = sext i8 %switch.tableidx23147 to i64
-  %switch.gep23148 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8593
+  %switch.tableidx23148 = add nsw i8 %trunc20030, -118
+  %8593 = sext i8 %switch.tableidx23148 to i64
+  %switch.gep23149 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8593
   %8594 = icmp samesign ugt i16 %.0.i.i.i.i9928, 117
-  %switch.tableidx23151 = add nsw i8 %trunc20030, -118
-  %8595 = sext i8 %switch.tableidx23151 to i64
-  %switch.gep23152 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8595
-  %switch.tableidx23127 = add nsw i16 %.0.i.i.i.i9928, -118
-  %8596 = icmp ult i16 %switch.tableidx23127, 10
-  %switch.shifted23130 = lshr i16 895, %switch.tableidx23127
+  %switch.tableidx23152 = add nsw i8 %trunc20030, -118
+  %8595 = sext i8 %switch.tableidx23152 to i64
+  %switch.gep23153 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8595
+  %switch.tableidx23128 = add nsw i16 %.0.i.i.i.i9928, -118
+  %8596 = icmp ult i16 %switch.tableidx23128, 10
+  %switch.shifted23130 = lshr i16 895, %switch.tableidx23128
   %switch.lobit23131 = trunc i16 %switch.shifted23130 to i1
-  %8597 = zext nneg i16 %switch.tableidx23127 to i64
+  %or.cond23134 = select i1 %8596, i1 %switch.lobit23131, i1 false
+  %8597 = zext nneg i16 %switch.tableidx23128 to i64
   %switch.gep23132 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.130, i64 0, i64 %8597
-  %switch.tableidx23135 = add nsw i16 %.0.i.i.i.i9928, -118
-  %8598 = icmp ult i16 %switch.tableidx23135, 10
-  %8599 = zext nneg i16 %switch.tableidx23135 to i64
-  %switch.gep23136 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.131, i64 0, i64 %8599
+  %switch.tableidx23136 = add nsw i16 %.0.i.i.i.i9928, -118
+  %8598 = icmp ult i16 %switch.tableidx23136, 10
+  %8599 = zext nneg i16 %switch.tableidx23136 to i64
+  %switch.gep23137 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.131, i64 0, i64 %8599
   %8600 = icmp samesign ugt i16 %.0.i.i.i.i9928, 117
-  %switch.tableidx23139 = add nsw i8 %trunc20030, -118
-  %8601 = sext i8 %switch.tableidx23139 to i64
-  %switch.gep23140 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8601
+  %switch.tableidx23140 = add nsw i8 %trunc20030, -118
+  %8601 = sext i8 %switch.tableidx23140 to i64
+  %switch.gep23141 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8601
   %8602 = icmp samesign ugt i16 %.0.i.i.i.i9928, 117
-  %switch.tableidx23119 = add nsw i8 %trunc20030, -118
-  %8603 = sext i8 %switch.tableidx23119 to i64
-  %switch.gep23120 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8603
+  %switch.tableidx23120 = add nsw i8 %trunc20030, -118
+  %8603 = sext i8 %switch.tableidx23120 to i64
+  %switch.gep23121 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8603
   %8604 = icmp samesign ugt i16 %.0.i.i.i.i9928, 117
-  %switch.tableidx23123 = add nsw i8 %trunc20030, -118
-  %8605 = sext i8 %switch.tableidx23123 to i64
-  %switch.gep23124 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8605
-  %switch.tableidx23107 = add nsw i16 %.0.i.i.i.i9928, -119
-  %8606 = icmp ult i16 %switch.tableidx23107, 6
-  %switch.maskindex = trunc nuw i16 %switch.tableidx23107 to i8
+  %switch.tableidx23124 = add nsw i8 %trunc20030, -118
+  %8605 = sext i8 %switch.tableidx23124 to i64
+  %switch.gep23125 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8605
+  %switch.tableidx23108 = add nsw i16 %.0.i.i.i.i9928, -119
+  %8606 = icmp ult i16 %switch.tableidx23108, 6
+  %switch.maskindex = trunc i16 %switch.tableidx23108 to i8
   %switch.shifted23110 = lshr i8 47, %switch.maskindex
   %switch.lobit23111 = trunc i8 %switch.shifted23110 to i1
-  %8607 = zext nneg i16 %switch.tableidx23107 to i64
+  %or.cond23114 = select i1 %8606, i1 %switch.lobit23111, i1 false
+  %8607 = zext nneg i16 %switch.tableidx23108 to i64
   %switch.gep23112 = getelementptr inbounds nuw [6 x i16], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$13ty_half_width17hb0c4d64ec974a5e5E", i64 0, i64 %8607
   br label %8608
 
@@ -32514,10 +32512,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %or.cond20098, label %8922, label %.thread18164
 
 8679:                                             ; preds = %8676
-  %.not23968 = xor i1 %8606, true
-  %switch.lobit23111.not = xor i1 %switch.lobit23111, true
-  %brmerge23969 = select i1 %.not23968, i1 true, i1 %switch.lobit23111.not
-  br i1 %brmerge23969, label %.thread18164, label %switch.lookup23109
+  br i1 %or.cond23114, label %switch.lookup23109, label %.thread18164
 
 8680:                                             ; preds = %8676
   %8681 = icmp eq i16 %.sroa.013804.0.copyload.fr, %.sroa.015203.0.copyload
@@ -32630,17 +32625,17 @@ switch.lookup23109:                               ; preds = %8679
   %.0.i.i.i.i9783 = select i1 %8589, i16 %8682, i16 %8715
   %trunc22320 = trunc nuw i16 %.0.i.i.i.i9783 to i8
   %8716 = icmp sgt i8 %trunc22320, 117
-  br i1 %8716, label %switch.lookup23114, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i9784
+  br i1 %8716, label %switch.lookup23115, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i9784
 
-switch.lookup23114:                               ; preds = %8713
-  %switch.tableidx23115 = add nsw i8 %trunc22320, -118
-  %8717 = sext i8 %switch.tableidx23115 to i64
-  %switch.gep23116 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8717
-  %switch.load23117 = load i32, ptr %switch.gep23116, align 4
+switch.lookup23115:                               ; preds = %8713
+  %switch.tableidx23116 = add nsw i8 %trunc22320, -118
+  %8717 = sext i8 %switch.tableidx23116 to i64
+  %switch.gep23117 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %8717
+  %switch.load23118 = load i32, ptr %switch.gep23117, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i9784
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i9784: ; preds = %switch.lookup23114, %8713
-  %.0.i.i.i9785 = phi i32 [ 0, %8713 ], [ %switch.load23117, %switch.lookup23114 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i9784: ; preds = %switch.lookup23115, %8713
+  %.0.i.i.i9785 = phi i32 [ 0, %8713 ], [ %switch.load23118, %switch.lookup23115 ]
   %8718 = shl nuw nsw i32 %.0.i.i.i9785, %8688
   %8719 = zext nneg i32 %8718 to i64
   %8720 = icmp eq i64 %.sroa.1215200.0.copyload, %8719
@@ -32910,14 +32905,14 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %8579, label %8782, label %.thread18126
 
 8782:                                             ; preds = %8781
-  br i1 %8602, label %switch.lookup23118, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9827
+  br i1 %8602, label %switch.lookup23119, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9827
 
-switch.lookup23118:                               ; preds = %8782
-  %switch.load23121 = load i32, ptr %switch.gep23120, align 4
+switch.lookup23119:                               ; preds = %8782
+  %switch.load23122 = load i32, ptr %switch.gep23121, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9827
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9827: ; preds = %switch.lookup23118, %8782
-  %.0.i.i.i9828 = phi i32 [ 0, %8782 ], [ %switch.load23121, %switch.lookup23118 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9827: ; preds = %switch.lookup23119, %8782
+  %.0.i.i.i9828 = phi i32 [ 0, %8782 ], [ %switch.load23122, %switch.lookup23119 ]
   %8783 = shl nuw nsw i32 %.0.i.i.i9828, %8585
   %8784 = icmp samesign ugt i32 %8783, 64
   %8785 = or i1 %8784, %switch.i.i9831
@@ -33028,14 +33023,14 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i9860:
   br label %8816
 
 8811:                                             ; preds = %8810
-  br i1 %8604, label %switch.lookup23122, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9858
+  br i1 %8604, label %switch.lookup23123, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9858
 
-switch.lookup23122:                               ; preds = %8811
-  %switch.load23125 = load i32, ptr %switch.gep23124, align 4
+switch.lookup23123:                               ; preds = %8811
+  %switch.load23126 = load i32, ptr %switch.gep23125, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9858
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9858: ; preds = %switch.lookup23122, %8811
-  %.0.i.i.i9859 = phi i32 [ 0, %8811 ], [ %switch.load23125, %switch.lookup23122 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9858: ; preds = %switch.lookup23123, %8811
+  %.0.i.i.i9859 = phi i32 [ 0, %8811 ], [ %switch.load23126, %switch.lookup23123 ]
   %8812 = shl nuw nsw i32 %.0.i.i.i9859, %8585
   %8813 = icmp samesign ult i32 %8812, 256
   %8814 = zext nneg i32 %8812 to i64
@@ -33172,10 +33167,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9858: ; pred
   br label %8836
 
 8845:                                             ; preds = %8841
-  %.not23970 = xor i1 %8596, true
-  %switch.lobit23131.not = xor i1 %switch.lobit23131, true
-  %brmerge23971 = select i1 %.not23970, i1 true, i1 %switch.lobit23131.not
-  br i1 %brmerge23971, label %8849, label %switch.lookup23129
+  br i1 %or.cond23134, label %switch.lookup23129, label %8849
 
 switch.lookup23129:                               ; preds = %8845
   %switch.load23133 = load i64, ptr %switch.gep23132, align 8
@@ -33190,14 +33182,14 @@ switch.lookup23129:                               ; preds = %8845
 
 8851:                                             ; preds = %8849, %switch.lookup23129
   %8852 = phi i64 [ %8848, %switch.lookup23129 ], [ %8850, %8849 ]
-  br i1 %8598, label %switch.lookup23134, label %8853
+  br i1 %8598, label %switch.lookup23135, label %8853
 
-switch.lookup23134:                               ; preds = %8851
-  %switch.load23137 = load i64, ptr %switch.gep23136, align 8
+switch.lookup23135:                               ; preds = %8851
+  %switch.load23138 = load i64, ptr %switch.gep23137, align 8
   br label %8853
 
-8853:                                             ; preds = %switch.lookup23134, %8851
-  %.0.i.i.i9876 = phi i64 [ 0, %8851 ], [ %switch.load23137, %switch.lookup23134 ]
+8853:                                             ; preds = %switch.lookup23135, %8851
+  %.0.i.i.i9876 = phi i64 [ 0, %8851 ], [ %switch.load23138, %switch.lookup23135 ]
   %8854 = icmp ult i64 %8852, %.0.i.i.i9876
   br i1 %8854, label %8856, label %.thread18147
 
@@ -33205,7 +33197,7 @@ switch.lookup23134:                               ; preds = %8851
   br i1 %8586, label %.thread18149, label %8855
 
 8855:                                             ; preds = %.thread18147
-  br i1 %8600, label %switch.lookup23138, label %8867
+  br i1 %8600, label %switch.lookup23139, label %8867
 
 8856:                                             ; preds = %8853
   %8857 = invoke fastcc noundef i32 @_ZN17cranelift_codegen4opts14generated_code20constructor_iconst_u17h615e622f7bfbaba3E(ptr noalias noundef align 8 dereferenceable(8) %0, i16 noundef %.sroa.01980.0.copyload, i64 noundef %8852)
@@ -33235,12 +33227,12 @@ switch.lookup23134:                               ; preds = %8851
   %8866 = select i1 %8863, i1 %8865, i1 false
   br i1 %8866, label %8894, label %.thread18147
 
-switch.lookup23138:                               ; preds = %8855
-  %switch.load23141 = load i32, ptr %switch.gep23140, align 4
+switch.lookup23139:                               ; preds = %8855
+  %switch.load23142 = load i32, ptr %switch.gep23141, align 4
   br label %8867
 
-8867:                                             ; preds = %switch.lookup23138, %8855
-  %.0.i.i.i9882 = phi i32 [ 0, %8855 ], [ %switch.load23141, %switch.lookup23138 ]
+8867:                                             ; preds = %switch.lookup23139, %8855
+  %.0.i.i.i9882 = phi i32 [ 0, %8855 ], [ %switch.load23142, %switch.lookup23139 ]
   %8868 = shl nuw nsw i32 %.0.i.i.i9882, %8585
   %8869 = zext nneg i32 %8868 to i64
   %.not20034 = icmp ult i64 %8852, %8869
@@ -33445,14 +33437,14 @@ switch.lookup23138:                               ; preds = %8855
           to label %.thread18098 unwind label %3333
 
 8922:                                             ; preds = %8677
-  br i1 %8590, label %switch.lookup23142, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9929
+  br i1 %8590, label %switch.lookup23143, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9929
 
-switch.lookup23142:                               ; preds = %8922
-  %switch.load23145 = load i32, ptr %switch.gep23144, align 4
+switch.lookup23143:                               ; preds = %8922
+  %switch.load23146 = load i32, ptr %switch.gep23145, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9929
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9929: ; preds = %switch.lookup23142, %8922
-  %.0.i.i.i9930 = phi i32 [ 0, %8922 ], [ %switch.load23145, %switch.lookup23142 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9929: ; preds = %switch.lookup23143, %8922
+  %.0.i.i.i9930 = phi i32 [ 0, %8922 ], [ %switch.load23146, %switch.lookup23143 ]
   %8923 = shl nuw nsw i32 %.0.i.i.i9930, %8585
   %8924 = icmp samesign ult i32 %8923, 65
   %8925 = icmp eq i16 %.sroa.015203.0.copyload, %.sroa.013804.0.copyload.fr
@@ -33460,14 +33452,14 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9929: ; pred
   br i1 %or.cond20099, label %8926, label %.thread18164
 
 8926:                                             ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i9929
-  br i1 %8592, label %switch.lookup23146, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9933
+  br i1 %8592, label %switch.lookup23147, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9933
 
-switch.lookup23146:                               ; preds = %8926
-  %switch.load23149 = load i32, ptr %switch.gep23148, align 4
+switch.lookup23147:                               ; preds = %8926
+  %switch.load23150 = load i32, ptr %switch.gep23149, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9933
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9933: ; preds = %switch.lookup23146, %8926
-  %.0.i.i.i.i9934 = phi i32 [ 0, %8926 ], [ %switch.load23149, %switch.lookup23146 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9933: ; preds = %switch.lookup23147, %8926
+  %.0.i.i.i.i9934 = phi i32 [ 0, %8926 ], [ %switch.load23150, %switch.lookup23147 ]
   %8927 = shl nuw nsw i32 %.0.i.i.i.i9934, %8585
   %8928 = icmp samesign ugt i32 %8927, 64
   br i1 %8928, label %8929, label %8930
@@ -33485,14 +33477,14 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i9933: ; pr
   %8933 = zext nneg i32 %8932 to i64
   %8934 = lshr i64 -1, %8933
   %8935 = and i64 %8934, %.sroa.1515214.0.copyload
-  br i1 %8594, label %switch.lookup23150, label %8936
+  br i1 %8594, label %switch.lookup23151, label %8936
 
-switch.lookup23150:                               ; preds = %8930
-  %switch.load23153 = load i32, ptr %switch.gep23152, align 4
+switch.lookup23151:                               ; preds = %8930
+  %switch.load23154 = load i32, ptr %switch.gep23153, align 4
   br label %8936
 
-8936:                                             ; preds = %switch.lookup23150, %8930
-  %.0.i.i.i9936 = phi i32 [ 0, %8930 ], [ %switch.load23153, %switch.lookup23150 ]
+8936:                                             ; preds = %switch.lookup23151, %8930
+  %.0.i.i.i9936 = phi i32 [ 0, %8930 ], [ %switch.load23154, %switch.lookup23151 ]
   %8937 = shl nuw nsw i32 %.0.i.i.i9936, %8585
   %8938 = add nuw nsw i32 %8937, 63
   %8939 = zext nneg i32 %8938 to i64
@@ -33844,27 +33836,28 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %9043 = add nuw nsw i32 %.fr.i18289, 63
   %9044 = or disjoint i32 %.fr.i18298, 63
   %9045 = icmp samesign ugt i16 %.0.i.i.i.i10194, 117
-  %switch.tableidx23187 = add nsw i8 %trunc20024, -118
-  %9046 = sext i8 %switch.tableidx23187 to i64
-  %switch.gep23188 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9046
-  %switch.tableidx23175 = add nsw i16 %.0.i.i.i.i10194, -118
-  %9047 = icmp ult i16 %switch.tableidx23175, 10
-  %switch.shifted23178 = lshr i16 895, %switch.tableidx23175
+  %switch.tableidx23188 = add nsw i8 %trunc20024, -118
+  %9046 = sext i8 %switch.tableidx23188 to i64
+  %switch.gep23189 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9046
+  %switch.tableidx23176 = add nsw i16 %.0.i.i.i.i10194, -118
+  %9047 = icmp ult i16 %switch.tableidx23176, 10
+  %switch.shifted23178 = lshr i16 895, %switch.tableidx23176
   %switch.lobit23179 = trunc i16 %switch.shifted23178 to i1
-  %9048 = zext nneg i16 %switch.tableidx23175 to i64
+  %or.cond23182 = select i1 %9047, i1 %switch.lobit23179, i1 false
+  %9048 = zext nneg i16 %switch.tableidx23176 to i64
   %switch.gep23180 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.130, i64 0, i64 %9048
-  %switch.tableidx23183 = add nsw i16 %.0.i.i.i.i10194, -118
-  %9049 = icmp ult i16 %switch.tableidx23183, 10
-  %9050 = zext nneg i16 %switch.tableidx23183 to i64
-  %switch.gep23184 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.131, i64 0, i64 %9050
+  %switch.tableidx23184 = add nsw i16 %.0.i.i.i.i10194, -118
+  %9049 = icmp ult i16 %switch.tableidx23184, 10
+  %9050 = zext nneg i16 %switch.tableidx23184 to i64
+  %switch.gep23185 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.131, i64 0, i64 %9050
   %9051 = icmp samesign ugt i16 %.0.i.i.i.i10194, 117
-  %switch.tableidx23159 = add nsw i8 %trunc20024, -118
-  %9052 = sext i8 %switch.tableidx23159 to i64
-  %switch.gep23160 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9052
+  %switch.tableidx23160 = add nsw i8 %trunc20024, -118
+  %9052 = sext i8 %switch.tableidx23160 to i64
+  %switch.gep23161 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9052
   %9053 = icmp samesign ugt i16 %.0.i.i.i.i10194, 117
-  %switch.tableidx23163 = add nsw i8 %trunc20024, -118
-  %9054 = sext i8 %switch.tableidx23163 to i64
-  %switch.gep23164 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9054
+  %switch.tableidx23164 = add nsw i8 %trunc20024, -118
+  %9054 = sext i8 %switch.tableidx23164 to i64
+  %switch.gep23165 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9054
   br label %9055
 
 9055:                                             ; preds = %9061, %9030
@@ -34261,17 +34254,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i10037 = select i1 %9140, i16 %9130, i16 %9171
   %trunc22319 = trunc nuw i16 %.0.i.i.i.i10037 to i8
   %9172 = icmp sgt i8 %trunc22319, 117
-  br i1 %9172, label %switch.lookup23154, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10038
+  br i1 %9172, label %switch.lookup23155, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10038
 
-switch.lookup23154:                               ; preds = %9169
-  %switch.tableidx23155 = add nsw i8 %trunc22319, -118
-  %9173 = sext i8 %switch.tableidx23155 to i64
-  %switch.gep23156 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9173
-  %switch.load23157 = load i32, ptr %switch.gep23156, align 4
+switch.lookup23155:                               ; preds = %9169
+  %switch.tableidx23156 = add nsw i8 %trunc22319, -118
+  %9173 = sext i8 %switch.tableidx23156 to i64
+  %switch.gep23157 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9173
+  %switch.load23158 = load i32, ptr %switch.gep23157, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10038
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10038: ; preds = %switch.lookup23154, %9169
-  %.0.i.i.i10039 = phi i32 [ 0, %9169 ], [ %switch.load23157, %switch.lookup23154 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10038: ; preds = %switch.lookup23155, %9169
+  %.0.i.i.i10039 = phi i32 [ 0, %9169 ], [ %switch.load23158, %switch.lookup23155 ]
   %9174 = shl nuw nsw i32 %.0.i.i.i10039, %9143
   %9175 = zext nneg i32 %9174 to i64
   br label %9176
@@ -34831,14 +34824,14 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %9041, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$11ty_bits_u6417hf237c53fb8af7aa4E.exit10107", label %9307
 
 9307:                                             ; preds = %9306
-  br i1 %9051, label %switch.lookup23158, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10103
+  br i1 %9051, label %switch.lookup23159, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10103
 
-switch.lookup23158:                               ; preds = %9307
-  %switch.load23161 = load i32, ptr %switch.gep23160, align 4
+switch.lookup23159:                               ; preds = %9307
+  %switch.load23162 = load i32, ptr %switch.gep23161, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10103
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10103: ; preds = %switch.lookup23158, %9307
-  %.0.i.i.i10104 = phi i32 [ 0, %9307 ], [ %switch.load23161, %switch.lookup23158 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10103: ; preds = %switch.lookup23159, %9307
+  %.0.i.i.i10104 = phi i32 [ 0, %9307 ], [ %switch.load23162, %switch.lookup23159 ]
   %9308 = shl nuw nsw i32 %.0.i.i.i10104, %9037
   %9309 = zext nneg i32 %9308 to i64
   br label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$11ty_bits_u6417hf237c53fb8af7aa4E.exit10107"
@@ -34847,14 +34840,14 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i101
   br i1 %9041, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$11ty_bits_u6417hf237c53fb8af7aa4E.exit10113", label %9311
 
 9311:                                             ; preds = %9310
-  br i1 %9053, label %switch.lookup23162, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10109
+  br i1 %9053, label %switch.lookup23163, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10109
 
-switch.lookup23162:                               ; preds = %9311
-  %switch.load23165 = load i32, ptr %switch.gep23164, align 4
+switch.lookup23163:                               ; preds = %9311
+  %switch.load23166 = load i32, ptr %switch.gep23165, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10109
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10109: ; preds = %switch.lookup23162, %9311
-  %.0.i.i.i10110 = phi i32 [ 0, %9311 ], [ %switch.load23165, %switch.lookup23162 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10109: ; preds = %switch.lookup23163, %9311
+  %.0.i.i.i10110 = phi i32 [ 0, %9311 ], [ %switch.load23166, %switch.lookup23163 ]
   %9312 = shl nuw nsw i32 %.0.i.i.i10110, %9037
   %9313 = zext nneg i32 %9312 to i64
   br label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$11ty_bits_u6417hf237c53fb8af7aa4E.exit10113"
@@ -34895,18 +34888,18 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i101
   %9332 = and i16 %9327, 15
   %9333 = or disjoint i16 %9332, 112
   %.0.i.i.i.i10116 = select i1 %9331, i16 %9328, i16 %9333
-  %switch.tableidx23167 = add nsw i16 %.0.i.i.i.i10116, -118
-  %9334 = icmp ult i16 %switch.tableidx23167, 10
-  br i1 %9334, label %switch.lookup23166, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10117
+  %switch.tableidx23168 = add nsw i16 %.0.i.i.i.i10116, -118
+  %9334 = icmp ult i16 %switch.tableidx23168, 10
+  br i1 %9334, label %switch.lookup23167, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10117
 
-switch.lookup23166:                               ; preds = %9330
-  %9335 = zext nneg i16 %switch.tableidx23167 to i64
-  %switch.gep23168 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9335
-  %switch.load23169 = load i32, ptr %switch.gep23168, align 4
+switch.lookup23167:                               ; preds = %9330
+  %9335 = zext nneg i16 %switch.tableidx23168 to i64
+  %switch.gep23169 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9335
+  %switch.load23170 = load i32, ptr %switch.gep23169, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10117
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10117: ; preds = %switch.lookup23166, %9330
-  %.0.i.i.i10118 = phi i32 [ 0, %9330 ], [ %switch.load23169, %switch.lookup23166 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10117: ; preds = %switch.lookup23167, %9330
+  %.0.i.i.i10118 = phi i32 [ 0, %9330 ], [ %switch.load23170, %switch.lookup23167 ]
   %9336 = call i16 @llvm.usub.sat.i16(i16 %9328, i16 112)
   %9337 = lshr i16 %9336, 4
   %9338 = zext nneg i16 %9337 to i32
@@ -34989,18 +34982,18 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i101
   %9379 = and i16 %9374, 15
   %9380 = or disjoint i16 %9379, 112
   %.0.i.i.i.i10128 = select i1 %9378, i16 %9375, i16 %9380
-  %switch.tableidx23171 = add nsw i16 %.0.i.i.i.i10128, -118
-  %9381 = icmp ult i16 %switch.tableidx23171, 10
-  br i1 %9381, label %switch.lookup23170, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10129
+  %switch.tableidx23172 = add nsw i16 %.0.i.i.i.i10128, -118
+  %9381 = icmp ult i16 %switch.tableidx23172, 10
+  br i1 %9381, label %switch.lookup23171, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10129
 
-switch.lookup23170:                               ; preds = %9377
-  %9382 = zext nneg i16 %switch.tableidx23171 to i64
-  %switch.gep23172 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9382
-  %switch.load23173 = load i32, ptr %switch.gep23172, align 4
+switch.lookup23171:                               ; preds = %9377
+  %9382 = zext nneg i16 %switch.tableidx23172 to i64
+  %switch.gep23173 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9382
+  %switch.load23174 = load i32, ptr %switch.gep23173, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10129
 
-_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10129: ; preds = %switch.lookup23170, %9377
-  %.0.i.i.i10130 = phi i32 [ 0, %9377 ], [ %switch.load23173, %switch.lookup23170 ]
+_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i10129: ; preds = %switch.lookup23171, %9377
+  %.0.i.i.i10130 = phi i32 [ 0, %9377 ], [ %switch.load23174, %switch.lookup23171 ]
   %9383 = call i16 @llvm.usub.sat.i16(i16 %9375, i16 112)
   %9384 = lshr i16 %9383, 4
   %9385 = zext nneg i16 %9384 to i32
@@ -35262,10 +35255,7 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i101
   br label %9445
 
 9454:                                             ; preds = %9450
-  %.not23972 = xor i1 %9047, true
-  %switch.lobit23179.not = xor i1 %switch.lobit23179, true
-  %brmerge23973 = select i1 %.not23972, i1 true, i1 %switch.lobit23179.not
-  br i1 %brmerge23973, label %9458, label %switch.lookup23177
+  br i1 %or.cond23182, label %switch.lookup23177, label %9458
 
 switch.lookup23177:                               ; preds = %9454
   %switch.load23181 = load i64, ptr %switch.gep23180, align 8
@@ -35280,14 +35270,14 @@ switch.lookup23177:                               ; preds = %9454
 
 9460:                                             ; preds = %9458, %switch.lookup23177
   %9461 = phi i64 [ %9457, %switch.lookup23177 ], [ %9459, %9458 ]
-  br i1 %9049, label %switch.lookup23182, label %9462
+  br i1 %9049, label %switch.lookup23183, label %9462
 
-switch.lookup23182:                               ; preds = %9460
-  %switch.load23185 = load i64, ptr %switch.gep23184, align 8
+switch.lookup23183:                               ; preds = %9460
+  %switch.load23186 = load i64, ptr %switch.gep23185, align 8
   br label %9462
 
-9462:                                             ; preds = %switch.lookup23182, %9460
-  %.0.i.i.i10172 = phi i64 [ 0, %9460 ], [ %switch.load23185, %switch.lookup23182 ]
+9462:                                             ; preds = %switch.lookup23183, %9460
+  %.0.i.i.i10172 = phi i64 [ 0, %9460 ], [ %switch.load23186, %switch.lookup23183 ]
   %9463 = icmp ult i64 %9461, %.0.i.i.i10172
   br i1 %9463, label %9464, label %.thread18279
 
@@ -35362,14 +35352,14 @@ switch.lookup23182:                               ; preds = %9460
           to label %.thread18193 unwind label %3333
 
 9478:                                             ; preds = %9125
-  br i1 %9045, label %switch.lookup23186, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10195
+  br i1 %9045, label %switch.lookup23187, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10195
 
-switch.lookup23186:                               ; preds = %9478
-  %switch.load23189 = load i32, ptr %switch.gep23188, align 4
+switch.lookup23187:                               ; preds = %9478
+  %switch.load23190 = load i32, ptr %switch.gep23189, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10195
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10195: ; preds = %switch.lookup23186, %9478
-  %.0.i.i.i10196 = phi i32 [ 0, %9478 ], [ %switch.load23189, %switch.lookup23186 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10195: ; preds = %switch.lookup23187, %9478
+  %.0.i.i.i10196 = phi i32 [ 0, %9478 ], [ %switch.load23190, %switch.lookup23187 ]
   %9479 = shl nuw nsw i32 %.0.i.i.i10196, %9037
   %9480 = icmp samesign ult i32 %9479, 65
   %9481 = icmp eq i16 %.sroa.015240.0.copyload, %.sroa.013804.0.copyload.fr
@@ -36014,19 +36004,19 @@ default.unreachable:                              ; preds = %9643
   %9649 = or disjoint i16 %9648, 112
   %.0.i.i.i.i10286 = select i1 %9647, i16 %.sroa.013804.0.copyload.fr, i16 %9649
   %9650 = icmp samesign ugt i16 %.0.i.i.i.i10286, 117
-  br i1 %9650, label %switch.lookup23190, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10287
+  br i1 %9650, label %switch.lookup23191, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10287
 
-switch.lookup23190:                               ; preds = %9646
-  %narrow23440 = add nuw nsw i16 %.0.i.i.i.i10286, 138
-  %switch.tableidx23191 = zext nneg i16 %narrow23440 to i64
-  %sext23439 = shl i64 %switch.tableidx23191, 56
-  %9651 = ashr exact i64 %sext23439, 56
-  %switch.gep23192 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9651
-  %switch.load23193 = load i32, ptr %switch.gep23192, align 4
+switch.lookup23191:                               ; preds = %9646
+  %narrow23441 = add nuw nsw i16 %.0.i.i.i.i10286, 138
+  %switch.tableidx23192 = zext nneg i16 %narrow23441 to i64
+  %sext23440 = shl i64 %switch.tableidx23192, 56
+  %9651 = ashr exact i64 %sext23440, 56
+  %switch.gep23193 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9651
+  %switch.load23194 = load i32, ptr %switch.gep23193, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10287
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10287: ; preds = %switch.lookup23190, %9646
-  %.0.i.i.i10288 = phi i32 [ 0, %9646 ], [ %switch.load23193, %switch.lookup23190 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10287: ; preds = %switch.lookup23191, %9646
+  %.0.i.i.i10288 = phi i32 [ 0, %9646 ], [ %switch.load23194, %switch.lookup23191 ]
   %9652 = call i16 @llvm.usub.sat.i16(i16 %.sroa.013804.0.copyload.fr, i16 112)
   %9653 = lshr i16 %9652, 4
   %9654 = zext nneg i16 %9653 to i32
@@ -36047,19 +36037,19 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10287: ; pre
   %9662 = or disjoint i16 %9661, 112
   %.0.i.i.i.i10293 = select i1 %9660, i16 %.sroa.013804.0.copyload.fr, i16 %9662
   %9663 = icmp samesign ugt i16 %.0.i.i.i.i10293, 117
-  br i1 %9663, label %switch.lookup23194, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10294
+  br i1 %9663, label %switch.lookup23195, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10294
 
-switch.lookup23194:                               ; preds = %9659
-  %narrow23438 = add nuw nsw i16 %.0.i.i.i.i10293, 138
-  %switch.tableidx23195 = zext nneg i16 %narrow23438 to i64
-  %sext23437 = shl i64 %switch.tableidx23195, 56
-  %9664 = ashr exact i64 %sext23437, 56
-  %switch.gep23196 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9664
-  %switch.load23197 = load i32, ptr %switch.gep23196, align 4
+switch.lookup23195:                               ; preds = %9659
+  %narrow23439 = add nuw nsw i16 %.0.i.i.i.i10293, 138
+  %switch.tableidx23196 = zext nneg i16 %narrow23439 to i64
+  %sext23438 = shl i64 %switch.tableidx23196, 56
+  %9664 = ashr exact i64 %sext23438, 56
+  %switch.gep23197 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9664
+  %switch.load23198 = load i32, ptr %switch.gep23197, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10294
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10294: ; preds = %switch.lookup23194, %9659
-  %.0.i.i.i10295 = phi i32 [ 0, %9659 ], [ %switch.load23197, %switch.lookup23194 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10294: ; preds = %switch.lookup23195, %9659
+  %.0.i.i.i10295 = phi i32 [ 0, %9659 ], [ %switch.load23198, %switch.lookup23195 ]
   %9665 = call i16 @llvm.usub.sat.i16(i16 %.sroa.013804.0.copyload.fr, i16 112)
   %9666 = lshr i16 %9665, 4
   %9667 = zext nneg i16 %9666 to i32
@@ -36230,17 +36220,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i10320 = select i1 %9701, i16 %.sroa.015281.0.copyload, i16 %9703
   %trunc20017 = trunc nuw i16 %.0.i.i.i.i10320 to i8
   %9704 = icmp sgt i8 %trunc20017, 117
-  br i1 %9704, label %switch.lookup23198, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10321
+  br i1 %9704, label %switch.lookup23199, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10321
 
-switch.lookup23198:                               ; preds = %9700
-  %switch.tableidx23199 = add nsw i8 %trunc20017, -118
-  %9705 = sext i8 %switch.tableidx23199 to i64
-  %switch.gep23200 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9705
-  %switch.load23201 = load i32, ptr %switch.gep23200, align 4
+switch.lookup23199:                               ; preds = %9700
+  %switch.tableidx23200 = add nsw i8 %trunc20017, -118
+  %9705 = sext i8 %switch.tableidx23200 to i64
+  %switch.gep23201 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9705
+  %switch.load23202 = load i32, ptr %switch.gep23201, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10321
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10321: ; preds = %switch.lookup23198, %9700
-  %.0.i.i.i10322 = phi i32 [ 0, %9700 ], [ %switch.load23201, %switch.lookup23198 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10321: ; preds = %switch.lookup23199, %9700
+  %.0.i.i.i10322 = phi i32 [ 0, %9700 ], [ %switch.load23202, %switch.lookup23199 ]
   %9706 = call i16 @llvm.usub.sat.i16(i16 %.sroa.015281.0.copyload, i16 112)
   %9707 = lshr i16 %9706, 4
   %9708 = zext nneg i16 %9707 to i32
@@ -37494,17 +37484,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i10509 = select i1 %9988, i16 %.sroa.015391.0.copyload, i16 %9990
   %trunc20016 = trunc nuw i16 %.0.i.i.i.i10509 to i8
   %9991 = icmp sgt i8 %trunc20016, 117
-  br i1 %9991, label %switch.lookup23202, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10510
+  br i1 %9991, label %switch.lookup23203, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10510
 
-switch.lookup23202:                               ; preds = %9987
-  %switch.tableidx23203 = add nsw i8 %trunc20016, -118
-  %9992 = sext i8 %switch.tableidx23203 to i64
-  %switch.gep23204 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9992
-  %switch.load23205 = load i32, ptr %switch.gep23204, align 4
+switch.lookup23203:                               ; preds = %9987
+  %switch.tableidx23204 = add nsw i8 %trunc20016, -118
+  %9992 = sext i8 %switch.tableidx23204 to i64
+  %switch.gep23205 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %9992
+  %switch.load23206 = load i32, ptr %switch.gep23205, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10510
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10510: ; preds = %switch.lookup23202, %9987
-  %.0.i.i.i10511 = phi i32 [ 0, %9987 ], [ %switch.load23205, %switch.lookup23202 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10510: ; preds = %switch.lookup23203, %9987
+  %.0.i.i.i10511 = phi i32 [ 0, %9987 ], [ %switch.load23206, %switch.lookup23203 ]
   %9993 = call i16 @llvm.usub.sat.i16(i16 %.sroa.015391.0.copyload, i16 112)
   %9994 = lshr i16 %9993, 4
   %9995 = zext nneg i16 %9994 to i32
@@ -37775,7 +37765,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10512
   invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %1065, ptr noalias noundef nonnull align 8 dereferenceable(40) %1066, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %10070 unwind label %10068
 
-10068:                                            ; preds = %10089, %10084, %switch.lookup23206, %10090, %10067
+10068:                                            ; preds = %10089, %10084, %switch.lookup23207, %10090, %10067
   %10069 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1066)
@@ -37794,7 +37784,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10512
   %or.cond521 = select i1 %10073, i1 %10074, i1 false
   %10075 = icmp eq i16 %.sroa.013804.0.copyload.fr, %.sroa.015403.0.copyload
   %or.cond19914 = select i1 %or.cond521, i1 %10075, i1 false
-  br i1 %or.cond19914, label %switch.lookup23206, label %10077
+  br i1 %or.cond19914, label %switch.lookup23207, label %10077
 
 10076:                                            ; preds = %10070
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1065)
@@ -37805,21 +37795,21 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10512
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1065)
   br label %10067
 
-switch.lookup23206:                               ; preds = %10072
+switch.lookup23207:                               ; preds = %10072
   %.sroa.815409.0.copyload = load i64, ptr %.sroa.815409.0..sroa_idx, align 4
   %.sroa.715407.0.copyload = load i8, ptr %.sroa.715407.0..sroa_idx, align 2
   %10078 = sext i8 %.sroa.715407.0.copyload to i64
-  %switch.gep23207 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.178, i64 0, i64 %10078
-  %switch.load23208 = load i8, ptr %switch.gep23207, align 1
+  %switch.gep23208 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.178, i64 0, i64 %10078
+  %switch.load23209 = load i8, ptr %switch.gep23208, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %285), !noalias !4651
   store i8 75, ptr %2487, align 1, !noalias !4651
   store i64 %.sroa.815409.0.copyload, ptr %2488, align 4, !noalias !4651
-  store i8 %switch.load23208, ptr %2489, align 2, !noalias !4651
+  store i8 %switch.load23209, ptr %2489, align 2, !noalias !4651
   store i8 15, ptr %285, align 8, !noalias !4651
   %10079 = invoke noundef i32 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$14make_inst_ctor17hce8b5af89b3aa23bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i16 noundef %.sroa.013804.0.copyload.fr, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %285)
           to label %10080 unwind label %10068
 
-10080:                                            ; preds = %switch.lookup23206
+10080:                                            ; preds = %switch.lookup23207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %285), !noalias !4651
   call void @llvm.experimental.noalias.scope.decl(metadata !4654)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %284)
@@ -38106,17 +38096,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i10599 = select i1 %10142, i16 %.sroa.015423.0.copyload, i16 %10144
   %trunc20015 = trunc nuw i16 %.0.i.i.i.i10599 to i8
   %10145 = icmp sgt i8 %trunc20015, 117
-  br i1 %10145, label %switch.lookup23209, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10600
+  br i1 %10145, label %switch.lookup23210, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10600
 
-switch.lookup23209:                               ; preds = %10141
-  %switch.tableidx23210 = add nsw i8 %trunc20015, -118
-  %10146 = sext i8 %switch.tableidx23210 to i64
-  %switch.gep23211 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10146
-  %switch.load23212 = load i32, ptr %switch.gep23211, align 4
+switch.lookup23210:                               ; preds = %10141
+  %switch.tableidx23211 = add nsw i8 %trunc20015, -118
+  %10146 = sext i8 %switch.tableidx23211 to i64
+  %switch.gep23212 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10146
+  %switch.load23213 = load i32, ptr %switch.gep23212, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10600
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10600: ; preds = %switch.lookup23209, %10141
-  %.0.i.i.i10601 = phi i32 [ 0, %10141 ], [ %switch.load23212, %switch.lookup23209 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10600: ; preds = %switch.lookup23210, %10141
+  %.0.i.i.i10601 = phi i32 [ 0, %10141 ], [ %switch.load23213, %switch.lookup23210 ]
   %10147 = call i16 @llvm.usub.sat.i16(i16 %.sroa.015423.0.copyload, i16 112)
   %10148 = lshr i16 %10147, 4
   %10149 = zext nneg i16 %10148 to i32
@@ -39370,17 +39360,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i10789 = select i1 %10429, i16 %.sroa.015533.0.copyload, i16 %10431
   %trunc20014 = trunc nuw i16 %.0.i.i.i.i10789 to i8
   %10432 = icmp sgt i8 %trunc20014, 117
-  br i1 %10432, label %switch.lookup23213, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10790
+  br i1 %10432, label %switch.lookup23214, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10790
 
-switch.lookup23213:                               ; preds = %10428
-  %switch.tableidx23214 = add nsw i8 %trunc20014, -118
-  %10433 = sext i8 %switch.tableidx23214 to i64
-  %switch.gep23215 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10433
-  %switch.load23216 = load i32, ptr %switch.gep23215, align 4
+switch.lookup23214:                               ; preds = %10428
+  %switch.tableidx23215 = add nsw i8 %trunc20014, -118
+  %10433 = sext i8 %switch.tableidx23215 to i64
+  %switch.gep23216 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10433
+  %switch.load23217 = load i32, ptr %switch.gep23216, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10790
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10790: ; preds = %switch.lookup23213, %10428
-  %.0.i.i.i10791 = phi i32 [ 0, %10428 ], [ %switch.load23216, %switch.lookup23213 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10790: ; preds = %switch.lookup23214, %10428
+  %.0.i.i.i10791 = phi i32 [ 0, %10428 ], [ %switch.load23217, %switch.lookup23214 ]
   %10434 = call i16 @llvm.usub.sat.i16(i16 %.sroa.015533.0.copyload, i16 112)
   %10435 = lshr i16 %10434, 4
   %10436 = zext nneg i16 %10435 to i32
@@ -39649,18 +39639,18 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10792
   %10512 = and i16 %10507, 15
   %10513 = or disjoint i16 %10512, 112
   %.0.i.i.i.i.i10823 = select i1 %10511, i16 %10508, i16 %10513
-  %switch.tableidx23218 = add nsw i16 %.0.i.i.i.i.i10823, -118
-  %10514 = icmp ult i16 %switch.tableidx23218, 10
-  br i1 %10514, label %switch.lookup23217, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10824
+  %switch.tableidx23219 = add nsw i16 %.0.i.i.i.i.i10823, -118
+  %10514 = icmp ult i16 %switch.tableidx23219, 10
+  br i1 %10514, label %switch.lookup23218, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10824
 
-switch.lookup23217:                               ; preds = %10510
-  %10515 = zext nneg i16 %switch.tableidx23218 to i64
-  %switch.gep23219 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10515
-  %switch.load23220 = load i32, ptr %switch.gep23219, align 4
+switch.lookup23218:                               ; preds = %10510
+  %10515 = zext nneg i16 %switch.tableidx23219 to i64
+  %switch.gep23220 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10515
+  %switch.load23221 = load i32, ptr %switch.gep23220, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10824
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10824: ; preds = %switch.lookup23217, %10510
-  %.0.i.i.i.i10825 = phi i32 [ 0, %10510 ], [ %switch.load23220, %switch.lookup23217 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i10824: ; preds = %switch.lookup23218, %10510
+  %.0.i.i.i.i10825 = phi i32 [ 0, %10510 ], [ %switch.load23221, %switch.lookup23218 ]
   %10516 = call i16 @llvm.usub.sat.i16(i16 %10508, i16 112)
   %10517 = lshr i16 %10516, 4
   %10518 = zext nneg i16 %10517 to i32
@@ -40066,11 +40056,11 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.sroa.0.0.insert.ext.i.i10907 = zext i32 %.sroa.55514349.0.copyload to i64
   %.sroa.0.0.insert.insert.i.i10908 = or disjoint i64 %.sroa.2.0.insert.shift.i.i10906, %.sroa.0.0.insert.ext.i.i10907
   %10617 = icmp samesign ugt i16 %.0.i.i.i.i10885, 117
-  %narrow23448 = add nuw nsw i16 %.0.i.i.i.i10885, 138
-  %switch.tableidx23222 = zext nneg i16 %narrow23448 to i64
-  %sext23447 = shl i64 %switch.tableidx23222, 56
-  %10618 = ashr exact i64 %sext23447, 56
-  %switch.gep23223 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10618
+  %narrow23449 = add nuw nsw i16 %.0.i.i.i.i10885, 138
+  %switch.tableidx23223 = zext nneg i16 %narrow23449 to i64
+  %sext23448 = shl i64 %switch.tableidx23223, 56
+  %10618 = ashr exact i64 %sext23448, 56
+  %switch.gep23224 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10618
   br label %10619
 
 10619:                                            ; preds = %10625, %10609
@@ -40115,14 +40105,14 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %10610, label %10627, label %.thread18640
 
 10627:                                            ; preds = %10626
-  br i1 %10617, label %switch.lookup23221, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10886
+  br i1 %10617, label %switch.lookup23222, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10886
 
-switch.lookup23221:                               ; preds = %10627
-  %switch.load23224 = load i32, ptr %switch.gep23223, align 4
+switch.lookup23222:                               ; preds = %10627
+  %switch.load23225 = load i32, ptr %switch.gep23224, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10886
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10886: ; preds = %switch.lookup23221, %10627
-  %.0.i.i.i10887 = phi i32 [ 0, %10627 ], [ %switch.load23224, %switch.lookup23221 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10886: ; preds = %switch.lookup23222, %10627
+  %.0.i.i.i10887 = phi i32 [ 0, %10627 ], [ %switch.load23225, %switch.lookup23222 ]
   %10628 = shl nuw nsw i32 %.0.i.i.i10887, %10616
   %10629 = icmp samesign ult i32 %10628, 65
   %or.cond20105 = and i1 %10629, %switch.i.i10890
@@ -40139,17 +40129,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10886: ; pre
   %.0.i.i.i.i10892 = select i1 %10633, i16 %.sroa.02413.0.copyload, i16 %10635
   %trunc20011 = trunc nuw i16 %.0.i.i.i.i10892 to i8
   %10636 = icmp sgt i8 %trunc20011, 117
-  br i1 %10636, label %switch.lookup23225, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10893
+  br i1 %10636, label %switch.lookup23226, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10893
 
-switch.lookup23225:                               ; preds = %10632
-  %switch.tableidx23226 = add nsw i8 %trunc20011, -118
-  %10637 = sext i8 %switch.tableidx23226 to i64
-  %switch.gep23227 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10637
-  %switch.load23228 = load i32, ptr %switch.gep23227, align 4
+switch.lookup23226:                               ; preds = %10632
+  %switch.tableidx23227 = add nsw i8 %trunc20011, -118
+  %10637 = sext i8 %switch.tableidx23227 to i64
+  %switch.gep23228 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10637
+  %switch.load23229 = load i32, ptr %switch.gep23228, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10893
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10893: ; preds = %switch.lookup23225, %10632
-  %.0.i.i.i10894 = phi i32 [ 0, %10632 ], [ %switch.load23228, %switch.lookup23225 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10893: ; preds = %switch.lookup23226, %10632
+  %.0.i.i.i10894 = phi i32 [ 0, %10632 ], [ %switch.load23229, %switch.lookup23226 ]
   %10638 = call i16 @llvm.usub.sat.i16(i16 %.sroa.02413.0.copyload, i16 112)
   %10639 = lshr i16 %10638, 4
   %10640 = zext nneg i16 %10639 to i32
@@ -40183,17 +40173,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10893: ; pre
   %.0.i.i.i.i10898 = select i1 %10651, i16 %.sroa.02413.0.copyload, i16 %10653
   %trunc20012 = trunc nuw i16 %.0.i.i.i.i10898 to i8
   %10654 = icmp sgt i8 %trunc20012, 117
-  br i1 %10654, label %switch.lookup23229, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10899
+  br i1 %10654, label %switch.lookup23230, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10899
 
-switch.lookup23229:                               ; preds = %10650
-  %switch.tableidx23230 = add nsw i8 %trunc20012, -118
-  %10655 = sext i8 %switch.tableidx23230 to i64
-  %switch.gep23231 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10655
-  %switch.load23232 = load i32, ptr %switch.gep23231, align 4
+switch.lookup23230:                               ; preds = %10650
+  %switch.tableidx23231 = add nsw i8 %trunc20012, -118
+  %10655 = sext i8 %switch.tableidx23231 to i64
+  %switch.gep23232 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10655
+  %switch.load23233 = load i32, ptr %switch.gep23232, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10899
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10899: ; preds = %switch.lookup23229, %10650
-  %.0.i.i.i10900 = phi i32 [ 0, %10650 ], [ %switch.load23232, %switch.lookup23229 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10899: ; preds = %switch.lookup23230, %10650
+  %.0.i.i.i10900 = phi i32 [ 0, %10650 ], [ %switch.load23233, %switch.lookup23230 ]
   %10656 = call i16 @llvm.usub.sat.i16(i16 %.sroa.02413.0.copyload, i16 112)
   %10657 = lshr i16 %10656, 4
   %10658 = zext nneg i16 %10657 to i32
@@ -40532,17 +40522,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i10946 = select i1 %10759, i16 %.sroa.015657.0.copyload, i16 %10761
   %trunc20013 = trunc nuw i16 %.0.i.i.i.i10946 to i8
   %10762 = icmp sgt i8 %trunc20013, 117
-  br i1 %10762, label %switch.lookup23233, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10947
+  br i1 %10762, label %switch.lookup23234, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10947
 
-switch.lookup23233:                               ; preds = %10758
-  %switch.tableidx23234 = add nsw i8 %trunc20013, -118
-  %10763 = sext i8 %switch.tableidx23234 to i64
-  %switch.gep23235 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10763
-  %switch.load23236 = load i32, ptr %switch.gep23235, align 4
+switch.lookup23234:                               ; preds = %10758
+  %switch.tableidx23235 = add nsw i8 %trunc20013, -118
+  %10763 = sext i8 %switch.tableidx23235 to i64
+  %switch.gep23236 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10763
+  %switch.load23237 = load i32, ptr %switch.gep23236, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10947
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10947: ; preds = %switch.lookup23233, %10758
-  %.0.i.i.i10948 = phi i32 [ 0, %10758 ], [ %switch.load23236, %switch.lookup23233 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10947: ; preds = %switch.lookup23234, %10758
+  %.0.i.i.i10948 = phi i32 [ 0, %10758 ], [ %switch.load23237, %switch.lookup23234 ]
   %10764 = call i16 @llvm.usub.sat.i16(i16 %.sroa.015657.0.copyload, i16 112)
   %10765 = lshr i16 %10764, 4
   %10766 = zext nneg i16 %10765 to i32
@@ -41216,11 +41206,11 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.sroa.0.0.insert.ext.i.i11085 = zext i32 %.sroa.55514349.0.copyload to i64
   %.sroa.0.0.insert.insert.i.i11086 = or disjoint i64 %.sroa.2.0.insert.shift.i.i11084, %.sroa.0.0.insert.ext.i.i11085
   %10921 = icmp samesign ugt i16 %.0.i.i.i.i11061, 117
-  %narrow23446 = add nuw nsw i16 %.0.i.i.i.i11061, 138
-  %switch.tableidx23238 = zext nneg i16 %narrow23446 to i64
-  %sext23445 = shl i64 %switch.tableidx23238, 56
-  %10922 = ashr exact i64 %sext23445, 56
-  %switch.gep23239 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10922
+  %narrow23447 = add nuw nsw i16 %.0.i.i.i.i11061, 138
+  %switch.tableidx23239 = zext nneg i16 %narrow23447 to i64
+  %sext23446 = shl i64 %switch.tableidx23239, 56
+  %10922 = ashr exact i64 %sext23446, 56
+  %switch.gep23240 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10922
   br label %10923
 
 10923:                                            ; preds = %10929, %10913
@@ -41265,14 +41255,14 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %10914, label %10931, label %.thread18712
 
 10931:                                            ; preds = %10930
-  br i1 %10921, label %switch.lookup23237, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11062
+  br i1 %10921, label %switch.lookup23238, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11062
 
-switch.lookup23237:                               ; preds = %10931
-  %switch.load23240 = load i32, ptr %switch.gep23239, align 4
+switch.lookup23238:                               ; preds = %10931
+  %switch.load23241 = load i32, ptr %switch.gep23240, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11062
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11062: ; preds = %switch.lookup23237, %10931
-  %.0.i.i.i11063 = phi i32 [ 0, %10931 ], [ %switch.load23240, %switch.lookup23237 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11062: ; preds = %switch.lookup23238, %10931
+  %.0.i.i.i11063 = phi i32 [ 0, %10931 ], [ %switch.load23241, %switch.lookup23238 ]
   %10932 = shl nuw nsw i32 %.0.i.i.i11063, %10920
   %10933 = icmp samesign ult i32 %10932, 65
   %or.cond20106 = and i1 %10933, %switch.i.i11066
@@ -41289,17 +41279,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11062: ; pre
   %.0.i.i.i.i11068 = select i1 %10937, i16 %.sroa.02357.0.copyload, i16 %10939
   %trunc20007 = trunc nuw i16 %.0.i.i.i.i11068 to i8
   %10940 = icmp sgt i8 %trunc20007, 117
-  br i1 %10940, label %switch.lookup23241, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11069
+  br i1 %10940, label %switch.lookup23242, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11069
 
-switch.lookup23241:                               ; preds = %10936
-  %switch.tableidx23242 = add nsw i8 %trunc20007, -118
-  %10941 = sext i8 %switch.tableidx23242 to i64
-  %switch.gep23243 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10941
-  %switch.load23244 = load i32, ptr %switch.gep23243, align 4
+switch.lookup23242:                               ; preds = %10936
+  %switch.tableidx23243 = add nsw i8 %trunc20007, -118
+  %10941 = sext i8 %switch.tableidx23243 to i64
+  %switch.gep23244 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10941
+  %switch.load23245 = load i32, ptr %switch.gep23244, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11069
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11069: ; preds = %switch.lookup23241, %10936
-  %.0.i.i.i11070 = phi i32 [ 0, %10936 ], [ %switch.load23244, %switch.lookup23241 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11069: ; preds = %switch.lookup23242, %10936
+  %.0.i.i.i11070 = phi i32 [ 0, %10936 ], [ %switch.load23245, %switch.lookup23242 ]
   %10942 = call i16 @llvm.usub.sat.i16(i16 %.sroa.02357.0.copyload, i16 112)
   %10943 = lshr i16 %10942, 4
   %10944 = zext nneg i16 %10943 to i32
@@ -41333,17 +41323,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11069: ; pre
   %.0.i.i.i.i11075 = select i1 %10955, i16 %.sroa.02357.0.copyload, i16 %10957
   %trunc20008 = trunc nuw i16 %.0.i.i.i.i11075 to i8
   %10958 = icmp sgt i8 %trunc20008, 117
-  br i1 %10958, label %switch.lookup23245, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11076
+  br i1 %10958, label %switch.lookup23246, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11076
 
-switch.lookup23245:                               ; preds = %10954
-  %switch.tableidx23246 = add nsw i8 %trunc20008, -118
-  %10959 = sext i8 %switch.tableidx23246 to i64
-  %switch.gep23247 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10959
-  %switch.load23248 = load i32, ptr %switch.gep23247, align 4
+switch.lookup23246:                               ; preds = %10954
+  %switch.tableidx23247 = add nsw i8 %trunc20008, -118
+  %10959 = sext i8 %switch.tableidx23247 to i64
+  %switch.gep23248 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %10959
+  %switch.load23249 = load i32, ptr %switch.gep23248, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11076
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11076: ; preds = %switch.lookup23245, %10954
-  %.0.i.i.i11077 = phi i32 [ 0, %10954 ], [ %switch.load23248, %switch.lookup23245 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11076: ; preds = %switch.lookup23246, %10954
+  %.0.i.i.i11077 = phi i32 [ 0, %10954 ], [ %switch.load23249, %switch.lookup23246 ]
   %10960 = call i16 @llvm.usub.sat.i16(i16 %.sroa.02357.0.copyload, i16 112)
   %10961 = lshr i16 %10960, 4
   %10962 = zext nneg i16 %10961 to i32
@@ -41682,17 +41672,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i11124 = select i1 %11063, i16 %.sroa.015602.0.copyload, i16 %11065
   %trunc20009 = trunc nuw i16 %.0.i.i.i.i11124 to i8
   %11066 = icmp sgt i8 %trunc20009, 117
-  br i1 %11066, label %switch.lookup23249, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11125
+  br i1 %11066, label %switch.lookup23250, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11125
 
-switch.lookup23249:                               ; preds = %11062
-  %switch.tableidx23250 = add nsw i8 %trunc20009, -118
-  %11067 = sext i8 %switch.tableidx23250 to i64
-  %switch.gep23251 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11067
-  %switch.load23252 = load i32, ptr %switch.gep23251, align 4
+switch.lookup23250:                               ; preds = %11062
+  %switch.tableidx23251 = add nsw i8 %trunc20009, -118
+  %11067 = sext i8 %switch.tableidx23251 to i64
+  %switch.gep23252 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11067
+  %switch.load23253 = load i32, ptr %switch.gep23252, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11125
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11125: ; preds = %switch.lookup23249, %11062
-  %.0.i.i.i11126 = phi i32 [ 0, %11062 ], [ %switch.load23252, %switch.lookup23249 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11125: ; preds = %switch.lookup23250, %11062
+  %.0.i.i.i11126 = phi i32 [ 0, %11062 ], [ %switch.load23253, %switch.lookup23250 ]
   %11068 = call i16 @llvm.usub.sat.i16(i16 %.sroa.015602.0.copyload, i16 112)
   %11069 = lshr i16 %11068, 4
   %11070 = zext nneg i16 %11069 to i32
@@ -42399,17 +42389,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i11237 = select i1 %11227, i16 %.sroa.015546.0.copyload, i16 %11229
   %trunc20005 = trunc nuw i16 %.0.i.i.i.i11237 to i8
   %11230 = icmp sgt i8 %trunc20005, 117
-  br i1 %11230, label %switch.lookup23253, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11238
+  br i1 %11230, label %switch.lookup23254, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11238
 
-switch.lookup23253:                               ; preds = %11226
-  %switch.tableidx23254 = add nsw i8 %trunc20005, -118
-  %11231 = sext i8 %switch.tableidx23254 to i64
-  %switch.gep23255 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11231
-  %switch.load23256 = load i32, ptr %switch.gep23255, align 4
+switch.lookup23254:                               ; preds = %11226
+  %switch.tableidx23255 = add nsw i8 %trunc20005, -118
+  %11231 = sext i8 %switch.tableidx23255 to i64
+  %switch.gep23256 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11231
+  %switch.load23257 = load i32, ptr %switch.gep23256, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11238
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11238: ; preds = %switch.lookup23253, %11226
-  %.0.i.i.i11239 = phi i32 [ 0, %11226 ], [ %switch.load23256, %switch.lookup23253 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11238: ; preds = %switch.lookup23254, %11226
+  %.0.i.i.i11239 = phi i32 [ 0, %11226 ], [ %switch.load23257, %switch.lookup23254 ]
   %11232 = call i16 @llvm.usub.sat.i16(i16 %.sroa.015546.0.copyload, i16 112)
   %11233 = lshr i16 %11232, 4
   %11234 = zext nneg i16 %11233 to i32
@@ -43278,17 +43268,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i11378 = select i1 %11444, i16 %.sroa.015710.0.copyload, i16 %11446
   %trunc20004 = trunc nuw i16 %.0.i.i.i.i11378 to i8
   %11447 = icmp sgt i8 %trunc20004, 117
-  br i1 %11447, label %switch.lookup23257, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11379
+  br i1 %11447, label %switch.lookup23258, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11379
 
-switch.lookup23257:                               ; preds = %11443
-  %switch.tableidx23258 = add nsw i8 %trunc20004, -118
-  %11448 = sext i8 %switch.tableidx23258 to i64
-  %switch.gep23259 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11448
-  %switch.load23260 = load i32, ptr %switch.gep23259, align 4
+switch.lookup23258:                               ; preds = %11443
+  %switch.tableidx23259 = add nsw i8 %trunc20004, -118
+  %11448 = sext i8 %switch.tableidx23259 to i64
+  %switch.gep23260 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11448
+  %switch.load23261 = load i32, ptr %switch.gep23260, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11379
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11379: ; preds = %switch.lookup23257, %11443
-  %.0.i.i.i11380 = phi i32 [ 0, %11443 ], [ %switch.load23260, %switch.lookup23257 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11379: ; preds = %switch.lookup23258, %11443
+  %.0.i.i.i11380 = phi i32 [ 0, %11443 ], [ %switch.load23261, %switch.lookup23258 ]
   %11449 = call i16 @llvm.usub.sat.i16(i16 %.sroa.015710.0.copyload, i16 112)
   %11450 = lshr i16 %11449, 4
   %11451 = zext nneg i16 %11450 to i32
@@ -44124,15 +44114,15 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.sroa.2.0.insert.shift.i.i11554 = shl nuw i64 %.sroa.2.0.insert.ext.i.i11553, 32
   %.sroa.0.0.insert.insert.i.i11556 = or disjoint i64 %.sroa.2.0.insert.shift.i.i11554, %.sroa.0.0.insert.ext.i.i11539
   %11659 = icmp samesign ugt i16 %.0.i.i.i.i11525, 117
-  %narrow23444 = add nuw nsw i16 %.0.i.i.i.i11525, 138
-  %switch.tableidx23266 = zext nneg i16 %narrow23444 to i64
-  %sext23443 = shl i64 %switch.tableidx23266, 56
-  %11660 = ashr exact i64 %sext23443, 56
-  %switch.gep23267 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11660
-  %switch.tableidx23262 = add nsw i16 %.0.i.i.i.i11525, -118
-  %11661 = icmp ult i16 %switch.tableidx23262, 10
-  %11662 = zext nneg i16 %switch.tableidx23262 to i64
-  %switch.gep23263 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11662
+  %narrow23445 = add nuw nsw i16 %.0.i.i.i.i11525, 138
+  %switch.tableidx23267 = zext nneg i16 %narrow23445 to i64
+  %sext23444 = shl i64 %switch.tableidx23267, 56
+  %11660 = ashr exact i64 %sext23444, 56
+  %switch.gep23268 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11660
+  %switch.tableidx23263 = add nsw i16 %.0.i.i.i.i11525, -118
+  %11661 = icmp ult i16 %switch.tableidx23263, 10
+  %11662 = zext nneg i16 %switch.tableidx23263 to i64
+  %switch.gep23264 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11662
   br label %11663
 
 11663:                                            ; preds = %.thread18907, %11651
@@ -44188,14 +44178,14 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %11652, label %.thread19813, label %.thread18907
 
 .thread19813:                                     ; preds = %11698, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11526, %11670
-  br i1 %11661, label %switch.lookup23261, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11519
+  br i1 %11661, label %switch.lookup23262, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11519
 
-switch.lookup23261:                               ; preds = %.thread19813
-  %switch.load23264 = load i32, ptr %switch.gep23263, align 4
+switch.lookup23262:                               ; preds = %.thread19813
+  %switch.load23265 = load i32, ptr %switch.gep23264, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11519
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11519: ; preds = %switch.lookup23261, %.thread19813
-  %.0.i.i.i11520 = phi i32 [ 0, %.thread19813 ], [ %switch.load23264, %switch.lookup23261 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11519: ; preds = %switch.lookup23262, %.thread19813
+  %.0.i.i.i11520 = phi i32 [ 0, %.thread19813 ], [ %switch.load23265, %switch.lookup23262 ]
   %11671 = shl nuw nsw i32 %.0.i.i.i11520, %11658
   %11672 = icmp samesign ult i32 %11671, 65
   %or.cond20108 = and i1 %11672, %switch.i.i11530
@@ -44205,14 +44195,14 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11519: ; pre
   br i1 %11652, label %11674, label %.thread18907
 
 11674:                                            ; preds = %11673
-  br i1 %11659, label %switch.lookup23265, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11526
+  br i1 %11659, label %switch.lookup23266, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11526
 
-switch.lookup23265:                               ; preds = %11674
-  %switch.load23268 = load i32, ptr %switch.gep23267, align 4
+switch.lookup23266:                               ; preds = %11674
+  %switch.load23269 = load i32, ptr %switch.gep23268, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11526
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11526: ; preds = %switch.lookup23265, %11674
-  %.0.i.i.i11527 = phi i32 [ 0, %11674 ], [ %switch.load23268, %switch.lookup23265 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11526: ; preds = %switch.lookup23266, %11674
+  %.0.i.i.i11527 = phi i32 [ 0, %11674 ], [ %switch.load23269, %switch.lookup23266 ]
   %11675 = shl nuw nsw i32 %.0.i.i.i11527, %11658
   %11676 = icmp samesign ult i32 %11675, 65
   %or.cond20107 = and i1 %11676, %switch.i.i11530
@@ -44322,17 +44312,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11526: ; pre
   %.0.i.i.i.i.i11547 = select i1 %11717, i16 %.sroa.02562.0.copyload, i16 %11719
   %trunc20003 = trunc nuw i16 %.0.i.i.i.i.i11547 to i8
   %11720 = icmp sgt i8 %trunc20003, 117
-  br i1 %11720, label %switch.lookup23269, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11548
+  br i1 %11720, label %switch.lookup23270, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11548
 
-switch.lookup23269:                               ; preds = %11716
-  %switch.tableidx23270 = add nsw i8 %trunc20003, -118
-  %11721 = sext i8 %switch.tableidx23270 to i64
-  %switch.gep23271 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11721
-  %switch.load23272 = load i32, ptr %switch.gep23271, align 4
+switch.lookup23270:                               ; preds = %11716
+  %switch.tableidx23271 = add nsw i8 %trunc20003, -118
+  %11721 = sext i8 %switch.tableidx23271 to i64
+  %switch.gep23272 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11721
+  %switch.load23273 = load i32, ptr %switch.gep23272, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11548
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11548: ; preds = %switch.lookup23269, %11716
-  %.0.i.i.i.i11549 = phi i32 [ 0, %11716 ], [ %switch.load23272, %switch.lookup23269 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11548: ; preds = %switch.lookup23270, %11716
+  %.0.i.i.i.i11549 = phi i32 [ 0, %11716 ], [ %switch.load23273, %switch.lookup23270 ]
   %11722 = call i16 @llvm.usub.sat.i16(i16 %.sroa.02562.0.copyload, i16 112)
   %11723 = lshr i16 %11722, 4
   %11724 = zext nneg i16 %11723 to i32
@@ -44490,15 +44480,15 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.sroa.2.0.insert.shift.i.i11620 = shl nuw i64 %.sroa.2.0.insert.ext.i.i11619, 32
   %.sroa.0.0.insert.insert.i.i11622 = or disjoint i64 %.sroa.2.0.insert.shift.i.i11620, %.sroa.0.0.insert.ext.i.i11604
   %11773 = icmp samesign ugt i16 %.0.i.i.i.i11590, 117
-  %narrow23442 = add nuw nsw i16 %.0.i.i.i.i11590, 138
-  %switch.tableidx23278 = zext nneg i16 %narrow23442 to i64
-  %sext23441 = shl i64 %switch.tableidx23278, 56
-  %11774 = ashr exact i64 %sext23441, 56
-  %switch.gep23279 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11774
-  %switch.tableidx23274 = add nsw i16 %.0.i.i.i.i11590, -118
-  %11775 = icmp ult i16 %switch.tableidx23274, 10
-  %11776 = zext nneg i16 %switch.tableidx23274 to i64
-  %switch.gep23275 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11776
+  %narrow23443 = add nuw nsw i16 %.0.i.i.i.i11590, 138
+  %switch.tableidx23279 = zext nneg i16 %narrow23443 to i64
+  %sext23442 = shl i64 %switch.tableidx23279, 56
+  %11774 = ashr exact i64 %sext23442, 56
+  %switch.gep23280 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11774
+  %switch.tableidx23275 = add nsw i16 %.0.i.i.i.i11590, -118
+  %11775 = icmp ult i16 %switch.tableidx23275, 10
+  %11776 = zext nneg i16 %switch.tableidx23275 to i64
+  %switch.gep23276 = getelementptr inbounds nuw [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11776
   br label %11777
 
 11777:                                            ; preds = %.thread18924, %11765
@@ -44554,14 +44544,14 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %11766, label %.thread19816, label %.thread18924
 
 .thread19816:                                     ; preds = %11812, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11591, %11784
-  br i1 %11775, label %switch.lookup23273, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11584
+  br i1 %11775, label %switch.lookup23274, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11584
 
-switch.lookup23273:                               ; preds = %.thread19816
-  %switch.load23276 = load i32, ptr %switch.gep23275, align 4
+switch.lookup23274:                               ; preds = %.thread19816
+  %switch.load23277 = load i32, ptr %switch.gep23276, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11584
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11584: ; preds = %switch.lookup23273, %.thread19816
-  %.0.i.i.i11585 = phi i32 [ 0, %.thread19816 ], [ %switch.load23276, %switch.lookup23273 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11584: ; preds = %switch.lookup23274, %.thread19816
+  %.0.i.i.i11585 = phi i32 [ 0, %.thread19816 ], [ %switch.load23277, %switch.lookup23274 ]
   %11785 = shl nuw nsw i32 %.0.i.i.i11585, %11772
   %11786 = icmp samesign ult i32 %11785, 65
   %or.cond20110 = and i1 %11786, %switch.i.i11595
@@ -44571,14 +44561,14 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11584: ; pre
   br i1 %11766, label %11788, label %.thread18924
 
 11788:                                            ; preds = %11787
-  br i1 %11773, label %switch.lookup23277, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11591
+  br i1 %11773, label %switch.lookup23278, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11591
 
-switch.lookup23277:                               ; preds = %11788
-  %switch.load23280 = load i32, ptr %switch.gep23279, align 4
+switch.lookup23278:                               ; preds = %11788
+  %switch.load23281 = load i32, ptr %switch.gep23280, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11591
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11591: ; preds = %switch.lookup23277, %11788
-  %.0.i.i.i11592 = phi i32 [ 0, %11788 ], [ %switch.load23280, %switch.lookup23277 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11591: ; preds = %switch.lookup23278, %11788
+  %.0.i.i.i11592 = phi i32 [ 0, %11788 ], [ %switch.load23281, %switch.lookup23278 ]
   %11789 = shl nuw nsw i32 %.0.i.i.i11592, %11772
   %11790 = icmp samesign ult i32 %11789, 65
   %or.cond20109 = and i1 %11790, %switch.i.i11595
@@ -44688,17 +44678,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11591: ; pre
   %.0.i.i.i.i.i11612 = select i1 %11831, i16 %.sroa.02531.0.copyload, i16 %11833
   %trunc20001 = trunc nuw i16 %.0.i.i.i.i.i11612 to i8
   %11834 = icmp sgt i8 %trunc20001, 117
-  br i1 %11834, label %switch.lookup23281, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11613
+  br i1 %11834, label %switch.lookup23282, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11613
 
-switch.lookup23281:                               ; preds = %11830
-  %switch.tableidx23282 = add nsw i8 %trunc20001, -118
-  %11835 = sext i8 %switch.tableidx23282 to i64
-  %switch.gep23283 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11835
-  %switch.load23284 = load i32, ptr %switch.gep23283, align 4
+switch.lookup23282:                               ; preds = %11830
+  %switch.tableidx23283 = add nsw i8 %trunc20001, -118
+  %11835 = sext i8 %switch.tableidx23283 to i64
+  %switch.gep23284 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11835
+  %switch.load23285 = load i32, ptr %switch.gep23284, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11613
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11613: ; preds = %switch.lookup23281, %11830
-  %.0.i.i.i.i11614 = phi i32 [ 0, %11830 ], [ %switch.load23284, %switch.lookup23281 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11613: ; preds = %switch.lookup23282, %11830
+  %.0.i.i.i.i11614 = phi i32 [ 0, %11830 ], [ %switch.load23285, %switch.lookup23282 ]
   %11836 = call i16 @llvm.usub.sat.i16(i16 %.sroa.02531.0.copyload, i16 112)
   %11837 = lshr i16 %11836, 4
   %11838 = zext nneg i16 %11837 to i32
@@ -44885,17 +44875,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11613: ; p
   %.0.i.i.i.i.i11650 = select i1 %11890, i16 %.sroa.02509.0.copyload, i16 %11892
   %trunc19999 = trunc nuw i16 %.0.i.i.i.i.i11650 to i8
   %11893 = icmp sgt i8 %trunc19999, 117
-  br i1 %11893, label %switch.lookup23285, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11651
+  br i1 %11893, label %switch.lookup23286, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11651
 
-switch.lookup23285:                               ; preds = %11889
-  %switch.tableidx23286 = add nsw i8 %trunc19999, -118
-  %11894 = sext i8 %switch.tableidx23286 to i64
-  %switch.gep23287 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11894
-  %switch.load23288 = load i32, ptr %switch.gep23287, align 4
+switch.lookup23286:                               ; preds = %11889
+  %switch.tableidx23287 = add nsw i8 %trunc19999, -118
+  %11894 = sext i8 %switch.tableidx23287 to i64
+  %switch.gep23288 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11894
+  %switch.load23289 = load i32, ptr %switch.gep23288, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11651
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11651: ; preds = %switch.lookup23285, %11889
-  %.0.i.i.i.i11652 = phi i32 [ 0, %11889 ], [ %switch.load23288, %switch.lookup23285 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11651: ; preds = %switch.lookup23286, %11889
+  %.0.i.i.i.i11652 = phi i32 [ 0, %11889 ], [ %switch.load23289, %switch.lookup23286 ]
   %11895 = call i16 @llvm.usub.sat.i16(i16 %.sroa.02509.0.copyload, i16 112)
   %11896 = lshr i16 %11895, 4
   %11897 = zext nneg i16 %11896 to i32
@@ -45130,17 +45120,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11651: ; p
   %.0.i.i.i.i.i11685 = select i1 %11971, i16 %.sroa.02591.0.copyload, i16 %11973
   %trunc19997 = trunc nuw i16 %.0.i.i.i.i.i11685 to i8
   %11974 = icmp sgt i8 %trunc19997, 117
-  br i1 %11974, label %switch.lookup23289, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11686
+  br i1 %11974, label %switch.lookup23290, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11686
 
-switch.lookup23289:                               ; preds = %11970
-  %switch.tableidx23290 = add nsw i8 %trunc19997, -118
-  %11975 = sext i8 %switch.tableidx23290 to i64
-  %switch.gep23291 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11975
-  %switch.load23292 = load i32, ptr %switch.gep23291, align 4
+switch.lookup23290:                               ; preds = %11970
+  %switch.tableidx23291 = add nsw i8 %trunc19997, -118
+  %11975 = sext i8 %switch.tableidx23291 to i64
+  %switch.gep23292 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %11975
+  %switch.load23293 = load i32, ptr %switch.gep23292, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11686
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11686: ; preds = %switch.lookup23289, %11970
-  %.0.i.i.i.i11687 = phi i32 [ 0, %11970 ], [ %switch.load23292, %switch.lookup23289 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11686: ; preds = %switch.lookup23290, %11970
+  %.0.i.i.i.i11687 = phi i32 [ 0, %11970 ], [ %switch.load23293, %switch.lookup23290 ]
   %11976 = call i16 @llvm.usub.sat.i16(i16 %.sroa.02591.0.copyload, i16 112)
   %11977 = lshr i16 %11976, 4
   %11978 = zext nneg i16 %11977 to i32
@@ -45338,7 +45328,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %12041 = add i8 %.sroa.550.0.copyload, -6
   %switch.i = icmp ult i8 %12041, -4
   %12042 = sext i8 %.sroa.550.0.copyload to i64
-  %switch.gep23298 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.160, i64 0, i64 %12042
+  %switch.gep23299 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.160, i64 0, i64 %12042
   br label %12043
 
 12043:                                            ; preds = %12050, %12040
@@ -45485,17 +45475,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i11733 = select i1 %12074, i16 %.sroa.015769.0.copyload, i16 %12076
   %trunc20023 = trunc nuw i16 %.0.i.i.i.i11733 to i8
   %12077 = icmp sgt i8 %trunc20023, 117
-  br i1 %12077, label %switch.lookup23293, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11734
+  br i1 %12077, label %switch.lookup23294, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11734
 
-switch.lookup23293:                               ; preds = %12073
-  %switch.tableidx23294 = add nsw i8 %trunc20023, -118
-  %12078 = sext i8 %switch.tableidx23294 to i64
-  %switch.gep23295 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12078
-  %switch.load23296 = load i32, ptr %switch.gep23295, align 4
+switch.lookup23294:                               ; preds = %12073
+  %switch.tableidx23295 = add nsw i8 %trunc20023, -118
+  %12078 = sext i8 %switch.tableidx23295 to i64
+  %switch.gep23296 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12078
+  %switch.load23297 = load i32, ptr %switch.gep23296, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11734
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11734: ; preds = %switch.lookup23293, %12073
-  %.0.i.i.i11735 = phi i32 [ 0, %12073 ], [ %switch.load23296, %switch.lookup23293 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11734: ; preds = %switch.lookup23294, %12073
+  %.0.i.i.i11735 = phi i32 [ 0, %12073 ], [ %switch.load23297, %switch.lookup23294 ]
   %12079 = call i16 @llvm.usub.sat.i16(i16 %.sroa.015769.0.copyload, i16 112)
   %12080 = lshr i16 %12079, 4
   %12081 = zext nneg i16 %12080 to i32
@@ -45675,13 +45665,13 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %12141 = ashr exact i64 %12140, %12139
   %.061325.i = select i1 %12137, i64 %.sroa.102615.0.copyload, i64 %12141
   %12142 = icmp sgt i8 %trunc20018, 117
-  %switch.tableidx23301 = add nsw i8 %trunc20018, -118
-  %12143 = sext i8 %switch.tableidx23301 to i64
-  %switch.gep23302 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12143
+  %switch.tableidx23302 = add nsw i8 %trunc20018, -118
+  %12143 = sext i8 %switch.tableidx23302 to i64
+  %switch.gep23303 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12143
   %12144 = icmp sgt i8 %trunc20018, 117
-  %switch.tableidx23305 = add nsw i8 %trunc20018, -118
-  %12145 = sext i8 %switch.tableidx23305 to i64
-  %switch.gep23306 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12145
+  %switch.tableidx23306 = add nsw i8 %trunc20018, -118
+  %12145 = sext i8 %switch.tableidx23306 to i64
+  %switch.gep23307 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12145
   br label %12146
 
 12146:                                            ; preds = %12154, %12124
@@ -45694,7 +45684,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           cleanup
   br label %.loopexit.split-lp20832
 
-.loopexit.split-lp20832.loopexit:                 ; preds = %switch.lookup23297, %12241
+.loopexit.split-lp20832.loopexit:                 ; preds = %switch.lookup23298, %12241
   %lpad.loopexit21217 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp20832
@@ -45712,7 +45702,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 12147:                                            ; preds = %12146
   %12148 = load i8, ptr %2499, align 8, !range !1480, !noundef !5
   %.not5065 = icmp eq i8 %12148, 36
-  br i1 %.not5065, label %switch.lookup23297, label %12149
+  br i1 %.not5065, label %switch.lookup23298, label %12149
 
 12149:                                            ; preds = %12147
   %.sroa.02619.0.copyload = load i16, ptr %919, align 8
@@ -45725,13 +45715,13 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %or.cond6008 = select i1 %or.cond6007, i1 %12152, i1 false
   br i1 %or.cond6008, label %12155, label %12154
 
-switch.lookup23297:                               ; preds = %12147
+switch.lookup23298:                               ; preds = %12147
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %919)
-  %switch.load23299 = load i8, ptr %switch.gep23298, align 1
+  %switch.load23300 = load i8, ptr %switch.gep23299, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %194), !noalias !5669
   store i8 75, ptr %2507, align 1, !noalias !5669
   store i64 %.sroa.0.0.insert.insert.i.i11792, ptr %2508, align 4, !noalias !5669
-  store i8 %switch.load23299, ptr %2509, align 2, !noalias !5669
+  store i8 %switch.load23300, ptr %2509, align 2, !noalias !5669
   store i8 15, ptr %194, align 8, !noalias !5669
   %12153 = invoke noundef i32 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$14make_inst_ctor17hce8b5af89b3aa23bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i16 noundef %.sroa.013804.0.copyload.fr, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %194)
           to label %12241 unwind label %.loopexit.split-lp20832.loopexit
@@ -45744,14 +45734,14 @@ switch.lookup23297:                               ; preds = %12147
   br i1 %12125, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit11.thread.i, label %12156
 
 12156:                                            ; preds = %12155
-  br i1 %12142, label %switch.lookup23300, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11771
+  br i1 %12142, label %switch.lookup23301, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11771
 
-switch.lookup23300:                               ; preds = %12156
-  %switch.load23303 = load i32, ptr %switch.gep23302, align 4
+switch.lookup23301:                               ; preds = %12156
+  %switch.load23304 = load i32, ptr %switch.gep23303, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11771
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11771: ; preds = %switch.lookup23300, %12156
-  %.0.i.i.i.i11772 = phi i32 [ 0, %12156 ], [ %switch.load23303, %switch.lookup23300 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11771: ; preds = %switch.lookup23301, %12156
+  %.0.i.i.i.i11772 = phi i32 [ 0, %12156 ], [ %switch.load23304, %switch.lookup23301 ]
   %12157 = shl nuw nsw i32 %.0.i.i.i.i11772, %12131
   %12158 = icmp samesign ugt i32 %12157, 64
   br i1 %12158, label %.invoke22685, label %12159
@@ -45762,14 +45752,14 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i11771: ; p
   %12162 = zext nneg i32 %12161 to i64
   %12163 = lshr i64 -1, %12162
   %12164 = and i64 %12163, %.sroa.102615.0.copyload
-  br i1 %12144, label %switch.lookup23304, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i2.i
+  br i1 %12144, label %switch.lookup23305, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i2.i
 
-switch.lookup23304:                               ; preds = %12159
-  %switch.load23307 = load i32, ptr %switch.gep23306, align 4
+switch.lookup23305:                               ; preds = %12159
+  %switch.load23308 = load i32, ptr %switch.gep23307, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i2.i
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i2.i: ; preds = %switch.lookup23304, %12159
-  %.0.i.i.i3.i11773 = phi i32 [ 0, %12159 ], [ %switch.load23307, %switch.lookup23304 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i2.i: ; preds = %switch.lookup23305, %12159
+  %.0.i.i.i3.i11773 = phi i32 [ 0, %12159 ], [ %switch.load23308, %switch.lookup23305 ]
   %12165 = shl nuw nsw i32 %.0.i.i.i3.i11773, %12131
   %12166 = icmp samesign ugt i32 %12165, 64
   br i1 %12166, label %.invoke22685, label %12167
@@ -45995,7 +45985,7 @@ default.unreachable.i11775:                       ; preds = %_ZN17cranelift_code
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %920)
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit11788" unwind label %.loopexit.split-lp21222
 
-12241:                                            ; preds = %switch.lookup23297
+12241:                                            ; preds = %switch.lookup23298
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %194), !noalias !5669
   invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h808eb5d9d5bedae3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1, i32 %12153)
           to label %12242 unwind label %.loopexit.split-lp20832.loopexit
@@ -46310,17 +46300,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i11833 = select i1 %12301, i16 %.sroa.015959.0.copyload, i16 %12303
   %trunc19982 = trunc nuw i16 %.0.i.i.i.i11833 to i8
   %12304 = icmp sgt i8 %trunc19982, 117
-  br i1 %12304, label %switch.lookup23308, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11834
+  br i1 %12304, label %switch.lookup23309, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11834
 
-switch.lookup23308:                               ; preds = %12300
-  %switch.tableidx23309 = add nsw i8 %trunc19982, -118
-  %12305 = sext i8 %switch.tableidx23309 to i64
-  %switch.gep23310 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12305
-  %switch.load23311 = load i32, ptr %switch.gep23310, align 4
+switch.lookup23309:                               ; preds = %12300
+  %switch.tableidx23310 = add nsw i8 %trunc19982, -118
+  %12305 = sext i8 %switch.tableidx23310 to i64
+  %switch.gep23311 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12305
+  %switch.load23312 = load i32, ptr %switch.gep23311, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11834
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11834: ; preds = %switch.lookup23308, %12300
-  %.0.i.i.i11835 = phi i32 [ 0, %12300 ], [ %switch.load23311, %switch.lookup23308 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11834: ; preds = %switch.lookup23309, %12300
+  %.0.i.i.i11835 = phi i32 [ 0, %12300 ], [ %switch.load23312, %switch.lookup23309 ]
   %12306 = call i16 @llvm.usub.sat.i16(i16 %.sroa.015959.0.copyload, i16 112)
   %12307 = lshr i16 %12306, 4
   %12308 = zext nneg i16 %12307 to i32
@@ -46589,17 +46579,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11836
   %.0.i.i.i.i11864 = select i1 %12379, i16 %.sroa.016027.0.copyload, i16 %12381
   %trunc19990 = trunc nuw i16 %.0.i.i.i.i11864 to i8
   %12382 = icmp sgt i8 %trunc19990, 117
-  br i1 %12382, label %switch.lookup23312, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11865
+  br i1 %12382, label %switch.lookup23313, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11865
 
-switch.lookup23312:                               ; preds = %12378
-  %switch.tableidx23313 = add nsw i8 %trunc19990, -118
-  %12383 = sext i8 %switch.tableidx23313 to i64
-  %switch.gep23314 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12383
-  %switch.load23315 = load i32, ptr %switch.gep23314, align 4
+switch.lookup23313:                               ; preds = %12378
+  %switch.tableidx23314 = add nsw i8 %trunc19990, -118
+  %12383 = sext i8 %switch.tableidx23314 to i64
+  %switch.gep23315 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12383
+  %switch.load23316 = load i32, ptr %switch.gep23315, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11865
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11865: ; preds = %switch.lookup23312, %12378
-  %.0.i.i.i11866 = phi i32 [ 0, %12378 ], [ %switch.load23315, %switch.lookup23312 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11865: ; preds = %switch.lookup23313, %12378
+  %.0.i.i.i11866 = phi i32 [ 0, %12378 ], [ %switch.load23316, %switch.lookup23313 ]
   %12384 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016027.0.copyload, i16 112)
   %12385 = lshr i16 %12384, 4
   %12386 = zext nneg i16 %12385 to i32
@@ -46828,17 +46818,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11867
   %.0.i.i.i.i11901 = select i1 %12443, i16 %.sroa.016015.0.copyload, i16 %12445
   %trunc19989 = trunc nuw i16 %.0.i.i.i.i11901 to i8
   %12446 = icmp sgt i8 %trunc19989, 117
-  br i1 %12446, label %switch.lookup23316, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11902
+  br i1 %12446, label %switch.lookup23317, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11902
 
-switch.lookup23316:                               ; preds = %12442
-  %switch.tableidx23317 = add nsw i8 %trunc19989, -118
-  %12447 = sext i8 %switch.tableidx23317 to i64
-  %switch.gep23318 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12447
-  %switch.load23319 = load i32, ptr %switch.gep23318, align 4
+switch.lookup23317:                               ; preds = %12442
+  %switch.tableidx23318 = add nsw i8 %trunc19989, -118
+  %12447 = sext i8 %switch.tableidx23318 to i64
+  %switch.gep23319 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12447
+  %switch.load23320 = load i32, ptr %switch.gep23319, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11902
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11902: ; preds = %switch.lookup23316, %12442
-  %.0.i.i.i11903 = phi i32 [ 0, %12442 ], [ %switch.load23319, %switch.lookup23316 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11902: ; preds = %switch.lookup23317, %12442
+  %.0.i.i.i11903 = phi i32 [ 0, %12442 ], [ %switch.load23320, %switch.lookup23317 ]
   %12448 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016015.0.copyload, i16 112)
   %12449 = lshr i16 %12448, 4
   %12450 = zext nneg i16 %12449 to i32
@@ -47062,17 +47052,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11904
   %.0.i.i.i.i11936 = select i1 %12506, i16 %.sroa.016003.0.copyload, i16 %12508
   %trunc19988 = trunc nuw i16 %.0.i.i.i.i11936 to i8
   %12509 = icmp sgt i8 %trunc19988, 117
-  br i1 %12509, label %switch.lookup23320, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11937
+  br i1 %12509, label %switch.lookup23321, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11937
 
-switch.lookup23320:                               ; preds = %12505
-  %switch.tableidx23321 = add nsw i8 %trunc19988, -118
-  %12510 = sext i8 %switch.tableidx23321 to i64
-  %switch.gep23322 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12510
-  %switch.load23323 = load i32, ptr %switch.gep23322, align 4
+switch.lookup23321:                               ; preds = %12505
+  %switch.tableidx23322 = add nsw i8 %trunc19988, -118
+  %12510 = sext i8 %switch.tableidx23322 to i64
+  %switch.gep23323 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12510
+  %switch.load23324 = load i32, ptr %switch.gep23323, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11937
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11937: ; preds = %switch.lookup23320, %12505
-  %.0.i.i.i11938 = phi i32 [ 0, %12505 ], [ %switch.load23323, %switch.lookup23320 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11937: ; preds = %switch.lookup23321, %12505
+  %.0.i.i.i11938 = phi i32 [ 0, %12505 ], [ %switch.load23324, %switch.lookup23321 ]
   %12511 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016003.0.copyload, i16 112)
   %12512 = lshr i16 %12511, 4
   %12513 = zext nneg i16 %12512 to i32
@@ -47296,17 +47286,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11939
   %.0.i.i.i.i11971 = select i1 %12569, i16 %.sroa.016039.0.copyload, i16 %12571
   %trunc19987 = trunc nuw i16 %.0.i.i.i.i11971 to i8
   %12572 = icmp sgt i8 %trunc19987, 117
-  br i1 %12572, label %switch.lookup23324, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11972
+  br i1 %12572, label %switch.lookup23325, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11972
 
-switch.lookup23324:                               ; preds = %12568
-  %switch.tableidx23325 = add nsw i8 %trunc19987, -118
-  %12573 = sext i8 %switch.tableidx23325 to i64
-  %switch.gep23326 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12573
-  %switch.load23327 = load i32, ptr %switch.gep23326, align 4
+switch.lookup23325:                               ; preds = %12568
+  %switch.tableidx23326 = add nsw i8 %trunc19987, -118
+  %12573 = sext i8 %switch.tableidx23326 to i64
+  %switch.gep23327 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12573
+  %switch.load23328 = load i32, ptr %switch.gep23327, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11972
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11972: ; preds = %switch.lookup23324, %12568
-  %.0.i.i.i11973 = phi i32 [ 0, %12568 ], [ %switch.load23327, %switch.lookup23324 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i11972: ; preds = %switch.lookup23325, %12568
+  %.0.i.i.i11973 = phi i32 [ 0, %12568 ], [ %switch.load23328, %switch.lookup23325 ]
   %12574 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016039.0.copyload, i16 112)
   %12575 = lshr i16 %12574, 4
   %12576 = zext nneg i16 %12575 to i32
@@ -47530,17 +47520,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i11974
   %.0.i.i.i.i12006 = select i1 %12632, i16 %.sroa.016075.0.copyload, i16 %12634
   %trunc19986 = trunc nuw i16 %.0.i.i.i.i12006 to i8
   %12635 = icmp sgt i8 %trunc19986, 117
-  br i1 %12635, label %switch.lookup23328, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12007
+  br i1 %12635, label %switch.lookup23329, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12007
 
-switch.lookup23328:                               ; preds = %12631
-  %switch.tableidx23329 = add nsw i8 %trunc19986, -118
-  %12636 = sext i8 %switch.tableidx23329 to i64
-  %switch.gep23330 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12636
-  %switch.load23331 = load i32, ptr %switch.gep23330, align 4
+switch.lookup23329:                               ; preds = %12631
+  %switch.tableidx23330 = add nsw i8 %trunc19986, -118
+  %12636 = sext i8 %switch.tableidx23330 to i64
+  %switch.gep23331 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12636
+  %switch.load23332 = load i32, ptr %switch.gep23331, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12007
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12007: ; preds = %switch.lookup23328, %12631
-  %.0.i.i.i12008 = phi i32 [ 0, %12631 ], [ %switch.load23331, %switch.lookup23328 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12007: ; preds = %switch.lookup23329, %12631
+  %.0.i.i.i12008 = phi i32 [ 0, %12631 ], [ %switch.load23332, %switch.lookup23329 ]
   %12637 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016075.0.copyload, i16 112)
   %12638 = lshr i16 %12637, 4
   %12639 = zext nneg i16 %12638 to i32
@@ -47764,17 +47754,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12009
   %.0.i.i.i.i12041 = select i1 %12695, i16 %.sroa.016063.0.copyload, i16 %12697
   %trunc19985 = trunc nuw i16 %.0.i.i.i.i12041 to i8
   %12698 = icmp sgt i8 %trunc19985, 117
-  br i1 %12698, label %switch.lookup23332, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12042
+  br i1 %12698, label %switch.lookup23333, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12042
 
-switch.lookup23332:                               ; preds = %12694
-  %switch.tableidx23333 = add nsw i8 %trunc19985, -118
-  %12699 = sext i8 %switch.tableidx23333 to i64
-  %switch.gep23334 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12699
-  %switch.load23335 = load i32, ptr %switch.gep23334, align 4
+switch.lookup23333:                               ; preds = %12694
+  %switch.tableidx23334 = add nsw i8 %trunc19985, -118
+  %12699 = sext i8 %switch.tableidx23334 to i64
+  %switch.gep23335 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12699
+  %switch.load23336 = load i32, ptr %switch.gep23335, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12042
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12042: ; preds = %switch.lookup23332, %12694
-  %.0.i.i.i12043 = phi i32 [ 0, %12694 ], [ %switch.load23335, %switch.lookup23332 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12042: ; preds = %switch.lookup23333, %12694
+  %.0.i.i.i12043 = phi i32 [ 0, %12694 ], [ %switch.load23336, %switch.lookup23333 ]
   %12700 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016063.0.copyload, i16 112)
   %12701 = lshr i16 %12700, 4
   %12702 = zext nneg i16 %12701 to i32
@@ -47998,17 +47988,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12044
   %.0.i.i.i.i12076 = select i1 %12758, i16 %.sroa.016051.0.copyload, i16 %12760
   %trunc19984 = trunc nuw i16 %.0.i.i.i.i12076 to i8
   %12761 = icmp sgt i8 %trunc19984, 117
-  br i1 %12761, label %switch.lookup23336, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12077
+  br i1 %12761, label %switch.lookup23337, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12077
 
-switch.lookup23336:                               ; preds = %12757
-  %switch.tableidx23337 = add nsw i8 %trunc19984, -118
-  %12762 = sext i8 %switch.tableidx23337 to i64
-  %switch.gep23338 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12762
-  %switch.load23339 = load i32, ptr %switch.gep23338, align 4
+switch.lookup23337:                               ; preds = %12757
+  %switch.tableidx23338 = add nsw i8 %trunc19984, -118
+  %12762 = sext i8 %switch.tableidx23338 to i64
+  %switch.gep23339 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12762
+  %switch.load23340 = load i32, ptr %switch.gep23339, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12077
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12077: ; preds = %switch.lookup23336, %12757
-  %.0.i.i.i12078 = phi i32 [ 0, %12757 ], [ %switch.load23339, %switch.lookup23336 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12077: ; preds = %switch.lookup23337, %12757
+  %.0.i.i.i12078 = phi i32 [ 0, %12757 ], [ %switch.load23340, %switch.lookup23337 ]
   %12763 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016051.0.copyload, i16 112)
   %12764 = lshr i16 %12763, 4
   %12765 = zext nneg i16 %12764 to i32
@@ -48232,17 +48222,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12079
   %.0.i.i.i.i12111 = select i1 %12821, i16 %.sroa.016087.0.copyload, i16 %12823
   %trunc19983 = trunc nuw i16 %.0.i.i.i.i12111 to i8
   %12824 = icmp sgt i8 %trunc19983, 117
-  br i1 %12824, label %switch.lookup23340, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12112
+  br i1 %12824, label %switch.lookup23341, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12112
 
-switch.lookup23340:                               ; preds = %12820
-  %switch.tableidx23341 = add nsw i8 %trunc19983, -118
-  %12825 = sext i8 %switch.tableidx23341 to i64
-  %switch.gep23342 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12825
-  %switch.load23343 = load i32, ptr %switch.gep23342, align 4
+switch.lookup23341:                               ; preds = %12820
+  %switch.tableidx23342 = add nsw i8 %trunc19983, -118
+  %12825 = sext i8 %switch.tableidx23342 to i64
+  %switch.gep23343 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12825
+  %switch.load23344 = load i32, ptr %switch.gep23343, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12112
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12112: ; preds = %switch.lookup23340, %12820
-  %.0.i.i.i12113 = phi i32 [ 0, %12820 ], [ %switch.load23343, %switch.lookup23340 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12112: ; preds = %switch.lookup23341, %12820
+  %.0.i.i.i12113 = phi i32 [ 0, %12820 ], [ %switch.load23344, %switch.lookup23341 ]
   %12826 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016087.0.copyload, i16 112)
   %12827 = lshr i16 %12826, 4
   %12828 = zext nneg i16 %12827 to i32
@@ -48457,17 +48447,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i12114
   %.0.i.i.i.i12150 = select i1 %12866, i16 %.sroa.016143.0.copyload, i16 %12868
   %trunc19981 = trunc nuw i16 %.0.i.i.i.i12150 to i8
   %12869 = icmp sgt i8 %trunc19981, 117
-  br i1 %12869, label %switch.lookup23344, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12151
+  br i1 %12869, label %switch.lookup23345, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12151
 
-switch.lookup23344:                               ; preds = %12865
-  %switch.tableidx23345 = add nsw i8 %trunc19981, -118
-  %12870 = sext i8 %switch.tableidx23345 to i64
-  %switch.gep23346 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12870
-  %switch.load23347 = load i32, ptr %switch.gep23346, align 4
+switch.lookup23345:                               ; preds = %12865
+  %switch.tableidx23346 = add nsw i8 %trunc19981, -118
+  %12870 = sext i8 %switch.tableidx23346 to i64
+  %switch.gep23347 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %12870
+  %switch.load23348 = load i32, ptr %switch.gep23347, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12151
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12151: ; preds = %switch.lookup23344, %12865
-  %.0.i.i.i12152 = phi i32 [ 0, %12865 ], [ %switch.load23347, %switch.lookup23344 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12151: ; preds = %switch.lookup23345, %12865
+  %.0.i.i.i12152 = phi i32 [ 0, %12865 ], [ %switch.load23348, %switch.lookup23345 ]
   %12871 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016143.0.copyload, i16 112)
   %12872 = lshr i16 %12871, 4
   %12873 = zext nneg i16 %12872 to i32
@@ -49159,17 +49149,17 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
   %.0.i.i.i.i12256 = select i1 %13057, i16 %.sroa.016099.0.copyload, i16 %13059
   %trunc19980 = trunc nuw i16 %.0.i.i.i.i12256 to i8
   %13060 = icmp sgt i8 %trunc19980, 117
-  br i1 %13060, label %switch.lookup23348, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12257
+  br i1 %13060, label %switch.lookup23349, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12257
 
-switch.lookup23348:                               ; preds = %13056
-  %switch.tableidx23349 = add nsw i8 %trunc19980, -118
-  %13061 = sext i8 %switch.tableidx23349 to i64
-  %switch.gep23350 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13061
-  %switch.load23351 = load i32, ptr %switch.gep23350, align 4
+switch.lookup23349:                               ; preds = %13056
+  %switch.tableidx23350 = add nsw i8 %trunc19980, -118
+  %13061 = sext i8 %switch.tableidx23350 to i64
+  %switch.gep23351 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13061
+  %switch.load23352 = load i32, ptr %switch.gep23351, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12257
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12257: ; preds = %switch.lookup23348, %13056
-  %.0.i.i.i12258 = phi i32 [ 0, %13056 ], [ %switch.load23351, %switch.lookup23348 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12257: ; preds = %switch.lookup23349, %13056
+  %.0.i.i.i12258 = phi i32 [ 0, %13056 ], [ %switch.load23352, %switch.lookup23349 ]
   %13062 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016099.0.copyload, i16 112)
   %13063 = lshr i16 %13062, 4
   %13064 = zext nneg i16 %13063 to i32
@@ -49595,17 +49585,17 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
   %.0.i.i.i.i12335 = select i1 %13173, i16 %.sroa.016121.0.copyload, i16 %13175
   %trunc19979 = trunc nuw i16 %.0.i.i.i.i12335 to i8
   %13176 = icmp sgt i8 %trunc19979, 117
-  br i1 %13176, label %switch.lookup23352, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12336
+  br i1 %13176, label %switch.lookup23353, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12336
 
-switch.lookup23352:                               ; preds = %13172
-  %switch.tableidx23353 = add nsw i8 %trunc19979, -118
-  %13177 = sext i8 %switch.tableidx23353 to i64
-  %switch.gep23354 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13177
-  %switch.load23355 = load i32, ptr %switch.gep23354, align 4
+switch.lookup23353:                               ; preds = %13172
+  %switch.tableidx23354 = add nsw i8 %trunc19979, -118
+  %13177 = sext i8 %switch.tableidx23354 to i64
+  %switch.gep23355 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13177
+  %switch.load23356 = load i32, ptr %switch.gep23355, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12336
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12336: ; preds = %switch.lookup23352, %13172
-  %.0.i.i.i12337 = phi i32 [ 0, %13172 ], [ %switch.load23355, %switch.lookup23352 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12336: ; preds = %switch.lookup23353, %13172
+  %.0.i.i.i12337 = phi i32 [ 0, %13172 ], [ %switch.load23356, %switch.lookup23353 ]
   %13178 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016121.0.copyload, i16 112)
   %13179 = lshr i16 %13178, 4
   %13180 = zext nneg i16 %13179 to i32
@@ -50176,17 +50166,17 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
   %.0.i.i.i.i12447 = select i1 %13336, i16 %.sroa.016210.0.copyload, i16 %13338
   %trunc19978 = trunc nuw i16 %.0.i.i.i.i12447 to i8
   %13339 = icmp sgt i8 %trunc19978, 117
-  br i1 %13339, label %switch.lookup23356, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12448
+  br i1 %13339, label %switch.lookup23357, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12448
 
-switch.lookup23356:                               ; preds = %13335
-  %switch.tableidx23357 = add nsw i8 %trunc19978, -118
-  %13340 = sext i8 %switch.tableidx23357 to i64
-  %switch.gep23358 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13340
-  %switch.load23359 = load i32, ptr %switch.gep23358, align 4
+switch.lookup23357:                               ; preds = %13335
+  %switch.tableidx23358 = add nsw i8 %trunc19978, -118
+  %13340 = sext i8 %switch.tableidx23358 to i64
+  %switch.gep23359 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13340
+  %switch.load23360 = load i32, ptr %switch.gep23359, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12448
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12448: ; preds = %switch.lookup23356, %13335
-  %.0.i.i.i12449 = phi i32 [ 0, %13335 ], [ %switch.load23359, %switch.lookup23356 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12448: ; preds = %switch.lookup23357, %13335
+  %.0.i.i.i12449 = phi i32 [ 0, %13335 ], [ %switch.load23360, %switch.lookup23357 ]
   %13341 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016210.0.copyload, i16 112)
   %13342 = lshr i16 %13341, 4
   %13343 = zext nneg i16 %13342 to i32
@@ -50878,17 +50868,17 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
   %.0.i.i.i.i12564 = select i1 %13527, i16 %.sroa.016166.0.copyload, i16 %13529
   %trunc19977 = trunc nuw i16 %.0.i.i.i.i12564 to i8
   %13530 = icmp sgt i8 %trunc19977, 117
-  br i1 %13530, label %switch.lookup23360, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12565
+  br i1 %13530, label %switch.lookup23361, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12565
 
-switch.lookup23360:                               ; preds = %13526
-  %switch.tableidx23361 = add nsw i8 %trunc19977, -118
-  %13531 = sext i8 %switch.tableidx23361 to i64
-  %switch.gep23362 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13531
-  %switch.load23363 = load i32, ptr %switch.gep23362, align 4
+switch.lookup23361:                               ; preds = %13526
+  %switch.tableidx23362 = add nsw i8 %trunc19977, -118
+  %13531 = sext i8 %switch.tableidx23362 to i64
+  %switch.gep23363 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13531
+  %switch.load23364 = load i32, ptr %switch.gep23363, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12565
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12565: ; preds = %switch.lookup23360, %13526
-  %.0.i.i.i12566 = phi i32 [ 0, %13526 ], [ %switch.load23363, %switch.lookup23360 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12565: ; preds = %switch.lookup23361, %13526
+  %.0.i.i.i12566 = phi i32 [ 0, %13526 ], [ %switch.load23364, %switch.lookup23361 ]
   %13532 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016166.0.copyload, i16 112)
   %13533 = lshr i16 %13532, 4
   %13534 = zext nneg i16 %13533 to i32
@@ -51314,17 +51304,17 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_sextend_maybe17hd501ba7
   %.0.i.i.i.i12643 = select i1 %13643, i16 %.sroa.016188.0.copyload, i16 %13645
   %trunc19976 = trunc nuw i16 %.0.i.i.i.i12643 to i8
   %13646 = icmp sgt i8 %trunc19976, 117
-  br i1 %13646, label %switch.lookup23364, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12644
+  br i1 %13646, label %switch.lookup23365, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12644
 
-switch.lookup23364:                               ; preds = %13642
-  %switch.tableidx23365 = add nsw i8 %trunc19976, -118
-  %13647 = sext i8 %switch.tableidx23365 to i64
-  %switch.gep23366 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13647
-  %switch.load23367 = load i32, ptr %switch.gep23366, align 4
+switch.lookup23365:                               ; preds = %13642
+  %switch.tableidx23366 = add nsw i8 %trunc19976, -118
+  %13647 = sext i8 %switch.tableidx23366 to i64
+  %switch.gep23367 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13647
+  %switch.load23368 = load i32, ptr %switch.gep23367, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12644
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12644: ; preds = %switch.lookup23364, %13642
-  %.0.i.i.i12645 = phi i32 [ 0, %13642 ], [ %switch.load23367, %switch.lookup23364 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12644: ; preds = %switch.lookup23365, %13642
+  %.0.i.i.i12645 = phi i32 [ 0, %13642 ], [ %switch.load23368, %switch.lookup23365 ]
   %13648 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016188.0.copyload, i16 112)
   %13649 = lshr i16 %13648, 4
   %13650 = zext nneg i16 %13649 to i32
@@ -51877,7 +51867,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.sroa.0.0.insert.ext.i.i12773 = zext i32 %.sroa.5315891.0.copyload to i64
   %.sroa.0.0.insert.insert.i.i12774 = or disjoint i64 %.sroa.2.0.insert.ext.i.i12771, %.sroa.0.0.insert.ext.i.i12773
   %13803 = sext i8 %.sroa.51.0.copyload to i64
-  %switch.gep23369 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.178, i64 0, i64 %13803
+  %switch.gep23370 = getelementptr inbounds [10 x i8], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.178, i64 0, i64 %13803
   br label %13804
 
 13804:                                            ; preds = %13812, %13802
@@ -51973,7 +51963,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   invoke void @"_ZN114_$LT$cranelift_codegen..opts..InstDataEtorIter$u20$as$u20$cranelift_codegen..opts..generated_code..ContextIter$GT$4next17h2f45e28a6ce67538E"(ptr noalias noundef nonnull sret({ [8 x i8], i8, [15 x i8] }) align 8 captures(none) dereferenceable(24) %789, ptr noalias noundef nonnull align 8 dereferenceable(40) %790, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
           to label %13825 unwind label %13823
 
-13823:                                            ; preds = %13834, %switch.lookup23368, %13836, %13822
+13823:                                            ; preds = %13834, %switch.lookup23369, %13836, %13822
   %13824 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %790)
@@ -51992,7 +51982,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %or.cond6094.not19993 = select i1 %13828, i1 true, i1 %13829
   %13830 = icmp eq i64 %.sroa.62985.0.copyload, 0
   %or.cond19957 = select i1 %or.cond6094.not19993, i1 true, i1 %13830
-  br i1 %or.cond19957, label %13832, label %switch.lookup23368
+  br i1 %or.cond19957, label %13832, label %switch.lookup23369
 
 13831:                                            ; preds = %13825
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %789)
@@ -52003,17 +51993,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %789)
   br label %13822
 
-switch.lookup23368:                               ; preds = %13827
-  %switch.load23370 = load i8, ptr %switch.gep23369, align 1
+switch.lookup23369:                               ; preds = %13827
+  %switch.load23371 = load i8, ptr %switch.gep23370, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %120), !noalias !6467
   store i8 75, ptr %2230, align 1, !noalias !6467
   store i64 %.sroa.0.0.insert.insert.i.i12774, ptr %2231, align 4, !noalias !6467
-  store i8 %switch.load23370, ptr %2232, align 2, !noalias !6467
+  store i8 %switch.load23371, ptr %2232, align 2, !noalias !6467
   store i8 15, ptr %120, align 8, !noalias !6467
   %13833 = invoke noundef i32 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$14make_inst_ctor17hce8b5af89b3aa23bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i16 noundef %.sroa.015845.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %120)
           to label %13834 unwind label %13823
 
-13834:                                            ; preds = %switch.lookup23368
+13834:                                            ; preds = %switch.lookup23369
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %120), !noalias !6467
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %119), !noalias !6470
   store i8 68, ptr %2233, align 1, !noalias !6470
@@ -52294,17 +52284,17 @@ _ZN17cranelift_codegen4opts14generated_code25constructor_uextend_maybe17hb2d402a
   %.0.i.i.i.i12817 = select i1 %13902, i16 %.sroa.016236.0.copyload, i16 %13904
   %trunc19994 = trunc nuw i16 %.0.i.i.i.i12817 to i8
   %13905 = icmp sgt i8 %trunc19994, 117
-  br i1 %13905, label %switch.lookup23371, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12818
+  br i1 %13905, label %switch.lookup23372, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12818
 
-switch.lookup23371:                               ; preds = %13901
-  %switch.tableidx23372 = add nsw i8 %trunc19994, -118
-  %13906 = sext i8 %switch.tableidx23372 to i64
-  %switch.gep23373 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13906
-  %switch.load23374 = load i32, ptr %switch.gep23373, align 4
+switch.lookup23372:                               ; preds = %13901
+  %switch.tableidx23373 = add nsw i8 %trunc19994, -118
+  %13906 = sext i8 %switch.tableidx23373 to i64
+  %switch.gep23374 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13906
+  %switch.load23375 = load i32, ptr %switch.gep23374, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12818
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12818: ; preds = %switch.lookup23371, %13901
-  %.0.i.i.i12819 = phi i32 [ 0, %13901 ], [ %switch.load23374, %switch.lookup23371 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12818: ; preds = %switch.lookup23372, %13901
+  %.0.i.i.i12819 = phi i32 [ 0, %13901 ], [ %switch.load23375, %switch.lookup23372 ]
   %13907 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016236.0.copyload, i16 112)
   %13908 = lshr i16 %13907, 4
   %13909 = zext nneg i16 %13908 to i32
@@ -52421,17 +52411,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i12845 = select i1 %13937, i16 %.sroa.016247.0.copyload, i16 %13939
   %trunc19995 = trunc nuw i16 %.0.i.i.i.i12845 to i8
   %13940 = icmp sgt i8 %trunc19995, 117
-  br i1 %13940, label %switch.lookup23375, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12846
+  br i1 %13940, label %switch.lookup23376, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12846
 
-switch.lookup23375:                               ; preds = %13936
-  %switch.tableidx23376 = add nsw i8 %trunc19995, -118
-  %13941 = sext i8 %switch.tableidx23376 to i64
-  %switch.gep23377 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13941
-  %switch.load23378 = load i32, ptr %switch.gep23377, align 4
+switch.lookup23376:                               ; preds = %13936
+  %switch.tableidx23377 = add nsw i8 %trunc19995, -118
+  %13941 = sext i8 %switch.tableidx23377 to i64
+  %switch.gep23378 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %13941
+  %switch.load23379 = load i32, ptr %switch.gep23378, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12846
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12846: ; preds = %switch.lookup23375, %13936
-  %.0.i.i.i12847 = phi i32 [ 0, %13936 ], [ %switch.load23378, %switch.lookup23375 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i12846: ; preds = %switch.lookup23376, %13936
+  %.0.i.i.i12847 = phi i32 [ 0, %13936 ], [ %switch.load23379, %switch.lookup23376 ]
   %13942 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016247.0.copyload, i16 112)
   %13943 = lshr i16 %13942, 4
   %13944 = zext nneg i16 %13943 to i32
@@ -54389,10 +54379,10 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %14542 = and i16 %.sroa.013804.0.copyload.fr, 15
   %14543 = or disjoint i16 %14542, 112
   %.0.i.i13206 = select i1 %14541, i16 %.sroa.013804.0.copyload.fr, i16 %14543
-  %switch.tableidx23380 = add nsw i16 %.0.i.i13206, -118
-  %14544 = icmp ult i16 %switch.tableidx23380, 10
-  %14545 = zext nneg i16 %switch.tableidx23380 to i64
-  %switch.gep23381 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.181, i64 0, i64 %14545
+  %switch.tableidx23381 = add nsw i16 %.0.i.i13206, -118
+  %14544 = icmp ult i16 %switch.tableidx23381, 10
+  %14545 = zext nneg i16 %switch.tableidx23381 to i64
+  %switch.gep23382 = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN17cranelift_codegen4opts14generated_code20constructor_simplify17h34587f803be0bf26E.181, i64 0, i64 %14545
   br label %14546
 
 14546:                                            ; preds = %14553, %14540
@@ -54568,14 +54558,14 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br label %14577
 
 14587:                                            ; preds = %14582
-  br i1 %14544, label %switch.lookup23379, label %14588
+  br i1 %14544, label %switch.lookup23380, label %14588
 
-switch.lookup23379:                               ; preds = %14587
-  %switch.load23382 = load i64, ptr %switch.gep23381, align 8
+switch.lookup23380:                               ; preds = %14587
+  %switch.load23383 = load i64, ptr %switch.gep23382, align 8
   br label %14588
 
-14588:                                            ; preds = %switch.lookup23379, %14587
-  %.0.i.i.i.i13191 = phi i64 [ -1, %14587 ], [ %switch.load23382, %switch.lookup23379 ]
+14588:                                            ; preds = %switch.lookup23380, %14587
+  %.0.i.i.i.i13191 = phi i64 [ -1, %14587 ], [ %switch.load23383, %switch.lookup23380 ]
   %14589 = icmp eq i64 %.sroa.73168.0.copyload, %.0.i.i.i.i13191
   %14590 = icmp eq i16 %.sroa.013804.0.copyload.fr, %.sroa.03163.0.copyload
   %or.cond19962 = select i1 %14589, i1 %14590, i1 false
@@ -55031,13 +55021,13 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %switch.i.i13314 = icmp ult i16 %14729, -2
   %narrow.i13315 = select i1 %.0.i.i13313, i1 %switch.i.i13314, i1 false
   %14730 = icmp samesign ugt i16 %.0.i.i.i.i13327, 117
-  %switch.tableidx23392 = add nsw i8 %trunc19972, -118
-  %14731 = sext i8 %switch.tableidx23392 to i64
-  %switch.gep23393 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %14731
+  %switch.tableidx23393 = add nsw i8 %trunc19972, -118
+  %14731 = sext i8 %switch.tableidx23393 to i64
+  %switch.gep23394 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %14731
   %14732 = icmp samesign ugt i16 %.0.i.i.i.i13327, 117
-  %switch.tableidx23396 = add nsw i8 %trunc19972, -118
-  %14733 = sext i8 %switch.tableidx23396 to i64
-  %switch.gep23397 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %14733
+  %switch.tableidx23397 = add nsw i8 %trunc19972, -118
+  %14733 = sext i8 %switch.tableidx23397 to i64
+  %switch.gep23398 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %14733
   br label %14734
 
 14734:                                            ; preds = %.thread19626, %14720
@@ -55179,17 +55169,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i13257 = select i1 %14763, i16 %.sroa.016356.0.copyload, i16 %14765
   %trunc19975 = trunc nuw i16 %.0.i.i.i.i13257 to i8
   %14766 = icmp sgt i8 %trunc19975, 117
-  br i1 %14766, label %switch.lookup23383, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13258
+  br i1 %14766, label %switch.lookup23384, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13258
 
-switch.lookup23383:                               ; preds = %14762
-  %switch.tableidx23384 = add nsw i8 %trunc19975, -118
-  %14767 = sext i8 %switch.tableidx23384 to i64
-  %switch.gep23385 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %14767
-  %switch.load23386 = load i32, ptr %switch.gep23385, align 4
+switch.lookup23384:                               ; preds = %14762
+  %switch.tableidx23385 = add nsw i8 %trunc19975, -118
+  %14767 = sext i8 %switch.tableidx23385 to i64
+  %switch.gep23386 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %14767
+  %switch.load23387 = load i32, ptr %switch.gep23386, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13258
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13258: ; preds = %switch.lookup23383, %14762
-  %.0.i.i.i13259 = phi i32 [ 0, %14762 ], [ %switch.load23386, %switch.lookup23383 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13258: ; preds = %switch.lookup23384, %14762
+  %.0.i.i.i13259 = phi i32 [ 0, %14762 ], [ %switch.load23387, %switch.lookup23384 ]
   %14768 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016356.0.copyload, i16 112)
   %14769 = lshr i16 %14768, 4
   %14770 = zext nneg i16 %14769 to i32
@@ -55322,17 +55312,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13260
   %.0.i.i.i.i13283 = select i1 %14804, i16 %.sroa.016367.0.copyload, i16 %14806
   %trunc19974 = trunc nuw i16 %.0.i.i.i.i13283 to i8
   %14807 = icmp sgt i8 %trunc19974, 117
-  br i1 %14807, label %switch.lookup23387, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13284
+  br i1 %14807, label %switch.lookup23388, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13284
 
-switch.lookup23387:                               ; preds = %14803
-  %switch.tableidx23388 = add nsw i8 %trunc19974, -118
-  %14808 = sext i8 %switch.tableidx23388 to i64
-  %switch.gep23389 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %14808
-  %switch.load23390 = load i32, ptr %switch.gep23389, align 4
+switch.lookup23388:                               ; preds = %14803
+  %switch.tableidx23389 = add nsw i8 %trunc19974, -118
+  %14808 = sext i8 %switch.tableidx23389 to i64
+  %switch.gep23390 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %14808
+  %switch.load23391 = load i32, ptr %switch.gep23390, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13284
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13284: ; preds = %switch.lookup23387, %14803
-  %.0.i.i.i13285 = phi i32 [ 0, %14803 ], [ %switch.load23390, %switch.lookup23387 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13284: ; preds = %switch.lookup23388, %14803
+  %.0.i.i.i13285 = phi i32 [ 0, %14803 ], [ %switch.load23391, %switch.lookup23388 ]
   %14809 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016367.0.copyload, i16 112)
   %14810 = lshr i16 %14809, 4
   %14811 = zext nneg i16 %14810 to i32
@@ -55595,14 +55585,14 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13286
   br i1 %14895, label %.loopexit21403, label %.thread19626
 
 14896:                                            ; preds = %14742
-  br i1 %14730, label %switch.lookup23391, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13328
+  br i1 %14730, label %switch.lookup23392, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13328
 
-switch.lookup23391:                               ; preds = %14896
-  %switch.load23394 = load i32, ptr %switch.gep23393, align 4
+switch.lookup23392:                               ; preds = %14896
+  %switch.load23395 = load i32, ptr %switch.gep23394, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13328
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13328: ; preds = %switch.lookup23391, %14896
-  %.0.i.i.i13329 = phi i32 [ 0, %14896 ], [ %switch.load23394, %switch.lookup23391 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13328: ; preds = %switch.lookup23392, %14896
+  %.0.i.i.i13329 = phi i32 [ 0, %14896 ], [ %switch.load23395, %switch.lookup23392 ]
   %14897 = shl nuw nsw i32 %.0.i.i.i13329, %14727
   %14898 = icmp samesign ult i32 %14897, 65
   %14899 = icmp eq i16 %.sroa.016334.0.copyload, %.sroa.013804.0.copyload.fr
@@ -55611,14 +55601,14 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13328: ; pre
 
 14900:                                            ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13328
   %14901 = xor i64 %.sroa.1916347.0.copyload, -1
-  br i1 %14732, label %switch.lookup23395, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i13332
+  br i1 %14732, label %switch.lookup23396, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i13332
 
-switch.lookup23395:                               ; preds = %14900
-  %switch.load23398 = load i32, ptr %switch.gep23397, align 4
+switch.lookup23396:                               ; preds = %14900
+  %switch.load23399 = load i32, ptr %switch.gep23398, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i13332
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i13332: ; preds = %switch.lookup23395, %14900
-  %.0.i.i.i.i13333 = phi i32 [ 0, %14900 ], [ %switch.load23398, %switch.lookup23395 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i13332: ; preds = %switch.lookup23396, %14900
+  %.0.i.i.i.i13333 = phi i32 [ 0, %14900 ], [ %switch.load23399, %switch.lookup23396 ]
   %14902 = shl nuw nsw i32 %.0.i.i.i.i13333, %14727
   %14903 = icmp samesign ugt i32 %14902, 64
   br i1 %14903, label %14904, label %14905
@@ -56834,11 +56824,11 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.off.i.i13519 = add i16 %.sroa.013804.0.copyload.fr, -118
   %switch.i.i13520 = icmp ult i16 %.off.i.i13519, 5
   %15263 = icmp samesign ugt i16 %.0.i.i.i.i.i13542, 117
-  %narrow23436 = add nuw nsw i16 %.0.i.i.i.i.i13542, 138
-  %switch.tableidx23404 = zext nneg i16 %narrow23436 to i64
-  %sext23435 = shl i64 %switch.tableidx23404, 56
-  %15264 = ashr exact i64 %sext23435, 56
-  %switch.gep23405 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %15264
+  %narrow23437 = add nuw nsw i16 %.0.i.i.i.i.i13542, 138
+  %switch.tableidx23405 = zext nneg i16 %narrow23437 to i64
+  %sext23436 = shl i64 %switch.tableidx23405, 56
+  %15264 = ashr exact i64 %sext23436, 56
+  %switch.gep23406 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %15264
   br label %15265
 
 15265:                                            ; preds = %.thread19693, %15255
@@ -57471,17 +57461,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i13538 = select i1 %15491, i16 %.sroa.016383.0.copyload, i16 %15493
   %trunc19970 = trunc nuw i16 %.0.i.i.i.i13538 to i8
   %15494 = icmp sgt i8 %trunc19970, 117
-  br i1 %15494, label %switch.lookup23399, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13539
+  br i1 %15494, label %switch.lookup23400, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13539
 
-switch.lookup23399:                               ; preds = %15490
-  %switch.tableidx23400 = add nsw i8 %trunc19970, -118
-  %15495 = sext i8 %switch.tableidx23400 to i64
-  %switch.gep23401 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %15495
-  %switch.load23402 = load i32, ptr %switch.gep23401, align 4
+switch.lookup23400:                               ; preds = %15490
+  %switch.tableidx23401 = add nsw i8 %trunc19970, -118
+  %15495 = sext i8 %switch.tableidx23401 to i64
+  %switch.gep23402 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %15495
+  %switch.load23403 = load i32, ptr %switch.gep23402, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13539
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13539: ; preds = %switch.lookup23399, %15490
-  %.0.i.i.i13540 = phi i32 [ 0, %15490 ], [ %switch.load23402, %switch.lookup23399 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13539: ; preds = %switch.lookup23400, %15490
+  %.0.i.i.i13540 = phi i32 [ 0, %15490 ], [ %switch.load23403, %switch.lookup23400 ]
   %15496 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016383.0.copyload, i16 112)
   %15497 = lshr i16 %15496, 4
   %15498 = zext nneg i16 %15497 to i32
@@ -57493,14 +57483,14 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13539: ; pre
   br i1 %15256, label %15506, label %15502
 
 15502:                                            ; preds = %15501
-  br i1 %15263, label %switch.lookup23403, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i13543
+  br i1 %15263, label %switch.lookup23404, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i13543
 
-switch.lookup23403:                               ; preds = %15502
-  %switch.load23406 = load i32, ptr %switch.gep23405, align 4
+switch.lookup23404:                               ; preds = %15502
+  %switch.load23407 = load i32, ptr %switch.gep23406, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i13543
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i13543: ; preds = %switch.lookup23403, %15502
-  %.0.i.i.i.i13544 = phi i32 [ 0, %15502 ], [ %switch.load23406, %switch.lookup23403 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i.i13543: ; preds = %switch.lookup23404, %15502
+  %.0.i.i.i.i13544 = phi i32 [ 0, %15502 ], [ %switch.load23407, %switch.lookup23404 ]
   %15503 = shl nuw nsw i32 %.0.i.i.i.i13544, %15262
   %15504 = icmp samesign ugt i32 %15503, 64
   br i1 %15504, label %15505, label %15506
@@ -58204,10 +58194,10 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %15687 = zext nneg i16 %15686 to i32
   %15688 = icmp samesign ugt i16 %.0.i.i.i.i13641, 117
   %narrow = add nuw nsw i16 %.0.i.i.i.i13641, 138
-  %switch.tableidx23408 = zext nneg i16 %narrow to i64
-  %sext = shl i64 %switch.tableidx23408, 56
+  %switch.tableidx23409 = zext nneg i16 %narrow to i64
+  %sext = shl i64 %switch.tableidx23409, 56
   %15689 = ashr exact i64 %sext, 56
-  %switch.gep23409 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %15689
+  %switch.gep23410 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %15689
   br label %15690
 
 15690:                                            ; preds = %.thread19737, %15680
@@ -58280,14 +58270,14 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit13637" unwind label %.loopexit.split-lp21439
 
 15711:                                            ; preds = %15699
-  br i1 %15688, label %switch.lookup23407, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13642
+  br i1 %15688, label %switch.lookup23408, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13642
 
-switch.lookup23407:                               ; preds = %15711
-  %switch.load23410 = load i32, ptr %switch.gep23409, align 4
+switch.lookup23408:                               ; preds = %15711
+  %switch.load23411 = load i32, ptr %switch.gep23410, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13642
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13642: ; preds = %switch.lookup23407, %15711
-  %.0.i.i.i13643 = phi i32 [ 0, %15711 ], [ %switch.load23410, %switch.lookup23407 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13642: ; preds = %switch.lookup23408, %15711
+  %.0.i.i.i13643 = phi i32 [ 0, %15711 ], [ %switch.load23411, %switch.lookup23408 ]
   %15712 = shl nuw nsw i32 %.0.i.i.i13643, %15687
   %15713 = icmp samesign ult i32 %15712, 65
   br i1 %15713, label %15714, label %.thread19737
@@ -58621,17 +58611,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i13679 = select i1 %15815, i16 %.sroa.016410.0.copyload, i16 %15817
   %trunc19968 = trunc nuw i16 %.0.i.i.i.i13679 to i8
   %15818 = icmp sgt i8 %trunc19968, 117
-  br i1 %15818, label %switch.lookup23411, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13680
+  br i1 %15818, label %switch.lookup23412, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13680
 
-switch.lookup23411:                               ; preds = %15814
-  %switch.tableidx23412 = add nsw i8 %trunc19968, -118
-  %15819 = sext i8 %switch.tableidx23412 to i64
-  %switch.gep23413 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %15819
-  %switch.load23414 = load i32, ptr %switch.gep23413, align 4
+switch.lookup23412:                               ; preds = %15814
+  %switch.tableidx23413 = add nsw i8 %trunc19968, -118
+  %15819 = sext i8 %switch.tableidx23413 to i64
+  %switch.gep23414 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %15819
+  %switch.load23415 = load i32, ptr %switch.gep23414, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13680
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13680: ; preds = %switch.lookup23411, %15814
-  %.0.i.i.i13681 = phi i32 [ 0, %15814 ], [ %switch.load23414, %switch.lookup23411 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13680: ; preds = %switch.lookup23412, %15814
+  %.0.i.i.i13681 = phi i32 [ 0, %15814 ], [ %switch.load23415, %switch.lookup23412 ]
   %15820 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016410.0.copyload, i16 112)
   %15821 = lshr i16 %15820, 4
   %15822 = zext nneg i16 %15821 to i32
@@ -59030,17 +59020,17 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   %.0.i.i.i.i13733 = select i1 %15936, i16 %.sroa.016422.0.copyload, i16 %15938
   %trunc19967 = trunc nuw i16 %.0.i.i.i.i13733 to i8
   %15939 = icmp sgt i8 %trunc19967, 117
-  br i1 %15939, label %switch.lookup23415, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13734
+  br i1 %15939, label %switch.lookup23416, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13734
 
-switch.lookup23415:                               ; preds = %15935
-  %switch.tableidx23416 = add nsw i8 %trunc19967, -118
-  %15940 = sext i8 %switch.tableidx23416 to i64
-  %switch.gep23417 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %15940
-  %switch.load23418 = load i32, ptr %switch.gep23417, align 4
+switch.lookup23416:                               ; preds = %15935
+  %switch.tableidx23417 = add nsw i8 %trunc19967, -118
+  %15940 = sext i8 %switch.tableidx23417 to i64
+  %switch.gep23418 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %15940
+  %switch.load23419 = load i32, ptr %switch.gep23418, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13734
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13734: ; preds = %switch.lookup23415, %15935
-  %.0.i.i.i13735 = phi i32 [ 0, %15935 ], [ %switch.load23418, %switch.lookup23415 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13734: ; preds = %switch.lookup23416, %15935
+  %.0.i.i.i13735 = phi i32 [ 0, %15935 ], [ %switch.load23419, %switch.lookup23416 ]
   %15941 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016422.0.copyload, i16 112)
   %15942 = lshr i16 %15941, 4
   %15943 = zext nneg i16 %15942 to i32
@@ -59167,17 +59157,17 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i13736
   %.0.i.i.i.i13758 = select i1 %15976, i16 %.sroa.016433.0.copyload, i16 %15978
   %trunc = trunc nuw i16 %.0.i.i.i.i13758 to i8
   %15979 = icmp sgt i8 %trunc, 117
-  br i1 %15979, label %switch.lookup23419, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13759
+  br i1 %15979, label %switch.lookup23420, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13759
 
-switch.lookup23419:                               ; preds = %15975
-  %switch.tableidx23420 = add nsw i8 %trunc, -118
-  %15980 = sext i8 %switch.tableidx23420 to i64
-  %switch.gep23421 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %15980
-  %switch.load23422 = load i32, ptr %switch.gep23421, align 4
+switch.lookup23420:                               ; preds = %15975
+  %switch.tableidx23421 = add nsw i8 %trunc, -118
+  %15980 = sext i8 %switch.tableidx23421 to i64
+  %switch.gep23422 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$12imm64_masked17h89a2a78623408e43E", i64 0, i64 %15980
+  %switch.load23423 = load i32, ptr %switch.gep23422, align 4
   br label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13759
 
-_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13759: ; preds = %switch.lookup23419, %15975
-  %.0.i.i.i13760 = phi i32 [ 0, %15975 ], [ %switch.load23422, %switch.lookup23419 ]
+_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i13759: ; preds = %switch.lookup23420, %15975
+  %.0.i.i.i13760 = phi i32 [ 0, %15975 ], [ %switch.load23423, %switch.lookup23420 ]
   %15981 = call i16 @llvm.usub.sat.i16(i16 %.sroa.016433.0.copyload, i16 112)
   %15982 = lshr i16 %15981, 4
   %15983 = zext nneg i16 %15982 to i32
@@ -61541,15 +61531,13 @@ define internal fastcc { i16, i16 } @"_ZN105_$LT$cranelift_codegen..opts..IsleCo
   %.0.i.i = select i1 %2, i16 %0, i16 %4
   %switch.tableidx = add nsw i16 %.0.i.i, -119
   %5 = icmp ult i16 %switch.tableidx, 6
-  br i1 %5, label %switch.hole_check, label %_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d202349bb3E.exit
-
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i16 %switch.tableidx to i8
+  %switch.maskindex = trunc i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 47, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d202349bb3E.exit
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d202349bb3E.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %6 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x i16], ptr @"switch.table._ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$13ty_half_width17hb0c4d64ec974a5e5E", i64 0, i64 %6
   %switch.load = load i16, ptr %switch.gep, align 2
@@ -61557,9 +61545,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %8 = or disjoint i16 %switch.load, %7
   br label %_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d202349bb3E.exit
 
-_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d202349bb3E.exit: ; preds = %switch.hole_check, %1, %switch.lookup
-  %.sroa.3.0.i = phi i16 [ %8, %switch.lookup ], [ undef, %1 ], [ undef, %switch.hole_check ]
-  %.sroa.0.0.i = phi i16 [ 1, %switch.lookup ], [ 0, %1 ], [ 0, %switch.hole_check ]
+_ZN17cranelift_codegen2ir5types4Type10half_width17h57d016d202349bb3E.exit: ; preds = %1, %switch.lookup
+  %.sroa.3.0.i = phi i16 [ %8, %switch.lookup ], [ undef, %1 ]
+  %.sroa.0.0.i = phi i16 [ 1, %switch.lookup ], [ 0, %1 ]
   %9 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0.i, 0
   %10 = insertvalue { i16, i16 } %9, i16 %.sroa.3.0.i, 1
   ret { i16, i16 } %10

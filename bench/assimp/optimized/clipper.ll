@@ -12520,17 +12520,17 @@ _ZN10ClipperLib17E2InsertsBeforeE1ERNS_5TEdgeES1_.exit42: ; preds = %93
 define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8IntPointE(ptr noundef nonnull align 8 captures(none) dereferenceable(135) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %6 = load i32, ptr %5, align 4
-  %7 = icmp slt i32 %6, 0
+  %7 = icmp sgt i32 %6, -1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %9 = load i32, ptr %8, align 4
-  %10 = icmp slt i32 %9, 0
+  %10 = icmp sgt i32 %9, -1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = load i32, ptr %11, align 8
-  %.not236 = icmp eq i32 %12, 0
+  %.not240 = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  br i1 %.not236, label %22, label %16
+  br i1 %.not240, label %22, label %16
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -12557,20 +12557,20 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load i32, ptr %30, align 8
-  %32 = icmp ne i32 %31, 1
-  %brmerge233 = select i1 %32, i1 true, i1 %10
-  br i1 %brmerge233, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit, label %36
+  %32 = icmp eq i32 %31, 1
+  %brmerge.not237 = select i1 %32, i1 %10, i1 false
+  br i1 %brmerge.not237, label %36, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 .thread218:                                       ; preds = %.thread216
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %34 = load i32, ptr %33, align 8
-  %35 = icmp ne i32 %34, 1
-  %brmerge223 = select i1 %35, i1 true, i1 %7
-  br i1 %brmerge223, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit, label %39
+  %35 = icmp eq i32 %34, 1
+  %brmerge.not = select i1 %35, i1 %7, i1 false
+  br i1 %brmerge.not, label %39, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 36:                                               ; preds = %29
   %37 = tail call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %7, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit, label %38
+  br i1 %7, label %38, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 38:                                               ; preds = %36
   store i32 -1, ptr %5, align 4
@@ -12578,7 +12578,7 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
 
 39:                                               ; preds = %.thread218
   %40 = tail call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %10, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit, label %41
+  br i1 %10, label %41, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 41:                                               ; preds = %39
   store i32 -1, ptr %8, align 4
@@ -12594,8 +12594,8 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %49 = load i32, ptr %48, align 8
-  %.not197 = icmp eq i32 %49, 1
-  br i1 %.not197, label %50, label %54
+  %.not199 = icmp eq i32 %49, 1
+  br i1 %.not199, label %50, label %54
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -12605,7 +12605,7 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
 
 54:                                               ; preds = %50, %47
   %55 = tail call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %7, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit, label %56
+  br i1 %7, label %56, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 56:                                               ; preds = %54
   store i32 -1, ptr %5, align 4
@@ -12621,8 +12621,8 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
 61:                                               ; preds = %.thread217
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %63 = load i32, ptr %62, align 8
-  %.not198 = icmp eq i32 %63, 1
-  br i1 %.not198, label %64, label %68
+  %.not200 = icmp eq i32 %63, 1
+  br i1 %.not200, label %64, label %68
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -12632,7 +12632,7 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
 
 68:                                               ; preds = %64, %61
   %69 = tail call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br i1 %10, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit, label %70
+  br i1 %10, label %70, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 70:                                               ; preds = %68
   store i32 -1, ptr %8, align 4
@@ -12718,16 +12718,16 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %.val = load i32, ptr %109, align 4
-  %.val224 = load i32, ptr %108, align 8
-  %.0186 = select i1 %107, i32 %.val, i32 %.val224
-  %.0188 = select i1 %107, i32 %.val224, i32 %.val
+  %.val223 = load i32, ptr %108, align 8
+  %.0188 = select i1 %107, i32 %.val, i32 %.val223
+  %.0190 = select i1 %107, i32 %.val223, i32 %.val
   %110 = load i32, ptr %19, align 8
   %111 = icmp eq i32 %110, 0
-  %.0185 = select i1 %111, i32 %.val, i32 %.val224
-  %.0187 = select i1 %111, i32 %.val224, i32 %.val
+  %.0187 = select i1 %111, i32 %.val, i32 %.val223
+  %.0189 = select i1 %111, i32 %.val223, i32 %.val
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %113 = load i32, ptr %112, align 4
-  switch i32 %.0188, label %119 [
+  switch i32 %.0190, label %119 [
     i32 2, label %114
     i32 3, label %116
   ]
@@ -12747,10 +12747,10 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   br label %122
 
 122:                                              ; preds = %119, %116, %114
-  %.0184 = phi i64 [ %121, %119 ], [ %118, %116 ], [ %115, %114 ]
+  %.0186 = phi i64 [ %121, %119 ], [ %118, %116 ], [ %115, %114 ]
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %124 = load i32, ptr %123, align 4
-  switch i32 %.0187, label %130 [
+  switch i32 %.0189, label %130 [
     i32 2, label %125
     i32 3, label %127
   ]
@@ -12770,22 +12770,22 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   br label %133
 
 133:                                              ; preds = %130, %127, %125
-  %.0183 = phi i64 [ %132, %130 ], [ %129, %127 ], [ %126, %125 ]
-  %brmerge = select i1 %7, i1 true, i1 %10
-  br i1 %brmerge, label %162, label %134
+  %.0185 = phi i64 [ %132, %130 ], [ %129, %127 ], [ %126, %125 ]
+  %or.cond = select i1 %7, i1 %10, i1 false
+  br i1 %or.cond, label %134, label %162
 
 134:                                              ; preds = %133
-  %or.cond = icmp ugt i64 %.0184, 1
-  %or.cond3 = icmp ugt i64 %.0183, 1
-  %or.cond204 = select i1 %or.cond, i1 true, i1 %or.cond3
+  %or.cond3 = icmp ugt i64 %.0186, 1
+  %or.cond5 = icmp ugt i64 %.0185, 1
+  %or.cond204 = select i1 %or.cond3, i1 true, i1 %or.cond5
   br i1 %or.cond204, label %138, label %135
 
 135:                                              ; preds = %134
-  %.not193 = icmp eq i32 %106, %110
+  %.not195 = icmp eq i32 %106, %110
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %137 = load i32, ptr %136, align 8
-  %.not194 = icmp eq i32 %137, 3
-  %or.cond206 = select i1 %.not193, i1 true, i1 %.not194
+  %.not196 = icmp eq i32 %137, 3
+  %or.cond206 = select i1 %.not195, i1 true, i1 %.not196
   br i1 %or.cond206, label %153, label %138
 
 138:                                              ; preds = %135, %134
@@ -12837,11 +12837,11 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   br label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 162:                                              ; preds = %133
-  br i1 %7, label %172, label %163
+  br i1 %7, label %163, label %172
 
 163:                                              ; preds = %162
-  %or.cond5 = icmp ult i64 %.0183, 2
-  br i1 %or.cond5, label %164, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
+  %or.cond7 = icmp ult i64 %.0185, 2
+  br i1 %or.cond7, label %164, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 164:                                              ; preds = %163
   %165 = tail call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -12858,11 +12858,11 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   br label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 172:                                              ; preds = %162
-  br i1 %10, label %182, label %173
+  br i1 %10, label %173, label %182
 
 173:                                              ; preds = %172
-  %or.cond7 = icmp ult i64 %.0184, 2
-  br i1 %or.cond7, label %174, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
+  %or.cond9 = icmp ult i64 %.0186, 2
+  br i1 %or.cond9, label %174, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 174:                                              ; preds = %173
   %175 = tail call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -12879,19 +12879,19 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   br label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 182:                                              ; preds = %172
-  %183 = icmp eq i64 %.0184, 1
-  %or.cond9 = icmp ult i64 %.0184, 2
-  br i1 %or.cond9, label %184, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
+  %183 = icmp eq i64 %.0186, 1
+  %or.cond11 = icmp ult i64 %.0186, 2
+  br i1 %or.cond11, label %184, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 184:                                              ; preds = %182
-  %185 = icmp eq i64 %.0183, 1
-  %or.cond11 = icmp ult i64 %.0183, 2
-  br i1 %or.cond11, label %186, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
+  %185 = icmp eq i64 %.0185, 1
+  %or.cond13 = icmp ult i64 %.0185, 2
+  br i1 %or.cond13, label %186, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 186:                                              ; preds = %184
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %188 = load i32, ptr %187, align 8
-  switch i32 %.0186, label %194 [
+  switch i32 %.0188, label %194 [
     i32 2, label %189
     i32 3, label %191
   ]
@@ -12911,10 +12911,10 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   br label %197
 
 197:                                              ; preds = %194, %191, %189
-  %.0182 = phi i64 [ %196, %194 ], [ %193, %191 ], [ %190, %189 ]
+  %.0184 = phi i64 [ %196, %194 ], [ %193, %191 ], [ %190, %189 ]
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %199 = load i32, ptr %198, align 8
-  switch i32 %.0185, label %205 [
+  switch i32 %.0187, label %205 [
     i32 2, label %200
     i32 3, label %202
   ]
@@ -12943,8 +12943,8 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   br label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 211:                                              ; preds = %208
-  %or.cond13 = select i1 %183, i1 %185, i1 false
-  br i1 %or.cond13, label %212, label %236
+  %or.cond15 = select i1 %183, i1 %185, i1 false
+  br i1 %or.cond15, label %212, label %236
 
 212:                                              ; preds = %211
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -12957,20 +12957,20 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
   ]
 
 215:                                              ; preds = %212
-  %216 = icmp sgt i64 %.0182, 0
+  %216 = icmp sgt i64 %.0184, 0
   %217 = icmp sgt i64 %.0, 0
-  %or.cond15 = select i1 %216, i1 %217, i1 false
-  br i1 %or.cond15, label %218, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
+  %or.cond17 = select i1 %216, i1 %217, i1 false
+  br i1 %or.cond17, label %218, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 218:                                              ; preds = %215
   %219 = tail call noundef ptr @_ZN10ClipperLib7Clipper15AddLocalMinPolyEPNS_5TEdgeES2_RKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   br label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 220:                                              ; preds = %212
-  %221 = icmp slt i64 %.0182, 1
+  %221 = icmp slt i64 %.0184, 1
   %222 = icmp slt i64 %.0, 1
-  %or.cond17 = select i1 %221, i1 %222, i1 false
-  br i1 %or.cond17, label %223, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
+  %or.cond19 = select i1 %221, i1 %222, i1 false
+  br i1 %or.cond19, label %223, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 223:                                              ; preds = %220
   %224 = tail call noundef ptr @_ZN10ClipperLib7Clipper15AddLocalMinPolyEPNS_5TEdgeES2_RKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -12978,18 +12978,18 @@ define hidden void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8I
 
 225:                                              ; preds = %212
   %226 = icmp eq i32 %106, 1
-  %227 = icmp sgt i64 %.0182, 0
-  %or.cond19 = select i1 %226, i1 %227, i1 false
+  %227 = icmp sgt i64 %.0184, 0
+  %or.cond21 = select i1 %226, i1 %227, i1 false
   %228 = icmp sgt i64 %.0, 0
-  %or.cond21 = select i1 %or.cond19, i1 %228, i1 false
-  br i1 %or.cond21, label %232, label %229
+  %or.cond23 = select i1 %or.cond21, i1 %228, i1 false
+  br i1 %or.cond23, label %232, label %229
 
 229:                                              ; preds = %225
-  %230 = icmp slt i64 %.0182, 1
-  %or.cond23 = select i1 %107, i1 %230, i1 false
+  %230 = icmp slt i64 %.0184, 1
+  %or.cond25 = select i1 %107, i1 %230, i1 false
   %231 = icmp slt i64 %.0, 1
-  %or.cond25 = select i1 %or.cond23, i1 %231, i1 false
-  br i1 %or.cond25, label %232, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
+  %or.cond27 = select i1 %or.cond25, i1 %231, i1 false
+  br i1 %or.cond27, label %232, label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 232:                                              ; preds = %229, %225
   %233 = tail call noundef ptr @_ZN10ClipperLib7Clipper15AddLocalMinPolyEPNS_5TEdgeES2_RKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -13490,12 +13490,12 @@ define hidden void @_ZN10ClipperLib7Clipper17ProcessHorizontalEPNS_5TEdgeE(ptr n
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %50, %47, %34
-  %.0100 = phi ptr [ null, %50 ], [ %22, %34 ], [ %39, %47 ], [ null, %16 ]
+  %.0108 = phi ptr [ null, %50 ], [ %22, %34 ], [ %39, %47 ], [ null, %16 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %53 = load i64, ptr %52, align 8
-  %.not114 = icmp eq i64 %53, 0
-  br i1 %.not114, label %.critedge4, label %54
+  %.not122 = icmp eq i64 %53, 0
+  br i1 %.not122, label %.critedge4, label %54
 
 54:                                               ; preds = %.critedge
   br i1 %12, label %.preheader327, label %.preheader328
@@ -13513,14 +13513,14 @@ define hidden void @_ZN10ClipperLib7Clipper17ProcessHorizontalEPNS_5TEdgeE(ptr n
 56:                                               ; preds = %.preheader327
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0282.1, i64 16
   %58 = load i64, ptr %57, align 8
-  %.not116 = icmp sgt i64 %58, %9
-  br i1 %.not116, label %59, label %.preheader327, !llvm.loop !116
+  %.not124 = icmp sgt i64 %58, %9
+  br i1 %.not124, label %59, label %.preheader327, !llvm.loop !116
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %61 = load i64, ptr %60, align 8
-  %.not117 = icmp slt i64 %58, %61
-  %spec.select = select i1 %.not117, ptr %.sroa.0282.1, ptr %51
+  %.not125 = icmp slt i64 %58, %61
+  %spec.select = select i1 %.not125, ptr %.sroa.0282.1, ptr %51
   br label %.critedge4
 
 62:                                               ; preds = %.preheader328, %63
@@ -13539,8 +13539,8 @@ define hidden void @_ZN10ClipperLib7Clipper17ProcessHorizontalEPNS_5TEdgeE(ptr n
 69:                                               ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %71 = load i64, ptr %70, align 8
-  %.not115 = icmp sgt i64 %67, %71
-  %spec.select324 = select i1 %.not115, ptr %.sroa.0276.1, ptr %55
+  %.not123 = icmp sgt i64 %67, %71
+  %spec.select324 = select i1 %.not123, ptr %.sroa.0276.1, ptr %55
   br label %.critedge4
 
 .critedge4:                                       ; preds = %62, %.preheader327, %69, %59, %.critedge
@@ -13565,23 +13565,23 @@ define hidden void @_ZN10ClipperLib7Clipper17ProcessHorizontalEPNS_5TEdgeE(ptr n
   %.0301 = phi i64 [ %storemerge13.i, %.critedge4 ], [ %storemerge13.i209, %_ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit201 ]
   %.0299 = phi i64 [ %..i, %.critedge4 ], [ %..i205, %_ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit201 ]
   %.0297.in = phi i1 [ %12, %.critedge4 ], [ %502, %_ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit201 ]
-  %.0101 = phi ptr [ null, %.critedge4 ], [ %.1.lcssa, %_ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit201 ]
-  %83 = icmp ne ptr %82, %.0
+  %.0109 = phi ptr [ null, %.critedge4 ], [ %.1.lcssa, %_ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit201 ]
+  %83 = icmp eq ptr %82, %.0
   %.in.v.i = select i1 %.0297.in, i64 104, i64 112
   %.in.i = getelementptr inbounds nuw i8, ptr %82, i64 %.in.v.i
   %84 = load ptr, ptr %.in.i, align 8
-  %.not118372 = icmp eq ptr %84, null
-  br i1 %.not118372, label %._crit_edge380, label %.lr.ph379
+  %.not126372 = icmp eq ptr %84, null
+  br i1 %.not126372, label %._crit_edge380, label %.lr.ph379
 
 .lr.ph379:                                        ; preds = %81, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit
   %85 = phi ptr [ %434, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit ], [ %82, %81 ]
-  %.1377 = phi ptr [ %.2, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit ], [ %.0101, %81 ]
-  %.0102375 = phi ptr [ %430, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit ], [ %84, %81 ]
+  %.1377 = phi ptr [ %.2, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit ], [ %.0109, %81 ]
+  %.0110375 = phi ptr [ %430, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit ], [ %84, %81 ]
   %.sroa.0282.3374 = phi ptr [ %.sroa.0282.5436, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit ], [ %.sroa.0282.2, %81 ]
   %.sroa.0276.3373 = phi ptr [ %.sroa.0276.5433, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit ], [ %.sroa.0276.2, %81 ]
   %86 = load i64, ptr %52, align 8
-  %.not119 = icmp eq i64 %86, 0
-  br i1 %.not119, label %.critedge10, label %87
+  %.not127 = icmp eq i64 %86, 0
+  br i1 %.not127, label %.critedge10, label %87
 
 87:                                               ; preds = %.lr.ph379
   br i1 %.0297.in, label %.preheader, label %.preheader325
@@ -13592,7 +13592,7 @@ define hidden void @_ZN10ClipperLib7Clipper17ProcessHorizontalEPNS_5TEdgeE(ptr n
   br i1 %.not322346, label %.critedge10.thread439, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader325
-  %89 = getelementptr inbounds nuw i8, ptr %.0102375, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.0110375, i64 16
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 76
   %91 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 60
@@ -13620,7 +13620,7 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163.us: ; preds 
   br i1 %.not323353, label %.critedge10.thread, label %.lr.ph355
 
 .lr.ph355:                                        ; preds = %.preheader
-  %100 = getelementptr inbounds nuw i8, ptr %.0102375, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.0110375, i64 16
   %101 = getelementptr inbounds nuw i8, ptr %85, i64 76
   %102 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %103 = getelementptr inbounds nuw i8, ptr %85, i64 60
@@ -13811,7 +13811,7 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163: ; preds = %
 .critedge10.thread:                               ; preds = %.preheader, %.critedge10
   %.sroa.0282.5437 = phi ptr [ %.sroa.0282.5, %.critedge10 ], [ %.sroa.0282.3374, %.preheader ]
   %.sroa.0276.5434 = phi ptr [ %.sroa.0276.5, %.critedge10 ], [ %.sroa.0276.3373, %.preheader ]
-  %209 = getelementptr inbounds nuw i8, ptr %.0102375, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %.0110375, i64 16
   %210 = load i64, ptr %209, align 8
   %211 = icmp sgt i64 %210, %.0301
   br i1 %211, label %._crit_edge380, label %.thread
@@ -13819,7 +13819,7 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163: ; preds = %
 .critedge10.thread439:                            ; preds = %.preheader325, %.critedge10
   %.sroa.0282.5443 = phi ptr [ %.sroa.0282.5, %.critedge10 ], [ %.sroa.0282.3374, %.preheader325 ]
   %.sroa.0276.5442 = phi ptr [ %.sroa.0276.5, %.critedge10 ], [ %.sroa.0276.3373, %.preheader325 ]
-  %212 = getelementptr inbounds nuw i8, ptr %.0102375, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %.0110375, i64 16
   %213 = load i64, ptr %212, align 8
   %214 = icmp slt i64 %213, %.0299
   br i1 %214, label %._crit_edge380, label %.thread
@@ -13828,7 +13828,7 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163: ; preds = %
   %.sroa.0282.5436 = phi ptr [ %.sroa.0282.5437, %.critedge10.thread ], [ %.sroa.0282.5443, %.critedge10.thread439 ]
   %.sroa.0276.5433 = phi ptr [ %.sroa.0276.5434, %.critedge10.thread ], [ %.sroa.0276.5442, %.critedge10.thread439 ]
   %215 = phi i64 [ %210, %.critedge10.thread ], [ %213, %.critedge10.thread439 ]
-  %216 = getelementptr inbounds nuw i8, ptr %.0102375, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %.0110375, i64 16
   %217 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %218 = load i64, ptr %217, align 8
   %219 = icmp eq i64 %215, %218
@@ -13837,11 +13837,11 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163: ; preds = %
 220:                                              ; preds = %.thread
   %221 = getelementptr inbounds nuw i8, ptr %85, i64 96
   %222 = load ptr, ptr %221, align 8
-  %.not120 = icmp eq ptr %222, null
-  br i1 %.not120, label %229, label %223
+  %.not128 = icmp eq ptr %222, null
+  br i1 %.not128, label %229, label %223
 
 223:                                              ; preds = %220
-  %224 = getelementptr inbounds nuw i8, ptr %.0102375, i64 48
+  %224 = getelementptr inbounds nuw i8, ptr %.0110375, i64 48
   %225 = load double, ptr %224, align 8
   %226 = getelementptr inbounds nuw i8, ptr %222, i64 48
   %227 = load double, ptr %226, align 8
@@ -13852,8 +13852,8 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163: ; preds = %
   %230 = getelementptr inbounds nuw i8, ptr %85, i64 76
   %231 = load i32, ptr %230, align 4
   %232 = icmp slt i32 %231, 0
-  %brmerge133 = or i1 %232, %8
-  br i1 %brmerge133, label %_ZN10ClipperLib7Clipper12AddGhostJoinEPNS_5OutPtENS_8IntPointE.exit, label %233
+  %or.cond17 = or i1 %232, %8
+  br i1 %or.cond17, label %_ZN10ClipperLib7Clipper12AddGhostJoinEPNS_5OutPtENS_8IntPointE.exit, label %233
 
 233:                                              ; preds = %229
   %234 = load ptr, ptr %0, align 8
@@ -13875,7 +13875,7 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163: ; preds = %
   %247 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %248 = load i64, ptr %247, align 8
   %249 = icmp eq i64 %215, %248
-  %250 = getelementptr inbounds nuw i8, ptr %.0102375, i64 24
+  %250 = getelementptr inbounds nuw i8, ptr %.0110375, i64 24
   %251 = load i64, ptr %250, align 8
   %252 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %253 = load i64, ptr %252, align 8
@@ -13889,7 +13889,7 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163: ; preds = %
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %259 = load i64, ptr %258, align 8
   %260 = icmp eq i64 %215, %259
-  %261 = getelementptr inbounds nuw i8, ptr %.0102375, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %.0110375, i64 24
   %262 = load i64, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %264 = load i64, ptr %263, align 8
@@ -13920,13 +13920,13 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit163: ; preds = %
 
 _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit185: ; preds = %246, %.critedge.i165, %267, %276
   %.0.i166 = phi ptr [ %242, %246 ], [ %268, %276 ], [ %268, %267 ], [ %257, %.critedge.i165 ]
-  %.0103364 = load ptr, ptr %72, align 8
-  %.not121365 = icmp eq ptr %.0103364, null
-  br i1 %.not121365, label %._crit_edge, label %.lr.ph367
+  %.0111364 = load ptr, ptr %72, align 8
+  %.not129365 = icmp eq ptr %.0111364, null
+  br i1 %.not129365, label %._crit_edge, label %.lr.ph367
 
 .lr.ph367:                                        ; preds = %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit185, %_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit
-  %.0103366 = phi ptr [ %.0103, %_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit ], [ %.0103364, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit185 ]
-  %277 = getelementptr inbounds nuw i8, ptr %.0103366, i64 76
+  %.0111366 = phi ptr [ %.0111, %_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit ], [ %.0111364, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit185 ]
+  %277 = getelementptr inbounds nuw i8, ptr %.0111366, i64 76
   %278 = load i32, ptr %277, align 4
   %279 = icmp sgt i32 %278, -1
   br i1 %279, label %280, label %_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit
@@ -13934,8 +13934,8 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit185: ; preds = %
 280:                                              ; preds = %.lr.ph367
   %281 = load i64, ptr %85, align 8
   %282 = load i64, ptr %217, align 8
-  %283 = load i64, ptr %.0103366, align 8
-  %284 = getelementptr inbounds nuw i8, ptr %.0103366, i64 32
+  %283 = load i64, ptr %.0111366, align 8
+  %284 = getelementptr inbounds nuw i8, ptr %.0111366, i64 32
   %285 = load i64, ptr %284, align 8
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %281, i64 %282)
   %spec.select13.i = tail call i64 @llvm.smax.i64(i64 %281, i64 %282)
@@ -13955,7 +13955,7 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit185: ; preds = %
   %294 = load ptr, ptr %gep363, align 8
   %295 = getelementptr inbounds nuw ptr, ptr %294, i64 %293
   %296 = load ptr, ptr %295, align 8
-  %297 = getelementptr inbounds nuw i8, ptr %.0103366, i64 60
+  %297 = getelementptr inbounds nuw i8, ptr %.0111366, i64 60
   %298 = load i32, ptr %297, align 4
   %299 = icmp eq i32 %298, 1
   %300 = getelementptr inbounds nuw i8, ptr %296, i64 24
@@ -13969,8 +13969,8 @@ _ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit185: ; preds = %
 _ZN10ClipperLib7Clipper12GetLastOutPtEPNS_5TEdgeE.exit: ; preds = %289, %301
   %.0.in.i = phi ptr [ %303, %301 ], [ %300, %289 ]
   %.0.i187 = load ptr, ptr %.0.in.i, align 8
-  %.sroa.251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0103366, i64 40
-  %.sroa.251.0.copyload = load i64, ptr %.sroa.251.0..sroa_idx, align 8
+  %.sroa.259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0111366, i64 40
+  %.sroa.259.0.copyload = load i64, ptr %.sroa.259.0..sroa_idx, align 8
   %304 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 16
   store ptr %.0.i187, ptr %304, align 8
@@ -13978,7 +13978,7 @@ _ZN10ClipperLib7Clipper12GetLastOutPtEPNS_5TEdgeE.exit: ; preds = %289, %301
   store ptr %.0.i166, ptr %306, align 8
   store i64 %285, ptr %305, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %304, i64 24
-  store i64 %.sroa.251.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i64 %.sroa.259.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8
   %307 = load ptr, ptr %74, align 8
   %308 = load ptr, ptr %75, align 8
   %.not.i.i188 = icmp eq ptr %307, %308
@@ -14040,23 +14040,23 @@ _ZNSt6vectorIPN10ClipperLib4JoinESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_c
   br label %_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit
 
 _ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit: ; preds = %_ZNSt6vectorIPN10ClipperLib4JoinESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %309, %280, %.lr.ph367
-  %332 = getelementptr inbounds nuw i8, ptr %.0103366, i64 120
-  %.0103 = load ptr, ptr %332, align 8
-  %.not121 = icmp eq ptr %.0103, null
-  br i1 %.not121, label %._crit_edge, label %.lr.ph367, !llvm.loop !126
+  %332 = getelementptr inbounds nuw i8, ptr %.0111366, i64 120
+  %.0111 = load ptr, ptr %332, align 8
+  %.not129 = icmp eq ptr %.0111, null
+  br i1 %.not129, label %._crit_edge, label %.lr.ph367, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit, %_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE.exit185
-  %.sroa.048.0.copyload = load i64, ptr %85, align 8
-  %.sroa.249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %.sroa.249.0.copyload = load i64, ptr %.sroa.249.0..sroa_idx, align 8
+  %.sroa.056.0.copyload = load i64, ptr %85, align 8
+  %.sroa.257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %.sroa.257.0.copyload = load i64, ptr %.sroa.257.0..sroa_idx, align 8
   %333 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 16
   store ptr %.0.i166, ptr %333, align 8
   %335 = getelementptr inbounds nuw i8, ptr %333, i64 8
   store ptr null, ptr %335, align 8
-  store i64 %.sroa.048.0.copyload, ptr %334, align 8
+  store i64 %.sroa.056.0.copyload, ptr %334, align 8
   %.sroa.2.0..sroa_idx.i189 = getelementptr inbounds nuw i8, ptr %333, i64 24
-  store i64 %.sroa.249.0.copyload, ptr %.sroa.2.0..sroa_idx.i189, align 8
+  store i64 %.sroa.257.0.copyload, ptr %.sroa.2.0..sroa_idx.i189, align 8
   %336 = load ptr, ptr %77, align 8
   %337 = load ptr, ptr %78, align 8
   %.not.i.i190 = icmp eq ptr %336, %337
@@ -14119,9 +14119,9 @@ _ZNSt6vectorIPN10ClipperLib4JoinESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_c
 
 _ZN10ClipperLib7Clipper12AddGhostJoinEPNS_5OutPtENS_8IntPointE.exit: ; preds = %_ZNSt6vectorIPN10ClipperLib4JoinESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i196, %338, %229
   %.2 = phi ptr [ %.1377, %229 ], [ %.0.i166, %338 ], [ %.0.i166, %_ZNSt6vectorIPN10ClipperLib4JoinESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i196 ]
-  %361 = icmp ne ptr %.0102375, %.0100
-  %brmerge136 = or i1 %83, %361
-  br i1 %brmerge136, label %421, label %362
+  %361 = icmp eq ptr %.0110375, %.0108
+  %or.cond19 = and i1 %83, %361
+  br i1 %or.cond19, label %362, label %421
 
 362:                                              ; preds = %_ZN10ClipperLib7Clipper12AddGhostJoinEPNS_5OutPtENS_8IntPointE.exit
   %363 = getelementptr inbounds nuw i8, ptr %85, i64 76
@@ -14131,18 +14131,18 @@ _ZN10ClipperLib7Clipper12AddGhostJoinEPNS_5OutPtENS_8IntPointE.exit: ; preds = %
 
 366:                                              ; preds = %362
   %367 = tail call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %85, ptr noundef nonnull readonly align 8 dereferenceable(16) %217)
-  %368 = getelementptr inbounds nuw i8, ptr %.0100, i64 64
+  %368 = getelementptr inbounds nuw i8, ptr %.0108, i64 64
   %369 = load i32, ptr %368, align 8
   %370 = icmp eq i32 %369, 0
   br i1 %370, label %371, label %373
 
 371:                                              ; preds = %366
-  %372 = tail call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %.0100, ptr noundef nonnull readonly align 8 dereferenceable(16) %217)
+  %372 = tail call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %.0108, ptr noundef nonnull readonly align 8 dereferenceable(16) %217)
   br label %373
 
 373:                                              ; preds = %371, %366
   %374 = load i32, ptr %363, align 4
-  %375 = getelementptr inbounds nuw i8, ptr %.0100, i64 76
+  %375 = getelementptr inbounds nuw i8, ptr %.0108, i64 76
   %376 = load i32, ptr %375, align 4
   %377 = icmp eq i32 %374, %376
   br i1 %377, label %378, label %379
@@ -14157,11 +14157,11 @@ _ZN10ClipperLib7Clipper12AddGhostJoinEPNS_5OutPtENS_8IntPointE.exit: ; preds = %
   br i1 %380, label %381, label %382
 
 381:                                              ; preds = %379
-  tail call void @_ZN10ClipperLib7Clipper13AppendPolygonEPNS_5TEdgeES2_(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %85, ptr noundef nonnull %.0100)
+  tail call void @_ZN10ClipperLib7Clipper13AppendPolygonEPNS_5TEdgeES2_(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %85, ptr noundef nonnull %.0108)
   br label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 382:                                              ; preds = %379
-  tail call void @_ZN10ClipperLib7Clipper13AppendPolygonEPNS_5TEdgeES2_(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %.0100, ptr noundef nonnull %85)
+  tail call void @_ZN10ClipperLib7Clipper13AppendPolygonEPNS_5TEdgeES2_(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %.0108, ptr noundef nonnull %85)
   br label %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit
 
 _ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit: ; preds = %382, %381, %378, %362
@@ -14216,15 +14216,15 @@ _ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit: ; preds = %_ZN10Cl
   %403 = phi ptr [ %394, %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit ], [ %.pre429, %402 ]
   %404 = phi i64 [ %385, %_ZN10ClipperLib7Clipper15AddLocalMaxPolyEPNS_5TEdgeES2_RKNS_8IntPointE.exit ], [ %.pre426, %402 ]
   %405 = getelementptr inbounds i8, ptr %0, i64 %404
-  %406 = getelementptr inbounds nuw i8, ptr %.0100, i64 112
+  %406 = getelementptr inbounds nuw i8, ptr %.0108, i64 112
   %407 = load ptr, ptr %406, align 8
-  %408 = getelementptr inbounds nuw i8, ptr %.0100, i64 104
+  %408 = getelementptr inbounds nuw i8, ptr %.0108, i64 104
   %409 = load ptr, ptr %408, align 8
   %410 = icmp ne ptr %407, null
   %411 = icmp ne ptr %409, null
   %or.cond.i198 = select i1 %410, i1 true, i1 %411
   %412 = getelementptr inbounds nuw i8, ptr %405, i64 104
-  %.not.i199 = icmp eq ptr %.0100, %403
+  %.not.i199 = icmp eq ptr %.0108, %403
   %or.cond18.i200 = select i1 %or.cond.i198, i1 true, i1 %.not.i199
   br i1 %or.cond18.i200, label %413, label %_ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit232
 
@@ -14262,7 +14262,7 @@ _ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit: ; preds = %_ZN10Cl
   %425 = load i64, ptr %422, align 8
   store i64 %424, ptr %4, align 8
   store i64 %425, ptr %80, align 8
-  call void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %85, ptr noundef nonnull %.0102375, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  call void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %85, ptr noundef nonnull %.0110375, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #31
   br label %429
 
@@ -14272,12 +14272,12 @@ _ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit: ; preds = %_ZN10Cl
   %428 = load i64, ptr %422, align 8
   store i64 %427, ptr %5, align 8
   store i64 %428, ptr %79, align 8
-  call void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %.0102375, ptr noundef nonnull %85, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call void @_ZN10ClipperLib7Clipper14IntersectEdgesEPNS_5TEdgeES2_RNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %.0110375, ptr noundef nonnull %85, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #31
   br label %429
 
 429:                                              ; preds = %426, %423
-  %.in.i203 = getelementptr inbounds nuw i8, ptr %.0102375, i64 %.in.v.i
+  %.in.i203 = getelementptr inbounds nuw i8, ptr %.0110375, i64 %.in.v.i
   %430 = load ptr, ptr %.in.i203, align 8
   %431 = load ptr, ptr %0, align 8
   %432 = getelementptr i8, ptr %431, i64 -24
@@ -14291,15 +14291,15 @@ _ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit: ; preds = %_ZN10Cl
   br i1 %439, label %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit, label %440
 
 440:                                              ; preds = %429
-  %441 = getelementptr inbounds nuw i8, ptr %.0102375, i64 104
+  %441 = getelementptr inbounds nuw i8, ptr %.0110375, i64 104
   %442 = load ptr, ptr %441, align 8
-  %443 = getelementptr inbounds nuw i8, ptr %.0102375, i64 112
+  %443 = getelementptr inbounds nuw i8, ptr %.0110375, i64 112
   %444 = load ptr, ptr %443, align 8
   %445 = icmp eq ptr %442, %444
   br i1 %445, label %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit, label %446
 
 446:                                              ; preds = %440
-  %447 = icmp eq ptr %436, %.0102375
+  %447 = icmp eq ptr %436, %.0110375
   br i1 %447, label %448, label %455
 
 448:                                              ; preds = %446
@@ -14319,13 +14319,13 @@ _ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit: ; preds = %_ZN10Cl
 
 453:                                              ; preds = %451
   %454 = getelementptr inbounds nuw i8, ptr %452, i64 104
-  store ptr %.0102375, ptr %454, align 8
+  store ptr %.0110375, ptr %454, align 8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %453, %451
   store ptr %452, ptr %443, align 8
   store ptr %434, ptr %441, align 8
-  store ptr %.0102375, ptr %437, align 8
+  store ptr %.0110375, ptr %437, align 8
   store ptr %442, ptr %435, align 8
   br label %479
 
@@ -14339,7 +14339,7 @@ _ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit: ; preds = %_ZN10Cl
 
 458:                                              ; preds = %457
   %459 = getelementptr inbounds nuw i8, ptr %436, i64 112
-  store ptr %.0102375, ptr %459, align 8
+  store ptr %.0110375, ptr %459, align 8
   %.pre.i = load ptr, ptr %443, align 8
   br label %460
 
@@ -14355,7 +14355,7 @@ _ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit: ; preds = %_ZN10Cl
 
 464:                                              ; preds = %462, %460
   store ptr %461, ptr %437, align 8
-  store ptr %.0102375, ptr %435, align 8
+  store ptr %.0110375, ptr %435, align 8
   store ptr %434, ptr %443, align 8
   store ptr %436, ptr %441, align 8
   br label %478
@@ -14388,7 +14388,7 @@ _ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit: ; preds = %_ZN10Cl
 
 473:                                              ; preds = %472
   %474 = getelementptr inbounds nuw i8, ptr %436, i64 112
-  store ptr %.0102375, ptr %474, align 8
+  store ptr %.0110375, ptr %474, align 8
   br label %475
 
 475:                                              ; preds = %473, %472
@@ -14398,7 +14398,7 @@ _ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit: ; preds = %_ZN10Cl
 
 476:                                              ; preds = %475
   %477 = getelementptr inbounds nuw i8, ptr %438, i64 104
-  store ptr %.0102375, ptr %477, align 8
+  store ptr %.0110375, ptr %477, align 8
   br label %478
 
 478:                                              ; preds = %476, %475, %464
@@ -14412,24 +14412,24 @@ _ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit: ; preds = %_ZN10Cl
   br i1 %.not83.i, label %.sink.split.i, label %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit
 
 .sink.split.i:                                    ; preds = %479, %478
-  %.sink.i = phi ptr [ %434, %478 ], [ %.0102375, %479 ]
+  %.sink.i = phi ptr [ %434, %478 ], [ %.0110375, %479 ]
   %gep371 = getelementptr i8, ptr %52, i64 %433
   store ptr %.sink.i, ptr %gep371, align 8
   br label %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit
 
 _ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit: ; preds = %429, %440, %479, %.sink.split.i
-  %.not118 = icmp eq ptr %430, null
-  br i1 %.not118, label %._crit_edge380, label %.lr.ph379, !llvm.loop !127
+  %.not126 = icmp eq ptr %430, null
+  br i1 %.not126, label %._crit_edge380, label %.lr.ph379, !llvm.loop !127
 
 ._crit_edge380:                                   ; preds = %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit, %.critedge10.thread439, %.critedge10.thread, %223, %81
   %481 = phi ptr [ %82, %81 ], [ %85, %223 ], [ %85, %.critedge10.thread ], [ %85, %.critedge10.thread439 ], [ %434, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit ]
-  %.1.lcssa = phi ptr [ %.0101, %81 ], [ %.1377, %223 ], [ %.1377, %.critedge10.thread ], [ %.1377, %.critedge10.thread439 ], [ %.2, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit ]
+  %.1.lcssa = phi ptr [ %.0109, %81 ], [ %.1377, %223 ], [ %.1377, %.critedge10.thread ], [ %.1377, %.critedge10.thread439 ], [ %.2, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit ]
   %.sroa.0276.4 = phi ptr [ %.sroa.0276.2, %81 ], [ %.sroa.0276.5433, %223 ], [ %.sroa.0276.5434, %.critedge10.thread ], [ %.sroa.0276.5442, %.critedge10.thread439 ], [ %.sroa.0276.5433, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit ]
   %.sroa.0282.4 = phi ptr [ %.sroa.0282.2, %81 ], [ %.sroa.0282.5436, %223 ], [ %.sroa.0282.5437, %.critedge10.thread ], [ %.sroa.0282.5443, %.critedge10.thread439 ], [ %.sroa.0282.5436, %_ZN10ClipperLib11ClipperBase18SwapPositionsInAELEPNS_5TEdgeES2_.exit ]
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 96
   %483 = load ptr, ptr %482, align 8
-  %.not122 = icmp eq ptr %483, null
-  br i1 %.not122, label %503, label %484
+  %.not130 = icmp eq ptr %483, null
+  br i1 %.not130, label %503, label %484
 
 484:                                              ; preds = %._crit_edge380
   %485 = getelementptr inbounds nuw i8, ptr %483, i64 48
@@ -14468,8 +14468,8 @@ _ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit201: ; preds = %488,
   %506 = load i32, ptr %505, align 4
   %507 = icmp slt i32 %506, 0
   %508 = icmp ne ptr %.1.lcssa, null
-  %or.cond = select i1 %507, i1 true, i1 %508
-  br i1 %or.cond, label %585, label %509
+  %or.cond21 = select i1 %507, i1 true, i1 %508
+  br i1 %or.cond21, label %585, label %509
 
 509:                                              ; preds = %503
   %510 = load ptr, ptr %0, align 8
@@ -14495,17 +14495,17 @@ _ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit201: ; preds = %488,
 _ZN10ClipperLib7Clipper12GetLastOutPtEPNS_5TEdgeE.exit212: ; preds = %509, %523
   %.0.in.i210 = phi ptr [ %525, %523 ], [ %522, %509 ]
   %.0.i211 = load ptr, ptr %.0.in.i210, align 8
-  %.0105398 = load ptr, ptr %72, align 8
-  %.not123399 = icmp eq ptr %.0105398, null
-  br i1 %.not123399, label %._crit_edge402, label %.lr.ph401
+  %.0113398 = load ptr, ptr %72, align 8
+  %.not131399 = icmp eq ptr %.0113398, null
+  br i1 %.not131399, label %._crit_edge402, label %.lr.ph401
 
 .lr.ph401:                                        ; preds = %_ZN10ClipperLib7Clipper12GetLastOutPtEPNS_5TEdgeE.exit212
   %526 = getelementptr inbounds nuw i8, ptr %481, i64 32
   br label %527
 
 527:                                              ; preds = %.lr.ph401, %_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit228
-  %.0105400 = phi ptr [ %.0105398, %.lr.ph401 ], [ %.0105, %_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit228 ]
-  %528 = getelementptr inbounds nuw i8, ptr %.0105400, i64 76
+  %.0113400 = phi ptr [ %.0113398, %.lr.ph401 ], [ %.0113, %_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit228 ]
+  %528 = getelementptr inbounds nuw i8, ptr %.0113400, i64 76
   %529 = load i32, ptr %528, align 4
   %530 = icmp sgt i32 %529, -1
   br i1 %530, label %531, label %_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit228
@@ -14513,8 +14513,8 @@ _ZN10ClipperLib7Clipper12GetLastOutPtEPNS_5TEdgeE.exit212: ; preds = %509, %523
 531:                                              ; preds = %527
   %532 = load i64, ptr %481, align 8
   %533 = load i64, ptr %526, align 8
-  %534 = load i64, ptr %.0105400, align 8
-  %535 = getelementptr inbounds nuw i8, ptr %.0105400, i64 32
+  %534 = load i64, ptr %.0113400, align 8
+  %535 = getelementptr inbounds nuw i8, ptr %.0113400, i64 32
   %536 = load i64, ptr %535, align 8
   %spec.select.i213 = tail call i64 @llvm.smin.i64(i64 %532, i64 %533)
   %spec.select13.i214 = tail call i64 @llvm.smax.i64(i64 %532, i64 %533)
@@ -14534,7 +14534,7 @@ _ZN10ClipperLib7Clipper12GetLastOutPtEPNS_5TEdgeE.exit212: ; preds = %509, %523
   %545 = load ptr, ptr %gep397, align 8
   %546 = getelementptr inbounds nuw ptr, ptr %545, i64 %544
   %547 = load ptr, ptr %546, align 8
-  %548 = getelementptr inbounds nuw i8, ptr %.0105400, i64 60
+  %548 = getelementptr inbounds nuw i8, ptr %.0113400, i64 60
   %549 = load i32, ptr %548, align 4
   %550 = icmp eq i32 %549, 1
   %551 = getelementptr inbounds nuw i8, ptr %547, i64 24
@@ -14548,8 +14548,8 @@ _ZN10ClipperLib7Clipper12GetLastOutPtEPNS_5TEdgeE.exit212: ; preds = %509, %523
 _ZN10ClipperLib7Clipper12GetLastOutPtEPNS_5TEdgeE.exit219: ; preds = %540, %552
   %.0.in.i217 = phi ptr [ %554, %552 ], [ %551, %540 ]
   %.0.i218 = load ptr, ptr %.0.in.i217, align 8
-  %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0105400, i64 40
-  %.sroa.238.0.copyload = load i64, ptr %.sroa.238.0..sroa_idx, align 8
+  %.sroa.246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0113400, i64 40
+  %.sroa.246.0.copyload = load i64, ptr %.sroa.246.0..sroa_idx, align 8
   %555 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 16
   store ptr %.0.i218, ptr %555, align 8
@@ -14557,7 +14557,7 @@ _ZN10ClipperLib7Clipper12GetLastOutPtEPNS_5TEdgeE.exit219: ; preds = %540, %552
   store ptr %.0.i211, ptr %557, align 8
   store i64 %536, ptr %556, align 8
   %.sroa.2.0..sroa_idx.i220 = getelementptr inbounds nuw i8, ptr %555, i64 24
-  store i64 %.sroa.238.0.copyload, ptr %.sroa.2.0..sroa_idx.i220, align 8
+  store i64 %.sroa.246.0.copyload, ptr %.sroa.2.0..sroa_idx.i220, align 8
   %558 = load ptr, ptr %74, align 8
   %559 = load ptr, ptr %75, align 8
   %.not.i.i221 = icmp eq ptr %558, %559
@@ -14619,26 +14619,26 @@ _ZNSt6vectorIPN10ClipperLib4JoinESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_c
   br label %_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit228
 
 _ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit228: ; preds = %_ZNSt6vectorIPN10ClipperLib4JoinESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i227, %560, %531, %527
-  %583 = getelementptr inbounds nuw i8, ptr %.0105400, i64 120
-  %.0105 = load ptr, ptr %583, align 8
-  %.not123 = icmp eq ptr %.0105, null
-  br i1 %.not123, label %._crit_edge402, label %527, !llvm.loop !128
+  %583 = getelementptr inbounds nuw i8, ptr %.0113400, i64 120
+  %.0113 = load ptr, ptr %583, align 8
+  %.not131 = icmp eq ptr %.0113, null
+  br i1 %.not131, label %._crit_edge402, label %527, !llvm.loop !128
 
 ._crit_edge402:                                   ; preds = %_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit228, %_ZN10ClipperLib7Clipper12GetLastOutPtEPNS_5TEdgeE.exit212
   %584 = getelementptr inbounds nuw i8, ptr %481, i64 32
-  %.sroa.035.0.copyload = load i64, ptr %584, align 8
-  %.sroa.236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %481, i64 40
-  %.sroa.236.0.copyload = load i64, ptr %.sroa.236.0..sroa_idx, align 8
-  tail call void @_ZN10ClipperLib7Clipper12AddGhostJoinEPNS_5OutPtENS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef %.0.i211, i64 %.sroa.035.0.copyload, i64 %.sroa.236.0.copyload)
+  %.sroa.043.0.copyload = load i64, ptr %584, align 8
+  %.sroa.244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %481, i64 40
+  %.sroa.244.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8
+  tail call void @_ZN10ClipperLib7Clipper12AddGhostJoinEPNS_5OutPtENS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef %.0.i211, i64 %.sroa.043.0.copyload, i64 %.sroa.244.0.copyload)
   %.pre430 = load ptr, ptr %504, align 8
   br label %585
 
 585:                                              ; preds = %._crit_edge402, %503
   %586 = phi ptr [ %.pre430, %._crit_edge402 ], [ %483, %503 ]
-  %.not124 = icmp eq ptr %586, null
+  %.not132 = icmp eq ptr %586, null
   %587 = load i32, ptr %505, align 4
   %588 = icmp sgt i32 %587, -1
-  br i1 %.not124, label %680, label %589
+  br i1 %.not132, label %680, label %589
 
 589:                                              ; preds = %585
   br i1 %588, label %590, label %675
@@ -14662,8 +14662,8 @@ _ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit228: ; preds = %
   %603 = load ptr, ptr %602, align 8
   %604 = getelementptr inbounds nuw i8, ptr %597, i64 104
   %605 = load ptr, ptr %604, align 8
-  %.not125 = icmp eq ptr %603, null
-  br i1 %.not125, label %640, label %606
+  %.not133 = icmp eq ptr %603, null
+  br i1 %.not133, label %640, label %606
 
 606:                                              ; preds = %601
   %607 = getelementptr inbounds nuw i8, ptr %603, i64 16
@@ -14683,8 +14683,8 @@ _ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit228: ; preds = %
 617:                                              ; preds = %611
   %618 = getelementptr inbounds nuw i8, ptr %603, i64 64
   %619 = load i32, ptr %618, align 8
-  %.not126 = icmp eq i32 %619, 0
-  br i1 %.not126, label %640, label %620
+  %.not134 = icmp eq i32 %619, 0
+  br i1 %.not134, label %640, label %620
 
 620:                                              ; preds = %617
   %621 = getelementptr inbounds nuw i8, ptr %603, i64 76
@@ -14712,15 +14712,15 @@ _ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit228: ; preds = %
 637:                                              ; preds = %628
   %638 = tail call noundef ptr @_ZN10ClipperLib7Clipper8AddOutPtEPNS_5TEdgeERKNS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef nonnull %603, ptr noundef nonnull align 8 dereferenceable(16) %597)
   %639 = getelementptr inbounds nuw i8, ptr %597, i64 32
-  %.sroa.014.0.copyload = load i64, ptr %639, align 8
-  %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %597, i64 40
-  %.sroa.215.0.copyload = load i64, ptr %.sroa.215.0..sroa_idx, align 8
-  tail call void @_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef %592, ptr noundef %638, i64 %.sroa.014.0.copyload, i64 %.sroa.215.0.copyload)
+  %.sroa.022.0.copyload = load i64, ptr %639, align 8
+  %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %597, i64 40
+  %.sroa.223.0.copyload = load i64, ptr %.sroa.223.0..sroa_idx, align 8
+  tail call void @_ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE(ptr noundef nonnull align 8 dereferenceable(135) %0, ptr noundef %592, ptr noundef %638, i64 %.sroa.022.0.copyload, i64 %.sroa.223.0.copyload)
   br label %_ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit232
 
 640:                                              ; preds = %628, %624, %620, %617, %611, %606, %601
-  %.not127 = icmp eq ptr %605, null
-  br i1 %.not127, label %_ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit232, label %641
+  %.not135 = icmp eq ptr %605, null
+  br i1 %.not135, label %_ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit232, label %641
 
 641:                                              ; preds = %640
   %642 = getelementptr inbounds nuw i8, ptr %605, i64 16
@@ -14740,8 +14740,8 @@ _ZN10ClipperLib7Clipper7AddJoinEPNS_5OutPtES2_NS_8IntPointE.exit228: ; preds = %
 652:                                              ; preds = %646
   %653 = getelementptr inbounds nuw i8, ptr %605, i64 64
   %654 = load i32, ptr %653, align 8
-  %.not128 = icmp eq i32 %654, 0
-  br i1 %.not128, label %_ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit232, label %655
+  %.not136 = icmp eq i32 %654, 0
+  br i1 %.not136, label %_ZN10ClipperLib11ClipperBase13DeleteFromAELEPNS_5TEdgeE.exit232, label %655
 
 655:                                              ; preds = %652
   %656 = getelementptr inbounds nuw i8, ptr %605, i64 76
@@ -26339,14 +26339,14 @@ define hidden void @_ZN10ClipperLib18AddPolyNodeToPathsERKNS_8PolyNodeENS_8NodeT
   br label %8
 
 8:                                                ; preds = %3, %4
-  %.013.not = phi i1 [ %7, %4 ], [ false, %3 ]
+  %.014.not = phi i1 [ %7, %4 ], [ false, %3 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %10, %12
-  %brmerge = or i1 %.013.not, %13
-  br i1 %brmerge, label %_ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE9push_backERKS3_.exit, label %14
+  %or.cond.not = or i1 %.014.not, %13
+  br i1 %or.cond.not, label %_ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE9push_backERKS3_.exit, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8

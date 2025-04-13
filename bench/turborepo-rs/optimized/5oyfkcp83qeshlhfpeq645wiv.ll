@@ -587,10 +587,10 @@ define void @_RINvNtCslyFhtC9DD08_9itertools10tuple_impl13tuple_windowsINtNtNtNt
   %5 = icmp eq i64 %.sroa.0.0.copyload.i.i, 2
   br i1 %5, label %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.i, label %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.thread.i
 
-6:                                                ; preds = %19, %9
-  %7 = phi i64 [ %.pre14, %19 ], [ %14, %9 ]
-  %8 = phi ptr [ %.pre, %19 ], [ %12, %9 ]
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %10, %9 ]
+6:                                                ; preds = %16, %9
+  %7 = phi i64 [ %.pre14, %16 ], [ %14, %9 ]
+  %8 = phi ptr [ %.pre, %16 ], [ %12, %9 ]
+  %.pn = phi { ptr, i32 } [ %17, %16 ], [ %10, %9 ]
   invoke void @_RNvMs3_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_7GroupByNtNtCseG2FYMysgNb_3wax5token8PositionINtBY_4WalkTjjEENCNvNtB10_4rule8boundary0E10drop_groupB10_(ptr noundef nonnull align 8 %8, i64 noundef %7)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtB4_4iter8adapters3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB22_4WalkTjjEENCNvNtB24_4rule8boundary0ENCNCB2U_s_00EEB24_.exit unwind label %27
 
@@ -603,7 +603,7 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx2.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx.i.i, i64 24, i1 false), !alias.scope !152
-  br label %21
+  br label %18
 
 _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.i: ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -616,24 +616,14 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
 .noexc:                                           ; preds = %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.i
   %.pr.i = load i64, ptr %3, align 8, !noalias !144
   %15 = icmp eq i64 %.pr.i, 2
-  br i1 %15, label %.thread, label %21
+  br i1 %15, label %.thread, label %18
 
 .thread:                                          ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !144
-  br label %16
+  br label %24
 
-16:                                               ; preds = %.thread, %24
-  %.sroa.5.1 = phi ptr [ %26, %24 ], [ undef, %.thread ]
-  %.sroa.0.1 = phi ptr [ %25, %24 ], [ null, %.thread ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.sroa.0.1, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.sroa.5.1, ptr %18, align 8
-  ret void
-
-19:                                               ; preds = %21
-  %20 = landingpad { ptr, i32 }
+16:                                               ; preds = %18
+  %17 = landingpad { ptr, i32 }
           cleanup
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !154
@@ -641,7 +631,7 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
   %.pre14 = load i64, ptr %.phi.trans.insert13, align 8, !alias.scope !154
   br label %6
 
-21:                                               ; preds = %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.thread.i, %.noexc
+18:                                               ; preds = %_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.8413233830278194149.exit.thread.i, %.noexc
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !144, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !144
@@ -653,15 +643,25 @@ _RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wa
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !164, !noalias !166
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.sroa.4.0.copyload.i, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !164, !noalias !166
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %1, ptr %22, align 8, !alias.scope !168, !noalias !169
-  %23 = invoke { ptr, ptr } @_RINvXsp_NtCslyFhtC9DD08_9itertools10tuple_implTRNtNtCseG2FYMysgNb_3wax5token5TokenBJ_ENtB6_12TupleCollect24collect_from_iter_no_bufINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainIB26_INtNtNtB2c_7sources4once4OnceBJ_EB32_EQINtNtB2a_3map3MapINtNtB8_11groupbylazy5GroupNtBM_8PositionINtBM_4WalkTjjEENCNvNtBO_4rule8boundary0ENCNCB4T_s_00EEEBO_(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4)
-          to label %24 unwind label %19
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %1, ptr %19, align 8, !alias.scope !168, !noalias !169
+  %20 = invoke { ptr, ptr } @_RINvXsp_NtCslyFhtC9DD08_9itertools10tuple_implTRNtNtCseG2FYMysgNb_3wax5token5TokenBJ_ENtB6_12TupleCollect24collect_from_iter_no_bufINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters5chain5ChainIB26_INtNtNtB2c_7sources4once4OnceBJ_EB32_EQINtNtB2a_3map3MapINtNtB8_11groupbylazy5GroupNtBM_8PositionINtBM_4WalkTjjEENCNvNtBO_4rule8boundary0ENCNCB4T_s_00EEEBO_(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4)
+          to label %21 unwind label %16
 
-24:                                               ; preds = %21
-  %25 = extractvalue { ptr, ptr } %23, 0
-  %26 = extractvalue { ptr, ptr } %23, 1
-  br label %16
+21:                                               ; preds = %18
+  %22 = extractvalue { ptr, ptr } %20, 0
+  %23 = extractvalue { ptr, ptr } %20, 1
+  br label %24
+
+24:                                               ; preds = %.thread, %21
+  %.sroa.5.1 = phi ptr [ %23, %21 ], [ undef, %.thread ]
+  %.sroa.0.1 = phi ptr [ %22, %21 ], [ null, %.thread ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %.sroa.0.1, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %.sroa.5.1, ptr %26, align 8
+  ret void
 
 27:                                               ; preds = %6
   %28 = landingpad { ptr, i32 }

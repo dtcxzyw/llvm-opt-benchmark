@@ -916,19 +916,17 @@ define internal fastcc noundef range(i32 0, 5) i32 @_ZN12_GLOBAL__N_126_uloc_get
   %28 = add nsw i32 %27, -98
   %29 = call i32 @llvm.fshl.i32(i32 %28, i32 %28, i32 31)
   %30 = icmp ult i32 %29, 10
-  br i1 %30, label %switch.hole_check, label %31
+  %switch.maskindex = trunc i32 %29 to i16
+  %switch.shifted = lshr i16 801, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond22 = select i1 %30, i1 %switch.lobit, i1 false
+  br i1 %or.cond22, label %switch.lookup, label %31
 
-31:                                               ; preds = %switch.hole_check, %25
+31:                                               ; preds = %25
   store i32 5, ptr %2, align 4, !tbaa !13
   br label %33
 
-switch.hole_check:                                ; preds = %25
-  %switch.maskindex = trunc nuw i32 %29 to i16
-  %switch.shifted = lshr i16 801, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %31
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %25
   %32 = zext nneg i32 %29 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN12_GLOBAL__N_126_uloc_getOrientationHelperEPKcS1_R10UErrorCode, i64 0, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4

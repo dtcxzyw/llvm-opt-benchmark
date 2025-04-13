@@ -5181,25 +5181,23 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 47:                                               ; preds = %19, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
   %48 = load i8, ptr @UsePerfData, align 1
   %49 = trunc i8 %48 to i1
-  br i1 %49, label %50, label %_ZN13PerfTraceTimeD2Ev.exit
+  %50 = load i8, ptr %6, align 8
+  %51 = trunc i8 %50 to i1
+  %or.cond.i = select i1 %49, i1 %51, i1 false
+  br i1 %or.cond.i, label %52, label %_ZN13PerfTraceTimeD2Ev.exit
 
-50:                                               ; preds = %47
-  %51 = load i8, ptr %6, align 8
-  %52 = trunc i8 %51 to i1
-  br i1 %52, label %53, label %_ZN13PerfTraceTimeD2Ev.exit
-
-53:                                               ; preds = %50
+52:                                               ; preds = %47
   call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-  %54 = load ptr, ptr %7, align 8
-  %55 = load i64, ptr %3, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i64, ptr %57, align 8
-  %59 = add nsw i64 %58, %55
-  store i64 %59, ptr %57, align 8
+  %53 = load ptr, ptr %7, align 8
+  %54 = load i64, ptr %3, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i64, ptr %56, align 8
+  %58 = add nsw i64 %57, %54
+  store i64 %58, ptr %56, align 8
   br label %_ZN13PerfTraceTimeD2Ev.exit
 
-_ZN13PerfTraceTimeD2Ev.exit:                      ; preds = %47, %50, %53
+_ZN13PerfTraceTimeD2Ev.exit:                      ; preds = %47, %52
   ret void
 }
 
@@ -5924,16 +5922,16 @@ _ZNK5Klass12class_loaderEv.exit.thread:           ; preds = %14, %_ZNK5Klass12cl
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %23 = load i16, ptr %22, align 4
   %24 = and i16 %23, 16
-  %.not16 = icmp eq i16 %24, 0
-  br i1 %.not16, label %30, label %25
+  %.not17 = icmp eq i16 %24, 0
+  br i1 %.not17, label %30, label %25
 
 25:                                               ; preds = %_ZNK5Klass12class_loaderEv.exit.thread
   %26 = tail call noundef zeroext i1 @_ZN12CDSEnumKlass21initialize_enum_klassEP13InstanceKlassP10JavaThread(ptr noundef nonnull %0, ptr noundef %1) #26
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp ne ptr %28, null
-  %brmerge = or i1 %26, %29
-  br i1 %brmerge, label %105, label %30
+  %or.cond = or i1 %26, %29
+  br i1 %or.cond, label %105, label %30
 
 30:                                               ; preds = %25, %_ZNK5Klass12class_loaderEv.exit.thread
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3064), align 8
@@ -6000,10 +5998,10 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
 _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZNK13InstanceKlass17class_initializerEv.exit.thread, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
-  %.not8 = phi i1 [ true, %_ZNK13InstanceKlass17class_initializerEv.exit.thread ], [ false, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i ]
+  %.not9 = phi i1 [ true, %_ZNK13InstanceKlass17class_initializerEv.exit.thread ], [ false, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i ]
   %66 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not17 = icmp eq ptr %66, null
-  br i1 %.not17, label %_ZN12ResourceMarkD2Ev.exit, label %67
+  %.not18 = icmp eq ptr %66, null
+  br i1 %.not18, label %_ZN12ResourceMarkD2Ev.exit, label %67
 
 67:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 800
@@ -6032,7 +6030,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZNK13InstanceKlass
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %83 = load ptr, ptr %82, align 8
   call void @_ZNK6Symbol14print_value_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %83, ptr noundef nonnull %4) #26
-  %84 = select i1 %.not8, ptr @.str.43, ptr @.str.22
+  %84 = select i1 %.not9, ptr @.str.43, ptr @.str.22
   %85 = ptrtoint ptr %0 to i64
   %86 = load ptr, ptr %1, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 168
@@ -6061,7 +6059,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %_ZNK13InstanceKlass
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %94, %92, %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  br i1 %.not8, label %104, label %95
+  br i1 %.not9, label %104, label %95
 
 95:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 120
@@ -12159,8 +12157,8 @@ _ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i: ; preds = %_ZNK14JfrThreadL
   %34 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 666), align 2
   %35 = icmp ne i8 %34, 0
   %36 = tail call noundef zeroext i1 @_ZN8JfrEventI16EventClassUnloadE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %33, ptr noundef nonnull %26, i64 noundef %27, i64 noundef 0, i1 noundef zeroext %35)
-  %brmerge.i = or i1 %36, %35
-  br i1 %brmerge.i, label %_ZN8JfrEventI16EventClassUnloadE11write_eventEv.exit, label %37
+  %or.cond.i = or i1 %36, %35
+  br i1 %or.cond.i, label %_ZN8JfrEventI16EventClassUnloadE11write_eventEv.exit, label %37
 
 37:                                               ; preds = %_ZNK14JfrThreadLocal13native_bufferEv.exit.thread.i
   %38 = tail call noundef zeroext i1 @_ZN8JfrEventI16EventClassUnloadE17write_sized_eventEP9JfrBufferP6Threadmmb(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %33, ptr noundef nonnull %26, i64 noundef %27, i64 noundef 0, i1 noundef zeroext true)

@@ -169,9 +169,12 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
 70:                                               ; preds = %66
   %switch.tableidx = add nsw i32 %0, -395
   %71 = icmp ult i32 %switch.tableidx, 21
-  br i1 %71, label %switch.hole_check, label %72
+  %switch.shifted = lshr i32 1457017, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond602 = select i1 %71, i1 %switch.lobit, i1 false
+  br i1 %or.cond602, label %switch.lookup, label %72
 
-72:                                               ; preds = %switch.hole_check, %70
+72:                                               ; preds = %70
   %73 = icmp samesign ult i32 %0, 416
   br i1 %73, label %645, label %74
 
@@ -186,9 +189,13 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
 78:                                               ; preds = %74
   %switch.tableidx534 = add nsw i32 %0, -422
   %79 = icmp ult i32 %switch.tableidx534, 10
-  br i1 %79, label %switch.hole_check535, label %80
+  %switch.maskindex = trunc i32 %switch.tableidx534 to i16
+  %switch.shifted537 = lshr i16 843, %switch.maskindex
+  %switch.lobit538 = trunc i16 %switch.shifted537 to i1
+  %or.cond603 = select i1 %79, i1 %switch.lobit538, i1 false
+  br i1 %or.cond603, label %switch.lookup536, label %80
 
-80:                                               ; preds = %switch.hole_check535, %78
+80:                                               ; preds = %78
   %81 = icmp samesign ult i32 %0, 433
   br i1 %81, label %645, label %82
 
@@ -231,9 +238,13 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
 100:                                              ; preds = %94
   %switch.tableidx542 = add nsw i32 %0, -452
   %101 = icmp ult i32 %switch.tableidx542, 7
-  br i1 %101, label %switch.hole_check543, label %102
+  %switch.maskindex545 = trunc i32 %switch.tableidx542 to i8
+  %switch.shifted546 = lshr i8 91, %switch.maskindex545
+  %switch.lobit547 = trunc i8 %switch.shifted546 to i1
+  %or.cond604 = select i1 %101, i1 %switch.lobit547, i1 false
+  br i1 %or.cond604, label %switch.lookup544, label %102
 
-102:                                              ; preds = %switch.hole_check543, %100
+102:                                              ; preds = %100
   %103 = icmp samesign ult i32 %0, 459
   br i1 %103, label %645, label %104
 
@@ -314,9 +325,13 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
 138:                                              ; preds = %134
   %switch.tableidx551 = add nsw i32 %0, -570
   %139 = icmp ult i32 %switch.tableidx551, 12
-  br i1 %139, label %switch.hole_check552, label %140
+  %switch.maskindex554 = trunc i32 %switch.tableidx551 to i16
+  %switch.shifted555 = lshr i16 3739, %switch.maskindex554
+  %switch.lobit556 = trunc i16 %switch.shifted555 to i1
+  %or.cond605 = select i1 %139, i1 %switch.lobit556, i1 false
+  br i1 %or.cond605, label %switch.lookup553, label %140
 
-140:                                              ; preds = %switch.hole_check552, %138
+140:                                              ; preds = %138
   %141 = icmp samesign ult i32 %0, 582
   br i1 %141, label %645, label %142
 
@@ -449,9 +464,13 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
 195:                                              ; preds = %191
   %switch.tableidx560 = add nsw i32 %0, -1008
   %196 = icmp ult i32 %switch.tableidx560, 11
-  br i1 %196, label %switch.hole_check561, label %197
+  %switch.maskindex563 = trunc i32 %switch.tableidx560 to i16
+  %switch.shifted564 = lshr i16 1715, %switch.maskindex563
+  %switch.lobit565 = trunc i16 %switch.shifted564 to i1
+  %or.cond606 = select i1 %196, i1 %switch.lobit565, i1 false
+  br i1 %or.cond606, label %switch.lookup562, label %197
 
-197:                                              ; preds = %switch.hole_check561, %195
+197:                                              ; preds = %195
   %198 = icmp samesign ult i32 %0, 1021
   br i1 %198, label %645, label %199
 
@@ -965,9 +984,13 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
 438:                                              ; preds = %434
   %switch.tableidx577 = add nsw i32 %0, -11360
   %439 = icmp ult i32 %switch.tableidx577, 5
-  br i1 %439, label %switch.hole_check578, label %440
+  %switch.maskindex580 = trunc i32 %switch.tableidx577 to i8
+  %switch.shifted581 = lshr i8 29, %switch.maskindex580
+  %switch.lobit582 = trunc i8 %switch.shifted581 to i1
+  %or.cond607 = select i1 %439, i1 %switch.lobit582, i1 false
+  br i1 %or.cond607, label %switch.lookup579, label %440
 
-440:                                              ; preds = %switch.hole_check578, %438
+440:                                              ; preds = %438
   %441 = icmp samesign ult i32 %0, 11367
   br i1 %441, label %645, label %442
 
@@ -1161,9 +1184,13 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
 532:                                              ; preds = %528
   %switch.tableidx590 = add nsw i32 %0, -42922
   %533 = icmp ult i32 %switch.tableidx590, 10
-  br i1 %533, label %switch.hole_check591, label %534
+  %switch.maskindex593 = trunc i32 %switch.tableidx590 to i16
+  %switch.shifted594 = lshr i16 991, %switch.maskindex593
+  %switch.lobit595 = trunc i16 %switch.shifted594 to i1
+  %or.cond608 = select i1 %533, i1 %switch.lobit595, i1 false
+  br i1 %or.cond608, label %switch.lookup592, label %534
 
-534:                                              ; preds = %switch.hole_check591, %532
+534:                                              ; preds = %532
   %535 = icmp samesign ult i32 %0, 42932
   br i1 %535, label %645, label %536
 
@@ -1365,60 +1392,31 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef
   %spec.select = select i1 %or.cond532, i32 %633, i32 %0
   br label %645
 
-switch.hole_check:                                ; preds = %70
-  %switch.shifted = lshr i32 1457017, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %72
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %70
   %634 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [21 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi, i64 0, i64 %634
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %645
 
-switch.hole_check535:                             ; preds = %78
-  %switch.maskindex = trunc nuw i32 %switch.tableidx534 to i16
-  %switch.shifted537 = lshr i16 843, %switch.maskindex
-  %switch.lobit538 = trunc i16 %switch.shifted537 to i1
-  br i1 %switch.lobit538, label %switch.lookup536, label %80
-
-switch.lookup536:                                 ; preds = %switch.hole_check535
+switch.lookup536:                                 ; preds = %78
   %635 = zext nneg i32 %switch.tableidx534 to i64
   %switch.gep539 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.1, i64 0, i64 %635
   %switch.load540 = load i32, ptr %switch.gep539, align 4
   br label %645
 
-switch.hole_check543:                             ; preds = %100
-  %switch.maskindex545 = trunc nuw i32 %switch.tableidx542 to i8
-  %switch.shifted546 = lshr i8 91, %switch.maskindex545
-  %switch.lobit547 = trunc i8 %switch.shifted546 to i1
-  br i1 %switch.lobit547, label %switch.lookup544, label %102
-
-switch.lookup544:                                 ; preds = %switch.hole_check543
+switch.lookup544:                                 ; preds = %100
   %636 = zext nneg i32 %switch.tableidx542 to i64
   %switch.gep548 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.2, i64 0, i64 %636
   %switch.load549 = load i32, ptr %switch.gep548, align 4
   br label %645
 
-switch.hole_check552:                             ; preds = %138
-  %switch.maskindex554 = trunc nuw i32 %switch.tableidx551 to i16
-  %switch.shifted555 = lshr i16 3739, %switch.maskindex554
-  %switch.lobit556 = trunc i16 %switch.shifted555 to i1
-  br i1 %switch.lobit556, label %switch.lookup553, label %140
-
-switch.lookup553:                                 ; preds = %switch.hole_check552
+switch.lookup553:                                 ; preds = %138
   %637 = zext nneg i32 %switch.tableidx551 to i64
   %switch.gep557 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.3, i64 0, i64 %637
   %switch.load558 = load i32, ptr %switch.gep557, align 4
   br label %645
 
-switch.hole_check561:                             ; preds = %195
-  %switch.maskindex563 = trunc nuw i32 %switch.tableidx560 to i16
-  %switch.shifted564 = lshr i16 1715, %switch.maskindex563
-  %switch.lobit565 = trunc i16 %switch.shifted564 to i1
-  br i1 %switch.lobit565, label %switch.lookup562, label %197
-
-switch.lookup562:                                 ; preds = %switch.hole_check561
+switch.lookup562:                                 ; preds = %195
   %638 = zext nneg i32 %switch.tableidx560 to i64
   %switch.gep566 = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.4, i64 0, i64 %638
   %switch.load567 = load i32, ptr %switch.gep566, align 4
@@ -1436,13 +1434,7 @@ switch.lookup572:                                 ; preds = %271
   %switch.load575 = load i32, ptr %switch.gep574, align 4
   br label %645
 
-switch.hole_check578:                             ; preds = %438
-  %switch.maskindex580 = trunc nuw i32 %switch.tableidx577 to i8
-  %switch.shifted581 = lshr i8 29, %switch.maskindex580
-  %switch.lobit582 = trunc i8 %switch.shifted581 to i1
-  br i1 %switch.lobit582, label %switch.lookup579, label %440
-
-switch.lookup579:                                 ; preds = %switch.hole_check578
+switch.lookup579:                                 ; preds = %438
   %641 = zext nneg i32 %switch.tableidx577 to i64
   %switch.gep583 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.7, i64 0, i64 %641
   %switch.load584 = load i32, ptr %switch.gep583, align 4
@@ -1454,13 +1446,7 @@ switch.lookup585:                                 ; preds = %446
   %switch.load588 = load i32, ptr %switch.gep587, align 4
   br label %645
 
-switch.hole_check591:                             ; preds = %532
-  %switch.maskindex593 = trunc nuw i32 %switch.tableidx590 to i16
-  %switch.shifted594 = lshr i16 991, %switch.maskindex593
-  %switch.lobit595 = trunc i16 %switch.shifted594 to i1
-  br i1 %switch.lobit595, label %switch.lookup592, label %534
-
-switch.lookup592:                                 ; preds = %switch.hole_check591
+switch.lookup592:                                 ; preds = %532
   %643 = zext nneg i32 %switch.tableidx590 to i64
   %switch.gep596 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.9, i64 0, i64 %643
   %switch.load597 = load i32, ptr %switch.gep596, align 4

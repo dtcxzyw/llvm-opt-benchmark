@@ -766,41 +766,41 @@ _ZNSt5dequeIjSaIjEE9push_backERKj.exit:           ; preds = %14, %12, %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %18 = load ptr, ptr %16, align 8, !tbaa !106
   %19 = load ptr, ptr %17, align 8, !tbaa !106
-  %.not4 = icmp ne ptr %18, %19
-  %brmerge.not = and i1 %3, %.not4
-  br i1 %brmerge.not, label %20, label %34
+  %20 = icmp ne ptr %18, %19
+  %or.cond = and i1 %3, %20
+  br i1 %or.cond, label %21, label %35
 
-20:                                               ; preds = %_ZNSt5dequeIjSaIjEE9push_backERKj.exit
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %22 = load ptr, ptr %21, align 8, !tbaa !108
-  %23 = getelementptr inbounds i8, ptr %22, i64 -4
-  %.not.i3 = icmp eq ptr %19, %23
-  br i1 %.not.i3, label %26, label %24
+21:                                               ; preds = %_ZNSt5dequeIjSaIjEE9push_backERKj.exit
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %23 = load ptr, ptr %22, align 8, !tbaa !108
+  %24 = getelementptr inbounds i8, ptr %23, i64 -4
+  %.not.i3 = icmp eq ptr %19, %24
+  br i1 %.not.i3, label %27, label %25
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 4
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 4
   br label %_ZNSt5dequeIjSaIjEE9pop_frontEv.exit
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %28 = load ptr, ptr %27, align 8, !tbaa !109
-  call void @_ZdlPvm(ptr noundef %28, i64 noundef 512) #18
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %30 = load ptr, ptr %29, align 8, !tbaa !96
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %31, ptr %29, align 8, !tbaa !110
-  %32 = load ptr, ptr %31, align 8, !tbaa !98
-  store ptr %32, ptr %27, align 8, !tbaa !111
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 512
-  store ptr %33, ptr %21, align 8, !tbaa !112
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %29 = load ptr, ptr %28, align 8, !tbaa !109
+  call void @_ZdlPvm(ptr noundef %29, i64 noundef 512) #18
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %31 = load ptr, ptr %30, align 8, !tbaa !96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %32, ptr %30, align 8, !tbaa !110
+  %33 = load ptr, ptr %32, align 8, !tbaa !98
+  store ptr %33, ptr %28, align 8, !tbaa !111
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 512
+  store ptr %34, ptr %22, align 8, !tbaa !112
   br label %_ZNSt5dequeIjSaIjEE9pop_frontEv.exit
 
-_ZNSt5dequeIjSaIjEE9pop_frontEv.exit:             ; preds = %24, %26
-  %storemerge.i = phi ptr [ %25, %24 ], [ %32, %26 ]
+_ZNSt5dequeIjSaIjEE9pop_frontEv.exit:             ; preds = %25, %27
+  %storemerge.i = phi ptr [ %26, %25 ], [ %33, %27 ]
   store ptr %storemerge.i, ptr %17, align 8, !tbaa !113
-  br label %34
+  br label %35
 
-34:                                               ; preds = %_ZNSt5dequeIjSaIjEE9push_backERKj.exit, %_ZNSt5dequeIjSaIjEE9pop_frontEv.exit
+35:                                               ; preds = %_ZNSt5dequeIjSaIjEE9pop_frontEv.exit, %_ZNSt5dequeIjSaIjEE9push_backERKj.exit
   ret void
 }
 

@@ -299,8 +299,8 @@ define { ptr, ptr } @_ZN3gmx18ObservablesReducer19communicationBufferEb(ptr noun
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %11 = load i8, ptr %10, align 8, !tbaa !26, !range !39, !noundef !40
   %12 = trunc nuw i8 %11 to i1
-  %brmerge = or i1 %1, %12
-  br i1 %brmerge, label %13, label %21
+  %or.cond = or i1 %1, %12
+  br i1 %or.cond, label %13, label %21
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %3, align 8, !tbaa !22

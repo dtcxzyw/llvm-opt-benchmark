@@ -19,21 +19,21 @@ define void @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$co
   call void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17haf1466b85d565c2aE"(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %6, ptr nonnull align 8 %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  br label %11
+  br label %12
 
 9:                                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %10 = load i64, ptr %1, align 8
-  %.not6 = icmp eq i64 %10, 1
-  br i1 %.not6, label %12, label %11
+  %11 = icmp eq i64 %10, 1
+  br i1 %11, label %13, label %12
 
-11:                                               ; preds = %.thread, %9, %12
+12:                                               ; preds = %.thread, %13, %9
   ret void
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @"_ZN4core3ptr111drop_in_place$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$syn..error..Error$GT$$C$2_usize$GT$$GT$17h15a9a98ac5672133E"(ptr nonnull align 8 %13)
-  br label %11
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @"_ZN4core3ptr111drop_in_place$LT$core..array..iter..IntoIter$LT$core..option..Option$LT$syn..error..Error$GT$$C$2_usize$GT$$GT$17h15a9a98ac5672133E"(ptr nonnull align 8 %14)
+  br label %12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

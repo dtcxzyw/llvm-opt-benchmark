@@ -321,8 +321,8 @@ define hidden noundef float @_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point
   %7 = add nsw i32 %6, -1
   %8 = sitofp i32 %7 to float
   %9 = fcmp oge float %.sroa.0.0.vec.extract, %8
-  %.sroa.0.4.vec.extract48 = extractelement <2 x float> %1, i64 1
-  %10 = fcmp olt float %.sroa.0.4.vec.extract48, 0.000000e+00
+  %.sroa.0.4.vec.extract54 = extractelement <2 x float> %1, i64 1
+  %10 = fcmp olt float %.sroa.0.4.vec.extract54, 0.000000e+00
   %or.cond = select i1 %9, i1 true, i1 %10
   br i1 %or.cond, label %60, label %11
 
@@ -331,13 +331,13 @@ define hidden noundef float @_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point
   %13 = load i32, ptr %12, align 8, !tbaa !3
   %14 = add nsw i32 %13, -1
   %15 = sitofp i32 %14 to float
-  %16 = fcmp ult float %.sroa.0.4.vec.extract48, %15
+  %16 = fcmp ult float %.sroa.0.4.vec.extract54, %15
   br i1 %16, label %17, label %60
 
 17:                                               ; preds = %11
   %18 = tail call float @llvm.floor.f32(float %.sroa.0.0.vec.extract)
   %19 = fptosi float %18 to i32
-  %20 = tail call float @llvm.floor.f32(float %.sroa.0.4.vec.extract48)
+  %20 = tail call float @llvm.floor.f32(float %.sroa.0.4.vec.extract54)
   %21 = fptosi float %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !31
@@ -362,20 +362,20 @@ define hidden noundef float @_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point
   %42 = load float, ptr %41, align 4, !tbaa !23
   %43 = getelementptr inbounds float, ptr %33, i64 %38
   %44 = load float, ptr %43, align 4, !tbaa !23
-  %45 = fcmp ule float %36, 0.000000e+00
-  %46 = fcmp ule float %42, 0.000000e+00
-  %47 = fcmp ule float %44, 0.000000e+00
-  %48 = fcmp ule float %40, 0.000000e+00
-  %or.cond54.not59 = select i1 %45, i1 true, i1 %48
-  %brmerge = select i1 %or.cond54.not59, i1 true, i1 %46
-  %brmerge56 = select i1 %brmerge, i1 true, i1 %47
-  br i1 %brmerge56, label %60, label %49
+  %45 = fcmp ogt float %36, 0.000000e+00
+  %46 = fcmp ogt float %40, 0.000000e+00
+  %47 = fcmp ogt float %42, 0.000000e+00
+  %48 = fcmp ogt float %44, 0.000000e+00
+  %or.cond4 = select i1 %45, i1 %46, i1 false
+  %or.cond6 = select i1 %or.cond4, i1 %47, i1 false
+  %or.cond8 = select i1 %or.cond6, i1 %48, i1 false
+  br i1 %or.cond8, label %49, label %60
 
 49:                                               ; preds = %17
   %50 = sitofp i32 %19 to float
   %51 = fsub float %.sroa.0.0.vec.extract, %50
   %52 = sitofp i32 %21 to float
-  %53 = fsub float %.sroa.0.4.vec.extract48, %52
+  %53 = fsub float %.sroa.0.4.vec.extract54, %52
   %54 = fsub float %40, %36
   %55 = tail call float @llvm.fmuladd.f32(float %51, float %54, float %36)
   %56 = fsub float %44, %42
@@ -2395,14 +2395,14 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5kinfu19int
   %178 = load float, ptr %177, align 4, !tbaa !23
   %179 = getelementptr inbounds float, ptr %169, i64 %174
   %180 = load float, ptr %179, align 4, !tbaa !23
-  %181 = fcmp ule float %172, 0.000000e+00
-  %182 = fcmp ule float %178, 0.000000e+00
-  %183 = fcmp ule float %180, 0.000000e+00
-  %184 = fcmp ule float %176, 0.000000e+00
-  %or.cond54.not59.i.i.i.i = select i1 %181, i1 true, i1 %184
-  %brmerge.i.i.i.i = select i1 %or.cond54.not59.i.i.i.i, i1 true, i1 %182
-  %brmerge56.i.i.i.i = select i1 %brmerge.i.i.i.i, i1 true, i1 %183
-  br i1 %brmerge56.i.i.i.i, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i
+  %181 = fcmp ogt float %172, 0.000000e+00
+  %182 = fcmp ogt float %176, 0.000000e+00
+  %183 = fcmp ogt float %178, 0.000000e+00
+  %184 = fcmp ogt float %180, 0.000000e+00
+  %or.cond4.i.i.i.i = select i1 %181, i1 %182, i1 false
+  %or.cond6.i.i.i.i = select i1 %or.cond4.i.i.i.i, i1 %183, i1 false
+  %or.cond8.i.i.i.i = select i1 %or.cond6.i.i.i.i, i1 %184, i1 false
+  br i1 %or.cond8.i.i.i.i, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i
 
 _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i: ; preds = %153
   %185 = sitofp i32 %155 to float
@@ -2883,14 +2883,14 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5kinfu22int
   %190 = load float, ptr %189, align 4, !tbaa !23
   %191 = getelementptr inbounds float, ptr %181, i64 %186
   %192 = load float, ptr %191, align 4, !tbaa !23
-  %193 = fcmp ule float %184, 0.000000e+00
-  %194 = fcmp ule float %190, 0.000000e+00
-  %195 = fcmp ule float %192, 0.000000e+00
-  %196 = fcmp ule float %188, 0.000000e+00
-  %or.cond54.not59.i.i.i.i = select i1 %193, i1 true, i1 %196
-  %brmerge.i.i.i.i = select i1 %or.cond54.not59.i.i.i.i, i1 true, i1 %194
-  %brmerge56.i.i.i.i = select i1 %brmerge.i.i.i.i, i1 true, i1 %195
-  br i1 %brmerge56.i.i.i.i, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i
+  %193 = fcmp ogt float %184, 0.000000e+00
+  %194 = fcmp ogt float %188, 0.000000e+00
+  %195 = fcmp ogt float %190, 0.000000e+00
+  %196 = fcmp ogt float %192, 0.000000e+00
+  %or.cond4.i.i.i.i = select i1 %193, i1 %194, i1 false
+  %or.cond6.i.i.i.i = select i1 %or.cond4.i.i.i.i, i1 %195, i1 false
+  %or.cond8.i.i.i.i = select i1 %or.cond6.i.i.i.i, i1 %196, i1 false
+  br i1 %or.cond8.i.i.i.i, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i, label %_ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread.i.i.i
 
 _ZN2cv5kinfu13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.i.i.i: ; preds = %165
   %197 = sitofp i32 %167 to float

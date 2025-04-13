@@ -955,8 +955,8 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit:             ; preds = %if.then2.i.i, %_ZN2
   store i64 %.sink.i.i, ptr %mStopwatch, align 8
   %5 = load i8, ptr %mbAsync, align 2
   %tobool7 = trunc i8 %5 to i1
-  %brmerge.demorgan = and i1 %bAsyncStart, %tobool7
-  br i1 %brmerge.demorgan, label %if.then.i, label %if.end12
+  %or.cond = and i1 %bAsyncStart, %tobool7
+  br i1 %or.cond, label %if.then.i, label %if.end12
 
 if.then.i:                                        ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit
   %mbThreadStarted.i = getelementptr inbounds nuw i8, ptr %this, i64 240

@@ -9151,9 +9151,9 @@ if.then19:                                        ; preds = %if.end
   %mTransform.i.i = getelementptr inbounds nuw i8, ptr %29, i64 56
   %30 = load ptr, ptr %mTransform.i.i, align 8
   call void @_ZN7openvdb5v11_04math9Transform4readERSi(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %is)
-  %readTopology.not = xor i1 %readTopology, true
-  %brmerge = or i1 %isInstance, %readTopology.not
-  br i1 %brmerge, label %if.end33, label %if.then22
+  %tobool.not = xor i1 %isInstance, true
+  %or.cond = and i1 %readTopology, %tobool.not
+  br i1 %or.cond, label %if.then22, label %if.end33
 
 if.then22:                                        ; preds = %if.then19
   %31 = load ptr, ptr %grid, align 8
@@ -9178,7 +9178,7 @@ if.then27:                                        ; preds = %if.else
   call void @_ZN7openvdb5v11_04math9Transform4readERSi(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %is)
   br label %if.end33
 
-if.end33:                                         ; preds = %if.then19, %if.else, %if.then27, %if.then22
+if.end33:                                         ; preds = %if.else, %if.then27, %if.then19, %if.then22
   ret void
 
 eh.resume:                                        ; preds = %lpad14, %lpad.i21, %lpad12, %lpad.i, %lpad

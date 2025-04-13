@@ -3301,9 +3301,13 @@ define void @_ZN10open_spiel8dark_hex12DarkHexState13DoApplyActionEl(ptr noundef
   %65 = load i32, ptr %64, align 4
   %switch.tableidx = add i32 %65, 4
   %66 = icmp ult i32 %switch.tableidx, 9
-  br i1 %66, label %switch.hole_check, label %67
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 495, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %66, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %67
 
-67:                                               ; preds = %switch.hole_check, %60
+67:                                               ; preds = %60
   store i32 162, ptr %12, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA136_KcRA2_S2_iRA13_S2_RA6_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 1 dereferenceable(136) @.str.17, ptr noundef nonnull align 1 dereferenceable(2) @.str.18, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 1 dereferenceable(13) @.str.30, ptr noundef nonnull align 1 dereferenceable(6) @.str.31, ptr noundef nonnull align 1 dereferenceable(2) @.str.32)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
@@ -3317,13 +3321,7 @@ define void @_ZN10open_spiel8dark_hex12DarkHexState13DoApplyActionEl(ptr noundef
           cleanup
   br label %100
 
-switch.hole_check:                                ; preds = %60
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 495, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %67
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %60
   %71 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN10open_spiel8dark_hex12DarkHexState13DoApplyActionEl, i64 0, i64 %71
   %switch.load = load i32, ptr %switch.gep, align 4

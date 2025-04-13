@@ -1166,15 +1166,13 @@ switch.early.test.i:                              ; preds = %150
   %224 = add i32 %115, -1024
   %225 = call i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 22)
   %226 = icmp ult i32 %225, 8
-  br i1 %226, label %switch.hole_check, label %229
-
-switch.hole_check:                                ; preds = %.split101.us.i
-  %switch.maskindex = trunc nuw i32 %225 to i8
+  %switch.maskindex = trunc i32 %225 to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %229
+  %or.cond116 = select i1 %226, i1 %switch.lobit, i1 false
+  br i1 %or.cond116, label %switch.lookup, label %229
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.split101.us.i
   %227 = zext nneg i32 %225 to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.archive_acl_to_text_w, i64 0, i64 %227
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -1182,8 +1180,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.pre108 = load ptr, ptr %6, align 8, !tbaa !39
   br label %229
 
-229:                                              ; preds = %switch.hole_check, %.split101.us.i, %switch.lookup
-  %230 = phi ptr [ %.pre108, %switch.lookup ], [ %223, %.split101.us.i ], [ %223, %switch.hole_check ]
+229:                                              ; preds = %.split101.us.i, %switch.lookup
+  %230 = phi ptr [ %.pre108, %switch.lookup ], [ %223, %.split101.us.i ]
   %231 = call i64 @wcslen(ptr noundef %230) #25
   %232 = getelementptr inbounds nuw i32, ptr %230, i64 %231
   store ptr %232, ptr %6, align 8, !tbaa !39

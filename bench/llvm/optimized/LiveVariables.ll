@@ -8002,266 +8002,266 @@ define internal fastcc void @_ZN12_GLOBAL__N_117TransferFunctions16VisitDeclRefE
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 344
   %14 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11DeclRefExprEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_EixERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %15 = load i32, ptr %14, align 4, !tbaa !306
-  %.not = icmp ne i32 %15, 0
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %17 = load i32, ptr %16, align 4
-  %18 = and i32 %17, 127
-  %19 = icmp ne i32 %18, 50
-  %.not1440 = icmp eq ptr %11, null
-  %.not14 = select i1 %19, i1 true, i1 %.not1440
-  br i1 %.not14, label %89, label %20
+  %16 = icmp ne i32 %15, 0
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 28
+  %18 = load i32, ptr %17, align 4
+  %19 = and i32 %18, 127
+  %20 = icmp ne i32 %19, 50
+  %.not39 = icmp eq ptr %11, null
+  %.not = select i1 %20, i1 true, i1 %.not39
+  br i1 %.not, label %90, label %21
 
-20:                                               ; preds = %2
-  br i1 %.not, label %127, label %21
+21:                                               ; preds = %2
+  br i1 %16, label %129, label %22
 
-21:                                               ; preds = %20
-  %22 = call noundef ptr @_ZNK5clang11BindingDecl13getHoldingVarEv(ptr noundef nonnull align 8 dereferenceable(72) %11) #21
-  %.not16 = icmp eq ptr %22, null
-  br i1 %.not16, label %56, label %23
+22:                                               ; preds = %21
+  %23 = call noundef ptr @_ZNK5clang11BindingDecl13getHoldingVarEv(ptr noundef nonnull align 8 dereferenceable(72) %11) #21
+  %.not15 = icmp eq ptr %23, null
+  br i1 %.not15, label %57, label %24
 
-23:                                               ; preds = %21
+24:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  %24 = load ptr, ptr %0, align 8, !tbaa !325
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !318
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !55
-  store ptr %29, ptr %5, align 8, !tbaa !55
-  %.not.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit, label %30
+  %25 = load ptr, ptr %0, align 8, !tbaa !325
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !318
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !55
+  store ptr %30, ptr %5, align 8, !tbaa !55
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit, label %31
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 60
-  %32 = load i32, ptr %31, align 4, !tbaa !130
-  %33 = add i32 %32, 1
-  store i32 %33, ptr %31, align 4, !tbaa !130
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 60
+  %33 = load i32, ptr %32, align 4, !tbaa !130
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %32, align 4, !tbaa !130
   br label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit
 
-_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit: ; preds = %23, %30
-  call void @_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE7Factory3addES7_S4_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ImmutableSet.0") align 8 %4, ptr noundef nonnull align 8 dereferenceable(81) %25, ptr noundef nonnull %5, ptr noundef nonnull %22)
-  %34 = load ptr, ptr %26, align 8, !tbaa !318
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %4, align 8, !tbaa !55
+_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit: ; preds = %24, %31
+  call void @_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE7Factory3addES7_S4_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ImmutableSet.0") align 8 %4, ptr noundef nonnull align 8 dereferenceable(81) %26, ptr noundef nonnull %5, ptr noundef nonnull %23)
+  %35 = load ptr, ptr %27, align 8, !tbaa !318
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %4, align 8, !tbaa !55
   store ptr null, ptr %4, align 8, !tbaa !55
-  %37 = load ptr, ptr %35, align 8, !tbaa !55
-  store ptr %36, ptr %35, align 8, !tbaa !55
-  %.not.i.i.i17 = icmp eq ptr %37, null
-  br i1 %.not.i.i.i17, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit, label %38
+  %38 = load ptr, ptr %36, align 8, !tbaa !55
+  store ptr %37, ptr %36, align 8, !tbaa !55
+  %.not.i.i.i16 = icmp eq ptr %38, null
+  br i1 %.not.i.i.i16, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit, label %39
 
-38:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 60
-  %40 = load i32, ptr %39, align 4, !tbaa !130
-  %41 = add i32 %40, -1
-  store i32 %41, ptr %39, align 4, !tbaa !130
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
+39:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 60
+  %41 = load i32, ptr %40, align 4, !tbaa !130
+  %42 = add i32 %41, -1
+  store i32 %42, ptr %40, align 4, !tbaa !130
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
 
-_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit: ; preds = %38
-  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %37)
+_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit: ; preds = %39
+  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %38)
   %.pr.pre = load ptr, ptr %4, align 8, !tbaa !55
-  %.not.i.i.i18 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i.i.i18, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit, label %43
+  %.not.i.i.i17 = icmp eq ptr %.pr.pre, null
+  br i1 %.not.i.i.i17, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit, label %44
 
-43:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit
-  %44 = getelementptr inbounds nuw i8, ptr %.pr.pre, i64 60
-  %45 = load i32, ptr %44, align 4, !tbaa !130
-  %46 = add i32 %45, -1
-  store i32 %46, ptr %44, align 4, !tbaa !130
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
+44:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit
+  %45 = getelementptr inbounds nuw i8, ptr %.pr.pre, i64 60
+  %46 = load i32, ptr %45, align 4, !tbaa !130
+  %47 = add i32 %46, -1
+  store i32 %47, ptr %45, align 4, !tbaa !130
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
 
-48:                                               ; preds = %43
+49:                                               ; preds = %44
   call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %.pr.pre)
   br label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
 
-_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit: ; preds = %38, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit, %43, %48
-  %49 = load ptr, ptr %5, align 8, !tbaa !55
-  %.not.i.i.i19 = icmp eq ptr %49, null
-  br i1 %.not.i.i.i19, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit20, label %50
+_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit: ; preds = %39, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit, %44, %49
+  %50 = load ptr, ptr %5, align 8, !tbaa !55
+  %.not.i.i.i18 = icmp eq ptr %50, null
+  br i1 %.not.i.i.i18, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit19, label %51
 
-50:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 60
-  %52 = load i32, ptr %51, align 4, !tbaa !130
-  %53 = add i32 %52, -1
-  store i32 %53, ptr %51, align 4, !tbaa !130
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit20
+51:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 60
+  %53 = load i32, ptr %52, align 4, !tbaa !130
+  %54 = add i32 %53, -1
+  store i32 %54, ptr %52, align 4, !tbaa !130
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit19
 
-55:                                               ; preds = %50
-  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %49)
-  br label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit20
+56:                                               ; preds = %51
+  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %50)
+  br label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit19
 
-_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit20: ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit, %50, %55
+_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit19: ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit, %51, %56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  br label %56
+  br label %57
 
-56:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit20, %21
+57:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit19, %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
-  %57 = load ptr, ptr %0, align 8, !tbaa !325
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 184
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !318
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !52
-  store ptr %62, ptr %7, align 8, !tbaa !52
-  %.not.i.i.i21 = icmp eq ptr %62, null
-  br i1 %.not.i.i.i21, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit, label %63
+  %58 = load ptr, ptr %0, align 8, !tbaa !325
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 184
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !318
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8, !tbaa !52
+  store ptr %63, ptr %7, align 8, !tbaa !52
+  %.not.i.i.i20 = icmp eq ptr %63, null
+  br i1 %.not.i.i.i20, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit, label %64
 
-63:                                               ; preds = %56
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 60
-  %65 = load i32, ptr %64, align 4, !tbaa !133
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %64, align 4, !tbaa !133
+64:                                               ; preds = %57
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 60
+  %66 = load i32, ptr %65, align 4, !tbaa !133
+  %67 = add i32 %66, 1
+  store i32 %67, ptr %65, align 4, !tbaa !133
   br label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit
 
-_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit: ; preds = %56, %63
-  call void @_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE7Factory3addES7_S4_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ImmutableSet.2") align 8 %6, ptr noundef nonnull align 8 dereferenceable(81) %58, ptr noundef nonnull %7, ptr noundef nonnull %11)
-  %67 = load ptr, ptr %59, align 8, !tbaa !318
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %69 = load ptr, ptr %6, align 8, !tbaa !52
+_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit: ; preds = %57, %64
+  call void @_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEE7Factory3addES7_S4_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ImmutableSet.2") align 8 %6, ptr noundef nonnull align 8 dereferenceable(81) %59, ptr noundef nonnull %7, ptr noundef nonnull %11)
+  %68 = load ptr, ptr %60, align 8, !tbaa !318
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %70 = load ptr, ptr %6, align 8, !tbaa !52
   store ptr null, ptr %6, align 8, !tbaa !52
-  %70 = load ptr, ptr %68, align 8, !tbaa !52
-  store ptr %69, ptr %68, align 8, !tbaa !52
-  %.not.i.i.i22 = icmp eq ptr %70, null
-  br i1 %.not.i.i.i22, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit, label %71
+  %71 = load ptr, ptr %69, align 8, !tbaa !52
+  store ptr %70, ptr %69, align 8, !tbaa !52
+  %.not.i.i.i21 = icmp eq ptr %71, null
+  br i1 %.not.i.i.i21, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit, label %72
 
-71:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 60
-  %73 = load i32, ptr %72, align 4, !tbaa !133
-  %74 = add i32 %73, -1
-  store i32 %74, ptr %72, align 4, !tbaa !133
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
+72:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 60
+  %74 = load i32, ptr %73, align 4, !tbaa !133
+  %75 = add i32 %74, -1
+  store i32 %75, ptr %73, align 4, !tbaa !133
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
 
-_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit: ; preds = %71
-  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang11BindingDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %70)
-  %.pr36.pre = load ptr, ptr %6, align 8, !tbaa !52
-  %.not.i.i.i23 = icmp eq ptr %.pr36.pre, null
-  br i1 %.not.i.i.i23, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit, label %76
+_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit: ; preds = %72
+  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang11BindingDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %71)
+  %.pr35.pre = load ptr, ptr %6, align 8, !tbaa !52
+  %.not.i.i.i22 = icmp eq ptr %.pr35.pre, null
+  br i1 %.not.i.i.i22, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit, label %77
 
-76:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit
-  %77 = getelementptr inbounds nuw i8, ptr %.pr36.pre, i64 60
-  %78 = load i32, ptr %77, align 4, !tbaa !133
-  %79 = add i32 %78, -1
-  store i32 %79, ptr %77, align 4, !tbaa !133
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
+77:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit
+  %78 = getelementptr inbounds nuw i8, ptr %.pr35.pre, i64 60
+  %79 = load i32, ptr %78, align 4, !tbaa !133
+  %80 = add i32 %79, -1
+  store i32 %80, ptr %78, align 4, !tbaa !133
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
 
-81:                                               ; preds = %76
-  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang11BindingDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %.pr36.pre)
+82:                                               ; preds = %77
+  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang11BindingDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %.pr35.pre)
   br label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
 
-_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit: ; preds = %71, %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit, %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit, %76, %81
-  %82 = load ptr, ptr %7, align 8, !tbaa !52
-  %.not.i.i.i24 = icmp eq ptr %82, null
-  br i1 %.not.i.i.i24, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit25, label %83
+_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit: ; preds = %72, %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit, %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit, %77, %82
+  %83 = load ptr, ptr %7, align 8, !tbaa !52
+  %.not.i.i.i23 = icmp eq ptr %83, null
+  br i1 %.not.i.i.i23, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit24, label %84
 
-83:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 60
-  %85 = load i32, ptr %84, align 4, !tbaa !133
-  %86 = add i32 %85, -1
-  store i32 %86, ptr %84, align 4, !tbaa !133
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit25
+84:                                               ; preds = %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 60
+  %86 = load i32, ptr %85, align 4, !tbaa !133
+  %87 = add i32 %86, -1
+  store i32 %87, ptr %85, align 4, !tbaa !133
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit24
 
-88:                                               ; preds = %83
-  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang11BindingDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %82)
-  br label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit25
+89:                                               ; preds = %84
+  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang11BindingDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %83)
+  br label %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit24
 
-_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit25: ; preds = %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit, %83, %88
+_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit24: ; preds = %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit, %84, %89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
-  br label %127
+  br label %129
 
-89:                                               ; preds = %2
-  %90 = add nsw i32 %18, -45
-  %91 = icmp ult i32 %90, -7
-  %.not15 = select i1 %91, i1 true, i1 %.not1440
-  %brmerge = select i1 %.not15, i1 true, i1 %.not
-  br i1 %brmerge, label %127, label %92
+90:                                               ; preds = %2
+  %91 = add nsw i32 %19, -45
+  %92 = icmp ult i32 %91, -7
+  %93 = select i1 %92, i1 true, i1 %.not39
+  %or.cond = select i1 %93, i1 true, i1 %16
+  br i1 %or.cond, label %129, label %94
 
-92:                                               ; preds = %89
-  %93 = call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %11)
-  br i1 %93, label %94, label %127
+94:                                               ; preds = %90
+  %95 = call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %11)
+  br i1 %95, label %96, label %129
 
-94:                                               ; preds = %92
+96:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #21
-  %95 = load ptr, ptr %0, align 8, !tbaa !325
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 96
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !318
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !55
-  store ptr %100, ptr %9, align 8, !tbaa !55
-  %.not.i.i.i27 = icmp eq ptr %100, null
-  br i1 %.not.i.i.i27, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit28, label %101
+  %97 = load ptr, ptr %0, align 8, !tbaa !325
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 96
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %100 = load ptr, ptr %99, align 8, !tbaa !318
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !55
+  store ptr %102, ptr %9, align 8, !tbaa !55
+  %.not.i.i.i26 = icmp eq ptr %102, null
+  br i1 %.not.i.i.i26, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit27, label %103
 
-101:                                              ; preds = %94
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 60
-  %103 = load i32, ptr %102, align 4, !tbaa !130
-  %104 = add i32 %103, 1
-  store i32 %104, ptr %102, align 4, !tbaa !130
-  br label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit28
+103:                                              ; preds = %96
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 60
+  %105 = load i32, ptr %104, align 4, !tbaa !130
+  %106 = add i32 %105, 1
+  store i32 %106, ptr %104, align 4, !tbaa !130
+  br label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit27
 
-_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit28: ; preds = %94, %101
-  call void @_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE7Factory3addES7_S4_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ImmutableSet.0") align 8 %8, ptr noundef nonnull align 8 dereferenceable(81) %96, ptr noundef nonnull %9, ptr noundef nonnull %11)
-  %105 = load ptr, ptr %97, align 8, !tbaa !318
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = load ptr, ptr %8, align 8, !tbaa !55
+_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit27: ; preds = %96, %103
+  call void @_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEE7Factory3addES7_S4_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ImmutableSet.0") align 8 %8, ptr noundef nonnull align 8 dereferenceable(81) %98, ptr noundef nonnull %9, ptr noundef nonnull %11)
+  %107 = load ptr, ptr %99, align 8, !tbaa !318
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %109 = load ptr, ptr %8, align 8, !tbaa !55
   store ptr null, ptr %8, align 8, !tbaa !55
-  %108 = load ptr, ptr %106, align 8, !tbaa !55
-  store ptr %107, ptr %106, align 8, !tbaa !55
-  %.not.i.i.i29 = icmp eq ptr %108, null
-  br i1 %.not.i.i.i29, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit32, label %109
+  %110 = load ptr, ptr %108, align 8, !tbaa !55
+  store ptr %109, ptr %108, align 8, !tbaa !55
+  %.not.i.i.i28 = icmp eq ptr %110, null
+  br i1 %.not.i.i.i28, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit31, label %111
 
-109:                                              ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit28
-  %110 = getelementptr inbounds nuw i8, ptr %108, i64 60
-  %111 = load i32, ptr %110, align 4, !tbaa !130
-  %112 = add i32 %111, -1
-  store i32 %112, ptr %110, align 4, !tbaa !130
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit30, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit32
+111:                                              ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit27
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 60
+  %113 = load i32, ptr %112, align 4, !tbaa !130
+  %114 = add i32 %113, -1
+  store i32 %114, ptr %112, align 4, !tbaa !130
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit29, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit31
 
-_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit30: ; preds = %109
-  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %108)
-  %.pr38.pre = load ptr, ptr %8, align 8, !tbaa !55
-  %.not.i.i.i31 = icmp eq ptr %.pr38.pre, null
-  br i1 %.not.i.i.i31, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit32, label %114
+_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit29: ; preds = %111
+  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %110)
+  %.pr37.pre = load ptr, ptr %8, align 8, !tbaa !55
+  %.not.i.i.i30 = icmp eq ptr %.pr37.pre, null
+  br i1 %.not.i.i.i30, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit31, label %116
 
-114:                                              ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit30
-  %115 = getelementptr inbounds nuw i8, ptr %.pr38.pre, i64 60
-  %116 = load i32, ptr %115, align 4, !tbaa !130
-  %117 = add i32 %116, -1
-  store i32 %117, ptr %115, align 4, !tbaa !130
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %119, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit32
+116:                                              ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit29
+  %117 = getelementptr inbounds nuw i8, ptr %.pr37.pre, i64 60
+  %118 = load i32, ptr %117, align 4, !tbaa !130
+  %119 = add i32 %118, -1
+  store i32 %119, ptr %117, align 4, !tbaa !130
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %121, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit31
 
-119:                                              ; preds = %114
-  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %.pr38.pre)
-  br label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit32
+121:                                              ; preds = %116
+  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %.pr37.pre)
+  br label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit31
 
-_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit32: ; preds = %109, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit28, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit30, %114, %119
-  %120 = load ptr, ptr %9, align 8, !tbaa !55
-  %.not.i.i.i33 = icmp eq ptr %120, null
-  br i1 %.not.i.i.i33, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit34, label %121
+_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit31: ; preds = %111, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEC2ERKS7_.exit27, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEEaSEOS7_.exit29, %116, %121
+  %122 = load ptr, ptr %9, align 8, !tbaa !55
+  %.not.i.i.i32 = icmp eq ptr %122, null
+  br i1 %.not.i.i.i32, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit33, label %123
 
-121:                                              ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit32
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 60
-  %123 = load i32, ptr %122, align 4, !tbaa !130
-  %124 = add i32 %123, -1
-  store i32 %124, ptr %122, align 4, !tbaa !130
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %126, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit34
+123:                                              ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit31
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 60
+  %125 = load i32, ptr %124, align 4, !tbaa !130
+  %126 = add i32 %125, -1
+  store i32 %126, ptr %124, align 4, !tbaa !130
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit33
 
-126:                                              ; preds = %121
-  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %120)
-  br label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit34
+128:                                              ; preds = %123
+  call void @_ZN4llvm11ImutAVLTreeINS_17ImutContainerInfoIPKN5clang7VarDeclEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(64) %122)
+  br label %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit33
 
-_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit34: ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit32, %121, %126
+_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit33: ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit31, %123, %128
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
-  br label %127
+  br label %129
 
-127:                                              ; preds = %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit34, %92, %89, %20, %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit25
+129:                                              ; preds = %90, %_ZN4llvm12ImmutableSetIPKN5clang7VarDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit33, %94, %21, %_ZN4llvm12ImmutableSetIPKN5clang11BindingDeclENS_17ImutContainerInfoIS4_EEED2Ev.exit24
   ret void
 }
 

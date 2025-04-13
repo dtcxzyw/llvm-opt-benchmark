@@ -116,7 +116,7 @@ define dso_local void @_ZN5clang6driver6DistroC2ERN4llvm3vfs10FileSystemERKNS2_6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   call void @_ZN4llvm3vfs17getRealFileSystemEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %4) #12
   %11 = load ptr, ptr %4, align 8, !tbaa !18
-  %12 = icmp ne ptr %11, %1
+  %12 = icmp eq ptr %11, %1
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit.i, label %13
 
@@ -168,12 +168,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %32 = load i32, ptr %31, align 4, !tbaa !3
-  %33 = icmp eq i32 %32, 7
-  %brmerge.i = or i1 %12, %33
-  br i1 %brmerge.i, label %34, label %46
+  %33 = icmp ne i32 %32, 7
+  %or.cond.i = and i1 %12, %33
+  br i1 %or.cond.i, label %46, label %34
 
 34:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  br i1 %12, label %44, label %35
+  br i1 %12, label %35, label %44
 
 35:                                               ; preds = %34
   %36 = load atomic i8, ptr @_ZGVZL9GetDistroRN4llvm3vfs10FileSystemERKNS_6TripleEE11LinuxDistro acquire, align 8
@@ -182,8 +182,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 38:                                               ; preds = %35
   %39 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL9GetDistroRN4llvm3vfs10FileSystemERKNS_6TripleEE11LinuxDistro) #12
-  %.not.i = icmp eq i32 %39, 0
-  br i1 %.not.i, label %42, label %40
+  %.not7.i = icmp eq i32 %39, 0
+  br i1 %.not7.i, label %42, label %40
 
 40:                                               ; preds = %38
   %41 = call fastcc noundef i32 @_ZL12DetectDistroRN4llvm3vfs10FileSystemE(ptr noundef nonnull align 8 dereferenceable(12) %1)

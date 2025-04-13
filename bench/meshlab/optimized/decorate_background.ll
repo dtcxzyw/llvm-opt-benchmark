@@ -2966,8 +2966,8 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %49, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 216
   %.sroa.22.0.copyload.i = load float, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %.sroa.233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sroa.234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.219.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.217.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -2976,8 +2976,8 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   %.sroa.032.0.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 0
   %.sroa.032.4.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 1
   %52 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %53 = icmp eq ptr %1, null
@@ -2988,15 +2988,15 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   %57 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %58 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 1224
-  %.sroa.032.0.copyload.pre.pre = load <2 x float>, ptr %21, align 8
-  %.sroa.233.0.copyload.pre.pre = load float, ptr %.sroa.233.0..sroa_idx, align 8
-  %.sroa.030.0.copyload.pre.pre = load <2 x float>, ptr %22, align 8
-  %.sroa.231.0.copyload.pre.pre = load float, ptr %.sroa.231.0..sroa_idx, align 8
-  %60 = fadd <2 x float> %.sroa.032.0.copyload.pre.pre, %.sroa.030.0.copyload.pre.pre
+  %.sroa.033.0.copyload.pre.pre = load <2 x float>, ptr %21, align 8
+  %.sroa.234.0.copyload.pre.pre = load float, ptr %.sroa.234.0..sroa_idx, align 8
+  %.sroa.031.0.copyload.pre.pre = load <2 x float>, ptr %22, align 8
+  %.sroa.232.0.copyload.pre.pre = load float, ptr %.sroa.232.0..sroa_idx, align 8
+  %60 = fadd <2 x float> %.sroa.033.0.copyload.pre.pre, %.sroa.031.0.copyload.pre.pre
   %61 = extractelement <2 x float> %60, i64 0
-  %62 = fadd <2 x float> %.sroa.032.0.copyload.pre.pre, %.sroa.030.0.copyload.pre.pre
+  %62 = fadd <2 x float> %.sroa.033.0.copyload.pre.pre, %.sroa.031.0.copyload.pre.pre
   %63 = extractelement <2 x float> %62, i64 1
-  %64 = fadd float %.sroa.233.0.copyload.pre.pre, %.sroa.231.0.copyload.pre.pre
+  %64 = fadd float %.sroa.234.0.copyload.pre.pre, %.sroa.232.0.copyload.pre.pre
   %65 = fmul float %61, 5.000000e-01
   %66 = fmul float %63, 5.000000e-01
   %67 = fmul float %64, 5.000000e-01
@@ -3026,15 +3026,15 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   %switch = phi i1 [ false, %.preheader ], [ true, %108 ]
   %.not.i = phi ptr [ %13, %.preheader ], [ %14, %108 ]
   %81 = phi i1 [ true, %.preheader ], [ false, %108 ]
-  %.08693 = phi i32 [ 0, %.preheader ], [ 1, %108 ]
+  %.08793 = phi i32 [ 0, %.preheader ], [ 1, %108 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20)
-  store <2 x float> %.sroa.032.0.copyload.pre.pre, ptr %17, align 8
-  store float %.sroa.233.0.copyload.pre.pre, ptr %.sroa.219.0..sroa_idx.i, align 8
-  store <2 x float> %.sroa.030.0.copyload.pre.pre, ptr %18, align 8
-  store float %.sroa.231.0.copyload.pre.pre, ptr %.sroa.217.0..sroa_idx.i, align 8
+  store <2 x float> %.sroa.033.0.copyload.pre.pre, ptr %17, align 8
+  store float %.sroa.234.0.copyload.pre.pre, ptr %.sroa.219.0..sroa_idx.i, align 8
+  store <2 x float> %.sroa.031.0.copyload.pre.pre, ptr %18, align 8
+  store float %.sroa.232.0.copyload.pre.pre, ptr %.sroa.217.0..sroa_idx.i, align 8
   store float 0.000000e+00, ptr %19, align 4
   store float 0.000000e+00, ptr %50, align 4
   store float 0.000000e+00, ptr %51, align 4
@@ -3063,16 +3063,16 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20)
-  %brmerge.not = and i1 %7, %96
-  br i1 %brmerge.not, label %108, label %97
+  %or.cond = and i1 %7, %96
+  br i1 %or.cond, label %108, label %97
 
 97:                                               ; preds = %.sink.split.i
-  %.mux = select i1 %96, i32 %10, i32 %9
-  %.sroa.018.0.copyload = load <2 x float>, ptr %23, align 8
-  %.sroa.219.0.copyload = load float, ptr %.sroa.219.0..sroa_idx, align 8
-  %.sroa.016.0.copyload = load <2 x float>, ptr %24, align 8
-  %.sroa.217.0.copyload = load float, ptr %.sroa.217.0..sroa_idx, align 8
-  tail call void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 noundef %80, i32 noundef %.08693, <2 x float> %.sroa.032.0.copyload.pre.pre, float %.sroa.233.0.copyload.pre.pre, <2 x float> %.sroa.030.0.copyload.pre.pre, float %.sroa.231.0.copyload.pre.pre, <2 x float> %.sroa.018.0.copyload, float %.sroa.219.0.copyload, <2 x float> %.sroa.016.0.copyload, float %.sroa.217.0.copyload, float noundef %5, float noundef %6, i32 %.mux, float noundef %11)
+  %.sroa.019.0.copyload = load <2 x float>, ptr %23, align 8
+  %.sroa.220.0.copyload = load float, ptr %.sroa.220.0..sroa_idx, align 8
+  %.sroa.017.0.copyload = load <2 x float>, ptr %24, align 8
+  %.sroa.218.0.copyload = load float, ptr %.sroa.218.0..sroa_idx, align 8
+  %.sroa.016.0.copyload.sroa.speculated = select i1 %96, i32 %10, i32 %9
+  tail call void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 noundef %80, i32 noundef %.08793, <2 x float> %.sroa.033.0.copyload.pre.pre, float %.sroa.234.0.copyload.pre.pre, <2 x float> %.sroa.031.0.copyload.pre.pre, float %.sroa.232.0.copyload.pre.pre, <2 x float> %.sroa.019.0.copyload, float %.sroa.220.0.copyload, <2 x float> %.sroa.017.0.copyload, float %.sroa.218.0.copyload, float noundef %5, float noundef %6, i32 %.sroa.016.0.copyload.sroa.speculated, float noundef %11)
   br i1 %8, label %98, label %108
 
 98:                                               ; preds = %97
@@ -3084,10 +3084,10 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16)
-  store <2 x float> %.sroa.018.0.copyload, ptr %13, align 8
-  store float %.sroa.219.0.copyload, ptr %.sroa.210.0..sroa_idx.i, align 8
-  store <2 x float> %.sroa.016.0.copyload, ptr %14, align 8
-  store float %.sroa.217.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store <2 x float> %.sroa.019.0.copyload, ptr %13, align 8
+  store float %.sroa.220.0.copyload, ptr %.sroa.210.0..sroa_idx.i, align 8
+  store <2 x float> %.sroa.017.0.copyload, ptr %14, align 8
+  store float %.sroa.218.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8
   br i1 %or.cond.i, label %_Z12DrawFlatMeshP26MLSceneGLSharedDataContextP10QGLContextR9MeshModeliiN3vcg6Point3IfEES7_.exit, label %100
 
 100:                                              ; preds = %98

@@ -44,7 +44,7 @@ define dso_local noundef zeroext i1 @do_lo_export(ptr noundef readonly captures(
   %9 = tail call i32 @lo_export(ptr noundef %6, i32 noundef %8, ptr noundef %1) #8
   tail call void @ResetCancelConn() #8
   %.not = icmp eq i32 %9, 1
-  br i1 %.not, label %20, label %10
+  br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr @pset, align 8
@@ -52,48 +52,44 @@ define dso_local noundef zeroext i1 @do_lo_export(ptr noundef readonly captures(
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %12) #8
   %13 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %15, label %fail_lo_xact.exit
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4
+  %16 = trunc nuw i8 %15 to i1
+  %or.cond.i = select i1 %14, i1 %16, i1 false
+  br i1 %or.cond.i, label %17, label %fail_lo_xact.exit
 
-15:                                               ; preds = %10
-  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4, !noundef !5
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %fail_lo_xact.exit
-
-18:                                               ; preds = %15
-  %19 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
-  tail call void @PQclear(ptr noundef %19) #8
+17:                                               ; preds = %10
+  %18 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
+  tail call void @PQclear(ptr noundef %18) #8
   br label %fail_lo_xact.exit
 
-20:                                               ; preds = %5
-  %21 = load i8, ptr %3, align 1, !range !4, !noundef !5
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %finish_lo_xact.exit.thread
+19:                                               ; preds = %5
+  %20 = load i8, ptr %3, align 1, !range !4, !noundef !5
+  %21 = trunc nuw i8 %20 to i1
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4
+  %23 = trunc nuw i8 %22 to i1
+  %or.cond.i3 = select i1 %21, i1 %23, i1 false
+  br i1 %or.cond.i3, label %24, label %finish_lo_xact.exit.thread
 
-23:                                               ; preds = %20
-  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4, !noundef !5
-  %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %26, label %finish_lo_xact.exit.thread
+24:                                               ; preds = %19
+  %25 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.16) #8
+  %.not.i.not = icmp eq ptr %25, null
+  br i1 %.not.i.not, label %finish_lo_xact.exit, label %finish_lo_xact.exit.thread5
 
-26:                                               ; preds = %23
-  %27 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.16) #8
-  %.not.i.not = icmp eq ptr %27, null
-  br i1 %.not.i.not, label %finish_lo_xact.exit, label %finish_lo_xact.exit.thread4
-
-finish_lo_xact.exit.thread4:                      ; preds = %26
-  tail call void @PQclear(ptr noundef nonnull %27) #8
+finish_lo_xact.exit.thread5:                      ; preds = %24
+  tail call void @PQclear(ptr noundef nonnull %25) #8
   br label %finish_lo_xact.exit.thread
 
-finish_lo_xact.exit:                              ; preds = %26
-  %28 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
-  tail call void @PQclear(ptr noundef %28) #8
+finish_lo_xact.exit:                              ; preds = %24
+  %26 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
+  tail call void @PQclear(ptr noundef %26) #8
   br label %fail_lo_xact.exit
 
-finish_lo_xact.exit.thread:                       ; preds = %20, %23, %finish_lo_xact.exit.thread4
+finish_lo_xact.exit.thread:                       ; preds = %19, %finish_lo_xact.exit.thread5
   tail call void (ptr, ...) @print_lo_result(ptr noundef nonnull @.str.2)
   br label %fail_lo_xact.exit
 
-fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %18, %15, %10, %2, %finish_lo_xact.exit.thread
-  %.0 = phi i1 [ true, %finish_lo_xact.exit.thread ], [ false, %2 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %15 ], [ false, %18 ]
+fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %17, %10, %2, %finish_lo_xact.exit.thread
+  %.0 = phi i1 [ true, %finish_lo_xact.exit.thread ], [ false, %2 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #8
   ret i1 %.0
 }
@@ -229,7 +225,7 @@ define dso_local noundef zeroext i1 @do_lo_import(ptr noundef %0, ptr noundef %1
   %8 = tail call i32 @lo_import(ptr noundef %7, ptr noundef %0) #8
   tail call void @ResetCancelConn() #8
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %20
+  br i1 %9, label %10, label %19
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @pset, align 8
@@ -237,111 +233,103 @@ define dso_local noundef zeroext i1 @do_lo_import(ptr noundef %0, ptr noundef %1
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %12) #8
   %13 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %15, label %fail_lo_xact.exit
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4
+  %16 = trunc nuw i8 %15 to i1
+  %or.cond.i = select i1 %14, i1 %16, i1 false
+  br i1 %or.cond.i, label %17, label %fail_lo_xact.exit
 
-15:                                               ; preds = %10
-  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4, !noundef !5
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %fail_lo_xact.exit
-
-18:                                               ; preds = %15
-  %19 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
-  tail call void @PQclear(ptr noundef %19) #8
+17:                                               ; preds = %10
+  %18 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
+  tail call void @PQclear(ptr noundef %18) #8
   br label %fail_lo_xact.exit
 
-20:                                               ; preds = %6
+19:                                               ; preds = %6
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %50, label %21
+  br i1 %.not, label %47, label %20
 
-21:                                               ; preds = %20
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %23 = shl i64 %22, 1
-  %24 = add i64 %23, 256
-  %25 = tail call ptr @pg_malloc_extended(i64 noundef %24, i32 noundef 2) #8
-  %.not27 = icmp eq ptr %25, null
-  br i1 %.not27, label %26, label %34
+20:                                               ; preds = %19
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
+  %22 = shl i64 %21, 1
+  %23 = add i64 %22, 256
+  %24 = tail call ptr @pg_malloc_extended(i64 noundef %23, i32 noundef 2) #8
+  %.not27 = icmp eq ptr %24, null
+  br i1 %.not27, label %25, label %32
 
-26:                                               ; preds = %21
-  %27 = load i8, ptr %4, align 1, !range !4, !noundef !5
-  %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %29, label %fail_lo_xact.exit
+25:                                               ; preds = %20
+  %26 = load i8, ptr %4, align 1, !range !4, !noundef !5
+  %27 = trunc nuw i8 %26 to i1
+  %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4
+  %29 = trunc nuw i8 %28 to i1
+  %or.cond.i29 = select i1 %27, i1 %29, i1 false
+  br i1 %or.cond.i29, label %30, label %fail_lo_xact.exit
 
-29:                                               ; preds = %26
-  %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4, !noundef !5
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %fail_lo_xact.exit
-
-32:                                               ; preds = %29
-  %33 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
-  tail call void @PQclear(ptr noundef %33) #8
+30:                                               ; preds = %25
+  %31 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
+  tail call void @PQclear(ptr noundef %31) #8
   br label %fail_lo_xact.exit
 
-34:                                               ; preds = %21
-  %35 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.4, i32 noundef %8) #8
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #9
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 %36
-  %38 = load ptr, ptr @pset, align 8
-  %39 = tail call i64 @PQescapeStringConn(ptr noundef %38, ptr noundef nonnull %37, ptr noundef nonnull %1, i64 noundef %22, ptr noundef null) #8
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
-  store i16 39, ptr %40, align 1
-  %41 = tail call ptr @PSQLexec(ptr noundef nonnull %25) #8
-  %.not28 = icmp eq ptr %41, null
-  br i1 %.not28, label %42, label %.critedge
+32:                                               ; preds = %20
+  %33 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.4, i32 noundef %8) #8
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #9
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 %34
+  %36 = load ptr, ptr @pset, align 8
+  %37 = tail call i64 @PQescapeStringConn(ptr noundef %36, ptr noundef nonnull %35, ptr noundef nonnull %1, i64 noundef %21, ptr noundef null) #8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
+  store i16 39, ptr %38, align 1
+  %39 = tail call ptr @PSQLexec(ptr noundef nonnull %24) #8
+  %.not28 = icmp eq ptr %39, null
+  br i1 %.not28, label %40, label %.critedge
 
-42:                                               ; preds = %34
-  tail call void @free(ptr noundef nonnull %25) #8
-  %43 = load i8, ptr %4, align 1, !range !4, !noundef !5
+40:                                               ; preds = %32
+  tail call void @free(ptr noundef nonnull %24) #8
+  %41 = load i8, ptr %4, align 1, !range !4, !noundef !5
+  %42 = trunc nuw i8 %41 to i1
+  %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4
   %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %45, label %fail_lo_xact.exit
+  %or.cond.i31 = select i1 %42, i1 %44, i1 false
+  br i1 %or.cond.i31, label %45, label %fail_lo_xact.exit
 
-45:                                               ; preds = %42
-  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4, !noundef !5
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %fail_lo_xact.exit
-
-48:                                               ; preds = %45
-  %49 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
-  tail call void @PQclear(ptr noundef %49) #8
+45:                                               ; preds = %40
+  %46 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
+  tail call void @PQclear(ptr noundef %46) #8
   br label %fail_lo_xact.exit
 
-.critedge:                                        ; preds = %34
-  tail call void @PQclear(ptr noundef nonnull %41) #8
-  tail call void @free(ptr noundef nonnull %25) #8
-  br label %50
+.critedge:                                        ; preds = %32
+  tail call void @PQclear(ptr noundef nonnull %39) #8
+  tail call void @free(ptr noundef nonnull %24) #8
+  br label %47
 
-50:                                               ; preds = %.critedge, %20
-  %51 = load i8, ptr %4, align 1, !range !4, !noundef !5
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %53, label %finish_lo_xact.exit.thread
+47:                                               ; preds = %.critedge, %19
+  %48 = load i8, ptr %4, align 1, !range !4, !noundef !5
+  %49 = trunc nuw i8 %48 to i1
+  %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4
+  %51 = trunc nuw i8 %50 to i1
+  %or.cond.i33 = select i1 %49, i1 %51, i1 false
+  br i1 %or.cond.i33, label %52, label %finish_lo_xact.exit.thread
 
-53:                                               ; preds = %50
-  %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4, !noundef !5
-  %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %56, label %finish_lo_xact.exit.thread
+52:                                               ; preds = %47
+  %53 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.16) #8
+  %.not.i.not = icmp eq ptr %53, null
+  br i1 %.not.i.not, label %finish_lo_xact.exit, label %finish_lo_xact.exit.thread35
 
-56:                                               ; preds = %53
-  %57 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.16) #8
-  %.not.i.not = icmp eq ptr %57, null
-  br i1 %.not.i.not, label %finish_lo_xact.exit, label %finish_lo_xact.exit.thread32
-
-finish_lo_xact.exit.thread32:                     ; preds = %56
-  tail call void @PQclear(ptr noundef nonnull %57) #8
+finish_lo_xact.exit.thread35:                     ; preds = %52
+  tail call void @PQclear(ptr noundef nonnull %53) #8
   br label %finish_lo_xact.exit.thread
 
-finish_lo_xact.exit:                              ; preds = %56
-  %58 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
-  tail call void @PQclear(ptr noundef %58) #8
+finish_lo_xact.exit:                              ; preds = %52
+  %54 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
+  tail call void @PQclear(ptr noundef %54) #8
   br label %fail_lo_xact.exit
 
-finish_lo_xact.exit.thread:                       ; preds = %50, %53, %finish_lo_xact.exit.thread32
+finish_lo_xact.exit.thread:                       ; preds = %47, %finish_lo_xact.exit.thread35
   tail call void (ptr, ...) @print_lo_result(ptr noundef nonnull @.str.6, i32 noundef %8)
-  %59 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, i32 noundef %8) #8
-  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 384), align 8
-  %61 = call zeroext i1 @SetVariable(ptr noundef %60, ptr noundef nonnull @.str.8, ptr noundef nonnull %3) #8
+  %55 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, i32 noundef %8) #8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 384), align 8
+  %57 = call zeroext i1 @SetVariable(ptr noundef %56, ptr noundef nonnull @.str.8, ptr noundef nonnull %3) #8
   br label %fail_lo_xact.exit
 
-fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %48, %45, %42, %32, %29, %26, %18, %15, %10, %2, %finish_lo_xact.exit.thread
-  %.0 = phi i1 [ true, %finish_lo_xact.exit.thread ], [ false, %2 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %15 ], [ false, %18 ], [ false, %26 ], [ false, %29 ], [ false, %32 ], [ false, %42 ], [ false, %45 ], [ false, %48 ]
+fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %45, %40, %30, %25, %17, %10, %2, %finish_lo_xact.exit.thread
+  %.0 = phi i1 [ true, %finish_lo_xact.exit.thread ], [ false, %2 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %17 ], [ false, %25 ], [ false, %30 ], [ false, %40 ], [ false, %45 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
   ret i1 %.0
@@ -382,7 +370,7 @@ define dso_local noundef zeroext i1 @do_lo_unlink(ptr noundef readonly captures(
   %8 = tail call i32 @lo_unlink(ptr noundef %7, i32 noundef %4) #8
   tail call void @ResetCancelConn() #8
   %9 = icmp eq i32 %8, -1
-  br i1 %9, label %10, label %20
+  br i1 %9, label %10, label %19
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @pset, align 8
@@ -390,48 +378,44 @@ define dso_local noundef zeroext i1 @do_lo_unlink(ptr noundef readonly captures(
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %12) #8
   %13 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %15, label %fail_lo_xact.exit
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4
+  %16 = trunc nuw i8 %15 to i1
+  %or.cond.i = select i1 %14, i1 %16, i1 false
+  br i1 %or.cond.i, label %17, label %fail_lo_xact.exit
 
-15:                                               ; preds = %10
-  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4, !noundef !5
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %fail_lo_xact.exit
-
-18:                                               ; preds = %15
-  %19 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
-  tail call void @PQclear(ptr noundef %19) #8
+17:                                               ; preds = %10
+  %18 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
+  tail call void @PQclear(ptr noundef %18) #8
   br label %fail_lo_xact.exit
 
-20:                                               ; preds = %6
-  %21 = load i8, ptr %2, align 1, !range !4, !noundef !5
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %finish_lo_xact.exit.thread
+19:                                               ; preds = %6
+  %20 = load i8, ptr %2, align 1, !range !4, !noundef !5
+  %21 = trunc nuw i8 %20 to i1
+  %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4
+  %23 = trunc nuw i8 %22 to i1
+  %or.cond.i4 = select i1 %21, i1 %23, i1 false
+  br i1 %or.cond.i4, label %24, label %finish_lo_xact.exit.thread
 
-23:                                               ; preds = %20
-  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 400), align 8, !range !4, !noundef !5
-  %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %26, label %finish_lo_xact.exit.thread
+24:                                               ; preds = %19
+  %25 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.16) #8
+  %.not.i.not = icmp eq ptr %25, null
+  br i1 %.not.i.not, label %finish_lo_xact.exit, label %finish_lo_xact.exit.thread6
 
-26:                                               ; preds = %23
-  %27 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.16) #8
-  %.not.i.not = icmp eq ptr %27, null
-  br i1 %.not.i.not, label %finish_lo_xact.exit, label %finish_lo_xact.exit.thread5
-
-finish_lo_xact.exit.thread5:                      ; preds = %26
-  tail call void @PQclear(ptr noundef nonnull %27) #8
+finish_lo_xact.exit.thread6:                      ; preds = %24
+  tail call void @PQclear(ptr noundef nonnull %25) #8
   br label %finish_lo_xact.exit.thread
 
-finish_lo_xact.exit:                              ; preds = %26
-  %28 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
-  tail call void @PQclear(ptr noundef %28) #8
+finish_lo_xact.exit:                              ; preds = %24
+  %26 = tail call ptr @PSQLexec(ptr noundef nonnull @.str.15) #8
+  tail call void @PQclear(ptr noundef %26) #8
   br label %fail_lo_xact.exit
 
-finish_lo_xact.exit.thread:                       ; preds = %20, %23, %finish_lo_xact.exit.thread5
+finish_lo_xact.exit.thread:                       ; preds = %19, %finish_lo_xact.exit.thread6
   tail call void (ptr, ...) @print_lo_result(ptr noundef nonnull @.str.10, i32 noundef %4)
   br label %fail_lo_xact.exit
 
-fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %18, %15, %10, %1, %finish_lo_xact.exit.thread
-  %.0 = phi i1 [ true, %finish_lo_xact.exit.thread ], [ false, %1 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %15 ], [ false, %18 ]
+fail_lo_xact.exit:                                ; preds = %finish_lo_xact.exit, %17, %10, %1, %finish_lo_xact.exit.thread
+  %.0 = phi i1 [ true, %finish_lo_xact.exit.thread ], [ false, %1 ], [ false, %finish_lo_xact.exit ], [ false, %10 ], [ false, %17 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #8
   ret i1 %.0
 }

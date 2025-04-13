@@ -81,22 +81,20 @@ define internal void @native_finalize() #0 {
 define internal range(i32 -27, 1) i32 @native_get_max_size(i16 noundef zeroext %0, ptr noundef writeonly captures(none) %1) #1 {
   %switch.tableidx = add i16 %0, -4
   %3 = icmp ult i16 %switch.tableidx, 12
-  br i1 %3, label %switch.hole_check, label %5
-
-switch.hole_check:                                ; preds = %2
   %switch.shifted = lshr i16 3829, %switch.tableidx
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %5
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %5
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %4 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.native_decode_int, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %1, align 8, !tbaa !35
   br label %5
 
-5:                                                ; preds = %switch.hole_check, %2, %switch.lookup
-  %.0 = phi i32 [ -27, %2 ], [ 0, %switch.lookup ], [ -27, %switch.hole_check ]
+5:                                                ; preds = %2, %switch.lookup
+  %.0 = phi i32 [ -27, %2 ], [ 0, %switch.lookup ]
   ret i32 %.0
 }
 
@@ -107,19 +105,17 @@ define internal range(i32 -27, 1) i32 @native_encode_int(i16 noundef zeroext %0,
   store i64 0, ptr %5, align 8, !tbaa !35
   %switch.tableidx = add i16 %0, -4
   %6 = icmp ult i16 %switch.tableidx, 12
-  br i1 %6, label %switch.hole_check, label %7
+  %switch.shifted = lshr i16 3829, %switch.tableidx
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-7:                                                ; preds = %switch.hole_check, %4
+7:                                                ; preds = %4
   %8 = tail call ptr @PMIx_Error_string(i32 noundef -27) #6
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %8, ptr noundef nonnull @.str.4, i32 noundef 139) #6
   br label %21
 
-switch.hole_check:                                ; preds = %4
-  %switch.shifted = lshr i16 3829, %switch.tableidx
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
   %9 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.native_decode_int, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -180,19 +176,17 @@ define internal range(i32 -27, 1) i32 @native_decode_int(i16 noundef zeroext %0,
   store i64 0, ptr %6, align 8, !tbaa !35
   %switch.tableidx = add i16 %0, -4
   %7 = icmp ult i16 %switch.tableidx, 12
-  br i1 %7, label %switch.hole_check, label %8
+  %switch.shifted = lshr i16 3829, %switch.tableidx
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %7, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %8
 
-8:                                                ; preds = %switch.hole_check, %5
+8:                                                ; preds = %5
   %9 = tail call ptr @PMIx_Error_string(i32 noundef -27) #6
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %9, ptr noundef nonnull @.str.4, i32 noundef 163) #6
   br label %22
 
-switch.hole_check:                                ; preds = %5
-  %switch.shifted = lshr i16 3829, %switch.tableidx
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %8
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %10 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.native_decode_int, i64 0, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8

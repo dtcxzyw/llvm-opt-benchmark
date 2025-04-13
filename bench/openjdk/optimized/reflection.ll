@@ -1639,17 +1639,17 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 define hidden noundef zeroext i1 @_ZN10Reflection20verify_member_accessEPK5KlassS2_S2_11AccessFlagsbbP10JavaThread(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = icmp eq ptr %0, null
   %9 = icmp eq ptr %0, %2
-  %or.cond = or i1 %8, %9
+  %or.cond38 = or i1 %8, %9
   %10 = and i32 %3, 1
   %11 = icmp ne i32 %10, 0
-  %or.cond44 = select i1 %or.cond, i1 true, i1 %11
-  br i1 %or.cond44, label %55, label %12
+  %or.cond46 = select i1 %or.cond38, i1 true, i1 %11
+  br i1 %or.cond46, label %55, label %12
 
 12:                                               ; preds = %7
   %13 = and i32 %3, 4
-  %.not45 = icmp eq i32 %13, 0
-  %brmerge = or i1 %.not45, %5
-  br i1 %brmerge, label %29, label %14
+  %.not47 = icmp eq i32 %13, 0
+  %or.cond = or i1 %5, %.not47
+  br i1 %or.cond, label %29, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -1666,10 +1666,10 @@ define hidden noundef zeroext i1 @_ZN10Reflection20verify_member_accessEPK5Klass
   %21 = and i32 %3, 8
   %22 = icmp ne i32 %21, 0
   %23 = icmp eq ptr %0, %1
-  %or.cond37 = or i1 %23, %22
+  %or.cond39 = or i1 %23, %22
   %24 = icmp eq ptr %2, %1
-  %or.cond38 = or i1 %24, %or.cond37
-  br i1 %or.cond38, label %55, label %25
+  %or.cond40 = or i1 %24, %or.cond39
+  br i1 %or.cond40, label %55, label %25
 
 25:                                               ; preds = %20
   %26 = tail call noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %1) #13
@@ -1679,10 +1679,10 @@ define hidden noundef zeroext i1 @_ZN10Reflection20verify_member_accessEPK5Klass
   %28 = tail call noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196) %1, ptr noundef nonnull %0) #13
   br i1 %28, label %55, label %29
 
-29:                                               ; preds = %12, %27, %18, %14
+29:                                               ; preds = %27, %18, %14, %12
   %30 = and i32 %3, 2
-  %.not46 = icmp eq i32 %30, 0
-  br i1 %.not46, label %31, label %33
+  %.not48 = icmp eq i32 %30, 0
+  br i1 %.not48, label %31, label %33
 
 31:                                               ; preds = %29
   %32 = tail call noundef zeroext i1 @_ZNK13InstanceKlass21is_same_class_packageEPK5Klass(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %2) #13
@@ -1704,8 +1704,8 @@ define hidden noundef zeroext i1 @_ZN10Reflection20verify_member_accessEPK5Klass
   %42 = tail call noundef zeroext i1 @_ZN13InstanceKlass22has_nestmate_access_toEPS_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %2, ptr noundef %6) #13
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %44 = load ptr, ptr %43, align 8
-  %.not47 = icmp eq ptr %44, null
-  br i1 %.not47, label %45, label %55
+  %.not49 = icmp eq ptr %44, null
+  br i1 %.not49, label %45, label %55
 
 45:                                               ; preds = %41
   br i1 %42, label %46, label %50
@@ -2488,101 +2488,99 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %14, %_ZN10Hand
   %.not = icmp eq ptr %2, null
   br label %49
 
-49:                                               ; preds = %.lr.ph, %78
-  %.01728 = phi i32 [ 0, %.lr.ph ], [ %.1, %78 ]
+49:                                               ; preds = %.lr.ph, %77
+  %.01728 = phi i32 [ 0, %.lr.ph ], [ %.1, %77 ]
   %50 = load i8, ptr %44, align 8
   %51 = and i8 %50, -2
-  %or.cond.i.i.i = icmp eq i8 %51, 12
-  br i1 %or.cond.i.i.i, label %52, label %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit
+  %or.cond.i.i.i = icmp ne i8 %51, 12
+  %52 = load i8, ptr %45, align 8
+  %53 = trunc i8 %52 to i1
+  %or.cond = select i1 %or.cond.i.i.i, i1 true, i1 %53
+  br i1 %or.cond, label %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit, label %54
 
-52:                                               ; preds = %49
-  %53 = load i8, ptr %45, align 8
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit, label %55
-
-55:                                               ; preds = %52
+54:                                               ; preds = %49
   call void @_ZN24ResolvingSignatureStream13cache_handlesEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
   store i8 1, ptr %45, align 8
   br label %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit
 
-_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit: ; preds = %49, %52, %55
+_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit: ; preds = %49, %54
   %.sroa.01.0.copyload.i = load ptr, ptr %46, align 8
   %.sroa.0.0.copyload.i = load ptr, ptr %47, align 8
-  %56 = call noundef ptr @_ZN15SignatureStream14as_java_mirrorE6HandleS0_NS_11FailureModeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr %.sroa.01.0.copyload.i, ptr %.sroa.0.0.copyload.i, i32 noundef 1, ptr noundef nonnull %3) #13
-  %57 = load ptr, ptr %48, align 8
-  %.not26 = icmp eq ptr %57, null
-  br i1 %.not26, label %58, label %._crit_edge
+  %55 = call noundef ptr @_ZN15SignatureStream14as_java_mirrorE6HandleS0_NS_11FailureModeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr %.sroa.01.0.copyload.i, ptr %.sroa.0.0.copyload.i, i32 noundef 1, ptr noundef nonnull %3) #13
+  %56 = load ptr, ptr %48, align 8
+  %.not26 = icmp eq ptr %56, null
+  br i1 %.not26, label %57, label %._crit_edge
 
-58:                                               ; preds = %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit
-  %59 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_131ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not27 = icmp eq ptr %59, null
-  br i1 %.not27, label %61, label %60
+57:                                               ; preds = %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit
+  %58 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_131ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not27 = icmp eq ptr %58, null
+  br i1 %.not27, label %60, label %59
 
-60:                                               ; preds = %58
-  call fastcc void @_ZL22trace_class_resolutionP7oopDesc(ptr noundef %56)
-  br label %61
+59:                                               ; preds = %57
+  call fastcc void @_ZL22trace_class_resolutionP7oopDesc(ptr noundef %55)
+  br label %60
 
-61:                                               ; preds = %60, %58
-  %62 = load i32, ptr %41, align 4
-  %63 = icmp eq i32 %62, 3
-  br i1 %63, label %76, label %64
+60:                                               ; preds = %59, %57
+  %61 = load i32, ptr %41, align 4
+  %62 = icmp eq i32 %61, 3
+  br i1 %62, label %75, label %63
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %storemerge.i.i, align 8
-  %66 = add nsw i32 %.01728, 1
-  %67 = load i8, ptr @UseCompressedOops, align 1
-  %68 = trunc i8 %67 to i1
-  %69 = load i8, ptr @UseCompressedClassPointers, align 1
-  %70 = trunc i8 %69 to i1
-  %71 = sext i32 %.01728 to i64
-  %..i = select i1 %68, i64 20, i64 24
-  %.8.i = select i1 %68, i64 2, i64 3
-  %72 = select i1 %70, i64 16, i64 %..i
-  %73 = shl nsw i64 %71, %.8.i
-  %74 = add nsw i64 %72, %73
-  %75 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(16) %65, i64 noundef %74, ptr noundef %56) #13
-  br label %78
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %storemerge.i.i, align 8
+  %65 = add nsw i32 %.01728, 1
+  %66 = load i8, ptr @UseCompressedOops, align 1
+  %67 = trunc i8 %66 to i1
+  %68 = load i8, ptr @UseCompressedClassPointers, align 1
+  %69 = trunc i8 %68 to i1
+  %70 = sext i32 %.01728 to i64
+  %..i = select i1 %67, i64 20, i64 24
+  %.8.i = select i1 %67, i64 2, i64 3
+  %71 = select i1 %69, i64 16, i64 %..i
+  %72 = shl nsw i64 %70, %.8.i
+  %73 = add nsw i64 %71, %72
+  %74 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
+  call void %74(ptr noundef nonnull align 8 dereferenceable(16) %64, i64 noundef %73, ptr noundef %55) #13
+  br label %77
 
-76:                                               ; preds = %61
-  br i1 %.not, label %78, label %77
+75:                                               ; preds = %60
+  br i1 %.not, label %77, label %76
 
-77:                                               ; preds = %76
-  store ptr %56, ptr %2, align 8
-  br label %78
+76:                                               ; preds = %75
+  store ptr %55, ptr %2, align 8
+  br label %77
 
-78:                                               ; preds = %64, %77, %76
-  %.1 = phi i32 [ %.01728, %77 ], [ %.01728, %76 ], [ %66, %64 ]
+77:                                               ; preds = %63, %76, %75
+  %.1 = phi i32 [ %.01728, %76 ], [ %.01728, %75 ], [ %65, %63 ]
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #13
-  %79 = load i32, ptr %41, align 4
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %._crit_edge, label %49, !llvm.loop !9
+  %78 = load i32, ptr %41, align 4
+  %79 = icmp slt i32 %78, 0
+  br i1 %79, label %._crit_edge, label %49, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %78, %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
-  %.sroa.024.1 = phi ptr [ %storemerge.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit ], [ %storemerge.i.i, %78 ]
+._crit_edge:                                      ; preds = %77, %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit
+  %.sroa.024.1 = phi ptr [ %storemerge.i.i, %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit ], [ null, %_ZN24ResolvingSignatureStream14as_java_mirrorEN15SignatureStream11FailureModeEP10JavaThread.exit ], [ %storemerge.i.i, %77 ]
   call void @_ZN15SignatureStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #13
-  %81 = load ptr, ptr %33, align 8
-  %.not.i.i.i.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.i.i, label %83, label %82
+  %80 = load ptr, ptr %33, align 8
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %82, label %81
 
-82:                                               ; preds = %._crit_edge
+81:                                               ; preds = %._crit_edge
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %31, i64 noundef %39) #13
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %33) #13
-  br label %83
+  br label %82
 
-83:                                               ; preds = %82, %._crit_edge
-  %84 = load ptr, ptr %34, align 8
-  %.not8.i.i.i.i = icmp eq ptr %84, %35
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %85
+82:                                               ; preds = %81, %._crit_edge
+  %83 = load ptr, ptr %34, align 8
+  %.not8.i.i.i.i = icmp eq ptr %83, %35
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %84
 
-85:                                               ; preds = %83
+84:                                               ; preds = %82
   store ptr %33, ptr %32, align 8
   store ptr %35, ptr %34, align 8
   store ptr %37, ptr %36, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %85, %83, %9
-  %.sroa.024.0 = phi ptr [ null, %9 ], [ %.sroa.024.1, %83 ], [ %.sroa.024.1, %85 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %84, %82, %9
+  %.sroa.024.0 = phi ptr [ null, %9 ], [ %.sroa.024.1, %82 ], [ %.sroa.024.1, %84 ]
   ret ptr %.sroa.024.0
 }
 

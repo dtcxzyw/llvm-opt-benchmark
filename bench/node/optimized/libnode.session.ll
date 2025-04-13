@@ -2480,12 +2480,12 @@ _ZN4node4quic15TransportParams7OptionsC2ERKS2_.exit.i: ; preds = %if.then.i.i.i.
   %preferred_address_ipv4.i2.i = getelementptr inbounds nuw i8, ptr %options, i64 32
   %36 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i.i4.i = trunc i8 %36 to i1
-  br i1 %tobool.i.i.i.i.i.i4.i, label %land.lhs.true.i.i.i.i.i.i.i, label %if.else.thread.i.i.i.i.i.i.i
+  %37 = and i8 %32, 1
+  %38 = and i8 %37, %36
+  %or.cond.i.i.i.i.i.i.not.i = icmp eq i8 %38, 0
+  br i1 %or.cond.i.i.i.i.i.i.not.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i11.i
 
-land.lhs.true.i.i.i.i.i.i.i:                      ; preds = %_ZN4node4quic15TransportParams7OptionsC2ERKS2_.exit.i
-  br i1 %tobool.i.i.i.i.i.i.i57, label %if.then.i.i.i.i.i.i11.i, label %if.then.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i11.i:                          ; preds = %land.lhs.true.i.i.i.i.i.i.i
+if.then.i.i.i.i.i.i11.i:                          ; preds = %_ZN4node4quic15TransportParams7OptionsC2ERKS2_.exit.i
   %address_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %options, i64 40
   %ref.tmp28.sroa.3.i.0.ref.tmp28.sroa.3.i.0.ref.tmp28.sroa.3.i.0.ref.tmp28.sroa.3.0.ref.tmp28.sroa.3.0.ref.tmp28.sroa.3.16.1.i = load i16, ptr %ref.tmp28.sroa.3.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %ref.tmp28.sroa.3.i.0.ref.tmp28.sroa.3.i.0.ref.tmp28.sroa.3.i.0.ref.tmp28.sroa.3.0.ref.tmp28.sroa.3.0.ref.tmp28.sroa.3.16.1.i, 2
@@ -2493,10 +2493,10 @@ if.then.i.i.i.i.i.i11.i:                          ; preds = %land.lhs.true.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp28.sroa.3.i, i64 %cond.i.i.i.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt8optionalIN4node13SocketAddressEEaSERKS2_.exit.i.i
 
-if.else.thread.i.i.i.i.i.i.i:                     ; preds = %_ZN4node4quic15TransportParams7OptionsC2ERKS2_.exit.i
-  br i1 %tobool.i.i.i.i.i.i.i57, label %if.then8.i.i.i.i.i.i.i, label %_ZNSt8optionalIN4node13SocketAddressEEaSERKS2_.exit.i.i
+if.else.i.i.i.i.i.i.i:                            ; preds = %_ZN4node4quic15TransportParams7OptionsC2ERKS2_.exit.i
+  br i1 %tobool.i.i.i.i.i.i.i57, label %if.then8.i.i.i.i.i.i.i, label %if.else10.i.i.i.i.i.i.i
 
-if.then8.i.i.i.i.i.i.i:                           ; preds = %if.else.thread.i.i.i.i.i.i.i
+if.then8.i.i.i.i.i.i.i:                           ; preds = %if.else.i.i.i.i.i.i.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %preferred_address_ipv4.i2.i, align 8
   %address_2.i.i.i.i.i.i.i.i.i7.i = getelementptr inbounds nuw i8, ptr %options, i64 40
   %ref.tmp28.sroa.3.i.0.ref.tmp28.sroa.3.i.0.ref.tmp28.sroa.3.i.0.ref.tmp28.sroa.3.0.ref.tmp28.sroa.3.0.ref.tmp28.sroa.3.16..i = load i16, ptr %ref.tmp28.sroa.3.i, align 8
@@ -2506,46 +2506,52 @@ if.then8.i.i.i.i.i.i.i:                           ; preds = %if.else.thread.i.i.
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i, align 8
   br label %_ZNSt8optionalIN4node13SocketAddressEEaSERKS2_.exit.i.i
 
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i.i.i.i
+if.else10.i.i.i.i.i.i.i:                          ; preds = %if.else.i.i.i.i.i.i.i
+  br i1 %tobool.i.i.i.i.i.i4.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNSt8optionalIN4node13SocketAddressEEaSERKS2_.exit.i.i
+
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.else10.i.i.i.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 8
   br label %_ZNSt8optionalIN4node13SocketAddressEEaSERKS2_.exit.i.i
 
-_ZNSt8optionalIN4node13SocketAddressEEaSERKS2_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i, %if.else.thread.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i11.i
+_ZNSt8optionalIN4node13SocketAddressEEaSERKS2_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %if.else10.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i11.i
   %preferred_address_ipv6.i5.i = getelementptr inbounds nuw i8, ptr %options, i64 176
-  %37 = load i8, ptr %_M_engaged.i.i.i.i.i5.i.i, align 8
-  %tobool.i.i.i.i.i5.i.i = trunc i8 %37 to i1
-  br i1 %tobool.i.i.i.i.i5.i.i, label %land.lhs.true.i.i.i.i.i14.i.i, label %if.else.thread.i.i.i.i.i8.i.i
+  %39 = load i8, ptr %_M_engaged.i.i.i.i.i5.i.i, align 8
+  %tobool.i.i.i.i.i5.i.i = trunc i8 %39 to i1
+  %40 = and i8 %34, 1
+  %41 = and i8 %40, %39
+  %or.cond.i.i.i.i.i8.i.not.i = icmp eq i8 %41, 0
+  br i1 %or.cond.i.i.i.i.i8.i.not.i, label %if.else.i.i.i.i.i9.i.i, label %_ZN4node4quic15TransportParams7OptionsaSERKS2_.exit.i
 
-land.lhs.true.i.i.i.i.i14.i.i:                    ; preds = %_ZNSt8optionalIN4node13SocketAddressEEaSERKS2_.exit.i.i
-  br i1 %tobool.i.i.i.i.i6.i.i59, label %if.then.i.i.i.i.i16.i.i, label %if.then.i.i.i.i.i.i15.i.i
+if.else.i.i.i.i.i9.i.i:                           ; preds = %_ZNSt8optionalIN4node13SocketAddressEEaSERKS2_.exit.i.i
+  br i1 %tobool.i.i.i.i.i6.i.i59, label %_ZN4node4quic15TransportParams7OptionsaSERKS2_.exit.thread18.i, label %if.else10.i.i.i.i.i10.i.i
 
-if.then.i.i.i.i.i16.i.i:                          ; preds = %land.lhs.true.i.i.i.i.i14.i.i
-  %address_.i.i.i.i.i.i17.i.i = getelementptr inbounds nuw i8, ptr %options, i64 184
-  %ref.tmp28.sroa.3.i.144.i.144.i.144.address_2.i.i.i.i.i.i18.i.sroa_idx112 = getelementptr inbounds nuw i8, ptr %ref.tmp28.sroa.3.i, i64 144
-  %ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.160.7.i = load i16, ptr %ref.tmp28.sroa.3.i.144.i.144.i.144.address_2.i.i.i.i.i.i18.i.sroa_idx112, align 8
-  %cmp.i.i.i.i.i.i.i.i.i19.i.i = icmp eq i16 %ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.160.7.i, 2
-  %cond.i.i.i.i.i.i.i.i.i20.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i19.i.i, i64 16, i64 28
-  %ref.tmp28.sroa.3.i.144.i.144.i.144.address_2.i.i.i.i.i.i18.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp28.sroa.3.i, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_.i.i.i.i.i.i17.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp28.sroa.3.i.144.i.144.i.144.address_2.i.i.i.i.i.i18.i.sroa_idx, i64 %cond.i.i.i.i.i.i.i.i.i20.i.i, i1 false)
-  br label %lor.lhs.false36
-
-if.else.thread.i.i.i.i.i8.i.i:                    ; preds = %_ZNSt8optionalIN4node13SocketAddressEEaSERKS2_.exit.i.i
-  br i1 %tobool.i.i.i.i.i6.i.i59, label %if.then8.i.i.i.i.i9.i.i, label %lor.lhs.false36
-
-if.then8.i.i.i.i.i9.i.i:                          ; preds = %if.else.thread.i.i.i.i.i8.i.i
+_ZN4node4quic15TransportParams7OptionsaSERKS2_.exit.thread18.i: ; preds = %if.else.i.i.i.i.i9.i.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %preferred_address_ipv6.i5.i, align 8
-  %address_2.i.i.i.i.i.i.i.i10.i.i = getelementptr inbounds nuw i8, ptr %options, i64 184
-  %ref.tmp28.sroa.3.i.144.i.144.i.144.address_3.i.i.i.i.i.i.i.i11.i.sroa_idx111 = getelementptr inbounds nuw i8, ptr %ref.tmp28.sroa.3.i, i64 144
-  %ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.160..i = load i16, ptr %ref.tmp28.sroa.3.i.144.i.144.i.144.address_3.i.i.i.i.i.i.i.i11.i.sroa_idx111, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i.i12.i.i = icmp eq i16 %ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.160..i, 2
-  %cond.i.i.i.i.i.i.i.i.i.i.i13.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i12.i.i, i64 16, i64 28
-  %ref.tmp28.sroa.3.i.144.i.144.i.144.address_3.i.i.i.i.i.i.i.i11.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp28.sroa.3.i, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i.i.i.i.i.i.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp28.sroa.3.i.144.i.144.i.144.address_3.i.i.i.i.i.i.i.i11.i.sroa_idx, i64 %cond.i.i.i.i.i.i.i.i.i.i.i13.i.i, i1 false)
+  %address_2.i.i.i.i.i.i.i.i13.i.i = getelementptr inbounds nuw i8, ptr %options, i64 184
+  %ref.tmp28.sroa.3.i.144.i.144.i.144.address_3.i.i.i.i.i.i.i.i14.i.sroa_idx112 = getelementptr inbounds nuw i8, ptr %ref.tmp28.sroa.3.i, i64 144
+  %ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.160..i = load i16, ptr %ref.tmp28.sroa.3.i.144.i.144.i.144.address_3.i.i.i.i.i.i.i.i14.i.sroa_idx112, align 8
+  %cmp.i.i.i.i.i.i.i.i.i.i.i15.i.i = icmp eq i16 %ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.160..i, 2
+  %cond.i.i.i.i.i.i.i.i.i.i.i16.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i15.i.i, i64 16, i64 28
+  %ref.tmp28.sroa.3.i.144.i.144.i.144.address_3.i.i.i.i.i.i.i.i14.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp28.sroa.3.i, i64 144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i.i.i.i.i.i.i.i13.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp28.sroa.3.i.144.i.144.i.144.address_3.i.i.i.i.i.i.i.i14.i.sroa_idx, i64 %cond.i.i.i.i.i.i.i.i.i.i.i16.i.i, i1 false)
   store i8 1, ptr %_M_engaged.i.i.i.i.i5.i.i, align 8
   br label %lor.lhs.false36
 
-if.then.i.i.i.i.i.i15.i.i:                        ; preds = %land.lhs.true.i.i.i.i.i14.i.i
+if.else10.i.i.i.i.i10.i.i:                        ; preds = %if.else.i.i.i.i.i9.i.i
+  br i1 %tobool.i.i.i.i.i5.i.i, label %if.then.i.i.i.i.i.i11.i.i, label %lor.lhs.false36
+
+if.then.i.i.i.i.i.i11.i.i:                        ; preds = %if.else10.i.i.i.i.i10.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i5.i.i, align 8
+  br label %lor.lhs.false36
+
+_ZN4node4quic15TransportParams7OptionsaSERKS2_.exit.i: ; preds = %_ZNSt8optionalIN4node13SocketAddressEEaSERKS2_.exit.i.i
+  %address_.i.i.i.i.i.i18.i.i = getelementptr inbounds nuw i8, ptr %options, i64 184
+  %ref.tmp28.sroa.3.i.144.i.144.i.144.address_2.i.i.i.i.i.i19.i.sroa_idx111 = getelementptr inbounds nuw i8, ptr %ref.tmp28.sroa.3.i, i64 144
+  %ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.160.7.i = load i16, ptr %ref.tmp28.sroa.3.i.144.i.144.i.144.address_2.i.i.i.i.i.i19.i.sroa_idx111, align 8
+  %cmp.i.i.i.i.i.i.i.i.i20.i.i = icmp eq i16 %ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.i.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.144.ref.tmp28.sroa.3.160.7.i, 2
+  %cond.i.i.i.i.i.i.i.i.i21.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i20.i.i, i64 16, i64 28
+  %ref.tmp28.sroa.3.i.144.i.144.i.144.address_2.i.i.i.i.i.i19.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp28.sroa.3.i, i64 144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_.i.i.i.i.i.i18.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp28.sroa.3.i.144.i.144.i.144.address_2.i.i.i.i.i.i19.i.sroa_idx, i64 %cond.i.i.i.i.i.i.i.i.i21.i.i, i1 false)
   br label %lor.lhs.false36
 
 _ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_15TransportParams7OptionsEXadL_ZNS4_16transport_paramsEEEEEbPNS_11EnvironmentEPS5_RKN2v85LocalINSC_6ObjectEEERKNSD_INSC_6StringEEE.exit.thread: ; preds = %lor.lhs.false29, %if.end.i54
@@ -2553,7 +2559,7 @@ _ZN4node4quic12_GLOBAL__N_19SetOptionINS0_7Session7OptionsETnMT_NS0_15TransportP
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %ref.tmp28.sroa.3.i)
   br label %if.then56
 
-lor.lhs.false36:                                  ; preds = %if.then.i.i.i.i.i.i15.i.i, %if.then8.i.i.i.i.i9.i.i, %if.else.thread.i.i.i.i.i8.i.i, %if.then.i.i.i.i.i16.i.i
+lor.lhs.false36:                                  ; preds = %_ZN4node4quic15TransportParams7OptionsaSERKS2_.exit.i, %if.then.i.i.i.i.i.i11.i.i, %if.else10.i.i.i.i.i10.i.i, %_ZN4node4quic15TransportParams7OptionsaSERKS2_.exit.thread18.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %initial_max_stream_data_bidi_local.i.i, ptr noundef nonnull align 8 dereferenceable(89) %initial_max_stream_data_bidi_local4.i.i, i64 89, i1 false)
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %maybeOptions.i)
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %ref.tmp28.sroa.3.i)
@@ -2587,16 +2593,16 @@ if.then56:                                        ; preds = %if.end.i46, %lor.lh
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic15TransportParams7OptionsE, i64 16), ptr %transport_params.i.i.i70, align 8, !alias.scope !35
   %_M_engaged.i.i.i.i.i.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %agg.result, i64 176
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i71, align 8, !alias.scope !35
-  %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic15TransportParams7Options8kDefaultE, i64 144), align 8, !noalias !35
-  %tobool.i.i.i.i.i.i.i.i.i72 = trunc i8 %38 to i1
+  %42 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic15TransportParams7Options8kDefaultE, i64 144), align 8, !noalias !35
+  %tobool.i.i.i.i.i.i.i.i.i72 = trunc i8 %42 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i.i72, label %if.then.i.i.i.i.i.i.i.i.i89, label %_ZNSt8optionalIN4node13SocketAddressEEC2ERKS2_.exit.i.i.i.i73
 
 if.then.i.i.i.i.i.i.i.i.i89:                      ; preds = %if.then56
   %preferred_address_ipv4.i.i.i.i90 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %preferred_address_ipv4.i.i.i.i90, align 8, !alias.scope !35
   %address_2.i.i.i.i.i.i.i.i.i.i.i.i91 = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
-  %39 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic15TransportParams7Options8kDefaultE, i64 16), align 8, !noalias !35
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i92 = icmp eq i16 %39, 2
+  %43 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic15TransportParams7Options8kDefaultE, i64 16), align 8, !noalias !35
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i92 = icmp eq i16 %43, 2
   %cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i93 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i92, i64 16, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i.i.i.i.i.i.i.i.i.i.i.i91, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic15TransportParams7Options8kDefaultE, i64 16), i64 %cond.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i93, i1 false)
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i71, align 8, !alias.scope !35
@@ -2605,16 +2611,16 @@ if.then.i.i.i.i.i.i.i.i.i89:                      ; preds = %if.then56
 _ZNSt8optionalIN4node13SocketAddressEEC2ERKS2_.exit.i.i.i.i73: ; preds = %if.then.i.i.i.i.i.i.i.i.i89, %if.then56
   %_M_engaged.i.i.i.i.i5.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %agg.result, i64 320
   store i8 0, ptr %_M_engaged.i.i.i.i.i5.i.i.i.i74, align 8, !alias.scope !35
-  %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic15TransportParams7Options8kDefaultE, i64 288), align 8, !noalias !35
-  %tobool.i.i.i.i.i6.i.i.i.i75 = trunc i8 %40 to i1
+  %44 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic15TransportParams7Options8kDefaultE, i64 288), align 8, !noalias !35
+  %tobool.i.i.i.i.i6.i.i.i.i75 = trunc i8 %44 to i1
   br i1 %tobool.i.i.i.i.i6.i.i.i.i75, label %if.then.i.i.i.i.i7.i.i.i.i84, label %_ZN2v87NothingIN4node4quic7Session7OptionsEEENS_5MaybeIT_EEv.exit94
 
 if.then.i.i.i.i.i7.i.i.i.i84:                     ; preds = %_ZNSt8optionalIN4node13SocketAddressEEC2ERKS2_.exit.i.i.i.i73
   %preferred_address_ipv6.i.i.i.i85 = getelementptr inbounds nuw i8, ptr %agg.result, i64 184
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %preferred_address_ipv6.i.i.i.i85, align 8, !alias.scope !35
   %address_2.i.i.i.i.i.i.i.i8.i.i.i.i86 = getelementptr inbounds nuw i8, ptr %agg.result, i64 192
-  %41 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic15TransportParams7Options8kDefaultE, i64 160), align 8, !noalias !35
-  %cmp.i.i.i.i.i.i.i.i.i.i.i10.i.i.i.i87 = icmp eq i16 %41, 2
+  %45 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node4quic15TransportParams7Options8kDefaultE, i64 160), align 8, !noalias !35
+  %cmp.i.i.i.i.i.i.i.i.i.i.i10.i.i.i.i87 = icmp eq i16 %45, 2
   %cond.i.i.i.i.i.i.i.i.i.i.i11.i.i.i.i88 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i10.i.i.i.i87, i64 16, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i.i.i.i.i.i.i.i8.i.i.i.i86, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4node4quic15TransportParams7Options8kDefaultE, i64 160), i64 %cond.i.i.i.i.i.i.i.i.i.i.i11.i.i.i.i88, i1 false)
   store i8 1, ptr %_M_engaged.i.i.i.i.i5.i.i.i.i74, align 8, !alias.scope !35
@@ -2645,12 +2651,12 @@ if.end57:                                         ; preds = %lor.rhs
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end57, %_ZN2v87NothingIN4node4quic7Session7OptionsEEENS_5MaybeIT_EEv.exit94
-  %42 = load ptr, ptr %cid_factory_ref.i, align 8
-  %cmp.not.i.i = icmp eq ptr %42, null
+  %46 = load ptr, ptr %cid_factory_ref.i, align 8
+  %cmp.not.i.i = icmp eq ptr %46, null
   br i1 %cmp.not.i.i, label %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #29
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #29
   br label %_ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit.i
 
 _ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit.i: ; preds = %if.then.i.i, %cleanup
@@ -6139,8 +6145,8 @@ if.end:                                           ; preds = %entry
   call void @_ZNSt10_HashtableIlSt4pairIKlN4node17BaseObjectPtrImplINS2_4quic6StreamELb0EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_assignIRKSK_NS9_10_AllocNodeISaINS9_10_Hash_nodeIS7_Lb0EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %streams, ptr noundef nonnull align 8 dereferenceable(56) %streams_, ptr noundef nonnull align 8 dereferenceable(8) %__alloc_node_gen.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i)
   %6 = load ptr, ptr %_M_before_begin.i.i, align 8
-  %cmp.i.not19 = icmp eq ptr %6, null
-  br i1 %cmp.i.not19, label %for.end, label %for.body.lr.ph
+  %cmp.i.not25 = icmp eq ptr %6, null
+  br i1 %cmp.i.not25, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %reason_.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
@@ -6150,15 +6156,15 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %__begin2.sroa.0.020 = phi ptr [ %6, %for.body.lr.ph ], [ %8, %for.body ]
-  %second = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.020, i64 16
+  %__begin2.sroa.0.026 = phi ptr [ %6, %for.body.lr.ph ], [ %8, %for.body ]
+  %second = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.026, i64 16
   %7 = load ptr, ptr %second, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic9QuicErrorE, i64 16), ptr %agg.tmp, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i) #29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %error_.i, ptr noundef nonnull align 8 dereferenceable(48) %error_3.i, i64 48, i1 false)
   call void @_ZN4node4quic6Stream7DestroyENS0_9QuicErrorE(ptr noundef nonnull align 8 dereferenceable(256) %7, ptr noundef nonnull %agg.tmp) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i) #29
-  %8 = load ptr, ptr %__begin2.sroa.0.020, align 8
+  %8 = load ptr, ptr %__begin2.sroa.0.026, align 8
   %cmp.i.not = icmp eq ptr %8, null
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -6176,9 +6182,9 @@ if.then21:                                        ; preds = %for.end
 if.end22:                                         ; preds = %for.end
   %connection_close_depth_.i = getelementptr inbounds nuw i8, ptr %this, i64 2496
   %11 = load i64, ptr %connection_close_depth_.i, align 8
-  %cmp.i10 = icmp ne i64 %11, 0
-  %brmerge = or i1 %silent, %cmp.i10
-  br i1 %brmerge, label %_ZN4node4quic7Session25MaybeCloseConnectionScopeD2Ev.exit, label %land.lhs.true2.i
+  %cmp.i10.not = icmp ne i64 %11, 0
+  %or.cond24.not = select i1 %silent, i1 true, i1 %cmp.i10.not
+  br i1 %or.cond24.not, label %_ZN4node4quic7Session25MaybeCloseConnectionScopeD2Ev.exit, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %if.end22
   %realm_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -6186,16 +6192,16 @@ land.lhs.true2.i:                                 ; preds = %if.end22
   %env_.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 176
   %13 = load ptr, ptr %env_.i.i.i, align 8
   %call2.i = call noundef zeroext i1 @_ZN4node4quic19NgTcp2CallbackScope18in_ngtcp2_callbackEPNS_11EnvironmentE(ptr noundef %13) #29
-  br i1 %call2.i, label %_ZN4node4quic7Session25MaybeCloseConnectionScopeD2Ev.exit, label %land.lhs.true.i14
+  br i1 %call2.i, label %_ZN4node4quic7Session25MaybeCloseConnectionScopeD2Ev.exit, label %land.lhs.true.i
 
-land.lhs.true.i14:                                ; preds = %land.lhs.true2.i
+land.lhs.true.i:                                  ; preds = %land.lhs.true2.i
   %14 = load ptr, ptr %ptr_.i, align 8
   %destroyed.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load i8, ptr %destroyed.i.i, align 8
   %tobool.i.not.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i, label %land.lhs.true4.i, label %_ZN4node4quic7Session25MaybeCloseConnectionScopeD2Ev.exit
 
-land.lhs.true4.i:                                 ; preds = %land.lhs.true.i14
+land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   %connection_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1768
   %16 = load ptr, ptr %connection_.i.i.i, align 8
   %call2.i.i = call i32 @ngtcp2_conn_is_in_draining_period(ptr noundef %16) #29
@@ -6216,7 +6222,7 @@ if.then.i:                                        ; preds = %land.lhs.true6.i
   call void @_ZN4node4quic7Session19SendConnectionCloseEv(ptr noundef nonnull align 8 dereferenceable(2616) %this)
   br label %_ZN4node4quic7Session25MaybeCloseConnectionScopeD2Ev.exit
 
-_ZN4node4quic7Session25MaybeCloseConnectionScopeD2Ev.exit: ; preds = %if.end22, %land.lhs.true2.i, %land.lhs.true.i14, %land.lhs.true4.i, %land.lhs.true6.i, %if.then.i
+_ZN4node4quic7Session25MaybeCloseConnectionScopeD2Ev.exit: ; preds = %if.end22, %land.lhs.true2.i, %land.lhs.true.i, %land.lhs.true4.i, %land.lhs.true6.i, %if.then.i
   call void @_ZN4node4quic9QuicErrorC1ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp, i64 0, ptr nonnull @.str.13) #29
   call void @_ZN4node4quic7Session9EmitCloseERKNS0_9QuicErrorE(ptr noundef nonnull align 8 dereferenceable(2616) %this, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp)
   %reason_.i13 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
@@ -9095,16 +9101,16 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   %5 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 504
   %6 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
-  %cmp.not = icmp ne ptr %6, null
-  %brmerge.not = and i1 %subtract_from_self, %cmp.not
-  br i1 %brmerge.not, label %if.then.i.i.i.i14, label %if.end11
+  %cmp = icmp ne ptr %6, null
+  %or.cond = and i1 %subtract_from_self, %cmp
+  br i1 %or.cond, label %if.then.i.i.i.i14, label %if.end11
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i34 = getelementptr inbounds i8, ptr %1, i64 -8
-  %7 = load ptr, ptr %incdec.ptr.i.i.i.i34, align 8
-  %cmp.not35 = icmp ne ptr %7, null
-  %brmerge.not36 = and i1 %subtract_from_self, %cmp.not35
-  br i1 %brmerge.not36, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end11
+  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %1, i64 -8
+  %7 = load ptr, ptr %incdec.ptr.i.i.i.i33, align 8
+  %cmp34 = icmp ne ptr %7, null
+  %or.cond35 = and i1 %subtract_from_self, %cmp34
+  br i1 %or.cond35, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, label %if.end11
 
 if.then.i.i.i.i14:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -9124,21 +9130,21 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit18:   ; preds = %_ZNK4node13MemoryTr
   store i64 %sub, ptr %size_, align 8
   br label %if.end11
 
-if.end11:                                         ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread, %if.end, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18
+if.end11:                                         ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread, %if.end, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit18, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %cmp.not.i = icmp eq ptr %node_name, null
   %cmp1.not.i = icmp eq ptr %edge_name, null
   %.str.13.edge_name.i = select i1 %cmp1.not.i, ptr @.str.13, ptr %edge_name
   %retval.0.i19 = select i1 %cmp.not.i, ptr %.str.13.edge_name.i, ptr %node_name
   %call13 = tail call noundef ptr @_ZN4node13MemoryTracker8PushNodeEPKcmS2_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull %retval.0.i19, i64 noundef 56, ptr noundef %edge_name)
-  %it.sroa.0.031 = load ptr, ptr %_M_before_begin.i.i.i, align 8
-  %cmp.i21.not32 = icmp eq ptr %it.sroa.0.031, null
-  br i1 %cmp.i21.not32, label %for.end, label %for.body
+  %it.sroa.0.030 = load ptr, ptr %_M_before_begin.i.i.i, align 8
+  %cmp.i21.not31 = icmp eq ptr %it.sroa.0.030, null
+  br i1 %cmp.i21.not31, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end11, %for.body
-  %it.sroa.0.033 = phi ptr [ %it.sroa.0.0, %for.body ], [ %it.sroa.0.031, %if.end11 ]
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.033, i64 8
+  %it.sroa.0.032 = phi ptr [ %it.sroa.0.0, %for.body ], [ %it.sroa.0.030, %if.end11 ]
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.032, i64 8
   tail call void @_ZN4node13MemoryTracker10TrackFieldIKlNS_17BaseObjectPtrImplINS_4quic6StreamELb0EEEEEvPKcRKSt4pairIT_T0_ES8_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef %element_name)
-  %it.sroa.0.0 = load ptr, ptr %it.sroa.0.033, align 8
+  %it.sroa.0.0 = load ptr, ptr %it.sroa.0.032, align 8
   %cmp.i21.not = icmp eq ptr %it.sroa.0.0, null
   br i1 %cmp.i21.not, label %for.end, label %for.body, !llvm.loop !139
 

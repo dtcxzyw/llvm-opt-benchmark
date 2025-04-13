@@ -3384,7 +3384,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %4, %36, %49, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %55 = invoke { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(168) %54)
-          to label %56 unwind label %80
+          to label %56 unwind label %79
 
 56:                                               ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
   %.fca.0.extract = extractvalue { i64, i32 } %55, 0
@@ -3396,66 +3396,64 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %4, %36, %49, %_ZNSt
   %58 = load i8, ptr %57, align 8
   %59 = trunc i8 %58 to i1
   invoke void @_ZNK10open_spiel5chess4Move5ToLANB5cxx11EbPKNS0_10ChessBoardE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 4 dereferenceable(12) %7, i1 noundef zeroext %59, ptr noundef nonnull %54)
-          to label %60 unwind label %80
+          to label %60 unwind label %79
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 97
   %62 = load i8, ptr %61, align 1
   %63 = trunc i8 %62 to i1
-  br i1 %63, label %64, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %65 = load i8, ptr %64, align 8
+  %66 = trunc i8 %65 to i1
+  %or.cond = select i1 %63, i1 %66, i1 false
+  br i1 %or.cond, label %_ZNKR4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %66 = load i8, ptr %65, align 8
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %_ZNKR4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread
+_ZNKR4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i: ; preds = %60
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %68 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
+  %69 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %67) #27
+  %70 = icmp eq i64 %68, %69
+  br i1 %70, label %71, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread
 
-_ZNKR4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i: ; preds = %64
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %69 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
-  %70 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %68) #27
-  %71 = icmp eq i64 %69, %70
-  br i1 %71, label %72, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread
+71:                                               ; preds = %_ZNKR4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i
+  %72 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
+  %73 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %67) #27
+  %74 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread8, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit
 
-72:                                               ; preds = %_ZNKR4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i
-  %73 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
-  %74 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %68) #27
-  %75 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread8, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit
+_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit: ; preds = %71
+  %bcmp.i.i = call i32 @bcmp(ptr %72, ptr %73, i64 %74)
+  %76 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %76, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread8, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread
 
-_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit: ; preds = %72
-  %bcmp.i.i = call i32 @bcmp(ptr %73, ptr %74, i64 %75)
-  %77 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %77, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread8, label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread
-
-_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread8: ; preds = %72, %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit
+_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread8: ; preds = %71, %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit
   invoke void @_ZN10open_spiel3uci6UCIBot9PonderHitEv(ptr noundef nonnull align 8 dereferenceable(128) %0)
-          to label %78 unwind label %82
+          to label %77 unwind label %81
 
-78:                                               ; preds = %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread8
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 1, ptr %79, align 8
+77:                                               ; preds = %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i8 1, ptr %78, align 8
   br label %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread
 
-80:                                               ; preds = %56, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %56, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
+  %80 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %83
 
-82:                                               ; preds = %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread8
-  %83 = landingpad { ptr, i32 }
+81:                                               ; preds = %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread8
+  %82 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
-  br label %84
+  br label %83
 
-_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread: ; preds = %_ZNKR4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i, %64, %78, %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit, %60
+_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit.thread: ; preds = %_ZNKR4absl7debian28optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i, %77, %_ZN4absl7debian2eqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDTclL_ZNS0_17optional_internal19convertible_to_boolEbEeqfp_defp0_EERKT0_RKNS0_8optionalIT_EE.exit, %60
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   call void @_ZN10open_spiel5chess10ChessStateD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %6) #27
   ret void
 
-84:                                               ; preds = %82, %80
-  %.pn = phi { ptr, i32 } [ %83, %82 ], [ %81, %80 ]
+83:                                               ; preds = %81, %79
+  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
   call void @_ZN10open_spiel5chess10ChessStateD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %6) #27
   resume { ptr, i32 } %.pn
 }

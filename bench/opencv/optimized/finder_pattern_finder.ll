@@ -185,38 +185,38 @@ _ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaI
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw %"class.std::vector.52", ptr %26, i64 %18
-  %.not.i.i193 = icmp eq ptr %20, %37
-  br i1 %.not.i.i193, label %_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i194
+  %.not.i.i194 = icmp eq ptr %20, %37
+  br i1 %.not.i.i194, label %_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i195
 
-.lr.ph.i.i.i.i.i194:                              ; preds = %36, %_ZSt8_DestroyISt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEEvPT_.exit.i.i.i.i.i197
-  %.05.i.i.i.i.i195 = phi ptr [ %40, %_ZSt8_DestroyISt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEEvPT_.exit.i.i.i.i.i197 ], [ %37, %36 ]
-  %38 = load ptr, ptr %.05.i.i.i.i.i195, align 8, !tbaa !13
-  %.not.i.i.i.i.i.i.i.i.i196 = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i196, label %_ZSt8_DestroyISt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEEvPT_.exit.i.i.i.i.i197, label %39
+.lr.ph.i.i.i.i.i195:                              ; preds = %36, %_ZSt8_DestroyISt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEEvPT_.exit.i.i.i.i.i198
+  %.05.i.i.i.i.i196 = phi ptr [ %40, %_ZSt8_DestroyISt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEEvPT_.exit.i.i.i.i.i198 ], [ %37, %36 ]
+  %38 = load ptr, ptr %.05.i.i.i.i.i196, align 8, !tbaa !13
+  %.not.i.i.i.i.i.i.i.i.i197 = icmp eq ptr %38, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i197, label %_ZSt8_DestroyISt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEEvPT_.exit.i.i.i.i.i198, label %39
 
-39:                                               ; preds = %.lr.ph.i.i.i.i.i194
+39:                                               ; preds = %.lr.ph.i.i.i.i.i195
   tail call void @_ZdlPv(ptr noundef nonnull %38) #23
-  br label %_ZSt8_DestroyISt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEEvPT_.exit.i.i.i.i.i197
+  br label %_ZSt8_DestroyISt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEEvPT_.exit.i.i.i.i.i198
 
-_ZSt8_DestroyISt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEEvPT_.exit.i.i.i.i.i197: ; preds = %39, %.lr.ph.i.i.i.i.i194
-  %40 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i195, i64 24
-  %.not.i.i.i.i.i198 = icmp eq ptr %40, %20
-  br i1 %.not.i.i.i.i.i198, label %_ZSt8_DestroyIPSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i199, label %.lr.ph.i.i.i.i.i194, !llvm.loop !16
+_ZSt8_DestroyISt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEEvPT_.exit.i.i.i.i.i198: ; preds = %39, %.lr.ph.i.i.i.i.i195
+  %40 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i196, i64 24
+  %.not.i.i.i.i.i199 = icmp eq ptr %40, %20
+  br i1 %.not.i.i.i.i.i199, label %_ZSt8_DestroyIPSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i200, label %.lr.ph.i.i.i.i.i195, !llvm.loop !16
 
-_ZSt8_DestroyIPSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i199: ; preds = %_ZSt8_DestroyISt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEEvPT_.exit.i.i.i.i.i197
+_ZSt8_DestroyIPSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i200: ; preds = %_ZSt8_DestroyISt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EEEvPT_.exit.i.i.i.i.i198
   store ptr %37, ptr %21, align 8, !tbaa !12
   br label %_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit
 
-_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit: ; preds = %32, %34, %36, %_ZSt8_DestroyIPSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i199
+_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit: ; preds = %32, %34, %36, %_ZSt8_DestroyIPSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS4_EES6_EvT_S8_RSaIT0_E.exit.i.i200
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #24
   %41 = load i32, ptr @_ZN5zxing6qrcode19FinderPatternFinder8MIN_SKIPE, align 4, !tbaa !18
   %42 = load ptr, ptr %12, align 8, !tbaa !3
   tail call void @_ZN5zxing9BitMatrix15initRowCountersEv(ptr noundef nonnull align 8 dereferenceable(346) %42)
   %43 = add nsw i32 %41, -1
   %44 = icmp ult i32 %43, %14
-  br i1 %44, label %.lr.ph218, label %._crit_edge219
+  br i1 %44, label %.lr.ph219, label %._crit_edge220
 
-.lr.ph218:                                        ; preds = %_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit
+.lr.ph219:                                        ; preds = %_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit
   %45 = sext i32 %43 to i64
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -231,26 +231,26 @@ _ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaI
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %61
 
-._crit_edge219.loopexit:                          ; preds = %._crit_edge
-  %.pre238 = add nsw i32 %.2.lcssa, -1
-  br label %._crit_edge219
+._crit_edge220.loopexit:                          ; preds = %._crit_edge
+  %.pre239 = add nsw i32 %.2.lcssa, -1
+  br label %._crit_edge220
 
-._crit_edge219:                                   ; preds = %._crit_edge219.loopexit, %_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit
-  %.pre-phi = phi i32 [ %.pre238, %._crit_edge219.loopexit ], [ %43, %_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit ]
-  %.1.lcssa = phi i32 [ %.2.lcssa, %._crit_edge219.loopexit ], [ %41, %_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit ]
+._crit_edge220:                                   ; preds = %._crit_edge220.loopexit, %_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit
+  %.pre-phi = phi i32 [ %.pre239, %._crit_edge220.loopexit ], [ %43, %_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit ]
+  %.1.lcssa = phi i32 [ %.2.lcssa, %._crit_edge220.loopexit ], [ %41, %_ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EESaIS5_EE6resizeEm.exit ]
   %57 = icmp ult i32 %.pre-phi, %14
-  br i1 %57, label %.lr.ph232, label %._crit_edge233
+  br i1 %57, label %.lr.ph233, label %._crit_edge234
 
-.lr.ph232:                                        ; preds = %._crit_edge219
+.lr.ph233:                                        ; preds = %._crit_edge220
   %58 = sext i32 %.pre-phi to i64
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %60 = sext i32 %.1.lcssa to i64
   br label %177
 
-61:                                               ; preds = %.lr.ph218, %._crit_edge
-  %.1217 = phi i32 [ %41, %.lr.ph218 ], [ %.2.lcssa, %._crit_edge ]
-  %.0151216 = phi i64 [ %45, %.lr.ph218 ], [ %171, %._crit_edge ]
-  %62 = trunc i64 %.0151216 to i32
+61:                                               ; preds = %.lr.ph219, %._crit_edge
+  %.1218 = phi i32 [ %41, %.lr.ph219 ], [ %.2.lcssa, %._crit_edge ]
+  %.0153217 = phi i64 [ %45, %.lr.ph219 ], [ %171, %._crit_edge ]
+  %62 = trunc i64 %.0153217 to i32
   %63 = tail call noundef ptr @_ZN5zxing9BitMatrix13getRowRecordsEi(ptr noundef nonnull align 8 dereferenceable(346) %42, i32 noundef %62)
   %64 = tail call noundef ptr @_ZN5zxing9BitMatrix19getRowRecordsOffsetEi(ptr noundef nonnull align 8 dereferenceable(346) %42, i32 noundef %62)
   %65 = tail call noundef zeroext i1 @_ZN5zxing9BitMatrix18getRowFirstIsWhiteEi(ptr noundef nonnull align 8 dereferenceable(346) %42, i32 noundef %62)
@@ -268,10 +268,10 @@ _ZNSt6vectorIS_IN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaI
 
 72:                                               ; preds = %.lr.ph, %167
   %73 = phi i64 [ %68, %.lr.ph ], [ %.reass, %167 ]
-  %.2214 = phi i32 [ %.1217, %.lr.ph ], [ %.3, %167 ]
-  %.1152213 = phi i64 [ %.0151216, %.lr.ph ], [ %.2153, %167 ]
-  %.0159212 = phi i64 [ %70, %.lr.ph ], [ %168, %167 ]
-  %74 = getelementptr inbounds nuw i16, ptr %63, i64 %.0159212
+  %.2215 = phi i32 [ %.1218, %.lr.ph ], [ %.3, %167 ]
+  %.1154214 = phi i64 [ %.0153217, %.lr.ph ], [ %.2155, %167 ]
+  %.0161213 = phi i64 [ %70, %.lr.ph ], [ %168, %167 ]
+  %74 = getelementptr inbounds nuw i16, ptr %63, i64 %.0161213
   %75 = load i16, ptr %74, align 2, !tbaa !20
   %76 = sext i16 %75 to i32
   store i32 %76, ptr %6, align 16, !tbaa !18
@@ -400,7 +400,7 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   br i1 %144, label %145, label %153
 
 145:                                              ; preds = %143
-  %146 = call noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handlePossibleCenterEPimm(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %6, i64 noundef %.1152213, i64 noundef %18)
+  %146 = call noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handlePossibleCenterEPimm(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %6, i64 noundef %.1154214, i64 noundef %18)
   br i1 %146, label %147, label %167
 
 147:                                              ; preds = %145
@@ -413,7 +413,7 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   br label %167
 
 153:                                              ; preds = %143
-  %154 = call noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handlePossibleCenterEPimm(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %6, i64 noundef %.1152213, i64 noundef %93)
+  %154 = call noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handlePossibleCenterEPimm(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %6, i64 noundef %.1154214, i64 noundef %93)
   br i1 %154, label %155, label %167
 
 155:                                              ; preds = %153
@@ -430,33 +430,33 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   %reass.sub = sub nsw i32 %159, %82
   %162 = add nsw i32 %reass.sub, -2
   %163 = sext i32 %162 to i64
-  %164 = add i64 %.1152213, %163
+  %164 = add i64 %.1154214, %163
   br label %165
 
 165:                                              ; preds = %158, %161, %155
-  %.4163 = phi i64 [ %.0159212, %155 ], [ %71, %161 ], [ %.0159212, %158 ]
-  %.5156 = phi i64 [ %.1152213, %155 ], [ %164, %161 ], [ %.1152213, %158 ]
-  %166 = add i64 %.4163, 4
+  %.4165 = phi i64 [ %.0161213, %155 ], [ %71, %161 ], [ %.0161213, %158 ]
+  %.5158 = phi i64 [ %.1154214, %155 ], [ %164, %161 ], [ %.1154214, %158 ]
+  %166 = add i64 %.4165, 4
   br label %167
 
 167:                                              ; preds = %145, %147, %72, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread, %165, %153
-  %.1160 = phi i64 [ %166, %165 ], [ %.0159212, %153 ], [ %.0159212, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread ], [ %71, %72 ], [ %71, %147 ], [ %71, %145 ]
-  %.2153 = phi i64 [ %.5156, %165 ], [ %.1152213, %153 ], [ %.1152213, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread ], [ %.1152213, %72 ], [ %.1152213, %147 ], [ %.1152213, %145 ]
-  %.3 = phi i32 [ 2, %165 ], [ %.2214, %153 ], [ %.2214, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread ], [ %.2214, %72 ], [ %spec.store.select, %147 ], [ %.2214, %145 ]
-  %168 = add i64 %.1160, 2
-  %.reass = add i64 %.1160, 6
+  %.1162 = phi i64 [ %166, %165 ], [ %.0161213, %153 ], [ %.0161213, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread ], [ %71, %72 ], [ %71, %147 ], [ %71, %145 ]
+  %.2155 = phi i64 [ %.5158, %165 ], [ %.1154214, %153 ], [ %.1154214, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread ], [ %.1154214, %72 ], [ %.1154214, %147 ], [ %.1154214, %145 ]
+  %.3 = phi i32 [ 2, %165 ], [ %.2215, %153 ], [ %.2215, %_ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread ], [ %.2215, %72 ], [ %spec.store.select, %147 ], [ %.2215, %145 ]
+  %168 = add i64 %.1162, 2
+  %.reass = add i64 %.1162, 6
   %169 = icmp ult i64 %.reass, %invariant.umin
   br i1 %169, label %72, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %167, %61
-  %.1152.lcssa = phi i64 [ %.0151216, %61 ], [ %.2153, %167 ]
-  %.2.lcssa = phi i32 [ %.1217, %61 ], [ %.3, %167 ]
+  %.1154.lcssa = phi i64 [ %.0153217, %61 ], [ %.2155, %167 ]
+  %.2.lcssa = phi i32 [ %.1218, %61 ], [ %.3, %167 ]
   %170 = sext i32 %.2.lcssa to i64
-  %171 = add i64 %.1152.lcssa, %170
+  %171 = add i64 %.1154.lcssa, %170
   %172 = icmp ult i64 %171, %15
-  br i1 %172, label %61, label %._crit_edge219.loopexit, !llvm.loop !45
+  br i1 %172, label %61, label %._crit_edge220.loopexit, !llvm.loop !45
 
-._crit_edge233:                                   ; preds = %._crit_edge227, %._crit_edge219
+._crit_edge234:                                   ; preds = %._crit_edge228, %._crit_edge220
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #24
   call void @_ZN5zxing6qrcode19FinderPatternFinder23getPatternInfosFileModeERKNS_11DecodeHintsERNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %11, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
   %173 = load ptr, ptr %3, align 8, !tbaa !46
@@ -465,9 +465,9 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   %176 = invoke noundef i32 %175(ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %332 unwind label %.loopexit.split-lp
 
-177:                                              ; preds = %.lr.ph232, %._crit_edge227
-  %.0167230 = phi i64 [ %58, %.lr.ph232 ], [ %188, %._crit_edge227 ]
-  %178 = trunc i64 %.0167230 to i32
+177:                                              ; preds = %.lr.ph233, %._crit_edge228
+  %.0169231 = phi i64 [ %58, %.lr.ph233 ], [ %188, %._crit_edge228 ]
+  %178 = trunc i64 %.0169231 to i32
   %179 = call noundef ptr @_ZN5zxing9BitMatrix13getRowRecordsEi(ptr noundef nonnull align 8 dereferenceable(346) %42, i32 noundef %178)
   %180 = call noundef ptr @_ZN5zxing9BitMatrix19getRowRecordsOffsetEi(ptr noundef nonnull align 8 dereferenceable(346) %42, i32 noundef %178)
   %181 = call noundef signext i16 @_ZN5zxing9BitMatrix22getRowCounterOffsetEndEi(ptr noundef nonnull align 8 dereferenceable(346) %42, i32 noundef %178)
@@ -475,26 +475,26 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   %183 = sext i16 %181 to i64
   %184 = select i1 %182, i64 5, i64 4
   %185 = icmp ult i64 %184, %183
-  br i1 %185, label %.lr.ph226, label %._crit_edge227
+  br i1 %185, label %.lr.ph227, label %._crit_edge228
 
-.lr.ph226:                                        ; preds = %177
+.lr.ph227:                                        ; preds = %177
   %186 = zext i1 %182 to i64
   %187 = add nsw i64 %183, -1
   br label %190
 
-._crit_edge227:                                   ; preds = %329, %177
-  %.1168.lcssa = phi i64 [ %.0167230, %177 ], [ %.5172, %329 ]
-  %188 = add i64 %.1168.lcssa, %60
+._crit_edge228:                                   ; preds = %329, %177
+  %.1170.lcssa = phi i64 [ %.0169231, %177 ], [ %.5174, %329 ]
+  %188 = add i64 %.1170.lcssa, %60
   %189 = icmp ult i64 %188, %15
-  br i1 %189, label %177, label %._crit_edge233, !llvm.loop !48
+  br i1 %189, label %177, label %._crit_edge234, !llvm.loop !48
 
-190:                                              ; preds = %.lr.ph226, %329
-  %191 = phi i64 [ %184, %.lr.ph226 ], [ %.reass229, %329 ]
-  %.1168224 = phi i64 [ %.0167230, %.lr.ph226 ], [ %.5172, %329 ]
-  %.0175223 = phi i64 [ %186, %.lr.ph226 ], [ %330, %329 ]
+190:                                              ; preds = %.lr.ph227, %329
+  %191 = phi i64 [ %184, %.lr.ph227 ], [ %.reass230, %329 ]
+  %.1170225 = phi i64 [ %.0169231, %.lr.ph227 ], [ %.5174, %329 ]
+  %.0177224 = phi i64 [ %186, %.lr.ph227 ], [ %330, %329 ]
   %192 = load ptr, ptr %59, align 8, !tbaa !49
-  %193 = trunc i64 %.1168224 to i32
-  %194 = getelementptr inbounds nuw i16, ptr %180, i64 %.0175223
+  %193 = trunc i64 %.1170225 to i32
+  %194 = getelementptr inbounds nuw i16, ptr %180, i64 %.0177224
   %195 = load i16, ptr %194, align 2, !tbaa !20
   %196 = sext i16 %195 to i32
   %197 = call noundef zeroext i16 @_ZN5zxing11UnicomBlock19GetUnicomBlockIndexEii(ptr noundef nonnull align 8 dereferenceable(160) %192, i32 noundef %193, i32 noundef %196)
@@ -526,13 +526,13 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   %219 = sext i16 %218 to i32
   %220 = call noundef zeroext i16 @_ZN5zxing11UnicomBlock19GetUnicomBlockIndexEii(ptr noundef nonnull align 8 dereferenceable(160) %217, i32 noundef %193, i32 noundef %219)
   %221 = load ptr, ptr %59, align 8, !tbaa !49
-  %222 = add i64 %.0175223, 2
+  %222 = add i64 %.0177224, 2
   %223 = getelementptr inbounds nuw i16, ptr %180, i64 %222
   %224 = load i16, ptr %223, align 2, !tbaa !20
   %225 = sext i16 %224 to i32
   %226 = call noundef zeroext i16 @_ZN5zxing11UnicomBlock19GetUnicomBlockIndexEii(ptr noundef nonnull align 8 dereferenceable(160) %221, i32 noundef %193, i32 noundef %225)
-  %.not192 = icmp eq i16 %220, %226
-  br i1 %.not192, label %329, label %227
+  %.not193 = icmp eq i16 %220, %226
+  br i1 %.not193, label %329, label %227
 
 227:                                              ; preds = %216
   %228 = load ptr, ptr %59, align 8, !tbaa !49
@@ -549,8 +549,8 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   %239 = call noundef i32 @_ZN5zxing11UnicomBlock18GetUnicomBlockSizeEii(ptr noundef nonnull align 8 dereferenceable(160) %236, i32 noundef %193, i32 noundef %238)
   %240 = icmp eq i32 %231, -1
   %241 = icmp eq i32 %235, -1
-  %or.cond = or i1 %240, %241
-  br i1 %or.cond, label %329, label %242
+  %or.cond3 = or i1 %240, %241
+  br i1 %or.cond3, label %329, label %242
 
 242:                                              ; preds = %227
   %243 = sitofp i32 %231 to double
@@ -566,7 +566,7 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   %253 = sitofp i32 %252 to double
   %254 = fdiv double %253, 2.500000e+01
   %255 = call double @sqrt(double noundef %254) #24, !tbaa !18
-  %256 = getelementptr i16, ptr %179, i64 %.0175223
+  %256 = getelementptr i16, ptr %179, i64 %.0177224
   br label %268
 
 257:                                              ; preds = %268
@@ -584,11 +584,11 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
 
 268:                                              ; preds = %242, %268
   %indvars.iv = phi i64 [ 1, %242 ], [ %indvars.iv.next, %268 ]
-  %.0174221 = phi i32 [ 0, %242 ], [ %272, %268 ]
+  %.0176222 = phi i32 [ 0, %242 ], [ %272, %268 ]
   %269 = getelementptr i16, ptr %256, i64 %indvars.iv
   %270 = load i16, ptr %269, align 2, !tbaa !20
   %271 = sext i16 %270 to i32
-  %272 = add nsw i32 %.0174221, %271
+  %272 = add nsw i32 %.0176222, %271
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %257, label %268, !llvm.loop !52
@@ -659,10 +659,10 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   br label %316
 
 316:                                              ; preds = %295, %287
-  %.0166 = phi i32 [ %193, %287 ], [ %309, %295 ]
-  %.0165 = phi i32 [ %294, %287 ], [ %315, %295 ]
-  %317 = sitofp i32 %.0166 to float
-  %318 = sitofp i32 %.0165 to float
+  %.0168 = phi i32 [ %193, %287 ], [ %309, %295 ]
+  %.0167 = phi i32 [ %294, %287 ], [ %315, %295 ]
+  %317 = sitofp i32 %.0168 to float
+  %318 = sitofp i32 %.0167 to float
   %319 = call noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18tryToPushToCentersEfffNS1_15CrossCheckStateES2_(ptr noundef nonnull align 8 dereferenceable(88) %1, float noundef %317, float noundef %318, float noundef %260, i32 noundef 0, i32 noundef 0)
   %320 = call noundef i32 @_ZN5zxing6qrcode19FinderPatternFinder11findRowSkipEv(ptr noundef nonnull align 8 dereferenceable(88) %1)
   %321 = getelementptr inbounds nuw i16, ptr %179, i64 %222
@@ -671,22 +671,22 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   %324 = icmp sgt i32 %320, %323
   %325 = add i32 %.1.lcssa, %323
   %326 = sub i32 %320, %325
-  %.3178 = select i1 %324, i64 %187, i64 %.0175223
+  %.3180 = select i1 %324, i64 %187, i64 %.0177224
   %narrow = select i1 %324, i32 %326, i32 0
   %327 = sext i32 %narrow to i64
-  %.4171 = add i64 %.1168224, %327
-  %328 = add i64 %.3178, 4
+  %.4173 = add i64 %.1170225, %327
+  %328 = add i64 %.3180, 4
   br label %329
 
 329:                                              ; preds = %227, %316, %278, %273, %257, %190, %204, %216
-  %.4179 = phi i64 [ %.0175223, %216 ], [ %.0175223, %204 ], [ %.0175223, %190 ], [ %.0175223, %227 ], [ %328, %316 ], [ %.0175223, %278 ], [ %.0175223, %273 ], [ %.0175223, %257 ]
-  %.5172 = phi i64 [ %.1168224, %216 ], [ %.1168224, %204 ], [ %.1168224, %190 ], [ %.1168224, %227 ], [ %.4171, %316 ], [ %.1168224, %278 ], [ %.1168224, %273 ], [ %.1168224, %257 ]
-  %330 = add i64 %.4179, 2
-  %.reass229 = add i64 %.4179, 6
-  %331 = icmp ult i64 %.reass229, %183
-  br i1 %331, label %190, label %._crit_edge227, !llvm.loop !53
+  %.4181 = phi i64 [ %.0177224, %216 ], [ %.0177224, %204 ], [ %.0177224, %190 ], [ %.0177224, %227 ], [ %328, %316 ], [ %.0177224, %278 ], [ %.0177224, %273 ], [ %.0177224, %257 ]
+  %.5174 = phi i64 [ %.1170225, %216 ], [ %.1170225, %204 ], [ %.1170225, %190 ], [ %.1170225, %227 ], [ %.4173, %316 ], [ %.1170225, %278 ], [ %.1170225, %273 ], [ %.1170225, %257 ]
+  %330 = add i64 %.4181, 2
+  %.reass230 = add i64 %.4181, 6
+  %331 = icmp ult i64 %.reass230, %183
+  br i1 %331, label %190, label %._crit_edge228, !llvm.loop !53
 
-332:                                              ; preds = %._crit_edge233
+332:                                              ; preds = %._crit_edge234
   %.not = icmp eq i32 %176, 0
   br i1 %.not, label %334, label %355
 
@@ -695,7 +695,7 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
           cleanup
   br label %333
 
-.loopexit.split-lp:                               ; preds = %._crit_edge233, %338, %347, %350
+.loopexit.split-lp:                               ; preds = %._crit_edge234, %338, %347, %350
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %333
@@ -711,8 +711,8 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   %335 = load ptr, ptr %11, align 8, !tbaa !54
   %336 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %337 = load ptr, ptr %336, align 8, !tbaa !54
-  %.not.i.i200 = icmp eq ptr %335, %337
-  br i1 %.not.i.i200, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i.thread, label %338
+  %.not.i.i201 = icmp eq ptr %335, %337
+  br i1 %.not.i.i201, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i.thread, label %338
 
 338:                                              ; preds = %334
   %339 = ptrtoint ptr %337 to i64
@@ -732,18 +732,18 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
 347:                                              ; preds = %.noexc
   %348 = getelementptr inbounds nuw i8, ptr %335, i64 128
   invoke fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_T0_"(ptr %335, ptr nonnull %348)
-          to label %.noexc201 unwind label %.loopexit.split-lp
+          to label %.noexc202 unwind label %.loopexit.split-lp
 
-.noexc201:                                        ; preds = %347
+.noexc202:                                        ; preds = %347
   %.not6.i.i.i.i = icmp eq ptr %348, %337
   br i1 %.not6.i.i.i.i, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i.thread, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.noexc201, %.noexc202
-  %.sroa.0.07.i.i.i.i = phi ptr [ %349, %.noexc202 ], [ %348, %.noexc201 ]
+.lr.ph.i.i.i.i:                                   ; preds = %.noexc202, %.noexc203
+  %.sroa.0.07.i.i.i.i = phi ptr [ %349, %.noexc203 ], [ %348, %.noexc202 ]
   invoke fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_T0_"(ptr nonnull %.sroa.0.07.i.i.i.i)
-          to label %.noexc202 unwind label %.loopexit
+          to label %.noexc203 unwind label %.loopexit
 
-.noexc202:                                        ; preds = %.lr.ph.i.i.i.i
+.noexc203:                                        ; preds = %.lr.ph.i.i.i.i
   %349 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %349, %337
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i.thread, label %.lr.ph.i.i.i.i, !llvm.loop !56
@@ -752,7 +752,7 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   invoke fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5zxing3RefINS2_6qrcode17FinderPatternInfoEEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS4_19FinderPatternFinder4findERKNS2_11DecodeHintsERNS2_12ErrorHandlerEE3$_0EEEvT_SM_T0_"(ptr %335, ptr %337)
           to label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i.thread unwind label %.loopexit.split-lp
 
-_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i.thread: ; preds = %.noexc202, %.noexc201, %334, %350
+_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i.thread: ; preds = %.noexc203, %.noexc202, %334, %350
   store ptr %335, ptr %0, align 8, !tbaa !57
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %337, ptr %351, align 8, !tbaa !59
@@ -764,19 +764,19 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.e
 
 355:                                              ; preds = %332
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %.pre236 = load ptr, ptr %11, align 8, !tbaa !57
+  %.pre237 = load ptr, ptr %11, align 8, !tbaa !57
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.pre237 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
-  %.not4.i.i.i.i = icmp eq ptr %.pre236, %.pre237
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i204
+  %.pre238 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
+  %.not4.i.i.i.i = icmp eq ptr %.pre237, %.pre238
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i205
 
-.lr.ph.i.i.i.i204:                                ; preds = %355, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %366, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEEEvPT_.exit.i.i.i.i ], [ %.pre236, %355 ]
+.lr.ph.i.i.i.i205:                                ; preds = %355, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %366, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEEEvPT_.exit.i.i.i.i ], [ %.pre237, %355 ]
   %356 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !61
   %.not.i.i.i.i.i.i = icmp eq ptr %356, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEEEvPT_.exit.i.i.i.i, label %357
 
-357:                                              ; preds = %.lr.ph.i.i.i.i204
+357:                                              ; preds = %.lr.ph.i.i.i.i205
   %358 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %359 = load i32, ptr %358, align 8, !tbaa !64
   %360 = add i32 %359, -1
@@ -792,17 +792,17 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.e
   call void %365(ptr noundef nonnull align 8 dereferenceable(12) %356) #24
   br label %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEEEvPT_.exit.i.i.i.i: ; preds = %362, %357, %.lr.ph.i.i.i.i204
+_ZSt8_DestroyIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEEEvPT_.exit.i.i.i.i: ; preds = %362, %357, %.lr.ph.i.i.i.i205
   %366 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %.not.i.i.i.i205 = icmp eq ptr %366, %.pre237
-  br i1 %.not.i.i.i.i205, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i204, !llvm.loop !66
+  %.not.i.i.i.i206 = icmp eq ptr %366, %.pre238
+  br i1 %.not.i.i.i.i206, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i205, !llvm.loop !66
 
 _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEEEvPT_.exit.i.i.i.i, %355
-  %.not.i.i.i = icmp eq ptr %.pre236, null
+  %.not.i.i.i = icmp eq ptr %.pre237, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEESaIS4_EED2Ev.exit, label %367
 
 367:                                              ; preds = %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %.pre236) #23
+  call void @_ZdlPv(ptr noundef nonnull %.pre237) #23
   br label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN5zxing3RefINS0_6qrcode17FinderPatternInfoEEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode17FinderPatternInfoEEES4_EvT_S6_RSaIT0_E.exit.i, %367

@@ -946,8 +946,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #16
   %76 = load i8, ptr %0, align 8, !tbaa !112
   %77 = icmp eq i8 %76, 0
-  %brmerge.not = and i1 %4, %77
-  br i1 %brmerge.not, label %_ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EE5resetEPS1_.exit.i27, label %114
+  %or.cond = and i1 %4, %77
+  br i1 %or.cond, label %_ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EE5resetEPS1_.exit.i27, label %114
 
 _ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EE5resetEPS1_.exit.i27: ; preds = %75
   %78 = load ptr, ptr %34, align 8, !tbaa !110
@@ -1050,8 +1050,8 @@ _ZN7rocksdb6StatusD2Ev.exit42:                    ; preds = %_ZN7rocksdb6Statusa
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #16
   br label %115
 
-114:                                              ; preds = %75, %_ZN7rocksdb6StatusD2Ev.exit42
-  %.sroa.0.2 = phi ptr [ %34, %75 ], [ %spec.select, %_ZN7rocksdb6StatusD2Ev.exit42 ]
+114:                                              ; preds = %_ZN7rocksdb6StatusD2Ev.exit42, %75
+  %.sroa.0.2 = phi ptr [ %spec.select, %_ZN7rocksdb6StatusD2Ev.exit42 ], [ %34, %75 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #16
   br label %118
 

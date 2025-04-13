@@ -2117,9 +2117,9 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !noundef !13
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.thread10, label %9
+  br i1 %.not, label %.thread9, label %9
 
-.thread10:                                        ; preds = %3
+.thread9:                                         ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2360) %8, ptr noundef nonnull align 8 dereferenceable(2360) %1, i64 2360, i1 false)
   store i64 3, ptr %0, align 8
@@ -2128,8 +2128,8 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 8, !range !69, !noundef !13
-  %.not3 = icmp eq i32 %11, 1000000000
-  br i1 %.not3, label %35, label %12
+  %.not4 = icmp eq i32 %11, 1000000000
+  br i1 %.not4, label %35, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2193,7 +2193,7 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
 34:                                               ; preds = %33
   resume { ptr, i32 } %21
 
-"_ZN4core3ptr66drop_in_place$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$17h4c554a0ea504bbf4E.exit5": ; preds = %.thread10, %39, %35, %.thread
+"_ZN4core3ptr66drop_in_place$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$17h4c554a0ea504bbf4E.exit5": ; preds = %.thread9, %39, %35, %.thread
   ret void
 
 35:                                               ; preds = %9
@@ -2217,9 +2217,9 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !noundef !13
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.thread10, label %10
+  br i1 %.not, label %.thread9, label %10
 
-.thread10:                                        ; preds = %3
+.thread9:                                         ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(976) %8, ptr noundef nonnull align 8 dereferenceable(976) %1, i64 976, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2229,8 +2229,8 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !range !69, !noundef !13
-  %.not3 = icmp eq i32 %12, 1000000000
-  br i1 %.not3, label %36, label %13
+  %.not4 = icmp eq i32 %12, 1000000000
+  br i1 %.not4, label %36, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2294,7 +2294,7 @@ define hidden void @"_ZN80_$LT$T$u20$as$u20$aws_smithy_runtime..client..timeout.
 35:                                               ; preds = %34
   resume { ptr, i32 } %22
 
-"_ZN4core3ptr66drop_in_place$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$17h4c554a0ea504bbf4E.exit5": ; preds = %.thread10, %41, %36, %.thread
+"_ZN4core3ptr66drop_in_place$LT$aws_smithy_async..rt..sleep..SharedAsyncSleep$GT$17h4c554a0ea504bbf4E.exit5": ; preds = %.thread9, %41, %36, %.thread
   ret void
 
 36:                                               ; preds = %10

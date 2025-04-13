@@ -1088,15 +1088,15 @@ define dso_local ptr @RelationGetNotNullConstraints(i32 noundef %0, i1 noundef z
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 9, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #11
   %7 = call ptr @systable_beginscan(ptr noundef %5, i32 noundef 2665, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #11
   %8 = call ptr @systable_getnext(ptr noundef %7) #11
-  %.not47 = icmp eq ptr %8, null
-  br i1 %.not47, label %._crit_edge, label %.lr.ph
+  %.not4548 = icmp eq ptr %8, null
+  br i1 %.not4548, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %53
   %9 = phi ptr [ %54, %53 ], [ %8, %.lr.ph ]
-  %.048.us = phi ptr [ %.1.us, %53 ], [ null, %.lr.ph ]
+  %.049.us = phi ptr [ %.1.us, %53 ], [ null, %.lr.ph ]
   %10 = getelementptr i8, ptr %9, i64 16
   %.val.us = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %.val.us, i64 22
@@ -1105,16 +1105,16 @@ define dso_local ptr @RelationGetNotNullConstraints(i32 noundef %0, i1 noundef z
   %14 = getelementptr inbounds nuw i8, ptr %.val.us, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load i8, ptr %15, align 4
-  %.not44.us = icmp eq i8 %16, 110
-  br i1 %.not44.us, label %17, label %53, !llvm.loop !19
+  %.not46.us = icmp eq i8 %16, 110
+  br i1 %.not46.us, label %17, label %53, !llvm.loop !19
 
 17:                                               ; preds = %.lr.ph.split.us
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 106
   %19 = load i8, ptr %18, align 2, !range !16, !noundef !17
   %20 = trunc nuw i8 %19 to i1
-  %.not45.us = xor i1 %20, true
-  %brmerge.us = or i1 %2, %.not45.us
-  br i1 %brmerge.us, label %21, label %53, !llvm.loop !19
+  %.not.us = xor i1 %20, true
+  %or.cond.us = or i1 %2, %.not.us
+  br i1 %or.cond.us, label %21, label %53, !llvm.loop !19
 
 21:                                               ; preds = %17
   %22 = call i64 @SysCacheGetAttrNotNull(i32 noundef 19, ptr noundef nonnull %9, i16 noundef signext 21) #11
@@ -1170,18 +1170,18 @@ extractNotNullColumn.exit.us:                     ; preds = %33
   %50 = load i8, ptr %18, align 2, !range !16, !noundef !17
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 38
   store i8 %50, ptr %51, align 2
-  %52 = call ptr @lappend(ptr noundef %.048.us, ptr noundef nonnull %38) #11
+  %52 = call ptr @lappend(ptr noundef %.049.us, ptr noundef nonnull %38) #11
   br label %53
 
 53:                                               ; preds = %extractNotNullColumn.exit.us, %17, %.lr.ph.split.us
-  %.1.us = phi ptr [ %.048.us, %.lr.ph.split.us ], [ %.048.us, %17 ], [ %52, %extractNotNullColumn.exit.us ]
+  %.1.us = phi ptr [ %.049.us, %.lr.ph.split.us ], [ %.049.us, %17 ], [ %52, %extractNotNullColumn.exit.us ]
   %54 = call ptr @systable_getnext(ptr noundef %7) #11
-  %.not.us = icmp eq ptr %54, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
+  %.not45.us = icmp eq ptr %54, null
+  br i1 %.not45.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %104
   %55 = phi ptr [ %105, %104 ], [ %8, %.lr.ph ]
-  %.048 = phi ptr [ %.1, %104 ], [ null, %.lr.ph ]
+  %.049 = phi ptr [ %.1, %104 ], [ null, %.lr.ph ]
   %56 = getelementptr i8, ptr %55, i64 16
   %.val = load ptr, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -1190,16 +1190,16 @@ extractNotNullColumn.exit.us:                     ; preds = %33
   %60 = getelementptr inbounds nuw i8, ptr %.val, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %62 = load i8, ptr %61, align 4
-  %.not44 = icmp eq i8 %62, 110
-  br i1 %.not44, label %63, label %104, !llvm.loop !19
+  %.not46 = icmp eq i8 %62, 110
+  br i1 %.not46, label %63, label %104, !llvm.loop !19
 
 63:                                               ; preds = %.lr.ph.split
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 106
   %65 = load i8, ptr %64, align 2, !range !16, !noundef !17
   %66 = trunc nuw i8 %65 to i1
-  %.not45 = xor i1 %66, true
-  %brmerge = or i1 %2, %.not45
-  br i1 %brmerge, label %67, label %104, !llvm.loop !19
+  %.not = xor i1 %66, true
+  %or.cond = or i1 %2, %.not
+  br i1 %or.cond, label %67, label %104, !llvm.loop !19
 
 67:                                               ; preds = %63
   %68 = call i64 @SysCacheGetAttrNotNull(i32 noundef 19, ptr noundef nonnull %55, i16 noundef signext 21) #11
@@ -1266,14 +1266,14 @@ extractNotNullColumn.exit:                        ; preds = %79
   %101 = load i8, ptr %64, align 2, !range !16, !noundef !17
   %102 = getelementptr inbounds nuw i8, ptr %86, i64 21
   store i8 %101, ptr %102, align 1
-  %103 = call ptr @lappend(ptr noundef %.048, ptr noundef nonnull %86) #11
+  %103 = call ptr @lappend(ptr noundef %.049, ptr noundef nonnull %86) #11
   br label %104
 
 104:                                              ; preds = %extractNotNullColumn.exit, %63, %.lr.ph.split
-  %.1 = phi ptr [ %.048, %.lr.ph.split ], [ %.048, %63 ], [ %103, %extractNotNullColumn.exit ]
+  %.1 = phi ptr [ %.049, %.lr.ph.split ], [ %.049, %63 ], [ %103, %extractNotNullColumn.exit ]
   %105 = call ptr @systable_getnext(ptr noundef %7) #11
-  %.not = icmp eq ptr %105, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split
+  %.not45 = icmp eq ptr %105, null
+  br i1 %.not45, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %104, %53, %3
   %.0.lcssa = phi ptr [ null, %3 ], [ %.1.us, %53 ], [ %.1, %104 ]
@@ -1787,20 +1787,20 @@ define dso_local i32 @get_relation_constraint_oid(i32 noundef %0, ptr noundef %1
 19:                                               ; preds = %12, %3
   %.0 = phi i32 [ %18, %12 ], [ 0, %3 ]
   call void @systable_endscan(ptr noundef %10) #11
-  %.not12 = icmp ne i32 %.0, 0
-  %brmerge = or i1 %2, %.not12
-  br i1 %brmerge, label %25, label %20
+  %20 = icmp ne i32 %.0, 0
+  %or.cond = or i1 %2, %20
+  br i1 %or.cond, label %26, label %21
 
-20:                                               ; preds = %19
-  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %21)
-  %22 = call i32 @errcode(i32 noundef 67137668) #11
-  %23 = call ptr @get_rel_name(i32 noundef %0) #11
-  %24 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %1, ptr noundef %23) #11
+21:                                               ; preds = %19
+  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %22)
+  %23 = call i32 @errcode(i32 noundef 67137668) #11
+  %24 = call ptr @get_rel_name(i32 noundef %0) #11
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %1, ptr noundef %24) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1194, ptr noundef nonnull @__func__.get_relation_constraint_oid) #11
   unreachable
 
-25:                                               ; preds = %19
+26:                                               ; preds = %19
   call void @table_close(ptr noundef %5, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %4) #11
   ret i32 %.0
@@ -1857,14 +1857,14 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
 35:                                               ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %37 = load i32, ptr %36, align 4
-  %.not37 = icmp eq i32 %37, 0
-  br i1 %.not37, label %38, label %41
+  %.not39 = icmp eq i32 %37, 0
+  br i1 %.not39, label %38, label %41
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %40 = load i32, ptr %39, align 4
-  %.not38 = icmp eq i32 %40, 21
-  br i1 %.not38, label %44, label %41
+  %.not40 = icmp eq i32 %40, 21
+  br i1 %.not40, label %44, label %41
 
 41:                                               ; preds = %38, %35, %26
   %42 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -1875,8 +1875,8 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %.not43 = icmp eq i32 %30, 0
-  br i1 %.not43, label %.loopexit, label %.lr.ph.preheader
+  %.not44 = icmp eq i32 %30, 0
+  br i1 %.not44, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %44
   %wide.trip.count = zext nneg i32 %30 to i64
@@ -1884,12 +1884,12 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.240 = phi ptr [ null, %.lr.ph.preheader ], [ %50, %.lr.ph ]
+  %.241 = phi ptr [ null, %.lr.ph.preheader ], [ %50, %.lr.ph ]
   %46 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv
   %47 = load i16, ptr %46, align 2
   %48 = sext i16 %47 to i32
   %49 = add nsw i32 %48, 7
-  %50 = call ptr @bms_add_member(ptr noundef %.240, i32 noundef %49) #11
+  %50 = call ptr @bms_add_member(ptr noundef %.241, i32 noundef %49) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
@@ -1900,26 +1900,26 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
   br label %51
 
 51:                                               ; preds = %.loopexit, %4
-  %.032 = phi ptr [ %.1, %.loopexit ], [ null, %4 ]
+  %.034 = phi ptr [ %.1, %.loopexit ], [ null, %4 ]
   call void @systable_endscan(ptr noundef %12) #11
   %52 = load i32, ptr %3, align 4
-  %.not39 = icmp ne i32 %52, 0
-  %brmerge = or i1 %2, %.not39
-  br i1 %brmerge, label %58, label %53
+  %53 = icmp ne i32 %52, 0
+  %or.cond3 = or i1 %2, %53
+  br i1 %or.cond3, label %59, label %54
 
-53:                                               ; preds = %51
-  %54 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %54)
-  %55 = call i32 @errcode(i32 noundef 67137668) #11
-  %56 = call ptr @get_rel_name(i32 noundef %0) #11
-  %57 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %1, ptr noundef %56) #11
+54:                                               ; preds = %51
+  %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %55)
+  %56 = call i32 @errcode(i32 noundef 67137668) #11
+  %57 = call ptr @get_rel_name(i32 noundef %0) #11
+  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %1, ptr noundef %57) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1287, ptr noundef nonnull @__func__.get_relation_constraint_attnos) #11
   unreachable
 
-58:                                               ; preds = %51
+59:                                               ; preds = %51
   call void @table_close(ptr noundef %7, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %5) #11
-  ret ptr %.032
+  ret ptr %.034
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
@@ -2111,20 +2111,20 @@ define dso_local i32 @get_domain_constraint_oid(i32 noundef %0, ptr noundef %1, 
 19:                                               ; preds = %12, %3
   %.0 = phi i32 [ %18, %12 ], [ 0, %3 ]
   call void @systable_endscan(ptr noundef %10) #11
-  %.not12 = icmp ne i32 %.0, 0
-  %brmerge = or i1 %2, %.not12
-  br i1 %brmerge, label %25, label %20
+  %20 = icmp ne i32 %.0, 0
+  %or.cond = or i1 %2, %20
+  br i1 %or.cond, label %26, label %21
 
-20:                                               ; preds = %19
-  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %21)
-  %22 = call i32 @errcode(i32 noundef 67137668) #11
-  %23 = call ptr @format_type_be(i32 noundef %0) #11
-  %24 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %1, ptr noundef %23) #11
+21:                                               ; preds = %19
+  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %22)
+  %23 = call i32 @errcode(i32 noundef 67137668) #11
+  %24 = call ptr @format_type_be(i32 noundef %0) #11
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %1, ptr noundef %24) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1387, ptr noundef nonnull @__func__.get_domain_constraint_oid) #11
   unreachable
 
-25:                                               ; preds = %19
+26:                                               ; preds = %19
   call void @table_close(ptr noundef %5, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %4) #11
   ret i32 %.0
@@ -2141,31 +2141,31 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 9, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #11
   %8 = call ptr @systable_beginscan(ptr noundef %6, i32 noundef 2665, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #11
   %9 = call ptr @systable_getnext(ptr noundef %8) #11
-  %.not52 = icmp eq ptr %9, null
-  br i1 %.not52, label %.loopexit, label %.lr.ph
+  %.not4154 = icmp eq ptr %9, null
+  br i1 %.not4154, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %67
   %10 = phi ptr [ %68, %67 ], [ %9, %3 ]
   %11 = getelementptr i8, ptr %10, i64 16
-  %.val44 = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %.val44, i64 22
+  %.val46 = load ptr, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %.val46, i64 22
   %13 = load i8, ptr %12, align 2
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %.val44, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %.val46, i64 %14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load i8, ptr %16, align 4
-  %.not39 = icmp eq i8 %17, 112
-  br i1 %.not39, label %18, label %67, !llvm.loop !23
+  %.not42 = icmp eq i8 %17, 112
+  br i1 %.not42, label %18, label %67, !llvm.loop !23
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr i8, ptr %10, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 73
   %21 = load i8, ptr %20, align 1, !range !16, !noundef !17
   %22 = trunc nuw i8 %21 to i1
-  %.not42 = xor i1 %22, true
-  %brmerge = or i1 %1, %.not42
-  br i1 %brmerge, label %23, label %.thread
+  %.not = xor i1 %22, true
+  %or.cond = or i1 %1, %.not
+  br i1 %or.cond, label %23, label %.thread
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -2178,11 +2178,11 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 29:                                               ; preds = %23
   %30 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   call void @llvm.assume(i1 %30)
-  %.val43 = load ptr, ptr %19, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %.val43, i64 22
+  %.val45 = load ptr, ptr %19, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %.val45, i64 22
   %32 = load i8, ptr %31, align 2
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %.val43, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %.val45, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %35) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1458, ptr noundef nonnull @__func__.get_primary_key_attnos) #11
@@ -2197,20 +2197,20 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
   %43 = load i32, ptr %42, align 4
   %44 = icmp ne i32 %43, 1
   %45 = icmp slt i32 %41, 0
-  %or.cond = select i1 %44, i1 true, i1 %45
-  br i1 %or.cond, label %52, label %46
+  %or.cond3 = select i1 %44, i1 true, i1 %45
+  br i1 %or.cond3, label %52, label %46
 
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %48 = load i32, ptr %47, align 4
-  %.not40 = icmp eq i32 %48, 0
-  br i1 %.not40, label %49, label %52
+  %.not43 = icmp eq i32 %48, 0
+  br i1 %.not43, label %49, label %52
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %51 = load i32, ptr %50, align 4
-  %.not41 = icmp eq i32 %51, 21
-  br i1 %.not41, label %55, label %52
+  %.not44 = icmp eq i32 %51, 21
+  br i1 %.not44, label %55, label %52
 
 52:                                               ; preds = %49, %46, %37
   %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
@@ -2221,27 +2221,27 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %.not68 = icmp eq i32 %41, 0
-  br i1 %.not68, label %._crit_edge, label %.lr.ph55.preheader
+  %.not70 = icmp eq i32 %41, 0
+  br i1 %.not70, label %._crit_edge, label %.lr.ph57.preheader
 
-.lr.ph55.preheader:                               ; preds = %55
+.lr.ph57.preheader:                               ; preds = %55
   %wide.trip.count = zext nneg i32 %41 to i64
-  br label %.lr.ph55
+  br label %.lr.ph57
 
-.lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
-  %indvars.iv = phi i64 [ 0, %.lr.ph55.preheader ], [ %indvars.iv.next, %.lr.ph55 ]
-  %.353 = phi ptr [ null, %.lr.ph55.preheader ], [ %61, %.lr.ph55 ]
+.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %.lr.ph57
+  %indvars.iv = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next, %.lr.ph57 ]
+  %.355 = phi ptr [ null, %.lr.ph57.preheader ], [ %61, %.lr.ph57 ]
   %57 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv
   %58 = load i16, ptr %57, align 2
   %59 = sext i16 %58 to i32
   %60 = add nsw i32 %59, 7
-  %61 = call ptr @bms_add_member(ptr noundef %.353, i32 noundef %60) #11
+  %61 = call ptr @bms_add_member(ptr noundef %.355, i32 noundef %60) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph55, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph57, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %.lr.ph55, %55
-  %.3.lcssa = phi ptr [ null, %55 ], [ %61, %.lr.ph55 ]
+._crit_edge:                                      ; preds = %.lr.ph57, %55
+  %.3.lcssa = phi ptr [ null, %55 ], [ %61, %.lr.ph57 ]
   %.val = load ptr, ptr %19, align 8
   %62 = getelementptr inbounds nuw i8, ptr %.val, i64 22
   %63 = load i8, ptr %62, align 2
@@ -2259,8 +2259,8 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 67:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
   %68 = call ptr @systable_getnext(ptr noundef %8) #11
-  %.not = icmp eq ptr %68, null
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  %.not41 = icmp eq ptr %68, null
+  br i1 %.not41, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %67, %3, %.thread
   %.1 = phi ptr [ %.2.ph, %.thread ], [ null, %3 ], [ null, %67 ]

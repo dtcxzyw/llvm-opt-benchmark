@@ -298,7 +298,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
 7:                                                ; preds = %4
   %8 = trunc nuw nsw i32 %0 to i8
   store i8 %8, ptr %5, align 1, !tbaa !4
-  br label %57
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.exit
 
 9:                                                ; preds = %4
   %10 = icmp ult i32 %0, 2048
@@ -314,7 +314,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
   %17 = and i8 %16, 63
   %18 = or disjoint i8 %17, -128
   store i8 %18, ptr %15, align 1, !tbaa !4
-  br label %57
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.exit
 
 19:                                               ; preds = %9
   %20 = icmp ult i32 %0, 55296
@@ -339,12 +339,12 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
   %34 = and i8 %33, 63
   %35 = or disjoint i8 %34, -128
   store i8 %35, ptr %32, align 1, !tbaa !4
-  br label %57
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.exit
 
 36:                                               ; preds = %19
   %37 = add i32 %0, -65536
   %38 = icmp ult i32 %37, 1048576
-  br i1 %38, label %39, label %_ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.exit
+  br i1 %38, label %39, label %_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 39:                                               ; preds = %36
   %40 = lshr i32 %0, 18
@@ -368,62 +368,62 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
   %55 = and i8 %54, 63
   %56 = or disjoint i8 %55, -128
   store i8 %56, ptr %53, align 1, !tbaa !4
-  br label %57
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.exit
 
-57:                                               ; preds = %39, %23, %11, %7
-  %.0.i.ph.ph = phi i64 [ 1, %7 ], [ 2, %11 ], [ 3, %23 ], [ 4, %39 ]
+_ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.exit: ; preds = %39, %23, %11, %7
+  %.0.i = phi i64 [ 1, %7 ], [ 2, %11 ], [ 3, %23 ], [ 4, %39 ]
   %.sroa.1.0.extract.shift.i = lshr i64 %1, 8
   %.sroa.1.0.extract.trunc.i = trunc i64 %.sroa.1.0.extract.shift.i to i8
-  %58 = icmp eq i8 %.sroa.1.0.extract.trunc.i, 0
-  br i1 %58, label %59, label %81
+  %57 = icmp eq i8 %.sroa.1.0.extract.trunc.i, 0
+  br i1 %57, label %58, label %80
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %61 = load i64, ptr %60, align 8, !tbaa !16
-  %62 = add i64 %61, %.0.i.ph.ph
-  store i64 %62, ptr %60, align 8, !tbaa !16
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 1056
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !19
-  %66 = ptrtoint ptr %63 to i64
-  %67 = ptrtoint ptr %65 to i64
-  %68 = sub i64 %66, %67
-  %.not.i.i = icmp ult i64 %.0.i.ph.ph, %68
-  br i1 %.not.i.i, label %78, label %69
+58:                                               ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.exit
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %60 = load i64, ptr %59, align 8, !tbaa !16
+  %61 = add i64 %60, %.0.i
+  store i64 %61, ptr %59, align 8, !tbaa !16
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 1056
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %64 = load ptr, ptr %63, align 8, !tbaa !19
+  %65 = ptrtoint ptr %62 to i64
+  %66 = ptrtoint ptr %64 to i64
+  %67 = sub i64 %65, %66
+  %.not.i.i = icmp ult i64 %.0.i, %67
+  br i1 %.not.i.i, label %77, label %68
 
-69:                                               ; preds = %59
-  %70 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %71 = ptrtoint ptr %70 to i64
-  %72 = sub i64 %67, %71
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !20
-  %75 = load ptr, ptr %3, align 8, !tbaa !21
-  tail call void %74(ptr noundef %75, i64 %72, ptr nonnull %70)
-  store ptr %70, ptr %64, align 8, !tbaa !19
-  %76 = load ptr, ptr %73, align 8, !tbaa !20
-  %77 = load ptr, ptr %3, align 8, !tbaa !21
-  call void %76(ptr noundef %77, i64 %.0.i.ph.ph, ptr nonnull %5)
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.exit
+68:                                               ; preds = %58
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %70 = ptrtoint ptr %69 to i64
+  %71 = sub i64 %66, %70
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !20
+  %74 = load ptr, ptr %3, align 8, !tbaa !21
+  tail call void %73(ptr noundef %74, i64 %71, ptr nonnull %69)
+  store ptr %69, ptr %63, align 8, !tbaa !19
+  %75 = load ptr, ptr %72, align 8, !tbaa !20
+  %76 = load ptr, ptr %3, align 8, !tbaa !21
+  call void %75(ptr noundef %76, i64 %.0.i, ptr nonnull %5)
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-78:                                               ; preds = %59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 1 dereferenceable(1) %5, i64 %.0.i.ph.ph, i1 false)
-  %79 = load ptr, ptr %64, align 8, !tbaa !19
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %.0.i.ph.ph
-  store ptr %80, ptr %64, align 8, !tbaa !19
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.exit
+77:                                               ; preds = %58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull align 1 dereferenceable(1) %5, i64 %.0.i, i1 false)
+  %78 = load ptr, ptr %63, align 8, !tbaa !19
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.0.i
+  store ptr %79, ptr %63, align 8, !tbaa !19
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-81:                                               ; preds = %57
+80:                                               ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.exit
   %.sroa.310.0.extract.shift.i = lshr i64 %1, 32
   %.sroa.310.0.extract.trunc.i = trunc nuw i64 %.sroa.310.0.extract.shift.i to i32
-  %82 = and i8 %.sroa.1.0.extract.trunc.i, 1
-  %83 = icmp ne i8 %82, 0
-  %84 = call noundef zeroext i1 @_ZN4absl19str_format_internal14FormatSinkImpl15PutPaddedStringESt17basic_string_viewIcSt11char_traitsIcEEiib(ptr noundef nonnull align 8 dereferenceable(1056) %3, i64 %.0.i.ph.ph, ptr nonnull %5, i32 noundef %.sroa.310.0.extract.trunc.i, i32 noundef %2, i1 noundef zeroext %83)
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.exit
+  %81 = and i8 %.sroa.1.0.extract.trunc.i, 1
+  %82 = icmp ne i8 %81, 0
+  %83 = call noundef zeroext i1 @_ZN4absl19str_format_internal14FormatSinkImpl15PutPaddedStringESt17basic_string_viewIcSt11char_traitsIcEEiib(ptr noundef nonnull align 8 dereferenceable(1056) %3, i64 %.0.i, ptr nonnull %5, i32 noundef %.sroa.310.0.extract.trunc.i, i32 noundef %2, i1 noundef zeroext %82)
+  br label %_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
-_ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.exit: ; preds = %36, %81, %78, %69
-  %85 = phi i1 [ %84, %81 ], [ true, %69 ], [ true, %78 ], [ false, %36 ]
+_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %36, %80, %77, %68
+  %84 = phi i1 [ %83, %80 ], [ true, %68 ], [ true, %77 ], [ false, %36 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  ret i1 %85
+  ret i1 %84
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -633,9 +633,9 @@ switch.edge.i:                                    ; preds = %_ZN4absl19str_forma
   %17 = and i64 %0, 2048
   %18 = icmp eq i64 %17, 0
   %19 = icmp ne i8 %.sroa.01.0.extract.trunc.i, 17
-  %spec.select.not.i = and i1 %18, %19
+  %spec.select.i49.not48 = and i1 %18, %19
   %20 = icmp eq i64 %.8.val, %6
-  %or.cond = select i1 %spec.select.not.i, i1 true, i1 %20
+  %or.cond = select i1 %spec.select.i49.not48, i1 true, i1 %20
   br i1 %or.cond, label %_ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_24FormatConversionSpecImplE.exit, label %21
 
 21:                                               ; preds = %switch.edge.i
@@ -678,20 +678,20 @@ _ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_
   %38 = tail call i64 @llvm.usub.sat.i64(i64 %24, i64 %37)
   %39 = select i1 %.inv, i64 0, i64 %38
   %40 = and i8 %.sroa.4.0.extract.trunc, 1
-  %.not46 = icmp eq i8 %40, 0
-  %41 = select i1 %.not46, i64 %39, i64 0
+  %.not49 = icmp eq i8 %40, 0
+  %41 = select i1 %.not49, i64 %39, i64 0
   %42 = and i8 %.sroa.4.0.extract.trunc, 16
-  %.not47 = icmp eq i8 %42, 0
-  %or.cond48 = or i1 %25, %.not47
-  br i1 %or.cond48, label %45, label %.thread
+  %.not50 = icmp eq i8 %42, 0
+  %or.cond51 = or i1 %25, %.not50
+  br i1 %or.cond51, label %45, label %.thread
 
 .thread:                                          ; preds = %36
   %43 = add i64 %41, %37
-  %44 = select i1 %.not46, i64 0, i64 %39
+  %44 = select i1 %.not49, i64 0, i64 %39
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit
 
 45:                                               ; preds = %36
-  %46 = select i1 %.not46, i64 0, i64 %39
+  %46 = select i1 %.not49, i64 0, i64 %39
   %47 = icmp eq i64 %41, 0
   br i1 %47, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit, label %48
 
@@ -720,8 +720,8 @@ _ZN4absl19str_format_internal12_GLOBAL__N_113BaseIndicatorERKNS1_9IntDigitsENS0_
   %64 = phi ptr [ %55, %.lr.ph.i ], [ %59, %69 ]
   %.010.i = phi i64 [ %39, %.lr.ph.i ], [ %65, %69 ]
   %65 = sub nuw i64 %.010.i, %63
-  %.not.i51 = icmp eq ptr %52, %64
-  br i1 %.not.i51, label %69, label %66
+  %.not.i52 = icmp eq ptr %52, %64
+  br i1 %.not.i52, label %69, label %66
 
 66:                                               ; preds = %62
   tail call void @llvm.memset.p0.i64(ptr align 1 %64, i8 32, i64 %63, i1 false)
@@ -767,8 +767,8 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit: ; preds = %.thread
   %85 = ptrtoint ptr %82 to i64
   %86 = ptrtoint ptr %84 to i64
   %87 = sub i64 %85, %86
-  %.not.i52 = icmp ult i64 %.sroa.03.0.i, %87
-  br i1 %.not.i52, label %97, label %88
+  %.not.i53 = icmp ult i64 %.sroa.03.0.i, %87
+  br i1 %.not.i53, label %97, label %88
 
 88:                                               ; preds = %78
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -792,7 +792,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit: ; preds = %.thread
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit, %88, %97
-  br i1 %23, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit54, label %100
+  br i1 %23, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit55, label %100
 
 100:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -805,8 +805,8 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   %107 = ptrtoint ptr %104 to i64
   %108 = ptrtoint ptr %106 to i64
   %109 = sub i64 %107, %108
-  %.not.i53 = icmp ult i64 %.sroa.06.0.i, %109
-  br i1 %.not.i53, label %119, label %110
+  %.not.i54 = icmp ult i64 %.sroa.06.0.i, %109
+  br i1 %.not.i54, label %119, label %110
 
 110:                                              ; preds = %100
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -820,20 +820,20 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   %117 = load ptr, ptr %114, align 8, !tbaa !20
   %118 = load ptr, ptr %2, align 8, !tbaa !21
   tail call void %117(ptr noundef %118, i64 %.sroa.06.0.i, ptr %.sroa.3.0.i)
-  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit54
+  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit55
 
 119:                                              ; preds = %100
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %106, ptr align 1 %.sroa.3.0.i, i64 %.sroa.06.0.i, i1 false)
   %120 = load ptr, ptr %105, align 8, !tbaa !19
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %.sroa.06.0.i
   store ptr %121, ptr %105, align 8, !tbaa !19
-  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit54
+  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit55
 
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit54: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit, %110, %119
+_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit55: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit, %110, %119
   %122 = icmp eq i64 %.043, 0
-  br i1 %122, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit63, label %123
+  br i1 %122, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit64, label %123
 
-123:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit54
+123:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit55
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %125 = load i64, ptr %124, align 8, !tbaa !16
   %126 = add i64 %125, %.043
@@ -845,54 +845,54 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   %131 = ptrtoint ptr %130 to i64
   %132 = sub i64 %129, %131
   %133 = icmp ugt i64 %.043, %132
-  br i1 %133, label %.lr.ph.i58, label %._crit_edge.i55
+  br i1 %133, label %.lr.ph.i59, label %._crit_edge.i56
 
-.lr.ph.i58:                                       ; preds = %123
+.lr.ph.i59:                                       ; preds = %123
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %135 = ptrtoint ptr %134 to i64
   %136 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %137
 
-137:                                              ; preds = %144, %.lr.ph.i58
-  %138 = phi i64 [ %132, %.lr.ph.i58 ], [ 1024, %144 ]
-  %139 = phi ptr [ %130, %.lr.ph.i58 ], [ %134, %144 ]
-  %.010.i59 = phi i64 [ %.043, %.lr.ph.i58 ], [ %140, %144 ]
-  %140 = sub nuw i64 %.010.i59, %138
-  %.not.i60 = icmp eq ptr %127, %139
-  br i1 %.not.i60, label %144, label %141
+137:                                              ; preds = %144, %.lr.ph.i59
+  %138 = phi i64 [ %132, %.lr.ph.i59 ], [ 1024, %144 ]
+  %139 = phi ptr [ %130, %.lr.ph.i59 ], [ %134, %144 ]
+  %.010.i60 = phi i64 [ %.043, %.lr.ph.i59 ], [ %140, %144 ]
+  %140 = sub nuw i64 %.010.i60, %138
+  %.not.i61 = icmp eq ptr %127, %139
+  br i1 %.not.i61, label %144, label %141
 
 141:                                              ; preds = %137
   tail call void @llvm.memset.p0.i64(ptr align 1 %139, i8 48, i64 %138, i1 false)
   %142 = load ptr, ptr %128, align 8, !tbaa !19
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 %138
   store ptr %143, ptr %128, align 8, !tbaa !19
-  %.pre.i61 = ptrtoint ptr %143 to i64
+  %.pre.i62 = ptrtoint ptr %143 to i64
   br label %144
 
 144:                                              ; preds = %141, %137
-  %.pre-phi.i62 = phi i64 [ %.pre.i61, %141 ], [ %129, %137 ]
-  %145 = sub i64 %.pre-phi.i62, %135
+  %.pre-phi.i63 = phi i64 [ %.pre.i62, %141 ], [ %129, %137 ]
+  %145 = sub i64 %.pre-phi.i63, %135
   %146 = load ptr, ptr %136, align 8, !tbaa !20
   %147 = load ptr, ptr %2, align 8, !tbaa !21
   tail call void %146(ptr noundef %147, i64 %145, ptr nonnull %134)
   store ptr %134, ptr %128, align 8, !tbaa !19
   %148 = icmp ugt i64 %140, 1024
-  br i1 %148, label %137, label %._crit_edge.i55, !llvm.loop !22
+  br i1 %148, label %137, label %._crit_edge.i56, !llvm.loop !22
 
-._crit_edge.i55:                                  ; preds = %144, %123
-  %.0.lcssa.i56 = phi i64 [ %.043, %123 ], [ %140, %144 ]
-  %.lcssa.i57 = phi ptr [ %130, %123 ], [ %134, %144 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i57, i8 48, i64 %.0.lcssa.i56, i1 false)
+._crit_edge.i56:                                  ; preds = %144, %123
+  %.0.lcssa.i57 = phi i64 [ %.043, %123 ], [ %140, %144 ]
+  %.lcssa.i58 = phi ptr [ %130, %123 ], [ %134, %144 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i58, i8 48, i64 %.0.lcssa.i57, i1 false)
   %149 = load ptr, ptr %128, align 8, !tbaa !19
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %.0.lcssa.i56
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %.0.lcssa.i57
   store ptr %150, ptr %128, align 8, !tbaa !19
-  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit63
+  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit64
 
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit63: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit54, %._crit_edge.i55
+_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit64: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit55, %._crit_edge.i56
   %151 = icmp eq i64 %.8.val, %6
-  br i1 %151, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit65, label %152
+  br i1 %151, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit66, label %152
 
-152:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit63
+152:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit64
   %153 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %154 = load i64, ptr %153, align 8, !tbaa !16
   %155 = add i64 %154, %8
@@ -903,8 +903,8 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit63: ; preds = %_ZN4a
   %159 = ptrtoint ptr %156 to i64
   %160 = ptrtoint ptr %158 to i64
   %161 = sub i64 %159, %160
-  %.not.i64 = icmp ult i64 %8, %161
-  br i1 %.not.i64, label %171, label %162
+  %.not.i65 = icmp ult i64 %8, %161
+  br i1 %.not.i65, label %171, label %162
 
 162:                                              ; preds = %152
   %163 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -918,20 +918,20 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit63: ; preds = %_ZN4a
   %169 = load ptr, ptr %166, align 8, !tbaa !20
   %170 = load ptr, ptr %2, align 8, !tbaa !21
   tail call void %169(ptr noundef %170, i64 %8, ptr nonnull %7)
-  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit65
+  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit66
 
 171:                                              ; preds = %152
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %158, ptr nonnull align 1 %7, i64 %8, i1 false)
   %172 = load ptr, ptr %157, align 8, !tbaa !19
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 %8
   store ptr %173, ptr %157, align 8, !tbaa !19
-  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit65
+  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit66
 
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit65: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit63, %162, %171
+_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit66: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit64, %162, %171
   %174 = icmp eq i64 %76, 0
-  br i1 %174, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit74, label %175
+  br i1 %174, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit75, label %175
 
-175:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit65
+175:                                              ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit66
   %176 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %177 = load i64, ptr %176, align 8, !tbaa !16
   %178 = add i64 %177, %76
@@ -943,50 +943,50 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   %183 = ptrtoint ptr %182 to i64
   %184 = sub i64 %181, %183
   %185 = icmp ugt i64 %76, %184
-  br i1 %185, label %.lr.ph.i69, label %._crit_edge.i66
+  br i1 %185, label %.lr.ph.i70, label %._crit_edge.i67
 
-.lr.ph.i69:                                       ; preds = %175
+.lr.ph.i70:                                       ; preds = %175
   %186 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %187 = ptrtoint ptr %186 to i64
   %188 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %189
 
-189:                                              ; preds = %196, %.lr.ph.i69
-  %190 = phi i64 [ %184, %.lr.ph.i69 ], [ 1024, %196 ]
-  %191 = phi ptr [ %182, %.lr.ph.i69 ], [ %186, %196 ]
-  %.010.i70 = phi i64 [ %76, %.lr.ph.i69 ], [ %192, %196 ]
-  %192 = sub nuw i64 %.010.i70, %190
-  %.not.i71 = icmp eq ptr %179, %191
-  br i1 %.not.i71, label %196, label %193
+189:                                              ; preds = %196, %.lr.ph.i70
+  %190 = phi i64 [ %184, %.lr.ph.i70 ], [ 1024, %196 ]
+  %191 = phi ptr [ %182, %.lr.ph.i70 ], [ %186, %196 ]
+  %.010.i71 = phi i64 [ %76, %.lr.ph.i70 ], [ %192, %196 ]
+  %192 = sub nuw i64 %.010.i71, %190
+  %.not.i72 = icmp eq ptr %179, %191
+  br i1 %.not.i72, label %196, label %193
 
 193:                                              ; preds = %189
   tail call void @llvm.memset.p0.i64(ptr align 1 %191, i8 32, i64 %190, i1 false)
   %194 = load ptr, ptr %180, align 8, !tbaa !19
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 %190
   store ptr %195, ptr %180, align 8, !tbaa !19
-  %.pre.i72 = ptrtoint ptr %195 to i64
+  %.pre.i73 = ptrtoint ptr %195 to i64
   br label %196
 
 196:                                              ; preds = %193, %189
-  %.pre-phi.i73 = phi i64 [ %.pre.i72, %193 ], [ %181, %189 ]
-  %197 = sub i64 %.pre-phi.i73, %187
+  %.pre-phi.i74 = phi i64 [ %.pre.i73, %193 ], [ %181, %189 ]
+  %197 = sub i64 %.pre-phi.i74, %187
   %198 = load ptr, ptr %188, align 8, !tbaa !20
   %199 = load ptr, ptr %2, align 8, !tbaa !21
   tail call void %198(ptr noundef %199, i64 %197, ptr nonnull %186)
   store ptr %186, ptr %180, align 8, !tbaa !19
   %200 = icmp ugt i64 %192, 1024
-  br i1 %200, label %189, label %._crit_edge.i66, !llvm.loop !22
+  br i1 %200, label %189, label %._crit_edge.i67, !llvm.loop !22
 
-._crit_edge.i66:                                  ; preds = %196, %175
-  %.0.lcssa.i67 = phi i64 [ %76, %175 ], [ %192, %196 ]
-  %.lcssa.i68 = phi ptr [ %182, %175 ], [ %186, %196 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i68, i8 32, i64 %.0.lcssa.i67, i1 false)
+._crit_edge.i67:                                  ; preds = %196, %175
+  %.0.lcssa.i68 = phi i64 [ %76, %175 ], [ %192, %196 ]
+  %.lcssa.i69 = phi ptr [ %182, %175 ], [ %186, %196 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i69, i8 32, i64 %.0.lcssa.i68, i1 false)
   %201 = load ptr, ptr %180, align 8, !tbaa !19
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 %.0.lcssa.i67
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 %.0.lcssa.i68
   store ptr %202, ptr %180, align 8, !tbaa !19
-  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit74
+  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit75
 
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit74: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit65, %._crit_edge.i66
+_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit75: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit66, %._crit_edge.i67
   ret void
 }
 
@@ -5112,8 +5112,8 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %10
 
 89:                                               ; preds = %70
   %90 = icmp ult i32 %16, 57344
-  %brmerge.not = select i1 %90, i1 %.sroa.043.056, i1 false
-  br i1 %brmerge.not, label %91, label %_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
+  %or.cond48.i = select i1 %90, i1 %.sroa.043.056, i1 false
+  br i1 %or.cond48.i, label %91, label %_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 91:                                               ; preds = %89
   %92 = shl nuw nsw i8 %.sroa.7.057, 4

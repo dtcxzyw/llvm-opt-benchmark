@@ -6843,11 +6843,11 @@ define dso_local void @_ZN4llvm21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3S
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 20
   br label %41
 
-41:                                               ; preds = %390, %6
-  %.0 = phi i32 [ 0, %6 ], [ %391, %390 ]
+41:                                               ; preds = %392, %6
+  %.0 = phi i32 [ 0, %6 ], [ %393, %392 ]
   %42 = load ptr, ptr %1, align 8, !tbaa !135
   %43 = call noundef zeroext i1 @_ZNK4llvm19PassInstrumentation13runBeforePassINS_13LazyCallGraph3SCCENS_6detail11PassConceptIS3_NS_15AnalysisManagerIS3_JRS2_EEEJS7_RNS_17CGSCCUpdateResultEEEEEEbRKT0_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  br i1 %43, label %44, label %390
+  br i1 %43, label %44, label %392
 
 44:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #19
@@ -7534,254 +7534,254 @@ _ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13Lazy
   store i32 %316, ptr %36, align 4, !tbaa !44
   store i32 0, ptr %37, align 4, !tbaa !44
   %.not.i2.i = icmp eq i32 %314, 0
-  %.not63.i.i = icmp eq i32 %312, 0
-  br i1 %.not.i2.i, label %341, label %317
+  %.not64.i.i = icmp eq i32 %312, 0
+  br i1 %.not.i2.i, label %343, label %317
 
 317:                                              ; preds = %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEE4initEj.exit.i
-  br i1 %.not63.i.i, label %346, label %.preheader.i.i
+  br i1 %.not64.i.i, label %348, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %317, %.thread73.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.thread73.i.i ], [ 0, %317 ]
+.preheader.i.i:                                   ; preds = %317, %.thread70.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.thread70.i.i ], [ 0, %317 ]
   %318 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.295", ptr %.sroa.gep99, i64 %indvars.iv.i.i
   %319 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.295", ptr %.sroa.gep, i64 %indvars.iv.i.i
   %320 = load ptr, ptr %318, align 8, !tbaa !382
   %321 = icmp eq ptr %320, inttoptr (i64 -4096 to ptr)
-  br i1 %321, label %.thread75.i.i, label %322
+  br i1 %321, label %.thread72.i.i, label %322
 
 322:                                              ; preds = %.preheader.i.i
-  %.not81.i.i = icmp eq ptr %320, inttoptr (i64 -8192 to ptr)
-  %323 = load ptr, ptr %319, align 8, !tbaa !382
-  %324 = icmp eq ptr %323, inttoptr (i64 -4096 to ptr)
-  br i1 %324, label %.thread72.i.i, label %327
+  %323 = icmp ne ptr %320, inttoptr (i64 -8192 to ptr)
+  %324 = load ptr, ptr %319, align 8, !tbaa !382
+  %325 = icmp eq ptr %324, inttoptr (i64 -4096 to ptr)
+  br i1 %325, label %.thread69.i.i, label %328
 
-.thread75.i.i:                                    ; preds = %.preheader.i.i
-  %325 = load ptr, ptr %319, align 8, !tbaa !382
-  %326 = icmp eq ptr %325, inttoptr (i64 -4096 to ptr)
-  br i1 %326, label %.thread72.thread.i.i, label %.thread80.i.i
+.thread72.i.i:                                    ; preds = %.preheader.i.i
+  %326 = load ptr, ptr %319, align 8, !tbaa !382
+  %327 = icmp eq ptr %326, inttoptr (i64 -4096 to ptr)
+  br i1 %327, label %.thread69.thread.i.i, label %.thread75.i.i
 
-.thread80.i.i:                                    ; preds = %.thread75.i.i
-  %.not83.i.i = icmp eq ptr %325, inttoptr (i64 -8192 to ptr)
-  store ptr %325, ptr %318, align 8, !tbaa !382
+.thread75.i.i:                                    ; preds = %.thread72.i.i
+  %.not76.i.i = icmp eq ptr %326, inttoptr (i64 -8192 to ptr)
+  store ptr %326, ptr %318, align 8, !tbaa !382
   store ptr %320, ptr %319, align 8, !tbaa !382
-  br i1 %.not83.i.i, label %.thread73.i.i, label %337
+  br i1 %.not76.i.i, label %.thread70.i.i, label %339
 
-.thread72.thread.i.i:                             ; preds = %.thread75.i.i
-  store ptr %325, ptr %318, align 8, !tbaa !382
+.thread69.thread.i.i:                             ; preds = %.thread72.i.i
+  store ptr %326, ptr %318, align 8, !tbaa !382
   store ptr %320, ptr %319, align 8, !tbaa !382
-  br label %.thread73.i.i
+  br label %.thread70.i.i
 
-327:                                              ; preds = %322
-  %.not82.i.i = icmp eq ptr %323, inttoptr (i64 -8192 to ptr)
-  %brmerge.i.i = or i1 %.not81.i.i, %.not82.i.i
-  br i1 %brmerge.i.i, label %331, label %328
+328:                                              ; preds = %322
+  %329 = icmp ne ptr %324, inttoptr (i64 -8192 to ptr)
+  %or.cond.i.i = and i1 %323, %329
+  br i1 %or.cond.i.i, label %330, label %333
 
-328:                                              ; preds = %327
+330:                                              ; preds = %328
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %318, i64 8
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
-  store ptr %323, ptr %318, align 8, !tbaa !437
-  %329 = getelementptr inbounds nuw i8, ptr %319, i64 8
-  %330 = load i64, ptr %329, align 8
-  store i64 %330, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
+  store ptr %324, ptr %318, align 8, !tbaa !437
+  %331 = getelementptr inbounds nuw i8, ptr %319, i64 8
+  %332 = load i64, ptr %331, align 8
+  store i64 %332, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   store ptr %320, ptr %319, align 8, !tbaa !437
-  store i64 %.sroa.4.0.copyload.i.i.i, ptr %329, align 8
-  br label %.thread73.i.i
+  store i64 %.sroa.4.0.copyload.i.i.i, ptr %331, align 8
+  br label %.thread70.i.i
 
-331:                                              ; preds = %327
-  store ptr %323, ptr %318, align 8, !tbaa !382
+333:                                              ; preds = %328
+  store ptr %324, ptr %318, align 8, !tbaa !382
   store ptr %320, ptr %319, align 8, !tbaa !382
-  br i1 %.not81.i.i, label %336, label %332
+  br i1 %323, label %334, label %338
 
-.thread72.i.i:                                    ; preds = %322
+.thread69.i.i:                                    ; preds = %322
   store ptr inttoptr (i64 -4096 to ptr), ptr %318, align 8, !tbaa !382
   store ptr %320, ptr %319, align 8, !tbaa !382
-  br i1 %.not81.i.i, label %.thread73.i.i, label %332
+  br i1 %323, label %334, label %.thread70.i.i
 
-332:                                              ; preds = %.thread72.i.i, %331
-  %333 = getelementptr inbounds nuw i8, ptr %319, i64 8
-  %334 = getelementptr inbounds nuw i8, ptr %318, i64 8
-  %335 = load i64, ptr %334, align 8
-  store i64 %335, ptr %333, align 8
-  br label %.thread73.i.i
+334:                                              ; preds = %.thread69.i.i, %333
+  %335 = getelementptr inbounds nuw i8, ptr %319, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %318, i64 8
+  %337 = load i64, ptr %336, align 8
+  store i64 %337, ptr %335, align 8
+  br label %.thread70.i.i
 
-336:                                              ; preds = %331
-  br i1 %.not82.i.i, label %.thread73.i.i, label %337
+338:                                              ; preds = %333
+  br i1 %329, label %339, label %.thread70.i.i
 
-337:                                              ; preds = %336, %.thread80.i.i
-  %338 = getelementptr inbounds nuw i8, ptr %318, i64 8
-  %339 = getelementptr inbounds nuw i8, ptr %319, i64 8
-  %340 = load i64, ptr %339, align 8
-  store i64 %340, ptr %338, align 8
-  br label %.thread73.i.i
+339:                                              ; preds = %338, %.thread75.i.i
+  %340 = getelementptr inbounds nuw i8, ptr %318, i64 8
+  %341 = getelementptr inbounds nuw i8, ptr %319, i64 8
+  %342 = load i64, ptr %341, align 8
+  store i64 %342, ptr %340, align 8
+  br label %.thread70.i.i
 
-.thread73.i.i:                                    ; preds = %337, %336, %332, %.thread72.i.i, %328, %.thread72.thread.i.i, %.thread80.i.i
+.thread70.i.i:                                    ; preds = %339, %338, %334, %.thread69.i.i, %330, %.thread69.thread.i.i, %.thread75.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.not66.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %.not66.i.i, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit, label %.preheader.i.i, !llvm.loop !456
+  %.not67.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
+  br i1 %.not67.i.i, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit, label %.preheader.i.i, !llvm.loop !456
 
-341:                                              ; preds = %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEE4initEj.exit.i
-  br i1 %.not63.i.i, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit.thread, label %346
+343:                                              ; preds = %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEE4initEj.exit.i
+  br i1 %.not64.i.i, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit.thread, label %348
 
-_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit.thread: ; preds = %341
-  %342 = load ptr, ptr %.sroa.gep99, align 8, !tbaa !457
-  %343 = load ptr, ptr %.sroa.gep, align 8, !tbaa !457
-  store ptr %343, ptr %.sroa.gep99, align 8, !tbaa !457
-  store ptr %342, ptr %.sroa.gep, align 8, !tbaa !457
-  %344 = load i32, ptr %34, align 8, !tbaa !44
-  %345 = load i32, ptr %33, align 8, !tbaa !44
-  store i32 %345, ptr %34, align 8, !tbaa !44
-  store i32 %344, ptr %33, align 8, !tbaa !44
-  br label %364
+_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit.thread: ; preds = %343
+  %344 = load ptr, ptr %.sroa.gep99, align 8, !tbaa !457
+  %345 = load ptr, ptr %.sroa.gep, align 8, !tbaa !457
+  store ptr %345, ptr %.sroa.gep99, align 8, !tbaa !457
+  store ptr %344, ptr %.sroa.gep, align 8, !tbaa !457
+  %346 = load i32, ptr %34, align 8, !tbaa !44
+  %347 = load i32, ptr %33, align 8, !tbaa !44
+  store i32 %347, ptr %34, align 8, !tbaa !44
+  store i32 %346, ptr %33, align 8, !tbaa !44
+  br label %366
 
-346:                                              ; preds = %341, %317
-  %347 = phi i32 [ %313, %317 ], [ %315, %341 ]
-  %.sroa.phi = phi ptr [ %.sroa.gep, %317 ], [ %.sroa.gep99, %341 ]
-  %348 = phi ptr [ %12, %317 ], [ %10, %341 ]
-  %.sroa.phi100 = phi ptr [ %.sroa.gep99, %317 ], [ %.sroa.gep, %341 ]
-  %349 = phi ptr [ %10, %317 ], [ %12, %341 ]
+348:                                              ; preds = %343, %317
+  %349 = phi i32 [ %313, %317 ], [ %315, %343 ]
+  %.sroa.phi = phi ptr [ %.sroa.gep, %317 ], [ %.sroa.gep99, %343 ]
+  %350 = phi ptr [ %12, %317 ], [ %10, %343 ]
+  %.sroa.phi100 = phi ptr [ %.sroa.gep99, %317 ], [ %.sroa.gep, %343 ]
+  %351 = phi ptr [ %10, %317 ], [ %12, %343 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.phi, i64 16, i1 false), !tbaa.struct !458
-  %350 = or i32 %347, 1
-  store i32 %350, ptr %348, align 8
-  br label %351
+  %352 = or i32 %349, 1
+  store i32 %352, ptr %350, align 8
+  br label %353
 
-351:                                              ; preds = %359, %346
-  %indvars.iv87.i.i = phi i64 [ 0, %346 ], [ %indvars.iv.next88.i.i, %359 ]
-  %352 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.295", ptr %.sroa.phi, i64 %indvars.iv87.i.i
-  %353 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.295", ptr %.sroa.phi100, i64 %indvars.iv87.i.i
-  %354 = load ptr, ptr %353, align 8, !tbaa !382
-  store ptr %354, ptr %352, align 8, !tbaa !382
-  %magicptr.i.i = ptrtoint ptr %354 to i64
-  switch i64 %magicptr.i.i, label %355 [
-    i64 -4096, label %359
-    i64 -8192, label %359
+353:                                              ; preds = %361, %348
+  %indvars.iv80.i.i = phi i64 [ 0, %348 ], [ %indvars.iv.next81.i.i, %361 ]
+  %354 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.295", ptr %.sroa.phi, i64 %indvars.iv80.i.i
+  %355 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.295", ptr %.sroa.phi100, i64 %indvars.iv80.i.i
+  %356 = load ptr, ptr %355, align 8, !tbaa !382
+  store ptr %356, ptr %354, align 8, !tbaa !382
+  %magicptr.i.i = ptrtoint ptr %356 to i64
+  switch i64 %magicptr.i.i, label %357 [
+    i64 -4096, label %361
+    i64 -8192, label %361
   ]
 
-355:                                              ; preds = %351
-  %356 = getelementptr inbounds nuw i8, ptr %352, i64 8
-  %357 = getelementptr inbounds nuw i8, ptr %353, i64 8
-  %358 = load i64, ptr %357, align 4
-  store i64 %358, ptr %356, align 4
-  br label %359
+357:                                              ; preds = %353
+  %358 = getelementptr inbounds nuw i8, ptr %354, i64 8
+  %359 = getelementptr inbounds nuw i8, ptr %355, i64 8
+  %360 = load i64, ptr %359, align 4
+  store i64 %360, ptr %358, align 4
+  br label %361
 
-359:                                              ; preds = %355, %351, %351
-  %indvars.iv.next88.i.i = add nuw nsw i64 %indvars.iv87.i.i, 1
-  %.not65.i.i = icmp eq i64 %indvars.iv.next88.i.i, 4
-  br i1 %.not65.i.i, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit, label %351, !llvm.loop !459
+361:                                              ; preds = %357, %353, %353
+  %indvars.iv.next81.i.i = add nuw nsw i64 %indvars.iv80.i.i, 1
+  %.not66.i.i = icmp eq i64 %indvars.iv.next81.i.i, 4
+  br i1 %.not66.i.i, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit, label %353, !llvm.loop !459
 
-_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit: ; preds = %359
-  %360 = load i32, ptr %349, align 8
-  %361 = and i32 %360, -2
-  store i32 %361, ptr %349, align 8
+_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit: ; preds = %361
+  %362 = load i32, ptr %351, align 8
+  %363 = and i32 %362, -2
+  store i32 %363, ptr %351, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.phi100, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !458
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %.pre = load i32, ptr %12, align 8
-  %362 = and i32 %.pre, 1
-  %363 = icmp eq i32 %362, 0
-  br i1 %363, label %364, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit
+  %364 = and i32 %.pre, 1
+  %365 = icmp eq i32 %364, 0
+  br i1 %365, label %366, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit
 
-364:                                              ; preds = %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit.thread, %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit
-  %365 = load ptr, ptr %.sroa.gep, align 8, !tbaa !451
-  %366 = load i32, ptr %33, align 8, !tbaa !454
-  %367 = zext i32 %366 to i64
-  %368 = shl nuw nsw i64 %367, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %365, i64 noundef %368, i64 noundef 8) #19
+366:                                              ; preds = %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit.thread, %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit
+  %367 = load ptr, ptr %.sroa.gep, align 8, !tbaa !451
+  %368 = load i32, ptr %33, align 8, !tbaa !454
+  %369 = zext i32 %368 to i64
+  %370 = shl nuw nsw i64 %369, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %367, i64 noundef %370, i64 noundef 8) #19
   br label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit
 
-_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit: ; preds = %.thread73.i.i, %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit, %364
+_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit: ; preds = %.thread70.i.i, %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEEaSEOSJ_.exit, %366
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #19
-  %369 = load i8, ptr %38, align 4, !tbaa !80, !range !38, !noundef !39
-  %370 = trunc nuw i8 %369 to i1
-  br i1 %370, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, label %371
+  %371 = load i8, ptr %38, align 4, !tbaa !80, !range !38, !noundef !39
+  %372 = trunc nuw i8 %371 to i1
+  br i1 %372, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, label %373
 
-371:                                              ; preds = %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit
-  %372 = load ptr, ptr %39, align 8, !tbaa !81
-  call void @free(ptr noundef %372) #19
+373:                                              ; preds = %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit
+  %374 = load ptr, ptr %39, align 8, !tbaa !81
+  call void @free(ptr noundef %374) #19
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i:         ; preds = %371, %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit
-  %373 = load i8, ptr %40, align 4, !tbaa !80, !range !38, !noundef !39
-  %374 = trunc nuw i8 %373 to i1
-  br i1 %374, label %_ZN4llvm17PreservedAnalysesD2Ev.exit, label %375
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i:         ; preds = %373, %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit
+  %375 = load i8, ptr %40, align 4, !tbaa !80, !range !38, !noundef !39
+  %376 = trunc nuw i8 %375 to i1
+  br i1 %376, label %_ZN4llvm17PreservedAnalysesD2Ev.exit, label %377
 
-375:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i
-  %376 = load ptr, ptr %11, align 8, !tbaa !81
-  call void @free(ptr noundef %376) #19
+377:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i
+  %378 = load ptr, ptr %11, align 8, !tbaa !81
+  call void @free(ptr noundef %378) #19
   br label %_ZN4llvm17PreservedAnalysesD2Ev.exit
 
-_ZN4llvm17PreservedAnalysesD2Ev.exit:             ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, %375
+_ZN4llvm17PreservedAnalysesD2Ev.exit:             ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, %377
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #19
-  br label %390
+  br label %392
 
 .loopexit:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS6_JRS5_EEES9_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SE_EEEES3_SE_SG_SJ_E5beginEv.exit, %_ZN4llvm16DenseMapIteratorIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EELb0EEppEv.exit, %..loopexit_crit_edge
-  %377 = phi i32 [ %.pre142, %..loopexit_crit_edge ], [ %.val.i, %_ZN4llvm16DenseMapIteratorIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EELb0EEppEv.exit ], [ %.val.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS6_JRS5_EEES9_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SE_EEEES3_SE_SG_SJ_E5beginEv.exit ]
-  %378 = and i32 %377, 1
-  %.not.i.i85 = icmp eq i32 %378, 0
-  br i1 %.not.i.i85, label %379, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit87
+  %379 = phi i32 [ %.pre142, %..loopexit_crit_edge ], [ %.val.i, %_ZN4llvm16DenseMapIteratorIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EELb0EEppEv.exit ], [ %.val.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS6_JRS5_EEES9_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SE_EEEES3_SE_SG_SJ_E5beginEv.exit ]
+  %380 = and i32 %379, 1
+  %.not.i.i85 = icmp eq i32 %380, 0
+  br i1 %.not.i.i85, label %381, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit87
 
-379:                                              ; preds = %.loopexit
-  %380 = load ptr, ptr %.sroa.gep, align 8, !tbaa !451
-  %381 = load i32, ptr %33, align 8, !tbaa !454
-  %382 = zext i32 %381 to i64
-  %383 = shl nuw nsw i64 %382, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %380, i64 noundef %383, i64 noundef 8) #19
+381:                                              ; preds = %.loopexit
+  %382 = load ptr, ptr %.sroa.gep, align 8, !tbaa !451
+  %383 = load i32, ptr %33, align 8, !tbaa !454
+  %384 = zext i32 %383 to i64
+  %385 = shl nuw nsw i64 %384, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %382, i64 noundef %385, i64 noundef 8) #19
   br label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit87
 
-_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit87: ; preds = %.loopexit, %379
+_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit87: ; preds = %.loopexit, %381
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #19
-  %384 = load i8, ptr %38, align 4, !tbaa !80, !range !38, !noundef !39
-  %385 = trunc nuw i8 %384 to i1
-  br i1 %385, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i88, label %386
+  %386 = load i8, ptr %38, align 4, !tbaa !80, !range !38, !noundef !39
+  %387 = trunc nuw i8 %386 to i1
+  br i1 %387, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i88, label %388
 
-386:                                              ; preds = %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit87
-  %387 = load ptr, ptr %39, align 8, !tbaa !81
-  call void @free(ptr noundef %387) #19
+388:                                              ; preds = %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit87
+  %389 = load ptr, ptr %39, align 8, !tbaa !81
+  call void @free(ptr noundef %389) #19
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i88
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i88:       ; preds = %386, %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit87
-  %388 = load i8, ptr %40, align 4, !tbaa !80, !range !38, !noundef !39
-  %389 = trunc nuw i8 %388 to i1
-  br i1 %389, label %_ZN4llvm17PreservedAnalysesD2Ev.exit89, label %_ZN4llvm17PreservedAnalysesD2Ev.exit89.sink.split
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i88:       ; preds = %388, %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit87
+  %390 = load i8, ptr %40, align 4, !tbaa !80, !range !38, !noundef !39
+  %391 = trunc nuw i8 %390 to i1
+  br i1 %391, label %_ZN4llvm17PreservedAnalysesD2Ev.exit89, label %_ZN4llvm17PreservedAnalysesD2Ev.exit89.sink.split
 
-390:                                              ; preds = %_ZN4llvm17PreservedAnalysesD2Ev.exit, %41
-  %391 = add nuw nsw i32 %.0, 1
+392:                                              ; preds = %_ZN4llvm17PreservedAnalysesD2Ev.exit, %41
+  %393 = add nuw nsw i32 %.0, 1
   br label %41, !llvm.loop !460
 
 .critedge:                                        ; preds = %_ZNK4llvm19PassInstrumentation12runAfterPassINS_13LazyCallGraph3SCCENS_6detail11PassConceptIS3_NS_15AnalysisManagerIS3_JRS2_EEEJS7_RNS_17CGSCCUpdateResultEEEEEEvRKT0_RKT_RKNS_17PreservedAnalysesE.exit, %.lr.ph.i, %66, %_ZNK4llvm15SmallPtrSetImplIPNS_13LazyCallGraph3SCCEE5countEPKS2_.exit.thread106
-  %392 = load i8, ptr %38, align 4, !tbaa !80, !range !38, !noundef !39
-  %393 = trunc nuw i8 %392 to i1
-  br i1 %393, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i90, label %394
+  %394 = load i8, ptr %38, align 4, !tbaa !80, !range !38, !noundef !39
+  %395 = trunc nuw i8 %394 to i1
+  br i1 %395, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i90, label %396
 
-394:                                              ; preds = %.critedge
-  %395 = load ptr, ptr %39, align 8, !tbaa !81
-  call void @free(ptr noundef %395) #19
+396:                                              ; preds = %.critedge
+  %397 = load ptr, ptr %39, align 8, !tbaa !81
+  call void @free(ptr noundef %397) #19
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i90
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i90:       ; preds = %394, %.critedge
-  %396 = load i8, ptr %40, align 4, !tbaa !80, !range !38, !noundef !39
-  %397 = trunc nuw i8 %396 to i1
-  br i1 %397, label %_ZN4llvm17PreservedAnalysesD2Ev.exit89, label %_ZN4llvm17PreservedAnalysesD2Ev.exit89.sink.split
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i90:       ; preds = %396, %.critedge
+  %398 = load i8, ptr %40, align 4, !tbaa !80, !range !38, !noundef !39
+  %399 = trunc nuw i8 %398 to i1
+  br i1 %399, label %_ZN4llvm17PreservedAnalysesD2Ev.exit89, label %_ZN4llvm17PreservedAnalysesD2Ev.exit89.sink.split
 
 _ZN4llvm17PreservedAnalysesD2Ev.exit89.sink.split: ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i90, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i88
-  %398 = load ptr, ptr %11, align 8, !tbaa !81
-  call void @free(ptr noundef %398) #19
+  %400 = load ptr, ptr %11, align 8, !tbaa !81
+  call void @free(ptr noundef %400) #19
   br label %_ZN4llvm17PreservedAnalysesD2Ev.exit89
 
 _ZN4llvm17PreservedAnalysesD2Ev.exit89:           ; preds = %_ZN4llvm17PreservedAnalysesD2Ev.exit89.sink.split, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i90, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i88
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #19
-  %399 = load i32, ptr %10, align 8
-  %400 = and i32 %399, 1
-  %.not.i.i92 = icmp eq i32 %400, 0
-  br i1 %.not.i.i92, label %401, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit94
+  %401 = load i32, ptr %10, align 8
+  %402 = and i32 %401, 1
+  %.not.i.i92 = icmp eq i32 %402, 0
+  br i1 %.not.i.i92, label %403, label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit94
 
-401:                                              ; preds = %_ZN4llvm17PreservedAnalysesD2Ev.exit89
-  %402 = load ptr, ptr %.sroa.gep99, align 8, !tbaa !451
-  %403 = load i32, ptr %34, align 8, !tbaa !454
-  %404 = zext i32 %403 to i64
-  %405 = shl nuw nsw i64 %404, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %402, i64 noundef %405, i64 noundef 8) #19
+403:                                              ; preds = %_ZN4llvm17PreservedAnalysesD2Ev.exit89
+  %404 = load ptr, ptr %.sroa.gep99, align 8, !tbaa !451
+  %405 = load i32, ptr %34, align 8, !tbaa !454
+  %406 = zext i32 %405 to i64
+  %407 = shl nuw nsw i64 %406, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %404, i64 noundef %407, i64 noundef 8) #19
   br label %_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit94
 
-_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit94: ; preds = %_ZN4llvm17PreservedAnalysesD2Ev.exit89, %401
+_ZN4llvm13SmallDenseMapIPNS_8FunctionEZNS_21DevirtSCCRepeatedPass3runERNS_13LazyCallGraph3SCCERNS_15AnalysisManagerIS5_JRS4_EEES8_RNS_17CGSCCUpdateResultEE9CallCountLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SD_EEED2Ev.exit94: ; preds = %_ZN4llvm17PreservedAnalysesD2Ev.exit89, %403
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
   ret void

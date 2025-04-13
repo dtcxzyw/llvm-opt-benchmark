@@ -2042,15 +2042,13 @@ define internal fastcc void @dissect_mpls_echo_tlv_fec(ptr noundef %0, ptr nound
   %394 = add i32 %.0445513, 8
   %395 = load i32, ptr %7, align 4
   %396 = icmp ult i32 %395, 7
-  br i1 %396, label %switch.hole_check, label %408
-
-switch.hole_check:                                ; preds = %384
-  %switch.maskindex = trunc nuw i32 %395 to i8
+  %switch.maskindex = trunc i32 %395 to i8
   %switch.shifted = lshr i8 83, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %408
+  %or.cond = select i1 %396, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %408
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %384
   %397 = zext nneg i32 %395 to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dissect_mpls_echo_tlv_fec, i64 0, i64 %397
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2074,8 +2072,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %407 = add i32 %.0445513, %switch.load609
   br label %408
 
-408:                                              ; preds = %switch.hole_check, %384, %switch.lookup
-  %.0 = phi i32 [ %394, %384 ], [ %407, %switch.lookup ], [ %394, %switch.hole_check ]
+408:                                              ; preds = %384, %switch.lookup
+  %.0 = phi i32 [ %394, %384 ], [ %407, %switch.lookup ]
   %409 = load i32, ptr %8, align 4
   switch i32 %409, label %.loopexit [
     i32 1, label %410

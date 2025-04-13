@@ -777,180 +777,179 @@ define hidden void @_ZN5boost9iostreams6detail16mapped_file_impl9open_fileENS0_2
   %6 = alloca %"class.std::ios_base::failure", align 8
   %7 = alloca %struct.stat64, align 8
   %8 = load i32, ptr %1, align 8, !tbaa !43
-  %.not = icmp ne i32 %8, 2
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !45
-  %11 = tail call ptr @__errno_location() #30
-  store i32 0, ptr %11, align 4, !tbaa !41
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %13 = load i8, ptr %12, align 8, !tbaa !22, !range !30, !noundef !31
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %15, label %24
+  %9 = icmp ne i32 %8, 2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %11 = load i64, ptr %10, align 8, !tbaa !45
+  %12 = tail call ptr @__errno_location() #30
+  store i32 0, ptr %12, align 4, !tbaa !41
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %14 = load i8, ptr %13, align 8, !tbaa !22, !range !30, !noundef !31
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %16, label %25
 
-15:                                               ; preds = %2
-  store i32 22, ptr %11, align 4, !tbaa !41
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %17 = load i32, ptr %16, align 8, !tbaa !40
-  %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %20, label %18
+16:                                               ; preds = %2
+  store i32 22, ptr %12, align 4, !tbaa !41
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %18 = load i32, ptr %17, align 8, !tbaa !40
+  %.not.i = icmp eq i32 %18, 0
+  br i1 %.not.i, label %21, label %19
 
-18:                                               ; preds = %15
-  %19 = tail call i32 @close(i32 noundef %17)
-  br label %20
+19:                                               ; preds = %16
+  %20 = tail call i32 @close(i32 noundef %18)
+  br label %21
 
-20:                                               ; preds = %18, %15
-  store i32 22, ptr %11, align 4, !tbaa !41
+21:                                               ; preds = %19, %16
+  store i32 22, ptr %12, align 4, !tbaa !41
   tail call void @_ZN5boost9iostreams6detail16mapped_file_impl5clearEb(ptr noundef nonnull align 8 dereferenceable(133) %0, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
   call void @_ZN5boost9iostreams6detail14system_failureB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::ios_base::failure") align 8 %6, ptr noundef nonnull @.str.8)
   invoke void @_ZN5boost15throw_exceptionINSt8ios_base7failureB5cxx11EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
-          to label %21 unwind label %22
+          to label %22 unwind label %23
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   unreachable
 
-common.resume:                                    ; preds = %69, %50, %36, %22
-  %common.resume.op = phi { ptr, i32 } [ %23, %22 ], [ %37, %36 ], [ %51, %50 ], [ %70, %69 ]
+common.resume:                                    ; preds = %72, %53, %38, %23
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %39, %38 ], [ %54, %53 ], [ %73, %72 ]
   resume { ptr, i32 } %common.resume.op
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %21
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8ios_base7failureB5cxx11D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #26
   br label %common.resume
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.not10 = icmp eq i64 %10, 0
-  %26 = select i1 %.not, i32 0, i32 2
-  %spec.select = select i1 %.not, i32 0, i32 578
-  %.07 = select i1 %.not10, i32 %26, i32 %spec.select
-  %27 = load ptr, ptr %25, align 8, !tbaa !33
-  %28 = tail call i32 (ptr, i32, ...) @open(ptr noundef %27, i32 noundef %.07, i32 noundef 448)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %28, ptr %29, align 8, !tbaa !40
-  %30 = load i32, ptr %11, align 4, !tbaa !41
-  %.not11 = icmp eq i32 %30, 0
-  br i1 %.not11, label %38, label %31
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %27 = icmp eq i64 %11, 0
+  %28 = select i1 %27, i32 2, i32 578
+  %spec.select = select i1 %9, i32 0, i32 %28
+  %29 = load ptr, ptr %26, align 8, !tbaa !33
+  %30 = tail call i32 (ptr, i32, ...) @open(ptr noundef %29, i32 noundef %spec.select, i32 noundef 448)
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 %30, ptr %31, align 8, !tbaa !40
+  %32 = load i32, ptr %12, align 4, !tbaa !41
+  %.not = icmp eq i32 %32, 0
+  br i1 %.not, label %40, label %33
 
-31:                                               ; preds = %24
-  %.not.i14 = icmp eq i32 %28, 0
-  br i1 %.not.i14, label %34, label %32
+33:                                               ; preds = %25
+  %.not.i14 = icmp eq i32 %30, 0
+  br i1 %.not.i14, label %36, label %34
 
-32:                                               ; preds = %31
-  %33 = tail call i32 @close(i32 noundef %28)
-  br label %34
+34:                                               ; preds = %33
+  %35 = tail call i32 @close(i32 noundef %30)
+  br label %36
 
-34:                                               ; preds = %32, %31
-  store i32 %30, ptr %11, align 4, !tbaa !41
+36:                                               ; preds = %34, %33
+  store i32 %32, ptr %12, align 4, !tbaa !41
   tail call void @_ZN5boost9iostreams6detail16mapped_file_impl5clearEb(ptr noundef nonnull align 8 dereferenceable(133) %0, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
   call void @_ZN5boost9iostreams6detail14system_failureB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::ios_base::failure") align 8 %5, ptr noundef nonnull @.str.9)
   invoke void @_ZN5boost15throw_exceptionINSt8ios_base7failureB5cxx11EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
-          to label %35 unwind label %36
+          to label %37 unwind label %38
 
-35:                                               ; preds = %34
+37:                                               ; preds = %36
   unreachable
 
-36:                                               ; preds = %34
-  %37 = landingpad { ptr, i32 }
+38:                                               ; preds = %36
+  %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8ios_base7failureB5cxx11D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
   br label %common.resume
 
-38:                                               ; preds = %24
-  %39 = load i64, ptr %9, align 8, !tbaa !45
-  %.not12 = icmp eq i64 %39, 0
-  %brmerge = select i1 %.not12, i1 true, i1 %.not
-  br i1 %brmerge, label %52, label %40
-
-40:                                               ; preds = %38
-  %41 = tail call i32 @ftruncate64(i32 noundef %28, i64 noundef %39) #26
-  %42 = icmp eq i32 %41, -1
-  br i1 %42, label %43, label %52
+40:                                               ; preds = %25
+  %41 = load i64, ptr %10, align 8, !tbaa !45
+  %42 = icmp eq i64 %41, 0
+  %or.cond3 = select i1 %42, i1 true, i1 %9
+  br i1 %or.cond3, label %55, label %43
 
 43:                                               ; preds = %40
-  %44 = load i32, ptr %11, align 4, !tbaa !41
-  %45 = load i32, ptr %29, align 8, !tbaa !40
-  %.not.i16 = icmp eq i32 %45, 0
-  br i1 %.not.i16, label %48, label %46
+  %44 = tail call i32 @ftruncate64(i32 noundef %30, i64 noundef %41) #26
+  %45 = icmp eq i32 %44, -1
+  br i1 %45, label %46, label %55
 
 46:                                               ; preds = %43
-  %47 = tail call i32 @close(i32 noundef %45)
-  br label %48
+  %47 = load i32, ptr %12, align 4, !tbaa !41
+  %48 = load i32, ptr %31, align 8, !tbaa !40
+  %.not.i16 = icmp eq i32 %48, 0
+  br i1 %.not.i16, label %51, label %49
 
-48:                                               ; preds = %46, %43
-  store i32 %44, ptr %11, align 4, !tbaa !41
+49:                                               ; preds = %46
+  %50 = tail call i32 @close(i32 noundef %48)
+  br label %51
+
+51:                                               ; preds = %49, %46
+  store i32 %47, ptr %12, align 4, !tbaa !41
   tail call void @_ZN5boost9iostreams6detail16mapped_file_impl5clearEb(ptr noundef nonnull align 8 dereferenceable(133) %0, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26
   call void @_ZN5boost9iostreams6detail14system_failureB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::ios_base::failure") align 8 %4, ptr noundef nonnull @.str.10)
   invoke void @_ZN5boost15throw_exceptionINSt8ios_base7failureB5cxx11EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
-          to label %49 unwind label %50
+          to label %52 unwind label %53
 
-49:                                               ; preds = %48
+52:                                               ; preds = %51
   unreachable
 
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+53:                                               ; preds = %51
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8ios_base7failureB5cxx11D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
   br label %common.resume
 
-52:                                               ; preds = %38, %40
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !3
-  %.not13 = icmp eq i64 %54, -1
-  br i1 %.not13, label %56, label %.critedge
+55:                                               ; preds = %43, %40
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %57 = load i64, ptr %56, align 8, !tbaa !3
+  %.not13 = icmp eq i64 %57, -1
+  br i1 %.not13, label %59, label %.critedge
 
-.critedge:                                        ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 %54, ptr %55, align 8, !tbaa !39
-  br label %71
+.critedge:                                        ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i64 %57, ptr %58, align 8, !tbaa !39
+  br label %74
 
-56:                                               ; preds = %52
+59:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #26
-  %57 = load i32, ptr %29, align 8, !tbaa !40
-  %58 = call i32 @fstat64(i32 noundef %57, ptr noundef nonnull %7) #26
-  %.not20 = icmp eq i32 %58, -1
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %60 = load i64, ptr %59, align 8, !tbaa !46
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 %60, ptr %61, align 8, !tbaa !39
+  %60 = load i32, ptr %31, align 8, !tbaa !40
+  %61 = call i32 @fstat64(i32 noundef %60, ptr noundef nonnull %7) #26
+  %.not20 = icmp eq i32 %61, -1
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %63 = load i64, ptr %62, align 8, !tbaa !46
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i64 %63, ptr %64, align 8, !tbaa !39
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #26
-  br i1 %.not20, label %62, label %71
+  br i1 %.not20, label %65, label %74
 
-62:                                               ; preds = %56
-  %63 = load i32, ptr %11, align 4, !tbaa !41
-  %64 = load i32, ptr %29, align 8, !tbaa !40
-  %.not.i18 = icmp eq i32 %64, 0
-  br i1 %.not.i18, label %67, label %65
+65:                                               ; preds = %59
+  %66 = load i32, ptr %12, align 4, !tbaa !41
+  %67 = load i32, ptr %31, align 8, !tbaa !40
+  %.not.i18 = icmp eq i32 %67, 0
+  br i1 %.not.i18, label %70, label %68
 
-65:                                               ; preds = %62
-  %66 = tail call i32 @close(i32 noundef %64)
-  br label %67
+68:                                               ; preds = %65
+  %69 = tail call i32 @close(i32 noundef %67)
+  br label %70
 
-67:                                               ; preds = %65, %62
-  store i32 %63, ptr %11, align 4, !tbaa !41
+70:                                               ; preds = %68, %65
+  store i32 %66, ptr %12, align 4, !tbaa !41
   tail call void @_ZN5boost9iostreams6detail16mapped_file_impl5clearEb(ptr noundef nonnull align 8 dereferenceable(133) %0, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
   call void @_ZN5boost9iostreams6detail14system_failureB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::ios_base::failure") align 8 %3, ptr noundef nonnull @.str.11)
   invoke void @_ZN5boost15throw_exceptionINSt8ios_base7failureB5cxx11EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(32) %3) #28
-          to label %68 unwind label %69
+          to label %71 unwind label %72
 
-68:                                               ; preds = %67
+71:                                               ; preds = %70
   unreachable
 
-69:                                               ; preds = %67
-  %70 = landingpad { ptr, i32 }
+72:                                               ; preds = %70
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8ios_base7failureB5cxx11D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
   br label %common.resume
 
-71:                                               ; preds = %.critedge, %56
+74:                                               ; preds = %.critedge, %59
   ret void
 }
 

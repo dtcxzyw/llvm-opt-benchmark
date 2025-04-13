@@ -671,93 +671,91 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 @_ZN2os11file_existsEPKc(ptr noundef %11) #13
-  br i1 %12, label %13, label %26
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 300
+  %14 = load i8, ptr %13, align 4
+  %15 = trunc i8 %14 to i1
+  %or.cond12 = select i1 %12, i1 %15, i1 false
+  br i1 %or.cond12, label %16, label %25
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %15 = load i8, ptr %14, align 4
-  %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %26
-
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %10, align 8
+16:                                               ; preds = %9
+  %17 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
-  %19 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %18, ptr noundef nonnull %7) #13
-  %.not.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %21 = load i32, ptr %20, align 8
-  %22 = and i32 %21, 61440
-  %23 = icmp eq i32 %22, 4096
-  %.0.i = select i1 %.not.i, i1 %23, i1 false
+  %18 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %17, ptr noundef nonnull %7) #13
+  %.not.i = icmp eq i32 %18, 0
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %20 = load i32, ptr %19, align 8
+  %21 = and i32 %20, 61440
+  %22 = icmp eq i32 %21, 4096
+  %.0.i = select i1 %.not.i, i1 %22, i1 false
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
-  br i1 %.0.i, label %24, label %26
+  br i1 %.0.i, label %23, label %25
 
-24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  store i32 0, ptr %25, align 4
-  br label %26
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  store i32 0, ptr %24, align 4
+  br label %25
 
-26:                                               ; preds = %24, %17, %13, %9
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %28 = load i32, ptr %27, align 4
-  %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %42, label %29
+25:                                               ; preds = %23, %16, %9
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %27 = load i32, ptr %26, align 4
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %41, label %28
 
-29:                                               ; preds = %26
-  %30 = icmp ult i32 %28, 11
-  %31 = icmp ult i32 %28, 101
-  %32 = select i1 %31, i32 2, i32 3
-  %33 = select i1 %30, i32 1, i32 %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %33, ptr %34, align 8
-  %35 = load ptr, ptr %10, align 8
-  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #14
-  %narrow = add nuw nsw i32 %33, 2
-  %37 = zext nneg i32 %narrow to i64
-  %38 = add i64 %36, %37
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store i64 %38, ptr %39, align 8
-  %40 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %38, i8 noundef zeroext 17, i32 noundef 0) #13
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store ptr %40, ptr %41, align 8
-  store i8 0, ptr %40, align 1
-  %.pre19.pre = load i32, ptr %27, align 4
-  br label %42
+28:                                               ; preds = %25
+  %29 = icmp ult i32 %27, 11
+  %30 = icmp ult i32 %27, 101
+  %31 = select i1 %30, i32 2, i32 3
+  %32 = select i1 %29, i32 1, i32 %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store i32 %32, ptr %33, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #14
+  %narrow = add nuw nsw i32 %32, 2
+  %36 = zext nneg i32 %narrow to i64
+  %37 = add i64 %35, %36
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  store i64 %37, ptr %38, align 8
+  %39 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %37, i8 noundef zeroext 17, i32 noundef 0) #13
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store ptr %39, ptr %40, align 8
+  store i8 0, ptr %39, align 1
+  %.pre21.pre = load i32, ptr %26, align 4
+  br label %41
 
-42:                                               ; preds = %29, %26
-  %.pre19 = phi i32 [ %.pre19.pre, %29 ], [ 0, %26 ]
-  %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not16 = icmp eq ptr %43, null
-  br i1 %.not16, label %49, label %44
+41:                                               ; preds = %28, %25
+  %.pre21 = phi i32 [ %.pre21.pre, %28 ], [ 0, %25 ]
+  %42 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not18 = icmp eq ptr %42, null
+  br i1 %.not18, label %48, label %43
 
-44:                                               ; preds = %42
-  %45 = load ptr, ptr %10, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %47 = load i64, ptr %46, align 8
-  %48 = lshr i64 %47, 10
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef %45, i32 noundef %.pre19, i64 noundef %48)
-  %.pre = load i32, ptr %27, align 4
-  br label %49
+43:                                               ; preds = %41
+  %44 = load ptr, ptr %10, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %46 = load i64, ptr %45, align 8
+  %47 = lshr i64 %46, 10
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef %44, i32 noundef %.pre21, i64 noundef %47)
+  %.pre = load i32, ptr %26, align 4
+  br label %48
 
-49:                                               ; preds = %42, %44
-  %50 = phi i32 [ %.pre19, %42 ], [ %.pre, %44 ]
-  %.not9 = icmp ne i32 %50, 0
-  %brmerge.not = and i1 %12, %.not9
-  br i1 %brmerge.not, label %51, label %102
+48:                                               ; preds = %41, %43
+  %49 = phi i32 [ %.pre21, %41 ], [ %.pre, %43 ]
+  %50 = icmp ne i32 %49, 0
+  %or.cond = and i1 %12, %50
+  br i1 %or.cond, label %51, label %102
 
-51:                                               ; preds = %49
+51:                                               ; preds = %48
   %52 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   %53 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %52, ptr noundef nonnull %6) #13
-  %.not.i11 = icmp eq i32 %53, 0
+  %.not.i13 = icmp eq i32 %53, 0
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 61440
   %57 = icmp eq i32 %56, 32768
-  %.0.i12 = select i1 %.not.i11, i1 %57, i1 false
+  %.0.i14 = select i1 %.not.i13, i1 %57, i1 false
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   %58 = load ptr, ptr %10, align 8
-  br i1 %.0.i12, label %60, label %59
+  br i1 %.0.i14, label %60, label %59
 
 59:                                               ; preds = %51
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.16, ptr noundef %58, ptr noundef %58) #13
@@ -766,15 +764,15 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
 60:                                               ; preds = %51
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %62 = load i32, ptr %61, align 8
-  %63 = load i32, ptr %27, align 4
+  %63 = load i32, ptr %26, align 4
   %64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #14
   %65 = zext i32 %62 to i64
   %66 = add nuw nsw i64 %65, 2
   %67 = add i64 %66, %64
   %68 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %67, i8 noundef zeroext 17, i32 noundef 0) #13
   %69 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %67, i8 noundef zeroext 17, i32 noundef 0) #13
-  %.not.i13 = icmp eq i32 %63, 0
-  br i1 %.not.i13, label %_ZL16next_file_numberPKcjjP12outputStream.exit, label %.lr.ph.i
+  %.not.i15 = icmp eq i32 %63, 0
+  br i1 %.not.i15, label %_ZL16next_file_numberPKcjjP12outputStream.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %60
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -836,8 +834,8 @@ _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
 
 92:                                               ; preds = %_ZL16next_file_numberPKcjjP12outputStream.exit
   %93 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not17 = icmp eq ptr %93, null
-  br i1 %.not17, label %97, label %94
+  %.not19 = icmp eq ptr %93, null
+  br i1 %.not19, label %97, label %94
 
 94:                                               ; preds = %92
   %95 = load ptr, ptr %10, align 8
@@ -849,13 +847,13 @@ _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
   call void @_ZN13LogFileOutput7archiveEv(ptr noundef nonnull align 8 dereferenceable(360) %0)
   %98 = load i32, ptr %90, align 8
   %99 = add i32 %98, 1
-  %100 = load i32, ptr %27, align 4
+  %100 = load i32, ptr %26, align 4
   %101 = icmp eq i32 %99, %100
   %spec.store.select.i = select i1 %101, i32 0, i32 %99
   store i32 %spec.store.select.i, ptr %90, align 8
   br label %102
 
-102:                                              ; preds = %49, %97
+102:                                              ; preds = %97, %48
   %103 = load ptr, ptr %10, align 8
   %104 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %103, ptr noundef nonnull @.str.4) #13
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -872,7 +870,7 @@ _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
   br label %129
 
 112:                                              ; preds = %102
-  %113 = load i32, ptr %27, align 4
+  %113 = load i32, ptr %26, align 4
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %129
 
@@ -880,19 +878,19 @@ _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
   %116 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   %117 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %116, ptr noundef nonnull %4) #13
-  %.not.i14 = icmp eq i32 %117, 0
+  %.not.i16 = icmp eq i32 %117, 0
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %119 = load i32, ptr %118, align 8
   %120 = and i32 %119, 61440
   %121 = icmp eq i32 %120, 32768
-  %.0.i15 = select i1 %.not.i14, i1 %121, i1 false
+  %.0.i17 = select i1 %.not.i16, i1 %121, i1 false
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  br i1 %.0.i15, label %122, label %129
+  br i1 %.0.i17, label %122, label %129
 
 122:                                              ; preds = %115
   %123 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not18 = icmp eq ptr %123, null
-  br i1 %.not18, label %125, label %124
+  %.not20 = icmp eq ptr %123, null
+  br i1 %.not20, label %125, label %124
 
 124:                                              ; preds = %122
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.19)

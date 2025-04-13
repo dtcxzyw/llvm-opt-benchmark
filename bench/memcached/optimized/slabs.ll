@@ -338,8 +338,8 @@ alloc_large_chunk.exit:                           ; preds = %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   store ptr %.pre20.i, ptr @mem_base, align 8, !tbaa !16
-  %.not = icmp eq ptr %.pre20.i, null
-  br i1 %.not, label %51, label %49
+  %.not49 = icmp eq ptr %.pre20.i, null
+  br i1 %.not49, label %51, label %49
 
 49:                                               ; preds = %alloc_large_chunk.exit
   store ptr %.pre20.i, ptr @mem_current, align 8, !tbaa !16
@@ -373,30 +373,30 @@ alloc_large_chunk.exit:                           ; preds = %41
   br label %60
 
 60:                                               ; preds = %54, %59, %57, %49, %51
-  %.038.not = phi i1 [ false, %49 ], [ true, %51 ], [ false, %57 ], [ false, %59 ], [ true, %54 ]
+  %.not = phi i1 [ false, %49 ], [ true, %51 ], [ false, %57 ], [ false, %59 ], [ true, %54 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2560) @slabclass, i8 0, i64 2560, i1 false)
-  %.not47 = icmp eq ptr %3, null
-  br i1 %.not47, label %.split.us.preheader, label %.split
+  %.not50 = icmp eq ptr %3, null
+  br i1 %.not50, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %60
-  %.pre69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 120), align 8, !tbaa !36
+  %.pre72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 120), align 8, !tbaa !36
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %80
-  %61 = phi i32 [ %.pre69, %.split.us.preheader ], [ %81, %80 ]
-  %indvars.iv64 = phi i64 [ 1, %.split.us.preheader ], [ %indvars.iv.next65, %80 ]
-  %.03953.us = phi i32 [ %12, %.split.us.preheader ], [ %74, %80 ]
-  %62 = uitofp i32 %.03953.us to double
+  %61 = phi i32 [ %.pre72, %.split.us.preheader ], [ %81, %80 ]
+  %indvars.iv67 = phi i64 [ 1, %.split.us.preheader ], [ %indvars.iv.next68, %80 ]
+  %.04156.us = phi i32 [ %12, %.split.us.preheader ], [ %74, %80 ]
+  %62 = uitofp i32 %.04156.us to double
   %63 = sitofp i32 %61 to double
   %64 = fdiv double %63, %1
   %65 = fcmp ugt double %64, %62
-  %66 = trunc nuw nsw i64 %indvars.iv64 to i32
-  br i1 %65, label %67, label %.split56.us
+  %66 = trunc nuw nsw i64 %indvars.iv67 to i32
+  br i1 %65, label %67, label %.split59.us
 
 67:                                               ; preds = %.split.us
-  %.1.biased.us = add i32 %.03953.us, 7
+  %.1.biased.us = add i32 %.04156.us, 7
   %.2.us = and i32 %.1.biased.us, -8
-  %68 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %indvars.iv64
+  %68 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %indvars.iv67
   store i32 %.2.us, ptr %68, align 8, !tbaa !4
   %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !37
   %70 = udiv i32 %69, %.2.us
@@ -417,18 +417,18 @@ alloc_large_chunk.exit:                           ; preds = %41
 
 80:                                               ; preds = %77, %67
   %81 = phi i32 [ %.pre, %77 ], [ %61, %67 ]
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next65, 63
-  br i1 %exitcond67.not, label %.split56.us, label %.split.us, !llvm.loop !39
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond70.not = icmp eq i64 %indvars.iv.next68, 63
+  br i1 %exitcond70.not, label %.split59.us, label %.split.us, !llvm.loop !39
 
 .split:                                           ; preds = %60, %96
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %96 ], [ 0, %60 ]
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %96 ], [ 0, %60 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ 1, %60 ]
-  %82 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv59
+  %82 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv62
   %83 = load i32, ptr %82, align 4, !tbaa !17
   %84 = icmp eq i32 %83, 0
   %85 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %84, label %.split56.us.loopexit57, label %86
+  br i1 %84, label %.split59.us.loopexit60, label %86
 
 86:                                               ; preds = %.split
   %.1.biased = add i32 %83, 7
@@ -450,18 +450,18 @@ alloc_large_chunk.exit:                           ; preds = %41
 
 96:                                               ; preds = %93, %86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next60, 62
-  br i1 %exitcond.not, label %.split56.us.loopexit57, label %.split, !llvm.loop !39
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next63, 62
+  br i1 %exitcond.not, label %.split59.us.loopexit60, label %.split, !llvm.loop !39
 
-.split56.us.loopexit57:                           ; preds = %.split, %96
-  %.us-phi.ph58 = phi i32 [ 63, %96 ], [ %85, %.split ]
-  %.pre70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 120), align 8, !tbaa !36
-  br label %.split56.us
+.split59.us.loopexit60:                           ; preds = %.split, %96
+  %.us-phi.ph61 = phi i32 [ 63, %96 ], [ %85, %.split ]
+  %.pre73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 120), align 8, !tbaa !36
+  br label %.split59.us
 
-.split56.us:                                      ; preds = %.split.us, %80, %.split56.us.loopexit57
-  %97 = phi i32 [ %.pre70, %.split56.us.loopexit57 ], [ %61, %.split.us ], [ %81, %80 ]
-  %.us-phi = phi i32 [ %.us-phi.ph58, %.split56.us.loopexit57 ], [ %66, %.split.us ], [ 63, %80 ]
+.split59.us:                                      ; preds = %.split.us, %80, %.split59.us.loopexit60
+  %97 = phi i32 [ %.pre73, %.split59.us.loopexit60 ], [ %61, %.split.us ], [ %81, %80 ]
+  %.us-phi = phi i32 [ %.us-phi.ph61, %.split59.us.loopexit60 ], [ %66, %.split.us ], [ 63, %80 ]
   store i32 %.us-phi, ptr @power_largest, align 4, !tbaa !17
   %98 = zext nneg i32 %.us-phi to i64
   %99 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %98
@@ -474,15 +474,15 @@ alloc_large_chunk.exit:                           ; preds = %41
   %104 = icmp sgt i32 %103, 1
   br i1 %104, label %105, label %108
 
-105:                                              ; preds = %.split56.us
+105:                                              ; preds = %.split59.us
   %106 = load ptr, ptr @stderr, align 8, !tbaa !33
   %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.1, i32 noundef %.us-phi, i32 noundef %97, i32 noundef %101) #23
   br label %108
 
-108:                                              ; preds = %105, %.split56.us
+108:                                              ; preds = %105, %.split59.us
   %109 = call ptr @getenv(ptr noundef nonnull @.str.2) #21
-  %.not49 = icmp eq ptr %109, null
-  br i1 %.not49, label %115, label %110
+  %.not52 = icmp eq ptr %109, null
+  br i1 %.not52, label %115, label %110
 
 110:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #21
@@ -499,8 +499,8 @@ alloc_large_chunk.exit:                           ; preds = %41
   br label %115
 
 115:                                              ; preds = %114, %108
-  %brmerge = or i1 %5, %.038.not
-  br i1 %brmerge, label %slabs_preallocate.exit, label %116
+  %or.cond5 = or i1 %5, %.not
+  br i1 %or.cond5, label %slabs_preallocate.exit, label %116
 
 116:                                              ; preds = %115
   %117 = load i32, ptr @power_largest, align 4, !tbaa !17
@@ -515,8 +515,8 @@ alloc_large_chunk.exit:                           ; preds = %41
   %.08.i = phi i32 [ 0, %116 ], [ %121, %118 ]
   %.057.i = phi i32 [ 1, %116 ], [ %119, %118 ]
   %121 = add nuw nsw i32 %.08.i, 1
-  %exitcond68.not = icmp eq i32 %.08.i, %117
-  br i1 %exitcond68.not, label %slabs_preallocate.exit, label %122
+  %exitcond71.not = icmp eq i32 %.08.i, %117
+  br i1 %exitcond71.not, label %slabs_preallocate.exit, label %122
 
 122:                                              ; preds = %120
   %123 = call fastcc i32 @do_slabs_newslab(i32 noundef %.057.i)
@@ -1117,7 +1117,7 @@ define dso_local noundef zeroext i1 @slabs_adjust_mem_limit(i64 noundef %0) loca
 4:                                                ; preds = %1
   store i64 %0, ptr @settings, align 8, !tbaa !62
   store i64 %0, ptr @mem_limit, align 8, !tbaa !31
-  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !tbaa !63, !range !64, !noundef !65
+  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !range !63
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %.preheader.i.i, label %do_slabs_adjust_mem_limit.exit
 
@@ -1155,7 +1155,7 @@ get_page_from_global_pool.exit.i.i:               ; preds = %10
   %19 = sub i64 %11, %18
   store i64 %19, ptr @mem_malloced, align 8, !tbaa !31
   %20 = icmp ugt i64 %19, %0
-  br i1 %20, label %10, label %do_slabs_adjust_mem_limit.exit, !llvm.loop !66
+  br i1 %20, label %10, label %do_slabs_adjust_mem_limit.exit, !llvm.loop !64
 
 do_slabs_adjust_mem_limit.exit:                   ; preds = %10, %get_page_from_global_pool.exit.i.i, %16, %1, %4, %.preheader.i.i
   %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
@@ -1372,58 +1372,56 @@ do_grow_slab_list.exit:                           ; preds = %.do_grow_slab_list.
   %51 = add nuw nsw i32 %.09.i, 1
   %52 = load i32, ptr %46, align 4, !tbaa !38
   %53 = icmp ult i32 %51, %52
-  br i1 %53, label %.lr.ph.i, label %split_slab_page_into_freelist.exit, !llvm.loop !67
+  br i1 %53, label %.lr.ph.i, label %split_slab_page_into_freelist.exit, !llvm.loop !65
 
 54:                                               ; preds = %do_grow_slab_list.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   %55 = load ptr, ptr @mem_base, align 8, !tbaa !16
   %.not.i21 = icmp eq ptr %55, null
-  br i1 %.not.i21, label %56, label %split_slab_page_into_freelist.exit
+  %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !range !63
+  %57 = trunc nuw i8 %56 to i1
+  %or.cond.i = select i1 %.not.i21, i1 %57, i1 false
+  br i1 %or.cond.i, label %.preheader.i, label %split_slab_page_into_freelist.exit
 
-56:                                               ; preds = %54
-  %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !tbaa !63, !range !64, !noundef !65
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %.preheader.i, label %split_slab_page_into_freelist.exit
-
-.preheader.i:                                     ; preds = %56
-  %59 = load i64, ptr @mem_limit, align 8, !tbaa !31
+.preheader.i:                                     ; preds = %54
+  %58 = load i64, ptr @mem_limit, align 8, !tbaa !31
   %mem_malloced.promoted.i = load i64, ptr @mem_malloced, align 8, !tbaa !31
-  %60 = icmp ugt i64 %mem_malloced.promoted.i, %59
-  br i1 %60, label %.lr.ph.i22, label %split_slab_page_into_freelist.exit
+  %59 = icmp ugt i64 %mem_malloced.promoted.i, %58
+  br i1 %59, label %.lr.ph.i22, label %split_slab_page_into_freelist.exit
 
 .lr.ph.i22:                                       ; preds = %.preheader.i
   %.promoted.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 20), align 4
-  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 24), align 8
-  %62 = zext i32 %.promoted.i to i64
-  br label %63
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 24), align 8
+  %61 = zext i32 %.promoted.i to i64
+  br label %62
 
-63:                                               ; preds = %69, %.lr.ph.i22
-  %indvars.iv.i = phi i64 [ %62, %.lr.ph.i22 ], [ %indvars.iv.next.i, %69 ]
-  %64 = phi i64 [ %mem_malloced.promoted.i, %.lr.ph.i22 ], [ %72, %69 ]
-  %65 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %65, label %split_slab_page_into_freelist.exit, label %get_page_from_global_pool.exit.i
+62:                                               ; preds = %68, %.lr.ph.i22
+  %indvars.iv.i = phi i64 [ %61, %.lr.ph.i22 ], [ %indvars.iv.next.i, %68 ]
+  %63 = phi i64 [ %mem_malloced.promoted.i, %.lr.ph.i22 ], [ %71, %68 ]
+  %64 = icmp eq i64 %indvars.iv.i, 0
+  br i1 %64, label %split_slab_page_into_freelist.exit, label %get_page_from_global_pool.exit.i
 
-get_page_from_global_pool.exit.i:                 ; preds = %63
+get_page_from_global_pool.exit.i:                 ; preds = %62
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
-  %66 = and i64 %indvars.iv.next.i, 4294967295
-  %67 = getelementptr inbounds nuw ptr, ptr %61, i64 %66
-  %68 = load ptr, ptr %67, align 8, !tbaa !16
+  %65 = and i64 %indvars.iv.next.i, 4294967295
+  %66 = getelementptr inbounds nuw ptr, ptr %60, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !16
   store i32 %indvars.i, ptr getelementptr inbounds nuw (i8, ptr @slabclass, i64 20), align 4, !tbaa !13
-  %.not1.i = icmp eq ptr %68, null
-  br i1 %.not1.i, label %split_slab_page_into_freelist.exit, label %69
+  %.not1.i = icmp eq ptr %67, null
+  br i1 %.not1.i, label %split_slab_page_into_freelist.exit, label %68
 
-69:                                               ; preds = %get_page_from_global_pool.exit.i
-  tail call void @free(ptr noundef nonnull %68) #21
-  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !37
-  %71 = sext i32 %70 to i64
-  %72 = sub i64 %64, %71
-  store i64 %72, ptr @mem_malloced, align 8, !tbaa !31
-  %73 = icmp ugt i64 %72, %59
-  br i1 %73, label %63, label %split_slab_page_into_freelist.exit, !llvm.loop !66
+68:                                               ; preds = %get_page_from_global_pool.exit.i
+  tail call void @free(ptr noundef nonnull %67) #21
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !37
+  %70 = sext i32 %69 to i64
+  %71 = sub i64 %63, %70
+  store i64 %71, ptr @mem_malloced, align 8, !tbaa !31
+  %72 = icmp ugt i64 %71, %58
+  br i1 %72, label %62, label %split_slab_page_into_freelist.exit, !llvm.loop !64
 
-split_slab_page_into_freelist.exit:               ; preds = %69, %get_page_from_global_pool.exit.i, %63, %.lr.ph.i, %.preheader.i, %56, %54, %43
-  %74 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
+split_slab_page_into_freelist.exit:               ; preds = %68, %get_page_from_global_pool.exit.i, %62, %.lr.ph.i, %.preheader.i, %54, %43
+  %73 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #21
   ret void
 }
 
@@ -1458,7 +1456,7 @@ define dso_local i32 @slabs_pick_any_for_reassign(i32 noundef %0) local_unnamed_
 15:                                               ; preds = %7, %3
   %16 = add nsw i32 %.07, -1
   %17 = icmp ugt i32 %.07, 1
-  br i1 %17, label %3, label %18, !llvm.loop !68
+  br i1 %17, label %3, label %18, !llvm.loop !66
 
 18:                                               ; preds = %15
   store i32 %spec.store.select, ptr @slabs_pick_any_for_reassign.cur, align 4
@@ -1525,7 +1523,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 define internal fastcc range(i32 0, 2) i32 @do_slabs_newslab(i32 noundef %0) unnamed_addr #4 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %2
-  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !tbaa !63, !range !64, !noundef !65
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 137), align 1, !tbaa !67, !range !63, !noundef !68
   %5 = trunc nuw i8 %4 to i1
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !37
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 120), align 8
@@ -1680,7 +1678,7 @@ memory_allocate.exit:                             ; preds = %53, %62, %64
   %74 = add nuw nsw i32 %.09.i, 1
   %75 = load i32, ptr %69, align 4, !tbaa !38
   %76 = icmp ult i32 %74, %75
-  br i1 %76, label %.lr.ph.i, label %split_slab_page_into_freelist.exit, !llvm.loop !67
+  br i1 %76, label %.lr.ph.i, label %split_slab_page_into_freelist.exit, !llvm.loop !65
 
 split_slab_page_into_freelist.exit:               ; preds = %.lr.ph.i, %68
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1818,9 +1816,9 @@ attributes #25 = { nounwind allocsize(0) }
 !60 = !{!53, !26, i64 16}
 !61 = distinct !{!61, !11}
 !62 = !{!25, !26, i64 0}
-!63 = !{!25, !29, i64 137}
-!64 = !{i8 0, i8 2}
-!65 = !{}
+!63 = !{i8 0, i8 2}
+!64 = distinct !{!64, !11}
+!65 = distinct !{!65, !11}
 !66 = distinct !{!66, !11}
-!67 = distinct !{!67, !11}
-!68 = distinct !{!68, !11}
+!67 = !{!25, !29, i64 137}
+!68 = !{}

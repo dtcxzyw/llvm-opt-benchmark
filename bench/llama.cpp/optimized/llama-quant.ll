@@ -546,9 +546,13 @@ define internal fastcc void @_ZL25llama_model_quantize_implRKNSt7__cxx1112basic_
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !19
   %62 = icmp ult i32 %61, 38
-  br i1 %62, label %switch.hole_check, label %63
+  %switch.maskindex = zext nneg i32 %61 to i64
+  %switch.shifted = lshr i64 214748364687, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond4544 = select i1 %62, i1 %switch.lobit, i1 false
+  br i1 %or.cond4544, label %switch.lookup, label %63
 
-63:                                               ; preds = %switch.hole_check, %3
+63:                                               ; preds = %3
   %64 = tail call ptr @__cxa_allocate_exception(i64 16) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #26
   invoke void (ptr, ptr, ...) @_Z6formatB5cxx11PKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %29, ptr noundef nonnull @.str.1, i32 noundef %61)
@@ -597,13 +601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %68
   call void @__cxa_free_exception(ptr %64) #26
   br label %1998
 
-switch.hole_check:                                ; preds = %3
-  %switch.maskindex = zext nneg i32 %61 to i64
-  %switch.shifted = lshr i64 214748364687, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %63
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %3
   %79 = zext nneg i32 %61 to i64
   %switch.gep = getelementptr inbounds nuw [38 x i32], ptr @switch.table._ZL25llama_model_quantize_implRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_params, i64 0, i64 %79
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -3556,9 +3554,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 1202:                                             ; preds = %1198
   %switch.tableidx = add i32 %.1.i, -10
   %1203 = icmp ult i32 %switch.tableidx, 26
-  br i1 %1203, label %switch.hole_check4545, label %1204
+  %switch.shifted4547 = lshr i32 50871263, %switch.tableidx
+  %switch.lobit4548 = trunc i32 %switch.shifted4547 to i1
+  %or.cond4551 = select i1 %1203, i1 %switch.lobit4548, i1 false
+  br i1 %or.cond4551, label %switch.lookup4546, label %1204
 
-1204:                                             ; preds = %switch.hole_check4545, %1202
+1204:                                             ; preds = %1202
   %1205 = call ptr @__cxa_allocate_exception(i64 16) #26
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %1205, ptr noundef nonnull @.str.55)
           to label %1206 unwind label %1207
@@ -3583,12 +3584,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
           cleanup
   br label %1225
 
-switch.hole_check4545:                            ; preds = %1202
-  %switch.shifted4547 = lshr i32 50871263, %switch.tableidx
-  %switch.lobit4548 = trunc i32 %switch.shifted4547 to i1
-  br i1 %switch.lobit4548, label %switch.lookup4546, label %1204
-
-switch.lookup4546:                                ; preds = %switch.hole_check4545
+switch.lookup4546:                                ; preds = %1202
   %1209 = zext nneg i32 %switch.tableidx to i64
   %switch.gep4549 = getelementptr inbounds nuw [26 x i32], ptr @switch.table._ZL25llama_model_quantize_implRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_PK27llama_model_quantize_params.30, i64 0, i64 %1209
   %switch.load4550 = load i32, ptr %switch.gep4549, align 4

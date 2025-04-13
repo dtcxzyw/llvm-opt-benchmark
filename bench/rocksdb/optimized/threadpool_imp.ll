@@ -955,9 +955,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %3
   %12 = load i32, ptr %11, align 8, !tbaa !43
   %13 = icmp sgt i32 %1, %12
   %14 = icmp slt i32 %1, %12
-  %brmerge.not = and i1 %2, %14
-  %or.cond = or i1 %13, %brmerge.not
-  br i1 %or.cond, label %15, label %20
+  %or.cond = and i1 %2, %14
+  %or.cond5 = or i1 %13, %or.cond
+  br i1 %or.cond5, label %15, label %20
 
 15:                                               ; preds = %10
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
@@ -973,7 +973,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %3
   %19 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #26
   resume { ptr, i32 } %18
 
-20:                                               ; preds = %10, %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+20:                                               ; preds = %15, %10, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %21 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %4) #26
   ret void
 }
@@ -2246,8 +2246,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %2
 11:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !43
-  %or.cond.i.not = icmp eq i32 %1, %13
-  br i1 %or.cond.i.not, label %_ZN7rocksdb14ThreadPoolImpl4Impl28SetBackgroundThreadsInternalEib.exit, label %14
+  %or.cond5.i.not = icmp eq i32 %1, %13
+  br i1 %or.cond5.i.not, label %_ZN7rocksdb14ThreadPoolImpl4Impl28SetBackgroundThreadsInternalEib.exit, label %14
 
 14:                                               ; preds = %11
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %1, i32 0)

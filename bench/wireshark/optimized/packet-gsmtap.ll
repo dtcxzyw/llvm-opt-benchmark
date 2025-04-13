@@ -1497,8 +1497,8 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = icmp ult i32 %11, 6
-  %brmerge.not.i = and i1 %9, %14
-  br i1 %brmerge.not.i, label %53, label %15
+  %or.cond.i = and i1 %9, %14
+  br i1 %or.cond.i, label %53, label %15
 
 15:                                               ; preds = %4
   switch i32 %11, label %26 [

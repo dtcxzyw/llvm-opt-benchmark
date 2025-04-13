@@ -2032,48 +2032,46 @@ declare noundef i32 @_ZN2cv3dnn14dnn4_v202412235Layer17outputNameToIndexERKNSt7_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn13GemmLayerImpl14supportBackendEi(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
   switch i32 %1, label %.fold.split [
-    i32 3, label %22
+    i32 3, label %20
     i32 5, label %3
-    i32 8, label %22
-    i32 1000000, label %22
-    i32 4, label %11
+    i32 8, label %20
+    i32 1000000, label %20
+    i32 4, label %10
   ]
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load i8, ptr %4, align 8, !tbaa !58, !range !72, !noundef !73
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %.fold.split
+  %.not = xor i1 %6, true
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %8 = load i8, ptr %7, align 4, !range !72
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %9
+  br i1 %or.cond, label %.fold.split, label %20
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %9 = load i8, ptr %8, align 4, !tbaa !44, !range !72, !noundef !73
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %.fold.split, label %22
+10:                                               ; preds = %2
+  %11 = tail call noundef zeroext i1 @_ZN2cv3dnn10haveVulkanEv()
+  %.not7 = xor i1 %11, true
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 114
+  %13 = load i8, ptr %12, align 2, !range !72
+  %14 = trunc nuw i8 %13 to i1
+  %or.cond10 = select i1 %.not7, i1 true, i1 %14
+  br i1 %or.cond10, label %20, label %15
 
-11:                                               ; preds = %2
-  %12 = tail call noundef zeroext i1 @_ZN2cv3dnn10haveVulkanEv()
-  br i1 %12, label %13, label %22
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %17 = load i8, ptr %16, align 4, !tbaa !44, !range !72, !noundef !73
+  %18 = trunc nuw i8 %17 to i1
+  %19 = xor i1 %18, true
+  br label %20
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 114
-  %15 = load i8, ptr %14, align 2, !tbaa !65, !range !72, !noundef !73
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %22, label %17
+.fold.split:                                      ; preds = %3, %2
+  br label %20
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %19 = load i8, ptr %18, align 4, !tbaa !44, !range !72, !noundef !73
-  %20 = trunc nuw i8 %19 to i1
-  %21 = xor i1 %20, true
-  br label %22
-
-.fold.split:                                      ; preds = %7, %3, %2
-  br label %22
-
-22:                                               ; preds = %2, %2, %2, %.fold.split, %11, %13, %17, %7
-  %23 = phi i1 [ true, %7 ], [ true, %2 ], [ false, %13 ], [ false, %11 ], [ %21, %17 ], [ true, %2 ], [ true, %2 ], [ false, %.fold.split ]
-  ret i1 %23
+20:                                               ; preds = %3, %2, %2, %2, %.fold.split, %10, %15
+  %21 = phi i1 [ true, %2 ], [ false, %10 ], [ %19, %15 ], [ true, %2 ], [ true, %2 ], [ false, %.fold.split ], [ true, %3 ]
+  ret i1 %21
 }
 
 declare void @_ZN2cv3dnn14dnn4_v202412235Layer10initHalideERKSt6vectorINS_3PtrINS1_14BackendWrapperEEESaIS6_EE() unnamed_addr

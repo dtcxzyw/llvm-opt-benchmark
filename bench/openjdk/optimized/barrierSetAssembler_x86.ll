@@ -607,19 +607,17 @@ define hidden void @_ZN19BarrierSetAssembler12copy_load_atEP14MacroAssemblerm9Ba
 
 39:                                               ; preds = %31, %25, %19, %13
   %40 = and i64 %2, 16777216
-  %.not = icmp eq i64 %40, 0
-  br i1 %.not, label %45, label %41
-
-41:                                               ; preds = %39
+  %41 = icmp ne i64 %40, 0
   %42 = load i8, ptr @UseCompressedOops, align 1
   %43 = trunc i8 %42 to i1
-  br i1 %43, label %44, label %45
+  %or.cond = select i1 %41, i1 %43, i1 false
+  br i1 %or.cond, label %44, label %45
 
-44:                                               ; preds = %41
+44:                                               ; preds = %39
   call void @_ZN14MacroAssembler15decode_heap_oopE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %5) #12
   br label %45
 
-45:                                               ; preds = %44, %41, %39
+45:                                               ; preds = %44, %39
   ret void
 }
 
@@ -637,19 +635,17 @@ define hidden void @_ZN19BarrierSetAssembler13copy_store_atEP14MacroAssemblerm9B
   %11 = alloca %class.Address, align 8
   %12 = alloca %class.Address, align 8
   %13 = and i64 %2, 16777216
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %18, label %14
-
-14:                                               ; preds = %8
+  %14 = icmp ne i64 %13, 0
   %15 = load i8, ptr @UseCompressedOops, align 1
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %18
+  %or.cond = select i1 %14, i1 %16, i1 false
+  br i1 %or.cond, label %17, label %18
 
-17:                                               ; preds = %14
+17:                                               ; preds = %8
   tail call void @_ZN14MacroAssembler15encode_heap_oopE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %6) #12
   br label %18
 
-18:                                               ; preds = %17, %14, %8
+18:                                               ; preds = %17, %8
   switch i64 %4, label %43 [
     i64 1, label %19
     i64 2, label %25
@@ -1291,21 +1287,19 @@ define hidden noundef range(i32 10, 14) i32 @_ZN17SaveLiveRegisters22xmm_ideal_r
   %2 = add i32 %0, -8
   %3 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 29)
   %4 = icmp ult i32 %3, 8
-  br i1 %4, label %switch.hole_check, label %5
+  %switch.maskindex = trunc i32 %3 to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %4, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %5
 
-5:                                                ; preds = %switch.hole_check, %1
+5:                                                ; preds = %1
   %6 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %6, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 527, ptr noundef nonnull @.str.8, i32 noundef %0) #13
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i32 %3 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %5
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %3 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 0, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -1372,21 +1366,19 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %16, %18, %20
   %26 = add i32 %25, -8
   %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 29)
   %28 = icmp ult i32 %27, 8
-  br i1 %28, label %switch.hole_check, label %29
+  %switch.maskindex = trunc i32 %27 to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %28, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %29
 
-29:                                               ; preds = %switch.hole_check, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+29:                                               ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %30 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %30, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 527, ptr noundef nonnull @.str.8, i32 noundef %25) #13
   unreachable
 
-switch.hole_check:                                ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
-  %switch.maskindex = trunc nuw i32 %27 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %29
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %31 = zext nneg i32 %27 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 0, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -1451,21 +1443,19 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %16, %18, %20
   %26 = add i32 %25, -8
   %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 29)
   %28 = icmp ult i32 %27, 8
-  br i1 %28, label %switch.hole_check, label %29
+  %switch.maskindex = trunc i32 %27 to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %28, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %29
 
-29:                                               ; preds = %switch.hole_check, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+29:                                               ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %30 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %30, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 527, ptr noundef nonnull @.str.8, i32 noundef %25) #13
   unreachable
 
-switch.hole_check:                                ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
-  %switch.maskindex = trunc nuw i32 %27 to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %29
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   %31 = zext nneg i32 %27 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegisterDataE, i64 0, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4

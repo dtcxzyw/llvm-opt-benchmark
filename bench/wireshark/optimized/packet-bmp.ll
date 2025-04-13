@@ -1094,8 +1094,8 @@ dissect_bmp_stat_report.exit.i:                   ; preds = %255, %139
   %275 = zext i16 %274 to i32
   %276 = call ptr @try_val_to_str(i32 noundef %275, ptr noundef nonnull @peer_down_tlv_typevals)
   %277 = icmp eq ptr %276, null
-  %brmerge.not.i.i = and i1 %108, %277
-  br i1 %brmerge.not.i.i, label %295, label %278
+  %or.cond.i.i = and i1 %108, %277
+  br i1 %or.cond.i.i, label %295, label %278
 
 278:                                              ; preds = %269
   %279 = load i32, ptr @hf_peer_state_tlv_type, align 4

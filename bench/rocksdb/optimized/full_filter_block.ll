@@ -562,9 +562,9 @@ define void @_ZN7rocksdb21FullFilterBlockReader6CreateEPKNS_15BlockBasedTableERK
   %10 = alloca %"class.rocksdb::Status", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %9, i8 0, i64 25, i1 false)
-  %.not = xor i1 %4, true
-  %brmerge = or i1 %5, %.not
-  br i1 %brmerge, label %11, label %43
+  %.not = xor i1 %5, true
+  %or.cond = and i1 %4, %.not
+  br i1 %or.cond, label %43, label %11
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #22
@@ -587,14 +587,15 @@ define void @_ZN7rocksdb21FullFilterBlockReader6CreateEPKNS_15BlockBasedTableERK
   br label %72
 
 18:                                               ; preds = %12
-  %brmerge19 = or i1 %6, %.not
-  br i1 %brmerge19, label %40, label %19
+  %.not2 = xor i1 %4, true
+  %or.cond4 = or i1 %6, %.not2
+  br i1 %or.cond4, label %40, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !53
-  %.not.i.i20 = icmp eq ptr %21, null
-  br i1 %.not.i.i20, label %29, label %22, !prof !66
+  %.not.i.i22 = icmp eq ptr %21, null
+  br i1 %.not.i.i22, label %29, label %22, !prof !66
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -632,21 +633,21 @@ _ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEE5ResetEv.exit: ; preds = 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %9, i8 0, i64 25, i1 false)
   br label %40
 
-40:                                               ; preds = %_ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEE5ResetEv.exit, %18, %15
+40:                                               ; preds = %18, %_ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEE5ResetEv.exit, %15
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !40
-  %.not.i.i21 = icmp eq ptr %42, null
-  br i1 %.not.i.i21, label %_ZN7rocksdb6StatusD2Ev.exit23, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i22
+  %.not.i.i23 = icmp eq ptr %42, null
+  br i1 %.not.i.i23, label %_ZN7rocksdb6StatusD2Ev.exit25, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i24
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i22: ; preds = %40
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i24: ; preds = %40
   call void @_ZdaPv(ptr noundef nonnull %42) #21
-  br label %_ZN7rocksdb6StatusD2Ev.exit23
+  br label %_ZN7rocksdb6StatusD2Ev.exit25
 
-_ZN7rocksdb6StatusD2Ev.exit23:                    ; preds = %40, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i22
+_ZN7rocksdb6StatusD2Ev.exit25:                    ; preds = %40, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #22
   br i1 %14, label %43, label %51
 
-43:                                               ; preds = %8, %_ZN7rocksdb6StatusD2Ev.exit23
+43:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit25, %8
   %44 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
           to label %45 unwind label %47
 
@@ -669,11 +670,11 @@ _ZN7rocksdb6StatusD2Ev.exit23:                    ; preds = %40, %_ZNKSt14defaul
   call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef 64) #21
   br label %72
 
-51:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit23, %46
+51:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit25, %46
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !53
-  %.not.i.i24 = icmp eq ptr %53, null
-  br i1 %.not.i.i24, label %61, label %54, !prof !66
+  %.not.i.i26 = icmp eq ptr %53, null
+  br i1 %.not.i.i26, label %61, label %54, !prof !66
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -712,10 +713,10 @@ _ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEED2Ev.exit: ; preds = %54,
   ret void
 
 72:                                               ; preds = %49, %47, %16
-  %.pn16 = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ], [ %17, %16 ]
+  %.pn20 = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ], [ %17, %16 ]
   call void @_ZN7rocksdb13CachableEntryINS_21ParsedFullFilterBlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %9) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
-  resume { ptr, i32 } %.pn16
+  resume { ptr, i32 } %.pn20
 }
 
 declare void @_ZN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEE15ReadFilterBlockEPKNS_15BlockBasedTableEPNS_18FilePrefetchBufferERKNS_11ReadOptionsEbPNS_10GetContextEPNS_23BlockCacheLookupContextEPNS_13CachableEntryIS1_EE(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(168), i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6

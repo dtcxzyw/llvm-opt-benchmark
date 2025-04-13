@@ -1836,12 +1836,12 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit.preheader: ; preds = %8
   br label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit
 
 _ZNK10union_findI22union_find_default_ctxE4findEj.exit: ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.preheader, %44
-  %.074 = phi i32 [ %48, %44 ], [ %.08.i, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.preheader ]
-  %.072 = phi i32 [ %.173, %44 ], [ 0, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.preheader ]
-  %.070 = phi i32 [ %.171, %44 ], [ %.08.i, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.preheader ]
-  %.068 = phi i32 [ %.169, %44 ], [ 3, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.preheader ]
+  %.075 = phi i32 [ %48, %44 ], [ %.08.i, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.preheader ]
+  %.073 = phi i32 [ %.174, %44 ], [ 0, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.preheader ]
+  %.071 = phi i32 [ %.172, %44 ], [ %.08.i, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.preheader ]
+  %.069 = phi i32 [ %.170, %44 ], [ 3, %_ZNK10union_findI22union_find_default_ctxE4findEj.exit.preheader ]
   %14 = load ptr, ptr %1, align 8, !tbaa !20
-  %15 = shl i32 %.074, 1
+  %15 = shl i32 %.075, 1
   %16 = lshr i32 %15, 5
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw [1 x i32], ptr %14, i64 0, i64 %17
@@ -1864,25 +1864,25 @@ _ZNK10union_findI22union_find_default_ctxE4findEj.exit: ; preds = %_ZNK10union_f
   ]
 
 29:                                               ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit
-  %30 = icmp eq i32 %.068, 2
+  %30 = icmp eq i32 %.069, 2
   br i1 %30, label %.loopexit, label %44
 
 31:                                               ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit
-  %32 = icmp eq i32 %.068, 1
+  %32 = icmp eq i32 %.069, 1
   br i1 %32, label %.loopexit, label %44
 
 33:                                               ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit
-  %34 = add i32 %.072, 1
+  %34 = add i32 %.073, 1
   %35 = load ptr, ptr %12, align 8, !tbaa !55
-  %36 = lshr i32 %.074, 5
+  %36 = lshr i32 %.075, 5
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds nuw i32, ptr %35, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !45
-  %40 = and i32 %.074, 31
+  %40 = and i32 %.075, 31
   %41 = shl nuw i32 1, %40
   %42 = and i32 %39, %41
-  %.not88 = icmp eq i32 %42, 0
-  %spec.select = select i1 %.not88, i32 %.074, i32 %.070
+  %.not90 = icmp eq i32 %42, 0
+  %spec.select = select i1 %.not90, i32 %.075, i32 %.071
   br label %44
 
 default.unreachable:                              ; preds = %_ZNK10union_findI22union_find_default_ctxE4findEj.exit
@@ -1894,29 +1894,29 @@ default.unreachable:                              ; preds = %_ZNK10union_findI22
   br label %44
 
 44:                                               ; preds = %33, %31, %29, %43
-  %.173 = phi i32 [ %.072, %43 ], [ %.072, %29 ], [ %.072, %31 ], [ %34, %33 ]
-  %.171 = phi i32 [ %.070, %43 ], [ %.070, %29 ], [ %.070, %31 ], [ %spec.select, %33 ]
-  %.169 = phi i32 [ %.068, %43 ], [ 1, %29 ], [ 2, %31 ], [ %.068, %33 ]
+  %.174 = phi i32 [ %.073, %43 ], [ %.073, %29 ], [ %.073, %31 ], [ %34, %33 ]
+  %.172 = phi i32 [ %.071, %43 ], [ %.071, %29 ], [ %.071, %31 ], [ %spec.select, %33 ]
+  %.170 = phi i32 [ %.069, %43 ], [ 1, %29 ], [ 2, %31 ], [ %.069, %33 ]
   %45 = load ptr, ptr %13, align 8, !tbaa !52
-  %46 = zext i32 %.074 to i64
+  %46 = zext i32 %.075 to i64
   %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !45
   %.not = icmp eq i32 %48, %.08.i
   br i1 %.not, label %49, label %_ZNK10union_findI22union_find_default_ctxE4findEj.exit, !llvm.loop !57
 
 49:                                               ; preds = %44
-  %50 = icmp eq i32 %.173, 0
+  %50 = icmp eq i32 %.174, 0
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %49
-  %.not83 = icmp eq i32 %.169, 3
-  br i1 %.not83, label %75, label %.preheader92
+  %.not84 = icmp eq i32 %.170, 3
+  br i1 %.not84, label %75, label %.preheader93
 
-.preheader92:                                     ; preds = %51, %70
+.preheader93:                                     ; preds = %51, %70
   %52 = phi ptr [ %71, %70 ], [ %45, %51 ]
-  %.175 = phi i32 [ %74, %70 ], [ %.08.i, %51 ]
+  %.176 = phi i32 [ %74, %70 ], [ %.08.i, %51 ]
   %53 = load ptr, ptr %1, align 8, !tbaa !20
-  %54 = shl i32 %.175, 1
+  %54 = shl i32 %.176, 1
   %55 = lshr i32 %54, 5
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds nuw [1 x i32], ptr %53, i64 0, i64 %56
@@ -1924,8 +1924,8 @@ default.unreachable:                              ; preds = %_ZNK10union_findI22
   %59 = and i32 %54, 30
   %60 = shl nuw nsw i32 1, %59
   %61 = and i32 %60, %58
-  %.not.i.i.i87 = icmp eq i32 %61, 0
-  %62 = select i1 %.not.i.i.i87, i32 0, i32 2
+  %.not.i.i.i89 = icmp eq i32 %61, 0
+  %62 = select i1 %.not.i.i.i89, i32 0, i32 2
   %63 = shl nuw i32 2, %59
   %64 = and i32 %63, %58
   %65 = icmp ne i32 %64, 0
@@ -1934,18 +1934,18 @@ default.unreachable:                              ; preds = %_ZNK10union_findI22
   %68 = icmp eq i32 %67, 3
   br i1 %68, label %69, label %70
 
-69:                                               ; preds = %.preheader92
-  tail call void @_ZN11doc_manager3setER3docj4tbit(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %.175, i32 noundef %.169)
+69:                                               ; preds = %.preheader93
+  tail call void @_ZN11doc_manager3setER3docj4tbit(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %.176, i32 noundef %.170)
   %.pre = load ptr, ptr %13, align 8, !tbaa !52
   br label %70
 
-70:                                               ; preds = %69, %.preheader92
-  %71 = phi ptr [ %.pre, %69 ], [ %52, %.preheader92 ]
-  %72 = zext i32 %.175 to i64
+70:                                               ; preds = %69, %.preheader93
+  %71 = phi ptr [ %.pre, %69 ], [ %52, %.preheader93 ]
+  %72 = zext i32 %.176 to i64
   %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !45
-  %.not86 = icmp eq i32 %74, %.08.i
-  br i1 %.not86, label %.loopexit, label %.preheader92, !llvm.loop !58
+  %.not87 = icmp eq i32 %74, %.08.i
+  br i1 %.not87, label %.loopexit, label %.preheader93, !llvm.loop !58
 
 75:                                               ; preds = %51
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1960,8 +1960,8 @@ default.unreachable:                              ; preds = %_ZNK10union_findI22
   br label %81
 
 81:                                               ; preds = %.preheader, %.critedge
-  %.276 = phi i32 [ %91, %.critedge ], [ %.08.i, %.preheader ]
-  %82 = shl i32 %.276, 1
+  %.277 = phi i32 [ %91, %.critedge ], [ %.08.i, %.preheader ]
+  %82 = shl i32 %.277, 1
   %83 = lshr i32 %82, 5
   %84 = zext nneg i32 %83 to i64
   %85 = and i32 %82, 30
@@ -1975,11 +1975,11 @@ default.unreachable:                              ; preds = %_ZNK10union_findI22
   br i1 %exitcond.not, label %.critedge, label %92
 
 .critedge:                                        ; preds = %88
-  %89 = zext i32 %.276 to i64
+  %89 = zext i32 %.277 to i64
   %90 = getelementptr inbounds nuw i32, ptr %45, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !45
-  %.not89 = icmp eq i32 %91, %.08.i
-  br i1 %.not89, label %.critedge.thread, label %81, !llvm.loop !59
+  %.not91 = icmp eq i32 %91, %.08.i
+  br i1 %.not91, label %.critedge.thread, label %81, !llvm.loop !59
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
@@ -1998,12 +1998,12 @@ default.unreachable:                              ; preds = %_ZNK10union_findI22
   br i1 %103, label %88, label %.critedge.thread, !llvm.loop !60
 
 .critedge.thread:                                 ; preds = %.critedge, %92, %75
-  %.067 = phi i1 [ true, %75 ], [ false, %92 ], [ true, %.critedge ]
+  %.068 = phi i1 [ true, %75 ], [ false, %92 ], [ true, %.critedge ]
   br label %104
 
-104:                                              ; preds = %123, %.critedge.thread
-  %105 = phi ptr [ %45, %.critedge.thread ], [ %124, %123 ]
-  %.3 = phi i32 [ %.08.i, %.critedge.thread ], [ %127, %123 ]
+104:                                              ; preds = %122, %.critedge.thread
+  %105 = phi ptr [ %45, %.critedge.thread ], [ %123, %122 ]
+  %.3 = phi i32 [ %.08.i, %.critedge.thread ], [ %126, %122 ]
   %106 = load ptr, ptr %12, align 8, !tbaa !55
   %107 = lshr i32 %.3, 5
   %108 = zext nneg i32 %107 to i64
@@ -2012,41 +2012,36 @@ default.unreachable:                              ; preds = %_ZNK10union_findI22
   %111 = and i32 %.3, 31
   %112 = shl nuw i32 1, %111
   %113 = and i32 %110, %112
-  %.not90 = icmp eq i32 %113, 0
-  %.not84.old = icmp eq i32 %.3, %.171
-  br i1 %.not90, label %115, label %114
-
-114:                                              ; preds = %104
-  %or.cond = select i1 %.067, i1 true, i1 %.not84.old
-  br i1 %or.cond, label %123, label %116
+  %114 = icmp ne i32 %113, 0
+  %or.cond = and i1 %.068, %114
+  %.not85 = icmp eq i32 %.3, %.172
+  %or.cond88 = select i1 %or.cond, i1 true, i1 %.not85
+  br i1 %or.cond88, label %122, label %115
 
 115:                                              ; preds = %104
-  br i1 %.not84.old, label %123, label %116
+  %116 = load ptr, ptr %1, align 8, !tbaa !20
+  %117 = tail call noundef ptr @_ZN11tbv_manager8allocateERK3tbv(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %116)
+  tail call void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %117, i32 noundef %.3, i32 noundef 1)
+  tail call void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %117, i32 noundef %.172, i32 noundef 2)
+  %118 = tail call noundef zeroext i1 @_ZN10union_bvecI11tbv_manager3tbvE6insertERS0_PS1_(ptr noundef nonnull align 8 dereferenceable(80) %76, ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull %117)
+  %119 = load ptr, ptr %1, align 8, !tbaa !20
+  %120 = tail call noundef ptr @_ZN11tbv_manager8allocateERK3tbv(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %119)
+  tail call void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %120, i32 noundef %.3, i32 noundef 2)
+  tail call void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %120, i32 noundef %.172, i32 noundef 1)
+  %121 = tail call noundef zeroext i1 @_ZN10union_bvecI11tbv_manager3tbvE6insertERS0_PS1_(ptr noundef nonnull align 8 dereferenceable(80) %76, ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull %120)
+  %.pre104 = load ptr, ptr %13, align 8, !tbaa !52
+  br label %122
 
-116:                                              ; preds = %114, %115
-  %117 = load ptr, ptr %1, align 8, !tbaa !20
-  %118 = tail call noundef ptr @_ZN11tbv_manager8allocateERK3tbv(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %117)
-  tail call void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %118, i32 noundef %.3, i32 noundef 1)
-  tail call void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %118, i32 noundef %.171, i32 noundef 2)
-  %119 = tail call noundef zeroext i1 @_ZN10union_bvecI11tbv_manager3tbvE6insertERS0_PS1_(ptr noundef nonnull align 8 dereferenceable(80) %76, ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull %118)
-  %120 = load ptr, ptr %1, align 8, !tbaa !20
-  %121 = tail call noundef ptr @_ZN11tbv_manager8allocateERK3tbv(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %120)
-  tail call void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %121, i32 noundef %.3, i32 noundef 2)
-  tail call void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %121, i32 noundef %.171, i32 noundef 1)
-  %122 = tail call noundef zeroext i1 @_ZN10union_bvecI11tbv_manager3tbvE6insertERS0_PS1_(ptr noundef nonnull align 8 dereferenceable(80) %76, ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull %121)
-  %.pre103 = load ptr, ptr %13, align 8, !tbaa !52
-  br label %123
+122:                                              ; preds = %104, %115
+  %123 = phi ptr [ %105, %104 ], [ %.pre104, %115 ]
+  %124 = zext i32 %.3 to i64
+  %125 = getelementptr inbounds nuw i32, ptr %123, i64 %124
+  %126 = load i32, ptr %125, align 4, !tbaa !45
+  %.not86 = icmp eq i32 %126, %.08.i
+  br i1 %.not86, label %.loopexit, label %104, !llvm.loop !61
 
-123:                                              ; preds = %116, %115, %114
-  %124 = phi ptr [ %.pre103, %116 ], [ %105, %115 ], [ %105, %114 ]
-  %125 = zext i32 %.3 to i64
-  %126 = getelementptr inbounds nuw i32, ptr %124, i64 %125
-  %127 = load i32, ptr %126, align 4, !tbaa !45
-  %.not85 = icmp eq i32 %127, %.08.i
-  br i1 %.not85, label %.loopexit, label %104, !llvm.loop !61
-
-.loopexit:                                        ; preds = %31, %29, %70, %123, %49
-  %.0 = phi i1 [ true, %49 ], [ true, %123 ], [ true, %70 ], [ false, %29 ], [ false, %31 ]
+.loopexit:                                        ; preds = %31, %29, %70, %122, %49
+  %.0 = phi i1 [ true, %49 ], [ true, %122 ], [ true, %70 ], [ false, %29 ], [ false, %31 ]
   ret i1 %.0
 }
 

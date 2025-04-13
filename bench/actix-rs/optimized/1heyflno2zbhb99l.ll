@@ -807,7 +807,7 @@ define hidden noundef ptr @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0
 .body.i.i.i:                                      ; preds = %40, %29
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %30, %29 ], [ %41, %40 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..rc..Rc$LT$actix_http..requests..head..RequestHead$GT$$GT$17ha844a4fb08d1af9dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #27
-          to label %.thread38.i.i.i unwind label %47
+          to label %.thread35.i.i.i unwind label %47
 
 "_ZN5alloc2rc15Rc$LT$T$C$A$GT$9is_unique17h19524d62fe415e60E.llvm.10804153884081904121.exit.i.i.i": ; preds = %16
   %31 = load i64, ptr %24, align 8, !noalias !86, !noundef !4
@@ -825,7 +825,7 @@ define hidden noundef ptr @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %37 = load i64, ptr %36, align 8, !alias.scope !92, !noundef !4
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %.thread31.i.i.i, label %39
+  br i1 %38, label %.thread30.i.i.i, label %39
 
 39:                                               ; preds = %33
   invoke void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h1c22af0786494bceE.llvm.222537792231950641(ptr noalias noundef nonnull align 8 dereferenceable(64) %35)
@@ -839,7 +839,7 @@ define hidden noundef ptr @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0
 
 42:                                               ; preds = %39
   invoke void @_ZN9hashbrown3raw13RawTableInner13clear_no_drop17h5b6403f348821fb3E.llvm.222537792231950641(ptr noalias noundef nonnull align 8 dereferenceable(64) %35)
-          to label %.thread31.i.i.i unwind label %29
+          to label %.thread30.i.i.i unwind label %29
 
 43:                                               ; preds = %40
   %44 = landingpad { ptr, i32 }
@@ -850,7 +850,7 @@ define hidden noundef ptr @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0
 45:                                               ; preds = %"_ZN5alloc2rc15Rc$LT$T$C$A$GT$9is_unique17h19524d62fe415e60E.llvm.10804153884081904121.exit.thread.i.i.i"
   unreachable
 
-.thread31.i.i.i:                                  ; preds = %42, %33
+.thread30.i.i.i:                                  ; preds = %42, %33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %"_ZN85_$LT$actix_http..requests..head..RequestHead$u20$as$u20$actix_http..message..Head$GT$9with_pool28_$u7b$$u7b$closure$u7d$$u7d$17h5e87d695ad8f5cabE.exit"
 
@@ -869,7 +869,7 @@ define hidden noundef ptr @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0
 49:                                               ; preds = %28
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread38.i.i.i
+  br label %.thread35.i.i.i
 
 51:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %2), !noalias !97
@@ -897,7 +897,7 @@ define hidden noundef ptr @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0
   %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr60drop_in_place$LT$actix_http..requests..head..RequestHead$GT$17h7411e8bcac01acfaE"(ptr noalias noundef nonnull align 8 dereferenceable(216) %53)
-          to label %.thread38.i.i.i unwind label %60, !noalias !97
+          to label %.thread35.i.i.i unwind label %60, !noalias !97
 
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
@@ -905,22 +905,22 @@ define hidden noundef ptr @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #28, !noalias !97
   unreachable
 
-.thread38.i.i.i:                                  ; preds = %58, %49, %.body.i.i.i
+.thread35.i.i.i:                                  ; preds = %58, %49, %.body.i.i.i
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %50, %49 ], [ %59, %58 ]
   %62 = load i64, ptr %6, align 8, !noalias !100, !noundef !4
   %63 = add i64 %62, 1
   store i64 %63, ptr %6, align 8, !noalias !100
   resume { ptr, i32 } %.pn.pn.i.i.i
 
-"_ZN85_$LT$actix_http..requests..head..RequestHead$u20$as$u20$actix_http..message..Head$GT$9with_pool28_$u7b$$u7b$closure$u7d$$u7d$17h5e87d695ad8f5cabE.exit": ; preds = %.thread31.i.i.i, %46
-  %.037.i.i.i = phi ptr [ %55, %46 ], [ %24, %.thread31.i.i.i ]
+"_ZN85_$LT$actix_http..requests..head..RequestHead$u20$as$u20$actix_http..message..Head$GT$9with_pool28_$u7b$$u7b$closure$u7d$$u7d$17h5e87d695ad8f5cabE.exit": ; preds = %.thread30.i.i.i, %46
+  %.034.i.i.i = phi ptr [ %55, %46 ], [ %24, %.thread30.i.i.i ]
   %64 = load i64, ptr %6, align 8, !noalias !107, !noundef !4
   %65 = add i64 %64, 1
   store i64 %65, ptr %6, align 8, !noalias !107
   br label %66
 
 66:                                               ; preds = %1, %"_ZN85_$LT$actix_http..requests..head..RequestHead$u20$as$u20$actix_http..message..Head$GT$9with_pool28_$u7b$$u7b$closure$u7d$$u7d$17h5e87d695ad8f5cabE.exit"
-  %.0 = phi ptr [ %.037.i.i.i, %"_ZN85_$LT$actix_http..requests..head..RequestHead$u20$as$u20$actix_http..message..Head$GT$9with_pool28_$u7b$$u7b$closure$u7d$$u7d$17h5e87d695ad8f5cabE.exit" ], [ null, %1 ]
+  %.0 = phi ptr [ %.034.i.i.i, %"_ZN85_$LT$actix_http..requests..head..RequestHead$u20$as$u20$actix_http..message..Head$GT$9with_pool28_$u7b$$u7b$closure$u7d$$u7d$17h5e87d695ad8f5cabE.exit" ], [ null, %1 ]
   ret ptr %.0
 }
 

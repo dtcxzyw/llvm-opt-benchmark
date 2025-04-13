@@ -651,11 +651,11 @@ define dso_local i64 @networkjoinsel(ptr noundef readonly captures(none) %0) loc
 
 27:                                               ; preds = %24
   %28 = getelementptr i8, ptr %26, i64 16
-  %.val72.i = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.val72.i, i64 22
+  %.val75.i = load ptr, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %.val75.i, i64 22
   %30 = load i8, ptr %29, align 2
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %.val72.i, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %.val75.i, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load float, ptr %33, align 4
   %35 = fpext float %34 to double
@@ -694,15 +694,15 @@ define dso_local i64 @networkjoinsel(ptr noundef readonly captures(none) %0) loc
   br label %mcv_population.exit.i
 
 mcv_population.exit.i:                            ; preds = %.lr.ph.i.i, %50, %42, %27
-  %.059.i = phi double [ %35, %27 ], [ 0.000000e+00, %50 ], [ %35, %42 ], [ %35, %.lr.ph.i.i ]
-  %.056.i = phi double [ 0.000000e+00, %27 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %42 ], [ %49, %.lr.ph.i.i ]
-  %.054.shrunk.i = phi i1 [ false, %27 ], [ false, %50 ], [ true, %42 ], [ true, %.lr.ph.i.i ]
-  %.052.shrunk.i = phi i1 [ %38, %27 ], [ false, %50 ], [ %38, %42 ], [ %38, %.lr.ph.i.i ]
-  %.050.i = phi i32 [ %41, %27 ], [ 0, %50 ], [ %41, %42 ], [ %41, %.lr.ph.i.i ]
+  %.070.i = phi double [ %35, %27 ], [ 0.000000e+00, %50 ], [ %35, %42 ], [ %35, %.lr.ph.i.i ]
+  %.067.i = phi double [ 0.000000e+00, %27 ], [ 0.000000e+00, %50 ], [ 0.000000e+00, %42 ], [ %49, %.lr.ph.i.i ]
+  %.065.shrunk.i = phi i1 [ false, %27 ], [ false, %50 ], [ true, %42 ], [ true, %.lr.ph.i.i ]
+  %.063.shrunk.i = phi i1 [ %38, %27 ], [ false, %50 ], [ %38, %42 ], [ %38, %.lr.ph.i.i ]
+  %.061.i = phi i32 [ %41, %27 ], [ 0, %50 ], [ %41, %42 ], [ %41, %.lr.ph.i.i ]
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %52 = load ptr, ptr %51, align 8
-  %.not62.i = icmp eq ptr %52, null
-  br i1 %.not62.i, label %76, label %53
+  %.not73.i = icmp eq ptr %52, null
+  br i1 %.not73.i, label %76, label %53
 
 53:                                               ; preds = %mcv_population.exit.i
   %54 = getelementptr i8, ptr %52, i64 16
@@ -720,40 +720,40 @@ mcv_population.exit.i:                            ; preds = %.lr.ph.i.i, %50, %4
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %66 = load i32, ptr %65, align 8
   %67 = call i32 @llvm.smin.i32(i32 %66, i32 1024)
-  br i1 %62, label %68, label %mcv_population.exit81.i
+  br i1 %62, label %68, label %mcv_population.exit84.i
 
 68:                                               ; preds = %53
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %70 = load ptr, ptr %69, align 8
   %71 = icmp sgt i32 %66, 0
-  br i1 %71, label %.lr.ph.preheader.i74.i, label %mcv_population.exit81.i
+  br i1 %71, label %.lr.ph.preheader.i77.i, label %mcv_population.exit84.i
 
-.lr.ph.preheader.i74.i:                           ; preds = %68
-  %wide.trip.count.i75.i = zext nneg i32 %67 to i64
-  br label %.lr.ph.i76.i
+.lr.ph.preheader.i77.i:                           ; preds = %68
+  %wide.trip.count.i78.i = zext nneg i32 %67 to i64
+  br label %.lr.ph.i79.i
 
-.lr.ph.i76.i:                                     ; preds = %.lr.ph.i76.i, %.lr.ph.preheader.i74.i
-  %indvars.iv.i77.i = phi i64 [ 0, %.lr.ph.preheader.i74.i ], [ %indvars.iv.next.i79.i, %.lr.ph.i76.i ]
-  %.067.i78.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i74.i ], [ %75, %.lr.ph.i76.i ]
-  %72 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv.i77.i
+.lr.ph.i79.i:                                     ; preds = %.lr.ph.i79.i, %.lr.ph.preheader.i77.i
+  %indvars.iv.i80.i = phi i64 [ 0, %.lr.ph.preheader.i77.i ], [ %indvars.iv.next.i82.i, %.lr.ph.i79.i ]
+  %.067.i81.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i77.i ], [ %75, %.lr.ph.i79.i ]
+  %72 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv.i80.i
   %73 = load float, ptr %72, align 4
   %74 = fpext float %73 to double
-  %75 = fadd double %.067.i78.i, %74
-  %indvars.iv.next.i79.i = add nuw nsw i64 %indvars.iv.i77.i, 1
-  %exitcond.not.i80.i = icmp eq i64 %indvars.iv.next.i79.i, %wide.trip.count.i75.i
-  br i1 %exitcond.not.i80.i, label %mcv_population.exit81.i, label %.lr.ph.i76.i, !llvm.loop !8
+  %75 = fadd double %.067.i81.i, %74
+  %indvars.iv.next.i82.i = add nuw nsw i64 %indvars.iv.i80.i, 1
+  %exitcond.not.i83.i = icmp eq i64 %indvars.iv.next.i82.i, %wide.trip.count.i78.i
+  br i1 %exitcond.not.i83.i, label %mcv_population.exit84.i, label %.lr.ph.i79.i, !llvm.loop !8
 
 76:                                               ; preds = %mcv_population.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
-  br label %mcv_population.exit81.i
+  br label %mcv_population.exit84.i
 
-mcv_population.exit81.i:                          ; preds = %.lr.ph.i76.i, %76, %68, %53
-  %.058.i = phi double [ %61, %53 ], [ 0.000000e+00, %76 ], [ %61, %68 ], [ %61, %.lr.ph.i76.i ]
-  %.055.i = phi double [ 0.000000e+00, %53 ], [ 0.000000e+00, %76 ], [ 0.000000e+00, %68 ], [ %75, %.lr.ph.i76.i ]
-  %.053.shrunk.i = phi i1 [ false, %53 ], [ false, %76 ], [ true, %68 ], [ true, %.lr.ph.i76.i ]
-  %.051.shrunk.i = phi i1 [ %64, %53 ], [ false, %76 ], [ %64, %68 ], [ %64, %.lr.ph.i76.i ]
-  %.0.i = phi i32 [ %67, %53 ], [ 0, %76 ], [ %67, %68 ], [ %67, %.lr.ph.i76.i ]
+mcv_population.exit84.i:                          ; preds = %.lr.ph.i79.i, %76, %68, %53
+  %.069.i = phi double [ %61, %53 ], [ 0.000000e+00, %76 ], [ %61, %68 ], [ %61, %.lr.ph.i79.i ]
+  %.066.i = phi double [ 0.000000e+00, %53 ], [ 0.000000e+00, %76 ], [ 0.000000e+00, %68 ], [ %75, %.lr.ph.i79.i ]
+  %.064.shrunk.i = phi i1 [ false, %53 ], [ false, %76 ], [ true, %68 ], [ true, %.lr.ph.i79.i ]
+  %.062.shrunk.i = phi i1 [ %64, %53 ], [ false, %76 ], [ %64, %68 ], [ %64, %.lr.ph.i79.i ]
+  %.0.i = phi i32 [ %67, %53 ], [ 0, %76 ], [ %67, %68 ], [ %67, %.lr.ph.i79.i ]
   switch i32 %15, label %81 [
     i32 933, label %inet_opr_codenum.exit.i
     i32 934, label %77
@@ -762,31 +762,29 @@ mcv_population.exit81.i:                          ; preds = %.lr.ph.i76.i, %76, 
     i32 931, label %80
   ]
 
-77:                                               ; preds = %mcv_population.exit81.i
+77:                                               ; preds = %mcv_population.exit84.i
   br label %inet_opr_codenum.exit.i
 
-78:                                               ; preds = %mcv_population.exit81.i
+78:                                               ; preds = %mcv_population.exit84.i
   br label %inet_opr_codenum.exit.i
 
-79:                                               ; preds = %mcv_population.exit81.i
+79:                                               ; preds = %mcv_population.exit84.i
   br label %inet_opr_codenum.exit.i
 
-80:                                               ; preds = %mcv_population.exit81.i
+80:                                               ; preds = %mcv_population.exit84.i
   br label %inet_opr_codenum.exit.i
 
-81:                                               ; preds = %mcv_population.exit81.i
+81:                                               ; preds = %mcv_population.exit84.i
   %82 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %82)
   %83 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %15) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 852, ptr noundef nonnull @__func__.inet_opr_codenum) #9
   unreachable
 
-inet_opr_codenum.exit.i:                          ; preds = %80, %79, %78, %77, %mcv_population.exit81.i
-  %.0.i.i = phi i32 [ 2, %80 ], [ 1, %79 ], [ 0, %78 ], [ -1, %77 ], [ -2, %mcv_population.exit81.i ]
-  %.054.shrunk.not.i = xor i1 %.054.shrunk.i, true
-  %.053.shrunk.not.i = xor i1 %.053.shrunk.i, true
-  %brmerge.i = or i1 %.054.shrunk.not.i, %.053.shrunk.not.i
-  br i1 %brmerge.i, label %112, label %84
+inet_opr_codenum.exit.i:                          ; preds = %80, %79, %78, %77, %mcv_population.exit84.i
+  %.0.i.i = phi i32 [ 2, %80 ], [ 1, %79 ], [ 0, %78 ], [ -1, %77 ], [ -2, %mcv_population.exit84.i ]
+  %or.cond.i = and i1 %.065.shrunk.i, %.064.shrunk.i
+  br i1 %or.cond.i, label %84, label %112
 
 84:                                               ; preds = %inet_opr_codenum.exit.i
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -800,14 +798,14 @@ inet_opr_codenum.exit.i:                          ; preds = %80, %79, %78, %77, 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #9
   %93 = call i32 @get_opcode(i32 noundef %15) #9
   call void @fmgr_info(i32 noundef %93, ptr noundef nonnull %2) #9
-  %94 = icmp sgt i32 %.050.i, 0
+  %94 = icmp sgt i32 %.061.i, 0
   %95 = icmp sgt i32 %.0.i, 0
   %or.cond.i.i = and i1 %94, %95
   br i1 %or.cond.i.i, label %.preheader.us.preheader.i.i, label %inet_mcv_join_sel.exit.i
 
 .preheader.us.preheader.i.i:                      ; preds = %84
-  %wide.trip.count29.i.i = zext nneg i32 %.050.i to i64
-  %wide.trip.count.i82.i = zext nneg i32 %.0.i to i64
+  %wide.trip.count29.i.i = zext nneg i32 %.061.i to i64
+  %wide.trip.count.i85.i = zext nneg i32 %.0.i to i64
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.us.preheader.i.i
@@ -818,10 +816,10 @@ inet_opr_codenum.exit.i:                          ; preds = %80, %79, %78, %77, 
   br label %98
 
 98:                                               ; preds = %110, %.preheader.us.i.i
-  %indvars.iv.i83.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i84.i, %110 ]
+  %indvars.iv.i86.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i87.i, %110 ]
   %.118.us.i.i = phi double [ %.01720.us.i.i, %.preheader.us.i.i ], [ %.2.us.i.i, %110 ]
   %99 = load i64, ptr %96, align 8
-  %100 = getelementptr inbounds nuw i64, ptr %90, i64 %indvars.iv.i83.i
+  %100 = getelementptr inbounds nuw i64, ptr %90, i64 %indvars.iv.i86.i
   %101 = load i64, ptr %100, align 8
   %102 = call i64 @FunctionCall2Coll(ptr noundef nonnull %2, i32 noundef 0, i64 noundef %99, i64 noundef %101) #9
   %.not.us.i.i = icmp eq i64 %102, 0
@@ -829,7 +827,7 @@ inet_opr_codenum.exit.i:                          ; preds = %80, %79, %78, %77, 
 
 103:                                              ; preds = %98
   %104 = load float, ptr %97, align 4
-  %105 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i83.i
+  %105 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i86.i
   %106 = load float, ptr %105, align 4
   %107 = fmul float %104, %106
   %108 = fpext float %107 to double
@@ -838,9 +836,9 @@ inet_opr_codenum.exit.i:                          ; preds = %80, %79, %78, %77, 
 
 110:                                              ; preds = %103, %98
   %.2.us.i.i = phi double [ %109, %103 ], [ %.118.us.i.i, %98 ]
-  %indvars.iv.next.i84.i = add nuw nsw i64 %indvars.iv.i83.i, 1
-  %exitcond.not.i85.i = icmp eq i64 %indvars.iv.next.i84.i, %wide.trip.count.i82.i
-  br i1 %exitcond.not.i85.i, label %._crit_edge.us.i.i, label %98, !llvm.loop !9
+  %indvars.iv.next.i87.i = add nuw nsw i64 %indvars.iv.i86.i, 1
+  %exitcond.not.i88.i = icmp eq i64 %indvars.iv.next.i87.i, %wide.trip.count.i85.i
+  br i1 %exitcond.not.i88.i, label %._crit_edge.us.i.i, label %98, !llvm.loop !9
 
 ._crit_edge.us.i.i:                               ; preds = %110
   %indvars.iv.next27.i.i = add nuw nsw i64 %indvars.iv26.i.i, 1
@@ -857,14 +855,13 @@ inet_mcv_join_sel.exit.i:                         ; preds = %inet_mcv_join_sel.e
   br label %112
 
 112:                                              ; preds = %inet_mcv_join_sel.exit.i, %inet_opr_codenum.exit.i
-  %.057.i = phi double [ %.017.lcssa.i.i, %inet_mcv_join_sel.exit.i ], [ 0.000000e+00, %inet_opr_codenum.exit.i ]
-  %.051.shrunk.not.i = xor i1 %.051.shrunk.i, true
-  %brmerge64.i = select i1 %.054.shrunk.not.i, i1 true, i1 %.051.shrunk.not.i
-  br i1 %brmerge64.i, label %134, label %113
+  %.068.i = phi double [ %.017.lcssa.i.i, %inet_mcv_join_sel.exit.i ], [ 0.000000e+00, %inet_opr_codenum.exit.i ]
+  %or.cond3.i = select i1 %.065.shrunk.i, i1 %.062.shrunk.i, i1 false
+  br i1 %or.cond3.i, label %113, label %134
 
 113:                                              ; preds = %112
-  %114 = fsub double 1.000000e+00, %.058.i
-  %115 = fsub double %114, %.055.i
+  %114 = fsub double 1.000000e+00, %.069.i
+  %115 = fsub double %114, %.066.i
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -874,41 +871,40 @@ inet_mcv_join_sel.exit.i:                         ; preds = %inet_mcv_join_sel.e
   %122 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %123 = load i32, ptr %122, align 8
   %124 = sub nsw i32 0, %.0.i.i
-  %125 = icmp sgt i32 %.050.i, 0
-  br i1 %125, label %.lr.ph.preheader.i86.i, label %inet_mcv_hist_sel.exit.i
+  %125 = icmp sgt i32 %.061.i, 0
+  br i1 %125, label %.lr.ph.preheader.i89.i, label %inet_mcv_hist_sel.exit.i
 
-.lr.ph.preheader.i86.i:                           ; preds = %113
-  %wide.trip.count.i87.i = zext nneg i32 %.050.i to i64
-  br label %.lr.ph.i88.i
+.lr.ph.preheader.i89.i:                           ; preds = %113
+  %wide.trip.count.i90.i = zext nneg i32 %.061.i to i64
+  br label %.lr.ph.i91.i
 
-.lr.ph.i88.i:                                     ; preds = %.lr.ph.i88.i, %.lr.ph.preheader.i86.i
-  %indvars.iv.i89.i = phi i64 [ 0, %.lr.ph.preheader.i86.i ], [ %indvars.iv.next.i90.i, %.lr.ph.i88.i ]
-  %.01213.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i86.i ], [ %132, %.lr.ph.i88.i ]
-  %126 = getelementptr inbounds nuw float, ptr %119, i64 %indvars.iv.i89.i
+.lr.ph.i91.i:                                     ; preds = %.lr.ph.i91.i, %.lr.ph.preheader.i89.i
+  %indvars.iv.i92.i = phi i64 [ 0, %.lr.ph.preheader.i89.i ], [ %indvars.iv.next.i93.i, %.lr.ph.i91.i ]
+  %.01213.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i89.i ], [ %132, %.lr.ph.i91.i ]
+  %126 = getelementptr inbounds nuw float, ptr %119, i64 %indvars.iv.i92.i
   %127 = load float, ptr %126, align 4
   %128 = fpext float %127 to double
-  %129 = getelementptr inbounds nuw i64, ptr %117, i64 %indvars.iv.i89.i
+  %129 = getelementptr inbounds nuw i64, ptr %117, i64 %indvars.iv.i92.i
   %130 = load i64, ptr %129, align 8
   %131 = call fastcc double @inet_hist_value_sel(ptr noundef readonly %121, i32 noundef %123, i64 noundef %130, i32 noundef %124)
   %132 = call double @llvm.fmuladd.f64(double %128, double %131, double %.01213.i.i)
-  %indvars.iv.next.i90.i = add nuw nsw i64 %indvars.iv.i89.i, 1
-  %exitcond.not.i91.i = icmp eq i64 %indvars.iv.next.i90.i, %wide.trip.count.i87.i
-  br i1 %exitcond.not.i91.i, label %inet_mcv_hist_sel.exit.i, label %.lr.ph.i88.i, !llvm.loop !11
+  %indvars.iv.next.i93.i = add nuw nsw i64 %indvars.iv.i92.i, 1
+  %exitcond.not.i94.i = icmp eq i64 %indvars.iv.next.i93.i, %wide.trip.count.i90.i
+  br i1 %exitcond.not.i94.i, label %inet_mcv_hist_sel.exit.i, label %.lr.ph.i91.i, !llvm.loop !11
 
-inet_mcv_hist_sel.exit.i:                         ; preds = %.lr.ph.i88.i, %113
-  %.012.lcssa.i.i = phi double [ 0.000000e+00, %113 ], [ %132, %.lr.ph.i88.i ]
-  %133 = call double @llvm.fmuladd.f64(double %115, double %.012.lcssa.i.i, double %.057.i)
+inet_mcv_hist_sel.exit.i:                         ; preds = %.lr.ph.i91.i, %113
+  %.012.lcssa.i.i = phi double [ 0.000000e+00, %113 ], [ %132, %.lr.ph.i91.i ]
+  %133 = call double @llvm.fmuladd.f64(double %115, double %.012.lcssa.i.i, double %.068.i)
   br label %134
 
 134:                                              ; preds = %inet_mcv_hist_sel.exit.i, %112
-  %.1.i = phi double [ %133, %inet_mcv_hist_sel.exit.i ], [ %.057.i, %112 ]
-  %.052.shrunk.not.i = xor i1 %.052.shrunk.i, true
-  %brmerge66.i = select i1 %.053.shrunk.not.i, i1 true, i1 %.052.shrunk.not.i
-  br i1 %brmerge66.i, label %155, label %135
+  %.1.i = phi double [ %133, %inet_mcv_hist_sel.exit.i ], [ %.068.i, %112 ]
+  %or.cond5.i = select i1 %.064.shrunk.i, i1 %.063.shrunk.i, i1 false
+  br i1 %or.cond5.i, label %135, label %155
 
 135:                                              ; preds = %134
-  %136 = fsub double 1.000000e+00, %.059.i
-  %137 = fsub double %136, %.056.i
+  %136 = fsub double 1.000000e+00, %.070.i
+  %137 = fsub double %136, %.067.i
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -918,41 +914,41 @@ inet_mcv_hist_sel.exit.i:                         ; preds = %.lr.ph.i88.i, %113
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %145 = load i32, ptr %144, align 8
   %146 = icmp sgt i32 %.0.i, 0
-  br i1 %146, label %.lr.ph.preheader.i93.i, label %inet_mcv_hist_sel.exit100.i
+  br i1 %146, label %.lr.ph.preheader.i96.i, label %inet_mcv_hist_sel.exit103.i
 
-.lr.ph.preheader.i93.i:                           ; preds = %135
-  %wide.trip.count.i94.i = zext nneg i32 %.0.i to i64
-  br label %.lr.ph.i95.i
+.lr.ph.preheader.i96.i:                           ; preds = %135
+  %wide.trip.count.i97.i = zext nneg i32 %.0.i to i64
+  br label %.lr.ph.i98.i
 
-.lr.ph.i95.i:                                     ; preds = %.lr.ph.i95.i, %.lr.ph.preheader.i93.i
-  %indvars.iv.i96.i = phi i64 [ 0, %.lr.ph.preheader.i93.i ], [ %indvars.iv.next.i98.i, %.lr.ph.i95.i ]
-  %.01213.i97.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i93.i ], [ %153, %.lr.ph.i95.i ]
-  %147 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i96.i
+.lr.ph.i98.i:                                     ; preds = %.lr.ph.i98.i, %.lr.ph.preheader.i96.i
+  %indvars.iv.i99.i = phi i64 [ 0, %.lr.ph.preheader.i96.i ], [ %indvars.iv.next.i101.i, %.lr.ph.i98.i ]
+  %.01213.i100.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i96.i ], [ %153, %.lr.ph.i98.i ]
+  %147 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i99.i
   %148 = load float, ptr %147, align 4
   %149 = fpext float %148 to double
-  %150 = getelementptr inbounds nuw i64, ptr %139, i64 %indvars.iv.i96.i
+  %150 = getelementptr inbounds nuw i64, ptr %139, i64 %indvars.iv.i99.i
   %151 = load i64, ptr %150, align 8
   %152 = call fastcc double @inet_hist_value_sel(ptr noundef readonly %143, i32 noundef %145, i64 noundef %151, i32 noundef %.0.i.i)
-  %153 = call double @llvm.fmuladd.f64(double %149, double %152, double %.01213.i97.i)
-  %indvars.iv.next.i98.i = add nuw nsw i64 %indvars.iv.i96.i, 1
-  %exitcond.not.i99.i = icmp eq i64 %indvars.iv.next.i98.i, %wide.trip.count.i94.i
-  br i1 %exitcond.not.i99.i, label %inet_mcv_hist_sel.exit100.i, label %.lr.ph.i95.i, !llvm.loop !11
+  %153 = call double @llvm.fmuladd.f64(double %149, double %152, double %.01213.i100.i)
+  %indvars.iv.next.i101.i = add nuw nsw i64 %indvars.iv.i99.i, 1
+  %exitcond.not.i102.i = icmp eq i64 %indvars.iv.next.i101.i, %wide.trip.count.i97.i
+  br i1 %exitcond.not.i102.i, label %inet_mcv_hist_sel.exit103.i, label %.lr.ph.i98.i, !llvm.loop !11
 
-inet_mcv_hist_sel.exit100.i:                      ; preds = %.lr.ph.i95.i, %135
-  %.012.lcssa.i92.i = phi double [ 0.000000e+00, %135 ], [ %153, %.lr.ph.i95.i ]
-  %154 = call double @llvm.fmuladd.f64(double %137, double %.012.lcssa.i92.i, double %.1.i)
+inet_mcv_hist_sel.exit103.i:                      ; preds = %.lr.ph.i98.i, %135
+  %.012.lcssa.i95.i = phi double [ 0.000000e+00, %135 ], [ %153, %.lr.ph.i98.i ]
+  %154 = call double @llvm.fmuladd.f64(double %137, double %.012.lcssa.i95.i, double %.1.i)
   br label %155
 
-155:                                              ; preds = %inet_mcv_hist_sel.exit100.i, %134
-  %.2.i = phi double [ %154, %inet_mcv_hist_sel.exit100.i ], [ %.1.i, %134 ]
-  %brmerge69.i = select i1 %.052.shrunk.not.i, i1 true, i1 %.051.shrunk.not.i
-  br i1 %brmerge69.i, label %186, label %156
+155:                                              ; preds = %inet_mcv_hist_sel.exit103.i, %134
+  %.2.i = phi double [ %154, %inet_mcv_hist_sel.exit103.i ], [ %.1.i, %134 ]
+  %or.cond7.i = select i1 %.063.shrunk.i, i1 %.062.shrunk.i, i1 false
+  br i1 %or.cond7.i, label %156, label %186
 
 156:                                              ; preds = %155
-  %157 = fsub double 1.000000e+00, %.059.i
-  %158 = fsub double %157, %.056.i
-  %159 = fsub double 1.000000e+00, %.058.i
-  %160 = fsub double %159, %.055.i
+  %157 = fsub double 1.000000e+00, %.070.i
+  %158 = fsub double %157, %.067.i
+  %159 = fsub double 1.000000e+00, %.069.i
+  %160 = fsub double %159, %.066.i
   %161 = fmul double %158, %160
   %162 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %163 = load ptr, ptr %162, align 8
@@ -963,19 +959,19 @@ inet_mcv_hist_sel.exit100.i:                      ; preds = %.lr.ph.i95.i, %135
   %168 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %169 = load i32, ptr %168, align 8
   %170 = icmp slt i32 %169, 3
-  br i1 %170, label %inet_hist_inclusion_join_sel.exit.i, label %.lr.ph.preheader.i101.i
+  br i1 %170, label %inet_hist_inclusion_join_sel.exit.i, label %.lr.ph.preheader.i104.i
 
-.lr.ph.preheader.i101.i:                          ; preds = %156
+.lr.ph.preheader.i104.i:                          ; preds = %156
   %171 = add nsw i32 %169, -3
   %172 = lshr i32 %171, 10
   %173 = add nuw nsw i32 %172, 1
   %174 = add nsw i32 %169, -1
-  br label %.lr.ph.i102.i
+  br label %.lr.ph.i105.i
 
-.lr.ph.i102.i:                                    ; preds = %.lr.ph.i102.i, %.lr.ph.preheader.i101.i
-  %.021.i.i = phi i32 [ %180, %.lr.ph.i102.i ], [ 0, %.lr.ph.preheader.i101.i ]
-  %.01620.i.i = phi i32 [ %181, %.lr.ph.i102.i ], [ 1, %.lr.ph.preheader.i101.i ]
-  %.01719.i.i = phi double [ %179, %.lr.ph.i102.i ], [ 0.000000e+00, %.lr.ph.preheader.i101.i ]
+.lr.ph.i105.i:                                    ; preds = %.lr.ph.i105.i, %.lr.ph.preheader.i104.i
+  %.021.i.i = phi i32 [ %180, %.lr.ph.i105.i ], [ 0, %.lr.ph.preheader.i104.i ]
+  %.01620.i.i = phi i32 [ %181, %.lr.ph.i105.i ], [ 1, %.lr.ph.preheader.i104.i ]
+  %.01719.i.i = phi double [ %179, %.lr.ph.i105.i ], [ 0.000000e+00, %.lr.ph.preheader.i104.i ]
   %175 = sext i32 %.01620.i.i to i64
   %176 = getelementptr inbounds i64, ptr %167, i64 %175
   %177 = load i64, ptr %176, align 8
@@ -984,9 +980,9 @@ inet_mcv_hist_sel.exit100.i:                      ; preds = %.lr.ph.i95.i, %135
   %180 = add i32 %.021.i.i, 1
   %181 = add i32 %173, %.01620.i.i
   %182 = icmp slt i32 %181, %174
-  br i1 %182, label %.lr.ph.i102.i, label %._crit_edge.i.i, !llvm.loop !12
+  br i1 %182, label %.lr.ph.i105.i, label %._crit_edge.i.i, !llvm.loop !12
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i102.i
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i105.i
   %183 = sitofp i32 %180 to double
   %184 = fdiv double %179, %183
   br label %inet_hist_inclusion_join_sel.exit.i
@@ -998,14 +994,14 @@ inet_hist_inclusion_join_sel.exit.i:              ; preds = %._crit_edge.i.i, %1
 
 186:                                              ; preds = %inet_hist_inclusion_join_sel.exit.i, %155
   %.3.i = phi double [ %185, %inet_hist_inclusion_join_sel.exit.i ], [ %.2.i, %155 ]
-  %brmerge70.i = select i1 %.054.shrunk.i, i1 true, i1 %.052.shrunk.i
-  %brmerge71.i = select i1 %.053.shrunk.i, i1 true, i1 %.051.shrunk.i
-  %or.cond.i = select i1 %brmerge70.i, i1 %brmerge71.i, i1 false
-  br i1 %or.cond.i, label %networkjoinsel_inner.exit, label %187
+  %or.cond9.i = select i1 %.065.shrunk.i, i1 true, i1 %.063.shrunk.i
+  %or.cond11.i = select i1 %.064.shrunk.i, i1 true, i1 %.062.shrunk.i
+  %or.cond74.i = select i1 %or.cond9.i, i1 %or.cond11.i, i1 false
+  br i1 %or.cond74.i, label %networkjoinsel_inner.exit, label %187
 
 187:                                              ; preds = %186
-  %188 = fsub double 1.000000e+00, %.059.i
-  %189 = fsub double 1.000000e+00, %.058.i
+  %188 = fsub double 1.000000e+00, %.070.i
+  %189 = fsub double 1.000000e+00, %.069.i
   %190 = fmul double %188, %189
   %191 = icmp eq i32 %15, 3552
   %192 = select i1 %191, double 1.000000e-02, double 5.000000e-03
@@ -1112,11 +1108,11 @@ define internal fastcc double @networkjoinsel_semi(i32 noundef %0, ptr noundef n
 
 11:                                               ; preds = %3
   %12 = getelementptr i8, ptr %10, i64 16
-  %.val89 = load ptr, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %.val89, i64 22
+  %.val95 = load ptr, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %.val95, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i8, ptr %.val89, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %.val95, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load float, ptr %17, align 4
   %19 = fpext float %18 to double
@@ -1155,15 +1151,15 @@ define internal fastcc double @networkjoinsel_semi(i32 noundef %0, ptr noundef n
   br label %mcv_population.exit
 
 mcv_population.exit:                              ; preds = %.lr.ph.i, %26, %11, %34
-  %.077 = phi double [ 0.000000e+00, %11 ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %26 ], [ %33, %.lr.ph.i ]
-  %.075 = phi double [ %19, %11 ], [ 0.000000e+00, %34 ], [ %19, %26 ], [ %19, %.lr.ph.i ]
-  %.072.shrunk = phi i1 [ false, %11 ], [ false, %34 ], [ true, %26 ], [ true, %.lr.ph.i ]
-  %.070.shrunk = phi i1 [ %22, %11 ], [ false, %34 ], [ %22, %26 ], [ %22, %.lr.ph.i ]
-  %.065 = phi i32 [ %25, %11 ], [ 0, %34 ], [ %25, %26 ], [ %25, %.lr.ph.i ]
+  %.085 = phi double [ 0.000000e+00, %11 ], [ 0.000000e+00, %34 ], [ 0.000000e+00, %26 ], [ %33, %.lr.ph.i ]
+  %.083 = phi double [ %19, %11 ], [ 0.000000e+00, %34 ], [ %19, %26 ], [ %19, %.lr.ph.i ]
+  %.080.shrunk = phi i1 [ false, %11 ], [ false, %34 ], [ true, %26 ], [ true, %.lr.ph.i ]
+  %.078.shrunk = phi i1 [ %22, %11 ], [ false, %34 ], [ %22, %26 ], [ %22, %.lr.ph.i ]
+  %.073 = phi i32 [ %25, %11 ], [ 0, %34 ], [ %25, %26 ], [ %25, %.lr.ph.i ]
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = load ptr, ptr %35, align 8
-  %.not81 = icmp eq ptr %36, null
-  br i1 %.not81, label %60, label %37
+  %.not90 = icmp eq ptr %36, null
+  br i1 %.not90, label %60, label %37
 
 37:                                               ; preds = %mcv_population.exit
   %38 = getelementptr i8, ptr %36, i64 16
@@ -1181,40 +1177,40 @@ mcv_population.exit:                              ; preds = %.lr.ph.i, %26, %11,
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = call i32 @llvm.smin.i32(i32 %50, i32 1024)
-  br i1 %46, label %52, label %mcv_population.exit98
+  br i1 %46, label %52, label %mcv_population.exit104
 
 52:                                               ; preds = %37
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %54 = load ptr, ptr %53, align 8
   %55 = icmp sgt i32 %50, 0
-  br i1 %55, label %.lr.ph.preheader.i91, label %mcv_population.exit98
+  br i1 %55, label %.lr.ph.preheader.i97, label %mcv_population.exit104
 
-.lr.ph.preheader.i91:                             ; preds = %52
-  %wide.trip.count.i92 = zext nneg i32 %51 to i64
-  br label %.lr.ph.i93
+.lr.ph.preheader.i97:                             ; preds = %52
+  %wide.trip.count.i98 = zext nneg i32 %51 to i64
+  br label %.lr.ph.i99
 
-.lr.ph.i93:                                       ; preds = %.lr.ph.i93, %.lr.ph.preheader.i91
-  %indvars.iv.i94 = phi i64 [ 0, %.lr.ph.preheader.i91 ], [ %indvars.iv.next.i96, %.lr.ph.i93 ]
-  %.067.i95 = phi double [ 0.000000e+00, %.lr.ph.preheader.i91 ], [ %59, %.lr.ph.i93 ]
-  %56 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv.i94
+.lr.ph.i99:                                       ; preds = %.lr.ph.i99, %.lr.ph.preheader.i97
+  %indvars.iv.i100 = phi i64 [ 0, %.lr.ph.preheader.i97 ], [ %indvars.iv.next.i102, %.lr.ph.i99 ]
+  %.067.i101 = phi double [ 0.000000e+00, %.lr.ph.preheader.i97 ], [ %59, %.lr.ph.i99 ]
+  %56 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv.i100
   %57 = load float, ptr %56, align 4
   %58 = fpext float %57 to double
-  %59 = fadd double %.067.i95, %58
-  %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i94, 1
-  %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, %wide.trip.count.i92
-  br i1 %exitcond.not.i97, label %mcv_population.exit98, label %.lr.ph.i93, !llvm.loop !8
+  %59 = fadd double %.067.i101, %58
+  %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i100, 1
+  %exitcond.not.i103 = icmp eq i64 %indvars.iv.next.i102, %wide.trip.count.i98
+  br i1 %exitcond.not.i103, label %mcv_population.exit104, label %.lr.ph.i99, !llvm.loop !8
 
 60:                                               ; preds = %mcv_population.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
-  br label %mcv_population.exit98
+  br label %mcv_population.exit104
 
-mcv_population.exit98:                            ; preds = %.lr.ph.i93, %52, %37, %60
-  %.076 = phi double [ 0.000000e+00, %37 ], [ 0.000000e+00, %60 ], [ 0.000000e+00, %52 ], [ %59, %.lr.ph.i93 ]
-  %.074 = phi double [ %45, %37 ], [ 0.000000e+00, %60 ], [ %45, %52 ], [ %45, %.lr.ph.i93 ]
-  %.071.shrunk = phi i1 [ false, %37 ], [ false, %60 ], [ true, %52 ], [ true, %.lr.ph.i93 ]
-  %.069.shrunk = phi i1 [ %48, %37 ], [ false, %60 ], [ %48, %52 ], [ %48, %.lr.ph.i93 ]
-  %.064 = phi i32 [ %51, %37 ], [ 0, %60 ], [ %51, %52 ], [ %51, %.lr.ph.i93 ]
+mcv_population.exit104:                           ; preds = %.lr.ph.i99, %52, %37, %60
+  %.084 = phi double [ 0.000000e+00, %37 ], [ 0.000000e+00, %60 ], [ 0.000000e+00, %52 ], [ %59, %.lr.ph.i99 ]
+  %.082 = phi double [ %45, %37 ], [ 0.000000e+00, %60 ], [ %45, %52 ], [ %45, %.lr.ph.i99 ]
+  %.079.shrunk = phi i1 [ false, %37 ], [ false, %60 ], [ true, %52 ], [ true, %.lr.ph.i99 ]
+  %.077.shrunk = phi i1 [ %48, %37 ], [ false, %60 ], [ %48, %52 ], [ %48, %.lr.ph.i99 ]
+  %.072 = phi i32 [ %51, %37 ], [ 0, %60 ], [ %51, %52 ], [ %51, %.lr.ph.i99 ]
   switch i32 %0, label %65 [
     i32 933, label %inet_opr_codenum.exit
     i32 934, label %61
@@ -1223,52 +1219,52 @@ mcv_population.exit98:                            ; preds = %.lr.ph.i93, %52, %3
     i32 931, label %64
   ]
 
-61:                                               ; preds = %mcv_population.exit98
+61:                                               ; preds = %mcv_population.exit104
   br label %inet_opr_codenum.exit
 
-62:                                               ; preds = %mcv_population.exit98
+62:                                               ; preds = %mcv_population.exit104
   br label %inet_opr_codenum.exit
 
-63:                                               ; preds = %mcv_population.exit98
+63:                                               ; preds = %mcv_population.exit104
   br label %inet_opr_codenum.exit
 
-64:                                               ; preds = %mcv_population.exit98
+64:                                               ; preds = %mcv_population.exit104
   br label %inet_opr_codenum.exit
 
-65:                                               ; preds = %mcv_population.exit98
+65:                                               ; preds = %mcv_population.exit104
   %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %66)
   %67 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 852, ptr noundef nonnull @__func__.inet_opr_codenum) #9
   unreachable
 
-inet_opr_codenum.exit:                            ; preds = %mcv_population.exit98, %61, %62, %63, %64
-  %.0.i = phi i32 [ 2, %64 ], [ 1, %63 ], [ 0, %62 ], [ -1, %61 ], [ -2, %mcv_population.exit98 ]
+inet_opr_codenum.exit:                            ; preds = %mcv_population.exit104, %61, %62, %63, %64
+  %.0.i = phi i32 [ 2, %64 ], [ 1, %63 ], [ 0, %62 ], [ -1, %61 ], [ -2, %mcv_population.exit104 ]
   %68 = call i32 @get_opcode(i32 noundef %0) #9
   call void @fmgr_info(i32 noundef %68, ptr noundef nonnull %4) #9
-  br i1 %.069.shrunk, label %69, label %78
+  br i1 %.077.shrunk, label %69, label %78
 
 69:                                               ; preds = %inet_opr_codenum.exit
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %71 = load ptr, ptr %70, align 8
-  %.not82 = icmp eq ptr %71, null
-  br i1 %.not82, label %78, label %72
+  %.not91 = icmp eq ptr %71, null
+  br i1 %.not91, label %78, label %72
 
 72:                                               ; preds = %69
-  %73 = fsub double 1.000000e+00, %.074
-  %74 = fsub double %73, %.076
+  %73 = fsub double 1.000000e+00, %.082
+  %74 = fsub double %73, %.084
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %76 = load double, ptr %75, align 8
   %77 = fmul double %74, %76
   br label %78
 
 78:                                               ; preds = %72, %69, %inet_opr_codenum.exit
-  %.073 = phi double [ %77, %72 ], [ 0.000000e+00, %69 ], [ 0.000000e+00, %inet_opr_codenum.exit ]
-  %brmerge = select i1 %.071.shrunk, i1 true, i1 %.069.shrunk
-  %or.cond86 = select i1 %.072.shrunk, i1 %brmerge, i1 false
-  %79 = icmp sgt i32 %.065, 0
-  %or.cond126 = select i1 %or.cond86, i1 %79, i1 false
-  br i1 %or.cond126, label %.lr.ph, label %.loopexit
+  %.081 = phi double [ %77, %72 ], [ 0.000000e+00, %69 ], [ 0.000000e+00, %inet_opr_codenum.exit ]
+  %or.cond = select i1 %.079.shrunk, i1 true, i1 %.077.shrunk
+  %or.cond92 = select i1 %.080.shrunk, i1 %or.cond, i1 false
+  %79 = icmp sgt i32 %.073, 0
+  %or.cond132 = select i1 %or.cond92, i1 %79, i1 false
+  br i1 %or.cond132, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1276,18 +1272,18 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %85 = icmp sgt i32 %.064, 0
-  %or.cond33.i = and i1 %.071.shrunk, %85
-  %wide.trip.count.i100 = zext nneg i32 %.064 to i64
-  %86 = fcmp ogt double %.073, 0.000000e+00
-  %or.cond.i = and i1 %.069.shrunk, %86
+  %85 = icmp sgt i32 %.072, 0
+  %or.cond33.i = and i1 %.079.shrunk, %85
+  %wide.trip.count.i106 = zext nneg i32 %.072 to i64
+  %86 = fcmp ogt double %.081, 0.000000e+00
+  %or.cond.i = and i1 %.077.shrunk, %86
   %87 = sub nsw i32 0, %.0.i
-  %wide.trip.count = zext nneg i32 %.065 to i64
+  %wide.trip.count = zext nneg i32 %.073 to i64
   br label %88
 
 88:                                               ; preds = %.lr.ph, %inet_semi_join_sel.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %inet_semi_join_sel.exit ]
-  %.168118 = phi double [ 0.000000e+00, %.lr.ph ], [ %110, %inet_semi_join_sel.exit ]
+  %.176124 = phi double [ 0.000000e+00, %.lr.ph ], [ %110, %inet_semi_join_sel.exit ]
   %89 = load ptr, ptr %80, align 8
   %90 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
   %91 = load float, ptr %90, align 4
@@ -1298,16 +1294,16 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   %96 = load ptr, ptr %82, align 8
   %97 = load ptr, ptr %83, align 8
   %98 = load i32, ptr %84, align 8
-  br i1 %or.cond33.i, label %.lr.ph.i101, label %.thread.i
+  br i1 %or.cond33.i, label %.lr.ph.i107, label %.thread.i
 
-99:                                               ; preds = %.lr.ph.i101
-  %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
-  %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, %wide.trip.count.i100
-  br i1 %exitcond.not.i104, label %.thread.i, label %.lr.ph.i101, !llvm.loop !13
+99:                                               ; preds = %.lr.ph.i107
+  %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
+  %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, %wide.trip.count.i106
+  br i1 %exitcond.not.i110, label %.thread.i, label %.lr.ph.i107, !llvm.loop !13
 
-.lr.ph.i101:                                      ; preds = %88, %99
-  %indvars.iv.i102 = phi i64 [ %indvars.iv.next.i103, %99 ], [ 0, %88 ]
-  %100 = getelementptr inbounds nuw i64, ptr %96, i64 %indvars.iv.i102
+.lr.ph.i107:                                      ; preds = %88, %99
+  %indvars.iv.i108 = phi i64 [ %indvars.iv.next.i109, %99 ], [ 0, %88 ]
+  %100 = getelementptr inbounds nuw i64, ptr %96, i64 %indvars.iv.i108
   %101 = load i64, ptr %100, align 8
   %102 = call i64 @FunctionCall2Coll(ptr noundef nonnull %4, i32 noundef 0, i64 noundef %95, i64 noundef %101) #9
   %.not.i = icmp eq i64 %102, 0
@@ -1322,28 +1318,28 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   br i1 %105, label %106, label %inet_semi_join_sel.exit
 
 106:                                              ; preds = %103
-  %107 = fmul double %.073, %104
+  %107 = fmul double %.081, %104
   %108 = fcmp ogt double %107, 1.000000e+00
   %109 = select i1 %108, double 1.000000e+00, double %107
   br label %inet_semi_join_sel.exit
 
-inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i101, %.thread.i, %103, %106
-  %.2.i = phi double [ %109, %106 ], [ 0.000000e+00, %.thread.i ], [ 0.000000e+00, %103 ], [ 1.000000e+00, %.lr.ph.i101 ]
-  %110 = call double @llvm.fmuladd.f64(double %92, double %.2.i, double %.168118)
+inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i107, %.thread.i, %103, %106
+  %.2.i = phi double [ %109, %106 ], [ 0.000000e+00, %.thread.i ], [ 0.000000e+00, %103 ], [ 1.000000e+00, %.lr.ph.i107 ]
+  %110 = call double @llvm.fmuladd.f64(double %92, double %.2.i, double %.176124)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %88, !llvm.loop !14
 
 .loopexit:                                        ; preds = %inet_semi_join_sel.exit, %78
-  %.067 = phi double [ 0.000000e+00, %78 ], [ %110, %inet_semi_join_sel.exit ]
+  %.075 = phi double [ 0.000000e+00, %78 ], [ %110, %inet_semi_join_sel.exit ]
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %112 = load i32, ptr %111, align 8
   %113 = icmp sgt i32 %112, 2
-  %or.cond = select i1 %.070.shrunk, i1 %113, i1 false
-  %or.cond87 = select i1 %or.cond, i1 %brmerge, i1 false
-  br i1 %or.cond87, label %.lr.ph123, label %155
+  %or.cond4 = select i1 %.078.shrunk, i1 %113, i1 false
+  %or.cond93 = select i1 %or.cond4, i1 %or.cond, i1 false
+  br i1 %or.cond93, label %.lr.ph129, label %155
 
-.lr.ph123:                                        ; preds = %.loopexit
+.lr.ph129:                                        ; preds = %.loopexit
   %114 = add nsw i32 %112, -3
   %115 = lshr i32 %114, 10
   %116 = add nuw nsw i32 %115, 1
@@ -1351,82 +1347,82 @@ inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i101, %.thre
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %119 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %121 = icmp sgt i32 %.064, 0
-  %or.cond33.i105 = and i1 %.071.shrunk, %121
-  %wide.trip.count.i110 = zext nneg i32 %.064 to i64
-  %122 = fcmp ogt double %.073, 0.000000e+00
-  %or.cond.i107 = and i1 %.069.shrunk, %122
+  %121 = icmp sgt i32 %.072, 0
+  %or.cond33.i111 = and i1 %.079.shrunk, %121
+  %wide.trip.count.i116 = zext nneg i32 %.072 to i64
+  %122 = fcmp ogt double %.081, 0.000000e+00
+  %or.cond.i113 = and i1 %.077.shrunk, %122
   %123 = sub nsw i32 0, %.0.i
   br label %124
 
-124:                                              ; preds = %.lr.ph123, %inet_semi_join_sel.exit116
-  %.0122 = phi i32 [ 0, %.lr.ph123 ], [ %144, %inet_semi_join_sel.exit116 ]
-  %.063121 = phi double [ 0.000000e+00, %.lr.ph123 ], [ %143, %inet_semi_join_sel.exit116 ]
-  %.1120 = phi i32 [ 1, %.lr.ph123 ], [ %145, %inet_semi_join_sel.exit116 ]
+124:                                              ; preds = %.lr.ph129, %inet_semi_join_sel.exit122
+  %.0128 = phi i32 [ 0, %.lr.ph129 ], [ %144, %inet_semi_join_sel.exit122 ]
+  %.071127 = phi double [ 0.000000e+00, %.lr.ph129 ], [ %143, %inet_semi_join_sel.exit122 ]
+  %.1126 = phi i32 [ 1, %.lr.ph129 ], [ %145, %inet_semi_join_sel.exit122 ]
   %125 = load ptr, ptr %117, align 8
-  %126 = sext i32 %.1120 to i64
+  %126 = sext i32 %.1126 to i64
   %127 = getelementptr inbounds i64, ptr %125, i64 %126
   %128 = load i64, ptr %127, align 8
   %129 = load ptr, ptr %118, align 8
   %130 = load ptr, ptr %119, align 8
   %131 = load i32, ptr %120, align 8
-  br i1 %or.cond33.i105, label %.lr.ph.i111, label %.thread.i106
+  br i1 %or.cond33.i111, label %.lr.ph.i117, label %.thread.i112
 
-132:                                              ; preds = %.lr.ph.i111
-  %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i112, 1
-  %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, %wide.trip.count.i110
-  br i1 %exitcond.not.i115, label %.thread.i106, label %.lr.ph.i111, !llvm.loop !13
+132:                                              ; preds = %.lr.ph.i117
+  %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i118, 1
+  %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i116
+  br i1 %exitcond.not.i121, label %.thread.i112, label %.lr.ph.i117, !llvm.loop !13
 
-.lr.ph.i111:                                      ; preds = %124, %132
-  %indvars.iv.i112 = phi i64 [ %indvars.iv.next.i114, %132 ], [ 0, %124 ]
-  %133 = getelementptr inbounds nuw i64, ptr %129, i64 %indvars.iv.i112
+.lr.ph.i117:                                      ; preds = %124, %132
+  %indvars.iv.i118 = phi i64 [ %indvars.iv.next.i120, %132 ], [ 0, %124 ]
+  %133 = getelementptr inbounds nuw i64, ptr %129, i64 %indvars.iv.i118
   %134 = load i64, ptr %133, align 8
   %135 = call i64 @FunctionCall2Coll(ptr noundef nonnull %4, i32 noundef 0, i64 noundef %128, i64 noundef %134) #9
-  %.not.i113 = icmp eq i64 %135, 0
-  br i1 %.not.i113, label %132, label %inet_semi_join_sel.exit116
+  %.not.i119 = icmp eq i64 %135, 0
+  br i1 %.not.i119, label %132, label %inet_semi_join_sel.exit122
 
-.thread.i106:                                     ; preds = %132, %124
-  br i1 %or.cond.i107, label %136, label %inet_semi_join_sel.exit116
+.thread.i112:                                     ; preds = %132, %124
+  br i1 %or.cond.i113, label %136, label %inet_semi_join_sel.exit122
 
-136:                                              ; preds = %.thread.i106
+136:                                              ; preds = %.thread.i112
   %137 = call fastcc double @inet_hist_value_sel(ptr noundef readonly %130, i32 noundef %131, i64 noundef %128, i32 noundef %123)
   %138 = fcmp ogt double %137, 0.000000e+00
-  br i1 %138, label %139, label %inet_semi_join_sel.exit116
+  br i1 %138, label %139, label %inet_semi_join_sel.exit122
 
 139:                                              ; preds = %136
-  %140 = fmul double %.073, %137
+  %140 = fmul double %.081, %137
   %141 = fcmp ogt double %140, 1.000000e+00
   %142 = select i1 %141, double 1.000000e+00, double %140
-  br label %inet_semi_join_sel.exit116
+  br label %inet_semi_join_sel.exit122
 
-inet_semi_join_sel.exit116:                       ; preds = %.lr.ph.i111, %.thread.i106, %136, %139
-  %.2.i108 = phi double [ %142, %139 ], [ 0.000000e+00, %.thread.i106 ], [ 0.000000e+00, %136 ], [ 1.000000e+00, %.lr.ph.i111 ]
-  %143 = fadd double %.063121, %.2.i108
-  %144 = add i32 %.0122, 1
-  %145 = add i32 %116, %.1120
+inet_semi_join_sel.exit122:                       ; preds = %.lr.ph.i117, %.thread.i112, %136, %139
+  %.2.i114 = phi double [ %142, %139 ], [ 0.000000e+00, %.thread.i112 ], [ 0.000000e+00, %136 ], [ 1.000000e+00, %.lr.ph.i117 ]
+  %143 = fadd double %.071127, %.2.i114
+  %144 = add i32 %.0128, 1
+  %145 = add i32 %116, %.1126
   %146 = load i32, ptr %111, align 8
   %147 = add i32 %146, -1
   %148 = icmp slt i32 %145, %147
   br i1 %148, label %124, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %inet_semi_join_sel.exit116
+._crit_edge:                                      ; preds = %inet_semi_join_sel.exit122
   %149 = sitofp i32 %144 to double
-  %150 = fsub double 1.000000e+00, %.075
-  %151 = fsub double %150, %.077
+  %150 = fsub double 1.000000e+00, %.083
+  %151 = fsub double %150, %.085
   %152 = fmul double %151, %143
   %153 = fdiv double %152, %149
-  %154 = fadd double %.067, %153
+  %154 = fadd double %.075, %153
   br label %155
 
 155:                                              ; preds = %._crit_edge, %.loopexit
-  %.2 = phi double [ %154, %._crit_edge ], [ %.067, %.loopexit ]
-  %brmerge84 = select i1 %.072.shrunk, i1 true, i1 %.070.shrunk
-  %or.cond88 = select i1 %brmerge84, i1 %brmerge, i1 false
-  br i1 %or.cond88, label %163, label %156
+  %.2 = phi double [ %154, %._crit_edge ], [ %.075, %.loopexit ]
+  %or.cond8 = select i1 %.080.shrunk, i1 true, i1 %.078.shrunk
+  %or.cond94 = select i1 %or.cond8, i1 %or.cond, i1 false
+  br i1 %or.cond94, label %163, label %156
 
 156:                                              ; preds = %155
-  %157 = fsub double 1.000000e+00, %.075
-  %158 = fsub double 1.000000e+00, %.074
+  %157 = fsub double 1.000000e+00, %.083
+  %158 = fsub double 1.000000e+00, %.082
   %159 = fmul double %157, %158
   %160 = icmp eq i32 %0, 3552
   %161 = select i1 %160, double 1.000000e-02, double 5.000000e-03

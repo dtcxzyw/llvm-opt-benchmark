@@ -4054,10 +4054,10 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noun
   %trunc.i = trunc nuw i64 %12 to i1
   br i1 %trunc.i, label %18, label %15
 
-.thread44:                                        ; preds = %18, %25
+.thread45:                                        ; preds = %18, %25
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.thread36
+  br label %.thread37
 
 15:                                               ; preds = %2
   %16 = load i64, ptr %13, align 8, !range !103, !noundef !4
@@ -4075,7 +4075,7 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noun
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   invoke void @_ZN3std4path4Path11to_path_buf17h244d289ac0030e02E(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %19)
-          to label %29 unwind label %.thread44
+          to label %29 unwind label %.thread45
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr %14, align 8, !alias.scope !574, !nonnull !4, !noundef !4
@@ -4083,7 +4083,7 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noun
   %28 = load i64, ptr %27, align 8, !alias.scope !574, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   invoke void @_ZN3std4path4Path11to_path_buf17h244d289ac0030e02E(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %28)
-          to label %52 unwind label %.thread44
+          to label %52 unwind label %.thread45
 
 29:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
@@ -4094,7 +4094,7 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noun
   %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd75aa06507621107E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #31
-          to label %.thread36 unwind label %47
+          to label %.thread37 unwind label %47
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4120,7 +4120,7 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noun
   %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr34drop_in_place$LT$ignore..Error$GT$17hd529253980965e42E.llvm.8988879509220902597"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9) #31
-          to label %.thread36 unwind label %41
+          to label %.thread37 unwind label %41
 
 41:                                               ; preds = %39
   %42 = landingpad { ptr, i32 }
@@ -4142,7 +4142,7 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noun
 46:                                               ; preds = %69, %43
   ret void
 
-47:                                               ; preds = %.thread36, %70, %.body, %30
+47:                                               ; preds = %.thread37, %70, %.body, %30
   %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #30
@@ -4167,8 +4167,8 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noun
   %54 = landingpad { ptr, i32 }
           cleanup
   %55 = load i64, ptr %6, align 8, !range !103, !noundef !4
-  %.not16 = icmp eq i64 %55, -9223372036854775808
-  br i1 %.not16, label %.thread, label %70
+  %.not = icmp eq i64 %55, -9223372036854775808
+  br i1 %.not, label %.thread, label %70
 
 56:                                               ; preds = %50
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
@@ -4176,8 +4176,8 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noun
   store ptr %51, ptr %57, align 8
   store i64 5, ptr %0, align 8
   %58 = load i64, ptr %6, align 8, !range !103, !noundef !4
-  %.not14 = icmp eq i64 %58, -9223372036854775808
-  br i1 %.not14, label %69, label %59
+  %.not17 = icmp eq i64 %58, -9223372036854775808
+  br i1 %.not17, label %69, label %59
 
 59:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -4185,13 +4185,13 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noun
   %60 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !580
   %61 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #28, !noalias !580
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %.thread67
+  br i1 %62, label %63, label %.thread66
 
 63:                                               ; preds = %59
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef 56) #29
-          to label %.noexc29 unwind label %64
+          to label %.noexc30 unwind label %64
 
-.noexc29:                                         ; preds = %63
+.noexc30:                                         ; preds = %63
   unreachable
 
 64:                                               ; preds = %63
@@ -4210,7 +4210,7 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noun
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd75aa06507621107E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #31
           to label %.thread unwind label %47
 
-.thread67:                                        ; preds = %59
+.thread66:                                        ; preds = %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %61, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -4219,7 +4219,7 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noun
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %69
 
-69:                                               ; preds = %56, %.thread67
+69:                                               ; preds = %56, %.thread66
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %46
 
@@ -4227,12 +4227,12 @@ define void @_ZN6ignore5Error12from_walkdir17heb766308743941c3E(ptr noalias noun
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hd75aa06507621107E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #31
           to label %.thread unwind label %47
 
-.thread:                                          ; preds = %.thread36, %.body, %53, %70
-  %.pn1835 = phi { ptr, i32 } [ %54, %70 ], [ %54, %53 ], [ %65, %.body ], [ %.pn1839, %.thread36 ]
-  resume { ptr, i32 } %.pn1835
+.thread:                                          ; preds = %.thread37, %.body, %53, %70
+  %.pn1936 = phi { ptr, i32 } [ %54, %70 ], [ %54, %53 ], [ %65, %.body ], [ %.pn1940, %.thread37 ]
+  resume { ptr, i32 } %.pn1936
 
-.thread36:                                        ; preds = %39, %30, %.thread44
-  %.pn1839 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread44 ], [ %31, %30 ], [ %40, %39 ]
+.thread37:                                        ; preds = %39, %30, %.thread45
+  %.pn1940 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread45 ], [ %31, %30 ], [ %40, %39 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$walkdir..error..ErrorInner$GT$17h505ea627a79c6a99E.llvm.12875954175451687458"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
           to label %.thread unwind label %47
 }

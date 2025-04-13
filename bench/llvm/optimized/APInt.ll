@@ -6227,8 +6227,8 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %17, %.thread.i.i.i
   %45 = getelementptr inbounds nuw i64, ptr %9, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !8
   %47 = and i64 %46, %42
-  %.not69 = icmp eq i64 %47, 0
-  br i1 %.not69, label %.thread, label %48
+  %.not = icmp eq i64 %47, 0
+  br i1 %.not, label %.thread, label %48
 
 48:                                               ; preds = %38
   %49 = lshr i64 %7, 3
@@ -6319,8 +6319,8 @@ _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i.i39: ; preds = %81, %.thread
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i.i39
-  %brmerge.demorgan = and i1 %1, %73
-  br i1 %brmerge.demorgan, label %88, label %121
+  %or.cond = and i1 %1, %73
+  br i1 %or.cond, label %88, label %121
 
 88:                                               ; preds = %87
   br label %121
@@ -6361,11 +6361,11 @@ _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv.exit.i.i39: ; preds = %81, %.thread
   br label %115
 
 115:                                              ; preds = %93, %96, %100
-  %.027 = phi i64 [ %99, %96 ], [ %94, %93 ], [ %114, %100 ]
+  %.028 = phi i64 [ %99, %96 ], [ %94, %93 ], [ %114, %100 ]
   %116 = select i1 %73, i64 -9223372036854775808, i64 0
   %117 = shl nuw nsw i64 %90, 52
   %118 = or disjoint i64 %117, %116
-  %119 = or i64 %.027, %118
+  %119 = or i64 %.028, %118
   %120 = bitcast i64 %119 to double
   br label %121
 

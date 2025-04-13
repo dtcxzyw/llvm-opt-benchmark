@@ -3476,15 +3476,13 @@ define internal fastcc void @dissect_dcbx_tlv(ptr noundef %0, ptr noundef %1) un
   %11 = and i16 %9, 511
   %switch.tableidx = add nsw i16 %10, -1
   %12 = icmp ult i16 %switch.tableidx, 6
-  br i1 %12, label %switch.hole_check, label %19
-
-switch.hole_check:                                ; preds = %.lr.ph8
-  %switch.maskindex = trunc nuw nsw i16 %switch.tableidx to i8
+  %switch.maskindex = trunc nsw i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 47, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %19
+  %or.cond = select i1 %12, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %19
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.lr.ph8
   %13 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dissect_dcbx_tlv, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -3498,8 +3496,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %18 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.02006, i32 noundef %15, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.1214, ptr noundef %17)
   br label %19
 
-19:                                               ; preds = %switch.hole_check, %.lr.ph8, %switch.lookup
-  %.1 = phi ptr [ %.07, %.lr.ph8 ], [ %18, %switch.lookup ], [ %.07, %switch.hole_check ]
+19:                                               ; preds = %.lr.ph8, %switch.lookup
+  %.1 = phi ptr [ %.07, %.lr.ph8 ], [ %18, %switch.lookup ]
   %20 = load i32, ptr @hf_dcbx_tlv_type, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %.1, i32 noundef %20, ptr noundef %0, i32 noundef %.02006, i32 noundef 2, i32 noundef 0)
   %22 = load i32, ptr @hf_dcbx_tlv_len, align 4

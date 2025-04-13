@@ -125,23 +125,21 @@ define hidden noundef zeroext i1 @_ZN7XThread13has_worker_idEv() local_unnamed_a
   %1 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7XThread12_initializedE)
   %2 = load i8, ptr %1, align 1
   %3 = trunc i8 %2 to i1
-  br i1 %3, label %4, label %12
+  %4 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7XThread10_is_workerE)
+  %5 = load i8, ptr %4, align 1
+  %6 = trunc i8 %5 to i1
+  %or.cond = select i1 %3, i1 %6, i1 false
+  br i1 %or.cond, label %7, label %11
 
-4:                                                ; preds = %0
-  %5 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7XThread10_is_workerE)
-  %6 = load i8, ptr %5, align 1
-  %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %12
+7:                                                ; preds = %0
+  %8 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN7XThread10_worker_idE)
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp ne i32 %9, -1
+  br label %11
 
-8:                                                ; preds = %4
-  %9 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN7XThread10_worker_idE)
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp ne i32 %10, -1
-  br label %12
-
-12:                                               ; preds = %8, %4, %0
-  %13 = phi i1 [ false, %4 ], [ false, %0 ], [ %11, %8 ]
-  ret i1 %13
+11:                                               ; preds = %7, %0
+  %12 = phi i1 [ false, %0 ], [ %10, %7 ]
+  ret i1 %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

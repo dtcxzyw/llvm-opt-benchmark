@@ -11935,23 +11935,23 @@ define dso_local noundef ptr @_ZN5clang4ento16MemRegionManager22getCXXBaseObject
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !19
   %7 = icmp eq i32 %6, 15
-  %or.cond.not = and i1 %3, %7
-  br i1 %or.cond.not, label %.lr.ph, label %.thread
+  %or.cond18.not = and i1 %3, %7
+  br i1 %or.cond18.not, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.119 = phi ptr [ %9, %.lr.ph ], [ %2, %4 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.119, i64 48
+  %.117 = phi ptr [ %9, %.lr.ph ], [ %2, %4 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.117, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %12 = icmp ne i32 %11, 15
-  %.not16 = icmp eq ptr %9, null
-  %.not = or i1 %.not16, %12
+  %.not14 = icmp eq ptr %9, null
+  %.not = or i1 %.not14, %12
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %.lr.ph, %4
-  %.011 = phi ptr [ %2, %4 ], [ %9, %.lr.ph ]
-  %13 = tail call noundef ptr @_ZN5clang4ento16MemRegionManager12getSubRegionINS0_19CXXBaseObjectRegionENS0_9SubRegionEPKNS_13CXXRecordDeclEbEEPT_T1_T2_PKT0_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, i1 noundef zeroext %3, ptr noundef nonnull %.011)
+  %.010 = phi ptr [ %2, %4 ], [ %9, %.lr.ph ]
+  %13 = tail call noundef ptr @_ZN5clang4ento16MemRegionManager12getSubRegionINS0_19CXXBaseObjectRegionENS0_9SubRegionEPKNS_13CXXRecordDeclEbEEPT_T1_T2_PKT0_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, i1 noundef zeroext %3, ptr noundef nonnull %.010)
   ret ptr %13
 }
 

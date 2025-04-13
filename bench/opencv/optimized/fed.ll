@@ -321,9 +321,13 @@ define hidden noundef zeroext i1 @_Z21fed_is_prime_internalRKi(ptr noundef nonnu
 4:                                                ; preds = %1
   %switch.tableidx = add nsw i32 %2, -2
   %5 = icmp ult i32 %switch.tableidx, 6
-  br i1 %5, label %switch.hole_check, label %6
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 43, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond28 = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond28, label %.loopexit, label %6
 
-6:                                                ; preds = %switch.hole_check, %4
+6:                                                ; preds = %4
   %7 = and i32 %2, 1
   %8 = icmp eq i32 %7, 0
   %9 = urem i32 %2, 3
@@ -355,14 +359,8 @@ define hidden noundef zeroext i1 @_Z21fed_is_prime_internalRKi(ptr noundef nonnu
   %.not = icmp sgt i32 %21, %18
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 43, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %.loopexit, label %6
-
-.loopexit:                                        ; preds = %.lr.ph, %switch.hole_check, %15, %6, %1
-  %.017 = phi i1 [ false, %1 ], [ false, %6 ], [ true, %15 ], [ true, %switch.hole_check ], [ %spec.select, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %4, %15, %6, %1
+  %.017 = phi i1 [ false, %1 ], [ false, %6 ], [ true, %15 ], [ true, %4 ], [ %spec.select, %.lr.ph ]
   ret i1 %.017
 }
 

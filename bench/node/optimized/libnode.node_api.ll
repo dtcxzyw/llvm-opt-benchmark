@@ -655,15 +655,13 @@ entry:
   %finalization_scheduled = getelementptr inbounds nuw i8, ptr %this, i64 225
   %0 = load i8, ptr %finalization_scheduled, align 1
   %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
   %destructing = getelementptr inbounds nuw i8, ptr %this, i64 224
   %1 = load i8, ptr %destructing, align 8
   %tobool2 = trunc i8 %1 to i1
-  br i1 %tobool2, label %if.end, label %if.then
+  %or.cond = select i1 %tobool, i1 true, i1 %tobool2
+  br i1 %or.cond, label %if.end, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %entry
   store i8 1, ptr %finalization_scheduled, align 1
   %refs.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %2 = load i32, ptr %refs.i, align 8
@@ -763,7 +761,7 @@ if.then4.i:                                       ; preds = %_ZNSt10unique_ptrIN
   store i32 %add.i.i.i, ptr %arrayidx.i.i.i5.i, align 4
   br label %if.end
 
-if.end:                                           ; preds = %"_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit", %land.lhs.true, %entry
+if.end:                                           ; preds = %"_ZN4node11Environment12SetImmediateIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EEvOT_NS_13CallbackFlags5FlagsE.exit", %entry
   ret void
 }
 
@@ -1601,19 +1599,17 @@ do.end:                                           ; preds = %entry
   %module_api_version.i = getelementptr inbounds nuw i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i13 = icmp eq i32 %0, 2147483647
-  br i1 %cmp.i13, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
-
-land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds nuw i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
+  %or.cond.i = select i1 %cmp.i13, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %do.end
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.38) #25
   unreachable
 
-_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
+_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end
   %last_exception = getelementptr inbounds nuw i8, ptr %env, i64 24
   %2 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %2, null
@@ -1924,19 +1920,17 @@ do.end:                                           ; preds = %entry
   %module_api_version.i = getelementptr inbounds nuw i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
-
-land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds nuw i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
+  %or.cond.i = select i1 %cmp.i, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %do.end
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.38) #25
   unreachable
 
-_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
+_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end
   %cmp4.not = icmp eq ptr %async_resource_name, null
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
@@ -2168,19 +2162,17 @@ do.end:                                           ; preds = %entry
   %module_api_version.i = getelementptr inbounds nuw i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
-
-land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds nuw i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
+  %or.cond.i = select i1 %cmp.i, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %do.end
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.38) #25
   unreachable
 
-_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
+_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end
   %cmp4.not = icmp eq ptr %async_context, null
   br i1 %cmp4.not, label %if.then5, label %delete.notnull
 
@@ -2273,19 +2265,17 @@ do.end:                                           ; preds = %entry
   %module_api_version.i = getelementptr inbounds nuw i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i31 = icmp eq i32 %0, 2147483647
-  br i1 %cmp.i31, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
-
-land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds nuw i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
+  %or.cond.i = select i1 %cmp.i31, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %do.end
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.38) #25
   unreachable
 
-_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
+_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end
   %last_exception = getelementptr inbounds nuw i8, ptr %env, i64 24
   %2 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %2, null
@@ -2536,19 +2526,17 @@ do.end:                                           ; preds = %entry
   %module_api_version.i = getelementptr inbounds nuw i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i16 = icmp eq i32 %0, 2147483647
-  br i1 %cmp.i16, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
-
-land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds nuw i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
+  %or.cond.i = select i1 %cmp.i16, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %do.end
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.38) #25
   unreachable
 
-_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
+_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end
   %last_exception = getelementptr inbounds nuw i8, ptr %env, i64 24
   %2 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %2, null
@@ -2676,19 +2664,17 @@ do.end:                                           ; preds = %entry
   %module_api_version.i = getelementptr inbounds nuw i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i16 = icmp eq i32 %0, 2147483647
-  br i1 %cmp.i16, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
-
-land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds nuw i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
+  %or.cond.i = select i1 %cmp.i16, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %do.end
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.38) #25
   unreachable
 
-_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
+_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end
   %last_exception = getelementptr inbounds nuw i8, ptr %env, i64 24
   %2 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %2, null
@@ -2848,19 +2834,17 @@ do.end:                                           ; preds = %entry
   %module_api_version.i = getelementptr inbounds nuw i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i16 = icmp eq i32 %0, 2147483647
-  br i1 %cmp.i16, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
-
-land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds nuw i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
+  %or.cond.i = select i1 %cmp.i16, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %do.end
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.38) #25
   unreachable
 
-_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
+_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end
   %last_exception = getelementptr inbounds nuw i8, ptr %env, i64 24
   %2 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %2, null
@@ -2985,19 +2969,17 @@ do.end:                                           ; preds = %entry
   %module_api_version.i = getelementptr inbounds nuw i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
-
-land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds nuw i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
+  %or.cond.i = select i1 %cmp.i, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %do.end
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.38) #25
   unreachable
 
-_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
+_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end
   %cmp4.not = icmp eq ptr %value, null
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
@@ -3048,19 +3030,17 @@ do.end:                                           ; preds = %entry
   %module_api_version.i = getelementptr inbounds nuw i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
-
-land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds nuw i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
+  %or.cond.i = select i1 %cmp.i, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %do.end
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.38) #25
   unreachable
 
-_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
+_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end
   %cmp4.not = icmp eq ptr %value, null
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
@@ -3146,19 +3126,17 @@ do.end:                                           ; preds = %entry
   %module_api_version.i = getelementptr inbounds nuw i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
-
-land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds nuw i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
+  %or.cond.i = select i1 %cmp.i, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %do.end
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.38) #25
   unreachable
 
-_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
+_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end
   %cmp4.not = icmp eq ptr %execute, null
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
@@ -3328,19 +3306,17 @@ do.end:                                           ; preds = %entry
   %module_api_version.i = getelementptr inbounds nuw i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
-
-land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds nuw i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
+  %or.cond.i = select i1 %cmp.i, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %do.end
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.38) #25
   unreachable
 
-_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
+_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end
   %cmp4.not = icmp eq ptr %work, null
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
@@ -3638,25 +3614,23 @@ do.end:                                           ; preds = %entry
   %module_api_version.i = getelementptr inbounds nuw i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
-  br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
-
-land.lhs.true.i:                                  ; preds = %do.end
   %in_gc_finalizer.i = getelementptr inbounds nuw i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %tobool.i = trunc i8 %1 to i1
-  br i1 %tobool.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
+  %or.cond.i = select i1 %cmp.i, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %if.then.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %do.end
   tail call void @_ZN6v8impl12OnFatalErrorEPKcS1_(ptr noundef null, ptr noundef nonnull @.str.38) #25
   unreachable
 
-_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
+_ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end
   %cmp4.not = icmp eq ptr %async_resource_name, null
   %cmp9.not = icmp eq i64 %initial_thread_count, 0
   %or.cond = or i1 %cmp4.not, %cmp9.not
   %cmp15.not = icmp eq ptr %result, null
-  %or.cond61 = or i1 %or.cond, %cmp15.not
-  br i1 %or.cond61, label %return.sink.split, label %do.end19
+  %or.cond62 = or i1 %or.cond, %cmp15.not
+  br i1 %or.cond62, label %return.sink.split, label %do.end19
 
 do.end19:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %cmp20 = icmp eq ptr %func, null
@@ -3845,8 +3819,8 @@ if.end.i:                                         ; preds = %_ZSt11make_uniqueIN
   %26 = icmp ne ptr %.pre.i54, null
   %.pr.i = load i64, ptr %max_queue_size.i, align 8
   %cmp8.i = icmp eq i64 %.pr.i, 0
-  %or.cond.i = select i1 %cmp8.i, i1 true, i1 %26
-  br i1 %or.cond.i, label %if.then150, label %if.end12.i
+  %or.cond.i55 = select i1 %cmp8.i, i1 true, i1 %26
+  br i1 %or.cond.i55, label %if.then150, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
   %27 = load ptr, ptr %env.i, align 8
@@ -3882,8 +3856,8 @@ if.end16.thread.i:                                ; preds = %if.end.i.i12.i, %_Z
   %retval.0.i.i11.i = phi ptr [ %35, %if.end.i.i12.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i7.i ], [ null, %if.end12.i ], [ null, %if.end.i.i.i4.i ]
   %handle_cleanup_waiting_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i11.i, i64 2232
   %36 = load i32, ptr %handle_cleanup_waiting_.i.i, align 8
-  %inc.i.i55 = add nsw i32 %36, 1
-  store i32 %inc.i.i55, ptr %handle_cleanup_waiting_.i.i, align 8
+  %inc.i.i56 = add nsw i32 %36, 1
+  store i32 %inc.i.i56, ptr %handle_cleanup_waiting_.i.i, align 8
   %call.i15.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store ptr %retval.0.i.i11.i, ptr %call.i15.i, align 16
   %original_data.i.i = getelementptr inbounds nuw i8, ptr %call.i15.i, i64 16
@@ -3906,12 +3880,12 @@ if.then150:                                       ; preds = %if.end.i, %if.then.
 
 return.sink.split:                                ; preds = %if.then150, %if.end16.thread.i, %delete.notnull.i, %do.end103, %do.end69, %do.end34, %do.body22, %_ZN10napi_env__13CheckGCAccessEv.exit
   %status.0.sink = phi i32 [ 1, %_ZN10napi_env__13CheckGCAccessEv.exit ], [ 1, %do.body22 ], [ 1, %do.end34 ], [ 2, %do.end69 ], [ 3, %do.end103 ], [ 0, %if.then150 ], [ 9, %delete.notnull.i ], [ 9, %if.end16.thread.i ]
-  %error_code1.i56 = getelementptr inbounds nuw i8, ptr %env, i64 156
-  store i32 %status.0.sink, ptr %error_code1.i56, align 4
-  %engine_error_code3.i57 = getelementptr inbounds nuw i8, ptr %env, i64 152
-  store i32 0, ptr %engine_error_code3.i57, align 8
-  %engine_reserved5.i58 = getelementptr inbounds nuw i8, ptr %env, i64 144
-  store ptr null, ptr %engine_reserved5.i58, align 8
+  %error_code1.i57 = getelementptr inbounds nuw i8, ptr %env, i64 156
+  store i32 %status.0.sink, ptr %error_code1.i57, align 4
+  %engine_error_code3.i58 = getelementptr inbounds nuw i8, ptr %env, i64 152
+  store i32 0, ptr %engine_error_code3.i58, align 8
+  %engine_reserved5.i59 = getelementptr inbounds nuw i8, ptr %env, i64 144
+  store ptr null, ptr %engine_reserved5.i59, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
@@ -4002,83 +3976,78 @@ while.cond.us.i:                                  ; preds = %do.end4
   %add12.i.i.i.us.i = add nsw i64 %add.i.i.i.us.i, %sub.ptr.div11.i.i.i.us.i
   %6 = load i64, ptr %max_queue_size.i, align 8
   %7 = add i64 %6, -1
-  %or.cond.not.us.i = icmp ult i64 %7, %add12.i.i.i.us.i
-  %.pre7.i = load i8, ptr %is_closing.i, align 8
-  br i1 %or.cond.not.us.i, label %land.rhs.us.i, label %while.end.i
-
-land.rhs.us.i:                                    ; preds = %while.cond.us.i
-  %tobool.us.i = trunc i8 %.pre7.i to i1
-  br i1 %tobool.us.i, label %while.end.i, label %_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4PushEPv34napi_threadsafe_function_call_mode.exit
+  %or.cond.us.i = icmp uge i64 %7, %add12.i.i.i.us.i
+  %8 = load i8, ptr %is_closing.i, align 8
+  %tobool.us.i = trunc i8 %8 to i1
+  %or.cond2.us.i = select i1 %or.cond.us.i, i1 true, i1 %tobool.us.i
+  br i1 %or.cond2.us.i, label %while.end.i, label %_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4PushEPv34napi_threadsafe_function_call_mode.exit
 
 while.cond.i:                                     ; preds = %do.end4, %while.body.i
-  %8 = load ptr, ptr %_M_node.i.i.i.i, align 8
-  %9 = load ptr, ptr %_M_node1.i.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %8 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %9 to i64
+  %9 = load ptr, ptr %_M_node.i.i.i.i, align 8
+  %10 = load ptr, ptr %_M_node1.i.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
-  %tobool.i.i.i.i = icmp ne ptr %8, null
+  %tobool.i.i.i.i = icmp ne ptr %9, null
   %conv.neg.i.i.i.i = sext i1 %tobool.i.i.i.i to i64
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
   %mul.i.i.i.i = shl nsw i64 %sub.i.i.i.i, 6
-  %10 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %11 = load ptr, ptr %_M_first.i.i.i.i, align 8
-  %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %11 to i64
+  %11 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %12 = load ptr, ptr %_M_first.i.i.i.i, align 8
+  %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
   %sub.ptr.div6.i.i.i.i = ashr exact i64 %sub.ptr.sub5.i.i.i.i, 3
   %add.i.i.i.i = add nsw i64 %mul.i.i.i.i, %sub.ptr.div6.i.i.i.i
-  %12 = load ptr, ptr %_M_last.i.i.i.i, align 8
-  %13 = load ptr, ptr %_M_start.i.i.i, align 8
-  %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %13 to i64
+  %13 = load ptr, ptr %_M_last.i.i.i.i, align 8
+  %14 = load ptr, ptr %_M_start.i.i.i, align 8
+  %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = ashr exact i64 %sub.ptr.sub10.i.i.i.i, 3
   %add12.i.i.i.i = add nsw i64 %add.i.i.i.i, %sub.ptr.div11.i.i.i.i
-  %14 = load i64, ptr %max_queue_size.i, align 8
-  %15 = add i64 %14, -1
-  %or.cond.not.i = icmp ult i64 %15, %add12.i.i.i.i
-  %.pre.pre.i = load i8, ptr %is_closing.i, align 8
-  br i1 %or.cond.not.i, label %land.rhs.i, label %while.end.i
+  %15 = load i64, ptr %max_queue_size.i, align 8
+  %16 = add i64 %15, -1
+  %or.cond.i = icmp uge i64 %16, %add12.i.i.i.i
+  %17 = load i8, ptr %is_closing.i, align 8
+  %tobool.i = trunc i8 %17 to i1
+  %or.cond2.i = select i1 %or.cond.i, i1 true, i1 %tobool.i
+  br i1 %or.cond2.i, label %while.end.i, label %while.body.i
 
-land.rhs.i:                                       ; preds = %while.cond.i
-  %tobool.i = trunc i8 %.pre.pre.i to i1
-  br i1 %tobool.i, label %while.end.i, label %while.body.i
-
-while.body.i:                                     ; preds = %land.rhs.i
-  %16 = load ptr, ptr %cond.i, align 8
-  tail call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull %mutex.i) #21
+while.body.i:                                     ; preds = %while.cond.i
+  %18 = load ptr, ptr %cond.i, align 8
+  tail call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull %mutex.i) #21
   br label %while.cond.i, !llvm.loop !28
 
-while.end.i:                                      ; preds = %land.rhs.i, %while.cond.i, %land.rhs.us.i, %while.cond.us.i
-  %17 = phi i8 [ %.pre7.i, %while.cond.us.i ], [ %.pre7.i, %land.rhs.us.i ], [ %.pre.pre.i, %while.cond.i ], [ %.pre.pre.i, %land.rhs.i ]
-  %.us-phi.i = phi ptr [ %2, %while.cond.us.i ], [ %2, %land.rhs.us.i ], [ %10, %while.cond.i ], [ %10, %land.rhs.i ]
+while.end.i:                                      ; preds = %while.cond.i, %while.cond.us.i
+  %.us-phi.i = phi ptr [ %2, %while.cond.us.i ], [ %11, %while.cond.i ]
+  %.us-phi9.i = phi i1 [ %tobool.us.i, %while.cond.us.i ], [ %tobool.i, %while.cond.i ]
   %queue.le.i = getelementptr inbounds nuw i8, ptr %func, i64 88
-  %tobool7.i = trunc i8 %17 to i1
-  br i1 %tobool7.i, label %if.then8.i, label %if.else12.i
+  br i1 %.us-phi9.i, label %if.then8.i, label %if.else12.i
 
 if.then8.i:                                       ; preds = %while.end.i
   %thread_count.i = getelementptr inbounds nuw i8, ptr %func, i64 296
-  %18 = load i64, ptr %thread_count.i, align 8
-  %cmp9.i = icmp eq i64 %18, 0
+  %19 = load i64, ptr %thread_count.i, align 8
+  %cmp9.i = icmp eq i64 %19, 0
   br i1 %cmp9.i, label %_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4PushEPv34napi_threadsafe_function_call_mode.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then8.i
-  %dec.i = add i64 %18, -1
+  %dec.i = add i64 %19, -1
   store i64 %dec.i, ptr %thread_count.i, align 8
   br label %_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4PushEPv34napi_threadsafe_function_call_mode.exit
 
 if.else12.i:                                      ; preds = %while.end.i
   %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %func, i64 152
-  %19 = load ptr, ptr %_M_last.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 -8
+  %20 = load ptr, ptr %_M_last.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 -8
   %cmp.not.i.i.i = icmp eq ptr %.us-phi.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else12.i
   store ptr %data, ptr %.us-phi.i, align 8
-  %20 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %21 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE4pushERKS0_.exit.i
 
@@ -4088,9 +4057,9 @@ if.else.i.i.i:                                    ; preds = %if.else12.i
 
 _ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE4pushERKS0_.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
   %dispatch_state.i.i = getelementptr inbounds nuw i8, ptr %func, i64 305
-  %21 = atomicrmw or ptr %dispatch_state.i.i, i8 2 seq_cst, align 1
-  %22 = and i8 %21, 1
-  %cmp.not.i.i = icmp eq i8 %22, 0
+  %22 = atomicrmw or ptr %dispatch_state.i.i, i8 2 seq_cst, align 1
+  %23 = and i8 %22, 1
+  %cmp.not.i.i = icmp eq i8 %23, 0
   br i1 %cmp.not.i.i, label %do.body.i.i, label %_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4PushEPv34napi_threadsafe_function_call_mode.exit
 
 do.body.i.i:                                      ; preds = %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE4pushERKS0_.exit.i
@@ -4104,8 +4073,8 @@ do.body8.i.i:                                     ; preds = %do.body.i.i
   call void @abort() #22
   unreachable
 
-_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4PushEPv34napi_threadsafe_function_call_mode.exit: ; preds = %land.rhs.us.i, %if.then8.i, %if.else.i, %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE4pushERKS0_.exit.i, %do.body.i.i
-  %retval.0.i = phi i32 [ 16, %if.else.i ], [ 1, %if.then8.i ], [ 0, %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE4pushERKS0_.exit.i ], [ 0, %do.body.i.i ], [ 15, %land.rhs.us.i ]
+_ZN6v8impl12_GLOBAL__N_118ThreadSafeFunction4PushEPv34napi_threadsafe_function_call_mode.exit: ; preds = %while.cond.us.i, %if.then8.i, %if.else.i, %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE4pushERKS0_.exit.i, %do.body.i.i
+  %retval.0.i = phi i32 [ 16, %if.else.i ], [ 1, %if.then8.i ], [ 0, %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE4pushERKS0_.exit.i ], [ 0, %do.body.i.i ], [ 15, %while.cond.us.i ]
   call void @uv_mutex_unlock(ptr noundef nonnull %mutex.i) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i)
   ret i32 %retval.0.i

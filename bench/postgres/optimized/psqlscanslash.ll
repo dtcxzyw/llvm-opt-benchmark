@@ -2983,100 +2983,100 @@ define dso_local ptr @psql_scan_slash_option(ptr noundef initializes((8, 16)) %0
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
-  br i1 %1, label %.split.us.outer, label %.split.outer
+  br i1 %1, label %.split.outer, label %.split.us.outer
 
-.split.us.outer:                                  ; preds = %3, %14
-  %.016.us.ph = phi i8 [ %.117.us, %14 ], [ 0, %3 ]
-  %.0.us.ph = phi ptr [ %.1.us, %14 ], [ %0, %3 ]
-  %4 = trunc nuw i8 %.016.us.ph to i1
-  br label %.split.us
-
-.split.us:                                        ; preds = %.split.us.outer, %20
-  %.0.us = phi ptr [ %23, %20 ], [ %.0.us.ph, %.split.us.outer ]
-  %5 = load i8, ptr %.0.us, align 1
-  switch i8 %5, label %17 [
-    i8 0, label %.split21.us
-    i8 34, label %6
+.split.us:                                        ; preds = %.split.us.outer, %16
+  %.0.us = phi ptr [ %19, %16 ], [ %.0.us.ph, %.split.us.outer ]
+  %4 = load i8, ptr %.0.us, align 1
+  switch i8 %4, label %16 [
+    i8 0, label %.split23.us
+    i8 34, label %5
   ]
 
-6:                                                ; preds = %.split.us
-  %7 = trunc nuw i8 %.016.us.ph to i1
-  br i1 %7, label %8, label %12
+5:                                                ; preds = %.split.us
+  %6 = trunc nuw i8 %.017.us.ph to i1
+  br i1 %6, label %7, label %11
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %.0.us, i64 1
-  %10 = load i8, ptr %9, align 1
-  %11 = icmp eq i8 %10, 34
-  br i1 %11, label %14, label %12
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %.0.us, i64 1
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 34
+  br i1 %10, label %13, label %11
 
-12:                                               ; preds = %8, %6
-  %13 = xor i8 %.016.us.ph, 1
-  br label %14
+11:                                               ; preds = %7, %5
+  %12 = xor i8 %.017.us.ph, 1
+  br label %13
 
-14:                                               ; preds = %12, %8
-  %.117.us = phi i8 [ %13, %12 ], [ 1, %8 ]
-  %.1.us = phi ptr [ %.0.us, %12 ], [ %9, %8 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.1.us, i64 1
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.us) #32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.1.us, ptr nonnull align 1 %15, i64 %16, i1 false)
+13:                                               ; preds = %11, %7
+  %.118.us = phi i8 [ %12, %11 ], [ 1, %7 ]
+  %.1.us = phi ptr [ %.0.us, %11 ], [ %8, %7 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.1.us, i64 1
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.us) #32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.1.us, ptr nonnull align 1 %14, i64 %15, i1 false)
   br label %.split.us.outer, !llvm.loop !14
 
-17:                                               ; preds = %.split.us
-  br i1 %4, label %20, label %18
+.split.us.outer:                                  ; preds = %3, %13
+  %.017.us.ph = phi i8 [ %.118.us, %13 ], [ 0, %3 ]
+  %.0.us.ph = phi ptr [ %.1.us, %13 ], [ %0, %3 ]
+  br label %.split.us
 
-18:                                               ; preds = %17
-  %19 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %5) #29
-  store i8 %19, ptr %.0.us, align 1
-  br label %20
-
-20:                                               ; preds = %18, %17
-  %21 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.0.us, i32 noundef %2) #29
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %.0.us, i64 %22
+16:                                               ; preds = %.split.us
+  %17 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.0.us, i32 noundef %2) #29
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i8, ptr %.0.us, i64 %18
   br label %.split.us, !llvm.loop !14
 
 .split:                                           ; preds = %.split.outer, %36
   %.0 = phi ptr [ %39, %36 ], [ %.0.ph, %.split.outer ]
-  %24 = load i8, ptr %.0, align 1
-  switch i8 %24, label %36 [
-    i8 0, label %.split21.us
-    i8 34, label %25
+  %20 = load i8, ptr %.0, align 1
+  switch i8 %20, label %33 [
+    i8 0, label %.split23.us
+    i8 34, label %21
   ]
 
-25:                                               ; preds = %.split
-  %26 = trunc nuw i8 %.016.ph to i1
-  br i1 %26, label %27, label %31
+21:                                               ; preds = %.split
+  %22 = trunc nuw i8 %.017.ph to i1
+  br i1 %22, label %23, label %27
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %29 = load i8, ptr %28, align 1
-  %30 = icmp eq i8 %29, 34
-  br i1 %30, label %33, label %31
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 34
+  br i1 %26, label %29, label %27
 
-31:                                               ; preds = %27, %25
-  %32 = xor i8 %.016.ph, 1
-  br label %33
+27:                                               ; preds = %23, %21
+  %28 = xor i8 %.017.ph, 1
+  br label %29
 
-33:                                               ; preds = %27, %31
-  %.117 = phi i8 [ %32, %31 ], [ 1, %27 ]
-  %.1 = phi ptr [ %.0, %31 ], [ %28, %27 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.1, ptr nonnull align 1 %34, i64 %35, i1 false)
+29:                                               ; preds = %23, %27
+  %.118 = phi i8 [ %28, %27 ], [ 1, %23 ]
+  %.1 = phi ptr [ %.0, %27 ], [ %24, %23 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.1, ptr nonnull align 1 %30, i64 %31, i1 false)
   br label %.split.outer, !llvm.loop !14
 
-.split.outer:                                     ; preds = %3, %33
-  %.016.ph = phi i8 [ %.117, %33 ], [ 0, %3 ]
-  %.0.ph = phi ptr [ %.1, %33 ], [ %0, %3 ]
+.split.outer:                                     ; preds = %3, %29
+  %.017.ph = phi i8 [ %.118, %29 ], [ 0, %3 ]
+  %.0.ph = phi ptr [ %.1, %29 ], [ %0, %3 ]
+  %32 = trunc nuw i8 %.017.ph to i1
   br label %.split
 
-36:                                               ; preds = %.split
+33:                                               ; preds = %.split
+  br i1 %32, label %36, label %34
+
+34:                                               ; preds = %33
+  %35 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %20) #29
+  store i8 %35, ptr %.0, align 1
+  br label %36
+
+36:                                               ; preds = %34, %33
   %37 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.0, i32 noundef %2) #29
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %.0, i64 %38
   br label %.split, !llvm.loop !14
 
-.split21.us:                                      ; preds = %.split, %.split.us
+.split23.us:                                      ; preds = %.split.us, %.split
   ret void
 }
 

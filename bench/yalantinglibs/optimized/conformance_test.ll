@@ -2038,19 +2038,17 @@ if.then:                                          ; preds = %entry
   br i1 %tobool, label %if.end10, label %return
 
 if.else:                                          ; preds = %entry
-  %cmp3 = icmp eq i32 %level, 1
-  br i1 %cmp3, label %land.lhs.true, label %if.else6
-
-land.lhs.true:                                    ; preds = %if.else
+  %cmp3 = icmp ne i32 %level, 1
   %enforce_recommended_ = getelementptr inbounds nuw i8, ptr %this, i64 26
   %6 = load i8, ptr %enforce_recommended_, align 2
   %tobool4 = trunc i8 %6 to i1
-  br i1 %tobool4, label %if.else6, label %if.then5
+  %or.cond = select i1 %cmp3, i1 true, i1 %tobool4
+  %output_7 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  br i1 %or.cond, label %if.else6, label %if.then5
 
-if.then5:                                         ; preds = %land.lhs.true
-  %output_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+if.then5:                                         ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  store ptr %output_, ptr %ref.tmp.i, align 8
+  store ptr %output_7, ptr %ref.tmp.i, align 8
   %format_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 18, ptr %format_.i.i, align 8
   %format.sroa.2.0.format_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
@@ -2061,8 +2059,7 @@ if.then5:                                         ; preds = %land.lhs.true
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %if.end10
 
-if.else6:                                         ; preds = %land.lhs.true, %if.else
-  %output_7 = getelementptr inbounds nuw i8, ptr %this, i64 32
+if.else6:                                         ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i7)
   store ptr %output_7, ptr %ref.tmp.i7, align 8
   %format_.i.i9 = getelementptr inbounds nuw i8, ptr %ref.tmp.i7, i64 8

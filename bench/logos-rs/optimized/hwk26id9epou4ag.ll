@@ -142,18 +142,18 @@ define void @_ZN4core4iter8adapters11try_process17h30c3f45d9218bb3aE(ptr sret([2
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %7, ptr %.sroa.2.0..sroa_idx, align 8
   invoke void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h91cb7b121923217aE"(ptr nonnull sret([24 x i8]) align 8 %6, ptr nonnull align 1 %3, ptr nonnull align 8 %5)
-          to label %13 unwind label %10
+          to label %13 unwind label %11
 
-8:                                                ; preds = %.thread, %10
-  %.pn = phi { ptr, i32 } [ %12, %10 ], [ %16, %.thread ]
-  %.sroa.02.1 = phi i1 [ %11, %10 ], [ false, %.thread ]
+8:                                                ; preds = %.thread, %11
+  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %16, %.thread ]
+  %.sroa.03.1 = phi i1 [ %.sroa.03.0, %11 ], [ true, %.thread ]
   %9 = load ptr, ptr %7, align 8
-  %.not5 = icmp eq ptr %9, null
-  %brmerge = or i1 %.sroa.02.1, %.not5
-  br i1 %brmerge, label %.thread7, label %26
+  %10 = icmp ne ptr %9, null
+  %or.cond = and i1 %.sroa.03.1, %10
+  br i1 %or.cond, label %26, label %.thread7
 
-10:                                               ; preds = %21, %2
-  %11 = phi i1 [ true, %21 ], [ false, %2 ]
+11:                                               ; preds = %21, %2
+  %.sroa.03.0 = phi i1 [ false, %21 ], [ true, %2 ]
   %12 = landingpad { ptr, i32 }
           cleanup
   br label %8
@@ -184,7 +184,7 @@ define void @_ZN4core4iter8adapters11try_process17h30c3f45d9218bb3aE(ptr sret([2
 
 21:                                               ; preds = %17
   invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..mir..Mir$GT$$GT$17hc20cac6ab2edaf04E"(ptr nonnull align 8 %6)
-          to label %20 unwind label %10
+          to label %20 unwind label %11
 
 22:                                               ; preds = %17
   %23 = landingpad { ptr, i32 }
@@ -198,9 +198,9 @@ define void @_ZN4core4iter8adapters11try_process17h30c3f45d9218bb3aE(ptr sret([2
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #7
   unreachable
 
-.thread7:                                         ; preds = %22, %8, %26
-  %.pn12 = phi { ptr, i32 } [ %.pn, %8 ], [ %.pn, %26 ], [ %23, %22 ]
-  resume { ptr, i32 } %.pn12
+.thread7:                                         ; preds = %22, %26, %8
+  %.pn11 = phi { ptr, i32 } [ %.pn, %26 ], [ %.pn, %8 ], [ %23, %22 ]
+  resume { ptr, i32 } %.pn11
 
 26:                                               ; preds = %8
   invoke void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$logos_codegen..error..Error$GT$$GT$17ha848683f0254fea1E"(ptr nonnull align 8 %7) #6

@@ -1800,7 +1800,7 @@ define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr 
   %23 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %19)
   %24 = load ptr, ptr @dtls_handle, align 8
   %25 = tail call i32 @call_dissector(ptr noundef %24, ptr noundef %23, ptr noundef %1, ptr noundef %2)
-  br label %83
+  br label %82
 
 26:                                               ; preds = %4
   %27 = call fastcc i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %18, i32 noundef %19, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
@@ -1809,101 +1809,99 @@ define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr 
   %30 = load i8, ptr %29, align 8, !range !6, !noundef !7
   %31 = load i8, ptr @global_capwap_reassemble, align 1, !range !6, !noundef !7
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %33, label %67
+  %33 = load i8, ptr %8, align 1, !range !6
+  %34 = trunc nuw i8 %33 to i1
+  %or.cond = select i1 %32, i1 %34, i1 false
+  br i1 %or.cond, label %35, label %66
 
-33:                                               ; preds = %26
-  %34 = load i8, ptr %8, align 1, !range !6, !noundef !7
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %67
+35:                                               ; preds = %26
+  %36 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %28)
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %38, label %82
 
-36:                                               ; preds = %33
-  %37 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %28)
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %39, label %83
-
-39:                                               ; preds = %36
+38:                                               ; preds = %35
   store i8 1, ptr %29, align 8
-  %40 = load i32, ptr %10, align 4
-  %41 = load i32, ptr %11, align 4
-  %42 = load i8, ptr %9, align 1, !range !6, !noundef !7
-  %43 = trunc nuw i8 %42 to i1
-  %44 = tail call ptr @fragment_add_check(ptr noundef nonnull @capwap_reassembly_table, ptr noundef %0, i32 noundef %28, ptr noundef %1, i32 noundef %40, ptr noundef null, i32 noundef %41, i32 noundef %37, i1 noundef zeroext %43)
-  %45 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %28, ptr noundef %1, ptr noundef nonnull @.str.1083, ptr noundef %44, ptr noundef nonnull @capwap_frag_items, ptr noundef null, ptr noundef %2)
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %51
+  %39 = load i32, ptr %10, align 4
+  %40 = load i32, ptr %11, align 4
+  %41 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %42 = trunc nuw i8 %41 to i1
+  %43 = tail call ptr @fragment_add_check(ptr noundef nonnull @capwap_reassembly_table, ptr noundef %0, i32 noundef %28, ptr noundef %1, i32 noundef %39, ptr noundef null, i32 noundef %40, i32 noundef %36, i1 noundef zeroext %42)
+  %44 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %28, ptr noundef %1, ptr noundef nonnull @.str.1083, ptr noundef %43, ptr noundef nonnull @capwap_frag_items, ptr noundef null, ptr noundef %2)
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %50
 
-47:                                               ; preds = %39
-  %48 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %28)
-  %49 = tail call i32 @call_data_dissector(ptr noundef %48, ptr noundef %1, ptr noundef %2)
-  %50 = load ptr, ptr %12, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.1084, i32 noundef %40, i32 noundef %41)
+46:                                               ; preds = %38
+  %47 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %28)
+  %48 = tail call i32 @call_data_dissector(ptr noundef %47, ptr noundef %1, ptr noundef %2)
+  %49 = load ptr, ptr %12, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.1084, i32 noundef %39, i32 noundef %40)
   br label %.thread
 
-51:                                               ; preds = %39
-  tail call fastcc void @dissect_capwap_control_header(ptr noundef nonnull %45, ptr noundef %18, i32 noundef 0, ptr noundef %1)
-  %52 = load i32, ptr @hf_capwap_message_element, align 4
-  %53 = tail call i32 @tvb_reported_length(ptr noundef nonnull %45)
-  %54 = add i32 %53, -8
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %52, ptr noundef nonnull %45, i32 noundef 8, i32 noundef %54, i32 noundef 0)
-  %56 = load i32, ptr @ett_capwap_message_element, align 4
-  %57 = tail call ptr @proto_item_add_subtree(ptr noundef %55, i32 noundef %56)
-  %58 = tail call i32 @tvb_reported_length(ptr noundef nonnull %45)
-  %59 = icmp ugt i32 %58, 8
-  br i1 %59, label %.lr.ph.i, label %dissect_capwap_message_element.exit
+50:                                               ; preds = %38
+  tail call fastcc void @dissect_capwap_control_header(ptr noundef nonnull %44, ptr noundef %18, i32 noundef 0, ptr noundef %1)
+  %51 = load i32, ptr @hf_capwap_message_element, align 4
+  %52 = tail call i32 @tvb_reported_length(ptr noundef nonnull %44)
+  %53 = add i32 %52, -8
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %51, ptr noundef nonnull %44, i32 noundef 8, i32 noundef %53, i32 noundef 0)
+  %55 = load i32, ptr @ett_capwap_message_element, align 4
+  %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55)
+  %57 = tail call i32 @tvb_reported_length(ptr noundef nonnull %44)
+  %58 = icmp ugt i32 %57, 8
+  br i1 %58, label %.lr.ph.i, label %dissect_capwap_message_element.exit
 
-.lr.ph.i:                                         ; preds = %51, %.lr.ph.i
-  %.017.i = phi i32 [ %62, %.lr.ph.i ], [ 0, %51 ]
-  %60 = add i32 %.017.i, 8
-  %61 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef nonnull %45, ptr noundef %57, i32 noundef %60, ptr noundef %1)
-  %62 = add i32 %61, %.017.i
-  %63 = add i32 %62, 8
-  %64 = icmp ult i32 %63, %58
-  br i1 %64, label %.lr.ph.i, label %dissect_capwap_message_element.exit.loopexit, !llvm.loop !8
+.lr.ph.i:                                         ; preds = %50, %.lr.ph.i
+  %.017.i = phi i32 [ %61, %.lr.ph.i ], [ 0, %50 ]
+  %59 = add i32 %.017.i, 8
+  %60 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef nonnull %44, ptr noundef %56, i32 noundef %59, ptr noundef %1)
+  %61 = add i32 %60, %.017.i
+  %62 = add i32 %61, 8
+  %63 = icmp ult i32 %62, %57
+  br i1 %63, label %.lr.ph.i, label %dissect_capwap_message_element.exit.loopexit, !llvm.loop !8
 
 dissect_capwap_message_element.exit.loopexit:     ; preds = %.lr.ph.i
-  %65 = add nuw i32 %62, 8
+  %64 = add nuw i32 %61, 8
   br label %dissect_capwap_message_element.exit
 
-dissect_capwap_message_element.exit:              ; preds = %51, %dissect_capwap_message_element.exit.loopexit
-  %.0.lcssa.i = phi i32 [ %65, %dissect_capwap_message_element.exit.loopexit ], [ 8, %51 ]
-  %66 = load ptr, ptr %12, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.1085, i32 noundef %40)
+dissect_capwap_message_element.exit:              ; preds = %50, %dissect_capwap_message_element.exit.loopexit
+  %.0.lcssa.i = phi i32 [ %64, %dissect_capwap_message_element.exit.loopexit ], [ 8, %50 ]
+  %65 = load ptr, ptr %12, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %65, i32 noundef 25, ptr noundef nonnull @.str.1085, i32 noundef %39)
   br label %.thread
 
-67:                                               ; preds = %33, %26
+66:                                               ; preds = %26
   tail call fastcc void @dissect_capwap_control_header(ptr noundef %0, ptr noundef %18, i32 noundef %28, ptr noundef %1)
-  %68 = add nuw nsw i32 %28, 8
-  %69 = load i32, ptr @hf_capwap_message_element, align 4
-  %70 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %71 = sub i32 %70, %68
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %69, ptr noundef %0, i32 noundef range(i32 8, 1032) %68, i32 noundef %71, i32 noundef 0)
-  %73 = load i32, ptr @ett_capwap_message_element, align 4
-  %74 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %73)
-  %75 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %76 = icmp ult i32 %68, %75
-  br i1 %76, label %.lr.ph.i71, label %dissect_capwap_message_element.exit73
+  %67 = add nuw nsw i32 %28, 8
+  %68 = load i32, ptr @hf_capwap_message_element, align 4
+  %69 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %70 = sub i32 %69, %67
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %68, ptr noundef %0, i32 noundef range(i32 8, 1032) %67, i32 noundef %70, i32 noundef 0)
+  %72 = load i32, ptr @ett_capwap_message_element, align 4
+  %73 = tail call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %72)
+  %74 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %75 = icmp ult i32 %67, %74
+  br i1 %75, label %.lr.ph.i72, label %dissect_capwap_message_element.exit74
 
-.lr.ph.i71:                                       ; preds = %67, %.lr.ph.i71
-  %.017.i72 = phi i32 [ %79, %.lr.ph.i71 ], [ 0, %67 ]
-  %77 = add i32 %.017.i72, %68
-  %78 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %0, ptr noundef %74, i32 noundef %77, ptr noundef %1)
-  %79 = add i32 %78, %.017.i72
-  %80 = add i32 %79, %68
-  %81 = icmp ult i32 %80, %75
-  br i1 %81, label %.lr.ph.i71, label %dissect_capwap_message_element.exit73, !llvm.loop !8
+.lr.ph.i72:                                       ; preds = %66, %.lr.ph.i72
+  %.017.i73 = phi i32 [ %78, %.lr.ph.i72 ], [ 0, %66 ]
+  %76 = add i32 %.017.i73, %67
+  %77 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %0, ptr noundef %73, i32 noundef %76, ptr noundef %1)
+  %78 = add i32 %77, %.017.i73
+  %79 = add i32 %78, %67
+  %80 = icmp ult i32 %79, %74
+  br i1 %80, label %.lr.ph.i72, label %dissect_capwap_message_element.exit74, !llvm.loop !8
 
-dissect_capwap_message_element.exit73:            ; preds = %.lr.ph.i71, %67
-  %.0.lcssa.i70 = phi i32 [ 0, %67 ], [ %79, %.lr.ph.i71 ]
-  %82 = add i32 %.0.lcssa.i70, %68
+dissect_capwap_message_element.exit74:            ; preds = %.lr.ph.i72, %66
+  %.0.lcssa.i71 = phi i32 [ 0, %66 ], [ %78, %.lr.ph.i72 ]
+  %81 = add i32 %.0.lcssa.i71, %67
   br label %.thread
 
-.thread:                                          ; preds = %dissect_capwap_message_element.exit, %47, %dissect_capwap_message_element.exit73
-  %.2 = phi i32 [ %82, %dissect_capwap_message_element.exit73 ], [ %.0.lcssa.i, %dissect_capwap_message_element.exit ], [ %28, %47 ]
+.thread:                                          ; preds = %dissect_capwap_message_element.exit, %46, %dissect_capwap_message_element.exit74
+  %.2 = phi i32 [ %81, %dissect_capwap_message_element.exit74 ], [ %.0.lcssa.i, %dissect_capwap_message_element.exit ], [ %28, %46 ]
   store i8 %30, ptr %29, align 8
-  br label %83
+  br label %82
 
-83:                                               ; preds = %36, %.thread, %22
-  %.0 = phi i32 [ %19, %22 ], [ %.2, %.thread ], [ %28, %36 ]
+82:                                               ; preds = %35, %.thread, %22
+  %.0 = phi i32 [ %19, %22 ], [ %.2, %.thread ], [ %28, %35 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #3
@@ -1957,122 +1955,120 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
   %30 = load i8, ptr %29, align 8, !range !6, !noundef !7
   %31 = load i8, ptr @global_capwap_reassemble, align 1, !range !6, !noundef !7
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %33, label %53
+  %33 = load i8, ptr %8, align 1, !range !6
+  %34 = trunc nuw i8 %33 to i1
+  %or.cond = select i1 %32, i1 %34, i1 false
+  br i1 %or.cond, label %35, label %52
 
-33:                                               ; preds = %26
-  %34 = load i8, ptr %8, align 1, !range !6, !noundef !7
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %53
+35:                                               ; preds = %26
+  %36 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %28)
+  %37 = icmp slt i32 %36, 1
+  br i1 %37, label %.thread, label %38
 
-36:                                               ; preds = %33
-  %37 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %28)
-  %38 = icmp slt i32 %37, 1
-  br i1 %38, label %.thread, label %39
-
-39:                                               ; preds = %36
+38:                                               ; preds = %35
   store i8 1, ptr %29, align 8
-  %40 = load i32, ptr %10, align 4
-  %41 = load i32, ptr %11, align 4
-  %42 = load i8, ptr %9, align 1, !range !6, !noundef !7
-  %43 = trunc nuw i8 %42 to i1
-  %44 = tail call ptr @fragment_add_check(ptr noundef nonnull @capwap_reassembly_table, ptr noundef %0, i32 noundef %28, ptr noundef %1, i32 noundef %40, ptr noundef null, i32 noundef %41, i32 noundef %37, i1 noundef zeroext %43)
-  %45 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %28, ptr noundef %1, ptr noundef nonnull @.str.1083, ptr noundef %44, ptr noundef nonnull @capwap_frag_items, ptr noundef null, ptr noundef %2)
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %51
+  %39 = load i32, ptr %10, align 4
+  %40 = load i32, ptr %11, align 4
+  %41 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %42 = trunc nuw i8 %41 to i1
+  %43 = tail call ptr @fragment_add_check(ptr noundef nonnull @capwap_reassembly_table, ptr noundef %0, i32 noundef %28, ptr noundef %1, i32 noundef %39, ptr noundef null, i32 noundef %40, i32 noundef %36, i1 noundef zeroext %42)
+  %44 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %28, ptr noundef %1, ptr noundef nonnull @.str.1083, ptr noundef %43, ptr noundef nonnull @capwap_frag_items, ptr noundef null, ptr noundef %2)
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %50
 
-47:                                               ; preds = %39
-  %48 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %28)
-  %49 = tail call i32 @call_data_dissector(ptr noundef %48, ptr noundef %1, ptr noundef %2)
-  %50 = load ptr, ptr %12, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.1084, i32 noundef %40, i32 noundef %41)
+46:                                               ; preds = %38
+  %47 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %28)
+  %48 = tail call i32 @call_data_dissector(ptr noundef %47, ptr noundef %1, ptr noundef %2)
+  %49 = load ptr, ptr %12, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.1084, i32 noundef %39, i32 noundef %40)
   br label %.thread.sink.split
 
-51:                                               ; preds = %39
-  %52 = load ptr, ptr %12, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.1085, i32 noundef %40)
-  br label %55
+50:                                               ; preds = %38
+  %51 = load ptr, ptr %12, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %51, i32 noundef 25, ptr noundef nonnull @.str.1085, i32 noundef %39)
+  br label %54
 
-53:                                               ; preds = %33, %26
-  %54 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %28)
-  br label %55
+52:                                               ; preds = %26
+  %53 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %28)
+  br label %54
 
-55:                                               ; preds = %51, %53
-  %.167 = phi ptr [ %45, %51 ], [ %54, %53 ]
-  %56 = load i8, ptr %6, align 1
-  switch i8 %56, label %79 [
-    i8 0, label %57
-    i8 -1, label %60
+54:                                               ; preds = %50, %52
+  %.168 = phi ptr [ %44, %50 ], [ %53, %52 ]
+  %55 = load i8, ptr %6, align 1
+  switch i8 %55, label %78 [
+    i8 0, label %56
+    i8 -1, label %59
   ]
 
-57:                                               ; preds = %55
-  %58 = load ptr, ptr @ieee8023_handle, align 8
-  %59 = tail call i32 @call_dissector(ptr noundef %58, ptr noundef %.167, ptr noundef %1, ptr noundef %2)
+56:                                               ; preds = %54
+  %57 = load ptr, ptr @ieee8023_handle, align 8
+  %58 = tail call i32 @call_dissector(ptr noundef %57, ptr noundef %.168, ptr noundef %1, ptr noundef %2)
   br label %dissect_capwap_data_keep_alive.exit
 
-60:                                               ; preds = %55
-  %61 = load i32, ptr @hf_capwap_data_keep_alive, align 4
-  %62 = tail call i32 @tvb_reported_length(ptr noundef %.167)
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %61, ptr noundef %.167, i32 noundef 0, i32 noundef %62, i32 noundef 0)
-  %64 = load i32, ptr @ett_capwap_data_keep_alive, align 4
-  %65 = tail call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64)
-  %66 = load i32, ptr @hf_capwap_data_keep_alive_length, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %.167, i32 noundef 0, i32 noundef 2, i32 noundef 0)
-  %68 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.167, i32 noundef 0)
-  %69 = zext i16 %68 to i32
-  %70 = tail call i32 @tvb_reported_length(ptr noundef %.167)
-  %.not.i = icmp eq i32 %70, %69
-  br i1 %.not.i, label %73, label %71
+59:                                               ; preds = %54
+  %60 = load i32, ptr @hf_capwap_data_keep_alive, align 4
+  %61 = tail call i32 @tvb_reported_length(ptr noundef %.168)
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %60, ptr noundef %.168, i32 noundef 0, i32 noundef %61, i32 noundef 0)
+  %63 = load i32, ptr @ett_capwap_data_keep_alive, align 4
+  %64 = tail call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %63)
+  %65 = load i32, ptr @hf_capwap_data_keep_alive_length, align 4
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %65, ptr noundef %.168, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  %67 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.168, i32 noundef 0)
+  %68 = zext i16 %67 to i32
+  %69 = tail call i32 @tvb_reported_length(ptr noundef %.168)
+  %.not.i = icmp eq i32 %69, %68
+  br i1 %.not.i, label %72, label %70
 
-71:                                               ; preds = %60
-  %72 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %67, ptr noundef nonnull @ei_capwap_data_keep_alive_length)
-  br label %73
+70:                                               ; preds = %59
+  %71 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %66, ptr noundef nonnull @ei_capwap_data_keep_alive_length)
+  br label %72
 
-73:                                               ; preds = %71, %60
-  %74 = tail call i32 @tvb_reported_length(ptr noundef %.167)
-  %75 = icmp ugt i32 %74, 2
-  br i1 %75, label %.lr.ph.i, label %dissect_capwap_data_keep_alive.exit
+72:                                               ; preds = %70, %59
+  %73 = tail call i32 @tvb_reported_length(ptr noundef %.168)
+  %74 = icmp ugt i32 %73, 2
+  br i1 %74, label %.lr.ph.i, label %dissect_capwap_data_keep_alive.exit
 
-.lr.ph.i:                                         ; preds = %73, %.lr.ph.i
-  %.026.i = phi i32 [ %77, %.lr.ph.i ], [ 2, %73 ]
-  %76 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %.167, ptr noundef %65, i32 noundef %.026.i, ptr noundef %1)
-  %77 = add i32 %76, %.026.i
-  %78 = icmp ult i32 %77, %74
-  br i1 %78, label %.lr.ph.i, label %dissect_capwap_data_keep_alive.exit, !llvm.loop !10
+.lr.ph.i:                                         ; preds = %72, %.lr.ph.i
+  %.026.i = phi i32 [ %76, %.lr.ph.i ], [ 2, %72 ]
+  %75 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %.168, ptr noundef %64, i32 noundef %.026.i, ptr noundef %1)
+  %76 = add i32 %75, %.026.i
+  %77 = icmp ult i32 %76, %73
+  br i1 %77, label %.lr.ph.i, label %dissect_capwap_data_keep_alive.exit, !llvm.loop !10
 
-79:                                               ; preds = %55
-  %80 = load i8, ptr %7, align 1
-  switch i8 %80, label %90 [
-    i8 0, label %81
-    i8 1, label %83
+78:                                               ; preds = %54
+  %79 = load i8, ptr %7, align 1
+  switch i8 %79, label %89 [
+    i8 0, label %80
+    i8 1, label %82
   ]
 
-81:                                               ; preds = %79
-  %82 = tail call i32 @call_data_dissector(ptr noundef %.167, ptr noundef %1, ptr noundef %2)
+80:                                               ; preds = %78
+  %81 = tail call i32 @call_data_dissector(ptr noundef %.168, ptr noundef %1, ptr noundef %2)
   br label %dissect_capwap_data_keep_alive.exit
 
-83:                                               ; preds = %79
-  %84 = load i8, ptr @global_capwap_swap_frame_control, align 1, !range !6, !noundef !7
-  %85 = trunc nuw i8 %84 to i1
-  %86 = load ptr, ptr @ieee80211_bsfc_handle, align 8
-  %87 = load ptr, ptr @ieee80211_handle, align 8
-  %88 = select i1 %85, ptr %86, ptr %87
-  %89 = tail call i32 @call_dissector(ptr noundef %88, ptr noundef %.167, ptr noundef %1, ptr noundef %2)
+82:                                               ; preds = %78
+  %83 = load i8, ptr @global_capwap_swap_frame_control, align 1, !range !6, !noundef !7
+  %84 = trunc nuw i8 %83 to i1
+  %85 = load ptr, ptr @ieee80211_bsfc_handle, align 8
+  %86 = load ptr, ptr @ieee80211_handle, align 8
+  %87 = select i1 %84, ptr %85, ptr %86
+  %88 = tail call i32 @call_dissector(ptr noundef %87, ptr noundef %.168, ptr noundef %1, ptr noundef %2)
   br label %dissect_capwap_data_keep_alive.exit
 
-90:                                               ; preds = %79
-  %91 = tail call i32 @call_data_dissector(ptr noundef %.167, ptr noundef %1, ptr noundef %2)
+89:                                               ; preds = %78
+  %90 = tail call i32 @call_data_dissector(ptr noundef %.168, ptr noundef %1, ptr noundef %2)
   br label %dissect_capwap_data_keep_alive.exit
 
-dissect_capwap_data_keep_alive.exit:              ; preds = %.lr.ph.i, %73, %90, %83, %81, %57
+dissect_capwap_data_keep_alive.exit:              ; preds = %.lr.ph.i, %72, %89, %82, %80, %56
   store i8 %30, ptr %29, align 8
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %22, %dissect_capwap_data_keep_alive.exit, %47
-  %92 = tail call i32 @tvb_captured_length(ptr noundef %0)
+.thread.sink.split:                               ; preds = %22, %dissect_capwap_data_keep_alive.exit, %46
+  %91 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %36
-  %.0 = phi i32 [ %28, %36 ], [ %92, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %35
+  %.0 = phi i32 [ %28, %35 ], [ %91, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #3

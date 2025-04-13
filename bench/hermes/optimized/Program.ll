@@ -731,7 +731,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp15, label %do.body, label %do.end.thread, !llvm.loop !25
 
 do.end:                                           ; preds = %do.body, %do.body.us
-  %tobool24.not41 = phi i1 [ %tobool1.not, %do.body.us ], [ true, %do.body ]
+  %tobool24.not42 = phi i1 [ %tobool1.not, %do.body.us ], [ true, %do.body ]
   %.us-phi = phi i32 [ %call9.us, %do.body.us ], [ %call9, %do.body ]
   %3 = load i32, ptr %PI, align 4
   %cmp18.not = icmp eq i32 %.us-phi, %3
@@ -739,21 +739,21 @@ do.end:                                           ; preds = %do.body, %do.body.u
 
 do.end.thread:                                    ; preds = %land.rhs
   %4 = load i32, ptr %PI, align 4
-  %cmp18.not30 = icmp eq i32 %4, -1
-  br i1 %cmp18.not30, label %if.end54, label %if.else23
+  %cmp18.not31 = icmp eq i32 %4, -1
+  br i1 %cmp18.not31, label %if.end54, label %if.else23
 
 if.then19:                                        ; preds = %do.end
   %cmp21 = icmp eq i32 %.us-phi, 0
   br i1 %cmp21, label %return, label %if.else23
 
 if.else23:                                        ; preds = %do.end.thread, %if.then19
-  %tobool24.not40 = phi i1 [ %tobool24.not41, %if.then19 ], [ true, %do.end.thread ]
-  %call934 = phi i32 [ %.us-phi, %if.then19 ], [ -1, %do.end.thread ]
+  %tobool24.not41 = phi i1 [ %tobool24.not42, %if.then19 ], [ true, %do.end.thread ]
+  %call935 = phi i32 [ %.us-phi, %if.then19 ], [ -1, %do.end.thread ]
   %5 = phi i32 [ %3, %if.then19 ], [ %4, %do.end.thread ]
   %.pre = tail call ptr @__errno_location() #23
   %.pr = load i32, ptr %.pre, align 4
   %cmp45.not = icmp eq i32 %.pr, 4
-  br i1 %tobool24.not40, label %if.else43, label %land.lhs.true25
+  br i1 %tobool24.not41, label %if.else43, label %land.lhs.true25
 
 land.lhs.true25:                                  ; preds = %if.else23
   br i1 %cmp45.not, label %if.then28, label %if.then46
@@ -778,8 +778,8 @@ if.then35:                                        ; preds = %if.then28
 
 if.else38:                                        ; preds = %if.then28
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #22
-  %call.i22 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, ptr noundef %call.i22, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #22
+  %call.i23 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, ptr noundef %call.i23, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 15))
   call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, i32 noundef 0)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #22
@@ -791,8 +791,8 @@ if.else43:                                        ; preds = %if.else23
 
 if.then46:                                        ; preds = %land.lhs.true25, %if.else43
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #22
-  %call.i25 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, ptr noundef %call.i25, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #22
+  %call.i26 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, ptr noundef %call.i26, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.5, i64 31))
   call fastcc void @_ZL10MakeErrMsgPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS4_i(ptr noundef %ErrMsg, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, i32 noundef -1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #22
@@ -800,18 +800,18 @@ if.then46:                                        ; preds = %land.lhs.true25, %i
   br label %return
 
 if.end54:                                         ; preds = %do.end.thread, %do.end
-  %tobool24.not43 = phi i1 [ true, %do.end.thread ], [ %tobool24.not41, %do.end ]
-  %call935 = phi i32 [ -1, %do.end.thread ], [ %.us-phi, %do.end ]
-  %brmerge = or i1 %WaitUntilTerminates, %tobool24.not43
-  br i1 %brmerge, label %if.end61, label %if.then58
+  %tobool24.not44 = phi i1 [ true, %do.end.thread ], [ %tobool24.not42, %do.end ]
+  %call936 = phi i32 [ -1, %do.end.thread ], [ %.us-phi, %do.end ]
+  %or.cond1 = or i1 %WaitUntilTerminates, %tobool24.not44
+  br i1 %or.cond1, label %if.end61, label %if.then58
 
 if.then58:                                        ; preds = %if.end54
   %call59 = call i32 @alarm(i32 noundef 0) #22
   %call60 = call i32 @sigaction(i32 noundef 14, ptr noundef nonnull %Old, ptr noundef null) #22
   br label %if.end61
 
-if.end61:                                         ; preds = %if.else43, %if.end54, %if.then58
-  %call93549 = phi i32 [ %call935, %if.end54 ], [ %call935, %if.then58 ], [ %call934, %if.else43 ]
+if.end61:                                         ; preds = %if.else43, %if.then58, %if.end54
+  %call93650 = phi i32 [ %call936, %if.then58 ], [ %call936, %if.end54 ], [ %call935, %if.else43 ]
   %6 = load i32, ptr %status, align 4
   %and = and i32 %6, 127
   %cmp62 = icmp eq i32 %and, 0
@@ -867,9 +867,9 @@ if.then96:                                        ; preds = %if.then90
   br label %return
 
 return:                                           ; preds = %if.then88, %if.then96, %if.then90, %if.then76, %if.then78, %if.then67, %if.then69, %if.then35, %if.else38, %if.then63, %if.else83, %if.then19, %if.then46
-  %call933 = phi i32 [ %call93549, %if.then63 ], [ %call93549, %if.else83 ], [ 0, %if.then19 ], [ %call934, %if.then46 ], [ %call934, %if.else38 ], [ %call934, %if.then35 ], [ %call93549, %if.then69 ], [ %call93549, %if.then67 ], [ %call93549, %if.then78 ], [ %call93549, %if.then76 ], [ %call93549, %if.then90 ], [ %call93549, %if.then96 ], [ %call93549, %if.then88 ]
+  %call934 = phi i32 [ %call93650, %if.then63 ], [ %call93650, %if.else83 ], [ 0, %if.then19 ], [ %call935, %if.then46 ], [ %call935, %if.else38 ], [ %call935, %if.then35 ], [ %call93650, %if.then69 ], [ %call93650, %if.then67 ], [ %call93650, %if.then78 ], [ %call93650, %if.then76 ], [ %call93650, %if.then90 ], [ %call93650, %if.then96 ], [ %call93650, %if.then88 ]
   %retval.sroa.4.sroa.1.0 = phi i32 [ %shr, %if.then63 ], [ 0, %if.else83 ], [ 0, %if.then19 ], [ -1, %if.then46 ], [ -2, %if.else38 ], [ -2, %if.then35 ], [ -1, %if.then69 ], [ -1, %if.then67 ], [ -1, %if.then78 ], [ -1, %if.then76 ], [ -2, %if.then90 ], [ -2, %if.then96 ], [ -2, %if.then88 ]
-  %retval.sroa.0.0.insert.ext = zext i32 %call933 to i64
+  %retval.sroa.0.0.insert.ext = zext i32 %call934 to i64
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.ext, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.4.sroa.1.0, 1
   ret { i64, i32 } %.fca.1.insert

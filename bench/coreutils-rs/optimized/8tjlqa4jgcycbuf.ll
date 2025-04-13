@@ -436,10 +436,10 @@ _ZN6uu_pwd12logical_path16looks_reasonable17h399c14b1c4cc3467E.exit: ; preds = %
 
 131:                                              ; preds = %_ZN6uu_pwd12logical_path16looks_reasonable17h399c14b1c4cc3467E.exit.thread
   %132 = load i64, ptr %12, align 8, !range !4, !noundef !5
-  %.not7 = icmp eq i64 %132, -9223372036854775808
-  br i1 %.not7, label %133, label %134
+  %.not24 = icmp eq i64 %132, -9223372036854775808
+  br i1 %.not24, label %133, label %134
 
-133:                                              ; preds = %.thread21, %131, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h57355d015ce2427fE.exit"
+133:                                              ; preds = %.thread21, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h57355d015ce2427fE.exit", %131
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   ret void
 

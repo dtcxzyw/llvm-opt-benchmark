@@ -3366,7 +3366,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6format22JavaScriptImpor
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4376
   %5 = load ptr, ptr %4, align 8, !tbaa !271
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25, label %6
+  br i1 %.not, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -3387,11 +3387,11 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i: ; preds = %swit
   %13 = icmp eq ptr %8, %12
   %14 = icmp eq i16 %.pre.i, 132
   %or.cond = select i1 %13, i1 true, i1 %14
-  br i1 %or.cond, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25
+  br i1 %or.cond, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27
 
 _ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit: ; preds = %6
   %.old = icmp eq i16 %.pre.i, 132
-  br i1 %.old, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25
+  br i1 %.old, label %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27
 
 _ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit.thread: ; preds = %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit
   %15 = icmp eq i16 %.pre.i, 132
@@ -3435,171 +3435,173 @@ _ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i: ; preds 
 _ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit: ; preds = %26, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i
   %33 = phi i16 [ %21, %26 ], [ %.pre, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i ]
   %34 = phi ptr [ %.05.i.i.i, %26 ], [ %32, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i ]
-  switch i16 %33, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit [
-    i16 18, label %35
-    i16 17, label %35
-    i16 15, label %35
-    i16 14, label %35
-    i16 19, label %35
+  switch i16 %33, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit.thread [
+    i16 18, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit
+    i16 17, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit
+    i16 15, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit
+    i16 14, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit
+    i16 19, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit
   ]
 
-35:                                               ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit
-  br i1 %15, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit, label %36
+_ZNK5clang6format11FormatToken15isStringLiteralEv.exit: ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit
+  %35 = load i8, ptr %16, align 1, !range !22
+  %36 = trunc nuw i8 %35 to i1
+  br i1 %36, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit.thread, label %37
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %37, align 4, !tbaa !24
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %40 = load i64, ptr %39, align 8, !tbaa !25
-  %41 = add i64 %40, -2
-  %42 = icmp ne i64 %40, 0
-  %.sroa.speculated4.i = zext i1 %42 to i64
-  %43 = load ptr, ptr %38, align 8, !tbaa !254
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.sroa.speculated4.i
-  %45 = sub i64 %40, %.sroa.speculated4.i
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %45, i64 %41)
-  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %44, ptr %46, align 8, !tbaa !26
+37:                                               ; preds = %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 0, ptr %38, align 4, !tbaa !24
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %41 = load i64, ptr %40, align 8, !tbaa !25
+  %42 = add i64 %41, -2
+  %43 = icmp ne i64 %41, 0
+  %.sroa.speculated4.i = zext i1 %43 to i64
+  %44 = load ptr, ptr %39, align 8, !tbaa !254
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.sroa.speculated4.i
+  %46 = sub i64 %41, %.sroa.speculated4.i
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %42)
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %45, ptr %47, align 8, !tbaa !26
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.sroa.speculated.i, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !27
-  br label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25
+  br label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27
 
-_ZNK5clang6format11FormatToken15isStringLiteralEv.exit: ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit, %35
-  %47 = tail call noundef zeroext i1 @_ZN5clang6format22JavaScriptImportSorter16parseStarBindingERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(2072) %1, ptr noundef nonnull align 8 dereferenceable(132) %2)
-  br i1 %47, label %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread, label %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit
+_ZNK5clang6format11FormatToken15isStringLiteralEv.exit.thread: ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit, %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit
+  %48 = tail call noundef zeroext i1 @_ZN5clang6format22JavaScriptImportSorter16parseStarBindingERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(2072) %1, ptr noundef nonnull align 8 dereferenceable(132) %2)
+  br i1 %48, label %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread, label %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit
 
-_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit: ; preds = %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit
-  %48 = tail call noundef zeroext i1 @_ZN5clang6format22JavaScriptImportSorter18parseNamedBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(2072) %1, ptr noundef nonnull align 8 dereferenceable(132) %2)
-  br i1 %48, label %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25
+_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit: ; preds = %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit.thread
+  %49 = tail call noundef zeroext i1 @_ZN5clang6format22JavaScriptImportSorter18parseNamedBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(2072) %1, ptr noundef nonnull align 8 dereferenceable(132) %2)
+  br i1 %49, label %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27
 
-_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread: ; preds = %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit, %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit
-  %49 = load ptr, ptr %4, align 8, !tbaa !271
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %51 = load ptr, ptr %50, align 8, !tbaa !321
-  %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25, label %52
+_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread: ; preds = %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit.thread, %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit
+  %50 = load ptr, ptr %4, align 8, !tbaa !271
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %52 = load ptr, ptr %51, align 8, !tbaa !321
+  %.not.i = icmp eq ptr %52, null
+  br i1 %.not.i, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27, label %53
 
-52:                                               ; preds = %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %54 = load i16, ptr %53, align 8, !tbaa !262
-  %switch.tableidx60 = add i16 %54, -1
-  %55 = icmp ult i16 %switch.tableidx60, 19
-  br i1 %55, label %switch.hole_check61, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit
+53:                                               ; preds = %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %55 = load i16, ptr %54, align 8, !tbaa !262
+  %switch.tableidx64 = add i16 %55, -1
+  %56 = icmp ult i16 %switch.tableidx64, 19
+  br i1 %56, label %switch.hole_check65, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit
 
-_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit: ; preds = %switch.hole_check61, %52
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !320
-  %58 = icmp eq ptr %51, %57
-  br i1 %58, label %59, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25
+_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit: ; preds = %switch.hole_check65, %53
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !320
+  %59 = icmp eq ptr %52, %58
+  br i1 %59, label %60, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27
 
-59:                                               ; preds = %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit
-  %60 = getelementptr inbounds nuw i8, ptr %49, i64 216
-  %61 = load ptr, ptr %60, align 8, !tbaa !277
-  %.not4.i.i.i19 = icmp eq ptr %61, null
-  br i1 %.not4.i.i.i19, label %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i22, label %.lr.ph.i.i.i20
+60:                                               ; preds = %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 216
+  %62 = load ptr, ptr %61, align 8, !tbaa !277
+  %.not4.i.i.i21 = icmp eq ptr %62, null
+  br i1 %.not4.i.i.i21, label %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i24, label %.lr.ph.i.i.i22
 
-.lr.ph.i.i.i20:                                   ; preds = %59, %65
-  %.05.i.i.i21 = phi ptr [ %67, %65 ], [ %61, %59 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.05.i.i.i21, i64 16
-  %63 = load i16, ptr %62, align 8, !tbaa !262
-  %64 = icmp eq i16 %63, 4
-  br i1 %64, label %65, label %68
+.lr.ph.i.i.i22:                                   ; preds = %60, %66
+  %.05.i.i.i23 = phi ptr [ %68, %66 ], [ %62, %60 ]
+  %63 = getelementptr inbounds nuw i8, ptr %.05.i.i.i23, i64 16
+  %64 = load i16, ptr %63, align 8, !tbaa !262
+  %65 = icmp eq i16 %64, 4
+  br i1 %65, label %66, label %69
 
-65:                                               ; preds = %.lr.ph.i.i.i20
-  %66 = getelementptr inbounds nuw i8, ptr %.05.i.i.i21, i64 216
-  %67 = load ptr, ptr %66, align 8, !tbaa !277
-  %.not.i.i.i23 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i23, label %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i22, label %.lr.ph.i.i.i20, !llvm.loop !279
+66:                                               ; preds = %.lr.ph.i.i.i22
+  %67 = getelementptr inbounds nuw i8, ptr %.05.i.i.i23, i64 216
+  %68 = load ptr, ptr %67, align 8, !tbaa !277
+  %.not.i.i.i25 = icmp eq ptr %68, null
+  br i1 %.not.i.i.i25, label %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i24, label %.lr.ph.i.i.i22, !llvm.loop !279
 
-68:                                               ; preds = %.lr.ph.i.i.i20
-  store ptr %.05.i.i.i21, ptr %4, align 8, !tbaa !271
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 4384
-  %70 = load ptr, ptr %69, align 8, !tbaa !274
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 216
-  %72 = load ptr, ptr %71, align 8, !tbaa !277
-  %73 = icmp eq ptr %.05.i.i.i21, %72
-  br i1 %73, label %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i22, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit24
+69:                                               ; preds = %.lr.ph.i.i.i22
+  store ptr %.05.i.i.i23, ptr %4, align 8, !tbaa !271
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 4384
+  %71 = load ptr, ptr %70, align 8, !tbaa !274
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 216
+  %73 = load ptr, ptr %72, align 8, !tbaa !277
+  %74 = icmp eq ptr %.05.i.i.i23, %73
+  br i1 %74, label %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i24, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit26
 
-_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i22: ; preds = %65, %68, %59
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 4392
-  store ptr %74, ptr %4, align 8, !tbaa !271
-  %.phi.trans.insert46 = getelementptr inbounds nuw i8, ptr %0, i64 4408
-  %.pre47 = load i16, ptr %.phi.trans.insert46, align 8, !tbaa !262
-  br label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit24
+_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i24: ; preds = %66, %69, %60
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 4392
+  store ptr %75, ptr %4, align 8, !tbaa !271
+  %.phi.trans.insert50 = getelementptr inbounds nuw i8, ptr %0, i64 4408
+  %.pre51 = load i16, ptr %.phi.trans.insert50, align 8, !tbaa !262
+  br label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit26
 
-_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit24: ; preds = %68, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i22
-  %75 = phi i16 [ %63, %68 ], [ %.pre47, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i22 ]
-  %76 = phi ptr [ %.05.i.i.i21, %68 ], [ %74, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i22 ]
-  switch i16 %75, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25 [
-    i16 18, label %77
-    i16 17, label %77
-    i16 15, label %77
-    i16 14, label %77
-    i16 19, label %77
+_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit26: ; preds = %69, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i24
+  %76 = phi i16 [ %64, %69 ], [ %.pre51, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i24 ]
+  %77 = phi ptr [ %.05.i.i.i23, %69 ], [ %75, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i24 ]
+  switch i16 %76, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27 [
+    i16 18, label %78
+    i16 17, label %78
+    i16 15, label %78
+    i16 14, label %78
+    i16 19, label %78
   ]
 
-77:                                               ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit24, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit24, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit24, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit24, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit24
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %80 = load i64, ptr %79, align 8, !tbaa !25
-  %81 = add i64 %80, -2
-  %82 = icmp ne i64 %80, 0
-  %.sroa.speculated4.i26 = zext i1 %82 to i64
-  %83 = load ptr, ptr %78, align 8, !tbaa !254
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %.sroa.speculated4.i26
-  %85 = sub i64 %80, %.sroa.speculated4.i26
-  %.sroa.speculated.i27 = tail call i64 @llvm.umin.i64(i64 %85, i64 %81)
-  %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %84, ptr %86, align 8, !tbaa !26
+78:                                               ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit26, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit26, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit26, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit26, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit26
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %81 = load i64, ptr %80, align 8, !tbaa !25
+  %82 = add i64 %81, -2
+  %83 = icmp ne i64 %81, 0
+  %.sroa.speculated4.i28 = zext i1 %83 to i64
+  %84 = load ptr, ptr %79, align 8, !tbaa !254
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %.sroa.speculated4.i28
+  %86 = sub i64 %81, %.sroa.speculated4.i28
+  %.sroa.speculated.i29 = tail call i64 @llvm.umin.i64(i64 %86, i64 %82)
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %85, ptr %87, align 8, !tbaa !26
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %.sroa.speculated.i27, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !27
-  %.not.i30 = icmp ult i64 %.sroa.speculated.i27, 2
-  br i1 %.not.i30, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread40, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+  store i64 %.sroa.speculated.i29, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !27
+  %.not.i32 = icmp ult i64 %.sroa.speculated.i29, 2
+  br i1 %.not.i32, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread44, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
-_ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %77
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %84, ptr noundef nonnull dereferenceable(2) @.str.3, i64 2)
-  %87 = icmp eq i32 %bcmp.i, 0
-  br i1 %87, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit33
+_ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %78
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %85, ptr noundef nonnull dereferenceable(2) @.str.3, i64 2)
+  %88 = icmp eq i32 %bcmp.i, 0
+  br i1 %88, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit35
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 2, ptr %88, align 4, !tbaa !24
-  br label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 2, ptr %89, align 4, !tbaa !24
+  br label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread40: ; preds = %77
-  %.not.i31 = icmp eq i64 %.sroa.speculated.i27, 0
-  br i1 %.not.i31, label %_ZNK4llvm9StringRef11starts_withES0_.exit33.thread41, label %_ZNK4llvm9StringRef11starts_withES0_.exit33
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread44: ; preds = %78
+  %.not.i33 = icmp eq i64 %.sroa.speculated.i29, 0
+  br i1 %.not.i33, label %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread45, label %_ZNK4llvm9StringRef11starts_withES0_.exit35
 
-_ZNK4llvm9StringRef11starts_withES0_.exit33:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread40
-  %lhsc = load i8, ptr %84, align 1
-  %89 = icmp eq i8 %lhsc, 46
-  br i1 %89, label %_ZNK4llvm9StringRef11starts_withES0_.exit33.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit33.thread41
+_ZNK4llvm9StringRef11starts_withES0_.exit35:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread44
+  %lhsc = load i8, ptr %85, align 1
+  %90 = icmp eq i8 %lhsc, 46
+  br i1 %90, label %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread45
 
-_ZNK4llvm9StringRef11starts_withES0_.exit33.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit33
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 3, ptr %90, align 4, !tbaa !24
-  br label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25
-
-_ZNK4llvm9StringRef11starts_withES0_.exit33.thread41: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread40, %_ZNK4llvm9StringRef11starts_withES0_.exit33
+_ZNK4llvm9StringRef11starts_withES0_.exit35.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit35
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 1, ptr %91, align 4, !tbaa !24
-  br label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25
+  store i32 3, ptr %91, align 4, !tbaa !24
+  br label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27
+
+_ZNK4llvm9StringRef11starts_withES0_.exit35.thread45: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread44, %_ZNK4llvm9StringRef11starts_withES0_.exit35
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 1, ptr %92, align 4, !tbaa !24
+  br label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27
 
 switch.hole_check:                                ; preds = %9
   %switch.maskindex = zext nneg i16 %switch.tableidx to i32
   %switch.shifted = lshr i32 524225, %switch.maskindex
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i
+  br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i
 
-switch.hole_check61:                              ; preds = %52
-  %switch.maskindex63 = zext nneg i16 %switch.tableidx60 to i32
-  %switch.shifted64 = lshr i32 524225, %switch.maskindex63
-  %switch.lobit65 = trunc i32 %switch.shifted64 to i1
-  br i1 %switch.lobit65, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit
+switch.hole_check65:                              ; preds = %53
+  %switch.maskindex67 = zext nneg i16 %switch.tableidx64 to i32
+  %switch.shifted68 = lshr i32 524225, %switch.maskindex67
+  %switch.lobit69 = trunc i32 %switch.shifted68 to i1
+  br i1 %switch.lobit69, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit
 
-_ZNK5clang6format11FormatToken15isStringLiteralEv.exit25: ; preds = %switch.hole_check61, %switch.hole_check, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i, %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit24, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit33.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit33.thread41, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit, %3, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit, %36
-  %.0 = phi i1 [ true, %36 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit ], [ false, %3 ], [ false, %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit33.thread41 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit33.thread ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit ], [ false, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit24 ], [ true, %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ false, %switch.hole_check ], [ true, %switch.hole_check61 ]
+_ZNK5clang6format11FormatToken15isStringLiteralEv.exit27: ; preds = %switch.hole_check65, %switch.hole_check, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i, %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit26, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread45, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit, %3, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit, %37
+  %.0 = phi i1 [ true, %37 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfIPNS_14IdentifierInfoENS_3tok9TokenKindEEEbT_T0_.exit ], [ false, %3 ], [ false, %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread45 ], [ true, %_ZNK4llvm9StringRef11starts_withES0_.exit35.thread ], [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit ], [ false, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit26 ], [ true, %_ZN5clang6format22JavaScriptImportSorter19parseModuleBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceE.exit.thread ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i ], [ false, %switch.hole_check ], [ true, %switch.hole_check65 ]
   ret i1 %.0
 }
 

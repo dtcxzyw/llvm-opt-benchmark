@@ -3452,9 +3452,9 @@ _ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 149:                                              ; preds = %123
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %124, i8 0, i64 344, i1 false)
   store i8 1, ptr %125, align 8, !tbaa !98
-  %.pre = load i8, ptr %120, align 8, !tbaa !100, !range !33
+  %.pre = load i8, ptr %120, align 8, !range !33
   %150 = trunc nuw i8 %.pre to i1
-  br i1 %150, label %.thread149, label %.thread.i.i.i.i.i
+  br i1 %150, label %.thread149, label %152
 
 .thread149:                                       ; preds = %128, %149
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -3462,237 +3462,237 @@ _ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store i8 1, ptr %151, align 8, !tbaa !100
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEEvRSt8optionalIT_ERKS7_.exit
 
-.thread.i.i.i.i.i:                                ; preds = %149
+152:                                              ; preds = %149
   tail call void @_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(168) %124) #28
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEEvRSt8optionalIT_ERKS7_.exit
 
-_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEEvRSt8optionalIT_ERKS7_.exit: ; preds = %.thread.i.i.i.i.i, %.thread149, %146, %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit133, %119
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 616
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 784
-  %154 = load i8, ptr %153, align 8, !tbaa !104, !range !33, !noundef !34
-  %155 = trunc nuw i8 %154 to i1
-  br i1 %155, label %156, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit
+_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEEvRSt8optionalIT_ERKS7_.exit: ; preds = %152, %.thread149, %146, %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit133, %119
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 616
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 784
+  %155 = load i8, ptr %154, align 8, !tbaa !104, !range !33, !noundef !34
+  %156 = trunc nuw i8 %155 to i1
+  br i1 %156, label %157, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit
 
-156:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEEvRSt8optionalIT_ERKS7_.exit
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %158 = load i8, ptr %157, align 8, !tbaa !98, !range !33, !noundef !34
-  %159 = trunc nuw i8 %158 to i1
-  br i1 %159, label %160, label %.thread.i.i.i.i.i138
+157:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEEvRSt8optionalIT_ERKS7_.exit
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %159 = load i8, ptr %158, align 8, !tbaa !98, !range !33, !noundef !34
+  %160 = trunc nuw i8 %159 to i1
+  br i1 %160, label %161, label %183
 
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %163 = load i8, ptr %162, align 8, !tbaa !104, !range !33, !noundef !34
-  %164 = trunc nuw i8 %163 to i1
-  br i1 %164, label %165, label %.thread.i.i.i.i.i138.thread
+161:                                              ; preds = %157
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %164 = load i8, ptr %163, align 8, !tbaa !104, !range !33, !noundef !34
+  %165 = trunc nuw i8 %164 to i1
+  br i1 %165, label %166, label %.thread150
 
-165:                                              ; preds = %160
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %167 = load i64, ptr %166, align 8, !tbaa !10
-  %168 = icmp eq i64 %167, 0
-  br i1 %168, label %169, label %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit134
+166:                                              ; preds = %161
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %168 = load i64, ptr %167, align 8, !tbaa !10
+  %169 = icmp eq i64 %168, 0
+  br i1 %169, label %170, label %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit134
 
-169:                                              ; preds = %165
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 8 dereferenceable(32) %152)
+170:                                              ; preds = %166
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 8 dereferenceable(32) %153)
   br label %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit134
 
-_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit134: ; preds = %165, %169
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %171 = load i64, ptr %170, align 8, !tbaa !10
-  %172 = icmp eq i64 %171, 0
-  br i1 %172, label %173, label %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit135
+_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit134: ; preds = %166, %170
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %172 = load i64, ptr %171, align 8, !tbaa !10
+  %173 = icmp eq i64 %172, 0
+  br i1 %173, label %174, label %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit135
 
-173:                                              ; preds = %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit134
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 648
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef nonnull align 8 dereferenceable(32) %175)
+174:                                              ; preds = %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit134
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 648
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(32) %176)
   br label %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit135
 
-_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit135: ; preds = %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit134, %173
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %177 = load i8, ptr %176, align 8, !tbaa !106, !range !33, !noundef !34
-  %178 = trunc nuw i8 %177 to i1
-  br i1 %178, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit, label %179
+_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit135: ; preds = %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit134, %174
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %178 = load i8, ptr %177, align 8, !tbaa !106, !range !33, !noundef !34
+  %179 = trunc nuw i8 %178 to i1
+  br i1 %179, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit, label %180
 
-179:                                              ; preds = %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit135
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 680
-  tail call void @_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE14_M_copy_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(104) %180, ptr noundef nonnull align 8 dereferenceable(104) %181)
+180:                                              ; preds = %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit135
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 680
+  tail call void @_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE14_M_copy_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(104) %181, ptr noundef nonnull align 8 dereferenceable(104) %182)
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit
 
-.thread.i.i.i.i.i138:                             ; preds = %156
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %182, i8 0, i64 344, i1 false)
-  store i8 1, ptr %157, align 8, !tbaa !98
-  %.pre148 = load i8, ptr %153, align 8, !tbaa !104, !range !33
-  %183 = trunc nuw i8 %.pre148 to i1
-  br i1 %183, label %.thread.i.i.i.i.i138.thread, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit
+183:                                              ; preds = %157
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %184, i8 0, i64 344, i1 false)
+  store i8 1, ptr %158, align 8, !tbaa !98
+  %.pre148 = load i8, ptr %154, align 8, !range !33
+  %185 = trunc nuw i8 %.pre148 to i1
+  br i1 %185, label %.thread150, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit
 
-.thread.i.i.i.i.i138.thread:                      ; preds = %160, %.thread.i.i.i.i.i138
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  tail call void @_ZN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(176) %184, ptr noundef nonnull align 8 dereferenceable(176) %152)
-  store i8 1, ptr %185, align 8, !tbaa !104
+.thread150:                                       ; preds = %161, %183
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  tail call void @_ZN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(176) %186, ptr noundef nonnull align 8 dereferenceable(176) %153)
+  store i8 1, ptr %187, align 8, !tbaa !104
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit
 
-_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit: ; preds = %.thread.i.i.i.i.i138.thread, %.thread.i.i.i.i.i138, %179, %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit135, %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEEvRSt8optionalIT_ERKS7_.exit, %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit131
-  %186 = getelementptr inbounds nuw i8, ptr %1, i64 800
-  %187 = getelementptr inbounds nuw i8, ptr %1, i64 896
-  %188 = load i8, ptr %187, align 8, !tbaa !108, !range !33, !noundef !34
-  %189 = trunc nuw i8 %188 to i1
-  br i1 %189, label %190, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEEvRSt8optionalIT_ERKS7_.exit
+_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit: ; preds = %183, %.thread150, %180, %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit135, %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEEEvRSt8optionalIT_ERKS7_.exit, %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit131
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 800
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 896
+  %190 = load i8, ptr %189, align 8, !tbaa !108, !range !33, !noundef !34
+  %191 = trunc nuw i8 %190 to i1
+  br i1 %191, label %192, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEEvRSt8optionalIT_ERKS7_.exit
 
-190:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %193 = load i8, ptr %192, align 8, !tbaa !108, !range !33, !noundef !34
-  %194 = trunc nuw i8 %193 to i1
-  br i1 %194, label %195, label %260
+192:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %195 = load i8, ptr %194, align 8, !tbaa !108, !range !33, !noundef !34
+  %196 = trunc nuw i8 %195 to i1
+  br i1 %196, label %197, label %262
 
-195:                                              ; preds = %190
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 801
-  %197 = load i8, ptr %196, align 1, !tbaa !37, !range !33, !noundef !34
-  %198 = trunc nuw i8 %197 to i1
-  br i1 %198, label %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit139, label %199
+197:                                              ; preds = %192
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 801
+  %199 = load i8, ptr %198, align 1, !tbaa !37, !range !33, !noundef !34
+  %200 = trunc nuw i8 %199 to i1
+  br i1 %200, label %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit139, label %201
 
-199:                                              ; preds = %195
-  %.val103 = load i16, ptr %186, align 8
-  store i16 %.val103, ptr %191, align 8
+201:                                              ; preds = %197
+  %.val103 = load i16, ptr %188, align 8
+  store i16 %.val103, ptr %193, align 8
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit139
 
-_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit139: ; preds = %195, %199
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 803
-  %201 = load i8, ptr %200, align 1, !tbaa !37, !range !33, !noundef !34
-  %202 = trunc nuw i8 %201 to i1
-  br i1 %202, label %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit140, label %203
+_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit139: ; preds = %197, %201
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 803
+  %203 = load i8, ptr %202, align 1, !tbaa !37, !range !33, !noundef !34
+  %204 = trunc nuw i8 %203 to i1
+  br i1 %204, label %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit140, label %205
 
-203:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit139
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 802
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 802
-  %.val102 = load i16, ptr %205, align 2
-  store i16 %.val102, ptr %204, align 2
+205:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit139
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 802
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 802
+  %.val102 = load i16, ptr %207, align 2
+  store i16 %.val102, ptr %206, align 2
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit140
 
-_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit140: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit139, %203
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %207 = load i8, ptr %206, align 8, !tbaa !88, !range !33, !noundef !34
-  %208 = trunc nuw i8 %207 to i1
-  br i1 %208, label %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit141, label %209
+_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit140: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit139, %205
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %209 = load i8, ptr %208, align 8, !tbaa !88, !range !33, !noundef !34
+  %210 = trunc nuw i8 %209 to i1
+  br i1 %210, label %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit141, label %211
 
-209:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit140
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 804
-  %211 = getelementptr inbounds nuw i8, ptr %1, i64 804
-  %.val113 = load i64, ptr %211, align 4
-  store i64 %.val113, ptr %210, align 4
+211:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit140
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 804
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 804
+  %.val113 = load i64, ptr %213, align 4
+  store i64 %.val113, ptr %212, align 4
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit141
 
-_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit141: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit140, %209
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %213 = load i64, ptr %212, align 8, !tbaa !10
-  %214 = icmp eq i64 %213, 0
-  br i1 %214, label %215, label %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit142
+_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit141: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit140, %211
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 824
+  %215 = load i64, ptr %214, align 8, !tbaa !10
+  %216 = icmp eq i64 %215, 0
+  br i1 %216, label %217, label %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit142
 
-215:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit141
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %217 = getelementptr inbounds nuw i8, ptr %1, i64 816
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %216, ptr noundef nonnull align 8 dereferenceable(32) %217)
+217:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit141
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 816
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %218, ptr noundef nonnull align 8 dereferenceable(32) %219)
   br label %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit142
 
-_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit142: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit141, %215
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 852
-  %219 = load i8, ptr %218, align 4, !tbaa !88, !range !33, !noundef !34
-  %220 = trunc nuw i8 %219 to i1
-  br i1 %220, label %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit143, label %221
+_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit142: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit141, %217
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 852
+  %221 = load i8, ptr %220, align 4, !tbaa !88, !range !33, !noundef !34
+  %222 = trunc nuw i8 %221 to i1
+  br i1 %222, label %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit143, label %223
 
-221:                                              ; preds = %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit142
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 848
-  %.val112 = load i64, ptr %223, align 8
-  store i64 %.val112, ptr %222, align 8
+223:                                              ; preds = %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit142
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %225 = getelementptr inbounds nuw i8, ptr %1, i64 848
+  %.val112 = load i64, ptr %225, align 8
+  store i64 %.val112, ptr %224, align 8
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit143
 
-_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit143: ; preds = %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit142, %221
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 860
-  %225 = load i8, ptr %224, align 4, !tbaa !110, !range !33, !noundef !34
-  %226 = trunc nuw i8 %225 to i1
-  br i1 %226, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEEvRSt8optionalIT_ERKS7_.exit, label %227
+_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit143: ; preds = %_ZN12_GLOBAL__N_113InheritStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_.exit142, %223
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 860
+  %227 = load i8, ptr %226, align 4, !tbaa !110, !range !33, !noundef !34
+  %228 = trunc nuw i8 %227 to i1
+  br i1 %228, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEEvRSt8optionalIT_ERKS7_.exit, label %229
 
-227:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit143
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %229 = getelementptr inbounds nuw i8, ptr %1, i64 856
-  %.val119 = load i64, ptr %229, align 8
-  store i64 %.val119, ptr %228, align 8
+229:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit143
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 856
+  %.val119 = load i64, ptr %231, align 8
+  store i64 %.val119, ptr %230, align 8
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEEvRSt8optionalIT_ERKS7_.exit
 
-_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEEvRSt8optionalIT_ERKS7_.exit: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit143, %227
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %231 = load i8, ptr %230, align 8, !tbaa !112, !range !33, !noundef !34
-  %232 = trunc nuw i8 %231 to i1
-  br i1 %232, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEEvRSt8optionalIT_ERKS7_.exit, label %233
+_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEEvRSt8optionalIT_ERKS7_.exit: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit143, %229
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %233 = load i8, ptr %232, align 8, !tbaa !112, !range !33, !noundef !34
+  %234 = trunc nuw i8 %233 to i1
+  br i1 %234, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEEvRSt8optionalIT_ERKS7_.exit, label %235
 
-233:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEEvRSt8optionalIT_ERKS7_.exit
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %235 = getelementptr inbounds nuw i8, ptr %1, i64 864
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %234, ptr noundef nonnull readonly align 8 dereferenceable(12) %235, i64 12, i1 false)
+235:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEEvRSt8optionalIT_ERKS7_.exit
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 864
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %236, ptr noundef nonnull readonly align 8 dereferenceable(12) %237, i64 12, i1 false)
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEEvRSt8optionalIT_ERKS7_.exit
 
-_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEEvRSt8optionalIT_ERKS7_.exit: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEEvRSt8optionalIT_ERKS7_.exit, %233
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 877
-  %237 = load i8, ptr %236, align 1, !tbaa !37, !range !33, !noundef !34
-  %238 = trunc nuw i8 %237 to i1
-  br i1 %238, label %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit144, label %239
+_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEEvRSt8optionalIT_ERKS7_.exit: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions12ShowOnlyEnumEEEvRSt8optionalIT_ERKS7_.exit, %235
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 877
+  %239 = load i8, ptr %238, align 1, !tbaa !37, !range !33, !noundef !34
+  %240 = trunc nuw i8 %239 to i1
+  br i1 %240, label %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit144, label %241
 
-239:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEEvRSt8optionalIT_ERKS7_.exit
-  %240 = getelementptr inbounds nuw i8, ptr %0, i64 876
-  %241 = getelementptr inbounds nuw i8, ptr %1, i64 876
-  %.val101 = load i16, ptr %241, align 4
-  store i16 %.val101, ptr %240, align 4
+241:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEEvRSt8optionalIT_ERKS7_.exit
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 876
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 876
+  %.val101 = load i16, ptr %243, align 4
+  store i16 %.val101, ptr %242, align 4
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit144
 
-_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit144: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEEvRSt8optionalIT_ERKS7_.exit, %239
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 879
-  %243 = load i8, ptr %242, align 1, !tbaa !37, !range !33, !noundef !34
-  %244 = trunc nuw i8 %243 to i1
-  br i1 %244, label %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit145, label %245
+_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit144: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEEEvRSt8optionalIT_ERKS7_.exit, %241
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 879
+  %245 = load i8, ptr %244, align 1, !tbaa !37, !range !33, !noundef !34
+  %246 = trunc nuw i8 %245 to i1
+  br i1 %246, label %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit145, label %247
 
-245:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit144
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 878
-  %247 = getelementptr inbounds nuw i8, ptr %1, i64 878
-  %.val = load i16, ptr %247, align 2
-  store i16 %.val, ptr %246, align 2
+247:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit144
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 878
+  %249 = getelementptr inbounds nuw i8, ptr %1, i64 878
+  %.val = load i16, ptr %249, align 2
+  store i16 %.val, ptr %248, align 2
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit145
 
-_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit145: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit144, %245
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 884
-  %249 = load i8, ptr %248, align 4, !tbaa !88, !range !33, !noundef !34
-  %250 = trunc nuw i8 %249 to i1
-  br i1 %250, label %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit146, label %251
+_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit145: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit144, %247
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 884
+  %251 = load i8, ptr %250, align 4, !tbaa !88, !range !33, !noundef !34
+  %252 = trunc nuw i8 %251 to i1
+  br i1 %252, label %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit146, label %253
 
-251:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit145
-  %252 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %253 = getelementptr inbounds nuw i8, ptr %1, i64 880
-  %.val111 = load i64, ptr %253, align 8
-  store i64 %.val111, ptr %252, align 8
+253:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit145
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 880
+  %.val111 = load i64, ptr %255, align 8
+  store i64 %.val111, ptr %254, align 8
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit146
 
-_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit146: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit145, %251
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 892
-  %255 = load i8, ptr %254, align 4, !tbaa !114, !range !33, !noundef !34
-  %256 = trunc nuw i8 %255 to i1
-  br i1 %256, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEEvRSt8optionalIT_ERKS7_.exit, label %257
+_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit146: ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIbEEvRSt8optionalIT_ERKS3_.exit145, %253
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 892
+  %257 = load i8, ptr %256, align 4, !tbaa !114, !range !33, !noundef !34
+  %258 = trunc nuw i8 %257 to i1
+  br i1 %258, label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEEvRSt8optionalIT_ERKS7_.exit, label %259
 
-257:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit146
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %259 = getelementptr inbounds nuw i8, ptr %1, i64 888
-  %.val120 = load i64, ptr %259, align 8
-  store i64 %.val120, ptr %258, align 8
+259:                                              ; preds = %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit146
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %261 = getelementptr inbounds nuw i8, ptr %1, i64 888
+  %.val120 = load i64, ptr %261, align 8
+  store i64 %.val120, ptr %260, align 8
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEEvRSt8optionalIT_ERKS7_.exit
 
-260:                                              ; preds = %190
-  tail call void @_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE14_M_copy_assignERKS3_(ptr noundef nonnull align 8 dereferenceable(104) %191, ptr noundef nonnull align 8 dereferenceable(104) %186)
+262:                                              ; preds = %192
+  tail call void @_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE14_M_copy_assignERKS3_(ptr noundef nonnull align 8 dereferenceable(104) %193, ptr noundef nonnull align 8 dereferenceable(104) %188)
   br label %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEEvRSt8optionalIT_ERKS7_.exit
 
-_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEEvRSt8optionalIT_ERKS7_.exit: ; preds = %257, %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit146, %260, %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit
+_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions17NoTestsActionEnumEEEvRSt8optionalIT_ERKS7_.exit: ; preds = %259, %_ZN12_GLOBAL__N_120InheritOptionalValueIiEEvRSt8optionalIT_ERKS3_.exit146, %262, %_ZN12_GLOBAL__N_120InheritOptionalValueIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEEEvRSt8optionalIT_ERKS7_.exit
   ret i1 true
 }
 
@@ -14245,76 +14245,77 @@ define linkonce_odr dso_local void @_ZNSt22_Optional_payload_baseIN19cmCMakePres
   %4 = load i8, ptr %3, align 8, !tbaa !92, !range !33, !noundef !34
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %7 = load i8, ptr %6, align 8, !tbaa !92, !range !33, !noundef !34
+  %7 = load i8, ptr %6, align 8, !range !33
   %8 = trunc nuw i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %16
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %18
-
-10:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr noundef nonnull align 8 dereferenceable(124) %1, i64 18, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, ptr noundef nonnull align 8 dereferenceable(36) %16, i64 36, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull align 8 dereferenceable(36) %15, i64 36, i1 false)
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %17, label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE8_M_resetEv.exit
+16:                                               ; preds = %2
+  br i1 %8, label %17, label %18
 
-17:                                               ; preds = %.thread
+17:                                               ; preds = %16
   tail call void @_ZN19cmCMakePresetsGraph10TestPreset13OutputOptionsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(129) %0, ptr noundef nonnull align 8 dereferenceable(124) %1)
   store i8 1, ptr %3, align 8, !tbaa !92
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE8_M_resetEv.exit
 
-18:                                               ; preds = %9
-  store i8 0, ptr %3, align 8, !tbaa !92
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %20 = load ptr, ptr %19, align 8, !tbaa !14
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %22 = icmp eq ptr %20, %21
-  br i1 %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+18:                                               ; preds = %16
+  br i1 %5, label %19, label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE8_M_resetEv.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load i64, ptr %23, align 8, !tbaa !10
-  %25 = icmp ult i64 %24, 16
-  tail call void @llvm.assume(i1 %25)
+19:                                               ; preds = %18
+  store i8 0, ptr %3, align 8, !tbaa !92
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %21 = load ptr, ptr %20, align 8, !tbaa !14
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %25 = load i64, ptr %24, align 8, !tbaa !10
+  %26 = icmp ult i64 %25, 16
+  tail call void @llvm.assume(i1 %26)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %18
-  %26 = load i64, ptr %21, align 8, !tbaa !13
-  %27 = add i64 %26, 1
-  tail call void @_ZdlPvm(ptr noundef %20, i64 noundef %27) #30
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %19
+  %27 = load i64, ptr %22, align 8, !tbaa !13
+  %28 = add i64 %27, 1
+  tail call void @_ZdlPvm(ptr noundef %21, i64 noundef %28) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !14
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = icmp eq ptr %29, %30
-  br i1 %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = load ptr, ptr %29, align 8, !tbaa !14
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %32 = icmp eq ptr %30, %31
+  br i1 %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %33 = load i64, ptr %32, align 8, !tbaa !10
-  %34 = icmp ult i64 %33, 16
-  tail call void @llvm.assume(i1 %34)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %34 = load i64, ptr %33, align 8, !tbaa !10
+  %35 = icmp ult i64 %34, 16
+  tail call void @llvm.assume(i1 %35)
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE8_M_resetEv.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
-  %35 = load i64, ptr %30, align 8, !tbaa !13
-  %36 = add i64 %35, 1
-  tail call void @_ZdlPvm(ptr noundef %29, i64 noundef %36) #30
+  %36 = load i64, ptr %31, align 8, !tbaa !13
+  %37 = add i64 %36, 1
+  tail call void @_ZdlPvm(ptr noundef %30, i64 noundef %37) #30
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE8_M_resetEv.exit: ; preds = %.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i, %17, %10
+_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE8_M_resetEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i, %18, %17, %9
   ret void
 }
 
@@ -14539,68 +14540,69 @@ define linkonce_odr dso_local void @_ZNSt22_Optional_payload_baseIN19cmCMakePres
   %4 = load i8, ptr %3, align 8, !tbaa !102, !range !33, !noundef !34
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %7 = load i8, ptr %6, align 8, !tbaa !102, !range !33, !noundef !34
+  %7 = load i8, ptr %6, align 8, !range !33
   %8 = trunc nuw i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %15
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %17
-
-10:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 24, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIiSaIiEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %16, label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE8_M_resetEv.exit
+15:                                               ; preds = %2
+  br i1 %8, label %16, label %17
 
-16:                                               ; preds = %.thread
+16:                                               ; preds = %15
   tail call void @_ZN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(80) %1)
   store i8 1, ptr %3, align 8, !tbaa !102
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE8_M_resetEv.exit
 
-17:                                               ; preds = %9
-  store i8 0, ptr %3, align 8, !tbaa !102
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !14
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = icmp eq ptr %19, %20
-  br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+17:                                               ; preds = %15
+  br i1 %5, label %18, label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE8_M_resetEv.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %23 = load i64, ptr %22, align 8, !tbaa !10
-  %24 = icmp ult i64 %23, 16
-  tail call void @llvm.assume(i1 %24)
+18:                                               ; preds = %17
+  store i8 0, ptr %3, align 8, !tbaa !102
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %20 = load ptr, ptr %19, align 8, !tbaa !14
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %22 = icmp eq ptr %20, %21
+  br i1 %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %24 = load i64, ptr %23, align 8, !tbaa !10
+  %25 = icmp ult i64 %24, 16
+  tail call void @llvm.assume(i1 %25)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %17
-  %25 = load i64, ptr %20, align 8, !tbaa !13
-  %26 = add i64 %25, 1
-  tail call void @_ZdlPvm(ptr noundef %19, i64 noundef %26) #30
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %18
+  %26 = load i64, ptr %21, align 8, !tbaa !13
+  %27 = add i64 %26, 1
+  tail call void @_ZdlPvm(ptr noundef %20, i64 noundef %27) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !426
-  %.not.i.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE8_M_resetEv.exit, label %29
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !426
+  %.not.i.i.i.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE8_M_resetEv.exit, label %30
 
-29:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load ptr, ptr %30, align 8, !tbaa !428
-  %32 = ptrtoint ptr %31 to i64
-  %33 = ptrtoint ptr %28 to i64
-  %34 = sub i64 %32, %33
-  tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %34) #30
+30:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %32 = load ptr, ptr %31, align 8, !tbaa !428
+  %33 = ptrtoint ptr %32 to i64
+  %34 = ptrtoint ptr %29 to i64
+  %35 = sub i64 %33, %34
+  tail call void @_ZdlPvm(ptr noundef nonnull %29, i64 noundef %35) #30
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE8_M_resetEv.exit: ; preds = %.thread, %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %16, %10
+_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE8_M_resetEv.exit: ; preds = %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %17, %16, %9
   ret void
 }
 
@@ -15015,92 +15017,93 @@ define linkonce_odr dso_local void @_ZNSt22_Optional_payload_baseIN19cmCMakePres
   %4 = load i8, ptr %3, align 8, !tbaa !106, !range !33, !noundef !34
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %7 = load i8, ptr %6, align 8, !tbaa !106, !range !33, !noundef !34
+  %7 = load i8, ptr %6, align 8, !range !33
   %8 = trunc nuw i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %14
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %16
-
-10:                                               ; preds = %9
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %15, label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE8_M_resetEv.exit
+14:                                               ; preds = %2
+  br i1 %8, label %15, label %16
 
-15:                                               ; preds = %.thread
+15:                                               ; preds = %14
   tail call void @_ZN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
   store i8 1, ptr %3, align 8, !tbaa !106
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE8_M_resetEv.exit
 
-16:                                               ; preds = %9
-  store i8 0, ptr %3, align 8, !tbaa !106
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load ptr, ptr %17, align 8, !tbaa !14
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = icmp eq ptr %18, %19
-  br i1 %20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+16:                                               ; preds = %14
+  br i1 %5, label %17, label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE8_M_resetEv.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %22 = load i64, ptr %21, align 8, !tbaa !10
-  %23 = icmp ult i64 %22, 16
-  tail call void @llvm.assume(i1 %23)
+17:                                               ; preds = %16
+  store i8 0, ptr %3, align 8, !tbaa !106
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %19 = load ptr, ptr %18, align 8, !tbaa !14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %23 = load i64, ptr %22, align 8, !tbaa !10
+  %24 = icmp ult i64 %23, 16
+  tail call void @llvm.assume(i1 %24)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %16
-  %24 = load i64, ptr %19, align 8, !tbaa !13
-  %25 = add i64 %24, 1
-  tail call void @_ZdlPvm(ptr noundef %18, i64 noundef %25) #30
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %17
+  %25 = load i64, ptr %20, align 8, !tbaa !13
+  %26 = add i64 %25, 1
+  tail call void @_ZdlPvm(ptr noundef %19, i64 noundef %26) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !14
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = icmp eq ptr %27, %28
-  br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = load ptr, ptr %27, align 8, !tbaa !14
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %30 = icmp eq ptr %28, %29
+  br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load i64, ptr %30, align 8, !tbaa !10
-  %32 = icmp ult i64 %31, 16
-  tail call void @llvm.assume(i1 %32)
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %32 = load i64, ptr %31, align 8, !tbaa !10
+  %33 = icmp ult i64 %32, 16
+  tail call void @llvm.assume(i1 %33)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
-  %33 = load i64, ptr %28, align 8, !tbaa !13
-  %34 = add i64 %33, 1
-  tail call void @_ZdlPvm(ptr noundef %27, i64 noundef %34) #30
+  %34 = load i64, ptr %29, align 8, !tbaa !13
+  %35 = add i64 %34, 1
+  tail call void @_ZdlPvm(ptr noundef %28, i64 noundef %35) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i
-  %35 = load ptr, ptr %0, align 8, !tbaa !14
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = icmp eq ptr %35, %36
-  br i1 %37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i.i.i
+  %36 = load ptr, ptr %0, align 8, !tbaa !14
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = icmp eq ptr %36, %37
+  br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3.i.i.i
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !10
-  %40 = icmp ult i64 %39, 16
-  tail call void @llvm.assume(i1 %40)
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %40 = load i64, ptr %39, align 8, !tbaa !10
+  %41 = icmp ult i64 %40, 16
+  tail call void @llvm.assume(i1 %41)
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE8_M_resetEv.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3.i.i.i
-  %41 = load i64, ptr %36, align 8, !tbaa !13
-  %42 = add i64 %41, 1
-  tail call void @_ZdlPvm(ptr noundef %35, i64 noundef %42) #30
+  %42 = load i64, ptr %37, align 8, !tbaa !13
+  %43 = add i64 %42, 1
+  tail call void @_ZdlPvm(ptr noundef %36, i64 noundef %43) #30
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE8_M_resetEv.exit: ; preds = %.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i.i.i, %15, %10
+_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE8_M_resetEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i.i.i, %16, %15, %9
   ret void
 }
 
@@ -15567,27 +15570,25 @@ define linkonce_odr dso_local void @_ZNSt22_Optional_payload_baseIN19cmCMakePres
   %5 = load i8, ptr %4, align 8, !tbaa !108, !range !33, !noundef !34
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %8 = load i8, ptr %7, align 8, !tbaa !108, !range !33, !noundef !34
+  %8 = load i8, ptr %7, align 8, !range !33
   %9 = trunc nuw i8 %8 to i1
-  br i1 %6, label %10, label %.thread
+  %or.cond = select i1 %6, i1 %9, i1 false
+  br i1 %or.cond, label %10, label %15
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %9, label %12, label %36
-
-12:                                               ; preds = %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 12, i1 false)
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %14, i64 48, i1 false)
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %9, label %16, label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE8_M_resetEv.exit
+15:                                               ; preds = %2
+  br i1 %9, label %16, label %36
 
-16:                                               ; preds = %.thread
+16:                                               ; preds = %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 12, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -15638,27 +15639,31 @@ _ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptio
   store i8 1, ptr %4, align 8, !tbaa !108
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE8_M_resetEv.exit
 
-36:                                               ; preds = %10
+36:                                               ; preds = %15
+  br i1 %6, label %37, label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE8_M_resetEv.exit
+
+37:                                               ; preds = %36
   store i8 0, ptr %4, align 8, !tbaa !108
-  %37 = load ptr, ptr %11, align 8, !tbaa !14
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = icmp eq ptr %37, %38
-  br i1 %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !14
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %41 = icmp eq ptr %39, %40
+  br i1 %41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load i64, ptr %40, align 8, !tbaa !10
-  %42 = icmp ult i64 %41, 16
-  tail call void @llvm.assume(i1 %42)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %43 = load i64, ptr %42, align 8, !tbaa !10
+  %44 = icmp ult i64 %43, 16
+  tail call void @llvm.assume(i1 %44)
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE8_M_resetEv.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %36
-  %43 = load i64, ptr %38, align 8, !tbaa !13
-  %44 = add i64 %43, 1
-  tail call void @_ZdlPvm(ptr noundef %37, i64 noundef %44) #30
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %37
+  %45 = load i64, ptr %40, align 8, !tbaa !13
+  %46 = add i64 %45, 1
+  tail call void @_ZdlPvm(ptr noundef %39, i64 noundef %46) #30
   br label %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE8_M_resetEv.exit: ; preds = %.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE12_M_constructIJRKS2_EEEvDpOT_.exit, %12
+_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE8_M_resetEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %36, %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE12_M_constructIJRKS2_EEEvDpOT_.exit, %10
   ret void
 }
 

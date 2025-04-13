@@ -755,18 +755,18 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN4llvm30FunctionImportGlobalPro
   %10 = and i32 %9, 15
   %11 = add nsw i32 %10, -7
   %spec.select.i.i = icmp ult i32 %11, 2
-  %brmerge.not = and i1 %2, %spec.select.i.i
-  %spec.select = select i1 %brmerge.not, i32 0, i32 %10
+  %or.cond = and i1 %2, %spec.select.i.i
+  %spec.select = select i1 %or.cond, i32 0, i32 %10
   br label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !50
-  %.not51 = icmp eq ptr %14, null
+  %.not = icmp eq ptr %14, null
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 15
-  br i1 %.not51, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit12, label %18
+  br i1 %.not, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit12, label %18
 
 18:                                               ; preds = %12
   switch i32 %17, label %122 [
@@ -886,7 +886,7 @@ _ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValu
   %82 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %70, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !63
   %84 = icmp eq ptr %1, %83
-  br i1 %84, label %.loopexit52, label %.lr.ph.i.i.i.i.i.i.i15, !prof !65
+  br i1 %84, label %.loopexit51, label %.lr.ph.i.i.i.i.i.i.i15, !prof !65
 
 .lr.ph.i.i.i.i.i.i.i15:                           ; preds = %74, %86
   %85 = phi ptr [ %91, %86 ], [ %83, %74 ]
@@ -903,14 +903,14 @@ _ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValu
   %90 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %70, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !63
   %92 = icmp eq ptr %1, %91
-  br i1 %92, label %.loopexit52, label %.lr.ph.i.i.i.i.i.i.i15, !prof !67, !llvm.loop !68
+  br i1 %92, label %.loopexit51, label %.lr.ph.i.i.i.i.i.i.i15, !prof !67, !llvm.loop !68
 
-.loopexit52:                                      ; preds = %86, %74
+.loopexit51:                                      ; preds = %86, %74
   %93 = load i8, ptr %1, align 8, !tbaa !70
   %94 = icmp eq i8 %93, 1
   br i1 %94, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit21, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit12
 
-_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit21: ; preds = %.lr.ph.i.i.i.i.i.i.i15, %69, %.loopexit52
+_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit21: ; preds = %.lr.ph.i.i.i.i.i.i.i15, %69, %.loopexit51
   br label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit12
 
 95:                                               ; preds = %18, %18
@@ -935,7 +935,7 @@ _ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValu
   %109 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %97, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !63
   %111 = icmp eq ptr %1, %110
-  br i1 %111, label %.loopexit53, label %.lr.ph.i.i.i.i.i.i.i24, !prof !65
+  br i1 %111, label %.loopexit52, label %.lr.ph.i.i.i.i.i.i.i24, !prof !65
 
 .lr.ph.i.i.i.i.i.i.i24:                           ; preds = %101, %113
   %112 = phi ptr [ %118, %113 ], [ %110, %101 ]
@@ -952,21 +952,21 @@ _ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValu
   %117 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %97, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !63
   %119 = icmp eq ptr %1, %118
-  br i1 %119, label %.loopexit53, label %.lr.ph.i.i.i.i.i.i.i24, !prof !67, !llvm.loop !68
+  br i1 %119, label %.loopexit52, label %.lr.ph.i.i.i.i.i.i.i24, !prof !67, !llvm.loop !68
 
-.loopexit53:                                      ; preds = %113, %101
+.loopexit52:                                      ; preds = %113, %101
   %120 = load i8, ptr %1, align 8, !tbaa !70
   %121 = icmp eq i8 %120, 1
   br i1 %121, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit30, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit12
 
-_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit30: ; preds = %.lr.ph.i.i.i.i.i.i.i24, %96, %.loopexit53
+_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit30: ; preds = %.lr.ph.i.i.i.i.i.i.i24, %96, %.loopexit52
   br label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit12
 
 122:                                              ; preds = %18
   unreachable
 
-_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit12: ; preds = %62, %.lr.ph.i.i.i.i.i.i.i6, %18, %18, %18, %18, %12, %7, %95, %50, %45, %.loopexit53, %18, %.loopexit52, %.loopexit, %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit30, %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit21, %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit
-  %.0 = phi i32 [ 0, %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit30 ], [ 0, %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit21 ], [ %17, %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit ], [ 1, %.loopexit ], [ 1, %.loopexit52 ], [ %17, %18 ], [ 1, %.loopexit53 ], [ 0, %45 ], [ 1, %50 ], [ %17, %95 ], [ %spec.select, %7 ], [ %17, %12 ], [ %17, %18 ], [ %17, %18 ], [ %17, %18 ], [ %17, %18 ], [ 1, %62 ], [ 0, %.lr.ph.i.i.i.i.i.i.i6 ]
+_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit12: ; preds = %62, %.lr.ph.i.i.i.i.i.i.i6, %18, %18, %18, %18, %12, %7, %95, %50, %45, %.loopexit52, %18, %.loopexit51, %.loopexit, %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit30, %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit21, %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit
+  %.0 = phi i32 [ 0, %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit30 ], [ 0, %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit21 ], [ %17, %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit ], [ 1, %.loopexit ], [ 1, %.loopexit51 ], [ %17, %18 ], [ 1, %.loopexit52 ], [ 0, %45 ], [ 1, %50 ], [ %17, %95 ], [ %spec.select, %7 ], [ %17, %12 ], [ %17, %18 ], [ %17, %18 ], [ %17, %18 ], [ %17, %18 ], [ 1, %62 ], [ 0, %.lr.ph.i.i.i.i.i.i.i6 ]
   ret i32 %.0
 }
 

@@ -1794,13 +1794,13 @@ define dso_local void @sema_analysis_pass_lambda(ptr noundef readonly captures(n
   br i1 %10, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
-  %11 = phi ptr [ %89, %.critedge ], [ %9, %.preheader.lr.ph ]
-  %.03853 = phi i32 [ %90, %.critedge ], [ 0, %.preheader.lr.ph ]
+  %11 = phi ptr [ %87, %.critedge ], [ %9, %.preheader.lr.ph ]
+  %.03853 = phi i32 [ %88, %.critedge ], [ 0, %.preheader.lr.ph ]
   %.not4351 = icmp eq ptr %11, null
   br i1 %.not4351, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %87
-  %12 = phi ptr [ %88, %87 ], [ %11, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %85
+  %12 = phi ptr [ %86, %85 ], [ %11, %.preheader ]
   %13 = getelementptr inbounds i8, ptr %12, i64 -8
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
@@ -1822,7 +1822,7 @@ define dso_local void @sema_analysis_pass_lambda(ptr noundef readonly captures(n
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %28 = load i32, ptr %27, align 8
   %.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i, label %53, label %29
+  br i1 %.not.i, label %51, label %29
 
 29:                                               ; preds = %16
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -1842,103 +1842,99 @@ define dso_local void @sema_analysis_pass_lambda(ptr noundef readonly captures(n
   %38 = load i16, ptr %37, align 8
   %39 = and i16 %38, 32
   %.not15.i = icmp eq i16 %39, 0
-  br i1 %.not15.i, label %43, label %40
+  %40 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 166), align 2
+  %41 = trunc i8 %40 to i1
+  %or.cond.i = select i1 %.not15.i, i1 true, i1 %41
+  br i1 %or.cond.i, label %42, label %51
 
-40:                                               ; preds = %36
-  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 166), align 2
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %53
+42:                                               ; preds = %36
+  %43 = and i16 %38, 16
+  %.not16.i = icmp eq i16 %43, 0
+  %44 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 165), align 1
+  %45 = trunc i8 %44 to i1
+  %or.cond19.i = select i1 %.not16.i, i1 true, i1 %45
+  br i1 %or.cond19.i, label %46, label %51
 
-43:                                               ; preds = %40, %36
-  %44 = and i16 %38, 16
-  %.not16.i = icmp eq i16 %44, 0
-  br i1 %.not16.i, label %48, label %45
+46:                                               ; preds = %42
+  %47 = call zeroext i1 @sema_analyse_function_body(ptr noundef nonnull %2, ptr noundef nonnull %20) #11
+  br i1 %47, label %51, label %analyse_func_body.exit
 
-45:                                               ; preds = %43
-  %46 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 165), align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %48, label %53
+analyse_func_body.exit:                           ; preds = %33, %46
+  %48 = load i64, ptr %30, align 8
+  %49 = and i64 %48, -1024
+  %50 = or disjoint i64 %49, 256
+  store i64 %50, ptr %30, align 8
+  br label %85
 
-48:                                               ; preds = %45, %43
-  %49 = call zeroext i1 @sema_analyse_function_body(ptr noundef nonnull %2, ptr noundef nonnull %20) #11
-  br i1 %49, label %53, label %analyse_func_body.exit
+51:                                               ; preds = %16, %36, %42, %46
+  %52 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %53 = load ptr, ptr %52, align 8
+  %.not.i48 = icmp eq ptr %53, null
+  br i1 %.not.i48, label %54, label %57
 
-analyse_func_body.exit:                           ; preds = %33, %48
-  %50 = load i64, ptr %30, align 8
-  %51 = and i64 %50, -1024
-  %52 = or disjoint i64 %51, 256
-  store i64 %52, ptr %30, align 8
-  br label %87
+54:                                               ; preds = %51
+  %55 = call ptr @calloc_arena(i64 noundef 72) #11
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  store i32 8, ptr %56, align 4
+  br label %59
 
-53:                                               ; preds = %16, %40, %45, %48
-  %54 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %55 = load ptr, ptr %54, align 8
-  %.not.i48 = icmp eq ptr %55, null
-  br i1 %.not.i48, label %56, label %59
-
-56:                                               ; preds = %53
-  %57 = call ptr @calloc_arena(i64 noundef 72) #11
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i32 8, ptr %58, align 4
-  br label %61
-
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %55, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %55, i64 -4
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds i8, ptr %53, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %53, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  br label %61
+  br label %59
 
-61:                                               ; preds = %59, %56
-  %62 = phi i32 [ %.pre.i, %59 ], [ 8, %56 ]
-  %.0.i49 = phi ptr [ %60, %59 ], [ %57, %56 ]
-  %63 = load i32, ptr %.0.i49, align 4
-  %64 = icmp eq i32 %63, %62
-  br i1 %64, label %65, label %79
+59:                                               ; preds = %57, %54
+  %60 = phi i32 [ %.pre.i, %57 ], [ 8, %54 ]
+  %.0.i49 = phi ptr [ %58, %57 ], [ %55, %54 ]
+  %61 = load i32, ptr %.0.i49, align 4
+  %62 = icmp eq i32 %61, %60
+  br i1 %62, label %63, label %77
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 4
-  %67 = shl i32 %62, 1
-  %68 = zext i32 %67 to i64
-  %69 = shl nuw nsw i64 %68, 3
-  %70 = or disjoint i64 %69, 8
-  %71 = call ptr @calloc_arena(i64 noundef %70) #11
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  store i32 %67, ptr %72, align 4
-  %73 = load i32, ptr %66, align 4
-  %74 = zext i32 %73 to i64
-  %75 = shl nuw nsw i64 %74, 3
-  %76 = add nuw nsw i64 %75, 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %71, ptr noundef nonnull align 4 dereferenceable(1) %.0.i49, i64 %76, i1 false)
-  %77 = load i32, ptr %72, align 4
-  %78 = shl i32 %77, 1
-  store i32 %78, ptr %72, align 4
-  %.pre18.i = load i32, ptr %71, align 4
-  br label %79
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 4
+  %65 = shl i32 %60, 1
+  %66 = zext i32 %65 to i64
+  %67 = shl nuw nsw i64 %66, 3
+  %68 = or disjoint i64 %67, 8
+  %69 = call ptr @calloc_arena(i64 noundef %68) #11
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  store i32 %65, ptr %70, align 4
+  %71 = load i32, ptr %64, align 4
+  %72 = zext i32 %71 to i64
+  %73 = shl nuw nsw i64 %72, 3
+  %74 = add nuw nsw i64 %73, 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %69, ptr noundef nonnull align 4 dereferenceable(1) %.0.i49, i64 %74, i1 false)
+  %75 = load i32, ptr %70, align 4
+  %76 = shl i32 %75, 1
+  store i32 %76, ptr %70, align 4
+  %.pre18.i = load i32, ptr %69, align 4
+  br label %77
 
-79:                                               ; preds = %61, %65
-  %80 = phi i32 [ %.pre18.i, %65 ], [ %63, %61 ]
-  %.1.i = phi ptr [ %71, %65 ], [ %.0.i49, %61 ]
-  %81 = add i32 %80, 1
-  store i32 %81, ptr %.1.i, align 4
-  %82 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
-  store ptr %82, ptr %54, align 8
-  %83 = load i32, ptr %.1.i, align 4
-  %84 = add i32 %83, -1
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %82, i64 %85
-  store ptr %20, ptr %86, align 8
-  br label %87
+77:                                               ; preds = %59, %63
+  %78 = phi i32 [ %.pre18.i, %63 ], [ %61, %59 ]
+  %.1.i = phi ptr [ %69, %63 ], [ %.0.i49, %59 ]
+  %79 = add i32 %78, 1
+  store i32 %79, ptr %.1.i, align 4
+  %80 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  store ptr %80, ptr %52, align 8
+  %81 = load i32, ptr %.1.i, align 4
+  %82 = add i32 %81, -1
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds nuw ptr, ptr %80, i64 %83
+  store ptr %20, ptr %84, align 8
+  br label %85
 
-87:                                               ; preds = %analyse_func_body.exit, %79
+85:                                               ; preds = %analyse_func_body.exit, %77
   call void @sema_context_destroy(ptr noundef nonnull %2) #11
-  %88 = load ptr, ptr %8, align 8
-  %.not43 = icmp eq ptr %88, null
+  %86 = load ptr, ptr %8, align 8
+  %.not43 = icmp eq ptr %86, null
   br i1 %.not43, label %.critedge, label %.lr.ph, !llvm.loop !41
 
-.critedge:                                        ; preds = %.lr.ph, %87, %.preheader
-  %89 = phi ptr [ null, %.preheader ], [ %12, %.lr.ph ], [ null, %87 ]
-  %90 = add nuw i32 %.03853, 1
-  %exitcond.not = icmp eq i32 %90, %7
+.critedge:                                        ; preds = %.lr.ph, %85, %.preheader
+  %87 = phi ptr [ null, %.preheader ], [ %12, %.lr.ph ], [ null, %85 ]
+  %88 = add nuw i32 %.03853, 1
+  %exitcond.not = icmp eq i32 %88, %7
   br i1 %exitcond.not, label %._crit_edge, label %.preheader, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.critedge, %1, %.preheader.lr.ph, %5
@@ -2170,22 +2166,22 @@ define dso_local void @sema_analysis_pass_functions(ptr noundef readonly capture
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge68, label %5
+  br i1 %.not, label %._crit_edge72, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %4, i64 -8
   %7 = load i32, ptr %6, align 4
-  %.not69 = icmp eq i32 %7, 0
-  br i1 %.not69, label %._crit_edge68, label %.lr.ph67.preheader
+  %.not73 = icmp eq i32 %7, 0
+  br i1 %.not73, label %._crit_edge72, label %.lr.ph71.preheader
 
-.lr.ph67.preheader:                               ; preds = %5
-  %wide.trip.count81 = zext i32 %7 to i64
-  br label %.lr.ph67
+.lr.ph71.preheader:                               ; preds = %5
+  %wide.trip.count85 = zext i32 %7 to i64
+  br label %.lr.ph71
 
-.lr.ph67:                                         ; preds = %.lr.ph67.preheader, %analyse_func_body.exit59
-  %indvars.iv78 = phi i64 [ 0, %.lr.ph67.preheader ], [ %indvars.iv.next79, %analyse_func_body.exit59 ]
+.lr.ph71:                                         ; preds = %.lr.ph71.preheader, %analyse_func_body.exit63
+  %indvars.iv82 = phi i64 [ 0, %.lr.ph71.preheader ], [ %indvars.iv.next83, %analyse_func_body.exit63 ]
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv78
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv82
   %10 = load ptr, ptr %9, align 8
   call void @sema_context_init(ptr noundef nonnull %2, ptr noundef %10) #11
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
@@ -2193,11 +2189,11 @@ define dso_local void @sema_analysis_pass_functions(ptr noundef readonly capture
   %.not42 = icmp eq ptr %12, null
   br i1 %.not42, label %._crit_edge, label %13
 
-13:                                               ; preds = %.lr.ph67
+13:                                               ; preds = %.lr.ph71
   %14 = getelementptr inbounds i8, ptr %12, i64 -8
   %15 = load i32, ptr %14, align 4
-  %.not70 = icmp eq i32 %15, 0
-  br i1 %.not70, label %._crit_edge, label %.lr.ph.preheader
+  %.not74 = icmp eq i32 %15, 0
+  br i1 %.not74, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %13
   %wide.trip.count = zext i32 %15 to i64
@@ -2231,186 +2227,174 @@ define dso_local void @sema_analysis_pass_functions(ptr noundef readonly capture
   %30 = load i16, ptr %29, align 8
   %31 = and i16 %30, 32
   %.not15.i = icmp eq i16 %31, 0
-  br i1 %.not15.i, label %35, label %32
+  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 166), align 2
+  %33 = trunc i8 %32 to i1
+  %or.cond.i = select i1 %.not15.i, i1 true, i1 %33
+  br i1 %or.cond.i, label %34, label %analyse_func_body.exit
 
-32:                                               ; preds = %28
-  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 166), align 2
-  %34 = trunc i8 %33 to i1
-  br i1 %34, label %35, label %analyse_func_body.exit
+34:                                               ; preds = %28
+  %35 = and i16 %30, 16
+  %.not16.i = icmp eq i16 %35, 0
+  %36 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 165), align 1
+  %37 = trunc i8 %36 to i1
+  %or.cond19.i = select i1 %.not16.i, i1 true, i1 %37
+  br i1 %or.cond19.i, label %38, label %analyse_func_body.exit
 
-35:                                               ; preds = %32, %28
-  %36 = and i16 %30, 16
-  %.not16.i = icmp eq i16 %36, 0
-  br i1 %.not16.i, label %40, label %37
+38:                                               ; preds = %34
+  %39 = call zeroext i1 @sema_analyse_function_body(ptr noundef nonnull %2, ptr noundef nonnull %18) #11
+  br i1 %39, label %analyse_func_body.exit, label %.sink.split.i
 
-37:                                               ; preds = %35
-  %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 165), align 1
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %analyse_func_body.exit
-
-40:                                               ; preds = %37, %35
-  %41 = call zeroext i1 @sema_analyse_function_body(ptr noundef nonnull %2, ptr noundef nonnull %18) #11
-  br i1 %41, label %analyse_func_body.exit, label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %40, %25
-  %42 = load i64, ptr %22, align 8
-  %43 = and i64 %42, -1024
-  %44 = or disjoint i64 %43, 256
-  store i64 %44, ptr %22, align 8
+.sink.split.i:                                    ; preds = %38, %25
+  %40 = load i64, ptr %22, align 8
+  %41 = and i64 %40, -1024
+  %42 = or disjoint i64 %41, 256
+  store i64 %42, ptr %22, align 8
   br label %analyse_func_body.exit
 
-analyse_func_body.exit:                           ; preds = %.lr.ph, %32, %37, %40, %.sink.split.i
+analyse_func_body.exit:                           ; preds = %.lr.ph, %28, %34, %38, %.sink.split.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %analyse_func_body.exit, %.lr.ph67, %13
-  %45 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %46 = load ptr, ptr %45, align 8
-  %.not43 = icmp eq ptr %46, null
-  br i1 %.not43, label %._crit_edge64, label %47
+._crit_edge:                                      ; preds = %analyse_func_body.exit, %.lr.ph71, %13
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %.not43 = icmp eq ptr %44, null
+  br i1 %.not43, label %._crit_edge68, label %45
 
-47:                                               ; preds = %._crit_edge
-  %48 = getelementptr inbounds i8, ptr %46, i64 -8
-  %49 = load i32, ptr %48, align 4
-  %.not71 = icmp eq i32 %49, 0
-  br i1 %.not71, label %._crit_edge64, label %.lr.ph63.preheader
+45:                                               ; preds = %._crit_edge
+  %46 = getelementptr inbounds i8, ptr %44, i64 -8
+  %47 = load i32, ptr %46, align 4
+  %.not75 = icmp eq i32 %47, 0
+  br i1 %.not75, label %._crit_edge68, label %.lr.ph67.preheader
 
-.lr.ph63.preheader:                               ; preds = %47
-  %wide.trip.count76 = zext i32 %49 to i64
-  br label %.lr.ph63
+.lr.ph67.preheader:                               ; preds = %45
+  %wide.trip.count80 = zext i32 %47 to i64
+  br label %.lr.ph67
 
-.lr.ph63:                                         ; preds = %.lr.ph63.preheader, %analyse_func_body.exit52
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next74, %analyse_func_body.exit52 ]
-  %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv73
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 112
-  %54 = load i32, ptr %53, align 8
-  %.not.i46 = icmp eq i32 %54, 0
-  br i1 %.not.i46, label %analyse_func_body.exit52, label %55
+.lr.ph67:                                         ; preds = %.lr.ph67.preheader, %analyse_func_body.exit54
+  %indvars.iv77 = phi i64 [ 0, %.lr.ph67.preheader ], [ %indvars.iv.next78, %analyse_func_body.exit54 ]
+  %48 = load ptr, ptr %43, align 8
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv77
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 112
+  %52 = load i32, ptr %51, align 8
+  %.not.i46 = icmp eq i32 %52, 0
+  br i1 %.not.i46, label %analyse_func_body.exit54, label %53
 
-55:                                               ; preds = %.lr.ph63
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %57 = load i64, ptr %56, align 8
-  %58 = and i64 %57, 16384
-  %.not14.i47 = icmp eq i64 %58, 0
-  br i1 %.not14.i47, label %62, label %59
+53:                                               ; preds = %.lr.ph67
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %55, 16384
+  %.not14.i47 = icmp eq i64 %56, 0
+  br i1 %.not14.i47, label %60, label %57
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %61 = load i64, ptr %60, align 8
-  call void (i64, ptr, ...) @sema_error_at(i64 %61, ptr noundef nonnull @.str.27) #11
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %59 = load i64, ptr %58, align 8
+  call void (i64, ptr, ...) @sema_error_at(i64 %59, ptr noundef nonnull @.str.27) #11
   br label %.sink.split.i48
 
-62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw i8, ptr %52, i64 120
-  %64 = load i16, ptr %63, align 8
-  %65 = and i16 %64, 32
-  %.not15.i50 = icmp eq i16 %65, 0
-  br i1 %.not15.i50, label %69, label %66
+60:                                               ; preds = %53
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 120
+  %62 = load i16, ptr %61, align 8
+  %63 = and i16 %62, 32
+  %.not15.i50 = icmp eq i16 %63, 0
+  %64 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 166), align 2
+  %65 = trunc i8 %64 to i1
+  %or.cond.i51 = select i1 %.not15.i50, i1 true, i1 %65
+  br i1 %or.cond.i51, label %66, label %analyse_func_body.exit54
 
-66:                                               ; preds = %62
-  %67 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 166), align 2
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %analyse_func_body.exit52
+66:                                               ; preds = %60
+  %67 = and i16 %62, 16
+  %.not16.i52 = icmp eq i16 %67, 0
+  %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 165), align 1
+  %69 = trunc i8 %68 to i1
+  %or.cond19.i53 = select i1 %.not16.i52, i1 true, i1 %69
+  br i1 %or.cond19.i53, label %70, label %analyse_func_body.exit54
 
-69:                                               ; preds = %66, %62
-  %70 = and i16 %64, 16
-  %.not16.i51 = icmp eq i16 %70, 0
-  br i1 %.not16.i51, label %74, label %71
+70:                                               ; preds = %66
+  %71 = call zeroext i1 @sema_analyse_function_body(ptr noundef nonnull %2, ptr noundef nonnull %50) #11
+  br i1 %71, label %analyse_func_body.exit54, label %.sink.split.i48
 
-71:                                               ; preds = %69
-  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 165), align 1
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %analyse_func_body.exit52
+.sink.split.i48:                                  ; preds = %70, %57
+  %72 = load i64, ptr %54, align 8
+  %73 = and i64 %72, -1024
+  %74 = or disjoint i64 %73, 256
+  store i64 %74, ptr %54, align 8
+  br label %analyse_func_body.exit54
 
-74:                                               ; preds = %71, %69
-  %75 = call zeroext i1 @sema_analyse_function_body(ptr noundef nonnull %2, ptr noundef nonnull %52) #11
-  br i1 %75, label %analyse_func_body.exit52, label %.sink.split.i48
+analyse_func_body.exit54:                         ; preds = %.lr.ph67, %60, %66, %70, %.sink.split.i48
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
+  br i1 %exitcond81.not, label %._crit_edge68, label %.lr.ph67, !llvm.loop !50
 
-.sink.split.i48:                                  ; preds = %74, %59
-  %76 = load i64, ptr %56, align 8
-  %77 = and i64 %76, -1024
-  %78 = or disjoint i64 %77, 256
-  store i64 %78, ptr %56, align 8
-  br label %analyse_func_body.exit52
+._crit_edge68:                                    ; preds = %analyse_func_body.exit54, %._crit_edge, %45
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 192
+  %76 = load ptr, ptr %75, align 8
+  %.not44 = icmp eq ptr %76, null
+  br i1 %.not44, label %analyse_func_body.exit63, label %77
 
-analyse_func_body.exit52:                         ; preds = %.lr.ph63, %66, %71, %74, %.sink.split.i48
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !50
+77:                                               ; preds = %._crit_edge68
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %79 = load i64, ptr %78, align 8
+  %80 = and i64 %79, 134217728
+  %.not45 = icmp eq i64 %80, 0
+  br i1 %.not45, label %analyse_func_body.exit63, label %81
 
-._crit_edge64:                                    ; preds = %analyse_func_body.exit52, %._crit_edge, %47
-  %79 = getelementptr inbounds nuw i8, ptr %10, i64 192
-  %80 = load ptr, ptr %79, align 8
-  %.not44 = icmp eq ptr %80, null
-  br i1 %.not44, label %analyse_func_body.exit59, label %81
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %76, i64 112
+  %83 = load i32, ptr %82, align 8
+  %.not.i55 = icmp eq i32 %83, 0
+  br i1 %.not.i55, label %analyse_func_body.exit63, label %84
 
-81:                                               ; preds = %._crit_edge64
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %83 = load i64, ptr %82, align 8
-  %84 = and i64 %83, 134217728
-  %.not45 = icmp eq i64 %84, 0
-  br i1 %.not45, label %analyse_func_body.exit59, label %85
+84:                                               ; preds = %81
+  %85 = and i64 %79, 16384
+  %.not14.i56 = icmp eq i64 %85, 0
+  br i1 %.not14.i56, label %89, label %86
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %80, i64 112
-  %87 = load i32, ptr %86, align 8
-  %.not.i53 = icmp eq i32 %87, 0
-  br i1 %.not.i53, label %analyse_func_body.exit59, label %88
+86:                                               ; preds = %84
+  %87 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %88 = load i64, ptr %87, align 8
+  call void (i64, ptr, ...) @sema_error_at(i64 %88, ptr noundef nonnull @.str.27) #11
+  br label %.sink.split.i57
 
-88:                                               ; preds = %85
-  %89 = and i64 %83, 16384
-  %.not14.i54 = icmp eq i64 %89, 0
-  br i1 %.not14.i54, label %93, label %90
+89:                                               ; preds = %84
+  %90 = getelementptr inbounds nuw i8, ptr %76, i64 120
+  %91 = load i16, ptr %90, align 8
+  %92 = and i16 %91, 32
+  %.not15.i59 = icmp eq i16 %92, 0
+  %93 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 166), align 2
+  %94 = trunc i8 %93 to i1
+  %or.cond.i60 = select i1 %.not15.i59, i1 true, i1 %94
+  br i1 %or.cond.i60, label %95, label %analyse_func_body.exit63
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %92 = load i64, ptr %91, align 8
-  call void (i64, ptr, ...) @sema_error_at(i64 %92, ptr noundef nonnull @.str.27) #11
-  br label %.sink.split.i55
+95:                                               ; preds = %89
+  %96 = and i16 %91, 16
+  %.not16.i61 = icmp eq i16 %96, 0
+  %97 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 165), align 1
+  %98 = trunc i8 %97 to i1
+  %or.cond19.i62 = select i1 %.not16.i61, i1 true, i1 %98
+  br i1 %or.cond19.i62, label %99, label %analyse_func_body.exit63
 
-93:                                               ; preds = %88
-  %94 = getelementptr inbounds nuw i8, ptr %80, i64 120
-  %95 = load i16, ptr %94, align 8
-  %96 = and i16 %95, 32
-  %.not15.i57 = icmp eq i16 %96, 0
-  br i1 %.not15.i57, label %100, label %97
+99:                                               ; preds = %95
+  %100 = call zeroext i1 @sema_analyse_function_body(ptr noundef nonnull %2, ptr noundef nonnull %76) #11
+  br i1 %100, label %analyse_func_body.exit63, label %.sink.split.i57
 
-97:                                               ; preds = %93
-  %98 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 166), align 2
-  %99 = trunc i8 %98 to i1
-  br i1 %99, label %100, label %analyse_func_body.exit59
+.sink.split.i57:                                  ; preds = %99, %86
+  %101 = load i64, ptr %78, align 8
+  %102 = and i64 %101, -1024
+  %103 = or disjoint i64 %102, 256
+  store i64 %103, ptr %78, align 8
+  br label %analyse_func_body.exit63
 
-100:                                              ; preds = %97, %93
-  %101 = and i16 %95, 16
-  %.not16.i58 = icmp eq i16 %101, 0
-  br i1 %.not16.i58, label %105, label %102
-
-102:                                              ; preds = %100
-  %103 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 165), align 1
-  %104 = trunc i8 %103 to i1
-  br i1 %104, label %105, label %analyse_func_body.exit59
-
-105:                                              ; preds = %102, %100
-  %106 = call zeroext i1 @sema_analyse_function_body(ptr noundef nonnull %2, ptr noundef nonnull %80) #11
-  br i1 %106, label %analyse_func_body.exit59, label %.sink.split.i55
-
-.sink.split.i55:                                  ; preds = %105, %90
-  %107 = load i64, ptr %82, align 8
-  %108 = and i64 %107, -1024
-  %109 = or disjoint i64 %108, 256
-  store i64 %109, ptr %82, align 8
-  br label %analyse_func_body.exit59
-
-analyse_func_body.exit59:                         ; preds = %.sink.split.i55, %105, %102, %97, %85, %81, %._crit_edge64
+analyse_func_body.exit63:                         ; preds = %.sink.split.i57, %99, %95, %89, %81, %77, %._crit_edge68
   call void @sema_context_destroy(ptr noundef nonnull %2) #11
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %._crit_edge68, label %.lr.ph67, !llvm.loop !51
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
+  %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
+  br i1 %exitcond86.not, label %._crit_edge72, label %.lr.ph71, !llvm.loop !51
 
-._crit_edge68:                                    ; preds = %analyse_func_body.exit59, %1, %5
+._crit_edge72:                                    ; preds = %analyse_func_body.exit63, %1, %5
   ret void
 }
 

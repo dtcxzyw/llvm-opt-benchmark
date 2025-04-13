@@ -2312,29 +2312,27 @@ define dso_local void @_ZN17btHingeConstraint8getInfo1EPN17btTypedConstraint17bt
   tail call void @_ZN14btAngularLimit4testEf(ptr noundef nonnull align 4 dereferenceable(29) %105, float noundef %103)
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 740
   %107 = load i8, ptr %106, align 4, !tbaa !87, !range !37, !noundef !38
-  %.not = icmp eq i8 %107, 0
-  br i1 %.not, label %108, label %112
+  %.not = icmp ne i8 %107, 0
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 761
+  %109 = load i8, ptr %108, align 1, !range !37
+  %110 = trunc nuw i8 %109 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %110
+  br i1 %or.cond, label %111, label %116
 
-108:                                              ; preds = %8
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 761
-  %110 = load i8, ptr %109, align 1, !tbaa !27, !range !37, !noundef !38
-  %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %112, label %117
-
-112:                                              ; preds = %108, %8
-  %113 = load i32, ptr %1, align 4, !tbaa !84
-  %114 = add nsw i32 %113, 1
-  store i32 %114, ptr %1, align 4, !tbaa !84
-  %115 = load i32, ptr %6, align 4, !tbaa !86
-  %116 = add nsw i32 %115, -1
+111:                                              ; preds = %8
+  %112 = load i32, ptr %1, align 4, !tbaa !84
+  %113 = add nsw i32 %112, 1
+  store i32 %113, ptr %1, align 4, !tbaa !84
+  %114 = load i32, ptr %6, align 4, !tbaa !86
+  %115 = add nsw i32 %114, -1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %7, %112
-  %.sink = phi i32 [ %116, %112 ], [ 0, %7 ]
+.sink.split:                                      ; preds = %7, %111
+  %.sink = phi i32 [ %115, %111 ], [ 0, %7 ]
   store i32 %.sink, ptr %6, align 4, !tbaa !86
-  br label %117
+  br label %116
 
-117:                                              ; preds = %.sink.split, %108
+116:                                              ; preds = %.sink.split, %8
   ret void
 }
 
@@ -2525,7 +2523,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %150 = load float, ptr %149, align 4, !tbaa !48
   %151 = fcmp uge float %146, 0x3E80000000000000
   %152 = fcmp uge float %150, 0x3E80000000000000
-  %.not665 = and i1 %151, %152
+  %.not661 = and i1 %151, %152
   %153 = fadd float %146, %150
   %154 = fcmp ogt float %153, 0.000000e+00
   %155 = fdiv float %150, %153
@@ -2560,19 +2558,19 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %178 = fadd float %175, %115
   %.sroa.3.12.vec.insert.i319 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %178, i64 0
   store <2 x float> %.sroa.3.12.vec.insert.i319, ptr %166, align 4, !tbaa !32
-  %.pre752 = fmul float %177, %177
-  %.pre753 = tail call float @llvm.fmuladd.f32(float %176, float %176, float %.pre752)
-  %.pre755 = tail call noundef float @llvm.fmuladd.f32(float %178, float %178, float %.pre753)
+  %.pre748 = fmul float %177, %177
+  %.pre749 = tail call float @llvm.fmuladd.f32(float %176, float %176, float %.pre748)
+  %.pre751 = tail call noundef float @llvm.fmuladd.f32(float %178, float %178, float %.pre749)
   br label %179
 
 179:                                              ; preds = %172, %6
-  %.pre-phi756 = phi float [ %.pre755, %172 ], [ %170, %6 ]
+  %.pre-phi752 = phi float [ %.pre751, %172 ], [ %170, %6 ]
   %180 = phi float [ %178, %172 ], [ %165, %6 ]
   %181 = phi float [ %177, %172 ], [ %164, %6 ]
   %182 = phi float [ %176, %172 ], [ %163, %6 ]
   %.0649 = phi float [ 1.000000e+00, %172 ], [ %156, %6 ]
   %.0648 = phi float [ 0.000000e+00, %172 ], [ %storemerge, %6 ]
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %.pre-phi756)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %.pre-phi752)
   %183 = fdiv float 1.000000e+00, %sqrt.i.i
   %184 = fmul float %182, %183
   store float %184, ptr %7, align 4, !tbaa !33
@@ -2635,8 +2633,8 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %234 = fadd float %231, %228
   %235 = fadd float %232, %229
   %.sroa.3.12.vec.insert.i389 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %235, i64 0
-  %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i389, ptr %.sroa.496.0..sroa_idx, align 8, !tbaa !32
+  %.sroa.497.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i389, ptr %.sroa.497.0..sroa_idx, align 8, !tbaa !32
   %236 = fmul float %234, %234
   %237 = tail call float @llvm.fmuladd.f32(float %233, float %233, float %236)
   %238 = tail call noundef float @llvm.fmuladd.f32(float %235, float %235, float %237)
@@ -2652,18 +2650,18 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %244 = fmul float %234, %242
   store float %244, ptr %241, align 4, !tbaa !33
   %245 = fmul float %235, %242
-  store float %245, ptr %.sroa.496.0..sroa_idx, align 8, !tbaa !33
-  br label %.preheader674
+  store float %245, ptr %.sroa.497.0..sroa_idx, align 8, !tbaa !33
+  br label %.preheader670
 
 246:                                              ; preds = %179
   %.sroa.0.0.vec.insert.i392 = insertelement <2 x float> poison, float %26, i64 0
   %.sroa.0.4.vec.insert.i393 = insertelement <2 x float> %.sroa.0.0.vec.insert.i392, float %44, i64 1
   %.sroa.3.12.vec.insert.i394 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %56, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i393, ptr %9, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i394, ptr %.sroa.496.0..sroa_idx, align 8, !tbaa !32
-  br label %.preheader674
+  store <2 x float> %.sroa.3.12.vec.insert.i394, ptr %.sroa.497.0..sroa_idx, align 8, !tbaa !32
+  br label %.preheader670
 
-.preheader674:                                    ; preds = %246, %240
+.preheader670:                                    ; preds = %246, %240
   %247 = phi float [ %26, %246 ], [ %243, %240 ]
   %248 = phi float [ %44, %246 ], [ %244, %240 ]
   %249 = phi float [ %56, %246 ], [ %245, %240 ]
@@ -2680,8 +2678,8 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %.sroa.0.4.vec.insert.i398 = insertelement <2 x float> %.sroa.0.0.vec.insert.i397, float %255, i64 1
   %.sroa.3.12.vec.insert.i399 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %258, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i398, ptr %10, align 8
-  %.sroa.490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i399, ptr %.sroa.490.0..sroa_idx, align 8, !tbaa !32
+  %.sroa.491.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i399, ptr %.sroa.491.0..sroa_idx, align 8, !tbaa !32
   %259 = fmul float %220, %250
   %260 = tail call float @llvm.fmuladd.f32(float %219, float %249, float %259)
   %261 = fmul float %218, %253
@@ -2700,8 +2698,8 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %.sroa.0.4.vec.insert.i408 = insertelement <2 x float> %.sroa.0.0.vec.insert.i407, float %268, i64 1
   %.sroa.3.12.vec.insert.i409 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %270, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i408, ptr %8, align 8
-  %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i409, ptr %.sroa.486.0..sroa_idx, align 8, !tbaa !32
+  %.sroa.487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i409, ptr %.sroa.487.0..sroa_idx, align 8, !tbaa !32
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %272 = load ptr, ptr %271, align 8, !tbaa !103
   store <2 x float> %.sroa.0.4.vec.insert.i403, ptr %272, align 4, !tbaa !33
@@ -2711,8 +2709,8 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %274 = load ptr, ptr %273, align 8, !tbaa !104
   br label %275
 
-275:                                              ; preds = %.preheader674, %275
-  %indvars.iv = phi i64 [ 0, %.preheader674 ], [ %indvars.iv.next, %275 ]
+275:                                              ; preds = %.preheader670, %275
+  %indvars.iv = phi i64 [ 0, %.preheader670 ], [ %indvars.iv.next, %275 ]
   %276 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   %277 = load float, ptr %276, align 4, !tbaa !33
   %278 = fneg float %277
@@ -2745,12 +2743,12 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %.sroa.0.4.vec.insert.i418 = insertelement <2 x float> %.sroa.0.0.vec.insert.i417, float %293, i64 1
   %.sroa.3.12.vec.insert.i419 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %295, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i418, ptr %8, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i419, ptr %.sroa.486.0..sroa_idx, align 8, !tbaa !32
+  store <2 x float> %.sroa.3.12.vec.insert.i419, ptr %.sroa.487.0..sroa_idx, align 8, !tbaa !32
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 740
   %297 = load i8, ptr %296, align 4, !range !37
   %.not = icmp eq i8 %297, 0
-  %or.cond662 = select i1 %.not665, i1 true, i1 %.not
-  br i1 %or.cond662, label %.preheader673, label %298
+  %or.cond658 = select i1 %.not661, i1 true, i1 %.not
+  br i1 %or.cond658, label %.preheader669, label %298
 
 298:                                              ; preds = %280
   %299 = fmul float %.0649, %291
@@ -2759,16 +2757,16 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %301 = fmul float %.0649, %293
   store float %301, ptr %300, align 4, !tbaa !33
   %302 = fmul float %.0649, %295
-  store float %302, ptr %.sroa.486.0..sroa_idx, align 8, !tbaa !33
+  store float %302, ptr %.sroa.487.0..sroa_idx, align 8, !tbaa !33
   %303 = fmul float %.0648, %283
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %303, i64 0
   %304 = fmul float %.0648, %286
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %304, i64 1
   %305 = fmul float %.0648, %289
   %.sroa.16.8.vec.insert = insertelement <2 x float> %.sroa.3.12.vec.insert.i414, float %305, i64 0
-  br label %.preheader673
+  br label %.preheader669
 
-.preheader673:                                    ; preds = %298, %280
+.preheader669:                                    ; preds = %298, %280
   %.sroa.16.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i414, %280 ], [ %.sroa.16.8.vec.insert, %298 ]
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i413, %280 ], [ %.sroa.0.4.vec.insert, %298 ]
   %306 = sext i32 %12 to i64
@@ -2776,21 +2774,21 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %scevgep = getelementptr i8, ptr %272, i64 %307
   store <2 x float> %.sroa.0.0, ptr %scevgep, align 4, !tbaa !33
   %.sroa.16.0.scevgep.sroa_idx = getelementptr inbounds nuw i8, ptr %scevgep, i64 8
-  %.sroa.16.0.vec.extract740 = extractelement <2 x float> %.sroa.16.0, i64 0
-  store float %.sroa.16.0.vec.extract740, ptr %.sroa.16.0.scevgep.sroa_idx, align 4, !tbaa !33
+  %.sroa.16.0.vec.extract736 = extractelement <2 x float> %.sroa.16.0, i64 0
+  store float %.sroa.16.0.vec.extract736, ptr %.sroa.16.0.scevgep.sroa_idx, align 4, !tbaa !33
   %invariant.gep = getelementptr float, ptr %274, i64 %306
   br label %308
 
-308:                                              ; preds = %.preheader673, %308
-  %indvars.iv692 = phi i64 [ 0, %.preheader673 ], [ %indvars.iv.next693, %308 ]
-  %309 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv692
+308:                                              ; preds = %.preheader669, %308
+  %indvars.iv688 = phi i64 [ 0, %.preheader669 ], [ %indvars.iv.next689, %308 ]
+  %309 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv688
   %310 = load float, ptr %309, align 4, !tbaa !33
   %311 = fneg float %310
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv692
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv688
   store float %311, ptr %gep, align 4, !tbaa !33
-  %indvars.iv.next693 = add nuw nsw i64 %indvars.iv692, 1
-  %exitcond695.not = icmp eq i64 %indvars.iv.next693, 3
-  br i1 %exitcond695.not, label %312, label %308, !llvm.loop !106
+  %indvars.iv.next689 = add nuw nsw i64 %indvars.iv688, 1
+  %exitcond691.not = icmp eq i64 %indvars.iv.next689, 3
+  br i1 %exitcond691.not, label %312, label %308, !llvm.loop !106
 
 312:                                              ; preds = %308
   %313 = fneg float %185
@@ -2815,8 +2813,8 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %.sroa.0.4.vec.insert.i428 = insertelement <2 x float> %.sroa.0.0.vec.insert.i427, float %325, i64 1
   %.sroa.3.12.vec.insert.i429 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %327, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i428, ptr %8, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i429, ptr %.sroa.486.0..sroa_idx, align 8, !tbaa !32
-  br i1 %.not665, label %.preheader672, label %328
+  store <2 x float> %.sroa.3.12.vec.insert.i429, ptr %.sroa.487.0..sroa_idx, align 8, !tbaa !32
+  br i1 %.not661, label %.preheader668, label %328
 
 328:                                              ; preds = %312
   %329 = fmul float %.0649, %323
@@ -2825,112 +2823,112 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %331 = fmul float %.0649, %325
   store float %331, ptr %330, align 4, !tbaa !33
   %332 = fmul float %.0649, %327
-  store float %332, ptr %.sroa.486.0..sroa_idx, align 8, !tbaa !33
+  store float %332, ptr %.sroa.487.0..sroa_idx, align 8, !tbaa !33
   %333 = fmul float %.0648, %315
-  %.sroa.0.0.vec.insert731 = insertelement <2 x float> poison, float %333, i64 0
+  %.sroa.0.0.vec.insert727 = insertelement <2 x float> poison, float %333, i64 0
   %334 = fmul float %.0648, %318
-  %.sroa.0.4.vec.insert738 = insertelement <2 x float> %.sroa.0.0.vec.insert731, float %334, i64 1
+  %.sroa.0.4.vec.insert734 = insertelement <2 x float> %.sroa.0.0.vec.insert727, float %334, i64 1
   %335 = fmul float %.0648, %321
-  %.sroa.16.8.vec.insert745 = insertelement <2 x float> %.sroa.3.12.vec.insert.i424, float %335, i64 0
-  br label %.preheader672
+  %.sroa.16.8.vec.insert741 = insertelement <2 x float> %.sroa.3.12.vec.insert.i424, float %335, i64 0
+  br label %.preheader668
 
-.preheader672:                                    ; preds = %328, %312
-  %.sroa.16.1 = phi <2 x float> [ %.sroa.3.12.vec.insert.i424, %312 ], [ %.sroa.16.8.vec.insert745, %328 ]
-  %.sroa.0.1 = phi <2 x float> [ %.sroa.0.4.vec.insert.i423, %312 ], [ %.sroa.0.4.vec.insert738, %328 ]
+.preheader668:                                    ; preds = %328, %312
+  %.sroa.16.1 = phi <2 x float> [ %.sroa.3.12.vec.insert.i424, %312 ], [ %.sroa.16.8.vec.insert741, %328 ]
+  %.sroa.0.1 = phi <2 x float> [ %.sroa.0.4.vec.insert.i423, %312 ], [ %.sroa.0.4.vec.insert734, %328 ]
   %336 = sext i32 %187 to i64
   %337 = shl nsw i64 %336, 2
-  %scevgep696 = getelementptr i8, ptr %272, i64 %337
-  store <2 x float> %.sroa.0.1, ptr %scevgep696, align 4, !tbaa !33
-  %.sroa.16.0.scevgep696.sroa_idx = getelementptr inbounds nuw i8, ptr %scevgep696, i64 8
-  %.sroa.16.0.vec.extract742 = extractelement <2 x float> %.sroa.16.1, i64 0
-  store float %.sroa.16.0.vec.extract742, ptr %.sroa.16.0.scevgep696.sroa_idx, align 4, !tbaa !33
-  %invariant.gep762 = getelementptr float, ptr %274, i64 %336
+  %scevgep692 = getelementptr i8, ptr %272, i64 %337
+  store <2 x float> %.sroa.0.1, ptr %scevgep692, align 4, !tbaa !33
+  %.sroa.16.0.scevgep692.sroa_idx = getelementptr inbounds nuw i8, ptr %scevgep692, i64 8
+  %.sroa.16.0.vec.extract738 = extractelement <2 x float> %.sroa.16.1, i64 0
+  store float %.sroa.16.0.vec.extract738, ptr %.sroa.16.0.scevgep692.sroa_idx, align 4, !tbaa !33
+  %invariant.gep758 = getelementptr float, ptr %274, i64 %336
   br label %338
 
-338:                                              ; preds = %.preheader672, %338
-  %indvars.iv700 = phi i64 [ 0, %.preheader672 ], [ %indvars.iv.next701, %338 ]
-  %339 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv700
+338:                                              ; preds = %.preheader668, %338
+  %indvars.iv696 = phi i64 [ 0, %.preheader668 ], [ %indvars.iv.next697, %338 ]
+  %339 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv696
   %340 = load float, ptr %339, align 4, !tbaa !33
   %341 = fneg float %340
-  %gep763 = getelementptr float, ptr %invariant.gep762, i64 %indvars.iv700
-  store float %341, ptr %gep763, align 4, !tbaa !33
-  %indvars.iv.next701 = add nuw nsw i64 %indvars.iv700, 1
-  %exitcond703.not = icmp eq i64 %indvars.iv.next701, 3
-  br i1 %exitcond703.not, label %342, label %338, !llvm.loop !107
+  %gep759 = getelementptr float, ptr %invariant.gep758, i64 %indvars.iv696
+  store float %341, ptr %gep759, align 4, !tbaa !33
+  %indvars.iv.next697 = add nuw nsw i64 %indvars.iv696, 1
+  %exitcond699.not = icmp eq i64 %indvars.iv.next697, 3
+  br i1 %exitcond699.not, label %342, label %338, !llvm.loop !107
 
 342:                                              ; preds = %338
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 772
   %344 = load i32, ptr %343, align 4, !tbaa !108
   %345 = and i32 %344, 8
-  %.not262 = icmp eq i32 %345, 0
+  %.not263 = icmp eq i32 %345, 0
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %347 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.in = select i1 %.not262, ptr %347, ptr %346
+  %.in = select i1 %.not263, ptr %347, ptr %346
   %348 = load float, ptr %.in, align 4, !tbaa !33
   %349 = load float, ptr %1, align 8, !tbaa !109
   %350 = fmul float %348, %349
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %352 = load i8, ptr %351, align 8, !tbaa !16, !range !37, !noundef !38
   %353 = trunc nuw i8 %352 to i1
-  br i1 %353, label %._crit_edge, label %.preheader671
+  br i1 %353, label %._crit_edge, label %.preheader667
 
 ._crit_edge:                                      ; preds = %342
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !110
   br label %388
 
-.preheader671:                                    ; preds = %342
+.preheader667:                                    ; preds = %342
   %354 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %355 = load ptr, ptr %354, align 8, !tbaa !111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %355, ptr noundef nonnull align 8 dereferenceable(12) %9, i64 12, i1 false), !tbaa !33
-  %scevgep707 = getelementptr i8, ptr %355, i64 %307
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep707, ptr noundef nonnull align 8 dereferenceable(12) %10, i64 12, i1 false), !tbaa !33
-  %scevgep711 = getelementptr i8, ptr %355, i64 %337
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep711, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false), !tbaa !33
+  %scevgep703 = getelementptr i8, ptr %355, i64 %307
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep703, ptr noundef nonnull align 8 dereferenceable(12) %10, i64 12, i1 false), !tbaa !33
+  %scevgep707 = getelementptr i8, ptr %355, i64 %337
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep707, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false), !tbaa !33
   %356 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %357 = load ptr, ptr %356, align 8, !tbaa !112
   br label %358
 
-.preheader667:                                    ; preds = %358
-  %invariant.gep764 = getelementptr float, ptr %357, i64 %306
+.preheader663:                                    ; preds = %358
+  %invariant.gep760 = getelementptr float, ptr %357, i64 %306
   br label %363
 
-358:                                              ; preds = %.preheader671, %358
-  %indvars.iv715 = phi i64 [ 0, %.preheader671 ], [ %indvars.iv.next716, %358 ]
-  %359 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv715
+358:                                              ; preds = %.preheader667, %358
+  %indvars.iv711 = phi i64 [ 0, %.preheader667 ], [ %indvars.iv.next712, %358 ]
+  %359 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv711
   %360 = load float, ptr %359, align 4, !tbaa !33
   %361 = fneg float %360
-  %362 = getelementptr inbounds nuw float, ptr %357, i64 %indvars.iv715
+  %362 = getelementptr inbounds nuw float, ptr %357, i64 %indvars.iv711
   store float %361, ptr %362, align 4, !tbaa !33
-  %indvars.iv.next716 = add nuw nsw i64 %indvars.iv715, 1
-  %exitcond718.not = icmp eq i64 %indvars.iv.next716, 3
-  br i1 %exitcond718.not, label %.preheader667, label %358, !llvm.loop !113
+  %indvars.iv.next712 = add nuw nsw i64 %indvars.iv711, 1
+  %exitcond714.not = icmp eq i64 %indvars.iv.next712, 3
+  br i1 %exitcond714.not, label %.preheader663, label %358, !llvm.loop !113
 
 .preheader:                                       ; preds = %363
-  %invariant.gep766 = getelementptr float, ptr %357, i64 %336
+  %invariant.gep762 = getelementptr float, ptr %357, i64 %336
   br label %367
 
-363:                                              ; preds = %.preheader667, %363
-  %indvars.iv719 = phi i64 [ 0, %.preheader667 ], [ %indvars.iv.next720, %363 ]
-  %364 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv719
+363:                                              ; preds = %.preheader663, %363
+  %indvars.iv715 = phi i64 [ 0, %.preheader663 ], [ %indvars.iv.next716, %363 ]
+  %364 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv715
   %365 = load float, ptr %364, align 4, !tbaa !33
   %366 = fneg float %365
-  %gep765 = getelementptr float, ptr %invariant.gep764, i64 %indvars.iv719
-  store float %366, ptr %gep765, align 4, !tbaa !33
-  %indvars.iv.next720 = add nuw nsw i64 %indvars.iv719, 1
-  %exitcond722.not = icmp eq i64 %indvars.iv.next720, 3
-  br i1 %exitcond722.not, label %.preheader, label %363, !llvm.loop !114
+  %gep761 = getelementptr float, ptr %invariant.gep760, i64 %indvars.iv715
+  store float %366, ptr %gep761, align 4, !tbaa !33
+  %indvars.iv.next716 = add nuw nsw i64 %indvars.iv715, 1
+  %exitcond718.not = icmp eq i64 %indvars.iv.next716, 3
+  br i1 %exitcond718.not, label %.preheader, label %363, !llvm.loop !114
 
 367:                                              ; preds = %.preheader, %367
-  %indvars.iv723 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next724, %367 ]
-  %368 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv723
+  %indvars.iv719 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next720, %367 ]
+  %368 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv719
   %369 = load float, ptr %368, align 4, !tbaa !33
   %370 = fneg float %369
-  %gep767 = getelementptr float, ptr %invariant.gep766, i64 %indvars.iv723
-  store float %370, ptr %gep767, align 4, !tbaa !33
-  %indvars.iv.next724 = add nuw nsw i64 %indvars.iv723, 1
-  %exitcond726.not = icmp eq i64 %indvars.iv.next724, 3
-  br i1 %exitcond726.not, label %371, label %367, !llvm.loop !115
+  %gep763 = getelementptr float, ptr %invariant.gep762, i64 %indvars.iv719
+  store float %370, ptr %gep763, align 4, !tbaa !33
+  %indvars.iv.next720 = add nuw nsw i64 %indvars.iv719, 1
+  %exitcond722.not = icmp eq i64 %indvars.iv.next720, 3
+  br i1 %exitcond722.not, label %371, label %367, !llvm.loop !115
 
 371:                                              ; preds = %367
   %372 = fmul float %141, %248
@@ -3038,8 +3036,8 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
 
 449:                                              ; preds = %.thread, %445
   %450 = phi i1 [ %444, %.thread ], [ true, %445 ]
-  %.0252656 = phi float [ %440, %.thread ], [ 0.000000e+00, %445 ]
-  %.0253655 = phi i1 [ %441, %.thread ], [ false, %445 ]
+  %.0253654 = phi float [ %440, %.thread ], [ 0.000000e+00, %445 ]
+  %.0254653 = phi i1 [ %441, %.thread ], [ false, %445 ]
   %451 = load i32, ptr %11, align 8, !tbaa !88
   %452 = mul nsw i32 %451, 5
   %453 = sext i32 %452 to i64
@@ -3063,8 +3061,8 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %465 = tail call noundef float @_ZNK14btAngularLimit6getLowEv(ptr noundef nonnull align 4 dereferenceable(29) %464)
   %466 = tail call noundef float @_ZNK14btAngularLimit7getHighEv(ptr noundef nonnull align 4 dereferenceable(29) %464)
   %467 = fcmp une float %465, %466
-  %or.cond.not = or i1 %.not, %467
-  %spec.select = select i1 %or.cond.not, i1 %450, i1 false
+  %or.cond268.not = or i1 %.not, %467
+  %spec.select = select i1 %or.cond268.not, i1 %450, i1 false
   %468 = load ptr, ptr %429, align 8, !tbaa !110
   %469 = getelementptr inbounds float, ptr %468, i64 %453
   store float 0.000000e+00, ptr %469, align 4, !tbaa !33
@@ -3130,7 +3128,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %513 = fmul float %474, %512
   %514 = getelementptr inbounds float, ptr %510, i64 %453
   %515 = load float, ptr %514, align 4, !tbaa !33
-  %516 = tail call float @llvm.fmuladd.f32(float %513, float %.0252656, float %515)
+  %516 = tail call float @llvm.fmuladd.f32(float %513, float %.0253654, float %515)
   store float %516, ptr %514, align 4, !tbaa !33
   %517 = load i32, ptr %343, align 4, !tbaa !108
   %518 = and i32 %517, 1
@@ -3153,25 +3151,25 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   br i1 %467, label %529, label %530
 
 529:                                              ; preds = %525
-  %. = select i1 %.0253655, float 0.000000e+00, float 0xC7EFFFFFE0000000
-  %.771 = select i1 %.0253655, float 0x47EFFFFFE0000000, float 0.000000e+00
+  %. = select i1 %.0254653, float 0.000000e+00, float 0xC7EFFFFFE0000000
+  %.767 = select i1 %.0254653, float 0x47EFFFFFE0000000, float 0.000000e+00
   br label %530
 
 530:                                              ; preds = %529, %525
-  %.sink770 = phi float [ 0xC7EFFFFFE0000000, %525 ], [ %., %529 ]
-  %.sink = phi float [ 0x47EFFFFFE0000000, %525 ], [ %.771, %529 ]
-  store float %.sink770, ptr %528, align 4, !tbaa !33
-  %.sink769.in = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sink769 = load ptr, ptr %.sink769.in, align 8, !tbaa !122
-  %531 = getelementptr inbounds float, ptr %.sink769, i64 %453
+  %.sink766 = phi float [ 0xC7EFFFFFE0000000, %525 ], [ %., %529 ]
+  %.sink = phi float [ 0x47EFFFFFE0000000, %525 ], [ %.767, %529 ]
+  store float %.sink766, ptr %528, align 4, !tbaa !33
+  %.sink765.in = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.sink765 = load ptr, ptr %.sink765.in, align 8, !tbaa !122
+  %531 = getelementptr inbounds float, ptr %.sink765, i64 %453
   store float %.sink, ptr %531, align 4, !tbaa !33
   %532 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %533 = load float, ptr %532, align 8, !tbaa !15
   %534 = fcmp ogt float %533, 0.000000e+00
-  br i1 %534, label %535, label %._crit_edge748
+  br i1 %534, label %535, label %._crit_edge744
 
-._crit_edge748:                                   ; preds = %530
-  %.pre749 = load float, ptr %514, align 4, !tbaa !33
+._crit_edge744:                                   ; preds = %530
+  %.pre745 = load float, ptr %514, align 4, !tbaa !33
   br label %567
 
 535:                                              ; preds = %530
@@ -3192,8 +3190,8 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %550 = load float, ptr %549, align 4, !tbaa !33
   %551 = tail call noundef float @llvm.fmuladd.f32(float %550, float %186, float %548)
   %552 = fsub float %543, %551
-  %.pre750 = load float, ptr %514, align 4, !tbaa !33
-  br i1 %.0253655, label %553, label %560
+  %.pre746 = load float, ptr %514, align 4, !tbaa !33
+  br i1 %.0254653, label %553, label %560
 
 553:                                              ; preds = %535
   %554 = fcmp olt float %552, 0.000000e+00
@@ -3202,7 +3200,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
 555:                                              ; preds = %553
   %556 = fneg float %533
   %557 = fmul float %552, %556
-  %558 = fcmp ogt float %557, %.pre750
+  %558 = fcmp ogt float %557, %.pre746
   br i1 %558, label %559, label %567
 
 559:                                              ; preds = %555
@@ -3216,15 +3214,15 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
 562:                                              ; preds = %560
   %563 = fneg float %533
   %564 = fmul float %552, %563
-  %565 = fcmp olt float %564, %.pre750
+  %565 = fcmp olt float %564, %.pre746
   br i1 %565, label %566, label %567
 
 566:                                              ; preds = %562
   store float %564, ptr %514, align 4, !tbaa !33
   br label %567
 
-567:                                              ; preds = %._crit_edge748, %553, %560, %559, %555, %566, %562
-  %568 = phi float [ %.pre749, %._crit_edge748 ], [ %.pre750, %553 ], [ %.pre750, %560 ], [ %557, %559 ], [ %.pre750, %555 ], [ %564, %566 ], [ %.pre750, %562 ]
+567:                                              ; preds = %._crit_edge744, %553, %560, %559, %555, %566, %562
+  %568 = phi float [ %.pre745, %._crit_edge744 ], [ %.pre746, %553 ], [ %.pre746, %560 ], [ %557, %559 ], [ %.pre746, %555 ], [ %564, %566 ], [ %.pre746, %562 ]
   %569 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %570 = load float, ptr %569, align 4, !tbaa !14
   %571 = fmul float %570, %568
@@ -3404,10 +3402,10 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %154 = load i8, ptr %153, align 8, !tbaa !16, !range !37, !noundef !38
   %155 = trunc nuw i8 %154 to i1
-  br i1 %155, label %._crit_edge329, label %156
+  br i1 %155, label %._crit_edge325, label %156
 
-._crit_edge329:                                   ; preds = %6
-  %.pre330 = shl nsw i32 %10, 1
+._crit_edge325:                                   ; preds = %6
+  %.pre326 = shl nsw i32 %10, 1
   br label %170
 
 156:                                              ; preds = %6
@@ -3431,15 +3429,15 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %169 = getelementptr inbounds float, ptr %167, i64 %164
   store float -1.000000e+00, ptr %169, align 4, !tbaa !33
   %.pre = load float, ptr %88, align 4, !tbaa !33
-  %.pre323 = load float, ptr %91, align 4, !tbaa !33
-  %.pre324 = load float, ptr %94, align 4, !tbaa !33
+  %.pre319 = load float, ptr %91, align 4, !tbaa !33
+  %.pre320 = load float, ptr %94, align 4, !tbaa !33
   br label %170
 
-170:                                              ; preds = %._crit_edge329, %156
-  %.pre-phi = phi i32 [ %.pre330, %._crit_edge329 ], [ %162, %156 ]
-  %171 = phi float [ %95, %._crit_edge329 ], [ %.pre324, %156 ]
-  %172 = phi float [ %92, %._crit_edge329 ], [ %.pre323, %156 ]
-  %173 = phi float [ %89, %._crit_edge329 ], [ %.pre, %156 ]
+170:                                              ; preds = %._crit_edge325, %156
+  %.pre-phi = phi i32 [ %.pre326, %._crit_edge325 ], [ %162, %156 ]
+  %171 = phi float [ %95, %._crit_edge325 ], [ %.pre320, %156 ]
+  %172 = phi float [ %92, %._crit_edge325 ], [ %.pre319, %156 ]
+  %173 = phi float [ %89, %._crit_edge325 ], [ %.pre, %156 ]
   %174 = fsub float %90, %173
   %175 = fsub float %93, %172
   %176 = fsub float %96, %171
@@ -3518,7 +3516,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %223 = load float, ptr %1, align 8, !tbaa !109
   %224 = fmul float %222, %223
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.pre325 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !110
+  %.pre321 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !110
   br i1 %155, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %170, %.preheader
@@ -3530,7 +3528,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %229 = fsub float %226, %228
   %230 = fmul float %224, %229
   %231 = mul nsw i64 %indvars.iv, %179
-  %232 = getelementptr inbounds float, ptr %.pre325, i64 %231
+  %232 = getelementptr inbounds float, ptr %.pre321, i64 %231
   store float %230, ptr %232, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3593,18 +3591,18 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %274 = tail call noundef float @llvm.fmuladd.f32(float %271, float %66, float %273)
   %275 = fmul float %274, %224
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %277 = getelementptr inbounds float, ptr %.pre325, i64 %235
+  %277 = getelementptr inbounds float, ptr %.pre321, i64 %235
   store float %275, ptr %277, align 4, !tbaa !33
   %278 = fmul float %54, %268
   %279 = tail call float @llvm.fmuladd.f32(float %265, float %33, float %278)
   %280 = tail call noundef float @llvm.fmuladd.f32(float %271, float %69, float %279)
   %281 = fmul float %280, %224
-  %282 = getelementptr inbounds float, ptr %.pre325, i64 %243
+  %282 = getelementptr inbounds float, ptr %.pre321, i64 %243
   store float %281, ptr %282, align 4, !tbaa !33
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 740
   %284 = load i8, ptr %283, align 4, !tbaa !87, !range !37, !noundef !38
-  %.not168 = icmp eq i8 %284, 0
-  br i1 %.not168, label %294, label %.thread
+  %.not169 = icmp eq i8 %284, 0
+  br i1 %.not169, label %294, label %.thread
 
 .thread:                                          ; preds = %.loopexit
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 732
@@ -3626,8 +3624,8 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
 
 298:                                              ; preds = %.thread, %294
   %299 = phi i1 [ %293, %.thread ], [ true, %294 ]
-  %.0161317 = phi float [ %289, %.thread ], [ 0.000000e+00, %294 ]
-  %.0162316 = phi i1 [ %290, %.thread ], [ false, %294 ]
+  %.0162315 = phi float [ %289, %.thread ], [ 0.000000e+00, %294 ]
+  %.0163314 = phi i1 [ %290, %.thread ], [ false, %294 ]
   %300 = mul nsw i32 %10, 5
   %301 = sext i32 %300 to i64
   %302 = getelementptr inbounds float, ptr %178, i64 %301
@@ -3653,8 +3651,8 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %316 = tail call noundef float @_ZNK14btAngularLimit6getLowEv(ptr noundef nonnull align 4 dereferenceable(29) %315)
   %317 = tail call noundef float @_ZNK14btAngularLimit7getHighEv(ptr noundef nonnull align 4 dereferenceable(29) %315)
   %318 = fcmp une float %316, %317
-  %or.cond.not = or i1 %.not168, %318
-  %spec.select = select i1 %or.cond.not, i1 %299, i1 false
+  %or.cond173.not = or i1 %.not169, %318
+  %spec.select = select i1 %or.cond173.not, i1 %299, i1 false
   %319 = load ptr, ptr %276, align 8, !tbaa !110
   %320 = getelementptr inbounds float, ptr %319, i64 %301
   store float 0.000000e+00, ptr %320, align 4, !tbaa !33
@@ -3713,14 +3711,14 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
 
 360:                                              ; preds = %334, %298
   %361 = phi ptr [ %346, %334 ], [ %319, %298 ]
-  br i1 %.not168, label %423, label %362
+  br i1 %.not169, label %423, label %362
 
 362:                                              ; preds = %360
   %363 = load float, ptr %1, align 8, !tbaa !109
   %364 = fmul float %325, %363
   %365 = getelementptr inbounds float, ptr %361, i64 %301
   %366 = load float, ptr %365, align 4, !tbaa !33
-  %367 = tail call float @llvm.fmuladd.f32(float %364, float %.0161317, float %366)
+  %367 = tail call float @llvm.fmuladd.f32(float %364, float %.0162315, float %366)
   store float %367, ptr %365, align 4, !tbaa !33
   %368 = load i32, ptr %217, align 4, !tbaa !108
   %369 = and i32 %368, 1
@@ -3743,17 +3741,17 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   br i1 %318, label %380, label %381
 
 380:                                              ; preds = %376
-  %. = select i1 %.0162316, float 0.000000e+00, float 0xC7EFFFFFE0000000
-  %.336 = select i1 %.0162316, float 0x47EFFFFFE0000000, float 0.000000e+00
+  %. = select i1 %.0163314, float 0.000000e+00, float 0xC7EFFFFFE0000000
+  %.332 = select i1 %.0163314, float 0x47EFFFFFE0000000, float 0.000000e+00
   br label %381
 
 381:                                              ; preds = %380, %376
-  %.sink335 = phi float [ 0xC7EFFFFFE0000000, %376 ], [ %., %380 ]
-  %.sink = phi float [ 0x47EFFFFFE0000000, %376 ], [ %.336, %380 ]
-  store float %.sink335, ptr %379, align 4, !tbaa !33
-  %.sink334.in = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sink334 = load ptr, ptr %.sink334.in, align 8, !tbaa !122
-  %382 = getelementptr inbounds float, ptr %.sink334, i64 %301
+  %.sink331 = phi float [ 0xC7EFFFFFE0000000, %376 ], [ %., %380 ]
+  %.sink = phi float [ 0x47EFFFFFE0000000, %376 ], [ %.332, %380 ]
+  store float %.sink331, ptr %379, align 4, !tbaa !33
+  %.sink330.in = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.sink330 = load ptr, ptr %.sink330.in, align 8, !tbaa !122
+  %382 = getelementptr inbounds float, ptr %.sink330, i64 %301
   store float %.sink, ptr %382, align 4, !tbaa !33
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %384 = load float, ptr %383, align 8, !tbaa !15
@@ -3761,7 +3759,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   br i1 %385, label %386, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %381
-  %.pre326 = load float, ptr %365, align 4, !tbaa !33
+  %.pre322 = load float, ptr %365, align 4, !tbaa !33
   br label %418
 
 386:                                              ; preds = %381
@@ -3782,8 +3780,8 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %401 = load float, ptr %400, align 4, !tbaa !33
   %402 = tail call noundef float @llvm.fmuladd.f32(float %401, float %72, float %399)
   %403 = fsub float %394, %402
-  %.pre327 = load float, ptr %365, align 4, !tbaa !33
-  br i1 %.0162316, label %404, label %411
+  %.pre323 = load float, ptr %365, align 4, !tbaa !33
+  br i1 %.0163314, label %404, label %411
 
 404:                                              ; preds = %386
   %405 = fcmp olt float %403, 0.000000e+00
@@ -3792,7 +3790,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
 406:                                              ; preds = %404
   %407 = fneg float %384
   %408 = fmul float %403, %407
-  %409 = fcmp ogt float %408, %.pre327
+  %409 = fcmp ogt float %408, %.pre323
   br i1 %409, label %410, label %418
 
 410:                                              ; preds = %406
@@ -3806,7 +3804,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
 413:                                              ; preds = %411
   %414 = fneg float %384
   %415 = fmul float %403, %414
-  %416 = fcmp olt float %415, %.pre327
+  %416 = fcmp olt float %415, %.pre323
   br i1 %416, label %417, label %418
 
 417:                                              ; preds = %413
@@ -3814,7 +3812,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   br label %418
 
 418:                                              ; preds = %._crit_edge, %404, %411, %410, %406, %417, %413
-  %419 = phi float [ %.pre326, %._crit_edge ], [ %.pre327, %404 ], [ %.pre327, %411 ], [ %408, %410 ], [ %.pre327, %406 ], [ %415, %417 ], [ %.pre327, %413 ]
+  %419 = phi float [ %.pre322, %._crit_edge ], [ %.pre323, %404 ], [ %.pre323, %411 ], [ %408, %410 ], [ %.pre323, %406 ], [ %415, %417 ], [ %.pre323, %413 ]
   %420 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %421 = load float, ptr %420, align 4, !tbaa !14
   %422 = fmul float %421, %419

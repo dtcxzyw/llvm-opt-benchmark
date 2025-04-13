@@ -218,9 +218,9 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
 18:                                               ; preds = %15
   %19 = extractvalue { i64, i1 } %16, 0
   %20 = tail call { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$24checked_next_multiple_of17hbcd1ac878862b81fE"(i64 %19, i64 8192)
-  %.fr70 = freeze { i64, i64 } %20
-  %21 = extractvalue { i64, i64 } %.fr70, 0
-  %22 = extractvalue { i64, i64 } %.fr70, 1
+  %.fr69 = freeze { i64, i64 } %20
+  %21 = extractvalue { i64, i64 } %.fr69, 0
+  %22 = extractvalue { i64, i64 } %.fr69, 1
   %23 = icmp eq i64 %21, 0
   br i1 %23, label %.thread, label %24
 
@@ -231,8 +231,8 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
   %25 = phi i64 [ 8192, %.thread ], [ %22, %18 ]
   %.not = icmp ne i64 %3, 1
   %26 = icmp eq i64 %4, 0
-  %or.cond56 = select i1 %.not, i1 true, i1 %26
-  br i1 %or.cond56, label %27, label %32
+  %or.cond57 = select i1 %.not, i1 true, i1 %26
+  br i1 %or.cond57, label %27, label %32
 
 27:                                               ; preds = %24
   %28 = load i64, ptr %2, align 8, !noundef !3
@@ -272,13 +272,13 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
   br label %128
 
 48:                                               ; preds = %.outer, %107
-  %.049 = phi i64 [ %110, %107 ], [ %.049.ph, %.outer ]
+  %.051 = phi i64 [ %110, %107 ], [ %.051.ph, %.outer ]
   %49 = load i64, ptr %11, align 8, !noundef !3
   %50 = load i64, ptr %2, align 8, !noundef !3
   %51 = icmp eq i64 %49, %50
   %52 = icmp eq i64 %50, %13
-  %or.cond57 = and i1 %51, %52
-  br i1 %or.cond57, label %57, label %53
+  %or.cond58 = and i1 %51, %52
+  br i1 %or.cond58, label %57, label %53
 
 53:                                               ; preds = %._crit_edge73, %48
   %54 = phi i64 [ %.pre74, %._crit_edge73 ], [ %50, %48 ]
@@ -339,7 +339,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
   store ptr %82, ptr %8, align 8
   store i64 %83, ptr %34, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  %85 = call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 0, i64 %.049)
+  %85 = call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 0, i64 %.051)
   store i64 %85, ptr %36, align 8
   %86 = load i64, ptr %35, align 8, !noundef !3
   %87 = call ptr @"_ZN59_$LT$std..process..ChildStdout$u20$as$u20$std..io..Read$GT$8read_buf17h89760e5263f7afe6E"(ptr align 4 %1, ptr nonnull align 8 %8, i64 %86)
@@ -396,7 +396,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
   br i1 %or.cond, label %116, label %.outer.backedge
 
 .outer:                                           ; preds = %.outer.backedge, %32
-  %.049.ph = phi i64 [ 0, %32 ], [ %110, %.outer.backedge ]
+  %.051.ph = phi i64 [ 0, %32 ], [ %110, %.outer.backedge ]
   %.1.ph = phi i64 [ %25, %32 ], [ %.1.ph.be, %.outer.backedge ]
   br label %48
 
@@ -412,8 +412,8 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
   %119 = landingpad { ptr, i32 }
           cleanup
   %120 = load ptr, ptr %7, align 8, !noundef !3
-  %.not55 = icmp eq ptr %120, null
-  br i1 %.not55, label %129, label %130
+  %.not70 = icmp eq ptr %120, null
+  br i1 %.not70, label %129, label %130
 
 121:                                              ; preds = %.lr.ph
   %122 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
@@ -436,7 +436,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly s
 128:                                              ; preds = %104, %123, %63, %66, %44, %47, %89
   ret void
 
-129:                                              ; preds = %118, %130
+129:                                              ; preds = %130, %118
   resume { ptr, i32 } %119
 
 130:                                              ; preds = %118

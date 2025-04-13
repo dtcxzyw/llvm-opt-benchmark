@@ -595,7 +595,7 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
   %20 = phi i64 [ %17, %16 ], [ %12, %11 ]
   switch i8 %19, label %21 [
     i8 39, label %25
-    i8 34, label %29
+    i8 34, label %25
   ]
 
 21:                                               ; preds = %18
@@ -604,33 +604,35 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.8, i32 noundef %22) #20
   br label %.loopexit
 
-25:                                               ; preds = %18
-  br i1 %15, label %26, label %29
+25:                                               ; preds = %18, %18
+  %26 = icmp eq i8 %19, 39
+  %or.cond4 = and i1 %15, %26
+  br i1 %or.cond4, label %30, label %.preheader
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 18, i64 1, ptr %27) #23
+.preheader:                                       ; preds = %25
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %storemerge120 = add i64 %20, 1
+  %28 = load i64, ptr %27, align 8, !tbaa !17
+  %29 = icmp ult i64 %storemerge120, %28
+  br i1 %29, label %.lr.ph, label %.loopexit
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !4
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 18, i64 1, ptr %31) #23
   br label %.loopexit
 
-29:                                               ; preds = %18, %25
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %storemerge118 = add i64 %20, 1
-  %31 = load i64, ptr %30, align 8, !tbaa !17
-  %32 = icmp ult i64 %storemerge118, %31
-  br i1 %32, label %.lr.ph, label %.loopexit
-
-.lr.ph:                                           ; preds = %29, %.thread107
-  %33 = phi i64 [ %154, %.thread107 ], [ %31, %29 ]
-  %storemerge119 = phi i64 [ %storemerge, %.thread107 ], [ %storemerge118, %29 ]
-  %34 = phi i64 [ %155, %.thread107 ], [ %20, %29 ]
+.lr.ph:                                           ; preds = %.preheader, %.thread109
+  %33 = phi i64 [ %154, %.thread109 ], [ %28, %.preheader ]
+  %storemerge121 = phi i64 [ %storemerge, %.thread109 ], [ %storemerge120, %.preheader ]
+  %34 = phi i64 [ %155, %.thread109 ], [ %20, %.preheader ]
   %35 = load ptr, ptr %0, align 8, !tbaa !9
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %storemerge119
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %storemerge121
   %37 = load i8, ptr %36, align 1, !tbaa !14
   %38 = icmp eq i8 %37, %19
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %.lr.ph
-  store i64 %storemerge119, ptr %3, align 8, !tbaa !18
+  store i64 %storemerge121, ptr %3, align 8, !tbaa !18
   br i1 %15, label %40, label %.loopexit
 
 40:                                               ; preds = %39
@@ -643,12 +645,12 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
 
 44:                                               ; preds = %42
   %45 = add i64 %34, 2
-  br label %.thread107
+  br label %.thread109
 
 46:                                               ; preds = %42
-  %47 = trunc i64 %storemerge119 to i32
+  %47 = trunc i64 %storemerge121 to i32
   %48 = trunc i64 %33 to i32
-  %sext = shl i64 %storemerge119, 32
+  %sext = shl i64 %storemerge121, 32
   %49 = ashr exact i64 %sext, 32
   %50 = getelementptr inbounds i8, ptr %35, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !14
@@ -660,22 +662,22 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
   %55 = getelementptr inbounds nuw [256 x i8], ptr @_ZL10oldIllegal, i64 0, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !24, !range !26, !noundef !27
   %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %.thread107, label %.thread102
+  br i1 %57, label %.thread109, label %.thread104
 
-.thread102:                                       ; preds = %53
+.thread104:                                       ; preds = %53
   %58 = zext nneg i8 %51 to i32
   %59 = shl i64 %34, 32
-  %sext109 = add i64 %59, 8589934592
-  %60 = ashr exact i64 %sext109, 32
-  %61 = sub i64 %60, %storemerge119
+  %sext111 = add i64 %59, 8589934592
+  %60 = ashr exact i64 %sext111, 32
+  %61 = sub i64 %60, %storemerge121
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #21
   br label %133
 
 62:                                               ; preds = %46
   %63 = add nsw i32 %47, 1
   %64 = zext i8 %51 to i32
-  %.not94 = icmp eq i32 %63, %48
-  br i1 %.not94, label %148, label %65
+  %.not96 = icmp eq i32 %63, %48
+  br i1 %.not96, label %148, label %65
 
 65:                                               ; preds = %62
   %66 = icmp samesign ugt i8 %51, -33
@@ -698,8 +700,8 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
   %79 = zext nneg i8 %78 to i32
   %80 = shl nuw nsw i32 1, %79
   %81 = and i32 %80, %74
-  %.not97 = icmp eq i32 %81, 0
-  br i1 %.not97, label %148, label %82
+  %.not99 = icmp eq i32 %81, 0
+  br i1 %.not99, label %148, label %82
 
 82:                                               ; preds = %69
   %83 = and i8 %77, 63
@@ -722,13 +724,13 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
   %96 = sext i8 %95 to i32
   %97 = shl nuw nsw i32 1, %85
   %98 = and i32 %97, %96
-  %.not95 = icmp eq i32 %98, 0
-  br i1 %.not95, label %148, label %99
+  %.not97 = icmp eq i32 %98, 0
+  br i1 %.not97, label %148, label %99
 
 99:                                               ; preds = %87
   %100 = add nsw i32 %47, 2
-  %.not96 = icmp eq i32 %100, %48
-  br i1 %.not96, label %148, label %101
+  %.not98 = icmp eq i32 %100, %48
+  br i1 %.not98, label %148, label %101
 
 101:                                              ; preds = %99
   %102 = shl nuw nsw i32 %85, 6
@@ -742,15 +744,15 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
   br i1 %109, label %110, label %148
 
 110:                                              ; preds = %82, %101
-  %.177 = phi i32 [ %63, %82 ], [ %100, %101 ]
-  %.070 = phi i32 [ %70, %82 ], [ %104, %101 ]
-  %.069 = phi i8 [ %83, %82 ], [ %108, %101 ]
-  %111 = shl nuw nsw i32 %.070, 6
-  %112 = zext nneg i8 %.069 to i32
+  %.179 = phi i32 [ %63, %82 ], [ %100, %101 ]
+  %.072 = phi i32 [ %70, %82 ], [ %104, %101 ]
+  %.071 = phi i8 [ %83, %82 ], [ %108, %101 ]
+  %111 = shl nuw nsw i32 %.072, 6
+  %112 = zext nneg i8 %.071 to i32
   %113 = or disjoint i32 %111, %112
-  %114 = add nsw i32 %.177, 1
-  %.not98 = icmp eq i32 %114, %48
-  br i1 %.not98, label %148, label %119
+  %114 = add nsw i32 %.179, 1
+  %.not100 = icmp eq i32 %114, %48
+  br i1 %.not100, label %148, label %119
 
 115:                                              ; preds = %65
   %116 = icmp samesign ugt i8 %51, -63
@@ -761,9 +763,9 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
   br label %119
 
 119:                                              ; preds = %117, %110
-  %.278 = phi i32 [ %114, %110 ], [ %63, %117 ]
-  %.171 = phi i32 [ %113, %110 ], [ %118, %117 ]
-  %120 = sext i32 %.278 to i64
+  %.280 = phi i32 [ %114, %110 ], [ %63, %117 ]
+  %.173 = phi i32 [ %113, %110 ], [ %118, %117 ]
+  %120 = sext i32 %.280 to i64
   %121 = getelementptr inbounds i8, ptr %35, i64 %120
   %122 = load i8, ptr %121, align 1, !tbaa !14
   %123 = xor i8 %122, -128
@@ -772,19 +774,19 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
 
 125:                                              ; preds = %119
   %126 = zext nneg i8 %123 to i32
-  %127 = shl nuw nsw i32 %.171, 6
+  %127 = shl nuw nsw i32 %.173, 6
   %128 = or disjoint i32 %127, %126
-  %129 = add nsw i32 %.278, 1
+  %129 = add nsw i32 %.280, 1
   %130 = sext i32 %129 to i64
-  %131 = sub i64 %130, %storemerge119
+  %131 = sub i64 %130, %storemerge121
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #21
-  %132 = icmp ult i32 %.171, 1024
+  %132 = icmp ult i32 %.173, 1024
   br i1 %132, label %133, label %136
 
-133:                                              ; preds = %.thread102, %125
-  %134 = phi i64 [ %61, %.thread102 ], [ %131, %125 ]
-  %.373105 = phi i32 [ %58, %.thread102 ], [ %128, %125 ]
-  %135 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 20, ptr noundef nonnull @.str.14, i32 noundef %.373105) #21
+133:                                              ; preds = %.thread104, %125
+  %134 = phi i64 [ %61, %.thread104 ], [ %131, %125 ]
+  %.375107 = phi i32 [ %58, %.thread104 ], [ %128, %125 ]
+  %135 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 20, ptr noundef nonnull @.str.14, i32 noundef %.375107) #21
   br label %138
 
 136:                                              ; preds = %125
@@ -793,24 +795,24 @@ define dso_local noundef zeroext i1 @_Z5fixAtRNSt7__cxx1112basic_stringIcSt11cha
 
 138:                                              ; preds = %136, %133
   %139 = phi i64 [ %131, %136 ], [ %134, %133 ]
-  %140 = load i64, ptr %30, align 8, !tbaa !17
-  %141 = icmp ugt i64 %storemerge119, %140
+  %140 = load i64, ptr %27, align 8, !tbaa !17
+  %141 = icmp ugt i64 %storemerge121, %140
   br i1 %141, label %142, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit
 
 142:                                              ; preds = %138
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.27, i64 noundef %storemerge119, i64 noundef %140) #24
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.27, i64 noundef %storemerge121, i64 noundef %140) #24
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit: ; preds = %138
   %143 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
-  %144 = sub nuw i64 %140, %storemerge119
+  %144 = sub nuw i64 %140, %storemerge121
   %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %139, i64 %144)
-  %145 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %storemerge119, i64 noundef %spec.select.i.i.i, ptr noundef nonnull %4, i64 noundef %143)
+  %145 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %storemerge121, i64 noundef %spec.select.i.i.i, ptr noundef nonnull %4, i64 noundef %143)
   %146 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
   %147 = add i64 %146, %34
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #21
-  %.pre126 = load i64, ptr %30, align 8, !tbaa !17
-  br label %.thread107
+  %.pre128 = load i64, ptr %27, align 8, !tbaa !17
+  br label %.thread109
 
 148:                                              ; preds = %62, %69, %84, %87, %99, %101, %110, %115, %119
   %149 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -820,15 +822,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit: ; pred
   %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.13, ptr noundef %152) #20
   br label %.loopexit
 
-.thread107:                                       ; preds = %44, %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit
-  %154 = phi i64 [ %33, %53 ], [ %.pre126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit ], [ %33, %44 ]
-  %155 = phi i64 [ %storemerge119, %53 ], [ %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit ], [ %45, %44 ]
+.thread109:                                       ; preds = %44, %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit
+  %154 = phi i64 [ %33, %53 ], [ %.pre128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit ], [ %33, %44 ]
+  %155 = phi i64 [ %storemerge121, %53 ], [ %147, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit ], [ %45, %44 ]
   %storemerge = add i64 %155, 1
   %156 = icmp ult i64 %storemerge, %154
   br i1 %156, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
-.loopexit:                                        ; preds = %.thread107, %29, %148, %21, %26, %40, %39, %8
-  %.0 = phi i1 [ true, %8 ], [ true, %21 ], [ true, %26 ], [ false, %40 ], [ true, %148 ], [ false, %39 ], [ false, %29 ], [ false, %.thread107 ]
+.loopexit:                                        ; preds = %.thread109, %.preheader, %148, %21, %30, %40, %39, %8
+  %.0 = phi i1 [ true, %8 ], [ true, %21 ], [ true, %30 ], [ false, %40 ], [ true, %148 ], [ false, %39 ], [ false, %.preheader ], [ false, %.thread109 ]
   ret i1 %.0
 }
 

@@ -2564,7 +2564,7 @@ define void @_ZN10open_spiel7pentago12PentagoState13DoApplyActionEl(ptr noundef 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %91
+  br label %89
 
 18:                                               ; preds = %2
   %19 = sdiv i64 %1, 8
@@ -2603,7 +2603,7 @@ define void @_ZN10open_spiel7pentago12PentagoState13DoApplyActionEl(ptr noundef 
 39:                                               ; preds = %37
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %91
+  br label %89
 
 41:                                               ; preds = %18
   %42 = trunc nsw i64 %20 to i32
@@ -2625,9 +2625,9 @@ define void @_ZN10open_spiel7pentago12PentagoState13DoApplyActionEl(ptr noundef 
   %57 = and i64 %52, %56
   %58 = and i64 %52, %55
   %. = select i1 %51, i64 2, i64 6
-  %.41 = select i1 %51, i64 6, i64 2
+  %.42 = select i1 %51, i64 6, i64 2
   %59 = lshr i64 %58, %.
-  %60 = shl i64 %58, %.41
+  %60 = shl i64 %58, %.42
   %61 = or i64 %59, %60
   %62 = and i64 %61, %55
   %63 = or disjoint i64 %62, %57
@@ -2636,7 +2636,7 @@ define void @_ZN10open_spiel7pentago12PentagoState13DoApplyActionEl(ptr noundef 
   %65 = and i64 %64, %56
   %66 = and i64 %64, %55
   %67 = lshr i64 %66, %.
-  %68 = shl i64 %66, %.41
+  %68 = shl i64 %66, %.42
   %69 = or i64 %67, %68
   %70 = and i64 %69, %55
   %71 = or disjoint i64 %70, %65
@@ -2649,51 +2649,46 @@ define void @_ZN10open_spiel7pentago12PentagoState13DoApplyActionEl(ptr noundef 
 
 75:                                               ; preds = %41, %75
   %indvars.iv = phi i64 [ 0, %41 ], [ %indvars.iv.next, %75 ]
-  %.01525 = phi i8 [ 0, %41 ], [ %.1, %75 ]
-  %.01624 = phi i1 [ false, %41 ], [ %spec.select, %75 ]
+  %.01626 = phi i1 [ false, %41 ], [ %.1, %75 ]
+  %.01725 = phi i1 [ false, %41 ], [ %spec.select, %75 ]
   %76 = getelementptr inbounds nuw [32 x i64], ptr @_ZN10open_spiel7pentago12_GLOBAL__N_18win_maskE, i64 0, i64 %indvars.iv
   %77 = load i64, ptr %76, align 8
   %78 = and i64 %63, %77
   %79 = icmp eq i64 %78, %77
-  %spec.select = select i1 %79, i1 true, i1 %.01624
+  %spec.select = select i1 %79, i1 true, i1 %.01725
   %80 = and i64 %71, %77
   %81 = icmp eq i64 %80, %77
-  %.1 = select i1 %81, i8 1, i8 %.01525
+  %.1 = select i1 %81, i1 true, i1 %.01626
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %82, label %75, !llvm.loop !28
 
 82:                                               ; preds = %75
-  %83 = trunc nuw i8 %.1 to i1
-  br i1 %spec.select, label %84, label %.critedge
+  %.mux = select i1 %.1, i32 3, i32 0
+  %brmerge43 = select i1 %spec.select, i1 true, i1 %.1
+  %.mux.mux = select i1 %spec.select, i32 %.mux, i32 1
+  br i1 %brmerge43, label %.sink.split, label %83
 
-84:                                               ; preds = %82
-  %.42 = select i1 %83, i32 3, i32 0
-  br label %.sink.split
+83:                                               ; preds = %82
+  %84 = icmp eq i32 %74, 36
+  br i1 %84, label %.sink.split, label %85
 
-.critedge:                                        ; preds = %82
-  br i1 %83, label %.sink.split, label %85
+.sink.split:                                      ; preds = %82, %83
+  %.sink40 = phi i32 [ %.mux.mux, %82 ], [ 3, %83 ]
+  store i32 %.sink40, ptr %11, align 4
+  br label %85
 
-85:                                               ; preds = %.critedge
-  %86 = icmp eq i32 %74, 36
-  br i1 %86, label %.sink.split, label %87
-
-.sink.split:                                      ; preds = %85, %.critedge, %84
-  %.sink39 = phi i32 [ %.42, %84 ], [ 1, %.critedge ], [ 3, %85 ]
-  store i32 %.sink39, ptr %11, align 4
-  br label %87
-
-87:                                               ; preds = %.sink.split, %85
-  %88 = load i32, ptr %45, align 8
-  %89 = icmp eq i32 %88, 0
-  %90 = zext i1 %89 to i32
-  store i32 %90, ptr %45, align 8
+85:                                               ; preds = %.sink.split, %83
+  %86 = load i32, ptr %45, align 8
+  %87 = icmp eq i32 %86, 0
+  %88 = zext i1 %87 to i32
+  store i32 %88, ptr %45, align 8
   ret void
 
-91:                                               ; preds = %39, %16
-  %.sink40 = phi ptr [ %9, %39 ], [ %5, %16 ]
+89:                                               ; preds = %39, %16
+  %.sink41 = phi ptr [ %9, %39 ], [ %5, %16 ]
   %.pn = phi { ptr, i32 } [ %40, %39 ], [ %17, %16 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink40) #24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink41) #24
   resume { ptr, i32 } %.pn
 }
 

@@ -5979,8 +5979,8 @@ _ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit.i: ; preds = %
   %80 = landingpad { ptr, i32 }
           cleanup
   %81 = load i64, ptr %43, align 8, !range !37, !alias.scope !1306, !noalias !1311, !noundef !5
-  %.not5.i.i = icmp eq i64 %81, -9223372036854775808
-  br i1 %.not5.i.i, label %common.resume, label %88
+  %.not14.i.i = icmp eq i64 %81, -9223372036854775808
+  br i1 %.not14.i.i, label %common.resume, label %88
 
 82:                                               ; preds = %_ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit.i
   %83 = invoke noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$GT$8with_cmd17h869c02adc0014b62E"(ptr noalias noundef nonnull align 8 %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %2)
@@ -5989,9 +5989,9 @@ _ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit.i: ; preds = %
 84:                                               ; preds = %82
   %85 = load i64, ptr %43, align 8, !range !37, !alias.scope !1306, !noalias !1311, !noundef !5
   %.not.i.i = icmp eq i64 %85, -9223372036854775808
-  br i1 %.not.i.i, label %142, label %.thread12.i.i
+  br i1 %.not.i.i, label %142, label %.thread10.i.i
 
-.thread12.i.i:                                    ; preds = %84
+.thread10.i.i:                                    ; preds = %84
   %86 = getelementptr inbounds nuw i8, ptr %40, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40), !noalias !1312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false), !noalias !1311
@@ -6179,12 +6179,12 @@ common.resume:                                    ; preds = %431, %175, %105, %1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he11f50f4ada41903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39) #39
           to label %common.resume unwind label %139, !noalias !1331
 
-142:                                              ; preds = %.thread12.i.i, %84
-  %.017.i.i = phi ptr [ %87, %.thread12.i.i ], [ %83, %84 ]
+142:                                              ; preds = %.thread10.i.i, %84
+  %.013.i.i = phi ptr [ %87, %.thread10.i.i ], [ %83, %84 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43), !noalias !1287
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42), !noalias !1287
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.017.i.i, ptr %143, align 8
+  store ptr %.013.i.i, ptr %143, align 8
   store i64 1, ptr %0, align 8
   br label %433
 
@@ -7198,8 +7198,8 @@ _ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit.i: ; preds = %
   %85 = landingpad { ptr, i32 }
           cleanup
   %86 = load i64, ptr %48, align 8, !range !37, !alias.scope !1558, !noalias !1563, !noundef !5
-  %.not5.i.i = icmp eq i64 %86, -9223372036854775808
-  br i1 %.not5.i.i, label %common.resume, label %93
+  %.not14.i.i = icmp eq i64 %86, -9223372036854775808
+  br i1 %.not14.i.i, label %common.resume, label %93
 
 87:                                               ; preds = %_ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit.i
   %88 = invoke noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$GT$8with_cmd17h869c02adc0014b62E"(ptr noalias noundef nonnull align 8 %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %2)
@@ -7208,9 +7208,9 @@ _ZN12clap_builder6output5usage5Usage3new17h1c819b3384191755E.exit.i: ; preds = %
 89:                                               ; preds = %87
   %90 = load i64, ptr %48, align 8, !range !37, !alias.scope !1558, !noalias !1563, !noundef !5
   %.not.i.i = icmp eq i64 %90, -9223372036854775808
-  br i1 %.not.i.i, label %147, label %.thread12.i.i
+  br i1 %.not.i.i, label %147, label %.thread10.i.i
 
-.thread12.i.i:                                    ; preds = %89
+.thread10.i.i:                                    ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45), !noalias !1564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false), !noalias !1563
@@ -7398,12 +7398,12 @@ common.resume:                                    ; preds = %476, %220, %182, %2
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he11f50f4ada41903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #39
           to label %common.resume unwind label %144, !noalias !1583
 
-147:                                              ; preds = %.thread12.i.i, %89
-  %.017.i.i = phi ptr [ %92, %.thread12.i.i ], [ %88, %89 ]
+147:                                              ; preds = %.thread10.i.i, %89
+  %.013.i.i = phi ptr [ %92, %.thread10.i.i ], [ %88, %89 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48), !noalias !1539
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47), !noalias !1539
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.017.i.i, ptr %148, align 8
+  store ptr %.013.i.i, ptr %148, align 8
   store i8 1, ptr %0, align 8
   br label %483
 

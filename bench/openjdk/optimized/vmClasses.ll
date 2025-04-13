@@ -80,52 +80,50 @@ define hidden noundef zeroext i1 @_ZN9vmClasses7resolveE9vmClassIDP10JavaThread(
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %3
   %5 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
-  br i1 %5, label %6, label %14
+  %.not = xor i1 %5, true
+  %6 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
+  %7 = trunc i8 %6 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %7
+  %8 = load ptr, ptr %4, align 8
+  br i1 %or.cond, label %13, label %9
 
-6:                                                ; preds = %2
-  %7 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
-  %8 = trunc i8 %7 to i1
-  br i1 %8, label %14, label %9
+9:                                                ; preds = %2
+  %10 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+  tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %8, ptr noundef %10, ptr null, ptr noundef %1)
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %.not16 = icmp eq ptr %12, null
+  br label %26
 
-9:                                                ; preds = %6
-  %10 = load ptr, ptr %4, align 8
-  %11 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %10, ptr noundef %11, ptr null, ptr noundef %1)
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %13, null
-  br label %28
-
-14:                                               ; preds = %6, %2
-  %15 = load ptr, ptr %4, align 8
-  %.not.i = icmp eq ptr %15, null
+13:                                               ; preds = %2
+  %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit
 
-_ZN9vmClasses9is_loadedEP13InstanceKlass.exit:    ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 305
-  %17 = load volatile i8, ptr %16, align 1
-  %.not15 = icmp eq i8 %17, 0
-  br i1 %.not15, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread, label %28
+_ZN9vmClasses9is_loadedEP13InstanceKlass.exit:    ; preds = %13
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 305
+  %15 = load volatile i8, ptr %14, align 1
+  %.not17 = icmp eq i8 %15, 0
+  br i1 %.not17, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread, label %26
 
-_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread: ; preds = %14, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit
-  %18 = getelementptr inbounds [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %3
-  %19 = load i16, ptr %18, align 2
-  %20 = sext i16 %19 to i64
-  %21 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %22, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %1) #5
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %.not16 = icmp eq ptr %25, null
-  br i1 %.not16, label %26, label %28
+_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread: ; preds = %13, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit
+  %16 = getelementptr inbounds [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %3
+  %17 = load i16, ptr %16, align 2
+  %18 = sext i16 %17 to i64
+  %19 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %18
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %20, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %1) #5
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %.not18 = icmp eq ptr %23, null
+  br i1 %.not18, label %24, label %26
 
-26:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread
-  store ptr %23, ptr %4, align 8
-  %27 = icmp ne ptr %23, null
-  br label %28
+24:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread
+  store ptr %21, ptr %4, align 8
+  %25 = icmp ne ptr %21, null
+  br label %26
 
-28:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit, %26, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread, %9
-  %.0 = phi i1 [ %.not, %9 ], [ false, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread ], [ %27, %26 ], [ true, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit ]
+26:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit, %24, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread, %9
+  %.0 = phi i1 [ %.not16, %9 ], [ false, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread ], [ %25, %24 ], [ true, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit ]
   ret i1 %.0
 }
 
@@ -232,46 +230,44 @@ define hidden void @_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread(i32
   %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %10 = getelementptr inbounds [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv
   %11 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
-  br i1 %11, label %12, label %18
+  %.not.i = xor i1 %11, true
+  %12 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
+  %13 = trunc i8 %12 to i1
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %13
+  %14 = load ptr, ptr %10, align 8
+  br i1 %or.cond.i, label %17, label %15
 
-12:                                               ; preds = %9
-  %13 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %18, label %15
-
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %10, align 8
-  %17 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %16, ptr noundef %17, ptr null, ptr noundef %2)
+15:                                               ; preds = %9
+  %16 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+  tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %14, ptr noundef %16, ptr null, ptr noundef %2)
   br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit
 
-18:                                               ; preds = %12, %9
-  %19 = load ptr, ptr %10, align 8
-  %.not.i.i = icmp eq ptr %19, null
+17:                                               ; preds = %9
+  %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i
 
-_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i:  ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 305
-  %21 = load volatile i8, ptr %20, align 1
-  %.not15.i = icmp eq i8 %21, 0
-  br i1 %.not15.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit
+_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i:  ; preds = %17
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 305
+  %19 = load volatile i8, ptr %18, align 1
+  %.not17.i = icmp eq i8 %19, 0
+  br i1 %.not17.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit
 
-_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i, %18
-  %22 = getelementptr inbounds [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv
-  %23 = load i16, ptr %22, align 2
-  %24 = sext i16 %23 to i64
-  %25 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %26, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %2) #5
-  %28 = load ptr, ptr %5, align 8
-  %.not16.i = icmp eq ptr %28, null
-  br i1 %.not16.i, label %29, label %.loopexit
+_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i, %17
+  %20 = getelementptr inbounds [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv
+  %21 = load i16, ptr %20, align 2
+  %22 = sext i16 %21 to i64
+  %23 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %22
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %24, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %2) #5
+  %26 = load ptr, ptr %5, align 8
+  %.not18.i = icmp eq ptr %26, null
+  br i1 %.not18.i, label %27, label %.loopexit
 
-29:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i
-  store ptr %27, ptr %10, align 8
+27:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i
+  store ptr %25, ptr %10, align 8
   br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit
 
-_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit: ; preds = %15, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i, %29
+_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit: ; preds = %15, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i, %27
   %.pr = load ptr, ptr %5, align 8
   %.not12 = icmp eq ptr %.pr, null
   br i1 %.not12, label %7, label %.loopexit
@@ -291,238 +287,232 @@ define hidden void @_ZN9vmClasses11resolve_allEP10JavaThread(ptr noundef %0) loc
   tail call void @_ZN11ClassLoader17classLoader_init2EP10JavaThread(ptr noundef %0) #5
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
-  br i1 %3, label %4, label %10
+  %.not.i.i.i = xor i1 %3, true
+  %4 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
+  %5 = trunc i8 %4 to i1
+  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %5
+  %6 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 16
+  br i1 %or.cond.i.i.i, label %9, label %7
 
-4:                                                ; preds = %.lr.ph.i.i
-  %5 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %10, label %7
-
-7:                                                ; preds = %4
-  %8 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 16
-  %9 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %8, ptr noundef %9, ptr null, ptr noundef %0)
+7:                                                ; preds = %.lr.ph.i.i
+  %8 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+  tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %6, ptr noundef %8, ptr null, ptr noundef %0)
   br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i
 
-10:                                               ; preds = %4, %.lr.ph.i.i
-  %11 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 16
-  %.not.i.i.i.i = icmp eq ptr %11, null
+9:                                                ; preds = %.lr.ph.i.i
+  %.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i
 
-_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i: ; preds = %10
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 305
-  %13 = load volatile i8, ptr %12, align 1
-  %.not15.i.i.i = icmp eq i8 %13, 0
-  br i1 %.not15.i.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i
+_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i: ; preds = %9
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 305
+  %11 = load volatile i8, ptr %10, align 1
+  %.not17.i.i.i = icmp eq i8 %11, 0
+  br i1 %.not17.i.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i
 
-_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i, %10
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
-  %15 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %14, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %0) #5
-  %16 = load ptr, ptr %2, align 8
-  %.not16.i.i.i = icmp eq ptr %16, null
-  br i1 %.not16.i.i.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i.thread, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
+_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i, %9
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %13 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %12, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %0) #5
+  %14 = load ptr, ptr %2, align 8
+  %.not18.i.i.i = icmp eq ptr %14, null
+  br i1 %.not18.i.i.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i.thread, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
 
 _ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i.thread: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i
-  store ptr %15, ptr @_ZN9vmClasses8_klassesE, align 16
-  br label %17
+  store ptr %13, ptr @_ZN9vmClasses8_klassesE, align 16
+  br label %15
 
 _ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i, %7
   %.pr.i.i.pr = load ptr, ptr %2, align 8
   %.not12.i.i = icmp eq ptr %.pr.i.i.pr, null
-  br i1 %.not12.i.i, label %17, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
+  br i1 %.not12.i.i, label %15, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
 
-17:                                               ; preds = %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i.thread, %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i
+15:                                               ; preds = %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i.thread, %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i
   store i32 1, ptr %1, align 4
-  %18 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 16
-  store ptr %18, ptr @_ZN13CollectedHeap20_filler_object_klassE, align 8
-  %19 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
-  br i1 %19, label %20, label %.lr.ph.i.i37
+  %16 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 16
+  store ptr %16, ptr @_ZN13CollectedHeap20_filler_object_klassE, align 8
+  %17 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
+  br i1 %17, label %18, label %.lr.ph.i.i39
 
-20:                                               ; preds = %17
+18:                                               ; preds = %15
   tail call void @_ZN17ArchiveHeapLoader12fixup_regionEv() #5
-  %21 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 16
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 224
-  %23 = load ptr, ptr %22, align 8
-  tail call void @_ZN12ConstantPool24restore_unshareable_infoEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(68) %23, ptr noundef nonnull %0) #5
-  %24 = load ptr, ptr %2, align 8
-  %.not54 = icmp eq ptr %24, null
-  br i1 %.not54, label %.lr.ph.i.i22, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
+  %19 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 224
+  %21 = load ptr, ptr %20, align 8
+  tail call void @_ZN12ConstantPool24restore_unshareable_infoEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(68) %21, ptr noundef nonnull %0) #5
+  %22 = load ptr, ptr %2, align 8
+  %.not58 = icmp eq ptr %22, null
+  br i1 %.not58, label %.lr.ph.i.i22, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
 
-25:                                               ; preds = %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i27
-  %indvars.iv.next.i.i30 = add nuw nsw i64 %indvars.iv.i.i23, 1
-  %.not.i.i31 = icmp eq i64 %indvars.iv.next.i.i30, 3
-  br i1 %.not.i.i31, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35, label %.lr.ph.i.i22
+23:                                               ; preds = %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i26
+  %indvars.iv.next.i.i29 = add nuw nsw i64 %indvars.iv.i.i23, 1
+  %.not.i.i30 = icmp eq i64 %indvars.iv.next.i.i29, 3
+  br i1 %.not.i.i30, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37, label %.lr.ph.i.i22
 
-.lr.ph.i.i22:                                     ; preds = %20, %25
-  %indvars.iv.i.i23 = phi i64 [ %indvars.iv.next.i.i30, %25 ], [ 1, %20 ]
-  %26 = getelementptr inbounds nuw [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv.i.i23
-  %27 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
-  br i1 %27, label %28, label %34
+.lr.ph.i.i22:                                     ; preds = %18, %23
+  %indvars.iv.i.i23 = phi i64 [ %indvars.iv.next.i.i29, %23 ], [ 1, %18 ]
+  %24 = getelementptr inbounds nuw [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv.i.i23
+  %25 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
+  %.not.i.i.i24 = xor i1 %25, true
+  %26 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
+  %27 = trunc i8 %26 to i1
+  %or.cond.i.i.i25 = select i1 %.not.i.i.i24, i1 true, i1 %27
+  %28 = load ptr, ptr %24, align 8
+  br i1 %or.cond.i.i.i25, label %31, label %29
 
-28:                                               ; preds = %.lr.ph.i.i22
-  %29 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %34, label %31
+29:                                               ; preds = %.lr.ph.i.i22
+  %30 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+  tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %28, ptr noundef %30, ptr null, ptr noundef nonnull %0)
+  br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i26
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %26, align 8
-  %33 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %32, ptr noundef %33, ptr null, ptr noundef nonnull %0)
-  br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i27
+31:                                               ; preds = %.lr.ph.i.i22
+  %.not.i.i.i.i32 = icmp eq ptr %28, null
+  br i1 %.not.i.i.i.i32, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i35, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i33
 
-34:                                               ; preds = %28, %.lr.ph.i.i22
-  %35 = load ptr, ptr %26, align 8
-  %.not.i.i.i.i24 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i.i24, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i33, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i25
+_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i33: ; preds = %31
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 305
+  %33 = load volatile i8, ptr %32, align 1
+  %.not17.i.i.i34 = icmp eq i8 %33, 0
+  br i1 %.not17.i.i.i34, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i35, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i26
 
-_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i25: ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 305
-  %37 = load volatile i8, ptr %36, align 1
-  %.not15.i.i.i26 = icmp eq i8 %37, 0
-  br i1 %.not15.i.i.i26, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i33, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i27
+_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i35: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i33, %31
+  %34 = getelementptr inbounds nuw [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i.i23
+  %35 = load i16, ptr %34, align 2
+  %36 = sext i16 %35 to i64
+  %37 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %38, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #5
+  %40 = load ptr, ptr %2, align 8
+  %.not18.i.i.i36 = icmp eq ptr %40, null
+  br i1 %.not18.i.i.i36, label %41, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
 
-_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i33: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i25, %34
-  %38 = getelementptr inbounds nuw [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i.i23
-  %39 = load i16, ptr %38, align 2
-  %40 = sext i16 %39 to i64
-  %41 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %40
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %42, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #5
-  %44 = load ptr, ptr %2, align 8
-  %.not16.i.i.i34 = icmp eq ptr %44, null
-  br i1 %.not16.i.i.i34, label %45, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
+41:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i35
+  store ptr %39, ptr %24, align 8
+  br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i26
 
-45:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i33
-  store ptr %43, ptr %26, align 8
-  br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i27
+_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i26: ; preds = %41, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i33, %29
+  %.pr.i.i27 = load ptr, ptr %2, align 8
+  %.not12.i.i28 = icmp eq ptr %.pr.i.i27, null
+  br i1 %.not12.i.i28, label %23, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
 
-_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i27: ; preds = %45, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i25, %31
-  %.pr.i.i28 = load ptr, ptr %2, align 8
-  %.not12.i.i29 = icmp eq ptr %.pr.i.i28, null
-  br i1 %.not12.i.i29, label %25, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
+42:                                               ; preds = %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i43
+  %indvars.iv.next.i.i46 = add nuw nsw i64 %indvars.iv.i.i40, 1
+  %.not.i.i47 = icmp eq i64 %indvars.iv.next.i.i46, 3
+  br i1 %.not.i.i47, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37, label %.lr.ph.i.i39
 
-46:                                               ; preds = %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i42
-  %indvars.iv.next.i.i45 = add nuw nsw i64 %indvars.iv.i.i38, 1
-  %.not.i.i46 = icmp eq i64 %indvars.iv.next.i.i45, 3
-  br i1 %.not.i.i46, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35, label %.lr.ph.i.i37
+.lr.ph.i.i39:                                     ; preds = %15, %42
+  %indvars.iv.i.i40 = phi i64 [ %indvars.iv.next.i.i46, %42 ], [ 1, %15 ]
+  %43 = getelementptr inbounds nuw [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv.i.i40
+  %44 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
+  %.not.i.i.i41 = xor i1 %44, true
+  %45 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
+  %46 = trunc i8 %45 to i1
+  %or.cond.i.i.i42 = select i1 %.not.i.i.i41, i1 true, i1 %46
+  %47 = load ptr, ptr %43, align 8
+  br i1 %or.cond.i.i.i42, label %50, label %48
 
-.lr.ph.i.i37:                                     ; preds = %17, %46
-  %indvars.iv.i.i38 = phi i64 [ %indvars.iv.next.i.i45, %46 ], [ 1, %17 ]
-  %47 = getelementptr inbounds nuw [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv.i.i38
-  %48 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
-  br i1 %48, label %49, label %55
+48:                                               ; preds = %.lr.ph.i.i39
+  %49 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+  tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %47, ptr noundef %49, ptr null, ptr noundef nonnull %0)
+  br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i43
 
-49:                                               ; preds = %.lr.ph.i.i37
-  %50 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %55, label %52
+50:                                               ; preds = %.lr.ph.i.i39
+  %.not.i.i.i.i49 = icmp eq ptr %47, null
+  br i1 %.not.i.i.i.i49, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i52, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i50
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %47, align 8
-  %54 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %53, ptr noundef %54, ptr null, ptr noundef nonnull %0)
-  br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i42
+_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i50: ; preds = %50
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 305
+  %52 = load volatile i8, ptr %51, align 1
+  %.not17.i.i.i51 = icmp eq i8 %52, 0
+  br i1 %.not17.i.i.i51, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i52, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i43
 
-55:                                               ; preds = %49, %.lr.ph.i.i37
-  %56 = load ptr, ptr %47, align 8
-  %.not.i.i.i.i39 = icmp eq ptr %56, null
-  br i1 %.not.i.i.i.i39, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i48, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i40
+_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i52: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i50, %50
+  %53 = getelementptr inbounds nuw [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i.i40
+  %54 = load i16, ptr %53, align 2
+  %55 = sext i16 %54 to i64
+  %56 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %55
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %57, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #5
+  %59 = load ptr, ptr %2, align 8
+  %.not18.i.i.i53 = icmp eq ptr %59, null
+  br i1 %.not18.i.i.i53, label %60, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
 
-_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i40: ; preds = %55
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 305
-  %58 = load volatile i8, ptr %57, align 1
-  %.not15.i.i.i41 = icmp eq i8 %58, 0
-  br i1 %.not15.i.i.i41, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i48, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i42
+60:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i52
+  store ptr %58, ptr %43, align 8
+  br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i43
 
-_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i48: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i40, %55
-  %59 = getelementptr inbounds nuw [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i.i38
-  %60 = load i16, ptr %59, align 2
-  %61 = sext i16 %60 to i64
-  %62 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %61
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %63, ptr null, ptr null, i1 noundef zeroext true, ptr noundef nonnull %0) #5
-  %65 = load ptr, ptr %2, align 8
-  %.not16.i.i.i49 = icmp eq ptr %65, null
-  br i1 %.not16.i.i.i49, label %66, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
+_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i43: ; preds = %60, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i50, %48
+  %.pr.i.i44 = load ptr, ptr %2, align 8
+  %.not12.i.i45 = icmp eq ptr %.pr.i.i44, null
+  br i1 %.not12.i.i45, label %42, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
 
-66:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i48
-  store ptr %64, ptr %47, align 8
-  br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i42
-
-_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i42: ; preds = %66, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i40, %52
-  %.pr.i.i43 = load ptr, ptr %2, align 8
-  %.not12.i.i44 = icmp eq ptr %.pr.i.i43, null
-  br i1 %.not12.i.i44, label %46, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
-
-_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35: ; preds = %46, %25
+_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37: ; preds = %42, %23
   store i32 3, ptr %1, align 4
   tail call void @_ZN16java_lang_Object16register_nativesEP10JavaThread(ptr noundef nonnull %0) #5
-  %67 = load ptr, ptr %2, align 8
-  %.not56 = icmp eq ptr %67, null
-  br i1 %.not56, label %68, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
+  %61 = load ptr, ptr %2, align 8
+  %.not60 = icmp eq ptr %61, null
+  br i1 %.not60, label %62, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
 
-68:                                               ; preds = %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35
+62:                                               ; preds = %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37
   tail call void @_ZN16java_lang_String15compute_offsetsEv() #5
   tail call void @_ZN15java_lang_Class15compute_offsetsEv() #5
   tail call void @_ZN8Universe29initialize_basic_type_mirrorsEP10JavaThread(ptr noundef nonnull %0) #5
+  %63 = load ptr, ptr %2, align 8
+  %.not61 = icmp eq ptr %63, null
+  br i1 %.not61, label %64, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
+
+64:                                               ; preds = %62
+  tail call void @_ZN8Universe13fixup_mirrorsEP10JavaThread(ptr noundef nonnull %0) #5
+  %65 = load ptr, ptr %2, align 8
+  %.not62 = icmp eq ptr %65, null
+  br i1 %.not62, label %66, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
+
+66:                                               ; preds = %64
+  %67 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
+  br i1 %67, label %73, label %68
+
+68:                                               ; preds = %66
+  call void @_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread(i32 noundef 27, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %0)
   %69 = load ptr, ptr %2, align 8
-  %.not57 = icmp eq ptr %69, null
-  br i1 %.not57, label %70, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
+  %.not63 = icmp eq ptr %69, null
+  br i1 %.not63, label %70, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
 
 70:                                               ; preds = %68
-  tail call void @_ZN8Universe13fixup_mirrorsEP10JavaThread(ptr noundef nonnull %0) #5
-  %71 = load ptr, ptr %2, align 8
-  %.not58 = icmp eq ptr %71, null
-  br i1 %.not58, label %72, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
-
-72:                                               ; preds = %70
-  %73 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
-  br i1 %73, label %79, label %74
-
-74:                                               ; preds = %72
-  call void @_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread(i32 noundef 27, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %0)
-  %75 = load ptr, ptr %2, align 8
-  %.not59 = icmp eq ptr %75, null
-  br i1 %.not59, label %76, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
-
-76:                                               ; preds = %74
   call void @_ZN23java_lang_ref_Reference15compute_offsetsEv() #5
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 216), align 8
-  call void @_ZN16InstanceRefKlass25update_nonstatic_oop_mapsEP5Klass(ptr noundef %77) #5
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 216), align 8
+  call void @_ZN16InstanceRefKlass25update_nonstatic_oop_mapsEP5Klass(ptr noundef %71) #5
   call void @_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread(i32 noundef 31, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %0)
-  %78 = load ptr, ptr %2, align 8
-  %.not60 = icmp eq ptr %78, null
-  br i1 %.not60, label %79, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
+  %72 = load ptr, ptr %2, align 8
+  %.not64 = icmp eq ptr %72, null
+  br i1 %.not64, label %73, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
 
-79:                                               ; preds = %76, %72
+73:                                               ; preds = %70, %66
   call void @_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread(i32 noundef 117, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %0)
-  %80 = load ptr, ptr %2, align 8
-  %.not61 = icmp eq ptr %80, null
-  br i1 %.not61, label %81, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
+  %74 = load ptr, ptr %2, align 8
+  %.not65 = icmp eq ptr %74, null
+  br i1 %.not65, label %75, label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
 
-81:                                               ; preds = %79
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 928), align 16
-  store ptr %82, ptr @_ZN13CollectedHeap20_filler_object_klassE, align 8
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 808), align 8
-  store ptr %83, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 32), align 16
-  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), align 16
-  store ptr %84, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 40), align 8
-  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 824), align 8
-  store ptr %85, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 48), align 16
-  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 832), align 16
-  store ptr %86, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 56), align 8
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 840), align 8
-  store ptr %87, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 64), align 16
-  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 848), align 16
-  store ptr %88, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 72), align 8
-  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 856), align 8
-  store ptr %89, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 80), align 16
-  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 864), align 16
-  store ptr %90, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 88), align 8
+75:                                               ; preds = %73
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 928), align 16
+  store ptr %76, ptr @_ZN13CollectedHeap20_filler_object_klassE, align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 808), align 8
+  store ptr %77, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 32), align 16
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 816), align 16
+  store ptr %78, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 40), align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 824), align 8
+  store ptr %79, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 48), align 16
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 832), align 16
+  store ptr %80, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 56), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 840), align 8
+  store ptr %81, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 64), align 16
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 848), align 16
+  store ptr %82, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 72), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 856), align 8
+  store ptr %83, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 80), align 16
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 864), align 16
+  store ptr %84, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses12_box_klassesE, i64 88), align 8
   call void @_ZN23InstanceStackChunkKlass20init_offset_of_stackEv() #5
-  br label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread
+  br label %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread
 
-_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35.thread: ; preds = %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i42, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i48, %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i27, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i33, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i, %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i, %79, %76, %74, %70, %68, %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit35, %20, %81
+_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37.thread: ; preds = %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i43, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i52, %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i26, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i35, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i, %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i, %73, %70, %68, %64, %62, %_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P10JavaThread.exit37, %18, %75
   ret void
 }
 
@@ -550,46 +540,44 @@ define linkonce_odr hidden void @_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P1
   %indvars.iv.i = phi i64 [ %7, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
   %11 = getelementptr inbounds [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv.i
   %12 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
-  br i1 %12, label %13, label %19
+  %.not.i.i = xor i1 %12, true
+  %13 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
+  %14 = trunc i8 %13 to i1
+  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %14
+  %15 = load ptr, ptr %11, align 8
+  br i1 %or.cond.i.i, label %18, label %16
 
-13:                                               ; preds = %10
-  %14 = load i8, ptr @_ZN11JvmtiExport26_should_post_class_prepareE, align 1
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %19, label %16
-
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %11, align 8
-  %18 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %17, ptr noundef %18, ptr null, ptr noundef %2)
+16:                                               ; preds = %10
+  %17 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+  tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %15, ptr noundef %17, ptr null, ptr noundef %2)
   br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i
 
-19:                                               ; preds = %13, %10
-  %20 = load ptr, ptr %11, align 8
-  %.not.i.i.i = icmp eq ptr %20, null
+18:                                               ; preds = %10
+  %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i
 
-_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i: ; preds = %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 305
-  %22 = load volatile i8, ptr %21, align 1
-  %.not15.i.i = icmp eq i8 %22, 0
-  br i1 %.not15.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i
+_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i: ; preds = %18
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 305
+  %20 = load volatile i8, ptr %19, align 1
+  %.not17.i.i = icmp eq i8 %20, 0
+  br i1 %.not17.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i
 
-_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i, %19
-  %23 = getelementptr inbounds [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i
-  %24 = load i16, ptr %23, align 2
-  %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %25
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %27, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %2) #5
-  %29 = load ptr, ptr %6, align 8
-  %.not16.i.i = icmp eq ptr %29, null
-  br i1 %.not16.i.i, label %30, label %_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread.exit
+_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i, %18
+  %21 = getelementptr inbounds [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i
+  %22 = load i16, ptr %21, align 2
+  %23 = sext i16 %22 to i64
+  %24 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %23
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %25, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %2) #5
+  %27 = load ptr, ptr %6, align 8
+  %.not18.i.i = icmp eq ptr %27, null
+  br i1 %.not18.i.i, label %28, label %_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread.exit
 
-30:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i
-  store ptr %28, ptr %11, align 8
+28:                                               ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i
+  store ptr %26, ptr %11, align 8
   br label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i
 
-_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i: ; preds = %30, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i, %16
+_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i: ; preds = %28, %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i, %16
   %.pr.i = load ptr, ptr %6, align 8
   %.not12.i = icmp eq ptr %.pr.i, null
   br i1 %.not12.i, label %8, label %_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread.exit

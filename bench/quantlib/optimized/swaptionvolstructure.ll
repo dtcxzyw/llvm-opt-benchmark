@@ -1044,15 +1044,13 @@ ehcleanup28:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.body30:                                        ; preds = %entry
-  br i1 %extrapolate, label %do.end84, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %do.body30
   %extrapolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %22 = load i8, ptr %extrapolate_.i, align 8, !tbaa !31, !range !34, !noundef !35
+  %22 = load i8, ptr %extrapolate_.i, align 8, !range !31
   %loadedv.i = trunc nuw i8 %22 to i1
-  br i1 %loadedv.i, label %do.end84, label %lor.lhs.false32
+  %or.cond = select i1 %extrapolate, i1 true, i1 %loadedv.i
+  br i1 %or.cond, label %do.end84, label %lor.lhs.false32
 
-lor.lhs.false32:                                  ; preds = %lor.lhs.false
+lor.lhs.false32:                                  ; preds = %do.body30
   %vtable = load ptr, ptr %this, align 8, !tbaa !18
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
   %23 = load ptr, ptr %vfn, align 8
@@ -1239,7 +1237,7 @@ ehcleanup81:                                      ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream36) #14
   br label %eh.resume
 
-do.end84:                                         ; preds = %do.body30, %lor.lhs.false, %lor.lhs.false32
+do.end84:                                         ; preds = %do.body30, %lor.lhs.false32
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup81, %ehcleanup28
@@ -1433,15 +1431,13 @@ ehcleanup27:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.body29:                                        ; preds = %entry
-  br i1 %extrapolate, label %do.end81, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %do.body29
   %extrapolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %21 = load i8, ptr %extrapolate_.i, align 8, !tbaa !31, !range !34, !noundef !35
+  %21 = load i8, ptr %extrapolate_.i, align 8, !range !31
   %loadedv.i = trunc nuw i8 %21 to i1
-  br i1 %loadedv.i, label %do.end81, label %lor.lhs.false31
+  %or.cond = select i1 %extrapolate, i1 true, i1 %loadedv.i
+  br i1 %or.cond, label %do.end81, label %lor.lhs.false31
 
-lor.lhs.false31:                                  ; preds = %lor.lhs.false
+lor.lhs.false31:                                  ; preds = %do.body29
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !18
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 96
   %22 = load ptr, ptr %vfn.i, align 8
@@ -1633,7 +1629,7 @@ ehcleanup78:                                      ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream35) #14
   br label %eh.resume
 
-do.end81:                                         ; preds = %do.body29, %lor.lhs.false, %lor.lhs.false31
+do.end81:                                         ; preds = %do.body29, %lor.lhs.false31
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup78, %ehcleanup27
@@ -1722,8 +1718,4 @@ attributes #17 = { builtin nounwind }
 !28 = !{!"_ZTSN8QuantLib8Rounding4TypeE", !6, i64 0}
 !29 = !{!27, !28, i64 4}
 !30 = !{!27, !5, i64 8}
-!31 = !{!32, !33, i64 8}
-!32 = !{!"_ZTSN8QuantLib12ExtrapolatorE", !33, i64 8}
-!33 = !{!"bool", !6, i64 0}
-!34 = !{i8 0, i8 2}
-!35 = !{}
+!31 = !{i8 0, i8 2}

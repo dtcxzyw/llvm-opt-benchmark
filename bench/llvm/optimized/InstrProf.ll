@@ -1039,8 +1039,8 @@ define dso_local void @_ZN4llvm23getInstrProfSectionNameB5cxx11ENS_17InstrProfSe
   store i64 0, ptr %6, align 8, !tbaa !72
   store i8 0, ptr %5, align 8, !tbaa !74
   %7 = icmp eq i32 %2, 5
-  %brmerge.not = and i1 %7, %3
-  br i1 %brmerge.not, label %.thread, label %14
+  %or.cond = and i1 %7, %3
+  br i1 %or.cond, label %.thread, label %14
 
 .thread:                                          ; preds = %4
   %8 = zext i32 %1 to i64
@@ -1062,13 +1062,13 @@ define dso_local void @_ZN4llvm23getInstrProfSectionNameB5cxx11ENS_17InstrProfSe
   %19 = load ptr, ptr %18, align 8, !tbaa !54
   %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #29
   %21 = icmp ugt i64 %20, 4611686018427387903
-  br i1 %21, label %22, label %.thread15
+  br i1 %21, label %22, label %.thread16
 
 22:                                               ; preds = %17
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.119) #30
   unreachable
 
-.thread15:                                        ; preds = %17
+.thread16:                                        ; preds = %17
   %23 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %19, i64 noundef %20) #29
   br label %39
 
@@ -1088,25 +1088,25 @@ define dso_local void @_ZN4llvm23getInstrProfSectionNameB5cxx11ENS_17InstrProfSe
 30:                                               ; preds = %._crit_edge
   %31 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %26, i64 noundef %27) #29
   %32 = icmp eq i32 %1, 0
-  %or.cond = and i1 %32, %7
-  %brmerge12.demorgan = and i1 %3, %or.cond
-  br i1 %brmerge12.demorgan, label %33, label %39
+  %or.cond3 = and i1 %32, %7
+  %or.cond5 = and i1 %3, %or.cond3
+  br i1 %or.cond5, label %33, label %39
 
 33:                                               ; preds = %30
   %34 = load i64, ptr %6, align 8, !tbaa !72
   %35 = add i64 %34, -4611686018427387883
   %36 = icmp ult i64 %35, 21
-  br i1 %36, label %37, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit14
+  br i1 %36, label %37, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15
 
 37:                                               ; preds = %33
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.119) #30
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit14: ; preds = %33
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15: ; preds = %33
   %38 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.14, i64 noundef 21) #29
   br label %39
 
-39:                                               ; preds = %.thread15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit14, %30
+39:                                               ; preds = %.thread16, %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15
   ret void
 }
 

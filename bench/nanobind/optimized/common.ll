@@ -2353,49 +2353,49 @@ declare i32 @PyFile_WriteString(ptr noundef, ptr noundef) local_unnamed_addr #10
 define noundef zeroext i1 @_ZN8nanobind6detail10load_cmplxEP7_objecthPSt7complexIdE(ptr noundef %0, i8 noundef zeroext %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8
-  %5 = icmp ne ptr %.val, @PyComplex_Type
+  %5 = icmp eq ptr %.val, @PyComplex_Type
   %6 = and i8 %1, 1
-  %.not9 = icmp eq i8 %6, 0
-  %or.cond = and i1 %.not9, %5
-  br i1 %or.cond, label %17, label %7
+  %7 = icmp ne i8 %6, 0
+  %or.cond = or i1 %7, %5
+  br i1 %or.cond, label %8, label %18
 
-7:                                                ; preds = %3
-  %8 = invoke { double, double } @PyComplex_AsCComplex(ptr noundef nonnull %0)
-          to label %9 unwind label %18
+8:                                                ; preds = %3
+  %9 = invoke { double, double } @PyComplex_AsCComplex(ptr noundef nonnull %0)
+          to label %10 unwind label %19
 
-9:                                                ; preds = %7
-  %10 = extractvalue { double, double } %8, 0
-  %11 = extractvalue { double, double } %8, 1
-  %12 = fcmp une double %10, -1.000000e+00
-  br i1 %12, label %.critedge, label %13
+10:                                               ; preds = %8
+  %11 = extractvalue { double, double } %9, 0
+  %12 = extractvalue { double, double } %9, 1
+  %13 = fcmp une double %11, -1.000000e+00
+  br i1 %13, label %.critedge, label %14
 
-13:                                               ; preds = %9
-  %14 = invoke ptr @PyErr_Occurred()
-          to label %15 unwind label %18
+14:                                               ; preds = %10
+  %15 = invoke ptr @PyErr_Occurred()
+          to label %16 unwind label %19
 
-15:                                               ; preds = %13
-  %.not10 = icmp eq ptr %14, null
-  br i1 %.not10, label %.critedge, label %16
+16:                                               ; preds = %14
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %.critedge, label %17
 
-.critedge:                                        ; preds = %15, %9
-  store double %10, ptr %2, align 8
+.critedge:                                        ; preds = %16, %10
+  store double %11, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %11, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %17
+  store double %12, ptr %.sroa.4.0..sroa_idx, align 8
+  br label %18
 
-16:                                               ; preds = %15
+17:                                               ; preds = %16
   invoke void @PyErr_Clear()
-          to label %17 unwind label %18
+          to label %18 unwind label %19
 
-17:                                               ; preds = %3, %16, %.critedge
-  %.1 = phi i1 [ true, %.critedge ], [ false, %16 ], [ false, %3 ]
+18:                                               ; preds = %3, %17, %.critedge
+  %.1 = phi i1 [ true, %.critedge ], [ false, %17 ], [ false, %3 ]
   ret i1 %.1
 
-18:                                               ; preds = %16, %13, %7
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %17, %14, %8
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #29
+  %21 = extractvalue { ptr, i32 } %20, 0
+  tail call void @__clang_call_terminate(ptr %21) #29
   unreachable
 }
 
@@ -2463,7 +2463,7 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_f32EP7_objecthPf(ptr noundef
   %.val = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.val, @PyFloat_Type
   %5 = and i8 %1, 1
-  %.not31 = icmp ne i8 %5, 0
+  %.not33 = icmp ne i8 %5, 0
   br i1 %.not, label %6, label %14, !prof !4
 
 6:                                                ; preds = %3
@@ -2474,11 +2474,11 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_f32EP7_objecthPf(ptr noundef
   %11 = fcmp oeq double %8, %10
   %12 = fcmp uno double %8, 0.000000e+00
   %13 = or i1 %12, %11
-  %or.cond34 = select i1 %.not31, i1 true, i1 %13
-  br i1 %or.cond34, label %.sink.split, label %24
+  %or.cond36 = select i1 %.not33, i1 true, i1 %13
+  br i1 %or.cond36, label %.sink.split, label %24
 
 14:                                               ; preds = %3
-  br i1 %.not31, label %15, label %24
+  br i1 %.not33, label %15, label %24
 
 15:                                               ; preds = %14
   %16 = invoke double @PyFloat_AsDouble(ptr noundef nonnull %0)
@@ -2493,10 +2493,10 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_f32EP7_objecthPf(ptr noundef
           to label %21 unwind label %25
 
 21:                                               ; preds = %19
-  %.not32 = icmp eq ptr %20, null
-  br i1 %.not32, label %.critedge, label %23
+  %.not34 = icmp eq ptr %20, null
+  br i1 %.not34, label %.critedge, label %23
 
-.critedge:                                        ; preds = %21, %17
+.critedge:                                        ; preds = %17, %21
   %22 = fptrunc double %16 to float
   br label %.sink.split
 

@@ -1474,73 +1474,73 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_flush(ptr noundef captures(none
   %4 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !23
-  %.not = icmp eq i32 %6, 0
-  %brmerge = or i1 %2, %.not
-  br i1 %brmerge, label %44, label %7
+  %7 = icmp eq i32 %6, 0
+  %or.cond = or i1 %2, %7
+  br i1 %or.cond, label %45, label %8
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %9 = load ptr, ptr %8, align 8, !tbaa !15
-  %10 = tail call i32 @fflush(ptr noundef %9)
-  %11 = icmp slt i32 %10, 0
-  br i1 %11, label %12, label %41
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
+  %11 = tail call i32 @fflush(ptr noundef %10)
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %13, label %42
 
-12:                                               ; preds = %7
-  %13 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10, !noundef !11
-  %14 = trunc nuw i8 %13 to i1
-  %15 = load i8, ptr @H5_libterm_g, align 1, !range !10
-  %16 = trunc nuw i8 %15 to i1
-  %17 = select i1 %14, i1 true, i1 %16
-  br i1 %17, label %20, label %18, !prof !12
+13:                                               ; preds = %8
+  %14 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10, !noundef !11
+  %15 = trunc nuw i8 %14 to i1
+  %16 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  %17 = trunc nuw i8 %16 to i1
+  %18 = select i1 %15, i1 true, i1 %17
+  br i1 %18, label %21, label %19, !prof !12
 
-18:                                               ; preds = %12
-  %19 = tail call i32 @H5open() #12
+19:                                               ; preds = %13
+  %20 = tail call i32 @H5open() #12
   %.pre = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre6 = load i8, ptr @H5_libterm_g, align 1, !range !10
-  br label %20
+  %.pre7 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  br label %21
 
-20:                                               ; preds = %12, %18
-  %21 = phi i8 [ %15, %12 ], [ %.pre6, %18 ]
-  %22 = phi i8 [ %13, %12 ], [ %.pre, %18 ]
-  %23 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
-  %24 = trunc nuw i8 %22 to i1
-  %25 = trunc nuw i8 %21 to i1
-  %26 = select i1 %24, i1 true, i1 %25
-  br i1 %26, label %29, label %27, !prof !12
+21:                                               ; preds = %13, %19
+  %22 = phi i8 [ %16, %13 ], [ %.pre7, %19 ]
+  %23 = phi i8 [ %14, %13 ], [ %.pre, %19 ]
+  %24 = load i64, ptr @H5E_ERR_CLS_g, align 8, !tbaa !13
+  %25 = trunc nuw i8 %23 to i1
+  %26 = trunc nuw i8 %22 to i1
+  %27 = select i1 %25, i1 true, i1 %26
+  br i1 %27, label %30, label %28, !prof !12
 
-27:                                               ; preds = %20
-  %28 = tail call i32 @H5open() #12
-  %.pre7 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
-  %.pre8 = load i8, ptr @H5_libterm_g, align 1, !range !10
-  br label %29
+28:                                               ; preds = %21
+  %29 = tail call i32 @H5open() #12
+  %.pre8 = load i8, ptr @H5_libinit_g, align 1, !tbaa !8, !range !10
+  %.pre9 = load i8, ptr @H5_libterm_g, align 1, !range !10
+  br label %30
 
-29:                                               ; preds = %20, %27
-  %30 = phi i8 [ %21, %20 ], [ %.pre8, %27 ]
-  %31 = phi i8 [ %22, %20 ], [ %.pre7, %27 ]
-  %32 = load i64, ptr @H5E_IO_g, align 8, !tbaa !13
-  %33 = trunc nuw i8 %31 to i1
-  %34 = trunc nuw i8 %30 to i1
-  %35 = select i1 %33, i1 true, i1 %34
-  br i1 %35, label %38, label %36, !prof !12
+30:                                               ; preds = %21, %28
+  %31 = phi i8 [ %22, %21 ], [ %.pre9, %28 ]
+  %32 = phi i8 [ %23, %21 ], [ %.pre8, %28 ]
+  %33 = load i64, ptr @H5E_IO_g, align 8, !tbaa !13
+  %34 = trunc nuw i8 %32 to i1
+  %35 = trunc nuw i8 %31 to i1
+  %36 = select i1 %34, i1 true, i1 %35
+  br i1 %36, label %39, label %37, !prof !12
 
-36:                                               ; preds = %29
-  %37 = tail call i32 @H5open() #12
-  br label %38
+37:                                               ; preds = %30
+  %38 = tail call i32 @H5open() #12
+  br label %39
 
-38:                                               ; preds = %29, %36
-  %39 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !13
-  %40 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD_stdio_flush, i32 noundef 937, i64 noundef %23, i64 noundef %32, i64 noundef %39, ptr noundef nonnull @.str.27) #12
-  br label %44
+39:                                               ; preds = %30, %37
+  %40 = load i64, ptr @H5E_WRITEERROR_g, align 8, !tbaa !13
+  %41 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD_stdio_flush, i32 noundef 937, i64 noundef %24, i64 noundef %33, i64 noundef %40, ptr noundef nonnull @.str.27) #12
+  br label %45
 
-41:                                               ; preds = %7
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 -1, ptr %42, align 8, !tbaa !22
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 0, ptr %43, align 8, !tbaa !21
-  br label %44
+42:                                               ; preds = %8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 -1, ptr %43, align 8, !tbaa !22
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 0, ptr %44, align 8, !tbaa !21
+  br label %45
 
-44:                                               ; preds = %41, %3, %38
-  %.0 = phi i32 [ -1, %38 ], [ 0, %3 ], [ 0, %41 ]
+45:                                               ; preds = %3, %42, %39
+  %.0 = phi i32 [ -1, %39 ], [ 0, %42 ], [ 0, %3 ]
   ret i32 %.0
 }
 

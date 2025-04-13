@@ -2898,8 +2898,8 @@ define dso_local void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwi
   %20 = zext nneg i16 %19 to i32
   %21 = and i16 %1, -16384
   %22 = icmp ult i16 %1, -16384
-  %brmerge = or i1 %22, %2
-  br i1 %brmerge, label %29, label %23
+  %or.cond = or i1 %22, %2
+  br i1 %or.cond, label %29, label %23
 
 23:                                               ; preds = %16
   %24 = icmp samesign ugt i16 %19, %18
@@ -2909,8 +2909,8 @@ define dso_local void @_ZN9Stockfish3UCI4moveB5cxx11ENS_4MoveEb(ptr dead_on_unwi
   %28 = or disjoint i32 %25, %27
   br label %29
 
-29:                                               ; preds = %16, %23
-  %.0 = phi i32 [ %28, %23 ], [ %20, %16 ]
+29:                                               ; preds = %23, %16
+  %.0 = phi i32 [ %20, %16 ], [ %28, %23 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %30 = trunc i16 %17 to i8

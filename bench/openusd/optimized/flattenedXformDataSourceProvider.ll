@@ -4131,8 +4131,8 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   br i1 %.not, label %_ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit, label %21
 
 21:                                               ; preds = %20
-  %brmerge.demorgan = and i1 %12, %19
-  br i1 %brmerge.demorgan, label %22, label %41
+  %or.cond = and i1 %12, %19
+  br i1 %or.cond, label %22, label %41
 
 22:                                               ; preds = %21
   %23 = load ptr, ptr %5, align 8
@@ -4201,23 +4201,23 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %56, align 8
-  %.not.i.i.i.i.i26 = icmp eq ptr %54, null
+  %.not.i.i.i.i.i25 = icmp eq ptr %54, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i26, label %_ZNSt6vectorIfSaIfEED2Ev.exit29, label %_ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit.sink.split
+  br i1 %.not.i.i.i.i.i25, label %_ZNSt6vectorIfSaIfEED2Ev.exit28, label %_ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit.sink.split
 
 _ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit.sink.split: ; preds = %53, %42
-  %.sink39 = phi ptr [ %46, %42 ], [ %57, %53 ]
-  %.sink38 = phi ptr [ %43, %42 ], [ %54, %53 ]
-  %63 = ptrtoint ptr %.sink39 to i64
-  %64 = ptrtoint ptr %.sink38 to i64
+  %.sink38 = phi ptr [ %46, %42 ], [ %57, %53 ]
+  %.sink37 = phi ptr [ %43, %42 ], [ %54, %53 ]
+  %63 = ptrtoint ptr %.sink38 to i64
+  %64 = ptrtoint ptr %.sink37 to i64
   %65 = sub i64 %63, %64
-  call void @_ZdlPvm(ptr noundef nonnull %.sink38, i64 noundef %65) #24
+  call void @_ZdlPvm(ptr noundef nonnull %.sink37, i64 noundef %65) #24
   br label %_ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit
 
 _ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit: ; preds = %_ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit.sink.split, %42, %22, %52, %20
   %.pr = load ptr, ptr %6, align 8
-  %.not.i.i.i28 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i28, label %_ZNSt6vectorIfSaIfEED2Ev.exit29, label %66
+  %.not.i.i.i27 = icmp eq ptr %.pr, null
+  br i1 %.not.i.i.i27, label %_ZNSt6vectorIfSaIfEED2Ev.exit28, label %66
 
 66:                                               ; preds = %_ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -4226,31 +4226,31 @@ _ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_i
   %70 = ptrtoint ptr %.pr to i64
   %71 = sub i64 %69, %70
   call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %71) #24
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit29
+  br label %_ZNSt6vectorIfSaIfEED2Ev.exit28
 
-_ZNSt6vectorIfSaIfEED2Ev.exit29:                  ; preds = %53, %_ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit, %66
+_ZNSt6vectorIfSaIfEED2Ev.exit28:                  ; preds = %53, %_ZSt9set_unionIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_St20back_insert_iteratorIS5_EET1_T_SA_T0_SB_S9_.exit, %66
   %72 = load ptr, ptr %5, align 8
-  %.not.i.i.i30 = icmp eq ptr %72, null
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIfSaIfEED2Ev.exit31, label %73
+  %.not.i.i.i29 = icmp eq ptr %72, null
+  br i1 %.not.i.i.i29, label %_ZNSt6vectorIfSaIfEED2Ev.exit30, label %73
 
-73:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit29
+73:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit28
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
   %77 = ptrtoint ptr %72 to i64
   %78 = sub i64 %76, %77
   call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #24
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit31
+  br label %_ZNSt6vectorIfSaIfEED2Ev.exit30
 
-_ZNSt6vectorIfSaIfEED2Ev.exit31:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit29, %73
+_ZNSt6vectorIfSaIfEED2Ev.exit30:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit28, %73
   %79 = or i1 %12, %19
   ret i1 %79
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %35, %32, %30
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %33, %32 ], [ %33, %35 ]
   %80 = load ptr, ptr %5, align 8
-  %.not.i.i.i32 = icmp eq ptr %80, null
-  br i1 %.not.i.i.i32, label %_ZNSt6vectorIfSaIfEED2Ev.exit33, label %81
+  %.not.i.i.i31 = icmp eq ptr %80, null
+  br i1 %.not.i.i.i31, label %_ZNSt6vectorIfSaIfEED2Ev.exit32, label %81
 
 81:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4259,9 +4259,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %35, %32, %30
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
   call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #24
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit33
+  br label %_ZNSt6vectorIfSaIfEED2Ev.exit32
 
-_ZNSt6vectorIfSaIfEED2Ev.exit33:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %81
+_ZNSt6vectorIfSaIfEED2Ev.exit32:                  ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %81
   resume { ptr, i32 } %.pn
 }
 

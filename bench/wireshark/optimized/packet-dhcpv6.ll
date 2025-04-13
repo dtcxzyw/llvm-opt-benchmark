@@ -3597,21 +3597,19 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %727 = tail call ptr @proto_item_add_subtree(ptr noundef %725, i32 noundef %726)
   %switch.tableidx = add i8 %8, -1
   %728 = icmp ult i8 %switch.tableidx, 6
-  br i1 %728, label %switch.hole_check, label %729
+  %switch.shifted = lshr i8 53, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond1638 = select i1 %728, i1 %switch.lobit, i1 false
+  br i1 %or.cond1638, label %switch.lookup, label %729
 
-729:                                              ; preds = %switch.hole_check, %723
+729:                                              ; preds = %723
   %730 = load i32, ptr @hf_clientfqdn_server_n, align 4
   %731 = tail call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %730, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %723
-  %switch.shifted = lshr i8 53, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %729
-
-switch.lookup:                                    ; preds = %switch.hole_check, %729
-  %hf_clientfqdn_server_o.sink = phi ptr [ @hf_clientfqdn_server_o, %729 ], [ @hf_clientfqdn_client_n, %switch.hole_check ]
-  %hf_clientfqdn_server_s.sink = phi ptr [ @hf_clientfqdn_server_s, %729 ], [ @hf_clientfqdn_client_s, %switch.hole_check ]
+switch.lookup:                                    ; preds = %723, %729
+  %hf_clientfqdn_server_o.sink = phi ptr [ @hf_clientfqdn_server_o, %729 ], [ @hf_clientfqdn_client_n, %723 ]
+  %hf_clientfqdn_server_s.sink = phi ptr [ @hf_clientfqdn_server_s, %729 ], [ @hf_clientfqdn_client_s, %723 ]
   %732 = load i32, ptr %hf_clientfqdn_server_o.sink, align 4
   %733 = tail call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %732, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0)
   %734 = load i32, ptr %hf_clientfqdn_server_s.sink, align 4

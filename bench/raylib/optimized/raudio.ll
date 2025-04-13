@@ -97795,7 +97795,7 @@ qoaplay_seek_frame.exit:                          ; preds = %51, %48, %6, %21, %
 define void @UpdateMusicStream(ptr noundef readonly byval(%struct.Music) align 8 captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %215, label %4
+  br i1 %3, label %217, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4792)) #71
@@ -97859,324 +97859,324 @@ define void @UpdateMusicStream(ptr noundef readonly byval(%struct.Music) align 8
   %56 = mul i32 %55, %10
   br label %57
 
-57:                                               ; preds = %22, %213
-  %.not109 = phi i1 [ true, %22 ], [ false, %213 ]
-  %indvars.iv = phi i64 [ 0, %22 ], [ 1, %213 ]
+57:                                               ; preds = %22, %.critedge
+  %.not = phi i1 [ true, %22 ], [ false, %.critedge ]
+  %indvars.iv = phi i64 [ 0, %22 ], [ 1, %.critedge ]
   %58 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 0, i64 %indvars.iv
   %59 = load i8, ptr %58, align 1, !range !226, !noundef !192
   %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %213
+  br i1 %60, label %61, label %.critedge
 
 61:                                               ; preds = %57
   %62 = load i32, ptr %26, align 8
   %63 = sub i32 %25, %62
-  %.not = icmp ult i32 %63, %8
-  %spec.select = select i1 %29, i32 %8, i32 %63
-  %.061 = select i1 %.not, i32 %spec.select, i32 %8
+  %64 = icmp uge i32 %63, %8
+  %or.cond = select i1 %64, i1 true, i1 %29
+  %. = select i1 %or.cond, i32 %8, i32 %63
   switch i32 %31, label %drwav_seek_to_first_pcm_frame.exit.thread [
-    i32 1, label %75
-    i32 2, label %.preheader100
-    i32 4, label %.preheader102
-    i32 5, label %168
-    i32 6, label %171
-    i32 7, label %174
+    i32 1, label %76
+    i32 2, label %.preheader104
+    i32 4, label %.preheader106
+    i32 5, label %169
+    i32 6, label %172
+    i32 7, label %175
   ]
 
-.preheader102:                                    ; preds = %61
-  %64 = sext i32 %.061 to i64
-  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %66 = tail call i64 @drmp3_read_pcm_frames_f32(ptr noundef %33, i64 noundef %64, ptr noundef %65)
-  %67 = trunc i64 %66 to i32
-  %68 = sub nsw i32 %.061, %67
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph
+.preheader106:                                    ; preds = %61
+  %65 = sext i32 %. to i64
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
+  %67 = tail call i64 @drmp3_read_pcm_frames_f32(ptr noundef %33, i64 noundef %65, ptr noundef %66)
+  %68 = trunc i64 %67 to i32
+  %69 = sub nsw i32 %., %68
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph
 
-.preheader100:                                    ; preds = %61
-  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %71 = mul i32 %.061, %10
-  %72 = tail call i32 @stb_vorbis_get_samples_short_interleaved(ptr noundef %33, i32 noundef %10, ptr noundef %70, i32 noundef %71)
-  %73 = sub nsw i32 %.061, %72
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph105
+.preheader104:                                    ; preds = %61
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
+  %72 = mul i32 %., %10
+  %73 = tail call i32 @stb_vorbis_get_samples_short_interleaved(ptr noundef %33, i32 noundef %10, ptr noundef %71, i32 noundef %72)
+  %74 = sub nsw i32 %., %73
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph109
 
-75:                                               ; preds = %61
+76:                                               ; preds = %61
   switch i32 %12, label %drwav_seek_to_first_pcm_frame.exit.thread [
     i32 16, label %.preheader
-    i32 32, label %.preheader98
+    i32 32, label %.preheader102
   ]
 
-.preheader98:                                     ; preds = %75
-  %76 = sext i32 %.061 to i64
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %78 = tail call i64 @drwav_read_pcm_frames_f32(ptr noundef %33, i64 noundef %76, ptr noundef %77)
-  %79 = trunc i64 %78 to i32
-  %80 = sub nsw i32 %.061, %79
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph106
+.preheader102:                                    ; preds = %76
+  %77 = sext i32 %. to i64
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
+  %79 = tail call i64 @drwav_read_pcm_frames_f32(ptr noundef %33, i64 noundef %77, ptr noundef %78)
+  %80 = trunc i64 %79 to i32
+  %81 = sub nsw i32 %., %80
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph110
 
-.preheader:                                       ; preds = %75
-  %82 = sext i32 %.061 to i64
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %84 = tail call i64 @drwav_read_pcm_frames_s16(ptr noundef %33, i64 noundef %82, ptr noundef %83)
-  %85 = trunc i64 %84 to i32
-  %86 = sub nsw i32 %.061, %85
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph107
+.preheader:                                       ; preds = %76
+  %83 = sext i32 %. to i64
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
+  %85 = tail call i64 @drwav_read_pcm_frames_s16(ptr noundef %33, i64 noundef %83, ptr noundef %84)
+  %86 = trunc i64 %85 to i32
+  %87 = sub nsw i32 %., %86
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph111
 
-.lr.ph107:                                        ; preds = %.preheader, %drwav_seek_to_first_pcm_frame.exit
-  %88 = phi i32 [ %111, %drwav_seek_to_first_pcm_frame.exit ], [ %86, %.preheader ]
-  %89 = phi i32 [ %110, %drwav_seek_to_first_pcm_frame.exit ], [ %85, %.preheader ]
-  %90 = load ptr, ptr %42, align 8
-  %.not.i = icmp eq ptr %90, null
-  br i1 %.not.i, label %91, label %drwav_seek_to_first_pcm_frame.exit
+.lr.ph111:                                        ; preds = %.preheader, %drwav_seek_to_first_pcm_frame.exit
+  %89 = phi i32 [ %112, %drwav_seek_to_first_pcm_frame.exit ], [ %87, %.preheader ]
+  %90 = phi i32 [ %111, %drwav_seek_to_first_pcm_frame.exit ], [ %86, %.preheader ]
+  %91 = load ptr, ptr %42, align 8
+  %.not.i = icmp eq ptr %91, null
+  br i1 %.not.i, label %92, label %drwav_seek_to_first_pcm_frame.exit
 
-91:                                               ; preds = %.lr.ph107
-  %92 = load ptr, ptr %43, align 8
-  %93 = load ptr, ptr %44, align 8
-  %94 = load i64, ptr %45, align 8
-  %95 = trunc i64 %94 to i32
-  %96 = tail call i32 %92(ptr noundef %93, i32 noundef %95, i32 noundef 0) #71
-  %.not13.i = icmp eq i32 %96, 0
-  br i1 %.not13.i, label %drwav_seek_to_first_pcm_frame.exit, label %97
+92:                                               ; preds = %.lr.ph111
+  %93 = load ptr, ptr %43, align 8
+  %94 = load ptr, ptr %44, align 8
+  %95 = load i64, ptr %45, align 8
+  %96 = trunc i64 %95 to i32
+  %97 = tail call i32 %93(ptr noundef %94, i32 noundef %96, i32 noundef 0) #71
+  %.not13.i = icmp eq i32 %97, 0
+  br i1 %.not13.i, label %drwav_seek_to_first_pcm_frame.exit, label %98
 
-97:                                               ; preds = %91
-  %98 = load i16, ptr %46, align 4
-  switch i16 %98, label %101 [
-    i16 2, label %99
-    i16 17, label %100
+98:                                               ; preds = %92
+  %99 = load i16, ptr %46, align 4
+  switch i16 %99, label %102 [
+    i16 2, label %100
+    i16 17, label %101
   ]
 
-99:                                               ; preds = %97
+100:                                              ; preds = %98
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %48, i8 0, i64 52, i1 false)
-  br label %101
+  br label %102
 
-100:                                              ; preds = %97
+101:                                              ; preds = %98
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %47, i8 0, i64 88, i1 false)
-  br label %101
+  br label %102
 
-101:                                              ; preds = %100, %99, %97
+102:                                              ; preds = %101, %100, %98
   store i64 0, ptr %49, align 8
-  %102 = load i64, ptr %50, align 8
-  store i64 %102, ptr %51, align 8
+  %103 = load i64, ptr %50, align 8
+  store i64 %103, ptr %51, align 8
   br label %drwav_seek_to_first_pcm_frame.exit
 
-drwav_seek_to_first_pcm_frame.exit:               ; preds = %101, %91, %.lr.ph107
-  %103 = sext i32 %88 to i64
-  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %105 = mul nsw i32 %89, %14
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i8, ptr %104, i64 %106
-  %108 = tail call i64 @drwav_read_pcm_frames_s16(ptr noundef nonnull %33, i64 noundef %103, ptr noundef %107)
-  %109 = trunc i64 %108 to i32
-  %110 = add nsw i32 %89, %109
-  %111 = sub nsw i32 %88, %109
-  %112 = icmp eq i32 %111, 0
-  br i1 %112, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph107
+drwav_seek_to_first_pcm_frame.exit:               ; preds = %102, %92, %.lr.ph111
+  %104 = sext i32 %89 to i64
+  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
+  %106 = mul nsw i32 %90, %14
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds i8, ptr %105, i64 %107
+  %109 = tail call i64 @drwav_read_pcm_frames_s16(ptr noundef nonnull %33, i64 noundef %104, ptr noundef %108)
+  %110 = trunc i64 %109 to i32
+  %111 = add nsw i32 %90, %110
+  %112 = sub nsw i32 %89, %110
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph111
 
-.lr.ph106:                                        ; preds = %.preheader98, %drwav_seek_to_first_pcm_frame.exit85
-  %113 = phi i32 [ %136, %drwav_seek_to_first_pcm_frame.exit85 ], [ %80, %.preheader98 ]
-  %114 = phi i32 [ %135, %drwav_seek_to_first_pcm_frame.exit85 ], [ %79, %.preheader98 ]
-  %115 = load ptr, ptr %42, align 8
-  %.not.i82 = icmp eq ptr %115, null
-  br i1 %.not.i82, label %116, label %drwav_seek_to_first_pcm_frame.exit85
+.lr.ph110:                                        ; preds = %.preheader102, %drwav_seek_to_first_pcm_frame.exit89
+  %114 = phi i32 [ %137, %drwav_seek_to_first_pcm_frame.exit89 ], [ %81, %.preheader102 ]
+  %115 = phi i32 [ %136, %drwav_seek_to_first_pcm_frame.exit89 ], [ %80, %.preheader102 ]
+  %116 = load ptr, ptr %42, align 8
+  %.not.i86 = icmp eq ptr %116, null
+  br i1 %.not.i86, label %117, label %drwav_seek_to_first_pcm_frame.exit89
 
-116:                                              ; preds = %.lr.ph106
-  %117 = load ptr, ptr %43, align 8
-  %118 = load ptr, ptr %44, align 8
-  %119 = load i64, ptr %45, align 8
-  %120 = trunc i64 %119 to i32
-  %121 = tail call i32 %117(ptr noundef %118, i32 noundef %120, i32 noundef 0) #71
-  %.not13.i84 = icmp eq i32 %121, 0
-  br i1 %.not13.i84, label %drwav_seek_to_first_pcm_frame.exit85, label %122
+117:                                              ; preds = %.lr.ph110
+  %118 = load ptr, ptr %43, align 8
+  %119 = load ptr, ptr %44, align 8
+  %120 = load i64, ptr %45, align 8
+  %121 = trunc i64 %120 to i32
+  %122 = tail call i32 %118(ptr noundef %119, i32 noundef %121, i32 noundef 0) #71
+  %.not13.i88 = icmp eq i32 %122, 0
+  br i1 %.not13.i88, label %drwav_seek_to_first_pcm_frame.exit89, label %123
 
-122:                                              ; preds = %116
-  %123 = load i16, ptr %46, align 4
-  switch i16 %123, label %126 [
-    i16 2, label %124
-    i16 17, label %125
+123:                                              ; preds = %117
+  %124 = load i16, ptr %46, align 4
+  switch i16 %124, label %127 [
+    i16 2, label %125
+    i16 17, label %126
   ]
 
-124:                                              ; preds = %122
+125:                                              ; preds = %123
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %48, i8 0, i64 52, i1 false)
-  br label %126
+  br label %127
 
-125:                                              ; preds = %122
+126:                                              ; preds = %123
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %47, i8 0, i64 88, i1 false)
-  br label %126
+  br label %127
 
-126:                                              ; preds = %125, %124, %122
+127:                                              ; preds = %126, %125, %123
   store i64 0, ptr %49, align 8
-  %127 = load i64, ptr %50, align 8
-  store i64 %127, ptr %51, align 8
-  br label %drwav_seek_to_first_pcm_frame.exit85
+  %128 = load i64, ptr %50, align 8
+  store i64 %128, ptr %51, align 8
+  br label %drwav_seek_to_first_pcm_frame.exit89
 
-drwav_seek_to_first_pcm_frame.exit85:             ; preds = %126, %116, %.lr.ph106
-  %128 = sext i32 %113 to i64
-  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %130 = mul nsw i32 %114, %14
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i8, ptr %129, i64 %131
-  %133 = tail call i64 @drwav_read_pcm_frames_f32(ptr noundef nonnull %33, i64 noundef %128, ptr noundef %132)
-  %134 = trunc i64 %133 to i32
-  %135 = add nsw i32 %114, %134
-  %136 = sub nsw i32 %113, %134
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph106
+drwav_seek_to_first_pcm_frame.exit89:             ; preds = %127, %117, %.lr.ph110
+  %129 = sext i32 %114 to i64
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
+  %131 = mul nsw i32 %115, %14
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds i8, ptr %130, i64 %132
+  %134 = tail call i64 @drwav_read_pcm_frames_f32(ptr noundef nonnull %33, i64 noundef %129, ptr noundef %133)
+  %135 = trunc i64 %134 to i32
+  %136 = add nsw i32 %115, %135
+  %137 = sub nsw i32 %114, %135
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph110
 
-.lr.ph105:                                        ; preds = %.preheader100, %.lr.ph105
-  %138 = phi i32 [ %148, %.lr.ph105 ], [ %73, %.preheader100 ]
-  %139 = phi i32 [ %147, %.lr.ph105 ], [ %72, %.preheader100 ]
-  %.268104 = phi i32 [ %140, %.lr.ph105 ], [ 0, %.preheader100 ]
-  %140 = add nsw i32 %139, %.268104
-  %141 = tail call i32 @stb_vorbis_seek_start(ptr noundef %33)
-  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %143 = mul nsw i32 %140, %14
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i8, ptr %142, i64 %144
-  %146 = mul i32 %138, %10
-  %147 = tail call i32 @stb_vorbis_get_samples_short_interleaved(ptr noundef %33, i32 noundef %10, ptr noundef %145, i32 noundef %146)
-  %148 = sub nsw i32 %138, %147
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph105
+.lr.ph109:                                        ; preds = %.preheader104, %.lr.ph109
+  %139 = phi i32 [ %149, %.lr.ph109 ], [ %74, %.preheader104 ]
+  %140 = phi i32 [ %148, %.lr.ph109 ], [ %73, %.preheader104 ]
+  %.273108 = phi i32 [ %141, %.lr.ph109 ], [ 0, %.preheader104 ]
+  %141 = add nsw i32 %140, %.273108
+  %142 = tail call i32 @stb_vorbis_seek_start(ptr noundef %33)
+  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
+  %144 = mul nsw i32 %141, %14
+  %145 = sext i32 %144 to i64
+  %146 = getelementptr inbounds i8, ptr %143, i64 %145
+  %147 = mul i32 %139, %10
+  %148 = tail call i32 @stb_vorbis_get_samples_short_interleaved(ptr noundef %33, i32 noundef %10, ptr noundef %146, i32 noundef %147)
+  %149 = sub nsw i32 %139, %148
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph109
 
-.lr.ph:                                           ; preds = %.preheader102, %drmp3_seek_to_start_of_stream.exit
-  %150 = phi i32 [ %166, %drmp3_seek_to_start_of_stream.exit ], [ %68, %.preheader102 ]
-  %151 = phi i32 [ %165, %drmp3_seek_to_start_of_stream.exit ], [ %67, %.preheader102 ]
-  %152 = load ptr, ptr %34, align 8
-  %153 = load ptr, ptr %35, align 8
-  %154 = tail call i32 %152(ptr noundef %153, i32 noundef 0, i32 noundef 0) #71
-  %.not.i.i = icmp eq i32 %154, 0
-  br i1 %.not.i.i, label %drmp3_seek_to_start_of_stream.exit, label %155
+.lr.ph:                                           ; preds = %.preheader106, %drmp3_seek_to_start_of_stream.exit
+  %151 = phi i32 [ %167, %drmp3_seek_to_start_of_stream.exit ], [ %69, %.preheader106 ]
+  %152 = phi i32 [ %166, %drmp3_seek_to_start_of_stream.exit ], [ %68, %.preheader106 ]
+  %153 = load ptr, ptr %34, align 8
+  %154 = load ptr, ptr %35, align 8
+  %155 = tail call i32 %153(ptr noundef %154, i32 noundef 0, i32 noundef 0) #71
+  %.not.i.i = icmp eq i32 %155, 0
+  br i1 %.not.i.i, label %drmp3_seek_to_start_of_stream.exit, label %156
 
-155:                                              ; preds = %.lr.ph
+156:                                              ; preds = %.lr.ph
   store i32 0, ptr %36, align 8
   store i32 0, ptr %37, align 4
   store i64 0, ptr %39, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  %156 = load i8, ptr %40, align 8
-  %157 = and i8 %156, -2
-  store i8 %157, ptr %40, align 8
+  %157 = load i8, ptr %40, align 8
+  %158 = and i8 %157, -2
+  store i8 %158, ptr %40, align 8
   store i8 0, ptr %41, align 4
   br label %drmp3_seek_to_start_of_stream.exit
 
-drmp3_seek_to_start_of_stream.exit:               ; preds = %155, %.lr.ph
-  %158 = sext i32 %150 to i64
-  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %160 = mul nsw i32 %151, %14
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds i8, ptr %159, i64 %161
-  %163 = tail call i64 @drmp3_read_pcm_frames_f32(ptr noundef nonnull %33, i64 noundef %158, ptr noundef %162)
-  %164 = trunc i64 %163 to i32
-  %165 = add nsw i32 %151, %164
-  %166 = sub nsw i32 %150, %164
-  %167 = icmp eq i32 %166, 0
-  br i1 %167, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph
+drmp3_seek_to_start_of_stream.exit:               ; preds = %156, %.lr.ph
+  %159 = sext i32 %151 to i64
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
+  %161 = mul nsw i32 %152, %14
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr inbounds i8, ptr %160, i64 %162
+  %164 = tail call i64 @drmp3_read_pcm_frames_f32(ptr noundef nonnull %33, i64 noundef %159, ptr noundef %163)
+  %165 = trunc i64 %164 to i32
+  %166 = add nsw i32 %152, %165
+  %167 = sub nsw i32 %151, %165
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %drwav_seek_to_first_pcm_frame.exit.thread, label %.lr.ph
 
-168:                                              ; preds = %61
-  %169 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %170 = tail call i32 @qoaplay_decode(ptr noundef %33, ptr noundef %169, i32 noundef %.061)
+169:                                              ; preds = %61
+  %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
+  %171 = tail call i32 @qoaplay_decode(ptr noundef %33, ptr noundef %170, i32 noundef %.)
   br label %drwav_seek_to_first_pcm_frame.exit.thread
 
-171:                                              ; preds = %61
-  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %173 = zext nneg i32 %.061 to i64
-  tail call void @jar_xm_generate_samples(ptr noundef %33, ptr noundef %172, i64 noundef %173)
+172:                                              ; preds = %61
+  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
+  %174 = zext nneg i32 %. to i64
+  tail call void @jar_xm_generate_samples(ptr noundef %33, ptr noundef %173, i64 noundef %174)
   br label %drwav_seek_to_first_pcm_frame.exit.thread
 
-174:                                              ; preds = %61
-  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %176 = zext nneg i32 %.061 to i64
-  tail call void @jar_mod_fillbuffer(ptr noundef %33, ptr noundef %175, i64 noundef %176, ptr noundef null)
+175:                                              ; preds = %61
+  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
+  %177 = zext nneg i32 %. to i64
+  tail call void @jar_mod_fillbuffer(ptr noundef %33, ptr noundef %176, i64 noundef %177, ptr noundef null)
   br label %drwav_seek_to_first_pcm_frame.exit.thread
 
-drwav_seek_to_first_pcm_frame.exit.thread:        ; preds = %drmp3_seek_to_start_of_stream.exit, %.lr.ph105, %drwav_seek_to_first_pcm_frame.exit85, %drwav_seek_to_first_pcm_frame.exit, %.preheader102, %.preheader100, %.preheader98, %.preheader, %168, %171, %174, %61, %75
-  %177 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
-  %178 = load i8, ptr %23, align 4, !range !226, !noundef !192
-  %179 = trunc nuw i8 %178 to i1
-  %180 = load i8, ptr %52, align 1, !range !226, !noundef !192
-  %181 = trunc nuw i8 %180 to i1
-  br i1 %179, label %183, label %182
-
-182:                                              ; preds = %drwav_seek_to_first_pcm_frame.exit.thread
-  br i1 %181, label %185, label %209
+drwav_seek_to_first_pcm_frame.exit.thread:        ; preds = %drmp3_seek_to_start_of_stream.exit, %.lr.ph109, %drwav_seek_to_first_pcm_frame.exit89, %drwav_seek_to_first_pcm_frame.exit, %.preheader106, %.preheader104, %.preheader102, %.preheader, %169, %172, %175, %61, %76
+  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4848), align 8
+  %179 = load i8, ptr %23, align 4, !range !226, !noundef !192
+  %180 = trunc nuw i8 %179 to i1
+  %181 = load i8, ptr %52, align 1, !range !226, !noundef !192
+  %182 = trunc nuw i8 %181 to i1
+  br i1 %180, label %184, label %183
 
 183:                                              ; preds = %drwav_seek_to_first_pcm_frame.exit.thread
-  br i1 %181, label %184, label %185
+  br i1 %182, label %186, label %210
 
-184:                                              ; preds = %183
+184:                                              ; preds = %drwav_seek_to_first_pcm_frame.exit.thread
+  br i1 %182, label %185, label %186
+
+185:                                              ; preds = %184
   store i32 0, ptr %53, align 4
-  br label %187
+  br label %188
 
-185:                                              ; preds = %183, %182
-  %186 = xor i8 %178, 1
-  %not..i = zext nneg i8 %186 to i32
-  br label %187
+186:                                              ; preds = %184, %183
+  %187 = xor i8 %179, 1
+  %not..i = zext nneg i8 %187 to i32
+  br label %188
 
-187:                                              ; preds = %185, %184
-  %.0.i88 = phi i32 [ 0, %184 ], [ %not..i, %185 ]
-  %188 = load i32, ptr %6, align 8
-  %189 = lshr i32 %188, 1
-  %190 = load ptr, ptr %54, align 8
-  %191 = mul nuw nsw i32 %.0.i88, %56
-  %192 = mul i32 %191, %189
-  %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds nuw i8, ptr %190, i64 %193
-  %195 = load i32, ptr %26, align 8
-  %196 = add i32 %195, %189
-  store i32 %196, ptr %26, align 8
-  %.not20.i = icmp ult i32 %189, %.061
-  br i1 %.not20.i, label %208, label %197
+188:                                              ; preds = %186, %185
+  %.0.i92 = phi i32 [ 0, %185 ], [ %not..i, %186 ]
+  %189 = load i32, ptr %6, align 8
+  %190 = lshr i32 %189, 1
+  %191 = load ptr, ptr %54, align 8
+  %192 = mul nuw nsw i32 %.0.i92, %56
+  %193 = mul i32 %192, %190
+  %194 = zext i32 %193 to i64
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 %194
+  %196 = load i32, ptr %26, align 8
+  %197 = add i32 %196, %190
+  store i32 %197, ptr %26, align 8
+  %.not20.i = icmp ult i32 %190, %.
+  br i1 %.not20.i, label %209, label %198
 
-197:                                              ; preds = %187
-  %198 = mul i32 %.061, %56
-  %199 = zext i32 %198 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %194, ptr readonly align 1 %177, i64 %199, i1 false)
-  %.not21.i = icmp eq i32 %189, %.061
-  br i1 %.not21.i, label %205, label %200
+198:                                              ; preds = %188
+  %199 = mul i32 %., %56
+  %200 = zext i32 %199 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %195, ptr readonly align 1 %178, i64 %200, i1 false)
+  %.not21.i = icmp eq i32 %190, %.
+  br i1 %.not21.i, label %206, label %201
 
-200:                                              ; preds = %197
-  %201 = sub nuw nsw i32 %189, %.061
-  %202 = getelementptr inbounds nuw i8, ptr %194, i64 %199
-  %203 = mul i32 %56, %201
-  %204 = zext i32 %203 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %202, i8 0, i64 %204, i1 false)
-  br label %205
+201:                                              ; preds = %198
+  %202 = sub nuw nsw i32 %190, %.
+  %203 = getelementptr inbounds nuw i8, ptr %195, i64 %200
+  %204 = mul i32 %56, %202
+  %205 = zext i32 %204 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %203, i8 0, i64 %205, i1 false)
+  br label %206
 
-205:                                              ; preds = %200, %197
-  %206 = zext nneg i32 %.0.i88 to i64
-  %207 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 0, i64 %206
-  store i8 0, ptr %207, align 1
+206:                                              ; preds = %201, %198
+  %207 = zext nneg i32 %.0.i92 to i64
+  %208 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 0, i64 %207
+  store i8 0, ptr %208, align 1
   br label %UpdateAudioStreamInLockedState.exit
 
-208:                                              ; preds = %187
+209:                                              ; preds = %188
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.619) #71
   br label %UpdateAudioStreamInLockedState.exit
 
-209:                                              ; preds = %182
+210:                                              ; preds = %183
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.620) #71
   br label %UpdateAudioStreamInLockedState.exit
 
-UpdateAudioStreamInLockedState.exit:              ; preds = %205, %208, %209
-  %210 = load i32, ptr %26, align 8
-  %211 = urem i32 %210, %25
-  store i32 %211, ptr %26, align 8
-  %.not73 = icmp ugt i32 %63, %8
-  %brmerge = select i1 %.not73, i1 true, i1 %29
-  br i1 %brmerge, label %213, label %.critedge
+UpdateAudioStreamInLockedState.exit:              ; preds = %206, %209, %210
+  %211 = load i32, ptr %26, align 8
+  %212 = urem i32 %211, %25
+  store i32 %212, ptr %26, align 8
+  %213 = icmp ugt i32 %63, %8
+  %or.cond6 = select i1 %213, i1 true, i1 %29
+  br i1 %or.cond6, label %.critedge, label %214
 
-.critedge:                                        ; preds = %UpdateAudioStreamInLockedState.exit
-  %212 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4792)) #71
+214:                                              ; preds = %UpdateAudioStreamInLockedState.exit
+  %215 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4792)) #71
   tail call void @StopMusicStream(ptr noundef nonnull byval(%struct.Music) align 8 %0)
-  br label %215
+  br label %217
 
-213:                                              ; preds = %UpdateAudioStreamInLockedState.exit, %57
-  br i1 %.not109, label %57, label %.critedge81
+.critedge:                                        ; preds = %UpdateAudioStreamInLockedState.exit, %57
+  br i1 %.not, label %57, label %.critedge85
 
-.critedge81:                                      ; preds = %213
-  %214 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4792)) #71
-  br label %215
+.critedge85:                                      ; preds = %.critedge
+  %216 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @AUDIO, i64 4792)) #71
+  br label %217
 
-215:                                              ; preds = %.critedge, %.critedge81, %1
+217:                                              ; preds = %214, %.critedge85, %1
   ret void
 }
 
@@ -99703,9 +99703,13 @@ ma_device_get_log.exit349:                        ; preds = %ma_device_get_conte
 140:                                              ; preds = %138, %128
   %141 = load i32, ptr %8, align 4
   %142 = icmp ult i32 %141, 10
-  br i1 %142, label %switch.hole_check, label %ma_device_get_context.exit.i360
+  %switch.maskindex = trunc i32 %141 to i16
+  %switch.shifted = lshr i16 681, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond539 = select i1 %142, i1 %switch.lobit, i1 false
+  br i1 %or.cond539, label %ma_format_from_pulse.exit.thread, label %ma_device_get_context.exit.i360
 
-ma_device_get_context.exit.i360:                  ; preds = %switch.hole_check, %140
+ma_device_get_context.exit.i360:                  ; preds = %140
   store i32 5, ptr %8, align 4
   %143 = load ptr, ptr %0, align 8
   %144 = icmp eq ptr %143, null
@@ -99721,14 +99725,8 @@ ma_device_get_log.exit362:                        ; preds = %ma_device_get_conte
   %148 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i361, i32 noundef 3, ptr noundef nonnull @.str.387)
   br label %ma_format_from_pulse.exit.thread
 
-switch.hole_check:                                ; preds = %140
-  %switch.maskindex = trunc nuw i32 %141 to i16
-  %switch.shifted = lshr i16 681, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %ma_format_from_pulse.exit.thread, label %ma_device_get_context.exit.i360
-
-ma_format_from_pulse.exit.thread:                 ; preds = %switch.hole_check, %ma_device_get_log.exit362
-  %.0252 = phi i32 [ 8257, %ma_device_get_log.exit362 ], [ 8193, %switch.hole_check ]
+ma_format_from_pulse.exit.thread:                 ; preds = %140, %ma_device_get_log.exit362
+  %.0252 = phi i32 [ 8257, %ma_device_get_log.exit362 ], [ 8193, %140 ]
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %150 = load i32, ptr %149, align 4
   %151 = icmp eq i32 %150, 0
@@ -99954,8 +99952,8 @@ ma_device_get_log.exit380:                        ; preds = %ma_device_get_conte
   %259 = call i32 @ma_log_post(ptr noundef %.0.i1.i379, i32 noundef 1, ptr noundef nonnull @.str.392)
   %260 = icmp sge i32 %253, 0
   %261 = icmp ult i32 %253, 6
-  %or.cond580 = and i1 %260, %261
-  br i1 %or.cond580, label %switch.lookup539, label %ma_result_from_pulse.exit
+  %or.cond581 = and i1 %260, %261
+  br i1 %or.cond581, label %switch.lookup540, label %ma_result_from_pulse.exit
 
 262:                                              ; preds = %237
   %263 = load ptr, ptr %11, align 8
@@ -99988,16 +99986,16 @@ ma_device_get_log.exit384:                        ; preds = %ma_device_get_conte
   %.0.i1.i383 = phi ptr [ %276, %274 ], [ null, %ma_device_get_context.exit.i382 ]
   %277 = load i32, ptr %8, align 4
   %278 = icmp ult i32 %277, 10
-  br i1 %278, label %switch.lookup542, label %ma_get_format_name.exit
+  br i1 %278, label %switch.lookup543, label %ma_get_format_name.exit
 
-switch.lookup542:                                 ; preds = %ma_device_get_log.exit384
+switch.lookup543:                                 ; preds = %ma_device_get_log.exit384
   %279 = zext nneg i32 %277 to i64
-  %switch.gep543 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.ma_device_init__pulse.55, i64 0, i64 %279
-  %switch.load544 = load ptr, ptr %switch.gep543, align 8
+  %switch.gep544 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.ma_device_init__pulse.55, i64 0, i64 %279
+  %switch.load545 = load ptr, ptr %switch.gep544, align 8
   br label %ma_get_format_name.exit
 
-ma_get_format_name.exit:                          ; preds = %ma_device_get_log.exit384, %switch.lookup542
-  %.0.i387 = phi ptr [ %switch.load544, %switch.lookup542 ], [ @.str.9, %ma_device_get_log.exit384 ]
+ma_get_format_name.exit:                          ; preds = %ma_device_get_log.exit384, %switch.lookup543
+  %.0.i387 = phi ptr [ %switch.load545, %switch.lookup543 ], [ @.str.9, %ma_device_get_log.exit384 ]
   %280 = load i8, ptr %133, align 4
   %281 = zext i8 %280 to i32
   %282 = load i32, ptr %149, align 4
@@ -100022,9 +100020,13 @@ ma_device_get_log.exit390:                        ; preds = %ma_device_get_conte
 290:                                              ; preds = %ma_device_get_log.exit390, %ma_get_format_name.exit
   %291 = load i32, ptr %8, align 4
   %292 = icmp ult i32 %291, 10
-  br i1 %292, label %switch.hole_check546, label %ma_format_from_pulse.exit392
+  %switch.maskindex548 = trunc i32 %291 to i16
+  %switch.shifted549 = lshr i16 681, %switch.maskindex548
+  %switch.lobit550 = trunc i16 %switch.shifted549 to i1
+  %or.cond553 = select i1 %292, i1 %switch.lobit550, i1 false
+  br i1 %or.cond553, label %switch.lookup547, label %ma_format_from_pulse.exit392
 
-ma_format_from_pulse.exit392:                     ; preds = %switch.hole_check546, %290
+ma_format_from_pulse.exit392:                     ; preds = %290
   %293 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %293, align 4
   %294 = load i8, ptr %133, align 4
@@ -100034,13 +100036,7 @@ ma_format_from_pulse.exit392:                     ; preds = %switch.hole_check54
   store i32 %296, ptr %136, align 4
   br label %ma_device_get_context.exit.i393
 
-switch.hole_check546:                             ; preds = %290
-  %switch.maskindex548 = trunc nuw i32 %291 to i16
-  %switch.shifted549 = lshr i16 681, %switch.maskindex548
-  %switch.lobit550 = trunc i16 %switch.shifted549 to i1
-  br i1 %switch.lobit550, label %switch.lookup547, label %ma_format_from_pulse.exit392
-
-switch.lookup547:                                 ; preds = %switch.hole_check546
+switch.lookup547:                                 ; preds = %290
   %297 = zext nneg i32 %291 to i64
   %switch.gep551 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.ma_device_init__pulse.56, i64 0, i64 %297
   %switch.load552 = load i32, ptr %switch.gep551, align 4
@@ -100062,19 +100058,19 @@ ma_device_get_context.exit.i393:                  ; preds = %switch.lookup547, %
   %.0.i391487 = phi i32 [ %switch.load552, %switch.lookup547 ], [ 0, %ma_format_from_pulse.exit392 ]
   %306 = load ptr, ptr %0, align 8
   %307 = icmp eq ptr %306, null
-  br i1 %307, label %switch.lookup553, label %308
+  br i1 %307, label %switch.lookup554, label %308
 
 308:                                              ; preds = %ma_device_get_context.exit.i393
   %309 = getelementptr inbounds nuw i8, ptr %306, i64 112
   %310 = load ptr, ptr %309, align 8
-  br label %switch.lookup553
+  br label %switch.lookup554
 
-switch.lookup553:                                 ; preds = %308, %ma_device_get_context.exit.i393
+switch.lookup554:                                 ; preds = %308, %ma_device_get_context.exit.i393
   %.0.i1.i394 = phi ptr [ %310, %308 ], [ null, %ma_device_get_context.exit.i393 ]
   %311 = sext i32 %.0.i391487 to i64
-  %switch.gep554 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.57, i64 0, i64 %311
-  %switch.load555 = load ptr, ptr %switch.gep554, align 8
-  %312 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i394, i32 noundef 1, ptr noundef nonnull @.str.395, ptr noundef nonnull %switch.load555, i32 noundef %305, i32 noundef %304)
+  %switch.gep555 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.57, i64 0, i64 %311
+  %switch.load556 = load ptr, ptr %switch.gep555, align 8
+  %312 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i394, i32 noundef 1, ptr noundef nonnull @.str.395, ptr noundef nonnull %switch.load556, i32 noundef %305, i32 noundef %304)
   br label %630
 
 313:                                              ; preds = %switch.lookup547
@@ -100299,9 +100295,13 @@ ma_device_get_log.exit407:                        ; preds = %ma_device_get_conte
 423:                                              ; preds = %421, %411
   %424 = load i32, ptr %8, align 4
   %425 = icmp ult i32 %424, 10
-  br i1 %425, label %switch.hole_check557, label %ma_device_get_context.exit.i419
+  %switch.maskindex559 = trunc i32 %424 to i16
+  %switch.shifted560 = lshr i16 681, %switch.maskindex559
+  %switch.lobit561 = trunc i16 %switch.shifted560 to i1
+  %or.cond562 = select i1 %425, i1 %switch.lobit561, i1 false
+  br i1 %or.cond562, label %ma_format_from_pulse.exit418.thread, label %ma_device_get_context.exit.i419
 
-ma_device_get_context.exit.i419:                  ; preds = %switch.hole_check557, %423
+ma_device_get_context.exit.i419:                  ; preds = %423
   store i32 5, ptr %8, align 4
   %426 = load ptr, ptr %0, align 8
   %427 = icmp eq ptr %426, null
@@ -100317,14 +100317,8 @@ ma_device_get_log.exit421:                        ; preds = %ma_device_get_conte
   %431 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i420, i32 noundef 3, ptr noundef nonnull @.str.387)
   br label %ma_format_from_pulse.exit418.thread
 
-switch.hole_check557:                             ; preds = %423
-  %switch.maskindex559 = trunc nuw i32 %424 to i16
-  %switch.shifted560 = lshr i16 681, %switch.maskindex559
-  %switch.lobit561 = trunc i16 %switch.shifted560 to i1
-  br i1 %switch.lobit561, label %ma_format_from_pulse.exit418.thread, label %ma_device_get_context.exit.i419
-
-ma_format_from_pulse.exit418.thread:              ; preds = %switch.hole_check557, %ma_device_get_log.exit421
-  %.4256 = phi i32 [ 8257, %ma_device_get_log.exit421 ], [ 8193, %switch.hole_check557 ]
+ma_format_from_pulse.exit418.thread:              ; preds = %423, %ma_device_get_log.exit421
+  %.4256 = phi i32 [ 8257, %ma_device_get_log.exit421 ], [ 8193, %423 ]
   %432 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %433 = load i32, ptr %432, align 4
   %434 = icmp eq i32 %433, 0
@@ -100468,8 +100462,8 @@ ma_device_get_log.exit436:                        ; preds = %ma_device_get_conte
   %507 = call i32 @ma_log_post(ptr noundef %.0.i1.i435, i32 noundef 1, ptr noundef nonnull @.str.400)
   %508 = icmp sge i32 %501, 0
   %509 = icmp ult i32 %501, 6
-  %or.cond581 = and i1 %508, %509
-  br i1 %or.cond581, label %switch.lookup562, label %ma_result_from_pulse.exit438thread-pre-split
+  %or.cond582 = and i1 %508, %509
+  br i1 %or.cond582, label %switch.lookup563, label %ma_result_from_pulse.exit438thread-pre-split
 
 510:                                              ; preds = %485
   %511 = load ptr, ptr %11, align 8
@@ -100502,16 +100496,16 @@ ma_device_get_log.exit441:                        ; preds = %ma_device_get_conte
   %.0.i1.i440 = phi ptr [ %524, %522 ], [ null, %ma_device_get_context.exit.i439 ]
   %525 = load i32, ptr %8, align 4
   %526 = icmp ult i32 %525, 10
-  br i1 %526, label %switch.lookup566, label %ma_get_format_name.exit445
+  br i1 %526, label %switch.lookup567, label %ma_get_format_name.exit445
 
-switch.lookup566:                                 ; preds = %ma_device_get_log.exit441
+switch.lookup567:                                 ; preds = %ma_device_get_log.exit441
   %527 = zext nneg i32 %525 to i64
-  %switch.gep567 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.ma_device_init__pulse.55, i64 0, i64 %527
-  %switch.load568 = load ptr, ptr %switch.gep567, align 8
+  %switch.gep568 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.ma_device_init__pulse.55, i64 0, i64 %527
+  %switch.load569 = load ptr, ptr %switch.gep568, align 8
   br label %ma_get_format_name.exit445
 
-ma_get_format_name.exit445:                       ; preds = %ma_device_get_log.exit441, %switch.lookup566
-  %.0.i444 = phi ptr [ %switch.load568, %switch.lookup566 ], [ @.str.9, %ma_device_get_log.exit441 ]
+ma_get_format_name.exit445:                       ; preds = %ma_device_get_log.exit441, %switch.lookup567
+  %.0.i444 = phi ptr [ %switch.load569, %switch.lookup567 ], [ @.str.9, %ma_device_get_log.exit441 ]
   %528 = load i8, ptr %416, align 4
   %529 = zext i8 %528 to i32
   %530 = load i32, ptr %432, align 4
@@ -100536,9 +100530,13 @@ ma_device_get_log.exit448:                        ; preds = %ma_device_get_conte
 538:                                              ; preds = %ma_device_get_log.exit448, %ma_get_format_name.exit445
   %539 = load i32, ptr %8, align 4
   %540 = icmp ult i32 %539, 10
-  br i1 %540, label %switch.hole_check570, label %ma_format_from_pulse.exit450
+  %switch.maskindex572 = trunc i32 %539 to i16
+  %switch.shifted573 = lshr i16 681, %switch.maskindex572
+  %switch.lobit574 = trunc i16 %switch.shifted573 to i1
+  %or.cond577 = select i1 %540, i1 %switch.lobit574, i1 false
+  br i1 %or.cond577, label %switch.lookup571, label %ma_format_from_pulse.exit450
 
-ma_format_from_pulse.exit450:                     ; preds = %switch.hole_check570, %538
+ma_format_from_pulse.exit450:                     ; preds = %538
   %541 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %541, align 4
   %542 = load i8, ptr %416, align 4
@@ -100548,13 +100546,7 @@ ma_format_from_pulse.exit450:                     ; preds = %switch.hole_check57
   store i32 %544, ptr %419, align 4
   br label %ma_device_get_context.exit.i451
 
-switch.hole_check570:                             ; preds = %538
-  %switch.maskindex572 = trunc nuw i32 %539 to i16
-  %switch.shifted573 = lshr i16 681, %switch.maskindex572
-  %switch.lobit574 = trunc i16 %switch.shifted573 to i1
-  br i1 %switch.lobit574, label %switch.lookup571, label %ma_format_from_pulse.exit450
-
-switch.lookup571:                                 ; preds = %switch.hole_check570
+switch.lookup571:                                 ; preds = %538
   %545 = zext nneg i32 %539 to i64
   %switch.gep575 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.ma_device_init__pulse.56, i64 0, i64 %545
   %switch.load576 = load i32, ptr %switch.gep575, align 4
@@ -100576,19 +100568,19 @@ ma_device_get_context.exit.i451:                  ; preds = %switch.lookup571, %
   %.0.i449513 = phi i32 [ %switch.load576, %switch.lookup571 ], [ 0, %ma_format_from_pulse.exit450 ]
   %554 = load ptr, ptr %0, align 8
   %555 = icmp eq ptr %554, null
-  br i1 %555, label %switch.lookup577, label %556
+  br i1 %555, label %switch.lookup578, label %556
 
 556:                                              ; preds = %ma_device_get_context.exit.i451
   %557 = getelementptr inbounds nuw i8, ptr %554, i64 112
   %558 = load ptr, ptr %557, align 8
-  br label %switch.lookup577
+  br label %switch.lookup578
 
-switch.lookup577:                                 ; preds = %556, %ma_device_get_context.exit.i451
+switch.lookup578:                                 ; preds = %556, %ma_device_get_context.exit.i451
   %.0.i1.i452 = phi ptr [ %558, %556 ], [ null, %ma_device_get_context.exit.i451 ]
   %559 = sext i32 %.0.i449513 to i64
-  %switch.gep578 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.57, i64 0, i64 %559
-  %switch.load579 = load ptr, ptr %switch.gep578, align 8
-  %560 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i452, i32 noundef 1, ptr noundef nonnull @.str.403, ptr noundef nonnull %switch.load579, i32 noundef %553, i32 noundef %552)
+  %switch.gep579 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.57, i64 0, i64 %559
+  %switch.load580 = load ptr, ptr %switch.gep579, align 8
+  %560 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i452, i32 noundef 1, ptr noundef nonnull @.str.403, ptr noundef nonnull %switch.load580, i32 noundef %553, i32 noundef %552)
   br label %630
 
 561:                                              ; preds = %switch.lookup571
@@ -100731,8 +100723,8 @@ ma_device_get_context.exit.i459:                  ; preds = %613
   %629 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i460, i32 noundef 1, ptr noundef nonnull @.str.405, ptr noundef nonnull %628)
   br label %630
 
-630:                                              ; preds = %.thread514, %switch.lookup577, %switch.lookup553
-  %.3 = phi i32 [ -1, %switch.lookup553 ], [ -1, %switch.lookup577 ], [ %622, %.thread514 ]
+630:                                              ; preds = %.thread514, %switch.lookup578, %switch.lookup554
+  %.3 = phi i32 [ -1, %switch.lookup554 ], [ -1, %switch.lookup578 ], [ %622, %.thread514 ]
   %631 = load i32, ptr %1, align 8
   switch i32 %631, label %ma_result_from_pulse.exit438 [
     i32 1, label %632
@@ -100748,15 +100740,15 @@ ma_device_get_context.exit.i459:                  ; preds = %613
   %638 = call i32 %635(ptr noundef %637) #71
   br label %ma_result_from_pulse.exit438thread-pre-split
 
-switch.lookup562:                                 ; preds = %ma_device_get_log.exit436
-  %switch.tableidx563 = add nsw i32 %501, -1
-  %639 = sext i32 %switch.tableidx563 to i64
-  %switch.gep564 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.54, i64 0, i64 %639
-  %switch.load565 = load i32, ptr %switch.gep564, align 4
+switch.lookup563:                                 ; preds = %ma_device_get_log.exit436
+  %switch.tableidx564 = add nsw i32 %501, -1
+  %639 = sext i32 %switch.tableidx564 to i64
+  %switch.gep565 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.54, i64 0, i64 %639
+  %switch.load566 = load i32, ptr %switch.gep565, align 4
   br label %ma_result_from_pulse.exit438thread-pre-split
 
-ma_result_from_pulse.exit438thread-pre-split:     ; preds = %switch.lookup562, %510, %632, %ma_device_get_log.exit436
-  %.4.ph = phi i32 [ -1, %ma_device_get_log.exit436 ], [ -1, %510 ], [ %.3, %632 ], [ %switch.load565, %switch.lookup562 ]
+ma_result_from_pulse.exit438thread-pre-split:     ; preds = %switch.lookup563, %510, %632, %ma_device_get_log.exit436
+  %.4.ph = phi i32 [ -1, %ma_device_get_log.exit436 ], [ -1, %510 ], [ %.3, %632 ], [ %switch.load566, %switch.lookup563 ]
   %.pr517 = load i32, ptr %1, align 8
   br label %ma_result_from_pulse.exit438
 
@@ -100793,15 +100785,15 @@ ma_log_post.exit416:                              ; preds = %376, %ma_device_get
   %655 = call i32 %652(ptr noundef %654) #71
   br label %ma_result_from_pulse.exit
 
-switch.lookup539:                                 ; preds = %ma_device_get_log.exit380
+switch.lookup540:                                 ; preds = %ma_device_get_log.exit380
   %switch.tableidx = add nsw i32 %253, -1
   %656 = sext i32 %switch.tableidx to i64
-  %switch.gep540 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.54, i64 0, i64 %656
-  %switch.load541 = load i32, ptr %switch.gep540, align 4
+  %switch.gep541 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.54, i64 0, i64 %656
+  %switch.load542 = load i32, ptr %switch.gep541, align 4
   br label %ma_result_from_pulse.exit
 
-ma_result_from_pulse.exit:                        ; preds = %switch.lookup539, %ma_device_get_log.exit380, %ma_log_post.exit416, %649
-  %.1 = phi i32 [ %.2, %649 ], [ %.2, %ma_log_post.exit416 ], [ -1, %ma_device_get_log.exit380 ], [ %switch.load541, %switch.lookup539 ]
+ma_result_from_pulse.exit:                        ; preds = %switch.lookup540, %ma_device_get_log.exit380, %ma_log_post.exit416, %649
+  %.1 = phi i32 [ %.2, %649 ], [ %.2, %ma_log_post.exit416 ], [ -1, %ma_device_get_log.exit380 ], [ %switch.load542, %switch.lookup540 ]
   %657 = load i32, ptr %1, align 8
   %658 = and i32 %657, -2
   %switch343 = icmp eq i32 %658, 2

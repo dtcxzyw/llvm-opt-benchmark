@@ -786,7 +786,11 @@ X509_supported_extension.exit:                    ; preds = %328
 333:                                              ; preds = %X509_supported_extension.exit
   %switch.tableidx = add i32 %321, -82
   %334 = icmp ult i32 %switch.tableidx, 9
-  br i1 %334, label %switch.hole_check, label %340
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 297, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond203 = select i1 %334, i1 %switch.lobit, i1 false
+  br i1 %or.cond203, label %switch.lookup, label %340
 
 .loopexit177:                                     ; preds = %X509_supported_extension.exit, %X509_supported_extension.exit.thread
   %335 = load i32, ptr %17, align 8, !tbaa !13
@@ -794,13 +798,7 @@ X509_supported_extension.exit:                    ; preds = %328
   store i32 %336, ptr %17, align 8, !tbaa !13
   br label %.loopexit
 
-switch.hole_check:                                ; preds = %333
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 297, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %340
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %333
   %337 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.ossl_x509v3_cache_extensions, i64 0, i64 %337
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -809,7 +807,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %339, ptr %17, align 8, !tbaa !13
   br label %340
 
-340:                                              ; preds = %switch.hole_check, %333, %switch.lookup, %326
+340:                                              ; preds = %333, %switch.lookup, %326
   %341 = load i32, ptr %4, align 4, !tbaa !46
   %342 = add nsw i32 %341, 1
   store i32 %342, ptr %4, align 4, !tbaa !46

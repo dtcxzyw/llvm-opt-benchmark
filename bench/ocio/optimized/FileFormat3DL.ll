@@ -1861,7 +1861,11 @@ exp2.i.noexc:                                     ; preds = %.preheader510
 .split.loop.exit18.i:                             ; preds = %exp2.i.noexc
   %switch.tableidx = add nsw i32 %.01521.i, -8
   %512 = icmp ult i32 %switch.tableidx, 9
-  br i1 %512, label %switch.hole_check, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 341, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond1186 = select i1 %512, i1 %switch.lobit, i1 false
+  br i1 %or.cond1186, label %switch.lookup, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit
 
 .loopexit:                                        ; preds = %.preheader510
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1873,7 +1877,7 @@ exp2.i.noexc:                                     ; preds = %.preheader510
           cleanup
   br label %.body335
 
-_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit: ; preds = %switch.hole_check, %.split.loop.exit18.i
+_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit: ; preds = %.split.loop.exit18.i
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %23) #27
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %23)
           to label %513 unwind label %521
@@ -1960,13 +1964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit332: ; preds = %52
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %23) #27
   br label %.body335
 
-switch.hole_check:                                ; preds = %.split.loop.exit18.i
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 341, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %.split.loop.exit18.i
   %539 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalFileFormat4readERSiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InterpolationE, i64 0, i64 %539
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -2299,16 +2297,16 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120GetLikelyLutBitDepthEi.exit360: ; preds 
 
 673:                                              ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120GetLikelyLutBitDepthEi.exit360
   %674 = icmp ult i32 %spec.select.i355, 9
-  br i1 %674, label %switch.lookup1186, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit373
+  br i1 %674, label %switch.lookup1187, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit373
 
-switch.lookup1186:                                ; preds = %673
+switch.lookup1187:                                ; preds = %673
   %675 = zext nneg i32 %spec.select.i355 to i64
-  %switch.gep1188 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalFileFormat4readERSiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InterpolationE.11, i64 0, i64 %675
-  %switch.load1189 = load i32, ptr %switch.gep1188, align 4
+  %switch.gep1189 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalFileFormat4readERSiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InterpolationE.11, i64 0, i64 %675
+  %switch.load1190 = load i32, ptr %switch.gep1189, align 4
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit373
 
-_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit373: ; preds = %673, %switch.lookup1186
-  %.0.i372 = phi i32 [ %switch.load1189, %switch.lookup1186 ], [ 0, %673 ]
+_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_115GetOCIOBitdepthEi.exit373: ; preds = %673, %switch.lookup1187
+  %.0.i372 = phi i32 [ %switch.load1190, %switch.lookup1187 ], [ 0, %673 ]
   %676 = invoke noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #26
           to label %.noexc374 unwind label %714
 

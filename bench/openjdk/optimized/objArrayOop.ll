@@ -632,17 +632,17 @@ _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit: ; preds = %5
 _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.preheader: ; preds = %44, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i, %15, %9, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit
   %50 = ptrtoint ptr %4 to i64
   %.pre = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %.pre29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %.pre30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   br label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split
 
 _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us.preheader: ; preds = %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit
-  %.pre30 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %.pre31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %.pre31 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %.pre32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
   br label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us
 
 _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us: ; preds = %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us.preheader, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us
-  %51 = phi i32 [ %66, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us ], [ %.pre31, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us.preheader ]
-  %52 = phi ptr [ %63, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us ], [ %.pre30, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us.preheader ]
+  %51 = phi i32 [ %66, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us ], [ %.pre32, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us.preheader ]
+  %52 = phi ptr [ %63, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us ], [ %.pre31, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us.preheader ]
   %.0.us = phi ptr [ %71, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us ], [ %3, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us.preheader ]
   %53 = ptrtoint ptr %52 to i64
   %54 = zext nneg i32 %51 to i64
@@ -702,7 +702,7 @@ _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us: ; preds = %79,
   br i1 %85, label %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us, label %.critedge, !llvm.loop !11
 
 _ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split: ; preds = %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.preheader, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23
-  %86 = phi i32 [ %104, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23 ], [ %.pre29, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.preheader ]
+  %86 = phi i32 [ %104, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23 ], [ %.pre30, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.preheader ]
   %87 = phi ptr [ %101, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23 ], [ %.pre, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.preheader ]
   %.0 = phi ptr [ %109, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23 ], [ %3, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.preheader ]
   %88 = ptrtoint ptr %87 to i64
@@ -768,23 +768,21 @@ _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23: ; preds = %_ZN20S
 .critedge:                                        ; preds = %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split
   %.us-phi = phi ptr [ %109, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split ], [ %109, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23 ], [ %71, %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit.split.us ], [ %71, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23.us ]
   %124 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierI9narrowOopEEP7oopDescmS3_PT_(ptr noundef nonnull align 8 dereferenceable(1064) %0, i64 noundef %1, ptr noundef %.us-phi, ptr noundef null)
-  %.not.i24 = icmp eq ptr %124, null
-  br i1 %.not.i24, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit, label %125
-
-125:                                              ; preds = %.critedge
+  %125 = icmp ne ptr %124, null
   %126 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %127 = trunc i8 %126 to i1
-  br i1 %127, label %128, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
+  %or.cond.i24 = select i1 %125, i1 %127, i1 false
+  br i1 %or.cond.i24, label %128, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
-128:                                              ; preds = %125
+128:                                              ; preds = %.critedge
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 769
   %132 = load volatile i8, ptr %131, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
   %133 = and i8 %132, 2
-  %.not3.i = icmp eq i8 %133, 0
-  br i1 %.not3.i, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit, label %134
+  %.not.i25 = icmp eq i8 %133, 0
+  br i1 %.not.i25, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit, label %134
 
 134:                                              ; preds = %128
   %135 = load ptr, ptr %129, align 8
@@ -797,10 +795,10 @@ _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23: ; preds = %_ZN20S
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds ptr, ptr %142, i64 %140
   %144 = load ptr, ptr %143, align 8
-  %.not.i.i.i.i25 = icmp ult ptr %124, %144
-  br i1 %.not.i.i.i.i25, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
+  %.not.i.i.i.i26 = icmp ult ptr %124, %144
+  br i1 %.not.i.i.i.i26, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i27, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
-_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26: ; preds = %134
+_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i27: ; preds = %134
   %145 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %146 = load ptr, ptr %145, align 8
   %147 = ptrtoint ptr %146 to i64
@@ -821,7 +819,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26: ; preds = %134
   %162 = icmp eq i64 %161, 0
   br i1 %162, label %163, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
-163:                                              ; preds = %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26
+163:                                              ; preds = %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i27
   %164 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 48
@@ -829,7 +827,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26: ; preds = %134
   tail call void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueueP7oopDesc(ptr noundef nonnull align 8 dereferenceable(393) %167, ptr noundef nonnull align 8 dereferenceable(17) %166, ptr noundef nonnull %124) #6
   br label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
-_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit: ; preds = %.critedge, %125, %128, %134, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26, %163
+_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit: ; preds = %.critedge, %128, %134, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i27, %163
   ret ptr %124
 }
 
@@ -1601,23 +1599,21 @@ _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23: ; preds = %_ZN20S
 
 .critedge:                                        ; preds = %_ZN20ShenandoahBarrierSet10iu_barrierEP7oopDesc.exit, %_ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23
   %64 = tail call noundef ptr @_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_(ptr noundef nonnull align 8 dereferenceable(1064) %0, i64 noundef %1, ptr noundef %49, ptr noundef null)
-  %.not.i24 = icmp eq ptr %64, null
-  br i1 %.not.i24, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit, label %65
-
-65:                                               ; preds = %.critedge
+  %65 = icmp ne ptr %64, null
   %66 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
+  %or.cond.i24 = select i1 %65, i1 %67, i1 false
+  br i1 %or.cond.i24, label %68, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
-68:                                               ; preds = %65
+68:                                               ; preds = %.critedge
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 769
   %72 = load volatile i8, ptr %71, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
   %73 = and i8 %72, 2
-  %.not3.i = icmp eq i8 %73, 0
-  br i1 %.not3.i, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit, label %74
+  %.not.i25 = icmp eq i8 %73, 0
+  br i1 %.not.i25, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit, label %74
 
 74:                                               ; preds = %68
   %75 = load ptr, ptr %69, align 8
@@ -1630,10 +1626,10 @@ _ZN20ShenandoahBarrierSet17resolve_forwardedEP7oopDesc.exit23: ; preds = %_ZN20S
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds ptr, ptr %82, i64 %80
   %84 = load ptr, ptr %83, align 8
-  %.not.i.i.i.i25 = icmp ult ptr %64, %84
-  br i1 %.not.i.i.i.i25, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
+  %.not.i.i.i.i26 = icmp ult ptr %64, %84
+  br i1 %.not.i.i.i.i26, label %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i27, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
-_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26: ; preds = %74
+_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i27: ; preds = %74
   %85 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = ptrtoint ptr %86 to i64
@@ -1654,7 +1650,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26: ; preds = %74
   %102 = icmp eq i64 %101, 0
   br i1 %102, label %103, label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
-103:                                              ; preds = %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26
+103:                                              ; preds = %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i27
   %104 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
@@ -1662,7 +1658,7 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26: ; preds = %74
   tail call void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueueP7oopDesc(ptr noundef nonnull align 8 dereferenceable(393) %107, ptr noundef nonnull align 8 dereferenceable(17) %106, ptr noundef nonnull %64) #6
   br label %_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit
 
-_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit: ; preds = %.critedge, %65, %68, %74, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i26, %103
+_ZN20ShenandoahBarrierSet12satb_enqueueEP7oopDesc.exit: ; preds = %.critedge, %68, %74, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i27, %103
   ret ptr %64
 }
 

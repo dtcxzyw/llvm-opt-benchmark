@@ -3593,36 +3593,34 @@ define dso_local range(i32 -1, 1) i32 @launch_g_step_wait(ptr noundef %0, i1 nou
   tail call void @slurm_step_launch_wait_finish(ptr noundef %5) #17
   %6 = load i32, ptr @MPIR_being_debugged, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %22
+  %.b12 = load i1, ptr @retry_step_begin, align 1
+  %or.cond = select i1 %7, i1 %.b12, i1 false
+  %8 = load i32, ptr @retry_step_cnt, align 4
+  %9 = icmp slt i32 %8, 4
+  %or.cond3 = select i1 %or.cond, i1 %9, i1 false
+  br i1 %or.cond3, label %10, label %21
 
-8:                                                ; preds = %3
-  %.b10 = load i1, ptr @retry_step_begin, align 1
-  %9 = load i32, ptr @retry_step_cnt, align 4
-  %10 = icmp slt i32 %9, 4
-  %or.cond = select i1 %.b10, i1 %10, i1 false
-  br i1 %or.cond, label %11, label %22
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp eq i32 %12, -2
+  br i1 %13, label %14, label %21
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, -2
-  br i1 %14, label %15, label %22
-
-15:                                               ; preds = %11
+14:                                               ; preds = %10
   store i1 false, ptr @retry_step_begin, align 1
-  %16 = load ptr, ptr %4, align 8
-  %17 = tail call i32 @step_ctx_destroy(ptr noundef %16) #17
-  %18 = tail call i32 @create_job_step(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr noundef %2) #17
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %22
+  %15 = load ptr, ptr %4, align 8
+  %16 = tail call i32 @step_ctx_destroy(ptr noundef %15) #17
+  %17 = tail call i32 @create_job_step(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr noundef %2) #17
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %19, label %21
 
-20:                                               ; preds = %15
-  %21 = load i32, ptr @error_exit, align 4
-  tail call void @exit(i32 noundef %21) #18
+19:                                               ; preds = %14
+  %20 = load i32, ptr @error_exit, align 4
+  tail call void @exit(i32 noundef %20) #18
   unreachable
 
-22:                                               ; preds = %15, %11, %8, %3
-  %.0 = phi i32 [ 0, %11 ], [ 0, %8 ], [ 0, %3 ], [ -1, %15 ]
+21:                                               ; preds = %14, %10, %3
+  %.0 = phi i32 [ 0, %10 ], [ 0, %3 ], [ -1, %14 ]
   ret i32 %.0
 }
 

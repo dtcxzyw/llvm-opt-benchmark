@@ -2245,9 +2245,13 @@ define hidden zeroext i1 @rb_RB_TYPE_P(i64 noundef %0, i32 noundef %1) local_unn
 12:                                               ; preds = %2
   %13 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
   %14 = icmp ult i64 %13, 10
-  br i1 %14, label %switch.hole_check, label %15
+  %switch.maskindex = trunc i64 %13 to i16
+  %switch.shifted = lshr i16 547, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %14, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %15
 
-15:                                               ; preds = %switch.hole_check, %12
+15:                                               ; preds = %12
   %16 = and i64 %0, 1
   %.not.i.i = icmp eq i64 %16, 0
   br i1 %.not.i.i, label %17, label %rbimpl_RB_TYPE_P_fastpath.exit
@@ -2258,13 +2262,7 @@ define hidden zeroext i1 @rb_RB_TYPE_P(i64 noundef %0, i32 noundef %1) local_unn
   %spec.select.i.i = select i1 %19, i32 20, i32 4
   br label %rbimpl_RB_TYPE_P_fastpath.exit
 
-switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc nuw i64 %13 to i16
-  %switch.shifted = lshr i16 547, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %15
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %12
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.rb_RB_TYPE_P, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rbimpl_RB_TYPE_P_fastpath.exit

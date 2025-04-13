@@ -2641,20 +2641,18 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %74, %.critedge.thre
   %78 = phi i32 [ %.pre.i28, %74 ], [ %72, %.critedge.thread49 ]
   %trunc.i.i.i = trunc i32 %78 to i8
   %79 = icmp ult i8 %trunc.i.i.i, 6
-  br i1 %79, label %switch.hole_check, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i
+  %switch.shifted = lshr i8 47, %trunc.i.i.i
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %79, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i
 
-_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, %_ZNK4llvm4Type13getScalarTypeEv.exit.i
+_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i
   %80 = and i32 %78, 253
   %spec.select.i.i27 = icmp eq i32 %80, 4
   br label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit
 
-switch.hole_check:                                ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i
-  %switch.shifted = lshr i8 47, %trunc.i.i.i
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit, label %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i
-
-_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit:          ; preds = %70, %switch.hole_check, %44, %.critedge, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %_ZNK4llvm13GMemOperation6getMMOEv.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm13GMemOperation6getMMOEv.exit ], [ false, %.critedge ], [ %spec.select.i.i27, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ false, %44 ], [ true, %switch.hole_check ], [ false, %70 ]
+_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit:          ; preds = %70, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %44, %.critedge, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i, %_ZNK4llvm13GMemOperation6getMMOEv.exit
+  %.0 = phi i1 [ false, %_ZNK4llvm13GMemOperation6getMMOEv.exit ], [ false, %.critedge ], [ %spec.select.i.i27, %_ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i ], [ false, %44 ], [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit.i ], [ false, %70 ]
   ret i1 %.0
 }
 

@@ -930,8 +930,8 @@ define dso_local void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr noundef
 define dso_local noundef zeroext i1 @_ZN14cmProcessTools10LineParser12ProcessChunkEPKci(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
-  %.not23 = icmp eq i32 %2, 0
-  br i1 %.not23, label %.critedge, label %.lr.ph
+  %.not26 = icmp eq i32 %2, 0
+  br i1 %.not26, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -943,9 +943,9 @@ define dso_local noundef zeroext i1 @_ZN14cmProcessTools10LineParser12ProcessChu
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
-13:                                               ; preds = %.lr.ph, %41
-  %.01324 = phi ptr [ %1, %.lr.ph ], [ %42, %41 ]
-  %14 = load i8, ptr %.01324, align 1, !tbaa !15
+13:                                               ; preds = %.lr.ph, %40
+  %.01327 = phi ptr [ %1, %.lr.ph ], [ %41, %40 ]
+  %14 = load i8, ptr %.01327, align 1, !tbaa !15
   %15 = load i8, ptr %6, align 8, !tbaa !82
   %16 = icmp eq i8 %14, %15
   %17 = icmp eq i8 %14, 0
@@ -980,30 +980,28 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20
   store i64 0, ptr %9, align 8, !tbaa !12
   %33 = load ptr, ptr %8, align 8, !tbaa !81
   store i8 0, ptr %33, align 1, !tbaa !15
-  br i1 %32, label %41, label %.critedge
+  br i1 %32, label %40, label %.critedge
 
 34:                                               ; preds = %13
   %.not18 = icmp eq i8 %14, 13
-  br i1 %.not18, label %35, label %38
+  %35 = load i8, ptr %7, align 2, !range !90
+  %36 = trunc nuw i8 %35 to i1
+  %or.cond23 = select i1 %.not18, i1 %36, i1 false
+  br i1 %or.cond23, label %40, label %37
 
-35:                                               ; preds = %34
-  %36 = load i8, ptr %7, align 2, !tbaa !87, !range !90, !noundef !91
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %41, label %38
+37:                                               ; preds = %34
+  %38 = load i64, ptr %9, align 8, !tbaa !12
+  %39 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %38, i64 noundef 0, i64 noundef 1, i8 noundef signext %14)
+  br label %40
 
-38:                                               ; preds = %35, %34
-  %39 = load i64, ptr %9, align 8, !tbaa !12
-  %40 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %39, i64 noundef 0, i64 noundef 1, i8 noundef signext %14)
-  br label %41
+40:                                               ; preds = %28, %34, %37
+  %41 = getelementptr inbounds nuw i8, ptr %.01327, i64 1
+  %.not = icmp eq ptr %41, %5
+  br i1 %.not, label %.critedge, label %13, !llvm.loop !91
 
-41:                                               ; preds = %28, %38, %35
-  %42 = getelementptr inbounds nuw i8, ptr %.01324, i64 1
-  %.not = icmp eq ptr %42, %5
-  br i1 %.not, label %.critedge, label %13, !llvm.loop !92
-
-.critedge:                                        ; preds = %41, %28, %3
-  %.not22 = phi i1 [ true, %3 ], [ false, %28 ], [ true, %41 ]
-  ret i1 %.not22
+.critedge:                                        ; preds = %40, %28, %3
+  %.not25 = phi i1 [ true, %3 ], [ false, %28 ], [ true, %40 ]
+  ret i1 %.not25
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -1110,30 +1108,30 @@ define internal void @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZN14cmProces
   %.val = load ptr, ptr %0, align 8, !tbaa !31
   %3 = load ptr, ptr %1, align 8, !tbaa !69
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !93
+  %5 = load ptr, ptr %4, align 8, !tbaa !92
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !71
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  %8 = load ptr, ptr %.val, align 8, !tbaa !94
+  %8 = load ptr, ptr %.val, align 8, !tbaa !93
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i", label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !96
+  %12 = load ptr, ptr %11, align 8, !tbaa !95
   %13 = ptrtoint ptr %5 to i64
   %14 = ptrtoint ptr %3 to i64
   %15 = sub i64 %13, %14
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !97
+  %17 = load ptr, ptr %16, align 8, !tbaa !96
   %18 = invoke noundef zeroext i1 @_ZN15cmProcessOutput10DecodeTextEPKcmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %3, i64 noundef %15, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 1)
           to label %.noexc.i.i unwind label %36
 
 .noexc.i.i:                                       ; preds = %10
-  %19 = load ptr, ptr %.val, align 8, !tbaa !94
+  %19 = load ptr, ptr %.val, align 8, !tbaa !93
   %20 = load ptr, ptr %19, align 8, !tbaa !4
-  %21 = load ptr, ptr %16, align 8, !tbaa !97
+  %21 = load ptr, ptr %16, align 8, !tbaa !96
   %22 = load ptr, ptr %21, align 8, !tbaa !81
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !12
@@ -1148,7 +1146,7 @@ define internal void @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZN14cmProces
   br i1 %29, label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i", label %30
 
 30:                                               ; preds = %.noexc4.i.i
-  %31 = load ptr, ptr %.val, align 8, !tbaa !94
+  %31 = load ptr, ptr %.val, align 8, !tbaa !93
   store ptr null, ptr %31, align 8, !tbaa !4
   br label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_0clESt6vectorIcSaIcEE.exit.i.i"
 
@@ -1192,7 +1190,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcE
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_0", ptr %0, align 8, !tbaa !98
+  store ptr @"_ZTIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_0", ptr %0, align 8, !tbaa !97
   br label %"_ZNSt14_Function_base13_Base_managerIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS1_12OutputParserES5_N15cmProcessOutput8EncodingEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -1203,7 +1201,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcE
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !100
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !99
   store ptr %7, ptr %0, align 8, !tbaa !31
   br label %"_ZNSt14_Function_base13_Base_managerIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS1_12OutputParserES5_N15cmProcessOutput8EncodingEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
@@ -1227,7 +1225,7 @@ declare noundef zeroext i1 @_ZN15cmProcessOutput10DecodeTextEPKcmRNSt7__cxx1112b
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @"_ZNSt17_Function_handlerIFvvEZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS1_12OutputParserES5_N15cmProcessOutput8EncodingEE3$_1E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #15 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !101
+  %.val = load ptr, ptr %0, align 8, !tbaa !100
   store ptr null, ptr %.val, align 8, !tbaa !4
   ret void
 }
@@ -1241,7 +1239,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN14cmProcessT
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_1", ptr %0, align 8, !tbaa !98
+  store ptr @"_ZTIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_1", ptr %0, align 8, !tbaa !97
   br label %"_ZNSt14_Function_base13_Base_managerIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS1_12OutputParserES5_N15cmProcessOutput8EncodingEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -1259,19 +1257,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN14cmProcessT
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0ZNS0_10RunProcessES2_S4_S4_S6_E3$_1ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENUlP11uv_handle_smP8uv_buf_tE_8__invokeESJ_mSL_"(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) #17 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !103
+  %.val = load ptr, ptr %0, align 8, !tbaa !102
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %.val, i64 noundef %1)
   %4 = load ptr, ptr %.val, align 8, !tbaa !69
-  store ptr %4, ptr %2, align 8, !tbaa !105
+  store ptr %4, ptr %2, align 8, !tbaa !104
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %1, ptr %5, align 8, !tbaa !107
+  store i64 %1, ptr %5, align 8, !tbaa !106
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !93
+  %4 = load ptr, ptr %3, align 8, !tbaa !92
   %5 = load ptr, ptr %0, align 8, !tbaa !69
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -1307,7 +1305,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef no
 
 _ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
   %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
-  store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !93
+  store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !92
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
 25:                                               ; preds = %10
@@ -1354,7 +1352,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i: ; preds = %36, %_ZSt27__u
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i: ; preds = %37, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i
   store ptr %30, ptr %0, align 8, !tbaa !69
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 %1
-  store ptr %39, ptr %3, align 8, !tbaa !93
+  store ptr %39, ptr %3, align 8, !tbaa !92
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   store ptr %40, ptr %12, align 8, !tbaa !71
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
@@ -1369,7 +1367,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i: ; preds = %37, %_ZNSt6v
   br i1 %.not.i4, label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit, label %45
 
 45:                                               ; preds = %43
-  store ptr %44, ptr %3, align 8, !tbaa !93
+  store ptr %44, ptr %3, align 8, !tbaa !92
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
 _ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit:   ; preds = %45, %43, %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i, %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, %41
@@ -1396,8 +1394,8 @@ define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmU
   store ptr %8, ptr %4, align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !93
-  store ptr %11, ptr %9, align 8, !tbaa !93
+  %11 = load ptr, ptr %10, align 8, !tbaa !92
+  store ptr %11, ptr %9, align 8, !tbaa !92
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !71
@@ -1418,7 +1416,7 @@ define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmU
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !108
+  %21 = load ptr, ptr %20, align 8, !tbaa !107
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i unwind label %28
 
@@ -1470,7 +1468,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit12.i:                ; preds = %31, %28
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %44 = load ptr, ptr %43, align 8, !tbaa !110
+  %44 = load ptr, ptr %43, align 8, !tbaa !109
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(32) %42)
   %45 = tail call i32 @uv_read_stop(ptr noundef nonnull %0)
   br label %"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0ZNS0_10RunProcessES2_S4_S4_S6_E3$_1ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit"
@@ -1490,30 +1488,30 @@ define internal void @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZN14cmProces
   %.val = load ptr, ptr %0, align 8, !tbaa !31
   %3 = load ptr, ptr %1, align 8, !tbaa !69
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !93
+  %5 = load ptr, ptr %4, align 8, !tbaa !92
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !71
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  %8 = load ptr, ptr %.val, align 8, !tbaa !112
+  %8 = load ptr, ptr %.val, align 8, !tbaa !111
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i", label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !114
+  %12 = load ptr, ptr %11, align 8, !tbaa !113
   %13 = ptrtoint ptr %5 to i64
   %14 = ptrtoint ptr %3 to i64
   %15 = sub i64 %13, %14
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !115
+  %17 = load ptr, ptr %16, align 8, !tbaa !114
   %18 = invoke noundef zeroext i1 @_ZN15cmProcessOutput10DecodeTextEPKcmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef %3, i64 noundef %15, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 2)
           to label %.noexc.i.i unwind label %36
 
 .noexc.i.i:                                       ; preds = %10
-  %19 = load ptr, ptr %.val, align 8, !tbaa !112
+  %19 = load ptr, ptr %.val, align 8, !tbaa !111
   %20 = load ptr, ptr %19, align 8, !tbaa !4
-  %21 = load ptr, ptr %16, align 8, !tbaa !115
+  %21 = load ptr, ptr %16, align 8, !tbaa !114
   %22 = load ptr, ptr %21, align 8, !tbaa !81
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !12
@@ -1528,7 +1526,7 @@ define internal void @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZN14cmProces
   br i1 %29, label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i", label %30
 
 30:                                               ; preds = %.noexc4.i.i
-  %31 = load ptr, ptr %.val, align 8, !tbaa !112
+  %31 = load ptr, ptr %.val, align 8, !tbaa !111
   store ptr null, ptr %31, align 8, !tbaa !4
   br label %"_ZZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEENK3$_2clESt6vectorIcSaIcEE.exit.i.i"
 
@@ -1572,7 +1570,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcE
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_2", ptr %0, align 8, !tbaa !98
+  store ptr @"_ZTIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_2", ptr %0, align 8, !tbaa !97
   br label %"_ZNSt14_Function_base13_Base_managerIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS1_12OutputParserES5_N15cmProcessOutput8EncodingEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -1583,7 +1581,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcE
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !100
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val6, i64 24, i1 false), !tbaa.struct !99
   store ptr %7, ptr %0, align 8, !tbaa !31
   br label %"_ZNSt14_Function_base13_Base_managerIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS1_12OutputParserES5_N15cmProcessOutput8EncodingEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
@@ -1602,7 +1600,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @"_ZNSt17_Function_handlerIFvvEZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS1_12OutputParserES5_N15cmProcessOutput8EncodingEE3$_3E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #15 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !116
+  %.val = load ptr, ptr %0, align 8, !tbaa !115
   store ptr null, ptr %.val, align 8, !tbaa !4
   ret void
 }
@@ -1616,7 +1614,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN14cmProcessT
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_3", ptr %0, align 8, !tbaa !98
+  store ptr @"_ZTIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_3", ptr %0, align 8, !tbaa !97
   br label %"_ZNSt14_Function_base13_Base_managerIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS1_12OutputParserES5_N15cmProcessOutput8EncodingEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -1634,12 +1632,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN14cmProcessT
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2ZNS0_10RunProcessES2_S4_S4_S6_E3$_3ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENUlP11uv_handle_smP8uv_buf_tE_8__invokeESJ_mSL_"(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) #17 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !103
+  %.val = load ptr, ptr %0, align 8, !tbaa !102
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %.val, i64 noundef %1)
   %4 = load ptr, ptr %.val, align 8, !tbaa !69
-  store ptr %4, ptr %2, align 8, !tbaa !105
+  store ptr %4, ptr %2, align 8, !tbaa !104
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %1, ptr %5, align 8, !tbaa !107
+  store i64 %1, ptr %5, align 8, !tbaa !106
   ret void
 }
 
@@ -1657,8 +1655,8 @@ define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmU
   store ptr %8, ptr %4, align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !93
-  store ptr %11, ptr %9, align 8, !tbaa !93
+  %11 = load ptr, ptr %10, align 8, !tbaa !92
+  store ptr %11, ptr %9, align 8, !tbaa !92
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !71
@@ -1679,7 +1677,7 @@ define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmU
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !108
+  %21 = load ptr, ptr %20, align 8, !tbaa !107
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %_ZNKSt8functionIFvSt6vectorIcSaIcEEEEclES2_.exit.i unwind label %28
 
@@ -1731,7 +1729,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit12.i:                ; preds = %31, %28
 _ZNKSt8functionIFvvEEclEv.exit.i:                 ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %44 = load ptr, ptr %43, align 8, !tbaa !110
+  %44 = load ptr, ptr %43, align 8, !tbaa !109
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(32) %42)
   %45 = tail call i32 @uv_read_stop(ptr noundef nonnull %0)
   br label %"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2ZNS0_10RunProcessES2_S4_S4_S6_E3$_3ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENKUlSF_lPK8uv_buf_tE_clESF_lSK_.exit"
@@ -1882,30 +1880,29 @@ attributes #27 = { noreturn nounwind }
 !88 = !{!83, !85, i64 8}
 !89 = !{!83, !11, i64 16}
 !90 = !{i8 0, i8 2}
-!91 = !{}
-!92 = distinct !{!92, !49}
-!93 = !{!70, !11, i64 8}
-!94 = !{!95, !26, i64 0}
-!95 = !{!"_ZTSZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_0", !26, i64 0, !28, i64 8, !30, i64 16}
-!96 = !{!95, !28, i64 8}
-!97 = !{!95, !30, i64 16}
-!98 = !{!99, !99, i64 0}
-!99 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
-!100 = !{i64 0, i64 8, !25, i64 8, i64 8, !27, i64 16, i64 8, !29}
-!101 = !{!102, !26, i64 0}
-!102 = !{!"_ZTSZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_1", !26, i64 0}
-!103 = !{!104, !6, i64 0}
-!104 = !{!"_ZTS11uv_handle_s", !6, i64 0, !34, i64 8, !35, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !36, i64 80, !37, i64 88}
-!105 = !{!106, !11, i64 0}
-!106 = !{!"_ZTS8uv_buf_t", !11, i64 0, !14, i64 8}
-!107 = !{!106, !14, i64 8}
-!108 = !{!109, !6, i64 24}
-!109 = !{!"_ZTSSt8functionIFvSt6vectorIcSaIcEEEE", !68, i64 0, !6, i64 24}
-!110 = !{!111, !6, i64 24}
-!111 = !{!"_ZTSSt8functionIFvvEE", !68, i64 0, !6, i64 24}
-!112 = !{!113, !26, i64 0}
-!113 = !{!"_ZTSZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_2", !26, i64 0, !28, i64 8, !30, i64 16}
-!114 = !{!113, !28, i64 8}
-!115 = !{!113, !30, i64 16}
-!116 = !{!117, !26, i64 0}
-!117 = !{!"_ZTSZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_3", !26, i64 0}
+!91 = distinct !{!91, !49}
+!92 = !{!70, !11, i64 8}
+!93 = !{!94, !26, i64 0}
+!94 = !{!"_ZTSZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_0", !26, i64 0, !28, i64 8, !30, i64 16}
+!95 = !{!94, !28, i64 8}
+!96 = !{!94, !30, i64 16}
+!97 = !{!98, !98, i64 0}
+!98 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
+!99 = !{i64 0, i64 8, !25, i64 8, i64 8, !27, i64 16, i64 8, !29}
+!100 = !{!101, !26, i64 0}
+!101 = !{!"_ZTSZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_1", !26, i64 0}
+!102 = !{!103, !6, i64 0}
+!103 = !{!"_ZTS11uv_handle_s", !6, i64 0, !34, i64 8, !35, i64 16, !6, i64 24, !7, i64 32, !7, i64 48, !36, i64 80, !37, i64 88}
+!104 = !{!105, !11, i64 0}
+!105 = !{!"_ZTS8uv_buf_t", !11, i64 0, !14, i64 8}
+!106 = !{!105, !14, i64 8}
+!107 = !{!108, !6, i64 24}
+!108 = !{!"_ZTSSt8functionIFvSt6vectorIcSaIcEEEE", !68, i64 0, !6, i64 24}
+!109 = !{!110, !6, i64 24}
+!110 = !{!"_ZTSSt8functionIFvvEE", !68, i64 0, !6, i64 24}
+!111 = !{!112, !26, i64 0}
+!112 = !{!"_ZTSZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_2", !26, i64 0, !28, i64 8, !30, i64 16}
+!113 = !{!112, !28, i64 8}
+!114 = !{!112, !30, i64 16}
+!115 = !{!116, !26, i64 0}
+!116 = !{!"_ZTSZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12OutputParserES3_N15cmProcessOutput8EncodingEE3$_3", !26, i64 0}

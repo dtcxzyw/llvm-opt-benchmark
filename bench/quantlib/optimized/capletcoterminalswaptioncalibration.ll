@@ -3141,7 +3141,7 @@ if.else730:                                       ; preds = %if.else722
 invoke.cont745:                                   ; preds = %if.then713, %if.then724, %if.else730, %if.then716
   %failures.1 = phi i32 [ %inc714, %if.then713 ], [ %failures.0, %if.then716 ], [ %failures.0, %if.then724 ], [ %failures.0, %if.else730 ]
   %root.0 = phi double [ %div711, %if.then713 ], [ %div721, %if.then716 ], [ %div729, %if.then724 ], [ %div735, %if.else730 ]
-  %rightUsed.0.not = phi i1 [ true, %if.then713 ], [ true, %if.then716 ], [ true, %if.then724 ], [ false, %if.else730 ]
+  %rightUsed.0 = phi i1 [ false, %if.then713 ], [ false, %if.then716 ], [ false, %if.then724 ], [ true, %if.else730 ]
   %add.ptr.i862 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i557, i64 %i459.0
   %220 = load double, ptr %add.ptr.i862, align 8, !tbaa !77
   %mul.i.i864 = mul i64 %i459.0, %call2
@@ -3152,9 +3152,9 @@ invoke.cont745:                                   ; preds = %if.then713, %if.the
   %arrayidx747 = getelementptr inbounds nuw double, ptr %add.ptr.i.i865, i64 %i459.0
   %221 = load double, ptr %arrayidx747, align 8, !tbaa !77
   %div748 = fdiv double %sub743, %221
-  %cmp749 = fcmp ugt double %div748, 0.000000e+00
-  %brmerge = or i1 %rightUsed.0.not, %cmp749
-  br i1 %brmerge, label %if.end766, label %invoke.cont762
+  %cmp749 = fcmp ole double %div748, 0.000000e+00
+  %or.cond = and i1 %rightUsed.0, %cmp749
+  br i1 %or.cond, label %invoke.cont762, label %if.end766
 
 invoke.cont762:                                   ; preds = %invoke.cont745
   %call753 = call double @sqrt(double noundef %214) #23, !tbaa !94
@@ -3166,7 +3166,7 @@ invoke.cont762:                                   ; preds = %invoke.cont745
   %div765 = fdiv double %sub761, %221
   br label %if.end766
 
-if.end766:                                        ; preds = %invoke.cont745, %invoke.cont762
+if.end766:                                        ; preds = %invoke.cont762, %invoke.cont745
   %root.1 = phi double [ %div756, %invoke.cont762 ], [ %root.0, %invoke.cont745 ]
   %mult.0 = phi double [ %div765, %invoke.cont762 ], [ %div748, %invoke.cont745 ]
   %cmp767 = fcmp olt double %mult.0, 0.000000e+00

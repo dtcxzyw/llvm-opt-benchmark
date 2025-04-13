@@ -625,8 +625,8 @@ define noundef range(i32 0, 3) i32 @_ZN3net23QuicBufferedPacketStore13EnqueuePac
   %14 = alloca %"class.net::IPEndPoint", align 8
   %15 = alloca %"class.net::IPEndPoint", align 8
   %16 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  %brmerge.demorgan = and i1 %5, %16
-  br i1 %brmerge.demorgan, label %17, label %.critedge
+  %or.cond = and i1 %5, %16
+  br i1 %or.cond, label %17, label %.critedge
 
 17:                                               ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1243,14 +1243,14 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN3net23QuicBufferedPacketStore14Buffere
   br label %280
 
 280:                                              ; preds = %278, %276
-  %.pn37 = phi { ptr, i32 } [ %279, %278 ], [ %277, %276 ]
+  %.pn38 = phi { ptr, i32 } [ %279, %278 ], [ %277, %276 ]
   call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %14) #18
   %.pre204 = load ptr, ptr %13, align 8, !tbaa !3
   br label %281
 
 281:                                              ; preds = %280, %274
   %282 = phi ptr [ %.pre204, %280 ], [ %253, %274 ]
-  %.pn37.pn = phi { ptr, i32 } [ %.pn37, %280 ], [ %275, %274 ]
+  %.pn38.pn = phi { ptr, i32 } [ %.pn38, %280 ], [ %275, %274 ]
   %.not.i108 = icmp eq ptr %282, null
   br i1 %.not.i108, label %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit110, label %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i109
 
@@ -1326,7 +1326,7 @@ _ZN3net23QuicBufferedPacketStore23MaybeSetExpirationAlarmEv.exit: ; preds = %.no
   br label %308
 
 _ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit110: ; preds = %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i109, %281, %.body
-  %.pn40 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn37.pn, %281 ], [ %.pn37.pn, %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i109 ]
+  %.pn41 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn38.pn, %281 ], [ %.pn38.pn, %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i109 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #18
   br label %309
 
@@ -1335,8 +1335,8 @@ _ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit110
   ret i32 %.0
 
 309:                                              ; preds = %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit110, %139, %100
-  %.pn40.pn = phi { ptr, i32 } [ %.pn40, %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit110 ], [ %.pn, %139 ], [ %101, %100 ]
-  resume { ptr, i32 } %.pn40.pn
+  %.pn41.pn = phi { ptr, i32 } [ %.pn41, %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit110 ], [ %.pn, %139 ], [ %101, %100 ]
+  resume { ptr, i32 } %.pn41.pn
 }
 
 declare noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef) local_unnamed_addr #1

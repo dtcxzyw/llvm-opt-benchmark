@@ -2439,7 +2439,7 @@ dissect_extended_app_service.exit.i.i:            ; preds = %628, %627, %dissect
   %634 = call ptr @val_to_str(i32 noundef %633, ptr noundef nonnull @ac_vals, ptr noundef nonnull @.str.661)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %302, i32 noundef 25, ptr noundef nonnull @.str.329, ptr noundef %634)
   %.not.i44.i.i = icmp eq ptr %2, null
-  br i1 %.not.i44.i.i, label %switch.lookup442, label %635
+  br i1 %.not.i44.i.i, label %642, label %635
 
 635:                                              ; preds = %632
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.560, ptr noundef %634)
@@ -2449,18 +2449,18 @@ dissect_extended_app_service.exit.i.i:            ; preds = %628, %627, %dissect
   %639 = call ptr @proto_item_add_subtree(ptr noundef %637, i32 noundef %638)
   %640 = load i32, ptr @hf_cemi_ac, align 4
   %641 = call ptr @proto_tree_add_item(ptr noundef %639, i32 noundef %640, ptr noundef %0, i32 noundef %.7350, i32 noundef 2, i32 noundef 0)
-  br label %switch.lookup442
+  br label %642
 
-switch.lookup442:                                 ; preds = %635, %632
+642:                                              ; preds = %635, %632
   %.0156.i.i.i = phi ptr [ %639, %635 ], [ null, %632 ]
   %.0155.i.i.i = phi ptr [ %637, %635 ], [ null, %632 ]
-  %642 = call i32 @llvm.fshl.i32(i32 %633, i32 %633, i32 31)
-  %643 = icmp ult i32 %642, 7
-  %switch.maskindex443 = trunc i32 %642 to i8
+  %643 = call i32 @llvm.fshl.i32(i32 %633, i32 %633, i32 31)
+  %644 = icmp ult i32 %643, 7
+  %switch.maskindex443 = trunc i32 %643 to i8
   %switch.shifted444 = lshr i8 89, %switch.maskindex443
   %switch.lobit445 = trunc i8 %switch.shifted444 to i1
-  %644 = select i1 %643, i1 %switch.lobit445, i1 false
-  %.0153.i.i.i = select i1 %644, i8 0, i8 %24
+  %or.cond = select i1 %644, i1 %switch.lobit445, i1 false
+  %.0153.i.i.i = select i1 %or.cond, i8 0, i8 %24
   switch i8 %294, label %dissect_simple_app_service.exit.i.i [
     i8 0, label %645
     i8 1, label %645
@@ -2477,7 +2477,7 @@ switch.lookup442:                                 ; preds = %635, %632
     i8 15, label %726
   ]
 
-645:                                              ; preds = %switch.lookup442, %switch.lookup442, %switch.lookup442, %switch.lookup442
+645:                                              ; preds = %642, %642, %642, %642
   %.not169.i.i.i = icmp eq i8 %.0153.i.i.i, 0
   %646 = add nsw i32 %.7350, 2
   %.not170.i.i.i = icmp slt i32 %646, %7
@@ -2522,7 +2522,7 @@ switch.lookup442:                                 ; preds = %635, %632
   %663 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %657, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.664)
   br label %dissect_simple_app_service.exit.i.i
 
-664:                                              ; preds = %switch.lookup442, %switch.lookup442, %switch.lookup442
+664:                                              ; preds = %642, %642, %642
   %665 = add i32 %.7350, 4
   %666 = icmp sgt i32 %665, %7
   br i1 %666, label %667, label %674
@@ -2577,7 +2577,7 @@ switch.lookup442:                                 ; preds = %635, %632
   %694 = add i32 %.7350, 3
   br label %dissect_simple_app_service.exit.i.i
 
-695:                                              ; preds = %switch.lookup442, %switch.lookup442
+695:                                              ; preds = %642, %642
   %696 = zext nneg i8 %295 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %302, i32 noundef 25, ptr noundef nonnull @.str.667, i32 noundef %696)
   br i1 %.not.i44.i.i, label %704, label %697
@@ -2617,7 +2617,7 @@ switch.lookup442:                                 ; preds = %635, %632
   %714 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %713, ptr noundef %0, i32 noundef %705, i32 noundef 1, i32 noundef 0)
   br label %dissect_simple_app_service.exit.i.i
 
-715:                                              ; preds = %switch.lookup442, %switch.lookup442
+715:                                              ; preds = %642, %642
   %716 = zext nneg i8 %295 to i32
   %.not165.i.i.i = icmp eq i8 %295, 0
   br i1 %.not165.i.i.i, label %717, label %.thread175.i.i.i
@@ -2642,7 +2642,7 @@ switch.lookup442:                                 ; preds = %635, %632
   %725 = call ptr @proto_tree_add_item(ptr noundef %723, i32 noundef %724, ptr noundef %0, i32 noundef %281, i32 noundef 1, i32 noundef 0)
   br label %dissect_simple_app_service.exit.i.i
 
-726:                                              ; preds = %switch.lookup442, %switch.lookup442
+726:                                              ; preds = %642, %642
   %727 = zext nneg i8 %295 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %302, i32 noundef 25, ptr noundef nonnull @.str.667, i32 noundef %727)
   br i1 %.not.i44.i.i, label %dissect_simple_app_service.exit.i.i, label %728
@@ -2654,9 +2654,9 @@ switch.lookup442:                                 ; preds = %635, %632
   %730 = call ptr @proto_tree_add_item(ptr noundef %.0156.i.i.i, i32 noundef %729, ptr noundef %0, i32 noundef %281, i32 noundef 1, i32 noundef 0)
   br label %dissect_simple_app_service.exit.i.i
 
-dissect_simple_app_service.exit.i.i:              ; preds = %728, %726, %719, %.thread175.i.i.i, %717, %712, %706, %693, %667, %662, %655, %654, %645, %switch.lookup442
-  %.0154.i.i.i = phi i8 [ %.196.i, %switch.lookup442 ], [ %.196.i, %728 ], [ %.196.i, %726 ], [ %.196.i, %719 ], [ %.196.i, %717 ], [ 1, %706 ], [ %.196.i, %712 ], [ 1, %667 ], [ %.196.i, %693 ], [ %.2.i.i.i, %655 ], [ %.2.i.i.i, %662 ], [ %.2.i.i.i, %654 ], [ %.196.i, %645 ], [ %.196.i, %.thread175.i.i.i ]
-  %.0.i.i.i = phi i32 [ %281, %switch.lookup442 ], [ %281, %728 ], [ %281, %726 ], [ %281, %719 ], [ %281, %717 ], [ %281, %706 ], [ %705, %712 ], [ %673, %667 ], [ %694, %693 ], [ %281, %655 ], [ %281, %662 ], [ %281, %654 ], [ %281, %645 ], [ %281, %.thread175.i.i.i ]
+dissect_simple_app_service.exit.i.i:              ; preds = %728, %726, %719, %.thread175.i.i.i, %717, %712, %706, %693, %667, %662, %655, %654, %645, %642
+  %.0154.i.i.i = phi i8 [ %.196.i, %642 ], [ %.196.i, %728 ], [ %.196.i, %726 ], [ %.196.i, %719 ], [ %.196.i, %717 ], [ 1, %706 ], [ %.196.i, %712 ], [ 1, %667 ], [ %.196.i, %693 ], [ %.2.i.i.i, %655 ], [ %.2.i.i.i, %662 ], [ %.2.i.i.i, %654 ], [ %.196.i, %645 ], [ %.196.i, %.thread175.i.i.i ]
+  %.0.i.i.i = phi i32 [ %281, %642 ], [ %281, %728 ], [ %281, %726 ], [ %281, %719 ], [ %281, %717 ], [ %281, %706 ], [ %705, %712 ], [ %673, %667 ], [ %694, %693 ], [ %281, %655 ], [ %281, %662 ], [ %281, %654 ], [ %281, %645 ], [ %281, %.thread175.i.i.i ]
   %731 = add i32 %.0.i.i.i, 1
   br label %dissect_cemi_transport_layer.exit
 
@@ -2848,14 +2848,12 @@ define internal fastcc zeroext i8 @dissect_pid(ptr noundef %0, ptr noundef %1, p
 
 24:                                               ; preds = %20
   %25 = icmp ult i32 %6, 18
-  br i1 %25, label %switch.hole_check, label %get_pid_name.exit.thread
-
-switch.hole_check:                                ; preds = %24
   %switch.shifted = lshr i32 134083, %6
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %get_pid_name.exit.thread
+  %or.cond = select i1 %25, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %get_pid_name.exit.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %24
   %26 = zext nneg i32 %6 to i64
   %switch.gep = getelementptr inbounds nuw [18 x ptr], ptr @switch.table.dissect_pid_ext, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -2871,7 +2869,7 @@ get_pid_name.exit:                                ; preds = %switch.lookup, %20
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.343, ptr noundef nonnull %27)
   br label %get_pid_name.exit.thread
 
-get_pid_name.exit.thread:                         ; preds = %switch.hole_check, %24, %get_pid_name.exit, %28, %19
+get_pid_name.exit.thread:                         ; preds = %24, %get_pid_name.exit, %28, %19
   %29 = add nsw i32 %10, 1
   store i32 %29, ptr %4, align 4
   br label %33

@@ -59,15 +59,13 @@ define hidden i32 @mbedtls_psa_ffdh_export_public_key(ptr noundef readonly captu
   %25 = add nsw i64 %24, -256
   %26 = call i64 @llvm.fshl.i64(i64 %25, i64 %25, i64 57)
   %27 = icmp ult i64 %26, 7
-  br i1 %27, label %switch.hole_check, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread46
-
-switch.hole_check:                                ; preds = %19
-  %switch.maskindex = trunc nuw i64 %26 to i8
+  %switch.maskindex = trunc i64 %26 to i8
   %switch.shifted = lshr i8 87, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread46
+  %or.cond53 = select i1 %27, i1 %switch.lobit, i1 false
+  br i1 %or.cond53, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread46
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %19
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_psa_ffdh_key_agreement, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.gep49 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.5, i64 0, i64 %26
@@ -108,10 +106,10 @@ mbedtls_psa_ffdh_set_prime_generator.exit.thread: ; preds = %30, %mbedtls_psa_ff
   store i64 %24, ptr %5, align 8, !tbaa !10
   br label %mbedtls_psa_ffdh_set_prime_generator.exit.thread46
 
-mbedtls_psa_ffdh_set_prime_generator.exit.thread46: ; preds = %switch.hole_check, %19, %36, %34, %mbedtls_psa_ffdh_set_prime_generator.exit.thread, %mbedtls_psa_ffdh_set_prime_generator.exit, %38
-  %.not44 = phi i1 [ false, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ true, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ true, %34 ], [ true, %36 ], [ true, %38 ], [ false, %19 ], [ false, %switch.hole_check ]
-  %.020.i42 = phi i32 [ %32, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ 0, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ 0, %34 ], [ 0, %36 ], [ 0, %38 ], [ -135, %19 ], [ -135, %switch.hole_check ]
-  %.027 = phi i32 [ -110, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ %33, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ %35, %34 ], [ %37, %36 ], [ 0, %38 ], [ -110, %19 ], [ -110, %switch.hole_check ]
+mbedtls_psa_ffdh_set_prime_generator.exit.thread46: ; preds = %19, %36, %34, %mbedtls_psa_ffdh_set_prime_generator.exit.thread, %mbedtls_psa_ffdh_set_prime_generator.exit, %38
+  %.not44 = phi i1 [ false, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ true, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ true, %34 ], [ true, %36 ], [ true, %38 ], [ false, %19 ]
+  %.020.i42 = phi i32 [ %32, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ 0, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ 0, %34 ], [ 0, %36 ], [ 0, %38 ], [ -135, %19 ]
+  %.027 = phi i32 [ -110, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ %33, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ %35, %34 ], [ %37, %36 ], [ 0, %38 ], [ -110, %19 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %10) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %8) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %9) #7
@@ -168,15 +166,13 @@ define hidden i32 @mbedtls_psa_ffdh_generate_key(ptr noundef readnone captures(n
   %7 = add i64 %2, -256
   %8 = call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 57)
   %9 = icmp ult i64 %8, 7
-  br i1 %9, label %switch.hole_check, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread24
-
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc nuw i64 %8 to i8
+  %switch.maskindex = trunc i64 %8 to i8
   %switch.shifted = lshr i8 87, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread24
+  %or.cond29 = select i1 %9, i1 %switch.lobit, i1 false
+  br i1 %or.cond29, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread24
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_psa_ffdh_key_agreement, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.gep27 = getelementptr inbounds nuw [7 x i64], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.6, i64 0, i64 %8
@@ -209,10 +205,10 @@ mbedtls_psa_ffdh_set_prime_generator.exit.thread: ; preds = %switch.lookup, %mbe
   store i64 %2, ptr %3, align 8, !tbaa !10
   br label %mbedtls_psa_ffdh_set_prime_generator.exit.thread24
 
-mbedtls_psa_ffdh_set_prime_generator.exit.thread24: ; preds = %switch.hole_check, %4, %15, %13, %mbedtls_psa_ffdh_set_prime_generator.exit.thread, %mbedtls_psa_ffdh_set_prime_generator.exit, %17
-  %.not22 = phi i1 [ false, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ true, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ true, %13 ], [ true, %15 ], [ true, %17 ], [ false, %4 ], [ false, %switch.hole_check ]
-  %.020.i20 = phi i32 [ %11, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ 0, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ 0, %13 ], [ 0, %15 ], [ 0, %17 ], [ -135, %4 ], [ -135, %switch.hole_check ]
-  %.0 = phi i32 [ -110, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ %12, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ %14, %13 ], [ %16, %15 ], [ 0, %17 ], [ -110, %4 ], [ -110, %switch.hole_check ]
+mbedtls_psa_ffdh_set_prime_generator.exit.thread24: ; preds = %4, %15, %13, %mbedtls_psa_ffdh_set_prime_generator.exit.thread, %mbedtls_psa_ffdh_set_prime_generator.exit, %17
+  %.not22 = phi i1 [ false, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ true, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ true, %13 ], [ true, %15 ], [ true, %17 ], [ false, %4 ]
+  %.020.i20 = phi i32 [ %11, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ 0, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ 0, %13 ], [ 0, %15 ], [ 0, %17 ], [ -135, %4 ]
+  %.0 = phi i32 [ -110, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ %12, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ %14, %13 ], [ %16, %15 ], [ 0, %17 ], [ -110, %4 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %6) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %5) #7
   %18 = icmp ne i32 %.0, 0
@@ -290,15 +286,13 @@ define hidden i32 @mbedtls_psa_ffdh_key_agreement(ptr noundef readonly captures(
   %24 = add nsw i64 %23, -256
   %25 = call i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 57)
   %26 = icmp ult i64 %25, 7
-  br i1 %26, label %switch.hole_check, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread44
-
-switch.hole_check:                                ; preds = %18
-  %switch.maskindex = trunc nuw i64 %25 to i8
+  %switch.maskindex = trunc i64 %25 to i8
   %switch.shifted = lshr i8 87, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread44
+  %or.cond51 = select i1 %26, i1 %switch.lobit, i1 false
+  br i1 %or.cond51, label %switch.lookup, label %mbedtls_psa_ffdh_set_prime_generator.exit.thread44
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %18
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_psa_ffdh_key_agreement, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.gep47 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.mbedtls_psa_ffdh_key_agreement.5, i64 0, i64 %25
@@ -344,10 +338,10 @@ mbedtls_psa_ffdh_set_prime_generator.exit.thread: ; preds = %29, %mbedtls_psa_ff
   store i64 %2, ptr %7, align 8, !tbaa !10
   br label %mbedtls_psa_ffdh_set_prime_generator.exit.thread44
 
-mbedtls_psa_ffdh_set_prime_generator.exit.thread44: ; preds = %switch.hole_check, %18, %37, %35, %33, %mbedtls_psa_ffdh_set_prime_generator.exit.thread, %mbedtls_psa_ffdh_set_prime_generator.exit, %39
-  %.not2942 = phi i1 [ false, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ true, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ true, %33 ], [ true, %35 ], [ true, %37 ], [ true, %39 ], [ false, %18 ], [ false, %switch.hole_check ]
-  %.020.i40 = phi i32 [ %31, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ 0, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ 0, %33 ], [ 0, %35 ], [ 0, %37 ], [ 0, %39 ], [ -135, %18 ], [ -135, %switch.hole_check ]
-  %.022 = phi i32 [ -110, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ %32, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ 0, %39 ], [ -110, %18 ], [ -110, %switch.hole_check ]
+mbedtls_psa_ffdh_set_prime_generator.exit.thread44: ; preds = %18, %37, %35, %33, %mbedtls_psa_ffdh_set_prime_generator.exit.thread, %mbedtls_psa_ffdh_set_prime_generator.exit, %39
+  %.not2942 = phi i1 [ false, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ true, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ true, %33 ], [ true, %35 ], [ true, %37 ], [ true, %39 ], [ false, %18 ]
+  %.020.i40 = phi i32 [ %31, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ 0, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ 0, %33 ], [ 0, %35 ], [ 0, %37 ], [ 0, %39 ], [ -135, %18 ]
+  %.022 = phi i32 [ -110, %mbedtls_psa_ffdh_set_prime_generator.exit ], [ %32, %mbedtls_psa_ffdh_set_prime_generator.exit.thread ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ 0, %39 ], [ -110, %18 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %9) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %10) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %11) #7

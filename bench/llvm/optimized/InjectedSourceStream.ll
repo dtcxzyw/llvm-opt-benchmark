@@ -174,8 +174,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN4llvm3pdb9HashTableINS0_19SrcHeaderBlockEntryEE4loadERNS_18BinaryStreamReaderE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull align 8 dereferenceable(64) %8)
   %23 = load ptr, ptr %0, align 8, !tbaa !23
-  %.not111 = icmp eq ptr %23, null
-  br i1 %.not111, label %_ZN4llvm5ErrorD2Ev.exit39, label %.critedge
+  %.not112 = icmp eq ptr %23, null
+  br i1 %.not112, label %_ZN4llvm5ErrorD2Ev.exit39, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit39:                        ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -222,9 +222,9 @@ _ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit: ; preds = %31
 
 48:                                               ; preds = %.lr.ph, %_ZN4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEppEv.exit
   %49 = phi ptr [ %.pre, %.lr.ph ], [ %119, %_ZN4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEppEv.exit ]
-  %.sroa.7.0124 = phi i40 [ %.sroa.212.0.extract.trunc, %.lr.ph ], [ %.sroa.7.3, %_ZN4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEppEv.exit ]
-  %.sroa.7.8.extract.trunc99 = trunc i40 %.sroa.7.0124 to i32
-  %.sroa.7.8.extract.trunc99.mask = and i40 %.sroa.7.0124, 4294967295
+  %.sroa.7.0125 = phi i40 [ %.sroa.212.0.extract.trunc, %.lr.ph ], [ %.sroa.7.3, %_ZN4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEppEv.exit ]
+  %.sroa.7.8.extract.trunc99 = trunc i40 %.sroa.7.0125 to i32
+  %.sroa.7.8.extract.trunc99.mask = and i40 %.sroa.7.0125, 4294967295
   %50 = zext nneg i40 %.sroa.7.8.extract.trunc99.mask to i64
   %51 = getelementptr inbounds nuw %"struct.std::pair", ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -433,7 +433,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit86:     ; preds = %113, %_ZNKSt14defau
   br i1 %126, label %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i, label %.lr.ph.split.preheader.i.preheader
 
 .lr.ph.split.preheader.i.preheader:               ; preds = %.lr.ph.i
-  %.pre130 = load ptr, ptr %47, align 8
+  %.pre131 = load ptr, ptr %47, align 8
   br label %.lr.ph.split.preheader.i
 
 _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i: ; preds = %.lr.ph.i, %_ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i
@@ -448,8 +448,8 @@ _ZNK4llvm15SparseBitVectorILj128EE4testEj.exit.us.i: ; preds = %.lr.ph.i, %_ZNK4
   br label %._crit_edge.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.split.preheader.i.preheader, %.backedge.i
-  %131 = phi ptr [ %158, %.backedge.i ], [ %.pre130, %.lr.ph.split.preheader.i.preheader ]
-  %.sroa.7.2 = phi i40 [ %.sroa.7.8.insert.insert, %.backedge.i ], [ %.sroa.7.0124, %.lr.ph.split.preheader.i.preheader ]
+  %131 = phi ptr [ %158, %.backedge.i ], [ %.pre131, %.lr.ph.split.preheader.i.preheader ]
+  %.sroa.7.2 = phi i40 [ %.sroa.7.8.insert.insert, %.backedge.i ], [ %.sroa.7.0125, %.lr.ph.split.preheader.i.preheader ]
   %132 = phi i32 [ %133, %.backedge.i ], [ %.sroa.7.8.extract.trunc99, %.lr.ph.split.preheader.i.preheader ]
   %133 = add i32 %132, 1
   %.sroa.7.8.insert.ext = zext i32 %133 to i40
@@ -548,15 +548,15 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.
   br i1 %175, label %.lr.ph.split.preheader.i, label %._crit_edge.i, !llvm.loop !78
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %._crit_edge.split.us.i, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit86
-  %.sroa.7.1 = phi i40 [ %.sroa.7.8.insert.ext103, %._crit_edge.split.us.i ], [ %.sroa.7.0124, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit86 ], [ %.sroa.7.8.insert.insert, %.backedge.i ]
+  %.sroa.7.1 = phi i40 [ %.sroa.7.8.insert.ext103, %._crit_edge.split.us.i ], [ %.sroa.7.0125, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit86 ], [ %.sroa.7.8.insert.insert, %.backedge.i ]
   %.sroa.7.12.insert.insert = or i40 %.sroa.7.1, 4294967296
   br label %_ZN4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEppEv.exit
 
 _ZN4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEppEv.exit: ; preds = %163, %._crit_edge.i
   %.sroa.7.3 = phi i40 [ %.sroa.7.12.insert.insert, %._crit_edge.i ], [ %.sroa.7.8.insert.insert, %163 ]
   %176 = and i40 %.sroa.7.3, 4294967296
-  %.not112 = icmp eq i40 %176, 0
-  br i1 %.not112, label %48, label %_ZN4llvm5ErrorD2Ev.exit89
+  %.not113 = icmp eq i40 %176, 0
+  br i1 %.not113, label %48, label %_ZN4llvm5ErrorD2Ev.exit89
 
 _ZN4llvm5ErrorD2Ev.exit89:                        ; preds = %_ZN4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEppEv.exit, %_ZN4llvm5ErrorD2Ev.exit39, %_ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit
   store ptr null, ptr %0, align 8, !tbaa !23

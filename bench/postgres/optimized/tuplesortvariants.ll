@@ -1501,8 +1501,8 @@ define internal i32 @comparetup_index_btree_tiebreak(ptr noundef readonly captur
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %21 = load ptr, ptr %20, align 8
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %ApplySortAbbrevFullComparator.exit.thread96, label %22
+  %.not75 = icmp eq ptr %21, null
+  br i1 %.not75, label %ApplySortAbbrevFullComparator.exit.thread98, label %22
 
 22:                                               ; preds = %3
   %23 = getelementptr i8, ptr %12, i64 6
@@ -1585,8 +1585,8 @@ index_getattr.exit:                               ; preds = %58, %39, %42, %45, 
   %64 = phi i1 [ false, %62 ], [ false, %56 ], [ false, %48 ], [ false, %45 ], [ false, %42 ], [ false, %39 ], [ false, %54 ], [ true, %58 ]
   %.1.i = phi i64 [ %63, %62 ], [ %57, %56 ], [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %55, %54 ], [ 0, %58 ]
   %65 = getelementptr i8, ptr %13, i64 6
-  %.val.i87 = load i16, ptr %65, align 2
-  %66 = icmp slt i16 %.val.i87, 0
+  %.val.i89 = load i16, ptr %65, align 2
+  %66 = icmp slt i16 %.val.i89, 0
   br i1 %66, label %100, label %67
 
 67:                                               ; preds = %index_getattr.exit
@@ -1617,21 +1617,21 @@ index_getattr.exit:                               ; preds = %58, %39, %42, %45, 
 81:                                               ; preds = %80
   %82 = load i8, ptr %74, align 1
   %83 = sext i8 %82 to i64
-  br label %index_getattr.exit90
+  br label %index_getattr.exit92
 
 84:                                               ; preds = %80
   %85 = load i16, ptr %74, align 2
   %86 = sext i16 %85 to i64
-  br label %index_getattr.exit90
+  br label %index_getattr.exit92
 
 87:                                               ; preds = %80
   %88 = load i32, ptr %74, align 4
   %89 = sext i32 %88 to i64
-  br label %index_getattr.exit90
+  br label %index_getattr.exit92
 
 90:                                               ; preds = %80
   %91 = load i64, ptr %74, align 8
-  br label %index_getattr.exit90
+  br label %index_getattr.exit92
 
 92:                                               ; preds = %80
   %93 = sext i16 %79 to i32
@@ -1643,48 +1643,48 @@ index_getattr.exit:                               ; preds = %58, %39, %42, %45, 
 
 96:                                               ; preds = %71
   %97 = ptrtoint ptr %74 to i64
-  br label %index_getattr.exit90
+  br label %index_getattr.exit92
 
 98:                                               ; preds = %67
   %99 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %13, i32 noundef 1, ptr noundef nonnull %19) #12
-  br label %index_getattr.exit90
+  br label %index_getattr.exit92
 
 100:                                              ; preds = %index_getattr.exit
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %102 = load i8, ptr %101, align 1
   %103 = and i8 %102, 1
-  %.not.i19.i89 = icmp eq i8 %103, 0
-  br i1 %.not.i19.i89, label %index_getattr.exit90.thread, label %104
+  %.not.i19.i91 = icmp eq i8 %103, 0
+  br i1 %.not.i19.i91, label %index_getattr.exit92.thread, label %104
 
 104:                                              ; preds = %100
   %105 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %13, i32 noundef 1, ptr noundef %19) #12
-  br label %index_getattr.exit90
+  br label %index_getattr.exit92
 
-index_getattr.exit90:                             ; preds = %81, %84, %87, %90, %96, %98, %104
-  %.1.i88 = phi i64 [ %105, %104 ], [ %99, %98 ], [ %91, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %97, %96 ]
+index_getattr.exit92:                             ; preds = %81, %84, %87, %90, %96, %98, %104
+  %.1.i90 = phi i64 [ %105, %104 ], [ %99, %98 ], [ %91, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %97, %96 ]
   br i1 %64, label %106, label %114
 
-index_getattr.exit90.thread:                      ; preds = %100
-  br i1 %64, label %ApplySortAbbrevFullComparator.exit.thread96, label %110
+index_getattr.exit92.thread:                      ; preds = %100
+  br i1 %64, label %ApplySortAbbrevFullComparator.exit.thread98, label %110
 
-106:                                              ; preds = %index_getattr.exit90
+106:                                              ; preds = %index_getattr.exit92
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 13
   %108 = load i8, ptr %107, align 1, !range !4, !noundef !5
   %109 = trunc nuw i8 %108 to i1
   %..i = select i1 %109, i32 -1, i32 1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
-110:                                              ; preds = %index_getattr.exit90.thread
+110:                                              ; preds = %index_getattr.exit92.thread
   %111 = getelementptr inbounds nuw i8, ptr %11, i64 13
   %112 = load i8, ptr %111, align 1, !range !4, !noundef !5
   %113 = trunc nuw i8 %112 to i1
   %.12.i = select i1 %113, i32 1, i32 -1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
-114:                                              ; preds = %index_getattr.exit90
+114:                                              ; preds = %index_getattr.exit92
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %116 = load ptr, ptr %115, align 8
-  %117 = tail call i32 %116(i64 noundef %.1.i, i64 noundef %.1.i88, ptr noundef nonnull %11) #12
+  %117 = tail call i32 %116(i64 noundef %.1.i, i64 noundef %.1.i90, ptr noundef nonnull %11) #12
   %118 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %119 = load i8, ptr %118, align 4, !range !4, !noundef !5
   %120 = trunc nuw i8 %119 to i1
@@ -1697,22 +1697,22 @@ index_getattr.exit90.thread:                      ; preds = %100
 
 ApplySortAbbrevFullComparator.exit:               ; preds = %121, %114
   %.0.i = phi i32 [ %123, %121 ], [ %117, %114 ]
-  %.not74 = icmp eq i32 %.0.i, 0
-  br i1 %.not74, label %ApplySortAbbrevFullComparator.exit.thread96, label %ApplySortAbbrevFullComparator.exit.thread
+  %.not76 = icmp eq i32 %.0.i, 0
+  br i1 %.not76, label %ApplySortAbbrevFullComparator.exit.thread98, label %ApplySortAbbrevFullComparator.exit.thread
 
-ApplySortAbbrevFullComparator.exit.thread96:      ; preds = %index_getattr.exit90.thread, %ApplySortAbbrevFullComparator.exit, %3
+ApplySortAbbrevFullComparator.exit.thread98:      ; preds = %index_getattr.exit92.thread, %ApplySortAbbrevFullComparator.exit, %3
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %125 = load i8, ptr %124, align 8, !range !4, !noundef !5
-  %.not75112 = icmp slt i32 %15, 2
-  br i1 %.not75112, label %._crit_edge, label %.lr.ph
+  %.not77114 = icmp slt i32 %15, 2
+  br i1 %.not77114, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %ApplySortAbbrevFullComparator.exit.thread96, %ApplySortComparator.exit.thread102
-  %.pn115 = phi ptr [ %.060116, %ApplySortComparator.exit.thread102 ], [ %11, %ApplySortAbbrevFullComparator.exit.thread96 ]
-  %.162114 = phi i8 [ %spec.select80, %ApplySortComparator.exit.thread102 ], [ %125, %ApplySortAbbrevFullComparator.exit.thread96 ]
-  %.064113 = phi i32 [ %152, %ApplySortComparator.exit.thread102 ], [ 2, %ApplySortAbbrevFullComparator.exit.thread96 ]
-  %.060116 = getelementptr inbounds nuw i8, ptr %.pn115, i64 64
-  %126 = call fastcc i64 @index_getattr(ptr noundef %12, i32 noundef %.064113, ptr noundef %19, ptr noundef nonnull %4)
-  %127 = call fastcc i64 @index_getattr(ptr noundef %13, i32 noundef %.064113, ptr noundef %19, ptr noundef nonnull %5)
+.lr.ph:                                           ; preds = %ApplySortAbbrevFullComparator.exit.thread98, %ApplySortComparator.exit.thread104
+  %.pn117 = phi ptr [ %.061118, %ApplySortComparator.exit.thread104 ], [ %11, %ApplySortAbbrevFullComparator.exit.thread98 ]
+  %.163116 = phi i8 [ %spec.select82, %ApplySortComparator.exit.thread104 ], [ %125, %ApplySortAbbrevFullComparator.exit.thread98 ]
+  %.065115 = phi i32 [ %152, %ApplySortComparator.exit.thread104 ], [ 2, %ApplySortAbbrevFullComparator.exit.thread98 ]
+  %.061118 = getelementptr inbounds nuw i8, ptr %.pn117, i64 64
+  %126 = call fastcc i64 @index_getattr(ptr noundef %12, i32 noundef %.065115, ptr noundef %19, ptr noundef nonnull %4)
+  %127 = call fastcc i64 @index_getattr(ptr noundef %13, i32 noundef %.065115, ptr noundef %19, ptr noundef nonnull %5)
   %128 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %129 = trunc nuw i8 %128 to i1
   %130 = load i8, ptr %5, align 1, !range !4, !noundef !5
@@ -1720,30 +1720,30 @@ ApplySortAbbrevFullComparator.exit.thread96:      ; preds = %index_getattr.exit9
   br i1 %129, label %132, label %137
 
 132:                                              ; preds = %.lr.ph
-  br i1 %131, label %ApplySortComparator.exit.thread102, label %133
+  br i1 %131, label %ApplySortComparator.exit.thread104, label %133
 
 133:                                              ; preds = %132
-  %134 = getelementptr inbounds nuw i8, ptr %.pn115, i64 77
+  %134 = getelementptr inbounds nuw i8, ptr %.pn117, i64 77
   %135 = load i8, ptr %134, align 1, !range !4, !noundef !5
   %136 = trunc nuw i8 %135 to i1
-  %..i93 = select i1 %136, i32 -1, i32 1
+  %..i95 = select i1 %136, i32 -1, i32 1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 137:                                              ; preds = %.lr.ph
   br i1 %131, label %138, label %142
 
 138:                                              ; preds = %137
-  %139 = getelementptr inbounds nuw i8, ptr %.pn115, i64 77
+  %139 = getelementptr inbounds nuw i8, ptr %.pn117, i64 77
   %140 = load i8, ptr %139, align 1, !range !4, !noundef !5
   %141 = trunc nuw i8 %140 to i1
-  %.12.i92 = select i1 %141, i32 1, i32 -1
+  %.12.i94 = select i1 %141, i32 1, i32 -1
   br label %ApplySortAbbrevFullComparator.exit.thread
 
 142:                                              ; preds = %137
-  %143 = getelementptr inbounds nuw i8, ptr %.pn115, i64 88
+  %143 = getelementptr inbounds nuw i8, ptr %.pn117, i64 88
   %144 = load ptr, ptr %143, align 8
-  %145 = tail call i32 %144(i64 noundef %126, i64 noundef %127, ptr noundef nonnull %.060116) #12
-  %146 = getelementptr inbounds nuw i8, ptr %.pn115, i64 76
+  %145 = tail call i32 %144(i64 noundef %126, i64 noundef %127, ptr noundef nonnull %.061118) #12
+  %146 = getelementptr inbounds nuw i8, ptr %.pn117, i64 76
   %147 = load i8, ptr %146, align 4, !range !4, !noundef !5
   %148 = trunc nuw i8 %147 to i1
   br i1 %148, label %149, label %ApplySortComparator.exit
@@ -1754,98 +1754,97 @@ ApplySortAbbrevFullComparator.exit.thread96:      ; preds = %index_getattr.exit9
   br i1 %150, label %ApplySortAbbrevFullComparator.exit.thread, label %ApplySortComparator.exit
 
 ApplySortComparator.exit:                         ; preds = %149, %142
-  %.0.i91 = phi i32 [ %151, %149 ], [ %145, %142 ]
-  %.not79 = icmp eq i32 %.0.i91, 0
-  br i1 %.not79, label %ApplySortComparator.exit.thread102, label %ApplySortAbbrevFullComparator.exit.thread
+  %.0.i93 = phi i32 [ %151, %149 ], [ %145, %142 ]
+  %.not81 = icmp eq i32 %.0.i93, 0
+  br i1 %.not81, label %ApplySortComparator.exit.thread104, label %ApplySortAbbrevFullComparator.exit.thread
 
-ApplySortComparator.exit.thread102:               ; preds = %132, %ApplySortComparator.exit
-  %spec.select80 = phi i8 [ 1, %132 ], [ %.162114, %ApplySortComparator.exit ]
-  %152 = add i32 %.064113, 1
-  %.not75 = icmp sgt i32 %152, %15
-  br i1 %.not75, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+ApplySortComparator.exit.thread104:               ; preds = %132, %ApplySortComparator.exit
+  %spec.select82 = phi i8 [ 1, %132 ], [ %.163116, %ApplySortComparator.exit ]
+  %152 = add i32 %.065115, 1
+  %.not77 = icmp sgt i32 %152, %15
+  br i1 %.not77, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %ApplySortComparator.exit.thread102, %ApplySortAbbrevFullComparator.exit.thread96
-  %.162.lcssa = phi i8 [ %125, %ApplySortAbbrevFullComparator.exit.thread96 ], [ %spec.select80, %ApplySortComparator.exit.thread102 ]
+._crit_edge:                                      ; preds = %ApplySortComparator.exit.thread104, %ApplySortAbbrevFullComparator.exit.thread98
+  %.163.lcssa = phi i8 [ %125, %ApplySortAbbrevFullComparator.exit.thread98 ], [ %spec.select82, %ApplySortComparator.exit.thread104 ]
   %153 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %154 = load i8, ptr %153, align 8, !range !4, !noundef !5
   %155 = trunc nuw i8 %154 to i1
-  br i1 %155, label %156, label %183
+  br i1 %155, label %156, label %182
 
 156:                                              ; preds = %._crit_edge
   %157 = getelementptr inbounds nuw i8, ptr %9, i64 17
   %158 = load i8, ptr %157, align 1, !range !4, !noundef !5
   %159 = trunc nuw i8 %158 to i1
-  br i1 %159, label %162, label %160
+  %.not = xor i1 %159, true
+  %160 = trunc nuw i8 %.163.lcssa to i1
+  %or.cond = select i1 %.not, i1 %160, i1 false
+  br i1 %or.cond, label %182, label %161
 
-160:                                              ; preds = %156
-  %161 = trunc nuw i8 %.162.lcssa to i1
-  br i1 %161, label %183, label %162
-
-162:                                              ; preds = %160, %156
+161:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
   call void @index_deform_tuple(ptr noundef %12, ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
-  %163 = load ptr, ptr %16, align 8
-  %164 = call ptr @BuildIndexValueDescription(ptr noundef %163, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
-  %165 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %165)
-  %166 = call i32 @errcode(i32 noundef 83906754) #12
-  %167 = load ptr, ptr %16, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 56
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
-  %171 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %170) #12
-  %.not78 = icmp eq ptr %164, null
-  br i1 %.not78, label %174, label %172
+  %162 = load ptr, ptr %16, align 8
+  %163 = call ptr @BuildIndexValueDescription(ptr noundef %162, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
+  %164 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  call void @llvm.assume(i1 %164)
+  %165 = call i32 @errcode(i32 noundef 83906754) #12
+  %166 = load ptr, ptr %16, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 56
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
+  %170 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %169) #12
+  %.not78 = icmp eq ptr %163, null
+  br i1 %.not78, label %173, label %171
 
-172:                                              ; preds = %162
-  %173 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10, ptr noundef nonnull %164) #12
-  br label %176
+171:                                              ; preds = %161
+  %172 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10, ptr noundef nonnull %163) #12
+  br label %175
 
-174:                                              ; preds = %162
-  %175 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.11) #12
-  br label %176
+173:                                              ; preds = %161
+  %174 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.11) #12
+  br label %175
 
-176:                                              ; preds = %174, %172
-  %177 = load ptr, ptr %9, align 8
-  %178 = load ptr, ptr %16, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 56
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 4
-  %182 = call i32 @errtableconstraint(ptr noundef %177, ptr noundef nonnull %181) #12
+175:                                              ; preds = %173, %171
+  %176 = load ptr, ptr %9, align 8
+  %177 = load ptr, ptr %16, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 56
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
+  %181 = call i32 @errtableconstraint(ptr noundef %176, ptr noundef nonnull %180) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1543, ptr noundef nonnull @__func__.comparetup_index_btree_tiebreak) #12
   unreachable
 
-183:                                              ; preds = %160, %._crit_edge
+182:                                              ; preds = %156, %._crit_edge
   %.val = load i16, ptr %12, align 2
-  %184 = getelementptr i8, ptr %12, i64 2
-  %.val82 = load i16, ptr %184, align 2
-  %185 = zext i16 %.val to i32
-  %186 = shl nuw i32 %185, 16
-  %187 = zext i16 %.val82 to i32
-  %188 = or disjoint i32 %186, %187
-  %.val83 = load i16, ptr %13, align 2
-  %189 = getelementptr i8, ptr %13, i64 2
-  %.val84 = load i16, ptr %189, align 2
-  %190 = zext i16 %.val83 to i32
-  %191 = shl nuw i32 %190, 16
-  %192 = zext i16 %.val84 to i32
-  %193 = or disjoint i32 %191, %192
-  %.not76 = icmp eq i32 %188, %193
-  %194 = icmp ult i32 %188, %193
-  %195 = select i1 %194, i32 -1, i32 1
-  br i1 %.not76, label %196, label %ApplySortAbbrevFullComparator.exit.thread
+  %183 = getelementptr i8, ptr %12, i64 2
+  %.val84 = load i16, ptr %183, align 2
+  %184 = zext i16 %.val to i32
+  %185 = shl nuw i32 %184, 16
+  %186 = zext i16 %.val84 to i32
+  %187 = or disjoint i32 %185, %186
+  %.val85 = load i16, ptr %13, align 2
+  %188 = getelementptr i8, ptr %13, i64 2
+  %.val86 = load i16, ptr %188, align 2
+  %189 = zext i16 %.val85 to i32
+  %190 = shl nuw i32 %189, 16
+  %191 = zext i16 %.val86 to i32
+  %192 = or disjoint i32 %190, %191
+  %.not79 = icmp eq i32 %187, %192
+  %193 = icmp ult i32 %187, %192
+  %194 = select i1 %193, i32 -1, i32 1
+  br i1 %.not79, label %195, label %ApplySortAbbrevFullComparator.exit.thread
 
-196:                                              ; preds = %183
-  %197 = getelementptr i8, ptr %12, i64 4
-  %.val85 = load i16, ptr %197, align 2
-  %198 = getelementptr i8, ptr %13, i64 4
-  %.val86 = load i16, ptr %198, align 2
-  %spec.select81 = tail call i32 @llvm.ucmp.i32.i16(i16 %.val85, i16 %.val86)
+195:                                              ; preds = %182
+  %196 = getelementptr i8, ptr %12, i64 4
+  %.val87 = load i16, ptr %196, align 2
+  %197 = getelementptr i8, ptr %13, i64 4
+  %.val88 = load i16, ptr %197, align 2
+  %spec.select83 = tail call i32 @llvm.ucmp.i32.i16(i16 %.val87, i16 %.val88)
   br label %ApplySortAbbrevFullComparator.exit.thread
 
-ApplySortAbbrevFullComparator.exit.thread:        ; preds = %149, %ApplySortComparator.exit, %138, %133, %121, %110, %106, %196, %ApplySortAbbrevFullComparator.exit, %183
-  %.0 = phi i32 [ %195, %183 ], [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %spec.select81, %196 ], [ %.12.i, %110 ], [ %..i, %106 ], [ 1, %121 ], [ %.12.i92, %138 ], [ %..i93, %133 ], [ 1, %149 ], [ %.0.i91, %ApplySortComparator.exit ]
+ApplySortAbbrevFullComparator.exit.thread:        ; preds = %149, %ApplySortComparator.exit, %138, %133, %121, %110, %106, %195, %ApplySortAbbrevFullComparator.exit, %182
+  %.0 = phi i32 [ %194, %182 ], [ %.0.i, %ApplySortAbbrevFullComparator.exit ], [ %spec.select83, %195 ], [ %.12.i, %110 ], [ %..i, %106 ], [ 1, %121 ], [ %.12.i94, %138 ], [ %..i95, %133 ], [ 1, %149 ], [ %.0.i93, %ApplySortComparator.exit ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
   ret i32 %.0

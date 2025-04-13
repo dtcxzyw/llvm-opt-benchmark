@@ -49,20 +49,20 @@ define void @_ZN3gmx19DeviceStreamManager4ImplC2ERK17DeviceInformationNS_18Simul
 
 _ZNK13DeviceContext8activateEv.exit:              ; preds = %.noexc
   %10 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #15
-          to label %.noexc10 unwind label %25
+          to label %.noexc15 unwind label %25
 
-.noexc10:                                         ; preds = %_ZNK13DeviceContext8activateEv.exit
+.noexc15:                                         ; preds = %_ZNK13DeviceContext8activateEv.exit
   invoke void @_ZN12DeviceStreamC1ERK13DeviceContext20DeviceStreamPriorityb(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1, i1 noundef zeroext %3)
           to label %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %11, !noalias !21
 
-11:                                               ; preds = %.noexc10
+11:                                               ; preds = %.noexc15
   %12 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 1) #16, !noalias !21
   br label %.body
 
-_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.noexc10
+_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.noexc15
   %13 = load ptr, ptr %5, align 8, !tbaa !24
   store ptr %10, ptr %5, align 8, !tbaa !24
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -77,39 +77,39 @@ _ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit: ; preds = %_Z
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %15 = load i8, ptr %14, align 2, !tbaa !25, !range !13, !noundef !14
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit20
+  br i1 %16, label %17, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit25
 
 17:                                               ; preds = %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit
   %18 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #15
-          to label %.noexc11 unwind label %27
+          to label %.noexc16 unwind label %27
 
-.noexc11:                                         ; preds = %17
+.noexc16:                                         ; preds = %17
   invoke void @_ZN12DeviceStreamC1ERK13DeviceContext20DeviceStreamPriorityb(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0, i1 noundef zeroext %3)
-          to label %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit14 unwind label %19, !noalias !26
+          to label %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit19 unwind label %19, !noalias !26
 
-19:                                               ; preds = %.noexc11
+19:                                               ; preds = %.noexc16
   %20 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 1) #16, !noalias !26
   br label %.body
 
-_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit14: ; preds = %.noexc11
+_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit19: ; preds = %.noexc16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   store ptr %18, ptr %21, align 8, !tbaa !24
-  %.not.i.i.i.i15 = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i15, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit20, label %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i16
+  %.not.i.i.i.i20 = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i20, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit25, label %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i21
 
-_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i16: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit14
+_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i21: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit19
   tail call void @_ZN12DeviceStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 1) #16
-  br label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit20
+  br label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit25
 
 23:                                               ; preds = %.noexc, %4
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %70
 
 25:                                               ; preds = %_ZNK13DeviceContext8activateEv.exit
   %26 = landingpad { ptr, i32 }
@@ -123,36 +123,36 @@ _ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i16: ; preds = %_ZSt11m
           catch ptr @_ZTISt9exception
   br label %.body
 
-_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit20: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit14, %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i16, %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit
+_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit25: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit19, %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i21, %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit
   %29 = trunc nuw i8 %8 to i1
-  br i1 %29, label %30, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit30
+  br i1 %29, label %30, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit35
 
-30:                                               ; preds = %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit20
+30:                                               ; preds = %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit25
   %31 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #15
-          to label %.noexc21 unwind label %36
+          to label %.noexc26 unwind label %36
 
-.noexc21:                                         ; preds = %30
+.noexc26:                                         ; preds = %30
   invoke void @_ZN12DeviceStreamC1ERK13DeviceContext20DeviceStreamPriorityb(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0, i1 noundef zeroext %3)
-          to label %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit24 unwind label %32, !noalias !29
+          to label %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit29 unwind label %32, !noalias !29
 
-32:                                               ; preds = %.noexc21
+32:                                               ; preds = %.noexc26
   %33 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 1) #16, !noalias !29
   br label %.body
 
-_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit24: ; preds = %.noexc21
+_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit29: ; preds = %.noexc26
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   store ptr %31, ptr %34, align 8, !tbaa !24
-  %.not.i.i.i.i25 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i.i25, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit30, label %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i26
+  %.not.i.i.i.i30 = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i30, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit35, label %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i31
 
-_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i26: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit24
+_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i31: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit29
   tail call void @_ZN12DeviceStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef 1) #16
-  br label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit30
+  br label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit35
 
 36:                                               ; preds = %30
   %37 = landingpad { ptr, i32 }
@@ -160,129 +160,125 @@ _ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i26: ; preds = %_ZSt11m
           catch ptr @_ZTISt9exception
   br label %.body
 
-_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit30: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit24, %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i26, %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit20
-  br i1 %16, label %46, label %38
+_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit35: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit29, %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i31, %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit25
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %39 = load i8, ptr %38, align 1, !range !13
+  %40 = trunc nuw i8 %39 to i1
+  %or.cond = select i1 %16, i1 true, i1 %40
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 10
+  %42 = load i8, ptr %41, align 2, !range !13
+  %43 = trunc nuw i8 %42 to i1
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %43
+  br i1 %or.cond5, label %44, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit45
 
-38:                                               ; preds = %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit30
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %40 = load i8, ptr %39, align 1, !tbaa !32, !range !13, !noundef !14
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %46, label %42
+44:                                               ; preds = %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit35
+  %45 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #15
+          to label %.noexc36 unwind label %50
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %44 = load i8, ptr %43, align 2, !tbaa !33, !range !13, !noundef !14
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit40
+.noexc36:                                         ; preds = %44
+  invoke void @_ZN12DeviceStreamC1ERK13DeviceContext20DeviceStreamPriorityb(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1, i1 noundef zeroext %3)
+          to label %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit39 unwind label %46, !noalias !32
 
-46:                                               ; preds = %42, %38, %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit30
-  %47 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #15
-          to label %.noexc31 unwind label %52
-
-.noexc31:                                         ; preds = %46
-  invoke void @_ZN12DeviceStreamC1ERK13DeviceContext20DeviceStreamPriorityb(ptr noundef nonnull align 1 dereferenceable(1) %47, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1, i1 noundef zeroext %3)
-          to label %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit34 unwind label %48, !noalias !34
-
-48:                                               ; preds = %.noexc31
-  %49 = landingpad { ptr, i32 }
+46:                                               ; preds = %.noexc36
+  %47 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef 1) #16, !noalias !34
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef 1) #16, !noalias !32
   br label %.body
 
-_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit34: ; preds = %.noexc31
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
-  store ptr %47, ptr %50, align 8, !tbaa !24
-  %.not.i.i.i.i35 = icmp eq ptr %51, null
-  br i1 %.not.i.i.i.i35, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit40, label %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i36
+_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit39: ; preds = %.noexc36
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %49 = load ptr, ptr %48, align 8, !tbaa !24
+  store ptr %45, ptr %48, align 8, !tbaa !24
+  %.not.i.i.i.i40 = icmp eq ptr %49, null
+  br i1 %.not.i.i.i.i40, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit45, label %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i41
 
-_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i36: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit34
-  tail call void @_ZN12DeviceStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #17
-  tail call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef 1) #16
-  br label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit40
+_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i41: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit39
+  tail call void @_ZN12DeviceStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %49, i64 noundef 1) #16
+  br label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit45
 
-52:                                               ; preds = %46
-  %53 = landingpad { ptr, i32 }
+50:                                               ; preds = %44
+  %51 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   br label %.body
 
-_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit40: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit34, %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i36, %42
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %55 = load i8, ptr %54, align 2, !tbaa !37, !range !13, !noundef !14
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %57, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit50
+_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit45: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit39, %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i41, %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit35
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %53 = load i8, ptr %52, align 2, !tbaa !35, !range !13, !noundef !14
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %55, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit55
 
-57:                                               ; preds = %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit40
-  %58 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #15
-          to label %.noexc41 unwind label %63
+55:                                               ; preds = %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit45
+  %56 = invoke noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #15
+          to label %.noexc46 unwind label %61
 
-.noexc41:                                         ; preds = %57
-  invoke void @_ZN12DeviceStreamC1ERK13DeviceContext20DeviceStreamPriorityb(ptr noundef nonnull align 1 dereferenceable(1) %58, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1, i1 noundef zeroext %3)
-          to label %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit44 unwind label %59, !noalias !38
+.noexc46:                                         ; preds = %55
+  invoke void @_ZN12DeviceStreamC1ERK13DeviceContext20DeviceStreamPriorityb(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1, i1 noundef zeroext %3)
+          to label %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit49 unwind label %57, !noalias !36
 
-59:                                               ; preds = %.noexc41
-  %60 = landingpad { ptr, i32 }
+57:                                               ; preds = %.noexc46
+  %58 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  tail call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef 1) #16, !noalias !38
+  tail call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef 1) #16, !noalias !36
   br label %.body
 
-_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit44: ; preds = %.noexc41
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !24
-  store ptr %58, ptr %61, align 8, !tbaa !24
-  %.not.i.i.i.i45 = icmp eq ptr %62, null
-  br i1 %.not.i.i.i.i45, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit50, label %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i46
+_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit49: ; preds = %.noexc46
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %60 = load ptr, ptr %59, align 8, !tbaa !24
+  store ptr %56, ptr %59, align 8, !tbaa !24
+  %.not.i.i.i.i50 = icmp eq ptr %60, null
+  br i1 %.not.i.i.i.i50, label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit55, label %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i51
 
-_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i46: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit44
-  tail call void @_ZN12DeviceStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #17
-  tail call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef 1) #16
-  br label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit50
+_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i51: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit49
+  tail call void @_ZN12DeviceStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %60, i64 noundef 1) #16
+  br label %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit55
 
-63:                                               ; preds = %57
-  %64 = landingpad { ptr, i32 }
+61:                                               ; preds = %55
+  %62 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   br label %.body
 
-.body:                                            ; preds = %63, %59, %52, %48, %36, %32, %27, %19, %25, %11
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %12, %11 ], [ %28, %27 ], [ %20, %19 ], [ %37, %36 ], [ %33, %32 ], [ %53, %52 ], [ %49, %48 ], [ %64, %63 ], [ %60, %59 ]
-  %.17 = extractvalue { ptr, i32 } %.pn, 1
-  %65 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
-  %66 = icmp eq i32 %.17, %65
-  br i1 %66, label %67, label %72
+.body:                                            ; preds = %61, %57, %50, %46, %36, %32, %27, %19, %25, %11
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %12, %11 ], [ %28, %27 ], [ %20, %19 ], [ %37, %36 ], [ %33, %32 ], [ %51, %50 ], [ %47, %46 ], [ %62, %61 ], [ %58, %57 ]
+  %.112 = extractvalue { ptr, i32 } %.pn, 1
+  %63 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
+  %64 = icmp eq i32 %.112, %63
+  br i1 %64, label %65, label %70
 
-67:                                               ; preds = %.body
+65:                                               ; preds = %.body
   %.1 = extractvalue { ptr, i32 } %.pn, 0
-  %68 = tail call ptr @__cxa_begin_catch(ptr %.1) #17
-  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %68) #18
-          to label %69 unwind label %70
+  %66 = tail call ptr @__cxa_begin_catch(ptr %.1) #17
+  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %66) #18
+          to label %67 unwind label %68
 
-69:                                               ; preds = %67
+67:                                               ; preds = %65
   unreachable
 
-70:                                               ; preds = %67
-  %71 = landingpad { ptr, i32 }
+68:                                               ; preds = %65
+  %69 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %72 unwind label %73
+          to label %70 unwind label %71
 
-_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit50: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit44, %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i46, %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit40
+_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit55: ; preds = %_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit49, %_ZNKSt14default_deleteI12DeviceStreamEclEPS0_.exit.i.i.i.i51, %_ZNSt10unique_ptrI12DeviceStreamSt14default_deleteIS0_EED2Ev.exit45
   ret void
 
-72:                                               ; preds = %70, %.body, %23
-  %.merged = phi { ptr, i32 } [ %.pn, %.body ], [ %24, %23 ], [ %71, %70 ]
+70:                                               ; preds = %68, %.body, %23
+  %.merged = phi { ptr, i32 } [ %.pn, %.body ], [ %24, %23 ], [ %69, %68 ]
   tail call void @_ZN3gmx16EnumerationArrayINS_16DeviceStreamTypeESt10unique_ptrI12DeviceStreamSt14default_deleteIS3_EELS1_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #17
   tail call void @_ZN13DeviceContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   resume { ptr, i32 } %.merged
 
-73:                                               ; preds = %70
-  %74 = landingpad { ptr, i32 }
+71:                                               ; preds = %68
+  %72 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  tail call void @__clang_call_terminate(ptr %75) #19
+  %73 = extractvalue { ptr, i32 } %72, 0
+  tail call void @__clang_call_terminate(ptr %73) #19
   unreachable
 }
 
@@ -406,8 +402,8 @@ _ZN3gmx16EnumerationArrayINS_16DeviceStreamTypeESt10unique_ptrI12DeviceStreamSt1
 
 13:                                               ; preds = %7
   %14 = tail call ptr @__cxa_begin_catch(ptr %9) #17
-  %15 = load ptr, ptr @stderr, align 8, !tbaa !41
-  %16 = load ptr, ptr %14, align 8, !tbaa !43
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %16 = load ptr, ptr %14, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %14) #17
@@ -444,7 +440,7 @@ define void @_ZN3gmx19DeviceStreamManagerC2ERK17DeviceInformationNS_18Simulation
           to label %6 unwind label %7
 
 6:                                                ; preds = %4
-  store ptr %5, ptr %0, align 8, !tbaa !45
+  store ptr %5, ptr %0, align 8, !tbaa !43
   ret void
 
 7:                                                ; preds = %4
@@ -456,7 +452,7 @@ define void @_ZN3gmx19DeviceStreamManagerC2ERK17DeviceInformationNS_18Simulation
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx19DeviceStreamManagerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !45
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx19DeviceStreamManager4ImplESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3gmx19DeviceStreamManager4ImplEEclEPS2_.exit.i
 
@@ -466,26 +462,26 @@ _ZNKSt14default_deleteIN3gmx19DeviceStreamManager4ImplEEclEPS2_.exit.i: ; preds 
   br label %_ZNSt10unique_ptrIN3gmx19DeviceStreamManager4ImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx19DeviceStreamManager4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN3gmx19DeviceStreamManager4ImplEEclEPS2_.exit.i
-  store ptr null, ptr %0, align 8, !tbaa !45
+  store ptr null, ptr %0, align 8, !tbaa !43
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef nonnull align 1 ptr @_ZNK3gmx19DeviceStreamManager10deviceInfoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #13 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !45
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx19DeviceStreamManager7contextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #14 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !45
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamManager6streamENS_16DeviceStreamTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !45
+  %3 = load ptr, ptr %0, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds nuw [5 x %"class.std::unique_ptr"], ptr %4, i64 0, i64 %5
@@ -495,7 +491,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamMan
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamManager12bondedStreamEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !45
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load i8, ptr %3, align 8, !tbaa !15, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
@@ -523,7 +519,7 @@ define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK3gmx19DeviceStreamMan
 
 16:                                               ; preds = %11, %6
   %.sink3 = phi i64 [ 16, %6 ], [ 8, %11 ]
-  %17 = load ptr, ptr %0, align 8, !tbaa !45
+  %17 = load ptr, ptr %0, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink3
   %.0 = load ptr, ptr %18, align 8, !tbaa !24
   ret ptr %.0
@@ -536,7 +532,7 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK3gmx19DeviceStreamManager13streamIsValidENS_16DeviceStreamTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !45
+  %3 = load ptr, ptr %0, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds nuw [5 x %"class.std::unique_ptr"], ptr %4, i64 0, i64 %5
@@ -609,18 +605,16 @@ attributes #20 = { cold nounwind }
 !29 = !{!30}
 !30 = distinct !{!30, !31, !"_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !31 = distinct !{!31, !"_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!32 = !{!11, !12, i64 9}
-!33 = !{!11, !12, i64 10}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!36 = distinct !{!36, !"_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!37 = !{!11, !12, i64 18}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!40 = distinct !{!40, !"_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!34 = distinct !{!34, !"_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!35 = !{!11, !12, i64 18}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!38 = distinct !{!38, !"_ZSt11make_uniqueI12DeviceStreamJR13DeviceContext20DeviceStreamPriorityRKbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
 !41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
+!42 = !{!"vtable pointer", !9, i64 0}
 !43 = !{!44, !44, i64 0}
-!44 = !{!"vtable pointer", !9, i64 0}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 _ZTSN3gmx19DeviceStreamManager4ImplE", !7, i64 0}
+!44 = !{!"p1 _ZTSN3gmx19DeviceStreamManager4ImplE", !7, i64 0}

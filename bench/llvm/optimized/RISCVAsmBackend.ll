@@ -1491,8 +1491,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15RISCVAsmBackend28fixupNeedsRelax
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %7
-  %brmerge = or i1 %3, %6
-  br i1 %brmerge, label %11, label %23
+  %or.cond = or i1 %3, %6
+  br i1 %or.cond, label %11, label %23
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 12

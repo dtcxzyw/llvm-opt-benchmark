@@ -1599,8 +1599,8 @@ define internal fastcc noundef zeroext i1 @isCurrentGroup(ptr noundef readonly c
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %7 = load i32, ptr %6, align 8
-  %.02437 = add i32 %7, -1
-  %8 = icmp slt i32 %.02437, 0
+  %.02536 = add i32 %7, -1
+  %8 = icmp slt i32 %.02536, 0
   br i1 %8, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -1611,7 +1611,7 @@ define internal fastcc noundef zeroext i1 @isCurrentGroup(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %16 = zext nneg i32 %.02437 to i64
+  %16 = zext nneg i32 %.02536 to i64
   br label %17
 
 17:                                               ; preds = %.lr.ph, %select.unfold
@@ -1639,74 +1639,71 @@ slot_getattr.exit:                                ; preds = %17, %slot_getsomeat
   %31 = load i64, ptr %30, align 8
   %32 = load i16, ptr %13, align 2
   %33 = icmp sgt i16 %20, %32
-  br i1 %33, label %slot_getsomeattrs.exit.i28, label %slot_getattr.exit29
+  br i1 %33, label %slot_getsomeattrs.exit.i29, label %slot_getattr.exit30
 
-slot_getsomeattrs.exit.i28:                       ; preds = %slot_getattr.exit
+slot_getsomeattrs.exit.i29:                       ; preds = %slot_getattr.exit
   tail call void @slot_getsomeattrs_int(ptr noundef nonnull %2, i32 noundef range(i32 -32767, 32768) %21) #8
-  br label %slot_getattr.exit29
+  br label %slot_getattr.exit30
 
-slot_getattr.exit29:                              ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i28
+slot_getattr.exit30:                              ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i29
   %34 = load ptr, ptr %14, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 %26
   %36 = load i8, ptr %35, align 1, !range !5, !noundef !6
-  %37 = load ptr, ptr %15, align 8
-  %38 = getelementptr inbounds i64, ptr %37, i64 %26
-  %39 = load i64, ptr %38, align 8
-  %40 = trunc nuw i8 %28 to i1
-  br i1 %40, label %43, label %41
+  %37 = or i8 %36, %28
+  %or.cond.not = icmp eq i8 %37, 0
+  br i1 %or.cond.not, label %40, label %38
 
-41:                                               ; preds = %slot_getattr.exit29
-  %42 = trunc nuw i8 %36 to i1
-  br i1 %42, label %43, label %45
+38:                                               ; preds = %slot_getattr.exit30
+  %39 = icmp eq i8 %28, %36
+  br i1 %39, label %select.unfold, label %.critedge
 
-43:                                               ; preds = %41, %slot_getattr.exit29
-  %44 = icmp eq i8 %28, %36
-  br i1 %44, label %select.unfold, label %.critedge
+40:                                               ; preds = %slot_getattr.exit30
+  %41 = load ptr, ptr %15, align 8
+  %42 = getelementptr inbounds i64, ptr %41, i64 %26
+  %43 = load i64, ptr %42, align 8
+  %44 = load ptr, ptr %9, align 8
+  %45 = getelementptr inbounds nuw %struct.PresortedKeyData, ptr %44, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  store i64 %31, ptr %48, align 8
+  %49 = load ptr, ptr %46, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
+  store i64 %43, ptr %50, align 8
+  %51 = load ptr, ptr %46, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 28
+  store i8 0, ptr %52, align 4
+  %53 = load ptr, ptr %46, align 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call i64 %55(ptr noundef nonnull %53) #8
+  %57 = load ptr, ptr %46, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 28
+  %59 = load i8, ptr %58, align 4, !range !5, !noundef !6
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %60, label %61, label %66
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds nuw %struct.PresortedKeyData, ptr %46, i64 %indvars.iv
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store i64 %31, ptr %50, align 8
-  %51 = load ptr, ptr %48, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  store i64 %39, ptr %52, align 8
-  %53 = load ptr, ptr %48, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 28
-  store i8 0, ptr %54, align 4
-  %55 = load ptr, ptr %48, align 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call i64 %57(ptr noundef nonnull %55) #8
-  %59 = load ptr, ptr %48, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
-  %61 = load i8, ptr %60, align 4, !range !5, !noundef !6
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %63, label %68
-
-63:                                               ; preds = %45
-  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %66 = load i32, ptr %65, align 8
-  %67 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %66) #8
+61:                                               ; preds = %40
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %62)
+  %63 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %64 = load i32, ptr %63, align 8
+  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %64) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 258, ptr noundef nonnull @__func__.isCurrentGroup) #8
   unreachable
 
-68:                                               ; preds = %45
-  %.not = icmp eq i64 %58, 0
+66:                                               ; preds = %40
+  %.not = icmp eq i64 %56, 0
   br i1 %.not, label %.critedge, label %select.unfold
 
-select.unfold:                                    ; preds = %68, %43
+select.unfold:                                    ; preds = %66, %38
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %69 = icmp slt i64 %indvars.iv, 1
-  br i1 %69, label %.critedge, label %17, !llvm.loop !10
+  %67 = icmp slt i64 %indvars.iv, 1
+  br i1 %67, label %.critedge, label %17, !llvm.loop !10
 
-.critedge:                                        ; preds = %select.unfold, %43, %68, %3
-  %.lcssa35 = phi i1 [ true, %3 ], [ false, %68 ], [ false, %43 ], [ true, %select.unfold ]
-  ret i1 %.lcssa35
+.critedge:                                        ; preds = %select.unfold, %38, %66, %3
+  %.lcssa34 = phi i1 [ true, %3 ], [ false, %66 ], [ false, %38 ], [ true, %select.unfold ]
+  ret i1 %.lcssa34
 }
 
 declare zeroext i1 @tuplesort_used_bound(ptr noundef) local_unnamed_addr #2

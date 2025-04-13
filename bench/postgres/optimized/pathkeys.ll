@@ -2562,37 +2562,37 @@ define dso_local ptr @make_pathkeys_for_sortclauses_extended(ptr noundef %0, ptr
   %10 = alloca i16, align 2
   store i8 1, ptr %5, align 1
   %11 = load ptr, ptr %1, align 8
-  %.not43 = icmp eq ptr %11, null
-  br i1 %.not43, label %._crit_edge, label %.lr.ph
+  %.not41 = icmp eq ptr %11, null
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 604
   br label %13
 
 13:                                               ; preds = %.lr.ph, %77
-  %.046 = phi ptr [ null, %.lr.ph ], [ %.1, %77 ]
-  %.sroa.0.045 = phi ptr [ %11, %.lr.ph ], [ %.sroa.0.1, %77 ]
-  %.sroa.7.044 = phi i32 [ 0, %.lr.ph ], [ %78, %77 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.045, i64 4
+  %.044 = phi ptr [ null, %.lr.ph ], [ %.1, %77 ]
+  %.sroa.0.043 = phi ptr [ %11, %.lr.ph ], [ %.sroa.0.1, %77 ]
+  %.sroa.7.042 = phi i32 [ 0, %.lr.ph ], [ %78, %77 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.043, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = icmp slt i32 %.sroa.7.044, %15
+  %16 = icmp slt i32 %.sroa.7.042, %15
   br i1 %16, label %17, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %77, %13, %7
-  %.0.lcssa = phi ptr [ null, %7 ], [ %.046, %13 ], [ %.1, %77 ]
+  %.0.lcssa = phi ptr [ null, %7 ], [ %.044, %13 ], [ %.1, %77 ]
   ret ptr %.0.lcssa
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.045, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.043, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = sext i32 %.sroa.7.044 to i64
+  %20 = sext i32 %.sroa.7.042 to i64
   %21 = getelementptr inbounds %union.ListCell, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @get_sortgroupclause_expr(ptr noundef %22, ptr noundef %2) #10
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %25 = load i32, ptr %24, align 4
-  %.not35 = icmp eq i32 %25, 0
-  br i1 %.not35, label %26, label %27
+  %.not36 = icmp eq i32 %25, 0
+  br i1 %.not36, label %26, label %27
 
 26:                                               ; preds = %17
   store i8 0, ptr %5, align 1
@@ -2610,7 +2610,7 @@ define dso_local ptr @make_pathkeys_for_sortclauses_extended(ptr noundef %0, ptr
 
 32:                                               ; preds = %28, %27
   %33 = phi i32 [ %.pre, %28 ], [ %25, %27 ]
-  %.032 = phi ptr [ %31, %28 ], [ %23, %27 ]
+  %.033 = phi ptr [ %31, %28 ], [ %23, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %35 = load i8, ptr %34, align 4, !range !4, !noundef !5
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 17
@@ -2633,10 +2633,10 @@ define dso_local ptr @make_pathkeys_for_sortclauses_extended(ptr noundef %0, ptr
 make_pathkey_from_sortop.exit:                    ; preds = %32
   %44 = trunc nuw i8 %37 to i1
   %45 = trunc nuw i8 %35 to i1
-  %46 = call i32 @exprCollation(ptr noundef %.032) #10
+  %46 = call i32 @exprCollation(ptr noundef %.033) #10
   %47 = load i32, ptr %8, align 4
   %48 = load i32, ptr %9, align 4
-  %49 = call fastcc ptr @make_pathkey_from_sortinfo(ptr noundef %0, ptr noundef %.032, i32 noundef %47, i32 noundef %48, i32 noundef %46, i1 noundef zeroext %45, i1 noundef zeroext %44, i32 noundef %39, ptr noundef null, i1 noundef zeroext true)
+  %49 = call fastcc ptr @make_pathkey_from_sortinfo(ptr noundef %0, ptr noundef %.033, i32 noundef %47, i32 noundef %48, i32 noundef %46, i1 noundef zeroext %45, i1 noundef zeroext %44, i32 noundef %39, ptr noundef null, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
@@ -2645,8 +2645,8 @@ make_pathkey_from_sortop.exit:                    ; preds = %32
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 60
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 0
-  %brmerge.not = and i1 %6, %54
-  br i1 %brmerge.not, label %55, label %57
+  %or.cond = and i1 %6, %54
+  br i1 %or.cond, label %55, label %57
 
 55:                                               ; preds = %make_pathkey_from_sortop.exit
   %56 = load i32, ptr %38, align 4
@@ -2654,20 +2654,20 @@ make_pathkey_from_sortop.exit:                    ; preds = %32
   %.val.pre = load ptr, ptr %50, align 8
   br label %57
 
-57:                                               ; preds = %make_pathkey_from_sortop.exit, %55
-  %.val = phi ptr [ %51, %make_pathkey_from_sortop.exit ], [ %.val.pre, %55 ]
+57:                                               ; preds = %55, %make_pathkey_from_sortop.exit
+  %.val = phi ptr [ %.val.pre, %55 ], [ %51, %make_pathkey_from_sortop.exit ]
   %58 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %59 = load i8, ptr %58, align 8, !range !4, !noundef !5
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %pathkey_is_redundant.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %.046, i64 16
-  %.not.i = icmp eq ptr %.046, null
+  %61 = getelementptr inbounds nuw i8, ptr %.044, i64 16
+  %.not.i = icmp eq ptr %.044, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %62 = getelementptr inbounds nuw i8, ptr %.046, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.044, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph14.i, label %.loopexit
@@ -2692,7 +2692,7 @@ make_pathkey_from_sortop.exit:                    ; preds = %32
   br i1 %.not18.i, label %pathkey_is_redundant.exit, label %66
 
 .loopexit:                                        ; preds = %66, %.preheader.i, %.lr.ph.i
-  %72 = call ptr @lappend(ptr noundef %.046, ptr noundef %49) #10
+  %72 = call ptr @lappend(ptr noundef %.044, ptr noundef %49) #10
   br label %77
 
 pathkey_is_redundant.exit:                        ; preds = %67, %57
@@ -2700,15 +2700,15 @@ pathkey_is_redundant.exit:                        ; preds = %67, %57
 
 73:                                               ; preds = %pathkey_is_redundant.exit
   %74 = load ptr, ptr %1, align 8
-  %75 = add i32 %.sroa.7.044, -1
-  %76 = call ptr @list_delete_nth_cell(ptr noundef %74, i32 noundef %.sroa.7.044) #10
+  %75 = add i32 %.sroa.7.042, -1
+  %76 = call ptr @list_delete_nth_cell(ptr noundef %74, i32 noundef %.sroa.7.042) #10
   store ptr %76, ptr %1, align 8
   br label %77
 
 77:                                               ; preds = %.loopexit, %73, %pathkey_is_redundant.exit, %26
-  %.sroa.7.1 = phi i32 [ %.sroa.7.044, %26 ], [ %75, %73 ], [ %.sroa.7.044, %pathkey_is_redundant.exit ], [ %.sroa.7.044, %.loopexit ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.045, %26 ], [ %76, %73 ], [ %.sroa.0.045, %pathkey_is_redundant.exit ], [ %.sroa.0.045, %.loopexit ]
-  %.1 = phi ptr [ %.046, %26 ], [ %.046, %73 ], [ %.046, %pathkey_is_redundant.exit ], [ %72, %.loopexit ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.042, %26 ], [ %75, %73 ], [ %.sroa.7.042, %pathkey_is_redundant.exit ], [ %.sroa.7.042, %.loopexit ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.043, %26 ], [ %76, %73 ], [ %.sroa.0.043, %pathkey_is_redundant.exit ], [ %.sroa.0.043, %.loopexit ]
+  %.1 = phi ptr [ %.044, %26 ], [ %.044, %73 ], [ %.044, %pathkey_is_redundant.exit ], [ %72, %.loopexit ]
   %78 = add i32 %.sroa.7.1, 1
   %.not = icmp eq ptr %.sroa.0.1, null
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !15

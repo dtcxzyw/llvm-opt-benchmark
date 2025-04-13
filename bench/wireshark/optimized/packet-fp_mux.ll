@@ -130,8 +130,8 @@ define internal i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef 
   tail call void @col_set_str(ptr noundef %23, i32 noundef 35, ptr noundef nonnull @.str.14)
   %24 = load ptr, ptr %22, align 8
   tail call void @col_clear(ptr noundef %24, i32 noundef 25)
-  %.not98112 = icmp eq i32 %7, 0
-  br i1 %.not98112, label %.loopexit, label %.lr.ph
+  %.not99110 = icmp eq i32 %7, 0
+  br i1 %.not99110, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -145,18 +145,18 @@ define internal i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 32:                                               ; preds = %.lr.ph, %dissect_payload.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %dissect_payload.exit ]
-  %.091113 = phi i32 [ 0, %.lr.ph ], [ %131, %dissect_payload.exit ]
-  %33 = add i32 %.091113, 2
+  %.092111 = phi i32 [ 0, %.lr.ph ], [ %131, %dissect_payload.exit ]
+  %33 = add i32 %.092111, 2
   %34 = shl i32 %33, 3
   %35 = call i32 @tvb_get_bits(ptr noundef %0, i32 noundef %34, i32 noundef 1, i32 noundef 0)
   %36 = icmp eq i32 %35, 1
   %37 = select i1 %36, i32 4, i32 3
   %38 = load i32, ptr @proto_fp_mux, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %.091113, i32 noundef %37, i32 noundef 0)
+  %39 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %.092111, i32 noundef %37, i32 noundef 0)
   %40 = load i32, ptr @ett_fpmux, align 4
   %41 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40)
   %42 = load i32, ptr @hf_fpmux_uid, align 4
-  %43 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef %.091113, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
+  %43 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef %.092111, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
   %44 = load i32, ptr %6, align 4
   %45 = load i8, ptr @fp_mux_uid_in_tree, align 1, !range !6, !noundef !7
   %46 = trunc nuw i8 %45 to i1
@@ -187,16 +187,16 @@ define internal i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %61
 
 61:                                               ; preds = %57, %54
-  %.093 = phi i16 [ %56, %54 ], [ %60, %57 ]
-  %.092 = phi i32 [ 2, %54 ], [ 1, %57 ]
+  %.094 = phi i16 [ %56, %54 ], [ %60, %57 ]
+  %.093 = phi i32 [ 2, %54 ], [ 1, %57 ]
   %62 = load i32, ptr @hf_fpmux_length, align 4
-  %63 = zext nneg i16 %.093 to i32
-  %64 = call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %62, ptr noundef %0, i32 noundef %33, i32 noundef %.092, i32 noundef %63)
-  %65 = icmp eq i16 %.093, 0
+  %63 = zext nneg i16 %.094 to i32
+  %64 = call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %62, ptr noundef %0, i32 noundef %33, i32 noundef %.093, i32 noundef %63)
+  %65 = icmp eq i16 %.094, 0
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %61
-  %67 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_fpm_bad_length, ptr noundef %0, i32 noundef %33, i32 noundef %.092, ptr noundef nonnull @.str.32)
+  %67 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_fpm_bad_length, ptr noundef %0, i32 noundef %33, i32 noundef %.093, ptr noundef nonnull @.str.32)
   br label %.loopexit
 
 68:                                               ; preds = %61
@@ -205,20 +205,20 @@ define internal i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %68
-  %72 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_fpm_bad_length, ptr noundef %0, i32 noundef %33, i32 noundef %.092, ptr noundef nonnull @.str.33, i32 noundef %69)
+  %72 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_fpm_bad_length, ptr noundef %0, i32 noundef %33, i32 noundef %.093, ptr noundef nonnull @.str.33, i32 noundef %69)
   br label %.loopexit
 
 73:                                               ; preds = %68
-  %74 = icmp samesign ult i16 %.093, 128
-  %brmerge.not = and i1 %36, %74
-  br i1 %brmerge.not, label %75, label %77
+  %74 = icmp samesign ult i16 %.094, 128
+  %or.cond = and i1 %36, %74
+  br i1 %or.cond, label %75, label %77
 
 75:                                               ; preds = %73
-  %76 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_fpm_length_needlessly_extended, ptr noundef %0, i32 noundef %33, i32 noundef %.092)
+  %76 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_fpm_length_needlessly_extended, ptr noundef %0, i32 noundef %33, i32 noundef %.093)
   br label %77
 
-77:                                               ; preds = %73, %75
-  %78 = add i32 %.092, %33
+77:                                               ; preds = %75, %73
+  %78 = add i32 %.093, %33
   %79 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %78, i32 noundef %63)
   %exitcond = icmp eq i64 %indvars.iv, 64
   br i1 %exitcond, label %80, label %82
@@ -313,8 +313,8 @@ dissect_payload.exit:                             ; preds = %108, %126, %128
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   %131 = add i32 %78, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not98 = icmp eq i32 %131, %7
-  br i1 %.not98, label %.loopexit, label %32, !llvm.loop !8
+  %.not99 = icmp eq i32 %131, %7
+  br i1 %.not99, label %.loopexit, label %32, !llvm.loop !8
 
 .loopexit:                                        ; preds = %dissect_payload.exit, %21, %80, %71, %66
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4

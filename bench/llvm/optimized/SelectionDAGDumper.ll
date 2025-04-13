@@ -9242,15 +9242,13 @@ define dso_local void @_ZNK4llvm6SDNode5printERNS_11raw_ostreamEPKNS_12Selection
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 4
-  %.not30 = icmp eq i8 %8, 0
-  br i1 %.not30, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %9
-
-9:                                                ; preds = %3
-  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 120), align 8, !tbaa !34, !range !48, !noundef !49
+  %9 = icmp eq i8 %8, 0
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17VerboseDAGDumping, i64 120), align 8, !range !48
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %12
+  %or.cond = select i1 %9, i1 true, i1 %11
+  br i1 %or.cond, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %12
 
-12:                                               ; preds = %9
+12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !280
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -9272,7 +9270,7 @@ define dso_local void @_ZNK4llvm6SDNode5printERNS_11raw_ostreamEPKNS_12Selection
   store ptr %25, ptr %15, align 8, !tbaa !284
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %23, %21, %9, %3
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %23, %21, %3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load i16, ptr %26, align 8, !tbaa !460
   %.not32 = icmp eq i16 %27, 0

@@ -1136,8 +1136,8 @@ do.body:                                          ; preds = %_ZN4node20SigintWat
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 88), align 8
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 96), align 8
   %cmp.i.i.i = icmp ne ptr %1, %2
-  %brmerge.i = select i1 %cmp.i.i.i, i1 true, i1 %tobool.i
-  br i1 %brmerge.i, label %for.cond.i.preheader, label %if.then.i
+  %or.cond.i = select i1 %cmp.i.i.i, i1 true, i1 %tobool.i
+  br i1 %or.cond.i, label %for.cond.i.preheader, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 112), align 8
@@ -1181,14 +1181,14 @@ entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 88), align 8
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 96), align 8
   %cmp.i.i = icmp ne ptr %1, %2
-  %brmerge = select i1 %cmp.i.i, i1 true, i1 %tobool
-  br i1 %brmerge, label %for.cond.preheader, label %if.then
+  %or.cond = select i1 %cmp.i.i, i1 true, i1 %tobool
+  br i1 %or.cond, label %for.cond.preheader, label %if.then
 
 if.then:                                          ; preds = %entry
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4node20SigintWatchdogHelper8instanceE, i64 112), align 8
   br label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %entry, %if.then
+for.cond.preheader:                               ; preds = %if.then, %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.body

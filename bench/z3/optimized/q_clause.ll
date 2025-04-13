@@ -36,51 +36,43 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK1q3lit7display
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 856
   %8 = load ptr, ptr %7, align 8, !tbaa !11
-  %9 = icmp eq ptr %6, %8
-  br i1 %9, label %10, label %16
+  %9 = icmp ne ptr %6, %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = load i8, ptr %10, align 8, !range !79
+  %12 = trunc nuw i8 %11 to i1
+  %or.cond = select i1 %9, i1 true, i1 %12
+  br i1 %or.cond, label %15, label %13
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i8, ptr %11, align 8, !tbaa !79, !range !81, !noundef !82
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %16, label %14
+13:                                               ; preds = %2
+  %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  br label %29
 
-14:                                               ; preds = %10
-  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br label %35
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 864
+  %17 = load ptr, ptr %16, align 8, !tbaa !80
+  %18 = icmp ne ptr %6, %17
+  %or.cond14 = select i1 %18, i1 true, i1 %12
+  br i1 %or.cond14, label %23, label %19
 
-16:                                               ; preds = %10, %2
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 864
-  %18 = load ptr, ptr %17, align 8, !tbaa !83
-  %19 = icmp eq ptr %6, %18
-  br i1 %19, label %20, label %28
+19:                                               ; preds = %15
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 5)
+  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.1, i64 noundef 1)
+  br label %29
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load i8, ptr %21, align 8, !tbaa !79, !range !81, !noundef !82
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %28, label %24
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %0, align 8, !tbaa !10
+  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef %24, i32 noundef 2)
+  %25 = load i8, ptr %10, align 8, !tbaa !81, !range !79, !noundef !83
+  %26 = trunc nuw i8 %25 to i1
+  %.str.2..str.3 = select i1 %26, ptr @.str.2, ptr @.str.3
+  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.str.2..str.3, i64 noundef 4)
+  %28 = load ptr, ptr %5, align 8, !tbaa !10
+  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef %28, i32 noundef 2)
+  br label %29
 
-24:                                               ; preds = %20
-  %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 5)
-  %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.1, i64 noundef 1)
-  br label %35
-
-28:                                               ; preds = %20, %16
-  %29 = load ptr, ptr %0, align 8, !tbaa !10
-  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef %29, i32 noundef 2)
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load i8, ptr %30, align 8, !tbaa !79, !range !81, !noundef !82
-  %32 = trunc nuw i8 %31 to i1
-  %.str.2..str.3 = select i1 %32, ptr @.str.2, ptr @.str.3
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.str.2..str.3, i64 noundef 4)
-  %34 = load ptr, ptr %5, align 8, !tbaa !10
-  tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef %34, i32 noundef 2)
-  br label %35
-
-35:                                               ; preds = %28, %24, %14
-  %.0 = phi ptr [ %1, %28 ], [ %26, %24 ], [ %15, %14 ]
+29:                                               ; preds = %23, %19, %13
+  %.0 = phi ptr [ %1, %23 ], [ %21, %19 ], [ %14, %13 ]
   ret ptr %.0
 }
 
@@ -286,11 +278,11 @@ attributes #5 = { nounwind }
 !76 = !{!"_ZTS14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE", !77, i64 0, !16, i64 8, !16, i64 12, !16, i64 16}
 !77 = !{!"p1 _ZTSN7obj_mapI9func_declPS0_E13obj_map_entryE", !6, i64 0}
 !78 = !{!"p1 _ZTS15some_value_proc", !6, i64 0}
-!79 = !{!80, !17, i64 32}
-!80 = !{!"_ZTSN1q3litE", !4, i64 0, !4, i64 16, !17, i64 32}
-!81 = !{i8 0, i8 2}
-!82 = !{}
-!83 = !{!12, !66, i64 864}
+!79 = !{i8 0, i8 2}
+!80 = !{!12, !66, i64 864}
+!81 = !{!82, !17, i64 32}
+!82 = !{!"_ZTSN1q3litE", !4, i64 0, !4, i64 16, !17, i64 32}
+!83 = !{}
 !84 = !{!85, !88, i64 16}
 !85 = !{!"_ZTSN1q7bindingE", !86, i64 0, !88, i64 16, !66, i64 24, !16, i64 32, !16, i64 36, !16, i64 40, !7, i64 48}
 !86 = !{!"_ZTS8dll_baseIN1q7bindingEE", !87, i64 0, !87, i64 8}

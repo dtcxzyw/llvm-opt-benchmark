@@ -8313,13 +8313,13 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers9CegisUni
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %15 = load ptr, ptr %14, align 8, !tbaa !53
   %16 = icmp eq ptr %13, %15
-  br i1 %16, label %17, label %.critedge167
+  br i1 %16, label %17, label %.critedge168
 
 17:                                               ; preds = %6
   %18 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers5Cegis26processConstructCandidatesERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EESA_SA_RS8_b(ptr noundef nonnull align 8 dereferenceable(1256) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %5)
   br label %128
 
-.critedge167:                                     ; preds = %6
+.critedge168:                                     ; preds = %6
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #23
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %19, align 8, !tbaa !13
@@ -8345,9 +8345,9 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers9CegisUni
   %29 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers9CegisUnif13getEnumValuesERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EESA_RSt3mapIS6_S8_St4lessIS6_ESaISt4pairIKS6_S8_EEESJ_(ptr noundef nonnull align 8 dereferenceable(2328) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %30 unwind label %35
 
-30:                                               ; preds = %.critedge167
-  %brmerge.demorgan = and i1 %5, %29
-  br i1 %brmerge.demorgan, label %37, label %31
+30:                                               ; preds = %.critedge168
+  %or.cond = and i1 %5, %29
+  br i1 %or.cond, label %37, label %31
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1256
@@ -8361,7 +8361,7 @@ _ZNK4cvc58internal6theory11quantifiers9CegisUnif18usingConditionPoolEv.exit: ; p
   invoke void @_ZN4cvc58internal6theory11quantifiers9CegisUnif13setConditionsERKSt3mapINS0_12NodeTemplateILb1EEESt6vectorIS6_SaIS6_EESt4lessIS6_ESaISt4pairIKS6_S9_EEESI_(ptr noundef nonnull align 8 dereferenceable(2328) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %118 unwind label %35
 
-35:                                               ; preds = %31, %37, %34, %.critedge167
+35:                                               ; preds = %31, %37, %34, %.critedge168
   %36 = landingpad { ptr, i32 }
           cleanup
   br label %127
@@ -8557,7 +8557,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit408: ; preds =
   br label %118
 
 117:                                              ; preds = %67, %55, %53
-  %.pn152.pn = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ], [ %68, %67 ]
+  %.pn153.pn = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ], [ %68, %67 ]
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #23
@@ -8595,12 +8595,12 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ES
   br label %128
 
 127:                                              ; preds = %117, %35
-  %.pn152.pn.pn = phi { ptr, i32 } [ %.pn152.pn, %117 ], [ %36, %35 ]
+  %.pn153.pn.pn = phi { ptr, i32 } [ %.pn153.pn, %117 ], [ %36, %35 ]
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #23
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #23
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #23
-  resume { ptr, i32 } %.pn152.pn.pn
+  resume { ptr, i32 } %.pn153.pn.pn
 
 128:                                              ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit409, %17
   %.0 = phi i1 [ %18, %17 ], [ %.1, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit409 ]

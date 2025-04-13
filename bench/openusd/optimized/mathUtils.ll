@@ -93,149 +93,149 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__23Ts_SolveCubicInInt
   %21 = load double, ptr %1, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i8, ptr %22, align 8
-  %.fr58 = freeze i8 %23
-  %24 = trunc i8 %.fr58 to i1
+  %.fr57 = freeze i8 %23
+  %24 = trunc i8 %.fr57 to i1
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load i8, ptr %25, align 8
   %.fr = freeze i8 %26
   %27 = trunc i8 %.fr to i1
-  br i1 %24, label %.split.us, label %.split
+  br i1 %24, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %4, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us
-  %.01828.us = phi i32 [ %41, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us ], [ 0, %4 ]
-  %.01927.us = phi double [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us ], [ %9, %4 ]
-  %28 = tail call double @llvm.fmuladd.f64(double %.01927.us, double %11, double %13)
-  %29 = tail call double @llvm.fmuladd.f64(double %.01927.us, double %28, double %15)
-  %30 = tail call noundef double @llvm.fmuladd.f64(double %.01927.us, double %29, double %16)
+  %.01830.us = phi i32 [ %42, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us ], [ 0, %4 ]
+  %.01929.us = phi double [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us ], [ %9, %4 ]
+  %28 = tail call double @llvm.fmuladd.f64(double %.01929.us, double %11, double %13)
+  %29 = tail call double @llvm.fmuladd.f64(double %.01929.us, double %28, double %15)
+  %30 = tail call noundef double @llvm.fmuladd.f64(double %.01929.us, double %29, double %16)
   %31 = fsub double %30, %2
-  %32 = tail call double @llvm.fmuladd.f64(double %.01927.us, double %18, double %20)
-  %33 = tail call noundef double @llvm.fmuladd.f64(double %.01927.us, double %32, double %21)
+  %32 = tail call double @llvm.fmuladd.f64(double %.01929.us, double %18, double %20)
+  %33 = tail call noundef double @llvm.fmuladd.f64(double %.01929.us, double %32, double %21)
   %34 = fdiv double %31, %33
-  %35 = fsub double %.01927.us, %34
-  %or.cond55 = fcmp ult double %35, %5
-  br i1 %or.cond55, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread, label %36
+  %35 = fsub double %.01929.us, %34
+  %36 = fcmp ogt double %35, %5
+  br i1 %36, label %37, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
 
-36:                                               ; preds = %.split.us
-  %37 = fcmp olt double %35, %7
-  %38 = fcmp oeq double %35, %7
-  %brmerge.not = and i1 %38, %27
-  %or.cond82 = or i1 %37, %brmerge.not
-  br i1 %or.cond82, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
+37:                                               ; preds = %.split.us
+  %38 = fcmp olt double %35, %7
+  %39 = fcmp oeq double %35, %7
+  %or.cond.us = and i1 %39, %27
+  %or.cond50 = or i1 %38, %or.cond.us
+  br i1 %or.cond50, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us: ; preds = %36
-  %39 = tail call double @llvm.fabs.f64(double %34)
-  %40 = fcmp uge double %39, 1.000000e-05
-  %41 = add nuw nsw i32 %.01828.us, 1
-  %42 = icmp samesign ult i32 %.01828.us, 19
-  %or.cond = select i1 %40, i1 %42, i1 false
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us: ; preds = %37
+  %40 = tail call double @llvm.fabs.f64(double %34)
+  %41 = fcmp uge double %40, 1.000000e-05
+  %42 = add nuw nsw i32 %.01830.us, 1
+  %43 = icmp samesign ult i32 %.01830.us, 19
+  %or.cond = select i1 %41, i1 %43, i1 false
   br i1 %or.cond, label %.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 
 .split:                                           ; preds = %4
-  br i1 %27, label %.split.split.us, label %.split.split
+  br i1 %27, label %.split.split, label %.split.split.us
 
-.split.split.us:                                  ; preds = %.split, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us39
-  %.01828.us36 = phi i32 [ %54, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us39 ], [ 0, %.split ]
-  %.01927.us37 = phi double [ %50, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us39 ], [ %9, %.split ]
-  %43 = tail call double @llvm.fmuladd.f64(double %.01927.us37, double %11, double %13)
-  %44 = tail call double @llvm.fmuladd.f64(double %.01927.us37, double %43, double %15)
-  %45 = tail call noundef double @llvm.fmuladd.f64(double %.01927.us37, double %44, double %16)
-  %46 = fsub double %45, %2
-  %47 = tail call double @llvm.fmuladd.f64(double %.01927.us37, double %18, double %20)
-  %48 = tail call noundef double @llvm.fmuladd.f64(double %.01927.us37, double %47, double %21)
-  %49 = fdiv double %46, %48
-  %50 = fsub double %.01927.us37, %49
-  %51 = fcmp ule double %50, %5
-  %or.cond57 = fcmp ugt double %50, %7
-  %or.cond83 = select i1 %51, i1 true, i1 %or.cond57
-  br i1 %or.cond83, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us39
+.split.split.us:                                  ; preds = %.split, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38
+  %.01830.us35 = phi i32 [ %55, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38 ], [ 0, %.split ]
+  %.01929.us36 = phi double [ %51, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38 ], [ %9, %.split ]
+  %44 = tail call double @llvm.fmuladd.f64(double %.01929.us36, double %11, double %13)
+  %45 = tail call double @llvm.fmuladd.f64(double %.01929.us36, double %44, double %15)
+  %46 = tail call noundef double @llvm.fmuladd.f64(double %.01929.us36, double %45, double %16)
+  %47 = fsub double %46, %2
+  %48 = tail call double @llvm.fmuladd.f64(double %.01929.us36, double %18, double %20)
+  %49 = tail call noundef double @llvm.fmuladd.f64(double %.01929.us36, double %48, double %21)
+  %50 = fdiv double %47, %49
+  %51 = fsub double %.01929.us36, %50
+  %or.cond52 = fcmp oge double %51, %5
+  %52 = fcmp olt double %51, %7
+  %or.cond56 = select i1 %or.cond52, i1 %52, i1 false
+  br i1 %or.cond56, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us39: ; preds = %.split.split.us
-  %52 = tail call double @llvm.fabs.f64(double %49)
-  %53 = fcmp uge double %52, 1.000000e-05
-  %54 = add nuw nsw i32 %.01828.us36, 1
-  %55 = icmp samesign ult i32 %.01828.us36, 19
-  %or.cond53 = select i1 %53, i1 %55, i1 false
-  br i1 %or.cond53, label %.split.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38: ; preds = %.split.split.us
+  %53 = tail call double @llvm.fabs.f64(double %50)
+  %54 = fcmp uge double %53, 1.000000e-05
+  %55 = add nuw nsw i32 %.01830.us35, 1
+  %56 = icmp samesign ult i32 %.01830.us35, 19
+  %or.cond51 = select i1 %54, i1 %56, i1 false
+  br i1 %or.cond51, label %.split.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 
 .split.split:                                     ; preds = %.split, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21
-  %.01828 = phi i32 [ %99, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ], [ 0, %.split ]
-  %.01927 = phi double [ %63, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ], [ %9, %.split ]
-  %56 = tail call double @llvm.fmuladd.f64(double %.01927, double %11, double %13)
-  %57 = tail call double @llvm.fmuladd.f64(double %.01927, double %56, double %15)
-  %58 = tail call noundef double @llvm.fmuladd.f64(double %.01927, double %57, double %16)
-  %59 = fsub double %58, %2
-  %60 = tail call double @llvm.fmuladd.f64(double %.01927, double %18, double %20)
-  %61 = tail call noundef double @llvm.fmuladd.f64(double %.01927, double %60, double %21)
-  %62 = fdiv double %59, %61
-  %63 = fsub double %.01927, %62
-  %64 = fcmp ogt double %63, %5
-  %65 = fcmp olt double %63, %7
-  %or.cond84 = select i1 %64, i1 %65, i1 false
-  br i1 %or.cond84, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
+  %.01830 = phi i32 [ %98, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ], [ 0, %.split ]
+  %.01929 = phi double [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ], [ %9, %.split ]
+  %57 = tail call double @llvm.fmuladd.f64(double %.01929, double %11, double %13)
+  %58 = tail call double @llvm.fmuladd.f64(double %.01929, double %57, double %15)
+  %59 = tail call noundef double @llvm.fmuladd.f64(double %.01929, double %58, double %16)
+  %60 = fsub double %59, %2
+  %61 = tail call double @llvm.fmuladd.f64(double %.01929, double %18, double %20)
+  %62 = tail call noundef double @llvm.fmuladd.f64(double %.01929, double %61, double %21)
+  %63 = fdiv double %60, %62
+  %64 = fsub double %.01929, %63
+  %or.cond54 = fcmp ult double %64, %5
+  %or.cond55 = fcmp ugt double %64, %7
+  %or.cond80 = select i1 %or.cond54, i1 true, i1 %or.cond55
+  br i1 %or.cond80, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread: ; preds = %.split.split, %.split.split.us, %.split.us, %36
-  %66 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %13)
-  %67 = tail call double @llvm.fmuladd.f64(double %5, double %66, double %15)
-  %68 = tail call noundef double @llvm.fmuladd.f64(double %5, double %67, double %16)
-  %69 = fsub double %68, %2
-  %70 = tail call double @llvm.fmuladd.f64(double %7, double %11, double %13)
-  %71 = tail call double @llvm.fmuladd.f64(double %7, double %70, double %15)
-  %72 = tail call noundef double @llvm.fmuladd.f64(double %7, double %71, double %16)
-  %73 = fsub double %72, %2
-  %74 = tail call double @llvm.fabs.f64(double %69)
-  %75 = fcmp olt double %74, 1.000000e-04
-  br i1 %75, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %76
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread: ; preds = %.split.us, %37, %.split.split.us, %.split.split
+  %65 = tail call double @llvm.fmuladd.f64(double %5, double %11, double %13)
+  %66 = tail call double @llvm.fmuladd.f64(double %5, double %65, double %15)
+  %67 = tail call noundef double @llvm.fmuladd.f64(double %5, double %66, double %16)
+  %68 = fsub double %67, %2
+  %69 = tail call double @llvm.fmuladd.f64(double %7, double %11, double %13)
+  %70 = tail call double @llvm.fmuladd.f64(double %7, double %69, double %15)
+  %71 = tail call noundef double @llvm.fmuladd.f64(double %7, double %70, double %16)
+  %72 = fsub double %71, %2
+  %73 = tail call double @llvm.fabs.f64(double %68)
+  %74 = fcmp olt double %73, 1.000000e-04
+  br i1 %74, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %75
 
-76:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
-  %77 = tail call double @llvm.fabs.f64(double %73)
-  %78 = fcmp olt double %77, 1.000000e-04
-  br i1 %78, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %79
+75:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
+  %76 = tail call double @llvm.fabs.f64(double %72)
+  %77 = fcmp olt double %76, 1.000000e-04
+  br i1 %77, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %78
 
-79:                                               ; preds = %76
-  %80 = fmul double %69, %73
-  %81 = fcmp ogt double %80, 0.000000e+00
-  br i1 %81, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %.preheader.i
+78:                                               ; preds = %75
+  %79 = fmul double %68, %72
+  %80 = fcmp ogt double %79, 0.000000e+00
+  br i1 %80, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %79, %93
-  %.05.i = phi i32 [ %96, %93 ], [ 0, %79 ]
-  %.0354.i = phi double [ %.035..i, %93 ], [ %73, %79 ]
-  %.0373.i = phi double [ %..037.i, %93 ], [ %69, %79 ]
-  %.0392.i = phi double [ %.039..i, %93 ], [ %7, %79 ]
-  %.0411.i = phi double [ %..041.i, %93 ], [ %5, %79 ]
-  %82 = fsub double %.0392.i, %.0411.i
-  %83 = fmul double %.0373.i, %82
-  %84 = fsub double %.0354.i, %.0373.i
-  %85 = fdiv double %83, %84
-  %86 = fsub double %.0411.i, %85
-  %87 = tail call double @llvm.fmuladd.f64(double %86, double %11, double %13)
-  %88 = tail call double @llvm.fmuladd.f64(double %86, double %87, double %15)
-  %89 = tail call noundef double @llvm.fmuladd.f64(double %86, double %88, double %16)
-  %90 = fsub double %89, %2
-  %91 = tail call double @llvm.fabs.f64(double %90)
-  %92 = fcmp olt double %91, 0x3EB0C6F7A0B5ED8D
-  br i1 %92, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %93
+.preheader.i:                                     ; preds = %78, %92
+  %.05.i = phi i32 [ %95, %92 ], [ 0, %78 ]
+  %.0354.i = phi double [ %.035..i, %92 ], [ %72, %78 ]
+  %.0373.i = phi double [ %..037.i, %92 ], [ %68, %78 ]
+  %.0392.i = phi double [ %.039..i, %92 ], [ %7, %78 ]
+  %.0411.i = phi double [ %..041.i, %92 ], [ %5, %78 ]
+  %81 = fsub double %.0392.i, %.0411.i
+  %82 = fmul double %.0373.i, %81
+  %83 = fsub double %.0354.i, %.0373.i
+  %84 = fdiv double %82, %83
+  %85 = fsub double %.0411.i, %84
+  %86 = tail call double @llvm.fmuladd.f64(double %85, double %11, double %13)
+  %87 = tail call double @llvm.fmuladd.f64(double %85, double %86, double %15)
+  %88 = tail call noundef double @llvm.fmuladd.f64(double %85, double %87, double %16)
+  %89 = fsub double %88, %2
+  %90 = tail call double @llvm.fabs.f64(double %89)
+  %91 = fcmp olt double %90, 0x3EB0C6F7A0B5ED8D
+  br i1 %91, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %92
 
-93:                                               ; preds = %.preheader.i
-  %94 = fmul double %.0373.i, %90
-  %95 = fcmp ugt double %94, 0.000000e+00
-  %..041.i = select i1 %95, double %86, double %.0411.i
-  %.039..i = select i1 %95, double %.0392.i, double %86
-  %..037.i = select i1 %95, double %90, double %.0373.i
-  %.035..i = select i1 %95, double %.0354.i, double %90
-  %96 = add nuw nsw i32 %.05.i, 1
-  %exitcond.not.i = icmp eq i32 %96, 20
+92:                                               ; preds = %.preheader.i
+  %93 = fmul double %.0373.i, %89
+  %94 = fcmp ugt double %93, 0.000000e+00
+  %..041.i = select i1 %94, double %85, double %.0411.i
+  %.039..i = select i1 %94, double %.0392.i, double %85
+  %..037.i = select i1 %94, double %89, double %.0373.i
+  %.035..i = select i1 %94, double %.0354.i, double %89
+  %95 = add nuw nsw i32 %.05.i, 1
+  %exitcond.not.i = icmp eq i32 %95, 20
   br i1 %exitcond.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, label %.preheader.i, !llvm.loop !6
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21: ; preds = %.split.split
-  %97 = tail call double @llvm.fabs.f64(double %62)
-  %98 = fcmp uge double %97, 1.000000e-05
-  %99 = add nuw nsw i32 %.01828, 1
-  %100 = icmp samesign ult i32 %.01828, 19
-  %or.cond54 = select i1 %98, i1 %100, i1 false
-  br i1 %or.cond54, label %.split.split, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
+  %96 = tail call double @llvm.fabs.f64(double %63)
+  %97 = fcmp uge double %96, 1.000000e-05
+  %98 = add nuw nsw i32 %.01830, 1
+  %99 = icmp samesign ult i32 %.01830, 19
+  %or.cond53 = select i1 %97, i1 %99, i1 false
+  br i1 %or.cond53, label %.split.split, label %_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit, !llvm.loop !4
 
-_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us39, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us, %93, %.preheader.i, %79, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
-  %.0 = phi double [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread ], [ %7, %76 ], [ -1.000000e+00, %79 ], [ %86, %.preheader.i ], [ %86, %93 ], [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us ], [ %50, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us39 ], [ %63, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ]
+_ZN32pxrInternal_v0_24__pxrReserved__L23_SolveCubic_RegulaFalsiEPKddRKNS_10GfIntervalE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21, %92, %.preheader.i, %78, %75, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
+  %.0 = phi double [ %5, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread ], [ %7, %75 ], [ -1.000000e+00, %78 ], [ %85, %.preheader.i ], [ %85, %92 ], [ %64, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21 ], [ %51, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us38 ], [ %35, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread21.us ]
   ret double %.0
 }
 

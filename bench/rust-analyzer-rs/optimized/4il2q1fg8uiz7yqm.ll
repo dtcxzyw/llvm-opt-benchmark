@@ -3961,27 +3961,27 @@ _ZN4core3cmp9PartialEq2ne17hc93b82cc37c86131E.llvm.1832755805191578588.exit.thre
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17he8210c1a679f85a2E"(ptr noalias noundef writeonly sret({ [8 x i16], i16, [1 x i16] }) align 4 captures(none) dereferenceable(20) initializes((16, 18)) %0, i32 noundef %1, i32 %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %3) unnamed_addr #23 personality ptr @rust_eh_personality {
-  %.sroa.9.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.sroa.9.8.copyload = load i16, ptr %.sroa.9.8..sroa_idx, align 4
+  %.sroa.8.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.sroa.8.8.copyload = load i16, ptr %.sroa.8.8..sroa_idx, align 4
   %5 = icmp ne i32 %1, 1
-  %.not = icmp eq i16 %.sroa.9.8.copyload, 273
+  %.not = icmp eq i16 %.sroa.8.8.copyload, 273
   %or.cond = select i1 %5, i1 true, i1 %.not
   br i1 %or.cond, label %7, label %6
 
 6:                                                ; preds = %4
-  %.sroa.11.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 14
-  %.sroa.11.8.copyload = load i16, ptr %.sroa.11.8..sroa_idx, align 2
+  %.sroa.9.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 14
+  %.sroa.9.8.copyload = load i16, ptr %.sroa.9.8..sroa_idx, align 2
   store i32 %2, ptr %0, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %.sroa.11.8.copyload, ptr %.sroa.6.0..sroa_idx, align 2
+  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.410.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
+  %.sroa.611.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i16 %.sroa.9.8.copyload, ptr %.sroa.611.0..sroa_idx, align 2
   br label %7
 
 7:                                                ; preds = %4, %6
-  %.sroa.9.8.copyload.sink = phi i16 [ %.sroa.9.8.copyload, %6 ], [ 273, %4 ]
+  %.sroa.8.8.copyload.sink = phi i16 [ %.sroa.8.8.copyload, %6 ], [ 273, %4 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.sroa.9.8.copyload.sink, ptr %8, align 4
+  store i16 %.sroa.8.8.copyload.sink, ptr %8, align 4
   ret void
 }
 

@@ -409,12 +409,12 @@ define internal i32 @dissect_pgsql(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 28:                                               ; preds = %26
   %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %.not66 = icmp eq i8 %29, 0
-  br i1 %.not66, label %37, label %30
+  %.not67 = icmp eq i8 %29, 0
+  br i1 %.not67, label %37, label %30
 
 30:                                               ; preds = %28
-  %.not67 = icmp eq ptr %7, null
-  br i1 %.not67, label %90, label %31
+  %.not68 = icmp eq ptr %7, null
+  br i1 %.not68, label %91, label %31
 
 31:                                               ; preds = %30
   %32 = load ptr, ptr %7, align 8
@@ -422,7 +422,7 @@ define internal i32 @dissect_pgsql(ptr noundef %0, ptr noundef %1, ptr noundef %
   %34 = load i32, ptr %33, align 4
   %35 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %32, i32 noundef %34)
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %90, label %37
+  br i1 %36, label %91, label %37
 
 37:                                               ; preds = %31, %28, %26
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -431,95 +431,95 @@ define internal i32 @dissect_pgsql(ptr noundef %0, ptr noundef %1, ptr noundef %
   %40 = load ptr, ptr %38, align 8
   %41 = select i1 %12, ptr @.str.204, ptr @.str.205
   tail call void @col_set_str(ptr noundef %40, i32 noundef 25, ptr noundef nonnull %41)
-  %.not68 = icmp eq ptr %7, null
-  %brmerge = or i1 %.not68, %12
-  br i1 %brmerge, label %88, label %42
+  %42 = icmp eq ptr %7, null
+  %or.cond = or i1 %42, %12
+  br i1 %or.cond, label %89, label %43
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %45 = load i32, ptr %44, align 4
-  %46 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %43, i32 noundef %45)
-  %47 = ptrtoint ptr %46 to i64
-  %48 = trunc i64 %47 to i32
-  switch i32 %48, label %88 [
-    i32 5, label %49
-    i32 6, label %67
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %46 = load i32, ptr %45, align 4
+  %47 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %44, i32 noundef %46)
+  %48 = ptrtoint ptr %47 to i64
+  %49 = trunc i64 %48 to i32
+  switch i32 %49, label %89 [
+    i32 5, label %50
+    i32 6, label %68
   ]
 
-49:                                               ; preds = %42
-  %50 = load ptr, ptr %7, align 8
-  %51 = load i32, ptr %44, align 4
-  %52 = add i32 %51, 1
-  tail call void @wmem_tree_insert32(ptr noundef %50, i32 noundef %52, ptr noundef nonnull inttoptr (i64 1 to ptr))
-  %53 = load i32, ptr @proto_pgsql, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %55 = load i32, ptr @ett_pgsql, align 4
-  %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55)
-  %57 = load i32, ptr @hf_type, align 4
-  %58 = tail call ptr @proto_tree_add_string(ptr noundef %56, i32 noundef %57, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.206)
-  %59 = load i32, ptr @hf_ssl_response, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %59, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %61 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  switch i8 %61, label %.sink.split [
-    i8 83, label %62
-    i8 69, label %66
+50:                                               ; preds = %43
+  %51 = load ptr, ptr %7, align 8
+  %52 = load i32, ptr %45, align 4
+  %53 = add i32 %52, 1
+  tail call void @wmem_tree_insert32(ptr noundef %51, i32 noundef %53, ptr noundef nonnull inttoptr (i64 1 to ptr))
+  %54 = load i32, ptr @proto_pgsql, align 4
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %56 = load i32, ptr @ett_pgsql, align 4
+  %57 = tail call ptr @proto_item_add_subtree(ptr noundef %55, i32 noundef %56)
+  %58 = load i32, ptr @hf_type, align 4
+  %59 = tail call ptr @proto_tree_add_string(ptr noundef %57, i32 noundef %58, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.206)
+  %60 = load i32, ptr @hf_ssl_response, align 4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %60, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %62 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  switch i8 %62, label %.sink.split [
+    i8 83, label %63
+    i8 69, label %67
   ]
 
-62:                                               ; preds = %49
-  %63 = load ptr, ptr @tls_handle, align 8
-  %64 = load ptr, ptr @pgsql_handle, align 8
-  %65 = tail call i32 @ssl_starttls_ack(ptr noundef %63, ptr noundef %1, ptr noundef %64)
+63:                                               ; preds = %50
+  %64 = load ptr, ptr @tls_handle, align 8
+  %65 = load ptr, ptr @pgsql_handle, align 8
+  %66 = tail call i32 @ssl_starttls_ack(ptr noundef %64, ptr noundef %1, ptr noundef %65)
   br label %.sink.split
 
-66:                                               ; preds = %49
+67:                                               ; preds = %50
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 5, ptr noundef nonnull @pgsql_length, ptr noundef nonnull @dissect_pgsql_msg, ptr noundef %3)
   br label %.sink.split
 
-67:                                               ; preds = %42
-  %68 = load ptr, ptr %7, align 8
-  %69 = load i32, ptr %44, align 4
-  %70 = add i32 %69, 1
-  tail call void @wmem_tree_insert32(ptr noundef %68, i32 noundef %70, ptr noundef nonnull inttoptr (i64 1 to ptr))
-  %71 = load i32, ptr @proto_pgsql, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %73 = load i32, ptr @ett_pgsql, align 4
-  %74 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %73)
-  %75 = load i32, ptr @hf_type, align 4
-  %76 = tail call ptr @proto_tree_add_string(ptr noundef %74, i32 noundef %75, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.207)
-  %77 = load i32, ptr @hf_gssenc_response, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %77, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %79 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  switch i8 %79, label %.sink.split [
-    i8 69, label %80
-    i8 71, label %81
+68:                                               ; preds = %43
+  %69 = load ptr, ptr %7, align 8
+  %70 = load i32, ptr %45, align 4
+  %71 = add i32 %70, 1
+  tail call void @wmem_tree_insert32(ptr noundef %69, i32 noundef %71, ptr noundef nonnull inttoptr (i64 1 to ptr))
+  %72 = load i32, ptr @proto_pgsql, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %72, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %74 = load i32, ptr @ett_pgsql, align 4
+  %75 = tail call ptr @proto_item_add_subtree(ptr noundef %73, i32 noundef %74)
+  %76 = load i32, ptr @hf_type, align 4
+  %77 = tail call ptr @proto_tree_add_string(ptr noundef %75, i32 noundef %76, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.207)
+  %78 = load i32, ptr @hf_gssenc_response, align 4
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %78, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %80 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  switch i8 %80, label %.sink.split [
+    i8 69, label %81
+    i8 71, label %82
   ]
 
-80:                                               ; preds = %67
+81:                                               ; preds = %68
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 5, ptr noundef nonnull @pgsql_length, ptr noundef nonnull @dissect_pgsql_msg, ptr noundef %3)
   br label %.sink.split
 
-81:                                               ; preds = %67
-  %82 = load ptr, ptr %7, align 8
-  %83 = load i32, ptr %44, align 4
-  %84 = add i32 %83, 1
-  tail call void @wmem_tree_insert32(ptr noundef %82, i32 noundef %84, ptr noundef nonnull inttoptr (i64 4 to ptr))
-  %85 = load i32, ptr %44, align 4
-  %86 = add i32 %85, 1
-  %87 = load ptr, ptr @pgsql_gssapi_handle, align 8
-  tail call void @conversation_set_dissector_from_frame_number(ptr noundef %5, i32 noundef %86, ptr noundef %87)
+82:                                               ; preds = %68
+  %83 = load ptr, ptr %7, align 8
+  %84 = load i32, ptr %45, align 4
+  %85 = add i32 %84, 1
+  tail call void @wmem_tree_insert32(ptr noundef %83, i32 noundef %85, ptr noundef nonnull inttoptr (i64 4 to ptr))
+  %86 = load i32, ptr %45, align 4
+  %87 = add i32 %86, 1
+  %88 = load ptr, ptr @pgsql_gssapi_handle, align 8
+  tail call void @conversation_set_dissector_from_frame_number(ptr noundef %5, i32 noundef %87, ptr noundef %88)
   br label %.sink.split
 
-88:                                               ; preds = %42, %37
+89:                                               ; preds = %43, %37
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 5, ptr noundef nonnull @pgsql_length, ptr noundef nonnull @dissect_pgsql_msg, ptr noundef %3)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %80, %81, %67, %62, %66, %49, %88
-  %89 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %90
+.sink.split:                                      ; preds = %81, %82, %68, %63, %67, %50, %89
+  %90 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %91
 
-90:                                               ; preds = %.sink.split, %30, %31
-  %.0 = phi i32 [ 0, %31 ], [ 0, %30 ], [ %89, %.sink.split ]
+91:                                               ; preds = %.sink.split, %30, %31
+  %.0 = phi i32 [ 0, %31 ], [ 0, %30 ], [ %90, %.sink.split ]
   ret i32 %.0
 }
 

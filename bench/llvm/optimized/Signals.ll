@@ -3723,26 +3723,26 @@ _ZL19RemoveFilesToRemovev.exit:                   ; preds = %26, %_ZN4llvm3sys18
 30:                                               ; preds = %_ZL19RemoveFilesToRemovev.exit
   %31 = atomicrmw xchg ptr @_ZL25OneShotPipeSignalFunction, i64 0 seq_cst, align 8
   %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %.critedge14.thread, label %32
+  br i1 %.not, label %.critedge15.thread, label %32
 
 32:                                               ; preds = %30
   %.0.i.i = inttoptr i64 %31 to ptr
   call void %.0.i.i() #27
-  br label %.critedge16
+  br label %.critedge17
 
 33:                                               ; preds = %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit, %_ZL19RemoveFilesToRemovev.exit
   %34 = atomicrmw xchg ptr @_ZL17InterruptFunction, i64 0 seq_cst, align 8
-  %.not12 = icmp eq i64 %34, 0
-  br i1 %.not12, label %.critedge14.thread, label %35
+  %.not13 = icmp eq i64 %34, 0
+  br i1 %.not13, label %.critedge15.thread, label %35
 
 35:                                               ; preds = %33
-  %.0.i.i17 = inttoptr i64 %34 to ptr
-  call void %.0.i.i17() #27
-  br label %.critedge16
+  %.0.i.i18 = inttoptr i64 %34 to ptr
+  call void %.0.i.i18() #27
+  br label %.critedge17
 
-.critedge14.thread:                               ; preds = %30, %33
+.critedge15.thread:                               ; preds = %30, %33
   %36 = call i32 @raise(i32 noundef %0) #27
-  br label %.critedge16
+  br label %.critedge17
 
 .preheader:                                       ; preds = %_ZL19RemoveFilesToRemovev.exit, %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
   %.0.idx15.i = phi i64 [ %.0.add.i, %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i ], [ 0, %_ZL19RemoveFilesToRemovev.exit ]
@@ -3763,10 +3763,10 @@ _ZL19RemoveFilesToRemovev.exit:                   ; preds = %26, %_ZN4llvm3sys18
 
 _ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i: ; preds = %40, %.preheader
   %.0.add.i = add nuw nsw i64 %.0.idx15.i, 24
-  %.not.i18 = icmp eq i64 %.0.add.i, 192
-  br i1 %.not.i18, label %.critedge16, label %.preheader
+  %.not.i19 = icmp eq i64 %.0.add.i, 192
+  br i1 %.not.i19, label %.critedge17, label %.preheader
 
-.critedge16:                                      ; preds = %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i, %35, %32, %.critedge14.thread
+.critedge17:                                      ; preds = %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i, %35, %32, %.critedge15.thread
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #27
   ret void
 }
@@ -5140,44 +5140,43 @@ define linkonce_odr hidden void @_ZNK4llvm2cl3optINSt7__cxx1112basic_stringIcSt1
 define linkonce_odr hidden void @_ZNK4llvm2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1ENS0_6parserIS7_EEE16printOptionValueEmb(ptr noundef nonnull align 8 dereferenceable(216) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 comdat align 2 {
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !297
-  br i1 %2, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread, label %4
+  %.not = xor i1 %2, true
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %5 = load i8, ptr %4, align 8, !range !16
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond = select i1 %.not, i1 %6, i1 false
+  br i1 %or.cond, label %7, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread
 
-4:                                                ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %6 = load i8, ptr %5, align 8, !tbaa !301, !range !16, !noundef !17
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = load i64, ptr %9, align 8, !tbaa !25
+  %11 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %12 = load i64, ptr %11, align 8, !tbaa !25
+  %13 = icmp eq i64 %10, %12
+  br i1 %13, label %14, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %11 = load i64, ptr %10, align 8, !tbaa !25
-  %12 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !25
-  %14 = icmp eq i64 %11, %13
-  br i1 %14, label %15, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread
+14:                                               ; preds = %7
+  %15 = icmp eq i64 %10, 0
+  br i1 %15, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread2, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit
 
-15:                                               ; preds = %8
-  %16 = icmp eq i64 %11, 0
-  br i1 %16, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread2, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit
+_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit: ; preds = %14
+  %16 = load ptr, ptr %.pre, align 8, !tbaa !20
+  %17 = load ptr, ptr %8, align 8, !tbaa !20
+  %bcmp.i.i = tail call i32 @bcmp(ptr %17, ptr %16, i64 %10)
+  %18 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %18, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread2, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread
 
-_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit: ; preds = %15
-  %17 = load ptr, ptr %.pre, align 8, !tbaa !20
-  %18 = load ptr, ptr %9, align 8, !tbaa !20
-  %bcmp.i.i = tail call i32 @bcmp(ptr %18, ptr %17, i64 %11)
-  %19 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %19, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread2, label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread
-
-_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread: ; preds = %3, %8, %4, %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = load ptr, ptr %.pre, align 8, !tbaa !20
-  %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !25
-  tail call void @_ZNK4llvm2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15printOptionDiffERKNS0_6OptionENS_9StringRefERKNS0_11OptionValueIS7_EEm(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr %22, i64 %24, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %1) #27
+_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread: ; preds = %3, %7, %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %21 = load ptr, ptr %.pre, align 8, !tbaa !20
+  %22 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %23 = load i64, ptr %22, align 8, !tbaa !25
+  tail call void @_ZNK4llvm2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15printOptionDiffERKNS0_6OptionENS_9StringRefERKNS0_11OptionValueIS7_EEm(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(120) %0, ptr %21, i64 %23, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 noundef %1) #27
   br label %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread2
 
-_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread2: ; preds = %15, %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread, %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit
+_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread2: ; preds = %14, %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit.thread, %_ZNK4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7compareERKS7_.exit
   ret void
 }
 

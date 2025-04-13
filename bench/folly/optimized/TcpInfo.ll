@@ -1603,8 +1603,8 @@ define void @_ZNK5folly7TcpInfo15packetsInFlightEv(ptr dead_on_unwind noalias wr
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %3 = load i32, ptr %2, align 8, !tbaa !29, !noalias !94
-  %.not.not.i2 = icmp slt i32 %3, 40
-  br i1 %.not.not.i2, label %14, label %_ZNKR5folly8OptionalImEdeEv.exit15
+  %.not.not.i2 = icmp sgt i32 %3, 39
+  br i1 %.not.not.i2, label %_ZNKR5folly8OptionalImEdeEv.exit15, label %15
 
 _ZNKR5folly8OptionalImEdeEv.exit15:               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1619,20 +1619,20 @@ _ZNKR5folly8OptionalImEdeEv.exit15:               ; preds = %_ZNK5folly7TcpInfo1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i32, ptr %10, align 8
   %.sroa.025.0 = zext i32 %11 to i64
-  %.neg = add nuw nsw i64 %.sroa.021.0, %.sroa.025.0
   %12 = add nuw nsw i64 %.sroa.017.0, %.sroa.0.0
-  %13 = sub nsw i64 %.neg, %12
-  store i64 %13, ptr %0, align 8, !tbaa !47
-  br label %15
+  %13 = sub nsw i64 %.sroa.021.0, %12
+  %14 = add nsw i64 %13, %.sroa.025.0
+  store i64 %14, ptr %0, align 8, !tbaa !47
+  br label %16
 
-14:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
+15:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
   store i8 0, ptr %0, align 8, !tbaa !13
-  br label %15
+  br label %16
 
-15:                                               ; preds = %14, %_ZNKR5folly8OptionalImEdeEv.exit15
-  %.sink = phi i8 [ 0, %14 ], [ 1, %_ZNKR5folly8OptionalImEdeEv.exit15 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sink, ptr %16, align 8, !tbaa !60
+16:                                               ; preds = %15, %_ZNKR5folly8OptionalImEdeEv.exit15
+  %.sink = phi i8 [ 1, %_ZNKR5folly8OptionalImEdeEv.exit15 ], [ 0, %15 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink, ptr %17, align 8, !tbaa !60
   ret void
 }
 
@@ -2173,8 +2173,8 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %13 = load i32, ptr %12, align 8, !noalias !164
   %or.cond.i.i5.i = icmp sgt i32 %13, 7
-  %brmerge.demorgan.i = select i1 %or.cond.i.not.i, i1 %or.cond.i.i5.i, i1 false
-  br i1 %brmerge.demorgan.i, label %_ZNKR5folly8OptionalImE5valueEv.exit.i, label %17
+  %or.cond.i = select i1 %or.cond.i.not.i, i1 %or.cond.i.i5.i, i1 false
+  br i1 %or.cond.i, label %_ZNKR5folly8OptionalImE5valueEv.exit.i, label %17
 
 _ZNKR5folly8OptionalImE5valueEv.exit.i:           ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.i
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -2212,8 +2212,8 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %13 = load i32, ptr %12, align 8
   %or.cond.i.i5 = icmp sgt i32 %13, 7
-  %brmerge.demorgan = select i1 %or.cond.i.not, i1 %or.cond.i.i5, i1 false
-  br i1 %brmerge.demorgan, label %_ZNR5folly8OptionalImEdeEv.exit7, label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread
+  %or.cond = select i1 %or.cond.i.not, i1 %or.cond.i.i5, i1 false
+  br i1 %or.cond, label %_ZNR5folly8OptionalImEdeEv.exit7, label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread
 
 _ZNR5folly8OptionalImEdeEv.exit7:                 ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 292
@@ -2230,7 +2230,7 @@ _ZNR5folly8OptionalImEdeEv.exit7:                 ; preds = %_ZNK5folly7TcpInfo1
   store i8 1, ptr %23, align 8, !tbaa !48
   br label %25
 
-_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread: ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6, %2
+_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread: ; preds = %2, %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6
   store i8 0, ptr %0, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %24, align 8, !tbaa !60

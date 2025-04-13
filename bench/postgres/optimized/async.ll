@@ -673,18 +673,16 @@ define dso_local void @Async_Unlisten(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %6, %4, %1
   %10 = load ptr, ptr @pendingActions, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %13
+  %11 = icmp ne ptr %10, null
+  %.b3 = load i1, ptr @unlistenExitRegistered, align 1
+  %or.cond = select i1 %11, i1 true, i1 %.b3
+  br i1 %or.cond, label %12, label %13
 
 12:                                               ; preds = %9
-  %.b2 = load i1, ptr @unlistenExitRegistered, align 1
-  br i1 %.b2, label %13, label %14
-
-13:                                               ; preds = %12, %9
   tail call fastcc void @queue_listen(i32 noundef 1, ptr noundef %0)
-  br label %14
+  br label %13
 
-14:                                               ; preds = %12, %13
+13:                                               ; preds = %9, %12
   ret void
 }
 
@@ -706,18 +704,16 @@ define dso_local void @Async_UnlistenAll() local_unnamed_addr #0 {
 
 8:                                                ; preds = %5, %3, %0
   %9 = load ptr, ptr @pendingActions, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
+  %10 = icmp ne ptr %9, null
+  %.b2 = load i1, ptr @unlistenExitRegistered, align 1
+  %or.cond = select i1 %10, i1 true, i1 %.b2
+  br i1 %or.cond, label %11, label %12
 
 11:                                               ; preds = %8
-  %.b1 = load i1, ptr @unlistenExitRegistered, align 1
-  br i1 %.b1, label %12, label %13
-
-12:                                               ; preds = %11, %8
   tail call fastcc void @queue_listen(i32 noundef 2, ptr noundef nonnull @.str.3)
-  br label %13
+  br label %12
 
-13:                                               ; preds = %11, %12
+12:                                               ; preds = %8, %11
   ret void
 }
 
@@ -2619,7 +2615,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
   %48 = icmp ne i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i, %.sroa.0.0.copyload
   %49 = icmp ne i32 %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.8..sroa.5.0.copyload.i, %.sroa.6.0.copyload
   %or.cond.not.i = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond.not.i, label %50, label %.loopexit40.i
+  br i1 %or.cond.not.i, label %50, label %.loopexit.i
 
 50:                                               ; preds = %47
   %51 = sext i32 %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.8..sroa.5.0.copyload.i to i64
@@ -2655,7 +2651,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
   store volatile i32 %.sroa.5.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload6.i, ptr %.sroa.11, align 8
   %.sroa.7.i.0..sroa.7.i.0..sroa.7.i.0..sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.0.copyload9.i = load volatile i32, ptr %.sroa.7.i, align 4
   store volatile i32 %.sroa.7.i.0..sroa.7.i.0..sroa.7.i.0..sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.0.copyload9.i, ptr %.sroa.18, align 4
-  br label %.loopexit40.i
+  br label %.loopexit.i
 
 68:                                               ; preds = %63
   %69 = load i32, ptr %64, align 4
@@ -2706,9 +2702,9 @@ IsListeningOn.exit.thread.i:                      ; preds = %79, %IsListeningOn.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.7.i)
-  br i1 %57, label %.loopexit40.i.thread, label %47, !llvm.loop !23
+  br i1 %57, label %.loopexit.i.thread, label %47, !llvm.loop !23
 
-.loopexit40.i:                                    ; preds = %47, %67
+.loopexit.i:                                      ; preds = %47, %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.7.i)
@@ -2716,22 +2712,22 @@ IsListeningOn.exit.thread.i:                      ; preds = %79, %IsListeningOn.
   %89 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.24, %.sroa.0.0.copyload
   br i1 %89, label %91, label %asyncQueueProcessPageEntries.exit
 
-.loopexit40.i.thread:                             ; preds = %IsListeningOn.exit.thread.i
+.loopexit.i.thread:                               ; preds = %IsListeningOn.exit.thread.i
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.2442 = load volatile i64, ptr %.sroa.0, align 8
   %90 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.2442, %.sroa.0.0.copyload
   br i1 %90, label %91, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.loopexit40.i.thread, %asyncQueueProcessPageEntries.exit, %91
+.backedge.backedge:                               ; preds = %.loopexit.i.thread, %asyncQueueProcessPageEntries.exit, %91
   br label %.backedge, !llvm.loop !24
 
-91:                                               ; preds = %.loopexit40.i.thread, %.loopexit40.i
-  %.139.i43 = phi i1 [ false, %.loopexit40.i.thread ], [ %or.cond.not.i, %.loopexit40.i ]
+91:                                               ; preds = %.loopexit.i.thread, %.loopexit.i
+  %.139.i43 = phi i1 [ false, %.loopexit.i.thread ], [ %or.cond.not.i, %.loopexit.i ]
   %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.8.31 = load volatile i32, ptr %.sroa.11, align 8
   %92 = icmp eq i32 %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.8.31, %.sroa.6.0.copyload
   %spec.select.i = or i1 %.139.i43, %92
   br i1 %spec.select.i, label %.loopexit, label %.backedge.backedge
 
-asyncQueueProcessPageEntries.exit:                ; preds = %.loopexit40.i
+asyncQueueProcessPageEntries.exit:                ; preds = %.loopexit.i
   br i1 %or.cond.not.i, label %.loopexit, label %.backedge.backedge
 
 .loopexit:                                        ; preds = %91, %asyncQueueProcessPageEntries.exit, %16

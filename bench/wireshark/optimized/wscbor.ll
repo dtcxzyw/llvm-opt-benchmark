@@ -1334,20 +1334,18 @@ define ptr @proto_tree_add_cbor_bitmask(ptr noundef %0, i32 noundef %1, i32 noun
   %12 = load i32, ptr %11, align 8
   %switch.tableidx = add i32 %12, -4
   %13 = icmp ult i32 %switch.tableidx, 8
-  br i1 %13, label %switch.hole_check, label %14
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %14
 
-14:                                               ; preds = %switch.hole_check, %8
+14:                                               ; preds = %8
   %15 = load ptr, ptr @stderr, align 8
   %16 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %15, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %12)
   br label %44
 
-switch.hole_check:                                ; preds = %8
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %14
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %8
   %17 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.proto_tree_add_cbor_bitmask, i64 0, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4

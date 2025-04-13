@@ -374,21 +374,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h01c54e7298b5
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %60
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8, !noundef !11
   %23 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %4, i32 noundef %22)
-          to label %24 unwind label %55
+          to label %24 unwind label %56
 
 24:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %23, label %25, label %26
 
 25:                                               ; preds = %24
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i64 %3, i32 noundef %4)
-          to label %31 unwind label %55
+          to label %31 unwind label %56
 
 26:                                               ; preds = %34, %24
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11)
@@ -403,25 +403,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h01c54e7298b5
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %30 = load ptr, ptr %29, align 8, !invariant.load !11, !nonnull !11
   invoke void %30(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %11)
-          to label %36 unwind label %55
+          to label %36 unwind label %56
 
 31:                                               ; preds = %25
   %32 = load i32, ptr %21, align 8, !noundef !11
   %33 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %4, i32 noundef %32)
-          to label %34 unwind label %55
+          to label %34 unwind label %56
 
 34:                                               ; preds = %31
   br i1 %33, label %35, label %26
 
 35:                                               ; preds = %34
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.9dd6c9274345a28708a19989232bd7b8.25, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9dd6c9274345a28708a19989232bd7b8.27) #17
-          to label %51 unwind label %55
+          to label %52 unwind label %56
 
 36:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 8 %37)
-          to label %38 unwind label %55
+          to label %38 unwind label %56
 
 38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -438,80 +438,80 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h01c54e7298b5
   store ptr %43, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %37, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-          to label %47 unwind label %45
+          to label %48 unwind label %45
 
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %41, 2
-  br i1 %.not, label %52, label %"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit"
+  %47 = icmp eq i64 %41, 2
+  br i1 %47, label %53, label %"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit"
 
-47:                                               ; preds = %38
-  switch i64 %41, label %default.unreachable38 [
-    i64 0, label %48
-    i64 1, label %49
-    i64 2, label %50
+48:                                               ; preds = %38
+  switch i64 %41, label %default.unreachable37 [
+    i64 0, label %49
+    i64 1, label %50
+    i64 2, label %51
   ]
 
-default.unreachable38:                            ; preds = %47
+default.unreachable37:                            ; preds = %48
   unreachable
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   ret void
 
-49:                                               ; preds = %47
+50:                                               ; preds = %48
   tail call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #17
   unreachable
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   tail call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %43) #17
   unreachable
 
-51:                                               ; preds = %35
+52:                                               ; preds = %35
   unreachable
 
-52:                                               ; preds = %45
+53:                                               ; preds = %45
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h741c9f66975094baE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %44) #19
-          to label %"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit" unwind label %53
+          to label %"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit" unwind label %54
 
-53:                                               ; preds = %66, %58, %52
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %67, %59, %53
+  %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-55:                                               ; preds = %35, %36, %26, %31, %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+56:                                               ; preds = %35, %36, %26, %31, %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %56 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
-  %57 = extractvalue { i8, i1 } %56, 1
-  br i1 %57, label %59, label %58
+  %57 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
+  %58 = extractvalue { i8, i1 } %57, 1
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %59 unwind label %53
+          to label %60 unwind label %54
 
-"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit": ; preds = %45, %52, %63, %66
-  %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn.ph, %66 ], [ %.pn.pn.ph, %63 ], [ %46, %45 ], [ %46, %52 ]
-  resume { ptr, i32 } %.pn.pn22
+"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit": ; preds = %45, %53, %64, %67
+  %.pn.pn23 = phi { ptr, i32 } [ %.pn.pn.ph, %67 ], [ %.pn.pn.ph, %64 ], [ %46, %45 ], [ %46, %53 ]
+  resume { ptr, i32 } %.pn.pn23
 
-59:                                               ; preds = %18, %58, %55
-  %.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm, %58 ], [ %lpad.thr_comm, %55 ]
-  %60 = load atomic i64, ptr %5 monotonic, align 8, !noalias !74
-  %61 = and i64 %60, 1
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %63, label %66
+60:                                               ; preds = %18, %59, %56
+  %.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm, %59 ], [ %lpad.thr_comm, %56 ]
+  %61 = load atomic i64, ptr %5 monotonic, align 8, !noalias !74
+  %62 = and i64 %61, 1
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %59
-  %64 = add i64 %60, -20
-  %65 = cmpxchg weak ptr %5, i64 %60, i64 %64 release monotonic, align 8, !noalias !74
-  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %65, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit", label %66
+64:                                               ; preds = %60
+  %65 = add i64 %61, -20
+  %66 = cmpxchg weak ptr %5, i64 %61, i64 %65 release monotonic, align 8, !noalias !74
+  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %66, 1
+  br i1 %.sroa.18.0.in.i.i.i.i, label %"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit", label %67
 
-66:                                               ; preds = %63, %59
+67:                                               ; preds = %64, %60
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit" unwind label %53
+          to label %"_ZN4core3ptr168drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h78562a57c4f0d2d9E.exit" unwind label %54
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -534,21 +534,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3aaa8850ae5e
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %60
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8, !noundef !11
   %23 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %4, i32 noundef %22)
-          to label %24 unwind label %55
+          to label %24 unwind label %56
 
 24:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %23, label %25, label %26
 
 25:                                               ; preds = %24
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i64 %3, i32 noundef %4)
-          to label %31 unwind label %55
+          to label %31 unwind label %56
 
 26:                                               ; preds = %34, %24
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11)
@@ -563,25 +563,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3aaa8850ae5e
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %30 = load ptr, ptr %29, align 8, !invariant.load !11, !nonnull !11
   invoke void %30(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %11)
-          to label %36 unwind label %55
+          to label %36 unwind label %56
 
 31:                                               ; preds = %25
   %32 = load i32, ptr %21, align 8, !noundef !11
   %33 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %4, i32 noundef %32)
-          to label %34 unwind label %55
+          to label %34 unwind label %56
 
 34:                                               ; preds = %31
   br i1 %33, label %35, label %26
 
 35:                                               ; preds = %34
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.9dd6c9274345a28708a19989232bd7b8.25, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9dd6c9274345a28708a19989232bd7b8.27) #17
-          to label %51 unwind label %55
+          to label %52 unwind label %56
 
 36:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 8 %37)
-          to label %38 unwind label %55
+          to label %38 unwind label %56
 
 38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -598,74 +598,74 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3aaa8850ae5e
   store ptr %43, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %37, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-          to label %47 unwind label %45
+          to label %48 unwind label %45
 
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %41, 2
-  br i1 %.not, label %52, label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit"
+  %47 = icmp eq i64 %41, 2
+  br i1 %47, label %53, label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit"
 
-47:                                               ; preds = %38
-  switch i64 %41, label %default.unreachable38 [
-    i64 0, label %48
-    i64 1, label %49
-    i64 2, label %50
+48:                                               ; preds = %38
+  switch i64 %41, label %default.unreachable37 [
+    i64 0, label %49
+    i64 1, label %50
+    i64 2, label %51
   ]
 
-default.unreachable38:                            ; preds = %47
+default.unreachable37:                            ; preds = %48
   unreachable
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   ret void
 
-49:                                               ; preds = %47
+50:                                               ; preds = %48
   tail call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #17
   unreachable
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   tail call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %43) #17
   unreachable
 
-51:                                               ; preds = %35
+52:                                               ; preds = %35
   unreachable
 
-52:                                               ; preds = %45
+53:                                               ; preds = %45
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h741c9f66975094baE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %44) #19
-          to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit" unwind label %53
+          to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit" unwind label %54
 
-53:                                               ; preds = %63, %58, %52
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %64, %59, %53
+  %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-55:                                               ; preds = %35, %36, %26, %31, %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+56:                                               ; preds = %35, %36, %26, %31, %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %56 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
-  %57 = extractvalue { i8, i1 } %56, 1
-  br i1 %57, label %59, label %58
+  %57 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
+  %58 = extractvalue { i8, i1 } %57, 1
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %59 unwind label %53
+          to label %60 unwind label %54
 
-"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit": ; preds = %45, %52, %59, %63
-  %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn.ph, %63 ], [ %.pn.pn.ph, %59 ], [ %46, %45 ], [ %46, %52 ]
-  resume { ptr, i32 } %.pn.pn22
+"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit": ; preds = %45, %53, %60, %64
+  %.pn.pn23 = phi { ptr, i32 } [ %.pn.pn.ph, %64 ], [ %.pn.pn.ph, %60 ], [ %46, %45 ], [ %46, %53 ]
+  resume { ptr, i32 } %.pn.pn23
 
-59:                                               ; preds = %18, %58, %55
-  %.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm, %58 ], [ %lpad.thr_comm, %55 ]
-  %60 = atomicrmw sub ptr %5, i64 16 release, align 8
-  %61 = and i64 %60, -14
-  %62 = icmp eq i64 %61, 18
-  br i1 %62, label %63, label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit"
+60:                                               ; preds = %18, %59, %56
+  %.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm, %59 ], [ %lpad.thr_comm, %56 ]
+  %61 = atomicrmw sub ptr %5, i64 16 release, align 8
+  %62 = and i64 %61, -14
+  %63 = icmp eq i64 %62, 18
+  br i1 %63, label %64, label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit"
 
-63:                                               ; preds = %59
+64:                                               ; preds = %60
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit" unwind label %53
+          to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..ParseQuery$GT$$GT$$GT$17h6433d5b49a2dda6eE.exit" unwind label %54
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -688,21 +688,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4dcf99814dce
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %60
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8, !noundef !11
   %23 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %4, i32 noundef %22)
-          to label %24 unwind label %55
+          to label %24 unwind label %56
 
 24:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %23, label %25, label %26
 
 25:                                               ; preds = %24
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i64 %3, i32 noundef %4)
-          to label %31 unwind label %55
+          to label %31 unwind label %56
 
 26:                                               ; preds = %34, %24
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11)
@@ -717,25 +717,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4dcf99814dce
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %30 = load ptr, ptr %29, align 8, !invariant.load !11, !nonnull !11
   invoke void %30(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %11)
-          to label %36 unwind label %55
+          to label %36 unwind label %56
 
 31:                                               ; preds = %25
   %32 = load i32, ptr %21, align 8, !noundef !11
   %33 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %4, i32 noundef %32)
-          to label %34 unwind label %55
+          to label %34 unwind label %56
 
 34:                                               ; preds = %31
   br i1 %33, label %35, label %26
 
 35:                                               ; preds = %34
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.9dd6c9274345a28708a19989232bd7b8.25, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9dd6c9274345a28708a19989232bd7b8.27) #17
-          to label %51 unwind label %55
+          to label %52 unwind label %56
 
 36:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 8 %37)
-          to label %38 unwind label %55
+          to label %38 unwind label %56
 
 38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -752,74 +752,74 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4dcf99814dce
   store ptr %43, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %37, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-          to label %47 unwind label %45
+          to label %48 unwind label %45
 
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %41, 2
-  br i1 %.not, label %52, label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit"
+  %47 = icmp eq i64 %41, 2
+  br i1 %47, label %53, label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit"
 
-47:                                               ; preds = %38
-  switch i64 %41, label %default.unreachable38 [
-    i64 0, label %48
-    i64 1, label %49
-    i64 2, label %50
+48:                                               ; preds = %38
+  switch i64 %41, label %default.unreachable37 [
+    i64 0, label %49
+    i64 1, label %50
+    i64 2, label %51
   ]
 
-default.unreachable38:                            ; preds = %47
+default.unreachable37:                            ; preds = %48
   unreachable
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   ret void
 
-49:                                               ; preds = %47
+50:                                               ; preds = %48
   tail call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #17
   unreachable
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   tail call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %43) #17
   unreachable
 
-51:                                               ; preds = %35
+52:                                               ; preds = %35
   unreachable
 
-52:                                               ; preds = %45
+53:                                               ; preds = %45
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h741c9f66975094baE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %44) #19
-          to label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit" unwind label %53
+          to label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit" unwind label %54
 
-53:                                               ; preds = %63, %58, %52
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %64, %59, %53
+  %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-55:                                               ; preds = %35, %36, %26, %31, %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+56:                                               ; preds = %35, %36, %26, %31, %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %56 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
-  %57 = extractvalue { i8, i1 } %56, 1
-  br i1 %57, label %59, label %58
+  %57 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
+  %58 = extractvalue { i8, i1 } %57, 1
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %59 unwind label %53
+          to label %60 unwind label %54
 
-"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit": ; preds = %45, %52, %59, %63
-  %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn.ph, %63 ], [ %.pn.pn.ph, %59 ], [ %46, %45 ], [ %46, %52 ]
-  resume { ptr, i32 } %.pn.pn22
+"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit": ; preds = %45, %53, %60, %64
+  %.pn.pn23 = phi { ptr, i32 } [ %.pn.pn.ph, %64 ], [ %.pn.pn.ph, %60 ], [ %46, %45 ], [ %46, %53 ]
+  resume { ptr, i32 } %.pn.pn23
 
-59:                                               ; preds = %18, %58, %55
-  %.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm, %58 ], [ %lpad.thr_comm, %55 ]
-  %60 = atomicrmw sub ptr %5, i64 16 release, align 8
-  %61 = and i64 %60, -14
-  %62 = icmp eq i64 %61, 18
-  br i1 %62, label %63, label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit"
+60:                                               ; preds = %18, %59, %56
+  %.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm, %59 ], [ %lpad.thr_comm, %56 ]
+  %61 = atomicrmw sub ptr %5, i64 16 release, align 8
+  %62 = and i64 %61, -14
+  %63 = icmp eq i64 %62, 18
+  br i1 %63, label %64, label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit"
 
-63:                                               ; preds = %59
+64:                                               ; preds = %60
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit" unwind label %53
+          to label %"_ZN4core3ptr161drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17hf8a715d2e0b2769cE.exit" unwind label %54
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -842,21 +842,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9b8da23d7dab
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %60
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8, !noundef !11
   %23 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %4, i32 noundef %22)
-          to label %24 unwind label %55
+          to label %24 unwind label %56
 
 24:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %23, label %25, label %26
 
 25:                                               ; preds = %24
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i64 %3, i32 noundef %4)
-          to label %31 unwind label %55
+          to label %31 unwind label %56
 
 26:                                               ; preds = %34, %24
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11)
@@ -871,25 +871,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9b8da23d7dab
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %30 = load ptr, ptr %29, align 8, !invariant.load !11, !nonnull !11
   invoke void %30(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %11)
-          to label %36 unwind label %55
+          to label %36 unwind label %56
 
 31:                                               ; preds = %25
   %32 = load i32, ptr %21, align 8, !noundef !11
   %33 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %4, i32 noundef %32)
-          to label %34 unwind label %55
+          to label %34 unwind label %56
 
 34:                                               ; preds = %31
   br i1 %33, label %35, label %26
 
 35:                                               ; preds = %34
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.9dd6c9274345a28708a19989232bd7b8.25, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9dd6c9274345a28708a19989232bd7b8.27) #17
-          to label %51 unwind label %55
+          to label %52 unwind label %56
 
 36:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 8 %37)
-          to label %38 unwind label %55
+          to label %38 unwind label %56
 
 38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -906,80 +906,80 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9b8da23d7dab
   store ptr %43, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %37, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-          to label %47 unwind label %45
+          to label %48 unwind label %45
 
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %41, 2
-  br i1 %.not, label %52, label %"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit"
+  %47 = icmp eq i64 %41, 2
+  br i1 %47, label %53, label %"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit"
 
-47:                                               ; preds = %38
-  switch i64 %41, label %default.unreachable38 [
-    i64 0, label %48
-    i64 1, label %49
-    i64 2, label %50
+48:                                               ; preds = %38
+  switch i64 %41, label %default.unreachable37 [
+    i64 0, label %49
+    i64 1, label %50
+    i64 2, label %51
   ]
 
-default.unreachable38:                            ; preds = %47
+default.unreachable37:                            ; preds = %48
   unreachable
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   ret void
 
-49:                                               ; preds = %47
+50:                                               ; preds = %48
   tail call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #17
   unreachable
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   tail call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %43) #17
   unreachable
 
-51:                                               ; preds = %35
+52:                                               ; preds = %35
   unreachable
 
-52:                                               ; preds = %45
+53:                                               ; preds = %45
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h741c9f66975094baE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %44) #19
-          to label %"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit" unwind label %53
+          to label %"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit" unwind label %54
 
-53:                                               ; preds = %66, %58, %52
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %67, %59, %53
+  %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-55:                                               ; preds = %35, %36, %26, %31, %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+56:                                               ; preds = %35, %36, %26, %31, %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %56 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
-  %57 = extractvalue { i8, i1 } %56, 1
-  br i1 %57, label %59, label %58
+  %57 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
+  %58 = extractvalue { i8, i1 } %57, 1
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %59 unwind label %53
+          to label %60 unwind label %54
 
-"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit": ; preds = %45, %52, %63, %66
-  %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn.ph, %66 ], [ %.pn.pn.ph, %63 ], [ %46, %45 ], [ %46, %52 ]
-  resume { ptr, i32 } %.pn.pn22
+"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit": ; preds = %45, %53, %64, %67
+  %.pn.pn23 = phi { ptr, i32 } [ %.pn.pn.ph, %67 ], [ %.pn.pn.ph, %64 ], [ %46, %45 ], [ %46, %53 ]
+  resume { ptr, i32 } %.pn.pn23
 
-59:                                               ; preds = %18, %58, %55
-  %.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm, %58 ], [ %lpad.thr_comm, %55 ]
-  %60 = load atomic i64, ptr %5 monotonic, align 8, !noalias !79
-  %61 = and i64 %60, 1
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %63, label %66
+60:                                               ; preds = %18, %59, %56
+  %.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm, %59 ], [ %lpad.thr_comm, %56 ]
+  %61 = load atomic i64, ptr %5 monotonic, align 8, !noalias !79
+  %62 = and i64 %61, 1
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %59
-  %64 = add i64 %60, -20
-  %65 = cmpxchg weak ptr %5, i64 %60, i64 %64 release monotonic, align 8, !noalias !79
-  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %65, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit", label %66
+64:                                               ; preds = %60
+  %65 = add i64 %61, -20
+  %66 = cmpxchg weak ptr %5, i64 %61, i64 %65 release monotonic, align 8, !noalias !79
+  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %66, 1
+  br i1 %.sroa.18.0.in.i.i.i.i, label %"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit", label %67
 
-66:                                               ; preds = %63, %59
+67:                                               ; preds = %64, %60
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit" unwind label %53
+          to label %"_ZN4core3ptr171drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..FileTextQuery$GT$$GT$$GT$17h799f52a0fc6e69adE.exit" unwind label %54
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1002,21 +1002,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heacd73fdca2b
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %60
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8, !noundef !11
   %23 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %4, i32 noundef %22)
-          to label %24 unwind label %55
+          to label %24 unwind label %56
 
 24:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %23, label %25, label %26
 
 25:                                               ; preds = %24
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i64 %3, i32 noundef %4)
-          to label %31 unwind label %55
+          to label %31 unwind label %56
 
 26:                                               ; preds = %34, %24
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11)
@@ -1031,25 +1031,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heacd73fdca2b
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %30 = load ptr, ptr %29, align 8, !invariant.load !11, !nonnull !11
   invoke void %30(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %11)
-          to label %36 unwind label %55
+          to label %36 unwind label %56
 
 31:                                               ; preds = %25
   %32 = load i32, ptr %21, align 8, !noundef !11
   %33 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %4, i32 noundef %32)
-          to label %34 unwind label %55
+          to label %34 unwind label %56
 
 34:                                               ; preds = %31
   br i1 %33, label %35, label %26
 
 35:                                               ; preds = %34
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.9dd6c9274345a28708a19989232bd7b8.25, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9dd6c9274345a28708a19989232bd7b8.27) #17
-          to label %51 unwind label %55
+          to label %52 unwind label %56
 
 36:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 8 %37)
-          to label %38 unwind label %55
+          to label %38 unwind label %56
 
 38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -1066,80 +1066,80 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heacd73fdca2b
   store ptr %43, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %37, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-          to label %47 unwind label %45
+          to label %48 unwind label %45
 
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %41, 2
-  br i1 %.not, label %52, label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit"
+  %47 = icmp eq i64 %41, 2
+  br i1 %47, label %53, label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit"
 
-47:                                               ; preds = %38
-  switch i64 %41, label %default.unreachable38 [
-    i64 0, label %48
-    i64 1, label %49
-    i64 2, label %50
+48:                                               ; preds = %38
+  switch i64 %41, label %default.unreachable37 [
+    i64 0, label %49
+    i64 1, label %50
+    i64 2, label %51
   ]
 
-default.unreachable38:                            ; preds = %47
+default.unreachable37:                            ; preds = %48
   unreachable
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   ret void
 
-49:                                               ; preds = %47
+50:                                               ; preds = %48
   tail call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #17
   unreachable
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   tail call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %43) #17
   unreachable
 
-51:                                               ; preds = %35
+52:                                               ; preds = %35
   unreachable
 
-52:                                               ; preds = %45
+53:                                               ; preds = %45
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h741c9f66975094baE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %44) #19
-          to label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit" unwind label %53
+          to label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit" unwind label %54
 
-53:                                               ; preds = %66, %58, %52
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %67, %59, %53
+  %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-55:                                               ; preds = %35, %36, %26, %31, %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+56:                                               ; preds = %35, %36, %26, %31, %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %56 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
-  %57 = extractvalue { i8, i1 } %56, 1
-  br i1 %57, label %59, label %58
+  %57 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
+  %58 = extractvalue { i8, i1 } %57, 1
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %59 unwind label %53
+          to label %60 unwind label %54
 
-"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit": ; preds = %45, %52, %63, %66
-  %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn.ph, %66 ], [ %.pn.pn.ph, %63 ], [ %46, %45 ], [ %46, %52 ]
-  resume { ptr, i32 } %.pn.pn22
+"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit": ; preds = %45, %53, %64, %67
+  %.pn.pn23 = phi { ptr, i32 } [ %.pn.pn.ph, %67 ], [ %.pn.pn.ph, %64 ], [ %46, %45 ], [ %46, %53 ]
+  resume { ptr, i32 } %.pn.pn23
 
-59:                                               ; preds = %18, %58, %55
-  %.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm, %58 ], [ %lpad.thr_comm, %55 ]
-  %60 = load atomic i64, ptr %5 monotonic, align 8, !noalias !84
-  %61 = and i64 %60, 1
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %63, label %66
+60:                                               ; preds = %18, %59, %56
+  %.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm, %59 ], [ %lpad.thr_comm, %56 ]
+  %61 = load atomic i64, ptr %5 monotonic, align 8, !noalias !84
+  %62 = and i64 %61, 1
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %59
-  %64 = add i64 %60, -20
-  %65 = cmpxchg weak ptr %5, i64 %60, i64 %64 release monotonic, align 8, !noalias !84
-  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %65, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit", label %66
+64:                                               ; preds = %60
+  %65 = add i64 %61, -20
+  %66 = cmpxchg weak ptr %5, i64 %61, i64 %65 release monotonic, align 8, !noalias !84
+  %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %66, 1
+  br i1 %.sroa.18.0.in.i.i.i.i, label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit", label %67
 
-66:                                               ; preds = %63, %59
+67:                                               ; preds = %64, %60
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9489c00b66f5a59aE(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit" unwind label %53
+          to label %"_ZN4core3ptr179drop_in_place$LT$lock_api..rwlock..RwLockUpgradableReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17hd0e449715e2b07b9E.exit" unwind label %54
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1162,21 +1162,21 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heb6aa66fd9e2
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %60
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit": ; preds = %6, %16
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8, !noundef !11
   %23 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %4, i32 noundef %22)
-          to label %24 unwind label %55
+          to label %24 unwind label %56
 
 24:                                               ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   br i1 %23, label %25, label %26
 
 25:                                               ; preds = %24
   invoke void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i64 %3, i32 noundef %4)
-          to label %31 unwind label %55
+          to label %31 unwind label %56
 
 26:                                               ; preds = %34, %24
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11)
@@ -1191,25 +1191,25 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heb6aa66fd9e2
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %30 = load ptr, ptr %29, align 8, !invariant.load !11, !nonnull !11
   invoke void %30(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %11)
-          to label %36 unwind label %55
+          to label %36 unwind label %56
 
 31:                                               ; preds = %25
   %32 = load i32, ptr %21, align 8, !noundef !11
   %33 = invoke noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph10depends_on17h8ac82a357413a663E(ptr noalias noundef nonnull align 8 dereferenceable(96) %20, i32 noundef %4, i32 noundef %32)
-          to label %34 unwind label %55
+          to label %34 unwind label %56
 
 34:                                               ; preds = %31
   br i1 %33, label %35, label %26
 
 35:                                               ; preds = %34
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.9dd6c9274345a28708a19989232bd7b8.25, i64 noundef 53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9dd6c9274345a28708a19989232bd7b8.27) #17
-          to label %51 unwind label %55
+          to label %52 unwind label %56
 
 36:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 8 %37)
-          to label %38 unwind label %55
+          to label %38 unwind label %56
 
 38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -1226,74 +1226,74 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heb6aa66fd9e2
   store ptr %43, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %37, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-          to label %47 unwind label %45
+          to label %48 unwind label %45
 
 45:                                               ; preds = %38
   %46 = landingpad { ptr, i32 }
           cleanup
-  %.not = icmp eq i64 %41, 2
-  br i1 %.not, label %52, label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit"
+  %47 = icmp eq i64 %41, 2
+  br i1 %47, label %53, label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit"
 
-47:                                               ; preds = %38
-  switch i64 %41, label %default.unreachable38 [
-    i64 0, label %48
-    i64 1, label %49
-    i64 2, label %50
+48:                                               ; preds = %38
+  switch i64 %41, label %default.unreachable37 [
+    i64 0, label %49
+    i64 1, label %50
+    i64 2, label %51
   ]
 
-default.unreachable38:                            ; preds = %47
+default.unreachable37:                            ; preds = %48
   unreachable
 
-48:                                               ; preds = %47
+49:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   ret void
 
-49:                                               ; preds = %47
+50:                                               ; preds = %48
   tail call void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext true) #17
   unreachable
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   tail call void @_ZN5salsa5Cycle5throw17hb98aff10c65b3479E(ptr noundef nonnull %43) #17
   unreachable
 
-51:                                               ; preds = %35
+52:                                               ; preds = %35
   unreachable
 
-52:                                               ; preds = %45
+53:                                               ; preds = %45
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h741c9f66975094baE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %44) #19
-          to label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit" unwind label %53
+          to label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit" unwind label %54
 
-53:                                               ; preds = %63, %58, %52
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %64, %59, %53
+  %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-55:                                               ; preds = %35, %36, %26, %31, %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
+56:                                               ; preds = %35, %36, %26, %31, %25, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.exit"
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %56 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
-  %57 = extractvalue { i8, i1 } %56, 1
-  br i1 %57, label %59, label %58
+  %57 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
+  %58 = extractvalue { i8, i1 } %57, 1
+  br i1 %58, label %60, label %59
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h5bc12e3bdfb59073E(ptr noundef nonnull align 1 %13, i1 noundef zeroext false)
-          to label %59 unwind label %53
+          to label %60 unwind label %54
 
-"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit": ; preds = %45, %52, %59, %63
-  %.pn.pn22 = phi { ptr, i32 } [ %.pn.pn.ph, %63 ], [ %.pn.pn.ph, %59 ], [ %46, %45 ], [ %46, %52 ]
-  resume { ptr, i32 } %.pn.pn22
+"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit": ; preds = %45, %53, %60, %64
+  %.pn.pn23 = phi { ptr, i32 } [ %.pn.pn.ph, %64 ], [ %.pn.pn.ph, %60 ], [ %46, %45 ], [ %46, %53 ]
+  resume { ptr, i32 } %.pn.pn23
 
-59:                                               ; preds = %18, %58, %55
-  %.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm, %58 ], [ %lpad.thr_comm, %55 ]
-  %60 = atomicrmw sub ptr %5, i64 16 release, align 8
-  %61 = and i64 %60, -14
-  %62 = icmp eq i64 %61, 18
-  br i1 %62, label %63, label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit"
+60:                                               ; preds = %18, %59, %56
+  %.pn.pn.ph = phi { ptr, i32 } [ %19, %18 ], [ %lpad.thr_comm, %59 ], [ %lpad.thr_comm, %56 ]
+  %61 = atomicrmw sub ptr %5, i64 16 release, align 8
+  %62 = and i64 %61, -14
+  %63 = icmp eq i64 %62, 18
+  br i1 %63, label %64, label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit"
 
-63:                                               ; preds = %59
+64:                                               ; preds = %60
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h48c5de16cc1f8475E(ptr noundef nonnull align 8 %5)
-          to label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit" unwind label %53
+          to label %"_ZN4core3ptr169drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..derived..slot..QueryState$LT$base_db..SourceRootCratesQuery$GT$$GT$$GT$17h1c63dde47ddddc3aE.exit" unwind label %54
 }
 
 ; Function Attrs: nonlazybind uwtable

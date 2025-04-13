@@ -4424,8 +4424,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit71: ; preds = %_ZNK
   %207 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %208 = load ptr, ptr %207, align 8
   %209 = icmp eq ptr %208, null
-  %brmerge.i = or i1 %206, %209
-  br i1 %brmerge.i, label %210, label %212
+  %or.cond.i = or i1 %206, %209
+  br i1 %or.cond.i, label %210, label %212
 
 210:                                              ; preds = %.critedge55
   %211 = xor i1 %206, %209

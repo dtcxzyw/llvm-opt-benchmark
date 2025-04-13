@@ -6652,8 +6652,8 @@ rb_ractor_main_p.exit:                            ; preds = %15
   %24 = inttoptr i64 %2 to ptr
   %25 = load i64, ptr %24, align 8, !tbaa !28
   %26 = and i64 %25, 256
-  %.not.i37 = icmp eq i64 %26, 0
-  br i1 %.not.i37, label %rb_ractor_shareable_p.exit, label %rb_ractor_main_p.exit.thread
+  %.not.i42 = icmp eq i64 %26, 0
+  br i1 %.not.i42, label %rb_ractor_shareable_p.exit, label %rb_ractor_main_p.exit.thread
 
 rb_ractor_shareable_p.exit:                       ; preds = %23
   %27 = tail call zeroext i1 @rb_ractor_shareable_p_continue(i64 noundef %2) #27
@@ -6699,8 +6699,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
 check_before_mod_set.exit:                        ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #27
   %42 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
-  %.not.i.i39 = icmp eq ptr %42, null
-  br i1 %.not.i.i39, label %43, label %rb_vm_lock_enter.exit
+  %.not.i.i44 = icmp eq ptr %42, null
+  br i1 %.not.i.i44, label %43, label %rb_vm_lock_enter.exit
 
 43:                                               ; preds = %check_before_mod_set.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %8) #27
@@ -6709,8 +6709,8 @@ check_before_mod_set.exit:                        ; preds = %rbimpl_RB_TYPE_P_fa
 rb_vm_lock_enter.exit:                            ; preds = %check_before_mod_set.exit, %43
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %45 = load ptr, ptr %44, align 8, !tbaa !142
-  %.not = icmp eq ptr %45, null
-  br i1 %.not, label %46, label %65
+  %.not39 = icmp eq ptr %45, null
+  br i1 %.not39, label %46, label %65
 
 46:                                               ; preds = %rb_vm_lock_enter.exit
   %47 = call ptr @rb_id_table_create(i64 noundef 0) #27
@@ -6768,8 +6768,8 @@ rb_obj_write.exit.i:                              ; preds = %56, %46
 
 setup_const_entry.exit:                           ; preds = %64, %rb_obj_write.exit.i, %65
   %73 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
-  %.not.i.i40 = icmp eq ptr %73, null
-  br i1 %.not.i.i40, label %74, label %rb_vm_lock_leave.exit
+  %.not.i.i45 = icmp eq ptr %73, null
+  br i1 %.not.i.i45, label %74, label %rb_vm_lock_leave.exit
 
 74:                                               ; preds = %setup_const_entry.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %8) #27
@@ -6778,8 +6778,8 @@ setup_const_entry.exit:                           ; preds = %64, %rb_obj_write.e
 rb_vm_lock_leave.exit:                            ; preds = %setup_const_entry.exit, %74
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #27
   %75 = load i64, ptr @rb_cObject, align 8, !tbaa !14
-  %.not35 = icmp eq i64 %75, 0
-  br i1 %.not35, label %rb_namespace_p.exit.thread, label %76
+  %.not40 = icmp eq i64 %75, 0
+  br i1 %.not40, label %rb_namespace_p.exit.thread, label %76
 
 76:                                               ; preds = %rb_vm_lock_leave.exit
   %77 = icmp eq i64 %2, 0
@@ -6804,16 +6804,14 @@ rb_namespace_p.exit:                              ; preds = %76
 classname.exit:                                   ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 149
   %89 = load i8, ptr %88, align 1
-  %90 = icmp eq i64 %86, 4
-  br i1 %90, label %classname.exit.thread, label %91
+  %90 = icmp ne i64 %86, 4
+  %91 = trunc i8 %89 to i1
+  %or.cond = select i1 %90, i1 %91, i1 false
+  br i1 %or.cond, label %rb_namespace_p.exit.thread, label %classname.exit.thread
 
-91:                                               ; preds = %classname.exit
-  %92 = trunc i8 %89 to i1
-  br i1 %92, label %rb_namespace_p.exit.thread, label %classname.exit.thread
-
-classname.exit.thread:                            ; preds = %84, %91, %classname.exit
-  %.not36 = phi i1 [ true, %91 ], [ false, %classname.exit ], [ false, %84 ]
-  %.05864 = phi i8 [ 0, %91 ], [ %89, %classname.exit ], [ 0, %84 ]
+classname.exit.thread:                            ; preds = %84, %classname.exit
+  %92 = phi i1 [ %91, %classname.exit ], [ false, %84 ]
+  %.not70 = phi i1 [ %90, %classname.exit ], [ false, %84 ]
   %93 = icmp eq i64 %0, %75
   br i1 %93, label %94, label %112
 
@@ -6825,8 +6823,8 @@ classname.exit.thread:                            ; preds = %84, %91, %classname
   %97 = load ptr, ptr %96, align 8, !tbaa !142
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #27
   %98 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
-  %.not.i.i.i43 = icmp eq ptr %98, null
-  br i1 %.not.i.i.i43, label %99, label %rb_vm_lock_enter.exit.i
+  %.not.i.i.i48 = icmp eq ptr %98, null
+  br i1 %.not.i.i.i48, label %99, label %rb_vm_lock_enter.exit.i
 
 99:                                               ; preds = %94
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %7) #27
@@ -6849,8 +6847,8 @@ RCLASS_SET_CLASSPATH.exit.i:                      ; preds = %104, %rb_vm_lock_en
   %106 = load i8, ptr %105, align 1
   %107 = or i8 %106, 1
   store i8 %107, ptr %105, align 1
-  %.not.i44 = icmp eq ptr %97, null
-  br i1 %.not.i44, label %109, label %108
+  %.not.i49 = icmp eq ptr %97, null
+  br i1 %.not.i49, label %109, label %108
 
 108:                                              ; preds = %RCLASS_SET_CLASSPATH.exit.i
   call void @rb_id_table_foreach(ptr noundef nonnull %97, ptr noundef nonnull @set_namespace_path_i, ptr noundef nonnull %6) #27
@@ -6874,116 +6872,111 @@ set_namespace_path.exit:                          ; preds = %109, %111
   %113 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %114 = load i64, ptr %113, align 8, !tbaa !18
   %115 = icmp eq i64 %114, 0
-  br i1 %115, label %classname.exit46.thread, label %classname.exit46
+  br i1 %115, label %classname.exit51.thread, label %classname.exit51
 
-classname.exit46:                                 ; preds = %112
+classname.exit51:                                 ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %34, i64 149
   %117 = load i8, ptr %116, align 1
   %118 = icmp eq i64 %114, 4
-  br i1 %118, label %classname.exit46.thread, label %120
+  br i1 %118, label %classname.exit51.thread, label %120
 
-classname.exit46.thread:                          ; preds = %112, %classname.exit46
-  %.05768 = phi i8 [ %117, %classname.exit46 ], [ 0, %112 ]
+classname.exit51.thread:                          ; preds = %112, %classname.exit51
+  %.06174 = phi i8 [ %117, %classname.exit51 ], [ 0, %112 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #27
   %119 = call fastcc i64 @rb_tmp_class_path(i64 noundef %0, ptr noundef %10, ptr noundef nonnull @make_temporary_path)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #27
   br label %120
 
-120:                                              ; preds = %classname.exit46.thread, %classname.exit46
-  %.05767 = phi i8 [ %.05768, %classname.exit46.thread ], [ %117, %classname.exit46 ]
-  %.0 = phi i64 [ %119, %classname.exit46.thread ], [ %114, %classname.exit46 ]
-  %121 = trunc i8 %.05767 to i1
-  br i1 %121, label %122, label %146
+120:                                              ; preds = %classname.exit51.thread, %classname.exit51
+  %.06173 = phi i8 [ %.06174, %classname.exit51.thread ], [ %117, %classname.exit51 ]
+  %.0 = phi i64 [ %119, %classname.exit51.thread ], [ %114, %classname.exit51 ]
+  %121 = trunc i8 %.06173 to i1
+  %.not2 = xor i1 %121, true
+  %or.cond4 = select i1 %.not2, i1 true, i1 %92
+  br i1 %or.cond4, label %144, label %122
 
 122:                                              ; preds = %120
-  %123 = trunc i8 %.05864 to i1
-  br i1 %123, label %rb_namespace_p.exit.thread, label %124
-
-124:                                              ; preds = %122
-  %125 = call i64 @rb_id2str(i64 noundef %1) #27
-  %126 = call i64 @rb_str_dup(i64 noundef %.0) #27
-  %127 = call i64 @rb_str_cat(i64 noundef %126, ptr noundef nonnull @.str.39, i64 noundef 2) #27
-  %128 = call i64 @rb_str_append(i64 noundef %126, i64 noundef %125) #27
-  %129 = call i64 @rb_fstring(i64 noundef %126) #27
+  %123 = call i64 @rb_id2str(i64 noundef %1) #27
+  %124 = call i64 @rb_str_dup(i64 noundef %.0) #27
+  %125 = call i64 @rb_str_cat(i64 noundef %124, ptr noundef nonnull @.str.39, i64 noundef 2) #27
+  %126 = call i64 @rb_str_append(i64 noundef %124, i64 noundef %123) #27
+  %127 = call i64 @rb_fstring(i64 noundef %124) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store i64 %129, ptr %4, align 8, !tbaa !14
-  %130 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  %131 = load ptr, ptr %130, align 8, !tbaa !142
+  store i64 %127, ptr %4, align 8, !tbaa !14
+  %128 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  %129 = load ptr, ptr %128, align 8, !tbaa !142
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #27
-  %132 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
-  %.not.i.i.i47 = icmp eq ptr %132, null
-  br i1 %.not.i.i.i47, label %133, label %rb_vm_lock_enter.exit.i48
+  %130 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
+  %.not.i.i.i52 = icmp eq ptr %130, null
+  br i1 %.not.i.i.i52, label %131, label %rb_vm_lock_enter.exit.i53
 
-133:                                              ; preds = %124
+131:                                              ; preds = %122
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #27
-  br label %rb_vm_lock_enter.exit.i48
+  br label %rb_vm_lock_enter.exit.i53
 
-rb_vm_lock_enter.exit.i48:                        ; preds = %133, %124
-  store i64 %129, ptr %85, align 8, !tbaa !14
-  %134 = icmp eq i64 %129, 0
-  %135 = and i64 %129, 7
-  %136 = icmp ne i64 %135, 0
-  %137 = or i1 %134, %136
-  br i1 %137, label %RCLASS_SET_CLASSPATH.exit.i49, label %138
+rb_vm_lock_enter.exit.i53:                        ; preds = %131, %122
+  store i64 %127, ptr %85, align 8, !tbaa !14
+  %132 = icmp eq i64 %127, 0
+  %133 = and i64 %127, 7
+  %134 = icmp ne i64 %133, 0
+  %135 = or i1 %132, %134
+  br i1 %135, label %RCLASS_SET_CLASSPATH.exit.i54, label %136
 
-138:                                              ; preds = %rb_vm_lock_enter.exit.i48
-  call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %129) #27
-  br label %RCLASS_SET_CLASSPATH.exit.i49
+136:                                              ; preds = %rb_vm_lock_enter.exit.i53
+  call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %127) #27
+  br label %RCLASS_SET_CLASSPATH.exit.i54
 
-RCLASS_SET_CLASSPATH.exit.i49:                    ; preds = %138, %rb_vm_lock_enter.exit.i48
-  %139 = getelementptr inbounds nuw i8, ptr %81, i64 149
-  %140 = load i8, ptr %139, align 1
-  %141 = or i8 %140, 1
-  store i8 %141, ptr %139, align 1
-  %.not.i50 = icmp eq ptr %131, null
-  br i1 %.not.i50, label %143, label %142
+RCLASS_SET_CLASSPATH.exit.i54:                    ; preds = %136, %rb_vm_lock_enter.exit.i53
+  %137 = getelementptr inbounds nuw i8, ptr %81, i64 149
+  %138 = load i8, ptr %137, align 1
+  %139 = or i8 %138, 1
+  store i8 %139, ptr %137, align 1
+  %.not.i55 = icmp eq ptr %129, null
+  br i1 %.not.i55, label %141, label %140
 
-142:                                              ; preds = %RCLASS_SET_CLASSPATH.exit.i49
-  call void @rb_id_table_foreach(ptr noundef nonnull %131, ptr noundef nonnull @set_namespace_path_i, ptr noundef nonnull %4) #27
-  br label %143
+140:                                              ; preds = %RCLASS_SET_CLASSPATH.exit.i54
+  call void @rb_id_table_foreach(ptr noundef nonnull %129, ptr noundef nonnull @set_namespace_path_i, ptr noundef nonnull %4) #27
+  br label %141
 
-143:                                              ; preds = %142, %RCLASS_SET_CLASSPATH.exit.i49
-  %144 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
-  %.not.i.i3.i51 = icmp eq ptr %144, null
-  br i1 %.not.i.i3.i51, label %145, label %set_namespace_path.exit52
+141:                                              ; preds = %140, %RCLASS_SET_CLASSPATH.exit.i54
+  %142 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
+  %.not.i.i3.i56 = icmp eq ptr %142, null
+  br i1 %.not.i.i3.i56, label %143, label %set_namespace_path.exit57
 
-145:                                              ; preds = %143
+143:                                              ; preds = %141
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #27
-  br label %set_namespace_path.exit52
+  br label %set_namespace_path.exit57
 
-set_namespace_path.exit52:                        ; preds = %143, %145
+set_namespace_path.exit57:                        ; preds = %141, %143
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %rb_namespace_p.exit.thread
 
-146:                                              ; preds = %120
-  br i1 %.not36, label %rb_namespace_p.exit.thread, label %147
+144:                                              ; preds = %120
+  %brmerge = or i1 %.not70, %121
+  br i1 %brmerge, label %rb_namespace_p.exit.thread, label %145
 
-147:                                              ; preds = %146
-  %148 = call i64 @rb_id2str(i64 noundef %1) #27
-  %149 = call i64 @rb_str_dup(i64 noundef %.0) #27
-  %150 = call i64 @rb_str_cat(i64 noundef %149, ptr noundef nonnull @.str.39, i64 noundef 2) #27
-  %151 = call i64 @rb_str_append(i64 noundef %149, i64 noundef %148) #27
-  %152 = call i64 @rb_fstring(i64 noundef %149) #27
-  store i64 %152, ptr %85, align 8, !tbaa !14
-  %153 = icmp eq i64 %152, 0
-  %154 = and i64 %152, 7
-  %155 = icmp ne i64 %154, 0
-  %156 = or i1 %153, %155
-  br i1 %156, label %RCLASS_SET_CLASSPATH.exit, label %157
+145:                                              ; preds = %144
+  %146 = call fastcc i64 @build_const_path(i64 noundef %.0, i64 noundef %1)
+  store i64 %146, ptr %85, align 8, !tbaa !14
+  %147 = icmp eq i64 %146, 0
+  %148 = and i64 %146, 7
+  %149 = icmp ne i64 %148, 0
+  %150 = or i1 %147, %149
+  br i1 %150, label %RCLASS_SET_CLASSPATH.exit, label %151
 
-157:                                              ; preds = %147
-  call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %152) #27
+151:                                              ; preds = %145
+  call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %146) #27
   br label %RCLASS_SET_CLASSPATH.exit
 
-RCLASS_SET_CLASSPATH.exit:                        ; preds = %147, %157
-  %158 = getelementptr inbounds nuw i8, ptr %81, i64 149
-  %159 = load i8, ptr %158, align 1
-  %160 = and i8 %159, -2
-  store i8 %160, ptr %158, align 1
+RCLASS_SET_CLASSPATH.exit:                        ; preds = %145, %151
+  %152 = getelementptr inbounds nuw i8, ptr %81, i64 149
+  %153 = load i8, ptr %152, align 1
+  %154 = and i8 %153, -2
+  store i8 %154, ptr %152, align 1
   br label %rb_namespace_p.exit.thread
 
-rb_namespace_p.exit.thread:                       ; preds = %122, %76, %91, %set_namespace_path.exit, %146, %RCLASS_SET_CLASSPATH.exit, %set_namespace_path.exit52, %rb_namespace_p.exit, %rb_vm_lock_leave.exit
+rb_namespace_p.exit.thread:                       ; preds = %76, %classname.exit, %set_namespace_path.exit, %144, %RCLASS_SET_CLASSPATH.exit, %set_namespace_path.exit57, %rb_namespace_p.exit, %rb_vm_lock_leave.exit
   ret void
 }
 
@@ -9952,6 +9945,16 @@ define internal noundef i32 @rb_local_constants_i(i64 noundef %0, i64 noundef %1
 }
 
 declare i64 @rb_id2str(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal fastcc i64 @build_const_path(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+  %3 = tail call i64 @rb_id2str(i64 noundef %1) #27
+  %4 = tail call i64 @rb_str_dup(i64 noundef %0) #27
+  %5 = tail call i64 @rb_str_cat(i64 noundef %4, ptr noundef nonnull @.str.39, i64 noundef 2) #27
+  %6 = tail call i64 @rb_str_append(i64 noundef %4, i64 noundef %3) #27
+  %7 = tail call i64 @rb_fstring(i64 noundef %4) #27
+  ret i64 %7
+}
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @set_namespace_path_i(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 {

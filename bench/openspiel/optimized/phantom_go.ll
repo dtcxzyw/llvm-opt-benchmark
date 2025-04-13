@@ -3091,39 +3091,37 @@ define noundef zeroext i1 @_ZNK10open_spiel10phantom_go14PhantomGoState10IsTermi
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
   %10 = icmp ult i64 %9, 2
-  br i1 %10, label %31, label %11
+  br i1 %10, label %30, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %.not = icmp ult i64 %9, %14
-  br i1 %.not, label %15, label %31
+  %.not = icmp uge i64 %9, %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8845
+  %16 = load i8, ptr %15, align 1
+  %17 = trunc i8 %16 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %17
+  br i1 %or.cond, label %30, label %18
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8845
-  %17 = load i8, ptr %16, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %31, label %19
+18:                                               ; preds = %11
+  %19 = getelementptr i8, ptr %5, i64 %8
+  %20 = getelementptr i8, ptr %19, i64 -8
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8764
+  %23 = load i32, ptr %22, align 4
+  %24 = sext i32 %23 to i64
+  %25 = icmp eq i64 %21, %24
+  br i1 %25, label %26, label %30
 
-19:                                               ; preds = %15
-  %20 = getelementptr i8, ptr %5, i64 %8
-  %21 = getelementptr i8, ptr %20, i64 -8
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8764
-  %24 = load i32, ptr %23, align 4
-  %25 = sext i32 %24 to i64
-  %26 = icmp eq i64 %22, %25
-  br i1 %26, label %27, label %31
+26:                                               ; preds = %18
+  %27 = getelementptr i8, ptr %19, i64 -24
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp eq i64 %28, %21
+  br label %30
 
-27:                                               ; preds = %19
-  %28 = getelementptr i8, ptr %20, i64 -24
-  %29 = load i64, ptr %28, align 8
-  %30 = icmp eq i64 %29, %22
-  br label %31
-
-31:                                               ; preds = %11, %15, %27, %19, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %15 ], [ true, %11 ], [ false, %19 ], [ %30, %27 ]
+30:                                               ; preds = %11, %26, %18, %1
+  %.0 = phi i1 [ false, %1 ], [ true, %11 ], [ false, %18 ], [ %29, %26 ]
   ret i1 %.0
 }
 

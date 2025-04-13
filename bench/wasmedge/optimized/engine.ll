@@ -13025,8 +13025,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4infoIA55_cEEvRKT_(ptr noundef
   %8 = icmp slt i32 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %9)
-  %brmerge.i.i.i = or i1 %8, %10
-  br i1 %brmerge.i.i.i, label %11, label %_ZN6spdlog6logger3logIA55_cEEvNS_5level10level_enumERKT_.exit
+  %or.cond.i.i.i = or i1 %8, %10
+  br i1 %or.cond.i.i.i, label %11, label %_ZN6spdlog6logger3logIA55_cEEvNS_5level10level_enumERKT_.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13068,8 +13068,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJlEEEvNS_10source_locENS
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %34
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %34
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #24
@@ -38806,8 +38806,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJmEEEvNS_10source_locENS
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %34
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %34
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #24
@@ -38877,8 +38877,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger5errorIA52_cEEvRKT_(ptr nounde
   %8 = icmp slt i32 %7, 5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %9)
-  %brmerge.i.i.i = or i1 %8, %10
-  br i1 %brmerge.i.i.i, label %11, label %_ZN6spdlog6logger3logIA52_cEEvNS_5level10level_enumERKT_.exit
+  %or.cond.i.i.i = or i1 %8, %10
+  br i1 %or.cond.i.i.i, label %11, label %_ZN6spdlog6logger3logIA52_cEEvNS_5level10level_enumERKT_.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -38920,106 +38920,104 @@ define linkonce_odr hidden noundef ptr @_ZN8WasmEdge7Runtime12StackManager22mayb
   %10 = sdiv exact i64 %9, 56
   %11 = icmp ugt i64 %10, 1
   %.pre = load i8, ptr %1, align 16
-  br i1 %11, label %12, label %62
+  %12 = trunc i8 %.pre to i1
+  %or.cond = select i1 %11, i1 %12, i1 false
+  br i1 %or.cond, label %13, label %61
 
-12:                                               ; preds = %2
-  %13 = trunc i8 %.pre to i1
-  br i1 %13, label %14, label %62
-
-14:                                               ; preds = %12
-  %15 = icmp ne ptr %6, %5
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds i8, ptr %5, i64 -32
-  %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 -40
-  %19 = load i32, ptr %18, align 8
-  %20 = icmp uge i32 %17, %19
-  tail call void @llvm.assume(i1 %20)
-  %21 = sub i32 %17, %19
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %0, align 8
+13:                                               ; preds = %2
+  %14 = icmp ne ptr %6, %5
+  tail call void @llvm.assume(i1 %14)
+  %15 = getelementptr inbounds i8, ptr %5, i64 -32
+  %16 = load i32, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 -40
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp uge i32 %16, %18
+  tail call void @llvm.assume(i1 %19)
+  %20 = sub i32 %16, %18
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %0, align 8
+  %25 = ptrtoint ptr %23 to i64
   %26 = ptrtoint ptr %24 to i64
-  %27 = ptrtoint ptr %25 to i64
-  %28 = sub i64 %26, %27
-  %29 = ashr exact i64 %28, 4
-  %30 = getelementptr inbounds i8, ptr %5, i64 -36
-  %31 = load i32, ptr %30, align 4
-  %32 = zext i32 %31 to i64
-  %33 = sub nsw i64 %29, %32
-  %34 = icmp uge i64 %33, %22
-  tail call void @llvm.assume(i1 %34)
-  %35 = zext i32 %17 to i64
-  %36 = getelementptr inbounds nuw %"class.WasmEdge::Variant", ptr %25, i64 %35
-  %37 = zext i32 %19 to i64
-  %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds %"class.WasmEdge::Variant", ptr %36, i64 %38
-  %40 = sub nsw i64 0, %32
-  %41 = getelementptr inbounds %"class.WasmEdge::Variant", ptr %24, i64 %40
-  %42 = ptrtoint ptr %41 to i64
-  %43 = sub i64 %42, %27
-  %44 = getelementptr inbounds i8, ptr %25, i64 %43
-  %.not.i.i.i = icmp eq ptr %39, %41
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i, label %45
+  %27 = sub i64 %25, %26
+  %28 = ashr exact i64 %27, 4
+  %29 = getelementptr inbounds i8, ptr %5, i64 -36
+  %30 = load i32, ptr %29, align 4
+  %31 = zext i32 %30 to i64
+  %32 = sub nsw i64 %28, %31
+  %33 = icmp uge i64 %32, %21
+  tail call void @llvm.assume(i1 %33)
+  %34 = zext i32 %16 to i64
+  %35 = getelementptr inbounds nuw %"class.WasmEdge::Variant", ptr %24, i64 %34
+  %36 = zext i32 %18 to i64
+  %37 = sub nsw i64 0, %36
+  %38 = getelementptr inbounds %"class.WasmEdge::Variant", ptr %35, i64 %37
+  %39 = sub nsw i64 0, %31
+  %40 = getelementptr inbounds %"class.WasmEdge::Variant", ptr %23, i64 %39
+  %41 = ptrtoint ptr %40 to i64
+  %42 = sub i64 %41, %26
+  %43 = getelementptr inbounds i8, ptr %24, i64 %42
+  %.not.i.i.i = icmp eq ptr %38, %40
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i, label %44
 
-45:                                               ; preds = %14
-  %.not11.i.i.i = icmp eq i32 %31, 0
+44:                                               ; preds = %13
+  %.not11.i.i.i = icmp eq i32 %30, 0
   br i1 %.not11.i.i.i, label %._crit_edge.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS2_10RefVariantENS2_10StrVariantEEEESt6vectorISG_SaISG_EEEESL_ET0_T_SN_SM_.exit.i.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS2_10RefVariantENS2_10StrVariantEEEESt6vectorISG_SaISG_EEEESL_ET0_T_SN_SM_.exit.i.i.i: ; preds = %45
-  %.idx.neg.i = shl nuw nsw i64 %32, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 16 %39, ptr align 16 %44, i64 %.idx.neg.i, i1 false)
-  %.pre.i.i.i = load ptr, ptr %23, align 8
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS2_10RefVariantENS2_10StrVariantEEEESt6vectorISG_SaISG_EEEESL_ET0_T_SN_SM_.exit.i.i.i: ; preds = %44
+  %.idx.neg.i = shl nuw nsw i64 %31, 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 16 %38, ptr align 16 %43, i64 %.idx.neg.i, i1 false)
+  %.pre.i.i.i = load ptr, ptr %22, align 8
   %.pre13.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS2_10RefVariantENS2_10StrVariantEEEESt6vectorISG_SaISG_EEEESL_ET0_T_SN_SM_.exit.i.i.i, %45
-  %.pre-phi14.i.i.i = phi i64 [ %.pre13.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS2_10RefVariantENS2_10StrVariantEEEESt6vectorISG_SaISG_EEEESL_ET0_T_SN_SM_.exit.i.i.i ], [ %42, %45 ]
-  %46 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS2_10RefVariantENS2_10StrVariantEEEESt6vectorISG_SaISG_EEEESL_ET0_T_SN_SM_.exit.i.i.i ], [ %44, %45 ]
-  %47 = sub i64 %.pre-phi14.i.i.i, %42
-  %48 = getelementptr inbounds i8, ptr %39, i64 %47
-  %.not.i.i.i.i = icmp eq ptr %46, %48
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i, label %49
+._crit_edge.i.i.i:                                ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS2_10RefVariantENS2_10StrVariantEEEESt6vectorISG_SaISG_EEEESL_ET0_T_SN_SM_.exit.i.i.i, %44
+  %.pre-phi14.i.i.i = phi i64 [ %.pre13.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS2_10RefVariantENS2_10StrVariantEEEESt6vectorISG_SaISG_EEEESL_ET0_T_SN_SM_.exit.i.i.i ], [ %41, %44 ]
+  %45 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS2_10RefVariantENS2_10StrVariantEEEESt6vectorISG_SaISG_EEEESL_ET0_T_SN_SM_.exit.i.i.i ], [ %43, %44 ]
+  %46 = sub i64 %.pre-phi14.i.i.i, %41
+  %47 = getelementptr inbounds i8, ptr %38, i64 %46
+  %.not.i.i.i.i = icmp eq ptr %45, %47
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i, label %48
 
-49:                                               ; preds = %._crit_edge.i.i.i
-  store ptr %48, ptr %23, align 8
+48:                                               ; preds = %._crit_edge.i.i.i
+  store ptr %47, ptr %22, align 8
   br label %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i
 
-_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i: ; preds = %49, %._crit_edge.i.i.i, %14
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 -56
-  %52 = getelementptr inbounds i8, ptr %50, i64 -48
-  %53 = load ptr, ptr %52, align 8
-  store ptr %51, ptr %4, align 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 -24
-  %55 = load ptr, ptr %54, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN8WasmEdge7Runtime12StackManager8popFrameEv.exit, label %56
+_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i: ; preds = %48, %._crit_edge.i.i.i, %13
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 -56
+  %51 = getelementptr inbounds i8, ptr %49, i64 -48
+  %52 = load ptr, ptr %51, align 8
+  store ptr %50, ptr %4, align 8
+  %53 = getelementptr inbounds i8, ptr %49, i64 -24
+  %54 = load ptr, ptr %53, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %54, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN8WasmEdge7Runtime12StackManager8popFrameEv.exit, label %55
 
-56:                                               ; preds = %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i
-  %57 = getelementptr inbounds i8, ptr %50, i64 -8
-  %58 = load ptr, ptr %57, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %60 = ptrtoint ptr %55 to i64
-  %61 = sub i64 %59, %60
-  tail call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %61) #23
+55:                                               ; preds = %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i
+  %56 = getelementptr inbounds i8, ptr %49, i64 -8
+  %57 = load ptr, ptr %56, align 8
+  %58 = ptrtoint ptr %57 to i64
+  %59 = ptrtoint ptr %54 to i64
+  %60 = sub i64 %58, %59
+  tail call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef %60) #23
   br label %_ZN8WasmEdge7Runtime12StackManager8popFrameEv.exit
 
-62:                                               ; preds = %12, %2
-  %63 = and i8 %.pre, 2
-  %.not = icmp eq i8 %63, 0
-  br i1 %.not, label %_ZN8WasmEdge7Runtime12StackManager8popFrameEv.exit, label %64
+61:                                               ; preds = %2
+  %62 = and i8 %.pre, 2
+  %.not = icmp eq i8 %62, 0
+  br i1 %.not, label %_ZN8WasmEdge7Runtime12StackManager8popFrameEv.exit, label %63
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %5, i64 -16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 -32
-  store ptr %67, ptr %65, align 8
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds i8, ptr %5, i64 -16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 -32
+  store ptr %66, ptr %64, align 8
   br label %_ZN8WasmEdge7Runtime12StackManager8popFrameEv.exit
 
-_ZN8WasmEdge7Runtime12StackManager8popFrameEv.exit: ; preds = %56, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i, %62, %64
-  %.0 = phi ptr [ %1, %64 ], [ %1, %62 ], [ %53, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i ], [ %53, %56 ]
+_ZN8WasmEdge7Runtime12StackManager8popFrameEv.exit: ; preds = %55, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i, %61, %63
+  %.0 = phi ptr [ %1, %63 ], [ %1, %61 ], [ %52, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSE_SG_EESL_.exit.i ], [ %52, %55 ]
   ret ptr %.0
 }
 
@@ -70191,8 +70189,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5Va
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %35
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %35
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #24
@@ -72034,8 +72032,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo12I
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %35
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %35
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #24
@@ -75266,8 +75264,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCodeEEE
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %35
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %35
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #24
@@ -75784,8 +75782,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger5debugIA22_cEEvRKT_(ptr nounde
   %8 = icmp slt i32 %7, 2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %9)
-  %brmerge.i.i.i = or i1 %8, %10
-  br i1 %brmerge.i.i.i, label %11, label %_ZN6spdlog6logger3logIA22_cEEvNS_5level10level_enumERKT_.exit
+  %or.cond.i.i.i = or i1 %8, %10
+  br i1 %or.cond.i.i.i, label %11, label %_ZN6spdlog6logger3logIA22_cEEvNS_5level10level_enumERKT_.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -75814,8 +75812,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger5debugIA13_cEEvRKT_(ptr nounde
   %8 = icmp slt i32 %7, 2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %9)
-  %brmerge.i.i.i = or i1 %8, %10
-  br i1 %brmerge.i.i.i, label %11, label %_ZN6spdlog6logger3logIA13_cEEvNS_5level10level_enumERKT_.exit
+  %or.cond.i.i.i = or i1 %8, %10
+  br i1 %or.cond.i.i.i, label %11, label %_ZN6spdlog6logger3logIA13_cEEvNS_5level10level_enumERKT_.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -75842,8 +75840,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo15I
   %13 = icmp sge i32 %2, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = tail call noundef zeroext i1 @_ZNK6spdlog7details10backtracer7enabledEv(ptr noundef nonnull align 8 dereferenceable(104) %14)
-  %brmerge = or i1 %13, %15
-  br i1 %brmerge, label %16, label %35
+  %or.cond = or i1 %13, %15
+  br i1 %or.cond, label %16, label %35
 
 16:                                               ; preds = %6
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #24

@@ -755,11 +755,11 @@ define internal fastcc i32 @dissect_samples_im(i1 noundef zeroext %0, ptr nounde
 108:                                              ; preds = %77, %95, %79, %55, %67
   %109 = load i32, ptr @ett_samples_rms, align 4
   %110 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %109)
-  %.116 = select i1 %0, i32 24, i32 32
+  %.117 = select i1 %0, i32 24, i32 32
   %111 = load i32, ptr %10, align 4
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %111, i32 noundef %.116)
+  tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %111, i32 noundef %.117)
   %112 = load i32, ptr @hf_samples_rms_values, align 4
-  %113 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %112, ptr noundef %1, i32 noundef %111, i32 noundef %.116, i32 noundef 0)
+  %113 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %112, ptr noundef %1, i32 noundef %111, i32 noundef %.117, i32 noundef 0)
   %114 = load i32, ptr @ett_samples_rms_values, align 4
   %115 = tail call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114)
   br i1 %33, label %116, label %151
@@ -825,17 +825,17 @@ add_rms_values.exit:                              ; preds = %129
 
 145:                                              ; preds = %145, %135
   %146 = phi i32 [ %111, %135 ], [ %150, %145 ]
-  %indvars.iv.i118 = phi i64 [ 0, %135 ], [ %indvars.iv.next.i119, %145 ]
+  %indvars.iv.i119 = phi i64 [ 0, %135 ], [ %indvars.iv.next.i120, %145 ]
   tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %146, i32 noundef 4)
-  %147 = getelementptr i32, ptr %16, i64 %indvars.iv.i118
+  %147 = getelementptr i32, ptr %16, i64 %indvars.iv.i119
   %148 = load i32, ptr %147, align 4
   %149 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %148, ptr noundef %1, i32 noundef %146, i32 noundef 4, i32 noundef 0)
   %150 = add i32 %146, 4
-  %indvars.iv.next.i119 = add nuw nsw i64 %indvars.iv.i118, 1
-  %exitcond.not.i120 = icmp eq i64 %indvars.iv.next.i119, 6
-  br i1 %exitcond.not.i120, label %add_rms_values.exit121, label %145, !llvm.loop !6
+  %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
+  %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, 6
+  br i1 %exitcond.not.i121, label %add_rms_values.exit122, label %145, !llvm.loop !6
 
-add_rms_values.exit121:                           ; preds = %145
+add_rms_values.exit122:                           ; preds = %145
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #8
   br label %.critedge
 
@@ -864,15 +864,15 @@ add_rms_values.exit121:                           ; preds = %145
 
 161:                                              ; preds = %161, %152
   %162 = phi i32 [ %111, %152 ], [ %166, %161 ]
-  %indvars.iv.i123 = phi i64 [ 0, %152 ], [ %indvars.iv.next.i124, %161 ]
+  %indvars.iv.i124 = phi i64 [ 0, %152 ], [ %indvars.iv.next.i125, %161 ]
   tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %162, i32 noundef 4)
-  %163 = getelementptr i32, ptr %17, i64 %indvars.iv.i123
+  %163 = getelementptr i32, ptr %17, i64 %indvars.iv.i124
   %164 = load i32, ptr %163, align 4
   %165 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %164, ptr noundef %1, i32 noundef %162, i32 noundef 4, i32 noundef 0)
   %166 = add i32 %162, 4
-  %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i123, 1
-  %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, 8
-  br i1 %exitcond.not.i125, label %167, label %161, !llvm.loop !6
+  %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i124, 1
+  %exitcond.not.i126 = icmp eq i64 %indvars.iv.next.i125, 8
+  br i1 %exitcond.not.i126, label %167, label %161, !llvm.loop !6
 
 167:                                              ; preds = %161
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #8
@@ -923,10 +923,10 @@ add_rms_values.exit121:                           ; preds = %145
 
 197:                                              ; preds = %add_timestamp_sample.exit.i, %169
   %198 = phi i32 [ %181, %169 ], [ %289, %add_timestamp_sample.exit.i ]
-  %indvars.iv.i128 = phi i64 [ 0, %169 ], [ %indvars.iv.next.i129, %add_timestamp_sample.exit.i ]
+  %indvars.iv.i129 = phi i64 [ 0, %169 ], [ %indvars.iv.next.i130, %add_timestamp_sample.exit.i ]
   %.01617.i = phi i32 [ 0, %169 ], [ %198, %add_timestamp_sample.exit.i ]
-  %199 = icmp eq i64 %indvars.iv.i128, 0
-  %200 = getelementptr i32, ptr %18, i64 %indvars.iv.i128
+  %199 = icmp eq i64 %indvars.iv.i129, 0
+  %200 = getelementptr i32, ptr %18, i64 %indvars.iv.i129
   %201 = load i32, ptr %200, align 4
   call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %198, i32 noundef 10)
   %202 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %198)
@@ -1075,15 +1075,15 @@ add_timestamp_sample.exit.i:                      ; preds = %276, %264
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i128, 1
-  %exitcond.not.i130 = icmp eq i64 %indvars.iv.next.i129, 8
-  br i1 %exitcond.not.i130, label %add_timestamps_set.exit, label %197, !llvm.loop !8
+  %indvars.iv.next.i130 = add nuw nsw i64 %indvars.iv.i129, 1
+  %exitcond.not.i131 = icmp eq i64 %indvars.iv.next.i130, 8
+  br i1 %exitcond.not.i131, label %add_timestamps_set.exit, label %197, !llvm.loop !8
 
 add_timestamps_set.exit:                          ; preds = %add_timestamp_sample.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %add_rms_values.exit121, %add_rms_values.exit, %151, %add_timestamps_set.exit, %167
+.critedge:                                        ; preds = %add_rms_values.exit122, %add_rms_values.exit, %151, %add_timestamps_set.exit, %167
   %290 = call i32 @tvb_captured_length(ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
   ret i32 %290

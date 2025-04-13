@@ -1033,8 +1033,8 @@ define internal fastcc ptr @mi_heap_malloc_zero_aligned_at_overalloc(ptr noundef
 
 18:                                               ; preds = %._crit_edge, %12
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %14, %12 ]
-  %.039 = phi ptr [ %10, %._crit_edge ], [ %16, %12 ]
-  %19 = ptrtoint ptr %.039 to i64
+  %.040 = phi ptr [ %10, %._crit_edge ], [ %16, %12 ]
+  %19 = ptrtoint ptr %.040 to i64
   %20 = add i64 %3, %19
   %21 = and i64 %20, %.pre-phi
   %22 = icmp eq i64 %21, 0
@@ -1042,8 +1042,8 @@ define internal fastcc ptr @mi_heap_malloc_zero_aligned_at_overalloc(ptr noundef
   %24 = select i1 %22, i64 0, i64 %23
   %25 = add i64 %24, %19
   %26 = inttoptr i64 %25 to ptr
-  %.not43 = icmp eq ptr %.039, %26
-  br i1 %.not43, label %44, label %27
+  %.not44 = icmp eq ptr %.040, %26
+  br i1 %.not44, label %44, label %27
 
 27:                                               ; preds = %18
   %28 = add i64 %19, -1
@@ -1063,12 +1063,12 @@ define internal fastcc ptr @mi_heap_malloc_zero_aligned_at_overalloc(ptr noundef
   %42 = or i8 %41, 2
   store i8 %42, ptr %40, align 2
   %43 = add i64 %24, %1
-  tail call void @_mi_padding_shrink(ptr noundef nonnull %39, ptr noundef nonnull %.039, i64 noundef %43) #8
+  tail call void @_mi_padding_shrink(ptr noundef nonnull %39, ptr noundef nonnull %.040, i64 noundef %43) #8
   br label %44
 
 44:                                               ; preds = %27, %18
-  %brmerge.not = and i1 %6, %4
-  br i1 %brmerge.not, label %45, label %47
+  %or.cond = and i1 %6, %4
+  br i1 %or.cond, label %45, label %47
 
 45:                                               ; preds = %44
   %46 = tail call i64 @mi_usable_size(ptr noundef %26) #8
@@ -1076,8 +1076,8 @@ define internal fastcc ptr @mi_heap_malloc_zero_aligned_at_overalloc(ptr noundef
   tail call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 %46, i1 false)
   br label %47
 
-47:                                               ; preds = %45, %44, %12, %8, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %8 ], [ null, %12 ], [ %26, %44 ], [ %26, %45 ]
+47:                                               ; preds = %44, %45, %12, %8, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %8 ], [ null, %12 ], [ %26, %45 ], [ %26, %44 ]
   ret ptr %.0
 }
 

@@ -328,7 +328,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
 
 .lr.ph59.split.us.split.us:                       ; preds = %.lr.ph59.split.us, %..loopexit_crit_edge.us.us
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %..loopexit_crit_edge.us.us ], [ 0, %.lr.ph59.split.us ]
-  %.04257.us.us = phi i32 [ %.1.us.us, %..loopexit_crit_edge.us.us ], [ -1, %.lr.ph59.split.us ]
+  %.04357.us.us = phi i32 [ %.1.us.us, %..loopexit_crit_edge.us.us ], [ -1, %.lr.ph59.split.us ]
   %13 = load i32, ptr %1, align 8
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 4
@@ -352,8 +352,8 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   br label %28
 
 28:                                               ; preds = %50, %.lr.ph.us.us
-  %.04154.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %51, %50 ]
-  %.253.us.us = phi i32 [ %.04257.us.us, %.lr.ph.us.us ], [ %spec.store.select.us.us, %50 ]
+  %.04254.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %51, %50 ]
+  %.253.us.us = phi i32 [ %.04357.us.us, %.lr.ph.us.us ], [ %spec.store.select.us.us, %50 ]
   %29 = add i32 %.253.us.us, 1
   %.not.us.us = icmp slt i32 %29, %.fr67
   %spec.store.select.us.us = select i1 %.not.us.us, i32 %29, i32 0
@@ -373,14 +373,14 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 68
   %41 = load i32, ptr %40, align 4
-  %.not44.us.us = icmp eq i32 %22, %41
-  br i1 %.not44.us.us, label %42, label %.split.us
+  %.not45.us.us = icmp eq i32 %22, %41
+  br i1 %.not45.us.us, label %42, label %.split.us
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 76
   %44 = load i32, ptr %43, align 4
-  %.not45.us.us = icmp eq i32 %24, %44
-  br i1 %.not45.us.us, label %45, label %.split.us
+  %.not46.us.us = icmp eq i32 %24, %44
+  br i1 %.not46.us.us, label %45, label %.split.us
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 74
@@ -391,12 +391,12 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   br label %..loopexit_crit_edge.us.us
 
 50:                                               ; preds = %35, %28
-  %51 = add nuw nsw i32 %.04154.us.us, 1
+  %51 = add nuw nsw i32 %.04254.us.us, 1
   %exitcond91.not = icmp eq i32 %51, %.fr67
   br i1 %exitcond91.not, label %..loopexit_crit_edge.us.us, label %28, !llvm.loop !11
 
 ..loopexit_crit_edge.us.us:                       ; preds = %50, %45, %.lr.ph59.split.us.split.us
-  %.1.us.us = phi i32 [ %.04257.us.us, %.lr.ph59.split.us.split.us ], [ %spec.store.select.us.us, %45 ], [ %spec.store.select.us.us, %50 ]
+  %.1.us.us = phi i32 [ %.04357.us.us, %.lr.ph59.split.us.split.us ], [ %spec.store.select.us.us, %45 ], [ %spec.store.select.us.us, %50 ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
   br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph59.split.us.split.us, !llvm.loop !12
@@ -405,7 +405,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   %52 = phi ptr [ %96, %95 ], [ %10, %.lr.ph59.split.us ]
   %53 = phi ptr [ %97, %95 ], [ %10, %.lr.ph59.split.us ]
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %95 ], [ 0, %.lr.ph59.split.us ]
-  %.04257.us = phi i32 [ %.1.us, %95 ], [ -1, %.lr.ph59.split.us ]
+  %.04357.us = phi i32 [ %.1.us, %95 ], [ -1, %.lr.ph59.split.us ]
   %54 = load i32, ptr %1, align 8
   %55 = sext i32 %54 to i64
   %56 = shl nsw i64 %55, 4
@@ -429,8 +429,8 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   br label %69
 
 69:                                               ; preds = %.lr.ph.us, %93
-  %.04154.us = phi i32 [ 0, %.lr.ph.us ], [ %94, %93 ]
-  %.253.us = phi i32 [ %.04257.us, %.lr.ph.us ], [ %spec.store.select.us, %93 ]
+  %.04254.us = phi i32 [ 0, %.lr.ph.us ], [ %94, %93 ]
+  %.253.us = phi i32 [ %.04357.us, %.lr.ph.us ], [ %spec.store.select.us, %93 ]
   %70 = add i32 %.253.us, 1
   %.not.us = icmp slt i32 %70, %.fr67
   %spec.store.select.us = select i1 %.not.us, i32 %70, i32 0
@@ -450,14 +450,14 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 68
   %82 = load i32, ptr %81, align 4
-  %.not44.us = icmp eq i32 %63, %82
-  br i1 %.not44.us, label %83, label %.split.us
+  %.not45.us = icmp eq i32 %63, %82
+  br i1 %.not45.us, label %83, label %.split.us
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 76
   %85 = load i32, ptr %84, align 4
-  %.not45.us = icmp eq i32 %65, %85
-  br i1 %.not45.us, label %86, label %.split.us
+  %.not46.us = icmp eq i32 %65, %85
+  br i1 %.not46.us, label %86, label %.split.us
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %72, i64 74
@@ -475,14 +475,14 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   br i1 %.not68, label %.split61.us, label %95
 
 93:                                               ; preds = %76, %69
-  %94 = add nuw nsw i32 %.04154.us, 1
+  %94 = add nuw nsw i32 %.04254.us, 1
   %exitcond85.not = icmp eq i32 %94, %.fr67
   br i1 %exitcond85.not, label %..loopexit_crit_edge.us, label %69, !llvm.loop !11
 
 95:                                               ; preds = %..loopexit_crit_edge.us, %.lr.ph59.split.us.split
   %96 = phi ptr [ %52, %.lr.ph59.split.us.split ], [ %90, %..loopexit_crit_edge.us ]
   %97 = phi ptr [ %53, %.lr.ph59.split.us.split ], [ %90, %..loopexit_crit_edge.us ]
-  %.1.us = phi i32 [ %.04257.us, %.lr.ph59.split.us.split ], [ %spec.store.select.us, %..loopexit_crit_edge.us ]
+  %.1.us = phi i32 [ %.04357.us, %.lr.ph59.split.us.split ], [ %spec.store.select.us, %..loopexit_crit_edge.us ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count95
   br i1 %exitcond90.not, label %._crit_edge, label %.lr.ph59.split.us.split, !llvm.loop !12

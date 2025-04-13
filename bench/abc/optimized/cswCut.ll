@@ -769,23 +769,21 @@ Aig_ManObj.exit42:                                ; preds = %2, %8
   %26 = and i32 %25, 15
   %switch.tableidx = add nsw i32 %26, -7
   %27 = icmp ult i32 %switch.tableidx, 8
-  br i1 %27, label %switch.hole_check, label %29
-
-switch.hole_check:                                ; preds = %Aig_ManObj.exit42
-  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i8
+  %switch.maskindex = trunc nsw i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 -47, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %29
+  %or.cond = select i1 %27, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %29
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %Aig_ManObj.exit42
   %28 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.Csw_ObjTwoVarCut, i64 0, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %29
 
-29:                                               ; preds = %switch.lookup, %switch.hole_check, %Aig_ManObj.exit42
-  %.036 = phi i32 [ %26, %Aig_ManObj.exit42 ], [ %26, %switch.hole_check ], [ %switch.load, %switch.lookup ]
-  %.0 = phi i64 [ 0, %Aig_ManObj.exit42 ], [ 0, %switch.hole_check ], [ 1, %switch.lookup ]
+29:                                               ; preds = %switch.lookup, %Aig_ManObj.exit42
+  %.036 = phi i32 [ %26, %Aig_ManObj.exit42 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i64 [ 0, %Aig_ManObj.exit42 ], [ 1, %switch.lookup ]
   switch i32 %.036, label %.thread49 [
     i32 1, label %.thread
     i32 2, label %37

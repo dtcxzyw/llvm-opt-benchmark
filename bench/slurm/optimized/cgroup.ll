@@ -1843,38 +1843,36 @@ define dso_local zeroext i1 @cgroup_memcg_job_confinement() local_unnamed_addr #
 4:                                                ; preds = %0
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 72), align 8
   %6 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef nonnull @.str.46) #12
-  %.not7 = icmp eq i32 %6, 0
-  br i1 %.not7, label %16, label %7
+  %.not8 = icmp eq i32 %6, 0
+  br i1 %.not8, label %15, label %7
 
 7:                                                ; preds = %4
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 17), align 1, !range !8, !noundef !9
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %13, label %10
+  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 40), align 8, !range !8
+  %11 = trunc nuw i8 %10 to i1
+  %or.cond = select i1 %9, i1 true, i1 %11
+  br i1 %or.cond, label %12, label %15
 
-10:                                               ; preds = %7
-  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 40), align 8, !range !8, !noundef !9
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %16
+12:                                               ; preds = %7
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1416), align 8
+  %14 = tail call ptr @xstrstr(ptr noundef %13, ptr noundef nonnull @.str.47) #12
+  %.not9 = icmp ne ptr %14, null
+  br label %15
 
-13:                                               ; preds = %10, %7
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1416), align 8
-  %15 = tail call ptr @xstrstr(ptr noundef %14, ptr noundef nonnull @.str.47) #12
-  %.not8 = icmp ne ptr %15, null
-  br label %16
+15:                                               ; preds = %12, %4, %7
+  %.0 = phi i1 [ false, %7 ], [ false, %4 ], [ %.not9, %12 ]
+  %16 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @cg_conf_lock) #12
+  %.not10 = icmp eq i32 %16, 0
+  br i1 %.not10, label %19, label %17
 
-16:                                               ; preds = %13, %4, %10
-  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ %.not8, %13 ]
-  %17 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @cg_conf_lock) #12
-  %.not9 = icmp eq i32 %17, 0
-  br i1 %.not9, label %20, label %18
-
-18:                                               ; preds = %16
-  %19 = tail call ptr @__errno_location() #13
-  store i32 %17, ptr %19, align 4
+17:                                               ; preds = %15
+  %18 = tail call ptr @__errno_location() #13
+  store i32 %16, ptr %18, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.cgroup_memcg_job_confinement) #14
   unreachable
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   ret i1 %.0
 }
 

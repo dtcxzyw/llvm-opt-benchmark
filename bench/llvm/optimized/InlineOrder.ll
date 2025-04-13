@@ -6924,8 +6924,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119CostBenefitPriorit
   %13 = load i32, ptr %12, align 4, !tbaa !280
   %14 = add nsw i32 %13, %11
   %15 = icmp slt i32 %14, %9
-  %brmerge = select i1 %10, i1 true, i1 %15
-  br i1 %brmerge, label %16, label %19
+  %or.cond = select i1 %10, i1 true, i1 %15
+  br i1 %or.cond, label %16, label %19
 
 16:                                               ; preds = %2
   %17 = xor i1 %10, %15
@@ -6941,8 +6941,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119CostBenefitPriorit
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load i8, ptr %24, align 8, !tbaa !188, !range !56, !noundef !57
   %26 = or i8 %25, %22
-  %brmerge24.not = icmp eq i8 %26, 0
-  br i1 %brmerge24.not, label %48, label %27
+  %or.cond3.not = icmp eq i8 %26, 0
+  br i1 %or.cond3.not, label %48, label %27
 
 27:                                               ; preds = %19
   %28 = trunc nuw i8 %22 to i1
@@ -6977,18 +6977,18 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %29, %37, %40
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !189
   %43 = icmp ugt i32 %42, 64
-  br i1 %43, label %44, label %_ZN4llvm5APIntD2Ev.exit25
+  br i1 %43, label %44, label %_ZN4llvm5APIntD2Ev.exit27
 
 44:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit
   %45 = load ptr, ptr %3, align 8, !tbaa !75
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %_ZN4llvm5APIntD2Ev.exit25, label %47
+  br i1 %46, label %_ZN4llvm5APIntD2Ev.exit27, label %47
 
 47:                                               ; preds = %44
   call void @_ZdaPv(ptr noundef nonnull %45) #25
-  br label %_ZN4llvm5APIntD2Ev.exit25
+  br label %_ZN4llvm5APIntD2Ev.exit27
 
-_ZN4llvm5APIntD2Ev.exit25:                        ; preds = %_ZN4llvm5APIntD2Ev.exit, %44, %47
+_ZN4llvm5APIntD2Ev.exit27:                        ; preds = %_ZN4llvm5APIntD2Ev.exit, %44, %47
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
   br label %50
 
@@ -6996,8 +6996,8 @@ _ZN4llvm5APIntD2Ev.exit25:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %49 = icmp slt i32 %5, %11
   br label %50
 
-50:                                               ; preds = %16, %_ZN4llvm5APIntD2Ev.exit25, %48, %27
-  %.0 = phi i1 [ %33, %_ZN4llvm5APIntD2Ev.exit25 ], [ %49, %48 ], [ %28, %27 ], [ %spec.select, %16 ]
+50:                                               ; preds = %16, %_ZN4llvm5APIntD2Ev.exit27, %48, %27
+  %.0 = phi i1 [ %33, %_ZN4llvm5APIntD2Ev.exit27 ], [ %49, %48 ], [ %28, %27 ], [ %spec.select, %16 ]
   ret i1 %.0
 }
 
@@ -7167,64 +7167,62 @@ define linkonce_odr hidden void @_ZNSt22_Optional_payload_baseIN4llvm15CostBenef
   %4 = load i8, ptr %3, align 8, !tbaa !188, !range !56, !noundef !57
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %7 = load i8, ptr %6, align 8, !tbaa !188, !range !56, !noundef !57
+  %7 = load i8, ptr %6, align 8, !range !56
   %8 = trunc nuw i8 %7 to i1
-  br i1 %5, label %9, label %.thread
+  %or.cond = select i1 %5, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %32
 
 9:                                                ; preds = %2
-  br i1 %8, label %10, label %44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i32, ptr %10, align 8, !tbaa !189
+  %12 = icmp ult i32 %11, 65
+  br i1 %12, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %13
 
-10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !189
-  %13 = icmp ult i32 %12, 65
-  br i1 %13, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %14
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %0, align 8, !tbaa !75
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %16
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %0, align 8, !tbaa !75
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %_ZN4llvm5APIntaSEOS0_.exit.i, label %17
-
-17:                                               ; preds = %14
-  tail call void @_ZdaPv(ptr noundef nonnull %15) #25
+16:                                               ; preds = %13
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #25
   br label %_ZN4llvm5APIntaSEOS0_.exit.i
 
-_ZN4llvm5APIntaSEOS0_.exit.i:                     ; preds = %17, %14, %10
-  %18 = load i64, ptr %1, align 8
-  store i64 %18, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !189
-  store i32 %20, ptr %11, align 8, !tbaa !189
-  store i32 0, ptr %19, align 8, !tbaa !189
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load i32, ptr %22, align 8, !tbaa !189
-  %24 = icmp ult i32 %23, 65
-  br i1 %24, label %_ZN4llvm15CostBenefitPairaSEOS0_.exit, label %25
+_ZN4llvm5APIntaSEOS0_.exit.i:                     ; preds = %16, %13, %9
+  %17 = load i64, ptr %1, align 8
+  store i64 %17, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = load i32, ptr %18, align 8, !tbaa !189
+  store i32 %19, ptr %10, align 8, !tbaa !189
+  store i32 0, ptr %18, align 8, !tbaa !189
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = load i32, ptr %21, align 8, !tbaa !189
+  %23 = icmp ult i32 %22, 65
+  br i1 %23, label %_ZN4llvm15CostBenefitPairaSEOS0_.exit, label %24
 
-25:                                               ; preds = %_ZN4llvm5APIntaSEOS0_.exit.i
-  %26 = load ptr, ptr %21, align 8, !tbaa !75
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %_ZN4llvm15CostBenefitPairaSEOS0_.exit, label %28
+24:                                               ; preds = %_ZN4llvm5APIntaSEOS0_.exit.i
+  %25 = load ptr, ptr %20, align 8, !tbaa !75
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %_ZN4llvm15CostBenefitPairaSEOS0_.exit, label %27
 
-28:                                               ; preds = %25
-  tail call void @_ZdaPv(ptr noundef nonnull %26) #25
+27:                                               ; preds = %24
+  tail call void @_ZdaPv(ptr noundef nonnull %25) #25
   br label %_ZN4llvm15CostBenefitPairaSEOS0_.exit
 
-_ZN4llvm15CostBenefitPairaSEOS0_.exit:            ; preds = %_ZN4llvm5APIntaSEOS0_.exit.i, %25, %28
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load i64, ptr %29, align 8
-  store i64 %30, ptr %21, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load i32, ptr %31, align 8, !tbaa !189
-  store i32 %32, ptr %22, align 8, !tbaa !189
-  store i32 0, ptr %31, align 8, !tbaa !189
+_ZN4llvm15CostBenefitPairaSEOS0_.exit:            ; preds = %_ZN4llvm5APIntaSEOS0_.exit.i, %24, %27
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %29 = load i64, ptr %28, align 8
+  store i64 %29, ptr %20, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %31 = load i32, ptr %30, align 8, !tbaa !189
+  store i32 %31, ptr %21, align 8, !tbaa !189
+  store i32 0, ptr %30, align 8, !tbaa !189
   br label %_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE8_M_resetEv.exit
 
-.thread:                                          ; preds = %2
-  br i1 %8, label %33, label %_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE8_M_resetEv.exit
+32:                                               ; preds = %2
+  br i1 %8, label %33, label %44
 
-33:                                               ; preds = %.thread
+33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !189
@@ -7244,39 +7242,42 @@ _ZN4llvm15CostBenefitPairaSEOS0_.exit:            ; preds = %_ZN4llvm5APIntaSEOS
   store i8 1, ptr %3, align 8, !tbaa !188
   br label %_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE8_M_resetEv.exit
 
-44:                                               ; preds = %9
+44:                                               ; preds = %32
+  br i1 %5, label %45, label %_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE8_M_resetEv.exit
+
+45:                                               ; preds = %44
   store i8 0, ptr %3, align 8, !tbaa !188
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = load i32, ptr %45, align 8, !tbaa !189
-  %47 = icmp ugt i32 %46, 64
-  br i1 %47, label %48, label %_ZN4llvm5APIntD2Ev.exit.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = load i32, ptr %46, align 8, !tbaa !189
+  %48 = icmp ugt i32 %47, 64
+  br i1 %48, label %49, label %_ZN4llvm5APIntD2Ev.exit.i.i.i
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !75
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %_ZN4llvm5APIntD2Ev.exit.i.i.i, label %52
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !75
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %_ZN4llvm5APIntD2Ev.exit.i.i.i, label %53
 
-52:                                               ; preds = %48
-  tail call void @_ZdaPv(ptr noundef nonnull %50) #25
+53:                                               ; preds = %49
+  tail call void @_ZdaPv(ptr noundef nonnull %51) #25
   br label %_ZN4llvm5APIntD2Ev.exit.i.i.i
 
-_ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %52, %48, %44
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %54 = load i32, ptr %53, align 8, !tbaa !189
-  %55 = icmp ugt i32 %54, 64
-  br i1 %55, label %56, label %_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE8_M_resetEv.exit
+_ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %53, %49, %45
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = load i32, ptr %54, align 8, !tbaa !189
+  %56 = icmp ugt i32 %55, 64
+  br i1 %56, label %57, label %_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE8_M_resetEv.exit
 
-56:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i
-  %57 = load ptr, ptr %0, align 8, !tbaa !75
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE8_M_resetEv.exit, label %59
+57:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i
+  %58 = load ptr, ptr %0, align 8, !tbaa !75
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE8_M_resetEv.exit, label %60
 
-59:                                               ; preds = %56
-  tail call void @_ZdaPv(ptr noundef nonnull %57) #25
+60:                                               ; preds = %57
+  tail call void @_ZdaPv(ptr noundef nonnull %58) #25
   br label %_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE8_M_resetEv.exit
 
-_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE8_M_resetEv.exit: ; preds = %.thread, %59, %56, %_ZN4llvm5APIntD2Ev.exit.i.i.i, %33, %_ZN4llvm15CostBenefitPairaSEOS0_.exit
+_ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE8_M_resetEv.exit: ; preds = %60, %57, %_ZN4llvm5APIntD2Ev.exit.i.i.i, %44, %33, %_ZN4llvm15CostBenefitPairaSEOS0_.exit
   ret void
 }
 

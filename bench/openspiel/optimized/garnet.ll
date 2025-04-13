@@ -5640,56 +5640,54 @@ define void @_ZNK10open_spiel6garnet11GarnetState14ActionToStringB5cxx11Eil(ptr 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(60) %1)
-  br i1 %10, label %11, label %26
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %12 = load i8, ptr %11, align 4
+  %13 = trunc i8 %12 to i1
+  %or.cond = select i1 %10, i1 %13, i1 false
+  br i1 %or.cond, label %_ZN4absl7debian211string_viewC2EPKc.exit, label %25
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %13 = load i8, ptr %12, align 4
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %_ZN4absl7debian211string_viewC2EPKc.exit, label %26
+_ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %15 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferElPc(i64 noundef %3, ptr noundef nonnull %14)
+  %16 = ptrtoint ptr %15 to i64
+  %17 = ptrtoint ptr %14 to i64
+  %18 = sub i64 %16, %17
+  store ptr %14, ptr %6, align 8
+  %19 = icmp sgt i64 %18, -1
+  br i1 %19, label %_ZN4absl7debian219substitute_internal3ArgC2El.exit, label %20
 
-_ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = call noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferElPc(i64 noundef %3, ptr noundef nonnull %15)
-  %17 = ptrtoint ptr %16 to i64
-  %18 = ptrtoint ptr %15 to i64
-  %19 = sub i64 %17, %18
-  store ptr %15, ptr %6, align 8
-  %20 = icmp sgt i64 %19, -1
-  br i1 %20, label %_ZN4absl7debian219substitute_internal3ArgC2El.exit, label %21
-
-21:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit
+20:                                               ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit
   call void @llvm.trap()
   unreachable
 
 _ZN4absl7debian219substitute_internal3ArgC2El.exit: ; preds = %_ZN4absl7debian211string_viewC2EPKc.exit
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %19, ptr %22, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %18, ptr %21, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !32
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %6, align 8, !noalias !32
-  %.sroa.2.0.copyload.i.i.i = load i64, ptr %22, align 8, !noalias !32
+  %.sroa.2.0.copyload.i.i.i = load i64, ptr %21, align 8, !noalias !32
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %5, align 16, !noalias !32
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sroa.2.0.copyload.i.i.i, ptr %23, align 8, !noalias !32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.sroa.2.0.copyload.i.i.i, ptr %22, align 8, !noalias !32
   invoke void @_ZN4absl7debian219substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_11string_viewEPKS9_m(ptr noundef nonnull align 8 %0, ptr nonnull @.str.30, i64 13, ptr noundef nonnull %5, i64 noundef 1)
-          to label %_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgE.exit unwind label %24
+          to label %_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgE.exit unwind label %23
 
-24:                                               ; preds = %_ZN4absl7debian219substitute_internal3ArgC2El.exit
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %_ZN4absl7debian219substitute_internal3ArgC2El.exit
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
-  resume { ptr, i32 } %25
+  resume { ptr, i32 } %24
 
 _ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgE.exit: ; preds = %_ZN4absl7debian219substitute_internal3ArgC2El.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !32
-  br label %27
+  br label %26
 
-26:                                               ; preds = %11, %4
+25:                                               ; preds = %4
   tail call void @_ZNSt7__cxx119to_stringEl(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %3)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %26, %_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgE.exit
+26:                                               ; preds = %25, %_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewERKNS0_19substitute_internal3ArgE.exit
   ret void
 }
 

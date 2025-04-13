@@ -1284,10 +1284,10 @@ _ZStneIlSaIlEEbRKSt6vectorIT_T0_ES6_.exit.thread19: ; preds = %29, %_ZStneIlSaIl
   %43 = tail call noundef zeroext i1 @_ZNK5arrow6Tensor15is_column_majorEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   %44 = tail call noundef zeroext i1 @_ZNK5arrow6Tensor12is_row_majorEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
   %45 = tail call noundef zeroext i1 @_ZNK5arrow6Tensor15is_column_majorEv(ptr noundef nonnull align 8 dereferenceable(112) %1)
-  %brmerge.demorgan.i = and i1 %42, %44
-  %brmerge28.demorgan.i = and i1 %43, %45
-  %or.cond.i = or i1 %brmerge.demorgan.i, %brmerge28.demorgan.i
-  br i1 %or.cond.i, label %84, label %46
+  %or.cond.i = and i1 %42, %44
+  %or.cond3.i = and i1 %43, %45
+  %or.cond28.i = or i1 %or.cond.i, %or.cond3.i
+  br i1 %or.cond28.i, label %84, label %46
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4406,8 +4406,8 @@ _ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i.i: ; preds = %297, %294, %_ZNS
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i: ; preds = %317, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i.i
   %319 = phi i1 [ %.ph.i.i, %317 ], [ true, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i.i ]
   %320 = phi i1 [ %318, %317 ], [ true, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i.i ]
-  %brmerge.demorgan.i.i = and i1 %319, %320
-  br i1 %brmerge.demorgan.i.i, label %321, label %334
+  %or.cond.i.i = and i1 %319, %320
+  br i1 %or.cond.i.i, label %321, label %334
 
 321:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i
   %322 = load ptr, ptr %20, align 8, !tbaa !455, !noalias !461
@@ -4644,8 +4644,8 @@ _ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i112.i: ; preds = %408, %405, %_
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i113.i: ; preds = %428, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i112.i
   %430 = phi i1 [ %.ph.i125.i, %428 ], [ true, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i112.i ]
   %431 = phi i1 [ %429, %428 ], [ true, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i112.i ]
-  %brmerge.demorgan.i114.i = and i1 %430, %431
-  br i1 %brmerge.demorgan.i114.i, label %432, label %445
+  %or.cond.i114.i = and i1 %430, %431
+  br i1 %or.cond.i114.i, label %432, label %445
 
 432:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i113.i
   %433 = load ptr, ptr %18, align 8, !tbaa !455, !noalias !474
@@ -4878,8 +4878,8 @@ _ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i132.i: ; preds = %519, %516, %_
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i133.i: ; preds = %539, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i132.i
   %541 = phi i1 [ %.ph.i145.i, %539 ], [ true, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i132.i ]
   %542 = phi i1 [ %540, %539 ], [ true, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i132.i ]
-  %brmerge.demorgan.i134.i = and i1 %541, %542
-  br i1 %brmerge.demorgan.i134.i, label %543, label %556
+  %or.cond.i134.i = and i1 %541, %542
+  br i1 %or.cond.i134.i, label %543, label %556
 
 543:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i133.i
   %544 = load ptr, ptr %16, align 8, !tbaa !455, !noalias !481
@@ -5112,8 +5112,8 @@ _ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i152.i: ; preds = %630, %627, %_
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i153.i: ; preds = %650, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i152.i
   %652 = phi i1 [ %.ph.i165.i, %650 ], [ true, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i152.i ]
   %653 = phi i1 [ %651, %650 ], [ true, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i152.i ]
-  %brmerge.demorgan.i154.i = and i1 %652, %653
-  br i1 %brmerge.demorgan.i154.i, label %654, label %667
+  %or.cond.i154.i = and i1 %652, %653
+  br i1 %or.cond.i154.i, label %654, label %667
 
 654:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i153.i
   %655 = load ptr, ptr %14, align 8, !tbaa !455, !noalias !488
@@ -6819,8 +6819,8 @@ _ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i179.i: ; preds = %1443, %1440, 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i180.i: ; preds = %1463, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i179.i
   %1465 = phi i1 [ %.ph.i192.i, %1463 ], [ true, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i179.i ]
   %1466 = phi i1 [ %1464, %1463 ], [ true, %_ZNSt10shared_ptrIN5arrow5FieldEEC2ERKS2_.exit8.i179.i ]
-  %brmerge.demorgan.i181.i = and i1 %1465, %1466
-  br i1 %brmerge.demorgan.i181.i, label %1467, label %1480
+  %or.cond.i181.i = and i1 %1465, %1466
+  br i1 %or.cond.i181.i, label %1467, label %1480
 
 1467:                                             ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i180.i
   %1468 = load ptr, ptr %4, align 8, !tbaa !455, !noalias !559

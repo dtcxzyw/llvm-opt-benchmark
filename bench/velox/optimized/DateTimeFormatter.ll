@@ -2527,21 +2527,21 @@ entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %tokens_, align 8
-  %cmp62.not = icmp eq ptr %2, %3
-  br i1 %cmp62.not, label %for.end, label %for.body.lr.ph
+  %cmp63.not = icmp eq ptr %2, %3
+  br i1 %cmp63.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %sub.ptr.lhs.cast.i58 = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast.i59 = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i60 = sub i64 %sub.ptr.lhs.cast.i58, %sub.ptr.rhs.cast.i59
-  %sub.ptr.div.i61 = sdiv exact i64 %sub.ptr.sub.i60, 24
+  %sub.ptr.lhs.cast.i59 = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast.i60 = ptrtoint ptr %3 to i64
+  %sub.ptr.sub.i61 = sub i64 %sub.ptr.lhs.cast.i59, %sub.ptr.rhs.cast.i60
+  %sub.ptr.div.i62 = sdiv exact i64 %sub.ptr.sub.i61, 24
   %type_29 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %sub.ptr.div.i65 = phi i64 [ %sub.ptr.div.i61, %for.body.lr.ph ], [ %sub.ptr.div.i, %for.inc ]
+  %sub.ptr.div.i66 = phi i64 [ %sub.ptr.div.i62, %for.body.lr.ph ], [ %sub.ptr.div.i, %for.inc ]
   %4 = phi ptr [ %3, %for.body.lr.ph ], [ %16, %for.inc ]
   %add.ptr.i = getelementptr inbounds nuw %"struct.facebook::velox::functions::DateTimeToken", ptr %4, i64 %indvars.iv
   %5 = load i32, ptr %add.ptr.i, align 8
@@ -2560,8 +2560,8 @@ sw.bb:                                            ; preds = %for.body
   br i1 %cmp8, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb
-  %_M_str.i27 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
-  %9 = load ptr, ptr %_M_str.i27, align 8
+  %_M_str.i28 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
+  %9 = load ptr, ptr %_M_str.i28, align 8
   %bcmp = call i32 @bcmp(ptr %8, ptr %9, i64 %7)
   %cmp12.not = icmp eq i32 %bcmp, 0
   br i1 %cmp12.not, label %if.end, label %if.then
@@ -2571,27 +2571,27 @@ if.then:                                          ; preds = %lor.lhs.false, %sw.
   unreachable
 
 lpad.loopexit:                                    ; preds = %for.body70
-  %lpad.loopexit48 = landingpad { ptr, i32 }
+  %lpad.loopexit49 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %for.body53
-  %lpad.loopexit50 = landingpad { ptr, i32 }
+  %lpad.loopexit51 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then26.invoke
-  %lpad.loopexit53 = landingpad { ptr, i32 }
+  %lpad.loopexit54 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then83, %if.then89, %if.else93, %if.end99, %invoke.cont101
-  %lpad.loopexit.split-lp54 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp55 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit48, %lpad.loopexit ], [ %lpad.loopexit50, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit53, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp54, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit49, %lpad.loopexit ], [ %lpad.loopexit51, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit54, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp55, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_14DateD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %date) #2
   resume { ptr, i32 } %lpad.phi
 
@@ -2602,12 +2602,12 @@ if.end:                                           ; preds = %lor.lhs.false
 
 sw.bb15:                                          ; preds = %for.body
   %10 = add nuw nsw i64 %indvars.iv, 1
-  %cmp19 = icmp ugt i64 %sub.ptr.div.i65, %10
+  %cmp19 = icmp ugt i64 %sub.ptr.div.i66, %10
   br i1 %cmp19, label %land.lhs.true, label %if.then26.invoke
 
 land.lhs.true:                                    ; preds = %sw.bb15
-  %add.ptr.i33 = getelementptr inbounds nuw %"struct.facebook::velox::functions::DateTimeToken", ptr %4, i64 %10
-  %11 = load i32, ptr %add.ptr.i33, align 8
+  %add.ptr.i34 = getelementptr inbounds nuw %"struct.facebook::velox::functions::DateTimeToken", ptr %4, i64 %10
+  %11 = load i32, ptr %add.ptr.i34, align 8
   %cmp25 = icmp eq i32 %11, 0
   br label %if.then26.invoke
 
@@ -2615,10 +2615,10 @@ if.then26.invoke:                                 ; preds = %land.lhs.true, %sw.
   %12 = phi i1 [ false, %sw.bb15 ], [ %cmp25, %land.lhs.true ]
   %13 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %agg.tmp28.sroa.0.0.copyload = load i8, ptr %13, align 8
-  %agg.tmp28.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
-  %agg.tmp28.sroa.25.0.copyload = load i64, ptr %agg.tmp28.sroa.25.0..sroa_idx, align 8
+  %agg.tmp28.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
+  %agg.tmp28.sroa.26.0.copyload = load i64, ptr %agg.tmp28.sroa.26.0..sroa_idx, align 8
   %14 = load i32, ptr %type_29, align 8
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116parseFromPatternENS1_13FormatPatternERKSt17basic_string_viewIcSt11char_traitsIcEERPKcSB_RNS2_4DateEbNS1_21DateTimeFormatterTypeE(i8 %agg.tmp28.sroa.0.0.copyload, i64 %agg.tmp28.sroa.25.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %cur, ptr noundef %add.ptr, ptr noundef nonnull align 8 dereferenceable(120) %date, i1 noundef zeroext %12, i32 noundef %14)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116parseFromPatternENS1_13FormatPatternERKSt17basic_string_viewIcSt11char_traitsIcEERPKcSB_RNS2_4DateEbNS1_21DateTimeFormatterTypeE(i8 %agg.tmp28.sroa.0.0.copyload, i64 %agg.tmp28.sroa.26.0.copyload, ptr noundef nonnull align 8 dereferenceable(8) %cur, ptr noundef %add.ptr, ptr noundef nonnull align 8 dereferenceable(120) %date, i1 noundef zeroext %12, i32 noundef %14)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %if.then26.invoke, %for.body, %if.end
@@ -2649,69 +2649,67 @@ if.end35:                                         ; preds = %for.end
   %isYearOfEra = getelementptr inbounds nuw i8, ptr %date, i64 34
   %18 = load i8, ptr %isYearOfEra, align 2
   %tobool = trunc i8 %18 to i1
-  br i1 %tobool, label %land.lhs.true36, label %if.end40
-
-land.lhs.true36:                                  ; preds = %if.end35
+  %tobool.not = xor i1 %tobool, true
   %19 = load i8, ptr %isAd.i, align 4
   %tobool37 = trunc i8 %19 to i1
-  br i1 %tobool37, label %if.end40, label %if.then38
+  %or.cond = select i1 %tobool.not, i1 true, i1 %tobool37
+  br i1 %or.cond, label %if.end40, label %if.then38
 
-if.then38:                                        ; preds = %land.lhs.true36
+if.then38:                                        ; preds = %if.end35
   %20 = load i32, ptr %date, align 8
   %mul = sub nsw i32 1, %20
   store i32 %mul, ptr %date, align 8
   br label %if.end40
 
-if.end40:                                         ; preds = %if.then38, %land.lhs.true36, %if.end35
+if.end40:                                         ; preds = %if.then38, %if.end35
   %21 = load i8, ptr %isHourOfHalfDay.i, align 1
   %tobool41 = trunc i8 %21 to i1
-  br i1 %tobool41, label %if.then42, label %if.end47
-
-if.then42:                                        ; preds = %if.end40
+  %tobool41.not = xor i1 %tobool41, true
   %22 = load i8, ptr %isAm.i, align 4
   %tobool43 = trunc i8 %22 to i1
-  br i1 %tobool43, label %if.end47, label %if.then44
+  %or.cond1 = select i1 %tobool41.not, i1 true, i1 %tobool43
+  br i1 %or.cond1, label %if.end47, label %if.then44
 
-if.then44:                                        ; preds = %if.then42
+if.then44:                                        ; preds = %if.end40
   %hour = getelementptr inbounds nuw i8, ptr %date, i64 36
   %23 = load i32, ptr %hour, align 4
   %add45 = add nsw i32 %23, 12
   store i32 %add45, ptr %hour, align 4
   br label %if.end47
 
-if.end47:                                         ; preds = %if.then42, %if.then44, %if.end40
-  %_M_finish.i35 = getelementptr inbounds nuw i8, ptr %date, i64 80
-  %24 = load ptr, ptr %_M_finish.i35, align 8
+if.end47:                                         ; preds = %if.then44, %if.end40
+  %_M_finish.i36 = getelementptr inbounds nuw i8, ptr %date, i64 80
+  %24 = load ptr, ptr %_M_finish.i36, align 8
   %25 = load ptr, ptr %dayOfMonthValues.i, align 8
-  %cmp5270.not = icmp eq ptr %24, %25
-  br i1 %cmp5270.not, label %for.cond66.preheader, label %for.body53
+  %cmp5271.not = icmp eq ptr %24, %25
+  br i1 %cmp5271.not, label %for.cond66.preheader, label %for.body53
 
 for.cond49:                                       ; preds = %invoke.cont58
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %26 = load ptr, ptr %_M_finish.i35, align 8
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+  %26 = load ptr, ptr %_M_finish.i36, align 8
   %27 = load ptr, ptr %dayOfMonthValues.i, align 8
-  %sub.ptr.lhs.cast.i36 = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast.i37 = ptrtoint ptr %27 to i64
-  %sub.ptr.sub.i38 = sub i64 %sub.ptr.lhs.cast.i36, %sub.ptr.rhs.cast.i37
-  %sub.ptr.div.i39 = ashr exact i64 %sub.ptr.sub.i38, 2
-  %cmp52 = icmp ugt i64 %sub.ptr.div.i39, %indvars.iv.next83
+  %sub.ptr.lhs.cast.i37 = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i38 = ptrtoint ptr %27 to i64
+  %sub.ptr.sub.i39 = sub i64 %sub.ptr.lhs.cast.i37, %sub.ptr.rhs.cast.i38
+  %sub.ptr.div.i40 = ashr exact i64 %sub.ptr.sub.i39, 2
+  %cmp52 = icmp ugt i64 %sub.ptr.div.i40, %indvars.iv.next84
   br i1 %cmp52, label %for.body53, label %for.cond66.preheader, !llvm.loop !12
 
 for.cond66.preheader:                             ; preds = %for.cond49, %if.end47
   %dayOfYearValues = getelementptr inbounds nuw i8, ptr %date, i64 96
-  %_M_finish.i41 = getelementptr inbounds nuw i8, ptr %date, i64 104
-  %28 = load ptr, ptr %_M_finish.i41, align 8
+  %_M_finish.i42 = getelementptr inbounds nuw i8, ptr %date, i64 104
+  %28 = load ptr, ptr %_M_finish.i42, align 8
   %29 = load ptr, ptr %dayOfYearValues, align 8
-  %cmp6977.not = icmp eq ptr %28, %29
-  br i1 %cmp6977.not, label %for.end81, label %for.body70
+  %cmp6978.not = icmp eq ptr %28, %29
+  br i1 %cmp6978.not, label %for.end81, label %for.body70
 
 for.body53:                                       ; preds = %if.end47, %for.cond49
-  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %for.cond49 ], [ 0, %if.end47 ]
+  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %for.cond49 ], [ 0, %if.end47 ]
   %30 = phi ptr [ %27, %for.cond49 ], [ %25, %if.end47 ]
   %31 = load i32, ptr %date, align 8
   %32 = load i32, ptr %month.i, align 4
-  %add.ptr.i40 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv82
-  %33 = load i32, ptr %add.ptr.i40, align 4
+  %add.ptr.i41 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv83
+  %33 = load i32, ptr %add.ptr.i41, align 4
   %call59 = invoke noundef zeroext i1 @_ZN8facebook5velox4util11isValidDateEiii(i32 noundef %31, i32 noundef %32, i32 noundef %33)
           to label %invoke.cont58 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -2723,22 +2721,22 @@ if.then60:                                        ; preds = %invoke.cont58
   unreachable
 
 for.cond66:                                       ; preds = %invoke.cont75
-  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %34 = load ptr, ptr %_M_finish.i41, align 8
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %34 = load ptr, ptr %_M_finish.i42, align 8
   %35 = load ptr, ptr %dayOfYearValues, align 8
-  %sub.ptr.lhs.cast.i42 = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i43 = ptrtoint ptr %35 to i64
-  %sub.ptr.sub.i44 = sub i64 %sub.ptr.lhs.cast.i42, %sub.ptr.rhs.cast.i43
-  %sub.ptr.div.i45 = ashr exact i64 %sub.ptr.sub.i44, 2
-  %cmp69 = icmp ugt i64 %sub.ptr.div.i45, %indvars.iv.next86
+  %sub.ptr.lhs.cast.i43 = ptrtoint ptr %34 to i64
+  %sub.ptr.rhs.cast.i44 = ptrtoint ptr %35 to i64
+  %sub.ptr.sub.i45 = sub i64 %sub.ptr.lhs.cast.i43, %sub.ptr.rhs.cast.i44
+  %sub.ptr.div.i46 = ashr exact i64 %sub.ptr.sub.i45, 2
+  %cmp69 = icmp ugt i64 %sub.ptr.div.i46, %indvars.iv.next87
   br i1 %cmp69, label %for.body70, label %for.end81, !llvm.loop !13
 
 for.body70:                                       ; preds = %for.cond66.preheader, %for.cond66
-  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %for.cond66 ], [ 0, %for.cond66.preheader ]
+  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %for.cond66 ], [ 0, %for.cond66.preheader ]
   %36 = phi ptr [ %35, %for.cond66 ], [ %29, %for.cond66.preheader ]
   %37 = load i32, ptr %date, align 8
-  %add.ptr.i46 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv85
-  %38 = load i32, ptr %add.ptr.i46, align 4
+  %add.ptr.i47 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv86
+  %38 = load i32, ptr %add.ptr.i47, align 4
   %call76 = invoke noundef zeroext i1 @_ZN8facebook5velox4util16isValidDayOfYearEii(i32 noundef %37, i32 noundef %38)
           to label %invoke.cont75 unwind label %lpad.loopexit
 

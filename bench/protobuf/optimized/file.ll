@@ -1204,23 +1204,21 @@ if.end34.i.i.i.i:                                 ; preds = %for.end.i.i.i.i
   br label %while.body.i.i.i.i, !llvm.loop !7
 
 _ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5countIS8_EEmRKT_.exit: ; preds = %for.body.i.i.i.i
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %return, label %if.then
-
-if.then:                                          ; preds = %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5countIS8_EEmRKT_.exit
+  %12 = icmp ne ptr %0, null
   %opensource_runtime = getelementptr inbounds nuw i8, ptr %this, i64 263
-  %12 = load i8, ptr %opensource_runtime, align 1
-  %tobool = trunc i8 %12 to i1
-  br i1 %tobool, label %cond.false, label %return
+  %13 = load i8, ptr %opensource_runtime, align 1
+  %tobool = trunc i8 %13 to i1
+  %or.cond = select i1 %12, i1 %tobool, i1 false
+  br i1 %or.cond, label %cond.false, label %return
 
-cond.false:                                       ; preds = %if.then
+cond.false:                                       ; preds = %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5countIS8_EEmRKT_.exit
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str.165, i32 noundef 167, i64 28, ptr nonnull @.str.130) #26
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #27
   unreachable
 
-return:                                           ; preds = %for.end.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5countIS8_EEmRKT_.exit, %if.then
-  %cmp.not3 = phi i1 [ false, %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5countIS8_EEmRKT_.exit ], [ true, %if.then ], [ false, %for.end.i.i.i.i ]
-  ret i1 %cmp.not3
+return:                                           ; preds = %for.end.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5countIS8_EEmRKT_.exit
+  %cmp.not6 = phi i1 [ %12, %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5countIS8_EEmRKT_.exit ], [ false, %for.end.i.i.i.i ]
+  ret i1 %cmp.not6
 }
 
 declare noundef zeroext i1 @_ZN6google8protobuf8compiler19IsKnownFeatureProtoESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
@@ -8685,32 +8683,26 @@ lor.lhs.false:                                    ; preds = %if.end
   %weak_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 132
   %1 = load i8, ptr %weak_.i.i.i, align 4
   %tobool.i.i.i = trunc i8 %1 to i1
-  br i1 %tobool.i.i.i, label %if.then.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit
-
-if.then.i:                                        ; preds = %lor.lhs.false
   %opensource_runtime.i = getelementptr inbounds nuw i8, ptr %this, i64 263
   %2 = load i8, ptr %opensource_runtime.i, align 1
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %cond.false.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread
+  %or.cond.i = select i1 %tobool.i.i.i, i1 %tobool.i, i1 false
+  br i1 %or.cond.i, label %cond.false.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit
 
-_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread: ; preds = %if.then.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  br label %if.then5
-
-cond.false.i:                                     ; preds = %if.then.i
+cond.false.i:                                     ; preds = %lor.lhs.false
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i, ptr noundef nonnull @.str.189, i32 noundef 324, i64 27, ptr nonnull @.str.190) #26
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i) #27
   unreachable
 
 _ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit: ; preds = %lor.lhs.false
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  br label %if.end6
+  br i1 %tobool.i.i.i, label %if.then5, label %if.end6
 
-if.then5:                                         ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread, %if.end
+if.then5:                                         ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit, %if.end
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIPKN6google8protobuf10DescriptorENS5_8compiler3cpp13FileGenerator19CrossFileReferences11DescCompareESaIS8_ELi256ELb0EEEE13insert_uniqueIS8_JRKS8_EEESt4pairINS1_14btree_iteratorINS1_10btree_nodeISF_EERS8_PS8_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.260") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(24) %refs, ptr noundef nonnull align 8 dereferenceable(8) %msg, ptr noundef nonnull align 8 dereferenceable(8) %msg)
   br label %if.end6
 
-if.end6:                                          ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit, %entry, %if.then5
+if.end6:                                          ; preds = %entry, %if.then5, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit
   ret void
 }
 
@@ -8786,27 +8778,21 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end.i.i.i
   %weak_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 132
   %8 = load i8, ptr %weak_.i.i.i.i.i.i, align 4
   %tobool.i.i.i.i.i.i = trunc i8 %8 to i1
-  br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   %9 = load i8, ptr %opensource_runtime.i.i.i.i, align 1
   %tobool.i.i.i.i = trunc i8 %9 to i1
-  br i1 %tobool.i.i.i.i, label %cond.false.i.i.i.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i.i
+  %or.cond.i.i.i.i = select i1 %tobool.i.i.i.i.i.i, i1 %tobool.i.i.i.i, i1 false
+  br i1 %or.cond.i.i.i.i, label %cond.false.i.i.i.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i.i
 
-_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i.i: ; preds = %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i.i)
-  br label %if.then5.i.i.i
-
-cond.false.i.i.i.i:                               ; preds = %if.then.i.i.i.i
+cond.false.i.i.i.i:                               ; preds = %lor.lhs.false.i.i.i
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i.i, ptr noundef nonnull @.str.189, i32 noundef 324, i64 27, ptr nonnull @.str.190) #26
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i.i) #27
   unreachable
 
 _ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i.i: ; preds = %lor.lhs.false.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i.i)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit.i"
+  br i1 %tobool.i.i.i.i.i.i, label %if.then5.i.i.i, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit.i"
 
-if.then5.i.i.i:                                   ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i.i, %if.end.i.i.i
+if.then5.i.i.i:                                   ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i.i, %if.end.i.i.i
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIPKN6google8protobuf10DescriptorENS5_8compiler3cpp13FileGenerator19CrossFileReferences11DescCompareESaIS8_ELi256ELb0EEEE13insert_uniqueIS8_JRKS8_EEESt4pairINS1_14btree_iteratorINS1_10btree_nodeISF_EERS8_PS8_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.260") align 8 %tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %refs, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i.i)
   br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit.i"
 
@@ -10358,8 +10344,8 @@ entry:
   %tmp.i.i = alloca %"struct.std::pair.260", align 8
   %nested_type_count_.i = getelementptr inbounds nuw i8, ptr %d, i64 128
   %0 = load i32, ptr %nested_type_count_.i, align 8
-  %cmp42 = icmp sgt i32 %0, 0
-  br i1 %cmp42, label %for.body.lr.ph, label %for.cond3.preheader
+  %cmp41 = icmp sgt i32 %0, 0
+  br i1 %cmp41, label %for.body.lr.ph, label %for.cond3.preheader
 
 for.body.lr.ph:                                   ; preds = %entry
   %nested_types_.i = getelementptr inbounds nuw i8, ptr %d, i64 72
@@ -10368,8 +10354,8 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond3.preheader:                              ; preds = %for.body, %entry
   %extension_count_.i = getelementptr inbounds nuw i8, ptr %d, i64 140
   %1 = load i32, ptr %extension_count_.i, align 4
-  %cmp544 = icmp sgt i32 %1, 0
-  br i1 %cmp544, label %for.body6.lr.ph, label %for.cond12.preheader
+  %cmp543 = icmp sgt i32 %1, 0
+  br i1 %cmp543, label %for.body6.lr.ph, label %for.cond12.preheader
 
 for.body6.lr.ph:                                  ; preds = %for.cond3.preheader
   %extensions_.i = getelementptr inbounds nuw i8, ptr %d, i64 96
@@ -10390,8 +10376,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.cond12.preheader:                             ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit", %for.cond3.preheader
   %field_count_.i = getelementptr inbounds nuw i8, ptr %d, i64 4
   %6 = load i32, ptr %field_count_.i, align 4
-  %cmp1446 = icmp sgt i32 %6, 0
-  br i1 %cmp1446, label %for.body15.lr.ph, label %for.end19
+  %cmp1445 = icmp sgt i32 %6, 0
+  br i1 %cmp1445, label %for.body15.lr.ph, label %for.end19
 
 for.body15.lr.ph:                                 ; preds = %for.cond12.preheader
   %fields_.i = getelementptr inbounds nuw i8, ptr %d, i64 56
@@ -10399,9 +10385,9 @@ for.body15.lr.ph:                                 ; preds = %for.cond12.preheade
   br label %for.body15
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
-  %indvars.iv49 = phi i64 [ 0, %for.body6.lr.ph ], [ %indvars.iv.next50, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit" ]
+  %indvars.iv48 = phi i64 [ 0, %for.body6.lr.ph ], [ %indvars.iv.next49, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit" ]
   %8 = load ptr, ptr %extensions_.i, align 8
-  %add.ptr.i18 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %8, i64 %indvars.iv49
+  %add.ptr.i18 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %8, i64 %indvars.iv48
   %func.val = load ptr, ptr %func, align 8
   %func.val14 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %msg.i.i)
@@ -10424,44 +10410,38 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %weak_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 132
   %10 = load i8, ptr %weak_.i.i.i.i.i, align 4
   %tobool.i.i.i.i.i = trunc i8 %10 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i
-
-if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i
   %opensource_runtime.i.i.i = getelementptr inbounds nuw i8, ptr %func.val, i64 263
   %11 = load i8, ptr %opensource_runtime.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %11 to i1
-  br i1 %tobool.i.i.i, label %cond.false.i.i.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i
+  %or.cond.i.i.i = select i1 %tobool.i.i.i.i.i, i1 %tobool.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %cond.false.i.i.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i
 
-_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i: ; preds = %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i)
-  br label %if.then5.i.i
-
-cond.false.i.i.i:                                 ; preds = %if.then.i.i.i
+cond.false.i.i.i:                                 ; preds = %lor.lhs.false.i.i
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, ptr noundef nonnull @.str.189, i32 noundef 324, i64 27, ptr nonnull @.str.190) #26
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i) #27
   unreachable
 
 _ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i: ; preds = %lor.lhs.false.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
+  br i1 %tobool.i.i.i.i.i, label %if.then5.i.i, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
 
-if.then5.i.i:                                     ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i, %if.end.i.i
+if.then5.i.i:                                     ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i, %if.end.i.i
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIPKN6google8protobuf10DescriptorENS5_8compiler3cpp13FileGenerator19CrossFileReferences11DescCompareESaIS8_ELi256ELb0EEEE13insert_uniqueIS8_JRKS8_EEESt4pairINS1_14btree_iteratorINS1_10btree_nodeISF_EERS8_PS8_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.260") align 8 %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %func.val14, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i)
   br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
 
 "_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit": ; preds = %for.body6, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i, %if.then5.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %msg.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i)
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %12 = load i32, ptr %extension_count_.i, align 4
   %13 = sext i32 %12 to i64
-  %cmp5 = icmp slt i64 %indvars.iv.next50, %13
+  %cmp5 = icmp slt i64 %indvars.iv.next49, %13
   br i1 %cmp5, label %for.body6, label %for.cond12.preheader, !llvm.loop !184
 
-for.body15:                                       ; preds = %for.body15.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41"
-  %indvars.iv52 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next53, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41" ]
+for.body15:                                       ; preds = %for.body15.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit40"
+  %indvars.iv51 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next52, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit40" ]
   %14 = load ptr, ptr %fields_.i, align 8
-  %add.ptr.i20 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %14, i64 %indvars.iv52
+  %add.ptr.i20 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %14, i64 %indvars.iv51
   %func.val15 = load ptr, ptr %func, align 8
   %func.val16 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %msg.i.i22)
@@ -10469,13 +10449,13 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   %call.i.i24 = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i20)
   store ptr %call.i.i24, ptr %msg.i.i22, align 8
   %cmp.i.i25 = icmp eq ptr %call.i.i24, null
-  br i1 %cmp.i.i25, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41", label %if.end.i.i26
+  br i1 %cmp.i.i25, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit40", label %if.end.i.i26
 
 if.end.i.i26:                                     ; preds = %for.body15
   %options_.i.i27 = getelementptr inbounds nuw i8, ptr %func.val15, i64 64
   %scc_analyzer_.i.i28 = getelementptr inbounds nuw i8, ptr %func.val15, i64 272
   %call2.i.i29 = call noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp19IsImplicitWeakFieldEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull %add.ptr.i20, ptr noundef nonnull align 8 dereferenceable(206) %options_.i.i27, ptr noundef nonnull %scc_analyzer_.i.i28)
-  br i1 %call2.i.i29, label %if.then5.i.i39, label %lor.lhs.false.i.i30
+  br i1 %call2.i.i29, label %if.then5.i.i38, label %lor.lhs.false.i.i30
 
 lor.lhs.false.i.i30:                              ; preds = %if.end.i.i26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i21)
@@ -10484,41 +10464,35 @@ lor.lhs.false.i.i30:                              ; preds = %if.end.i.i26
   %weak_.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %15, i64 132
   %16 = load i8, ptr %weak_.i.i.i.i.i32, align 4
   %tobool.i.i.i.i.i33 = trunc i8 %16 to i1
-  br i1 %tobool.i.i.i.i.i33, label %if.then.i.i.i35, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i34
+  %opensource_runtime.i.i.i34 = getelementptr inbounds nuw i8, ptr %func.val15, i64 263
+  %17 = load i8, ptr %opensource_runtime.i.i.i34, align 1
+  %tobool.i.i.i35 = trunc i8 %17 to i1
+  %or.cond.i.i.i36 = select i1 %tobool.i.i.i.i.i33, i1 %tobool.i.i.i35, i1 false
+  br i1 %or.cond.i.i.i36, label %cond.false.i.i.i39, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i37
 
-if.then.i.i.i35:                                  ; preds = %lor.lhs.false.i.i30
-  %opensource_runtime.i.i.i36 = getelementptr inbounds nuw i8, ptr %func.val15, i64 263
-  %17 = load i8, ptr %opensource_runtime.i.i.i36, align 1
-  %tobool.i.i.i37 = trunc i8 %17 to i1
-  br i1 %tobool.i.i.i37, label %cond.false.i.i.i40, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i38
-
-_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i38: ; preds = %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i21)
-  br label %if.then5.i.i39
-
-cond.false.i.i.i40:                               ; preds = %if.then.i.i.i35
+cond.false.i.i.i39:                               ; preds = %lor.lhs.false.i.i30
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i21, ptr noundef nonnull @.str.189, i32 noundef 324, i64 27, ptr nonnull @.str.190) #26
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i21) #27
   unreachable
 
-_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i34: ; preds = %lor.lhs.false.i.i30
+_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i37: ; preds = %lor.lhs.false.i.i30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i21)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41"
+  br i1 %tobool.i.i.i.i.i33, label %if.then5.i.i38, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit40"
 
-if.then5.i.i39:                                   ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i38, %if.end.i.i26
+if.then5.i.i38:                                   ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i37, %if.end.i.i26
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIPKN6google8protobuf10DescriptorENS5_8compiler3cpp13FileGenerator19CrossFileReferences11DescCompareESaIS8_ELi256ELb0EEEE13insert_uniqueIS8_JRKS8_EEESt4pairINS1_14btree_iteratorINS1_10btree_nodeISF_EERS8_PS8_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.260") align 8 %tmp.i.i23, ptr noundef nonnull align 8 dereferenceable(24) %func.val16, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i22, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i22)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit40"
 
-"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41": ; preds = %for.body15, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i34, %if.then5.i.i39
+"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit40": ; preds = %for.body15, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i37, %if.then5.i.i38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %msg.i.i22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i23)
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %18 = load i32, ptr %field_count_.i, align 4
   %19 = sext i32 %18 to i64
-  %cmp14 = icmp slt i64 %indvars.iv.next53, %19
+  %cmp14 = icmp slt i64 %indvars.iv.next52, %19
   br i1 %cmp14, label %for.body15, label %for.end19, !llvm.loop !185
 
-for.end19:                                        ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit41", %for.cond12.preheader
+for.end19:                                        ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator24GenerateSourceForMessageEiPNS0_2io7PrinterEENK3$_0clEPKNS0_15FieldDescriptorE.exit40", %for.cond12.preheader
   ret void
 }
 
@@ -37642,8 +37616,8 @@ entry:
   %tmp.i.i = alloca %"struct.std::pair.260", align 8
   %nested_type_count_.i = getelementptr inbounds nuw i8, ptr %d, i64 128
   %0 = load i32, ptr %nested_type_count_.i, align 8
-  %cmp42 = icmp sgt i32 %0, 0
-  br i1 %cmp42, label %for.body.lr.ph, label %for.cond3.preheader
+  %cmp41 = icmp sgt i32 %0, 0
+  br i1 %cmp41, label %for.body.lr.ph, label %for.cond3.preheader
 
 for.body.lr.ph:                                   ; preds = %entry
   %nested_types_.i = getelementptr inbounds nuw i8, ptr %d, i64 72
@@ -37652,8 +37626,8 @@ for.body.lr.ph:                                   ; preds = %entry
 for.cond3.preheader:                              ; preds = %for.body, %entry
   %extension_count_.i = getelementptr inbounds nuw i8, ptr %d, i64 140
   %1 = load i32, ptr %extension_count_.i, align 4
-  %cmp544 = icmp sgt i32 %1, 0
-  br i1 %cmp544, label %for.body6.lr.ph, label %for.cond12.preheader
+  %cmp543 = icmp sgt i32 %1, 0
+  br i1 %cmp543, label %for.body6.lr.ph, label %for.cond12.preheader
 
 for.body6.lr.ph:                                  ; preds = %for.cond3.preheader
   %extensions_.i = getelementptr inbounds nuw i8, ptr %d, i64 96
@@ -37674,8 +37648,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.cond12.preheader:                             ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit", %for.cond3.preheader
   %field_count_.i = getelementptr inbounds nuw i8, ptr %d, i64 4
   %6 = load i32, ptr %field_count_.i, align 4
-  %cmp1446 = icmp sgt i32 %6, 0
-  br i1 %cmp1446, label %for.body15.lr.ph, label %for.end19
+  %cmp1445 = icmp sgt i32 %6, 0
+  br i1 %cmp1445, label %for.body15.lr.ph, label %for.end19
 
 for.body15.lr.ph:                                 ; preds = %for.cond12.preheader
   %fields_.i = getelementptr inbounds nuw i8, ptr %d, i64 56
@@ -37683,9 +37657,9 @@ for.body15.lr.ph:                                 ; preds = %for.cond12.preheade
   br label %for.body15
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
-  %indvars.iv49 = phi i64 [ 0, %for.body6.lr.ph ], [ %indvars.iv.next50, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit" ]
+  %indvars.iv48 = phi i64 [ 0, %for.body6.lr.ph ], [ %indvars.iv.next49, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit" ]
   %8 = load ptr, ptr %extensions_.i, align 8
-  %add.ptr.i18 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %8, i64 %indvars.iv49
+  %add.ptr.i18 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %8, i64 %indvars.iv48
   %func.val = load ptr, ptr %func, align 8
   %func.val14 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %msg.i.i)
@@ -37708,44 +37682,38 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %weak_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 132
   %10 = load i8, ptr %weak_.i.i.i.i.i, align 4
   %tobool.i.i.i.i.i = trunc i8 %10 to i1
-  br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i
-
-if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i
   %opensource_runtime.i.i.i = getelementptr inbounds nuw i8, ptr %func.val, i64 263
   %11 = load i8, ptr %opensource_runtime.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %11 to i1
-  br i1 %tobool.i.i.i, label %cond.false.i.i.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i
+  %or.cond.i.i.i = select i1 %tobool.i.i.i.i.i, i1 %tobool.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %cond.false.i.i.i, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i
 
-_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i: ; preds = %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i)
-  br label %if.then5.i.i
-
-cond.false.i.i.i:                                 ; preds = %if.then.i.i.i
+cond.false.i.i.i:                                 ; preds = %lor.lhs.false.i.i
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i, ptr noundef nonnull @.str.189, i32 noundef 324, i64 27, ptr nonnull @.str.190) #26
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i) #27
   unreachable
 
 _ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i: ; preds = %lor.lhs.false.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
+  br i1 %tobool.i.i.i.i.i, label %if.then5.i.i, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
 
-if.then5.i.i:                                     ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i, %if.end.i.i
+if.then5.i.i:                                     ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i, %if.end.i.i
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIPKN6google8protobuf10DescriptorENS5_8compiler3cpp13FileGenerator19CrossFileReferences11DescCompareESaIS8_ELi256ELb0EEEE13insert_uniqueIS8_JRKS8_EEESt4pairINS1_14btree_iteratorINS1_10btree_nodeISF_EERS8_PS8_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.260") align 8 %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %func.val14, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i)
   br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit"
 
 "_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit": ; preds = %for.body6, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i, %if.then5.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %msg.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i)
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %12 = load i32, ptr %extension_count_.i, align 4
   %13 = sext i32 %12 to i64
-  %cmp5 = icmp slt i64 %indvars.iv.next50, %13
+  %cmp5 = icmp slt i64 %indvars.iv.next49, %13
   br i1 %cmp5, label %for.body6, label %for.cond12.preheader, !llvm.loop !642
 
-for.body15:                                       ; preds = %for.body15.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41"
-  %indvars.iv52 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next53, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41" ]
+for.body15:                                       ; preds = %for.body15.lr.ph, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit40"
+  %indvars.iv51 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next52, %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit40" ]
   %14 = load ptr, ptr %fields_.i, align 8
-  %add.ptr.i20 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %14, i64 %indvars.iv52
+  %add.ptr.i20 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %14, i64 %indvars.iv51
   %func.val15 = load ptr, ptr %func, align 8
   %func.val16 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %msg.i.i22)
@@ -37753,13 +37721,13 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   %call.i.i24 = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i20)
   store ptr %call.i.i24, ptr %msg.i.i22, align 8
   %cmp.i.i25 = icmp eq ptr %call.i.i24, null
-  br i1 %cmp.i.i25, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41", label %if.end.i.i26
+  br i1 %cmp.i.i25, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit40", label %if.end.i.i26
 
 if.end.i.i26:                                     ; preds = %for.body15
   %options_.i.i27 = getelementptr inbounds nuw i8, ptr %func.val15, i64 64
   %scc_analyzer_.i.i28 = getelementptr inbounds nuw i8, ptr %func.val15, i64 272
   %call2.i.i29 = call noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp19IsImplicitWeakFieldEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull %add.ptr.i20, ptr noundef nonnull align 8 dereferenceable(206) %options_.i.i27, ptr noundef nonnull %scc_analyzer_.i.i28)
-  br i1 %call2.i.i29, label %if.then5.i.i39, label %lor.lhs.false.i.i30
+  br i1 %call2.i.i29, label %if.then5.i.i38, label %lor.lhs.false.i.i30
 
 lor.lhs.false.i.i30:                              ; preds = %if.end.i.i26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i21)
@@ -37768,41 +37736,35 @@ lor.lhs.false.i.i30:                              ; preds = %if.end.i.i26
   %weak_.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %15, i64 132
   %16 = load i8, ptr %weak_.i.i.i.i.i32, align 4
   %tobool.i.i.i.i.i33 = trunc i8 %16 to i1
-  br i1 %tobool.i.i.i.i.i33, label %if.then.i.i.i35, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i34
+  %opensource_runtime.i.i.i34 = getelementptr inbounds nuw i8, ptr %func.val15, i64 263
+  %17 = load i8, ptr %opensource_runtime.i.i.i34, align 1
+  %tobool.i.i.i35 = trunc i8 %17 to i1
+  %or.cond.i.i.i36 = select i1 %tobool.i.i.i.i.i33, i1 %tobool.i.i.i35, i1 false
+  br i1 %or.cond.i.i.i36, label %cond.false.i.i.i39, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i37
 
-if.then.i.i.i35:                                  ; preds = %lor.lhs.false.i.i30
-  %opensource_runtime.i.i.i36 = getelementptr inbounds nuw i8, ptr %func.val15, i64 263
-  %17 = load i8, ptr %opensource_runtime.i.i.i36, align 1
-  %tobool.i.i.i37 = trunc i8 %17 to i1
-  br i1 %tobool.i.i.i37, label %cond.false.i.i.i40, label %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i38
-
-_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i38: ; preds = %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i21)
-  br label %if.then5.i.i39
-
-cond.false.i.i.i40:                               ; preds = %if.then.i.i.i35
+cond.false.i.i.i39:                               ; preds = %lor.lhs.false.i.i30
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i21, ptr noundef nonnull @.str.189, i32 noundef 324, i64 27, ptr nonnull @.str.190) #26
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3.i.i.i21) #27
   unreachable
 
-_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i34: ; preds = %lor.lhs.false.i.i30
+_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i37: ; preds = %lor.lhs.false.i.i30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i21)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41"
+  br i1 %tobool.i.i.i.i.i33, label %if.then5.i.i38, label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit40"
 
-if.then5.i.i39:                                   ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.thread.i.i38, %if.end.i.i26
+if.then5.i.i38:                                   ; preds = %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i37, %if.end.i.i26
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIPKN6google8protobuf10DescriptorENS5_8compiler3cpp13FileGenerator19CrossFileReferences11DescCompareESaIS8_ELi256ELb0EEEE13insert_uniqueIS8_JRKS8_EEESt4pairINS1_14btree_iteratorINS1_10btree_nodeISF_EERS8_PS8_EEbERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.260") align 8 %tmp.i.i23, ptr noundef nonnull align 8 dereferenceable(24) %func.val16, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i22, ptr noundef nonnull align 8 dereferenceable(8) %msg.i.i22)
-  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41"
+  br label %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit40"
 
-"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41": ; preds = %for.body15, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i34, %if.then5.i.i39
+"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit40": ; preds = %for.body15, %_ZN6google8protobuf8compiler3cpp6IsWeakEPKNS0_15FieldDescriptorERKNS2_7OptionsE.exit.i.i37, %if.then5.i.i38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %msg.i.i22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i23)
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %18 = load i32, ptr %field_count_.i, align 4
   %19 = sext i32 %18 to i64
-  %cmp14 = icmp slt i64 %indvars.iv.next53, %19
+  %cmp14 = icmp slt i64 %indvars.iv.next52, %19
   br i1 %cmp14, label %for.body15, label %for.end19, !llvm.loop !643
 
-for.end19:                                        ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit41", %for.cond12.preheader
+for.end19:                                        ; preds = %"_ZZN6google8protobuf8compiler3cpp13FileGenerator29GetCrossFileReferencesForFileEPKNS0_14FileDescriptorEPNS3_19CrossFileReferencesEENK3$_0clEPKNS0_15FieldDescriptorE.exit40", %for.cond12.preheader
   ret void
 }
 

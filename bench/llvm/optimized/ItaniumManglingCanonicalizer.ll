@@ -2152,22 +2152,22 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %10 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   store ptr null, ptr %5, align 8, !tbaa !11
-  %.val92 = load ptr, ptr %0, align 8, !tbaa !86
+  %.val95 = load ptr, ptr %0, align 8, !tbaa !86
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val93 = load ptr, ptr %11, align 8, !tbaa !87
-  %12 = ptrtoint ptr %.val93 to i64
-  %13 = ptrtoint ptr %.val92 to i64
+  %.val96 = load ptr, ptr %11, align 8, !tbaa !87
+  %12 = ptrtoint ptr %.val96 to i64
+  %13 = ptrtoint ptr %.val95 to i64
   %14 = sub i64 %12, %13
-  %.not.i.not = icmp eq ptr %.val93, %.val92
+  %.not.i.not = icmp eq ptr %.val96, %.val95
   br i1 %.not.i.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit: ; preds = %1
-  %15 = load i8, ptr %.val92, align 1, !tbaa !91
+  %15 = load i8, ptr %.val95, align 1, !tbaa !91
   switch i8 %15, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread [
     i8 83, label %487
     i8 71, label %482
     i8 67, label %477
-    i8 85, label %.thread294
+    i8 85, label %.thread297
     i8 118, label %38
     i8 119, label %41
     i8 98, label %44
@@ -2199,164 +2199,164 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
     i8 82, label %467
     i8 79, label %472
     i8 114, label %.split
-    i8 75, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167
-    i8 86, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167
+    i8 75, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170
+    i8 86, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170
   ]
 
 .split:                                           ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %.not.i165 = icmp ugt i64 %14, 1
-  br i1 %.not.i165, label %16, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167.thread
+  %.not.i168 = icmp ugt i64 %14, 1
+  br i1 %.not.i168, label %16, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170.thread
 
 16:                                               ; preds = %.split
-  %17 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   %phi.call.pre = load i8, ptr %17, align 1, !tbaa !91
   %18 = freeze i8 %phi.call.pre
-  br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167
+  br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %16
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %16
   %phi.call = phi i8 [ %18, %16 ], [ %15, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit ], [ %15, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit ]
   %.039 = phi i32 [ 1, %16 ], [ 0, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit ], [ 0, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit ]
   %19 = icmp eq i8 %phi.call, 86
   %20 = zext i1 %19 to i32
   %spec.select = add nuw nsw i32 %.039, %20
-  br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167.thread
+  br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167, %.split
-  %21 = phi i32 [ 1, %.split ], [ %spec.select, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167 ]
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170, %.split
+  %21 = phi i32 [ 1, %.split ], [ %spec.select, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170 ]
   %22 = zext nneg i32 %21 to i64
-  %.not.i168 = icmp ugt i64 %14, %22
-  br i1 %.not.i168, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170.thread
+  %.not.i171 = icmp ugt i64 %14, %22
+  br i1 %.not.i171, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167.thread
-  %23 = getelementptr inbounds nuw i8, ptr %.val92, i64 %22
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170.thread
+  %23 = getelementptr inbounds nuw i8, ptr %.val95, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !91
   %.fr = freeze i8 %24
   %25 = icmp eq i8 %.fr, 75
   %26 = zext i1 %25 to i32
-  %spec.select341 = add nuw nsw i32 %21, %26
-  %.pre = zext nneg i32 %spec.select341 to i64
-  br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170.thread
+  %spec.select343 = add nuw nsw i32 %21, %26
+  %.pre = zext nneg i32 %spec.select343 to i64
+  br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167.thread
-  %.pre-phi = phi i64 [ %.pre, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170 ], [ %22, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167.thread ]
-  %27 = phi i32 [ %spec.select341, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170 ], [ %21, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit167.thread ]
-  %.not.i171 = icmp ugt i64 %14, %.pre-phi
-  br i1 %.not.i171, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173, label %.thread294
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170.thread
+  %.pre-phi = phi i64 [ %.pre, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173 ], [ %22, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170.thread ]
+  %27 = phi i32 [ %spec.select343, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173 ], [ %21, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170.thread ]
+  %.not.i174 = icmp ugt i64 %14, %.pre-phi
+  br i1 %.not.i174, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit176, label %.thread297
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170.thread
-  %28 = getelementptr inbounds nuw i8, ptr %.val92, i64 %.pre-phi
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit176: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173.thread
+  %28 = getelementptr inbounds nuw i8, ptr %.val95, i64 %.pre-phi
   %29 = load i8, ptr %28, align 1, !tbaa !91
-  switch i8 %29, label %.thread294 [
+  switch i8 %29, label %.thread297 [
     i8 70, label %35
     i8 68, label %30
   ]
 
-30:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173
+30:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit176
   %31 = add nuw nsw i32 %27, 1
   %32 = zext nneg i32 %31 to i64
-  %.not.i177 = icmp ugt i64 %14, %32
-  br i1 %.not.i177, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit179, label %.thread294
+  %.not.i180 = icmp ugt i64 %14, %32
+  br i1 %.not.i180, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit182, label %.thread297
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit179: ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %.val92, i64 %32
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit182: ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %.val95, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !91
-  switch i8 %34, label %.thread294 [
+  switch i8 %34, label %.thread297 [
     i8 111, label %35
     i8 79, label %35
     i8 119, label %35
     i8 120, label %35
   ]
 
-35:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit179, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit179, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit179, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit179, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173
+35:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit182, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit182, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit182, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit182, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit176
   %36 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseFunctionTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %36, ptr %5, align 8, !tbaa !11
   br label %thread-pre-split
 
-.thread294:                                       ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit179, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %30, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit170.thread
+.thread297:                                       ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit182, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit176, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %30, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit173.thread
   %37 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18parseQualifiedTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %37, ptr %5, align 8, !tbaa !11
   br label %thread-pre-split
 
 38:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %39 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %39, ptr %0, align 8, !tbaa !86
   %40 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(5) @.str.3)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 41:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %42 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %42, ptr %0, align 8, !tbaa !86
   %43 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA8_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(8) @.str.4)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 44:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %45 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %45, ptr %0, align 8, !tbaa !86
   %46 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(5) @.str.5)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 47:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %48 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %48, ptr %0, align 8, !tbaa !86
   %49 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(5) @.str.6)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 50:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %51 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %51, ptr %0, align 8, !tbaa !86
   %52 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(12) @.str.7)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 53:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %54 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %54, ptr %0, align 8, !tbaa !86
   %55 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA14_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(14) @.str.8)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 56:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %57 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %57, ptr %0, align 8, !tbaa !86
   %58 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(6) @.str.9)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 59:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %60 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %60, ptr %0, align 8, !tbaa !86
   %61 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA15_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(15) @.str.10)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 62:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %63 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %63, ptr %0, align 8, !tbaa !86
   %64 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(4) @.str.11)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 65:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %66 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %66, ptr %0, align 8, !tbaa !86
   %67 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(13) @.str.12)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 68:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %69 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %69, ptr %0, align 8, !tbaa !86
   %70 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(5) @.str.13)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 71:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %72 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %72, ptr %0, align 8, !tbaa !86
   %73 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA14_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(14) @.str.14)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 74:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %75 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %75, ptr %0, align 8, !tbaa !86
   %76 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(10) @.str.15)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 77:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %78 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %78, ptr %0, align 8, !tbaa !86
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 937
@@ -2521,52 +2521,52 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 164:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %165 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %165 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %165, ptr %0, align 8, !tbaa !86
   %166 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(9) @.str.17)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 167:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %168 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %168 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %168, ptr %0, align 8, !tbaa !86
   %169 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA18_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(18) @.str.18)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 170:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %171 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %171, ptr %0, align 8, !tbaa !86
   %172 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(6) @.str.19)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 173:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %174 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %174 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %174, ptr %0, align 8, !tbaa !86
   %175 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA7_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(7) @.str.20)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 176:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %177 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %177 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %177, ptr %0, align 8, !tbaa !86
   %178 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(12) @.str.21)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 179:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %180 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %180 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %180, ptr %0, align 8, !tbaa !86
   %181 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(11) @.str.22)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 182:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %183 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %183, ptr %0, align 8, !tbaa !86
   %184 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(4) @.str.23)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 185:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %186 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %186 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %186, ptr %0, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
-  %.not.i.not.i.i = icmp eq ptr %.val93, %186
+  %.not.i.not.i.i = icmp eq ptr %.val96, %186
   br i1 %.not.i.not.i.i, label %.critedge70, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i: ; preds = %185
@@ -2591,7 +2591,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %194 = sext i8 %193 to i64
   %195 = add i64 %191, -48
   %196 = add i64 %195, %194
-  %.not.i15.not.i.i = icmp eq ptr %.val93, %192
+  %.not.i15.not.i.i = icmp eq ptr %.val96, %192
   br i1 %.not.i15.not.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit_crit_edge.i, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i, !llvm.loop !120
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit_crit_edge.i: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i
@@ -2613,8 +2613,8 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %202, label %.critedge70, label %203
 
 203:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19parseBareSourceNameEv.exit
-  %.not.i189 = icmp eq ptr %200, %.val93
-  br i1 %.not.i189, label %219, label %204
+  %.not.i192 = icmp eq ptr %200, %.val96
+  br i1 %.not.i192, label %219, label %204
 
 204:                                              ; preds = %203
   %205 = load i8, ptr %200, align 1, !tbaa !91
@@ -2631,8 +2631,8 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 211:                                              ; preds = %207
   %212 = load ptr, ptr %0, align 8, !tbaa !86
   %213 = load ptr, ptr %11, align 8, !tbaa !87
-  %.not.i191 = icmp eq ptr %212, %213
-  br i1 %.not.i191, label %.critedge70, label %214
+  %.not.i194 = icmp eq ptr %212, %213
+  br i1 %.not.i194, label %.critedge70, label %214
 
 214:                                              ; preds = %211
   %215 = load i8, ptr %212, align 1, !tbaa !91
@@ -2656,11 +2656,11 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %thread-pre-split
 
 222:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %.not.i194 = icmp ugt i64 %14, 1
-  br i1 %.not.i194, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
+  %.not.i197 = icmp ugt i64 %14, 1
+  br i1 %.not.i197, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196: ; preds = %222
-  %223 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199: ; preds = %222
+  %223 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   %224 = load i8, ptr %223, align 1, !tbaa !91
   switch i8 %224, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit [
     i8 100, label %225
@@ -2671,15 +2671,15 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
     i8 65, label %262
     i8 82, label %279
     i8 83, label %296
-    i8 66, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223
-    i8 85, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223
+    i8 66, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226
+    i8 85, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226
     i8 105, label %361
     i8 115, label %364
     i8 117, label %367
     i8 97, label %370
     i8 99, label %373
-    i8 107, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit232
-    i8 75, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit232
+    i8 107, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit235
+    i8 75, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit235
     i8 110, label %385
     i8 116, label %388
     i8 84, label %388
@@ -2691,32 +2691,32 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
     i8 120, label %397
   ]
 
-225:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %226 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+225:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %226 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %226, ptr %0, align 8, !tbaa !86
   %227 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(10) @.str.24)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-228:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %229 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+228:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %229 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %229, ptr %0, align 8, !tbaa !86
   %230 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(11) @.str.25)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-231:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %232 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+231:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %232 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %232, ptr %0, align 8, !tbaa !86
   %233 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(10) @.str.26)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-234:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %235 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+234:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %235 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %235, ptr %0, align 8, !tbaa !86
   %236 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(5) @.str.27)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-237:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %238 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+237:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %238 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %238, ptr %0, align 8, !tbaa !86
   %239 = ptrtoint ptr %238 to i64
   %240 = sub i64 %12, %239
@@ -2729,7 +2729,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %243, label %244, label %247
 
 244:                                              ; preds = %242
-  %245 = getelementptr inbounds nuw i8, ptr %.val92, i64 5
+  %245 = getelementptr inbounds nuw i8, ptr %.val95, i64 5
   store ptr %245, ptr %0, align 8, !tbaa !86
   %246 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA16_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(16) @.str.29)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -2750,8 +2750,8 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 253:                                              ; preds = %247
   %254 = load ptr, ptr %0, align 8, !tbaa !86
   %255 = load ptr, ptr %11, align 8, !tbaa !87
-  %.not.i197 = icmp eq ptr %254, %255
-  br i1 %.not.i197, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %256
+  %.not.i200 = icmp eq ptr %254, %255
+  br i1 %.not.i200, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %256
 
 256:                                              ; preds = %253
   %257 = load i8, ptr %254, align 1, !tbaa !91
@@ -2764,19 +2764,19 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %261 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12BinaryFPTypeEJRPNS0_4NodeEEEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %252)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-262:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %.not.i200.not = icmp eq i64 %14, 2
-  br i1 %.not.i200.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202
+262:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %.not.i203.not = icmp eq i64 %14, 2
+  br i1 %.not.i203.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202.thread: ; preds = %262
-  %263 = getelementptr inbounds nuw i8, ptr %.val92, i64 3
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205.thread: ; preds = %262
+  %263 = getelementptr inbounds nuw i8, ptr %.val95, i64 3
   store ptr %263, ptr %0, align 8, !tbaa !86
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202: ; preds = %262
-  %264 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205: ; preds = %262
+  %264 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   %265 = load i8, ptr %264, align 1, !tbaa !91
-  %266 = getelementptr inbounds nuw i8, ptr %.val92, i64 3
+  %266 = getelementptr inbounds nuw i8, ptr %.val95, i64 3
   store ptr %266, ptr %0, align 8, !tbaa !86
   switch i8 %265, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit [
     i8 115, label %267
@@ -2787,43 +2787,43 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
     i8 109, label %277
   ]
 
-267:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202
+267:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
   %268 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(13) @.str.30)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-269:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202
+269:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
   %270 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA22_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(22) @.str.31)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-271:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202
+271:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
   %272 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA7_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(7) @.str.32)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-273:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202
+273:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
   %274 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA16_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(16) @.str.33)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-275:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202
+275:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
   %276 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(12) @.str.34)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-277:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202
+277:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
   %278 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA21_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(21) @.str.35)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-279:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %.not.i203.not = icmp eq i64 %14, 2
-  br i1 %.not.i203.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
+279:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %.not.i206.not = icmp eq i64 %14, 2
+  br i1 %.not.i206.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205.thread: ; preds = %279
-  %280 = getelementptr inbounds nuw i8, ptr %.val92, i64 3
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208.thread: ; preds = %279
+  %280 = getelementptr inbounds nuw i8, ptr %.val95, i64 3
   store ptr %280, ptr %0, align 8, !tbaa !86
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205: ; preds = %279
-  %281 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208: ; preds = %279
+  %281 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   %282 = load i8, ptr %281, align 1, !tbaa !91
-  %283 = getelementptr inbounds nuw i8, ptr %.val92, i64 3
+  %283 = getelementptr inbounds nuw i8, ptr %.val95, i64 3
   store ptr %283, ptr %0, align 8, !tbaa !86
   switch i8 %282, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit [
     i8 115, label %284
@@ -2834,66 +2834,66 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
     i8 109, label %294
   ]
 
-284:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
+284:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208
   %285 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(13) @.str.36)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-286:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
+286:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208
   %287 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA22_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(22) @.str.37)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-288:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
+288:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208
   %289 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA7_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(7) @.str.38)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-290:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
+290:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208
   %291 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA16_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(16) @.str.39)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-292:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
+292:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208
   %293 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(12) @.str.40)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-294:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205
+294:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208
   %295 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA21_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(21) @.str.41)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-296:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %297 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+296:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %297 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %297, ptr %0, align 8, !tbaa !86
   %298 = ptrtoint ptr %297 to i64
   %299 = sub i64 %12, %298
-  %.not.i206.not = icmp eq ptr %.val93, %297
-  br i1 %.not.i206.not, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208
+  %.not.i209.not = icmp eq ptr %.val96, %297
+  br i1 %.not.i209.not, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208: ; preds = %296
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211: ; preds = %296
   %300 = load i8, ptr %297, align 1, !tbaa !91
   %.not66 = icmp eq i8 %300, 68
-  %.not.i209 = icmp ugt i64 %299, 1
-  %or.cond = and i1 %.not.i209, %.not66
-  br i1 %or.cond, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
+  %.not.i212 = icmp ugt i64 %299, 1
+  %or.cond344 = and i1 %.not.i212, %.not66
+  br i1 %or.cond344, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208
-  %301 = getelementptr inbounds nuw i8, ptr %.val92, i64 3
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211
+  %301 = getelementptr inbounds nuw i8, ptr %.val95, i64 3
   %302 = load i8, ptr %301, align 1, !tbaa !91
   switch i8 %302, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit [
     i8 65, label %303
     i8 82, label %320
   ]
 
-303:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211
-  %.not.i212 = icmp ugt i64 %299, 2
-  br i1 %.not.i212, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214.thread
+303:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214
+  %.not.i215 = icmp ugt i64 %299, 2
+  br i1 %.not.i215, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214.thread: ; preds = %303
-  %304 = getelementptr inbounds nuw i8, ptr %.val92, i64 5
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217.thread: ; preds = %303
+  %304 = getelementptr inbounds nuw i8, ptr %.val95, i64 5
   store ptr %304, ptr %0, align 8, !tbaa !86
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214: ; preds = %303
-  %305 = getelementptr inbounds nuw i8, ptr %.val92, i64 4
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217: ; preds = %303
+  %305 = getelementptr inbounds nuw i8, ptr %.val95, i64 4
   %306 = load i8, ptr %305, align 1, !tbaa !91
-  %307 = getelementptr inbounds nuw i8, ptr %.val92, i64 5
+  %307 = getelementptr inbounds nuw i8, ptr %.val95, i64 5
   store ptr %307, ptr %0, align 8, !tbaa !86
   switch i8 %306, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit [
     i8 115, label %308
@@ -2904,43 +2904,43 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
     i8 109, label %318
   ]
 
-308:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214
+308:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217
   %309 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA18_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(18) @.str.42)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-310:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214
+310:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217
   %311 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA27_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(27) @.str.43)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-312:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214
+312:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217
   %313 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(12) @.str.44)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-314:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214
+314:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217
   %315 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA21_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(21) @.str.45)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-316:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214
+316:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217
   %317 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA17_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(17) @.str.46)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-318:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214
+318:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217
   %319 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA26_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(26) @.str.47)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-320:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211
-  %.not.i218 = icmp ugt i64 %299, 2
-  br i1 %.not.i218, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220.thread
+320:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214
+  %.not.i221 = icmp ugt i64 %299, 2
+  br i1 %.not.i221, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220.thread: ; preds = %320
-  %321 = getelementptr inbounds nuw i8, ptr %.val92, i64 5
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223.thread: ; preds = %320
+  %321 = getelementptr inbounds nuw i8, ptr %.val95, i64 5
   store ptr %321, ptr %0, align 8, !tbaa !86
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220: ; preds = %320
-  %322 = getelementptr inbounds nuw i8, ptr %.val92, i64 4
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223: ; preds = %320
+  %322 = getelementptr inbounds nuw i8, ptr %.val95, i64 4
   %323 = load i8, ptr %322, align 1, !tbaa !91
-  %324 = getelementptr inbounds nuw i8, ptr %.val92, i64 5
+  %324 = getelementptr inbounds nuw i8, ptr %.val95, i64 5
   store ptr %324, ptr %0, align 8, !tbaa !86
   switch i8 %323, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit [
     i8 115, label %325
@@ -2951,43 +2951,43 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
     i8 109, label %335
   ]
 
-325:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220
+325:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223
   %326 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA18_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(18) @.str.48)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-327:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220
+327:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223
   %328 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA27_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(27) @.str.49)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-329:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220
+329:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223
   %330 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(12) @.str.50)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-331:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220
+331:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223
   %332 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA21_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(21) @.str.51)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-333:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220
+333:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223
   %334 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA17_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(17) @.str.52)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-335:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220
+335:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223
   %336 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA26_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(26) @.str.53)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
   %337 = icmp eq i8 %224, 66
   %338 = zext i1 %337 to i8
-  %339 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+  %339 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %339, ptr %0, align 8, !tbaa !86
-  %.not.i224.not = icmp eq ptr %.val93, %339
-  br i1 %.not.i224.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226
+  %.not.i227.not = icmp eq ptr %.val96, %339
+  br i1 %.not.i227.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit229.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit229
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit229.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
   br label %348
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit229: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226
   %340 = load i8, ptr %339, align 1, !tbaa !91
   %341 = sext i8 %340 to i32
   %isdigittmp = add nsw i32 %341, -48
@@ -2995,7 +2995,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22
   br i1 %isdigit, label %342, label %348
 
-342:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226
+342:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit229
   %343 = tail call fastcc { i64, ptr } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb(ptr noundef nonnull align 8 dereferenceable(1464) %0, i1 noundef zeroext false)
   %344 = extractvalue { i64, ptr } %343, 0
   store i64 %344, ptr %8, align 8
@@ -3005,7 +3005,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %347 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
   br label %350
 
-348:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit226
+348:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit229.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit229
   %349 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   br label %350
 
@@ -3018,8 +3018,8 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 352:                                              ; preds = %350
   %353 = load ptr, ptr %0, align 8, !tbaa !86
   %354 = load ptr, ptr %11, align 8, !tbaa !87
-  %.not.i227 = icmp eq ptr %353, %354
-  br i1 %.not.i227, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %355
+  %.not.i230 = icmp eq ptr %353, %354
+  br i1 %.not.i230, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %355
 
 355:                                              ; preds = %352
   %356 = load i8, ptr %353, align 1, !tbaa !91
@@ -3032,37 +3032,37 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %360 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_10BitIntTypeEJRPNS0_4NodeERbEEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %351, i8 %338)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-361:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %362 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+361:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %362 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %362, ptr %0, align 8, !tbaa !86
   %363 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(9) @.str.54)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-364:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %365 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+364:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %365 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %365, ptr %0, align 8, !tbaa !86
   %366 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(9) @.str.55)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-367:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %368 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+367:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %368 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %368, ptr %0, align 8, !tbaa !86
   %369 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA8_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(8) @.str.56)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-370:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %371 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+370:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %371 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %371, ptr %0, align 8, !tbaa !86
   %372 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(5) @.str.57)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-373:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %374 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+373:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %374 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %374, ptr %0, align 8, !tbaa !86
   %375 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA15_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(15) @.str.58)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit232: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit235: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #22
   %376 = icmp eq i8 %224, 107
   %377 = select i1 %376, ptr @.str.59, ptr @.str.60
@@ -3070,39 +3070,39 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   store i64 %378, ptr %9, align 8, !tbaa !114
   %379 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %377, ptr %379, align 8, !tbaa !115
-  %380 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+  %380 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %380, ptr %0, align 8, !tbaa !86
   %381 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef null)
   %.not64 = icmp eq ptr %381, null
   br i1 %.not64, label %384, label %382
 
-382:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit232
+382:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit235
   %383 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20PostfixQualifiedTypeEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %381, ptr noundef nonnull align 8 dereferenceable(16) %9)
   br label %384
 
-384:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit232, %382
-  %.10 = phi ptr [ %383, %382 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit232 ]
+384:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit235, %382
+  %.10 = phi ptr [ %383, %382 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit235 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #22
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-385:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %386 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+385:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %386 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %386, ptr %0, align 8, !tbaa !86
   %387 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA15_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(15) @.str.61)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-388:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
+388:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
   %389 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseDecltypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %389, ptr %5, align 8, !tbaa !11
   br label %thread-pre-split
 
-390:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
+390:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
   %391 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseVectorTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %391, ptr %5, align 8, !tbaa !11
   br label %thread-pre-split
 
-392:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
-  %393 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+392:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
+  %393 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   store ptr %393, ptr %0, align 8, !tbaa !86
   %394 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   %.not63.not = icmp eq ptr %394, null
@@ -3113,7 +3113,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   store ptr %396, ptr %5, align 8, !tbaa !11
   br label %thread-pre-split
 
-397:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196
+397:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199
   %398 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseFunctionTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %398, ptr %5, align 8, !tbaa !11
   br label %thread-pre-split
@@ -3124,19 +3124,19 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %thread-pre-split
 
 401:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %402 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %402 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %402, ptr %0, align 8, !tbaa !86
-  %.not.i266.not = icmp eq ptr %.val93, %402
-  br i1 %.not.i266.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268.thread.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268
+  %.not.i269.not = icmp eq ptr %.val96, %402
+  br i1 %.not.i269.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271.thread.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268: ; preds = %401
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271: ; preds = %401
   %403 = load i8, ptr %402, align 1, !tbaa !91
   %404 = sext i8 %403 to i32
   %isdigittmp.i = add nsw i32 %404, -48
   %isdigit.i = icmp ult i32 %isdigittmp.i, 10
-  br i1 %isdigit.i, label %405, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268.thread
+  br i1 %isdigit.i, label %405, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271.thread
 
-405:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268
+405:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #22
   %406 = tail call fastcc { i64, ptr } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E11parseNumberEb(ptr noundef nonnull align 8 dereferenceable(1464) %0, i1 noundef zeroext false)
   %407 = extractvalue { i64, ptr } %406, 0
@@ -3146,42 +3146,42 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   store ptr %409, ptr %408, align 8
   %410 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #22
-  %.not.i234 = icmp eq ptr %410, null
-  br i1 %.not.i234, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit, label %411
+  %.not.i237 = icmp eq ptr %410, null
+  br i1 %.not.i237, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit, label %411
 
 411:                                              ; preds = %405
   %412 = load ptr, ptr %0, align 8, !tbaa !86
   %413 = load ptr, ptr %11, align 8, !tbaa !87
-  %.not.i263 = icmp eq ptr %412, %413
-  br i1 %.not.i263, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit, label %414
+  %.not.i266 = icmp eq ptr %412, %413
+  br i1 %.not.i266, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit, label %414
 
 414:                                              ; preds = %411
   %415 = load i8, ptr %412, align 1, !tbaa !91
   %416 = icmp eq i8 %415, 95
-  br i1 %416, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit265, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit
+  br i1 %416, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit268, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit265: ; preds = %414
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit268: ; preds = %414
   %417 = getelementptr inbounds nuw i8, ptr %412, i64 1
   br label %429
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271
   %418 = icmp eq i8 %403, 95
-  br i1 %418, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit262, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268.thread.thread
+  br i1 %418, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit265, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271.thread.thread
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit262: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268.thread
-  %419 = getelementptr inbounds nuw i8, ptr %.val92, i64 2
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit265: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271.thread
+  %419 = getelementptr inbounds nuw i8, ptr %.val95, i64 2
   br label %429
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268.thread.thread: ; preds = %401, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268.thread
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271.thread.thread: ; preds = %401, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271.thread
   %420 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   %421 = icmp eq ptr %420, null
   br i1 %421, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit, label %422
 
-422:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268.thread.thread
+422:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271.thread.thread
   %423 = load ptr, ptr %0, align 8, !tbaa !86
   %424 = load ptr, ptr %11, align 8, !tbaa !87
-  %.not.i257 = icmp eq ptr %423, %424
-  br i1 %.not.i257, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit, label %425
+  %.not.i260 = icmp eq ptr %423, %424
+  br i1 %.not.i260, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit, label %425
 
 425:                                              ; preds = %422
   %426 = load i8, ptr %423, align 1, !tbaa !91
@@ -3192,25 +3192,25 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %428 = getelementptr inbounds nuw i8, ptr %423, i64 1
   br label %429
 
-429:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit262, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit265, %.critedge.i
-  %.sink = phi ptr [ %419, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit262 ], [ %417, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit265 ], [ %428, %.critedge.i ]
-  %.0277 = phi ptr [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit262 ], [ %410, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit265 ], [ %420, %.critedge.i ]
+429:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit265, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit268, %.critedge.i
+  %.sink = phi ptr [ %419, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit265 ], [ %417, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit268 ], [ %428, %.critedge.i ]
+  %.0280 = phi ptr [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit265 ], [ %410, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit268 ], [ %420, %.critedge.i ]
   store ptr %.sink, ptr %0, align 8, !tbaa !86
   %430 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   %431 = icmp eq ptr %430, null
   br i1 %431, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit, label %432
 
 432:                                              ; preds = %429
-  %433 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_9ArrayTypeEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %430, ptr %.0277)
+  %433 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_9ArrayTypeEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %430, ptr %.0280)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit: ; preds = %422, %425, %411, %414, %405, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268.thread.thread, %432, %429
-  %.0.i233 = phi ptr [ null, %405 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit268.thread.thread ], [ %433, %432 ], [ null, %429 ], [ null, %414 ], [ null, %411 ], [ null, %425 ], [ null, %422 ]
-  store ptr %.0.i233, ptr %5, align 8, !tbaa !11
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit: ; preds = %422, %425, %411, %414, %405, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271.thread.thread, %432, %429
+  %.0.i236 = phi ptr [ null, %405 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit271.thread.thread ], [ %433, %432 ], [ null, %429 ], [ null, %414 ], [ null, %411 ], [ null, %425 ], [ null, %422 ]
+  store ptr %.0.i236, ptr %5, align 8, !tbaa !11
   br label %thread-pre-split
 
 434:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %435 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %435 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %435, ptr %0, align 8, !tbaa !86
   %436 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   %437 = icmp eq ptr %436, null
@@ -3226,52 +3226,52 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E24parsePointerToMemberTypeEv.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E24parsePointerToMemberTypeEv.exit: ; preds = %434, %441, %438
-  %.0.i235 = phi ptr [ null, %434 ], [ %442, %441 ], [ null, %438 ]
-  store ptr %.0.i235, ptr %5, align 8, !tbaa !11
+  %.0.i238 = phi ptr [ null, %434 ], [ %442, %441 ], [ null, %438 ]
+  store ptr %.0.i238, ptr %5, align 8, !tbaa !11
   br label %thread-pre-split
 
 443:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %.not.i238 = icmp ugt i64 %14, 1
-  br i1 %.not.i238, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit240, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit246.thread
+  %.not.i241 = icmp ugt i64 %14, 1
+  br i1 %.not.i241, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit243, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit240: ; preds = %443
-  %444 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit243: ; preds = %443
+  %444 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   %445 = load i8, ptr %444, align 1, !tbaa !91
-  switch i8 %445, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit246.thread [
+  switch i8 %445, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249.thread [
     i8 115, label %446
     i8 117, label %446
     i8 101, label %446
   ]
 
-446:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit240, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit240, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit240
+446:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit243, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit243, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit243
   %447 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18parseClassEnumTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %447, ptr %5, align 8, !tbaa !11
   br label %thread-pre-split
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit246.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit240, %443
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit243, %443
   %448 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18parseTemplateParamEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %448, ptr %5, align 8, !tbaa !11
   %449 = icmp eq ptr %448, null
   br i1 %449, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %450
 
-450:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit246.thread
+450:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249.thread
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %452 = load i8, ptr %451, align 8, !tbaa !31, !range !84, !noundef !85
   %453 = trunc nuw i8 %452 to i1
   br i1 %453, label %454, label %thread-pre-split.thread
 
 454:                                              ; preds = %450
-  %.val138 = load ptr, ptr %0, align 8, !tbaa !86
-  %.val139 = load ptr, ptr %11, align 8, !tbaa !87
-  %.not.i247.not = icmp eq ptr %.val139, %.val138
-  br i1 %.not.i247.not, label %thread-pre-split.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249
+  %.val141 = load ptr, ptr %0, align 8, !tbaa !86
+  %.val142 = load ptr, ptr %11, align 8, !tbaa !87
+  %.not.i250.not = icmp eq ptr %.val142, %.val141
+  br i1 %.not.i250.not, label %thread-pre-split.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249: ; preds = %454
-  %455 = load i8, ptr %.val138, align 1, !tbaa !91
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252: ; preds = %454
+  %455 = load i8, ptr %.val141, align 1, !tbaa !91
   %456 = icmp eq i8 %455, 73
   br i1 %456, label %457, label %thread-pre-split.thread
 
-457:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249
+457:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 296
   call void @_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(280) %458, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %459 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseTemplateArgsEb(ptr noundef nonnull align 8 dereferenceable(1464) %0, i1 noundef zeroext false)
@@ -3284,7 +3284,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %thread-pre-split
 
 462:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %463 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %463 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %463, ptr %0, align 8, !tbaa !86
   %464 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   %.not61 = icmp eq ptr %464, null
@@ -3296,7 +3296,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %thread-pre-split
 
 467:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %468 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %468 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %468, ptr %0, align 8, !tbaa !86
   %469 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   %.not60 = icmp eq ptr %469, null
@@ -3308,7 +3308,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %thread-pre-split
 
 472:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %473 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %473 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %473, ptr %0, align 8, !tbaa !86
   %474 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   %.not59 = icmp eq ptr %474, null
@@ -3320,7 +3320,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %thread-pre-split
 
 477:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %478 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %478 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %478, ptr %0, align 8, !tbaa !86
   %479 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   %.not58 = icmp eq ptr %479, null
@@ -3332,7 +3332,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %thread-pre-split
 
 482:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %483 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+  %483 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   store ptr %483, ptr %0, align 8, !tbaa !86
   %484 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   %.not57 = icmp eq ptr %484, null
@@ -3344,168 +3344,170 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br label %thread-pre-split
 
 487:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %.not.i250 = icmp ugt i64 %14, 1
-  br i1 %.not.i250, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252.thread
+  %.not.i253 = icmp ugt i64 %14, 1
+  br i1 %.not.i253, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252: ; preds = %487
-  %488 = getelementptr inbounds nuw i8, ptr %.val92, i64 1
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255: ; preds = %487
+  %488 = getelementptr inbounds nuw i8, ptr %.val95, i64 1
   %489 = load i8, ptr %488, align 1, !tbaa !91
   %.not = icmp eq i8 %489, 116
-  br i1 %.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252.thread
+  br i1 %.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252.thread: ; preds = %487, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255.thread: ; preds = %487, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #22
   store i8 0, ptr %10, align 1, !tbaa !121
   %490 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseUnscopedNameEPNS6_9NameStateEPb(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef null, ptr noundef %10)
   store ptr %490, ptr %5, align 8, !tbaa !11
   %.not55 = icmp eq ptr %490, null
-  br i1 %.not55, label %.critedge86.thread, label %491
+  br i1 %.not55, label %.critedge89.thread, label %491
 
-491:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252.thread
-  %.val142 = load ptr, ptr %0, align 8, !tbaa !86
-  %.val143 = load ptr, ptr %11, align 8, !tbaa !87
-  %.not.i253.not = icmp eq ptr %.val143, %.val142
-  br i1 %.not.i253.not, label %..critedge86_crit_edge, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255
+491:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255.thread
+  %.val145 = load ptr, ptr %0, align 8, !tbaa !86
+  %.val146 = load ptr, ptr %11, align 8, !tbaa !87
+  %.not.i256.not = icmp eq ptr %.val146, %.val145
+  br i1 %.not.i256.not, label %..critedge89_crit_edge, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit258
 
-..critedge86_crit_edge:                           ; preds = %491
-  %.pre351 = load i8, ptr %10, align 1, !tbaa !121, !range !84
-  br label %.critedge86
+..critedge89_crit_edge:                           ; preds = %491
+  %.pre354 = load i8, ptr %10, align 1, !tbaa !121, !range !84
+  br label %.critedge89
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255: ; preds = %491
-  %492 = load i8, ptr %.val142, align 1, !tbaa !91
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit258: ; preds = %491
+  %492 = load i8, ptr %.val145, align 1, !tbaa !91
   %493 = icmp eq i8 %492, 73
-  %.pre352 = load i8, ptr %10, align 1, !tbaa !121, !range !84
-  br i1 %493, label %494, label %.critedge86
+  %.pre355 = load i8, ptr %10, align 1, !tbaa !121, !range !84
+  br i1 %493, label %494, label %.critedge89
 
-494:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255
-  %495 = trunc nuw i8 %.pre352 to i1
-  br i1 %495, label %496, label %500
+494:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit258
+  %495 = trunc nuw i8 %.pre355 to i1
+  %.not85 = xor i1 %495, true
+  %496 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %497 = load i8, ptr %496, align 8, !range !84
+  %498 = trunc nuw i8 %497 to i1
+  %or.cond = select i1 %.not85, i1 true, i1 %498
+  br i1 %or.cond, label %499, label %.critedge89.thread360
 
-496:                                              ; preds = %494
-  %497 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %498 = load i8, ptr %497, align 8, !tbaa !31, !range !84, !noundef !85
-  %499 = trunc nuw i8 %498 to i1
-  br i1 %499, label %.thread335, label %.critedge86.thread357
-
-.critedge86.thread357:                            ; preds = %496
+.critedge89.thread360:                            ; preds = %494
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #22
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-500:                                              ; preds = %494
+499:                                              ; preds = %494
+  br i1 %495, label %502, label %500
+
+500:                                              ; preds = %499
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 296
   call void @_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(280) %501, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %.thread335
+  br label %502
 
-.thread335:                                       ; preds = %496, %500
-  %502 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseTemplateArgsEb(ptr noundef nonnull align 8 dereferenceable(1464) %0, i1 noundef zeroext false)
-  %.not56 = icmp eq ptr %502, null
-  br i1 %.not56, label %.critedge86.thread, label %.critedge86.thread338
+502:                                              ; preds = %500, %499
+  %503 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseTemplateArgsEb(ptr noundef nonnull align 8 dereferenceable(1464) %0, i1 noundef zeroext false)
+  %.not56 = icmp eq ptr %503, null
+  br i1 %.not56, label %.critedge89.thread, label %.critedge89.thread340
 
-.critedge86.thread338:                            ; preds = %.thread335
-  %503 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull %502)
-  store ptr %503, ptr %5, align 8, !tbaa !11
+.critedge89.thread340:                            ; preds = %502
+  %504 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull %503)
+  store ptr %504, ptr %5, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #22
   br label %thread-pre-split
 
-.critedge86.thread:                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252.thread, %.thread335
+.critedge89.thread:                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255.thread, %502
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #22
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-.critedge86:                                      ; preds = %..critedge86_crit_edge, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255
-  %504 = phi i8 [ %.pre351, %..critedge86_crit_edge ], [ %.pre352, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255 ]
-  %505 = trunc nuw i8 %504 to i1
+.critedge89:                                      ; preds = %..critedge89_crit_edge, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit258
+  %505 = phi i8 [ %.pre354, %..critedge89_crit_edge ], [ %.pre355, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit258 ]
+  %506 = trunc nuw i8 %505 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #22
-  br i1 %505, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %thread-pre-split.thread
+  br i1 %506, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %thread-pre-split.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %1, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252
-  %506 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18parseClassEnumTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
-  store ptr %506, ptr %5, align 8, !tbaa !11
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %1, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit255
+  %507 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18parseClassEnumTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
+  store ptr %507, ptr %5, align 8, !tbaa !11
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %221, %.critedge86.thread338, %35, %485, %480, %475, %470, %465, %460, %395, %388, %390, %397, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread, %446, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E24parsePointerToMemberTypeEv.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit, %399, %.thread294
-  %507 = phi ptr [ %503, %.critedge86.thread338 ], [ %36, %35 ], [ %486, %485 ], [ %481, %480 ], [ %476, %475 ], [ %471, %470 ], [ %466, %465 ], [ %461, %460 ], [ %396, %395 ], [ %389, %388 ], [ %391, %390 ], [ %398, %397 ], [ %506, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread ], [ %447, %446 ], [ %.0.i235, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E24parsePointerToMemberTypeEv.exit ], [ %.0.i233, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit ], [ %400, %399 ], [ %37, %.thread294 ], [ %storemerge, %221 ]
-  %.not68 = icmp eq ptr %507, null
+thread-pre-split:                                 ; preds = %221, %.critedge89.thread340, %35, %485, %480, %475, %470, %465, %460, %395, %388, %390, %397, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread, %446, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E24parsePointerToMemberTypeEv.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit, %399, %.thread297
+  %508 = phi ptr [ %504, %.critedge89.thread340 ], [ %36, %35 ], [ %486, %485 ], [ %481, %480 ], [ %476, %475 ], [ %471, %470 ], [ %466, %465 ], [ %461, %460 ], [ %396, %395 ], [ %389, %388 ], [ %391, %390 ], [ %398, %397 ], [ %507, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.thread ], [ %447, %446 ], [ %.0.i238, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E24parsePointerToMemberTypeEv.exit ], [ %.0.i236, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E14parseArrayTypeEv.exit ], [ %400, %399 ], [ %37, %.thread297 ], [ %storemerge, %221 ]
+  %.not68 = icmp eq ptr %508, null
   br i1 %.not68, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit, label %thread-pre-split.thread
 
-thread-pre-split.thread:                          ; preds = %450, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249, %.critedge86, %454, %thread-pre-split
-  %508 = phi ptr [ %507, %thread-pre-split ], [ %448, %450 ], [ %448, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249 ], [ %490, %.critedge86 ], [ %448, %454 ]
-  %509 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %510 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %511 = load ptr, ptr %510, align 8, !tbaa !9
-  %512 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %513 = load ptr, ptr %512, align 8, !tbaa !10
-  %514 = icmp eq ptr %511, %513
-  br i1 %514, label %515, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
+thread-pre-split.thread:                          ; preds = %450, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252, %.critedge89, %454, %thread-pre-split
+  %509 = phi ptr [ %508, %thread-pre-split ], [ %448, %450 ], [ %448, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit252 ], [ %490, %.critedge89 ], [ %448, %454 ]
+  %510 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %511 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %512 = load ptr, ptr %511, align 8, !tbaa !9
+  %513 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %514 = load ptr, ptr %513, align 8, !tbaa !10
+  %515 = icmp eq ptr %512, %514
+  br i1 %515, label %516, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
-515:                                              ; preds = %thread-pre-split.thread
-  %516 = load ptr, ptr %509, align 8, !tbaa !3
-  %517 = ptrtoint ptr %511 to i64
-  %518 = ptrtoint ptr %516 to i64
-  %519 = sub i64 %517, %518
-  %520 = ashr exact i64 %519, 2
-  %521 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %522 = icmp eq ptr %516, %521
-  %523 = shl i64 %519, 1
-  br i1 %522, label %524, label %530
+516:                                              ; preds = %thread-pre-split.thread
+  %517 = load ptr, ptr %510, align 8, !tbaa !3
+  %518 = ptrtoint ptr %512 to i64
+  %519 = ptrtoint ptr %517 to i64
+  %520 = sub i64 %518, %519
+  %521 = ashr exact i64 %520, 2
+  %522 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %523 = icmp eq ptr %517, %522
+  %524 = shl i64 %520, 1
+  br i1 %523, label %525, label %531
 
-524:                                              ; preds = %515
-  %525 = call noalias ptr @malloc(i64 noundef %523) #24
-  %526 = icmp eq ptr %525, null
-  br i1 %526, label %527, label %528
+525:                                              ; preds = %516
+  %526 = call noalias ptr @malloc(i64 noundef %524) #24
+  %527 = icmp eq ptr %526, null
+  br i1 %527, label %528, label %529
 
-527:                                              ; preds = %524
+528:                                              ; preds = %525
   call void @abort() #25
   unreachable
 
-528:                                              ; preds = %524
-  %.not.i.i.i.i.i.i.i256 = icmp eq ptr %511, %516
-  br i1 %.not.i.i.i.i.i.i.i256, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i, label %529
+529:                                              ; preds = %525
+  %.not.i.i.i.i.i.i.i259 = icmp eq ptr %512, %517
+  br i1 %.not.i.i.i.i.i.i.i259, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i, label %530
 
-529:                                              ; preds = %528
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %525, ptr align 8 %516, i64 %519, i1 false)
+530:                                              ; preds = %529
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %526, ptr align 8 %517, i64 %520, i1 false)
   br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
 
-_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %529, %528
-  store ptr %525, ptr %509, align 8, !tbaa !3
+_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %530, %529
+  store ptr %526, ptr %510, align 8, !tbaa !3
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
-530:                                              ; preds = %515
-  %531 = call ptr @realloc(ptr noundef %516, i64 noundef %523) #26
-  store ptr %531, ptr %509, align 8, !tbaa !3
-  %532 = icmp eq ptr %531, null
-  br i1 %532, label %533, label %._ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i_crit_edge
+531:                                              ; preds = %516
+  %532 = call ptr @realloc(ptr noundef %517, i64 noundef %524) #26
+  store ptr %532, ptr %510, align 8, !tbaa !3
+  %533 = icmp eq ptr %532, null
+  br i1 %533, label %534, label %._ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i_crit_edge
 
-._ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i_crit_edge: ; preds = %530
-  %.pre354.pre = load ptr, ptr %5, align 8, !tbaa !11
+._ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i_crit_edge: ; preds = %531
+  %.pre357.pre = load ptr, ptr %5, align 8, !tbaa !11
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
-533:                                              ; preds = %530
+534:                                              ; preds = %531
   call void @abort() #25
   unreachable
 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %._ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i_crit_edge, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
-  %.pre354 = phi ptr [ %.pre354.pre, %._ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i_crit_edge ], [ %508, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
-  %534 = phi ptr [ %531, %._ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i_crit_edge ], [ %525, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
-  %535 = getelementptr inbounds nuw i8, ptr %534, i64 %519
-  %536 = getelementptr inbounds nuw ptr, ptr %534, i64 %520
-  store ptr %536, ptr %512, align 8, !tbaa !10
+  %.pre357 = phi ptr [ %.pre357.pre, %._ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i_crit_edge ], [ %509, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
+  %535 = phi ptr [ %532, %._ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i_crit_edge ], [ %526, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 %520
+  %537 = getelementptr inbounds nuw ptr, ptr %535, i64 %521
+  store ptr %537, ptr %513, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %thread-pre-split.thread, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
-  %537 = phi ptr [ %.pre354, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %508, %thread-pre-split.thread ]
-  %538 = phi ptr [ %535, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %511, %thread-pre-split.thread ]
-  %539 = getelementptr inbounds nuw i8, ptr %538, i64 8
-  store ptr %539, ptr %510, align 8, !tbaa !9
-  store ptr %537, ptr %538, align 8, !tbaa !11
-  %.pre355 = load ptr, ptr %5, align 8, !tbaa !11
+  %538 = phi ptr [ %.pre357, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %509, %thread-pre-split.thread ]
+  %539 = phi ptr [ %536, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %512, %thread-pre-split.thread ]
+  %540 = getelementptr inbounds nuw i8, ptr %539, i64 8
+  store ptr %540, ptr %511, align 8, !tbaa !9
+  store ptr %538, ptr %539, align 8, !tbaa !11
+  %.pre358 = load ptr, ptr %5, align 8, !tbaa !11
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
 .critedge70:                                      ; preds = %185, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i, %211, %214, %207, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E19parseBareSourceNameEv.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196, %222, %thread-pre-split, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %.critedge86.thread357, %352, %355, %296, %253, %256, %482, %477, %472, %467, %462, %457, %392, %.critedge86.thread, %358, %350, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202.thread, %259, %247, %162, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, %123, %121, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit246.thread, %325, %327, %329, %331, %333, %335, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220, %308, %310, %312, %314, %316, %318, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208, %284, %286, %288, %290, %292, %294, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205, %267, %269, %271, %273, %275, %277, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202, %.critedge70, %.critedge86, %385, %384, %373, %370, %367, %364, %361, %244, %234, %231, %228, %225, %182, %179, %176, %173, %170, %167, %164, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38
-  %.0 = phi ptr [ %490, %.critedge86 ], [ %387, %385 ], [ %.10, %384 ], [ %375, %373 ], [ %372, %370 ], [ %369, %367 ], [ %366, %364 ], [ %363, %361 ], [ %246, %244 ], [ %236, %234 ], [ %233, %231 ], [ %230, %228 ], [ %227, %225 ], [ %184, %182 ], [ %181, %179 ], [ %178, %176 ], [ %175, %173 ], [ %172, %170 ], [ %169, %167 ], [ %166, %164 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ null, %.critedge70 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit246.thread ], [ %.sroa.04.0.i.i.i.i.i, %121 ], [ %spec.select.i.i.i.i, %162 ], [ %spec.select.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i ], [ null, %123 ], [ %261, %259 ], [ null, %247 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit202.thread ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205.thread ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214.thread ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit220.thread ], [ %360, %358 ], [ null, %350 ], [ null, %.critedge86.thread ], [ null, %392 ], [ null, %457 ], [ null, %462 ], [ null, %467 ], [ null, %472 ], [ null, %477 ], [ null, %482 ], [ null, %256 ], [ null, %253 ], [ null, %296 ], [ null, %355 ], [ null, %352 ], [ %490, %.critedge86.thread357 ], [ %.pre355, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ null, %thread-pre-split ], [ null, %222 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit196 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211 ]
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199, %222, %thread-pre-split, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %.critedge89.thread360, %352, %355, %296, %253, %256, %482, %477, %472, %467, %462, %457, %392, %.critedge89.thread, %358, %350, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208.thread, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205.thread, %259, %247, %162, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, %123, %121, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249.thread, %325, %327, %329, %331, %333, %335, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223, %308, %310, %312, %314, %316, %318, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211, %284, %286, %288, %290, %292, %294, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208, %267, %269, %271, %273, %275, %277, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205, %.critedge70, %.critedge89, %385, %384, %373, %370, %367, %364, %361, %244, %234, %231, %228, %225, %182, %179, %176, %173, %170, %167, %164, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38
+  %.0 = phi ptr [ %490, %.critedge89 ], [ %387, %385 ], [ %.10, %384 ], [ %375, %373 ], [ %372, %370 ], [ %369, %367 ], [ %366, %364 ], [ %363, %361 ], [ %246, %244 ], [ %236, %234 ], [ %233, %231 ], [ %230, %228 ], [ %227, %225 ], [ %184, %182 ], [ %181, %179 ], [ %178, %176 ], [ %175, %173 ], [ %172, %170 ], [ %169, %167 ], [ %166, %164 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ null, %.critedge70 ], [ %278, %277 ], [ %276, %275 ], [ %274, %273 ], [ %272, %271 ], [ %270, %269 ], [ %268, %267 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %287, %286 ], [ %285, %284 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit211 ], [ %319, %318 ], [ %317, %316 ], [ %315, %314 ], [ %313, %312 ], [ %311, %310 ], [ %309, %308 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit249.thread ], [ %.sroa.04.0.i.i.i.i.i, %121 ], [ %spec.select.i.i.i.i, %162 ], [ %spec.select.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i ], [ null, %123 ], [ %261, %259 ], [ null, %247 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit205.thread ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit208.thread ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit217.thread ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit223.thread ], [ %360, %358 ], [ null, %350 ], [ null, %.critedge89.thread ], [ null, %392 ], [ null, %457 ], [ null, %462 ], [ null, %467 ], [ null, %472 ], [ null, %477 ], [ null, %482 ], [ null, %256 ], [ null, %253 ], [ null, %296 ], [ null, %355 ], [ null, %352 ], [ %490, %.critedge89.thread360 ], [ %.pre358, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ null, %thread-pre-split ], [ null, %222 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit199 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit214 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   ret ptr %.0
 }
@@ -4175,28 +4177,28 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %10, ptr noundef %0)
   %.val = load ptr, ptr %0, align 8, !tbaa !86
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val27 = load ptr, ptr %13, align 8, !tbaa !87
-  %14 = ptrtoint ptr %.val27 to i64
+  %.val32 = load ptr, ptr %13, align 8, !tbaa !87
+  %14 = ptrtoint ptr %.val32 to i64
   %15 = ptrtoint ptr %.val to i64
   %16 = sub i64 %14, %15
-  %.not.i.not = icmp eq ptr %.val27, %.val
-  br i1 %.not.i.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit47.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
+  %.not.i.not = icmp eq ptr %.val32, %.val
+  br i1 %.not.i.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit52.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit: ; preds = %1
   %17 = load i8, ptr %.val, align 1, !tbaa !91
-  switch i8 %17, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit47.thread [
-    i8 71, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit124
+  switch i8 %17, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit52.thread [
+    i8 71, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit130
     i8 84, label %18
   ]
 
 18:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %.not.i119 = icmp ugt i64 %16, 1
-  br i1 %.not.i119, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121.thread
+  %.not.i125 = icmp ugt i64 %16, 1
+  br i1 %.not.i125, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121: ; preds = %18
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127: ; preds = %18
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !91
-  switch i8 %20, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121.thread [
+  switch i8 %20, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127.thread [
     i8 65, label %21
     i8 86, label %27
     i8 84, label %33
@@ -4208,7 +4210,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
     i8 72, label %87
   ]
 
-21:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
+21:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %22, ptr %0, align 8, !tbaa !86
   %23 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseTemplateArgEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
@@ -4219,7 +4221,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %26 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA31_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %23)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-27:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
+27:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %28, ptr %0, align 8, !tbaa !86
   %29 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
@@ -4230,7 +4232,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %32 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA12_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %29)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-33:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
+33:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127
   %34 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %34, ptr %0, align 8, !tbaa !86
   %35 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
@@ -4241,7 +4243,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %38 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA9_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %35)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-39:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
+39:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127
   %40 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %40, ptr %0, align 8, !tbaa !86
   %41 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
@@ -4252,7 +4254,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %44 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA14_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %41)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-45:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
+45:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %46, ptr %0, align 8, !tbaa !86
   %47 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
@@ -4263,7 +4265,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %50 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA19_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %47)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-51:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
+51:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127
   %52 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %52, ptr %0, align 8, !tbaa !86
   %53 = call fastcc noundef zeroext i1 @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseCallOffsetEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
@@ -4282,7 +4284,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %60 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA27_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %57)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-61:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
+61:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127
   %62 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %62, ptr %0, align 8, !tbaa !86
   %63 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
@@ -4298,8 +4300,8 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 69:                                               ; preds = %65
   %70 = load ptr, ptr %0, align 8, !tbaa !86
   %71 = load ptr, ptr %13, align 8, !tbaa !87
-  %.not.i116 = icmp eq ptr %70, %71
-  br i1 %.not.i116, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit, label %72
+  %.not.i122 = icmp eq ptr %70, %71
+  br i1 %.not.i122, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit, label %72
 
 72:                                               ; preds = %69
   %73 = load i8, ptr %70, align 1, !tbaa !91
@@ -4317,7 +4319,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %80 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_21CtorVtableSpecialNameEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %77, ptr nonnull %63)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-81:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
+81:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127
   %82 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %82, ptr %0, align 8, !tbaa !86
   %83 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef null)
@@ -4328,7 +4330,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %86 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA34_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(34) @.str.280, ptr nonnull %83)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-87:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
+87:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127
   %88 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %88, ptr %0, align 8, !tbaa !86
   %89 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef null)
@@ -4339,23 +4341,23 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %92 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA41_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %89)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121.thread: ; preds = %18, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127.thread: ; preds = %18, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127
   %93 = getelementptr inbounds nuw i8, ptr %.val, i64 1
   store ptr %93, ptr %0, align 8, !tbaa !86
-  %.not.i113.not = icmp eq ptr %.val27, %93
-  br i1 %.not.i113.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit115, label %94
+  %.not.i119.not = icmp eq ptr %.val32, %93
+  br i1 %.not.i119.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121, label %94
 
-94:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121.thread
+94:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127.thread
   %95 = load i8, ptr %93, align 1, !tbaa !91
   %96 = icmp eq i8 %95, 118
-  br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit115
+  br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit115: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121.thread, %94
-  %.0.i114 = phi i1 [ %96, %94 ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121.thread ]
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127.thread, %94
+  %.0.i120 = phi i1 [ %96, %94 ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit127.thread ]
   %97 = call fastcc noundef zeroext i1 @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseCallOffsetEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   br i1 %97, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit, label %98
 
-98:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit115
+98:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
   %99 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseEncodingEb(ptr noundef nonnull align 8 dereferenceable(1464) %0)
   store ptr %99, ptr %8, align 8, !tbaa !11
@@ -4363,7 +4365,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %100, label %106, label %101
 
 101:                                              ; preds = %98
-  br i1 %.0.i114, label %102, label %104
+  br i1 %.0.i120, label %102, label %104
 
 102:                                              ; preds = %101
   %103 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA18_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -4378,11 +4380,11 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit124: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %.not.i110 = icmp ugt i64 %16, 1
-  br i1 %.not.i110, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit112, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit130: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
+  %.not.i116 = icmp ugt i64 %16, 1
+  br i1 %.not.i116, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit118, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit112: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit124
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit118: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit130
   %107 = getelementptr inbounds nuw i8, ptr %.val, i64 1
   %108 = load i8, ptr %107, align 1, !tbaa !91
   switch i8 %108, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit [
@@ -4391,7 +4393,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
     i8 73, label %221
   ]
 
-109:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit112
+109:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit118
   %110 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %110, ptr %0, align 8, !tbaa !86
   %111 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef null)
@@ -4413,18 +4415,18 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %121 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
-  %.not.i.i.i.i.i91 = icmp eq ptr %121, null
-  br i1 %.not.i.i.i.i.i91, label %.critedge.i.i.i.i.i105, label %122
+  %.not.i.i.i.i.i97 = icmp eq ptr %121, null
+  br i1 %.not.i.i.i.i.i97, label %.critedge.i.i.i.i.i111, label %122
 
 122:                                              ; preds = %113
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   br label %153
 
-.critedge.i.i.i.i.i105:                           ; preds = %113
+.critedge.i.i.i.i.i111:                           ; preds = %113
   %124 = trunc nuw i8 %116 to i1
   br i1 %124, label %125, label %153
 
-125:                                              ; preds = %.critedge.i.i.i.i.i105
+125:                                              ; preds = %.critedge.i.i.i.i.i111
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %127 = load i64, ptr %126, align 8, !tbaa !92
   %128 = add i64 %127, 48
@@ -4437,45 +4439,45 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %135 = load ptr, ptr %134, align 8, !tbaa !94
   %136 = ptrtoint ptr %135 to i64
-  %.not.i.i.i.i.i.i.i106 = icmp ule i64 %133, %136
+  %.not.i.i.i.i.i.i.i112 = icmp ule i64 %133, %136
   %137 = icmp ne ptr %129, null
-  %138 = and i1 %137, %.not.i.i.i.i.i.i.i106
+  %138 = and i1 %137, %.not.i.i.i.i.i.i.i112
   br i1 %138, label %139, label %142, !prof !95
 
 139:                                              ; preds = %125
   %140 = inttoptr i64 %133 to ptr
   store ptr %140, ptr %114, align 8, !tbaa !93
   %141 = inttoptr i64 %132 to ptr
-  br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i107
+  br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i113
 
 142:                                              ; preds = %125
   %143 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(656) %114, i64 noundef 48, i64 noundef 48, i8 3)
-  br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i107
+  br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i113
 
-_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i107: ; preds = %142, %139
-  %.0.i.i.i.i.i.i.i108 = phi ptr [ %141, %139 ], [ %143, %142 ]
-  store ptr null, ptr %.0.i.i.i.i.i.i.i108, align 8, !tbaa !96
-  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i108, i64 8
-  %145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i108, i64 16
+_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i113: ; preds = %142, %139
+  %.0.i.i.i.i.i.i.i114 = phi ptr [ %141, %139 ], [ %143, %142 ]
+  store ptr null, ptr %.0.i.i.i.i.i.i.i114, align 8, !tbaa !96
+  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i114, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i114, i64 16
   store i8 21, ptr %145, align 8, !tbaa !98
-  %146 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i108, i64 17
+  %146 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i114, i64 17
   %147 = load i16, ptr %146, align 1
   %148 = and i16 %147, -4096
   %149 = or disjoint i16 %148, 1344
   store i16 %149, ptr %146, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %144, align 8, !tbaa !103
-  %150 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i108, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i114, i64 24
   store i64 19, ptr %150, align 8, !tbaa !108
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i108, i64 32
-  store ptr @.str.284, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i109, align 8, !tbaa !109
-  %151 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i108, i64 40
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i114, i64 32
+  store ptr @.str.284, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i115, align 8, !tbaa !109
+  %151 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i114, i64 40
   store ptr %111, ptr %151, align 8, !tbaa !128
   %152 = load ptr, ptr %3, align 8, !tbaa !80
-  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull %.0.i.i.i.i.i.i.i108, ptr noundef %152, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
+  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull %.0.i.i.i.i.i.i.i114, ptr noundef %152, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   br label %153
 
-153:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i107, %.critedge.i.i.i.i.i105, %122
-  %.sroa.04.0.i.i.i.i.i92 = phi ptr [ %144, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i107 ], [ %123, %122 ], [ null, %.critedge.i.i.i.i.i105 ]
+153:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i113, %.critedge.i.i.i.i.i111, %122
+  %.sroa.04.0.i.i.i.i.i98 = phi ptr [ %144, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i113 ], [ %123, %122 ], [ null, %.critedge.i.i.i.i.i111 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
   %154 = load ptr, ptr %2, align 8, !tbaa !59
   %155 = icmp eq ptr %154, %117
@@ -4487,83 +4489,83 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA20_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i: ; preds = %156, %153
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #22
-  br i1 %.not.i.i.i.i.i91, label %157, label %159
+  br i1 %.not.i.i.i.i.i97, label %157, label %159
 
 157:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA20_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  store ptr %.sroa.04.0.i.i.i.i.i92, ptr %158, align 8, !tbaa !88
+  store ptr %.sroa.04.0.i.i.i.i.i98, ptr %158, align 8, !tbaa !88
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
 159:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA20_KcRPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
-  %.not.i.i.i.i93 = icmp eq ptr %.sroa.04.0.i.i.i.i.i92, null
-  br i1 %.not.i.i.i.i93, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit, label %160
+  %.not.i.i.i.i99 = icmp eq ptr %.sroa.04.0.i.i.i.i.i98, null
+  br i1 %.not.i.i.i.i99, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit, label %160
 
 160:                                              ; preds = %159
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %162 = load i32, ptr %161, align 8
   %163 = and i32 %162, 1
-  %.not.i.i.i.i.i.i.i.i.i.i94 = icmp eq i32 %163, 0
+  %.not.i.i.i.i.i.i.i.i.i.i100 = icmp eq i32 %163, 0
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %165 = load ptr, ptr %164, align 8
-  %166 = select i1 %.not.i.i.i.i.i.i.i.i.i.i94, ptr %165, ptr %164
+  %166 = select i1 %.not.i.i.i.i.i.i.i.i.i.i100, ptr %165, ptr %164
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %168 = load i32, ptr %167, align 8
-  %169 = select i1 %.not.i.i.i.i.i.i.i.i.i.i94, i32 %168, i32 32
+  %169 = select i1 %.not.i.i.i.i.i.i.i.i.i.i100, i32 %168, i32 32
   %170 = icmp eq i32 %169, 0
-  br i1 %170, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i101, label %171
+  br i1 %170, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i107, label %171
 
 171:                                              ; preds = %160
-  %172 = ptrtoint ptr %.sroa.04.0.i.i.i.i.i92 to i64
+  %172 = ptrtoint ptr %.sroa.04.0.i.i.i.i.i98 to i64
   %173 = trunc i64 %172 to i32
   %174 = lshr i32 %173, 4
   %175 = lshr i32 %173, 9
   %176 = xor i32 %174, %175
   %177 = add i32 %169, -1
-  %.01826.i.i.i.i.i.i.i95 = and i32 %177, %176
-  %178 = zext nneg i32 %.01826.i.i.i.i.i.i.i95 to i64
+  %.01826.i.i.i.i.i.i.i101 = and i32 %177, %176
+  %178 = zext nneg i32 %.01826.i.i.i.i.i.i.i101 to i64
   %179 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %166, i64 %178
   %180 = load ptr, ptr %179, align 8, !tbaa !11
-  %181 = icmp eq ptr %.sroa.04.0.i.i.i.i.i92, %180
-  br i1 %181, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i100, label %.lr.ph.i.i.i.i.i.i.i96, !prof !110
+  %181 = icmp eq ptr %.sroa.04.0.i.i.i.i.i98, %180
+  br i1 %181, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i106, label %.lr.ph.i.i.i.i.i.i.i102, !prof !110
 
-.lr.ph.i.i.i.i.i.i.i96:                           ; preds = %171, %184
+.lr.ph.i.i.i.i.i.i.i102:                          ; preds = %171, %184
   %182 = phi ptr [ %189, %184 ], [ %180, %171 ]
-  %.01828.i.i.i.i.i.i.i97 = phi i32 [ %.018.i.i.i.i.i.i.i99, %184 ], [ %.01826.i.i.i.i.i.i.i95, %171 ]
-  %.01627.i.i.i.i.i.i.i98 = phi i32 [ %185, %184 ], [ 1, %171 ]
+  %.01828.i.i.i.i.i.i.i103 = phi i32 [ %.018.i.i.i.i.i.i.i105, %184 ], [ %.01826.i.i.i.i.i.i.i101, %171 ]
+  %.01627.i.i.i.i.i.i.i104 = phi i32 [ %185, %184 ], [ 1, %171 ]
   %183 = icmp eq ptr %182, inttoptr (i64 -4096 to ptr)
-  br i1 %183, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i101, label %184, !prof !95
+  br i1 %183, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i107, label %184, !prof !95
 
-184:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i96
-  %185 = add i32 %.01627.i.i.i.i.i.i.i98, 1
-  %186 = add i32 %.01627.i.i.i.i.i.i.i98, %.01828.i.i.i.i.i.i.i97
-  %.018.i.i.i.i.i.i.i99 = and i32 %186, %177
-  %187 = zext i32 %.018.i.i.i.i.i.i.i99 to i64
+184:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i102
+  %185 = add i32 %.01627.i.i.i.i.i.i.i104, 1
+  %186 = add i32 %.01627.i.i.i.i.i.i.i104, %.01828.i.i.i.i.i.i.i103
+  %.018.i.i.i.i.i.i.i105 = and i32 %186, %177
+  %187 = zext i32 %.018.i.i.i.i.i.i.i105 to i64
   %188 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %166, i64 %187
   %189 = load ptr, ptr %188, align 8, !tbaa !11
-  %190 = icmp eq ptr %.sroa.04.0.i.i.i.i.i92, %189
-  br i1 %190, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i100, label %.lr.ph.i.i.i.i.i.i.i96, !prof !111, !llvm.loop !112
+  %190 = icmp eq ptr %.sroa.04.0.i.i.i.i.i98, %189
+  br i1 %190, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i106, label %.lr.ph.i.i.i.i.i.i.i102, !prof !111, !llvm.loop !112
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i100: ; preds = %184, %171
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i106: ; preds = %184, %171
   %191 = phi i64 [ %178, %171 ], [ %187, %184 ]
   %192 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %166, i64 %191, i32 0, i32 1
   %193 = load ptr, ptr %192, align 8, !tbaa !11
-  br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i101
+  br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i107
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i101: ; preds = %.lr.ph.i.i.i.i.i.i.i96, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i100, %160
-  %194 = phi ptr [ %193, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i100 ], [ null, %160 ], [ null, %.lr.ph.i.i.i.i.i.i.i96 ]
-  %.not10.i.i.i.i102 = icmp eq ptr %194, null
-  %spec.select.i.i.i.i103 = select i1 %.not10.i.i.i.i102, ptr %.sroa.04.0.i.i.i.i.i92, ptr %194
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i107: ; preds = %.lr.ph.i.i.i.i.i.i.i102, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i106, %160
+  %194 = phi ptr [ %193, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i106 ], [ null, %160 ], [ null, %.lr.ph.i.i.i.i.i.i.i102 ]
+  %.not10.i.i.i.i108 = icmp eq ptr %194, null
+  %spec.select.i.i.i.i109 = select i1 %.not10.i.i.i.i108, ptr %.sroa.04.0.i.i.i.i.i98, ptr %194
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %196 = load ptr, ptr %195, align 8, !tbaa !82
-  %197 = icmp eq ptr %spec.select.i.i.i.i103, %196
+  %197 = icmp eq ptr %spec.select.i.i.i.i109, %196
   br i1 %197, label %198, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-198:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i101
+198:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i107
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %199, align 8, !tbaa !83
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-200:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit112
+200:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit118
   %201 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %201, ptr %0, align 8, !tbaa !86
   %202 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef null)
@@ -4571,25 +4573,25 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32EN
   br i1 %203, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit, label %204
 
 204:                                              ; preds = %200
-  %.val25.i = load ptr, ptr %0, align 8, !tbaa !86
+  %.val25.i94 = load ptr, ptr %0, align 8, !tbaa !86
   %.val26.i = load ptr, ptr %13, align 8, !tbaa !87
-  %.not.i.not.i = icmp eq ptr %.val26.i, %.val25.i
-  br i1 %.not.i.not.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i89
+  %.not.i.not.i = icmp eq ptr %.val26.i, %.val25.i94
+  br i1 %.not.i.not.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i95
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i89: ; preds = %204
-  %205 = load i8, ptr %.val25.i, align 1, !tbaa !91
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i95: ; preds = %204
+  %205 = load i8, ptr %.val25.i94, align 1, !tbaa !91
   %206 = icmp sgt i8 %205, 47
   br i1 %206, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i89
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i95
   %207 = icmp samesign ult i8 %205, 58
   %208 = add nsw i8 %205, -65
   %or.cond69.i = icmp ult i8 %208, 26
-  %or.cond154 = select i1 %207, i1 true, i1 %or.cond69.i
-  br i1 %or.cond154, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit38.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit
+  %or.cond160 = select i1 %207, i1 true, i1 %or.cond69.i
+  br i1 %or.cond160, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit38.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit38.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44.i
-  %.val176264.i = phi ptr [ %213, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44.i ], [ %.val25.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.i ]
+  %.val176264.i = phi ptr [ %213, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44.i ], [ %.val25.i94, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.i ]
   %209 = load i8, ptr %.val176264.i, align 1, !tbaa !91
   %210 = icmp sgt i8 %209, 47
   br i1 %210, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit41.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit
@@ -4597,9 +4599,9 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit41.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit38.i
   %211 = icmp samesign ult i8 %209, 58
   %212 = add nsw i8 %209, -65
-  %or.cond.i90 = icmp ult i8 %212, 26
-  %or.cond180 = select i1 %211, i1 true, i1 %or.cond.i90
-  br i1 %or.cond180, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit
+  %or.cond.i96 = icmp ult i8 %212, 26
+  %or.cond187 = select i1 %211, i1 true, i1 %or.cond.i96
+  br i1 %or.cond187, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit41.i
   %213 = getelementptr inbounds nuw i8, ptr %.val176264.i, i64 1
@@ -4607,30 +4609,30 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %.not.i36.not.i = icmp eq ptr %.val26.i, %213
   br i1 %.not.i36.not.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit38.i, !llvm.loop !130
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit38.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit41.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.i, %204, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i89
-  %214 = phi ptr [ %.val25.i, %204 ], [ %.val25.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i89 ], [ %.val25.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.i ], [ %.val176264.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit41.i ], [ %213, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44.i ], [ %.val176264.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit38.i ]
-  %.07.i = phi i1 [ true, %204 ], [ true, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i89 ], [ true, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.i ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit41.i ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44.i ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit38.i ]
-  %.not.i86 = icmp eq ptr %214, %.val26.i
-  br i1 %.not.i86, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit88, label %215
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit38.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit41.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.i, %204, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i95
+  %214 = phi ptr [ %.val25.i94, %204 ], [ %.val25.i94, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i95 ], [ %.val25.i94, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.i ], [ %.val176264.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit41.i ], [ %213, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44.i ], [ %.val176264.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit38.i ]
+  %.07.i = phi i1 [ true, %204 ], [ true, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i95 ], [ true, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit29.i ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit41.i ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44.i ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit38.i ]
+  %.not.i91 = icmp eq ptr %214, %.val26.i
+  br i1 %.not.i91, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit93, label %215
 
 215:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit
   %216 = load i8, ptr %214, align 1, !tbaa !91
   %217 = icmp eq i8 %216, 95
-  br i1 %217, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit88.thread, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit88
+  br i1 %217, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit93.thread, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit93
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit88.thread: ; preds = %215
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit93.thread: ; preds = %215
   %218 = getelementptr inbounds nuw i8, ptr %214, i64 1
   store ptr %218, ptr %0, align 8, !tbaa !86
   br label %219
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit88: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit, %215
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit93: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E10parseSeqIdEPm.exit, %215
   br i1 %.07.i, label %219, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-219:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit88.thread, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit88
+219:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit93.thread, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit93
   %220 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA25_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %202)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-221:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit112
+221:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit118
   %222 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %222, ptr %0, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
@@ -4705,17 +4707,17 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle10ModuleNameEEEEvRNS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %261 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
-  %.not.i.i.i.i.i70 = icmp eq ptr %261, null
-  br i1 %.not.i.i.i.i.i70, label %.critedge.i.i.i.i.i82, label %262
+  %.not.i.i.i.i.i75 = icmp eq ptr %261, null
+  br i1 %.not.i.i.i.i.i75, label %.critedge.i.i.i.i.i87, label %262
 
 262:                                              ; preds = %_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle10ModuleNameEEEEvRNS3_16FoldingSetNodeIDENS4_4Node4KindEDpT_.exit.i.i.i.i.i
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 8
   br label %292
 
-.critedge.i.i.i.i.i82:                            ; preds = %_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle10ModuleNameEEEEvRNS3_16FoldingSetNodeIDENS4_4Node4KindEDpT_.exit.i.i.i.i.i
+.critedge.i.i.i.i.i87:                            ; preds = %_ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle10ModuleNameEEEEvRNS3_16FoldingSetNodeIDENS4_4Node4KindEDpT_.exit.i.i.i.i.i
   br i1 %230, label %264, label %292
 
-264:                                              ; preds = %.critedge.i.i.i.i.i82
+264:                                              ; preds = %.critedge.i.i.i.i.i87
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %266 = load i64, ptr %265, align 8, !tbaa !92
   %267 = add i64 %266, 48
@@ -4728,45 +4730,45 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle10ModuleNameEEEEvRNS
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %274 = load ptr, ptr %273, align 8, !tbaa !94
   %275 = ptrtoint ptr %274 to i64
-  %.not.i.i.i.i.i.i.i83 = icmp ule i64 %272, %275
+  %.not.i.i.i.i.i.i.i88 = icmp ule i64 %272, %275
   %276 = icmp ne ptr %268, null
-  %277 = and i1 %276, %.not.i.i.i.i.i.i.i83
+  %277 = and i1 %276, %.not.i.i.i.i.i.i.i88
   br i1 %277, label %278, label %281, !prof !95
 
 278:                                              ; preds = %264
   %279 = inttoptr i64 %272 to ptr
   store ptr %279, ptr %227, align 8, !tbaa !93
   %280 = inttoptr i64 %271 to ptr
-  br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i84
+  br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i89
 
 281:                                              ; preds = %264
   %282 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(656) %227, i64 noundef 48, i64 noundef 48, i8 3)
-  br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i84
+  br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i89
 
-_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i84: ; preds = %281, %278
-  %.0.i.i.i.i.i.i.i85 = phi ptr [ %280, %278 ], [ %282, %281 ]
-  store ptr null, ptr %.0.i.i.i.i.i.i.i85, align 8, !tbaa !96
-  %283 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i85, i64 8
-  %284 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i85, i64 16
+_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i89: ; preds = %281, %278
+  %.0.i.i.i.i.i.i.i90 = phi ptr [ %280, %278 ], [ %282, %281 ]
+  store ptr null, ptr %.0.i.i.i.i.i.i.i90, align 8, !tbaa !96
+  %283 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i90, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i90, i64 16
   store i8 21, ptr %284, align 8, !tbaa !98
-  %285 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i85, i64 17
+  %285 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i90, i64 17
   %286 = load i16, ptr %285, align 1
   %287 = and i16 %286, -4096
   %288 = or disjoint i16 %287, 1344
   store i16 %288, ptr %285, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %283, align 8, !tbaa !103
-  %289 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i85, i64 24
+  %289 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i90, i64 24
   store i64 23, ptr %289, align 8, !tbaa !108
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i85, i64 32
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i90, i64 32
   store ptr @.str.286, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !109
-  %290 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i85, i64 40
+  %290 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i90, i64 40
   store ptr %224, ptr %290, align 8, !tbaa !128
   %291 = load ptr, ptr %5, align 8, !tbaa !80
-  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef nonnull %.0.i.i.i.i.i.i.i85, ptr noundef %291, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
+  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef nonnull %.0.i.i.i.i.i.i.i90, ptr noundef %291, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
   br label %292
 
-292:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i84, %.critedge.i.i.i.i.i82, %262
-  %.sroa.04.0.i.i.i.i.i = phi ptr [ %283, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i84 ], [ %263, %262 ], [ null, %.critedge.i.i.i.i.i82 ]
+292:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i89, %.critedge.i.i.i.i.i87, %262
+  %.sroa.04.0.i.i.i.i.i = phi ptr [ %283, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i89 ], [ %263, %262 ], [ null, %.critedge.i.i.i.i.i87 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   %293 = load ptr, ptr %4, align 8, !tbaa !59
   %294 = icmp eq ptr %293, %231
@@ -4778,7 +4780,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA24_KcRPNS3_10ModuleNameEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %295, %292
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #22
-  br i1 %.not.i.i.i.i.i70, label %296, label %298
+  br i1 %.not.i.i.i.i.i75, label %296, label %298
 
 296:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA24_KcRPNS3_10ModuleNameEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 920
@@ -4786,22 +4788,22 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit
 
 298:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle11SpecialNameEJRA24_KcRPNS3_10ModuleNameEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %.not.i.i.i.i71 = icmp eq ptr %.sroa.04.0.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i71, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit, label %299
+  %.not.i.i.i.i76 = icmp eq ptr %.sroa.04.0.i.i.i.i.i, null
+  br i1 %.not.i.i.i.i76, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit, label %299
 
 299:                                              ; preds = %298
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %301 = load i32, ptr %300, align 8
   %302 = and i32 %301, 1
-  %.not.i.i.i.i.i.i.i.i.i.i72 = icmp eq i32 %302, 0
+  %.not.i.i.i.i.i.i.i.i.i.i77 = icmp eq i32 %302, 0
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %304 = load ptr, ptr %303, align 8
-  %305 = select i1 %.not.i.i.i.i.i.i.i.i.i.i72, ptr %304, ptr %303
+  %305 = select i1 %.not.i.i.i.i.i.i.i.i.i.i77, ptr %304, ptr %303
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %307 = load i32, ptr %306, align 8
-  %308 = select i1 %.not.i.i.i.i.i.i.i.i.i.i72, i32 %307, i32 32
+  %308 = select i1 %.not.i.i.i.i.i.i.i.i.i.i77, i32 %307, i32 32
   %309 = icmp eq i32 %308, 0
-  br i1 %309, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i79, label %310
+  br i1 %309, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i84, label %310
 
 310:                                              ; preds = %299
   %311 = ptrtoint ptr %.sroa.04.0.i.i.i.i.i to i64
@@ -4810,61 +4812,61 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %314 = lshr i32 %312, 9
   %315 = xor i32 %313, %314
   %316 = add i32 %308, -1
-  %.01826.i.i.i.i.i.i.i73 = and i32 %316, %315
-  %317 = zext nneg i32 %.01826.i.i.i.i.i.i.i73 to i64
+  %.01826.i.i.i.i.i.i.i78 = and i32 %316, %315
+  %317 = zext nneg i32 %.01826.i.i.i.i.i.i.i78 to i64
   %318 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %305, i64 %317
   %319 = load ptr, ptr %318, align 8, !tbaa !11
   %320 = icmp eq ptr %.sroa.04.0.i.i.i.i.i, %319
-  br i1 %320, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i78, label %.lr.ph.i.i.i.i.i.i.i74, !prof !110
+  br i1 %320, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i83, label %.lr.ph.i.i.i.i.i.i.i79, !prof !110
 
-.lr.ph.i.i.i.i.i.i.i74:                           ; preds = %310, %323
+.lr.ph.i.i.i.i.i.i.i79:                           ; preds = %310, %323
   %321 = phi ptr [ %328, %323 ], [ %319, %310 ]
-  %.01828.i.i.i.i.i.i.i75 = phi i32 [ %.018.i.i.i.i.i.i.i77, %323 ], [ %.01826.i.i.i.i.i.i.i73, %310 ]
-  %.01627.i.i.i.i.i.i.i76 = phi i32 [ %324, %323 ], [ 1, %310 ]
+  %.01828.i.i.i.i.i.i.i80 = phi i32 [ %.018.i.i.i.i.i.i.i82, %323 ], [ %.01826.i.i.i.i.i.i.i78, %310 ]
+  %.01627.i.i.i.i.i.i.i81 = phi i32 [ %324, %323 ], [ 1, %310 ]
   %322 = icmp eq ptr %321, inttoptr (i64 -4096 to ptr)
-  br i1 %322, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i79, label %323, !prof !95
+  br i1 %322, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i84, label %323, !prof !95
 
-323:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i74
-  %324 = add i32 %.01627.i.i.i.i.i.i.i76, 1
-  %325 = add i32 %.01627.i.i.i.i.i.i.i76, %.01828.i.i.i.i.i.i.i75
-  %.018.i.i.i.i.i.i.i77 = and i32 %325, %316
-  %326 = zext i32 %.018.i.i.i.i.i.i.i77 to i64
+323:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i79
+  %324 = add i32 %.01627.i.i.i.i.i.i.i81, 1
+  %325 = add i32 %.01627.i.i.i.i.i.i.i81, %.01828.i.i.i.i.i.i.i80
+  %.018.i.i.i.i.i.i.i82 = and i32 %325, %316
+  %326 = zext i32 %.018.i.i.i.i.i.i.i82 to i64
   %327 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %305, i64 %326
   %328 = load ptr, ptr %327, align 8, !tbaa !11
   %329 = icmp eq ptr %.sroa.04.0.i.i.i.i.i, %328
-  br i1 %329, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i78, label %.lr.ph.i.i.i.i.i.i.i74, !prof !111, !llvm.loop !112
+  br i1 %329, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i83, label %.lr.ph.i.i.i.i.i.i.i79, !prof !111, !llvm.loop !112
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i78: ; preds = %323, %310
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i83: ; preds = %323, %310
   %330 = phi i64 [ %317, %310 ], [ %326, %323 ]
   %331 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %305, i64 %330, i32 0, i32 1
   %332 = load ptr, ptr %331, align 8, !tbaa !11
-  br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i79
+  br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i84
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i79: ; preds = %.lr.ph.i.i.i.i.i.i.i74, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i78, %299
-  %333 = phi ptr [ %332, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i78 ], [ null, %299 ], [ null, %.lr.ph.i.i.i.i.i.i.i74 ]
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i84: ; preds = %.lr.ph.i.i.i.i.i.i.i79, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i83, %299
+  %333 = phi ptr [ %332, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i83 ], [ null, %299 ], [ null, %.lr.ph.i.i.i.i.i.i.i79 ]
   %.not10.i.i.i.i = icmp eq ptr %333, null
-  %spec.select.i.i.i.i80 = select i1 %.not10.i.i.i.i, ptr %.sroa.04.0.i.i.i.i.i, ptr %333
+  %spec.select.i.i.i.i85 = select i1 %.not10.i.i.i.i, ptr %.sroa.04.0.i.i.i.i.i, ptr %333
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %335 = load ptr, ptr %334, align 8, !tbaa !82
-  %336 = icmp eq ptr %spec.select.i.i.i.i80, %335
+  %336 = icmp eq ptr %spec.select.i.i.i.i85, %335
   br i1 %336, label %337, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit
 
-337:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i79
+337:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i84
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i8 1, ptr %338, align 8, !tbaa !83
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit: ; preds = %337, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i79, %298, %296, %221
-  %.16.i = phi ptr [ null, %221 ], [ %.sroa.04.0.i.i.i.i.i, %296 ], [ %spec.select.i.i.i.i80, %337 ], [ %spec.select.i.i.i.i80, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i79 ], [ null, %298 ]
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit: ; preds = %337, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i84, %298, %296, %221
+  %.16.i = phi ptr [ null, %221 ], [ %.sroa.04.0.i.i.i.i.i, %296 ], [ %spec.select.i.i.i.i85, %337 ], [ %spec.select.i.i.i.i85, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i84 ], [ null, %298 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit47.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %1
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit52.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #22
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %.val32 = load ptr, ptr %339, align 8, !tbaa !24
+  %.val37 = load ptr, ptr %339, align 8, !tbaa !24
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %.val33 = load ptr, ptr %340, align 8, !tbaa !27
+  %.val38 = load ptr, ptr %340, align 8, !tbaa !27
   store i8 0, ptr %11, align 8, !tbaa !133
   %341 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 0, ptr %341, align 1, !tbaa !126
@@ -4873,8 +4875,8 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %343 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 0, ptr %343, align 8, !tbaa !134
   %344 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %345 = ptrtoint ptr %.val33 to i64
-  %346 = ptrtoint ptr %.val32 to i64
+  %345 = ptrtoint ptr %.val38 to i64
+  %346 = ptrtoint ptr %.val37 to i64
   %347 = sub i64 %345, %346
   %348 = ashr exact i64 %347, 3
   store i64 %348, ptr %344, align 8, !tbaa !135
@@ -4882,17 +4884,17 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   store i8 0, ptr %349, align 8, !tbaa !136
   %350 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull %11)
   %351 = icmp eq ptr %350, null
-  br i1 %351, label %.critedge24, label %352
+  br i1 %351, label %.critedge29, label %352
 
-352:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit47.thread
-  %.val34 = load i64, ptr %344, align 8, !tbaa !135
+352:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit52.thread
+  %.val39 = load i64, ptr %344, align 8, !tbaa !135
   %353 = load ptr, ptr %340, align 8, !tbaa !27
   %354 = load ptr, ptr %339, align 8, !tbaa !24
   %355 = ptrtoint ptr %353 to i64
   %356 = ptrtoint ptr %354 to i64
   %357 = sub i64 %355, %356
   %358 = ashr exact i64 %357, 3
-  %359 = icmp ult i64 %.val34, %358
+  %359 = icmp ult i64 %.val39, %358
   br i1 %359, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %352
@@ -4901,15 +4903,15 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %363 = load ptr, ptr %362, align 8, !tbaa !20
   %364 = icmp eq ptr %361, %363
-  br i1 %364, label %.critedge24, label %.lr.ph.split.i
+  br i1 %364, label %.critedge29, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %365 = load ptr, ptr %361, align 8, !tbaa !22
-  %.not.i49 = icmp eq ptr %365, null
-  br i1 %.not.i49, label %.critedge24, label %.lr.ph4.i
+  %.not.i54 = icmp eq ptr %365, null
+  br i1 %.not.i54, label %.critedge29, label %.lr.ph4.i
 
 .lr.ph4.i:                                        ; preds = %.lr.ph.split.i
-  %366 = getelementptr inbounds nuw ptr, ptr %354, i64 %.val34
+  %366 = getelementptr inbounds nuw ptr, ptr %354, i64 %.val39
   %367 = load ptr, ptr %366, align 8, !tbaa !29
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 16
   %369 = load i64, ptr %368, align 8, !tbaa !137
@@ -4921,23 +4923,23 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %375 = sub i64 %373, %374
   %376 = ashr exact i64 %375, 3
   %.not1412.i = icmp ult i64 %369, %376
-  br i1 %.not1412.i, label %.critedge.preheader.i, label %.critedge24
+  br i1 %.not1412.i, label %.critedge.preheader.i, label %.critedge29
 
 .critedge.preheader.i:                            ; preds = %.lr.ph4.i
   %377 = add nsw i64 %358, -1
-  br label %.critedge.i50
+  br label %.critedge.i55
 
-378:                                              ; preds = %.critedge.i50
+378:                                              ; preds = %.critedge.i55
   %379 = add nuw i64 %.0122313.i, 1
   %380 = getelementptr inbounds nuw ptr, ptr %354, i64 %379
   %381 = load ptr, ptr %380, align 8, !tbaa !29
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 16
   %383 = load i64, ptr %382, align 8, !tbaa !137
   %.not14.i = icmp ult i64 %383, %376
-  br i1 %.not14.i, label %.critedge.i50, label %.critedge24
+  br i1 %.not14.i, label %.critedge.i55, label %.critedge29
 
-.critedge.i50:                                    ; preds = %378, %.critedge.preheader.i
-  %.0122313.i = phi i64 [ %379, %378 ], [ %.val34, %.critedge.preheader.i ]
+.critedge.i55:                                    ; preds = %378, %.critedge.preheader.i
+  %.0122313.i = phi i64 [ %379, %378 ], [ %.val39, %.critedge.preheader.i ]
   %384 = phi ptr [ %381, %378 ], [ %367, %.critedge.preheader.i ]
   %385 = phi i64 [ %383, %378 ], [ %369, %.critedge.preheader.i ]
   %386 = getelementptr inbounds nuw ptr, ptr %372, i64 %385
@@ -4947,36 +4949,36 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %exitcond.not.i = icmp eq i64 %.0122313.i, %377
   br i1 %exitcond.not.i, label %.loopexit, label %378, !llvm.loop !140
 
-.loopexit:                                        ; preds = %.critedge.i50, %352
-  %389 = getelementptr inbounds nuw ptr, ptr %354, i64 %.val34
+.loopexit:                                        ; preds = %.critedge.i55, %352
+  %389 = getelementptr inbounds nuw ptr, ptr %354, i64 %.val39
   store ptr %389, ptr %340, align 8, !tbaa !27
-  %.val35.val = load ptr, ptr %0, align 8, !tbaa !86
-  %.val35.val38 = load ptr, ptr %13, align 8, !tbaa !87
-  %390 = icmp eq ptr %.val35.val38, %.val35.val
-  br i1 %390, label %.critedge24, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i
+  %.val40.val = load ptr, ptr %0, align 8, !tbaa !86
+  %.val40.val43 = load ptr, ptr %13, align 8, !tbaa !87
+  %390 = icmp eq ptr %.val40.val43, %.val40.val
+  br i1 %390, label %.critedge29, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i: ; preds = %.loopexit
-  %391 = load i8, ptr %.val35.val, align 1, !tbaa !91
+  %391 = load i8, ptr %.val40.val, align 1, !tbaa !91
   switch i8 %391, label %_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseEncodingEbENKUlvE_clEv.exit [
-    i8 69, label %.critedge24
-    i8 46, label %.critedge24
-    i8 95, label %.critedge24
+    i8 69, label %.critedge29
+    i8 46, label %.critedge29
+    i8 95, label %.critedge29
   ]
 
 _ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseEncodingEbENKUlvE_clEv.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i
-  %392 = ptrtoint ptr %.val35.val38 to i64
-  %393 = ptrtoint ptr %.val35.val to i64
+  %392 = ptrtoint ptr %.val40.val43 to i64
+  %393 = ptrtoint ptr %.val40.val to i64
   %394 = sub i64 %392, %393
   %395 = icmp ult i64 %394, 13
   br i1 %395, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseEncodingEbENKUlvE_clEv.exit
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %.val35.val, ptr noundef nonnull readonly dereferenceable(13) @.str.273, i64 13)
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %.val40.val, ptr noundef nonnull readonly dereferenceable(13) @.str.273, i64 13)
   %396 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %396, label %397, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
 
 397:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %398 = getelementptr inbounds nuw i8, ptr %.val35.val, i64 13
+  %398 = getelementptr inbounds nuw i8, ptr %.val40.val, i64 13
   store ptr %398, ptr %0, align 8, !tbaa !86
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4991,10 +4993,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZZN4llvm16itaniu
   br label %409
 
 409:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %397
-  %410 = phi ptr [ %.pre169, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %.val35.val38, %397 ]
+  %410 = phi ptr [ %.pre176, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %.val40.val43, %397 ]
   %411 = phi ptr [ %.pre, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %398, %397 ]
-  %.not.i51 = icmp eq ptr %411, %410
-  br i1 %.not.i51, label %415, label %412
+  %.not.i56 = icmp eq ptr %411, %410
+  br i1 %.not.i56, label %415, label %412
 
 412:                                              ; preds = %409
   %413 = load i8, ptr %411, align 1, !tbaa !91
@@ -5003,8 +5005,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZZN4llvm16itaniu
 
 415:                                              ; preds = %412, %409
   %416 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseTemplateArgEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
-  %.not18 = icmp eq ptr %416, null
-  br i1 %.not18, label %.critedge24, label %417
+  %.not23 = icmp eq ptr %416, null
+  br i1 %.not23, label %.critedge29, label %417
 
 417:                                              ; preds = %415
   %418 = load ptr, ptr %400, align 8, !tbaa !9
@@ -5066,7 +5068,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %443, ptr %400, align 8, !tbaa !9
   store ptr %416, ptr %442, align 8, !tbaa !11
   %.pre = load ptr, ptr %0, align 8, !tbaa !86
-  %.pre169 = load ptr, ptr %13, align 8, !tbaa !87
+  %.pre176 = load ptr, ptr %13, align 8, !tbaa !87
   br label %409, !llvm.loop !141
 
 444:                                              ; preds = %412
@@ -5076,368 +5078,367 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %447 = extractvalue { ptr, i64 } %446, 0
   %448 = extractvalue { ptr, i64 } %446, 1
   %449 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12EnableIfAttrEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr %447, i64 %448)
-  %.not.not = icmp eq ptr %449, null
-  br i1 %.not.not, label %.critedge24, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
+  %.not22.not = icmp eq ptr %449, null
+  br i1 %.not22.not, label %.critedge29, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseEncodingEbENKUlvE_clEv.exit, %444
-  %.0136 = phi ptr [ %449, %444 ], [ null, %_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseEncodingEbENKUlvE_clEv.exit ], [ null, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %.0142 = phi ptr [ %449, %444 ], [ null, %_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E13parseEncodingEbENKUlvE_clEv.exit ], [ null, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %450 = load i8, ptr %11, align 8, !tbaa !133, !range !84, !noundef !85
   %451 = trunc nuw i8 %450 to i1
-  br i1 %451, label %458, label %452
+  %.not = xor i1 %451, true
+  %452 = load i8, ptr %341, align 1, !range !84
+  %453 = trunc nuw i8 %452 to i1
+  %or.cond = select i1 %.not, i1 %453, i1 false
+  br i1 %or.cond, label %454, label %457
 
-452:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
-  %453 = load i8, ptr %341, align 1, !tbaa !126, !range !84, !noundef !85
-  %454 = trunc nuw i8 %453 to i1
-  br i1 %454, label %455, label %458
+454:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
+  %455 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
+  %456 = icmp eq ptr %455, null
+  br i1 %456, label %.critedge29, label %457
 
-455:                                              ; preds = %452
-  %456 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
-  %457 = icmp eq ptr %456, null
-  br i1 %457, label %.critedge24, label %458
-
-458:                                              ; preds = %455, %452, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
-  %.0135 = phi ptr [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ], [ %456, %455 ], [ null, %452 ]
+457:                                              ; preds = %454, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
+  %.0141 = phi ptr [ %455, %454 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %459 = load ptr, ptr %0, align 8, !tbaa !86
-  %460 = load ptr, ptr %13, align 8, !tbaa !87
-  %.not.i53 = icmp eq ptr %459, %460
-  br i1 %.not.i53, label %465, label %461
+  %458 = load ptr, ptr %0, align 8, !tbaa !86
+  %459 = load ptr, ptr %13, align 8, !tbaa !87
+  %.not.i58 = icmp eq ptr %458, %459
+  br i1 %.not.i58, label %464, label %460
 
-461:                                              ; preds = %458
-  %462 = load i8, ptr %459, align 1, !tbaa !91
-  %463 = icmp eq i8 %462, 118
-  br i1 %463, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit55, label %465
+460:                                              ; preds = %457
+  %461 = load i8, ptr %458, align 1, !tbaa !91
+  %462 = icmp eq i8 %461, 118
+  br i1 %462, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit60, label %464
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit55: ; preds = %461
-  %464 = getelementptr inbounds nuw i8, ptr %459, i64 1
-  store ptr %464, ptr %0, align 8, !tbaa !86
-  br label %606
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit60: ; preds = %460
+  %463 = getelementptr inbounds nuw i8, ptr %458, i64 1
+  store ptr %463, ptr %0, align 8, !tbaa !86
+  br label %605
 
-465:                                              ; preds = %461, %458
-  %466 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %467 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %468 = load ptr, ptr %467, align 8, !tbaa !9
-  %469 = load ptr, ptr %466, align 8, !tbaa !3
+464:                                              ; preds = %460, %457
+  %465 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %467 = load ptr, ptr %466, align 8, !tbaa !9
+  %468 = load ptr, ptr %465, align 8, !tbaa !3
+  %469 = ptrtoint ptr %467 to i64
   %470 = ptrtoint ptr %468 to i64
-  %471 = ptrtoint ptr %469 to i64
-  %472 = sub i64 %470, %471
-  %473 = ashr exact i64 %472, 3
-  %474 = load i8, ptr %349, align 8, !range !84
-  %475 = trunc nuw i8 %474 to i1
-  %476 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %477 = getelementptr inbounds nuw i8, ptr %0, i64 937
-  %478 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %479 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %480 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %481 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %482 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %483 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %484 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %485 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %486 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %487 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %488 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %489 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %490 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %491 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %492
+  %471 = sub i64 %469, %470
+  %472 = ashr exact i64 %471, 3
+  %473 = load i8, ptr %349, align 8, !range !84
+  %474 = trunc nuw i8 %473 to i1
+  %475 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %476 = getelementptr inbounds nuw i8, ptr %0, i64 937
+  %477 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %478 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %479 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %480 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %481 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %482 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %483 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %484 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %485 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %486 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %488 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %489 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %490 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %491
 
-492:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i61, %465
-  %493 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
-  %494 = icmp eq ptr %493, null
-  br i1 %494, label %.critedge26, label %495
+491:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i66, %464
+  %492 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
+  %493 = icmp eq ptr %492, null
+  br i1 %493, label %.critedge31, label %494
 
-495:                                              ; preds = %492
-  %496 = load ptr, ptr %467, align 8, !tbaa !9
-  %497 = load ptr, ptr %466, align 8, !tbaa !3
+494:                                              ; preds = %491
+  %495 = load ptr, ptr %466, align 8, !tbaa !9
+  %496 = load ptr, ptr %465, align 8, !tbaa !3
+  %497 = ptrtoint ptr %495 to i64
   %498 = ptrtoint ptr %496 to i64
-  %499 = ptrtoint ptr %497 to i64
-  %500 = sub i64 %498, %499
-  %501 = icmp eq i64 %472, %500
-  %or.cond = and i1 %501, %475
-  br i1 %or.cond, label %502, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread
+  %499 = sub i64 %497, %498
+  %500 = icmp eq i64 %471, %499
+  %or.cond7 = and i1 %500, %474
+  br i1 %or.cond7, label %501, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread
 
-502:                                              ; preds = %495
-  %503 = load i8, ptr %477, align 1, !tbaa !63, !range !84, !noundef !85
+501:                                              ; preds = %494
+  %502 = load i8, ptr %476, align 1, !tbaa !63, !range !84, !noundef !85
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #22
-  store ptr %478, ptr %6, align 8, !tbaa !59
-  store i32 0, ptr %479, align 8, !tbaa !60
-  store i32 32, ptr %480, align 4, !tbaa !61
-  call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 noundef zeroext 87, ptr noundef nonnull %493)
+  store ptr %477, ptr %6, align 8, !tbaa !59
+  store i32 0, ptr %478, align 8, !tbaa !60
+  store i32 32, ptr %479, align 4, !tbaa !61
+  call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeEEEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 noundef zeroext 87, ptr noundef nonnull %492)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
-  %504 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %481, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
-  %.not.i.i.i.i.i = icmp eq ptr %504, null
-  br i1 %.not.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %505
+  %503 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %480, ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
+  %.not.i.i.i.i.i = icmp eq ptr %503, null
+  br i1 %.not.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %504
 
-505:                                              ; preds = %502
-  %506 = getelementptr inbounds nuw i8, ptr %504, i64 8
-  br label %533
+504:                                              ; preds = %501
+  %505 = getelementptr inbounds nuw i8, ptr %503, i64 8
+  br label %532
 
-.critedge.i.i.i.i.i:                              ; preds = %502
-  %507 = trunc nuw i8 %503 to i1
-  br i1 %507, label %508, label %533
+.critedge.i.i.i.i.i:                              ; preds = %501
+  %506 = trunc nuw i8 %502 to i1
+  br i1 %506, label %507, label %532
 
-508:                                              ; preds = %.critedge.i.i.i.i.i
-  %509 = load i64, ptr %482, align 8, !tbaa !92
-  %510 = add i64 %509, 32
-  store i64 %510, ptr %482, align 8, !tbaa !92
-  %511 = load ptr, ptr %476, align 8, !tbaa !93
-  %512 = ptrtoint ptr %511 to i64
-  %513 = add i64 %512, 7
-  %514 = and i64 %513, -8
-  %515 = add i64 %514, 32
-  %516 = load ptr, ptr %483, align 8, !tbaa !94
-  %517 = ptrtoint ptr %516 to i64
-  %.not.i.i.i.i.i.i.i56 = icmp ule i64 %515, %517
-  %518 = icmp ne ptr %511, null
-  %519 = and i1 %518, %.not.i.i.i.i.i.i.i56
-  br i1 %519, label %520, label %523, !prof !95
+507:                                              ; preds = %.critedge.i.i.i.i.i
+  %508 = load i64, ptr %481, align 8, !tbaa !92
+  %509 = add i64 %508, 32
+  store i64 %509, ptr %481, align 8, !tbaa !92
+  %510 = load ptr, ptr %475, align 8, !tbaa !93
+  %511 = ptrtoint ptr %510 to i64
+  %512 = add i64 %511, 7
+  %513 = and i64 %512, -8
+  %514 = add i64 %513, 32
+  %515 = load ptr, ptr %482, align 8, !tbaa !94
+  %516 = ptrtoint ptr %515 to i64
+  %.not.i.i.i.i.i.i.i61 = icmp ule i64 %514, %516
+  %517 = icmp ne ptr %510, null
+  %518 = and i1 %517, %.not.i.i.i.i.i.i.i61
+  br i1 %518, label %519, label %522, !prof !95
 
-520:                                              ; preds = %508
-  %521 = inttoptr i64 %515 to ptr
-  store ptr %521, ptr %476, align 8, !tbaa !93
-  %522 = inttoptr i64 %514 to ptr
+519:                                              ; preds = %507
+  %520 = inttoptr i64 %514 to ptr
+  store ptr %520, ptr %475, align 8, !tbaa !93
+  %521 = inttoptr i64 %513 to ptr
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
-523:                                              ; preds = %508
-  %524 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(656) %476, i64 noundef 32, i64 noundef 32, i8 3)
+522:                                              ; preds = %507
+  %523 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(656) %475, i64 noundef 32, i64 noundef 32, i8 3)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
-_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i: ; preds = %523, %520
-  %.0.i.i.i.i.i.i.i = phi ptr [ %522, %520 ], [ %524, %523 ]
+_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i: ; preds = %522, %519
+  %.0.i.i.i.i.i.i.i = phi ptr [ %521, %519 ], [ %523, %522 ]
   store ptr null, ptr %.0.i.i.i.i.i.i.i, align 8, !tbaa !96
-  %525 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 8
-  %526 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16
-  store i8 87, ptr %526, align 8, !tbaa !98
-  %527 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 17
-  %528 = load i16, ptr %527, align 1
-  %529 = and i16 %528, -4096
-  %530 = or disjoint i16 %529, 1344
-  store i16 %530, ptr %527, align 1
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle23ExplicitObjectParameterE, i64 16), ptr %525, align 8, !tbaa !103
-  %531 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
-  store ptr %493, ptr %531, align 8, !tbaa !142
-  %532 = load ptr, ptr %7, align 8, !tbaa !80
-  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %481, ptr noundef nonnull %.0.i.i.i.i.i.i.i, ptr noundef %532, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
-  br label %533
+  %524 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 8
+  %525 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16
+  store i8 87, ptr %525, align 8, !tbaa !98
+  %526 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 17
+  %527 = load i16, ptr %526, align 1
+  %528 = and i16 %527, -4096
+  %529 = or disjoint i16 %528, 1344
+  store i16 %529, ptr %526, align 1
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle23ExplicitObjectParameterE, i64 16), ptr %524, align 8, !tbaa !103
+  %530 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
+  store ptr %492, ptr %530, align 8, !tbaa !142
+  %531 = load ptr, ptr %7, align 8, !tbaa !80
+  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %480, ptr noundef nonnull %.0.i.i.i.i.i.i.i, ptr noundef %531, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
+  br label %532
 
-533:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %505
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %525, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %506, %505 ], [ null, %.critedge.i.i.i.i.i ]
+532:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %504
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %524, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %505, %504 ], [ null, %.critedge.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  %534 = load ptr, ptr %6, align 8, !tbaa !59
-  %535 = icmp eq ptr %534, %478
-  br i1 %535, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %536
+  %533 = load ptr, ptr %6, align 8, !tbaa !59
+  %534 = icmp eq ptr %533, %477
+  br i1 %534, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %535
 
-536:                                              ; preds = %533
-  call void @free(ptr noundef %534) #22
+535:                                              ; preds = %532
+  call void @free(ptr noundef %533) #22
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
-_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %536, %533
+_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %535, %532
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #22
-  br i1 %.not.i.i.i.i.i, label %537, label %538
+  br i1 %.not.i.i.i.i.i, label %536, label %537
+
+536:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
+  store ptr %.sroa.0.0.i.i.i.i.i, ptr %488, align 8, !tbaa !88
+  br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
 537:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  store ptr %.sroa.0.0.i.i.i.i.i, ptr %489, align 8, !tbaa !88
-  br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit
-
-538:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle23ExplicitObjectParameterEJRPNS3_4NodeEEEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %.critedge26, label %539
+  br i1 %.not.i.i.i.i, label %.critedge31, label %538
 
-539:                                              ; preds = %538
-  %540 = load i32, ptr %484, align 8
-  %541 = and i32 %540, 1
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %541, 0
-  %542 = load ptr, ptr %485, align 8
-  %543 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %542, ptr %485
-  %544 = load i32, ptr %486, align 8
-  %545 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %544, i32 32
-  %546 = icmp eq i32 %545, 0
-  br i1 %546, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, label %547
+538:                                              ; preds = %537
+  %539 = load i32, ptr %483, align 8
+  %540 = and i32 %539, 1
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %540, 0
+  %541 = load ptr, ptr %484, align 8
+  %542 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %541, ptr %484
+  %543 = load i32, ptr %485, align 8
+  %544 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %543, i32 32
+  %545 = icmp eq i32 %544, 0
+  br i1 %545, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, label %546
 
-547:                                              ; preds = %539
-  %548 = ptrtoint ptr %.sroa.0.0.i.i.i.i.i to i64
-  %549 = trunc i64 %548 to i32
-  %550 = lshr i32 %549, 4
-  %551 = lshr i32 %549, 9
-  %552 = xor i32 %550, %551
-  %553 = add i32 %545, -1
-  %.01826.i.i.i.i.i.i.i = and i32 %553, %552
-  %554 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %555 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %543, i64 %554
-  %556 = load ptr, ptr %555, align 8, !tbaa !11
-  %557 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %556
-  br i1 %557, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
+546:                                              ; preds = %538
+  %547 = ptrtoint ptr %.sroa.0.0.i.i.i.i.i to i64
+  %548 = trunc i64 %547 to i32
+  %549 = lshr i32 %548, 4
+  %550 = lshr i32 %548, 9
+  %551 = xor i32 %549, %550
+  %552 = add i32 %544, -1
+  %.01826.i.i.i.i.i.i.i = and i32 %552, %551
+  %553 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
+  %554 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %542, i64 %553
+  %555 = load ptr, ptr %554, align 8, !tbaa !11
+  %556 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %555
+  br i1 %556, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %547, %560
-  %558 = phi ptr [ %565, %560 ], [ %556, %547 ]
-  %.01828.i.i.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i.i.i, %560 ], [ %.01826.i.i.i.i.i.i.i, %547 ]
-  %.01627.i.i.i.i.i.i.i = phi i32 [ %561, %560 ], [ 1, %547 ]
-  %559 = icmp eq ptr %558, inttoptr (i64 -4096 to ptr)
-  br i1 %559, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, label %560, !prof !95
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %546, %559
+  %557 = phi ptr [ %564, %559 ], [ %555, %546 ]
+  %.01828.i.i.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i.i.i, %559 ], [ %.01826.i.i.i.i.i.i.i, %546 ]
+  %.01627.i.i.i.i.i.i.i = phi i32 [ %560, %559 ], [ 1, %546 ]
+  %558 = icmp eq ptr %557, inttoptr (i64 -4096 to ptr)
+  br i1 %558, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, label %559, !prof !95
 
-560:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %561 = add i32 %.01627.i.i.i.i.i.i.i, 1
-  %562 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
-  %.018.i.i.i.i.i.i.i = and i32 %562, %553
-  %563 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %564 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %543, i64 %563
-  %565 = load ptr, ptr %564, align 8, !tbaa !11
-  %566 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %565
-  br i1 %566, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
+559:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
+  %560 = add i32 %.01627.i.i.i.i.i.i.i, 1
+  %561 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
+  %.018.i.i.i.i.i.i.i = and i32 %561, %552
+  %562 = zext i32 %.018.i.i.i.i.i.i.i to i64
+  %563 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %542, i64 %562
+  %564 = load ptr, ptr %563, align 8, !tbaa !11
+  %565 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %564
+  br i1 %565, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %560, %547
-  %567 = phi i64 [ %554, %547 ], [ %563, %560 ]
-  %568 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %543, i64 %567, i32 0, i32 1
-  %569 = load ptr, ptr %568, align 8, !tbaa !11
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %559, %546
+  %566 = phi i64 [ %553, %546 ], [ %562, %559 ]
+  %567 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %542, i64 %566, i32 0, i32 1
+  %568 = load ptr, ptr %567, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, %539
-  %570 = phi ptr [ %569, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %539 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
-  %.not9.i.i.i.i = icmp eq ptr %570, null
-  %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %570
-  %571 = load ptr, ptr %487, align 8, !tbaa !82
-  %572 = icmp eq ptr %spec.select.i.i.i.i, %571
-  br i1 %572, label %573, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, %538
+  %569 = phi ptr [ %568, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %538 ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
+  %.not9.i.i.i.i = icmp eq ptr %569, null
+  %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %569
+  %570 = load ptr, ptr %486, align 8, !tbaa !82
+  %571 = icmp eq ptr %spec.select.i.i.i.i, %570
+  br i1 %571, label %572, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
-573:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  store i8 1, ptr %488, align 8, !tbaa !83
+572:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
+  store i8 1, ptr %487, align 8, !tbaa !83
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit: ; preds = %573, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, %537
-  %.0134 = phi ptr [ %.sroa.0.0.i.i.i.i.i, %537 ], [ %spec.select.i.i.i.i, %573 ], [ %spec.select.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i ]
-  %.not = icmp eq ptr %.0134, null
-  br i1 %.not, label %.critedge26, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread_crit_edge
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit: ; preds = %572, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, %536
+  %.0140 = phi ptr [ %.sroa.0.0.i.i.i.i.i, %536 ], [ %spec.select.i.i.i.i, %572 ], [ %spec.select.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i ]
+  %.not161 = icmp eq ptr %.0140, null
+  br i1 %.not161, label %.critedge31, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread_crit_edge
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread_crit_edge: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit
-  %.pre170 = load ptr, ptr %467, align 8, !tbaa !9
+  %.pre177 = load ptr, ptr %466, align 8, !tbaa !9
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread_crit_edge, %495
-  %574 = phi ptr [ %.pre170, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread_crit_edge ], [ %496, %495 ]
-  %.0134148 = phi ptr [ %.0134, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread_crit_edge ], [ %493, %495 ]
-  %575 = load ptr, ptr %490, align 8, !tbaa !10
-  %576 = icmp eq ptr %574, %575
-  br i1 %576, label %577, label %598
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread_crit_edge, %494
+  %573 = phi ptr [ %.pre177, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread_crit_edge ], [ %495, %494 ]
+  %.0140154 = phi ptr [ %.0140, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread_crit_edge ], [ %492, %494 ]
+  %574 = load ptr, ptr %489, align 8, !tbaa !10
+  %575 = icmp eq ptr %573, %574
+  br i1 %575, label %576, label %597
 
-577:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread
-  %578 = load ptr, ptr %466, align 8, !tbaa !3
-  %579 = ptrtoint ptr %574 to i64
-  %580 = ptrtoint ptr %578 to i64
-  %581 = sub i64 %579, %580
-  %582 = ashr exact i64 %581, 2
-  %583 = icmp eq ptr %578, %491
-  %584 = shl i64 %581, 1
-  br i1 %583, label %585, label %591
+576:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread
+  %577 = load ptr, ptr %465, align 8, !tbaa !3
+  %578 = ptrtoint ptr %573 to i64
+  %579 = ptrtoint ptr %577 to i64
+  %580 = sub i64 %578, %579
+  %581 = ashr exact i64 %580, 2
+  %582 = icmp eq ptr %577, %490
+  %583 = shl i64 %580, 1
+  br i1 %582, label %584, label %590
 
-585:                                              ; preds = %577
-  %586 = call noalias ptr @malloc(i64 noundef %584) #24
-  %587 = icmp eq ptr %586, null
-  br i1 %587, label %588, label %589
+584:                                              ; preds = %576
+  %585 = call noalias ptr @malloc(i64 noundef %583) #24
+  %586 = icmp eq ptr %585, null
+  br i1 %586, label %587, label %588
 
-588:                                              ; preds = %585
+587:                                              ; preds = %584
   call void @abort() #25
   unreachable
 
-589:                                              ; preds = %585
-  %.not.i.i.i.i.i.i.i58 = icmp eq ptr %574, %491
-  br i1 %.not.i.i.i.i.i.i.i58, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i59, label %590
+588:                                              ; preds = %584
+  %.not.i.i.i.i.i.i.i63 = icmp eq ptr %573, %490
+  br i1 %.not.i.i.i.i.i.i.i63, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i64, label %589
 
-590:                                              ; preds = %589
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %586, ptr align 8 %578, i64 %581, i1 false)
-  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i59
+589:                                              ; preds = %588
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %585, ptr align 8 %577, i64 %580, i1 false)
+  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i64
 
-_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i59: ; preds = %590, %589
-  store ptr %586, ptr %466, align 8, !tbaa !3
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i57
+_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i64: ; preds = %589, %588
+  store ptr %585, ptr %465, align 8, !tbaa !3
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i62
 
-591:                                              ; preds = %577
-  %592 = call ptr @realloc(ptr noundef %578, i64 noundef %584) #26
-  store ptr %592, ptr %466, align 8, !tbaa !3
-  %593 = icmp eq ptr %592, null
-  br i1 %593, label %594, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i57
+590:                                              ; preds = %576
+  %591 = call ptr @realloc(ptr noundef %577, i64 noundef %583) #26
+  store ptr %591, ptr %465, align 8, !tbaa !3
+  %592 = icmp eq ptr %591, null
+  br i1 %592, label %593, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i62
 
-594:                                              ; preds = %591
+593:                                              ; preds = %590
   call void @abort() #25
   unreachable
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i57: ; preds = %591, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i59
-  %595 = phi ptr [ %592, %591 ], [ %586, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i59 ]
-  %596 = getelementptr inbounds nuw i8, ptr %595, i64 %581
-  %597 = getelementptr inbounds nuw ptr, ptr %595, i64 %582
-  store ptr %597, ptr %490, align 8, !tbaa !10
-  br label %598
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i62: ; preds = %590, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i64
+  %594 = phi ptr [ %591, %590 ], [ %585, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i64 ]
+  %595 = getelementptr inbounds nuw i8, ptr %594, i64 %580
+  %596 = getelementptr inbounds nuw ptr, ptr %594, i64 %581
+  store ptr %596, ptr %489, align 8, !tbaa !10
+  br label %597
 
-598:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i57
-  %599 = phi ptr [ %596, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i57 ], [ %574, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread ]
-  %600 = getelementptr inbounds nuw i8, ptr %599, i64 8
-  store ptr %600, ptr %467, align 8, !tbaa !9
-  store ptr %.0134148, ptr %599, align 8, !tbaa !11
-  %.val36.val = load ptr, ptr %0, align 8, !tbaa !86
-  %.val36.val37 = load ptr, ptr %13, align 8, !tbaa !87
-  %601 = icmp eq ptr %.val36.val37, %.val36.val
-  br i1 %601, label %.critedge, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i61
+597:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i62
+  %598 = phi ptr [ %595, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i62 ], [ %573, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit.thread ]
+  %599 = getelementptr inbounds nuw i8, ptr %598, i64 8
+  store ptr %599, ptr %466, align 8, !tbaa !9
+  store ptr %.0140154, ptr %598, align 8, !tbaa !11
+  %.val41.val = load ptr, ptr %0, align 8, !tbaa !86
+  %.val41.val42 = load ptr, ptr %13, align 8, !tbaa !87
+  %600 = icmp eq ptr %.val41.val42, %.val41.val
+  br i1 %600, label %.critedge, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i66
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i61: ; preds = %598
-  %602 = load i8, ptr %.val36.val, align 1, !tbaa !91
-  switch i8 %602, label %492 [
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i66: ; preds = %597
+  %601 = load i8, ptr %.val41.val, align 1, !tbaa !91
+  switch i8 %601, label %491 [
     i8 69, label %.critedge
     i8 46, label %.critedge
     i8 95, label %.critedge
     i8 81, label %.critedge
   ]
 
-.critedge:                                        ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i61, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i61, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i61, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i61, %598
-  %603 = call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 8 dereferenceable(1464) %0, i64 noundef %473)
-  %604 = extractvalue { ptr, i64 } %603, 0
-  %605 = extractvalue { ptr, i64 } %603, 1
-  store ptr %604, ptr %12, align 8, !tbaa !144
+.critedge:                                        ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i66, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i66, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i66, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i66, %597
+  %602 = call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 8 dereferenceable(1464) %0, i64 noundef %472)
+  %603 = extractvalue { ptr, i64 } %602, 0
+  %604 = extractvalue { ptr, i64 } %602, 1
+  store ptr %603, ptr %12, align 8, !tbaa !144
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %605, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !108
-  %.pre171 = load ptr, ptr %0, align 8, !tbaa !86
-  %.pre172 = load ptr, ptr %13, align 8, !tbaa !87
-  br label %606
+  store i64 %604, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !108
+  %.pre178 = load ptr, ptr %0, align 8, !tbaa !86
+  %.pre179 = load ptr, ptr %13, align 8, !tbaa !87
+  br label %605
 
-606:                                              ; preds = %.critedge, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit55
-  %607 = phi ptr [ %.pre172, %.critedge ], [ %460, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit55 ]
-  %608 = phi ptr [ %.pre171, %.critedge ], [ %464, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit55 ]
-  %.not.i67 = icmp eq ptr %608, %607
-  br i1 %.not.i67, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit69.thread, label %609
+605:                                              ; preds = %.critedge, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit60
+  %606 = phi ptr [ %.pre179, %.critedge ], [ %459, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit60 ]
+  %607 = phi ptr [ %.pre178, %.critedge ], [ %463, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit60 ]
+  %.not.i72 = icmp eq ptr %607, %606
+  br i1 %.not.i72, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit74.thread, label %608
 
-609:                                              ; preds = %606
-  %610 = load i8, ptr %608, align 1, !tbaa !91
-  %611 = icmp eq i8 %610, 81
-  br i1 %611, label %612, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit69.thread
+608:                                              ; preds = %605
+  %609 = load i8, ptr %607, align 1, !tbaa !91
+  %610 = icmp eq i8 %609, 81
+  br i1 %610, label %611, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit74.thread
 
-612:                                              ; preds = %609
-  %613 = getelementptr inbounds nuw i8, ptr %608, i64 1
-  store ptr %613, ptr %0, align 8, !tbaa !86
-  %614 = getelementptr inbounds nuw i8, ptr %0, i64 778
-  %615 = load i8, ptr %614, align 2, !tbaa !121, !range !84, !noundef !85
-  store i8 1, ptr %614, align 2, !tbaa !121
-  %616 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
-  store i8 %615, ptr %614, align 2, !tbaa !121
-  %.not20 = icmp eq ptr %616, null
-  br i1 %.not20, label %.critedge26, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit69.thread
+611:                                              ; preds = %608
+  %612 = getelementptr inbounds nuw i8, ptr %607, i64 1
+  store ptr %612, ptr %0, align 8, !tbaa !86
+  %613 = getelementptr inbounds nuw i8, ptr %0, i64 778
+  %614 = load i8, ptr %613, align 2, !tbaa !121, !range !84, !noundef !85
+  store i8 1, ptr %613, align 2, !tbaa !121
+  %615 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 8 dereferenceable(1464) %0)
+  store i8 %614, ptr %613, align 2, !tbaa !121
+  %.not25 = icmp eq ptr %615, null
+  br i1 %.not25, label %.critedge31, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit74.thread
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit69.thread: ; preds = %606, %609, %612
-  %.0133 = phi ptr [ %616, %612 ], [ null, %609 ], [ null, %606 ]
-  %617 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_16FunctionEncodingEJRPNS0_4NodeESB_RNS0_9NodeArrayESB_SB_RNS0_10QualifiersERNS0_15FunctionRefQualEEEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr %.0135, ptr nonnull %350, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr %.0136, ptr %.0133, ptr noundef nonnull align 4 dereferenceable(4) %342, ptr noundef nonnull align 1 dereferenceable(1) %343)
-  br label %.critedge26
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit74.thread: ; preds = %605, %608, %611
+  %.0139 = phi ptr [ %615, %611 ], [ null, %608 ], [ null, %605 ]
+  %616 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_16FunctionEncodingEJRPNS0_4NodeESB_RNS0_9NodeArrayESB_SB_RNS0_10QualifiersERNS0_15FunctionRefQualEEEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr %.0141, ptr nonnull %350, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr %.0142, ptr %.0139, ptr noundef nonnull align 4 dereferenceable(4) %342, ptr noundef nonnull align 1 dereferenceable(1) %343)
+  br label %.critedge31
 
-.critedge26:                                      ; preds = %538, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit, %492, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit69.thread, %612
-  %.11 = phi ptr [ %617, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit69.thread ], [ null, %612 ], [ null, %492 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit ], [ null, %538 ]
+.critedge31:                                      ; preds = %537, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit, %491, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit74.thread, %611
+  %.11 = phi ptr [ %616, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit74.thread ], [ null, %611 ], [ null, %491 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit ], [ null, %537 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #22
-  br label %.critedge24
+  br label %.critedge29
 
-.critedge24:                                      ; preds = %378, %415, %.lr.ph.i, %.lr.ph4.i, %.lr.ph.split.i, %444, %455, %.critedge26, %.loopexit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit47.thread
-  %.1 = phi ptr [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit47.thread ], [ %350, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i ], [ %350, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i ], [ %350, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i ], [ %350, %.loopexit ], [ null, %444 ], [ %.11, %.critedge26 ], [ null, %455 ], [ null, %.lr.ph.split.i ], [ null, %.lr.ph4.i ], [ null, %.lr.ph.i ], [ null, %415 ], [ null, %378 ]
+.critedge29:                                      ; preds = %378, %415, %.lr.ph.i, %.lr.ph4.i, %.lr.ph.split.i, %444, %454, %.critedge31, %.loopexit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit52.thread
+  %.1 = phi ptr [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit52.thread ], [ %350, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i ], [ %350, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i ], [ %350, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i ], [ %350, %.loopexit ], [ null, %444 ], [ %.11, %.critedge31 ], [ null, %454 ], [ null, %.lr.ph.split.i ], [ null, %.lr.ph4.i ], [ null, %.lr.ph.i ], [ null, %415 ], [ null, %378 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #22
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit124, %69, %72, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit112, %106, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit115, %54, %51, %25, %21, %31, %27, %37, %33, %43, %39, %49, %45, %59, %56, %75, %79, %65, %61, %85, %81, %91, %87, %198, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i101, %159, %157, %109, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit88, %219, %200, %.critedge24
-  %.0 = phi ptr [ %.1, %.critedge24 ], [ %.16.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit ], [ null, %54 ], [ null, %51 ], [ %.12.i, %106 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit115 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit112 ], [ %26, %25 ], [ null, %21 ], [ %32, %31 ], [ null, %27 ], [ %38, %37 ], [ null, %33 ], [ %44, %43 ], [ null, %39 ], [ %50, %49 ], [ null, %45 ], [ %60, %59 ], [ null, %56 ], [ null, %61 ], [ null, %65 ], [ %80, %79 ], [ null, %75 ], [ %86, %85 ], [ null, %81 ], [ %92, %91 ], [ null, %87 ], [ null, %109 ], [ %.sroa.04.0.i.i.i.i.i92, %157 ], [ %spec.select.i.i.i.i103, %198 ], [ %spec.select.i.i.i.i103, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i101 ], [ null, %159 ], [ null, %200 ], [ %220, %219 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit88 ], [ null, %72 ], [ null, %69 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit124 ]
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E16parseSpecialNameEv.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit130, %69, %72, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit118, %106, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121, %54, %51, %25, %21, %31, %27, %37, %33, %43, %39, %49, %45, %59, %56, %75, %79, %65, %61, %85, %81, %91, %87, %198, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i107, %159, %157, %109, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit93, %219, %200, %.critedge29
+  %.0 = phi ptr [ %.1, %.critedge29 ], [ %.16.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit ], [ null, %54 ], [ null, %51 ], [ %.12.i, %106 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit121 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit118 ], [ %26, %25 ], [ null, %21 ], [ %32, %31 ], [ null, %27 ], [ %38, %37 ], [ null, %33 ], [ %44, %43 ], [ null, %39 ], [ %50, %49 ], [ null, %45 ], [ %60, %59 ], [ null, %56 ], [ null, %61 ], [ null, %65 ], [ %80, %79 ], [ null, %75 ], [ %86, %85 ], [ null, %81 ], [ %92, %91 ], [ null, %87 ], [ null, %109 ], [ %.sroa.04.0.i.i.i.i.i98, %157 ], [ %spec.select.i.i.i.i109, %198 ], [ %spec.select.i.i.i.i109, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i107 ], [ null, %159 ], [ null, %200 ], [ %220, %219 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit93 ], [ null, %72 ], [ null, %69 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit130 ]
   call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %10) #22
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %10) #22
   ret ptr %.0
@@ -56024,17 +56025,17 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   store ptr %2, ptr %16, align 8, !tbaa !11
   store ptr %3, ptr %17, align 8, !tbaa !131
   %18 = call fastcc noundef zeroext i1 @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E18parseModuleNameOptERPNS0_10ModuleNameE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %17)
-  br i1 %18, label %.critedge22, label %19
+  br i1 %18, label %.critedge23, label %19
 
 19:                                               ; preds = %4
   %.not = icmp eq ptr %2, null
   %.pre = load ptr, ptr %0, align 8, !tbaa !86
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre302 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !87
+  %.pre296 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !87
   br i1 %.not, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit, label %20
 
 20:                                               ; preds = %19
-  %.not.i = icmp eq ptr %.pre, %.pre302
+  %.not.i = icmp eq ptr %.pre, %.pre296
   br i1 %.not.i, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread, label %21
 
 21:                                               ; preds = %20
@@ -56049,600 +56050,600 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit: ; preds = %19, %24, %21
   %26 = phi ptr [ %25, %24 ], [ %.pre, %21 ], [ %.pre, %19 ]
-  %.not23 = phi i1 [ false, %24 ], [ true, %21 ], [ true, %19 ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not.i37 = icmp eq ptr %26, %.pre302
-  br i1 %.not.i37, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit39, label %28
+  %27 = phi i1 [ true, %24 ], [ false, %21 ], [ false, %19 ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.not.i37 = icmp eq ptr %26, %.pre296
+  br i1 %.not.i37, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit39, label %29
 
-28:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit
-  %29 = load i8, ptr %26, align 1, !tbaa !91
-  %30 = icmp eq i8 %29, 76
-  br i1 %30, label %31, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit39
+29:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit
+  %30 = load i8, ptr %26, align 1, !tbaa !91
+  %31 = icmp eq i8 %30, 76
+  br i1 %31, label %32, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit39
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store ptr %32, ptr %0, align 8, !tbaa !86
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  store ptr %33, ptr %0, align 8, !tbaa !86
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit39
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit39: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit, %28, %31
-  %.val25 = phi ptr [ %26, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit ], [ %26, %28 ], [ %32, %31 ]
-  %33 = ptrtoint ptr %.pre302 to i64
-  %34 = ptrtoint ptr %.val25 to i64
-  %35 = sub i64 %33, %34
-  %.not.i40.not = icmp eq ptr %.pre302, %.val25
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit39: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit, %29, %32
+  %.val25 = phi ptr [ %26, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit ], [ %26, %29 ], [ %33, %32 ]
+  %34 = ptrtoint ptr %.pre296 to i64
+  %35 = ptrtoint ptr %.val25 to i64
+  %36 = sub i64 %34, %35
+  %.not.i40.not = icmp eq ptr %.pre296, %.val25
   br i1 %.not.i40.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit39
-  %36 = load i8, ptr %.val25, align 1, !tbaa !91
-  %37 = icmp sgt i8 %36, 48
-  br i1 %37, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48.thread
+  %37 = load i8, ptr %.val25, align 1, !tbaa !91
+  %38 = icmp sgt i8 %37, 48
+  br i1 %38, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48.thread
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
-  %38 = icmp samesign ult i8 %36, 58
-  br i1 %38, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48
+  %39 = icmp samesign ult i8 %37, 58
+  br i1 %39, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i
-  %.pr.i.i = load i8, ptr %42, align 1, !tbaa !91
-  %39 = add i8 %.pr.i.i, -48
-  %or.cond.i.i = icmp ult i8 %39, 10
+  %.pr.i.i = load i8, ptr %43, align 1, !tbaa !91
+  %40 = add i8 %.pr.i.i, -48
+  %or.cond.i.i = icmp ult i8 %40, 10
   br i1 %or.cond.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i
-  %40 = phi ptr [ %42, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i ], [ %.val25, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44 ]
-  %.039.i = phi i64 [ %46, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i ], [ 0, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44 ]
-  %41 = mul i64 %.039.i, 10
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  store ptr %42, ptr %0, align 8, !tbaa !86
-  %43 = load i8, ptr %40, align 1, !tbaa !91
-  %44 = sext i8 %43 to i64
-  %45 = add i64 %41, -48
-  %46 = add i64 %45, %44
-  %.not.i15.not.i.i = icmp eq ptr %.pre302, %42
+  %41 = phi ptr [ %43, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i ], [ %.val25, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44 ]
+  %.039.i = phi i64 [ %47, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i ], [ 0, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44 ]
+  %42 = mul i64 %.039.i, 10
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 1
+  store ptr %43, ptr %0, align 8, !tbaa !86
+  %44 = load i8, ptr %41, align 1, !tbaa !91
+  %45 = sext i8 %44 to i64
+  %46 = add i64 %42, -48
+  %47 = add i64 %46, %45
+  %.not.i15.not.i.i = icmp eq ptr %.pre296, %43
   br i1 %.not.i15.not.i.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit_crit_edge.i, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i, !llvm.loop !120
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit_crit_edge.i: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i, !llvm.loop !120
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit_crit_edge.i
-  %47 = ptrtoint ptr %42 to i64
-  %48 = sub i64 %33, %47
-  %49 = add i64 %46, -1
-  %or.cond.not.i = icmp ult i64 %49, %48
-  br i1 %or.cond.not.i, label %50, label %.critedge22
+  %48 = ptrtoint ptr %43 to i64
+  %49 = sub i64 %34, %48
+  %50 = add i64 %47, -1
+  %or.cond.not.i = icmp ult i64 %50, %49
+  br i1 %or.cond.not.i, label %51, label %.critedge23
 
-50:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i
+51:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #22
-  store i64 %46, ptr %15, align 8, !tbaa !114
-  %51 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %42, ptr %51, align 8, !tbaa !115
-  %52 = getelementptr inbounds nuw i8, ptr %42, i64 %46
-  store ptr %52, ptr %0, align 8, !tbaa !86
-  %53 = icmp ult i64 %46, 10
-  br i1 %53, label %56, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  store i64 %47, ptr %15, align 8, !tbaa !114
+  %52 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %43, ptr %52, align 8, !tbaa !115
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 %47
+  store ptr %53, ptr %0, align 8, !tbaa !86
+  %54 = icmp ult i64 %47, 10
+  br i1 %54, label %57, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %50
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %42, ptr noundef nonnull dereferenceable(10) @.str.219, i64 10)
-  %54 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %54, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, label %56
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %51
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %43, ptr noundef nonnull dereferenceable(10) @.str.219, i64 10)
+  %55 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %55, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i, label %57
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %55 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA22_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(22) @.str.220)
-  br label %58
+  %56 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA22_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(22) @.str.220)
+  br label %59
 
-56:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %50
-  %57 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  br label %58
+57:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %51
+  %58 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  br label %59
 
-58:                                               ; preds = %56, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
-  %.1.i = phi ptr [ %55, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ], [ %57, %56 ]
+59:                                               ; preds = %57, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i
+  %.1.i = phi ptr [ %56, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i ], [ %58, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit44
-  %59 = icmp eq i8 %36, 85
-  br i1 %59, label %60, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48.thread
+  %60 = icmp eq i8 %37, 85
+  br i1 %60, label %61, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48.thread
 
-60:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48
-  %61 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseUnnamedTypeNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef %1)
+61:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48
+  %62 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parseUnnamedTypeNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef %1)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48
-  %62 = icmp ult i64 %35, 2
-  br i1 %62, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit80, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i49
+  %63 = icmp ult i64 %36, 2
+  br i1 %63, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit80, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i49
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i49: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48.thread
   %bcmp.i.i.i50 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.val25, ptr noundef nonnull readonly dereferenceable(2) @.str.270, i64 2)
-  %63 = icmp eq i32 %bcmp.i.i.i50, 0
-  br i1 %63, label %64, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit80
+  %64 = icmp eq i32 %bcmp.i.i.i50, 0
+  br i1 %64, label %65, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit80
 
-64:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i49
-  %65 = getelementptr inbounds nuw i8, ptr %.val25, i64 2
-  store ptr %65, ptr %0, align 8, !tbaa !86
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !9
-  %69 = load ptr, ptr %66, align 8, !tbaa !3
-  %70 = ptrtoint ptr %68 to i64
+65:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i49
+  %66 = getelementptr inbounds nuw i8, ptr %.val25, i64 2
+  store ptr %66, ptr %0, align 8, !tbaa !86
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %69 = load ptr, ptr %68, align 8, !tbaa !9
+  %70 = load ptr, ptr %67, align 8, !tbaa !3
   %71 = ptrtoint ptr %69 to i64
-  %72 = sub i64 %70, %71
-  %.not.i.not.i.i54287 = icmp eq ptr %.pre302, %65
-  br i1 %.not.i.not.i.i54287, label %.critedge22, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55.lr.ph
+  %72 = ptrtoint ptr %70 to i64
+  %73 = sub i64 %71, %72
+  %.not.i.not.i.i54281 = icmp eq ptr %.pre296, %66
+  br i1 %.not.i.not.i.i54281, label %.critedge23, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55.lr.ph
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55.lr.ph: ; preds = %64
-  %73 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55.lr.ph: ; preds = %65
+  %74 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55: ; preds = %126, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55.lr.ph
-  %.val11.i.i53289 = phi ptr [ %.pre302, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55.lr.ph ], [ %125, %126 ]
-  %.val10.i.i52288 = phi ptr [ %65, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55.lr.ph ], [ %124, %126 ]
-  %76 = load i8, ptr %.val10.i.i52288, align 1, !tbaa !91
-  %77 = add i8 %76, -58
-  %or.cond25.i.i56 = icmp ult i8 %77, -10
-  br i1 %or.cond25.i.i56, label %.critedge22, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i57
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55: ; preds = %127, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55.lr.ph
+  %.val11.i.i53283 = phi ptr [ %.pre296, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55.lr.ph ], [ %126, %127 ]
+  %.val10.i.i52282 = phi ptr [ %66, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55.lr.ph ], [ %125, %127 ]
+  %77 = load i8, ptr %.val10.i.i52282, align 1, !tbaa !91
+  %78 = add i8 %77, -58
+  %or.cond25.i.i56 = icmp ult i8 %78, -10
+  br i1 %or.cond25.i.i56, label %.critedge23, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i57
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i60: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i57
-  %.pr.i.i61 = load i8, ptr %81, align 1, !tbaa !91
-  %78 = add i8 %.pr.i.i61, -48
-  %or.cond.i.i62 = icmp ult i8 %78, 10
+  %.pr.i.i61 = load i8, ptr %82, align 1, !tbaa !91
+  %79 = add i8 %.pr.i.i61, -48
+  %or.cond.i.i62 = icmp ult i8 %79, 10
   br i1 %or.cond.i.i62, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i57, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i63
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i57: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i60
-  %79 = phi ptr [ %81, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i60 ], [ %.val10.i.i52288, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55 ]
-  %.039.i58 = phi i64 [ %85, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i60 ], [ 0, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55 ]
-  %80 = mul i64 %.039.i58, 10
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 1
-  store ptr %81, ptr %0, align 8, !tbaa !86
-  %82 = load i8, ptr %79, align 1, !tbaa !91
-  %83 = sext i8 %82 to i64
-  %84 = add i64 %80, -48
-  %85 = add i64 %84, %83
-  %.not.i15.not.i.i59 = icmp eq ptr %.val11.i.i53289, %81
+  %80 = phi ptr [ %82, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i60 ], [ %.val10.i.i52282, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55 ]
+  %.039.i58 = phi i64 [ %86, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i60 ], [ 0, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55 ]
+  %81 = mul i64 %.039.i58, 10
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 1
+  store ptr %82, ptr %0, align 8, !tbaa !86
+  %83 = load i8, ptr %80, align 1, !tbaa !91
+  %84 = sext i8 %83 to i64
+  %85 = add i64 %81, -48
+  %86 = add i64 %85, %84
+  %.not.i15.not.i.i59 = icmp eq ptr %.val11.i.i53283, %82
   br i1 %.not.i15.not.i.i59, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit_crit_edge.i70, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i60, !llvm.loop !120
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit_crit_edge.i70: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i.i57
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i63, !llvm.loop !120
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i63: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit17thread-pre-split.i.i60, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E7consumeEv.exit.i._ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit_crit_edge.i70
-  %86 = ptrtoint ptr %.val11.i.i53289 to i64
-  %87 = ptrtoint ptr %81 to i64
-  %88 = sub i64 %86, %87
-  %89 = add i64 %85, -1
-  %or.cond.not.i64 = icmp ult i64 %89, %88
-  br i1 %or.cond.not.i64, label %90, label %.critedge22
+  %87 = ptrtoint ptr %.val11.i.i53283 to i64
+  %88 = ptrtoint ptr %82 to i64
+  %89 = sub i64 %87, %88
+  %90 = add i64 %86, -1
+  %or.cond.not.i64 = icmp ult i64 %90, %89
+  br i1 %or.cond.not.i64, label %91, label %.critedge23
 
-90:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i63
+91:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i63
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #22
-  store i64 %85, ptr %14, align 8, !tbaa !114
-  store ptr %81, ptr %73, align 8, !tbaa !115
-  %91 = getelementptr inbounds nuw i8, ptr %81, i64 %85
-  store ptr %91, ptr %0, align 8, !tbaa !86
-  %92 = icmp ult i64 %85, 10
-  br i1 %92, label %95, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66
+  store i64 %86, ptr %14, align 8, !tbaa !114
+  store ptr %82, ptr %74, align 8, !tbaa !115
+  %92 = getelementptr inbounds nuw i8, ptr %82, i64 %86
+  store ptr %92, ptr %0, align 8, !tbaa !86
+  %93 = icmp ult i64 %86, 10
+  br i1 %93, label %96, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66: ; preds = %90
-  %bcmp.i.i.i67 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %81, ptr noundef nonnull dereferenceable(10) @.str.219, i64 10)
-  %93 = icmp eq i32 %bcmp.i.i.i67, 0
-  br i1 %93, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i69, label %95
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66: ; preds = %91
+  %bcmp.i.i.i67 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %82, ptr noundef nonnull dereferenceable(10) @.str.219, i64 10)
+  %94 = icmp eq i32 %bcmp.i.i.i67, 0
+  br i1 %94, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i69, label %96
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i69: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66
-  %94 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA22_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(22) @.str.220)
+  %95 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRA22_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 1 dereferenceable(22) @.str.220)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit71
 
-95:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66, %90
-  %96 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %14)
+96:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i66, %91
+  %97 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_8NameTypeEJRSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(16) %14)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit71
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit71: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i69, %95
-  %.1.i68 = phi ptr [ %94, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i69 ], [ %96, %95 ]
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit71: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i69, %96
+  %.1.i68 = phi ptr [ %95, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i69 ], [ %97, %96 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #22
-  %.not18.not = icmp eq ptr %.1.i68, null
-  br i1 %.not18.not, label %.critedge22, label %97
+  %.not20.not = icmp eq ptr %.1.i68, null
+  br i1 %.not20.not, label %.critedge23, label %98
 
-97:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit71
-  %98 = load ptr, ptr %67, align 8, !tbaa !9
-  %99 = load ptr, ptr %74, align 8, !tbaa !10
-  %100 = icmp eq ptr %98, %99
-  br i1 %100, label %101, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
+98:                                               ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit71
+  %99 = load ptr, ptr %68, align 8, !tbaa !9
+  %100 = load ptr, ptr %75, align 8, !tbaa !10
+  %101 = icmp eq ptr %99, %100
+  br i1 %101, label %102, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
-101:                                              ; preds = %97
-  %102 = load ptr, ptr %66, align 8, !tbaa !3
-  %103 = ptrtoint ptr %98 to i64
-  %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %103, %104
-  %106 = ashr exact i64 %105, 2
-  %107 = icmp eq ptr %102, %75
-  %108 = shl i64 %105, 1
-  br i1 %107, label %109, label %115
+102:                                              ; preds = %98
+  %103 = load ptr, ptr %67, align 8, !tbaa !3
+  %104 = ptrtoint ptr %99 to i64
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = ashr exact i64 %106, 2
+  %108 = icmp eq ptr %103, %76
+  %109 = shl i64 %106, 1
+  br i1 %108, label %110, label %116
 
-109:                                              ; preds = %101
-  %110 = tail call noalias ptr @malloc(i64 noundef %108) #24
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %112, label %113
+110:                                              ; preds = %102
+  %111 = tail call noalias ptr @malloc(i64 noundef %109) #24
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %113, label %114
 
-112:                                              ; preds = %109
+113:                                              ; preds = %110
   tail call void @abort() #25
   unreachable
 
-113:                                              ; preds = %109
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %98, %75
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i, label %114
+114:                                              ; preds = %110
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %99, %76
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i, label %115
 
-114:                                              ; preds = %113
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %110, ptr align 8 %102, i64 %105, i1 false)
+115:                                              ; preds = %114
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %111, ptr align 8 %103, i64 %106, i1 false)
   br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
 
-_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %114, %113
-  store ptr %110, ptr %66, align 8, !tbaa !3
+_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %115, %114
+  store ptr %111, ptr %67, align 8, !tbaa !3
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
-115:                                              ; preds = %101
-  %116 = tail call ptr @realloc(ptr noundef %102, i64 noundef %108) #26
-  store ptr %116, ptr %66, align 8, !tbaa !3
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %118, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
+116:                                              ; preds = %102
+  %117 = tail call ptr @realloc(ptr noundef %103, i64 noundef %109) #26
+  store ptr %117, ptr %67, align 8, !tbaa !3
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %119, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
-118:                                              ; preds = %115
+119:                                              ; preds = %116
   tail call void @abort() #25
   unreachable
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %115, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
-  %119 = phi ptr [ %116, %115 ], [ %110, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 %105
-  %121 = getelementptr inbounds nuw ptr, ptr %119, i64 %106
-  store ptr %121, ptr %74, align 8, !tbaa !10
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %116, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
+  %120 = phi ptr [ %117, %116 ], [ %111, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 %106
+  %122 = getelementptr inbounds nuw ptr, ptr %120, i64 %107
+  store ptr %122, ptr %75, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %97, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
-  %122 = phi ptr [ %120, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %98, %97 ]
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  store ptr %123, ptr %67, align 8, !tbaa !9
-  store ptr %.1.i68, ptr %122, align 8, !tbaa !11
-  %124 = load ptr, ptr %0, align 8, !tbaa !86
-  %125 = load ptr, ptr %27, align 8, !tbaa !87
-  %.not.i72 = icmp eq ptr %124, %125
-  br i1 %.not.i72, label %.critedge22, label %126
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %98, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
+  %123 = phi ptr [ %121, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %99, %98 ]
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  store ptr %124, ptr %68, align 8, !tbaa !9
+  store ptr %.1.i68, ptr %123, align 8, !tbaa !11
+  %125 = load ptr, ptr %0, align 8, !tbaa !86
+  %126 = load ptr, ptr %28, align 8, !tbaa !87
+  %.not.i72 = icmp eq ptr %125, %126
+  br i1 %.not.i72, label %.critedge23, label %127
 
-126:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
-  %127 = load i8, ptr %124, align 1, !tbaa !91
-  %128 = icmp eq i8 %127, 69
-  br i1 %128, label %129, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55
+127:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
+  %128 = load i8, ptr %125, align 1, !tbaa !91
+  %129 = icmp eq i8 %128, 69
+  br i1 %129, label %130, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55
 
-129:                                              ; preds = %126
-  %130 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %131 = getelementptr inbounds nuw i8, ptr %124, i64 1
-  store ptr %131, ptr %0, align 8, !tbaa !86
-  %132 = load ptr, ptr %66, align 8, !tbaa !3
-  %133 = getelementptr inbounds i8, ptr %132, i64 %72
-  %134 = ptrtoint ptr %130 to i64
-  %135 = ptrtoint ptr %133 to i64
-  %136 = sub i64 %134, %135
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %139 = load i64, ptr %138, align 8, !tbaa !92
-  %140 = add i64 %136, %139
-  store i64 %140, ptr %138, align 8, !tbaa !92
-  %141 = load ptr, ptr %137, align 8, !tbaa !93
-  %142 = ptrtoint ptr %141 to i64
-  %143 = add i64 %142, 7
-  %144 = and i64 %143, -8
-  %145 = add i64 %144, %136
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %147 = load ptr, ptr %146, align 8, !tbaa !94
-  %148 = ptrtoint ptr %147 to i64
-  %.not.i.i.i.i.i = icmp ule i64 %145, %148
-  %149 = icmp ne ptr %141, null
-  %150 = and i1 %149, %.not.i.i.i.i.i
-  br i1 %150, label %151, label %154, !prof !95
+130:                                              ; preds = %127
+  %131 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 1
+  store ptr %132, ptr %0, align 8, !tbaa !86
+  %133 = load ptr, ptr %67, align 8, !tbaa !3
+  %134 = getelementptr inbounds i8, ptr %133, i64 %73
+  %135 = ptrtoint ptr %131 to i64
+  %136 = ptrtoint ptr %134 to i64
+  %137 = sub i64 %135, %136
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %140 = load i64, ptr %139, align 8, !tbaa !92
+  %141 = add i64 %137, %140
+  store i64 %141, ptr %139, align 8, !tbaa !92
+  %142 = load ptr, ptr %138, align 8, !tbaa !93
+  %143 = ptrtoint ptr %142 to i64
+  %144 = add i64 %143, 7
+  %145 = and i64 %144, -8
+  %146 = add i64 %145, %137
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %148 = load ptr, ptr %147, align 8, !tbaa !94
+  %149 = ptrtoint ptr %148 to i64
+  %.not.i.i.i.i.i = icmp ule i64 %146, %149
+  %150 = icmp ne ptr %142, null
+  %151 = and i1 %150, %.not.i.i.i.i.i
+  br i1 %151, label %152, label %155, !prof !95
 
-151:                                              ; preds = %129
-  %152 = inttoptr i64 %145 to ptr
-  store ptr %152, ptr %137, align 8, !tbaa !93
-  %153 = inttoptr i64 %144 to ptr
+152:                                              ; preds = %130
+  %153 = inttoptr i64 %146 to ptr
+  store ptr %153, ptr %138, align 8, !tbaa !93
+  %154 = inttoptr i64 %145 to ptr
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
-154:                                              ; preds = %129
-  %155 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %137, i64 noundef %136, i64 noundef %136, i8 3)
+155:                                              ; preds = %130
+  %156 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(112) %138, i64 noundef %137, i64 noundef %137, i8 3)
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
 
-_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds = %154, %151
-  %.0.i.i.i.i.i = phi ptr [ %153, %151 ], [ %155, %154 ]
-  %.not.i.i.i.i.i.i.i75 = icmp eq ptr %130, %133
-  br i1 %.not.i.i.i.i.i.i.i75, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit, label %156
+_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i: ; preds = %155, %152
+  %.0.i.i.i.i.i = phi ptr [ %154, %152 ], [ %156, %155 ]
+  %.not.i.i.i.i.i.i.i75 = icmp eq ptr %131, %134
+  br i1 %.not.i.i.i.i.i.i.i75, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit, label %157
 
-156:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i, ptr align 8 %133, i64 %136, i1 false)
+157:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.i.i.i.i.i, ptr align 8 %134, i64 %137, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i, %156
-  %157 = ashr exact i64 %136, 3
-  %158 = load ptr, ptr %66, align 8, !tbaa !3
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 %72
-  store ptr %159, ptr %67, align 8, !tbaa !9
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 937
-  %161 = load i8, ptr %160, align 1, !tbaa !63, !range !84, !noundef !85
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit: ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator17allocateNodeArrayEm.exit.i.i, %157
+  %158 = ashr exact i64 %137, 3
+  %159 = load ptr, ptr %67, align 8, !tbaa !3
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 %73
+  store ptr %160, ptr %68, align 8, !tbaa !9
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 937
+  %162 = load i8, ptr %161, align 1, !tbaa !63, !range !84, !noundef !85
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12) #22
-  %162 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %162, ptr %12, align 8, !tbaa !59
-  %163 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %164 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 32, ptr %164, align 4, !tbaa !61
+  %163 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %163, ptr %12, align 8, !tbaa !59
+  %164 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i32 32, ptr %165, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
   store ptr %12, ptr %11, align 8, !tbaa !259
-  store i32 53, ptr %162, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i32 0, ptr %165, align 4
-  store i32 2, ptr %163, align 8, !tbaa !60
-  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr %.0.i.i.i.i.i, i64 %157)
+  store i32 53, ptr %163, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  store i32 0, ptr %166, align 4
+  store i32 2, ptr %164, align 8, !tbaa !60
+  call fastcc void @_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEN4llvm16itanium_demangle9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr %.0.i.i.i.i.i, i64 %158)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %167 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
-  %.not.i.i.i.i.i76 = icmp eq ptr %167, null
-  br i1 %.not.i.i.i.i.i76, label %.critedge.i.i.i.i.i, label %168
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %168 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %167, ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
+  %.not.i.i.i.i.i76 = icmp eq ptr %168, null
+  br i1 %.not.i.i.i.i.i76, label %.critedge.i.i.i.i.i, label %169
 
-168:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
-  %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  br label %196
+169:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  br label %197
 
 .critedge.i.i.i.i.i:                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit
-  %170 = trunc nuw i8 %161 to i1
-  br i1 %170, label %171, label %196
+  %171 = trunc nuw i8 %162 to i1
+  br i1 %171, label %172, label %197
 
-171:                                              ; preds = %.critedge.i.i.i.i.i
-  %172 = load i64, ptr %138, align 8, !tbaa !92
-  %173 = add i64 %172, 40
-  store i64 %173, ptr %138, align 8, !tbaa !92
-  %174 = load ptr, ptr %137, align 8, !tbaa !93
-  %175 = ptrtoint ptr %174 to i64
-  %176 = add i64 %175, 7
-  %177 = and i64 %176, -8
-  %178 = add i64 %177, 40
-  %179 = load ptr, ptr %146, align 8, !tbaa !94
-  %180 = ptrtoint ptr %179 to i64
-  %.not.i.i.i.i.i.i.i77 = icmp ule i64 %178, %180
-  %181 = icmp ne ptr %174, null
-  %182 = and i1 %181, %.not.i.i.i.i.i.i.i77
-  br i1 %182, label %183, label %186, !prof !95
+172:                                              ; preds = %.critedge.i.i.i.i.i
+  %173 = load i64, ptr %139, align 8, !tbaa !92
+  %174 = add i64 %173, 40
+  store i64 %174, ptr %139, align 8, !tbaa !92
+  %175 = load ptr, ptr %138, align 8, !tbaa !93
+  %176 = ptrtoint ptr %175 to i64
+  %177 = add i64 %176, 7
+  %178 = and i64 %177, -8
+  %179 = add i64 %178, 40
+  %180 = load ptr, ptr %147, align 8, !tbaa !94
+  %181 = ptrtoint ptr %180 to i64
+  %.not.i.i.i.i.i.i.i77 = icmp ule i64 %179, %181
+  %182 = icmp ne ptr %175, null
+  %183 = and i1 %182, %.not.i.i.i.i.i.i.i77
+  br i1 %183, label %184, label %187, !prof !95
 
-183:                                              ; preds = %171
-  %184 = inttoptr i64 %178 to ptr
-  store ptr %184, ptr %137, align 8, !tbaa !93
-  %185 = inttoptr i64 %177 to ptr
+184:                                              ; preds = %172
+  %185 = inttoptr i64 %179 to ptr
+  store ptr %185, ptr %138, align 8, !tbaa !93
+  %186 = inttoptr i64 %178 to ptr
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
-186:                                              ; preds = %171
-  %187 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(656) %137, i64 noundef 40, i64 noundef 40, i8 3)
+187:                                              ; preds = %172
+  %188 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(656) %138, i64 noundef 40, i64 noundef 40, i8 3)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i
 
-_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i: ; preds = %186, %183
-  %.0.i.i.i.i.i.i.i = phi ptr [ %185, %183 ], [ %187, %186 ]
+_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i: ; preds = %187, %184
+  %.0.i.i.i.i.i.i.i = phi ptr [ %186, %184 ], [ %188, %187 ]
   store ptr null, ptr %.0.i.i.i.i.i.i.i, align 8, !tbaa !96
-  %188 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 8
-  %189 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16
-  store i8 53, ptr %189, align 8, !tbaa !98
-  %190 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 17
-  %191 = load i16, ptr %190, align 1
-  %192 = and i16 %191, -4096
-  %193 = or disjoint i16 %192, 1344
-  store i16 %193, ptr %190, align 1
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle21StructuredBindingNameE, i64 16), ptr %188, align 8, !tbaa !103
-  %194 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
-  store ptr %.0.i.i.i.i.i, ptr %194, align 8, !tbaa !144
+  %189 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16
+  store i8 53, ptr %190, align 8, !tbaa !98
+  %191 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 17
+  %192 = load i16, ptr %191, align 1
+  %193 = and i16 %192, -4096
+  %194 = or disjoint i16 %193, 1344
+  store i16 %194, ptr %191, align 1
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle21StructuredBindingNameE, i64 16), ptr %189, align 8, !tbaa !103
+  %195 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 24
+  store ptr %.0.i.i.i.i.i, ptr %195, align 8, !tbaa !144
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 32
-  store i64 %157, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !108
-  %195 = load ptr, ptr %13, align 8, !tbaa !80
-  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull %.0.i.i.i.i.i.i.i, ptr noundef %195, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
-  br label %196
+  store i64 %158, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !108
+  %196 = load ptr, ptr %13, align 8, !tbaa !80
+  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %167, ptr noundef nonnull %.0.i.i.i.i.i.i.i, ptr noundef %196, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
+  br label %197
 
-196:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %168
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %188, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %169, %168 ], [ null, %.critedge.i.i.i.i.i ]
+197:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i, %.critedge.i.i.i.i.i, %169
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %189, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i ], [ %170, %169 ], [ null, %.critedge.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
-  %197 = load ptr, ptr %12, align 8, !tbaa !59
-  %198 = icmp eq ptr %197, %162
-  br i1 %198, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %199
+  %198 = load ptr, ptr %12, align 8, !tbaa !59
+  %199 = icmp eq ptr %198, %163
+  br i1 %199, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i, label %200
 
-199:                                              ; preds = %196
-  call void @free(ptr noundef %197) #22
+200:                                              ; preds = %197
+  call void @free(ptr noundef %198) #22
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
 
-_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %199, %196
+_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i: ; preds = %200, %197
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12) #22
-  br i1 %.not.i.i.i.i.i76, label %200, label %202
+  br i1 %.not.i.i.i.i.i76, label %201, label %203
 
-200:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  store ptr %.sroa.0.0.i.i.i.i.i, ptr %201, align 8, !tbaa !88
+201:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  store ptr %.sroa.0.0.i.i.i.i.i, ptr %202, align 8, !tbaa !88
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
 
-202:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
+203:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle21StructuredBindingNameEJNS3_9NodeArrayEEEESt4pairIPNS3_4NodeEbEbDpOT0_.exit.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %.critedge22, label %203
+  br i1 %.not.i.i.i.i, label %.critedge23, label %204
 
-203:                                              ; preds = %202
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %205 = load i32, ptr %204, align 8
-  %206 = and i32 %205, 1
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %206, 0
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %208 = load ptr, ptr %207, align 8
-  %209 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %208, ptr %207
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %211 = load i32, ptr %210, align 8
-  %212 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %211, i32 32
-  %213 = icmp eq i32 %212, 0
-  br i1 %213, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread, label %214
+204:                                              ; preds = %203
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %206 = load i32, ptr %205, align 8
+  %207 = and i32 %206, 1
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %207, 0
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %209 = load ptr, ptr %208, align 8
+  %210 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr %209, ptr %208
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %212 = load i32, ptr %211, align 8
+  %213 = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i32 %212, i32 32
+  %214 = icmp eq i32 %213, 0
+  br i1 %214, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread, label %215
 
-214:                                              ; preds = %203
-  %215 = ptrtoint ptr %.sroa.0.0.i.i.i.i.i to i64
-  %216 = trunc i64 %215 to i32
-  %217 = lshr i32 %216, 4
-  %218 = lshr i32 %216, 9
-  %219 = xor i32 %217, %218
-  %220 = add i32 %212, -1
-  %.01826.i.i.i.i.i.i.i = and i32 %220, %219
-  %221 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %222 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %209, i64 %221
-  %223 = load ptr, ptr %222, align 8, !tbaa !11
-  %224 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %223
-  br i1 %224, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
+215:                                              ; preds = %204
+  %216 = ptrtoint ptr %.sroa.0.0.i.i.i.i.i to i64
+  %217 = trunc i64 %216 to i32
+  %218 = lshr i32 %217, 4
+  %219 = lshr i32 %217, 9
+  %220 = xor i32 %218, %219
+  %221 = add i32 %213, -1
+  %.01826.i.i.i.i.i.i.i = and i32 %221, %220
+  %222 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
+  %223 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %210, i64 %222
+  %224 = load ptr, ptr %223, align 8, !tbaa !11
+  %225 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %224
+  br i1 %225, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %214, %227
-  %225 = phi ptr [ %232, %227 ], [ %223, %214 ]
-  %.01828.i.i.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i.i.i, %227 ], [ %.01826.i.i.i.i.i.i.i, %214 ]
-  %.01627.i.i.i.i.i.i.i = phi i32 [ %228, %227 ], [ 1, %214 ]
-  %226 = icmp eq ptr %225, inttoptr (i64 -4096 to ptr)
-  br i1 %226, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, label %227, !prof !95
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %215, %228
+  %226 = phi ptr [ %233, %228 ], [ %224, %215 ]
+  %.01828.i.i.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i.i.i, %228 ], [ %.01826.i.i.i.i.i.i.i, %215 ]
+  %.01627.i.i.i.i.i.i.i = phi i32 [ %229, %228 ], [ 1, %215 ]
+  %227 = icmp eq ptr %226, inttoptr (i64 -4096 to ptr)
+  br i1 %227, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, label %228, !prof !95
 
-227:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %228 = add i32 %.01627.i.i.i.i.i.i.i, 1
-  %229 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
-  %.018.i.i.i.i.i.i.i = and i32 %229, %220
-  %230 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %231 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %209, i64 %230
-  %232 = load ptr, ptr %231, align 8, !tbaa !11
-  %233 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %232
-  br i1 %233, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
+228:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
+  %229 = add i32 %.01627.i.i.i.i.i.i.i, 1
+  %230 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
+  %.018.i.i.i.i.i.i.i = and i32 %230, %221
+  %231 = zext i32 %.018.i.i.i.i.i.i.i to i64
+  %232 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %210, i64 %231
+  %233 = load ptr, ptr %232, align 8, !tbaa !11
+  %234 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %233
+  br i1 %234, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %227, %214
-  %234 = phi i64 [ %221, %214 ], [ %230, %227 ]
-  %235 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %209, i64 %234, i32 0, i32 1
-  %236 = load ptr, ptr %235, align 8, !tbaa !11
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %228, %215
+  %235 = phi i64 [ %222, %215 ], [ %231, %228 ]
+  %236 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %210, i64 %235, i32 0, i32 1
+  %237 = load ptr, ptr %236, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i
-  %237 = phi ptr [ %236, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
-  %.not9.i.i.i.i = icmp eq ptr %237, null
-  %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %237
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %239 = load ptr, ptr %238, align 8, !tbaa !82
-  %240 = icmp eq ptr %spec.select.i.i.i.i, %239
-  br i1 %240, label %245, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
+  %238 = phi ptr [ %237, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i.i.i.i ]
+  %.not9.i.i.i.i = icmp eq ptr %238, null
+  %spec.select.i.i.i.i = select i1 %.not9.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i, ptr %238
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %240 = load ptr, ptr %239, align 8, !tbaa !82
+  %241 = icmp eq ptr %spec.select.i.i.i.i, %240
+  br i1 %241, label %246, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread: ; preds = %203
-  %241 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %242 = load ptr, ptr %241, align 8, !tbaa !82
-  %243 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %242
-  br i1 %243, label %.thread261, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread: ; preds = %204
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %243 = load ptr, ptr %242, align 8, !tbaa !82
+  %244 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %243
+  br i1 %244, label %.thread255, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
 
-.thread261:                                       ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i8 1, ptr %244, align 8, !tbaa !83
+.thread255:                                       ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i8 1, ptr %245, align 8, !tbaa !83
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
 
-245:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i8 1, ptr %246, align 8, !tbaa !83
+246:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i8 1, ptr %247, align 8, !tbaa !83
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit80: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit48.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i49
-  %247 = load i8, ptr %.val25, align 1, !tbaa !91
-  %.off = add i8 %247, -67
+  %248 = load i8, ptr %.val25, align 1, !tbaa !91
+  %.off = add i8 %248, -67
   %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %248, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread
+  br i1 %switch, label %249, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread
 
-248:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit80
-  %249 = load ptr, ptr %17, align 8
-  %250 = icmp ne ptr %249, null
-  %or.cond = select i1 %.not, i1 true, i1 %250
-  br i1 %or.cond, label %.critedge22, label %251
+249:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit80
+  %250 = load ptr, ptr %17, align 8
+  %251 = icmp ne ptr %250, null
+  %or.cond = select i1 %.not, i1 true, i1 %251
+  br i1 %or.cond, label %.critedge23, label %252
 
-251:                                              ; preds = %248
-  %252 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %253 = load i8, ptr %252, align 8, !tbaa !98
-  %254 = icmp eq i8 %253, 48
-  br i1 %254, label %255, label %257
+252:                                              ; preds = %249
+  %253 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %254 = load i8, ptr %253, align 8, !tbaa !98
+  %255 = icmp eq i8 %254, 48
+  br i1 %255, label %256, label %258
 
-255:                                              ; preds = %251
-  %256 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_27ExpandedSpecialSubstitutionEJPNS0_19SpecialSubstitutionEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %2)
-  store ptr %256, ptr %16, align 8, !tbaa !11
-  %.not.i85 = icmp eq ptr %256, null
-  br i1 %.not.i85, label %.critedge22, label %._crit_edge
+256:                                              ; preds = %252
+  %257 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_27ExpandedSpecialSubstitutionEJPNS0_19SpecialSubstitutionEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr nonnull %2)
+  store ptr %257, ptr %16, align 8, !tbaa !11
+  %.not.i85 = icmp eq ptr %257, null
+  br i1 %.not.i85, label %.critedge23, label %._crit_edge
 
-._crit_edge:                                      ; preds = %255
-  %.pre304 = load ptr, ptr %0, align 8, !tbaa !86
-  %.pre305 = load ptr, ptr %27, align 8, !tbaa !87
-  br label %257
+._crit_edge:                                      ; preds = %256
+  %.pre298 = load ptr, ptr %0, align 8, !tbaa !86
+  %.pre299 = load ptr, ptr %28, align 8, !tbaa !87
+  br label %258
 
-257:                                              ; preds = %._crit_edge, %251
-  %258 = phi ptr [ %.pre305, %._crit_edge ], [ %.pre302, %251 ]
-  %.val33.i = phi ptr [ %.pre304, %._crit_edge ], [ %.val25, %251 ]
-  %259 = phi ptr [ %256, %._crit_edge ], [ %2, %251 ]
-  %.not.i181 = icmp eq ptr %.val33.i, %258
-  br i1 %.not.i181, label %.critedge22, label %260
+258:                                              ; preds = %._crit_edge, %252
+  %259 = phi ptr [ %.pre299, %._crit_edge ], [ %.pre296, %252 ]
+  %.val33.i = phi ptr [ %.pre298, %._crit_edge ], [ %.val25, %252 ]
+  %260 = phi ptr [ %257, %._crit_edge ], [ %2, %252 ]
+  %.not.i181 = icmp eq ptr %.val33.i, %259
+  br i1 %.not.i181, label %.critedge23, label %261
 
-260:                                              ; preds = %257
-  %261 = load i8, ptr %.val33.i, align 1, !tbaa !91
-  %262 = icmp eq i8 %261, 67
-  br i1 %262, label %263, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit159
+261:                                              ; preds = %258
+  %262 = load i8, ptr %.val33.i, align 1, !tbaa !91
+  %263 = icmp eq i8 %262, 67
+  br i1 %263, label %264, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit159
 
-263:                                              ; preds = %260
-  %264 = getelementptr inbounds nuw i8, ptr %.val33.i, i64 1
-  store ptr %264, ptr %0, align 8, !tbaa !86
-  %.not.i178 = icmp eq ptr %264, %258
-  br i1 %.not.i178, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit180, label %265
+264:                                              ; preds = %261
+  %265 = getelementptr inbounds nuw i8, ptr %.val33.i, i64 1
+  store ptr %265, ptr %0, align 8, !tbaa !86
+  %.not.i178 = icmp eq ptr %265, %259
+  br i1 %.not.i178, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit180, label %266
 
-265:                                              ; preds = %263
-  %266 = load i8, ptr %264, align 1, !tbaa !91
-  %267 = icmp eq i8 %266, 73
-  br i1 %267, label %268, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit180
+266:                                              ; preds = %264
+  %267 = load i8, ptr %265, align 1, !tbaa !91
+  %268 = icmp eq i8 %267, 73
+  br i1 %268, label %269, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit180
 
-268:                                              ; preds = %265
-  %269 = getelementptr inbounds nuw i8, ptr %.val33.i, i64 2
-  store ptr %269, ptr %0, align 8, !tbaa !86
+269:                                              ; preds = %266
+  %270 = getelementptr inbounds nuw i8, ptr %.val33.i, i64 2
+  store ptr %270, ptr %0, align 8, !tbaa !86
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit180
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit180: ; preds = %263, %265, %268
-  %.val45.i = phi ptr [ %269, %268 ], [ %264, %265 ], [ %264, %263 ]
-  %.0.i179 = phi i1 [ true, %268 ], [ false, %265 ], [ false, %263 ]
-  %.not.i175.not = icmp eq ptr %258, %.val45.i
-  br i1 %.not.i175.not, label %.critedge22, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit177
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit180: ; preds = %264, %266, %269
+  %.val45.i = phi ptr [ %270, %269 ], [ %265, %266 ], [ %265, %264 ]
+  %.0.i179 = phi i1 [ true, %269 ], [ false, %266 ], [ false, %264 ]
+  %.not.i175.not = icmp eq ptr %259, %.val45.i
+  br i1 %.not.i175.not, label %.critedge23, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit177
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit177: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit180
-  %270 = load i8, ptr %.val45.i, align 1, !tbaa !91
-  %.off353 = add i8 %270, -49
-  %switch354 = icmp ult i8 %.off353, 5
-  br i1 %switch354, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit162, label %.critedge22
+  %271 = load i8, ptr %.val45.i, align 1, !tbaa !91
+  %.off340 = add i8 %271, -49
+  %switch341 = icmp ult i8 %.off340, 5
+  br i1 %switch341, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit162, label %.critedge23
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit162: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit177
-  %271 = zext nneg i8 %270 to i32
-  %272 = add nsw i32 %271, -48
-  %273 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 1
-  store ptr %273, ptr %0, align 8, !tbaa !86
+  %272 = zext nneg i8 %271 to i32
+  %273 = add nsw i32 %272, -48
+  %274 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 1
+  store ptr %274, ptr %0, align 8, !tbaa !86
   %.not21.i = icmp eq ptr %1, null
-  br i1 %.not21.i, label %275, label %274
+  br i1 %.not21.i, label %276, label %275
 
-274:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit162
+275:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit162
   store i8 1, ptr %1, align 8, !tbaa !133
-  br label %275
+  br label %276
 
-275:                                              ; preds = %274, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit162
-  br i1 %.0.i179, label %276, label %279
+276:                                              ; preds = %275, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit162
+  br i1 %.0.i179, label %277, label %280
 
-276:                                              ; preds = %275
-  %277 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef %1)
-  %278 = icmp eq ptr %277, null
-  br i1 %278, label %.critedge22, label %279
+277:                                              ; preds = %276
+  %278 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef %1)
+  %279 = icmp eq ptr %278, null
+  br i1 %279, label %.critedge23, label %280
 
-279:                                              ; preds = %276, %275
-  %280 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12CtorDtorNameEJRPNS0_4NodeEbRiEEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %16, i8 0, i32 %272)
+280:                                              ; preds = %277, %276
+  %281 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12CtorDtorNameEJRPNS0_4NodeEbRiEEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %16, i8 0, i32 %273)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit159: ; preds = %260
-  %281 = ptrtoint ptr %.val33.i to i64
-  %282 = ptrtoint ptr %258 to i64
-  %283 = sub i64 %282, %281
-  %284 = load i8, ptr %.val33.i, align 1, !tbaa !91
-  %285 = icmp eq i8 %284, 68
-  %.not.i154 = icmp ugt i64 %283, 1
-  %or.cond272 = and i1 %.not.i154, %285
-  br i1 %or.cond272, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit156, label %.critedge22
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit159: ; preds = %261
+  %282 = ptrtoint ptr %.val33.i to i64
+  %283 = ptrtoint ptr %259 to i64
+  %284 = sub i64 %283, %282
+  %285 = load i8, ptr %.val33.i, align 1, !tbaa !91
+  %286 = icmp eq i8 %285, 68
+  %.not.i154 = icmp ugt i64 %284, 1
+  %or.cond266 = and i1 %.not.i154, %286
+  br i1 %or.cond266, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit156, label %.critedge23
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit156: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit159
-  %286 = getelementptr inbounds nuw i8, ptr %.val33.i, i64 1
-  %287 = load i8, ptr %286, align 1, !tbaa !91
-  switch i8 %287, label %.critedge22 [
+  %287 = getelementptr inbounds nuw i8, ptr %.val33.i, i64 1
+  %288 = load i8, ptr %287, align 1, !tbaa !91
+  switch i8 %288, label %.critedge23 [
     i8 48, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit141
     i8 49, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit141
     i8 50, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit141
@@ -56651,545 +56652,544 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   ]
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit141: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit156, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit156, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit156, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit156, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit156
-  %288 = zext nneg i8 %287 to i32
-  %289 = add nsw i32 %288, -48
-  %290 = getelementptr inbounds nuw i8, ptr %.val33.i, i64 2
-  store ptr %290, ptr %0, align 8, !tbaa !86
+  %289 = zext nneg i8 %288 to i32
+  %290 = add nsw i32 %289, -48
+  %291 = getelementptr inbounds nuw i8, ptr %.val33.i, i64 2
+  store ptr %291, ptr %0, align 8, !tbaa !86
   %.not15.i = icmp eq ptr %1, null
-  br i1 %.not15.i, label %292, label %291
+  br i1 %.not15.i, label %293, label %292
 
-291:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit141
+292:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit141
   store i8 1, ptr %1, align 8, !tbaa !133
-  br label %292
+  br label %293
 
-292:                                              ; preds = %291, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit141
-  %293 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12CtorDtorNameEJRPNS0_4NodeEbRiEEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %16, i8 1, i32 %289)
+293:                                              ; preds = %292, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit141
+  %294 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12CtorDtorNameEJRPNS0_4NodeEbRiEEESA_DpOT0_(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull align 8 dereferenceable(8) %16, i8 1, i32 %290)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit80, %20, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit39
-  %.not23311317329335 = phi i1 [ %.not23, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit39 ], [ true, %20 ], [ %.not23, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit80 ]
-  %294 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseOperatorNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef %1)
+  %295 = phi i1 [ %27, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit39 ], [ false, %20 ], [ %27, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit80 ]
+  %296 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E17parseOperatorNameEPNS6_9NameStateE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef %1)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, %245, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread, %200, %.thread261, %292, %279, %58, %60, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread
-  %.not23311316 = phi i1 [ %.not23, %60 ], [ %.not23311317329335, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread ], [ %.not23, %58 ], [ %.not23, %245 ], [ %.not23, %292 ], [ %.not23, %279 ], [ %.not23, %.thread261 ], [ %.not23, %200 ], [ %.not23, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread ], [ %.not23, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i ]
-  %.0 = phi ptr [ %61, %60 ], [ %294, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread ], [ %.1.i, %58 ], [ %spec.select.i.i.i.i, %245 ], [ %293, %292 ], [ %280, %279 ], [ %.sroa.0.0.i.i.i.i.i, %.thread261 ], [ %.sroa.0.0.i.i.i.i.i, %200 ], [ %.sroa.0.0.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread ], [ %spec.select.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i ]
-  %295 = phi ptr [ %2, %60 ], [ %2, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread ], [ %2, %58 ], [ %2, %245 ], [ %259, %292 ], [ %259, %279 ], [ %2, %.thread261 ], [ %2, %200 ], [ %2, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread ], [ %2, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i ]
-  %296 = icmp ne ptr %.0, null
-  %297 = load ptr, ptr %17, align 8
-  %298 = icmp ne ptr %297, null
-  %or.cond4 = select i1 %296, i1 %298, i1 false
-  br i1 %or.cond4, label %299, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i, %246, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread, %201, %.thread255, %293, %280, %59, %61, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread
+  %297 = phi i1 [ %27, %61 ], [ %295, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread ], [ %27, %59 ], [ %27, %246 ], [ %27, %293 ], [ %27, %280 ], [ %27, %.thread255 ], [ %27, %201 ], [ %27, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread ], [ %27, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i ]
+  %.0 = phi ptr [ %62, %61 ], [ %296, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread ], [ %.1.i, %59 ], [ %spec.select.i.i.i.i, %246 ], [ %294, %293 ], [ %281, %280 ], [ %.sroa.0.0.i.i.i.i.i, %.thread255 ], [ %.sroa.0.0.i.i.i.i.i, %201 ], [ %.sroa.0.0.i.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread ], [ %spec.select.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i ]
+  %298 = phi ptr [ %2, %61 ], [ %2, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit83.thread ], [ %2, %59 ], [ %2, %246 ], [ %260, %293 ], [ %260, %280 ], [ %2, %.thread255 ], [ %2, %201 ], [ %2, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.thread ], [ %2, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i ]
+  %299 = icmp ne ptr %.0, null
+  %300 = load ptr, ptr %17, align 8
+  %301 = icmp ne ptr %300, null
+  %or.cond4 = select i1 %299, i1 %301, i1 false
+  br i1 %or.cond4, label %302, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit
 
-299:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
-  %300 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 937
-  %302 = load i8, ptr %301, align 1, !tbaa !63, !range !84, !noundef !85
+302:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 937
+  %305 = load i8, ptr %304, align 1, !tbaa !63, !range !84, !noundef !85
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #22
-  %303 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %303, ptr %9, align 8, !tbaa !59
-  %304 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 0, ptr %304, align 8, !tbaa !60
-  %305 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 32, ptr %305, align 4, !tbaa !61
-  call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle10ModuleNameEPNS2_4NodeEEEEvRNS1_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull %297, ptr noundef nonnull %.0)
+  %306 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %306, ptr %9, align 8, !tbaa !59
+  %307 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 0, ptr %307, align 8, !tbaa !60
+  %308 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 32, ptr %308, align 4, !tbaa !61
+  call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle10ModuleNameEPNS2_4NodeEEEEvRNS1_16FoldingSetNodeIDENS5_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull %300, ptr noundef nonnull %.0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %307 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %306, ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
-  %.not.i.i.i.i.i86 = icmp eq ptr %307, null
-  br i1 %.not.i.i.i.i.i86, label %.critedge.i.i.i.i.i99, label %308
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %310 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %309, ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
+  %.not.i.i.i.i.i86 = icmp eq ptr %310, null
+  br i1 %.not.i.i.i.i.i86, label %.critedge.i.i.i.i.i99, label %311
 
-308:                                              ; preds = %299
-  %309 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  br label %339
+311:                                              ; preds = %302
+  %312 = getelementptr inbounds nuw i8, ptr %310, i64 8
+  br label %342
 
-.critedge.i.i.i.i.i99:                            ; preds = %299
-  %310 = trunc nuw i8 %302 to i1
-  br i1 %310, label %311, label %339
+.critedge.i.i.i.i.i99:                            ; preds = %302
+  %313 = trunc nuw i8 %305 to i1
+  br i1 %313, label %314, label %342
 
-311:                                              ; preds = %.critedge.i.i.i.i.i99
-  %312 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %313 = load i64, ptr %312, align 8, !tbaa !92
-  %314 = add i64 %313, 40
-  store i64 %314, ptr %312, align 8, !tbaa !92
-  %315 = load ptr, ptr %300, align 8, !tbaa !93
-  %316 = ptrtoint ptr %315 to i64
-  %317 = add i64 %316, 7
-  %318 = and i64 %317, -8
-  %319 = add i64 %318, 40
-  %320 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %321 = load ptr, ptr %320, align 8, !tbaa !94
-  %322 = ptrtoint ptr %321 to i64
-  %.not.i.i.i.i.i.i.i100 = icmp ule i64 %319, %322
-  %323 = icmp ne ptr %315, null
-  %324 = and i1 %323, %.not.i.i.i.i.i.i.i100
-  br i1 %324, label %325, label %328, !prof !95
+314:                                              ; preds = %.critedge.i.i.i.i.i99
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %316 = load i64, ptr %315, align 8, !tbaa !92
+  %317 = add i64 %316, 40
+  store i64 %317, ptr %315, align 8, !tbaa !92
+  %318 = load ptr, ptr %303, align 8, !tbaa !93
+  %319 = ptrtoint ptr %318 to i64
+  %320 = add i64 %319, 7
+  %321 = and i64 %320, -8
+  %322 = add i64 %321, 40
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %324 = load ptr, ptr %323, align 8, !tbaa !94
+  %325 = ptrtoint ptr %324 to i64
+  %.not.i.i.i.i.i.i.i100 = icmp ule i64 %322, %325
+  %326 = icmp ne ptr %318, null
+  %327 = and i1 %326, %.not.i.i.i.i.i.i.i100
+  br i1 %327, label %328, label %331, !prof !95
 
-325:                                              ; preds = %311
-  %326 = inttoptr i64 %319 to ptr
-  store ptr %326, ptr %300, align 8, !tbaa !93
-  %327 = inttoptr i64 %318 to ptr
+328:                                              ; preds = %314
+  %329 = inttoptr i64 %322 to ptr
+  store ptr %329, ptr %303, align 8, !tbaa !93
+  %330 = inttoptr i64 %321 to ptr
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i101
 
-328:                                              ; preds = %311
-  %329 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(656) %300, i64 noundef 40, i64 noundef 40, i8 3)
+331:                                              ; preds = %314
+  %332 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(656) %303, i64 noundef 40, i64 noundef 40, i8 3)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i101
 
-_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i101: ; preds = %328, %325
-  %.0.i.i.i.i.i.i.i102 = phi ptr [ %327, %325 ], [ %329, %328 ]
+_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i101: ; preds = %331, %328
+  %.0.i.i.i.i.i.i.i102 = phi ptr [ %330, %328 ], [ %332, %331 ]
   store ptr null, ptr %.0.i.i.i.i.i.i.i102, align 8, !tbaa !96
-  %330 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i102, i64 8
-  %331 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i102, i64 16
-  store i8 28, ptr %331, align 8, !tbaa !98
-  %332 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i102, i64 17
-  %333 = load i16, ptr %332, align 1
-  %334 = and i16 %333, -4096
-  %335 = or disjoint i16 %334, 1344
-  store i16 %335, ptr %332, align 1
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle12ModuleEntityE, i64 16), ptr %330, align 8, !tbaa !103
-  %336 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i102, i64 24
-  store ptr %297, ptr %336, align 8, !tbaa !195
-  %337 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i102, i64 32
-  store ptr %.0, ptr %337, align 8, !tbaa !197
-  %338 = load ptr, ptr %10, align 8, !tbaa !80
-  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %306, ptr noundef nonnull %.0.i.i.i.i.i.i.i102, ptr noundef %338, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
-  br label %339
+  %333 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i102, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i102, i64 16
+  store i8 28, ptr %334, align 8, !tbaa !98
+  %335 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i102, i64 17
+  %336 = load i16, ptr %335, align 1
+  %337 = and i16 %336, -4096
+  %338 = or disjoint i16 %337, 1344
+  store i16 %338, ptr %335, align 1
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle12ModuleEntityE, i64 16), ptr %333, align 8, !tbaa !103
+  %339 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i102, i64 24
+  store ptr %300, ptr %339, align 8, !tbaa !195
+  %340 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i102, i64 32
+  store ptr %.0, ptr %340, align 8, !tbaa !197
+  %341 = load ptr, ptr %10, align 8, !tbaa !80
+  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %309, ptr noundef nonnull %.0.i.i.i.i.i.i.i102, ptr noundef %341, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
+  br label %342
 
-339:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i101, %.critedge.i.i.i.i.i99, %308
-  %.sroa.0.0.i.i.i.i.i87 = phi ptr [ %330, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i101 ], [ %309, %308 ], [ null, %.critedge.i.i.i.i.i99 ]
+342:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i101, %.critedge.i.i.i.i.i99, %311
+  %.sroa.0.0.i.i.i.i.i87 = phi ptr [ %333, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i101 ], [ %312, %311 ], [ null, %.critedge.i.i.i.i.i99 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  %340 = load ptr, ptr %9, align 8, !tbaa !59
-  %341 = icmp eq ptr %340, %303
-  br i1 %341, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i, label %342
+  %343 = load ptr, ptr %9, align 8, !tbaa !59
+  %344 = icmp eq ptr %343, %306
+  br i1 %344, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i, label %345
 
-342:                                              ; preds = %339
-  call void @free(ptr noundef %340) #22
+345:                                              ; preds = %342
+  call void @free(ptr noundef %343) #22
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
 
-_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i: ; preds = %342, %339
+_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i: ; preds = %345, %342
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #22
-  br i1 %.not.i.i.i.i.i86, label %343, label %345
+  br i1 %.not.i.i.i.i.i86, label %346, label %348
 
-343:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
-  %344 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  store ptr %.sroa.0.0.i.i.i.i.i87, ptr %344, align 8, !tbaa !88
+346:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  store ptr %.sroa.0.0.i.i.i.i.i87, ptr %347, align 8, !tbaa !88
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit
 
-345:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
+348:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle12ModuleEntityEJRPNS3_10ModuleNameERPNS3_4NodeEEEESt4pairIS9_bEbDpOT0_.exit.i.i.i.i
   %.not.i.i.i.i88 = icmp eq ptr %.sroa.0.0.i.i.i.i.i87, null
-  br i1 %.not.i.i.i.i88, label %.critedge22, label %346
+  br i1 %.not.i.i.i.i88, label %.critedge23, label %349
 
-346:                                              ; preds = %345
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %348 = load i32, ptr %347, align 8
-  %349 = and i32 %348, 1
-  %.not.i.i.i.i.i.i.i.i.i.i89 = icmp eq i32 %349, 0
-  %350 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %351 = load ptr, ptr %350, align 8
-  %352 = select i1 %.not.i.i.i.i.i.i.i.i.i.i89, ptr %351, ptr %350
-  %353 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %354 = load i32, ptr %353, align 8
-  %355 = select i1 %.not.i.i.i.i.i.i.i.i.i.i89, i32 %354, i32 32
-  %356 = icmp eq i32 %355, 0
-  br i1 %356, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96, label %357
+349:                                              ; preds = %348
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %351 = load i32, ptr %350, align 8
+  %352 = and i32 %351, 1
+  %.not.i.i.i.i.i.i.i.i.i.i89 = icmp eq i32 %352, 0
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %354 = load ptr, ptr %353, align 8
+  %355 = select i1 %.not.i.i.i.i.i.i.i.i.i.i89, ptr %354, ptr %353
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %357 = load i32, ptr %356, align 8
+  %358 = select i1 %.not.i.i.i.i.i.i.i.i.i.i89, i32 %357, i32 32
+  %359 = icmp eq i32 %358, 0
+  br i1 %359, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96, label %360
 
-357:                                              ; preds = %346
-  %358 = ptrtoint ptr %.sroa.0.0.i.i.i.i.i87 to i64
-  %359 = trunc i64 %358 to i32
-  %360 = lshr i32 %359, 4
-  %361 = lshr i32 %359, 9
-  %362 = xor i32 %360, %361
-  %363 = add i32 %355, -1
-  %.01826.i.i.i.i.i.i.i90 = and i32 %363, %362
-  %364 = zext nneg i32 %.01826.i.i.i.i.i.i.i90 to i64
-  %365 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %352, i64 %364
-  %366 = load ptr, ptr %365, align 8, !tbaa !11
-  %367 = icmp eq ptr %.sroa.0.0.i.i.i.i.i87, %366
-  br i1 %367, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95, label %.lr.ph.i.i.i.i.i.i.i91, !prof !110
+360:                                              ; preds = %349
+  %361 = ptrtoint ptr %.sroa.0.0.i.i.i.i.i87 to i64
+  %362 = trunc i64 %361 to i32
+  %363 = lshr i32 %362, 4
+  %364 = lshr i32 %362, 9
+  %365 = xor i32 %363, %364
+  %366 = add i32 %358, -1
+  %.01826.i.i.i.i.i.i.i90 = and i32 %366, %365
+  %367 = zext nneg i32 %.01826.i.i.i.i.i.i.i90 to i64
+  %368 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %355, i64 %367
+  %369 = load ptr, ptr %368, align 8, !tbaa !11
+  %370 = icmp eq ptr %.sroa.0.0.i.i.i.i.i87, %369
+  br i1 %370, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95, label %.lr.ph.i.i.i.i.i.i.i91, !prof !110
 
-.lr.ph.i.i.i.i.i.i.i91:                           ; preds = %357, %370
-  %368 = phi ptr [ %375, %370 ], [ %366, %357 ]
-  %.01828.i.i.i.i.i.i.i92 = phi i32 [ %.018.i.i.i.i.i.i.i94, %370 ], [ %.01826.i.i.i.i.i.i.i90, %357 ]
-  %.01627.i.i.i.i.i.i.i93 = phi i32 [ %371, %370 ], [ 1, %357 ]
-  %369 = icmp eq ptr %368, inttoptr (i64 -4096 to ptr)
-  br i1 %369, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96, label %370, !prof !95
+.lr.ph.i.i.i.i.i.i.i91:                           ; preds = %360, %373
+  %371 = phi ptr [ %378, %373 ], [ %369, %360 ]
+  %.01828.i.i.i.i.i.i.i92 = phi i32 [ %.018.i.i.i.i.i.i.i94, %373 ], [ %.01826.i.i.i.i.i.i.i90, %360 ]
+  %.01627.i.i.i.i.i.i.i93 = phi i32 [ %374, %373 ], [ 1, %360 ]
+  %372 = icmp eq ptr %371, inttoptr (i64 -4096 to ptr)
+  br i1 %372, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96, label %373, !prof !95
 
-370:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i91
-  %371 = add i32 %.01627.i.i.i.i.i.i.i93, 1
-  %372 = add i32 %.01627.i.i.i.i.i.i.i93, %.01828.i.i.i.i.i.i.i92
-  %.018.i.i.i.i.i.i.i94 = and i32 %372, %363
-  %373 = zext i32 %.018.i.i.i.i.i.i.i94 to i64
-  %374 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %352, i64 %373
-  %375 = load ptr, ptr %374, align 8, !tbaa !11
-  %376 = icmp eq ptr %.sroa.0.0.i.i.i.i.i87, %375
-  br i1 %376, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95, label %.lr.ph.i.i.i.i.i.i.i91, !prof !111, !llvm.loop !112
+373:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i91
+  %374 = add i32 %.01627.i.i.i.i.i.i.i93, 1
+  %375 = add i32 %.01627.i.i.i.i.i.i.i93, %.01828.i.i.i.i.i.i.i92
+  %.018.i.i.i.i.i.i.i94 = and i32 %375, %366
+  %376 = zext i32 %.018.i.i.i.i.i.i.i94 to i64
+  %377 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %355, i64 %376
+  %378 = load ptr, ptr %377, align 8, !tbaa !11
+  %379 = icmp eq ptr %.sroa.0.0.i.i.i.i.i87, %378
+  br i1 %379, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95, label %.lr.ph.i.i.i.i.i.i.i91, !prof !111, !llvm.loop !112
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95: ; preds = %370, %357
-  %377 = phi i64 [ %364, %357 ], [ %373, %370 ]
-  %378 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %352, i64 %377, i32 0, i32 1
-  %379 = load ptr, ptr %378, align 8, !tbaa !11
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95: ; preds = %373, %360
+  %380 = phi i64 [ %367, %360 ], [ %376, %373 ]
+  %381 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %355, i64 %380, i32 0, i32 1
+  %382 = load ptr, ptr %381, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96: ; preds = %.lr.ph.i.i.i.i.i.i.i91, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95, %346
-  %380 = phi ptr [ %379, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95 ], [ null, %346 ], [ null, %.lr.ph.i.i.i.i.i.i.i91 ]
-  %.not10.i.i.i.i = icmp eq ptr %380, null
-  %spec.select.i.i.i.i97 = select i1 %.not10.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i87, ptr %380
-  %381 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %382 = load ptr, ptr %381, align 8, !tbaa !82
-  %383 = icmp eq ptr %spec.select.i.i.i.i97, %382
-  br i1 %383, label %384, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96: ; preds = %.lr.ph.i.i.i.i.i.i.i91, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95, %349
+  %383 = phi ptr [ %382, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95 ], [ null, %349 ], [ null, %.lr.ph.i.i.i.i.i.i.i91 ]
+  %.not10.i.i.i.i = icmp eq ptr %383, null
+  %spec.select.i.i.i.i97 = select i1 %.not10.i.i.i.i, ptr %.sroa.0.0.i.i.i.i.i87, ptr %383
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %385 = load ptr, ptr %384, align 8, !tbaa !82
+  %386 = icmp eq ptr %spec.select.i.i.i.i97, %385
+  br i1 %386, label %387, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit
 
-384:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96
-  %385 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i8 1, ptr %385, align 8, !tbaa !83
+387:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i8 1, ptr %388, align 8, !tbaa !83
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit: ; preds = %384, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96, %343, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
-  %.2 = phi ptr [ %.0, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit ], [ %.sroa.0.0.i.i.i.i.i87, %343 ], [ %spec.select.i.i.i.i97, %384 ], [ %spec.select.i.i.i.i97, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96 ]
-  %.not19 = icmp eq ptr %.2, null
-  br i1 %.not19, label %.critedge22, label %386
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit: ; preds = %387, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96, %346, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit
+  %.2 = phi ptr [ %.0, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit ], [ %.sroa.0.0.i.i.i.i.i87, %346 ], [ %spec.select.i.i.i.i97, %387 ], [ %spec.select.i.i.i.i97, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96 ]
+  %.not21 = icmp eq ptr %.2, null
+  br i1 %.not21, label %.critedge23, label %389
 
-386:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit
-  %387 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12parseAbiTagsEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull %.2)
-  %.not20 = icmp eq ptr %387, null
-  %brmerge = or i1 %.not23311316, %.not20
-  br i1 %brmerge, label %475, label %388
+389:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit
+  %390 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12parseAbiTagsEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(1464) %0, ptr noundef nonnull %.2)
+  %391 = icmp ne ptr %390, null
+  %or.cond6 = and i1 %297, %391
+  br i1 %or.cond6, label %392, label %.thread248
 
-388:                                              ; preds = %386
-  %389 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %390 = getelementptr inbounds nuw i8, ptr %0, i64 937
-  %391 = load i8, ptr %390, align 1, !tbaa !63, !range !84, !noundef !85
+392:                                              ; preds = %389
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 937
+  %395 = load i8, ptr %394, align 1, !tbaa !63, !range !84, !noundef !85
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #22
-  %392 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %392, ptr %7, align 8, !tbaa !59
-  %393 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 0, ptr %393, align 8, !tbaa !60
-  %394 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 32, ptr %394, align 4, !tbaa !61
-  call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 noundef zeroext 25, ptr noundef %295, ptr noundef nonnull %387)
+  %396 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %396, ptr %7, align 8, !tbaa !59
+  %397 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 0, ptr %397, align 8, !tbaa !60
+  %398 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 32, ptr %398, align 4, !tbaa !61
+  call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 noundef zeroext 25, ptr noundef %298, ptr noundef nonnull %390)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
-  %395 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %396 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %395, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
-  %.not.i.i.i.i.i103 = icmp eq ptr %396, null
-  br i1 %.not.i.i.i.i.i103, label %.critedge.i.i.i.i.i117, label %397
+  %399 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %400 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %399, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
+  %.not.i.i.i.i.i103 = icmp eq ptr %400, null
+  br i1 %.not.i.i.i.i.i103, label %.critedge.i.i.i.i.i117, label %401
 
-397:                                              ; preds = %388
-  %398 = getelementptr inbounds nuw i8, ptr %396, i64 8
-  br label %428
+401:                                              ; preds = %392
+  %402 = getelementptr inbounds nuw i8, ptr %400, i64 8
+  br label %432
 
-.critedge.i.i.i.i.i117:                           ; preds = %388
-  %399 = trunc nuw i8 %391 to i1
-  br i1 %399, label %400, label %428
+.critedge.i.i.i.i.i117:                           ; preds = %392
+  %403 = trunc nuw i8 %395 to i1
+  br i1 %403, label %404, label %432
 
-400:                                              ; preds = %.critedge.i.i.i.i.i117
-  %401 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %402 = load i64, ptr %401, align 8, !tbaa !92
-  %403 = add i64 %402, 40
-  store i64 %403, ptr %401, align 8, !tbaa !92
-  %404 = load ptr, ptr %389, align 8, !tbaa !93
-  %405 = ptrtoint ptr %404 to i64
-  %406 = add i64 %405, 7
-  %407 = and i64 %406, -8
-  %408 = add i64 %407, 40
-  %409 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %410 = load ptr, ptr %409, align 8, !tbaa !94
-  %411 = ptrtoint ptr %410 to i64
-  %.not.i.i.i.i.i.i.i118 = icmp ule i64 %408, %411
-  %412 = icmp ne ptr %404, null
-  %413 = and i1 %412, %.not.i.i.i.i.i.i.i118
-  br i1 %413, label %414, label %417, !prof !95
+404:                                              ; preds = %.critedge.i.i.i.i.i117
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %406 = load i64, ptr %405, align 8, !tbaa !92
+  %407 = add i64 %406, 40
+  store i64 %407, ptr %405, align 8, !tbaa !92
+  %408 = load ptr, ptr %393, align 8, !tbaa !93
+  %409 = ptrtoint ptr %408 to i64
+  %410 = add i64 %409, 7
+  %411 = and i64 %410, -8
+  %412 = add i64 %411, 40
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %414 = load ptr, ptr %413, align 8, !tbaa !94
+  %415 = ptrtoint ptr %414 to i64
+  %.not.i.i.i.i.i.i.i118 = icmp ule i64 %412, %415
+  %416 = icmp ne ptr %408, null
+  %417 = and i1 %416, %.not.i.i.i.i.i.i.i118
+  br i1 %417, label %418, label %421, !prof !95
 
-414:                                              ; preds = %400
-  %415 = inttoptr i64 %408 to ptr
-  store ptr %415, ptr %389, align 8, !tbaa !93
-  %416 = inttoptr i64 %407 to ptr
+418:                                              ; preds = %404
+  %419 = inttoptr i64 %412 to ptr
+  store ptr %419, ptr %393, align 8, !tbaa !93
+  %420 = inttoptr i64 %411 to ptr
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119
 
-417:                                              ; preds = %400
-  %418 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(656) %389, i64 noundef 40, i64 noundef 40, i8 3)
+421:                                              ; preds = %404
+  %422 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(656) %393, i64 noundef 40, i64 noundef 40, i8 3)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119
 
-_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119: ; preds = %417, %414
-  %.0.i.i.i.i.i.i.i120 = phi ptr [ %416, %414 ], [ %418, %417 ]
+_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119: ; preds = %421, %418
+  %.0.i.i.i.i.i.i.i120 = phi ptr [ %420, %418 ], [ %422, %421 ]
   store ptr null, ptr %.0.i.i.i.i.i.i.i120, align 8, !tbaa !96
-  %419 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i120, i64 8
-  %420 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i120, i64 16
-  store i8 25, ptr %420, align 8, !tbaa !98
-  %421 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i120, i64 17
-  %422 = load i16, ptr %421, align 1
-  %423 = and i16 %422, -4096
-  %424 = or disjoint i16 %423, 1344
-  store i16 %424, ptr %421, align 1
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle20MemberLikeFriendNameE, i64 16), ptr %419, align 8, !tbaa !103
-  %425 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i120, i64 24
-  store ptr %295, ptr %425, align 8, !tbaa !185
-  %426 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i120, i64 32
-  store ptr %387, ptr %426, align 8, !tbaa !187
-  %427 = load ptr, ptr %8, align 8, !tbaa !80
-  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %395, ptr noundef nonnull %.0.i.i.i.i.i.i.i120, ptr noundef %427, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
-  br label %428
+  %423 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i120, i64 8
+  %424 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i120, i64 16
+  store i8 25, ptr %424, align 8, !tbaa !98
+  %425 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i120, i64 17
+  %426 = load i16, ptr %425, align 1
+  %427 = and i16 %426, -4096
+  %428 = or disjoint i16 %427, 1344
+  store i16 %428, ptr %425, align 1
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle20MemberLikeFriendNameE, i64 16), ptr %423, align 8, !tbaa !103
+  %429 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i120, i64 24
+  store ptr %298, ptr %429, align 8, !tbaa !185
+  %430 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i120, i64 32
+  store ptr %390, ptr %430, align 8, !tbaa !187
+  %431 = load ptr, ptr %8, align 8, !tbaa !80
+  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %399, ptr noundef nonnull %.0.i.i.i.i.i.i.i120, ptr noundef %431, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
+  br label %432
 
-428:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119, %.critedge.i.i.i.i.i117, %397
-  %.sroa.0.0.i.i.i.i.i104 = phi ptr [ %419, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119 ], [ %398, %397 ], [ null, %.critedge.i.i.i.i.i117 ]
+432:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119, %.critedge.i.i.i.i.i117, %401
+  %.sroa.0.0.i.i.i.i.i104 = phi ptr [ %423, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i119 ], [ %402, %401 ], [ null, %.critedge.i.i.i.i.i117 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  %429 = load ptr, ptr %7, align 8, !tbaa !59
-  %430 = icmp eq ptr %429, %392
-  br i1 %430, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %431
+  %433 = load ptr, ptr %7, align 8, !tbaa !59
+  %434 = icmp eq ptr %433, %396
+  br i1 %434, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %435
 
-431:                                              ; preds = %428
-  call void @free(ptr noundef %429) #22
+435:                                              ; preds = %432
+  call void @free(ptr noundef %433) #22
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
-_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %431, %428
+_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %435, %432
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #22
-  br i1 %.not.i.i.i.i.i103, label %432, label %434
+  br i1 %.not.i.i.i.i.i103, label %436, label %438
 
-432:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %433 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  store ptr %.sroa.0.0.i.i.i.i.i104, ptr %433, align 8, !tbaa !88
-  br label %.critedge22
+436:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
+  %437 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  store ptr %.sroa.0.0.i.i.i.i.i104, ptr %437, align 8, !tbaa !88
+  br label %.critedge23
 
-434:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
+438:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle20MemberLikeFriendNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
   %.not.i.i.i.i105 = icmp eq ptr %.sroa.0.0.i.i.i.i.i104, null
-  br i1 %.not.i.i.i.i105, label %.critedge22, label %435
+  br i1 %.not.i.i.i.i105, label %.critedge23, label %439
 
-435:                                              ; preds = %434
-  %436 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %437 = load i32, ptr %436, align 8
-  %438 = and i32 %437, 1
-  %.not.i.i.i.i.i.i.i.i.i.i106 = icmp eq i32 %438, 0
-  %439 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %440 = load ptr, ptr %439, align 8
-  %441 = select i1 %.not.i.i.i.i.i.i.i.i.i.i106, ptr %440, ptr %439
-  %442 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %443 = load i32, ptr %442, align 8
-  %444 = select i1 %.not.i.i.i.i.i.i.i.i.i.i106, i32 %443, i32 32
-  %445 = icmp eq i32 %444, 0
-  br i1 %445, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113, label %446
+439:                                              ; preds = %438
+  %440 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %441 = load i32, ptr %440, align 8
+  %442 = and i32 %441, 1
+  %.not.i.i.i.i.i.i.i.i.i.i106 = icmp eq i32 %442, 0
+  %443 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %444 = load ptr, ptr %443, align 8
+  %445 = select i1 %.not.i.i.i.i.i.i.i.i.i.i106, ptr %444, ptr %443
+  %446 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %447 = load i32, ptr %446, align 8
+  %448 = select i1 %.not.i.i.i.i.i.i.i.i.i.i106, i32 %447, i32 32
+  %449 = icmp eq i32 %448, 0
+  br i1 %449, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113, label %450
 
-446:                                              ; preds = %435
-  %447 = ptrtoint ptr %.sroa.0.0.i.i.i.i.i104 to i64
-  %448 = trunc i64 %447 to i32
-  %449 = lshr i32 %448, 4
-  %450 = lshr i32 %448, 9
-  %451 = xor i32 %449, %450
-  %452 = add i32 %444, -1
-  %.01826.i.i.i.i.i.i.i107 = and i32 %452, %451
-  %453 = zext nneg i32 %.01826.i.i.i.i.i.i.i107 to i64
-  %454 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %441, i64 %453
-  %455 = load ptr, ptr %454, align 8, !tbaa !11
-  %456 = icmp eq ptr %.sroa.0.0.i.i.i.i.i104, %455
-  br i1 %456, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112, label %.lr.ph.i.i.i.i.i.i.i108, !prof !110
+450:                                              ; preds = %439
+  %451 = ptrtoint ptr %.sroa.0.0.i.i.i.i.i104 to i64
+  %452 = trunc i64 %451 to i32
+  %453 = lshr i32 %452, 4
+  %454 = lshr i32 %452, 9
+  %455 = xor i32 %453, %454
+  %456 = add i32 %448, -1
+  %.01826.i.i.i.i.i.i.i107 = and i32 %456, %455
+  %457 = zext nneg i32 %.01826.i.i.i.i.i.i.i107 to i64
+  %458 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %445, i64 %457
+  %459 = load ptr, ptr %458, align 8, !tbaa !11
+  %460 = icmp eq ptr %.sroa.0.0.i.i.i.i.i104, %459
+  br i1 %460, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112, label %.lr.ph.i.i.i.i.i.i.i108, !prof !110
 
-.lr.ph.i.i.i.i.i.i.i108:                          ; preds = %446, %459
-  %457 = phi ptr [ %464, %459 ], [ %455, %446 ]
-  %.01828.i.i.i.i.i.i.i109 = phi i32 [ %.018.i.i.i.i.i.i.i111, %459 ], [ %.01826.i.i.i.i.i.i.i107, %446 ]
-  %.01627.i.i.i.i.i.i.i110 = phi i32 [ %460, %459 ], [ 1, %446 ]
-  %458 = icmp eq ptr %457, inttoptr (i64 -4096 to ptr)
-  br i1 %458, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113, label %459, !prof !95
+.lr.ph.i.i.i.i.i.i.i108:                          ; preds = %450, %463
+  %461 = phi ptr [ %468, %463 ], [ %459, %450 ]
+  %.01828.i.i.i.i.i.i.i109 = phi i32 [ %.018.i.i.i.i.i.i.i111, %463 ], [ %.01826.i.i.i.i.i.i.i107, %450 ]
+  %.01627.i.i.i.i.i.i.i110 = phi i32 [ %464, %463 ], [ 1, %450 ]
+  %462 = icmp eq ptr %461, inttoptr (i64 -4096 to ptr)
+  br i1 %462, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113, label %463, !prof !95
 
-459:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i108
-  %460 = add i32 %.01627.i.i.i.i.i.i.i110, 1
-  %461 = add i32 %.01627.i.i.i.i.i.i.i110, %.01828.i.i.i.i.i.i.i109
-  %.018.i.i.i.i.i.i.i111 = and i32 %461, %452
-  %462 = zext i32 %.018.i.i.i.i.i.i.i111 to i64
-  %463 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %441, i64 %462
-  %464 = load ptr, ptr %463, align 8, !tbaa !11
-  %465 = icmp eq ptr %.sroa.0.0.i.i.i.i.i104, %464
-  br i1 %465, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112, label %.lr.ph.i.i.i.i.i.i.i108, !prof !111, !llvm.loop !112
-
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112: ; preds = %459, %446
-  %466 = phi i64 [ %453, %446 ], [ %462, %459 ]
-  %467 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %441, i64 %466, i32 0, i32 1
+463:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i108
+  %464 = add i32 %.01627.i.i.i.i.i.i.i110, 1
+  %465 = add i32 %.01627.i.i.i.i.i.i.i110, %.01828.i.i.i.i.i.i.i109
+  %.018.i.i.i.i.i.i.i111 = and i32 %465, %456
+  %466 = zext i32 %.018.i.i.i.i.i.i.i111 to i64
+  %467 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %445, i64 %466
   %468 = load ptr, ptr %467, align 8, !tbaa !11
+  %469 = icmp eq ptr %.sroa.0.0.i.i.i.i.i104, %468
+  br i1 %469, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112, label %.lr.ph.i.i.i.i.i.i.i108, !prof !111, !llvm.loop !112
+
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112: ; preds = %463, %450
+  %470 = phi i64 [ %457, %450 ], [ %466, %463 ]
+  %471 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %445, i64 %470, i32 0, i32 1
+  %472 = load ptr, ptr %471, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113: ; preds = %.lr.ph.i.i.i.i.i.i.i108, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112, %435
-  %469 = phi ptr [ %468, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112 ], [ null, %435 ], [ null, %.lr.ph.i.i.i.i.i.i.i108 ]
-  %.not10.i.i.i.i114 = icmp eq ptr %469, null
-  %spec.select.i.i.i.i115 = select i1 %.not10.i.i.i.i114, ptr %.sroa.0.0.i.i.i.i.i104, ptr %469
-  %470 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %471 = load ptr, ptr %470, align 8, !tbaa !82
-  %472 = icmp eq ptr %spec.select.i.i.i.i115, %471
-  br i1 %472, label %473, label %.critedge22
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113: ; preds = %.lr.ph.i.i.i.i.i.i.i108, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112, %439
+  %473 = phi ptr [ %472, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112 ], [ null, %439 ], [ null, %.lr.ph.i.i.i.i.i.i.i108 ]
+  %.not10.i.i.i.i114 = icmp eq ptr %473, null
+  %spec.select.i.i.i.i115 = select i1 %.not10.i.i.i.i114, ptr %.sroa.0.0.i.i.i.i.i104, ptr %473
+  %474 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %475 = load ptr, ptr %474, align 8, !tbaa !82
+  %476 = icmp eq ptr %spec.select.i.i.i.i115, %475
+  br i1 %476, label %477, label %.critedge23
 
-473:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113
-  %474 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i8 1, ptr %474, align 8, !tbaa !83
-  br label %.critedge22
+477:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113
+  %478 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i8 1, ptr %478, align 8, !tbaa !83
+  br label %.critedge23
 
-475:                                              ; preds = %386
-  %476 = icmp ne ptr %387, null
-  %477 = icmp ne ptr %295, null
-  %or.cond6 = and i1 %477, %476
-  br i1 %or.cond6, label %478, label %.critedge22
+.thread248:                                       ; preds = %389
+  %479 = icmp ne ptr %298, null
+  %or.cond8 = and i1 %391, %479
+  br i1 %or.cond8, label %480, label %.critedge23
 
-478:                                              ; preds = %475
-  %479 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %480 = getelementptr inbounds nuw i8, ptr %0, i64 937
-  %481 = load i8, ptr %480, align 1, !tbaa !63, !range !84, !noundef !85
+480:                                              ; preds = %.thread248
+  %481 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %482 = getelementptr inbounds nuw i8, ptr %0, i64 937
+  %483 = load i8, ptr %482, align 1, !tbaa !63, !range !84, !noundef !85
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #22
-  %482 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %482, ptr %5, align 8, !tbaa !59
-  %483 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %483, align 8, !tbaa !60
-  %484 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 32, ptr %484, align 4, !tbaa !61
-  call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 24, ptr noundef nonnull %295, ptr noundef nonnull %387)
+  %484 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %484, ptr %5, align 8, !tbaa !59
+  %485 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 0, ptr %485, align 8, !tbaa !60
+  %486 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 32, ptr %486, align 4, !tbaa !61
+  call fastcc void @_ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_EEEvRNS1_16FoldingSetNodeIDENS3_4KindEDpT_(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 noundef zeroext 24, ptr noundef nonnull %298, ptr noundef nonnull %390)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
-  %485 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %486 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %485, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
-  %.not.i.i.i.i.i121 = icmp eq ptr %486, null
-  br i1 %.not.i.i.i.i.i121, label %.critedge.i.i.i.i.i135, label %487
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %488 = call noundef ptr @_ZN4llvm14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %487, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
+  %.not.i.i.i.i.i121 = icmp eq ptr %488, null
+  br i1 %.not.i.i.i.i.i121, label %.critedge.i.i.i.i.i135, label %489
 
-487:                                              ; preds = %478
-  %488 = getelementptr inbounds nuw i8, ptr %486, i64 8
-  br label %518
+489:                                              ; preds = %480
+  %490 = getelementptr inbounds nuw i8, ptr %488, i64 8
+  br label %520
 
-.critedge.i.i.i.i.i135:                           ; preds = %478
-  %489 = trunc nuw i8 %481 to i1
-  br i1 %489, label %490, label %518
+.critedge.i.i.i.i.i135:                           ; preds = %480
+  %491 = trunc nuw i8 %483 to i1
+  br i1 %491, label %492, label %520
 
-490:                                              ; preds = %.critedge.i.i.i.i.i135
-  %491 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %492 = load i64, ptr %491, align 8, !tbaa !92
-  %493 = add i64 %492, 40
-  store i64 %493, ptr %491, align 8, !tbaa !92
-  %494 = load ptr, ptr %479, align 8, !tbaa !93
-  %495 = ptrtoint ptr %494 to i64
-  %496 = add i64 %495, 7
-  %497 = and i64 %496, -8
-  %498 = add i64 %497, 40
-  %499 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %500 = load ptr, ptr %499, align 8, !tbaa !94
-  %501 = ptrtoint ptr %500 to i64
-  %.not.i.i.i.i.i.i.i136 = icmp ule i64 %498, %501
-  %502 = icmp ne ptr %494, null
-  %503 = and i1 %502, %.not.i.i.i.i.i.i.i136
-  br i1 %503, label %504, label %507, !prof !95
+492:                                              ; preds = %.critedge.i.i.i.i.i135
+  %493 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %494 = load i64, ptr %493, align 8, !tbaa !92
+  %495 = add i64 %494, 40
+  store i64 %495, ptr %493, align 8, !tbaa !92
+  %496 = load ptr, ptr %481, align 8, !tbaa !93
+  %497 = ptrtoint ptr %496 to i64
+  %498 = add i64 %497, 7
+  %499 = and i64 %498, -8
+  %500 = add i64 %499, 40
+  %501 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %502 = load ptr, ptr %501, align 8, !tbaa !94
+  %503 = ptrtoint ptr %502 to i64
+  %.not.i.i.i.i.i.i.i136 = icmp ule i64 %500, %503
+  %504 = icmp ne ptr %496, null
+  %505 = and i1 %504, %.not.i.i.i.i.i.i.i136
+  br i1 %505, label %506, label %509, !prof !95
 
-504:                                              ; preds = %490
-  %505 = inttoptr i64 %498 to ptr
-  store ptr %505, ptr %479, align 8, !tbaa !93
-  %506 = inttoptr i64 %497 to ptr
+506:                                              ; preds = %492
+  %507 = inttoptr i64 %500 to ptr
+  store ptr %507, ptr %481, align 8, !tbaa !93
+  %508 = inttoptr i64 %499 to ptr
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i137
 
-507:                                              ; preds = %490
-  %508 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(656) %479, i64 noundef 40, i64 noundef 40, i8 3)
+509:                                              ; preds = %492
+  %510 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(656) %481, i64 noundef 40, i64 noundef 40, i8 3)
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i137
 
-_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i137: ; preds = %507, %504
-  %.0.i.i.i.i.i.i.i138 = phi ptr [ %506, %504 ], [ %508, %507 ]
+_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i137: ; preds = %509, %506
+  %.0.i.i.i.i.i.i.i138 = phi ptr [ %508, %506 ], [ %510, %509 ]
   store ptr null, ptr %.0.i.i.i.i.i.i.i138, align 8, !tbaa !96
-  %509 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i138, i64 8
-  %510 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i138, i64 16
-  store i8 24, ptr %510, align 8, !tbaa !98
-  %511 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i138, i64 17
-  %512 = load i16, ptr %511, align 1
-  %513 = and i16 %512, -4096
-  %514 = or disjoint i16 %513, 1344
-  store i16 %514, ptr %511, align 1
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10NestedNameE, i64 16), ptr %509, align 8, !tbaa !103
-  %515 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i138, i64 24
-  store ptr %295, ptr %515, align 8, !tbaa !182
-  %516 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i138, i64 32
-  store ptr %387, ptr %516, align 8, !tbaa !184
-  %517 = load ptr, ptr %6, align 8, !tbaa !80
-  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %485, ptr noundef nonnull %.0.i.i.i.i.i.i.i138, ptr noundef %517, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
-  br label %518
+  %511 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i138, i64 8
+  %512 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i138, i64 16
+  store i8 24, ptr %512, align 8, !tbaa !98
+  %513 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i138, i64 17
+  %514 = load i16, ptr %513, align 1
+  %515 = and i16 %514, -4096
+  %516 = or disjoint i16 %515, 1344
+  store i16 %516, ptr %513, align 1
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10NestedNameE, i64 16), ptr %511, align 8, !tbaa !103
+  %517 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i138, i64 24
+  store ptr %298, ptr %517, align 8, !tbaa !182
+  %518 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i138, i64 32
+  store ptr %390, ptr %518, align 8, !tbaa !184
+  %519 = load ptr, ptr %6, align 8, !tbaa !80
+  call void @_ZN4llvm14FoldingSetBase10InsertNodeEPNS0_4NodeEPvRKNS0_14FoldingSetInfoE(ptr noundef nonnull align 8 dereferenceable(16) %487, ptr noundef nonnull %.0.i.i.i.i.i.i.i138, ptr noundef %519, ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAllocator10NodeHeaderEE17getFoldingSetInfoEvE4Info) #22
+  br label %520
 
-518:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i137, %.critedge.i.i.i.i.i135, %487
-  %.sroa.0.0.i.i.i.i.i122 = phi ptr [ %509, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i137 ], [ %488, %487 ], [ null, %.critedge.i.i.i.i.i135 ]
+520:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i137, %.critedge.i.i.i.i.i135, %489
+  %.sroa.0.0.i.i.i.i.i122 = phi ptr [ %511, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i.i.i.i137 ], [ %490, %489 ], [ null, %.critedge.i.i.i.i.i135 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  %519 = load ptr, ptr %5, align 8, !tbaa !59
-  %520 = icmp eq ptr %519, %482
-  br i1 %520, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %521
+  %521 = load ptr, ptr %5, align 8, !tbaa !59
+  %522 = icmp eq ptr %521, %484
+  br i1 %522, label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i, label %523
 
-521:                                              ; preds = %518
-  call void @free(ptr noundef %519) #22
+523:                                              ; preds = %520
+  call void @free(ptr noundef %521) #22
   br label %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
 
-_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %521, %518
+_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i: ; preds = %523, %520
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #22
-  br i1 %.not.i.i.i.i.i121, label %522, label %524
-
-522:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
-  %523 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  store ptr %.sroa.0.0.i.i.i.i.i122, ptr %523, align 8, !tbaa !88
-  br label %.critedge22
+  br i1 %.not.i.i.i.i.i121, label %524, label %526
 
 524:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
+  %525 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  store ptr %.sroa.0.0.i.i.i.i.i122, ptr %525, align 8, !tbaa !88
+  br label %.critedge23
+
+526:                                              ; preds = %_ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangle10NestedNameEJRPNS3_4NodeES7_EEESt4pairIS6_bEbDpOT0_.exit.i.i.i.i
   %.not.i.i.i.i123 = icmp eq ptr %.sroa.0.0.i.i.i.i.i122, null
-  br i1 %.not.i.i.i.i123, label %.critedge22, label %525
+  br i1 %.not.i.i.i.i123, label %.critedge23, label %527
 
-525:                                              ; preds = %524
-  %526 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %527 = load i32, ptr %526, align 8
-  %528 = and i32 %527, 1
-  %.not.i.i.i.i.i.i.i.i.i.i124 = icmp eq i32 %528, 0
-  %529 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %530 = load ptr, ptr %529, align 8
-  %531 = select i1 %.not.i.i.i.i.i.i.i.i.i.i124, ptr %530, ptr %529
-  %532 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %533 = load i32, ptr %532, align 8
-  %534 = select i1 %.not.i.i.i.i.i.i.i.i.i.i124, i32 %533, i32 32
-  %535 = icmp eq i32 %534, 0
-  br i1 %535, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131, label %536
+527:                                              ; preds = %526
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  %529 = load i32, ptr %528, align 8
+  %530 = and i32 %529, 1
+  %.not.i.i.i.i.i.i.i.i.i.i124 = icmp eq i32 %530, 0
+  %531 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %532 = load ptr, ptr %531, align 8
+  %533 = select i1 %.not.i.i.i.i.i.i.i.i.i.i124, ptr %532, ptr %531
+  %534 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %535 = load i32, ptr %534, align 8
+  %536 = select i1 %.not.i.i.i.i.i.i.i.i.i.i124, i32 %535, i32 32
+  %537 = icmp eq i32 %536, 0
+  br i1 %537, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131, label %538
 
-536:                                              ; preds = %525
-  %537 = ptrtoint ptr %.sroa.0.0.i.i.i.i.i122 to i64
-  %538 = trunc i64 %537 to i32
-  %539 = lshr i32 %538, 4
-  %540 = lshr i32 %538, 9
-  %541 = xor i32 %539, %540
-  %542 = add i32 %534, -1
-  %.01826.i.i.i.i.i.i.i125 = and i32 %542, %541
-  %543 = zext nneg i32 %.01826.i.i.i.i.i.i.i125 to i64
-  %544 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %531, i64 %543
-  %545 = load ptr, ptr %544, align 8, !tbaa !11
-  %546 = icmp eq ptr %.sroa.0.0.i.i.i.i.i122, %545
-  br i1 %546, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130, label %.lr.ph.i.i.i.i.i.i.i126, !prof !110
+538:                                              ; preds = %527
+  %539 = ptrtoint ptr %.sroa.0.0.i.i.i.i.i122 to i64
+  %540 = trunc i64 %539 to i32
+  %541 = lshr i32 %540, 4
+  %542 = lshr i32 %540, 9
+  %543 = xor i32 %541, %542
+  %544 = add i32 %536, -1
+  %.01826.i.i.i.i.i.i.i125 = and i32 %544, %543
+  %545 = zext nneg i32 %.01826.i.i.i.i.i.i.i125 to i64
+  %546 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %533, i64 %545
+  %547 = load ptr, ptr %546, align 8, !tbaa !11
+  %548 = icmp eq ptr %.sroa.0.0.i.i.i.i.i122, %547
+  br i1 %548, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130, label %.lr.ph.i.i.i.i.i.i.i126, !prof !110
 
-.lr.ph.i.i.i.i.i.i.i126:                          ; preds = %536, %549
-  %547 = phi ptr [ %554, %549 ], [ %545, %536 ]
-  %.01828.i.i.i.i.i.i.i127 = phi i32 [ %.018.i.i.i.i.i.i.i129, %549 ], [ %.01826.i.i.i.i.i.i.i125, %536 ]
-  %.01627.i.i.i.i.i.i.i128 = phi i32 [ %550, %549 ], [ 1, %536 ]
-  %548 = icmp eq ptr %547, inttoptr (i64 -4096 to ptr)
-  br i1 %548, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131, label %549, !prof !95
+.lr.ph.i.i.i.i.i.i.i126:                          ; preds = %538, %551
+  %549 = phi ptr [ %556, %551 ], [ %547, %538 ]
+  %.01828.i.i.i.i.i.i.i127 = phi i32 [ %.018.i.i.i.i.i.i.i129, %551 ], [ %.01826.i.i.i.i.i.i.i125, %538 ]
+  %.01627.i.i.i.i.i.i.i128 = phi i32 [ %552, %551 ], [ 1, %538 ]
+  %550 = icmp eq ptr %549, inttoptr (i64 -4096 to ptr)
+  br i1 %550, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131, label %551, !prof !95
 
-549:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i126
-  %550 = add i32 %.01627.i.i.i.i.i.i.i128, 1
-  %551 = add i32 %.01627.i.i.i.i.i.i.i128, %.01828.i.i.i.i.i.i.i127
-  %.018.i.i.i.i.i.i.i129 = and i32 %551, %542
-  %552 = zext i32 %.018.i.i.i.i.i.i.i129 to i64
-  %553 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %531, i64 %552
-  %554 = load ptr, ptr %553, align 8, !tbaa !11
-  %555 = icmp eq ptr %.sroa.0.0.i.i.i.i.i122, %554
-  br i1 %555, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130, label %.lr.ph.i.i.i.i.i.i.i126, !prof !111, !llvm.loop !112
+551:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i126
+  %552 = add i32 %.01627.i.i.i.i.i.i.i128, 1
+  %553 = add i32 %.01627.i.i.i.i.i.i.i128, %.01828.i.i.i.i.i.i.i127
+  %.018.i.i.i.i.i.i.i129 = and i32 %553, %544
+  %554 = zext i32 %.018.i.i.i.i.i.i.i129 to i64
+  %555 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %533, i64 %554
+  %556 = load ptr, ptr %555, align 8, !tbaa !11
+  %557 = icmp eq ptr %.sroa.0.0.i.i.i.i.i122, %556
+  br i1 %557, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130, label %.lr.ph.i.i.i.i.i.i.i126, !prof !111, !llvm.loop !112
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130: ; preds = %549, %536
-  %556 = phi i64 [ %543, %536 ], [ %552, %549 ]
-  %557 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %531, i64 %556, i32 0, i32 1
-  %558 = load ptr, ptr %557, align 8, !tbaa !11
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130: ; preds = %551, %538
+  %558 = phi i64 [ %545, %538 ], [ %554, %551 ]
+  %559 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %533, i64 %558, i32 0, i32 1
+  %560 = load ptr, ptr %559, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131
 
-_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131: ; preds = %.lr.ph.i.i.i.i.i.i.i126, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130, %525
-  %559 = phi ptr [ %558, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130 ], [ null, %525 ], [ null, %.lr.ph.i.i.i.i.i.i.i126 ]
-  %.not10.i.i.i.i132 = icmp eq ptr %559, null
-  %spec.select.i.i.i.i133 = select i1 %.not10.i.i.i.i132, ptr %.sroa.0.0.i.i.i.i.i122, ptr %559
-  %560 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %561 = load ptr, ptr %560, align 8, !tbaa !82
-  %562 = icmp eq ptr %spec.select.i.i.i.i133, %561
-  br i1 %562, label %563, label %.critedge22
+_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131: ; preds = %.lr.ph.i.i.i.i.i.i.i126, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130, %527
+  %561 = phi ptr [ %560, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130 ], [ null, %527 ], [ null, %.lr.ph.i.i.i.i.i.i.i126 ]
+  %.not10.i.i.i.i132 = icmp eq ptr %561, null
+  %spec.select.i.i.i.i133 = select i1 %.not10.i.i.i.i132, ptr %.sroa.0.0.i.i.i.i.i122, ptr %561
+  %562 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %563 = load ptr, ptr %562, align 8, !tbaa !82
+  %564 = icmp eq ptr %spec.select.i.i.i.i133, %563
+  br i1 %564, label %565, label %.critedge23
 
-563:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131
-  %564 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i8 1, ptr %564, align 8, !tbaa !83
-  br label %.critedge22
+565:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131
+  %566 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i8 1, ptr %566, align 8, !tbaa !83
+  br label %.critedge23
 
-.critedge22:                                      ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit71, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i63, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit177, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit156, %257, %64, %202, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit, %345, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i, %255, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit159, %276, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit180, %248, %563, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131, %524, %522, %473, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113, %434, %432, %475, %4
-  %.016 = phi ptr [ null, %4 ], [ null, %248 ], [ %387, %475 ], [ %.sroa.0.0.i.i.i.i.i104, %432 ], [ %spec.select.i.i.i.i115, %473 ], [ %spec.select.i.i.i.i115, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113 ], [ null, %434 ], [ %.sroa.0.0.i.i.i.i.i122, %522 ], [ %spec.select.i.i.i.i133, %563 ], [ %spec.select.i.i.i.i133, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131 ], [ null, %524 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit ], [ null, %345 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i ], [ null, %255 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit159 ], [ null, %276 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit180 ], [ null, %202 ], [ null, %64 ], [ null, %257 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit177 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit156 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i63 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit71 ], [ null, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ]
-  ret ptr %.016
+.critedge23:                                      ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit71, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i63, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit177, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit156, %258, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit180, %277, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit159, %256, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i, %348, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit, %203, %65, %249, %565, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131, %526, %524, %477, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113, %438, %436, %.thread248, %4
+  %.018 = phi ptr [ null, %4 ], [ null, %249 ], [ %390, %.thread248 ], [ %.sroa.0.0.i.i.i.i.i104, %436 ], [ %spec.select.i.i.i.i115, %477 ], [ %spec.select.i.i.i.i115, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113 ], [ null, %438 ], [ %.sroa.0.0.i.i.i.i.i122, %524 ], [ %spec.select.i.i.i.i133, %565 ], [ %spec.select.i.i.i.i133, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131 ], [ null, %526 ], [ null, %65 ], [ null, %203 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4makeINS0_12ModuleEntityEJRPNS0_10ModuleNameERPNS0_4NodeEEEESD_DpOT0_.exit ], [ null, %348 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i ], [ null, %256 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit159 ], [ null, %277 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit180 ], [ null, %258 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit177 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit156 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit.i.i55 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i63 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE.exit71 ], [ null, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ]
+  ret ptr %.018
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -57548,7 +57548,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle10ModuleName9printLe
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !191
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit.thread, label %5
+  br i1 %.not, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8, !tbaa !103
@@ -57568,84 +57568,75 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle10ModuleName9printLe
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(11) %4, ptr noundef nonnull align 8 dereferenceable(36) %1) #22
   br label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit
 
-_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %11, %5
-  %.pr = load ptr, ptr %3, align 8, !tbaa !191
-  %.not4 = icmp eq ptr %.pr, null
-  br i1 %.not4, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit.thread, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit._crit_edge
-
-_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit._crit_edge: ; preds = %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !194, !range !84
-  %.pre9 = trunc nuw i8 %.pre to i1
-  %15 = select i1 %.pre9, i8 58, i8 46
-  br label %19
-
-_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit.thread: ; preds = %2, %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit
+_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %11, %5, %2
+  %15 = load ptr, ptr %3, align 8, !tbaa !191
+  %.not4 = icmp ne ptr %15, null
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load i8, ptr %16, align 8, !tbaa !194, !range !84, !noundef !85
+  %17 = load i8, ptr %16, align 8, !range !84
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %35
+  %or.cond = select i1 %.not4, i1 true, i1 %18
+  br i1 %or.cond, label %19, label %36
 
-19:                                               ; preds = %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit._crit_edge, %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit.thread
-  %.pre-phi = phi i8 [ %15, %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit._crit_edge ], [ 58, %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit.thread ]
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !349
-  %22 = add i64 %21, 1
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !351
-  %25 = icmp ugt i64 %22, %24
+19:                                               ; preds = %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit
+  %20 = select i1 %18, i8 58, i8 46
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !349
+  %23 = add i64 %22, 1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %25 = load i64, ptr %24, align 8, !tbaa !351
+  %26 = icmp ugt i64 %23, %25
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !352
-  br i1 %25, label %26, label %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit
+  br i1 %26, label %27, label %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit
 
-26:                                               ; preds = %19
-  %27 = add i64 %21, 993
-  %28 = shl i64 %24, 1
-  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %28, i64 %27)
-  store i64 %spec.select.i.i, ptr %23, align 8, !tbaa !351
-  %29 = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.select.i.i) #26
-  store ptr %29, ptr %1, align 8, !tbaa !352
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
+27:                                               ; preds = %19
+  %28 = add i64 %22, 993
+  %29 = shl i64 %25, 1
+  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %29, i64 %28)
+  store i64 %spec.select.i.i, ptr %24, align 8, !tbaa !351
+  %30 = tail call ptr @realloc(ptr noundef %.pre.i, i64 noundef %spec.select.i.i) #26
+  store ptr %30, ptr %1, align 8, !tbaa !352
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
 
-._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i: ; preds = %26
-  %.pre1.i = load i64, ptr %20, align 8, !tbaa !349
+._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i: ; preds = %27
+  %.pre1.i = load i64, ptr %21, align 8, !tbaa !349
   %.pre2.i = add i64 %.pre1.i, 1
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit
 
-31:                                               ; preds = %26
+32:                                               ; preds = %27
   tail call void @abort() #25
   unreachable
 
 _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %19, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre2.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i ], [ %22, %19 ]
-  %32 = phi i64 [ %.pre1.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i ], [ %21, %19 ]
-  %33 = phi ptr [ %29, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i ], [ %.pre.i, %19 ]
-  store i64 %.pre-phi.i, ptr %20, align 8, !tbaa !349
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
-  store i8 %.pre-phi, ptr %34, align 1, !tbaa !91
-  br label %35
+  %.pre-phi.i = phi i64 [ %.pre2.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i ], [ %23, %19 ]
+  %33 = phi i64 [ %.pre1.i, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i ], [ %22, %19 ]
+  %34 = phi ptr [ %30, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i ], [ %.pre.i, %19 ]
+  store i64 %.pre-phi.i, ptr %21, align 8, !tbaa !349
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
+  store i8 %20, ptr %35, align 1, !tbaa !91
+  br label %36
 
-35:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit, %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit.thread
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !193
-  %38 = load ptr, ptr %37, align 8, !tbaa !103
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(11) %37, ptr noundef nonnull align 8 dereferenceable(36) %1) #22
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 9
-  %42 = load i16, ptr %41, align 1
-  %.mask3.i5 = and i16 %42, 192
-  %.not.i6 = icmp eq i16 %.mask3.i5, 64
-  br i1 %.not.i6, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit7, label %43
+36:                                               ; preds = %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit, %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %38 = load ptr, ptr %37, align 8, !tbaa !193
+  %39 = load ptr, ptr %38, align 8, !tbaa !103
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(11) %38, ptr noundef nonnull align 8 dereferenceable(36) %1) #22
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 9
+  %43 = load i16, ptr %42, align 1
+  %.mask3.i7 = and i16 %43, 192
+  %.not.i8 = icmp eq i16 %.mask3.i7, 64
+  br i1 %.not.i8, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit9, label %44
 
-43:                                               ; preds = %35
-  %44 = load ptr, ptr %37, align 8, !tbaa !103
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(11) %37, ptr noundef nonnull align 8 dereferenceable(36) %1) #22
-  br label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit7
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %38, align 8, !tbaa !103
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %47 = load ptr, ptr %46, align 8
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(11) %38, ptr noundef nonnull align 8 dereferenceable(36) %1) #22
+  br label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit9
 
-_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit7: ; preds = %35, %43
+_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit9: ; preds = %36, %44
   ret void
 }
 

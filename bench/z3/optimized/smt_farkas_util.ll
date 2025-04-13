@@ -1090,20 +1090,19 @@ define hidden noundef ptr @_ZN3smt11farkas_util8fix_signEbP3app(ptr noundef nonn
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !34
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread78, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i
+  br i1 %23, label %.thread75, label %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i
 
 _ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i: ; preds = %3
   %24 = load i32, ptr %22, align 8, !tbaa !40
   %25 = icmp eq i32 %24, 5
-  br i1 %25, label %_ZN3smt11farkas_util11is_int_sortEP3app.exit, label %.thread78
+  br i1 %25, label %_ZN3smt11farkas_util11is_int_sortEP3app.exit, label %.thread75
 
 _ZN3smt11farkas_util11is_int_sortEP3app.exit:     ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !44
-  %28 = icmp ne i32 %27, 1
-  %.not17 = xor i1 %1, true
-  %brmerge = or i1 %28, %.not17
-  br i1 %brmerge, label %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit.thread, label %29
+  %28 = icmp eq i32 %27, 1
+  %or.cond = and i1 %1, %28
+  br i1 %or.cond, label %29, label %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit.thread
 
 29:                                               ; preds = %_ZN3smt11farkas_util11is_int_sortEP3app.exit
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1190,15 +1189,16 @@ _ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit: ; preds = %56
   br label %198
 
 _ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit.thread: ; preds = %34, %29, %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i, %56, %_ZN3smt11farkas_util11is_int_sortEP3app.exit
-  %brmerge19 = or i1 %1, %28
-  br i1 %brmerge19, label %.thread78, label %72
+  %.not = xor i1 %28, true
+  %or.cond3 = or i1 %1, %.not
+  br i1 %or.cond3, label %.thread75, label %72
 
 72:                                               ; preds = %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit.thread
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = and i32 %74, 65535
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %.thread78
+  br i1 %76, label %77, label %.thread75
 
 77:                                               ; preds = %72
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1206,7 +1206,7 @@ _ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit.thread: ; preds = %34, %29, %
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !34
   %.not.i.i.i.i.i23 = icmp eq ptr %81, null
-  br i1 %.not.i.i.i.i.i23, label %.thread78, label %_ZNK17arith_recognizers5is_leEPK4expr.exit.i
+  br i1 %.not.i.i.i.i.i23, label %.thread75, label %_ZNK17arith_recognizers5is_leEPK4expr.exit.i
 
 _ZNK17arith_recognizers5is_leEPK4expr.exit.i:     ; preds = %77
   %82 = load i32, ptr %81, align 8, !tbaa !40
@@ -1234,13 +1234,13 @@ _ZNK17arith_recognizers5is_geEPK4expr.exit.i:     ; preds = %88, %_ZNK17arith_re
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %96, 3
   %98 = select i1 %94, i1 %97, i1 false
-  br i1 %98, label %99, label %.thread78
+  br i1 %98, label %99, label %.thread75
 
 99:                                               ; preds = %_ZNK17arith_recognizers5is_geEPK4expr.exit.i
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %101 = load i32, ptr %100, align 8, !tbaa !74
   %102 = icmp eq i32 %101, 2
-  br i1 %102, label %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit, label %.thread78
+  br i1 %102, label %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit, label %.thread75
 
 _ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit: ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1277,10 +1277,10 @@ _ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit: ; preds = %99
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %198
 
-.thread78:                                        ; preds = %77, %72, %_ZNK17arith_recognizers5is_geEPK4expr.exit.i, %99, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i, %3, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit.thread
+.thread75:                                        ; preds = %77, %72, %_ZNK17arith_recognizers5is_geEPK4expr.exit.i, %99, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i.i, %3, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit.thread
   br i1 %1, label %198, label %115
 
-115:                                              ; preds = %.thread78
+115:                                              ; preds = %.thread75
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, 65535
@@ -1421,8 +1421,8 @@ _ZNK17arith_recognizers5is_gtEPK4expr.exit.i40:   ; preds = %169, %_ZNK17arith_r
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %198
 
-198:                                              ; preds = %.thread78, %197, %192, %173, %154, %135, %104, %61
-  %.0 = phi ptr [ %71, %61 ], [ %143, %135 ], [ %162, %154 ], [ %181, %173 ], [ %196, %192 ], [ %2, %197 ], [ %114, %104 ], [ %2, %.thread78 ]
+198:                                              ; preds = %.thread75, %197, %192, %173, %154, %135, %104, %61
+  %.0 = phi ptr [ %71, %61 ], [ %143, %135 ], [ %162, %154 ], [ %181, %173 ], [ %196, %192 ], [ %2, %197 ], [ %114, %104 ], [ %2, %.thread75 ]
   ret ptr %.0
 }
 

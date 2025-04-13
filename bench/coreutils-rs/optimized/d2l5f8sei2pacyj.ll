@@ -746,14 +746,14 @@ _ZN9uu_numfmt6format16format_and_print17ha613a2f6c13a2e0bE.exit: ; preds = %24, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %29 = load i8, ptr %28, align 8, !range !164, !noundef !5
-  switch i8 %29, label %default.unreachable37 [
+  switch i8 %29, label %default.unreachable36 [
     i8 0, label %30
     i8 1, label %49
     i8 2, label %40
     i8 3, label %83
   ]
 
-default.unreachable37:                            ; preds = %27
+default.unreachable36:                            ; preds = %27
   unreachable
 
 30:                                               ; preds = %27
@@ -777,7 +777,7 @@ default.unreachable37:                            ; preds = %27
   %37 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$uu_numfmt..errors..NumfmtError$GT$17h82efba99f7514d2bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #17
-          to label %.thread23 unwind label %38
+          to label %.thread21 unwind label %38
 
 38:                                               ; preds = %36
   %39 = landingpad { ptr, i32 }
@@ -790,9 +790,9 @@ default.unreachable37:                            ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %41 = invoke { ptr, i64 } @_ZN6uucore9util_name17hcdedd272bee2ebc0E()
-          to label %67 unwind label %.thread30
+          to label %67 unwind label %.thread28
 
-.thread30:                                        ; preds = %76, %67, %40
+.thread28:                                        ; preds = %76, %67, %40
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %99
@@ -800,7 +800,7 @@ default.unreachable37:                            ; preds = %27
 42:                                               ; preds = %83
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br i1 %.015, label %99, label %.thread23
+  br i1 %.016, label %99, label %.thread21
 
 43:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
@@ -823,7 +823,7 @@ default.unreachable37:                            ; preds = %27
   %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$uu_numfmt..errors..NumfmtError$GT$17h82efba99f7514d2bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #17
-          to label %.thread23 unwind label %65
+          to label %.thread21 unwind label %65
 
 49:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
@@ -898,7 +898,7 @@ default.unreachable37:                            ; preds = %27
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 1, ptr %75, align 8, !alias.scope !174, !noalias !177
   invoke void @_ZN3std2io5stdio7_eprint17h891330c3789cc56fE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11)
-          to label %76 unwind label %.thread30
+          to label %76 unwind label %.thread28
 
 76:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
@@ -919,7 +919,7 @@ default.unreachable37:                            ; preds = %27
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %81, align 8, !alias.scope !180, !noalias !183
   invoke void @_ZN3std2io5stdio7_eprint17h891330c3789cc56fE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
-          to label %82 unwind label %.thread30
+          to label %82 unwind label %.thread28
 
 82:                                               ; preds = %76
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
@@ -927,7 +927,7 @@ default.unreachable37:                            ; preds = %27
   br label %83
 
 83:                                               ; preds = %27, %64, %82
-  %.015 = phi i1 [ true, %27 ], [ true, %82 ], [ false, %64 ]
+  %.016 = phi i1 [ true, %27 ], [ true, %82 ], [ false, %64 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %19, ptr %5, align 8
@@ -948,7 +948,7 @@ default.unreachable37:                            ; preds = %27
 89:                                               ; preds = %83
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %.015, label %90, label %.sink.split
+  br i1 %.016, label %90, label %.sink.split
 
 90:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !192
@@ -973,14 +973,14 @@ default.unreachable37:                            ; preds = %27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !192
   br label %.sink.split
 
-.thread23:                                        ; preds = %36, %47, %99, %42
-  %.pn26 = phi { ptr, i32 } [ %lpad.phi33, %99 ], [ %lpad.thr_comm.split-lp, %42 ], [ %48, %47 ], [ %37, %36 ]
-  resume { ptr, i32 } %.pn26
+.thread21:                                        ; preds = %36, %47, %99, %42
+  %.pn24 = phi { ptr, i32 } [ %lpad.phi31, %99 ], [ %lpad.thr_comm.split-lp, %42 ], [ %48, %47 ], [ %37, %36 ]
+  resume { ptr, i32 } %.pn24
 
-99:                                               ; preds = %.thread30, %42
-  %lpad.phi33 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread30 ], [ %lpad.thr_comm.split-lp, %42 ]
+99:                                               ; preds = %.thread28, %42
+  %lpad.phi31 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread28 ], [ %lpad.thr_comm.split-lp, %42 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc096aa27e841cc6aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #17
-          to label %.thread23 unwind label %65
+          to label %.thread21 unwind label %65
 }
 
 ; Function Attrs: nonlazybind uwtable

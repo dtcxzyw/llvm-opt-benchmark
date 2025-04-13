@@ -1064,7 +1064,7 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
   br label %47
 
 19:                                               ; preds = %22
-  resume { ptr, i32 } %.pn18
+  resume { ptr, i32 } %.pn20
 
 20:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -1075,7 +1075,7 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
           to label %"_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17h6cb415f2f957a08fE.exit" unwind label %23
 
 22:                                               ; preds = %34, %25, %23
-  %.pn18 = phi { ptr, i32 } [ %24, %23 ], [ %35, %34 ], [ %26, %25 ]
+  %.pn20 = phi { ptr, i32 } [ %24, %23 ], [ %35, %34 ], [ %26, %25 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #25
           to label %19 unwind label %41
 
@@ -1096,20 +1096,20 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
 
 27:                                               ; preds = %"_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17h6cb415f2f957a08fE.exit"
   %28 = load i64, ptr %8, align 8, !range !35, !noundef !5
-  %.not15 = icmp eq i64 %28, 0
-  br i1 %.not15, label %.critedge27, label %29
+  %.not18 = icmp eq i64 %28, 0
+  br i1 %.not18, label %.critedge28, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %31 = load ptr, ptr %30, align 8, !nonnull !5, !noundef !5
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, -4294967293
-  %or.cond70 = icmp eq i64 %33, 124554051586
-  br i1 %or.cond70, label %36, label %.critedge27
+  %or.cond69 = icmp eq i64 %33, 124554051586
+  br i1 %or.cond69, label %36, label %.critedge28
 
-.critedge27:                                      ; preds = %29, %27
+.critedge28:                                      ; preds = %29, %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  br label %.noexc41
+  br label %.noexc40
 
 34:                                               ; preds = %38, %36
   %35 = landingpad { ptr, i32 }
@@ -1134,7 +1134,7 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
 
 40:                                               ; preds = %.noexc, %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !166
-  br label %.noexc41
+  br label %.noexc40
 
 41:                                               ; preds = %22
   %42 = landingpad { ptr, i32 }
@@ -1142,21 +1142,21 @@ define internal fastcc void @"_ZN57_$LT$T$u20$as$u20$system_interface..io..io_ex
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #26
   unreachable
 
-.noexc41:                                         ; preds = %.critedge27, %40
+.noexc40:                                         ; preds = %.critedge28, %40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !176
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h818a02e413cc4ce9E.llvm.1938814379164664089(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %16)
   %43 = load i8, ptr %5, align 8, !range !62, !alias.scope !183, !noalias !176, !noundef !5
-  %switch.not.i.i.i.i40 = icmp eq i8 %43, 3
-  br i1 %switch.not.i.i.i.i40, label %44, label %46
+  %switch.not.i.i.i.i39 = icmp eq i8 %43, 3
+  br i1 %switch.not.i.i.i.i39, label %44, label %46
 
-44:                                               ; preds = %.noexc41
+44:                                               ; preds = %.noexc40
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h199981c1485e3b22E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45)
   br label %46
 
-46:                                               ; preds = %44, %.noexc41
+46:                                               ; preds = %44, %.noexc40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !176
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %47
@@ -2835,14 +2835,12 @@ define noundef range(i8 0, 8) i8 @_ZN11wasi_common4sync4file13filetype_from17hd5
 
 5:                                                ; preds = %1
   %6 = icmp samesign ult i8 %2, 5
-  br i1 %6, label %switch.hole_check, label %9
-
-switch.hole_check:                                ; preds = %5
   %switch.shifted = lshr i8 23, %2
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %9
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %9
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %5
   %7 = shl nuw nsw i8 %2, 3
   %switch.shiftamt = zext nneg i8 %7 to i40
   %switch.downshift = lshr i40 25769935111, %switch.shiftamt
@@ -2853,7 +2851,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.0 = phi i8 [ 3, %1 ], [ %.5, %9 ], [ %switch.masked, %switch.lookup ]
   ret i8 %.0
 
-9:                                                ; preds = %switch.hole_check, %5
+9:                                                ; preds = %5
   %10 = icmp eq i8 %3, 1
   %.5 = select i1 %10, i8 4, i8 0
   br label %8
@@ -3082,12 +3080,7 @@ define internal void @"_ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_c
 default.unreachable22:                            ; preds = %3
   unreachable
 
-switch.hole_check:                                ; preds = %22
-  %switch.shifted = lshr i8 23, %.sroa.10.sroa.6.0.copyload
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %24
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %22
   %7 = shl nuw nsw i8 %.sroa.10.sroa.6.0.copyload, 3
   %switch.shiftamt = zext nneg i8 %7 to i40
   %switch.downshift = lshr i40 25769935111, %switch.shiftamt
@@ -3141,9 +3134,12 @@ _ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit: ; preds = %s
 
 22:                                               ; preds = %19
   %23 = icmp ult i8 %.sroa.10.sroa.6.0.copyload, 5
-  br i1 %23, label %switch.hole_check, label %24
+  %switch.shifted = lshr i8 23, %.sroa.10.sroa.6.0.copyload
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %24
 
-24:                                               ; preds = %switch.hole_check, %22
+24:                                               ; preds = %22
   %25 = icmp eq i8 %20, 1
   %.5.i = select i1 %25, i8 4, i8 0
   br label %_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit
@@ -3557,19 +3553,17 @@ default.unreachable139:                           ; preds = %3
 
 26:                                               ; preds = %22
   %27 = icmp ult i8 %.sroa.1075.sroa.17.0.copyload, 5
-  br i1 %27, label %switch.hole_check, label %28
+  %switch.shifted = lshr i8 23, %.sroa.1075.sroa.17.0.copyload
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %27, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %28
 
-28:                                               ; preds = %switch.hole_check, %26
+28:                                               ; preds = %26
   %29 = icmp eq i8 %24, 1
   %.5.i = select i1 %29, i8 4, i8 0
   br label %_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE.exit
 
-switch.hole_check:                                ; preds = %26
-  %switch.shifted = lshr i8 23, %.sroa.1075.sroa.17.0.copyload
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %28
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %26
   %30 = shl nuw nsw i8 %.sroa.1075.sroa.17.0.copyload, 3
   %switch.shiftamt = zext nneg i8 %30 to i40
   %switch.downshift = lshr i40 25769935111, %switch.shiftamt
@@ -4666,7 +4660,7 @@ default.unreachable18:                            ; preds = %3
           to label %"_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17h428748ef707a3788E.exit.i" unwind label %28, !noalias !517
 
 27:                                               ; preds = %37, %30, %28
-  %.pn18.i = phi { ptr, i32 } [ %29, %28 ], [ %38, %37 ], [ %31, %30 ]
+  %.pn20.i = phi { ptr, i32 } [ %29, %28 ], [ %38, %37 ], [ %31, %30 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #25
           to label %.body unwind label %44, !noalias !517
 
@@ -4687,16 +4681,16 @@ default.unreachable18:                            ; preds = %3
 
 32:                                               ; preds = %"_ZN59_$LT$T$u20$as$u20$io_lifetimes..portability..AsFilelike$GT$16as_filelike_view17h428748ef707a3788E.exit.i"
   %33 = load i64, ptr %7, align 8, !range !35, !noalias !511, !noundef !5
-  %.not15.i = icmp eq i64 %33, 0
+  %.not18.i = icmp eq i64 %33, 0
   %.sroa.7.0..sroa_idx13.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.7.0.copyload14.pre = load ptr, ptr %.sroa.7.0..sroa_idx13.phi.trans.insert, align 8, !noalias !516
-  br i1 %.not15.i, label %.noexc41.i, label %34
+  br i1 %.not18.i, label %.noexc40.i, label %34
 
 34:                                               ; preds = %32
   %35 = ptrtoint ptr %.sroa.7.0.copyload14.pre to i64
   %36 = and i64 %35, -4294967293
-  %or.cond70.i = icmp eq i64 %36, 124554051586
-  br i1 %or.cond70.i, label %39, label %.noexc41.i
+  %or.cond69.i = icmp eq i64 %36, 124554051586
+  br i1 %or.cond69.i, label %39, label %.noexc40.i
 
 37:                                               ; preds = %41, %39
   %38 = landingpad { ptr, i32 }
@@ -4720,7 +4714,7 @@ default.unreachable18:                            ; preds = %3
 
 43:                                               ; preds = %41, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !518
-  br label %.noexc41.i
+  br label %.noexc40.i
 
 44:                                               ; preds = %27
   %45 = landingpad { ptr, i32 }
@@ -4728,7 +4722,7 @@ default.unreachable18:                            ; preds = %3
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #26, !noalias !517
   unreachable
 
-.noexc41.i:                                       ; preds = %32, %34, %43
+.noexc40.i:                                       ; preds = %32, %34, %43
   %.sroa.011.0 = phi i1 [ false, %43 ], [ true, %34 ], [ false, %32 ]
   %.sroa.7.0 = phi ptr [ null, %43 ], [ %.sroa.7.0.copyload14.pre, %34 ], [ %.sroa.7.0.copyload14.pre, %32 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !511
@@ -4737,17 +4731,17 @@ default.unreachable18:                            ; preds = %3
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17h818a02e413cc4ce9E.llvm.1938814379164664089(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.sroa.7.0.copyload.pre)
           to label %.noexc8 unwind label %49
 
-.noexc8:                                          ; preds = %.noexc41.i
+.noexc8:                                          ; preds = %.noexc40.i
   %46 = load i8, ptr %4, align 8, !range !62, !alias.scope !535, !noalias !528, !noundef !5
-  %switch.not.i.i.i.i40.i = icmp eq i8 %46, 3
-  br i1 %switch.not.i.i.i.i40.i, label %47, label %.critedge.i
+  %switch.not.i.i.i.i39.i = icmp eq i8 %46, 3
+  br i1 %switch.not.i.i.i.i39.i, label %47, label %.critedge.i
 
 47:                                               ; preds = %.noexc8
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h199981c1485e3b22E.llvm.1938814379164664089"(ptr noalias noundef nonnull align 8 dereferenceable(8) %48)
           to label %.critedge.i unwind label %49
 
-49:                                               ; preds = %47, %.noexc41.i, %.noexc6, %14
+49:                                               ; preds = %47, %.noexc40.i, %.noexc6, %14
   %50 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4770,7 +4764,7 @@ default.unreachable18:                            ; preds = %3
   br label %.body
 
 .body:                                            ; preds = %53, %49, %27
-  %.pn3.pn = phi { ptr, i32 } [ %54, %53 ], [ %50, %49 ], [ %.pn18.i, %27 ]
+  %.pn3.pn = phi { ptr, i32 } [ %54, %53 ], [ %50, %49 ], [ %.pn20.i, %27 ]
   store i8 2, ptr %11, align 8
   resume { ptr, i32 } %.pn3.pn
 

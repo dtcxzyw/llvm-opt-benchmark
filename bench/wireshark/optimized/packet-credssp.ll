@@ -265,7 +265,7 @@ define internal noundef zeroext i1 @dissect_credssp_heur(ptr noundef %0, ptr nou
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %10 = call i32 @tvb_captured_length(ptr noundef %0)
   %11 = icmp ugt i32 %10, 7
-  br i1 %11, label %12, label %55
+  br i1 %11, label %12, label %54
 
 12:                                               ; preds = %4
   %13 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
@@ -274,68 +274,66 @@ define internal noundef zeroext i1 @dissect_credssp_heur(ptr noundef %0, ptr nou
   %16 = load i32, ptr %8, align 4
   %17 = icmp eq i32 %16, 16
   %or.cond = select i1 %15, i1 %17, i1 false
-  br i1 %or.cond, label %18, label %55
+  %18 = load i8, ptr %7, align 1, !range !6
+  %19 = trunc nuw i8 %18 to i1
+  %or.cond43 = select i1 %or.cond, i1 %19, i1 false
+  br i1 %or.cond43, label %20, label %54
 
-18:                                               ; preds = %12
-  %19 = load i8, ptr %7, align 1, !range !6, !noundef !7
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %21, label %55
+20:                                               ; preds = %12
+  %21 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %13, ptr noundef null, ptr noundef null)
+  %22 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef %21, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %23 = load i8, ptr %6, align 1
+  %24 = icmp eq i8 %23, 2
+  %25 = load i32, ptr %8, align 4
+  %26 = icmp eq i32 %25, 0
+  %or.cond3 = select i1 %24, i1 %26, i1 false
+  br i1 %or.cond3, label %27, label %54
 
-21:                                               ; preds = %18
-  %22 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %13, ptr noundef null, ptr noundef null)
-  %23 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  %24 = load i8, ptr %6, align 1
-  %25 = icmp eq i8 %24, 2
-  %26 = load i32, ptr %8, align 4
-  %27 = icmp eq i32 %26, 0
-  %or.cond3 = select i1 %25, i1 %27, i1 false
-  br i1 %or.cond3, label %28, label %55
+27:                                               ; preds = %20
+  %28 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %22, ptr noundef null, ptr noundef null)
+  %29 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef %28, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %30 = load i8, ptr %6, align 1
+  %31 = icmp eq i8 %30, 0
+  %32 = load i32, ptr %8, align 4
+  %33 = icmp eq i32 %32, 2
+  %or.cond5 = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond5, label %34, label %54
 
-28:                                               ; preds = %21
-  %29 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %23, ptr noundef null, ptr noundef null)
-  %30 = call i32 @get_ber_identifier(ptr noundef %0, i32 noundef %29, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  %31 = load i8, ptr %6, align 1
-  %32 = icmp eq i8 %31, 0
-  %33 = load i32, ptr %8, align 4
-  %34 = icmp eq i32 %33, 2
-  %or.cond5 = select i1 %32, i1 %34, i1 false
-  br i1 %or.cond5, label %35, label %55
+34:                                               ; preds = %27
+  %35 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %29, ptr noundef nonnull %9, ptr noundef null)
+  %36 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %35)
+  %37 = load i32, ptr %9, align 4
+  %38 = icmp eq i32 %37, 1
+  %39 = add i8 %36, -2
+  %40 = icmp ult i8 %39, 97
+  %or.cond11 = select i1 %38, i1 %40, i1 false
+  br i1 %or.cond11, label %41, label %54
 
-35:                                               ; preds = %28
-  %36 = call i32 @get_ber_length(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %9, ptr noundef null)
-  %37 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %36)
-  %38 = load i32, ptr %9, align 4
-  %39 = icmp eq i32 %38, 1
-  %40 = add i8 %37, -2
-  %41 = icmp ult i8 %40, 97
-  %or.cond11 = select i1 %39, i1 %41, i1 false
-  br i1 %or.cond11, label %42, label %55
+41:                                               ; preds = %34
+  %42 = load i32, ptr @exported_pdu_tap, align 4
+  %43 = call zeroext i1 @have_tap_listener(i32 noundef %42)
+  br i1 %43, label %44, label %52
 
-42:                                               ; preds = %35
-  %43 = load i32, ptr @exported_pdu_tap, align 4
-  %44 = call zeroext i1 @have_tap_listener(i32 noundef %43)
-  br i1 %44, label %45, label %53
+44:                                               ; preds = %41
+  %45 = call ptr @export_pdu_create_common_tags(ptr noundef %1, ptr noundef nonnull @.str.73, i16 noundef zeroext 12)
+  %46 = call i32 @tvb_captured_length(ptr noundef %0)
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store i32 %46, ptr %47, align 8
+  %48 = call i32 @tvb_reported_length(ptr noundef %0)
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 20
+  store i32 %48, ptr %49, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  store ptr %0, ptr %50, align 8
+  %51 = load i32, ptr @exported_pdu_tap, align 4
+  call void @tap_queue_packet(i32 noundef %51, ptr noundef %1, ptr noundef %45)
+  br label %52
 
-45:                                               ; preds = %42
-  %46 = call ptr @export_pdu_create_common_tags(ptr noundef %1, ptr noundef nonnull @.str.73, i16 noundef zeroext 12)
-  %47 = call i32 @tvb_captured_length(ptr noundef %0)
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i32 %47, ptr %48, align 8
-  %49 = call i32 @tvb_reported_length(ptr noundef %0)
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 20
-  store i32 %49, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store ptr %0, ptr %51, align 8
-  %52 = load i32, ptr @exported_pdu_tap, align 4
-  call void @tap_queue_packet(i32 noundef %52, ptr noundef %1, ptr noundef %46)
-  br label %53
+52:                                               ; preds = %44, %41
+  %53 = call i32 @dissect_credssp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
+  br label %54
 
-53:                                               ; preds = %45, %42
-  %54 = call i32 @dissect_credssp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %55
-
-55:                                               ; preds = %4, %21, %35, %28, %18, %12, %53
-  %.0 = phi i1 [ true, %53 ], [ false, %12 ], [ false, %18 ], [ false, %28 ], [ false, %35 ], [ false, %21 ], [ false, %4 ]
+54:                                               ; preds = %4, %20, %34, %27, %12, %52
+  %.0 = phi i1 [ true, %52 ], [ false, %12 ], [ false, %27 ], [ false, %34 ], [ false, %20 ], [ false, %4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #5
@@ -735,4 +733,3 @@ attributes #5 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = !{}

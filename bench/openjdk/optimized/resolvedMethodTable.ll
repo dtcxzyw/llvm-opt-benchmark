@@ -2032,22 +2032,20 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i: ; preds = %_ZN
   br label %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
 
 _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i, %40
-  %.not.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %42
-
-42:                                               ; preds = %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
+  %42 = icmp ne ptr %39, null
   %43 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
+  %or.cond.i.i.i = select i1 %42, i1 %44, i1 false
+  br i1 %or.cond.i.i.i, label %45, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
-45:                                               ; preds = %42
+45:                                               ; preds = %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 769
   %48 = load volatile i8, ptr %47, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %49 = and i8 %48, 2
-  %.not3.i.i.i = icmp eq i8 %49, 0
-  br i1 %.not3.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
+  %.not.i.i.i = icmp eq i8 %49, 0
+  br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %6, align 8
@@ -2092,8 +2090,8 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   tail call void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueueP7oopDesc(ptr noundef nonnull align 8 dereferenceable(393) %83, ptr noundef nonnull align 8 dereferenceable(17) %82, ptr noundef nonnull %39) #13
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
-_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %42, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ null, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %42 ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
+  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -2879,22 +2877,20 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i: ; preds = %_ZN
   br label %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
 
 _ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i, %40
-  %.not.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %42
-
-42:                                               ; preds = %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
+  %42 = icmp ne ptr %39, null
   %43 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
+  %or.cond.i.i.i = select i1 %42, i1 %44, i1 false
+  br i1 %or.cond.i.i.i, label %45, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
-45:                                               ; preds = %42
+45:                                               ; preds = %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit
   %46 = load ptr, ptr %6, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 769
   %48 = load volatile i8, ptr %47, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %49 = and i8 %48, 2
-  %.not3.i.i.i = icmp eq i8 %49, 0
-  br i1 %.not3.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
+  %.not.i.i.i = icmp eq i8 %49, 0
+  br i1 %.not.i.i.i, label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit, label %50
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %6, align 8
@@ -2939,8 +2935,8 @@ _ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i: ; preds = %50
   tail call void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueueP7oopDesc(ptr noundef nonnull align 8 dereferenceable(393) %83, ptr noundef nonnull align 8 dereferenceable(17) %82, ptr noundef nonnull %39) #13
   br label %_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit
 
-_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %42, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
-  %.0.i4 = phi ptr [ null, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %42 ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
+_ZN20ShenandoahBarrierSet8oop_loadIP7oopDescEES2_mPT_.exit: ; preds = %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i, %1, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit, %45, %50, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i, %79
+  %.0.i4 = phi ptr [ %39, %_ZN20ShenandoahBarrierSet22load_reference_barrierIP7oopDescEES2_mS2_PT_.exit ], [ %39, %45 ], [ %39, %50 ], [ %39, %_ZNK14ShenandoahHeap16requires_markingEPKv.exit.i.i.i.i ], [ %39, %79 ], [ null, %1 ], [ null, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i ]
   ret ptr %.0.i4
 }
 
@@ -3737,8 +3733,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19ConcurrentHashTableI25Resolv
   br label %19
 
 19:                                               ; preds = %.backedge, %7
-  %.055 = phi i8 [ 0, %7 ], [ %.461, %.backedge ]
-  %.038 = phi i64 [ 0, %7 ], [ %105, %.backedge ]
+  %.056 = phi i8 [ 0, %7 ], [ %.462, %.backedge ]
+  %.039 = phi i64 [ 0, %7 ], [ %105, %.backedge ]
   %20 = load volatile i64, ptr %14, align 8
   %21 = and i64 %20, 1
   %22 = icmp eq i64 %21, 0
@@ -3773,8 +3769,8 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8ScopedCSC2EP6T
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %37 = ptrtoint ptr %36 to i64
   %38 = and i64 %37, 2
-  %.not.i46 = icmp eq i64 %38, 0
-  br i1 %.not.i46, label %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit, label %39
+  %.not.i47 = icmp eq i64 %38, 0
+  br i1 %.not.i47, label %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit, label %39
 
 39:                                               ; preds = %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8ScopedCSC2EP6ThreadPS2_.exit
   %40 = load volatile ptr, ptr %17, align 8
@@ -3805,7 +3801,7 @@ _ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm
   br label %54
 
 54:                                               ; preds = %92, %.lr.ph.i
-  %.2 = phi i8 [ %.055, %.lr.ph.i ], [ %.3, %92 ]
+  %.2 = phi i8 [ %.056, %.lr.ph.i ], [ %.3, %92 ]
   %.023.i = phi ptr [ %53, %.lr.ph.i ], [ %93, %92 ]
   %.01322.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %92 ]
   %55 = add i64 %.01322.i, 1
@@ -3828,7 +3824,7 @@ _ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm
   %68 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %69 = tail call noundef ptr %68(ptr noundef %67) #13
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %110, label %71
+  br i1 %70, label %111, label %71
 
 71:                                               ; preds = %65
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 808
@@ -3857,7 +3853,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %83, %81
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %83 ], [ %79, %81 ]
   %.0.i.i.i.i.i.i = phi ptr [ %84, %83 ], [ %77, %81 ]
   store ptr %69, ptr %.0.i.i.i.i.i.i, align 8
-  br label %110
+  br label %111
 
 85:                                               ; preds = %61, %54
   %86 = trunc nuw i8 %.2 to i1
@@ -3875,19 +3871,19 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %83, %81
   %.3 = phi i8 [ 1, %85 ], [ %spec.select, %87 ]
   %93 = load volatile ptr, ptr %.023.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  %.not.i47 = icmp eq ptr %93, null
-  br i1 %.not.i47, label %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8get_nodeI25ResolvedMethodTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread, label %54, !llvm.loop !23
+  %.not.i48 = icmp eq ptr %93, null
+  br i1 %.not.i48, label %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8get_nodeI25ResolvedMethodTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread, label %54, !llvm.loop !23
 
 _ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8get_nodeI25ResolvedMethodTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread: ; preds = %92, %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit
-  %.1.i63 = phi i64 [ 0, %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit ], [ %55, %92 ]
-  %.461 = phi i8 [ %.055, %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit ], [ %.3, %92 ]
+  %.1.i64 = phi i64 [ 0, %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit ], [ %55, %92 ]
+  %.462 = phi i8 [ %.056, %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit ], [ %.3, %92 ]
   store volatile ptr %49, ptr %11, align 8
   %94 = load volatile ptr, ptr %.0.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %95 = ptrtoint ptr %94 to i64
   %96 = and i64 %95, 1
-  %.not.i48 = icmp eq i64 %96, 0
-  br i1 %.not.i48, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
+  %.not.i49 = icmp eq i64 %96, 0
+  br i1 %.not.i49, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
 
 _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit: ; preds = %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8get_nodeI25ResolvedMethodTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread
   %97 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr %49, ptr nonnull align 8 dereferenceable(8) %.0.i) #13, !srcloc !20
@@ -3896,8 +3892,8 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_fir
 
 99:                                               ; preds = %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit
   %100 = load ptr, ptr %0, align 8
-  %.not.i50 = icmp eq ptr %100, null
-  br i1 %.not.i50, label %.thread, label %101
+  %.not.i51 = icmp eq ptr %100, null
+  br i1 %.not.i51, label %.thread, label %101
 
 101:                                              ; preds = %99
   tail call void @_ZN19TableRateStatistics3addEv(ptr noundef nonnull align 8 dereferenceable(64) %100) #13
@@ -3911,7 +3907,7 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_fir
   %.not = icmp eq i64 %104, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   store volatile i64 %20, ptr %14, align 8
-  %105 = add i64 %.038, 1
+  %105 = add i64 %.039, 1
   br i1 %.not, label %107, label %106
 
 106:                                              ; preds = %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
@@ -3928,70 +3924,68 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_fir
 .thread:                                          ; preds = %101, %99
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   store volatile i64 %20, ptr %14, align 8
-  %109 = icmp eq i64 %.038, 0
-  br i1 %109, label %116, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
+  %109 = icmp eq i64 %.039, 0
+  %110 = trunc nuw i8 %.462 to i1
+  %or.cond = select i1 %109, i1 %110, i1 false
+  br i1 %or.cond, label %117, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
 
-110:                                              ; preds = %65, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
+111:                                              ; preds = %65, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i
   %storemerge.i.i.i = phi i64 [ %.pre-phi.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i ], [ 0, %65 ]
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %storemerge.i.i.i, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 %storemerge.i.i.i, ptr %112, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   store volatile i64 %20, ptr %14, align 8
-  %112 = load ptr, ptr @_ZN19ResolvedMethodTable12_oop_storageE, align 8
-  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %112) #13
+  %113 = load ptr, ptr @_ZN19ResolvedMethodTable12_oop_storageE, align 8
+  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %113) #13
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %11) #13
-  %113 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull @_items_count) #13, !srcloc !11
-  %114 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE81ELS1_157ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i.i.i = icmp eq ptr %114, null
-  br i1 %.not.i.i.i, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit, label %115
+  %114 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull @_items_count) #13, !srcloc !11
+  %115 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE81ELS1_157ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i.i.i = icmp eq ptr %115, null
+  br i1 %.not.i.i.i, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit, label %116
 
-115:                                              ; preds = %110
+116:                                              ; preds = %111
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE81ELS1_157ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.5)
   br label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
 
-116:                                              ; preds = %.thread
-  %117 = trunc nuw i8 %.461 to i1
-  br i1 %117, label %118, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
-
-118:                                              ; preds = %116
-  %119 = load i64, ptr %8, align 8
-  %120 = tail call noundef ptr @_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE17get_bucket_lockedEP6Threadm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1, i64 noundef %119)
-  tail call void @_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16delete_in_bucketI25ResolvedMethodTableLookupEEvP6ThreadPNS2_6BucketERT_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1, ptr noundef %120, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %121 = load volatile ptr, ptr %120, align 8
+117:                                              ; preds = %.thread
+  %118 = load i64, ptr %8, align 8
+  %119 = tail call noundef ptr @_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE17get_bucket_lockedEP6Threadm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1, i64 noundef %118)
+  tail call void @_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16delete_in_bucketI25ResolvedMethodTableLookupEEvP6ThreadPNS2_6BucketERT_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1, ptr noundef %119, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  %120 = load volatile ptr, ptr %119, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  %122 = ptrtoint ptr %121 to i64
-  %123 = and i64 %122, -4
-  %124 = inttoptr i64 %123 to ptr
+  %121 = ptrtoint ptr %120 to i64
+  %122 = and i64 %121, -4
+  %123 = inttoptr i64 %122 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  store volatile ptr %124, ptr %120, align 8
+  store volatile ptr %123, ptr %119, align 8
   br label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
 
-_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit: ; preds = %115, %110, %.thread, %116, %118
-  %.1.ph90 = phi i1 [ true, %118 ], [ true, %116 ], [ true, %.thread ], [ false, %110 ], [ false, %115 ]
-  %.1.i62.ph87 = phi i64 [ %.1.i63, %118 ], [ %.1.i63, %116 ], [ %.1.i63, %.thread ], [ %55, %110 ], [ %55, %115 ]
-  %.156 = phi i8 [ 0, %118 ], [ 0, %116 ], [ %.461, %.thread ], [ %.2, %110 ], [ %.2, %115 ]
-  %.not44 = icmp eq ptr %5, null
-  br i1 %.not44, label %130, label %125
+_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit: ; preds = %116, %111, %.thread, %117
+  %.1.ph91 = phi i1 [ true, %117 ], [ true, %.thread ], [ false, %111 ], [ false, %116 ]
+  %.1.i63.ph88 = phi i64 [ %.1.i64, %117 ], [ %.1.i64, %.thread ], [ %55, %111 ], [ %55, %116 ]
+  %.157 = phi i8 [ 0, %117 ], [ %.462, %.thread ], [ %.2, %111 ], [ %.2, %116 ]
+  %.not45 = icmp eq ptr %5, null
+  br i1 %.not45, label %129, label %124
 
-125:                                              ; preds = %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %127 = load i64, ptr %126, align 8
-  %128 = icmp ugt i64 %.1.i62.ph87, %127
-  %129 = zext i1 %128 to i8
-  store i8 %129, ptr %5, align 1
-  br label %130
+124:                                              ; preds = %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %126 = load i64, ptr %125, align 8
+  %127 = icmp ugt i64 %.1.i63.ph88, %126
+  %128 = zext i1 %127 to i8
+  store i8 %128, ptr %5, align 1
+  br label %129
 
-130:                                              ; preds = %125, %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
-  %.not45 = icmp eq ptr %6, null
-  br i1 %.not45, label %133, label %131
+129:                                              ; preds = %124, %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
+  %.not46 = icmp eq ptr %6, null
+  br i1 %.not46, label %132, label %130
 
-131:                                              ; preds = %130
-  %132 = and i8 %.156, 1
-  store i8 %132, ptr %6, align 1
-  br label %133
+130:                                              ; preds = %129
+  %131 = and i8 %.157, 1
+  store i8 %131, ptr %6, align 1
+  br label %132
 
-133:                                              ; preds = %131, %130
-  ret i1 %.1.ph90
+132:                                              ; preds = %130, %129
+  ret i1 %.1.ph91
 }
 
 declare void @_ZN2os11naked_yieldEv() local_unnamed_addr #1

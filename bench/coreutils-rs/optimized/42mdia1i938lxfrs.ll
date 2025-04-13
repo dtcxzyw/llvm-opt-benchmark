@@ -31,23 +31,23 @@ define hidden void @"_ZN102_$LT$std..io..buffered..bufreader..BufReader$LT$I$GT$
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.promoted29 = load i64, ptr %16, align 8
+  %.promoted30 = load i64, ptr %16, align 8
   %.pre.pre = load i64, ptr %7, align 8, !alias.scope !4, !noalias !7
-  %.pre43.pre = load i64, ptr %8, align 8, !alias.scope !4, !noalias !7
+  %.pre44.pre = load i64, ptr %8, align 8, !alias.scope !4, !noalias !7
   br label %.outer
 
 .outer:                                           ; preds = %73, %3
-  %.pre43 = phi i64 [ 0, %73 ], [ %.pre43.pre, %3 ]
+  %.pre44 = phi i64 [ 0, %73 ], [ %.pre44.pre, %3 ]
   %.pre = phi i64 [ 0, %73 ], [ %.pre.pre, %3 ]
-  %.promoted34 = phi i64 [ %.promoted32, %73 ], [ %.promoted29, %3 ]
+  %.promoted35 = phi i64 [ %.promoted33, %73 ], [ %.promoted30, %3 ]
   %.0.ph = phi i64 [ %74, %73 ], [ 0, %3 ]
   br label %23
 
 23:                                               ; preds = %.outer, %81
-  %24 = phi i64 [ %.pre43, %.outer ], [ %52, %81 ]
+  %24 = phi i64 [ %.pre44, %.outer ], [ %52, %81 ]
   %25 = phi i64 [ %.pre, %.outer ], [ %51, %81 ]
-  %.promoted33 = phi i64 [ %.promoted34, %.outer ], [ %.promoted3049, %81 ]
-  %26 = phi i64 [ %.promoted34, %.outer ], [ %50, %81 ]
+  %.promoted34 = phi i64 [ %.promoted35, %.outer ], [ %.promoted3150, %81 ]
+  %26 = phi i64 [ %.promoted35, %.outer ], [ %50, %81 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
@@ -87,7 +87,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i: ; preds = %33, %28
   %36 = phi i64 [ %24, %28 ], [ %34, %33 ]
   %37 = phi i64 [ %25, %28 ], [ 0, %33 ]
-  %.promoted32 = phi i64 [ %.promoted33, %28 ], [ %35, %33 ]
+  %.promoted33 = phi i64 [ %.promoted34, %28 ], [ %35, %33 ]
   %38 = phi i64 [ %26, %28 ], [ %35, %33 ]
   %39 = sub nuw i64 %36, %37
   %40 = inttoptr i64 %39 to ptr
@@ -96,7 +96,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
 "_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread": ; preds = %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i
   %41 = phi i64 [ %24, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %36, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
   %42 = phi i64 [ %25, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %37, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
-  %.promoted31 = phi i64 [ %.promoted33, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %.promoted32, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
+  %.promoted32 = phi i64 [ %.promoted34, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %.promoted33, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
   %43 = phi i64 [ %26, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %38, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
   %44 = phi ptr [ %31, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %40, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
   store ptr %44, ptr %20, align 8, !alias.scope !13, !noalias !27
@@ -106,8 +106,8 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !4, !noalias !7
   %45 = load ptr, ptr %21, align 8, !invariant.load !10, !noalias !28, !nonnull !10
   call void %45(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull align 1 %.val.i.i.i, ptr noalias noundef nonnull align 1 @anon.a19eb33461b14e06b2666ae477aad312.0, i64 noundef 0), !noalias !4
-  %.pre44 = load i64, ptr %6, align 8, !range !32
-  %46 = trunc nuw i64 %.pre44 to i1
+  %.pre45 = load i64, ptr %6, align 8, !range !32
+  %46 = trunc nuw i64 %.pre45 to i1
   br i1 %46, label %49, label %.thread
 
 .thread:                                          ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit"
@@ -124,7 +124,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
 
 49:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread", %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit"
   %50 = phi i64 [ %43, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ %26, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
-  %.promoted3049 = phi i64 [ %.promoted31, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ %.promoted33, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
+  %.promoted3150 = phi i64 [ %.promoted32, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ %.promoted34, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
   %51 = phi i64 [ %42, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ 0, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
   %52 = phi i64 [ %41, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ 0, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
   %.val = load ptr, ptr %20, align 8, !nonnull !10, !noundef !10
@@ -239,23 +239,23 @@ define hidden void @"_ZN102_$LT$std..io..buffered..bufreader..BufReader$LT$I$GT$
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.promoted29 = load i64, ptr %16, align 8
+  %.promoted30 = load i64, ptr %16, align 8
   %.pre.pre = load i64, ptr %7, align 8, !alias.scope !45, !noalias !48
-  %.pre43.pre = load i64, ptr %8, align 8, !alias.scope !45, !noalias !48
+  %.pre44.pre = load i64, ptr %8, align 8, !alias.scope !45, !noalias !48
   br label %.outer
 
 .outer:                                           ; preds = %73, %3
-  %.pre43 = phi i64 [ 0, %73 ], [ %.pre43.pre, %3 ]
+  %.pre44 = phi i64 [ 0, %73 ], [ %.pre44.pre, %3 ]
   %.pre = phi i64 [ 0, %73 ], [ %.pre.pre, %3 ]
-  %.promoted34 = phi i64 [ %.promoted32, %73 ], [ %.promoted29, %3 ]
+  %.promoted35 = phi i64 [ %.promoted33, %73 ], [ %.promoted30, %3 ]
   %.0.ph = phi i64 [ %74, %73 ], [ 0, %3 ]
   br label %23
 
 23:                                               ; preds = %.outer, %81
-  %24 = phi i64 [ %.pre43, %.outer ], [ %52, %81 ]
+  %24 = phi i64 [ %.pre44, %.outer ], [ %52, %81 ]
   %25 = phi i64 [ %.pre, %.outer ], [ %51, %81 ]
-  %.promoted33 = phi i64 [ %.promoted34, %.outer ], [ %.promoted3049, %81 ]
-  %26 = phi i64 [ %.promoted34, %.outer ], [ %50, %81 ]
+  %.promoted34 = phi i64 [ %.promoted35, %.outer ], [ %.promoted3150, %81 ]
+  %26 = phi i64 [ %.promoted35, %.outer ], [ %50, %81 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
@@ -295,7 +295,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i: ; preds = %33, %28
   %36 = phi i64 [ %24, %28 ], [ %34, %33 ]
   %37 = phi i64 [ %25, %28 ], [ 0, %33 ]
-  %.promoted32 = phi i64 [ %.promoted33, %28 ], [ %35, %33 ]
+  %.promoted33 = phi i64 [ %.promoted34, %28 ], [ %35, %33 ]
   %38 = phi i64 [ %26, %28 ], [ %35, %33 ]
   %39 = sub nuw i64 %36, %37
   %40 = inttoptr i64 %39 to ptr
@@ -304,7 +304,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
 "_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread": ; preds = %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i
   %41 = phi i64 [ %24, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %36, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
   %42 = phi i64 [ %25, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %37, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
-  %.promoted31 = phi i64 [ %.promoted33, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %.promoted32, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
+  %.promoted32 = phi i64 [ %.promoted34, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %.promoted33, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
   %43 = phi i64 [ %26, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %38, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
   %44 = phi ptr [ %31, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %40, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
   store ptr %44, ptr %20, align 8, !alias.scope !51, !noalias !65
@@ -314,8 +314,8 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !45, !noalias !48
   %45 = load ptr, ptr %21, align 8, !invariant.load !10, !noalias !66, !nonnull !10
   call void %45(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull align 1 %.val.i.i.i, ptr noalias noundef nonnull align 1 @anon.a19eb33461b14e06b2666ae477aad312.0, i64 noundef 0), !noalias !45
-  %.pre44 = load i64, ptr %6, align 8, !range !32
-  %46 = trunc nuw i64 %.pre44 to i1
+  %.pre45 = load i64, ptr %6, align 8, !range !32
+  %46 = trunc nuw i64 %.pre45 to i1
   br i1 %46, label %49, label %.thread
 
 .thread:                                          ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit"
@@ -332,7 +332,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
 
 49:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread", %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit"
   %50 = phi i64 [ %43, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ %26, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
-  %.promoted3049 = phi i64 [ %.promoted31, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ %.promoted33, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
+  %.promoted3150 = phi i64 [ %.promoted32, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ %.promoted34, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
   %51 = phi i64 [ %42, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ 0, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
   %52 = phi i64 [ %41, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ 0, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
   %.val = load ptr, ptr %20, align 8, !nonnull !10, !noundef !10
@@ -447,23 +447,23 @@ define hidden void @"_ZN102_$LT$std..io..buffered..bufreader..BufReader$LT$I$GT$
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.promoted29 = load i64, ptr %16, align 8
+  %.promoted30 = load i64, ptr %16, align 8
   %.pre.pre = load i64, ptr %7, align 8, !alias.scope !80, !noalias !83
-  %.pre43.pre = load i64, ptr %8, align 8, !alias.scope !80, !noalias !83
+  %.pre44.pre = load i64, ptr %8, align 8, !alias.scope !80, !noalias !83
   br label %.outer
 
 .outer:                                           ; preds = %73, %3
-  %.pre43 = phi i64 [ 0, %73 ], [ %.pre43.pre, %3 ]
+  %.pre44 = phi i64 [ 0, %73 ], [ %.pre44.pre, %3 ]
   %.pre = phi i64 [ 0, %73 ], [ %.pre.pre, %3 ]
-  %.promoted34 = phi i64 [ %.promoted32, %73 ], [ %.promoted29, %3 ]
+  %.promoted35 = phi i64 [ %.promoted33, %73 ], [ %.promoted30, %3 ]
   %.0.ph = phi i64 [ %74, %73 ], [ 0, %3 ]
   br label %23
 
 23:                                               ; preds = %.outer, %81
-  %24 = phi i64 [ %.pre43, %.outer ], [ %52, %81 ]
+  %24 = phi i64 [ %.pre44, %.outer ], [ %52, %81 ]
   %25 = phi i64 [ %.pre, %.outer ], [ %51, %81 ]
-  %.promoted33 = phi i64 [ %.promoted34, %.outer ], [ %.promoted3049, %81 ]
-  %26 = phi i64 [ %.promoted34, %.outer ], [ %50, %81 ]
+  %.promoted34 = phi i64 [ %.promoted35, %.outer ], [ %.promoted3150, %81 ]
+  %26 = phi i64 [ %.promoted35, %.outer ], [ %50, %81 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
@@ -503,7 +503,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i: ; preds = %33, %28
   %36 = phi i64 [ %24, %28 ], [ %34, %33 ]
   %37 = phi i64 [ %25, %28 ], [ 0, %33 ]
-  %.promoted32 = phi i64 [ %.promoted33, %28 ], [ %35, %33 ]
+  %.promoted33 = phi i64 [ %.promoted34, %28 ], [ %35, %33 ]
   %38 = phi i64 [ %26, %28 ], [ %35, %33 ]
   %39 = sub nuw i64 %36, %37
   %40 = inttoptr i64 %39 to ptr
@@ -512,7 +512,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
 "_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread": ; preds = %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i
   %41 = phi i64 [ %24, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %36, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
   %42 = phi i64 [ %25, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %37, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
-  %.promoted31 = phi i64 [ %.promoted33, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %.promoted32, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
+  %.promoted32 = phi i64 [ %.promoted34, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %.promoted33, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
   %43 = phi i64 [ %26, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %38, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
   %44 = phi ptr [ %31, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.thread.i ], [ %40, %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.7122078714994044055.exit.i ]
   store ptr %44, ptr %20, align 8, !alias.scope !86, !noalias !100
@@ -522,8 +522,8 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !80, !noalias !83
   %45 = load ptr, ptr %21, align 8, !invariant.load !10, !noalias !101, !nonnull !10
   call void %45(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull align 1 %.val.i.i.i, ptr noalias noundef nonnull align 1 @anon.a19eb33461b14e06b2666ae477aad312.0, i64 noundef 0), !noalias !80
-  %.pre44 = load i64, ptr %6, align 8, !range !32
-  %46 = trunc nuw i64 %.pre44 to i1
+  %.pre45 = load i64, ptr %6, align 8, !range !32
+  %46 = trunc nuw i64 %.pre45 to i1
   br i1 %46, label %49, label %.thread
 
 .thread:                                          ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit"
@@ -540,7 +540,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17he1c35fa69d3ea4f2E.llvm.71
 
 49:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread", %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit"
   %50 = phi i64 [ %43, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ %26, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
-  %.promoted3049 = phi i64 [ %.promoted31, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ %.promoted33, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
+  %.promoted3150 = phi i64 [ %.promoted32, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ %.promoted34, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
   %51 = phi i64 [ %42, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ 0, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
   %52 = phi i64 [ %41, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit.thread" ], [ 0, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17hba7acd5bf9a61408E.exit" ]
   %.val = load ptr, ptr %20, align 8, !nonnull !10, !noundef !10

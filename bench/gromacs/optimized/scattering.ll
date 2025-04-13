@@ -1316,412 +1316,410 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15option
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 117
   %19 = load i8, ptr %18, align 1, !tbaa !71, !range !158, !noundef !159
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %39, label %21
+  br i1 %20, label %38, label %21
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 119
   %23 = load i8, ptr %22, align 1, !tbaa !73, !range !158, !noundef !159
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %29, label %25
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 118
+  %26 = load i8, ptr %25, align 2, !range !158
+  %27 = trunc nuw i8 %26 to i1
+  %or.cond = select i1 %24, i1 true, i1 %27
+  br i1 %or.cond, label %28, label %38
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 118
-  %27 = load i8, ptr %26, align 2, !tbaa !72, !range !158, !noundef !159
-  %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %29, label %39
-
-29:                                               ; preds = %25, %21
-  %30 = tail call ptr @__cxa_allocate_exception(i64 24) #24
+28:                                               ; preds = %21
+  %29 = tail call ptr @__cxa_allocate_exception(i64 24) #24
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.35)
-          to label %31 unwind label %.thread
+          to label %30 unwind label %.thread
 
-31:                                               ; preds = %29
+30:                                               ; preds = %28
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) %4)
-          to label %32 unwind label %.thread74
+          to label %31 unwind label %.thread77
 
-32:                                               ; preds = %31
+31:                                               ; preds = %30
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %3, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8, !tbaa !4
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %33, align 8, !tbaa !160
-  %.sroa.468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @.str.36, ptr %.sroa.468.0..sroa_idx, align 8, !tbaa !160
-  %.sroa.569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 203, ptr %.sroa.569.0..sroa_idx, align 8, !tbaa !84
-  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %30, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %34 unwind label %37
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %32, align 8, !tbaa !160
+  %.sroa.471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @.str.36, ptr %.sroa.471.0..sroa_idx, align 8, !tbaa !160
+  %.sroa.572.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i32 203, ptr %.sroa.572.0..sroa_idx, align 8, !tbaa !84
+  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %29, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %33 unwind label %36
 
-34:                                               ; preds = %32
-  invoke void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #26
-          to label %132 unwind label %37
+33:                                               ; preds = %31
+  invoke void @__cxa_throw(ptr %29, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #26
+          to label %131 unwind label %36
 
-.thread:                                          ; preds = %29
-  %35 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %28
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split
 
-.thread74:                                        ; preds = %31
-  %36 = landingpad { ptr, i32 }
+.thread77:                                        ; preds = %30
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   br label %.sink.split
 
-37:                                               ; preds = %32, %34
-  %.016 = phi i1 [ false, %34 ], [ true, %32 ]
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %31, %33
+  %.016 = phi i1 [ false, %33 ], [ true, %31 ]
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #24
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
-  br i1 %.016, label %.sink.split111, label %131
+  br i1 %.016, label %.sink.split114, label %130
 
-.sink.split:                                      ; preds = %.thread, %.thread74
-  %.pn.pn73.ph = phi { ptr, i32 } [ %36, %.thread74 ], [ %35, %.thread ]
+.sink.split:                                      ; preds = %.thread, %.thread77
+  %.pn.pn76.ph = phi { ptr, i32 } [ %35, %.thread77 ], [ %34, %.thread ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
-  br label %.sink.split111
+  br label %.sink.split114
 
-39:                                               ; preds = %25, %2
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %41 = load double, ptr %40, align 8, !tbaa !67
-  %42 = fcmp ole double %41, 0.000000e+00
-  %43 = fcmp ogt double %41, 1.000000e+00
-  %or.cond = or i1 %42, %43
-  br i1 %or.cond, label %44, label %54
+38:                                               ; preds = %21, %2
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %40 = load double, ptr %39, align 8, !tbaa !67
+  %41 = fcmp ole double %40, 0.000000e+00
+  %42 = fcmp ogt double %40, 1.000000e+00
+  %or.cond52 = or i1 %41, %42
+  br i1 %or.cond52, label %43, label %53
 
-44:                                               ; preds = %39
-  %45 = tail call ptr @__cxa_allocate_exception(i64 24) #24
+43:                                               ; preds = %38
+  %44 = tail call ptr @__cxa_allocate_exception(i64 24) #24
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #24
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.37)
-          to label %46 unwind label %.thread77
+          to label %45 unwind label %.thread80
 
-46:                                               ; preds = %44
+45:                                               ; preds = %43
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(56) %7)
-          to label %47 unwind label %.thread81
+          to label %46 unwind label %.thread84
 
-47:                                               ; preds = %46
+46:                                               ; preds = %45
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %6, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8, !tbaa !4
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %48, align 8, !tbaa !160
-  %.sroa.464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr @.str.36, ptr %.sroa.464.0..sroa_idx, align 8, !tbaa !160
-  %.sroa.565.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 207, ptr %.sroa.565.0..sroa_idx, align 8, !tbaa !84
-  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %45, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %49 unwind label %52
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %47, align 8, !tbaa !160
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr @.str.36, ptr %.sroa.467.0..sroa_idx, align 8, !tbaa !160
+  %.sroa.568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i32 207, ptr %.sroa.568.0..sroa_idx, align 8, !tbaa !84
+  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %44, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
+          to label %48 unwind label %51
 
-49:                                               ; preds = %47
-  invoke void @__cxa_throw(ptr %45, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #26
-          to label %132 unwind label %52
+48:                                               ; preds = %46
+  invoke void @__cxa_throw(ptr %44, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #26
+          to label %131 unwind label %51
 
-.thread77:                                        ; preds = %44
+.thread80:                                        ; preds = %43
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  br label %.sink.split110
+
+.thread84:                                        ; preds = %45
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split107
-
-.thread81:                                        ; preds = %46
-  %51 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #24
-  br label %.sink.split107
+  br label %.sink.split110
 
-52:                                               ; preds = %47, %49
-  %.013 = phi i1 [ false, %49 ], [ true, %47 ]
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %46, %48
+  %.013 = phi i1 [ false, %48 ], [ true, %46 ]
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #24
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #24
-  br i1 %.013, label %.sink.split111, label %131
+  br i1 %.013, label %.sink.split114, label %130
 
-.sink.split107:                                   ; preds = %.thread77, %.thread81
-  %.pn46.pn80.ph = phi { ptr, i32 } [ %51, %.thread81 ], [ %50, %.thread77 ]
+.sink.split110:                                   ; preds = %.thread80, %.thread84
+  %.pn46.pn83.ph = phi { ptr, i32 } [ %50, %.thread84 ], [ %49, %.thread80 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #24
-  br label %.sink.split111
+  br label %.sink.split114
 
-54:                                               ; preds = %39
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %56 = load double, ptr %55, align 8, !tbaa !16
-  %57 = fcmp olt double %56, 0.000000e+00
-  br i1 %57, label %58, label %68
+53:                                               ; preds = %38
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %55 = load double, ptr %54, align 8, !tbaa !16
+  %56 = fcmp olt double %55, 0.000000e+00
+  br i1 %56, label %57, label %67
 
-58:                                               ; preds = %54
-  %59 = tail call ptr @__cxa_allocate_exception(i64 24) #24
+57:                                               ; preds = %53
+  %58 = tail call ptr @__cxa_allocate_exception(i64 24) #24
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #24
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull @.str.38)
-          to label %60 unwind label %.thread84
+          to label %59 unwind label %.thread87
 
-60:                                               ; preds = %58
+59:                                               ; preds = %57
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(56) %10)
-          to label %61 unwind label %.thread88
+          to label %60 unwind label %.thread91
 
-61:                                               ; preds = %60
+60:                                               ; preds = %59
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %9, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %11, align 8, !tbaa !4
-  %62 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %62, align 8, !tbaa !160
-  %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr @.str.36, ptr %.sroa.460.0..sroa_idx, align 8, !tbaa !160
-  %.sroa.561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i32 212, ptr %.sroa.561.0..sroa_idx, align 8, !tbaa !84
-  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %59, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %63 unwind label %66
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %61, align 8, !tbaa !160
+  %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr @.str.36, ptr %.sroa.463.0..sroa_idx, align 8, !tbaa !160
+  %.sroa.564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i32 212, ptr %.sroa.564.0..sroa_idx, align 8, !tbaa !84
+  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %58, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %62 unwind label %65
 
-63:                                               ; preds = %61
-  invoke void @__cxa_throw(ptr %59, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #26
-          to label %132 unwind label %66
+62:                                               ; preds = %60
+  invoke void @__cxa_throw(ptr %58, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #26
+          to label %131 unwind label %65
 
-.thread84:                                        ; preds = %58
+.thread87:                                        ; preds = %57
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  br label %.sink.split111
+
+.thread91:                                        ; preds = %59
   %64 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split108
-
-.thread88:                                        ; preds = %60
-  %65 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #24
-  br label %.sink.split108
+  br label %.sink.split111
 
-66:                                               ; preds = %61, %63
-  %.010 = phi i1 [ false, %63 ], [ true, %61 ]
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %60, %62
+  %.010 = phi i1 [ false, %62 ], [ true, %60 ]
+  %66 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #24
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #24
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #24
-  br i1 %.010, label %.sink.split111, label %131
+  br i1 %.010, label %.sink.split114, label %130
 
-.sink.split108:                                   ; preds = %.thread84, %.thread88
-  %.pn43.pn87.ph = phi { ptr, i32 } [ %65, %.thread88 ], [ %64, %.thread84 ]
+.sink.split111:                                   ; preds = %.thread87, %.thread91
+  %.pn43.pn90.ph = phi { ptr, i32 } [ %64, %.thread91 ], [ %63, %.thread87 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #24
-  br label %.sink.split111
+  br label %.sink.split114
 
-68:                                               ; preds = %54
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %70 = load double, ptr %69, align 8, !tbaa !65
-  %71 = fcmp olt double %70, %56
-  br i1 %71, label %72, label %82
+67:                                               ; preds = %53
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %69 = load double, ptr %68, align 8, !tbaa !65
+  %70 = fcmp olt double %69, %55
+  br i1 %70, label %71, label %81
 
-72:                                               ; preds = %68
-  %73 = tail call ptr @__cxa_allocate_exception(i64 24) #24
+71:                                               ; preds = %67
+  %72 = tail call ptr @__cxa_allocate_exception(i64 24) #24
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13) #24
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull @.str.39)
-          to label %74 unwind label %.thread91
+          to label %73 unwind label %.thread94
 
-74:                                               ; preds = %72
+73:                                               ; preds = %71
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(56) %13)
-          to label %75 unwind label %.thread95
+          to label %74 unwind label %.thread98
 
-75:                                               ; preds = %74
+74:                                               ; preds = %73
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %12, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %14, align 8, !tbaa !4
-  %76 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %76, align 8, !tbaa !160
-  %.sroa.456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr @.str.36, ptr %.sroa.456.0..sroa_idx, align 8, !tbaa !160
-  %.sroa.557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i32 217, ptr %.sroa.557.0..sroa_idx, align 8, !tbaa !84
-  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %73, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %77 unwind label %80
+  %75 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %75, align 8, !tbaa !160
+  %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr @.str.36, ptr %.sroa.459.0..sroa_idx, align 8, !tbaa !160
+  %.sroa.560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store i32 217, ptr %.sroa.560.0..sroa_idx, align 8, !tbaa !84
+  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %72, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
+          to label %76 unwind label %79
 
-77:                                               ; preds = %75
-  invoke void @__cxa_throw(ptr %73, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #26
-          to label %132 unwind label %80
+76:                                               ; preds = %74
+  invoke void @__cxa_throw(ptr %72, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #26
+          to label %131 unwind label %79
 
-.thread91:                                        ; preds = %72
+.thread94:                                        ; preds = %71
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  br label %.sink.split112
+
+.thread98:                                        ; preds = %73
   %78 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split109
-
-.thread95:                                        ; preds = %74
-  %79 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #24
-  br label %.sink.split109
+  br label %.sink.split112
 
-80:                                               ; preds = %75, %77
-  %.07 = phi i1 [ false, %77 ], [ true, %75 ]
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %74, %76
+  %.07 = phi i1 [ false, %76 ], [ true, %74 ]
+  %80 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #24
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #24
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #24
-  br i1 %.07, label %.sink.split111, label %131
+  br i1 %.07, label %.sink.split114, label %130
 
-.sink.split109:                                   ; preds = %.thread91, %.thread95
-  %.pn40.pn94.ph = phi { ptr, i32 } [ %79, %.thread95 ], [ %78, %.thread91 ]
+.sink.split112:                                   ; preds = %.thread94, %.thread98
+  %.pn40.pn97.ph = phi { ptr, i32 } [ %78, %.thread98 ], [ %77, %.thread94 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #24
-  br label %.sink.split111
+  br label %.sink.split114
 
-82:                                               ; preds = %68
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %84 = load double, ptr %83, align 8, !tbaa !66
-  %85 = fcmp ugt double %84, 0.000000e+00
-  br i1 %85, label %.preheader, label %90
+81:                                               ; preds = %67
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %83 = load double, ptr %82, align 8, !tbaa !66
+  %84 = fcmp ugt double %83, 0.000000e+00
+  br i1 %84, label %.preheader, label %89
 
-.preheader:                                       ; preds = %82
-  %86 = fcmp olt double %56, %70
-  br i1 %86, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %81
+  %85 = fcmp olt double %55, %69
+  br i1 %85, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %.pre = load ptr, ptr %88, align 8, !tbaa !161
-  %.pre106 = load ptr, ptr %89, align 8, !tbaa !90
-  br label %100
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %.pre = load ptr, ptr %87, align 8, !tbaa !161
+  %.pre109 = load ptr, ptr %88, align 8, !tbaa !90
+  br label %99
 
-90:                                               ; preds = %82
-  %91 = tail call ptr @__cxa_allocate_exception(i64 24) #24
+89:                                               ; preds = %81
+  %90 = tail call ptr @__cxa_allocate_exception(i64 24) #24
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16) #24
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull @.str.40)
-          to label %92 unwind label %.thread98
+          to label %91 unwind label %.thread101
 
-92:                                               ; preds = %90
+91:                                               ; preds = %89
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(56) %16)
-          to label %93 unwind label %.thread102
+          to label %92 unwind label %.thread105
 
-93:                                               ; preds = %92
+92:                                               ; preds = %91
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %15, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #24
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %17, align 8, !tbaa !4
-  %94 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %94, align 8, !tbaa !160
+  %93 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx15analysismodules12_GLOBAL__N_110Scattering15optionsFinishedEPNS_26TrajectoryAnalysisSettingsE, ptr %93, align 8, !tbaa !160
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr @.str.36, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !160
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 222, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !84
-  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %91, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %95 unwind label %98
+  invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %90, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %94 unwind label %97
 
-95:                                               ; preds = %93
-  invoke void @__cxa_throw(ptr %91, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #26
-          to label %132 unwind label %98
+94:                                               ; preds = %92
+  invoke void @__cxa_throw(ptr %90, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #26
+          to label %131 unwind label %97
 
-.thread98:                                        ; preds = %90
+.thread101:                                       ; preds = %89
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  br label %.sink.split113
+
+.thread105:                                       ; preds = %91
   %96 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split110
-
-.thread102:                                       ; preds = %92
-  %97 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #24
-  br label %.sink.split110
+  br label %.sink.split113
 
-98:                                               ; preds = %93, %95
-  %.0 = phi i1 [ false, %95 ], [ true, %93 ]
-  %99 = landingpad { ptr, i32 }
+97:                                               ; preds = %92, %94
+  %.0 = phi i1 [ false, %94 ], [ true, %92 ]
+  %98 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #24
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #24
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16) #24
-  br i1 %.0, label %.sink.split111, label %131
+  br i1 %.0, label %.sink.split114, label %130
 
-.sink.split110:                                   ; preds = %.thread98, %.thread102
-  %.pn37.pn101.ph = phi { ptr, i32 } [ %97, %.thread102 ], [ %96, %.thread98 ]
+.sink.split113:                                   ; preds = %.thread101, %.thread105
+  %.pn37.pn104.ph = phi { ptr, i32 } [ %96, %.thread105 ], [ %95, %.thread101 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16) #24
-  br label %.sink.split111
+  br label %.sink.split114
 
-100:                                              ; preds = %.lr.ph, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
-  %101 = phi ptr [ %.pre106, %.lr.ph ], [ %125, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
-  %102 = phi ptr [ %.pre, %.lr.ph ], [ %126, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
-  %storemerge105 = phi double [ %56, %.lr.ph ], [ %128, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
-  %.not.i = icmp eq ptr %102, %101
-  br i1 %.not.i, label %105, label %103
+99:                                               ; preds = %.lr.ph, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
+  %100 = phi ptr [ %.pre109, %.lr.ph ], [ %124, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
+  %101 = phi ptr [ %.pre, %.lr.ph ], [ %125, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
+  %storemerge108 = phi double [ %55, %.lr.ph ], [ %127, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
+  %.not.i = icmp eq ptr %101, %100
+  br i1 %.not.i, label %104, label %102
 
-103:                                              ; preds = %100
-  store double %storemerge105, ptr %102, align 8, !tbaa !139
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store ptr %104, ptr %88, align 8, !tbaa !161
+102:                                              ; preds = %99
+  store double %storemerge108, ptr %101, align 8, !tbaa !139
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store ptr %103, ptr %87, align 8, !tbaa !161
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
-105:                                              ; preds = %100
-  %106 = load ptr, ptr %87, align 8, !tbaa !89
-  %107 = ptrtoint ptr %101 to i64
-  %108 = ptrtoint ptr %106 to i64
-  %109 = sub i64 %107, %108
-  %110 = icmp eq i64 %109, 9223372036854775800
-  br i1 %110, label %111, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
+104:                                              ; preds = %99
+  %105 = load ptr, ptr %86, align 8, !tbaa !89
+  %106 = ptrtoint ptr %100 to i64
+  %107 = ptrtoint ptr %105 to i64
+  %108 = sub i64 %106, %107
+  %109 = icmp eq i64 %108, 9223372036854775800
+  br i1 %109, label %110, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
 
-111:                                              ; preds = %105
+110:                                              ; preds = %104
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.31) #26
   unreachable
 
-_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i: ; preds = %105
-  %112 = ashr exact i64 %109, 3
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %112, i64 1)
-  %113 = add nsw i64 %.sroa.speculated.i.i.i, %112
-  %114 = icmp ult i64 %113, %112
-  %115 = tail call i64 @llvm.umin.i64(i64 %113, i64 1152921504606846975)
-  %116 = select i1 %114, i64 1152921504606846975, i64 %115
-  %.not.i.i.i = icmp ne i64 %116, 0
+_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i: ; preds = %104
+  %111 = ashr exact i64 %108, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %111, i64 1)
+  %112 = add nsw i64 %.sroa.speculated.i.i.i, %111
+  %113 = icmp ult i64 %112, %111
+  %114 = tail call i64 @llvm.umin.i64(i64 %112, i64 1152921504606846975)
+  %115 = select i1 %113, i64 1152921504606846975, i64 %114
+  %.not.i.i.i = icmp ne i64 %115, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
-  %117 = shl nuw nsw i64 %116, 3
-  %118 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %117) #23
-  %119 = getelementptr inbounds i8, ptr %118, i64 %109
-  store double %storemerge105, ptr %119, align 8, !tbaa !139
-  %120 = icmp sgt i64 %109, 0
-  br i1 %120, label %121, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
+  %116 = shl nuw nsw i64 %115, 3
+  %117 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %116) #23
+  %118 = getelementptr inbounds i8, ptr %117, i64 %108
+  store double %storemerge108, ptr %118, align 8, !tbaa !139
+  %119 = icmp sgt i64 %108, 0
+  br i1 %119, label %120, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
 
-121:                                              ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %118, ptr align 8 %106, i64 %109, i1 false)
+120:                                              ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %117, ptr align 8 %105, i64 %108, i1 false)
   br label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
 
-_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i: ; preds = %121, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %.not.i17.i.i = icmp eq ptr %106, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, label %123
+_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i: ; preds = %120, %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %.not.i17.i.i = icmp eq ptr %105, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, label %122
 
-123:                                              ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %109) #25
+122:                                              ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %105, i64 noundef %108) #25
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i
 
-_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %123, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
-  store ptr %118, ptr %87, align 8, !tbaa !89
-  store ptr %122, ptr %88, align 8, !tbaa !161
-  %124 = getelementptr inbounds nuw double, ptr %118, i64 %116
-  store ptr %124, ptr %89, align 8, !tbaa !90
+_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %122, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
+  store ptr %117, ptr %86, align 8, !tbaa !89
+  store ptr %121, ptr %87, align 8, !tbaa !161
+  %123 = getelementptr inbounds nuw double, ptr %117, i64 %115
+  store ptr %123, ptr %88, align 8, !tbaa !90
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
-_ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %103, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i
-  %125 = phi ptr [ %101, %103 ], [ %124, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ]
-  %126 = phi ptr [ %104, %103 ], [ %122, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ]
-  %127 = load double, ptr %83, align 8, !tbaa !66
-  %128 = fadd double %storemerge105, %127
-  %129 = load double, ptr %69, align 8, !tbaa !65
-  %130 = fcmp olt double %128, %129
-  br i1 %130, label %100, label %._crit_edge, !llvm.loop !162
+_ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %102, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i
+  %124 = phi ptr [ %100, %102 ], [ %123, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ]
+  %125 = phi ptr [ %103, %102 ], [ %121, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ]
+  %126 = load double, ptr %82, align 8, !tbaa !66
+  %127 = fadd double %storemerge108, %126
+  %128 = load double, ptr %68, align 8, !tbaa !65
+  %129 = fcmp olt double %127, %128
+  br i1 %129, label %99, label %._crit_edge, !llvm.loop !162
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit, %.preheader
   ret void
 
-.sink.split111:                                   ; preds = %98, %.sink.split110, %80, %.sink.split109, %66, %.sink.split108, %52, %.sink.split107, %37, %.sink.split
-  %.sink = phi ptr [ %30, %.sink.split ], [ %30, %37 ], [ %45, %.sink.split107 ], [ %45, %52 ], [ %59, %.sink.split108 ], [ %59, %66 ], [ %73, %.sink.split109 ], [ %73, %80 ], [ %91, %.sink.split110 ], [ %91, %98 ]
-  %.pn46.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn73.ph, %.sink.split ], [ %38, %37 ], [ %.pn46.pn80.ph, %.sink.split107 ], [ %53, %52 ], [ %.pn43.pn87.ph, %.sink.split108 ], [ %67, %66 ], [ %.pn40.pn94.ph, %.sink.split109 ], [ %81, %80 ], [ %.pn37.pn101.ph, %.sink.split110 ], [ %99, %98 ]
+.sink.split114:                                   ; preds = %97, %.sink.split113, %79, %.sink.split112, %65, %.sink.split111, %51, %.sink.split110, %36, %.sink.split
+  %.sink = phi ptr [ %29, %.sink.split ], [ %29, %36 ], [ %44, %.sink.split110 ], [ %44, %51 ], [ %58, %.sink.split111 ], [ %58, %65 ], [ %72, %.sink.split112 ], [ %72, %79 ], [ %90, %.sink.split113 ], [ %90, %97 ]
+  %.pn46.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn76.ph, %.sink.split ], [ %37, %36 ], [ %.pn46.pn83.ph, %.sink.split110 ], [ %52, %51 ], [ %.pn43.pn90.ph, %.sink.split111 ], [ %66, %65 ], [ %.pn40.pn97.ph, %.sink.split112 ], [ %80, %79 ], [ %.pn37.pn104.ph, %.sink.split113 ], [ %98, %97 ]
   call void @__cxa_free_exception(ptr %.sink) #24
-  br label %131
+  br label %130
 
-131:                                              ; preds = %.sink.split111, %98, %80, %66, %52, %37
-  %.pn46.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %67, %66 ], [ %81, %80 ], [ %99, %98 ], [ %38, %37 ], [ %.pn46.pn.pn.ph, %.sink.split111 ]
+130:                                              ; preds = %.sink.split114, %97, %79, %65, %51, %36
+  %.pn46.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %66, %65 ], [ %80, %79 ], [ %98, %97 ], [ %37, %36 ], [ %.pn46.pn.pn.ph, %.sink.split114 ]
   resume { ptr, i32 } %.pn46.pn.pn
 
-132:                                              ; preds = %95, %77, %63, %49, %34
+131:                                              ; preds = %94, %76, %62, %48, %33
   unreachable
 }
 

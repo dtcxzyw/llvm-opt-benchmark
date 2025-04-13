@@ -919,9 +919,9 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager15setConfigStringERKNSt7_
   %6 = tail call noundef zeroext i1 @_ZN2cv5utils7logging18LogTagConfigParser5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %7 = load ptr, ptr %4, align 8, !tbaa !100
   %8 = tail call noundef zeroext i1 @_ZNK2cv5utils7logging18LogTagConfigParser12hasMalformedEv(ptr noundef nonnull align 8 dereferenceable(168) %7)
-  %.not = xor i1 %2, true
-  %brmerge = or i1 %8, %.not
-  br i1 %brmerge, label %.loopexit, label %9
+  %.not = xor i1 %8, true
+  %or.cond = and i1 %2, %.not
+  br i1 %or.cond, label %9, label %.loopexit
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %4, align 8, !tbaa !100
@@ -937,8 +937,8 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager15setConfigStringERKNSt7_
   %19 = load ptr, ptr %18, align 8, !tbaa !104
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !104
-  %.not2629 = icmp eq ptr %19, %21
-  br i1 %.not2629, label %._crit_edge, label %.lr.ph
+  %.not2730 = icmp eq ptr %19, %21
+  br i1 %.not2730, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %22 = load ptr, ptr %4, align 8, !tbaa !100
@@ -946,46 +946,46 @@ define hidden void @_ZN2cv5utils7logging13LogTagManager15setConfigStringERKNSt7_
   %24 = load ptr, ptr %23, align 8, !tbaa !104
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !104
-  %.not2731 = icmp eq ptr %24, %26
-  br i1 %.not2731, label %._crit_edge35, label %.lr.ph34
+  %.not2832 = icmp eq ptr %24, %26
+  br i1 %.not2832, label %._crit_edge36, label %.lr.ph35
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
-  %.sroa.023.030 = phi ptr [ %29, %.lr.ph ], [ %19, %9 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.023.030, i64 32
+  %.sroa.024.031 = phi ptr [ %29, %.lr.ph ], [ %19, %9 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.024.031, i64 32
   %28 = load i32, ptr %27, align 8, !tbaa !102
-  tail call void @_ZN2cv5utils7logging13LogTagManager18setLevelByNamePartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8LogLevelENS2_13MatchingScopeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.023.030, i32 noundef %28, i32 noundef 2)
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.023.030, i64 40
-  %.not26 = icmp eq ptr %29, %21
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  tail call void @_ZN2cv5utils7logging13LogTagManager18setLevelByNamePartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8LogLevelENS2_13MatchingScopeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.024.031, i32 noundef %28, i32 noundef 2)
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.024.031, i64 40
+  %.not27 = icmp eq ptr %29, %21
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
-._crit_edge35:                                    ; preds = %.lr.ph34, %._crit_edge
+._crit_edge36:                                    ; preds = %.lr.ph35, %._crit_edge
   %30 = load ptr, ptr %4, align 8, !tbaa !100
   %31 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv5utils7logging18LogTagConfigParser18getFullNameConfigsEv(ptr noundef nonnull align 8 dereferenceable(168) %30)
   %32 = load ptr, ptr %31, align 8, !tbaa !104
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !104
-  %.not2836 = icmp eq ptr %32, %34
-  br i1 %.not2836, label %.loopexit, label %.lr.ph39
+  %.not2937 = icmp eq ptr %32, %34
+  br i1 %.not2937, label %.loopexit, label %.lr.ph40
 
-.lr.ph34:                                         ; preds = %._crit_edge, %.lr.ph34
-  %.sroa.019.032 = phi ptr [ %37, %.lr.ph34 ], [ %24, %._crit_edge ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.019.032, i64 32
+.lr.ph35:                                         ; preds = %._crit_edge, %.lr.ph35
+  %.sroa.020.033 = phi ptr [ %37, %.lr.ph35 ], [ %24, %._crit_edge ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.020.033, i64 32
   %36 = load i32, ptr %35, align 8, !tbaa !102
-  tail call void @_ZN2cv5utils7logging13LogTagManager18setLevelByNamePartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8LogLevelENS2_13MatchingScopeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.019.032, i32 noundef %36, i32 noundef 3)
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.019.032, i64 40
-  %.not27 = icmp eq ptr %37, %26
-  br i1 %.not27, label %._crit_edge35, label %.lr.ph34
+  tail call void @_ZN2cv5utils7logging13LogTagManager18setLevelByNamePartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8LogLevelENS2_13MatchingScopeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.020.033, i32 noundef %36, i32 noundef 3)
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.020.033, i64 40
+  %.not28 = icmp eq ptr %37, %26
+  br i1 %.not28, label %._crit_edge36, label %.lr.ph35
 
-.lr.ph39:                                         ; preds = %._crit_edge35, %.lr.ph39
-  %.sroa.015.037 = phi ptr [ %40, %.lr.ph39 ], [ %32, %._crit_edge35 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.015.037, i64 32
+.lr.ph40:                                         ; preds = %._crit_edge36, %.lr.ph40
+  %.sroa.016.038 = phi ptr [ %40, %.lr.ph40 ], [ %32, %._crit_edge36 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.016.038, i64 32
   %39 = load i32, ptr %38, align 8, !tbaa !102
-  tail call void @_ZN2cv5utils7logging13LogTagManager18setLevelByFullNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015.037, i32 noundef %39)
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.015.037, i64 40
-  %.not28 = icmp eq ptr %40, %34
-  br i1 %.not28, label %.loopexit, label %.lr.ph39
+  tail call void @_ZN2cv5utils7logging13LogTagManager18setLevelByFullNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.016.038, i32 noundef %39)
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.016.038, i64 40
+  %.not29 = icmp eq ptr %40, %34
+  br i1 %.not29, label %.loopexit, label %.lr.ph40
 
-.loopexit:                                        ; preds = %.lr.ph39, %._crit_edge35, %3
+.loopexit:                                        ; preds = %.lr.ph40, %._crit_edge36, %3
   ret void
 }
 

@@ -75,11 +75,11 @@ define noundef zeroext i1 @_Z10CreatePathPKwbb(ptr noundef %0, i1 noundef zeroex
   br label %12
 
 12:                                               ; preds = %.preheader, %28
-  %.02440 = phi ptr [ %0, %.preheader ], [ %29, %28 ]
-  %.02539 = phi i1 [ true, %.preheader ], [ %.2.ph, %28 ]
+  %.02542 = phi ptr [ %0, %.preheader ], [ %29, %28 ]
+  %.02641 = phi i1 [ true, %.preheader ], [ %.2.ph, %28 ]
   %13 = phi i32 [ %9, %.preheader ], [ %.pr, %28 ]
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %6) #14
-  %14 = ptrtoint ptr %.02440 to i64
+  %14 = ptrtoint ptr %.02542 to i64
   %15 = sub i64 %14, %11
   %16 = ashr exact i64 %15, 2
   %17 = icmp ult i64 %16, 2048
@@ -87,9 +87,9 @@ define noundef zeroext i1 @_Z10CreatePathPKwbb(ptr noundef %0, i1 noundef zeroex
 
 18:                                               ; preds = %12
   %19 = call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %13)
-  %20 = icmp ugt ptr %.02440, %0
-  %or.cond = and i1 %20, %19
-  br i1 %or.cond, label %21, label %28
+  %20 = icmp ugt ptr %.02542, %0
+  %or.cond31 = and i1 %20, %19
+  br i1 %or.cond31, label %21, label %28
 
 21:                                               ; preds = %18
   %22 = call ptr @wcsncpy(ptr noundef nonnull %6, ptr noundef nonnull %0, i64 noundef %16) #14
@@ -107,24 +107,24 @@ define noundef zeroext i1 @_Z10CreatePathPKwbb(ptr noundef %0, i1 noundef zeroex
   br label %.loopexit
 
 28:                                               ; preds = %21, %18
-  %.2.ph = phi i1 [ %.02539, %18 ], [ %26, %21 ]
+  %.2.ph = phi i1 [ %.02641, %18 ], [ %26, %21 ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6) #14
-  %29 = getelementptr inbounds nuw i8, ptr %.02440, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.02542, i64 4
   %.pr = load i32, ptr %29, align 4, !tbaa !7
-  %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %.loopexit, label %12, !llvm.loop !9
+  %.not30 = icmp eq i32 %.pr, 0
+  br i1 %.not30, label %.loopexit, label %12, !llvm.loop !9
 
 .loopexit:                                        ; preds = %28, %27
-  %.02538 = phi i1 [ %.02539, %27 ], [ %.2.ph, %28 ]
+  %.02640 = phi i1 [ %.02641, %27 ], [ %.2.ph, %28 ]
   br i1 %1, label %37, label %30
 
 30:                                               ; preds = %.loopexit
   %31 = call noundef ptr @_Z15PointToLastCharPKw(ptr noundef nonnull %0)
   %32 = load i32, ptr %31, align 4, !tbaa !7
   %33 = call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %32)
-  br i1 %33, label %37, label %_Z7MakeDirPKwbj.exit31
+  br i1 %33, label %37, label %_Z7MakeDirPKwbj.exit33
 
-_Z7MakeDirPKwbj.exit31:                           ; preds = %30
+_Z7MakeDirPKwbj.exit33:                           ; preds = %30
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #14
   %34 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 2048)
   %35 = call i32 @mkdir(ptr noundef nonnull %4, i32 noundef 511) #14
@@ -132,9 +132,9 @@ _Z7MakeDirPKwbj.exit31:                           ; preds = %30
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #14
   br label %37
 
-37:                                               ; preds = %.loopexit, %30, %_Z7MakeDirPKwbj.exit31, %3, %8
-  %.026 = phi i1 [ false, %8 ], [ false, %3 ], [ %.02538, %.loopexit ], [ %.02538, %30 ], [ %36, %_Z7MakeDirPKwbj.exit31 ]
-  ret i1 %.026
+37:                                               ; preds = %.loopexit, %30, %_Z7MakeDirPKwbj.exit33, %3, %8
+  %.027 = phi i1 [ false, %8 ], [ false, %3 ], [ %.02640, %.loopexit ], [ %.02640, %30 ], [ %36, %_Z7MakeDirPKwbj.exit33 ]
+  ret i1 %.027
 }
 
 declare noundef zeroext i1 @_Z9IsPathDivi(i32 noundef) local_unnamed_addr #2
@@ -833,7 +833,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %5) #14
   %7 = tail call i64 @wcslen(ptr noundef %0) #16
   %8 = icmp ugt i64 %7, 2047
-  br i1 %8, label %60, label %9
+  br i1 %8, label %59, label %9
 
 9:                                                ; preds = %3
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %5, ptr noundef %0, i64 noundef 2048)
@@ -843,25 +843,25 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
 
 11:                                               ; preds = %9
   %12 = call i32 @wcsncmp(ptr noundef nonnull %5, ptr noundef %1, i64 noundef %10) #16
-  %.not44 = icmp eq i32 %12, 0
-  %spec.store.select = select i1 %.not44, i64 %10, i64 0
+  %.not46 = icmp eq i32 %12, 0
+  %spec.store.select = select i1 %.not46, i64 %10, i64 0
   br label %13
 
 13:                                               ; preds = %11, %9
-  %.034 = phi i64 [ %spec.store.select, %11 ], [ 0, %9 ]
+  %.036 = phi i64 [ %spec.store.select, %11 ], [ 0, %9 ]
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i32, ptr %5, align 16, !tbaa !7
-  %.not4555 = icmp ne i32 %15, 0
+  %.not4758 = icmp ne i32 %15, 0
   %16 = load i64, ptr %14, align 8
   %17 = icmp ne i64 %16, 0
-  %or.cond5456 = select i1 %.not4555, i1 %17, i1 false
-  br i1 %or.cond5456, label %.lr.ph, label %.critedge
+  %or.cond5759 = select i1 %.not4758, i1 %17, i1 false
+  br i1 %or.cond5759, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %13, %24
   %18 = phi i32 [ %30, %24 ], [ %15, %13 ]
   %19 = phi i64 [ %28, %24 ], [ 0, %13 ]
-  %.03358 = phi i32 [ %27, %24 ], [ 0, %13 ]
-  %.13557 = phi i64 [ %.2, %24 ], [ %.034, %13 ]
+  %.03561 = phi i32 [ %27, %24 ], [ 0, %13 ]
+  %.13760 = phi i64 [ %.2, %24 ], [ %.036, %13 ]
   %20 = load ptr, ptr %2, align 8, !tbaa !25
   %21 = getelementptr inbounds nuw i32, ptr %20, i64 %19
   %22 = load i32, ptr %21, align 4, !tbaa !7
@@ -869,26 +869,26 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   br i1 %23, label %24, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %24, %13
-  %.135.lcssa = phi i64 [ %.034, %13 ], [ %.2, %24 ], [ %.13557, %.lr.ph ]
-  %.not46 = icmp eq i64 %.135.lcssa, 0
-  br i1 %.not46, label %.loopexit, label %33
+  %.137.lcssa = phi i64 [ %.036, %13 ], [ %.2, %24 ], [ %.13760, %.lr.ph ]
+  %.not48 = icmp eq i64 %.137.lcssa, 0
+  br i1 %.not48, label %.loopexit, label %33
 
 24:                                               ; preds = %.lr.ph
   %25 = call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %18)
-  %26 = call i64 @llvm.umax.i64(i64 %.13557, i64 %19)
-  %.2 = select i1 %25, i64 %26, i64 %.13557
-  %27 = add i32 %.03358, 1
+  %26 = call i64 @llvm.umax.i64(i64 %.13760, i64 %19)
+  %.2 = select i1 %25, i64 %26, i64 %.13760
+  %27 = add i32 %.03561, 1
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw [2048 x i32], ptr %5, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !7
-  %.not45 = icmp ne i32 %30, 0
+  %.not47 = icmp ne i32 %30, 0
   %31 = load i64, ptr %14, align 8
   %32 = icmp ugt i64 %31, %28
-  %or.cond54 = select i1 %.not45, i1 %32, i1 false
-  br i1 %or.cond54, label %.lr.ph, label %.critedge, !llvm.loop !28
+  %or.cond57 = select i1 %.not47, i1 %32, i1 false
+  br i1 %or.cond57, label %.lr.ph, label %.critedge, !llvm.loop !28
 
 33:                                               ; preds = %.critedge
-  %34 = getelementptr inbounds nuw i32, ptr %5, i64 %.135.lcssa
+  %34 = getelementptr inbounds nuw i32, ptr %5, i64 %.137.lcssa
   br label %35
 
 35:                                               ; preds = %35, %33
@@ -899,67 +899,65 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   br i1 %37, label %35, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %35, %.critedge
-  %.032 = phi ptr [ %5, %.critedge ], [ %.1, %35 ]
+  %.034 = phi ptr [ %5, %.critedge ], [ %.1, %35 ]
   %39 = call i64 @wcslen(ptr noundef nonnull %5) #16
   %40 = getelementptr inbounds nuw i32, ptr %5, i64 %39
-  %.061 = getelementptr inbounds i8, ptr %40, i64 -4
-  %.not47.not62 = icmp ugt ptr %.061, %.032
-  br i1 %.not47.not62, label %.lr.ph64, label %.critedge51
+  %.064 = getelementptr inbounds i8, ptr %40, i64 -4
+  %.not49.not65 = icmp ugt ptr %.064, %.034
+  br i1 %.not49.not65, label %.lr.ph67, label %.critedge54
 
-.lr.ph64:                                         ; preds = %.loopexit
+.lr.ph67:                                         ; preds = %.loopexit
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8208
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8205
   br label %43
 
-43:                                               ; preds = %.lr.ph64, %56
-  %.063 = phi ptr [ %.061, %.lr.ph64 ], [ %.0, %56 ]
-  %44 = load i32, ptr %.063, align 4, !tbaa !7
+43:                                               ; preds = %.lr.ph67, %55
+  %.066 = phi ptr [ %.064, %.lr.ph67 ], [ %.0, %55 ]
+  %44 = load i32, ptr %.066, align 4, !tbaa !7
   %45 = call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %44)
-  br i1 %45, label %46, label %56
+  br i1 %45, label %46, label %55
 
 46:                                               ; preds = %43
-  store i32 0, ptr %.063, align 4, !tbaa !7
+  store i32 0, ptr %.066, align 4, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 8240, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   %47 = call noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext true)
-  br i1 %47, label %48, label %.critedge49
+  %48 = load i8, ptr %42, align 1, !range !30
+  %49 = trunc nuw i8 %48 to i1
+  %or.cond = select i1 %47, i1 %49, i1 false
+  br i1 %or.cond, label %50, label %.critedge52
 
-48:                                               ; preds = %46
-  %49 = load i8, ptr %42, align 1, !tbaa !30, !range !33, !noundef !34
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %.critedge49
-
-51:                                               ; preds = %48
+50:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #14
-  %52 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef 2048)
-  %53 = call i32 @remove(ptr noundef nonnull %4) #14
-  %54 = icmp eq i32 %53, 0
+  %51 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef 2048)
+  %52 = call i32 @remove(ptr noundef nonnull %4) #14
+  %53 = icmp eq i32 %52, 0
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #14
-  br i1 %54, label %.critedge49, label %55
+  br i1 %53, label %.critedge52, label %54
 
-.critedge49:                                      ; preds = %51, %48, %46
+.critedge52:                                      ; preds = %50, %46
   call void @llvm.lifetime.end.p0(i64 8240, ptr nonnull %6) #14
-  br label %56
+  br label %55
 
-55:                                               ; preds = %51
+54:                                               ; preds = %50
   call void @llvm.lifetime.end.p0(i64 8240, ptr nonnull %6) #14
-  br label %60
+  br label %59
 
-56:                                               ; preds = %.critedge49, %43
-  %.0 = getelementptr inbounds i8, ptr %.063, i64 -4
-  %.not47.not = icmp ugt ptr %.0, %.032
-  br i1 %.not47.not, label %43, label %.critedge51, !llvm.loop !35
+55:                                               ; preds = %.critedge52, %43
+  %.0 = getelementptr inbounds i8, ptr %.066, i64 -4
+  %.not49.not = icmp ugt ptr %.0, %.034
+  br i1 %.not49.not, label %43, label %.critedge54, !llvm.loop !31
 
-.critedge51:                                      ; preds = %56, %.loopexit
-  %57 = load i64, ptr %14, align 8, !tbaa !36
-  %58 = call noundef i64 @wcslen(ptr noundef %0) #16
-  %59 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE10_M_replaceEmmPKwm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %57, ptr noundef %0, i64 noundef %58)
-  br label %60
+.critedge54:                                      ; preds = %55, %.loopexit
+  %56 = load i64, ptr %14, align 8, !tbaa !32
+  %57 = call noundef i64 @wcslen(ptr noundef %0) #16
+  %58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE10_M_replaceEmmPKwm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef %56, ptr noundef %0, i64 noundef %57)
+  br label %59
 
-60:                                               ; preds = %55, %.critedge51, %3
-  %.038 = phi i1 [ false, %3 ], [ false, %55 ], [ true, %.critedge51 ]
+59:                                               ; preds = %54, %.critedge54, %3
+  %.040 = phi i1 [ false, %3 ], [ false, %54 ], [ true, %.critedge54 ]
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #14
-  ret i1 %.038
+  ret i1 %.040
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -1038,10 +1036,6 @@ attributes #16 = { nounwind willreturn memory(read) }
 !27 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderE", !19, i64 0}
 !28 = distinct !{!28, !10}
 !29 = distinct !{!29, !10}
-!30 = !{!31, !32, i64 8205}
-!31 = !{!"_ZTS8FindData", !5, i64 0, !14, i64 8192, !4, i64 8200, !32, i64 8204, !32, i64 8205, !13, i64 8208, !13, i64 8216, !13, i64 8224, !4, i64 8232, !32, i64 8236}
-!32 = !{!"bool", !5, i64 0}
-!33 = !{i8 0, i8 2}
-!34 = !{}
-!35 = distinct !{!35, !10}
-!36 = !{!26, !14, i64 8}
+!30 = !{i8 0, i8 2}
+!31 = distinct !{!31, !10}
+!32 = !{!26, !14, i64 8}

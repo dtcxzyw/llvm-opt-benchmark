@@ -259,8 +259,8 @@ define void @lv_fragment_manager_remove(ptr noundef %0, ptr noundef readonly cap
   br label %.preheader
 
 3:                                                ; preds = %2
-  %.not38 = icmp eq ptr %1, null
-  br i1 %.not38, label %.preheader48, label %4
+  %.not39 = icmp eq ptr %1, null
+  br i1 %.not39, label %.preheader48, label %4
 
 .preheader48:                                     ; preds = %3, %.preheader48
   br label %.preheader48
@@ -268,8 +268,8 @@ define void @lv_fragment_manager_remove(ptr noundef %0, ptr noundef readonly cap
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !25
-  %.not39 = icmp eq ptr %6, null
-  br i1 %.not39, label %.preheader49, label %7
+  %.not40 = icmp eq ptr %6, null
+  br i1 %.not40, label %.preheader49, label %7
 
 .preheader49:                                     ; preds = %4, %.preheader49
   br label %.preheader49
@@ -293,38 +293,38 @@ define void @lv_fragment_manager_remove(ptr noundef %0, ptr noundef readonly cap
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = tail call ptr @lv_ll_get_tail(ptr noundef nonnull %16) #3
   %18 = tail call ptr @lv_ll_get_tail(ptr noundef nonnull %16) #3
-  %.not4052 = icmp eq ptr %18, null
-  br i1 %.not4052, label %.loopexit, label %.lr.ph
+  %.not4152 = icmp eq ptr %18, null
+  br i1 %.not4152, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %26
-  %.03153 = phi ptr [ %27, %26 ], [ %18, %15 ]
-  %19 = load ptr, ptr %.03153, align 8, !tbaa !31
+  %.03253 = phi ptr [ %27, %26 ], [ %18, %15 ]
+  %19 = load ptr, ptr %.03253, align 8, !tbaa !31
   %20 = icmp eq ptr %19, %6
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %.lr.ph
-  %22 = icmp ne ptr %17, %.03153
-  %23 = tail call ptr @lv_ll_get_prev(ptr noundef nonnull %16, ptr noundef nonnull %.03153) #3
-  %.not41 = icmp eq ptr %23, null
-  br i1 %.not41, label %28, label %24
+  %22 = icmp eq ptr %17, %.03253
+  %23 = tail call ptr @lv_ll_get_prev(ptr noundef nonnull %16, ptr noundef nonnull %.03253) #3
+  %.not42 = icmp eq ptr %23, null
+  br i1 %.not42, label %28, label %24
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %23, align 8, !tbaa !31
   br label %28
 
 26:                                               ; preds = %.lr.ph
-  %27 = tail call ptr @lv_ll_get_prev(ptr noundef nonnull %16, ptr noundef nonnull %.03153) #3
-  %.not40 = icmp eq ptr %27, null
-  br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !41
+  %27 = tail call ptr @lv_ll_get_prev(ptr noundef nonnull %16, ptr noundef nonnull %.03253) #3
+  %.not41 = icmp eq ptr %27, null
+  br i1 %.not41, label %.loopexit, label %.lr.ph, !llvm.loop !41
 
 28:                                               ; preds = %24, %21
   %.1.ph = phi ptr [ null, %21 ], [ %25, %24 ]
-  tail call void @lv_ll_remove(ptr noundef nonnull %16, ptr noundef nonnull %.03153) #3
-  tail call void @lv_free(ptr noundef nonnull %.03153) #3
+  tail call void @lv_ll_remove(ptr noundef nonnull %16, ptr noundef nonnull %.03253) #3
+  tail call void @lv_free(ptr noundef nonnull %.03253) #3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %15, %28, %11
-  %.032 = phi i1 [ true, %11 ], [ %22, %28 ], [ true, %15 ], [ true, %26 ]
+  %.033 = phi i1 [ false, %11 ], [ %22, %28 ], [ false, %15 ], [ false, %26 ]
   %.0 = phi ptr [ null, %11 ], [ %.1.ph, %28 ], [ null, %15 ], [ null, %26 ]
   %29 = getelementptr i8, ptr %6, i64 24
   %.val = load ptr, ptr %29, align 8, !tbaa !12
@@ -348,35 +348,35 @@ item_delete_fragment.exit:                        ; preds = %.loopexit, %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @lv_ll_remove(ptr noundef nonnull %36, ptr noundef nonnull %6) #3
   tail call void @lv_free(ptr noundef nonnull %6) #3
-  %.not42 = icmp eq ptr %.0, null
-  %brmerge = select i1 %.not42, i1 true, i1 %.032
-  br i1 %brmerge, label %47, label %37
+  %37 = icmp ne ptr %.0, null
+  %or.cond = select i1 %37, i1 %.033, i1 false
+  br i1 %or.cond, label %38, label %48
 
-37:                                               ; preds = %item_delete_fragment.exit
-  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !12
-  %.not.i43 = icmp eq ptr %39, null
-  br i1 %.not.i43, label %.preheader.i, label %40
+38:                                               ; preds = %item_delete_fragment.exit
+  %39 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  %40 = load ptr, ptr %39, align 8, !tbaa !12
+  %.not.i43 = icmp eq ptr %40, null
+  br i1 %.not.i43, label %.preheader.i, label %41
 
-.preheader.i:                                     ; preds = %37, %.preheader.i
+.preheader.i:                                     ; preds = %38, %.preheader.i
   br label %.preheader.i
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !33
-  %.not5.i = icmp eq ptr %42, null
-  br i1 %.not5.i, label %item_create_obj.exit, label %43
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !33
+  %.not5.i = icmp eq ptr %43, null
+  br i1 %.not5.i, label %item_create_obj.exit, label %44
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %42, align 8, !tbaa !34
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %43, align 8, !tbaa !34
   br label %item_create_obj.exit
 
-item_create_obj.exit:                             ; preds = %40, %43
-  %45 = phi ptr [ %44, %43 ], [ null, %40 ]
-  %46 = tail call ptr @lv_fragment_create_obj(ptr noundef nonnull %39, ptr noundef %45) #3
-  br label %47
+item_create_obj.exit:                             ; preds = %41, %44
+  %46 = phi ptr [ %45, %44 ], [ null, %41 ]
+  %47 = tail call ptr @lv_fragment_create_obj(ptr noundef nonnull %40, ptr noundef %46) #3
+  br label %48
 
-47:                                               ; preds = %item_delete_fragment.exit, %item_create_obj.exit
+48:                                               ; preds = %item_create_obj.exit, %item_delete_fragment.exit
   ret void
 }
 

@@ -111,8 +111,8 @@ list_length.exit:                                 ; preds = %8, %13
   %17 = sext i32 %16 to i64
   %18 = tail call i32 @GetUserId() #6
   %19 = tail call i32 @object_aclcheck(i32 noundef 1255, i32 noundef %0, i32 noundef %18, i64 noundef 128) #6
-  %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %22, label %20
+  %.not54 = icmp eq i32 %19, 0
+  br i1 %.not54, label %22, label %20
 
 20:                                               ; preds = %list_length.exit
   %21 = tail call ptr @get_func_name(i32 noundef %0) #6
@@ -121,8 +121,8 @@ list_length.exit:                                 ; preds = %8, %13
 
 22:                                               ; preds = %list_length.exit, %20
   %23 = load ptr, ptr @object_access_hook, align 8
-  %.not50 = icmp eq ptr %23, null
-  br i1 %.not50, label %25, label %24
+  %.not55 = icmp eq ptr %23, null
+  br i1 %.not55, label %25, label %24
 
 24:                                               ; preds = %22
   tail call void @RunFunctionExecuteHook(i32 noundef %0) #6
@@ -130,16 +130,16 @@ list_length.exit:                                 ; preds = %8, %13
 
 25:                                               ; preds = %24, %22
   %26 = load ptr, ptr %11, align 8
-  %.not.i56 = icmp eq ptr %26, null
-  br i1 %.not.i56, label %list_length.exit57.thread, label %list_length.exit57
+  %.not.i57 = icmp eq ptr %26, null
+  br i1 %.not.i57, label %list_length.exit58.thread, label %list_length.exit58
 
-list_length.exit57:                               ; preds = %25
+list_length.exit58:                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 100
-  br i1 %29, label %30, label %list_length.exit57.thread
+  br i1 %29, label %30, label %list_length.exit58.thread
 
-30:                                               ; preds = %list_length.exit57
+30:                                               ; preds = %list_length.exit58
   %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %31)
   %32 = tail call i32 @errcode(i32 noundef 50856197) #6
@@ -147,7 +147,7 @@ list_length.exit57:                               ; preds = %25
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 721, ptr noundef nonnull @__func__.init_sexpr) #6
   unreachable
 
-list_length.exit57.thread:                        ; preds = %25, %list_length.exit57
+list_length.exit58.thread:                        ; preds = %25, %list_length.exit58
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
   tail call void @fmgr_info_cxt(i32 noundef %0, ptr noundef nonnull %34, ptr noundef %5) #6
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -179,17 +179,17 @@ list_length.exit57.thread:                        ; preds = %25, %list_length.ex
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 47
   %54 = load i8, ptr %53, align 1, !range !4, !noundef !5
   %55 = trunc nuw i8 %54 to i1
-  %.not52 = xor i1 %55, true
-  %brmerge = or i1 %6, %.not52
-  br i1 %brmerge, label %66, label %56
+  %.not = xor i1 %55, true
+  %or.cond = or i1 %6, %.not
+  br i1 %or.cond, label %66, label %56
 
-56:                                               ; preds = %list_length.exit57.thread
+56:                                               ; preds = %list_length.exit58.thread
   %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %57)
   %58 = tail call i32 @errcode(i32 noundef 1088) #6
   %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #6
-  %.not51 = icmp eq ptr %4, null
-  br i1 %.not51, label %65, label %60
+  %.not56 = icmp eq ptr %4, null
+  br i1 %.not56, label %65, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -202,9 +202,9 @@ list_length.exit57.thread:                        ; preds = %25, %list_length.ex
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 740, ptr noundef nonnull @__func__.init_sexpr) #6
   unreachable
 
-66:                                               ; preds = %list_length.exit57.thread
-  %brmerge55.not = and i1 %7, %55
-  br i1 %brmerge55.not, label %67, label %90
+66:                                               ; preds = %list_length.exit58.thread
+  %or.cond3 = and i1 %7, %55
+  br i1 %or.cond3, label %67, label %90
 
 67:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
@@ -214,8 +214,8 @@ list_length.exit57.thread:                        ; preds = %25, %list_length.ex
   %70 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %71 = add i32 %69, -1
-  %or.cond = icmp ult i32 %71, 2
-  br i1 %or.cond, label %72, label %77
+  %or.cond5 = icmp ult i32 %71, 2
+  br i1 %or.cond5, label %72, label %77
 
 72:                                               ; preds = %67
   %73 = load ptr, ptr %10, align 8
@@ -327,8 +327,8 @@ list_length.exit:                                 ; preds = %5, %23
   %30 = tail call ptr @palloc(i64 noundef %29) #6
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
-  %.not113 = icmp eq ptr %32, null
-  br i1 %.not113, label %33, label %80
+  %.not115 = icmp eq ptr %32, null
+  br i1 %.not115, label %33, label %80
 
 33:                                               ; preds = %list_length.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 105
@@ -348,25 +348,25 @@ list_length.exit:                                 ; preds = %5, %23
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 28
   store i8 0, ptr %44, align 4
   %45 = load ptr, ptr %21, align 8
-  %.not.i124 = icmp eq ptr %45, null
-  br i1 %.not.i124, label %list_length.exit125, label %46
+  %.not.i127 = icmp eq ptr %45, null
+  br i1 %.not.i127, label %list_length.exit128, label %46
 
 46:                                               ; preds = %33
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = trunc i32 %48 to i16
-  br label %list_length.exit125
+  br label %list_length.exit128
 
-list_length.exit125:                              ; preds = %33, %46
+list_length.exit128:                              ; preds = %33, %46
   %50 = phi i16 [ %49, %46 ], [ 0, %33 ]
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 30
   store i16 %50, ptr %51, align 2
   %52 = load ptr, ptr %21, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %.not.i126 = icmp eq ptr %52, null
-  br i1 %.not.i126, label %ExecEvalFuncArgs.exit, label %.lr.ph.i
+  %.not.i129 = icmp eq ptr %52, null
+  br i1 %.not.i129, label %ExecEvalFuncArgs.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %list_length.exit125
+.lr.ph.i:                                         ; preds = %list_length.exit128
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %56 = load i32, ptr %53, align 4
@@ -390,7 +390,7 @@ list_length.exit125:                              ; preds = %33, %46
   %68 = icmp slt i64 %indvars.iv.next.i, %67
   br i1 %68, label %.lr.ph22.i, label %ExecEvalFuncArgs.exit
 
-ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_length.exit125, %.lr.ph.i
+ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_length.exit128, %.lr.ph.i
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %70 = load i8, ptr %69, align 2, !range !4, !noundef !5
   %71 = trunc nuw i8 %70 to i1
@@ -426,7 +426,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   br label %.thread
 
 .thread:                                          ; preds = %75, %.preheader, %ExecEvalFuncArgs.exit, %80
-  %.1104 = phi i8 [ 0, %80 ], [ %35, %ExecEvalFuncArgs.exit ], [ %35, %.preheader ], [ %35, %75 ]
+  %.1106 = phi i8 [ 0, %80 ], [ %35, %ExecEvalFuncArgs.exit ], [ %35, %.preheader ], [ %35, %75 ]
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %83 = load ptr, ptr %82, align 8
   store ptr %83, ptr @CurrentMemoryContext, align 8
@@ -434,17 +434,17 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %88 = trunc nuw i8 %.1104 to i1
+  %88 = trunc nuw i8 %.1106 to i1
   br label %89
 
 89:                                               ; preds = %172, %.thread
-  %.0105.not = phi i1 [ false, %.thread ], [ true, %172 ]
-  %.0100 = phi ptr [ null, %.thread ], [ %.5, %172 ]
-  %.099 = phi ptr [ null, %.thread ], [ %.2, %172 ]
+  %.0107 = phi i1 [ true, %.thread ], [ false, %172 ]
+  %.0102 = phi ptr [ null, %.thread ], [ %.5, %172 ]
+  %.0101 = phi ptr [ null, %.thread ], [ %.2, %172 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
   %90 = load volatile i32, ptr @InterruptPending, align 4
-  %.not114 = icmp eq i32 %90, 0
-  br i1 %.not114, label %92, label %91, !prof !8
+  %.not116 = icmp eq i32 %90, 0
+  br i1 %.not116, label %92, label %91, !prof !8
 
 91:                                               ; preds = %89
   call void @ProcessInterrupts() #6
@@ -454,8 +454,8 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   %93 = load ptr, ptr %82, align 8
   call void @MemoryContextReset(ptr noundef %93) #6
   %94 = load ptr, ptr %31, align 8
-  %.not115 = icmp eq ptr %94, null
-  br i1 %.not115, label %95, label %101
+  %.not117 = icmp eq ptr %94, null
+  br i1 %.not117, label %95, label %101
 
 95:                                               ; preds = %92
   call void @pgstat_init_function_usage(ptr noundef nonnull %30, ptr noundef nonnull %6) #6
@@ -488,10 +488,10 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
 107:                                              ; preds = %105
   %108 = load i32, ptr %85, align 8
   %109 = icmp eq i32 %108, 2
-  br i1 %109, label %.thread128, label %110
+  br i1 %109, label %.thread131, label %110
 
 110:                                              ; preds = %107
-  br i1 %.0105.not, label %119, label %111
+  br i1 %.0107, label %111, label %119
 
 111:                                              ; preds = %110
   %112 = load ptr, ptr %86, align 8
@@ -509,13 +509,13 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   br label %118
 
 118:                                              ; preds = %116, %111
-  %.3 = phi ptr [ %.0100, %111 ], [ %117, %116 ]
+  %.3 = phi ptr [ %.0102, %111 ], [ %117, %116 ]
   store ptr %113, ptr @CurrentMemoryContext, align 8
   br label %119
 
 119:                                              ; preds = %118, %110
-  %.2102 = phi ptr [ %.3, %118 ], [ %.0100, %110 ]
-  %.2 = phi ptr [ %115, %118 ], [ %.099, %110 ]
+  %.2104 = phi ptr [ %.3, %118 ], [ %.0102, %110 ]
+  %.2 = phi ptr [ %115, %118 ], [ %.0101, %110 ]
   br i1 %14, label %120, label %152
 
 120:                                              ; preds = %119
@@ -527,7 +527,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   %124 = load i64, ptr %9, align 8
   %125 = inttoptr i64 %124 to ptr
   %126 = call ptr @pg_detoast_datum(ptr noundef %125) #6
-  %127 = icmp eq ptr %.2102, null
+  %127 = icmp eq ptr %.2104, null
   br i1 %127, label %128, label %134
 
 128:                                              ; preds = %123
@@ -537,27 +537,27 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   %131 = getelementptr i8, ptr %126, i64 8
   %.val = load i32, ptr %131, align 4
   %132 = getelementptr i8, ptr %126, i64 4
-  %.val121 = load i32, ptr %132, align 4
-  %133 = call ptr @lookup_rowtype_tupdesc_copy(i32 noundef %.val, i32 noundef %.val121) #6
+  %.val124 = load i32, ptr %132, align 4
+  %133 = call ptr @lookup_rowtype_tupdesc_copy(i32 noundef %.val, i32 noundef %.val124) #6
   store ptr %133, ptr %20, align 8
   store ptr %130, ptr @CurrentMemoryContext, align 8
   br label %146
 
 134:                                              ; preds = %123
   %135 = getelementptr i8, ptr %126, i64 8
-  %.val120 = load i32, ptr %135, align 4
-  %136 = getelementptr inbounds nuw i8, ptr %.2102, i64 4
+  %.val123 = load i32, ptr %135, align 4
+  %136 = getelementptr inbounds nuw i8, ptr %.2104, i64 4
   %137 = load i32, ptr %136, align 4
-  %.not = icmp eq i32 %.val120, %137
+  %.not = icmp eq i32 %.val123, %137
   br i1 %.not, label %138, label %142
 
 138:                                              ; preds = %134
   %139 = getelementptr i8, ptr %126, i64 4
-  %.val122 = load i32, ptr %139, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %.2102, i64 8
+  %.val125 = load i32, ptr %139, align 4
+  %140 = getelementptr inbounds nuw i8, ptr %.2104, i64 8
   %141 = load i32, ptr %140, align 8
-  %.not117 = icmp eq i32 %.val122, %141
-  br i1 %.not117, label %146, label %142
+  %.not120 = icmp eq i32 %.val125, %141
+  br i1 %.not120, label %146, label %142
 
 142:                                              ; preds = %138, %134
   %143 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -568,9 +568,9 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   unreachable
 
 146:                                              ; preds = %138, %128
-  %.4 = phi ptr [ %133, %128 ], [ %.2102, %138 ]
-  %.val123 = load i32, ptr %126, align 4
-  %147 = lshr i32 %.val123, 2
+  %.4 = phi ptr [ %133, %128 ], [ %.2104, %138 ]
+  %.val126 = load i32, ptr %126, align 4
+  %147 = lshr i32 %.val126, 2
   store i32 %147, ptr %8, align 8
   store ptr %126, ptr %87, align 8
   call void @tuplestore_puttuple(ptr noundef %.2, ptr noundef nonnull %8) #6
@@ -585,14 +585,14 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   br label %153
 
 152:                                              ; preds = %119
-  call void @tuplestore_putvalues(ptr noundef %.2, ptr noundef %.2102, ptr noundef nonnull %9, ptr noundef nonnull %84) #6
+  call void @tuplestore_putvalues(ptr noundef %.2, ptr noundef %.2104, ptr noundef nonnull %9, ptr noundef nonnull %84) #6
   br label %153
 
 153:                                              ; preds = %146, %148, %152
-  %.5 = phi ptr [ %.2102, %148 ], [ %.4, %146 ], [ %.2102, %152 ]
+  %.5 = phi ptr [ %.2104, %148 ], [ %.4, %146 ], [ %.2104, %152 ]
   %154 = load i32, ptr %85, align 8
-  %.not118 = icmp eq i32 %154, 1
-  br i1 %.not118, label %155, label %.thread128
+  %.not121 = icmp eq i32 %154, 1
+  br i1 %.not121, label %155, label %.thread131
 
 155:                                              ; preds = %153
   br i1 %88, label %172, label %156
@@ -607,11 +607,10 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
 
 160:                                              ; preds = %105
   %161 = load i32, ptr %85, align 8
-  %162 = icmp ne i32 %161, 0
-  %or.cond.not.not150 = select i1 %.0105.not, i1 true, i1 %162
-  %.not148 = xor i1 %88, true
-  %brmerge = select i1 %or.cond.not.not150, i1 true, i1 %.not148
-  br i1 %brmerge, label %163, label %.thread128
+  %162 = icmp eq i32 %161, 0
+  %or.cond.not119 = select i1 %.0107, i1 %162, i1 false
+  %or.cond4 = select i1 %or.cond.not119, i1 %88, i1 false
+  br i1 %or.cond4, label %.thread131, label %163
 
 163:                                              ; preds = %160
   %164 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -630,7 +629,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 381, ptr noundef nonnull @__func__.ExecMakeTableFunctionResult) #6
   unreachable
 
-.thread128:                                       ; preds = %107, %153, %160
+.thread131:                                       ; preds = %107, %153, %160
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
   br label %.loopexit
 
@@ -638,8 +637,8 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
   br label %89
 
-.loopexit:                                        ; preds = %76, %.thread128
-  %.0103 = phi i8 [ %.1104, %.thread128 ], [ %35, %76 ]
+.loopexit:                                        ; preds = %76, %.thread131
+  %.0105 = phi i8 [ %.1106, %.thread131 ], [ %35, %76 ]
   %173 = load ptr, ptr %19, align 8
   %174 = icmp eq ptr %173, null
   br i1 %174, label %175, label %186
@@ -653,7 +652,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   %180 = call ptr @tuplestore_begin_heap(i1 noundef zeroext %4, i1 noundef zeroext false, i32 noundef %179) #6
   store ptr %180, ptr %19, align 8
   store ptr %178, ptr @CurrentMemoryContext, align 8
-  %181 = trunc nuw i8 %.0103 to i1
+  %181 = trunc nuw i8 %.0105 to i1
   br i1 %181, label %186, label %182
 
 182:                                              ; preds = %175
@@ -666,8 +665,8 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
 
 186:                                              ; preds = %175, %182, %.loopexit
   %187 = load ptr, ptr %20, align 8
-  %.not119 = icmp eq ptr %187, null
-  br i1 %.not119, label %194, label %188
+  %.not122 = icmp eq ptr %187, null
+  br i1 %.not122, label %194, label %188
 
 188:                                              ; preds = %186
   call fastcc void @tupledesc_match(ptr noundef %3, ptr noundef %187)

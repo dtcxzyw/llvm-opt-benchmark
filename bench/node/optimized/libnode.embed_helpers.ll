@@ -422,8 +422,8 @@ declare void @_ZN2v815SealHandleScopeD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node22CommonEnvironmentSetupC2EPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEPKNS_20EmbedderSnapshotDataEjSt8functionIFPNS_11EnvironmentEPKS0_EEPKNS_14SnapshotConfigE(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %platform, ptr noundef %errors, ptr noundef %snapshot_data, i32 noundef %flags, ptr noundef %make_env, ptr noundef %snapshot_config) unnamed_addr #3 align 2 {
 entry:
-  %ref.tmp.i.i61 = alloca %"class.std::__cxx11::basic_string", align 8
-  %__args.addr.i44 = alloca ptr, align 8
+  %ref.tmp.i.i62 = alloca %"class.std::__cxx11::basic_string", align 8
+  %__args.addr.i45 = alloca ptr, align 8
   %__args.addr.i = alloca ptr, align 8
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr.263", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -790,24 +790,25 @@ if.then.i.i36:                                    ; preds = %if.then.i
   %_M_engaged2.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %snapshot_config, i64 40
   %52 = load i8, ptr %_M_engaged2.i.i.i.i.i.i.i.i, align 8
   %tobool3.i.i.i.i.i.i.i.i = trunc i8 %52 to i1
-  br i1 %tobool.i.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i.i.i, label %if.else.thread.i.i.i.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.i.i.i.i, i1 %tobool3.i.i.i.i.i.i.i.i, i1 false
+  br i1 %or.cond.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i38, label %if.else.i.i.i.i.i.i.i.i37
 
-land.lhs.true.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i36
-  br i1 %tobool3.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i37, label %if.then.i.i.i.i.i.i.i.i.i
-
-if.then.i.i.i.i.i.i.i.i37:                        ; preds = %land.lhs.true.i.i.i.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i38:                        ; preds = %if.then.i.i36
   %call5.i.i.i.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %builder_script_path.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %builder_script_path3.i.i.i) #22
   br label %_ZN4node11IsolateData19set_snapshot_configEPKNS_14SnapshotConfigE.exit
 
-if.else.thread.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i36
-  br i1 %tobool3.i.i.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i.i.i, label %_ZN4node11IsolateData19set_snapshot_configEPKNS_14SnapshotConfigE.exit
+if.else.i.i.i.i.i.i.i.i37:                        ; preds = %if.then.i.i36
+  br i1 %tobool3.i.i.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i.i.i, label %if.else10.i.i.i.i.i.i.i.i
 
-if.then8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.thread.i.i.i.i.i.i.i.i
+if.then8.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i.i.i37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %builder_script_path.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %builder_script_path3.i.i.i) #22
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8
   br label %_ZN4node11IsolateData19set_snapshot_configEPKNS_14SnapshotConfigE.exit
 
-if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %land.lhs.true.i.i.i.i.i.i.i.i
+if.else10.i.i.i.i.i.i.i.i:                        ; preds = %if.else.i.i.i.i.i.i.i.i37
+  br i1 %tobool.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZN4node11IsolateData19set_snapshot_configEPKNS_14SnapshotConfigE.exit
+
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.else10.i.i.i.i.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %builder_script_path.i.i.i) #22
   br label %_ZN4node11IsolateData19set_snapshot_configEPKNS_14SnapshotConfigE.exit
@@ -831,7 +832,7 @@ _ZNSt19_Optional_base_implIN4node14SnapshotConfigESt14_Optional_baseIS1_Lb0ELb0E
   store i8 1, ptr %_M_engaged.i.i.i33, align 8
   br label %_ZN4node11IsolateData19set_snapshot_configEPKNS_14SnapshotConfigE.exit
 
-_ZN4node11IsolateData19set_snapshot_configEPKNS_14SnapshotConfigE.exit: ; preds = %_ZNSt10unique_ptrIN4node11IsolateDataENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeIsolateDataEPS1_EEEEE5resetES3_.exit, %if.then.i.i.i.i.i.i.i.i37, %if.else.thread.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt19_Optional_base_implIN4node14SnapshotConfigESt14_Optional_baseIS1_Lb0ELb0EEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i
+_ZN4node11IsolateData19set_snapshot_configEPKNS_14SnapshotConfigE.exit: ; preds = %_ZNSt10unique_ptrIN4node11IsolateDataENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeIsolateDataEPS1_EEEEE5resetES3_.exit, %if.then.i.i.i.i.i.i.i.i38, %if.then8.i.i.i.i.i.i.i.i, %if.else10.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt19_Optional_base_implIN4node14SnapshotConfigESt14_Optional_baseIS1_Lb0ELb0EEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i
   %tobool67.not = icmp eq ptr %snapshot_data, null
   br i1 %tobool67.not, label %if.end84, label %if.then68
 
@@ -841,10 +842,10 @@ if.then68:                                        ; preds = %_ZN4node11IsolateDa
   store ptr %this, ptr %__args.addr.i, align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %make_env, i64 16
   %55 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i38 = icmp eq ptr %55, null
-  br i1 %tobool.not.i.i38, label %if.then.i39, label %_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit
+  %tobool.not.i.i39 = icmp eq ptr %55, null
+  br i1 %tobool.not.i.i39, label %if.then.i40, label %_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit
 
-if.then.i39:                                      ; preds = %if.then68
+if.then.i40:                                      ; preds = %if.then68
   call void @_ZSt25__throw_bad_function_callv() #23
   unreachable
 
@@ -856,19 +857,19 @@ _ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.ex
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   %57 = load ptr, ptr %env, align 8
   store ptr %call2.i, ptr %env, align 8
-  %tobool.not.i.i40 = icmp eq ptr %57, null
-  br i1 %tobool.not.i.i40, label %_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit, label %if.then.i.i41
+  %tobool.not.i.i41 = icmp eq ptr %57, null
+  br i1 %tobool.not.i.i41, label %_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit, label %if.then.i.i42
 
-if.then.i.i41:                                    ; preds = %_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit
+if.then.i.i42:                                    ; preds = %_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit
   call void @_ZN4node15FreeEnvironmentEPNS_11EnvironmentE(ptr noundef nonnull %57) #22
   br label %_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit
 
-_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit: ; preds = %_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit, %if.then.i.i41
+_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit: ; preds = %_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit, %if.then.i.i42
   %58 = load ptr, ptr %this, align 8
   %env72 = getelementptr inbounds nuw i8, ptr %58, i64 904
   %59 = load ptr, ptr %env72, align 8
-  %cmp.i42.not = icmp eq ptr %59, null
-  br i1 %cmp.i42.not, label %if.then.i62, label %if.then74
+  %cmp.i43.not = icmp eq ptr %59, null
+  br i1 %cmp.i43.not, label %if.then.i63, label %if.then74
 
 if.then74:                                        ; preds = %_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit
   %main_context = getelementptr inbounds nuw i8, ptr %58, i64 912
@@ -877,7 +878,7 @@ if.then74:                                        ; preds = %_ZNSt10unique_ptrIN
   %vtable.i = load ptr, ptr %60, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %61 = load ptr, ptr %vfn.i, align 8
-  %call2.i43 = call ptr %61(ptr noundef nonnull align 8 dereferenceable(872) %60) #22
+  %call2.i44 = call ptr %61(ptr noundef nonnull align 8 dereferenceable(872) %60) #22
   %62 = load ptr, ptr %main_context, align 8
   %cmp.i.i = icmp eq ptr %62, null
   br i1 %cmp.i.i, label %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit, label %if.end.i142
@@ -888,14 +889,14 @@ if.end.i142:                                      ; preds = %if.then74
   br label %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit
 
 _ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit: ; preds = %if.then74, %if.end.i142
-  %cmp.i = icmp eq ptr %call2.i43, null
-  br i1 %cmp.i, label %if.then.i62, label %if.end.i177
+  %cmp.i = icmp eq ptr %call2.i44, null
+  br i1 %cmp.i, label %if.then.i63, label %if.end.i177
 
 if.end.i177:                                      ; preds = %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit
-  %63 = load i64, ptr %call2.i43, align 8
+  %63 = load i64, ptr %call2.i44, align 8
   %call2.i178 = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef nonnull %isolate.0, i64 noundef %63) #22
   store ptr %call2.i178, ptr %main_context, align 8
-  br label %if.then.i62
+  br label %if.then.i63
 
 if.end84:                                         ; preds = %_ZN4node11IsolateData19set_snapshot_configEPKNS_14SnapshotConfigE.exit
   %call89 = call ptr @_ZN4node10NewContextEPN2v87IsolateENS0_5LocalINS0_14ObjectTemplateEEE(ptr noundef nonnull %isolate.0, ptr null) #22
@@ -920,96 +921,96 @@ if.end.i184:                                      ; preds = %_ZN2v814PersistentB
   store ptr %call2.i186, ptr %main_context94, align 8
   call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call89) #22
   %67 = load ptr, ptr %this, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i44)
-  store ptr %this, ptr %__args.addr.i44, align 8
-  %_M_manager.i.i45 = getelementptr inbounds nuw i8, ptr %make_env, i64 16
-  %68 = load ptr, ptr %_M_manager.i.i45, align 8
-  %tobool.not.i.i46 = icmp eq ptr %68, null
-  br i1 %tobool.not.i.i46, label %if.then.i49, label %_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit50
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i45)
+  store ptr %this, ptr %__args.addr.i45, align 8
+  %_M_manager.i.i46 = getelementptr inbounds nuw i8, ptr %make_env, i64 16
+  %68 = load ptr, ptr %_M_manager.i.i46, align 8
+  %tobool.not.i.i47 = icmp eq ptr %68, null
+  br i1 %tobool.not.i.i47, label %if.then.i50, label %_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit51
 
-if.then.i49:                                      ; preds = %if.end.i184
+if.then.i50:                                      ; preds = %if.end.i184
   call void @_ZSt25__throw_bad_function_callv() #23
   unreachable
 
-_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit50: ; preds = %if.end.i184
+_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit51: ; preds = %if.end.i184
   %env105 = getelementptr inbounds nuw i8, ptr %67, i64 904
-  %_M_invoker.i47 = getelementptr inbounds nuw i8, ptr %make_env, i64 24
-  %69 = load ptr, ptr %_M_invoker.i47, align 8
-  %call2.i48 = call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(32) %make_env, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i44) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i44)
+  %_M_invoker.i48 = getelementptr inbounds nuw i8, ptr %make_env, i64 24
+  %69 = load ptr, ptr %_M_invoker.i48, align 8
+  %call2.i49 = call noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(32) %make_env, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i45) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i45)
   %70 = load ptr, ptr %env105, align 8
-  store ptr %call2.i48, ptr %env105, align 8
-  %tobool.not.i.i51 = icmp eq ptr %70, null
-  br i1 %tobool.not.i.i51, label %_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit53, label %if.then.i.i52
+  store ptr %call2.i49, ptr %env105, align 8
+  %tobool.not.i.i52 = icmp eq ptr %70, null
+  br i1 %tobool.not.i.i52, label %_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit54, label %if.then.i.i53
 
-if.then.i.i52:                                    ; preds = %_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit50
+if.then.i.i53:                                    ; preds = %_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit51
   call void @_ZN4node15FreeEnvironmentEPNS_11EnvironmentE(ptr noundef nonnull %70) #22
-  br label %_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit53
+  br label %_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit54
 
-_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit53: ; preds = %_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit50, %if.then.i.i52
+_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit54: ; preds = %_ZNKSt8functionIFPN4node11EnvironmentEPKNS0_22CommonEnvironmentSetupEEEclES5_.exit51, %if.then.i.i53
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call89) #22
-  br label %if.then.i62
+  br label %if.then.i63
 
 if.then96:                                        ; preds = %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit153
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp98) #22
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp98) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 31))
-  %_M_finish.i.i54 = getelementptr inbounds nuw i8, ptr %errors, i64 8
-  %71 = load ptr, ptr %_M_finish.i.i54, align 8
-  %_M_end_of_storage.i.i55 = getelementptr inbounds nuw i8, ptr %errors, i64 16
-  %72 = load ptr, ptr %_M_end_of_storage.i.i55, align 8
-  %cmp.not.i.i56 = icmp eq ptr %71, %72
-  br i1 %cmp.not.i.i56, label %if.else.i.i59, label %if.then.i.i57
+  %_M_finish.i.i55 = getelementptr inbounds nuw i8, ptr %errors, i64 8
+  %71 = load ptr, ptr %_M_finish.i.i55, align 8
+  %_M_end_of_storage.i.i56 = getelementptr inbounds nuw i8, ptr %errors, i64 16
+  %72 = load ptr, ptr %_M_end_of_storage.i.i56, align 8
+  %cmp.not.i.i57 = icmp eq ptr %71, %72
+  br i1 %cmp.not.i.i57, label %if.else.i.i60, label %if.then.i.i58
 
-if.then.i.i57:                                    ; preds = %if.then96
+if.then.i.i58:                                    ; preds = %if.then96
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97) #22
-  %73 = load ptr, ptr %_M_finish.i.i54, align 8
-  %incdec.ptr.i.i58 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  store ptr %incdec.ptr.i.i58, ptr %_M_finish.i.i54, align 8
-  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit60
+  %73 = load ptr, ptr %_M_finish.i.i55, align 8
+  %incdec.ptr.i.i59 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  store ptr %incdec.ptr.i.i59, ptr %_M_finish.i.i55, align 8
+  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit61
 
-if.else.i.i59:                                    ; preds = %if.then96
+if.else.i.i60:                                    ; preds = %if.then96
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %errors, ptr %71, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97)
-  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit60
+  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit61
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit60: ; preds = %if.then.i.i57, %if.else.i.i59
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit61: ; preds = %if.then.i.i58, %if.else.i.i60
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp98) #22
-  br label %if.then.i62
+  br label %if.then.i63
 
-if.then.i62:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit60, %_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit53, %if.end.i177, %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit, %_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i61)
-  %call.i.i63 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch) #22
-  br i1 %call.i.i63, label %if.then.i.i64, label %"_ZN4node16OnScopeLeaveImplIZNS_22CommonEnvironmentSetupC1EPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPKNS_20EmbedderSnapshotDataEjSt8functionIFPNS_11EnvironmentEPKS1_EEPKNS_14SnapshotConfigEE3$_0ED2Ev.exit"
+if.then.i63:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit61, %_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit54, %if.end.i177, %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit, %_ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeEnvironmentEPS1_EEEEE5resetES3_.exit
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i62)
+  %call.i.i64 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch) #22
+  br i1 %call.i.i64, label %if.then.i.i65, label %"_ZN4node16OnScopeLeaveImplIZNS_22CommonEnvironmentSetupC1EPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPKNS_20EmbedderSnapshotDataEjSt8functionIFPNS_11EnvironmentEPKS1_EEPKNS_14SnapshotConfigEE3$_0ED2Ev.exit"
 
-if.then.i.i64:                                    ; preds = %if.then.i62
+if.then.i.i65:                                    ; preds = %if.then.i63
   %call2.i.i = call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %isolate.0) #22
-  call void @_ZN4node21FormatCaughtExceptionB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEERKNS0_8TryCatchE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i61, ptr noundef nonnull %isolate.0, ptr %call2.i.i, ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch) #22
+  call void @_ZN4node21FormatCaughtExceptionB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEERKNS0_8TryCatchE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i62, ptr noundef nonnull %isolate.0, ptr %call2.i.i, ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch) #22
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %errors, i64 8
   %74 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %errors, i64 16
   %75 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %cmp.not.i.i.i.i65 = icmp eq ptr %74, %75
-  br i1 %cmp.not.i.i.i.i65, label %if.else.i.i.i.i, label %if.then.i.i.i.i66
+  %cmp.not.i.i.i.i66 = icmp eq ptr %74, %75
+  br i1 %cmp.not.i.i.i.i66, label %if.else.i.i.i.i, label %if.then.i.i.i.i67
 
-if.then.i.i.i.i66:                                ; preds = %if.then.i.i64
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i61) #22
+if.then.i.i.i.i67:                                ; preds = %if.then.i.i65
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i62) #22
   %76 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %76, i64 32
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i.i
 
-if.else.i.i.i.i:                                  ; preds = %if.then.i.i64
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %errors, ptr %74, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i61)
+if.else.i.i.i.i:                                  ; preds = %if.then.i.i65
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %errors, ptr %74, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i62)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i.i
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i66
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i61) #22
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i67
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i62) #22
   br label %"_ZN4node16OnScopeLeaveImplIZNS_22CommonEnvironmentSetupC1EPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPKNS_20EmbedderSnapshotDataEjSt8functionIFPNS_11EnvironmentEPKS1_EEPKNS_14SnapshotConfigEE3$_0ED2Ev.exit"
 
-"_ZN4node16OnScopeLeaveImplIZNS_22CommonEnvironmentSetupC1EPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPKNS_20EmbedderSnapshotDataEjSt8functionIFPNS_11EnvironmentEPKS1_EEPKNS_14SnapshotConfigEE3$_0ED2Ev.exit": ; preds = %if.then.i62, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i61)
+"_ZN4node16OnScopeLeaveImplIZNS_22CommonEnvironmentSetupC1EPNS_20MultiIsolatePlatformEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEPKNS_20EmbedderSnapshotDataEjSt8functionIFPNS_11EnvironmentEPKS1_EEPKNS_14SnapshotConfigEE3$_0ED2Ev.exit": ; preds = %if.then.i63, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i62)
   call void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %bootstrapCatch) #22
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #22
   call void @_ZN2v87Isolate4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %isolate.0) #22

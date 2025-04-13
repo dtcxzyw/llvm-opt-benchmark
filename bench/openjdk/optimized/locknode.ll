@@ -413,8 +413,8 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %61
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %61 ], [ 0, %.lr.ph.split ]
-  %.02540.us44 = phi ptr [ %.1.us48, %61 ], [ null, %.lr.ph.split ]
-  %.02738.us46 = phi i1 [ %.128.us47, %61 ], [ false, %.lr.ph.split ]
+  %.02640.us44 = phi ptr [ %.1.us48, %61 ], [ null, %.lr.ph.split ]
+  %.02838.us46 = phi i1 [ %.129.us47, %61 ], [ false, %.lr.ph.split ]
   %35 = load ptr, ptr %10, align 8
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv65
   %37 = load ptr, ptr %36, align 8
@@ -447,17 +447,17 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %54
-  %59 = icmp eq ptr %.02540.us44, null
+  %59 = icmp eq ptr %.02640.us44, null
   br i1 %59, label %61, label %60
 
 60:                                               ; preds = %58
-  %.not34.us = icmp eq ptr %.02540.us44, %37
-  %spec.select = select i1 %.not34.us, i1 %.02738.us46, i1 false
+  %.not34.us = icmp eq ptr %.02640.us44, %37
+  %spec.select = select i1 %.not34.us, i1 %.02838.us46, i1 false
   br label %61
 
 61:                                               ; preds = %60, %58, %54, %42, %.lr.ph.split.split.us
-  %.128.us47 = phi i1 [ %.02738.us46, %54 ], [ %.02738.us46, %42 ], [ %.02738.us46, %.lr.ph.split.split.us ], [ true, %58 ], [ %spec.select, %60 ]
-  %.1.us48 = phi ptr [ %.02540.us44, %54 ], [ %.02540.us44, %42 ], [ %.02540.us44, %.lr.ph.split.split.us ], [ %37, %58 ], [ %.02540.us44, %60 ]
+  %.129.us47 = phi i1 [ %.02838.us46, %54 ], [ %.02838.us46, %42 ], [ %.02838.us46, %.lr.ph.split.split.us ], [ true, %58 ], [ %spec.select, %60 ]
+  %.1.us48 = phi ptr [ %.02640.us44, %54 ], [ %.02640.us44, %42 ], [ %.02640.us44, %.lr.ph.split.split.us ], [ %37, %58 ], [ %.02640.us44, %60 ]
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %62 = load i32, ptr %8, align 8
   %63 = zext i32 %62 to i64
@@ -466,8 +466,8 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %93
   %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ 0, %.lr.ph.split ]
-  %.02540 = phi ptr [ %.1, %93 ], [ null, %.lr.ph.split ]
-  %.02738 = phi i1 [ %.128, %93 ], [ false, %.lr.ph.split ]
+  %.02640 = phi ptr [ %.1, %93 ], [ null, %.lr.ph.split ]
+  %.02838 = phi i1 [ %.129, %93 ], [ false, %.lr.ph.split ]
   %65 = load ptr, ptr %10, align 8
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8
@@ -500,11 +500,11 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   br i1 %87, label %88, label %93
 
 88:                                               ; preds = %84
-  %89 = icmp eq ptr %.02540, null
+  %89 = icmp eq ptr %.02640, null
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %88
-  %.not34 = icmp eq ptr %.02540, %67
+  %.not34 = icmp eq ptr %.02640, %67
   br i1 %.not34, label %93, label %91
 
 91:                                               ; preds = %90
@@ -513,16 +513,16 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
 
 .split.us:                                        ; preds = %78, %48, %25
   %.us-phi = phi ptr [ %14, %25 ], [ %37, %48 ], [ %67, %78 ]
-  %.not32 = icmp eq ptr %3, null
-  br i1 %.not32, label %._crit_edge.thread, label %92
+  %.not = icmp eq ptr %3, null
+  br i1 %.not, label %._crit_edge.thread, label %92
 
 92:                                               ; preds = %.split.us
   store ptr %.us-phi, ptr %3, align 8
   br label %._crit_edge.thread
 
 93:                                               ; preds = %88, %.lr.ph.split.split, %91, %90, %84, %72
-  %.128 = phi i1 [ false, %91 ], [ %.02738, %90 ], [ %.02738, %84 ], [ %.02738, %72 ], [ %.02738, %.lr.ph.split.split ], [ true, %88 ]
-  %.1 = phi ptr [ %.02540, %91 ], [ %.02540, %90 ], [ %.02540, %84 ], [ %.02540, %72 ], [ %.02540, %.lr.ph.split.split ], [ %67, %88 ]
+  %.129 = phi i1 [ false, %91 ], [ %.02838, %90 ], [ %.02838, %84 ], [ %.02838, %72 ], [ %.02838, %.lr.ph.split.split ], [ true, %88 ]
+  %.1 = phi ptr [ %.02640, %91 ], [ %.02640, %90 ], [ %.02640, %84 ], [ %.02640, %72 ], [ %.02640, %.lr.ph.split.split ], [ %67, %88 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %8, align 8
   %95 = zext i32 %94 to i64
@@ -530,12 +530,12 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   br i1 %96, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %93, %61
-  %.027.lcssa = phi i1 [ %.128.us47, %61 ], [ %.128, %93 ]
-  %.025.lcssa = phi ptr [ %.1.us48, %61 ], [ %.1, %93 ]
-  br i1 %.027.lcssa, label %97, label %._crit_edge.thread
+  %.028.lcssa = phi i1 [ %.129.us47, %61 ], [ %.129, %93 ]
+  %.026.lcssa = phi ptr [ %.1.us48, %61 ], [ %.1, %93 ]
+  br i1 %.028.lcssa, label %97, label %._crit_edge.thread
 
 97:                                               ; preds = %._crit_edge
-  store ptr %.025.lcssa, ptr %1, align 8
+  store ptr %.026.lcssa, ptr %1, align 8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %31, %.preheader, %._crit_edge, %97, %.split.us, %92, %4

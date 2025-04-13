@@ -22997,8 +22997,8 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.
   %48 = load i32, ptr %26, align 8, !tbaa !801
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
-  %.not3063 = icmp eq i32 %48, 0
-  br i1 %.not3063, label %.critedge, label %.lr.ph
+  %.not3163 = icmp eq i32 %48, 0
+  br i1 %.not3163, label %.critedge, label %.lr.ph
 
 51:                                               ; preds = %35
   %52 = landingpad { ptr, i32 }
@@ -23011,18 +23011,18 @@ _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.
   br label %113
 
 .lr.ph:                                           ; preds = %46, %58
-  %.02665 = phi ptr [ %60, %58 ], [ %47, %46 ]
-  %.12864 = phi i1 [ %59, %58 ], [ false, %46 ]
-  %55 = load ptr, ptr %.02665, align 8, !tbaa !39
+  %.02765 = phi ptr [ %60, %58 ], [ %47, %46 ]
+  %.12964 = phi i1 [ %59, %58 ], [ false, %46 ]
+  %55 = load ptr, ptr %.02765, align 8, !tbaa !39
   %56 = load ptr, ptr %25, align 8, !tbaa !658
   %57 = invoke noundef zeroext i1 @_ZNK11ast_manager9are_equalEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %56, ptr noundef %55, ptr noundef nonnull %40)
           to label %58 unwind label %61
 
 58:                                               ; preds = %.lr.ph
-  %59 = or i1 %.12864, %57
-  %60 = getelementptr inbounds nuw i8, ptr %.02665, i64 8
-  %.not30 = icmp eq ptr %60, %50
-  br i1 %.not30, label %._crit_edge, label %.lr.ph
+  %59 = or i1 %.12964, %57
+  %60 = getelementptr inbounds nuw i8, ptr %.02765, i64 8
+  %.not31 = icmp eq ptr %60, %50
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 61:                                               ; preds = %.lr.ph
   %62 = landingpad { ptr, i32 }

@@ -972,16 +972,16 @@ define range(i32 -1, 1) i32 @H5G__ent_to_link(ptr noundef readonly captures(none
 
 66:                                               ; preds = %20, %29, %35, %47, %57
   %67 = load ptr, ptr %14, align 8, !tbaa !32
-  %.not45 = icmp eq ptr %67, null
-  br i1 %.not45, label %70, label %68
+  %.not46 = icmp eq ptr %67, null
+  br i1 %.not46, label %70, label %68
 
 68:                                               ; preds = %66
   %69 = tail call ptr @H5MM_xfree(ptr noundef nonnull %67) #9
   br label %70
 
 70:                                               ; preds = %66, %68, %62, %61, %3
-  %.037 = phi i32 [ 0, %3 ], [ 0, %61 ], [ 0, %62 ], [ -1, %68 ], [ -1, %66 ]
-  ret i32 %.037
+  %.038 = phi i32 [ 0, %3 ], [ 0, %61 ], [ 0, %62 ], [ -1, %68 ], [ -1, %66 ]
+  ret i32 %.038
 }
 
 declare i64 @H5HL_heap_get_size(ptr noundef) local_unnamed_addr #1

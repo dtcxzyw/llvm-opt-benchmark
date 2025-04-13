@@ -444,8 +444,8 @@ define void @_ZN5boost3log11v2_mt_posix10attributes11named_scopeC2ERKNS2_11cast_
 
 _ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_11named_scope4implEEEPT_v.exit: ; preds = %2
   %5 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN5boost3log11v2_mt_posix9attribute4implE, ptr nonnull @_ZTIN5boost3log11v2_mt_posix10attributes11named_scope4implE, i64 0) #19
-  %.not.i.not = icmp eq ptr %5, null
-  br i1 %.not.i.not, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit, label %6
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit, label %6
 
 6:                                                ; preds = %_ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_11named_scope4implEEEPT_v.exit
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -756,8 +756,8 @@ _ZN5boost13intrusive_ptrINS_3log11v2_mt_posix10attributes11named_scope4implEEC2E
   %10 = atomicrmw add ptr %8, i32 1 acq_rel, align 4
   %11 = load ptr, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_10attributes11named_scope4implENS_13intrusive_ptrIS6_EEE12get_instanceEvE8instance, align 8, !tbaa !37
   store ptr %7, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_10attributes11named_scope4implENS_13intrusive_ptrIS6_EEE12get_instanceEvE8instance, align 8, !tbaa !37
-  %.not.i2.i = icmp eq ptr %11, null
-  br i1 %.not.i2.i, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix10attributes11named_scope4implEE5resetEPS5_.exit, label %12
+  %.not.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix10attributes11named_scope4implEE5resetEPS5_.exit, label %12
 
 12:                                               ; preds = %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix10attributes11named_scope4implEEC2EPS5_b.exit.i
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8

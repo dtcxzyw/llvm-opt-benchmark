@@ -1252,9 +1252,13 @@ define hidden noundef i32 @_ZNK3ue213ReportManager7getDkeyERKNS_6ReportE(ptr nou
   %.val = load i32, ptr %1, align 8
   %switch.tableidx = add i32 %.val, -2
   %3 = icmp ult i32 %switch.tableidx, 15
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 29183, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, label %4
 
-4:                                                ; preds = %switch.hole_check, %2
+4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %7 = load i64, ptr %6, align 8
@@ -1324,14 +1328,8 @@ _ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
   %39 = load i32, ptr %38, align 4
   br label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit
 
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 29183, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZN3ue2L16isExternalReportERKNS_6ReportE.exit, label %4
-
-_ZN3ue2L16isExternalReportERKNS_6ReportE.exit:    ; preds = %.lr.ph.i.i.i.i, %11, %switch.hole_check, %..loopexit_crit_edge21.i.i.i.i, %16, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
-  %.0 = phi i32 [ %39, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ -1, %16 ], [ -1, %..loopexit_crit_edge21.i.i.i.i ], [ -1, %switch.hole_check ], [ -1, %11 ], [ -1, %.lr.ph.i.i.i.i ]
+_ZN3ue2L16isExternalReportERKNS_6ReportE.exit:    ; preds = %.lr.ph.i.i.i.i, %11, %2, %..loopexit_crit_edge21.i.i.i.i, %16, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit
+  %.0 = phi i32 [ %39, %_ZNKSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEE4findERS5_.exit ], [ -1, %16 ], [ -1, %..loopexit_crit_edge21.i.i.i.i ], [ -1, %2 ], [ -1, %11 ], [ -1, %.lr.ph.i.i.i.i ]
   ret i32 %.0
 }
 

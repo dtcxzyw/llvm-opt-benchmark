@@ -1387,7 +1387,7 @@ define hidden void @dissect_coap_payload(ptr noundef %0, ptr noundef %1, ptr nou
 
 22:                                               ; preds = %._crit_edge, %20, %18, %19
   %23 = phi ptr [ @.str.3, %18 ], [ @.str.5, %19 ], [ %21, %20 ], [ %.pre, %._crit_edge ]
-  %.053 = phi ptr [ @.str.4, %18 ], [ @.str.5, %19 ], [ %21, %20 ], [ @.str.4, %._crit_edge ]
+  %.055 = phi ptr [ @.str.4, %18 ], [ @.str.5, %19 ], [ %21, %20 ], [ @.str.4, %._crit_edge ]
   %24 = icmp eq i32 %15, -1
   %25 = select i1 %24, ptr @.str.7, ptr @.str.8
   %26 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %12, i64 noundef 80, i32 noundef 2, i64 noundef 80, ptr noundef nonnull @.str.6, ptr noundef %23, ptr noundef nonnull %25, i32 noundef %13)
@@ -1435,13 +1435,13 @@ proto_item_set_generated.exit:                    ; preds = %22, %40, %43
 
 55:                                               ; preds = %proto_item_set_generated.exit
   %56 = load ptr, ptr @coap_tmf_media_type_dissector_table, align 8
-  %57 = call i32 @dissector_try_string_with_data(ptr noundef %56, ptr noundef %.053, ptr noundef %47, ptr noundef %1, ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %11)
+  %57 = call i32 @dissector_try_string_with_data(ptr noundef %56, ptr noundef %.055, ptr noundef %47, ptr noundef %1, ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %11)
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %.critedge, label %61
 
 .critedge:                                        ; preds = %proto_item_set_generated.exit, %55
   %59 = load ptr, ptr @media_type_dissector_table, align 8
-  %60 = call i32 @dissector_try_string_with_data(ptr noundef %59, ptr noundef %.053, ptr noundef %47, ptr noundef %1, ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %11)
+  %60 = call i32 @dissector_try_string_with_data(ptr noundef %59, ptr noundef %.055, ptr noundef %47, ptr noundef %1, ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %11)
   br label %61
 
 61:                                               ; preds = %.critedge, %55
@@ -1449,8 +1449,8 @@ proto_item_set_generated.exit:                    ; preds = %22, %40, %43
   %63 = load i8, ptr %62, align 1, !range !8, !noundef !9
   %64 = trunc nuw i8 %63 to i1
   %.not = xor i1 %64, true
-  %brmerge = or i1 %9, %.not
-  br i1 %brmerge, label %70, label %65
+  %or.cond4 = or i1 %9, %.not
+  br i1 %or.cond4, label %70, label %65
 
 65:                                               ; preds = %61
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %29, ptr noundef nonnull @.str.9)
@@ -1460,7 +1460,7 @@ proto_item_set_generated.exit:                    ; preds = %22, %40, %43
   %69 = call i32 @call_dissector_with_data(ptr noundef %66, ptr noundef %47, ptr noundef %1, ptr noundef %3, ptr noundef %68)
   br label %70
 
-70:                                               ; preds = %61, %65
+70:                                               ; preds = %65, %61
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #11
   ret void

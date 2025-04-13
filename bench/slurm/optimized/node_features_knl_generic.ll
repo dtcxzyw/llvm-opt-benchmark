@@ -2650,88 +2650,87 @@ define dso_local ptr @node_features_p_job_xlate(ptr noundef %0, ptr noundef read
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
   store ptr null, ptr %6, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %30, label %7
+  br i1 %.not, label %29, label %7
 
 7:                                                ; preds = %3
   %8 = tail call ptr @xstrdup(ptr noundef nonnull %0) #14
   store ptr %8, ptr %5, align 8
   %9 = call ptr @strtok_r(ptr noundef %8, ptr noundef nonnull @.str.92, ptr noundef nonnull %6) #14
-  %.not2229 = icmp eq ptr %9, null
-  br i1 %.not2229, label %._crit_edge, label %.lr.ph
+  %.not2527 = icmp eq ptr %9, null
+  br i1 %.not2527, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %28
-  %.01233 = phi i1 [ %.113, %28 ], [ false, %7 ]
-  %.01432 = phi i1 [ %.115, %28 ], [ false, %7 ]
-  %.01631 = phi ptr [ %29, %28 ], [ %9, %7 ]
-  %.01730 = phi ptr [ %.118, %28 ], [ @.str.48, %7 ]
-  %10 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.01631, i32 noundef 42) #16
-  %.not23 = icmp eq ptr %10, null
-  br i1 %.not23, label %12, label %11
+.lr.ph:                                           ; preds = %7, %27
+  %.01531 = phi i1 [ %spec.select, %27 ], [ false, %7 ]
+  %.01730 = phi i1 [ %.118, %27 ], [ false, %7 ]
+  %.01929 = phi ptr [ %28, %27 ], [ %9, %7 ]
+  %.02028 = phi ptr [ %.121, %27 ], [ @.str.48, %7 ]
+  %10 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.01929, i32 noundef 42) #16
+  %.not26 = icmp eq ptr %10, null
+  br i1 %.not26, label %12, label %11
 
 11:                                               ; preds = %.lr.ph
   store i8 0, ptr %10, align 1
   br label %12
 
 12:                                               ; preds = %11, %.lr.ph
-  %13 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.01631)
-  %.not24 = icmp ne i16 %13, 0
-  %.113 = select i1 %.not24, i1 true, i1 %.01233
-  %14 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.61) #14
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %_knl_numa_token.exit, label %15
+  %13 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.01929)
+  %14 = icmp eq i16 %13, 0
+  %or.cond = select i1 %14, i1 true, i1 %.01531
+  %not.or.cond = xor i1 %or.cond, true
+  %spec.select = select i1 %not.or.cond, i1 true, i1 %.01531
+  %15 = call i32 @xstrcasecmp(ptr noundef nonnull %.01929, ptr noundef nonnull @.str.61) #14
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %_knl_numa_token.exit, label %16
 
-15:                                               ; preds = %12
-  %16 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.67) #14
-  %.not10.i = icmp eq i32 %16, 0
-  br i1 %.not10.i, label %_knl_numa_token.exit, label %17
+16:                                               ; preds = %12
+  %17 = call i32 @xstrcasecmp(ptr noundef nonnull %.01929, ptr noundef nonnull @.str.67) #14
+  %.not10.i = icmp eq i32 %17, 0
+  br i1 %.not10.i, label %_knl_numa_token.exit, label %18
 
-17:                                               ; preds = %15
-  %18 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.69) #14
-  %.not11.i = icmp eq i32 %18, 0
-  br i1 %.not11.i, label %_knl_numa_token.exit, label %19
+18:                                               ; preds = %16
+  %19 = call i32 @xstrcasecmp(ptr noundef nonnull %.01929, ptr noundef nonnull @.str.69) #14
+  %.not11.i = icmp eq i32 %19, 0
+  br i1 %.not11.i, label %_knl_numa_token.exit, label %20
 
-19:                                               ; preds = %17
-  %20 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.63) #14
-  %.not12.i = icmp eq i32 %20, 0
-  br i1 %.not12.i, label %_knl_numa_token.exit, label %21
+20:                                               ; preds = %18
+  %21 = call i32 @xstrcasecmp(ptr noundef nonnull %.01929, ptr noundef nonnull @.str.63) #14
+  %.not12.i = icmp eq i32 %21, 0
+  br i1 %.not12.i, label %_knl_numa_token.exit, label %22
 
-21:                                               ; preds = %19
-  %22 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.65) #14
-  %.not13.i = icmp ne i32 %22, 0
+22:                                               ; preds = %20
+  %23 = call i32 @xstrcasecmp(ptr noundef nonnull %.01929, ptr noundef nonnull @.str.65) #14
+  %.not13.i = icmp ne i32 %23, 0
+  %24 = select i1 %.not13.i, i1 true, i1 %.01730
   br label %_knl_numa_token.exit
 
-_knl_numa_token.exit:                             ; preds = %12, %15, %17, %19, %21
-  %.0.i = phi i1 [ false, %12 ], [ false, %15 ], [ false, %17 ], [ false, %19 ], [ %.not13.i, %21 ]
+_knl_numa_token.exit:                             ; preds = %12, %16, %18, %20, %22
+  %.0.i = phi i1 [ %.01730, %12 ], [ %.01730, %16 ], [ %.01730, %18 ], [ %.01730, %20 ], [ %24, %22 ]
   %not..0.i = xor i1 %.0.i, true
-  %.115 = select i1 %not..0.i, i1 true, i1 %.01432
-  %23 = select i1 %.0.i, i1 true, i1 %.01432
-  %24 = xor i1 %.01233, true
-  %25 = select i1 %.not24, i1 %24, i1 false
-  %not. = xor i1 %23, true
-  %26 = select i1 %not., i1 true, i1 %25
-  br i1 %26, label %27, label %28
+  %.118 = select i1 %not..0.i, i1 true, i1 %.01730
+  %25 = select i1 %.0.i, i1 %or.cond, i1 false
+  br i1 %25, label %27, label %26
 
-27:                                               ; preds = %_knl_numa_token.exit
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.72, ptr noundef %.01730, ptr noundef nonnull %.01631) #14
-  br label %28
+26:                                               ; preds = %_knl_numa_token.exit
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.72, ptr noundef %.02028, ptr noundef nonnull %.01929) #14
+  br label %27
 
-28:                                               ; preds = %27, %_knl_numa_token.exit
-  %.118 = phi ptr [ @.str.3, %27 ], [ %.01730, %_knl_numa_token.exit ]
-  %29 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef nonnull %6) #14
-  %.not22 = icmp eq ptr %29, null
-  br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+27:                                               ; preds = %26, %_knl_numa_token.exit
+  %.121 = phi ptr [ @.str.3, %26 ], [ %.02028, %_knl_numa_token.exit ]
+  %28 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef nonnull %6) #14
+  %.not25 = icmp eq ptr %28, null
+  br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %28, %7
+._crit_edge:                                      ; preds = %27, %7
   call void @slurm_xfree(ptr noundef nonnull %5) #14
-  %.019.pre = load ptr, ptr %4, align 8
-  br label %30
+  %.022.pre = load ptr, ptr %4, align 8
+  br label %29
 
-30:                                               ; preds = %3, %._crit_edge
-  %.019 = phi ptr [ null, %3 ], [ %.019.pre, %._crit_edge ]
+29:                                               ; preds = %3, %._crit_edge
+  %.022 = phi ptr [ null, %3 ], [ %.022.pre, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  ret ptr %.019
+  ret ptr %.022
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

@@ -675,16 +675,14 @@ _ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0
   %21 = ptrtoint ptr %propertyMap_41 to i64
   %and.i.i.i.i = and i64 %21, 562949949227008
   %22 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i = icmp eq ptr %20, %22
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit
+  %cmp.i.i.i = icmp ne ptr %20, %22
   %ogMarkingBarriers_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
   %23 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
   %tobool.i.i = trunc i8 %23 to i1
-  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
+  %or.cond.i.i = select i1 %cmp.i.i.i, i1 %tobool.i.i, i1 false
+  br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
 
-if.then.i.i:                                      ; preds = %land.rhs.i.i
+if.then.i.i:                                      ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit
   %24 = load i32, ptr %propertyMap_41, align 4
   %cmp.i.i.not.i.i = icmp eq i32 %24, 0
   br i1 %cmp.i.i.not.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, label %if.then3.i.i
@@ -693,7 +691,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, i32 %24) #13
   br label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
 
-_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit: ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit, %land.rhs.i.i, %if.then.i.i, %if.then3.i.i
+_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit: ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit, %if.then.i.i, %if.then3.i.i
   store i32 0, ptr %propertyMap_41, align 4
   ret ptr %retval.0.i.i.i.i.i.i
 }
@@ -1748,16 +1746,14 @@ if.end90:                                         ; preds = %_ZN6hermes2vm15Hand
   %39 = ptrtoint ptr %propertyMap_92 to i64
   %and.i.i.i.i = and i64 %39, 562949949227008
   %40 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i76 = icmp eq ptr %38, %40
-  br i1 %cmp.i.i.i76, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %if.end90
+  %cmp.i.i.i76 = icmp ne ptr %38, %40
   %ogMarkingBarriers_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
   %41 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
   %tobool.i.i = trunc i8 %41 to i1
-  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
+  %or.cond.i.i = select i1 %cmp.i.i.i76, i1 %tobool.i.i, i1 false
+  br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
 
-if.then.i.i:                                      ; preds = %land.rhs.i.i
+if.then.i.i:                                      ; preds = %if.end90
   %42 = load i32, ptr %propertyMap_92, align 4
   %cmp.i.i.not.i.i = icmp eq i32 %42, 0
   br i1 %cmp.i.i.not.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, label %if.then3.i.i
@@ -1766,7 +1762,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i75, i32 %42) #13
   br label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
 
-_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit: ; preds = %if.end90, %land.rhs.i.i, %if.then.i.i, %if.then3.i.i
+_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit: ; preds = %if.end90, %if.then.i.i, %if.then3.i.i
   store i32 0, ptr %propertyMap_92, align 4
   %agg.tmp.sroa.0.0.copyload.i.i77 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i78 = and i64 %agg.tmp.sroa.0.0.copyload.i.i77, 281474976710655
@@ -1990,16 +1986,14 @@ _ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0
   %85 = ptrtoint ptr %propertyMap_228 to i64
   %and.i.i.i.i163 = and i64 %85, 562949949227008
   %86 = inttoptr i64 %and.i.i.i.i163 to ptr
-  %cmp.i.i.i164 = icmp eq ptr %84, %86
-  br i1 %cmp.i.i.i164, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit171, label %land.rhs.i.i165
+  %cmp.i.i.i164 = icmp ne ptr %84, %86
+  %ogMarkingBarriers_.i.i165 = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
+  %87 = load i8, ptr %ogMarkingBarriers_.i.i165, align 1
+  %tobool.i.i166 = trunc i8 %87 to i1
+  %or.cond.i.i167 = select i1 %cmp.i.i.i164, i1 %tobool.i.i166, i1 false
+  br i1 %or.cond.i.i167, label %if.then.i.i168, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit171
 
-land.rhs.i.i165:                                  ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit158
-  %ogMarkingBarriers_.i.i166 = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
-  %87 = load i8, ptr %ogMarkingBarriers_.i.i166, align 1
-  %tobool.i.i167 = trunc i8 %87 to i1
-  br i1 %tobool.i.i167, label %if.then.i.i168, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit171
-
-if.then.i.i168:                                   ; preds = %land.rhs.i.i165
+if.then.i.i168:                                   ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit158
   %88 = load i32, ptr %propertyMap_228, align 4
   %cmp.i.i.not.i.i169 = icmp eq i32 %88, 0
   br i1 %cmp.i.i.not.i.i169, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit171, label %if.then3.i.i170
@@ -2008,7 +2002,7 @@ if.then3.i.i170:                                  ; preds = %if.then.i.i168
   call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i124, i32 %88) #13
   br label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit171
 
-_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit171: ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit158, %land.rhs.i.i165, %if.then.i.i168, %if.then3.i.i170
+_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit171: ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit158, %if.then.i.i168, %if.then3.i.i170
   store i32 0, ptr %propertyMap_228, align 4
   %agg.tmp.sroa.0.0.copyload.i.i172 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i173 = and i64 %agg.tmp.sroa.0.0.copyload.i.i172, 281474976710655
@@ -2440,16 +2434,14 @@ if.end77:                                         ; preds = %if.then61, %_ZN6her
   %30 = ptrtoint ptr %propertyMap_79 to i64
   %and.i.i.i.i = and i64 %30, 562949949227008
   %31 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i70 = icmp eq ptr %29, %31
-  br i1 %cmp.i.i.i70, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %if.end77
+  %cmp.i.i.i70 = icmp ne ptr %29, %31
   %ogMarkingBarriers_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
   %32 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
   %tobool.i.i = trunc i8 %32 to i1
-  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
+  %or.cond.i.i = select i1 %cmp.i.i.i70, i1 %tobool.i.i, i1 false
+  br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
 
-if.then.i.i:                                      ; preds = %land.rhs.i.i
+if.then.i.i:                                      ; preds = %if.end77
   %33 = load i32, ptr %propertyMap_79, align 4
   %cmp.i.i.not.i.i = icmp eq i32 %33, 0
   br i1 %cmp.i.i.not.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, label %if.then3.i.i
@@ -2458,7 +2450,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i69, i32 %33) #13
   br label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
 
-_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit: ; preds = %if.end77, %land.rhs.i.i, %if.then.i.i, %if.then3.i.i
+_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit: ; preds = %if.end77, %if.then.i.i, %if.then3.i.i
   store i32 0, ptr %propertyMap_79, align 4
   %34 = ptrtoint ptr %retval.0.i to i64
   %or.i.i.i.i.i = or i64 %34, -281474976710656
@@ -2609,16 +2601,14 @@ _ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0
   %61 = ptrtoint ptr %propertyMap_143 to i64
   %and.i.i.i.i118 = and i64 %61, 562949949227008
   %62 = inttoptr i64 %and.i.i.i.i118 to ptr
-  %cmp.i.i.i119 = icmp eq ptr %60, %62
-  br i1 %cmp.i.i.i119, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit126, label %land.rhs.i.i120
+  %cmp.i.i.i119 = icmp ne ptr %60, %62
+  %ogMarkingBarriers_.i.i120 = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
+  %63 = load i8, ptr %ogMarkingBarriers_.i.i120, align 1
+  %tobool.i.i121 = trunc i8 %63 to i1
+  %or.cond.i.i122 = select i1 %cmp.i.i.i119, i1 %tobool.i.i121, i1 false
+  br i1 %or.cond.i.i122, label %if.then.i.i123, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit126
 
-land.rhs.i.i120:                                  ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit113
-  %ogMarkingBarriers_.i.i121 = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
-  %63 = load i8, ptr %ogMarkingBarriers_.i.i121, align 1
-  %tobool.i.i122 = trunc i8 %63 to i1
-  br i1 %tobool.i.i122, label %if.then.i.i123, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit126
-
-if.then.i.i123:                                   ; preds = %land.rhs.i.i120
+if.then.i.i123:                                   ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit113
   %64 = load i32, ptr %propertyMap_143, align 4
   %cmp.i.i.not.i.i124 = icmp eq i32 %64, 0
   br i1 %cmp.i.i.not.i.i124, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit126, label %if.then3.i.i125
@@ -2627,7 +2617,7 @@ if.then3.i.i125:                                  ; preds = %if.then.i.i123
   call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i83, i32 %64) #13
   br label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit126
 
-_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit126: ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit113, %land.rhs.i.i120, %if.then.i.i123, %if.then3.i.i125
+_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit126: ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit113, %if.then.i.i123, %if.then3.i.i125
   store i32 0, ptr %propertyMap_143, align 4
   br label %return
 
@@ -3499,16 +3489,14 @@ _ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0
   %8 = ptrtoint ptr %propertyMap_7 to i64
   %and.i.i.i.i = and i64 %8, -4194304
   %9 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i.i = icmp eq ptr %7, %9
-  br i1 %cmp.i.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit
+  %cmp.i.i.i = icmp ne ptr %7, %9
   %ogMarkingBarriers_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8497
   %10 = load i8, ptr %ogMarkingBarriers_.i.i, align 1
   %tobool.i.i = trunc i8 %10 to i1
-  br i1 %tobool.i.i, label %if.then.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
+  %or.cond.i.i = select i1 %cmp.i.i.i, i1 %tobool.i.i, i1 false
+  br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
 
-if.then.i.i:                                      ; preds = %land.rhs.i.i
+if.then.i.i:                                      ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit
   %11 = load i32, ptr %propertyMap_7, align 4
   %cmp.i.i.not.i.i = icmp eq i32 %11, 0
   br i1 %cmp.i.i.not.i.i, label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit, label %if.then3.i.i
@@ -3517,7 +3505,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   tail call void @_ZN6hermes2vm7HadesGC28snapshotWriteBarrierInternalENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i32 %11) #13
   br label %_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit
 
-_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit: ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit, %land.rhs.i.i, %if.then.i.i, %if.then3.i.i
+_ZN6hermes2vm13GCPointerBase7setNullERNS0_7HadesGCE.exit: ; preds = %_ZN6hermes2vm9GCPointerINS0_15DictPropertyMapEE3setERNS0_11PointerBaseERKS3_RNS0_7HadesGCE.exit, %if.then.i.i, %if.then3.i.i
   store i32 0, ptr %propertyMap_7, align 4
   %propertyFlags_ = getelementptr inbounds nuw i8, ptr %0, i64 8
   %bf.load = load i16, ptr %propertyFlags_, align 8

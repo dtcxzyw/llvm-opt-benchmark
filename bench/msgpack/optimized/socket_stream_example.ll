@@ -1440,13 +1440,13 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextI17json_
   %26 = ptrtoint ptr %20 to i64
   br label %27
 
-27:                                               ; preds = %.preheader, %.thread667
-  %28 = phi ptr [ %504, %.thread667 ], [ %18, %.preheader ]
-  %.0388 = phi i8 [ %.23411, %.thread667 ], [ 0, %.preheader ]
-  %.0337 = phi ptr [ %.1338, %.thread667 ], [ null, %.preheader ]
+27:                                               ; preds = %.preheader, %503
+  %28 = phi ptr [ %504, %503 ], [ %18, %.preheader ]
+  %.0390 = phi i1 [ %.23413, %503 ], [ false, %.preheader ]
+  %.0339 = phi ptr [ %.1340, %503 ], [ null, %.preheader ]
   %29 = load i32, ptr %22, align 8, !tbaa !73
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %.thread663
+  br i1 %30, label %31, label %127
 
 31:                                               ; preds = %27
   %32 = load i8, ptr %28, align 1, !tbaa !58
@@ -1473,7 +1473,7 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit.th
 44:                                               ; preds = %35
   %45 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
   %.not.i = icmp eq i32 %45, 0
-  br i1 %.not.i, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit
+  br i1 %.not.i, label %.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit
 
 _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit: ; preds = %44
   %46 = load ptr, ptr %19, align 8, !tbaa !95
@@ -1495,9 +1495,9 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit: ;
   %56 = load ptr, ptr %19, align 8, !tbaa !95
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store ptr %57, ptr %19, align 8, !tbaa !95
-  br i1 %55, label %63, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit534.thread
+  br i1 %55, label %63, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit535.thread
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit534.thread: ; preds = %53
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit535.thread: ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %59 = load ptr, ptr %0, align 8, !tbaa !94
   %60 = ptrtoint ptr %58 to i64
@@ -1508,10 +1508,10 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit534
 
 63:                                               ; preds = %53
   %64 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i533 = icmp eq i32 %64, 0
-  br i1 %.not.i533, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit534
+  %.not.i534 = icmp eq i32 %64, 0
+  br i1 %.not.i534, label %.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit535
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit534: ; preds = %63
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit535: ; preds = %63
   %65 = load ptr, ptr %19, align 8, !tbaa !95
   %66 = load ptr, ptr %0, align 8, !tbaa !94
   %67 = ptrtoint ptr %65 to i64
@@ -1535,8 +1535,7 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit534
   %78 = load i8, ptr %28, align 1, !tbaa !58
   %79 = and i8 %78, 31
   %80 = zext nneg i8 %79 to i32
-  store i32 %80, ptr %22, align 8, !tbaa !73
-  br label %127
+  br label %.thread661
 
 81:                                               ; preds = %70
   %82 = and i8 %32, -32
@@ -1548,16 +1547,16 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit534
   %85 = zext nneg i8 %84 to i64
   store i64 %85, ptr %24, align 8, !tbaa !72
   %86 = icmp eq i8 %84, 0
-  br i1 %86, label %87, label %.thread663.thread
+  br i1 %86, label %87, label %.thread661
 
 87:                                               ; preds = %83
-  %88 = call noundef zeroext i1 @_ZN17json_like_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(9) %23, ptr noundef %.0337, i32 noundef 0)
+  %88 = call noundef zeroext i1 @_ZN17json_like_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(9) %23, ptr noundef %.0339, i32 noundef 0)
   %89 = load ptr, ptr %19, align 8, !tbaa !95
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 1
   store ptr %90, ptr %19, align 8, !tbaa !95
-  br i1 %88, label %96, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537.thread
+  br i1 %88, label %96, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit538.thread
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537.thread: ; preds = %87
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit538.thread: ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 1
   %92 = load ptr, ptr %0, align 8, !tbaa !94
   %93 = ptrtoint ptr %91 to i64
@@ -1568,10 +1567,10 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537
 
 96:                                               ; preds = %87
   %97 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i536 = icmp eq i32 %97, 0
-  br i1 %.not.i536, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537
+  %.not.i537 = icmp eq i32 %97, 0
+  br i1 %.not.i537, label %.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit538
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537: ; preds = %96
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit538: ; preds = %96
   %98 = load ptr, ptr %19, align 8, !tbaa !95
   %99 = load ptr, ptr %0, align 8, !tbaa !94
   %100 = ptrtoint ptr %98 to i64
@@ -1580,10 +1579,6 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537
   store i64 %102, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
-
-.thread663.thread:                                ; preds = %83
-  store i32 32, ptr %22, align 8, !tbaa !73
-  br label %.thread670
 
 103:                                              ; preds = %81
   %104 = and i8 %32, -16
@@ -1598,8 +1593,8 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537
   %106 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE15start_aggregateINS_2v16detail7fix_tagENS4_8array_svENS4_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  %.not459 = icmp eq i32 %106, 0
-  br i1 %.not459, label %thread-pre-split, label %.thread
+  %.not461 = icmp eq i32 %106, 0
+  br i1 %.not461, label %127, label %.thread
 
 107:                                              ; preds = %103
   %108 = icmp samesign ult i8 %32, -112
@@ -1613,8 +1608,8 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537
   %110 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE15start_aggregateINS_2v16detail7fix_tagENS4_6map_svENS4_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  %.not458 = icmp eq i32 %110, 0
-  br i1 %.not458, label %thread-pre-split, label %.thread
+  %.not460 = icmp eq i32 %110, 0
+  br i1 %.not460, label %127, label %.thread
 
 111:                                              ; preds = %107
   switch i8 %32, label %121 [
@@ -1626,20 +1621,20 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537
 112:                                              ; preds = %111
   %113 = call noundef zeroext i1 @_ZN17json_like_visitor13visit_booleanEb(ptr noundef nonnull align 8 dereferenceable(9) %23, i1 noundef zeroext false)
   %114 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %113, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not457 = icmp eq i32 %114, 0
-  br i1 %.not457, label %thread-pre-split, label %.thread
+  %.not459 = icmp eq i32 %114, 0
+  br i1 %.not459, label %127, label %.thread
 
 115:                                              ; preds = %111
   %116 = call noundef zeroext i1 @_ZN17json_like_visitor13visit_booleanEb(ptr noundef nonnull align 8 dereferenceable(9) %23, i1 noundef zeroext true)
   %117 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %116, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not456 = icmp eq i32 %117, 0
-  br i1 %.not456, label %thread-pre-split, label %.thread
+  %.not458 = icmp eq i32 %117, 0
+  br i1 %.not458, label %127, label %.thread
 
 118:                                              ; preds = %111
   %119 = call noundef zeroext i1 @_ZN17json_like_visitor9visit_nilEv(ptr noundef nonnull align 8 dereferenceable(9) %23)
   %120 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %119, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.not = icmp eq i32 %120, 0
-  br i1 %.not, label %thread-pre-split, label %.thread
+  br i1 %.not, label %127, label %.thread
 
 121:                                              ; preds = %111
   %122 = load ptr, ptr %0, align 8, !tbaa !94
@@ -1651,830 +1646,820 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537
   call void @_ZN17json_like_visitor11parse_errorEmm(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %126, i64 noundef %125)
   br label %.thread
 
-thread-pre-split:                                 ; preds = %105, %112, %118, %115, %109
-  %.pr = load i32, ptr %22, align 8, !tbaa !73
+.thread661:                                       ; preds = %83, %72
+  %storemerge = phi i32 [ %80, %72 ], [ 32, %83 ]
+  store i32 %storemerge, ptr %22, align 8, !tbaa !73
+  br label %._crit_edge
+
+.sink.split:                                      ; preds = %96, %63, %44
+  store i32 0, ptr %22, align 8, !tbaa !73
   br label %127
 
-127:                                              ; preds = %thread-pre-split, %72
-  %128 = phi i32 [ %.pr, %thread-pre-split ], [ %80, %72 ]
-  %.1389 = phi i8 [ 0, %thread-pre-split ], [ 1, %72 ]
-  %.not463 = icmp eq i32 %128, 0
-  br i1 %.not463, label %129, label %..thread663_crit_edge
+127:                                              ; preds = %.sink.split, %109, %115, %118, %112, %105, %27
+  %.1391 = phi i1 [ %.0390, %27 ], [ false, %105 ], [ false, %109 ], [ false, %112 ], [ false, %115 ], [ false, %118 ], [ false, %.sink.split ]
+  %128 = load i32, ptr %22, align 8, !tbaa !73
+  %129 = icmp ne i32 %128, 0
+  %or.cond61 = or i1 %.1391, %129
+  br i1 %or.cond61, label %130, label %503
 
-..thread663_crit_edge:                            ; preds = %127
-  %.pre1132.pre = load ptr, ptr %19, align 8, !tbaa !95
-  br label %.thread663
+130:                                              ; preds = %127
+  %.pre1120 = load ptr, ptr %19, align 8, !tbaa !95
+  br i1 %.1391, label %._crit_edge, label %134
 
-129:                                              ; preds = %127
-  %130 = trunc nuw i8 %.1389 to i1
-  br i1 %130, label %..thread670_crit_edge, label %.thread667
+._crit_edge:                                      ; preds = %130, %.thread661
+  %131 = phi ptr [ %28, %.thread661 ], [ %.pre1120, %130 ]
+  %132 = phi i32 [ %storemerge, %.thread661 ], [ %128, %130 ]
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 1
+  store ptr %133, ptr %19, align 8, !tbaa !95
+  br label %134
 
-..thread670_crit_edge:                            ; preds = %129
-  %.pre1131 = load ptr, ptr %19, align 8, !tbaa !95
-  br label %.thread670
+134:                                              ; preds = %._crit_edge, %130
+  %135 = phi ptr [ %133, %._crit_edge ], [ %.pre1120, %130 ]
+  %136 = phi i32 [ %132, %._crit_edge ], [ %128, %130 ]
+  %137 = ptrtoint ptr %135 to i64
+  %138 = sub i64 %26, %137
+  %139 = load i64, ptr %24, align 8, !tbaa !72
+  %140 = icmp ult i64 %138, %139
+  br i1 %140, label %141, label %145
 
-.thread663:                                       ; preds = %..thread663_crit_edge, %27
-  %.pre1132 = phi ptr [ %.pre1132.pre, %..thread663_crit_edge ], [ %28, %27 ]
-  %.1389658 = phi i8 [ %.1389, %..thread663_crit_edge ], [ %.0388, %27 ]
-  %131 = phi i32 [ %128, %..thread663_crit_edge ], [ %29, %27 ]
-  %132 = trunc nuw i8 %.1389658 to i1
-  br i1 %132, label %.thread670, label %.thread663._crit_edge
-
-.thread670:                                       ; preds = %..thread670_crit_edge, %.thread663.thread, %.thread663
-  %133 = phi ptr [ %.pre1132, %.thread663 ], [ %.pre1131, %..thread670_crit_edge ], [ %28, %.thread663.thread ]
-  %134 = phi i32 [ %131, %.thread663 ], [ 0, %..thread670_crit_edge ], [ 32, %.thread663.thread ]
-  %135 = getelementptr inbounds nuw i8, ptr %133, i64 1
-  store ptr %135, ptr %19, align 8, !tbaa !95
-  br label %.thread663._crit_edge
-
-.thread663._crit_edge:                            ; preds = %.thread663, %.thread670
-  %136 = phi ptr [ %135, %.thread670 ], [ %.pre1132, %.thread663 ]
-  %137 = phi i32 [ %134, %.thread670 ], [ %131, %.thread663 ]
-  %138 = ptrtoint ptr %136 to i64
-  %139 = sub i64 %26, %138
-  %140 = load i64, ptr %24, align 8, !tbaa !72
-  %141 = icmp ult i64 %139, %140
-  br i1 %141, label %142, label %146
-
-142:                                              ; preds = %.thread663._crit_edge
-  %143 = load ptr, ptr %0, align 8, !tbaa !94
-  %144 = ptrtoint ptr %143 to i64
-  %145 = sub i64 %138, %144
-  store i64 %145, ptr %3, align 8, !tbaa !9
+141:                                              ; preds = %134
+  %142 = load ptr, ptr %0, align 8, !tbaa !94
+  %143 = ptrtoint ptr %142 to i64
+  %144 = sub i64 %137, %143
+  store i64 %144, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-146:                                              ; preds = %.thread663._crit_edge
-  %147 = getelementptr i8, ptr %136, i64 %140
-  %148 = getelementptr i8, ptr %147, i64 -1
-  store ptr %148, ptr %19, align 8, !tbaa !95
-  switch i32 %137, label %495 [
-    i32 10, label %149
-    i32 11, label %156
-    i32 12, label %163
-    i32 13, label %181
-    i32 14, label %199
-    i32 15, label %218
-    i32 16, label %236
-    i32 17, label %254
-    i32 18, label %272
-    i32 19, label %291
-    i32 20, label %309
-    i32 21, label %316
-    i32 22, label %323
-    i32 23, label %330
-    i32 24, label %337
-    i32 25, label %344
-    i32 4, label %365
-    i32 7, label %377
-    i32 26, label %380
-    i32 5, label %402
-    i32 8, label %414
-    i32 27, label %417
-    i32 6, label %439
-    i32 9, label %452
-    i32 32, label %456
-    i32 33, label %473
-    i32 34, label %480
-    i32 28, label %487
-    i32 29, label %489
-    i32 30, label %491
-    i32 31, label %493
+145:                                              ; preds = %134
+  %146 = getelementptr i8, ptr %135, i64 %139
+  %147 = getelementptr i8, ptr %146, i64 -1
+  store ptr %147, ptr %19, align 8, !tbaa !95
+  switch i32 %136, label %494 [
+    i32 10, label %148
+    i32 11, label %155
+    i32 12, label %162
+    i32 13, label %180
+    i32 14, label %198
+    i32 15, label %217
+    i32 16, label %235
+    i32 17, label %253
+    i32 18, label %271
+    i32 19, label %290
+    i32 20, label %308
+    i32 21, label %315
+    i32 22, label %322
+    i32 23, label %329
+    i32 24, label %336
+    i32 25, label %343
+    i32 4, label %364
+    i32 7, label %376
+    i32 26, label %379
+    i32 5, label %401
+    i32 8, label %413
+    i32 27, label %416
+    i32 6, label %438
+    i32 9, label %451
+    i32 32, label %455
+    i32 33, label %472
+    i32 34, label %479
+    i32 28, label %486
+    i32 29, label %488
+    i32 30, label %490
+    i32 31, label %492
   ]
 
-149:                                              ; preds = %146
-  store ptr %147, ptr %19, align 8, !tbaa !95
-  %150 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i538 = icmp eq i32 %150, 0
-  br i1 %.not.i538, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit540
+148:                                              ; preds = %145
+  store ptr %146, ptr %19, align 8, !tbaa !95
+  %149 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i539 = icmp eq i32 %149, 0
+  br i1 %.not.i539, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit541
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit540: ; preds = %149
-  %151 = load ptr, ptr %19, align 8, !tbaa !95
-  %152 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit541: ; preds = %148
+  %150 = load ptr, ptr %19, align 8, !tbaa !95
+  %151 = load ptr, ptr %0, align 8, !tbaa !94
+  %152 = ptrtoint ptr %150 to i64
   %153 = ptrtoint ptr %151 to i64
-  %154 = ptrtoint ptr %152 to i64
-  %155 = sub i64 %153, %154
-  store i64 %155, ptr %3, align 8, !tbaa !9
+  %154 = sub i64 %152, %153
+  store i64 %154, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-156:                                              ; preds = %146
-  store ptr %147, ptr %19, align 8, !tbaa !95
-  %157 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i541 = icmp eq i32 %157, 0
-  br i1 %.not.i541, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit543
+155:                                              ; preds = %145
+  store ptr %146, ptr %19, align 8, !tbaa !95
+  %156 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i542 = icmp eq i32 %156, 0
+  br i1 %.not.i542, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit544
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit543: ; preds = %156
-  %158 = load ptr, ptr %19, align 8, !tbaa !95
-  %159 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit544: ; preds = %155
+  %157 = load ptr, ptr %19, align 8, !tbaa !95
+  %158 = load ptr, ptr %0, align 8, !tbaa !94
+  %159 = ptrtoint ptr %157 to i64
   %160 = ptrtoint ptr %158 to i64
-  %161 = ptrtoint ptr %159 to i64
-  %162 = sub i64 %160, %161
-  store i64 %162, ptr %3, align 8, !tbaa !9
+  %161 = sub i64 %159, %160
+  store i64 %161, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-163:                                              ; preds = %146
-  %164 = load i8, ptr %136, align 1, !tbaa !58
-  %165 = zext i8 %164 to i64
-  %166 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_positive_integerEm(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %165)
-  %167 = load ptr, ptr %19, align 8, !tbaa !95
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 1
-  store ptr %168, ptr %19, align 8, !tbaa !95
-  br i1 %166, label %174, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit546.thread
+162:                                              ; preds = %145
+  %163 = load i8, ptr %135, align 1, !tbaa !58
+  %164 = zext i8 %163 to i64
+  %165 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_positive_integerEm(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %164)
+  %166 = load ptr, ptr %19, align 8, !tbaa !95
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 1
+  store ptr %167, ptr %19, align 8, !tbaa !95
+  br i1 %165, label %173, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit547.thread
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit546.thread: ; preds = %163
-  %169 = getelementptr inbounds nuw i8, ptr %167, i64 1
-  %170 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit547.thread: ; preds = %162
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 1
+  %169 = load ptr, ptr %0, align 8, !tbaa !94
+  %170 = ptrtoint ptr %168 to i64
   %171 = ptrtoint ptr %169 to i64
-  %172 = ptrtoint ptr %170 to i64
-  %173 = sub i64 %171, %172
-  store i64 %173, ptr %3, align 8, !tbaa !9
+  %172 = sub i64 %170, %171
+  store i64 %172, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-174:                                              ; preds = %163
-  %175 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i545 = icmp eq i32 %175, 0
-  br i1 %.not.i545, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit546
+173:                                              ; preds = %162
+  %174 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i546 = icmp eq i32 %174, 0
+  br i1 %.not.i546, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit547
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit546: ; preds = %174
-  %176 = load ptr, ptr %19, align 8, !tbaa !95
-  %177 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit547: ; preds = %173
+  %175 = load ptr, ptr %19, align 8, !tbaa !95
+  %176 = load ptr, ptr %0, align 8, !tbaa !94
+  %177 = ptrtoint ptr %175 to i64
   %178 = ptrtoint ptr %176 to i64
-  %179 = ptrtoint ptr %177 to i64
-  %180 = sub i64 %178, %179
-  store i64 %180, ptr %3, align 8, !tbaa !9
+  %179 = sub i64 %177, %178
+  store i64 %179, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-181:                                              ; preds = %146
-  %182 = load i16, ptr %136, align 1
-  %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %182)
-  %183 = zext i16 %rev.i.i to i64
-  %184 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_positive_integerEm(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %183)
-  %185 = load ptr, ptr %19, align 8, !tbaa !95
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 1
-  store ptr %186, ptr %19, align 8, !tbaa !95
-  br i1 %184, label %192, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit549.thread
+180:                                              ; preds = %145
+  %181 = load i16, ptr %135, align 1
+  %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %181)
+  %182 = zext i16 %rev.i.i to i64
+  %183 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_positive_integerEm(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %182)
+  %184 = load ptr, ptr %19, align 8, !tbaa !95
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 1
+  store ptr %185, ptr %19, align 8, !tbaa !95
+  br i1 %183, label %191, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit550.thread
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit549.thread: ; preds = %181
-  %187 = getelementptr inbounds nuw i8, ptr %185, i64 1
-  %188 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit550.thread: ; preds = %180
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 1
+  %187 = load ptr, ptr %0, align 8, !tbaa !94
+  %188 = ptrtoint ptr %186 to i64
   %189 = ptrtoint ptr %187 to i64
-  %190 = ptrtoint ptr %188 to i64
-  %191 = sub i64 %189, %190
-  store i64 %191, ptr %3, align 8, !tbaa !9
+  %190 = sub i64 %188, %189
+  store i64 %190, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-192:                                              ; preds = %181
-  %193 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i548 = icmp eq i32 %193, 0
-  br i1 %.not.i548, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit549
+191:                                              ; preds = %180
+  %192 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i549 = icmp eq i32 %192, 0
+  br i1 %.not.i549, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit550
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit549: ; preds = %192
-  %194 = load ptr, ptr %19, align 8, !tbaa !95
-  %195 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit550: ; preds = %191
+  %193 = load ptr, ptr %19, align 8, !tbaa !95
+  %194 = load ptr, ptr %0, align 8, !tbaa !94
+  %195 = ptrtoint ptr %193 to i64
   %196 = ptrtoint ptr %194 to i64
-  %197 = ptrtoint ptr %195 to i64
-  %198 = sub i64 %196, %197
-  store i64 %198, ptr %3, align 8, !tbaa !9
+  %197 = sub i64 %195, %196
+  store i64 %197, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-199:                                              ; preds = %146
-  %200 = load i32, ptr %136, align 1
-  %201 = call noundef i32 @llvm.bswap.i32(i32 %200)
-  %202 = zext i32 %201 to i64
-  %203 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_positive_integerEm(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %202)
-  %204 = load ptr, ptr %19, align 8, !tbaa !95
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 1
-  store ptr %205, ptr %19, align 8, !tbaa !95
-  br i1 %203, label %211, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit552.thread
+198:                                              ; preds = %145
+  %199 = load i32, ptr %135, align 1
+  %200 = call noundef i32 @llvm.bswap.i32(i32 %199)
+  %201 = zext i32 %200 to i64
+  %202 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_positive_integerEm(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %201)
+  %203 = load ptr, ptr %19, align 8, !tbaa !95
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 1
+  store ptr %204, ptr %19, align 8, !tbaa !95
+  br i1 %202, label %210, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit553.thread
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit552.thread: ; preds = %199
-  %206 = getelementptr inbounds nuw i8, ptr %204, i64 1
-  %207 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit553.thread: ; preds = %198
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 1
+  %206 = load ptr, ptr %0, align 8, !tbaa !94
+  %207 = ptrtoint ptr %205 to i64
   %208 = ptrtoint ptr %206 to i64
-  %209 = ptrtoint ptr %207 to i64
-  %210 = sub i64 %208, %209
-  store i64 %210, ptr %3, align 8, !tbaa !9
+  %209 = sub i64 %207, %208
+  store i64 %209, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-211:                                              ; preds = %199
-  %212 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i551 = icmp eq i32 %212, 0
-  br i1 %.not.i551, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit552
+210:                                              ; preds = %198
+  %211 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i552 = icmp eq i32 %211, 0
+  br i1 %.not.i552, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit553
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit552: ; preds = %211
-  %213 = load ptr, ptr %19, align 8, !tbaa !95
-  %214 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit553: ; preds = %210
+  %212 = load ptr, ptr %19, align 8, !tbaa !95
+  %213 = load ptr, ptr %0, align 8, !tbaa !94
+  %214 = ptrtoint ptr %212 to i64
   %215 = ptrtoint ptr %213 to i64
-  %216 = ptrtoint ptr %214 to i64
-  %217 = sub i64 %215, %216
-  store i64 %217, ptr %3, align 8, !tbaa !9
+  %216 = sub i64 %214, %215
+  store i64 %216, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-218:                                              ; preds = %146
-  %219 = load i64, ptr %136, align 1
-  %220 = call noundef i64 @llvm.bswap.i64(i64 %219)
-  %221 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_positive_integerEm(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %220)
-  %222 = load ptr, ptr %19, align 8, !tbaa !95
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 1
-  store ptr %223, ptr %19, align 8, !tbaa !95
-  br i1 %221, label %229, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit555.thread
+217:                                              ; preds = %145
+  %218 = load i64, ptr %135, align 1
+  %219 = call noundef i64 @llvm.bswap.i64(i64 %218)
+  %220 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_positive_integerEm(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %219)
+  %221 = load ptr, ptr %19, align 8, !tbaa !95
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 1
+  store ptr %222, ptr %19, align 8, !tbaa !95
+  br i1 %220, label %228, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit556.thread
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit555.thread: ; preds = %218
-  %224 = getelementptr inbounds nuw i8, ptr %222, i64 1
-  %225 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit556.thread: ; preds = %217
+  %223 = getelementptr inbounds nuw i8, ptr %221, i64 1
+  %224 = load ptr, ptr %0, align 8, !tbaa !94
+  %225 = ptrtoint ptr %223 to i64
   %226 = ptrtoint ptr %224 to i64
-  %227 = ptrtoint ptr %225 to i64
-  %228 = sub i64 %226, %227
-  store i64 %228, ptr %3, align 8, !tbaa !9
+  %227 = sub i64 %225, %226
+  store i64 %227, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-229:                                              ; preds = %218
-  %230 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i554 = icmp eq i32 %230, 0
-  br i1 %.not.i554, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit555
+228:                                              ; preds = %217
+  %229 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i555 = icmp eq i32 %229, 0
+  br i1 %.not.i555, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit556
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit555: ; preds = %229
-  %231 = load ptr, ptr %19, align 8, !tbaa !95
-  %232 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit556: ; preds = %228
+  %230 = load ptr, ptr %19, align 8, !tbaa !95
+  %231 = load ptr, ptr %0, align 8, !tbaa !94
+  %232 = ptrtoint ptr %230 to i64
   %233 = ptrtoint ptr %231 to i64
-  %234 = ptrtoint ptr %232 to i64
-  %235 = sub i64 %233, %234
-  store i64 %235, ptr %3, align 8, !tbaa !9
+  %234 = sub i64 %232, %233
+  store i64 %234, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-236:                                              ; preds = %146
-  %237 = load i8, ptr %136, align 1, !tbaa !58
-  %238 = sext i8 %237 to i64
-  %239 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_negative_integerEl(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %238)
-  %240 = load ptr, ptr %19, align 8, !tbaa !95
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 1
-  store ptr %241, ptr %19, align 8, !tbaa !95
-  br i1 %239, label %247, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit558.thread
+235:                                              ; preds = %145
+  %236 = load i8, ptr %135, align 1, !tbaa !58
+  %237 = sext i8 %236 to i64
+  %238 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_negative_integerEl(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %237)
+  %239 = load ptr, ptr %19, align 8, !tbaa !95
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 1
+  store ptr %240, ptr %19, align 8, !tbaa !95
+  br i1 %238, label %246, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit559.thread
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit558.thread: ; preds = %236
-  %242 = getelementptr inbounds nuw i8, ptr %240, i64 1
-  %243 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit559.thread: ; preds = %235
+  %241 = getelementptr inbounds nuw i8, ptr %239, i64 1
+  %242 = load ptr, ptr %0, align 8, !tbaa !94
+  %243 = ptrtoint ptr %241 to i64
   %244 = ptrtoint ptr %242 to i64
-  %245 = ptrtoint ptr %243 to i64
-  %246 = sub i64 %244, %245
-  store i64 %246, ptr %3, align 8, !tbaa !9
+  %245 = sub i64 %243, %244
+  store i64 %245, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-247:                                              ; preds = %236
-  %248 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i557 = icmp eq i32 %248, 0
-  br i1 %.not.i557, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit558
+246:                                              ; preds = %235
+  %247 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i558 = icmp eq i32 %247, 0
+  br i1 %.not.i558, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit559
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit558: ; preds = %247
-  %249 = load ptr, ptr %19, align 8, !tbaa !95
-  %250 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit559: ; preds = %246
+  %248 = load ptr, ptr %19, align 8, !tbaa !95
+  %249 = load ptr, ptr %0, align 8, !tbaa !94
+  %250 = ptrtoint ptr %248 to i64
   %251 = ptrtoint ptr %249 to i64
-  %252 = ptrtoint ptr %250 to i64
-  %253 = sub i64 %251, %252
-  store i64 %253, ptr %3, align 8, !tbaa !9
+  %252 = sub i64 %250, %251
+  store i64 %252, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-254:                                              ; preds = %146
-  %255 = load i16, ptr %136, align 1
-  %rev.i.i559 = call noundef i16 @llvm.bswap.i16(i16 %255)
-  %256 = sext i16 %rev.i.i559 to i64
-  %257 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_negative_integerEl(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %256)
-  %258 = load ptr, ptr %19, align 8, !tbaa !95
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 1
-  store ptr %259, ptr %19, align 8, !tbaa !95
-  br i1 %257, label %265, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit562.thread
+253:                                              ; preds = %145
+  %254 = load i16, ptr %135, align 1
+  %rev.i.i560 = call noundef i16 @llvm.bswap.i16(i16 %254)
+  %255 = sext i16 %rev.i.i560 to i64
+  %256 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_negative_integerEl(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %255)
+  %257 = load ptr, ptr %19, align 8, !tbaa !95
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 1
+  store ptr %258, ptr %19, align 8, !tbaa !95
+  br i1 %256, label %264, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit563.thread
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit562.thread: ; preds = %254
-  %260 = getelementptr inbounds nuw i8, ptr %258, i64 1
-  %261 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit563.thread: ; preds = %253
+  %259 = getelementptr inbounds nuw i8, ptr %257, i64 1
+  %260 = load ptr, ptr %0, align 8, !tbaa !94
+  %261 = ptrtoint ptr %259 to i64
   %262 = ptrtoint ptr %260 to i64
-  %263 = ptrtoint ptr %261 to i64
-  %264 = sub i64 %262, %263
-  store i64 %264, ptr %3, align 8, !tbaa !9
+  %263 = sub i64 %261, %262
+  store i64 %263, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-265:                                              ; preds = %254
-  %266 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i561 = icmp eq i32 %266, 0
-  br i1 %.not.i561, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit562
+264:                                              ; preds = %253
+  %265 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i562 = icmp eq i32 %265, 0
+  br i1 %.not.i562, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit563
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit562: ; preds = %265
-  %267 = load ptr, ptr %19, align 8, !tbaa !95
-  %268 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit563: ; preds = %264
+  %266 = load ptr, ptr %19, align 8, !tbaa !95
+  %267 = load ptr, ptr %0, align 8, !tbaa !94
+  %268 = ptrtoint ptr %266 to i64
   %269 = ptrtoint ptr %267 to i64
-  %270 = ptrtoint ptr %268 to i64
-  %271 = sub i64 %269, %270
-  store i64 %271, ptr %3, align 8, !tbaa !9
+  %270 = sub i64 %268, %269
+  store i64 %270, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-272:                                              ; preds = %146
-  %273 = load i32, ptr %136, align 1
-  %274 = call noundef i32 @llvm.bswap.i32(i32 %273)
-  %275 = sext i32 %274 to i64
-  %276 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_negative_integerEl(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %275)
-  %277 = load ptr, ptr %19, align 8, !tbaa !95
-  %278 = getelementptr inbounds nuw i8, ptr %277, i64 1
-  store ptr %278, ptr %19, align 8, !tbaa !95
-  br i1 %276, label %284, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit565.thread
+271:                                              ; preds = %145
+  %272 = load i32, ptr %135, align 1
+  %273 = call noundef i32 @llvm.bswap.i32(i32 %272)
+  %274 = sext i32 %273 to i64
+  %275 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_negative_integerEl(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %274)
+  %276 = load ptr, ptr %19, align 8, !tbaa !95
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 1
+  store ptr %277, ptr %19, align 8, !tbaa !95
+  br i1 %275, label %283, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit566.thread
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit565.thread: ; preds = %272
-  %279 = getelementptr inbounds nuw i8, ptr %277, i64 1
-  %280 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit566.thread: ; preds = %271
+  %278 = getelementptr inbounds nuw i8, ptr %276, i64 1
+  %279 = load ptr, ptr %0, align 8, !tbaa !94
+  %280 = ptrtoint ptr %278 to i64
   %281 = ptrtoint ptr %279 to i64
-  %282 = ptrtoint ptr %280 to i64
-  %283 = sub i64 %281, %282
-  store i64 %283, ptr %3, align 8, !tbaa !9
+  %282 = sub i64 %280, %281
+  store i64 %282, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-284:                                              ; preds = %272
-  %285 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i564 = icmp eq i32 %285, 0
-  br i1 %.not.i564, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit565
+283:                                              ; preds = %271
+  %284 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i565 = icmp eq i32 %284, 0
+  br i1 %.not.i565, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit566
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit565: ; preds = %284
-  %286 = load ptr, ptr %19, align 8, !tbaa !95
-  %287 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit566: ; preds = %283
+  %285 = load ptr, ptr %19, align 8, !tbaa !95
+  %286 = load ptr, ptr %0, align 8, !tbaa !94
+  %287 = ptrtoint ptr %285 to i64
   %288 = ptrtoint ptr %286 to i64
-  %289 = ptrtoint ptr %287 to i64
-  %290 = sub i64 %288, %289
-  store i64 %290, ptr %3, align 8, !tbaa !9
+  %289 = sub i64 %287, %288
+  store i64 %289, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-291:                                              ; preds = %146
-  %292 = load i64, ptr %136, align 1
-  %293 = call noundef i64 @llvm.bswap.i64(i64 %292)
-  %294 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_negative_integerEl(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %293)
-  %295 = load ptr, ptr %19, align 8, !tbaa !95
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 1
-  store ptr %296, ptr %19, align 8, !tbaa !95
-  br i1 %294, label %302, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit568.thread
+290:                                              ; preds = %145
+  %291 = load i64, ptr %135, align 1
+  %292 = call noundef i64 @llvm.bswap.i64(i64 %291)
+  %293 = call noundef zeroext i1 @_ZN17json_like_visitor22visit_negative_integerEl(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %292)
+  %294 = load ptr, ptr %19, align 8, !tbaa !95
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 1
+  store ptr %295, ptr %19, align 8, !tbaa !95
+  br i1 %293, label %301, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit569.thread
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit568.thread: ; preds = %291
-  %297 = getelementptr inbounds nuw i8, ptr %295, i64 1
-  %298 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit569.thread: ; preds = %290
+  %296 = getelementptr inbounds nuw i8, ptr %294, i64 1
+  %297 = load ptr, ptr %0, align 8, !tbaa !94
+  %298 = ptrtoint ptr %296 to i64
   %299 = ptrtoint ptr %297 to i64
-  %300 = ptrtoint ptr %298 to i64
-  %301 = sub i64 %299, %300
-  store i64 %301, ptr %3, align 8, !tbaa !9
+  %300 = sub i64 %298, %299
+  store i64 %300, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-302:                                              ; preds = %291
-  %303 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i567 = icmp eq i32 %303, 0
-  br i1 %.not.i567, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit568
+301:                                              ; preds = %290
+  %302 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i568 = icmp eq i32 %302, 0
+  br i1 %.not.i568, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit569
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit568: ; preds = %302
-  %304 = load ptr, ptr %19, align 8, !tbaa !95
-  %305 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit569: ; preds = %301
+  %303 = load ptr, ptr %19, align 8, !tbaa !95
+  %304 = load ptr, ptr %0, align 8, !tbaa !94
+  %305 = ptrtoint ptr %303 to i64
   %306 = ptrtoint ptr %304 to i64
-  %307 = ptrtoint ptr %305 to i64
-  %308 = sub i64 %306, %307
-  store i64 %308, ptr %3, align 8, !tbaa !9
+  %307 = sub i64 %305, %306
+  store i64 %307, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-309:                                              ; preds = %146
-  store ptr %147, ptr %19, align 8, !tbaa !95
-  %310 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i569 = icmp eq i32 %310, 0
-  br i1 %.not.i569, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit571
+308:                                              ; preds = %145
+  store ptr %146, ptr %19, align 8, !tbaa !95
+  %309 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i570 = icmp eq i32 %309, 0
+  br i1 %.not.i570, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit572
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit571: ; preds = %309
-  %311 = load ptr, ptr %19, align 8, !tbaa !95
-  %312 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit572: ; preds = %308
+  %310 = load ptr, ptr %19, align 8, !tbaa !95
+  %311 = load ptr, ptr %0, align 8, !tbaa !94
+  %312 = ptrtoint ptr %310 to i64
   %313 = ptrtoint ptr %311 to i64
-  %314 = ptrtoint ptr %312 to i64
-  %315 = sub i64 %313, %314
-  store i64 %315, ptr %3, align 8, !tbaa !9
+  %314 = sub i64 %312, %313
+  store i64 %314, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-316:                                              ; preds = %146
-  store ptr %147, ptr %19, align 8, !tbaa !95
-  %317 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i572 = icmp eq i32 %317, 0
-  br i1 %.not.i572, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit574
+315:                                              ; preds = %145
+  store ptr %146, ptr %19, align 8, !tbaa !95
+  %316 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i573 = icmp eq i32 %316, 0
+  br i1 %.not.i573, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit575
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit574: ; preds = %316
-  %318 = load ptr, ptr %19, align 8, !tbaa !95
-  %319 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit575: ; preds = %315
+  %317 = load ptr, ptr %19, align 8, !tbaa !95
+  %318 = load ptr, ptr %0, align 8, !tbaa !94
+  %319 = ptrtoint ptr %317 to i64
   %320 = ptrtoint ptr %318 to i64
-  %321 = ptrtoint ptr %319 to i64
-  %322 = sub i64 %320, %321
-  store i64 %322, ptr %3, align 8, !tbaa !9
+  %321 = sub i64 %319, %320
+  store i64 %321, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-323:                                              ; preds = %146
-  store ptr %147, ptr %19, align 8, !tbaa !95
-  %324 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i575 = icmp eq i32 %324, 0
-  br i1 %.not.i575, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit577
+322:                                              ; preds = %145
+  store ptr %146, ptr %19, align 8, !tbaa !95
+  %323 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i576 = icmp eq i32 %323, 0
+  br i1 %.not.i576, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit578
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit577: ; preds = %323
-  %325 = load ptr, ptr %19, align 8, !tbaa !95
-  %326 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit578: ; preds = %322
+  %324 = load ptr, ptr %19, align 8, !tbaa !95
+  %325 = load ptr, ptr %0, align 8, !tbaa !94
+  %326 = ptrtoint ptr %324 to i64
   %327 = ptrtoint ptr %325 to i64
-  %328 = ptrtoint ptr %326 to i64
-  %329 = sub i64 %327, %328
-  store i64 %329, ptr %3, align 8, !tbaa !9
+  %328 = sub i64 %326, %327
+  store i64 %328, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-330:                                              ; preds = %146
-  store ptr %147, ptr %19, align 8, !tbaa !95
-  %331 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i578 = icmp eq i32 %331, 0
-  br i1 %.not.i578, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit580
+329:                                              ; preds = %145
+  store ptr %146, ptr %19, align 8, !tbaa !95
+  %330 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i579 = icmp eq i32 %330, 0
+  br i1 %.not.i579, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit581
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit580: ; preds = %330
-  %332 = load ptr, ptr %19, align 8, !tbaa !95
-  %333 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit581: ; preds = %329
+  %331 = load ptr, ptr %19, align 8, !tbaa !95
+  %332 = load ptr, ptr %0, align 8, !tbaa !94
+  %333 = ptrtoint ptr %331 to i64
   %334 = ptrtoint ptr %332 to i64
-  %335 = ptrtoint ptr %333 to i64
-  %336 = sub i64 %334, %335
-  store i64 %336, ptr %3, align 8, !tbaa !9
+  %335 = sub i64 %333, %334
+  store i64 %335, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-337:                                              ; preds = %146
-  store ptr %147, ptr %19, align 8, !tbaa !95
-  %338 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i581 = icmp eq i32 %338, 0
-  br i1 %.not.i581, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit583
+336:                                              ; preds = %145
+  store ptr %146, ptr %19, align 8, !tbaa !95
+  %337 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i582 = icmp eq i32 %337, 0
+  br i1 %.not.i582, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit584
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit583: ; preds = %337
-  %339 = load ptr, ptr %19, align 8, !tbaa !95
-  %340 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit584: ; preds = %336
+  %338 = load ptr, ptr %19, align 8, !tbaa !95
+  %339 = load ptr, ptr %0, align 8, !tbaa !94
+  %340 = ptrtoint ptr %338 to i64
   %341 = ptrtoint ptr %339 to i64
-  %342 = ptrtoint ptr %340 to i64
-  %343 = sub i64 %341, %342
-  store i64 %343, ptr %3, align 8, !tbaa !9
+  %342 = sub i64 %340, %341
+  store i64 %342, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-344:                                              ; preds = %146
-  %345 = load i8, ptr %136, align 1, !tbaa !58
-  %346 = zext i8 %345 to i64
-  store i64 %346, ptr %24, align 8, !tbaa !72
-  %347 = icmp eq i8 %345, 0
-  br i1 %347, label %348, label %.thread667.sink.split
+343:                                              ; preds = %145
+  %344 = load i8, ptr %135, align 1, !tbaa !58
+  %345 = zext i8 %344 to i64
+  store i64 %345, ptr %24, align 8, !tbaa !72
+  %346 = icmp eq i8 %344, 0
+  br i1 %346, label %347, label %.sink.split1314
 
-348:                                              ; preds = %344
-  %349 = call noundef zeroext i1 @_ZN17json_like_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(9) %23, ptr noundef nonnull %136, i32 noundef 0)
-  %350 = load ptr, ptr %19, align 8, !tbaa !95
-  %351 = getelementptr inbounds nuw i8, ptr %350, i64 1
-  store ptr %351, ptr %19, align 8, !tbaa !95
-  br i1 %349, label %357, label %.thread734
+347:                                              ; preds = %343
+  %348 = call noundef zeroext i1 @_ZN17json_like_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(9) %23, ptr noundef nonnull %135, i32 noundef 0)
+  %349 = load ptr, ptr %19, align 8, !tbaa !95
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 1
+  store ptr %350, ptr %19, align 8, !tbaa !95
+  br i1 %348, label %356, label %.thread725
 
-.thread734:                                       ; preds = %348
-  %352 = getelementptr inbounds nuw i8, ptr %350, i64 1
-  %353 = load ptr, ptr %0, align 8, !tbaa !94
+.thread725:                                       ; preds = %347
+  %351 = getelementptr inbounds nuw i8, ptr %349, i64 1
+  %352 = load ptr, ptr %0, align 8, !tbaa !94
+  %353 = ptrtoint ptr %351 to i64
   %354 = ptrtoint ptr %352 to i64
-  %355 = ptrtoint ptr %353 to i64
-  %356 = sub i64 %354, %355
-  store i64 %356, ptr %3, align 8, !tbaa !9
+  %355 = sub i64 %353, %354
+  store i64 %355, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-357:                                              ; preds = %348
-  %358 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i585 = icmp eq i32 %358, 0
-  br i1 %.not.i585, label %.thread667.sink.split, label %359
+356:                                              ; preds = %347
+  %357 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i586 = icmp eq i32 %357, 0
+  br i1 %.not.i586, label %.sink.split1314, label %358
 
-359:                                              ; preds = %357
-  %360 = load ptr, ptr %19, align 8, !tbaa !95
-  %361 = load ptr, ptr %0, align 8, !tbaa !94
+358:                                              ; preds = %356
+  %359 = load ptr, ptr %19, align 8, !tbaa !95
+  %360 = load ptr, ptr %0, align 8, !tbaa !94
+  %361 = ptrtoint ptr %359 to i64
   %362 = ptrtoint ptr %360 to i64
-  %363 = ptrtoint ptr %361 to i64
-  %364 = sub i64 %362, %363
-  store i64 %364, ptr %3, align 8, !tbaa !9
+  %363 = sub i64 %361, %362
+  store i64 %363, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-365:                                              ; preds = %146
-  %366 = load i8, ptr %136, align 1, !tbaa !58
-  %367 = zext i8 %366 to i64
-  store i64 %367, ptr %24, align 8, !tbaa !72
-  %368 = icmp eq i8 %366, 0
-  br i1 %368, label %369, label %.thread667.sink.split
+364:                                              ; preds = %145
+  %365 = load i8, ptr %135, align 1, !tbaa !58
+  %366 = zext i8 %365 to i64
+  store i64 %366, ptr %24, align 8, !tbaa !72
+  %367 = icmp eq i8 %365, 0
+  br i1 %367, label %368, label %.sink.split1314
 
-369:                                              ; preds = %365
-  store ptr %147, ptr %19, align 8, !tbaa !95
-  %370 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i587 = icmp eq i32 %370, 0
-  br i1 %.not.i587, label %.thread667.sink.split, label %371
+368:                                              ; preds = %364
+  store ptr %146, ptr %19, align 8, !tbaa !95
+  %369 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i588 = icmp eq i32 %369, 0
+  br i1 %.not.i588, label %.sink.split1314, label %370
 
-371:                                              ; preds = %369
-  %372 = load ptr, ptr %19, align 8, !tbaa !95
-  %373 = load ptr, ptr %0, align 8, !tbaa !94
+370:                                              ; preds = %368
+  %371 = load ptr, ptr %19, align 8, !tbaa !95
+  %372 = load ptr, ptr %0, align 8, !tbaa !94
+  %373 = ptrtoint ptr %371 to i64
   %374 = ptrtoint ptr %372 to i64
-  %375 = ptrtoint ptr %373 to i64
-  %376 = sub i64 %374, %375
-  store i64 %376, ptr %3, align 8, !tbaa !9
+  %375 = sub i64 %373, %374
+  store i64 %375, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-377:                                              ; preds = %146
-  %378 = load i8, ptr %136, align 1, !tbaa !58
-  %379 = zext i8 %378 to i64
-  br label %.thread667.sink.split.sink.split
+376:                                              ; preds = %145
+  %377 = load i8, ptr %135, align 1, !tbaa !58
+  %378 = zext i8 %377 to i64
+  br label %.sink.split1314.sink.split
 
-380:                                              ; preds = %146
-  %381 = load i16, ptr %136, align 1
-  %rev.i.i590 = call noundef i16 @llvm.bswap.i16(i16 %381)
-  %382 = zext i16 %rev.i.i590 to i64
-  store i64 %382, ptr %24, align 8, !tbaa !72
-  %383 = icmp eq i16 %381, 0
-  br i1 %383, label %384, label %.thread667.sink.split
+379:                                              ; preds = %145
+  %380 = load i16, ptr %135, align 1
+  %rev.i.i591 = call noundef i16 @llvm.bswap.i16(i16 %380)
+  %381 = zext i16 %rev.i.i591 to i64
+  store i64 %381, ptr %24, align 8, !tbaa !72
+  %382 = icmp eq i16 %380, 0
+  br i1 %382, label %383, label %.sink.split1314
 
-384:                                              ; preds = %380
-  %385 = zext nneg i16 %rev.i.i590 to i32
-  %386 = call noundef zeroext i1 @_ZN17json_like_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(9) %23, ptr noundef nonnull %136, i32 noundef %385)
-  %387 = load ptr, ptr %19, align 8, !tbaa !95
-  %388 = getelementptr inbounds nuw i8, ptr %387, i64 1
-  store ptr %388, ptr %19, align 8, !tbaa !95
-  br i1 %386, label %394, label %.thread751
+383:                                              ; preds = %379
+  %384 = zext nneg i16 %rev.i.i591 to i32
+  %385 = call noundef zeroext i1 @_ZN17json_like_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(9) %23, ptr noundef nonnull %135, i32 noundef %384)
+  %386 = load ptr, ptr %19, align 8, !tbaa !95
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 1
+  store ptr %387, ptr %19, align 8, !tbaa !95
+  br i1 %385, label %393, label %.thread742
 
-.thread751:                                       ; preds = %384
-  %389 = getelementptr inbounds nuw i8, ptr %387, i64 1
-  %390 = load ptr, ptr %0, align 8, !tbaa !94
+.thread742:                                       ; preds = %383
+  %388 = getelementptr inbounds nuw i8, ptr %386, i64 1
+  %389 = load ptr, ptr %0, align 8, !tbaa !94
+  %390 = ptrtoint ptr %388 to i64
   %391 = ptrtoint ptr %389 to i64
-  %392 = ptrtoint ptr %390 to i64
-  %393 = sub i64 %391, %392
-  store i64 %393, ptr %3, align 8, !tbaa !9
+  %392 = sub i64 %390, %391
+  store i64 %392, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-394:                                              ; preds = %384
-  %395 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i592 = icmp eq i32 %395, 0
-  br i1 %.not.i592, label %.thread667.sink.split, label %396
+393:                                              ; preds = %383
+  %394 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i593 = icmp eq i32 %394, 0
+  br i1 %.not.i593, label %.sink.split1314, label %395
 
-396:                                              ; preds = %394
-  %397 = load ptr, ptr %19, align 8, !tbaa !95
-  %398 = load ptr, ptr %0, align 8, !tbaa !94
+395:                                              ; preds = %393
+  %396 = load ptr, ptr %19, align 8, !tbaa !95
+  %397 = load ptr, ptr %0, align 8, !tbaa !94
+  %398 = ptrtoint ptr %396 to i64
   %399 = ptrtoint ptr %397 to i64
-  %400 = ptrtoint ptr %398 to i64
-  %401 = sub i64 %399, %400
-  store i64 %401, ptr %3, align 8, !tbaa !9
+  %400 = sub i64 %398, %399
+  store i64 %400, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-402:                                              ; preds = %146
-  %403 = load i16, ptr %136, align 1
-  %rev.i.i594 = call noundef i16 @llvm.bswap.i16(i16 %403)
-  %404 = zext i16 %rev.i.i594 to i64
-  store i64 %404, ptr %24, align 8, !tbaa !72
-  %405 = icmp eq i16 %403, 0
-  br i1 %405, label %406, label %.thread667.sink.split
+401:                                              ; preds = %145
+  %402 = load i16, ptr %135, align 1
+  %rev.i.i595 = call noundef i16 @llvm.bswap.i16(i16 %402)
+  %403 = zext i16 %rev.i.i595 to i64
+  store i64 %403, ptr %24, align 8, !tbaa !72
+  %404 = icmp eq i16 %402, 0
+  br i1 %404, label %405, label %.sink.split1314
 
-406:                                              ; preds = %402
-  store ptr %147, ptr %19, align 8, !tbaa !95
-  %407 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i595 = icmp eq i32 %407, 0
-  br i1 %.not.i595, label %.thread667.sink.split, label %408
+405:                                              ; preds = %401
+  store ptr %146, ptr %19, align 8, !tbaa !95
+  %406 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i596 = icmp eq i32 %406, 0
+  br i1 %.not.i596, label %.sink.split1314, label %407
 
-408:                                              ; preds = %406
-  %409 = load ptr, ptr %19, align 8, !tbaa !95
-  %410 = load ptr, ptr %0, align 8, !tbaa !94
+407:                                              ; preds = %405
+  %408 = load ptr, ptr %19, align 8, !tbaa !95
+  %409 = load ptr, ptr %0, align 8, !tbaa !94
+  %410 = ptrtoint ptr %408 to i64
   %411 = ptrtoint ptr %409 to i64
-  %412 = ptrtoint ptr %410 to i64
-  %413 = sub i64 %411, %412
-  store i64 %413, ptr %3, align 8, !tbaa !9
+  %412 = sub i64 %410, %411
+  store i64 %412, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-414:                                              ; preds = %146
-  %415 = load i16, ptr %136, align 1
-  %rev.i.i598 = call noundef i16 @llvm.bswap.i16(i16 %415)
-  %416 = zext i16 %rev.i.i598 to i64
-  br label %.thread667.sink.split.sink.split
+413:                                              ; preds = %145
+  %414 = load i16, ptr %135, align 1
+  %rev.i.i599 = call noundef i16 @llvm.bswap.i16(i16 %414)
+  %415 = zext i16 %rev.i.i599 to i64
+  br label %.sink.split1314.sink.split
 
-417:                                              ; preds = %146
-  %418 = load i32, ptr %136, align 1
-  %419 = call noundef i32 @llvm.bswap.i32(i32 %418)
-  %420 = zext i32 %419 to i64
-  store i64 %420, ptr %24, align 8, !tbaa !72
-  %421 = icmp eq i32 %418, 0
-  br i1 %421, label %422, label %.thread667.sink.split
+416:                                              ; preds = %145
+  %417 = load i32, ptr %135, align 1
+  %418 = call noundef i32 @llvm.bswap.i32(i32 %417)
+  %419 = zext i32 %418 to i64
+  store i64 %419, ptr %24, align 8, !tbaa !72
+  %420 = icmp eq i32 %417, 0
+  br i1 %420, label %421, label %.sink.split1314
 
-422:                                              ; preds = %417
-  %423 = call noundef zeroext i1 @_ZN17json_like_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(9) %23, ptr noundef nonnull %136, i32 noundef %419)
-  %424 = load ptr, ptr %19, align 8, !tbaa !95
-  %425 = getelementptr inbounds nuw i8, ptr %424, i64 1
-  store ptr %425, ptr %19, align 8, !tbaa !95
-  br i1 %423, label %431, label %.thread768
+421:                                              ; preds = %416
+  %422 = call noundef zeroext i1 @_ZN17json_like_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(9) %23, ptr noundef nonnull %135, i32 noundef %418)
+  %423 = load ptr, ptr %19, align 8, !tbaa !95
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 1
+  store ptr %424, ptr %19, align 8, !tbaa !95
+  br i1 %422, label %430, label %.thread759
 
-.thread768:                                       ; preds = %422
-  %426 = getelementptr inbounds nuw i8, ptr %424, i64 1
-  %427 = load ptr, ptr %0, align 8, !tbaa !94
+.thread759:                                       ; preds = %421
+  %425 = getelementptr inbounds nuw i8, ptr %423, i64 1
+  %426 = load ptr, ptr %0, align 8, !tbaa !94
+  %427 = ptrtoint ptr %425 to i64
   %428 = ptrtoint ptr %426 to i64
-  %429 = ptrtoint ptr %427 to i64
-  %430 = sub i64 %428, %429
-  store i64 %430, ptr %3, align 8, !tbaa !9
+  %429 = sub i64 %427, %428
+  store i64 %429, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-431:                                              ; preds = %422
-  %432 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i600 = icmp eq i32 %432, 0
-  br i1 %.not.i600, label %.thread667.sink.split, label %433
+430:                                              ; preds = %421
+  %431 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i601 = icmp eq i32 %431, 0
+  br i1 %.not.i601, label %.sink.split1314, label %432
 
-433:                                              ; preds = %431
-  %434 = load ptr, ptr %19, align 8, !tbaa !95
-  %435 = load ptr, ptr %0, align 8, !tbaa !94
+432:                                              ; preds = %430
+  %433 = load ptr, ptr %19, align 8, !tbaa !95
+  %434 = load ptr, ptr %0, align 8, !tbaa !94
+  %435 = ptrtoint ptr %433 to i64
   %436 = ptrtoint ptr %434 to i64
-  %437 = ptrtoint ptr %435 to i64
-  %438 = sub i64 %436, %437
-  store i64 %438, ptr %3, align 8, !tbaa !9
+  %437 = sub i64 %435, %436
+  store i64 %437, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-439:                                              ; preds = %146
-  %440 = load i32, ptr %136, align 1
-  %441 = call noundef i32 @llvm.bswap.i32(i32 %440)
-  %442 = zext i32 %441 to i64
-  store i64 %442, ptr %24, align 8, !tbaa !72
-  %443 = icmp eq i32 %440, 0
-  br i1 %443, label %444, label %.thread667.sink.split
+438:                                              ; preds = %145
+  %439 = load i32, ptr %135, align 1
+  %440 = call noundef i32 @llvm.bswap.i32(i32 %439)
+  %441 = zext i32 %440 to i64
+  store i64 %441, ptr %24, align 8, !tbaa !72
+  %442 = icmp eq i32 %439, 0
+  br i1 %442, label %443, label %.sink.split1314
 
-444:                                              ; preds = %439
-  store ptr %147, ptr %19, align 8, !tbaa !95
-  %445 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i602 = icmp eq i32 %445, 0
-  br i1 %.not.i602, label %.thread667.sink.split, label %446
+443:                                              ; preds = %438
+  store ptr %146, ptr %19, align 8, !tbaa !95
+  %444 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i603 = icmp eq i32 %444, 0
+  br i1 %.not.i603, label %.sink.split1314, label %445
 
-446:                                              ; preds = %444
-  %447 = load ptr, ptr %19, align 8, !tbaa !95
-  %448 = load ptr, ptr %0, align 8, !tbaa !94
+445:                                              ; preds = %443
+  %446 = load ptr, ptr %19, align 8, !tbaa !95
+  %447 = load ptr, ptr %0, align 8, !tbaa !94
+  %448 = ptrtoint ptr %446 to i64
   %449 = ptrtoint ptr %447 to i64
-  %450 = ptrtoint ptr %448 to i64
-  %451 = sub i64 %449, %450
-  store i64 %451, ptr %3, align 8, !tbaa !9
+  %450 = sub i64 %448, %449
+  store i64 %450, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-452:                                              ; preds = %146
-  %453 = load i32, ptr %136, align 1
-  %454 = call noundef i32 @llvm.bswap.i32(i32 %453)
-  %455 = zext i32 %454 to i64
-  br label %.thread667.sink.split.sink.split
+451:                                              ; preds = %145
+  %452 = load i32, ptr %135, align 1
+  %453 = call noundef i32 @llvm.bswap.i32(i32 %452)
+  %454 = zext i32 %453 to i64
+  br label %.sink.split1314.sink.split
 
-456:                                              ; preds = %146
-  %457 = trunc i64 %140 to i32
-  %458 = call noundef zeroext i1 @_ZN17json_like_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(9) %23, ptr noundef %136, i32 noundef %457)
-  %459 = load ptr, ptr %19, align 8, !tbaa !95
-  %460 = getelementptr inbounds nuw i8, ptr %459, i64 1
-  store ptr %460, ptr %19, align 8, !tbaa !95
-  br i1 %458, label %466, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit607.thread
+455:                                              ; preds = %145
+  %456 = trunc i64 %139 to i32
+  %457 = call noundef zeroext i1 @_ZN17json_like_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(9) %23, ptr noundef %135, i32 noundef %456)
+  %458 = load ptr, ptr %19, align 8, !tbaa !95
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 1
+  store ptr %459, ptr %19, align 8, !tbaa !95
+  br i1 %457, label %465, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit608.thread
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit607.thread: ; preds = %456
-  %461 = getelementptr inbounds nuw i8, ptr %459, i64 1
-  %462 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit608.thread: ; preds = %455
+  %460 = getelementptr inbounds nuw i8, ptr %458, i64 1
+  %461 = load ptr, ptr %0, align 8, !tbaa !94
+  %462 = ptrtoint ptr %460 to i64
   %463 = ptrtoint ptr %461 to i64
-  %464 = ptrtoint ptr %462 to i64
-  %465 = sub i64 %463, %464
-  store i64 %465, ptr %3, align 8, !tbaa !9
+  %464 = sub i64 %462, %463
+  store i64 %464, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-466:                                              ; preds = %456
-  %467 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i606 = icmp eq i32 %467, 0
-  br i1 %.not.i606, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit607
+465:                                              ; preds = %455
+  %466 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i607 = icmp eq i32 %466, 0
+  br i1 %.not.i607, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit608
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit607: ; preds = %466
-  %468 = load ptr, ptr %19, align 8, !tbaa !95
-  %469 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit608: ; preds = %465
+  %467 = load ptr, ptr %19, align 8, !tbaa !95
+  %468 = load ptr, ptr %0, align 8, !tbaa !94
+  %469 = ptrtoint ptr %467 to i64
   %470 = ptrtoint ptr %468 to i64
-  %471 = ptrtoint ptr %469 to i64
-  %472 = sub i64 %470, %471
-  store i64 %472, ptr %3, align 8, !tbaa !9
+  %471 = sub i64 %469, %470
+  store i64 %471, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-473:                                              ; preds = %146
-  store ptr %147, ptr %19, align 8, !tbaa !95
-  %474 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i608 = icmp eq i32 %474, 0
-  br i1 %.not.i608, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit610
+472:                                              ; preds = %145
+  store ptr %146, ptr %19, align 8, !tbaa !95
+  %473 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i609 = icmp eq i32 %473, 0
+  br i1 %.not.i609, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit611
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit610: ; preds = %473
-  %475 = load ptr, ptr %19, align 8, !tbaa !95
-  %476 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit611: ; preds = %472
+  %474 = load ptr, ptr %19, align 8, !tbaa !95
+  %475 = load ptr, ptr %0, align 8, !tbaa !94
+  %476 = ptrtoint ptr %474 to i64
   %477 = ptrtoint ptr %475 to i64
-  %478 = ptrtoint ptr %476 to i64
-  %479 = sub i64 %477, %478
-  store i64 %479, ptr %3, align 8, !tbaa !9
+  %478 = sub i64 %476, %477
+  store i64 %478, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-480:                                              ; preds = %146
-  store ptr %147, ptr %19, align 8, !tbaa !95
-  %481 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
-  %.not.i611 = icmp eq i32 %481, 0
-  br i1 %.not.i611, label %.thread667.sink.split, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit613
+479:                                              ; preds = %145
+  store ptr %146, ptr %19, align 8, !tbaa !95
+  %480 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack7consumeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(160) %0)
+  %.not.i612 = icmp eq i32 %480, 0
+  br i1 %.not.i612, label %.sink.split1314, label %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit614
 
-_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit613: ; preds = %480
-  %482 = load ptr, ptr %19, align 8, !tbaa !95
-  %483 = load ptr, ptr %0, align 8, !tbaa !94
+_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit614: ; preds = %479
+  %481 = load ptr, ptr %19, align 8, !tbaa !95
+  %482 = load ptr, ptr %0, align 8, !tbaa !94
+  %483 = ptrtoint ptr %481 to i64
   %484 = ptrtoint ptr %482 to i64
-  %485 = ptrtoint ptr %483 to i64
-  %486 = sub i64 %484, %485
-  store i64 %486, ptr %3, align 8, !tbaa !9
+  %485 = sub i64 %483, %484
+  store i64 %485, ptr %3, align 8, !tbaa !9
   store i32 0, ptr %22, align 8, !tbaa !73
   br label %.thread
 
-487:                                              ; preds = %146
+486:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
   store ptr %0, ptr %9, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
   store ptr %0, ptr %10, align 8, !tbaa !86
-  %488 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE15start_aggregateItNS4_8array_svENS4_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %487 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE15start_aggregateItNS4_8array_svENS4_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %135, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  %.not467 = icmp eq i32 %488, 0
-  br i1 %.not467, label %.thread667, label %.thread
+  %.not468 = icmp eq i32 %487, 0
+  br i1 %.not468, label %503, label %.thread
 
-489:                                              ; preds = %146
+488:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
   store ptr %0, ptr %11, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
   store ptr %0, ptr %12, align 8, !tbaa !86
-  %490 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE15start_aggregateIjNS4_8array_svENS4_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %489 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE15start_aggregateIjNS4_8array_svENS4_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %135, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
-  %.not466 = icmp eq i32 %490, 0
-  br i1 %.not466, label %.thread667, label %.thread
+  %.not467 = icmp eq i32 %489, 0
+  br i1 %.not467, label %503, label %.thread
 
-491:                                              ; preds = %146
+490:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #25
   store ptr %0, ptr %13, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #25
   store ptr %0, ptr %14, align 8, !tbaa !86
-  %492 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE15start_aggregateItNS4_6map_svENS4_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %491 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE15start_aggregateItNS4_6map_svENS4_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %135, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #25
-  %.not465 = icmp eq i32 %492, 0
-  br i1 %.not465, label %.thread667, label %.thread
+  %.not466 = icmp eq i32 %491, 0
+  br i1 %.not466, label %503, label %.thread
 
-493:                                              ; preds = %146
+492:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #25
   store ptr %0, ptr %15, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #25
   store ptr %0, ptr %16, align 8, !tbaa !86
-  %494 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE15start_aggregateIjNS4_6map_svENS4_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %493 = call noundef i32 @_ZN7msgpack2v26detail7contextI17json_like_printerE15start_aggregateIjNS4_6map_svENS4_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %135, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #25
-  %.not464 = icmp eq i32 %494, 0
-  br i1 %.not464, label %.thread667, label %.thread
+  %.not465 = icmp eq i32 %493, 0
+  br i1 %.not465, label %503, label %.thread
 
-495:                                              ; preds = %146
-  %496 = getelementptr i8, ptr %147, i64 -1
-  %497 = load ptr, ptr %0, align 8, !tbaa !94
+494:                                              ; preds = %145
+  %495 = getelementptr i8, ptr %146, i64 -1
+  %496 = load ptr, ptr %0, align 8, !tbaa !94
+  %497 = ptrtoint ptr %495 to i64
   %498 = ptrtoint ptr %496 to i64
-  %499 = ptrtoint ptr %497 to i64
-  %500 = sub i64 %498, %499
-  store i64 %500, ptr %3, align 8, !tbaa !9
-  %501 = sub i64 %138, %499
-  %502 = add nsw i64 %501, -1
-  call void @_ZN17json_like_visitor11parse_errorEmm(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %502, i64 noundef %501)
+  %499 = sub i64 %497, %498
+  store i64 %499, ptr %3, align 8, !tbaa !9
+  %500 = sub i64 %137, %498
+  %501 = add nsw i64 %500, -1
+  call void @_ZN17json_like_visitor11parse_errorEmm(ptr noundef nonnull align 8 dereferenceable(9) %23, i64 noundef %501, i64 noundef %500)
   br label %.thread
 
-.thread667.sink.split.sink.split:                 ; preds = %452, %414, %377
-  %.sink1328 = phi i64 [ %379, %377 ], [ %416, %414 ], [ %455, %452 ]
-  %503 = add nuw nsw i64 %.sink1328, 1
-  store i64 %503, ptr %24, align 8, !tbaa !72
-  br label %.thread667.sink.split
+.sink.split1314.sink.split:                       ; preds = %451, %413, %376
+  %.sink1316 = phi i64 [ %378, %376 ], [ %415, %413 ], [ %454, %451 ]
+  %502 = add nuw nsw i64 %.sink1316, 1
+  store i64 %502, ptr %24, align 8, !tbaa !72
+  br label %.sink.split1314
 
-.thread667.sink.split:                            ; preds = %.thread667.sink.split.sink.split, %480, %473, %466, %439, %444, %417, %431, %402, %406, %380, %394, %365, %369, %344, %357, %337, %330, %323, %316, %309, %302, %284, %265, %247, %229, %211, %192, %174, %156, %149, %96, %63, %44
-  %.sink = phi i32 [ 0, %44 ], [ 0, %63 ], [ 0, %96 ], [ 0, %149 ], [ 0, %156 ], [ 0, %174 ], [ 0, %192 ], [ 0, %211 ], [ 0, %229 ], [ 0, %247 ], [ 0, %265 ], [ 0, %284 ], [ 0, %302 ], [ 0, %309 ], [ 0, %316 ], [ 0, %323 ], [ 0, %330 ], [ 0, %337 ], [ 0, %357 ], [ 32, %344 ], [ 0, %369 ], [ 33, %365 ], [ 0, %394 ], [ 32, %380 ], [ 0, %406 ], [ 33, %402 ], [ 0, %431 ], [ 32, %417 ], [ 0, %444 ], [ 33, %439 ], [ 0, %466 ], [ 0, %473 ], [ 0, %480 ], [ 34, %.thread667.sink.split.sink.split ]
-  %.23411.ph = phi i8 [ 0, %44 ], [ 0, %63 ], [ 0, %96 ], [ 0, %149 ], [ 0, %156 ], [ 0, %174 ], [ 0, %192 ], [ 0, %211 ], [ 0, %229 ], [ 0, %247 ], [ 0, %265 ], [ 0, %284 ], [ 0, %302 ], [ 0, %309 ], [ 0, %316 ], [ 0, %323 ], [ 0, %330 ], [ 0, %337 ], [ 0, %357 ], [ 1, %344 ], [ 0, %369 ], [ 1, %365 ], [ 0, %394 ], [ 1, %380 ], [ 0, %406 ], [ 1, %402 ], [ 0, %431 ], [ 1, %417 ], [ 0, %444 ], [ 1, %439 ], [ 0, %466 ], [ 0, %473 ], [ 0, %480 ], [ 1, %.thread667.sink.split.sink.split ]
-  %.1338.ph = phi ptr [ %.0337, %44 ], [ %.0337, %63 ], [ %.0337, %96 ], [ %136, %149 ], [ %136, %156 ], [ %136, %174 ], [ %136, %192 ], [ %136, %211 ], [ %136, %229 ], [ %136, %247 ], [ %136, %265 ], [ %136, %284 ], [ %136, %302 ], [ %136, %309 ], [ %136, %316 ], [ %136, %323 ], [ %136, %330 ], [ %136, %337 ], [ %136, %357 ], [ %136, %344 ], [ %136, %369 ], [ %136, %365 ], [ %136, %394 ], [ %136, %380 ], [ %136, %406 ], [ %136, %402 ], [ %136, %431 ], [ %136, %417 ], [ %136, %444 ], [ %136, %439 ], [ %136, %466 ], [ %136, %473 ], [ %136, %480 ], [ %136, %.thread667.sink.split.sink.split ]
+.sink.split1314:                                  ; preds = %.sink.split1314.sink.split, %479, %472, %465, %438, %443, %416, %430, %401, %405, %379, %393, %364, %368, %343, %356, %336, %329, %322, %315, %308, %301, %283, %264, %246, %228, %210, %191, %173, %155, %148
+  %.sink = phi i32 [ 0, %148 ], [ 0, %155 ], [ 0, %173 ], [ 0, %191 ], [ 0, %210 ], [ 0, %228 ], [ 0, %246 ], [ 0, %264 ], [ 0, %283 ], [ 0, %301 ], [ 0, %308 ], [ 0, %315 ], [ 0, %322 ], [ 0, %329 ], [ 0, %336 ], [ 0, %356 ], [ 32, %343 ], [ 0, %368 ], [ 33, %364 ], [ 0, %393 ], [ 32, %379 ], [ 0, %405 ], [ 33, %401 ], [ 0, %430 ], [ 32, %416 ], [ 0, %443 ], [ 33, %438 ], [ 0, %465 ], [ 0, %472 ], [ 0, %479 ], [ 34, %.sink.split1314.sink.split ]
+  %.23413.ph = phi i1 [ false, %148 ], [ false, %155 ], [ false, %173 ], [ false, %191 ], [ false, %210 ], [ false, %228 ], [ false, %246 ], [ false, %264 ], [ false, %283 ], [ false, %301 ], [ false, %308 ], [ false, %315 ], [ false, %322 ], [ false, %329 ], [ false, %336 ], [ false, %356 ], [ true, %343 ], [ false, %368 ], [ true, %364 ], [ false, %393 ], [ true, %379 ], [ false, %405 ], [ true, %401 ], [ false, %430 ], [ true, %416 ], [ false, %443 ], [ true, %438 ], [ false, %465 ], [ false, %472 ], [ false, %479 ], [ true, %.sink.split1314.sink.split ]
   store i32 %.sink, ptr %22, align 8, !tbaa !73
-  br label %.thread667
+  br label %503
 
-.thread667:                                       ; preds = %.thread667.sink.split, %129, %493, %491, %489, %487
-  %.23411 = phi i8 [ 0, %493 ], [ 0, %491 ], [ 0, %489 ], [ 0, %487 ], [ 0, %129 ], [ %.23411.ph, %.thread667.sink.split ]
-  %.1338 = phi ptr [ %136, %493 ], [ %136, %491 ], [ %136, %489 ], [ %136, %487 ], [ %.0337, %129 ], [ %.1338.ph, %.thread667.sink.split ]
+503:                                              ; preds = %.sink.split1314, %127, %492, %490, %488, %486
+  %.23413 = phi i1 [ false, %492 ], [ false, %490 ], [ false, %488 ], [ false, %486 ], [ false, %127 ], [ %.23413.ph, %.sink.split1314 ]
+  %.1340 = phi ptr [ %135, %492 ], [ %135, %490 ], [ %135, %488 ], [ %135, %486 ], [ %.0339, %127 ], [ %135, %.sink.split1314 ]
   %504 = load ptr, ptr %19, align 8, !tbaa !95
-  %.not492 = icmp eq ptr %504, %20
-  br i1 %.not492, label %505, label %27, !llvm.loop !97
+  %.not493 = icmp eq ptr %504, %20
+  br i1 %.not493, label %505, label %27, !llvm.loop !97
 
-505:                                              ; preds = %.thread667
+505:                                              ; preds = %503
   %506 = load ptr, ptr %0, align 8, !tbaa !94
   %507 = ptrtoint ptr %506 to i64
   %508 = sub i64 %26, %507
   store i64 %508, ptr %3, align 8, !tbaa !9
   br label %.thread
 
-.thread:                                          ; preds = %118, %115, %112, %109, %105, %493, %491, %489, %487, %4, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit534.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit.thread, %121, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit534, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit613, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit610, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit607, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit607.thread, %446, %433, %.thread768, %408, %396, %.thread751, %371, %359, %.thread734, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit583, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit580, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit577, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit574, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit571, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit568, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit568.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit565, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit565.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit562, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit562.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit558, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit558.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit555, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit555.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit552, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit552.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit549, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit549.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit546, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit546.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit543, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit540, %142, %495, %505
-  %.0 = phi i32 [ 0, %142 ], [ -1, %495 ], [ 0, %505 ], [ %481, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit613 ], [ %474, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit610 ], [ %467, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit607 ], [ %445, %446 ], [ %432, %433 ], [ %407, %408 ], [ %395, %396 ], [ %370, %371 ], [ %358, %359 ], [ %338, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit583 ], [ %331, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit580 ], [ %324, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit577 ], [ %317, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit574 ], [ %310, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit571 ], [ %303, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit568 ], [ %285, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit565 ], [ %266, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit562 ], [ %248, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit558 ], [ %230, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit555 ], [ %212, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit552 ], [ %193, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit549 ], [ %175, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit546 ], [ %157, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit543 ], [ %150, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit540 ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit546.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit549.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit552.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit555.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit558.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit562.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit565.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit568.thread ], [ -2, %.thread734 ], [ -2, %.thread751 ], [ -2, %.thread768 ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit607.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit534.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit.thread ], [ -1, %121 ], [ %97, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit537 ], [ %64, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit534 ], [ %45, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit ], [ 0, %4 ], [ %106, %105 ], [ %110, %109 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %488, %487 ], [ %490, %489 ], [ %492, %491 ], [ %494, %493 ]
+.thread:                                          ; preds = %118, %115, %112, %109, %105, %492, %490, %488, %486, %4, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit538.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit535.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit.thread, %121, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit538, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit535, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit614, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit611, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit608, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit608.thread, %445, %432, %.thread759, %407, %395, %.thread742, %370, %358, %.thread725, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit584, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit581, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit578, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit575, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit572, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit569, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit569.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit566, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit566.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit563, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit563.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit559, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit559.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit556, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit556.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit553, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit553.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit550, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit550.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit547, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit547.thread, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit544, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit541, %141, %494, %505
+  %.0 = phi i32 [ 0, %141 ], [ -1, %494 ], [ 0, %505 ], [ %480, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit614 ], [ %473, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit611 ], [ %466, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit608 ], [ %444, %445 ], [ %431, %432 ], [ %406, %407 ], [ %394, %395 ], [ %369, %370 ], [ %357, %358 ], [ %337, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit584 ], [ %330, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit581 ], [ %323, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit578 ], [ %316, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit575 ], [ %309, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit572 ], [ %302, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit569 ], [ %284, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit566 ], [ %265, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit563 ], [ %247, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit559 ], [ %229, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit556 ], [ %211, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit553 ], [ %192, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit550 ], [ %174, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit547 ], [ %156, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit544 ], [ %149, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit541 ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit547.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit550.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit553.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit556.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit559.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit563.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit566.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit569.thread ], [ -2, %.thread725 ], [ -2, %.thread742 ], [ -2, %.thread759 ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit608.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit538.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit535.thread ], [ -2, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit.thread ], [ -1, %121 ], [ %97, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit538 ], [ %64, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit535 ], [ %45, %_ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit ], [ 0, %4 ], [ %106, %105 ], [ %110, %109 ], [ %114, %112 ], [ %117, %115 ], [ %120, %118 ], [ %487, %486 ], [ %489, %488 ], [ %491, %490 ], [ %493, %492 ]
   ret i32 %.0
 }
 

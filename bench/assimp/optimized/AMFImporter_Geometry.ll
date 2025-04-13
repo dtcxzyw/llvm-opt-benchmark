@@ -191,14 +191,14 @@ define hidden void @_ZN6Assimp11AMFImporter14ParseNode_MeshERN4pugi8xml_nodeE(pt
   br label %_ZNK4pugi8xml_node4nameEv.exit.preheader
 
 _ZNK4pugi8xml_node4nameEv.exit.preheader:         ; preds = %2, %6
-  %.0.i10.ph = phi ptr [ %9, %6 ], [ @.str.10, %2 ]
+  %.0.i11.ph = phi ptr [ %9, %6 ], [ @.str.10, %2 ]
   br label %_ZNK4pugi8xml_node4nameEv.exit
 
 _ZNK4pugi8xml_node4nameEv.exit:                   ; preds = %_ZNK4pugi8xml_node4nameEv.exit.preheader, %_ZNK4pugi8xml_node4nameEv.exit
   %.06.i = phi ptr [ %14, %_ZNK4pugi8xml_node4nameEv.exit ], [ @.str, %_ZNK4pugi8xml_node4nameEv.exit.preheader ]
-  %.0.i10 = phi ptr [ %10, %_ZNK4pugi8xml_node4nameEv.exit ], [ %.0.i10.ph, %_ZNK4pugi8xml_node4nameEv.exit.preheader ]
-  %10 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 1
-  %11 = load i8, ptr %.0.i10, align 1
+  %.0.i11 = phi ptr [ %10, %_ZNK4pugi8xml_node4nameEv.exit ], [ %.0.i11.ph, %_ZNK4pugi8xml_node4nameEv.exit.preheader ]
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 1
+  %11 = load i8, ptr %.0.i11, align 1
   %12 = zext i8 %11 to i32
   %13 = tail call i32 @tolower(i32 noundef %12) #22
   %14 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
@@ -214,7 +214,7 @@ _ZNK4pugi8xml_node4nameEv.exit:                   ; preds = %_ZNK4pugi8xml_node4
   br i1 %21, label %_ZNK4pugi8xml_node4nameEv.exit, label %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, !llvm.loop !3
 
 _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %_ZNK4pugi8xml_node4nameEv.exit
-  br i1 %20, label %22, label %70
+  br i1 %20, label %22, label %71
 
 22:                                               ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit
   %23 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #23
@@ -243,8 +243,8 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %_ZNK4pugi8xml_node4
   tail call void @_ZN6Assimp11AMFImporter22ParseHelper_Node_EnterEP18AMFNodeElementBase(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
   %35 = load ptr, ptr %1, align 8
-  %.not.i12 = icmp eq ptr %35, null
-  br i1 %.not.i12, label %_ZNK4pugi8xml_node5childEPKc.exit.thread, label %36
+  %.not.i13 = icmp eq ptr %35, null
+  br i1 %.not.i13, label %_ZNK4pugi8xml_node5childEPKc.exit.thread, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 32
@@ -253,7 +253,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %_ZNK4pugi8xml_node4
   br i1 %.not1218.i, label %_ZNK4pugi8xml_node5childEPKc.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36, %43
-  %.019.i = phi ptr [ %.0.i13, %43 ], [ %.017.i, %36 ]
+  %.019.i = phi ptr [ %.0.i14, %43 ], [ %.017.i, %36 ]
   %38 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not13.i = icmp eq ptr %39, null
@@ -266,8 +266,8 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %_ZNK4pugi8xml_node4
 
 43:                                               ; preds = %40, %.lr.ph.i
   %44 = getelementptr inbounds nuw i8, ptr %.019.i, i64 48
-  %.0.i13 = load ptr, ptr %44, align 8
-  %.not12.i = icmp eq ptr %.0.i13, null
+  %.0.i14 = load ptr, ptr %44, align 8
+  %.not12.i = icmp eq ptr %.0.i14, null
   br i1 %.not12.i, label %_ZNK4pugi8xml_node5childEPKc.exit.thread, label %.lr.ph.i, !llvm.loop !5
 
 45:                                               ; preds = %40
@@ -278,79 +278,79 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit:           ; preds = %_ZNK4pugi8xml_node4
 
 _ZNK4pugi8xml_node5childEPKc.exit.thread:         ; preds = %43, %36, %34, %45
   %46 = phi ptr [ %.pre, %45 ], [ %35, %34 ], [ %35, %36 ], [ %35, %43 ]
-  %.19 = phi i1 [ true, %45 ], [ false, %34 ], [ false, %36 ], [ false, %43 ]
+  %47 = phi i1 [ true, %45 ], [ false, %34 ], [ false, %36 ], [ false, %43 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  %.not.i15 = icmp eq ptr %46, null
-  br i1 %.not.i15, label %.loopexit, label %47
+  %.not.i16 = icmp eq ptr %46, null
+  br i1 %.not.i16, label %.loopexit, label %48
 
-47:                                               ; preds = %_ZNK4pugi8xml_node5childEPKc.exit.thread
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %.017.i16 = load ptr, ptr %48, align 8
-  %.not1218.i17 = icmp eq ptr %.017.i16, null
-  br i1 %.not1218.i17, label %.loopexit, label %.lr.ph.i18
+48:                                               ; preds = %_ZNK4pugi8xml_node5childEPKc.exit.thread
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %.017.i17 = load ptr, ptr %49, align 8
+  %.not1218.i18 = icmp eq ptr %.017.i17, null
+  br i1 %.not1218.i18, label %.loopexit, label %.lr.ph.i19
 
-.lr.ph.i18:                                       ; preds = %47, %54
-  %.019.i19 = phi ptr [ %.0.i21, %54 ], [ %.017.i16, %47 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.019.i19, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %.not13.i20 = icmp eq ptr %50, null
-  br i1 %.not13.i20, label %54, label %51
+.lr.ph.i19:                                       ; preds = %48, %55
+  %.019.i20 = phi ptr [ %.0.i22, %55 ], [ %.017.i17, %48 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.019.i20, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %.not13.i21 = icmp eq ptr %51, null
+  br i1 %.not13.i21, label %55, label %52
 
-51:                                               ; preds = %.lr.ph.i18
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.2, ptr noundef nonnull dereferenceable(1) %50) #22
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %.thread, label %54
+52:                                               ; preds = %.lr.ph.i19
+  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.2, ptr noundef nonnull dereferenceable(1) %51) #22
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %.thread, label %55
 
-54:                                               ; preds = %51, %.lr.ph.i18
-  %55 = getelementptr inbounds nuw i8, ptr %.019.i19, i64 48
-  %.0.i21 = load ptr, ptr %55, align 8
-  %.not12.i22 = icmp eq ptr %.0.i21, null
-  br i1 %.not12.i22, label %.loopexit, label %.lr.ph.i18, !llvm.loop !5
+55:                                               ; preds = %52, %.lr.ph.i19
+  %56 = getelementptr inbounds nuw i8, ptr %.019.i20, i64 48
+  %.0.i22 = load ptr, ptr %56, align 8
+  %.not12.i23 = icmp eq ptr %.0.i22, null
+  br i1 %.not12.i23, label %.loopexit, label %.lr.ph.i19, !llvm.loop !5
 
-.thread:                                          ; preds = %51
-  store ptr %.019.i19, ptr %4, align 8
+.thread:                                          ; preds = %52
+  store ptr %.019.i20, ptr %4, align 8
   call void @_ZN6Assimp11AMFImporter16ParseNode_VolumeERN4pugi8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   tail call void @_ZN6Assimp11AMFImporter21ParseHelper_Node_ExitEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  br label %63
+  br label %64
 
-.loopexit:                                        ; preds = %54, %47, %_ZNK4pugi8xml_node5childEPKc.exit.thread
+.loopexit:                                        ; preds = %55, %_ZNK4pugi8xml_node5childEPKc.exit.thread, %48
   tail call void @_ZN6Assimp11AMFImporter21ParseHelper_Node_ExitEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  br i1 %.19, label %63, label %..critedge_crit_edge
+  br i1 %47, label %64, label %.loopexit..critedge_crit_edge
 
-..critedge_crit_edge:                             ; preds = %.loopexit
-  %.pre40 = load ptr, ptr %24, align 8
+.loopexit..critedge_crit_edge:                    ; preds = %.loopexit
+  %.pre43 = load ptr, ptr %24, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %22
-  %56 = phi ptr [ %.pre40, %..critedge_crit_edge ], [ %25, %22 ]
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 56
-  %58 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store ptr %23, ptr %59, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(24) %57) #24
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 72
-  %61 = load i64, ptr %60, align 8
-  %62 = add i64 %61, 1
-  store i64 %62, ptr %60, align 8
-  br label %63
+.critedge:                                        ; preds = %.loopexit..critedge_crit_edge, %22
+  %57 = phi ptr [ %.pre43, %.loopexit..critedge_crit_edge ], [ %25, %22 ]
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
+  %59 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store ptr %23, ptr %60, align 8
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(24) %58) #24
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 72
+  %62 = load i64, ptr %61, align 8
+  %63 = add i64 %62, 1
+  store i64 %63, ptr %61, align 8
+  br label %64
 
-63:                                               ; preds = %.thread, %.loopexit, %.critedge
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %65 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store ptr %23, ptr %66, align 8
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(24) %64) #24
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %68 = load i64, ptr %67, align 8
-  %69 = add i64 %68, 1
-  store i64 %69, ptr %67, align 8
-  br label %70
+64:                                               ; preds = %.thread, %.critedge, %.loopexit
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %66 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  store ptr %23, ptr %67, align 8
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(24) %65) #24
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %69 = load i64, ptr %68, align 8
+  %70 = add i64 %69, 1
+  store i64 %70, ptr %68, align 8
+  br label %71
 
-70:                                               ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %63
+71:                                               ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %64
   ret void
 }
 
@@ -1127,17 +1127,17 @@ define hidden void @_ZN6Assimp11AMFImporter16ParseNode_VertexERN4pugi8xml_nodeE(
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
   %16 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %.thread, label %17
+  br i1 %.not.i, label %_ZNK4pugi8xml_node5childEPKc.exit.thread, label %17
 
-.thread:                                          ; preds = %2
+_ZNK4pugi8xml_node5childEPKc.exit.thread:         ; preds = %2
   store ptr null, ptr %3, align 8
-  br label %38
+  br label %.critedge
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %.017.i = load ptr, ptr %18, align 8
   %.not1218.i = icmp eq ptr %.017.i, null
-  br i1 %.not1218.i, label %_ZNK4pugi8xml_node5childEPKc.exit.thread23.thread, label %.lr.ph.i
+  br i1 %.not1218.i, label %_ZNK4pugi8xml_node5childEPKc.exit.thread24.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %24
   %.019.i = phi ptr [ %.0.i, %24 ], [ %.017.i, %17 ]
@@ -1155,9 +1155,9 @@ define hidden void @_ZN6Assimp11AMFImporter16ParseNode_VertexERN4pugi8xml_nodeE(
   %25 = getelementptr inbounds nuw i8, ptr %.019.i, i64 48
   %.0.i = load ptr, ptr %25, align 8
   %.not12.i = icmp eq ptr %.0.i, null
-  br i1 %.not12.i, label %_ZNK4pugi8xml_node5childEPKc.exit.thread23.thread, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not12.i, label %_ZNK4pugi8xml_node5childEPKc.exit.thread24.thread, label %.lr.ph.i, !llvm.loop !5
 
-_ZNK4pugi8xml_node5childEPKc.exit.thread23.thread: ; preds = %24, %17
+_ZNK4pugi8xml_node5childEPKc.exit.thread24.thread: ; preds = %24, %17
   store ptr null, ptr %3, align 8
   tail call void @_ZN6Assimp11AMFImporter22ParseHelper_Node_EnterEP18AMFNodeElementBase(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %5)
   br label %27
@@ -1168,72 +1168,76 @@ _ZNK4pugi8xml_node5childEPKc.exit.thread23.thread: ; preds = %24, %17
   call void @_ZN6Assimp11AMFImporter15ParseNode_ColorERN4pugi8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %27
 
-27:                                               ; preds = %_ZNK4pugi8xml_node5childEPKc.exit.thread23.thread, %26
-  %.not.i832 = phi i1 [ false, %_ZNK4pugi8xml_node5childEPKc.exit.thread23.thread ], [ true, %26 ]
+27:                                               ; preds = %_ZNK4pugi8xml_node5childEPKc.exit.thread24.thread, %26
+  %.not.i9.not35 = phi i1 [ true, %_ZNK4pugi8xml_node5childEPKc.exit.thread24.thread ], [ false, %26 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
   %28 = load ptr, ptr %1, align 8
-  %.not.i9 = icmp eq ptr %28, null
-  br i1 %.not.i9, label %.loopexit, label %29
+  %.not.i10 = icmp eq ptr %28, null
+  br i1 %.not.i10, label %.loopexit, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %.017.i10 = load ptr, ptr %30, align 8
-  %.not1218.i11 = icmp eq ptr %.017.i10, null
-  br i1 %.not1218.i11, label %.loopexit, label %.lr.ph.i12
+  %.017.i11 = load ptr, ptr %30, align 8
+  %.not1218.i12 = icmp eq ptr %.017.i11, null
+  br i1 %.not1218.i12, label %.loopexit, label %.lr.ph.i13
 
-.lr.ph.i12:                                       ; preds = %29, %36
-  %.019.i13 = phi ptr [ %.0.i15, %36 ], [ %.017.i10, %29 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.019.i13, i64 8
+.lr.ph.i13:                                       ; preds = %29, %36
+  %.019.i14 = phi ptr [ %.0.i16, %36 ], [ %.017.i11, %29 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.019.i14, i64 8
   %32 = load ptr, ptr %31, align 8
-  %.not13.i14 = icmp eq ptr %32, null
-  br i1 %.not13.i14, label %36, label %33
+  %.not13.i15 = icmp eq ptr %32, null
+  br i1 %.not13.i15, label %36, label %33
 
-33:                                               ; preds = %.lr.ph.i12
+33:                                               ; preds = %.lr.ph.i13
   %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.5, ptr noundef nonnull dereferenceable(1) %32) #22
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %.thread34, label %36
+  br i1 %35, label %.thread, label %36
 
-36:                                               ; preds = %33, %.lr.ph.i12
-  %37 = getelementptr inbounds nuw i8, ptr %.019.i13, i64 48
-  %.0.i15 = load ptr, ptr %37, align 8
-  %.not12.i16 = icmp eq ptr %.0.i15, null
-  br i1 %.not12.i16, label %.loopexit, label %.lr.ph.i12, !llvm.loop !5
+36:                                               ; preds = %33, %.lr.ph.i13
+  %37 = getelementptr inbounds nuw i8, ptr %.019.i14, i64 48
+  %.0.i16 = load ptr, ptr %37, align 8
+  %.not12.i17 = icmp eq ptr %.0.i16, null
+  br i1 %.not12.i17, label %.loopexit, label %.lr.ph.i13, !llvm.loop !5
 
-.thread34:                                        ; preds = %33
-  store ptr %.019.i13, ptr %4, align 8
+.thread:                                          ; preds = %33
+  store ptr %.019.i14, ptr %4, align 8
   call void @_ZN6Assimp11AMFImporter21ParseNode_CoordinatesERN4pugi8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @_ZN6Assimp11AMFImporter21ParseHelper_Node_ExitEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  br label %46
+  br label %45
 
-.loopexit:                                        ; preds = %36, %29, %27
+.loopexit:                                        ; preds = %36, %27, %29
   call void @_ZN6Assimp11AMFImporter21ParseHelper_Node_ExitEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  br i1 %.not.i832, label %46, label %38
+  br i1 %.not.i9.not35, label %.loopexit..critedge_crit_edge, label %45
 
-38:                                               ; preds = %.thread, %.loopexit
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
-  %41 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store ptr %5, ptr %42, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(24) %40) #24
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 72
-  %44 = load i64, ptr %43, align 8
-  %45 = add i64 %44, 1
-  store i64 %45, ptr %43, align 8
-  br label %46
+.loopexit..critedge_crit_edge:                    ; preds = %.loopexit
+  %.pre = load ptr, ptr %6, align 8
+  br label %.critedge
 
-46:                                               ; preds = %.thread34, %.loopexit, %38
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %48 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %5, ptr %49, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(24) %47) #24
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %51 = load i64, ptr %50, align 8
-  %52 = add i64 %51, 1
-  store i64 %52, ptr %50, align 8
+.critedge:                                        ; preds = %.loopexit..critedge_crit_edge, %_ZNK4pugi8xml_node5childEPKc.exit.thread
+  %38 = phi ptr [ %.pre, %.loopexit..critedge_crit_edge ], [ %7, %_ZNK4pugi8xml_node5childEPKc.exit.thread ]
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  %40 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store ptr %5, ptr %41, align 8
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(24) %39) #24
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 72
+  %43 = load i64, ptr %42, align 8
+  %44 = add i64 %43, 1
+  store i64 %44, ptr %42, align 8
+  br label %45
+
+45:                                               ; preds = %.thread, %.critedge, %.loopexit
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %47 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store ptr %5, ptr %48, align 8
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(24) %46) #24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %50 = load i64, ptr %49, align 8
+  %51 = add i64 %50, 1
+  store i64 %51, ptr %49, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   ret void
 }

@@ -251,81 +251,79 @@ define void @_ZN3zmq4lb_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull alig
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8, !tbaa !29
   %9 = icmp eq i64 %8, %6
-  br i1 %9, label %10, label %16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = load i8, ptr %10, align 8, !range !30
+  %12 = trunc nuw i8 %11 to i1
+  %or.cond = select i1 %9, i1 %12, i1 false
+  br i1 %or.cond, label %13, label %15
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load i8, ptr %11, align 8, !tbaa !30, !range !31, !noundef !32
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %16
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  store i8 1, ptr %14, align 1, !tbaa !31
+  br label %15
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 1, ptr %15, align 1, !tbaa !33
-  br label %16
+15:                                               ; preds = %13, %2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = load i64, ptr %16, align 8, !tbaa !21
+  %18 = icmp ugt i64 %17, %6
+  br i1 %18, label %19, label %34
 
-16:                                               ; preds = %14, %10, %2
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !21
-  %19 = icmp ugt i64 %18, %6
-  br i1 %19, label %20, label %35
+19:                                               ; preds = %15
+  %20 = add i64 %17, -1
+  store i64 %20, ptr %16, align 8, !tbaa !21
+  %21 = load ptr, ptr %0, align 8, !tbaa !12
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %6
+  %23 = load ptr, ptr %22, align 8, !tbaa !19
+  %.not.i = icmp eq ptr %23, null
+  br i1 %.not.i, label %27, label %24
 
-20:                                               ; preds = %16
-  %21 = add i64 %18, -1
-  store i64 %21, ptr %17, align 8, !tbaa !21
-  %22 = load ptr, ptr %0, align 8, !tbaa !12
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %6
-  %24 = load ptr, ptr %23, align 8, !tbaa !19
-  %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %28, label %25
+24:                                               ; preds = %19
+  %25 = trunc i64 %20 to i32
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 48
+  store i32 %25, ptr %26, align 8, !tbaa !15
+  br label %27
 
-25:                                               ; preds = %20
-  %26 = trunc i64 %21 to i32
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store i32 %26, ptr %27, align 8, !tbaa !15
-  br label %28
+27:                                               ; preds = %24, %19
+  %28 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %29 = load ptr, ptr %28, align 8, !tbaa !19
+  %.not8.i = icmp eq ptr %29, null
+  br i1 %.not8.i, label %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit, label %30
 
-28:                                               ; preds = %25, %20
-  %29 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
-  %30 = load ptr, ptr %29, align 8, !tbaa !19
-  %.not8.i = icmp eq ptr %30, null
-  br i1 %.not8.i, label %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit, label %31
-
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  store i32 %5, ptr %32, align 8, !tbaa !15
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  store i32 %5, ptr %31, align 8, !tbaa !15
   br label %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit
 
-_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit:    ; preds = %28, %31
-  store ptr %30, ptr %23, align 8, !tbaa !19
-  store ptr %24, ptr %29, align 8, !tbaa !19
-  %33 = icmp eq i64 %8, %21
-  br i1 %33, label %34, label %35
+_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit:    ; preds = %27, %30
+  store ptr %29, ptr %22, align 8, !tbaa !19
+  store ptr %23, ptr %28, align 8, !tbaa !19
+  %32 = icmp eq i64 %8, %20
+  br i1 %32, label %33, label %34
 
-34:                                               ; preds = %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit
+33:                                               ; preds = %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit
   store i64 0, ptr %7, align 8, !tbaa !29
-  br label %35
+  br label %34
 
-35:                                               ; preds = %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit, %34, %16
-  %36 = load ptr, ptr %0, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !3
-  %39 = icmp eq ptr %36, %38
-  br i1 %39, label %_ZN3zmq7array_tINS_6pipe_tELi2EE5eraseEPS1_.exit, label %40
+34:                                               ; preds = %_ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit, %33, %15
+  %35 = load ptr, ptr %0, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !3
+  %38 = icmp eq ptr %35, %37
+  br i1 %38, label %_ZN3zmq7array_tINS_6pipe_tELi2EE5eraseEPS1_.exit, label %39
 
-40:                                               ; preds = %35
-  %41 = load i32, ptr %4, align 8, !tbaa !15
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %38, i64 -8
-  %44 = load ptr, ptr %43, align 8, !tbaa !19, !nonnull !32, !noundef !32
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  store i32 %41, ptr %45, align 8, !tbaa !15
-  %46 = getelementptr inbounds nuw ptr, ptr %36, i64 %42
-  store ptr %44, ptr %46, align 8, !tbaa !19
-  store ptr %43, ptr %37, align 8, !tbaa !14
+39:                                               ; preds = %34
+  %40 = load i32, ptr %4, align 8, !tbaa !15
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i8, ptr %37, i64 -8
+  %43 = load ptr, ptr %42, align 8, !tbaa !19, !nonnull !32, !noundef !32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
+  store i32 %40, ptr %44, align 8, !tbaa !15
+  %45 = getelementptr inbounds nuw ptr, ptr %35, i64 %41
+  store ptr %43, ptr %45, align 8, !tbaa !19
+  store ptr %42, ptr %36, align 8, !tbaa !14
   br label %_ZN3zmq7array_tINS_6pipe_tELi2EE5eraseEPS1_.exit
 
-_ZN3zmq7array_tINS_6pipe_tELi2EE5eraseEPS1_.exit: ; preds = %35, %40
+_ZN3zmq7array_tINS_6pipe_tELi2EE5eraseEPS1_.exit: ; preds = %34, %39
   ret void
 }
 
@@ -338,7 +336,7 @@ define noundef range(i32 -2, 1) i32 @_ZN3zmq4lb_t4sendEPNS_5msg_tE(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -2, 1) i32 @_ZN3zmq4lb_t8sendpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(42) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %5 = load i8, ptr %4, align 1, !tbaa !33, !range !31, !noundef !32
+  %5 = load i8, ptr %4, align 1, !tbaa !31, !range !30, !noundef !32
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %11, label %.preheader
 
@@ -358,8 +356,8 @@ define noundef range(i32 -2, 1) i32 @_ZN3zmq4lb_t8sendpipeEPNS_5msg_tEPPNS_6pipe
   %12 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %13 = and i8 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %13, ptr %14, align 8, !tbaa !30
-  store i8 %13, ptr %4, align 1, !tbaa !33
+  store i8 %13, ptr %14, align 8, !tbaa !33
+  store i8 %13, ptr %4, align 1, !tbaa !31
   %15 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %.not26 = icmp eq i32 %15, 0
   br i1 %.not26, label %24, label %16, !prof !9
@@ -412,7 +410,7 @@ define noundef range(i32 -2, 1) i32 @_ZN3zmq4lb_t8sendpipeEPNS_5msg_tEPPNS_6pipe
   br label %78
 
 46:                                               ; preds = %34
-  %47 = load i8, ptr %10, align 8, !tbaa !30, !range !31, !noundef !32
+  %47 = load i8, ptr %10, align 8, !tbaa !33, !range !30, !noundef !32
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %57
 
@@ -424,8 +422,8 @@ define noundef range(i32 -2, 1) i32 @_ZN3zmq4lb_t8sendpipeEPNS_5msg_tEPPNS_6pipe
   tail call void @_ZNK3zmq6pipe_t8rollbackEv(ptr noundef nonnull align 8 dereferenceable(328) %53)
   %54 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %55 = and i8 %54, 1
-  store i8 %55, ptr %4, align 1, !tbaa !33
-  store i8 0, ptr %10, align 8, !tbaa !30
+  store i8 %55, ptr %4, align 1, !tbaa !31
+  store i8 0, ptr %10, align 8, !tbaa !33
   %56 = tail call ptr @__errno_location() #23
   store i32 11, ptr %56, align 4, !tbaa !34
   br label %102
@@ -491,7 +489,7 @@ _ZN3zmq7array_tINS_6pipe_tELi2EE4swapEmm.exit:    ; preds = %69, %72
   %82 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %83 = and i8 %82, 1
   %.not23 = icmp eq i8 %83, 0
-  store i8 %83, ptr %10, align 8, !tbaa !30
+  store i8 %83, ptr %10, align 8, !tbaa !33
   br i1 %.not23, label %84, label %92
 
 84:                                               ; preds = %81
@@ -550,7 +548,7 @@ declare void @_ZN3zmq6pipe_t5flushEv(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3zmq4lb_t7has_outEv(ptr noundef nonnull align 8 captures(none) dereferenceable(42) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !tbaa !30, !range !31, !noundef !32
+  %3 = load i8, ptr %2, align 8, !tbaa !33, !range !30, !noundef !32
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -706,10 +704,10 @@ attributes #23 = { nounwind willreturn memory(none) }
 !27 = !{!"long", !7, i64 0}
 !28 = !{!"bool", !7, i64 0}
 !29 = !{!22, !27, i64 32}
-!30 = !{!22, !28, i64 40}
-!31 = !{i8 0, i8 2}
+!30 = !{i8 0, i8 2}
+!31 = !{!22, !28, i64 41}
 !32 = !{}
-!33 = !{!22, !28, i64 41}
+!33 = !{!22, !28, i64 40}
 !34 = !{!17, !17, i64 0}
 !35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}

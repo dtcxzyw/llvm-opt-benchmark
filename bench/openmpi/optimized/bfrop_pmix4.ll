@@ -4278,19 +4278,17 @@ define internal noundef i32 @pmix4_bfrops_base_pack_general_int(ptr readnone cap
 15:                                               ; preds = %5, %9, %14
   %switch.tableidx = add i16 %4, -4
   %16 = icmp ult i16 %switch.tableidx, 12
-  br i1 %16, label %switch.hole_check, label %17
+  %switch.shifted = lshr i16 3829, %switch.tableidx
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond56 = select i1 %16, i1 %switch.lobit, i1 false
+  br i1 %or.cond56, label %switch.lookup, label %17
 
-17:                                               ; preds = %switch.hole_check, %15
+17:                                               ; preds = %15
   %18 = tail call ptr @PMIx_Error_string(i32 noundef -27) #14
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.58, ptr noundef %18, ptr noundef nonnull @.str.59, i32 noundef 384) #14
   br label %.loopexit
 
-switch.hole_check:                                ; preds = %15
-  %switch.shifted = lshr i16 3829, %switch.tableidx
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %17
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %15
   %19 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.pmix4_bfrops_base_unpack_general_int, i64 0, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -4399,19 +4397,17 @@ define internal noundef i32 @pmix4_bfrops_base_unpack_general_int(ptr readnone c
 22:                                               ; preds = %16
   %switch.tableidx = add i16 %4, -4
   %23 = icmp ult i16 %switch.tableidx, 12
-  br i1 %23, label %switch.hole_check, label %24
+  %switch.shifted = lshr i16 3829, %switch.tableidx
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond67 = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond67, label %switch.lookup, label %24
 
-24:                                               ; preds = %switch.hole_check, %22
+24:                                               ; preds = %22
   %25 = tail call ptr @PMIx_Error_string(i32 noundef -27) #14
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.58, ptr noundef %25, ptr noundef nonnull @.str.59, i32 noundef 486) #14
   br label %.loopexit
 
-switch.hole_check:                                ; preds = %22
-  %switch.shifted = lshr i16 3829, %switch.tableidx
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %24
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %22
   %26 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.pmix4_bfrops_base_unpack_general_int, i64 0, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8

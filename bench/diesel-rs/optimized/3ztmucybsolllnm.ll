@@ -1488,8 +1488,8 @@ tailrecurse:                                      ; preds = %72, %4
 
 66:                                               ; preds = %tailrecurse
   %67 = load i64, ptr %.tr288, align 8, !range !4, !alias.scope !300, !noundef !5
-  %.not5.i = icmp eq i64 %67, 6
-  %spec.select.i = select i1 %.not5.i, ptr null, ptr %.tr288
+  %.not7.i = icmp eq i64 %67, 6
+  %spec.select.i = select i1 %.not7.i, ptr null, ptr %.tr288
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17hf7b6882dd71e3f16E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17hf7b6882dd71e3f16E.exit": ; preds = %tailrecurse, %66

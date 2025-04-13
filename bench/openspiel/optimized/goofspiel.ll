@@ -16460,8 +16460,8 @@ define linkonce_odr void @_ZNK10open_spiel9goofspiel17GoofspielObserver11WriteTe
 
 34:                                               ; preds = %25
   %35 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i69 = icmp eq i8 %35, 0
-  br i1 %.not.i.i.i.i69, label %38, label %36
+  %.not.i.i.i.i67 = icmp eq i8 %35, 0
+  br i1 %.not.i.i.i.i67, label %38, label %36
 
 36:                                               ; preds = %34
   %37 = add nsw i32 %28, -1
@@ -16565,17 +16565,17 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %4, %40, %53, %_ZNSt
   %82 = trunc i8 %81 to i1
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %84 = load i32, ptr %83, align 8
-  %85 = icmp ne i32 %84, 1
+  %85 = icmp eq i32 %84, 1
   %.not = xor i1 %79, true
-  %brmerge = select i1 %.not, i1 true, i1 %82
-  br i1 %brmerge, label %87, label %86
+  %or.cond = select i1 %.not, i1 true, i1 %82
+  br i1 %or.cond, label %87, label %86
 
 86:                                               ; preds = %73
   tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver21WriteCurrentPointCardERKNS0_13GoofspielGameERKNS0_14GoofspielStateEPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef %3)
   tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver24WriteRemainingPointCardsERKNS0_13GoofspielGameERKNS0_14GoofspielStateEPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef %3)
   br label %87
 
-87:                                               ; preds = %73, %86
+87:                                               ; preds = %86, %73
   br i1 %79, label %88, label %89
 
 88:                                               ; preds = %87
@@ -16583,51 +16583,50 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %4, %40, %53, %_ZNSt
   br label %89
 
 89:                                               ; preds = %88, %87
-  %.not53 = xor i1 %76, true
-  %brmerge55 = select i1 %.not53, i1 true, i1 %85
-  br i1 %brmerge55, label %91, label %90
+  %or.cond3 = select i1 %76, i1 %85, i1 false
+  br i1 %or.cond3, label %90, label %91
 
 90:                                               ; preds = %89
   tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver15WritePlayerHandERKNS0_13GoofspielGameERKNS0_14GoofspielStateEiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2, ptr noundef %3)
   br label %91
 
-91:                                               ; preds = %89, %90
+91:                                               ; preds = %90, %89
   %92 = and i8 %75, 1
   %93 = and i8 %92, %78
-  %brmerge58.not.not = icmp eq i8 %93, 0
-  br i1 %brmerge58.not.not, label %95, label %94
+  %or.cond5.not = icmp eq i8 %93, 0
+  br i1 %or.cond5.not, label %95, label %94
 
 94:                                               ; preds = %91
   tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver16WriteWinSequenceERKNS0_13GoofspielGameERKNS0_14GoofspielStateEiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2, ptr noundef %3)
   br label %95
 
-95:                                               ; preds = %91, %94
-  %.not60 = xor i1 %82, true
-  %brmerge61 = select i1 %.not, i1 true, i1 %.not60
-  br i1 %brmerge61, label %97, label %96
+95:                                               ; preds = %94, %91
+  %or.cond7 = select i1 %79, i1 %82, i1 false
+  br i1 %or.cond7, label %96, label %97
 
 96:                                               ; preds = %95
   tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver22WritePointCardSequenceERKNS0_13GoofspielGameERKNS0_14GoofspielStateEPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef %3)
   br label %97
 
-97:                                               ; preds = %95, %96
-  %brmerge64 = select i1 %.not53, i1 true, i1 %.not60
-  %brmerge66 = select i1 %brmerge64, i1 true, i1 %85
-  br i1 %brmerge66, label %99, label %98
+97:                                               ; preds = %96, %95
+  %or.cond9 = select i1 %76, i1 %82, i1 false
+  %or.cond11 = select i1 %or.cond9, i1 %85, i1 false
+  br i1 %or.cond11, label %98, label %99
 
 98:                                               ; preds = %97
   tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver25WritePlayerActionSequenceERKNS0_13GoofspielGameERKNS0_14GoofspielStateEiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2, ptr noundef %3)
   br label %99
 
-99:                                               ; preds = %97, %98
-  %brmerge68 = or i1 %76, %.not
-  br i1 %brmerge68, label %101, label %100
+99:                                               ; preds = %98, %97
+  %.not12 = xor i1 %76, true
+  %or.cond14 = and i1 %.not12, %79
+  br i1 %or.cond14, label %100, label %101
 
 100:                                              ; preds = %99
   tail call void @_ZNK10open_spiel9goofspiel17GoofspielObserver20WriteAllPlayersHandsERKNS0_13GoofspielGameERKNS0_14GoofspielStateEiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(366) %14, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2, ptr noundef %3)
   br label %101
 
-101:                                              ; preds = %99, %100
+101:                                              ; preds = %100, %99
   ret void
 
 102:                                              ; preds = %71, %61
@@ -16803,12 +16802,10 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %4, %49, %62, %_ZNSt
   %91 = trunc i8 %90 to i1
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %93 = load i32, ptr %92, align 8
-  %94 = icmp ne i32 %93, 1
-  %.not = xor i1 %85, true
-  %brmerge = select i1 %.not, i1 true, i1 %94
-  %.not53 = xor i1 %91, true
-  %brmerge54 = select i1 %brmerge, i1 true, i1 %.not53
-  br i1 %brmerge54, label %118, label %95
+  %94 = icmp eq i32 %93, 1
+  %or.cond = select i1 %85, i1 %94, i1 false
+  %or.cond3 = select i1 %or.cond, i1 %91, i1 false
+  br i1 %or.cond3, label %95, label %118
 
 95:                                               ; preds = %82
   invoke void @_ZNK10open_spiel9goofspiel17GoofspielObserver16StringPlayerHandERKNS0_13GoofspielGameERKNS0_14GoofspielStateEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef nonnull align 8 dereferenceable(366) %23, ptr noundef nonnull align 8 dereferenceable(264) %2, i32 noundef %3, ptr noundef nonnull %0)
@@ -16882,8 +16879,9 @@ _ZNK10open_spiel9goofspiel17GoofspielObserver16StringIsTerminalERKNS0_14Goofspie
   br label %161
 
 118:                                              ; preds = %82
-  %brmerge58 = select i1 %brmerge, i1 true, i1 %91
-  br i1 %brmerge58, label %137, label %119
+  %or.cond5.not = xor i1 %or.cond, true
+  %or.cond7 = select i1 %or.cond5.not, i1 true, i1 %91
+  br i1 %or.cond7, label %137, label %119
 
 119:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -16940,17 +16938,17 @@ _ZN4absl7debian28AlphaNumC2Ei.exit.i69:           ; preds = %.noexc70
           to label %160 unwind label %116
 
 137:                                              ; preds = %118
-  %.not59 = xor i1 %88, true
-  %brmerge61 = select i1 %.not59, i1 true, i1 %.not53
-  br i1 %brmerge61, label %139, label %138
+  %or.cond9 = select i1 %88, i1 %91, i1 false
+  br i1 %or.cond9, label %138, label %139
 
 138:                                              ; preds = %137
   invoke void @_ZNK10open_spiel9goofspiel17GoofspielObserver23StringPointCardSequenceERKNS0_14GoofspielStateEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull %0)
           to label %139 unwind label %116
 
-139:                                              ; preds = %137, %138
-  %brmerge63 = select i1 %.not59, i1 true, i1 %91
-  br i1 %brmerge63, label %155, label %140
+139:                                              ; preds = %138, %137
+  %.not = xor i1 %88, true
+  %or.cond11 = select i1 %.not, i1 true, i1 %91
+  br i1 %or.cond11, label %155, label %140
 
 140:                                              ; preds = %139
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -16994,15 +16992,15 @@ _ZN4absl7debian28AlphaNumC2Ei.exit.i72:           ; preds = %.noexc73
   invoke void @_ZNK10open_spiel9goofspiel17GoofspielObserver25StringRemainingPointCardsERKNS0_14GoofspielStateEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull %0)
           to label %155 unwind label %116
 
-155:                                              ; preds = %139, %154
-  %brmerge65 = or i1 %85, %.not59
-  br i1 %brmerge65, label %157, label %156
+155:                                              ; preds = %154, %139
+  %or.cond14 = or i1 %85, %.not
+  br i1 %or.cond14, label %157, label %156
 
 156:                                              ; preds = %155
   invoke void @_ZNK10open_spiel9goofspiel17GoofspielObserver18StringPlayersHandsERKNS0_13GoofspielGameERKNS0_14GoofspielStateEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef nonnull align 8 dereferenceable(366) %23, ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull %0)
           to label %157 unwind label %116
 
-157:                                              ; preds = %155, %156
+157:                                              ; preds = %156, %155
   br i1 %88, label %158, label %160
 
 158:                                              ; preds = %157

@@ -338,34 +338,33 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %6 = alloca %struct.RelFileLocator, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %.not75 = xor i1 %1, true
-  %brmerge.not = and i1 %1, %2
-  br i1 %brmerge.not, label %9, label %10
+  %or.cond = and i1 %1, %2
+  br i1 %or.cond, label %9, label %10
 
 9:                                                ; preds = %5
   tail call void @appendStringInfoChar(ptr noundef %3, i8 noundef signext 10) #4
   br label %10
 
-10:                                               ; preds = %5, %9
+10:                                               ; preds = %9, %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 84
   %14 = load i32, ptr %13, align 4
-  %.not80 = icmp slt i32 %14, 0
-  br i1 %.not80, label %._crit_edge, label %.lr.ph
+  %.not7080 = icmp slt i32 %14, 0
+  br i1 %.not7080, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.not68 = icmp eq ptr %4, null
+  %.not72 = icmp eq ptr %4, null
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %91
-  %.06481.us = phi i32 [ %92, %91 ], [ 0, %.lr.ph ]
+  %.06781.us = phi i32 [ %92, %91 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
-  %17 = trunc i32 %.06481.us to i8
+  %17 = trunc i32 %.06781.us to i8
   %18 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %17, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #4
   br i1 %18, label %19, label %91
 
@@ -373,7 +372,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   br i1 %1, label %.sink.split, label %20
 
 20:                                               ; preds = %19
-  %21 = icmp sgt i32 %.06481.us, 0
+  %21 = icmp sgt i32 %.06781.us, 0
   br i1 %21, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %19, %20
@@ -390,10 +389,10 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   %28 = getelementptr inbounds [0 x ptr], ptr @forkNames, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %8, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.32, i32 noundef %.06481.us, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef %29, i32 noundef %30) #4
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.32, i32 noundef %.06781.us, i32 noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef %29, i32 noundef %30) #4
   %31 = load ptr, ptr %11, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
-  %33 = sext i32 %.06481.us to i64
+  %33 = sext i32 %.06781.us to i64
   %34 = getelementptr inbounds [0 x %struct.DecodedBkpBlock], ptr %32, i64 0, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 29
   %36 = load i8, ptr %35, align 1, !range !4, !noundef !5
@@ -403,7 +402,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
 38:                                               ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 46
   %40 = load i8, ptr %39, align 2
-  br i1 %.not68, label %47, label %41
+  br i1 %.not72, label %47, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 44
@@ -417,23 +416,23 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
 47:                                               ; preds = %41, %38
   %48 = zext i8 %40 to i32
   %49 = and i32 %48, 28
-  %.not70.us = icmp eq i32 %49, 0
-  br i1 %.not70.us, label %75, label %50
+  %.not74.us = icmp eq i32 %49, 0
+  br i1 %.not74.us, label %75, label %50
 
 50:                                               ; preds = %47
   %51 = and i32 %48, 4
-  %.not71.us = icmp eq i32 %51, 0
-  br i1 %.not71.us, label %52, label %56
+  %.not75.us = icmp eq i32 %51, 0
+  br i1 %.not75.us, label %52, label %56
 
 52:                                               ; preds = %50
   %53 = and i32 %48, 8
-  %.not72.us = icmp eq i32 %53, 0
-  br i1 %.not72.us, label %54, label %56
+  %.not76.us = icmp eq i32 %53, 0
+  br i1 %.not76.us, label %54, label %56
 
 54:                                               ; preds = %52
   %55 = and i32 %48, 16
-  %.not73.us = icmp eq i32 %55, 0
-  %.str.36..str.35.us = select i1 %.not73.us, ptr @.str.36, ptr @.str.35
+  %.not77.us = icmp eq i32 %55, 0
+  %.str.36..str.35.us = select i1 %.not77.us, ptr @.str.36, ptr @.str.35
   br label %56
 
 56:                                               ; preds = %54, %52, %50
@@ -487,47 +486,47 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #4
-  %92 = add i32 %.06481.us, 1
+  %92 = add i32 %.06781.us, 1
   %93 = load ptr, ptr %11, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 84
   %95 = load i32, ptr %94, align 4
-  %.not.us = icmp sgt i32 %92, %95
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+  %.not70.us = icmp sgt i32 %92, %95
+  br i1 %.not70.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %130
-  %.06481 = phi i32 [ %131, %130 ], [ 0, %.lr.ph ]
+  %.06781 = phi i32 [ %131, %130 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
-  %96 = trunc i32 %.06481 to i8
+  %96 = trunc i32 %.06781 to i8
   %97 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %96, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #4
   br i1 %97, label %98, label %130
 
 98:                                               ; preds = %.lr.ph.split
   %99 = load i32, ptr %7, align 4
-  %.not67 = icmp eq i32 %99, 0
+  %.not71 = icmp eq i32 %99, 0
   %100 = load i32, ptr %6, align 4
   %101 = load i32, ptr %15, align 4
   %102 = load i32, ptr %16, align 4
-  br i1 %.not67, label %108, label %103
+  br i1 %.not71, label %108, label %103
 
 103:                                              ; preds = %98
   %104 = sext i32 %99 to i64
   %105 = getelementptr inbounds [0 x ptr], ptr @forkNames, i64 0, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = load i32, ptr %8, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.41, i32 noundef %.06481, i32 noundef %100, i32 noundef %101, i32 noundef %102, ptr noundef %106, i32 noundef %107) #4
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.41, i32 noundef %.06781, i32 noundef %100, i32 noundef %101, i32 noundef %102, ptr noundef %106, i32 noundef %107) #4
   br label %110
 
 108:                                              ; preds = %98
   %109 = load i32, ptr %8, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.42, i32 noundef %.06481, i32 noundef %100, i32 noundef %101, i32 noundef %102, i32 noundef %109) #4
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %3, ptr noundef nonnull @.str.42, i32 noundef %.06781, i32 noundef %100, i32 noundef %101, i32 noundef %102, i32 noundef %109) #4
   br label %110
 
 110:                                              ; preds = %108, %103
   %111 = load ptr, ptr %11, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 88
-  %113 = sext i32 %.06481 to i64
+  %113 = sext i32 %.06781 to i64
   %114 = getelementptr inbounds [0 x %struct.DecodedBkpBlock], ptr %112, i64 0, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 29
   %116 = load i8, ptr %115, align 1, !range !4, !noundef !5
@@ -535,7 +534,7 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   br i1 %117, label %118, label %130
 
 118:                                              ; preds = %110
-  br i1 %.not68, label %.sink.split84, label %119
+  br i1 %.not72, label %.sink.split84, label %119
 
 119:                                              ; preds = %118
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 44
@@ -562,22 +561,23 @@ define dso_local void @XLogRecGetBlockRefInfo(ptr noundef %0, i1 noundef zeroext
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #4
-  %131 = add i32 %.06481, 1
+  %131 = add i32 %.06781, 1
   %132 = load ptr, ptr %11, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 84
   %134 = load i32, ptr %133, align 4
-  %.not = icmp sgt i32 %131, %134
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
+  %.not70 = icmp sgt i32 %131, %134
+  br i1 %.not70, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %130, %91, %10
-  %brmerge77 = or i1 %2, %.not75
-  br i1 %brmerge77, label %136, label %135
+  %.not = xor i1 %2, true
+  %or.cond3 = and i1 %1, %.not
+  br i1 %or.cond3, label %135, label %136
 
 135:                                              ; preds = %._crit_edge
   call void @appendStringInfoChar(ptr noundef %3, i8 noundef signext 10) #4
   br label %136
 
-136:                                              ; preds = %._crit_edge, %135
+136:                                              ; preds = %135, %._crit_edge
   ret void
 }
 

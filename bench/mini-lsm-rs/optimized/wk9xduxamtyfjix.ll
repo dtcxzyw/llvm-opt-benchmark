@@ -31066,53 +31066,49 @@ default.unreachable:                              ; preds = %"_ZN17crossbeam_cha
 12:                                               ; preds = %10, %8, %6
   %.0.i = phi i8 [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
   %.not = icmp eq i8 %.0.i, 2
-  br i1 %.not, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit", label %13
+  %13 = trunc i8 %.0.i to i1
+  %or.cond.i.i = or i1 %.not, %13
+  br i1 %or.cond.i.i, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit", label %14
 
-13:                                               ; preds = %12
-  %14 = trunc nuw i8 %.0.i to i1
-  br i1 %14, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit", label %15
-
-15:                                               ; preds = %13
+14:                                               ; preds = %12
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.2d959d102d7682cc7cbcc0dd1a59e417.16.llvm.7682092217504716512, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2d959d102d7682cc7cbcc0dd1a59e417.18.llvm.7682092217504716512) #32, !noalias !8751
   unreachable
 
-"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit": ; preds = %12, %13
+"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit": ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8755)
-  %16 = load i64, ptr %0, align 8, !range !1087, !alias.scope !8755, !noundef !4
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !alias.scope !8755, !noundef !4
-  switch i64 %16, label %default.unreachable [
-    i64 0, label %19
-    i64 1, label %21
-    i64 2, label %23
+  %15 = load i64, ptr %0, align 8, !range !1087, !alias.scope !8755, !noundef !4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8, !alias.scope !8755, !noundef !4
+  switch i64 %15, label %default.unreachable [
+    i64 0, label %18
+    i64 1, label %20
+    i64 2, label %22
   ]
 
-19:                                               ; preds = %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit"
-  %20 = tail call noundef i8 @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send17hbd2c42c00ff88090E"(ptr noundef nonnull align 128 %18, i64 undef, i32 noundef 1000000000), !range !8754, !noalias !8755
-  br label %25
+18:                                               ; preds = %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit"
+  %19 = tail call noundef i8 @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send17hbd2c42c00ff88090E"(ptr noundef nonnull align 128 %17, i64 undef, i32 noundef 1000000000), !range !8754, !noalias !8755
+  br label %24
 
-21:                                               ; preds = %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit"
-  %22 = tail call noundef i8 @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17h6ac74b15ba5eae52E"(ptr noundef nonnull align 128 %18, i64 undef, i32 noundef 1000000000), !range !8754, !noalias !8755
-  br label %25
+20:                                               ; preds = %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit"
+  %21 = tail call noundef i8 @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17h6ac74b15ba5eae52E"(ptr noundef nonnull align 128 %17, i64 undef, i32 noundef 1000000000), !range !8754, !noalias !8755
+  br label %24
 
-23:                                               ; preds = %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit"
-  %24 = tail call noundef i8 @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4send17h2766d777cf3b4b42E"(ptr noundef nonnull align 8 %18, i64 undef, i32 noundef 1000000000), !range !8754, !noalias !8755
-  br label %25
+22:                                               ; preds = %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit"
+  %23 = tail call noundef i8 @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4send17h2766d777cf3b4b42E"(ptr noundef nonnull align 8 %17, i64 undef, i32 noundef 1000000000), !range !8754, !noalias !8755
+  br label %24
 
-25:                                               ; preds = %23, %21, %19
-  %.0.i1 = phi i8 [ %24, %23 ], [ %22, %21 ], [ %20, %19 ]
-  %.not4 = icmp eq i8 %.0.i1, 2
-  br i1 %.not4, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit3", label %26
+24:                                               ; preds = %22, %20, %18
+  %.0.i1 = phi i8 [ %23, %22 ], [ %21, %20 ], [ %19, %18 ]
+  %.not6 = icmp eq i8 %.0.i1, 2
+  %25 = trunc i8 %.0.i1 to i1
+  %or.cond.i.i3 = or i1 %.not6, %25
+  br i1 %or.cond.i.i3, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit5", label %26
 
-26:                                               ; preds = %25
-  %27 = trunc nuw i8 %.0.i1 to i1
-  br i1 %27, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit3", label %28
-
-28:                                               ; preds = %26
+26:                                               ; preds = %24
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.2d959d102d7682cc7cbcc0dd1a59e417.16.llvm.7682092217504716512, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2d959d102d7682cc7cbcc0dd1a59e417.18.llvm.7682092217504716512) #32, !noalias !8755
   unreachable
 
-"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit3": ; preds = %25, %26
+"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit5": ; preds = %24
   ret void
 }
 

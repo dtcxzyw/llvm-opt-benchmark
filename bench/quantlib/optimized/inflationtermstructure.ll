@@ -3284,15 +3284,13 @@ ehcleanup41:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.body43:                                        ; preds = %entry
-  br i1 %extrapolate, label %do.end105, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %do.body43
   %extrapolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %25 = load i8, ptr %extrapolate_.i, align 8, !tbaa !45, !range !41, !noundef !42
+  %25 = load i8, ptr %extrapolate_.i, align 8, !range !41
   %loadedv.i = trunc nuw i8 %25 to i1
-  br i1 %loadedv.i, label %do.end105, label %lor.rhs
+  %or.cond = select i1 %extrapolate, i1 true, i1 %loadedv.i
+  br i1 %or.cond, label %do.end105, label %lor.rhs
 
-lor.rhs:                                          ; preds = %lor.lhs.false
+lor.rhs:                                          ; preds = %do.body43
   %vtable46 = load ptr, ptr %this, align 8, !tbaa !14
   %vfn47 = getelementptr inbounds nuw i8, ptr %vtable46, i64 24
   %26 = load ptr, ptr %vfn47, align 8
@@ -3489,7 +3487,7 @@ ehcleanup102:                                     ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream53) #18
   br label %eh.resume
 
-do.end105:                                        ; preds = %lor.lhs.false, %do.body43, %lor.rhs
+do.end105:                                        ; preds = %do.body43, %lor.rhs
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup102, %ehcleanup41
@@ -3692,15 +3690,13 @@ ehcleanup30:                                      ; preds = %_ZNKSt7__cxx1112bas
   br label %eh.resume
 
 do.body32:                                        ; preds = %entry
-  br i1 %extrapolate, label %do.end88, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %do.body32
   %extrapolate_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %22 = load i8, ptr %extrapolate_.i, align 8, !tbaa !45, !range !41, !noundef !42
+  %22 = load i8, ptr %extrapolate_.i, align 8, !range !41
   %loadedv.i = trunc nuw i8 %22 to i1
-  br i1 %loadedv.i, label %do.end88, label %lor.lhs.false34
+  %or.cond = select i1 %extrapolate, i1 true, i1 %loadedv.i
+  br i1 %or.cond, label %do.end88, label %lor.lhs.false34
 
-lor.lhs.false34:                                  ; preds = %lor.lhs.false
+lor.lhs.false34:                                  ; preds = %do.body32
   %vtable35 = load ptr, ptr %this, align 8, !tbaa !14
   %vfn36 = getelementptr inbounds nuw i8, ptr %vtable35, i64 32
   %23 = load ptr, ptr %vfn36, align 8
@@ -3887,7 +3883,7 @@ ehcleanup85:                                      ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream40) #18
   br label %eh.resume
 
-do.end88:                                         ; preds = %do.body32, %lor.lhs.false, %lor.lhs.false34
+do.end88:                                         ; preds = %do.body32, %lor.lhs.false34
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup85, %ehcleanup30
@@ -4641,18 +4637,18 @@ if.end49:                                         ; preds = %if.else, %if.then6
 
 if.then51:                                        ; preds = %if.end49
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp52) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  store ptr %17, ptr %ref.tmp52, align 8, !tbaa !20, !alias.scope !46
+  call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  store ptr %17, ptr %ref.tmp52, align 8, !tbaa !20, !alias.scope !45
   %pn.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp52, i64 8
   %pn3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %18 = load ptr, ptr %pn3.i.i, align 8, !tbaa !16, !noalias !46
-  store ptr %18, ptr %pn.i.i, align 8, !tbaa !16, !alias.scope !46
+  %18 = load ptr, ptr %pn3.i.i, align 8, !tbaa !16, !noalias !45
+  store ptr %18, ptr %pn.i.i, align 8, !tbaa !16, !alias.scope !45
   %cmp.not.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then51
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %19 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4, !noalias !46
+  %19 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4, !noalias !45
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then51, %if.then.i.i.i
@@ -4815,7 +4811,7 @@ _ZN5boost10shared_ptrIN8QuantLib11SeasonalityEED2Ev.exit: ; preds = %invoke.cont
   %add.ptr8 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset7
   store ptr %15, ptr %add.ptr8, align 8, !tbaa !14
   %indexIsInterpolated_ = getelementptr inbounds nuw i8, ptr %this, i64 113
-  store i8 %storedv, ptr %indexIsInterpolated_, align 1, !tbaa !49
+  store i8 %storedv, ptr %indexIsInterpolated_, align 1, !tbaa !48
   ret void
 
 lpad:                                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib11SeasonalityEEC2ERKS3_.exit
@@ -4904,7 +4900,7 @@ _ZN5boost10shared_ptrIN8QuantLib11SeasonalityEED2Ev.exit: ; preds = %invoke.cont
   %add.ptr8 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset7
   store ptr %15, ptr %add.ptr8, align 8, !tbaa !14
   %indexIsInterpolated_ = getelementptr inbounds nuw i8, ptr %this, i64 113
-  store i8 %storedv, ptr %indexIsInterpolated_, align 1, !tbaa !49
+  store i8 %storedv, ptr %indexIsInterpolated_, align 1, !tbaa !48
   ret void
 
 lpad:                                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib11SeasonalityEEC2ERKS3_.exit
@@ -4993,7 +4989,7 @@ _ZN5boost10shared_ptrIN8QuantLib11SeasonalityEED2Ev.exit: ; preds = %invoke.cont
   %add.ptr8 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset7
   store ptr %15, ptr %add.ptr8, align 8, !tbaa !14
   %indexIsInterpolated_ = getelementptr inbounds nuw i8, ptr %this, i64 113
-  store i8 %storedv, ptr %indexIsInterpolated_, align 1, !tbaa !49
+  store i8 %storedv, ptr %indexIsInterpolated_, align 1, !tbaa !48
   ret void
 
 lpad:                                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib11SeasonalityEEC2ERKS3_.exit
@@ -5082,7 +5078,7 @@ _ZN5boost10shared_ptrIN8QuantLib11SeasonalityEED2Ev.exit: ; preds = %invoke.cont
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5
   store ptr %15, ptr %add.ptr6, align 8, !tbaa !14
   %indexIsInterpolated_ = getelementptr inbounds nuw i8, ptr %this, i64 113
-  store i8 %storedv, ptr %indexIsInterpolated_, align 1, !tbaa !49
+  store i8 %storedv, ptr %indexIsInterpolated_, align 1, !tbaa !48
   ret void
 
 lpad:                                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib11SeasonalityEEC2ERKS3_.exit
@@ -5171,7 +5167,7 @@ _ZN5boost10shared_ptrIN8QuantLib11SeasonalityEED2Ev.exit: ; preds = %invoke.cont
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5
   store ptr %15, ptr %add.ptr6, align 8, !tbaa !14
   %indexIsInterpolated_ = getelementptr inbounds nuw i8, ptr %this, i64 113
-  store i8 %storedv, ptr %indexIsInterpolated_, align 1, !tbaa !49
+  store i8 %storedv, ptr %indexIsInterpolated_, align 1, !tbaa !48
   ret void
 
 lpad:                                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib11SeasonalityEEC2ERKS3_.exit
@@ -5260,7 +5256,7 @@ _ZN5boost10shared_ptrIN8QuantLib11SeasonalityEED2Ev.exit: ; preds = %invoke.cont
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5
   store ptr %15, ptr %add.ptr6, align 8, !tbaa !14
   %indexIsInterpolated_ = getelementptr inbounds nuw i8, ptr %this, i64 113
-  store i8 %storedv, ptr %indexIsInterpolated_, align 1, !tbaa !49
+  store i8 %storedv, ptr %indexIsInterpolated_, align 1, !tbaa !48
   ret void
 
 lpad:                                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib11SeasonalityEEC2ERKS3_.exit
@@ -5422,18 +5418,18 @@ if.end70:                                         ; preds = %if.then40, %if.else
 
 if.then72:                                        ; preds = %if.end70
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp73) #18
-  call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  store ptr %19, ptr %ref.tmp73, align 8, !tbaa !20, !alias.scope !51
+  call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  store ptr %19, ptr %ref.tmp73, align 8, !tbaa !20, !alias.scope !50
   %pn.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp73, i64 8
   %pn3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %20 = load ptr, ptr %pn3.i.i, align 8, !tbaa !16, !noalias !51
-  store ptr %20, ptr %pn.i.i, align 8, !tbaa !16, !alias.scope !51
+  %20 = load ptr, ptr %pn3.i.i, align 8, !tbaa !16, !noalias !50
+  store ptr %20, ptr %pn.i.i, align 8, !tbaa !16, !alias.scope !50
   %cmp.not.i.i.i = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then72
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %21 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4, !noalias !51
+  %21 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4, !noalias !50
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then72, %if.then.i.i.i
@@ -5857,12 +5853,11 @@ attributes #21 = { builtin nounwind }
 !42 = !{}
 !43 = !{!5, !5, i64 0}
 !44 = !{!34, !9, i64 0}
-!45 = !{!30, !31, i64 8}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZNK8QuantLib22InflationTermStructure11seasonalityEv: %agg.result"}
-!48 = distinct !{!48, !"_ZNK8QuantLib22InflationTermStructure11seasonalityEv"}
-!49 = !{!50, !31, i64 113}
-!50 = !{!"_ZTSN8QuantLib25YoYInflationTermStructureE", !28, i64 0, !31, i64 113}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZNK8QuantLib22InflationTermStructure11seasonalityEv: %agg.result"}
-!53 = distinct !{!53, !"_ZNK8QuantLib22InflationTermStructure11seasonalityEv"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZNK8QuantLib22InflationTermStructure11seasonalityEv: %agg.result"}
+!47 = distinct !{!47, !"_ZNK8QuantLib22InflationTermStructure11seasonalityEv"}
+!48 = !{!49, !31, i64 113}
+!49 = !{!"_ZTSN8QuantLib25YoYInflationTermStructureE", !28, i64 0, !31, i64 113}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZNK8QuantLib22InflationTermStructure11seasonalityEv: %agg.result"}
+!52 = distinct !{!52, !"_ZNK8QuantLib22InflationTermStructure11seasonalityEv"}

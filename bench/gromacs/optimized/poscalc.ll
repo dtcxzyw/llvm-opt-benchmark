@@ -2589,9 +2589,9 @@ define internal fastcc void @_ZL20set_poscalc_maxindexP17gmx_ana_poscalc_tP15gmx
   %22 = and i32 %21, 4
   %.not = icmp ne i32 %22, 0
   %23 = and i32 %21, 18
-  %or.cond = icmp eq i32 %23, 16
-  %or.cond31 = or i1 %.not, %or.cond
-  br i1 %or.cond31, label %32, label %24
+  %or.cond31 = icmp eq i32 %23, 16
+  %or.cond32 = or i1 %.not, %or.cond31
+  br i1 %or.cond32, label %32, label %24
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %0, align 8, !tbaa !82
@@ -2602,41 +2602,41 @@ define internal fastcc void @_ZL20set_poscalc_maxindexP17gmx_ana_poscalc_tP15gmx
 26:                                               ; preds = %24
   %27 = load i32, ptr %8, align 8, !tbaa !83
   %28 = tail call noundef zeroext i1 @_Z32gmx_ana_index_has_complete_elemsP15gmx_ana_index_t9e_index_tPK10gmx_mtop_t(ptr noundef %1, i32 noundef %27, ptr noundef %6)
-  %.pre32 = load i32, ptr %10, align 4, !tbaa !78
+  %.pre33 = load i32, ptr %10, align 4, !tbaa !78
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = and i32 %.pre32, -7
+  %30 = and i32 %.pre33, -7
   %31 = or disjoint i32 %30, 4
   store i32 %31, ptr %10, align 4, !tbaa !78
   br label %32
 
 32:                                               ; preds = %24, %29, %26, %20
-  %33 = phi i32 [ %21, %24 ], [ %31, %29 ], [ %.pre32, %26 ], [ %21, %20 ]
+  %33 = phi i32 [ %21, %24 ], [ %31, %29 ], [ %.pre33, %26 ], [ %21, %20 ]
   %34 = and i32 %33, 4
-  %.not30 = icmp eq i32 %34, 0
-  %brmerge = or i1 %2, %.not30
-  %.pre33 = load i32, ptr %15, align 8, !tbaa !88
-  br i1 %brmerge, label %40, label %35
+  %35 = icmp eq i32 %34, 0
+  %or.cond = or i1 %2, %35
+  %.pre34 = load i32, ptr %15, align 8, !tbaa !88
+  br i1 %or.cond, label %41, label %36
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %1, align 8, !tbaa !122
-  %37 = icmp sgt i32 %.pre33, %36
-  br i1 %37, label %38, label %40
+36:                                               ; preds = %32
+  %37 = load i32, ptr %1, align 8, !tbaa !122
+  %38 = icmp sgt i32 %.pre34, %37
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @_Z18gmx_ana_index_copyP15gmx_ana_index_tS0_b(ptr noundef nonnull %39, ptr noundef nonnull %1, i1 noundef zeroext true)
-  br label %44
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_Z18gmx_ana_index_copyP15gmx_ana_index_tS0_b(ptr noundef nonnull %40, ptr noundef nonnull %1, i1 noundef zeroext true)
+  br label %45
 
-40:                                               ; preds = %32, %35
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = load ptr, ptr %42, align 8, !tbaa !77
-  tail call void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %41, i32 noundef %.pre33, ptr noundef %43, i32 noundef 0)
-  br label %44
+41:                                               ; preds = %36, %32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %44 = load ptr, ptr %43, align 8, !tbaa !77
+  tail call void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %42, i32 noundef %.pre34, ptr noundef %44, i32 noundef 0)
+  br label %45
 
-44:                                               ; preds = %40, %38
+45:                                               ; preds = %41, %39
   ret void
 }
 

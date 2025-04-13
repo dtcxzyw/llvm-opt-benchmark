@@ -13493,8 +13493,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6systemeqERKNS0_10error_
   br i1 %9, label %58, label %10
 
 10:                                               ; preds = %2
-  %brmerge.demorgan = and i1 %5, %8
-  br i1 %brmerge.demorgan, label %11, label %21
+  %or.cond = and i1 %5, %8
+  br i1 %or.cond, label %11, label %21
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8

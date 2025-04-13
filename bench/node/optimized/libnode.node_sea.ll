@@ -3858,27 +3858,26 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit: ; preds = %_ZN
 if.then.i4:                                       ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
   %18 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJPKcmEEEvP8_IO_FILES2_DpOT_(ptr noundef %18, ptr noundef nonnull @.str.52, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4) #25
+  %.pre10 = load i8, ptr %this, align 8
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit: ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit, %if.then.i4
-  %cmp.not = icmp eq i32 %mode, 0
-  br i1 %cmp.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit
-  %19 = load i8, ptr %this, align 8
+  %19 = phi i8 [ %14, %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit ], [ %.pre10, %if.then.i4 ]
+  %cmp.not = icmp ne i32 %mode, 0
   %tobool.i5 = trunc i8 %19 to i1
-  br i1 %tobool.i5, label %if.then.i6, label %if.end
+  %or.cond = select i1 %cmp.not, i1 %tobool.i5, i1 false
+  br i1 %or.cond, label %if.then.i6, label %if.end
 
-if.then.i6:                                       ; preds = %if.then
+if.then.i6:                                       ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit
   %20 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRSt17basic_string_viewIcSt11char_traitsIcEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %20, ptr noundef nonnull @.str.53, ptr noundef nonnull align 8 dereferenceable(16) %retval) #25
   %.fca.0.load.pre = load i64, ptr %retval, align 8
   %.fca.1.load.pre = load ptr, ptr %_M_str.i1, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i6, %if.then, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit
-  %.fca.1.load = phi ptr [ %.fca.1.load.pre, %if.then.i6 ], [ %add.ptr, %if.then ], [ %add.ptr, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit ]
-  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %if.then.i6 ], [ %15, %if.then ], [ %15, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit ]
+if.end:                                           ; preds = %if.then.i6, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit
+  %.fca.1.load = phi ptr [ %.fca.1.load.pre, %if.then.i6 ], [ %add.ptr, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit ]
+  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %if.then.i6 ], [ %15, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcmEEEvS3_DpOT_.exit ]
   %21 = load i64, ptr %length, align 8
   %22 = load i64, ptr %read_total.i.i, align 8
   %add = add i64 %22, %21
@@ -6720,23 +6719,22 @@ _ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmetic
 if.then.i6:                                       ; preds = %_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmeticImEEmRKT_.exit
   %15 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRmEEEvP8_IO_FILEPKcDpOT_(ptr noundef %15, ptr noundef nonnull @.str.100, ptr noundef nonnull align 8 dereferenceable(8) %written_total) #25
+  %.pre9 = load i8, ptr %this, align 8
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit: ; preds = %_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmeticImEEmRKT_.exit, %if.then.i6
-  %cmp.not = icmp eq i32 %mode, 0
-  br i1 %cmp.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
-  %16 = load i8, ptr %this, align 8
+  %16 = phi i8 [ %14, %_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteArithmeticImEEmRKT_.exit ], [ %.pre9, %if.then.i6 ]
+  %cmp.not = icmp ne i32 %mode, 0
   %tobool.i7 = trunc i8 %16 to i1
-  br i1 %tobool.i7, label %if.then.i8, label %if.end
+  %or.cond = select i1 %cmp.not, i1 %tobool.i7, i1 false
+  br i1 %or.cond, label %if.then.i8, label %if.end
 
-if.then.i8:                                       ; preds = %if.then
+if.then.i8:                                       ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
   %17 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJRSt17basic_string_viewIcSt11char_traitsIcEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %17, ptr noundef nonnull @.str.53, ptr noundef nonnull align 8 dereferenceable(16) %data) #25
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i8, %if.then, %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
+if.end:                                           ; preds = %if.then.i8, %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
   ret void
 }
 

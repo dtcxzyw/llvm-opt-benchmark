@@ -25,10 +25,10 @@ define hidden range(i32 -1, 2) i32 @systemd_journal_open(ptr noundef %0, ptr nou
   br label %6
 
 6:                                                ; preds = %3, %21
-  %.033 = phi i32 [ 0, %3 ], [ %22, %21 ]
-  %.02132 = phi i1 [ false, %3 ], [ %.1, %21 ]
-  %.02231 = phi i1 [ false, %3 ], [ %.123, %21 ]
-  %.02430 = phi i1 [ false, %3 ], [ %.125, %21 ]
+  %.034 = phi i32 [ 0, %3 ], [ %22, %21 ]
+  %.02433 = phi i1 [ false, %3 ], [ %.1, %21 ]
+  %.02532 = phi i1 [ false, %3 ], [ %.126, %21 ]
+  %.02731 = phi i1 [ false, %3 ], [ %.128, %21 ]
   %7 = load ptr, ptr %0, align 8
   %8 = tail call ptr @file_gets(ptr noundef %4, i32 noundef 262144, ptr noundef %7)
   %.not = icmp eq ptr %8, null
@@ -52,52 +52,50 @@ define hidden range(i32 -1, 2) i32 @systemd_journal_open(ptr noundef %0, ptr nou
 18:                                               ; preds = %15
   %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(23) @.str.2, i64 noundef 22) #10
   %20 = icmp eq i32 %19, 0
-  %spec.select = select i1 %20, i1 true, i1 %.02132
+  %spec.select = select i1 %20, i1 true, i1 %.02433
   br label %21
 
 21:                                               ; preds = %18, %15, %12
-  %.125 = phi i1 [ true, %12 ], [ %.02430, %15 ], [ %.02430, %18 ]
-  %.123 = phi i1 [ %.02231, %12 ], [ true, %15 ], [ %.02231, %18 ]
-  %.1 = phi i1 [ %.02132, %12 ], [ %.02132, %15 ], [ %spec.select, %18 ]
-  %22 = add nuw nsw i32 %.033, 1
+  %.128 = phi i1 [ true, %12 ], [ %.02731, %15 ], [ %.02731, %18 ]
+  %.126 = phi i1 [ %.02532, %12 ], [ true, %15 ], [ %.02532, %18 ]
+  %.1 = phi i1 [ %.02433, %12 ], [ %.02433, %15 ], [ %spec.select, %18 ]
+  %22 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %22, 100
   br i1 %exitcond.not, label %23, label %6, !llvm.loop !6
 
 23:                                               ; preds = %9, %6, %21
-  %.024.lcssa = phi i1 [ %.02430, %9 ], [ %.02430, %6 ], [ %.125, %21 ]
-  %.022.lcssa = phi i1 [ %.02231, %9 ], [ %.02231, %6 ], [ %.123, %21 ]
-  %.021.lcssa = phi i1 [ %.02132, %9 ], [ %.02132, %6 ], [ %.1, %21 ]
+  %.027.lcssa = phi i1 [ %.02731, %9 ], [ %.02731, %6 ], [ %.128, %21 ]
+  %.025.lcssa = phi i1 [ %.02532, %9 ], [ %.02532, %6 ], [ %.126, %21 ]
+  %.024.lcssa = phi i1 [ %.02433, %9 ], [ %.02433, %6 ], [ %.1, %21 ]
   tail call void @g_free(ptr noundef %4)
   %24 = load ptr, ptr %0, align 8
   %25 = tail call i64 @file_seek(ptr noundef %24, i64 noundef 0, i32 noundef 0, ptr noundef %1)
   %26 = icmp eq i64 %25, -1
-  %.024.not = xor i1 %.024.lcssa, true
-  %brmerge = select i1 %26, i1 true, i1 %.024.not
-  %.022.not = xor i1 %.022.lcssa, true
-  %brmerge28 = select i1 %brmerge, i1 true, i1 %.022.not
-  %.021.not = xor i1 %.021.lcssa, true
-  %brmerge29 = select i1 %brmerge28, i1 true, i1 %.021.not
-  %.mux.mux.mux = sext i1 %26 to i32
-  br i1 %brmerge29, label %34, label %27
+  br i1 %26, label %35, label %27
 
 27:                                               ; preds = %23
-  %28 = load i32, ptr @systemd_journal_file_type_subtype, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @systemd_journal_read, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr @systemd_journal_seek_read, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 203, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 6, ptr %33, align 4
-  tail call void @wtap_add_generated_idb(ptr noundef %0)
-  br label %34
+  %or.cond = select i1 %.027.lcssa, i1 %.025.lcssa, i1 false
+  %or.cond3 = select i1 %or.cond, i1 %.024.lcssa, i1 false
+  br i1 %or.cond3, label %28, label %35
 
-34:                                               ; preds = %23, %27
-  %.026 = phi i32 [ 1, %27 ], [ %.mux.mux.mux, %23 ]
-  ret i32 %.026
+28:                                               ; preds = %27
+  %29 = load i32, ptr @systemd_journal_file_type_subtype, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %29, ptr %30, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @systemd_journal_read, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr @systemd_journal_seek_read, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 203, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 6, ptr %34, align 4
+  tail call void @wtap_add_generated_idb(ptr noundef %0)
+  br label %35
+
+35:                                               ; preds = %27, %23, %28
+  %.029 = phi i32 [ 1, %28 ], [ -1, %23 ], [ 0, %27 ]
+  ret i32 %.029
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -188,21 +186,21 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   tail call void @ws_buffer_assure_space(ptr noundef nonnull %6, i64 noundef 262144)
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %1, i64 296
-  %.val82 = load i64, ptr %7, align 8
-  %8 = getelementptr i8, ptr %.val, i64 %.val82
+  %.val85 = load i64, ptr %7, align 8
+  %8 = getelementptr i8, ptr %.val, i64 %.val85
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %12
 
 12:                                               ; preds = %65, %4
-  %.05990 = phi i64 [ 0, %4 ], [ %.362, %65 ]
-  %.06389 = phi i32 [ 0, %4 ], [ %68, %65 ]
-  %.06588 = phi i1 [ false, %4 ], [ %.267, %65 ]
-  %.06887 = phi i1 [ false, %4 ], [ %.371, %65 ]
-  %.07286 = phi i1 [ false, %4 ], [ %.274, %65 ]
-  %13 = getelementptr i8, ptr %8, i64 %.05990
-  %14 = trunc nsw i64 %.05990 to i32
+  %.062121 = phi i64 [ 0, %4 ], [ %.365, %65 ]
+  %.066120 = phi i32 [ 0, %4 ], [ %68, %65 ]
+  %.068119 = phi i8 [ 0, %4 ], [ %.270, %65 ]
+  %.071118 = phi i8 [ 0, %4 ], [ %.374, %65 ]
+  %.075117 = phi i8 [ 0, %4 ], [ %.277, %65 ]
+  %13 = getelementptr i8, ptr %8, i64 %.062121
+  %14 = trunc nsw i64 %.062121 to i32
   %15 = sub nsw i32 262144, %14
   %16 = call ptr @file_gets(ptr noundef %13, i32 noundef %15, ptr noundef %0)
   %.not = icmp eq ptr %16, null
@@ -210,10 +208,10 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
 
 17:                                               ; preds = %12
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #10
-  %19 = add i64 %18, %.05990
+  %19 = add i64 %18, %.062121
   %20 = load i8, ptr %16, align 1
   %21 = icmp eq i8 %20, 10
-  br i1 %21, label %.thread91, label %22
+  br i1 %21, label %.thread88, label %22
 
 22:                                               ; preds = %17
   %23 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str, i64 noundef 9) #10
@@ -231,8 +229,8 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   %30 = getelementptr i8, ptr %16, i64 21
   %31 = call i64 @strtoul(ptr noundef captures(none) %30, ptr noundef null, i32 noundef 10) #11
   %32 = load i32, ptr %29, align 4
-  %.not80 = icmp eq i32 %32, 0
-  br i1 %.not80, label %33, label %65
+  %.not83 = icmp eq i32 %32, 0
+  br i1 %.not83, label %33, label %65
 
 33:                                               ; preds = %28
   %34 = sdiv i64 %31, 1000000
@@ -251,8 +249,8 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
 
 41:                                               ; preds = %38
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 61)
-  %.not78 = icmp eq ptr %strchr, null
-  br i1 %.not78, label %42, label %65
+  %.not81 = icmp eq ptr %strchr, null
+  br i1 %.not81, label %42, label %65
 
 42:                                               ; preds = %41
   %43 = icmp ugt i64 %19, 262135
@@ -262,7 +260,7 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   store i32 -13, ptr %2, align 4
   %45 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5)
   store ptr %45, ptr %3, align 8
-  br label %81
+  br label %83
 
 46:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
@@ -280,8 +278,8 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
 53:                                               ; preds = %48
   %54 = add i64 %51, -1
   %55 = sub nuw nsw i64 262136, %19
-  %.not79 = icmp ult i64 %54, %55
-  br i1 %.not79, label %58, label %56
+  %.not82 = icmp ult i64 %54, %55
+  br i1 %.not82, label %58, label %56
 
 56:                                               ; preds = %53, %48
   store i32 -13, ptr %2, align 4
@@ -298,7 +296,7 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
 
 .thread:                                          ; preds = %46, %58, %56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  br label %81
+  br label %83
 
 63:                                               ; preds = %58
   %.reass = add nuw nsw i64 %19, 9
@@ -307,51 +305,57 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   br label %65
 
 65:                                               ; preds = %63, %38, %28, %33, %22, %41
-  %.274 = phi i1 [ %.07286, %41 ], [ %.07286, %63 ], [ true, %22 ], [ %.07286, %33 ], [ %.07286, %28 ], [ %.07286, %38 ]
-  %.371 = phi i1 [ %.06887, %41 ], [ %.06887, %63 ], [ %.06887, %22 ], [ true, %33 ], [ %.06887, %28 ], [ %.06887, %38 ]
-  %.267 = phi i1 [ %.06588, %41 ], [ %.06588, %63 ], [ %.06588, %22 ], [ %.06588, %33 ], [ %.06588, %28 ], [ true, %38 ]
-  %.362 = phi i64 [ %19, %41 ], [ %64, %63 ], [ %19, %22 ], [ %19, %33 ], [ %19, %28 ], [ %19, %38 ]
-  %66 = add i64 %.362, -262143
+  %.277 = phi i8 [ %.075117, %41 ], [ %.075117, %63 ], [ 1, %22 ], [ %.075117, %33 ], [ %.075117, %28 ], [ %.075117, %38 ]
+  %.374 = phi i8 [ %.071118, %41 ], [ %.071118, %63 ], [ %.071118, %22 ], [ 1, %33 ], [ %.071118, %28 ], [ %.071118, %38 ]
+  %.270 = phi i8 [ %.068119, %41 ], [ %.068119, %63 ], [ %.068119, %22 ], [ %.068119, %33 ], [ %.068119, %28 ], [ 1, %38 ]
+  %.365 = phi i64 [ %19, %41 ], [ %64, %63 ], [ %19, %22 ], [ %19, %33 ], [ %19, %28 ], [ %19, %38 ]
+  %66 = add i64 %.365, -262143
   %67 = icmp ult i64 %66, -262145
-  %68 = add nuw nsw i32 %.06389, 1
+  %68 = add nuw nsw i32 %.066120, 1
   %exitcond.not = icmp eq i32 %68, 100
-  %or.cond = select i1 %67, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %69, label %12, !llvm.loop !8
+  %or.cond152 = select i1 %67, i1 true, i1 %exitcond.not
+  br i1 %or.cond152, label %69, label %12, !llvm.loop !8
 
 69:                                               ; preds = %65, %12
-  %.173 = phi i1 [ %.274, %65 ], [ %.07286, %12 ]
-  %.169 = phi i1 [ %.371, %65 ], [ %.06887, %12 ]
-  %.166 = phi i1 [ %.267, %65 ], [ %.06588, %12 ]
-  %.160 = phi i64 [ %.362, %65 ], [ %.05990, %12 ]
-  %70 = select i1 %.173, i1 %.169, i1 false
-  %71 = select i1 %70, i1 %.166, i1 false
-  br i1 %71, label %74, label %81
+  %.176 = phi i8 [ %.277, %65 ], [ %.075117, %12 ]
+  %.172 = phi i8 [ %.374, %65 ], [ %.071118, %12 ]
+  %.169 = phi i8 [ %.270, %65 ], [ %.068119, %12 ]
+  %.163 = phi i64 [ %.365, %65 ], [ %.062121, %12 ]
+  %70 = trunc nuw i8 %.176 to i1
+  %71 = trunc nuw i8 %.172 to i1
+  %or.cond = select i1 %70, i1 %71, i1 false
+  %72 = trunc nuw i8 %.169 to i1
+  %or.cond3 = select i1 %or.cond, i1 %72, i1 false
+  br i1 %or.cond3, label %76, label %83
 
-.thread91:                                        ; preds = %17
-  %72 = select i1 %.07286, i1 %.06887, i1 false
-  %73 = select i1 %72, i1 %.06588, i1 false
-  br i1 %73, label %.thread99, label %81
+.thread88:                                        ; preds = %17
+  %73 = trunc nuw i8 %.075117 to i1
+  %74 = trunc nuw i8 %.071118 to i1
+  %or.cond94 = select i1 %73, i1 %74, i1 false
+  %75 = trunc nuw i8 %.068119 to i1
+  %or.cond395 = select i1 %or.cond94, i1 %75, i1 false
+  br i1 %or.cond395, label %.thread98, label %83
 
-74:                                               ; preds = %69
-  %75 = call i32 @file_eof(ptr noundef %0)
-  %.not81 = icmp eq i32 %75, 0
-  br i1 %.not81, label %81, label %.thread99
+76:                                               ; preds = %69
+  %77 = call i32 @file_eof(ptr noundef %0)
+  %.not84 = icmp eq i32 %77, 0
+  br i1 %.not84, label %83, label %.thread98
 
-.thread99:                                        ; preds = %.thread91, %74
-  %.16098102 = phi i64 [ %.160, %74 ], [ %19, %.thread91 ]
+.thread98:                                        ; preds = %.thread88, %76
+  %.16397101 = phi i64 [ %.163, %76 ], [ %19, %.thread88 ]
   store i32 4, ptr %1, align 8
-  %76 = call ptr @wtap_block_create(i32 noundef 10)
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  store ptr %76, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 3, ptr %78, align 4
-  %79 = trunc i64 %.16098102 to i32
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i32 %79, ptr %80, align 8
-  br label %81
+  %78 = call ptr @wtap_block_create(i32 noundef 10)
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  store ptr %78, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 3, ptr %80, align 4
+  %81 = trunc i64 %.16397101 to i32
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store i32 %81, ptr %82, align 8
+  br label %83
 
-81:                                               ; preds = %.thread91, %69, %.thread, %74, %.thread99, %44
-  %.1 = phi i1 [ true, %.thread99 ], [ false, %44 ], [ false, %69 ], [ false, %74 ], [ false, %.thread ], [ false, %.thread91 ]
+83:                                               ; preds = %.thread88, %.thread, %76, %69, %.thread98, %44
+  %.1 = phi i1 [ true, %.thread98 ], [ false, %44 ], [ false, %69 ], [ false, %76 ], [ false, %.thread ], [ false, %.thread88 ]
   ret i1 %.1
 }
 

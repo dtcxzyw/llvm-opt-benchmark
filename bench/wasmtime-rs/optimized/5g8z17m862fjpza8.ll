@@ -419,38 +419,38 @@ define void @_ZN4core4iter8adapters11try_process17h2803a23bc7f964d0E(ptr sret({ 
   call void @"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h717838b438ca1f35E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %6, ptr nonnull align 1 %3, ptr nonnull align 8 %5)
   %8 = load i8, ptr %7, align 1, !range !7, !noundef !3
   %.not.not = icmp eq i8 %8, 0
-  br i1 %.not.not, label %10, label %11
+  br i1 %.not.not, label %9, label %10
 
-9:                                                ; preds = %13
-  resume { ptr, i32 } %14
-
-10:                                               ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17hec52f82b0b21b437E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %4)
-  br label %.thread4
+  br label %.thread5
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h192b0b9f952c203eE"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 @anon.4454f507152557a6205c01d3cce1c5c8.2)
-          to label %12 unwind label %13
+          to label %11 unwind label %12
 
-.thread4:                                         ; preds = %10, %12
+.thread5:                                         ; preds = %9, %11
   ret void
 
-12:                                               ; preds = %11
+11:                                               ; preds = %10
   call void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$$GT$17h8b90a939a4c377b5E"(ptr nonnull align 8 %6)
-  br label %.thread4
+  br label %.thread5
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..sema..TypeId$GT$$GT$17h8b90a939a4c377b5E"(ptr nonnull align 8 %6) #6
-          to label %9 unwind label %15
+          to label %16 unwind label %14
 
-15:                                               ; preds = %13
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7
   unreachable
+
+16:                                               ; preds = %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -467,38 +467,38 @@ define void @_ZN4core4iter8adapters11try_process17h622de98237ae9689E(ptr sret({ 
   call void @"_ZN128_$LT$core..option..Option$LT$V$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..option..Option$LT$A$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hba8965f74be5fbf9E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %6, ptr nonnull align 1 %3, ptr nonnull align 8 %5)
   %8 = load i8, ptr %7, align 1, !range !7, !noundef !3
   %.not.not = icmp eq i8 %8, 0
-  br i1 %.not.not, label %10, label %11
+  br i1 %.not.not, label %9, label %10
 
-9:                                                ; preds = %13
-  resume { ptr, i32 } %14
-
-10:                                               ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @"_ZN75_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he4f9748baca789c6E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %4)
-  br label %.thread4
+  br label %.thread5
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   invoke void @"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hf04d9fdb33abf913E"(ptr sret({ i64, [2 x i64] }) align 8 %0)
-          to label %12 unwind label %13
+          to label %11 unwind label %12
 
-.thread4:                                         ; preds = %10, %12
+.thread5:                                         ; preds = %9, %11
   ret void
 
-12:                                               ; preds = %11
+11:                                               ; preds = %10
   call void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$$GT$17h4d46be1c2c6c3b2eE"(ptr nonnull align 8 %6)
-  br label %.thread4
+  br label %.thread5
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$$GT$17h4d46be1c2c6c3b2eE"(ptr nonnull align 8 %6) #6
-          to label %9 unwind label %15
+          to label %16 unwind label %14
 
-15:                                               ; preds = %13
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7
   unreachable
+
+16:                                               ; preds = %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -515,38 +515,38 @@ define void @_ZN4core4iter8adapters11try_process17hdbb6aa62511132f0E(ptr sret({ 
   call void @"_ZN128_$LT$core..option..Option$LT$V$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..option..Option$LT$A$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h36678a38e45dfac3E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %6, ptr nonnull align 1 %3, ptr nonnull align 8 %5)
   %8 = load i8, ptr %7, align 1, !range !7, !noundef !3
   %.not.not = icmp eq i8 %8, 0
-  br i1 %.not.not, label %10, label %11
+  br i1 %.not.not, label %9, label %10
 
-9:                                                ; preds = %13
-  resume { ptr, i32 } %14
-
-10:                                               ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @"_ZN75_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he4f9748baca789c6E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %4)
-  br label %.thread4
+  br label %.thread5
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   invoke void @"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hf04d9fdb33abf913E"(ptr sret({ i64, [2 x i64] }) align 8 %0)
-          to label %12 unwind label %13
+          to label %11 unwind label %12
 
-.thread4:                                         ; preds = %10, %12
+.thread5:                                         ; preds = %9, %11
   ret void
 
-12:                                               ; preds = %11
+11:                                               ; preds = %10
   call void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$$GT$17h4d46be1c2c6c3b2eE"(ptr nonnull align 8 %6)
-  br label %.thread4
+  br label %.thread5
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..Pattern$GT$$GT$17h4d46be1c2c6c3b2eE"(ptr nonnull align 8 %6) #6
-          to label %9 unwind label %15
+          to label %16 unwind label %14
 
-15:                                               ; preds = %13
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7
   unreachable
+
+16:                                               ; preds = %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

@@ -3089,8 +3089,8 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit30.
   %cmp4.i119 = icmp samesign ult i8 %18, 58
   %19 = add nsw i8 %18, -65
   %or.cond106.i = icmp ult i8 %19, 26
-  %or.cond = select i1 %cmp4.i119, i1 true, i1 %or.cond106.i
-  br i1 %or.cond, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit51.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE10parseSeqIdEPm.exit
+  %or.cond197 = select i1 %cmp4.i119, i1 true, i1 %or.cond106.i
+  br i1 %or.cond197, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit51.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE10parseSeqIdEPm.exit
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit51.i: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit30.i, %if.end41.i
   %this.val1499101.i = phi ptr [ %incdec.ptr.i120, %if.end41.i ], [ %this.val22.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit30.i ]
@@ -3102,8 +3102,8 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit58.
   %cmp19.i = icmp samesign ult i8 %20, 58
   %21 = add nsw i8 %20, -65
   %or.cond.i = icmp ult i8 %21, 26
-  %or.cond213 = select i1 %cmp19.i, i1 true, i1 %or.cond.i
-  br i1 %or.cond213, label %if.end41.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE10parseSeqIdEPm.exit
+  %or.cond214 = select i1 %cmp19.i, i1 true, i1 %or.cond.i
+  br i1 %or.cond214, label %if.end41.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE10parseSeqIdEPm.exit
 
 if.end41.i:                                       ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit58.i
   %incdec.ptr.i120 = getelementptr inbounds nuw i8, ptr %this.val1499101.i, i64 1
@@ -3300,7 +3300,7 @@ if.then17:                                        ; preds = %_ZNK10StringView10s
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %if.then17
-  %46 = phi ptr [ %.pre207, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %IsEndOfEncoding.val.val6, %if.then17 ]
+  %46 = phi ptr [ %.pre208, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %IsEndOfEncoding.val.val6, %if.then17 ]
   %47 = phi ptr [ %.pre, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %add.ptr.i32, %if.then17 ]
   %cmp.not.i38 = icmp eq ptr %47, %46
   br i1 %cmp.not.i38, label %while.body, label %land.lhs.true.i
@@ -3375,7 +3375,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %incdec.ptr.i45, ptr %Last.i33, align 8
   store ptr %call20, ptr %53, align 8
   %.pre = load ptr, ptr %this, align 16
-  %.pre207 = load ptr, ptr %0, align 8
+  %.pre208 = load ptr, ptr %0, align 8
   br label %while.cond, !llvm.loop !15
 
 while.end:                                        ; preds = %land.lhs.true.i
@@ -3397,20 +3397,19 @@ if.end29:                                         ; preds = %if.end15, %_ZNK10St
   %Attrs.0 = phi ptr [ %call26, %while.end ], [ null, %_ZNK10StringView10startsWithES_.exit.i ], [ null, %if.end15 ]
   %59 = load i8, ptr %NameInfo, align 8
   %tobool30 = trunc i8 %59 to i1
-  br i1 %tobool30, label %if.end37, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.end29
+  %tobool30.not = xor i1 %tobool30, true
   %60 = load i8, ptr %EndsWithTemplateArgs.i, align 1
   %tobool31 = trunc i8 %60 to i1
-  br i1 %tobool31, label %if.then32, label %if.end37
+  %or.cond = select i1 %tobool30.not, i1 %tobool31, i1 false
+  br i1 %or.cond, label %if.then32, label %if.end37
 
-if.then32:                                        ; preds = %land.lhs.true
+if.then32:                                        ; preds = %if.end29
   %call33 = call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4864) %this)
   %cmp34 = icmp eq ptr %call33, null
   br i1 %cmp34, label %return, label %if.end37
 
-if.end37:                                         ; preds = %if.then32, %land.lhs.true, %if.end29
-  %ReturnType.0 = phi ptr [ null, %if.end29 ], [ %call33, %if.then32 ], [ null, %land.lhs.true ]
+if.end37:                                         ; preds = %if.then32, %if.end29
+  %ReturnType.0 = phi ptr [ %call33, %if.then32 ], [ null, %if.end29 ]
   %61 = load ptr, ptr %this, align 16
   %62 = load ptr, ptr %0, align 8
   %cmp.not.i57 = icmp eq ptr %61, %62

@@ -656,8 +656,8 @@ define dso_local noundef i64 @_ZNK4llvm16MachineFrameInfo17estimateStackSizeERKN
   %.sroa.0.0.copyload.i = load i8, ptr %14, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8, !tbaa !46
-  %.not52 = icmp eq i32 %16, 0
-  br i1 %.not52, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.not54 = icmp eq i32 %16, 0
+  br i1 %.not54, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -682,17 +682,17 @@ define dso_local noundef i64 @_ZNK4llvm16MachineFrameInfo17estimateStackSizeERKN
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 40
   %29 = trunc i64 %28 to i32
-  %.not3255 = icmp eq i32 %16, %29
-  br i1 %.not3255, label %._crit_edge61, label %.lr.ph60.preheader
+  %.not3257 = icmp eq i32 %16, %29
+  br i1 %.not3257, label %._crit_edge63, label %.lr.ph62.preheader
 
-.lr.ph60.preheader:                               ; preds = %._crit_edge
+.lr.ph62.preheader:                               ; preds = %._crit_edge
   %30 = sub i32 %29, %16
   %31 = zext i32 %30 to i64
-  br label %.lr.ph60
+  br label %.lr.ph62
 
 32:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %.054 = phi i64 [ 0, %.lr.ph ], [ %.1, %42 ]
+  %.056 = phi i64 [ 0, %.lr.ph ], [ %.1, %42 ]
   %33 = trunc nuw i64 %indvars.iv to i32
   %34 = add i32 %16, %33
   %35 = zext i32 %34 to i64
@@ -705,17 +705,17 @@ define dso_local noundef i64 @_ZNK4llvm16MachineFrameInfo17estimateStackSizeERKN
   %39 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %19, i64 %35
   %40 = load i64, ptr %39, align 8, !tbaa !54
   %41 = sub nsw i64 0, %40
-  %spec.select = tail call i64 @llvm.smax.i64(i64 %.054, i64 %41)
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %.056, i64 %41)
   br label %42
 
 42:                                               ; preds = %32, %38
-  %.1 = phi i64 [ %.054, %32 ], [ %spec.select, %38 ]
+  %.1 = phi i64 [ %.056, %32 ], [ %spec.select, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = and i64 %indvars.iv.next, 4294967295
   %.not = icmp eq i64 %43, 0
   br i1 %.not, label %._crit_edge, label %32, !llvm.loop !221
 
-._crit_edge61:                                    ; preds = %65, %._crit_edge
+._crit_edge63:                                    ; preds = %65, %._crit_edge
   %.sroa.048.0.lcssa = phi i8 [ %.sroa.0.0.copyload.i, %._crit_edge ], [ %.sroa.048.1, %65 ]
   %.3.lcssa = phi i64 [ %.0.lcssa, %._crit_edge ], [ %.4, %65 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 65
@@ -723,11 +723,11 @@ define dso_local noundef i64 @_ZNK4llvm16MachineFrameInfo17estimateStackSizeERKN
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %66, label %75
 
-.lr.ph60:                                         ; preds = %.lr.ph60.preheader, %65
-  %indvars.iv65 = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next66, %65 ]
-  %.358 = phi i64 [ %.0.lcssa, %.lr.ph60.preheader ], [ %.4, %65 ]
-  %.sroa.048.056 = phi i8 [ %.sroa.0.0.copyload.i, %.lr.ph60.preheader ], [ %.sroa.048.1, %65 ]
-  %47 = trunc nuw i64 %indvars.iv65 to i32
+.lr.ph62:                                         ; preds = %.lr.ph62.preheader, %65
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next68, %65 ]
+  %.360 = phi i64 [ %.0.lcssa, %.lr.ph62.preheader ], [ %.4, %65 ]
+  %.sroa.048.058 = phi i8 [ %.sroa.0.0.copyload.i, %.lr.ph62.preheader ], [ %.sroa.048.1, %65 ]
+  %47 = trunc nuw i64 %indvars.iv67 to i32
   %48 = add i32 %16, %47
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %21, i64 %49, i32 1
@@ -735,7 +735,7 @@ define dso_local noundef i64 @_ZNK4llvm16MachineFrameInfo17estimateStackSizeERKN
   %52 = icmp eq i64 %51, -1
   br i1 %52, label %65, label %53
 
-53:                                               ; preds = %.lr.ph60
+53:                                               ; preds = %.lr.ph62
   %54 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %21, i64 %49, i32 6
   %55 = load i8, ptr %54, align 4, !tbaa !60
   %.not34 = icmp eq i8 %55, 0
@@ -746,22 +746,22 @@ define dso_local noundef i64 @_ZNK4llvm16MachineFrameInfo17estimateStackSizeERKN
   %.sroa.0.0.copyload.i36 = load i8, ptr %57, align 8, !tbaa !3
   %58 = zext nneg i8 %.sroa.0.0.copyload.i36 to i64
   %59 = shl nuw i64 1, %58
-  %60 = add i64 %.358, -1
+  %60 = add i64 %.360, -1
   %61 = add i64 %60, %51
   %62 = add i64 %61, %59
   %63 = sub i64 0, %59
   %64 = and i64 %62, %63
-  %.sroa.speculated46 = tail call i8 @llvm.umax.i8(i8 %.sroa.0.0.copyload.i36, i8 %.sroa.048.056)
+  %.sroa.speculated46 = tail call i8 @llvm.umax.i8(i8 %.sroa.0.0.copyload.i36, i8 %.sroa.048.058)
   br label %65
 
-65:                                               ; preds = %.lr.ph60, %53, %56
-  %.sroa.048.1 = phi i8 [ %.sroa.048.056, %.lr.ph60 ], [ %.sroa.speculated46, %56 ], [ %.sroa.048.056, %53 ]
-  %.4 = phi i64 [ %.358, %.lr.ph60 ], [ %64, %56 ], [ %.358, %53 ]
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %.not32 = icmp eq i64 %indvars.iv.next66, %31
-  br i1 %.not32, label %._crit_edge61, label %.lr.ph60, !llvm.loop !223
+65:                                               ; preds = %.lr.ph62, %53, %56
+  %.sroa.048.1 = phi i8 [ %.sroa.048.058, %.lr.ph62 ], [ %.sroa.speculated46, %56 ], [ %.sroa.048.058, %53 ]
+  %.4 = phi i64 [ %.360, %.lr.ph62 ], [ %64, %56 ], [ %.360, %53 ]
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %.not32 = icmp eq i64 %indvars.iv.next68, %31
+  br i1 %.not32, label %._crit_edge63, label %.lr.ph62, !llvm.loop !223
 
-66:                                               ; preds = %._crit_edge61
+66:                                               ; preds = %._crit_edge63
   %67 = load ptr, ptr %8, align 8, !tbaa !181
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 192
   %69 = load ptr, ptr %68, align 8
@@ -776,59 +776,57 @@ define dso_local noundef i64 @_ZNK4llvm16MachineFrameInfo17estimateStackSizeERKN
   %74 = add i64 %.0.i, %.3.lcssa
   br label %75
 
-75:                                               ; preds = %71, %66, %._crit_edge61
-  %.5 = phi i64 [ %74, %71 ], [ %.3.lcssa, %66 ], [ %.3.lcssa, %._crit_edge61 ]
+75:                                               ; preds = %71, %66, %._crit_edge63
+  %.5 = phi i64 [ %74, %71 ], [ %.3.lcssa, %66 ], [ %.3.lcssa, %._crit_edge63 ]
   %76 = load i8, ptr %44, align 1, !tbaa !222, !range !30, !noundef !31
   %77 = trunc nuw i8 %76 to i1
-  br i1 %77, label %100, label %78
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %79 = load i8, ptr %78, align 4, !range !30
+  %80 = trunc nuw i8 %79 to i1
+  %or.cond = select i1 %77, i1 true, i1 %80
+  br i1 %or.cond, label %99, label %81
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %80 = load i8, ptr %79, align 4, !tbaa !47, !range !30, !noundef !31
-  %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %100, label %82
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %13, align 8, !tbaa !181
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 496
+  %84 = load ptr, ptr %83, align 8
+  %85 = tail call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(308) %13, ptr noundef nonnull align 8 dereferenceable(1065) %1) #16
+  br i1 %85, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %13, align 8, !tbaa !181
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 496
-  %85 = load ptr, ptr %84, align 8
-  %86 = tail call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(308) %13, ptr noundef nonnull align 8 dereferenceable(1065) %1) #16
-  br i1 %86, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
+_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit: ; preds = %81
+  %86 = load ptr, ptr %13, align 8, !tbaa !181
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 488
+  %88 = load ptr, ptr %87, align 8
+  %89 = tail call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(308) %13, ptr noundef nonnull align 8 dereferenceable(1065) %1) #16
+  br i1 %89, label %90, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
 
-_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit: ; preds = %82
-  %87 = load ptr, ptr %13, align 8, !tbaa !181
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 488
-  %89 = load ptr, ptr %88, align 8
-  %90 = tail call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(308) %13, ptr noundef nonnull align 8 dereferenceable(1065) %1) #16
-  br i1 %90, label %91, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
-
-91:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit
-  %92 = load ptr, ptr %23, align 8, !tbaa !32
-  %93 = load ptr, ptr %22, align 8, !tbaa !38
+90:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit
+  %91 = load ptr, ptr %23, align 8, !tbaa !32
+  %92 = load ptr, ptr %22, align 8, !tbaa !38
+  %93 = ptrtoint ptr %91 to i64
   %94 = ptrtoint ptr %92 to i64
-  %95 = ptrtoint ptr %93 to i64
-  %96 = sub i64 %94, %95
-  %97 = sdiv exact i64 %96, 40
-  %98 = trunc i64 %97 to i32
-  %99 = load i32, ptr %15, align 8, !tbaa !46
-  %.not33 = icmp eq i32 %99, %98
-  br i1 %.not33, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread, label %100
+  %95 = sub i64 %93, %94
+  %96 = sdiv exact i64 %95, 40
+  %97 = trunc i64 %96 to i32
+  %98 = load i32, ptr %15, align 8, !tbaa !46
+  %.not33 = icmp eq i32 %98, %97
+  br i1 %.not33, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread, label %99
 
-_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread: ; preds = %82, %91, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit
-  br label %100
+_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread: ; preds = %81, %90, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit
+  br label %99
 
-100:                                              ; preds = %75, %78, %91, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
-  %.sink = phi i64 [ 13, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread ], [ 12, %91 ], [ 12, %78 ], [ 12, %75 ]
-  %101 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink
-  %storemerge = load i8, ptr %101, align 1, !tbaa !3
+99:                                               ; preds = %75, %90, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
+  %.sink = phi i64 [ 13, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread ], [ 12, %90 ], [ 12, %75 ]
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink
+  %storemerge = load i8, ptr %100, align 1, !tbaa !3
   %.sroa.speculated = tail call i8 @llvm.umax.i8(i8 %storemerge, i8 %.sroa.048.0.lcssa)
-  %102 = zext nneg i8 %.sroa.speculated to i64
-  %103 = shl nuw i64 1, %102
-  %104 = add i64 %.5, -1
-  %105 = add i64 %104, %103
-  %106 = sub i64 0, %103
-  %107 = and i64 %105, %106
-  ret i64 %107
+  %101 = zext nneg i8 %.sroa.speculated to i64
+  %102 = shl nuw i64 1, %101
+  %103 = add i64 %.5, -1
+  %104 = add i64 %103, %102
+  %105 = sub i64 0, %102
+  %106 = and i64 %104, %105
+  ret i64 %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

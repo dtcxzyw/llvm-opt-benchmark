@@ -335,9 +335,13 @@ define hidden noundef zeroext i1 @column_prefs_custom_display_strings(ptr nounde
   %12 = load i32, ptr %11, align 8
   %switch.tableidx = add i32 %12, -2
   %13 = icmp ult i32 %switch.tableidx, 43
-  br i1 %13, label %switch.hole_check, label %14
+  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
+  %switch.shifted = lshr i64 4985785942017, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %._crit_edge, label %14
 
-14:                                               ; preds = %switch.hole_check, %10
+14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not45 = icmp eq ptr %16, null
@@ -346,29 +350,21 @@ define hidden noundef zeroext i1 @column_prefs_custom_display_strings(ptr nounde
 17:                                               ; preds = %14
   %switch.tableidx102 = add i32 %12, -3
   %18 = icmp ult i32 %switch.tableidx102, 33
-  br i1 %18, label %switch.hole_check103, label %19
+  %switch.maskindex105 = zext nneg i32 %switch.tableidx102 to i64
+  %switch.shifted106 = lshr i64 4295098367, %switch.maskindex105
+  %switch.lobit107 = trunc i64 %switch.shifted106 to i1
+  %or.cond108 = select i1 %18, i1 %switch.lobit107, i1 false
+  br i1 %or.cond108, label %._crit_edge, label %19
 
-19:                                               ; preds = %switch.hole_check103, %17, %.lr.ph, %6, %14, %8
+19:                                               ; preds = %17, %.lr.ph, %6, %14, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = tail call i32 @g_strv_length(ptr noundef %2)
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next, %21
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
-switch.hole_check:                                ; preds = %10
-  %switch.maskindex = zext nneg i32 %switch.tableidx to i64
-  %switch.shifted = lshr i64 4985785942017, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %._crit_edge, label %14
-
-switch.hole_check103:                             ; preds = %17
-  %switch.maskindex105 = zext nneg i32 %switch.tableidx102 to i64
-  %switch.shifted106 = lshr i64 4295098367, %switch.maskindex105
-  %switch.lobit107 = trunc i64 %switch.shifted106 to i1
-  br i1 %switch.lobit107, label %._crit_edge, label %19
-
-._crit_edge:                                      ; preds = %19, %switch.hole_check, %switch.hole_check103, %1
-  %.lcssa = phi i1 [ false, %1 ], [ true, %switch.hole_check103 ], [ true, %switch.hole_check ], [ false, %19 ]
+._crit_edge:                                      ; preds = %19, %10, %17, %1
+  %.lcssa = phi i1 [ false, %1 ], [ true, %17 ], [ true, %10 ], [ false, %19 ]
   tail call void @g_strfreev(ptr noundef %2)
   ret i1 %.lcssa
 }

@@ -1486,15 +1486,13 @@ define internal i32 @dissect_omron_fins_tcp_pdu(ptr noundef %0, ptr noundef %1, 
   store ptr null, ptr %5, align 8
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8)
   %7 = icmp ult i32 %6, 7
-  br i1 %7, label %switch.hole_check, label %42
-
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = trunc nuw i32 %6 to i8
+  %switch.maskindex = trunc i32 %6 to i8
   %switch.shifted = lshr i8 79, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %42
+  %or.cond = select i1 %7, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %42
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %6 to i64
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_omron_fins_tcp_pdu, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -1554,8 +1552,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %41 = call i32 @tvb_reported_length(ptr noundef %0)
   br label %42
 
-42:                                               ; preds = %switch.hole_check, %4, %.thread
-  %.0 = phi i32 [ %41, %.thread ], [ 0, %4 ], [ 0, %switch.hole_check ]
+42:                                               ; preds = %4, %.thread
+  %.0 = phi i32 [ %41, %.thread ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   ret i32 %.0
 }

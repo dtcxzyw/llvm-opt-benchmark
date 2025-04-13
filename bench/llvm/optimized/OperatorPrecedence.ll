@@ -47,9 +47,9 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5clang18getBinOpPrecedenceENS_
   br label %21
 
 5:                                                ; preds = %3
-  %.not = xor i1 %2, true
-  %brmerge = or i1 %1, %.not
-  %spec.select = select i1 %brmerge, i32 12, i32 0
+  %.not = xor i1 %1, true
+  %or.cond = and i1 %2, %.not
+  %.6 = select i1 %or.cond, i32 0, i32 12
   br label %21
 
 6:                                                ; preds = %3
@@ -97,8 +97,8 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5clang18getBinOpPrecedenceENS_
 20:                                               ; preds = %3, %3
   br label %21
 
-21:                                               ; preds = %5, %3, %4, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %.0 = phi i32 [ 15, %20 ], [ 14, %19 ], [ 13, %18 ], [ 12, %17 ], [ 11, %16 ], [ 10, %15 ], [ 9, %14 ], [ 8, %13 ], [ 7, %12 ], [ 6, %11 ], [ 5, %10 ], [ 4, %9 ], [ 3, %8 ], [ 2, %7 ], [ 1, %6 ], [ %., %4 ], [ 0, %3 ], [ %spec.select, %5 ]
+21:                                               ; preds = %3, %5, %4, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
+  %.0 = phi i32 [ 15, %20 ], [ 14, %19 ], [ 13, %18 ], [ 12, %17 ], [ 11, %16 ], [ 10, %15 ], [ 9, %14 ], [ 8, %13 ], [ 7, %12 ], [ 6, %11 ], [ 5, %10 ], [ 4, %9 ], [ 3, %8 ], [ 2, %7 ], [ 1, %6 ], [ %., %4 ], [ %.6, %5 ], [ 0, %3 ]
   ret i32 %.0
 }
 

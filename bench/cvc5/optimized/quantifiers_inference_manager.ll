@@ -433,11 +433,11 @@ declare void @_ZN4cvc58internal6theory24InferenceManagerBuffered26doPendingPhase
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceManager14beginCallDebugEPNS2_17QuantifiersModuleE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-.critedge31:
+.critedge32:
   %2 = tail call noundef zeroext i1 @_ZNK4cvc58internal6EnvObj10isOutputOnENS0_7options9OutputTagE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 2)
-  br i1 %2, label %3, label %.critedge33
+  br i1 %2, label %3, label %.critedge34
 
-3:                                                ; preds = %.critedge31
+3:                                                ; preds = %.critedge32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr %1, ptr %4, align 8, !tbaa !35
   %5 = tail call noundef i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered16numPendingLemmasEv(ptr noundef nonnull align 8 dereferenceable(337) %0)
@@ -446,9 +446,9 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers27QuantifiersInferenceM
   %7 = tail call i64 @clock() #16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i64 %7, ptr %8, align 8, !tbaa !93
-  br label %.critedge33
+  br label %.critedge34
 
-.critedge33:                                      ; preds = %3, %.critedge31
+.critedge34:                                      ; preds = %3, %.critedge32
   ret void
 }
 

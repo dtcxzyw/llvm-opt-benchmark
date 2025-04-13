@@ -175,8 +175,8 @@ define dso_local void @_ZN13cmPropertyMap14AppendPropertyERKNSt7__cxx1112basic_s
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !20
   %12 = icmp eq i64 %11, 0
-  %brmerge = or i1 %3, %12
-  br i1 %brmerge, label %28, label %13
+  %or.cond = or i1 %3, %12
+  br i1 %or.cond, label %28, label %13
 
 13:                                               ; preds = %8
   %14 = add i64 %11, 1
@@ -212,8 +212,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %.pre = load i64, ptr %10, align 8, !tbaa !20
   br label %28
 
-28:                                               ; preds = %8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit
-  %29 = phi i64 [ %11, %8 ], [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
+28:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %8
+  %29 = phi i64 [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %11, %8 ]
   %30 = load i64, ptr %5, align 8, !tbaa !20
   %31 = sub i64 4611686018427387903, %29
   %32 = icmp ult i64 %31, %30

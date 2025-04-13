@@ -1388,8 +1388,8 @@ define hidden noundef ptr @_ZN10duckdb_re26Regexp17ConcatOrAlternateENS_8RegexpO
 
 18:                                               ; preds = %5
   %19 = icmp eq i32 %0, 6
-  %brmerge.not = and i1 %19, %4
-  br i1 %brmerge.not, label %20, label %30
+  %or.cond = and i1 %19, %4
+  br i1 %or.cond, label %20, label %30
 
 20:                                               ; preds = %18
   %21 = icmp slt i32 %2, 0
@@ -1420,15 +1420,15 @@ _ZNSt15__new_allocatorIPN10duckdb_re26RegexpEE8allocateEmPKv.exit.i: ; preds = %
           cleanup
   br label %99
 
-30:                                               ; preds = %18, %26
-  %.sroa.596.0 = phi ptr [ null, %18 ], [ %24, %26 ]
-  %.060 = phi i32 [ %2, %18 ], [ %25, %26 ]
-  %.058 = phi ptr [ %1, %18 ], [ %24, %26 ]
-  %31 = icmp sgt i32 %.060, 65535
+30:                                               ; preds = %26, %18
+  %.sroa.596.0 = phi ptr [ %24, %26 ], [ null, %18 ]
+  %.061 = phi i32 [ %25, %26 ], [ %2, %18 ]
+  %.059 = phi ptr [ %24, %26 ], [ %1, %18 ]
+  %31 = icmp sgt i32 %.061, 65535
   br i1 %31, label %32, label %73
 
 32:                                               ; preds = %30
-  %33 = add nuw i32 %.060, 65534
+  %33 = add nuw i32 %.061, 65534
   %34 = udiv i32 %33, 65535
   %35 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %36 unwind label %54
@@ -1462,8 +1462,8 @@ _ZNSt15__new_allocatorIPN10duckdb_re26RegexpEE8allocateEmPKv.exit.i: ; preds = %
 ._crit_edge:                                      ; preds = %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit88
   %49 = mul nuw nsw i32 %48, 65535
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %.058, i64 %50
-  %52 = sub nsw i32 %.060, %49
+  %51 = getelementptr inbounds nuw ptr, ptr %.059, i64 %50
+  %52 = sub nsw i32 %.061, %49
   %53 = invoke noundef ptr @_ZN10duckdb_re26Regexp17ConcatOrAlternateENS_8RegexpOpEPPS0_iNS0_10ParseFlagsEb(i32 noundef %0, ptr noundef %51, i32 noundef %52, i32 noundef %3, i1 noundef zeroext false)
           to label %70 unwind label %56
 
@@ -1480,7 +1480,7 @@ _ZNSt15__new_allocatorIPN10duckdb_re26RegexpEE8allocateEmPKv.exit.i: ; preds = %
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit88
   %indvar = phi i64 [ 0, %.lr.ph123.preheader ], [ %indvar.next, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit88 ]
   %58 = mul nuw nsw i64 %indvar, 524280
-  %scevgep = getelementptr i8, ptr %.058, i64 %58
+  %scevgep = getelementptr i8, ptr %.059, i64 %58
   %59 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
           to label %60 unwind label %68
 
@@ -1535,11 +1535,11 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit88: ; preds = %60
   store i16 1, ptr %80, align 4, !tbaa !12
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(34) %81, i8 0, i64 34, i1 false)
-  %82 = icmp sgt i32 %.060, 1
+  %82 = icmp sgt i32 %.061, 1
   br i1 %82, label %83, label %89
 
 83:                                               ; preds = %75
-  %84 = zext nneg i32 %.060 to i64
+  %84 = zext nneg i32 %.061 to i64
   %85 = shl nuw nsw i64 %84, 3
   %86 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %85) #31
           to label %.thread131 unwind label %93
@@ -1547,20 +1547,20 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit88: ; preds = %60
 .thread131:                                       ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %86, ptr %87, align 8, !tbaa !32
-  %88 = trunc nuw i32 %.060 to i16
+  %88 = trunc nuw i32 %.061 to i16
   store i16 %88, ptr %81, align 2, !tbaa !13
   br label %.lr.ph.preheader
 
 89:                                               ; preds = %75
-  %90 = trunc i32 %.060 to i16
+  %90 = trunc i32 %.061 to i16
   store i16 %90, ptr %81, align 2, !tbaa !13
   %91 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %92 = icmp eq i32 %.060, 1
+  %92 = icmp eq i32 %.061, 1
   br i1 %92, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.thread131, %89
   %.0.i80133 = phi ptr [ %86, %.thread131 ], [ %91, %89 ]
-  %wide.trip.count = zext nneg i32 %.060 to i64
+  %wide.trip.count = zext nneg i32 %.061 to i64
   br label %.lr.ph
 
 93:                                               ; preds = %83, %73
@@ -1570,7 +1570,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit88: ; preds = %60
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %95 = getelementptr inbounds nuw ptr, ptr %.058, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw ptr, ptr %.059, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8, !tbaa !41
   %97 = getelementptr inbounds nuw ptr, ptr %.0.i80133, i64 %indvars.iv
   store ptr %96, ptr %97, align 8, !tbaa !41
@@ -1605,8 +1605,8 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit84: ; preds = %.body, %99
   resume { ptr, i32 } %.pn.pn.pn112
 
 _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit82: ; preds = %98, %.loopexit, %17, %16, %6
-  %.057 = phi ptr [ %7, %6 ], [ %10, %16 ], [ %10, %17 ], [ %.1, %.loopexit ], [ %.1107, %98 ]
-  ret ptr %.057
+  %.058 = phi ptr [ %7, %6 ], [ %10, %16 ], [ %10, %17 ], [ %.1, %.loopexit ], [ %.1107, %98 ]
+  ret ptr %.058
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

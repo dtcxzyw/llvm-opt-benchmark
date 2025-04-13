@@ -86,7 +86,7 @@ define hidden noundef zeroext i1 @_ZN5Rdtsc10initializeEv() local_unnamed_addr #
 ._crit_edge:                                      ; preds = %0
   %.pre = load i8, ptr @_ZL29rdtsc_elapsed_counter_enabled, align 1
   %10 = trunc nuw i8 %.pre to i1
-  br label %106
+  br label %105
 
 11:                                               ; preds = %0
   tail call void @_ZN10VM_Version14initialize_tscEv() #6
@@ -294,8 +294,8 @@ _ZL26initialize_elapsed_counterv.exit:            ; preds = %85, %.thread29.i.i,
 93:                                               ; preds = %_ZL26initialize_elapsed_counterv.exit
   %94 = tail call noundef zeroext i1 @_ZN10VM_Version19supports_tscinv_extEv() #6
   %95 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 915) #6
-  %brmerge.demorgan.i = and i1 %94, %95
-  br i1 %brmerge.demorgan.i, label %96, label %98
+  %or.cond.i = and i1 %94, %95
+  br i1 %or.cond.i, label %96, label %98
 
 96:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
@@ -307,32 +307,29 @@ _ZL26initialize_elapsed_counterv.exit:            ; preds = %85, %.thread29.i.i,
 98:                                               ; preds = %96, %93
   %99 = load i8, ptr @UseFastUnorderedTimeStamps, align 1
   %100 = trunc i8 %99 to i1
-  %.not6.i = xor i1 %100, true
-  %brmerge7.i = or i1 %94, %.not6.i
-  br i1 %brmerge7.i, label %101, label %.sink.split.i
-
-101:                                              ; preds = %98
-  %102 = and i1 %94, %100
-  br label %_ZL10ergonomicsv.exit
+  %101 = and i1 %94, %100
+  %or.cond3.i = xor i1 %101, %100
+  br i1 %or.cond3.i, label %.sink.split.i, label %_ZL10ergonomicsv.exit
 
 .sink.split.i:                                    ; preds = %98
-  %103 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %104 = and i64 %103, 32768
-  %.not.i = icmp ne i64 %104, 0
-  %.str.mux = select i1 %.not.i, ptr @.str, ptr @.str.4
-  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull %.str.mux) #6
+  %102 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %103 = and i64 %102, 32768
+  %.not.i = icmp ne i64 %103, 0
+  %spec.select = select i1 %.not.i, ptr @.str, ptr @.str.4
+  %spec.select4 = or i1 %.not.i, %101
+  call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull %spec.select) #6
   br label %_ZL10ergonomicsv.exit
 
-_ZL10ergonomicsv.exit:                            ; preds = %.sink.split.i, %101, %_ZL26initialize_elapsed_counterv.exit.thread, %_ZL26initialize_elapsed_counterv.exit
-  %.0.in = phi i1 [ false, %_ZL26initialize_elapsed_counterv.exit ], [ false, %_ZL26initialize_elapsed_counterv.exit.thread ], [ %102, %101 ], [ %.not.i, %.sink.split.i ]
-  %105 = zext i1 %.0.in to i8
-  store i8 %105, ptr @_ZL29rdtsc_elapsed_counter_enabled, align 1
+_ZL10ergonomicsv.exit:                            ; preds = %.sink.split.i, %98, %_ZL26initialize_elapsed_counterv.exit.thread, %_ZL26initialize_elapsed_counterv.exit
+  %.0.in = phi i1 [ false, %_ZL26initialize_elapsed_counterv.exit ], [ false, %_ZL26initialize_elapsed_counterv.exit.thread ], [ %spec.select4, %.sink.split.i ], [ %101, %98 ]
+  %104 = zext i1 %.0.in to i8
+  store i8 %104, ptr @_ZL29rdtsc_elapsed_counter_enabled, align 1
   store i1 true, ptr @_ZZN5Rdtsc10initializeEvE11initialized, align 1
-  br label %106
+  br label %105
 
-106:                                              ; preds = %._crit_edge, %_ZL10ergonomicsv.exit
-  %107 = phi i1 [ %10, %._crit_edge ], [ %.0.in, %_ZL10ergonomicsv.exit ]
-  ret i1 %107
+105:                                              ; preds = %._crit_edge, %_ZL10ergonomicsv.exit
+  %106 = phi i1 [ %10, %._crit_edge ], [ %.0.in, %_ZL10ergonomicsv.exit ]
+  ret i1 %106
 }
 
 declare void @_ZN10VM_Version14initialize_tscEv() local_unnamed_addr #1

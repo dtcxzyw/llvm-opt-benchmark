@@ -4012,9 +4012,13 @@ define internal noundef zeroext i16 @de_tp_sub_channel(ptr noundef %0, ptr nound
   %11 = add nsw i32 %10, -8
   %12 = lshr i32 %11, 3
   %13 = icmp ult i32 %11, 56
-  br i1 %13, label %switch.hole_check, label %14
+  %switch.maskindex = trunc i32 %12 to i8
+  %switch.shifted = lshr i8 71, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %14
 
-14:                                               ; preds = %switch.hole_check, %7
+14:                                               ; preds = %7
   %15 = and i32 %10, 60
   %16 = icmp eq i32 %15, 4
   br i1 %16, label %20, label %17
@@ -4027,13 +4031,7 @@ define internal noundef zeroext i16 @de_tp_sub_channel(ptr noundef %0, ptr nound
   %switch.select23 = select i1 %switch.selectcmp22, ptr @.str.951, ptr %switch.select
   br label %20
 
-switch.hole_check:                                ; preds = %7
-  %switch.maskindex = trunc nuw i32 %12 to i8
-  %switch.shifted = lshr i8 71, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %14
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %7
   %19 = zext nneg i32 %12 to i64
   %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.de_tp_sub_channel, i64 0, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -4891,8 +4889,8 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %21, ptr @dissect_dtap.tap_p, align 8
   store ptr %2, ptr @g_tree, align 8
   %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %.fr153 = freeze i8 %22
-  %23 = zext i8 %.fr153 to i32
+  %.fr155 = freeze i8 %22
+  %23 = zext i8 %.fr155 to i32
   %24 = lshr i32 %23, 4
   %25 = and i32 %23, 112
   %26 = icmp eq i32 %25, 112
@@ -4907,9 +4905,9 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %211
 
 31:                                               ; preds = %27, %14
-  %.0129 = phi i32 [ 1, %14 ], [ 2, %27 ]
-  %32 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0129)
-  %33 = and i8 %.fr153, 15
+  %.0132 = phi i32 [ 1, %14 ], [ 2, %27 ]
+  %32 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0132)
+  %33 = and i8 %.fr155, 15
   store ptr null, ptr %7, align 8
   store i32 -1, ptr %8, align 4
   store i32 -1, ptr %9, align 4
@@ -4936,8 +4934,8 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %39 = zext nneg i8 %38 to i32
   %40 = call ptr @try_val_to_str_idx(i32 noundef %39, ptr noundef nonnull @gsm_a_dtap_msg_gcc_strings, ptr noundef nonnull %6)
   store ptr %40, ptr %7, align 8
-  %.not141 = icmp eq ptr %40, null
-  br i1 %.not141, label %46, label %41
+  %.not144 = icmp eq ptr %40, null
+  br i1 %.not144, label %46, label %41
 
 41:                                               ; preds = %37
   store i32 0, ptr %8, align 4
@@ -4958,8 +4956,8 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %50 = zext nneg i8 %49 to i32
   %51 = call ptr @try_val_to_str_idx(i32 noundef %50, ptr noundef nonnull @gsm_a_dtap_msg_bcc_strings, ptr noundef nonnull %6)
   store ptr %51, ptr %7, align 8
-  %.not140 = icmp eq ptr %51, null
-  br i1 %.not140, label %57, label %52
+  %.not143 = icmp eq ptr %51, null
+  br i1 %.not143, label %57, label %52
 
 52:                                               ; preds = %48
   store i32 0, ptr %8, align 4
@@ -4980,8 +4978,8 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %61 = zext nneg i8 %60 to i32
   %62 = call ptr @try_val_to_str_idx(i32 noundef %61, ptr noundef nonnull @gsm_a_dtap_msg_cc_strings, ptr noundef nonnull %6)
   store ptr %62, ptr %7, align 8
-  %.not139 = icmp eq ptr %62, null
-  br i1 %.not139, label %70, label %63
+  %.not142 = icmp eq ptr %62, null
+  br i1 %.not142, label %70, label %63
 
 63:                                               ; preds = %59
   %64 = load i32, ptr %6, align 4
@@ -5004,8 +5002,8 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %74 = zext nneg i8 %73 to i32
   %75 = call ptr @try_val_to_str_idx(i32 noundef %74, ptr noundef nonnull @gsm_a_dtap_msg_mm_strings, ptr noundef nonnull %6)
   store ptr %75, ptr %7, align 8
-  %.not138 = icmp eq ptr %75, null
-  br i1 %.not138, label %83, label %76
+  %.not141 = icmp eq ptr %75, null
+  br i1 %.not141, label %83, label %76
 
 76:                                               ; preds = %72
   %77 = load i32, ptr %6, align 4
@@ -5037,8 +5035,8 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %89, ptr %7, align 8
   %90 = load i32, ptr @hf_gsm_a_dtap_msg_sms_type, align 4
   store i32 %90, ptr %9, align 4
-  %.not137 = icmp eq ptr %89, null
-  br i1 %.not137, label %122, label %91
+  %.not140 = icmp eq ptr %89, null
+  br i1 %.not140, label %122, label %91
 
 91:                                               ; preds = %87
   %92 = load i32, ptr %6, align 4
@@ -5062,8 +5060,8 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %102, ptr %7, align 8
   %103 = load i32, ptr @hf_gsm_a_dtap_msg_ss_type, align 4
   store i32 %103, ptr %9, align 4
-  %.not136 = icmp eq ptr %102, null
-  br i1 %.not136, label %122, label %104
+  %.not139 = icmp eq ptr %102, null
+  br i1 %.not139, label %122, label %104
 
 104:                                              ; preds = %99
   %105 = load i32, ptr %6, align 4
@@ -5097,16 +5095,16 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %122
 
 122:                                              ; preds = %111, %115, %99, %104, %87, %91, %98, %86, %85, %83, %70, %57, %46
-  %.0126 = phi i32 [ %24, %98 ], [ -1, %86 ], [ -1, %85 ], [ -1, %83 ], [ %24, %70 ], [ %24, %57 ], [ %24, %46 ], [ %24, %91 ], [ %24, %87 ], [ %24, %104 ], [ %24, %99 ], [ -1, %115 ], [ -1, %111 ]
-  %.0125 = phi i1 [ false, %98 ], [ false, %86 ], [ false, %85 ], [ true, %83 ], [ true, %70 ], [ true, %57 ], [ true, %46 ], [ false, %91 ], [ false, %87 ], [ true, %104 ], [ true, %99 ], [ true, %115 ], [ true, %111 ]
-  %.not142 = icmp eq ptr %3, null
-  br i1 %.not142, label %126, label %123
+  %.0129 = phi i32 [ %24, %98 ], [ -1, %86 ], [ -1, %85 ], [ -1, %83 ], [ %24, %70 ], [ %24, %57 ], [ %24, %46 ], [ %24, %91 ], [ %24, %87 ], [ %24, %104 ], [ %24, %99 ], [ -1, %115 ], [ -1, %111 ]
+  %.0128 = phi i1 [ false, %98 ], [ false, %86 ], [ false, %85 ], [ true, %83 ], [ true, %70 ], [ true, %57 ], [ true, %46 ], [ false, %91 ], [ false, %87 ], [ true, %104 ], [ true, %99 ], [ true, %115 ], [ true, %111 ]
+  %.not145 = icmp eq ptr %3, null
+  br i1 %.not145, label %126, label %123
 
 123:                                              ; preds = %122
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %125 = load ptr, ptr %124, align 8
-  %.not143 = icmp eq ptr %125, null
-  br i1 %.not143, label %126, label %127
+  %.not146 = icmp eq ptr %125, null
+  br i1 %.not146, label %126, label %127
 
 126:                                              ; preds = %123, %122
   br label %127
@@ -5125,14 +5123,14 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %133 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %130, ptr noundef %0, i32 noundef 0, i32 noundef %10, ptr noundef nonnull @.str.1319, i32 noundef %132)
   %134 = load i32, ptr @ett_dtap_msg, align 4
   %135 = call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %134)
-  %.not146 = icmp eq ptr %.0, null
-  br i1 %.not146, label %157, label %136
+  %.not149 = icmp eq ptr %.0, null
+  br i1 %.not149, label %157, label %136
 
 136:                                              ; preds = %131
   %137 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %138 = load ptr, ptr %137, align 8
-  %.not147 = icmp eq ptr %138, null
-  br i1 %.not147, label %139, label %157
+  %.not150 = icmp eq ptr %138, null
+  br i1 %.not150, label %139, label %157
 
 139:                                              ; preds = %136
   %140 = call ptr @wmem_file_scope()
@@ -5144,14 +5142,14 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %143 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %130, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.1321, ptr noundef nonnull %128)
   %144 = load i32, ptr %8, align 4
   %145 = call ptr @proto_item_add_subtree(ptr noundef %143, i32 noundef %144)
-  %.not144 = icmp eq ptr %.0, null
-  br i1 %.not144, label %153, label %146
+  %.not147 = icmp eq ptr %.0, null
+  br i1 %.not147, label %153, label %146
 
 146:                                              ; preds = %142
   %147 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %148 = load ptr, ptr %147, align 8
-  %.not145 = icmp eq ptr %148, null
-  br i1 %.not145, label %149, label %153
+  %.not148 = icmp eq ptr %148, null
+  br i1 %.not148, label %149, label %153
 
 149:                                              ; preds = %146
   %150 = call ptr @wmem_file_scope()
@@ -5169,14 +5167,14 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %157
 
 157:                                              ; preds = %131, %136, %139, %153
-  %.0127 = phi ptr [ %135, %136 ], [ %135, %139 ], [ %135, %131 ], [ %145, %153 ]
+  %.0130 = phi ptr [ %135, %136 ], [ %135, %139 ], [ %135, %131 ], [ %145, %153 ]
   %158 = load i32, ptr @hf_gsm_a_dtap_protocol_discriminator, align 4
-  %159 = call ptr @proto_tree_add_uint(ptr noundef %.0127, i32 noundef %158, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %35)
+  %159 = call ptr @proto_tree_add_uint(ptr noundef %.0130, i32 noundef %158, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %35)
   %160 = load i32, ptr @ett_dtap_oct_1, align 4
   %161 = call ptr @proto_item_add_subtree(ptr noundef %159, i32 noundef %160)
   %162 = load i32, ptr @hf_gsm_a_L3_protocol_discriminator, align 4
   %163 = call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %162, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %164 = icmp eq i32 %.0126, -1
+  %164 = icmp eq i32 %.0129, -1
   br i1 %164, label %.thread, label %167
 
 .thread:                                          ; preds = %157
@@ -5187,7 +5185,7 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 167:                                              ; preds = %157
   %168 = load i32, ptr @hf_gsm_a_dtap_ti_flag, align 4
   %169 = call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %168, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %170 = and i32 %.0126, 7
+  %170 = and i32 %.0129, 7
   %171 = icmp eq i32 %170, 7
   %172 = load i32, ptr @hf_gsm_a_dtap_tio, align 4
   br i1 %171, label %175, label %173
@@ -5205,7 +5203,7 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %181
 
 181:                                              ; preds = %173, %.thread, %175
-  %182 = and i8 %.fr153, 14
+  %182 = and i8 %.fr155, 14
   %183 = icmp eq i8 %182, 10
   br i1 %183, label %184, label %switch.early.test
 
@@ -5217,17 +5215,17 @@ switch.early.test:                                ; preds = %181
 
 184:                                              ; preds = %switch.early.test, %switch.early.test, %181
   %185 = load i32, ptr @hf_gsm_a_seq_no, align 4
-  %186 = call ptr @proto_tree_add_item(ptr noundef %.0127, i32 noundef %185, ptr noundef %0, i32 noundef %.0129, i32 noundef 1, i32 noundef 0)
+  %186 = call ptr @proto_tree_add_item(ptr noundef %.0130, i32 noundef %185, ptr noundef %0, i32 noundef %.0132, i32 noundef 1, i32 noundef 0)
   br label %187
 
 187:                                              ; preds = %switch.early.test, %184
   %188 = load i32, ptr %9, align 4
-  %189 = call ptr @proto_tree_add_item(ptr noundef %.0127, i32 noundef %188, ptr noundef %0, i32 noundef %.0129, i32 noundef 1, i32 noundef 0)
-  %190 = add nuw nsw i32 %.0129, 1
+  %189 = call ptr @proto_tree_add_item(ptr noundef %.0130, i32 noundef %188, ptr noundef %0, i32 noundef %.0132, i32 noundef 1, i32 noundef 0)
+  %190 = add nuw nsw i32 %.0132, 1
   %191 = load ptr, ptr @dissect_dtap.tap_p, align 8
   store i8 1, ptr %191, align 4
   %192 = and i8 %32, 63
-  %193 = select i1 %.0125, i8 %192, i8 %32
+  %193 = select i1 %.0128, i8 %192, i8 %32
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 1
   store i8 %193, ptr %194, align 1
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 4
@@ -5250,12 +5248,12 @@ switch.early.test:                                ; preds = %181
 204:                                              ; preds = %202
   %205 = load i32, ptr @hf_gsm_a_dtap_message_elements, align 4
   %206 = sub nuw i32 %10, %190
-  %207 = call ptr @proto_tree_add_item(ptr noundef %.0127, i32 noundef %205, ptr noundef %0, i32 noundef %190, i32 noundef %206, i32 noundef 0)
+  %207 = call ptr @proto_tree_add_item(ptr noundef %.0130, i32 noundef %205, ptr noundef %0, i32 noundef %190, i32 noundef %206, i32 noundef 0)
   br label %210
 
 208:                                              ; preds = %199
   %209 = sub i32 %10, %190
-  call void %200(ptr noundef %0, ptr noundef %.0127, ptr noundef %1, i32 noundef %190, i32 noundef %209)
+  call void %200(ptr noundef %0, ptr noundef %.0130, ptr noundef %1, i32 noundef %190, i32 noundef %209)
   br label %210
 
 210:                                              ; preds = %202, %204, %208

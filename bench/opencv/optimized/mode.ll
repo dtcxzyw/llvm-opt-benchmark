@@ -175,9 +175,13 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN5zxing6qrcode4
   %4 = alloca %"class.zxing::ReaderErrorHandler", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = icmp ult i32 %0, 14
-  br i1 %6, label %switch.hole_check, label %7
+  %switch.maskindex = trunc i32 %0 to i16
+  %switch.shifted = lshr i16 9151, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-7:                                                ; preds = %switch.hole_check, %2
+7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %3) #18
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.19, i64 noundef 19)
@@ -382,13 +386,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %3) #18
   resume { ptr, i32 } %.pn.pn.pn
 
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc nuw i32 %0 to i16
-  %switch.shifted = lshr i16 9151, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %82 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN5zxing6qrcode4Mode7forBitsEiRNS_12ErrorHandlerE, i64 0, i64 %82
   %switch.load = load ptr, ptr %switch.gep, align 8

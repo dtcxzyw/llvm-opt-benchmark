@@ -108,15 +108,15 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %145
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %145 ]
-  %.079210 = phi i32 [ 8, %.lr.ph.preheader ], [ %.281.ph, %145 ]
-  %.082209 = phi i32 [ 64, %.lr.ph.preheader ], [ %.284.ph, %145 ]
-  %.086208 = phi i32 [ 16384, %.lr.ph.preheader ], [ %.288.ph, %145 ]
-  %.089207 = phi i32 [ 8, %.lr.ph.preheader ], [ %.291.ph, %145 ]
-  %.092206 = phi i32 [ 64, %.lr.ph.preheader ], [ %.294.ph, %145 ]
-  %.096205 = phi i32 [ 16384, %.lr.ph.preheader ], [ %.298.ph, %145 ]
-  %.099204 = phi i32 [ 16, %.lr.ph.preheader ], [ %.2101.ph, %145 ]
-  %.0102203 = phi i32 [ 64, %.lr.ph.preheader ], [ %.2104.ph, %145 ]
-  %.0105202 = phi i32 [ 2097152, %.lr.ph.preheader ], [ %.2107.ph, %145 ]
+  %.080210 = phi i32 [ 8, %.lr.ph.preheader ], [ %.282.ph, %145 ]
+  %.083209 = phi i32 [ 64, %.lr.ph.preheader ], [ %.285.ph, %145 ]
+  %.087208 = phi i32 [ 16384, %.lr.ph.preheader ], [ %.289.ph, %145 ]
+  %.090207 = phi i32 [ 8, %.lr.ph.preheader ], [ %.292.ph, %145 ]
+  %.093206 = phi i32 [ 64, %.lr.ph.preheader ], [ %.295.ph, %145 ]
+  %.097205 = phi i32 [ 16384, %.lr.ph.preheader ], [ %.299.ph, %145 ]
+  %.0100204 = phi i32 [ 16, %.lr.ph.preheader ], [ %.2102.ph, %145 ]
+  %.0103203 = phi i32 [ 64, %.lr.ph.preheader ], [ %.2105.ph, %145 ]
+  %.0106202 = phi i32 [ 2097152, %.lr.ph.preheader ], [ %.2108.ph, %145 ]
   %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @g_strsplit(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 2) #12
@@ -324,15 +324,15 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %124, %138, %120
   br label %203
 
 145:                                              ; preds = %29, %47, %65, %83, %101, %120, %132, %142, %137, %110, %92, %74, %56, %38, %20
-  %.2107.ph = phi i32 [ %.0105202, %142 ], [ %.0105202, %137 ], [ %.0105202, %132 ], [ %.0105202, %120 ], [ %.0105202, %110 ], [ %.0105202, %101 ], [ %96, %92 ], [ %.0105202, %83 ], [ %.0105202, %74 ], [ %.0105202, %65 ], [ %.0105202, %56 ], [ %.0105202, %47 ], [ %.0105202, %38 ], [ %.0105202, %29 ], [ %.0105202, %20 ]
-  %.2104.ph = phi i32 [ %.0102203, %142 ], [ %.0102203, %137 ], [ %.0102203, %132 ], [ %.0102203, %120 ], [ %.0102203, %110 ], [ %105, %101 ], [ %.0102203, %92 ], [ %.0102203, %83 ], [ %.0102203, %74 ], [ %.0102203, %65 ], [ %.0102203, %56 ], [ %.0102203, %47 ], [ %.0102203, %38 ], [ %.0102203, %29 ], [ %.0102203, %20 ]
-  %.2101.ph = phi i32 [ %.099204, %142 ], [ %.099204, %137 ], [ %.099204, %132 ], [ %.099204, %120 ], [ %114, %110 ], [ %.099204, %101 ], [ %.099204, %92 ], [ %.099204, %83 ], [ %.099204, %74 ], [ %.099204, %65 ], [ %.099204, %56 ], [ %.099204, %47 ], [ %.099204, %38 ], [ %.099204, %29 ], [ %.099204, %20 ]
-  %.298.ph = phi i32 [ %.096205, %142 ], [ %.096205, %137 ], [ %.096205, %132 ], [ %.096205, %120 ], [ %.096205, %110 ], [ %.096205, %101 ], [ %.096205, %92 ], [ %.096205, %83 ], [ %.096205, %74 ], [ %69, %65 ], [ %.096205, %56 ], [ %.096205, %47 ], [ %.096205, %38 ], [ %.096205, %29 ], [ %.096205, %20 ]
-  %.294.ph = phi i32 [ %.092206, %142 ], [ %.092206, %137 ], [ %.092206, %132 ], [ %.092206, %120 ], [ %.092206, %110 ], [ %.092206, %101 ], [ %.092206, %92 ], [ %.092206, %83 ], [ %.092206, %74 ], [ %.092206, %65 ], [ %.092206, %56 ], [ %51, %47 ], [ %.092206, %38 ], [ %.092206, %29 ], [ %.092206, %20 ]
-  %.291.ph = phi i32 [ %.089207, %142 ], [ %.089207, %137 ], [ %.089207, %132 ], [ %.089207, %120 ], [ %.089207, %110 ], [ %.089207, %101 ], [ %.089207, %92 ], [ %.089207, %83 ], [ %.089207, %74 ], [ %.089207, %65 ], [ %60, %56 ], [ %.089207, %47 ], [ %.089207, %38 ], [ %.089207, %29 ], [ %.089207, %20 ]
-  %.288.ph = phi i32 [ %.086208, %142 ], [ %.086208, %137 ], [ %.086208, %132 ], [ %.086208, %120 ], [ %.086208, %110 ], [ %.086208, %101 ], [ %.086208, %92 ], [ %.086208, %83 ], [ %.086208, %74 ], [ %.086208, %65 ], [ %.086208, %56 ], [ %.086208, %47 ], [ %42, %38 ], [ %.086208, %29 ], [ %.086208, %20 ]
-  %.284.ph = phi i32 [ %.082209, %142 ], [ %.082209, %137 ], [ %.082209, %132 ], [ %.082209, %120 ], [ %.082209, %110 ], [ %.082209, %101 ], [ %.082209, %92 ], [ %.082209, %83 ], [ %.082209, %74 ], [ %.082209, %65 ], [ %.082209, %56 ], [ %.082209, %47 ], [ %.082209, %38 ], [ %.082209, %29 ], [ %24, %20 ]
-  %.281.ph = phi i32 [ %.079210, %142 ], [ %.079210, %137 ], [ %.079210, %132 ], [ %.079210, %120 ], [ %.079210, %110 ], [ %.079210, %101 ], [ %.079210, %92 ], [ %.079210, %83 ], [ %.079210, %74 ], [ %.079210, %65 ], [ %.079210, %56 ], [ %.079210, %47 ], [ %.079210, %38 ], [ %33, %29 ], [ %.079210, %20 ]
+  %.2108.ph = phi i32 [ %.0106202, %142 ], [ %.0106202, %137 ], [ %.0106202, %132 ], [ %.0106202, %120 ], [ %.0106202, %110 ], [ %.0106202, %101 ], [ %96, %92 ], [ %.0106202, %83 ], [ %.0106202, %74 ], [ %.0106202, %65 ], [ %.0106202, %56 ], [ %.0106202, %47 ], [ %.0106202, %38 ], [ %.0106202, %29 ], [ %.0106202, %20 ]
+  %.2105.ph = phi i32 [ %.0103203, %142 ], [ %.0103203, %137 ], [ %.0103203, %132 ], [ %.0103203, %120 ], [ %.0103203, %110 ], [ %105, %101 ], [ %.0103203, %92 ], [ %.0103203, %83 ], [ %.0103203, %74 ], [ %.0103203, %65 ], [ %.0103203, %56 ], [ %.0103203, %47 ], [ %.0103203, %38 ], [ %.0103203, %29 ], [ %.0103203, %20 ]
+  %.2102.ph = phi i32 [ %.0100204, %142 ], [ %.0100204, %137 ], [ %.0100204, %132 ], [ %.0100204, %120 ], [ %114, %110 ], [ %.0100204, %101 ], [ %.0100204, %92 ], [ %.0100204, %83 ], [ %.0100204, %74 ], [ %.0100204, %65 ], [ %.0100204, %56 ], [ %.0100204, %47 ], [ %.0100204, %38 ], [ %.0100204, %29 ], [ %.0100204, %20 ]
+  %.299.ph = phi i32 [ %.097205, %142 ], [ %.097205, %137 ], [ %.097205, %132 ], [ %.097205, %120 ], [ %.097205, %110 ], [ %.097205, %101 ], [ %.097205, %92 ], [ %.097205, %83 ], [ %.097205, %74 ], [ %69, %65 ], [ %.097205, %56 ], [ %.097205, %47 ], [ %.097205, %38 ], [ %.097205, %29 ], [ %.097205, %20 ]
+  %.295.ph = phi i32 [ %.093206, %142 ], [ %.093206, %137 ], [ %.093206, %132 ], [ %.093206, %120 ], [ %.093206, %110 ], [ %.093206, %101 ], [ %.093206, %92 ], [ %.093206, %83 ], [ %.093206, %74 ], [ %.093206, %65 ], [ %.093206, %56 ], [ %51, %47 ], [ %.093206, %38 ], [ %.093206, %29 ], [ %.093206, %20 ]
+  %.292.ph = phi i32 [ %.090207, %142 ], [ %.090207, %137 ], [ %.090207, %132 ], [ %.090207, %120 ], [ %.090207, %110 ], [ %.090207, %101 ], [ %.090207, %92 ], [ %.090207, %83 ], [ %.090207, %74 ], [ %.090207, %65 ], [ %60, %56 ], [ %.090207, %47 ], [ %.090207, %38 ], [ %.090207, %29 ], [ %.090207, %20 ]
+  %.289.ph = phi i32 [ %.087208, %142 ], [ %.087208, %137 ], [ %.087208, %132 ], [ %.087208, %120 ], [ %.087208, %110 ], [ %.087208, %101 ], [ %.087208, %92 ], [ %.087208, %83 ], [ %.087208, %74 ], [ %.087208, %65 ], [ %.087208, %56 ], [ %.087208, %47 ], [ %42, %38 ], [ %.087208, %29 ], [ %.087208, %20 ]
+  %.285.ph = phi i32 [ %.083209, %142 ], [ %.083209, %137 ], [ %.083209, %132 ], [ %.083209, %120 ], [ %.083209, %110 ], [ %.083209, %101 ], [ %.083209, %92 ], [ %.083209, %83 ], [ %.083209, %74 ], [ %.083209, %65 ], [ %.083209, %56 ], [ %.083209, %47 ], [ %.083209, %38 ], [ %.083209, %29 ], [ %24, %20 ]
+  %.282.ph = phi i32 [ %.080210, %142 ], [ %.080210, %137 ], [ %.080210, %132 ], [ %.080210, %120 ], [ %.080210, %110 ], [ %.080210, %101 ], [ %.080210, %92 ], [ %.080210, %83 ], [ %.080210, %74 ], [ %.080210, %65 ], [ %.080210, %56 ], [ %.080210, %47 ], [ %.080210, %38 ], [ %33, %29 ], [ %.080210, %20 ]
   tail call void @g_strfreev(ptr noundef nonnull %16) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -347,15 +347,15 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %124, %138, %120
   ]
 
 ._crit_edge.thread:                               ; preds = %11, %._crit_edge
-  %.079.lcssa256 = phi i32 [ %.281.ph, %._crit_edge ], [ 8, %11 ]
-  %.082.lcssa254 = phi i32 [ %.284.ph, %._crit_edge ], [ 64, %11 ]
-  %.086.lcssa252 = phi i32 [ %.288.ph, %._crit_edge ], [ 16384, %11 ]
-  %.089.lcssa250 = phi i32 [ %.291.ph, %._crit_edge ], [ 8, %11 ]
-  %.092.lcssa248 = phi i32 [ %.294.ph, %._crit_edge ], [ 64, %11 ]
-  %.096.lcssa246 = phi i32 [ %.298.ph, %._crit_edge ], [ 16384, %11 ]
-  %.099.lcssa244 = phi i32 [ %.2101.ph, %._crit_edge ], [ 16, %11 ]
-  %.0102.lcssa242 = phi i32 [ %.2104.ph, %._crit_edge ], [ 64, %11 ]
-  %.0105.lcssa240 = phi i32 [ %.2107.ph, %._crit_edge ], [ 2097152, %11 ]
+  %.080.lcssa255 = phi i32 [ %.282.ph, %._crit_edge ], [ 8, %11 ]
+  %.083.lcssa253 = phi i32 [ %.285.ph, %._crit_edge ], [ 64, %11 ]
+  %.087.lcssa251 = phi i32 [ %.289.ph, %._crit_edge ], [ 16384, %11 ]
+  %.090.lcssa249 = phi i32 [ %.292.ph, %._crit_edge ], [ 8, %11 ]
+  %.093.lcssa247 = phi i32 [ %.295.ph, %._crit_edge ], [ 64, %11 ]
+  %.097.lcssa245 = phi i32 [ %.299.ph, %._crit_edge ], [ 16384, %11 ]
+  %.0100.lcssa243 = phi i32 [ %.2102.ph, %._crit_edge ], [ 16, %11 ]
+  %.0103.lcssa241 = phi i32 [ %.2105.ph, %._crit_edge ], [ 64, %11 ]
+  %.0106.lcssa239 = phi i32 [ %.2108.ph, %._crit_edge ], [ 2097152, %11 ]
   store ptr @lru_update_blk, ptr @update_hit, align 8
   store ptr @lru_update_blk, ptr @update_miss, align 8
   store ptr @lru_priorities_init, ptr @metadata_init, align 8
@@ -378,28 +378,28 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %124, %138, %120
   unreachable
 
 policy_init.exit:                                 ; preds = %._crit_edge.thread, %146, %147
-  %.079.lcssa255 = phi i32 [ %.079.lcssa256, %._crit_edge.thread ], [ %.281.ph, %146 ], [ %.281.ph, %147 ]
-  %.082.lcssa253 = phi i32 [ %.082.lcssa254, %._crit_edge.thread ], [ %.284.ph, %146 ], [ %.284.ph, %147 ]
-  %.086.lcssa251 = phi i32 [ %.086.lcssa252, %._crit_edge.thread ], [ %.288.ph, %146 ], [ %.288.ph, %147 ]
-  %.089.lcssa249 = phi i32 [ %.089.lcssa250, %._crit_edge.thread ], [ %.291.ph, %146 ], [ %.291.ph, %147 ]
-  %.092.lcssa247 = phi i32 [ %.092.lcssa248, %._crit_edge.thread ], [ %.294.ph, %146 ], [ %.294.ph, %147 ]
-  %.096.lcssa245 = phi i32 [ %.096.lcssa246, %._crit_edge.thread ], [ %.298.ph, %146 ], [ %.298.ph, %147 ]
-  %.099.lcssa243 = phi i32 [ %.099.lcssa244, %._crit_edge.thread ], [ %.2101.ph, %146 ], [ %.2101.ph, %147 ]
-  %.0102.lcssa241 = phi i32 [ %.0102.lcssa242, %._crit_edge.thread ], [ %.2104.ph, %146 ], [ %.2104.ph, %147 ]
-  %.0105.lcssa239 = phi i32 [ %.0105.lcssa240, %._crit_edge.thread ], [ %.2107.ph, %146 ], [ %.2107.ph, %147 ]
-  %150 = tail call fastcc ptr @caches_init(i32 noundef %.092.lcssa247, i32 noundef %.089.lcssa249, i32 noundef %.096.lcssa245)
+  %.080.lcssa254 = phi i32 [ %.080.lcssa255, %._crit_edge.thread ], [ %.282.ph, %146 ], [ %.282.ph, %147 ]
+  %.083.lcssa252 = phi i32 [ %.083.lcssa253, %._crit_edge.thread ], [ %.285.ph, %146 ], [ %.285.ph, %147 ]
+  %.087.lcssa250 = phi i32 [ %.087.lcssa251, %._crit_edge.thread ], [ %.289.ph, %146 ], [ %.289.ph, %147 ]
+  %.090.lcssa248 = phi i32 [ %.090.lcssa249, %._crit_edge.thread ], [ %.292.ph, %146 ], [ %.292.ph, %147 ]
+  %.093.lcssa246 = phi i32 [ %.093.lcssa247, %._crit_edge.thread ], [ %.295.ph, %146 ], [ %.295.ph, %147 ]
+  %.097.lcssa244 = phi i32 [ %.097.lcssa245, %._crit_edge.thread ], [ %.299.ph, %146 ], [ %.299.ph, %147 ]
+  %.0100.lcssa242 = phi i32 [ %.0100.lcssa243, %._crit_edge.thread ], [ %.2102.ph, %146 ], [ %.2102.ph, %147 ]
+  %.0103.lcssa240 = phi i32 [ %.0103.lcssa241, %._crit_edge.thread ], [ %.2105.ph, %146 ], [ %.2105.ph, %147 ]
+  %.0106.lcssa238 = phi i32 [ %.0106.lcssa239, %._crit_edge.thread ], [ %.2108.ph, %146 ], [ %.2108.ph, %147 ]
+  %150 = tail call fastcc ptr @caches_init(i32 noundef %.093.lcssa246, i32 noundef %.090.lcssa248, i32 noundef %.097.lcssa244)
   store ptr %150, ptr @l1_dcaches, align 8
   %.not = icmp eq ptr %150, null
   br i1 %.not, label %151, label %160
 
 151:                                              ; preds = %policy_init.exit
-  %152 = srem i32 %.096.lcssa245, %.092.lcssa247
-  %.not.i113 = icmp eq i32 %152, 0
-  br i1 %.not.i113, label %153, label %cache_config_error.exit
+  %152 = srem i32 %.097.lcssa244, %.093.lcssa246
+  %.not.i114 = icmp eq i32 %152, 0
+  br i1 %.not.i114, label %153, label %cache_config_error.exit
 
 153:                                              ; preds = %151
-  %154 = mul i32 %.089.lcssa249, %.092.lcssa247
-  %155 = srem i32 %.096.lcssa245, %154
+  %154 = mul i32 %.090.lcssa248, %.093.lcssa246
+  %155 = srem i32 %.097.lcssa244, %154
   %.not5.i = icmp eq i32 %155, 0
   %..str.28.i = select i1 %.not5.i, ptr null, ptr @.str.28
   br label %cache_config_error.exit
@@ -413,72 +413,70 @@ cache_config_error.exit:                          ; preds = %151, %153
   br label %203
 
 160:                                              ; preds = %policy_init.exit
-  %161 = tail call fastcc ptr @caches_init(i32 noundef %.082.lcssa253, i32 noundef %.079.lcssa255, i32 noundef %.086.lcssa251)
+  %161 = tail call fastcc ptr @caches_init(i32 noundef %.083.lcssa252, i32 noundef %.080.lcssa254, i32 noundef %.087.lcssa250)
   store ptr %161, ptr @l1_icaches, align 8
-  %.not109 = icmp eq ptr %161, null
-  br i1 %.not109, label %162, label %171
+  %.not110 = icmp eq ptr %161, null
+  br i1 %.not110, label %162, label %171
 
 162:                                              ; preds = %160
-  %163 = srem i32 %.086.lcssa251, %.082.lcssa253
-  %.not.i114 = icmp eq i32 %163, 0
-  br i1 %.not.i114, label %164, label %cache_config_error.exit118
+  %163 = srem i32 %.087.lcssa250, %.083.lcssa252
+  %.not.i115 = icmp eq i32 %163, 0
+  br i1 %.not.i115, label %164, label %cache_config_error.exit119
 
 164:                                              ; preds = %162
-  %165 = mul i32 %.079.lcssa255, %.082.lcssa253
-  %166 = srem i32 %.086.lcssa251, %165
-  %.not5.i116 = icmp eq i32 %166, 0
-  %..str.28.i117 = select i1 %.not5.i116, ptr null, ptr @.str.28
-  br label %cache_config_error.exit118
+  %165 = mul i32 %.080.lcssa254, %.083.lcssa252
+  %166 = srem i32 %.087.lcssa250, %165
+  %.not5.i117 = icmp eq i32 %166, 0
+  %..str.28.i118 = select i1 %.not5.i117, ptr null, ptr @.str.28
+  br label %cache_config_error.exit119
 
-cache_config_error.exit118:                       ; preds = %162, %164
-  %.0.i115 = phi ptr [ @.str.27, %162 ], [ %..str.28.i117, %164 ]
+cache_config_error.exit119:                       ; preds = %162, %164
+  %.0.i116 = phi ptr [ @.str.27, %162 ], [ %..str.28.i118, %164 ]
   %167 = load ptr, ptr @stderr, align 8
   %168 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 51, i64 1, ptr %167) #15
   %169 = load ptr, ptr @stderr, align 8
-  %170 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %169, ptr noundef nonnull @.str.21, ptr noundef %.0.i115) #13
+  %170 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %169, ptr noundef nonnull @.str.21, ptr noundef %.0.i116) #13
   br label %203
 
 171:                                              ; preds = %160
   %172 = load i8, ptr @use_l2, align 1, !range !3, !noundef !4
   %173 = trunc nuw i8 %172 to i1
-  br i1 %173, label %174, label %.thread257
+  br i1 %173, label %174, label %.thread
 
-.thread257:                                       ; preds = %171
+.thread:                                          ; preds = %171
   store ptr null, ptr @l2_ucaches, align 8
   br label %187
 
 174:                                              ; preds = %171
-  %175 = tail call fastcc ptr @caches_init(i32 noundef %.0102.lcssa241, i32 noundef %.099.lcssa243, i32 noundef %.0105.lcssa239)
+  %175 = tail call fastcc ptr @caches_init(i32 noundef %.0103.lcssa240, i32 noundef %.0100.lcssa242, i32 noundef %.0106.lcssa238)
+  %.pre228 = load i8, ptr @use_l2, align 1, !range !3
   store ptr %175, ptr @l2_ucaches, align 8
-  %.not110 = icmp eq ptr %175, null
-  br i1 %.not110, label %176, label %187
+  %176 = icmp eq ptr %175, null
+  %177 = trunc nuw i8 %.pre228 to i1
+  %or.cond = select i1 %176, i1 %177, i1 false
+  br i1 %or.cond, label %178, label %187
 
-176:                                              ; preds = %174
-  %.pre229 = load i8, ptr @use_l2, align 1, !range !3
-  %177 = trunc nuw i8 %.pre229 to i1
-  br i1 %177, label %178, label %187
-
-178:                                              ; preds = %176
-  %179 = srem i32 %.0105.lcssa239, %.0102.lcssa241
-  %.not.i119 = icmp eq i32 %179, 0
-  br i1 %.not.i119, label %180, label %cache_config_error.exit123
+178:                                              ; preds = %174
+  %179 = srem i32 %.0106.lcssa238, %.0103.lcssa240
+  %.not.i120 = icmp eq i32 %179, 0
+  br i1 %.not.i120, label %180, label %cache_config_error.exit124
 
 180:                                              ; preds = %178
-  %181 = mul i32 %.099.lcssa243, %.0102.lcssa241
-  %182 = srem i32 %.0105.lcssa239, %181
-  %.not5.i121 = icmp eq i32 %182, 0
-  %..str.28.i122 = select i1 %.not5.i121, ptr null, ptr @.str.28
-  br label %cache_config_error.exit123
+  %181 = mul i32 %.0100.lcssa242, %.0103.lcssa240
+  %182 = srem i32 %.0106.lcssa238, %181
+  %.not5.i122 = icmp eq i32 %182, 0
+  %..str.28.i123 = select i1 %.not5.i122, ptr null, ptr @.str.28
+  br label %cache_config_error.exit124
 
-cache_config_error.exit123:                       ; preds = %178, %180
-  %.0.i120 = phi ptr [ @.str.27, %178 ], [ %..str.28.i122, %180 ]
+cache_config_error.exit124:                       ; preds = %178, %180
+  %.0.i121 = phi ptr [ @.str.27, %178 ], [ %..str.28.i123, %180 ]
   %183 = load ptr, ptr @stderr, align 8
   %184 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 53, i64 1, ptr %183) #15
   %185 = load ptr, ptr @stderr, align 8
-  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.21, ptr noundef %.0.i120) #13
+  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.21, ptr noundef %.0.i121) #13
   br label %203
 
-187:                                              ; preds = %174, %176, %.thread257
+187:                                              ; preds = %174, %.thread
   %188 = load i32, ptr @cores, align 4
   %189 = sext i32 %188 to i64
   %190 = tail call noalias ptr @g_malloc0_n(i64 noundef %189, i64 noundef 8) #16
@@ -506,8 +504,8 @@ cache_config_error.exit123:                       ; preds = %178, %180
   store ptr %202, ptr @miss_ht, align 8
   br label %203
 
-203:                                              ; preds = %glib_auto_cleanup_GStrv.exit, %200, %cache_config_error.exit123, %cache_config_error.exit118, %cache_config_error.exit
-  %.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.exit ], [ 0, %200 ], [ -1, %cache_config_error.exit123 ], [ -1, %cache_config_error.exit118 ], [ -1, %cache_config_error.exit ]
+203:                                              ; preds = %glib_auto_cleanup_GStrv.exit, %200, %cache_config_error.exit124, %cache_config_error.exit119, %cache_config_error.exit
+  %.2 = phi i32 [ -1, %glib_auto_cleanup_GStrv.exit ], [ -1, %cache_config_error.exit124 ], [ 0, %200 ], [ -1, %cache_config_error.exit119 ], [ -1, %cache_config_error.exit ]
   ret i32 %.2
 }
 
@@ -1437,12 +1435,12 @@ declare void @qemu_plugin_register_vcpu_mem_cb(ptr noundef, ptr noundef, i32 nou
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vcpu_mem_access(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = tail call ptr @qemu_plugin_get_hwaddr(i32 noundef %1, i64 noundef %2) #12
-  %.not = icmp eq ptr %5, null
-  br i1 %.not, label %.critedge, label %6
+  %.not28 = icmp eq ptr %5, null
+  br i1 %.not28, label %.critedge, label %6
 
 6:                                                ; preds = %4
   %7 = tail call zeroext i1 @qemu_plugin_hwaddr_is_io(ptr noundef nonnull %5) #12
-  br i1 %7, label %61, label %8
+  br i1 %7, label %65, label %8
 
 8:                                                ; preds = %6
   %9 = tail call i64 @qemu_plugin_hwaddr_phys_addr(ptr noundef nonnull %5) #12
@@ -1460,7 +1458,11 @@ define internal void @vcpu_mem_access(i32 noundef %0, i32 noundef %1, i64 nounde
   %17 = getelementptr inbounds ptr, ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
   %19 = tail call fastcc zeroext i1 @access_cache(ptr noundef %18, i64 noundef %10)
-  br i1 %19, label %.critedge28, label %20
+  br i1 %19, label %.critedge._crit_edge, label %20
+
+.critedge._crit_edge:                             ; preds = %.critedge
+  %.pre = load ptr, ptr @l1_dcaches, align 8
+  br label %29
 
 20:                                               ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1472,63 +1474,65 @@ define internal void @vcpu_mem_access(i32 noundef %0, i32 noundef %1, i64 nounde
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %26, align 8
-  %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %31 = load i64, ptr %30, align 8
-  %32 = add i64 %31, 1
-  store i64 %32, ptr %30, align 8
-  %33 = load ptr, ptr @l1_dcache_locks, align 8
-  %34 = getelementptr inbounds %union._GMutex, ptr %33, i64 %14
-  tail call void @g_mutex_unlock(ptr noundef %34) #12
-  %35 = load i8, ptr @use_l2, align 1, !range !3, !noundef !4
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %38, label %61
+  br label %29
 
-.critedge28:                                      ; preds = %.critedge
-  %37 = load ptr, ptr @l1_dcaches, align 8
-  br label %.sink.split
+29:                                               ; preds = %.critedge._crit_edge, %20
+  %30 = phi ptr [ %.pre, %.critedge._crit_edge ], [ %23, %20 ]
+  %31 = getelementptr inbounds ptr, ptr %30, i64 %14
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %34 = load i64, ptr %33, align 8
+  %35 = add i64 %34, 1
+  store i64 %35, ptr %33, align 8
+  %36 = load ptr, ptr @l1_dcache_locks, align 8
+  %37 = getelementptr inbounds %union._GMutex, ptr %36, i64 %14
+  tail call void @g_mutex_unlock(ptr noundef %37) #12
+  %.not = xor i1 %19, true
+  %38 = load i8, ptr @use_l2, align 1, !range !3
+  %39 = trunc nuw i8 %38 to i1
+  %or.cond = select i1 %.not, i1 %39, i1 false
+  br i1 %or.cond, label %40, label %65
 
-38:                                               ; preds = %20
-  %39 = load ptr, ptr @l2_ucache_locks, align 8
-  %40 = getelementptr inbounds %union._GMutex, ptr %39, i64 %14
-  tail call void @g_mutex_lock(ptr noundef %40) #12
-  %41 = load ptr, ptr @l2_ucaches, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %14
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call fastcc zeroext i1 @access_cache(ptr noundef %43, i64 noundef %10)
-  br i1 %44, label %._crit_edge, label %45
+40:                                               ; preds = %29
+  %41 = load ptr, ptr @l2_ucache_locks, align 8
+  %42 = getelementptr inbounds %union._GMutex, ptr %41, i64 %14
+  tail call void @g_mutex_lock(ptr noundef %42) #12
+  %43 = load ptr, ptr @l2_ucaches, align 8
+  %44 = getelementptr inbounds ptr, ptr %43, i64 %14
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call fastcc zeroext i1 @access_cache(ptr noundef %45, i64 noundef %10)
+  br i1 %46, label %._crit_edge, label %47
 
-._crit_edge:                                      ; preds = %38
-  %.pre = load ptr, ptr @l2_ucaches, align 8
-  br label %.sink.split
+._crit_edge:                                      ; preds = %40
+  %.pre29 = load ptr, ptr @l2_ucaches, align 8
+  br label %56
 
-45:                                               ; preds = %38
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %47 = atomicrmw add ptr %46, i64 1 seq_cst, align 8
-  %48 = load ptr, ptr @l2_ucaches, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %14
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %52 = load i64, ptr %51, align 8
-  %53 = add i64 %52, 1
-  store i64 %53, ptr %51, align 8
-  br label %.sink.split
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %49 = atomicrmw add ptr %48, i64 1 seq_cst, align 8
+  %50 = load ptr, ptr @l2_ucaches, align 8
+  %51 = getelementptr inbounds ptr, ptr %50, i64 %14
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
+  %54 = load i64, ptr %53, align 8
+  %55 = add i64 %54, 1
+  store i64 %55, ptr %53, align 8
+  br label %56
 
-.sink.split:                                      ; preds = %45, %._crit_edge, %.critedge28
-  %.sink33 = phi ptr [ %37, %.critedge28 ], [ %.pre, %._crit_edge ], [ %48, %45 ]
-  %l1_dcache_locks.sink = phi ptr [ @l1_dcache_locks, %.critedge28 ], [ @l2_ucache_locks, %._crit_edge ], [ @l2_ucache_locks, %45 ]
-  %54 = getelementptr inbounds ptr, ptr %.sink33, i64 %14
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %57 = load i64, ptr %56, align 8
-  %58 = add i64 %57, 1
-  store i64 %58, ptr %56, align 8
-  %59 = load ptr, ptr %l1_dcache_locks.sink, align 8
-  %60 = getelementptr inbounds %union._GMutex, ptr %59, i64 %14
-  tail call void @g_mutex_unlock(ptr noundef %60) #12
-  br label %61
+56:                                               ; preds = %._crit_edge, %47
+  %57 = phi ptr [ %.pre29, %._crit_edge ], [ %50, %47 ]
+  %58 = getelementptr inbounds ptr, ptr %57, i64 %14
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %61 = load i64, ptr %60, align 8
+  %62 = add i64 %61, 1
+  store i64 %62, ptr %60, align 8
+  %63 = load ptr, ptr @l2_ucache_locks, align 8
+  %64 = getelementptr inbounds %union._GMutex, ptr %63, i64 %14
+  tail call void @g_mutex_unlock(ptr noundef %64) #12
+  br label %65
 
-61:                                               ; preds = %.sink.split, %20, %6
+65:                                               ; preds = %29, %6, %56
   ret void
 }
 
@@ -1548,7 +1552,11 @@ define internal void @vcpu_insn_exec(i32 noundef %0, ptr noundef captures(none) 
   %11 = getelementptr inbounds ptr, ptr %10, i64 %8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call fastcc zeroext i1 @access_cache(ptr noundef %12, i64 noundef %4)
-  br i1 %13, label %.critedge, label %14
+  br i1 %13, label %._crit_edge, label %14
+
+._crit_edge:                                      ; preds = %2
+  %.pre = load ptr, ptr @l1_icaches, align 8
+  br label %23
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1560,63 +1568,65 @@ define internal void @vcpu_insn_exec(i32 noundef %0, ptr noundef captures(none) 
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 1
   store i64 %22, ptr %20, align 8
-  %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %25 = load i64, ptr %24, align 8
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %24, align 8
-  %27 = load ptr, ptr @l1_icache_locks, align 8
-  %28 = getelementptr inbounds %union._GMutex, ptr %27, i64 %8
-  tail call void @g_mutex_unlock(ptr noundef %28) #12
-  %29 = load i8, ptr @use_l2, align 1, !range !3, !noundef !4
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %32, label %55
+  br label %23
 
-.critedge:                                        ; preds = %2
-  %31 = load ptr, ptr @l1_icaches, align 8
-  br label %.sink.split
+23:                                               ; preds = %._crit_edge, %14
+  %24 = phi ptr [ %.pre, %._crit_edge ], [ %17, %14 ]
+  %25 = getelementptr inbounds ptr, ptr %24, i64 %8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %27, align 8
+  %30 = load ptr, ptr @l1_icache_locks, align 8
+  %31 = getelementptr inbounds %union._GMutex, ptr %30, i64 %8
+  tail call void @g_mutex_unlock(ptr noundef %31) #12
+  %.not = xor i1 %13, true
+  %32 = load i8, ptr @use_l2, align 1, !range !3
+  %33 = trunc nuw i8 %32 to i1
+  %or.cond = select i1 %.not, i1 %33, i1 false
+  br i1 %or.cond, label %34, label %59
 
-32:                                               ; preds = %14
-  %33 = load ptr, ptr @l2_ucache_locks, align 8
-  %34 = getelementptr inbounds %union._GMutex, ptr %33, i64 %8
-  tail call void @g_mutex_lock(ptr noundef %34) #12
-  %35 = load ptr, ptr @l2_ucaches, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %8
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call fastcc zeroext i1 @access_cache(ptr noundef %37, i64 noundef %4)
-  br i1 %38, label %._crit_edge, label %39
+34:                                               ; preds = %23
+  %35 = load ptr, ptr @l2_ucache_locks, align 8
+  %36 = getelementptr inbounds %union._GMutex, ptr %35, i64 %8
+  tail call void @g_mutex_lock(ptr noundef %36) #12
+  %37 = load ptr, ptr @l2_ucaches, align 8
+  %38 = getelementptr inbounds ptr, ptr %37, i64 %8
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call fastcc zeroext i1 @access_cache(ptr noundef %39, i64 noundef %4)
+  br i1 %40, label %._crit_edge22, label %41
 
-._crit_edge:                                      ; preds = %32
-  %.pre = load ptr, ptr @l2_ucaches, align 8
-  br label %.sink.split
+._crit_edge22:                                    ; preds = %34
+  %.pre23 = load ptr, ptr @l2_ucaches, align 8
+  br label %50
 
-39:                                               ; preds = %32
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %41 = atomicrmw add ptr %40, i64 1 seq_cst, align 8
-  %42 = load ptr, ptr @l2_ucaches, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %8
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %45, align 8
-  br label %.sink.split
+41:                                               ; preds = %34
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %43 = atomicrmw add ptr %42, i64 1 seq_cst, align 8
+  %44 = load ptr, ptr @l2_ucaches, align 8
+  %45 = getelementptr inbounds ptr, ptr %44, i64 %8
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
+  %48 = load i64, ptr %47, align 8
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %47, align 8
+  br label %50
 
-.sink.split:                                      ; preds = %39, %._crit_edge, %.critedge
-  %.sink25 = phi ptr [ %31, %.critedge ], [ %.pre, %._crit_edge ], [ %42, %39 ]
-  %l1_icache_locks.sink = phi ptr [ @l1_icache_locks, %.critedge ], [ @l2_ucache_locks, %._crit_edge ], [ @l2_ucache_locks, %39 ]
-  %48 = getelementptr inbounds ptr, ptr %.sink25, i64 %8
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  %51 = load i64, ptr %50, align 8
-  %52 = add i64 %51, 1
-  store i64 %52, ptr %50, align 8
-  %53 = load ptr, ptr %l1_icache_locks.sink, align 8
-  %54 = getelementptr inbounds %union._GMutex, ptr %53, i64 %8
-  tail call void @g_mutex_unlock(ptr noundef %54) #12
-  br label %55
+50:                                               ; preds = %._crit_edge22, %41
+  %51 = phi ptr [ %.pre23, %._crit_edge22 ], [ %44, %41 ]
+  %52 = getelementptr inbounds ptr, ptr %51, i64 %8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %55 = load i64, ptr %54, align 8
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %54, align 8
+  %57 = load ptr, ptr @l2_ucache_locks, align 8
+  %58 = getelementptr inbounds %union._GMutex, ptr %57, i64 %8
+  tail call void @g_mutex_unlock(ptr noundef %58) #12
+  br label %59
 
-55:                                               ; preds = %.sink.split, %14
+59:                                               ; preds = %23, %50
   ret void
 }
 
